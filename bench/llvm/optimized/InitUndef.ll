@@ -838,7 +838,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i: ;
   br label %273
 
 273:                                              ; preds = %271, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %272, %271 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %272, %271 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i.i, align 4, !tbaa !289
   %.val43.val.i.i.i.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !250
   %274 = load ptr, ptr %.val43.val.i.i.i.i.i.i.i.i, align 8, !tbaa !26
@@ -853,7 +853,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i.i: ;
   br label %280
 
 280:                                              ; preds = %278, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %279, %278 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %279, %278 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i.i, align 4, !tbaa !289
   %.val45.val.i.i.i.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !250
   %281 = load ptr, ptr %.val45.val.i.i.i.i.i.i.i.i, align 8, !tbaa !26

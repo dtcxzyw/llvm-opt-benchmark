@@ -13547,7 +13547,7 @@ _ZN13aiQuaterniontIfE9NormalizeEv.exit:           ; preds = %250, %284
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %297, %303, %304
-  %.0.i112 = phi ptr [ %.sroa.10, %304 ], [ %.sroa.6132, %303 ], [ %.sroa.0131, %297 ]
+  %.0.i112 = phi ptr [ %.sroa.6132, %303 ], [ %.sroa.10, %304 ], [ %.sroa.0131, %297 ]
   %305 = getelementptr inbounds nuw i8, ptr %299, i64 1
   %306 = load i8, ptr %305, align 1
   %307 = zext i8 %306 to i64
@@ -13607,7 +13607,7 @@ _ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1E
   br label %_ZN10aiVector3tIfEixEj.exit114
 
 _ZN10aiVector3tIfEixEj.exit114:                   ; preds = %326, %329, %330
-  %.0.i113 = phi ptr [ %.sroa.10, %330 ], [ %.sroa.6132, %329 ], [ %.sroa.0131, %326 ]
+  %.0.i113 = phi ptr [ %.sroa.6132, %329 ], [ %.sroa.10, %330 ], [ %.sroa.0131, %326 ]
   %331 = load float, ptr %.0.i113, align 4
   %332 = fadd float %328, %331
   store float %332, ptr %.0.i113, align 4
@@ -13633,7 +13633,7 @@ _ZN10aiVector3tIfEixEj.exit114:                   ; preds = %326, %329, %330
   br label %_ZN10aiVector3tIfEixEj.exit116
 
 _ZN10aiVector3tIfEixEj.exit116:                   ; preds = %335, %340, %341
-  %.0.i115 = phi ptr [ %248, %341 ], [ %247, %340 ], [ %246, %335 ]
+  %.0.i115 = phi ptr [ %247, %340 ], [ %248, %341 ], [ %246, %335 ]
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 1
   %343 = load i8, ptr %342, align 1
   %344 = zext i8 %343 to i64
@@ -13692,7 +13692,7 @@ _ZN6Assimp3MDL8HalfLife12HL1MDLLoader18extract_anim_valueEPKNS1_13AnimValue_HL1E
   br label %_ZN10aiVector3tIfEixEj.exit130
 
 _ZN10aiVector3tIfEixEj.exit130:                   ; preds = %363, %366, %367
-  %.0.i129 = phi ptr [ %248, %367 ], [ %247, %366 ], [ %246, %363 ]
+  %.0.i129 = phi ptr [ %247, %366 ], [ %248, %367 ], [ %246, %363 ]
   %368 = load float, ptr %.0.i129, align 4
   %369 = fadd float %365, %368
   store float %369, ptr %.0.i129, align 4
@@ -27421,7 +27421,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader25get_num
   br label %9
 
 9:                                                ; preds = %7, %6, %5, %4
-  %.0 = phi i1 [ false, %7 ], [ true, %6 ], [ true, %5 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %4 ], [ true, %5 ], [ true, %6 ]
   ret i1 %.0
 }
 

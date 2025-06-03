@@ -681,7 +681,7 @@ copy_address_wmem.exit140.i:                      ; preds = %246, %copy_address_
   br label %dissect_proxy_v1_header.exit
 
 dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.thread.i, %proxy_v1_get_token_length.exit.i, %proxy_v1_get_token_length.exit133.i, %76, %proxy_v1_get_token_length.exit135.i, %104, %proxy_v1_get_token_length.exit137.i, %129, %proxy_v1_get_token_length.exit139.i, %156, %162, %174, %178, %193, %201, %205, %copy_address_wmem.exit140.i
-  %.0.i = phi i32 [ %168, %162 ], [ %195, %193 ], [ %204, %201 ], [ %181, %178 ], [ %175, %174 ], [ %158, %156 ], [ %150, %proxy_v1_get_token_length.exit139.i ], [ %131, %129 ], [ %123, %proxy_v1_get_token_length.exit137.i ], [ %106, %104 ], [ %98, %proxy_v1_get_token_length.exit135.i ], [ %78, %76 ], [ %70, %proxy_v1_get_token_length.exit133.i ], [ %49, %proxy_v1_get_token_length.exit.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %30, %copy_address_wmem.exit140.i ], [ %30, %205 ]
+  %.0.i = phi i32 [ %168, %162 ], [ %195, %193 ], [ %204, %201 ], [ %181, %178 ], [ %175, %174 ], [ %106, %104 ], [ %98, %proxy_v1_get_token_length.exit135.i ], [ %78, %76 ], [ %70, %proxy_v1_get_token_length.exit133.i ], [ %158, %156 ], [ %150, %proxy_v1_get_token_length.exit139.i ], [ %131, %129 ], [ %123, %proxy_v1_get_token_length.exit137.i ], [ %49, %proxy_v1_get_token_length.exit.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %30, %copy_address_wmem.exit140.i ], [ %30, %205 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
@@ -882,9 +882,9 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   br label %102
 
 102:                                              ; preds = %97, %91, %71, %51
-  %.not126.i = phi i1 [ true, %97 ], [ true, %91 ], [ false, %71 ], [ false, %51 ]
-  %.0123.i = phi i32 [ %101, %97 ], [ 232, %91 ], [ 52, %71 ], [ 28, %51 ]
-  %.0122.i = phi i32 [ 0, %97 ], [ 0, %91 ], [ %90, %71 ], [ %70, %51 ]
+  %.not126.i = phi i1 [ true, %97 ], [ false, %51 ], [ false, %71 ], [ true, %91 ]
+  %.0123.i = phi i32 [ %101, %97 ], [ 28, %51 ], [ 52, %71 ], [ 232, %91 ]
+  %.0122.i = phi i32 [ 0, %97 ], [ %70, %51 ], [ %90, %71 ], [ 0, %91 ]
   %103 = icmp ugt i32 %.0123.i, %49
   br i1 %103, label %104, label %106
 
@@ -1566,7 +1566,7 @@ define internal fastcc i32 @dissect_proxy_v2_tlv(ptr noundef %0, ptr noundef %1,
   br label %77
 
 77:                                               ; preds = %74, %68, %62, %56, %47, %38, %30
-  %.1 = phi i32 [ %76, %74 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %47 ], [ %46, %38 ], [ %37, %30 ]
+  %.1 = phi i32 [ %76, %74 ], [ %37, %30 ], [ %46, %38 ], [ %55, %47 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   %78 = icmp slt i32 %.1, %4

@@ -6751,9 +6751,9 @@ _ZN4llvm11raw_ostreamlsEc.exit359:                ; preds = %1231, %1233
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit306
 
 _ZN4llvm11raw_ostreamlsEPKc.exit306:              ; preds = %1262, %1260, %1250, %1248, %1201, %1199, %1189, %1187, %1177, %1175, %1165, %1163, %1153, %1151, %1141, %1139, %1129, %1127, %1117, %1115, %1092, %1090, %1054, %1053, %1051, %1022, %1020, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit356, %1105, %1013, %_ZN4llvm11raw_ostreamlsEc.exit359, %_ZN4llvm11raw_ostreamlsEc.exit329, %_ZN4llvm11raw_ostreamlsEc.exit320
-  %.0170 = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %1240, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ 0, %1105 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ 0, %1013 ], [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ 0, %1020 ], [ 0, %1022 ], [ 0, %1051 ], [ 0, %1053 ], [ 0, %1054 ], [ 0, %1090 ], [ 0, %1092 ], [ 0, %1115 ], [ 0, %1117 ], [ 0, %1127 ], [ 0, %1129 ], [ 0, %1139 ], [ 0, %1141 ], [ 0, %1151 ], [ 0, %1153 ], [ 0, %1163 ], [ 0, %1165 ], [ 0, %1175 ], [ 0, %1177 ], [ 0, %1187 ], [ 0, %1189 ], [ 0, %1199 ], [ 0, %1201 ], [ 0, %1248 ], [ 0, %1250 ], [ 0, %1260 ], [ 0, %1262 ]
-  %.3159 = phi i32 [ %.0156470, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ %.0156470, %1105 ], [ %1102, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ %.0156470, %1013 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %.0156470, %1020 ], [ %.0156470, %1022 ], [ %.0156470, %1051 ], [ %.0156470, %1053 ], [ %.0156470, %1054 ], [ %.0156470, %1090 ], [ %.0156470, %1092 ], [ %.0156470, %1115 ], [ %.0156470, %1117 ], [ %.0156470, %1127 ], [ %.0156470, %1129 ], [ %.0156470, %1139 ], [ %.0156470, %1141 ], [ %.0156470, %1151 ], [ %.0156470, %1153 ], [ %.0156470, %1163 ], [ %.0156470, %1165 ], [ %.0156470, %1175 ], [ %.0156470, %1177 ], [ %.0156470, %1187 ], [ %.0156470, %1189 ], [ %.0156470, %1199 ], [ %.0156470, %1201 ], [ %.0156470, %1248 ], [ %.0156470, %1250 ], [ %.0156470, %1260 ], [ %.0156470, %1262 ]
-  %.10 = phi i32 [ %.7471, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %.7471, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ %.7471, %1105 ], [ %.7471, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ %1064, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ %.11, %1013 ], [ %.7471, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %.11, %1020 ], [ %.11, %1022 ], [ %.7471, %1051 ], [ %.7471, %1053 ], [ %.7471, %1054 ], [ %1079, %1090 ], [ %1079, %1092 ], [ %.7471, %1115 ], [ %.7471, %1117 ], [ %.7471, %1127 ], [ %.7471, %1129 ], [ %.7471, %1139 ], [ %.7471, %1141 ], [ %.7471, %1151 ], [ %.7471, %1153 ], [ %.7471, %1163 ], [ %.7471, %1165 ], [ %.7471, %1175 ], [ %.7471, %1177 ], [ %.7471, %1187 ], [ %.7471, %1189 ], [ %.7471, %1199 ], [ %.7471, %1201 ], [ %.7471, %1248 ], [ %.7471, %1250 ], [ %.7471, %1260 ], [ %.7471, %1262 ]
+  %.0170 = phi i64 [ 0, %1013 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ 0, %1105 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %1240, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ 0, %1020 ], [ 0, %1022 ], [ 0, %1051 ], [ 0, %1053 ], [ 0, %1054 ], [ 0, %1090 ], [ 0, %1092 ], [ 0, %1115 ], [ 0, %1117 ], [ 0, %1127 ], [ 0, %1129 ], [ 0, %1139 ], [ 0, %1141 ], [ 0, %1151 ], [ 0, %1153 ], [ 0, %1163 ], [ 0, %1165 ], [ 0, %1175 ], [ 0, %1177 ], [ 0, %1187 ], [ 0, %1189 ], [ 0, %1199 ], [ 0, %1201 ], [ 0, %1248 ], [ 0, %1250 ], [ 0, %1260 ], [ 0, %1262 ]
+  %.3159 = phi i32 [ %.0156470, %1013 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ %1102, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ %.0156470, %1105 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ %.0156470, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %.0156470, %1020 ], [ %.0156470, %1022 ], [ %.0156470, %1051 ], [ %.0156470, %1053 ], [ %.0156470, %1054 ], [ %.0156470, %1090 ], [ %.0156470, %1092 ], [ %.0156470, %1115 ], [ %.0156470, %1117 ], [ %.0156470, %1127 ], [ %.0156470, %1129 ], [ %.0156470, %1139 ], [ %.0156470, %1141 ], [ %.0156470, %1151 ], [ %.0156470, %1153 ], [ %.0156470, %1163 ], [ %.0156470, %1165 ], [ %.0156470, %1175 ], [ %.0156470, %1177 ], [ %.0156470, %1187 ], [ %.0156470, %1189 ], [ %.0156470, %1199 ], [ %.0156470, %1201 ], [ %.0156470, %1248 ], [ %.0156470, %1250 ], [ %.0156470, %1260 ], [ %.0156470, %1262 ]
+  %.10 = phi i32 [ %.11, %1013 ], [ %1064, %_ZN4llvm11raw_ostreamlsEc.exit320 ], [ %.7471, %_ZN4llvm11raw_ostreamlsEc.exit329 ], [ %.7471, %1105 ], [ %.7471, %_ZN4llvm11raw_ostreamlsEPKc.exit356 ], [ %.7471, %_ZN4llvm11raw_ostreamlsEc.exit359 ], [ %.7471, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %.11, %1020 ], [ %.11, %1022 ], [ %.7471, %1051 ], [ %.7471, %1053 ], [ %.7471, %1054 ], [ %1079, %1090 ], [ %1079, %1092 ], [ %.7471, %1115 ], [ %.7471, %1117 ], [ %.7471, %1127 ], [ %.7471, %1129 ], [ %.7471, %1139 ], [ %.7471, %1141 ], [ %.7471, %1151 ], [ %.7471, %1153 ], [ %.7471, %1163 ], [ %.7471, %1165 ], [ %.7471, %1175 ], [ %.7471, %1177 ], [ %.7471, %1187 ], [ %.7471, %1189 ], [ %.7471, %1199 ], [ %.7471, %1201 ], [ %.7471, %1248 ], [ %.7471, %1250 ], [ %.7471, %1260 ], [ %.7471, %1262 ]
   %1265 = getelementptr inbounds nuw i8, ptr %.0169463, i64 16
   %1266 = load i32, ptr %1265, align 8, !tbaa !543
   %1267 = zext i32 %1266 to i64
@@ -9031,7 +9031,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %470, %471
   br label %_ZN12_GLOBAL__N_110MasmParser14parseParenExprERPKN4llvm6MCExprERNS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_110MasmParser14parseParenExprERPKN4llvm6MCExprERNS1_5SMLocE.exit: ; preds = %501, %492, %591, %582, %555, %539, %523, %49, %4, %595, %578, %564, %548, %532, %517, %513, %472, %_ZN4llvm7APFloatD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %390, %386, %385, %58, %45
-  %.0 = phi i1 [ %48, %45 ], [ %581, %578 ], [ %.not, %595 ], [ false, %564 ], [ false, %548 ], [ false, %532 ], [ %522, %517 ], [ %516, %513 ], [ false, %472 ], [ false, %_ZN4llvm7APFloatD2Ev.exit ], [ %.15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ false, %390 ], [ %389, %386 ], [ %.1, %385 ], [ false, %58 ], [ true, %4 ], [ true, %49 ], [ true, %523 ], [ true, %539 ], [ true, %555 ], [ true, %582 ], [ true, %591 ], [ %506, %501 ], [ true, %492 ]
+  %.0 = phi i1 [ %48, %45 ], [ false, %58 ], [ %.1, %385 ], [ %389, %386 ], [ false, %390 ], [ %.15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ false, %_ZN4llvm7APFloatD2Ev.exit ], [ false, %472 ], [ %522, %517 ], [ %516, %513 ], [ false, %532 ], [ false, %548 ], [ false, %564 ], [ %581, %578 ], [ %.not, %595 ], [ true, %4 ], [ true, %49 ], [ true, %523 ], [ true, %539 ], [ true, %555 ], [ true, %582 ], [ true, %591 ], [ %506, %501 ], [ true, %492 ]
   ret i1 %.0
 }
 
@@ -14498,7 +14498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447: ; preds = %_Z
   br label %1643
 
 1643:                                             ; preds = %1445, %_ZN4llvmeqENS_9StringRefES0_.exit409.thread, %_ZN4llvmeqENS_9StringRefES0_.exit425.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447, %_ZN4llvmeqENS_9StringRefES0_.exit437.thread587, %1283, %1311, %1327, %1342, %1357, %1372, %1387, %1393, %1400, %1407, %1414, %1420, %1426, %1264
-  %.9 = phi i1 [ %1269, %1264 ], [ %1292, %1283 ], [ %1431, %1426 ], [ %1425, %1420 ], [ %1419, %1414 ], [ %1413, %1407 ], [ %1406, %1400 ], [ %1399, %1393 ], [ %1392, %1387 ], [ %1377, %1372 ], [ %1362, %1357 ], [ %1347, %1342 ], [ %1332, %1327 ], [ %1317, %1311 ], [ %1451, %1445 ], [ %1461, %_ZN4llvmeqENS_9StringRefES0_.exit409.thread ], [ %1464, %_ZN4llvmeqENS_9StringRefES0_.exit425.thread ], [ %.12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit437.thread587 ]
+  %.9 = phi i1 [ %1269, %1264 ], [ %1292, %1283 ], [ %1317, %1311 ], [ %1332, %1327 ], [ %1347, %1342 ], [ %1362, %1357 ], [ %1377, %1372 ], [ %1392, %1387 ], [ %1399, %1393 ], [ %1406, %1400 ], [ %1413, %1407 ], [ %1419, %1414 ], [ %1425, %1420 ], [ %1431, %1426 ], [ %1451, %1445 ], [ %1461, %_ZN4llvmeqENS_9StringRefES0_.exit409.thread ], [ %1464, %_ZN4llvmeqENS_9StringRefES0_.exit425.thread ], [ %.12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit447 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit437.thread587 ]
   %1644 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %1645 = load i32, ptr %1644, align 8, !tbaa !630
   %1646 = icmp ugt i32 %1645, 64
@@ -14538,7 +14538,7 @@ _ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exi
   br label %_ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exit
 
 _ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exit: ; preds = %_ZN4llvm8AsmTokenD2Ev.exit356, %_ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exit.fold.split, %743, %745, %747, %749, %751, %753, %755, %757, %759, %761, %763, %765, %767, %769, %771, %773, %775, %777, %779, %781, %787, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %914, %974, %802, %992, %989, %949, %1211, %1210, %1208, %1206, %1204, %1202, %1200, %1198, %1196, %1194, %1192, %1190, %1188, %1186, %1184, %1182, %1178, %1174, %1166, %1164, %1162, %1160, %1158, %1156, %1154, %1152, %1144, %1136, %1134, %1132, %1130, %1128, %1126, %1124, %1122, %1120, %1115, %1113, %1111, %1109, %1107, %1099, %1091, %1089, %1087, %1085, %1083, %1081, %1079, %1077, %1075, %1071, %1069, %1067, %1065, %1063, %1061, %1059, %1057, %1055, %1053, %1051, %1049, %1047, %1045, %1043, %1041, %1039, %1037, %1034, %1031, %1028, %1026, %1024, %1022, %1020, %1018, %1016, %1014, %_ZN4llvm8AsmTokenD2Ev.exit449, %1231, %687, %653, %713, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread550
-  %.3 = phi i1 [ %706, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread550 ], [ %720, %713 ], [ false, %653 ], [ false, %687 ], [ false, %787 ], [ %815, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %914 ], [ %975, %974 ], [ %950, %949 ], [ %782, %781 ], [ %780, %779 ], [ %778, %777 ], [ %776, %775 ], [ %774, %773 ], [ %772, %771 ], [ %770, %769 ], [ %768, %767 ], [ %766, %765 ], [ %764, %763 ], [ %762, %761 ], [ %760, %759 ], [ %758, %757 ], [ %756, %755 ], [ %754, %753 ], [ %752, %751 ], [ %750, %749 ], [ %748, %747 ], [ %746, %745 ], [ %744, %743 ], [ true, %802 ], [ %991, %989 ], [ false, %992 ], [ %1214, %1211 ], [ false, %1210 ], [ %1209, %1208 ], [ %1207, %1206 ], [ %1205, %1204 ], [ %1203, %1202 ], [ %1201, %1200 ], [ %1199, %1198 ], [ %1197, %1196 ], [ %1195, %1194 ], [ %1193, %1192 ], [ %1191, %1190 ], [ %1189, %1188 ], [ %1187, %1186 ], [ %1185, %1184 ], [ %1183, %1182 ], [ %1181, %1178 ], [ %1177, %1174 ], [ false, %1166 ], [ %1165, %1164 ], [ %1163, %1162 ], [ %1161, %1160 ], [ %1159, %1158 ], [ %1157, %1156 ], [ %1155, %1154 ], [ %1153, %1152 ], [ false, %1144 ], [ false, %1136 ], [ %1135, %1134 ], [ %1133, %1132 ], [ %1131, %1130 ], [ %1129, %1128 ], [ %1127, %1126 ], [ %1125, %1124 ], [ %1123, %1122 ], [ %1121, %1120 ], [ false, %1115 ], [ %1114, %1113 ], [ %1112, %1111 ], [ %1110, %1109 ], [ %1108, %1107 ], [ false, %1099 ], [ false, %1091 ], [ %1090, %1089 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1084, %1083 ], [ %1082, %1081 ], [ %1080, %1079 ], [ %1078, %1077 ], [ %1076, %1075 ], [ %1074, %1071 ], [ %1070, %1069 ], [ %1068, %1067 ], [ %1066, %1065 ], [ %1064, %1063 ], [ %1062, %1061 ], [ %1060, %1059 ], [ %1058, %1057 ], [ %1056, %1055 ], [ %1054, %1053 ], [ %1052, %1051 ], [ %1050, %1049 ], [ %1048, %1047 ], [ %1046, %1045 ], [ %1044, %1043 ], [ %1042, %1041 ], [ %1040, %1039 ], [ %1038, %1037 ], [ %1036, %1034 ], [ %1033, %1031 ], [ %1030, %1028 ], [ %1027, %1026 ], [ %1025, %1024 ], [ %1023, %1022 ], [ %1021, %1020 ], [ %1019, %1018 ], [ %1017, %1016 ], [ %1015, %1014 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit356 ], [ %1233, %1231 ], [ %.9, %_ZN4llvm8AsmTokenD2Ev.exit449 ], [ false, %_ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exit.fold.split ]
+  %.3 = phi i1 [ %706, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread550 ], [ %720, %713 ], [ false, %653 ], [ false, %687 ], [ false, %787 ], [ %815, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %914 ], [ %975, %974 ], [ %950, %949 ], [ %744, %743 ], [ %746, %745 ], [ %748, %747 ], [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %756, %755 ], [ %758, %757 ], [ %760, %759 ], [ %762, %761 ], [ %764, %763 ], [ %766, %765 ], [ %768, %767 ], [ %770, %769 ], [ %772, %771 ], [ %774, %773 ], [ %776, %775 ], [ %778, %777 ], [ %780, %779 ], [ %782, %781 ], [ true, %802 ], [ %991, %989 ], [ false, %992 ], [ %1214, %1211 ], [ %1015, %1014 ], [ %1017, %1016 ], [ %1019, %1018 ], [ %1021, %1020 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1030, %1028 ], [ %1033, %1031 ], [ %1036, %1034 ], [ %1038, %1037 ], [ %1040, %1039 ], [ %1042, %1041 ], [ %1044, %1043 ], [ %1046, %1045 ], [ %1048, %1047 ], [ %1050, %1049 ], [ %1052, %1051 ], [ %1054, %1053 ], [ %1056, %1055 ], [ %1058, %1057 ], [ %1060, %1059 ], [ %1062, %1061 ], [ %1064, %1063 ], [ %1066, %1065 ], [ %1068, %1067 ], [ %1070, %1069 ], [ %1074, %1071 ], [ %1076, %1075 ], [ %1078, %1077 ], [ %1080, %1079 ], [ %1082, %1081 ], [ %1084, %1083 ], [ %1086, %1085 ], [ %1088, %1087 ], [ %1090, %1089 ], [ false, %1091 ], [ false, %1099 ], [ %1108, %1107 ], [ %1110, %1109 ], [ %1112, %1111 ], [ %1114, %1113 ], [ false, %1115 ], [ %1121, %1120 ], [ %1123, %1122 ], [ %1125, %1124 ], [ %1127, %1126 ], [ %1129, %1128 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1135, %1134 ], [ false, %1136 ], [ false, %1144 ], [ %1153, %1152 ], [ %1155, %1154 ], [ %1157, %1156 ], [ %1159, %1158 ], [ %1161, %1160 ], [ %1163, %1162 ], [ %1165, %1164 ], [ false, %1166 ], [ %1177, %1174 ], [ %1181, %1178 ], [ %1183, %1182 ], [ %1185, %1184 ], [ %1187, %1186 ], [ %1189, %1188 ], [ %1191, %1190 ], [ %1193, %1192 ], [ %1195, %1194 ], [ %1197, %1196 ], [ %1199, %1198 ], [ %1201, %1200 ], [ %1203, %1202 ], [ %1205, %1204 ], [ %1207, %1206 ], [ %1209, %1208 ], [ false, %1210 ], [ true, %_ZN4llvm8AsmTokenD2Ev.exit356 ], [ %1233, %1231 ], [ %.9, %_ZN4llvm8AsmTokenD2Ev.exit449 ], [ false, %_ZN12_GLOBAL__N_110MasmParser31parseCppHashLineFilenameCommentEN4llvm5SMLocE.exit.fold.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #26
   %1658 = load i32, ptr %643, align 8, !tbaa !630
@@ -14559,7 +14559,7 @@ _ZN4llvm8AsmTokenD2Ev.exit450:                    ; preds = %_ZN12_GLOBAL__N_110
   br label %1664
 
 1664:                                             ; preds = %.thread, %638, %_ZN4llvm8AsmTokenD2Ev.exit450, %100
-  %.0 = phi i1 [ false, %100 ], [ true, %638 ], [ %.3, %_ZN4llvm8AsmTokenD2Ev.exit450 ], [ true, %.thread ]
+  %.0 = phi i1 [ false, %100 ], [ %.3, %_ZN4llvm8AsmTokenD2Ev.exit450 ], [ true, %638 ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -26044,7 +26044,7 @@ _ZNSt6vectorISt4pairIPKN4llvm8MCSymbolES4_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN
   br label %289
 
 289:                                              ; preds = %.thread125, %165, %190, %.thread132, %.thread136, %272, %220, %.thread129, %.thread126, %127
-  %.4 = phi i1 [ %130, %127 ], [ %288, %.thread125 ], [ %193, %190 ], [ %168, %165 ], [ %.8.ph, %.thread132 ], [ %.9.ph, %.thread136 ], [ true, %272 ], [ true, %220 ], [ true, %.thread129 ], [ true, %.thread126 ]
+  %.4 = phi i1 [ %130, %127 ], [ %288, %.thread125 ], [ %168, %165 ], [ %193, %190 ], [ %.8.ph, %.thread132 ], [ %.9.ph, %.thread136 ], [ true, %272 ], [ true, %220 ], [ true, %.thread129 ], [ true, %.thread126 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
   br label %290
 
@@ -39410,7 +39410,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %291, %305, %308
   br label %310
 
 310:                                              ; preds = %2, %309, %120, %119
-  %.0 = phi i1 [ %.2, %309 ], [ %124, %120 ], [ %.1, %119 ], [ true, %2 ]
+  %.0 = phi i1 [ %.1, %119 ], [ %124, %120 ], [ %.2, %309 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -46743,7 +46743,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6MCExprELb1EE9push_backES3_.exit44: ; pre
   br label %177
 
 177:                                              ; preds = %.thread57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %176
-  %.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %176 ], [ %.2.ph, %.thread57 ]
+  %.1 = phi i1 [ false, %176 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.2.ph, %.thread57 ]
   ret i1 %.1
 }
 
@@ -53911,11 +53911,15 @@ _ZN4llvm15SmallVectorImplIPKNS_6MCExprEEaSEOS4_.exit.i: ; preds = %552, %_ZN4llv
   %.0.i95 = phi i1 [ %275, %274 ], [ %498, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i ], [ false, %_ZN4llvm15SmallVectorImplIPKNS_6MCExprEEaSEOS4_.exit.i ], [ %295, %294 ], [ %311, %310 ], [ true, %_ZN12_GLOBAL__N_110MasmParser19parseScalarInstListEjRN4llvm15SmallVectorImplIPKNS1_6MCExprEEENS1_8AsmToken9TokenKindE.exit.i ], [ true, %_ZN12_GLOBAL__N_110MasmParser19parseScalarInstListEjRN4llvm15SmallVectorImplIPKNS1_6MCExprEEENS1_8AsmToken9TokenKindE.exit33.i ], [ true, %312 ]
   %559 = load ptr, ptr %4, align 8, !tbaa !96
   %560 = icmp eq ptr %559, %155
-  br i1 %560, label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit, label %561
+  br i1 %560, label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit, label %561
 
 561:                                              ; preds = %558
   call void @free(ptr noundef %559) #26
-  br label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit
+  br label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit
+
+_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit: ; preds = %558, %561
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
+  br i1 %.0.i95, label %.thread182, label %1248
 
 562:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116FieldInitializerESaIS1_EE12emplace_backIJRKNS0_9FieldTypeEEEERS1_DpOT_.exit
   %563 = getelementptr inbounds nuw i8, ptr %192, i64 12
@@ -53942,7 +53946,7 @@ _ZN4llvm15SmallVectorImplIPKNS_6MCExprEEaSEOS4_.exit.i: ; preds = %552, %_ZN4llv
   unreachable
 
 572:                                              ; preds = %569, %567, %565
-  %.020.i = phi ptr [ %570, %569 ], [ %568, %567 ], [ %566, %565 ]
+  %.020.i = phi ptr [ %566, %565 ], [ %568, %567 ], [ %570, %569 ]
   %573 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(1144) %0) #26
   %574 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %573) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #26
@@ -55642,7 +55646,7 @@ thread-pre-split279:                              ; preds = %890, %.critedge.i, 
 
 _ZSt8_DestroyIPN12_GLOBAL__N_117StructInitializerEEvT_S3_.exit: ; preds = %.lr.ph.i, %1239
   %.not.i.i.i65.i = icmp eq ptr %1240, null
-  br i1 %.not.i.i.i65.i, label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit, label %1243
+  br i1 %.not.i.i.i65.i, label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit, label %1243
 
 1243:                                             ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_117StructInitializerEEvT_S3_.exit
   %.val1.i.i = load ptr, ptr %87, align 8, !tbaa !670
@@ -55650,21 +55654,17 @@ _ZSt8_DestroyIPN12_GLOBAL__N_117StructInitializerEEvT_S3_.exit: ; preds = %.lr.p
   %1245 = ptrtoint ptr %1240 to i64
   %1246 = sub i64 %1244, %1245
   call void @_ZdlPvm(ptr noundef nonnull %1240, i64 noundef %1246) #28
-  br label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit
-
-_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_117StructInitializerEEvT_S3_.exit, %1243
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #26
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %42)
-  br i1 %.0.i45, label %.thread182, label %1248
+  br label %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit
 
 1247:                                             ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116FieldInitializerESaIS1_EE12emplace_backIJRKNS0_9FieldTypeEEEERS1_DpOT_.exit
   unreachable
 
-_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit: ; preds = %561, %558
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  br i1 %.0.i95, label %.thread182, label %1248
+_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit: ; preds = %1243, %_ZSt8_DestroyIPN12_GLOBAL__N_117StructInitializerEEvT_S3_.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #26
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %42)
+  br i1 %.0.i45, label %.thread182, label %1248
 
-1248:                                             ; preds = %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit
+1248:                                             ; preds = %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit
   %1249 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #26
   %1250 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %1249) #26
   %1251 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser18parseOptionalTokenENS_8AsmToken9TokenKindE(ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef 26) #26
@@ -55764,8 +55764,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %1252
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49) #26
   br label %.thread182
 
-.thread182:                                       ; preds = %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit, %_ZN4llvmplERKNS_5TwineES2_.exit, %1281, %1285, %._crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread177
-  %.0 = phi i1 [ %78, %_ZN4llvmeqENS_9StringRefES0_.exit.thread177 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %1284, %1281 ], [ %1288, %1285 ], [ false, %._crit_edge ], [ %1268, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_15StructFieldInfoERNS_16FieldInitializerE.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit ]
+.thread182:                                       ; preds = %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit, %_ZN4llvmplERKNS_5TwineES2_.exit, %1281, %1285, %._crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread177
+  %.0 = phi i1 [ %78, %_ZN4llvmeqENS_9StringRefES0_.exit.thread177 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %1284, %1281 ], [ %1288, %1285 ], [ false, %._crit_edge ], [ %1268, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERNS_16FieldInitializerE.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_12IntFieldInfoERNS_16FieldInitializerE.exit ], [ true, %_ZN12_GLOBAL__N_110MasmParser21parseFieldInitializerERKNS_9FieldInfoERKNS_13RealFieldInfoERNS_16FieldInitializerE.exit ]
   %1289 = load i32, ptr %53, align 8, !tbaa !630
   %1290 = icmp ugt i32 %1289, 64
   br i1 %1290, label %1291, label %_ZN4llvm8AsmTokenD2Ev.exit

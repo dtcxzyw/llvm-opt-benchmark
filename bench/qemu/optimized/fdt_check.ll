@@ -125,8 +125,8 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   br label %.loopexit
 
 64:                                               ; preds = %57, %60, %47, %49, %42
-  %.135 = phi i32 [ %.03450, %60 ], [ 1, %49 ], [ %45, %47 ], [ %.03450, %42 ], [ %58, %57 ]
-  %.133 = phi i1 [ %.03251, %60 ], [ %.03251, %49 ], [ %.03251, %47 ], [ %.03251, %42 ], [ %spec.select47, %57 ]
+  %.135 = phi i32 [ %.03450, %42 ], [ 1, %49 ], [ %45, %47 ], [ %.03450, %60 ], [ %58, %57 ]
+  %.133 = phi i1 [ %.03251, %42 ], [ %.03251, %49 ], [ %.03251, %47 ], [ %.03251, %60 ], [ %spec.select47, %57 ]
   %65 = load i32, ptr %4, align 4
   %66 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %4) #3
   %67 = load i32, ptr %4, align 4

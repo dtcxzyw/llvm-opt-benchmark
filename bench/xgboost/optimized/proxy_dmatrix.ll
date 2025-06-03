@@ -1297,8 +1297,8 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorIN7xgbo
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge._crit_edge.i.i.i.i
-  %111 = phi i64 [ %.pre64.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %105, %108 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %109, %108 ]
+  %111 = phi i64 [ %105, %108 ], [ %.pre64.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %109, %108 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 24
   %113 = load i64, ptr %112, align 8, !tbaa !48
   %.not41.i.i.i.i = icmp eq i64 %113, %111
@@ -1309,8 +1309,8 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorIN7xgbo
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge._crit_edge65.i.i.i.i
-  %117 = phi i64 [ %.pre69.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %111, %114 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %115, %114 ]
+  %117 = phi i64 [ %111, %114 ], [ %.pre69.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %115, %114 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i, i64 24
   %119 = load i64, ptr %118, align 8, !tbaa !48
   %.not42.i.i.i.i = icmp eq i64 %119, %117

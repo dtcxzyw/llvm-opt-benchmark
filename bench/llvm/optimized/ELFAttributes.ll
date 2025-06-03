@@ -79,7 +79,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %26 ]
+  %.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.copyload.i40.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !3
   %29 = icmp eq i32 %.sroa.0.0.copyload.i40.i.i.i.i, %0
   br i1 %29, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit", label %30
@@ -89,7 +89,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %31, %30 ]
+  %.2.i.i.i.i = phi ptr [ %31, %30 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.copyload.i41.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !3
   %33 = icmp eq i32 %.sroa.0.0.copyload.i41.i.i.i.i, %0
   br i1 %33, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit", label %34

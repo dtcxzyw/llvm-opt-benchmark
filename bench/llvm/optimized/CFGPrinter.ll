@@ -2278,7 +2278,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_em
   br label %128
 
 128:                                              ; preds = %126, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.15.1.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %127, %126 ]
+  %.sroa.15.1.i.i.i.i.i.i.i.i = phi i32 [ %127, %126 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %129 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %71, i32 noundef %.sroa.15.1.i.i.i.i.i.i.i.i) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %129, ptr %4, align 8, !tbaa !129
@@ -2293,7 +2293,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_em
   br label %135
 
 135:                                              ; preds = %133, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.15.2.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %134, %133 ]
+  %.sroa.15.2.i.i.i.i.i.i.i.i = phi i32 [ %134, %133 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %136 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %71, i32 noundef %.sroa.15.2.i.i.i.i.i.i.i.i) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %136, ptr %3, align 8, !tbaa !129

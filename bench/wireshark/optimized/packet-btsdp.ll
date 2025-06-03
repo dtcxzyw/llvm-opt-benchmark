@@ -1830,8 +1830,8 @@ default.unreachable:                              ; preds = %.lr.ph.i100, %.lr.p
   br label %get_type_length.exit.i
 
 get_type_length.exit.i:                           ; preds = %111, %108, %105, %104, %103, %102, %99, %91
-  %.022.i.i = phi i32 [ 6, %91 ], [ 6, %99 ], [ 6, %102 ], [ 6, %103 ], [ 6, %104 ], [ 7, %105 ], [ 8, %108 ], [ 10, %111 ]
-  %113 = phi i32 [ 2, %91 ], [ %101, %99 ], [ 4, %102 ], [ 8, %103 ], [ 16, %104 ], [ %107, %105 ], [ %110, %108 ], [ %spec.select.i.i, %111 ]
+  %.022.i.i = phi i32 [ 6, %91 ], [ 8, %108 ], [ 7, %105 ], [ 6, %104 ], [ 6, %103 ], [ 6, %102 ], [ 6, %99 ], [ 10, %111 ]
+  %113 = phi i32 [ 2, %91 ], [ %110, %108 ], [ %107, %105 ], [ 16, %104 ], [ 8, %103 ], [ 4, %102 ], [ %101, %99 ], [ %spec.select.i.i, %111 ]
   %114 = add nsw i32 %.022.i.i, -5
   %115 = add nuw i32 %114, %113
   call void @proto_item_set_len(ptr noundef %93, i32 noundef %115)
@@ -1893,8 +1893,8 @@ get_type_length.exit.i:                           ; preds = %111, %108, %105, %1
   br label %get_type_length.exit51.i
 
 get_type_length.exit51.i:                         ; preds = %135, %131, %127, %126, %125, %124, %121, %.lr.ph.i
-  %.022.i49.i = phi i32 [ %119, %.lr.ph.i ], [ %119, %121 ], [ %119, %124 ], [ %119, %125 ], [ %119, %126 ], [ %130, %127 ], [ %134, %131 ], [ %137, %135 ]
-  %138 = phi i32 [ 2, %.lr.ph.i ], [ %123, %121 ], [ 4, %124 ], [ 8, %125 ], [ 16, %126 ], [ %129, %127 ], [ %133, %131 ], [ %spec.select.i48.i, %135 ]
+  %.022.i49.i = phi i32 [ %119, %.lr.ph.i ], [ %134, %131 ], [ %130, %127 ], [ %119, %126 ], [ %119, %125 ], [ %119, %124 ], [ %119, %121 ], [ %137, %135 ]
+  %138 = phi i32 [ 2, %.lr.ph.i ], [ %133, %131 ], [ %129, %127 ], [ 16, %126 ], [ 8, %125 ], [ 4, %124 ], [ %123, %121 ], [ %spec.select.i48.i, %135 ]
   call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %1, ptr noundef %0, i32 noundef %.022.i49.i, i32 noundef %138, ptr noundef nonnull %55)
   %139 = load ptr, ptr %53, align 8
   %.not46.i = icmp eq ptr %139, null
@@ -2694,8 +2694,8 @@ dissect_sdp_service_attribute_response.exit:      ; preds = %424, %proto_item_se
   br label %get_type_length.exit.i98
 
 get_type_length.exit.i98:                         ; preds = %479, %476, %473, %472, %471, %470, %467, %458
-  %.022.i.i99 = phi i32 [ 6, %458 ], [ 6, %467 ], [ 6, %470 ], [ 6, %471 ], [ 6, %472 ], [ 7, %473 ], [ 8, %476 ], [ 10, %479 ]
-  %481 = phi i32 [ 2, %458 ], [ %469, %467 ], [ 4, %470 ], [ 8, %471 ], [ 16, %472 ], [ %475, %473 ], [ %478, %476 ], [ %spec.select.i.i97, %479 ]
+  %.022.i.i99 = phi i32 [ 6, %458 ], [ 8, %476 ], [ 7, %473 ], [ 6, %472 ], [ 6, %471 ], [ 6, %470 ], [ 6, %467 ], [ 10, %479 ]
+  %481 = phi i32 [ 2, %458 ], [ %478, %476 ], [ %475, %473 ], [ 16, %472 ], [ 8, %471 ], [ 4, %470 ], [ %469, %467 ], [ %spec.select.i.i97, %479 ]
   %482 = add nsw i32 %.022.i.i99, -5
   %483 = add nuw i32 %482, %481
   call void @proto_item_set_len(ptr noundef %461, i32 noundef %483)
@@ -2763,8 +2763,8 @@ get_type_length.exit.i98:                         ; preds = %479, %476, %473, %4
   br label %get_type_length.exit55.i
 
 get_type_length.exit55.i:                         ; preds = %507, %503, %499, %498, %497, %496, %493, %.lr.ph.i100
-  %.022.i53.i = phi i32 [ %491, %.lr.ph.i100 ], [ %491, %493 ], [ %491, %496 ], [ %491, %497 ], [ %491, %498 ], [ %502, %499 ], [ %506, %503 ], [ %509, %507 ]
-  %510 = phi i32 [ 2, %.lr.ph.i100 ], [ %495, %493 ], [ 4, %496 ], [ 8, %497 ], [ 16, %498 ], [ %501, %499 ], [ %505, %503 ], [ %spec.select.i52.i, %507 ]
+  %.022.i53.i = phi i32 [ %491, %.lr.ph.i100 ], [ %506, %503 ], [ %502, %499 ], [ %491, %498 ], [ %491, %497 ], [ %491, %496 ], [ %491, %493 ], [ %509, %507 ]
+  %510 = phi i32 [ 2, %.lr.ph.i100 ], [ %505, %503 ], [ %501, %499 ], [ 16, %498 ], [ 8, %497 ], [ 4, %496 ], [ %495, %493 ], [ %spec.select.i52.i, %507 ]
   call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %1, ptr noundef %0, i32 noundef %.022.i53.i, i32 noundef %510, ptr noundef nonnull %15)
   %511 = load ptr, ptr %13, align 8
   %.not50.i = icmp eq ptr %511, null
@@ -2999,7 +2999,7 @@ dissect_sdp_service_search_attribute_response.exit: ; preds = %573, %proto_item_
   br label %595
 
 595:                                              ; preds = %57, %79, %dissect_sdp_service_search_request.exit, %dissect_sdp_service_search_response.exit, %dissect_sdp_service_attribute_request.exit, %dissect_sdp_service_attribute_response.exit, %dissect_sdp_service_search_attribute_request.exit, %dissect_sdp_service_search_attribute_response.exit, %4
-  %.0 = phi i32 [ 0, %4 ], [ 5, %57 ], [ %574, %dissect_sdp_service_search_attribute_response.exit ], [ %540, %dissect_sdp_service_search_attribute_request.exit ], [ %426, %dissect_sdp_service_attribute_response.exit ], [ %339, %dissect_sdp_service_attribute_request.exit ], [ %239, %dissect_sdp_service_search_response.exit ], [ %155, %dissect_sdp_service_search_request.exit ], [ 7, %79 ]
+  %.0 = phi i32 [ 0, %4 ], [ 5, %57 ], [ 7, %79 ], [ %155, %dissect_sdp_service_search_request.exit ], [ %239, %dissect_sdp_service_search_response.exit ], [ %339, %dissect_sdp_service_attribute_request.exit ], [ %426, %dissect_sdp_service_attribute_response.exit ], [ %540, %dissect_sdp_service_search_attribute_request.exit ], [ %574, %dissect_sdp_service_search_attribute_response.exit ]
   ret i32 %.0
 }
 
@@ -3128,8 +3128,8 @@ default.unreachable:                              ; preds = %5
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %5, %9, %12, %13, %14, %15, %19, %23
-  %.022.i = phi i32 [ %7, %5 ], [ %7, %9 ], [ %7, %12 ], [ %7, %13 ], [ %7, %14 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
-  %26 = phi i32 [ 2, %5 ], [ %11, %9 ], [ 4, %12 ], [ 8, %13 ], [ 16, %14 ], [ %17, %15 ], [ %21, %19 ], [ %spec.select.i, %23 ]
+  %.022.i = phi i32 [ %7, %5 ], [ %22, %19 ], [ %18, %15 ], [ %7, %14 ], [ %7, %13 ], [ %7, %12 ], [ %7, %9 ], [ %25, %23 ]
+  %26 = phi i32 [ 2, %5 ], [ %21, %19 ], [ %17, %15 ], [ 16, %14 ], [ 8, %13 ], [ 4, %12 ], [ %11, %9 ], [ %spec.select.i, %23 ]
   %27 = add i32 %.022.i, -1
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %4)
   %29 = and i8 %28, 7
@@ -3277,8 +3277,8 @@ default.unreachable:                              ; preds = %get_type_length.exi
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %10, %31, %34, %35, %36, %37, %41, %45
-  %.022.i = phi i32 [ %29, %10 ], [ %29, %31 ], [ %29, %34 ], [ %29, %35 ], [ %29, %36 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ]
-  %48 = phi i32 [ 2, %10 ], [ %33, %31 ], [ 4, %34 ], [ 8, %35 ], [ 16, %36 ], [ %39, %37 ], [ %43, %41 ], [ %spec.select.i, %45 ]
+  %.022.i = phi i32 [ %29, %10 ], [ %44, %41 ], [ %40, %37 ], [ %29, %36 ], [ %29, %35 ], [ %29, %34 ], [ %29, %31 ], [ %47, %45 ]
+  %48 = phi i32 [ 2, %10 ], [ %43, %41 ], [ %39, %37 ], [ 16, %36 ], [ 8, %35 ], [ 4, %34 ], [ %33, %31 ], [ %spec.select.i, %45 ]
   switch i16 %.0.val, label %1698 [
     i16 4608, label %49
     i16 4363, label %109
@@ -3570,8 +3570,8 @@ get_type_length.exit:                             ; preds = %10, %31, %34, %35, 
   br label %get_type_length.exit1646
 
 get_type_length.exit1646:                         ; preds = %.lr.ph156, %169, %172, %173, %174, %175, %179, %183
-  %.022.i1644 = phi i32 [ %167, %.lr.ph156 ], [ %167, %169 ], [ %167, %172 ], [ %167, %173 ], [ %167, %174 ], [ %178, %175 ], [ %182, %179 ], [ %185, %183 ]
-  %186 = phi i32 [ 2, %.lr.ph156 ], [ %171, %169 ], [ 4, %172 ], [ 8, %173 ], [ 16, %174 ], [ %177, %175 ], [ %181, %179 ], [ %spec.select.i1643, %183 ]
+  %.022.i1644 = phi i32 [ %167, %.lr.ph156 ], [ %182, %179 ], [ %178, %175 ], [ %167, %174 ], [ %167, %173 ], [ %167, %172 ], [ %167, %169 ], [ %185, %183 ]
+  %186 = phi i32 [ 2, %.lr.ph156 ], [ %181, %179 ], [ %177, %175 ], [ 16, %174 ], [ 8, %173 ], [ 4, %172 ], [ %171, %169 ], [ %spec.select.i1643, %183 ]
   %187 = load ptr, ptr %11, align 8
   %188 = load i32, ptr @hf_synch_supported_data_store, align 4
   %189 = call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %188, ptr noundef %2, i32 noundef %.022.i1644, i32 noundef 1, i32 noundef 0)
@@ -4232,8 +4232,8 @@ get_type_length.exit1646:                         ; preds = %.lr.ph156, %169, %1
   br label %get_type_length.exit1651
 
 get_type_length.exit1651:                         ; preds = %572, %576, %579, %580, %581, %582, %586, %590
-  %.022.i1649 = phi i32 [ %574, %572 ], [ %574, %576 ], [ %574, %579 ], [ %574, %580 ], [ %574, %581 ], [ %585, %582 ], [ %589, %586 ], [ %592, %590 ]
-  %593 = phi i32 [ 2, %572 ], [ %578, %576 ], [ 4, %579 ], [ 8, %580 ], [ 16, %581 ], [ %584, %582 ], [ %588, %586 ], [ %spec.select.i1648, %590 ]
+  %.022.i1649 = phi i32 [ %574, %572 ], [ %589, %586 ], [ %585, %582 ], [ %574, %581 ], [ %574, %580 ], [ %574, %579 ], [ %574, %576 ], [ %592, %590 ]
+  %593 = phi i32 [ 2, %572 ], [ %588, %586 ], [ %584, %582 ], [ 16, %581 ], [ 8, %580 ], [ 4, %579 ], [ %578, %576 ], [ %spec.select.i1648, %590 ]
   %594 = load ptr, ptr %12, align 8
   %595 = load i32, ptr @hf_hdp_supported_features_data, align 4
   %596 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %594, i32 noundef %595, ptr noundef %2, i32 noundef %.022.i1649, i32 noundef %593, ptr noundef nonnull @.str.989, i32 noundef %.01491150)
@@ -4294,8 +4294,8 @@ get_type_length.exit1651:                         ; preds = %572, %576, %579, %5
   br label %get_type_length.exit1656
 
 get_type_length.exit1656:                         ; preds = %get_type_length.exit1651, %609, %612, %613, %614, %615, %619, %623
-  %.022.i1654 = phi i32 [ %607, %get_type_length.exit1651 ], [ %607, %609 ], [ %607, %612 ], [ %607, %613 ], [ %607, %614 ], [ %618, %615 ], [ %622, %619 ], [ %625, %623 ]
-  %626 = phi i32 [ 2, %get_type_length.exit1651 ], [ %611, %609 ], [ 4, %612 ], [ 8, %613 ], [ 16, %614 ], [ %617, %615 ], [ %621, %619 ], [ %spec.select.i1653, %623 ]
+  %.022.i1654 = phi i32 [ %607, %get_type_length.exit1651 ], [ %622, %619 ], [ %618, %615 ], [ %607, %614 ], [ %607, %613 ], [ %607, %612 ], [ %607, %609 ], [ %625, %623 ]
+  %626 = phi i32 [ 2, %get_type_length.exit1651 ], [ %621, %619 ], [ %617, %615 ], [ 16, %614 ], [ 8, %613 ], [ 4, %612 ], [ %611, %609 ], [ %spec.select.i1653, %623 ]
   %627 = sub i32 %.022.i1654, %.022.i1649
   %628 = add i32 %627, %626
   call void @proto_item_set_len(ptr noundef %602, i32 noundef %628)
@@ -4359,8 +4359,8 @@ get_type_length.exit1656:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1661
 
 get_type_length.exit1661:                         ; preds = %get_type_length.exit1656, %643, %646, %647, %648, %649, %653, %657
-  %.022.i1659 = phi i32 [ %641, %get_type_length.exit1656 ], [ %641, %643 ], [ %641, %646 ], [ %641, %647 ], [ %641, %648 ], [ %652, %649 ], [ %656, %653 ], [ %659, %657 ]
-  %660 = phi i32 [ 2, %get_type_length.exit1656 ], [ %645, %643 ], [ 4, %646 ], [ 8, %647 ], [ 16, %648 ], [ %651, %649 ], [ %655, %653 ], [ %spec.select.i1658, %657 ]
+  %.022.i1659 = phi i32 [ %641, %get_type_length.exit1656 ], [ %656, %653 ], [ %652, %649 ], [ %641, %648 ], [ %641, %647 ], [ %641, %646 ], [ %641, %643 ], [ %659, %657 ]
+  %660 = phi i32 [ 2, %get_type_length.exit1656 ], [ %655, %653 ], [ %651, %649 ], [ 16, %648 ], [ 8, %647 ], [ 4, %646 ], [ %645, %643 ], [ %spec.select.i1658, %657 ]
   %661 = sub i32 %.022.i1659, %634
   %662 = add i32 %661, %660
   call void @proto_item_set_len(ptr noundef %636, i32 noundef %662)
@@ -4426,8 +4426,8 @@ get_type_length.exit1661:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1666
 
 get_type_length.exit1666:                         ; preds = %get_type_length.exit1661, %677, %680, %681, %682, %683, %687, %691
-  %.022.i1664 = phi i32 [ %675, %get_type_length.exit1661 ], [ %675, %677 ], [ %675, %680 ], [ %675, %681 ], [ %675, %682 ], [ %686, %683 ], [ %690, %687 ], [ %693, %691 ]
-  %694 = phi i32 [ 2, %get_type_length.exit1661 ], [ %679, %677 ], [ 4, %680 ], [ 8, %681 ], [ 16, %682 ], [ %685, %683 ], [ %689, %687 ], [ %spec.select.i1663, %691 ]
+  %.022.i1664 = phi i32 [ %675, %get_type_length.exit1661 ], [ %690, %687 ], [ %686, %683 ], [ %675, %682 ], [ %675, %681 ], [ %675, %680 ], [ %675, %677 ], [ %693, %691 ]
+  %694 = phi i32 [ 2, %get_type_length.exit1661 ], [ %689, %687 ], [ %685, %683 ], [ 16, %682 ], [ 8, %681 ], [ 4, %680 ], [ %679, %677 ], [ %spec.select.i1663, %691 ]
   %695 = sub i32 %.022.i1664, %668
   %696 = add i32 %695, %694
   call void @proto_item_set_len(ptr noundef %670, i32 noundef %696)
@@ -4501,8 +4501,8 @@ get_type_length.exit1666:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1671
 
 get_type_length.exit1671:                         ; preds = %707, %716, %719, %720, %721, %722, %726, %730
-  %.022.i1669 = phi i32 [ %714, %707 ], [ %714, %716 ], [ %714, %719 ], [ %714, %720 ], [ %714, %721 ], [ %725, %722 ], [ %729, %726 ], [ %732, %730 ]
-  %733 = phi i32 [ 2, %707 ], [ %718, %716 ], [ 4, %719 ], [ 8, %720 ], [ 16, %721 ], [ %724, %722 ], [ %728, %726 ], [ %spec.select.i1668, %730 ]
+  %.022.i1669 = phi i32 [ %714, %707 ], [ %729, %726 ], [ %725, %722 ], [ %714, %721 ], [ %714, %720 ], [ %714, %719 ], [ %714, %716 ], [ %732, %730 ]
+  %733 = phi i32 [ 2, %707 ], [ %728, %726 ], [ %724, %722 ], [ 16, %721 ], [ 8, %720 ], [ 4, %719 ], [ %718, %716 ], [ %spec.select.i1668, %730 ]
   %734 = sub i32 %.022.i1669, %704
   %735 = add i32 %734, %733
   call void @proto_item_set_len(ptr noundef %709, i32 noundef %735)
@@ -4759,8 +4759,8 @@ get_type_length.exit1671:                         ; preds = %707, %716, %719, %7
   br label %get_type_length.exit1676
 
 get_type_length.exit1676:                         ; preds = %.lr.ph142, %862, %865, %866, %867, %868, %872, %876
-  %.022.i1674 = phi i32 [ %860, %.lr.ph142 ], [ %860, %862 ], [ %860, %865 ], [ %860, %866 ], [ %860, %867 ], [ %871, %868 ], [ %875, %872 ], [ %878, %876 ]
-  %879 = phi i32 [ 2, %.lr.ph142 ], [ %864, %862 ], [ 4, %865 ], [ 8, %866 ], [ 16, %867 ], [ %870, %868 ], [ %874, %872 ], [ %spec.select.i1673, %876 ]
+  %.022.i1674 = phi i32 [ %860, %.lr.ph142 ], [ %875, %872 ], [ %871, %868 ], [ %860, %867 ], [ %860, %866 ], [ %860, %865 ], [ %860, %862 ], [ %878, %876 ]
+  %879 = phi i32 [ 2, %.lr.ph142 ], [ %874, %872 ], [ %870, %868 ], [ 16, %867 ], [ 8, %866 ], [ 4, %865 ], [ %864, %862 ], [ %spec.select.i1673, %876 ]
   %880 = load ptr, ptr %11, align 8
   %881 = load i32, ptr @hf_opp_supported_format, align 4
   %882 = call ptr @proto_tree_add_item(ptr noundef %880, i32 noundef %881, ptr noundef %2, i32 noundef %.022.i1674, i32 noundef 1, i32 noundef 0)
@@ -5052,7 +5052,7 @@ get_type_length.exit1676:                         ; preds = %.lr.ph142, %862, %8
   br label %get_type_length.exit1681
 
 get_type_length.exit1681:                         ; preds = %.lr.ph139, %.lr.ph139, %.lr.ph139, %.lr.ph139, %.lr.ph139, %1049, %1052, %1055
-  %.022.i1679 = phi i32 [ %1047, %.lr.ph139 ], [ %1051, %1049 ], [ %1054, %1052 ], [ %1057, %1055 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ]
+  %.022.i1679 = phi i32 [ %1047, %.lr.ph139 ], [ %1054, %1052 ], [ %1051, %1049 ], [ %1057, %1055 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ], [ %1047, %.lr.ph139 ]
   %1058 = load ptr, ptr %13, align 8
   %1059 = call fastcc i32 @dissect_data_element(ptr noundef %1058, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1679)
   %1060 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.022.i1679)
@@ -5103,8 +5103,8 @@ get_type_length.exit1681:                         ; preds = %.lr.ph139, %.lr.ph1
   br label %get_type_length.exit1686
 
 get_type_length.exit1686:                         ; preds = %get_type_length.exit1681, %1063, %1066, %1067, %1068, %1069, %1073, %1077
-  %.022.i1684 = phi i32 [ %1061, %get_type_length.exit1681 ], [ %1061, %1063 ], [ %1061, %1066 ], [ %1061, %1067 ], [ %1061, %1068 ], [ %1072, %1069 ], [ %1076, %1073 ], [ %1079, %1077 ]
-  %1080 = phi i32 [ 2, %get_type_length.exit1681 ], [ %1065, %1063 ], [ 4, %1066 ], [ 8, %1067 ], [ 16, %1068 ], [ %1071, %1069 ], [ %1075, %1073 ], [ %spec.select.i1683, %1077 ]
+  %.022.i1684 = phi i32 [ %1061, %get_type_length.exit1681 ], [ %1076, %1073 ], [ %1072, %1069 ], [ %1061, %1068 ], [ %1061, %1067 ], [ %1061, %1066 ], [ %1061, %1063 ], [ %1079, %1077 ]
+  %1080 = phi i32 [ 2, %get_type_length.exit1681 ], [ %1075, %1073 ], [ %1071, %1069 ], [ 16, %1068 ], [ 8, %1067 ], [ 4, %1066 ], [ %1065, %1063 ], [ %spec.select.i1683, %1077 ]
   %1081 = load ptr, ptr %14, align 8
   %1082 = load i32, ptr @hf_hid_descriptor_list_type, align 4
   %1083 = call ptr @proto_tree_add_item(ptr noundef %1081, i32 noundef %1082, ptr noundef %2, i32 noundef %.022.i1684, i32 noundef 1, i32 noundef 0)
@@ -5164,8 +5164,8 @@ get_type_length.exit1686:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1691
 
 get_type_length.exit1691:                         ; preds = %get_type_length.exit1686, %1093, %1096, %1097, %1098, %1099, %1103, %1107
-  %.022.i1689 = phi i32 [ %1091, %get_type_length.exit1686 ], [ %1091, %1093 ], [ %1091, %1096 ], [ %1091, %1097 ], [ %1091, %1098 ], [ %1102, %1099 ], [ %1106, %1103 ], [ %1109, %1107 ]
-  %1110 = phi i32 [ 2, %get_type_length.exit1686 ], [ %1095, %1093 ], [ 4, %1096 ], [ 8, %1097 ], [ 16, %1098 ], [ %1101, %1099 ], [ %1105, %1103 ], [ %spec.select.i1688, %1107 ]
+  %.022.i1689 = phi i32 [ %1091, %get_type_length.exit1686 ], [ %1106, %1103 ], [ %1102, %1099 ], [ %1091, %1098 ], [ %1091, %1097 ], [ %1091, %1096 ], [ %1091, %1093 ], [ %1109, %1107 ]
+  %1110 = phi i32 [ 2, %get_type_length.exit1686 ], [ %1105, %1103 ], [ %1101, %1099 ], [ 16, %1098 ], [ 8, %1097 ], [ 4, %1096 ], [ %1095, %1093 ], [ %spec.select.i1688, %1107 ]
   %1111 = load ptr, ptr %14, align 8
   %1112 = load i32, ptr @hf_hid_descriptor_list_descriptor, align 4
   %1113 = call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1112, ptr noundef %2, i32 noundef %.022.i1689, i32 noundef %1110, i32 noundef 0)
@@ -5219,7 +5219,7 @@ get_type_length.exit1691:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1696
 
 get_type_length.exit1696:                         ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %1128, %1131, %1134
-  %.022.i1694 = phi i32 [ %1126, %.lr.ph ], [ %1130, %1128 ], [ %1133, %1131 ], [ %1136, %1134 ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ]
+  %.022.i1694 = phi i32 [ %1126, %.lr.ph ], [ %1133, %1131 ], [ %1130, %1128 ], [ %1136, %1134 ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ], [ %1126, %.lr.ph ]
   %1137 = load ptr, ptr %13, align 8
   %1138 = call fastcc i32 @dissect_data_element(ptr noundef %1137, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1694)
   %1139 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.022.i1694)
@@ -5270,8 +5270,8 @@ get_type_length.exit1696:                         ; preds = %.lr.ph, %.lr.ph, %.
   br label %get_type_length.exit1701
 
 get_type_length.exit1701:                         ; preds = %get_type_length.exit1696, %1142, %1145, %1146, %1147, %1148, %1152, %1156
-  %.022.i1699 = phi i32 [ %1140, %get_type_length.exit1696 ], [ %1140, %1142 ], [ %1140, %1145 ], [ %1140, %1146 ], [ %1140, %1147 ], [ %1151, %1148 ], [ %1155, %1152 ], [ %1158, %1156 ]
-  %1159 = phi i32 [ 2, %get_type_length.exit1696 ], [ %1144, %1142 ], [ 4, %1145 ], [ 8, %1146 ], [ 16, %1147 ], [ %1150, %1148 ], [ %1154, %1152 ], [ %spec.select.i1698, %1156 ]
+  %.022.i1699 = phi i32 [ %1140, %get_type_length.exit1696 ], [ %1155, %1152 ], [ %1151, %1148 ], [ %1140, %1147 ], [ %1140, %1146 ], [ %1140, %1145 ], [ %1140, %1142 ], [ %1158, %1156 ]
+  %1159 = phi i32 [ 2, %get_type_length.exit1696 ], [ %1154, %1152 ], [ %1150, %1148 ], [ 16, %1147 ], [ 8, %1146 ], [ 4, %1145 ], [ %1144, %1142 ], [ %spec.select.i1698, %1156 ]
   %1160 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.022.i1699)
   %1161 = zext i16 %1160 to i32
   %1162 = call ptr @val_to_str_ext_const(i32 noundef %1161, ptr noundef nonnull @usb_langid_vals_ext, ptr noundef nonnull @.str.922)
@@ -5331,8 +5331,8 @@ get_type_length.exit1701:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1706
 
 get_type_length.exit1706:                         ; preds = %get_type_length.exit1701, %1172, %1175, %1176, %1177, %1178, %1182, %1186
-  %.022.i1704 = phi i32 [ %1170, %get_type_length.exit1701 ], [ %1170, %1172 ], [ %1170, %1175 ], [ %1170, %1176 ], [ %1170, %1177 ], [ %1181, %1178 ], [ %1185, %1182 ], [ %1188, %1186 ]
-  %1189 = phi i32 [ 2, %get_type_length.exit1701 ], [ %1174, %1172 ], [ 4, %1175 ], [ 8, %1176 ], [ 16, %1177 ], [ %1180, %1178 ], [ %1184, %1182 ], [ %spec.select.i1703, %1186 ]
+  %.022.i1704 = phi i32 [ %1170, %get_type_length.exit1701 ], [ %1185, %1182 ], [ %1181, %1178 ], [ %1170, %1177 ], [ %1170, %1176 ], [ %1170, %1175 ], [ %1170, %1172 ], [ %1188, %1186 ]
+  %1189 = phi i32 [ 2, %get_type_length.exit1701 ], [ %1184, %1182 ], [ %1180, %1178 ], [ 16, %1177 ], [ 8, %1176 ], [ 4, %1175 ], [ %1174, %1172 ], [ %spec.select.i1703, %1186 ]
   %1190 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.022.i1704)
   %1191 = zext i16 %1190 to i32
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %23, ptr noundef nonnull @.str.1017, i32 noundef %1191)
@@ -6196,8 +6196,8 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1711
 
 get_type_length.exit1711:                         ; preds = %.lr.ph186, %1709, %1712, %1713, %1714, %1715, %1719, %1723
-  %.022.i1709 = phi i32 [ %1707, %.lr.ph186 ], [ %1707, %1709 ], [ %1707, %1712 ], [ %1707, %1713 ], [ %1707, %1714 ], [ %1718, %1715 ], [ %1722, %1719 ], [ %1725, %1723 ]
-  %1726 = phi i32 [ 2, %.lr.ph186 ], [ %1711, %1709 ], [ 4, %1712 ], [ 8, %1713 ], [ 16, %1714 ], [ %1717, %1715 ], [ %1721, %1719 ], [ %spec.select.i1708, %1723 ]
+  %.022.i1709 = phi i32 [ %1707, %.lr.ph186 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1707, %1714 ], [ %1707, %1713 ], [ %1707, %1712 ], [ %1707, %1709 ], [ %1725, %1723 ]
+  %1726 = phi i32 [ 2, %.lr.ph186 ], [ %1721, %1719 ], [ %1717, %1715 ], [ 16, %1714 ], [ 8, %1713 ], [ 4, %1712 ], [ %1711, %1709 ], [ %spec.select.i1708, %1723 ]
   %1727 = load ptr, ptr %11, align 8
   call fastcc void @dissect_uuid(ptr noundef %1727, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1709, i32 noundef %1726, ptr noundef nonnull %16)
   %1728 = load ptr, ptr %21, align 8
@@ -6286,8 +6286,8 @@ get_type_length.exit1711:                         ; preds = %.lr.ph186, %1709, %
   br label %get_type_length.exit1716
 
 get_type_length.exit1716:                         ; preds = %.lr.ph184, %1750, %1753, %1754, %1755, %1756, %1760, %1764
-  %.022.i1714 = phi i32 [ %1748, %.lr.ph184 ], [ %1748, %1750 ], [ %1748, %1753 ], [ %1748, %1754 ], [ %1748, %1755 ], [ %1759, %1756 ], [ %1763, %1760 ], [ %1766, %1764 ]
-  %1767 = phi i32 [ 2, %.lr.ph184 ], [ %1752, %1750 ], [ 4, %1753 ], [ 8, %1754 ], [ 16, %1755 ], [ %1758, %1756 ], [ %1762, %1760 ], [ %spec.select.i1713, %1764 ]
+  %.022.i1714 = phi i32 [ %1748, %.lr.ph184 ], [ %1763, %1760 ], [ %1759, %1756 ], [ %1748, %1755 ], [ %1748, %1754 ], [ %1748, %1753 ], [ %1748, %1750 ], [ %1766, %1764 ]
+  %1767 = phi i32 [ 2, %.lr.ph184 ], [ %1762, %1760 ], [ %1758, %1756 ], [ 16, %1755 ], [ 8, %1754 ], [ 4, %1753 ], [ %1752, %1750 ], [ %spec.select.i1713, %1764 ]
   %1768 = load ptr, ptr %11, align 8
   call fastcc void @dissect_uuid(ptr noundef %1768, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1714, i32 noundef %1767, ptr noundef nonnull %16)
   %1769 = load ptr, ptr %21, align 8
@@ -6360,8 +6360,8 @@ get_type_length.exit1716:                         ; preds = %.lr.ph184, %1750, %
   br label %get_type_length.exit1721
 
 get_type_length.exit1721:                         ; preds = %.lr.ph181, %1784, %1787, %1788, %1789, %1790, %1794, %1798
-  %.022.i1719 = phi i32 [ %1782, %.lr.ph181 ], [ %1782, %1784 ], [ %1782, %1787 ], [ %1782, %1788 ], [ %1782, %1789 ], [ %1793, %1790 ], [ %1797, %1794 ], [ %1800, %1798 ]
-  %1801 = phi i32 [ 2, %.lr.ph181 ], [ %1786, %1784 ], [ 4, %1787 ], [ 8, %1788 ], [ 16, %1789 ], [ %1792, %1790 ], [ %1796, %1794 ], [ %spec.select.i1718, %1798 ]
+  %.022.i1719 = phi i32 [ %1782, %.lr.ph181 ], [ %1797, %1794 ], [ %1793, %1790 ], [ %1782, %1789 ], [ %1782, %1788 ], [ %1782, %1787 ], [ %1782, %1784 ], [ %1800, %1798 ]
+  %1801 = phi i32 [ 2, %.lr.ph181 ], [ %1796, %1794 ], [ %1792, %1790 ], [ 16, %1789 ], [ 8, %1788 ], [ 4, %1787 ], [ %1786, %1784 ], [ %spec.select.i1718, %1798 ]
   %1802 = load ptr, ptr %13, align 8
   %1803 = load i32, ptr @hf_sdp_lang_code, align 4
   %1804 = load ptr, ptr %21, align 8
@@ -6420,8 +6420,8 @@ get_type_length.exit1721:                         ; preds = %.lr.ph181, %1784, %
   br label %get_type_length.exit1726
 
 get_type_length.exit1726:                         ; preds = %get_type_length.exit1721, %1813, %1816, %1817, %1818, %1819, %1823, %1827
-  %.022.i1724 = phi i32 [ %1811, %get_type_length.exit1721 ], [ %1811, %1813 ], [ %1811, %1816 ], [ %1811, %1817 ], [ %1811, %1818 ], [ %1822, %1819 ], [ %1826, %1823 ], [ %1829, %1827 ]
-  %1830 = phi i32 [ 2, %get_type_length.exit1721 ], [ %1815, %1813 ], [ 4, %1816 ], [ 8, %1817 ], [ 16, %1818 ], [ %1821, %1819 ], [ %1825, %1823 ], [ %spec.select.i1723, %1827 ]
+  %.022.i1724 = phi i32 [ %1811, %get_type_length.exit1721 ], [ %1826, %1823 ], [ %1822, %1819 ], [ %1811, %1818 ], [ %1811, %1817 ], [ %1811, %1816 ], [ %1811, %1813 ], [ %1829, %1827 ]
+  %1830 = phi i32 [ 2, %get_type_length.exit1721 ], [ %1825, %1823 ], [ %1821, %1819 ], [ 16, %1818 ], [ 8, %1817 ], [ 4, %1816 ], [ %1815, %1813 ], [ %spec.select.i1723, %1827 ]
   %1831 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.022.i1724)
   %1832 = zext i16 %1831 to i32
   %1833 = call ptr @val_to_str_ext_const(i32 noundef %1832, ptr noundef nonnull @mibenum_vals_character_sets_ext, ptr noundef nonnull @.str.922)
@@ -6481,8 +6481,8 @@ get_type_length.exit1726:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1731
 
 get_type_length.exit1731:                         ; preds = %get_type_length.exit1726, %1843, %1846, %1847, %1848, %1849, %1853, %1857
-  %.022.i1729 = phi i32 [ %1841, %get_type_length.exit1726 ], [ %1841, %1843 ], [ %1841, %1846 ], [ %1841, %1847 ], [ %1841, %1848 ], [ %1852, %1849 ], [ %1856, %1853 ], [ %1859, %1857 ]
-  %1860 = phi i32 [ 2, %get_type_length.exit1726 ], [ %1845, %1843 ], [ 4, %1846 ], [ 8, %1847 ], [ 16, %1848 ], [ %1851, %1849 ], [ %1855, %1853 ], [ %spec.select.i1728, %1857 ]
+  %.022.i1729 = phi i32 [ %1841, %get_type_length.exit1726 ], [ %1856, %1853 ], [ %1852, %1849 ], [ %1841, %1848 ], [ %1841, %1847 ], [ %1841, %1846 ], [ %1841, %1843 ], [ %1859, %1857 ]
+  %1860 = phi i32 [ 2, %get_type_length.exit1726 ], [ %1855, %1853 ], [ %1851, %1849 ], [ 16, %1848 ], [ 8, %1847 ], [ 4, %1846 ], [ %1845, %1843 ], [ %spec.select.i1728, %1857 ]
   %1861 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.022.i1729)
   %1862 = zext i16 %1861 to i32
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %23, ptr noundef nonnull @.str.1017, i32 noundef %1862)
@@ -6568,8 +6568,8 @@ get_type_length.exit1731:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1736
 
 get_type_length.exit1736:                         ; preds = %.lr.ph172, %1885, %1888, %1889, %1890, %1891, %1895, %1899
-  %.022.i1734 = phi i32 [ %1883, %.lr.ph172 ], [ %1883, %1885 ], [ %1883, %1888 ], [ %1883, %1889 ], [ %1883, %1890 ], [ %1894, %1891 ], [ %1898, %1895 ], [ %1901, %1899 ]
-  %1902 = phi i32 [ 2, %.lr.ph172 ], [ %1887, %1885 ], [ 4, %1888 ], [ 8, %1889 ], [ 16, %1890 ], [ %1893, %1891 ], [ %1897, %1895 ], [ %spec.select.i1733, %1899 ]
+  %.022.i1734 = phi i32 [ %1883, %.lr.ph172 ], [ %1898, %1895 ], [ %1894, %1891 ], [ %1883, %1890 ], [ %1883, %1889 ], [ %1883, %1888 ], [ %1883, %1885 ], [ %1901, %1899 ]
+  %1902 = phi i32 [ 2, %.lr.ph172 ], [ %1897, %1895 ], [ %1893, %1891 ], [ 16, %1890 ], [ 8, %1889 ], [ 4, %1888 ], [ %1887, %1885 ], [ %spec.select.i1733, %1899 ]
   %1903 = load ptr, ptr %12, align 8
   %1904 = call fastcc i32 @dissect_data_element(ptr noundef %1903, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.8171)
   %1905 = load ptr, ptr %13, align 8
@@ -6626,8 +6626,8 @@ get_type_length.exit1736:                         ; preds = %.lr.ph172, %1885, %
   br label %get_type_length.exit1741
 
 get_type_length.exit1741:                         ; preds = %get_type_length.exit1736, %1914, %1917, %1918, %1919, %1920, %1924, %1928
-  %.022.i1739 = phi i32 [ %1912, %get_type_length.exit1736 ], [ %1912, %1914 ], [ %1912, %1917 ], [ %1912, %1918 ], [ %1912, %1919 ], [ %1923, %1920 ], [ %1927, %1924 ], [ %1930, %1928 ]
-  %1931 = phi i32 [ 2, %get_type_length.exit1736 ], [ %1916, %1914 ], [ 4, %1917 ], [ 8, %1918 ], [ 16, %1919 ], [ %1922, %1920 ], [ %1926, %1924 ], [ %spec.select.i1738, %1928 ]
+  %.022.i1739 = phi i32 [ %1912, %get_type_length.exit1736 ], [ %1927, %1924 ], [ %1923, %1920 ], [ %1912, %1919 ], [ %1912, %1918 ], [ %1912, %1917 ], [ %1912, %1914 ], [ %1930, %1928 ]
+  %1931 = phi i32 [ 2, %get_type_length.exit1736 ], [ %1926, %1924 ], [ %1922, %1920 ], [ 16, %1919 ], [ 8, %1918 ], [ 4, %1917 ], [ %1916, %1914 ], [ %spec.select.i1738, %1928 ]
   %1932 = load ptr, ptr %13, align 8
   call fastcc void @dissect_uuid(ptr noundef %1932, ptr noundef %1, ptr noundef %2, i32 noundef %.022.i1739, i32 noundef %1931, ptr noundef nonnull %16)
   %1933 = load ptr, ptr %21, align 8
@@ -6684,8 +6684,8 @@ get_type_length.exit1741:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1746
 
 get_type_length.exit1746:                         ; preds = %get_type_length.exit1741, %1940, %1943, %1944, %1945, %1946, %1950, %1954
-  %.022.i1744 = phi i32 [ %1938, %get_type_length.exit1741 ], [ %1938, %1940 ], [ %1938, %1943 ], [ %1938, %1944 ], [ %1938, %1945 ], [ %1949, %1946 ], [ %1953, %1950 ], [ %1956, %1954 ]
-  %1957 = phi i32 [ 2, %get_type_length.exit1741 ], [ %1942, %1940 ], [ 4, %1943 ], [ 8, %1944 ], [ 16, %1945 ], [ %1948, %1946 ], [ %1952, %1950 ], [ %spec.select.i1743, %1954 ]
+  %.022.i1744 = phi i32 [ %1938, %get_type_length.exit1741 ], [ %1953, %1950 ], [ %1949, %1946 ], [ %1938, %1945 ], [ %1938, %1944 ], [ %1938, %1943 ], [ %1938, %1940 ], [ %1956, %1954 ]
+  %1957 = phi i32 [ 2, %get_type_length.exit1741 ], [ %1952, %1950 ], [ %1948, %1946 ], [ 16, %1945 ], [ 8, %1944 ], [ 4, %1943 ], [ %1942, %1940 ], [ %spec.select.i1743, %1954 ]
   %1958 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.022.i1744)
   %1959 = zext i16 %1958 to i32
   %1960 = lshr i32 %1959, 8
@@ -6788,8 +6788,8 @@ get_type_length.exit1746:                         ; preds = %get_type_length.exi
   br label %get_type_length.exit1751
 
 get_type_length.exit1751:                         ; preds = %.lr.ph163, %1992, %1995, %1996, %1997, %1998, %2002, %2006
-  %.022.i1749 = phi i32 [ %1990, %.lr.ph163 ], [ %1990, %1992 ], [ %1990, %1995 ], [ %1990, %1996 ], [ %1990, %1997 ], [ %2001, %1998 ], [ %2005, %2002 ], [ %2008, %2006 ]
-  %2009 = phi i32 [ 2, %.lr.ph163 ], [ %1994, %1992 ], [ 4, %1995 ], [ 8, %1996 ], [ 16, %1997 ], [ %2000, %1998 ], [ %2004, %2002 ], [ %spec.select.i1748, %2006 ]
+  %.022.i1749 = phi i32 [ %1990, %.lr.ph163 ], [ %2005, %2002 ], [ %2001, %1998 ], [ %1990, %1997 ], [ %1990, %1996 ], [ %1990, %1995 ], [ %1990, %1992 ], [ %2008, %2006 ]
+  %2009 = phi i32 [ 2, %.lr.ph163 ], [ %2004, %2002 ], [ %2000, %1998 ], [ 16, %1997 ], [ 8, %1996 ], [ 4, %1995 ], [ %1994, %1992 ], [ %spec.select.i1748, %2006 ]
   %2010 = load ptr, ptr %12, align 8
   %2011 = call fastcc i32 @dissect_data_element(ptr noundef %2010, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.9162)
   %2012 = load ptr, ptr %13, align 8
@@ -6844,8 +6844,8 @@ get_type_length.exit1751:                         ; preds = %.lr.ph163, %1992, %
   br label %get_type_length.exit1756
 
 get_type_length.exit1756:                         ; preds = %get_type_length.exit1751, %2019, %2022, %2023, %2024, %2025, %2029, %2033
-  %.022.i1754 = phi i32 [ %1990, %get_type_length.exit1751 ], [ %1990, %2019 ], [ %1990, %2022 ], [ %1990, %2023 ], [ %1990, %2024 ], [ %2028, %2025 ], [ %2032, %2029 ], [ %2035, %2033 ]
-  %2036 = phi i32 [ 2, %get_type_length.exit1751 ], [ %2021, %2019 ], [ 4, %2022 ], [ 8, %2023 ], [ 16, %2024 ], [ %2027, %2025 ], [ %2031, %2029 ], [ %spec.select.i1753, %2033 ]
+  %.022.i1754 = phi i32 [ %1990, %get_type_length.exit1751 ], [ %2032, %2029 ], [ %2028, %2025 ], [ %1990, %2024 ], [ %1990, %2023 ], [ %1990, %2022 ], [ %1990, %2019 ], [ %2035, %2033 ]
+  %2036 = phi i32 [ 2, %get_type_length.exit1751 ], [ %2031, %2029 ], [ %2027, %2025 ], [ 16, %2024 ], [ 8, %2023 ], [ 4, %2022 ], [ %2021, %2019 ], [ %spec.select.i1753, %2033 ]
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1013)
   call fastcc void @dissect_protocol_descriptor_list(ptr noundef %2016, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i1754, i32 noundef %2036, ptr noundef %23, ptr noundef %8, ptr noundef nonnull %17)
   %2037 = add i32 %2036, %.022.i1754
@@ -6924,7 +6924,7 @@ get_type_length.exit1756:                         ; preds = %get_type_length.exi
   br label %get_uint_by_size.exit
 
 get_uint_by_size.exit:                            ; preds = %2064, %2065, %2068, %2071
-  %.0.i = phi i32 [ %2072, %2071 ], [ %2070, %2068 ], [ %2067, %2065 ], [ -1, %2064 ]
+  %.0.i = phi i32 [ %2067, %2065 ], [ %2070, %2068 ], [ %2072, %2071 ], [ -1, %2064 ]
   %2073 = load ptr, ptr %12, align 8
   %2074 = load i32, ptr @hf_data_element_value_unsigned_int, align 4
   %2075 = call ptr @proto_tree_add_item(ptr noundef %2073, i32 noundef %2074, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, i32 noundef 0)
@@ -6953,7 +6953,7 @@ get_uint_by_size.exit:                            ; preds = %2064, %2065, %2068,
   br label %get_int_by_size.exit
 
 get_int_by_size.exit:                             ; preds = %2076, %2077, %2080, %2083
-  %.0.i1757 = phi i32 [ %2084, %2083 ], [ %2082, %2080 ], [ %2079, %2077 ], [ -1, %2076 ]
+  %.0.i1757 = phi i32 [ %2079, %2077 ], [ %2082, %2080 ], [ %2084, %2083 ], [ -1, %2076 ]
   %2085 = load ptr, ptr %12, align 8
   %2086 = load i32, ptr @hf_data_element_value_signed_int, align 4
   %2087 = call ptr @proto_tree_add_item(ptr noundef %2085, i32 noundef %2086, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, i32 noundef 0)
@@ -7046,8 +7046,8 @@ get_int_by_size.exit:                             ; preds = %2076, %2077, %2080,
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1019)
   br label %.thread98
 
-.thread98:                                        ; preds = %get_type_length.exit1691, %get_type_length.exit1676, %742, %get_type_length.exit1646, %get_type_length.exit1756, %get_type_length.exit1746, %get_type_length.exit1716, %get_type_length.exit1711, %.preheader120, %.thread98.loopexit121.loopexit, %.preheader118, %.preheader114, %1988, %.preheader109, %.preheader107, %.thread98.loopexit108.loopexit, %.preheader116, %.preheader112, %.preheader105, %.preheader, %50, %72, %84, %79, %86, %96, %102, %110, %137, %197, %205, %255, %307, %314, %321, %334, %335, %350, %377, %383, %389, %395, %402, %415, %417, %430, %431, %437, %463, %484, %497, %498, %519, %525, %531, %537, %544, %550, %557, %563, %746, %753, %783, %790, %796, %803, %810, %817, %822, %828, %835, %843, %856, %890, %896, %903, %940, %947, %984, %994, %1004, %1021, %1028, %1034, %1200, %1206, %1212, %1218, %1228, %1234, %1240, %1246, %1252, %1259, %1272, %1273, %1299, %1350, %1436, %1442, %1455, %1456, %1486, %1475, %1487, %1531, %1537, %1543, %1549, %1555, %1561, %1567, %1573, %1579, %1585, %1591, %1597, %1603, %1609, %1615, %1621, %1627, %1633, %1640, %1646, %1656, %1662, %1683, %1688, %1693, %1699, %1734, %1739, %1743, %1871, %1876, %1970, %1976, %1982, %2041, %2047, %2053, %2059, %2060, %get_uint_by_size.exit, %get_int_by_size.exit, %2088, %2092, %2101, %._crit_edge
-  %.0148096101 = phi i32 [ %27, %2059 ], [ %27, %2060 ], [ %27, %get_uint_by_size.exit ], [ %27, %get_int_by_size.exit ], [ %27, %2088 ], [ %27, %2092 ], [ %27, %2101 ], [ %27, %._crit_edge ], [ %27, %1699 ], [ %27, %1734 ], [ %27, %1739 ], [ %27, %1743 ], [ %27, %1871 ], [ %27, %1876 ], [ %27, %1970 ], [ %27, %1976 ], [ %27, %1982 ], [ %27, %2041 ], [ %27, %2047 ], [ %27, %2053 ], [ %27, %50 ], [ %27, %72 ], [ %27, %84 ], [ %27, %79 ], [ %27, %86 ], [ %27, %96 ], [ %27, %102 ], [ %27, %110 ], [ %27, %137 ], [ %27, %197 ], [ %27, %205 ], [ %27, %255 ], [ %27, %307 ], [ %27, %314 ], [ %27, %321 ], [ %27, %334 ], [ %27, %335 ], [ %27, %350 ], [ %27, %377 ], [ %27, %383 ], [ %27, %389 ], [ %27, %395 ], [ %27, %402 ], [ %27, %415 ], [ %27, %417 ], [ %27, %430 ], [ %27, %431 ], [ %27, %437 ], [ %27, %463 ], [ %27, %484 ], [ %27, %497 ], [ %27, %498 ], [ %27, %519 ], [ %27, %525 ], [ %27, %531 ], [ %27, %537 ], [ %27, %544 ], [ %27, %550 ], [ %27, %557 ], [ %27, %563 ], [ %27, %746 ], [ %27, %753 ], [ %27, %783 ], [ %27, %790 ], [ %27, %796 ], [ %27, %803 ], [ %27, %810 ], [ %27, %817 ], [ %27, %822 ], [ %27, %828 ], [ %27, %835 ], [ %27, %843 ], [ %27, %856 ], [ %27, %890 ], [ %27, %896 ], [ %27, %903 ], [ %27, %940 ], [ %27, %947 ], [ %27, %984 ], [ %27, %994 ], [ %27, %1004 ], [ %27, %1021 ], [ %27, %1028 ], [ %27, %1034 ], [ %27, %1200 ], [ %27, %1206 ], [ %27, %1212 ], [ %27, %1218 ], [ %27, %1228 ], [ %27, %1234 ], [ %27, %1240 ], [ %27, %1246 ], [ %27, %1252 ], [ %27, %1259 ], [ %27, %1272 ], [ %27, %1273 ], [ %27, %1299 ], [ %27, %1350 ], [ %27, %1436 ], [ %27, %1442 ], [ %27, %1455 ], [ %27, %1456 ], [ %27, %1486 ], [ %27, %1475 ], [ %27, %1487 ], [ %27, %1531 ], [ %27, %1537 ], [ %27, %1543 ], [ %27, %1549 ], [ %27, %1555 ], [ %27, %1561 ], [ %27, %1567 ], [ %27, %1573 ], [ %27, %1579 ], [ %27, %1585 ], [ %27, %1591 ], [ %27, %1597 ], [ %27, %1603 ], [ %27, %1609 ], [ %27, %1615 ], [ %27, %1621 ], [ %27, %1627 ], [ %27, %1633 ], [ %27, %1640 ], [ %27, %1646 ], [ %27, %1656 ], [ %27, %1662 ], [ %27, %1683 ], [ %27, %1688 ], [ %27, %1693 ], [ %27, %.preheader ], [ %27, %.preheader105 ], [ %27, %.preheader112 ], [ %27, %.preheader116 ], [ %27, %.thread98.loopexit108.loopexit ], [ %27, %.preheader107 ], [ %27, %.preheader109 ], [ %27, %1988 ], [ %27, %.preheader114 ], [ %27, %.preheader118 ], [ %27, %.thread98.loopexit121.loopexit ], [ %27, %.preheader120 ], [ %27, %get_type_length.exit1711 ], [ %27, %get_type_length.exit1716 ], [ %27, %get_type_length.exit1746 ], [ %27, %get_type_length.exit1756 ], [ %27, %get_type_length.exit1646 ], [ %.2, %742 ], [ %27, %get_type_length.exit1676 ], [ %27, %get_type_length.exit1691 ]
+.thread98:                                        ; preds = %get_type_length.exit1691, %get_type_length.exit1676, %742, %get_type_length.exit1646, %get_type_length.exit1756, %get_type_length.exit1746, %get_type_length.exit1716, %get_type_length.exit1711, %.preheader120, %.thread98.loopexit121.loopexit, %.preheader118, %.preheader114, %1988, %.preheader109, %.preheader107, %.thread98.loopexit108.loopexit, %.preheader116, %.preheader112, %.preheader105, %.preheader, %1693, %1688, %1683, %1662, %1656, %1646, %1640, %1633, %1627, %1621, %1615, %1609, %1603, %1597, %1591, %1585, %1579, %1573, %1567, %1561, %1555, %1549, %1543, %1537, %1531, %1487, %1486, %1475, %1456, %1442, %1455, %1436, %1350, %1299, %1273, %1259, %1272, %1252, %1246, %1240, %1234, %1228, %1218, %1212, %1206, %1200, %1034, %1028, %1021, %1004, %994, %984, %947, %940, %903, %896, %890, %843, %856, %835, %828, %822, %817, %810, %803, %796, %790, %783, %753, %746, %563, %557, %550, %544, %537, %531, %525, %519, %498, %484, %497, %463, %437, %431, %417, %430, %402, %415, %395, %389, %383, %377, %350, %335, %321, %334, %314, %307, %255, %205, %197, %137, %110, %102, %96, %86, %84, %79, %72, %50, %2053, %2047, %2041, %1982, %1976, %1970, %1876, %1871, %1743, %1739, %1734, %1699, %2059, %2060, %get_uint_by_size.exit, %get_int_by_size.exit, %2088, %2092, %2101, %._crit_edge
+  %.0148096101 = phi i32 [ %27, %2059 ], [ %27, %2060 ], [ %27, %get_uint_by_size.exit ], [ %27, %get_int_by_size.exit ], [ %27, %2088 ], [ %27, %2092 ], [ %27, %2101 ], [ %27, %._crit_edge ], [ %27, %2053 ], [ %27, %2047 ], [ %27, %2041 ], [ %27, %1982 ], [ %27, %1976 ], [ %27, %1970 ], [ %27, %1876 ], [ %27, %1871 ], [ %27, %1743 ], [ %27, %1739 ], [ %27, %1734 ], [ %27, %1699 ], [ %27, %1693 ], [ %27, %1688 ], [ %27, %1683 ], [ %27, %1662 ], [ %27, %1656 ], [ %27, %1646 ], [ %27, %1640 ], [ %27, %1633 ], [ %27, %1627 ], [ %27, %1621 ], [ %27, %1615 ], [ %27, %1609 ], [ %27, %1603 ], [ %27, %1597 ], [ %27, %1591 ], [ %27, %1585 ], [ %27, %1579 ], [ %27, %1573 ], [ %27, %1567 ], [ %27, %1561 ], [ %27, %1555 ], [ %27, %1549 ], [ %27, %1543 ], [ %27, %1537 ], [ %27, %1531 ], [ %27, %1487 ], [ %27, %1486 ], [ %27, %1475 ], [ %27, %1456 ], [ %27, %1442 ], [ %27, %1455 ], [ %27, %1436 ], [ %27, %1350 ], [ %27, %1299 ], [ %27, %1273 ], [ %27, %1259 ], [ %27, %1272 ], [ %27, %1252 ], [ %27, %1246 ], [ %27, %1240 ], [ %27, %1234 ], [ %27, %1228 ], [ %27, %1218 ], [ %27, %1212 ], [ %27, %1206 ], [ %27, %1200 ], [ %27, %1034 ], [ %27, %1028 ], [ %27, %1021 ], [ %27, %1004 ], [ %27, %994 ], [ %27, %984 ], [ %27, %947 ], [ %27, %940 ], [ %27, %903 ], [ %27, %896 ], [ %27, %890 ], [ %27, %843 ], [ %27, %856 ], [ %27, %835 ], [ %27, %828 ], [ %27, %822 ], [ %27, %817 ], [ %27, %810 ], [ %27, %803 ], [ %27, %796 ], [ %27, %790 ], [ %27, %783 ], [ %27, %753 ], [ %27, %746 ], [ %27, %563 ], [ %27, %557 ], [ %27, %550 ], [ %27, %544 ], [ %27, %537 ], [ %27, %531 ], [ %27, %525 ], [ %27, %519 ], [ %27, %498 ], [ %27, %484 ], [ %27, %497 ], [ %27, %463 ], [ %27, %437 ], [ %27, %431 ], [ %27, %417 ], [ %27, %430 ], [ %27, %402 ], [ %27, %415 ], [ %27, %395 ], [ %27, %389 ], [ %27, %383 ], [ %27, %377 ], [ %27, %350 ], [ %27, %335 ], [ %27, %321 ], [ %27, %334 ], [ %27, %314 ], [ %27, %307 ], [ %27, %255 ], [ %27, %205 ], [ %27, %197 ], [ %27, %137 ], [ %27, %110 ], [ %27, %102 ], [ %27, %96 ], [ %27, %86 ], [ %27, %84 ], [ %27, %79 ], [ %27, %72 ], [ %27, %50 ], [ %27, %.preheader ], [ %27, %.preheader105 ], [ %27, %.preheader112 ], [ %27, %.preheader116 ], [ %27, %.thread98.loopexit108.loopexit ], [ %27, %.preheader107 ], [ %27, %.preheader109 ], [ %27, %1988 ], [ %27, %.preheader114 ], [ %27, %.preheader118 ], [ %27, %.thread98.loopexit121.loopexit ], [ %27, %.preheader120 ], [ %27, %get_type_length.exit1711 ], [ %27, %get_type_length.exit1716 ], [ %27, %get_type_length.exit1746 ], [ %27, %get_type_length.exit1756 ], [ %27, %get_type_length.exit1646 ], [ %.2, %742 ], [ %27, %get_type_length.exit1676 ], [ %27, %get_type_length.exit1691 ]
   %2127 = sub i32 %.0148096101, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #10
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #10
@@ -8501,8 +8501,8 @@ default.unreachable:                              ; preds = %256, %144, %get_typ
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %82, %90, %93, %94, %95, %96, %100, %104
-  %.022.i = phi i32 [ %88, %82 ], [ %88, %90 ], [ %88, %93 ], [ %88, %94 ], [ %88, %95 ], [ %99, %96 ], [ %103, %100 ], [ %106, %104 ]
-  %107 = phi i32 [ 2, %82 ], [ %92, %90 ], [ 4, %93 ], [ 8, %94 ], [ 16, %95 ], [ %98, %96 ], [ %102, %100 ], [ %spec.select.i, %104 ]
+  %.022.i = phi i32 [ %88, %82 ], [ %103, %100 ], [ %99, %96 ], [ %88, %95 ], [ %88, %94 ], [ %88, %93 ], [ %88, %90 ], [ %106, %104 ]
+  %107 = phi i32 [ 2, %82 ], [ %102, %100 ], [ %98, %96 ], [ 16, %95 ], [ 8, %94 ], [ 4, %93 ], [ %92, %90 ], [ %spec.select.i, %104 ]
   %108 = sub i32 %.022.i, %.0159251
   %109 = add i32 %108, %107
   call void @proto_item_set_len(ptr noundef %84, i32 noundef %109)
@@ -8561,8 +8561,8 @@ get_type_length.exit:                             ; preds = %82, %90, %93, %94, 
   br label %get_type_length.exit174
 
 get_type_length.exit174:                          ; preds = %get_type_length.exit, %120, %123, %124, %125, %126, %130, %134
-  %.022.i172 = phi i32 [ %118, %get_type_length.exit ], [ %118, %120 ], [ %118, %123 ], [ %118, %124 ], [ %118, %125 ], [ %129, %126 ], [ %133, %130 ], [ %136, %134 ]
-  %137 = phi i32 [ 2, %get_type_length.exit ], [ %122, %120 ], [ 4, %123 ], [ 8, %124 ], [ 16, %125 ], [ %128, %126 ], [ %132, %130 ], [ %spec.select.i171, %134 ]
+  %.022.i172 = phi i32 [ %118, %get_type_length.exit ], [ %133, %130 ], [ %129, %126 ], [ %118, %125 ], [ %118, %124 ], [ %118, %123 ], [ %118, %120 ], [ %136, %134 ]
+  %137 = phi i32 [ 2, %get_type_length.exit ], [ %132, %130 ], [ %128, %126 ], [ 16, %125 ], [ 8, %124 ], [ 4, %123 ], [ %122, %120 ], [ %spec.select.i171, %134 ]
   %138 = load ptr, ptr %29, align 8
   call fastcc void @dissect_uuid(ptr noundef %138, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i172, i32 noundef %137, ptr noundef nonnull %31)
   %139 = load ptr, ptr %33, align 8
@@ -8619,8 +8619,8 @@ get_type_length.exit174:                          ; preds = %get_type_length.exi
   br label %get_type_length.exit179
 
 get_type_length.exit179:                          ; preds = %149, %153, %157, %161
-  %.022.i177 = phi i32 [ %147, %149 ], [ %156, %153 ], [ %160, %157 ], [ %163, %161 ]
-  %164 = phi i32 [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %spec.select.i176, %161 ]
+  %.022.i177 = phi i32 [ %160, %157 ], [ %156, %153 ], [ %147, %149 ], [ %163, %161 ]
+  %164 = phi i32 [ %159, %157 ], [ %155, %153 ], [ %151, %149 ], [ %spec.select.i176, %161 ]
   %165 = lshr i32 %164, 1
   switch i32 %165, label %get_int_by_size.exit [
     i32 0, label %166
@@ -8647,9 +8647,9 @@ get_type_length.exit179.thread220:                ; preds = %144, %get_type_leng
   br label %get_int_by_size.exit
 
 get_int_by_size.exit:                             ; preds = %144, %152, %get_type_length.exit179, %166, %get_type_length.exit179.thread217, %get_type_length.exit179.thread220
-  %174 = phi i32 [ %172, %get_type_length.exit179.thread220 ], [ %169, %get_type_length.exit179.thread217 ], [ %164, %166 ], [ %164, %get_type_length.exit179 ], [ 16, %152 ], [ 8, %144 ]
-  %.022.i177216 = phi i32 [ %.022.i177222, %get_type_length.exit179.thread220 ], [ %.022.i177219, %get_type_length.exit179.thread217 ], [ %.022.i177, %166 ], [ %.022.i177, %get_type_length.exit179 ], [ %147, %152 ], [ %147, %144 ]
-  %.0.i = phi i32 [ %173, %get_type_length.exit179.thread220 ], [ %171, %get_type_length.exit179.thread217 ], [ %168, %166 ], [ -1, %get_type_length.exit179 ], [ -1, %152 ], [ -1, %144 ]
+  %174 = phi i32 [ %164, %166 ], [ %169, %get_type_length.exit179.thread217 ], [ %172, %get_type_length.exit179.thread220 ], [ %164, %get_type_length.exit179 ], [ 16, %152 ], [ 8, %144 ]
+  %.022.i177216 = phi i32 [ %.022.i177, %166 ], [ %.022.i177219, %get_type_length.exit179.thread217 ], [ %.022.i177222, %get_type_length.exit179.thread220 ], [ %.022.i177, %get_type_length.exit179 ], [ %147, %152 ], [ %147, %144 ]
+  %.0.i = phi i32 [ %168, %166 ], [ %171, %get_type_length.exit179.thread217 ], [ %173, %get_type_length.exit179.thread220 ], [ -1, %get_type_length.exit179 ], [ -1, %152 ], [ -1, %144 ]
   %175 = load i16, ptr %31, align 2
   switch i16 %175, label %291 [
     i16 256, label %176
@@ -8938,8 +8938,8 @@ get_int_by_size.exit:                             ; preds = %144, %152, %get_typ
   br label %get_type_length.exit184
 
 get_type_length.exit184:                          ; preds = %262, %266, %270, %274
-  %.022.i182 = phi i32 [ %260, %262 ], [ %269, %266 ], [ %273, %270 ], [ %276, %274 ]
-  %277 = phi i32 [ %264, %262 ], [ %268, %266 ], [ %272, %270 ], [ %spec.select.i181, %274 ]
+  %.022.i182 = phi i32 [ %273, %270 ], [ %269, %266 ], [ %260, %262 ], [ %276, %274 ]
+  %277 = phi i32 [ %272, %270 ], [ %268, %266 ], [ %264, %262 ], [ %spec.select.i181, %274 ]
   %278 = lshr i32 %277, 1
   switch i32 %278, label %get_int_by_size.exit186 [
     i32 0, label %279
@@ -8966,9 +8966,9 @@ get_type_length.exit184.thread229:                ; preds = %256, %get_type_leng
   br label %get_int_by_size.exit186
 
 get_int_by_size.exit186:                          ; preds = %256, %265, %get_type_length.exit184, %279, %get_type_length.exit184.thread226, %get_type_length.exit184.thread229
-  %287 = phi i32 [ %285, %get_type_length.exit184.thread229 ], [ %282, %get_type_length.exit184.thread226 ], [ %277, %279 ], [ %277, %get_type_length.exit184 ], [ 16, %265 ], [ 8, %256 ]
-  %.022.i182225 = phi i32 [ %.022.i182231, %get_type_length.exit184.thread229 ], [ %.022.i182228, %get_type_length.exit184.thread226 ], [ %.022.i182, %279 ], [ %.022.i182, %get_type_length.exit184 ], [ %260, %265 ], [ %260, %256 ]
-  %.0.i185 = phi i32 [ %286, %get_type_length.exit184.thread229 ], [ %284, %get_type_length.exit184.thread226 ], [ %281, %279 ], [ -1, %get_type_length.exit184 ], [ -1, %265 ], [ -1, %256 ]
+  %287 = phi i32 [ %277, %279 ], [ %282, %get_type_length.exit184.thread226 ], [ %285, %get_type_length.exit184.thread229 ], [ %277, %get_type_length.exit184 ], [ 16, %265 ], [ 8, %256 ]
+  %.022.i182225 = phi i32 [ %.022.i182, %279 ], [ %.022.i182228, %get_type_length.exit184.thread226 ], [ %.022.i182231, %get_type_length.exit184.thread229 ], [ %.022.i182, %get_type_length.exit184 ], [ %260, %265 ], [ %260, %256 ]
+  %.0.i185 = phi i32 [ %281, %279 ], [ %284, %get_type_length.exit184.thread226 ], [ %286, %get_type_length.exit184.thread229 ], [ -1, %get_type_length.exit184 ], [ -1, %265 ], [ -1, %256 ]
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef nonnull @.str.1083, i32 noundef %.0.i185)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.1084, i32 noundef %.0.i185)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %113, ptr noundef nonnull @.str.1084, i32 noundef %.0.i185)
@@ -8989,9 +8989,9 @@ get_int_by_size.exit186:                          ; preds = %256, %265, %get_typ
   br label %297
 
 297:                                              ; preds = %247, %250, %get_int_by_size.exit186, %291, %210
-  %.0214 = phi i32 [ %174, %291 ], [ %174, %250 ], [ %287, %get_int_by_size.exit186 ], [ %174, %247 ], [ %174, %210 ]
-  %.1163 = phi i32 [ %.022.i177216, %291 ], [ %.022.i177216, %250 ], [ %.022.i182225, %get_int_by_size.exit186 ], [ %.022.i177216, %247 ], [ %.022.i177216, %210 ]
-  %.3 = phi ptr [ %.0160250, %291 ], [ %.0160250, %250 ], [ %.0160250, %get_int_by_size.exit186 ], [ %.4, %247 ], [ %.2, %210 ]
+  %.0214 = phi i32 [ %174, %291 ], [ %174, %210 ], [ %174, %247 ], [ %174, %250 ], [ %287, %get_int_by_size.exit186 ]
+  %.1163 = phi i32 [ %.022.i177216, %291 ], [ %.022.i177216, %210 ], [ %.022.i177216, %247 ], [ %.022.i177216, %250 ], [ %.022.i182225, %get_int_by_size.exit186 ]
+  %.3 = phi ptr [ %.0160250, %291 ], [ %.2, %210 ], [ %.4, %247 ], [ %.0160250, %250 ], [ %.0160250, %get_int_by_size.exit186 ]
   %298 = add i32 %.1163, %.0214
   %.pre = sub i32 %298, %.022.i
   br label %299
@@ -9054,8 +9054,8 @@ get_int_by_size.exit186:                          ; preds = %256, %265, %get_typ
   br label %get_type_length.exit191
 
 get_type_length.exit191:                          ; preds = %.lr.ph246, %305, %308, %309, %310, %311, %315, %319
-  %.022.i189 = phi i32 [ %303, %.lr.ph246 ], [ %303, %305 ], [ %303, %308 ], [ %303, %309 ], [ %303, %310 ], [ %314, %311 ], [ %318, %315 ], [ %321, %319 ]
-  %322 = phi i32 [ 2, %.lr.ph246 ], [ %307, %305 ], [ 4, %308 ], [ 8, %309 ], [ 16, %310 ], [ %313, %311 ], [ %317, %315 ], [ %spec.select.i188, %319 ]
+  %.022.i189 = phi i32 [ %303, %.lr.ph246 ], [ %318, %315 ], [ %314, %311 ], [ %303, %310 ], [ %303, %309 ], [ %303, %308 ], [ %303, %305 ], [ %321, %319 ]
+  %322 = phi i32 [ 2, %.lr.ph246 ], [ %317, %315 ], [ %313, %311 ], [ 16, %310 ], [ 8, %309 ], [ 4, %308 ], [ %307, %305 ], [ %spec.select.i188, %319 ]
   %323 = load i16, ptr %31, align 2
   %324 = icmp eq i16 %323, 15
   br i1 %324, label %325, label %366
@@ -9114,8 +9114,8 @@ get_type_length.exit191:                          ; preds = %.lr.ph246, %305, %3
   br label %get_type_length.exit196
 
 get_type_length.exit196:                          ; preds = %332, %336, %340, %344
-  %.022.i194 = phi i32 [ %330, %332 ], [ %339, %336 ], [ %343, %340 ], [ %346, %344 ]
-  %347 = phi i32 [ %334, %332 ], [ %338, %336 ], [ %342, %340 ], [ %spec.select.i193, %344 ]
+  %.022.i194 = phi i32 [ %343, %340 ], [ %339, %336 ], [ %330, %332 ], [ %346, %344 ]
+  %347 = phi i32 [ %342, %340 ], [ %338, %336 ], [ %334, %332 ], [ %spec.select.i193, %344 ]
   %348 = lshr i32 %347, 1
   switch i32 %348, label %get_int_by_size.exit198 [
     i32 0, label %349
@@ -9142,9 +9142,9 @@ get_type_length.exit196.thread238:                ; preds = %327, %get_type_leng
   br label %get_int_by_size.exit198
 
 get_int_by_size.exit198:                          ; preds = %327, %335, %get_type_length.exit196, %349, %get_type_length.exit196.thread235, %get_type_length.exit196.thread238
-  %357 = phi i32 [ %355, %get_type_length.exit196.thread238 ], [ %352, %get_type_length.exit196.thread235 ], [ %347, %349 ], [ %347, %get_type_length.exit196 ], [ 16, %335 ], [ 8, %327 ]
-  %.022.i194234 = phi i32 [ %.022.i194240, %get_type_length.exit196.thread238 ], [ %.022.i194237, %get_type_length.exit196.thread235 ], [ %.022.i194, %349 ], [ %.022.i194, %get_type_length.exit196 ], [ %330, %335 ], [ %330, %327 ]
-  %.0.i197 = phi i32 [ %356, %get_type_length.exit196.thread238 ], [ %354, %get_type_length.exit196.thread235 ], [ %351, %349 ], [ -1, %get_type_length.exit196 ], [ -1, %335 ], [ -1, %327 ]
+  %357 = phi i32 [ %347, %349 ], [ %352, %get_type_length.exit196.thread235 ], [ %355, %get_type_length.exit196.thread238 ], [ %347, %get_type_length.exit196 ], [ 16, %335 ], [ 8, %327 ]
+  %.022.i194234 = phi i32 [ %.022.i194, %349 ], [ %.022.i194237, %get_type_length.exit196.thread235 ], [ %.022.i194240, %get_type_length.exit196.thread238 ], [ %.022.i194, %get_type_length.exit196 ], [ %330, %335 ], [ %330, %327 ]
+  %.0.i197 = phi i32 [ %351, %349 ], [ %354, %get_type_length.exit196.thread235 ], [ %356, %get_type_length.exit196.thread238 ], [ -1, %get_type_length.exit196 ], [ -1, %335 ], [ -1, %327 ]
   %358 = load ptr, ptr %30, align 8
   %359 = load i32, ptr @hf_sdp_protocol_bnep_type, align 4
   %360 = call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %359, ptr noundef %1, i32 noundef %.022.i194234, i32 noundef 2, i32 noundef 0)
@@ -9319,8 +9319,8 @@ default.unreachable:                              ; preds = %5
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %5, %15, %18, %19, %20, %21, %25, %29
-  %.022.i = phi i32 [ %13, %5 ], [ %13, %15 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
-  %32 = phi i32 [ 2, %5 ], [ %17, %15 ], [ 4, %18 ], [ 8, %19 ], [ 16, %20 ], [ %23, %21 ], [ %27, %25 ], [ %spec.select.i, %29 ]
+  %.022.i = phi i32 [ %13, %5 ], [ %28, %25 ], [ %24, %21 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %15 ], [ %31, %29 ]
+  %32 = phi i32 [ 2, %5 ], [ %27, %25 ], [ %23, %21 ], [ 16, %20 ], [ 8, %19 ], [ 4, %18 ], [ %17, %15 ], [ %spec.select.i, %29 ]
   %33 = sub i32 %.022.i, %2
   %34 = add i32 %33, %32
   call void @proto_item_set_len(ptr noundef %8, i32 noundef %34)
@@ -9562,13 +9562,13 @@ define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr no
   %82 = load i32, ptr @hf_service_attribute_id_mps, align 4
   br label %83
 
-83:                                               ; preds = %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %17, %14
-  %.0110.ph = phi i32 [ -1, %14 ], [ %19, %17 ], [ -1, %20 ], [ -1, %22 ], [ -1, %24 ], [ -1, %26 ], [ -1, %28 ], [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ -1, %43 ], [ -1, %45 ], [ -1, %47 ], [ -1, %49 ], [ -1, %51 ], [ -1, %53 ], [ -1, %55 ], [ -1, %57 ], [ -1, %59 ], [ -1, %61 ], [ -1, %63 ], [ -1, %65 ], [ -1, %67 ], [ -1, %69 ], [ -1, %71 ], [ -1, %73 ], [ -1, %75 ], [ -1, %77 ], [ -1, %79 ], [ -1, %81 ]
-  %.0109.ph = phi i32 [ -1, %14 ], [ %18, %17 ], [ -1, %20 ], [ -1, %22 ], [ -1, %24 ], [ -1, %26 ], [ -1, %28 ], [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ -1, %43 ], [ -1, %45 ], [ -1, %47 ], [ -1, %49 ], [ -1, %51 ], [ -1, %53 ], [ -1, %55 ], [ -1, %57 ], [ -1, %59 ], [ -1, %61 ], [ -1, %63 ], [ -1, %65 ], [ -1, %67 ], [ -1, %69 ], [ -1, %71 ], [ -1, %73 ], [ -1, %75 ], [ -1, %77 ], [ -1, %79 ], [ -1, %81 ]
-  %.0108.ph = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %20 ], [ -1, %22 ], [ -1, %24 ], [ -1, %26 ], [ -1, %28 ], [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ %44, %43 ], [ -1, %45 ], [ -1, %47 ], [ -1, %49 ], [ -1, %51 ], [ -1, %53 ], [ -1, %55 ], [ -1, %57 ], [ -1, %59 ], [ -1, %61 ], [ -1, %63 ], [ -1, %65 ], [ -1, %67 ], [ -1, %69 ], [ -1, %71 ], [ -1, %73 ], [ -1, %75 ], [ -1, %77 ], [ -1, %79 ], [ -1, %81 ]
-  %.0106.ph = phi i32 [ %15, %14 ], [ %15, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %41, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ]
-  %.0105.ph = phi ptr [ @vs_did_attribute_id, %14 ], [ @vs_did_attribute_id, %17 ], [ @vs_hid_attribute_id, %20 ], [ @vs_synch_attribute_id, %22 ], [ @vs_pbap_attribute_id, %24 ], [ @vs_pan_nap_attribute_id, %26 ], [ @vs_pan_gn_attribute_id, %28 ], [ @vs_pan_panu_attribute_id, %30 ], [ @vs_opp_attribute_id, %32 ], [ @vs_map_mas_attribute_id, %34 ], [ @vs_map_mns_attribute_id, %36 ], [ @vs_wap_attribute_id, %38 ], [ @vs_hdp_attribute_id, %40 ], [ @vs_hdp_attribute_id, %43 ], [ @vs_hsp_attribute_id, %45 ], [ @vs_hcrp_attribute_id, %47 ], [ @vs_hfp_gw_attribute_id, %49 ], [ @vs_hfp_ag_attribute_id, %51 ], [ @vs_gnss_attribute_id, %53 ], [ @vs_ftp_attribute_id, %55 ], [ @vs_fax_attribute_id, %57 ], [ @vs_ctp_attribute_id, %59 ], [ @vs_a2dp_attribute_id, %61 ], [ @vs_avrcp_attribute_id, %63 ], [ @vs_bip_imaging_responder_attribute_id, %65 ], [ @vs_bip_imaging_other_attribute_id, %67 ], [ @vs_bip_imaging_other_attribute_id, %69 ], [ @vs_bpp_attribute_id, %71 ], [ @vs_bpp_reflected_ui_attribute_id, %73 ], [ @vs_dun_attribute_id, %75 ], [ @vs_ctn_as_attribute_id, %77 ], [ @vs_ctn_ns_attribute_id, %79 ], [ @vs_mps_attribute_id, %81 ]
-  %.0104.ph = phi ptr [ @.str.1100, %14 ], [ @.str.1100, %17 ], [ @.str.1101, %20 ], [ @.str.1102, %22 ], [ @.str.1103, %24 ], [ @.str.1104, %26 ], [ @.str.1105, %28 ], [ @.str.1106, %30 ], [ @.str.1107, %32 ], [ @.str.1108, %34 ], [ @.str.1109, %36 ], [ @.str.1110, %38 ], [ @.str.1111, %40 ], [ @.str.1111, %43 ], [ @.str.1112, %45 ], [ @.str.1113, %47 ], [ @.str.1114, %49 ], [ @.str.1115, %51 ], [ @.str.1116, %53 ], [ @.str.1117, %55 ], [ @.str.1118, %57 ], [ @.str.1119, %59 ], [ @.str.1120, %61 ], [ @.str.1121, %63 ], [ @.str.1122, %65 ], [ @.str.1123, %67 ], [ @.str.1124, %69 ], [ @.str.1125, %71 ], [ @.str.1126, %73 ], [ @.str.1127, %75 ], [ @.str.1128, %77 ], [ @.str.1129, %79 ], [ @.str.1130, %81 ]
+83:                                               ; preds = %17, %14, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %43, %40, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81
+  %.0110.ph = phi i32 [ -1, %81 ], [ -1, %79 ], [ -1, %77 ], [ -1, %75 ], [ -1, %73 ], [ -1, %71 ], [ -1, %69 ], [ -1, %67 ], [ -1, %65 ], [ -1, %63 ], [ -1, %61 ], [ -1, %59 ], [ -1, %57 ], [ -1, %55 ], [ -1, %53 ], [ -1, %51 ], [ -1, %49 ], [ -1, %47 ], [ -1, %45 ], [ -1, %40 ], [ -1, %43 ], [ -1, %38 ], [ -1, %36 ], [ -1, %34 ], [ -1, %32 ], [ -1, %30 ], [ -1, %28 ], [ -1, %26 ], [ -1, %24 ], [ -1, %22 ], [ -1, %20 ], [ -1, %14 ], [ %19, %17 ]
+  %.0109.ph = phi i32 [ -1, %81 ], [ -1, %79 ], [ -1, %77 ], [ -1, %75 ], [ -1, %73 ], [ -1, %71 ], [ -1, %69 ], [ -1, %67 ], [ -1, %65 ], [ -1, %63 ], [ -1, %61 ], [ -1, %59 ], [ -1, %57 ], [ -1, %55 ], [ -1, %53 ], [ -1, %51 ], [ -1, %49 ], [ -1, %47 ], [ -1, %45 ], [ -1, %40 ], [ -1, %43 ], [ -1, %38 ], [ -1, %36 ], [ -1, %34 ], [ -1, %32 ], [ -1, %30 ], [ -1, %28 ], [ -1, %26 ], [ -1, %24 ], [ -1, %22 ], [ -1, %20 ], [ -1, %14 ], [ %18, %17 ]
+  %.0108.ph = phi i32 [ -1, %81 ], [ -1, %79 ], [ -1, %77 ], [ -1, %75 ], [ -1, %73 ], [ -1, %71 ], [ -1, %69 ], [ -1, %67 ], [ -1, %65 ], [ -1, %63 ], [ -1, %61 ], [ -1, %59 ], [ -1, %57 ], [ -1, %55 ], [ -1, %53 ], [ -1, %51 ], [ -1, %49 ], [ -1, %47 ], [ -1, %45 ], [ -1, %40 ], [ %44, %43 ], [ -1, %38 ], [ -1, %36 ], [ -1, %34 ], [ -1, %32 ], [ -1, %30 ], [ -1, %28 ], [ -1, %26 ], [ -1, %24 ], [ -1, %22 ], [ -1, %20 ], [ -1, %14 ], [ -1, %17 ]
+  %.0106.ph = phi i32 [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %41, %40 ], [ %41, %43 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %15, %14 ], [ %15, %17 ]
+  %.0105.ph = phi ptr [ @vs_mps_attribute_id, %81 ], [ @vs_ctn_ns_attribute_id, %79 ], [ @vs_ctn_as_attribute_id, %77 ], [ @vs_dun_attribute_id, %75 ], [ @vs_bpp_reflected_ui_attribute_id, %73 ], [ @vs_bpp_attribute_id, %71 ], [ @vs_bip_imaging_other_attribute_id, %69 ], [ @vs_bip_imaging_other_attribute_id, %67 ], [ @vs_bip_imaging_responder_attribute_id, %65 ], [ @vs_avrcp_attribute_id, %63 ], [ @vs_a2dp_attribute_id, %61 ], [ @vs_ctp_attribute_id, %59 ], [ @vs_fax_attribute_id, %57 ], [ @vs_ftp_attribute_id, %55 ], [ @vs_gnss_attribute_id, %53 ], [ @vs_hfp_ag_attribute_id, %51 ], [ @vs_hfp_gw_attribute_id, %49 ], [ @vs_hcrp_attribute_id, %47 ], [ @vs_hsp_attribute_id, %45 ], [ @vs_hdp_attribute_id, %40 ], [ @vs_hdp_attribute_id, %43 ], [ @vs_wap_attribute_id, %38 ], [ @vs_map_mns_attribute_id, %36 ], [ @vs_map_mas_attribute_id, %34 ], [ @vs_opp_attribute_id, %32 ], [ @vs_pan_panu_attribute_id, %30 ], [ @vs_pan_gn_attribute_id, %28 ], [ @vs_pan_nap_attribute_id, %26 ], [ @vs_pbap_attribute_id, %24 ], [ @vs_synch_attribute_id, %22 ], [ @vs_hid_attribute_id, %20 ], [ @vs_did_attribute_id, %14 ], [ @vs_did_attribute_id, %17 ]
+  %.0104.ph = phi ptr [ @.str.1130, %81 ], [ @.str.1129, %79 ], [ @.str.1128, %77 ], [ @.str.1127, %75 ], [ @.str.1126, %73 ], [ @.str.1125, %71 ], [ @.str.1124, %69 ], [ @.str.1123, %67 ], [ @.str.1122, %65 ], [ @.str.1121, %63 ], [ @.str.1120, %61 ], [ @.str.1119, %59 ], [ @.str.1118, %57 ], [ @.str.1117, %55 ], [ @.str.1116, %53 ], [ @.str.1115, %51 ], [ @.str.1114, %49 ], [ @.str.1113, %47 ], [ @.str.1112, %45 ], [ @.str.1111, %40 ], [ @.str.1111, %43 ], [ @.str.1110, %38 ], [ @.str.1109, %36 ], [ @.str.1108, %34 ], [ @.str.1107, %32 ], [ @.str.1106, %30 ], [ @.str.1105, %28 ], [ @.str.1104, %26 ], [ @.str.1103, %24 ], [ @.str.1102, %22 ], [ @.str.1101, %20 ], [ @.str.1100, %14 ], [ @.str.1100, %17 ]
   %84 = zext i16 %13 to i32
   %85 = tail call ptr @try_val_to_str(i32 noundef %84, ptr noundef nonnull %.0105.ph)
   %.not114 = icmp eq ptr %85, null
@@ -9702,8 +9702,8 @@ default.unreachable:                              ; preds = %127
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %127, %138, %141, %142, %143, %144, %148, %152
-  %.022.i = phi i32 [ %136, %127 ], [ %136, %138 ], [ %136, %141 ], [ %136, %142 ], [ %136, %143 ], [ %147, %144 ], [ %151, %148 ], [ %154, %152 ]
-  %155 = phi i32 [ 2, %127 ], [ %140, %138 ], [ 4, %141 ], [ 8, %142 ], [ 16, %143 ], [ %146, %144 ], [ %150, %148 ], [ %spec.select.i, %152 ]
+  %.022.i = phi i32 [ %136, %127 ], [ %151, %148 ], [ %147, %144 ], [ %136, %143 ], [ %136, %142 ], [ %136, %141 ], [ %136, %138 ], [ %154, %152 ]
+  %155 = phi i32 [ 2, %127 ], [ %150, %148 ], [ %146, %144 ], [ 16, %143 ], [ 8, %142 ], [ 4, %141 ], [ %140, %138 ], [ %spec.select.i, %152 ]
   %156 = load ptr, ptr %10, align 8
   %157 = call ptr @wmem_strbuf_get_str(ptr noundef %156)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.010327, ptr noundef nonnull @.str.1134, ptr noundef %157)
@@ -9790,8 +9790,8 @@ default.unreachable:                              ; preds = %get_type_length.exi
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %5, %9, %12, %13, %14, %15, %19, %23
-  %.022.i = phi i32 [ %7, %5 ], [ %7, %9 ], [ %7, %12 ], [ %7, %13 ], [ %7, %14 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
-  %26 = phi i32 [ 2, %5 ], [ %11, %9 ], [ 4, %12 ], [ 8, %13 ], [ 16, %14 ], [ %17, %15 ], [ %21, %19 ], [ %spec.select.i, %23 ]
+  %.022.i = phi i32 [ %7, %5 ], [ %22, %19 ], [ %18, %15 ], [ %7, %14 ], [ %7, %13 ], [ %7, %12 ], [ %7, %9 ], [ %25, %23 ]
+  %26 = phi i32 [ 2, %5 ], [ %21, %19 ], [ %17, %15 ], [ 16, %14 ], [ 8, %13 ], [ 4, %12 ], [ %11, %9 ], [ %spec.select.i, %23 ]
   %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.022.i)
   %28 = add i32 %26, %.022.i
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
@@ -9842,8 +9842,8 @@ get_type_length.exit:                             ; preds = %5, %9, %12, %13, %1
   br label %get_type_length.exit22
 
 get_type_length.exit22:                           ; preds = %get_type_length.exit, %32, %35, %36, %37, %38, %42, %46
-  %.022.i20 = phi i32 [ %30, %get_type_length.exit ], [ %30, %32 ], [ %30, %35 ], [ %30, %36 ], [ %30, %37 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
-  %49 = phi i32 [ 2, %get_type_length.exit ], [ %34, %32 ], [ 4, %35 ], [ 8, %36 ], [ 16, %37 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select.i19, %46 ]
+  %.022.i20 = phi i32 [ %30, %get_type_length.exit ], [ %45, %42 ], [ %41, %38 ], [ %30, %37 ], [ %30, %36 ], [ %30, %35 ], [ %30, %32 ], [ %48, %46 ]
+  %49 = phi i32 [ 2, %get_type_length.exit ], [ %44, %42 ], [ %40, %38 ], [ 16, %37 ], [ 8, %36 ], [ 4, %35 ], [ %34, %32 ], [ %spec.select.i19, %46 ]
   %50 = zext i16 %27 to i32
   %51 = icmp eq i32 %3, %50
   br i1 %51, label %52, label %55
@@ -9948,8 +9948,8 @@ default.unreachable:                              ; preds = %get_type_length.exi
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %6, %26, %29, %30, %31, %32, %36, %40
-  %.022.i = phi i32 [ %24, %6 ], [ %24, %26 ], [ %24, %29 ], [ %24, %30 ], [ %24, %31 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ]
-  %43 = phi i32 [ 2, %6 ], [ %28, %26 ], [ 4, %29 ], [ 8, %30 ], [ 16, %31 ], [ %34, %32 ], [ %38, %36 ], [ %spec.select.i, %40 ]
+  %.022.i = phi i32 [ %24, %6 ], [ %39, %36 ], [ %35, %32 ], [ %24, %31 ], [ %24, %30 ], [ %24, %29 ], [ %24, %26 ], [ %42, %40 ]
+  %43 = phi i32 [ 2, %6 ], [ %38, %36 ], [ %34, %32 ], [ 16, %31 ], [ 8, %30 ], [ 4, %29 ], [ %28, %26 ], [ %spec.select.i, %40 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 noundef 0, i64 noundef 20, i1 noundef false) #10
   %44 = load i32, ptr @hf_attribute_list, align 4
   %45 = sub i32 %.022.i, %2
@@ -10012,8 +10012,8 @@ get_type_length.exit:                             ; preds = %6, %26, %29, %30, %
   br label %get_type_length.exit108
 
 get_type_length.exit108:                          ; preds = %.lr.ph132, %55, %58, %59, %60, %61, %65, %69
-  %.022.i106 = phi i32 [ %53, %.lr.ph132 ], [ %53, %55 ], [ %53, %58 ], [ %53, %59 ], [ %53, %60 ], [ %64, %61 ], [ %68, %65 ], [ %71, %69 ]
-  %72 = phi i32 [ 2, %.lr.ph132 ], [ %57, %55 ], [ 4, %58 ], [ 8, %59 ], [ 16, %60 ], [ %63, %61 ], [ %67, %65 ], [ %spec.select.i105, %69 ]
+  %.022.i106 = phi i32 [ %53, %.lr.ph132 ], [ %68, %65 ], [ %64, %61 ], [ %53, %60 ], [ %53, %59 ], [ %53, %58 ], [ %53, %55 ], [ %71, %69 ]
+  %72 = phi i32 [ 2, %.lr.ph132 ], [ %67, %65 ], [ %63, %61 ], [ 16, %60 ], [ 8, %59 ], [ 4, %58 ], [ %57, %55 ], [ %spec.select.i105, %69 ]
   %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.022.i106)
   %74 = add i32 %72, %.022.i106
   %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %74)
@@ -10064,8 +10064,8 @@ get_type_length.exit108:                          ; preds = %.lr.ph132, %55, %58
   br label %get_type_length.exit113
 
 get_type_length.exit113:                          ; preds = %get_type_length.exit108, %78, %81, %82, %83, %84, %88, %92
-  %.022.i111 = phi i32 [ %76, %get_type_length.exit108 ], [ %76, %78 ], [ %76, %81 ], [ %76, %82 ], [ %76, %83 ], [ %87, %84 ], [ %91, %88 ], [ %94, %92 ]
-  %95 = phi i32 [ 2, %get_type_length.exit108 ], [ %80, %78 ], [ 4, %81 ], [ 8, %82 ], [ 16, %83 ], [ %86, %84 ], [ %90, %88 ], [ %spec.select.i110, %92 ]
+  %.022.i111 = phi i32 [ %76, %get_type_length.exit108 ], [ %91, %88 ], [ %87, %84 ], [ %76, %83 ], [ %76, %82 ], [ %76, %81 ], [ %76, %78 ], [ %94, %92 ]
+  %95 = phi i32 [ 2, %get_type_length.exit108 ], [ %90, %88 ], [ %86, %84 ], [ 16, %83 ], [ 8, %82 ], [ 4, %81 ], [ %80, %78 ], [ %spec.select.i110, %92 ]
   %96 = icmp ne i16 %73, 1
   %.not103129 = icmp slt i32 %.022.i111, 0
   %or.cond139 = or i1 %96, %.not103129
@@ -10123,8 +10123,8 @@ get_type_length.exit113:                          ; preds = %get_type_length.exi
   br label %get_type_length.exit118
 
 get_type_length.exit118:                          ; preds = %101, %104, %107, %108, %109, %110, %113, %116
-  %.022.i116 = phi i32 [ %97, %101 ], [ %97, %104 ], [ %97, %107 ], [ %97, %108 ], [ %97, %109 ], [ %100, %110 ], [ %99, %113 ], [ %98, %116 ]
-  %118 = phi i32 [ 2, %101 ], [ %106, %104 ], [ 4, %107 ], [ 8, %108 ], [ 16, %109 ], [ %112, %110 ], [ %115, %113 ], [ %spec.select.i115, %116 ]
+  %.022.i116 = phi i32 [ %97, %101 ], [ %99, %113 ], [ %100, %110 ], [ %97, %109 ], [ %97, %108 ], [ %97, %107 ], [ %97, %104 ], [ %98, %116 ]
+  %118 = phi i32 [ 2, %101 ], [ %115, %113 ], [ %112, %110 ], [ 16, %109 ], [ 8, %108 ], [ 4, %107 ], [ %106, %104 ], [ %spec.select.i115, %116 ]
   call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef nonnull %8)
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %8, i32 noundef 1)
   %119 = add i32 %118, %.022.i116
@@ -10435,7 +10435,7 @@ default.unreachable:                              ; preds = %7
   br label %get_type_length.exit
 
 get_type_length.exit:                             ; preds = %7, %7, %7, %7, %7, %12, %15, %18
-  %.022.i = phi i32 [ %10, %7 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ]
+  %.022.i = phi i32 [ %10, %7 ], [ %17, %15 ], [ %14, %12 ], [ %20, %18 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ]
   %21 = load i32, ptr @hf_attribute_lists, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef 0)
   %23 = load i32, ptr @ett_btsdp_attribute, align 4

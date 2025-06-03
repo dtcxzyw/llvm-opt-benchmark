@@ -12225,8 +12225,8 @@ define linkonce_odr dso_local ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorI
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i
-  %45 = phi i8 [ %.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %40, %42 ]
-  %.sroa.032.1.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %43, %42 ]
+  %45 = phi i8 [ %40, %42 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.sroa.032.1.i.i = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %46 = load i8, ptr %.sroa.032.1.i.i, align 1, !tbaa !13
   %47 = icmp eq i8 %46, %45
   br i1 %47, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops17_Iter_equals_iterIS3_EEET_SE_SE_T0_.exit, label %48
@@ -12236,8 +12236,8 @@ define linkonce_odr dso_local ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorI
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge57.i.i
-  %51 = phi i8 [ %.pre58.i.i, %._crit_edge._crit_edge57.i.i ], [ %45, %48 ]
-  %.sroa.032.2.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge57.i.i ], [ %49, %48 ]
+  %51 = phi i8 [ %45, %48 ], [ %.pre58.i.i, %._crit_edge._crit_edge57.i.i ]
+  %.sroa.032.2.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge57.i.i ]
   %52 = load i8, ptr %.sroa.032.2.i.i, align 1, !tbaa !13
   %53 = icmp eq i8 %52, %51
   %spec.select.i.i = select i1 %53, ptr %.sroa.032.2.i.i, ptr %1
@@ -12321,8 +12321,8 @@ define linkonce_odr dso_local ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorI
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge._crit_edge.i.i36
-  %87 = phi i8 [ %.pre.i.i37, %._crit_edge._crit_edge.i.i36 ], [ %82, %84 ]
-  %.sroa.032.1.i.i38 = phi ptr [ %.sroa.032.0.lcssa.i.i30, %._crit_edge._crit_edge.i.i36 ], [ %85, %84 ]
+  %87 = phi i8 [ %82, %84 ], [ %.pre.i.i37, %._crit_edge._crit_edge.i.i36 ]
+  %.sroa.032.1.i.i38 = phi ptr [ %85, %84 ], [ %.sroa.032.0.lcssa.i.i30, %._crit_edge._crit_edge.i.i36 ]
   %88 = load i8, ptr %.sroa.032.1.i.i38, align 1, !tbaa !13
   %89 = icmp eq i8 %88, %87
   br i1 %89, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops17_Iter_equals_iterIS3_EEET_SE_SE_T0_.exit48, label %90
@@ -12332,8 +12332,8 @@ define linkonce_odr dso_local ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorI
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge._crit_edge57.i.i31
-  %93 = phi i8 [ %.pre58.i.i32, %._crit_edge._crit_edge57.i.i31 ], [ %87, %90 ]
-  %.sroa.032.2.i.i33 = phi ptr [ %.sroa.032.0.lcssa.i.i30, %._crit_edge._crit_edge57.i.i31 ], [ %91, %90 ]
+  %93 = phi i8 [ %87, %90 ], [ %.pre58.i.i32, %._crit_edge._crit_edge57.i.i31 ]
+  %.sroa.032.2.i.i33 = phi ptr [ %91, %90 ], [ %.sroa.032.0.lcssa.i.i30, %._crit_edge._crit_edge57.i.i31 ]
   %94 = load i8, ptr %.sroa.032.2.i.i33, align 1, !tbaa !13
   %95 = icmp eq i8 %94, %93
   %spec.select.i.i34 = select i1 %95, ptr %.sroa.032.2.i.i33, ptr %1

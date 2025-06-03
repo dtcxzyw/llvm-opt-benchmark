@@ -482,7 +482,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17haeb4fa83077f5952E.exit29:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17ha6ceffcc24984c87E.exit
 
 .thread:                                          ; preds = %61, %83, %82, %81, %80, %79, %78
-  %.sroa.02.0.i = phi ptr [ @anon.a1bfe059a22883e9ad1ac81269617c3a.26, %83 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.25, %82 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.24, %81 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.23, %80 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.22, %79 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.20, %78 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.19, %61 ]
+  %.sroa.02.0.i = phi ptr [ @anon.a1bfe059a22883e9ad1ac81269617c3a.20, %78 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.22, %79 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.23, %80 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.24, %81 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.25, %82 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.26, %83 ], [ @anon.a1bfe059a22883e9ad1ac81269617c3a.19, %61 ]
   %102 = load i64, ptr %6, align 8, !alias.scope !137, !noalias !148, !noundef !3
   %103 = load i64, ptr %.val22, align 8, !range !46, !alias.scope !137, !noalias !148, !noundef !3
   %104 = sub i64 %103, %102

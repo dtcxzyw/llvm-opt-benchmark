@@ -24078,7 +24078,7 @@ define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__25UsdImagin
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_GetOppositeFaceENS_12_GLOBAL__N_18AxesMaskE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L16_GetOppositeFaceENS_12_GLOBAL__N_18AxesMaskE.exit: ; preds = %16, %15, %14, %13, %12, %11, %10, %2
-  %17 = phi i8 [ %1, %2 ], [ %1, %16 ], [ 4, %15 ], [ 32, %14 ], [ 2, %13 ], [ 16, %12 ], [ 1, %11 ], [ 8, %10 ]
+  %17 = phi i8 [ %1, %2 ], [ %1, %16 ], [ 1, %11 ], [ 16, %12 ], [ 2, %13 ], [ 32, %14 ], [ 4, %15 ], [ 8, %10 ]
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias writable align 8 %4, i8 noundef zeroext %17)
           to label %18 unwind label %68
 

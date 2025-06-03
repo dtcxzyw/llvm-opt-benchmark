@@ -175,40 +175,40 @@ define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %0, ptr no
 
 _PyRawMutex_Lock.exit:                            ; preds = %6, %15
   switch i64 %2, label %28 [
-    i64 1, label %atomic_memcmp.exit
-    i64 2, label %16
-    i64 4, label %20
-    i64 8, label %24
+    i64 1, label %16
+    i64 2, label %20
+    i64 4, label %24
+    i64 8, label %atomic_memcmp.exit
   ]
 
 16:                                               ; preds = %_PyRawMutex_Lock.exit
-  %17 = load atomic i16, ptr %0 seq_cst, align 2
-  %18 = load i16, ptr %1, align 2, !tbaa !20
-  %19 = icmp eq i16 %17, %18
+  %17 = load atomic i8, ptr %0 seq_cst, align 1
+  %18 = load i8, ptr %1, align 1, !tbaa !20
+  %19 = icmp eq i8 %17, %18
   br i1 %19, label %36, label %32
 
 20:                                               ; preds = %_PyRawMutex_Lock.exit
-  %21 = load atomic i32, ptr %0 seq_cst, align 4
-  %22 = load i32, ptr %1, align 4, !tbaa !11
-  %23 = icmp eq i32 %21, %22
+  %21 = load atomic i16, ptr %0 seq_cst, align 2
+  %22 = load i16, ptr %1, align 2, !tbaa !21
+  %23 = icmp eq i16 %21, %22
   br i1 %23, label %36, label %32
 
 24:                                               ; preds = %_PyRawMutex_Lock.exit
-  %25 = load atomic i64, ptr %0 seq_cst, align 8
-  %26 = load i64, ptr %1, align 8, !tbaa !9
-  %27 = icmp eq i64 %25, %26
+  %25 = load atomic i32, ptr %0 seq_cst, align 4
+  %26 = load i32, ptr %1, align 4, !tbaa !11
+  %27 = icmp eq i32 %25, %26
   br i1 %27, label %36, label %32
 
 28:                                               ; preds = %_PyRawMutex_Lock.exit
   unreachable
 
 atomic_memcmp.exit:                               ; preds = %_PyRawMutex_Lock.exit
-  %29 = load atomic i8, ptr %0 seq_cst, align 1
-  %30 = load i8, ptr %1, align 1, !tbaa !22
-  %31 = icmp eq i8 %29, %30
+  %29 = load atomic i64, ptr %0 seq_cst, align 8
+  %30 = load i64, ptr %1, align 8, !tbaa !9
+  %31 = icmp eq i64 %29, %30
   br i1 %31, label %36, label %32
 
-32:                                               ; preds = %16, %20, %24, %atomic_memcmp.exit
+32:                                               ; preds = %24, %20, %16, %atomic_memcmp.exit
   %33 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %_PyRawMutex_Unlock.exit, label %35
@@ -217,7 +217,7 @@ atomic_memcmp.exit:                               ; preds = %_PyRawMutex_Lock.ex
   tail call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #9
   br label %_PyRawMutex_Unlock.exit
 
-36:                                               ; preds = %16, %20, %24, %atomic_memcmp.exit
+36:                                               ; preds = %24, %20, %16, %atomic_memcmp.exit
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %38 = call i32 @sem_init(ptr noundef nonnull %37, i32 noundef 0, i32 noundef 0) #9
   %39 = icmp slt i32 %38, 0
@@ -643,9 +643,9 @@ attributes #11 = { nounwind willreturn memory(none) }
 !17 = !{!"p1 _ZTS10llist_node", !6, i64 0}
 !18 = !{!"_Bool", !7, i64 0}
 !19 = !{!14, !10, i64 8}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !7, i64 0}
-!22 = !{!7, !7, i64 0}
+!20 = !{!7, !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !7, i64 0}
 !23 = !{!16, !17, i64 8}
 !24 = !{!16, !17, i64 0}
 !25 = !{!26, !10, i64 24}

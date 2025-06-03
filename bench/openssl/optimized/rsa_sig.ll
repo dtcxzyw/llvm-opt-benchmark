@@ -484,7 +484,7 @@ setup_tbuf.exit.thread:                           ; preds = %22, %setup_tbuf.exi
   br label %82
 
 82:                                               ; preds = %69, %setup_tbuf.exit, %6, %80, %79, %70, %58, %51, %47, %36, %11
-  %.047 = phi i32 [ 1, %11 ], [ 0, %70 ], [ 1, %80 ], [ 0, %69 ], [ 0, %36 ], [ 0, %47 ], [ 0, %51 ], [ 0, %58 ], [ 0, %79 ], [ 0, %6 ], [ 0, %setup_tbuf.exit ]
+  %.047 = phi i32 [ 1, %11 ], [ 0, %70 ], [ 0, %36 ], [ 0, %47 ], [ 0, %51 ], [ 0, %58 ], [ 1, %80 ], [ 0, %69 ], [ 0, %79 ], [ 0, %6 ], [ 0, %setup_tbuf.exit ]
   ret i32 %.047
 }
 
@@ -1030,7 +1030,7 @@ rsa_pss_compute_saltlen.exit.i:                   ; preds = %66
   %.not23.i = icmp eq i32 %89, 0
   br i1 %.not23.i, label %rsa_generate_signature_aid.exit.thread89, label %rsa_generate_signature_aid.exit
 
-rsa_generate_signature_aid.exit.thread89:         ; preds = %86, %88, %85, %22, %23, %33, %65, %70, %39, %46, %54
+rsa_generate_signature_aid.exit.thread89:         ; preds = %86, %88, %22, %23, %85, %33, %65, %70, %39, %46, %54
   call void @WPACKET_cleanup(ptr noundef nonnull %3) #11
   br label %.sink.split
 
@@ -1355,7 +1355,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %33
   br label %56
 
 56:                                               ; preds = %47, %55, %54
-  %.167 = phi ptr [ @.str.48, %55 ], [ @.str.47, %54 ], [ @.str.46, %47 ]
+  %.167 = phi ptr [ @.str.47, %54 ], [ @.str.48, %55 ], [ @.str.46, %47 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !20
   %59 = call i32 @RSA_test_flags(ptr noundef %58, i32 noundef 61440) #11
@@ -1603,7 +1603,7 @@ thread-pre-split115:                              ; preds = %70
   br label %.critedge108
 
 .critedge108:                                     ; preds = %14, %128, %120, %124, %33, %30, %62, %61, %35, %150, %147, %142, %67, %70, %23, %27, %ossl_param_is_empty.exit, %2, %154, %115, %108, %102, %92, %66
-  %.0 = phi i32 [ 0, %66 ], [ 0, %92 ], [ 0, %115 ], [ 1, %154 ], [ 0, %108 ], [ 0, %102 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %23 ], [ 0, %70 ], [ 0, %67 ], [ 0, %142 ], [ 0, %147 ], [ 0, %150 ], [ 0, %35 ], [ 0, %61 ], [ 0, %62 ], [ 0, %30 ], [ 0, %33 ], [ 0, %124 ], [ 0, %120 ], [ 0, %128 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %92 ], [ 0, %115 ], [ 1, %154 ], [ 0, %102 ], [ 0, %108 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %23 ], [ 0, %70 ], [ 0, %67 ], [ 0, %142 ], [ 0, %147 ], [ 0, %150 ], [ 0, %35 ], [ 0, %61 ], [ 0, %62 ], [ 0, %30 ], [ 0, %33 ], [ 0, %124 ], [ 0, %120 ], [ 0, %128 ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
@@ -3217,7 +3217,7 @@ thread-pre-split:                                 ; preds = %84
   br label %127
 
 127:                                              ; preds = %114, %.thread108, %40, %121, %56
-  %.183 = phi i32 [ %41, %40 ], [ %119, %114 ], [ %68, %56 ], [ %126, %121 ], [ %76, %.thread108 ]
+  %.183 = phi i32 [ %41, %40 ], [ %68, %56 ], [ %119, %114 ], [ %126, %121 ], [ %76, %.thread108 ]
   %128 = icmp slt i32 %.183, 1
   br i1 %128, label %129, label %130
 
@@ -3233,7 +3233,7 @@ thread-pre-split:                                 ; preds = %84
   br label %132
 
 132:                                              ; preds = %.thread111, %77, %.thread, %rsa_get_md_size.exit, %130, %129, %120, %55, %50, %26, %23, %20
-  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %120 ], [ 0, %77 ], [ 0, %50 ], [ 0, %55 ], [ 0, %rsa_get_md_size.exit ], [ 0, %.thread ], [ 0, %.thread111 ]
+  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %120 ], [ 0, %50 ], [ 0, %55 ], [ 0, %77 ], [ 0, %rsa_get_md_size.exit ], [ 0, %.thread ], [ 0, %.thread111 ]
   ret i32 %.079
 }
 
@@ -3532,7 +3532,7 @@ setup_tbuf.exit66.thread:                         ; preds = %64, %setup_tbuf.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %85, %80, %setup_tbuf.exit66, %83, %setup_tbuf.exit.thread, %setup_tbuf.exit, %15, %5, %63, %62, %23
-  %.0 = phi i32 [ 0, %63 ], [ %.1, %62 ], [ 0, %23 ], [ 0, %5 ], [ 1, %15 ], [ 0, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ 0, %83 ], [ 0, %setup_tbuf.exit66 ], [ 0, %80 ], [ %spec.select, %85 ]
+  %.0 = phi i32 [ 0, %63 ], [ 0, %23 ], [ %.1, %62 ], [ 0, %5 ], [ 1, %15 ], [ 0, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ 0, %83 ], [ 0, %setup_tbuf.exit66 ], [ 0, %80 ], [ %spec.select, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   ret i32 %.0
 }

@@ -1740,7 +1740,7 @@ define internal fastcc noundef i32 @dissect_eigrp_nexthop(ptr noundef %0, ptr no
   br label %20
 
 20:                                               ; preds = %4, %13, %9, %5
-  %.0 = phi i32 [ %3, %4 ], [ %19, %13 ], [ %12, %9 ], [ %8, %5 ]
+  %.0 = phi i32 [ %3, %4 ], [ %8, %5 ], [ %12, %9 ], [ %19, %13 ]
   ret i32 %.0
 }
 

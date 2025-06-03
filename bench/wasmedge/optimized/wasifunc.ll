@@ -16383,9 +16383,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %52
 
 52:                                               ; preds = %46, %48, %47
-  %.sroa.026.0 = phi ptr [ %51, %48 ], [ %.sroa.0.0.i, %47 ], [ %.sroa.0.0.i, %46 ]
-  %.sroa.4.0 = phi i64 [ 126, %48 ], [ 16, %47 ], [ 4, %46 ]
-  %.0 = phi i8 [ %50, %48 ], [ 2, %47 ], [ 1, %46 ]
+  %.sroa.026.0 = phi ptr [ %.sroa.0.0.i, %46 ], [ %.sroa.0.0.i, %47 ], [ %51, %48 ]
+  %.sroa.4.0 = phi i64 [ 4, %46 ], [ 16, %47 ], [ 126, %48 ]
+  %.0 = phi i8 [ 1, %46 ], [ 2, %47 ], [ %50, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %54 = load ptr, ptr %53, align 8
   %55 = trunc i32 %5 to i16
@@ -16513,9 +16513,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %52
 
 52:                                               ; preds = %46, %48, %47
-  %.sroa.026.0 = phi ptr [ %51, %48 ], [ %.sroa.0.0.i, %47 ], [ %.sroa.0.0.i, %46 ]
-  %.sroa.4.0 = phi i64 [ 126, %48 ], [ 16, %47 ], [ 4, %46 ]
-  %.0 = phi i8 [ %50, %48 ], [ 2, %47 ], [ 1, %46 ]
+  %.sroa.026.0 = phi ptr [ %.sroa.0.0.i, %46 ], [ %.sroa.0.0.i, %47 ], [ %51, %48 ]
+  %.sroa.4.0 = phi i64 [ 4, %46 ], [ 16, %47 ], [ 126, %48 ]
+  %.0 = phi i8 [ 1, %46 ], [ 2, %47 ], [ %50, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %54 = load ptr, ptr %53, align 8
   %55 = trunc i32 %5 to i16
@@ -16784,9 +16784,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %57
 
 57:                                               ; preds = %54, %54, %55
-  %.sroa.098.0 = phi ptr [ %56, %55 ], [ %.sroa.0.0.i, %54 ], [ %.sroa.0.0.i, %54 ]
-  %.sroa.4.0 = phi i64 [ 126, %55 ], [ %51, %54 ], [ %51, %54 ]
-  %.0 = phi ptr [ %.sroa.0.0.i, %55 ], [ null, %54 ], [ null, %54 ]
+  %.sroa.098.0 = phi ptr [ %.sroa.0.0.i, %54 ], [ %.sroa.0.0.i, %54 ], [ %56, %55 ]
+  %.sroa.4.0 = phi i64 [ %51, %54 ], [ %51, %54 ], [ 126, %55 ]
+  %.0 = phi ptr [ null, %54 ], [ null, %54 ], [ %.sroa.0.0.i, %55 ]
   %58 = and i32 %7, 65532
   %.not107 = icmp ne i32 %58, 0
   %59 = trunc i32 %7 to i16
@@ -17153,9 +17153,9 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %58
 
 58:                                               ; preds = %52, %54, %53
-  %.sroa.085.0 = phi ptr [ %57, %54 ], [ %.sroa.0.0.i, %53 ], [ %.sroa.0.0.i, %52 ]
-  %.sroa.4.0 = phi i64 [ 126, %54 ], [ 16, %53 ], [ 4, %52 ]
-  %.0 = phi i8 [ %56, %54 ], [ 2, %53 ], [ 1, %52 ]
+  %.sroa.085.0 = phi ptr [ %.sroa.0.0.i, %52 ], [ %.sroa.0.0.i, %53 ], [ %57, %54 ]
+  %.sroa.4.0 = phi i64 [ 4, %52 ], [ 16, %53 ], [ 126, %54 ]
+  %.0 = phi i8 [ 1, %52 ], [ 2, %53 ], [ %56, %54 ]
   %59 = and i32 %8, 65535
   %.not94 = icmp ne i32 %59, 0
   %.sroa.281.0.extract.trunc = select i1 %.not94, i16 28, i16 0

@@ -5861,7 +5861,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit446:              ; preds = %2421, %2423
   br label %2462
 
 2462:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit36.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %2461, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit36.thread.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %2461, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit36.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !209
   %2463 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 216
   %2464 = load i8, ptr %2463, align 8, !tbaa !375, !range !53, !noundef !54
@@ -5879,7 +5879,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit446:              ; preds = %2421, %2423
   br label %2469
 
 2469:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit37.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %2468, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit37.thread.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %2468, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116InstrInfoEmitter3runERN4llvm11raw_ostreamEE3$_0EclIPKPKNS4_18CodeGenInstructionEEEbT_.exit37.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !209
   %2470 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 216
   %2471 = load i8, ptr %2470, align 8, !tbaa !375, !range !53, !noundef !54
@@ -6410,7 +6410,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit485:              ; preds = %"_ZN9__gnu_cxx5__op
   br label %2717
 
 2717:                                             ; preds = %2715, %._crit_edge.i.i.i.i.i.i514
-  %.1.i.i.i.i.i.i519 = phi ptr [ %.029.lcssa.i.i.i.i.i.i515, %._crit_edge.i.i.i.i.i.i514 ], [ %2716, %2715 ]
+  %.1.i.i.i.i.i.i519 = phi ptr [ %2716, %2715 ], [ %.029.lcssa.i.i.i.i.i.i515, %._crit_edge.i.i.i.i.i.i514 ]
   %.1.val.i.i.i.i.i.i520 = load ptr, ptr %.1.i.i.i.i.i.i519, align 8, !tbaa !209
   %2718 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i520, i64 216
   %.1.val.val.i.i.i.i.i.i = load i8, ptr %2718, align 8, !tbaa !375, !range !53, !noundef !54
@@ -6422,7 +6422,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit485:              ; preds = %"_ZN9__gnu_cxx5__op
   br label %2722
 
 2722:                                             ; preds = %2720, %._crit_edge.i.i.i.i.i.i514
-  %.2.i.i.i.i.i.i517 = phi ptr [ %.029.lcssa.i.i.i.i.i.i515, %._crit_edge.i.i.i.i.i.i514 ], [ %2721, %2720 ]
+  %.2.i.i.i.i.i.i517 = phi ptr [ %2721, %2720 ], [ %.029.lcssa.i.i.i.i.i.i515, %._crit_edge.i.i.i.i.i.i514 ]
   %.2.val.i.i.i.i.i.i518 = load ptr, ptr %.2.i.i.i.i.i.i517, align 8, !tbaa !209
   %2723 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i518, i64 216
   %.2.val.val.i.i.i.i.i.i = load i8, ptr %2723, align 8, !tbaa !375, !range !53, !noundef !54
@@ -8348,7 +8348,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %3724
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i: ; preds = %3729, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %3731, %3729 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %3731, %3729 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %3732 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   br label %.thread.i.i
 

@@ -1819,7 +1819,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.us:            ; preds = %_ZNSt12_Vector_base
   br label %._crit_edge1345
 
 ._crit_edge1345:                                  ; preds = %607, %598, %591, %._crit_edge933.us
-  %.0140.us = phi float [ 0.000000e+00, %._crit_edge933.us ], [ %597, %591 ], [ %606, %598 ], [ %612, %607 ]
+  %.0140.us = phi float [ 0.000000e+00, %._crit_edge933.us ], [ %612, %607 ], [ %606, %598 ], [ %597, %591 ]
   %613 = fpext float %.0146939.us to double
   %614 = fsub double 1.000000e+00, %613
   %615 = fpext float %.0140.us to double

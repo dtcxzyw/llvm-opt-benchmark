@@ -181,7 +181,7 @@ default.unreachable:                              ; preds = %15
   unreachable
 
 27:                                               ; preds = %23, %19, %16
-  %.0 = phi i32 [ %26, %23 ], [ %22, %19 ], [ %18, %16 ]
+  %.0 = phi i32 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ]
   %28 = tail call zeroext i8 @lv_color_format_get_bpp(i32 noundef %12) #5
   %29 = zext nneg i8 %28 to i32
   %notmask = shl nsw i32 -1, %29

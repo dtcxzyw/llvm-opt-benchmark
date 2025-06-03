@@ -1045,8 +1045,8 @@ select.unfold:                                    ; preds = %45, %42
   br i1 %.not51, label %.loopexit67, label %12, !llvm.loop !182
 
 .loopexit67:                                      ; preds = %51, %select.unfold
-  %.14065 = phi i64 [ %.039, %select.unfold ], [ %53, %51 ]
-  %57 = add i64 %.14065, 1
+  %.14066 = phi i64 [ %.039, %select.unfold ], [ %53, %51 ]
+  %57 = add i64 %.14066, 1
   %58 = tail call ptr @PyMem_RawRealloc(ptr noundef nonnull %21, i64 noundef %57) #10
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %.thread

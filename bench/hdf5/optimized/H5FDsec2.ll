@@ -433,7 +433,7 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   %110 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__sec2_open, i32 noundef 349, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.17) #15
   br label %113
 
-111:                                              ; preds = %51, %61
+111:                                              ; preds = %61, %51
   %112 = tail call i32 @close(i32 noundef %39) #15
   br label %.thread92
 
@@ -479,7 +479,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_close(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %1, %20, %13
-  %.08 = phi i32 [ -1, %13 ], [ 0, %20 ], [ 0, %1 ]
+  %.08 = phi i32 [ 0, %20 ], [ -1, %13 ], [ 0, %1 ]
   ret i32 %.08
 }
 
@@ -861,7 +861,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_truncate(ptr noundef captures(n
   br label %32
 
 32:                                               ; preds = %3, %13, %29, %22
-  %.013 = phi i32 [ 0, %13 ], [ -1, %22 ], [ 0, %29 ], [ 0, %3 ]
+  %.013 = phi i32 [ 0, %13 ], [ 0, %29 ], [ -1, %22 ], [ 0, %3 ]
   ret i32 %.013
 }
 

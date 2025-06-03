@@ -1074,7 +1074,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit139.i:     ; preds = %_ZNKSt7__cxx1112bas
   br label %337
 
 337:                                              ; preds = %333, %329, %325, %320, %316
-  %.038.i.i = phi float [ %336, %333 ], [ %332, %329 ], [ %328, %325 ], [ %324, %320 ], [ %319, %316 ]
+  %.038.i.i = phi float [ %319, %316 ], [ %324, %320 ], [ %328, %325 ], [ %332, %329 ], [ %336, %333 ]
   %338 = fcmp une float %.038.i.i, 0.000000e+00
   br i1 %338, label %339, label %.thread.i.i
 

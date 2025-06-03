@@ -859,7 +859,7 @@ switch.lookup:                                    ; preds = %4
   br label %136
 
 136:                                              ; preds = %132, %125, %.lr.ph.i52
-  %.2.i = phi i32 [ %123, %.lr.ph.i52 ], [ %135, %132 ], [ %131, %125 ]
+  %.2.i = phi i32 [ %123, %.lr.ph.i52 ], [ %131, %125 ], [ %135, %132 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #5
   %137 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i)
@@ -1050,7 +1050,7 @@ switch.lookup:                                    ; preds = %4
   br label %255
 
 255:                                              ; preds = %251, %241, %231, %227, %223, %219, %215, %211, %201, %191, %187, %183, %179, %175, %171, %167, %163, %159, %155
-  %.1.i.i = phi i32 [ %254, %251 ], [ %250, %241 ], [ %240, %231 ], [ %230, %227 ], [ %226, %223 ], [ %222, %219 ], [ %218, %215 ], [ %214, %211 ], [ %210, %201 ], [ %200, %191 ], [ %190, %187 ], [ %186, %183 ], [ %182, %179 ], [ %178, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %159 ], [ %158, %155 ]
+  %.1.i.i = phi i32 [ %254, %251 ], [ %158, %155 ], [ %162, %159 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %190, %187 ], [ %200, %191 ], [ %210, %201 ], [ %214, %211 ], [ %218, %215 ], [ %222, %219 ], [ %226, %223 ], [ %230, %227 ], [ %240, %231 ], [ %250, %241 ]
   %256 = add nuw i32 %.0127128.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %256, %140
   br i1 %exitcond.not.i.i, label %dissect_bmp_stat_report.exit.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -1124,7 +1124,7 @@ dissect_bmp_stat_report.exit.i:                   ; preds = %255, %139
   br label %296
 
 296:                                              ; preds = %295, %264, %261, %257
-  %.0.i.i = phi i32 [ 49, %257 ], [ %.1.i103.i, %295 ], [ 49, %264 ], [ 49, %261 ]
+  %.0.i.i = phi i32 [ 49, %257 ], [ 49, %261 ], [ 49, %264 ], [ %.1.i103.i, %295 ]
   br i1 %108, label %297, label %dissect_bmp_peer_header.exit
 
 297:                                              ; preds = %296
@@ -1530,8 +1530,8 @@ dissect_bmp_peer_header.exit:                     ; preds = %347, %136, %.prehea
   br label %559
 
 559:                                              ; preds = %554, %546, %539, %532, %._crit_edge.i.i, %453
-  %.pr.i.i = phi i32 [ %558, %554 ], [ %553, %546 ], [ %545, %539 ], [ %538, %532 ], [ %531, %._crit_edge.i.i ], [ %464, %453 ]
-  %.1.i.i55 = phi i32 [ %556, %554 ], [ %551, %546 ], [ %543, %539 ], [ %536, %532 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ %462, %453 ]
+  %.pr.i.i = phi i32 [ %558, %554 ], [ %464, %453 ], [ %531, %._crit_edge.i.i ], [ %538, %532 ], [ %545, %539 ], [ %553, %546 ]
+  %.1.i.i55 = phi i32 [ %556, %554 ], [ %462, %453 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ %536, %532 ], [ %543, %539 ], [ %551, %546 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %.not.i.i56 = icmp eq i32 %.pr.i.i, 0
@@ -1748,7 +1748,7 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %61, %55, %53, %47, %bmpv4_dissect_tlv_hdr.exit, %76, %72
-  %.2 = phi i32 [ %.0.i, %bmpv4_dissect_tlv_hdr.exit ], [ %85, %76 ], [ %75, %72 ], [ %64, %61 ], [ %60, %55 ], [ %51, %53 ], [ %51, %47 ], [ %35, %32 ], [ %45, %.lr.ph ]
+  %.2 = phi i32 [ %.0.i, %bmpv4_dissect_tlv_hdr.exit ], [ %51, %53 ], [ %51, %47 ], [ %64, %61 ], [ %60, %55 ], [ %75, %72 ], [ %85, %76 ], [ %35, %32 ], [ %45, %.lr.ph ]
   %86 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
   %87 = icmp sgt i32 %86, 3
   br i1 %87, label %11, label %._crit_edge, !llvm.loop !17

@@ -193,7 +193,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -203,7 +203,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1406,7 +1406,7 @@ _ZN7QStringD2Ev.exit251:                          ; preds = %361, %_ZN17QArrayDa
   br label %371
 
 370:                                              ; preds = %306, %308, %_ZN7QStringD2Ev.exit239, %_ZN7QStringD2Ev.exit251, %_ZN17QArrayDataPointerIDsED2Ev.exit214, %_ZN7QStringD2Ev.exit147, %_ZN17QArrayDataPointerIDsED2Ev.exit139, %_ZN7QStringD2Ev.exit99, %_ZN7QStringD2Ev.exit87, %_ZN7QStringD2Ev.exit79
-  %.pn74 = phi { ptr, i32 } [ %362, %_ZN7QStringD2Ev.exit251 ], [ %.pn62.pn.pn.pn.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit214 ], [ %185, %_ZN7QStringD2Ev.exit147 ], [ %.pn69.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit139 ], [ %92, %_ZN7QStringD2Ev.exit99 ], [ %77, %_ZN7QStringD2Ev.exit87 ], [ %62, %_ZN7QStringD2Ev.exit79 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit239 ], [ %309, %308 ], [ %307, %306 ]
+  %.pn74 = phi { ptr, i32 } [ %62, %_ZN7QStringD2Ev.exit79 ], [ %77, %_ZN7QStringD2Ev.exit87 ], [ %92, %_ZN7QStringD2Ev.exit99 ], [ %.pn69.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit139 ], [ %185, %_ZN7QStringD2Ev.exit147 ], [ %362, %_ZN7QStringD2Ev.exit251 ], [ %.pn62.pn.pn.pn.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit214 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit239 ], [ %309, %308 ], [ %307, %306 ]
   resume { ptr, i32 } %.pn74
 
 371:                                              ; preds = %40, %41, %44, %49, %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit83, %_ZN7QStringD2Ev.exit95, %108, %_ZN17QArrayDataPointerIDsED2Ev.exit, %171, %_ZN7QStringD2Ev.exit143, %_ZN17QArrayDataPointerIDsED2Ev.exit182, %_ZN7QStringD2Ev.exit227, %_ZN7QStringD2Ev.exit247, %368, %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -2244,7 +2244,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %133, %_ZN17QArrayDa
   ret void
 
 143:                                              ; preds = %_ZN7QStringD2Ev.exit82, %_ZN7QStringD2Ev.exit74, %_ZN7QStringD2Ev.exit66, %_ZN7QStringD2Ev.exit58, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit34, %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit18, %_ZN7QStringD2Ev.exit10
-  %.pn = phi { ptr, i32 } [ %134, %_ZN7QStringD2Ev.exit82 ], [ %122, %_ZN7QStringD2Ev.exit74 ], [ %110, %_ZN7QStringD2Ev.exit66 ], [ %98, %_ZN7QStringD2Ev.exit58 ], [ %86, %_ZN7QStringD2Ev.exit50 ], [ %74, %_ZN7QStringD2Ev.exit42 ], [ %62, %_ZN7QStringD2Ev.exit34 ], [ %50, %_ZN7QStringD2Ev.exit26 ], [ %38, %_ZN7QStringD2Ev.exit18 ], [ %26, %_ZN7QStringD2Ev.exit10 ]
+  %.pn = phi { ptr, i32 } [ %26, %_ZN7QStringD2Ev.exit10 ], [ %38, %_ZN7QStringD2Ev.exit18 ], [ %50, %_ZN7QStringD2Ev.exit26 ], [ %62, %_ZN7QStringD2Ev.exit34 ], [ %74, %_ZN7QStringD2Ev.exit42 ], [ %86, %_ZN7QStringD2Ev.exit50 ], [ %98, %_ZN7QStringD2Ev.exit58 ], [ %110, %_ZN7QStringD2Ev.exit66 ], [ %122, %_ZN7QStringD2Ev.exit74 ], [ %134, %_ZN7QStringD2Ev.exit82 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2878,7 +2878,7 @@ _ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit20: ; preds = %_ZNK
   br label %_ZL11cmp_addressPK8_addressS1_.exit
 
 _ZL11cmp_addressPK8_addressS1_.exit:              ; preds = %61, %59, %57, %51, %49, %43, %69, %38, %33
-  %.0 = phi i1 [ %70, %69 ], [ %42, %38 ], [ %37, %33 ], [ %68, %61 ], [ false, %43 ], [ true, %49 ], [ false, %51 ], [ true, %57 ], [ false, %59 ]
+  %.0 = phi i1 [ %70, %69 ], [ %37, %33 ], [ %42, %38 ], [ %68, %61 ], [ false, %43 ], [ true, %49 ], [ false, %51 ], [ true, %57 ], [ false, %59 ]
   ret i1 %.0
 }
 

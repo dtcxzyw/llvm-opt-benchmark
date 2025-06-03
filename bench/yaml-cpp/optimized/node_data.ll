@@ -1433,7 +1433,7 @@ _ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge
-  %.3 = phi ptr [ %37, %35 ], [ %40, %._crit_edge ]
+  %.3 = phi ptr [ %40, %._crit_edge ], [ %37, %35 ]
   ret ptr %.3
 }
 

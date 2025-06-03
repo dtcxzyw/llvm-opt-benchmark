@@ -1718,7 +1718,7 @@ _ZNK4llvm16DIGlobalVariable17getTemplateParamsEv.exit: ; preds = %147, %150
   br label %159
 
 159:                                              ; preds = %4, %158
-  %.1 = phi ptr [ %5, %4 ], [ %31, %158 ]
+  %.1 = phi ptr [ %31, %158 ], [ %5, %4 ]
   ret ptr %.1
 }
 
@@ -2043,7 +2043,7 @@ _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread
   br label %73
 
 73:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5countES4_.exit, %12, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread
-  %.1 = phi ptr [ %13, %12 ], [ %71, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5countES4_.exit ], [ %72, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread ]
+  %.1 = phi ptr [ %72, %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread ], [ %71, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeEPNS_3DIEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E5countES4_.exit ], [ %13, %12 ]
   ret ptr %.1
 }
 
@@ -7574,7 +7574,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   br label %185
 
 185:                                              ; preds = %183, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %184, %183 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %184, %183 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !937
   %186 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val38.i.i.i.i.i.i = load i64, ptr %186, align 8
@@ -7588,7 +7588,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit44:             ; preds = %_ZNK4llvm10DIVariab
   br label %191
 
 191:                                              ; preds = %189, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %190, %189 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %190, %189 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !937
   %192 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val39.i.i.i.i.i.i = load i64, ptr %192, align 8
@@ -10153,7 +10153,7 @@ _ZN4llvm3DIE8addChildEPS0_.exit:                  ; preds = %_ZNK4llvm16DIImport
   br label %27
 
 27:                                               ; preds = %2, %_ZN4llvm3DIE8addChildEPS0_.exit
-  %.1 = phi ptr [ %3, %2 ], [ %18, %_ZN4llvm3DIE8addChildEPS0_.exit ]
+  %.1 = phi ptr [ %18, %_ZN4llvm3DIE8addChildEPS0_.exit ], [ %3, %2 ]
   ret ptr %.1
 }
 

@@ -2031,13 +2031,13 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i.i.i: ; preds = %577,
   br i1 %609, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i, label %.lr.ph.i.i.i.i103.i, !prof !310, !llvm.loop !383
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i: ; preds = %603, %594
-  %.lcssa.i.i.pn.i.i.i = phi i64 [ %597, %594 ], [ %606, %603 ]
+  %.pn.i.i.i = phi i64 [ %597, %594 ], [ %606, %603 ]
   %610 = zext i32 %592 to i64
-  %.not88.i.i.i = icmp samesign eq i64 %.lcssa.i.i.pn.i.i.i, %610
+  %.not88.i.i.i = icmp samesign eq i64 %.pn.i.i.i, %610
   br i1 %.not88.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i.i.i, label %611
 
 611:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i
-  %612 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.403", ptr %591, i64 %.lcssa.i.i.pn.i.i.i, i32 0, i32 1
+  %612 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.403", ptr %591, i64 %.pn.i.i.i, i32 0, i32 1
   %613 = load i32, ptr %612, align 4, !tbaa !384
   %614 = zext i32 %613 to i64
   %615 = load ptr, ptr %20, align 8, !tbaa !25

@@ -2779,7 +2779,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit214: ; pre
   br label %898
 
 898:                                              ; preds = %896, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %897, %896 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %897, %896 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !319
   %.val.i44.i.i.i.i.i.i = load i16, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !176
   %899 = and i16 %.val.i44.i.i.i.i.i.i, 2048
@@ -2791,7 +2791,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit214: ; pre
   br label %902
 
 902:                                              ; preds = %900, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %901, %900 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %901, %900 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !319
   %.val.i45.i.i.i.i.i.i = load i16, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !176
   %903 = and i16 %.val.i45.i.i.i.i.i.i, 2048
@@ -9273,7 +9273,7 @@ _ZNSt13unordered_mapIjN4llvm3rdf12RegisterAggrESt4hashIjESt8equal_toIjESaISt4pai
   br label %1909
 
 1909:                                             ; preds = %1907, %._crit_edge.i.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %1908, %1907 ]
+  %.1.i.i.i.i.i.i.i.i.i.i = phi ptr [ %1908, %1907 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %1910 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
   %.not30.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %1910, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i.i, label %1911, label %_ZNK4llvm3rdf12RegisterAggr5emptyEv.exit.i
@@ -9283,7 +9283,7 @@ _ZNSt13unordered_mapIjN4llvm3rdf12RegisterAggrESt4hashIjESt8equal_toIjESaISt4pai
   br label %1913
 
 1913:                                             ; preds = %1911, %._crit_edge.i.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ], [ %1912, %1911 ]
+  %.2.i.i.i.i.i.i.i.i.i.i = phi ptr [ %1912, %1911 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i ]
   %1914 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
   %.not31.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %1914, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm3rdf8Liveness14computePhiInfoEvENK3$_0clENS0_11RegisterRefERKNS0_12RegisterAggrERSt13unordered_mapIS3_S3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE.exit", label %_ZNK4llvm3rdf12RegisterAggr5emptyEv.exit.i

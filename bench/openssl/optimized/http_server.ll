@@ -1055,9 +1055,9 @@ http_server_send_status.exit207:                  ; preds = %130, %134
   br label %211
 
 .thread218:                                       ; preds = %175, %167, %._crit_edge, %32, %220, %http_server_send_status.exit207, %115, %110, %95, %http_server_send_status.exit205, %http_server_send_status.exit203, %http_server_send_status.exit
-  %.1164 = phi ptr [ %.0163, %220 ], [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit203 ], [ null, %http_server_send_status.exit205 ], [ null, %110 ], [ null, %115 ], [ null, %95 ], [ null, %http_server_send_status.exit207 ], [ null, %32 ], [ %.2165, %._crit_edge ], [ %.2165, %167 ], [ %.2165, %175 ]
-  %.1153 = phi i32 [ %.0152, %220 ], [ %8, %http_server_send_status.exit ], [ %8, %http_server_send_status.exit203 ], [ %8, %http_server_send_status.exit205 ], [ %8, %110 ], [ %8, %115 ], [ %8, %95 ], [ %8, %http_server_send_status.exit207 ], [ %8, %32 ], [ %8, %._crit_edge ], [ %8, %167 ], [ %8, %175 ]
-  %.0151 = phi i32 [ -1, %220 ], [ 1, %http_server_send_status.exit ], [ 1, %http_server_send_status.exit203 ], [ 1, %http_server_send_status.exit205 ], [ 1, %110 ], [ 1, %115 ], [ 1, %95 ], [ 1, %http_server_send_status.exit207 ], [ -1, %32 ], [ 1, %._crit_edge ], [ 1, %167 ], [ 1, %175 ]
+  %.1164 = phi ptr [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit203 ], [ null, %http_server_send_status.exit205 ], [ null, %110 ], [ null, %115 ], [ %.0163, %220 ], [ null, %95 ], [ null, %http_server_send_status.exit207 ], [ null, %32 ], [ %.2165, %._crit_edge ], [ %.2165, %167 ], [ %.2165, %175 ]
+  %.1153 = phi i32 [ %8, %http_server_send_status.exit ], [ %8, %http_server_send_status.exit203 ], [ %8, %http_server_send_status.exit205 ], [ %8, %110 ], [ %8, %115 ], [ %.0152, %220 ], [ %8, %95 ], [ %8, %http_server_send_status.exit207 ], [ %8, %32 ], [ %8, %._crit_edge ], [ %8, %167 ], [ %8, %175 ]
+  %.0151 = phi i32 [ 1, %http_server_send_status.exit ], [ 1, %http_server_send_status.exit203 ], [ 1, %http_server_send_status.exit205 ], [ 1, %110 ], [ 1, %115 ], [ -1, %220 ], [ 1, %95 ], [ 1, %http_server_send_status.exit207 ], [ -1, %32 ], [ 1, %._crit_edge ], [ 1, %167 ], [ 1, %175 ]
   call void @BIO_free_all(ptr noundef %.1164) #11
   %208 = icmp sgt i32 %.1153, 0
   br i1 %208, label %209, label %211
@@ -1072,9 +1072,9 @@ http_server_send_status.exit207:                  ; preds = %130, %134
   br label %221
 
 212:                                              ; preds = %31, %205, %127
-  %.0163 = phi ptr [ null, %31 ], [ %121, %127 ], [ %.2165, %205 ]
-  %.1161 = phi ptr [ null, %31 ], [ %.2162217, %127 ], [ %.2162217, %205 ]
-  %.0152 = phi i32 [ %8, %31 ], [ %8, %127 ], [ 0, %205 ]
+  %.0163 = phi ptr [ %121, %127 ], [ %.2165, %205 ], [ null, %31 ]
+  %.1161 = phi ptr [ %.2162217, %127 ], [ %.2162217, %205 ], [ null, %31 ]
+  %.0152 = phi i32 [ %8, %127 ], [ 0, %205 ], [ %8, %31 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10) #11
   %213 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 500, ptr noundef nonnull @.str.44) #11
   %214 = icmp ugt i32 %213, 199

@@ -1275,8 +1275,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit236.i:             ; preds = %397, %.critedge171.
   br label %_ZN4llvm11raw_ostreamlsEc.exit176.i.backedge
 
 _ZN4llvm11raw_ostreamlsEc.exit176.i.backedge:     ; preds = %.critedge173.i, %276, %247, %245, %239, %237, %235, %233, %225, %_ZN4llvm11raw_ostreamlsEc.exit179.i, %198, %196, %187, %.critedge.i
-  %.0137.i.be = phi ptr [ %.0141.i, %.critedge.i ], [ %.0141.i, %187 ], [ %277, %276 ], [ %.6.i, %.critedge173.i ], [ %193, %196 ], [ %193, %198 ], [ %240, %247 ], [ %240, %245 ], [ %228, %235 ], [ %228, %233 ], [ %240, %239 ], [ %214, %_ZN4llvm11raw_ostreamlsEc.exit179.i ], [ %226, %225 ], [ %228, %237 ]
-  %.0.i.be = phi i32 [ %.0.i, %.critedge.i ], [ %.0.i, %187 ], [ %.0.i, %276 ], [ %.0.i, %.critedge173.i ], [ %.0.i, %196 ], [ %.0.i, %198 ], [ -1, %247 ], [ -1, %245 ], [ -1, %235 ], [ -1, %233 ], [ -1, %239 ], [ %.0.i, %_ZN4llvm11raw_ostreamlsEc.exit179.i ], [ 0, %225 ], [ %238, %237 ]
+  %.0137.i.be = phi ptr [ %.0141.i, %.critedge.i ], [ %.0141.i, %187 ], [ %277, %276 ], [ %.6.i, %.critedge173.i ], [ %193, %196 ], [ %193, %198 ], [ %240, %247 ], [ %240, %245 ], [ %228, %235 ], [ %228, %233 ], [ %240, %239 ], [ %228, %237 ], [ %226, %225 ], [ %214, %_ZN4llvm11raw_ostreamlsEc.exit179.i ]
+  %.0.i.be = phi i32 [ %.0.i, %.critedge.i ], [ %.0.i, %187 ], [ %.0.i, %276 ], [ %.0.i, %.critedge173.i ], [ %.0.i, %196 ], [ %.0.i, %198 ], [ -1, %247 ], [ -1, %245 ], [ -1, %235 ], [ -1, %233 ], [ -1, %239 ], [ %238, %237 ], [ 0, %225 ], [ %.0.i, %_ZN4llvm11raw_ostreamlsEc.exit179.i ]
   br label %_ZN4llvm11raw_ostreamlsEc.exit176.i, !llvm.loop !579
 
 398:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit176.i
@@ -1732,8 +1732,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   unreachable
 
 _ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %15, %16, %17, %18
-  %.sroa.7.0.i = phi i64 [ 3, %18 ], [ 1, %17 ], [ 1, %16 ], [ 2, %15 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
-  %.sroa.0.0.i = phi ptr [ @.str.27, %18 ], [ @.str.26, %17 ], [ @.str.25, %16 ], [ @.str.24, %15 ], [ @.str.23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ @.str.23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.sroa.7.0.i = phi i64 [ 2, %15 ], [ 1, %16 ], [ 1, %17 ], [ 3, %18 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.sroa.0.0.i = phi ptr [ @.str.24, %15 ], [ @.str.25, %16 ], [ @.str.26, %17 ], [ @.str.27, %18 ], [ @.str.23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ @.str.23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !467
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2076,7 +2076,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AsmPrinter15PrintAsmOperandEPKNS_
   br label %54
 
 54:                                               ; preds = %25, %5, %6, %20, %27, %31, %39, %48, %11, %35, %44, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %48 ], [ false, %39 ], [ false, %27 ], [ false, %31 ], [ false, %20 ], [ true, %11 ], [ true, %35 ], [ true, %44 ], [ true, %6 ], [ true, %5 ], [ true, %25 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %20 ], [ false, %27 ], [ false, %31 ], [ false, %39 ], [ false, %48 ], [ true, %11 ], [ true, %35 ], [ true, %44 ], [ true, %6 ], [ true, %5 ], [ true, %25 ]
   ret i1 %.0
 }
 

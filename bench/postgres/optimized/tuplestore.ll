@@ -1374,7 +1374,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   unreachable
 
 135:                                              ; preds = %108, %56, %45, %38, %18, %128, %93, %89, %85, %49, %32, %25
-  %.057 = phi ptr [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ %31, %25 ], [ null, %32 ], [ %55, %49 ], [ null, %18 ], [ null, %38 ], [ null, %45 ], [ null, %56 ], [ null, %108 ]
+  %.057 = phi ptr [ %31, %25 ], [ null, %32 ], [ %55, %49 ], [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ null, %18 ], [ null, %38 ], [ null, %45 ], [ null, %56 ], [ null, %108 ]
   ret ptr %.057
 }
 

@@ -594,8 +594,8 @@ _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.threa
   br label %119
 
 _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit: ; preds = %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i, %94
-  %95 = phi ptr [ null, %94 ], [ %.pre.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ]
-  %.07.i = phi i64 [ 0, %94 ], [ %93, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ]
+  %95 = phi ptr [ %.pre.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ null, %94 ]
+  %.07.i = phi i64 [ %93, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ 0, %94 ]
   %96 = icmp eq ptr %95, null
   %97 = select i1 %96, ptr @.str, ptr %95
   %98 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.18, ptr noundef nonnull %97, i64 noundef %.07.i, ptr noundef nonnull %50)
@@ -1904,8 +1904,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
   tail call void @SSL_CTX_set_next_proto_select_cb(ptr noundef nonnull %26, ptr noundef nonnull @_ZL38client_handshaker_factory_npn_callbackP6ssl_stPPhS1_PKhjPv, ptr noundef nonnull %39)
   br label %146
 
-139:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit, %123, %109, %86
-  %.086.ph = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit ], [ %118, %123 ], [ %103, %109 ], [ %90, %86 ]
+139:                                              ; preds = %109, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit, %123, %86
+  %.086.ph = phi i32 [ %103, %109 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit ], [ %118, %123 ], [ %90, %86 ]
   %140 = call i32 @gpr_unref(ptr noundef nonnull %45)
   %.not.i125 = icmp eq i32 %140, 0
   br i1 %.not.i125, label %_ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit, label %141

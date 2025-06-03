@@ -548,8 +548,8 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
   br label %dt_image_orientation_to_flip_bits.exit
 
 dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %125, %126, %127, %128, %129
-  %.not274 = phi i1 [ true, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ true, %124 ], [ true, %122 ], [ true, %122 ]
-  %.0.i289 = phi i32 [ 0, %129 ], [ 6, %128 ], [ %123, %127 ], [ 5, %126 ], [ 4, %125 ], [ 1, %124 ], [ %123, %122 ], [ %123, %122 ]
+  %.not274 = phi i1 [ true, %129 ], [ true, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ true, %122 ], [ true, %122 ]
+  %.0.i289 = phi i32 [ 0, %129 ], [ 1, %124 ], [ 4, %125 ], [ 5, %126 ], [ %123, %127 ], [ 6, %128 ], [ %123, %122 ], [ %123, %122 ]
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %130, align 8, !tbaa !56
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 68

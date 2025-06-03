@@ -132,7 +132,7 @@ define dso_local void @ExecSetVariableStmt(ptr noundef readonly captures(none) %
   br label %ExtractSetVariableArgs.exit
 
 ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
-  %.0.i = phi ptr [ %27, %26 ], [ %25, %22 ], [ null, %18 ]
+  %.0.i = phi ptr [ %25, %22 ], [ %27, %26 ], [ null, %18 ]
   %28 = tail call zeroext i1 @superuser() #7
   %29 = select i1 %28, i32 5, i32 6
   %30 = tail call i32 @set_config_option(ptr noundef %21, ptr noundef %.0.i, i32 noundef %29, i32 noundef 13, i32 noundef %5, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
@@ -388,7 +388,7 @@ define dso_local ptr @ExtractSetVariableArgs(ptr noundef readonly captures(none)
   br label %14
 
 14:                                               ; preds = %1, %10, %4
-  %.0 = phi ptr [ %13, %10 ], [ %9, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %9, %4 ], [ %13, %10 ], [ null, %1 ]
   ret ptr %.0
 }
 

@@ -37223,8 +37223,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   br i1 %trunc.i.i, label %106, label %100
 
 100:                                              ; preds = %106, %98, %96
-  %.sroa.01.1.i.i = phi i64 [ 0, %96 ], [ 1, %106 ], [ 1, %98 ]
-  %.sroa.4.1.i.i = phi i64 [ %.sroa.4.0.i.i, %96 ], [ %95, %106 ], [ %95, %98 ]
+  %.sroa.01.1.i.i = phi i64 [ 0, %96 ], [ 1, %98 ], [ 1, %106 ]
+  %.sroa.4.1.i.i = phi i64 [ %.sroa.4.0.i.i, %96 ], [ %95, %98 ], [ %95, %106 ]
   store i64 %.sroa.01.1.i.i, ptr %19, align 8, !noalias !7711
   %101 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.4.1.i.i, ptr %101, align 8, !noalias !7711
@@ -58117,8 +58117,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h06834c6e5ed5e5f5E.exit.i.i.i.i: ; pred
   %99 = icmp eq i64 %94, 0
   br i1 %99, label %.invoke, label %102
 
-.thread:                                          ; preds = %107, %102
-  %.sroa.02.0.ph = phi i64 [ %104, %102 ], [ %108, %107 ]
+.thread:                                          ; preds = %102, %107
+  %.sroa.02.0.ph = phi i64 [ %108, %107 ], [ %104, %102 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   br label %109
 
@@ -59179,7 +59179,7 @@ default.unreachable:                              ; preds = %199
           to label %.body8.i.i unwind label %237, !noalias !11973
 
 _ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i.i: ; preds = %203, %201, %199
-  %.sroa.01.0.i.i.i = phi ptr [ %204, %203 ], [ %202, %201 ], [ %141, %199 ]
+  %.sroa.01.0.i.i.i = phi ptr [ %202, %201 ], [ %204, %203 ], [ %141, %199 ]
   invoke void @_ZN7project14search_history19SearchHistoryCursor5reset17h2cfb37bc53fa9d3bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.01.0.i.i.i)
           to label %208 unwind label %206, !noalias !11973
 
@@ -60018,7 +60018,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h5f35e2908572ff59E.exit63.unreachablede
   br label %_ZN6search14project_search13ProjectSearch6cursor17h0cbd5615206f3e51E.exit
 
 _ZN6search14project_search13ProjectSearch6cursor17h0cbd5615206f3e51E.exit: ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h5f35e2908572ff59E.exit63, %244, %242
-  %.sroa.01.0.i = phi ptr [ %245, %244 ], [ %243, %242 ], [ %231, %_ZN4gpui3app10entity_map9EntityMap4read17h5f35e2908572ff59E.exit63 ]
+  %.sroa.01.0.i = phi ptr [ %243, %242 ], [ %245, %244 ], [ %231, %_ZN4gpui3app10entity_map9EntityMap4read17h5f35e2908572ff59E.exit63 ]
   %246 = invoke { ptr, i64 } @_ZN7project14search_history13SearchHistory7current17h6c71c6b01b91ec0cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %222, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.01.0.i)
           to label %247 unwind label %.loopexit
 
@@ -61192,11 +61192,11 @@ default.unreachable:                              ; preds = %12
   br label %"_ZN62_$LT$gpui..window..ElementId$u20$as$u20$core..clone..Clone$GT$5clone17h0a0873dafa4b869aE.llvm.11548966614373558437.exit"
 
 "_ZN62_$LT$gpui..window..ElementId$u20$as$u20$core..clone..Clone$GT$5clone17h0a0873dafa4b869aE.llvm.11548966614373558437.exit": ; preds = %15, %20, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i", %35, %37, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i"
-  %.sroa.9.sroa.9.0 = phi i32 [ %.sroa.9.sroa.9.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ], [ %41, %37 ], [ %.sroa.9.sroa.9.0.extract.trunc17, %35 ], [ 0, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ %.sroa.9.sroa.9.0.extract.trunc15, %20 ], [ %19, %15 ]
-  %.sroa.9.sroa.0.0 = phi i32 [ %.sroa.9.sroa.0.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ], [ %39, %37 ], [ %.sroa.9.sroa.0.0.extract.trunc11, %35 ], [ %storemerge.i.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ %.sroa.9.sroa.0.0.extract.trunc10, %20 ], [ %17, %15 ]
-  %.sroa.20.0 = phi i64 [ %52, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ], [ undef, %37 ], [ undef, %35 ], [ %29, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ undef, %20 ], [ undef, %15 ]
-  %.sroa.18.0 = phi i64 [ %46, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ], [ undef, %37 ], [ %.sroa.18.8.copyload8, %35 ], [ %34, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ undef, %20 ], [ undef, %15 ]
-  %.sroa.05.0 = phi i64 [ %storemerge.i2.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ], [ 6, %37 ], [ 5, %35 ], [ 4, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ 3, %20 ], [ 2, %15 ]
+  %.sroa.9.sroa.9.0 = phi i32 [ %19, %15 ], [ %.sroa.9.sroa.9.0.extract.trunc15, %20 ], [ 0, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ %.sroa.9.sroa.9.0.extract.trunc17, %35 ], [ %41, %37 ], [ %.sroa.9.sroa.9.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ]
+  %.sroa.9.sroa.0.0 = phi i32 [ %17, %15 ], [ %.sroa.9.sroa.0.0.extract.trunc10, %20 ], [ %storemerge.i.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ %.sroa.9.sroa.0.0.extract.trunc11, %35 ], [ %39, %37 ], [ %.sroa.9.sroa.0.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ]
+  %.sroa.20.0 = phi i64 [ undef, %15 ], [ undef, %20 ], [ %29, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ undef, %35 ], [ undef, %37 ], [ %52, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ]
+  %.sroa.18.0 = phi i64 [ undef, %15 ], [ undef, %20 ], [ %34, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ %.sroa.18.8.copyload8, %35 ], [ undef, %37 ], [ %46, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ]
+  %.sroa.05.0 = phi i64 [ 2, %15 ], [ 3, %20 ], [ 4, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit.i" ], [ 5, %35 ], [ 6, %37 ], [ %storemerge.i2.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6a35e4b4931f50b9E.exit3.i" ]
   %.sroa.9.sroa.9.0.insert.ext = zext i32 %.sroa.9.sroa.9.0 to i64
   %.sroa.9.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.sroa.9.0.insert.ext, 32
   %.sroa.9.sroa.0.0.insert.ext = zext i32 %.sroa.9.sroa.0.0 to i64

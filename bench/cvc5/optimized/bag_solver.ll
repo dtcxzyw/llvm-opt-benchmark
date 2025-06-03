@@ -2058,7 +2058,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit46: ; preds = %230, %234, %240
   br i1 %244, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 245:                                              ; preds = %227, %197, %167, %137, %107, %70
-  %.pn22 = phi { ptr, i32 } [ %71, %70 ], [ %228, %227 ], [ %198, %197 ], [ %168, %167 ], [ %138, %137 ], [ %108, %107 ]
+  %.pn22 = phi { ptr, i32 } [ %71, %70 ], [ %108, %107 ], [ %138, %137 ], [ %168, %167 ], [ %198, %197 ], [ %228, %227 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br label %247

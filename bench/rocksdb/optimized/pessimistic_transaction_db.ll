@@ -6237,7 +6237,7 @@ _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5r
   br label %45
 
 45:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i
-  %.sroa.062.1.i = phi ptr [ %39, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i ], [ %27, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i ], [ %15, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i ]
+  %.sroa.062.1.i = phi ptr [ %39, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i ], [ %15, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i ], [ %27, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i ]
   %46 = load ptr, ptr %.sroa.062.1.i, align 8, !tbaa !26, !noalias !423
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1328
   %48 = load ptr, ptr %47, align 8, !noalias !423
@@ -6417,7 +6417,7 @@ _ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i: 
   br label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EED2Ev.exit58.i
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EED2Ev.exit58.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i, %60, %37, %25
-  %.pn35.pn.pn.pn76.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn82.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i ], [ %.pn31.i, %25 ], [ %.pn.i, %37 ], [ %.pn33.i, %60 ]
+  %.pn35.pn.pn.pn76.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn82.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i ], [ %.pn.i, %37 ], [ %.pn31.i, %25 ], [ %.pn33.i, %60 ]
   resume { ptr, i32 } %.pn35.pn.pn.pn76.i
 
 _ZN7rocksdb12_GLOBAL__N_121WrapAnotherDBInternalINS_2DBEEENS_6StatusEPT_RKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS9_IPNS_18ColumnFamilyHandleESaISF_EEPPNS_13TransactionDBE.exit: ; preds = %.thread.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i.i
@@ -6558,7 +6558,7 @@ _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5r
   br label %45
 
 45:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i
-  %.sroa.062.1.i = phi ptr [ %39, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i ], [ %27, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i ], [ %15, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i ]
+  %.sroa.062.1.i = phi ptr [ %39, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit51.i ], [ %15, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i ], [ %27, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit45.i ]
   %46 = load ptr, ptr %.sroa.062.1.i, align 8, !tbaa !26, !noalias !440
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1328
   %48 = load ptr, ptr %47, align 8, !noalias !440
@@ -6738,7 +6738,7 @@ _ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i: 
   br label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EED2Ev.exit58.i
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EED2Ev.exit58.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i, %60, %37, %25
-  %.pn35.pn.pn.pn76.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn82.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i ], [ %.pn31.i, %25 ], [ %.pn.i, %37 ], [ %.pn33.i, %60 ]
+  %.pn35.pn.pn.pn76.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn82.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i57.i ], [ %.pn.i, %37 ], [ %.pn31.i, %25 ], [ %.pn33.i, %60 ]
   resume { ptr, i32 } %.pn35.pn.pn.pn76.i
 
 _ZN7rocksdb12_GLOBAL__N_121WrapAnotherDBInternalINS_11StackableDBEEENS_6StatusEPT_RKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS9_IPNS_18ColumnFamilyHandleESaISF_EEPPNS_13TransactionDBE.exit: ; preds = %.thread.i, %_ZNKSt14default_deleteIN7rocksdb24PessimisticTransactionDBEEclEPS1_.exit.i.i
@@ -18660,14 +18660,14 @@ _ZN7rocksdb6StatusD2Ev.exit84:                    ; preds = %111, %_ZNKSt14defau
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %132 = load i8, ptr %131, align 8, !tbaa !713, !range !89, !noundef !90
   %133 = trunc nuw i8 %132 to i1
-  %.pn11.i.i.i.pn.in.v.i.i = select i1 %133, i64 24, i64 8
-  %.pn11.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn11.i.i.i.pn.in.v.i.i
-  %.pn9.i.i.i.pn.in.v.i.i = select i1 %133, i64 32, i64 16
-  %.pn9.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn9.i.i.i.pn.in.v.i.i
-  %.pn9.i.i.i.pn.i.i = load i64, ptr %.pn9.i.i.i.pn.in.i.i, align 8, !tbaa !195
-  %.pn11.i.i.i.pn.i.i = load ptr, ptr %.pn11.i.i.i.pn.in.i.i, align 8, !tbaa !230
-  store ptr %.pn11.i.i.i.pn.i.i, ptr %7, align 8, !noalias !698
-  store i64 %.pn9.i.i.i.pn.i.i, ptr %122, align 8, !noalias !698
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i = select i1 %133, i64 24, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i = select i1 %133, i64 32, i64 16
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i, align 8, !tbaa !195
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i, align 8, !tbaa !230
+  store ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i, ptr %7, align 8, !noalias !698
+  store i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i, ptr %122, align 8, !noalias !698
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   invoke void @_ZN7rocksdb19SecondaryIndexMixinINS_17WriteCommittedTxnEE17AddSecondaryEntryEPKNS_14SecondaryIndexERKNS_5SliceES8_S8_(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef %130, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %134)
           to label %.noexc unwind label %.loopexit
@@ -19310,14 +19310,14 @@ _ZN7rocksdb19SecondaryIndexMixinINS_17WriteCommittedTxnEE9IndexDataD2Ev.exit33: 
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %101 = load i8, ptr %100, align 8, !tbaa !713, !range !89, !noundef !90
   %102 = trunc nuw i8 %101 to i1
-  %.pn11.i.i.i.pn.in.v.i = select i1 %102, i64 24, i64 8
-  %.pn11.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn11.i.i.i.pn.in.v.i
-  %.pn9.i.i.i.pn.in.v.i = select i1 %102, i64 32, i64 16
-  %.pn9.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn9.i.i.i.pn.in.v.i
-  %.pn9.i.i.i.pn.i = load i64, ptr %.pn9.i.i.i.pn.in.i, align 8, !tbaa !195
-  %.pn11.i.i.i.pn.i = load ptr, ptr %.pn11.i.i.i.pn.in.i, align 8, !tbaa !230
-  store ptr %.pn11.i.i.i.pn.i, ptr %4, align 8, !tbaa !230
-  store i64 %.pn9.i.i.i.pn.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !195
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i = select i1 %102, i64 24, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i = select i1 %102, i64 32, i64 16
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i, align 8, !tbaa !195
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i, align 8, !tbaa !230
+  store ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i, ptr %4, align 8, !tbaa !230
+  store i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !195
   %103 = load ptr, ptr %32, align 8, !tbaa !230
   %.not.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -20822,11 +20822,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #28
   %141 = load i8, ptr %36, align 8, !tbaa !713, !range !89, !noundef !90
   %142 = trunc nuw i8 %141 to i1
-  %.pn9.in.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.pn9.i.i.i = load i64, ptr %.pn9.in.i.i.i, align 8
-  %.pn11.i.i.i = load ptr, ptr %9, align 8
-  %.str.sink = select i1 %142, ptr %.pn11.i.i.i, ptr @.str
-  %.sink = select i1 %142, i64 %.pn9.i.i.i, i64 0
+  %.sroa.2.0.copyload.i.i.i.i.pn.in.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.in.i.i.i, align 8
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i = load ptr, ptr %9, align 8
+  %.str.sink = select i1 %142, ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i, ptr @.str
+  %.sink = select i1 %142, i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i, i64 0
   store ptr %.str.sink, ptr %14, align 8
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sink, ptr %143, align 8
@@ -21820,14 +21820,14 @@ _ZN7rocksdb6StatusD2Ev.exit86:                    ; preds = %132, %_ZNKSt14defau
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %153 = load i8, ptr %152, align 8, !tbaa !713, !range !89, !noundef !90
   %154 = trunc nuw i8 %153 to i1
-  %.pn11.i.i.i.pn.in.v.i.i = select i1 %154, i64 24, i64 8
-  %.pn11.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn11.i.i.i.pn.in.v.i.i
-  %.pn9.i.i.i.pn.in.v.i.i = select i1 %154, i64 32, i64 16
-  %.pn9.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn9.i.i.i.pn.in.v.i.i
-  %.pn9.i.i.i.pn.i.i = load i64, ptr %.pn9.i.i.i.pn.in.i.i, align 8, !tbaa !195
-  %.pn11.i.i.i.pn.i.i = load ptr, ptr %.pn11.i.i.i.pn.in.i.i, align 8, !tbaa !230
-  store ptr %.pn11.i.i.i.pn.i.i, ptr %7, align 8, !noalias !841
-  store i64 %.pn9.i.i.i.pn.i.i, ptr %143, align 8, !noalias !841
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i = select i1 %154, i64 24, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i = select i1 %154, i64 32, i64 16
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i, align 8, !tbaa !195
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i.i, align 8, !tbaa !230
+  store ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i, ptr %7, align 8, !noalias !841
+  store i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i.i, ptr %143, align 8, !noalias !841
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   invoke void @_ZN7rocksdb19SecondaryIndexMixinINS_17WriteCommittedTxnEE17AddSecondaryEntryEPKNS_14SecondaryIndexERKNS_5SliceES8_S8_(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef %151, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %155)
           to label %.noexc unwind label %.loopexit
@@ -22310,15 +22310,15 @@ _ZN7rocksdb19SecondaryIndexMixinINS_17WriteCommittedTxnEE9IndexDataD2Ev.exit37: 
   %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %138 = load i8, ptr %137, align 8, !tbaa !713, !range !89, !noundef !90
   %139 = trunc nuw i8 %138 to i1
-  %.pn11.i.i.i.pn.in.v.i = select i1 %139, i64 24, i64 8
-  %.pn11.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn11.i.i.i.pn.in.v.i
-  %.pn9.i.i.i.pn.in.v.i = select i1 %139, i64 32, i64 16
-  %.pn9.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn9.i.i.i.pn.in.v.i
-  %.pn9.i.i.i.pn.i = load i64, ptr %.pn9.i.i.i.pn.in.i, align 8, !tbaa !195
-  %.pn11.i.i.i.pn.i = load ptr, ptr %.pn11.i.i.i.pn.in.i, align 8, !tbaa !230
-  store ptr %.pn11.i.i.i.pn.i, ptr %88, align 8, !tbaa !230
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i = select i1 %139, i64 24, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i = select i1 %139, i64 32, i64 16
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.v.i
+  %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i = load i64, ptr %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i, align 8, !tbaa !195
+  %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.in.i, align 8, !tbaa !230
+  store ptr %.sroa.0.0.copyload.i.i.i.i.pn.i.i.i.pn.i, ptr %88, align 8, !tbaa !230
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.in.sroa.speculated.i, i64 24
-  store i64 %.pn9.i.i.i.pn.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !195
+  store i64 %.sroa.2.0.copyload.i.i.i.i.pn.i.i.i.pn.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !195
   %140 = load ptr, ptr %43, align 8, !tbaa !230
   %.not.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i

@@ -292,7 +292,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter11prin
   br label %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
 
 _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, %3, %16, %19, %21, %28
-  %.sroa.0.0.i = phi i32 [ %34, %28 ], [ %27, %21 ], [ %20, %19 ], [ %18, %16 ], [ 0, %3 ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i32 [ %18, %16 ], [ %20, %19 ], [ %27, %21 ], [ %34, %28 ], [ 0, %3 ], [ 0, %3 ]
   %35 = sext i32 %.sroa.0.0.i to i64
   %36 = add i64 %9, %35
   %37 = sdiv i64 %36, 86400
@@ -479,8 +479,8 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter26print_time_zone_annotation17h823
   br label %130
 
 130:                                              ; preds = %125, %122, %107
-  %.sroa.9.0.i.i = phi i64 [ %129, %125 ], [ %124, %122 ], [ 3, %107 ]
-  %.sroa.0.0.i.i = phi ptr [ %127, %125 ], [ %111, %122 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %107 ]
+  %.sroa.9.0.i.i = phi i64 [ %124, %122 ], [ %129, %125 ], [ 3, %107 ]
+  %.sroa.0.0.i.i = phi ptr [ %111, %122 ], [ %127, %125 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %107 ]
   %131 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hc4b10a204f34b7dcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.9.0.i.i)
   %132 = extractvalue { i64, ptr } %131, 0
   %133 = trunc nuw i64 %132 to i1
@@ -918,7 +918,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter11prin
   br label %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
 
 _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, %3, %17, %20, %22, %29
-  %.sroa.0.0.i = phi i32 [ %35, %29 ], [ %28, %22 ], [ %21, %20 ], [ %19, %17 ], [ 0, %3 ], [ 0, %3 ]
+  %.sroa.0.0.i = phi i32 [ %19, %17 ], [ %21, %20 ], [ %28, %22 ], [ %35, %29 ], [ 0, %3 ], [ 0, %3 ]
   %36 = sext i32 %.sroa.0.0.i to i64
   %37 = add i64 %10, %36
   %38 = sdiv i64 %37, 86400
@@ -1119,8 +1119,8 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter26print_time_zone_annotation17hf23
   br label %135
 
 135:                                              ; preds = %130, %127, %112
-  %.sroa.9.0.i.i = phi i64 [ %134, %130 ], [ %129, %127 ], [ 3, %112 ]
-  %.sroa.0.0.i.i = phi ptr [ %132, %130 ], [ %116, %127 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %112 ]
+  %.sroa.9.0.i.i = phi i64 [ %129, %127 ], [ %134, %130 ], [ 3, %112 ]
+  %.sroa.0.0.i.i = phi ptr [ %116, %127 ], [ %132, %130 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %112 ]
   %136 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h1ac9820172136f0aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.9.0.i.i)
   %137 = extractvalue { i64, ptr } %136, 0
   %138 = trunc nuw i64 %137 to i1
@@ -7362,8 +7362,8 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   br label %45
 
 45:                                               ; preds = %3, %40, %37
-  %.sroa.9.0.i = phi i64 [ %44, %40 ], [ %39, %37 ], [ 3, %3 ]
-  %.sroa.0.0.i = phi ptr [ %42, %40 ], [ %29, %37 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %3 ]
+  %.sroa.9.0.i = phi i64 [ %39, %37 ], [ %44, %40 ], [ 3, %3 ]
+  %.sroa.0.0.i = phi ptr [ %29, %37 ], [ %42, %40 ], [ @anon.defb23c543a0d58eda124284528ab762.55, %3 ]
   %46 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h864dcbf0bc7f2ca3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.9.0.i)
   br label %275
 

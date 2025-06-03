@@ -375,8 +375,8 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack5range17h67d67cebd7e05e6
   br i1 %45, label %"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$12align_offset17h635124e0a73f0083E.exit8", label %54
 
 46:                                               ; preds = %62, %11
-  %.sroa.5.0 = phi i64 [ %29, %62 ], [ %19, %11 ]
-  %.sroa.0.0 = phi i64 [ %28, %62 ], [ %18, %11 ]
+  %.sroa.5.0 = phi i64 [ %19, %11 ], [ %29, %62 ]
+  %.sroa.0.0 = phi i64 [ %18, %11 ], [ %28, %62 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16

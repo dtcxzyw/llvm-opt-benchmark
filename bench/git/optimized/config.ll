@@ -1308,8 +1308,8 @@ parse_config_env_list.exit:                       ; preds = %.thread.i, %.crited
   br label %155
 
 155:                                              ; preds = %71, %.loopexit, %parse_config_env_list.exit, %.thread65, %72
-  %.027 = phi ptr [ null, %71 ], [ null, %72 ], [ null, %.thread65 ], [ %75, %parse_config_env_list.exit ], [ %75, %.loopexit ]
-  %.4 = phi i32 [ -1, %71 ], [ 0, %72 ], [ -1, %.thread65 ], [ 0, %parse_config_env_list.exit ], [ -1, %.loopexit ]
+  %.027 = phi ptr [ null, %72 ], [ null, %71 ], [ null, %.thread65 ], [ %75, %parse_config_env_list.exit ], [ %75, %.loopexit ]
+  %.4 = phi i32 [ 0, %72 ], [ -1, %71 ], [ -1, %.thread65 ], [ 0, %parse_config_env_list.exit ], [ -1, %.loopexit ]
   call void @strbuf_release(ptr noundef nonnull %8) #31
   call void @strvec_clear(ptr noundef nonnull %9) #31
   call void @free(ptr noundef %.027) #31
@@ -4586,7 +4586,7 @@ strbuf_addch.exit.i.i142.i:                       ; preds = %strbuf_avail.exit.t
   br label %508
 
 508:                                              ; preds = %507, %506, %505, %499, %499
-  %.034.i.i.i = phi i32 [ 10, %507 ], [ 8, %506 ], [ 9, %505 ], [ %483, %499 ], [ %483, %499 ]
+  %.034.i.i.i = phi i32 [ 9, %505 ], [ 8, %506 ], [ 10, %507 ], [ %483, %499 ], [ %483, %499 ]
   %509 = load i64, ptr %11, align 8, !tbaa !7
   %.not.i.i56.i.i.i = icmp eq i64 %509, 0
   br i1 %.not.i.i56.i.i.i, label %strbuf_avail.exit.thread.i61.i.i.i, label %strbuf_avail.exit.i57.i.i.i
@@ -4813,7 +4813,7 @@ _.exit187.i:                                      ; preds = %580, %579
   br label %585
 
 585:                                              ; preds = %_.exit187.i, %_.exit184.i, %_.exit181.i, %_.exit178.i, %_.exit175.i, %_.exit.i
-  %.065.i = phi ptr [ %584, %_.exit187.i ], [ %578, %_.exit184.i ], [ %572, %_.exit181.i ], [ %566, %_.exit178.i ], [ %561, %_.exit175.i ], [ %555, %_.exit.i ]
+  %.065.i = phi ptr [ %584, %_.exit187.i ], [ %555, %_.exit.i ], [ %561, %_.exit175.i ], [ %566, %_.exit178.i ], [ %572, %_.exit181.i ], [ %578, %_.exit184.i ]
   br i1 %.not.i95.i, label %589, label %586
 
 586:                                              ; preds = %585
@@ -4852,7 +4852,7 @@ _.exit187.i:                                      ; preds = %580, %579
   unreachable
 
 599:                                              ; preds = %597, %595, %592
-  %.066.i = phi i32 [ 0, %592 ], [ -1, %597 ], [ -1, %595 ]
+  %.066.i = phi i32 [ 0, %592 ], [ -1, %595 ], [ -1, %597 ]
   call void @free(ptr noundef %.065.i) #31
   br label %git_parse_source.exit
 

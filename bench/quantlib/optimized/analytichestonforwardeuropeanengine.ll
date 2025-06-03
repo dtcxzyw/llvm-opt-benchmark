@@ -3471,7 +3471,7 @@ ehcleanup366:                                     ; preds = %ehcleanup365, %lpad
   br label %ehcleanup593
 
 sw.epilog:                                        ; preds = %invoke.cont317, %invoke.cont303
-  %.pn841 = phi double [ %173, %invoke.cont317 ], [ %169, %invoke.cont303 ]
+  %.pn841 = phi double [ %169, %invoke.cont303 ], [ %173, %invoke.cont317 ]
   %value.0 = fmul double %call102, %.pn841
   %value369 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store double %value.0, ptr %value369, align 8, !tbaa !135

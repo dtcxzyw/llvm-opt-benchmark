@@ -4235,10 +4235,10 @@ hid_unpack_value.exit242.i:                       ; preds = %.lr.ph.i235.i, %264
   br i1 %.not131.i, label %288, label %290, !llvm.loop !10
 
 294:                                              ; preds = %288, %260, %239, %hid_unpack_value.exit209.i, %hid_unpack_value.exit198.i, %hid_unpack_value.exit187.i, %.loopexit247.i, %.loopexit.i, %hid_unpack_value.exit159.thread.i, %108, %105, %101, %84, %70
-  %.1124.i = phi i32 [ %289, %288 ], [ %261, %260 ], [ %.0123264.i, %239 ], [ %.0123264.i, %108 ], [ %220, %hid_unpack_value.exit209.i ], [ %.0123264.i, %hid_unpack_value.exit198.i ], [ %191, %hid_unpack_value.exit187.i ], [ %178, %.loopexit247.i ], [ %150, %.loopexit.i ], [ %122, %hid_unpack_value.exit159.thread.i ], [ %.0123264.i, %70 ], [ %.0123264.i, %105 ], [ %104, %101 ], [ %87, %84 ]
-  %.1122.i = phi i32 [ %.0121265.i, %288 ], [ %.0121265.i, %260 ], [ %.0121265.i, %239 ], [ %.0121265.i, %108 ], [ %.0121265.i, %hid_unpack_value.exit209.i ], [ %.0121265.i, %hid_unpack_value.exit198.i ], [ %.0121265.i, %hid_unpack_value.exit187.i ], [ %.0121265.i, %.loopexit247.i ], [ %.0121265.i, %.loopexit.i ], [ %.08.lcssa.i158244.i, %hid_unpack_value.exit159.thread.i ], [ %.0121265.i, %70 ], [ %.0121265.i, %105 ], [ %.0121265.i, %101 ], [ %.0121265.i, %84 ]
-  %.1120.i = phi i32 [ %.0119266.i, %288 ], [ %.2.i, %260 ], [ %.0119266.i, %239 ], [ %.0119266.i, %108 ], [ %.0119266.i, %hid_unpack_value.exit209.i ], [ %.0119266.i, %hid_unpack_value.exit198.i ], [ %.0119266.i, %hid_unpack_value.exit187.i ], [ %.0119266.i, %.loopexit247.i ], [ %.0119266.i, %.loopexit.i ], [ %.0119266.i, %hid_unpack_value.exit159.thread.i ], [ %.0119266.i, %70 ], [ %.0119266.i, %105 ], [ %.0119266.i, %101 ], [ %.0119266.i, %84 ]
-  %.1.i = phi i1 [ %.0116267.i, %288 ], [ %.0116267.i, %260 ], [ %.0116267.i, %239 ], [ %.0116267.i, %108 ], [ %.0116267.i, %hid_unpack_value.exit209.i ], [ %.0116267.i, %hid_unpack_value.exit198.i ], [ %.0116267.i, %hid_unpack_value.exit187.i ], [ %.0116267.i, %.loopexit247.i ], [ %.0116267.i, %.loopexit.i ], [ %.0116267.i, %hid_unpack_value.exit159.thread.i ], [ %.0116267.i, %70 ], [ %.0116267.i, %105 ], [ false, %101 ], [ false, %84 ]
+  %.1124.i = phi i32 [ %.0123264.i, %70 ], [ %87, %84 ], [ %104, %101 ], [ %.0123264.i, %105 ], [ %.0123264.i, %108 ], [ %122, %hid_unpack_value.exit159.thread.i ], [ %150, %.loopexit.i ], [ %178, %.loopexit247.i ], [ %191, %hid_unpack_value.exit187.i ], [ %.0123264.i, %hid_unpack_value.exit198.i ], [ %220, %hid_unpack_value.exit209.i ], [ %.0123264.i, %239 ], [ %261, %260 ], [ %289, %288 ]
+  %.1122.i = phi i32 [ %.0121265.i, %70 ], [ %.0121265.i, %84 ], [ %.0121265.i, %101 ], [ %.0121265.i, %105 ], [ %.0121265.i, %108 ], [ %.08.lcssa.i158244.i, %hid_unpack_value.exit159.thread.i ], [ %.0121265.i, %.loopexit.i ], [ %.0121265.i, %.loopexit247.i ], [ %.0121265.i, %hid_unpack_value.exit187.i ], [ %.0121265.i, %hid_unpack_value.exit198.i ], [ %.0121265.i, %hid_unpack_value.exit209.i ], [ %.0121265.i, %239 ], [ %.0121265.i, %260 ], [ %.0121265.i, %288 ]
+  %.1120.i = phi i32 [ %.0119266.i, %70 ], [ %.0119266.i, %84 ], [ %.0119266.i, %101 ], [ %.0119266.i, %105 ], [ %.0119266.i, %108 ], [ %.0119266.i, %hid_unpack_value.exit159.thread.i ], [ %.0119266.i, %.loopexit.i ], [ %.0119266.i, %.loopexit247.i ], [ %.0119266.i, %hid_unpack_value.exit187.i ], [ %.0119266.i, %hid_unpack_value.exit198.i ], [ %.0119266.i, %hid_unpack_value.exit209.i ], [ %.0119266.i, %239 ], [ %.2.i, %260 ], [ %.0119266.i, %288 ]
+  %.1.i = phi i1 [ %.0116267.i, %70 ], [ false, %84 ], [ false, %101 ], [ %.0116267.i, %105 ], [ %.0116267.i, %108 ], [ %.0116267.i, %hid_unpack_value.exit159.thread.i ], [ %.0116267.i, %.loopexit.i ], [ %.0116267.i, %.loopexit247.i ], [ %.0116267.i, %hid_unpack_value.exit187.i ], [ %.0116267.i, %hid_unpack_value.exit198.i ], [ %.0116267.i, %hid_unpack_value.exit209.i ], [ %.0116267.i, %239 ], [ %.0116267.i, %260 ], [ %.0116267.i, %288 ]
   %295 = add nuw nsw i32 %spec.store.select.i, 1
   %296 = add i32 %295, %.0115268.i
   %297 = load i32, ptr %41, align 8
@@ -4880,8 +4880,8 @@ dissect_usb_hid_report_localitem_data.exit:       ; preds = %181, %191, %196, %2
   br label %.thread
 
 .thread:                                          ; preds = %236, %dissect_usb_hid_report_localitem_data.exit, %dissect_usb_hid_report_globalitem_data.exit, %240, %242
-  %.sink.i16 = phi i32 [ %.sink.i15, %242 ], [ %.sink.i15, %240 ], [ %.sink.i17, %dissect_usb_hid_report_globalitem_data.exit ], [ %.sink.i15, %dissect_usb_hid_report_localitem_data.exit ], [ %.sink.i15, %236 ]
-  %.3 = phi i32 [ %244, %242 ], [ %241, %240 ], [ %176, %dissect_usb_hid_report_globalitem_data.exit ], [ %235, %dissect_usb_hid_report_localitem_data.exit ], [ %239, %236 ]
+  %.sink.i16 = phi i32 [ %.sink.i15, %242 ], [ %.sink.i15, %240 ], [ %.sink.i15, %dissect_usb_hid_report_localitem_data.exit ], [ %.sink.i17, %dissect_usb_hid_report_globalitem_data.exit ], [ %.sink.i15, %236 ]
+  %.3 = phi i32 [ %244, %242 ], [ %241, %240 ], [ %235, %dissect_usb_hid_report_localitem_data.exit ], [ %176, %dissect_usb_hid_report_globalitem_data.exit ], [ %239, %236 ]
   %247 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.3)
   %248 = icmp sgt i32 %247, 0
   br i1 %248, label %switch.lookup, label %.loopexit, !llvm.loop !14
@@ -7068,8 +7068,8 @@ define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i
   %76 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %2)
   br label %79
 
-77:                                               ; preds = %70, %68, %66, %64, %62, %60, %58, %56, %54, %51, %49, %47, %45, %41, %43, %39, %37, %35, %33, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4, %72
-  %.049.ph = phi ptr [ %spec.select, %72 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %spec.store.select2, %30 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %44, %43 ], [ %42, %41 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ]
+77:                                               ; preds = %4, %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72
+  %.049.ph = phi ptr [ %spec.select, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %spec.store.select2, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
   %.not58 = icmp eq ptr %.049.ph, null
   %spec.store.select = select i1 %.not58, ptr @.str.120, ptr %.049.ph
   %78 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.242, ptr noundef nonnull %spec.store.select)

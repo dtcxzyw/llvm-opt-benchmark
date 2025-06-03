@@ -2543,7 +2543,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit148:           ; preds = %172, %_ZN17QArrayDa
   br label %.body115
 
 .body115:                                         ; preds = %166, %139, %_ZN17QArrayDataPointerIDsED2Ev.exit148, %_ZN17QArrayDataPointerIDsED2Ev.exit140, %_ZN17QArrayDataPointerIDsED2Ev.exit96, %_ZN17QArrayDataPointerIDsED2Ev.exit76, %_ZN17QArrayDataPointerIDsED2Ev.exit56, %_ZN17QArrayDataPointerIDsED2Ev.exit36, %_ZN17QArrayDataPointerIDsED2Ev.exit16
-  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body119, %_ZN17QArrayDataPointerIDsED2Ev.exit148 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit140 ], [ %eh.lpad-body79, %_ZN17QArrayDataPointerIDsED2Ev.exit96 ], [ %eh.lpad-body59, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %eh.lpad-body39, %_ZN17QArrayDataPointerIDsED2Ev.exit56 ], [ %eh.lpad-body19, %_ZN17QArrayDataPointerIDsED2Ev.exit36 ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsED2Ev.exit16 ], [ %167, %166 ], [ %140, %139 ]
+  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body119, %_ZN17QArrayDataPointerIDsED2Ev.exit148 ], [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit140 ], [ %eh.lpad-body79, %_ZN17QArrayDataPointerIDsED2Ev.exit96 ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsED2Ev.exit16 ], [ %eh.lpad-body19, %_ZN17QArrayDataPointerIDsED2Ev.exit36 ], [ %eh.lpad-body39, %_ZN17QArrayDataPointerIDsED2Ev.exit56 ], [ %eh.lpad-body59, %_ZN17QArrayDataPointerIDsED2Ev.exit76 ], [ %167, %166 ], [ %140, %139 ]
   call void @_ZN4QMapIjP18LBMLBTRUFrameEntryED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %21) #19
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #19
   resume { ptr, i32 } %.pn6
@@ -17358,7 +17358,7 @@ _ZN4QMapIjP24LBMLBTRUCREQRequestEntryE3endEv.exit: ; preds = %217, %218, %225
   ret void
 
 249:                                              ; preds = %238, %169, %101
-  %.pn = phi { ptr, i32 } [ %239, %238 ], [ %170, %169 ], [ %102, %101 ]
+  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %170, %169 ], [ %239, %238 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -23934,8 +23934,8 @@ _ZN7QStringD2Ev.exit64:                           ; preds = %213, %_ZN17QArrayDa
   ret void
 
 219:                                              ; preds = %_ZN7QStringD2Ev.exit64, %_ZN7QStringD2Ev.exit44
-  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %_ZN7QStringD2Ev.exit64 ], [ %.pn30, %_ZN7QStringD2Ev.exit44 ]
-  resume { ptr, i32 } %.pn26.pn
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZN7QStringD2Ev.exit44 ], [ %.pn26, %_ZN7QStringD2Ev.exit64 ]
+  resume { ptr, i32 } %.pn30.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

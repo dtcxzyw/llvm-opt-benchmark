@@ -2530,7 +2530,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr39drop
   br label %.body.i
 
 .body.i:                                          ; preds = %50, %40, %34
-  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %50 ], [ %41, %40 ], [ %35, %34 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %50 ], [ %35, %34 ], [ %41, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17h9ec030a0035558efE"(ptr noalias noundef align 8 dereferenceable(64) %52) #16
           to label %common.resume.i unwind label %59

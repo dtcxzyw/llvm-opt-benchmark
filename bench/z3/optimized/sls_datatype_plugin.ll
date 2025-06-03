@@ -10092,8 +10092,8 @@ _ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread: ; preds = 
   br label %_ZNK6vectorIPN3euf5enodeELb0EjE5emptyEv.exit
 
 _ZNK6vectorIPN3euf5enodeELb0EjE5emptyEv.exit:     ; preds = %.cont212, %201, %_ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread, %570
-  %583 = phi ptr [ %186, %.cont212 ], [ %579, %_ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread ], [ %572, %570 ], [ %186, %201 ]
-  %.sroa.0236.9 = phi ptr [ %.sroa.0236.7363473, %.cont212 ], [ %.sroa.0236.12251262, %_ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread ], [ %.sroa.0236.12250, %570 ], [ %.sroa.0236.7363473, %201 ]
+  %583 = phi ptr [ %186, %.cont212 ], [ %186, %201 ], [ %579, %_ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread ], [ %572, %570 ]
+  %.sroa.0236.9 = phi ptr [ %.sroa.0236.7363473, %.cont212 ], [ %.sroa.0236.7363473, %201 ], [ %.sroa.0236.12251262, %_ZNK3sls15datatype_plugin15get_constructorEPN3euf5enodeE.exit.thread ], [ %.sroa.0236.12250, %570 ]
   %584 = getelementptr inbounds i8, ptr %583, i64 -4
   %585 = load i32, ptr %584, align 4, !tbaa !84
   %586 = icmp eq i32 %585, 0

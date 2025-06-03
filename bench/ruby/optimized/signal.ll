@@ -1656,8 +1656,8 @@ thread-pre-split.thread.sink.split.i:             ; preds = %75, %73, %67, %65, 
   br label %trap_handler.exit
 
 trap_handler.exit:                                ; preds = %34, %44, %RB_SYMBOL_P.exit.i, %RB_SYMBOL_P.exit.thread.i, %rbimpl_rstring_getmem.exit.i, %65, %71, %73, %75, %thread-pre-split.thread.sink.split.i
-  %.2 = phi i64 [ 4, %34 ], [ %57, %rbimpl_rstring_getmem.exit.i ], [ %.sink.i, %thread-pre-split.thread.sink.split.i ], [ %57, %75 ], [ %57, %73 ], [ %57, %71 ], [ %57, %65 ], [ %36, %RB_SYMBOL_P.exit.thread.i ], [ %36, %44 ], [ %36, %RB_SYMBOL_P.exit.i ]
-  %.0.i15 = phi ptr [ inttoptr (i64 1 to ptr), %34 ], [ @sighandler, %rbimpl_rstring_getmem.exit.i ], [ %.0.ph.i, %thread-pre-split.thread.sink.split.i ], [ @sighandler, %75 ], [ @sighandler, %73 ], [ @sighandler, %71 ], [ @sighandler, %65 ], [ @sighandler, %RB_SYMBOL_P.exit.thread.i ], [ @sighandler, %44 ], [ @sighandler, %RB_SYMBOL_P.exit.i ]
+  %.2 = phi i64 [ 4, %34 ], [ %57, %rbimpl_rstring_getmem.exit.i ], [ %.sink.i, %thread-pre-split.thread.sink.split.i ], [ %57, %65 ], [ %57, %71 ], [ %57, %73 ], [ %57, %75 ], [ %36, %RB_SYMBOL_P.exit.thread.i ], [ %36, %44 ], [ %36, %RB_SYMBOL_P.exit.i ]
+  %.0.i15 = phi ptr [ inttoptr (i64 1 to ptr), %34 ], [ @sighandler, %rbimpl_rstring_getmem.exit.i ], [ %.0.ph.i, %thread-pre-split.thread.sink.split.i ], [ @sighandler, %65 ], [ @sighandler, %71 ], [ @sighandler, %73 ], [ @sighandler, %75 ], [ @sighandler, %RB_SYMBOL_P.exit.thread.i ], [ @sighandler, %44 ], [ @sighandler, %RB_SYMBOL_P.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %77
 
@@ -1804,7 +1804,7 @@ ruby_signal.exit.i:                               ; preds = %101
   br label %trap.exit
 
 trap.exit:                                        ; preds = %116, %122, %124, %126, %128, %130
-  %.015.i = phi i64 [ %120, %116 ], [ %131, %130 ], [ %123, %122 ], [ %125, %124 ], [ %129, %128 ], [ 4, %126 ]
+  %.015.i = phi i64 [ %120, %116 ], [ %123, %122 ], [ %125, %124 ], [ %129, %128 ], [ %131, %130 ], [ 4, %126 ]
   store volatile i64 %.1, ptr %119, align 8, !tbaa !20
   ret i64 %.015.i
 }
@@ -2560,7 +2560,7 @@ define internal fastcc noundef ptr @default_handler(i32 noundef %0) unnamed_addr
   br label %6
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %5 ], [ @sig_do_nothing, %4 ], [ @sigsegv, %3 ], [ @sigbus, %2 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
+  %.0 = phi ptr [ null, %5 ], [ @sigbus, %2 ], [ @sigsegv, %3 ], [ @sig_do_nothing, %4 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
   ret ptr %.0
 }
 

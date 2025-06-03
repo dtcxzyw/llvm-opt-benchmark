@@ -449,7 +449,7 @@ define dso_local void @jspInitByBuffer(ptr noundef captures(none) initializes((0
   br label %29
 
 29:                                               ; preds = %23, %3, %3
-  %.0 = phi i32 [ %22, %3 ], [ %22, %3 ], [ %28, %23 ]
+  %.0 = phi i32 [ %28, %23 ], [ %22, %3 ], [ %22, %3 ]
   %30 = sext i32 %.0 to i64
   %31 = getelementptr inbounds i8, ptr %1, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -988,7 +988,7 @@ jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %93
   br label %.thread
 
 .thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %102, %.loopexit, %104, %109, %106, %71, %62, %74, %118, %117, %116, %112, %79, %75, %20, %18, %14
-  %.2 = phi i32 [ %.069108, %14 ], [ 0, %116 ], [ 3, %117 ], [ %.069108, %112 ], [ %.069108, %79 ], [ %.069108, %75 ], [ %.069108, %74 ], [ %.069108, %62 ], [ %.069108, %20 ], [ %19, %18 ], [ 3, %118 ], [ %.069108, %71 ], [ %spec.select, %.loopexit ], [ %spec.select86, %102 ], [ %., %109 ], [ 0, %106 ], [ 1, %104 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
+  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ %.069108, %74 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ %.069108, %112 ], [ 3, %118 ], [ 3, %117 ], [ 0, %116 ], [ %.069108, %71 ], [ %spec.select, %.loopexit ], [ %spec.select86, %102 ], [ %., %109 ], [ 0, %106 ], [ 1, %104 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
   %119 = load i32, ptr %.0109.sroa.phi118, align 4
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %jspGetNext.exit, label %jspGetNext.exit.thread
@@ -1322,7 +1322,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br label %127
 
 127:                                              ; preds = %126, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
-  %.0131 = phi i32 [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 1, %126 ]
+  %.0131 = phi i32 [ 1, %126 ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ], [ 0, %alignStringInfoInt.exit ]
   %128 = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   store i32 0, ptr %7, align 4

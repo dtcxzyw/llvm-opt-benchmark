@@ -1224,7 +1224,7 @@ checkSizes.exit:                                  ; preds = %183, %186, %193
   br label %203
 
 203:                                              ; preds = %checkmajorminor.exit, %201, %202, %entersweep.exit, %50, %51, %checkSizes.exit, %sweepstep.exit67, %sweepstep.exit55, %sweepstep.exit, %restartcollection.exit
-  %.0 = phi i64 [ -3, %202 ], [ 10, %201 ], [ 20, %checkSizes.exit ], [ 20, %sweepstep.exit67 ], [ 20, %sweepstep.exit55 ], [ 20, %sweepstep.exit ], [ -2, %entersweep.exit ], [ 1, %50 ], [ %52, %51 ], [ 1, %restartcollection.exit ], [ -1, %checkmajorminor.exit ]
+  %.0 = phi i64 [ 1, %restartcollection.exit ], [ 1, %50 ], [ %52, %51 ], [ -2, %entersweep.exit ], [ 20, %sweepstep.exit ], [ 20, %sweepstep.exit55 ], [ 20, %sweepstep.exit67 ], [ 20, %checkSizes.exit ], [ -3, %202 ], [ 10, %201 ], [ -1, %checkmajorminor.exit ]
   store i8 0, ptr %5, align 1, !tbaa !60
   br label %204
 
@@ -2211,7 +2211,7 @@ define internal fastcc i64 @objsize(ptr noundef %0) unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %1, %47, %40, %33, %31, %29, %18, %12, %6, %4
-  %.0 = phi i64 [ 0, %47 ], [ %46, %40 ], [ %39, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %18 ], [ %17, %12 ], [ %11, %6 ], [ %5, %4 ], [ 40, %1 ]
+  %.0 = phi i64 [ 0, %47 ], [ %5, %4 ], [ %11, %6 ], [ %17, %12 ], [ %28, %18 ], [ %30, %29 ], [ %32, %31 ], [ %39, %33 ], [ %46, %40 ], [ 40, %1 ]
   ret i64 %.0
 }
 
@@ -4268,7 +4268,7 @@ traverseproto.exit:                               ; preds = %.preheader.i, %._cr
   br label %traverseudata.exit
 
 traverseudata.exit:                               ; preds = %traverseCclosure.exit.loopexit, %getgclist.exit.thread53, %traverseLclosure.exit.loopexit, %247, %434, %383, %.sink.split.i.i, %._crit_edge.i, %traverseproto.exit, %traversetable.exit
-  %.0 = phi i64 [ %374, %traverseproto.exit ], [ %203, %traversetable.exit ], [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i, %.sink.split.i.i ], [ %441, %434 ], [ 0, %383 ], [ %265, %traverseLclosure.exit.loopexit ], [ 1, %247 ], [ %284, %traverseCclosure.exit.loopexit ], [ 1, %getgclist.exit.thread53 ]
+  %.0 = phi i64 [ %203, %traversetable.exit ], [ %374, %traverseproto.exit ], [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i, %.sink.split.i.i ], [ %441, %434 ], [ 0, %383 ], [ %265, %traverseLclosure.exit.loopexit ], [ 1, %247 ], [ %284, %traverseCclosure.exit.loopexit ], [ 1, %getgclist.exit.thread53 ]
   ret i64 %.0
 }
 
@@ -4656,7 +4656,7 @@ define internal fastcc ptr @correctgraylist(ptr noundef captures(ret: address, p
   br label %getgclist.exit
 
 getgclist.exit:                                   ; preds = %.lr.ph, %6, %8, %10, %12, %14, %16
-  %.0.i = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ null, %.lr.ph ]
+  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i32

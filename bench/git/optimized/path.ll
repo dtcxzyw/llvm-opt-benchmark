@@ -1218,7 +1218,7 @@ skip_prefix.exit:                                 ; preds = %4
   br label %35
 
 35:                                               ; preds = %.thread32, %.thread35, %9
-  %.0 = phi ptr [ %10, %9 ], [ null, %.thread32 ], [ %34, %.thread35 ]
+  %.0 = phi ptr [ %10, %9 ], [ %34, %.thread35 ], [ null, %.thread32 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #30
   ret ptr %.0
 }
@@ -1431,7 +1431,7 @@ strbuf_setlen.exit73:                             ; preds = %strbuf_setlen.exit,
   br label %.critedge66.thread
 
 .critedge66.thread:                               ; preds = %52, %64, %25, %.critedge, %72, %.critedge66, %2, %75
-  %.0 = phi ptr [ null, %72 ], [ %.139, %75 ], [ null, %2 ], [ null, %.critedge66 ], [ null, %.critedge ], [ null, %25 ], [ null, %64 ], [ null, %52 ]
+  %.0 = phi ptr [ %.139, %75 ], [ null, %72 ], [ null, %2 ], [ null, %.critedge66 ], [ null, %.critedge ], [ null, %25 ], [ null, %64 ], [ null, %52 ]
   ret ptr %.0
 }
 

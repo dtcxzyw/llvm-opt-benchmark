@@ -2836,7 +2836,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h68c315590c119eb0E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -2897,7 +2897,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h72ae43c448a06ee1E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -2958,7 +2958,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hb5348971cced2cc7E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }

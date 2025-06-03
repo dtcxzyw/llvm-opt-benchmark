@@ -1050,7 +1050,7 @@ _RNvXNtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB4_3VecNtNtB6_6string6StringEIN
   unreachable
 
 42:                                               ; preds = %19, %37
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %20, %19 ]
   resume { ptr, i32 } %.pn
 }
 

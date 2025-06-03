@@ -443,7 +443,7 @@ flush_put_bits.exit:                              ; preds = %166, %put_bits.exit
   br label %.thread198
 
 .thread198:                                       ; preds = %190, %191, %183
-  %.0 = phi i32 [ 14, %191 ], [ 10, %190 ], [ 6, %183 ]
+  %.0 = phi i32 [ 10, %190 ], [ 14, %191 ], [ 6, %183 ]
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 132
   %193 = load i32, ptr %192, align 4, !tbaa !72
   %194 = icmp eq i32 %193, 2

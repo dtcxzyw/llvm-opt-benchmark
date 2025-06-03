@@ -1805,7 +1805,7 @@ define internal noundef zeroext i1 @"_ZN65_$LT$inquire..error..InquireError$u20$
   br label %26
 
 26:                                               ; preds = %23, %21, %19, %16, %14, %12
-  %.sroa.0.0.in = phi i1 [ %25, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4411,6 +4411,10 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread161: ; preds = 
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
+.invoke283:                                       ; preds = %764, %783
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98)
+          to label %.backedge unwind label %.thread156.loopexit
+
 779:                                              ; preds = %764
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98)
@@ -4438,10 +4442,6 @@ _ZN3h3i7prompts2h311prompt_data17h95f5ef3b7bf28341E.exit.i.thread161: ; preds = 
   %786 = add i64 %771, 1
   store i64 %786, ptr %102, align 8, !alias.scope !327, !noalias !330
   br label %.invoke283
-
-.invoke283:                                       ; preds = %764, %783
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98)
-          to label %.backedge unwind label %.thread156.loopexit
 
 .backedge:                                        ; preds = %.invoke283
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98)

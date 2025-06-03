@@ -1917,7 +1917,7 @@ _ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev.exit: ; preds = %sw.e
   ret void
 
 ehcleanup251:                                     ; preds = %lpad76, %ehcleanup128, %ehcleanup189, %ehcleanup247, %ehcleanup72, %lpad30, %ehcleanup28
-  %.pn26.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn, %ehcleanup28 ], [ %.pn.pn.pn.pn.pn, %ehcleanup72 ], [ %30, %lpad30 ], [ %.pn19.pn.pn.pn.pn, %ehcleanup247 ], [ %54, %lpad76 ], [ %.pn7.pn.pn.pn.pn, %ehcleanup189 ], [ %.pn13.pn.pn.pn.pn, %ehcleanup128 ]
+  %.pn26.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn, %ehcleanup28 ], [ %.pn.pn.pn.pn.pn, %ehcleanup72 ], [ %30, %lpad30 ], [ %.pn19.pn.pn.pn.pn, %ehcleanup247 ], [ %54, %lpad76 ], [ %.pn13.pn.pn.pn.pn, %ehcleanup128 ], [ %.pn7.pn.pn.pn.pn, %ehcleanup189 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %payoff) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %payoff) #27
   resume { ptr, i32 } %.pn26.pn.pn.pn.pn.pn

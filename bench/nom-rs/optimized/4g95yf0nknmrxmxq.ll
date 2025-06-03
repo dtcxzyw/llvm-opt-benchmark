@@ -96,7 +96,7 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
   br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
 _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2, %8, %10
-  %.014.i = phi i1 [ false, %2 ], [ %11, %10 ], [ %9, %8 ]
+  %.014.i = phi i1 [ false, %2 ], [ %9, %8 ], [ %11, %10 ]
   ret i1 %.014.i
 }
 
@@ -109,9 +109,9 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %switch.not.not.i = icmp eq i8 %2, 0
   %3 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !40, !noalias !4, !noundef !4
-  %4 = icmp uge i64 %.val, %3
-  %5 = icmp ugt i64 %.val, %3
-  %.014.i = select i1 %switch.not.not.i, i1 %5, i1 %4
+  %4 = icmp ugt i64 %.val, %3
+  %5 = icmp uge i64 %.val, %3
+  %.014.i = select i1 %switch.not.not.i, i1 %4, i1 %5
   ret i1 %.014.i
 }
 

@@ -7530,7 +7530,7 @@ GC_find_header.exit:                              ; preds = %15
   br label %GC_generic_or_special_malloc.exit
 
 GC_generic_or_special_malloc.exit:                ; preds = %68, %70, %72
-  %.0.i62 = phi ptr [ %73, %72 ], [ %71, %70 ], [ %69, %68 ]
+  %.0.i62 = phi ptr [ %73, %72 ], [ %69, %68 ], [ %71, %70 ]
   %.not60 = icmp eq ptr %.0.i62, null
   br i1 %.not60, label %75, label %74, !prof !44
 
@@ -7602,7 +7602,7 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   br label %40
 
 40:                                               ; preds = %31, %27, %23, %14, %5
-  %.0 = phi ptr [ %39, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %14 ], [ %13, %5 ]
+  %.0 = phi ptr [ %39, %31 ], [ %13, %5 ], [ %22, %14 ], [ %26, %23 ], [ %30, %27 ]
   ret ptr %.0
 }
 
@@ -13254,7 +13254,7 @@ define noalias ptr @GC_generic_or_special_malloc(i64 noundef %0, i32 noundef %1)
   br label %9
 
 9:                                                ; preds = %7, %5, %3
-  %.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ %8, %7 ], [ %4, %3 ], [ %6, %5 ]
   ret ptr %.0
 }
 
@@ -14100,7 +14100,7 @@ GC_build_fl4.exit.i:                              ; preds = %328
   br label %GC_build_fl.exit
 
 GC_build_fl.exit:                                 ; preds = %GC_build_fl_clear2.exit.i, %GC_build_fl2.exit.i, %GC_build_fl_clear4.exit.i, %GC_build_fl4.exit.i, %._crit_edge.i
-  %.0.i147 = phi ptr [ %.036.lcssa.i, %._crit_edge.i ], [ %325, %GC_build_fl_clear4.exit.i ], [ %333, %GC_build_fl4.exit.i ], [ %309, %GC_build_fl_clear2.exit.i ], [ %316, %GC_build_fl2.exit.i ]
+  %.0.i147 = phi ptr [ %.036.lcssa.i, %._crit_edge.i ], [ %309, %GC_build_fl_clear2.exit.i ], [ %316, %GC_build_fl2.exit.i ], [ %325, %GC_build_fl_clear4.exit.i ], [ %333, %GC_build_fl4.exit.i ]
   store ptr %.0.i147, ptr %2, align 8, !tbaa !12
   %340 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47
   %341 = icmp eq i32 %340, 0
@@ -14360,7 +14360,7 @@ GC_generic_malloc_inner.exit:                     ; preds = %424, %426
   br label %GC_clear_stack.exit154.thread
 
 GC_clear_stack.exit154.thread:                    ; preds = %._crit_edge.i189, %GC_build_fl4.exit.i168, %GC_build_fl_clear4.exit.i161, %GC_build_fl2.exit.i180, %GC_build_fl_clear2.exit.i174, %GC_clear_stack.exit, %GC_generic_malloc_inner.exit, %431, %.loopexit
-  %.3 = phi ptr [ %128, %GC_clear_stack.exit ], [ %217, %.loopexit ], [ %.014.i, %431 ], [ null, %GC_generic_malloc_inner.exit ], [ %394, %GC_build_fl2.exit.i180 ], [ %387, %GC_build_fl_clear2.exit.i174 ], [ %411, %GC_build_fl4.exit.i168 ], [ %403, %GC_build_fl_clear4.exit.i161 ], [ %.036.lcssa.i190, %._crit_edge.i189 ]
+  %.3 = phi ptr [ %217, %.loopexit ], [ %.014.i, %431 ], [ null, %GC_generic_malloc_inner.exit ], [ %128, %GC_clear_stack.exit ], [ %411, %GC_build_fl4.exit.i168 ], [ %403, %GC_build_fl_clear4.exit.i161 ], [ %394, %GC_build_fl2.exit.i180 ], [ %387, %GC_build_fl_clear2.exit.i174 ], [ %.036.lcssa.i190, %._crit_edge.i189 ]
   store ptr %.3, ptr %2, align 8, !tbaa !12
   %.b = load i1, ptr @GC_need_to_lock, align 1
   br i1 %.b, label %432, label %434
@@ -18664,7 +18664,7 @@ GC_general_register_disappearing_link.exit:       ; preds = %._crit_edge
   br label %GC_malloc_explicitly_typed.exit
 
 GC_malloc_explicitly_typed.exit:                  ; preds = %GC_lock.exit.thread, %GC_size.exit.i.i, %17, %GC_general_register_disappearing_link.exit, %111, %GC_lock.exit, %53, %48, %154, %5
-  %.0 = phi ptr [ %157, %154 ], [ %9, %5 ], [ null, %48 ], [ null, %53 ], [ %57, %GC_lock.exit ], [ %57, %111 ], [ %57, %GC_general_register_disappearing_link.exit ], [ null, %17 ], [ %25, %GC_size.exit.i.i ], [ %57, %GC_lock.exit.thread ]
+  %.0 = phi ptr [ %9, %5 ], [ %157, %154 ], [ null, %48 ], [ null, %53 ], [ %57, %GC_lock.exit ], [ %57, %111 ], [ %57, %GC_general_register_disappearing_link.exit ], [ null, %17 ], [ %25, %GC_size.exit.i.i ], [ %57, %GC_lock.exit.thread ]
   ret ptr %.0
 }
 
@@ -20294,7 +20294,7 @@ define internal fastcc i64 @GC_parse_mem_size_arg(ptr noundef nonnull %0) unname
   br label %19
 
 19:                                               ; preds = %5, %17, %15, %13, %12, %9, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %9 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %6, %5 ], [ -1, %12 ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %9 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %6, %5 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #47
   ret i64 %.0
 }
@@ -31202,8 +31202,8 @@ GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i20.i.i,
   unreachable
 
 215:                                              ; preds = %207, %203, %200, %.lr.ph.i
-  %.121.i = phi i64 [ %.02027.i, %.lr.ph.i ], [ %211, %207 ], [ %205, %203 ], [ %.02027.i, %200 ]
-  %.1.i = phi i8 [ %.01928.i, %.lr.ph.i ], [ %.01928.i, %207 ], [ 1, %203 ], [ %.01928.i, %200 ]
+  %.121.i = phi i64 [ %.02027.i, %.lr.ph.i ], [ %.02027.i, %200 ], [ %205, %203 ], [ %211, %207 ]
+  %.1.i = phi i8 [ %.01928.i, %.lr.ph.i ], [ %.01928.i, %200 ], [ 1, %203 ], [ %.01928.i, %207 ]
   %216 = add nuw i64 %.01829.i, 1
   %217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 392), align 8, !tbaa !113
   %218 = icmp ult i64 %216, %217
@@ -33978,9 +33978,9 @@ GC_push_contents_hdr.exit220:                     ; preds = %GC_custom_push_proc
   %255 = tail call fastcc ptr @GC_push_contents_hdr(ptr noundef nonnull %.lcssa337.sink, ptr noundef %.10.lcssa, ptr noundef %2, ptr noundef %.1140242, i8 noundef signext 1)
   br label %.backedge
 
-.backedge:                                        ; preds = %157, %164, %34, %..loopexit_crit_edge, %.thread224, %118, %139, %252, %254, %._crit_edge369
-  %.0141.be = phi i64 [ %.0141281, %._crit_edge369 ], [ %149, %254 ], [ %149, %252 ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141281, %.thread224 ], [ %120, %118 ], [ %.0141281, %139 ], [ %149, %164 ], [ %149, %157 ]
-  %.0.be = phi ptr [ %142, %._crit_edge369 ], [ %255, %254 ], [ %.10.lcssa, %252 ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %133, %.thread224 ], [ %126, %118 ], [ %140, %139 ], [ %.8, %164 ], [ %.8, %157 ]
+.backedge:                                        ; preds = %157, %164, %34, %..loopexit_crit_edge, %.thread224, %139, %118, %252, %254, %._crit_edge369
+  %.0141.be = phi i64 [ %.0141281, %._crit_edge369 ], [ %149, %254 ], [ %149, %252 ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141281, %.thread224 ], [ %.0141281, %139 ], [ %120, %118 ], [ %149, %164 ], [ %149, %157 ]
+  %.0.be = phi ptr [ %142, %._crit_edge369 ], [ %255, %254 ], [ %.10.lcssa, %252 ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %133, %.thread224 ], [ %140, %139 ], [ %126, %118 ], [ %.8, %164 ], [ %.8, %157 ]
   %256 = ptrtoint ptr %.0.be to i64
   %257 = sub i64 %256, %7
   %258 = or i64 %257, %.0141.be
@@ -39562,8 +39562,8 @@ GC_is_marked.exit.i:                              ; preds = %68
   br label %90
 
 90:                                               ; preds = %89, %88, %87, %86, %84
-  %91 = phi i64 [ %40, %86 ], [ %40, %87 ], [ %40, %88 ], [ %40, %89 ], [ %.pre, %84 ]
-  %.0.ph.i = phi ptr [ @.str.189, %86 ], [ @.str.190, %87 ], [ @.str.191, %88 ], [ @.str.192, %89 ], [ %2, %84 ]
+  %91 = phi i64 [ %40, %86 ], [ %40, %89 ], [ %40, %88 ], [ %40, %87 ], [ %.pre, %84 ]
+  %.0.ph.i = phi ptr [ @.str.189, %86 ], [ @.str.192, %89 ], [ @.str.191, %88 ], [ @.str.190, %87 ], [ %2, %84 ]
   %92 = load ptr, ptr %0, align 8, !tbaa !48
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !50
@@ -41331,7 +41331,7 @@ GC_build_fl4.exit.i.i:                            ; preds = %157
   br label %GC_build_fl.exit.i
 
 GC_build_fl.exit.i:                               ; preds = %._crit_edge.i.i, %GC_build_fl4.exit.i.i, %GC_build_fl_clear4.exit.i.i, %GC_build_fl2.exit.i.i, %GC_build_fl_clear2.exit.i.i
-  %.0.i12.i = phi ptr [ %.036.lcssa.i.i, %._crit_edge.i.i ], [ %154, %GC_build_fl_clear4.exit.i.i ], [ %162, %GC_build_fl4.exit.i.i ], [ %138, %GC_build_fl_clear2.exit.i.i ], [ %145, %GC_build_fl2.exit.i.i ]
+  %.0.i12.i = phi ptr [ %.036.lcssa.i.i, %._crit_edge.i.i ], [ %138, %GC_build_fl_clear2.exit.i.i ], [ %145, %GC_build_fl2.exit.i.i ], [ %154, %GC_build_fl_clear4.exit.i.i ], [ %162, %GC_build_fl4.exit.i.i ]
   %169 = load ptr, ptr %4, align 8, !tbaa !32
   %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %0
   store ptr %.0.i12.i, ptr %170, align 8, !tbaa !12

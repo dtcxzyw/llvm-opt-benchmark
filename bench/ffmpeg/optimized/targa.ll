@@ -376,7 +376,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   br label %.critedge
 
 165:                                              ; preds = %161, %163, %162
-  %.0235 = phi i32 [ 2, %163 ], [ 3, %162 ], [ 4, %161 ]
+  %.0235 = phi i32 [ 3, %162 ], [ 2, %163 ], [ 4, %161 ]
   %166 = mul nuw nsw i32 %.0235, %.0219
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %168 = load i32, ptr %167, align 8, !tbaa !36

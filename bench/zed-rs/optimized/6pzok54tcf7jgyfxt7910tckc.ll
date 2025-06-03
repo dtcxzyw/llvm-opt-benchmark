@@ -23515,8 +23515,8 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity14request_layout28_$u7b
   br i1 %34, label %36, label %21
 
 36:                                               ; preds = %35
-  %.sroa.gep84 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %37 = load ptr, ptr %.sroa.gep84, align 8, !noundef !4
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %37 = load ptr, ptr %.sroa.gep, align 8, !noundef !4
   %38 = icmp eq ptr %37, null
   br i1 %38, label %43, label %39
 
@@ -23527,8 +23527,8 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity14request_layout28_$u7b
   br i1 %42, label %46, label %.invoke
 
 43:                                               ; preds = %36, %46
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %44 = load ptr, ptr %.sroa.gep, align 8, !noundef !4
+  %.sroa.gep84 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %44 = load ptr, ptr %.sroa.gep84, align 8, !noundef !4
   %45 = icmp eq ptr %44, null
   br i1 %45, label %21, label %48
 
@@ -29504,8 +29504,8 @@ default.unreachable:                              ; preds = %859
           to label %"_ZN91_$LT$terminal_view..terminal_element..TerminalElement$u20$as$u20$gpui..element..Element$GT$8prepaint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h80c5d5c76b40b8e3E.exit.i" unwind label %.body189.i, !noalias !6462
 
 .invoke.invoke.i.i:                               ; preds = %888, %881, %875, %869
-  %911 = phi float [ %890, %888 ], [ %877, %875 ], [ %883, %881 ], [ %871, %869 ]
-  %912 = phi i8 [ 3, %888 ], [ 0, %875 ], [ 3, %881 ], [ 2, %869 ]
+  %911 = phi float [ %890, %888 ], [ %871, %869 ], [ %877, %875 ], [ %883, %881 ]
+  %912 = phi i8 [ 3, %888 ], [ 2, %869 ], [ 0, %875 ], [ 3, %881 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !noalias !6760
   call void @llvm.lifetime.start.p0(i64 2984, ptr nonnull %8), !noalias !6760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2984) %8, ptr noundef nonnull align 8 dereferenceable(2984) %11, i64 2984, i1 false), !noalias !6760
@@ -37148,7 +37148,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
   ]
 
 "_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb1280fe0b04104d6E.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb1280fe0b04104d6E.exit13", %44, %11, %2, %70, %64, %58, %37, %18
-  %.sroa.0.0.shrunk = phi i1 [ %75, %70 ], [ %69, %64 ], [ %43, %37 ], [ %24, %18 ], [ %63, %58 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb1280fe0b04104d6E.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
+  %.sroa.0.0.shrunk = phi i1 [ %63, %58 ], [ %24, %18 ], [ %43, %37 ], [ %69, %64 ], [ %75, %70 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb1280fe0b04104d6E.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable:                              ; preds = %10
@@ -38279,7 +38279,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h5950c976fe89ace9E.exit: ; preds = %3
   unreachable
 
 "_ZN89_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..searchable..SearchableItemHandle$GT$25match_index_for_direction28_$u7b$$u7b$closure$u7d$$u7d$17hb174a877ffc669cfE.exit": ; preds = %55, %53, %51
-  %.sroa.01.0.i.i = phi i64 [ %57, %55 ], [ %54, %53 ], [ %52, %51 ]
+  %.sroa.01.0.i.i = phi i64 [ %54, %53 ], [ %52, %51 ], [ %57, %55 ]
   %59 = extractvalue { ptr, ptr } %21, 0
   %60 = icmp ne ptr %59, null
   tail call void @llvm.assume(i1 %60)

@@ -1697,8 +1697,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm14SpillPlacement6updateEj(ptr nound
   br label %27
 
 27:                                               ; preds = %26, %25, %.lr.ph.i
-  %.sroa.025.1.i = phi i64 [ %.sroa.025.031.i, %.lr.ph.i ], [ %.sroa.025.031.i, %26 ], [ %spec.select.i.i, %25 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.032.i, %.lr.ph.i ], [ %spec.select.i21.i, %26 ], [ %.sroa.0.032.i, %25 ]
+  %.sroa.025.1.i = phi i64 [ %.sroa.025.031.i, %.lr.ph.i ], [ %spec.select.i.i, %25 ], [ %.sroa.025.031.i, %26 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.032.i, %.lr.ph.i ], [ %.sroa.0.032.i, %25 ], [ %spec.select.i21.i, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %.033.i, i64 16
   %.not.i = icmp eq ptr %28, %16
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i

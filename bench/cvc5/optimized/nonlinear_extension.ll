@@ -4584,7 +4584,7 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtension11runSt
   %34 = call noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15hasPendingLemmaEv(ptr noundef nonnull align 8 dereferenceable(337) %33)
   br i1 %34, label %._crit_edge, label %.critedge223.backedge
 
-.critedge223.backedge:                            ; preds = %32, %36, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %30
+.critedge223.backedge:                            ; preds = %32, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %36, %30
   %35 = call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl13StepGenerator7hasNextEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   br i1 %35, label %30, label %._crit_edge
 

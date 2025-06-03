@@ -6842,7 +6842,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$h2..proto..streams..state..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17h20b579247cc3c1f7E.exit"
 
 "_ZN69_$LT$h2..proto..streams..state..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17h20b579247cc3c1f7E.exit": ; preds = %10, %12, %14, %16, %20, %23, %26
-  %.0.in.i = phi i1 [ %27, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.0.in.i = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ %22, %20 ], [ %25, %23 ], [ %27, %26 ]
   ret i1 %.0.in.i
 }
 
@@ -6918,7 +6918,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit"
 
 "_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit": ; preds = %10, %12, %14
-  %.0.in.i = phi i1 [ %16, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.0.in.i = phi i1 [ %11, %10 ], [ %13, %12 ], [ %16, %14 ]
   ret i1 %.0.in.i
 }
 

@@ -932,12 +932,12 @@ define internal fastcc range(i32 -28, 49) i32 @dissect_xtp_aseg(ptr noundef %0, 
   br label %64
 
 64:                                               ; preds = %37, %43, %38
-  %.085 = phi i32 [ %28, %37 ], [ %61, %43 ], [ %42, %38 ]
+  %.085 = phi i32 [ %28, %37 ], [ %42, %38 ], [ %61, %43 ]
   %65 = sub nsw i32 %.085, %2
   br label %.thread
 
-.thread:                                          ; preds = %30, %32, %35, %36, %64, %9
-  %.084 = phi i32 [ 0, %9 ], [ %65, %64 ], [ 4, %36 ], [ 4, %35 ], [ 4, %32 ], [ 4, %30 ]
+.thread:                                          ; preds = %32, %30, %35, %36, %64, %9
+  %.084 = phi i32 [ 0, %9 ], [ %65, %64 ], [ 4, %36 ], [ 4, %35 ], [ 4, %30 ], [ 4, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i32 %.084
 }
@@ -1046,7 +1046,7 @@ define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i
   %57 = call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %56, ptr noundef %0, i32 noundef %.sink101, i32 noundef 4, i32 noundef %55)
   br label %.thread
 
-.thread:                                          ; preds = %.thread95, %30, %33, %35, %36, %54, %9
+.thread:                                          ; preds = %.thread95, %33, %30, %35, %36, %54, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret void
 }

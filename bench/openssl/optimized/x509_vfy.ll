@@ -4730,7 +4730,7 @@ select.unfold:                                    ; preds = %223
   br label %292
 
 292:                                              ; preds = %269, %251, %.thread322, %.thread322, %.thread322, %.thread322, %243, %.loopexit, %289, %.critedge, %283, %279, %247, %244
-  %.0172 = phi i32 [ -1, %289 ], [ -1, %.critedge ], [ %249, %247 ], [ %282, %279 ], [ %287, %283 ], [ 0, %244 ], [ %.1176, %.loopexit ], [ %.8, %243 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %251 ], [ 0, %269 ]
+  %.0172 = phi i32 [ -1, %289 ], [ %249, %247 ], [ %282, %279 ], [ %287, %283 ], [ 0, %244 ], [ -1, %.critedge ], [ %.1176, %.loopexit ], [ %.8, %243 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %251 ], [ 0, %269 ]
   ret i32 %.0172
 }
 
@@ -5988,7 +5988,7 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br label %51
 
 51:                                               ; preds = %48, %46
-  %.0.i = phi i32 [ %50, %48 ], [ %47, %46 ]
+  %.0.i = phi i32 [ %47, %46 ], [ %50, %48 ]
   %52 = icmp slt i32 %.0.i, 0
   %53 = load ptr, ptr %3, align 8
   %54 = icmp eq ptr %53, null

@@ -1804,7 +1804,7 @@ decode_pic.exit:                                  ; preds = %1018, %.loopexit.i
   br label %decode_seq_header.exit
 
 decode_seq_header.exit:                           ; preds = %693, %615, %913, %.preheader337.i, %966, %926, %1011, %321, %302, %297, %260, %263, %232, %310, %604, %361, %258, %209, %198, %174, %144, %139, %104, %1034, %1036, %1033, %1029, %1032, %222, %90, %90
-  %.1 = phi i32 [ %.0124, %1036 ], [ %.0124, %1034 ], [ %.0124, %90 ], [ %.0124, %90 ], [ %219, %1029 ], [ %219, %1032 ], [ %219, %1033 ], [ %219, %222 ], [ %.0124, %104 ], [ %.0124, %139 ], [ %.0124, %144 ], [ %.0124, %174 ], [ %.0124, %198 ], [ %.0124, %209 ], [ %219, %258 ], [ %219, %361 ], [ %219, %604 ], [ %219, %310 ], [ %219, %232 ], [ %219, %263 ], [ %219, %260 ], [ %219, %297 ], [ %219, %302 ], [ %219, %321 ], [ %219, %1011 ], [ %219, %926 ], [ %219, %966 ], [ %219, %.preheader337.i ], [ %219, %913 ], [ %219, %615 ], [ %219, %693 ]
+  %.1 = phi i32 [ %.0124, %1036 ], [ %.0124, %1034 ], [ %219, %1029 ], [ %219, %1032 ], [ %219, %1033 ], [ %219, %222 ], [ %.0124, %90 ], [ %.0124, %90 ], [ %.0124, %104 ], [ %.0124, %139 ], [ %.0124, %144 ], [ %.0124, %174 ], [ %.0124, %198 ], [ %.0124, %209 ], [ %219, %258 ], [ %219, %361 ], [ %219, %604 ], [ %219, %310 ], [ %219, %232 ], [ %219, %263 ], [ %219, %260 ], [ %219, %297 ], [ %219, %302 ], [ %219, %321 ], [ %219, %1011 ], [ %219, %926 ], [ %219, %966 ], [ %219, %.preheader337.i ], [ %219, %913 ], [ %219, %615 ], [ %219, %693 ]
   %1042 = call ptr @avpriv_find_start_code(ptr noundef %92, ptr noundef nonnull %26, ptr noundef nonnull %7) #7
   %1043 = load i32, ptr %7, align 4, !tbaa !30
   %.not = icmp ugt i32 %1043, 511
@@ -2527,8 +2527,8 @@ decode_residual_chroma.exit:                      ; preds = %259, %256
   store i8 0, ptr %287, align 1, !tbaa !51
   br label %set_mv_intra.exit
 
-set_mv_intra.exit:                                ; preds = %206, %259, %246, %281, %decode_residual_chroma.exit, %get_ue_golomb.exit.thread, %73
-  %.0 = phi i32 [ -1094995529, %73 ], [ -1094995529, %get_ue_golomb.exit.thread ], [ 0, %decode_residual_chroma.exit ], [ 0, %281 ], [ %267, %259 ], [ %254, %246 ], [ %209, %206 ]
+set_mv_intra.exit:                                ; preds = %206, %246, %259, %281, %decode_residual_chroma.exit, %get_ue_golomb.exit.thread, %73
+  %.0 = phi i32 [ -1094995529, %73 ], [ -1094995529, %get_ue_golomb.exit.thread ], [ 0, %decode_residual_chroma.exit ], [ 0, %281 ], [ %254, %246 ], [ %267, %259 ], [ %209, %206 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
@@ -2973,7 +2973,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   br label %299
 
 299:                                              ; preds = %.critedge, %151, %267, %272, %178, %163, %192
-  %.1 = phi i32 [ %.0162, %151 ], [ %.0162, %272 ], [ %.0162, %267 ], [ %.0162, %192 ], [ %168, %163 ], [ %.0162, %178 ], [ 5, %.critedge ]
+  %.1 = phi i32 [ %.0162, %151 ], [ %.0162, %192 ], [ %168, %163 ], [ %.0162, %178 ], [ %.0162, %267 ], [ %.0162, %272 ], [ 5, %.critedge ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
   br i1 %exitcond170.not, label %.preheader156, label %151, !llvm.loop !114

@@ -5565,7 +5565,7 @@ switch.lookup:                                    ; preds = %6
   br label %10
 
 10:                                               ; preds = %switch.lookup, %3, %8, %5, %4
-  %.0 = phi i8 [ 0, %8 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
+  %.0 = phi i8 [ 0, %8 ], [ 2, %4 ], [ 3, %5 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 }
 

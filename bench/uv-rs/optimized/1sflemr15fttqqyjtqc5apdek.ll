@@ -139,10 +139,10 @@ define hidden i24 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6d9cd811a59
   %64 = sub nuw nsw i64 %29, %32
   br label %65
 
-65:                                               ; preds = %63, %60
-  %66 = phi ptr [ %18, %60 ], [ %31, %63 ]
-  %.sroa.4.0.i.ph = phi i64 [ %61, %60 ], [ %64, %63 ]
-  %.pn = phi i64 [ %23, %60 ], [ %32, %63 ]
+65:                                               ; preds = %60, %63
+  %66 = phi ptr [ %31, %63 ], [ %18, %60 ]
+  %.sroa.4.0.i.ph = phi i64 [ %64, %63 ], [ %61, %60 ]
+  %.pn = phi i64 [ %32, %63 ], [ %23, %60 ]
   %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %14, i64 %.pn
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !23
   call void @"_ZN90_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h57471d17d778440bE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.ph, i64 noundef %.sroa.4.0.i.ph)
@@ -289,10 +289,10 @@ define hidden i40 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcc8c2daa33c
   %64 = sub nuw nsw i64 %29, %32
   br label %65
 
-65:                                               ; preds = %63, %60
-  %66 = phi ptr [ %18, %60 ], [ %31, %63 ]
-  %.sroa.4.0.i.ph = phi i64 [ %61, %60 ], [ %64, %63 ]
-  %.pn = phi i64 [ %23, %60 ], [ %32, %63 ]
+65:                                               ; preds = %60, %63
+  %66 = phi ptr [ %31, %63 ], [ %18, %60 ]
+  %.sroa.4.0.i.ph = phi i64 [ %64, %63 ], [ %61, %60 ]
+  %.pn = phi i64 [ %32, %63 ], [ %23, %60 ]
   %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %14, i64 %.pn
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !56
   call void @"_ZN80_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h13c46c6733a09990E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.ph, i64 noundef %.sroa.4.0.i.ph)
@@ -442,10 +442,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17he5f4ed15cc
   %65 = sub nuw nsw i64 %30, %33
   br label %66
 
-66:                                               ; preds = %64, %61
-  %67 = phi ptr [ %19, %61 ], [ %32, %64 ]
-  %.sroa.4.0.i.ph = phi i64 [ %62, %61 ], [ %65, %64 ]
-  %.pn = phi i64 [ %24, %61 ], [ %33, %64 ]
+66:                                               ; preds = %61, %64
+  %67 = phi ptr [ %32, %64 ], [ %19, %61 ]
+  %.sroa.4.0.i.ph = phi i64 [ %65, %64 ], [ %62, %61 ]
+  %.pn = phi i64 [ %33, %64 ], [ %24, %61 ]
   %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %16, i64 %.pn
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !89
   call void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h57981dd510a3063bE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.ph, i64 noundef %.sroa.4.0.i.ph), !noalias !93

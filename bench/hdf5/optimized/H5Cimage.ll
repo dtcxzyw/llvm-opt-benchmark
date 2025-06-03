@@ -281,7 +281,7 @@ define range(i32 -1, 1) i32 @H5C__generate_cache_image(ptr noundef %0, ptr nound
   br label %60
 
 60:                                               ; preds = %52, %50, %28, %21
-  %.062.i.i = phi ptr [ %26, %21 ], [ %59, %52 ], [ %51, %50 ], [ %41, %28 ]
+  %.062.i.i = phi ptr [ %26, %21 ], [ %41, %28 ], [ %51, %50 ], [ %59, %52 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 527696
   %62 = load i32, ptr %61, align 8, !tbaa !59
   %63 = trunc i32 %62 to i8
@@ -1022,8 +1022,8 @@ H5C__read_cache_image.exit:                       ; preds = %28
   br label %123
 
 123:                                              ; preds = %113, %111, %80, %._crit_edge.i.i
-  %124 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %121, %113 ], [ %109, %111 ], [ %98, %80 ]
-  %.1.i.i = phi ptr [ %71, %._crit_edge.i.i ], [ %122, %113 ], [ %112, %111 ], [ %99, %80 ]
+  %124 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %98, %80 ], [ %109, %111 ], [ %121, %113 ]
+  %.1.i.i = phi ptr [ %71, %._crit_edge.i.i ], [ %99, %80 ], [ %112, %111 ], [ %122, %113 ]
   %125 = load i64, ptr %18, align 8, !tbaa !51
   %.not77.i.i = icmp eq i64 %124, %125
   br i1 %.not77.i.i, label %130, label %126

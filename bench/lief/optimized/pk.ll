@@ -225,7 +225,7 @@ switch.edge:                                      ; preds = %13, %13, %13, %.thr
   br label %20
 
 20:                                               ; preds = %18, %18, %18, %18, %19
-  %.not5.i = phi i1 [ false, %19 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ]
+  %.not5.i = phi i1 [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ false, %19 ]
   %21 = load ptr, ptr %0, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %mbedtls_pk_rsa.exit, label %mbedtls_pk_get_type.exit.i
@@ -624,7 +624,7 @@ mbedtls_pk_ec_ro.exit.i12:                        ; preds = %mbedtls_pk_get_type
   br label %import_pair_into_psa.exit
 
 import_pair_into_psa.exit:                        ; preds = %mbedtls_pk_get_type.exit.thread.thread, %mbedtls_pk_get_type.exit.thread, %87, %66, %52, %mbedtls_pk_get_type.exit.i11, %import_public_into_psa.exit, %mbedtls_pk_get_type.exit
-  %.0 = phi i32 [ -14720, %mbedtls_pk_get_type.exit ], [ %.0.i10, %import_public_into_psa.exit ], [ %.2.i, %87 ], [ %.1.i, %66 ], [ -16128, %52 ], [ -16000, %mbedtls_pk_get_type.exit.i11 ], [ -16000, %mbedtls_pk_get_type.exit.thread ], [ -16000, %mbedtls_pk_get_type.exit.thread.thread ]
+  %.0 = phi i32 [ -14720, %mbedtls_pk_get_type.exit ], [ %.0.i10, %import_public_into_psa.exit ], [ %.1.i, %66 ], [ %.2.i, %87 ], [ -16128, %52 ], [ -16000, %mbedtls_pk_get_type.exit.i11 ], [ -16000, %mbedtls_pk_get_type.exit.thread ], [ -16000, %mbedtls_pk_get_type.exit.thread.thread ]
   ret i32 %.0
 }
 

@@ -2026,8 +2026,8 @@ get_bsize.exit.thread170:                         ; preds = %8
   br label %get_sx.exit
 
 get_sx.exit:                                      ; preds = %8, %get_bsize.exit.thread, %get_bsize.exit.thread167, %get_bsize.exit.thread170
-  %.0.i152166 = phi float [ %67, %get_bsize.exit.thread170 ], [ %46, %get_bsize.exit.thread167 ], [ %27, %get_bsize.exit.thread ], [ 1.000000e+00, %8 ]
-  %.0.i153 = phi i32 [ %68, %get_bsize.exit.thread170 ], [ %53, %get_bsize.exit.thread167 ], [ %30, %get_bsize.exit.thread ], [ 0, %8 ]
+  %.0.i152166 = phi float [ %27, %get_bsize.exit.thread ], [ %46, %get_bsize.exit.thread167 ], [ %67, %get_bsize.exit.thread170 ], [ 1.000000e+00, %8 ]
+  %.0.i153 = phi i32 [ %30, %get_bsize.exit.thread ], [ %53, %get_bsize.exit.thread167 ], [ %68, %get_bsize.exit.thread170 ], [ 0, %8 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %70 = load i32, ptr %69, align 4, !tbaa !79
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2065,7 +2065,7 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   br label %89
 
 89:                                               ; preds = %87, %79, %76, %73, %get_sx.exit
-  %.0132 = phi nsz double [ %2, %get_sx.exit ], [ %88, %87 ], [ %86, %79 ], [ %78, %76 ], [ %75, %73 ]
+  %.0132 = phi nsz double [ %2, %get_sx.exit ], [ %75, %73 ], [ %78, %76 ], [ %86, %79 ], [ %88, %87 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %91 = load i32, ptr %90, align 8, !tbaa !132
   switch i32 %91, label %106 [
@@ -2097,8 +2097,8 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   unreachable
 
 107:                                              ; preds = %95, %92
-  %.0131 = phi i32 [ %100, %95 ], [ %70, %92 ]
-  %.0126.in = phi double [ %105, %95 ], [ %94, %92 ]
+  %.0131 = phi i32 [ %70, %92 ], [ %100, %95 ]
+  %.0126.in = phi double [ %94, %92 ], [ %105, %95 ]
   %.0126 = fptosi double %.0126.in to i32
   %108 = icmp slt i32 %.0126, 0
   br i1 %108, label %.loopexit179, label %109
@@ -2144,7 +2144,7 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   br label %134
 
 134:                                              ; preds = %118, %112, %109
-  %.1127 = phi i32 [ %.0.i, %118 ], [ %.0126, %109 ], [ %117, %112 ]
+  %.1127 = phi i32 [ %.0.i, %118 ], [ %117, %112 ], [ %.0126, %109 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !136
   switch i32 %136, label %.loopexit179 [

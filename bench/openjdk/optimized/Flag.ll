@@ -199,7 +199,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
   br label %45
 
 45:                                               ; preds = %41, %37, %34, %29
-  %.067 = phi ptr [ %44, %41 ], [ %40, %37 ], [ %36, %34 ], [ %33, %29 ]
+  %.067 = phi ptr [ %33, %29 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ]
   %46 = icmp eq ptr %.067, null
   br i1 %46, label %47, label %50
 

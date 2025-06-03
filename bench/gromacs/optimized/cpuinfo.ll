@@ -2933,7 +2933,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
   br label %1037
 
 1037:                                             ; preds = %1035, %._crit_edge.i.i.i.i659.i
-  %.sroa.031.1.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i659.i ], [ %1036, %1035 ]
+  %.sroa.031.1.i.i.i.i.i = phi ptr [ %1036, %1035 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i659.i ]
   %.val.i20.i.i.i.i.i = load i8, ptr %.sroa.031.1.i.i.i.i.i, align 1, !tbaa !43
   %1038 = sext i8 %.val.i20.i.i.i.i.i to i32
   %1039 = call i32 @isspace(i32 noundef %1038) #20
@@ -2945,7 +2945,7 @@ _ZN3gmx12_GLOBAL__N_117setFeatureFromBitEPSt3setINS_7CpuInfo7FeatureESt4lessIS3_
   br label %1043
 
 1043:                                             ; preds = %1041, %._crit_edge.i.i.i.i659.i
-  %.sroa.031.2.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i659.i ], [ %1042, %1041 ]
+  %.sroa.031.2.i.i.i.i.i = phi ptr [ %1042, %1041 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i659.i ]
   %.val.i21.i.i.i.i.i = load i8, ptr %.sroa.031.2.i.i.i.i.i, align 1, !tbaa !43
   %1044 = sext i8 %.val.i21.i.i.i.i.i to i32
   %1045 = call i32 @isspace(i32 noundef %1044) #20

@@ -1381,7 +1381,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %95, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %96, %95 ]
+  %.1.i.i.i = phi ptr [ %96, %95 ], [ %91, %.lr.ph.i.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %98 = load i24, ptr %97, align 16
   %99 = and i24 %98, 1048576
@@ -3590,7 +3590,7 @@ _ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit: ; preds
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i: ; preds = %91, %85
-  %.1.i.i = phi ptr [ %88, %85 ], [ %92, %91 ]
+  %.1.i.i = phi ptr [ %92, %91 ], [ %88, %85 ]
   %93 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i13.i = load i64, ptr %93, align 8, !tbaa !876
   %94 = and i64 %.sroa.0.0.copyload.i13.i, -16
@@ -3694,7 +3694,7 @@ _ZL30buildTypeForLambdaCallOperatorRN5clang4SemaEPNS_13CXXRecordDeclEPNS_21Templ
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %147, %140
-  %.1.i.i.i = phi ptr [ %143, %140 ], [ %148, %147 ]
+  %.1.i.i.i = phi ptr [ %148, %147 ], [ %143, %140 ]
   %149 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %149, align 8, !tbaa !876
   %150 = getelementptr inbounds nuw i8, ptr %17, i64 1472
@@ -9530,10 +9530,10 @@ define dso_local i64 @_ZN5clang4Sema15BuildLambdaExprENS_14SourceLocationES1_PNS
   unreachable
 
 _ZL23mapImplicitCaptureStyleN5clang4sema18CapturingScopeInfo20ImplicitCaptureStyleE.exit: ; preds = %4, %37, %38
-  %40 = phi i1 [ true, %38 ], [ true, %37 ], [ false, %4 ]
-  %41 = phi i1 [ false, %38 ], [ true, %37 ], [ false, %4 ]
-  %42 = phi i1 [ false, %38 ], [ false, %37 ], [ true, %4 ]
-  %.0.i = phi i32 [ 2, %38 ], [ %36, %37 ], [ %36, %4 ]
+  %40 = phi i1 [ true, %37 ], [ true, %38 ], [ false, %4 ]
+  %41 = phi i1 [ true, %37 ], [ false, %38 ], [ false, %4 ]
+  %42 = phi i1 [ false, %37 ], [ false, %38 ], [ true, %4 ]
+  %.0.i = phi i32 [ %36, %37 ], [ 2, %38 ], [ %36, %4 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 1592
   %44 = load ptr, ptr %43, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 1584
@@ -9924,7 +9924,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i: ; preds = %229, %222
-  %.1.i.i = phi ptr [ %226, %222 ], [ %230, %229 ]
+  %.1.i.i = phi ptr [ %230, %229 ], [ %226, %222 ]
   store ptr %.1.i.i, ptr %15, align 8, !tbaa !1632
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   store ptr %0, ptr %11, align 8
@@ -10108,7 +10108,7 @@ _ZL29addFunctionPointerConversionsRN5clang4SemaENS_11SourceRangeEPNS_13CXXRecord
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i125
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i125: ; preds = %300, %293
-  %.1.i.i126 = phi ptr [ %297, %293 ], [ %301, %300 ]
+  %.1.i.i126 = phi ptr [ %301, %300 ], [ %297, %293 ]
   %302 = load ptr, ptr %216, align 8, !tbaa !821
   %303 = getelementptr inbounds nuw i8, ptr %.1.i.i126, i64 16
   %304 = load i64, ptr %303, align 16
@@ -11865,7 +11865,7 @@ _ZN5clang12CompoundStmtC2ENS_14SourceLocationE.exit: ; preds = %._crit_edge, %10
   br label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
 
 _ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit: ; preds = %_ZN5clang12CompoundStmtC2ENS_14SourceLocationE.exit, %117
-  %.1.i.i60 = phi ptr [ %113, %_ZN5clang12CompoundStmtC2ENS_14SourceLocationE.exit ], [ %118, %117 ]
+  %.1.i.i60 = phi ptr [ %118, %117 ], [ %113, %_ZN5clang12CompoundStmtC2ENS_14SourceLocationE.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %.1.i.i60, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %119, align 8, !tbaa !876
   %120 = load i16, ptr %109, align 8
@@ -16318,7 +16318,7 @@ define internal fastcc void @"_ZZL29addFunctionPointerConversionsRN5clang4SemaEN
   br label %131
 
 131:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit68.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit68.thread.i.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit68.thread.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !900
   %132 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i.i, i64 28
   %133 = load i32, ptr %132, align 4
@@ -16358,7 +16358,7 @@ define internal fastcc void @"_ZZL29addFunctionPointerConversionsRN5clang4SemaEN
   br label %149
 
 149:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit77.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit77.thread.i.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL28addFunctionPointerConversionRN5clang4SemaENS2_11SourceRangeEPNS2_13CXXRecordDeclEPNS2_13CXXMethodDeclENS2_8QualTypeEE3$_0EclIPPNS2_11ParmVarDeclEEEbT_.exit77.thread.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !900
   %150 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i.i, i64 28
   %151 = load i32, ptr %150, align 4

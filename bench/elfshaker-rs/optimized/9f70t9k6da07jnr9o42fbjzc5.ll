@@ -10762,8 +10762,8 @@ default.unreachable45:                            ; preds = %.backedge
   br i1 %37, label %43, label %.thread
 
 .loopexit:                                        ; preds = %57, %.backedge, %67, %61, %32
-  %.sroa.8.0 = phi i64 [ %.sroa.8.2, %67 ], [ %.sroa.8.1, %61 ], [ %34, %32 ], [ %59, %57 ], [ 0, %.backedge ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %67 ], [ 1, %61 ], [ 1, %32 ], [ 0, %.backedge ], [ 0, %57 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %61 ], [ %34, %32 ], [ %.sroa.8.2, %67 ], [ %59, %57 ], [ 0, %.backedge ]
+  %.sroa.0.0 = phi i64 [ 1, %61 ], [ 1, %32 ], [ %.sroa.0.2, %67 ], [ 0, %.backedge ], [ 0, %57 ]
   %38 = inttoptr i64 %.sroa.8.0 to ptr
   %39 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, ptr } %39, ptr %38, 1

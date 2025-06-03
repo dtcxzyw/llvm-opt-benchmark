@@ -2625,10 +2625,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decorrelate(ptr noundef %0
   br label %34
 
 34:                                               ; preds = %33, %4
-  %.1177 = phi i32 [ %20, %4 ], [ %19, %33 ]
-  %.1175 = phi i32 [ %19, %4 ], [ %20, %33 ]
-  %.1166 = phi ptr [ %18, %4 ], [ %14, %33 ]
-  %.1164 = phi ptr [ %14, %4 ], [ %18, %33 ]
+  %.1177 = phi i32 [ %19, %33 ], [ %20, %4 ]
+  %.1175 = phi i32 [ %20, %33 ], [ %19, %4 ]
+  %.1166 = phi ptr [ %14, %33 ], [ %18, %4 ]
+  %.1164 = phi ptr [ %18, %33 ], [ %14, %4 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %36 = load i32, ptr %35, align 8, !tbaa !44
   %.not.i.i = icmp eq i32 %36, 0
@@ -2751,8 +2751,8 @@ bits_read_signed_nz_le.exit:                      ; preds = %.bits_read_nz_le.ex
   br label %93
 
 93:                                               ; preds = %92, %4
-  %.2167 = phi ptr [ %18, %4 ], [ %14, %92 ]
-  %.2 = phi ptr [ %14, %4 ], [ %18, %92 ]
+  %.2167 = phi ptr [ %14, %92 ], [ %18, %4 ]
+  %.2 = phi ptr [ %18, %92 ], [ %14, %4 ]
   %94 = icmp sgt i32 %23, 255
   br i1 %94, label %95, label %.thread
 
@@ -3286,10 +3286,10 @@ bits_read_signed_nz_le.exit237:                   ; preds = %204, %207, %bits_pr
   br i1 %353, label %269, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %._crit_edge, %254, %bits_read_signed_nz_le.exit, %30, %27, %24, %4
-  %.0176 = phi i32 [ %20, %4 ], [ %.1177, %bits_read_signed_nz_le.exit ], [ %20, %30 ], [ %20, %27 ], [ %20, %24 ], [ %20, %254 ], [ %20, %._crit_edge ]
-  %.0174 = phi i32 [ %19, %4 ], [ %.1175, %bits_read_signed_nz_le.exit ], [ %19, %30 ], [ %19, %27 ], [ %19, %24 ], [ %19, %254 ], [ %19, %._crit_edge ]
-  %.0165 = phi ptr [ %18, %4 ], [ %.1166, %bits_read_signed_nz_le.exit ], [ %18, %30 ], [ %18, %27 ], [ %18, %24 ], [ %249, %254 ], [ %.6.lcssa, %._crit_edge ]
-  %.0163 = phi ptr [ %14, %4 ], [ %.1164, %bits_read_signed_nz_le.exit ], [ %14, %30 ], [ %14, %27 ], [ %14, %24 ], [ %256, %254 ], [ %.5.lcssa, %._crit_edge ]
+  %.0176 = phi i32 [ %20, %4 ], [ %20, %24 ], [ %20, %27 ], [ %20, %30 ], [ %.1177, %bits_read_signed_nz_le.exit ], [ %20, %254 ], [ %20, %._crit_edge ]
+  %.0174 = phi i32 [ %19, %4 ], [ %19, %24 ], [ %19, %27 ], [ %19, %30 ], [ %.1175, %bits_read_signed_nz_le.exit ], [ %19, %254 ], [ %19, %._crit_edge ]
+  %.0165 = phi ptr [ %18, %4 ], [ %18, %24 ], [ %18, %27 ], [ %18, %30 ], [ %.1166, %bits_read_signed_nz_le.exit ], [ %249, %254 ], [ %.6.lcssa, %._crit_edge ]
+  %.0163 = phi ptr [ %14, %4 ], [ %14, %24 ], [ %14, %27 ], [ %14, %30 ], [ %.1164, %bits_read_signed_nz_le.exit ], [ %256, %254 ], [ %.5.lcssa, %._crit_edge ]
   %354 = load i8, ptr %10, align 16, !tbaa !80
   %355 = add i8 %354, -1
   %or.cond = icmp ult i8 %355, 5
@@ -3823,9 +3823,9 @@ bits_read_bit_le.exit101:                         ; preds = %94, %99
   br label %114
 
 114:                                              ; preds = %112, %110, %bits_read_bit_le.exit101, %bits_read_nz_le.exit93, %get_unary.exit
-  %.val.i.pre.i.i130 = phi i64 [ %69, %get_unary.exit ], [ %69, %112 ], [ %69, %110 ], [ %.val.i.pre.i.i127, %bits_read_bit_le.exit101 ], [ %88, %bits_read_nz_le.exit93 ]
-  %115 = phi i32 [ %68, %get_unary.exit ], [ %68, %112 ], [ %68, %110 ], [ %104, %bits_read_bit_le.exit101 ], [ %89, %bits_read_nz_le.exit93 ]
-  %.176 = phi i32 [ %.075115, %get_unary.exit ], [ %113, %112 ], [ %111, %110 ], [ %109, %bits_read_bit_le.exit101 ], [ %91, %bits_read_nz_le.exit93 ]
+  %.val.i.pre.i.i130 = phi i64 [ %69, %get_unary.exit ], [ %88, %bits_read_nz_le.exit93 ], [ %.val.i.pre.i.i127, %bits_read_bit_le.exit101 ], [ %69, %110 ], [ %69, %112 ]
+  %115 = phi i32 [ %68, %get_unary.exit ], [ %89, %bits_read_nz_le.exit93 ], [ %104, %bits_read_bit_le.exit101 ], [ %68, %110 ], [ %68, %112 ]
+  %.176 = phi i32 [ %.075115, %get_unary.exit ], [ %91, %bits_read_nz_le.exit93 ], [ %109, %bits_read_bit_le.exit101 ], [ %111, %110 ], [ %113, %112 ]
   %116 = trunc i32 %.176 to i8
   %117 = getelementptr inbounds nuw [128 x i8], ptr %52, i64 0, i64 %indvars.iv
   store i8 %116, ptr %117, align 1, !tbaa !48

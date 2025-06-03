@@ -1989,15 +1989,15 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   br label %867
 
 867:                                              ; preds = %826, %818, %844, %860, %.critedge.thread, %.critedge.thread914
-  %.0707 = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge.thread914 ], [ %851, %844 ], [ 0, %860 ], [ %821, %818 ], [ 0, %826 ]
-  %.0702 = phi i32 [ %757, %.critedge.thread ], [ %748, %.critedge.thread914 ], [ %859, %844 ], [ %866, %860 ], [ %825, %818 ], [ %828, %826 ]
-  %.0695 = phi i1 [ false, %.critedge.thread ], [ %or.cond68, %.critedge.thread914 ], [ false, %844 ], [ false, %860 ], [ false, %818 ], [ false, %826 ]
-  %.0692 = phi i1 [ false, %.critedge.thread ], [ false, %.critedge.thread914 ], [ false, %844 ], [ false, %860 ], [ %.not814, %818 ], [ %.not814, %826 ]
-  %.0687 = phi i1 [ false, %.critedge.thread ], [ false, %.critedge.thread914 ], [ %spec.select858, %844 ], [ %spec.select858, %860 ], [ %.not816, %818 ], [ %.not816, %826 ]
-  %.0683 = phi i1 [ false, %.critedge.thread ], [ false, %.critedge.thread914 ], [ false, %844 ], [ false, %860 ], [ %.not817, %818 ], [ %.not817, %826 ]
-  %.0680 = phi i1 [ false, %.critedge.thread ], [ false, %.critedge.thread914 ], [ false, %844 ], [ false, %860 ], [ %.not820, %818 ], [ %.not820, %826 ]
-  %.0676 = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge.thread914 ], [ %841, %844 ], [ 0, %860 ], [ %807, %818 ], [ 0, %826 ]
-  %.0669 = phi i32 [ 20, %.critedge.thread ], [ %741, %.critedge.thread914 ], [ %spec.select859, %844 ], [ %841, %860 ], [ %spec.select857, %818 ], [ %807, %826 ]
+  %.0707 = phi i32 [ 0, %.critedge.thread914 ], [ 0, %.critedge.thread ], [ %851, %844 ], [ 0, %860 ], [ %821, %818 ], [ 0, %826 ]
+  %.0702 = phi i32 [ %748, %.critedge.thread914 ], [ %757, %.critedge.thread ], [ %859, %844 ], [ %866, %860 ], [ %825, %818 ], [ %828, %826 ]
+  %.0695 = phi i1 [ %or.cond68, %.critedge.thread914 ], [ false, %.critedge.thread ], [ false, %844 ], [ false, %860 ], [ false, %818 ], [ false, %826 ]
+  %.0692 = phi i1 [ false, %.critedge.thread914 ], [ false, %.critedge.thread ], [ false, %844 ], [ false, %860 ], [ %.not814, %818 ], [ %.not814, %826 ]
+  %.0687 = phi i1 [ false, %.critedge.thread914 ], [ false, %.critedge.thread ], [ %spec.select858, %844 ], [ %spec.select858, %860 ], [ %.not816, %818 ], [ %.not816, %826 ]
+  %.0683 = phi i1 [ false, %.critedge.thread914 ], [ false, %.critedge.thread ], [ false, %844 ], [ false, %860 ], [ %.not817, %818 ], [ %.not817, %826 ]
+  %.0680 = phi i1 [ false, %.critedge.thread914 ], [ false, %.critedge.thread ], [ false, %844 ], [ false, %860 ], [ %.not820, %818 ], [ %.not820, %826 ]
+  %.0676 = phi i32 [ 0, %.critedge.thread914 ], [ 0, %.critedge.thread ], [ %841, %844 ], [ 0, %860 ], [ %807, %818 ], [ 0, %826 ]
+  %.0669 = phi i32 [ %741, %.critedge.thread914 ], [ 20, %.critedge.thread ], [ %spec.select859, %844 ], [ %841, %860 ], [ %spec.select857, %818 ], [ %807, %826 ]
   %868 = load ptr, ptr %22, align 8
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 57
   %870 = load i16, ptr %869, align 1

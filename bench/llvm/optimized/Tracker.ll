@@ -1950,7 +1950,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge
-  %.sroa.15.1 = phi i64 [ %.sroa.15.0.lcssa, %._crit_edge ], [ %64, %63 ]
+  %.sroa.15.1 = phi i64 [ %64, %63 ], [ %.sroa.15.0.lcssa, %._crit_edge ]
   %.tr.i.i.i40 = trunc i64 %.sroa.15.1 to i32
   %66 = shl i32 %.tr.i.i.i40, 1
   %67 = add i32 %66, 2
@@ -1969,7 +1969,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge
-  %.sroa.15.2 = phi i64 [ %.sroa.15.0.lcssa, %._crit_edge ], [ %74, %73 ]
+  %.sroa.15.2 = phi i64 [ %74, %73 ], [ %.sroa.15.0.lcssa, %._crit_edge ]
   %.tr.i.i.i41 = trunc i64 %.sroa.15.2 to i32
   %76 = shl i32 %.tr.i.i.i41, 1
   %77 = add i32 %76, 2

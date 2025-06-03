@@ -1538,8 +1538,8 @@ define internal range(i32 -1094995529, 1) i32 @nut_read_packet(ptr noundef %0, p
   br label %.thread
 
 .thread:                                          ; preds = %30, %47, %.loopexit
-  %.04463 = phi i64 [ %.044, %.loopexit ], [ %.044, %47 ], [ %23, %30 ]
-  %.3 = phi i32 [ %.149, %.loopexit ], [ %48, %47 ], [ %28, %30 ]
+  %.04463 = phi i64 [ %.044, %47 ], [ %.044, %.loopexit ], [ %23, %30 ]
+  %.3 = phi i32 [ %48, %47 ], [ %.149, %.loopexit ], [ %28, %30 ]
   %49 = load ptr, ptr %10, align 8, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !30
@@ -1847,7 +1847,7 @@ decode_frame.exit.thread68:                       ; preds = %194, %213, %216, %2
   br label %.backedge
 
 .backedge:                                        ; preds = %decode_frame.exit.thread68, %37, %288, %41
-  %.048.be = phi i32 [ %.5, %288 ], [ %.149, %41 ], [ %.149, %37 ], [ %.3, %decode_frame.exit.thread68 ]
+  %.048.be = phi i32 [ %.5, %288 ], [ %.149, %37 ], [ %.149, %41 ], [ %.3, %decode_frame.exit.thread68 ]
   br label %22
 
 222:                                              ; preds = %217
@@ -1942,8 +1942,8 @@ decode_frame.exit.thread66:                       ; preds = %261, %268
   br label %decode_frame.exit.thread
 
 decode_frame.exit.thread:                         ; preds = %.thread111.i, %222, %decode_frame_header.exit.i, %65, %61, %101, %186, %158, %152, %.loopexit, %44, %41
-  %.04464 = phi i64 [ %.044, %.loopexit ], [ %.044, %44 ], [ %.044, %41 ], [ %.04463, %152 ], [ %.04463, %158 ], [ %.04463, %186 ], [ %.04463, %101 ], [ %.04463, %61 ], [ %.04463, %65 ], [ %.04463, %decode_frame_header.exit.i ], [ %.04463, %222 ], [ %.04463, %.thread111.i ]
-  %.5 = phi i32 [ %.149, %.loopexit ], [ %.149, %44 ], [ %.149, %41 ], [ %.3, %152 ], [ %.3, %158 ], [ %.3, %186 ], [ %.3, %101 ], [ %.3, %61 ], [ %.3, %65 ], [ %.3, %decode_frame_header.exit.i ], [ %.3, %222 ], [ %.3, %.thread111.i ]
+  %.04464 = phi i64 [ %.044, %.loopexit ], [ %.044, %41 ], [ %.044, %44 ], [ %.04463, %152 ], [ %.04463, %158 ], [ %.04463, %186 ], [ %.04463, %101 ], [ %.04463, %61 ], [ %.04463, %65 ], [ %.04463, %decode_frame_header.exit.i ], [ %.04463, %222 ], [ %.04463, %.thread111.i ]
+  %.5 = phi i32 [ %.149, %.loopexit ], [ %.149, %41 ], [ %.149, %44 ], [ %.3, %152 ], [ %.3, %158 ], [ %.3, %186 ], [ %.3, %101 ], [ %.3, %61 ], [ %.3, %65 ], [ %.3, %decode_frame_header.exit.i ], [ %.3, %222 ], [ %.3, %.thread111.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.73, i64 noundef %.04464) #12
   %273 = load i64, ptr %12, align 8, !tbaa !118
   %274 = load i64, ptr %21, align 8, !tbaa !139

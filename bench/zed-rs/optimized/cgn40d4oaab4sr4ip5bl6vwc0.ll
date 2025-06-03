@@ -722,7 +722,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.6435588442613421834.exit.
   ]
 
 50:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17he059de1d637f25feE.llvm.2466579738287709844.exit73", %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h79d226a26fb5381cE.exit"
-  %.sroa.013.0 = phi i8 [ %.sroa.013.1, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17he059de1d637f25feE.llvm.2466579738287709844.exit73" ], [ 2, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h79d226a26fb5381cE.exit" ]
+  %.sroa.013.0 = phi i8 [ 2, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h79d226a26fb5381cE.exit" ], [ %.sroa.013.1, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17he059de1d637f25feE.llvm.2466579738287709844.exit73" ]
   ret i8 %.sroa.013.0
 
 51:                                               ; preds = %47
@@ -883,8 +883,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.6435588442613421834.exit.
   br label %50
 
 111:                                              ; preds = %124, %189, %166, %58
-  %.sroa.026.1 = phi i8 [ %.sroa.026.0, %166 ], [ 0, %189 ], [ 0, %124 ], [ 1, %58 ]
-  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %lpad.thr_comm, %189 ], [ %lpad.thr_comm.split-lp, %124 ], [ %59, %58 ]
+  %.sroa.026.1 = phi i8 [ %.sroa.026.0, %166 ], [ 1, %58 ], [ 0, %189 ], [ 0, %124 ]
+  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %59, %58 ], [ %lpad.thr_comm, %189 ], [ %lpad.thr_comm.split-lp, %124 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h79d226a26fb5381cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #20
           to label %105 unwind label %190
 
@@ -1228,7 +1228,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h47d14916ed68eb2eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h47d14916ed68eb2eE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 

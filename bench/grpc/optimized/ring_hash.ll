@@ -6922,11 +6922,11 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_18RingHash39UpdateAggrega
   unreachable
 
 34:                                               ; preds = %26, %31, %29, %24
-  %.1164 = phi ptr [ %.0177, %31 ], [ %.0177, %29 ], [ %.0177, %24 ], [ %spec.select, %26 ]
-  %.155 = phi i64 [ %32, %31 ], [ %.054178, %29 ], [ %.054178, %24 ], [ %.054178, %26 ]
-  %.153 = phi i64 [ %.052179, %31 ], [ %.052179, %29 ], [ %25, %24 ], [ %.052179, %26 ]
-  %.151 = phi i64 [ %.050180, %31 ], [ %30, %29 ], [ %.050180, %24 ], [ %.050180, %26 ]
-  %.1 = phi i64 [ %.049181, %31 ], [ %.049181, %29 ], [ %.049181, %24 ], [ %27, %26 ]
+  %.1164 = phi ptr [ %.0177, %24 ], [ %.0177, %29 ], [ %.0177, %31 ], [ %spec.select, %26 ]
+  %.155 = phi i64 [ %.054178, %24 ], [ %.054178, %29 ], [ %32, %31 ], [ %.054178, %26 ]
+  %.153 = phi i64 [ %25, %24 ], [ %.052179, %29 ], [ %.052179, %31 ], [ %.052179, %26 ]
+  %.151 = phi i64 [ %.050180, %24 ], [ %30, %29 ], [ %.050180, %31 ], [ %.050180, %26 ]
+  %.1 = phi i64 [ %.049181, %24 ], [ %.049181, %29 ], [ %.049181, %31 ], [ %27, %26 ]
   %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0159.0176) #41
   %.not169 = icmp eq ptr %35, %21
   br i1 %.not169, label %._crit_edge, label %.lr.ph
@@ -15400,7 +15400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #34
   br label %common.resume
 
-.critedge126:                                     ; preds = %_ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit, %58, %.thread228, %243, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205, %366
+.critedge126:                                     ; preds = %_ZN9grpc_core19LoadBalancingPolicy10PickResult4FailD2Ev.exit, %58, %.thread228, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit, %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205, %366
   ret void
 }
 

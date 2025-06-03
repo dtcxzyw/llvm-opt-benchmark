@@ -501,7 +501,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vnclip_wiP
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %217
-  %.0211 = phi i128 [ %232, %217 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
+  %.0211 = phi i128 [ %232, %217 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
   %245 = ashr i128 %.0211, %202
   %246 = sext i64 %231 to i128
   %247 = icmp slt i128 %245, %246
@@ -574,7 +574,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vnclip_wiP
   br label %280
 
 280:                                              ; preds = %273, %277, %271, %269, %253
-  %.0207 = phi i128 [ %268, %253 ], [ %268, %271 ], [ %270, %269 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
+  %.0207 = phi i128 [ %268, %253 ], [ %270, %269 ], [ %268, %271 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
@@ -647,7 +647,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vnclip_wiP
   br label %316
 
 316:                                              ; preds = %309, %313, %307, %305, %289
-  %.0206 = phi i128 [ %304, %289 ], [ %304, %307 ], [ %306, %305 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
+  %.0206 = phi i128 [ %304, %289 ], [ %306, %305 ], [ %304, %307 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
@@ -1236,7 +1236,7 @@ define noundef i64 @_Z20fast_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %242
 
 242:                                              ; preds = %235, %239, %233, %231, %215
-  %.0211 = phi i128 [ %230, %215 ], [ %230, %233 ], [ %232, %231 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
+  %.0211 = phi i128 [ %230, %215 ], [ %232, %231 ], [ %230, %233 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
   %243 = ashr i128 %.0211, %202
   %244 = sext i64 %229 to i128
   %245 = icmp slt i128 %243, %244
@@ -1309,7 +1309,7 @@ define noundef i64 @_Z20fast_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %278
 
 278:                                              ; preds = %271, %275, %269, %267, %251
-  %.0207 = phi i128 [ %266, %251 ], [ %266, %269 ], [ %268, %267 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
+  %.0207 = phi i128 [ %266, %251 ], [ %268, %267 ], [ %266, %269 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
@@ -1382,7 +1382,7 @@ define noundef i64 @_Z20fast_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %314
 
 314:                                              ; preds = %307, %311, %305, %303, %287
-  %.0206 = phi i128 [ %302, %287 ], [ %302, %305 ], [ %304, %303 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
+  %.0206 = phi i128 [ %302, %287 ], [ %304, %303 ], [ %302, %305 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
@@ -1845,7 +1845,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vnclip_w
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %217
-  %.0211 = phi i128 [ %232, %217 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
+  %.0211 = phi i128 [ %232, %217 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
   %245 = ashr i128 %.0211, %202
   %246 = sext i64 %231 to i128
   %247 = icmp slt i128 %245, %246
@@ -1918,7 +1918,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vnclip_w
   br label %280
 
 280:                                              ; preds = %273, %277, %271, %269, %253
-  %.0207 = phi i128 [ %268, %253 ], [ %268, %271 ], [ %270, %269 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
+  %.0207 = phi i128 [ %268, %253 ], [ %270, %269 ], [ %268, %271 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
@@ -1991,7 +1991,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vnclip_w
   br label %316
 
 316:                                              ; preds = %309, %313, %307, %305, %289
-  %.0206 = phi i128 [ %304, %289 ], [ %304, %307 ], [ %306, %305 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
+  %.0206 = phi i128 [ %304, %289 ], [ %306, %305 ], [ %304, %307 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
@@ -2452,7 +2452,7 @@ define noundef i64 @_Z22logged_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %242
 
 242:                                              ; preds = %235, %239, %233, %231, %215
-  %.0211 = phi i128 [ %230, %215 ], [ %230, %233 ], [ %232, %231 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
+  %.0211 = phi i128 [ %230, %215 ], [ %232, %231 ], [ %230, %233 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
   %243 = ashr i128 %.0211, %202
   %244 = sext i64 %229 to i128
   %245 = icmp slt i128 %243, %244
@@ -2525,7 +2525,7 @@ define noundef i64 @_Z22logged_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %278
 
 278:                                              ; preds = %271, %275, %269, %267, %251
-  %.0207 = phi i128 [ %266, %251 ], [ %266, %269 ], [ %268, %267 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
+  %.0207 = phi i128 [ %266, %251 ], [ %268, %267 ], [ %266, %269 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
@@ -2598,7 +2598,7 @@ define noundef i64 @_Z22logged_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %314
 
 314:                                              ; preds = %307, %311, %305, %303, %287
-  %.0206 = phi i128 [ %302, %287 ], [ %302, %305 ], [ %304, %303 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
+  %.0206 = phi i128 [ %302, %287 ], [ %304, %303 ], [ %302, %305 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
@@ -3061,7 +3061,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vnclip_wiP
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %217
-  %.0211 = phi i128 [ %232, %217 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
+  %.0211 = phi i128 [ %232, %217 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
   %245 = ashr i128 %.0211, %202
   %246 = sext i64 %231 to i128
   %247 = icmp slt i128 %245, %246
@@ -3134,7 +3134,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vnclip_wiP
   br label %280
 
 280:                                              ; preds = %273, %277, %271, %269, %253
-  %.0207 = phi i128 [ %268, %253 ], [ %268, %271 ], [ %270, %269 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
+  %.0207 = phi i128 [ %268, %253 ], [ %270, %269 ], [ %268, %271 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
@@ -3207,7 +3207,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vnclip_wiP
   br label %316
 
 316:                                              ; preds = %309, %313, %307, %305, %289
-  %.0206 = phi i128 [ %304, %289 ], [ %304, %307 ], [ %306, %305 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
+  %.0206 = phi i128 [ %304, %289 ], [ %306, %305 ], [ %304, %307 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
@@ -3668,7 +3668,7 @@ define noundef i64 @_Z20fast_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %242
 
 242:                                              ; preds = %235, %239, %233, %231, %215
-  %.0211 = phi i128 [ %230, %215 ], [ %230, %233 ], [ %232, %231 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
+  %.0211 = phi i128 [ %230, %215 ], [ %232, %231 ], [ %230, %233 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
   %243 = ashr i128 %.0211, %202
   %244 = sext i64 %229 to i128
   %245 = icmp slt i128 %243, %244
@@ -3741,7 +3741,7 @@ define noundef i64 @_Z20fast_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %278
 
 278:                                              ; preds = %271, %275, %269, %267, %251
-  %.0207 = phi i128 [ %266, %251 ], [ %266, %269 ], [ %268, %267 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
+  %.0207 = phi i128 [ %266, %251 ], [ %268, %267 ], [ %266, %269 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
@@ -3814,7 +3814,7 @@ define noundef i64 @_Z20fast_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   br label %314
 
 314:                                              ; preds = %307, %311, %305, %303, %287
-  %.0206 = phi i128 [ %302, %287 ], [ %302, %305 ], [ %304, %303 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
+  %.0206 = phi i128 [ %302, %287 ], [ %304, %303 ], [ %302, %305 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
@@ -4277,7 +4277,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vnclip_w
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %217
-  %.0211 = phi i128 [ %232, %217 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
+  %.0211 = phi i128 [ %232, %217 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select286, %241 ], [ %spec.select291, %237 ]
   %245 = ashr i128 %.0211, %202
   %246 = sext i64 %231 to i128
   %247 = icmp slt i128 %245, %246
@@ -4350,7 +4350,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vnclip_w
   br label %280
 
 280:                                              ; preds = %273, %277, %271, %269, %253
-  %.0207 = phi i128 [ %268, %253 ], [ %268, %271 ], [ %270, %269 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
+  %.0207 = phi i128 [ %268, %253 ], [ %270, %269 ], [ %268, %271 ], [ %spec.select288, %277 ], [ %spec.select292, %273 ]
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
@@ -4423,7 +4423,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vnclip_w
   br label %316
 
 316:                                              ; preds = %309, %313, %307, %305, %289
-  %.0206 = phi i128 [ %304, %289 ], [ %304, %307 ], [ %306, %305 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
+  %.0206 = phi i128 [ %304, %289 ], [ %306, %305 ], [ %304, %307 ], [ %spec.select290, %313 ], [ %spec.select293, %309 ]
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
@@ -4884,7 +4884,7 @@ define noundef i64 @_Z22logged_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %242
 
 242:                                              ; preds = %235, %239, %233, %231, %215
-  %.0211 = phi i128 [ %230, %215 ], [ %230, %233 ], [ %232, %231 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
+  %.0211 = phi i128 [ %230, %215 ], [ %232, %231 ], [ %230, %233 ], [ %spec.select286, %239 ], [ %spec.select291, %235 ]
   %243 = ashr i128 %.0211, %202
   %244 = sext i64 %229 to i128
   %245 = icmp slt i128 %243, %244
@@ -4957,7 +4957,7 @@ define noundef i64 @_Z22logged_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %278
 
 278:                                              ; preds = %271, %275, %269, %267, %251
-  %.0207 = phi i128 [ %266, %251 ], [ %266, %269 ], [ %268, %267 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
+  %.0207 = phi i128 [ %266, %251 ], [ %268, %267 ], [ %266, %269 ], [ %spec.select288, %275 ], [ %spec.select292, %271 ]
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
@@ -5030,7 +5030,7 @@ define noundef i64 @_Z22logged_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef
   br label %314
 
 314:                                              ; preds = %307, %311, %305, %303, %287
-  %.0206 = phi i128 [ %302, %287 ], [ %302, %305 ], [ %304, %303 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
+  %.0206 = phi i128 [ %302, %287 ], [ %304, %303 ], [ %302, %305 ], [ %spec.select290, %311 ], [ %spec.select293, %307 ]
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316

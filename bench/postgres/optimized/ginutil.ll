@@ -464,7 +464,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr noundef readonly captures
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %44, %25, %28, %31, %34, %40, %42, %47
-  %.1.i = phi i64 [ %48, %47 ], [ %43, %42 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %41, %40 ], [ 0, %44 ]
+  %.1.i = phi i64 [ %48, %47 ], [ %43, %42 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ %41, %40 ], [ 0, %44 ]
   %49 = trunc i64 %.1.i to i16
   br label %50
 
@@ -655,9 +655,9 @@ index_getattr.exit:                               ; preds = %.index_getattr.exit
   %100 = load i8, ptr %99, align 1
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %90, %88, %73, %76, %79, %82, %96, %43, %41, %26, %29, %32, %35, %48, %index_getattr.exit
-  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %83, %82 ], [ %91, %90 ], [ %97, %96 ], [ %42, %41 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %44, %43 ], [ %49, %48 ]
-  %storemerge = phi i8 [ %100, %index_getattr.exit ], [ 0, %88 ], [ 0, %73 ], [ 0, %76 ], [ 0, %79 ], [ 0, %82 ], [ 0, %90 ], [ 0, %96 ], [ 0, %41 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %43 ], [ 0, %48 ]
+index_getattr.exit.thread:                        ; preds = %90, %88, %82, %79, %76, %73, %96, %43, %41, %35, %32, %29, %26, %48, %index_getattr.exit
+  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %83, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %91, %90 ], [ %97, %96 ], [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %44, %43 ], [ %49, %48 ]
+  %storemerge = phi i8 [ %100, %index_getattr.exit ], [ 0, %88 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %90 ], [ 0, %96 ], [ 0, %41 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %43 ], [ 0, %48 ]
   store i8 %storemerge, ptr %2, align 1
   ret i64 %.021
 }

@@ -643,7 +643,7 @@ default.unreachable9:                             ; preds = %1
   unreachable
 
 57:                                               ; preds = %70, %58, %43
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %59, %58 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %59, %58 ], [ %71, %70 ]
   resume { ptr, i32 } %.pn
 
 58:                                               ; preds = %22
@@ -1545,7 +1545,7 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10
-  %.sroa.0.0.in = phi i1 [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1656,7 +1656,7 @@ define internal fastcc { i64, i64 } @"_ZN8unscanny68_$LT$impl$u20$unscanny..seal
   br label %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h65a417b64f7515a6E.exit.i"
 
 "_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h65a417b64f7515a6E.exit.i": ; preds = %55, %50, %47, %44
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %49, %47 ], [ %60, %55 ], [ %46, %44 ], [ %54, %50 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %54, %50 ], [ %46, %44 ], [ %60, %55 ], [ %49, %47 ]
   %61 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %61, label %"_ZN4core6option15Option$LT$T$GT$6filter17h2fe82ecf22f51778E.exit", label %"_ZN4core6option15Option$LT$T$GT$6filter17h2fe82ecf22f51778E.exit.thread"
 
@@ -6755,7 +6755,7 @@ common.resume:                                    ; preds = %149, %.body, %182
   br label %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h4f2c87f2e516c7cbE.exit.i.i.i.i"
 
 "_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h4f2c87f2e516c7cbE.exit.i.i.i.i": ; preds = %268, %263, %260, %257
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %262, %260 ], [ %273, %268 ], [ %259, %257 ], [ %267, %263 ]
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i8 [ %267, %263 ], [ %259, %257 ], [ %273, %268 ], [ %262, %260 ]
   %274 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i to i1
   %275 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i, 1114112
   %or.cond.i.i.i = or i1 %275, %274
@@ -7835,7 +7835,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit231: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit176
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit176: ; preds = %112, %98, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit231, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit226, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit181, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit171, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit166, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %64
-  %.sroa.0.0.in = phi i1 [ %161, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit231 ], [ %155, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit226 ], [ %151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221 ], [ %143, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216 ], [ %139, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211 ], [ %135, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206 ], [ %131, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201 ], [ %125, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196 ], [ %111, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186 ], [ %107, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit181 ], [ %97, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit171 ], [ %92, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit166 ], [ %88, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161 ], [ %84, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156 ], [ %78, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %66, %64 ], [ %103, %98 ], [ %117, %112 ]
+  %.sroa.0.0.in = phi i1 [ %66, %64 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %78, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151 ], [ %84, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156 ], [ %88, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161 ], [ %92, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit166 ], [ %97, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit171 ], [ %107, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit181 ], [ %111, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186 ], [ %125, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196 ], [ %131, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201 ], [ %135, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206 ], [ %139, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211 ], [ %143, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216 ], [ %151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221 ], [ %155, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit226 ], [ %161, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit231 ], [ %103, %98 ], [ %117, %112 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7921,8 +7921,8 @@ define { ptr, ptr } @"_ZN86_$LT$uv_requirements_txt..RequirementsTxtParserError$
   br label %35
 
 35:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %31, %28, %26, %24, %22, %20, %18, %16, %14, %12, %7
-  %.sroa.20.0 = phi ptr [ %34, %31 ], [ @anon.0c582ad9823b8367026ada5360f4a119.142, %28 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %26 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %24 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %22 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %20 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %18 ], [ @anon.0c582ad9823b8367026ada5360f4a119.136, %16 ], [ @anon.0c582ad9823b8367026ada5360f4a119.134, %14 ], [ @anon.0c582ad9823b8367026ada5360f4a119.132, %12 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %33, %31 ], [ %30, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %10, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.20.0 = phi ptr [ %11, %7 ], [ @anon.0c582ad9823b8367026ada5360f4a119.132, %12 ], [ @anon.0c582ad9823b8367026ada5360f4a119.134, %14 ], [ @anon.0c582ad9823b8367026ada5360f4a119.136, %16 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %18 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %20 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %22 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %24 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %26 ], [ @anon.0c582ad9823b8367026ada5360f4a119.142, %28 ], [ %34, %31 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %30, %28 ], [ %33, %31 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %36 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %37 = insertvalue { ptr, ptr } %36, ptr %.sroa.20.0, 1
   ret { ptr, ptr } %37
@@ -8814,7 +8814,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit295: ; preds = %2
   br label %261
 
 261:                                              ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit295, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit290, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit285, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit280, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit275, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit270, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit265, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit260, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit255, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit250, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit245, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit240, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit235, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit230, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit225, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit220, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit215, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %82
-  %.sroa.0.0.in = phi i1 [ %260, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit295 ], [ %254, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit290 ], [ %250, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit285 ], [ %242, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit280 ], [ %232, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit275 ], [ %222, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit270 ], [ %212, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit265 ], [ %202, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit260 ], [ %188, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit255 ], [ %180, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit250 ], [ %170, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit245 ], [ %160, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit240 ], [ %152, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit235 ], [ %140, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit230 ], [ %130, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit225 ], [ %120, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit220 ], [ %108, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit215 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %84, %82 ]
+  %.sroa.0.0.in = phi i1 [ %84, %82 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %108, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit215 ], [ %120, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit220 ], [ %130, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit225 ], [ %140, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit230 ], [ %152, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit235 ], [ %160, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit240 ], [ %170, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit245 ], [ %180, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit250 ], [ %188, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit255 ], [ %202, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit260 ], [ %212, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit265 ], [ %222, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit270 ], [ %232, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit275 ], [ %242, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit280 ], [ %250, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit285 ], [ %254, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit290 ], [ %260, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit295 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -8900,8 +8900,8 @@ define { ptr, ptr } @"_ZN84_$LT$uv_requirements_txt..RequirementsTxtFileError$u2
   br label %"_ZN86_$LT$uv_requirements_txt..RequirementsTxtParserError$u20$as$u20$core..error..Error$GT$6source17hb4bc3e3865b331d9E.exit"
 
 "_ZN86_$LT$uv_requirements_txt..RequirementsTxtParserError$u20$as$u20$core..error..Error$GT$6source17hb4bc3e3865b331d9E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %7, %12, %14, %16, %18, %20, %22, %24, %26, %28, %31
-  %.sroa.20.0.i = phi ptr [ %34, %31 ], [ @anon.0c582ad9823b8367026ada5360f4a119.142, %28 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %26 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %24 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %22 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %20 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %18 ], [ @anon.0c582ad9823b8367026ada5360f4a119.136, %16 ], [ @anon.0c582ad9823b8367026ada5360f4a119.134, %14 ], [ @anon.0c582ad9823b8367026ada5360f4a119.132, %12 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %33, %31 ], [ %30, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %10, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.20.0.i = phi ptr [ %11, %7 ], [ @anon.0c582ad9823b8367026ada5360f4a119.132, %12 ], [ @anon.0c582ad9823b8367026ada5360f4a119.134, %14 ], [ @anon.0c582ad9823b8367026ada5360f4a119.136, %16 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %18 ], [ @anon.0c582ad9823b8367026ada5360f4a119.138, %20 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %22 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %24 ], [ @anon.0c582ad9823b8367026ada5360f4a119.140, %26 ], [ @anon.0c582ad9823b8367026ada5360f4a119.142, %28 ], [ %34, %31 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %30, %28 ], [ %33, %31 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %35 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %36 = insertvalue { ptr, ptr } %35, ptr %.sroa.20.0.i, 1
   ret { ptr, ptr } %36
@@ -9230,7 +9230,7 @@ default.unreachable1:                             ; preds = %2
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %26, %22, %18, %15, %12
-  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
   ret i1 %.sroa.0.0.in
 }
 

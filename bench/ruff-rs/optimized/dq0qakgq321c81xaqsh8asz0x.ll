@@ -206,8 +206,8 @@ define void @"_ZN106_$LT$ruff_python_literal..format..FormatConversion$u20$as$u2
 84:                                               ; preds = %80
   br label %85
 
-85:                                               ; preds = %82, %83, %84, %80
-  %.sroa.0.1.i.ph = phi i8 [ 1, %82 ], [ 2, %83 ], [ 3, %84 ], [ 0, %80 ]
+85:                                               ; preds = %84, %83, %82, %80
+  %.sroa.0.1.i.ph = phi i8 [ 3, %84 ], [ 2, %83 ], [ 1, %82 ], [ 0, %80 ]
   br i1 %9, label %_ZN4core3str11validations15next_code_point17hb24523f7f7197a54E.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit12.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit12.i": ; preds = %85
@@ -292,7 +292,7 @@ define noundef range(i8 0, 5) i8 @_ZN19ruff_python_literal6format16FormatConvers
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %2 ], [ 4, %1 ]
+  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %1 ]
   ret i8 %.sroa.0.0
 }
 
@@ -375,8 +375,8 @@ define void @"_ZN101_$LT$ruff_python_literal..format..FormatAlign$u20$as$u20$ruf
 46:                                               ; preds = %42
   br label %47
 
-47:                                               ; preds = %42, %46, %45, %44
-  %.sroa.0.0.i6.ph = phi i8 [ 1, %44 ], [ 2, %45 ], [ 3, %46 ], [ 0, %42 ]
+47:                                               ; preds = %42, %44, %45, %46
+  %.sroa.0.0.i6.ph = phi i8 [ 3, %46 ], [ 2, %45 ], [ 1, %44 ], [ 0, %42 ]
   %48 = ptrtoint ptr %4 to i64
   %49 = ptrtoint ptr %.sroa.0.0.ph to i64
   %50 = sub nuw i64 %48, %49
@@ -656,7 +656,7 @@ default.unreachable5:                             ; preds = %1
   br label %28
 
 28:                                               ; preds = %23, %19, %15, %11, %7, %1, %27, %6, %5, %4, %3
-  %.sroa.0.0 = phi i32 [ 37, %27 ], [ 111, %6 ], [ 100, %5 ], [ 99, %4 ], [ 98, %3 ], [ 115, %1 ], [ %., %7 ], [ %.1, %11 ], [ %.2, %15 ], [ %.3, %19 ], [ %.4, %23 ]
+  %.sroa.0.0 = phi i32 [ 98, %3 ], [ 99, %4 ], [ 100, %5 ], [ 111, %6 ], [ 37, %27 ], [ 115, %1 ], [ %., %7 ], [ %.1, %11 ], [ %.2, %15 ], [ %.3, %19 ], [ %.4, %23 ]
   ret i32 %.sroa.0.0
 }
 

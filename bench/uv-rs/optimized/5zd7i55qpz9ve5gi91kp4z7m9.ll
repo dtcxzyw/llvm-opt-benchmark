@@ -5118,7 +5118,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr29drop
   br label %851
 
 851:                                              ; preds = %780, %296, %808, %849, %798, %818, %764, %835, %830
-  %eh.lpad-body = phi { ptr, i32 } [ %850, %849 ], [ %799, %798 ], [ %819, %818 ], [ %809, %808 ], [ %297, %296 ], [ %781, %780 ], [ %765, %764 ], [ %831, %835 ], [ %831, %830 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %850, %849 ], [ %799, %798 ], [ %765, %764 ], [ %781, %780 ], [ %297, %296 ], [ %809, %808 ], [ %819, %818 ], [ %831, %835 ], [ %831, %830 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 128, i64 noundef 8) #18, !noalias !667
   resume { ptr, i32 } %eh.lpad-body
 

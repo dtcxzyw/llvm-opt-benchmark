@@ -6656,7 +6656,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEED2Ev.exit100:
   br label %_ZN5clang16PseudoObjectExpr13getResultExprEv.exit.thread
 
 .loopexit:                                        ; preds = %203, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit, %231, %.lr.ph, %194, %186, %146, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69, %139, %141, %133, %286, %283, %136
-  %.0 = phi ptr [ %1, %133 ], [ %288, %286 ], [ %285, %283 ], [ %138, %136 ], [ %1, %141 ], [ %1, %139 ], [ %1, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69 ], [ %1, %146 ], [ %1, %186 ], [ %1, %194 ], [ %1, %.lr.ph ], [ %1, %231 ], [ %1, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit ], [ %1, %203 ]
+  %.0 = phi ptr [ %1, %133 ], [ %138, %136 ], [ %285, %283 ], [ %288, %286 ], [ %1, %141 ], [ %1, %139 ], [ %1, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit69 ], [ %1, %146 ], [ %1, %186 ], [ %1, %194 ], [ %1, %.lr.ph ], [ %1, %231 ], [ %1, %_ZL6FindVAN5clang8QualTypeE.exit91.loopexit ], [ %1, %203 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #21
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.164") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.0) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #21

@@ -1118,7 +1118,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   br label %.thread557
 
 .thread557:                                       ; preds = %32, %54, %.thread576, %109, %105, %.thread
-  %.0436 = phi i32 [ %.1441575580, %.thread576 ], [ 0, %105 ], [ 0, %109 ], [ %28, %.thread ], [ -1, %32 ], [ %56, %54 ]
+  %.0436 = phi i32 [ 0, %105 ], [ 0, %109 ], [ %.1441575580, %.thread576 ], [ %28, %.thread ], [ -1, %32 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11

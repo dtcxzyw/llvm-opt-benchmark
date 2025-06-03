@@ -1107,7 +1107,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i.i:  ; preds = %190
   br label %238
 
 238:                                              ; preds = %236, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %237, %236 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %237, %236 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !366
   %239 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %239, align 8
@@ -1125,7 +1125,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i.i:  ; preds = %190
   br label %245
 
 245:                                              ; preds = %243, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %244, %243 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %244, %243 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !366
   %246 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %246, align 8

@@ -712,7 +712,7 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %17, %14, %11
-  %.sroa.0.0.in = phi i1 [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -949,7 +949,7 @@ define noundef zeroext i1 @"_ZN75_$LT$proto..update_language_server..Variant$u20
   br label %35
 
 35:                                               ; preds = %32, %29, %25, %21, %18
-  %.sroa.0.0.in = phi i1 [ %34, %32 ], [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ]
+  %.sroa.0.0.in = phi i1 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ %34, %32 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1268,7 +1268,7 @@ define noundef zeroext i1 @"_ZN66_$LT$proto..task_source_kind..Kind$u20$as$u20$c
   br label %30
 
 30:                                               ; preds = %26, %22, %19, %16
-  %.sroa.0.0.in = phi i1 [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %21, %19 ], [ %25, %22 ], [ %29, %26 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1977,7 +1977,7 @@ define noundef zeroext i1 @"_ZN70_$LT$proto..context_operation..Variant$u20$as$u
   br label %37
 
 37:                                               ; preds = %33, %30, %26, %22, %18
-  %.sroa.0.0.in = phi i1 [ %36, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ]
+  %.sroa.0.0.in = phi i1 [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ %36, %33 ]
   ret i1 %.sroa.0.0.in
 }
 

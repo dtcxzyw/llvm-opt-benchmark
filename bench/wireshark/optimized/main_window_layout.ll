@@ -111,7 +111,7 @@ define noundef ptr @_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e(ptr
   unreachable
 
 18:                                               ; preds = %14, %11, %8, %5, %3
-  %.0 = phi ptr [ %16, %14 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ %4, %3 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret ptr %.0
 }
 
@@ -323,9 +323,9 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
           to label %89 unwind label %84
 
 89:                                               ; preds = %86
-  %.ptr16.ptr = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 168
   %90 = load ptr, ptr %69, align 8
-  invoke void @_ZN7QWidget9setParentEPS_(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr16.ptr, ptr noundef %90)
+  invoke void @_ZN7QWidget9setParentEPS_(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr.ptr, ptr noundef %90)
           to label %91 unwind label %84
 
 91:                                               ; preds = %89
@@ -340,11 +340,11 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
   ]
 
 93:                                               ; preds = %91, %91
-  invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr16.ptr, i32 noundef 1)
+  invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr.ptr, i32 noundef 1)
           to label %.invoke116 unwind label %84
 
 94:                                               ; preds = %91, %91
-  invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr16.ptr, i32 noundef 2)
+  invoke void @_ZN9QSplitter14setOrientationEN2Qt11OrientationE(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr.ptr, i32 noundef 2)
           to label %95 unwind label %84
 
 95:                                               ; preds = %94, %91
@@ -368,26 +368,26 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
   ]
 
 100:                                              ; preds = %98, %98
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.ptr16.ptr = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.thread
 
 .thread:                                          ; preds = %100, %98, %98
   %.ph = phi i1 [ true, %98 ], [ true, %98 ], [ false, %100 ]
   %.sroa.12.0.idx.ph = phi i64 [ 168, %98 ], [ 168, %98 ], [ 128, %100 ]
-  %.sroa.8.0.ph = phi ptr [ %.ptr16.ptr, %98 ], [ %.ptr16.ptr, %98 ], [ %.ptr.ptr, %100 ]
+  %.sroa.8.0.ph = phi ptr [ %.ptr.ptr, %98 ], [ %.ptr.ptr, %98 ], [ %.ptr16.ptr, %100 ]
   %.sroa.12.0.ptr96 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.12.0.idx.ph
   %.sroa.0.0.ptr97 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %102
 
 101:                                              ; preds = %98, %98
   %.sroa.12.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.sroa.12.0.ptr, ptr noundef nonnull %.ptr16.ptr)
+  invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.sroa.12.0.ptr, ptr noundef nonnull %.ptr.ptr)
           to label %102 unwind label %84
 
 102:                                              ; preds = %.thread, %101
-  %.sroa.0.0.ptr100 = phi ptr [ %.sroa.0.0.ptr97, %.thread ], [ %.ptr16.ptr, %101 ]
+  %.sroa.0.0.ptr100 = phi ptr [ %.sroa.0.0.ptr97, %.thread ], [ %.ptr.ptr, %101 ]
   %.sroa.12.0.ptr99 = phi ptr [ %.sroa.12.0.ptr96, %.thread ], [ %.sroa.12.0.ptr, %101 ]
-  %.sroa.8.098 = phi ptr [ %.sroa.8.0.ph, %.thread ], [ %.ptr16.ptr, %101 ]
+  %.sroa.8.098 = phi ptr [ %.sroa.8.0.ph, %.thread ], [ %.ptr.ptr, %101 ]
   %103 = phi i1 [ %.ph, %.thread ], [ false, %101 ]
   %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 248), align 8
   switch i32 %104, label %.invoke [
@@ -415,7 +415,7 @@ _ZNK5QListIjEeqIjEENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is
   br label %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit
 
 _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit: ; preds = %111, %109, %107, %105, %102
-  %.0.i37 = phi ptr [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %87, %102 ]
+  %.0.i37 = phi ptr [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %87, %102 ]
   invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.sroa.0.0.ptr100, ptr noundef %.0.i37)
           to label %113 unwind label %84
 
@@ -424,7 +424,7 @@ _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit: ; preds = %111, %
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %115, ptr noundef nonnull %.ptr16.ptr)
+  invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %115, ptr noundef nonnull %.ptr.ptr)
           to label %116 unwind label %84
 
 116:                                              ; preds = %114, %113
@@ -454,7 +454,7 @@ _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit: ; preds = %111, %
   br label %_ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit40
 
 _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit40: ; preds = %124, %122, %120, %118, %116
-  %.0.i38 = phi ptr [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %87, %116 ]
+  %.0.i38 = phi ptr [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %87, %116 ]
   invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.sroa.8.098, ptr noundef %.0.i38)
           to label %126 unwind label %84
 
@@ -494,7 +494,7 @@ _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit40: ; preds = %124,
   unreachable
 
 _ZN10MainWindow15getLayoutWidgetE21layout_pane_content_e.exit43: ; preds = %134, %132, %130, %128, %126
-  %.0.i41 = phi ptr [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %87, %126 ]
+  %.0.i41 = phi ptr [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %87, %126 ]
   invoke void @_ZN9QSplitter9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.sroa.12.0.ptr99, ptr noundef %.0.i41)
           to label %138 unwind label %84
 
@@ -569,7 +569,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
 
 163:                                              ; preds = %161
   %164 = load ptr, ptr %162, align 8
-  %165 = icmp eq ptr %164, %.ptr16.ptr
+  %165 = icmp eq ptr %164, %.ptr.ptr
   br i1 %165, label %166, label %161, !llvm.loop !11
 
 166:                                              ; preds = %163
@@ -581,7 +581,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
 
 _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9QSplitterEEbRKT_.exit: ; preds = %161, %_ZN7QStringD2Ev.exit, %166
   %.1.i.i.i = phi i1 [ %170, %166 ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %161 ]
-  invoke void @_ZN7QWidget10setVisibleEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr16.ptr, i1 noundef zeroext %.1.i.i.i)
+  invoke void @_ZN7QWidget10setVisibleEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.ptr.ptr, i1 noundef zeroext %.1.i.i.i)
           to label %171 unwind label %276
 
 171:                                              ; preds = %_ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9QSplitterEEbRKT_.exit

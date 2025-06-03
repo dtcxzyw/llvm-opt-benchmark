@@ -141,8 +141,8 @@ define dso_local ptr @pg_perm_setlocale(i32 noundef %0, ptr noundef %1) local_un
   unreachable
 
 15:                                               ; preds = %5, %.thread, %11, %10, %9, %8
-  %.01116 = phi ptr [ %3, %11 ], [ %3, %10 ], [ %3, %9 ], [ %3, %8 ], [ @pg_perm_setlocale.save_lc_ctype, %.thread ], [ %3, %5 ]
-  %.0 = phi ptr [ @.str.5, %11 ], [ @.str.4, %10 ], [ @.str.3, %9 ], [ @.str.2, %8 ], [ @.str.1, %.thread ], [ @.str, %5 ]
+  %.01116 = phi ptr [ %3, %8 ], [ %3, %9 ], [ %3, %10 ], [ %3, %11 ], [ @pg_perm_setlocale.save_lc_ctype, %.thread ], [ %3, %5 ]
+  %.0 = phi ptr [ @.str.2, %8 ], [ @.str.3, %9 ], [ @.str.4, %10 ], [ @.str.5, %11 ], [ @.str.1, %.thread ], [ @.str, %5 ]
   %16 = tail call i32 @setenv(ptr noundef nonnull %.0, ptr noundef nonnull %.01116, i32 noundef 1) #21
   %.not = icmp eq i32 %16, 0
   %.011. = select i1 %.not, ptr %.01116, ptr null

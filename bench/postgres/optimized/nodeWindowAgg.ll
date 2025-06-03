@@ -3574,7 +3574,7 @@ define dso_local i64 @WinGetFuncArgInPartition(ptr noundef captures(none) %0, i3
   unreachable
 
 30:                                               ; preds = %21, %19, %14
-  %.0 = phi i64 [ %26, %21 ], [ %20, %19 ], [ %18, %14 ]
+  %.0 = phi i64 [ %18, %14 ], [ %20, %19 ], [ %26, %21 ]
   %31 = tail call fastcc zeroext i1 @window_gettupleslot(ptr noundef nonnull %0, i64 noundef %.0, ptr noundef %13)
   %.not31 = icmp eq ptr %6, null
   br i1 %31, label %35, label %32
@@ -3853,8 +3853,8 @@ define dso_local i64 @WinGetFuncArgInFrame(ptr noundef captures(none) %0, i32 no
   unreachable
 
 127:                                              ; preds = %28, %116, %95, %76, %66, %53, %56, %19, %40, %35, %32, %46, %43
-  %.0116 = phi i64 [ %23, %46 ], [ %23, %43 ], [ %23, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %19 ], [ %23, %56 ], [ %23, %53 ], [ %71, %66 ], [ %82, %76 ], [ %97, %95 ], [ %118, %116 ], [ %23, %28 ]
-  %.0115 = phi i64 [ %23, %46 ], [ %23, %43 ], [ %42, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %19 ], [ %59, %56 ], [ %55, %53 ], [ %71, %66 ], [ %.2, %76 ], [ %.3, %95 ], [ %.4, %116 ], [ %spec.select, %28 ]
+  %.0116 = phi i64 [ %23, %19 ], [ %23, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %46 ], [ %23, %43 ], [ %23, %56 ], [ %23, %53 ], [ %71, %66 ], [ %82, %76 ], [ %97, %95 ], [ %118, %116 ], [ %23, %28 ]
+  %.0115 = phi i64 [ %23, %19 ], [ %42, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %46 ], [ %23, %43 ], [ %59, %56 ], [ %55, %53 ], [ %71, %66 ], [ %.2, %76 ], [ %.3, %95 ], [ %.4, %116 ], [ %spec.select, %28 ]
   %128 = tail call fastcc zeroext i1 @window_gettupleslot(ptr noundef nonnull %0, i64 noundef %.0115, ptr noundef %13)
   br i1 %128, label %129, label %147
 

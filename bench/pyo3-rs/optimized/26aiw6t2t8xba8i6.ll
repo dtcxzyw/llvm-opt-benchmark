@@ -2654,7 +2654,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   unreachable
 
 25:                                               ; preds = %26, %20
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %27, %26 ]
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %19
@@ -2706,7 +2706,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h09b0
           to label %45 unwind label %43
 
 42:                                               ; preds = %57, %43
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %57 ], [ %44, %43 ]
+  %.pn25 = phi { ptr, i32 } [ %44, %43 ], [ %.pn22.pn, %57 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %2) #7
           to label %358 unwind label %147
 
@@ -2754,7 +2754,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h09b0
           to label %357 unwind label %58
 
 57:                                               ; preds = %248, %150, %61, %58
-  %.pn24 = phi { ptr, i32 } [ %59, %58 ], [ %.pn6, %248 ], [ %.pn14, %150 ], [ %.pn22, %61 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %61 ], [ %59, %58 ], [ %.pn14, %150 ], [ %.pn6, %248 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$pyo3_macros_backend..utils..LitCStr$GT$17h60d5d5683178445aE"(ptr nonnull align 8 %41) #7
           to label %42 unwind label %147
 
@@ -3934,7 +3934,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h09b0
   unreachable
 
 358:                                              ; preds = %42
-  resume { ptr, i32 } %.pn24.pn
+  resume { ptr, i32 } %.pn25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3979,7 +3979,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h8172
           to label %45 unwind label %43
 
 42:                                               ; preds = %57, %43
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %57 ], [ %44, %43 ]
+  %.pn25 = phi { ptr, i32 } [ %44, %43 ], [ %.pn22.pn, %57 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr align 8 %2) #7
           to label %358 unwind label %147
 
@@ -4027,7 +4027,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h8172
           to label %357 unwind label %58
 
 57:                                               ; preds = %248, %150, %61, %58
-  %.pn24 = phi { ptr, i32 } [ %59, %58 ], [ %.pn6, %248 ], [ %.pn14, %150 ], [ %.pn22, %61 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn22, %61 ], [ %59, %58 ], [ %.pn14, %150 ], [ %.pn6, %248 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$pyo3_macros_backend..utils..LitCStr$GT$17h60d5d5683178445aE"(ptr nonnull align 8 %41) #7
           to label %42 unwind label %147
 
@@ -5207,7 +5207,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec13get_methoddef17h8172
   unreachable
 
 358:                                              ; preds = %42
-  resume { ptr, i32 } %.pn24.pn
+  resume { ptr, i32 } %.pn25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

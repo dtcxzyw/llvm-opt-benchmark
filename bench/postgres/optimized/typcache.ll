@@ -2426,8 +2426,8 @@ fastgetattr.exit:                                 ; preds = %80
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1170, ptr noundef nonnull @__func__.load_domaintype_info) #16
   unreachable
 
-89:                                               ; preds = %70, %67, %64, %61, %76, %78, %83
-  %.1.i.ph = phi i64 [ %77, %76 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %71, %70 ], [ %79, %78 ], [ %84, %83 ]
+89:                                               ; preds = %61, %64, %67, %70, %76, %78, %83
+  %.1.i.ph = phi i64 [ %77, %76 ], [ %71, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %79, %78 ], [ %84, %83 ]
   %90 = inttoptr i64 %.1.i.ph to ptr
   %91 = call ptr @text_to_cstring(ptr noundef %90) #16
   %92 = icmp eq ptr %.2162, null

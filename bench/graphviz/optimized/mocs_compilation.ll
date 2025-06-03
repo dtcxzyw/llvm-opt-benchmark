@@ -2005,7 +2005,7 @@ _ZN10QByteArrayD2Ev.exit19:                       ; preds = %29, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 34:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %19, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %19, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 

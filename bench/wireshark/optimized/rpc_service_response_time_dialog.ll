@@ -5895,7 +5895,7 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   br label %146
 
 139:                                              ; preds = %._crit_edge, %128, %1
-  %.0 = phi ptr [ null, %1 ], [ %110, %128 ], [ %62, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ %62, %._crit_edge ], [ %110, %128 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %141 = load ptr, ptr %140, align 8
   invoke void @set_srt_table_param_data(ptr noundef %141, ptr noundef %.0)

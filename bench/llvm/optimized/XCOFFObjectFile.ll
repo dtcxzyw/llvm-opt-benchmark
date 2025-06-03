@@ -786,7 +786,7 @@ _ZN4llvm11SmallStringILj32EE5c_strEv.exit:        ; preds = %_ZN4llvmplERKNS_5Tw
   br label %107
 
 107:                                              ; preds = %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit
-  %.0 = phi ptr [ %93, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ @.str.25, %106 ], [ @.str.24, %105 ], [ @.str.23, %104 ], [ @.str.22, %103 ], [ @.str.21, %102 ], [ @.str.20, %101 ], [ @.str.19, %100 ], [ @.str.18, %99 ], [ @.str.17, %98 ], [ @.str.16, %97 ], [ @.str.15, %96 ], [ @.str.14, %95 ], [ @.str.13, %94 ]
+  %.0 = phi ptr [ %93, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ @.str.13, %94 ], [ @.str.14, %95 ], [ @.str.15, %96 ], [ @.str.16, %97 ], [ @.str.17, %98 ], [ @.str.18, %99 ], [ @.str.19, %100 ], [ @.str.20, %101 ], [ @.str.21, %102 ], [ @.str.22, %103 ], [ @.str.23, %104 ], [ @.str.24, %105 ], [ @.str.25, %106 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #24
@@ -5462,7 +5462,7 @@ _ZNK4llvm6object14XCOFFSymbolRef13isCsectSymbolEv.exit: ; preds = %_ZN4llvm8Expe
   br label %69
 
 69:                                               ; preds = %65, %67, %58, %55, %52
-  %.5 = phi i32 [ %spec.select35, %58 ], [ %68, %67 ], [ %66, %65 ], [ %spec.select35, %52 ], [ %spec.select35, %55 ]
+  %.5 = phi i32 [ %spec.select35, %58 ], [ %66, %65 ], [ %68, %67 ], [ %spec.select35, %52 ], [ %spec.select35, %55 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i8, ptr %70, align 8
   %72 = and i8 %71, -2

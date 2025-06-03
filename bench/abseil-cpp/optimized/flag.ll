@@ -621,7 +621,7 @@ define dso_local void @_ZNK4absl14flags_internal8FlagImpl13MakeInitValueEv(ptr d
   br label %21
 
 21:                                               ; preds = %17, %13, %8
-  %.0 = phi ptr [ %19, %17 ], [ %14, %13 ], [ %11, %8 ]
+  %.0 = phi ptr [ %19, %17 ], [ %11, %8 ], [ %14, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = ptrtoint ptr %23 to i64
@@ -2114,7 +2114,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %94
   ret void
 
 101:                                              ; preds = %90, %92, %66, %70, %68, %31, %33
-  %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ], [ %93, %92 ], [ %91, %90 ]
+  %.pn12.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ], [ %93, %92 ], [ %91, %90 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl9MutexLockD2Ev.exit25 unwind label %102
 
@@ -2126,7 +2126,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %94
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit25:                    ; preds = %101
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn12.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2310,7 +2310,7 @@ define dso_local void @_ZNK4absl14flags_internal8FlagImpl8TryParseESt17basic_str
   br label %_ZNK4absl14flags_internal8FlagImpl13MakeInitValueEv.exit
 
 _ZNK4absl14flags_internal8FlagImpl13MakeInitValueEv.exit: ; preds = %16, %21, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %22, %21 ], [ %19, %16 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %19, %16 ], [ %22, %21 ]
   %29 = load ptr, ptr %14, align 8, !tbaa !21, !noalias !103
   %30 = ptrtoint ptr %29 to i64
   store i64 %30, ptr %8, align 8, !tbaa !45, !alias.scope !103
@@ -3417,7 +3417,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %97
   ret i1 %.1
 
 101:                                              ; preds = %96, %61, %39
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %96 ], [ %.pn37, %61 ], [ %.pn39, %39 ]
+  %.pn39.pn = phi { ptr, i32 } [ %.pn39, %39 ], [ %.pn37, %61 ], [ %.pn, %96 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN4absl9MutexLockD2Ev.exit57 unwind label %102
 
@@ -3429,7 +3429,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %97
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit57:                    ; preds = %101
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn39.pn
 }
 
 ; Function Attrs: mustprogress uwtable

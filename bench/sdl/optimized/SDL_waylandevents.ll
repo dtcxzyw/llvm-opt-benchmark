@@ -4399,7 +4399,7 @@ define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(n
   br label %8
 
 8:                                                ; preds = %5, %6, %7
-  %.0 = phi i64 [ 2, %7 ], [ 1, %6 ], [ 0, %5 ]
+  %.0 = phi i64 [ 1, %6 ], [ 2, %7 ], [ 0, %5 ]
   %9 = icmp eq i32 %4, 1
   %10 = zext i1 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5305,8 +5305,8 @@ Wayland_GetPointerTimestamp.exit:                 ; preds = %19, %27
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %72, %65
-  %.014.i = phi float [ %77, %72 ], [ 0.000000e+00, %65 ]
-  %.013.i = phi float [ 0.000000e+00, %72 ], [ %71, %65 ]
+  %.014.i = phi float [ 0.000000e+00, %65 ], [ %77, %72 ]
+  %.013.i = phi float [ %71, %65 ], [ 0.000000e+00, %72 ]
   %78 = fdiv float %.014.i, 1.000000e+01
   %79 = fdiv float %.013.i, 1.000000e+01
   %80 = load ptr, ptr %63, align 8
@@ -5351,7 +5351,7 @@ define internal void @pointer_handle_frame(ptr noundef captures(none) initialize
   br label %20
 
 20:                                               ; preds = %2, %16, %13, %9
-  %.0 = phi float [ %19, %16 ], [ %15, %13 ], [ %12, %9 ], [ 0.000000e+00, %2 ]
+  %.0 = phi float [ %12, %9 ], [ %15, %13 ], [ %19, %16 ], [ 0.000000e+00, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %34 [
@@ -5378,7 +5378,7 @@ define internal void @pointer_handle_frame(ptr noundef captures(none) initialize
   br label %34
 
 34:                                               ; preds = %20, %30, %27, %23
-  %.020 = phi float [ %33, %30 ], [ %29, %27 ], [ %26, %23 ], [ 0.000000e+00, %20 ]
+  %.020 = phi float [ %26, %23 ], [ %29, %27 ], [ %33, %30 ], [ 0.000000e+00, %20 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %35 = fcmp une float %.0, 0.000000e+00
   %36 = fcmp une float %.020, 0.000000e+00
@@ -6699,7 +6699,7 @@ Wayland_GetScancodeForKey.exit:                   ; preds = %82, %95
   br label %108
 
 108:                                              ; preds = %107, %106, %105, %104, %103, %102, %101, %100, %99, %97
-  %.0.i43 = phi i16 [ 4, %107 ], [ 16384, %106 ], [ 2048, %105 ], [ 1024, %104 ], [ 512, %103 ], [ 256, %102 ], [ 128, %101 ], [ 64, %100 ], [ 2, %99 ], [ 1, %97 ]
+  %.0.i43 = phi i16 [ 2, %99 ], [ 64, %100 ], [ 128, %101 ], [ 256, %102 ], [ 512, %103 ], [ 1024, %104 ], [ 2048, %105 ], [ 16384, %106 ], [ 4, %107 ], [ 1, %97 ]
   %109 = load i16, ptr %76, align 8
   %110 = or i16 %109, %.0.i43
   store i16 %110, ptr %76, align 8
@@ -6866,7 +6866,7 @@ Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %Wayland_GetKeyboard
   br label %81
 
 81:                                               ; preds = %77, %76, %72, %68, %65
-  %.0.i = phi i32 [ 0, %76 ], [ %63, %72 ], [ %80, %77 ], [ %63, %68 ], [ %63, %65 ]
+  %.0.i = phi i32 [ 0, %76 ], [ %80, %77 ], [ %63, %72 ], [ %63, %68 ], [ %63, %65 ]
   %82 = load ptr, ptr @WAYLAND_xkb_keysym_to_utf8, align 8
   %83 = call i32 %82(i32 noundef %.0.i, ptr noundef nonnull %10, i64 noundef 8) #12
   %84 = icmp sgt i32 %83, 0
@@ -7082,7 +7082,7 @@ Wayland_GetScancodeForKey.exit:                   ; preds = %150, %165
   br label %176
 
 176:                                              ; preds = %175, %174, %173, %172, %171, %170, %169, %168, %167, %Wayland_GetScancodeForKey.exit
-  %.0.i58 = phi i16 [ 4, %175 ], [ 16384, %174 ], [ 2048, %173 ], [ 1024, %172 ], [ 512, %171 ], [ 256, %170 ], [ 128, %169 ], [ 64, %168 ], [ 2, %167 ], [ 1, %Wayland_GetScancodeForKey.exit ]
+  %.0.i58 = phi i16 [ 2, %167 ], [ 64, %168 ], [ 128, %169 ], [ 256, %170 ], [ 512, %171 ], [ 1024, %172 ], [ 2048, %173 ], [ 16384, %174 ], [ 4, %175 ], [ 1, %Wayland_GetScancodeForKey.exit ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %178 = load i16, ptr %177, align 8
   %179 = xor i16 %.0.i58, -1
@@ -7284,7 +7284,7 @@ keyboard_input_get_text.exit.thread26:            ; preds = %35, %46
   br label %58
 
 keyboard_input_get_text.exit:                     ; preds = %39, %42, %46, %50, %51
-  %.0.i23 = phi i32 [ 0, %50 ], [ %37, %46 ], [ %54, %51 ], [ %37, %42 ], [ %37, %39 ]
+  %.0.i23 = phi i32 [ 0, %50 ], [ %54, %51 ], [ %37, %46 ], [ %37, %42 ], [ %37, %39 ]
   %55 = load ptr, ptr @WAYLAND_xkb_keysym_to_utf8, align 8
   %56 = call i32 %55(i32 noundef %.0.i23, ptr noundef nonnull %9, i64 noundef 8) #12
   %57 = icmp sgt i32 %56, 0
@@ -7568,7 +7568,7 @@ define internal void @Wayland_keymap_iter(ptr readnone captures(none) %0, i32 no
   br label %26
 
 26:                                               ; preds = %20, %21, %22, %23, %24, %14
-  %.0 = phi i32 [ %19, %14 ], [ %25, %24 ], [ 127, %23 ], [ 8, %22 ], [ 27, %21 ], [ 13, %20 ]
+  %.0 = phi i32 [ %19, %14 ], [ %25, %24 ], [ 27, %21 ], [ 8, %22 ], [ 127, %23 ], [ 13, %20 ]
   %27 = load ptr, ptr %2, align 8
   %28 = load i16, ptr %17, align 8
   call void @SDL_SetKeymapEntry(ptr noundef %27, i32 noundef %6, i16 noundef zeroext %28, i32 noundef %.0) #12

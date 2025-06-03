@@ -246,7 +246,7 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr noundef captur
   br label %28
 
 18:                                               ; preds = %11, %6, %4
-  %.0 = phi i32 [ %15, %11 ], [ %10, %6 ], [ %5, %4 ]
+  %.0 = phi i32 [ %5, %4 ], [ %10, %6 ], [ %15, %11 ]
   %19 = icmp slt i32 %.0, 0
   br i1 %19, label %24, label %20
 

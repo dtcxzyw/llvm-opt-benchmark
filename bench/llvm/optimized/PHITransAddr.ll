@@ -696,7 +696,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %88, %91
   br label %126
 
 126:                                              ; preds = %124, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %125, %124 ]
+  %.1.i.i = phi ptr [ %125, %124 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %127 = load ptr, ptr %.1.i.i, align 8, !tbaa !82
   %128 = tail call fastcc noundef zeroext i1 @_ZL13verifySubExprPN4llvm5ValueERNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef %127, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %128, label %129, label %"_ZSt13__find_if_notIPN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZL13verifySubExprPNS0_5ValueERNS0_15SmallVectorImplIPNS0_11InstructionEEEE3$_0EEET_SF_SF_T0_.exit"
@@ -706,7 +706,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %88, %91
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %130, %129 ]
+  %.2.i.i = phi ptr [ %130, %129 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %132 = load ptr, ptr %.2.i.i, align 8, !tbaa !82
   %133 = tail call fastcc noundef zeroext i1 @_ZL13verifySubExprPN4llvm5ValueERNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %133, label %134, label %"_ZSt13__find_if_notIPN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZL13verifySubExprPNS0_5ValueERNS0_15SmallVectorImplIPNS0_11InstructionEEEE3$_0EEET_SF_SF_T0_.exit"
@@ -2178,8 +2178,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedIRNS_11SmallVector
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge._crit_edge.i.i.i
-  %38 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %33, %35 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %35 ]
+  %38 = phi ptr [ %33, %35 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %39 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !72
   %40 = icmp eq ptr %39, %38
   br i1 %40, label %_ZSt4findIPPN4llvm11InstructionEPNS0_14BinaryOperatorEET_S6_S6_RKT0_.exit, label %41
@@ -2189,8 +2189,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedIRNS_11SmallVector
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge._crit_edge52.i.i.i
-  %44 = phi ptr [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %38, %41 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %42, %41 ]
+  %44 = phi ptr [ %38, %41 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %45 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !72
   %46 = icmp eq ptr %45, %44
   br i1 %46, label %_ZSt4findIPPN4llvm11InstructionEPNS0_14BinaryOperatorEET_S6_S6_RKT0_.exit, label %47

@@ -259,7 +259,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %14, %_ZNK3app13get_
   br label %29
 
 29:                                               ; preds = %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit.thread, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit, %2, %_ZNK3app13get_decl_kindEv.exit.thread, %24, %22
-  %.0 = phi i1 [ %28, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %26, %24 ], [ %23, %22 ], [ true, %2 ], [ true, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit ], [ true, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit.thread ]
+  %.0 = phi i1 [ %28, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %23, %22 ], [ %26, %24 ], [ true, %2 ], [ true, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit ], [ true, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit.thread ]
   ret i1 %.0
 }
 

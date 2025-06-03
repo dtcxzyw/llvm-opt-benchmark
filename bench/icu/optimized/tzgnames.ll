@@ -1983,8 +1983,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore14ge
   ret ptr %4
 
 42:                                               ; preds = %39, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %.pn26, %21 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %21 ], [ %.pn, %39 ]
+  resume { ptr, i32 } %.pn26.pn
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -586,7 +586,7 @@ define hidden noundef i64 @"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4swap17h
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8, %6
-  %.sroa.01.0 = phi i64 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i64 %.sroa.01.0
 }
 
@@ -1224,25 +1224,25 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_fit17hf8f
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelExtend$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$10par_extend17h48663e16de106ad0E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
-  %.sroa.0.0.copyload18 = load i64, ptr %1, align 8, !alias.scope !299
-  %.sroa.6.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.6.0.copyload22 = load ptr, ptr %.sroa.6.0..sroa_idx21, align 8, !alias.scope !299
-  %.sroa.7.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.7.0.copyload26 = load i64, ptr %.sroa.7.0..sroa_idx25, align 8, !alias.scope !299
-  %.sroa.8.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.8.0.copyload30 = load i64, ptr %.sroa.8.0..sroa_idx29, align 8, !alias.scope !299
-  %.sroa.9.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.9.0.copyload34 = load i64, ptr %.sroa.9.0..sroa_idx33, align 8, !alias.scope !299
-  %4 = icmp eq i64 %.sroa.7.0.copyload26, 0
+  %.sroa.0.0.copyload17 = load i64, ptr %1, align 8, !alias.scope !299
+  %.sroa.6.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.0.copyload21 = load ptr, ptr %.sroa.6.0..sroa_idx20, align 8, !alias.scope !299
+  %.sroa.7.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.7.0.copyload25 = load i64, ptr %.sroa.7.0..sroa_idx24, align 8, !alias.scope !299
+  %.sroa.8.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.8.0.copyload29 = load i64, ptr %.sroa.8.0..sroa_idx28, align 8, !alias.scope !299
+  %.sroa.9.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.9.0.copyload33 = load i64, ptr %.sroa.9.0..sroa_idx32, align 8, !alias.scope !299
+  %4 = icmp eq i64 %.sroa.7.0.copyload25, 0
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp eq i64 %.sroa.8.0.copyload30, 0
+  %6 = icmp eq i64 %.sroa.8.0.copyload29, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = add i64 %.sroa.7.0.copyload26, -1
-  %9 = udiv i64 %8, %.sroa.8.0.copyload30
+  %8 = add i64 %.sroa.7.0.copyload25, -1
+  %9 = udiv i64 %8, %.sroa.8.0.copyload29
   %10 = add nuw i64 %9, 1
   br label %12
 
@@ -1256,34 +1256,34 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
 12:                                               ; preds = %2, %7
   %.sroa.0.0.i.i.i = phi i64 [ %10, %7 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  store i64 %.sroa.0.0.copyload18, ptr %3, align 8
+  store i64 %.sroa.0.0.copyload17, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.6.0.copyload22, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.6.0.copyload21, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.7.0.copyload26, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.8.0.copyload30, ptr %.sroa.636.0..sroa_idx, align 8
-  %.sroa.737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sroa.9.0.copyload34, ptr %.sroa.737.0..sroa_idx, align 8
+  store i64 %.sroa.7.0.copyload25, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 %.sroa.8.0.copyload29, ptr %.sroa.635.0..sroa_idx, align 8
+  %.sroa.736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %.sroa.9.0.copyload33, ptr %.sroa.736.0..sroa_idx, align 8
   call void @_ZN5rayon4iter7collect21collect_with_consumer17hf427646917f0fdaaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 
-.thread43:                                        ; preds = %15, %13
+.thread42:                                        ; preds = %15, %13
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 13:                                               ; preds = %11
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %14 = icmp eq i64 %.sroa.0.0.copyload18, 0
-  br i1 %14, label %.thread43, label %15
+  %14 = icmp eq i64 %.sroa.0.0.copyload17, 0
+  br i1 %14, label %.thread42, label %15
 
 15:                                               ; preds = %13
-  %16 = mul nuw i64 %.sroa.0.0.copyload18, 132
-  %17 = icmp ne ptr %.sroa.6.0.copyload22, null
+  %16 = mul nuw i64 %.sroa.0.0.copyload17, 132
+  %17 = icmp ne ptr %.sroa.6.0.copyload21, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload22, i64 noundef %16, i64 noundef 4) #22, !noalias !303
-  br label %.thread43
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload21, i64 noundef %16, i64 noundef 4) #22, !noalias !303
+  br label %.thread42
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1331,14 +1331,14 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #20
   unreachable
 
-.thread21:                                        ; preds = %20
+.thread20:                                        ; preds = %20
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 20:                                               ; preds = %16
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$17ha1e17e3dea9606d6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-          to label %.thread21 unwind label %18
+          to label %.thread20 unwind label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -525,7 +525,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %.thread.i, %99
   br label %_ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit
 
 100:                                              ; preds = %83, %73, %65, %57, %49, %40, %30
-  %.pn.i = phi { ptr, i32 } [ %31, %30 ], [ %84, %83 ], [ %74, %73 ], [ %66, %65 ], [ %58, %57 ], [ %50, %49 ], [ %41, %40 ]
+  %.pn.i = phi { ptr, i32 } [ %31, %30 ], [ %41, %40 ], [ %50, %49 ], [ %58, %57 ], [ %66, %65 ], [ %74, %73 ], [ %84, %83 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
   call void @_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   br label %101

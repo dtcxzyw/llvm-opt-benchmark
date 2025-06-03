@@ -24302,7 +24302,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %_ZN4cvc58internal12
   ret void
 
 .body:                                            ; preds = %261, %240, %293, %229, %117
-  %.pn24 = phi { ptr, i32 } [ %294, %293 ], [ %.pn.pn.pn.pn, %229 ], [ %.pn20.pn.pn, %117 ], [ %262, %261 ], [ %241, %240 ]
+  %.pn24 = phi { ptr, i32 } [ %294, %293 ], [ %.pn20.pn.pn, %117 ], [ %.pn.pn.pn.pn, %229 ], [ %262, %261 ], [ %241, %240 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   br label %common.resume

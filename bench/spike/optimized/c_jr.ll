@@ -182,7 +182,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -343,7 +343,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   unreachable
 
 74:                                               ; preds = %70, %63, %55
-  %.1 = phi i64 [ %72, %70 ], [ %69, %63 ], [ %62, %55 ]
+  %.1 = phi i64 [ %62, %55 ], [ %69, %63 ], [ %72, %70 ]
   %75 = icmp eq i64 %.1, 0
   br i1 %75, label %.critedge, label %76
 
@@ -493,7 +493,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -641,7 +641,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   unreachable
 
 74:                                               ; preds = %70, %63, %55
-  %.1 = phi i64 [ %72, %70 ], [ %69, %63 ], [ %62, %55 ]
+  %.1 = phi i64 [ %62, %55 ], [ %69, %63 ], [ %72, %70 ]
   %75 = icmp eq i64 %.1, 0
   br i1 %75, label %.critedge, label %76
 
@@ -807,7 +807,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   unreachable
 
 83:                                               ; preds = %79, %72, %64
-  %.1 = phi i64 [ %81, %79 ], [ %78, %72 ], [ %71, %64 ]
+  %.1 = phi i64 [ %71, %64 ], [ %78, %72 ], [ %81, %79 ]
   %84 = icmp eq i64 %.1, 0
   br i1 %84, label %.critedge, label %85
 
@@ -971,7 +971,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   unreachable
 
 81:                                               ; preds = %77, %70, %62
-  %.1 = phi i64 [ %79, %77 ], [ %76, %70 ], [ %69, %62 ]
+  %.1 = phi i64 [ %69, %62 ], [ %76, %70 ], [ %79, %77 ]
   %82 = icmp eq i64 %.1, 0
   br i1 %82, label %.critedge, label %83
 
@@ -1137,7 +1137,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   unreachable
 
 83:                                               ; preds = %79, %72, %64
-  %.1 = phi i64 [ %81, %79 ], [ %78, %72 ], [ %71, %64 ]
+  %.1 = phi i64 [ %71, %64 ], [ %78, %72 ], [ %81, %79 ]
   %84 = icmp eq i64 %.1, 0
   br i1 %84, label %.critedge, label %85
 
@@ -1301,7 +1301,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   unreachable
 
 81:                                               ; preds = %77, %70, %62
-  %.1 = phi i64 [ %79, %77 ], [ %76, %70 ], [ %69, %62 ]
+  %.1 = phi i64 [ %69, %62 ], [ %76, %70 ], [ %79, %77 ]
   %82 = icmp eq i64 %.1, 0
   br i1 %82, label %.critedge, label %83
 

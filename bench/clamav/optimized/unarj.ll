@@ -2542,7 +2542,7 @@ decode.exit:                                      ; preds = %29, %.sink.split.i
   br label %810
 
 810:                                              ; preds = %25, %decode.exit, %808, %22, %17, %2, %10
-  %.017 = phi i32 [ 0, %10 ], [ 2, %2 ], [ 8, %17 ], [ %809, %808 ], [ %.053.i, %decode.exit ], [ %28, %25 ], [ 26, %22 ]
+  %.017 = phi i32 [ 0, %10 ], [ 2, %2 ], [ 8, %17 ], [ %28, %25 ], [ %.053.i, %decode.exit ], [ %809, %808 ], [ 26, %22 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #12
   ret i32 %.017
 }

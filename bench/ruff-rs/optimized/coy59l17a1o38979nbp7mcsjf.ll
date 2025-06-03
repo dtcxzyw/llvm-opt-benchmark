@@ -581,7 +581,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdd22e3f1df820f64E.exit"
 
 "_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdd22e3f1df820f64E.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i = phi ptr [ null, %5 ], [ %4, %3 ], [ @"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h89f60c197fd727ceE", %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ null, %5 ], [ @"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h89f60c197fd727ceE", %1 ]
   ret ptr %.sroa.0.0.i
 }
 

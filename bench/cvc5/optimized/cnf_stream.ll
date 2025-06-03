@@ -2973,9 +2973,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %_
   br label %281
 
 281:                                              ; preds = %51, %279, %140, %190, %202, %205, %208, %211, %214, %255, %259, %254, %150, %151, %142, %.loopexit.split-lp, %.loopexit
-  %.sroa.23.1 = phi ptr [ %.sroa.23.0.ph, %279 ], [ %.sroa.23.0.ph, %140 ], [ %.sroa.23.0.ph, %51 ], [ %.sroa.23.0.ph, %151 ], [ %.sroa.23.0.ph, %150 ], [ %.sroa.23.0.ph, %142 ], [ %.sroa.23.0.ph, %255 ], [ %.sroa.23.0.ph, %259 ], [ %.sroa.23.0.ph, %254 ], [ %.sroa.23.0.ph, %214 ], [ %.sroa.23.0.ph, %211 ], [ %.sroa.23.0.ph, %208 ], [ %.sroa.23.0.ph, %205 ], [ %.sroa.23.0.ph, %202 ], [ %.sroa.23.2267, %190 ], [ %.sroa.11.1268, %.loopexit ], [ %.sroa.11.1268, %.loopexit.split-lp ]
-  %.sroa.0161.1 = phi ptr [ %.sroa.0161.0.ph, %279 ], [ %.sroa.0161.0.ph, %140 ], [ %.sroa.0161.0.ph, %51 ], [ %.sroa.0161.0.ph, %151 ], [ %.sroa.0161.0.ph, %150 ], [ %.sroa.0161.0.ph, %142 ], [ %.sroa.0161.0.ph, %255 ], [ %.sroa.0161.0.ph, %259 ], [ %.sroa.0161.0.ph, %254 ], [ %.sroa.0161.0.ph, %214 ], [ %.sroa.0161.0.ph, %211 ], [ %.sroa.0161.0.ph, %208 ], [ %.sroa.0161.0.ph, %205 ], [ %.sroa.0161.0.ph, %202 ], [ %.sroa.0161.2269, %190 ], [ %.sroa.0161.2269, %.loopexit ], [ %.sroa.0161.2269, %.loopexit.split-lp ]
-  %.pn88.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %280, %279 ], [ %141, %140 ], [ %52, %51 ], [ %152, %151 ], [ %.pn85.pn, %150 ], [ %143, %142 ], [ %256, %255 ], [ %260, %259 ], [ %.pn80.pn, %254 ], [ %215, %214 ], [ %212, %211 ], [ %209, %208 ], [ %206, %205 ], [ %203, %202 ], [ %191, %190 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0.ph, %279 ], [ %.sroa.23.0.ph, %140 ], [ %.sroa.23.0.ph, %51 ], [ %.sroa.23.0.ph, %151 ], [ %.sroa.23.0.ph, %150 ], [ %.sroa.23.0.ph, %142 ], [ %.sroa.23.0.ph, %255 ], [ %.sroa.23.0.ph, %259 ], [ %.sroa.23.0.ph, %254 ], [ %.sroa.23.0.ph, %202 ], [ %.sroa.23.0.ph, %205 ], [ %.sroa.23.0.ph, %208 ], [ %.sroa.23.0.ph, %211 ], [ %.sroa.23.0.ph, %214 ], [ %.sroa.23.2267, %190 ], [ %.sroa.11.1268, %.loopexit ], [ %.sroa.11.1268, %.loopexit.split-lp ]
+  %.sroa.0161.1 = phi ptr [ %.sroa.0161.0.ph, %279 ], [ %.sroa.0161.0.ph, %140 ], [ %.sroa.0161.0.ph, %51 ], [ %.sroa.0161.0.ph, %151 ], [ %.sroa.0161.0.ph, %150 ], [ %.sroa.0161.0.ph, %142 ], [ %.sroa.0161.0.ph, %255 ], [ %.sroa.0161.0.ph, %259 ], [ %.sroa.0161.0.ph, %254 ], [ %.sroa.0161.0.ph, %202 ], [ %.sroa.0161.0.ph, %205 ], [ %.sroa.0161.0.ph, %208 ], [ %.sroa.0161.0.ph, %211 ], [ %.sroa.0161.0.ph, %214 ], [ %.sroa.0161.2269, %190 ], [ %.sroa.0161.2269, %.loopexit ], [ %.sroa.0161.2269, %.loopexit.split-lp ]
+  %.pn88.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %280, %279 ], [ %141, %140 ], [ %52, %51 ], [ %152, %151 ], [ %.pn85.pn, %150 ], [ %143, %142 ], [ %256, %255 ], [ %260, %259 ], [ %.pn80.pn, %254 ], [ %203, %202 ], [ %206, %205 ], [ %209, %208 ], [ %212, %211 ], [ %215, %214 ], [ %191, %190 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
   %282 = ptrtoint ptr %.sroa.23.1 to i64
@@ -6906,7 +6906,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %169, %172, %178
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
   br label %185
 
-184:                                              ; preds = %23, %24, %25, %26, %27, %28, %67, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45
+184:                                              ; preds = %67, %28, %27, %26, %25, %24, %23, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45
   ret void
 
 185:                                              ; preds = %.body, %72

@@ -119,18 +119,18 @@ define internal range(i32 0, 2) i32 @fetch_test(i32 noundef %0) #0 {
   br i1 %.not35, label %41, label %40
 
 40:                                               ; preds = %37, %27, %23, %19
-  %.129 = phi ptr [ null, %37 ], [ null, %27 ], [ null, %23 ], [ %21, %19 ]
-  %.127 = phi ptr [ null, %37 ], [ null, %27 ], [ %25, %23 ], [ null, %19 ]
-  %.1 = phi ptr [ null, %37 ], [ %29, %27 ], [ null, %23 ], [ null, %19 ]
+  %.129 = phi ptr [ %21, %19 ], [ null, %23 ], [ null, %27 ], [ null, %37 ]
+  %.127 = phi ptr [ null, %19 ], [ %25, %23 ], [ null, %27 ], [ null, %37 ]
+  %.1 = phi ptr [ null, %19 ], [ null, %23 ], [ %29, %27 ], [ null, %37 ]
   br label %41
 
 41:                                               ; preds = %17, %31, %37, %27, %23, %19, %6, %11, %14, %1, %40
-  %.030 = phi ptr [ %12, %17 ], [ %12, %40 ], [ %12, %37 ], [ %12, %31 ], [ %12, %27 ], [ %12, %23 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ], [ null, %6 ], [ null, %1 ]
-  %.028 = phi ptr [ null, %17 ], [ %.129, %40 ], [ null, %37 ], [ null, %31 ], [ null, %27 ], [ null, %23 ], [ %21, %19 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
-  %.026 = phi ptr [ null, %17 ], [ %.127, %40 ], [ null, %37 ], [ null, %31 ], [ null, %27 ], [ %25, %23 ], [ null, %19 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
-  %.025 = phi ptr [ null, %17 ], [ %.1, %40 ], [ null, %37 ], [ null, %31 ], [ %29, %27 ], [ null, %23 ], [ null, %19 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
-  %.024 = phi i32 [ 0, %17 ], [ 1, %40 ], [ 0, %37 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ]
-  %.0 = phi ptr [ %15, %17 ], [ %15, %40 ], [ %15, %37 ], [ %15, %31 ], [ %15, %27 ], [ %15, %23 ], [ %15, %19 ], [ %15, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
+  %.030 = phi ptr [ %12, %17 ], [ %12, %40 ], [ %12, %19 ], [ %12, %23 ], [ %12, %27 ], [ %12, %37 ], [ %12, %31 ], [ %12, %14 ], [ %12, %11 ], [ null, %6 ], [ null, %1 ]
+  %.028 = phi ptr [ null, %17 ], [ %.129, %40 ], [ %21, %19 ], [ null, %23 ], [ null, %27 ], [ null, %37 ], [ null, %31 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
+  %.026 = phi ptr [ null, %17 ], [ %.127, %40 ], [ null, %19 ], [ %25, %23 ], [ null, %27 ], [ null, %37 ], [ null, %31 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
+  %.025 = phi ptr [ null, %17 ], [ %.1, %40 ], [ null, %19 ], [ null, %23 ], [ %29, %27 ], [ null, %37 ], [ null, %31 ], [ null, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
+  %.024 = phi i32 [ 0, %17 ], [ 1, %40 ], [ 0, %19 ], [ 0, %23 ], [ 0, %27 ], [ 0, %37 ], [ 0, %31 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ]
+  %.0 = phi ptr [ %15, %17 ], [ %15, %40 ], [ %15, %19 ], [ %15, %23 ], [ %15, %27 ], [ %15, %37 ], [ %15, %31 ], [ %15, %14 ], [ null, %11 ], [ null, %6 ], [ null, %1 ]
   call void @OSSL_DECODER_free(ptr noundef %.028) #6
   call void @OSSL_ENCODER_free(ptr noundef %.026) #6
   call void @OSSL_STORE_LOADER_free(ptr noundef %.025) #6
@@ -218,7 +218,7 @@ define internal noundef ptr @dummy_query(ptr readnone captures(none) %0, i32 nou
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.0 = phi ptr [ null, %7 ], [ @dummy_rand, %6 ], [ @dummy_store, %5 ], [ @dummy_encoders, %4 ], [ @dummy_decoders, %3 ]
+  %.0 = phi ptr [ null, %7 ], [ @dummy_encoders, %4 ], [ @dummy_store, %5 ], [ @dummy_rand, %6 ], [ @dummy_decoders, %3 ]
   ret ptr %.0
 }
 

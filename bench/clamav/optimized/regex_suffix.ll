@@ -200,7 +200,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   br i1 %.not24.i, label %make_node.exit106.backedge, label %18
 
 make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, %57, %make_node.exit128.thread, %170, %84, %46, %29
-  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %.0.i121.ph, %170 ], [ %.0.i112.ph, %84 ], [ %44, %46 ], [ %22, %29 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
+  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %22, %29 ], [ %44, %46 ], [ %.0.i112.ph, %84 ], [ %.0.i121.ph, %170 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
   br label %make_node.exit106
 
 18:                                               ; preds = %17
@@ -690,7 +690,7 @@ make_node.exit128.thread:                         ; preds = %make_leaf.exit, %ma
   br label %make_node.exit106.backedge
 
 .critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %169, %parse_char_class.exit.thread, %72, %56, %45, %42, %39, %20
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %169 ], [ null, %parse_char_class.exit.thread ], [ null, %72 ], [ null, %56 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %20 ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %72 ], [ null, %169 ], [ null, %parse_char_class.exit.thread ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
   ret ptr %.0
 }
 

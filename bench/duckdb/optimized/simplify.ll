@@ -621,7 +621,7 @@ switch.lookup:                                    ; preds = %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %switch.lookup, %5, %23, %18, %40, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %_ZN10LogMessageD2Ev.exit, %52, %30
-  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %52 ], [ %39, %30 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %40 ], [ %spec.select, %18 ], [ %spec.select20, %23 ], [ true, %5 ], [ %switch.masked, %switch.lookup ], [ true, %49 ], [ %.not19.not, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %39, %30 ], [ false, %52 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %40 ], [ %spec.select, %18 ], [ %spec.select20, %23 ], [ true, %5 ], [ %switch.masked, %switch.lookup ], [ true, %49 ], [ %.not19.not, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -2031,11 +2031,11 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %155
 
 154:                                              ; preds = %116, %112, %90, %106, %78, %95, %61, %69, %_ZN10LogMessageD2Ev.exit, %126, %._crit_edge, %.loopexit, %10
-  %.0 = phi ptr [ %151, %_ZN10LogMessageD2Ev.exit ], [ %127, %126 ], [ %32, %._crit_edge ], [ %31, %.loopexit ], [ %12, %10 ], [ %63, %61 ], [ %65, %69 ], [ %92, %90 ], [ %102, %106 ], [ %79, %78 ], [ %79, %95 ], [ %124, %116 ], [ %113, %112 ]
+  %.0 = phi ptr [ %151, %_ZN10LogMessageD2Ev.exit ], [ %12, %10 ], [ %32, %._crit_edge ], [ %31, %.loopexit ], [ %127, %126 ], [ %63, %61 ], [ %65, %69 ], [ %92, %90 ], [ %102, %106 ], [ %79, %78 ], [ %79, %95 ], [ %124, %116 ], [ %113, %112 ]
   ret ptr %.0
 
 155:                                              ; preds = %152, %110, %76, %47
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %111, %110 ], [ %77, %76 ], [ %48, %47 ]
+  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %48, %47 ], [ %77, %76 ], [ %111, %110 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3246,7 +3246,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS
   br label %157
 
 157:                                              ; preds = %96, %140, %156, %153, %69
-  %.265 = phi ptr [ %75, %69 ], [ %82, %96 ], [ %150, %153 ], [ %150, %156 ], [ %150, %140 ]
+  %.265 = phi ptr [ %75, %69 ], [ %150, %153 ], [ %150, %156 ], [ %150, %140 ], [ %82, %96 ]
   %158 = load ptr, ptr %35, align 8, !tbaa !105
   %159 = load ptr, ptr %44, align 8, !tbaa !114
   %.not.i.i = icmp eq ptr %158, %159

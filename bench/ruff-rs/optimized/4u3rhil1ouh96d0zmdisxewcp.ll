@@ -344,7 +344,7 @@ _ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !36
   br i1 %48, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit._crit_edge, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread
 
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h50d4485cea56774eE.exit.i.i.i", %27, %28, %29, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h50d4485cea56774eE.exit.i.i.i", %29, %28, %27, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 1
   %.not6 = icmp eq ptr %49, %11
   br i1 %.not6, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit._crit_edge, label %19

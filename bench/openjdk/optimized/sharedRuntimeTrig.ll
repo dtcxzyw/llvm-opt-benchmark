@@ -279,7 +279,7 @@ _ZL12__kernel_cosdd.exit26:                       ; preds = %130, %152, %159
   br label %_ZL12__kernel_sinddi.exit
 
 _ZL12__kernel_sinddi.exit:                        ; preds = %90, %83, %61, %40, %34, %11, %6, %_ZL12__kernel_cosdd.exit26, %_ZL12__kernel_sinddi.exit18, %28
-  %.0 = phi double [ %29, %28 ], [ %171, %_ZL12__kernel_cosdd.exit26 ], [ %129, %_ZL12__kernel_sinddi.exit18 ], [ %25, %11 ], [ %0, %6 ], [ %60, %40 ], [ %33, %34 ], [ %89, %83 ], [ %101, %90 ], [ 1.000000e+00, %61 ]
+  %.0 = phi double [ %29, %28 ], [ %129, %_ZL12__kernel_sinddi.exit18 ], [ %171, %_ZL12__kernel_cosdd.exit26 ], [ %25, %11 ], [ %0, %6 ], [ %60, %40 ], [ %33, %34 ], [ %89, %83 ], [ %101, %90 ], [ 1.000000e+00, %61 ]
   ret double %.0
 }
 
@@ -1458,7 +1458,7 @@ default.unreachable32:                            ; preds = %47
   br label %_ZL12__kernel_cosdd.exit
 
 _ZL12__kernel_cosdd.exit:                         ; preds = %168, %162, %80, %73, %51, %31, %24, %6, %_ZL12__kernel_cosdd.exit28, %_ZL12__kernel_sinddi.exit, %45
-  %.0 = phi double [ %46, %45 ], [ %161, %_ZL12__kernel_cosdd.exit28 ], [ %119, %_ZL12__kernel_sinddi.exit ], [ %30, %24 ], [ %42, %31 ], [ 1.000000e+00, %6 ], [ %79, %73 ], [ %91, %80 ], [ 1.000000e+00, %51 ], [ %188, %168 ], [ %50, %162 ]
+  %.0 = phi double [ %46, %45 ], [ %119, %_ZL12__kernel_sinddi.exit ], [ %161, %_ZL12__kernel_cosdd.exit28 ], [ %30, %24 ], [ %42, %31 ], [ 1.000000e+00, %6 ], [ %79, %73 ], [ %91, %80 ], [ 1.000000e+00, %51 ], [ %188, %168 ], [ %50, %162 ]
   ret double %.0
 }
 

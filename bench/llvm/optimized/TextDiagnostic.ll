@@ -5452,7 +5452,7 @@ _ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit: ; preds = %_ZNS
   br label %109
 
 109:                                              ; preds = %107, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %108, %107 ]
+  %.1.i.i.i.i = phi ptr [ %108, %107 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 4, !tbaa !261
   %110 = getelementptr i8, ptr %.1.i.i.i.i, i64 4
   %.1.val44.i.i.i.i = load i32, ptr %110, align 4
@@ -5468,7 +5468,7 @@ _ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit: ; preds = %_ZNS
   br label %118
 
 118:                                              ; preds = %116, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %117, %116 ]
+  %.2.i.i.i.i = phi ptr [ %117, %116 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !261
   %119 = getelementptr i8, ptr %.2.i.i.i.i, i64 4
   %.2.val46.i.i.i.i = load i32, ptr %119, align 4
@@ -6507,8 +6507,8 @@ _ZL23findMatchingPunctuationc.exit:               ; preds = %.lr.ph74
   %exitcond87.not = icmp eq i32 %3, %lftr.wideiv86
   br i1 %exitcond87.not, label %.critedge, label %.lr.ph74, !llvm.loop !300
 
-_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %11, %11, %16, %17, %18, %19
-  %.0.i.ph = phi i8 [ 39, %11 ], [ 39, %11 ], [ 34, %16 ], [ 41, %17 ], [ 93, %18 ], [ 125, %19 ]
+_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %11, %11, %19, %18, %17, %16
+  %.0.i.ph = phi i8 [ 39, %11 ], [ 39, %11 ], [ 125, %19 ], [ 93, %18 ], [ 41, %17 ], [ 34, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %26, ptr %7, align 8, !tbaa !215
@@ -6562,8 +6562,8 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %11, %11, %
 45:                                               ; preds = %41
   br label %46
 
-46:                                               ; preds = %45, %44, %43, %42, %41, %41
-  %.0.i48.ph = phi i8 [ 39, %41 ], [ 39, %41 ], [ 34, %42 ], [ 41, %43 ], [ 93, %44 ], [ 125, %45 ]
+46:                                               ; preds = %42, %43, %44, %45, %41, %41
+  %.0.i48.ph = phi i8 [ 39, %41 ], [ 39, %41 ], [ 125, %45 ], [ 93, %44 ], [ 41, %43 ], [ 34, %42 ]
   %47 = add i64 %30, 1
   %48 = load i64, ptr %28, align 8, !tbaa !232
   %.not.i.i.i50 = icmp ugt i64 %47, %48

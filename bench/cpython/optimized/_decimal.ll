@@ -2766,7 +2766,7 @@ dec_cond_map_init.exit:                           ; preds = %194
   br label %229
 
 229:                                              ; preds = %226, %218, %212, %208, %204
-  %.0197 = phi ptr [ %228, %226 ], [ %225, %218 ], [ %217, %212 ], [ %211, %208 ], [ %207, %204 ]
+  %.0197 = phi ptr [ %228, %226 ], [ %207, %204 ], [ %211, %208 ], [ %217, %212 ], [ %225, %218 ]
   %230 = icmp eq ptr %.0197, null
   br i1 %230, label %Py_DECREF.exit280.thread416, label %231
 
@@ -3256,7 +3256,7 @@ define internal i32 @dec_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4183,7 +4183,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit33, %
   br label %209
 
 209:                                              ; preds = %206, %203, %200, %197, %194, %191, %190
-  %.027 = phi i32 [ %159, %190 ], [ %208, %206 ], [ %205, %203 ], [ %202, %200 ], [ %199, %197 ], [ %196, %194 ], [ %193, %191 ]
+  %.027 = phi i32 [ %159, %190 ], [ %193, %191 ], [ %196, %194 ], [ %199, %197 ], [ %202, %200 ], [ %205, %203 ], [ %208, %206 ]
   %210 = sext i32 %.027 to i64
   %211 = call ptr @PyBool_FromLong(i64 noundef %210) #14
   br label %convert_op_cmp.exit
@@ -36090,7 +36090,7 @@ define internal i32 @signaldict_traverse(ptr noundef readonly captures(none) %0,
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

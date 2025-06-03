@@ -2462,9 +2462,9 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %106
 
 106:                                              ; preds = %._crit_edge._crit_edge, %104
-  %107 = phi i64 [ %.pre52, %._crit_edge._crit_edge ], [ %96, %104 ]
-  %108 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %93, %104 ]
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge._crit_edge ], [ %105, %104 ]
+  %107 = phi i64 [ %96, %104 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %108 = phi ptr [ %93, %104 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.025.1 = phi ptr [ %105, %104 ], [ %.sroa.025.0.lcssa, %._crit_edge._crit_edge ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.025.1, i64 4
   %110 = load float, ptr %109, align 4, !tbaa !35
   %111 = fadd float %110, 5.000000e-01
@@ -2486,9 +2486,9 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %125
 
 125:                                              ; preds = %._crit_edge._crit_edge53, %123
-  %126 = phi i64 [ %.pre58, %._crit_edge._crit_edge53 ], [ %107, %123 ]
-  %127 = phi ptr [ %.pre55, %._crit_edge._crit_edge53 ], [ %108, %123 ]
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge._crit_edge53 ], [ %124, %123 ]
+  %126 = phi i64 [ %107, %123 ], [ %.pre58, %._crit_edge._crit_edge53 ]
+  %127 = phi ptr [ %108, %123 ], [ %.pre55, %._crit_edge._crit_edge53 ]
+  %.sroa.025.2 = phi ptr [ %124, %123 ], [ %.sroa.025.0.lcssa, %._crit_edge._crit_edge53 ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.025.2, i64 4
   %129 = load float, ptr %128, align 4, !tbaa !35
   %130 = fadd float %129, 5.000000e-01

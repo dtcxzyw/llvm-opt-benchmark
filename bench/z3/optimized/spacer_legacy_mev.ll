@@ -5634,7 +5634,7 @@ _ZN8rationalD2Ev.exit358:                         ; preds = %.noexc.i357
   ret void
 
 1209:                                             ; preds = %1198, %1183, %.body319, %.body299, %.body277, %.body256, %766, %689, %.body, %573, %504, %55, %33
-  %.pn103 = phi { ptr, i32 } [ %34, %33 ], [ %.pn101, %1183 ], [ %.pn99, %1198 ], [ %.pn, %.body319 ], [ %.pn91, %.body299 ], [ %eh.lpad-body278, %.body277 ], [ %.pn93, %.body256 ], [ %.pn95, %766 ], [ %690, %689 ], [ %.pn97, %.body ], [ %574, %573 ], [ %505, %504 ], [ %56, %55 ]
+  %.pn103 = phi { ptr, i32 } [ %34, %33 ], [ %.pn101, %1183 ], [ %.pn99, %1198 ], [ %505, %504 ], [ %574, %573 ], [ %.pn97, %.body ], [ %690, %689 ], [ %.pn95, %766 ], [ %.pn93, %.body256 ], [ %eh.lpad-body278, %.body277 ], [ %.pn91, %.body299 ], [ %.pn, %.body319 ], [ %56, %55 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21

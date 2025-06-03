@@ -272,7 +272,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %78
 
 78:                                               ; preds = %74, %76, %72, %66
-  %.0108 = phi ptr [ %70, %72 ], [ %77, %76 ], [ %75, %74 ], [ %70, %66 ]
+  %.0108 = phi ptr [ %70, %72 ], [ %75, %74 ], [ %77, %76 ], [ %70, %66 ]
   %79 = tail call i32 @call_dissector(ptr noundef %.0108, ptr noundef %67, ptr noundef %1, ptr noundef %2)
   br label %80
 

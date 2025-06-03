@@ -7115,7 +7115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566: ; preds = %_Z
   br label %.loopexit.split-lp620
 
 1487:                                             ; preds = %_ZNK7cmValue4IsOnEv.exit543, %1464, %1467, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit563, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit550
-  %.049 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit550 ], [ false, %1464 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit563 ], [ true, %1467 ], [ true, %_ZNK7cmValue4IsOnEv.exit543 ]
+  %.049 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit550 ], [ false, %1464 ], [ true, %1467 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit563 ], [ true, %_ZNK7cmValue4IsOnEv.exit543 ]
   %1488 = load ptr, ptr %346, align 8, !tbaa !106
   invoke void @_ZN17cmGeneratorTarget19AddIncludeDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2912) %1488, ptr noundef nonnull align 8 dereferenceable(32) %567, i1 noundef zeroext %.049)
           to label %1489 unwind label %1465

@@ -3131,7 +3131,7 @@ define internal range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef %0, ptr
   br label %63
 
 63:                                               ; preds = %48, %49, %19, %51, %52, %39, %24, %31
-  %.1 = phi i32 [ 0, %19 ], [ 1, %52 ], [ 0, %51 ], [ 0, %39 ], [ 1, %31 ], [ 0, %24 ], [ 1, %49 ], [ 1, %48 ]
+  %.1 = phi i32 [ 0, %19 ], [ 1, %31 ], [ 0, %24 ], [ 0, %39 ], [ 1, %52 ], [ 0, %51 ], [ 1, %49 ], [ 1, %48 ]
   call void @gtk_tree_path_free(ptr noundef %21) #16
   br label %64
 

@@ -1352,8 +1352,8 @@ _ZN6vectorIN23generic_model_converter5entryELb1EjE3endEv.exit: ; preds = %2
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %"struct.generic_model_converter::entry", ptr %12, i64 %16
-  %.not31 = icmp eq i32 %15, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i32 %15, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN23generic_model_converter5entryELb1EjE3endEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1370,9 +1370,9 @@ _ZN6vectorIN23generic_model_converter5entryELb1EjE3endEv.exit: ; preds = %2
   ret ptr %8
 
 26:                                               ; preds = %.lr.ph, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit
-  %.02232 = phi ptr [ %12, %.lr.ph ], [ %102, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ]
+  %.02233 = phi ptr [ %12, %.lr.ph ], [ %102, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  %27 = load ptr, ptr %.02232, align 8, !tbaa !27
+  %27 = load ptr, ptr %.02233, align 8, !tbaa !27
   %28 = load ptr, ptr %1, align 8, !tbaa !121
   %29 = load ptr, ptr %6, align 8, !tbaa !109
   %30 = icmp eq ptr %28, %29
@@ -1397,7 +1397,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN15ast_translatio
   br label %_ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit
 
 _ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit: ; preds = %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.02232, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.02233, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !35
   switch i32 %38, label %92 [
     i32 0, label %39
@@ -1473,7 +1473,7 @@ _ZN23generic_model_converter4hideEP9func_decl.exit: ; preds = %46, %.noexc.i
 
 65:                                               ; preds = %_ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
-  %66 = getelementptr inbounds nuw i8, ptr %.02232, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.02233, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !32
   %68 = load ptr, ptr %1, align 8, !tbaa !121
   %69 = load ptr, ptr %6, align 8, !tbaa !109
@@ -1488,22 +1488,22 @@ _ZN15ast_translationclI4exprEEPT_PKS2_.exit:      ; preds = %65, %71
   %73 = phi ptr [ %67, %65 ], [ %72, %71 ]
   store ptr %73, ptr %5, align 8, !tbaa !32
   store ptr %7, ptr %19, align 8, !tbaa !30
-  %.not.i.i27 = icmp eq ptr %73, null
-  br i1 %.not.i.i27, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i28
+  %.not.i.i28 = icmp eq ptr %73, null
+  br i1 %.not.i.i28, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i29
 
-_ZN11ast_manager7inc_refEP3ast.exit.i.i28:        ; preds = %_ZN15ast_translationclI4exprEEPT_PKS2_.exit
+_ZN11ast_manager7inc_refEP3ast.exit.i.i29:        ; preds = %_ZN15ast_translationclI4exprEEPT_PKS2_.exit
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 4, !tbaa !31
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4, !tbaa !31
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
 
-_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i28, %_ZN15ast_translationclI4exprEEPT_PKS2_.exit
+_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i29, %_ZN15ast_translationclI4exprEEPT_PKS2_.exit
   invoke void @_ZN23generic_model_converter3addEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %33, ptr noundef %73)
           to label %77 unwind label %89
 
 77:                                               ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
-  br i1 %.not.i.i27, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %78
+  br i1 %.not.i.i28, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %78
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1568,15 +1568,15 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %77, %78, %83
 
 _ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %92, %93, %98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  %102 = getelementptr inbounds nuw i8, ptr %.02232, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %.02233, i64 40
   %.not = icmp eq ptr %102, %17
   br i1 %.not, label %._crit_edge, label %26
 
 .body:                                            ; preds = %53, %91
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %91 ], [ %54, %53 ]
+  %.pn24 = phi { ptr, i32 } [ %.pn, %91 ], [ %54, %53 ]
   call void @_ZN7obj_refI9func_decl11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn24
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4177,7 +4177,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %43, %39, %28, %25, %24
-  %.0.i = phi i64 [ %..i, %43 ], [ %27, %25 ], [ 1, %24 ], [ 1, %39 ], [ 1, %28 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %..i, %43 ], [ 1, %24 ], [ 1, %39 ], [ 1, %28 ]
   %33 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i, i64 %.0.i
   br label %34
 
@@ -4229,7 +4229,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %57, label %65, label %58
 
 58:                                               ; preds = %69, %65, %54, %51, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread"
-  %.0.i5 = phi i64 [ %..i9, %69 ], [ %53, %51 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread" ], [ 1, %65 ], [ 1, %54 ]
+  %.0.i5 = phi i64 [ %53, %51 ], [ %..i9, %69 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread" ], [ 1, %65 ], [ 1, %54 ]
   %59 = getelementptr inbounds { i32, [9 x i32] }, ptr %48, i64 %.0.i5
   br label %60
 
@@ -4330,7 +4330,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %43, %39, %28, %25, %24
-  %.0.i = phi i64 [ %..i, %43 ], [ %27, %25 ], [ 1, %24 ], [ 1, %39 ], [ 1, %28 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %..i, %43 ], [ 1, %24 ], [ 1, %39 ], [ 1, %28 ]
   %33 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i, i64 %.0.i
   br label %34
 
@@ -4378,7 +4378,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %56, label %64, label %57
 
 57:                                               ; preds = %68, %64, %53, %50, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread"
-  %.0.i10 = phi i64 [ %..i14, %68 ], [ %52, %50 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread" ], [ 1, %64 ], [ 1, %53 ]
+  %.0.i10 = phi i64 [ %52, %50 ], [ %..i14, %68 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread" ], [ 1, %64 ], [ 1, %53 ]
   %58 = getelementptr inbounds { i32, [9 x i32] }, ptr %47, i64 %.0.i10
   br label %59
 
@@ -4423,7 +4423,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %79, label %87, label %80
 
 80:                                               ; preds = %91, %87, %76, %73, %72
-  %.0.i.i16 = phi i64 [ %..i.i, %91 ], [ %75, %73 ], [ 1, %72 ], [ 1, %87 ], [ 1, %76 ]
+  %.0.i.i16 = phi i64 [ %75, %73 ], [ %..i.i, %91 ], [ 1, %72 ], [ 1, %87 ], [ 1, %76 ]
   %81 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i6, i64 %.0.i.i16
   br label %82
 
@@ -4475,7 +4475,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread: ; preds = %8, %2
   br i1 %102, label %110, label %103
 
 103:                                              ; preds = %114, %110, %99, %96, %95
-  %.0.i.i18 = phi i64 [ %..i.i22, %114 ], [ %98, %96 ], [ 1, %95 ], [ 1, %110 ], [ 1, %99 ]
+  %.0.i.i18 = phi i64 [ %98, %96 ], [ %..i.i22, %114 ], [ 1, %95 ], [ 1, %110 ], [ 1, %99 ]
   %104 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i11, i64 %.0.i.i18
   br label %105
 
@@ -9166,12 +9166,12 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %1075, %
   br label %1194
 
 1194:                                             ; preds = %1218, %1193
-  %.sroa.0206.sroa.0.sroa.0.0 = phi i64 [ %.sroa.01238.0.copyload1239, %1218 ], [ %.sroa.0206.sroa.0.sroa.0.0.copyload1783, %1193 ]
-  %.sroa.7207.0 = phi i32 [ %.sroa.7207.11497, %1218 ], [ 1, %1193 ]
-  %.sroa.9215.0 = phi i64 [ %.sroa.12.8.copyload, %1218 ], [ 0, %1193 ]
-  %.sroa.0206.sroa.7.0 = phi i64 [ %.sroa.6.8.copyload, %1218 ], [ -9223372036854775808, %1193 ]
-  %.2720 = phi i1 [ false, %1218 ], [ true, %1193 ]
-  %.2717 = phi i1 [ true, %1218 ], [ false, %1193 ]
+  %.sroa.0206.sroa.0.sroa.0.0 = phi i64 [ %.sroa.0206.sroa.0.sroa.0.0.copyload1783, %1193 ], [ %.sroa.01238.0.copyload1239, %1218 ]
+  %.sroa.7207.0 = phi i32 [ 1, %1193 ], [ %.sroa.7207.11497, %1218 ]
+  %.sroa.9215.0 = phi i64 [ 0, %1193 ], [ %.sroa.12.8.copyload, %1218 ]
+  %.sroa.0206.sroa.7.0 = phi i64 [ -9223372036854775808, %1193 ], [ %.sroa.6.8.copyload, %1218 ]
+  %.2720 = phi i1 [ true, %1193 ], [ false, %1218 ]
+  %.2717 = phi i1 [ false, %1193 ], [ true, %1218 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5266.sroa.0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   store i64 0, ptr %59, align 8
@@ -9992,8 +9992,8 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %1075, %
   %.old1632 = icmp eq i64 %.old1631, -9223372036854775808
   br i1 %.old1632, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$syn..generics..BoundLifetimes$GT$$GT$17h1203de20a0e5fe1aE.exit1150", label %1408
 
-.thread1447:                                      ; preds = %1329, %1277, %1174, %1165, %1325, %1324, %1330, %1323, %1333, %1369, %.thread1454
-  %.pn8061446 = phi { ptr, i32 } [ %lpad.thr_comm1452, %.thread1454 ], [ %1370, %1369 ], [ %lpad.thr_comm.split-lp1485, %1165 ], [ %.pn8041473, %1325 ], [ %.pn8041473, %1324 ], [ %.pn8041473, %1330 ], [ %.pn8041473, %1323 ], [ %lpad.phi1639, %1333 ], [ %1175, %1174 ], [ %lpad.phi1644, %1277 ], [ %.pn8041473, %1329 ]
+.thread1447:                                      ; preds = %1329, %1277, %1174, %1165, %1324, %1330, %1325, %1323, %1333, %1369, %.thread1454
+  %.pn8061446 = phi { ptr, i32 } [ %lpad.thr_comm1452, %.thread1454 ], [ %1370, %1369 ], [ %lpad.thr_comm.split-lp1485, %1165 ], [ %.pn8041473, %1324 ], [ %.pn8041473, %1330 ], [ %.pn8041473, %1325 ], [ %.pn8041473, %1323 ], [ %lpad.phi1639, %1333 ], [ %1175, %1174 ], [ %lpad.phi1644, %1277 ], [ %.pn8041473, %1329 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %79) #23
           to label %.thread1349 unwind label %974
 
@@ -10209,7 +10209,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %1469, label %1477, label %1470
 
 1470:                                             ; preds = %1481, %1477, %1466, %1463, %1462
-  %.0.i.i = phi i64 [ %..i.i, %1481 ], [ %1465, %1463 ], [ 1, %1462 ], [ 1, %1477 ], [ 1, %1466 ]
+  %.0.i.i = phi i64 [ %1465, %1463 ], [ %..i.i, %1481 ], [ 1, %1462 ], [ 1, %1477 ], [ 1, %1466 ]
   %1471 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i, i64 %.0.i.i
   br label %1472
 
@@ -10257,7 +10257,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %1494, label %1502, label %1495
 
 1495:                                             ; preds = %1506, %1502, %1491, %1488, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i10.i = phi i64 [ %..i14.i, %1506 ], [ %1490, %1488 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %1502 ], [ 1, %1491 ]
+  %.0.i10.i = phi i64 [ %1490, %1488 ], [ %..i14.i, %1506 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %1502 ], [ 1, %1491 ]
   %1496 = getelementptr inbounds { i32, [9 x i32] }, ptr %1485, i64 %.0.i10.i
   br label %1497
 
@@ -10302,7 +10302,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %1517, label %1525, label %1518
 
 1518:                                             ; preds = %1529, %1525, %1514, %1511, %1510
-  %.0.i.i16.i = phi i64 [ %..i.i.i, %1529 ], [ %1513, %1511 ], [ 1, %1510 ], [ 1, %1525 ], [ 1, %1514 ]
+  %.0.i.i16.i = phi i64 [ %1513, %1511 ], [ %..i.i.i, %1529 ], [ 1, %1510 ], [ 1, %1525 ], [ 1, %1514 ]
   %1519 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i6.i, i64 %.0.i.i16.i
   br label %1520
 
@@ -10353,7 +10353,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %1540, label %1548, label %1541
 
 1541:                                             ; preds = %1552, %1548, %1537, %1534, %1533
-  %.0.i.i18.i = phi i64 [ %..i.i22.i, %1552 ], [ %1536, %1534 ], [ 1, %1533 ], [ 1, %1548 ], [ 1, %1537 ]
+  %.0.i.i18.i = phi i64 [ %1536, %1534 ], [ %..i.i22.i, %1552 ], [ 1, %1533 ], [ 1, %1548 ], [ 1, %1537 ]
   %1542 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i11.i, i64 %.0.i.i18.i
   br label %1543
 
@@ -11092,7 +11092,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %86, label %94, label %87
 
 87:                                               ; preds = %98, %94, %83, %80, %79
-  %.0.i.i = phi i64 [ %..i.i, %98 ], [ %82, %80 ], [ 1, %79 ], [ 1, %94 ], [ 1, %83 ]
+  %.0.i.i = phi i64 [ %82, %80 ], [ %..i.i, %98 ], [ 1, %79 ], [ 1, %94 ], [ 1, %83 ]
   %88 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i, i64 %.0.i.i
   br label %89
 
@@ -11147,7 +11147,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %.noexc
   br i1 %112, label %120, label %113
 
 113:                                              ; preds = %124, %120, %109, %106, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i5.i = phi i64 [ %..i9.i, %124 ], [ %108, %106 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %120 ], [ 1, %109 ]
+  %.0.i5.i = phi i64 [ %108, %106 ], [ %..i9.i, %124 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %120 ], [ 1, %109 ]
   %114 = getelementptr inbounds { i32, [9 x i32] }, ptr %103, i64 %.0.i5.i
   br label %115
 
@@ -11295,7 +11295,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i180: ; preds = %.no
   br i1 %169, label %177, label %170
 
 170:                                              ; preds = %181, %177, %166, %163, %162
-  %.0.i.i194 = phi i64 [ %..i.i198, %181 ], [ %165, %163 ], [ 1, %162 ], [ 1, %177 ], [ 1, %166 ]
+  %.0.i.i194 = phi i64 [ %165, %163 ], [ %..i.i198, %181 ], [ 1, %162 ], [ 1, %177 ], [ 1, %166 ]
   %171 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i188, i64 %.0.i.i194
   br label %172
 
@@ -11350,7 +11350,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i180: ; preds = %.no
   br i1 %195, label %203, label %196
 
 196:                                              ; preds = %207, %203, %192, %189, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i181"
-  %.0.i5.i183 = phi i64 [ %..i9.i186, %207 ], [ %191, %189 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i181" ], [ 1, %203 ], [ 1, %192 ]
+  %.0.i5.i183 = phi i64 [ %191, %189 ], [ %..i9.i186, %207 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i181" ], [ 1, %203 ], [ 1, %192 ]
   %197 = getelementptr inbounds { i32, [9 x i32] }, ptr %186, i64 %.0.i5.i183
   br label %198
 
@@ -11477,7 +11477,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i206: ; preds = %.no
   br i1 %250, label %258, label %251
 
 251:                                              ; preds = %262, %258, %247, %244, %243
-  %.0.i.i220 = phi i64 [ %..i.i224, %262 ], [ %246, %244 ], [ 1, %243 ], [ 1, %258 ], [ 1, %247 ]
+  %.0.i.i220 = phi i64 [ %246, %244 ], [ %..i.i224, %262 ], [ 1, %243 ], [ 1, %258 ], [ 1, %247 ]
   %252 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i214, i64 %.0.i.i220
   br label %253
 
@@ -11532,7 +11532,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i206: ; preds = %.no
   br i1 %276, label %284, label %277
 
 277:                                              ; preds = %288, %284, %273, %270, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i207"
-  %.0.i5.i209 = phi i64 [ %..i9.i212, %288 ], [ %272, %270 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i207" ], [ 1, %284 ], [ 1, %273 ]
+  %.0.i5.i209 = phi i64 [ %272, %270 ], [ %..i9.i212, %288 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i207" ], [ 1, %284 ], [ 1, %273 ]
   %278 = getelementptr inbounds { i32, [9 x i32] }, ptr %267, i64 %.0.i5.i209
   br label %279
 
@@ -11810,7 +11810,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i240: ; preds = %.no
   br i1 %368, label %376, label %369
 
 369:                                              ; preds = %380, %376, %365, %362, %361
-  %.0.i.i254 = phi i64 [ %..i.i258, %380 ], [ %364, %362 ], [ 1, %361 ], [ 1, %376 ], [ 1, %365 ]
+  %.0.i.i254 = phi i64 [ %364, %362 ], [ %..i.i258, %380 ], [ 1, %361 ], [ 1, %376 ], [ 1, %365 ]
   %370 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i248, i64 %.0.i.i254
   br label %371
 
@@ -11865,7 +11865,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i240: ; preds = %.no
   br i1 %394, label %402, label %395
 
 395:                                              ; preds = %406, %402, %391, %388, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i241"
-  %.0.i5.i243 = phi i64 [ %..i9.i246, %406 ], [ %390, %388 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i241" ], [ 1, %402 ], [ 1, %391 ]
+  %.0.i5.i243 = phi i64 [ %390, %388 ], [ %..i9.i246, %406 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i241" ], [ 1, %402 ], [ 1, %391 ]
   %396 = getelementptr inbounds { i32, [9 x i32] }, ptr %385, i64 %.0.i5.i243
   br label %397
 

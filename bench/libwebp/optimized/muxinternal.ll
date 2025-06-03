@@ -720,7 +720,7 @@ define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) 
   unreachable
 
 GetChunkListFromId.exit:                          ; preds = %.lr.ph24, %5, %7
-  %.0.i = phi ptr [ %8, %7 ], [ %6, %5 ], [ %.01220, %.lr.ph24 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ %.01220, %.lr.ph24 ]
   %10 = load ptr, ptr %.0.i, align 8, !tbaa !28
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %22, label %11

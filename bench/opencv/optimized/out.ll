@@ -1853,7 +1853,7 @@ tailrecurse.outer:                                ; preds = %.split.split.split,
   br label %.loopexit37
 
 .loopexit37:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us, %88, %.split76.us, %.split79.us, %.split82.us, %129, %121, %.split85.us, %.split88.us, %.split91.us, %.split120.us, %.split67.us, %63, %60, %59, %.split62.us
-  %.09 = phi ptr [ %141, %.split76.us ], [ %138, %.split79.us ], [ %136, %.split82.us ], [ %122, %121 ], [ %130, %129 ], [ %105, %.split85.us ], [ %101, %.split88.us ], [ %93, %.split120.us ], [ %98, %.split91.us ], [ %69, %.split67.us ], [ %58, %59 ], [ %58, %60 ], [ %64, %63 ], [ %53, %.split62.us ], [ %91, %88 ], [ null, %tailrecurse.us ], [ null, %tailrecurse.us105 ], [ null, %tailrecurse.us134 ], [ null, %tailrecurse ], [ null, %tailrecurse.us160 ]
+  %.09 = phi ptr [ %53, %.split62.us ], [ %58, %59 ], [ %58, %60 ], [ %64, %63 ], [ %69, %.split67.us ], [ %93, %.split120.us ], [ %98, %.split91.us ], [ %101, %.split88.us ], [ %105, %.split85.us ], [ %122, %121 ], [ %130, %129 ], [ %136, %.split82.us ], [ %138, %.split79.us ], [ %141, %.split76.us ], [ %91, %88 ], [ null, %tailrecurse.us ], [ null, %tailrecurse.us105 ], [ null, %tailrecurse.us134 ], [ null, %tailrecurse ], [ null, %tailrecurse.us160 ]
   ret ptr %.09
 }
 

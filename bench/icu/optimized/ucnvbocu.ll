@@ -1270,7 +1270,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %148
 
 148:                                              ; preds = %145, %144
-  %.7181 = phi ptr [ %.6180, %144 ], [ %147, %145 ]
+  %.7181 = phi ptr [ %147, %145 ], [ %.6180, %144 ]
   %149 = lshr i32 %140, 16
   %150 = trunc i32 %149 to i8
   %151 = getelementptr inbounds nuw i8, ptr %.7181, i64 1
@@ -1306,7 +1306,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %165
 
 165:                                              ; preds = %161, %158
-  %.0144 = phi ptr [ %160, %158 ], [ %164, %161 ]
+  %.0144 = phi ptr [ %164, %161 ], [ %160, %158 ]
   %166 = lshr i32 %140, 8
   %167 = trunc i32 %166 to i8
   %168 = getelementptr inbounds nuw i8, ptr %.0144, i64 1
@@ -1314,7 +1314,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %169
 
 169:                                              ; preds = %165, %158
-  %.1 = phi ptr [ %160, %158 ], [ %168, %165 ]
+  %.1 = phi ptr [ %168, %165 ], [ %160, %158 ]
   %170 = trunc i32 %140 to i8
   store i8 %170, ptr %.1, align 1, !tbaa !24
   br label %171
@@ -1339,7 +1339,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %180
 
 180:                                              ; preds = %176, %171
-  %.9 = phi ptr [ %.6180, %171 ], [ %179, %176 ]
+  %.9 = phi ptr [ %179, %176 ], [ %.6180, %171 ]
   %181 = lshr i32 %175, 8
   %182 = trunc i32 %181 to i8
   %183 = getelementptr inbounds nuw i8, ptr %.9, i64 1
@@ -1347,7 +1347,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %184
 
 184:                                              ; preds = %180, %171
-  %.10 = phi ptr [ %.6180, %171 ], [ %183, %180 ]
+  %.10 = phi ptr [ %183, %180 ], [ %.6180, %171 ]
   %185 = trunc i32 %175 to i8
   %186 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   store i8 %185, ptr %.10, align 1, !tbaa !24
@@ -1730,8 +1730,8 @@ select.unfold:                                    ; preds = %120, %115
   br label %156
 
 156:                                              ; preds = %152, %151
-  %.7243 = phi ptr [ %.6242, %151 ], [ %154, %152 ]
-  %.7225 = phi ptr [ %.6224, %151 ], [ %155, %152 ]
+  %.7243 = phi ptr [ %154, %152 ], [ %.6242, %151 ]
+  %.7225 = phi ptr [ %155, %152 ], [ %.6224, %151 ]
   %157 = lshr i32 %147, 16
   %158 = trunc i32 %157 to i8
   %159 = getelementptr inbounds nuw i8, ptr %.7243, i64 1
@@ -1741,8 +1741,8 @@ select.unfold:                                    ; preds = %120, %115
   br label %161
 
 161:                                              ; preds = %156, %151
-  %.8244 = phi ptr [ %.6242, %151 ], [ %159, %156 ]
-  %.8226 = phi ptr [ %.6224, %151 ], [ %160, %156 ]
+  %.8244 = phi ptr [ %159, %156 ], [ %.6242, %151 ]
+  %.8226 = phi ptr [ %160, %156 ], [ %.6224, %151 ]
   %162 = lshr i32 %147, 8
   %163 = trunc i32 %162 to i8
   %164 = getelementptr inbounds nuw i8, ptr %.8244, i64 1
@@ -1779,7 +1779,7 @@ select.unfold:                                    ; preds = %120, %115
   br label %177
 
 177:                                              ; preds = %173, %170
-  %.0183 = phi ptr [ %172, %170 ], [ %176, %173 ]
+  %.0183 = phi ptr [ %176, %173 ], [ %172, %170 ]
   %178 = lshr i32 %147, 8
   %179 = trunc i32 %178 to i8
   %180 = getelementptr inbounds nuw i8, ptr %.0183, i64 1
@@ -1787,7 +1787,7 @@ select.unfold:                                    ; preds = %120, %115
   br label %181
 
 181:                                              ; preds = %177, %170
-  %.1 = phi ptr [ %172, %170 ], [ %180, %177 ]
+  %.1 = phi ptr [ %180, %177 ], [ %172, %170 ]
   %182 = trunc i32 %147 to i8
   store i8 %182, ptr %.1, align 1, !tbaa !24
   br label %183
@@ -1814,8 +1814,8 @@ select.unfold:                                    ; preds = %120, %115
   br label %193
 
 193:                                              ; preds = %188, %183
-  %.10246 = phi ptr [ %.6242, %183 ], [ %191, %188 ]
-  %.10 = phi ptr [ %.6224, %183 ], [ %192, %188 ]
+  %.10246 = phi ptr [ %191, %188 ], [ %.6242, %183 ]
+  %.10 = phi ptr [ %192, %188 ], [ %.6224, %183 ]
   %194 = lshr i32 %187, 8
   %195 = trunc i32 %194 to i8
   %196 = getelementptr inbounds nuw i8, ptr %.10246, i64 1
@@ -1825,8 +1825,8 @@ select.unfold:                                    ; preds = %120, %115
   br label %198
 
 198:                                              ; preds = %193, %183
-  %.11247 = phi ptr [ %.6242, %183 ], [ %196, %193 ]
-  %.11 = phi ptr [ %.6224, %183 ], [ %197, %193 ]
+  %.11247 = phi ptr [ %196, %193 ], [ %.6242, %183 ]
+  %.11 = phi ptr [ %197, %193 ], [ %.6224, %183 ]
   %199 = trunc i32 %187 to i8
   %200 = getelementptr inbounds nuw i8, ptr %.11247, i64 1
   store i8 %199, ptr %.11247, align 1, !tbaa !24

@@ -5946,7 +5946,7 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %102, %lexbor_shs_ha
   br label %135
 
 135:                                              ; preds = %lexbor_shs_hash_get_static.exit.thread, %.loopexit, %114, %82, %79, %65, %55, %51, %44, %35, %28, %25, %12
-  %.0 = phi i8 [ -2, %.loopexit ], [ -1, %lexbor_shs_hash_get_static.exit.thread ], [ %126, %114 ], [ %70, %65 ], [ %78, %79 ], [ %78, %82 ], [ %39, %35 ], [ %49, %44 ], [ %54, %51 ], [ %58, %55 ], [ %16, %12 ], [ %24, %25 ], [ %24, %28 ]
+  %.0 = phi i8 [ -2, %.loopexit ], [ -1, %lexbor_shs_hash_get_static.exit.thread ], [ %126, %114 ], [ %16, %12 ], [ %24, %25 ], [ %24, %28 ], [ %39, %35 ], [ %49, %44 ], [ %54, %51 ], [ %58, %55 ], [ %70, %65 ], [ %78, %79 ], [ %78, %82 ]
   ret i8 %.0
 }
 

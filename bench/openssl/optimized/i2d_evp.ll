@@ -266,7 +266,7 @@ define i32 @i2d_PublicKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %19
 
 19:                                               ; preds = %18, %15, %12, %9, %5
-  %.0 = phi i32 [ %6, %5 ], [ -1, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.0 = phi i32 [ %6, %5 ], [ -1, %18 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ]
   ret i32 %.0
 }
 

@@ -182,8 +182,8 @@ define hidden zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 69:                                               ; preds = %57, %58, %63, %66
-  %.067 = phi ptr [ @SDL_FillSurfaceRect4, %66 ], [ @SDL_FillSurfaceRect2, %63 ], [ @SDL_FillSurfaceRect1, %58 ], [ @SDL_FillSurfaceRect3, %57 ]
-  %.064 = phi i32 [ %3, %66 ], [ %65, %63 ], [ %62, %58 ], [ %3, %57 ]
+  %.067 = phi ptr [ @SDL_FillSurfaceRect1, %58 ], [ @SDL_FillSurfaceRect2, %63 ], [ @SDL_FillSurfaceRect4, %66 ], [ @SDL_FillSurfaceRect3, %57 ]
+  %.064 = phi i32 [ %62, %58 ], [ %65, %63 ], [ %3, %66 ], [ %3, %57 ]
   %70 = icmp sgt i32 %2, 0
   br i1 %70, label %.lr.ph, label %.loopexit
 
@@ -302,19 +302,19 @@ define internal void @SDL_FillSurfaceRect1(ptr noundef %0, i32 noundef %1, i32 n
   %.2.us = phi ptr [ %15, %14 ], [ %.03440.us, %.lr.ph.split.us ]
   %17 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
   store i8 %8, ptr %.2.us, align 1
-  %.pre59 = add nsw i32 %.pre-phi, -1
+  %.pre56 = add nsw i32 %.pre-phi, -1
   br label %18
 
 18:                                               ; preds = %16, %.lr.ph.split.us
-  %.pre-phi60 = phi i32 [ %.pre59, %16 ], [ %9, %.lr.ph.split.us ]
+  %.pre-phi57 = phi i32 [ %.pre56, %16 ], [ %9, %.lr.ph.split.us ]
   %.3.us = phi ptr [ %17, %16 ], [ %.03440.us, %.lr.ph.split.us ]
   %19 = getelementptr inbounds nuw i8, ptr %.3.us, i64 1
   store i8 %8, ptr %.3.us, align 1
   br label %20
 
 20:                                               ; preds = %18, %.lr.ph.split.us
-  %.130.us = phi i32 [ %3, %.lr.ph.split.us ], [ %.pre-phi60, %18 ]
-  %.1.us = phi ptr [ %.03440.us, %.lr.ph.split.us ], [ %19, %18 ]
+  %.130.us = phi i32 [ %.pre-phi57, %18 ], [ %3, %.lr.ph.split.us ]
+  %.1.us = phi ptr [ %19, %18 ], [ %.03440.us, %.lr.ph.split.us ]
   %21 = lshr i32 %.130.us, 2
   %22 = zext nneg i32 %21 to i64
   %23 = tail call ptr @SDL_memset4_REAL(ptr noundef %.1.us, i32 noundef %2, i64 noundef %22) #5
@@ -338,13 +338,13 @@ define internal void @SDL_FillSurfaceRect1(ptr noundef %0, i32 noundef %1, i32 n
   br label %31
 
 31:                                               ; preds = %25, %29
-  %.4.us = phi ptr [ %28, %25 ], [ %30, %29 ]
+  %.4.us = phi ptr [ %30, %29 ], [ %28, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %.4.us, i64 1
   store i8 %8, ptr %.4.us, align 1
   br label %33
 
 33:                                               ; preds = %25, %31
-  %.5.us = phi ptr [ %28, %25 ], [ %32, %31 ]
+  %.5.us = phi ptr [ %32, %31 ], [ %28, %25 ]
   store i8 %8, ptr %.5.us, align 1
   br label %34
 
@@ -357,7 +357,7 @@ define internal void @SDL_FillSurfaceRect1(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph.split.us.unreachabledefault:               ; preds = %.lr.ph.split.us
   unreachable
 
-default.unreachable61:                            ; preds = %.lr.ph.split
+default.unreachable58:                            ; preds = %.lr.ph.split
   unreachable
 
 .unreachabledefault:                              ; preds = %25
@@ -367,38 +367,38 @@ default.unreachable61:                            ; preds = %.lr.ph.split
   %37 = and i32 %3, 3
   %38 = and i32 %3, -4
   %39 = sext i32 %38 to i64
-  switch i32 %37, label %default.unreachable61 [
+  switch i32 %37, label %default.unreachable58 [
     i32 0, label %._crit_edge
     i32 3, label %.lr.ph.split.split.split.split.us
-    i32 2, label %.lr.ph.split.split.split.split.us50
+    i32 2, label %.lr.ph.split.split.split.split.us47
     i32 1, label %.lr.ph.split.split.split.split
   ]
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split.us
   %40 = phi i32 [ %45, %.lr.ph.split.split.split.split.us ], [ %6, %.lr.ph.split ]
-  %.03440.us46 = phi ptr [ %44, %.lr.ph.split.split.split.split.us ], [ %0, %.lr.ph.split ]
-  %41 = getelementptr inbounds i8, ptr %.03440.us46, i64 %39
+  %.03440.us43 = phi ptr [ %44, %.lr.ph.split.split.split.split.us ], [ %0, %.lr.ph.split ]
+  %41 = getelementptr inbounds i8, ptr %.03440.us43, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 %8, ptr %41, align 1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i8 %8, ptr %42, align 1
   store i8 %8, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %.03440.us46, i64 %10
+  %44 = getelementptr inbounds i8, ptr %.03440.us43, i64 %10
   %45 = add nsw i32 %40, -1
-  %.not.us49 = icmp eq i32 %40, 0
-  br i1 %.not.us49, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !6
+  %.not.us46 = icmp eq i32 %40, 0
+  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !6
 
-.lr.ph.split.split.split.split.us50:              ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split.us50
-  %46 = phi i32 [ %50, %.lr.ph.split.split.split.split.us50 ], [ %6, %.lr.ph.split ]
-  %.03440.us51 = phi ptr [ %49, %.lr.ph.split.split.split.split.us50 ], [ %0, %.lr.ph.split ]
-  %47 = getelementptr inbounds i8, ptr %.03440.us51, i64 %39
+.lr.ph.split.split.split.split.us47:              ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split.us47
+  %46 = phi i32 [ %50, %.lr.ph.split.split.split.split.us47 ], [ %6, %.lr.ph.split ]
+  %.03440.us48 = phi ptr [ %49, %.lr.ph.split.split.split.split.us47 ], [ %0, %.lr.ph.split ]
+  %47 = getelementptr inbounds i8, ptr %.03440.us48, i64 %39
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 %8, ptr %47, align 1
   store i8 %8, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %.03440.us51, i64 %10
+  %49 = getelementptr inbounds i8, ptr %.03440.us48, i64 %10
   %50 = add nsw i32 %46, -1
-  %.not.us54 = icmp eq i32 %46, 0
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us50, !llvm.loop !6
+  %.not.us51 = icmp eq i32 %46, 0
+  br i1 %.not.us51, label %._crit_edge, label %.lr.ph.split.split.split.split.us47, !llvm.loop !6
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split, %.lr.ph.split.split.split.split
   %51 = phi i32 [ %54, %.lr.ph.split.split.split.split ], [ %6, %.lr.ph.split ]
@@ -410,7 +410,7 @@ default.unreachable61:                            ; preds = %.lr.ph.split
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us50, %.lr.ph.split.split.split.split.us, %34, %.lr.ph.split, %5
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us47, %.lr.ph.split.split.split.split.us, %34, %.lr.ph.split, %5
   ret void
 }
 

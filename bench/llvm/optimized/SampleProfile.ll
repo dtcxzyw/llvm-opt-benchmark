@@ -11348,7 +11348,7 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_119SampleProfileLoader19findFuncti
   br label %48
 
 48:                                               ; preds = %9, %47
-  %.1 = phi ptr [ null, %9 ], [ %.2, %47 ]
+  %.1 = phi ptr [ %.2, %47 ], [ null, %9 ]
   ret ptr %.1
 }
 

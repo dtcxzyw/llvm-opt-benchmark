@@ -1124,7 +1124,7 @@ cleanup:                                          ; preds = %for.cond110.prehead
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end189, %if.end107, %invoke.cont87, %invoke.cont104, %invoke.cont167, %invoke.cont186, %cleanup
-  %retval.0225 = phi double [ 0.000000e+00, %cleanup ], [ %mul106, %invoke.cont104 ], [ %mul, %invoke.cont87 ], [ %mul188, %invoke.cont186 ], [ %mul169, %invoke.cont167 ], [ 0.000000e+00, %if.end107 ], [ 0.000000e+00, %if.end189 ]
+  %retval.0225 = phi double [ 0.000000e+00, %cleanup ], [ %mul188, %invoke.cont186 ], [ %mul169, %invoke.cont167 ], [ %mul106, %invoke.cont104 ], [ %mul, %invoke.cont87 ], [ 0.000000e+00, %if.end107 ], [ 0.000000e+00, %if.end189 ]
   %sub.ptr.lhs.cast.i.i194 = ptrtoint ptr %add.ptr.i.i.i215 to i64
   %sub.ptr.rhs.cast.i.i195 = ptrtoint ptr %cond.i.i.i.i214 to i64
   %sub.ptr.sub.i.i196 = sub i64 %sub.ptr.lhs.cast.i.i194, %sub.ptr.rhs.cast.i.i195

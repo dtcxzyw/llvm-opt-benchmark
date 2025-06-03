@@ -298,7 +298,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$markup5ever_rcdom..NodeData$
   unreachable
 
 42:                                               ; preds = %82, %.body, %34
-  %.pn4 = phi { ptr, i32 } [ %83, %82 ], [ %.pn, %.body ], [ %.pn2, %34 ]
+  %.pn4 = phi { ptr, i32 } [ %83, %82 ], [ %.pn2, %34 ], [ %.pn, %.body ]
   resume { ptr, i32 } %.pn4
 
 43:                                               ; preds = %27
@@ -2278,7 +2278,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   unreachable
 
 71:                                               ; preds = %72, %55
-  %.012 = phi ptr [ %.fca.0.extract.i.i.i, %72 ], [ %57, %55 ]
+  %.012 = phi ptr [ %57, %55 ], [ %.fca.0.extract.i.i.i, %72 ]
   %.val = load ptr, ptr %1, align 8, !alias.scope !118, !nonnull !4, !noundef !4
   invoke fastcc void @_ZN17markup5ever_rcdom6append17hd86a3d77d6a1619bE(ptr nonnull %.val, ptr noundef nonnull %.012)
           to label %49 unwind label %12
@@ -3398,7 +3398,7 @@ default.unreachable1:                             ; preds = %2
   br label %32
 
 32:                                               ; preds = %28, %22, %19, %16, %11, %9
-  %.0.in = phi i1 [ %31, %28 ], [ %27, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %15, %11 ], [ %18, %16 ], [ %21, %19 ], [ %27, %22 ], [ %31, %28 ]
   ret i1 %.0.in
 }
 

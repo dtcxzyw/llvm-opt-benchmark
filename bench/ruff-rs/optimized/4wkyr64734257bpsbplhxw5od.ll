@@ -949,8 +949,8 @@ default.unreachable:                              ; preds = %37
 .cont:                                            ; preds = %.invoke
   unreachable
 
-78:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %45, %41, %39, %51
-  %.sroa.0.1 = phi ptr [ @anon.9d9b995d143654a58d10c0b60720222d.17, %51 ], [ %34, %39 ], [ %34, %41 ], [ %34, %45 ], [ %34, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
+78:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %39, %41, %45, %51
+  %.sroa.0.1 = phi ptr [ @anon.9d9b995d143654a58d10c0b60720222d.17, %51 ], [ %34, %45 ], [ %34, %41 ], [ %34, %39 ], [ %34, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %.loopexit
 
@@ -972,9 +972,9 @@ _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %37
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15.thread, label %78
 
-_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15.thread: ; preds = %39, %41, %45, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15
-  %.sroa.0.12258 = phi ptr [ %59, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15 ], [ %.sroa.0.02140, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ], [ %.sroa.0.02140, %45 ], [ %.sroa.0.02140, %41 ], [ %.sroa.0.02140, %39 ]
-  %.sroa.8.156 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ], [ %.sroa.8.039, %45 ], [ %.sroa.8.039, %41 ], [ %.sroa.8.039, %39 ]
+_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15.thread: ; preds = %45, %41, %39, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15
+  %.sroa.0.12258 = phi ptr [ %59, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15 ], [ %.sroa.0.02140, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ], [ %.sroa.0.02140, %39 ], [ %.sroa.0.02140, %41 ], [ %.sroa.0.02140, %45 ]
+  %.sroa.8.156 = phi i64 [ %.sroa.8.1, %_ZN3std2io7IoSlice14advance_slices17he2ba9f10031a4712E.exit15 ], [ %.sroa.8.039, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ], [ %.sroa.8.039, %39 ], [ %.sroa.8.039, %41 ], [ %.sroa.8.039, %45 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236267c20707bcfdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
   br label %84
 
@@ -1073,8 +1073,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %31
   unreachable
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %21, %17, %15, %27
-  %.sroa.04.1 = phi ptr [ @anon.9d9b995d143654a58d10c0b60720222d.17, %27 ], [ %10, %15 ], [ %10, %17 ], [ %10, %21 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
+32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %15, %17, %21, %27
+  %.sroa.04.1 = phi ptr [ @anon.9d9b995d143654a58d10c0b60720222d.17, %27 ], [ %10, %21 ], [ %10, %17 ], [ %10, %15 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
@@ -1095,7 +1095,7 @@ _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %13
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %32
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %21, %17, %15
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %15, %17, %21
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236267c20707bcfdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %39
 

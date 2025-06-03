@@ -741,7 +741,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %proto_item_set_gene
   br label %dissect_attribute.exit.i.i
 
 dissect_attribute.exit.i.i:                       ; preds = %245, %241, %236, %222, %209, %196, %174, %.lr.ph.i.i
-  %.1163.i.i = phi i8 [ %.0169.i.i, %.lr.ph.i.i ], [ %.0169.i.i, %245 ], [ %.0169.i.i, %241 ], [ 0, %236 ], [ 0, %222 ], [ 0, %174 ], [ 0, %209 ], [ 0, %196 ]
+  %.1163.i.i = phi i8 [ %.0169.i.i, %.lr.ph.i.i ], [ 0, %174 ], [ 0, %222 ], [ 0, %236 ], [ %.0169.i.i, %241 ], [ %.0169.i.i, %245 ], [ 0, %209 ], [ 0, %196 ]
   %253 = sub nsw i32 0, %158
   %254 = and i32 %253, 3
   %255 = add nuw nsw i32 %254, %.0127171.i.i

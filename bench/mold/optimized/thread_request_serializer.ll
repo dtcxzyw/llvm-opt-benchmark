@@ -929,7 +929,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i
   br label %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit13.i
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit13.i: ; preds = %24, %22, %20
-  %.0.i.i.i12.i = phi i8 [ %21, %20 ], [ %25, %24 ], [ %23, %22 ]
+  %.0.i.i.i12.i = phi i8 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
   %26 = load i8, ptr %3, align 1, !tbaa !49, !range !41, !noundef !42
   %27 = and i8 %.0.i.i.i12.i, 1
   %28 = icmp ne i8 %26, %27
@@ -961,7 +961,7 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit1
   br label %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i: ; preds = %37, %35, %33
-  %.0.i.i.i14.i = phi i8 [ %34, %33 ], [ %38, %37 ], [ %36, %35 ]
+  %.0.i.i.i14.i = phi i8 [ %34, %33 ], [ %36, %35 ], [ %38, %37 ]
   %39 = load i8, ptr %3, align 1, !tbaa !49, !range !41, !noundef !42
   %40 = and i8 %.0.i.i.i14.i, 1
   %41 = icmp ne i8 %39, %40
@@ -1003,7 +1003,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
   br label %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i: ; preds = %53, %51, %49
-  %.0.i.i.i.i.i = phi i8 [ %50, %49 ], [ %54, %53 ], [ %52, %51 ]
+  %.0.i.i.i.i.i = phi i8 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
   %55 = load ptr, ptr %8, align 8, !tbaa !60
   %56 = load i8, ptr %55, align 1, !tbaa !49, !range !41, !noundef !42
   %57 = and i8 %.0.i.i.i.i.i, 1
@@ -1059,7 +1059,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZ
   br label %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit: ; preds = %8, %10, %12
-  %.0.i.i.i = phi i8 [ %9, %8 ], [ %13, %12 ], [ %11, %10 ]
+  %.0.i.i.i = phi i8 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   %16 = load i8, ptr %15, align 1, !tbaa !49, !range !41, !noundef !42

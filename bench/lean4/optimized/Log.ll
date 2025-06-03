@@ -1365,7 +1365,7 @@ lean_alloc_ctor.exit28:                           ; preds = %lean_dec.exit
   br label %57
 
 57:                                               ; preds = %lean_alloc_ctor.exit28, %lean_alloc_ctor.exit, %lean_dec.exit22
-  %.0 = phi ptr [ %51, %lean_alloc_ctor.exit28 ], [ %35, %lean_alloc_ctor.exit ], [ %24, %lean_dec.exit22 ]
+  %.0 = phi ptr [ %51, %lean_alloc_ctor.exit28 ], [ %24, %lean_dec.exit22 ], [ %35, %lean_alloc_ctor.exit ]
   ret ptr %.0
 }
 
@@ -1606,7 +1606,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   br label %32
 
 32:                                               ; preds = %lean_alloc_ctor.exit, %13, %11
-  %.0 = phi ptr [ %26, %lean_alloc_ctor.exit ], [ %14, %13 ], [ %12, %11 ]
+  %.0 = phi ptr [ %26, %lean_alloc_ctor.exit ], [ %12, %11 ], [ %14, %13 ]
   ret ptr %.0
 }
 
@@ -1705,7 +1705,7 @@ define noundef nonnull ptr @l_Lake_LogLevel_toCtorIdx(i8 noundef zeroext %0) loc
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -1753,7 +1753,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lake_LogLevel_toCtorIdx.exit
 
 l_Lake_LogLevel_toCtorIdx.exit:                   ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -2107,7 +2107,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqLogLevel(i8 noundef zero
   br label %l_Lake_LogLevel_toCtorIdx.exit
 
 l_Lake_LogLevel_toCtorIdx.exit:                   ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -2124,7 +2124,7 @@ l_Lake_LogLevel_toCtorIdx.exit:                   ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lake_LogLevel_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lake_LogLevel_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lake_LogLevel_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -2200,7 +2200,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lake_LogLevel_toCtorIdx.exit.i
 
 l_Lake_LogLevel_toCtorIdx.exit.i:                 ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lake_instDecidableEqLogLevel.exit
     i8 1, label %28
@@ -2217,7 +2217,7 @@ l_Lake_LogLevel_toCtorIdx.exit.i:                 ; preds = %27, %26, %25, %lean
   br label %l_Lake_instDecidableEqLogLevel.exit
 
 l_Lake_instDecidableEqLogLevel.exit:              ; preds = %l_Lake_LogLevel_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lake_LogLevel_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lake_LogLevel_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -12185,7 +12185,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 

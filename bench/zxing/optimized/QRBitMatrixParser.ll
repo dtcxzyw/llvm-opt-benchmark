@@ -56,7 +56,7 @@ define noundef ptr @_ZN5ZXing6QRCode11ReadVersionERKNS_9BitMatrixENS0_4TypeE(ptr
   br label %12
 
 12:                                               ; preds = %2, %10, %8, %6, %4
-  %.0 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -748,7 +748,7 @@ _ZN5ZXing6QRCodeL16ReadMQRCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS0_17Forma
   br label %.body.i
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %214, %210, %206, %201, %197, %194, %190, %188
-  %.025.i.i = phi i1 [ %220, %214 ], [ %213, %210 ], [ %209, %206 ], [ %205, %201 ], [ %200, %197 ], [ %196, %194 ], [ %193, %190 ], [ %169, %188 ]
+  %.025.i.i = phi i1 [ %193, %190 ], [ %196, %194 ], [ %200, %197 ], [ %205, %201 ], [ %209, %206 ], [ %213, %210 ], [ %220, %214 ], [ %169, %188 ]
   %226 = load i8, ptr %151, align 1, !tbaa !51, !range !52, !noalias !56, !noundef !53
   %227 = trunc nuw i8 %226 to i1
   %..i29 = select i1 %227, i32 %166, i32 %174
@@ -1078,7 +1078,7 @@ _ZN5ZXing6QRCodeL17ReadRMQRCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS0_17Form
   br label %.body.i46
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i41:   ; preds = %370, %366, %362, %356, %352, %349, %346, %342
-  %.025.i.i42 = phi i1 [ %376, %370 ], [ %369, %366 ], [ %365, %362 ], [ %361, %356 ], [ %355, %352 ], [ %351, %349 ], [ %348, %346 ], [ %345, %342 ]
+  %.025.i.i42 = phi i1 [ %345, %342 ], [ %348, %346 ], [ %351, %349 ], [ %355, %352 ], [ %361, %356 ], [ %365, %362 ], [ %369, %366 ], [ %376, %370 ]
   %382 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %383 = trunc nuw i8 %382 to i1
   %..i43 = select i1 %383, i32 %341, i32 %338
@@ -1255,7 +1255,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %333, %330
   br label %.body131.i
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit133.i:  ; preds = %448, %444, %440, %434, %430, %427, %424, %420
-  %.025.i129.i = phi i1 [ %454, %448 ], [ %447, %444 ], [ %443, %440 ], [ %439, %434 ], [ %433, %430 ], [ %429, %427 ], [ %426, %424 ], [ %423, %420 ]
+  %.025.i129.i = phi i1 [ %423, %420 ], [ %426, %424 ], [ %429, %427 ], [ %433, %430 ], [ %439, %434 ], [ %443, %440 ], [ %447, %444 ], [ %454, %448 ]
   %460 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %461 = trunc nuw i8 %460 to i1
   %.210.i = select i1 %461, i32 %419, i32 %416
@@ -1440,7 +1440,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit128.i:     ; preds = %412, %409
   br label %.body142.i
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit144.i:  ; preds = %526, %522, %518, %512, %508, %505, %502, %498
-  %.025.i140.i = phi i1 [ %532, %526 ], [ %525, %522 ], [ %521, %518 ], [ %517, %512 ], [ %511, %508 ], [ %507, %505 ], [ %504, %502 ], [ %501, %498 ]
+  %.025.i140.i = phi i1 [ %501, %498 ], [ %504, %502 ], [ %507, %505 ], [ %511, %508 ], [ %517, %512 ], [ %521, %518 ], [ %525, %522 ], [ %532, %526 ]
   %538 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %539 = trunc nuw i8 %538 to i1
   %.212.i = select i1 %539, i32 %497, i32 %495
@@ -1721,7 +1721,7 @@ _ZN5ZXing6QRCodeL21ReadQRCodewordsModel1ERKNS_9BitMatrixERKNS0_7VersionERKNS0_17
   br label %.body.i51
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i67:   ; preds = %646, %642, %638, %633, %629, %626, %622, %620
-  %.025.i.i68 = phi i1 [ %652, %646 ], [ %645, %642 ], [ %641, %638 ], [ %637, %633 ], [ %632, %629 ], [ %628, %626 ], [ %625, %622 ], [ %601, %620 ]
+  %.025.i.i68 = phi i1 [ %625, %622 ], [ %628, %626 ], [ %632, %629 ], [ %637, %633 ], [ %641, %638 ], [ %645, %642 ], [ %652, %646 ], [ %601, %620 ]
   %658 = load i8, ptr %582, align 1, !tbaa !51, !range !52, !noalias !72, !noundef !53
   %659 = trunc nuw i8 %658 to i1
   %..i69 = select i1 %659, i32 %598, i32 %606
@@ -2063,7 +2063,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode14GetDataMaskBitEiiib(i3
   br label %61
 
 60:                                               ; preds = %48, %44, %40, %34, %30, %27, %24, %20
-  %.025 = phi i1 [ %54, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %34 ], [ %33, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %20 ]
+  %.025 = phi i1 [ %23, %20 ], [ %26, %24 ], [ %29, %27 ], [ %33, %30 ], [ %39, %34 ], [ %43, %40 ], [ %47, %44 ], [ %54, %48 ]
   ret i1 %.025
 
 61:                                               ; preds = %58, %10

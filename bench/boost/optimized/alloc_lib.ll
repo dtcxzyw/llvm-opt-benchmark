@@ -6334,7 +6334,7 @@ define hidden range(i32 0, 2) i32 @dlmallopt(i32 noundef %0, i32 noundef %1) loc
   br label %change_mparam.exit
 
 change_mparam.exit:                               ; preds = %5, %7, %8, %12, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %7 ], [ 0, %8 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 1, %7 ], [ 1, %12 ], [ 1, %13 ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -6358,7 +6358,7 @@ define hidden i64 @dlmalloc_usable_size(ptr noundef readonly captures(address_is
   br label %10
 
 10:                                               ; preds = %2, %9
-  %.1 = phi i64 [ %8, %2 ], [ 0, %9 ]
+  %.1 = phi i64 [ 0, %9 ], [ %8, %2 ]
   ret i64 %.1
 }
 
@@ -7067,7 +7067,7 @@ define hidden i64 @mspace_usable_size(ptr noundef readonly captures(address_is_n
   br label %10
 
 10:                                               ; preds = %2, %9
-  %.1 = phi i64 [ %8, %2 ], [ 0, %9 ]
+  %.1 = phi i64 [ 0, %9 ], [ %8, %2 ]
   ret i64 %.1
 }
 
@@ -7110,7 +7110,7 @@ define hidden range(i32 0, 2) i32 @mspace_mallopt(i32 noundef %0, i32 noundef %1
   br label %change_mparam.exit
 
 change_mparam.exit:                               ; preds = %5, %7, %8, %12, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %7 ], [ 0, %8 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 1, %7 ], [ 1, %12 ], [ 1, %13 ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -7819,8 +7819,8 @@ spin_acquire_lock.exit:                           ; preds = %23, %17, %20
   br label %49
 
 49:                                               ; preds = %.thread, %31, %47, %.critedge
-  %.sroa.6.4 = phi i32 [ 1, %31 ], [ 0, %.thread ], [ %.sroa.6.5., %47 ], [ 0, %.critedge ]
-  %.sroa.0.4 = phi ptr [ %32, %31 ], [ %.079, %.thread ], [ %48, %47 ], [ null, %.critedge ]
+  %.sroa.6.4 = phi i32 [ %.sroa.6.5., %47 ], [ 0, %.critedge ], [ 0, %.thread ], [ 1, %31 ]
+  %.sroa.0.4 = phi ptr [ %48, %47 ], [ null, %.critedge ], [ %.079, %.thread ], [ %32, %31 ]
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   %51 = and i32 %50, 2
   %.not71 = icmp eq i32 %51, 0
@@ -11414,7 +11414,7 @@ define hidden range(i32 0, 2) i32 @boost_cont_mallopt(i32 noundef %0, i32 nounde
   br label %change_mparam.exit
 
 change_mparam.exit:                               ; preds = %5, %7, %8, %12, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %7 ], [ 0, %8 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 1, %7 ], [ 1, %12 ], [ 1, %13 ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 

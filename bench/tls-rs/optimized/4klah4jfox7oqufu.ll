@@ -7913,8 +7913,8 @@ default.unreachable:                              ; preds = %10
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %10
-  %.sroa.15.0.i.i = phi i16 [ %30, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %10 ]
-  %.sroa.0.0.i.i = phi i16 [ %28, %26 ], [ 22, %25 ], [ 36, %24 ], [ 32, %23 ], [ 23, %22 ], [ 5, %21 ], [ 19, %20 ], [ 21, %19 ], [ 31, %18 ], [ 16, %17 ], [ 35, %16 ], [ 20, %15 ], [ 0, %14 ], [ 11, %10 ]
+  %.sroa.15.0.i.i = phi i16 [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ %30, %26 ], [ undef, %10 ]
+  %.sroa.0.0.i.i = phi i16 [ 0, %14 ], [ 20, %15 ], [ 35, %16 ], [ 16, %17 ], [ 31, %18 ], [ 21, %19 ], [ 19, %20 ], [ 5, %21 ], [ 23, %22 ], [ 32, %23 ], [ 36, %24 ], [ 22, %25 ], [ %28, %26 ], [ 11, %10 ]
   %31 = icmp eq i16 %.sroa.0.0.i.i, %6
   %32 = icmp eq i16 %.sroa.15.0.i.i, %8
   %or.cond = select i1 %9, i1 true, i1 %32
@@ -10127,7 +10127,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.i": ; preds = %37, %36, %35, %34, %33, %32, %31, %30, %29, %.lr.ph
-  %.0.i.i = phi i16 [ %39, %37 ], [ -260, %36 ], [ -259, %35 ], [ -257, %34 ], [ 772, %33 ], [ 771, %32 ], [ 770, %31 ], [ 769, %30 ], [ 768, %29 ], [ 512, %.lr.ph ]
+  %.0.i.i = phi i16 [ 768, %29 ], [ 769, %30 ], [ 770, %31 ], [ 771, %32 ], [ 772, %33 ], [ -257, %34 ], [ -259, %35 ], [ -260, %36 ], [ %39, %37 ], [ 512, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !2178, !noalias !2187, !noundef !4
   %42 = load i64, ptr %27, align 8, !alias.scope !2178, !noalias !2187, !noundef !4
@@ -10347,7 +10347,7 @@ default.unreachable:                              ; preds = %27
   br label %"_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ClientCertificateType$GT$$u20$for$u20$u8$GT$4from17hfe1a3aa652b1c6feE.exit.i"
 
 "_ZN6rustls4msgs5enums102_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ClientCertificateType$GT$$u20$for$u20$u8$GT$4from17hfe1a3aa652b1c6feE.exit.i": ; preds = %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %27
-  %.0.i.i = phi i8 [ %42, %40 ], [ 66, %39 ], [ 65, %38 ], [ 64, %37 ], [ 20, %36 ], [ 6, %35 ], [ 5, %34 ], [ 4, %33 ], [ 3, %32 ], [ 2, %31 ], [ 1, %27 ]
+  %.0.i.i = phi i8 [ 2, %31 ], [ 3, %32 ], [ 4, %33 ], [ 5, %34 ], [ 6, %35 ], [ 20, %36 ], [ 64, %37 ], [ 65, %38 ], [ 66, %39 ], [ %42, %40 ], [ 1, %27 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.12014582817787848890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i8 noundef %.0.i.i)
           to label %"_ZN89_$LT$rustls..msgs..enums..ClientCertificateType$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h37372035891f2e00E.exit" unwind label %9
 
@@ -10951,7 +10951,7 @@ default.unreachable:                              ; preds = %27
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..Compression$GT$$u20$for$u20$u8$GT$4from17h16b99f1e2b6e8040E.exit.i": ; preds = %27, %32, %31, %27
-  %.0.i.i = phi i8 [ %34, %32 ], [ 64, %31 ], [ %30, %27 ], [ %30, %27 ]
+  %.0.i.i = phi i8 [ 64, %31 ], [ %34, %32 ], [ %30, %27 ], [ %30, %27 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.12014582817787848890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i8 noundef %.0.i.i)
           to label %"_ZN79_$LT$rustls..msgs..enums..Compression$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h0a5bf5642be7212cE.exit" unwind label %9
 
@@ -11085,7 +11085,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i": ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %.lr.ph
-  %.0.i.i = phi i16 [ %44, %42 ], [ 2056, %41 ], [ 2055, %40 ], [ 2054, %39 ], [ 2053, %38 ], [ 2052, %37 ], [ 1539, %36 ], [ 1537, %35 ], [ 1283, %34 ], [ 1281, %33 ], [ 1027, %32 ], [ 1025, %31 ], [ 515, %30 ], [ 513, %.lr.ph ]
+  %.0.i.i = phi i16 [ 515, %30 ], [ 1025, %31 ], [ 1027, %32 ], [ 1281, %33 ], [ 1283, %34 ], [ 1537, %35 ], [ 1539, %36 ], [ 2052, %37 ], [ 2053, %38 ], [ 2054, %39 ], [ 2055, %40 ], [ 2056, %41 ], [ %44, %42 ], [ 513, %.lr.ph ]
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %46 = load i64, ptr %45, align 8, !alias.scope !2427, !noalias !2436, !noundef !4
   %47 = load i64, ptr %28, align 8, !alias.scope !2427, !noalias !2436, !noundef !4
@@ -11405,7 +11405,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %.lr.ph
-  %.0.i.i = phi i16 [ %41, %39 ], [ 260, %38 ], [ 259, %37 ], [ 258, %36 ], [ 257, %35 ], [ 256, %34 ], [ 30, %33 ], [ 29, %32 ], [ 25, %31 ], [ 24, %30 ], [ 23, %.lr.ph ]
+  %.0.i.i = phi i16 [ 24, %30 ], [ 25, %31 ], [ 29, %32 ], [ 30, %33 ], [ 256, %34 ], [ 257, %35 ], [ 258, %36 ], [ 259, %37 ], [ 260, %38 ], [ %41, %39 ], [ 23, %.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %43 = load i64, ptr %42, align 8, !alias.scope !2507, !noalias !2516, !noundef !4
   %44 = load i64, ptr %28, align 8, !alias.scope !2507, !noalias !2516, !noundef !4
@@ -12601,7 +12601,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   ret void
 
 57:                                               ; preds = %55, %54, %53, %52, %51, %50, %49, %48, %47, %.lr.ph236
-  %.sroa.6.1172.ph = phi i16 [ 8, %55 ], [ 7, %54 ], [ 6, %53 ], [ 5, %52 ], [ 4, %51 ], [ 3, %50 ], [ 2, %49 ], [ 1, %48 ], [ 0, %47 ], [ 9, %.lr.ph236 ]
+  %.sroa.6.1172.ph = phi i16 [ 0, %47 ], [ 1, %48 ], [ 2, %49 ], [ 3, %50 ], [ 4, %51 ], [ 5, %52 ], [ 6, %53 ], [ 7, %54 ], [ 8, %55 ], [ 9, %.lr.ph236 ]
   %58 = load i64, ptr %4, align 8, !alias.scope !2783, !noundef !4
   %59 = icmp eq i64 %42, %58
   br i1 %59, label %60, label %70
@@ -12789,7 +12789,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   ret void
 
 46:                                               ; preds = %.lr.ph, %43, %44
-  %.sroa.5130.1 = phi i8 [ 2, %44 ], [ %42, %43 ], [ 3, %.lr.ph ]
+  %.sroa.5130.1 = phi i8 [ %42, %43 ], [ 2, %44 ], [ 3, %.lr.ph ]
   %47 = load i64, ptr %3, align 8, !alias.scope !2828, !noundef !4
   %48 = icmp eq i64 %39, %47
   br i1 %48, label %49, label %50
@@ -13935,7 +13935,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   ret void
 
 60:                                               ; preds = %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %.lr.ph237
-  %.sroa.6.1173.ph = phi i16 [ 9, %58 ], [ 8, %57 ], [ 7, %56 ], [ 6, %55 ], [ 5, %54 ], [ 4, %53 ], [ 3, %52 ], [ 2, %51 ], [ 1, %50 ], [ 0, %49 ], [ 10, %.lr.ph237 ]
+  %.sroa.6.1173.ph = phi i16 [ 0, %49 ], [ 1, %50 ], [ 2, %51 ], [ 3, %52 ], [ 4, %53 ], [ 5, %54 ], [ 6, %55 ], [ 7, %56 ], [ 8, %57 ], [ 9, %58 ], [ 10, %.lr.ph237 ]
   %61 = load i64, ptr %4, align 8, !alias.scope !3069, !noundef !4
   %62 = icmp eq i64 %44, %61
   br i1 %62, label %63, label %73
@@ -17045,8 +17045,8 @@ default.unreachable:                              ; preds = %11
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i: ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %11
-  %.sroa.15.0.i.i.i = phi i16 [ %31, %27 ], [ undef, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %11 ]
-  %.sroa.0.0.i.i.i = phi i16 [ %29, %27 ], [ 22, %26 ], [ 36, %25 ], [ 32, %24 ], [ 23, %23 ], [ 5, %22 ], [ 19, %21 ], [ 21, %20 ], [ 31, %19 ], [ 16, %18 ], [ 35, %17 ], [ 20, %16 ], [ 0, %15 ], [ 11, %11 ]
+  %.sroa.15.0.i.i.i = phi i16 [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ undef, %26 ], [ %31, %27 ], [ undef, %11 ]
+  %.sroa.0.0.i.i.i = phi i16 [ 0, %15 ], [ 20, %16 ], [ 35, %17 ], [ 16, %18 ], [ 31, %19 ], [ 21, %20 ], [ 19, %21 ], [ 5, %22 ], [ 23, %23 ], [ 32, %24 ], [ 36, %25 ], [ 22, %26 ], [ %29, %27 ], [ 11, %11 ]
   %32 = icmp eq i16 %.sroa.0.0.i.i.i, %1
   %33 = icmp eq i16 %.sroa.15.0.i.i.i, %2
   %or.cond.i = select i1 %10, i1 true, i1 %33
@@ -17130,8 +17130,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit: ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.sroa.15.0.i = phi i16 [ %21, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i16 [ %19, %17 ], [ 22, %16 ], [ 36, %15 ], [ 32, %14 ], [ 23, %13 ], [ 5, %12 ], [ 19, %11 ], [ 21, %10 ], [ 31, %9 ], [ 16, %8 ], [ 35, %7 ], [ 20, %6 ], [ 0, %5 ], [ 11, %2 ]
+  %.sroa.15.0.i = phi i16 [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ %21, %17 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i16 [ 0, %5 ], [ 20, %6 ], [ 35, %7 ], [ 16, %8 ], [ 31, %9 ], [ 21, %10 ], [ 19, %11 ], [ 5, %12 ], [ 23, %13 ], [ 32, %14 ], [ 36, %15 ], [ 22, %16 ], [ %19, %17 ], [ 11, %2 ]
   %22 = load ptr, ptr %0, align 8, !nonnull !4, !align !3664, !noundef !4
   %23 = load i16, ptr %22, align 2, !range !1102, !noundef !4
   %24 = icmp eq i16 %.sroa.0.0.i, %23

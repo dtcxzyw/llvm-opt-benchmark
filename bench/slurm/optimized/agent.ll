@@ -1487,10 +1487,10 @@ define internal noalias noundef ptr @_wdog(ptr noundef %0) #0 {
   br label %_update_wdog_state.exit80
 
 _update_wdog_state.exit80:                        ; preds = %77, %56, %59, %69, %76, %80
-  %.sroa.19.4 = phi i32 [ %82, %80 ], [ %.sroa.19.1109, %76 ], [ %.sroa.19.1109, %59 ], [ %.sroa.19.1109, %69 ], [ %.sroa.19.1109, %77 ], [ %.sroa.19.1109, %56 ]
-  %.sroa.13.4 = phi i32 [ %81, %80 ], [ %.sroa.13.1110, %76 ], [ %.sroa.13.1110, %59 ], [ %.sroa.13.1110, %69 ], [ %.sroa.13.1110, %77 ], [ %.sroa.13.1110, %56 ]
-  %.sroa.25.5 = phi i32 [ %.sroa.25.2112, %80 ], [ %.sroa.25.2112, %76 ], [ %.sroa.25.2112, %59 ], [ %.sroa.25.2112, %69 ], [ %spec.select95, %77 ], [ %.sroa.25.2112, %56 ]
-  %.sroa.0.4 = phi i1 [ %.sroa.0.1113, %80 ], [ false, %76 ], [ false, %59 ], [ false, %69 ], [ %.sroa.0.1113, %77 ], [ %.sroa.0.1113, %56 ]
+  %.sroa.19.4 = phi i32 [ %.sroa.19.1109, %59 ], [ %.sroa.19.1109, %69 ], [ %.sroa.19.1109, %76 ], [ %82, %80 ], [ %.sroa.19.1109, %77 ], [ %.sroa.19.1109, %56 ]
+  %.sroa.13.4 = phi i32 [ %.sroa.13.1110, %59 ], [ %.sroa.13.1110, %69 ], [ %.sroa.13.1110, %76 ], [ %81, %80 ], [ %.sroa.13.1110, %77 ], [ %.sroa.13.1110, %56 ]
+  %.sroa.25.5 = phi i32 [ %.sroa.25.2112, %59 ], [ %.sroa.25.2112, %69 ], [ %.sroa.25.2112, %76 ], [ %.sroa.25.2112, %80 ], [ %spec.select95, %77 ], [ %.sroa.25.2112, %56 ]
+  %.sroa.0.4 = phi i1 [ false, %59 ], [ false, %69 ], [ false, %76 ], [ %.sroa.0.1113, %80 ], [ %.sroa.0.1113, %77 ], [ %.sroa.0.1113, %56 ]
   %83 = tail call ptr @list_next(ptr noundef %53) #14
   %.not76 = icmp eq ptr %83, null
   br i1 %.not76, label %._crit_edge, label %56, !llvm.loop !18
@@ -1504,10 +1504,10 @@ _update_wdog_state.exit80:                        ; preds = %77, %56, %59, %69, 
   br label %_update_wdog_state.exit
 
 _update_wdog_state.exit:                          ; preds = %45, %49, %44, %37, %26, %24, %._crit_edge
-  %.sroa.19.2 = phi i32 [ %.sroa.19.1.lcssa, %._crit_edge ], [ %51, %49 ], [ %.sroa.19.0118, %44 ], [ %.sroa.19.0118, %26 ], [ %.sroa.19.0118, %37 ], [ %.sroa.19.0118, %45 ], [ %.sroa.19.0118, %24 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1.lcssa, %._crit_edge ], [ %50, %49 ], [ %.sroa.13.0119, %44 ], [ %.sroa.13.0119, %26 ], [ %.sroa.13.0119, %37 ], [ %.sroa.13.0119, %45 ], [ %.sroa.13.0119, %24 ]
-  %.sroa.25.3 = phi i32 [ %.sroa.25.2.lcssa, %._crit_edge ], [ %.sroa.25.1121, %49 ], [ %.sroa.25.1121, %44 ], [ %.sroa.25.1121, %26 ], [ %.sroa.25.1121, %37 ], [ %spec.select, %45 ], [ %.sroa.25.1121, %24 ]
-  %.sroa.0.2 = phi i1 [ %.sroa.0.1.lcssa, %._crit_edge ], [ %.sroa.0.0122, %49 ], [ false, %44 ], [ false, %26 ], [ false, %37 ], [ %.sroa.0.0122, %45 ], [ %.sroa.0.0122, %24 ]
+  %.sroa.19.2 = phi i32 [ %.sroa.19.1.lcssa, %._crit_edge ], [ %.sroa.19.0118, %26 ], [ %.sroa.19.0118, %37 ], [ %.sroa.19.0118, %44 ], [ %51, %49 ], [ %.sroa.19.0118, %45 ], [ %.sroa.19.0118, %24 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1.lcssa, %._crit_edge ], [ %.sroa.13.0119, %26 ], [ %.sroa.13.0119, %37 ], [ %.sroa.13.0119, %44 ], [ %50, %49 ], [ %.sroa.13.0119, %45 ], [ %.sroa.13.0119, %24 ]
+  %.sroa.25.3 = phi i32 [ %.sroa.25.2.lcssa, %._crit_edge ], [ %.sroa.25.1121, %26 ], [ %.sroa.25.1121, %37 ], [ %.sroa.25.1121, %44 ], [ %.sroa.25.1121, %49 ], [ %spec.select, %45 ], [ %.sroa.25.1121, %24 ]
+  %.sroa.0.2 = phi i1 [ %.sroa.0.1.lcssa, %._crit_edge ], [ false, %26 ], [ false, %37 ], [ false, %44 ], [ %.sroa.0.0122, %49 ], [ %.sroa.0.0122, %45 ], [ %.sroa.0.0122, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr %10, align 8
   %85 = zext i32 %84 to i64
@@ -1620,8 +1620,8 @@ _update_wdog_state.exit:                          ; preds = %45, %49, %44, %37, 
   br label %_notify_slurmctld_jobs.exit
 
 129:                                              ; preds = %.critedge.i, %111, %107, %102
-  %.sroa.5.0.i = phi i32 [ %126, %.critedge.i ], [ %116, %111 ], [ %.sroa.5.0.copyload28.i, %107 ], [ %106, %102 ]
-  %.sroa.0.0.i = phi i64 [ 0, %.critedge.i ], [ 0, %111 ], [ %.sroa.0.0.copyload26.i, %107 ], [ 0, %102 ]
+  %.sroa.5.0.i = phi i32 [ %106, %102 ], [ %.sroa.5.0.copyload28.i, %107 ], [ %116, %111 ], [ %126, %.critedge.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %102 ], [ %.sroa.0.0.copyload26.i, %107 ], [ 0, %111 ], [ 0, %.critedge.i ]
   %130 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, 2
@@ -2124,7 +2124,7 @@ _queue_update_node.exit.i:                        ; preds = %337
   br label %345
 
 345:                                              ; preds = %342, %_queue_update_node.exit.i, %328, %319, %310, %303
-  %.5.i = phi i8 [ %.161.i, %342 ], [ 1, %328 ], [ 0, %_queue_update_node.exit.i ], [ 1, %319 ], [ 1, %310 ], [ 1, %303 ]
+  %.5.i = phi i8 [ %.161.i, %342 ], [ 1, %303 ], [ 1, %310 ], [ 1, %319 ], [ 1, %328 ], [ 0, %_queue_update_node.exit.i ]
   br i1 %.not78.i, label %347, label %287, !llvm.loop !23
 
 346:                                              ; preds = %287
@@ -2859,7 +2859,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   br label %.thread272
 
 .thread272:                                       ; preds = %270, %.thread275, %283, %261, %267, %264, %.thread269, %260, %259, %255, %251
-  %.3 = phi i32 [ 5, %260 ], [ 4, %259 ], [ 4, %255 ], [ 3, %251 ], [ 2, %.thread269 ], [ 2, %264 ], [ 2, %267 ], [ 2, %261 ], [ %spec.select, %283 ], [ 3, %.thread275 ], [ 4, %270 ]
+  %.3 = phi i32 [ 3, %251 ], [ 4, %255 ], [ 4, %259 ], [ 5, %260 ], [ 2, %.thread269 ], [ 2, %264 ], [ 2, %267 ], [ 2, %261 ], [ %spec.select, %283 ], [ 3, %.thread275 ], [ 4, %270 ]
   %286 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %.3, ptr %286, align 4
   br label %.backedge

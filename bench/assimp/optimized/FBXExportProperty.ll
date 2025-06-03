@@ -768,7 +768,7 @@ default.unreachable.i:                            ; preds = %13
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %13, %15, %16, %17
-  %.0.i = phi ptr [ %8, %17 ], [ %9, %16 ], [ %10, %15 ], [ %1, %13 ]
+  %.0.i = phi ptr [ %10, %15 ], [ %9, %16 ], [ %8, %17 ], [ %1, %13 ]
   %18 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv16
   %19 = load float, ptr %18, align 4
   %20 = fpext float %19 to double

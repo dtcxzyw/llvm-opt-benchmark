@@ -3533,8 +3533,8 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.sw.bb31_crit_edge.i.i.i
-  %220 = phi i64 [ %.pre.i.i.i, %for.end.sw.bb31_crit_edge.i.i.i ], [ %219, %if.end29.i.i.i ]
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.sw.bb31_crit_edge.i.i.i ], [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ]
+  %220 = phi i64 [ %219, %if.end29.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb31_crit_edge.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.sw.bb31_crit_edge.i.i.i ]
   %221 = load i64, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !93
   %cmp.i.i21.i.i.i = icmp eq i64 %221, %220
   br i1 %cmp.i.i21.i.i.i, label %invoke.cont418, label %if.end36.i.i.i
@@ -3544,8 +3544,8 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i
-  %222 = phi i64 [ %.pre57.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ], [ %220, %if.end36.i.i.i ]
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ]
+  %222 = phi i64 [ %220, %if.end36.i.i.i ], [ %.pre57.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.sw.bb38_crit_edge.i.i.i ]
   %223 = load i64, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !93
   %cmp.i.i23.i.i.i = icmp eq i64 %223, %222
   %spec.select.i.i.i = select i1 %cmp.i.i23.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %211
@@ -3661,8 +3661,8 @@ if.end29.i.i.i700:                                ; preds = %sw.bb.i.i.i698
   br label %sw.bb31.i.i.i693
 
 sw.bb31.i.i.i693:                                 ; preds = %if.end29.i.i.i700, %for.end.sw.bb31_crit_edge.i.i.i691
-  %235 = phi i64 [ %.pre.i.i.i692, %for.end.sw.bb31_crit_edge.i.i.i691 ], [ %234, %if.end29.i.i.i700 ]
-  %__first.sroa.0.1.i.i.i694 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i682, %for.end.sw.bb31_crit_edge.i.i.i691 ], [ %incdec.ptr.i20.i.i.i701, %if.end29.i.i.i700 ]
+  %235 = phi i64 [ %234, %if.end29.i.i.i700 ], [ %.pre.i.i.i692, %for.end.sw.bb31_crit_edge.i.i.i691 ]
+  %__first.sroa.0.1.i.i.i694 = phi ptr [ %incdec.ptr.i20.i.i.i701, %if.end29.i.i.i700 ], [ %__first.sroa.0.0.lcssa.i.i.i682, %for.end.sw.bb31_crit_edge.i.i.i691 ]
   %236 = load i64, ptr %__first.sroa.0.1.i.i.i694, align 8, !tbaa !93
   %cmp.i.i21.i.i.i695 = icmp eq i64 %236, %235
   br i1 %cmp.i.i21.i.i.i695, label %invoke.cont453, label %if.end36.i.i.i696
@@ -3672,8 +3672,8 @@ if.end36.i.i.i696:                                ; preds = %sw.bb31.i.i.i693
   br label %sw.bb38.i.i.i686
 
 sw.bb38.i.i.i686:                                 ; preds = %if.end36.i.i.i696, %for.end.sw.bb38_crit_edge.i.i.i684
-  %237 = phi i64 [ %.pre57.i.i.i685, %for.end.sw.bb38_crit_edge.i.i.i684 ], [ %235, %if.end36.i.i.i696 ]
-  %__first.sroa.0.2.i.i.i687 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i682, %for.end.sw.bb38_crit_edge.i.i.i684 ], [ %incdec.ptr.i22.i.i.i697, %if.end36.i.i.i696 ]
+  %237 = phi i64 [ %235, %if.end36.i.i.i696 ], [ %.pre57.i.i.i685, %for.end.sw.bb38_crit_edge.i.i.i684 ]
+  %__first.sroa.0.2.i.i.i687 = phi ptr [ %incdec.ptr.i22.i.i.i697, %if.end36.i.i.i696 ], [ %__first.sroa.0.0.lcssa.i.i.i682, %for.end.sw.bb38_crit_edge.i.i.i684 ]
   %238 = load i64, ptr %__first.sroa.0.2.i.i.i687, align 8, !tbaa !93
   %cmp.i.i23.i.i.i688 = icmp eq i64 %238, %237
   %spec.select.i.i.i689 = select i1 %cmp.i.i23.i.i.i688, ptr %__first.sroa.0.2.i.i.i687, ptr %226
@@ -3774,8 +3774,8 @@ if.end29.i.i.i755:                                ; preds = %sw.bb.i.i.i753
   br label %sw.bb31.i.i.i748
 
 sw.bb31.i.i.i748:                                 ; preds = %if.end29.i.i.i755, %for.end.sw.bb31_crit_edge.i.i.i746
-  %249 = phi i64 [ %.pre.i.i.i747, %for.end.sw.bb31_crit_edge.i.i.i746 ], [ %248, %if.end29.i.i.i755 ]
-  %__first.sroa.0.1.i.i.i749 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i737, %for.end.sw.bb31_crit_edge.i.i.i746 ], [ %incdec.ptr.i20.i.i.i756, %if.end29.i.i.i755 ]
+  %249 = phi i64 [ %248, %if.end29.i.i.i755 ], [ %.pre.i.i.i747, %for.end.sw.bb31_crit_edge.i.i.i746 ]
+  %__first.sroa.0.1.i.i.i749 = phi ptr [ %incdec.ptr.i20.i.i.i756, %if.end29.i.i.i755 ], [ %__first.sroa.0.0.lcssa.i.i.i737, %for.end.sw.bb31_crit_edge.i.i.i746 ]
   %250 = load i64, ptr %__first.sroa.0.1.i.i.i749, align 8, !tbaa !93
   %cmp.i.i21.i.i.i750 = icmp eq i64 %250, %249
   br i1 %cmp.i.i21.i.i.i750, label %invoke.cont481, label %if.end36.i.i.i751
@@ -3785,8 +3785,8 @@ if.end36.i.i.i751:                                ; preds = %sw.bb31.i.i.i748
   br label %sw.bb38.i.i.i741
 
 sw.bb38.i.i.i741:                                 ; preds = %if.end36.i.i.i751, %for.end.sw.bb38_crit_edge.i.i.i739
-  %251 = phi i64 [ %.pre57.i.i.i740, %for.end.sw.bb38_crit_edge.i.i.i739 ], [ %249, %if.end36.i.i.i751 ]
-  %__first.sroa.0.2.i.i.i742 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i737, %for.end.sw.bb38_crit_edge.i.i.i739 ], [ %incdec.ptr.i22.i.i.i752, %if.end36.i.i.i751 ]
+  %251 = phi i64 [ %249, %if.end36.i.i.i751 ], [ %.pre57.i.i.i740, %for.end.sw.bb38_crit_edge.i.i.i739 ]
+  %__first.sroa.0.2.i.i.i742 = phi ptr [ %incdec.ptr.i22.i.i.i752, %if.end36.i.i.i751 ], [ %__first.sroa.0.0.lcssa.i.i.i737, %for.end.sw.bb38_crit_edge.i.i.i739 ]
   %252 = load i64, ptr %__first.sroa.0.2.i.i.i742, align 8, !tbaa !93
   %cmp.i.i23.i.i.i743 = icmp eq i64 %252, %251
   %spec.select.i.i.i744 = select i1 %cmp.i.i23.i.i.i743, ptr %__first.sroa.0.2.i.i.i742, ptr %240
@@ -6558,8 +6558,8 @@ if.end29.i.i.i1576:                               ; preds = %sw.bb.i.i.i1574
   br label %sw.bb31.i.i.i1569
 
 sw.bb31.i.i.i1569:                                ; preds = %if.end29.i.i.i1576, %for.end.sw.bb31_crit_edge.i.i.i1567
-  %763 = phi i64 [ %.pre.i.i.i1568, %for.end.sw.bb31_crit_edge.i.i.i1567 ], [ %762, %if.end29.i.i.i1576 ]
-  %__first.sroa.0.1.i.i.i1570 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1558, %for.end.sw.bb31_crit_edge.i.i.i1567 ], [ %incdec.ptr.i20.i.i.i1577, %if.end29.i.i.i1576 ]
+  %763 = phi i64 [ %762, %if.end29.i.i.i1576 ], [ %.pre.i.i.i1568, %for.end.sw.bb31_crit_edge.i.i.i1567 ]
+  %__first.sroa.0.1.i.i.i1570 = phi ptr [ %incdec.ptr.i20.i.i.i1577, %if.end29.i.i.i1576 ], [ %__first.sroa.0.0.lcssa.i.i.i1558, %for.end.sw.bb31_crit_edge.i.i.i1567 ]
   %764 = load i64, ptr %__first.sroa.0.1.i.i.i1570, align 8, !tbaa !93
   %cmp.i.i21.i.i.i1571 = icmp eq i64 %764, %763
   br i1 %cmp.i.i21.i.i.i1571, label %invoke.cont1532, label %if.end36.i.i.i1572
@@ -6569,8 +6569,8 @@ if.end36.i.i.i1572:                               ; preds = %sw.bb31.i.i.i1569
   br label %sw.bb38.i.i.i1562
 
 sw.bb38.i.i.i1562:                                ; preds = %if.end36.i.i.i1572, %for.end.sw.bb38_crit_edge.i.i.i1560
-  %765 = phi i64 [ %.pre57.i.i.i1561, %for.end.sw.bb38_crit_edge.i.i.i1560 ], [ %763, %if.end36.i.i.i1572 ]
-  %__first.sroa.0.2.i.i.i1563 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1558, %for.end.sw.bb38_crit_edge.i.i.i1560 ], [ %incdec.ptr.i22.i.i.i1573, %if.end36.i.i.i1572 ]
+  %765 = phi i64 [ %763, %if.end36.i.i.i1572 ], [ %.pre57.i.i.i1561, %for.end.sw.bb38_crit_edge.i.i.i1560 ]
+  %__first.sroa.0.2.i.i.i1563 = phi ptr [ %incdec.ptr.i22.i.i.i1573, %if.end36.i.i.i1572 ], [ %__first.sroa.0.0.lcssa.i.i.i1558, %for.end.sw.bb38_crit_edge.i.i.i1560 ]
   %766 = load i64, ptr %__first.sroa.0.2.i.i.i1563, align 8, !tbaa !93
   %cmp.i.i23.i.i.i1564 = icmp eq i64 %766, %765
   %spec.select.i.i.i1565 = select i1 %cmp.i.i23.i.i.i1564, ptr %__first.sroa.0.2.i.i.i1563, ptr %754
@@ -7715,8 +7715,8 @@ if.end29.i.i.i1960:                               ; preds = %sw.bb.i.i.i1958
   br label %sw.bb31.i.i.i1953
 
 sw.bb31.i.i.i1953:                                ; preds = %if.end29.i.i.i1960, %for.end.sw.bb31_crit_edge.i.i.i1951
-  %930 = phi i64 [ %.pre.i.i.i1952, %for.end.sw.bb31_crit_edge.i.i.i1951 ], [ %929, %if.end29.i.i.i1960 ]
-  %__first.sroa.0.1.i.i.i1954 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1942, %for.end.sw.bb31_crit_edge.i.i.i1951 ], [ %incdec.ptr.i20.i.i.i1961, %if.end29.i.i.i1960 ]
+  %930 = phi i64 [ %929, %if.end29.i.i.i1960 ], [ %.pre.i.i.i1952, %for.end.sw.bb31_crit_edge.i.i.i1951 ]
+  %__first.sroa.0.1.i.i.i1954 = phi ptr [ %incdec.ptr.i20.i.i.i1961, %if.end29.i.i.i1960 ], [ %__first.sroa.0.0.lcssa.i.i.i1942, %for.end.sw.bb31_crit_edge.i.i.i1951 ]
   %931 = load i64, ptr %__first.sroa.0.1.i.i.i1954, align 8, !tbaa !93
   %cmp.i.i21.i.i.i1955 = icmp eq i64 %931, %930
   br i1 %cmp.i.i21.i.i.i1955, label %invoke.cont1883, label %if.end36.i.i.i1956
@@ -7726,8 +7726,8 @@ if.end36.i.i.i1956:                               ; preds = %sw.bb31.i.i.i1953
   br label %sw.bb38.i.i.i1946
 
 sw.bb38.i.i.i1946:                                ; preds = %if.end36.i.i.i1956, %for.end.sw.bb38_crit_edge.i.i.i1944
-  %932 = phi i64 [ %.pre57.i.i.i1945, %for.end.sw.bb38_crit_edge.i.i.i1944 ], [ %930, %if.end36.i.i.i1956 ]
-  %__first.sroa.0.2.i.i.i1947 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i1942, %for.end.sw.bb38_crit_edge.i.i.i1944 ], [ %incdec.ptr.i22.i.i.i1957, %if.end36.i.i.i1956 ]
+  %932 = phi i64 [ %930, %if.end36.i.i.i1956 ], [ %.pre57.i.i.i1945, %for.end.sw.bb38_crit_edge.i.i.i1944 ]
+  %__first.sroa.0.2.i.i.i1947 = phi ptr [ %incdec.ptr.i22.i.i.i1957, %if.end36.i.i.i1956 ], [ %__first.sroa.0.0.lcssa.i.i.i1942, %for.end.sw.bb38_crit_edge.i.i.i1944 ]
   %933 = load i64, ptr %__first.sroa.0.2.i.i.i1947, align 8, !tbaa !93
   %cmp.i.i23.i.i.i1948 = icmp eq i64 %933, %932
   %spec.select.i.i.i1949 = select i1 %cmp.i.i23.i.i.i1948, ptr %__first.sroa.0.2.i.i.i1947, ptr %921

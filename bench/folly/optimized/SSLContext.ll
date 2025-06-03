@@ -3941,7 +3941,7 @@ _ZNKSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEclES4_.
   unreachable
 
 34:                                               ; preds = %25, %26, %_ZNKSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEclES4_.exit, %._crit_edge, %3
-  %.0 = phi i32 [ 3, %3 ], [ 3, %._crit_edge ], [ 2, %26 ], [ 3, %25 ], [ %24, %_ZNKSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEclES4_.exit ]
+  %.0 = phi i32 [ 3, %3 ], [ 3, %._crit_edge ], [ 3, %25 ], [ 2, %26 ], [ %24, %_ZNKSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEclES4_.exit ]
   ret i32 %.0
 }
 

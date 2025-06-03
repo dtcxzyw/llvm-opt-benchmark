@@ -596,7 +596,7 @@ define void @_ZNK5boost4urls14authority_view16encoded_passwordEv(ptr dead_on_unw
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.0.0 = phi ptr [ %5, %2 ], [ %8, %7 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %5, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !54, !alias.scope !66
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -693,9 +693,9 @@ define void @_ZNK5boost4urls14authority_view20encoded_host_addressEv(ptr dead_on
   br label %30
 
 30:                                               ; preds = %2, %23, %11
-  %.sroa.6.0 = phi i64 [ %8, %2 ], [ %.sroa.speculated.i, %23 ], [ %8, %11 ]
-  %.sroa.0.0 = phi ptr [ %7, %2 ], [ %26, %23 ], [ %7, %11 ]
-  %.0 = phi i64 [ 0, %2 ], [ %29, %23 ], [ %13, %11 ]
+  %.sroa.6.0 = phi i64 [ %8, %2 ], [ %8, %11 ], [ %.sroa.speculated.i, %23 ]
+  %.sroa.0.0 = phi ptr [ %7, %2 ], [ %7, %11 ], [ %26, %23 ]
+  %.0 = phi i64 [ 0, %2 ], [ %13, %11 ], [ %29, %23 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !54, !alias.scope !74
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.0, ptr %31, align 8, !tbaa !59, !alias.scope !74

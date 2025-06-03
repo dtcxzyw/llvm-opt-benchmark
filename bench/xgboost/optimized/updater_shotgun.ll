@@ -9357,7 +9357,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   resume { ptr, i32 } %23
 
 25:                                               ; preds = %21, %14, %11, %8, %5, %3
-  %.0 = phi ptr [ null, %21 ], [ %15, %14 ], [ %12, %11 ], [ %9, %8 ], [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %21 ], [ %4, %3 ], [ %6, %5 ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ]
   ret ptr %.0
 
 26:                                               ; preds = %22
@@ -16216,7 +16216,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !541
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76

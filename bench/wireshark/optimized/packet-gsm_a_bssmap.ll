@@ -1712,7 +1712,7 @@ switch.lookup199:                                 ; preds = %87
   br label %91
 
 91:                                               ; preds = %87, %switch.lookup199, %85, %switch.lookup, %74, %67, %73, %72, %71, %70, %69, %68, %83, %82, %81, %80, %79, %78, %77, %76, %75
-  %.0 = phi ptr [ @.str.28, %73 ], [ @.str.103, %72 ], [ @.str.102, %71 ], [ @.str.101, %70 ], [ @.str.100, %69 ], [ @.str.99, %68 ], [ @.str.28, %83 ], [ @.str.112, %82 ], [ @.str.111, %81 ], [ @.str.110, %80 ], [ @.str.109, %79 ], [ @.str.108, %78 ], [ @.str.107, %77 ], [ @.str.106, %76 ], [ @.str.105, %75 ], [ @.str.98, %67 ], [ @.str.104, %74 ], [ %switch.load, %switch.lookup ], [ @.str.28, %85 ], [ %switch.load202, %switch.lookup199 ], [ @.str.28, %87 ]
+  %.0 = phi ptr [ @.str.28, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.98, %67 ], [ @.str.104, %74 ], [ %switch.load, %switch.lookup ], [ @.str.28, %85 ], [ %switch.load202, %switch.lookup199 ], [ @.str.28, %87 ]
   %92 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
   %93 = and i8 %58, 63
   %94 = zext nneg i8 %93 to i32
@@ -1903,7 +1903,7 @@ define hidden noundef zeroext i16 @be_cell_id_type(ptr noundef %0, ptr noundef %
   br i1 %or.cond11, label %72, label %52
 
 52:                                               ; preds = %11, %50
-  %.2 = phi i32 [ %3, %11 ], [ %18, %50 ]
+  %.2 = phi i32 [ %18, %50 ], [ %3, %11 ]
   %53 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2)
   %54 = zext i16 %53 to i32
   %55 = load i32, ptr @hf_gsm_a_bssmap_cell_ci, align 4
@@ -1935,7 +1935,7 @@ define hidden noundef zeroext i16 @be_cell_id_type(ptr noundef %0, ptr noundef %
   br label %72
 
 72:                                               ; preds = %52, %64, %61, %50, %.thread, %46, %43, %68, %33
-  %.3 = phi i32 [ %71, %68 ], [ %57, %61 ], [ %57, %64 ], [ %57, %52 ], [ %39, %43 ], [ %39, %46 ], [ %39, %.thread ], [ %18, %50 ], [ %34, %33 ]
+  %.3 = phi i32 [ %71, %68 ], [ %34, %33 ], [ %39, %43 ], [ %39, %46 ], [ %39, %.thread ], [ %18, %50 ], [ %57, %61 ], [ %57, %64 ], [ %57, %52 ]
   %73 = sub i32 %.3, %3
   %74 = trunc i32 %73 to i16
   ret i16 %74

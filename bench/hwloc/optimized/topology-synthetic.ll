@@ -2388,7 +2388,7 @@ hwloc_synthetic_free_levels.exit.i:               ; preds = %._crit_edge.i.i
   store i32 0, ptr %471, align 8, !tbaa !121
   br label %473
 
-472:                                              ; preds = %hwloc_synthetic_free_levels.exit.i, %191, %214, %224, %234, %244, %253, %264, %279, %206, %36
+472:                                              ; preds = %191, %214, %224, %234, %244, %253, %264, %279, %206, %hwloc_synthetic_free_levels.exit.i, %36
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

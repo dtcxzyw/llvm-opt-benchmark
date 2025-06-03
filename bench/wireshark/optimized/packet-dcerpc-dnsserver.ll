@@ -2459,7 +2459,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   br label %dnsserver_dissect_DNSSRV_RPC_UNION.exit
 
 dnsserver_dissect_DNSSRV_RPC_UNION.exit:          ; preds = %33, %35, %38, %41
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45)

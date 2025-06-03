@@ -787,7 +787,7 @@ define internal fastcc ptr @pg_get_ruledef_worker(i32 noundef %0, i32 noundef ra
   unreachable
 
 71:                                               ; preds = %65, %64, %63, %60
-  %.0.i = phi ptr [ null, %65 ], [ null, %64 ], [ null, %63 ], [ %62, %60 ]
+  %.0.i = phi ptr [ %62, %60 ], [ null, %63 ], [ null, %64 ], [ null, %65 ]
   %.not89.i = icmp samesign ult i32 %1, 4
   br i1 %.not89.i, label %74, label %72
 
@@ -6945,7 +6945,7 @@ generate_qualified_type_name.exit:                ; preds = %47
   unreachable
 
 94:                                               ; preds = %69, %88, %87
-  %.0112 = phi ptr [ @.str.32, %88 ], [ @.str.393, %87 ], [ @.str.392, %69 ]
+  %.0112 = phi ptr [ @.str.393, %87 ], [ @.str.32, %88 ], [ @.str.392, %69 ]
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull %.0112) #11
   %95 = getelementptr inbounds nuw i8, ptr %31, i64 100
   %96 = load i8, ptr %95, align 4
@@ -6975,8 +6975,8 @@ generate_qualified_type_name.exit:                ; preds = %47
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2332, ptr noundef nonnull @__func__.pg_get_constraintdef_worker) #11
   unreachable
 
-105:                                              ; preds = %94, %99, %98, %97
-  %.1.ph = phi ptr [ @.str.396, %97 ], [ @.str.397, %98 ], [ @.str.398, %99 ], [ @.str.395, %94 ]
+105:                                              ; preds = %94, %97, %98, %99
+  %.1.ph = phi ptr [ @.str.398, %99 ], [ @.str.397, %98 ], [ @.str.396, %97 ], [ @.str.395, %94 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.400, ptr noundef nonnull %.1.ph) #11
   br label %106
 
@@ -7009,8 +7009,8 @@ generate_qualified_type_name.exit:                ; preds = %47
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2358, ptr noundef nonnull @__func__.pg_get_constraintdef_worker) #11
   unreachable
 
-117:                                              ; preds = %106, %111, %110, %109
-  %.2.ph = phi ptr [ @.str.396, %109 ], [ @.str.397, %110 ], [ @.str.398, %111 ], [ @.str.395, %106 ]
+117:                                              ; preds = %106, %109, %110, %111
+  %.2.ph = phi ptr [ @.str.398, %111 ], [ @.str.397, %110 ], [ @.str.396, %109 ], [ @.str.395, %106 ]
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.402, ptr noundef nonnull %.2.ph) #11
   br label %118
 
@@ -8536,8 +8536,8 @@ list_length.exit:                                 ; preds = %25, %29
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3393, ptr noundef nonnull @__func__.print_function_arguments) #11
   unreachable
 
-96:                                               ; preds = %91, %.thread, %86
-  %.166.ph = phi ptr [ @.str.429, %86 ], [ %.str.428..str.32, %.thread ], [ @.str.194, %91 ]
+96:                                               ; preds = %.thread, %91, %86
+  %.166.ph = phi ptr [ @.str.429, %86 ], [ @.str.194, %91 ], [ %.str.428..str.32, %.thread ]
   %97 = add i32 %.071112, 1
   br label %.thr_comm
 
@@ -10463,7 +10463,7 @@ simple_quote_literal.exit:                        ; preds = %57
   br label %66
 
 66:                                               ; preds = %55, %.tail.thread, %49, %50, %36, %37, %simple_quote_literal.exit
-  %.0 = phi i1 [ false, %simple_quote_literal.exit ], [ false, %55 ], [ false, %.tail.thread ], [ false, %49 ], [ true, %50 ], [ false, %36 ], [ true, %37 ]
+  %.0 = phi i1 [ false, %simple_quote_literal.exit ], [ false, %36 ], [ true, %37 ], [ false, %49 ], [ true, %50 ], [ false, %55 ], [ false, %.tail.thread ]
   call void @pfree(ptr noundef %32) #11
   %67 = icmp slt i32 %2, 0
   br i1 %67, label %get_const_collation.exit, label %68
@@ -10488,7 +10488,7 @@ simple_quote_literal.exit:                        ; preds = %57
   br label %76
 
 76:                                               ; preds = %71, %70, %68
-  %.1 = phi i1 [ %75, %71 ], [ %.0, %68 ], [ false, %70 ]
+  %.1 = phi i1 [ false, %70 ], [ %.0, %68 ], [ %75, %71 ]
   %77 = icmp ne i32 %2, 0
   %or.cond = or i1 %77, %.1
   br i1 %or.cond, label %.thread, label %81
@@ -17340,7 +17340,7 @@ list_length.exit:                                 ; preds = %get_func_sql_syntax
   %302 = icmp slt i64 %indvars.iv.next125, %301
   br i1 %302, label %.lr.ph115, label %._crit_edge109
 
-get_rule_expr_paren.exit:                         ; preds = %37, %46, %51, %68, %list_length.exit81.thread, %98, %list_length.exit79.thread, %list_length.exit77.thread, %142, %list_length.exit75.thread, %169, %list_length.exit73.thread, %list_length.exit71.thread, %list_length.exit69.thread, %224, %225, %.critedge.i, %23, %._crit_edge109, %27
+get_rule_expr_paren.exit:                         ; preds = %225, %224, %list_length.exit69.thread, %list_length.exit71.thread, %list_length.exit73.thread, %169, %list_length.exit75.thread, %142, %list_length.exit77.thread, %list_length.exit79.thread, %98, %list_length.exit81.thread, %68, %51, %46, %37, %.critedge.i, %23, %._crit_edge109, %27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #11
   ret void
@@ -17550,7 +17550,7 @@ define internal fastcc ptr @generate_operator_name(i32 noundef %0, i32 noundef %
   unreachable
 
 32:                                               ; preds = %23, %19
-  %.022 = phi ptr [ %26, %23 ], [ %22, %19 ]
+  %.022 = phi ptr [ %22, %19 ], [ %26, %23 ]
   %.not24 = icmp eq ptr %.022, null
   br i1 %.not24, label %36, label %33
 
@@ -17802,7 +17802,7 @@ sub_0:                                            ; preds = %87
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 11833, ptr noundef nonnull @__func__.get_sublink_expr) #11
   unreachable
 
-.critedge71:                                      ; preds = %89, %.tail.thread, %94, %95, %96
+.critedge71:                                      ; preds = %96, %95, %.tail.thread, %94, %89
   tail call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 40) #11
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8
@@ -18432,7 +18432,7 @@ list_length.exit237:                              ; preds = %167
   br label %.thread258
 
 .thread258:                                       ; preds = %286, %311, %.thread244, %32, %22, %312, %235, %219, %164, %157, %135, %117, %thread-pre-split.thread
-  %.2 = phi ptr [ %61, %thread-pre-split.thread ], [ %166, %164 ], [ %321, %312 ], [ %.6, %219 ], [ %236, %235 ], [ %122, %117 ], [ %145, %135 ], [ %160, %157 ], [ %46, %32 ], [ %29, %22 ], [ %197, %.thread244 ], [ %290, %286 ], [ %.9, %311 ]
+  %.2 = phi ptr [ %61, %thread-pre-split.thread ], [ %166, %164 ], [ %321, %312 ], [ %236, %235 ], [ %.6, %219 ], [ %122, %117 ], [ %145, %135 ], [ %160, %157 ], [ %46, %32 ], [ %29, %22 ], [ %197, %.thread244 ], [ %290, %286 ], [ %.9, %311 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret ptr %.2
 }
@@ -18721,7 +18721,7 @@ define internal fastcc void @get_json_constructor(ptr noundef nonnull readonly c
   unreachable
 
 16:                                               ; preds = %2, %11, %10, %9, %8
-  %.0 = phi ptr [ @.str.279, %11 ], [ @.str.278, %10 ], [ @.str.277, %9 ], [ @.str.276, %8 ], [ @.str.275, %2 ]
+  %.0 = phi ptr [ @.str.276, %8 ], [ @.str.277, %9 ], [ @.str.278, %10 ], [ @.str.279, %11 ], [ @.str.275, %2 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.204, ptr noundef nonnull %.0) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -20611,7 +20611,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %.loopexit.loopexit, %3, %55, %57, %62, %63, %.thread, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %18, %20, %28, %30, %37, %39, %40, %69, %65, %52, %48, %8, %5
-  %.0 = phi i1 [ false, %69 ], [ %or.cond17, %65 ], [ false, %52 ], [ %or.cond11, %48 ], [ %10, %8 ], [ %7, %5 ], [ false, %18 ], [ false, %20 ], [ false, %28 ], [ false, %30 ], [ true, %37 ], [ false, %39 ], [ %45, %40 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %.thread ], [ false, %63 ], [ false, %62 ], [ false, %57 ], [ false, %55 ], [ false, %3 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %7, %5 ], [ %10, %8 ], [ false, %52 ], [ %or.cond11, %48 ], [ false, %69 ], [ %or.cond17, %65 ], [ false, %18 ], [ false, %20 ], [ false, %28 ], [ false, %30 ], [ true, %37 ], [ false, %39 ], [ %45, %40 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %.thread ], [ false, %63 ], [ false, %62 ], [ false, %57 ], [ false, %55 ], [ false, %3 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -21681,7 +21681,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 
@@ -23664,7 +23664,7 @@ list_length.exit:                                 ; preds = %30
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 12417, ptr noundef nonnull @__func__.get_from_clause_item) #11
   unreachable
 
-get_tablefunc.exit.thread:                        ; preds = %130, %127, %42, %33, %120, %125, %126
+get_tablefunc.exit.thread:                        ; preds = %33, %42, %127, %130, %120, %125, %126
   tail call fastcc void @get_rte_alias(ptr noundef nonnull %20, i32 noundef %13, i1 noundef zeroext false, ptr noundef %2)
   br label %142
 

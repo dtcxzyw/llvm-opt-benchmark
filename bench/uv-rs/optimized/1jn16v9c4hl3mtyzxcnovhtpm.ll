@@ -234,7 +234,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$uv_pypi_types..simple_json..HashError$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f922a9bbad14b93E.exit"
 
 "_ZN74_$LT$uv_pypi_types..simple_json..HashError$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f922a9bbad14b93E.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -391,7 +391,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN69_$LT$reqwest_middleware..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17ha416c5d0c780daa8E.exit"
 
 "_ZN69_$LT$reqwest_middleware..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17ha416c5d0c780daa8E.exit": ; preds = %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -860,7 +860,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5049ee5b8373b34E.exit"
 
 "_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5049ee5b8373b34E.exit": ; preds = %52, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %103, %107, %111, %115, %118, %122, %126, %129, %133, %135, %138, %141, %144, %146, %149, %152, %155, %158, %162, %166, %169, %172, %175, %180, %183, %187, %191, %194
-  %.sroa.0.0.in.i.i = phi i1 [ %196, %194 ], [ %193, %191 ], [ %190, %187 ], [ %186, %183 ], [ %182, %180 ], [ %179, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %162 ], [ %161, %158 ], [ %157, %155 ], [ %154, %152 ], [ %151, %149 ], [ %148, %146 ], [ %145, %144 ], [ %143, %141 ], [ %140, %138 ], [ %137, %135 ], [ %134, %133 ], [ %132, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %118 ], [ %117, %115 ], [ %114, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %52 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %53, %52 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %114, %111 ], [ %117, %115 ], [ %121, %118 ], [ %125, %122 ], [ %128, %126 ], [ %132, %129 ], [ %134, %133 ], [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ %145, %144 ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %161, %158 ], [ %165, %162 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %179, %175 ], [ %182, %180 ], [ %186, %183 ], [ %190, %187 ], [ %193, %191 ], [ %196, %194 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -904,7 +904,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdcf94a178b3de8d6E.exit"
 
 "_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdcf94a178b3de8d6E.exit": ; preds = %9, %11
-  %.sroa.0.0.in.i.i = phi i1 [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -1495,7 +1495,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 

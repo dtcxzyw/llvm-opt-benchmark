@@ -2909,7 +2909,7 @@ decGetDigits.exit348:                             ; preds = %367, %369, %352, %3
   call void @free(ptr noundef nonnull %.1271) #18
   br label %.thread369
 
-.thread369:                                       ; preds = %168, %190, %269, %241, %132, %95, %34, %31, %23, %395, %394
+.thread369:                                       ; preds = %168, %190, %241, %269, %132, %95, %34, %31, %23, %395, %394
   call void @llvm.lifetime.end.p0(i64 62, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
   ret ptr %0
@@ -10833,7 +10833,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br label %254
 
 254:                                              ; preds = %211, %245, %split.thread
-  %.0157 = phi ptr [ null, %211 ], [ %.2, %split.thread ], [ %.1158, %245 ]
+  %.0157 = phi ptr [ %.2, %split.thread ], [ %.1158, %245 ], [ null, %211 ]
   %.not208 = icmp eq ptr %.1155, null
   br i1 %.not208, label %256, label %255
 

@@ -1406,7 +1406,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hd50d38788fd9ed07E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1542,7 +1542,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h93a3
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -2471,7 +2471,7 @@ _ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit30: ; preds = %22, %16, %.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 
-.critedge:                                        ; preds = %13, %15
+.critedge:                                        ; preds = %15, %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !293
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1cce46063650d2c7E.llvm.3307611119196902081"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2901,7 +2901,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h342d1ffe111fd935E.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-.critedge:                                        ; preds = %.critedge18, %19, %20
+.critedge:                                        ; preds = %.critedge18, %20, %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !346
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc21770625edff875E.llvm.3307611119196902081"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4306,21 +4306,21 @@ define hidden void @_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h9c4c4
 11:                                               ; preds = %"_ZN58_$LT$std..fs..File$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h75fe95e57ef3f2b3E.llvm.3950917620001345818.exit"
   %12 = load i32, ptr %4, align 8, !range !534, !noundef !4
   %trunc = trunc nuw i32 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !4
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %16 = load i32, ptr %15, align 4, !range !230
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %14 = load i32, ptr %13, align 4, !range !230
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %19, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %16, ptr %18, align 4
+  store i32 %14, ptr %18, align 4
   br label %21
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %20, align 8
+  store ptr %16, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %19, %17

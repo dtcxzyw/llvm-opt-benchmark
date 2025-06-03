@@ -556,7 +556,7 @@ get_line.exit71.thread:                           ; preds = %.lr.ph.i65
   br i1 %or.cond, label %.critedge, label %.lr.ph156, !llvm.loop !31
 
 .critedge:                                        ; preds = %44, %.lr.ph156, %.lr.ph.backedge, %.lr.ph.preheader, %.thread, %23, %.loopexit.i
-  %.2 = phi i64 [ %25, %.loopexit.i ], [ %24, %23 ], [ %spec.select77118, %.thread ], [ %.049.ph, %.lr.ph.preheader ], [ %.15093.be, %.lr.ph.backedge ], [ %.15093155, %.lr.ph156 ], [ 0, %44 ]
+  %.2 = phi i64 [ %24, %23 ], [ %25, %.loopexit.i ], [ %spec.select77118, %.thread ], [ %.049.ph, %.lr.ph.preheader ], [ %.15093.be, %.lr.ph.backedge ], [ %.15093155, %.lr.ph156 ], [ 0, %44 ]
   ret i64 %.2
 }
 
@@ -1307,9 +1307,9 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   br label %.thread323
 
 .thread323:                                       ; preds = %.thread328, %.thread323.loopexit757.split.loop.exit866, %.thread323.loopexit757.split.loop.exit869, %.thread323.loopexit.split.loop.exit, %.thread323.loopexit.split.loop.exit873, %.thread323.loopexit.split.loop.exit876, %127, %._crit_edge, %.thread361, %135, %139, %143, %147, %177, %151, %284, %263, %205, %131, %133
-  %.019.i725731 = phi i64 [ %79, %133 ], [ %79, %131 ], [ %79, %._crit_edge ], [ %79, %.thread361 ], [ %79, %284 ], [ %79, %205 ], [ %.019.i725729, %263 ], [ %79, %135 ], [ %79, %139 ], [ %79, %143 ], [ %79, %147 ], [ %79, %151 ], [ %79, %177 ], [ %79, %127 ], [ %79, %.thread323.loopexit.split.loop.exit876 ], [ %79, %.thread323.loopexit.split.loop.exit873 ], [ %79, %.thread323.loopexit.split.loop.exit ], [ %79, %.thread323.loopexit757.split.loop.exit869 ], [ %79, %.thread323.loopexit757.split.loop.exit866 ], [ %79, %.thread328 ]
-  %.1244.ph = phi ptr [ %.0243570, %133 ], [ %.0243570, %131 ], [ %.8251.lcssa, %._crit_edge ], [ %.9252367, %.thread361 ], [ %.0243570, %284 ], [ %.0243570, %205 ], [ %.0243570, %263 ], [ %.0243570, %135 ], [ %.0243570, %139 ], [ %.0243570, %143 ], [ %.0243570, %147 ], [ %.0243570, %151 ], [ %.0243570, %177 ], [ %.0243570, %127 ], [ %324, %.thread323.loopexit.split.loop.exit876 ], [ %324, %.thread323.loopexit.split.loop.exit873 ], [ %308, %.thread323.loopexit.split.loop.exit ], [ %227, %.thread323.loopexit757.split.loop.exit869 ], [ %242, %.thread323.loopexit757.split.loop.exit866 ], [ %252, %.thread328 ]
-  %.2228.ph = phi i64 [ %.1227577, %133 ], [ %.1227577, %131 ], [ %.9235.lcssa, %._crit_edge ], [ %.10236368, %.thread361 ], [ %.1227577, %284 ], [ %.1227577, %205 ], [ %.1227577, %263 ], [ %.1227577, %135 ], [ %.1227577, %139 ], [ %.1227577, %143 ], [ %.1227577, %147 ], [ %.1227577, %151 ], [ %.1227577, %177 ], [ %.1227577, %127 ], [ %357, %.thread323.loopexit.split.loop.exit876 ], [ %356, %.thread323.loopexit.split.loop.exit873 ], [ %355, %.thread323.loopexit.split.loop.exit ], [ %359, %.thread323.loopexit757.split.loop.exit869 ], [ %358, %.thread323.loopexit757.split.loop.exit866 ], [ %253, %.thread328 ]
+  %.019.i725731 = phi i64 [ %79, %133 ], [ %79, %131 ], [ %.019.i725729, %263 ], [ %79, %205 ], [ %79, %._crit_edge ], [ %79, %.thread361 ], [ %79, %284 ], [ %79, %135 ], [ %79, %139 ], [ %79, %143 ], [ %79, %147 ], [ %79, %151 ], [ %79, %177 ], [ %79, %127 ], [ %79, %.thread323.loopexit.split.loop.exit876 ], [ %79, %.thread323.loopexit.split.loop.exit873 ], [ %79, %.thread323.loopexit.split.loop.exit ], [ %79, %.thread323.loopexit757.split.loop.exit869 ], [ %79, %.thread323.loopexit757.split.loop.exit866 ], [ %79, %.thread328 ]
+  %.1244.ph = phi ptr [ %.0243570, %133 ], [ %.0243570, %131 ], [ %.0243570, %263 ], [ %.0243570, %205 ], [ %.8251.lcssa, %._crit_edge ], [ %.9252367, %.thread361 ], [ %.0243570, %284 ], [ %.0243570, %135 ], [ %.0243570, %139 ], [ %.0243570, %143 ], [ %.0243570, %147 ], [ %.0243570, %151 ], [ %.0243570, %177 ], [ %.0243570, %127 ], [ %324, %.thread323.loopexit.split.loop.exit876 ], [ %324, %.thread323.loopexit.split.loop.exit873 ], [ %308, %.thread323.loopexit.split.loop.exit ], [ %227, %.thread323.loopexit757.split.loop.exit869 ], [ %242, %.thread323.loopexit757.split.loop.exit866 ], [ %252, %.thread328 ]
+  %.2228.ph = phi i64 [ %.1227577, %133 ], [ %.1227577, %131 ], [ %.1227577, %263 ], [ %.1227577, %205 ], [ %.9235.lcssa, %._crit_edge ], [ %.10236368, %.thread361 ], [ %.1227577, %284 ], [ %.1227577, %135 ], [ %.1227577, %139 ], [ %.1227577, %143 ], [ %.1227577, %147 ], [ %.1227577, %151 ], [ %.1227577, %177 ], [ %.1227577, %127 ], [ %357, %.thread323.loopexit.split.loop.exit876 ], [ %356, %.thread323.loopexit.split.loop.exit873 ], [ %355, %.thread323.loopexit.split.loop.exit ], [ %359, %.thread323.loopexit757.split.loop.exit869 ], [ %358, %.thread323.loopexit757.split.loop.exit866 ], [ %253, %.thread328 ]
   %360 = getelementptr inbounds nuw i8, ptr %.1242571, i64 %.019.i725731
   %361 = add nuw nsw i64 %.019.i725731, %.1238575
   %362 = load i64, ptr %3, align 8, !tbaa !9
@@ -1333,8 +1333,8 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   store i64 %371, ptr %5, align 8, !tbaa !36
   br label %.thread384
 
-.thread384:                                       ; preds = %347, %2, %ensure_in_buff_size.exit309, %.thread361.thread, %256, %199, %192, %264, %174, %124, %97, %89, %ensure_in_buff_size.exit, %.thread391, %33
-  %.1211 = phi i64 [ %.0226, %.thread391 ], [ -30, %33 ], [ -30, %ensure_in_buff_size.exit ], [ -30, %89 ], [ -30, %97 ], [ -30, %124 ], [ -30, %174 ], [ -30, %264 ], [ -30, %192 ], [ -30, %199 ], [ -30, %256 ], [ -30, %.thread361.thread ], [ -30, %ensure_in_buff_size.exit309 ], [ -30, %2 ], [ -30, %347 ]
+.thread384:                                       ; preds = %347, %2, %ensure_in_buff_size.exit309, %264, %256, %199, %192, %.thread361.thread, %174, %124, %97, %89, %ensure_in_buff_size.exit, %.thread391, %33
+  %.1211 = phi i64 [ %.0226, %.thread391 ], [ -30, %33 ], [ -30, %ensure_in_buff_size.exit ], [ -30, %89 ], [ -30, %97 ], [ -30, %124 ], [ -30, %174 ], [ -30, %.thread361.thread ], [ -30, %192 ], [ -30, %199 ], [ -30, %256 ], [ -30, %264 ], [ -30, %ensure_in_buff_size.exit309 ], [ -30, %2 ], [ -30, %347 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret i64 %.1211
 }

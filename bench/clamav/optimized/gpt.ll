@@ -426,7 +426,7 @@ default.unreachable103:                           ; preds = %96
   br label %106
 
 106:                                              ; preds = %gpt_check_mbr.exit, %103, %101, %99, %97, %94, %92, %105, %62, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
-  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %62 ], [ %93, %92 ], [ %95, %94 ], [ 0, %105 ], [ %102, %101 ], [ %104, %103 ], [ %100, %99 ], [ %98, %97 ], [ 2, %9 ]
+  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %62 ], [ %93, %92 ], [ %95, %94 ], [ 0, %105 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ 2, %9 ]
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #7
   ret i32 %.051

@@ -513,14 +513,14 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list.exit, %129, %100, %101, %93, %40, %116
-  %.260 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list.exit ]
-  %.3 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list.exit ]
+  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %117, %116 ], [ %.0, %pm_list.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %118, %116 ], [ %.157, %pm_list.exit ]
   %132 = getelementptr inbounds nuw i8, ptr %.260, i64 1
   %133 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip.exit93, %102, %101, %100, %93, %pm_list.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip.exit96, %pm_slashskip.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %39, %pm_slashskip.exit86 ], [ %128, %pm_slashskip.exit96 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %40 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }
@@ -1038,14 +1038,14 @@ pm_slashskip_w.exit96:                            ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list_w.exit, %129, %100, %101, %93, %40, %116
-  %.260 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list_w.exit ]
-  %.3 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list_w.exit ]
+  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %117, %116 ], [ %.0, %pm_list_w.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %118, %116 ], [ %.157, %pm_list_w.exit ]
   %132 = getelementptr inbounds nuw i8, ptr %.260, i64 4
   %133 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip_w.exit93, %102, %101, %100, %93, %pm_list_w.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip_w.exit96, %pm_slashskip_w.exit86
-  %.055.shrunk = phi i1 [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip_w.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %39, %pm_slashskip_w.exit86 ], [ %128, %pm_slashskip_w.exit96 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip_w.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %40 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }

@@ -1196,8 +1196,8 @@ _ZNSt6vectorImSaImEED2Ev.exit73.i:                ; preds = %275, %273
   br label %329
 
 329:                                              ; preds = %327, %._crit_edge._crit_edge.i.i.i.i.i
-  %330 = phi i32 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %325, %327 ]
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %328, %327 ]
+  %330 = phi i32 [ %325, %327 ], [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %328, %327 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %331 = load i32, ptr %.sroa.032.1.i.i.i.i.i, align 4, !noalias !27
   %332 = icmp eq i32 %331, %330
   br i1 %332, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.i.i, label %333
@@ -1207,8 +1207,8 @@ _ZNSt6vectorImSaImEED2Ev.exit73.i:                ; preds = %275, %273
   br label %335
 
 335:                                              ; preds = %333, %._crit_edge._crit_edge57.i.i.i.i.i
-  %336 = phi i32 [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %330, %333 ]
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %334, %333 ]
+  %336 = phi i32 [ %330, %333 ], [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %334, %333 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
   %337 = load i32, ptr %.sroa.032.2.i.i.i.i.i, align 4, !noalias !27
   %338 = icmp eq i32 %337, %336
   %spec.select.i.i.i.i.i = select i1 %338, ptr %.sroa.032.2.i.i.i.i.i, ptr %293
@@ -5242,7 +5242,7 @@ define hidden noundef i32 @_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE(ptr nou
   br label %47
 
 47:                                               ; preds = %.loopexit19, %._crit_edge, %45
-  %.3 = phi i32 [ %41, %.loopexit19 ], [ %46, %45 ], [ 65536, %._crit_edge ]
+  %.3 = phi i32 [ %46, %45 ], [ %41, %.loopexit19 ], [ 65536, %._crit_edge ]
   ret i32 %.3
 }
 
@@ -5415,7 +5415,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE5clearEv.exit: ; preds = %18
   br label %_ZN3ue211CastleProto5mergeERKNS_10PureRepeatE.exit
 
 _ZN3ue211CastleProto5mergeERKNS_10PureRepeatE.exit: ; preds = %.loopexit19.i, %._crit_edge.i, %86
-  %.3.i = phi i32 [ %83, %.loopexit19.i ], [ %87, %86 ], [ 65536, %._crit_edge.i ]
+  %.3.i = phi i32 [ %87, %86 ], [ %83, %.loopexit19.i ], [ 65536, %._crit_edge.i ]
   %88 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   store i32 %.3.i, ptr %88, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27

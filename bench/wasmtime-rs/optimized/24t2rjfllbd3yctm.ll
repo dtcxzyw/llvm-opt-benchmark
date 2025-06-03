@@ -310,7 +310,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$wasmtime_types..error..WasmError$
   br label %22
 
 22:                                               ; preds = %19, %17, %14, %11
-  %.0.in = phi i1 [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %21, %19 ]
   ret i1 %.0.in
 }
 

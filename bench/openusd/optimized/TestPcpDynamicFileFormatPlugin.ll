@@ -12324,7 +12324,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.032.1 = phi ptr [ %27, %26 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12SdfReferenceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %29, label %.loopexit, label %30
 
@@ -12333,7 +12333,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.032.2 = phi ptr [ %31, %30 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %33 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12SdfReferenceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %spec.select = select i1 %33, ptr %.sroa.032.2, ptr %1
   br label %.loopexit
@@ -14664,7 +14664,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.032.1 = phi ptr [ %28, %27 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br i1 %30, label %.loopexit, label %31
 
@@ -14673,7 +14673,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.2 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %spec.select = select i1 %34, ptr %.sroa.032.2, ptr %1
   br label %.loopexit

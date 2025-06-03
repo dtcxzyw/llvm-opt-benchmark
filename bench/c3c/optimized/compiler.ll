@@ -926,9 +926,9 @@ dynamic_lib_name.exit:                            ; preds = %build_base_name.exi
   unreachable
 
 exe_name.exit:                                    ; preds = %.sink.split.i255, %122, %.sink.split.i239, %90, %.sink.split.i, %84, %static_lib_name.exit, %dynamic_lib_name.exit, %99, %80, %71
-  %.0196 = phi ptr [ null, %71 ], [ null, %80 ], [ %162, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ null, %99 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i239 ], [ null, %122 ], [ null, %.sink.split.i255 ]
-  %.0194 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %dynamic_lib_name.exit ], [ %143, %static_lib_name.exit ], [ null, %99 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i239 ], [ null, %122 ], [ null, %.sink.split.i255 ]
-  %.0190 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ null, %99 ], [ @.str.17, %84 ], [ %87, %.sink.split.i ], [ @.str.18, %90 ], [ %93, %.sink.split.i239 ], [ %.015.i254, %122 ], [ %125, %.sink.split.i255 ]
+  %.0196 = phi ptr [ null, %71 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ %162, %dynamic_lib_name.exit ], [ null, %80 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i239 ], [ null, %122 ], [ null, %.sink.split.i255 ]
+  %.0194 = phi ptr [ null, %71 ], [ null, %99 ], [ %143, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %80 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i239 ], [ null, %122 ], [ null, %.sink.split.i255 ]
+  %.0190 = phi ptr [ null, %71 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %80 ], [ @.str.17, %84 ], [ %87, %.sink.split.i ], [ @.str.18, %90 ], [ %93, %.sink.split.i239 ], [ %.015.i254, %122 ], [ %125, %.sink.split.i255 ]
   tail call fastcc void @free_arenas()
   %.not213 = icmp eq ptr %72, null
   br i1 %.not213, label %167, label %164
@@ -2768,7 +2768,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 26:                                               ; preds = %23, %17
-  %.1.in.i = phi ptr [ %24, %23 ], [ %22, %17 ]
+  %.1.in.i = phi ptr [ %22, %17 ], [ %24, %23 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %13
 

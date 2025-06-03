@@ -3095,7 +3095,7 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
   br label %start_prepare.exit.thread
 
 start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread253.i, %.thread251.i, %72, %76, %.thread222.thread.i, %check_acyclic.exit.thread.i, %start_prepare.exit, %.thread95, %._crit_edge184
-  %.0 = phi i32 [ %.4, %.thread95 ], [ 0, %._crit_edge184 ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %72 ], [ -22, %76 ], [ -22, %.thread222.thread.i ], [ -12, %check_acyclic.exit.thread.i ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %47 ], [ -12, %20 ]
+  %.0 = phi i32 [ 0, %._crit_edge184 ], [ %.4, %.thread95 ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %72 ], [ -22, %76 ], [ -22, %.thread222.thread.i ], [ -12, %check_acyclic.exit.thread.i ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %47 ], [ -12, %20 ]
   ret i32 %.0
 }
 

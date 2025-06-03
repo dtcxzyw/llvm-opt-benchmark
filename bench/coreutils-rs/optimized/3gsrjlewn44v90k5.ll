@@ -599,7 +599,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i": ; preds = %78, %73, %70, %67
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %72, %70 ], [ %83, %78 ], [ %69, %67 ], [ %77, %73 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %77, %73 ], [ %69, %67 ], [ %83, %78 ], [ %72, %70 ]
   %84 = trunc i8 %.0.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %84, label %89, label %85
 
@@ -1082,7 +1082,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i": ; preds = %92, %87, %84, %81
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %86, %84 ], [ %97, %92 ], [ %83, %81 ], [ %91, %87 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %91, %87 ], [ %83, %81 ], [ %97, %92 ], [ %86, %84 ]
   %98 = trunc i8 %.0.i.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %98, label %103, label %99
 

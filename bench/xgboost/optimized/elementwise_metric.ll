@@ -27136,7 +27136,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %66, %65 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %68 = load float, ptr %.sroa.031.1.i.i.i.i, align 4, !tbaa !90
   %69 = fcmp ult float %68, 0.000000e+00
   %70 = fcmp ugt float %68, 1.000000e+00
@@ -27148,7 +27148,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %72, %71 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %74 = load float, ptr %.sroa.031.2.i.i.i.i, align 4, !tbaa !90
   %75 = fcmp ult float %74, 0.000000e+00
   %76 = fcmp ugt float %74, 1.000000e+00

@@ -161,7 +161,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg4_start_frame(ptr nound
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
 mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %107, %108, %109, %110, %111
-  %.0.i = phi i16 [ 0, %111 ], [ 224, %110 ], [ 192, %109 ], [ 160, %108 ], [ 128, %107 ], [ 96, %106 ], [ 64, %105 ], [ 32, %95 ]
+  %.0.i = phi i16 [ 0, %111 ], [ 64, %105 ], [ 96, %106 ], [ 128, %107 ], [ 160, %108 ], [ 192, %109 ], [ 224, %110 ], [ 32, %95 ]
   %112 = or disjoint i16 %103, %.0.i
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 4224
   %114 = load i32, ptr %113, align 8, !tbaa !86

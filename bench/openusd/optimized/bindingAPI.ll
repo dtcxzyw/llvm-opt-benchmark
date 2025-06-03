@@ -5833,7 +5833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit19.i: ; preds = %318, %305
   br label %324
 
 324:                                              ; preds = %323, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit19.i
-  %.3.i = phi i1 [ %.111.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit19.i ], [ false, %323 ]
+  %.3.i = phi i1 [ false, %323 ], [ %.111.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit19.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

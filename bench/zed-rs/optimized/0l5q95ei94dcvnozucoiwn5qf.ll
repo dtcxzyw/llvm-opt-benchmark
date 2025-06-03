@@ -779,8 +779,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !64, !noundef !5
@@ -792,8 +792,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !64, !noundef !5
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -905,8 +905,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !64, !noundef !5
@@ -918,8 +918,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !64, !noundef !5
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -6216,7 +6216,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17he5188d809d18f3bdE.exit.i.i" unwind label %.loopexit29, !noalias !1637
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17he5188d809d18f3bdE.exit.thread.i.i": ; preds = %.noexc8.i.i, %.noexc7.i.i, %39
-  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %43, %.noexc7.i.i ], [ %48, %.noexc8.i.i ], [ %41, %39 ]
+  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %48, %.noexc8.i.i ], [ %43, %.noexc7.i.i ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1636
   br label %55
 
@@ -7374,7 +7374,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17hd8b2cbc8f8c1bee1E.exit28.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17ha4c77b92776305f2E.exit.i.i
 
 107:                                              ; preds = %90, %89, %88, %87, %86, %.thread.i.i, %70
-  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c471593d0b931818c59a0c518f8783f.29, %90 ], [ @anon.3c471593d0b931818c59a0c518f8783f.28, %89 ], [ @anon.3c471593d0b931818c59a0c518f8783f.27, %88 ], [ @anon.3c471593d0b931818c59a0c518f8783f.26, %87 ], [ @anon.3c471593d0b931818c59a0c518f8783f.25, %86 ], [ @anon.3c471593d0b931818c59a0c518f8783f.22, %.thread.i.i ], [ @anon.3c471593d0b931818c59a0c518f8783f.23, %70 ]
+  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c471593d0b931818c59a0c518f8783f.25, %86 ], [ @anon.3c471593d0b931818c59a0c518f8783f.26, %87 ], [ @anon.3c471593d0b931818c59a0c518f8783f.27, %88 ], [ @anon.3c471593d0b931818c59a0c518f8783f.28, %89 ], [ @anon.3c471593d0b931818c59a0c518f8783f.29, %90 ], [ @anon.3c471593d0b931818c59a0c518f8783f.22, %.thread.i.i ], [ @anon.3c471593d0b931818c59a0c518f8783f.23, %70 ]
   %108 = load i64, ptr %.0.val, align 8, !alias.scope !2052, !noalias !2061, !noundef !5
   %109 = sub i64 %108, %71
   %110 = icmp ult i64 %109, 2

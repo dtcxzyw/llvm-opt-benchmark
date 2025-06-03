@@ -934,7 +934,7 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit.i:          ; preds = %58, %.lr.ph.i
   br label %55
 
 55:                                               ; preds = %53, %51, %50, %39
-  %.3.i = phi i32 [ %.sroa.speculated.i, %39 ], [ %.023.i, %50 ], [ %54, %53 ], [ %52, %51 ]
+  %.3.i = phi i32 [ %.sroa.speculated.i, %39 ], [ %.023.i, %50 ], [ %52, %51 ], [ %54, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 64
   %57 = load i16, ptr %56, align 8, !tbaa !298
   %.not.i.i6 = icmp eq i16 %57, 0
@@ -1028,7 +1028,7 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %30, %.lr.ph
   br label %27
 
 27:                                               ; preds = %11, %22, %25, %23
-  %.3 = phi i32 [ %.sroa.speculated, %11 ], [ %.023, %22 ], [ %26, %25 ], [ %24, %23 ]
+  %.3 = phi i32 [ %.sroa.speculated, %11 ], [ %.023, %22 ], [ %24, %23 ], [ %26, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %.01522, i64 64
   %29 = load i16, ptr %28, align 8, !tbaa !298
   %.not.i = icmp eq i16 %29, 0
@@ -2293,7 +2293,7 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %93, %.lr.ph
   br label %90
 
 90:                                               ; preds = %70, %78, %85, %88, %86
-  %.6 = phi i32 [ %.445, %85 ], [ %89, %88 ], [ %87, %86 ], [ %84, %78 ], [ %.445, %70 ]
+  %.6 = phi i32 [ %.445, %85 ], [ %87, %86 ], [ %89, %88 ], [ %84, %78 ], [ %.445, %70 ]
   %91 = getelementptr inbounds nuw i8, ptr %.03146, i64 64
   %92 = load i16, ptr %91, align 8, !tbaa !298
   %.not.i41 = icmp eq i16 %92, 0

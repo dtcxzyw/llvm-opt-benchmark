@@ -11767,8 +11767,8 @@ _ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit: ; preds = %._crit_edge.
   br label %93
 
 93:                                               ; preds = %53, %86, %91, %60, %_ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit
-  %.sroa.040.1.ph = phi i32 [ %.sroa.040.058, %60 ], [ %55, %_ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit ], [ %.sroa.040.058, %86 ], [ %55, %91 ], [ %.sroa.040.058, %53 ]
-  %.328.ph = phi i32 [ %.02560, %60 ], [ %.02560, %_ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit ], [ %.02560, %86 ], [ %92, %91 ], [ %.02560, %53 ]
+  %.sroa.040.1.ph = phi i32 [ %.sroa.040.058, %86 ], [ %55, %91 ], [ %.sroa.040.058, %60 ], [ %55, %_ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit ], [ %.sroa.040.058, %53 ]
+  %.328.ph = phi i32 [ %.02560, %86 ], [ %92, %91 ], [ %.02560, %60 ], [ %.02560, %_ZN6bufferIN3sat7literalELb0ELj16EE9push_backEOS1_.exit ], [ %.02560, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %1, align 4, !tbaa !3
   %95 = zext i32 %94 to i64
@@ -12437,9 +12437,9 @@ define hidden noundef i32 @_ZNK3smt7context16select_watch_litEPKNS_6clauseEi(ptr
   br label %55
 
 55:                                               ; preds = %39, %.critedge2, %20, %.critedge, %36, %12
-  %.129 = phi i32 [ %.02836, %12 ], [ %.02836, %.critedge2 ], [ %.02836, %39 ], [ %.02836, %36 ], [ %.02439, %.critedge ], [ %.02836, %20 ]
-  %.127 = phi i32 [ %.02637, %12 ], [ %.02637, %.critedge2 ], [ %.02637, %39 ], [ %.02439, %36 ], [ %.02637, %.critedge ], [ %.02637, %20 ]
-  %.1 = phi i32 [ %.02538, %12 ], [ %.02439, %.critedge2 ], [ %.02538, %39 ], [ %.02538, %36 ], [ %.02538, %.critedge ], [ %.02538, %20 ]
+  %.129 = phi i32 [ %.02836, %12 ], [ %.02439, %.critedge ], [ %.02836, %20 ], [ %.02836, %36 ], [ %.02836, %.critedge2 ], [ %.02836, %39 ]
+  %.127 = phi i32 [ %.02637, %12 ], [ %.02637, %.critedge ], [ %.02637, %20 ], [ %.02439, %36 ], [ %.02637, %.critedge2 ], [ %.02637, %39 ]
+  %.1 = phi i32 [ %.02538, %12 ], [ %.02538, %.critedge ], [ %.02538, %20 ], [ %.02538, %36 ], [ %.02439, %.critedge2 ], [ %.02538, %39 ]
   %56 = add i32 %.02439, 1
   %exitcond.not = icmp eq i32 %56, %4
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !772
@@ -12687,7 +12687,7 @@ _ZN3smt7context16mk_justificationINS_29unit_resolution_justificationEEEPNS_13jus
           to label %89 unwind label %25
 
 89:                                               ; preds = %6, %88, %75, %35, %_ZN3smt7context16mk_justificationINS_29unit_resolution_justificationEEEPNS_13justificationERKT_.exit
-  %.0277 = phi ptr [ %3, %6 ], [ %3, %88 ], [ %3, %75 ], [ %3, %35 ], [ %42, %_ZN3smt7context16mk_justificationINS_29unit_resolution_justificationEEEPNS_13justificationERKT_.exit ]
+  %.0277 = phi ptr [ %3, %6 ], [ %3, %35 ], [ %42, %_ZN3smt7context16mk_justificationINS_29unit_resolution_justificationEEEPNS_13justificationERKT_.exit ], [ %3, %75 ], [ %3, %88 ]
   %90 = and i32 %4, -2
   %91 = icmp eq i32 %90, 2
   %92 = load i32, ptr %8, align 4, !tbaa !3
@@ -13325,9 +13325,9 @@ _ZNK3smt7context16select_watch_litEPKNS_6clauseEi.exit.thread: ; preds = %355
   br label %409
 
 409:                                              ; preds = %.critedge2.i, %392, %388, %.critedge.i, %371, %364
-  %.129.i = phi i32 [ %.02836.i, %364 ], [ %.02836.i, %.critedge2.i ], [ %.02836.i, %392 ], [ %.02836.i, %388 ], [ %387, %.critedge.i ], [ %.02836.i, %371 ]
-  %.127.i = phi i32 [ %.02637.i, %364 ], [ %.02637.i, %.critedge2.i ], [ %.02637.i, %392 ], [ %389, %388 ], [ %.02637.i, %.critedge.i ], [ %.02637.i, %371 ]
-  %.1.i143 = phi i32 [ %.02538.i, %364 ], [ %408, %.critedge2.i ], [ %.02538.i, %392 ], [ %.02538.i, %388 ], [ %.02538.i, %.critedge.i ], [ %.02538.i, %371 ]
+  %.129.i = phi i32 [ %.02836.i, %364 ], [ %387, %.critedge.i ], [ %.02836.i, %371 ], [ %.02836.i, %388 ], [ %.02836.i, %.critedge2.i ], [ %.02836.i, %392 ]
+  %.127.i = phi i32 [ %.02637.i, %364 ], [ %.02637.i, %.critedge.i ], [ %.02637.i, %371 ], [ %389, %388 ], [ %.02637.i, %.critedge2.i ], [ %.02637.i, %392 ]
+  %.1.i143 = phi i32 [ %.02538.i, %364 ], [ %.02538.i, %.critedge.i ], [ %.02538.i, %371 ], [ %.02538.i, %388 ], [ %408, %.critedge2.i ], [ %.02538.i, %392 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next, %363
   br i1 %exitcond.not.i144, label %_ZNK3smt7context16select_watch_litEPKNS_6clauseEi.exit, label %364, !llvm.loop !772
@@ -13436,9 +13436,9 @@ _ZNK3smt7context16select_watch_litEPKNS_6clauseEi.exit: ; preds = %409
   br label %463
 
 463:                                              ; preds = %.critedge2.i165, %446, %442, %.critedge.i167, %425, %418
-  %.129.i156 = phi i32 [ %.02836.i153, %418 ], [ %.02836.i153, %.critedge2.i165 ], [ %.02836.i153, %446 ], [ %.02836.i153, %442 ], [ %441, %.critedge.i167 ], [ %.02836.i153, %425 ]
-  %.127.i157 = phi i32 [ %.02637.i152, %418 ], [ %.02637.i152, %.critedge2.i165 ], [ %.02637.i152, %446 ], [ %443, %442 ], [ %.02637.i152, %.critedge.i167 ], [ %.02637.i152, %425 ]
-  %.1.i158 = phi i32 [ %.02538.i151, %418 ], [ %462, %.critedge2.i165 ], [ %.02538.i151, %446 ], [ %.02538.i151, %442 ], [ %.02538.i151, %.critedge.i167 ], [ %.02538.i151, %425 ]
+  %.129.i156 = phi i32 [ %.02836.i153, %418 ], [ %441, %.critedge.i167 ], [ %.02836.i153, %425 ], [ %.02836.i153, %442 ], [ %.02836.i153, %.critedge2.i165 ], [ %.02836.i153, %446 ]
+  %.127.i157 = phi i32 [ %.02637.i152, %418 ], [ %.02637.i152, %.critedge.i167 ], [ %.02637.i152, %425 ], [ %443, %442 ], [ %.02637.i152, %.critedge2.i165 ], [ %.02637.i152, %446 ]
+  %.1.i158 = phi i32 [ %.02538.i151, %418 ], [ %.02538.i151, %.critedge.i167 ], [ %.02538.i151, %425 ], [ %.02538.i151, %442 ], [ %462, %.critedge2.i165 ], [ %.02538.i151, %446 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next287, %417
   br i1 %exitcond.not.i159, label %._crit_edge.i160, label %418, !llvm.loop !772
@@ -13810,7 +13810,7 @@ _ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit222: ; preds =
           to label %_Z7deallocIN3smt13justificationEEvPT_.exit unwind label %353
 
 _Z7deallocIN3smt13justificationEEvPT_.exit:       ; preds = %.invoke, %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit222, %_ZN3smt7context12set_conflictERKNS_15b_justificationE.exit, %287, %164, %76, %77, %30, %31
-  %.0 = phi ptr [ null, %31 ], [ null, %30 ], [ null, %77 ], [ null, %76 ], [ null, %287 ], [ null, %_ZN3smt7context12set_conflictERKNS_15b_justificationE.exit ], [ null, %164 ], [ %315, %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit222 ], [ null, %.invoke ]
+  %.0 = phi ptr [ null, %31 ], [ null, %30 ], [ null, %77 ], [ null, %76 ], [ null, %_ZN3smt7context12set_conflictERKNS_15b_justificationE.exit ], [ null, %287 ], [ null, %164 ], [ %315, %_ZN3smt7context6assignEN3sat7literalERKNS_15b_justificationEb.exit222 ], [ null, %.invoke ]
   %640 = load ptr, ptr %9, align 8, !tbaa !604
   %.not.i.i.i = icmp eq ptr %640, %16
   %641 = icmp eq ptr %640, null
@@ -13833,7 +13833,7 @@ _ZN6bufferIN3sat7literalELb0ELj16EED2Ev.exit:     ; preds = %_Z7deallocIN3smt13j
   ret ptr %.0
 
 646:                                              ; preds = %353, %541, %556, %630, %638, %268, %270, %272, %274, %285, %96, %126, %150, %71, %25
-  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %71 ], [ %97, %96 ], [ %151, %150 ], [ %127, %126 ], [ %269, %268 ], [ %275, %274 ], [ %286, %285 ], [ %273, %272 ], [ %271, %270 ], [ %354, %353 ], [ %542, %541 ], [ %557, %556 ], [ %631, %630 ], [ %639, %638 ]
+  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %.pn, %71 ], [ %26, %25 ], [ %127, %126 ], [ %97, %96 ], [ %151, %150 ], [ %269, %268 ], [ %275, %274 ], [ %286, %285 ], [ %273, %272 ], [ %271, %270 ], [ %354, %353 ], [ %542, %541 ], [ %557, %556 ], [ %631, %630 ], [ %639, %638 ]
   call void @_ZN6bufferIN3sat7literalELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #23
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #23
   resume { ptr, i32 } %.pn91.pn.pn.pn

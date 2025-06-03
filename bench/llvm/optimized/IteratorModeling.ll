@@ -6296,7 +6296,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %487, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %483, %.lr.ph.i.i.i ], [ %488, %487 ]
+  %.1.i.i.i.i = phi ptr [ %488, %487 ], [ %483, %.lr.ph.i.i.i ]
   %489 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %490 = load i24, ptr %489, align 16
   %491 = and i24 %490, 1048576
@@ -7450,7 +7450,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   br label %.thread
 
 .thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %23, %16 ], [ %25, %24 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 

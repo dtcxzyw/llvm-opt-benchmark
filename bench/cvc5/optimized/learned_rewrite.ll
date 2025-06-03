@@ -6587,8 +6587,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit513: ; preds = %_ZN4cvc58internal1
   br label %333
 
 333:                                              ; preds = %331, %._crit_edge._crit_edge.i.i.i
-  %334 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %329, %331 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %332, %331 ]
+  %334 = phi ptr [ %329, %331 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %332, %331 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %335 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !48
   %336 = icmp eq ptr %335, %334
   br i1 %336, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %337
@@ -6598,8 +6598,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit513: ; preds = %_ZN4cvc58internal1
   br label %339
 
 339:                                              ; preds = %337, %._crit_edge._crit_edge57.i.i.i
-  %340 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %334, %337 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %338, %337 ]
+  %340 = phi ptr [ %334, %337 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %338, %337 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %341 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !48
   %342 = icmp eq ptr %341, %340
   %spec.select.i.i.i = select i1 %342, ptr %.sroa.032.2.i.i.i, ptr %299
@@ -6760,7 +6760,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit568: ; preds = %.thread, %142, %3
   br label %384
 
 384:                                              ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit568, %383, %382, %381
-  %.0269 = phi i32 [ %89, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit568 ], [ 45, %383 ], [ 49, %382 ], [ 47, %381 ]
+  %.0269 = phi i32 [ %89, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit568 ], [ 47, %381 ], [ 49, %382 ], [ 45, %383 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %385 = getelementptr inbounds nuw i8, ptr %23, i64 8

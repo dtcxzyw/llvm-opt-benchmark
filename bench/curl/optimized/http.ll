@@ -217,7 +217,7 @@ define hidden i32 @Curl_http_setup_conn(ptr noundef %0, ptr noundef %1) #0 {
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -614,7 +614,7 @@ http_transferencode.exit:                         ; preds = %.thread.i, %163, %1
   br label %get_http_string.exit
 
 get_http_string.exit:                             ; preds = %http_transferencode.exit, %184, %185, %186
-  %.0.i229 = phi ptr [ @.str.86, %186 ], [ @.str.85, %185 ], [ @.str.84, %184 ], [ @.str.83, %http_transferencode.exit ]
+  %.0.i229 = phi ptr [ @.str.86, %186 ], [ @.str.84, %184 ], [ @.str.85, %185 ], [ @.str.83, %http_transferencode.exit ]
   %187 = call fastcc i32 @http_req_set_reader(ptr noundef nonnull %0, i32 noundef %.010.i, i32 noundef %183, ptr noundef %3)
   %.not183 = icmp eq i32 %187, 0
   br i1 %.not183, label %188, label %296
@@ -3199,7 +3199,7 @@ define hidden i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext %1
   br label %.thread
 
 .thread:                                          ; preds = %6, %25, %28, %14, %18
-  %.0101 = phi i64 [ 1, %25 ], [ 1, %28 ], [ 2, %18 ], [ 1, %14 ], [ 1, %6 ]
+  %.0101 = phi i64 [ 2, %18 ], [ 1, %14 ], [ 1, %25 ], [ 1, %28 ], [ 1, %6 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4960
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5034
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 457
@@ -5327,8 +5327,8 @@ http_exp100_is_waiting.exit.thread.i:             ; preds = %http_exp100_is_wait
   br label %http_exp100_got100.exit.i
 
 http_exp100_got100.exit.i:                        ; preds = %338, %336, %299, %http_should_fail.exit.thread231.i, %http_should_fail.exit.thread.i, %186, %105, %101, %95, %93, %86, %71, %63, %59, %57, %54, %49
-  %.0256 = phi i64 [ 0, %49 ], [ 0, %54 ], [ 0, %105 ], [ %4, %95 ], [ %4, %101 ], [ 0, %93 ], [ 0, %86 ], [ 0, %71 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %186 ], [ 0, %338 ], [ 0, %336 ], [ 0, %299 ], [ 0, %http_should_fail.exit.thread231.i ], [ 0, %http_should_fail.exit.thread.i ]
-  %.1155.i = phi i32 [ 1, %49 ], [ 0, %54 ], [ 0, %105 ], [ 0, %95 ], [ 0, %101 ], [ %94, %93 ], [ 1, %86 ], [ 8, %71 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 22, %186 ], [ %339, %338 ], [ %337, %336 ], [ %300, %299 ], [ %212, %http_should_fail.exit.thread231.i ], [ 22, %http_should_fail.exit.thread.i ]
+  %.0256 = phi i64 [ 0, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %105 ], [ 0, %86 ], [ %4, %95 ], [ %4, %101 ], [ 0, %93 ], [ 0, %71 ], [ 0, %186 ], [ 0, %338 ], [ 0, %336 ], [ 0, %299 ], [ 0, %http_should_fail.exit.thread231.i ], [ 0, %http_should_fail.exit.thread.i ]
+  %.1155.i = phi i32 [ 1, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %59 ], [ 0, %63 ], [ 0, %105 ], [ 1, %86 ], [ 0, %95 ], [ 0, %101 ], [ %94, %93 ], [ 8, %71 ], [ 22, %186 ], [ %339, %338 ], [ %337, %336 ], [ %300, %299 ], [ %212, %http_should_fail.exit.thread231.i ], [ 22, %http_should_fail.exit.thread.i ]
   %.not222.i = icmp eq ptr %.0.i, null
   br i1 %.not222.i, label %http_on_response.exit, label %340
 
@@ -6678,11 +6678,11 @@ select.unfold458.i:                               ; preds = %864, %858, %855
   br i1 %.not402.i, label %http_header.exit.thread, label %.thread291
 
 http_header.exit:                                 ; preds = %585, %634, %644
-  %.0.i246 = phi i32 [ %.1.i253, %634 ], [ %646, %644 ], [ %599, %585 ]
+  %.0.i246 = phi i32 [ %599, %585 ], [ %.1.i253, %634 ], [ %646, %644 ]
   %.not214 = icmp eq i32 %.0.i246, 0
   br i1 %.not214, label %http_header.exit.thread, label %.thread291
 
-http_header.exit.thread:                          ; preds = %.critedge424.i, %969, %961, %936, %939, %943, %835, %801, %797, %790, %815, %822, %826, %813, %809, %805, %802, %734, %741, %676, %683, %687, %655, %656, %665, %.thread457.i, %886, %949, %http_header.exit
+http_header.exit.thread:                          ; preds = %.critedge424.i, %969, %961, %936, %939, %943, %835, %801, %797, %790, %815, %822, %826, %813, %809, %805, %802, %734, %741, %676, %683, %687, %655, %656, %949, %886, %.thread457.i, %665, %http_header.exit
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %1, i64 noundef %2) #11
   %971 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %972 = load i32, ptr %971, align 8, !tbaa !214
@@ -7953,7 +7953,7 @@ http_exp100_continue.exit:                        ; preds = %46, %43
   br label %66
 
 66:                                               ; preds = %62, %38, %25, %14, %13
-  %.0 = phi i32 [ %65, %62 ], [ 0, %38 ], [ 26, %25 ], [ 0, %14 ], [ 0, %13 ]
+  %.0 = phi i32 [ %65, %62 ], [ 0, %14 ], [ 0, %13 ], [ 26, %25 ], [ 0, %38 ]
   ret i32 %.0
 }
 

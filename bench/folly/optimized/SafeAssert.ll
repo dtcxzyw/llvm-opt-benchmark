@@ -697,7 +697,7 @@ define internal fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i
-  %.1.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %28, %27 ]
+  %.1.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i, %._crit_edge.i.i ]
   %.1.val.i.i = load i32, ptr %.1.i.i, align 8
   %30 = icmp eq i32 %.1.val.i.i, %2
   br i1 %30, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit", label %31
@@ -707,7 +707,7 @@ define internal fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i
-  %.2.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %32, %31 ]
+  %.2.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i, %._crit_edge.i.i ]
   %.2.val.i.i = load i32, ptr %.2.i.i, align 8
   %34 = icmp eq i32 %.2.val.i.i, %2
   br i1 %34, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit", label %35

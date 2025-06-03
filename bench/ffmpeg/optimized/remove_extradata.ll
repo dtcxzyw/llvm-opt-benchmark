@@ -448,7 +448,7 @@ vc1_split.exit:                                   ; preds = %189, %168, %183
   br label %mpegvideo_split.exit
 
 mpegvideo_split.exit:                             ; preds = %167, %164, %148, %23, %vc1_split.exit, %hevc_split.exit, %h264_split.exit, %mpeg4video_split.exit, %av1_split.exit
-  %.0 = phi i32 [ %.011.i, %vc1_split.exit ], [ %.0.i34, %hevc_split.exit ], [ %.0.i32, %h264_split.exit ], [ %.0.i, %mpeg4video_split.exit ], [ %.2.i, %av1_split.exit ], [ 0, %23 ], [ %166, %164 ], [ 0, %148 ], [ 0, %167 ]
+  %.0 = phi i32 [ %.2.i, %av1_split.exit ], [ %.0.i, %mpeg4video_split.exit ], [ %.0.i32, %h264_split.exit ], [ %.0.i34, %hevc_split.exit ], [ %.011.i, %vc1_split.exit ], [ 0, %23 ], [ %166, %164 ], [ 0, %148 ], [ 0, %167 ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %192 = load ptr, ptr %191, align 8, !tbaa !26
   %193 = sext i32 %.0 to i64

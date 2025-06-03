@@ -358,7 +358,7 @@ define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo20sign_extended_addendEv(
   br label %23
 
 23:                                               ; preds = %1, %19, %12, %8, %4
-  %.0 = phi i64 [ %22, %19 ], [ %18, %12 ], [ %11, %8 ], [ %7, %4 ], [ 0, %1 ]
+  %.0 = phi i64 [ %7, %4 ], [ %11, %8 ], [ %18, %12 ], [ %22, %19 ], [ 0, %1 ]
   ret i64 %.0
 }
 

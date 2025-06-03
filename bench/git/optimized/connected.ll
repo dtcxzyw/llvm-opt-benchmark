@@ -425,7 +425,7 @@ _.exit98:                                         ; preds = %141, %143
   br label %.cont135.thread
 
 .cont135.thread:                                  ; preds = %.cont140, %.cont135, %8, %146, %_.exit92, %55
-  %.048 = phi i32 [ -1, %_.exit92 ], [ %151, %146 ], [ 0, %55 ], [ 0, %8 ], [ 0, %.cont135 ], [ 0, %.cont140 ]
+  %.048 = phi i32 [ 0, %55 ], [ -1, %_.exit92 ], [ %151, %146 ], [ 0, %8 ], [ 0, %.cont135 ], [ 0, %.cont140 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #11
   ret i32 %.048
 }

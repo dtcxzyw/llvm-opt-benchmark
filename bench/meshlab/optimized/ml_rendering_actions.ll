@@ -6070,7 +6070,7 @@ define noundef zeroext i1 @_ZNK26MLRenderingNoShadingAction22isRenderingDataEnab
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %2, %5, %16, %12, %8
-  %.0 = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %5 ], [ false, %2 ]
+  %.0 = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -6988,7 +6988,7 @@ define noundef zeroext i1 @_ZNK29MLRenderingPerMeshColorAction22isRenderingDataE
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %2, %5, %16, %12, %8
-  %.0 = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %5 ], [ false, %2 ]
+  %.0 = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -8316,7 +8316,7 @@ define noundef zeroext i1 @_ZNK33MLRenderingUserDefinedColorAction22isRenderingD
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %2, %5, %16, %12, %8
-  %.0 = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %5 ], [ false, %2 ]
+  %.0 = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0
 }
 

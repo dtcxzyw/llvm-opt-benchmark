@@ -1257,7 +1257,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   br label %374
 
 374:                                              ; preds = %372, %.thread290.i, %274, %272, %.thread289.i, %141
-  %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread290.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread289.i ], [ %160, %141 ]
+  %.0.i = phi i32 [ %373, %372 ], [ %160, %141 ], [ %271, %.thread289.i ], [ %273, %272 ], [ %341, %274 ], [ %371, %.thread290.i ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %375 = icmp samesign ult i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
@@ -1346,7 +1346,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   br label %dissect_solaredge_devicedata.exit
 
 dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %416, %386, %382, %418, %102
-  %.0113 = phi i32 [ %419, %418 ], [ 20, %378 ], [ %.1, %416 ], [ 20, %386 ], [ 20, %382 ], [ %103, %102 ], [ 20, %374 ]
+  %.0113 = phi i32 [ %419, %418 ], [ %103, %102 ], [ 20, %378 ], [ %.1, %416 ], [ 20, %386 ], [ 20, %382 ], [ 20, %374 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   %420 = add nuw nsw i32 %28, 20
   %421 = load i32, ptr @hf_solaredge_crc_type, align 4

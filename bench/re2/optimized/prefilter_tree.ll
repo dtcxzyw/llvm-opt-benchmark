@@ -653,7 +653,7 @@ for.body34:                                       ; preds = %for.cond30.preheade
   br i1 %call37, label %for.cond30, label %return
 
 return:                                           ; preds = %for.body34, %for.cond30, %for.cond30.preheader, %if.end, %if.end, %entry, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE6resizeEm.exit, %sw.bb9, %invoke.cont7
-  %retval.0 = phi i1 [ false, %invoke.cont7 ], [ %cmp27, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE6resizeEm.exit ], [ %cmp12, %sw.bb9 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end ], [ true, %for.cond30.preheader ], [ %call37, %for.cond30 ], [ %call37, %for.body34 ]
+  %retval.0 = phi i1 [ false, %invoke.cont7 ], [ %cmp12, %sw.bb9 ], [ %cmp27, %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE6resizeEm.exit ], [ false, %entry ], [ false, %if.end ], [ false, %if.end ], [ true, %for.cond30.preheader ], [ %call37, %for.cond30 ], [ %call37, %for.body34 ]
   ret i1 %retval.0
 }
 

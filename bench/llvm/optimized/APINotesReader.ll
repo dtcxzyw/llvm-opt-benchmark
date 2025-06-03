@@ -2201,8 +2201,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit24:                  ; preds = %56
   %67 = select i1 %63, i1 %66, i1 false
   br i1 %67, label %._crit_edge, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit
 
-.loopexit:                                        ; preds = %.split8, %_ZN4llvm8ExpectedIjED2Ev.exit, %41, %43, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread
-  %68 = phi i8 [ %61, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread ], [ %58, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52 ], [ %59, %.split8 ], [ %54, %_ZN4llvm8ExpectedIjED2Ev.exit ], [ %42, %41 ], [ %44, %43 ]
+.loopexit:                                        ; preds = %.split8, %41, %43, %_ZN4llvm8ExpectedIjED2Ev.exit, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread
+  %68 = phi i8 [ %61, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread ], [ %58, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52 ], [ %59, %.split8 ], [ %42, %41 ], [ %44, %43 ], [ %54, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   store i8 %68, ptr %13, align 8
   br label %69
 
@@ -7515,8 +7515,8 @@ _ZN4llvm5ErrorD2Ev.exit71:                        ; preds = %195
   br label %202
 
 202:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit71, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread, %122, %128, %134, %140, %146, %152, %158, %164, %170, %176, %182, %188, %194, %198, %93, %119, %191, %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %116, %_ZN4llvm5ErrorD2Ev.exit67
-  %.149 = phi i8 [ %.048, %_ZN4llvm5ErrorD2Ev.exit67 ], [ %.048, %198 ], [ %.048, %194 ], [ %.048, %188 ], [ %.048, %182 ], [ %.048, %176 ], [ %.048, %170 ], [ %.048, %164 ], [ %.048, %158 ], [ %.048, %152 ], [ %.048, %146 ], [ %.048, %140 ], [ %.048, %134 ], [ %.048, %128 ], [ %.048, %122 ], [ %.048, %93 ], [ %.048, %_ZN4llvm5ErrorD2Ev.exit71 ], [ 1, %191 ], [ 1, %185 ], [ 1, %179 ], [ 1, %173 ], [ 1, %167 ], [ 1, %161 ], [ 1, %155 ], [ 1, %149 ], [ 1, %143 ], [ 1, %137 ], [ 1, %131 ], [ 1, %125 ], [ %.048, %116 ], [ 1, %119 ], [ %.048, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
-  %.3 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit67 ], [ 1, %198 ], [ 1, %194 ], [ 1, %188 ], [ 1, %182 ], [ 1, %176 ], [ 1, %170 ], [ 1, %164 ], [ 1, %158 ], [ 1, %152 ], [ 1, %146 ], [ 1, %140 ], [ 1, %134 ], [ 1, %128 ], [ 1, %122 ], [ 5, %93 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit71 ], [ 0, %191 ], [ 0, %185 ], [ 0, %179 ], [ 0, %173 ], [ 0, %167 ], [ 0, %161 ], [ 0, %155 ], [ 0, %149 ], [ 0, %143 ], [ 0, %137 ], [ 0, %131 ], [ 0, %125 ], [ 0, %116 ], [ 0, %119 ], [ 0, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
+  %.149 = phi i8 [ %.048, %_ZN4llvm5ErrorD2Ev.exit67 ], [ %.048, %198 ], [ %.048, %122 ], [ %.048, %128 ], [ %.048, %134 ], [ %.048, %140 ], [ %.048, %146 ], [ %.048, %152 ], [ %.048, %158 ], [ %.048, %164 ], [ %.048, %170 ], [ %.048, %176 ], [ %.048, %182 ], [ %.048, %188 ], [ %.048, %194 ], [ %.048, %93 ], [ %.048, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %.048, %116 ], [ 1, %125 ], [ 1, %131 ], [ 1, %137 ], [ 1, %143 ], [ 1, %149 ], [ 1, %155 ], [ 1, %161 ], [ 1, %167 ], [ 1, %173 ], [ 1, %179 ], [ 1, %185 ], [ 1, %191 ], [ 1, %119 ], [ %.048, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
+  %.3 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit67 ], [ 1, %198 ], [ 1, %122 ], [ 1, %128 ], [ 1, %134 ], [ 1, %140 ], [ 1, %146 ], [ 1, %152 ], [ 1, %158 ], [ 1, %164 ], [ 1, %170 ], [ 1, %176 ], [ 1, %182 ], [ 1, %188 ], [ 1, %194 ], [ 5, %93 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit71 ], [ 0, %116 ], [ 0, %125 ], [ 0, %131 ], [ 0, %137 ], [ 0, %143 ], [ 0, %149 ], [ 0, %155 ], [ 0, %161 ], [ 0, %167 ], [ 0, %173 ], [ 0, %179 ], [ 0, %185 ], [ 0, %191 ], [ 0, %119 ], [ 0, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
   %203 = load i8, ptr %69, align 8
   %204 = trunc i8 %203 to i1
   br i1 %204, label %205, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit

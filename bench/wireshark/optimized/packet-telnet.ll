@@ -1157,8 +1157,8 @@ unescape_and_tvbuffify_telnet_option.exit111.i.i: ; preds = %.outer._crit_edge.i
   br label %telnet_command.exit
 
 telnet_command.exit:                              ; preds = %119, %add_telnet_info_str.exit.i, %.loopexit.i.i, %167, %173, %180, %unescape_and_tvbuffify_telnet_option.exit.i.i, %214, %unescape_and_tvbuffify_telnet_option.exit111.i.i, %249
-  %.2 = phi i32 [ %.1, %119 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit111.i.i ], [ %135, %249 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %135, %214 ], [ %135, %180 ], [ %135, %173 ], [ %135, %167 ], [ %135, %.loopexit.i.i ], [ %135, %add_telnet_info_str.exit.i ]
-  %.1.i = phi i32 [ %64, %119 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit111.i.i ], [ %.189.ph.i.i, %249 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %.189.ph.i.i, %214 ], [ %.189.ph.i.i, %180 ], [ %.189.ph.i.i, %173 ], [ %.189.ph.i.i, %167 ], [ %.189.ph.i.i, %.loopexit.i.i ], [ %.07884.i, %add_telnet_info_str.exit.i ]
+  %.2 = phi i32 [ %.1, %119 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit111.i.i ], [ %135, %249 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %135, %214 ], [ %135, %167 ], [ %135, %173 ], [ %135, %180 ], [ %135, %.loopexit.i.i ], [ %135, %add_telnet_info_str.exit.i ]
+  %.1.i = phi i32 [ %64, %119 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit111.i.i ], [ %.189.ph.i.i, %249 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %.189.ph.i.i, %214 ], [ %.189.ph.i.i, %167 ], [ %.189.ph.i.i, %173 ], [ %.189.ph.i.i, %180 ], [ %.189.ph.i.i, %.loopexit.i.i ], [ %.07884.i, %add_telnet_info_str.exit.i ]
   %252 = load ptr, ptr %6, align 8
   %253 = sub i32 %.1.i, %22
   call void @proto_item_set_len(ptr noundef %252, i32 noundef %253)
@@ -1981,14 +1981,14 @@ define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr readnone captur
   br i1 %.old1, label %.preheader, label %._crit_edge
 
 .loopexit:                                        ; preds = %.preheader, %40, %18, %25, %28, %22, %35, %10
-  %.169 = phi i32 [ %.06876, %10 ], [ %37, %35 ], [ %34, %28 ], [ %.06876, %25 ], [ %.06876, %22 ], [ %.06876, %18 ], [ %.06876, %40 ], [ %.270, %.preheader ]
-  %.1 = phi i32 [ %.077, %10 ], [ %36, %35 ], [ %33, %28 ], [ %.077, %25 ], [ %.077, %22 ], [ %.077, %18 ], [ %.077, %40 ], [ %.2, %.preheader ]
+  %.169 = phi i32 [ %.06876, %10 ], [ %34, %28 ], [ %.06876, %25 ], [ %.06876, %22 ], [ %.06876, %18 ], [ %37, %35 ], [ %.06876, %40 ], [ %.270, %.preheader ]
+  %.1 = phi i32 [ %.077, %10 ], [ %33, %28 ], [ %.077, %25 ], [ %.077, %22 ], [ %.077, %18 ], [ %36, %35 ], [ %.077, %40 ], [ %.2, %.preheader ]
   %57 = add i32 %.1, 1
   %58 = add nsw i32 %.169, -1
   %59 = icmp sgt i32 %.169, 1
   br i1 %59, label %10, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.loopexit, %54, %14, %43, %7
+._crit_edge:                                      ; preds = %.loopexit, %54, %43, %14, %7
   ret void
 }
 
@@ -2789,8 +2789,8 @@ telnet_get_session.exit139:                       ; preds = %44, %48
   br label %.thread140
 
 137:                                              ; preds = %7, %7, %7, %7, %7, %7, %22, %7
-  %.0128 = phi i32 [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %26, %22 ]
-  %.0 = phi i32 [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %25, %22 ]
+  %.0128 = phi i32 [ %26, %22 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ]
+  %.0 = phi i32 [ %25, %22 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ], [ %13, %7 ]
   %138 = icmp sgt i32 %.0128, 0
   br i1 %138, label %139, label %.thread140
 
@@ -2800,7 +2800,7 @@ telnet_get_session.exit139:                       ; preds = %44, %48
   %142 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %141, ptr noundef nonnull @ei_telnet_vmware_unexp_data, ptr noundef nonnull @.str.467, i32 noundef %.0128)
   br label %.thread140
 
-.thread140:                                       ; preds = %.lr.ph, %15, %102, %.thread, %41, %112, %119, %122, %125, %128, %137, %139, %131, %134
+.thread140:                                       ; preds = %.lr.ph, %15, %102, %.thread, %128, %125, %122, %119, %112, %41, %137, %139, %131, %134
   ret void
 }
 

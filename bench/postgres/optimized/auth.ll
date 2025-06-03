@@ -1875,7 +1875,7 @@ list_length.exit77.thread.i:                      ; preds = %844, %list_length.e
   br label %CheckPWChallengeAuth.exit.thread
 
 CheckPWChallengeAuth.exit:                        ; preds = %63, %63, %811, %395, %367, %ident_inet.exit, %auth_peer.exit
-  %.0 = phi i32 [ %.0.i77, %ident_inet.exit ], [ %.0.i, %auth_peer.exit ], [ 0, %367 ], [ 0, %395 ], [ 0, %811 ], [ 0, %63 ], [ 0, %63 ]
+  %.0 = phi i32 [ %.0.i, %auth_peer.exit ], [ %.0.i77, %ident_inet.exit ], [ 0, %367 ], [ 0, %395 ], [ 0, %811 ], [ 0, %63 ], [ 0, %63 ]
   %853 = load i8, ptr @Log_connections, align 1, !range !5, !noundef !6
   %854 = trunc nuw i8 %853 to i1
   %855 = icmp eq i32 %.0, 0

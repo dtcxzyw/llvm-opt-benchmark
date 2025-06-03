@@ -204,7 +204,7 @@ switch.lookup47:                                  ; preds = %17
   br label %switch.edge
 
 switch.edge:                                      ; preds = %17, %switch.lookup47, %7, %switch.lookup, %5, %15, %13, %11, %9, %3
-  %.0 = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %4, %3 ], [ %switch, %5 ], [ %switch.masked, %switch.lookup ], [ false, %7 ], [ %switch.masked51, %switch.lookup47 ], [ false, %17 ]
+  %.0 = phi i1 [ %4, %3 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %switch, %5 ], [ %switch.masked, %switch.lookup ], [ false, %7 ], [ %switch.masked51, %switch.lookup47 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -511,8 +511,8 @@ select.unfold:                                    ; preds = %22, %20
   br label %.thread
 
 66:                                               ; preds = %._crit_edge68, %32, %27
-  %.2 = phi i32 [ 5, %._crit_edge68 ], [ 4, %32 ], [ 3, %27 ]
-  %.045 = phi ptr [ %35, %._crit_edge68 ], [ %34, %32 ], [ %30, %27 ]
+  %.2 = phi i32 [ 3, %27 ], [ 4, %32 ], [ 5, %._crit_edge68 ]
+  %.045 = phi ptr [ %30, %27 ], [ %34, %32 ], [ %35, %._crit_edge68 ]
   %.not53 = icmp eq ptr %.045, null
   br i1 %.not53, label %.thread, label %67
 
@@ -524,8 +524,8 @@ select.unfold:                                    ; preds = %22, %20
 default.unreachable:                              ; preds = %.critedge
   unreachable
 
-.thread:                                          ; preds = %.critedge, %36, %60, %49, %67, %66
-  %.259 = phi i32 [ %.2, %67 ], [ %.2, %66 ], [ 2, %36 ], [ 2, %60 ], [ 2, %49 ], [ 2, %.critedge ]
+.thread:                                          ; preds = %.critedge, %60, %49, %36, %67, %66
+  %.259 = phi i32 [ %.2, %67 ], [ %.2, %66 ], [ 2, %60 ], [ 2, %49 ], [ 2, %36 ], [ 2, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %.259
 }
@@ -723,7 +723,7 @@ define hidden void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %1, p
   unreachable
 
 21:                                               ; preds = %.thread, %15, %12
-  %.020 = phi ptr [ %19, %.thread ], [ %17, %15 ], [ %14, %12 ]
+  %.020 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %19, %.thread ]
   %.not = icmp eq ptr %.020, null
   %.pre = load ptr, ptr %4, align 8
   br i1 %.not, label %.thread26, label %22
@@ -923,7 +923,7 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
   unreachable
 
 get_function_ftype.exit:                          ; preds = %resolve_unparsed.exit, %30, %45, %42, %42, %42, %42, %42, %16, %10, %39, %35, %2, %2, %2, %2, %41, %8, %6
-  %.0 = phi i32 [ 0, %41 ], [ %9, %8 ], [ %7, %6 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %42 ], [ %47, %45 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ %29, %resolve_unparsed.exit ], [ 0, %30 ]
+  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ], [ 0, %41 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %42 ], [ %47, %45 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ %29, %resolve_unparsed.exit ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret i32 %.0
@@ -1017,7 +1017,7 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
   unreachable
 
 39:                                               ; preds = %21, %10, %30
-  %.0 = phi i32 [ %31, %30 ], [ %22, %21 ], [ %12, %10 ]
+  %.0 = phi i32 [ %12, %10 ], [ %22, %21 ], [ %31, %30 ]
   switch i32 %.0, label %.thread46.fold.split [
     i32 45, label %.thread46
     i32 43, label %.thread46
@@ -1294,7 +1294,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
   unreachable
 
 94:                                               ; preds = %79, %61
-  %.058.i = phi i32 [ %72, %79 ], [ %54, %61 ]
+  %.058.i = phi i32 [ %54, %61 ], [ %72, %79 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = and i32 %96, 4
@@ -1401,8 +1401,8 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %40, %46, %50, %94, 
   unreachable
 
 138:                                              ; preds = %135, %134, %133, %132, %131, %114
-  %.057.i = phi ptr [ @do_bitwise_and, %135 ], [ @do_modulo, %134 ], [ @do_division, %133 ], [ @do_multiplication, %132 ], [ @do_subtraction, %131 ], [ @do_addition, %114 ]
-  %.056.i = phi ptr [ @ftype_can_bitwise_and, %135 ], [ @ftype_can_modulo, %134 ], [ @ftype_can_divide, %133 ], [ @ftype_can_multiply, %132 ], [ @ftype_can_subtract, %131 ], [ @ftype_can_add, %114 ]
+  %.057.i = phi ptr [ @do_subtraction, %131 ], [ @do_multiplication, %132 ], [ @do_division, %133 ], [ @do_modulo, %134 ], [ @do_bitwise_and, %135 ], [ @do_addition, %114 ]
+  %.056.i = phi ptr [ @ftype_can_subtract, %131 ], [ @ftype_can_multiply, %132 ], [ @ftype_can_divide, %133 ], [ @ftype_can_modulo, %134 ], [ @ftype_can_bitwise_and, %135 ], [ @ftype_can_add, %114 ]
   %139 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %36, i32 noundef range(i32 26, 24) %2)
   %140 = call zeroext i1 %.056.i(i32 noundef %139)
   br i1 %140, label %147, label %141
@@ -1470,7 +1470,7 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %40, %46, %50, %94, 
   unreachable
 
 check_arithmetic_LHS_NUMBER.exit:                 ; preds = %174, %171, %168, %164, %130, %127, %123, %check_arithmetic_LHS_TIME.exit, %31, %29, %27, %25, %19, %17, %14, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.0.i, %check_arithmetic_LHS_TIME.exit ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %116, %130 ], [ %116, %127 ], [ %116, %123 ], [ %139, %174 ], [ %139, %171 ], [ %139, %168 ], [ %139, %164 ]
+  %.0 = phi i32 [ 0, %3 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %.0.i, %check_arithmetic_LHS_TIME.exit ], [ %116, %130 ], [ %116, %127 ], [ %116, %123 ], [ %139, %174 ], [ %139, %171 ], [ %139, %168 ], [ %139, %164 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
@@ -1882,7 +1882,7 @@ find_logical_ftype.exit19.i:                      ; preds = %101
   unreachable
 
 112:                                              ; preds = %find_logical_ftype.exit19.i, %find_logical_ftype.exit18.i, %find_logical_ftype.exit.i
-  %.0.i = phi i32 [ %108, %find_logical_ftype.exit19.i ], [ %100, %find_logical_ftype.exit18.i ], [ %92, %find_logical_ftype.exit.i ]
+  %.0.i = phi i32 [ %92, %find_logical_ftype.exit.i ], [ %100, %find_logical_ftype.exit18.i ], [ %108, %find_logical_ftype.exit19.i ]
   %113 = tail call zeroext i1 @ftype_can_is_zero(i32 noundef %.0.i)
   br i1 %113, label %check_nonzero.exit, label %114
 

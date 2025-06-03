@@ -56,7 +56,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..fmt..Debug$GT$3fmt17h97f633ecf95f18e2E.exit"
 
 "_ZN87_$LT$datafusion_common..table_reference..TableReference$u20$as$u20$core..fmt..Debug$GT$3fmt17h97f633ecf95f18e2E.exit": ; preds = %11, %13, %16
-  %.0.in.i = phi i1 [ %18, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.0.in.i = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ]
   ret i1 %.0.in.i
 }
 

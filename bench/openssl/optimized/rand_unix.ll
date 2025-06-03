@@ -683,7 +683,7 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
   br label %get_time_stamp.exit
 
 get_time_stamp.exit:                              ; preds = %1, %14, %21
-  %.14.i = phi i64 [ %13, %1 ], [ %20, %14 ], [ %22, %21 ]
+  %.14.i = phi i64 [ %22, %21 ], [ %20, %14 ], [ %13, %1 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.14.i, ptr %23, align 8, !tbaa !36
   %24 = call i32 @ossl_rand_pool_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 24, i64 noundef 0) #11

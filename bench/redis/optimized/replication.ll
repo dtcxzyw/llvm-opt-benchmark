@@ -2071,7 +2071,7 @@ define dso_local void @replicationFeedMonitors(ptr noundef %0, ptr noundef %1, i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %50, %55, %58, %62, %66, %70
-  %.0.i = phi i64 [ %72, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %55 ], [ 0, %50 ]
+  %.0.i = phi i64 [ %57, %55 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %72, %70 ], [ 0, %50 ]
   %73 = tail call ptr @sdscatrepr(ptr noundef %.150, ptr noundef nonnull %46, i64 noundef %.0.i) #21
   br label %74
 
@@ -3619,7 +3619,7 @@ define dso_local void @replconfCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %46, %50, %54
-  %.0.i = phi i64 [ %56, %54 ], [ %53, %50 ], [ %49, %46 ]
+  %.0.i = phi i64 [ %49, %46 ], [ %53, %50 ], [ %56, %54 ]
   %57 = icmp ult i64 %.0.i, 256
   br i1 %57, label %sdslen.exit.thread, label %60
 
@@ -3660,7 +3660,7 @@ default.unreachable:                              ; preds = %60
   unreachable
 
 .thread:                                          ; preds = %69, %65, %61
-  %.0.i159 = phi i64 [ %71, %69 ], [ %68, %65 ], [ %64, %61 ]
+  %.0.i159 = phi i64 [ %64, %61 ], [ %68, %65 ], [ %71, %69 ]
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i64 noundef %.0.i159) #21
   br label %245
 
@@ -4414,7 +4414,7 @@ define dso_local void @sendBulkToSlave(ptr noundef %0) #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %7, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %7 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %7 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = load ptr, ptr %31, align 8, !tbaa !126
@@ -4486,7 +4486,7 @@ sdslen.exit:                                      ; preds = %7, %12, %15, %19, %
   br label %sdslen.exit43
 
 sdslen.exit43:                                    ; preds = %53, %56, %60, %64, %68
-  %.0.i42 = phi i64 [ %70, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %53 ]
+  %.0.i42 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
   %71 = icmp eq i64 %.0.i42, 0
   br i1 %71, label %sdslen.exit43.thread, label %149
 
@@ -7099,7 +7099,7 @@ define dso_local ptr @sendCommandRaw(ptr noundef %0, ptr noundef %1) local_unnam
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7296), align 8, !tbaa !207
   %26 = mul nsw i32 %25, 1000
   %27 = sext i32 %26 to i64
@@ -7214,7 +7214,7 @@ define dso_local ptr @sendCommand(ptr noundef %0, ...) local_unnamed_addr #0 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %48, %44, %40, %36, %33, %26
-  %.0.i.i = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ], [ 0, %26 ]
+  %.0.i.i = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ], [ 0, %26 ]
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7296), align 8, !tbaa !207
   %52 = mul nsw i32 %51, 1000
   %53 = sext i32 %52 to i64
@@ -7335,7 +7335,7 @@ define dso_local ptr @sendCommandArgv(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %44, %40, %36, %32, %29, %._crit_edge
-  %.0.i.i = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %29 ], [ 0, %._crit_edge ]
+  %.0.i.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %._crit_edge ]
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7296), align 8, !tbaa !207
   %48 = mul nsw i32 %47, 1000
   %49 = sext i32 %48 to i64
@@ -7533,7 +7533,7 @@ receiveSynchronousResponse.exit:                  ; preds = %39
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %72, %75, %79, %83, %87
-  %.0.i98 = phi i64 [ %89, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %72 ]
+  %.0.i98 = phi i64 [ %74, %72 ], [ %78, %75 ], [ %82, %79 ], [ %86, %83 ], [ %89, %87 ]
   %90 = icmp eq i64 %.0.i98, 0
   br i1 %90, label %sdslen.exit.thread, label %91
 
@@ -8096,7 +8096,7 @@ receiveSynchronousResponse.exit:                  ; preds = %41
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %86, %93, %96, %100, %104, %108
-  %.0.i139 = phi i64 [ %110, %108 ], [ %107, %104 ], [ %103, %100 ], [ %99, %96 ], [ %95, %93 ], [ 0, %86 ]
+  %.0.i139 = phi i64 [ %95, %93 ], [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ %110, %108 ], [ 0, %86 ]
   %111 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %87
   store i64 %.0.i139, ptr %111, align 8, !tbaa !78
   %112 = add nuw nsw i32 %.0, 1
@@ -8633,7 +8633,7 @@ connGetInfo.exit:                                 ; preds = %328
   br label %367
 
 362:                                              ; preds = %slaveGetPortStr.exit, %sdslen.exit, %221, %31, %126, %128
-  %.091 = phi ptr [ %40, %31 ], [ %113, %sdslen.exit ], [ %123, %slaveGetPortStr.exit ], [ %127, %126 ], [ %131, %128 ], [ %222, %221 ]
+  %.091 = phi ptr [ %40, %31 ], [ %127, %126 ], [ %131, %128 ], [ %123, %slaveGetPortStr.exit ], [ %113, %sdslen.exit ], [ %222, %221 ]
   %363 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !87
   %364 = icmp sgt i32 %363, 3
   br i1 %364, label %366, label %365
@@ -8854,7 +8854,7 @@ define internal void @rdbChannelFullSyncWithMaster(ptr noundef %0) #0 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %56, %52, %48, %44, %41, %34
-  %.0.i.i = phi i64 [ %58, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %41 ], [ 0, %34 ]
+  %.0.i.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ 0, %34 ]
   %59 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %35
   store i64 %.0.i.i, ptr %59, align 8, !tbaa !78
   %60 = add nuw nsw i32 %.018.i, 1
@@ -9279,8 +9279,8 @@ rdbChannelHandleFullresyncReply.exit:             ; preds = %235
   tail call void @abort() #24
   unreachable
 
-.thread51:                                        ; preds = %96, %130, %rdbChannelHandleReplconfReply.exit, %rdbChannelHandleFullresyncReply.exit, %199, %196
-  %.154 = phi ptr [ %191, %199 ], [ %191, %196 ], [ null, %96 ], [ %117, %130 ], [ null, %rdbChannelHandleReplconfReply.exit ], [ %191, %rdbChannelHandleFullresyncReply.exit ]
+.thread51:                                        ; preds = %rdbChannelHandleFullresyncReply.exit, %rdbChannelHandleReplconfReply.exit, %130, %96, %199, %196
+  %.154 = phi ptr [ %191, %199 ], [ %191, %196 ], [ %191, %rdbChannelHandleFullresyncReply.exit ], [ %117, %130 ], [ null, %rdbChannelHandleReplconfReply.exit ], [ null, %96 ]
   call void @sdsfree(ptr noundef %.154) #21
   br label %266
 
@@ -10351,7 +10351,7 @@ connAddrPeerName.exit.thread:                     ; preds = %19, %22, %28, %conn
   br label %53
 
 53:                                               ; preds = %47, %40, %48, %49, %50, %51, %52
-  %.0 = phi ptr [ @.str.232, %52 ], [ @.str.231, %51 ], [ @.str.230, %50 ], [ @.str.229, %49 ], [ @.str.228, %48 ], [ @.str.226, %40 ], [ @.str.227, %47 ]
+  %.0 = phi ptr [ @.str.232, %52 ], [ @.str.228, %48 ], [ @.str.229, %49 ], [ @.str.230, %50 ], [ @.str.231, %51 ], [ @.str.226, %40 ], [ @.str.227, %47 ]
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %.0) #21
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7280), align 8, !tbaa !152
   %.not33 = icmp eq ptr %54, null

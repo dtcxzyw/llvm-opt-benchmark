@@ -414,7 +414,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
   br label %23
 
 23:                                               ; preds = %16, %22, %21, %20, %19
-  %.021 = phi i64 [ 0, %16 ], [ 27, %22 ], [ 8, %21 ], [ 11, %20 ], [ 12, %19 ]
+  %.021 = phi i64 [ 0, %16 ], [ 12, %19 ], [ 11, %20 ], [ 8, %21 ], [ 27, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -484,7 +484,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
   br label %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i
 
 HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, %57, %56, %53
-  %.0.i.i = phi i32 [ 0, %61 ], [ 13, %60 ], [ 14, %59 ], [ 21, %58 ], [ 19, %57 ], [ 23, %56 ], [ 25, %53 ]
+  %.0.i.i = phi i32 [ 0, %61 ], [ 23, %56 ], [ 19, %57 ], [ 21, %58 ], [ 14, %59 ], [ 13, %60 ], [ 25, %53 ]
   %62 = call i64 @SDL_GetTicksNS_REAL() #8
   %63 = load i16, ptr %17, align 2
   switch i16 %63, label %.thread.i [
@@ -520,8 +520,8 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, 
   br label %81
 
 81:                                               ; preds = %75, %69, %64
-  %.0160.i = phi i8 [ %80, %75 ], [ %74, %69 ], [ %68, %64 ]
-  %.0.i = phi i8 [ %77, %75 ], [ %71, %69 ], [ %66, %64 ]
+  %.0160.i = phi i8 [ %68, %64 ], [ %74, %69 ], [ %80, %75 ]
+  %.0.i = phi i8 [ %66, %64 ], [ %71, %69 ], [ %77, %75 ]
   %.not.not.i = icmp eq i8 %.0.i, %.0160.i
   br i1 %.not.not.i, label %.thread.i, label %82
 
@@ -1095,7 +1095,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_OpenJoystick(ptr noundef 
   br label %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit
 
 HIDAPI_DriverLg4ff_GetNumberOfButtons.exit:       ; preds = %2, %6, %7, %8, %9, %10, %11
-  %.0.i = phi i32 [ 0, %11 ], [ 13, %10 ], [ 14, %9 ], [ 21, %8 ], [ 19, %7 ], [ 23, %6 ], [ 25, %2 ]
+  %.0.i = phi i32 [ 0, %11 ], [ 23, %6 ], [ 19, %7 ], [ 21, %8 ], [ 14, %9 ], [ 13, %10 ], [ 25, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %.0.i, ptr %12, align 8
   %13 = load i16, ptr %4, align 2

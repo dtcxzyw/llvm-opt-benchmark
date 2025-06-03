@@ -1197,7 +1197,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0ee9ae1f3c96070E.exit"
 
 "_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0ee9ae1f3c96070E.exit": ; preds = %8, %12, %16
-  %.0.in.i = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ]
+  %.0.in.i = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   ret i1 %.0.in.i
 }
 

@@ -2671,7 +2671,7 @@ define internal range(i32 -1, 1) i32 @H5A__compact_build_table_cb(ptr readnone c
   br label %56
 
 56:                                               ; preds = %28, %5, %54, %42
-  %.023 = phi i32 [ -1, %28 ], [ -1, %42 ], [ 0, %54 ], [ 0, %5 ]
+  %.023 = phi i32 [ -1, %42 ], [ 0, %54 ], [ -1, %28 ], [ 0, %5 ]
   ret i32 %.023
 }
 
@@ -3093,7 +3093,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
   br label %._crit_edge.thread
 
 94:                                               ; preds = %83, %64, %84
-  %.4 = phi i32 [ %89, %84 ], [ %77, %83 ], [ %58, %64 ]
+  %.4 = phi i32 [ %58, %64 ], [ %77, %83 ], [ %89, %84 ]
   br i1 %.not, label %98, label %95
 
 95:                                               ; preds = %94
@@ -3988,7 +3988,7 @@ define range(i32 -1, 1) i32 @H5A__attr_post_copy_file(ptr noundef readonly captu
   br label %98
 
 98:                                               ; preds = %37, %5, %62, %66, %75, %92, %88, %58, %48
-  %.034 = phi i32 [ -1, %37 ], [ -1, %48 ], [ -1, %58 ], [ -1, %88 ], [ 0, %75 ], [ 0, %92 ], [ 0, %66 ], [ 0, %62 ], [ 0, %5 ]
+  %.034 = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %88 ], [ 0, %75 ], [ 0, %92 ], [ 0, %66 ], [ 0, %62 ], [ -1, %37 ], [ 0, %5 ]
   ret i32 %.034
 }
 

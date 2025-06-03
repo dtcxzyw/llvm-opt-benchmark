@@ -549,7 +549,7 @@ define void @"_ZN20ruff_python_semantic5model3all60_$LT$impl$u20$ruff_python_sem
   br i1 %.not, label %62, label %22
 
 22:                                               ; preds = %19, %17, %15
-  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %20, %19 ]
+  %.sroa.0.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   %23 = load ptr, ptr %.sroa.0.0, align 8, !nonnull !4, !noundef !4
   %24 = load i32, ptr %23, align 8, !range !53, !noundef !4
   %25 = icmp eq i32 %24, 2
@@ -2791,8 +2791,8 @@ _ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a
   br label %.critedge
 
 .critedge:                                        ; preds = %365, %360, %165, %350, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73", %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67, %.loopexit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60, %94
-  %.sroa.11.0 = phi i32 [ %12, %94 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ %163, %.loopexit ], [ %272, %350 ], [ %163, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ %258, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ %.sroa.018.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ undef, %165 ], [ undef, %360 ], [ undef, %365 ]
-  %.sroa.0.0 = phi i32 [ 0, %94 ], [ 2, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ 4, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ 0, %.loopexit ], [ 0, %350 ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ 1, %165 ], [ 1, %360 ], [ 1, %365 ]
+  %.sroa.11.0 = phi i32 [ %12, %94 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ %163, %.loopexit ], [ %.sroa.018.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ %163, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ %258, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ %272, %350 ], [ undef, %165 ], [ undef, %360 ], [ undef, %365 ]
+  %.sroa.0.0 = phi i32 [ 0, %94 ], [ 2, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ 4, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ 0, %.loopexit ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ 0, %350 ], [ 1, %165 ], [ 1, %360 ], [ 1, %365 ]
   %99 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %100 = insertvalue { i32, i32 } %99, i32 %.sroa.11.0, 1
   ret { i32, i32 } %100
@@ -3828,7 +3828,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   br label %160
 
 160:                                              ; preds = %156, %152, %148, %145
-  %.sroa.8.0 = phi i32 [ %147, %145 ], [ %159, %156 ], [ %155, %152 ], [ %151, %148 ]
+  %.sroa.8.0 = phi i32 [ %147, %145 ], [ %151, %148 ], [ %155, %152 ], [ %159, %156 ]
   %.not36.not = icmp ugt i32 %.sroa.8.0, %3
   br i1 %.not36.not, label %.backedge, label %.loopexit56
 
@@ -4668,7 +4668,7 @@ tailrecurse.i:                                    ; preds = %32, %3
   unreachable
 
 140:                                              ; preds = %291, %212, %180, %168, %153, %129
-  %.pn = phi { ptr, i32 } [ %292, %291 ], [ %213, %212 ], [ %181, %180 ], [ %154, %153 ], [ %169, %168 ], [ %130, %129 ]
+  %.pn = phi { ptr, i32 } [ %130, %129 ], [ %154, %153 ], [ %169, %168 ], [ %181, %180 ], [ %213, %212 ], [ %292, %291 ]
   resume { ptr, i32 } %.pn
 
 141:                                              ; preds = %106

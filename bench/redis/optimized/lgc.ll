@@ -1001,7 +1001,7 @@ checkSizes.exit:                                  ; preds = %241, %245
   br label %266
 
 266:                                              ; preds = %1, %258, %262, %264, %250, %217, %atomic.exit, %10, %6
-  %.0 = phi i64 [ 0, %264 ], [ 400, %250 ], [ 10, %217 ], [ %11, %10 ], [ 0, %atomic.exit ], [ 0, %6 ], [ 100, %262 ], [ 100, %258 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %6 ], [ %11, %10 ], [ 0, %atomic.exit ], [ 10, %217 ], [ 400, %250 ], [ 0, %264 ], [ 100, %262 ], [ 100, %258 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -2226,7 +2226,7 @@ traverseproto.exit:                               ; preds = %.preheader.i54.trav
   br label %413
 
 413:                                              ; preds = %1, %traverseproto.exit, %traversestack.exit, %traverseclosure.exit, %157
-  %.0 = phi i64 [ %412, %traverseproto.exit ], [ %313, %traversestack.exit ], [ %229, %traverseclosure.exit ], [ %169, %157 ], [ 0, %1 ]
+  %.0 = phi i64 [ %169, %157 ], [ %229, %traverseclosure.exit ], [ %313, %traversestack.exit ], [ %412, %traverseproto.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 

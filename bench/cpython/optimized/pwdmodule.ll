@@ -73,7 +73,7 @@ define internal i32 @pwdmodule_traverse(ptr noundef %0, ptr noundef readonly cap
   br label %11
 
 11:                                               ; preds = %6, %10
-  %.1 = phi i32 [ %9, %6 ], [ 0, %10 ]
+  %.1 = phi i32 [ 0, %10 ], [ %9, %6 ]
   ret i32 %.1
 }
 

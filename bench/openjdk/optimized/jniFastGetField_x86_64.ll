@@ -326,7 +326,7 @@ switch.lookup:                                    ; preds = %1
   br label %138
 
 138:                                              ; preds = %114, %136, %134, %132, %130, %128, %126
-  %.065 = phi ptr [ null, %114 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ]
+  %.065 = phi ptr [ null, %114 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ]
   %.not.i.i66 = icmp eq ptr %.065, null
   %139 = select i1 %.not.i.i66, i32 0, i32 7
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %.065, i32 noundef %139) #9
@@ -697,7 +697,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %94, %101
   br label %124
 
 124:                                              ; preds = %122, %120
-  %.046 = phi ptr [ %123, %122 ], [ %121, %120 ]
+  %.046 = phi ptr [ %121, %120 ], [ %123, %122 ]
   %.not.i.i47 = icmp eq ptr %.046, null
   %125 = select i1 %.not.i.i47, i32 0, i32 7
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %.046, i32 noundef %125) #9

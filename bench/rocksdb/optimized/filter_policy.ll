@@ -2555,7 +2555,7 @@ _ZN7rocksdb18ConstexprFloorLog2IjEEiT_.exit:      ; preds = %25, %40
   br label %48
 
 48:                                               ; preds = %17, %19, %21, %23, %_ZN7rocksdb18ConstexprFloorLog2IjEEiT_.exit, %41, %35, %6
-  %.028 = phi ptr [ %7, %6 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %43, %_ZN7rocksdb18ConstexprFloorLog2IjEEiT_.exit ], [ %36, %35 ], [ %42, %41 ]
+  %.028 = phi ptr [ %7, %6 ], [ %24, %23 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %43, %_ZN7rocksdb18ConstexprFloorLog2IjEEiT_.exit ], [ %36, %35 ], [ %42, %41 ]
   ret ptr %.028
 }
 

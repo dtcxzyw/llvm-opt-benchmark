@@ -4719,40 +4719,40 @@ _ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEmNS_9ValueTypeEPS2_.exit: ; pred
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %79, i64 %84
   switch i8 %77, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread [
-    i8 1, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
-    i8 2, label %86
-    i8 4, label %89
-    i8 8, label %92
+    i8 1, label %86
+    i8 2, label %90
+    i8 4, label %93
+    i8 8, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
   ]
 
 86:                                               ; preds = %65
+  %87 = load i8, ptr %85, align 1, !tbaa !272
+  %88 = trunc i64 %76 to i8
+  %89 = icmp eq i8 %87, %88
+  br i1 %89, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+
+90:                                               ; preds = %65
   %.0.copyload.i.i.i19 = load i16, ptr %85, align 1
-  %87 = trunc i64 %76 to i16
-  %88 = icmp eq i16 %.0.copyload.i.i.i19, %87
-  br i1 %88, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+  %91 = trunc i64 %76 to i16
+  %92 = icmp eq i16 %.0.copyload.i.i.i19, %91
+  br i1 %92, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-89:                                               ; preds = %65
+93:                                               ; preds = %65
   %.0.copyload.i6.i.i = load i32, ptr %85, align 1
-  %90 = trunc i64 %76 to i32
-  %91 = icmp eq i32 %.0.copyload.i6.i.i, %90
-  br i1 %91, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
-
-92:                                               ; preds = %65
-  %.0.copyload.i7.i.i = load i64, ptr %85, align 1
-  %93 = icmp eq i64 %.0.copyload.i7.i.i, %76
-  br i1 %93, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
+  %94 = trunc i64 %76 to i32
+  %95 = icmp eq i32 %.0.copyload.i6.i.i, %94
+  br i1 %95, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
 _ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit: ; preds = %65
-  %94 = load i8, ptr %85, align 1, !tbaa !272
-  %95 = trunc i64 %76 to i8
-  %96 = icmp eq i8 %94, %95
+  %.0.copyload.i7.i.i = load i64, ptr %85, align 1
+  %96 = icmp eq i64 %.0.copyload.i7.i.i, %76
   br i1 %96, label %97, label %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread
 
-_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread: ; preds = %65, %86, %89, %92, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
+_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread: ; preds = %65, %93, %90, %86, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit
   tail call void @_ZN7rocksdb9BlockIterINS_10IndexValueEE28PerKVChecksumCorruptionErrorEv(ptr noundef nonnull align 8 dereferenceable(592) %0)
   br label %97
 
-97:                                               ; preds = %86, %89, %92, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread, %1, %62
+97:                                               ; preds = %93, %90, %86, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit, %_ZNK7rocksdb16ProtectionInfoKVImE6VerifyEhPKc.exit.thread, %1, %62
   ret void
 }
 

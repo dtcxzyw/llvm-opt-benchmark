@@ -1265,13 +1265,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %58, %47, %40, %37
-  %73 = phi i32 [ %60, %58 ], [ %49, %47 ], [ %42, %40 ], [ %39, %37 ]
-  %74 = phi i32 [ %62, %58 ], [ %51, %47 ], [ %44, %40 ], [ undef, %37 ]
-  %75 = phi i32 [ %72, %58 ], [ -1, %47 ], [ -1, %40 ], [ -1, %37 ]
-  %76 = phi ptr [ %59, %58 ], [ %48, %47 ], [ %41, %40 ], [ %38, %37 ]
-  %.1 = phi i32 [ %66, %58 ], [ %53, %47 ], [ -1, %40 ], [ -1, %37 ]
-  %.sink.i = phi i64 [ 28, %58 ], [ 20, %47 ], [ 16, %40 ], [ 12, %37 ]
-  %.sink44.i = phi ptr [ %12, %58 ], [ %12, %47 ], [ %10, %40 ], [ %9, %37 ]
+  %73 = phi i32 [ %39, %37 ], [ %42, %40 ], [ %49, %47 ], [ %60, %58 ]
+  %74 = phi i32 [ undef, %37 ], [ %44, %40 ], [ %51, %47 ], [ %62, %58 ]
+  %75 = phi i32 [ -1, %37 ], [ -1, %40 ], [ -1, %47 ], [ %72, %58 ]
+  %76 = phi ptr [ %38, %37 ], [ %41, %40 ], [ %48, %47 ], [ %59, %58 ]
+  %.1 = phi i32 [ -1, %37 ], [ -1, %40 ], [ %53, %47 ], [ %66, %58 ]
+  %.sink.i = phi i64 [ 12, %37 ], [ 16, %40 ], [ 20, %47 ], [ 28, %58 ]
+  %.sink44.i = phi ptr [ %9, %37 ], [ %10, %40 ], [ %12, %47 ], [ %12, %58 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sink.i
   %78 = load i32, ptr %77, align 4, !tbaa !55
   store i32 %78, ptr %.sink44.i, align 4, !tbaa !55
@@ -1304,8 +1304,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   br label %_ZNK4ncnn3Mat5shapeEv.exit234
 
 _ZNK4ncnn3Mat5shapeEv.exit234:                    ; preds = %79, %80, %81, %82, %86
-  %.sroa.85.0 = phi i32 [ %89, %86 ], [ %85, %82 ], [ 1, %81 ], [ 1, %80 ], [ 0, %79 ]
-  %.sroa.48.0 = phi i32 [ 4, %86 ], [ 3, %82 ], [ 2, %81 ], [ 1, %80 ], [ 0, %79 ]
+  %.sroa.85.0 = phi i32 [ 1, %80 ], [ 1, %81 ], [ %85, %82 ], [ %89, %86 ], [ 0, %79 ]
+  %.sroa.48.0 = phi i32 [ 1, %80 ], [ 2, %81 ], [ 3, %82 ], [ 4, %86 ], [ 0, %79 ]
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %91 = load i32, ptr %90, align 8, !tbaa !47, !noalias !59
   switch i32 %91, label %_ZNK4ncnn3Mat5shapeEv.exit236 [
@@ -1360,11 +1360,11 @@ _ZNK4ncnn3Mat5shapeEv.exit234:                    ; preds = %79, %80, %81, %82, 
   br label %_ZNK4ncnn3Mat5shapeEv.exit236
 
 _ZNK4ncnn3Mat5shapeEv.exit236:                    ; preds = %115, %.noexc235, %98, %92, %_ZNK4ncnn3Mat5shapeEv.exit234
-  %.sroa.68.0 = phi i32 [ %121, %115 ], [ 1, %.noexc235 ], [ 1, %98 ], [ 1, %92 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %.sroa.58.0 = phi i32 [ %119, %115 ], [ %109, %.noexc235 ], [ %105, %98 ], [ 1, %92 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %.sroa.47.0 = phi i32 [ %117, %115 ], [ %107, %.noexc235 ], [ %100, %98 ], [ %97, %92 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %127 = phi i32 [ %126, %115 ], [ %.sroa.85.0, %.noexc235 ], [ %.sroa.85.0, %98 ], [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
-  %128 = phi i32 [ %.sroa.85.0, %115 ], [ %114, %.noexc235 ], [ %.sroa.85.0, %98 ], [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.68.0 = phi i32 [ 1, %92 ], [ 1, %98 ], [ 1, %.noexc235 ], [ %121, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.58.0 = phi i32 [ 1, %92 ], [ %105, %98 ], [ %109, %.noexc235 ], [ %119, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %.sroa.47.0 = phi i32 [ %97, %92 ], [ %100, %98 ], [ %107, %.noexc235 ], [ %117, %115 ], [ 0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %127 = phi i32 [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %.sroa.85.0, %.noexc235 ], [ %126, %115 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
+  %128 = phi i32 [ %.sroa.85.0, %92 ], [ %.sroa.85.0, %98 ], [ %114, %.noexc235 ], [ %.sroa.85.0, %115 ], [ %.sroa.85.0, %_ZNK4ncnn3Mat5shapeEv.exit234 ]
   switch i32 %.sroa.48.0, label %_ZN4ncnn3MatD2Ev.exit [
     i32 1, label %129
     i32 2, label %130
@@ -1415,10 +1415,10 @@ _ZNK4ncnn3Mat5shapeEv.exit236:                    ; preds = %115, %.noexc235, %9
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %36, %138, %133, %130, %129, %_ZNK4ncnn3Mat5shapeEv.exit236, %.sink.split.i
-  %145 = phi i32 [ %73, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %34, %138 ], [ %34, %133 ], [ %34, %130 ], [ %34, %129 ], [ undef, %36 ]
-  %146 = phi i32 [ %74, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %140, %138 ], [ %135, %133 ], [ %132, %130 ], [ undef, %129 ], [ undef, %36 ]
-  %147 = phi i32 [ %75, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %.sroa.68.0, %138 ], [ -1, %133 ], [ -1, %130 ], [ -1, %129 ], [ -1, %36 ]
-  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %144, %138 ], [ %137, %133 ], [ -1, %130 ], [ -1, %129 ], [ -1, %36 ]
+  %145 = phi i32 [ %73, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ %34, %129 ], [ %34, %130 ], [ %34, %133 ], [ %34, %138 ], [ undef, %36 ]
+  %146 = phi i32 [ %74, %.sink.split.i ], [ undef, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ undef, %129 ], [ %132, %130 ], [ %135, %133 ], [ %140, %138 ], [ undef, %36 ]
+  %147 = phi i32 [ %75, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ -1, %133 ], [ %.sroa.68.0, %138 ], [ -1, %36 ]
+  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %_ZNK4ncnn3Mat5shapeEv.exit236 ], [ -1, %129 ], [ -1, %130 ], [ %137, %133 ], [ %144, %138 ], [ -1, %36 ]
   switch i32 %29, label %_ZN4ncnn3MataSERKS0_.exit [
     i32 1, label %148
     i32 2, label %299

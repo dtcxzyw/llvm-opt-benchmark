@@ -1105,7 +1105,7 @@ _load_fed_parts.exit:                             ; preds = %131, %132
   br label %_load_cluster_parts.exit
 
 _load_cluster_parts.exit:                         ; preds = %134, %148, %150, %152
-  %.0.i = phi i32 [ -1, %150 ], [ -1, %148 ], [ 0, %152 ], [ -1, %134 ]
+  %.0.i = phi i32 [ -1, %150 ], [ 0, %152 ], [ -1, %148 ], [ -1, %134 ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #11
   br label %153
 
@@ -1194,7 +1194,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions2(i64 noundef %0, pt
   br label %_load_cluster_parts.exit
 
 _load_cluster_parts.exit:                         ; preds = %4, %24, %26, %28
-  %.0.i = phi i32 [ -1, %26 ], [ -1, %24 ], [ 0, %28 ], [ -1, %4 ]
+  %.0.i = phi i32 [ -1, %26 ], [ 0, %28 ], [ -1, %24 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %6) #11

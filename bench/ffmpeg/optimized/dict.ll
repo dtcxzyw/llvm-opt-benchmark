@@ -506,7 +506,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br label %86
 
 86:                                               ; preds = %85, %72, %42, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ %.176132, %85 ], [ 0, %72 ]
+  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ 0, %72 ], [ %.176132, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %.0
 }

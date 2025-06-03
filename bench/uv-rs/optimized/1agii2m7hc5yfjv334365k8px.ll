@@ -103,8 +103,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %38
 
 38:                                               ; preds = %30, %25
-  %.sroa.6.2 = phi i64 [ %37, %30 ], [ %29, %25 ]
-  %.pn = phi i64 [ %34, %30 ], [ %26, %25 ]
+  %.sroa.6.2 = phi i64 [ %29, %25 ], [ %37, %30 ]
+  %.pn = phi i64 [ %26, %25 ], [ %34, %30 ]
   %.sroa.0.2 = getelementptr inbounds i8, ptr %.val, i64 %.pn
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %22

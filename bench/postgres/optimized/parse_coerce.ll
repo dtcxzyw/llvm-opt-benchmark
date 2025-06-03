@@ -887,7 +887,7 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   unreachable
 
 47:                                               ; preds = %.thread, %38, %41, %35
-  %.042 = phi i32 [ 2, %41 ], [ 1, %38 ], [ 0, %35 ], [ 4, %.thread ]
+  %.042 = phi i32 [ 1, %38 ], [ 2, %41 ], [ 0, %35 ], [ 4, %.thread ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %20) #5
   br label %.thread62
 

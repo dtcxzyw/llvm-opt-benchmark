@@ -11790,26 +11790,26 @@ _ZN4llvm8DebugLocD2Ev.exit492:                    ; preds = %_ZN4llvm10MIMetadat
   %459 = getelementptr inbounds nuw i8, ptr %454, i64 564
   %460 = load i32, ptr %459, align 4, !tbaa !157
   switch i32 %460, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread [
-    i32 5, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
-    i32 26, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
-    i32 27, label %461
-    i32 9, label %463
-    i32 1, label %463
+    i32 5, label %461
+    i32 26, label %461
+    i32 27, label %463
+    i32 9, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
+    i32 1, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
   ]
 
-461:                                              ; preds = %453
-  %462 = icmp ult i32 %458, 8
+461:                                              ; preds = %453, %453
+  %462 = icmp ult i32 %458, 15
   br i1 %462, label %466, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread
 
-463:                                              ; preds = %453, %453
-  %464 = icmp ult i32 %458, 12
+463:                                              ; preds = %453
+  %464 = icmp ult i32 %458, 8
   br i1 %464, label %466, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread
 
 _ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit: ; preds = %453, %453
-  %465 = icmp ult i32 %458, 15
+  %465 = icmp ult i32 %458, 12
   br i1 %465, label %466, label %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread
 
-466:                                              ; preds = %461, %463, %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
+466:                                              ; preds = %463, %461, %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit
   %.sroa.0207.0.copyload = load ptr, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %124) #24
   %467 = load ptr, ptr %118, align 8, !tbaa !346
@@ -11913,7 +11913,7 @@ _ZN4llvm8DebugLocD2Ev.exit500:                    ; preds = %_ZN4llvm10MIMetadat
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %124) #24
   br label %521
 
-_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread: ; preds = %453, %461, %463, %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit, %449
+_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit.thread: ; preds = %453, %463, %461, %_ZNK4llvm12X86Subtarget33swiftAsyncContextIsDynamicallySetEv.exit, %449
   %.sroa.0204.0.copyload = load ptr, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %126) #24
   %496 = load ptr, ptr %118, align 8, !tbaa !346
@@ -15627,9 +15627,9 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %1851
   br i1 %1891, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.i, label %.lr.ph.i.i.i.i, !prof !1515, !llvm.loop !1516
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.i: ; preds = %1885, %1876
-  %.lcssa.i.i.i.pn.i = phi i64 [ %1879, %1876 ], [ %1888, %1885 ]
+  %.pn.i = phi i64 [ %1879, %1876 ], [ %1888, %1885 ]
   %1892 = zext i32 %1874 to i64
-  %1893 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %1892
+  %1893 = icmp samesign eq i64 %.pn.i, %1892
   br i1 %1893, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread.i, label %1900
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread.i: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.i, %1868
@@ -15654,7 +15654,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMa
   %1906 = zext nneg i8 %.sroa.0.0.copyload.i.i842 to i64
   %notmask.i = shl nsw i64 -1, %1906
   %1907 = and i64 %notmask.i, %.0.i.i
-  %1908 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %1872, i64 %.lcssa.i.i.i.pn.i, i32 0, i32 1
+  %1908 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %1872, i64 %.pn.i, i32 0, i32 1
   %1909 = load i32, ptr %1908, align 4, !tbaa !1518
   %1910 = trunc i64 %1907 to i32
   %1911 = add i32 %1909, %1910
@@ -17257,9 +17257,9 @@ define dso_local noundef i32 @_ZNK4llvm16X86FrameLowering23getWin64EHFrameIndexR
   br i1 %29, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit, label %.lr.ph.i.i.i, !prof !1515, !llvm.loop !1516
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit: ; preds = %23, %14
-  %.lcssa.i.i.i.pn = phi i64 [ %17, %14 ], [ %26, %23 ]
+  %.pn = phi i64 [ %17, %14 ], [ %26, %23 ]
   %30 = zext i32 %12 to i64
-  %31 = icmp samesign eq i64 %.lcssa.i.i.i.pn, %30
+  %31 = icmp samesign eq i64 %.pn, %30
   br i1 %31, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread, label %38
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread: ; preds = %.lr.ph.i.i.i, %4, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit
@@ -17286,7 +17286,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMa
   %46 = zext nneg i8 %.sroa.0.0.copyload.i to i64
   %notmask = shl nsw i64 -1, %46
   %47 = and i64 %notmask, %.0.i
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.lcssa.i.i.i.pn, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pn, i32 0, i32 1
   %49 = load i32, ptr %48, align 4, !tbaa !1518
   %50 = trunc i64 %47 to i32
   %51 = add i32 %49, %50
@@ -25852,7 +25852,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12Mach
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %107, %106 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %107, %106 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !488
   %109 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 216
   %.1.val.val.i.i.i.i.i.i = load i8, ptr %109, align 8, !tbaa !2024, !range !142, !noundef !143
@@ -25864,7 +25864,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12Mach
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %112, %111 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !488
   %114 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 216
   %.2.val.val.i.i.i.i.i.i = load i8, ptr %114, align 8, !tbaa !2024, !range !142, !noundef !143
@@ -28984,7 +28984,7 @@ define dso_local void @_ZNK4llvm16X86FrameLowering21checkInterferedAccessERNS_15
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8
   %52 = and i32 %.1.val.i.i.i.i.i.i, 255
   %53 = icmp eq i32 %52, 5
@@ -28995,7 +28995,7 @@ define dso_local void @_ZNK4llvm16X86FrameLowering21checkInterferedAccessERNS_15
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8
   %57 = and i32 %.2.val.i.i.i.i.i.i, 255
   %58 = icmp eq i32 %57, 5

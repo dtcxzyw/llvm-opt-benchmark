@@ -102,7 +102,7 @@ define void @_ZN11duckdb_zstd44ZSTD_dedicatedDictSearch_lazy_loadDictionaryEPNS_
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit:       ; preds = %49, %53, %56, %59, %62
-  %.0.i = phi i64 [ %52, %49 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %64, %62 ]
+  %.0.i = phi i64 [ %52, %49 ], [ %64, %62 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
   %.not138 = icmp samesign ult i64 %indvars.iv, %42
   %.pre = and i64 %.0.i, 4294967295
   br i1 %.not138, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit._crit_edge, label %65
@@ -299,7 +299,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit._crit_edge: ; preds = %_ZN11duckdb_zs
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit141
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit141:    ; preds = %137, %141, %144, %147, %150
-  %.0.i140 = phi i64 [ %140, %137 ], [ %149, %147 ], [ %146, %144 ], [ %143, %141 ], [ %152, %150 ]
+  %.0.i140 = phi i64 [ %140, %137 ], [ %152, %150 ], [ %143, %141 ], [ %146, %144 ], [ %149, %147 ]
   %153 = trunc i64 %.0.i140 to i32
   %154 = shl i32 %153, 2
   %invariant.op = add i32 %154, -1
@@ -534,7 +534,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit32.i:   ; preds = %.lr.ph, %_ZN11duckd
   br label %_ZN11duckdb_zstdL37ZSTD_insertAndFindFirstIndex_internalEPNS_17ZSTD_matchState_tEPKNS_26ZSTD_compressionParametersEPKhjj.exit
 
 _ZN11duckdb_zstdL37ZSTD_insertAndFindFirstIndex_internalEPNS_17ZSTD_matchState_tEPKNS_26ZSTD_compressionParametersEPKhjj.exit: ; preds = %79, %84, %89, %94, %99
-  %.0.i.i = phi i64 [ %83, %79 ], [ %98, %94 ], [ %93, %89 ], [ %88, %84 ], [ %103, %99 ]
+  %.0.i.i = phi i64 [ %83, %79 ], [ %103, %99 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ]
   %104 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.i.i
   %105 = load i32, ptr %104, align 4, !tbaa !26
   ret i32 %105
@@ -893,7 +893,7 @@ default.unreachable:                              ; preds = %105
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %106, %108, %110
-  %.0.i4 = phi i64 [ %111, %110 ], [ %109, %108 ], [ %107, %106 ]
+  %.0.i4 = phi i64 [ %107, %106 ], [ %109, %108 ], [ %111, %110 ]
   %.not = icmp eq i64 %.0.i4, 0
   %112 = load i64, ptr %6, align 8
   %.1450.i = select i1 %.not, i64 1, i64 %112
@@ -1423,7 +1423,7 @@ default.unreachable:                              ; preds = %80
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %81, %83, %85
-  %.0.i4 = phi i64 [ %86, %85 ], [ %84, %83 ], [ %82, %81 ]
+  %.0.i4 = phi i64 [ %82, %81 ], [ %84, %83 ], [ %86, %85 ]
   %.not = icmp eq i64 %.0.i4, 0
   %87 = load i64, ptr %6, align 8
   %.1466.i = select i1 %.not, ptr %58, ptr %.0.i85
@@ -1489,11 +1489,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %121
 
 121:                                              ; preds = %74, %.critedge7.i, %97
-  %.0465.i = phi ptr [ %58, %74 ], [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %97 ]
-  %.0449.i = phi i64 [ 1, %74 ], [ %.1450.i, %.critedge7.i ], [ %.1450.i, %97 ]
-  %.3442.i = phi i64 [ %79, %74 ], [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i4, %97 ]
-  %.4428.i = phi i32 [ %.2426.i82, %74 ], [ %.2418.i83, %.critedge7.i ], [ %.2426.i82, %97 ]
-  %.4420.i = phi i32 [ %.2418.i83, %74 ], [ %120, %.critedge7.i ], [ %.2418.i83, %97 ]
+  %.0465.i = phi ptr [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %97 ], [ %58, %74 ]
+  %.0449.i = phi i64 [ %.1450.i, %.critedge7.i ], [ %.1450.i, %97 ], [ 1, %74 ]
+  %.3442.i = phi i64 [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i4, %97 ], [ %79, %74 ]
+  %.4428.i = phi i32 [ %.2418.i83, %.critedge7.i ], [ %.2426.i82, %97 ], [ %.2426.i82, %74 ]
+  %.4420.i = phi i32 [ %120, %.critedge7.i ], [ %.2418.i83, %97 ], [ %.2418.i83, %74 ]
   %122 = ptrtoint ptr %.0465.i to i64
   %123 = ptrtoint ptr %.0409.i84 to i64
   %124 = sub i64 %122, %123
@@ -2075,7 +2075,7 @@ default.unreachable:                              ; preds = %80
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %81, %83, %85
-  %.0.i4 = phi i64 [ %86, %85 ], [ %84, %83 ], [ %82, %81 ]
+  %.0.i4 = phi i64 [ %82, %81 ], [ %84, %83 ], [ %86, %85 ]
   %.not = icmp eq i64 %.0.i4, 0
   %87 = load i64, ptr %6, align 8
   %.1466.i = select i1 %.not, ptr %58, ptr %.0.i85
@@ -2141,11 +2141,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %121
 
 121:                                              ; preds = %74, %.critedge7.i, %97
-  %.0465.i = phi ptr [ %58, %74 ], [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %97 ]
-  %.0449.i = phi i64 [ 1, %74 ], [ %.1450.i, %.critedge7.i ], [ %.1450.i, %97 ]
-  %.3442.i = phi i64 [ %79, %74 ], [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i4, %97 ]
-  %.4428.i = phi i32 [ %.2426.i82, %74 ], [ %.2418.i83, %.critedge7.i ], [ %.2426.i82, %97 ]
-  %.4420.i = phi i32 [ %.2418.i83, %74 ], [ %120, %.critedge7.i ], [ %.2418.i83, %97 ]
+  %.0465.i = phi ptr [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %97 ], [ %58, %74 ]
+  %.0449.i = phi i64 [ %.1450.i, %.critedge7.i ], [ %.1450.i, %97 ], [ 1, %74 ]
+  %.3442.i = phi i64 [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i4, %97 ], [ %79, %74 ]
+  %.4428.i = phi i32 [ %.2418.i83, %.critedge7.i ], [ %.2426.i82, %97 ], [ %.2426.i82, %74 ]
+  %.4420.i = phi i32 [ %120, %.critedge7.i ], [ %.2418.i83, %97 ], [ %.2418.i83, %74 ]
   %122 = ptrtoint ptr %.0465.i to i64
   %123 = ptrtoint ptr %.0409.i84 to i64
   %124 = sub i64 %122, %123
@@ -2719,7 +2719,7 @@ define noundef i64 @_ZN11duckdb_zstd29ZSTD_compressBlock_greedy_rowEPNS_17ZSTD_m
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %86, %82, %78
-  %.0.i7.us = phi i64 [ %90, %86 ], [ %85, %82 ], [ %81, %78 ]
+  %.0.i7.us = phi i64 [ %90, %86 ], [ %81, %78 ], [ %85, %82 ]
   %91 = trunc i64 %.0.i7.us to i32
   %92 = lshr i32 %91, 8
   %93 = shl nuw nsw i32 %92, %22
@@ -3025,7 +3025,7 @@ default.unreachable:                              ; preds = %215, %208, %201, %2
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %202, %204, %206, %209, %211, %213, %216, %218, %220
-  %.0.i11 = phi i64 [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ]
+  %.0.i11 = phi i64 [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ]
   %.not = icmp eq i64 %.0.i11, 0
   %222 = load i64, ptr %6, align 8
   %.1450.i = select i1 %.not, i64 1, i64 %222
@@ -3292,7 +3292,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit13: ; preds = %3
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %343, %348, %352
-  %.0.i8 = phi i64 [ %347, %343 ], [ %355, %352 ], [ %351, %348 ]
+  %.0.i8 = phi i64 [ %347, %343 ], [ %351, %348 ], [ %355, %352 ]
   %356 = trunc i64 %.0.i8 to i32
   %357 = lshr i32 %356, 8
   %358 = shl nuw nsw i32 %357, %22
@@ -3639,7 +3639,7 @@ define noundef i64 @_ZN11duckdb_zstd44ZSTD_compressBlock_greedy_dictMatchState_r
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %85, %81, %77
-  %.0.i7.us = phi i64 [ %89, %85 ], [ %84, %81 ], [ %80, %77 ]
+  %.0.i7.us = phi i64 [ %89, %85 ], [ %80, %77 ], [ %84, %81 ]
   %90 = trunc i64 %.0.i7.us to i32
   %91 = lshr i32 %90, 8
   %92 = shl nuw nsw i32 %91, %21
@@ -3867,7 +3867,7 @@ default.unreachable:                              ; preds = %190, %183, %176, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %177, %179, %181, %184, %186, %188, %191, %193, %195
-  %.0.i11 = phi i64 [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ]
+  %.0.i11 = phi i64 [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ]
   %.not = icmp eq i64 %.0.i11, 0
   %197 = load i64, ptr %6, align 8
   %.1466.i = select i1 %.not, ptr %153, ptr %.0.i124
@@ -3933,11 +3933,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %231
 
 231:                                              ; preds = %169, %.critedge7.i, %207
-  %.0465.i = phi ptr [ %153, %169 ], [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %207 ]
-  %.0449.i = phi i64 [ 1, %169 ], [ %.1450.i, %.critedge7.i ], [ %.1450.i, %207 ]
-  %.3442.i = phi i64 [ %174, %169 ], [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i11, %207 ]
-  %.4428.i = phi i32 [ %.2426.i121, %169 ], [ %.2418.i122, %.critedge7.i ], [ %.2426.i121, %207 ]
-  %.4420.i = phi i32 [ %.2418.i122, %169 ], [ %230, %.critedge7.i ], [ %.2418.i122, %207 ]
+  %.0465.i = phi ptr [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %207 ], [ %153, %169 ]
+  %.0449.i = phi i64 [ %.1450.i, %.critedge7.i ], [ %.1450.i, %207 ], [ 1, %169 ]
+  %.3442.i = phi i64 [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i11, %207 ], [ %174, %169 ]
+  %.4428.i = phi i32 [ %.2418.i122, %.critedge7.i ], [ %.2426.i121, %207 ], [ %.2426.i121, %169 ]
+  %.4420.i = phi i32 [ %230, %.critedge7.i ], [ %.2418.i122, %207 ], [ %.2418.i122, %169 ]
   %232 = ptrtoint ptr %.0465.i to i64
   %233 = ptrtoint ptr %.0409.i123 to i64
   %234 = sub i64 %232, %233
@@ -4141,7 +4141,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit13: ; preds = %2
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %320, %325, %329
-  %.0.i8 = phi i64 [ %324, %320 ], [ %332, %329 ], [ %328, %325 ]
+  %.0.i8 = phi i64 [ %324, %320 ], [ %328, %325 ], [ %332, %329 ]
   %333 = trunc i64 %.0.i8 to i32
   %334 = lshr i32 %333, 8
   %335 = shl nuw nsw i32 %334, %21
@@ -4603,7 +4603,7 @@ define noundef i64 @_ZN11duckdb_zstd49ZSTD_compressBlock_greedy_dedicatedDictSea
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %85, %81, %77
-  %.0.i7.us = phi i64 [ %89, %85 ], [ %84, %81 ], [ %80, %77 ]
+  %.0.i7.us = phi i64 [ %89, %85 ], [ %80, %77 ], [ %84, %81 ]
   %90 = trunc i64 %.0.i7.us to i32
   %91 = lshr i32 %90, 8
   %92 = shl nuw nsw i32 %91, %21
@@ -4831,7 +4831,7 @@ default.unreachable:                              ; preds = %190, %183, %176, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %177, %179, %181, %184, %186, %188, %191, %193, %195
-  %.0.i11 = phi i64 [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ]
+  %.0.i11 = phi i64 [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ]
   %.not = icmp eq i64 %.0.i11, 0
   %197 = load i64, ptr %6, align 8
   %.1466.i = select i1 %.not, ptr %153, ptr %.0.i124
@@ -4897,11 +4897,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %231
 
 231:                                              ; preds = %169, %.critedge7.i, %207
-  %.0465.i = phi ptr [ %153, %169 ], [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %207 ]
-  %.0449.i = phi i64 [ 1, %169 ], [ %.1450.i, %.critedge7.i ], [ %.1450.i, %207 ]
-  %.3442.i = phi i64 [ %174, %169 ], [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i11, %207 ]
-  %.4428.i = phi i32 [ %.2426.i121, %169 ], [ %.2418.i122, %.critedge7.i ], [ %.2426.i121, %207 ]
-  %.4420.i = phi i32 [ %.2418.i122, %169 ], [ %230, %.critedge7.i ], [ %.2418.i122, %207 ]
+  %.0465.i = phi ptr [ %.19484.i.lcssa, %.critedge7.i ], [ %.1466.i, %207 ], [ %153, %169 ]
+  %.0449.i = phi i64 [ %.1450.i, %.critedge7.i ], [ %.1450.i, %207 ], [ 1, %169 ]
+  %.3442.i = phi i64 [ %.23.i.lcssa, %.critedge7.i ], [ %.0.i11, %207 ], [ %174, %169 ]
+  %.4428.i = phi i32 [ %.2418.i122, %.critedge7.i ], [ %.2426.i121, %207 ], [ %.2426.i121, %169 ]
+  %.4420.i = phi i32 [ %230, %.critedge7.i ], [ %.2418.i122, %207 ], [ %.2418.i122, %169 ]
   %232 = ptrtoint ptr %.0465.i to i64
   %233 = ptrtoint ptr %.0409.i123 to i64
   %234 = sub i64 %232, %233
@@ -5105,7 +5105,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit13: ; preds = %2
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %320, %325, %329
-  %.0.i8 = phi i64 [ %324, %320 ], [ %332, %329 ], [ %328, %325 ]
+  %.0.i8 = phi i64 [ %324, %320 ], [ %328, %325 ], [ %332, %329 ]
   %333 = trunc i64 %.0.i8 to i32
   %334 = lshr i32 %333, 8
   %335 = shl nuw nsw i32 %334, %21
@@ -5661,7 +5661,7 @@ default.unreachable:                              ; preds = %106, %181
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %107, %109, %111
-  %.0.i5 = phi i64 [ %112, %111 ], [ %110, %109 ], [ %108, %107 ]
+  %.0.i5 = phi i64 [ %108, %107 ], [ %110, %109 ], [ %112, %111 ]
   %113 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i5, i64 %.4443.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -5844,7 +5844,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %160, %162, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %182, %184, %186
-  %.0.i4 = phi i64 [ %187, %186 ], [ %185, %184 ], [ %183, %182 ]
+  %.0.i4 = phi i64 [ %183, %182 ], [ %185, %184 ], [ %187, %186 ]
   %188 = load i64, ptr %7, align 8, !tbaa !27
   %189 = icmp ugt i64 %.0.i4, 3
   br i1 %189, label %190, label %204
@@ -6392,7 +6392,7 @@ default.unreachable:                              ; preds = %81, %221
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %82, %84, %86
-  %.0.i5 = phi i64 [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
+  %.0.i5 = phi i64 [ %83, %82 ], [ %85, %84 ], [ %87, %86 ]
   %88 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i5, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -6704,7 +6704,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %222, %224, %226
-  %.0.i4 = phi i64 [ %227, %226 ], [ %225, %224 ], [ %223, %222 ]
+  %.0.i4 = phi i64 [ %223, %222 ], [ %225, %224 ], [ %227, %226 ]
   %228 = load i64, ptr %7, align 8, !tbaa !27
   %229 = icmp ugt i64 %.0.i4, 3
   br i1 %229, label %230, label %244
@@ -7374,7 +7374,7 @@ default.unreachable:                              ; preds = %81, %221
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %82, %84, %86
-  %.0.i5 = phi i64 [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
+  %.0.i5 = phi i64 [ %83, %82 ], [ %85, %84 ], [ %87, %86 ]
   %88 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i5, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -7686,7 +7686,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %222, %224, %226
-  %.0.i4 = phi i64 [ %227, %226 ], [ %225, %224 ], [ %223, %222 ]
+  %.0.i4 = phi i64 [ %223, %222 ], [ %225, %224 ], [ %227, %226 ]
   %228 = load i64, ptr %7, align 8, !tbaa !27
   %229 = icmp ugt i64 %.0.i4, 3
   br i1 %229, label %230, label %244
@@ -8347,7 +8347,7 @@ define noundef i64 @_ZN11duckdb_zstd27ZSTD_compressBlock_lazy_rowEPNS_17ZSTD_mat
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %87, %83, %79
-  %.0.i7.us = phi i64 [ %91, %87 ], [ %86, %83 ], [ %82, %79 ]
+  %.0.i7.us = phi i64 [ %91, %87 ], [ %82, %79 ], [ %86, %83 ]
   %92 = trunc i64 %.0.i7.us to i32
   %93 = lshr i32 %92, 8
   %94 = shl nuw nsw i32 %93, %23
@@ -8654,7 +8654,7 @@ default.unreachable:                              ; preds = %216, %209, %202, %2
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %203, %205, %207, %210, %212, %214, %217, %219, %221
-  %.0.i12 = phi i64 [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ]
+  %.0.i12 = phi i64 [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ]
   %223 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i12, i64 %.4443.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -8882,7 +8882,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit63:   ; preds = %270, %272, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %293, %295, %297, %300, %302, %304, %307, %309, %311
-  %.0.i11 = phi i64 [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ]
+  %.0.i11 = phi i64 [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ]
   %313 = load i64, ptr %7, align 8, !tbaa !27
   %314 = icmp ugt i64 %.0.i11, 3
   br i1 %314, label %315, label %329
@@ -9165,7 +9165,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit15: ; preds = %3
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %438, %443, %447
-  %.0.i8 = phi i64 [ %442, %438 ], [ %450, %447 ], [ %446, %443 ]
+  %.0.i8 = phi i64 [ %442, %438 ], [ %446, %443 ], [ %450, %447 ]
   %451 = trunc i64 %.0.i8 to i32
   %452 = lshr i32 %451, 8
   %453 = shl nuw nsw i32 %452, %23
@@ -9513,7 +9513,7 @@ define noundef i64 @_ZN11duckdb_zstd42ZSTD_compressBlock_lazy_dictMatchState_row
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %86, %82, %78
-  %.0.i7.us = phi i64 [ %90, %86 ], [ %85, %82 ], [ %81, %78 ]
+  %.0.i7.us = phi i64 [ %90, %86 ], [ %81, %78 ], [ %85, %82 ]
   %91 = trunc i64 %.0.i7.us to i32
   %92 = lshr i32 %91, 8
   %93 = shl nuw nsw i32 %92, %22
@@ -9742,7 +9742,7 @@ default.unreachable:                              ; preds = %191, %184, %177, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %178, %180, %182, %185, %187, %189, %192, %194, %196
-  %.0.i12 = phi i64 [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ]
+  %.0.i12 = phi i64 [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ]
   %198 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i12, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -10099,7 +10099,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %333, %335, %337, %340, %342, %344, %347, %349, %351
-  %.0.i11 = phi i64 [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ]
+  %.0.i11 = phi i64 [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %341, %340 ], [ %343, %342 ], [ %345, %344 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ]
   %353 = load i64, ptr %7, align 8, !tbaa !27
   %354 = icmp ugt i64 %.0.i11, 3
   br i1 %354, label %355, label %369
@@ -10389,7 +10389,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit15: ; preds = %4
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %481, %486, %490
-  %.0.i8 = phi i64 [ %485, %481 ], [ %493, %490 ], [ %489, %486 ]
+  %.0.i8 = phi i64 [ %485, %481 ], [ %489, %486 ], [ %493, %490 ]
   %494 = trunc i64 %.0.i8 to i32
   %495 = lshr i32 %494, 8
   %496 = shl nuw nsw i32 %495, %22
@@ -10852,7 +10852,7 @@ define noundef i64 @_ZN11duckdb_zstd47ZSTD_compressBlock_lazy_dedicatedDictSearc
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %86, %82, %78
-  %.0.i7.us = phi i64 [ %90, %86 ], [ %85, %82 ], [ %81, %78 ]
+  %.0.i7.us = phi i64 [ %90, %86 ], [ %81, %78 ], [ %85, %82 ]
   %91 = trunc i64 %.0.i7.us to i32
   %92 = lshr i32 %91, 8
   %93 = shl nuw nsw i32 %92, %22
@@ -11081,7 +11081,7 @@ default.unreachable:                              ; preds = %191, %184, %177, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %178, %180, %182, %185, %187, %189, %192, %194, %196
-  %.0.i12 = phi i64 [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ]
+  %.0.i12 = phi i64 [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ]
   %198 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i12, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -11438,7 +11438,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %333, %335, %337, %340, %342, %344, %347, %349, %351
-  %.0.i11 = phi i64 [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ]
+  %.0.i11 = phi i64 [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %341, %340 ], [ %343, %342 ], [ %345, %344 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ]
   %353 = load i64, ptr %7, align 8, !tbaa !27
   %354 = icmp ugt i64 %.0.i11, 3
   br i1 %354, label %355, label %369
@@ -11728,7 +11728,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit15: ; preds = %4
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %481, %486, %490
-  %.0.i8 = phi i64 [ %485, %481 ], [ %493, %490 ], [ %489, %486 ]
+  %.0.i8 = phi i64 [ %485, %481 ], [ %489, %486 ], [ %493, %490 ]
   %494 = trunc i64 %.0.i8 to i32
   %495 = lshr i32 %494, 8
   %496 = shl nuw nsw i32 %495, %22
@@ -12285,7 +12285,7 @@ default.unreachable:                              ; preds = %107, %262, %182
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %108, %110, %112
-  %.0.i7 = phi i64 [ %113, %112 ], [ %111, %110 ], [ %109, %108 ]
+  %.0.i7 = phi i64 [ %109, %108 ], [ %111, %110 ], [ %113, %112 ]
   %114 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.4443.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -12468,7 +12468,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit54:   ; preds = %161, %163, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %183, %185, %187
-  %.0.i5 = phi i64 [ %188, %187 ], [ %186, %185 ], [ %184, %183 ]
+  %.0.i5 = phi i64 [ %184, %183 ], [ %186, %185 ], [ %188, %187 ]
   %189 = load i64, ptr %7, align 8, !tbaa !27
   %190 = icmp ugt i64 %.0.i5, 3
   br i1 %190, label %191, label %205
@@ -12494,9 +12494,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %203, %283
-  %.3468.i.be = phi ptr [ %127, %203 ], [ %208, %283 ]
-  %.3452.i.be = phi i64 [ %189, %203 ], [ %269, %283 ]
-  %.7446.i.be = phi i64 [ %.0.i5, %203 ], [ %.0.i4, %283 ]
+  %.3468.i.be = phi ptr [ %208, %283 ], [ %127, %203 ]
+  %.3452.i.be = phi i64 [ %269, %283 ], [ %189, %203 ]
+  %.7446.i.be = phi i64 [ %.0.i4, %283 ], [ %.0.i5, %203 ]
   %204 = icmp ult ptr %.3468.i.be, %10
   br i1 %204, label %.lr.ph, label %.loopexit
 
@@ -12659,7 +12659,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit82:   ; preds = %242, %244, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %263, %265, %267
-  %.0.i4 = phi i64 [ %268, %267 ], [ %266, %265 ], [ %264, %263 ]
+  %.0.i4 = phi i64 [ %264, %263 ], [ %266, %265 ], [ %268, %267 ]
   %269 = load i64, ptr %8, align 8, !tbaa !27
   %270 = icmp ugt i64 %.0.i4, 3
   br i1 %270, label %271, label %.thread140
@@ -13207,7 +13207,7 @@ default.unreachable:                              ; preds = %82, %280, %222
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %83, %85, %87
-  %.0.i7 = phi i64 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ]
+  %.0.i7 = phi i64 [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   %89 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -13519,7 +13519,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %223, %225, %227
-  %.0.i5 = phi i64 [ %228, %227 ], [ %226, %225 ], [ %224, %223 ]
+  %.0.i5 = phi i64 [ %224, %223 ], [ %226, %225 ], [ %228, %227 ]
   %229 = load i64, ptr %7, align 8, !tbaa !27
   %230 = icmp ugt i64 %.0.i5, 3
   br i1 %230, label %231, label %245
@@ -13545,9 +13545,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %243, %301
-  %.3468.i.be = phi ptr [ %101, %243 ], [ %248, %301 ]
-  %.3452.i.be = phi i64 [ %229, %243 ], [ %287, %301 ]
-  %.7446.i.be = phi i64 [ %.0.i5, %243 ], [ %.0.i4, %301 ]
+  %.3468.i.be = phi ptr [ %248, %301 ], [ %101, %243 ]
+  %.3452.i.be = phi i64 [ %287, %301 ], [ %229, %243 ]
+  %.7446.i.be = phi i64 [ %.0.i4, %301 ], [ %.0.i5, %243 ]
   %244 = icmp ult ptr %.3468.i.be, %10
   br i1 %244, label %.lr.ph, label %.loopexit
 
@@ -13628,7 +13628,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %281, %283, %285
-  %.0.i4 = phi i64 [ %286, %285 ], [ %284, %283 ], [ %282, %281 ]
+  %.0.i4 = phi i64 [ %282, %281 ], [ %284, %283 ], [ %286, %285 ]
   %287 = load i64, ptr %8, align 8, !tbaa !27
   %288 = icmp ugt i64 %.0.i4, 3
   br i1 %288, label %289, label %.thread110
@@ -14298,7 +14298,7 @@ default.unreachable:                              ; preds = %82, %280, %222
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %83, %85, %87
-  %.0.i7 = phi i64 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ]
+  %.0.i7 = phi i64 [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   %89 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -14610,7 +14610,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %223, %225, %227
-  %.0.i5 = phi i64 [ %228, %227 ], [ %226, %225 ], [ %224, %223 ]
+  %.0.i5 = phi i64 [ %224, %223 ], [ %226, %225 ], [ %228, %227 ]
   %229 = load i64, ptr %7, align 8, !tbaa !27
   %230 = icmp ugt i64 %.0.i5, 3
   br i1 %230, label %231, label %245
@@ -14636,9 +14636,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %243, %301
-  %.3468.i.be = phi ptr [ %101, %243 ], [ %248, %301 ]
-  %.3452.i.be = phi i64 [ %229, %243 ], [ %287, %301 ]
-  %.7446.i.be = phi i64 [ %.0.i5, %243 ], [ %.0.i4, %301 ]
+  %.3468.i.be = phi ptr [ %248, %301 ], [ %101, %243 ]
+  %.3452.i.be = phi i64 [ %287, %301 ], [ %229, %243 ]
+  %.7446.i.be = phi i64 [ %.0.i4, %301 ], [ %.0.i5, %243 ]
   %244 = icmp ult ptr %.3468.i.be, %10
   br i1 %244, label %.lr.ph, label %.loopexit
 
@@ -14719,7 +14719,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %281, %283, %285
-  %.0.i4 = phi i64 [ %286, %285 ], [ %284, %283 ], [ %282, %281 ]
+  %.0.i4 = phi i64 [ %282, %281 ], [ %284, %283 ], [ %286, %285 ]
   %287 = load i64, ptr %8, align 8, !tbaa !27
   %288 = icmp ugt i64 %.0.i4, 3
   br i1 %288, label %289, label %.thread110
@@ -15380,7 +15380,7 @@ define noundef i64 @_ZN11duckdb_zstd28ZSTD_compressBlock_lazy2_rowEPNS_17ZSTD_ma
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %88, %84, %80
-  %.0.i7.us = phi i64 [ %92, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.0.i7.us = phi i64 [ %92, %88 ], [ %83, %80 ], [ %87, %84 ]
   %93 = trunc i64 %.0.i7.us to i32
   %94 = lshr i32 %93, 8
   %95 = shl nuw nsw i32 %94, %24
@@ -15687,7 +15687,7 @@ default.unreachable:                              ; preds = %217, %210, %203, %2
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit15: ; preds = %204, %206, %208, %211, %213, %215, %218, %220, %222
-  %.0.i14 = phi i64 [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ]
+  %.0.i14 = phi i64 [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ]
   %224 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i14, i64 %.4443.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -15915,7 +15915,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit67:   ; preds = %271, %273, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %294, %296, %298, %301, %303, %305, %308, %310, %312
-  %.0.i12 = phi i64 [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ]
+  %.0.i12 = phi i64 [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %309, %308 ], [ %311, %310 ], [ %313, %312 ]
   %314 = load i64, ptr %7, align 8, !tbaa !27
   %315 = icmp ugt i64 %.0.i12, 3
   br i1 %315, label %316, label %330
@@ -15941,9 +15941,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %328, %423
-  %.3468.i.be = phi ptr [ %237, %328 ], [ %333, %423 ]
-  %.3452.i.be = phi i64 [ %314, %328 ], [ %409, %423 ]
-  %.7446.i.be = phi i64 [ %.0.i12, %328 ], [ %.0.i11, %423 ]
+  %.3468.i.be = phi ptr [ %333, %423 ], [ %237, %328 ]
+  %.3452.i.be = phi i64 [ %409, %423 ], [ %314, %328 ]
+  %.7446.i.be = phi i64 [ %.0.i11, %423 ], [ %.0.i12, %328 ]
   %329 = icmp ult ptr %.3468.i.be, %10
   br i1 %329, label %.lr.ph244, label %.loopexit
 
@@ -16151,7 +16151,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit95:   ; preds = %367, %369, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %389, %391, %393, %396, %398, %400, %403, %405, %407
-  %.0.i11 = phi i64 [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %401, %400 ], [ %399, %398 ], [ %397, %396 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ]
+  %.0.i11 = phi i64 [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ]
   %409 = load i64, ptr %8, align 8, !tbaa !27
   %410 = icmp ugt i64 %.0.i11, 3
   br i1 %410, label %411, label %.thread154
@@ -16433,7 +16433,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit17: ; preds = %4
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %532, %537, %541
-  %.0.i8 = phi i64 [ %536, %532 ], [ %544, %541 ], [ %540, %537 ]
+  %.0.i8 = phi i64 [ %536, %532 ], [ %540, %537 ], [ %544, %541 ]
   %545 = trunc i64 %.0.i8 to i32
   %546 = lshr i32 %545, 8
   %547 = shl nuw nsw i32 %546, %24
@@ -16782,7 +16782,7 @@ define noundef i64 @_ZN11duckdb_zstd43ZSTD_compressBlock_lazy2_dictMatchState_ro
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %87, %83, %79
-  %.0.i7.us = phi i64 [ %91, %87 ], [ %86, %83 ], [ %82, %79 ]
+  %.0.i7.us = phi i64 [ %91, %87 ], [ %82, %79 ], [ %86, %83 ]
   %92 = trunc i64 %.0.i7.us to i32
   %93 = lshr i32 %92, 8
   %94 = shl nuw nsw i32 %93, %23
@@ -17011,7 +17011,7 @@ default.unreachable:                              ; preds = %192, %185, %178, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit15: ; preds = %179, %181, %183, %186, %188, %190, %193, %195, %197
-  %.0.i14 = phi i64 [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ]
+  %.0.i14 = phi i64 [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ]
   %199 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i14, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -17368,7 +17368,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %334, %336, %338, %341, %343, %345, %348, %350, %352
-  %.0.i12 = phi i64 [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ]
+  %.0.i12 = phi i64 [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %349, %348 ], [ %351, %350 ], [ %353, %352 ]
   %354 = load i64, ptr %7, align 8, !tbaa !27
   %355 = icmp ugt i64 %.0.i12, 3
   br i1 %355, label %356, label %370
@@ -17394,9 +17394,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %368, %441
-  %.3468.i.be = phi ptr [ %211, %368 ], [ %373, %441 ]
-  %.3452.i.be = phi i64 [ %354, %368 ], [ %427, %441 ]
-  %.7446.i.be = phi i64 [ %.0.i12, %368 ], [ %.0.i11, %441 ]
+  %.3468.i.be = phi ptr [ %373, %441 ], [ %211, %368 ]
+  %.3452.i.be = phi i64 [ %427, %441 ], [ %354, %368 ]
+  %.7446.i.be = phi i64 [ %.0.i11, %441 ], [ %.0.i12, %368 ]
   %369 = icmp ult ptr %.3468.i.be, %10
   br i1 %369, label %.lr.ph220, label %.loopexit
 
@@ -17522,7 +17522,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %407, %409, %411, %414, %416, %418, %421, %423, %425
-  %.0.i11 = phi i64 [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ]
+  %.0.i11 = phi i64 [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ]
   %427 = load i64, ptr %8, align 8, !tbaa !27
   %428 = icmp ugt i64 %.0.i11, 3
   br i1 %428, label %429, label %.thread124
@@ -17811,7 +17811,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit17: ; preds = %5
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %553, %558, %562
-  %.0.i8 = phi i64 [ %557, %553 ], [ %565, %562 ], [ %561, %558 ]
+  %.0.i8 = phi i64 [ %557, %553 ], [ %561, %558 ], [ %565, %562 ]
   %566 = trunc i64 %.0.i8 to i32
   %567 = lshr i32 %566, 8
   %568 = shl nuw nsw i32 %567, %23
@@ -18275,7 +18275,7 @@ define noundef i64 @_ZN11duckdb_zstd48ZSTD_compressBlock_lazy2_dedicatedDictSear
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %87, %83, %79
-  %.0.i7.us = phi i64 [ %91, %87 ], [ %86, %83 ], [ %82, %79 ]
+  %.0.i7.us = phi i64 [ %91, %87 ], [ %82, %79 ], [ %86, %83 ]
   %92 = trunc i64 %.0.i7.us to i32
   %93 = lshr i32 %92, 8
   %94 = shl nuw nsw i32 %93, %23
@@ -18504,7 +18504,7 @@ default.unreachable:                              ; preds = %192, %185, %178, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit15: ; preds = %179, %181, %183, %186, %188, %190, %193, %195, %197
-  %.0.i14 = phi i64 [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ]
+  %.0.i14 = phi i64 [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ]
   %199 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i14, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -18861,7 +18861,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %334, %336, %338, %341, %343, %345, %348, %350, %352
-  %.0.i12 = phi i64 [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ]
+  %.0.i12 = phi i64 [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %349, %348 ], [ %351, %350 ], [ %353, %352 ]
   %354 = load i64, ptr %7, align 8, !tbaa !27
   %355 = icmp ugt i64 %.0.i12, 3
   br i1 %355, label %356, label %370
@@ -18887,9 +18887,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %368, %441
-  %.3468.i.be = phi ptr [ %211, %368 ], [ %373, %441 ]
-  %.3452.i.be = phi i64 [ %354, %368 ], [ %427, %441 ]
-  %.7446.i.be = phi i64 [ %.0.i12, %368 ], [ %.0.i11, %441 ]
+  %.3468.i.be = phi ptr [ %373, %441 ], [ %211, %368 ]
+  %.3452.i.be = phi i64 [ %427, %441 ], [ %354, %368 ]
+  %.7446.i.be = phi i64 [ %.0.i11, %441 ], [ %.0.i12, %368 ]
   %369 = icmp ult ptr %.3468.i.be, %10
   br i1 %369, label %.lr.ph220, label %.loopexit
 
@@ -19015,7 +19015,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %407, %409, %411, %414, %416, %418, %421, %423, %425
-  %.0.i11 = phi i64 [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ]
+  %.0.i11 = phi i64 [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ]
   %427 = load i64, ptr %8, align 8, !tbaa !27
   %428 = icmp ugt i64 %.0.i11, 3
   br i1 %428, label %429, label %.thread124
@@ -19304,7 +19304,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit17: ; preds = %5
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %553, %558, %562
-  %.0.i8 = phi i64 [ %557, %553 ], [ %565, %562 ], [ %561, %558 ]
+  %.0.i8 = phi i64 [ %557, %553 ], [ %561, %558 ], [ %565, %562 ]
   %566 = trunc i64 %.0.i8 to i32
   %567 = lshr i32 %566, 8
   %568 = shl nuw nsw i32 %567, %23
@@ -19861,7 +19861,7 @@ default.unreachable:                              ; preds = %107, %262, %182
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %108, %110, %112
-  %.0.i7 = phi i64 [ %113, %112 ], [ %111, %110 ], [ %109, %108 ]
+  %.0.i7 = phi i64 [ %109, %108 ], [ %111, %110 ], [ %113, %112 ]
   %114 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.4443.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -20044,7 +20044,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit54:   ; preds = %161, %163, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %183, %185, %187
-  %.0.i5 = phi i64 [ %188, %187 ], [ %186, %185 ], [ %184, %183 ]
+  %.0.i5 = phi i64 [ %184, %183 ], [ %186, %185 ], [ %188, %187 ]
   %189 = load i64, ptr %7, align 8, !tbaa !27
   %190 = icmp ugt i64 %.0.i5, 3
   br i1 %190, label %191, label %205
@@ -20070,9 +20070,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %203, %283
-  %.3468.i.be = phi ptr [ %127, %203 ], [ %208, %283 ]
-  %.3452.i.be = phi i64 [ %189, %203 ], [ %269, %283 ]
-  %.7446.i.be = phi i64 [ %.0.i5, %203 ], [ %.0.i4, %283 ]
+  %.3468.i.be = phi ptr [ %208, %283 ], [ %127, %203 ]
+  %.3452.i.be = phi i64 [ %269, %283 ], [ %189, %203 ]
+  %.7446.i.be = phi i64 [ %.0.i4, %283 ], [ %.0.i5, %203 ]
   %204 = icmp ult ptr %.3468.i.be, %10
   br i1 %204, label %.lr.ph, label %.loopexit
 
@@ -20235,7 +20235,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit82:   ; preds = %242, %244, %.thread
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %263, %265, %267
-  %.0.i4 = phi i64 [ %268, %267 ], [ %266, %265 ], [ %264, %263 ]
+  %.0.i4 = phi i64 [ %264, %263 ], [ %266, %265 ], [ %268, %267 ]
   %269 = load i64, ptr %8, align 8, !tbaa !27
   %270 = icmp ugt i64 %.0.i4, 3
   br i1 %270, label %271, label %.thread140
@@ -20783,7 +20783,7 @@ default.unreachable:                              ; preds = %82, %280, %222
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %83, %85, %87
-  %.0.i7 = phi i64 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ]
+  %.0.i7 = phi i64 [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   %89 = load i64, ptr %6, align 8
   %.5444.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.2441.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -21095,7 +21095,7 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit: ; preds = %_ZN11du
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %223, %225, %227
-  %.0.i5 = phi i64 [ %228, %227 ], [ %226, %225 ], [ %224, %223 ]
+  %.0.i5 = phi i64 [ %224, %223 ], [ %226, %225 ], [ %228, %227 ]
   %229 = load i64, ptr %7, align 8, !tbaa !27
   %230 = icmp ugt i64 %.0.i5, 3
   br i1 %230, label %231, label %245
@@ -21121,9 +21121,9 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %243, %301
-  %.3468.i.be = phi ptr [ %101, %243 ], [ %248, %301 ]
-  %.3452.i.be = phi i64 [ %229, %243 ], [ %287, %301 ]
-  %.7446.i.be = phi i64 [ %.0.i5, %243 ], [ %.0.i4, %301 ]
+  %.3468.i.be = phi ptr [ %248, %301 ], [ %101, %243 ]
+  %.3452.i.be = phi i64 [ %287, %301 ], [ %229, %243 ]
+  %.7446.i.be = phi i64 [ %.0.i4, %301 ], [ %.0.i5, %243 ]
   %244 = icmp ult ptr %.3468.i.be, %10
   br i1 %244, label %.lr.ph, label %.loopexit
 
@@ -21204,7 +21204,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %281, %283, %285
-  %.0.i4 = phi i64 [ %286, %285 ], [ %284, %283 ], [ %282, %281 ]
+  %.0.i4 = phi i64 [ %282, %281 ], [ %284, %283 ], [ %286, %285 ]
   %287 = load i64, ptr %8, align 8, !tbaa !27
   %288 = icmp ugt i64 %.0.i4, 3
   br i1 %288, label %289, label %.thread110
@@ -21867,7 +21867,7 @@ default.unreachable:                              ; preds = %77
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %78, %80, %82
-  %.0.i4 = phi i64 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ]
+  %.0.i4 = phi i64 [ %79, %78 ], [ %81, %80 ], [ %83, %82 ]
   %.not = icmp eq i64 %.0.i4, 0
   %84 = load i64, ptr %6, align 8
   %.1330.i = select i1 %.not, ptr %49, ptr %.0.i88
@@ -21933,11 +21933,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %118
 
 118:                                              ; preds = %71, %.critedge.i, %94
-  %.0329.i = phi ptr [ %49, %71 ], [ %.12341.i.lcssa, %.critedge.i ], [ %.1330.i, %94 ]
-  %.0317.i = phi i64 [ 1, %71 ], [ %.1318.i, %.critedge.i ], [ %.1318.i, %94 ]
-  %.2313.i = phi i64 [ %76, %71 ], [ %.14.i.lcssa, %.critedge.i ], [ %.0.i4, %94 ]
-  %.2307.i = phi i32 [ %.0305.i85, %71 ], [ %.0299.i86, %.critedge.i ], [ %.0305.i85, %94 ]
-  %.2301.i = phi i32 [ %.0299.i86, %71 ], [ %117, %.critedge.i ], [ %.0299.i86, %94 ]
+  %.0329.i = phi ptr [ %.12341.i.lcssa, %.critedge.i ], [ %.1330.i, %94 ], [ %49, %71 ]
+  %.0317.i = phi i64 [ %.1318.i, %.critedge.i ], [ %.1318.i, %94 ], [ 1, %71 ]
+  %.2313.i = phi i64 [ %.14.i.lcssa, %.critedge.i ], [ %.0.i4, %94 ], [ %76, %71 ]
+  %.2307.i = phi i32 [ %.0299.i86, %.critedge.i ], [ %.0305.i85, %94 ], [ %.0305.i85, %71 ]
+  %.2301.i = phi i32 [ %117, %.critedge.i ], [ %.0299.i86, %94 ], [ %.0299.i86, %71 ]
   %119 = ptrtoint ptr %.0329.i to i64
   %120 = ptrtoint ptr %.0294.i87 to i64
   %121 = sub i64 %119, %120
@@ -22504,7 +22504,7 @@ define noundef i64 @_ZN11duckdb_zstd37ZSTD_compressBlock_greedy_extDict_rowEPNS_
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %75, %71, %67
-  %.0.i7.us = phi i64 [ %79, %75 ], [ %74, %71 ], [ %70, %67 ]
+  %.0.i7.us = phi i64 [ %79, %75 ], [ %70, %67 ], [ %74, %71 ]
   %80 = trunc i64 %.0.i7.us to i32
   %81 = lshr i32 %80, 8
   %82 = shl nuw nsw i32 %81, %30
@@ -22740,7 +22740,7 @@ default.unreachable:                              ; preds = %187, %180, %173, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %174, %176, %178, %181, %183, %185, %188, %190, %192
-  %.0.i11 = phi i64 [ %193, %192 ], [ %191, %190 ], [ %189, %188 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ]
+  %.0.i11 = phi i64 [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ]
   %.not = icmp eq i64 %.0.i11, 0
   %194 = load i64, ptr %6, align 8
   %.1330.i = select i1 %.not, ptr %144, ptr %.0.i127
@@ -22806,11 +22806,11 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %228
 
 228:                                              ; preds = %166, %.critedge.i, %204
-  %.0329.i = phi ptr [ %144, %166 ], [ %.12341.i.lcssa, %.critedge.i ], [ %.1330.i, %204 ]
-  %.0317.i = phi i64 [ 1, %166 ], [ %.1318.i, %.critedge.i ], [ %.1318.i, %204 ]
-  %.2313.i = phi i64 [ %171, %166 ], [ %.14.i.lcssa, %.critedge.i ], [ %.0.i11, %204 ]
-  %.2307.i = phi i32 [ %.0305.i124, %166 ], [ %.0299.i125, %.critedge.i ], [ %.0305.i124, %204 ]
-  %.2301.i = phi i32 [ %.0299.i125, %166 ], [ %227, %.critedge.i ], [ %.0299.i125, %204 ]
+  %.0329.i = phi ptr [ %.12341.i.lcssa, %.critedge.i ], [ %.1330.i, %204 ], [ %144, %166 ]
+  %.0317.i = phi i64 [ %.1318.i, %.critedge.i ], [ %.1318.i, %204 ], [ 1, %166 ]
+  %.2313.i = phi i64 [ %.14.i.lcssa, %.critedge.i ], [ %.0.i11, %204 ], [ %171, %166 ]
+  %.2307.i = phi i32 [ %.0299.i125, %.critedge.i ], [ %.0305.i124, %204 ], [ %.0305.i124, %166 ]
+  %.2301.i = phi i32 [ %227, %.critedge.i ], [ %.0299.i125, %204 ], [ %.0299.i125, %166 ]
   %229 = ptrtoint ptr %.0329.i to i64
   %230 = ptrtoint ptr %.0294.i126 to i64
   %231 = sub i64 %229, %230
@@ -23014,7 +23014,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit13: ; preds = %2
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %317, %322, %326
-  %.0.i8 = phi i64 [ %321, %317 ], [ %329, %326 ], [ %325, %322 ]
+  %.0.i8 = phi i64 [ %321, %317 ], [ %325, %322 ], [ %329, %326 ]
   %330 = trunc i64 %.0.i8 to i32
   %331 = lshr i32 %330, 8
   %332 = shl nuw nsw i32 %331, %30
@@ -23493,7 +23493,7 @@ default.unreachable:                              ; preds = %78, %135
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %79, %81, %83
-  %.0.i5 = phi i64 [ %84, %83 ], [ %82, %81 ], [ %80, %79 ]
+  %.0.i5 = phi i64 [ %80, %79 ], [ %82, %81 ], [ %84, %83 ]
   %85 = load i64, ptr %6, align 8
   %.3314.i = tail call i64 @llvm.umax.i64(i64 %.0.i5, i64 %.1312.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -23605,7 +23605,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %136, %138, %140
-  %.0.i4 = phi i64 [ %141, %140 ], [ %139, %138 ], [ %137, %136 ]
+  %.0.i4 = phi i64 [ %137, %136 ], [ %139, %138 ], [ %141, %140 ]
   %142 = load i64, ptr %7, align 8, !tbaa !27
   %143 = icmp ugt i64 %.0.i4, 3
   br i1 %143, label %144, label %158
@@ -24259,7 +24259,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZSTD_compressBlock_lazy_extDict_rowEPNS_17
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %76, %72, %68
-  %.0.i7.us = phi i64 [ %80, %76 ], [ %75, %72 ], [ %71, %68 ]
+  %.0.i7.us = phi i64 [ %80, %76 ], [ %71, %68 ], [ %75, %72 ]
   %81 = trunc i64 %.0.i7.us to i32
   %82 = lshr i32 %81, 8
   %83 = shl nuw nsw i32 %82, %31
@@ -24496,7 +24496,7 @@ default.unreachable:                              ; preds = %188, %181, %174, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %175, %177, %179, %182, %184, %186, %189, %191, %193
-  %.0.i12 = phi i64 [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ]
+  %.0.i12 = phi i64 [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ]
   %195 = load i64, ptr %6, align 8
   %.3314.i = tail call i64 @llvm.umax.i64(i64 %.0.i12, i64 %.1312.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -24653,7 +24653,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %247, %249, %251, %254, %256, %258, %261, %263, %265
-  %.0.i11 = phi i64 [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ]
+  %.0.i11 = phi i64 [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ]
   %267 = load i64, ptr %7, align 8, !tbaa !27
   %268 = icmp ugt i64 %.0.i11, 3
   br i1 %268, label %269, label %283
@@ -24943,7 +24943,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit15: ; preds = %3
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %395, %400, %404
-  %.0.i8 = phi i64 [ %399, %395 ], [ %407, %404 ], [ %403, %400 ]
+  %.0.i8 = phi i64 [ %399, %395 ], [ %403, %400 ], [ %407, %404 ]
   %408 = trunc i64 %.0.i8 to i32
   %409 = lshr i32 %408, 8
   %410 = shl nuw nsw i32 %409, %31
@@ -25423,7 +25423,7 @@ default.unreachable:                              ; preds = %79, %198, %136
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %80, %82, %84
-  %.0.i7 = phi i64 [ %85, %84 ], [ %83, %82 ], [ %81, %80 ]
+  %.0.i7 = phi i64 [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
   %86 = load i64, ptr %6, align 8
   %.3314.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.1312.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -25535,7 +25535,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %137, %139, %141
-  %.0.i5 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
+  %.0.i5 = phi i64 [ %138, %137 ], [ %140, %139 ], [ %142, %141 ]
   %143 = load i64, ptr %7, align 8, !tbaa !27
   %144 = icmp ugt i64 %.0.i5, 3
   br i1 %144, label %145, label %159
@@ -25561,10 +25561,10 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %157, %219
-  %.0342.i.be = phi i32 [ %99, %157 ], [ %163, %219 ]
-  %.3332.i.be = phi ptr [ %98, %157 ], [ %162, %219 ]
-  %.3320.i.be = phi i64 [ %143, %157 ], [ %205, %219 ]
-  %.5316.i.be = phi i64 [ %.0.i5, %157 ], [ %.0.i4, %219 ]
+  %.0342.i.be = phi i32 [ %163, %219 ], [ %99, %157 ]
+  %.3332.i.be = phi ptr [ %162, %219 ], [ %98, %157 ]
+  %.3320.i.be = phi i64 [ %205, %219 ], [ %143, %157 ]
+  %.5316.i.be = phi i64 [ %.0.i4, %219 ], [ %.0.i5, %157 ]
   %158 = icmp ult ptr %.3332.i.be, %10
   br i1 %158, label %.lr.ph, label %.loopexit
 
@@ -25655,7 +25655,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %199, %201, %203
-  %.0.i4 = phi i64 [ %204, %203 ], [ %202, %201 ], [ %200, %199 ]
+  %.0.i4 = phi i64 [ %200, %199 ], [ %202, %201 ], [ %204, %203 ]
   %205 = load i64, ptr %8, align 8, !tbaa !27
   %206 = icmp ugt i64 %.0.i4, 3
   br i1 %206, label %207, label %.thread62
@@ -26309,7 +26309,7 @@ define noundef i64 @_ZN11duckdb_zstd36ZSTD_compressBlock_lazy2_extDict_rowEPNS_1
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit.us: ; preds = %77, %73, %69
-  %.0.i7.us = phi i64 [ %81, %77 ], [ %76, %73 ], [ %72, %69 ]
+  %.0.i7.us = phi i64 [ %81, %77 ], [ %72, %69 ], [ %76, %73 ]
   %82 = trunc i64 %.0.i7.us to i32
   %83 = lshr i32 %82, 8
   %84 = shl nuw nsw i32 %83, %32
@@ -26546,7 +26546,7 @@ default.unreachable:                              ; preds = %189, %182, %175, %1
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit15: ; preds = %176, %178, %180, %183, %185, %187, %190, %192, %194
-  %.0.i14 = phi i64 [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ]
+  %.0.i14 = phi i64 [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ]
   %196 = load i64, ptr %6, align 8
   %.3314.i = tail call i64 @llvm.umax.i64(i64 %.0.i14, i64 %.1312.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -26703,7 +26703,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit13: ; preds = %248, %250, %252, %255, %257, %259, %262, %264, %266
-  %.0.i12 = phi i64 [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ]
+  %.0.i12 = phi i64 [ %249, %248 ], [ %251, %250 ], [ %253, %252 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ]
   %268 = load i64, ptr %7, align 8, !tbaa !27
   %269 = icmp ugt i64 %.0.i12, 3
   br i1 %269, label %270, label %284
@@ -26729,10 +26729,10 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %282, %359
-  %.0342.i.be = phi i32 [ %209, %282 ], [ %288, %359 ]
-  %.3332.i.be = phi ptr [ %208, %282 ], [ %287, %359 ]
-  %.3320.i.be = phi i64 [ %268, %282 ], [ %345, %359 ]
-  %.5316.i.be = phi i64 [ %.0.i12, %282 ], [ %.0.i11, %359 ]
+  %.0342.i.be = phi i32 [ %288, %359 ], [ %209, %282 ]
+  %.3332.i.be = phi ptr [ %287, %359 ], [ %208, %282 ]
+  %.3320.i.be = phi i64 [ %345, %359 ], [ %268, %282 ]
+  %.5316.i.be = phi i64 [ %.0.i11, %359 ], [ %.0.i12, %282 ]
   %283 = icmp ult ptr %.3332.i.be, %10
   br i1 %283, label %.lr.ph167, label %.loopexit
 
@@ -26868,7 +26868,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %325, %327, %329, %332, %334, %336, %339, %341, %343
-  %.0.i11 = phi i64 [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ]
+  %.0.i11 = phi i64 [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %333, %332 ], [ %335, %334 ], [ %337, %336 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ]
   %345 = load i64, ptr %8, align 8, !tbaa !27
   %346 = icmp ugt i64 %.0.i11, 3
   br i1 %346, label %347, label %.thread76
@@ -27157,7 +27157,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit17: ; preds = %4
   br label %_ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9
 
 _ZN11duckdb_zstdL18ZSTD_hashPtrSaltedEPKvjjm.exit9: ; preds = %471, %476, %480
-  %.0.i8 = phi i64 [ %475, %471 ], [ %483, %480 ], [ %479, %476 ]
+  %.0.i8 = phi i64 [ %475, %471 ], [ %479, %476 ], [ %483, %480 ]
   %484 = trunc i64 %.0.i8 to i32
   %485 = lshr i32 %484, 8
   %486 = shl nuw nsw i32 %485, %32
@@ -27637,7 +27637,7 @@ default.unreachable:                              ; preds = %79, %198, %136
   unreachable
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit8: ; preds = %80, %82, %84
-  %.0.i7 = phi i64 [ %85, %84 ], [ %83, %82 ], [ %81, %80 ]
+  %.0.i7 = phi i64 [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
   %86 = load i64, ptr %6, align 8
   %.3314.i = tail call i64 @llvm.umax.i64(i64 %.0.i7, i64 %.1312.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -27749,7 +27749,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit6: ; preds = %137, %139, %141
-  %.0.i5 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
+  %.0.i5 = phi i64 [ %138, %137 ], [ %140, %139 ], [ %142, %141 ]
   %143 = load i64, ptr %7, align 8, !tbaa !27
   %144 = icmp ugt i64 %.0.i5, 3
   br i1 %144, label %145, label %159
@@ -27775,10 +27775,10 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %.backedge
 
 .backedge:                                        ; preds = %157, %219
-  %.0342.i.be = phi i32 [ %99, %157 ], [ %163, %219 ]
-  %.3332.i.be = phi ptr [ %98, %157 ], [ %162, %219 ]
-  %.3320.i.be = phi i64 [ %143, %157 ], [ %205, %219 ]
-  %.5316.i.be = phi i64 [ %.0.i5, %157 ], [ %.0.i4, %219 ]
+  %.0342.i.be = phi i32 [ %163, %219 ], [ %99, %157 ]
+  %.3332.i.be = phi ptr [ %162, %219 ], [ %98, %157 ]
+  %.3320.i.be = phi i64 [ %205, %219 ], [ %143, %157 ]
+  %.5316.i.be = phi i64 [ %.0.i4, %219 ], [ %.0.i5, %157 ]
   %158 = icmp ult ptr %.3332.i.be, %10
   br i1 %158, label %.lr.ph, label %.loopexit
 
@@ -27869,7 +27869,7 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   br label %_ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit
 
 _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchMethod_eENS_15ZSTD_dictMode_eE.exit: ; preds = %199, %201, %203
-  %.0.i4 = phi i64 [ %204, %203 ], [ %202, %201 ], [ %200, %199 ]
+  %.0.i4 = phi i64 [ %200, %199 ], [ %202, %201 ], [ %204, %203 ]
   %205 = load i64, ptr %8, align 8, !tbaa !27
   %206 = icmp ugt i64 %.0.i4, 3
   br i1 %206, label %207, label %.thread62
@@ -55306,7 +55306,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23ZSTD_DUBT_findBestMatchEP
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit:       ; preds = %14, %19, %24
-  %.0.i = phi i64 [ %18, %14 ], [ %28, %24 ], [ %23, %19 ]
+  %.0.i = phi i64 [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
   %29 = getelementptr inbounds nuw i32, ptr %11, i64 %.0.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !3
@@ -55920,7 +55920,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %210, %.thread63.i, 
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i:     ; preds = %317, %312, %307
-  %.0.i.i = phi i64 [ %311, %307 ], [ %321, %317 ], [ %316, %312 ]
+  %.0.i.i = phi i64 [ %311, %307 ], [ %316, %312 ], [ %321, %317 ]
   %322 = getelementptr inbounds nuw i32, ptr %304, i64 %.0.i.i
   %323 = load i32, ptr %181, align 8, !tbaa !43
   %324 = zext i32 %323 to i64

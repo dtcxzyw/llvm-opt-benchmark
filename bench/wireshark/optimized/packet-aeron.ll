@@ -1961,7 +1961,7 @@ dissect_aeron_setup.exit:                         ; preds = %759, %762, %proto_i
   br label %dissect_aeron_rtt.exit
 
 dissect_aeron_rtt.exit:                           ; preds = %dissect_aeron_heartbeat.exit, %dissect_aeron_data.exit, %dissect_aeron_setup.exit, %dissect_aeron_sm.exit, %dissect_aeron_nak.exit, %dissect_aeron_pad.exit
-  %.0105 = phi i32 [ %.0.i157, %dissect_aeron_setup.exit ], [ %.0.i144, %dissect_aeron_sm.exit ], [ %.0.i137, %dissect_aeron_nak.exit ], [ %.0.i120, %dissect_aeron_heartbeat.exit ], [ %.0130.i, %dissect_aeron_data.exit ], [ %.0.i113, %dissect_aeron_pad.exit ]
+  %.0105 = phi i32 [ %.0.i113, %dissect_aeron_pad.exit ], [ %.0.i120, %dissect_aeron_heartbeat.exit ], [ %.0130.i, %dissect_aeron_data.exit ], [ %.0.i137, %dissect_aeron_nak.exit ], [ %.0.i144, %dissect_aeron_sm.exit ], [ %.0.i157, %dissect_aeron_setup.exit ]
   %837 = icmp slt i32 %.0105, 1
   br i1 %837, label %dissect_aeron_rtt.exit.thread, label %dissect_aeron_rtt.exit.thread164
 
@@ -3157,10 +3157,10 @@ aeron_stream_rcv_add.exit.i:                      ; preds = %aeron_stream_rcv_ad
   br label %223
 
 223:                                              ; preds = %219, %198, %197, %193, %191, %aeron_stream_rcv_add.exit.i
-  %.sroa.0178.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %219 ], [ %spec.select.i, %198 ], [ %spec.select.i, %191 ], [ %spec.select.i, %197 ], [ %spec.select.i, %193 ]
-  %.sroa.11.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %219 ], [ %spec.select221.i, %198 ], [ %spec.select221.i, %191 ], [ %184, %197 ], [ %spec.select221.i, %193 ]
-  %.sroa.7.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %205, %219 ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ]
-  %.sroa.0170.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %203, %219 ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ]
+  %.sroa.0178.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %spec.select.i, %198 ], [ %spec.select.i, %191 ], [ %spec.select.i, %197 ], [ %spec.select.i, %193 ], [ 0, %219 ]
+  %.sroa.11.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %spec.select221.i, %198 ], [ %spec.select221.i, %191 ], [ %184, %197 ], [ %spec.select221.i, %193 ], [ 0, %219 ]
+  %.sroa.7.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ], [ %205, %219 ]
+  %.sroa.0170.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ], [ %203, %219 ]
   %224 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
   %225 = trunc nuw i8 %224 to i1
   br i1 %225, label %226, label %233
@@ -3566,7 +3566,7 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
   br label %434
 
 434:                                              ; preds = %.sink.split237.i, %428, %416, %410, %aeron_pos_add_length.exit149.thread211.i, %308, %233
-  %.0121.i = phi i32 [ 0, %308 ], [ 0, %416 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split237.i ]
+  %.0121.i = phi i32 [ 0, %308 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %416 ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split237.i ]
   %435 = load i16, ptr %87, align 8
   %switch.i = icmp ult i16 %435, 2
   br i1 %switch.i, label %436, label %526

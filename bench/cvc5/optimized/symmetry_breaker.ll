@@ -3586,7 +3586,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt13unordered_ma
   br label %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
 
 common.resume:                                    ; preds = %117, %.body1285.thread, %219, %220, %2117, %2109, %2101, %2093, %1938, %784, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %118, %117 ], [ %.pn295.pn, %2117 ], [ %.pn292.pn, %2109 ], [ %.pn289.pn, %2101 ], [ %.pn286.pn, %2093 ], [ %.pn390.pn.pn.pn.pn.pn.pn, %1938 ], [ %.pn454.pn.pn.pn.pn, %784 ], [ %.pn460, %219 ], [ %.pn460.pn1619, %220 ], [ %.pn5.i, %.body1285.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %118, %117 ], [ %.pn454.pn.pn.pn.pn, %784 ], [ %.pn390.pn.pn.pn.pn.pn.pn, %1938 ], [ %.pn295.pn, %2117 ], [ %.pn292.pn, %2109 ], [ %.pn289.pn, %2101 ], [ %.pn286.pn, %2093 ], [ %.pn460, %219 ], [ %.pn460.pn1619, %220 ], [ %.pn5.i, %.body1285.thread ]
   resume { ptr, i32 } %common.resume.op
 
 97:                                               ; preds = %93

@@ -5062,7 +5062,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb
-  %status.0 = phi i32 [ %call9, %sw.bb8 ], [ %call7, %sw.bb6 ], [ %call5, %sw.bb4 ], [ %call3, %sw.bb ]
+  %status.0 = phi i32 [ %call3, %sw.bb ], [ %call5, %sw.bb4 ], [ %call7, %sw.bb6 ], [ %call9, %sw.bb8 ]
   %cmp.not = icmp eq i32 %status.0, 0
   br i1 %cmp.not, label %do.body10, label %cleanup153
 
@@ -10762,8 +10762,8 @@ do.body112:                                       ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %sw.bb110, %sw.bb111, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit169
-  %cmp = phi ptr [ @.str.33, %sw.bb111 ], [ @.str.32, %sw.bb110 ], [ @.str.129, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit169 ]
-  %family.0 = phi i32 [ 10, %sw.bb111 ], [ 2, %sw.bb110 ], [ %call109, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit169 ]
+  %cmp = phi ptr [ @.str.32, %sw.bb110 ], [ @.str.33, %sw.bb111 ], [ @.str.129, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit169 ]
+  %family.0 = phi i32 [ 2, %sw.bb110 ], [ 10, %sw.bb111 ], [ %call109, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit169 ]
   %69 = load i32, ptr %length_.i303, align 8
   %cmp2.i = icmp slt i32 %69, 5
   br i1 %cmp2.i, label %if.then.i, label %if.end.i

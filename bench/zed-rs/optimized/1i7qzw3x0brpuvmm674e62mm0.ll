@@ -17820,7 +17820,7 @@ default.unreachable:                              ; preds = %"_ZN84_$LT$gpui..ap
   unreachable
 
 .body.i.i:                                        ; preds = %352, %.body116.thread.i.i, %156, %.body57.i.i, %96
-  %.pn23.i.i = phi { ptr, i32 } [ %.pn.i.i, %.body116.thread.i.i ], [ %.pn21.i.i, %.body57.i.i ], [ %97, %96 ], [ %157, %156 ], [ %353, %352 ]
+  %.pn23.i.i = phi { ptr, i32 } [ %.pn21.i.i, %.body57.i.i ], [ %.pn.i.i, %.body116.thread.i.i ], [ %97, %96 ], [ %157, %156 ], [ %353, %352 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$gpui..view..View$LT$project_panel..ProjectPanel$GT$$GT$17hea10d0aa4534b10dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %67) #36
           to label %407 unwind label %295, !noalias !3295
 

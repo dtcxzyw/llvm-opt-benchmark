@@ -555,7 +555,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724ConstrainedFieldPosition1
   unreachable
 
 18:                                               ; preds = %3, %10, %6
-  %.0.shrunk = phi i1 [ %narrow, %10 ], [ %9, %6 ], [ true, %3 ]
+  %.0.shrunk = phi i1 [ %9, %6 ], [ %narrow, %10 ], [ true, %3 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -922,7 +922,7 @@ _ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPosit
   unreachable
 
 _ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii.exit: ; preds = %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit, %13, %17
-  %.0.shrunk.i = phi i1 [ %narrow.i, %17 ], [ %16, %13 ], [ true, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit ]
+  %.0.shrunk.i = phi i1 [ %16, %13 ], [ %narrow.i, %17 ], [ true, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit ]
   %.0.i6 = zext i1 %.0.shrunk.i to i8
   br label %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit.thread
 

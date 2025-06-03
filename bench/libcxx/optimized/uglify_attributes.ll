@@ -2881,7 +2881,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit67.thread132, %._crit_edge
-  %.sroa.0110.1 = phi ptr [ %.sroa.0110.0.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit67.thread132 ]
+  %.sroa.0110.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit67.thread132 ], [ %.sroa.0110.0.lcssa, %._crit_edge ]
   %51 = load ptr, ptr %.sroa.0110.1, align 8, !tbaa !465
   %.not.i.i68 = icmp eq ptr %51, null
   br i1 %.not.i.i68, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit80, label %_ZN4llvm9StringRefC2EPKc.exit.i69
@@ -2914,7 +2914,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit80.thread135, %._crit_edge
-  %.sroa.0110.2 = phi ptr [ %.sroa.0110.0.lcssa, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit80.thread135 ]
+  %.sroa.0110.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit80.thread135 ], [ %.sroa.0110.0.lcssa, %._crit_edge ]
   %59 = load ptr, ptr %.sroa.0110.2, align 8, !tbaa !465
   %.not.i.i81 = icmp eq ptr %59, null
   br i1 %.not.i.i81, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPPKcSt6vectorIS9_SaIS9_EEEEEEbT_.exit93, label %_ZN4llvm9StringRefC2EPKc.exit.i82

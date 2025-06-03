@@ -356,7 +356,7 @@ define ptr @H5PL_load(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   br label %75
 
 75:                                               ; preds = %14, %26, %34, %42, %46, %54, %64, %71, %.thread, %18
-  %.0 = phi ptr [ null, %14 ], [ null, %46 ], [ null, %42 ], [ null, %54 ], [ %70, %.thread ], [ null, %71 ], [ null, %64 ], [ null, %34 ], [ null, %26 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %46 ], [ null, %26 ], [ null, %54 ], [ %70, %.thread ], [ null, %71 ], [ null, %64 ], [ null, %34 ], [ null, %42 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7

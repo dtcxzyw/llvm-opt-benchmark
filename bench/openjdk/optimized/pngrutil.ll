@@ -3477,7 +3477,7 @@ define hidden void @png_handle_unknown(ptr noalias noundef %0, ptr noalias nound
   br label %.thread
 
 .thread:                                          ; preds = %34, %7, %15, %39, %49, %46, %43, %.thread52
-  %51 = phi i1 [ false, %49 ], [ true, %43 ], [ true, %46 ], [ true, %.thread52 ], [ true, %39 ], [ true, %7 ], [ false, %15 ], [ true, %34 ]
+  %51 = phi i1 [ false, %49 ], [ true, %46 ], [ true, %43 ], [ true, %.thread52 ], [ true, %39 ], [ true, %7 ], [ false, %15 ], [ true, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %53 = load ptr, ptr %52, align 8
   %.not47 = icmp eq ptr %53, null

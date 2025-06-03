@@ -21885,7 +21885,7 @@ _ZN2lp12numeric_pairI8rationalED2Ev.exit46:       ; preds = %.noexc.i1.i45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #30
   br label %459
 
-459:                                              ; preds = %_ZN2lp12numeric_pairI8rationalED2Ev.exit46, %_ZN2lp12numeric_pairI8rationalED2Ev.exit42, %_ZN2lp12numeric_pairI8rationalED2Ev.exit34, %_ZN2lp12numeric_pairI8rationalED2Ev.exit38, %_ZN2lp12numeric_pairI8rationalED2Ev.exit
+459:                                              ; preds = %_ZN2lp12numeric_pairI8rationalED2Ev.exit, %_ZN2lp12numeric_pairI8rationalED2Ev.exit34, %_ZN2lp12numeric_pairI8rationalED2Ev.exit38, %_ZN2lp12numeric_pairI8rationalED2Ev.exit42, %_ZN2lp12numeric_pairI8rationalED2Ev.exit46
   %460 = load ptr, ptr %9, align 8, !tbaa !572
   %461 = load ptr, ptr %460, align 8, !tbaa !275
   %462 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %461, i64 %12
@@ -35976,7 +35976,7 @@ _ZeqRK8rationalS1_.exit.i:                        ; preds = %37, %30
   br label %_ZNK2lp12numeric_pairI8rationalEeqERKS1_.exit
 
 _ZNK2lp12numeric_pairI8rationalEeqERKS1_.exit:    ; preds = %48, %_ZeqRK8rationalS1_.exit.i, %42, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %24, %51, %11, %9, %7, %5
-  %.0 = phi i1 [ true, %51 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ false, %_ZeqRK8rationalS1_.exit.i ], [ %50, %48 ], [ false, %42 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i ], [ false, %24 ]
+  %.0 = phi i1 [ true, %51 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ false, %_ZeqRK8rationalS1_.exit.i ], [ %50, %48 ], [ false, %42 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -39326,7 +39326,7 @@ _ZN8rationalD2Ev.exit294:                         ; preds = %.noexc.i293
   ret void
 
 626:                                              ; preds = %598, %596, %546, %378, %179, %99
-  %.pn135.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn120.pn, %546 ], [ %.pn127.pn, %378 ], [ %.pn132.pn, %179 ], [ %599, %598 ], [ %597, %596 ]
+  %.pn135.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn132.pn, %179 ], [ %.pn127.pn, %378 ], [ %.pn120.pn, %546 ], [ %599, %598 ], [ %597, %596 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
   resume { ptr, i32 } %.pn135.pn.pn
@@ -40728,7 +40728,7 @@ _ZN8rationalD2Ev.exit240:                         ; preds = %.noexc.i239
   ret void
 
 581:                                              ; preds = %562, %361, %170, %100
-  %.pn99 = phi { ptr, i32 } [ %101, %100 ], [ %.pn84.pn, %562 ], [ %.pn91.pn, %361 ], [ %.pn96.pn, %170 ]
+  %.pn99 = phi { ptr, i32 } [ %101, %100 ], [ %.pn96.pn, %170 ], [ %.pn91.pn, %361 ], [ %.pn84.pn, %562 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
   resume { ptr, i32 } %.pn99
@@ -42122,7 +42122,7 @@ _ZN8rationalD2Ev.exit238:                         ; preds = %.noexc.i237
   ret void
 
 580:                                              ; preds = %561, %360, %216, %99
-  %.pn99 = phi { ptr, i32 } [ %100, %99 ], [ %.pn84.pn, %561 ], [ %.pn89.pn, %360 ], [ %.pn96.pn, %216 ]
+  %.pn99 = phi { ptr, i32 } [ %100, %99 ], [ %.pn96.pn, %216 ], [ %.pn89.pn, %360 ], [ %.pn84.pn, %561 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
   resume { ptr, i32 } %.pn99
@@ -43433,7 +43433,7 @@ _ZN8rationalD2Ev.exit208:                         ; preds = %.noexc.i207
   ret void
 
 540:                                              ; preds = %513, %339, %182, %166
-  %.pn73 = phi { ptr, i32 } [ %167, %166 ], [ %.pn60.pn, %513 ], [ %.pn65.pn, %339 ], [ %.pn70.pn, %182 ]
+  %.pn73 = phi { ptr, i32 } [ %167, %166 ], [ %.pn70.pn, %182 ], [ %.pn65.pn, %339 ], [ %.pn60.pn, %513 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
   resume { ptr, i32 } %.pn73

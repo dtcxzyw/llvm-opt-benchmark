@@ -6370,7 +6370,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit315:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %901
 
 901:                                              ; preds = %899, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %900, %899 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %900, %899 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val20.val.i.i.i.i = load ptr, ptr %70, align 8, !tbaa !234
   %902 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.val20.val.i.i.i.i)
           to label %.noexc321 unwind label %.loopexit.split-lp1035
@@ -6383,7 +6383,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit315:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %905
 
 905:                                              ; preds = %903, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %904, %903 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %904, %903 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val21.val.i.i.i.i = load ptr, ptr %70, align 8, !tbaa !234
   %906 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.val21.val.i.i.i.i)
           to label %.noexc322 unwind label %.loopexit.split-lp1035

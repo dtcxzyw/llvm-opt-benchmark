@@ -11768,7 +11768,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN5clang12ast_matchers8internal1
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.1 = phi ptr [ %28, %27 ], [ %.029.lcssa, %._crit_edge ]
   %30 = tail call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal27NotEqualsBoundNodePredicateclERKNS1_13BoundNodesMapE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(48) %.1)
   br i1 %30, label %.loopexit, label %31
 
@@ -11777,7 +11777,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN5clang12ast_matchers8internal1
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.2 = phi ptr [ %32, %31 ], [ %.029.lcssa, %._crit_edge ]
   %34 = tail call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal27NotEqualsBoundNodePredicateclERKNS1_13BoundNodesMapE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(48) %.2)
   br i1 %34, label %.loopexit, label %35
 

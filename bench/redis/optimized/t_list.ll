@@ -253,7 +253,7 @@ listTypeTryConvertQuicklist.exit:                 ; preds = %19, %24, %35, %41, 
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %94, %90, %86, %82, %79, %72
-  %.0.i.i = phi i64 [ %96, %94 ], [ %93, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %79 ], [ 0, %72 ]
+  %.0.i.i = phi i64 [ %81, %79 ], [ %85, %82 ], [ %89, %86 ], [ %93, %90 ], [ %96, %94 ], [ 0, %72 ]
   %97 = add i64 %.0.i.i, %.140.i
   br label %98
 
@@ -407,7 +407,7 @@ define dso_local void @listTypePush(ptr noundef captures(none) %0, ptr noundef r
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %31, %34, %38, %42, %46
-  %.0.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %22 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %22 ]
   tail call void @quicklistPush(ptr noundef %24, ptr noundef nonnull %26, i64 noundef %.0.i, i32 noundef %10) #9
   br label %118
 
@@ -485,7 +485,7 @@ sdslen.exit:                                      ; preds = %22, %31, %34, %38, 
   br label %sdslen.exit26
 
 sdslen.exit26:                                    ; preds = %72, %73, %76, %80, %84, %88
-  %.0.i25 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %73 ], [ 0, %72 ]
+  %.0.i25 = phi i64 [ %75, %73 ], [ %79, %76 ], [ %83, %80 ], [ %87, %84 ], [ %90, %88 ], [ 0, %72 ]
   %91 = trunc i64 %.0.i25 to i32
   %92 = tail call ptr @lpPrepend(ptr noundef %55, ptr noundef nonnull %57, i32 noundef %91) #9
   br label %114
@@ -528,7 +528,7 @@ sdslen.exit26:                                    ; preds = %72, %73, %76, %80, 
   br label %sdslen.exit28
 
 sdslen.exit28:                                    ; preds = %93, %94, %97, %101, %105, %109
-  %.0.i27 = phi i64 [ %111, %109 ], [ %108, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %94 ], [ 0, %93 ]
+  %.0.i27 = phi i64 [ %96, %94 ], [ %100, %97 ], [ %104, %101 ], [ %108, %105 ], [ %111, %109 ], [ 0, %93 ]
   %112 = trunc i64 %.0.i27 to i32
   %113 = tail call ptr @lpAppend(ptr noundef %55, ptr noundef nonnull %57, i32 noundef %112) #9
   br label %114
@@ -1093,7 +1093,7 @@ define dso_local void @listTypeInsert(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %3 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !68
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8, !tbaa !60
@@ -1202,7 +1202,7 @@ define dso_local void @listTypeReplace(ptr noundef %0, ptr noundef %1) local_unn
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %2 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !60
@@ -1288,7 +1288,7 @@ define dso_local i32 @listTypeReplaceAtIndex(ptr noundef captures(none) %0, i32 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %3 ]
   %30 = load i32, ptr %0, align 8
   %31 = lshr i32 %30, 4
   %32 = and i32 %31, 15
@@ -1847,7 +1847,7 @@ listTypeInitIterator.exit:                        ; preds = %33, %37
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %listTypeInitIterator.exit, %52, %55, %59, %63, %67
-  %.0.i = phi i64 [ %69, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %52 ], [ 0, %listTypeInitIterator.exit ]
+  %.0.i = phi i64 [ %54, %52 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %69, %67 ], [ 0, %listTypeInitIterator.exit ]
   br label %70
 
 70:                                               ; preds = %72, %sdslen.exit
@@ -3455,7 +3455,7 @@ listTypeLength.exit:                              ; preds = %101, %105
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %listTypeLength.exit, %116, %119, %123, %127, %131
-  %.0.i108 = phi i64 [ %133, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %118, %116 ], [ 0, %listTypeLength.exit ]
+  %.0.i108 = phi i64 [ %118, %116 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %133, %131 ], [ 0, %listTypeLength.exit ]
   %134 = call i32 @listTypeNext(ptr noundef nonnull %80, ptr noundef nonnull %5)
   %.not97115 = icmp eq i32 %134, 0
   br i1 %.not97115, label %.critedge, label %.lr.ph119
@@ -3806,7 +3806,7 @@ listTypeInitIterator.exit:                        ; preds = %54, %50, %36, %32
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %listTypeInitIterator.exit, %69, %72, %76, %80, %84
-  %.0.i = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %69 ], [ 0, %listTypeInitIterator.exit ]
+  %.0.i = phi i64 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ %86, %84 ], [ 0, %listTypeInitIterator.exit ]
   %87 = call i32 @listTypeNext(ptr noundef nonnull %.037, ptr noundef nonnull %3)
   %.not4450 = icmp eq i32 %87, 0
   br i1 %.not4450, label %._crit_edge, label %.lr.ph

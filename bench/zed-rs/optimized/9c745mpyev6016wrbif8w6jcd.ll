@@ -4061,8 +4061,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
   br label %62
 
 62:                                               ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
   %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %64
@@ -9939,10 +9939,10 @@ define void @_ZN10supermaven15SupermavenAgent14handle_message17h1b8a86a8a3c6598d
   br label %105
 
 139:                                              ; preds = %218, %221, %197, %171, %165, %142, %66
-  %.sroa.023.0 = phi i1 [ true, %142 ], [ true, %221 ], [ false, %218 ], [ true, %197 ], [ true, %165 ], [ true, %171 ], [ true, %66 ]
-  %.sroa.025.1 = phi i1 [ %.sroa.025.0, %142 ], [ true, %221 ], [ true, %218 ], [ true, %197 ], [ true, %165 ], [ true, %171 ], [ false, %66 ]
-  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %142 ], [ true, %221 ], [ true, %218 ], [ true, %197 ], [ false, %165 ], [ false, %171 ], [ true, %66 ]
-  %.pn = phi { ptr, i32 } [ %143, %142 ], [ %222, %221 ], [ %219, %218 ], [ %198, %197 ], [ %166, %165 ], [ %172, %171 ], [ %lpad.phi, %66 ]
+  %.sroa.023.0 = phi i1 [ true, %142 ], [ true, %66 ], [ true, %165 ], [ true, %171 ], [ true, %197 ], [ false, %218 ], [ true, %221 ]
+  %.sroa.025.1 = phi i1 [ %.sroa.025.0, %142 ], [ false, %66 ], [ true, %165 ], [ true, %171 ], [ true, %197 ], [ true, %218 ], [ true, %221 ]
+  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %142 ], [ true, %66 ], [ false, %165 ], [ false, %171 ], [ true, %197 ], [ true, %218 ], [ true, %221 ]
+  %.pn = phi { ptr, i32 } [ %143, %142 ], [ %lpad.phi, %66 ], [ %166, %165 ], [ %172, %171 ], [ %198, %197 ], [ %219, %218 ], [ %222, %221 ]
   %140 = load i64, ptr %1, align 8, !range !577, !noundef !30
   %141 = xor i64 %140, -9223372036854775808
   switch i64 %141, label %240 [
@@ -9964,9 +9964,9 @@ define void @_ZN10supermaven15SupermavenAgent14handle_message17h1b8a86a8a3c6598d
   br label %145
 
 145:                                              ; preds = %224, %238, %220, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67", %144
-  %.sroa.023.1 = phi i1 [ true, %224 ], [ true, %238 ], [ false, %220 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ true, %144 ]
-  %.sroa.025.2 = phi i1 [ true, %224 ], [ true, %238 ], [ true, %220 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ false, %144 ]
-  %.sroa.027.2 = phi i1 [ true, %224 ], [ true, %238 ], [ true, %220 ], [ false, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ true, %144 ]
+  %.sroa.023.1 = phi i1 [ true, %238 ], [ true, %224 ], [ true, %144 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ false, %220 ]
+  %.sroa.025.2 = phi i1 [ true, %238 ], [ true, %224 ], [ false, %144 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ true, %220 ]
+  %.sroa.027.2 = phi i1 [ true, %238 ], [ true, %224 ], [ true, %144 ], [ false, %"_ZN4core3ptr46drop_in_place$LT$supermaven..AccountStatus$GT$17h6d68890d706f43d8E.llvm.7424502398174687719.exit67" ], [ true, %220 ]
   %146 = load i64, ptr %1, align 8, !range !577, !noundef !30
   %147 = xor i64 %146, -9223372036854775808
   switch i64 %147, label %168 [
@@ -10445,7 +10445,7 @@ define internal noundef zeroext i1 @"_ZN76_$LT$supermaven..messages..SupermavenM
   br label %51
 
 51:                                               ; preds = %49, %47, %44, %41, %38, %35, %32, %30, %27, %24, %21, %18
-  %.sroa.0.0.in = phi i1 [ %50, %49 ], [ %48, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
+  %.sroa.0.0.in = phi i1 [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %31, %30 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ %50, %49 ]
   ret i1 %.sroa.0.0.in
 }
 

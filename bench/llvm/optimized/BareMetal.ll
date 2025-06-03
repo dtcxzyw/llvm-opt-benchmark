@@ -6999,8 +6999,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -7511,7 +7511,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit97: ; preds = %195,
   br label %237
 
 237:                                              ; preds = %235, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %236, %235 ]
+  %.1.i.i.i.i = phi ptr [ %236, %235 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %238 = getelementptr i8, ptr %.1.i.i.i.i, i64 8
   %.1.val.i.i.i.i = load i32, ptr %238, align 8, !tbaa !321
   %239 = icmp eq i32 %.1.val.i.i.i.i, 1
@@ -7522,7 +7522,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit97: ; preds = %195,
   br label %242
 
 242:                                              ; preds = %240, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %241, %240 ]
+  %.2.i.i.i.i = phi ptr [ %241, %240 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %243 = getelementptr i8, ptr %.2.i.i.i.i, i64 8
   %.2.val.i.i.i.i = load i32, ptr %243, align 8, !tbaa !321
   %244 = icmp eq i32 %.2.val.i.i.i.i, 1

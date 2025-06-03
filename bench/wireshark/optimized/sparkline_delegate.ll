@@ -978,7 +978,7 @@ _Zeq9QMetaTypeS_.exit.thread12:                   ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
-  %.1.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QListIiEE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
@@ -988,7 +988,7 @@ _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit
 
 _Zeq9QMetaTypeS_.exit:                            ; preds = %_ZNK9QMetaType2idEi.exit.i, %17
-  %.1.i8.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i ], [ %18, %17 ]
+  %.1.i8.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i ]
   %19 = icmp eq i32 %.1.i.i, %.1.i8.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -3114,7 +3114,7 @@ _Z17qRegisterMetaTypeI5QListIiEEiPKc.exit:        ; preds = %27, %_ZN17QArrayDat
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 
@@ -3132,7 +3132,7 @@ define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI5QListIiEEiRK10
   br label %_ZNK9QMetaType2idEi.exit
 
 _ZNK9QMetaType2idEi.exit:                         ; preds = %1, %4
-  %.1.i = phi i32 [ %3, %1 ], [ %5, %4 ]
+  %.1.i = phi i32 [ %5, %4 ], [ %3, %1 ]
   %6 = call noundef zeroext i1 @_ZN9QMetaType30hasRegisteredConverterFunctionES_S_(ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QListIiEE8metaTypeE, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI9QIterableI13QMetaSequenceEE8metaTypeE)
   br i1 %6, label %_ZN9QtPrivate29SequentialValueTypeIsMetaTypeI5QListIiELb1EE17registerConverterEv.exit, label %7
 
@@ -3539,7 +3539,7 @@ define linkonce_odr noundef ptr @_ZZN22QtMetaContainerPrivate26QMetaContainerFor
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit
 
 _ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit: ; preds = %2, %3, %5, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %6, %5 ], [ %4, %3 ], [ null, %2 ]
+  %.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %10, %9 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -4001,7 +4001,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i10: ; preds = %_ZNK17
   br label %30
 
 29:                                               ; preds = %3, %21, %11, %4
-  %.06 = phi ptr [ %17, %21 ], [ %7, %11 ], [ %5, %4 ], [ null, %3 ]
+  %.06 = phi ptr [ %5, %4 ], [ %7, %11 ], [ %17, %21 ], [ null, %3 ]
   ret ptr %.06
 
 30:                                               ; preds = %27, %14

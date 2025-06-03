@@ -1186,7 +1186,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %_ZNK5clang13CXXMeth
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %282, %274
-  %.1.i.i.i = phi ptr [ %278, %274 ], [ %283, %282 ]
+  %.1.i.i.i = phi ptr [ %283, %282 ], [ %278, %274 ]
   %284 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %284, align 8, !tbaa !814
   %285 = and i64 %.sroa.0.0.copyload.i1.i.i, -16
@@ -6784,7 +6784,7 @@ define internal fastcc noundef zeroext i1 @_ZL10isNoexceptPKN5clang12FunctionDec
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %1, %8
-  %.1.i = phi ptr [ %5, %1 ], [ %9, %8 ]
+  %.1.i = phi ptr [ %9, %8 ], [ %5, %1 ]
   %10 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i) #24
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit, label %12
@@ -26902,7 +26902,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_122UninitValsDiagReporter25hasAlw
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %60, %59 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 10
   %63 = load i8, ptr %62, align 2, !tbaa !1399, !range !865, !noundef !866
   %64 = trunc nuw i8 %63 to i1
@@ -26923,7 +26923,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_122UninitValsDiagReporter25hasAlw
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %72, %71 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 10
   %75 = load i8, ptr %74, align 2, !tbaa !1399, !range !865, !noundef !866
   %76 = trunc nuw i8 %75 to i1
@@ -33227,13 +33227,13 @@ _ZN5clang9FixItHintD2Ev.exit216:                  ; preds = %_ZNKSt7__cxx1112bas
   br label %1046
 
 1046:                                             ; preds = %_ZN5clang9FixItHintD2Ev.exit167, %_ZN5clang9FixItHintD2Ev.exit, %_ZN5clang9FixItHintD2Ev.exit192, %_ZN5clang9FixItHintD2Ev.exit204, %1044, %1040, %_ZN5clang9FixItHintD2Ev.exit216, %999, %_ZN5clang9FixItHintD2Ev.exit180, %831, %_ZNK5clang6IfStmt7getElseEv.exit
-  %.not109 = phi i1 [ true, %1044 ], [ true, %1040 ], [ false, %_ZN5clang9FixItHintD2Ev.exit216 ], [ true, %999 ], [ false, %_ZN5clang9FixItHintD2Ev.exit204 ], [ false, %_ZN5clang9FixItHintD2Ev.exit192 ], [ false, %_ZN5clang9FixItHintD2Ev.exit180 ], [ false, %831 ], [ false, %_ZNK5clang6IfStmt7getElseEv.exit ], [ false, %_ZN5clang9FixItHintD2Ev.exit ], [ false, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.0665 = phi i64 [ -1, %1044 ], [ -1, %1040 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit216 ], [ -1, %999 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 0, %831 ], [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.0587.0 = phi i32 [ %.sroa.0.0.copyload.i.i217, %1044 ], [ %.sroa.0587.0.extract.trunc, %1040 ], [ %.sroa.0587.0.extract.trunc588, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.0587.0.extract.trunc589, %999 ], [ %.sroa.0587.0.extract.trunc593, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.0587.0.extract.trunc593, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.0587.0.extract.trunc594, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.0587.0.extract.trunc596, %831 ], [ %.sroa.0587.0.extract.trunc597, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.0587.0.extract.trunc595, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.0587.0.extract.trunc595, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.17.0 = phi i32 [ %.sroa.0.0.copyload.i.i217, %1044 ], [ %.sroa.17.0.extract.trunc, %1040 ], [ %.sroa.17.0.extract.trunc606, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.17.0.extract.trunc608, %999 ], [ %.sroa.17.0.extract.trunc614, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.17.0.extract.trunc614, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.17.0.extract.trunc616, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.17.0.extract.trunc620, %831 ], [ %.sroa.17.0.extract.trunc622, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.17.0.extract.trunc618, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.17.0.extract.trunc618, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.16.2 = phi i64 [ 7, %1044 ], [ 4, %1040 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 3, %999 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 5, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 2, %831 ], [ 2, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %851, %_ZN5clang9FixItHintD2Ev.exit ], [ %851, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.sroa.0633.2 = phi ptr [ @.str.39, %1044 ], [ @.str.38, %1040 ], [ @.str.37, %_ZN5clang9FixItHintD2Ev.exit216 ], [ @.str.36, %999 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit204 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit192 ], [ @.str.35, %_ZN5clang9FixItHintD2Ev.exit180 ], [ @.str.34, %831 ], [ @.str.33, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %850, %_ZN5clang9FixItHintD2Ev.exit ], [ %850, %_ZN5clang9FixItHintD2Ev.exit167 ]
-  %.0664 = phi i64 [ 3, %1044 ], [ 3, %1040 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 1, %999 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 0, %831 ], [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.not109 = phi i1 [ false, %_ZNK5clang6IfStmt7getElseEv.exit ], [ false, %831 ], [ false, %_ZN5clang9FixItHintD2Ev.exit180 ], [ false, %_ZN5clang9FixItHintD2Ev.exit204 ], [ false, %_ZN5clang9FixItHintD2Ev.exit192 ], [ true, %999 ], [ false, %_ZN5clang9FixItHintD2Ev.exit216 ], [ true, %1040 ], [ true, %1044 ], [ false, %_ZN5clang9FixItHintD2Ev.exit ], [ false, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.0665 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %831 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ -1, %999 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit216 ], [ -1, %1040 ], [ -1, %1044 ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.0587.0 = phi i32 [ %.sroa.0587.0.extract.trunc597, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.0587.0.extract.trunc596, %831 ], [ %.sroa.0587.0.extract.trunc594, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.0587.0.extract.trunc593, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.0587.0.extract.trunc593, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.0587.0.extract.trunc589, %999 ], [ %.sroa.0587.0.extract.trunc588, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.0587.0.extract.trunc, %1040 ], [ %.sroa.0.0.copyload.i.i217, %1044 ], [ %.sroa.0587.0.extract.trunc595, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.0587.0.extract.trunc595, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.17.0 = phi i32 [ %.sroa.17.0.extract.trunc622, %_ZNK5clang6IfStmt7getElseEv.exit ], [ %.sroa.17.0.extract.trunc620, %831 ], [ %.sroa.17.0.extract.trunc616, %_ZN5clang9FixItHintD2Ev.exit180 ], [ %.sroa.17.0.extract.trunc614, %_ZN5clang9FixItHintD2Ev.exit204 ], [ %.sroa.17.0.extract.trunc614, %_ZN5clang9FixItHintD2Ev.exit192 ], [ %.sroa.17.0.extract.trunc608, %999 ], [ %.sroa.17.0.extract.trunc606, %_ZN5clang9FixItHintD2Ev.exit216 ], [ %.sroa.17.0.extract.trunc, %1040 ], [ %.sroa.0.0.copyload.i.i217, %1044 ], [ %.sroa.17.0.extract.trunc618, %_ZN5clang9FixItHintD2Ev.exit ], [ %.sroa.17.0.extract.trunc618, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.16.2 = phi i64 [ 2, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 2, %831 ], [ 5, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 3, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 3, %999 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 4, %1040 ], [ 7, %1044 ], [ %851, %_ZN5clang9FixItHintD2Ev.exit ], [ %851, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.sroa.0633.2 = phi ptr [ @.str.33, %_ZNK5clang6IfStmt7getElseEv.exit ], [ @.str.34, %831 ], [ @.str.35, %_ZN5clang9FixItHintD2Ev.exit180 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit204 ], [ @.str.36, %_ZN5clang9FixItHintD2Ev.exit192 ], [ @.str.36, %999 ], [ @.str.37, %_ZN5clang9FixItHintD2Ev.exit216 ], [ @.str.38, %1040 ], [ @.str.39, %1044 ], [ %850, %_ZN5clang9FixItHintD2Ev.exit ], [ %850, %_ZN5clang9FixItHintD2Ev.exit167 ]
+  %.0664 = phi i64 [ 0, %_ZNK5clang6IfStmt7getElseEv.exit ], [ 0, %831 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit180 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit204 ], [ 1, %_ZN5clang9FixItHintD2Ev.exit192 ], [ 1, %999 ], [ 2, %_ZN5clang9FixItHintD2Ev.exit216 ], [ 3, %1040 ], [ 3, %1044 ], [ 0, %_ZN5clang9FixItHintD2Ev.exit ], [ 0, %_ZN5clang9FixItHintD2Ev.exit167 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %54) #24
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %54, ptr noundef nonnull align 8 dereferenceable(8) %110, i32 %.sroa.0587.0, i32 noundef 7025, i1 noundef zeroext false) #24
   %.sroa.0.0.copyload.i219 = load i64, ptr %111, align 8, !tbaa !718
@@ -38510,8 +38510,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127shouldAnalyzeCalle
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge._crit_edge.i.i.i.i.i.i
-  %33 = phi ptr [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %28, %30 ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %31, %30 ]
+  %33 = phi ptr [ %28, %30 ], [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 4, !tbaa !721
   %34 = tail call noundef zeroext i8 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %.1.val.i.i.i.i.i.i, i32 %3, ptr noundef nonnull readonly align 8 dereferenceable(15248) %2) #26
   %.not53.i.i.i.i.i.i = icmp eq i8 %34, 1
@@ -38522,8 +38522,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127shouldAnalyzeCalle
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge._crit_edge75.i.i.i.i.i.i
-  %38 = phi ptr [ %.pre77.i.i.i.i.i.i, %._crit_edge._crit_edge75.i.i.i.i.i.i ], [ %33, %35 ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge75.i.i.i.i.i.i ], [ %36, %35 ]
+  %38 = phi ptr [ %33, %35 ], [ %.pre77.i.i.i.i.i.i, %._crit_edge._crit_edge75.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge75.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 4, !tbaa !721
   %39 = tail call noundef zeroext i8 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.2.val.i.i.i.i.i.i, i32 %3, ptr noundef nonnull readonly align 8 dereferenceable(15248) %2) #26
   %.not54.i.i.i.i.i.i = icmp eq i8 %39, 1

@@ -733,7 +733,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %.thread170.i, %.thread172.i
-  %.0138.i = phi i32 [ %.0142.i, %.thread172.i ], [ %285, %.thread170.i ]
+  %.0138.i = phi i32 [ %285, %.thread170.i ], [ %.0142.i, %.thread172.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %309
 

@@ -6060,7 +6060,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6f81273a027d1dd3E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6f81273a027d1dd3E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6118,7 +6118,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h690bc7a7ed9c4a74E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h690bc7a7ed9c4a74E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8487,7 +8487,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h5198656e17f112cfE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -8547,7 +8547,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hf9c7ed092d70ea30E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 

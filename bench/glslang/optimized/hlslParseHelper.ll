@@ -3638,7 +3638,7 @@ switch.lookup:                                    ; preds = %157
   br label %372
 
 372:                                              ; preds = %370, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %371, %370 ]
+  %.1.i.i.i.i.i = phi ptr [ %371, %370 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i, align 1
   %373 = trunc i8 %.1.val.i.i.i.i.i to i1
   br i1 %373, label %374, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
@@ -3648,7 +3648,7 @@ switch.lookup:                                    ; preds = %157
   br label %376
 
 376:                                              ; preds = %374, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %375, %374 ]
+  %.2.i.i.i.i.i = phi ptr [ %375, %374 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i, align 1
   %377 = trunc i8 %.2.val.i.i.i.i.i to i1
   br i1 %377, label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit.thread194", label %"_ZZN7glslang16HlslParseContext12handleLvalueERKNS_10TSourceLocEPKcRPNS_12TIntermTypedEENK3$_0clEPNS_13TIntermSymbolEPNS_13TIntermBinaryE.exit"
@@ -4544,7 +4544,7 @@ switch.lookup:                                    ; preds = %157
   br label %974
 
 974:                                              ; preds = %467, %489, %675, %968, %61, %4, %.thread190
-  %.0 = phi ptr [ %66, %.thread190 ], [ null, %4 ], [ null, %61 ], [ %967, %675 ], [ %674, %489 ], [ %484, %467 ], [ %spec.select, %968 ]
+  %.0 = phi ptr [ %66, %.thread190 ], [ null, %4 ], [ null, %61 ], [ %674, %489 ], [ %967, %675 ], [ %484, %467 ], [ %spec.select, %968 ]
   ret ptr %.0
 }
 
@@ -31768,9 +31768,9 @@ define noundef ptr @_ZN7glslang16HlslParseContext22assignClipCullDistanceERKNS_1
   br label %48
 
 48:                                               ; preds = %47, %46
-  %.v158.pn = phi i64 [ %.v158, %47 ], [ %.v160, %46 ]
-  %.v.pn = phi i64 [ %.v, %47 ], [ %.v159, %46 ]
-  %.0150 = getelementptr inbounds nuw i8, ptr %0, i64 %.v158.pn
+  %.v160.pn = phi i64 [ %.v160, %46 ], [ %.v158, %47 ]
+  %.v159.pn = phi i64 [ %.v159, %46 ], [ %.v, %47 ]
+  %.0150 = getelementptr inbounds nuw i8, ptr %0, i64 %.v160.pn
   br label %49
 
 49:                                               ; preds = %48, %49
@@ -31793,7 +31793,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext22assignClipCullDistanceERKNS_1
   br i1 %50, label %49, label %59, !llvm.loop !190
 
 59:                                               ; preds = %49
-  %.0149 = getelementptr inbounds nuw i8, ptr %0, i64 %.v.pn
+  %.0149 = getelementptr inbounds nuw i8, ptr %0, i64 %.v159.pn
   %60 = load ptr, ptr %36, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 240
   %62 = load ptr, ptr %61, align 8
@@ -32690,7 +32690,7 @@ define noundef range(i32 0, 616) i32 @_ZN7glslang16HlslParseContext11mapAtomicOp
   br label %25
 
 25:                                               ; preds = %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %21 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   ret i32 %.0
 }
 
@@ -35916,8 +35916,8 @@ default.unreachable218:                           ; preds = %376
   unreachable
 
 405:                                              ; preds = %376, %404, %403, %402
-  %406 = phi i1 [ false, %404 ], [ false, %403 ], [ false, %402 ], [ true, %376 ]
-  %.0198 = phi i32 [ 4, %404 ], [ 3, %403 ], [ 2, %402 ], [ 1, %376 ]
+  %406 = phi i1 [ false, %402 ], [ false, %403 ], [ false, %404 ], [ true, %376 ]
+  %.0198 = phi i32 [ 2, %402 ], [ 3, %403 ], [ 4, %404 ], [ 1, %376 ]
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %408 = load ptr, ptr %407, align 8
   %409 = call noundef ptr @_ZNK7glslang13TIntermediate16addConstantUnionEiRKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(2024) %408, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext true) #25
@@ -36851,8 +36851,8 @@ define noundef ptr @_ZN7glslang16HlslParseContext17getSamplePosArrayEi(ptr nonnu
   br label %9
 
 9:                                                ; preds = %2, %8, %7, %6, %5
-  %.019 = phi i32 [ 1, %8 ], [ %1, %7 ], [ %1, %6 ], [ %1, %5 ], [ %1, %2 ]
-  %.0 = phi ptr [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos1, %8 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE5pos16, %7 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos8, %6 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos4, %5 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos2, %2 ]
+  %.019 = phi i32 [ 1, %8 ], [ %1, %5 ], [ %1, %6 ], [ %1, %7 ], [ %1, %2 ]
+  %.0 = phi ptr [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos1, %8 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos4, %5 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos8, %6 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE5pos16, %7 ], [ @_ZZN7glslang16HlslParseContext17getSamplePosArrayEiE4pos2, %2 ]
   %10 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #25
   %11 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef 16) #25
   %12 = shl nsw i32 %.019, 1
@@ -42407,7 +42407,7 @@ define void @_ZN7glslang16HlslParseContext18decomposeIntrinsicERKNS_10TSourceLoc
   br label %_ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit
 
 _ZN7glslang16HlslParseContext11mapAtomicOpERKNS_10TSourceLocENS_9TOperatorEb.exit: ; preds = %628, %630, %632, %634, %636, %638, %640, %642, %644
-  %.0.i = phi i32 [ 0, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ]
+  %.0.i = phi i32 [ 0, %644 ], [ %629, %628 ], [ %631, %630 ], [ %633, %632 ], [ %635, %634 ], [ %637, %636 ], [ %639, %638 ], [ %641, %640 ], [ %643, %642 ]
   %648 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #25
   %649 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %648, i64 noundef 368) #25
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 8
@@ -49636,8 +49636,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 167:                                              ; preds = %33, %33
   br label %168
 
-168:                                              ; preds = %33, %33, %167, %166, %154
-  %.048.ph = phi i64 [ %165, %154 ], [ 3, %166 ], [ 4, %167 ], [ 2, %33 ], [ 2, %33 ]
+168:                                              ; preds = %33, %33, %154, %166, %167
+  %.048.ph = phi i64 [ 4, %167 ], [ 3, %166 ], [ %165, %154 ], [ 2, %33 ], [ 2, %33 ]
   %169 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw ptr, ptr %170, i64 %.048.ph
@@ -50235,7 +50235,7 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   br label %149
 
 149:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.049.1.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i" ]
+  %.sroa.049.1.i.i.i.i.i = phi ptr [ %148, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit35.thread.i.i.i.i.i" ], [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %150 = load ptr, ptr %.sroa.049.1.i.i.i.i.i, align 8
   %.not.i.i36.i.i.i.i.i = icmp eq ptr %150, null
   br i1 %.not.i.i36.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i", label %151
@@ -50275,7 +50275,7 @@ define void @_ZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS_10TSourc
   br label %174
 
 174:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.049.2.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i" ]
+  %.sroa.049.2.i.i.i.i.i = phi ptr [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext22addStructBuffArgumentsERKNS2_10TSourceLocERPNS2_16TIntermAggregateEE3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISF_NS2_14pool_allocatorISF_EEEEEEEbT_.exit40.thread.i.i.i.i.i" ], [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %175 = load ptr, ptr %.sroa.049.2.i.i.i.i.i, align 8
   %.not.i.i41.i.i.i.i.i = icmp eq ptr %175, null
   br i1 %.not.i.i41.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_16HlslParseContext22addStructBuffArgumentsERKNS6_10TSourceLocERPNS6_16TIntermAggregateEE3$_0EbT_SJ_T0_.exit.thread", label %176
@@ -51348,7 +51348,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE16
   br label %.thread143
 
 .thread143:                                       ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102, %139, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121", %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99", %147, %143
-  %.3 = phi i32 [ %.0, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread ], [ %.0, %147 ], [ 68, %143 ], [ 0, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit" ], [ 33, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99" ], [ 34, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121" ], [ %spec.select34, %139 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102 ], [ 31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread ], [ 0, %73 ]
+  %.3 = phi i32 [ %.0, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit49.thread ], [ 0, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit" ], [ 33, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit99" ], [ 34, %"_ZZN7glslang16HlslParseContext14handleSemanticENS_10TSourceLocERNS_10TQualifierENS_16TBuiltInVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clESD_jPKc.exit121" ], [ 68, %143 ], [ %.0, %147 ], [ %spec.select34, %139 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i102 ], [ 31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i61 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEmmPKc.exit76.thread ], [ 0, %73 ]
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, 65408
@@ -59374,7 +59374,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext16constructBuiltInERKNS_5TTypeE
   br label %41
 
 18:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 483, %13 ], [ 476, %12 ], [ 480, %11 ], [ 475, %10 ], [ 479, %9 ], [ 485, %8 ], [ 484, %7 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ]
+  %.0 = phi i32 [ 484, %7 ], [ 485, %8 ], [ 479, %9 ], [ 475, %10 ], [ 480, %11 ], [ 476, %12 ], [ 483, %13 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ], [ 564, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %3, align 8
@@ -60400,7 +60400,7 @@ switch.lookup:                                    ; preds = %_ZN7glslang13TInter
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit10
 
 _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit10: ; preds = %7, %19, %20, %21, %22
-  %.0.i9 = phi ptr [ @.str.454, %22 ], [ @.str.674, %21 ], [ @.str.673, %20 ], [ @.str.672, %19 ], [ @.str.669, %7 ]
+  %.0.i9 = phi ptr [ @.str.454, %22 ], [ @.str.672, %19 ], [ @.str.673, %20 ], [ @.str.674, %21 ], [ @.str.669, %7 ]
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 344
   %25 = load ptr, ptr %24, align 8
@@ -60483,7 +60483,7 @@ switch.lookup:                                    ; preds = %_ZN7glslang13TInter
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit12
 
 _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit12: ; preds = %9, %21, %22, %23, %24, %25, %26
-  %.0.i11 = phi ptr [ @.str.454, %26 ], [ @.str.674, %25 ], [ @.str.673, %24 ], [ @.str.671, %23 ], [ @.str.670, %22 ], [ @.str.668, %21 ], [ @.str.667, %9 ]
+  %.0.i11 = phi ptr [ @.str.454, %26 ], [ @.str.668, %21 ], [ @.str.670, %22 ], [ @.str.671, %23 ], [ @.str.673, %24 ], [ @.str.674, %25 ], [ @.str.667, %9 ]
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 344
   %29 = load ptr, ptr %28, align 8
@@ -60788,7 +60788,7 @@ switch.lookup:                                    ; preds = %_ZN7glslang13TInter
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit12.i
 
 _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit12.i: ; preds = %52, %51, %50, %49, %48, %47, %36
-  %.0.i11.i = phi ptr [ @.str.454, %52 ], [ @.str.674, %51 ], [ @.str.673, %50 ], [ @.str.671, %49 ], [ @.str.670, %48 ], [ @.str.668, %47 ], [ @.str.667, %36 ]
+  %.0.i11.i = phi ptr [ @.str.454, %52 ], [ @.str.668, %47 ], [ @.str.670, %48 ], [ @.str.671, %49 ], [ @.str.673, %50 ], [ @.str.674, %51 ], [ @.str.667, %36 ]
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 344
   %55 = load ptr, ptr %54, align 8
@@ -60908,7 +60908,7 @@ default.unreachable:                              ; preds = %98
   unreachable
 
 102:                                              ; preds = %98, %101, %100
-  %.057.in = phi ptr [ %89, %101 ], [ %90, %100 ], [ %91, %98 ]
+  %.057.in = phi ptr [ %90, %100 ], [ %89, %101 ], [ %91, %98 ]
   %.057 = load i32, ptr %.057.in, align 4
   %103 = load ptr, ptr %92, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 632
@@ -62832,7 +62832,7 @@ switch.lookup14:                                  ; preds = %35
   br label %switch.edge
 
 switch.edge:                                      ; preds = %35, %switch.lookup14, %8, %switch.lookup, %24, %2, %47, %43, %39, %31, %27, %20, %16, %12
-  %.0 = phi i1 [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %34, %31 ], [ %spec.select11, %27 ], [ %23, %20 ], [ %19, %16 ], [ %spec.select, %12 ], [ false, %2 ], [ %switch, %24 ], [ %switch.masked, %switch.lookup ], [ true, %8 ], [ %switch.masked18, %switch.lookup14 ], [ false, %35 ]
+  %.0 = phi i1 [ %spec.select, %12 ], [ %19, %16 ], [ %23, %20 ], [ %spec.select11, %27 ], [ %34, %31 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ false, %2 ], [ %switch, %24 ], [ %switch.masked, %switch.lookup ], [ true, %8 ], [ %switch.masked18, %switch.lookup14 ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -62894,7 +62894,7 @@ define noundef zeroext i1 @_ZNK7glslang16HlslParseContext15isOutputBuiltInERKNS_
   br label %29
 
 29:                                               ; preds = %2, %25, %21, %16, %12, %8
-  %.0 = phi i1 [ %28, %25 ], [ %24, %21 ], [ %spec.select5, %16 ], [ %15, %12 ], [ %spec.select, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ %spec.select, %8 ], [ %15, %12 ], [ %spec.select5, %16 ], [ %24, %21 ], [ %28, %25 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -65595,7 +65595,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i)
   br i1 %31, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i", label %32
 
@@ -65604,7 +65604,7 @@ define void @_ZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEv(p
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EclINS_17__normal_iteratorIPPNS2_7TSymbolESt6vectorIS9_NS2_14pool_allocatorIS9_EEEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.032.2.i.i.i.i, ptr %5
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7glslang7TSymbolESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS0_5__ops10_Iter_predIZNS2_16HlslParseContext32removeUnusedStructBufferCountersEvE3$_0EEET_SG_SG_T0_.exit.i.i"
@@ -67840,7 +67840,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ]
+  %.sroa.049.1 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.049.1, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -67870,7 +67870,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ]
+  %.sroa.049.2 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.049.2, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8
@@ -68104,7 +68104,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 232
@@ -68134,7 +68134,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 232
@@ -68388,7 +68388,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %98
 
 98:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106, %._crit_edge
-  %.sroa.055.1 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ]
+  %.sroa.055.1 = phi ptr [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %99 = load ptr, ptr %.sroa.055.1, align 8
   %.not.i.i.i41 = icmp eq ptr %99, %2
   br i1 %.not.i.i.i41, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42
@@ -68422,7 +68422,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %116
 
 116:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109, %._crit_edge
-  %.sroa.055.2 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ]
+  %.sroa.055.2 = phi ptr [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %117 = load ptr, ptr %.sroa.055.2, align 8
   %.not.i.i.i47 = icmp eq ptr %117, %2
   br i1 %.not.i.i.i47, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48
@@ -68660,7 +68660,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 248
@@ -68690,7 +68690,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 248
@@ -68924,7 +68924,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
@@ -68954,7 +68954,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
@@ -69223,7 +69223,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.036.1, align 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 360
@@ -69260,7 +69260,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %145
 
 145:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.036.2, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 360
@@ -69513,7 +69513,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 328
@@ -69543,7 +69543,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 328
@@ -69847,7 +69847,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %87
 
 87:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97, %._crit_edge
-  %.sroa.048.1 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ]
+  %.sroa.048.1 = phi ptr [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %88 = load ptr, ptr %.sroa.048.1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8
@@ -69891,7 +69891,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101, %._crit_edge
-  %.sroa.048.2 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ]
+  %.sroa.048.2 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.048.2, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -70199,7 +70199,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %137
 
 137:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %138 = load ptr, ptr %.sroa.036.1, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 232
@@ -70241,7 +70241,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %163
 
 163:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %164 = load ptr, ptr %.sroa.036.2, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 232
@@ -75642,7 +75642,7 @@ define internal fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16H
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
-  %.sroa.018.2 = phi ptr [ %.sroa.018.0.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.sroa.018.2 = phi ptr [ %58, %57 ], [ %.sroa.018.0.lcssa, %._crit_edge ]
   %60 = load ptr, ptr %.sroa.018.2, align 8
   %61 = tail call fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKS0_EUlPSE_E_EEbT_"(ptr noundef nonnull align 8 dereferenceable(152) %60)
   br i1 %61, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZZNS2_16HlslParseContext19transformEntryPointERKNS2_10TSourceLocERNS2_9TFunctionERKNS2_5TListINS2_14TAttributeArgsEEEENK3$_1clERKSC_EUlPSQ_E_EEbT_EUlRKS3_E_EEESU_SU_SU_T0_.exit", label %62
@@ -75652,7 +75652,7 @@ define internal fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16H
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge
-  %.sroa.018.1 = phi ptr [ %.sroa.018.0.lcssa, %._crit_edge ], [ %63, %62 ]
+  %.sroa.018.1 = phi ptr [ %63, %62 ], [ %.sroa.018.0.lcssa, %._crit_edge ]
   %65 = load ptr, ptr %.sroa.018.1, align 8
   %66 = tail call fastcc noundef zeroext i1 @"_ZNK7glslang5TType8containsIZZNS_16HlslParseContext19transformEntryPointERKNS_10TSourceLocERNS_9TFunctionERKNS_5TListINS_14TAttributeArgsEEEENK3$_1clERKS0_EUlPSE_E_EEbT_"(ptr noundef nonnull align 8 dereferenceable(152) %65)
   %spec.select = select i1 %66, ptr %.sroa.018.1, ptr %29

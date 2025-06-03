@@ -368,7 +368,7 @@ define dso_local ptr @psql_get_variable(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %15, %25, %10, %11, %28, %.thread34, %33, %7, %5
-  %.0 = phi ptr [ null, %33 ], [ null, %5 ], [ null, %7 ], [ null, %10 ], [ %29, %28 ], [ %12, %11 ], [ %32, %.thread34 ], [ null, %25 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %5 ], [ null, %7 ], [ null, %10 ], [ %12, %11 ], [ %29, %28 ], [ %32, %.thread34 ], [ null, %25 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -651,51 +651,51 @@ define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noun
   %.sroa.070.0.neg305 = phi i64 [ %.neg304, %17 ], [ 0, %7 ]
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 244), align 4
   switch i32 %23, label %.thread [
-    i32 1, label %42
-    i32 2, label %24
-    i32 3, label %28
-    i32 4, label %33
-    i32 0, label %39
+    i32 1, label %24
+    i32 2, label %28
+    i32 3, label %32
+    i32 4, label %37
+    i32 0, label %43
   ]
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @pset, align 8
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 264), align 8
-  %27 = call i32 @PQsendPrepare(ptr noundef %25, ptr noundef %26, ptr noundef %0, i32 noundef 0, ptr noundef null) #16
-  %.not284 = icmp eq i32 %27, 0
-  br i1 %.not284, label %.thread, label %51
+  %27 = call i32 @PQsendClosePrepared(ptr noundef %25, ptr noundef %26) #16
+  %.not285 = icmp eq i32 %27, 0
+  br i1 %.not285, label %.thread, label %51
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @pset, align 8
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 248), align 8
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
-  %32 = call i32 @PQsendQueryParams(ptr noundef %29, ptr noundef %0, i32 noundef %30, ptr noundef null, ptr noundef %31, ptr noundef null, ptr noundef null, i32 noundef 0) #16
-  %.not283 = icmp eq i32 %32, 0
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 264), align 8
+  %31 = call i32 @PQsendPrepare(ptr noundef %29, ptr noundef %30, ptr noundef %0, i32 noundef 0, ptr noundef null) #16
+  %.not284 = icmp eq i32 %31, 0
+  br i1 %.not284, label %.thread, label %51
+
+32:                                               ; preds = %22
+  %33 = load ptr, ptr @pset, align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 248), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
+  %36 = call i32 @PQsendQueryParams(ptr noundef %33, ptr noundef %0, i32 noundef %34, ptr noundef null, ptr noundef %35, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %.not283 = icmp eq i32 %36, 0
   br i1 %.not283, label %.thread, label %51
 
-33:                                               ; preds = %22
-  %34 = load ptr, ptr @pset, align 8
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 264), align 8
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 248), align 8
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
-  %38 = call i32 @PQsendQueryPrepared(ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef null, ptr noundef null, i32 noundef 0) #16
-  %.not282 = icmp eq i32 %38, 0
+37:                                               ; preds = %22
+  %38 = load ptr, ptr @pset, align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 264), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 248), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
+  %42 = call i32 @PQsendQueryPrepared(ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef null, ptr noundef null, i32 noundef 0) #16
+  %.not282 = icmp eq i32 %42, 0
   br i1 %.not282, label %.thread, label %51
 
-39:                                               ; preds = %22
-  %40 = load ptr, ptr @pset, align 8
-  %41 = call i32 @PQsendQuery(ptr noundef %40, ptr noundef %0) #16
-  %.not281 = icmp eq i32 %41, 0
+43:                                               ; preds = %22
+  %44 = load ptr, ptr @pset, align 8
+  %45 = call i32 @PQsendQuery(ptr noundef %44, ptr noundef %0) #16
+  %.not281 = icmp eq i32 %45, 0
   br i1 %.not281, label %.thread, label %51
 
-42:                                               ; preds = %22
-  %43 = load ptr, ptr @pset, align 8
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 264), align 8
-  %45 = call i32 @PQsendClosePrepared(ptr noundef %43, ptr noundef %44) #16
-  %.not285 = icmp eq i32 %45, 0
-  br i1 %.not285, label %.thread, label %51
-
-.thread:                                          ; preds = %22, %24, %28, %33, %39, %42
+.thread:                                          ; preds = %22, %37, %32, %28, %24, %43
   %46 = load ptr, ptr @pset, align 8
   %47 = call ptr @PQerrorMessage(ptr noundef %46) #16
   %char0 = load i8, ptr %47, align 1
@@ -710,7 +710,7 @@ define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noun
   %50 = call fastcc zeroext i1 @CheckConnection()
   br label %ClearOrSaveAllResults.exit
 
-51:                                               ; preds = %24, %28, %33, %39, %42
+51:                                               ; preds = %37, %32, %28, %24, %43
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 408), align 8
   %53 = icmp sgt i32 %52, 0
   %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 468), align 4, !range !4
@@ -3402,7 +3402,7 @@ StoreQueryTuple.exit:                             ; preds = %31, %28, %.loopexit
   br label %60
 
 60:                                               ; preds = %57, %58, %StoreQueryTuple.exit, %52, %53, %56, %6, %6, %6, %5
-  %.031 = phi i1 [ false, %5 ], [ false, %58 ], [ false, %57 ], [ %.0.shrunk, %52 ], [ %.0.shrunk, %StoreQueryTuple.exit ], [ true, %53 ], [ true, %56 ], [ true, %6 ], [ true, %6 ], [ true, %6 ]
+  %.031 = phi i1 [ false, %5 ], [ false, %58 ], [ %.0.shrunk, %52 ], [ %.0.shrunk, %StoreQueryTuple.exit ], [ false, %57 ], [ true, %53 ], [ true, %56 ], [ true, %6 ], [ true, %6 ], [ true, %6 ]
   ret i1 %.031
 }
 

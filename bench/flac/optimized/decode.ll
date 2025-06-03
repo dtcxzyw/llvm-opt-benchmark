@@ -929,7 +929,7 @@ switch.lookup:                                    ; preds = %283
   call fastcc void @print_error_with_state(ptr noundef nonnull %8, ptr noundef nonnull %379)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %326, %306, %378, %347, %297, %print_error_with_state.exit, %277, %319, %._crit_edge, %234, %246
+.loopexit:                                        ; preds = %326, %378, %347, %306, %297, %print_error_with_state.exit, %277, %319, %._crit_edge, %234, %246
   %380 = load ptr, ptr %83, align 8, !tbaa !70
   %.not.i19 = icmp eq ptr %380, null
   br i1 %.not.i19, label %384, label %381

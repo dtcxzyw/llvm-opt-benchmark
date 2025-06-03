@@ -651,9 +651,9 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br label %64
 
 64:                                               ; preds = %59, %54, %51
-  %.0192 = phi ptr [ %63, %59 ], [ %58, %54 ], [ null, %51 ]
-  %.0191.in = phi ptr [ %62, %59 ], [ %57, %54 ], [ %53, %51 ]
-  %.0190 = phi i32 [ 128, %59 ], [ 512, %54 ], [ 2048, %51 ]
+  %.0192 = phi ptr [ null, %51 ], [ %58, %54 ], [ %63, %59 ]
+  %.0191.in = phi ptr [ %53, %51 ], [ %57, %54 ], [ %62, %59 ]
+  %.0190 = phi i32 [ 2048, %51 ], [ 512, %54 ], [ 128, %59 ]
   %.0192.fr = freeze ptr %.0192
   %.0191 = load ptr, ptr %.0191.in, align 8
   store i32 %9, ptr %21, align 8

@@ -345,7 +345,7 @@ define hidden void @"_ZN101_$LT$serde..__private..de..content..EnumRefDeserializ
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he9241d1315402227E.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he9241d1315402227E.exit": ; preds = %6, %9, %13, %17, %23, %29, %35
-  %.merged.i.i.i = phi { i32, i32 } [ %8, %6 ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %13 ], [ %12, %9 ]
+  %.merged.i.i.i = phi { i32, i32 } [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !12
   %41 = extractvalue { i32, i32 } %.merged.i.i.i, 0
   %42 = trunc i32 %41 to i1
@@ -1156,7 +1156,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h01d5d4573f25880fE.exit"
 
 "_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h01d5d4573f25880fE.exit": ; preds = %14, %17, %21, %24, %29, %31, %33, %37, %40, %44, %48
-  %.sroa.0.0.in.i = phi i1 [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %24 ], [ %23, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %20, %17 ], [ %23, %21 ], [ %28, %24 ], [ %30, %29 ], [ %32, %31 ], [ %36, %33 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1423,7 +1423,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$ruff_python_ast..nodes..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ff030a1c5ff0da2E.exit"
 
 "_ZN67_$LT$ruff_python_ast..nodes..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ff030a1c5ff0da2E.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %17, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %17, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2006,7 +2006,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN10ty_project8metadata5value12VALUE_SOURCE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcdcec8194612022dE.exit"
 
 "_ZN10ty_project8metadata5value12VALUE_SOURCE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcdcec8194612022dE.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i = phi ptr [ null, %5 ], [ %4, %3 ], [ @"_ZN10ty_project8metadata5value12VALUE_SOURCE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h1aa5ff048546f6fdE", %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ null, %5 ], [ @"_ZN10ty_project8metadata5value12VALUE_SOURCE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h1aa5ff048546f6fdE", %1 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -3227,7 +3227,7 @@ default.unreachable1:                             ; preds = %2
   br label %132
 
 132:                                              ; preds = %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36
-  %.sroa.0.0.in = phi i1 [ %131, %129 ], [ %128, %126 ], [ %125, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
+  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %131, %129 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -3409,7 +3409,7 @@ define internal noundef zeroext i1 @"_ZN72_$LT$ruff_python_ast..generated..Patte
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %27, %25, %22, %19, %16
-  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
   ret i1 %.sroa.0.0.in
 }
 

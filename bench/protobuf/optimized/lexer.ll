@@ -2589,8 +2589,8 @@ ehcleanup225:                                     ; preds = %lpad222, %lpad218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp212) #20
   br label %ehcleanup342
 
-if.end226:                                        ; preds = %do.end156, %do.end156, %do.end156, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb8.i
-  %retval.0.i.ph = phi i8 [ 39, %sw.bb8.i ], [ 8, %sw.bb3.i ], [ 12, %sw.bb4.i ], [ 10, %sw.bb5.i ], [ 13, %sw.bb6.i ], [ 9, %sw.bb7.i ], [ %95, %do.end156 ], [ %95, %do.end156 ], [ %95, %do.end156 ]
+if.end226:                                        ; preds = %do.end156, %do.end156, %do.end156, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i
+  %retval.0.i.ph = phi i8 [ 39, %sw.bb8.i ], [ 9, %sw.bb7.i ], [ 13, %sw.bb6.i ], [ 10, %sw.bb5.i ], [ 12, %sw.bb4.i ], [ 8, %sw.bb3.i ], [ %95, %do.end156 ], [ %95, %do.end156 ], [ %95, %do.end156 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %on_heap, i8 noundef signext %retval.0.i.ph)
           to label %sw.epilog340 unwind label %lpad34.loopexit.split-lp.loopexit
 
@@ -2688,8 +2688,8 @@ lpad268:                                          ; preds = %invoke.cont267
   br label %ehcleanup342
 
 sw.epilog:                                        ; preds = %if.end255, %sw.bb260, %sw.bb259, %sw.bb258
-  %cmp276647 = phi i1 [ true, %sw.bb260 ], [ true, %sw.bb259 ], [ true, %sw.bb258 ], [ false, %if.end255 ]
-  %lookahead.0 = phi i64 [ 3, %sw.bb260 ], [ 2, %sw.bb259 ], [ 1, %sw.bb258 ], [ 0, %if.end255 ]
+  %cmp276647 = phi i1 [ false, %if.end255 ], [ true, %sw.bb258 ], [ true, %sw.bb259 ], [ true, %sw.bb260 ]
+  %lookahead.0 = phi i64 [ 0, %if.end255 ], [ 1, %sw.bb258 ], [ 2, %sw.bb259 ], [ 3, %sw.bb260 ]
   %call271 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #20
   br i1 %call271, label %if.end274, label %if.then272
 
@@ -2989,7 +2989,7 @@ _ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit: ; preds =
   br label %return
 
 ehcleanup342:                                     ; preds = %lpad34.loopexit, %lpad34.loopexit.split-lp.loopexit.split-lp, %lpad34.loopexit.split-lp.loopexit, %lpad.i.i406, %lpad.i.i357, %lpad.i.i313, %lpad268, %ehcleanup254, %ehcleanup225, %ehcleanup201, %lpad.i.i241, %lpad.i.i187, %ehcleanup110, %lpad91, %lpad83, %lpad.i.i133, %lpad.i.i86
-  %.pn35 = phi { ptr, i32 } [ %131, %lpad268 ], [ %148, %lpad.i.i357 ], [ %162, %lpad.i.i406 ], [ %138, %lpad.i.i313 ], [ %.pn33, %ehcleanup254 ], [ %.pn29, %ehcleanup201 ], [ %.pn27, %ehcleanup225 ], [ %99, %lpad.i.i241 ], [ %87, %lpad.i.i187 ], [ %.pn, %ehcleanup110 ], [ %59, %lpad91 ], [ %58, %lpad83 ], [ %52, %lpad.i.i133 ], [ %40, %lpad.i.i86 ], [ %lpad.loopexit, %lpad34.loopexit ], [ %lpad.loopexit456, %lpad34.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp457, %lpad34.loopexit.split-lp.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %131, %lpad268 ], [ %148, %lpad.i.i357 ], [ %162, %lpad.i.i406 ], [ %138, %lpad.i.i313 ], [ %.pn33, %ehcleanup254 ], [ %59, %lpad91 ], [ %58, %lpad83 ], [ %.pn29, %ehcleanup201 ], [ %.pn27, %ehcleanup225 ], [ %99, %lpad.i.i241 ], [ %87, %lpad.i.i187 ], [ %.pn, %ehcleanup110 ], [ %52, %lpad.i.i133 ], [ %40, %lpad.i.i86 ], [ %lpad.loopexit, %lpad34.loopexit ], [ %lpad.loopexit456, %lpad34.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp457, %lpad34.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mark) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #20
   br label %eh.resume

@@ -3114,7 +3114,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %59, %83, %tree_ente
   br label %165
 
 157:                                              ; preds = %tree_enter_initial_dir.exit, %8, %11, %134, %128, %111, %90
-  %.0100 = phi i32 [ -25, %tree_enter_initial_dir.exit ], [ -30, %90 ], [ -30, %111 ], [ -30, %128 ], [ 1, %134 ], [ 1, %11 ], [ 1, %8 ]
+  %.0100 = phi i32 [ -30, %90 ], [ -30, %111 ], [ -30, %128 ], [ 1, %134 ], [ -25, %tree_enter_initial_dir.exit ], [ 1, %11 ], [ 1, %8 ]
   store ptr null, ptr %1, align 8, !tbaa !164
   store i64 0, ptr %2, align 8, !tbaa !153
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 536

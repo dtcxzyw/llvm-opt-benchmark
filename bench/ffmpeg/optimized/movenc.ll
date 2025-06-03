@@ -2124,7 +2124,7 @@ handle_eac3.exit:                                 ; preds = %492, %501, %402, %4
   br label %find_next_marker.exit81.i
 
 find_next_marker.exit81.i:                        ; preds = %872, %867
-  %.1.i78.i = phi ptr [ %871, %867 ], [ %849, %872 ]
+  %.1.i78.i = phi ptr [ %849, %872 ], [ %871, %867 ]
   %873 = load i32, ptr %.05985.i, align 1, !tbaa !88
   %874 = call i32 @llvm.bswap.i32(i32 %873)
   switch i32 %874, label %878 [
@@ -2144,8 +2144,8 @@ find_next_marker.exit81.i:                        ; preds = %872, %867
   br label %878
 
 878:                                              ; preds = %877, %876, %875, %find_next_marker.exit81.i
-  %.158.i = phi i32 [ %.05786.i, %find_next_marker.exit81.i ], [ %.05786.i, %877 ], [ %.05786.i, %876 ], [ 1, %875 ]
-  %.1.i = phi i32 [ %.05687.i, %find_next_marker.exit81.i ], [ %.05687.i, %877 ], [ 1, %876 ], [ %.05687.i, %875 ]
+  %.158.i = phi i32 [ %.05786.i, %find_next_marker.exit81.i ], [ 1, %875 ], [ %.05786.i, %876 ], [ %.05786.i, %877 ]
+  %.1.i = phi i32 [ %.05687.i, %find_next_marker.exit81.i ], [ %.05687.i, %875 ], [ 1, %876 ], [ %.05687.i, %877 ]
   %879 = icmp ult ptr %.1.i78.i, %849
   br i1 %879, label %862, label %._crit_edge.i, !llvm.loop !158
 

@@ -374,7 +374,7 @@ _ZL9isExternCPKN5clang9NamedDeclE.exit.thread:    ; preds = %38, %36, %_ZL9isExt
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %50, %58
-  %.1.i28 = phi ptr [ %54, %50 ], [ %59, %58 ]
+  %.1.i28 = phi ptr [ %59, %58 ], [ %54, %50 ]
   %60 = getelementptr inbounds nuw i8, ptr %.1.i28, i64 16
   %61 = load i64, ptr %60, align 16
   %62 = trunc i64 %61 to i32
@@ -797,8 +797,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139:   ; preds = %190, %189, %187, %1
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139, %208
-  %210 = phi i8 [ %206, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ], [ %.pre187, %208 ]
-  %.1.i = phi ptr [ %204, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ], [ %209, %208 ]
+  %210 = phi i8 [ %.pre187, %208 ], [ %206, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ]
+  %.1.i = phi ptr [ %209, %208 ], [ %204, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit139 ]
   %211 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %212 = icmp eq i8 %210, 26
   %spec.select.i.i142 = select i1 %212, ptr %.1.i, ptr null
@@ -2779,7 +2779,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.
   br label %_ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_4DeclEENKUlRNS_10ASTContextEPKNS_13CXXMethodDeclEE_clES6_S9_.exit
 
 _ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_4DeclEENKUlRNS_10ASTContextEPKNS_13CXXMethodDeclEE_clES6_S9_.exit: ; preds = %125, %133
-  %.1.i.i = phi ptr [ %130, %125 ], [ %134, %133 ]
+  %.1.i.i = phi ptr [ %134, %133 ], [ %130, %125 ]
   %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %136 = load i64, ptr %135, align 16
   %137 = trunc i64 %136 to i32

@@ -85,7 +85,7 @@ define range(i32 -32704, 32705) i32 @alaw2linear(i8 noundef zeroext %0) local_un
   br label %16
 
 16:                                               ; preds = %12, %10, %8
-  %.0 = phi i32 [ %15, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0 = phi i32 [ %15, %12 ], [ %9, %8 ], [ %11, %10 ]
   %17 = sub nsw i32 0, %.0
   %.not12 = icmp slt i8 %0, 0
   %18 = select i1 %.not12, i32 %.0, i32 %17

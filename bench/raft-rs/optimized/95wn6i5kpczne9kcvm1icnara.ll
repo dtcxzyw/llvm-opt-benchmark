@@ -753,7 +753,7 @@ define noundef zeroext i1 @_ZN4raft7storage17GetEntriesContext9can_async17h6db9f
   br label %8
 
 8:                                                ; preds = %1, %4, %3
-  %.sroa.0.0 = phi i1 [ %7, %4 ], [ true, %3 ], [ false, %1 ]
+  %.sroa.0.0 = phi i1 [ true, %3 ], [ %7, %4 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2116,7 +2116,7 @@ define void @"_ZN68_$LT$raft..storage..MemStorage$u20$as$u20$raft..storage..Stor
   unreachable
 
 45:                                               ; preds = %52, %37
-  %.sroa.0.0.in.i = phi ptr [ %53, %52 ], [ %38, %37 ]
+  %.sroa.0.0.in.i = phi ptr [ %38, %37 ], [ %53, %52 ]
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !noalias !70, !noundef !3
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.0.0.i, ptr %46, align 8, !noalias !70

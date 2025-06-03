@@ -1182,7 +1182,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   br label %146
 
 146:                                              ; preds = %.thread117, %.thread108, %145
-  %.6 = phi i32 [ -1, %.thread108 ], [ 0, %145 ], [ -1, %.thread117 ]
+  %.6 = phi i32 [ 0, %145 ], [ -1, %.thread108 ], [ -1, %.thread117 ]
   %147 = load i32, ptr %8, align 4, !tbaa !18
   %.not99 = icmp eq i32 %147, 0
   br i1 %.not99, label %149, label %148
@@ -2599,7 +2599,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_notify(i32 noundef %0, p
   br label %37
 
 37:                                               ; preds = %19, %29, %33, %16, %15, %15, %15, %15, %15, %15, %15, %26, %9, %2
-  %.0 = phi i32 [ -1, %33 ], [ -1, %29 ], [ 0, %26 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ -1, %19 ], [ 0, %16 ], [ 0, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %33 ], [ -1, %19 ], [ 0, %16 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ -1, %29 ], [ 0, %26 ], [ 0, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 

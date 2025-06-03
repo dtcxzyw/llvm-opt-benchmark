@@ -1190,7 +1190,7 @@ Py_DECREF.exit.thread.i.i:                        ; preds = %_PyWeakref_GET_REF.
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %38, %Py_DECREF.exit.i.i
-  %.014.be.i.i = phi ptr [ %21, %Py_DECREF.exit.i.i ], [ %40, %38 ]
+  %.014.be.i.i = phi ptr [ %40, %38 ], [ %21, %Py_DECREF.exit.i.i ]
   %.not.i11.i = icmp eq ptr %.014.be.i.i, null
   br i1 %.not.i11.i, label %_xidregistry_find_type.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !114
 
@@ -1354,7 +1354,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %_PyWeakref_GET_REF.
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %52, %Py_DECREF.exit.i
-  %.014.be.i = phi ptr [ %35, %Py_DECREF.exit.i ], [ %54, %52 ]
+  %.014.be.i = phi ptr [ %54, %52 ], [ %35, %Py_DECREF.exit.i ]
   %.not.i19 = icmp eq ptr %.014.be.i, null
   br i1 %.not.i19, label %.loopexit, label %.lr.ph.i, !llvm.loop !114
 
@@ -1545,7 +1545,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %_PyWeakref_GET_REF.
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %39, %Py_DECREF.exit.i
-  %.014.be.i = phi ptr [ %22, %Py_DECREF.exit.i ], [ %41, %39 ]
+  %.014.be.i = phi ptr [ %41, %39 ], [ %22, %Py_DECREF.exit.i ]
   %.not.i12 = icmp eq ptr %.014.be.i, null
   br i1 %.not.i12, label %_xidregistry_find_type.exit.thread, label %.lr.ph.i, !llvm.loop !114
 
@@ -4153,7 +4153,7 @@ _sharednsitem_clear.exit:                         ; preds = %.lr.ph72, %50
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph72, !llvm.loop !157
 
 52:                                               ; preds = %20, %._crit_edge, %.loopexit, %10, %15
-  %.039 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %20 ], [ -1, %._crit_edge ], [ 0, %.loopexit ]
+  %.039 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %20 ], [ 0, %.loopexit ], [ -1, %._crit_edge ]
   ret i32 %.039
 }
 
@@ -6790,7 +6790,7 @@ _tuple_shared_free.exit:                          ; preds = %76, %62
   br label %82
 
 82:                                               ; preds = %3, %_tuple_shared_free.exit, %_PyXIData_Init.exit, %28, %18
-  %.1 = phi i32 [ -1, %3 ], [ -1, %18 ], [ -1, %28 ], [ -1, %_tuple_shared_free.exit ], [ 0, %_PyXIData_Init.exit ]
+  %.1 = phi i32 [ -1, %3 ], [ -1, %18 ], [ -1, %28 ], [ 0, %_PyXIData_Init.exit ], [ -1, %_tuple_shared_free.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
   ret i32 %.1
 }

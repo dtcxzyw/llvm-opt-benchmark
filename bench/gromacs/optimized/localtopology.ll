@@ -1978,8 +1978,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %172
 
 172:                                              ; preds = %170, %._crit_edge._crit_edge.i.i.i
-  %173 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %168, %170 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %171, %170 ]
+  %173 = phi i32 [ %168, %170 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.034.1.i.i.i = phi ptr [ %171, %170 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %174 = load i32, ptr %.sroa.034.1.i.i.i, align 4, !tbaa !11
   %175 = icmp eq i32 %174, %173
   br i1 %175, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %176
@@ -1989,8 +1989,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %178
 
 178:                                              ; preds = %176, %._crit_edge._crit_edge57.i.i.i
-  %179 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %173, %176 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %177, %176 ]
+  %179 = phi i32 [ %173, %176 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.034.2.i.i.i = phi ptr [ %177, %176 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %180 = load i32, ptr %.sroa.034.2.i.i.i, align 4, !tbaa !11
   %181 = icmp eq i32 %180, %179
   %spec.select.i.i.i = select i1 %181, ptr %.sroa.034.2.i.i.i, ptr %.sroa.0.0.copyload.i63
@@ -2578,8 +2578,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %110, %92, %_ZNSt6ve
   br label %177
 
 177:                                              ; preds = %175, %._crit_edge._crit_edge.i.i.i
-  %178 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %173, %175 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %176, %175 ]
+  %178 = phi i32 [ %173, %175 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.034.1.i.i.i = phi ptr [ %176, %175 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %179 = load i32, ptr %.sroa.034.1.i.i.i, align 4, !tbaa !11
   %180 = icmp eq i32 %179, %178
   br i1 %180, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %181
@@ -2589,8 +2589,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %110, %92, %_ZNSt6ve
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge._crit_edge57.i.i.i
-  %184 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %178, %181 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %182, %181 ]
+  %184 = phi i32 [ %178, %181 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.034.2.i.i.i = phi ptr [ %182, %181 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %185 = load i32, ptr %.sroa.034.2.i.i.i, align 4, !tbaa !11
   %186 = icmp eq i32 %185, %184
   %spec.select.i.i.i = select i1 %186, ptr %.sroa.034.2.i.i.i, ptr %.sroa.0.0.copyload.i70

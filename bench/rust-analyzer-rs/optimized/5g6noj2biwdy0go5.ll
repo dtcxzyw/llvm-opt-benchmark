@@ -500,8 +500,8 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %61
 
 61:                                               ; preds = %64, %55
-  %.sroa.3.0 = phi i64 [ undef, %64 ], [ %60, %55 ]
-  %.sroa.0.0 = phi ptr [ null, %64 ], [ %58, %55 ]
+  %.sroa.3.0 = phi i64 [ %60, %55 ], [ undef, %64 ]
+  %.sroa.0.0 = phi ptr [ %58, %55 ], [ null, %64 ]
   %62 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %63 = insertvalue { ptr, i64 } %62, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %63

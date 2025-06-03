@@ -104,8 +104,8 @@ handle_chunk_type.exit.thread21:                  ; preds = %23
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.28, i32 noundef %20) #7
   br label %handle_chunk_type.exit.thread
 
-handle_chunk_type.exit.thread:                    ; preds = %26, %25, %21
-  %.0.i.ph = phi i32 [ -5, %21 ], [ %24, %25 ], [ -1094995529, %26 ]
+handle_chunk_type.exit.thread:                    ; preds = %26, %21, %25
+  %.0.i.ph = phi i32 [ %24, %25 ], [ -5, %21 ], [ -1094995529, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   br label %.loopexit
 

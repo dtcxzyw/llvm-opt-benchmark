@@ -7836,7 +7836,7 @@ _ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEE5QueueD2Ev.exit: ; preds 
   br label %72
 
 72:                                               ; preds = %71, %61
-  %.3 = phi i1 [ %66, %61 ], [ true, %71 ]
+  %.3 = phi i1 [ true, %71 ], [ %66, %61 ]
   %73 = add i32 %.0153136, 1
   br label %74
 

@@ -574,7 +574,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8f15639e7f07fd6E.exit"
 
 "_ZN65_$LT$image..error..LimitErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8f15639e7f07fd6E.exit": ; preds = %8, %10, %12
-  %.0.in.i = phi i1 [ %14, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -658,7 +658,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$image..error..ImageFormatHint$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0ef4b9316e8a5dE.exit"
 
 "_ZN66_$LT$image..error..ImageFormatHint$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0ef4b9316e8a5dE.exit": ; preds = %8, %11, %14, %17
-  %.0.in.i = phi i1 [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
   ret i1 %.0.in.i
 }
 
@@ -768,7 +768,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN71_$LT$image..error..UnsupportedErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h0e8f7df2586eefeeE.exit"
 
 "_ZN71_$LT$image..error..UnsupportedErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h0e8f7df2586eefeeE.exit": ; preds = %11, %14, %16
-  %.0.in.i = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.0.in.i = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.0.in.i
 }
 
@@ -1960,7 +1960,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4aa9b31a535fa5c6E.exit.i.i.i.i": ; preds = %75, %70, %67, %64
-  %.0.i.i.i.i.i.i.i.i = phi i8 [ %69, %67 ], [ %80, %75 ], [ %66, %64 ], [ %74, %70 ]
+  %.0.i.i.i.i.i.i.i.i = phi i8 [ %74, %70 ], [ %66, %64 ], [ %80, %75 ], [ %69, %67 ]
   %81 = trunc i8 %.0.i.i.i.i.i.i.i.i to i1
   br i1 %81, label %86, label %82
 
@@ -3218,7 +3218,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -3242,7 +3242,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -27879,10 +27879,10 @@ define void @"_ZN5image2io6reader74Reader$LT$std..io..buffered..bufreader..BufRe
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2862
   %8 = load i32, ptr %6, align 8, !range !313, !noundef !15
   %trunc = trunc nuw i32 %8 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !15
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %12 = load i32, ptr %11, align 4, !range !2866
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4, !range !2866
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %trunc, label %23, label %13
 
@@ -27894,7 +27894,7 @@ define void @"_ZN5image2io6reader74Reader$LT$std..io..buffered..bufreader..BufRe
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = invoke noundef i32 @close(i32 noundef %12)
+  %17 = invoke noundef i32 @close(i32 noundef %10)
           to label %common.resume unwind label %18, !noalias !2867
 
 18:                                               ; preds = %15
@@ -27917,14 +27917,14 @@ common.resume:                                    ; preds = %25, %15
   %.sroa.5.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i9, i8 0, i64 24, i1 false), !alias.scope !2867
-  store i32 %12, ptr %22, align 8, !alias.scope !2867
+  store i32 %10, ptr %22, align 8, !alias.scope !2867
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   invoke void @_ZN5image5image11ImageFormat9from_path5inner17h6ae9c81d5ddc1348E(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %_ZN5image5image11ImageFormat9from_path17h3265afd5be5e0aecE.exit unwind label %25
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %24, align 8
+  store ptr %12, ptr %24, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %33
@@ -28298,7 +28298,7 @@ default.unreachable25:                            ; preds = %2
   br label %129
 
 129:                                              ; preds = %118, %110, %102, %94, %92, %79, %71, %60, %58, %56, %48, %40, %38, %36, %34
-  %.0.in = phi i1 [ %128, %118 ], [ %117, %110 ], [ %109, %102 ], [ %101, %94 ], [ %93, %92 ], [ %91, %79 ], [ %78, %71 ], [ %70, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %48 ], [ %47, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ]
+  %.0.in = phi i1 [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %47, %40 ], [ %55, %48 ], [ %57, %56 ], [ %59, %58 ], [ %70, %60 ], [ %78, %71 ], [ %91, %79 ], [ %93, %92 ], [ %101, %94 ], [ %109, %102 ], [ %117, %110 ], [ %128, %118 ]
   ret i1 %.0.in
 }
 
@@ -28711,7 +28711,7 @@ define noundef i8 @_ZN5image6codecs3bmp7decoder8Bitfield4read17h215ead37bbd5df0f
   br label %25
 
 25:                                               ; preds = %41, %36, %31, %26, %23, %17, %13, %9
-  %.0 = phi i8 [ %24, %23 ], [ %22, %17 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %16, %13 ], [ %12, %9 ]
+  %.0 = phi i8 [ %12, %9 ], [ %16, %13 ], [ %30, %26 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %22, %17 ], [ %24, %23 ]
   ret i8 %.0
 
 26:                                               ; preds = %2
@@ -29247,7 +29247,7 @@ default.unreachable19:                            ; preds = %2
   br label %96
 
 96:                                               ; preds = %94, %83, %75, %64, %62, %54, %43, %32, %30, %28, %26
-  %.0.in = phi i1 [ %95, %94 ], [ %93, %83 ], [ %82, %75 ], [ %74, %64 ], [ %63, %62 ], [ %61, %54 ], [ %53, %43 ], [ %42, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ]
+  %.0.in = phi i1 [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %42, %32 ], [ %53, %43 ], [ %61, %54 ], [ %63, %62 ], [ %74, %64 ], [ %82, %75 ], [ %93, %83 ], [ %95, %94 ]
   ret i1 %.0.in
 }
 
@@ -29268,8 +29268,8 @@ define { ptr, ptr } @"_ZN80_$LT$image..codecs..hdr..decoder..DecoderError$u20$as
   br label %7
 
 7:                                                ; preds = %1, %5, %3
-  %.sroa.4.0 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.193.llvm.6960974148744716740, %5 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.191.llvm.6960974148744716740, %3 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %4, %3 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.191.llvm.6960974148744716740, %3 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.193.llvm.6960974148744716740, %5 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ null, %1 ]
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %9
@@ -31354,7 +31354,7 @@ define noundef zeroext i1 @"_ZN80_$LT$image..codecs..tga..encoder..EncoderError$
   br label %25
 
 25:                                               ; preds = %18, %11
-  %.0.in = phi i1 [ %24, %18 ], [ %17, %11 ]
+  %.0.in = phi i1 [ %17, %11 ], [ %24, %18 ]
   ret i1 %.0.in
 }
 
@@ -31453,7 +31453,7 @@ default.unreachable8:                             ; preds = %2
   br label %38
 
 38:                                               ; preds = %30, %22, %14
-  %.0.in = phi i1 [ %37, %30 ], [ %29, %22 ], [ %21, %14 ]
+  %.0.in = phi i1 [ %21, %14 ], [ %29, %22 ], [ %37, %30 ]
   ret i1 %.0.in
 }
 
@@ -32340,7 +32340,7 @@ define internal noundef zeroext i1 @"_ZN61_$LT$image..error..ImageError$u20$as$u
   br label %30
 
 30:                                               ; preds = %27, %25, %22, %19, %16, %13
-  %.0.in = phi i1 [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0.in = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ], [ %29, %27 ]
   ret i1 %.0.in
 }
 
@@ -32381,7 +32381,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$image..error..ParameterErrorKind$
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0.in
 }
 
@@ -32430,7 +32430,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 

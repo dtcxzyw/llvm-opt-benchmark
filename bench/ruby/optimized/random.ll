@@ -1188,7 +1188,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   br label %52
 
 52:                                               ; preds = %46, %._crit_edge
-  %.0203 = phi i64 [ %45, %._crit_edge ], [ %51, %46 ]
+  %.0203 = phi i64 [ %51, %46 ], [ %45, %._crit_edge ]
   %53 = getelementptr i8, ptr %7, i64 5
   %54 = load i8, ptr %53, align 1, !tbaa !53
   %55 = zext i8 %54 to i64
@@ -1197,7 +1197,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   br label %58
 
 58:                                               ; preds = %52, %._crit_edge
-  %.1 = phi i64 [ %45, %._crit_edge ], [ %57, %52 ]
+  %.1 = phi i64 [ %57, %52 ], [ %45, %._crit_edge ]
   %59 = getelementptr i8, ptr %7, i64 4
   %60 = load i8, ptr %59, align 1, !tbaa !53
   %61 = zext i8 %60 to i64
@@ -1206,7 +1206,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   br label %64
 
 64:                                               ; preds = %58, %._crit_edge
-  %.2 = phi i64 [ %45, %._crit_edge ], [ %63, %58 ]
+  %.2 = phi i64 [ %63, %58 ], [ %45, %._crit_edge ]
   %65 = load i32, ptr %7, align 4, !tbaa !22
   %66 = zext i32 %65 to i64
   %67 = or i64 %.2, %66
@@ -1221,7 +1221,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   br label %74
 
 74:                                               ; preds = %68, %._crit_edge
-  %.3 = phi i64 [ %45, %._crit_edge ], [ %73, %68 ]
+  %.3 = phi i64 [ %73, %68 ], [ %45, %._crit_edge ]
   %75 = getelementptr i8, ptr %7, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !53
   %77 = zext i8 %76 to i64
@@ -1230,7 +1230,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   br label %80
 
 80:                                               ; preds = %74, %._crit_edge
-  %.4 = phi i64 [ %45, %._crit_edge ], [ %79, %74 ]
+  %.4 = phi i64 [ %79, %74 ], [ %45, %._crit_edge ]
   %81 = load i8, ptr %7, align 1, !tbaa !53
   %82 = zext i8 %81 to i64
   %83 = or i64 %.4, %82
@@ -1240,7 +1240,7 @@ default.unreachable220:                           ; preds = %._crit_edge
   unreachable
 
 84:                                               ; preds = %64, %80, %._crit_edge
-  %.5 = phi i64 [ %45, %._crit_edge ], [ %83, %80 ], [ %67, %64 ]
+  %.5 = phi i64 [ %67, %64 ], [ %83, %80 ], [ %45, %._crit_edge ]
   %85 = xor i64 %.5, %.0205.lcssa
   %86 = add i64 %.0202.lcssa, %.0204.lcssa
   %87 = add i64 %85, %.0206.lcssa
@@ -2240,7 +2240,7 @@ RARRAY_AREF.exit:                                 ; preds = %22, %24
   br label %29
 
 29:                                               ; preds = %RARRAY_AREF.exit, %rb_array_len.exit
-  %.022 = phi i64 [ 1, %rb_array_len.exit ], [ %28, %RARRAY_AREF.exit ]
+  %.022 = phi i64 [ %28, %RARRAY_AREF.exit ], [ 1, %rb_array_len.exit ]
   br i1 %.not.i, label %32, label %30
 
 30:                                               ; preds = %29
@@ -2259,8 +2259,8 @@ RARRAY_AREF.exit26:                               ; preds = %30, %32
   br label %37
 
 37:                                               ; preds = %RARRAY_AREF.exit26, %rb_array_len.exit
-  %.1 = phi i64 [ %.0.i, %rb_array_len.exit ], [ %.022, %RARRAY_AREF.exit26 ]
-  %.0 = phi i64 [ 3, %rb_array_len.exit ], [ %36, %RARRAY_AREF.exit26 ]
+  %.1 = phi i64 [ %.022, %RARRAY_AREF.exit26 ], [ %.0.i, %rb_array_len.exit ]
+  %.0 = phi i64 [ %36, %RARRAY_AREF.exit26 ], [ 3, %rb_array_len.exit ]
   br i1 %.not.i, label %40, label %38
 
 38:                                               ; preds = %37

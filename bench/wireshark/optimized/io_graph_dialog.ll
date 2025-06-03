@@ -13474,7 +13474,7 @@ _ZN7QStringD2Ev.exit8.i.i.i:                      ; preds = %126, %_ZN17QArrayDa
   br label %_ZNK7IOGraph11formatUnitsEv.exit
 
 _ZNK7IOGraph11formatUnitsEv.exit:                 ; preds = %128, %144, %143, %142, %.noexc107, %134, %133, %.noexc106, %128
-  %.0.i = phi i32 [ 0, %144 ], [ 3, %143 ], [ 0, %142 ], [ 9, %134 ], [ 11, %133 ], [ %..i, %.noexc106 ], [ %130, %128 ], [ 10, %.noexc107 ], [ %130, %128 ]
+  %.0.i = phi i32 [ 0, %144 ], [ 11, %133 ], [ 9, %134 ], [ 0, %142 ], [ 3, %143 ], [ %..i, %.noexc106 ], [ %130, %128 ], [ 10, %.noexc107 ], [ %130, %128 ]
   store i32 %.0.i, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #33, !noalias !120
   %145 = invoke { ptr, i64 } @_ZN5QHashI19format_size_units_e15QHashDummyValueE7emplaceIJS1_EEENS2_8iteratorEOS0_DpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -19772,7 +19772,7 @@ _ZN7IOGraph7setNameERK7QString.exit:              ; preds = %183, %186
   ret void
 
 189:                                              ; preds = %163, %153, %143, %133, %123, %113, %100, %86, %71, %41
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %154, %153 ], [ %144, %143 ], [ %134, %133 ], [ %124, %123 ], [ %114, %113 ], [ %101, %100 ], [ %87, %86 ], [ %72, %71 ], [ %42, %41 ]
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %101, %100 ], [ %114, %113 ], [ %124, %123 ], [ %134, %133 ], [ %144, %143 ], [ %154, %153 ], [ %164, %163 ], [ %72, %71 ], [ %42, %41 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -23353,7 +23353,7 @@ _ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit11: ; preds = %33
   br label %37
 
 37:                                               ; preds = %2, %10, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit11, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit9, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit
-  %.0 = phi i32 [ %36, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit11 ], [ %32, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit9 ], [ %28, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit ], [ -1, %10 ], [ -1, %2 ]
+  %.0 = phi i32 [ %36, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit11 ], [ %28, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit ], [ %32, %_ZNKSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit9 ], [ -1, %10 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -23613,7 +23613,7 @@ define noundef range(i32 0, 12) i32 @_ZNK7IOGraph11formatUnitsEv(ptr noundef rea
   br label %18
 
 18:                                               ; preds = %1, %12, %1, %4, %17, %16, %15, %7, %6
-  %.0 = phi i32 [ 0, %17 ], [ 3, %16 ], [ 0, %15 ], [ 9, %7 ], [ 11, %6 ], [ %., %4 ], [ %3, %1 ], [ 10, %12 ], [ %3, %1 ]
+  %.0 = phi i32 [ 0, %17 ], [ 11, %6 ], [ 9, %7 ], [ 0, %15 ], [ 3, %16 ], [ %., %4 ], [ %3, %1 ], [ 10, %12 ], [ %3, %1 ]
   ret i32 %.0
 }
 

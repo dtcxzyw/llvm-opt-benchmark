@@ -123,7 +123,7 @@ define range(i32 -1, 105) i32 @ubidi_getMaxValue_77(i32 noundef %0) local_unname
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ 2, %4 ], [ 5, %3 ], [ 104, %2 ], [ 22, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ 104, %2 ], [ 5, %3 ], [ 2, %4 ], [ 22, %1 ]
   ret i32 %.0
 }
 

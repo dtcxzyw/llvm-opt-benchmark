@@ -287,11 +287,11 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   %44 = invoke zeroext i1 @_ZN13logos_codegen4util8is_punct17h20d22eadc7ef77b7E(ptr nonnull align 8 %21, i32 61)
           to label %59 unwind label %45
 
-.thread49:                                        ; preds = %79, %74, %72, %70, %75
-  %.sroa.013.0.ph = phi i1 [ true, %75 ], [ true, %70 ], [ false, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.012.0.ph = phi i1 [ false, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.011.0.ph = phi i1 [ true, %75 ], [ false, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
-  %.sroa.09.0.ph = phi i1 [ true, %75 ], [ true, %70 ], [ true, %72 ], [ false, %74 ], [ false, %79 ]
+.thread49:                                        ; preds = %79, %75, %70, %72, %74
+  %.sroa.013.0.ph = phi i1 [ false, %74 ], [ false, %72 ], [ true, %70 ], [ true, %75 ], [ false, %79 ]
+  %.sroa.012.0.ph = phi i1 [ false, %74 ], [ true, %72 ], [ true, %70 ], [ false, %75 ], [ false, %79 ]
+  %.sroa.011.0.ph = phi i1 [ false, %74 ], [ true, %72 ], [ false, %70 ], [ true, %75 ], [ false, %79 ]
+  %.sroa.09.0.ph = phi i1 [ false, %74 ], [ true, %72 ], [ true, %70 ], [ true, %75 ], [ false, %79 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -485,7 +485,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %81 unwind label %57
 
 87:                                               ; preds = %101, %98, %96, %94, %92, %91, %90, %89, %88, %81
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %88 ], [ %.pn21, %96 ], [ %.pn21, %91 ], [ %.pn21, %94 ], [ %.pn21, %90 ], [ %.pn21, %92 ], [ %.pn21, %89 ], [ %.pn21, %81 ], [ %38, %98 ], [ %38, %101 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %88 ], [ %.pn21, %92 ], [ %.pn21, %89 ], [ %.pn21, %94 ], [ %.pn21, %90 ], [ %.pn21, %96 ], [ %.pn21, %91 ], [ %.pn21, %81 ], [ %38, %98 ], [ %38, %101 ]
   resume { ptr, i32 } %.pn21.pn
 
 88:                                               ; preds = %81

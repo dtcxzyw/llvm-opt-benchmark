@@ -1349,7 +1349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
           to label %.loopexit unwind label %27
 
 .loopexit:                                        ; preds = %134, %.preheader, %65, %77, %74, %147, %19
-  %.1 = phi i32 [ %.086, %19 ], [ %.086, %147 ], [ %76, %77 ], [ %.086, %74 ], [ %.086, %65 ], [ %.086, %.preheader ], [ %.086, %134 ]
+  %.1 = phi i32 [ %.086, %19 ], [ %.086, %147 ], [ %.086, %65 ], [ %76, %77 ], [ %.086, %74 ], [ %.086, %.preheader ], [ %.086, %134 ]
   %148 = load ptr, ptr %8, align 8, !tbaa !66
   %149 = icmp eq ptr %148, null
   br i1 %149, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit

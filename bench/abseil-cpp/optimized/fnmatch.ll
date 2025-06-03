@@ -159,11 +159,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51: ; preds 
   br label %61
 
 61:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51, %56, %20, %17
-  %.sroa.12.1 = phi ptr [ %49, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %57, %56 ], [ %21, %20 ], [ %18, %17 ]
-  %.sroa.033.1 = phi i64 [ %50, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %58, %56 ], [ %22, %20 ], [ %19, %17 ]
-  %.sroa.10.1 = phi ptr [ %52, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %59, %56 ], [ %23, %20 ], [ %.sroa.10.084, %17 ]
-  %.sroa.023.1 = phi i64 [ %53, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %60, %56 ], [ %24, %20 ], [ %.sroa.023.085, %17 ]
-  %.19 = phi i8 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ 0, %56 ], [ %.0886, %20 ], [ 1, %17 ]
+  %.sroa.12.1 = phi ptr [ %49, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %57, %56 ], [ %18, %17 ], [ %21, %20 ]
+  %.sroa.033.1 = phi i64 [ %50, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %58, %56 ], [ %19, %17 ], [ %22, %20 ]
+  %.sroa.10.1 = phi ptr [ %52, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %59, %56 ], [ %.sroa.10.084, %17 ], [ %23, %20 ]
+  %.sroa.023.1 = phi i64 [ %53, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %60, %56 ], [ %.sroa.023.085, %17 ], [ %24, %20 ]
+  %.19 = phi i8 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ 0, %56 ], [ 1, %17 ], [ %.0886, %20 ]
   %62 = icmp eq i64 %.sroa.033.1, 0
   br i1 %62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 

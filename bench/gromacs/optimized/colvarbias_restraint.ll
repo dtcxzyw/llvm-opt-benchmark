@@ -21370,7 +21370,7 @@ define noundef range(i32 0, 3) i32 @_ZN30colvarbias_restraint_histogram6updateEv
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %.lr.ph, %20, %21, %22, %23
-  %.0.i = phi i64 [ 4, %22 ], [ 3, %21 ], [ 1, %20 ], [ %31, %23 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %31, %23 ], [ 1, %20 ], [ 3, %21 ], [ 4, %22 ], [ 0, %.lr.ph ]
   %32 = add i64 %.0.i, %.095180
   %33 = add nuw i64 %.097179, 1
   %exitcond.not = icmp eq i64 %33, %umax

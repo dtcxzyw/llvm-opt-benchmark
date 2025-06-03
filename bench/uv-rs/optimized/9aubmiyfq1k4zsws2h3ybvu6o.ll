@@ -15192,7 +15192,7 @@ default.unreachable:                              ; preds = %15
           to label %common.resume unwind label %35
 
 _ZN10serde_json5value8to_value17h6ee77cb66c47996bE.exit: ; preds = %.noexc, %.noexc7, %.noexc8
-  %.sroa.11.0 = phi ptr [ %.sroa.4.i4.i.i.i.sroa.3.7.copyload, %.noexc8 ], [ %.sroa.4.i1.i.i.i.sroa.3.7.copyload, %.noexc7 ], [ %.sroa.4.i.i.i.i.sroa.3.7.copyload, %.noexc ]
+  %.sroa.11.0 = phi ptr [ %.sroa.4.i.i.i.i.sroa.3.7.copyload, %.noexc ], [ %.sroa.4.i1.i.i.i.sroa.3.7.copyload, %.noexc7 ], [ %.sroa.4.i4.i.i.i.sroa.3.7.copyload, %.noexc8 ]
   store i8 3, ptr %10, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8

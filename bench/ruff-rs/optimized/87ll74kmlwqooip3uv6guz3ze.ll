@@ -1775,7 +1775,7 @@ define hidden void @_ZN7ty_test7matcher10match_file17heb58cfeab6858426E(ptr dead
           to label %212 unwind label %196
 
 .body50:                                          ; preds = %.thread74.i, %196, %834, %291, %259
-  %.pn = phi { ptr, i32 } [ %835, %834 ], [ %292, %291 ], [ %260, %259 ], [ %197, %196 ], [ %.pn.pn.i, %.thread74.i ]
+  %.pn = phi { ptr, i32 } [ %292, %291 ], [ %835, %834 ], [ %260, %259 ], [ %197, %196 ], [ %.pn.pn.i, %.thread74.i ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$ty_test..matcher..FailuresByLine$GT$17h950071d7de153acaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %89) #22
           to label %204 unwind label %857
 

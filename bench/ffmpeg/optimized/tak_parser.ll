@@ -331,8 +331,8 @@ bits_init8_le.exit100.thread._crit_edge:          ; preds = %126, %105, %bits_in
   br label %.loopexit107
 
 .loopexit107:                                     ; preds = %..loopexit107_crit_edge, %.loopexit107.loopexit, %74, %.loopexit106
-  %154 = phi i32 [ %57, %74 ], [ 0, %.loopexit106 ], [ %.pre152, %..loopexit107_crit_edge ], [ %77, %.loopexit107.loopexit ]
-  %.3 = phi i32 [ %.069, %74 ], [ %.4, %.loopexit106 ], [ %.4, %..loopexit107_crit_edge ], [ %.170, %.loopexit107.loopexit ]
+  %154 = phi i32 [ 0, %.loopexit106 ], [ %.pre152, %..loopexit107_crit_edge ], [ %57, %74 ], [ %77, %.loopexit107.loopexit ]
+  %.3 = phi i32 [ %.4, %.loopexit106 ], [ %.4, %..loopexit107_crit_edge ], [ %.069, %74 ], [ %.170, %.loopexit107.loopexit ]
   store ptr null, ptr %2, align 8, !tbaa !4
   store i32 0, ptr %3, align 4, !tbaa !9
   %155 = add nsw i32 %154, %.3

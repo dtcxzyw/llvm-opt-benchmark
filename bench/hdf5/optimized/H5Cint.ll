@@ -471,7 +471,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 230:                                              ; preds = %223, %226, %213, %203, %168, %156, %152, %96, %78, %41, %30, %24
-  %.1.ph = phi i32 [ -1, %24 ], [ -1, %41 ], [ -1, %152 ], [ -1, %168 ], [ -1, %203 ], [ 0, %223 ], [ -1, %226 ], [ -1, %213 ], [ -1, %156 ], [ -1, %96 ], [ -1, %78 ], [ -1, %30 ]
+  %.1.ph = phi i32 [ -1, %24 ], [ -1, %152 ], [ -1, %168 ], [ 0, %223 ], [ -1, %226 ], [ -1, %203 ], [ -1, %213 ], [ -1, %156 ], [ -1, %96 ], [ -1, %41 ], [ -1, %78 ], [ -1, %30 ]
   store i8 0, ptr %17, align 4, !tbaa !42
   br label %231
 
@@ -1531,7 +1531,7 @@ define range(i32 -1, 1) i32 @H5C__flash_increase_cache_size(ptr noundef %0, i64 
   br label %77
 
 77:                                               ; preds = %12, %31, %35, %63, %73, %70, %24, %16, %3
-  %.0 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %63 ], [ -1, %73 ], [ 0, %70 ], [ -1, %31 ], [ 0, %24 ], [ 0, %16 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %31 ], [ -1, %63 ], [ -1, %73 ], [ 0, %70 ], [ 0, %24 ], [ 0, %16 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret i32 %.0
 }
@@ -2619,7 +2619,7 @@ H5C__serialize_ring.exit:                         ; preds = %116, %103, %76
   br i1 %exitcond.not, label %.loopexit20, label %16, !llvm.loop !155
 
 .loopexit20:                                      ; preds = %.loopexit, %H5C__serialize_ring.exit, %37, %33, %23
-  %.1 = phi i32 [ -1, %37 ], [ -1, %H5C__serialize_ring.exit ], [ -1, %33 ], [ -1, %23 ], [ 0, %.loopexit ]
+  %.1 = phi i32 [ -1, %37 ], [ -1, %H5C__serialize_ring.exit ], [ -1, %23 ], [ -1, %33 ], [ 0, %.loopexit ]
   store i8 0, ptr %13, align 8, !tbaa !145
   br label %126
 

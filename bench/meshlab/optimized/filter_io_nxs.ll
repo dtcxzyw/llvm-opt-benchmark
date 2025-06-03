@@ -10845,7 +10845,7 @@ _ZN7QStringD2Ev.exit250:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 354:                                              ; preds = %351, %350, %333, %211, %210, %193, %43
-  %.pn58 = phi { ptr, i32 } [ %352, %351 ], [ %44, %43 ], [ %.pn39.pn.pn.pn.pn, %350 ], [ %.pn.pn.pn.pn.pn.pn, %333 ], [ %212, %211 ], [ %.pn52.pn.pn.pn.pn, %210 ], [ %.pn45.pn.pn.pn.pn.pn, %193 ]
+  %.pn58 = phi { ptr, i32 } [ %212, %211 ], [ %44, %43 ], [ %.pn52.pn.pn.pn.pn, %210 ], [ %.pn45.pn.pn.pn.pn.pn, %193 ], [ %352, %351 ], [ %.pn39.pn.pn.pn.pn, %350 ], [ %.pn.pn.pn.pn.pn.pn, %333 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
   resume { ptr, i32 } %.pn58
 }
@@ -11277,7 +11277,7 @@ _ZN7QStringD2Ev.exit58:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 88:                                               ; preds = %72, %70, %39, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %73, %72 ], [ %71, %70 ], [ %40, %39 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %40, %39 ], [ %73, %72 ], [ %71, %70 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #29
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #29
   resume { ptr, i32 } %.pn

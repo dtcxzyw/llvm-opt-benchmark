@@ -1304,10 +1304,10 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %114
 
 114:                                              ; preds = %113, %112, %111, %110, %107
-  %.2163.i = phi ptr [ %.0161.i, %107 ], [ %.0143.i, %113 ], [ %.0161.i, %112 ], [ %.0161.i, %111 ], [ %.0161.i, %110 ]
-  %.2160.i = phi ptr [ %.0158.i, %107 ], [ %.0158.i, %113 ], [ %.0143.i, %112 ], [ %.0158.i, %111 ], [ %.0158.i, %110 ]
-  %.2152.i = phi ptr [ %.0150.i, %107 ], [ %.0150.i, %113 ], [ %.0150.i, %112 ], [ %.0143.i, %111 ], [ %.0150.i, %110 ]
-  %.2149.i = phi ptr [ %.0147.i, %107 ], [ %.0147.i, %113 ], [ %.0147.i, %112 ], [ %.0147.i, %111 ], [ %.0143.i, %110 ]
+  %.2163.i = phi ptr [ %.0161.i, %107 ], [ %.0161.i, %110 ], [ %.0161.i, %111 ], [ %.0161.i, %112 ], [ %.0143.i, %113 ]
+  %.2160.i = phi ptr [ %.0158.i, %107 ], [ %.0158.i, %110 ], [ %.0158.i, %111 ], [ %.0143.i, %112 ], [ %.0158.i, %113 ]
+  %.2152.i = phi ptr [ %.0150.i, %107 ], [ %.0150.i, %110 ], [ %.0143.i, %111 ], [ %.0150.i, %112 ], [ %.0150.i, %113 ]
+  %.2149.i = phi ptr [ %.0147.i, %107 ], [ %.0143.i, %110 ], [ %.0147.i, %111 ], [ %.0147.i, %112 ], [ %.0147.i, %113 ]
   %115 = icmp eq i32 %109, 8
   br i1 %115, label %116, label %105
 
@@ -2210,7 +2210,7 @@ startBenchmarkThreads.exit:                       ; preds = %.lr.ph11.i, %.prehe
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %.lr.ph438, %516, %519, %523, %527, %531
-  %.0.i191 = phi i64 [ %533, %531 ], [ %530, %527 ], [ %526, %523 ], [ %522, %519 ], [ %518, %516 ], [ 0, %.lr.ph438 ]
+  %.0.i191 = phi i64 [ %518, %516 ], [ %522, %519 ], [ %526, %523 ], [ %530, %527 ], [ %533, %531 ], [ 0, %.lr.ph438 ]
   %534 = getelementptr inbounds nuw i64, ptr %508, i64 %indvars.iv450
   store i64 %.0.i191, ptr %534, align 8, !tbaa !118
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
@@ -3706,7 +3706,7 @@ define internal fastcc noundef ptr @createClient(ptr noundef %0, i64 noundef ran
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %110, %117, %120, %124, %128, %132
-  %.0.i = phi i64 [ %134, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %117 ], [ 0, %110 ]
+  %.0.i = phi i64 [ %119, %117 ], [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %134, %132 ], [ 0, %110 ]
   %135 = trunc i64 %.0.i to i32
   %136 = call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %111, ptr noundef nonnull @.str.154, i32 noundef %135, ptr noundef nonnull %112) #20
   store ptr %136, ptr %78, align 8, !tbaa !152
@@ -3780,7 +3780,7 @@ hi_sdslen.exit:                                   ; preds = %110, %117, %120, %1
   br label %hi_sdslen.exit186
 
 hi_sdslen.exit186:                                ; preds = %150, %156, %159, %163, %167, %171
-  %.0.i185 = phi i64 [ %173, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %159 ], [ %158, %156 ], [ 0, %150 ]
+  %.0.i185 = phi i64 [ %158, %156 ], [ %162, %159 ], [ %166, %163 ], [ %170, %167 ], [ %173, %171 ], [ 0, %150 ]
   %174 = trunc i64 %.0.i185 to i32
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store i32 %174, ptr %175, align 8, !tbaa !154
@@ -3840,7 +3840,7 @@ hi_sdslen.exit186:                                ; preds = %150, %156, %159, %1
   br label %hi_sdslen.exit188
 
 hi_sdslen.exit188:                                ; preds = %178, %189, %192, %196, %200, %204
-  %.0.i187 = phi i64 [ %206, %204 ], [ %203, %200 ], [ %199, %196 ], [ %195, %192 ], [ %191, %189 ], [ 0, %178 ]
+  %.0.i187 = phi i64 [ %191, %189 ], [ %195, %192 ], [ %199, %196 ], [ %203, %200 ], [ %206, %204 ], [ 0, %178 ]
   %207 = sub i64 %.0.i187, %183
   %208 = call ptr @hi_sdscatlen(ptr noundef nonnull %151, ptr noundef nonnull %184, i64 noundef %207) #20
   store ptr %208, ptr %78, align 8, !tbaa !152
@@ -4395,7 +4395,7 @@ startBenchmarkThreads.exit:                       ; preds = %.lr.ph11.i, %.prehe
   br label %hi_sdslen.exit.i
 
 hi_sdslen.exit.i:                                 ; preds = %168, %164, %160, %156, %153
-  %.0.i.i = phi i64 [ %170, %168 ], [ %167, %164 ], [ %163, %160 ], [ %159, %156 ], [ %155, %153 ]
+  %.0.i.i = phi i64 [ %155, %153 ], [ %159, %156 ], [ %163, %160 ], [ %167, %164 ], [ %170, %168 ]
   %.not60.i = icmp eq i64 %.0.i.i, 0
   %spec.select.i = select i1 %.not60.i, ptr @.str.180, ptr %148
   br label %hi_sdslen.exit.thread.i
@@ -5168,7 +5168,7 @@ setClusterKeyHashTag.exit:                        ; preds = %.thread.i, %.lr.ph.
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %133, %140, %143, %147, %151, %155
-  %.0.i = phi i64 [ %157, %155 ], [ %154, %151 ], [ %150, %147 ], [ %146, %143 ], [ %142, %140 ], [ 0, %133 ]
+  %.0.i = phi i64 [ %142, %140 ], [ %146, %143 ], [ %150, %147 ], [ %154, %151 ], [ %157, %155 ], [ 0, %133 ]
   %158 = load i64, ptr %6, align 8, !tbaa !156
   %159 = sub i64 %.0.i, %158
   %160 = icmp sgt i64 %159, 0
@@ -6023,7 +6023,7 @@ define internal i64 @dictSdsHash(ptr noundef %0) #0 {
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %1, %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   %24 = tail call i64 @dictGenHashFunction(ptr noundef nonnull %0, i64 noundef %.0.i) #20
   ret i64 %24
 }
@@ -6071,7 +6071,7 @@ define internal range(i32 0, 2) i32 @dictSdsKeyCompare(ptr readnone captures(non
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
   %26 = trunc i64 %.0.i to i32
   %27 = getelementptr inbounds i8, ptr %2, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !35
@@ -6114,7 +6114,7 @@ hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %1
   br label %hi_sdslen.exit9
 
 hi_sdslen.exit9:                                  ; preds = %hi_sdslen.exit, %31, %34, %38, %42, %46
-  %.0.i8 = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %hi_sdslen.exit ]
+  %.0.i8 = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %hi_sdslen.exit ]
   %49 = trunc i64 %.0.i8 to i32
   %.not = icmp eq i32 %26, %49
   br i1 %.not, label %50, label %54

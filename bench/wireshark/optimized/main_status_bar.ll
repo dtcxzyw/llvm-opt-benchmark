@@ -4443,7 +4443,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %217, %_ZN17QArrayDa
   br label %.body
 
 .body:                                            ; preds = %_ZN7QStringD2Ev.exit5.i, %_ZN7QStringD2Ev.exit5.i57, %30, %_ZN7QStringD2Ev.exit5.i107, %_ZN7QStringD2Ev.exit5.i82, %_ZN7QStringD2Ev.exit5.i32, %_ZN7QStringD2Ev.exit137, %183, %_ZN7QStringD2Ev.exit103, %_ZN7QStringD2Ev.exit78, %_ZN7QStringD2Ev.exit53, %_ZN7QStringD2Ev.exit28
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %_ZN7QStringD2Ev.exit137 ], [ %184, %183 ], [ %.pn, %_ZN7QStringD2Ev.exit103 ], [ %.pn10, %_ZN7QStringD2Ev.exit78 ], [ %.pn12, %_ZN7QStringD2Ev.exit53 ], [ %.pn14, %_ZN7QStringD2Ev.exit28 ], [ %40, %_ZN7QStringD2Ev.exit5.i ], [ %71, %_ZN7QStringD2Ev.exit5.i32 ], [ %102, %_ZN7QStringD2Ev.exit5.i57 ], [ %133, %_ZN7QStringD2Ev.exit5.i82 ], [ %31, %30 ], [ %164, %_ZN7QStringD2Ev.exit5.i107 ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %_ZN7QStringD2Ev.exit137 ], [ %184, %183 ], [ %.pn14, %_ZN7QStringD2Ev.exit28 ], [ %.pn12, %_ZN7QStringD2Ev.exit53 ], [ %.pn10, %_ZN7QStringD2Ev.exit78 ], [ %.pn, %_ZN7QStringD2Ev.exit103 ], [ %40, %_ZN7QStringD2Ev.exit5.i ], [ %71, %_ZN7QStringD2Ev.exit5.i32 ], [ %102, %_ZN7QStringD2Ev.exit5.i57 ], [ %133, %_ZN7QStringD2Ev.exit5.i82 ], [ %31, %30 ], [ %164, %_ZN7QStringD2Ev.exit5.i107 ]
   %221 = load ptr, ptr %9, align 8
   %.not.i.i.i138 = icmp eq ptr %221, null
   br i1 %.not.i.i.i138, label %_ZN7QStringD2Ev.exit141, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i139
@@ -7746,7 +7746,7 @@ _Zeq9QMetaTypeS_.exit.thread12:                   ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
-  %.1.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QFontE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
@@ -7756,7 +7756,7 @@ _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit
 
 _Zeq9QMetaTypeS_.exit:                            ; preds = %_ZNK9QMetaType2idEi.exit.i, %17
-  %.1.i8.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i ], [ %18, %17 ]
+  %.1.i8.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i ]
   %19 = icmp eq i32 %.1.i.i, %.1.i8.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

@@ -1295,9 +1295,9 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit184.i: ; pr
   br i1 %or.cond172.i, label %334, label %339
 
 .sink.split.i:                                    ; preds = %346, %345, %343, %343
-  %.ph.i = phi i1 [ true, %345 ], [ true, %346 ], [ false, %343 ], [ false, %343 ]
-  %.ph479.i = phi i1 [ false, %345 ], [ false, %346 ], [ true, %343 ], [ true, %343 ]
-  %.0133.ph.i = phi i32 [ 8, %345 ], [ 2, %346 ], [ 16, %343 ], [ 16, %343 ]
+  %.ph.i = phi i1 [ true, %346 ], [ true, %345 ], [ false, %343 ], [ false, %343 ]
+  %.ph479.i = phi i1 [ false, %346 ], [ false, %345 ], [ true, %343 ], [ true, %343 ]
+  %.0133.ph.i = phi i32 [ 2, %346 ], [ 8, %345 ], [ 16, %343 ], [ 16, %343 ]
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
   %.pre.i.pre = load i64, ptr %24, align 8, !noalias !7
@@ -2105,7 +2105,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %8, %6
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 
@@ -2123,7 +2123,7 @@ define hidden zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$cor
   ]
 
 7:                                                ; preds = %6, %2, %12, %8
-  %.0.shrunk = phi i1 [ %17, %12 ], [ %11, %8 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %11, %8 ], [ %17, %12 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %6

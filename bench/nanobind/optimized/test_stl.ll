@@ -10571,7 +10571,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8func
   br label %10
 
 10:                                               ; preds = %7, %9
-  %.1 = phi ptr [ %8, %7 ], [ @_ZTIv, %9 ]
+  %.1 = phi ptr [ @_ZTIv, %9 ], [ %8, %7 ]
   ret ptr %.1
 
 11:                                               ; preds = %5
@@ -11788,7 +11788,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8func
   br label %10
 
 10:                                               ; preds = %7, %9
-  %.1 = phi ptr [ %8, %7 ], [ @_ZTIv, %9 ]
+  %.1 = phi ptr [ @_ZTIv, %9 ], [ %8, %7 ]
   ret ptr %.1
 
 11:                                               ; preds = %5
@@ -14511,7 +14511,7 @@ define linkonce_odr hidden ptr @_ZSt10__do_visitINSt8__detail9__variant21__deduc
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN8nanobind6handleEEEOZNS4_6detail11type_casterISt7variantIJSt9monostate8CopyableiEEiE8from_cppISC_EES5_OT_NS4_9rv_policyEPNS7_12cleanup_listEEUlSG_E_OSC_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESL_SM_.exit: ; preds = %19, %10, %6
-  %.sroa.0.0 = phi ptr [ %18, %10 ], [ @_Py_NoneStruct, %6 ], [ %22, %19 ]
+  %.sroa.0.0 = phi ptr [ @_Py_NoneStruct, %6 ], [ %18, %10 ], [ %22, %19 ]
   ret ptr %.sroa.0.0
 }
 
@@ -15230,7 +15230,7 @@ define linkonce_odr hidden ptr @_ZSt10__do_visitINSt8__detail9__variant21__deduc
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN8nanobind6handleEEEOZNS4_6detail11type_casterISt7variantIJSt9monostateNS4_4listENS4_5tupleEiEEiE8from_cppISD_EES5_OT_NS4_9rv_policyEPNS7_12cleanup_listEEUlSH_E_OSD_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESM_SN_.exit: ; preds = %14, %12, %10, %6
-  %.sroa.0.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ @_Py_NoneStruct, %6 ], [ %17, %14 ]
+  %.sroa.0.0 = phi ptr [ @_Py_NoneStruct, %6 ], [ %11, %10 ], [ %13, %12 ], [ %17, %14 ]
   ret ptr %.sroa.0.0
 }
 
@@ -27708,7 +27708,7 @@ define internal noundef ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6clas
   unreachable
 
 _ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL26nanobind_init_test_stl_extRNS_7module_EE13IDHavingEventJEE6def_rwIS5_St7variantIJSt9monostateZL26nanobind_init_test_stl_extS4_E8BasicID2ZL26nanobind_init_test_stl_extS4_E8BasicID1EEJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_RKSC_JSO_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSW_PhSU_PNS0_12cleanup_listEE_clES1A_S1B_S1C_SU_S1E_.exit: ; preds = %22, %20, %16, %5
-  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %23, %22 ], [ %21, %20 ], [ @_Py_NoneStruct, %16 ]
+  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ @_Py_NoneStruct, %16 ], [ %21, %20 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
   ret ptr %.0.i
 }

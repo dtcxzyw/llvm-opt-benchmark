@@ -2536,8 +2536,8 @@ if.end20:                                         ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb22
 
 sw.bb22:                                          ; preds = %for.end.sw.bb22_crit_edge, %if.end20
-  %10 = phi double [ %.pre, %for.end.sw.bb22_crit_edge ], [ %8, %if.end20 ]
-  %__first.addr.1 = phi ptr [ %__first.addr.0.lcssa, %for.end.sw.bb22_crit_edge ], [ %incdec.ptr21, %if.end20 ]
+  %10 = phi double [ %8, %if.end20 ], [ %.pre, %for.end.sw.bb22_crit_edge ]
+  %__first.addr.1 = phi ptr [ %incdec.ptr21, %if.end20 ], [ %__first.addr.0.lcssa, %for.end.sw.bb22_crit_edge ]
   %11 = load double, ptr %__first.addr.1, align 8, !tbaa !49
   %cmp.i.i55 = fcmp ugt double %10, %11
   br i1 %cmp.i.i55, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK8QuantLib18BoundaryConstraint4Impl4testERKNS2_5ArrayEEUldE_EclIPKdEEbT_.exit60
@@ -2553,8 +2553,8 @@ if.end25:                                         ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb27
 
 sw.bb27:                                          ; preds = %for.end.sw.bb27_crit_edge, %if.end25
-  %13 = phi double [ %.pre115, %for.end.sw.bb27_crit_edge ], [ %10, %if.end25 ]
-  %__first.addr.2 = phi ptr [ %__first.addr.0.lcssa, %for.end.sw.bb27_crit_edge ], [ %incdec.ptr26, %if.end25 ]
+  %13 = phi double [ %10, %if.end25 ], [ %.pre115, %for.end.sw.bb27_crit_edge ]
+  %__first.addr.2 = phi ptr [ %incdec.ptr26, %if.end25 ], [ %__first.addr.0.lcssa, %for.end.sw.bb27_crit_edge ]
   %14 = load double, ptr %__first.addr.2, align 8, !tbaa !49
   %cmp.i.i62 = fcmp ugt double %13, %14
   br i1 %cmp.i.i62, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK8QuantLib18BoundaryConstraint4Impl4testERKNS2_5ArrayEEUldE_EclIPKdEEbT_.exit67
@@ -2980,7 +2980,7 @@ if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb22.i.i.i.i
 
 sw.bb22.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end20.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %9 = load double, ptr %__first.addr.1.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i30.i.i.i.i = fcmp ule double %9, 0.000000e+00
   br i1 %cmp.i.i30.i.i.i.i, label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit, label %if.end25.i.i.i.i
@@ -2990,7 +2990,7 @@ if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
   br label %sw.bb27.i.i.i.i
 
 sw.bb27.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end25.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %10 = load double, ptr %__first.addr.2.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i31.i.i.i.i = fcmp ule double %10, 0.000000e+00
   br i1 %cmp.i.i31.i.i.i.i, label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit, label %sw.default.i.i.i.i

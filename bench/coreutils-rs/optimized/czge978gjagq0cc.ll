@@ -5521,11 +5521,11 @@ define void @_ZN6uucore8features6format4spec4Spec5parse17h54cdf70247337d05E(ptr 
   br label %15
 
 15:                                               ; preds = %14, %13, %12, %11, %.lr.ph.split.i
-  %.sroa.9.1.i = phi i8 [ 1, %14 ], [ %.sroa.9.03.i, %13 ], [ %.sroa.9.03.i, %12 ], [ %.sroa.9.03.i, %11 ], [ %.sroa.9.03.i, %.lr.ph.split.i ]
-  %.sroa.7.1.i = phi i8 [ %.sroa.7.04.i, %14 ], [ 1, %13 ], [ %.sroa.7.04.i, %12 ], [ %.sroa.7.04.i, %11 ], [ %.sroa.7.04.i, %.lr.ph.split.i ]
-  %.sroa.5.1.i = phi i8 [ %.sroa.5.05.i, %14 ], [ %.sroa.5.05.i, %13 ], [ 1, %12 ], [ %.sroa.5.05.i, %11 ], [ %.sroa.5.05.i, %.lr.ph.split.i ]
-  %.sroa.3.1.i = phi i8 [ %.sroa.3.06.i, %14 ], [ %.sroa.3.06.i, %13 ], [ %.sroa.3.06.i, %12 ], [ 1, %11 ], [ %.sroa.3.06.i, %.lr.ph.split.i ]
-  %.sroa.0.1.i = phi i8 [ %.sroa.0.07.i, %14 ], [ %.sroa.0.07.i, %13 ], [ %.sroa.0.07.i, %12 ], [ %.sroa.0.07.i, %11 ], [ 1, %.lr.ph.split.i ]
+  %.sroa.9.1.i = phi i8 [ %.sroa.9.03.i, %11 ], [ %.sroa.9.03.i, %12 ], [ %.sroa.9.03.i, %13 ], [ 1, %14 ], [ %.sroa.9.03.i, %.lr.ph.split.i ]
+  %.sroa.7.1.i = phi i8 [ %.sroa.7.04.i, %11 ], [ %.sroa.7.04.i, %12 ], [ 1, %13 ], [ %.sroa.7.04.i, %14 ], [ %.sroa.7.04.i, %.lr.ph.split.i ]
+  %.sroa.5.1.i = phi i8 [ %.sroa.5.05.i, %11 ], [ 1, %12 ], [ %.sroa.5.05.i, %13 ], [ %.sroa.5.05.i, %14 ], [ %.sroa.5.05.i, %.lr.ph.split.i ]
+  %.sroa.3.1.i = phi i8 [ 1, %11 ], [ %.sroa.3.06.i, %12 ], [ %.sroa.3.06.i, %13 ], [ %.sroa.3.06.i, %14 ], [ %.sroa.3.06.i, %.lr.ph.split.i ]
+  %.sroa.0.1.i = phi i8 [ %.sroa.0.07.i, %11 ], [ %.sroa.0.07.i, %12 ], [ %.sroa.0.07.i, %13 ], [ %.sroa.0.07.i, %14 ], [ 1, %.lr.ph.split.i ]
   %16 = add nuw i64 %8, 1
   %exitcond.not.i = icmp eq i64 %16, %6
   br i1 %exitcond.not.i, label %_ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit.loopexit, label %.lr.ph.split.i
@@ -5786,7 +5786,7 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit120: ; preds =
   br label %86
 
 86:                                               ; preds = %49, %49, %85, %84, %83
-  %.082 = phi i8 [ 3, %85 ], [ 2, %84 ], [ 1, %83 ], [ 0, %49 ], [ 0, %49 ]
+  %.082 = phi i8 [ 1, %83 ], [ 2, %84 ], [ 3, %85 ], [ 0, %49 ], [ 0, %49 ]
   %87 = icmp samesign ult i8 %54, 91
   %88 = zext i1 %87 to i8
   br label %77

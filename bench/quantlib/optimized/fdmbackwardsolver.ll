@@ -6164,7 +6164,7 @@ sw.epilog:                                        ; preds = %_ZN5boost10shared_p
   ret void
 
 ehcleanup359:                                     ; preds = %ehcleanup357, %ehcleanup327, %ehcleanup287, %ehcleanup252, %ehcleanup221, %ehcleanup189, %ehcleanup153, %ehcleanup116, %ehcleanup91, %ehcleanup58, %ehcleanup24
-  %.pn90.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn.pn, %ehcleanup357 ], [ %.pn48.pn, %ehcleanup327 ], [ %.pn53.pn, %ehcleanup287 ], [ %.pn58.pn, %ehcleanup252 ], [ %.pn63.pn, %ehcleanup221 ], [ %.pn68.pn, %ehcleanup189 ], [ %.pn73.pn, %ehcleanup153 ], [ %.pn78, %ehcleanup116 ], [ %.pn82.pn, %ehcleanup91 ], [ %.pn87.pn, %ehcleanup58 ], [ %.pn43.pn, %ehcleanup24 ]
+  %.pn90.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn90.pn.pn.pn, %ehcleanup357 ], [ %.pn87.pn, %ehcleanup58 ], [ %.pn82.pn, %ehcleanup91 ], [ %.pn78, %ehcleanup116 ], [ %.pn73.pn, %ehcleanup153 ], [ %.pn68.pn, %ehcleanup189 ], [ %.pn63.pn, %ehcleanup221 ], [ %.pn58.pn, %ehcleanup252 ], [ %.pn53.pn, %ehcleanup287 ], [ %.pn48.pn, %ehcleanup327 ], [ %.pn43.pn, %ehcleanup24 ]
   resume { ptr, i32 } %.pn90.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont345

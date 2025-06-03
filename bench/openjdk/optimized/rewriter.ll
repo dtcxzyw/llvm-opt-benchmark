@@ -341,7 +341,7 @@ _ZN8Rewriter29add_resolved_references_entryEi.exit24: ; preds = %97, %101
   br label %128
 
 128:                                              ; preds = %20, %_ZN26GrowableArrayWithAllocatorI18ResolvedFieldEntry13GrowableArrayIS0_EE4pushERKS0_.exit, %_ZN26GrowableArrayWithAllocatorI19ResolvedMethodEntry13GrowableArrayIS0_EE4pushERKS0_.exit, %_ZN8Rewriter29add_resolved_references_entryEi.exit, %_ZN8Rewriter29add_resolved_references_entryEi.exit24, %127, %124
-  %.1 = phi i1 [ %.034, %20 ], [ true, %127 ], [ %.034, %124 ], [ %.034, %_ZN8Rewriter29add_resolved_references_entryEi.exit24 ], [ %.034, %_ZN8Rewriter29add_resolved_references_entryEi.exit ], [ %.034, %_ZN26GrowableArrayWithAllocatorI19ResolvedMethodEntry13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %.034, %_ZN26GrowableArrayWithAllocatorI18ResolvedFieldEntry13GrowableArrayIS0_EE4pushERKS0_.exit ]
+  %.1 = phi i1 [ %.034, %20 ], [ %.034, %_ZN26GrowableArrayWithAllocatorI18ResolvedFieldEntry13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %.034, %_ZN26GrowableArrayWithAllocatorI19ResolvedMethodEntry13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %.034, %_ZN8Rewriter29add_resolved_references_entryEi.exit ], [ %.034, %_ZN8Rewriter29add_resolved_references_entryEi.exit24 ], [ true, %127 ], [ %.034, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !7
@@ -1042,7 +1042,7 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %227, %226
   br label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
 
 _ZN8Rewriter23rewrite_field_referenceEPhib.exit:  ; preds = %.thread, %.sink.split40.i.i, %230, %_ZN5Bytes11put_Java_u2EPht.exit.i, %216, %_ZN5Bytes13put_native_u2EPht.exit.i, %196, %195, %184, %183, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit, %66, %67, %233, %235, %237, %239
-  %.1 = phi i32 [ %240, %239 ], [ %.0104.ph, %237 ], [ %.0104.ph, %235 ], [ %.0104.ph, %233 ], [ %.0104.ph, %67 ], [ %.0104.ph, %66 ], [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %183 ], [ %.0104.ph, %184 ], [ %.0104.ph, %195 ], [ %.0104.ph, %196 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %216 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %230 ], [ %.0104.ph, %.sink.split40.i.i ], [ %.0104.ph, %.thread ]
+  %.1 = phi i32 [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %66 ], [ %.0104.ph, %67 ], [ %.0104.ph, %233 ], [ %.0104.ph, %235 ], [ %.0104.ph, %237 ], [ %240, %239 ], [ %.0104.ph, %183 ], [ %.0104.ph, %184 ], [ %.0104.ph, %195 ], [ %.0104.ph, %196 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %216 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %230 ], [ %.0104.ph, %.sink.split40.i.i ], [ %.0104.ph, %.thread ]
   %241 = add nuw nsw i32 %.06485, %.065102
   %242 = icmp samesign ult i32 %241, %13
   br i1 %242, label %.outer, label %._crit_edge, !llvm.loop !13

@@ -391,7 +391,7 @@ rb_left_rotate.exit58.i:                          ; preds = %132, %131, %126
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %134, %95, %52
-  %.0.be.i = phi ptr [ %41, %52 ], [ %.3.i, %134 ], [ %41, %95 ]
+  %.0.be.i = phi ptr [ %.3.i, %134 ], [ %41, %52 ], [ %41, %95 ]
   %135 = load ptr, ptr %.0.be.i, align 8, !tbaa !18
   %.not.i44 = icmp eq ptr %135, null
   br i1 %.not.i44, label %rb_insert_color.exit, label %.lr.ph.i43, !llvm.loop !23

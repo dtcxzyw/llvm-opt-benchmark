@@ -793,7 +793,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %197, %142, %220, %61, %51, %.thread175, %206, %215, %214, %44
-  %.1113 = phi i32 [ -1, %44 ], [ -1, %220 ], [ -1, %214 ], [ 0, %215 ], [ 0, %206 ], [ -1, %.thread175 ], [ -1, %51 ], [ 0, %61 ], [ 0, %197 ], [ -1, %142 ]
+  %.1113 = phi i32 [ -1, %44 ], [ -1, %220 ], [ -1, %51 ], [ 0, %61 ], [ 0, %206 ], [ -1, %.thread175 ], [ -1, %214 ], [ 0, %215 ], [ 0, %197 ], [ -1, %142 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #15
   br label %443
 
@@ -1194,7 +1194,7 @@ dump_extlink.exit:                                ; preds = %308, %334, %344, %3
   br label %443
 
 443:                                              ; preds = %283, %392, %226, %273, %438, %.thread
-  %.0112 = phi i32 [ %.1113, %.thread ], [ 0, %438 ], [ -1, %283 ], [ %.7, %392 ], [ -1, %226 ], [ %.5, %273 ]
+  %.0112 = phi i32 [ %.1113, %.thread ], [ 0, %438 ], [ -1, %226 ], [ %.5, %273 ], [ -1, %283 ], [ %.7, %392 ]
   call void @h5tools_str_close(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 456, ptr nonnull %8) #15

@@ -336,7 +336,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %109, %112, %116, %120, %124
-  %.0.i94 = phi i64 [ %126, %124 ], [ %123, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %109 ]
+  %.0.i94 = phi i64 [ %111, %109 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %126, %124 ]
   %127 = trunc i64 %.0.i94 to i32
   %128 = icmp sgt i32 %127, 255
   br i1 %128, label %129, label %sdslen.exit.thread
@@ -1132,7 +1132,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.thread233, %150, %153, %157, %161, %165
-  %.0.i177 = phi i64 [ %167, %165 ], [ %164, %161 ], [ %160, %157 ], [ %156, %153 ], [ %152, %150 ], [ 0, %.thread233 ]
+  %.0.i177 = phi i64 [ %152, %150 ], [ %156, %153 ], [ %160, %157 ], [ %164, %161 ], [ %167, %165 ], [ 0, %.thread233 ]
   %168 = call ptr @createStringObject(ptr noundef nonnull %.7123237, i64 noundef %.0.i177) #15
   call void @deleteEvictedKeyAndPropagate(ptr noundef %145, ptr noundef %168, ptr noundef nonnull %1) #15
   call void @decrRefCount(ptr noundef %168) #15

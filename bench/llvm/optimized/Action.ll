@@ -477,8 +477,8 @@ define dso_local void @_ZN5clang6driver6Action27GetOffloadingFileNamePrefixB5cxx
   unreachable
 
 _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit: ; preds = %14, %13, %12, %11, %._crit_edge.i.i, %._crit_edge.i.i
-  %.sroa.6.0.i = phi i64 [ 4, %14 ], [ 3, %13 ], [ 6, %12 ], [ 4, %11 ], [ 4, %._crit_edge.i.i ], [ 4, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ @.str.35, %14 ], [ @.str.34, %13 ], [ @.str.33, %12 ], [ @.str.32, %11 ], [ @.str.26, %._crit_edge.i.i ], [ @.str.26, %._crit_edge.i.i ]
+  %.sroa.6.0.i = phi i64 [ 4, %11 ], [ 6, %12 ], [ 3, %13 ], [ 4, %14 ], [ 4, %._crit_edge.i.i ], [ 4, %._crit_edge.i.i ]
+  %.sroa.0.0.i = phi ptr [ @.str.32, %11 ], [ @.str.33, %12 ], [ @.str.34, %13 ], [ @.str.35, %14 ], [ @.str.26, %._crit_edge.i.i ], [ @.str.26, %._crit_edge.i.i ]
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.0.0.i, i64 noundef %.sroa.6.0.i) #20
   %17 = load i64, ptr %9, align 8, !tbaa !31
   %18 = icmp eq i64 %17, 4611686018427387903
@@ -534,8 +534,8 @@ define dso_local { ptr, i64 } @_ZN5clang6driver6Action18GetOffloadKindNameENS1_1
   unreachable
 
 7:                                                ; preds = %1, %1, %5, %4, %3, %2
-  %.sroa.6.0 = phi i64 [ 4, %5 ], [ 3, %4 ], [ 6, %3 ], [ 4, %2 ], [ 4, %1 ], [ 4, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.35, %5 ], [ @.str.34, %4 ], [ @.str.33, %3 ], [ @.str.32, %2 ], [ @.str.26, %1 ], [ @.str.26, %1 ]
+  %.sroa.6.0 = phi i64 [ 4, %2 ], [ 6, %3 ], [ 3, %4 ], [ 4, %5 ], [ 4, %1 ], [ 4, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.32, %2 ], [ @.str.33, %3 ], [ @.str.34, %4 ], [ @.str.35, %5 ], [ @.str.26, %1 ], [ @.str.26, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert

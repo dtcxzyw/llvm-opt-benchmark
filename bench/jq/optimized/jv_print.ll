@@ -1664,7 +1664,7 @@ put_char.exit104:                                 ; preds = %111, %120
   %158 = call i64 @fwrite(ptr noundef nonnull %21, i64 noundef 1, i64 noundef %157, ptr noundef %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %156, %149, %133, %126, %put_char.exit74, %put_char.exit104, %put_char.exit98, %put_char.exit92, %put_char.exit86, %put_char.exit80
+.critedge:                                        ; preds = %156, %149, %133, %126, %put_char.exit74, %put_char.exit80, %put_char.exit86, %put_char.exit92, %put_char.exit98, %put_char.exit104
   %159 = call ptr @jvp_utf8_next(ptr noundef nonnull %40, ptr noundef %28, ptr noundef nonnull %20) #11
   %.not = icmp eq ptr %159, null
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !19

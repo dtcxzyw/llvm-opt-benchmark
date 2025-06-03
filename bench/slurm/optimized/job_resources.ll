@@ -328,7 +328,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   unreachable
 
 110:                                              ; preds = %79, %83, %87, %76, %._crit_edge.split
-  %.152 = phi i32 [ %.05182, %87 ], [ %.05182, %83 ], [ %.05182, %79 ], [ %.05182, %76 ], [ %109, %._crit_edge.split ]
+  %.152 = phi i32 [ %.05182, %79 ], [ %.05182, %83 ], [ %.05182, %87 ], [ %.05182, %76 ], [ %109, %._crit_edge.split ]
   %111 = load i32, ptr %4, align 4
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %4, align 4

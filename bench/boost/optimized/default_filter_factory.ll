@@ -18545,7 +18545,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !136
   store i8 %.1.i.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -18615,7 +18615,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   store i8 %.1.i.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -20234,7 +20234,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !165
   store i8 %.1.i.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -20301,7 +20301,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !165
   store i8 %.1.i.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -20704,7 +20704,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !177
   store i8 %.1.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -20771,7 +20771,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !177
   store i8 %.1.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -21154,7 +21154,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !181
   store i8 %.1.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -21221,7 +21221,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_8equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ 0, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !181
   store i8 %.1.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -21958,7 +21958,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !187
   store i8 %.1.i.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -22025,7 +22025,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !187
   store i8 %.1.i.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -22714,7 +22714,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !191
   store i8 %.1.i.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -22781,7 +22781,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !191
   store i8 %.1.i.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -23184,7 +23184,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !195
   store i8 %.1.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -23251,7 +23251,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !195
   store i8 %.1.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -23634,7 +23634,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !199
   store i8 %.1.i.i.i.i.i.i, ptr %16, align 1, !tbaa !105
@@ -23701,7 +23701,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12not_equal_toEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i8 [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i8 [ %16, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !199
   store i8 %.1.i.i.i.i.i.i, ptr %18, align 1, !tbaa !105
@@ -24442,7 +24442,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %.1.i.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i.i, 31
@@ -24515,7 +24515,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !205
   %.1.i.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i.i, 31
@@ -25210,7 +25210,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !209
   %.1.i.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i.i, 31
@@ -25283,7 +25283,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !209
   %.1.i.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i.i, 31
@@ -25692,7 +25692,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !213
   %.1.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i, 31
@@ -25765,7 +25765,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !213
   %.1.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i, 31
@@ -26154,7 +26154,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !217
   %.1.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i, 31
@@ -26227,7 +26227,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_4lessEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !217
   %.1.i.i.i.i.i.lobit.i = lshr i32 %.1.i.i.i.i.i.i, 31
@@ -26970,7 +26970,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i.i, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !223
@@ -27043,7 +27043,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i.i, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !223
@@ -27738,7 +27738,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i.i, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !227
@@ -27811,7 +27811,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i.i, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !227
@@ -28220,7 +28220,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !231
@@ -28293,7 +28293,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !231
@@ -28682,7 +28682,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !235
@@ -28755,7 +28755,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_7greaterEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !235
@@ -29498,7 +29498,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp slt i32 %.1.i.i.i.i.i.i.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !241
@@ -29571,7 +29571,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp slt i32 %.1.i.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !241
@@ -30266,7 +30266,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp slt i32 %.1.i.i.i.i.i.i.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !245
@@ -30339,7 +30339,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp slt i32 %.1.i.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !245
@@ -30748,7 +30748,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp slt i32 %.1.i.i.i.i.i.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !249
@@ -30821,7 +30821,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp slt i32 %.1.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !249
@@ -31210,7 +31210,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp slt i32 %.1.i.i.i.i.i.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !253
@@ -31283,7 +31283,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_10less_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp slt i32 %.1.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !253
@@ -32026,7 +32026,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !259
@@ -32099,7 +32099,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIdNS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !259
@@ -32794,7 +32794,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !263
@@ -32867,7 +32867,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous17numeric_predicateIlNS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !263
@@ -33276,7 +33276,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !267
@@ -33349,7 +33349,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous28severity_or_string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !267
@@ -33738,7 +33738,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIcSt11char_traitsIcEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %15 = icmp sgt i32 %.1.i.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !271
@@ -33811,7 +33811,7 @@ _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt1
   br label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit
 
 _ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_13greater_equalEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ], [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %15, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i.i.i.i.i.i ], [ %14, %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i.i.i.i.i.i ]
   %16 = icmp sgt i32 %.1.i.i.i.i.i.i, -1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !271

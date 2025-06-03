@@ -2855,7 +2855,7 @@ define internal fastcc void @dissect_attr_ndpe(ptr noundef %0, ptr noundef %1, i
   br label %73
 
 73:                                               ; preds = %70, %63, %60
-  %.pn = phi i32 [ %52, %70 ], [ %52, %63 ], [ 11, %60 ]
+  %.pn = phi i32 [ %52, %70 ], [ 11, %60 ], [ %52, %63 ]
   %.3 = add i32 %.pn, %.2106
   %.397 = add nuw nsw i32 %.pn, %.296105
   %74 = icmp slt i32 %.397, %6
@@ -3315,7 +3315,7 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
   br label %179
 
 179:                                              ; preds = %.lr.ph197, %80, %177
-  %.3 = phi i32 [ %.2196, %.lr.ph197 ], [ %178, %177 ], [ %83, %80 ]
+  %.3 = phi i32 [ %.2196, %.lr.ph197 ], [ %83, %80 ], [ %178, %177 ]
   %180 = add i8 %.0154195, 1
   %181 = zext i8 %180 to i64
   %182 = load i64, ptr %10, align 8

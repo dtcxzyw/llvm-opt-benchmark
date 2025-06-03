@@ -2963,8 +2963,8 @@ define hidden void @_ZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMesh
   br label %64
 
 64:                                               ; preds = %.lr.ph, %63, %62
-  %.sroa.13.2 = phi ptr [ %.sroa.13.11186, %.lr.ph ], [ %.sroa.13.11186, %63 ], [ %59, %62 ]
-  %.sroa.16.2 = phi ptr [ %.sroa.16.11187, %.lr.ph ], [ %59, %63 ], [ %.sroa.16.11187, %62 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.11186, %.lr.ph ], [ %59, %62 ], [ %.sroa.13.11186, %63 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.11187, %.lr.ph ], [ %.sroa.16.11187, %62 ], [ %59, %63 ]
   %.sroa.0537.0 = load ptr, ptr %.sroa.0537.01188, align 8
   %.not580 = icmp eq ptr %.sroa.0537.0, %55
   br i1 %.not580, label %.loopexit608, label %.lr.ph

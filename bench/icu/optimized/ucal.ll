@@ -1394,7 +1394,7 @@ define noundef i32 @ucal_getTimeZoneDisplayName_77(ptr noundef %0, i32 noundef %
   br label %68
 
 68:                                               ; preds = %65, %60, %51, %42, %33, %22
-  %.pn34 = phi { ptr, i32 } [ %66, %65 ], [ %.pn, %60 ], [ %.pn28, %51 ], [ %.pn30, %42 ], [ %.pn32, %33 ], [ %23, %22 ]
+  %.pn34 = phi { ptr, i32 } [ %66, %65 ], [ %.pn32, %33 ], [ %.pn30, %42 ], [ %.pn28, %51 ], [ %.pn, %60 ], [ %23, %22 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #14
   resume { ptr, i32 } %.pn34
@@ -1604,7 +1604,7 @@ define noundef i32 @ucal_getAttribute_77(ptr noundef %0, i32 noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %8, %6, %3
-  %.0 = phi i32 [ %14, %13 ], [ %12, %11 ], [ %10, %8 ], [ %7, %6 ], [ %5, %3 ], [ -1, %2 ]
+  %.0 = phi i32 [ %5, %3 ], [ %7, %6 ], [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -1950,7 +1950,7 @@ define noundef i32 @ucal_getLimit_77(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %42
 
 42:                                               ; preds = %11, %4, %6, %37, %32, %27, %22, %17, %12, %10
-  %.0 = phi i32 [ -1, %10 ], [ %41, %37 ], [ %36, %32 ], [ %31, %27 ], [ %26, %22 ], [ %21, %17 ], [ %16, %12 ], [ -1, %6 ], [ -1, %4 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %10 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ -1, %6 ], [ -1, %4 ], [ -1, %11 ]
   ret i32 %.0
 }
 

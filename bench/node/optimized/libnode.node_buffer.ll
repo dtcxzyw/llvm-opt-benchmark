@@ -15223,7 +15223,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %_ZN4node12stringsearch12StringSearchItE16SingleCharSearchENS0_6VectorIKtEEm.exit, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.0 = phi i64 [ %call8.i, %_ZN4node12stringsearch12StringSearchItE16SingleCharSearchENS0_6VectorIKtEEm.exit ], [ %call10, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %call4, %sw.bb2 ], [ %call, %sw.bb ]
+  %retval.0 = phi i64 [ %call, %sw.bb ], [ %call4, %sw.bb2 ], [ %call7, %sw.bb5 ], [ %call10, %sw.bb8 ], [ %call8.i, %_ZN4node12stringsearch12StringSearchItE16SingleCharSearchENS0_6VectorIKtEEm.exit ]
   ret i64 %retval.0
 }
 
@@ -16402,7 +16402,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %_ZN4node12stringsearch12StringSearchIhE16SingleCharSearchENS0_6VectorIKhEEm.exit, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.0 = phi i64 [ %retval.0.i.i, %_ZN4node12stringsearch12StringSearchIhE16SingleCharSearchENS0_6VectorIKhEEm.exit ], [ %call10, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %call4, %sw.bb2 ], [ %call, %sw.bb ]
+  %retval.0 = phi i64 [ %call, %sw.bb ], [ %call4, %sw.bb2 ], [ %call7, %sw.bb5 ], [ %call10, %sw.bb8 ], [ %retval.0.i.i, %_ZN4node12stringsearch12StringSearchIhE16SingleCharSearchENS0_6VectorIKhEEm.exit ]
   ret i64 %retval.0
 }
 

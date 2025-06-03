@@ -278,11 +278,11 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br label %157
 
 26:                                               ; preds = %23, %21, %19
-  %.0123 = phi i32 [ 128, %23 ], [ 64, %21 ], [ 64, %19 ]
-  %.0118 = phi i32 [ 16, %23 ], [ 8, %21 ], [ 8, %19 ]
-  %.0117 = phi i32 [ 48, %23 ], [ 32, %21 ], [ 20, %19 ]
-  %.0116 = phi ptr [ @SHA512_Transform, %23 ], [ @SHA256_Transform, %21 ], [ @SHA1_Transform, %19 ]
-  %.0114 = phi ptr [ @tls1_sha512_final_raw, %23 ], [ @tls1_sha256_final_raw, %21 ], [ @tls1_sha1_final_raw, %19 ]
+  %.0123 = phi i32 [ 64, %19 ], [ 64, %21 ], [ 128, %23 ]
+  %.0118 = phi i32 [ 8, %19 ], [ 8, %21 ], [ 16, %23 ]
+  %.0117 = phi i32 [ 20, %19 ], [ 32, %21 ], [ 48, %23 ]
+  %.0116 = phi ptr [ @SHA1_Transform, %19 ], [ @SHA256_Transform, %21 ], [ @SHA512_Transform, %23 ]
+  %.0114 = phi ptr [ @tls1_sha1_final_raw, %19 ], [ @tls1_sha256_final_raw, %21 ], [ @tls1_sha512_final_raw, %23 ]
   %27 = zext nneg i32 %.0123 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %12, i8 0, i64 %27, i1 false)
   %28 = zext i32 %8 to i64

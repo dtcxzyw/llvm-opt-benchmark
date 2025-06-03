@@ -572,7 +572,7 @@ if.end20.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %sw.bb22.i.i.i.i.i.i.i.i
 
 sw.bb22.i.i.i.i.i.i.i.i:                          ; preds = %if.end20.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr21.i.i.i.i.i.i.i.i, %if.end20.i.i.i.i.i.i.i.i ]
+  %__first.addr.1.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i.i.i.i.i, %if.end20.i.i.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i ]
   %__first.addr.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.1.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i31.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.1.val.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i31.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %if.end25.i.i.i.i.i.i.i.i
@@ -582,7 +582,7 @@ if.end25.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb22.i.i.i.i.i.i
   br label %sw.bb27.i.i.i.i.i.i.i.i
 
 sw.bb27.i.i.i.i.i.i.i.i:                          ; preds = %if.end25.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i
-  %__first.addr.2.i.i.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr26.i.i.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i.i.i ]
+  %__first.addr.2.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.2.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i32.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.2.val.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i32.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i

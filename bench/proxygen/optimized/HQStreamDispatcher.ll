@@ -1067,7 +1067,7 @@ lpad50:                                           ; preds = %if.then.i.i.i35, %i
   br label %eh.resume
 
 return:                                           ; preds = %cond.true, %invoke.cont58, %cleanup.action, %cond.end, %sw.bb19, %if.end10, %sw.bb8, %entry, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16
-  %retval.0 = phi i32 [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22 ], [ 0, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16 ], [ 1, %entry ], [ 1, %sw.bb8 ], [ 2, %if.end10 ], [ 2, %sw.bb19 ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 1, %invoke.cont58 ], [ 1, %cond.true ]
+  %retval.0 = phi i32 [ 0, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32 ], [ 1, %entry ], [ 1, %sw.bb8 ], [ 2, %if.end10 ], [ 2, %sw.bb19 ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 1, %invoke.cont58 ], [ 1, %cond.true ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad, %lpad50
@@ -1178,7 +1178,7 @@ lpad:                                             ; preds = %if.then.i.i13, %inv
   resume { ptr, i32 } %14
 
 return:                                           ; preds = %sw.bb7, %entry, %invoke.cont21, %_ZN5folly8OptionalISt4pairImmEEptEv.exit10, %sw.bb
-  %retval.0 = phi i32 [ 1, %invoke.cont21 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit10 ], [ 0, %sw.bb ], [ 1, %entry ], [ 2, %sw.bb7 ]
+  %retval.0 = phi i32 [ 1, %invoke.cont21 ], [ 0, %sw.bb ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit10 ], [ 1, %entry ], [ 2, %sw.bb7 ]
   ret i32 %retval.0
 }
 

@@ -1480,7 +1480,7 @@ define internal noundef zeroext i1 @"_ZN54_$LT$quiche..h3..Error$u20$as$u20$core
   br label %50
 
 50:                                               ; preds = %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10
-  %.sroa.0.0.in = phi i1 [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4460,8 +4460,8 @@ define noundef zeroext i1 @"_ZN85_$LT$tokio_quiche..http3..driver..H3ConnectionE
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %2, %15, %14, %13, %12
-  %.sroa.6.0 = phi ptr [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %15 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %14 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %13 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.122, %12 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %2 ]
-  %.sroa.0.0 = phi ptr [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.128, %15 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.126, %14 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.124, %13 ], [ %0, %12 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.120, %2 ]
+  %.sroa.6.0 = phi ptr [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.122, %12 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %13 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %14 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %15 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.121, %2 ]
+  %.sroa.0.0 = phi ptr [ %0, %12 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.124, %13 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.126, %14 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.128, %15 ], [ @anon.faafaf92a6d9c84fb1fb8e644b764c2f.120, %2 ]
   store ptr %.sroa.0.0, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.6.0, ptr %16, align 8

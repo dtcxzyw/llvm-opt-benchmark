@@ -735,7 +735,7 @@ compress_file.exit:                               ; preds = %212, %has_suffix.ex
   br label %.thread71
 
 .thread71:                                        ; preds = %39, %189, %82, %282, %281, %285, %60, %59, %57, %47
-  %.0 = phi i32 [ 1, %60 ], [ 0, %59 ], [ 1, %57 ], [ 0, %47 ], [ 1, %285 ], [ %.244, %281 ], [ %., %282 ], [ 1, %82 ], [ 1, %189 ], [ 1, %39 ]
+  %.0 = phi i32 [ 1, %60 ], [ 0, %47 ], [ 1, %57 ], [ 0, %59 ], [ 1, %285 ], [ %.244, %281 ], [ %., %282 ], [ 1, %82 ], [ 1, %189 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
   ret i32 %.0

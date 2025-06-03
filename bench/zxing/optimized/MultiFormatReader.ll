@@ -1288,7 +1288,7 @@ define void @_ZNK5ZXing17MultiFormatReader12readMultipleERKNS_12BinaryBitmapEi(p
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i
-  %.sroa.026.1.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %56, %55 ]
+  %.sroa.026.1.i.i.i.i = phi ptr [ %56, %55 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %58 = invoke noundef zeroext i1 @_ZNK5ZXing6Result7isValidEv(ptr noundef nonnull align 8 dereferenceable(211) %.sroa.026.1.i.i.i.i) #19
           to label %.noexc33 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1300,7 +1300,7 @@ define void @_ZNK5ZXing17MultiFormatReader12readMultipleERKNS_12BinaryBitmapEi(p
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i
-  %.sroa.026.2.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
+  %.sroa.026.2.i.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %62 = invoke noundef zeroext i1 @_ZNK5ZXing6Result7isValidEv(ptr noundef nonnull align 8 dereferenceable(211) %.sroa.026.2.i.i.i.i) #19
           to label %.noexc34 unwind label %.loopexit.split-lp.loopexit.split-lp
 

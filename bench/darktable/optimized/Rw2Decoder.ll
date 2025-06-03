@@ -2109,7 +2109,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit186:            ; preds = %_ZN8rawspeed23Panas
   ret void
 
 763:                                              ; preds = %515, %600, %680, %760, %138, %220, %343
-  %.pn132.pn.pn = phi { ptr, i32 } [ %.pn132, %138 ], [ %.pn130, %220 ], [ %.pn128, %343 ], [ %.pn, %760 ], [ %.pn113, %680 ], [ %.pn115, %600 ], [ %.pn119, %515 ]
+  %.pn132.pn.pn = phi { ptr, i32 } [ %.pn132, %138 ], [ %.pn130, %220 ], [ %.pn128, %343 ], [ %.pn119, %515 ], [ %.pn115, %600 ], [ %.pn113, %680 ], [ %.pn, %760 ]
   resume { ptr, i32 } %.pn132.pn.pn
 }
 

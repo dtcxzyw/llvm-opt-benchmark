@@ -1431,8 +1431,8 @@ define range(i32 -1, 1) i32 @H5B2__update_internal(ptr noundef %0, i16 noundef z
   %223 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_internal, i32 noundef 679, i64 noundef %221, i64 noundef %222, ptr noundef nonnull @.str.31) #4
   br label %224
 
-224:                                              ; preds = %40, %65, %93, %220, %209, %119, %118, %109, %105, %199
-  %.1105.ph = phi i32 [ -1, %199 ], [ -1, %105 ], [ 0, %109 ], [ 0, %118 ], [ 0, %119 ], [ -1, %209 ], [ -1, %220 ], [ -1, %93 ], [ %.2, %65 ], [ -1, %40 ]
+224:                                              ; preds = %40, %65, %93, %220, %109, %118, %119, %209, %105, %199
+  %.1105.ph = phi i32 [ -1, %199 ], [ -1, %105 ], [ -1, %209 ], [ 0, %119 ], [ 0, %118 ], [ 0, %109 ], [ -1, %220 ], [ -1, %93 ], [ %.2, %65 ], [ -1, %40 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %226 = load i8, ptr %225, align 8, !tbaa !65, !range !7, !noundef !8
   %227 = trunc nuw i8 %226 to i1

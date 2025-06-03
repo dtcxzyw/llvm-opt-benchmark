@@ -3856,7 +3856,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit24:       ; preds = %43, %.noexc21
   br i1 %.not, label %._crit_edge, label %14
 
 60:                                               ; preds = %56, %36
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %57, %56 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -2091,7 +2091,7 @@ is_opclause.exit:                                 ; preds = %7
   br label %match_network_function.exit
 
 match_network_function.exit:                      ; preds = %is_opclause.exit, %7, %59, %58, %56, %55, %53, %52, %50, %49, %36, %34, %33, %31, %30, %28, %27, %25, %24, %11, %1
-  %.0 = phi ptr [ null, %1 ], [ %35, %34 ], [ %32, %31 ], [ %29, %28 ], [ %26, %25 ], [ null, %24 ], [ null, %27 ], [ null, %30 ], [ null, %33 ], [ null, %11 ], [ %60, %59 ], [ %57, %56 ], [ %54, %53 ], [ %51, %50 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %36 ], [ null, %7 ], [ null, %is_opclause.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ null, %24 ], [ null, %27 ], [ null, %30 ], [ null, %33 ], [ null, %11 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %36 ], [ null, %7 ], [ null, %is_opclause.exit ]
   %61 = ptrtoint ptr %.0 to i64
   ret i64 %61
 }
@@ -3050,7 +3050,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %92, %51, %20
-  %.0 = phi double [ 0.000000e+00, %92 ], [ %91, %51 ], [ %50, %20 ], [ %19, %14 ]
+  %.0 = phi double [ 0.000000e+00, %92 ], [ %50, %20 ], [ %91, %51 ], [ %19, %14 ]
   ret double %.0
 }
 

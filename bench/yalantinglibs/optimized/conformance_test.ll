@@ -1069,7 +1069,7 @@ return:                                           ; preds = %invoke.cont12, %sw.
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad7, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %2, %lpad7 ], [ %1, %lpad4 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %2, %lpad7 ], [ %0, %lpad ], [ %1, %lpad4 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1156,7 +1156,7 @@ return:                                           ; preds = %invoke.cont14, %sw.
   ret void
 
 eh.resume:                                        ; preds = %lpad16, %lpad11, %lpad8, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad16 ], [ %3, %lpad11 ], [ %2, %lpad8 ], [ %1, %lpad4 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad16 ], [ %3, %lpad11 ], [ %0, %lpad ], [ %1, %lpad4 ], [ %2, %lpad8 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1241,7 +1241,7 @@ return:                                           ; preds = %invoke.cont14, %sw.
   ret void
 
 eh.resume:                                        ; preds = %lpad16, %lpad11, %lpad8, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad16 ], [ %3, %lpad11 ], [ %2, %lpad8 ], [ %1, %lpad4 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad16 ], [ %3, %lpad11 ], [ %0, %lpad ], [ %1, %lpad4 ], [ %2, %lpad8 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4314,7 +4314,7 @@ return:                                           ; preds = %invoke.cont24, %sw.
   ret void
 
 eh.resume:                                        ; preds = %lpad26, %lpad19, %lpad16, %lpad12, %lpad8, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad26 ], [ %5, %lpad19 ], [ %4, %lpad16 ], [ %3, %lpad12 ], [ %2, %lpad8 ], [ %1, %lpad4 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad26 ], [ %5, %lpad19 ], [ %0, %lpad ], [ %1, %lpad4 ], [ %2, %lpad8 ], [ %3, %lpad12 ], [ %4, %lpad16 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -315,7 +315,7 @@ conn_close_socket.exit:                           ; preds = %7, %11
   br label %52
 
 52:                                               ; preds = %27, %22, %35, %20, %14, %4, %._crit_edge, %19, %16, %51, %48, %45, %41, %32, %conn_close_socket.exit
-  %.0 = phi i64 [ 0, %51 ], [ 1, %48 ], [ 1, %4 ], [ 1, %45 ], [ %44, %41 ], [ %40, %._crit_edge ], [ 1, %32 ], [ 1, %19 ], [ %18, %16 ], [ 0, %conn_close_socket.exit ], [ 1, %14 ], [ %spec.select, %22 ], [ %spec.select39, %27 ], [ 0, %20 ], [ -1, %35 ]
+  %.0 = phi i64 [ 0, %51 ], [ 0, %conn_close_socket.exit ], [ %18, %16 ], [ 1, %19 ], [ 1, %32 ], [ %40, %._crit_edge ], [ %44, %41 ], [ 1, %45 ], [ 1, %4 ], [ 1, %48 ], [ 1, %14 ], [ %spec.select, %22 ], [ %spec.select39, %27 ], [ 0, %20 ], [ -1, %35 ]
   ret i64 %.0
 }
 
@@ -685,7 +685,7 @@ split_host_and_port.exit:                         ; preds = %54, %.sink.split.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit88, %101, %103, %91, %93, %81, %74, %66, %19
-  %.1 = phi i32 [ -1, %101 ], [ 0, %103 ], [ %.062, %19 ], [ %.062, %.loopexit88 ], [ %79, %81 ], [ %87, %91 ], [ %87, %93 ], [ %.062, %74 ], [ %.062, %66 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
+  %.1 = phi i32 [ %.062, %19 ], [ %79, %81 ], [ %87, %91 ], [ %87, %93 ], [ %.062, %74 ], [ %.062, %66 ], [ %.062, %.loopexit88 ], [ -1, %101 ], [ 0, %103 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
   br i1 %.not, label %.loopexit89, label %110
 
 110:                                              ; preds = %.loopexit

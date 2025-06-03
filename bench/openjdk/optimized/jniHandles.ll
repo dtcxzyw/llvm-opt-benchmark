@@ -883,7 +883,7 @@ _ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject.exit: ; preds = %19, %_
   br label %_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject.exit.thread
 
 _ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject.exit.thread: ; preds = %.loopexit, %5, %10, %14, %_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject.exit, %_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject.exit
-  %.0 = phi i32 [ 0, %10 ], [ 2, %14 ], [ 1, %_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject.exit ], [ 0, %_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject.exit ], [ %spec.select, %5 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 2, %14 ], [ 0, %10 ], [ 1, %_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject.exit ], [ 0, %_ZN10JNIHandles15is_frame_handleEP10JavaThreadP8_jobject.exit ], [ %spec.select, %5 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

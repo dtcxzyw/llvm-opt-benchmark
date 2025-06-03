@@ -82,7 +82,7 @@ define dso_local i32 @errstr_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %12, %11, %8
-  %.0 = phi i32 [ 0, %11 ], [ 1, %8 ], [ 0, %12 ], [ %.2, %25 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ 0, %12 ], [ %.2, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #4
   ret i32 %.0

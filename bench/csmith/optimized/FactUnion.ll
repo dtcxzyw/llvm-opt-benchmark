@@ -1073,7 +1073,7 @@ define dso_local noundef zeroext i1 @_ZNK9FactUnion5implyERK4Fact(ptr noundef no
   br label %.thread
 
 .thread:                                          ; preds = %12, %17, %7, %22
-  %.06 = phi i1 [ true, %17 ], [ false, %22 ], [ true, %7 ], [ false, %12 ]
+  %.06 = phi i1 [ false, %22 ], [ true, %17 ], [ true, %7 ], [ false, %12 ]
   ret i1 %.06
 }
 
@@ -1312,7 +1312,7 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
   br label %_ZNK9FactUnion5implyERK4Fact.exit
 
 _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %8, %34, %.noexc9, %.noexc8, %.noexc7, %12
-  %35 = phi i1 [ false, %12 ], [ true, %.noexc9 ], [ false, %34 ], [ true, %.noexc7 ], [ false, %.noexc8 ], [ false, %8 ]
+  %35 = phi i1 [ false, %12 ], [ false, %34 ], [ true, %.noexc9 ], [ true, %.noexc7 ], [ false, %.noexc8 ], [ false, %8 ]
   call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   ret i1 %35

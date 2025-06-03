@@ -576,7 +576,7 @@ PACKET_get_1.exit:                                ; preds = %4
   br label %ossl_decode_der_length.exit
 
 ossl_decode_der_length.exit:                      ; preds = %44, %28, %18
-  %.sroa.0.2 = phi ptr [ %20, %18 ], [ %46, %44 ], [ %30, %28 ]
+  %.sroa.0.2 = phi ptr [ %20, %18 ], [ %30, %28 ], [ %46, %44 ]
   %48 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %5, ptr noundef %0)
   %.not10 = icmp eq i32 %48, 0
   br i1 %.not10, label %PACKET_buf_init.exit.thread, label %49

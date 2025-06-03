@@ -684,7 +684,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
   br i1 %.not78, label %.loopexit, label %73
 
 .loopexit84:                                      ; preds = %73, %.preheader83, %27, %._crit_edge, %61
-  %.166 = phi i64 [ %.065, %61 ], [ %60, %._crit_edge ], [ %.065, %27 ], [ %.065, %.preheader83 ], [ %.065, %73 ]
+  %.166 = phi i64 [ %60, %._crit_edge ], [ %.065, %61 ], [ %.065, %27 ], [ %.065, %.preheader83 ], [ %.065, %73 ]
   %100 = getelementptr inbounds nuw i8, ptr %.164, i64 40
   br label %27, !llvm.loop !67
 
@@ -1052,7 +1052,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   br i1 %185, label %test_rx_ack_actual.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %129, %103, %69, %61, %181, %171, %169, %.preheader157.i, %65, %.preheader.i
-  %.1109.i = phi i64 [ %.0108178.i, %181 ], [ %.0108178.i, %171 ], [ %170, %169 ], [ %.0108178.i, %.preheader.i ], [ %.0108178.i, %65 ], [ %.0108178.i, %.preheader157.i ], [ %.0108178.i, %61 ], [ %.0108178.i, %69 ], [ %.0108178.i, %103 ], [ %.0108178.i, %129 ]
+  %.1109.i = phi i64 [ %170, %169 ], [ %.0108178.i, %171 ], [ %.0108178.i, %181 ], [ %.0108178.i, %.preheader.i ], [ %.0108178.i, %65 ], [ %.0108178.i, %.preheader157.i ], [ %.0108178.i, %61 ], [ %.0108178.i, %69 ], [ %.0108178.i, %103 ], [ %.0108178.i, %129 ]
   %186 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 64
   %187 = add i64 %.1112176.i, 1
   %188 = load i32, ptr %186, align 8, !tbaa !70

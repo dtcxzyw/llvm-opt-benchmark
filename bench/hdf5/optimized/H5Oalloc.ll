@@ -857,7 +857,7 @@ H5O__alloc_msgs.exit.thread:                      ; preds = %85, %98, %78
   br label %.thread339
 
 .thread339:                                       ; preds = %384, %304, %292, %168, %127, %50, %6, %444, %440, %426, %419, %101, %68, %34
-  %.0 = phi i32 [ -1, %50 ], [ -1, %68 ], [ -1, %101 ], [ -1, %419 ], [ -1, %426 ], [ -1, %440 ], [ 0, %444 ], [ -1, %34 ], [ 0, %6 ], [ -1, %127 ], [ -1, %168 ], [ -1, %292 ], [ -1, %304 ], [ -1, %384 ]
+  %.0 = phi i32 [ -1, %68 ], [ -1, %101 ], [ -1, %419 ], [ -1, %426 ], [ -1, %440 ], [ 0, %444 ], [ -1, %50 ], [ -1, %34 ], [ 0, %6 ], [ -1, %127 ], [ -1, %168 ], [ -1, %292 ], [ -1, %304 ], [ -1, %384 ]
   ret i32 %.0
 }
 
@@ -1080,8 +1080,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__alloc_null(ptr noundef %0, ptr
   br label %131
 
 123:                                              ; preds = %110, %47, %.thread
-  %124 = phi i1 [ false, %110 ], [ true, %.thread ], [ %51, %47 ]
-  %.181.ph = phi i32 [ -1, %110 ], [ 0, %.thread ], [ -1, %47 ]
+  %124 = phi i1 [ false, %110 ], [ %51, %47 ], [ true, %.thread ]
+  %.181.ph = phi i32 [ -1, %110 ], [ -1, %47 ], [ 0, %.thread ]
   %125 = tail call i32 @H5O__chunk_unprotect(ptr noundef %0, ptr noundef nonnull %20, i1 noundef zeroext %124) #7
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %127, label %131
@@ -5514,7 +5514,7 @@ H5O__alloc_msgs.exit.thread:                      ; preds = %81, %94, %77
   br label %142
 
 142:                                              ; preds = %._crit_edge, %133, %6, %141
-  %.083 = phi i32 [ 0, %._crit_edge ], [ -1, %133 ], [ 0, %141 ], [ 0, %6 ]
+  %.083 = phi i32 [ 0, %._crit_edge ], [ 0, %141 ], [ -1, %133 ], [ 0, %6 ]
   ret i32 %.083
 }
 

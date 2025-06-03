@@ -1064,7 +1064,7 @@ _RNvMs2_NtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5innerINtB5_4PoolNtNtNtBb_
   br label %68
 
 68:                                               ; preds = %62, %59
-  %.sroa.01.0.i = phi ptr [ %65, %62 ], [ %61, %59 ]
+  %.sroa.01.0.i = phi ptr [ %61, %59 ], [ %65, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %70 = load ptr, ptr %69, align 8, !invariant.load !5, !noalias !169, !nonnull !5
   invoke void %70(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef align 1 %57, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9)
@@ -2061,7 +2061,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   br label %_RNvXst_NtCseG2FYMysgNb_3wax4walkNtB5_13WalkErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
 _RNvXst_NtCseG2FYMysgNb_3wax4walkNtB5_13WalkErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit: ; preds = %7, %11
-  %.sroa.0.0.in.i = phi i1 [ %14, %11 ], [ %10, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %7 ], [ %14, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3041,7 +3041,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hcd6cecf64050ad0fE.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hcd6cecf64050ad0fE.exit: ; preds = %switch.lookup, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %47, %44
-  %.sroa.0.0 = phi i8 [ %51, %47 ], [ %46, %44 ], [ 40, %42 ], [ 13, %43 ], [ 1, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %46, %44 ], [ %51, %47 ], [ 40, %42 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 1, %41 ], [ 13, %43 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -4966,7 +4966,7 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.ex
   br label %36
 
 36:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit20, %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit
-  %.sroa.0.0.in = phi i1 [ %35, %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit20 ], [ %19, %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit ]
+  %.sroa.0.0.in = phi i1 [ %19, %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit ], [ %35, %_ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.llvm.2038835765883349039.exit20 ]
   ret i1 %.sroa.0.0.in
 }
 

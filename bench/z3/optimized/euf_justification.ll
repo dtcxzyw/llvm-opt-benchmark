@@ -243,7 +243,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34: ; preds = %.lr.p
   br label %73
 
 73:                                               ; preds = %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit, %15, %72, %57, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit, %19, %17
-  %.0 = phi ptr [ %1, %72 ], [ %71, %57 ], [ %1, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit ], [ %1, %19 ], [ %1, %17 ], [ %1, %15 ], [ %1, %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit ]
+  %.0 = phi ptr [ %1, %72 ], [ %1, %17 ], [ %1, %19 ], [ %1, %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit ], [ %71, %57 ], [ %1, %15 ], [ %1, %_ZNKSt8functionIFvRSoPvEEclES0_S1_.exit ]
   ret ptr %.0
 }
 

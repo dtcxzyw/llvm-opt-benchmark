@@ -2624,8 +2624,8 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge._crit_edge.i.i.i
-  %68 = phi i64 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %63, %65 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %66, %65 ]
+  %68 = phi i64 [ %63, %65 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %69 = load i64, ptr %.sroa.032.1.i.i.i, align 8
   %70 = icmp eq i64 %69, %68
   br i1 %70, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEElET_S8_S8_RKT0_.exit, label %71
@@ -2635,8 +2635,8 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge._crit_edge57.i.i.i
-  %74 = phi i64 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %68, %71 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %72, %71 ]
+  %74 = phi i64 [ %68, %71 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %75 = load i64, ptr %.sroa.032.2.i.i.i, align 8
   %76 = icmp eq i64 %75, %74
   %spec.select.i.i.i = select i1 %76, ptr %.sroa.032.2.i.i.i, ptr %33
@@ -3973,7 +3973,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit248:                 ; preds = %507, %509
   ret void
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.loopexit326, %.loopexit.split-lp327.loopexit.split-lp.loopexit, %.loopexit.split-lp327.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp327.loopexit, %498, %496, %336, %274, %197, %139, %44, %32
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %337, %336 ], [ %275, %274 ], [ %198, %197 ], [ %140, %139 ], [ %45, %44 ], [ %lpad.phi, %496 ], [ %lpad.phi, %498 ], [ %lpad.loopexit328, %.loopexit326 ], [ %lpad.loopexit333, %.loopexit.split-lp327.loopexit ], [ %lpad.loopexit339, %.loopexit.split-lp327.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp327.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %45, %44 ], [ %198, %197 ], [ %140, %139 ], [ %337, %336 ], [ %275, %274 ], [ %lpad.phi, %496 ], [ %lpad.phi, %498 ], [ %lpad.loopexit328, %.loopexit326 ], [ %lpad.loopexit333, %.loopexit.split-lp327.loopexit ], [ %lpad.loopexit339, %.loopexit.split-lp327.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp327.loopexit.split-lp.loopexit.split-lp ]
   %515 = load ptr, ptr %0, align 8
   %.not.i.i.i249 = icmp eq ptr %515, null
   br i1 %.not.i.i.i249, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, label %516

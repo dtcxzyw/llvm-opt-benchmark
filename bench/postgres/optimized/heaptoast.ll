@@ -1041,7 +1041,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %53, %52
-  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %46, %45 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 

@@ -271,7 +271,7 @@ define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %0, i32
   br label %7
 
 7:                                                ; preds = %3, %5, %4
-  %.0 = phi ptr [ null, %3 ], [ %6, %5 ], [ %0, %4 ]
+  %.0 = phi ptr [ null, %3 ], [ %0, %4 ], [ %6, %5 ]
   br label %8
 
 8:                                                ; preds = %9, %7

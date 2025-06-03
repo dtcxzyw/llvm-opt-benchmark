@@ -552,7 +552,7 @@ define hidden noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %0) loc
   unreachable
 
 12:                                               ; preds = %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0.in = phi ptr [ @illegalType, %9 ], [ @addressType, %8 ], [ @objectType, %7 ], [ @arrayType, %6 ], [ @doubleType, %5 ], [ @floatType, %4 ], [ @longType, %3 ], [ @intType, %2 ], [ @voidType, %1 ]
+  %.0.in = phi ptr [ @intType, %2 ], [ @longType, %3 ], [ @floatType, %4 ], [ @doubleType, %5 ], [ @arrayType, %6 ], [ @objectType, %7 ], [ @addressType, %8 ], [ @illegalType, %9 ], [ @voidType, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }

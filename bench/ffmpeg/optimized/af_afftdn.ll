@@ -755,9 +755,9 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %275
 
 275:                                              ; preds = %266, %254, %253
-  %.2143.i.i = phi nsz double [ %.1142.i.i, %253 ], [ %272, %266 ], [ %262, %254 ]
-  %.2140.i.i = phi nsz double [ %.1139.i.i, %253 ], [ %269, %266 ], [ %258, %254 ]
-  %.1.i.i = phi nsz double [ %.012822.i.i, %253 ], [ %274, %266 ], [ %265, %254 ]
+  %.2143.i.i = phi nsz double [ %.1142.i.i, %253 ], [ %262, %254 ], [ %272, %266 ]
+  %.2140.i.i = phi nsz double [ %.1139.i.i, %253 ], [ %258, %254 ], [ %269, %266 ]
+  %.1.i.i = phi nsz double [ %.012822.i.i, %253 ], [ %265, %254 ], [ %274, %266 ]
   %276 = load double, ptr %153, align 8, !tbaa !97
   %277 = call nsz double @llvm.maxnum.f64(double %.1.i.i, double %276)
   %278 = fadd nsz double %.1137.i.i, %277

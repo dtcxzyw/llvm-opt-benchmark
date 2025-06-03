@@ -2837,8 +2837,8 @@ _ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %152, %151
   unreachable
 
 165:                                              ; preds = %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit, %161, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit, %137, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit, %118, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit, %100, %_ZN5folly16to_ascii_decimalEPcPKcm.exit, %68, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit
-  %.058 = phi ptr [ %163, %161 ], [ %157, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ], [ %139, %137 ], [ %.1.i.i66.sroa.phi, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ %120, %118 ], [ %.1.i.i.sroa.phi, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ %101, %100 ], [ %.2.i.sroa.phi, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ %78, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %39, %68 ], [ %39, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ %29, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ]
-  %.057 = phi i32 [ 2, %161 ], [ 0, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ], [ 2, %137 ], [ 0, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ 2, %118 ], [ 0, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ 1, %100 ], [ 0, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ 0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ 0, %68 ], [ 0, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ 0, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ]
+  %.058 = phi ptr [ %29, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %39, %68 ], [ %39, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ %78, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ %101, %100 ], [ %.2.i.sroa.phi, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ %120, %118 ], [ %.1.i.i.sroa.phi, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ %139, %137 ], [ %.1.i.i66.sroa.phi, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ %163, %161 ], [ %157, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
+  %.057 = phi i32 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ 0, %68 ], [ 0, %_ZN5folly16to_ascii_decimalEPcPKcm.exit ], [ 0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit ], [ 1, %100 ], [ 0, %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit ], [ 2, %118 ], [ 0, %_ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit ], [ 2, %137 ], [ 0, %_ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit ], [ 2, %161 ], [ 0, %_ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit ]
   br i1 %.not, label %169, label %166
 
 166:                                              ; preds = %165
@@ -3754,7 +3754,7 @@ _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %15
   br label %_ZNK5folly7dynamic8asDoubleEv.exit
 
 _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %20, %22
-  %.0.i.i36 = phi double [ %23, %22 ], [ %21, %20 ]
+  %.0.i.i36 = phi double [ %21, %20 ], [ %23, %22 ]
   %24 = fcmp ogt double %.0.i.i36, %18
   br label %_ZSt29__lexicographical_compare_auxIN9__gnu_cxx17__normal_iteratorIPKN5folly7dynamicESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_SB_.exit
 
@@ -3773,7 +3773,7 @@ _ZNK5folly7dynamic8asDoubleEv.exit38:             ; preds = %15
   br label %_ZNK5folly7dynamic5asIntEv.exit40
 
 _ZNK5folly7dynamic5asIntEv.exit40:                ; preds = %27, %29
-  %.0.i.i39 = phi i64 [ %30, %29 ], [ %28, %27 ]
+  %.0.i.i39 = phi i64 [ %28, %27 ], [ %30, %29 ]
   %31 = sitofp i64 %.0.i.i39 to double
   %32 = fcmp olt double %25, %31
   br label %_ZSt29__lexicographical_compare_auxIN9__gnu_cxx17__normal_iteratorIPKN5folly7dynamicESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_SB_.exit
@@ -3909,7 +3909,7 @@ _ZN5folly7dynamic9CompareOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   unreachable
 
 _ZSt29__lexicographical_compare_auxIN9__gnu_cxx17__normal_iteratorIPKN5folly7dynamicESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_SB_.exit: ; preds = %55, %.lr.ph, %.critedge.i.i.i, %35, %_ZNK5folly7dynamic8asDoubleEv.exit, %_ZNK5folly7dynamic5asIntEv.exit40, %_ZN5folly7dynamic9CompareOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4compERKS7_SA_.exit, %73, %67, %61, %33
-  %.0 = phi i1 [ %34, %33 ], [ %91, %_ZN5folly7dynamic9CompareOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4compERKS7_SA_.exit ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %24, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %32, %_ZNK5folly7dynamic5asIntEv.exit40 ], [ %60, %.critedge.i.i.i ], [ false, %35 ], [ %54, %.lr.ph ], [ %54, %55 ]
+  %.0 = phi i1 [ %34, %33 ], [ %66, %61 ], [ %72, %67 ], [ %78, %73 ], [ %91, %_ZN5folly7dynamic9CompareOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4compERKS7_SA_.exit ], [ %24, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %32, %_ZNK5folly7dynamic5asIntEv.exit40 ], [ %60, %.critedge.i.i.i ], [ false, %35 ], [ %54, %.lr.ph ], [ %54, %55 ]
   ret i1 %.0
 }
 
@@ -5245,7 +5245,7 @@ define noundef zeroext i1 @_ZN5follyeqERKNS_7dynamicES2_(ptr noundef nonnull ali
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %14, %17, %20, %24
-  %.0.i.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.0.i.i = phi i64 [ %16, %14 ], [ %19, %17 ], [ %23, %20 ], [ %26, %24 ]
   %28 = sitofp i64 %.0.i.i to double
   %29 = load i32, ptr %13, align 8, !tbaa !7
   switch i32 %29, label %43 [
@@ -5281,7 +5281,7 @@ _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %14, %17, %20, %24
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %30, %33, %36, %40
-  %.0.i.i30 = phi double [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.0.i.i30 = phi double [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ]
   %44 = fcmp oeq double %.0.i.i30, %28
   br label %_ZSteqIN5folly7dynamicESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
@@ -5488,7 +5488,7 @@ _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exi
   unreachable
 
 _ZSteqIN5folly7dynamicESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i, %.critedge.i.i.i, %.lr.ph, %.lr.ph.preheader.i, %89, %83, %.preheader, %140, %138, %130, %46, %45, %6, %77, %71, %65, %_ZNK5folly7dynamic8asDoubleEv.exit
-  %.0 = phi i1 [ %44, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %82, %77 ], [ %76, %71 ], [ %70, %65 ], [ false, %6 ], [ true, %45 ], [ false, %46 ], [ false, %130 ], [ %143, %140 ], [ true, %138 ], [ true, %.preheader ], [ false, %83 ], [ true, %89 ], [ false, %.lr.ph.preheader.i ], [ %62, %.lr.ph ], [ true, %.critedge.i.i.i ], [ false, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i ]
+  %.0 = phi i1 [ %44, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %70, %65 ], [ %76, %71 ], [ %82, %77 ], [ false, %6 ], [ true, %45 ], [ false, %46 ], [ false, %130 ], [ %143, %140 ], [ true, %138 ], [ true, %.preheader ], [ false, %83 ], [ true, %89 ], [ false, %.lr.ph.preheader.i ], [ %62, %.lr.ph ], [ true, %.critedge.i.i.i ], [ false, %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i ]
   ret i1 %.0
 }
 
@@ -5788,7 +5788,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit:      ; preds = %1
   unreachable
 
 "_ZSt10accumulateIN5folly7dynamic19const_item_iteratorEmZNKS1_4hashEvE3$_0ET0_T_S5_S4_T1_.exit": ; preds = %.lr.ph, %.critedge.i.i.i.i, %_ZNK5folly7dynamic3endEv.exit, %_ZNK5folly7dynamic5itemsEv.exit7, %89, %102, %104, %1, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit, %_ZNKR5folly7dynamic7getBoolEv.exit, %_ZNKR5folly7dynamic6getIntEv.exit
-  %.0 = phi i64 [ %126, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ %121, %_ZNKR5folly7dynamic7getBoolEv.exit ], [ %83, %_ZNKR5folly7dynamic6getIntEv.exit ], [ 3131746989, %1 ], [ %101, %89 ], [ %117, %104 ], [ 0, %102 ], [ 728775, %_ZNK5folly7dynamic5itemsEv.exit7 ], [ 0, %_ZNK5folly7dynamic3endEv.exit ], [ %27, %.critedge.i.i.i.i ], [ %68, %.lr.ph ]
+  %.0 = phi i64 [ %83, %_ZNKR5folly7dynamic6getIntEv.exit ], [ %121, %_ZNKR5folly7dynamic7getBoolEv.exit ], [ %126, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ 3131746989, %1 ], [ %101, %89 ], [ %117, %104 ], [ 0, %102 ], [ 728775, %_ZNK5folly7dynamic5itemsEv.exit7 ], [ 0, %_ZNK5folly7dynamic3endEv.exit ], [ %27, %.critedge.i.i.i.i ], [ %68, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -8866,7 +8866,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic6atIm
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %34, %37, %40, %44
-  %.0.i.i = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.0.i.i = phi i64 [ %36, %34 ], [ %39, %37 ], [ %43, %40 ], [ %46, %44 ]
   %48 = load ptr, ptr %8, align 8, !tbaa !213
   %49 = getelementptr inbounds nuw %"struct.folly::dynamic", ptr %48, i64 %.0.i.i
   br label %119
@@ -11093,7 +11093,7 @@ define noundef ptr @_ZNKR5folly7dynamic11get_ptrImplERKS0_(ptr noundef nonnull r
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %31, %34, %37, %41
-  %.0.i.i = phi i64 [ %43, %41 ], [ %40, %37 ], [ %36, %34 ], [ %33, %31 ]
+  %.0.i.i = phi i64 [ %33, %31 ], [ %36, %34 ], [ %40, %37 ], [ %43, %41 ]
   %45 = load ptr, ptr %6, align 8, !tbaa !213
   %46 = getelementptr inbounds nuw %"struct.folly::dynamic", ptr %45, i64 %.0.i.i
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8findImplIS4_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S4_EEEEESD_ImmERKT_NS9_8PrefetchE.exit.thread
@@ -11381,7 +11381,7 @@ define noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull readonly align
   unreachable
 
 20:                                               ; preds = %16, %12, %3
-  %.1 = phi i64 [ %11, %3 ], [ %15, %12 ], [ %18, %16 ]
+  %.1 = phi i64 [ %18, %16 ], [ %15, %12 ], [ %11, %3 ]
   ret i64 %.1
 }
 
@@ -11660,7 +11660,7 @@ _ZNR5folly7dynamicixIRKS0_EENSt9enable_ifIXaantsr3std14is_convertibleIT_NS_5Rang
   unreachable
 
 _ZNK5folly7dynamic5emptyEv.exit:                  ; preds = %64, %71, %74
-  %.1.i.i = phi i64 [ %70, %64 ], [ %73, %71 ], [ %75, %74 ]
+  %.1.i.i = phi i64 [ %75, %74 ], [ %73, %71 ], [ %70, %64 ]
   %.not.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not.i, label %_ZNK5folly7dynamic5emptyEv.exit.thread, label %78
 

@@ -6208,7 +6208,7 @@ define void @"_ZN4core3ptr48drop_in_place$LT$cranelift_isle..ast..Extern$GT$17h5
   unreachable
 
 49:                                               ; preds = %62, %50, %34
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %51, %50 ], [ %35, %34 ]
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %35, %34 ], [ %51, %50 ]
   resume { ptr, i32 } %.pn
 
 50:                                               ; preds = %29, %26
@@ -6581,7 +6581,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..ast..Pattern$GT$17h
   unreachable
 
 common.resume:                                    ; preds = %.body17, %74, %88, %80, %.body
-  %common.resume.op = phi { ptr, i32 } [ %60, %.body ], [ %81, %80 ], [ %89, %88 ], [ %75, %74 ], [ %105, %.body17 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %.body ], [ %81, %80 ], [ %75, %74 ], [ %89, %88 ], [ %105, %.body17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE.exit": ; preds = %52
@@ -6943,7 +6943,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..error..Error$GT$17h
   unreachable
 
 76:                                               ; preds = %77, %61
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %62, %61 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %78, %77 ]
   resume { ptr, i32 } %.pn
 
 77:                                               ; preds = %56, %52

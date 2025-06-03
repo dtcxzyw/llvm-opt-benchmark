@@ -1084,7 +1084,7 @@ define hidden noundef zeroext i1 @_ZN15ast_translation5visitEP3ast(ptr noundef n
   br label %61
 
 61:                                               ; preds = %50, %60
-  %.1 = phi i1 [ true, %50 ], [ false, %60 ]
+  %.1 = phi i1 [ false, %60 ], [ true, %50 ]
   ret i1 %.1
 }
 

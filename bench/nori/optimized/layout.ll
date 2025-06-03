@@ -2749,8 +2749,8 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   br label %172
 
 172:                                              ; preds = %170, %168, %164, %157
-  %.061 = phi i32 [ %147, %157 ], [ %169, %168 ], [ %167, %164 ], [ %147, %170 ]
-  %.0 = phi i32 [ %162, %157 ], [ %162, %168 ], [ %162, %164 ], [ %171, %170 ]
+  %.061 = phi i32 [ %147, %157 ], [ %147, %170 ], [ %167, %164 ], [ %169, %168 ]
+  %.0 = phi i32 [ %162, %157 ], [ %171, %170 ], [ %162, %164 ], [ %162, %168 ]
   %173 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %174 = load i32, ptr %173, align 4
   %.sroa_idx138 = getelementptr inbounds nuw i8, ptr %106, i64 44

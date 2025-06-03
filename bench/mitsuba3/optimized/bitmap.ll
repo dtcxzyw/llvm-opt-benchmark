@@ -2118,7 +2118,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   ret void
 
 .loopexit.split-lp:                               ; preds = %158, %164, %137, %143, %117, %123, %95, %101, %74, %80, %53, %59, %39, %.loopexit.split-lp.loopexit218, %.loopexit.split-lp.loopexit215, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.thread144, %.thread142, %.thread140, %.thread138, %.thread136, %.thread134, %.thread, %26, %345, %343, %292, %277, %.body, %188
-  %.pn64 = phi { ptr, i32 } [ %278, %277 ], [ %189, %188 ], [ %293, %292 ], [ %346, %345 ], [ %344, %343 ], [ %.pn, %.body ], [ %27, %26 ], [ %30, %.thread ], [ %44, %.thread134 ], [ %64, %.thread136 ], [ %85, %.thread138 ], [ %106, %.thread140 ], [ %128, %.thread142 ], [ %148, %.thread144 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit184, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp185, %.loopexit.split-lp.loopexit.split-lp ], [ %28, %.loopexit.split-lp.loopexit215 ], [ %36, %.loopexit.split-lp.loopexit218 ], [ %38, %39 ], [ %58, %59 ], [ %52, %53 ], [ %79, %80 ], [ %73, %74 ], [ %100, %101 ], [ %94, %95 ], [ %122, %123 ], [ %116, %117 ], [ %142, %143 ], [ %136, %137 ], [ %163, %164 ], [ %157, %158 ]
+  %.pn64 = phi { ptr, i32 } [ %278, %277 ], [ %293, %292 ], [ %346, %345 ], [ %344, %343 ], [ %27, %26 ], [ %189, %188 ], [ %.pn, %.body ], [ %30, %.thread ], [ %44, %.thread134 ], [ %64, %.thread136 ], [ %85, %.thread138 ], [ %106, %.thread140 ], [ %128, %.thread142 ], [ %148, %.thread144 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit184, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp185, %.loopexit.split-lp.loopexit.split-lp ], [ %28, %.loopexit.split-lp.loopexit215 ], [ %36, %.loopexit.split-lp.loopexit218 ], [ %38, %39 ], [ %58, %59 ], [ %52, %53 ], [ %79, %80 ], [ %73, %74 ], [ %100, %101 ], [ %94, %95 ], [ %122, %123 ], [ %116, %117 ], [ %142, %143 ], [ %136, %137 ], [ %163, %164 ], [ %157, %158 ]
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #38
   resume { ptr, i32 } %.pn64
 }
@@ -18194,7 +18194,7 @@ _ZN7mitsuba6Struct5FieldC2ERKS1_.exit:            ; preds = %.noexc383
   br label %285
 
 271:                                              ; preds = %_ZN7mitsuba6Struct5FieldC2ERKS1_.exit, %264, %263
-  %.0 = phi i32 [ 0, %264 ], [ 1, %263 ], [ 2, %_ZN7mitsuba6Struct5FieldC2ERKS1_.exit ]
+  %.0 = phi i32 [ 1, %263 ], [ 0, %264 ], [ 2, %_ZN7mitsuba6Struct5FieldC2ERKS1_.exit ]
   %272 = load i64, ptr %248, align 8
   %273 = getelementptr inbounds i8, ptr %240, i64 %272
   invoke void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %31, i32 noundef %.0, ptr noundef %273, i64 noundef %231, i64 noundef %235, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -18369,7 +18369,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %.body
 
 .body:                                            ; preds = %.loopexit441, %.loopexit.split-lp442, %135, %.body384, %.body380, %201, %189, %177, %164, %151, %138
-  %.pn352.pn = phi { ptr, i32 } [ %.pn352, %.body380 ], [ %202, %201 ], [ %190, %189 ], [ %178, %177 ], [ %165, %164 ], [ %152, %151 ], [ %139, %138 ], [ %.pn349.pn, %.body384 ], [ %136, %135 ], [ %lpad.loopexit443, %.loopexit441 ], [ %lpad.loopexit.split-lp444, %.loopexit.split-lp442 ]
+  %.pn352.pn = phi { ptr, i32 } [ %.pn352, %.body380 ], [ %139, %138 ], [ %152, %151 ], [ %165, %164 ], [ %178, %177 ], [ %190, %189 ], [ %202, %201 ], [ %.pn349.pn, %.body384 ], [ %136, %135 ], [ %lpad.loopexit443, %.loopexit441 ], [ %lpad.loopexit.split-lp444, %.loopexit.split-lp442 ]
   call void @_ZN7Imf_2_56HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #38
   br label %321
 
@@ -25233,7 +25233,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107: ; preds = %
   store i32 48, ptr %348, align 8
   br label %.thread117
 
-.thread117:                                       ; preds = %229, %.loopexit120, %.loopexit121, %.loopexit122, %311, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
+.thread117:                                       ; preds = %229, %311, %.loopexit122, %.loopexit121, %.loopexit120, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
   %360 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %.loopexit123
 
@@ -25811,7 +25811,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  %.sroa.034.0 = phi ptr [ %0, %48 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
   ret ptr %.sroa.034.0
 }
 
@@ -27736,7 +27736,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !322
 
 .loopexit:                                        ; preds = %118, %51, %115, %9, %37, %3, %3, %46, %42, %38
-  %.018 = phi i1 [ %117, %115 ], [ true, %46 ], [ true, %42 ], [ true, %38 ], [ true, %3 ], [ true, %3 ], [ true, %37 ], [ true, %9 ], [ true, %51 ], [ true, %118 ]
+  %.018 = phi i1 [ %117, %115 ], [ true, %38 ], [ true, %42 ], [ true, %46 ], [ true, %3 ], [ true, %3 ], [ true, %37 ], [ true, %9 ], [ true, %51 ], [ true, %118 ]
   ret i1 %.018
 }
 
@@ -29599,7 +29599,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIN5drjit4halfEE17resample
   br label %61
 
 61:                                               ; preds = %60, %55, %49, %45, %39
-  %.0.i.us.us.us = phi i32 [ %41, %45 ], [ %59, %55 ], [ %..i7.i.i.us.us.us, %60 ], [ %41, %39 ], [ %spec.select.i.us.us.us, %49 ]
+  %.0.i.us.us.us = phi i32 [ %41, %45 ], [ %..i7.i.i.us.us.us, %60 ], [ %59, %55 ], [ %41, %39 ], [ %spec.select.i.us.us.us, %49 ]
   %62 = mul i32 %.0.i.us.us.us, %18
   %63 = add i32 %62, %.085122.us.us.us
   %64 = zext i32 %63 to i64
@@ -29939,7 +29939,7 @@ _ZNK7mitsuba9ResamplerIN5drjit4halfEE6lookupEPKS2_ijj.exit.us.us.us: ; preds = %
   br label %228
 
 228:                                              ; preds = %227, %222, %216, %212, %206
-  %.0.i94.us.us.us = phi i32 [ %208, %212 ], [ %226, %222 ], [ %..i7.i.i99.us.us.us, %227 ], [ %208, %206 ], [ %spec.select.i97.us.us.us, %216 ]
+  %.0.i94.us.us.us = phi i32 [ %208, %212 ], [ %..i7.i.i99.us.us.us, %227 ], [ %226, %222 ], [ %208, %206 ], [ %spec.select.i97.us.us.us, %216 ]
   %229 = mul i32 %.0.i94.us.us.us, %18
   %230 = add i32 %229, %.076192.us.us.us
   %231 = zext i32 %230 to i64
@@ -30124,7 +30124,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIN5drjit4halfEE17resample
   br label %60
 
 60:                                               ; preds = %59, %54, %48, %44, %38
-  %.0.i.us.us.us = phi i32 [ %40, %44 ], [ %58, %54 ], [ %..i7.i.i.us.us.us, %59 ], [ %40, %38 ], [ %spec.select.i.us.us.us, %48 ]
+  %.0.i.us.us.us = phi i32 [ %40, %44 ], [ %..i7.i.i.us.us.us, %59 ], [ %58, %54 ], [ %40, %38 ], [ %spec.select.i.us.us.us, %48 ]
   %61 = mul i32 %.0.i.us.us.us, %18
   %62 = add i32 %61, %.076113.us.us.us
   %63 = zext i32 %62 to i64
@@ -30433,7 +30433,7 @@ _ZNK7mitsuba9ResamplerIN5drjit4halfEE6lookupEPKS2_ijj.exit.us.us.us: ; preds = %
   br label %209
 
 209:                                              ; preds = %208, %203, %197, %193, %187
-  %.0.i85.us.us.us = phi i32 [ %189, %193 ], [ %207, %203 ], [ %..i7.i.i90.us.us.us, %208 ], [ %189, %187 ], [ %spec.select.i88.us.us.us, %197 ]
+  %.0.i85.us.us.us = phi i32 [ %189, %193 ], [ %..i7.i.i90.us.us.us, %208 ], [ %207, %203 ], [ %189, %187 ], [ %spec.select.i88.us.us.us, %197 ]
   %210 = mul i32 %.0.i85.us.us.us, %18
   %211 = add i32 %210, %.073165.us.us.us
   %212 = zext i32 %211 to i64
@@ -30603,7 +30603,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIN5drjit4halfEE17resample
   br label %51
 
 51:                                               ; preds = %50, %45, %39, %35, %29
-  %.0.i.us.us.us = phi i32 [ %31, %35 ], [ %49, %45 ], [ %..i7.i.i.us.us.us, %50 ], [ %31, %29 ], [ %spec.select.i.us.us.us, %39 ]
+  %.0.i.us.us.us = phi i32 [ %31, %35 ], [ %..i7.i.i.us.us.us, %50 ], [ %49, %45 ], [ %31, %29 ], [ %spec.select.i.us.us.us, %39 ]
   %52 = mul i32 %.0.i.us.us.us, %14
   %53 = add i32 %52, %.090117.us.us.us
   %54 = zext i32 %53 to i64
@@ -30915,7 +30915,7 @@ _ZNK7mitsuba9ResamplerIN5drjit4halfEE6lookupEPKS2_ijj.exit.us.us.us: ; preds = %
   br label %198
 
 198:                                              ; preds = %197, %192, %186, %182, %176
-  %.0.i97.us.us.us = phi i32 [ %178, %182 ], [ %196, %192 ], [ %..i7.i.i102.us.us.us, %197 ], [ %178, %176 ], [ %spec.select.i100.us.us.us, %186 ]
+  %.0.i97.us.us.us = phi i32 [ %178, %182 ], [ %..i7.i.i102.us.us.us, %197 ], [ %196, %192 ], [ %178, %176 ], [ %spec.select.i100.us.us.us, %186 ]
   %199 = mul i32 %.0.i97.us.us.us, %14
   %200 = add i32 %199, %.081183.us.us.us
   %201 = zext i32 %200 to i64
@@ -31082,7 +31082,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIN5drjit4halfEE17resample
   br label %50
 
 50:                                               ; preds = %49, %44, %38, %34, %28
-  %.0.i.us.us.us = phi i32 [ %30, %34 ], [ %48, %44 ], [ %..i7.i.i.us.us.us, %49 ], [ %30, %28 ], [ %spec.select.i.us.us.us, %38 ]
+  %.0.i.us.us.us = phi i32 [ %30, %34 ], [ %..i7.i.i.us.us.us, %49 ], [ %48, %44 ], [ %30, %28 ], [ %spec.select.i.us.us.us, %38 ]
   %51 = mul i32 %.0.i.us.us.us, %14
   %52 = add i32 %51, %.081108.us.us.us
   %53 = zext i32 %52 to i64
@@ -31363,7 +31363,7 @@ _ZNK7mitsuba9ResamplerIN5drjit4halfEE6lookupEPKS2_ijj.exit.us.us.us: ; preds = %
   br label %179
 
 179:                                              ; preds = %178, %173, %167, %163, %157
-  %.0.i88.us.us.us = phi i32 [ %159, %163 ], [ %177, %173 ], [ %..i7.i.i93.us.us.us, %178 ], [ %159, %157 ], [ %spec.select.i91.us.us.us, %167 ]
+  %.0.i88.us.us.us = phi i32 [ %159, %163 ], [ %..i7.i.i93.us.us.us, %178 ], [ %177, %173 ], [ %159, %157 ], [ %spec.select.i91.us.us.us, %167 ]
   %180 = mul i32 %.0.i88.us.us.us, %14
   %181 = add i32 %180, %.078156.us.us.us
   %182 = zext i32 %181 to i64
@@ -32038,7 +32038,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIfE17resample_internalILb
   br label %53
 
 53:                                               ; preds = %52, %47, %41, %39, %33
-  %.011.i.us.us.us = phi i32 [ %35, %39 ], [ %51, %47 ], [ %..i7.i.i.us.us.us, %52 ], [ %35, %33 ], [ %spec.select.i.us.us.us, %41 ]
+  %.011.i.us.us.us = phi i32 [ %35, %39 ], [ %..i7.i.i.us.us.us, %52 ], [ %51, %47 ], [ %35, %33 ], [ %spec.select.i.us.us.us, %41 ]
   %54 = mul i32 %.011.i.us.us.us, %18
   %55 = add i32 %54, %.074116.us.us.us
   %56 = zext i32 %55 to i64
@@ -32317,7 +32317,7 @@ _ZNK7mitsuba9ResamplerIfE6lookupEPKfijj.exit.us.us.us: ; preds = %53, %40, %39
   br label %168
 
 168:                                              ; preds = %167, %162, %156, %154, %148
-  %.011.i86.us.us.us = phi i32 [ %150, %154 ], [ %166, %162 ], [ %..i7.i.i91.us.us.us, %167 ], [ %150, %148 ], [ %spec.select.i89.us.us.us, %156 ]
+  %.011.i86.us.us.us = phi i32 [ %150, %154 ], [ %..i7.i.i91.us.us.us, %167 ], [ %166, %162 ], [ %150, %148 ], [ %spec.select.i89.us.us.us, %156 ]
   %169 = mul i32 %.011.i86.us.us.us, %18
   %170 = add i32 %169, %.067181.us.us.us
   %171 = zext i32 %170 to i64
@@ -32479,7 +32479,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIfE17resample_internalILb
   br label %52
 
 52:                                               ; preds = %51, %46, %40, %38, %32
-  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %50, %46 ], [ %..i7.i.i.us.us.us, %51 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
+  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %..i7.i.i.us.us.us, %51 ], [ %50, %46 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
   %53 = mul i32 %.011.i.us.us.us, %18
   %54 = add i32 %53, %.071107.us.us.us
   %55 = zext i32 %54 to i64
@@ -32738,7 +32738,7 @@ _ZNK7mitsuba9ResamplerIfE6lookupEPKfijj.exit.us.us.us: ; preds = %52, %39, %38
   br label %155
 
 155:                                              ; preds = %154, %149, %143, %141, %135
-  %.011.i77.us.us.us = phi i32 [ %137, %141 ], [ %153, %149 ], [ %..i7.i.i82.us.us.us, %154 ], [ %137, %135 ], [ %spec.select.i80.us.us.us, %143 ]
+  %.011.i77.us.us.us = phi i32 [ %137, %141 ], [ %..i7.i.i82.us.us.us, %154 ], [ %153, %149 ], [ %137, %135 ], [ %spec.select.i80.us.us.us, %143 ]
   %156 = mul i32 %.011.i77.us.us.us, %18
   %157 = add i32 %156, %.064154.us.us.us
   %158 = zext i32 %157 to i64
@@ -32897,7 +32897,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIfE17resample_internalILb
   br label %52
 
 52:                                               ; preds = %51, %46, %40, %38, %32
-  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %50, %46 ], [ %..i7.i.i.us.us.us, %51 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
+  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %..i7.i.i.us.us.us, %51 ], [ %50, %46 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
   %53 = mul i32 %.011.i.us.us.us, %14
   %54 = add i32 %53, %.083107.us.us.us
   %55 = zext i32 %54 to i64
@@ -33172,7 +33172,7 @@ _ZNK7mitsuba9ResamplerIfE6lookupEPKfijj.exit.us.us.us: ; preds = %52, %39, %38
   br label %174
 
 174:                                              ; preds = %173, %168, %162, %160, %154
-  %.011.i93.us.us.us = phi i32 [ %156, %160 ], [ %172, %168 ], [ %..i7.i.i98.us.us.us, %173 ], [ %156, %154 ], [ %spec.select.i96.us.us.us, %162 ]
+  %.011.i93.us.us.us = phi i32 [ %156, %160 ], [ %..i7.i.i98.us.us.us, %173 ], [ %172, %168 ], [ %156, %154 ], [ %spec.select.i96.us.us.us, %162 ]
   %175 = mul i32 %.011.i93.us.us.us, %14
   %176 = add i32 %175, %.074172.us.us.us
   %177 = zext i32 %176 to i64
@@ -33321,7 +33321,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIfE17resample_internalILb
   br label %51
 
 51:                                               ; preds = %50, %45, %39, %37, %31
-  %.011.i.us.us.us = phi i32 [ %33, %37 ], [ %49, %45 ], [ %..i7.i.i.us.us.us, %50 ], [ %33, %31 ], [ %spec.select.i.us.us.us, %39 ]
+  %.011.i.us.us.us = phi i32 [ %33, %37 ], [ %..i7.i.i.us.us.us, %50 ], [ %49, %45 ], [ %33, %31 ], [ %spec.select.i.us.us.us, %39 ]
   %52 = mul i32 %.011.i.us.us.us, %14
   %53 = add i32 %52, %.08098.us.us.us
   %54 = zext i32 %53 to i64
@@ -33569,7 +33569,7 @@ _ZNK7mitsuba9ResamplerIfE6lookupEPKfijj.exit.us.us.us: ; preds = %51, %38, %37
   br label %159
 
 159:                                              ; preds = %158, %153, %147, %145, %139
-  %.011.i84.us.us.us = phi i32 [ %141, %145 ], [ %157, %153 ], [ %..i7.i.i89.us.us.us, %158 ], [ %141, %139 ], [ %spec.select.i87.us.us.us, %147 ]
+  %.011.i84.us.us.us = phi i32 [ %141, %145 ], [ %..i7.i.i89.us.us.us, %158 ], [ %157, %153 ], [ %141, %139 ], [ %spec.select.i87.us.us.us, %147 ]
   %160 = mul i32 %.011.i84.us.us.us, %14
   %161 = add i32 %160, %.071145.us.us.us
   %162 = zext i32 %161 to i64
@@ -34215,7 +34215,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIdE17resample_internalILb
   br label %53
 
 53:                                               ; preds = %52, %47, %41, %39, %33
-  %.011.i.us.us.us = phi i32 [ %35, %39 ], [ %51, %47 ], [ %..i7.i.i.us.us.us, %52 ], [ %35, %33 ], [ %spec.select.i.us.us.us, %41 ]
+  %.011.i.us.us.us = phi i32 [ %35, %39 ], [ %..i7.i.i.us.us.us, %52 ], [ %51, %47 ], [ %35, %33 ], [ %spec.select.i.us.us.us, %41 ]
   %54 = mul i32 %.011.i.us.us.us, %18
   %55 = add i32 %54, %.074116.us.us.us
   %56 = zext i32 %55 to i64
@@ -34498,7 +34498,7 @@ _ZNK7mitsuba9ResamplerIdE6lookupEPKdijj.exit.us.us.us: ; preds = %53, %40, %39
   br label %172
 
 172:                                              ; preds = %171, %166, %160, %158, %152
-  %.011.i86.us.us.us = phi i32 [ %154, %158 ], [ %170, %166 ], [ %..i7.i.i91.us.us.us, %171 ], [ %154, %152 ], [ %spec.select.i89.us.us.us, %160 ]
+  %.011.i86.us.us.us = phi i32 [ %154, %158 ], [ %..i7.i.i91.us.us.us, %171 ], [ %170, %166 ], [ %154, %152 ], [ %spec.select.i89.us.us.us, %160 ]
   %173 = mul i32 %.011.i86.us.us.us, %18
   %174 = add i32 %173, %.067181.us.us.us
   %175 = zext i32 %174 to i64
@@ -34660,7 +34660,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIdE17resample_internalILb
   br label %52
 
 52:                                               ; preds = %51, %46, %40, %38, %32
-  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %50, %46 ], [ %..i7.i.i.us.us.us, %51 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
+  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %..i7.i.i.us.us.us, %51 ], [ %50, %46 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
   %53 = mul i32 %.011.i.us.us.us, %18
   %54 = add i32 %53, %.071107.us.us.us
   %55 = zext i32 %54 to i64
@@ -34919,7 +34919,7 @@ _ZNK7mitsuba9ResamplerIdE6lookupEPKdijj.exit.us.us.us: ; preds = %52, %39, %38
   br label %155
 
 155:                                              ; preds = %154, %149, %143, %141, %135
-  %.011.i77.us.us.us = phi i32 [ %137, %141 ], [ %153, %149 ], [ %..i7.i.i82.us.us.us, %154 ], [ %137, %135 ], [ %spec.select.i80.us.us.us, %143 ]
+  %.011.i77.us.us.us = phi i32 [ %137, %141 ], [ %..i7.i.i82.us.us.us, %154 ], [ %153, %149 ], [ %137, %135 ], [ %spec.select.i80.us.us.us, %143 ]
   %156 = mul i32 %.011.i77.us.us.us, %18
   %157 = add i32 %156, %.064154.us.us.us
   %158 = zext i32 %157 to i64
@@ -35078,7 +35078,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIdE17resample_internalILb
   br label %52
 
 52:                                               ; preds = %51, %46, %40, %38, %32
-  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %50, %46 ], [ %..i7.i.i.us.us.us, %51 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
+  %.011.i.us.us.us = phi i32 [ %34, %38 ], [ %..i7.i.i.us.us.us, %51 ], [ %50, %46 ], [ %34, %32 ], [ %spec.select.i.us.us.us, %40 ]
   %53 = mul i32 %.011.i.us.us.us, %14
   %54 = add i32 %53, %.083107.us.us.us
   %55 = zext i32 %54 to i64
@@ -35357,7 +35357,7 @@ _ZNK7mitsuba9ResamplerIdE6lookupEPKdijj.exit.us.us.us: ; preds = %52, %39, %38
   br label %178
 
 178:                                              ; preds = %177, %172, %166, %164, %158
-  %.011.i93.us.us.us = phi i32 [ %160, %164 ], [ %176, %172 ], [ %..i7.i.i98.us.us.us, %177 ], [ %160, %158 ], [ %spec.select.i96.us.us.us, %166 ]
+  %.011.i93.us.us.us = phi i32 [ %160, %164 ], [ %..i7.i.i98.us.us.us, %177 ], [ %176, %172 ], [ %160, %158 ], [ %spec.select.i96.us.us.us, %166 ]
   %179 = mul i32 %.011.i93.us.us.us, %14
   %180 = add i32 %179, %.074172.us.us.us
   %181 = zext i32 %180 to i64
@@ -35506,7 +35506,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba9ResamplerIdE17resample_internalILb
   br label %51
 
 51:                                               ; preds = %50, %45, %39, %37, %31
-  %.011.i.us.us.us = phi i32 [ %33, %37 ], [ %49, %45 ], [ %..i7.i.i.us.us.us, %50 ], [ %33, %31 ], [ %spec.select.i.us.us.us, %39 ]
+  %.011.i.us.us.us = phi i32 [ %33, %37 ], [ %..i7.i.i.us.us.us, %50 ], [ %49, %45 ], [ %33, %31 ], [ %spec.select.i.us.us.us, %39 ]
   %52 = mul i32 %.011.i.us.us.us, %14
   %53 = add i32 %52, %.08098.us.us.us
   %54 = zext i32 %53 to i64
@@ -35754,7 +35754,7 @@ _ZNK7mitsuba9ResamplerIdE6lookupEPKdijj.exit.us.us.us: ; preds = %51, %38, %37
   br label %159
 
 159:                                              ; preds = %158, %153, %147, %145, %139
-  %.011.i84.us.us.us = phi i32 [ %141, %145 ], [ %157, %153 ], [ %..i7.i.i89.us.us.us, %158 ], [ %141, %139 ], [ %spec.select.i87.us.us.us, %147 ]
+  %.011.i84.us.us.us = phi i32 [ %141, %145 ], [ %..i7.i.i89.us.us.us, %158 ], [ %157, %153 ], [ %141, %139 ], [ %spec.select.i87.us.us.us, %147 ]
   %160 = mul i32 %.011.i84.us.us.us, %14
   %161 = add i32 %160, %.071145.us.us.us
   %162 = zext i32 %161 to i64
@@ -41149,7 +41149,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %142, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit28, %.loopexit.loopexit.split.loop.exit32, %53, %8, %_ZNSt3__18_IterOpsINS_17_ClassicAlgPolicyEE9iter_swapB8ne190000IRPNS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINSB_6BitmapEEEEESH_EEvOT_OT0_.exit, %2, %2, %48, %44, %41
-  %.018 = phi i1 [ true, %48 ], [ true, %44 ], [ true, %41 ], [ true, %2 ], [ true, %2 ], [ true, %_ZNSt3__18_IterOpsINS_17_ClassicAlgPolicyEE9iter_swapB8ne190000IRPNS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINSB_6BitmapEEEEESH_EEvOT_OT0_.exit ], [ true, %8 ], [ true, %53 ], [ %145, %.loopexit.loopexit.split.loop.exit ], [ %147, %.loopexit.loopexit.split.loop.exit28 ], [ %149, %.loopexit.loopexit.split.loop.exit32 ], [ true, %142 ]
+  %.018 = phi i1 [ true, %41 ], [ true, %44 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %_ZNSt3__18_IterOpsINS_17_ClassicAlgPolicyEE9iter_swapB8ne190000IRPNS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINSB_6BitmapEEEEESH_EEvOT_OT0_.exit ], [ true, %8 ], [ true, %53 ], [ %145, %.loopexit.loopexit.split.loop.exit ], [ %147, %.loopexit.loopexit.split.loop.exit28 ], [ %149, %.loopexit.loopexit.split.loop.exit32 ], [ true, %142 ]
   ret i1 %.018
 }
 
@@ -43514,7 +43514,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br i1 %.not, label %"_ZNSt3__124__sort3_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba6Bitmap8read_exrEPNS2_6StreamEE3$_3PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSH_SH_SH_SG_.exit", label %51, !llvm.loop !518
 
 "_ZNSt3__124__sort3_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba6Bitmap8read_exrEPNS2_6StreamEE3$_3PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSH_SH_SH_SG_.exit": ; preds = %77, %"_ZNSt3__124__sort3_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba6Bitmap8read_exrEPNS2_6StreamEE3$_3PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSH_SH_SH_SG_.exit31", %74, %25, %23, %22, %20, %18, %17, %8, %11, %2, %2, %30, %26
-  %.018 = phi i1 [ %76, %74 ], [ true, %30 ], [ true, %26 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %8 ], [ true, %17 ], [ true, %18 ], [ true, %20 ], [ true, %22 ], [ true, %23 ], [ true, %25 ], [ true, %"_ZNSt3__124__sort3_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba6Bitmap8read_exrEPNS2_6StreamEE3$_3PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSH_SH_SH_SG_.exit31" ], [ true, %77 ]
+  %.018 = phi i1 [ %76, %74 ], [ true, %26 ], [ true, %30 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %8 ], [ true, %17 ], [ true, %18 ], [ true, %20 ], [ true, %22 ], [ true, %23 ], [ true, %25 ], [ true, %"_ZNSt3__124__sort3_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba6Bitmap8read_exrEPNS2_6StreamEE3$_3PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSH_SH_SH_SG_.exit31" ], [ true, %77 ]
   ret i1 %.018
 }
 

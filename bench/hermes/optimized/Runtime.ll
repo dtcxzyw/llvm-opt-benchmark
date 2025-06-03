@@ -1731,7 +1731,7 @@ default.unreachable:                              ; preds = %if.end46
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %if.end46, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i, %sw.bb22.i ], [ %40, %sw.bb18.i ], [ %retval.sroa.0.0.i.i49, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %if.end46 ]
+  %retval.sroa.0.0.i = phi i64 [ %or.i.i.i.i, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i49, %sw.bb12.i ], [ %40, %sw.bb18.i ], [ %or.i.i.i, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ], [ -1970324836974592, %sw.bb36.i ], [ -1548112371908608, %sw.bb39.i ], [ -1688849860263936, %if.end46 ]
   %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %41 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 192
@@ -11416,7 +11416,7 @@ _ZN4llvh10hash_valueImEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9ha
   br label %return
 
 return:                                           ; preds = %sw.default, %_ZN4llvh10hash_valueImEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit, %_ZNK6hermes2vm10StringView3endEv.exit, %sw.bb12, %_ZN4llvh10hash_valueIjEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit
-  %retval.0 = phi i64 [ %mul6.i.i.i76, %_ZN4llvh10hash_valueImEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit ], [ %call.i66, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %call.i, %sw.bb12 ], [ %mul6.i.i.i, %_ZN4llvh10hash_valueIjEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit ], [ 0, %sw.default ]
+  %retval.0 = phi i64 [ %mul6.i.i.i76, %_ZN4llvh10hash_valueImEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit ], [ %mul6.i.i.i, %_ZN4llvh10hash_valueIjEENSt9enable_ifIXsr19is_integral_or_enumIT_EE5valueENS_9hash_codeEE4typeES2_.exit ], [ %call.i, %sw.bb12 ], [ %call.i66, %_ZNK6hermes2vm10StringView3endEv.exit ], [ 0, %sw.default ]
   ret i64 %retval.0
 }
 
@@ -12254,8 +12254,8 @@ if.end:                                           ; preds = %if.end.i, %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.end
-  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %call.i15.i, %sw.bb3.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
-  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %call2.i.i, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %call.i15.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %6, %sw.bb7.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
+  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %conv.i.i, %sw.bb7.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged

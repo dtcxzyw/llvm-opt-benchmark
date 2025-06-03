@@ -2213,7 +2213,7 @@ define dso_local ptr @PyDescr_NewMethod(ptr noundef %0, ptr noundef %1) local_un
   br label %descr_new.exit.thread
 
 16:                                               ; preds = %2, %11, %10, %9, %8, %7, %6
-  %.011 = phi ptr [ @method_vectorcall_FASTCALL_KEYWORDS_METHOD, %11 ], [ @method_vectorcall_O, %10 ], [ @method_vectorcall_NOARGS, %9 ], [ @method_vectorcall_FASTCALL_KEYWORDS, %8 ], [ @method_vectorcall_FASTCALL, %7 ], [ @method_vectorcall_VARARGS_KEYWORDS, %6 ], [ @method_vectorcall_VARARGS, %2 ]
+  %.011 = phi ptr [ @method_vectorcall_VARARGS_KEYWORDS, %6 ], [ @method_vectorcall_FASTCALL, %7 ], [ @method_vectorcall_FASTCALL_KEYWORDS, %8 ], [ @method_vectorcall_NOARGS, %9 ], [ @method_vectorcall_O, %10 ], [ @method_vectorcall_FASTCALL_KEYWORDS_METHOD, %11 ], [ @method_vectorcall_VARARGS, %2 ]
   %17 = load ptr, ptr %1, align 8, !tbaa !142
   %18 = tail call ptr @PyType_GenericAlloc(ptr noundef nonnull @PyMethodDescr_Type, i64 noundef 0) #9
   %.not.i = icmp eq ptr %18, null

@@ -308,7 +308,7 @@ _ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit: ; 
   br label %21
 
 21:                                               ; preds = %1, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, %2
-  %.07 = phi i64 [ %.0.sroa.speculated.i9, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %.0.sroa.speculated.i, %2 ], [ %0, %1 ]
+  %.07 = phi i64 [ %.0.sroa.speculated.i, %2 ], [ %.0.sroa.speculated.i9, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %0, %1 ]
   ret i64 %.07
 }
 

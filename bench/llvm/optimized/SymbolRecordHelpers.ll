@@ -444,7 +444,7 @@ _ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %1, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %35, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ %30, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %25, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %20, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %20, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %25, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %30, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %35, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -580,7 +580,7 @@ _ZN4llvm8codeview13InlineSiteSymD2Ev.exit:        ; preds = %_ZL12createRecordIN
   br label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %1, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit
-  %.0 = phi i32 [ %31, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ %27, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %23, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %19, %_ZL12createRecordIN4llvm8codeview7ProcSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %23, %_ZL12createRecordIN4llvm8codeview8BlockSymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %27, %_ZL12createRecordIN4llvm8codeview10Thunk32SymEET_RKNS1_8CVRecordINS1_10SymbolKindEEE.exit ], [ %31, %_ZN4llvm8codeview13InlineSiteSymD2Ev.exit ], [ 0, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 

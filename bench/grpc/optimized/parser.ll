@@ -3980,7 +3980,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   store i64 1, ptr %0, align 8, !tbaa !60, !alias.scope !204
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %895, %_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit65, %1245, %1244, %894, %889, %_ZN4absl12lts_202407226StatusD2Ev.exit182, %_ZN4absl12lts_202407226StatusD2Ev.exit184, %836, %835, %834, %832, %831, %813, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev.exit
+.critedge:                                        ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %895, %_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit65, %1245, %1244, %894, %889, %_ZN4absl12lts_202407226StatusD2Ev.exit182, %_ZN4absl12lts_202407226StatusD2Ev.exit184, %831, %832, %834, %835, %836, %813, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev.exit
   ret void
 }
 
@@ -7802,7 +7802,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   store i64 1, ptr %0, align 8, !tbaa !60, !alias.scope !318
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %911, %_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit65, %1233, %1232, %910, %905, %_ZN4absl12lts_202407226StatusD2Ev.exit183, %_ZN4absl12lts_202407226StatusD2Ev.exit185, %860, %859, %858, %856, %855, %837, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev.exit
+.critedge:                                        ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %911, %_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit65, %1233, %1232, %910, %905, %_ZN4absl12lts_202407226StatusD2Ev.exit183, %_ZN4absl12lts_202407226StatusD2Ev.exit185, %855, %856, %858, %859, %860, %837, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev.exit
   ret void
 }
 
@@ -9285,7 +9285,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %_ZN6google8protobuf13json_internal21ParseProto2Descriptor6NewMsgIZNS1_12_GLOBAL__N_113ParseSingularIS2_EEN4absl12lts_202407226StatusERNS1_9JsonLexerENT_5FieldERNSB_3MsgEEUlRKNS0_10DescriptorERNS2_3MsgEE_EES8_PKNS0_15FieldDescriptorESJ_SB_.exit
 
 common.resume:                                    ; preds = %148, %167, %185, %218, %251, %285, %385, %520, %795, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320, %813, %764, %514, %139
-  %common.resume.op = phi { ptr, i32 } [ %140, %139 ], [ %.pn26.i, %514 ], [ %.pn43.pn.pn.i, %764 ], [ %814, %813 ], [ %869, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320 ], [ %.pn, %795 ], [ %521, %520 ], [ %.pn169, %385 ], [ %286, %285 ], [ %252, %251 ], [ %219, %218 ], [ %186, %185 ], [ %168, %167 ], [ %149, %148 ]
+  %common.resume.op = phi { ptr, i32 } [ %140, %139 ], [ %.pn26.i, %514 ], [ %.pn43.pn.pn.i, %764 ], [ %814, %813 ], [ %869, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320 ], [ %149, %148 ], [ %168, %167 ], [ %186, %185 ], [ %219, %218 ], [ %252, %251 ], [ %286, %285 ], [ %.pn169, %385 ], [ %521, %520 ], [ %.pn, %795 ]
   resume { ptr, i32 } %common.resume.op
 
 139:                                              ; preds = %106, %105, %.noexc14.i, %.noexc13.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i, %.noexc.i, %93, %89
@@ -11050,7 +11050,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit88.i:       ; preds = %748, %_ZN4absl12lts
   unreachable
 
 764:                                              ; preds = %755, %739, %728, %568, %558
-  %.pn43.pn.pn.i = phi { ptr, i32 } [ %559, %558 ], [ %.pn43.i, %755 ], [ %740, %739 ], [ %569, %568 ], [ %.pn38.pn.pn.pn.i, %728 ]
+  %.pn43.pn.pn.i = phi { ptr, i32 } [ %559, %558 ], [ %.pn43.i, %755 ], [ %569, %568 ], [ %.pn38.pn.pn.pn.i, %728 ], [ %740, %739 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #30, !noalias !368
   br label %common.resume
@@ -12066,7 +12066,7 @@ _ZN4absl12lts_202407228StatusOrIN6google8protobuf13json_internal12LocationWithIN
   br label %208
 
 208:                                              ; preds = %207, %205
-  %.045 = phi i1 [ false, %205 ], [ true, %207 ]
+  %.045 = phi i1 [ true, %207 ], [ false, %205 ]
   %.not = icmp eq i64 %197, 6
   br i1 %.not, label %214, label %209
 
@@ -13712,8 +13712,8 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protob
   br label %41
 
 41:                                               ; preds = %34, %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEERKT_RKSt7variantIJDpT0_EE.exit
-  %.sroa.0.1 = phi i64 [ %.pn15.i.i, %34 ], [ %40, %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEERKT_RKSt7variantIJDpT0_EE.exit ]
-  %.sroa.3.1 = phi ptr [ %.pn13.i.i, %34 ], [ %38, %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEERKT_RKSt7variantIJDpT0_EE.exit ]
+  %.sroa.0.1 = phi i64 [ %40, %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %.pn15.i.i, %34 ]
+  %.sroa.3.1 = phi ptr [ %38, %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_N6google8protobuf13json_internal16MaybeOwnedString11StreamOwnedEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %.pn13.i.i, %34 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { i64, ptr } %.fca.1.insert
@@ -21241,7 +21241,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %235
 
 234:                                              ; preds = %202, %173, %158, %57, %32
-  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %173 ], [ %33, %32 ], [ %.pn45, %202 ], [ %.pn36.pn.pn, %158 ], [ %.pn42.pn, %57 ]
+  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %173 ], [ %33, %32 ], [ %.pn45, %202 ], [ %.pn42.pn, %57 ], [ %.pn36.pn.pn, %158 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   br label %243
 
@@ -22772,7 +22772,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %342
 
 342:                                              ; preds = %163, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190
-  %.sroa.0212.0 = phi i64 [ %225, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit ], [ %68, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190 ], [ %152, %163 ]
+  %.sroa.0212.0 = phi i64 [ %68, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190 ], [ %152, %163 ], [ %225, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit ]
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0212.0, ptr %343, align 8, !tbaa !85
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22865,7 +22865,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %373
 
 372:                                              ; preds = %314, %299, %166, %39
-  %.pn91.pn = phi { ptr, i32 } [ %.pn91, %314 ], [ %40, %39 ], [ %.pn74.pn, %299 ], [ %.pn86.pn.pn.pn, %166 ]
+  %.pn91.pn = phi { ptr, i32 } [ %.pn91, %314 ], [ %40, %39 ], [ %.pn86.pn.pn.pn, %166 ], [ %.pn74.pn, %299 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
   br label %381
 
@@ -23985,7 +23985,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %344
 
 344:                                              ; preds = %165, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190
-  %.sroa.0212.0 = phi i64 [ %227, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit ], [ %68, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190 ], [ %154, %165 ]
+  %.sroa.0212.0 = phi i64 [ %68, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit190 ], [ %154, %165 ], [ %227, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal12LocationWithINS5_16MaybeOwnedStringEEEED2Ev.exit ]
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0212.0, ptr %345, align 8, !tbaa !85
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24078,7 +24078,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %375
 
 374:                                              ; preds = %316, %301, %168, %39
-  %.pn91.pn = phi { ptr, i32 } [ %.pn91, %316 ], [ %40, %39 ], [ %.pn74.pn, %301 ], [ %.pn86.pn.pn.pn, %168 ]
+  %.pn91.pn = phi { ptr, i32 } [ %.pn91, %316 ], [ %40, %39 ], [ %.pn86.pn.pn.pn, %168 ], [ %.pn74.pn, %301 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
   br label %383
 
@@ -26334,7 +26334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43.i.i.i.i: ; pred
   unreachable
 
 common.resume:                                    ; preds = %300, %319, %337, %361, %385, %410, %501, %638, %920, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299, %.body, %882, %632, %.body.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn26.i, %632 ], [ %.pn43.pn.pn.i, %882 ], [ %.pn.i.i, %.body ], [ %1140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299 ], [ %.pn, %920 ], [ %639, %638 ], [ %.pn169, %501 ], [ %411, %410 ], [ %386, %385 ], [ %362, %361 ], [ %338, %337 ], [ %320, %319 ], [ %301, %300 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn26.i, %632 ], [ %.pn43.pn.pn.i, %882 ], [ %.pn.i.i, %.body ], [ %1140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299 ], [ %301, %300 ], [ %320, %319 ], [ %338, %337 ], [ %362, %361 ], [ %386, %385 ], [ %411, %410 ], [ %.pn169, %501 ], [ %639, %638 ], [ %.pn, %920 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43.i.i.i.i, %126
@@ -28012,7 +28012,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit88.i:       ; preds = %866, %_ZN4absl12lts
   unreachable
 
 882:                                              ; preds = %873, %857, %846, %686, %676
-  %.pn43.pn.pn.i = phi { ptr, i32 } [ %677, %676 ], [ %.pn43.i, %873 ], [ %858, %857 ], [ %687, %686 ], [ %.pn38.pn.pn.pn.i, %846 ]
+  %.pn43.pn.pn.i = phi { ptr, i32 } [ %677, %676 ], [ %.pn43.i, %873 ], [ %687, %686 ], [ %.pn38.pn.pn.pn.i, %846 ], [ %858, %857 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_internal9JsonLexer4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #30, !noalias !892
   br label %common.resume
@@ -29413,7 +29413,7 @@ _ZN4absl12lts_202407228StatusOrIN6google8protobuf13json_internal12LocationWithIN
   br label %208
 
 208:                                              ; preds = %207, %205
-  %.045 = phi i1 [ false, %205 ], [ true, %207 ]
+  %.045 = phi i1 [ true, %207 ], [ false, %205 ]
   %.not = icmp eq i64 %197, 6
   br i1 %.not, label %214, label %209
 
@@ -35220,7 +35220,7 @@ _ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12Resolv
   br label %35
 
 35:                                               ; preds = %31, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit
-  %.0 = phi i64 [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ], [ %34, %31 ]
+  %.0 = phi i64 [ %34, %31 ], [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %37 = load i32, ptr %36, align 8, !tbaa !63
   %38 = shl i32 %37, 3
@@ -35436,7 +35436,7 @@ _ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12Resolv
   br label %35
 
 35:                                               ; preds = %31, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit
-  %.0 = phi i64 [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ], [ %34, %31 ]
+  %.0 = phi i64 [ %34, %31 ], [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %37 = load i32, ptr %36, align 8, !tbaa !63
   %38 = shl i32 %37, 3
@@ -35654,7 +35654,7 @@ _ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12Resolv
   br label %37
 
 37:                                               ; preds = %31, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit
-  %.0 = phi i32 [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ], [ %36, %31 ]
+  %.0 = phi i32 [ %36, %31 ], [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %39 = load i32, ptr %38, align 8, !tbaa !63
   %40 = shl i32 %39, 3
@@ -35868,7 +35868,7 @@ _ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12Resolv
   br label %33
 
 33:                                               ; preds = %31, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit
-  %.0 = phi i32 [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ], [ %32, %31 ]
+  %.0 = phi i32 [ %32, %31 ], [ %2, %_ZN6google8protobuf13json_internal15ParseProto3Type12RecordAsSeenEPKNS1_12ResolverPool5FieldERNS2_3MsgE.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %35 = load i32, ptr %34, align 8, !tbaa !63
   %36 = shl i32 %35, 3
@@ -37785,7 +37785,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN6google8protobuf13json_
   br label %234
 
 233:                                              ; preds = %201, %173, %158, %57, %32
-  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %173 ], [ %33, %32 ], [ %.pn45, %201 ], [ %.pn36.pn.pn, %158 ], [ %.pn42.pn, %57 ]
+  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %173 ], [ %33, %32 ], [ %.pn45, %201 ], [ %.pn42.pn, %57 ], [ %.pn36.pn.pn, %158 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   br label %242
 
@@ -38902,7 +38902,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN6google8protobuf8internal19Repea
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.lcssa, %._crit_edge ], [ %61, %60 ]
+  %.sroa.0.1 = phi ptr [ %61, %60 ], [ %.sroa.0.0.lcssa, %._crit_edge ]
   %63 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !222
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !239
@@ -38918,7 +38918,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN6google8protobuf8internal19Repea
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0.lcssa, %._crit_edge ], [ %72, %71 ]
+  %.sroa.0.2 = phi ptr [ %72, %71 ], [ %.sroa.0.0.lcssa, %._crit_edge ]
   %74 = load ptr, ptr %.sroa.0.2, align 8, !tbaa !222
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !239

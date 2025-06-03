@@ -6680,10 +6680,10 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPPN4llvm11AnalysisKeyEN9__gnu_cx
   br label %44
 
 44:                                               ; preds = %._crit_edge._crit_edge, %42
-  %45 = phi ptr [ %.pre48, %._crit_edge._crit_edge ], [ %40, %42 ]
-  %46 = phi ptr [ %.pre46, %._crit_edge._crit_edge ], [ %38, %42 ]
-  %47 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %36, %42 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %43, %42 ]
+  %45 = phi ptr [ %40, %42 ], [ %.pre48, %._crit_edge._crit_edge ]
+  %46 = phi ptr [ %38, %42 ], [ %.pre46, %._crit_edge._crit_edge ]
+  %47 = phi ptr [ %36, %42 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %43, %42 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %48 = load ptr, ptr %.1, align 8, !tbaa !10
   %49 = tail call noundef zeroext i1 @_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE11Invalidator14invalidateImplINS_6detail21AnalysisResultConceptIS1_S3_EEEEbPNS_11AnalysisKeyERS1_RKNS_17PreservedAnalysesE(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(1065) %46, ptr noundef nonnull align 8 dereferenceable(80) %45)
   br i1 %49, label %.loopexit, label %50
@@ -6693,10 +6693,10 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPPN4llvm11AnalysisKeyEN9__gnu_cx
   br label %52
 
 52:                                               ; preds = %._crit_edge._crit_edge49, %50
-  %53 = phi ptr [ %.pre54, %._crit_edge._crit_edge49 ], [ %45, %50 ]
-  %54 = phi ptr [ %.pre52, %._crit_edge._crit_edge49 ], [ %46, %50 ]
-  %55 = phi ptr [ %.pre50, %._crit_edge._crit_edge49 ], [ %47, %50 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge49 ], [ %51, %50 ]
+  %53 = phi ptr [ %45, %50 ], [ %.pre54, %._crit_edge._crit_edge49 ]
+  %54 = phi ptr [ %46, %50 ], [ %.pre52, %._crit_edge._crit_edge49 ]
+  %55 = phi ptr [ %47, %50 ], [ %.pre50, %._crit_edge._crit_edge49 ]
+  %.2 = phi ptr [ %51, %50 ], [ %.029.lcssa, %._crit_edge._crit_edge49 ]
   %56 = load ptr, ptr %.2, align 8, !tbaa !10
   %57 = tail call noundef zeroext i1 @_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE11Invalidator14invalidateImplINS_6detail21AnalysisResultConceptIS1_S3_EEEEbPNS_11AnalysisKeyERS1_RKNS_17PreservedAnalysesE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(1065) %54, ptr noundef nonnull align 8 dereferenceable(80) %53)
   br i1 %57, label %.loopexit, label %58

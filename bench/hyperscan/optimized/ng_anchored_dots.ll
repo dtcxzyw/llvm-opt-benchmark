@@ -1576,8 +1576,8 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   br label %501
 
 501:                                              ; preds = %499, %._crit_edge._crit_edge.i.i.i.i.i
-  %.sroa.0.0.copyload.i20.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i20.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.0.0.copyload.i19.i.i.i.i.i, %499 ]
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %500, %499 ]
+  %.sroa.0.0.copyload.i20.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i19.i.i.i.i.i, %499 ], [ %.sroa.0.0.copyload.i20.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %500, %499 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %502 = load ptr, ptr %.sroa.038.1.i.i.i.i.i, align 8
   %503 = icmp eq ptr %502, %.sroa.0.0.copyload.i20.i.i.i.i.i
   br i1 %503, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops16_Iter_equals_valIKSA_EEET_SK_SK_T0_.exit.i.i.i, label %504
@@ -1587,8 +1587,8 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   br label %506
 
 506:                                              ; preds = %504, %._crit_edge._crit_edge64.i.i.i.i.i
-  %.sroa.0.0.copyload.i21.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i21.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %.sroa.0.0.copyload.i20.i.i.i.i.i, %504 ]
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %505, %504 ]
+  %.sroa.0.0.copyload.i21.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i20.i.i.i.i.i, %504 ], [ %.sroa.0.0.copyload.i21.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %505, %504 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
   %507 = load ptr, ptr %.sroa.038.2.i.i.i.i.i, align 8
   %508 = icmp eq ptr %507, %.sroa.0.0.copyload.i21.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %508, ptr %.sroa.038.2.i.i.i.i.i, ptr %469

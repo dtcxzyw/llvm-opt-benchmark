@@ -1705,7 +1705,7 @@ _ZN3igl20FastWindingNumberBVHD2Ev.exit.i.i:       ; preds = %_ZNK3igl17FastWindi
   br label %425
 
 425:                                              ; preds = %424, %.body.i.i, %134
-  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %424 ], [ %.pn.i.i, %.body.i.i ], [ %135, %134 ]
+  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %424 ], [ %135, %134 ], [ %.pn.i.i, %.body.i.i ]
   call void @_ZN3igl20FastWindingNumberBVHD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %40) #30
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %40) #30
   call void @_ZN3igl17WindingNumberTreeIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(228) %39) #30
@@ -3691,7 +3691,7 @@ _ZN3igl20FastWindingNumberBVHD2Ev.exit.i.i:       ; preds = %_ZNK3igl17FastWindi
   br label %365
 
 365:                                              ; preds = %364, %.body.i.i, %91
-  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %364 ], [ %.pn.i.i, %.body.i.i ], [ %92, %91 ]
+  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %364 ], [ %92, %91 ], [ %.pn.i.i, %.body.i.i ]
   call void @_ZN3igl20FastWindingNumberBVHD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %25) #30
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %25) #30
   call void @_ZN3igl17WindingNumberTreeIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(228) %24) #30
@@ -9177,7 +9177,7 @@ _ZN3igl20FastWindingNumberBVHD2Ev.exit.i.i:       ; preds = %_ZNK3igl17FastWindi
   br label %379
 
 379:                                              ; preds = %378, %.body.i.i, %94
-  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %378 ], [ %.pn.i.i, %.body.i.i ], [ %95, %94 ]
+  %.pn49.pn.pn.i.i = phi { ptr, i32 } [ %.pn49.i.i, %378 ], [ %95, %94 ], [ %.pn.i.i, %.body.i.i ]
   call void @_ZN3igl20FastWindingNumberBVHD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %25) #30
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %25) #30
   call void @_ZN3igl17WindingNumberTreeIdiED2Ev(ptr noundef nonnull align 8 dereferenceable(228) %24) #30
@@ -13195,7 +13195,7 @@ define linkonce_odr dso_local noundef double @_ZNK3igl17WindingNumberTreeIdiE14w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %32, %57, %39, %68, %61, %35, %19
-  %.0 = phi double [ %23, %19 ], [ %67, %61 ], [ %38, %35 ], [ %72, %68 ], [ %60, %57 ], [ 0.000000e+00, %39 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %.preheader ], [ %.116, %18 ]
+  %.0 = phi double [ %23, %19 ], [ %38, %35 ], [ %67, %61 ], [ %72, %68 ], [ %60, %57 ], [ 0.000000e+00, %39 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %.preheader ], [ %.116, %18 ]
   ret double %.0
 }
 
@@ -18032,7 +18032,7 @@ define linkonce_odr dso_local noundef float @_ZNK3igl17WindingNumberTreeIfiE14wi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %32, %63, %39, %74, %67, %35, %19
-  %.0 = phi float [ %23, %19 ], [ %73, %67 ], [ %38, %35 ], [ %78, %74 ], [ %66, %63 ], [ 0.000000e+00, %39 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %.preheader ], [ %.116, %18 ]
+  %.0 = phi float [ %23, %19 ], [ %38, %35 ], [ %73, %67 ], [ %78, %74 ], [ %66, %63 ], [ 0.000000e+00, %39 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %.preheader ], [ %.116, %18 ]
   ret float %.0
 }
 

@@ -2625,8 +2625,8 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN6vectorIjLb0EjED
   ret void
 
 360:                                              ; preds = %.body131, %.body178, %.body
-  %.pn101.pn = phi { ptr, i32 } [ %.pn104, %.body ], [ %181, %.body131 ], [ %.pn97.pn.pn, %.body178 ]
-  resume { ptr, i32 } %.pn101.pn
+  %.pn104.pn = phi { ptr, i32 } [ %.pn104, %.body ], [ %181, %.body131 ], [ %.pn97.pn.pn, %.body178 ]
+  resume { ptr, i32 } %.pn104.pn
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2490,7 +2490,7 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %_ZN7rocksdb1
   br label %43
 
 43:                                               ; preds = %_ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit
-  %.1 = phi i1 [ false, %_ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit ], [ %.0.i, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ]
+  %.1 = phi i1 [ %.0.i, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ false, %_ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit ]
   ret i1 %.1
 }
 
@@ -6438,8 +6438,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %_Z
   br label %698
 
 670:                                              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit210.thread, %_ZN7rocksdb6StatusaSEOS0_.exit204.thread, %_ZN7rocksdb6StatusaSEOS0_.exit186.thread, %_ZN7rocksdb6StatusaSEOS0_.exit116.thread, %_ZN7rocksdb6StatusaSEOS0_.exit110.thread, %_ZN7rocksdb6StatusaSEOS0_.exit104.thread, %_ZN7rocksdb6StatusaSEOS0_.exit98.thread, %_ZN7rocksdb6StatusaSEOS0_.exit92.thread, %_ZN7rocksdb6StatusaSEOS0_.exit86.thread, %395, %518, %_ZN7rocksdb6StatusD2Ev.exit171, %466, %_ZN7rocksdb6StatusD2Ev.exit151, %436, %_ZN7rocksdb6StatusD2Ev.exit138, %_ZN7rocksdb6StatusD2Ev.exit201, %_ZN7rocksdb6StatusD2Ev.exit195, %_ZN7rocksdb6StatusD2Ev.exit183, %_ZN7rocksdb6StatusD2Ev.exit177
-  %.160 = phi i1 [ true, %_ZN7rocksdb6StatusD2Ev.exit201 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit195 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit183 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit177 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit171 ], [ false, %518 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ false, %466 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ false, %436 ], [ %spec.select, %_ZN7rocksdb6StatusaSEOS0_.exit86.thread ], [ %spec.select66, %_ZN7rocksdb6StatusaSEOS0_.exit92.thread ], [ %spec.select68, %_ZN7rocksdb6StatusaSEOS0_.exit98.thread ], [ %spec.select70, %_ZN7rocksdb6StatusaSEOS0_.exit104.thread ], [ %spec.select72, %_ZN7rocksdb6StatusaSEOS0_.exit110.thread ], [ %.059, %_ZN7rocksdb6StatusaSEOS0_.exit116.thread ], [ false, %395 ], [ %spec.select75, %_ZN7rocksdb6StatusaSEOS0_.exit186.thread ], [ %spec.select76, %_ZN7rocksdb6StatusaSEOS0_.exit204.thread ], [ %spec.select78, %_ZN7rocksdb6StatusaSEOS0_.exit210.thread ]
-  %.158 = phi i32 [ %.057, %_ZN7rocksdb6StatusD2Ev.exit201 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit195 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit183 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit177 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit171 ], [ %.057, %518 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ %.057, %466 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ %.057, %436 ], [ %spec.select65, %_ZN7rocksdb6StatusaSEOS0_.exit86.thread ], [ %spec.select67, %_ZN7rocksdb6StatusaSEOS0_.exit92.thread ], [ %spec.select69, %_ZN7rocksdb6StatusaSEOS0_.exit98.thread ], [ %spec.select71, %_ZN7rocksdb6StatusaSEOS0_.exit104.thread ], [ %spec.select73, %_ZN7rocksdb6StatusaSEOS0_.exit110.thread ], [ %spec.select74, %_ZN7rocksdb6StatusaSEOS0_.exit116.thread ], [ %.057, %395 ], [ %.057, %_ZN7rocksdb6StatusaSEOS0_.exit186.thread ], [ %spec.select77, %_ZN7rocksdb6StatusaSEOS0_.exit204.thread ], [ %spec.select79, %_ZN7rocksdb6StatusaSEOS0_.exit210.thread ]
+  %.160 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ false, %436 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ false, %466 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit171 ], [ false, %518 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit177 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit183 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit195 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit201 ], [ %spec.select, %_ZN7rocksdb6StatusaSEOS0_.exit86.thread ], [ %spec.select66, %_ZN7rocksdb6StatusaSEOS0_.exit92.thread ], [ %spec.select68, %_ZN7rocksdb6StatusaSEOS0_.exit98.thread ], [ %spec.select70, %_ZN7rocksdb6StatusaSEOS0_.exit104.thread ], [ %spec.select72, %_ZN7rocksdb6StatusaSEOS0_.exit110.thread ], [ %.059, %_ZN7rocksdb6StatusaSEOS0_.exit116.thread ], [ false, %395 ], [ %spec.select75, %_ZN7rocksdb6StatusaSEOS0_.exit186.thread ], [ %spec.select76, %_ZN7rocksdb6StatusaSEOS0_.exit204.thread ], [ %spec.select78, %_ZN7rocksdb6StatusaSEOS0_.exit210.thread ]
+  %.158 = phi i32 [ %.057, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ %.057, %436 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ %.057, %466 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit171 ], [ %.057, %518 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit177 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit183 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit195 ], [ %.057, %_ZN7rocksdb6StatusD2Ev.exit201 ], [ %spec.select65, %_ZN7rocksdb6StatusaSEOS0_.exit86.thread ], [ %spec.select67, %_ZN7rocksdb6StatusaSEOS0_.exit92.thread ], [ %spec.select69, %_ZN7rocksdb6StatusaSEOS0_.exit98.thread ], [ %spec.select71, %_ZN7rocksdb6StatusaSEOS0_.exit104.thread ], [ %spec.select73, %_ZN7rocksdb6StatusaSEOS0_.exit110.thread ], [ %spec.select74, %_ZN7rocksdb6StatusaSEOS0_.exit116.thread ], [ %.057, %395 ], [ %.057, %_ZN7rocksdb6StatusaSEOS0_.exit186.thread ], [ %spec.select77, %_ZN7rocksdb6StatusaSEOS0_.exit204.thread ], [ %spec.select79, %_ZN7rocksdb6StatusaSEOS0_.exit210.thread ]
   %.pr = load i8, ptr %14, align 8, !tbaa !156
   br label %227, !llvm.loop !181
 
@@ -6545,7 +6545,7 @@ _ZN7rocksdb6StatusD2Ev.exit225:                   ; preds = %_ZN7rocksdb6StatusC
   br label %700
 
 698:                                              ; preds = %694, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217, %645, %625, %606, %591, %576, %559, %544, %529, %511, %509, %479, %477, %447, %429, %427, %393, %374, %355, %336, %317, %298, %274, %268, %237
-  %.pn = phi { ptr, i32 } [ %662, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217 ], [ %238, %237 ], [ %646, %645 ], [ %626, %625 ], [ %607, %606 ], [ %592, %591 ], [ %577, %576 ], [ %560, %559 ], [ %545, %544 ], [ %530, %529 ], [ %512, %511 ], [ %510, %509 ], [ %480, %479 ], [ %478, %477 ], [ %448, %447 ], [ %430, %429 ], [ %428, %427 ], [ %394, %393 ], [ %375, %374 ], [ %356, %355 ], [ %337, %336 ], [ %318, %317 ], [ %299, %298 ], [ %269, %268 ], [ %275, %274 ], [ %695, %694 ]
+  %.pn = phi { ptr, i32 } [ %662, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217 ], [ %238, %237 ], [ %299, %298 ], [ %318, %317 ], [ %337, %336 ], [ %356, %355 ], [ %375, %374 ], [ %394, %393 ], [ %448, %447 ], [ %430, %429 ], [ %428, %427 ], [ %480, %479 ], [ %478, %477 ], [ %530, %529 ], [ %512, %511 ], [ %510, %509 ], [ %545, %544 ], [ %560, %559 ], [ %577, %576 ], [ %592, %591 ], [ %607, %606 ], [ %626, %625 ], [ %646, %645 ], [ %269, %268 ], [ %275, %274 ], [ %695, %694 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #37
   %699 = load ptr, ptr %78, align 8, !tbaa !108
@@ -17063,8 +17063,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #37
   br label %174
 
-.critedge11:                                      ; preds = %85, %85, %87, %88, %89, %90, %91, %92, %93
-  %.sink = phi i8 [ 0, %87 ], [ 7, %88 ], [ 15, %89 ], [ 2, %90 ], [ 17, %91 ], [ 22, %92 ], [ 24, %93 ], [ 1, %85 ], [ 1, %85 ]
+.critedge11:                                      ; preds = %85, %85, %93, %92, %91, %90, %89, %88, %87
+  %.sink = phi i8 [ 24, %93 ], [ 22, %92 ], [ 17, %91 ], [ 2, %90 ], [ 15, %89 ], [ 7, %88 ], [ 0, %87 ], [ 1, %85 ], [ 1, %85 ]
   store i8 %.sink, ptr %12, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #37
   %117 = load ptr, ptr %21, align 8, !tbaa !65

@@ -767,7 +767,7 @@ define internal range(i32 -2147483648, 5) i32 @dissect_cell_header(ptr noundef %
   unreachable
 
 pw_cell_header_size.exit:                         ; preds = %20, %20, %24, %25, %26
-  %.0.i = phi i32 [ 3, %25 ], [ 1, %24 ], [ 4, %20 ], [ 4, %20 ], [ 4, %26 ]
+  %.0.i = phi i32 [ 1, %24 ], [ 3, %25 ], [ 4, %20 ], [ 4, %20 ], [ 4, %26 ]
   %.not287 = icmp slt i32 %19, %.0.i
   br i1 %.not287, label %pw_cell_header_size.exit268.thread275, label %30
 
@@ -1688,8 +1688,8 @@ pw_cell_size.exit.thread32.i:                     ; preds = %39
   br label %pw_cell_size.exit28.i
 
 pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.thread32.i, %pw_cell_size.exit.thread.i
-  %42 = phi i32 [ %41, %pw_cell_size.exit.thread32.i ], [ %40, %pw_cell_size.exit.thread.i ]
-  %.0.i27.neg.i = phi i32 [ -51, %pw_cell_size.exit.thread32.i ], [ -49, %pw_cell_size.exit.thread.i ]
+  %42 = phi i32 [ %40, %pw_cell_size.exit.thread.i ], [ %41, %pw_cell_size.exit.thread32.i ]
+  %.0.i27.neg.i = phi i32 [ -49, %pw_cell_size.exit.thread.i ], [ -51, %pw_cell_size.exit.thread32.i ]
   %.neg39.i = mul i32 %.0.i27.neg.i, %42
   %43 = icmp eq i32 %42, 0
   %storemerge.i = sub i32 3, %.fr110
@@ -1826,7 +1826,7 @@ default.unreachable:                              ; preds = %90
   unreachable
 
 pw_cell_size.exit:                                ; preds = %90, %91, %92
-  %.0.i106 = phi i32 [ 48, %92 ], [ 51, %91 ], [ 49, %90 ]
+  %.0.i106 = phi i32 [ 51, %91 ], [ 48, %92 ], [ 49, %90 ]
   %94 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %60, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.183, i32 noundef %.082, i32 noundef %.0.i106)
   %.not88 = icmp eq i32 %.082, 0
   %brmerge = or i1 %.not88, %or.cond

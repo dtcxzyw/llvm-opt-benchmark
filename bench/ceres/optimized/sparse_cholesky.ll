@@ -323,8 +323,8 @@ _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44: ; pre
   call void %97(ptr noundef nonnull align 8 dereferenceable(8) %74) #15
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45: ; preds = %26, %21, %41, %36, %47, %55, %66, %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
-  %.pn1554 = phi { ptr, i32 } [ %.pn15, %.body ], [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %27, %26 ], [ %22, %21 ], [ %42, %41 ], [ %37, %36 ], [ %48, %47 ], [ %56, %55 ], [ %67, %66 ]
+_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45: ; preds = %55, %47, %41, %36, %26, %21, %66, %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
+  %.pn1554 = phi { ptr, i32 } [ %.pn15, %.body ], [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %56, %55 ], [ %48, %47 ], [ %42, %41 ], [ %37, %36 ], [ %27, %26 ], [ %22, %21 ], [ %67, %66 ]
   store ptr null, ptr %0, align 8, !tbaa !27
   resume { ptr, i32 } %.pn1554
 }

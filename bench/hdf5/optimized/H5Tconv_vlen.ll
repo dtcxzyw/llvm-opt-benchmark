@@ -1049,8 +1049,8 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   %532 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_vlen_seq_blk_free_list, ptr noundef nonnull %.0352559571) #6
   br label %.thread
 
-.thread:                                          ; preds = %476, %75, %81, %113, %125, %21, %26, %35, %44, %67, %.thread487, %9, %531, %530
-  %.0324 = phi i32 [ %.12, %531 ], [ %.12, %530 ], [ 0, %9 ], [ 0, %.thread487 ], [ -1, %67 ], [ -1, %44 ], [ -1, %35 ], [ -1, %26 ], [ 0, %21 ], [ -1, %125 ], [ -1, %113 ], [ -1, %81 ], [ -1, %75 ], [ -1, %476 ]
+.thread:                                          ; preds = %476, %26, %35, %44, %67, %.thread487, %21, %75, %81, %113, %125, %9, %531, %530
+  %.0324 = phi i32 [ %.12, %531 ], [ %.12, %530 ], [ 0, %9 ], [ -1, %125 ], [ -1, %113 ], [ -1, %81 ], [ -1, %75 ], [ 0, %21 ], [ 0, %.thread487 ], [ -1, %67 ], [ -1, %44 ], [ -1, %35 ], [ -1, %26 ], [ -1, %476 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
@@ -1220,7 +1220,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %31, %.preheader32, %.preheader, %71, %2, %18, %9, %9, %9, %9, %9, %9, %9, %9, %9, %75, %27, %48
-  %.030 = phi i32 [ -1, %75 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %27 ], [ 0, %18 ], [ 0, %2 ], [ -1, %48 ], [ -1, %71 ], [ 0, %.preheader ], [ 0, %.preheader32 ], [ 0, %31 ], [ 0, %52 ]
+  %.030 = phi i32 [ -1, %75 ], [ -1, %27 ], [ 0, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %2 ], [ -1, %48 ], [ -1, %71 ], [ 0, %.preheader ], [ 0, %.preheader32 ], [ 0, %31 ], [ 0, %52 ]
   ret i32 %.030
 }
 

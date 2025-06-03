@@ -64,9 +64,9 @@ define dso_local void @copy_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %18
 
 18:                                               ; preds = %17, %16, %15, %14
-  %.026 = phi ptr [ null, %14 ], [ @copy_file_by_range, %17 ], [ @copy_file_blocks, %16 ], [ @copy_file_clone, %15 ]
-  %.not = phi i1 [ true, %14 ], [ false, %17 ], [ true, %16 ], [ false, %15 ]
-  %.0 = phi ptr [ null, %14 ], [ @.str.3, %17 ], [ null, %16 ], [ @.str.2, %15 ]
+  %.026 = phi ptr [ null, %14 ], [ @copy_file_clone, %15 ], [ @copy_file_blocks, %16 ], [ @copy_file_by_range, %17 ]
+  %.not = phi i1 [ true, %14 ], [ false, %15 ], [ true, %16 ], [ false, %17 ]
+  %.0 = phi ptr [ null, %14 ], [ @.str.2, %15 ], [ null, %16 ], [ @.str.3, %17 ]
   br i1 %4, label %19, label %26
 
 19:                                               ; preds = %18

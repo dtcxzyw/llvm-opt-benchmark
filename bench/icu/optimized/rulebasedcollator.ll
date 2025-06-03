@@ -1752,7 +1752,7 @@ define noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDa
   br label %27
 
 18:                                               ; preds = %15, %7
-  %.08 = phi ptr [ %16, %15 ], [ %14, %7 ]
+  %.08 = phi ptr [ %14, %7 ], [ %16, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 216
   %20 = load i8, ptr %19, align 8, !tbaa !86
   %.not10 = icmp eq i8 %20, 0
@@ -2102,7 +2102,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   br label %43
 
 35:                                               ; preds = %6, %33, %26, %25
-  %.0 = phi i32 [ 2, %33 ], [ 1, %26 ], [ 1024, %25 ], [ 2048, %6 ]
+  %.0 = phi i32 [ 1024, %25 ], [ 1, %26 ], [ 2, %33 ], [ 2048, %6 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -2113,7 +2113,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   br label %43
 
 43:                                               ; preds = %7, %15, %27, %34, %35, %6, %3
-  %.05 = phi i32 [ -1, %3 ], [ -1, %34 ], [ %42, %35 ], [ %32, %27 ], [ %24, %15 ], [ %14, %7 ], [ 16, %6 ]
+  %.05 = phi i32 [ -1, %3 ], [ -1, %34 ], [ %42, %35 ], [ %14, %7 ], [ %24, %15 ], [ %32, %27 ], [ 16, %6 ]
   ret i32 %.05
 }
 
@@ -2179,7 +2179,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   br label %_ZNK6icu_7717RuleBasedCollator12getAttributeE13UColAttributeR10UErrorCode.exit
 
 36:                                               ; preds = %34, %27, %26, %7
-  %.0.i = phi i32 [ 2, %34 ], [ 1, %27 ], [ 1024, %26 ], [ 2048, %7 ]
+  %.0.i = phi i32 [ 1024, %26 ], [ 1, %27 ], [ 2, %34 ], [ 2048, %7 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -2189,8 +2189,8 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   %43 = select i1 %42, i32 16, i32 17
   br label %44
 
-44:                                               ; preds = %36, %28, %16, %8, %7
-  %.05.i.ph = phi i32 [ 16, %7 ], [ %15, %8 ], [ %25, %16 ], [ %33, %28 ], [ %43, %36 ]
+44:                                               ; preds = %36, %8, %16, %28, %7
+  %.05.i.ph = phi i32 [ 16, %7 ], [ %33, %28 ], [ %25, %16 ], [ %15, %8 ], [ %43, %36 ]
   %45 = icmp eq i32 %2, %.05.i.ph
   br i1 %45, label %46, label %51
 

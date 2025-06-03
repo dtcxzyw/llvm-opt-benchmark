@@ -61036,7 +61036,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %200, %198
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %213, %.thread.i
-  %.1.i556 = phi ptr [ %.0.i.i.i, %213 ], [ %214, %.thread.i ]
+  %.1.i556 = phi ptr [ %214, %.thread.i ], [ %.0.i.i.i, %213 ]
   %215 = tail call ptr @l_Lean_Syntax_replaceM___at_Lean_Elab_Term_expandCDot_x3f___spec__3(ptr noundef %178, ptr noundef %189, ptr noundef %126, ptr noundef nonnull %1, ptr noundef %109)
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8, !tbaa !10
@@ -61871,7 +61871,7 @@ lean_ensure_exclusive_array.exit.i.i627:          ; preds = %508, %506
   br label %lean_array_set.exit631
 
 lean_array_set.exit631:                           ; preds = %521, %.thread.i624
-  %.1.i625 = phi ptr [ %.0.i.i.i628, %521 ], [ %522, %.thread.i624 ]
+  %.1.i625 = phi ptr [ %522, %.thread.i624 ], [ %.0.i.i.i628, %521 ]
   %523 = tail call ptr @l_Lean_Syntax_replaceM___at_Lean_Elab_Term_expandCDot_x3f___spec__3(ptr noundef %486, ptr noundef %497, ptr noundef %434, ptr noundef nonnull %382, ptr noundef %417)
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %525 = load ptr, ptr %524, align 8, !tbaa !10
@@ -63067,7 +63067,7 @@ lean_ensure_exclusive_array.exit.i.i732:          ; preds = %952, %950
   br label %lean_array_set.exit736
 
 lean_array_set.exit736:                           ; preds = %965, %.thread.i729
-  %.1.i730 = phi ptr [ %.0.i.i.i733, %965 ], [ %966, %.thread.i729 ]
+  %.1.i730 = phi ptr [ %966, %.thread.i729 ], [ %.0.i.i.i733, %965 ]
   %967 = tail call ptr @l_Lean_Syntax_replaceM___at_Lean_Elab_Term_expandCDot_x3f___spec__3(ptr noundef %930, ptr noundef %941, ptr noundef %878, ptr noundef nonnull %.0341, ptr noundef %861)
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 8
   %969 = load ptr, ptr %968, align 8, !tbaa !10

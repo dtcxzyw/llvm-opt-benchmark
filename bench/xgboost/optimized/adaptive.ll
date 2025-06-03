@@ -502,7 +502,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %_ZNSt6vectorImSaImE
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %88, %87 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %88, %87 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %90 = load i32, ptr %.sroa.025.1.i.i.i, align 4, !tbaa !17
   %91 = icmp sgt i32 %90, -1
   br i1 %91, label %.loopexit188, label %92
@@ -512,7 +512,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %_ZNSt6vectorImSaImE
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %93, %92 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %95 = load i32, ptr %.sroa.025.2.i.i.i, align 4, !tbaa !17
   %96 = icmp slt i32 %95, 0
   %spec.select.i.i.i = select i1 %96, ptr %58, ptr %.sroa.025.2.i.i.i
@@ -11098,7 +11098,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %64
 
 64:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS3_IPKiS4_IiSaIiEEEEiSt4lessIiEEES4_IT_SaISI_EEPKNS8_7ContextET0_SO_T2_EUlRKmSR_E_EET1_RSI_SI_RSO_SO_ST_SP_T3_.exit, %58, %60, %62, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS3_IPKiS4_IiSaIiEEEEiSt4lessIiEEES4_IT_SaISI_EEPKNS8_7ContextET0_SO_T2_EUlRKmSR_E_EET1_RSI_SI_RSO_SO_ST_SP_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS3_IPKiS4_IiSaIiEEEEiSt4lessIiEEES4_IT_SaISI_EEPKNS8_7ContextET0_SO_T2_EUlRKmSR_E_EET1_RSI_SI_RSO_SO_ST_SP_T3_.exit ], [ %59, %58 ], [ %61, %60 ]
   ret ptr %.sroa.018.0
 }
 

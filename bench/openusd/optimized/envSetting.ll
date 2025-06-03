@@ -1198,7 +1198,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   br label %46
 
 46:                                               ; preds = %22, %42, %33
-  %.1 = phi i1 [ false, %22 ], [ %45, %42 ], [ false, %33 ]
+  %.1 = phi i1 [ %45, %42 ], [ false, %33 ], [ false, %22 ]
   ret i1 %.1
 }
 
@@ -1536,7 +1536,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   br label %45
 
 45:                                               ; preds = %21, %41, %32
-  %.1 = phi i1 [ false, %21 ], [ %44, %41 ], [ false, %32 ]
+  %.1 = phi i1 [ %44, %41 ], [ false, %32 ], [ false, %21 ]
   ret i1 %.1
 }
 
@@ -1930,7 +1930,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   br label %45
 
 45:                                               ; preds = %22, %41, %33
-  %.1 = phi i1 [ false, %22 ], [ %44, %41 ], [ false, %33 ]
+  %.1 = phi i1 [ %44, %41 ], [ false, %33 ], [ false, %22 ]
   ret i1 %.1
 }
 

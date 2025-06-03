@@ -1073,10 +1073,10 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   br label %94
 
 94:                                               ; preds = %92, %.thread138
-  %.3114 = phi i32 [ -1, %92 ], [ %93, %.thread138 ]
-  %.5110 = phi i32 [ %.1106144, %92 ], [ %.0105, %.thread138 ]
-  %.6 = phi ptr [ %.1101146, %92 ], [ %.0100, %.thread138 ]
-  %.1 = phi ptr [ %48, %92 ], [ %.099, %.thread138 ]
+  %.3114 = phi i32 [ %93, %.thread138 ], [ -1, %92 ]
+  %.5110 = phi i32 [ %.0105, %.thread138 ], [ %.1106144, %92 ]
+  %.6 = phi ptr [ %.0100, %.thread138 ], [ %.1101146, %92 ]
+  %.1 = phi ptr [ %.099, %.thread138 ], [ %48, %92 ]
   %.not151 = icmp eq i32 %.5110, 0
   br i1 %.not151, label %._crit_edge, label %.lr.ph149.preheader
 

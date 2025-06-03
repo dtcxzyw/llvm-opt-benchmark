@@ -1023,12 +1023,12 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0e
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %52, %59, %58, %57, %56, %55, %54
-  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
+  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
   %70 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !490
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit: ; preds = %60, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-  %.02.i = phi ptr [ %69, %60 ], [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
+  %.02.i = phi ptr [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ], [ %69, %60 ]
   %71 = icmp eq ptr %.02.i, null
   br i1 %71, label %.outer, label %.loopexit
 
@@ -1203,12 +1203,12 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %52, %59, %58, %57, %56, %55, %54
-  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
+  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
   %70 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !515
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit: ; preds = %60, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-  %.02.i = phi ptr [ %69, %60 ], [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
+  %.02.i = phi ptr [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ], [ %69, %60 ]
   %71 = icmp eq ptr %.02.i, null
   br i1 %71, label %.outer, label %.loopexit
 
@@ -1597,7 +1597,7 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i: ; pre
   br i1 %172, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit", label %180
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h3ee872745e9410e0E.exit": ; preds = %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i, %141, %select.unfold.i.i, %136, %131, %126, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i, %73, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i, %21, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i, %12, %9, %226, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit", %157
-  %.0 = phi ptr [ %.1, %226 ], [ %.0.i20, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit" ], [ %159, %157 ], [ %13, %12 ], [ null, %9 ], [ %22, %21 ], [ null, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i ], [ %74, %73 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i ], [ %127, %126 ], [ null, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i ], [ %137, %136 ], [ null, %131 ], [ %142, %141 ], [ null, %select.unfold.i.i ], [ %156, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i ], [ null, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i ]
+  %.0 = phi ptr [ %159, %157 ], [ %.1, %226 ], [ %.0.i20, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit" ], [ %13, %12 ], [ null, %9 ], [ %22, %21 ], [ null, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i ], [ %74, %73 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i ], [ %127, %126 ], [ null, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i ], [ %137, %136 ], [ null, %131 ], [ %142, %141 ], [ null, %select.unfold.i.i ], [ %156, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i ], [ null, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i ]
   ret ptr %.0
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit": ; preds = %169, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i"

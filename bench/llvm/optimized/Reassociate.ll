@@ -3975,12 +3975,12 @@ _ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit217: ; preds = %_ZNK4llvm4Type
 _ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit217.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i191, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i191, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i191, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i191, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i191, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i205, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i205, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i205, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i205, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i205, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i194, %289, %289, %289, %289, %289, %289, %289, %289, %289, %_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit217
   %326 = load i8, ptr %119, align 8, !tbaa !62
   %327 = icmp ugt i8 %326, 28
-  %328 = zext i8 %326 to i32
-  %329 = add nsw i32 %328, -29
-  %330 = getelementptr inbounds nuw i8, ptr %119, i64 2
-  %331 = load i16, ptr %330, align 2
-  %332 = zext i16 %331 to i32
-  %.1.i.i = select i1 %327, i32 %329, i32 %332
+  %328 = getelementptr inbounds nuw i8, ptr %119, i64 2
+  %329 = load i16, ptr %328, align 2
+  %330 = zext i16 %329 to i32
+  %331 = zext i8 %326 to i32
+  %332 = add nsw i32 %331, -29
+  %.1.i.i = select i1 %327, i32 %332, i32 %330
   switch i32 %.1.i.i, label %.critedge [
     i32 12, label %_ZN4llvm12PatternMatch10FNeg_matchINS0_11class_matchINS_5ValueEEEE5matchIS3_EEbPT_.exit
     i32 16, label %333
@@ -6395,7 +6395,7 @@ _ZN4llvm11SmallVectorINS_11reassociate7XorOpndELj8EED2Ev.exit: ; preds = %_ZN4ll
   br label %274
 
 274:                                              ; preds = %3, %12, %_ZN4llvm11SmallVectorINS_11reassociate7XorOpndELj8EED2Ev.exit
-  %.1 = phi ptr [ %11, %3 ], [ %.3, %_ZN4llvm11SmallVectorINS_11reassociate7XorOpndELj8EED2Ev.exit ], [ null, %12 ]
+  %.1 = phi ptr [ %.3, %_ZN4llvm11SmallVectorINS_11reassociate7XorOpndELj8EED2Ev.exit ], [ %11, %3 ], [ null, %12 ]
   ret ptr %.1
 }
 
@@ -9848,7 +9848,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11reassociate10ValueEntryELb1EE9push_backES
   br i1 %.not83, label %.thread88, label %tailrecurse
 
 .thread88:                                        ; preds = %58, %56, %54, %52, %60, %28, %.thread, %tailrecurse, %24, %47
-  %.0 = phi ptr [ %50, %47 ], [ %.365, %24 ], [ null, %tailrecurse ], [ null, %60 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %.062102, %28 ], [ %.062102, %.thread ]
+  %.0 = phi ptr [ %50, %47 ], [ %.365, %24 ], [ null, %tailrecurse ], [ null, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %.062102, %28 ], [ %.062102, %.thread ]
   ret ptr %.0
 }
 
@@ -12867,7 +12867,7 @@ _ZL21hasFPAssociativeFlagsPN4llvm11InstructionE.exit.i.i.i71.i.i.i.i.i.i.i: ; pr
   br label %423
 
 423:                                              ; preds = %421, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %422, %421 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %422, %421 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #24
   store i32 13, ptr %21, align 4, !tbaa !501
@@ -12931,7 +12931,7 @@ _ZL21hasFPAssociativeFlagsPN4llvm11InstructionE.exit.i.i.i81.i.i.i.i.i.i.i: ; pr
   br label %449
 
 449:                                              ; preds = %447, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %448, %447 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %448, %447 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #24
   store i32 13, ptr %20, align 4, !tbaa !501
@@ -20044,7 +20044,7 @@ _ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8D
   br label %248
 
 248:                                              ; preds = %194, %117, %38, %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EE6insertERKS3_.exit145
-  %.3 = phi ptr [ %0, %117 ], [ %124, %194 ], [ %.0.i140, %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EE6insertERKS3_.exit145 ], [ %39, %38 ]
+  %.3 = phi ptr [ %.0.i140, %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EE6insertERKS3_.exit145 ], [ %124, %194 ], [ %0, %117 ], [ %39, %38 ]
   ret ptr %.3
 }
 
@@ -20198,12 +20198,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !tbaa !62
   %8 = icmp ugt i8 %7, 28
-  %9 = zext i8 %7 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %7 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %_ZNK4llvm4User10getOperandEj.exit [
     i32 12, label %14
     i32 16, label %15
@@ -21882,12 +21882,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !tbaa !62
   %8 = icmp ugt i8 %7, 28
-  %9 = zext i8 %7 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %7 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %_ZNK4llvm4User10getOperandEj.exit [
     i32 12, label %14
     i32 16, label %15
@@ -21996,12 +21996,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !tbaa !62
   %8 = icmp ugt i8 %7, 28
-  %9 = zext i8 %7 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %7 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %_ZNK4llvm4User10getOperandEj.exit [
     i32 12, label %14
     i32 16, label %15
@@ -23974,12 +23974,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !tbaa !62
   %8 = icmp ugt i8 %7, 28
-  %9 = zext i8 %7 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %7 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit [
     i32 12, label %14
     i32 16, label %28
@@ -24518,7 +24518,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !420
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -24528,7 +24528,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !420
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

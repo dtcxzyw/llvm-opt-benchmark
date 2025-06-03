@@ -10040,7 +10040,7 @@ default.unreachable:                              ; preds = %27
   unreachable
 
 32:                                               ; preds = %27, %31, %30, %29
-  %.072.in = phi ptr [ %18, %31 ], [ %19, %30 ], [ %20, %29 ], [ %21, %27 ]
+  %.072.in = phi ptr [ %20, %29 ], [ %19, %30 ], [ %18, %31 ], [ %21, %27 ]
   %.072 = load ptr, ptr %.072.in, align 8, !tbaa !152
   %33 = add nsw i64 %indvars.iv, -1
   %34 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %33

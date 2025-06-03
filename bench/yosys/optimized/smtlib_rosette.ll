@@ -17278,7 +17278,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN12_GLOBAL__N_116SmtrPrintVisitor11bitwise_notEN5Yosys10Functional4NodeES3_.exit
 
 common.resume:                                    ; preds = %566, %682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i, %283, %254
-  %common.resume.op = phi { ptr, i32 } [ %255, %254 ], [ %284, %283 ], [ %442, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %.pn, %682 ], [ %.pn165, %566 ]
+  %common.resume.op = phi { ptr, i32 } [ %255, %254 ], [ %284, %283 ], [ %442, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %.pn165, %566 ], [ %.pn, %682 ]
   resume { ptr, i32 } %common.resume.op
 
 254:                                              ; preds = %_ZNKSt8functionIFN5Yosys5SExprENS0_10Functional4NodeEEEclES3_.exit.i

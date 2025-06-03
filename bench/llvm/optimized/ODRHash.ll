@@ -3482,8 +3482,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %82, %86
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i: ; preds = %113, %105
-  %115 = phi i8 [ %111, %105 ], [ %.pre.i, %113 ]
-  %.1.i.i = phi ptr [ %109, %105 ], [ %114, %113 ]
+  %115 = phi i8 [ %.pre.i, %113 ], [ %111, %105 ]
+  %.1.i.i = phi ptr [ %114, %113 ], [ %109, %105 ]
   %116 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i8 %115, 26
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i.i, label %117
@@ -3550,8 +3550,8 @@ _ZN5clang7ODRHash10AddBooleanEb.exit96:           ; preds = %_ZNK5clang13CXXMeth
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i99
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i99: ; preds = %146, %_ZN5clang7ODRHash10AddBooleanEb.exit96
-  %148 = phi i8 [ %144, %_ZN5clang7ODRHash10AddBooleanEb.exit96 ], [ %.pre.i108, %146 ]
-  %.1.i.i100 = phi ptr [ %142, %_ZN5clang7ODRHash10AddBooleanEb.exit96 ], [ %147, %146 ]
+  %148 = phi i8 [ %.pre.i108, %146 ], [ %144, %_ZN5clang7ODRHash10AddBooleanEb.exit96 ]
+  %.1.i.i100 = phi ptr [ %147, %146 ], [ %142, %_ZN5clang7ODRHash10AddBooleanEb.exit96 ]
   %149 = getelementptr inbounds nuw i8, ptr %.1.i.i100, i64 16
   %.not.i.i.i.i.i101 = icmp eq i8 %148, 26
   br i1 %.not.i.i.i.i.i101, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i.i106, label %150
@@ -3826,7 +3826,7 @@ _ZN5clang7ODRHash10AddBooleanEb.exit132:          ; preds = %_ZNK5clang12Functio
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %295, %303
-  %.1.i.i138 = phi ptr [ %299, %295 ], [ %304, %303 ]
+  %.1.i.i138 = phi ptr [ %304, %303 ], [ %299, %295 ]
   %305 = getelementptr inbounds nuw i8, ptr %.1.i.i138, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %305, align 8, !tbaa !39
   tail call void @_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(320) %0, i64 %.sroa.0.0.copyload.i1.i)

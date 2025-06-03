@@ -506,7 +506,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %197
 
 197:                                              ; preds = %191, %185, %179
-  %.9 = phi i16 [ %196, %191 ], [ %190, %185 ], [ %184, %179 ]
+  %.9 = phi i16 [ %196, %191 ], [ %184, %179 ], [ %190, %185 ]
   %198 = load i32, ptr @hf_msnlb_padding, align 4
   %199 = zext i16 %.9 to i32
   %200 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %198, ptr noundef %0, i32 noundef %199, i32 noundef -1, i32 noundef 0)
@@ -523,7 +523,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %209
 
 209:                                              ; preds = %203, %197, %142
-  %.8 = phi i32 [ %208, %203 ], [ %202, %197 ], [ %158, %142 ]
+  %.8 = phi i32 [ %208, %203 ], [ %158, %142 ], [ %202, %197 ]
   %210 = and i32 %.8, 65535
   %211 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %210)
   %212 = icmp sgt i32 %211, 0

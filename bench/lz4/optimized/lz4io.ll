@@ -6377,9 +6377,9 @@ fseek_u32.exit.thread.i:                          ; preds = %412, %fseek_u32.exi
   br label %.thread165.i
 
 .thread165.i:                                     ; preds = %487, %447, %fseek_u32.exit.thread.i, %356, %355
-  %.sroa.3371.4 = phi i16 [ %.sroa.3371.3, %fseek_u32.exit.thread.i ], [ %.sroa.3371.3, %447 ], [ %.sroa.3371.5, %355 ], [ %.sroa.3371.5, %356 ], [ %spec.select, %487 ]
-  %.sroa.38.3 = phi i16 [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ], [ 0, %355 ], [ 0, %356 ], [ %.sroa.38.6, %487 ]
-  %.sroa.43.3 = phi i16 [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ], [ 0, %355 ], [ 0, %356 ], [ %.sroa.43.5, %487 ]
+  %.sroa.3371.4 = phi i16 [ %spec.select, %487 ], [ %.sroa.3371.5, %355 ], [ %.sroa.3371.5, %356 ], [ %.sroa.3371.3, %fseek_u32.exit.thread.i ], [ %.sroa.3371.3, %447 ]
+  %.sroa.38.3 = phi i16 [ %.sroa.38.6, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
+  %.sroa.43.3 = phi i16 [ %.sroa.43.5, %487 ], [ 0, %355 ], [ 0, %356 ], [ 0, %fseek_u32.exit.thread.i ], [ 0, %447 ]
   %.sroa.20.24.copyload = load i32, ptr %8, align 8, !tbaa !4
   %.sroa.24.24.copyload = load i32, ptr %28, align 4, !tbaa !4
   %.sroa.2664.24.copyload = load i64, ptr %34, align 8, !tbaa !32
@@ -8916,7 +8916,7 @@ thread-pre-split73:                               ; preds = %661, %656
   br label %fseek_u32.exit.thread
 
 fseek_u32.exit.thread:                            ; preds = %521, %675, %509, %fseek_u32.exit.thread63, %.thread54, %700, %707, %703, %LZ4IO_passThrough.exit, %LZ4IO_decodeLegacyStream.exit, %LZ4IO_decompressLZ4F.exit
-  %.1 = phi i64 [ %605, %LZ4IO_passThrough.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ %.085.i, %LZ4IO_decompressLZ4F.exit ], [ -2, %703 ], [ -2, %707 ], [ -2, %700 ], [ -1, %.thread54 ], [ 0, %fseek_u32.exit.thread63 ], [ 0, %509 ], [ -2, %675 ], [ 0, %521 ]
+  %.1 = phi i64 [ %605, %LZ4IO_passThrough.exit ], [ %.085.i, %LZ4IO_decompressLZ4F.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ -2, %703 ], [ -2, %707 ], [ -2, %700 ], [ -1, %.thread54 ], [ 0, %fseek_u32.exit.thread63 ], [ 0, %509 ], [ -2, %675 ], [ 0, %521 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #24
   ret i64 %.1
 }

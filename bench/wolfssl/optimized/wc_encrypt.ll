@@ -183,7 +183,7 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   br label %46
 
 46:                                               ; preds = %20, %22, %45
-  %.1 = phi i32 [ %.2, %45 ], [ %23, %22 ], [ %21, %20 ]
+  %.1 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %.2, %45 ]
   %47 = icmp eq i32 %.1, 0
   br i1 %47, label %48, label %.lr.ph29.preheader.i89
 

@@ -1882,7 +1882,7 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %73, %72 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %73, %72 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20.val.i.i.i.i = load ptr, ptr %75, align 8, !tbaa !61
   %76 = load ptr, ptr %.val20.val.i.i.i.i, align 8, !tbaa !62
@@ -1896,7 +1896,7 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
   br label %82
 
 82:                                               ; preds = %80, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %81, %80 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %81, %80 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21.val.i.i.i.i = load ptr, ptr %83, align 8, !tbaa !61
   %84 = load ptr, ptr %.val21.val.i.i.i.i, align 8, !tbaa !62
@@ -3058,7 +3058,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %170
 
 170:                                              ; preds = %168, %._crit_edge.i.i.i3.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ], [ %169, %168 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %169, %168 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ]
   %.val25.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !123
   %.val26.i.i.i.i.i = load ptr, ptr %130, align 8, !tbaa !24
   %171 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.038.1.i.i.i.i.i, ptr noundef %.val26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %.val25.i.i.i.i.i, i64 noundef 0, i32 noundef 0)
@@ -3072,7 +3072,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %174
 
 174:                                              ; preds = %172, %._crit_edge.i.i.i3.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ], [ %173, %172 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %173, %172 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ]
   %.val27.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !123
   %.val28.i.i.i.i.i = load ptr, ptr %130, align 8, !tbaa !24
   %175 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.038.2.i.i.i.i.i, ptr noundef %.val28.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %.val27.i.i.i.i.i, i64 noundef 0, i32 noundef 0)
@@ -4014,7 +4014,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %141
 
 141:                                              ; preds = %139, %._crit_edge.i.i.i4.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ], [ %140, %139 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
   %142 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc8.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
@@ -4026,7 +4026,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %145
 
 145:                                              ; preds = %143, %._crit_edge.i.i.i4.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ], [ %144, %143 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %144, %143 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
   %146 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc9.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
@@ -4758,7 +4758,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %170
 
 170:                                              ; preds = %168, %._crit_edge.i.i.i3.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ], [ %169, %168 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %169, %168 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ]
   %.val25.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !133
   %.val26.i.i.i.i.i = load ptr, ptr %130, align 8, !tbaa !24
   %171 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.038.1.i.i.i.i.i, ptr noundef %.val26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %.val25.i.i.i.i.i, i64 noundef 0, i32 noundef 0)
@@ -4772,7 +4772,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %174
 
 174:                                              ; preds = %172, %._crit_edge.i.i.i3.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ], [ %173, %172 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %173, %172 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i3.i.i ]
   %.val27.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !133
   %.val28.i.i.i.i.i = load ptr, ptr %130, align 8, !tbaa !24
   %175 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.038.2.i.i.i.i.i, ptr noundef %.val28.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %.val27.i.i.i.i.i, i64 noundef 0, i32 noundef 0)

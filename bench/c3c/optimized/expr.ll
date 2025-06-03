@@ -479,7 +479,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   br label %tailrecurse.backedge278
 
 tailrecurse.backedge278:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
-  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %151, %150 ], [ %149, %148 ], [ %109, %.critedge87 ], [ %79, %77 ], [ %76, %71 ], [ %61, %59 ], [ %47, %45 ], [ %24, %22 ], [ %8, %6 ], [ %121, %126 ], [ %121, %.critedge89 ]
+  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %8, %6 ], [ %24, %22 ], [ %47, %45 ], [ %61, %59 ], [ %76, %71 ], [ %79, %77 ], [ %109, %.critedge87 ], [ %149, %148 ], [ %151, %150 ], [ %121, %126 ], [ %121, %.critedge89 ]
   br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
@@ -796,7 +796,7 @@ expr_list_is_constant_eval.exit.loopexit277:      ; preds = %tailrecurse, %tailr
   br label %expr_list_is_constant_eval.exit
 
 expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph140, %.lr.ph146, %.lr.ph152, %54, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %expr_list_is_constant_eval.exit.loopexit277, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
-  %.0 = phi i1 [ %146, %145 ], [ %140, %139 ], [ true, %138 ], [ %35, %34 ], [ %33, %32 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit277 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ %44, %.lr.ph152 ], [ %70, %.lr.ph146 ], [ %88, %.lr.ph140 ], [ %97, %.lr.ph ]
+  %.0 = phi i1 [ %33, %32 ], [ %35, %34 ], [ true, %138 ], [ %140, %139 ], [ %146, %145 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit277 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ %44, %.lr.ph152 ], [ %70, %.lr.ph146 ], [ %88, %.lr.ph140 ], [ %97, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1047,7 +1047,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef 
   br label %45
 
 45:                                               ; preds = %37, %37, %29, %27, %23, %17, %2, %44, %43, %40, %36, %25, %21
-  %.023 = phi i1 [ false, %44 ], [ false, %36 ], [ false, %43 ], [ %42, %40 ], [ %26, %25 ], [ %22, %21 ], [ false, %2 ], [ false, %17 ], [ false, %23 ], [ true, %27 ], [ true, %29 ], [ true, %37 ], [ true, %37 ]
+  %.023 = phi i1 [ false, %44 ], [ %22, %21 ], [ %26, %25 ], [ false, %36 ], [ %42, %40 ], [ false, %43 ], [ false, %2 ], [ false, %17 ], [ false, %23 ], [ true, %27 ], [ true, %29 ], [ true, %37 ], [ true, %37 ]
   ret i1 %.023
 }
 
@@ -1346,7 +1346,7 @@ define dso_local void @expr_rewrite_to_const_zero(ptr noundef captures(none) %0,
   unreachable
 
 25:                                               ; preds = %22, %16
-  %.1.in.i = phi ptr [ %23, %22 ], [ %21, %16 ]
+  %.1.in.i = phi ptr [ %21, %16 ], [ %23, %22 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %12
 
@@ -1394,7 +1394,7 @@ type_flatten.exit:                                ; preds = %12
   unreachable
 
 46:                                               ; preds = %43, %37
-  %.1.in.i88 = phi ptr [ %44, %43 ], [ %42, %37 ]
+  %.1.in.i88 = phi ptr [ %42, %37 ], [ %44, %43 ]
   %.1.i89 = load ptr, ptr %.1.in.i88, align 8
   br label %33
 
@@ -1590,7 +1590,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   unreachable
 
 initializer_for_index.exit:                       ; preds = %18, %42
-  %.041.i.in = phi ptr [ %43, %42 ], [ %20, %18 ]
+  %.041.i.in = phi ptr [ %20, %18 ], [ %43, %42 ]
   %.041.i = load ptr, ptr %.041.i.in, align 8
   %.not = icmp eq ptr %.041.i, null
   br i1 %.not, label %.thread, label %initializer_for_index.exit.thread24thread-pre-split
@@ -1635,7 +1635,7 @@ initializer_for_index.exit.thread24:              ; preds = %initializer_for_ind
   unreachable
 
 54:                                               ; preds = %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %initializer_for_index.exit.thread24, %.thread, %49, %48
-  %.0 = phi i1 [ true, %49 ], [ true, %48 ], [ false, %.thread ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ]
+  %.0 = phi i1 [ true, %48 ], [ true, %49 ], [ false, %.thread ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ], [ false, %initializer_for_index.exit.thread24 ]
   ret i1 %.0
 }
 
@@ -2247,7 +2247,7 @@ define dso_local noundef ptr @expr_new_const_int(i64 %0, ptr noundef %1, i64 nou
   unreachable
 
 23:                                               ; preds = %20, %14
-  %.1.in.i = phi ptr [ %21, %20 ], [ %19, %14 ]
+  %.1.in.i = phi ptr [ %19, %14 ], [ %21, %20 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %10
 

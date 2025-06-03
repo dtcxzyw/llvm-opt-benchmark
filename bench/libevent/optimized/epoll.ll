@@ -676,7 +676,7 @@ switch.lookup4:                                   ; preds = %105, %70, %88, %71
   br label %136
 
 136:                                              ; preds = %108, %110, %100, %102, %83, %85, %46, %switch.lookup, %2, %switch.lookup4, %97, %80
-  %.0 = phi i32 [ -1, %switch.lookup4 ], [ -1, %97 ], [ -1, %80 ], [ 0, %2 ], [ 0, %switch.lookup ], [ 0, %46 ], [ 0, %85 ], [ 0, %83 ], [ 0, %102 ], [ 0, %100 ], [ 0, %110 ], [ 0, %108 ]
+  %.0 = phi i32 [ -1, %switch.lookup4 ], [ -1, %80 ], [ -1, %97 ], [ 0, %2 ], [ 0, %switch.lookup ], [ 0, %46 ], [ 0, %85 ], [ 0, %83 ], [ 0, %102 ], [ 0, %100 ], [ 0, %110 ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #6
   ret i32 %.0
 }

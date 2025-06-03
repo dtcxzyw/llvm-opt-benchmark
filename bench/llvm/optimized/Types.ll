@@ -227,7 +227,7 @@ define dso_local noundef ptr @_ZN5clang6driver5types17getTypeTempSuffixENS1_2IDE
   br label %11
 
 11:                                               ; preds = %3, %3, %6, %5, %4
-  %.0 = phi ptr [ %10, %6 ], [ @.str.2, %5 ], [ @.str.1, %4 ], [ @.str, %3 ], [ @.str, %3 ]
+  %.0 = phi ptr [ %10, %6 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str, %3 ], [ @.str, %3 ]
   ret ptr %.0
 }
 
@@ -1033,7 +1033,7 @@ define dso_local noundef range(i32 3, 1) i32 @_ZN5clang6driver5types21lookupCXXT
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ 27, %5 ], [ 28, %4 ], [ 16, %3 ], [ 17, %2 ], [ %0, %1 ]
+  %.0 = phi i32 [ 17, %2 ], [ 16, %3 ], [ 28, %4 ], [ 27, %5 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -1065,7 +1065,7 @@ define dso_local noundef range(i32 6, 5) i32 @_ZN5clang6driver5types29lookupHead
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 24, %6 ], [ 34, %5 ], [ 26, %4 ], [ 28, %3 ], [ 23, %2 ], [ %0, %1 ]
+  %.0 = phi i32 [ 23, %2 ], [ 28, %3 ], [ 26, %4 ], [ 34, %5 ], [ 24, %6 ], [ %0, %1 ]
   ret i32 %.0
 }
 

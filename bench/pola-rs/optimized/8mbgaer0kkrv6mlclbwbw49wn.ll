@@ -87,10 +87,10 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h5ef8ebf00990dfd3E(ptr no
 13:                                               ; preds = %7
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
-    i64 2, label %38
+    i64 2, label %27
     i64 3, label %15
-    i64 0, label %27
-    i64 1, label %32
+    i64 0, label %29
+    i64 1, label %34
   ], !prof !3
 
 default.unreachable:                              ; preds = %13
@@ -116,8 +116,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %20
   unreachable
 
-.thread58:                                        ; preds = %15, %38, %32, %27, %16
-  %.sroa.04.1 = phi ptr [ @anon.4c4f229ca7a661be9fcc0e9cba359e64.1, %16 ], [ %10, %27 ], [ %10, %32 ], [ %10, %38 ], [ %10, %15 ]
+.thread58:                                        ; preds = %15, %34, %27, %29, %16
+  %.sroa.04.1 = phi ptr [ @anon.4c4f229ca7a661be9fcc0e9cba359e64.1, %16 ], [ %10, %29 ], [ %10, %27 ], [ %10, %34 ], [ %10, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
@@ -134,28 +134,28 @@ default.unreachable:                              ; preds = %13
   br label %40
 
 27:                                               ; preds = %13
-  %28 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %30 = load i8, ptr %29, align 8, !range !7, !noundef !6
-  %31 = icmp eq i8 %30, 35
-  br i1 %31, label %.thread, label %.thread58
-
-32:                                               ; preds = %13
-  %33 = getelementptr i8, ptr %10, i64 -1
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  %35 = getelementptr i8, ptr %10, i64 15
-  %36 = load i8, ptr %35, align 8, !range !7, !noundef !6
-  %37 = icmp eq i8 %36, 35
-  br i1 %37, label %.thread, label %.thread58
-
-38:                                               ; preds = %13
   %.mask60 = and i64 %12, -4294967296
-  %39 = icmp eq i64 %.mask60, 17179869184
+  %28 = icmp eq i64 %.mask60, 17179869184
+  br i1 %28, label %.thread, label %.thread58
+
+29:                                               ; preds = %13
+  %30 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %32 = load i8, ptr %31, align 8, !range !7, !noundef !6
+  %33 = icmp eq i8 %32, 35
+  br i1 %33, label %.thread, label %.thread58
+
+34:                                               ; preds = %13
+  %35 = getelementptr i8, ptr %10, i64 -1
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr i8, ptr %10, i64 15
+  %38 = load i8, ptr %37, align 8, !range !7, !noundef !6
+  %39 = icmp eq i8 %38, 35
   br i1 %39, label %.thread, label %.thread58
 
-.thread:                                          ; preds = %15, %38, %32, %27
+.thread:                                          ; preds = %15, %34, %27, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5d197935994b1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %40
 
@@ -805,7 +805,7 @@ switch.lookup:                                    ; preds = %46
   br label %27
 
 _ZN3std2io5error5Error4kind17h76c70359558b342bE.exit: ; preds = %switch.lookup, %93, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %50
-  %.sroa.0.0.i = phi i8 [ %97, %93 ], [ %92, %90 ], [ 41, %88 ], [ 13, %89 ], [ 1, %87 ], [ 39, %86 ], [ 31, %85 ], [ 29, %84 ], [ 22, %83 ], [ 19, %82 ], [ 25, %81 ], [ 17, %80 ], [ 11, %79 ], [ 16, %78 ], [ 14, %77 ], [ 7, %76 ], [ 5, %75 ], [ 10, %74 ], [ 33, %73 ], [ 32, %72 ], [ 36, %71 ], [ 24, %70 ], [ 38, %69 ], [ 0, %68 ], [ 18, %67 ], [ 15, %66 ], [ 20, %65 ], [ 35, %64 ], [ 4, %63 ], [ 27, %62 ], [ 12, %61 ], [ 26, %60 ], [ 30, %59 ], [ 3, %58 ], [ 2, %57 ], [ 6, %56 ], [ 28, %55 ], [ 9, %54 ], [ 8, %53 ], [ 34, %50 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0.i = phi i8 [ %92, %90 ], [ %97, %93 ], [ 41, %88 ], [ 8, %53 ], [ 9, %54 ], [ 28, %55 ], [ 6, %56 ], [ 2, %57 ], [ 3, %58 ], [ 30, %59 ], [ 26, %60 ], [ 12, %61 ], [ 27, %62 ], [ 4, %63 ], [ 35, %64 ], [ 20, %65 ], [ 15, %66 ], [ 18, %67 ], [ 0, %68 ], [ 38, %69 ], [ 24, %70 ], [ 36, %71 ], [ 32, %72 ], [ 33, %73 ], [ 10, %74 ], [ 5, %75 ], [ 7, %76 ], [ 14, %77 ], [ 16, %78 ], [ 11, %79 ], [ 17, %80 ], [ 25, %81 ], [ 19, %82 ], [ 22, %83 ], [ 29, %84 ], [ 31, %85 ], [ 39, %86 ], [ 1, %87 ], [ 13, %89 ], [ 34, %50 ], [ %switch.idx.cast, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %103 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17ha1cd6da05a09e048E(i8 noundef %.sroa.0.0.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)

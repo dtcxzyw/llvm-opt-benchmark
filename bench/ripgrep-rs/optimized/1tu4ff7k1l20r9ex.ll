@@ -361,7 +361,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$ignore..dir..IgnoreMatchInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hda8a0e04ce852795E.exit"
 
 "_ZN66_$LT$ignore..dir..IgnoreMatchInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hda8a0e04ce852795E.exit": ; preds = %8, %11, %14, %17
-  %.0.in.i = phi i1 [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ]
   ret i1 %.0.in.i
 }
 
@@ -748,7 +748,7 @@ common.resume.sink.split:                         ; preds = %16, %31, %78
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %72, %82, %95
-  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %83, %82 ], [ %73, %72 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %83, %82 ], [ %96, %95 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %13
@@ -1469,7 +1469,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -5836,7 +5836,7 @@ default.unreachable1:                             ; preds = %2
   br label %43
 
 43:                                               ; preds = %41, %38, %34, %31, %27, %23, %19, %15, %12
-  %.0.in = phi i1 [ %42, %41 ], [ %40, %38 ], [ %37, %34 ], [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ]
+  %.0.in = phi i1 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ], [ %37, %34 ], [ %40, %38 ], [ %42, %41 ]
   ret i1 %.0.in
 }
 

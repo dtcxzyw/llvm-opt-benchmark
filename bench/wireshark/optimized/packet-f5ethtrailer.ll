@@ -1846,9 +1846,9 @@ define internal noundef zeroext i1 @dissect_f5ethtrailer_heur(ptr noundef %0, pt
   br label %235
 
 235:                                              ; preds = %.sink.split.i.i.i, %229, %223, %209, %201, %195, %188
-  %.0136.i.i.i = phi i32 [ %221, %229 ], [ 0, %223 ], [ 16, %195 ], [ 16, %188 ], [ 16, %209 ], [ 16, %201 ], [ %.0136.ph.i.i.i, %.sink.split.i.i.i ]
-  %.0135.i.i.i = phi i32 [ %227, %229 ], [ %227, %223 ], [ %191, %195 ], [ %191, %188 ], [ %205, %209 ], [ %205, %201 ], [ %.0135.ph.i.i.i, %.sink.split.i.i.i ]
-  %.0134.i.i.i = phi i32 [ %228, %229 ], [ %228, %223 ], [ %192, %195 ], [ %192, %188 ], [ %206, %209 ], [ %206, %201 ], [ %.0134.ph.i.i.i, %.sink.split.i.i.i ]
+  %.0136.i.i.i = phi i32 [ 16, %195 ], [ 16, %188 ], [ 16, %209 ], [ 16, %201 ], [ %221, %229 ], [ 0, %223 ], [ %.0136.ph.i.i.i, %.sink.split.i.i.i ]
+  %.0135.i.i.i = phi i32 [ %191, %195 ], [ %191, %188 ], [ %205, %209 ], [ %205, %201 ], [ %227, %229 ], [ %227, %223 ], [ %.0135.ph.i.i.i, %.sink.split.i.i.i ]
+  %.0134.i.i.i = phi i32 [ %192, %195 ], [ %192, %188 ], [ %206, %209 ], [ %206, %201 ], [ %228, %229 ], [ %228, %223 ], [ %.0134.ph.i.i.i, %.sink.split.i.i.i ]
   %236 = add i32 %.079132.i.i, 3
   %237 = call zeroext i8 @tvb_get_uint8(ptr noundef %73, i32 noundef %236)
   %.not145.i.i.i = icmp eq i8 %237, 0
@@ -2150,8 +2150,8 @@ proto_item_set_hidden.exit152.i.i.i:              ; preds = %331, %328, %325
   br label %.thread.i96.i.i
 
 .thread.i96.i.i:                                  ; preds = %.thread.sink.split.i.i.i, %389, %388, %371, %370, %353, %352, %343, %343, %343
-  %.0220.shrunk.i.i.i = phi i8 [ %391, %389 ], [ %373, %371 ], [ %355, %353 ], [ -1, %343 ], [ -1, %343 ], [ -1, %343 ], [ -1, %352 ], [ -1, %370 ], [ -1, %388 ], [ 0, %.thread.sink.split.i.i.i ]
-  %.0219.i.i.i = phi i32 [ %386, %389 ], [ %368, %371 ], [ %350, %353 ], [ 0, %343 ], [ 0, %343 ], [ 0, %343 ], [ 0, %352 ], [ 0, %370 ], [ 0, %388 ], [ %.sink267.i.i.i, %.thread.sink.split.i.i.i ]
+  %.0220.shrunk.i.i.i = phi i8 [ -1, %343 ], [ %355, %353 ], [ %373, %371 ], [ %391, %389 ], [ -1, %343 ], [ -1, %343 ], [ -1, %352 ], [ -1, %370 ], [ -1, %388 ], [ 0, %.thread.sink.split.i.i.i ]
+  %.0219.i.i.i = phi i32 [ 0, %343 ], [ %350, %353 ], [ %368, %371 ], [ %386, %389 ], [ 0, %343 ], [ 0, %343 ], [ 0, %352 ], [ 0, %370 ], [ 0, %388 ], [ %.sink267.i.i.i, %.thread.sink.split.i.i.i ]
   %404 = load i8, ptr @pref_perform_analysis, align 1, !range !6, !noundef !7
   %405 = icmp eq i8 %404, 0
   %406 = icmp eq ptr %342, null
@@ -3036,11 +3036,11 @@ proto_item_set_generated.exit:                    ; preds = %30, %31, %34
   br label %114
 
 114:                                              ; preds = %107, %113, %112, %111
-  %.0183.in = phi ptr [ @hf_obj_data_len, %113 ], [ @hf_trunknamelen, %112 ], [ @hf_portnamelen, %111 ], [ @hf_vipnamelen, %107 ]
-  %.0182.in = phi ptr [ @hf_data_str, %113 ], [ @hf_trunk, %112 ], [ @hf_phys_port, %111 ], [ @hf_vip, %107 ]
-  %.0181 = phi ptr [ @.str.307, %113 ], [ @.str.306, %112 ], [ @.str.305, %111 ], [ @.str.303, %107 ]
-  %115 = phi i1 [ true, %113 ], [ false, %112 ], [ false, %111 ], [ false, %107 ]
-  %116 = phi i1 [ false, %113 ], [ false, %112 ], [ false, %111 ], [ true, %107 ]
+  %.0183.in = phi ptr [ @hf_obj_data_len, %113 ], [ @hf_portnamelen, %111 ], [ @hf_trunknamelen, %112 ], [ @hf_vipnamelen, %107 ]
+  %.0182.in = phi ptr [ @hf_data_str, %113 ], [ @hf_phys_port, %111 ], [ @hf_trunk, %112 ], [ @hf_vip, %107 ]
+  %.0181 = phi ptr [ @.str.307, %113 ], [ @.str.305, %111 ], [ @.str.306, %112 ], [ @.str.303, %107 ]
+  %115 = phi i1 [ true, %113 ], [ false, %111 ], [ false, %112 ], [ false, %107 ]
+  %116 = phi i1 [ false, %113 ], [ false, %111 ], [ false, %112 ], [ true, %107 ]
   %.0182 = load i32, ptr %.0182.in, align 4
   %.0183 = load i32, ptr %.0183.in, align 4
   %117 = add nuw nsw i32 %.0184218, 2

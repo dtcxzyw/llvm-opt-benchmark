@@ -126,7 +126,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   br label %42
 
 42:                                               ; preds = %.sink.split.i, %36, %35, %.split.us.i, %.split.us.i
-  %.223.us.i = phi i32 [ %.02126.us.i, %36 ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %35 ], [ %39, %.sink.split.i ]
+  %.223.us.i = phi i32 [ %.02126.us.i, %36 ], [ %.02126.us.i, %35 ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %.split.us.i ], [ %39, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next, 95
   br i1 %exitcond86.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.us.i, !llvm.loop !109
@@ -694,7 +694,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   br label %298
 
 298:                                              ; preds = %.split.us.i302, %.split.us.i302, %.sink.split.i309, %292
-  %.2.us.i307 = phi i32 [ %.027.us.i303, %.split.us.i302 ], [ %.027.us.i303, %.split.us.i302 ], [ %.027.us.i303, %292 ], [ %293, %.sink.split.i309 ]
+  %.2.us.i307 = phi i32 [ %.027.us.i303, %292 ], [ %.027.us.i303, %.split.us.i302 ], [ %.027.us.i303, %.split.us.i302 ], [ %293, %.sink.split.i309 ]
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond86.not.i308 = icmp eq i64 %indvars.iv.next386, 95
   br i1 %exitcond86.not.i308, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %.split.us.i302, !llvm.loop !109

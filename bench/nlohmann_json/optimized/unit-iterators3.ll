@@ -2331,7 +2331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   br label %44
 
 44:                                               ; preds = %24, %40, %34, %28
-  %.0 = phi i1 [ %43, %40 ], [ %39, %34 ], [ %33, %28 ], [ true, %24 ]
+  %.0 = phi i1 [ %43, %40 ], [ %33, %28 ], [ %39, %34 ], [ true, %24 ]
   ret i1 %.0
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %23

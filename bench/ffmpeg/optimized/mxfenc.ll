@@ -458,8 +458,8 @@ define internal range(i32 -2147483648, 1) i32 @mxf_write_packet(ptr noundef %0, 
   br label %171
 
 150:                                              ; preds = %111, %147, %145, %132, %123, %122, %121, %120, %114, %87, %74, %60
-  %.sroa.6.3 = phi i8 [ %.sroa.6.2, %60 ], [ %.sroa.6.2, %132 ], [ %149, %147 ], [ %146, %145 ], [ %116, %123 ], [ %116, %122 ], [ %116, %121 ], [ %116, %120 ], [ %.sroa.6.2, %114 ], [ %.sroa.6.2, %74 ], [ %.sroa.6.2, %87 ], [ %spec.select, %111 ]
-  %.sroa.3.3 = phi i16 [ %.sroa.3.2, %60 ], [ %144, %132 ], [ %144, %147 ], [ %144, %145 ], [ %.sroa.3.2, %123 ], [ %.sroa.3.2, %122 ], [ %.sroa.3.2, %121 ], [ %.sroa.3.2, %120 ], [ %.sroa.3.2, %114 ], [ %.sroa.3.2, %74 ], [ %.sroa.3.2, %87 ], [ %.sroa.3.2, %111 ]
+  %.sroa.6.3 = phi i8 [ %.sroa.6.2, %60 ], [ %.sroa.6.2, %74 ], [ %.sroa.6.2, %87 ], [ %.sroa.6.2, %114 ], [ %116, %123 ], [ %116, %120 ], [ %116, %121 ], [ %116, %122 ], [ %.sroa.6.2, %132 ], [ %146, %145 ], [ %149, %147 ], [ %spec.select, %111 ]
+  %.sroa.3.3 = phi i16 [ %.sroa.3.2, %60 ], [ %.sroa.3.2, %74 ], [ %.sroa.3.2, %87 ], [ %.sroa.3.2, %114 ], [ %.sroa.3.2, %123 ], [ %.sroa.3.2, %120 ], [ %.sroa.3.2, %121 ], [ %.sroa.3.2, %122 ], [ %144, %132 ], [ %144, %145 ], [ %144, %147 ], [ %.sroa.3.2, %111 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %151 = load i32, ptr %51, align 8, !tbaa !52
   %152 = add nsw i32 %151, -4
@@ -722,7 +722,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
   br label %278
 
 278:                                              ; preds = %275, %273, %271, %270, %268
-  %.032.i = phi i32 [ %274, %273 ], [ %272, %271 ], [ %269, %270 ], [ %269, %268 ], [ %spec.select.i, %275 ]
+  %.032.i = phi i32 [ %269, %270 ], [ %269, %268 ], [ %272, %271 ], [ %274, %273 ], [ %spec.select.i, %275 ]
   %279 = zext nneg i32 %.032.i to i64
   %280 = getelementptr inbounds nuw [10 x %struct.anon.2], ptr @mxf_dv_uls, i64 0, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %.val154, i64 40
@@ -926,11 +926,11 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
   br label %404
 
 404:                                              ; preds = %343, %402, %400, %get_ue_golomb_long.exit.i, %346, %322, %311, %307
-  %.sroa.6.10 = phi i8 [ %.sroa.6.9, %307 ], [ %.sroa.6.9, %get_ue_golomb_long.exit.i ], [ %403, %402 ], [ %401, %400 ], [ %347, %346 ], [ %312, %322 ], [ %312, %311 ], [ %spec.select259, %343 ]
-  %.195.i = phi i32 [ %.094123.i, %307 ], [ %.094123.i, %get_ue_golomb_long.exit.i ], [ %.094123.i, %402 ], [ %.094123.i, %400 ], [ %.094123.i, %346 ], [ %.094123.i, %322 ], [ %.094123.i, %311 ], [ %spec.select260, %343 ]
-  %.193.i = phi i32 [ %.092124.i, %307 ], [ %.092124.i, %get_ue_golomb_long.exit.i ], [ %.092124.i, %402 ], [ %.092124.i, %400 ], [ %.092124.i, %346 ], [ 1, %322 ], [ %.092124.i, %311 ], [ %.092124.i, %343 ]
-  %.191.i = phi i32 [ %.090125.i, %307 ], [ %.090125.i, %get_ue_golomb_long.exit.i ], [ %.090125.i, %402 ], [ %.090125.i, %400 ], [ %.090125.i, %346 ], [ %338, %322 ], [ %.090125.i, %311 ], [ %.090125.i, %343 ]
-  %.1.i = phi ptr [ %308, %307 ], [ %294, %get_ue_golomb_long.exit.i ], [ %294, %402 ], [ %294, %400 ], [ %294, %346 ], [ %315, %322 ], [ %308, %311 ], [ %308, %343 ]
+  %.sroa.6.10 = phi i8 [ %.sroa.6.9, %307 ], [ %312, %322 ], [ %312, %311 ], [ %347, %346 ], [ %.sroa.6.9, %get_ue_golomb_long.exit.i ], [ %401, %400 ], [ %403, %402 ], [ %spec.select259, %343 ]
+  %.195.i = phi i32 [ %.094123.i, %307 ], [ %.094123.i, %322 ], [ %.094123.i, %311 ], [ %.094123.i, %346 ], [ %.094123.i, %get_ue_golomb_long.exit.i ], [ %.094123.i, %400 ], [ %.094123.i, %402 ], [ %spec.select260, %343 ]
+  %.193.i = phi i32 [ %.092124.i, %307 ], [ 1, %322 ], [ %.092124.i, %311 ], [ %.092124.i, %346 ], [ %.092124.i, %get_ue_golomb_long.exit.i ], [ %.092124.i, %400 ], [ %.092124.i, %402 ], [ %.092124.i, %343 ]
+  %.191.i = phi i32 [ %.090125.i, %307 ], [ %338, %322 ], [ %.090125.i, %311 ], [ %.090125.i, %346 ], [ %.090125.i, %get_ue_golomb_long.exit.i ], [ %.090125.i, %400 ], [ %.090125.i, %402 ], [ %.090125.i, %343 ]
+  %.1.i = phi ptr [ %308, %307 ], [ %315, %322 ], [ %308, %311 ], [ %294, %346 ], [ %294, %get_ue_golomb_long.exit.i ], [ %294, %400 ], [ %294, %402 ], [ %308, %343 ]
   %405 = call ptr @avpriv_find_start_code(ptr noundef %.1.i, ptr noundef nonnull %294, ptr noundef nonnull %6) #14
   %.not.i178 = icmp ult ptr %405, %294
   br i1 %.not.i178, label %307, label %._crit_edge.i
@@ -5799,8 +5799,8 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   br label %145
 
 145:                                              ; preds = %.thread44.i.i.i, %.thread.i.i.i
-  %.12342.i.i.i = phi ptr [ %.12349.i.i.i, %.thread44.i.i.i ], [ %.2.i.i.i, %.thread.i.i.i ]
-  %.130.i.i.i = phi i64 [ %.02954.i.i.i, %.thread44.i.i.i ], [ %.231.i.i.i, %.thread.i.i.i ]
+  %.12342.i.i.i = phi ptr [ %.2.i.i.i, %.thread.i.i.i ], [ %.12349.i.i.i, %.thread44.i.i.i ]
+  %.130.i.i.i = phi i64 [ %.231.i.i.i, %.thread.i.i.i ], [ %.02954.i.i.i, %.thread44.i.i.i ]
   %146 = load i8, ptr %.12342.i.i.i, align 1, !tbaa !54
   %.not.i.i.i = icmp eq i8 %146, 0
   br i1 %.not.i.i.i, label %mxf_utf16len.exit.i.i, label %.lr.ph.i.i.i
@@ -5882,8 +5882,8 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   br label %175
 
 175:                                              ; preds = %.thread44.i.i75.i, %.thread.i.i85.i
-  %.12342.i.i77.i = phi ptr [ %.12349.i.i76.i, %.thread44.i.i75.i ], [ %.2.i.i72.i, %.thread.i.i85.i ]
-  %.130.i.i78.i = phi i64 [ %.02954.i.i66.i, %.thread44.i.i75.i ], [ %.231.i.i87.i, %.thread.i.i85.i ]
+  %.12342.i.i77.i = phi ptr [ %.2.i.i72.i, %.thread.i.i85.i ], [ %.12349.i.i76.i, %.thread44.i.i75.i ]
+  %.130.i.i78.i = phi i64 [ %.231.i.i87.i, %.thread.i.i85.i ], [ %.02954.i.i66.i, %.thread44.i.i75.i ]
   %176 = load i8, ptr %.12342.i.i77.i, align 1, !tbaa !54
   %.not.i.i79.i = icmp eq i8 %176, 0
   br i1 %.not.i.i79.i, label %mxf_utf16len.exit.i80.i, label %.lr.ph.i.i64.i
@@ -5962,8 +5962,8 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   br label %205
 
 205:                                              ; preds = %.thread44.i.i102.i, %.thread.i.i112.i
-  %.12342.i.i104.i = phi ptr [ %.12349.i.i103.i, %.thread44.i.i102.i ], [ %.2.i.i99.i, %.thread.i.i112.i ]
-  %.130.i.i105.i = phi i64 [ %.02954.i.i93.i, %.thread44.i.i102.i ], [ %.231.i.i114.i, %.thread.i.i112.i ]
+  %.12342.i.i104.i = phi ptr [ %.2.i.i99.i, %.thread.i.i112.i ], [ %.12349.i.i103.i, %.thread44.i.i102.i ]
+  %.130.i.i105.i = phi i64 [ %.231.i.i114.i, %.thread.i.i112.i ], [ %.02954.i.i93.i, %.thread44.i.i102.i ]
   %206 = load i8, ptr %.12342.i.i104.i, align 1, !tbaa !54
   %.not.i.i106.i = icmp eq i8 %206, 0
   br i1 %.not.i.i106.i, label %mxf_utf16len.exit.i107.i, label %.lr.ph.i.i91.i
@@ -6046,8 +6046,8 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   br label %236
 
 236:                                              ; preds = %.thread44.i.i129.i, %.thread.i.i139.i
-  %.12342.i.i131.i = phi ptr [ %.12349.i.i130.i, %.thread44.i.i129.i ], [ %.2.i.i126.i, %.thread.i.i139.i ]
-  %.130.i.i132.i = phi i64 [ %.02954.i.i120.i, %.thread44.i.i129.i ], [ %.231.i.i141.i, %.thread.i.i139.i ]
+  %.12342.i.i131.i = phi ptr [ %.2.i.i126.i, %.thread.i.i139.i ], [ %.12349.i.i130.i, %.thread44.i.i129.i ]
+  %.130.i.i132.i = phi i64 [ %.231.i.i141.i, %.thread.i.i139.i ], [ %.02954.i.i120.i, %.thread44.i.i129.i ]
   %237 = load i8, ptr %.12342.i.i131.i, align 1, !tbaa !54
   %.not.i.i133.i = icmp eq i8 %237, 0
   br i1 %.not.i.i133.i, label %mxf_utf16len.exit.i134.i, label %.lr.ph.i.i118.i
@@ -6289,8 +6289,8 @@ mxf_write_content_storage.exit:                   ; preds = %275
   br label %314
 
 314:                                              ; preds = %.thread44.i.i.i72, %.thread.i.i.i98
-  %.12342.i.i.i74 = phi ptr [ %.12349.i.i.i73, %.thread44.i.i.i72 ], [ %.2.i.i.i69, %.thread.i.i.i98 ]
-  %.130.i.i.i75 = phi i64 [ %.02954.i.i.i63, %.thread44.i.i.i72 ], [ %.231.i.i.i100, %.thread.i.i.i98 ]
+  %.12342.i.i.i74 = phi ptr [ %.2.i.i.i69, %.thread.i.i.i98 ], [ %.12349.i.i.i73, %.thread44.i.i.i72 ]
+  %.130.i.i.i75 = phi i64 [ %.231.i.i.i100, %.thread.i.i.i98 ], [ %.02954.i.i.i63, %.thread44.i.i.i72 ]
   %315 = load i8, ptr %.12342.i.i.i74, align 1, !tbaa !54
   %.not.i.i.i76 = icmp eq i8 %315, 0
   br i1 %.not.i.i.i76, label %mxf_utf16len.exit.i.i77, label %.lr.ph.i.i.i61
@@ -6408,8 +6408,8 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   br label %366
 
 366:                                              ; preds = %.thread44.i.i.i.i.i, %.thread.i.i.i.i.i
-  %.12342.i.i.i.i.i = phi ptr [ %.12349.i.i.i.i.i, %.thread44.i.i.i.i.i ], [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ]
-  %.130.i.i.i.i.i = phi i64 [ %.02954.i.i.i.i.i, %.thread44.i.i.i.i.i ], [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ]
+  %.12342.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.12349.i.i.i.i.i, %.thread44.i.i.i.i.i ]
+  %.130.i.i.i.i.i = phi i64 [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.02954.i.i.i.i.i, %.thread44.i.i.i.i.i ]
   %367 = load i8, ptr %.12342.i.i.i.i.i, align 1, !tbaa !54
   %.not.i.i.i.i.i = icmp eq i8 %367, 0
   br i1 %.not.i.i.i.i.i, label %mxf_utf16len.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -6491,8 +6491,8 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   br label %396
 
 396:                                              ; preds = %.thread44.i.i40.i.i.i, %.thread.i.i50.i.i.i
-  %.12342.i.i42.i.i.i = phi ptr [ %.12349.i.i41.i.i.i, %.thread44.i.i40.i.i.i ], [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ]
-  %.130.i.i43.i.i.i = phi i64 [ %.02954.i.i31.i.i.i, %.thread44.i.i40.i.i.i ], [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ]
+  %.12342.i.i42.i.i.i = phi ptr [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ], [ %.12349.i.i41.i.i.i, %.thread44.i.i40.i.i.i ]
+  %.130.i.i43.i.i.i = phi i64 [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ], [ %.02954.i.i31.i.i.i, %.thread44.i.i40.i.i.i ]
   %397 = load i8, ptr %.12342.i.i42.i.i.i, align 1, !tbaa !54
   %.not.i.i44.i.i.i = icmp eq i8 %397, 0
   br i1 %.not.i.i44.i.i.i, label %mxf_utf16len.exit.i45.i.i.i, label %.lr.ph.i.i29.i.i.i
@@ -7594,8 +7594,8 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   br label %28
 
 28:                                               ; preds = %.thread44.i, %.thread.i
-  %.12342.i = phi ptr [ %.12349.i, %.thread44.i ], [ %.2.i, %.thread.i ]
-  %.130.i = phi i64 [ %.02954.i, %.thread44.i ], [ %.231.i, %.thread.i ]
+  %.12342.i = phi ptr [ %.2.i, %.thread.i ], [ %.12349.i, %.thread44.i ]
+  %.130.i = phi i64 [ %.231.i, %.thread.i ], [ %.02954.i, %.thread44.i ]
   %29 = load i8, ptr %.12342.i, align 1, !tbaa !54
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %mxf_utf16len.exit, label %.lr.ph.i
@@ -8629,8 +8629,8 @@ mxf_get_codec_ul_by_id.exit290:                   ; preds = %.lr.ph.i286, %37, %
   br label %139
 
 139:                                              ; preds = %120, %138, %137, %136, %135, %130, %125
-  %.0187 = phi i32 [ 0, %138 ], [ 584, %137 ], [ 0, %136 ], [ 270, %135 ], [ %134, %130 ], [ %129, %125 ], [ 320, %120 ]
-  %.0185 = phi i32 [ 0, %138 ], [ 21, %137 ], [ 26, %136 ], [ 7, %135 ], [ 20, %130 ], [ 23, %125 ], [ 7, %120 ]
+  %.0187 = phi i32 [ 0, %138 ], [ %129, %125 ], [ %134, %130 ], [ 270, %135 ], [ 0, %136 ], [ 584, %137 ], [ 320, %120 ]
+  %.0185 = phi i32 [ 0, %138 ], [ 23, %125 ], [ 20, %130 ], [ 7, %135 ], [ 26, %136 ], [ 21, %137 ], [ 7, %120 ]
   %140 = load i32, ptr %54, align 4, !tbaa !58
   %141 = icmp eq i32 %140, 0
   %142 = icmp ne i32 %.0187, 0

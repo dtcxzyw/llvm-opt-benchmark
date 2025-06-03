@@ -614,7 +614,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE7reserveEm.exit: ; preds = %3
   ]
 
 44:                                               ; preds = %59, %39
-  %.7.i = phi ptr [ %60, %59 ], [ %37, %39 ]
+  %.7.i = phi ptr [ %37, %39 ], [ %60, %59 ]
   %.not.i9 = icmp eq ptr %.7.i, %36
   br i1 %.not.i9, label %._ZN5boost4wave4util19flex_string_details8pod_fillIccEEvPT_S5_T0_.exit_crit_edge, label %45
 
@@ -664,7 +664,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE7reserveEm.exit: ; preds = %3
   br label %59
 
 59:                                               ; preds = %57, %39
-  %.6.i = phi ptr [ %37, %39 ], [ %58, %57 ]
+  %.6.i = phi ptr [ %58, %57 ], [ %37, %39 ]
   store i8 %2, ptr %.6.i, align 1, !tbaa !10
   %60 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   br label %44, !llvm.loop !14

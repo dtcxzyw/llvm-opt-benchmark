@@ -3040,7 +3040,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %186
 
 185:                                              ; preds = %.body, %168, %182, %162
-  %.pn158.pn = phi { ptr, i32 } [ %.pn158, %182 ], [ %163, %162 ], [ %.pn162, %168 ], [ %.pn10.i, %.body ]
+  %.pn162.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %.pn158, %182 ], [ %.pn162, %168 ], [ %.pn10.i, %.body ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #21
   br label %188
 
@@ -3060,7 +3060,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %192
 
 188:                                              ; preds = %185, %118
-  %.pn166 = phi { ptr, i32 } [ %119, %118 ], [ %.pn158.pn, %185 ]
+  %.pn166 = phi { ptr, i32 } [ %119, %118 ], [ %.pn162.pn.pn, %185 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #21
   br label %189
 

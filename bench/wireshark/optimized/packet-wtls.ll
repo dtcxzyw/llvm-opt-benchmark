@@ -634,8 +634,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   br label %172
 
 172:                                              ; preds = %161, %156, %145, %131, %126
-  %.1487.i = phi i32 [ %.0486.i, %126 ], [ %171, %161 ], [ %160, %156 ], [ %155, %145 ], [ %144, %131 ]
-  %.2.i = phi i32 [ %130, %126 ], [ %169, %161 ], [ %159, %156 ], [ %153, %145 ], [ %143, %131 ]
+  %.1487.i = phi i32 [ %.0486.i, %126 ], [ %144, %131 ], [ %155, %145 ], [ %160, %156 ], [ %171, %161 ]
+  %.2.i = phi i32 [ %130, %126 ], [ %143, %131 ], [ %153, %145 ], [ %159, %156 ], [ %169, %161 ]
   call void @proto_item_set_len(ptr noundef %107, i32 noundef %.1487.i)
   %173 = sub i32 %.0495514.i, %.1487.i
   %.not503.i = icmp eq i32 %173, 0
@@ -749,8 +749,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   br label %252
 
 252:                                              ; preds = %241, %236, %225, %211, %206
-  %.3489.i = phi i32 [ %.2488.i, %206 ], [ %251, %241 ], [ %240, %236 ], [ %235, %225 ], [ %224, %211 ]
-  %.5.i = phi i32 [ %210, %206 ], [ %249, %241 ], [ %239, %236 ], [ %233, %225 ], [ %223, %211 ]
+  %.3489.i = phi i32 [ %.2488.i, %206 ], [ %224, %211 ], [ %235, %225 ], [ %240, %236 ], [ %251, %241 ]
+  %.5.i = phi i32 [ %210, %206 ], [ %223, %211 ], [ %233, %225 ], [ %239, %236 ], [ %249, %241 ]
   call void @proto_item_set_len(ptr noundef %187, i32 noundef %.3489.i)
   %253 = sub i32 %.1496518.i, %.3489.i
   %.not504.i = icmp eq i32 %253, 0
@@ -1065,8 +1065,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr noundef readonly captures(
   br label %464
 
 464:                                              ; preds = %458, %452, %443, %.lr.ph.i
-  %.4490.i = phi i32 [ 1, %.lr.ph.i ], [ %462, %458 ], [ %456, %452 ], [ %451, %443 ]
-  %.9.i = phi i32 [ %356, %.lr.ph.i ], [ %463, %458 ], [ %457, %452 ], [ %450, %443 ]
+  %.4490.i = phi i32 [ 1, %.lr.ph.i ], [ %451, %443 ], [ %456, %452 ], [ %462, %458 ]
+  %.9.i = phi i32 [ %356, %.lr.ph.i ], [ %450, %443 ], [ %457, %452 ], [ %463, %458 ]
   call void @proto_item_set_len(ptr noundef %350, i32 noundef %.4490.i)
   %465 = sub i32 %.4499511.i, %.4490.i
   %.not.i = icmp eq i32 %465, 0

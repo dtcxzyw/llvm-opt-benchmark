@@ -143,9 +143,9 @@ define internal noundef range(i32 0, 2147483392) i32 @_ZNK12_GLOBAL__N_118X86ELF
   br label %_ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit
 
 _ZL9getType64N4llvm11MCFixupKindERNS_15MCSymbolRefExpr11VariantKindERb.exit: ; preds = %21, %24, %25, %26, %28, %29, %30, %31, %32
-  %.033.shrunk = phi i1 [ %4, %32 ], [ %4, %31 ], [ %4, %30 ], [ %4, %29 ], [ true, %28 ], [ %4, %26 ], [ %4, %25 ], [ true, %24 ], [ %4, %21 ]
-  %.032 = phi i16 [ %22, %32 ], [ %22, %31 ], [ 13, %30 ], [ %22, %29 ], [ 2, %28 ], [ %22, %26 ], [ %22, %25 ], [ 2, %24 ], [ %22, %21 ]
-  %.0.i = phi i32 [ 5, %32 ], [ 4, %31 ], [ 2, %30 ], [ 2, %29 ], [ 2, %28 ], [ %spec.select.i, %26 ], [ 1, %25 ], [ 1, %24 ], [ %17, %21 ]
+  %.033.shrunk = phi i1 [ %4, %21 ], [ true, %24 ], [ %4, %25 ], [ %4, %26 ], [ true, %28 ], [ %4, %29 ], [ %4, %30 ], [ %4, %31 ], [ %4, %32 ]
+  %.032 = phi i16 [ %22, %21 ], [ 2, %24 ], [ %22, %25 ], [ %22, %26 ], [ 2, %28 ], [ %22, %29 ], [ 13, %30 ], [ %22, %31 ], [ %22, %32 ]
+  %.0.i = phi i32 [ %17, %21 ], [ 1, %24 ], [ 1, %25 ], [ %spec.select.i, %26 ], [ 2, %28 ], [ 2, %29 ], [ 2, %30 ], [ 4, %31 ], [ 5, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %34 = load i16, ptr %33, align 2, !tbaa !21
   %35 = icmp eq i16 %34, 62
@@ -412,8 +412,8 @@ _ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i: ; preds = %83
   br label %109
 
 109:                                              ; preds = %108, %107, %106, %101
-  %.not.i25 = phi i1 [ false, %101 ], [ false, %107 ], [ true, %106 ], [ false, %108 ]
-  %.019 = phi i32 [ 0, %101 ], [ 2, %107 ], [ 1, %106 ], [ 3, %108 ]
+  %.not.i25 = phi i1 [ false, %101 ], [ false, %108 ], [ true, %106 ], [ false, %107 ]
+  %.019 = phi i32 [ 0, %101 ], [ 3, %108 ], [ 1, %106 ], [ 2, %107 ]
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i24 = load ptr, ptr %110, align 8, !tbaa !25
   switch i16 %.032, label %111 [
@@ -538,7 +538,7 @@ switch.lookup34:                                  ; preds = %91
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
 _ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit: ; preds = %switch.lookup34, %91, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i, %switch.lookup, %102, %36, %39, %40, %42, %44, %46, %48, %51, %53, %55, %56, %59, %60, %61, %62, %65, %66, %74, %75, %78, %79, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i, %93, %94, %97, %98, %109, %113, %115, %117, %119, %122, %123, %129, %132, %133, %134, %135, %136, %137, %138, %139, %140, %141, %142, %143, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %102 ], [ %64, %62 ], [ %54, %53 ], [ %52, %51 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ 0, %40 ], [ 11, %39 ], [ 25, %56 ], [ 25, %55 ], [ %..i, %59 ], [ %.49.i, %60 ], [ %.52.i, %61 ], [ 35, %36 ], [ 9, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i ], [ 9, %91 ], [ 19, %65 ], [ 19, %66 ], [ 20, %74 ], [ 20, %75 ], [ 4, %78 ], [ 4, %79 ], [ 9, %93 ], [ 9, %94 ], [ 31, %97 ], [ 31, %98 ], [ 0, %143 ], [ 39, %133 ], [ %131, %129 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ 0, %113 ], [ 10, %122 ], [ 3, %123 ], [ 9, %132 ], [ 40, %109 ], [ 34, %134 ], [ 32, %135 ], [ 18, %136 ], [ 33, %137 ], [ 4, %138 ], [ 15, %139 ], [ 17, %140 ], [ 16, %141 ], [ 19, %142 ], [ %switch.load, %switch.lookup ], [ 22, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i ], [ %switch.load37, %switch.lookup34 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %102 ], [ 0, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %52, %51 ], [ %54, %53 ], [ %64, %62 ], [ 11, %39 ], [ 25, %56 ], [ 25, %55 ], [ %..i, %59 ], [ %.49.i, %60 ], [ %.52.i, %61 ], [ 35, %36 ], [ 9, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit60.i ], [ 9, %91 ], [ 19, %65 ], [ 19, %66 ], [ 20, %74 ], [ 20, %75 ], [ 4, %78 ], [ 4, %79 ], [ 9, %93 ], [ 9, %94 ], [ 31, %97 ], [ 31, %98 ], [ 0, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ 0, %143 ], [ %131, %129 ], [ 39, %133 ], [ 10, %122 ], [ 3, %123 ], [ 9, %132 ], [ 40, %109 ], [ 34, %134 ], [ 32, %135 ], [ 18, %136 ], [ 33, %137 ], [ 4, %138 ], [ 15, %139 ], [ 17, %140 ], [ 16, %141 ], [ 19, %142 ], [ %switch.load, %switch.lookup ], [ 22, %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i ], [ %switch.load37, %switch.lookup34 ]
   ret i32 %.0
 }
 

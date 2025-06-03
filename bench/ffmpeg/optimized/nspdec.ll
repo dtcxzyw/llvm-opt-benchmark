@@ -120,7 +120,7 @@ define internal range(i32 -1094995529, 1) i32 @nsp_read_header(ptr noundef %0) #
   br label %.loopexit
 
 38:                                               ; preds = %10, %19, %29
-  %.237 = phi i32 [ %.03567, %10 ], [ %.03567, %29 ], [ %23, %19 ]
+  %.237 = phi i32 [ %.03567, %10 ], [ %23, %19 ], [ %.03567, %29 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #4
   %39 = load ptr, ptr %3, align 8, !tbaa !12
   %40 = call i32 @avio_feof(ptr noundef %39) #4

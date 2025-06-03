@@ -1351,7 +1351,7 @@ lup_invert_double.exit.i:                         ; preds = %._crit_edge62.us.us
   br label %process_sample_double.exit
 
 process_sample_double.exit:                       ; preds = %._crit_edge198.i, %319, %320, %321, %322
-  %.0165.i = phi nsz double [ %148, %._crit_edge198.i ], [ %323, %322 ], [ %151, %321 ], [ %61, %320 ], [ %59, %319 ]
+  %.0165.i = phi nsz double [ %148, %._crit_edge198.i ], [ %59, %319 ], [ %61, %320 ], [ %151, %321 ], [ %323, %322 ]
   %324 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv
   store double %.0165.i, ptr %324, align 8, !tbaa !87
   %325 = load i32, ptr %38, align 8, !tbaa !112
@@ -2022,7 +2022,7 @@ lup_invert_float.exit.i:                          ; preds = %._crit_edge62.us.us
   br label %process_sample_float.exit
 
 process_sample_float.exit:                        ; preds = %._crit_edge198.i, %316, %317, %318, %319
-  %.0165.i = phi nsz float [ %145, %._crit_edge198.i ], [ %320, %319 ], [ %148, %318 ], [ %61, %317 ], [ %59, %316 ]
+  %.0165.i = phi nsz float [ %145, %._crit_edge198.i ], [ %59, %316 ], [ %61, %317 ], [ %148, %318 ], [ %320, %319 ]
   %321 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   store float %.0165.i, ptr %321, align 4, !tbaa !115
   %322 = load i32, ptr %38, align 8, !tbaa !112

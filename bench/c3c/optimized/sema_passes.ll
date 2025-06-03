@@ -2713,7 +2713,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
   br label %134
 
 134:                                              ; preds = %.thread131, %._crit_edge104, %132, %129, %121, %105, %95, %84, %.critedge, %21, %6
-  %.081 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %95 ], [ null, %84 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread131 ]
+  %.081 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %84 ], [ null, %95 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread131 ]
   ret ptr %.081
 }
 

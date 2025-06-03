@@ -7518,7 +7518,7 @@ pick_stream.exit.i:                               ; preds = %303, %292, %260
   br label %read_packet.exit
 
 pick_stream.exit.thread.i:                        ; preds = %pick_stream.exit.i, %udp_read_packet.exit.i, %91
-  %.0.i = phi i32 [ %94, %91 ], [ %.071.i.i, %udp_read_packet.exit.i ], [ 0, %pick_stream.exit.i ]
+  %.0.i = phi i32 [ %94, %91 ], [ 0, %pick_stream.exit.i ], [ %.071.i.i, %udp_read_packet.exit.i ]
   %.0.fr.i = freeze i32 %.0.i
   %319 = icmp eq i32 %.0.fr.i, 0
   %spec.select.i = select i1 %319, i32 -541478725, i32 %.0.fr.i

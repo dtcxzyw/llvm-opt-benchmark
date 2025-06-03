@@ -229,12 +229,12 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   br label %95
 
 95:                                               ; preds = %93, %58, %53
-  %.0101 = phi i32 [ %94, %93 ], [ %59, %58 ], [ %.1102, %53 ]
+  %.0101 = phi i32 [ %.1102, %53 ], [ %59, %58 ], [ %94, %93 ]
   %96 = icmp slt i32 %.0101, 0
   br i1 %96, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %79, %.preheader, %38, %41, %45, %92, %31, %95
-  %.0101119 = phi i32 [ %.0101, %95 ], [ 2048, %31 ], [ 2048, %92 ], [ 2048, %45 ], [ 2048, %41 ], [ 2048, %38 ], [ 2048, %.preheader ], [ 2048, %79 ]
+.thread:                                          ; preds = %79, %.preheader, %92, %45, %41, %38, %31, %95
+  %.0101119 = phi i32 [ %.0101, %95 ], [ 2048, %31 ], [ 2048, %38 ], [ 2048, %41 ], [ 2048, %45 ], [ 2048, %92 ], [ 2048, %.preheader ], [ 2048, %79 ]
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %98 = load i32, ptr %97, align 8, !tbaa !46
   %99 = and i32 %98, 1

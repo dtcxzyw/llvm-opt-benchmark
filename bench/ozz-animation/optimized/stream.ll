@@ -531,7 +531,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN3ozz2io12MemoryStream4SeekEiNS
   br label %10
 
 10:                                               ; preds = %3, %7, %4
-  %.0 = phi i32 [ %9, %7 ], [ %6, %4 ], [ 0, %3 ]
+  %.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ 0, %3 ]
   %11 = sub nsw i32 0, %1
   %12 = icmp slt i32 %.0, %11
   br i1 %12, label %20, label %13

@@ -446,7 +446,7 @@ default.unreachable:                              ; preds = %58
   br label %137
 
 137:                                              ; preds = %.thread.thread, %.thread, %102, %94, %91, %132, %35
-  %.1102 = phi i32 [ %33, %35 ], [ %33, %132 ], [ %33, %.thread ], [ %.2103129, %102 ], [ %33, %94 ], [ %33, %91 ], [ %33, %.thread.thread ]
+  %.1102 = phi i32 [ %33, %35 ], [ %33, %.thread ], [ %33, %94 ], [ %33, %91 ], [ %.2103129, %102 ], [ %33, %132 ], [ %33, %.thread.thread ]
   %.not119 = icmp eq i32 %20, 0
   br i1 %.not119, label %.loopexit, label %138
 

@@ -568,7 +568,7 @@ ZeroFillFrameRect.exit:                           ; preds = %205, %186, %.loopex
   br label %212
 
 212:                                              ; preds = %12, %WebPAnimDecoderHasMoreFrames.exit, %3, %211, %ZeroFillFrameRect.exit
-  %.0 = phi i32 [ 0, %211 ], [ 1, %ZeroFillFrameRect.exit ], [ 0, %3 ], [ 0, %WebPAnimDecoderHasMoreFrames.exit ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %ZeroFillFrameRect.exit ], [ 0, %211 ], [ 0, %3 ], [ 0, %WebPAnimDecoderHasMoreFrames.exit ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
   ret i32 %.0
 }

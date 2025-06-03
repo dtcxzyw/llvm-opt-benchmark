@@ -656,11 +656,11 @@ default.unreachable:                              ; preds = %93, %10
           to label %"_ZN13async_process5Child6output28_$u7b$$u7b$closure$u7d$$u7d$17h5dfdf30aaff01b25E.exit" unwind label %56, !noalias !78
 
 common.resume:                                    ; preds = %90, %172, %185, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i", %192, %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStderr$GT$17h115596239c02ebd0E.exit19.i", %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStdout$GT$17hbc3d996ca744f903E.exit19.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.i, %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStdout$GT$17hbc3d996ca744f903E.exit19.i" ], [ %.pn11.pn.i108, %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStderr$GT$17h115596239c02ebd0E.exit19.i" ], [ %173, %172 ], [ %91, %90 ], [ %193, %192 ], [ %186, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i" ], [ %186, %185 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn12.i, %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStdout$GT$17hbc3d996ca744f903E.exit19.i" ], [ %.pn12.i108, %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStderr$GT$17h115596239c02ebd0E.exit19.i" ], [ %173, %172 ], [ %91, %90 ], [ %193, %192 ], [ %186, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i" ], [ %186, %185 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr47drop_in_place$LT$async_process..ChildStdout$GT$17hbc3d996ca744f903E.exit19.i": ; preds = %73, %69, %56, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i"
-  %.pn11.pn.i = phi { ptr, i32 } [ %.pn9.i, %69 ], [ %.pn9.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i" ], [ %57, %56 ], [ %.pn9.i, %73 ]
+  %.pn12.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn9.i, %69 ], [ %.pn9.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i" ], [ %.pn9.i, %73 ]
   store i8 2, ptr %12, align 1, !noalias !66
   br label %common.resume
 
@@ -927,7 +927,7 @@ common.resume:                                    ; preds = %90, %172, %185, %"_
           to label %"_ZN13async_process5Child6output28_$u7b$$u7b$closure$u7d$$u7d$17hfd7ace4681472addE.exit" unwind label %138, !noalias !139
 
 "_ZN4core3ptr47drop_in_place$LT$async_process..ChildStderr$GT$17h115596239c02ebd0E.exit19.i": ; preds = %155, %151, %138, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i106"
-  %.pn11.pn.i108 = phi { ptr, i32 } [ %.pn9.i104, %151 ], [ %.pn9.i104, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i106" ], [ %139, %138 ], [ %.pn9.i104, %155 ]
+  %.pn12.i108 = phi { ptr, i32 } [ %139, %138 ], [ %.pn9.i104, %151 ], [ %.pn9.i104, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb87fc890533156c7E.exit.i106" ], [ %.pn9.i104, %155 ]
   store i8 2, ptr %94, align 1, !noalias !127
   br label %common.resume
 

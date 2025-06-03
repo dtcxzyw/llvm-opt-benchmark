@@ -1695,8 +1695,8 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer22Comp
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge._crit_edge.i.i.i
-  %62 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %57, %59 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %60, %59 ]
+  %62 = phi i32 [ %57, %59 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %63 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !3
   %64 = icmp eq i32 %63, %62
   br i1 %64, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit, label %65
@@ -1706,8 +1706,8 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer22Comp
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge._crit_edge57.i.i.i
-  %68 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %62, %65 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %66, %65 ]
+  %68 = phi i32 [ %62, %65 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %69 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !3
   %70 = icmp eq i32 %69, %68
   %spec.select.i.i.i = select i1 %70, ptr %.sroa.032.2.i.i.i, ptr %27

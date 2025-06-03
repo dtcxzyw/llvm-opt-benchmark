@@ -889,7 +889,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
   br label %SDL_GetScancodeName_REAL.exit
 
 SDL_GetScancodeName_REAL.exit:                    ; preds = %10, %8, %19, %23, %52, %36, %34, %32, %30, %28, %26
-  %.0 = phi ptr [ %54, %52 ], [ %spec.store.select.i55, %36 ], [ %spec.store.select.i52, %34 ], [ %spec.store.select.i49, %32 ], [ %spec.store.select.i46, %30 ], [ %spec.store.select.i43, %28 ], [ %spec.store.select.i40, %26 ], [ %22, %19 ], [ @.str.2, %23 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
+  %.0 = phi ptr [ %54, %52 ], [ %spec.store.select.i40, %26 ], [ %spec.store.select.i43, %28 ], [ %spec.store.select.i46, %30 ], [ %spec.store.select.i49, %32 ], [ %spec.store.select.i52, %34 ], [ %spec.store.select.i55, %36 ], [ %22, %19 ], [ @.str.2, %23 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret ptr %.0
 }

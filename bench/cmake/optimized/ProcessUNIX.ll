@@ -1173,7 +1173,7 @@ define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) loc
   br label %16
 
 16:                                               ; preds = %3, %2, %13, %10, %7, %4
-  %.0 = phi i32 [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %6, %4 ], [ 0, %2 ], [ 0, %3 ]
+  %.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ 0, %2 ], [ 0, %3 ]
   ret i32 %.0
 }
 

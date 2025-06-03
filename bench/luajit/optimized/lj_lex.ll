@@ -1746,7 +1746,7 @@ lj_buf_more.exit104.i:                            ; preds = %693, %685
   br label %.backedge.i, !llvm.loop !62
 
 697:                                              ; preds = %524, %453, %400, %lex_next.exit98.i, %357, %356, %355, %354, %353, %352, %351, %lex_next.exit100.i, %lex_next.exit100.i, %lex_next.exit100.i
-  %.0.i112 = phi i32 [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %.3.i, %453 ], [ %526, %524 ], [ %392, %lex_next.exit98.i ], [ %401, %400 ], [ 11, %357 ], [ 9, %356 ], [ 13, %355 ], [ 10, %354 ], [ 12, %353 ], [ 8, %352 ], [ 7, %351 ]
+  %.0.i112 = phi i32 [ 7, %351 ], [ 8, %352 ], [ 12, %353 ], [ 10, %354 ], [ 13, %355 ], [ 9, %356 ], [ 11, %357 ], [ %392, %lex_next.exit98.i ], [ %401, %400 ], [ %.3.i, %453 ], [ %526, %524 ], [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ], [ %350, %lex_next.exit100.i ]
   %698 = load ptr, ptr %13, align 8, !tbaa !51
   %699 = load ptr, ptr %3, align 8, !tbaa !53
   %700 = ptrtoint ptr %698 to i64
@@ -2010,7 +2010,7 @@ lex_next.exit:                                    ; preds = %826, %830
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %lex_next.exit99, %816, %lex_next.exit86, %lex_next.exit88, %lex_next.exit90, %lex_next.exit92, %lex_next.exit94, %lex_next.exit96, %201, %202, %20, %59, %47, %lex_next.exit, %821, %lex_next.exit85, %lex_string.exit, %lex_next.exit87, %lex_next.exit89, %lex_next.exit91, %lex_next.exit93, %lex_next.exit95
-  %.1 = phi i32 [ %63, %lex_next.exit ], [ 280, %lex_next.exit85 ], [ 286, %821 ], [ 288, %lex_string.exit ], [ 285, %lex_next.exit87 ], [ 284, %lex_next.exit89 ], [ 282, %lex_next.exit91 ], [ 283, %lex_next.exit93 ], [ 281, %lex_next.exit95 ], [ 286, %20 ], [ %61, %59 ], [ 287, %47 ], [ 288, %201 ], [ 91, %202 ], [ 61, %lex_next.exit96 ], [ 60, %lex_next.exit94 ], [ 62, %lex_next.exit92 ], [ 126, %lex_next.exit90 ], [ 58, %lex_next.exit88 ], [ 279, %lex_next.exit86 ], [ 46, %816 ], [ 289, %62 ], [ 45, %lex_next.exit99 ]
+  %.1 = phi i32 [ %63, %lex_next.exit ], [ 281, %lex_next.exit95 ], [ 283, %lex_next.exit93 ], [ 282, %lex_next.exit91 ], [ 284, %lex_next.exit89 ], [ 285, %lex_next.exit87 ], [ 288, %lex_string.exit ], [ 280, %lex_next.exit85 ], [ 286, %821 ], [ 286, %20 ], [ %61, %59 ], [ 287, %47 ], [ 288, %201 ], [ 91, %202 ], [ 61, %lex_next.exit96 ], [ 60, %lex_next.exit94 ], [ 62, %lex_next.exit92 ], [ 126, %lex_next.exit90 ], [ 58, %lex_next.exit88 ], [ 279, %lex_next.exit86 ], [ 46, %816 ], [ 289, %62 ], [ 45, %lex_next.exit99 ]
   ret i32 %.1
 }
 

@@ -523,13 +523,13 @@ define dso_local i64 @_ZN5clang4sema17FunctionScopeInfo19WeakObjectProfileTy11ge
   %53 = tail call noundef zeroext i1 @_ZNK5clang4Expr14isObjCSelfExprEv(ptr noundef nonnull align 8 dereferenceable(16) %.0) #14
   br i1 %53, label %54, label %.thread
 
-54:                                               ; preds = %5, %15, %26, %52
-  %55 = phi i64 [ %33, %26 ], [ %.0.v.i, %52 ], [ %25, %15 ], [ %14, %5 ]
+54:                                               ; preds = %26, %15, %5, %52
+  %55 = phi i64 [ %14, %5 ], [ %.0.v.i, %52 ], [ %25, %15 ], [ %33, %26 ]
   br label %.thread
 
-.thread:                                          ; preds = %34, %39, %1, %5, %15, %26, %52, %54
-  %56 = phi i64 [ %55, %54 ], [ %.0.v.i, %52 ], [ %33, %26 ], [ %25, %15 ], [ %14, %5 ], [ %.0.v.i, %39 ], [ 0, %34 ], [ 0, %1 ]
-  %57 = phi i64 [ 4, %54 ], [ 0, %52 ], [ 0, %26 ], [ 0, %15 ], [ 0, %5 ], [ 0, %39 ], [ 0, %34 ], [ 0, %1 ]
+.thread:                                          ; preds = %34, %39, %1, %26, %15, %5, %52, %54
+  %56 = phi i64 [ %55, %54 ], [ %.0.v.i, %52 ], [ %14, %5 ], [ %25, %15 ], [ %33, %26 ], [ %.0.v.i, %39 ], [ 0, %34 ], [ 0, %1 ]
+  %57 = phi i64 [ 4, %54 ], [ 0, %52 ], [ 0, %5 ], [ 0, %15 ], [ 0, %26 ], [ 0, %39 ], [ 0, %34 ], [ 0, %1 ]
   %58 = or disjoint i64 %57, %56
   ret i64 %58
 }
@@ -1258,8 +1258,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakO
   br label %58
 
 58:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E6doFindIS5_EEPSC_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ], [ %57, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %55, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ], [ %57, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %57, %.loopexit ], [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %57, %.loopexit ], [ %55, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang4sema17FunctionScopeInfo19WeakObjectProfileTyENS_11SmallVectorINS4_9WeakUseTyELj4EEELj8ENS5_12DenseMapInfoENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_S9_SC_E6doFindIS5_EEPSC_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1468,7 +1468,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %31, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %32, %31 ]
+  %.1.i.i.i = phi ptr [ %32, %31 ], [ %27, %.lr.ph.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %34 = load i24, ptr %33, align 16
   %35 = and i24 %34, 1048576

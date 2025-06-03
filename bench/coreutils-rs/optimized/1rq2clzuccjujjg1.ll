@@ -401,8 +401,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %55, %
   br label %81
 
 81:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd84cc6bec6340f2aE.exit", %77, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %80, %77 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd84cc6bec6340f2aE.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %79, %77 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd84cc6bec6340f2aE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd84cc6bec6340f2aE.exit" ], [ %80, %77 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd84cc6bec6340f2aE.exit" ], [ %79, %77 ]
   %82 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %83 = insertvalue { ptr, i64 } %82, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %83
@@ -621,7 +621,7 @@ define noundef zeroext i1 @"_ZN62_$LT$uu_unexpand..ParseError$u20$as$u20$core..f
   br label %44
 
 44:                                               ; preds = %38, %32, %26, %14
-  %.0.in = phi i1 [ %43, %38 ], [ %37, %32 ], [ %31, %26 ], [ %25, %14 ]
+  %.0.in = phi i1 [ %25, %14 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ]
   ret i1 %.0.in
 }
 
@@ -3285,11 +3285,11 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
 145:                                              ; preds = %144
   %146 = load i64, ptr %15, align 8, !range !62, !noundef !4
   %trunc = trunc nuw i64 %146 to i1
-  %147 = load i64, ptr %34, align 8
-  %148 = load i64, ptr %50, align 8
-  %.024.in.in = select i1 %trunc, i64 %147, i64 %148
+  %147 = load i64, ptr %50, align 8
+  %148 = load i64, ptr %34, align 8
+  %.024.in.in = select i1 %trunc, i64 %148, i64 %147
   %.024.in.not = icmp eq i64 %.024.in.in, 0
-  %149 = inttoptr i64 %148 to ptr
+  %149 = inttoptr i64 %147 to ptr
   %150 = icmp eq i64 %146, 0
   br i1 %.024.in.not, label %151, label %155
 
@@ -3383,7 +3383,7 @@ _ZN11uu_unexpand4open17hd359cbb5c6c43d80E.exit:   ; preds = %"_ZN3std2io8buffere
   br i1 %170, label %._crit_edge, label %81
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h964a8da52f186658E.exit53": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h461d359d5d2553e4E.exit.i50", %155
-  %171 = phi i64 [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h461d359d5d2553e4E.exit.i50" ], [ %147, %155 ]
+  %171 = phi i64 [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h461d359d5d2553e4E.exit.i50" ], [ %148, %155 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !637)
   call void @llvm.experimental.noalias.scope.decl(metadata !650)

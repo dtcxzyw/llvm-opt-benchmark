@@ -101,7 +101,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i: ; preds = %22, %10
   br label %28
 
 28:                                               ; preds = %26, %27
-  %.1 = phi i32 [ 1, %26 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %27 ], [ 1, %26 ]
   ret i32 %.1
 }
 

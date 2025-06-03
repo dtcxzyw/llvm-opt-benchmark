@@ -127,7 +127,7 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %58
 
 58:                                               ; preds = %30, %20, %21, %16, %24, %23, %14, %54, %51, %27, %7
-  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %27 ], [ %15, %14 ], [ %spec.store.select1, %24 ], [ %spec.store.select, %23 ], [ %22, %21 ], [ %15, %20 ], [ %15, %16 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
+  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %27 ], [ %15, %14 ], [ %22, %21 ], [ %15, %16 ], [ %15, %20 ], [ %spec.store.select, %23 ], [ %spec.store.select1, %24 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
   ret i64 %.sroa.044.0
 }
 

@@ -768,7 +768,7 @@ bytestream2_get_be16.exit199:                     ; preds = %289
   br label %.loopexit369
 
 .critedge:                                        ; preds = %._crit_edge, %305, %310, %bytestream2_init.exit187
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %bytestream2_init.exit187 ], [ %311, %310 ], [ %.sroa.0.12446, %._crit_edge ], [ %.sroa.0.12446, %305 ]
+  %.sroa.0.2 = phi ptr [ %311, %310 ], [ %.sroa.0.12446, %._crit_edge ], [ %.sroa.0.12446, %305 ], [ %.sroa.0.1, %bytestream2_init.exit187 ]
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %314, i8 0, i64 96, i1 false)
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2504,7 +2504,7 @@ parse_grid_1_chunk.exit.thread:                   ; preds = %.lr.ph.split.i, %72
   br label %.loopexit369
 
 .loopexit369:                                     ; preds = %401, %1230, %305, %272, %1235, %312, %bytestream2_get_byte.exit.thread, %245, %29, %bytestream2_get_be32.exit.thread
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %.0.i204.ph, %245 ], [ -1094995529, %312 ], [ 0, %1235 ], [ -1094995529, %29 ], [ -1094995529, %272 ], [ -1094995529, %305 ], [ -1094995529, %1230 ], [ -1094995529, %401 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %312 ], [ 0, %1235 ], [ -1094995529, %29 ], [ %.0.i204.ph, %245 ], [ -1094995529, %272 ], [ -1094995529, %305 ], [ -1094995529, %1230 ], [ -1094995529, %401 ]
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6) #12
   ret i32 %.0
 }
@@ -6002,8 +6002,8 @@ ensure_bits.exit:                                 ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %186, %160, %95, %.critedge.loopexit196.split.loop.exit204, %.critedge.loopexit.split.loop.exit, %180, %._crit_edge144, %._crit_edge, %._crit_edge151
-  %.val = phi i32 [ %.val192, %._crit_edge ], [ %.val194, %._crit_edge144 ], [ %.val195, %._crit_edge151 ], [ %spec.select.i, %180 ], [ %.val113137, %.critedge.loopexit.split.loop.exit ], [ %.val103129, %.critedge.loopexit196.split.loop.exit204 ], [ %.val113138, %95 ], [ %175, %160 ], [ %196, %186 ]
-  %.190 = phi i32 [ %156, %._crit_edge ], [ %128, %._crit_edge144 ], [ %62, %._crit_edge151 ], [ 0, %180 ], [ %202, %.critedge.loopexit.split.loop.exit ], [ %203, %.critedge.loopexit196.split.loop.exit204 ], [ 128, %95 ], [ 128, %160 ], [ %184, %186 ]
+  %.val = phi i32 [ %.val195, %._crit_edge151 ], [ %.val194, %._crit_edge144 ], [ %.val192, %._crit_edge ], [ %spec.select.i, %180 ], [ %.val113137, %.critedge.loopexit.split.loop.exit ], [ %.val103129, %.critedge.loopexit196.split.loop.exit204 ], [ %.val113138, %95 ], [ %175, %160 ], [ %196, %186 ]
+  %.190 = phi i32 [ %62, %._crit_edge151 ], [ %128, %._crit_edge144 ], [ %156, %._crit_edge ], [ 0, %180 ], [ %202, %.critedge.loopexit.split.loop.exit ], [ %203, %.critedge.loopexit196.split.loop.exit204 ], [ 128, %95 ], [ 128, %160 ], [ %184, %186 ]
   %.not97 = icmp ne i32 %4, 0
   %204 = sub nsw i32 %.val7.i, %.val
   %205 = icmp slt i32 %204, 20

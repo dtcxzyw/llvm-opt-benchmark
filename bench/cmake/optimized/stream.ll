@@ -1335,7 +1335,7 @@ define dso_local i32 @uv_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %14
 
 14:                                               ; preds = %12, %10
-  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ]
+  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ]
   %15 = icmp eq i32 %.0, 0
   br i1 %15, label %16, label %.thread
 

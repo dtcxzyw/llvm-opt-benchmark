@@ -4796,9 +4796,9 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   br label %124
 
 124:                                              ; preds = %92, %120, %116, %113, %109, %106
-  %.0329 = phi nsz float [ %101, %92 ], [ %101, %120 ], [ %119, %116 ], [ %115, %113 ], [ %101, %109 ], [ %101, %106 ]
-  %.0323 = phi nsz float [ %99, %92 ], [ %99, %120 ], [ %99, %116 ], [ %99, %113 ], [ %112, %109 ], [ %108, %106 ]
-  %.0321 = phi nsz float [ %97, %92 ], [ %123, %120 ], [ %97, %116 ], [ %97, %113 ], [ %97, %109 ], [ %97, %106 ]
+  %.0329 = phi nsz float [ %101, %92 ], [ %101, %106 ], [ %101, %109 ], [ %115, %113 ], [ %119, %116 ], [ %101, %120 ]
+  %.0323 = phi nsz float [ %99, %92 ], [ %108, %106 ], [ %112, %109 ], [ %99, %113 ], [ %99, %116 ], [ %99, %120 ]
+  %.0321 = phi nsz float [ %97, %92 ], [ %97, %106 ], [ %97, %109 ], [ %97, %113 ], [ %97, %116 ], [ %123, %120 ]
   %125 = fmul reassoc nsz arcp contract afn float %.0323, %35
   %126 = fmul reassoc nsz arcp contract afn float %125, %.0321
   %127 = fmul reassoc nsz arcp contract afn float %126, 2.000000e+00
@@ -4877,9 +4877,9 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   br label %169
 
 169:                                              ; preds = %.lr.ph, %165, %161, %158, %154, %151
-  %.1330 = phi nsz float [ %147, %.lr.ph ], [ %147, %165 ], [ %164, %161 ], [ %160, %158 ], [ %147, %154 ], [ %147, %151 ]
-  %.1324 = phi nsz float [ %145, %.lr.ph ], [ %145, %165 ], [ %145, %161 ], [ %145, %158 ], [ %157, %154 ], [ %153, %151 ]
-  %.2 = phi nsz float [ %143, %.lr.ph ], [ %168, %165 ], [ %143, %161 ], [ %143, %158 ], [ %143, %154 ], [ %143, %151 ]
+  %.1330 = phi nsz float [ %147, %.lr.ph ], [ %147, %151 ], [ %147, %154 ], [ %160, %158 ], [ %164, %161 ], [ %147, %165 ]
+  %.1324 = phi nsz float [ %145, %.lr.ph ], [ %153, %151 ], [ %157, %154 ], [ %145, %158 ], [ %145, %161 ], [ %145, %165 ]
+  %.2 = phi nsz float [ %143, %.lr.ph ], [ %143, %151 ], [ %143, %154 ], [ %143, %158 ], [ %143, %161 ], [ %168, %165 ]
   %170 = fmul reassoc nsz arcp contract afn float %.1324, %35
   %171 = fmul reassoc nsz arcp contract afn float %170, %.2
   %172 = fcmp reassoc nsz arcp contract afn oeq float %171, %.0333379
@@ -6128,7 +6128,7 @@ dt_masks_dynbuf_free.exit613:                     ; preds = %._crit_edge744, %22
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %324, %322, %319
-  %.0.i.i = phi ptr [ null, %322 ], [ %327, %324 ], [ null, %319 ]
+  %.0.i.i = phi ptr [ %327, %324 ], [ null, %322 ], [ null, %319 ]
   %328 = load i64, ptr %207, align 8, !tbaa !92
   %329 = add i64 %328, %316
   %330 = load i64, ptr %210, align 8, !tbaa !151
@@ -7396,7 +7396,7 @@ define internal fastcc void @_brush_points_recurs_border_gaps(ptr noundef nonnul
   br label %dt_masks_dynbuf_reserve_n.exit
 
 dt_masks_dynbuf_reserve_n.exit:                   ; preds = %53, %56, %58
-  %.0.i = phi ptr [ null, %56 ], [ %61, %58 ], [ null, %53 ]
+  %.0.i = phi ptr [ %61, %58 ], [ null, %56 ], [ null, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %63 = load i64, ptr %62, align 8, !tbaa !92
   %64 = add i64 %63, %49
@@ -7935,7 +7935,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %336, %334, %331
-  %.0.i.i = phi ptr [ null, %334 ], [ %339, %336 ], [ null, %331 ]
+  %.0.i.i = phi ptr [ %339, %336 ], [ null, %334 ], [ null, %331 ]
   %340 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %341 = load i64, ptr %340, align 8, !tbaa !92
   %342 = add i64 %341, %328

@@ -10294,7 +10294,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %132, %135
   ret void
 
 139:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %117, %114, %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
-  %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %118, %117 ], [ %115, %114 ], [ %112, %111 ], [ %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %112, %111 ], [ %115, %114 ], [ %118, %117 ], [ %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #34
   br label %140
 
@@ -10620,12 +10620,12 @@ _ZN2cv5flann9loadIndexIN7cvflann2L1IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT
   br label %90
 
 90:                                               ; preds = %_ZN2cv5flann9loadIndexIN7cvflann10HammingLUTEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit, %_ZN2cv5flann9loadIndexIN7cvflann2L2IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit, %_ZN2cv5flann9loadIndexIN7cvflann2L1IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit, %.thread, %67
-  %.2 = phi i1 [ false, %67 ], [ false, %.thread ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann2L1IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann2L2IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann10HammingLUTEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ]
+  %.2 = phi i1 [ false, %67 ], [ false, %.thread ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann10HammingLUTEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann2L2IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ], [ true, %_ZN2cv5flann9loadIndexIN7cvflann2L1IfEEEEbPNS0_5IndexERPvRKNS_3MatEP8_IO_FILERKT_.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #34
   br label %91
 
 .body:                                            ; preds = %71, %56, %86, %81, %76
-  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %82, %81 ], [ %77, %76 ], [ %72, %71 ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %82, %81 ], [ %87, %86 ], [ %72, %71 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #34
   br label %93
 
@@ -18163,7 +18163,7 @@ _ZN7cvflann11LinearIndexINS_10HammingLUTEEC2ERKNS_6MatrixIhEERKSt3mapINSt7__cxx1
   ret ptr %.0
 
 60:                                               ; preds = %41, %45, %49, %53, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn17.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %59, %58 ], [ %54, %53 ], [ %50, %49 ], [ %46, %45 ], [ %42, %41 ]
+  %.pn17.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %59, %58 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ]
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -39162,7 +39162,7 @@ _ZN7cvflann11LinearIndexINS_2L2IfEEEC2ERKNS_6MatrixIfEERKSt3mapINSt7__cxx1112bas
   ret ptr %.0
 
 76:                                               ; preds = %41, %45, %49, %53, %57, %61, %65, %69, %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %58, %57 ], [ %54, %53 ], [ %50, %49 ], [ %46, %45 ], [ %42, %41 ]
+  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %70, %69 ]
   resume { ptr, i32 } %.pn25.pn
 }
 
@@ -73358,7 +73358,7 @@ _ZN7cvflann11LinearIndexINS_2L1IfEEEC2ERKNS_6MatrixIfEERKSt3mapINSt7__cxx1112bas
   ret ptr %.0
 
 76:                                               ; preds = %41, %45, %49, %53, %57, %61, %65, %69, %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %58, %57 ], [ %54, %53 ], [ %50, %49 ], [ %46, %45 ], [ %42, %41 ]
+  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %70, %69 ]
   resume { ptr, i32 } %.pn25.pn
 }
 

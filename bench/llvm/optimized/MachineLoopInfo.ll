@@ -9500,7 +9500,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11
   br label %90
 
 90:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit57.thread91, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit57.thread91 ]
+  %.1 = phi ptr [ %89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit57.thread91 ], [ %.029.lcssa, %._crit_edge ]
   %91 = load ptr, ptr %.1, align 8, !tbaa !27
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -9538,7 +9538,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11
   br label %108
 
 108:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit64.thread94, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %107, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit64.thread94 ]
+  %.2 = phi ptr [ %107, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit64.thread94 ], [ %.029.lcssa, %._crit_edge ]
   %109 = load ptr, ptr %.2, align 8, !tbaa !27
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 76

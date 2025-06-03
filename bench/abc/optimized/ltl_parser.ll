@@ -773,13 +773,13 @@ generateTypedNode.exit169:                        ; preds = %179, %182
 
 isTemporalOperator.exit.thread:                   ; preds = %isUnexpectedEOS.exit.i, %28, %28, %28, %28, %19
   %indvars.iv.next.pre-phi = phi i64 [ %23, %isUnexpectedEOS.exit.i ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ %20, %19 ]
-  %.1 = phi i32 [ %24, %isUnexpectedEOS.exit.i ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %21, %19 ]
-  store i32 %.1, ptr @startOfSuffixString, align 4, !tbaa !45
-  %185 = icmp slt i32 %.1, %5
+  %storemerge = phi i32 [ %24, %isUnexpectedEOS.exit.i ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %21, %19 ]
+  store i32 %storemerge, ptr @startOfSuffixString, align 4, !tbaa !45
+  %185 = icmp slt i32 %storemerge, %5
   br i1 %185, label %isUnexpectedEOS.exit.preheader, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %isTemporalOperator.exit.thread, %isTemporalOperator.exit, %159, %150, %146, %137, %133, %114, %110, %86, %62, %38, %generateTypedNode.exit169, %getVarName.exit.thread, %generateTypedNode.exit166, %generateTypedNode.exit164, %generateTypedNode.exit162, %generateTypedNode.exit160, %125, %generateTypedNode.exit158, %generateTypedNode.exit156, %97, %generateTypedNode.exit154, %generateTypedNode.exit152, %73, %generateTypedNode.exit150, %generateTypedNode.exit148, %49, %generateTypedNode.exit, %7
-  %.0123 = phi ptr [ null, %7 ], [ %181, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ %164, %generateTypedNode.exit166 ], [ %154, %generateTypedNode.exit164 ], [ %141, %generateTypedNode.exit162 ], [ %118, %generateTypedNode.exit158 ], [ %128, %generateTypedNode.exit160 ], [ null, %125 ], [ %91, %generateTypedNode.exit154 ], [ %100, %generateTypedNode.exit156 ], [ null, %97 ], [ %67, %generateTypedNode.exit150 ], [ %76, %generateTypedNode.exit152 ], [ null, %73 ], [ %43, %generateTypedNode.exit ], [ %52, %generateTypedNode.exit148 ], [ null, %49 ], [ null, %isTemporalOperator.exit ], [ null, %38 ], [ null, %62 ], [ null, %86 ], [ null, %110 ], [ null, %114 ], [ null, %133 ], [ null, %137 ], [ null, %146 ], [ null, %150 ], [ null, %159 ], [ null, %isTemporalOperator.exit.thread ]
+  %.0123 = phi ptr [ null, %7 ], [ %181, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ %43, %generateTypedNode.exit ], [ %52, %generateTypedNode.exit148 ], [ null, %49 ], [ %67, %generateTypedNode.exit150 ], [ %76, %generateTypedNode.exit152 ], [ null, %73 ], [ %91, %generateTypedNode.exit154 ], [ %100, %generateTypedNode.exit156 ], [ null, %97 ], [ %118, %generateTypedNode.exit158 ], [ %128, %generateTypedNode.exit160 ], [ null, %125 ], [ %141, %generateTypedNode.exit162 ], [ %154, %generateTypedNode.exit164 ], [ %164, %generateTypedNode.exit166 ], [ null, %isTemporalOperator.exit ], [ null, %38 ], [ null, %62 ], [ null, %86 ], [ null, %110 ], [ null, %114 ], [ null, %133 ], [ null, %137 ], [ null, %146 ], [ null, %150 ], [ null, %159 ], [ null, %isTemporalOperator.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #22
   ret ptr %.0123
 }

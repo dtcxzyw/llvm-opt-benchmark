@@ -2447,7 +2447,7 @@ define dso_local range(i32 -1, 1) i32 @zslParseLexRangeItem(ptr noundef readonly
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %17, %23, %26, %30, %34, %38
-  %.0.i = phi i64 [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ], [ 0, %17 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %17 ]
   %41 = add i64 %.0.i, -1
   %42 = tail call ptr @sdsnewlen(ptr noundef nonnull %18, i64 noundef %41) #18
   br label %.sink.split
@@ -2496,7 +2496,7 @@ sdslen.exit:                                      ; preds = %17, %23, %26, %30, 
   br label %sdslen.exit18
 
 sdslen.exit18:                                    ; preds = %43, %49, %52, %56, %60, %64
-  %.0.i17 = phi i64 [ %66, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %49 ], [ 0, %43 ]
+  %.0.i17 = phi i64 [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %66, %64 ], [ 0, %43 ]
   %67 = add i64 %.0.i17, -1
   %68 = tail call ptr @sdsnewlen(ptr noundef nonnull %44, i64 noundef %67) #18
   br label %.sink.split
@@ -2556,7 +2556,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -4370,7 +4370,7 @@ define dso_local ptr @zzlFind(ptr noundef %0, ptr noundef %1, ptr noundef writeo
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %9, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %9 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %9 ]
   %32 = trunc i64 %.0.i to i32
   %33 = tail call ptr @lpFind(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %32, i32 noundef 1) #18
   %.not = icmp eq ptr %33, null
@@ -4503,7 +4503,7 @@ define dso_local ptr @zzlInsertAt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %17, %18, %21, %25, %29, %33
-  %.0.i = phi i64 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ], [ 0, %17 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %17 ]
   %36 = trunc i64 %.0.i to i32
   %37 = call ptr @lpAppend(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %36) #18
   br i1 %.not, label %41, label %38
@@ -4555,7 +4555,7 @@ sdslen.exit:                                      ; preds = %17, %18, %21, %25, 
   br label %sdslen.exit22
 
 sdslen.exit22:                                    ; preds = %43, %44, %47, %51, %55, %59
-  %.0.i21 = phi i64 [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %44 ], [ 0, %43 ]
+  %.0.i21 = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %43 ]
   %62 = trunc i64 %.0.i21 to i32
   %63 = call ptr @lpInsertString(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %62, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %5) #18
   br i1 %.not, label %68, label %64
@@ -4694,7 +4694,7 @@ zzlGetScore.exit:                                 ; preds = %21, %26
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %32, %36, %39, %42, %45, %48
-  %.0.i34 = phi i64 [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ 0, %32 ]
+  %.0.i34 = phi i64 [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ 0, %32 ]
   %50 = trunc i64 %.0.i34 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -5532,7 +5532,7 @@ define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %0, double noundef %1,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %65, %68, %72, %76, %80
-  %.0.i = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ]
+  %.0.i = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ]
   %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7744), align 8, !tbaa !128
   %84 = icmp ugt i64 %.0.i, %83
   br i1 %84, label %105, label %sdslen.exit.thread
@@ -5576,7 +5576,7 @@ sdslen.exit.thread:                               ; preds = %60, %sdslen.exit
   br label %sdslen.exit122
 
 sdslen.exit122:                                   ; preds = %sdslen.exit.thread, %86, %89, %93, %97, %101
-  %.0.i121 = phi i64 [ %103, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %89 ], [ %88, %86 ], [ 0, %sdslen.exit.thread ]
+  %.0.i121 = phi i64 [ %88, %86 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %103, %101 ], [ 0, %sdslen.exit.thread ]
   %104 = call i32 @lpSafeToAdd(ptr noundef %85, i64 noundef %.0.i121) #18
   %.not108 = icmp eq i32 %104, 0
   br i1 %.not108, label %105, label %121
@@ -5946,7 +5946,7 @@ zzlNext.exit:                                     ; preds = %60, %.preheader
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %zzlNext.exit, %42, %45, %48, %51, %54
-  %.0.i51 = phi i64 [ %55, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ 0, %zzlNext.exit ]
+  %.0.i51 = phi i64 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %55, %54 ], [ 0, %zzlNext.exit ]
   %56 = trunc i64 %.0.i51 to i32
   %57 = tail call i32 @lpCompare(ptr noundef nonnull %.06272, ptr noundef nonnull %1, i32 noundef %56) #18
   %.not47 = icmp eq i32 %57, 0
@@ -6377,7 +6377,7 @@ define dso_local void @zsetTypeRandomElement(ptr noundef readonly captures(none)
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %10, %20, %23, %27, %31, %35
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %10 ]
   %38 = trunc i64 %.0.i to i32
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %38, ptr %39, align 8, !tbaa !134
@@ -8075,7 +8075,7 @@ define dso_local range(i32 0, 5) i32 @zuiLongLongFromValue(ptr noundef %0) local
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %8 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %8 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = tail call i32 @string2ll(ptr noundef nonnull %7, i64 noundef %.0.i, ptr noundef nonnull %31) #18
   %.not18 = icmp eq i32 %32, 0
@@ -8264,7 +8264,7 @@ define dso_local noundef i32 @zuiBufferFromValue(ptr noundef %0) local_unnamed_a
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %8 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %8 ]
   %31 = trunc i64 %.0.i to i32
   br label %.sink.split
 
@@ -9058,7 +9058,7 @@ sdslen.exit.thread366:                            ; preds = %zuiNewSdsFromValue.
   br label %sdslen.exit325
 
 sdslen.exit325:                                   ; preds = %sdslen.exit.thread, %sdslen.exit.thread360, %sdslen.exit.thread362, %sdslen.exit.thread364, %sdslen.exit.thread366
-  %.pn = phi i64 [ %274, %sdslen.exit.thread366 ], [ %272, %sdslen.exit.thread364 ], [ %269, %sdslen.exit.thread362 ], [ %266, %sdslen.exit.thread360 ], [ %263, %sdslen.exit.thread ]
+  %.pn = phi i64 [ %263, %sdslen.exit.thread ], [ %266, %sdslen.exit.thread360 ], [ %269, %sdslen.exit.thread362 ], [ %272, %sdslen.exit.thread364 ], [ %274, %sdslen.exit.thread366 ]
   %275 = add i64 %183, %.pn
   %276 = icmp ugt i64 %.pn, %.0.i326448452
   br i1 %276, label %277, label %zuiDiscardDirtyValue.exit
@@ -9108,9 +9108,9 @@ zuiDiscardDirtyValue.exit.thread:                 ; preds = %227, %230
   br label %298
 
 zuiDiscardDirtyValue.exit:                        ; preds = %293, %289, %285, %281, %278, %zuiNewSdsFromValue.exit, %223, %sdslen.exit325, %234
-  %.0.i326447 = phi i64 [ %.0.i326448452, %223 ], [ %.0.i326448452, %sdslen.exit325 ], [ %.0.i326448452, %234 ], [ %.0.i326448452, %zuiNewSdsFromValue.exit ], [ %295, %293 ], [ %292, %289 ], [ %288, %285 ], [ %284, %281 ], [ %280, %278 ]
-  %296 = phi i64 [ %183, %223 ], [ %275, %sdslen.exit325 ], [ %183, %234 ], [ %183, %zuiNewSdsFromValue.exit ], [ %275, %293 ], [ %275, %289 ], [ %275, %285 ], [ %275, %281 ], [ %275, %278 ]
-  %.2256 = phi i64 [ %224, %223 ], [ %.0254453, %sdslen.exit325 ], [ %.0254453, %234 ], [ %.0254453, %zuiNewSdsFromValue.exit ], [ %.0254453, %293 ], [ %.0254453, %289 ], [ %.0254453, %285 ], [ %.0254453, %281 ], [ %.0254453, %278 ]
+  %.0.i326447 = phi i64 [ %.0.i326448452, %223 ], [ %.0.i326448452, %sdslen.exit325 ], [ %.0.i326448452, %234 ], [ %.0.i326448452, %zuiNewSdsFromValue.exit ], [ %280, %278 ], [ %284, %281 ], [ %288, %285 ], [ %292, %289 ], [ %295, %293 ]
+  %296 = phi i64 [ %183, %223 ], [ %275, %sdslen.exit325 ], [ %183, %234 ], [ %183, %zuiNewSdsFromValue.exit ], [ %275, %278 ], [ %275, %281 ], [ %275, %285 ], [ %275, %289 ], [ %275, %293 ]
+  %.2256 = phi i64 [ %224, %223 ], [ %.0254453, %sdslen.exit325 ], [ %.0254453, %234 ], [ %.0254453, %zuiNewSdsFromValue.exit ], [ %.0254453, %278 ], [ %.0254453, %281 ], [ %.0254453, %285 ], [ %.0254453, %289 ], [ %.0254453, %293 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
   %297 = call i32 @zuiNext(ptr noundef nonnull %38, ptr noundef nonnull %7)
   %.not296 = icmp eq i32 %297, 0
@@ -9347,7 +9347,7 @@ default.unreachable382:                           ; preds = %382
   unreachable
 
 sdslen.exit340:                                   ; preds = %383, %386, %390, %394, %398
-  %.0.i339 = phi i64 [ %400, %398 ], [ %397, %394 ], [ %393, %390 ], [ %389, %386 ], [ %385, %383 ]
+  %.0.i339 = phi i64 [ %385, %383 ], [ %389, %386 ], [ %393, %390 ], [ %397, %394 ], [ %400, %398 ]
   store i64 %.0.i339, ptr %8, align 8, !tbaa !26
   br label %sdslen.exit338.thread
 
@@ -9588,7 +9588,7 @@ zunionInterAggregate.exit346:                     ; preds = %408, %410, %405, %.
   br label %sdslen.exit350.us
 
 sdslen.exit350.us:                                ; preds = %501, %497, %493, %489, %486, %.critedge314.us
-  %.0.i349.us = phi i64 [ %488, %486 ], [ %492, %489 ], [ %496, %493 ], [ %500, %497 ], [ %503, %501 ], [ 0, %.critedge314.us ]
+  %.0.i349.us = phi i64 [ %503, %501 ], [ %500, %497 ], [ %496, %493 ], [ %492, %489 ], [ %488, %486 ], [ 0, %.critedge314.us ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %481, i64 noundef %.0.i349.us) #18
   %504 = getelementptr inbounds nuw i8, ptr %.0460.us, i64 24
   %505 = load ptr, ptr %504, align 8, !tbaa !20
@@ -9648,7 +9648,7 @@ sdslen.exit350.us:                                ; preds = %501, %497, %493, %4
   br label %533
 
 533:                                              ; preds = %530, %526, %522, %518, %515, %509
-  %.0.i347 = phi i64 [ %532, %530 ], [ %529, %526 ], [ %525, %522 ], [ %521, %518 ], [ %517, %515 ], [ 0, %509 ]
+  %.0.i347 = phi i64 [ %517, %515 ], [ %521, %518 ], [ %525, %522 ], [ %529, %526 ], [ %532, %530 ], [ 0, %509 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %510, i64 noundef %.0.i347) #18
   %534 = getelementptr inbounds nuw i8, ptr %.0460, i64 8
   %535 = load double, ptr %534, align 8, !tbaa !5
@@ -9878,7 +9878,7 @@ zuiNewSdsFromValue.exit.i:                        ; preds = %56, %52, %48, %45
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %84, %80, %76, %72, %69
-  %.0.i29.i = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %69 ]
+  %.0.i29.i = phi i64 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ %86, %84 ]
   %87 = load i64, ptr %3, align 8, !tbaa !26
   %88 = icmp ugt i64 %.0.i29.i, %87
   br i1 %88, label %89, label %sdslen.exit.thread.i
@@ -9924,7 +9924,7 @@ default.unreachable.i:                            ; preds = %89
   unreachable
 
 sdslen.exit31.i:                                  ; preds = %105, %101, %97, %93, %90
-  %.0.i30.i = phi i64 [ %107, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %90 ]
+  %.0.i30.i = phi i64 [ %92, %90 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %107, %105 ]
   store i64 %.0.i30.i, ptr %3, align 8, !tbaa !26
   %.pre.i = load i8, ptr %65, align 1, !tbaa !77
   %.pre40.i = zext i8 %.pre.i to i32
@@ -9970,7 +9970,7 @@ sdslen.exit.thread.i:                             ; preds = %sdslen.exit31.i, %s
   br label %sdslen.exit33.i
 
 sdslen.exit33.i:                                  ; preds = %124, %120, %116, %112, %109, %sdslen.exit.thread.i
-  %.0.i32.i = phi i64 [ %126, %124 ], [ %123, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %109 ], [ 0, %sdslen.exit.thread.i ]
+  %.0.i32.i = phi i64 [ %111, %109 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %126, %124 ], [ 0, %sdslen.exit.thread.i ]
   %127 = load i64, ptr %4, align 8, !tbaa !26
   %128 = add i64 %127, %.0.i32.i
   store i64 %128, ptr %4, align 8, !tbaa !26
@@ -10385,7 +10385,7 @@ zsetRemoveFromSkiplist.exit.i:                    ; preds = %275, %271, %266
   br label %sdslen.exit.i.i
 
 sdslen.exit.i.i:                                  ; preds = %322, %318, %314, %310, %307
-  %.0.i.i.i = phi i64 [ %324, %322 ], [ %321, %318 ], [ %317, %314 ], [ %313, %310 ], [ %309, %307 ]
+  %.0.i.i.i = phi i64 [ %309, %307 ], [ %313, %310 ], [ %317, %314 ], [ %321, %318 ], [ %324, %322 ]
   %325 = icmp ugt i64 %.0.i.i.i, %.034.i.i
   br i1 %325, label %326, label %sdslen.exit13.i.i
 
@@ -10945,7 +10945,7 @@ zslGetElementByRank.exit:                         ; preds = %.critedge.i.i, %116
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %153, %160, %163, %167, %171, %175
-  %.0.i128 = phi i64 [ %177, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %160 ], [ 0, %153 ]
+  %.0.i128 = phi i64 [ %162, %160 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %177, %175 ], [ 0, %153 ]
   %178 = getelementptr inbounds nuw i8, ptr %.1141, i64 8
   %179 = load double, ptr %178, align 8, !tbaa !5
   tail call void %155(ptr noundef nonnull %0, ptr noundef nonnull %154, i64 noundef %.0.i128, double noundef %179) #18
@@ -11763,7 +11763,7 @@ zzlPrev.exit112:                                  ; preds = %105, %100
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %153, %149, %145, %141, %138, %130
-  %.0.i124.us = phi i64 [ %140, %138 ], [ %144, %141 ], [ %148, %145 ], [ %152, %149 ], [ %155, %153 ], [ 0, %130 ]
+  %.0.i124.us = phi i64 [ %155, %153 ], [ %152, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %138 ], [ 0, %130 ]
   tail call void %132(ptr noundef nonnull %0, ptr noundef nonnull %133, i64 noundef %.0.i124.us, double noundef %125) #18
   %.2.in.us = getelementptr inbounds nuw i8, ptr %.1164.us, i64 24
   %.2.us = load ptr, ptr %.2.in.us, align 8, !tbaa !29
@@ -11834,7 +11834,7 @@ sdslen.exit.us:                                   ; preds = %153, %149, %145, %1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %164, %172, %175, %179, %183, %187
-  %.0.i124 = phi i64 [ %189, %187 ], [ %186, %183 ], [ %182, %179 ], [ %178, %175 ], [ %174, %172 ], [ 0, %164 ]
+  %.0.i124 = phi i64 [ %174, %172 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %189, %187 ], [ 0, %164 ]
   tail call void %166(ptr noundef nonnull %0, ptr noundef nonnull %167, i64 noundef %.0.i124, double noundef %159) #18
   %.2.in = getelementptr inbounds nuw i8, ptr %.1164, i64 16
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !29
@@ -12876,7 +12876,7 @@ zslLexValueGteMin.exit.thread145.us:              ; preds = %zslLexValueLteMax.e
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %149, %145, %141, %137, %134, %zslLexValueGteMin.exit.thread145.us
-  %.0.i114.us = phi i64 [ %136, %134 ], [ %140, %137 ], [ %144, %141 ], [ %148, %145 ], [ %151, %149 ], [ 0, %zslLexValueGteMin.exit.thread145.us ]
+  %.0.i114.us = phi i64 [ %151, %149 ], [ %148, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %134 ], [ 0, %zslLexValueGteMin.exit.thread145.us ]
   %152 = getelementptr inbounds nuw i8, ptr %.1169.us, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !5
   tail call void %129(ptr noundef nonnull %0, ptr noundef nonnull %127, i64 noundef %.0.i114.us, double noundef %153) #18
@@ -12994,7 +12994,7 @@ zslLexValueGteMin.exit.thread145:                 ; preds = %zslLexValueGteMin.e
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %zslLexValueGteMin.exit.thread145, %188, %191, %195, %199, %203
-  %.0.i114 = phi i64 [ %205, %203 ], [ %202, %199 ], [ %198, %195 ], [ %194, %191 ], [ %190, %188 ], [ 0, %zslLexValueGteMin.exit.thread145 ]
+  %.0.i114 = phi i64 [ %190, %188 ], [ %194, %191 ], [ %198, %195 ], [ %202, %199 ], [ %205, %203 ], [ 0, %zslLexValueGteMin.exit.thread145 ]
   %206 = getelementptr inbounds nuw i8, ptr %.1169, i64 8
   %207 = load double, ptr %206, align 8, !tbaa !5
   tail call void %183(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %.0.i114, double noundef %207) #18
@@ -13801,7 +13801,7 @@ zzlGetScore.exit:                                 ; preds = %97, %102
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %137, %142, %145, %149, %153, %157
-  %.0.i149 = phi i64 [ %159, %157 ], [ %156, %153 ], [ %152, %149 ], [ %148, %145 ], [ %144, %142 ], [ 0, %137 ]
+  %.0.i149 = phi i64 [ %144, %142 ], [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ %159, %157 ], [ 0, %137 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %.1124, i64 noundef %.0.i149) #18
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.0125) #18
   call void @sdsfree(ptr noundef nonnull %.1124) #18
@@ -14383,7 +14383,7 @@ zsetLength.exit:                                  ; preds = %21, %27
   br label %89
 
 89:                                               ; preds = %86, %82, %78, %74, %71, %66
-  %.0.i179 = phi i64 [ %88, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %71 ], [ 0, %66 ]
+  %.0.i179 = phi i64 [ %73, %71 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %88, %86 ], [ 0, %66 ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i179) #18
   %90 = tail call ptr @dictGetVal(ptr noundef %60) #18
   %91 = load double, ptr %90, align 8, !tbaa !5
@@ -14432,7 +14432,7 @@ zsetLength.exit:                                  ; preds = %21, %27
   br label %sdslen.exit181
 
 sdslen.exit181:                                   ; preds = %.critedge, %96, %99, %103, %107, %111
-  %.0.i180 = phi i64 [ %113, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %96 ], [ 0, %.critedge ]
+  %.0.i180 = phi i64 [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %113, %111 ], [ 0, %.critedge ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %.0.i180) #18
   br label %114
 

@@ -542,8 +542,8 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt4pa
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge._crit_edge.i.i.i
-  %57 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %52, %54 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %55, %54 ]
+  %57 = phi i32 [ %52, %54 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %58 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %59 = icmp eq i32 %58, %57
   br i1 %59, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit, label %60
@@ -553,8 +553,8 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt4pa
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge._crit_edge57.i.i.i
-  %63 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %57, %60 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %61, %60 ]
+  %63 = phi i32 [ %57, %60 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %61, %60 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %64 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %65 = icmp eq i32 %64, %63
   %spec.select.i.i.i = select i1 %65, ptr %.sroa.032.2.i.i.i, ptr %21

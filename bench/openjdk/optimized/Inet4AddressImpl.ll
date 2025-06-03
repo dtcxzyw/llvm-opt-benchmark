@@ -568,7 +568,7 @@ thread-pre-split.i:                               ; preds = %118
   br label %tcp_ping4.exit
 
 tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109, %111, %113, %125, %127
-  %.0.i = phi i8 [ 0, %78 ], [ 0, %86 ], [ 0, %94 ], [ 1, %109 ], [ 0, %113 ], [ 1, %125 ], [ 0, %127 ], [ 0, %111 ]
+  %.0.i = phi i8 [ 0, %78 ], [ 0, %86 ], [ 0, %94 ], [ 1, %109 ], [ 0, %113 ], [ 0, %111 ], [ 1, %125 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)

@@ -3563,7 +3563,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %25
   br label %121
 
 121:                                              ; preds = %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit", %56, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit65"
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0115, %56 ], [ %.sroa.0.4, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit65" ], [ %.sroa.0.3, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit" ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0115, %56 ], [ %.sroa.0.3, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit" ], [ %.sroa.0.4, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit65" ]
   switch i8 %53, label %196 [
     i8 1, label %122
     i8 -1, label %159
@@ -3670,7 +3670,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %25
   br label %196
 
 196:                                              ; preds = %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit69", %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit73", %121
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %121 ], [ %.sroa.0.6, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit73" ], [ %.sroa.0.5, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit69" ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %121 ], [ %.sroa.0.5, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit69" ], [ %.sroa.0.6, %"_ZZN3smt11theory_char9new_eq_ehEiiENK3$_0clEv.exit73" ]
   %.not.wide = icmp eq i64 %40, 0
   br i1 %.not.wide, label %_ZNK3smt11theory_char8has_bitsEi.exit.thread, label %39, !llvm.loop !624
 

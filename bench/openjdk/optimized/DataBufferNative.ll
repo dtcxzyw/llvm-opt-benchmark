@@ -158,7 +158,7 @@ DBN_GetPixelPointer.exit:                         ; preds = %22
   br label %50
 
 50:                                               ; preds = %42, %44, %47, %DBN_GetPixelPointer.exit
-  %.021 = phi i32 [ -1, %DBN_GetPixelPointer.exit ], [ %49, %47 ], [ %46, %44 ], [ %43, %42 ]
+  %.021 = phi i32 [ -1, %DBN_GetPixelPointer.exit ], [ %43, %42 ], [ %46, %44 ], [ %49, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not26 = icmp eq ptr %52, null

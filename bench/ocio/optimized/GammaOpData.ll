@@ -873,7 +873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %52
   br label %66
 
 65:                                               ; preds = %12, %10, %8
-  %.016 = phi i32 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.016 = phi i32 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i32 %.016
 
 66:                                               ; preds = %64, %17
@@ -1071,11 +1071,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %55
   br label %69
 
 68:                                               ; preds = %10, %8
-  %.015 = phi i32 [ %11, %10 ], [ %9, %8 ]
+  %.015 = phi i32 [ %9, %8 ], [ %11, %10 ]
   ret i32 %.015
 
 69:                                               ; preds = %67, %20, %15
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn, %67 ], [ %21, %20 ], [ %16, %15 ]
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn, %67 ], [ %16, %15 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn17.pn.pn.pn
 
 70:                                               ; preds = %39
@@ -2161,8 +2161,8 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i: ; preds = %2, %2, %2, %2
   br label %_ZN19OpenColorIO_v2_5dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit
 
 _ZN19OpenColorIO_v2_5dev11GammaOpData21getIdentityParametersENS0_5StyleE.exit: ; preds = %2, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ %13, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i ], [ %11, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.sroa.9.0 = phi ptr [ null, %2 ], [ %15, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i ], [ %12, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ %11, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i ], [ %13, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i ]
+  %.sroa.9.0 = phi ptr [ null, %2 ], [ %12, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i ], [ %15, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -3210,9 +3210,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Ra
 
 19:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
   %20 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #24
-          to label %.noexc8 unwind label %25
+          to label %.noexc7 unwind label %25
 
-.noexc8:                                          ; preds = %19
+.noexc7:                                          ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %21, align 8, !tbaa !66, !noalias !89
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -3222,7 +3222,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Ra
   invoke void @_ZN19OpenColorIO_v2_5dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %23)
           to label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !89
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc8
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc7
   %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 280) #23, !noalias !89
@@ -3233,10 +3233,10 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12Ma
           cleanup
   br label %.body
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.sink.split: ; preds = %.noexc8, %.noexc
-  %.sink27 = phi ptr [ %13, %.noexc ], [ %23, %.noexc8 ]
-  %.sink = phi ptr [ %10, %.noexc ], [ %20, %.noexc8 ]
-  store ptr %.sink27, ptr %0, align 8, !tbaa !92
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.sink.split: ; preds = %.noexc7, %.noexc
+  %.sink26 = phi ptr [ %13, %.noexc ], [ %23, %.noexc7 ]
+  %.sink = phi ptr [ %10, %.noexc ], [ %20, %.noexc7 ]
+  store ptr %.sink26, ptr %0, align 8, !tbaa !92
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %27, align 8, !tbaa !70
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3245,9 +3245,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_poli
   ret void
 
 .body:                                            ; preds = %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %15, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, %17
-  %.pn6 = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ], [ %14, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i ], [ %26, %25 ], [ %24, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ], [ %14, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i ], [ %26, %25 ], [ %24, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   tail call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn.pn
 }
 
 declare noundef double @_ZN19OpenColorIO_v2_5dev11RangeOpData10EmptyValueEv() local_unnamed_addr #0

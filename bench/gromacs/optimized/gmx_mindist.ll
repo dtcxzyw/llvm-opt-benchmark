@@ -1324,8 +1324,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.i: ; preds = %
   br label %.body.i
 
 .preheader99.lr.ph.i.i:                           ; preds = %510, %495
-  %.096.i.i = phi float [ %.sroa.speculated87.i.i, %495 ], [ %.sroa.speculated.i.i, %510 ]
-  %.0.i.i = phi i32 [ 0, %495 ], [ 1, %510 ]
+  %.096.i.i = phi float [ %.sroa.speculated.i.i, %510 ], [ %.sroa.speculated87.i.i, %495 ]
+  %.0.i.i = phi i32 [ 1, %510 ], [ 0, %495 ]
   %525 = sub nsw i32 0, %.0.i.i
   br label %.preheader99.i.i
 

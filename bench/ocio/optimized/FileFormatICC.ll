@@ -2874,7 +2874,7 @@ define linkonce_odr hidden noundef ptr @_ZN9SampleICC10IccContent7LoadTagERSiRK1
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load i32, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !116
   %43 = icmp eq i32 %42, %9
   br i1 %43, label %_ZN9SampleICC10IccContent7FindTagERK14icTagSignature.exit, label %44
@@ -2884,7 +2884,7 @@ define linkonce_odr hidden noundef ptr @_ZN9SampleICC10IccContent7LoadTagERSiRK1
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = load i32, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !116
   %48 = icmp eq i32 %47, %9
   %spec.select.i.i.i.i = select i1 %48, ptr %.sroa.032.2.i.i.i.i, ptr %8
@@ -7675,7 +7675,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15LocalCachedFileELN9__gnu_cxx12_Lock_
   ret void
 
 463:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit131, %_ZNSt6vectorIdSaIdEED2Ev.exit97, %145, %140
-  %.pn70 = phi { ptr, i32 } [ %146, %145 ], [ %.pn58.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit131 ], [ %.pn64.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit97 ], [ %.pn56, %140 ]
+  %.pn70 = phi { ptr, i32 } [ %146, %145 ], [ %.pn64.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit97 ], [ %.pn58.pn.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit131 ], [ %.pn56, %140 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #33
   br label %464

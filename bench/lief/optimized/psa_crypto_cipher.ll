@@ -99,7 +99,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef
   br label %31
 
 31:                                               ; preds = %22, %24, %28, %30, %29, %23
-  %.0 = phi i32 [ 7, %30 ], [ 5, %29 ], [ %., %28 ], [ %., %24 ], [ 6, %23 ], [ 2, %22 ]
+  %.0 = phi i32 [ 6, %23 ], [ %., %28 ], [ %., %24 ], [ 5, %29 ], [ 7, %30 ], [ 2, %22 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %32
 

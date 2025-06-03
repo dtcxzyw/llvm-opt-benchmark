@@ -508,8 +508,8 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   br label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %17, %8, %6, %4
-  %.146.ph.ph = phi i16 [ %7, %6 ], [ %9, %8 ], [ %18, %17 ], [ %1, %4 ]
-  %.144.ph.ph = phi ptr [ %0, %6 ], [ %10, %8 ], [ %19, %17 ], [ %0, %4 ]
+  %.146.ph.ph = phi i16 [ %18, %17 ], [ %9, %8 ], [ %7, %6 ], [ %1, %4 ]
+  %.144.ph.ph = phi ptr [ %19, %17 ], [ %10, %8 ], [ %0, %6 ], [ %0, %4 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.preheader
@@ -573,9 +573,9 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   br label %29
 
 29:                                               ; preds = %20, %.loopexit167, %.loopexit138, %.loopexit108, %.loopexit80, %.loopexit52, %26, %25, %24, %23
-  %.142 = phi i32 [ 1, %26 ], [ 1, %25 ], [ 1, %24 ], [ 1, %23 ], [ %.041.ph, %.loopexit52 ], [ %.041.ph, %.loopexit80 ], [ %.041.ph, %.loopexit108 ], [ %.041.ph, %.loopexit138 ], [ %.041.ph, %.loopexit167 ], [ 1, %20 ]
-  %.140 = phi i32 [ %.039.ph, %26 ], [ %.039.ph, %25 ], [ %.039.ph, %24 ], [ %.039.ph, %23 ], [ 1, %.loopexit52 ], [ 1, %.loopexit80 ], [ 1, %.loopexit108 ], [ 1, %.loopexit138 ], [ 1, %.loopexit167 ], [ %.039.ph, %20 ]
-  %.037 = phi i16 [ 64, %26 ], [ 4, %25 ], [ 32, %24 ], [ 16, %23 ], [ 8, %.loopexit52 ], [ 16, %.loopexit80 ], [ 32, %.loopexit108 ], [ 4, %.loopexit138 ], [ 64, %.loopexit167 ], [ 8, %20 ]
+  %.142 = phi i32 [ 1, %23 ], [ 1, %24 ], [ 1, %25 ], [ 1, %26 ], [ %.041.ph, %.loopexit52 ], [ %.041.ph, %.loopexit80 ], [ %.041.ph, %.loopexit108 ], [ %.041.ph, %.loopexit138 ], [ %.041.ph, %.loopexit167 ], [ 1, %20 ]
+  %.140 = phi i32 [ %.039.ph, %23 ], [ %.039.ph, %24 ], [ %.039.ph, %25 ], [ %.039.ph, %26 ], [ 1, %.loopexit52 ], [ 1, %.loopexit80 ], [ 1, %.loopexit108 ], [ 1, %.loopexit138 ], [ 1, %.loopexit167 ], [ %.039.ph, %20 ]
+  %.037 = phi i16 [ 16, %23 ], [ 32, %24 ], [ 4, %25 ], [ 64, %26 ], [ 8, %.loopexit52 ], [ 16, %.loopexit80 ], [ 32, %.loopexit108 ], [ 4, %.loopexit138 ], [ 64, %.loopexit167 ], [ 8, %20 ]
   %30 = icmp ne i32 %.140, 0
   %31 = icmp ne i32 %.142, 0
   %or.cond = select i1 %30, i1 %31, i1 false
@@ -625,10 +625,10 @@ define hidden noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef
   unreachable
 
 50:                                               ; preds = %34, %46, %44
-  %51 = phi i8 [ %40, %46 ], [ %40, %44 ], [ %37, %34 ]
-  %.348 = phi i16 [ %47, %46 ], [ %45, %44 ], [ %spec.select, %34 ]
-  %.3 = phi ptr [ %39, %46 ], [ %39, %44 ], [ %21, %34 ]
-  %.1 = phi i32 [ 4, %46 ], [ 2, %44 ], [ 1, %34 ]
+  %51 = phi i8 [ %40, %44 ], [ %40, %46 ], [ %37, %34 ]
+  %.348 = phi i16 [ %45, %44 ], [ %47, %46 ], [ %spec.select, %34 ]
+  %.3 = phi ptr [ %39, %44 ], [ %39, %46 ], [ %21, %34 ]
+  %.1 = phi i32 [ 2, %44 ], [ 4, %46 ], [ 1, %34 ]
   %52 = and i32 %.1, %.038.ph
   %or.cond51 = icmp eq i32 %52, %.038.ph
   br i1 %or.cond51, label %.outer.backedge, label %53

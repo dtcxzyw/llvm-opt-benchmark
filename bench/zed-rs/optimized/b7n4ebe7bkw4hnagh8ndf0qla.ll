@@ -282,8 +282,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !20, !noundef !7
@@ -295,8 +295,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !20, !noundef !7
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -14767,7 +14767,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %42
 
 42:                                               ; preds = %18, %15
-  %.sroa.3.0 = phi i64 [ %21, %18 ], [ %17, %15 ]
+  %.sroa.3.0 = phi i64 [ %17, %15 ], [ %21, %18 ]
   %43 = insertvalue { i64, i64 } poison, i64 %13, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44

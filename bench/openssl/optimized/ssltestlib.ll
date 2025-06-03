@@ -828,7 +828,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mempacket_test_ctrl(ptr 
   br label %38
 
 38:                                               ; preds = %4, %16, %20, %37, %34, %30, %27, %24, %14, %11, %6
-  %.0 = phi i64 [ 0, %37 ], [ 1, %34 ], [ %33, %30 ], [ 1, %27 ], [ 1, %24 ], [ %23, %20 ], [ 1, %14 ], [ %13, %11 ], [ %10, %6 ], [ 0, %16 ], [ 1, %4 ]
+  %.0 = phi i64 [ 0, %37 ], [ %10, %6 ], [ %13, %11 ], [ 1, %14 ], [ %23, %20 ], [ 1, %24 ], [ 1, %27 ], [ %33, %30 ], [ 1, %34 ], [ 0, %16 ], [ 1, %4 ]
   ret i64 %.0
 }
 
@@ -1611,7 +1611,7 @@ define internal i64 @maybe_retry_ctrl(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %19
 
 19:                                               ; preds = %4, %16, %13, %8
-  %.0 = phi i64 [ %18, %16 ], [ -1, %13 ], [ 1, %8 ], [ 0, %4 ]
+  %.0 = phi i64 [ %18, %16 ], [ 1, %8 ], [ -1, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -2554,7 +2554,7 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
   br i1 %68, label %16, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %67, %.critedge9.thread, %.critedge.thread, %43, %57, %61
-  %.095 = phi i32 [ 0, %57 ], [ 0, %61 ], [ 1, %67 ], [ 0, %.critedge9.thread ], [ 0, %.critedge.thread ], [ 0, %43 ]
+  %.095 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 1, %67 ], [ 0, %.critedge9.thread ], [ 0, %.critedge.thread ], [ 0, %43 ]
   call void @BIO_ADDR_free(ptr noundef %.090) #14
   br label %69
 

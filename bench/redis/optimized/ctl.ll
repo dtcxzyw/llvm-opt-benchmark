@@ -7081,7 +7081,7 @@ define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %0,
   br label %arena_i_decay_ms_ctl_impl.exit
 
 arena_i_decay_ms_ctl_impl.exit:                   ; preds = %7, %11, %22, %24, %28, %30, %33
-  %.037.i = phi i32 [ 22, %22 ], [ 0, %33 ], [ 14, %7 ], [ 22, %24 ], [ 14, %28 ], [ 14, %30 ], [ 14, %11 ]
+  %.037.i = phi i32 [ 0, %33 ], [ 22, %22 ], [ 14, %7 ], [ 22, %24 ], [ 14, %28 ], [ 14, %30 ], [ 14, %11 ]
   ret i32 %.037.i
 }
 
@@ -7159,7 +7159,7 @@ define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %0,
   br label %arena_i_decay_ms_ctl_impl.exit
 
 arena_i_decay_ms_ctl_impl.exit:                   ; preds = %7, %11, %22, %24, %28, %30, %33
-  %.037.i = phi i32 [ 22, %22 ], [ 0, %33 ], [ 14, %7 ], [ 22, %24 ], [ 14, %28 ], [ 14, %30 ], [ 14, %11 ]
+  %.037.i = phi i32 [ 0, %33 ], [ 22, %22 ], [ 14, %7 ], [ 22, %24 ], [ 14, %28 ], [ 14, %30 ], [ 14, %11 ]
   ret i32 %.037.i
 }
 
@@ -7762,7 +7762,7 @@ define internal range(i32 0, 23) i32 @arenas_dirty_decay_ms_ctl(ptr readnone cap
   br label %arenas_decay_ms_ctl_impl.exit
 
 arenas_decay_ms_ctl_impl.exit:                    ; preds = %14, %16, %17, %20
-  %.1.i = phi i32 [ 22, %14 ], [ 0, %20 ], [ 22, %16 ], [ 14, %17 ]
+  %.1.i = phi i32 [ 0, %20 ], [ 22, %14 ], [ 22, %16 ], [ 14, %17 ]
   ret i32 %.1.i
 }
 
@@ -7811,7 +7811,7 @@ define internal range(i32 0, 23) i32 @arenas_muzzy_decay_ms_ctl(ptr readnone cap
   br label %arenas_decay_ms_ctl_impl.exit
 
 arenas_decay_ms_ctl_impl.exit:                    ; preds = %14, %16, %17, %20
-  %.1.i = phi i32 [ 22, %14 ], [ 0, %20 ], [ 22, %16 ], [ 14, %17 ]
+  %.1.i = phi i32 [ 0, %20 ], [ 22, %14 ], [ 22, %16 ], [ 14, %17 ]
   ret i32 %.1.i
 }
 

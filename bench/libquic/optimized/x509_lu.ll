@@ -362,7 +362,7 @@ define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr
   br label %21
 
 21:                                               ; preds = %9, %15, %8, %2
-  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %20, %15 ], [ %14, %9 ]
+  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %14, %9 ], [ %20, %15 ]
   ret i32 %.010
 }
 
@@ -981,7 +981,7 @@ define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) lo
   br label %x509_object_cmp.exit
 
 x509_object_cmp.exit:                             ; preds = %19, %24
-  %.010.i = phi i32 [ %28, %24 ], [ %23, %19 ]
+  %.010.i = phi i32 [ %23, %19 ], [ %28, %24 ]
   %.not12 = icmp eq i32 %.010.i, 0
   br i1 %.not12, label %thread-pre-split, label %x509_object_cmp.exit.thread25
 
@@ -1264,7 +1264,7 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
   br label %x509_object_cmp.exit
 
 x509_object_cmp.exit:                             ; preds = %33, %38
-  %.010.i = phi i32 [ %42, %38 ], [ %37, %33 ]
+  %.010.i = phi i32 [ %37, %33 ], [ %42, %38 ]
   %.not16 = icmp eq i32 %.010.i, 0
   br i1 %.not16, label %x509_object_cmp.exit.thread, label %x509_object_cmp.exit.thread20
 

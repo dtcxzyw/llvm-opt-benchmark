@@ -537,7 +537,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN59_$LT$pulldown_cmark..TagEnd$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e2cc822ee2b66feE.exit"
 
 "_ZN59_$LT$pulldown_cmark..TagEnd$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e2cc822ee2b66feE.exit": ; preds = %9, %11, %14, %17, %19, %21, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52
-  %.sroa.0.0.in.i = phi i1 [ %54, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %54, %52 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -768,7 +768,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$markdown..parser..MarkdownTag$u20$as$u20$core..fmt..Debug$GT$3fmt17he18ee8377d9d30b4E.exit"
 
 "_ZN66_$LT$markdown..parser..MarkdownTag$u20$as$u20$core..fmt..Debug$GT$3fmt17he18ee8377d9d30b4E.exit": ; preds = %13, %15, %21, %23, %26, %28, %31, %33, %36, %39, %41, %43, %45, %47, %49, %51, %57, %63, %66, %68, %70
-  %.sroa.0.0.in.i = phi i1 [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %63 ], [ %62, %57 ], [ %56, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %31 ], [ %30, %28 ], [ %27, %26 ], [ %25, %23 ], [ %22, %21 ], [ %20, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %20, %15 ], [ %22, %21 ], [ %25, %23 ], [ %27, %26 ], [ %30, %28 ], [ %32, %31 ], [ %35, %33 ], [ %38, %36 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %56, %51 ], [ %62, %57 ], [ %65, %63 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -879,7 +879,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
 "_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit": ; preds = %14, %16, %19, %21, %23, %25, %27, %29, %31, %33, %35
-  %.sroa.0.0.in.i = phi i1 [ %37, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1639,8 +1639,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
   br label %62
 
 62:                                               ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
   %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %64

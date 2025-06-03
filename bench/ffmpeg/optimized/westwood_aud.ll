@@ -128,7 +128,7 @@ define internal range(i32 -1163346256, 1) i32 @wsaud_read_header(ptr noundef %0)
   br label %40
 
 40:                                               ; preds = %6, %1, %34, %33, %19
-  %.0 = phi i32 [ -1163346256, %33 ], [ 0, %34 ], [ -1163346256, %19 ], [ -5, %1 ], [ -12, %6 ]
+  %.0 = phi i32 [ -1163346256, %33 ], [ -1163346256, %19 ], [ 0, %34 ], [ -5, %1 ], [ -12, %6 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #4
   ret i32 %.0
 }

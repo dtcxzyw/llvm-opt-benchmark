@@ -367,7 +367,7 @@ ossltest_digest_nids.exit:                        ; preds = %._crit_edge14.i, %4
   br label %63
 
 63:                                               ; preds = %52, %54, %56, %58, %60, %62, %ossltest_digest_nids.exit
-  %.010 = phi i32 [ %50, %ossltest_digest_nids.exit ], [ 0, %62 ], [ 1, %60 ], [ 1, %58 ], [ 1, %56 ], [ 1, %54 ], [ 1, %52 ]
+  %.010 = phi i32 [ %50, %ossltest_digest_nids.exit ], [ 0, %62 ], [ 1, %52 ], [ 1, %54 ], [ 1, %56 ], [ 1, %58 ], [ 1, %60 ]
   ret i32 %.010
 }
 
@@ -578,7 +578,7 @@ ossltest_aes_128_cbc_hmac_sha1.exit:              ; preds = %49, %69, %._crit_ed
   br label %74
 
 74:                                               ; preds = %ossltest_aes_128_cbc.exit, %ossltest_aes_128_gcm.exit, %ossltest_aes_128_cbc_hmac_sha1.exit, %73, %5
-  %.08 = phi i32 [ 3, %5 ], [ 0, %73 ], [ 1, %ossltest_aes_128_cbc_hmac_sha1.exit ], [ 1, %ossltest_aes_128_gcm.exit ], [ 1, %ossltest_aes_128_cbc.exit ]
+  %.08 = phi i32 [ 3, %5 ], [ 0, %73 ], [ 1, %ossltest_aes_128_cbc.exit ], [ 1, %ossltest_aes_128_gcm.exit ], [ 1, %ossltest_aes_128_cbc_hmac_sha1.exit ]
   ret i32 %.08
 }
 

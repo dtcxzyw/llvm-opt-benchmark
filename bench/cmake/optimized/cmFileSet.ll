@@ -181,7 +181,7 @@ define dso_local { i64, ptr } @_Z25cmFileSetVisibilityToName19cmFileSetVisibilit
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.pn = phi { i64, ptr } [ { i64 0, ptr @.str.5 }, %4 ], [ { i64 7, ptr @.str.4 }, %3 ], [ { i64 6, ptr @.str.3 }, %2 ], [ { i64 9, ptr @.str }, %1 ]
+  %.pn = phi { i64, ptr } [ { i64 0, ptr @.str.5 }, %4 ], [ { i64 6, ptr @.str.3 }, %2 ], [ { i64 7, ptr @.str.4 }, %3 ], [ { i64 9, ptr @.str }, %1 ]
   ret { i64, ptr } %.pn
 }
 

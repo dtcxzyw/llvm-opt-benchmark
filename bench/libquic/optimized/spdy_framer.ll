@@ -1716,15 +1716,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit114: ; preds = %_ZSt
   resume { ptr, i32 } %200
 
 201:                                              ; preds = %47, %51, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit, %91, %96, %103, %107, %111, %115, %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit, %156, %_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm.exit, %_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm.exit, %43, %40, %_ZN3net10SpdyFramer5ResetEv.exit, %46, %45
-  %.2 = phi i64 [ %.022.i, %_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm.exit ], [ %.010.i, %_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm.exit ], [ %158, %156 ], [ %154, %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit ], [ %117, %115 ], [ %113, %111 ], [ %109, %107 ], [ %105, %103 ], [ %101, %96 ], [ %94, %91 ], [ %89, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit ], [ %54, %51 ], [ %49, %47 ], [ %.094, %46 ], [ 0, %45 ], [ %.094, %40 ], [ %.094, %43 ], [ 0, %_ZN3net10SpdyFramer5ResetEv.exit ]
-  %.1 = phi ptr [ %185, %_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm.exit ], [ %166, %_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm.exit ], [ %159, %156 ], [ %155, %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit ], [ %118, %115 ], [ %114, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %96 ], [ %95, %91 ], [ %90, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit ], [ %55, %51 ], [ %50, %47 ], [ %.093, %46 ], [ %.093, %45 ], [ %.093, %40 ], [ %.093, %43 ], [ %.093, %_ZN3net10SpdyFramer5ResetEv.exit ]
+  %.2 = phi i64 [ %.094, %40 ], [ %.094, %43 ], [ 0, %_ZN3net10SpdyFramer5ResetEv.exit ], [ %.094, %46 ], [ 0, %45 ], [ %49, %47 ], [ %54, %51 ], [ %89, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit ], [ %94, %91 ], [ %101, %96 ], [ %105, %103 ], [ %109, %107 ], [ %113, %111 ], [ %117, %115 ], [ %154, %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit ], [ %158, %156 ], [ %.010.i, %_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm.exit ], [ %.022.i, %_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm.exit ]
+  %.1 = phi ptr [ %.093, %40 ], [ %.093, %43 ], [ %.093, %_ZN3net10SpdyFramer5ResetEv.exit ], [ %.093, %46 ], [ %.093, %45 ], [ %50, %47 ], [ %55, %51 ], [ %90, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit ], [ %95, %91 ], [ %102, %96 ], [ %106, %103 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %155, %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit ], [ %159, %156 ], [ %166, %_ZN3net10SpdyFramer33ProcessIgnoredControlFramePayloadEm.exit ], [ %185, %_ZN3net10SpdyFramer23ProcessDataFramePayloadEPKcm.exit ]
   %202 = load i32, ptr %7, align 8, !tbaa !88
   %203 = load i32, ptr %8, align 4, !tbaa !89
   %.not100 = icmp eq i32 %202, %203
   br i1 %.not100, label %.critedge101, label %30, !llvm.loop !111
 
 .critedge101:                                     ; preds = %201, %30, %.critedge, %186
-  %.195 = phi i64 [ %.094, %186 ], [ %.094, %.critedge ], [ %.094, %30 ], [ %.2, %201 ]
+  %.195 = phi i64 [ %.094, %186 ], [ %.094, %.critedge ], [ %.2, %201 ], [ %.094, %30 ]
   %204 = sub i64 %2, %.195
   br label %205
 
@@ -2946,7 +2946,7 @@ _ZN3net10SpdyFramer15GetHpackDecoderEv.exit:      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   resume { ptr, i32 } %.pn86
 
-.sink.split:                                      ; preds = %.thread145, %.thread139, %108, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit99, %.critedge92, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit102, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit103, %381
+.sink.split:                                      ; preds = %.thread145, %.thread139, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit102, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit99, %108, %.critedge92, %_ZN3net10SpdyFramer9set_errorENS0_9SpdyErrorE.exit103, %381
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   br label %385
 
@@ -4324,7 +4324,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %115
   br label %129
 
 128:                                              ; preds = %124, %111, %63
-  %.pn21 = phi { ptr, i32 } [ %.pn19, %124 ], [ %.pn, %111 ], [ %.pn17, %63 ]
+  %.pn21 = phi { ptr, i32 } [ %.pn19, %124 ], [ %.pn17, %63 ], [ %.pn, %111 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   resume { ptr, i32 } %.pn21
 
@@ -6536,7 +6536,7 @@ _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit238: ; preds = %825, %828
   br label %863
 
 863:                                              ; preds = %854, %839, %847, %831, %859, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit238, %814, %807
-  %.077 = phi i32 [ %862, %859 ], [ %851, %847 ], [ %837, %831 ], [ %830, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit238 ], [ %821, %814 ], [ %813, %807 ], [ %spec.select198, %839 ], [ %spec.select292, %854 ]
+  %.077 = phi i32 [ %813, %807 ], [ %821, %814 ], [ %830, %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit238 ], [ %837, %831 ], [ %851, %847 ], [ %862, %859 ], [ %spec.select198, %839 ], [ %spec.select292, %854 ]
   %864 = icmp eq i32 %.077, -1
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %866 = load i32, ptr %865, align 4
@@ -6636,7 +6636,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   ret void
 
 909:                                              ; preds = %420, %447, %893, %769, %743, %698, %655, %607, %581, %535, %491, %363, %308, %283, %237, %138
-  %.pn146 = phi { ptr, i32 } [ %894, %893 ], [ %770, %769 ], [ %744, %743 ], [ %699, %698 ], [ %656, %655 ], [ %582, %581 ], [ %608, %607 ], [ %536, %535 ], [ %492, %491 ], [ %364, %363 ], [ %284, %283 ], [ %309, %308 ], [ %238, %237 ], [ %139, %138 ], [ %421, %420 ], [ %448, %447 ]
+  %.pn146 = phi { ptr, i32 } [ %894, %893 ], [ %770, %769 ], [ %139, %138 ], [ %238, %237 ], [ %284, %283 ], [ %309, %308 ], [ %364, %363 ], [ %492, %491 ], [ %536, %535 ], [ %582, %581 ], [ %608, %607 ], [ %656, %655 ], [ %699, %698 ], [ %744, %743 ], [ %421, %420 ], [ %448, %447 ]
   resume { ptr, i32 } %.pn146
 }
 

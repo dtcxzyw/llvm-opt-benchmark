@@ -1178,8 +1178,8 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   br label %90
 
 90:                                               ; preds = %83, %70
-  %91 = phi i64 [ 1, %70 ], [ %89, %83 ]
-  %.2.i = phi i64 [ %.358, %70 ], [ %88, %83 ]
+  %91 = phi i64 [ %89, %83 ], [ 1, %70 ]
+  %.2.i = phi i64 [ %88, %83 ], [ %.358, %70 ]
   %92 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !27
   %94 = or i64 %93, %.2.i
@@ -1317,8 +1317,8 @@ define void @_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 noundef %0, ptr 
   br label %38
 
 38:                                               ; preds = %18, %31
-  %39 = phi i64 [ 1, %18 ], [ %37, %31 ]
-  %.2 = phi i64 [ %0, %18 ], [ %36, %31 ]
+  %39 = phi i64 [ %37, %31 ], [ 1, %18 ]
+  %.2 = phi i64 [ %36, %31 ], [ %0, %18 ]
   %40 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !27
   %42 = or i64 %41, %.2
@@ -1447,7 +1447,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread: ; preds = %8, %2, %_ZN8tinyxm
   br label %24
 
 24:                                               ; preds = %19, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread, %23
-  %.1 = phi i1 [ true, %19 ], [ false, %23 ], [ true, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread ]
+  %.1 = phi i1 [ false, %23 ], [ true, %19 ], [ true, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread ]
   ret i1 %.1
 }
 

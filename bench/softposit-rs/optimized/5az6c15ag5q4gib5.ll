@@ -4757,8 +4757,8 @@ define range(i32 0, -65534) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
   br label %63
 
 63:                                               ; preds = %58, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
-  %.sroa.0.0 = phi i32 [ 1, %58 ], [ 0, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ]
-  %.sroa.3.0.insert.insert = phi i32 [ %62, %58 ], [ %57, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ], [ 1, %58 ]
+  %.sroa.3.0.insert.insert = phi i32 [ %57, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ], [ %62, %58 ]
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.0.0
   ret i32 %.sroa.0.0.insert.insert
 }

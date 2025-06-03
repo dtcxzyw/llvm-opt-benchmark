@@ -269,7 +269,7 @@ _ZL14_hb_apply_morxP9hb_face_tRK23hb_segment_properties_t.exit: ; preds = %.noex
   br label %_ZL23hb_ot_shaper_categorizePK21hb_ot_shape_planner_t.exit
 
 _ZL23hb_ot_shaper_categorizePK21hb_ot_shape_planner_t.exit: ; preds = %_ZL14_hb_apply_morxP9hb_face_tRK23hb_segment_properties_t.exit, %25, %29, %30, %31, %32, %33, %33, %36, %39, %40, %40, %40, %43, %44, %45
-  %.0.i = phi ptr [ @_hb_ot_shaper_myanmar_zawgyi, %44 ], [ @_hb_ot_shaper_myanmar, %43 ], [ @_hb_ot_shaper_khmer, %39 ], [ @_hb_ot_shaper_hebrew, %32 ], [ @_hb_ot_shaper_hangul, %31 ], [ @_hb_ot_shaper_thai, %30 ], [ @_hb_ot_shaper_default, %29 ], [ @_hb_ot_shaper_default, %_ZL14_hb_apply_morxP9hb_face_tRK23hb_segment_properties_t.exit ], [ @_hb_ot_shaper_arabic, %25 ], [ @_hb_ot_shaper_default, %33 ], [ @_hb_ot_shaper_default, %33 ], [ %_hb_ot_shaper_use._hb_ot_shaper_indic.i, %36 ], [ @_hb_ot_shaper_default, %40 ], [ @_hb_ot_shaper_default, %40 ], [ @_hb_ot_shaper_default, %40 ], [ %48, %45 ]
+  %.0.i = phi ptr [ @_hb_ot_shaper_default, %29 ], [ @_hb_ot_shaper_thai, %30 ], [ @_hb_ot_shaper_hangul, %31 ], [ @_hb_ot_shaper_hebrew, %32 ], [ @_hb_ot_shaper_khmer, %39 ], [ @_hb_ot_shaper_myanmar, %43 ], [ @_hb_ot_shaper_myanmar_zawgyi, %44 ], [ @_hb_ot_shaper_default, %_ZL14_hb_apply_morxP9hb_face_tRK23hb_segment_properties_t.exit ], [ @_hb_ot_shaper_arabic, %25 ], [ @_hb_ot_shaper_default, %33 ], [ @_hb_ot_shaper_default, %33 ], [ %_hb_ot_shaper_use._hb_ot_shaper_indic.i, %36 ], [ @_hb_ot_shaper_default, %40 ], [ @_hb_ot_shaper_default, %40 ], [ @_hb_ot_shaper_default, %40 ], [ %48, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %.0.i, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
@@ -2160,7 +2160,7 @@ switch.lookup:                                    ; preds = %306
   br label %_ZL16hb_vert_char_forj.exit.i.i.i.i
 
 _ZL16hb_vert_char_forj.exit.i.i.i.i:              ; preds = %switch.lookup, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %305, %304, %303, %302
-  %.0.i.i.i.i.i = phi i32 [ 65080, %320 ], [ 65079, %319 ], [ 65075, %318 ], [ 65096, %317 ], [ 65095, %316 ], [ 65046, %315 ], [ 65044, %314 ], [ 65043, %313 ], [ 65040, %312 ], [ 65078, %311 ], [ 65077, %310 ], [ 65049, %305 ], [ 65072, %304 ], [ 65073, %303 ], [ 65074, %302 ], [ 65076, %308 ], [ 65045, %309 ], [ %switch.load, %switch.lookup ]
+  %.0.i.i.i.i.i = phi i32 [ 65073, %303 ], [ 65072, %304 ], [ 65049, %305 ], [ 65077, %310 ], [ 65078, %311 ], [ 65040, %312 ], [ 65043, %313 ], [ 65044, %314 ], [ 65046, %315 ], [ 65095, %316 ], [ 65096, %317 ], [ 65075, %318 ], [ 65079, %319 ], [ 65080, %320 ], [ 65074, %302 ], [ 65076, %308 ], [ 65045, %309 ], [ %switch.load, %switch.lookup ]
   %.not40.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i, %300
   br i1 %.not40.i.i.i.i, label %_ZL16hb_vert_char_forj.exit.thread.i.i.i.i, label %322
 
@@ -3924,7 +3924,7 @@ define linkonce_odr hidden noundef i32 @_ZN18hb_unicode_funcs_t20is_default_igno
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
 _ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %20, %17, %34, %3, %39, %36, %31, %26, %14, %11, %9, %7, %5
-  %.0.shrunk = phi i1 [ %33, %31 ], [ %30, %26 ], [ %16, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %41, %39 ], [ %38, %36 ], [ false, %3 ], [ false, %34 ], [ true, %17 ], [ %25, %20 ]
+  %.0.shrunk = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %16, %14 ], [ %30, %26 ], [ %33, %31 ], [ %38, %36 ], [ %41, %39 ], [ false, %3 ], [ false, %34 ], [ true, %17 ], [ %25, %20 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

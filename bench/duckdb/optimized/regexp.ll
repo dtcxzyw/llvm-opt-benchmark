@@ -2422,7 +2422,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %149
 
 150:                                              ; preds = %103, %113, %119, %85, %91, %65, %73, %79, %29, %35, %43, %15, %21, %6, %6, %6, %6, %6, %6, %6, %6, %6, %2, %_ZN10LogMessageD2Ev.exit, %97, %57, %51, %7
-  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %102, %97 ], [ %64, %57 ], [ %56, %51 ], [ %14, %7 ], [ false, %2 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %15 ], [ %28, %21 ], [ false, %35 ], [ false, %29 ], [ %50, %43 ], [ false, %73 ], [ false, %65 ], [ %84, %79 ], [ false, %85 ], [ %96, %91 ], [ false, %113 ], [ false, %103 ], [ %125, %119 ]
+  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %14, %7 ], [ %56, %51 ], [ %64, %57 ], [ %102, %97 ], [ false, %2 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %15 ], [ %28, %21 ], [ false, %35 ], [ false, %29 ], [ %50, %43 ], [ false, %73 ], [ false, %65 ], [ %84, %79 ], [ false, %85 ], [ %96, %91 ], [ false, %113 ], [ false, %103 ], [ %125, %119 ]
   ret i1 %.0
 }
 
@@ -6915,7 +6915,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIiEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit75: ;
   br label %158
 
 158:                                              ; preds = %96, %141, %157, %154, %69
-  %.265 = phi i32 [ %75, %69 ], [ %82, %96 ], [ %151, %154 ], [ %151, %157 ], [ %151, %141 ]
+  %.265 = phi i32 [ %75, %69 ], [ %151, %154 ], [ %151, %157 ], [ %151, %141 ], [ %82, %96 ]
   %159 = load ptr, ptr %35, align 8, !tbaa !161
   %160 = load ptr, ptr %44, align 8, !tbaa !170
   %.not.i.i = icmp eq ptr %159, %160

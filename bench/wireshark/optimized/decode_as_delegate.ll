@@ -3038,7 +3038,7 @@ _ZN5QListIP17_dissector_info_tED2Ev.exit368:      ; preds = %.loopexit.split-lp4
   br label %657
 
 655:                                              ; preds = %_ZN5QListIP17_dissector_info_tED2Ev.exit, %_ZN5QListIhED2Ev.exit, %_ZN5QListI7QStringED2Ev.exit243
-  %.0 = phi ptr [ %430, %_ZN5QListIP17_dissector_info_tED2Ev.exit ], [ %.1, %_ZN5QListIhED2Ev.exit ], [ %40, %_ZN5QListI7QStringED2Ev.exit243 ]
+  %.0 = phi ptr [ %40, %_ZN5QListI7QStringED2Ev.exit243 ], [ %.1, %_ZN5QListIhED2Ev.exit ], [ %430, %_ZN5QListIP17_dissector_info_tED2Ev.exit ]
   %.not186 = icmp eq ptr %.0, null
   br i1 %.not186, label %.thread403, label %656
 
@@ -3051,8 +3051,8 @@ _ZN5QListIP17_dissector_info_tED2Ev.exit368:      ; preds = %.loopexit.split-lp4
   ret ptr %.0406
 
 657:                                              ; preds = %435, %_ZN5QListIP17_dissector_info_tED2Ev.exit368, %73, %_ZN7QStringD2Ev.exit247, %_ZN5QListIhED2Ev.exit303
-  %.pn153.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn, %_ZN5QListIhED2Ev.exit303 ], [ %.pn180.pn.pn, %_ZN7QStringD2Ev.exit247 ], [ %74, %73 ], [ %.pn153.pn.pn.pn.pn, %_ZN5QListIP17_dissector_info_tED2Ev.exit368 ], [ %436, %435 ]
-  resume { ptr, i32 } %.pn153.pn.pn.pn.pn.pn.pn
+  %.pn180.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn, %_ZN5QListIhED2Ev.exit303 ], [ %.pn180.pn.pn, %_ZN7QStringD2Ev.exit247 ], [ %74, %73 ], [ %.pn153.pn.pn.pn.pn, %_ZN5QListIP17_dissector_info_tED2Ev.exit368 ], [ %436, %435 ]
+  resume { ptr, i32 } %.pn180.pn.pn.pn.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3432,7 +3432,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -3442,7 +3442,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -3667,8 +3667,8 @@ _ZN7QStringD2Ev.exit37:                           ; preds = %47, %_ZN17QArrayDat
   ret void
 
 56:                                               ; preds = %45, %_ZN7QStringD2Ev.exit37, %23, %_ZN7QStringD2Ev.exit29
-  %.pn.pn = phi { ptr, i32 } [ %26, %_ZN7QStringD2Ev.exit29 ], [ %24, %23 ], [ %48, %_ZN7QStringD2Ev.exit37 ], [ %46, %45 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn23.pn = phi { ptr, i32 } [ %26, %_ZN7QStringD2Ev.exit29 ], [ %24, %23 ], [ %48, %_ZN7QStringD2Ev.exit37 ], [ %46, %45 ]
+  resume { ptr, i32 } %.pn23.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3946,8 +3946,8 @@ _ZN7QStringD2Ev.exit54:                           ; preds = %54, %_ZN17QArrayDat
   ret void
 
 96:                                               ; preds = %93, %_ZN7QStringD2Ev.exit54, %_ZN7QStringD2Ev.exit46
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %93 ], [ %.pn38, %_ZN7QStringD2Ev.exit54 ], [ %.pn40, %_ZN7QStringD2Ev.exit46 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZN7QStringD2Ev.exit46 ], [ %.pn38, %_ZN7QStringD2Ev.exit54 ], [ %.pn.pn, %93 ]
+  resume { ptr, i32 } %.pn40.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

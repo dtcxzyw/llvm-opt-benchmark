@@ -904,7 +904,7 @@ dissect_auth_command.exit.i:                      ; preds = %159, %._crit_edge.i
   br label %165
 
 165:                                              ; preds = %162, %dissect_auth_command.exit.i, %.loopexit.i
-  %.2.i = phi i32 [ %.092.i, %162 ], [ %.092.i, %.loopexit.i ], [ %.4.i, %dissect_auth_command.exit.i ]
+  %.2.i = phi i32 [ %.092.i, %162 ], [ %.4.i, %dissect_auth_command.exit.i ], [ %.092.i, %.loopexit.i ]
   %.val.i = load i32, ptr %34, align 4
   store i32 %.val.i, ptr @last_command_pnum, align 4
   switch i32 %58, label %dissect_tpm20_tpm_command.exit [

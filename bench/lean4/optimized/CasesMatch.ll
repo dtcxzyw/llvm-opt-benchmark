@@ -79,7 +79,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   br label %28
 
 28:                                               ; preds = %26, %.thread
-  %.1 = phi ptr [ %.0.i.i, %26 ], [ %27, %.thread ]
+  %.1 = phi ptr [ %27, %.thread ], [ %.0.i.i, %26 ]
   ret ptr %.1
 }
 

@@ -380,9 +380,9 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 59:                                               ; preds = %56, %53, %49, %43
-  %.0155.i = phi i32 [ %58, %56 ], [ %55, %53 ], [ %52, %49 ], [ 1, %43 ]
-  %.not.i = phi i1 [ false, %56 ], [ true, %53 ], [ true, %49 ], [ true, %43 ]
-  %.0154.i = phi i32 [ 2, %56 ], [ 0, %53 ], [ 0, %49 ], [ 0, %43 ]
+  %.0155.i = phi i32 [ %52, %49 ], [ %55, %53 ], [ %58, %56 ], [ 1, %43 ]
+  %.not.i = phi i1 [ true, %49 ], [ true, %53 ], [ false, %56 ], [ true, %43 ]
+  %.0154.i = phi i32 [ 0, %49 ], [ 0, %53 ], [ 2, %56 ], [ 0, %43 ]
   %60 = add nuw nsw i32 %.0155.i, 1
   %61 = add nuw nsw i32 %60, %.0154.i
   %62 = load i32, ptr @ett_cbsp_ie, align 4
@@ -967,7 +967,7 @@ dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.
   br label %353
 
 353:                                              ; preds = %350, %dissect_rr_load_list_ie.exit.i, %dissect_failure_list_ie.exit.i, %dissect_bc_compl_list_ie.exit.i, %dissect_cell_id_list_ie.exit.i, %cbsp_warn_period_to_secs.exit160.i, %cbsp_warn_period_to_secs.exit.i, %169, %166, %163, %158, %152, %149, %143, %138, %135, %126, %120, %115, %107, %101, %96, %91, %dissect_cbsp_content_ie.exit.i
-  %.2153.i = phi i8 [ %.0151190.i, %350 ], [ %.0151190.i, %dissect_rr_load_list_ie.exit.i ], [ %.0151190.i, %dissect_failure_list_ie.exit.i ], [ %.0151190.i, %dissect_bc_compl_list_ie.exit.i ], [ %.0151190.i, %dissect_cell_id_list_ie.exit.i ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit160.i ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit.i ], [ %.0151190.i, %169 ], [ %.0151190.i, %166 ], [ %.0151190.i, %163 ], [ %.0151190.i, %158 ], [ %.0151190.i, %152 ], [ %.0151190.i, %149 ], [ %.0151190.i, %143 ], [ %.0151190.i, %138 ], [ %.0151190.i, %135 ], [ %132, %126 ], [ %.0151190.i, %120 ], [ %.0151190.i, %115 ], [ %.0151190.i, %107 ], [ %.0151190.i, %101 ], [ %.0151190.i, %96 ], [ %.0151190.i, %91 ], [ %.0151190.i, %dissect_cbsp_content_ie.exit.i ]
+  %.2153.i = phi i8 [ %.0151190.i, %350 ], [ %.0151190.i, %dissect_cbsp_content_ie.exit.i ], [ %.0151190.i, %91 ], [ %.0151190.i, %96 ], [ %.0151190.i, %101 ], [ %.0151190.i, %107 ], [ %.0151190.i, %115 ], [ %.0151190.i, %120 ], [ %132, %126 ], [ %.0151190.i, %135 ], [ %.0151190.i, %138 ], [ %.0151190.i, %143 ], [ %.0151190.i, %149 ], [ %.0151190.i, %152 ], [ %.0151190.i, %158 ], [ %.0151190.i, %163 ], [ %.0151190.i, %166 ], [ %.0151190.i, %169 ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit.i ], [ %.0151190.i, %cbsp_warn_period_to_secs.exit160.i ], [ %.0151190.i, %dissect_cell_id_list_ie.exit.i ], [ %.0151190.i, %dissect_bc_compl_list_ie.exit.i ], [ %.0151190.i, %dissect_failure_list_ie.exit.i ], [ %.0151190.i, %dissect_rr_load_list_ie.exit.i ]
   %354 = add i32 %72, %.0155.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
@@ -1126,7 +1126,7 @@ define internal fastcc noundef i32 @dissect_cell_id_elem(i8 noundef zeroext %0, 
   br label %46
 
 46:                                               ; preds = %41, %34, %29, %20, %9, %6
-  %.049 = phi i32 [ %3, %6 ], [ %44, %41 ], [ %39, %34 ], [ %32, %29 ], [ %26, %20 ], [ %17, %9 ]
+  %.049 = phi i32 [ %17, %9 ], [ %26, %20 ], [ %32, %29 ], [ %39, %34 ], [ %44, %41 ], [ %3, %6 ]
   %47 = sub i32 %.049, %3
   br label %48
 

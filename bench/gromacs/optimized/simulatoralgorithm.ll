@@ -6466,7 +6466,7 @@ define noundef zeroext i1 @_ZNK3gmx32ModularSimulatorAlgorithmBuilder13elementEx
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %31, %30 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i26.i.i.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i.i.i, align 8, !tbaa !220
   %33 = icmp eq ptr %1, %.val1.i26.i.i.i.i.i
   br i1 %33, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit", label %34
@@ -6476,7 +6476,7 @@ define noundef zeroext i1 @_ZNK3gmx32ModularSimulatorAlgorithmBuilder13elementEx
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i27.i.i.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i.i.i, align 8, !tbaa !220
   %37 = icmp eq ptr %1, %.val1.i27.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %37, ptr %.sroa.038.2.i.i.i.i.i, ptr %6

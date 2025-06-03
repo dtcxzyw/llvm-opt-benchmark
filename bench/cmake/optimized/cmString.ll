@@ -434,7 +434,7 @@ _ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread: ; preds = %4, %6, %_ZNK2cm6S
   br label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8
 
 _ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8: ; preds = %1, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
-  %.1 = phi ptr [ %5, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit ], [ %13, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread ], [ @_ZN2cmL13empty_string_B5cxx11E, %1 ]
+  %.1 = phi ptr [ %13, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread ], [ %5, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit ], [ @_ZN2cmL13empty_string_B5cxx11E, %1 ]
   ret ptr %.1
 }
 

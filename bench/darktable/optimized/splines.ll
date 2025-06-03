@@ -1344,9 +1344,9 @@ _ZNSt6vectorIN8interpol5pointIfEESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN8in
   br label %270
 
 264:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN8interpol11spline_baseIfED2Ev.exit183, %_ZN8interpol11spline_baseIfED2Ev.exit192, %_ZN8interpol11spline_baseIfED2Ev.exit205
-  %.sroa.40.1 = phi ptr [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %.sroa.20.1282, %.loopexit ], [ %.sroa.20.1282, %.loopexit.split-lp ]
-  %.sroa.0227.1 = phi ptr [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %.sroa.0227.2283, %.loopexit ], [ %.sroa.0227.2283, %.loopexit.split-lp ]
-  %.pn142.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %.pn141, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.pn142, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.40.1 = phi ptr [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.sroa.40.0, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %.sroa.20.1282, %.loopexit ], [ %.sroa.20.1282, %.loopexit.split-lp ]
+  %.sroa.0227.1 = phi ptr [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.sroa.0227.0, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %.sroa.0227.2283, %.loopexit ], [ %.sroa.0227.2283, %.loopexit.split-lp ]
+  %.pn142.pn.pn = phi { ptr, i32 } [ %.pn142, %_ZN8interpol11spline_baseIfED2Ev.exit183 ], [ %.pn141, %_ZN8interpol11spline_baseIfED2Ev.exit192 ], [ %.pn, %_ZN8interpol11spline_baseIfED2Ev.exit205 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.0122 = extractvalue { ptr, i32 } %.pn142.pn.pn, 0
   %.not.i.i.i206 = icmp eq ptr %.sroa.0227.1, null
   br i1 %.not.i.i.i206, label %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EED2Ev.exit207, label %265
@@ -1945,9 +1945,9 @@ _ZN8interpol11spline_baseIfED2Ev.exit134:         ; preds = %233, %230, %.body12
   br label %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EED2Ev.exit
 
 244:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN8interpol11spline_baseIfED2Ev.exit112, %_ZN8interpol11spline_baseIfED2Ev.exit121, %_ZN8interpol11spline_baseIfED2Ev.exit134
-  %.sroa.30.1 = phi ptr [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %.sroa.15.1201, %.loopexit ], [ %.sroa.15.1201, %.loopexit.split-lp ]
-  %.sroa.0156.1 = phi ptr [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %.sroa.0156.2202, %.loopexit ], [ %.sroa.0156.2202, %.loopexit.split-lp ]
-  %.pn73.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %.pn72, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.pn73, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.30.1 = phi ptr [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.sroa.30.0, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %.sroa.15.1201, %.loopexit ], [ %.sroa.15.1201, %.loopexit.split-lp ]
+  %.sroa.0156.1 = phi ptr [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.sroa.0156.0, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %.sroa.0156.2202, %.loopexit ], [ %.sroa.0156.2202, %.loopexit.split-lp ]
+  %.pn73.pn.pn = phi { ptr, i32 } [ %.pn73, %_ZN8interpol11spline_baseIfED2Ev.exit112 ], [ %.pn72, %_ZN8interpol11spline_baseIfED2Ev.exit121 ], [ %.pn, %_ZN8interpol11spline_baseIfED2Ev.exit134 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.067 = extractvalue { ptr, i32 } %.pn73.pn.pn, 0
   %.not.i.i.i135 = icmp eq ptr %.sroa.0156.1, null
   br i1 %.not.i.i.i135, label %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EED2Ev.exit136, label %245

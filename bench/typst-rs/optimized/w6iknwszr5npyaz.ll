@@ -401,7 +401,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h603772a1c5d25680E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -461,7 +461,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h7567235372db2d6aE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -522,7 +522,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hf6bd5ace79a6f0f4E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

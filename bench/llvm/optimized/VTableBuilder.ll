@@ -5750,9 +5750,9 @@ _ZN4llvm9SetVectorIN5clang13BaseSubobjectESt6vectorIS2_SaIS2_EENS_8DenseSetIS2_N
   br label %405
 
 405:                                              ; preds = %403, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i
-  %.val20.val23.i.i.i.i.i.i.i.i.i = phi i32 [ %.val20.val23.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.val19.val24.i.i.i.i.i.i.i.i.i, %403 ]
-  %.val20.val.i.i.i.i.i.i.i.i.i = phi ptr [ %.val20.val.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.val19.val.i.i.i.i.i.i.i.i.i, %403 ]
-  %.sroa.086.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.086.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ], [ %404, %403 ]
+  %.val20.val23.i.i.i.i.i.i.i.i.i = phi i32 [ %.val19.val24.i.i.i.i.i.i.i.i.i, %403 ], [ %.val20.val23.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %.val20.val.i.i.i.i.i.i.i.i.i = phi ptr [ %.val19.val.i.i.i.i.i.i.i.i.i, %403 ], [ %.val20.val.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %.sroa.086.1.i.i.i.i.i.i.i.i.i = phi ptr [ %404, %403 ], [ %.sroa.086.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.val1.i65.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.086.1.i.i.i.i.i.i.i.i.i, align 8
   %406 = getelementptr i8, ptr %.sroa.086.1.i.i.i.i.i.i.i.i.i, i64 8
   %.val2.i66.i.i.i.i.i.i.i.i.i = load i64, ptr %406, align 8
@@ -5827,9 +5827,9 @@ _ZN4llvm9SetVectorIN5clang13BaseSubobjectESt6vectorIS2_SaIS2_EENS_8DenseSetIS2_N
   br label %456
 
 456:                                              ; preds = %454, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i
-  %.val21.val22.i.i.i.i.i.i.i.i.i = phi i32 [ %.val21.val22.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ], [ %.val20.val23.i.i.i.i.i.i.i.i.i, %454 ]
-  %.val21.val.i.i.i.i.i.i.i.i.i = phi ptr [ %.val21.val.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ], [ %.val20.val.i.i.i.i.i.i.i.i.i, %454 ]
-  %.sroa.086.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.086.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ], [ %455, %454 ]
+  %.val21.val22.i.i.i.i.i.i.i.i.i = phi i32 [ %.val20.val23.i.i.i.i.i.i.i.i.i, %454 ], [ %.val21.val22.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ]
+  %.val21.val.i.i.i.i.i.i.i.i.i = phi ptr [ %.val20.val.i.i.i.i.i.i.i.i.i, %454 ], [ %.val21.val.pre.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ]
+  %.sroa.086.2.i.i.i.i.i.i.i.i.i = phi ptr [ %455, %454 ], [ %.sroa.086.0.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge167.i.i.i.i.i.i.i.i.i ]
   %.val1.i74.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.086.2.i.i.i.i.i.i.i.i.i, align 8
   %457 = getelementptr i8, ptr %.sroa.086.2.i.i.i.i.i.i.i.i.i, i64 8
   %.val2.i75.i.i.i.i.i.i.i.i.i = load i64, ptr %457, align 8
@@ -6592,7 +6592,7 @@ _ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_.exit.i.i: ; p
   br label %831
 
 831:                                              ; preds = %829, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %830, %829 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %830, %829 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %832 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i = load ptr, ptr %832, align 8, !tbaa !220
   %.1.val.val.i.i.i.i.i.i = load i64, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !25
@@ -6625,7 +6625,7 @@ _ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_.exit.i.i: ; p
   br label %847
 
 847:                                              ; preds = %845, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %846, %845 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %846, %845 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %848 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i = load ptr, ptr %848, align 8, !tbaa !220
   %.2.val.val.i.i.i.i.i.i = load i64, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !25
@@ -24601,8 +24601,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang13CXX
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !85
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang13CXXRecordDeclELj8EEES5_EEbOT_RKT0_.exit, label %50
@@ -24612,8 +24612,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang13CXX
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !85
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang13CXXRecordDeclELj8EEES5_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang13CXXRecordDeclELj8EEES5_EEbOT_RKT0_.exit.thread
@@ -24875,7 +24875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_133ComputeReturnAdjustmentBaseOffse
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %3, %11
-  %.1.i = phi ptr [ %7, %3 ], [ %12, %11 ]
+  %.1.i = phi ptr [ %12, %11 ], [ %7, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.0.0.copyload.i18 = load i64, ptr %13, align 8, !tbaa !25
   %14 = and i64 %.sroa.0.0.copyload.i18, -16
@@ -24892,7 +24892,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %3, %11
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit, %20
-  %.1.i21 = phi ptr [ %16, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ], [ %21, %20 ]
+  %.1.i21 = phi ptr [ %21, %20 ], [ %16, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i21, i64 24
   %.sroa.0.0.copyload.i23 = load i64, ptr %22, align 8, !tbaa !25
   %23 = and i64 %.sroa.0.0.copyload.i23, -16
@@ -24950,7 +24950,7 @@ _ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EE
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %54, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %55, %54 ]
+  %.1.i.i.i = phi ptr [ %55, %54 ], [ %50, %.lr.ph.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %57 = load i24, ptr %56, align 16
   %58 = and i24 %57, 1048576
@@ -24990,7 +24990,7 @@ _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit: ; preds
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39: ; preds = %73, %.lr.ph.i.i35
-  %.1.i.i.i40 = phi ptr [ %69, %.lr.ph.i.i35 ], [ %74, %73 ]
+  %.1.i.i.i40 = phi ptr [ %74, %73 ], [ %69, %.lr.ph.i.i35 ]
   %75 = getelementptr inbounds nuw i8, ptr %.1.i.i.i40, i64 16
   %76 = load i24, ptr %75, align 16
   %77 = and i24 %76, 1048576
@@ -27967,8 +27967,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.th
   br label %133
 
 133:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.thread
-  %134 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %132, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.thread ]
+  %134 = phi i64 [ %107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %132, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit53.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %135 = load i64, ptr %.1, align 8, !tbaa !869
   %136 = icmp eq i64 %135, %134
   br i1 %136, label %_ZN5clangeqERKNS_14ThisAdjustmentES2_.exit.i.i54, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread
@@ -28015,8 +28015,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.th
   br label %161
 
 161:                                              ; preds = %._crit_edge._crit_edge88, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread
-  %162 = phi i64 [ %.pre89, %._crit_edge._crit_edge88 ], [ %134, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge88 ], [ %160, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread ]
+  %162 = phi i64 [ %134, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread ], [ %.pre89, %._crit_edge._crit_edge88 ]
+  %.2 = phi ptr [ %160, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit59.thread ], [ %.029.lcssa, %._crit_edge._crit_edge88 ]
   %163 = load i64, ptr %.2, align 8, !tbaa !869
   %164 = icmp eq i64 %163, %162
   br i1 %164, label %_ZN5clangeqERKNS_14ThisAdjustmentES2_.exit.i.i60, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang9ThunkInfoEEclIPS3_EEbT_.exit65.thread
@@ -29567,8 +29567,8 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm9SetVectorIPKN5clang13CXXRecord
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i.i
-  %43 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %38, %40 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %43 = phi ptr [ %38, %40 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !85
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKN5clang13CXXRecordDeclELj8EEES5_EEbOT_RKT0_.exit, label %46
@@ -29578,8 +29578,8 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm9SetVectorIPKN5clang13CXXRecord
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge52.i.i.i.i
-  %49 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %46 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %43, %46 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !85
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZN4llvm12is_containedIRKNS_11SmallVectorIPKN5clang13CXXRecordDeclELj8EEES5_EEbOT_RKT0_.exit, label %52
@@ -39230,7 +39230,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %35, %37
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit42, %48
-  %.1.i.i = phi ptr [ %44, %_ZN4llvm11raw_ostreamlsEPKc.exit42 ], [ %49, %48 ]
+  %.1.i.i = phi ptr [ %49, %48 ], [ %44, %_ZN4llvm11raw_ostreamlsEPKc.exit42 ]
   %50 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %50, align 8, !tbaa !25
   %51 = and i64 %.sroa.0.0.copyload.i1.i, -16

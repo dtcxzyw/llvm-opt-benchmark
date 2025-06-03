@@ -130,8 +130,8 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %63
 
 63:                                               ; preds = %58, %55
-  %64 = phi i64 [ 8, %55 ], [ 7, %58 ]
-  %.2 = phi i64 [ 0, %55 ], [ %62, %58 ]
+  %64 = phi i64 [ 7, %58 ], [ 8, %55 ]
+  %.2 = phi i64 [ %62, %58 ], [ 0, %55 ]
   %65 = getelementptr i8, ptr %56, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -1
   %67 = load i8, ptr %66, align 1, !tbaa !7
@@ -141,8 +141,8 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %71
 
 71:                                               ; preds = %63, %55
-  %.3242 = phi ptr [ %57, %55 ], [ %66, %63 ]
-  %.3 = phi i64 [ 0, %55 ], [ %70, %63 ]
+  %.3242 = phi ptr [ %66, %63 ], [ %57, %55 ]
+  %.3 = phi i64 [ %70, %63 ], [ 0, %55 ]
   %72 = getelementptr inbounds i8, ptr %.3242, i64 -1
   %73 = load i8, ptr %72, align 1, !tbaa !7
   %74 = zext i8 %73 to i64
@@ -150,8 +150,8 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %76
 
 76:                                               ; preds = %71, %55
-  %.4243 = phi ptr [ %57, %55 ], [ %72, %71 ]
-  %.4 = phi i64 [ 0, %55 ], [ %75, %71 ]
+  %.4243 = phi ptr [ %72, %71 ], [ %57, %55 ]
+  %.4 = phi i64 [ %75, %71 ], [ 0, %55 ]
   %77 = getelementptr inbounds i8, ptr %.4243, i64 -1
   %78 = load i8, ptr %77, align 1, !tbaa !7
   %79 = zext i8 %78 to i64
@@ -159,9 +159,9 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %81
 
 81:                                               ; preds = %76, %55
-  %.5244 = phi ptr [ %57, %55 ], [ %77, %76 ]
-  %.1236 = phi i64 [ 0, %55 ], [ %80, %76 ]
-  %.5 = phi i64 [ 0, %55 ], [ %.4, %76 ]
+  %.5244 = phi ptr [ %77, %76 ], [ %57, %55 ]
+  %.1236 = phi i64 [ %80, %76 ], [ 0, %55 ]
+  %.5 = phi i64 [ %.4, %76 ], [ 0, %55 ]
   %82 = getelementptr inbounds i8, ptr %.5244, i64 -1
   %83 = load i8, ptr %82, align 1, !tbaa !7
   %84 = zext i8 %83 to i64
@@ -170,9 +170,9 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %87
 
 87:                                               ; preds = %81, %55
-  %.6245 = phi ptr [ %57, %55 ], [ %82, %81 ]
-  %.2237 = phi i64 [ 0, %55 ], [ %86, %81 ]
-  %.6 = phi i64 [ 0, %55 ], [ %.5, %81 ]
+  %.6245 = phi ptr [ %82, %81 ], [ %57, %55 ]
+  %.2237 = phi i64 [ %86, %81 ], [ 0, %55 ]
+  %.6 = phi i64 [ %.5, %81 ], [ 0, %55 ]
   %88 = getelementptr inbounds i8, ptr %.6245, i64 -1
   %89 = load i8, ptr %88, align 1, !tbaa !7
   %90 = zext i8 %89 to i64
@@ -181,9 +181,9 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %93
 
 93:                                               ; preds = %55, %87
-  %.7246 = phi ptr [ %57, %55 ], [ %88, %87 ]
-  %.3238 = phi i64 [ 0, %55 ], [ %92, %87 ]
-  %.7 = phi i64 [ 0, %55 ], [ %.6, %87 ]
+  %.7246 = phi ptr [ %88, %87 ], [ %57, %55 ]
+  %.3238 = phi i64 [ %92, %87 ], [ 0, %55 ]
+  %.7 = phi i64 [ %.6, %87 ], [ 0, %55 ]
   %94 = getelementptr inbounds i8, ptr %.7246, i64 -1
   %95 = load i8, ptr %94, align 1, !tbaa !7
   %96 = zext i8 %95 to i64
@@ -394,7 +394,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %219
 
 219:                                              ; preds = %215, %182
-  %220 = phi i64 [ 8, %182 ], [ 7, %215 ]
+  %220 = phi i64 [ 7, %215 ], [ 8, %182 ]
   %221 = getelementptr i8, ptr %213, i64 %220
   %222 = lshr i64 %212, 8
   %223 = trunc i64 %222 to i8
@@ -403,14 +403,14 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %225
 
 225:                                              ; preds = %219, %182
-  %.4251 = phi ptr [ %214, %182 ], [ %224, %219 ]
+  %.4251 = phi ptr [ %224, %219 ], [ %214, %182 ]
   %226 = trunc i64 %212 to i8
   %227 = getelementptr inbounds i8, ptr %.4251, i64 -1
   store i8 %226, ptr %227, align 1, !tbaa !7
   br label %228
 
 228:                                              ; preds = %225, %182
-  %.5252 = phi ptr [ %214, %182 ], [ %227, %225 ]
+  %.5252 = phi ptr [ %227, %225 ], [ %214, %182 ]
   %229 = lshr i64 %210, 24
   %230 = trunc i64 %229 to i8
   %231 = getelementptr inbounds i8, ptr %.5252, i64 -1
@@ -418,7 +418,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %232
 
 232:                                              ; preds = %228, %182
-  %.6253 = phi ptr [ %214, %182 ], [ %231, %228 ]
+  %.6253 = phi ptr [ %231, %228 ], [ %214, %182 ]
   %233 = lshr i64 %210, 16
   %234 = trunc i64 %233 to i8
   %235 = getelementptr inbounds i8, ptr %.6253, i64 -1
@@ -426,7 +426,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %236
 
 236:                                              ; preds = %232, %182
-  %.7254 = phi ptr [ %214, %182 ], [ %235, %232 ]
+  %.7254 = phi ptr [ %235, %232 ], [ %214, %182 ]
   %237 = lshr i64 %210, 8
   %238 = trunc i64 %237 to i8
   %239 = getelementptr inbounds i8, ptr %.7254, i64 -1
@@ -434,7 +434,7 @@ define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %240
 
 240:                                              ; preds = %182, %236
-  %.8255 = phi ptr [ %214, %182 ], [ %239, %236 ]
+  %.8255 = phi ptr [ %239, %236 ], [ %214, %182 ]
   %241 = trunc i64 %210 to i8
   %242 = getelementptr inbounds i8, ptr %.8255, i64 -1
   store i8 %241, ptr %242, align 1, !tbaa !7

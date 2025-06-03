@@ -1217,7 +1217,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8ge
   br label %151
 
 151:                                              ; preds = %.preheader485._crit_edge, %147, %143
-  %152 = phi i32 [ %.pre, %.preheader485._crit_edge ], [ %150, %147 ], [ %146, %143 ]
+  %152 = phi i32 [ %.pre, %.preheader485._crit_edge ], [ %146, %143 ], [ %150, %147 ]
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %154, label %155
 

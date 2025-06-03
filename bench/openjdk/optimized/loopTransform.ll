@@ -3294,7 +3294,7 @@ _ZN14PhaseIdealLoop17may_require_nodesEjj.exit:   ; preds = %100
   unreachable
 
 141:                                              ; preds = %122, %120
-  %.046 = phi ptr [ %138, %122 ], [ %121, %120 ]
+  %.046 = phi ptr [ %121, %120 ], [ %138, %122 ]
   tail call void @_ZN14PhaseIdealLoop30register_new_node_with_ctrl_ofEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %2, ptr noundef %.046, ptr noundef nonnull %1)
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %143 = load ptr, ptr %142, align 8
@@ -6195,8 +6195,8 @@ _ZNK19BaseCountedLoopNode3phiEv.exit.thread:      ; preds = %226, %218, %213, %2
   br label %392
 
 392:                                              ; preds = %355, %359, %361, %363, %365, %367, %377
-  %.1118 = phi i32 [ %.0117161, %355 ], [ %.0117161, %377 ], [ %.0117161, %367 ], [ %.0117161, %365 ], [ %.0117161, %363 ], [ %.0117161, %361 ], [ %360, %359 ]
-  %.2 = phi i32 [ %.1, %355 ], [ %391, %377 ], [ %376, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %.1, %359 ]
+  %.1118 = phi i32 [ %.0117161, %355 ], [ %360, %359 ], [ %.0117161, %361 ], [ %.0117161, %363 ], [ %.0117161, %365 ], [ %.0117161, %367 ], [ %.0117161, %377 ]
+  %.2 = phi i32 [ %.1, %355 ], [ %.1, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %376, %367 ], [ %391, %377 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %393 = load i32, ptr %338, align 8
   %394 = zext i32 %393 to i64
@@ -6550,7 +6550,7 @@ define linkonce_odr hidden noundef i32 @_ZN7Matcher32vector_op_pre_select_sz_est
   br label %44
 
 44:                                               ; preds = %16, %13, %3, %43, %39, %35, %32, %29, %19, %10, %5, %4
-  %.0 = phi i32 [ 30, %43 ], [ %42, %39 ], [ %38, %35 ], [ %31, %29 ], [ %34, %32 ], [ %25, %19 ], [ %12, %10 ], [ %9, %5 ], [ 7, %4 ], [ 0, %3 ], [ %18, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ 7, %4 ], [ %9, %5 ], [ %12, %10 ], [ %25, %19 ], [ %31, %29 ], [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ 30, %43 ], [ 0, %3 ], [ %18, %16 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -17943,9 +17943,9 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit253:     ; preds = %_ZNK14PhaseIdealLoo
   br label %593
 
 593:                                              ; preds = %586, %592, %574
-  %594 = phi ptr [ %521, %574 ], [ %587, %592 ], [ %577, %586 ]
-  %.1191 = phi i64 [ %520, %574 ], [ %.0190297, %592 ], [ %576, %586 ]
-  %.2186 = phi ptr [ %526, %574 ], [ %588, %592 ], [ %582, %586 ]
+  %594 = phi ptr [ %587, %592 ], [ %577, %586 ], [ %521, %574 ]
+  %.1191 = phi i64 [ %.0190297, %592 ], [ %576, %586 ], [ %520, %574 ]
+  %.2186 = phi ptr [ %588, %592 ], [ %582, %586 ], [ %526, %574 ]
   call void @_ZN14PhaseIdealLoop14add_constraintEllP4NodeS1_S1_S1_PS1_S2_(ptr noundef nonnull align 8 dereferenceable(237) %0, i64 noundef %307, i64 noundef %.1191, ptr noundef %594, ptr noundef %248, ptr noundef %.2186, ptr noundef %219, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br label %595
 
@@ -21661,7 +21661,7 @@ _ZN13IdealLoopTree12is_innermostEv.exit.thread:   ; preds = %96, %.thread, %156,
   br label %167
 
 167:                                              ; preds = %161, %164, %156, %6, %166
-  %.013 = phi i1 [ false, %161 ], [ true, %166 ], [ false, %6 ], [ false, %156 ], [ false, %164 ]
+  %.013 = phi i1 [ true, %166 ], [ false, %161 ], [ false, %6 ], [ false, %156 ], [ false, %164 ]
   ret i1 %.013
 }
 

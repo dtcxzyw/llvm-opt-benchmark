@@ -2097,7 +2097,7 @@ define internal zeroext i16 @de_bssgp_ran_information_request_app_cont(ptr nound
   br label %37
 
 37:                                               ; preds = %34, %30, %22, %18, %14, %10
-  %.0 = phi i32 [ %36, %34 ], [ %33, %30 ], [ %29, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ]
+  %.0 = phi i32 [ %36, %34 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %29, %22 ], [ %33, %30 ]
   %38 = sub i32 %.0, %3
   %39 = trunc i32 %38 to i16
   ret i16 %39
@@ -2278,7 +2278,7 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %67, %71, %75, %61, %._crit_edge, %95, %89, %55, %48
-  %.2 = phi i32 [ %97, %95 ], [ %94, %89 ], [ %66, %61 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %58, %55 ], [ %54, %48 ], [ %.1.lcssa, %._crit_edge ], [ %25, %.preheader ], [ %29, %.lr.ph ]
+  %.2 = phi i32 [ %97, %95 ], [ %.1.lcssa, %._crit_edge ], [ %54, %48 ], [ %58, %55 ], [ %66, %61 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %94, %89 ], [ %25, %.preheader ], [ %29, %.lr.ph ]
   %98 = sub i32 %.2, %3
   br label %99
 

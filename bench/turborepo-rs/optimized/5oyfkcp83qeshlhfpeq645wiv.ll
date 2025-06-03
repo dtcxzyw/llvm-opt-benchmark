@@ -4241,7 +4241,7 @@ _RNvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_10take_wh
   ret void
 
 75:                                               ; preds = %89, %76
-  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %lpad.phi, %89 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %89 ], [ %77, %76 ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #32
           to label %common.resume unwind label %109
 

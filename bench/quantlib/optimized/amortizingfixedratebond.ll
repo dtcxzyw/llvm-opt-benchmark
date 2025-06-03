@@ -5199,7 +5199,7 @@ ehcleanup56:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb20, %sw.bb12, %sw.bb5, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i25, %sw.bb20 ], [ %retval.sroa.0.0.insert.insert.i21, %sw.bb12 ], [ %retval.sroa.0.0.insert.insert.i17, %sw.bb5 ], [ %retval.sroa.0.0.insert.insert.i, %sw.bb ]
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i, %sw.bb ], [ %retval.sroa.0.0.insert.insert.i17, %sw.bb5 ], [ %retval.sroa.0.0.insert.insert.i21, %sw.bb12 ], [ %retval.sroa.0.0.insert.insert.i25, %sw.bb20 ]
   ret i64 %retval.sroa.0.0
 
 unreachable:                                      ; preds = %invoke.cont46

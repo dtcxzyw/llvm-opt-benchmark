@@ -715,9 +715,9 @@ protoset_set.exit:                                ; preds = %27, %protoset_index
   br label %43
 
 43:                                               ; preds = %.lr.ph110, %42, %41
-  %switch = phi i1 [ false, %42 ], [ true, %41 ], [ false, %.lr.ph110 ]
-  %44 = phi i1 [ false, %42 ], [ false, %41 ], [ true, %.lr.ph110 ]
-  %.156 = phi i32 [ 0, %42 ], [ 1, %41 ], [ 2, %.lr.ph110 ]
+  %switch = phi i1 [ true, %41 ], [ false, %42 ], [ false, %.lr.ph110 ]
+  %44 = phi i1 [ false, %41 ], [ false, %42 ], [ true, %.lr.ph110 ]
+  %.156 = phi i32 [ 1, %41 ], [ 0, %42 ], [ 2, %.lr.ph110 ]
   %45 = load i8, ptr %40, align 1, !tbaa !31
   %46 = add i8 %45, -58
   %or.cond = icmp ult i8 %46, -10

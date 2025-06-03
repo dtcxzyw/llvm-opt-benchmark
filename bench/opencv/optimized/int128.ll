@@ -172,7 +172,7 @@ define hidden void @_ZN6google8protobuf7uint12810DivModImplES1_S1_PS1_S2_(i64 %0
   br label %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit
 
 _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %34, %54
-  %.1.i = phi i32 [ %53, %34 ], [ %72, %54 ]
+  %.1.i = phi i32 [ %72, %54 ], [ %53, %34 ]
   br i1 %10, label %93, label %73
 
 73:                                               ; preds = %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit
@@ -235,7 +235,7 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit:   ; preds = %34, %54
   br label %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit33
 
 _ZN6google8protobufL6Fls128ENS0_7uint128E.exit33: ; preds = %73, %93
-  %.1.i24 = phi i32 [ %92, %73 ], [ %111, %93 ]
+  %.1.i24 = phi i32 [ %111, %93 ], [ %92, %73 ]
   %112 = sub nsw i32 %.1.i, %.1.i24
   %113 = icmp sgt i32 %112, -1
   br i1 %113, label %.lr.ph.preheader, label %._crit_edge

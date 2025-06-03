@@ -467,7 +467,7 @@ do.body99:                                        ; preds = %do.end9
   unreachable
 
 sw.epilog:                                        ; preds = %if.end.i54, %for.body.i51, %land.rhs.i, %if.then73, %sw.bb34, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit, %if.then16, %if.else, %sw.bb29
-  %nbytes.0 = phi i64 [ %i.0.lcssa.i63, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit ], [ %call1.i, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit ], [ %call1.i43, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit ], [ %call38, %sw.bb34 ], [ %conv33, %sw.bb29 ], [ %.sroa.speculated, %if.then16 ], [ %conv27, %if.else ], [ 0, %if.then73 ], [ %i.015.i, %for.body.i51 ], [ %buflen, %if.end.i54 ], [ %i.015.i, %land.rhs.i ]
+  %nbytes.0 = phi i64 [ %.sroa.speculated, %if.then16 ], [ %conv27, %if.else ], [ %conv33, %sw.bb29 ], [ %call38, %sw.bb34 ], [ %call1.i, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit ], [ %call1.i43, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit ], [ %i.0.lcssa.i63, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit ], [ 0, %if.then73 ], [ %i.015.i, %for.body.i51 ], [ %buflen, %if.end.i54 ], [ %i.015.i, %land.rhs.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #18
   ret i64 %nbytes.0
 }
@@ -579,7 +579,7 @@ do.body64:                                        ; preds = %if.end31
   unreachable
 
 sw.epilog:                                        ; preds = %cond.true.i, %sw.bb43, %do.end60, %sw.bb38, %sw.bb34, %sw.bb
-  %data_size.0 = phi i64 [ %conv63, %do.end60 ], [ %mul42, %sw.bb38 ], [ %conv37, %sw.bb34 ], [ %conv, %sw.bb ], [ %add2.i, %cond.true.i ], [ 0, %sw.bb43 ]
+  %data_size.0 = phi i64 [ %conv, %sw.bb ], [ %conv37, %sw.bb34 ], [ %mul42, %sw.bb38 ], [ %conv63, %do.end60 ], [ %add2.i, %cond.true.i ], [ 0, %sw.bb43 ]
   %.fca.1.insert.i12 = insertvalue { i8, i64 } { i8 1, i64 poison }, i64 %data_size.0, 1
   br label %cleanup
 
@@ -705,7 +705,7 @@ do.body:                                          ; preds = %if.end31
   unreachable
 
 cleanup:                                          ; preds = %if.end, %sw.bb63, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit, %sw.bb42, %sw.bb36, %sw.bb, %if.then
-  %call12.pn = phi { i8, i64 } [ %.fca.1.insert.i, %if.then ], [ %.fca.1.insert.i16, %sw.bb63 ], [ %.fca.1.insert.i15, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit ], [ %.fca.1.insert.i13, %sw.bb42 ], [ %.fca.1.insert.i12, %sw.bb36 ], [ %.fca.1.insert.i11, %sw.bb ], [ { i8 0, i64 undef }, %if.end ]
+  %call12.pn = phi { i8, i64 } [ %.fca.1.insert.i, %if.then ], [ %.fca.1.insert.i11, %sw.bb ], [ %.fca.1.insert.i12, %sw.bb36 ], [ %.fca.1.insert.i13, %sw.bb42 ], [ %.fca.1.insert.i15, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit ], [ %.fca.1.insert.i16, %sw.bb63 ], [ { i8 0, i64 undef }, %if.end ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #18
   ret { i8, i64 } %call12.pn
 }
@@ -1051,7 +1051,7 @@ do.body223:                                       ; preds = %if.end12
   unreachable
 
 return:                                           ; preds = %sw.bb56, %if.then64, %sw.bb, %if.then20, %if.end217, %if.end211, %if.then205, %do.end163, %if.then144, %do.end133, %if.then114, %do.end102, %if.then85, %sw.bb75, %if.else, %if.end45, %if.then39, %if.then4, %if.then
-  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %1, %if.then4 ], [ null, %if.then205 ], [ %call212, %if.end211 ], [ %call218, %if.end217 ], [ null, %if.then144 ], [ %call164, %do.end163 ], [ null, %if.then114 ], [ %call134, %do.end133 ], [ null, %if.then85 ], [ %call103, %do.end102 ], [ %call76, %sw.bb75 ], [ null, %if.then39 ], [ %call46, %if.end45 ], [ %call51, %if.else ], [ null, %if.then20 ], [ %call13, %sw.bb ], [ null, %if.then64 ], [ %call58, %sw.bb56 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %1, %if.then4 ], [ null, %if.then39 ], [ %call46, %if.end45 ], [ %call51, %if.else ], [ %call76, %sw.bb75 ], [ null, %if.then85 ], [ %call103, %do.end102 ], [ null, %if.then114 ], [ %call134, %do.end133 ], [ null, %if.then144 ], [ %call164, %do.end163 ], [ null, %if.then205 ], [ %call212, %if.end211 ], [ %call218, %if.end217 ], [ null, %if.then20 ], [ %call13, %sw.bb ], [ null, %if.then64 ], [ %call58, %sw.bb56 ]
   ret ptr %retval.sroa.0.0
 }
 

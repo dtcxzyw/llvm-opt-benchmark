@@ -885,7 +885,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit22:           ; preds = %75, %82
   store i64 %.0.i20, ptr %85, align 8, !tbaa !27
   br label %.critedge
 
-.critedge:                                        ; preds = %59, %56, %53, %50, %38, %35, %32, %29, %_ZNK4llvm5APInt12getSExtValueEv.exit22, %61
+.critedge:                                        ; preds = %50, %53, %56, %59, %29, %32, %35, %38, %_ZNK4llvm5APInt12getSExtValueEv.exit22, %61
   ret void
 }
 

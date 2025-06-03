@@ -93,7 +93,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %43
 
 43:                                               ; preds = %37, %._crit_edge.i
-  %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
+  %.1.i = phi i64 [ %42, %37 ], [ %12, %._crit_edge.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !6
   %46 = zext i8 %45 to i64
@@ -102,7 +102,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %49
 
 49:                                               ; preds = %43, %._crit_edge.i
-  %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
+  %.2.i = phi i64 [ %48, %43 ], [ %12, %._crit_edge.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 4
   %51 = load i8, ptr %50, align 1, !tbaa !6
   %52 = zext i8 %51 to i64
@@ -111,7 +111,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %55
 
 55:                                               ; preds = %49, %._crit_edge.i
-  %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
+  %.3.i = phi i64 [ %54, %49 ], [ %12, %._crit_edge.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 3
   %57 = load i8, ptr %56, align 1, !tbaa !6
   %58 = zext i8 %57 to i64
@@ -120,7 +120,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %61
 
 61:                                               ; preds = %55, %._crit_edge.i
-  %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
+  %.4.i = phi i64 [ %60, %55 ], [ %12, %._crit_edge.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 2
   %63 = load i8, ptr %62, align 1, !tbaa !6
   %64 = zext i8 %63 to i64
@@ -129,7 +129,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge.i
-  %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
+  %.5.i = phi i64 [ %66, %61 ], [ %12, %._crit_edge.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i64
@@ -138,7 +138,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge.i
-  %.6.i = phi i64 [ %12, %._crit_edge.i ], [ %72, %67 ]
+  %.6.i = phi i64 [ %72, %67 ], [ %12, %._crit_edge.i ]
   %74 = load i8, ptr %.0140.lcssa.i, align 1, !tbaa !6
   %75 = zext i8 %74 to i64
   %76 = or i64 %.6.i, %75
@@ -297,7 +297,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %43
 
 43:                                               ; preds = %37, %._crit_edge.i
-  %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
+  %.1.i = phi i64 [ %42, %37 ], [ %12, %._crit_edge.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !6
   %46 = zext i8 %45 to i64
@@ -306,7 +306,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %49
 
 49:                                               ; preds = %43, %._crit_edge.i
-  %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
+  %.2.i = phi i64 [ %48, %43 ], [ %12, %._crit_edge.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 4
   %51 = load i8, ptr %50, align 1, !tbaa !6
   %52 = zext i8 %51 to i64
@@ -315,7 +315,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %55
 
 55:                                               ; preds = %49, %._crit_edge.i
-  %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
+  %.3.i = phi i64 [ %54, %49 ], [ %12, %._crit_edge.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 3
   %57 = load i8, ptr %56, align 1, !tbaa !6
   %58 = zext i8 %57 to i64
@@ -324,7 +324,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %61
 
 61:                                               ; preds = %55, %._crit_edge.i
-  %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
+  %.4.i = phi i64 [ %60, %55 ], [ %12, %._crit_edge.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 2
   %63 = load i8, ptr %62, align 1, !tbaa !6
   %64 = zext i8 %63 to i64
@@ -333,7 +333,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge.i
-  %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
+  %.5.i = phi i64 [ %66, %61 ], [ %12, %._crit_edge.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i64
@@ -342,7 +342,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge.i
-  %.6.i = phi i64 [ %12, %._crit_edge.i ], [ %72, %67 ]
+  %.6.i = phi i64 [ %72, %67 ], [ %12, %._crit_edge.i ]
   %74 = load i8, ptr %.0178.lcssa.i, align 1, !tbaa !6
   %75 = zext i8 %74 to i64
   %76 = or i64 %.6.i, %75

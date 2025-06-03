@@ -862,7 +862,7 @@ define internal range(i32 0, 4) i32 @dasync_ciphers(ptr readnone captures(none) 
   br label %15
 
 15:                                               ; preds = %8, %10, %12, %14, %6
-  %.08 = phi i32 [ 3, %6 ], [ 0, %14 ], [ 1, %12 ], [ 1, %10 ], [ 1, %8 ]
+  %.08 = phi i32 [ 3, %6 ], [ 0, %14 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ]
   ret i32 %.08
 }
 

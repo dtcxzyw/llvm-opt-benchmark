@@ -931,7 +931,7 @@ define dso_local { i64, i64 } @_ZNSt3__112strstreambuf7seekoffExNS_8ios_base7see
   unreachable
 
 39:                                               ; preds = %19, %32, %25
-  %.0 = phi i64 [ %37, %32 ], [ %31, %25 ], [ 0, %19 ]
+  %.0 = phi i64 [ %31, %25 ], [ %37, %32 ], [ 0, %19 ]
   %40 = add nsw i64 %.0, %1
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %62, label %42

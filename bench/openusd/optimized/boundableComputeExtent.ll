@@ -538,7 +538,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_16UsdGeomBoundableEEERKS0_v
   br label %167
 
 167:                                              ; preds = %165, %._crit_edge.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %166, %165 ]
+  %.sroa.031.1.i.i.i.i.i.i = phi ptr [ %166, %165 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i.i20.i.i.i.i.i.i = load ptr, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKNS_6TfTypeEE13boundableType, align 8, !noalias !6
   %168 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType3IsAES0_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.031.1.i.i.i.i.i.i, ptr %.sroa.0.0.copyload.i.i20.i.i.i.i.i.i)
           to label %.noexc11.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
@@ -551,7 +551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_16UsdGeomBoundableEEERKS0_v
   br label %171
 
 171:                                              ; preds = %169, %._crit_edge.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %170, %169 ]
+  %.sroa.031.2.i.i.i.i.i.i = phi ptr [ %170, %169 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.0.copyload.i.i21.i.i.i.i.i.i = load ptr, ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_FunctionRegistry39_GetTypesThatMayHaveRegisteredFunctionsERKNS_6TfTypeEE13boundableType, align 8, !noalias !6
   %172 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType3IsAES0_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.031.2.i.i.i.i.i.i, ptr %.sroa.0.0.copyload.i.i21.i.i.i.i.i.i)
           to label %.noexc12.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i

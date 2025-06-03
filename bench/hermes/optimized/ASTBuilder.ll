@@ -2918,8 +2918,8 @@ if.then100:                                       ; preds = %sw.default.i, %if.t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp51.i)
   br label %return
 
-if.end101:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %retval.sroa.0.0.i.ph.in = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i ], [ %retval.0.i.i.i151.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i ], [ %retval.0.i.i.i170.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i ], [ %retval.0.i.i.i191.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i ], [ %retval.0.i.i.i210.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i ]
+if.end101:                                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
+  %retval.sroa.0.0.i.ph.in = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i ], [ %retval.0.i.i.i210.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i ], [ %retval.0.i.i.i191.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i ], [ %retval.0.i.i.i170.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i ], [ %retval.0.i.i.i151.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i ]
   %retval.sroa.0.0.i.ph = ptrtoint ptr %retval.sroa.0.0.i.ph.in to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)

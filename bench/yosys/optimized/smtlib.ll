@@ -22307,7 +22307,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN12_GLOBAL__N_115SmtPrintVisitor11bitwise_notEN5Yosys10Functional4NodeES3_.exit
 
 common.resume:                                    ; preds = %557, %673, %282, %253
-  %common.resume.op = phi { ptr, i32 } [ %254, %253 ], [ %283, %282 ], [ %.pn, %673 ], [ %.pn165, %557 ]
+  %common.resume.op = phi { ptr, i32 } [ %254, %253 ], [ %283, %282 ], [ %.pn165, %557 ], [ %.pn, %673 ]
   resume { ptr, i32 } %common.resume.op
 
 253:                                              ; preds = %_ZNKSt8functionIFN5Yosys5SExprENS0_10Functional4NodeEEEclES3_.exit.i

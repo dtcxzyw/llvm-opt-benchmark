@@ -1236,7 +1236,7 @@ define internal void @obj_flag_observer_cb(ptr noundef readonly captures(none) %
   br label %28
 
 28:                                               ; preds = %22, %16, %10
-  %.0.shrunk = phi i1 [ %27, %22 ], [ %21, %16 ], [ %15, %10 ]
+  %.0.shrunk = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ]
   %29 = trunc i8 %6 to i1
   %spec.select = xor i1 %.0.shrunk, %29
   br i1 %spec.select, label %30, label %34
@@ -1339,7 +1339,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
   br label %28
 
 28:                                               ; preds = %22, %16, %10
-  %.0.shrunk = phi i1 [ %27, %22 ], [ %21, %16 ], [ %15, %10 ]
+  %.0.shrunk = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ]
   %29 = trunc i8 %6 to i1
   %spec.select = xor i1 %.0.shrunk, %29
   br i1 %spec.select, label %30, label %35

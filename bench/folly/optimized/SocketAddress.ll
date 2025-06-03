@@ -916,7 +916,7 @@ define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(p
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5, %4
-  %.0 = phi ptr [ %1, %7 ], [ @.str.6, %6 ], [ @.str.5, %5 ], [ @.str.4, %4 ], [ @.str.3, %2 ]
+  %.0 = phi ptr [ %1, %7 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.3, %2 ]
   ret ptr %.0
 }
 
@@ -2743,7 +2743,7 @@ define noundef zeroext i1 @_ZNK5folly13SocketAddresseqERKS0_(ptr noundef nonnull
   unreachable
 
 43:                                               ; preds = %15, %20, %2, %7, %40, %32, %24
-  %.0 = phi i1 [ %30, %24 ], [ %41, %40 ], [ %39, %32 ], [ false, %7 ], [ false, %2 ], [ false, %20 ], [ false, %15 ]
+  %.0 = phi i1 [ %30, %24 ], [ %39, %32 ], [ %41, %40 ], [ false, %7 ], [ false, %2 ], [ false, %20 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -2819,7 +2819,7 @@ define noundef zeroext i1 @_ZNK5folly13SocketAddress11prefixMatchERKS0_j(ptr nou
   br label %21
 
 21:                                               ; preds = %20, %19
-  %.05 = phi i8 [ -128, %19 ], [ 32, %20 ]
+  %.05 = phi i8 [ 32, %20 ], [ -128, %19 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #27
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !30
@@ -3033,7 +3033,7 @@ _ZNK5folly9IPAddress4hashEv.exit11:               ; preds = %87, %_ZZNK5folly9IP
   unreachable
 
 115:                                              ; preds = %.loopexit, %_ZNK5folly9IPAddress4hashEv.exit11, %_ZNK5folly9IPAddress4hashEv.exit
-  %.2 = phi i64 [ %113, %_ZNK5folly9IPAddress4hashEv.exit11 ], [ %.019, %.loopexit ], [ %86, %_ZNK5folly9IPAddress4hashEv.exit ]
+  %.2 = phi i64 [ %86, %_ZNK5folly9IPAddress4hashEv.exit ], [ %.019, %.loopexit ], [ %113, %_ZNK5folly9IPAddress4hashEv.exit11 ]
   ret i64 %.2
 }
 

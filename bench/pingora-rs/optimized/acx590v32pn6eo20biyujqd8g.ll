@@ -2651,8 +2651,8 @@ define hidden { i64, ptr } @_ZN2h25proto7streams10prioritize10Prioritize13poll_c
           to label %297 unwind label %.loopexit703.i, !noalias !90
 
 .loopexit.split-lp704.i:                          ; preds = %.loopexit.split-lp704.i.loopexit, %.loopexit.split-lp704.i.loopexit.split-lp, %552, %.thread575.i, %350, %.loopexit703.i
-  %.sroa.0217.1.i = phi i1 [ true, %552 ], [ true, %.thread575.i ], [ true, %350 ], [ true, %.loopexit703.i ], [ %.not395.i, %.loopexit.split-lp704.i.loopexit ], [ true, %.loopexit.split-lp704.i.loopexit.split-lp ]
-  %.pn425.i = phi { ptr, i32 } [ %lpad.phi, %552 ], [ %.pn574.i, %.thread575.i ], [ %lpad.thr_comm.split-lp.i, %350 ], [ %lpad.loopexit705.i, %.loopexit703.i ], [ %lpad.loopexit147, %.loopexit.split-lp704.i.loopexit ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp704.i.loopexit.split-lp ]
+  %.sroa.0217.1.i = phi i1 [ true, %.thread575.i ], [ true, %350 ], [ true, %552 ], [ true, %.loopexit703.i ], [ %.not395.i, %.loopexit.split-lp704.i.loopexit ], [ true, %.loopexit.split-lp704.i.loopexit.split-lp ]
+  %.pn425.i = phi { ptr, i32 } [ %.pn574.i, %.thread575.i ], [ %lpad.thr_comm.split-lp.i, %350 ], [ %lpad.phi, %552 ], [ %lpad.loopexit705.i, %.loopexit703.i ], [ %lpad.loopexit147, %.loopexit.split-lp704.i.loopexit ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp704.i.loopexit.split-lp ]
   %295 = load i8, ptr %60, align 8, !range !60, !noalias !85, !noundef !3
   %296 = icmp ne i8 %295, 9
   %or.cond5.i = and i1 %.sroa.0217.1.i, %296

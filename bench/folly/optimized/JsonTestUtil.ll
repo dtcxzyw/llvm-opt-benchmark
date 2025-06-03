@@ -500,7 +500,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit45:    ; preds = %69
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK5folly7dynamic3endEv.exit, %30, %12, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit40, %88, %36, %13, %9, %7, %3, %80, %_ZNK5folly7dynamic5itemsEv.exit37
-  %.025 = phi i1 [ %79, %80 ], [ %52, %_ZNK5folly7dynamic5itemsEv.exit37 ], [ true, %3 ], [ false, %7 ], [ false, %9 ], [ false, %13 ], [ false, %36 ], [ false, %88 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit40 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ false, %12 ], [ %.not56, %30 ], [ %.not56, %_ZNK5folly7dynamic3endEv.exit ]
+  %.025 = phi i1 [ %52, %_ZNK5folly7dynamic5itemsEv.exit37 ], [ %79, %80 ], [ true, %3 ], [ false, %7 ], [ false, %9 ], [ false, %13 ], [ false, %36 ], [ false, %88 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit40 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ false, %12 ], [ %.not56, %30 ], [ %.not56, %_ZNK5folly7dynamic3endEv.exit ]
   ret i1 %.025
 }
 
@@ -821,7 +821,7 @@ define noundef zeroext i1 @_ZN5folly27compareDynamicWithToleranceERKNS_7dynamicE
   unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %15, %18, %21, %25
-  %.0.i.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.0.i.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %24, %21 ], [ %27, %25 ]
   store i64 %.0.i.i, ptr %4, align 8, !tbaa !35
   %29 = call noundef double @_ZN5folly2toIdlEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %30 = load i32, ptr %14, align 8, !tbaa !7
@@ -858,7 +858,7 @@ _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %15, %18, %21, %25
   unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %31, %34, %37, %41
-  %.0.i.i41 = phi double [ %43, %41 ], [ %40, %37 ], [ %36, %34 ], [ %33, %31 ]
+  %.0.i.i41 = phi double [ %33, %31 ], [ %36, %34 ], [ %40, %37 ], [ %43, %41 ]
   %45 = fsub double %29, %.0.i.i41
   %46 = call noundef double @llvm.fabs.f64(double %45)
   %47 = fcmp ole double %46, %2
@@ -1098,7 +1098,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit:      ; preds = %48
   unreachable
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %_ZNK5folly7dynamic3endEv.exit, %66, %150, %148, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit, %88, %49, %48, %7, %"_ZSt9__find_ifIN5folly7dynamic19const_item_iteratorEN9__gnu_cxx5__ops12_Iter_negateIZNS0_27compareDynamicWithToleranceERKS1_S7_dE3$_0EEET_SA_SA_T0_St18input_iterator_tag.exit", %_ZNK5folly7dynamic5asIntEv.exit55, %_ZNK5folly7dynamic8asDoubleEv.exit51, %_ZNK5folly7dynamic6asBoolEv.exit47, %_ZNK5folly7dynamic8asDoubleEv.exit
-  %.0 = phi i1 [ %47, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %140, %"_ZSt9__find_ifIN5folly7dynamic19const_item_iteratorEN9__gnu_cxx5__ops12_Iter_negateIZNS0_27compareDynamicWithToleranceERKS1_S7_dE3$_0EEET_SA_SA_T0_St18input_iterator_tag.exit" ], [ %87, %_ZNK5folly7dynamic5asIntEv.exit55 ], [ %82, %_ZNK5folly7dynamic8asDoubleEv.exit51 ], [ %.not118, %_ZNK5folly7dynamic6asBoolEv.exit47 ], [ false, %7 ], [ true, %48 ], [ false, %49 ], [ false, %88 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ %153, %150 ], [ true, %148 ], [ %.not86, %66 ], [ %.not86, %_ZNK5folly7dynamic3endEv.exit ]
+  %.0 = phi i1 [ %47, %_ZNK5folly7dynamic8asDoubleEv.exit ], [ %.not118, %_ZNK5folly7dynamic6asBoolEv.exit47 ], [ %82, %_ZNK5folly7dynamic8asDoubleEv.exit51 ], [ %87, %_ZNK5folly7dynamic5asIntEv.exit55 ], [ %140, %"_ZSt9__find_ifIN5folly7dynamic19const_item_iteratorEN9__gnu_cxx5__ops12_Iter_negateIZNS0_27compareDynamicWithToleranceERKS1_S7_dE3$_0EEET_SA_SA_T0_St18input_iterator_tag.exit" ], [ false, %7 ], [ true, %48 ], [ false, %49 ], [ false, %88 ], [ false, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit ], [ %153, %150 ], [ true, %148 ], [ %.not86, %66 ], [ %.not86, %_ZNK5folly7dynamic3endEv.exit ]
   ret i1 %.0
 }
 

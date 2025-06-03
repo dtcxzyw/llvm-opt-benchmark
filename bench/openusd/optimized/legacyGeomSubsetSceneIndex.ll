@@ -1862,7 +1862,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   br label %118
 
 118:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIPNS0_15HdSceneDelegateEEEED2Ev.exit, %117
-  %.1 = phi ptr [ %.05, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIPNS0_15HdSceneDelegateEEEED2Ev.exit ], [ null, %117 ]
+  %.1 = phi ptr [ null, %117 ], [ %.05, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIPNS0_15HdSceneDelegateEEEED2Ev.exit ]
   ret ptr %.1
 }
 

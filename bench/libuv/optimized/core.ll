@@ -2968,7 +2968,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 36:                                               ; preds = %23, %35, %32, %29, %25
-  %.0 = phi i32 [ %18, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %25 ], [ %20, %23 ]
+  %.0 = phi i32 [ %28, %25 ], [ %31, %29 ], [ %34, %32 ], [ %18, %35 ], [ %20, %23 ]
   %37 = load i32, ptr %4, align 4
   %.not32 = icmp eq i32 %37, %.0
   br i1 %.not32, label %set_nice_for_calling_thread.exit, label %38

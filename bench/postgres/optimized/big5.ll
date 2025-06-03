@@ -239,7 +239,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %8, %4, %6, %2, %20, %13
-  %.017 = phi i16 [ %21, %20 ], [ %14, %13 ], [ 0, %2 ], [ %7, %6 ], [ %5, %4 ], [ 0, %8 ], [ 0, %15 ]
+  %.017 = phi i16 [ %14, %13 ], [ %21, %20 ], [ 0, %2 ], [ %5, %4 ], [ %7, %6 ], [ 0, %8 ], [ 0, %15 ]
   ret i16 %.017
 }
 

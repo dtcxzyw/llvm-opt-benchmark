@@ -378,7 +378,7 @@ frame_write.exit:                                 ; preds = %136
   br label %164
 
 164:                                              ; preds = %.loopexit, %151, %114, %65, %56, %32, %31, %22
-  %.059 = phi i32 [ 1, %32 ], [ 0, %31 ], [ 0, %22 ], [ 9, %65 ], [ 1, %114 ], [ 0, %.loopexit ], [ 1, %151 ], [ 1, %56 ]
+  %.059 = phi i32 [ 0, %22 ], [ 0, %31 ], [ 1, %32 ], [ 9, %65 ], [ 1, %114 ], [ 0, %.loopexit ], [ 1, %151 ], [ 1, %56 ]
   call void @wtap_cleanup()
   call void @free_progdirs()
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #6

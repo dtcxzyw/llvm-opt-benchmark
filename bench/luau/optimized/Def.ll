@@ -124,7 +124,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit: ; preds = %2
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.copyload.i20.i.i.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i.i.i, align 8, !tbaa !17
   %37 = tail call noundef zeroext i1 @_ZN4Luau29containsSubscriptedDefinitionENS_7NotNullIKNS_3DefEEE(ptr %.sroa.0.0.copyload.i20.i.i.i.i.i)
   br i1 %37, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN4Luau7NotNullIKNS2_3DefEEESt6vectorIS6_SaIS6_EEEEPFbS6_EEbT_SF_T0_.exit, label %38
@@ -134,7 +134,7 @@ _ZN4Luau3getINS_3PhiEEEPKT_NS_7NotNullIKNS_3DefEEE.exit: ; preds = %2
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.copyload.i21.i.i.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i.i.i, align 8, !tbaa !17
   %41 = tail call noundef zeroext i1 @_ZN4Luau29containsSubscriptedDefinitionENS_7NotNullIKNS_3DefEEE(ptr %.sroa.0.0.copyload.i21.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %41, ptr %.sroa.038.2.i.i.i.i.i, ptr %10

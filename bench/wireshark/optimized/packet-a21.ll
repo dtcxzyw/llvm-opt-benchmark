@@ -501,7 +501,7 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %95
 
 95:                                               ; preds = %86, %76, %.lr.ph.i
-  %.1.i = phi i32 [ %74, %.lr.ph.i ], [ %94, %86 ], [ %85, %76 ]
+  %.1.i = phi i32 [ %74, %.lr.ph.i ], [ %85, %76 ], [ %94, %86 ]
   %96 = load i32, ptr @hf_a21_ch_reference_pilot, align 4
   %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %56, i32 noundef %96, ptr noundef %43, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17)
   %98 = load i32, ptr %17, align 4

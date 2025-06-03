@@ -56,7 +56,7 @@ define hidden ptr @EVP_get_cipherbynid(i32 noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %1, %14, %12, %10, %8, %6, %4, %2
-  %.0 = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ null, %1 ]
+  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 

@@ -134,8 +134,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 
 .lr.ph:                                           ; preds = %3
   %8 = load i32, ptr %0, align 4, !alias.scope !23, !noalias !28, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
@@ -146,18 +146,18 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %8, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %.013, i32 noundef 0), !noalias !30
   %12 = load i32, ptr %5, align 8, !range !31, !noundef !4
   %trunc = trunc nuw i32 %12 to i1
-  %13 = load i32, ptr %9, align 4, !range !32
-  %14 = load i64, ptr %10, align 8
+  %13 = load i64, ptr %9, align 8
+  %14 = load i32, ptr %10, align 4, !range !32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %17, label %15
 
 .loopexit:                                        ; preds = %19, %3, %17
-  %.09 = phi i32 [ %13, %17 ], [ 134, %3 ], [ 134, %19 ]
+  %.09 = phi i32 [ %14, %17 ], [ 134, %3 ], [ 134, %19 ]
   ret i32 %.09
 
 15:                                               ; preds = %11
-  store i64 %14, ptr %6, align 8
-  %16 = icmp eq i64 %14, 0
+  store i64 %13, ptr %6, align 8
+  %16 = icmp eq i64 %13, 0
   br i1 %16, label %18, label %19
 
 17:                                               ; preds = %11
@@ -177,7 +177,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   unreachable
 
 19:                                               ; preds = %15
-  %20 = sub i64 %.013, %14
+  %20 = sub i64 %.013, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %11

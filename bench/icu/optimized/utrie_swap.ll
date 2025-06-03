@@ -206,9 +206,9 @@ define range(i32 0, 1179647) i32 @utrie2_swap_77(ptr noundef %0, ptr noundef %1,
   %44 = shl nuw nsw i32 %42, 1
   %narrow = add nuw nsw i32 %44, 16
   %trunc = trunc i16 %26 to i1
-  %45 = shl nuw nsw i32 %43, 4
-  %46 = shl nuw nsw i32 %43, 3
-  %.pn = select i1 %trunc, i32 %45, i32 %46
+  %45 = shl nuw nsw i32 %43, 3
+  %46 = shl nuw nsw i32 %43, 4
+  %.pn = select i1 %trunc, i32 %46, i32 %45
   %.085 = add nuw nsw i32 %narrow, %.pn
   br i1 %12, label %47, label %.thread
 
@@ -229,7 +229,7 @@ define range(i32 0, 1179647) i32 @utrie2_swap_77(ptr noundef %0, ptr noundef %1,
   br i1 %trunc, label %62, label %58
 
 58:                                               ; preds = %48
-  %59 = add nuw nsw i32 %46, %44
+  %59 = add nuw nsw i32 %45, %44
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = tail call noundef i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %57, i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %4)
   br label %.thread
@@ -241,7 +241,7 @@ define range(i32 0, 1179647) i32 @utrie2_swap_77(ptr noundef %0, ptr noundef %1,
   %66 = zext i16 %30 to i64
   %67 = getelementptr inbounds nuw i16, ptr %57, i64 %66
   %68 = getelementptr inbounds nuw i16, ptr %63, i64 %66
-  %69 = tail call noundef i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %67, i32 noundef %45, ptr noundef nonnull %68, ptr noundef nonnull %4)
+  %69 = tail call noundef i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %67, i32 noundef %46, ptr noundef nonnull %68, ptr noundef nonnull %4)
   br label %.thread
 
 70:                                               ; preds = %47
@@ -355,7 +355,7 @@ default.unreachable:                              ; preds = %64, %56
   unreachable
 
 62:                                               ; preds = %56, %60, %58
-  %.pn = phi i32 [ %61, %60 ], [ %59, %58 ], [ %42, %56 ]
+  %.pn = phi i32 [ %59, %58 ], [ %61, %60 ], [ %42, %56 ]
   %.095 = add nuw nsw i32 %narrow, %.pn
   br i1 %12, label %63, label %.thread
 
@@ -461,7 +461,7 @@ _ZN12_GLOBAL__N_110getVersionEPKvia.exit:         ; preds = %13, %13
   br label %21
 
 21:                                               ; preds = %5, %20, %_ZN12_GLOBAL__N_110getVersionEPKvia.exit, %17, %15
-  %.0 = phi i32 [ 0, %20 ], [ %19, %_ZN12_GLOBAL__N_110getVersionEPKvia.exit ], [ %18, %17 ], [ %16, %15 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %20 ], [ %16, %15 ], [ %18, %17 ], [ %19, %_ZN12_GLOBAL__N_110getVersionEPKvia.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 

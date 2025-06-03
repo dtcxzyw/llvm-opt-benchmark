@@ -1207,16 +1207,16 @@ select.unfold1501:                                ; preds = %432, %423
   %549 = icmp eq i8 %548, 76
   br i1 %549, label %.thread1532.sink.split, label %.thread1532
 
-.thread1532.sink.split:                           ; preds = %546, %533, %537, %524
-  %.sink2512 = phi ptr [ %525, %524 ], [ %538, %537 ], [ %528, %533 ], [ %541, %546 ]
-  %.sroa.0.81536.ph = phi i32 [ 1, %524 ], [ 2, %537 ], [ 4, %533 ], [ 3, %546 ]
+.thread1532.sink.split:                           ; preds = %546, %533, %524, %537
+  %.sink2512 = phi ptr [ %538, %537 ], [ %525, %524 ], [ %528, %533 ], [ %541, %546 ]
+  %.sroa.0.81536.ph = phi i32 [ 2, %537 ], [ 1, %524 ], [ 4, %533 ], [ 3, %546 ]
   store ptr %.sink2512, ptr %13, align 8, !tbaa !34
   br label %.thread1532
 
-.thread1532:                                      ; preds = %.thread1532.sink.split, %526, %530, %533, %539, %543, %546, %583
-  %.sroa.11.81537 = phi i32 [ 0, %583 ], [ 1, %526 ], [ 1, %530 ], [ 1, %533 ], [ 1, %539 ], [ 1, %543 ], [ 1, %546 ], [ 0, %.thread1532.sink.split ]
-  %.sroa.0.81536 = phi i32 [ 0, %583 ], [ 1, %526 ], [ 1, %530 ], [ 1, %533 ], [ 3, %539 ], [ 3, %543 ], [ 3, %546 ], [ %.sroa.0.81536.ph, %.thread1532.sink.split ]
-  %.13 = phi i32 [ %581, %583 ], [ %.5, %526 ], [ %.5, %530 ], [ %.5, %533 ], [ %.5, %539 ], [ %.5, %543 ], [ %.5, %546 ], [ %.5, %.thread1532.sink.split ]
+.thread1532:                                      ; preds = %.thread1532.sink.split, %539, %543, %546, %526, %530, %533, %583
+  %.sroa.11.81537 = phi i32 [ 0, %583 ], [ 1, %539 ], [ 1, %543 ], [ 1, %546 ], [ 1, %526 ], [ 1, %530 ], [ 1, %533 ], [ 0, %.thread1532.sink.split ]
+  %.sroa.0.81536 = phi i32 [ 0, %583 ], [ 3, %539 ], [ 3, %543 ], [ 3, %546 ], [ 1, %526 ], [ 1, %530 ], [ 1, %533 ], [ %.sroa.0.81536.ph, %.thread1532.sink.split ]
+  %.13 = phi i32 [ %581, %583 ], [ %.5, %539 ], [ %.5, %543 ], [ %.5, %546 ], [ %.5, %526 ], [ %.5, %530 ], [ %.5, %533 ], [ %.5, %.thread1532.sink.split ]
   %550 = load i32, ptr %18, align 8
   %551 = icmp ne i32 %550, 0
   %or.cond51 = select i1 %108, i1 %551, i1 false
@@ -1987,7 +1987,7 @@ select.unfold1501:                                ; preds = %432, %423
   br label %.loopexit1948
 
 .loopexit1948:                                    ; preds = %.thread1655, %.thread1655.thread1907, %.thread1728, %887, %889, %.loopexit1951, %.loopexit1950, %.thread1826, %87, %82
-  %.0806 = phi i32 [ %81, %82 ], [ -33, %87 ], [ %.16, %.loopexit1951 ], [ -70, %.loopexit1950 ], [ -48, %.thread1826 ], [ -48, %887 ], [ %.18121722, %889 ], [ %.2808.ph, %.thread1728 ], [ -69, %.thread1655.thread1907 ], [ -69, %.thread1655 ]
+  %.0806 = phi i32 [ %81, %82 ], [ -33, %87 ], [ -70, %.loopexit1950 ], [ -48, %887 ], [ %.18121722, %889 ], [ -48, %.thread1826 ], [ %.16, %.loopexit1951 ], [ %.2808.ph, %.thread1728 ], [ -69, %.thread1655.thread1907 ], [ -69, %.thread1655 ]
   %.not1334 = icmp eq ptr %.1822, null
   br i1 %.not1334, label %892, label %891
 
@@ -2465,8 +2465,8 @@ define internal fastcc i64 @default_substitute_case_callout(ptr noundef %0, i64 
   br label %21
 
 21:                                               ; preds = %20, %19, %16
-  %.0116 = phi i32 [ 0, %20 ], [ 1, %19 ], [ %18, %16 ]
-  %.0115 = phi i32 [ 1, %20 ], [ 0, %19 ], [ %18, %16 ]
+  %.0116 = phi i32 [ %18, %16 ], [ 1, %19 ], [ 0, %20 ]
+  %.0115 = phi i32 [ %18, %16 ], [ 0, %19 ], [ 1, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !46
   %.not = icmp eq i32 %23, 0

@@ -2185,7 +2185,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit36: ; preds = %56
           to label %_ZN6icu_77L13util_append64ERNS_13UnicodeStringEl.exit unwind label %71
 
 common.resume:                                    ; preds = %29, %54, %58, %196, %89, %71
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %90, %89 ], [ %.pn.pn, %196 ], [ %59, %58 ], [ %55, %54 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %90, %89 ], [ %.pn.pn, %196 ], [ %30, %29 ], [ %55, %54 ], [ %59, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 71:                                               ; preds = %60

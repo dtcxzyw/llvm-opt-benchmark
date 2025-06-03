@@ -97,7 +97,7 @@ define noundef zeroext i1 @_ZN6uu_seq6number13PreciseNumber7is_zero17h9b1f39b8f5
   br label %"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit"
 
 "_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$7is_zero17h50c18598707aad20E.exit": ; preds = %1, %6, %10
-  %.0.i = phi i1 [ true, %10 ], [ %9, %6 ], [ false, %1 ]
+  %.0.i = phi i1 [ %9, %6 ], [ true, %10 ], [ false, %1 ]
   ret i1 %.0.i
 }
 

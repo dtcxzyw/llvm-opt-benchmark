@@ -1564,7 +1564,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   unreachable
 
 174:                                              ; preds = %157, %159, %161, %163, %165
-  %.3 = phi i1 [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ]
+  %.3 = phi i1 [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ]
   br i1 %.3, label %.thread166, label %.thread172
 
 .thread166:                                       ; preds = %135, %134, %174

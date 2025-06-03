@@ -205,7 +205,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %28
 
 _ZL4copyP17grpc_slice_bufferS0_.exit:             ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %6, %26, %22, %20
-  %.0 = phi i32 [ 0, %26 ], [ %23, %22 ], [ %21, %20 ], [ 1, %6 ], [ 1, %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i ]
+  %.0 = phi i32 [ 0, %26 ], [ %21, %20 ], [ %23, %22 ], [ 1, %6 ], [ 1, %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i ]
   ret i32 %.0
 }
 

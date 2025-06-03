@@ -2134,51 +2134,51 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %18 = tail call noundef i32 @_ZNK4Json5Value4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %19 = tail call noundef i32 @_ZNK4Json5Value4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   switch i32 %19, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread [
-    i32 0, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
-    i32 1, label %20
-    i32 2, label %23
-    i32 3, label %25
-    i32 4, label %26
-    i32 5, label %28
-    i32 6, label %30
-    i32 7, label %32
+    i32 0, label %20
+    i32 1, label %22
+    i32 2, label %25
+    i32 3, label %27
+    i32 4, label %28
+    i32 5, label %30
+    i32 6, label %32
+    i32 7, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   ]
 
 20:                                               ; preds = %3
-  %21 = add i32 %18, -1
-  %22 = icmp ult i32 %21, 2
-  br i1 %22, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
+  %21 = icmp eq i32 %18, 0
+  br i1 %21, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-23:                                               ; preds = %3
-  %24 = icmp eq i32 %18, 2
+22:                                               ; preds = %3
+  %23 = add i32 %18, -1
+  %24 = icmp ult i32 %23, 2
   br i1 %24, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 25:                                               ; preds = %3
+  %26 = icmp eq i32 %18, 2
+  br i1 %26, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
+
+27:                                               ; preds = %3
   %.off = add i32 %18, -1
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-26:                                               ; preds = %3
-  %27 = icmp eq i32 %18, 4
-  br i1 %27, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
-
 28:                                               ; preds = %3
-  %29 = icmp eq i32 %18, 5
+  %29 = icmp eq i32 %18, 4
   br i1 %29, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 30:                                               ; preds = %3
-  %31 = icmp eq i32 %18, 6
+  %31 = icmp eq i32 %18, 5
   br i1 %31, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 32:                                               ; preds = %3
-  %33 = icmp eq i32 %18, 7
+  %33 = icmp eq i32 %18, 6
   br i1 %33, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit: ; preds = %3
-  %34 = icmp eq i32 %18, 0
+  %34 = icmp eq i32 %18, 7
   br i1 %34, label %77, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread: ; preds = %25, %3, %20, %23, %26, %28, %30, %32, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
+_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread: ; preds = %27, %3, %32, %30, %28, %25, %22, %20, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4)
   %35 = load ptr, ptr %4, align 8, !tbaa !10
@@ -2304,7 +2304,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc132
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   br label %380
 
-77:                                               ; preds = %25, %20, %23, %26, %28, %30, %32, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
+77:                                               ; preds = %27, %32, %30, %28, %25, %22, %20, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   %78 = tail call noundef zeroext i1 @_ZNK4Json5Value7isArrayEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br i1 %78, label %.preheader, label %171
 

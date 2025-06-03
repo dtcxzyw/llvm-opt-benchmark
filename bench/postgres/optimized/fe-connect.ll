@@ -1087,7 +1087,7 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   br i1 %50, label %.thread.sink.split, label %51
 
 51:                                               ; preds = %48, %45
-  %.0.us = phi i32 [ %46, %45 ], [ %49, %48 ]
+  %.0.us = phi i32 [ %49, %48 ], [ %46, %45 ]
   %52 = icmp eq i32 %.0.us, 1
   br i1 %52, label %53, label %54
 
@@ -1154,7 +1154,7 @@ define range(i32 0, 2) i32 @pqConnectDBComplete(ptr noundef %0) local_unnamed_ad
   br i1 %75, label %.thread.sink.split, label %76
 
 76:                                               ; preds = %73, %70
-  %.0 = phi i32 [ %74, %73 ], [ %71, %70 ]
+  %.0 = phi i32 [ %71, %70 ], [ %74, %73 ]
   %77 = icmp eq i32 %.0, 1
   br i1 %77, label %78, label %79
 
@@ -3877,7 +3877,7 @@ parseServiceInfo.exit:                            ; preds = %44, %53, %.thread38
   br label %96
 
 96:                                               ; preds = %85, %91, %88, %72, %.lr.ph, %94
-  %.150 = phi ptr [ %.04992, %.lr.ph ], [ %.04992, %72 ], [ %.04992, %85 ], [ %.251, %88 ], [ %.251, %94 ], [ %.251, %91 ]
+  %.150 = phi ptr [ %.04992, %.lr.ph ], [ %.04992, %72 ], [ %.251, %88 ], [ %.251, %94 ], [ %.251, %91 ], [ %.04992, %85 ]
   %97 = getelementptr inbounds nuw i8, ptr %.04694, i64 56
   %98 = load ptr, ptr %97, align 8
   %.not = icmp eq ptr %98, null
@@ -5524,8 +5524,8 @@ select.unfold606:                                 ; preds = %496, %519, %522, %5
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %570, %sendTerminateConn.exit521, %634, %653, %sendTerminateConn.exit525, %676, %sendTerminateConn.exit527, %230, %init_allowed_encryption_methods.exit, %405, %select.unfold606, %538, %559, %596
-  %.0406.be = phi i1 [ %.0406, %230 ], [ false, %676 ], [ false, %sendTerminateConn.exit527 ], [ false, %653 ], [ false, %sendTerminateConn.exit525 ], [ false, %634 ], [ false, %596 ], [ false, %sendTerminateConn.exit521 ], [ true, %559 ], [ false, %570 ], [ false, %538 ], [ %.3409, %select.unfold606 ], [ false, %405 ], [ false, %init_allowed_encryption_methods.exit ]
-  %.0400.be = phi i1 [ %.1401, %230 ], [ false, %676 ], [ false, %sendTerminateConn.exit527 ], [ false, %653 ], [ false, %sendTerminateConn.exit525 ], [ false, %634 ], [ false, %596 ], [ false, %sendTerminateConn.exit521 ], [ false, %559 ], [ false, %570 ], [ false, %538 ], [ false, %select.unfold606 ], [ false, %405 ], [ false, %init_allowed_encryption_methods.exit ]
+  %.0406.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %405 ], [ %.3409, %select.unfold606 ], [ false, %538 ], [ true, %559 ], [ false, %570 ], [ false, %596 ], [ false, %sendTerminateConn.exit521 ], [ false, %634 ], [ false, %653 ], [ false, %sendTerminateConn.exit525 ], [ false, %676 ], [ false, %sendTerminateConn.exit527 ], [ %.0406, %230 ]
+  %.0400.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %405 ], [ false, %select.unfold606 ], [ false, %538 ], [ false, %559 ], [ false, %570 ], [ false, %596 ], [ false, %sendTerminateConn.exit521 ], [ false, %634 ], [ false, %653 ], [ false, %sendTerminateConn.exit525 ], [ false, %676 ], [ false, %sendTerminateConn.exit527 ], [ %.1401, %230 ]
   br label %.backedge
 
 571:                                              ; preds = %233
@@ -5853,7 +5853,7 @@ sendTerminateConn.exit527:                        ; preds = %679, %682, %684
   br label %.thread621
 
 .thread621:                                       ; preds = %539, %534, %.thread634, %.thread613, %436, %.thread598, %.thread591, %init_allowed_encryption_methods.exit.thread580, %25, %1, %.thread618, %667, %639, %633, %630, %release_conn_addrinfo.exit523, %604, %29, %28
-  %.0 = phi i32 [ 0, %.thread618 ], [ 1, %667 ], [ 1, %639 ], [ 1, %630 ], [ 1, %633 ], [ 3, %release_conn_addrinfo.exit523 ], [ 1, %604 ], [ 1, %436 ], [ 1, %29 ], [ 3, %28 ], [ 0, %1 ], [ 0, %25 ], [ 2, %init_allowed_encryption_methods.exit.thread580 ], [ 2, %.thread591 ], [ 1, %.thread598 ], [ 1, %.thread613 ], [ 1, %.thread634 ], [ %529, %534 ], [ 1, %539 ]
+  %.0 = phi i32 [ 0, %.thread618 ], [ 3, %28 ], [ 1, %29 ], [ 1, %436 ], [ 3, %release_conn_addrinfo.exit523 ], [ 1, %604 ], [ 1, %630 ], [ 1, %633 ], [ 1, %639 ], [ 1, %667 ], [ 0, %1 ], [ 0, %25 ], [ 2, %init_allowed_encryption_methods.exit.thread580 ], [ 2, %.thread591 ], [ 1, %.thread598 ], [ 1, %.thread613 ], [ 1, %.thread634 ], [ %529, %534 ], [ 1, %539 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #25
   ret i32 %.0

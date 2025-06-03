@@ -1907,7 +1907,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   unreachable
 
 934:                                              ; preds = %929, %926, %.lr.ph.i50
-  %.1.i = phi i32 [ 0, %.lr.ph.i50 ], [ %928, %926 ], [ %932, %929 ]
+  %.1.i = phi i32 [ %928, %926 ], [ %932, %929 ], [ 0, %.lr.ph.i50 ]
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %903, ptr noundef nonnull @.str.19, i32 noundef %.1.i)
   %935 = add i32 %.049.i, 1
   %936 = zext i32 %935 to i64

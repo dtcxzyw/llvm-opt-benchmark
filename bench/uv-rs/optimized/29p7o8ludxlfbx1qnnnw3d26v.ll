@@ -849,14 +849,14 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %2, ptr %.sroa.464.0..sroa_idx, align 8
-  %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %3, ptr %.sroa.565.0..sroa_idx, align 8
-  %.sroa.666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 %3, ptr %.sroa.666.0..sroa_idx, align 4
-  %.sroa.767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i8 1, ptr %.sroa.767.0..sroa_idx, align 8
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %2, ptr %.sroa.465.0..sroa_idx, align 8
+  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %3, ptr %.sroa.566.0..sroa_idx, align 8
+  %.sroa.667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 %3, ptr %.sroa.667.0..sroa_idx, align 4
+  %.sroa.768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i8 1, ptr %.sroa.768.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %24
@@ -880,15 +880,15 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
 29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %gepdiff75 = sub nsw i64 %2, %.sroa.07.0
+  %gepdiff76 = sub nsw i64 %2, %.sroa.07.0
   %30 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !253, !noundef !3
   %31 = load i64, ptr %9, align 8, !range !260, !alias.scope !253, !noundef !3
   %32 = sub i64 %31, %30
-  %33 = icmp ugt i64 %gepdiff75, %32
+  %33 = icmp ugt i64 %gepdiff76, %32
   br i1 %33, label %34, label %44, !prof !261
 
 34:                                               ; preds = %29
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %30, i64 noundef %gepdiff75, i64 noundef 1, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %30, i64 noundef %gepdiff76, i64 noundef 1, i64 noundef 1)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %34
@@ -909,10 +909,10 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
 
 43:                                               ; preds = %35
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %39, i64 noundef %gepdiff, i64 noundef 1, i64 noundef 1)
-          to label %.noexc37 unwind label %25
+          to label %.noexc38 unwind label %25
 
-.noexc37:                                         ; preds = %43
-  %.pre.i.i36 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !270
+.noexc38:                                         ; preds = %43
+  %.pre.i.i37 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !270
   br label %52
 
 44:                                               ; preds = %.noexc, %29
@@ -922,16 +922,16 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   call void @llvm.assume(i1 %47)
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !262, !nonnull !3, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %46, i64 %gepdiff75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %46, i64 %gepdiff76, i1 false)
   %50 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !262, !noundef !3
-  %51 = add i64 %50, %gepdiff75
+  %51 = add i64 %50, %gepdiff76
   store i64 %51, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
-52:                                               ; preds = %.noexc37, %35
-  %53 = phi i64 [ %39, %35 ], [ %.pre.i.i36, %.noexc37 ]
+52:                                               ; preds = %.noexc38, %35
+  %53 = phi i64 [ %39, %35 ], [ %.pre.i.i37, %.noexc38 ]
   %54 = icmp sgt i64 %53, -1
   call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !270, !nonnull !3, !noundef !3
@@ -947,14 +947,14 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
 
 62:                                               ; preds = %52
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %58, i64 noundef 2, i64 noundef 1, i64 noundef 1)
-          to label %.noexc40 unwind label %25
+          to label %.noexc41 unwind label %25
 
-.noexc40:                                         ; preds = %62
-  %.pre.i.i39 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !278
+.noexc41:                                         ; preds = %62
+  %.pre.i.i40 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !278
   br label %63
 
-63:                                               ; preds = %.noexc40, %52
-  %64 = phi i64 [ %58, %52 ], [ %.pre.i.i39, %.noexc40 ]
+63:                                               ; preds = %.noexc41, %52
+  %64 = phi i64 [ %58, %52 ], [ %.pre.i.i40, %.noexc41 ]
   %65 = icmp sgt i64 %64, -1
   call void @llvm.assume(i1 %65)
   %66 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !278, !nonnull !3, !noundef !3
@@ -1057,7 +1057,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$uv_pep508..Pep508ErrorSource$LT$T
   br label %19
 
 19:                                               ; preds = %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 

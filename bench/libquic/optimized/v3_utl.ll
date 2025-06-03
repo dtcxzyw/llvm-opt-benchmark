@@ -768,9 +768,9 @@ strip_spaces.exit86.thread131:                    ; preds = %75, %.critedge2.i84
   br label %85
 
 85:                                               ; preds = %8, %strip_spaces.exit72.thread124, %strip_spaces.exit.thread117, %strip_spaces.exit86.thread131, %58
-  %.147 = phi ptr [ %84, %strip_spaces.exit86.thread131 ], [ %.046, %58 ], [ %32, %strip_spaces.exit.thread117 ], [ %56, %strip_spaces.exit72.thread124 ], [ %.046, %8 ]
-  %.144 = phi ptr [ null, %strip_spaces.exit86.thread131 ], [ %.043, %58 ], [ %.01930.i, %strip_spaces.exit.thread117 ], [ %.01930.i61, %strip_spaces.exit72.thread124 ], [ %.043, %8 ]
-  %.1 = phi i32 [ 1, %strip_spaces.exit86.thread131 ], [ 2, %58 ], [ 2, %strip_spaces.exit.thread117 ], [ 1, %strip_spaces.exit72.thread124 ], [ 1, %8 ]
+  %.147 = phi ptr [ %32, %strip_spaces.exit.thread117 ], [ %56, %strip_spaces.exit72.thread124 ], [ %84, %strip_spaces.exit86.thread131 ], [ %.046, %58 ], [ %.046, %8 ]
+  %.144 = phi ptr [ %.01930.i, %strip_spaces.exit.thread117 ], [ %.01930.i61, %strip_spaces.exit72.thread124 ], [ null, %strip_spaces.exit86.thread131 ], [ %.043, %58 ], [ %.043, %8 ]
+  %.1 = phi i32 [ 2, %strip_spaces.exit.thread117 ], [ 1, %strip_spaces.exit72.thread124 ], [ 1, %strip_spaces.exit86.thread131 ], [ 2, %58 ], [ 1, %8 ]
   %86 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   br label %.preheader, !llvm.loop !33
 

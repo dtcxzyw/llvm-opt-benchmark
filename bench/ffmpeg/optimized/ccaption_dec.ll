@@ -261,7 +261,7 @@ validate_cc_data_pair.exit:                       ; preds = %68, %73
   br label %get_writing_screen.exit.i.i
 
 get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
-  %.0.i.i.i = phi ptr [ %107, %104 ], [ %103, %100 ], [ null, %93 ]
+  %.0.i.i.i = phi ptr [ %103, %100 ], [ %107, %104 ], [ null, %93 ]
   %108 = icmp eq i8 %98, 1
   br i1 %108, label %109, label %111
 
@@ -381,7 +381,7 @@ write_char.exit.i.i:                              ; preds = %152, %132
   br label %get_writing_screen.exit.i126.i
 
 get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
-  %.0.i.i127.i = phi ptr [ %172, %169 ], [ %168, %165 ], [ null, %163 ]
+  %.0.i.i127.i = phi ptr [ %168, %165 ], [ %172, %169 ], [ null, %163 ]
   br i1 %91, label %process_cc608.exit.thread, label %173
 
 173:                                              ; preds = %get_writing_screen.exit.i126.i
@@ -571,11 +571,11 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
   br i1 %exitcond.not.i, label %process_cc608.exit.thread, label %.lr.ph.i, !llvm.loop !54
 
 process_cc608.exit:                               ; preds = %236, %242
-  %.0120.i = phi i32 [ %243, %242 ], [ %.1.i, %236 ]
+  %.0120.i = phi i32 [ %.1.i, %236 ], [ %243, %242 ]
   %254 = icmp slt i32 %.0120.i, 0
   br i1 %254, label %.loopexit, label %process_cc608.exit.thread
 
-process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %212, %189, %get_writing_screen.exit.i126.i, %111, %109, %249, %248, %245, %225, %226, %227, %229, %230, %231, %237, %239, %224, %215, %82, %process_cc608.exit
+process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %212, %189, %get_writing_screen.exit.i126.i, %111, %109, %249, %248, %245, %237, %239, %231, %230, %229, %227, %226, %225, %224, %215, %82, %process_cc608.exit
   %255 = load i32, ptr %32, align 4, !tbaa !55
   %.not116 = icmp eq i32 %255, 0
   br i1 %.not116, label %validate_cc_data_pair.exit.thread, label %256
@@ -1041,8 +1041,8 @@ switch.lookup:                                    ; preds = %77
   br label %84
 
 84:                                               ; preds = %80, %81, %82, %83, %73
-  %.0127 = phi ptr [ %.1, %80 ], [ %.1, %83 ], [ %.1, %82 ], [ %.1, %81 ], [ @.str.19, %73 ]
-  %.0126 = phi ptr [ @.str.19, %80 ], [ @.str.25, %83 ], [ @.str.24, %82 ], [ @.str.23, %81 ], [ @.str.19, %73 ]
+  %.0127 = phi ptr [ %.1, %80 ], [ %.1, %81 ], [ %.1, %82 ], [ %.1, %83 ], [ @.str.19, %73 ]
+  %.0126 = phi ptr [ @.str.19, %80 ], [ @.str.23, %81 ], [ @.str.24, %82 ], [ @.str.25, %83 ], [ @.str.19, %73 ]
   %85 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv226
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = sext i8 %86 to i32
@@ -1194,7 +1194,7 @@ define internal fastcc void @handle_delete_end_of_row(ptr noundef captures(none)
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
-  %.0.i = phi ptr [ %15, %10 ], [ %9, %4 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %4 ], [ %15, %10 ], [ null, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5317
   %17 = load i8, ptr %16, align 1, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5316
@@ -1322,7 +1322,7 @@ define internal fastcc void @roll_up(ptr noundef captures(none) %0) unnamed_addr
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
-  %.0.i = phi ptr [ %15, %10 ], [ %9, %4 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %4 ], [ %15, %10 ], [ null, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   %17 = load i8, ptr %16, align 4, !tbaa !32
   %18 = zext i8 %17 to i32
@@ -1522,7 +1522,7 @@ define internal fastcc void @handle_char(ptr noundef %0, i8 noundef signext rang
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %3, %6, %12
-  %.0.i = phi ptr [ %17, %12 ], [ %11, %6 ], [ null, %3 ]
+  %.0.i = phi ptr [ %11, %6 ], [ %17, %12 ], [ null, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   %19 = load i8, ptr %18, align 4, !tbaa !32
   %20 = zext nneg i8 %19 to i32

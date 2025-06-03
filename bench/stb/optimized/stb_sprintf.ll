@@ -574,8 +574,8 @@ thread-pre-split:                                 ; preds = %.lr.ph.split, %thre
   br label %200
 
 200:                                              ; preds = %168, %162, %.critedge16, %190, %.thread1284, %197, %180, %177, %174
-  %.3835 = phi i32 [ %.2834, %.critedge16 ], [ %191, %190 ], [ %.2834, %197 ], [ %199, %.thread1284 ], [ %181, %180 ], [ %178, %177 ], [ %175, %174 ], [ %163, %162 ], [ %169, %168 ]
-  %.13743 = phi ptr [ %.11741, %.critedge16 ], [ %192, %190 ], [ %198, %197 ], [ %184, %.thread1284 ], [ %182, %180 ], [ %179, %177 ], [ %176, %174 ], [ %spec.select, %162 ], [ %spec.select1186, %168 ]
+  %.3835 = phi i32 [ %.2834, %.critedge16 ], [ %175, %174 ], [ %178, %177 ], [ %181, %180 ], [ %191, %190 ], [ %.2834, %197 ], [ %199, %.thread1284 ], [ %163, %162 ], [ %169, %168 ]
+  %.13743 = phi ptr [ %.11741, %.critedge16 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %192, %190 ], [ %198, %197 ], [ %184, %.thread1284 ], [ %spec.select, %162 ], [ %spec.select1186, %168 ]
   %201 = load i8, ptr %.13743, align 1, !tbaa !3
   switch i8 %201, label %1191 [
     i8 115, label %202
@@ -1790,8 +1790,8 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
   br label %723
 
 723:                                              ; preds = %720, %200, %200
-  %.4836 = phi i32 [ %.3835, %200 ], [ %.3835, %200 ], [ %722, %720 ]
-  %.2809 = phi i32 [ %.0807, %200 ], [ %.0807, %200 ], [ 16, %720 ]
+  %.4836 = phi i32 [ %722, %720 ], [ %.3835, %200 ], [ %.3835, %200 ]
+  %.2809 = phi i32 [ 16, %720 ], [ %.0807, %200 ], [ %.0807, %200 ]
   %724 = icmp eq i8 %201, 88
   %725 = select i1 %724, ptr @__const.stbsp_vsprintfcb.hexu, ptr @__const.stbsp_vsprintfcb.hex
   store i32 1088, ptr %10, align 4, !tbaa !6
@@ -1808,10 +1808,10 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
   br label %729
 
 729:                                              ; preds = %723, %727, %719, %715
-  %730 = phi i32 [ 4, %727 ], [ 4, %723 ], [ 3, %719 ], [ 1, %715 ]
-  %.1917 = phi ptr [ %725, %727 ], [ %725, %723 ], [ @__const.stbsp_vsprintfcb.hexu, %719 ], [ %711, %715 ]
-  %.14846 = phi i32 [ %.4836, %727 ], [ %.4836, %723 ], [ %.3835, %719 ], [ %.3835, %715 ]
-  %.10817 = phi i32 [ %.2809, %727 ], [ %.2809, %723 ], [ %.0807, %719 ], [ %.0807, %715 ]
+  %730 = phi i32 [ 1, %715 ], [ 3, %719 ], [ 4, %727 ], [ 4, %723 ]
+  %.1917 = phi ptr [ %711, %715 ], [ @__const.stbsp_vsprintfcb.hexu, %719 ], [ %725, %727 ], [ %725, %723 ]
+  %.14846 = phi i32 [ %.3835, %715 ], [ %.3835, %719 ], [ %.4836, %727 ], [ %.4836, %723 ]
+  %.10817 = phi i32 [ %.0807, %715 ], [ %.0807, %719 ], [ %.2809, %727 ], [ %.2809, %723 ]
   %731 = and i32 %.14846, 32
   %.not1103 = icmp eq i32 %731, 0
   %732 = load i32, ptr %4, align 8
@@ -2230,12 +2230,12 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   br label %911
 
 911:                                              ; preds = %stbsp__lead_sign.exit1238, %1191, %908, %._crit_edge2287, %763, %705, %535, %._crit_edge1693, %259, %stbsp__strlen_limited.exit
-  %.0939 = phi i32 [ 0, %1191 ], [ 0, %535 ], [ %.1940, %705 ], [ %910, %908 ], [ 0, %763 ], [ %807, %._crit_edge2287 ], [ 50331649, %._crit_edge1693 ], [ 0, %259 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %stbsp__lead_sign.exit1238 ]
-  %.0874 = phi ptr [ %26, %1191 ], [ %536, %535 ], [ %20, %705 ], [ %.35909, %908 ], [ %17, %763 ], [ %.lcssa2239, %._crit_edge2287 ], [ %20, %._crit_edge1693 ], [ %26, %259 ], [ %spec.store.select, %stbsp__strlen_limited.exit ], [ %455, %stbsp__lead_sign.exit1238 ]
-  %.5837 = phi i32 [ 0, %1191 ], [ %.9841, %535 ], [ %.10842, %705 ], [ %.16848, %908 ], [ %.14846, %763 ], [ %.14846, %._crit_edge2287 ], [ %spec.select1187, %._crit_edge1693 ], [ %.3835, %259 ], [ %.3835, %stbsp__strlen_limited.exit ], [ %.8840, %stbsp__lead_sign.exit1238 ]
-  %.0827 = phi i32 [ 0, %1191 ], [ 0, %535 ], [ %.2829, %705 ], [ 0, %908 ], [ 0, %763 ], [ 0, %._crit_edge2287 ], [ %spec.select11882091, %._crit_edge1693 ], [ 0, %259 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %stbsp__lead_sign.exit1238 ]
-  %.3810 = phi i32 [ 0, %1191 ], [ 0, %535 ], [ 0, %705 ], [ %spec.store.select36, %908 ], [ 0, %763 ], [ %.10817, %._crit_edge2287 ], [ 0, %._crit_edge1693 ], [ 0, %259 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %stbsp__lead_sign.exit1238 ]
-  %.2799 = phi i32 [ 0, %1191 ], [ %.0797, %535 ], [ %.0797, %705 ], [ %.0797, %908 ], [ %.0797, %763 ], [ %.0797, %._crit_edge2287 ], [ %.0797, %._crit_edge1693 ], [ %.0797, %259 ], [ %.0797, %stbsp__strlen_limited.exit ], [ %.0797, %stbsp__lead_sign.exit1238 ]
+  %.0939 = phi i32 [ 0, %1191 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %259 ], [ 50331649, %._crit_edge1693 ], [ %.1940, %705 ], [ 0, %535 ], [ 0, %763 ], [ %807, %._crit_edge2287 ], [ %910, %908 ], [ 0, %stbsp__lead_sign.exit1238 ]
+  %.0874 = phi ptr [ %26, %1191 ], [ %spec.store.select, %stbsp__strlen_limited.exit ], [ %26, %259 ], [ %20, %._crit_edge1693 ], [ %20, %705 ], [ %536, %535 ], [ %17, %763 ], [ %.lcssa2239, %._crit_edge2287 ], [ %.35909, %908 ], [ %455, %stbsp__lead_sign.exit1238 ]
+  %.5837 = phi i32 [ 0, %1191 ], [ %.3835, %stbsp__strlen_limited.exit ], [ %.3835, %259 ], [ %spec.select1187, %._crit_edge1693 ], [ %.10842, %705 ], [ %.9841, %535 ], [ %.14846, %763 ], [ %.14846, %._crit_edge2287 ], [ %.16848, %908 ], [ %.8840, %stbsp__lead_sign.exit1238 ]
+  %.0827 = phi i32 [ 0, %1191 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %259 ], [ %spec.select11882091, %._crit_edge1693 ], [ %.2829, %705 ], [ 0, %535 ], [ 0, %763 ], [ 0, %._crit_edge2287 ], [ 0, %908 ], [ 0, %stbsp__lead_sign.exit1238 ]
+  %.3810 = phi i32 [ 0, %1191 ], [ 0, %stbsp__strlen_limited.exit ], [ 0, %259 ], [ 0, %._crit_edge1693 ], [ 0, %705 ], [ 0, %535 ], [ 0, %763 ], [ %.10817, %._crit_edge2287 ], [ %spec.store.select36, %908 ], [ 0, %stbsp__lead_sign.exit1238 ]
+  %.2799 = phi i32 [ 0, %1191 ], [ %.0797, %stbsp__strlen_limited.exit ], [ %.0797, %259 ], [ %.0797, %._crit_edge1693 ], [ %.0797, %705 ], [ %.0797, %535 ], [ %.0797, %763 ], [ %.0797, %._crit_edge2287 ], [ %.0797, %908 ], [ %.0797, %stbsp__lead_sign.exit1238 ]
   %912 = load i32, ptr %10, align 4, !tbaa !6
   %spec.select1204 = call i32 @llvm.smax.i32(i32 %.3810, i32 %912)
   %913 = load i8, ptr %8, align 1, !tbaa !3

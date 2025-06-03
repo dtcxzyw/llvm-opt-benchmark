@@ -2705,7 +2705,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionE
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit: ; preds = %22, %42, %41, %41, %39, %32, %9
-  %.0 = phi i1 [ %35, %32 ], [ %40, %39 ], [ true, %9 ], [ true, %41 ], [ %45, %42 ], [ true, %41 ], [ true, %22 ]
+  %.0 = phi i1 [ %40, %39 ], [ %35, %32 ], [ true, %9 ], [ true, %41 ], [ %45, %42 ], [ true, %41 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -2878,8 +2878,8 @@ _ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit: ; preds =
   %97 = tail call noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper20isLazilyCopiedRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %32)
   br i1 %97, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: ; preds = %30, %71, %85, %34, %38, %73, %77, %89, %93, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
-  %98 = phi ptr [ %1, %30 ], [ %.pre, %71 ], [ %1, %85 ], [ %1, %34 ], [ %1, %38 ], [ %1, %73 ], [ %1, %77 ], [ %1, %89 ], [ %1, %93 ], [ %1, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ]
+_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: ; preds = %30, %71, %85, %93, %89, %77, %73, %38, %34, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
+  %98 = phi ptr [ %1, %30 ], [ %.pre, %71 ], [ %1, %85 ], [ %1, %93 ], [ %1, %89 ], [ %1, %77 ], [ %1, %73 ], [ %1, %38 ], [ %1, %34 ], [ %1, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %98, ptr %3, align 8, !tbaa !37
   %99 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_EixERKS6_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -2889,8 +2889,8 @@ _ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %42, %81, %.loopexit16, %.loopexit, %85, %34, %38, %73, %77, %89, %93, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit
-  %.04 = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit ], [ true, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13 ], [ false, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ], [ false, %93 ], [ false, %89 ], [ false, %77 ], [ false, %73 ], [ false, %38 ], [ false, %34 ], [ false, %85 ], [ false, %81 ], [ false, %.loopexit16 ], [ false, %.loopexit ], [ false, %42 ], [ false, %.lr.ph.i.i.i.i.i ]
+_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %42, %81, %.loopexit16, %.loopexit, %85, %93, %89, %77, %73, %38, %34, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit
+  %.04 = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit ], [ true, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13 ], [ false, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ], [ false, %34 ], [ false, %38 ], [ false, %73 ], [ false, %77 ], [ false, %89 ], [ false, %93 ], [ false, %85 ], [ false, %81 ], [ false, %.loopexit16 ], [ false, %.loopexit ], [ false, %42 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.04
 }
 

@@ -194,7 +194,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN90_$LT$uv_platform_tags..language_tag..ParseLanguageTagError$u20$as$u20$core..fmt..Debug$GT$3fmt17h54f640488b2cf85bE.exit"
 
 "_ZN90_$LT$uv_platform_tags..language_tag..ParseLanguageTagError$u20$as$u20$core..fmt..Debug$GT$3fmt17h54f640488b2cf85bE.exit": ; preds = %10, %13, %17, %21, %25
-  %.sroa.0.0.in.i = phi i1 [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -372,8 +372,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h22e381d92685cc3bE(ptr n
   br label %"_ZN93_$LT$uv_publish..trusted_publishing..TrustedPublishingError$u20$as$u20$core..error..Error$GT$6source17h1e8a80eba88b5f94E.exit"
 
 "_ZN93_$LT$uv_publish..trusted_publishing..TrustedPublishingError$u20$as$u20$core..error..Error$GT$6source17h1e8a80eba88b5f94E.exit": ; preds = %1, %1, %1, %1, %7, %12, %14, %16
-  %.sroa.9.0.i = phi ptr [ %20, %16 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %14 ], [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %12 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %19, %16 ], [ %15, %14 ], [ %13, %12 ], [ %10, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.9.0.i = phi ptr [ %11, %7 ], [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %12 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %14 ], [ %20, %16 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.9.0.i, 1
   ret { ptr, ptr } %22
@@ -411,8 +411,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit"
 
 "_ZN67_$LT$uv_publish..PublishSendError$u20$as$u20$core..error..Error$GT$6source17h1e5d5927fad29435E.exit": ; preds = %1, %1, %1, %1, %1, %5, %7
-  %.sroa.8.0.i = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.208.llvm.5955437837880099222, %7 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.206.llvm.5955437837880099222, %5 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %6, %5 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.8.0.i = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.206.llvm.5955437837880099222, %5 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.208.llvm.5955437837880099222, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.8.0.i, 1
   ret { ptr, ptr } %10
@@ -456,8 +456,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hc1bacaa751c75becE(ptr n
   br label %"_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit"
 
 "_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit": ; preds = %1, %7, %12, %14, %15
-  %.sroa.8.0.i = phi ptr [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %15 ], [ undef, %14 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %12 ], [ %11, %7 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
-  %.sroa.0.0.i = phi ptr [ %16, %15 ], [ null, %14 ], [ %13, %12 ], [ %10, %7 ], [ %0, %1 ]
+  %.sroa.8.0.i = phi ptr [ %11, %7 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %12 ], [ undef, %14 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %0, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.8.0.i, 1
   ret { ptr, ptr } %18
@@ -526,7 +526,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -595,7 +595,7 @@ define internal noundef zeroext i1 @"_ZN70_$LT$uv_platform_tags..abi_tag..AbiTag
   br label %29
 
 29:                                               ; preds = %26, %22, %19, %15, %13, %11
-  %.sroa.0.0.in = phi i1 [ %28, %26 ], [ %25, %22 ], [ %21, %19 ], [ %18, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %18, %15 ], [ %21, %19 ], [ %25, %22 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -667,7 +667,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$uv_platform_tags..language_tag..L
   br label %29
 
 29:                                               ; preds = %26, %23, %20, %17, %14, %12
-  %.sroa.0.0.in = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in
 }
 

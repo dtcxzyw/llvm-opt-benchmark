@@ -230,7 +230,7 @@ define dso_local void @lexer_init(ptr noundef captures(none) initializes((8, 56)
   %.not45 = icmp eq i32 %.037.ph.ph, 0
   br i1 %.not45, label %42, label %.thread
 
-.thread:                                          ; preds = %27, %39, %.loopexit
+.thread:                                          ; preds = %39, %27, %.loopexit
   tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef %0, ptr noundef nonnull @.str)
   br label %42
 
@@ -490,8 +490,8 @@ skip.exit17.i.i:                                  ; preds = %76
   br label %.outer.i.i.backedge
 
 .outer.i.i.backedge:                              ; preds = %skip.exit17.i.i, %skip.exit.i.i
-  %.be = phi ptr [ %61, %skip.exit.i.i ], [ %77, %skip.exit17.i.i ]
-  %.0.ph.i.i.be = phi i32 [ %63, %skip.exit.i.i ], [ %79, %skip.exit17.i.i ]
+  %.be = phi ptr [ %77, %skip.exit17.i.i ], [ %61, %skip.exit.i.i ]
+  %.0.ph.i.i.be = phi i32 [ %79, %skip.exit17.i.i ], [ %63, %skip.exit.i.i ]
   br label %.outer.i.i
 
 80:                                               ; preds = %46
@@ -1317,7 +1317,7 @@ backtrack.exit233:                                ; preds = %284, %287
   br label %298
 
 298:                                              ; preds = %244, %match.exit222, %236, %match.exit216, %230, %match.exit212, %226, %match.exit210, %213, %match.exit200, %204, %match.exit194, %198, %match.exit190, %194, %match.exit188, %188, %match.exit184, %184, %match.exit182, %171, %match.exit178, %165, %match.exit174, %147, %match.exit166, %142, %match.exit164, %297, %295, %backtrack.exit233, %backtrack.exit, %274, %262, %match.exit232, %258, %256, %254, %match.exit226, %250, %248, %242, %240, %234, %224, %222, %match.exit204, %220, %match.exit198, %211, %202, %192, %182, %169, %162, %match.exit170, %match.exit172, %160, %154, %match.exit168, %152, %149, %144, %139, %138, %match.exit, %char_is_letter.exit, %136, %129, %127, %125, %123, %char_is_letter_.exit, %121, %.thread, %return_token.exit
-  %.0 = phi i1 [ false, %return_token.exit ], [ %289, %backtrack.exit233 ], [ %281, %backtrack.exit ], [ false, %295 ], [ false, %297 ], [ %275, %274 ], [ %263, %262 ], [ true, %254 ], [ true, %256 ], [ true, %258 ], [ true, %match.exit232 ], [ true, %248 ], [ true, %250 ], [ true, %match.exit226 ], [ true, %240 ], [ true, %242 ], [ true, %234 ], [ true, %220 ], [ true, %match.exit204 ], [ true, %222 ], [ true, %224 ], [ true, %211 ], [ true, %match.exit198 ], [ true, %202 ], [ true, %192 ], [ true, %182 ], [ true, %169 ], [ true, %162 ], [ true, %160 ], [ true, %match.exit172 ], [ true, %match.exit170 ], [ true, %154 ], [ true, %152 ], [ true, %match.exit168 ], [ true, %149 ], [ true, %144 ], [ true, %139 ], [ true, %138 ], [ true, %136 ], [ false, %char_is_letter.exit ], [ %137, %match.exit ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ true, %char_is_letter_.exit ], [ %116, %.thread ], [ true, %match.exit164 ], [ true, %142 ], [ true, %match.exit166 ], [ true, %147 ], [ true, %match.exit174 ], [ true, %165 ], [ true, %match.exit178 ], [ true, %171 ], [ true, %match.exit182 ], [ true, %184 ], [ true, %match.exit184 ], [ true, %188 ], [ true, %match.exit188 ], [ true, %194 ], [ true, %match.exit190 ], [ true, %198 ], [ true, %match.exit194 ], [ true, %204 ], [ true, %match.exit200 ], [ true, %213 ], [ true, %match.exit210 ], [ true, %226 ], [ true, %match.exit212 ], [ true, %230 ], [ true, %match.exit216 ], [ true, %236 ], [ true, %match.exit222 ], [ true, %244 ]
+  %.0 = phi i1 [ false, %return_token.exit ], [ %289, %backtrack.exit233 ], [ %281, %backtrack.exit ], [ false, %295 ], [ false, %297 ], [ %116, %.thread ], [ %122, %121 ], [ true, %char_is_letter_.exit ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ true, %136 ], [ false, %char_is_letter.exit ], [ %137, %match.exit ], [ true, %138 ], [ true, %139 ], [ true, %144 ], [ true, %149 ], [ true, %152 ], [ true, %match.exit168 ], [ true, %154 ], [ true, %160 ], [ true, %match.exit172 ], [ true, %match.exit170 ], [ true, %162 ], [ true, %169 ], [ true, %182 ], [ true, %192 ], [ true, %202 ], [ true, %211 ], [ true, %match.exit198 ], [ true, %220 ], [ true, %match.exit204 ], [ true, %222 ], [ true, %224 ], [ true, %234 ], [ true, %240 ], [ true, %242 ], [ true, %248 ], [ true, %250 ], [ true, %match.exit226 ], [ true, %254 ], [ true, %256 ], [ true, %258 ], [ true, %match.exit232 ], [ %263, %262 ], [ %275, %274 ], [ true, %match.exit164 ], [ true, %142 ], [ true, %match.exit166 ], [ true, %147 ], [ true, %match.exit174 ], [ true, %165 ], [ true, %match.exit178 ], [ true, %171 ], [ true, %match.exit182 ], [ true, %184 ], [ true, %match.exit184 ], [ true, %188 ], [ true, %match.exit188 ], [ true, %194 ], [ true, %match.exit190 ], [ true, %198 ], [ true, %match.exit194 ], [ true, %204 ], [ true, %match.exit200 ], [ true, %213 ], [ true, %match.exit210 ], [ true, %226 ], [ true, %match.exit212 ], [ true, %230 ], [ true, %match.exit216 ], [ true, %236 ], [ true, %match.exit222 ], [ true, %244 ]
   ret i1 %.0
 }
 
@@ -2451,7 +2451,7 @@ set_generic_token.exit:                           ; preds = %196, %207
   br label %.loopexit
 
 .loopexit:                                        ; preds = %scan_utf8.exit, %scan_utf8.exit.thread, %221, %set_generic_token.exit, %168, %scan_hex_literal.exit113.thread, %scan_hex_literal.exit.thread, %86, %84, %backtrack.exit, %.loopexit132, %14, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %14 ], [ false, %.loopexit132 ], [ false, %221 ], [ true, %set_generic_token.exit ], [ false, %backtrack.exit ], [ false, %84 ], [ false, %86 ], [ false, %scan_hex_literal.exit113.thread ], [ false, %168 ], [ false, %scan_hex_literal.exit.thread ], [ false, %scan_utf8.exit.thread ], [ false, %scan_utf8.exit ]
+  %.0 = phi i1 [ false, %7 ], [ false, %14 ], [ false, %.loopexit132 ], [ false, %221 ], [ true, %set_generic_token.exit ], [ false, %backtrack.exit ], [ false, %84 ], [ false, %86 ], [ false, %scan_hex_literal.exit.thread ], [ false, %scan_hex_literal.exit113.thread ], [ false, %168 ], [ false, %scan_utf8.exit.thread ], [ false, %scan_utf8.exit ]
   ret i1 %.0
 }
 
@@ -2975,8 +2975,8 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %append_esc_string_token.exit
 
 220:                                              ; preds = %200, %120, %80
-  %.083.in.i = phi i32 [ %216, %200 ], [ %128, %120 ], [ %84, %80 ]
-  %.082.i = phi i32 [ 9, %200 ], [ 5, %120 ], [ 3, %80 ]
+  %.083.in.i = phi i32 [ %84, %80 ], [ %128, %120 ], [ %216, %200 ]
+  %.082.i = phi i32 [ 3, %80 ], [ 5, %120 ], [ 9, %200 ]
   %221 = icmp ult i32 %.083.in.i, 128
   br i1 %221, label %222, label %226
 
@@ -3763,7 +3763,7 @@ default.unreachable138:                           ; preds = %69
   unreachable
 
 73:                                               ; preds = %69, %72, %71
-  %.2 = phi i32 [ 1, %72 ], [ 2, %71 ], [ 0, %69 ]
+  %.2 = phi i32 [ 2, %71 ], [ 1, %72 ], [ 0, %69 ]
   %74 = icmp eq i64 %70, 3
   %spec.select = select i1 %74, i32 1, i32 %.2
   br label %75
@@ -4694,7 +4694,7 @@ scan_dec.exit:                                    ; preds = %309, %323, %331, %3
   br label %395
 
 395:                                              ; preds = %scan_dec.exit, %scan_binary.exit, %scan_oct.exit, %scan_hex.exit
-  %.0 = phi i1 [ %.0.i39, %scan_dec.exit ], [ %.0.i28, %scan_binary.exit ], [ %.0.i15, %scan_oct.exit ], [ %.0.i, %scan_hex.exit ]
+  %.0 = phi i1 [ %.0.i39, %scan_dec.exit ], [ %.0.i, %scan_hex.exit ], [ %.0.i15, %scan_oct.exit ], [ %.0.i28, %scan_binary.exit ]
   ret i1 %.0
 }
 
@@ -4819,7 +4819,7 @@ define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 nou
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ -1, %11 ], [ 0, %10 ], [ %0, %9 ], [ 11, %8 ], [ 9, %7 ], [ 13, %6 ], [ 10, %5 ], [ 12, %4 ], [ 27, %3 ], [ 8, %2 ], [ 7, %1 ]
+  %.0 = phi i8 [ -1, %11 ], [ 8, %2 ], [ 27, %3 ], [ 12, %4 ], [ 10, %5 ], [ 13, %6 ], [ 9, %7 ], [ 11, %8 ], [ %0, %9 ], [ 0, %10 ], [ 7, %1 ]
   ret i8 %.0
 }
 
@@ -5211,8 +5211,8 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr noundef captur
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %64, %.lr.ph81, %76, %.preheader, %7, %18, %44
-  %86 = phi ptr [ %4, %7 ], [ %45, %44 ], [ %19, %18 ], [ %38, %.preheader ], [ %.promoted, %76 ], [ %48, %.lr.ph81 ], [ %storemerge, %64 ], [ %82, %.lr.ph ]
-  %87 = phi i8 [ %5, %7 ], [ %46, %44 ], [ %20, %18 ], [ %39, %.preheader ], [ %78, %76 ], [ %49, %.lr.ph81 ], [ %65, %64 ], [ %83, %.lr.ph ]
+  %86 = phi ptr [ %4, %7 ], [ %19, %18 ], [ %45, %44 ], [ %38, %.preheader ], [ %.promoted, %76 ], [ %48, %.lr.ph81 ], [ %storemerge, %64 ], [ %82, %.lr.ph ]
+  %87 = phi i8 [ %5, %7 ], [ %20, %18 ], [ %46, %44 ], [ %39, %.preheader ], [ %78, %76 ], [ %49, %.lr.ph81 ], [ %65, %64 ], [ %83, %.lr.ph ]
   %88 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %87)
   br i1 %88, label %89, label %99
 
@@ -5237,7 +5237,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr noundef captur
   br label %99
 
 99:                                               ; preds = %.loopexit, %2, %97, %55, %28, %23
-  %.073 = phi i1 [ false, %97 ], [ false, %55 ], [ false, %28 ], [ false, %23 ], [ true, %2 ], [ true, %.loopexit ]
+  %.073 = phi i1 [ false, %97 ], [ false, %23 ], [ false, %28 ], [ false, %55 ], [ true, %2 ], [ true, %.loopexit ]
   ret i1 %.073
 }
 

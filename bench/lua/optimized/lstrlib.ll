@@ -465,7 +465,7 @@ checkformat.exit:                                 ; preds = %get2digits.exit18.i
   br label %92
 
 92:                                               ; preds = %getformat.exit, %getformat.exit, %91, %90
-  %.078 = phi ptr [ @.str.34, %91 ], [ @.str.33, %90 ], [ @.str.32, %getformat.exit ], [ @.str.32, %getformat.exit ]
+  %.078 = phi ptr [ @.str.33, %90 ], [ @.str.34, %91 ], [ @.str.32, %getformat.exit ], [ @.str.32, %getformat.exit ]
   %93 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %50) #12
   %94 = call i64 @strspn(ptr noundef nonnull %14, ptr noundef nonnull readonly %.078) #13
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 %94
@@ -636,8 +636,8 @@ checkformat.exit109:                              ; preds = %get2digits.exit18.i
   br label %188
 
 188:                                              ; preds = %186, %getformat.exit, %getformat.exit, %getformat.exit, %getformat.exit
-  %.077 = phi i64 [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 418, %186 ]
-  %.076 = phi ptr [ %49, %getformat.exit ], [ %49, %getformat.exit ], [ %49, %getformat.exit ], [ %49, %getformat.exit ], [ %187, %186 ]
+  %.077 = phi i64 [ 418, %186 ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ]
+  %.076 = phi ptr [ %187, %186 ], [ %49, %getformat.exit ], [ %49, %getformat.exit ], [ %49, %getformat.exit ], [ %49, %getformat.exit ]
   %189 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %50) #12
   %190 = call i64 @strspn(ptr noundef nonnull %14, ptr noundef nonnull @.str.36) #13
   %191 = getelementptr inbounds nuw i8, ptr %14, i64 %190
@@ -1135,7 +1135,7 @@ checkformat.exit156:                              ; preds = %get2digits.exit18.i
   br label %451
 
 445:                                              ; preds = %checkformat.exit, %checkformat.exit94, %checkformat.exit109, %checkformat.exit124, %263, %442, %addquoted.exit.i, %quotefloat.exit.i, %379, %381
-  %.074 = phi i32 [ %.175, %442 ], [ %264, %263 ], [ %232, %checkformat.exit124 ], [ %185, %checkformat.exit109 ], [ %140, %checkformat.exit94 ], [ %89, %checkformat.exit ], [ 0, %addquoted.exit.i ], [ 0, %quotefloat.exit.i ], [ 0, %379 ], [ 0, %381 ]
+  %.074 = phi i32 [ %89, %checkformat.exit ], [ %140, %checkformat.exit94 ], [ %185, %checkformat.exit109 ], [ %232, %checkformat.exit124 ], [ %264, %263 ], [ %.175, %442 ], [ 0, %addquoted.exit.i ], [ 0, %quotefloat.exit.i ], [ 0, %379 ], [ 0, %381 ]
   %446 = zext i32 %.074 to i64
   %447 = load i64, ptr %12, align 8, !tbaa !18
   %448 = add i64 %447, %446
@@ -2403,8 +2403,8 @@ default.unreachable147:                           ; preds = %._crit_edge
   unreachable
 
 243:                                              ; preds = %._crit_edge, %._crit_edge, %238, %224, %packint.exit129, %174, %copywithendian.exit105, %copywithendian.exit99, %copywithendian.exit, %packint.exit92, %packint.exit
-  %.159 = phi i64 [ %231, %224 ], [ %209, %packint.exit129 ], [ %29, %174 ], [ %29, %copywithendian.exit105 ], [ %29, %copywithendian.exit99 ], [ %29, %copywithendian.exit ], [ %29, %packint.exit92 ], [ %29, %packint.exit ], [ %29, %238 ], [ %29, %._crit_edge ], [ %29, %._crit_edge ]
-  %.1 = phi i32 [ %41, %224 ], [ %41, %packint.exit129 ], [ %41, %174 ], [ %41, %copywithendian.exit105 ], [ %41, %copywithendian.exit99 ], [ %41, %copywithendian.exit ], [ %41, %packint.exit92 ], [ %41, %packint.exit ], [ %.0135, %238 ], [ %.0135, %._crit_edge ], [ %.0135, %._crit_edge ]
+  %.159 = phi i64 [ %29, %packint.exit ], [ %29, %packint.exit92 ], [ %29, %copywithendian.exit ], [ %29, %copywithendian.exit99 ], [ %29, %copywithendian.exit105 ], [ %29, %174 ], [ %209, %packint.exit129 ], [ %231, %224 ], [ %29, %238 ], [ %29, %._crit_edge ], [ %29, %._crit_edge ]
+  %.1 = phi i32 [ %41, %packint.exit ], [ %41, %packint.exit92 ], [ %41, %copywithendian.exit ], [ %41, %copywithendian.exit99 ], [ %41, %copywithendian.exit105 ], [ %41, %174 ], [ %41, %packint.exit129 ], [ %41, %224 ], [ %.0135, %238 ], [ %.0135, %._crit_edge ], [ %.0135, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   %244 = load ptr, ptr %4, align 8, !tbaa !45
@@ -2808,8 +2808,8 @@ default.unreachable100:                           ; preds = %42
   unreachable
 
 139:                                              ; preds = %42, %42, %42, %135, %unpackint.exit.thread, %77, %copywithendian.exit75, %copywithendian.exit69, %copywithendian.exit, %45
-  %.159 = phi i32 [ %44, %135 ], [ %44, %unpackint.exit.thread ], [ %44, %77 ], [ %44, %copywithendian.exit75 ], [ %44, %copywithendian.exit69 ], [ %44, %copywithendian.exit ], [ %44, %45 ], [ %.05889, %42 ], [ %.05889, %42 ], [ %.05889, %42 ]
-  %.1 = phi i64 [ %138, %135 ], [ %126, %unpackint.exit.thread ], [ %43, %77 ], [ %43, %copywithendian.exit75 ], [ %43, %copywithendian.exit69 ], [ %43, %copywithendian.exit ], [ %43, %45 ], [ %43, %42 ], [ %43, %42 ], [ %43, %42 ]
+  %.159 = phi i32 [ %44, %45 ], [ %44, %copywithendian.exit ], [ %44, %copywithendian.exit69 ], [ %44, %copywithendian.exit75 ], [ %44, %77 ], [ %44, %unpackint.exit.thread ], [ %44, %135 ], [ %.05889, %42 ], [ %.05889, %42 ], [ %.05889, %42 ]
+  %.1 = phi i64 [ %43, %45 ], [ %43, %copywithendian.exit ], [ %43, %copywithendian.exit69 ], [ %43, %copywithendian.exit75 ], [ %43, %77 ], [ %126, %unpackint.exit.thread ], [ %138, %135 ], [ %43, %42 ], [ %43, %42 ], [ %43, %42 ]
   %140 = add i64 %.1, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -3384,11 +3384,6 @@ capture_to_close.exit:                            ; preds = %73, %.loopexit.loop
   %123 = getelementptr inbounds nuw i8, ptr %.077, i64 4
   br label %.outer.outer.backedge
 
-.outer.outer.backedge:                            ; preds = %121, %249, %416
-  %.077.ph.ph.be = phi ptr [ %.018.i129, %416 ], [ %251, %249 ], [ %123, %121 ]
-  %.0.ph.ph.be = phi ptr [ %417, %416 ], [ %250, %249 ], [ %122, %121 ]
-  br label %.outer.outer
-
 124:                                              ; preds = %92
   %125 = getelementptr inbounds nuw i8, ptr %.077, i64 2
   %126 = load i8, ptr %125, align 1, !tbaa !9
@@ -3466,8 +3461,8 @@ capture_to_close.exit:                            ; preds = %73, %.loopexit.loop
   br label %classend.exit
 
 classend.exit:                                    ; preds = %128, %138, %161
-  %163 = phi ptr [ %141, %161 ], [ %131, %138 ], [ %131, %128 ]
-  %.018.i106 = phi ptr [ %162, %161 ], [ %139, %138 ], [ %131, %128 ]
+  %163 = phi ptr [ %131, %138 ], [ %141, %161 ], [ %131, %128 ]
+  %.018.i106 = phi ptr [ %139, %138 ], [ %162, %161 ], [ %131, %128 ]
   %164 = load ptr, ptr %0, align 8, !tbaa !30
   %165 = icmp eq ptr %.0.ph.ph, %164
   br i1 %165, label %169, label %166
@@ -3644,6 +3639,11 @@ check_capture.exit.i:                             ; preds = %.critedge.i.i, %230
   %251 = getelementptr inbounds nuw i8, ptr %.077, i64 2
   br label %.outer.outer.backedge
 
+.outer.outer.backedge:                            ; preds = %249, %121, %416
+  %.077.ph.ph.be = phi ptr [ %.018.i129, %416 ], [ %123, %121 ], [ %251, %249 ]
+  %.0.ph.ph.be = phi ptr [ %417, %416 ], [ %122, %121 ], [ %250, %249 ]
+  br label %.outer.outer
+
 252:                                              ; preds = %.thread185
   %253 = load ptr, ptr %14, align 8, !tbaa !27
   %254 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %253, ptr noundef nonnull @.str.26) #12
@@ -3695,8 +3695,8 @@ check_capture.exit.i:                             ; preds = %.critedge.i.i, %230
   br label %classend.exit131
 
 classend.exit131:                                 ; preds = %23, %87, %255, %277
-  %279 = phi ptr [ %25, %277 ], [ %94, %255 ], [ %25, %87 ], [ %25, %23 ]
-  %.018.i129 = phi ptr [ %278, %277 ], [ %256, %255 ], [ %25, %87 ], [ %25, %23 ]
+  %279 = phi ptr [ %94, %255 ], [ %25, %277 ], [ %25, %87 ], [ %25, %23 ]
+  %.018.i129 = phi ptr [ %256, %255 ], [ %278, %277 ], [ %25, %87 ], [ %25, %23 ]
   %.val = load ptr, ptr %18, align 8, !tbaa !31
   %.not.i132 = icmp ult ptr %.0.ph.ph, %.val
   br i1 %.not.i132, label %280, label %singlematch.exit.thread
@@ -4894,7 +4894,7 @@ getnumlimit.exit55:                               ; preds = %148, %getnum.exit.i
   br label %158
 
 158:                                              ; preds = %getnum.exit, %3, %116, %157, %120, %119, %getnumlimit.exit48, %getnumlimit.exit42, %getnumlimit.exit, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 10, %157 ], [ 9, %120 ], [ 8, %119 ], [ 6, %getnumlimit.exit48 ], [ 1, %getnumlimit.exit42 ], [ 0, %getnumlimit.exit ], [ 4, %18 ], [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 1, %14 ], [ 0, %13 ], [ 1, %12 ], [ 0, %11 ], [ 1, %10 ], [ 0, %9 ], [ 1, %8 ], [ 0, %7 ], [ 5, %116 ], [ 5, %getnum.exit ], [ 7, %3 ]
+  %.0 = phi i32 [ 10, %157 ], [ 0, %7 ], [ 1, %8 ], [ 0, %9 ], [ 1, %10 ], [ 0, %11 ], [ 1, %12 ], [ 0, %13 ], [ 1, %14 ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 4, %18 ], [ 0, %getnumlimit.exit ], [ 1, %getnumlimit.exit42 ], [ 6, %getnumlimit.exit48 ], [ 8, %119 ], [ 9, %120 ], [ 5, %116 ], [ 5, %getnum.exit ], [ 7, %3 ]
   ret i32 %.0
 }
 

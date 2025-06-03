@@ -1577,7 +1577,7 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit185: ; preds = %1
   br label %358
 
 357:                                              ; preds = %_ZN7QStringD2Ev.exit96, %_ZN7QStringD2Ev.exit182
-  %.1 = phi i32 [ 0, %_ZN7QStringD2Ev.exit96 ], [ %.2222, %_ZN7QStringD2Ev.exit182 ]
+  %.1 = phi i32 [ %.2222, %_ZN7QStringD2Ev.exit182 ], [ 0, %_ZN7QStringD2Ev.exit96 ]
   ret i32 %.1
 
 358:                                              ; preds = %356, %118

@@ -6914,7 +6914,7 @@ default.unreachable267:                           ; preds = %58
   unreachable
 
 219:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179
-  %.0 = phi ptr [ %202, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %144, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ]
+  %.0 = phi ptr [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %144, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ], [ %202, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %220 = load ptr, ptr %9, align 8, !tbaa !168
   %.not8.i.i = icmp eq ptr %220, %9
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev.exit, label %.lr.ph.i.i
@@ -6936,14 +6936,14 @@ _ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev.exit: ; preds = 
   br label %322
 
 223:                                              ; preds = %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182, %134, %185, %75
-  %.pn144.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %186, %185 ], [ %135, %134 ], [ %.pn148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ %78, %77 ]
+  %.pn148.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ %135, %134 ], [ %186, %185 ], [ %78, %77 ]
   call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #35
   br label %224
 
 224:                                              ; preds = %223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174
-  %.pn144.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn, %223 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ]
-  %.1120 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 0
-  %.1123 = extractvalue { ptr, i32 } %.pn144.pn.pn.pn, 1
+  %.pn148.pn.pn.pn = phi { ptr, i32 } [ %.pn148.pn.pn, %223 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ]
+  %.1120 = extractvalue { ptr, i32 } %.pn148.pn.pn.pn, 0
+  %.1123 = extractvalue { ptr, i32 } %.pn148.pn.pn.pn, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
   call void @_ZN7jsonnet8internal9AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #35
@@ -7205,7 +7205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213: ; preds = %_Z
   ret ptr %.1
 
 323:                                              ; preds = %321, %314, %245
-  %.merged = phi { ptr, i32 } [ %.pn144.pn.pn.pn, %245 ], [ %.pn156.pn.pn, %314 ], [ %.pn160.pn.pn, %321 ]
+  %.merged = phi { ptr, i32 } [ %.pn148.pn.pn.pn, %245 ], [ %.pn156.pn.pn, %314 ], [ %.pn160.pn.pn, %321 ]
   resume { ptr, i32 } %.merged
 
 324:                                              ; preds = %321, %314

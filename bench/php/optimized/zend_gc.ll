@@ -2116,12 +2116,12 @@ gc_stack_push.exit167.i.i:                        ; preds = %730, %727
   br i1 %.not149.i.i184, label %.loopexit227.i.i, label %.lr.ph272.i.i
 
 738:                                              ; preds = %837, %707, %703
-  %.4 = phi i32 [ %.3, %837 ], [ %.7, %703 ], [ %.7, %707 ]
-  %spec.select235.i.i = phi i32 [ %spec.select234.i.i, %837 ], [ %spec.select.le256.i.i, %703 ], [ %spec.select.le256.i.i, %707 ]
-  %.10208.i.i = phi ptr [ %.9207.i.i, %837 ], [ %.1199.i.i, %703 ], [ %.1199.i.i, %707 ]
-  %.10.i.i159 = phi i64 [ %.9.i.i157, %837 ], [ %.1.i29.i, %703 ], [ %.1.i29.i, %707 ]
-  %.3129.i.i = phi i32 [ %833, %837 ], [ %705, %703 ], [ %705, %707 ]
-  %.3.i.i160 = phi ptr [ %839, %837 ], [ %706, %703 ], [ %706, %707 ]
+  %.4 = phi i32 [ %.7, %703 ], [ %.3, %837 ], [ %.7, %707 ]
+  %spec.select235.i.i = phi i32 [ %spec.select.le256.i.i, %703 ], [ %spec.select234.i.i, %837 ], [ %spec.select.le256.i.i, %707 ]
+  %.10208.i.i = phi ptr [ %.1199.i.i, %703 ], [ %.9207.i.i, %837 ], [ %.1199.i.i, %707 ]
+  %.10.i.i159 = phi i64 [ %.1.i29.i, %703 ], [ %.9.i.i157, %837 ], [ %.1.i29.i, %707 ]
+  %.3129.i.i = phi i32 [ %705, %703 ], [ %833, %837 ], [ %705, %707 ]
+  %.3.i.i160 = phi ptr [ %706, %703 ], [ %839, %837 ], [ %706, %707 ]
   %.not155290.i.i = icmp eq i32 %.3129.i.i, 0
   br i1 %.not155290.i.i, label %.loopexit.i27.i, label %.lr.ph293.i.i
 
@@ -2314,11 +2314,11 @@ gc_compress.exit.i247:                            ; preds = %822, %814
   br label %.loopexit227.i.i
 
 .loopexit227.i.i:                                 ; preds = %735, %gc_compress.exit.i247, %gc_grow_root_buffer.exit.i, %779, %714
-  %.3 = phi i32 [ %.2, %779 ], [ %.7, %714 ], [ %.2, %gc_grow_root_buffer.exit.i ], [ %.2, %gc_compress.exit.i247 ], [ %.7, %735 ]
-  %spec.select234.i.i = phi i32 [ %spec.select.le254.i.i, %779 ], [ %spec.select.le256.i.i, %714 ], [ %spec.select.le254.i.i, %gc_grow_root_buffer.exit.i ], [ %spec.select.le254.i.i, %gc_compress.exit.i247 ], [ %spec.select.le256.i.i, %735 ]
-  %.9207.i.i = phi ptr [ %.0198.ph.i.i, %779 ], [ %.1199.i.i, %714 ], [ %.0198.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0198.ph.i.i, %gc_compress.exit.i247 ], [ %.8206.i.i, %735 ]
-  %.9.i.i157 = phi i64 [ %.0191.ph.i.i, %779 ], [ %.1.i29.i, %714 ], [ %.0191.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0191.ph.i.i, %gc_compress.exit.i247 ], [ %.8.i.i183, %735 ]
-  %.0121.i.i = phi ptr [ %.0.i.i155, %779 ], [ %704, %714 ], [ %.0.i.i155, %gc_grow_root_buffer.exit.i ], [ %.0.i.i155, %gc_compress.exit.i247 ], [ %704, %735 ]
+  %.3 = phi i32 [ %.7, %714 ], [ %.2, %779 ], [ %.2, %gc_grow_root_buffer.exit.i ], [ %.2, %gc_compress.exit.i247 ], [ %.7, %735 ]
+  %spec.select234.i.i = phi i32 [ %spec.select.le256.i.i, %714 ], [ %spec.select.le254.i.i, %779 ], [ %spec.select.le254.i.i, %gc_grow_root_buffer.exit.i ], [ %spec.select.le254.i.i, %gc_compress.exit.i247 ], [ %spec.select.le256.i.i, %735 ]
+  %.9207.i.i = phi ptr [ %.1199.i.i, %714 ], [ %.0198.ph.i.i, %779 ], [ %.0198.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0198.ph.i.i, %gc_compress.exit.i247 ], [ %.8206.i.i, %735 ]
+  %.9.i.i157 = phi i64 [ %.1.i29.i, %714 ], [ %.0191.ph.i.i, %779 ], [ %.0191.ph.i.i, %gc_grow_root_buffer.exit.i ], [ %.0191.ph.i.i, %gc_compress.exit.i247 ], [ %.8.i.i183, %735 ]
+  %.0121.i.i = phi ptr [ %704, %714 ], [ %.0.i.i155, %779 ], [ %.0.i.i155, %gc_grow_root_buffer.exit.i ], [ %.0.i.i155, %gc_compress.exit.i247 ], [ %704, %735 ]
   %832 = getelementptr inbounds nuw i8, ptr %.0121.i.i, i64 24
   %833 = load i32, ptr %832, align 8, !tbaa !66
   %834 = getelementptr inbounds nuw i8, ptr %.0121.i.i, i64 8
@@ -2480,10 +2480,10 @@ gc_stack_push.exit.i.i174:                        ; preds = %885, %882
   br label %.loopexit.i27.i
 
 .loopexit.i27.i:                                  ; preds = %892, %776, %700, %.loopexit229.i.i, %840, %738, %671, %562
-  %.5263 = phi i32 [ %.2, %.loopexit229.i.i ], [ %.3, %840 ], [ %.4, %738 ], [ %.7, %671 ], [ %.2, %562 ], [ %.7, %700 ], [ %.4, %776 ], [ %.3, %892 ]
-  %spec.select233.i.i = phi i32 [ %spec.select.le.i.i, %.loopexit229.i.i ], [ %spec.select234.i.i, %840 ], [ %spec.select235.i.i, %738 ], [ %spec.select.le256.i.i, %671 ], [ %spec.select.le256.i.i, %562 ], [ %spec.select.le256.i.i, %700 ], [ %spec.select235.i.i, %776 ], [ %spec.select234.i.i, %892 ]
-  %.6204.i.i = phi ptr [ %.0198.ph.i.i, %.loopexit229.i.i ], [ %.9207.i.i, %840 ], [ %.10208.i.i, %738 ], [ %.1199.i.i, %671 ], [ %.0198.ph.i.i, %562 ], [ %.5203.i.i, %700 ], [ %.10208.i.i, %776 ], [ %.9207.i.i, %892 ]
-  %.6196.i.i = phi i64 [ %.0191.ph.i.i, %.loopexit229.i.i ], [ %.9.i.i157, %840 ], [ %.10.i.i159, %738 ], [ %.1.i29.i, %671 ], [ %.0191.ph.i.i, %562 ], [ %.5195.i.i, %700 ], [ %.10.i.i159, %776 ], [ %.9.i.i157, %892 ]
+  %.5263 = phi i32 [ %.2, %.loopexit229.i.i ], [ %.7, %671 ], [ %.4, %738 ], [ %.3, %840 ], [ %.2, %562 ], [ %.7, %700 ], [ %.4, %776 ], [ %.3, %892 ]
+  %spec.select233.i.i = phi i32 [ %spec.select.le.i.i, %.loopexit229.i.i ], [ %spec.select.le256.i.i, %671 ], [ %spec.select235.i.i, %738 ], [ %spec.select234.i.i, %840 ], [ %spec.select.le256.i.i, %562 ], [ %spec.select.le256.i.i, %700 ], [ %spec.select235.i.i, %776 ], [ %spec.select234.i.i, %892 ]
+  %.6204.i.i = phi ptr [ %.0198.ph.i.i, %.loopexit229.i.i ], [ %.1199.i.i, %671 ], [ %.10208.i.i, %738 ], [ %.9207.i.i, %840 ], [ %.0198.ph.i.i, %562 ], [ %.5203.i.i, %700 ], [ %.10208.i.i, %776 ], [ %.9207.i.i, %892 ]
+  %.6196.i.i = phi i64 [ %.0191.ph.i.i, %.loopexit229.i.i ], [ %.1.i29.i, %671 ], [ %.10.i.i159, %738 ], [ %.9.i.i157, %840 ], [ %.0191.ph.i.i, %562 ], [ %.5195.i.i, %700 ], [ %.10.i.i159, %776 ], [ %.9.i.i157, %892 ]
   %912 = icmp eq i64 %.6196.i.i, 0
   br i1 %912, label %913, label %917, !prof !37
 
@@ -2511,11 +2511,11 @@ gc_stack_pop.exit.i.i161:                         ; preds = %917, %915
   br i1 %.not161.i.i, label %gc_collect_white.exit.i, label %.outer.backedge.i.i164
 
 .outer.backedge.i.i164:                           ; preds = %890, %774, %gc_stack_pop.exit.i.i161, %860, %750
-  %.6 = phi i32 [ %.5263, %gc_stack_pop.exit.i.i161 ], [ %.3, %860 ], [ %.4, %750 ], [ %.4, %774 ], [ %.3, %890 ]
-  %spec.select232.i.i = phi i32 [ %spec.select233.i.i, %gc_stack_pop.exit.i.i161 ], [ %spec.select234.i.i, %860 ], [ %spec.select235.i.i, %750 ], [ %spec.select235.i.i, %774 ], [ %spec.select234.i.i, %890 ]
-  %.0198.ph.be.i.i = phi ptr [ %.20218.i.i, %gc_stack_pop.exit.i.i161 ], [ %.9207.i.i, %860 ], [ %.10208.i.i, %750 ], [ %.12210.i.i, %774 ], [ %.14212.i.i, %890 ]
-  %.0191.ph.be.i.i = phi i64 [ %.20.i.i162, %gc_stack_pop.exit.i.i161 ], [ %.9.i.i157, %860 ], [ %.10.i.i159, %750 ], [ %.12.i.i167, %774 ], [ %.14.i.i173, %890 ]
-  %.0.ph.be.i.i165 = phi ptr [ %.0.i.i28.i, %gc_stack_pop.exit.i.i161 ], [ %853, %860 ], [ %743, %750 ], [ %743, %774 ], [ %853, %890 ]
+  %.6 = phi i32 [ %.5263, %gc_stack_pop.exit.i.i161 ], [ %.4, %750 ], [ %.3, %860 ], [ %.4, %774 ], [ %.3, %890 ]
+  %spec.select232.i.i = phi i32 [ %spec.select233.i.i, %gc_stack_pop.exit.i.i161 ], [ %spec.select235.i.i, %750 ], [ %spec.select234.i.i, %860 ], [ %spec.select235.i.i, %774 ], [ %spec.select234.i.i, %890 ]
+  %.0198.ph.be.i.i = phi ptr [ %.20218.i.i, %gc_stack_pop.exit.i.i161 ], [ %.10208.i.i, %750 ], [ %.9207.i.i, %860 ], [ %.12210.i.i, %774 ], [ %.14212.i.i, %890 ]
+  %.0191.ph.be.i.i = phi i64 [ %.20.i.i162, %gc_stack_pop.exit.i.i161 ], [ %.10.i.i159, %750 ], [ %.9.i.i157, %860 ], [ %.12.i.i167, %774 ], [ %.14.i.i173, %890 ]
+  %.0.ph.be.i.i165 = phi ptr [ %.0.i.i28.i, %gc_stack_pop.exit.i.i161 ], [ %743, %750 ], [ %853, %860 ], [ %743, %774 ], [ %853, %890 ]
   %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0.ph.be.i.i165, i64 4
   %.pre.i25.pre.i = load i32, ptr %.phi.trans.insert.i.phi.trans.insert.i, align 4, !tbaa !39
   br label %.outer.i.i153

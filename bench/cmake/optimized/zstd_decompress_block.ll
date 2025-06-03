@@ -135,10 +135,10 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br label %46
 
 46:                                               ; preds = %36, %31, %25
-  %.0204 = phi i1 [ %.not212, %25 ], [ true, %31 ], [ true, %36 ]
-  %.0203 = phi i64 [ %30, %25 ], [ %35, %31 ], [ %45, %36 ]
-  %.0199.in = phi i32 [ %27, %25 ], [ %33, %31 ], [ %38, %36 ]
-  %.0198 = phi i64 [ 3, %25 ], [ 4, %31 ], [ 5, %36 ]
+  %.0204 = phi i1 [ %.not212, %25 ], [ true, %36 ], [ true, %31 ]
+  %.0203 = phi i64 [ %30, %25 ], [ %45, %36 ], [ %35, %31 ]
+  %.0199.in = phi i32 [ %27, %25 ], [ %38, %36 ], [ %33, %31 ]
+  %.0198 = phi i64 [ 3, %25 ], [ 5, %36 ], [ 4, %31 ]
   %.0199 = zext nneg i32 %.0199.in to i64
   %47 = icmp ne i32 %.0199.in, 0
   %48 = icmp eq ptr %3, null
@@ -338,8 +338,8 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   br label %154
 
 154:                                              ; preds = %147, %142, %139
-  %.0201 = phi i64 [ %141, %139 ], [ %144, %142 ], [ %153, %147 ]
-  %.0200 = phi i64 [ 1, %139 ], [ 2, %142 ], [ 3, %147 ]
+  %.0201 = phi i64 [ %141, %139 ], [ %153, %147 ], [ %144, %142 ]
+  %.0200 = phi i64 [ 1, %139 ], [ 3, %147 ], [ 2, %142 ]
   %155 = icmp ne i64 %.0201, 0
   %156 = icmp eq ptr %3, null
   %or.cond5 = and i1 %156, %155
@@ -478,8 +478,8 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   br label %228
 
 228:                                              ; preds = %221, %216, %211
-  %.0197 = phi i64 [ %213, %211 ], [ %218, %216 ], [ %227, %221 ]
-  %.0196 = phi i64 [ 1, %211 ], [ 2, %216 ], [ 3, %221 ]
+  %.0197 = phi i64 [ %213, %211 ], [ %227, %221 ], [ %218, %216 ]
+  %.0196 = phi i64 [ 1, %211 ], [ 3, %221 ], [ 2, %216 ]
   %229 = icmp ne i64 %.0197, 0
   %230 = icmp eq ptr %3, null
   %or.cond7 = and i1 %230, %229
@@ -970,9 +970,9 @@ default.unreachable:                              ; preds = %130, %91, %42
   unreachable
 
 ZSTD_buildSeqTable.exit.thread.sink.split:        ; preds = %42, %61
-  %LL_defaultDTable.sink = phi ptr [ %50, %61 ], [ @LL_defaultDTable, %42 ]
+  %.sink = phi ptr [ %50, %61 ], [ @LL_defaultDTable, %42 ]
   %.0.i.ph.ph = phi i64 [ 1, %61 ], [ 0, %42 ]
-  store ptr %LL_defaultDTable.sink, ptr %0, align 8, !tbaa !57
+  store ptr %.sink, ptr %0, align 8, !tbaa !57
   br label %ZSTD_buildSeqTable.exit.thread
 
 ZSTD_buildSeqTable.exit.thread:                   ; preds = %78, %ZSTD_buildSeqTable.exit.thread.sink.split, %73
@@ -1082,9 +1082,9 @@ ZSTD_buildSeqTable.exit:                          ; preds = %87
   br i1 %128, label %ZSTD_buildSeqTable.exit106.thread141, label %ZSTD_buildSeqTable.exit106
 
 ZSTD_buildSeqTable.exit106.thread.sink.split:     ; preds = %91, %100
-  %OF_defaultDTable.sink = phi ptr [ %94, %100 ], [ @OF_defaultDTable, %91 ]
+  %.sink167 = phi ptr [ %94, %100 ], [ @OF_defaultDTable, %91 ]
   %.0.i100.ph.ph = phi i64 [ 1, %100 ], [ 0, %91 ]
-  store ptr %OF_defaultDTable.sink, ptr %95, align 8, !tbaa !57
+  store ptr %.sink167, ptr %95, align 8, !tbaa !57
   br label %ZSTD_buildSeqTable.exit106.thread
 
 ZSTD_buildSeqTable.exit106.thread:                ; preds = %117, %ZSTD_buildSeqTable.exit106.thread.sink.split, %112
@@ -1194,9 +1194,9 @@ ZSTD_buildSeqTable.exit106:                       ; preds = %126
   br i1 %167, label %.thread160, label %168
 
 .thread148.sink.split:                            ; preds = %130, %139
-  %ML_defaultDTable.sink = phi ptr [ %133, %139 ], [ @ML_defaultDTable, %130 ]
+  %.sink168 = phi ptr [ %133, %139 ], [ @ML_defaultDTable, %130 ]
   %.0.i108.ph.ph = phi i64 [ 1, %139 ], [ 0, %130 ]
-  store ptr %ML_defaultDTable.sink, ptr %134, align 8, !tbaa !57
+  store ptr %.sink168, ptr %134, align 8, !tbaa !57
   br label %.thread148
 
 .thread155:                                       ; preds = %135, %136, %150

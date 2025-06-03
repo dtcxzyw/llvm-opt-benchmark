@@ -550,7 +550,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %125, %.thread138, %
   unreachable
 
 174:                                              ; preds = %138, %78, %.thread147, %.thread145, %145, %149, %158
-  %.6 = phi double [ %168, %158 ], [ %157, %149 ], [ %148, %145 ], [ %., %78 ], [ %140, %138 ], [ %137, %.thread145 ], [ %94, %.thread147 ]
+  %.6 = phi double [ %148, %145 ], [ %157, %149 ], [ %168, %158 ], [ %., %78 ], [ %140, %138 ], [ %137, %.thread145 ], [ %94, %.thread147 ]
   %175 = fcmp olt double %.6, 0.000000e+00
   br i1 %175, label %.thread148, label %176
 

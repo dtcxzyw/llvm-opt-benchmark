@@ -385,7 +385,7 @@ _ZNK4lean9local_ctx15find_local_declERKNS_4exprE.exit: ; preds = %164
   unreachable
 
 _ZN4leanltERKNS_3natES2_.exit:                    ; preds = %tailrecurse.backedge, %19, %35, %37, %4, %.critedge.i.i.i117, %110, %.critedge.i.i.i, %58, %187, %197, %188, %154, %129, %122, %94, %73, %43, %16
-  %.0101 = phi i1 [ %17, %16 ], [ %204, %197 ], [ %.2, %187 ], [ %196, %188 ], [ %158, %154 ], [ %128, %122 ], [ %132, %129 ], [ %100, %94 ], [ %78, %73 ], [ %47, %43 ], [ %59, %58 ], [ %60, %.critedge.i.i.i ], [ %111, %110 ], [ %112, %.critedge.i.i.i117 ], [ false, %4 ], [ false, %tailrecurse.backedge ], [ true, %19 ], [ false, %35 ], [ false, %37 ]
+  %.0101 = phi i1 [ %17, %16 ], [ %47, %43 ], [ %78, %73 ], [ %100, %94 ], [ %128, %122 ], [ %132, %129 ], [ %158, %154 ], [ %196, %188 ], [ %.2, %187 ], [ %204, %197 ], [ %59, %58 ], [ %60, %.critedge.i.i.i ], [ %111, %110 ], [ %112, %.critedge.i.i.i117 ], [ false, %4 ], [ false, %tailrecurse.backedge ], [ true, %19 ], [ false, %35 ], [ false, %37 ]
   ret i1 %.0101
 }
 
@@ -1066,7 +1066,7 @@ tailrecurse.backedge:                             ; preds = %31, %136, %114, %10
   unreachable
 
 _ZN4leanltERKNS_3natES2_.exit:                    ; preds = %tailrecurse.backedge, %100, %104, %110, %114, %120, %124, %130, %136, %2, %.critedge.i.i.i69, %78, %.critedge.i.i.i, %28, %153, %146, %142, %96, %89, %62, %42, %15, %12
-  %.0 = phi i1 [ %13, %12 ], [ %159, %153 ], [ %152, %146 ], [ %145, %142 ], [ %95, %89 ], [ %99, %96 ], [ %68, %62 ], [ %47, %42 ], [ %18, %15 ], [ %29, %28 ], [ %30, %.critedge.i.i.i ], [ %79, %78 ], [ %80, %.critedge.i.i.i69 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %100 ], [ false, %104 ], [ true, %110 ], [ false, %114 ], [ true, %120 ], [ false, %124 ], [ true, %130 ], [ false, %136 ]
+  %.0 = phi i1 [ %13, %12 ], [ %18, %15 ], [ %47, %42 ], [ %68, %62 ], [ %95, %89 ], [ %99, %96 ], [ %145, %142 ], [ %152, %146 ], [ %159, %153 ], [ %29, %28 ], [ %30, %.critedge.i.i.i ], [ %79, %78 ], [ %80, %.critedge.i.i.i69 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %100 ], [ false, %104 ], [ true, %110 ], [ false, %114 ], [ true, %120 ], [ false, %124 ], [ true, %130 ], [ false, %136 ]
   ret i1 %.0
 }
 

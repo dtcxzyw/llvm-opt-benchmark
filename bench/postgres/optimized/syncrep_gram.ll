@@ -246,7 +246,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   br label %115
 
 115:                                              ; preds = %71, %113, %111, %106, %103, %97, %91, %85, %82, %80
-  %.sroa.038.0 = phi ptr [ %.sroa.038.0.copyload, %71 ], [ %114, %113 ], [ %112, %111 ], [ %110, %106 ], [ %105, %103 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %82 ], [ %.sroa.038.0.copyload, %80 ]
+  %.sroa.038.0 = phi ptr [ %.sroa.038.0.copyload, %71 ], [ %.sroa.038.0.copyload, %80 ], [ %84, %82 ], [ %90, %85 ], [ %96, %91 ], [ %102, %97 ], [ %105, %103 ], [ %110, %106 ], [ %112, %111 ], [ %114, %113 ]
   %116 = sub nsw i64 0, %77
   %117 = getelementptr inbounds %union.YYSTYPE, ptr %.2204, i64 %116
   %118 = getelementptr inbounds i8, ptr %.2216, i64 %116

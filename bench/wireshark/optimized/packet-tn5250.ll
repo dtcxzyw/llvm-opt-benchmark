@@ -3777,7 +3777,7 @@ dissect_save_partial_screen.exit:                 ; preds = %76, %109
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %155, %148, %145, %142, %125, %113, %dissect_save_partial_screen.exit, %64, %57, %38, %24, %20
-  %.0 = phi i32 [ %157, %155 ], [ %154, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %125 ], [ %124, %113 ], [ %112, %dissect_save_partial_screen.exit ], [ %75, %64 ], [ %63, %57 ], [ %52, %38 ], [ %37, %24 ], [ %23, %20 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %.preheader ], [ %54, %.lr.ph ]
+  %.0 = phi i32 [ %157, %155 ], [ %23, %20 ], [ %37, %24 ], [ %52, %38 ], [ %63, %57 ], [ %75, %64 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %17, %4 ], [ %112, %dissect_save_partial_screen.exit ], [ %124, %113 ], [ %141, %125 ], [ %144, %142 ], [ %147, %145 ], [ %154, %148 ], [ %17, %.preheader ], [ %54, %.lr.ph ]
   %158 = sub i32 %.0, %3
   ret i32 %158
 }
@@ -5285,7 +5285,7 @@ dissect_tn5250_ra_data.exit119:                   ; preds = %._crit_edge._crit_e
   br label %941
 
 941:                                              ; preds = %935, %930, %927
-  %.130.i.i = phi i32 [ %933, %930 ], [ %940, %935 ], [ %929, %927 ]
+  %.130.i.i = phi i32 [ %929, %927 ], [ %933, %930 ], [ %940, %935 ]
   %942 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.130.i.i)
   %943 = icmp sgt i32 %942, 0
   br i1 %943, label %.lr.ph.i.i, label %dissect_create_window.exit.i, !llvm.loop !13
@@ -5743,7 +5743,7 @@ dissect_create_window.exit.i:                     ; preds = %941, %.thread.i.i, 
   br label %1004
 
 1004:                                             ; preds = %1001, %998, %995, %992, %987, %984
-  %.2.i.i = phi i32 [ %1003, %1001 ], [ %1000, %998 ], [ %997, %995 ], [ %994, %992 ], [ %.1.i.i, %984 ], [ %991, %987 ]
+  %.2.i.i = phi i32 [ %.1.i.i, %984 ], [ %991, %987 ], [ %994, %992 ], [ %997, %995 ], [ %1000, %998 ], [ %1003, %1001 ]
   %1005 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i.i)
   %1006 = icmp sgt i32 %1005, 0
   br i1 %1006, label %.lr.ph.i93.i, label %dissect_define_selection.exit.i, !llvm.loop !14
@@ -6019,7 +6019,7 @@ dissect_draw_erase_gridlines.exit.i:              ; preds = %1054, %.thread.i100
   br label %.loopexit.i121
 
 .loopexit.i121:                                   ; preds = %.lr.ph.i122, %1059, %dissect_draw_erase_gridlines.exit.i, %1037, %1029, %1025, %1022, %dissect_define_scrollbar.exit.i, %dissect_define_selection.exit.i, %953, %950, %944, %dissect_create_window.exit.i
-  %.189.i = phi i32 [ %1061, %1059 ], [ %.016.lcssa.i97.i, %dissect_draw_erase_gridlines.exit.i ], [ %1034, %1029 ], [ %1024, %1022 ], [ %1028, %1025 ], [ %.016.lcssa.i.i, %dissect_define_scrollbar.exit.i ], [ %.0.lcssa.i.i, %dissect_define_selection.exit.i ], [ %955, %953 ], [ %952, %950 ], [ %949, %944 ], [ %.029.lcssa.i.i, %dissect_create_window.exit.i ], [ %1034, %1037 ], [ %1041, %.lr.ph.i122 ]
+  %.189.i = phi i32 [ %.029.lcssa.i.i, %dissect_create_window.exit.i ], [ %949, %944 ], [ %952, %950 ], [ %955, %953 ], [ %.0.lcssa.i.i, %dissect_define_selection.exit.i ], [ %.016.lcssa.i.i, %dissect_define_scrollbar.exit.i ], [ %1024, %1022 ], [ %1028, %1025 ], [ %1034, %1029 ], [ %.016.lcssa.i97.i, %dissect_draw_erase_gridlines.exit.i ], [ %1061, %1059 ], [ %1034, %1037 ], [ %1041, %.lr.ph.i122 ]
   %1062 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.189.i)
   %1063 = icmp sgt i32 %1062, 0
   br i1 %1063, label %914, label %._crit_edge.i120, !llvm.loop !18
@@ -6046,7 +6046,7 @@ dissect_wdsf_structured_field.exit:               ; preds = %._crit_edge.i120, %
   br label %dissect_erase_to_address.exit
 
 dissect_erase_to_address.exit:                    ; preds = %.lr.ph.i105, %842, %838, %833, %823, %769, %dissect_wdsf_structured_field.exit, %dissect_tn5250_ra_data.exit119, %dissect_twobyte_length_and_data.exit, %788, %dissect_tn5250_ra_data.exit103, %dissect_tn5250_ra_data.exit
-  %.1 = phi i32 [ %1069, %dissect_wdsf_structured_field.exit ], [ %893, %dissect_tn5250_ra_data.exit119 ], [ %822, %dissect_twobyte_length_and_data.exit ], [ %799, %788 ], [ %768, %dissect_tn5250_ra_data.exit103 ], [ %742, %dissect_tn5250_ra_data.exit ], [ %777, %769 ], [ %832, %823 ], [ %837, %833 ], [ %841, %838 ], [ %845, %842 ], [ %.018.i, %.lr.ph.i105 ]
+  %.1 = phi i32 [ %742, %dissect_tn5250_ra_data.exit ], [ %768, %dissect_tn5250_ra_data.exit103 ], [ %799, %788 ], [ %822, %dissect_twobyte_length_and_data.exit ], [ %893, %dissect_tn5250_ra_data.exit119 ], [ %1069, %dissect_wdsf_structured_field.exit ], [ %777, %769 ], [ %832, %823 ], [ %837, %833 ], [ %841, %838 ], [ %845, %842 ], [ %.018.i, %.lr.ph.i105 ]
   %1070 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1)
   %1071 = icmp sgt i32 %1070, 0
   br i1 %1071, label %714, label %._crit_edge, !llvm.loop !19
@@ -7328,7 +7328,7 @@ dissect_unknown_data.exit:                        ; preds = %420
   br i1 %429, label %.lr.ph, label %dissect_unknown_data.exit.thread, !llvm.loop !27
 
 dissect_unknown_data.exit.thread:                 ; preds = %427, %420, %.lr.ph219, %.lr.ph222, %382, %tn5250_add_hf_items.exit.loopexit, %.lr.ph230, %298, %.lr.ph235, %279, %405, %390, %371, %315, %287, %268, %356, %368, %364, %312, %309, %306, %265, %261, %256
-  %.1 = phi i32 [ %370, %368 ], [ %362, %356 ], [ %362, %364 ], [ %314, %312 ], [ %311, %309 ], [ %308, %306 ], [ %267, %265 ], [ %264, %261 ], [ %.neg204, %256 ], [ %271, %268 ], [ %290, %287 ], [ %317, %315 ], [ %374, %371 ], [ %393, %390 ], [ %407, %405 ], [ %284, %279 ], [ %277, %.lr.ph235 ], [ %303, %298 ], [ %296, %.lr.ph230 ], [ %349, %tn5250_add_hf_items.exit.loopexit ], [ %387, %382 ], [ %380, %.lr.ph222 ], [ %402, %.lr.ph219 ], [ %.7215, %420 ], [ %.8, %427 ]
+  %.1 = phi i32 [ %.neg204, %256 ], [ %264, %261 ], [ %267, %265 ], [ %308, %306 ], [ %311, %309 ], [ %314, %312 ], [ %362, %356 ], [ %362, %364 ], [ %370, %368 ], [ %271, %268 ], [ %290, %287 ], [ %317, %315 ], [ %374, %371 ], [ %393, %390 ], [ %407, %405 ], [ %284, %279 ], [ %277, %.lr.ph235 ], [ %303, %298 ], [ %296, %.lr.ph230 ], [ %349, %tn5250_add_hf_items.exit.loopexit ], [ %387, %382 ], [ %380, %.lr.ph222 ], [ %402, %.lr.ph219 ], [ %.7215, %420 ], [ %.8, %427 ]
   %430 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1)
   %431 = icmp sgt i32 %430, 0
   br i1 %431, label %.lr.ph241, label %._crit_edge.loopexit, !llvm.loop !28

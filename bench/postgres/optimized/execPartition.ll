@@ -723,7 +723,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   br label %get_partition_for_tuple.exit.thread
 
 get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.thread12.i, %.thread17.i
-  %.0.i128 = phi i32 [ %277, %.thread17.i ], [ %196, %192 ], [ %149, %135 ], [ %155, %153 ], [ %.4.ph.i, %.thread12.i ]
+  %.0.i128 = phi i32 [ %149, %135 ], [ %277, %.thread17.i ], [ %196, %192 ], [ %155, %153 ], [ %.4.ph.i, %.thread12.i ]
   %288 = icmp slt i32 %.0.i128, 0
   br i1 %288, label %289, label %get_partition_for_tuple.exit.thread
 

@@ -3078,7 +3078,7 @@ define noundef range(i32 -1, 6) i32 @_ZNK10open_spiel13markov_soccer17MarkovSocc
   br label %33
 
 33:                                               ; preds = %3, %20, %19, %18, %17, %16, %15
-  %.0 = phi i32 [ -1, %20 ], [ 5, %19 ], [ 4, %18 ], [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %20 ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 4, %18 ], [ 5, %19 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3305,8 +3305,8 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
           cleanup
   br label %common.resume
 
-94:                                               ; preds = %77, %76, %75, %74, %73, %.lr.ph
-  %.0.i.ph = phi i32 [ 0, %.lr.ph ], [ 1, %73 ], [ 2, %74 ], [ 3, %75 ], [ 4, %76 ], [ 5, %77 ]
+94:                                               ; preds = %73, %74, %75, %76, %77, %.lr.ph
+  %.0.i.ph = phi i32 [ 0, %.lr.ph ], [ 5, %77 ], [ 4, %76 ], [ 3, %75 ], [ 2, %74 ], [ 1, %73 ]
   store i32 %.0.i.ph, ptr %20, align 4
   store i32 %.01831, ptr %56, align 4
   store i32 %.01730, ptr %57, align 4

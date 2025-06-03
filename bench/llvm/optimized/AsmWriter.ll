@@ -30946,7 +30946,7 @@ thread-pre-split:                                 ; preds = %8
   br label %.thread95
 
 .thread95:                                        ; preds = %thread-pre-split, %10, %33, %29, %25, %21, %17, %13, %4
-  %.1 = phi ptr [ %5, %4 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ %34, %33 ], [ null, %10 ], [ null, %thread-pre-split ]
+  %.1 = phi ptr [ %30, %29 ], [ %26, %25 ], [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %5, %4 ], [ %34, %33 ], [ null, %10 ], [ null, %thread-pre-split ]
   ret ptr %.1
 }
 
@@ -42284,8 +42284,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS
   br label %31
 
 31:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIPKS2_EEPS8_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIPKS2_EEPS8_RKT_.exit ], [ %30, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %28, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIPKS2_EEPS8_RKT_.exit ], [ %30, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %30, %.loopexit ], [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIPKS2_EEPS8_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %30, %.loopexit ], [ %28, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10StructTypeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIPKS2_EEPS8_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -43352,7 +43352,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %43, %45
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %64, %63 ]
+  %.1.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4, !tbaa !120
   %.not33.i.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i.i, 0
   br i1 %.not33.i.i.i.i.i, label %66, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_0EEbOT_T0_.exit"
@@ -43362,7 +43362,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %43, %45
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %66 ]
+  %.2.i.i.i.i.i = phi ptr [ %67, %66 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !120
   %.not34.i.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i.i, 0
   br i1 %.not34.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_0EEbOT_T0_.exit"
@@ -43471,7 +43471,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %43, %45
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge.i.i.i.i.i50
-  %.1.i.i.i.i.i56 = phi ptr [ %.029.lcssa.i.i.i.i.i52, %._crit_edge.i.i.i.i.i50 ], [ %100, %99 ]
+  %.1.i.i.i.i.i56 = phi ptr [ %100, %99 ], [ %.029.lcssa.i.i.i.i.i52, %._crit_edge.i.i.i.i.i50 ]
   %.1.val.i.i.i.i.i57 = load i32, ptr %.1.i.i.i.i.i56, align 4, !tbaa !120
   %.not33.i.i.i.i.i58 = icmp eq i32 %.1.val.i.i.i.i.i57, -1
   br i1 %.not33.i.i.i.i.i58, label %102, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_1EEbOT_T0_.exit"
@@ -43481,7 +43481,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %43, %45
   br label %104
 
 104:                                              ; preds = %102, %._crit_edge.i.i.i.i.i50
-  %.2.i.i.i.i.i53 = phi ptr [ %.029.lcssa.i.i.i.i.i52, %._crit_edge.i.i.i.i.i50 ], [ %103, %102 ]
+  %.2.i.i.i.i.i53 = phi ptr [ %103, %102 ], [ %.029.lcssa.i.i.i.i.i52, %._crit_edge.i.i.i.i.i50 ]
   %.2.val.i.i.i.i.i54 = load i32, ptr %.2.i.i.i.i.i53, align 4, !tbaa !120
   %.not34.i.i.i.i.i55 = icmp eq i32 %.2.val.i.i.i.i.i54, -1
   br i1 %.not34.i.i.i.i.i55, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_1EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZL16PrintShuffleMaskRNS_11raw_ostreamEPNS_4TypeES2_E3$_1EEbOT_T0_.exit"
@@ -44032,7 +44032,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

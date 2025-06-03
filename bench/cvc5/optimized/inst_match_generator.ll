@@ -6852,7 +6852,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283: ; preds = %_ZN4cvc58internal1
   br label %common.resume
 
 556:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit208, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283
-  %.1 = phi ptr [ %.021, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit208 ], [ %.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283 ]
+  %.1 = phi ptr [ %.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit283 ], [ %.021, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit208 ]
   ret ptr %.1
 }
 

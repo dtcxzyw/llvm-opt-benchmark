@@ -209,8 +209,8 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
 
 _ZL20classifyOffMeshPointPKfS0_S0_.exit:          ; preds = %70, %88, %89, %90, %91, %92, %93, %94, %95
-  %96 = phi i1 [ true, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ false, %89 ], [ false, %88 ], [ false, %70 ]
-  %.0.i = phi i8 [ -1, %95 ], [ 7, %94 ], [ 6, %93 ], [ 5, %92 ], [ 4, %91 ], [ 3, %90 ], [ 2, %89 ], [ 1, %88 ], [ 0, %70 ]
+  %96 = phi i1 [ true, %95 ], [ false, %88 ], [ false, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %70 ]
+  %.0.i = phi i8 [ -1, %95 ], [ 1, %88 ], [ 2, %89 ], [ 3, %90 ], [ 4, %91 ], [ 5, %92 ], [ 6, %93 ], [ 7, %94 ], [ 0, %70 ]
   %97 = getelementptr inbounds nuw i8, ptr %26, i64 %72
   store i8 %.0.i, ptr %97, align 1
   %.val505 = load float, ptr %75, align 4

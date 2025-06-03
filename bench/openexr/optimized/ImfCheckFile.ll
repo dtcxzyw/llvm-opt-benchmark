@@ -4363,7 +4363,7 @@ define internal fastcc noundef zeroext i1 @_ZN7Imf_3_412_GLOBAL__N_113readMultiP
   %or.cond.i = icmp ult i32 %58, 4
   br i1 %or.cond.i, label %_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit, label %_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit.thread
 
-_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit.thread: ; preds = %51, %56
+_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit.thread: ; preds = %56, %51
   br label %_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit
 
 _ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit: ; preds = %54, %56, %_ZN7Imf_3_412_GLOBAL__N_110enumsValidERKNS_6HeaderE.exit.thread
@@ -4830,7 +4830,7 @@ _ZNSt6vectorIN9Imath_3_24halfESaIS1_EED2Ev.exit.i: ; preds = %250, %_ZNSt6vector
   unreachable
 
 257:                                              ; preds = %.split.i, %.split.us.i, %218, %205, %192, %175, %173, %171
-  %.pn.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %219, %218 ], [ %174, %173 ], [ %206, %205 ], [ %193, %192 ], [ %176, %175 ], [ %243, %.split.i ], [ %235, %.split.us.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %193, %192 ], [ %174, %173 ], [ %206, %205 ], [ %219, %218 ], [ %176, %175 ], [ %243, %.split.i ], [ %235, %.split.us.i ]
   %.not.i.i.i69.i = icmp eq ptr %.sroa.090.0.i, null
   br i1 %.not.i.i.i69.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit70.i, label %258
 
@@ -5500,7 +5500,7 @@ _ZNSt6vectorIN9Imath_3_24halfESaIS1_EED2Ev.exit.i117: ; preds = %474, %_ZNSt6vec
   unreachable
 
 .split.us.i111:                                   ; preds = %.split.split.us.i.split, %.split.split.us.i.split.us, %.split289.split.us.i.split, %.split289.split.us.i.split.us, %.split.us.loopexit.split-lp.i, %.split.us.loopexit.split.us.split.us.i, %.split289.us.split.us.i, %410, %384, %368, %366, %364
-  %.pn108.pn.i = phi { ptr, i32 } [ %365, %364 ], [ %367, %366 ], [ %411, %410 ], [ %385, %384 ], [ %369, %368 ], [ %462, %.split289.us.split.us.i ], [ %lpad.loopexit.us.us.i, %.split.us.loopexit.split.us.split.us.i ], [ %lpad.loopexit.split-lp.i, %.split.us.loopexit.split-lp.i ], [ %460, %.split289.split.us.i.split ], [ %435, %.split289.split.us.i.split.us ], [ %461, %.split.split.us.i.split ], [ %436, %.split.split.us.i.split.us ]
+  %.pn108.pn.i = phi { ptr, i32 } [ %365, %364 ], [ %385, %384 ], [ %367, %366 ], [ %411, %410 ], [ %369, %368 ], [ %462, %.split289.us.split.us.i ], [ %lpad.loopexit.us.us.i, %.split.us.loopexit.split.us.split.us.i ], [ %lpad.loopexit.split-lp.i, %.split.us.loopexit.split-lp.i ], [ %460, %.split289.split.us.i.split ], [ %435, %.split289.split.us.i.split.us ], [ %461, %.split.split.us.i.split ], [ %436, %.split.split.us.i.split.us ]
   %.not.i.i.i124.i = icmp eq ptr %.sroa.0146.0.i, null
   br i1 %.not.i.i.i124.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit125.i, label %482
 
@@ -8217,7 +8217,7 @@ _ZN7Imf_3_411FrameBufferD2Ev.exit:                ; preds = %_ZNSt6vectorIN9Imat
   br label %174
 
 161:                                              ; preds = %.split, %.split.us, %77, %79, %96, %109, %122, %75
-  %.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %123, %122 ], [ %78, %77 ], [ %110, %109 ], [ %97, %96 ], [ %80, %79 ], [ %147, %.split ], [ %139, %.split.us ]
+  %.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %97, %96 ], [ %78, %77 ], [ %110, %109 ], [ %123, %122 ], [ %80, %79 ], [ %147, %.split ], [ %139, %.split.us ]
   %.not.i.i.i69 = icmp eq ptr %.sroa.090.0, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorIjSaIjEED2Ev.exit70, label %162
 
@@ -8901,7 +8901,7 @@ _ZNSt6vectorIN9Imath_3_24halfESaIS1_EED2Ev.exit:  ; preds = %_ZNSt6vectorIfSaIfE
   br label %.thread208
 
 .split.us:                                        ; preds = %.split.split.us, %.split.us.loopexit.split-lp, %.split.us.loopexit.split.us.split.us, %.split289.split.us, %.split289.us.split.us, %92, %94, %110, %136, %90
-  %.pn108.pn = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ], [ %137, %136 ], [ %111, %110 ], [ %95, %94 ], [ %170, %.split289.split.us ], [ %172, %.split289.us.split.us ], [ %171, %.split.split.us ], [ %lpad.loopexit.us.us, %.split.us.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp, %.split.us.loopexit.split-lp ]
+  %.pn108.pn = phi { ptr, i32 } [ %91, %90 ], [ %111, %110 ], [ %93, %92 ], [ %137, %136 ], [ %95, %94 ], [ %170, %.split289.split.us ], [ %172, %.split289.us.split.us ], [ %171, %.split.split.us ], [ %lpad.loopexit.us.us, %.split.us.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp, %.split.us.loopexit.split-lp ]
   %.not.i.i.i124 = icmp eq ptr %.sroa.0146.0, null
   br i1 %.not.i.i.i124, label %_ZNSt6vectorIjSaIjEED2Ev.exit125, label %193
 

@@ -2572,7 +2572,7 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread: ; preds = %12, %_Z
   br label %45
 
 45:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread
-  %.1 = phi i32 [ %.013, %_ZN11MutexLockerD2Ev.exit ], [ 0, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread ]
+  %.1 = phi i32 [ 0, %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit.thread ], [ %.013, %_ZN11MutexLockerD2Ev.exit ]
   ret i32 %.1
 }
 

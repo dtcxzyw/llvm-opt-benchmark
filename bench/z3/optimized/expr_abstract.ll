@@ -907,7 +907,7 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %._crit_edge185, %351, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit
-  %.2.ph = phi ptr [ %.5, %._crit_edge185 ], [ %291, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit ], [ %.1188, %351 ]
+  %.2.ph = phi ptr [ %291, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit ], [ %.5, %._crit_edge185 ], [ %.1188, %351 ]
   %.pr = load ptr, ptr %30, align 8, !tbaa !14
   br label %352
 

@@ -57,7 +57,7 @@ define dso_local ptr @module_create_object_file_name(ptr noundef readonly captur
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %13, %8
-  %.0.be = phi ptr [ %spec.select12, %13 ], [ %spec.select, %8 ], [ %.2.ph, %.sink.split ]
+  %.0.be = phi ptr [ %spec.select, %8 ], [ %spec.select12, %13 ], [ %.2.ph, %.sink.split ]
   br label %5, !llvm.loop !7
 
 18:                                               ; preds = %5

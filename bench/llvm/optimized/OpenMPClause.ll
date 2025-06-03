@@ -2251,7 +2251,7 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !15
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %45
@@ -2261,7 +2261,7 @@ define dso_local void @_ZN5clang15OMPLinearClause13used_childrenEv(ptr dead_on_u
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %46, %45 ]
+  %.2.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !15
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit, label %50
@@ -2620,7 +2620,7 @@ define dso_local noundef ptr @_ZN5clang20OMPClauseWithPreInit3getEPKNS_9OMPClaus
   br label %46
 
 46:                                               ; preds = %1, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2660,7 +2660,7 @@ define dso_local noundef ptr @_ZN5clang23OMPClauseWithPostUpdate3getEPNS_9OMPCla
   br label %_ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPClauseE.exit
 
 _ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPClauseE.exit: ; preds = %1, %4, %6, %8, %10, %12
-  %.0.i = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -2697,7 +2697,7 @@ define dso_local noundef ptr @_ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPCl
   br label %14
 
 14:                                               ; preds = %1, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
   ret ptr %.0
 }
 

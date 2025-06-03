@@ -1752,7 +1752,7 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   br label %127
 
 127:                                              ; preds = %126, %125, %124, %123
-  %.083.i = phi ptr [ %122, %126 ], [ %120, %125 ], [ %121, %124 ], [ %88, %123 ]
+  %.083.i = phi ptr [ %122, %126 ], [ %121, %124 ], [ %120, %125 ], [ %88, %123 ]
   %128 = load i32, ptr %.083.i, align 8, !tbaa !117
   %.not91104.i = icmp eq i32 %128, 0
   br i1 %.not91104.i, label %._crit_edge.i, label %.lr.ph107.preheader.i

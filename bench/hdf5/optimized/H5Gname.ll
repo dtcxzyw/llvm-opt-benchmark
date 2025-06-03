@@ -832,9 +832,9 @@ define range(i32 -1, 1) i32 @H5G_name_replace(ptr noundef readonly captures(addr
   br label %51
 
 .thread:                                          ; preds = %39, %42, %41
-  %.043.ph = phi i1 [ true, %39 ], [ false, %41 ], [ false, %42 ]
-  %.040.ph = phi i1 [ false, %39 ], [ true, %41 ], [ false, %42 ]
-  %.037.ph = phi i1 [ false, %39 ], [ false, %41 ], [ true, %42 ]
+  %.043.ph = phi i1 [ true, %39 ], [ false, %42 ], [ false, %41 ]
+  %.040.ph = phi i1 [ false, %39 ], [ false, %42 ], [ true, %41 ]
+  %.037.ph = phi i1 [ false, %39 ], [ true, %42 ], [ false, %41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
   br label %58
@@ -998,8 +998,8 @@ define internal range(i32 -1, 1) i32 @H5G__name_replace_cb(ptr noundef %0, i64 n
   br label %H5G_name_free.exit
 
 31:                                               ; preds = %20, %15, %12
-  %.093 = phi ptr [ %22, %20 ], [ %17, %15 ], [ %14, %12 ]
-  %.092 = phi ptr [ %21, %20 ], [ %16, %15 ], [ %13, %12 ]
+  %.093 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %22, %20 ]
+  %.092 = phi ptr [ %13, %12 ], [ %16, %15 ], [ %21, %20 ]
   %32 = load ptr, ptr %.093, align 8, !tbaa !16
   %.not110 = icmp eq ptr %32, null
   br i1 %.not110, label %H5G_name_free.exit, label %33
@@ -1297,7 +1297,7 @@ define internal range(i32 -1, 1) i32 @H5G__name_replace_cb(ptr noundef %0, i64 n
   br label %H5G_name_free.exit
 
 H5G_name_free.exit:                               ; preds = %156, %140, %178, %185, %189, %106, %120, %115, %110, %74, %78, %3, %82, %86, %90, %123, %127, %131, %135, %158, %193, %27, %23, %18, %31, %58
-  %.0 = phi i32 [ -1, %27 ], [ -1, %23 ], [ -1, %193 ], [ 0, %158 ], [ 0, %135 ], [ 0, %131 ], [ 0, %127 ], [ 0, %123 ], [ 0, %90 ], [ 0, %86 ], [ 0, %82 ], [ 0, %3 ], [ 0, %18 ], [ 0, %31 ], [ 0, %58 ], [ -1, %74 ], [ 0, %78 ], [ -1, %106 ], [ 0, %120 ], [ 0, %115 ], [ 0, %110 ], [ -1, %178 ], [ -1, %185 ], [ 0, %189 ], [ 0, %140 ], [ 0, %156 ]
+  %.0 = phi i32 [ -1, %27 ], [ -1, %193 ], [ 0, %90 ], [ 0, %86 ], [ 0, %82 ], [ 0, %131 ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %158 ], [ -1, %23 ], [ 0, %3 ], [ 0, %18 ], [ 0, %31 ], [ 0, %58 ], [ -1, %74 ], [ 0, %78 ], [ -1, %106 ], [ 0, %120 ], [ 0, %115 ], [ 0, %110 ], [ -1, %178 ], [ -1, %185 ], [ 0, %189 ], [ 0, %140 ], [ 0, %156 ]
   ret i32 %.0
 }
 

@@ -5858,7 +5858,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit127.i.i.i.i.i.i.i.i.i.i.i: ; preds = %5
   br label %576
 
 576:                                              ; preds = %574, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %575, %574 ]
+  %.sroa.038.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %575, %574 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.val.i24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.038.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %577 = getelementptr i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %577, align 8
@@ -5872,7 +5872,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit127.i.i.i.i.i.i.i.i.i.i.i: ; preds = %5
   br label %583
 
 583:                                              ; preds = %581, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %582, %581 ]
+  %.sroa.038.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %582, %581 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.val.i26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.038.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %584 = getelementptr i8, ptr %.sroa.038.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %584, align 8
@@ -6299,7 +6299,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4mold11read_scalarINS_6X86_64ENS_7
   unreachable
 
 _ZN4mold9read_ulebEPPh.exit:                      ; preds = %45, %3, %56, %40, %35, %31, %26, %16, %11, %6
-  %.0 = phi i64 [ 0, %56 ], [ %42, %40 ], [ %38, %35 ], [ %33, %31 ], [ %29, %26 ], [ %24, %16 ], [ %14, %11 ], [ %10, %6 ], [ 0, %3 ], [ %54, %45 ]
+  %.0 = phi i64 [ %10, %6 ], [ %14, %11 ], [ %24, %16 ], [ %29, %26 ], [ %33, %31 ], [ %38, %35 ], [ %42, %40 ], [ 0, %56 ], [ 0, %3 ], [ %54, %45 ]
   ret i64 %.0
 }
 
@@ -6949,8 +6949,8 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__norma
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit.backedge
 
 _ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit.backedge: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %223, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %182, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %148, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEEmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %99, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEES8_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %46, %_ZN4mold9read_ulebEPPh.exit62, %172, %_ZN4mold9read_ulebEPPh.exit, %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit
-  %.0124.be = phi ptr [ %7, %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit ], [ %174, %172 ], [ %134, %_ZN4mold9read_ulebEPPh.exit62 ], [ %11, %_ZN4mold9read_ulebEPPh.exit ], [ %33, %46 ], [ %33, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEES8_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %85, %99 ], [ %85, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEEmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %134, %148 ], [ %134, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %179, %182 ], [ %179, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %211, %223 ], [ %211, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.0.be = phi i64 [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit ], [ %173, %172 ], [ 0, %_ZN4mold9read_ulebEPPh.exit62 ], [ %21, %_ZN4mold9read_ulebEPPh.exit ], [ %.0, %46 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEES8_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %99 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEEmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %148 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %182 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %223 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.0124.be = phi ptr [ %7, %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit ], [ %11, %_ZN4mold9read_ulebEPPh.exit ], [ %134, %_ZN4mold9read_ulebEPPh.exit62 ], [ %174, %172 ], [ %33, %46 ], [ %33, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEES8_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %85, %99 ], [ %85, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEEmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %134, %148 ], [ %134, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %179, %182 ], [ %179, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %211, %223 ], [ %211, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.0.be = phi i64 [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit ], [ %21, %_ZN4mold9read_ulebEPPh.exit ], [ 0, %_ZN4mold9read_ulebEPPh.exit62 ], [ %173, %172 ], [ %.0, %46 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEES8_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %99 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRN4mold7IntegerImLb1ELi8EEEmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %148 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %182 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0, %223 ], [ %.0, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRN4mold7IntegerImLb1ELi8EEES8_EEERS1_DpOT_.exit, !llvm.loop !605
 }
 
@@ -7643,7 +7643,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4mold11read_scalarINS_6X86_64ENS_7
   unreachable
 
 _ZN4mold9read_ulebEPPh.exit:                      ; preds = %44, %3, %55, %39, %35, %31, %26, %16, %11, %6
-  %.0 = phi i64 [ 0, %55 ], [ %41, %39 ], [ %37, %35 ], [ %33, %31 ], [ %29, %26 ], [ %24, %16 ], [ %14, %11 ], [ %10, %6 ], [ 0, %3 ], [ %53, %44 ]
+  %.0 = phi i64 [ %10, %6 ], [ %14, %11 ], [ %24, %16 ], [ %29, %26 ], [ %33, %31 ], [ %37, %35 ], [ %41, %39 ], [ 0, %55 ], [ 0, %3 ], [ %53, %44 ]
   ret i64 %.0
 }
 
@@ -10368,7 +10368,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %26, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %33
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit: ; preds = %9, %14
-  %.sroa.014.1.i.i = phi i1 [ %13, %9 ], [ %19, %14 ]
+  %.sroa.014.1.i.i = phi i1 [ %19, %14 ], [ %13, %9 ]
   br i1 %.sroa.014.1.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit._crit_edge
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit._crit_edge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
@@ -10444,7 +10444,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %49, label %50, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i: ; preds = %38, %34
-  %.sroa.014.1.i.i.i = phi i1 [ %37, %34 ], [ %42, %38 ]
+  %.sroa.014.1.i.i.i = phi i1 [ %42, %38 ], [ %37, %34 ]
   br i1 %.sroa.014.1.i.i.i, label %50, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 50:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i
@@ -10544,7 +10544,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %35, label %36, label %.loopexit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit: ; preds = %16, %21
-  %.sroa.014.1.i.i = phi i1 [ %20, %16 ], [ %27, %21 ]
+  %.sroa.014.1.i.i = phi i1 [ %27, %21 ], [ %20, %16 ]
   br i1 %.sroa.014.1.i.i, label %36, label %.loopexit
 
 36:                                               ; preds = %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
@@ -10622,7 +10622,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %65, label %66, label %70
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEEKS5_EEbT_RT0_.exit.i: ; preds = %54, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  %.sroa.014.1.i.i.i = phi i1 [ %53, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ], [ %58, %54 ]
+  %.sroa.014.1.i.i.i = phi i1 [ %58, %54 ], [ %53, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
   br i1 %.sroa.014.1.i.i.i, label %66, label %70
 
 66:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEEKS5_EEbT_RT0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i
@@ -10711,7 +10711,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %100, label %105, label %101
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i: ; preds = %89, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i55
-  %.sroa.014.1.i.i.i60 = phi i1 [ %88, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i55 ], [ %93, %89 ]
+  %.sroa.014.1.i.i.i60 = phi i1 [ %93, %89 ], [ %88, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i55 ]
   br i1 %.sroa.014.1.i.i.i60, label %105, label %101
 
 101:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i68
@@ -10947,7 +10947,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %33, label %34, label %36
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEES6_EEbT_T0_.exit.i: ; preds = %19, %14
-  %.sroa.014.1.i.i.i = phi i1 [ %18, %14 ], [ %25, %19 ]
+  %.sroa.014.1.i.i.i = phi i1 [ %25, %19 ], [ %18, %14 ]
   br i1 %.sroa.014.1.i.i.i, label %34, label %36
 
 34:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEES6_EEbT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i
@@ -11055,7 +11055,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %70, label %71, label %76
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeENS_17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i: ; preds = %58, %53
-  %.sroa.014.1.i.i.i72 = phi i1 [ %57, %53 ], [ %63, %58 ]
+  %.sroa.014.1.i.i.i72 = phi i1 [ %63, %58 ], [ %57, %53 ]
   br i1 %.sroa.014.1.i.i.i72, label %71, label %76
 
 71:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeENS_17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i82
@@ -11157,7 +11157,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %114, label %115, label %119
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEEKS5_EEbT_RT0_.exit.i: ; preds = %103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  %.sroa.014.1.i.i.i91 = phi i1 [ %102, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ], [ %107, %103 ]
+  %.sroa.014.1.i.i.i91 = phi i1 [ %107, %103 ], [ %102, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
   br i1 %.sroa.014.1.i.i.i91, label %115, label %119
 
 115:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEEKS5_EEbT_RT0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i98
@@ -11246,7 +11246,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %149, label %154, label %150
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i: ; preds = %138, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i113
-  %.sroa.014.1.i.i.i118 = phi i1 [ %137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i113 ], [ %142, %138 ]
+  %.sroa.014.1.i.i.i118 = phi i1 [ %142, %138 ], [ %137, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i113 ]
   br i1 %.sroa.014.1.i.i.i118, label %154, label %150
 
 150:                                              ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold8NameTypeENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i126
@@ -11363,7 +11363,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %33, label %34, label %36
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i: ; preds = %19, %14
-  %.sroa.014.1.i.i.i = phi i1 [ %18, %14 ], [ %25, %19 ]
+  %.sroa.014.1.i.i.i = phi i1 [ %25, %19 ], [ %18, %14 ]
   br i1 %.sroa.014.1.i.i.i, label %34, label %36
 
 34:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i
@@ -11485,7 +11485,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %81, label %82, label %84
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i16: ; preds = %67, %62
-  %.sroa.014.1.i.i.i17 = phi i1 [ %66, %62 ], [ %73, %67 ]
+  %.sroa.014.1.i.i.i17 = phi i1 [ %73, %67 ], [ %66, %62 ]
   br i1 %.sroa.014.1.i.i.i17, label %82, label %84
 
 82:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4mold8NameTypeESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i16, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i36
@@ -11599,7 +11599,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %30, label %31, label %33
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeES5_EEbT_T0_.exit.i: ; preds = %16, %.lr.ph.i
-  %.sroa.014.1.i.i.i = phi i1 [ %15, %.lr.ph.i ], [ %22, %16 ]
+  %.sroa.014.1.i.i.i = phi i1 [ %22, %16 ], [ %15, %.lr.ph.i ]
   br i1 %.sroa.014.1.i.i.i, label %31, label %33
 
 31:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeES5_EEbT_T0_.exit.i, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i
@@ -11712,7 +11712,7 @@ _ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt1
   br i1 %74, label %75, label %77
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeES5_EEbT_T0_.exit.i32: ; preds = %60, %.lr.ph.i28
-  %.sroa.014.1.i.i.i33 = phi i1 [ %59, %.lr.ph.i28 ], [ %66, %60 ]
+  %.sroa.014.1.i.i.i33 = phi i1 [ %66, %60 ], [ %59, %.lr.ph.i28 ]
   br i1 %.sroa.014.1.i.i.i33, label %75, label %77
 
 75:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold8NameTypeES5_EEbT_T0_.exit.i32, %_ZStssIcSt11char_traitsIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEESt17basic_string_viewIT_S2_ES6_.exit.i.i.i44

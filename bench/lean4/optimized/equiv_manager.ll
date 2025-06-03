@@ -755,7 +755,7 @@ _ZN4leaneqERKNS_3natES2_.exit69:                  ; preds = %141
   %171 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %146, ptr noundef %147)
   br i1 %171, label %172, label %_ZN4leaneqERKNS_3natES2_.exit
 
-172:                                              ; preds = %152, %79, %165, %115, %104, %85, %92, %121, %126, %131, %_ZN4leaneqERKNS_3natES2_.exit69
+172:                                              ; preds = %152, %79, %165, %115, %104, %131, %126, %121, %92, %85, %_ZN4leaneqERKNS_3natES2_.exit69
   %173 = load ptr, ptr %0, align 8, !tbaa !9
   br label %174
 
@@ -806,8 +806,8 @@ _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_man
   store i32 %193, ptr %184, align 4, !tbaa !14
   br label %_ZN4leaneqERKNS_3natES2_.exit
 
-_ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %72, %154, %159, %136, %110, %99, %63, %192, %190, %189, %_ZN4lean13equiv_manager4findEj.exit22.i, %152, %79, %165, %115, %104, %85, %92, %121, %126, %131, %.critedge.i.i.i, %41, %_ZN4lean13equiv_manager4findEj.exit63, %58, %_ZN4leaneqERKNS_3natES2_.exit69, %12, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %12 ], [ true, %_ZN4lean13equiv_manager4findEj.exit63 ], [ false, %58 ], [ false, %_ZN4leaneqERKNS_3natES2_.exit69 ], [ %42, %41 ], [ %43, %.critedge.i.i.i ], [ false, %131 ], [ false, %126 ], [ false, %121 ], [ false, %92 ], [ false, %85 ], [ false, %104 ], [ false, %115 ], [ false, %165 ], [ false, %79 ], [ false, %152 ], [ true, %_ZN4lean13equiv_manager4findEj.exit22.i ], [ true, %189 ], [ true, %190 ], [ true, %192 ], [ false, %63 ], [ false, %99 ], [ false, %110 ], [ false, %136 ], [ false, %159 ], [ false, %154 ], [ false, %72 ]
+_ZN4leaneqERKNS_3natES2_.exit:                    ; preds = %72, %154, %159, %136, %110, %99, %63, %192, %190, %189, %_ZN4lean13equiv_manager4findEj.exit22.i, %152, %79, %165, %115, %104, %131, %126, %121, %92, %85, %.critedge.i.i.i, %41, %_ZN4lean13equiv_manager4findEj.exit63, %58, %_ZN4leaneqERKNS_3natES2_.exit69, %12, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %12 ], [ true, %_ZN4lean13equiv_manager4findEj.exit63 ], [ false, %58 ], [ false, %_ZN4leaneqERKNS_3natES2_.exit69 ], [ %42, %41 ], [ %43, %.critedge.i.i.i ], [ false, %85 ], [ false, %92 ], [ false, %121 ], [ false, %126 ], [ false, %131 ], [ false, %104 ], [ false, %115 ], [ false, %165 ], [ false, %79 ], [ false, %152 ], [ true, %_ZN4lean13equiv_manager4findEj.exit22.i ], [ true, %189 ], [ true, %190 ], [ true, %192 ], [ false, %63 ], [ false, %99 ], [ false, %110 ], [ false, %136 ], [ false, %159 ], [ false, %154 ], [ false, %72 ]
   ret i1 %.0
 }
 

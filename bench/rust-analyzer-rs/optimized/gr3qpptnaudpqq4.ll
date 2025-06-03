@@ -177,7 +177,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$salsa..runtime..local_state..QueryInputs$u20$as$u20$core..fmt..Debug$GT$3fmt17h7458fe39d8052fe6E.exit"
 
 "_ZN77_$LT$salsa..runtime..local_state..QueryInputs$u20$as$u20$core..fmt..Debug$GT$3fmt17h7458fe39d8052fe6E.exit": ; preds = %6, %9, %11
-  %.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %6 ]
+  %.0.in.i = phi i1 [ %8, %6 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 

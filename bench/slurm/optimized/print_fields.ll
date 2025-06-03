@@ -1339,9 +1339,9 @@ _expand_wildcard.exit:                            ; preds = %63, %61, %60, %58, 
   br label %66
 
 66:                                               ; preds = %_expand_wildcard.exit, %27, %22, %29, %24, %25
-  %.229 = phi i32 [ %.12848, %22 ], [ 0, %29 ], [ 3, %25 ], [ 3, %24 ], [ 1, %27 ], [ %spec.select44, %_expand_wildcard.exit ]
-  %.125 = phi ptr [ %.02449, %22 ], [ %.02449, %29 ], [ %.02449, %25 ], [ %.02449, %24 ], [ %.02449, %27 ], [ %.226, %_expand_wildcard.exit ]
-  %.1 = phi i32 [ %.050, %22 ], [ %.050, %29 ], [ %.050, %25 ], [ %.050, %24 ], [ %.050, %27 ], [ %.3, %_expand_wildcard.exit ]
+  %.229 = phi i32 [ %.12848, %22 ], [ 3, %25 ], [ 3, %24 ], [ 0, %29 ], [ 1, %27 ], [ %spec.select44, %_expand_wildcard.exit ]
+  %.125 = phi ptr [ %.02449, %22 ], [ %.02449, %25 ], [ %.02449, %24 ], [ %.02449, %29 ], [ %.02449, %27 ], [ %.226, %_expand_wildcard.exit ]
+  %.1 = phi i32 [ %.050, %22 ], [ %.050, %25 ], [ %.050, %24 ], [ %.050, %29 ], [ %.050, %27 ], [ %.3, %_expand_wildcard.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %.125, i64 1
   %68 = load i8, ptr %67, align 1
   %.not40 = icmp eq i8 %68, 0

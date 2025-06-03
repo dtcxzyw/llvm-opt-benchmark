@@ -1152,7 +1152,7 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   br label %160
 
 160:                                              ; preds = %158, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %159, %158 ]
+  %.sroa.038.1.i.i.i = phi ptr [ %159, %158 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8, !tbaa !52
   %161 = icmp eq ptr %.val1.i26.i.i.i, %1
   br i1 %161, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit", label %162
@@ -1162,7 +1162,7 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   br label %164
 
 164:                                              ; preds = %162, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %163, %162 ]
+  %.sroa.038.2.i.i.i = phi ptr [ %163, %162 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8, !tbaa !52
   %165 = icmp eq ptr %.val1.i27.i.i.i, %1
   %spec.select.i.i.i = select i1 %165, ptr %.sroa.038.2.i.i.i, ptr %134
@@ -1706,7 +1706,7 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   br label %161
 
 161:                                              ; preds = %159, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %160, %159 ]
+  %.sroa.038.1.i.i.i = phi ptr [ %160, %159 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8, !tbaa !102
   %162 = icmp eq ptr %.val1.i26.i.i.i, %1
   br i1 %162, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit", label %163
@@ -1716,7 +1716,7 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %164, %163 ]
+  %.sroa.038.2.i.i.i = phi ptr [ %164, %163 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8, !tbaa !102
   %166 = icmp eq ptr %.val1.i27.i.i.i, %1
   %spec.select.i.i.i = select i1 %166, ptr %.sroa.038.2.i.i.i, ptr %135

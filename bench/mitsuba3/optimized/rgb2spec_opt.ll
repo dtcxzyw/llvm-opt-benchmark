@@ -529,7 +529,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %8, %7, %6, %5, %4, %3
-  %.040 = phi ptr [ @_ZL7cie_d65, %8 ], [ @_ZL7cie_d60, %7 ], [ @_ZL7cie_d50, %6 ], [ @_ZL5cie_e, %5 ], [ @_ZL5cie_e, %4 ], [ @_ZL7cie_d65, %3 ]
+  %.040 = phi ptr [ @_ZL7cie_d65, %3 ], [ @_ZL5cie_e, %4 ], [ @_ZL5cie_e, %5 ], [ @_ZL7cie_d50, %6 ], [ @_ZL7cie_d60, %7 ], [ @_ZL7cie_d65, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %17
@@ -1555,7 +1555,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  %.sroa.034.0 = phi ptr [ %0, %48 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
   ret ptr %.sroa.034.0
 }
 

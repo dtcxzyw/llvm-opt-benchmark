@@ -3803,8 +3803,8 @@ define internal noundef range(i32 0, 17) i32 @rtl8169_start_xmit(ptr noundef %0,
   br label %209
 
 209:                                              ; preds = %.thread23, %207, %205
-  %210 = phi ptr [ %.pre42, %.thread23 ], [ %198, %207 ], [ %198, %205 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.125, %.thread23 ], [ %208, %207 ], [ %206, %205 ]
+  %210 = phi ptr [ %.pre42, %.thread23 ], [ %198, %205 ], [ %198, %207 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.125, %.thread23 ], [ %206, %205 ], [ %208, %207 ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %212 = load i16, ptr %211, align 2
   %213 = zext i16 %212 to i64

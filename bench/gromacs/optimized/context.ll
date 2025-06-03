@@ -3549,7 +3549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   br label %118
 
 118:                                              ; preds = %116, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %117, %116 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %117, %116 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %119 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i.i, ptr noundef nonnull @.str.176) #21
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %.loopexit254, label %121
@@ -3559,7 +3559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %122, %121 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %124 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i.i, ptr noundef nonnull @.str.176) #21
   %125 = icmp eq i32 %124, 0
   %spec.select.i.i.i.i.i = select i1 %125, ptr %.sroa.025.2.i.i.i.i.i, ptr %88
@@ -3747,7 +3747,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %193
 
 193:                                              ; preds = %191, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %192, %191 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %192, %191 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %194 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i, ptr noundef nonnull @.str.5) #21
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %.loopexit253, label %196
@@ -3757,7 +3757,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %198
 
 198:                                              ; preds = %196, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %197, %196 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %197, %196 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %199 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i, ptr noundef nonnull @.str.5) #21
   %200 = icmp eq i32 %199, 0
   %spec.select.i.i.i.i = select i1 %200, ptr %.sroa.025.2.i.i.i.i, ptr %162
@@ -3884,7 +3884,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %249
 
 249:                                              ; preds = %247, %._crit_edge.i.i.i.i116
-  %.sroa.025.1.i.i.i.i122 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i118, %._crit_edge.i.i.i.i116 ], [ %248, %247 ]
+  %.sroa.025.1.i.i.i.i122 = phi ptr [ %248, %247 ], [ %.sroa.025.0.lcssa.i.i.i.i118, %._crit_edge.i.i.i.i116 ]
   %250 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i122, ptr noundef nonnull @.str.6) #21
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %.loopexit252, label %252
@@ -3894,7 +3894,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %254
 
 254:                                              ; preds = %252, %._crit_edge.i.i.i.i116
-  %.sroa.025.2.i.i.i.i119 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i118, %._crit_edge.i.i.i.i116 ], [ %253, %252 ]
+  %.sroa.025.2.i.i.i.i119 = phi ptr [ %253, %252 ], [ %.sroa.025.0.lcssa.i.i.i.i118, %._crit_edge.i.i.i.i116 ]
   %255 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i119, ptr noundef nonnull @.str.6) #21
   %256 = icmp eq i32 %255, 0
   %spec.select.i.i.i.i120 = select i1 %256, ptr %.sroa.025.2.i.i.i.i119, ptr %219
@@ -4021,7 +4021,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %305
 
 305:                                              ; preds = %303, %._crit_edge.i.i.i.i145
-  %.sroa.025.1.i.i.i.i151 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i147, %._crit_edge.i.i.i.i145 ], [ %304, %303 ]
+  %.sroa.025.1.i.i.i.i151 = phi ptr [ %304, %303 ], [ %.sroa.025.0.lcssa.i.i.i.i147, %._crit_edge.i.i.i.i145 ]
   %306 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1.i.i.i.i151, ptr noundef nonnull @.str.3) #21
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %.loopexit, label %308
@@ -4031,7 +4031,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %310
 
 310:                                              ; preds = %308, %._crit_edge.i.i.i.i145
-  %.sroa.025.2.i.i.i.i148 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i147, %._crit_edge.i.i.i.i145 ], [ %309, %308 ]
+  %.sroa.025.2.i.i.i.i148 = phi ptr [ %309, %308 ], [ %.sroa.025.0.lcssa.i.i.i.i147, %._crit_edge.i.i.i.i145 ]
   %311 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2.i.i.i.i148, ptr noundef nonnull @.str.3) #21
   %312 = icmp eq i32 %311, 0
   %spec.select.i.i.i.i149 = select i1 %312, ptr %.sroa.025.2.i.i.i.i148, ptr %275

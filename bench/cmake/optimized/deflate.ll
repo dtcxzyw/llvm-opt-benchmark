@@ -3129,7 +3129,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   br label %69
 
 69:                                               ; preds = %deflateStateCheck.exit, %44, %.loopexit, %68, %40
-  %.043 = phi i64 [ 6, %68 ], [ %spec.select, %.loopexit ], [ 18, %44 ], [ %43, %40 ], [ 0, %deflateStateCheck.exit ]
+  %.043 = phi i64 [ 6, %68 ], [ %43, %40 ], [ %spec.select, %.loopexit ], [ 18, %44 ], [ 0, %deflateStateCheck.exit ]
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 84
   %71 = load i32, ptr %70, align 4, !tbaa !30
   %.not57 = icmp eq i32 %71, 15

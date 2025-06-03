@@ -18629,7 +18629,7 @@ define noundef i64 @_ZN6duckdb13ColumnSegment15FilterSelectionERNS_15SelectionVe
           to label %_ZN6duckdb15SelectionVectorC2Em.exit unwind label %22
 
 common.resume:                                    ; preds = %191, %641, %656, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248, %305, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i247, %501, %359, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %360, %359 ], [ %502, %501 ], [ %.pn174270, %656 ], [ %649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248 ], [ %642, %641 ], [ %.pn170.pn.pn, %191 ], [ %.pn267, %305 ], [ %298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %298, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %649, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i247 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %360, %359 ], [ %502, %501 ], [ %.pn174270, %656 ], [ %649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248 ], [ %.pn170.pn.pn, %191 ], [ %642, %641 ], [ %.pn267, %305 ], [ %298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %298, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %649, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i247 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %19
@@ -20156,7 +20156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248: ; preds = %64
   br label %common.resume
 
 _ZN6duckdbL22TemplatedNullSelectionILb1EEEmRNS_19UnifiedVectorFormatERNS_15SelectionVectorERm.exit: ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i228, %441, %_ZN6duckdb15SelectionVectorD2Ev.exit.i, %311, %6, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit, %306, %._crit_edge, %_ZN6duckdb15SelectionVectorD2Ev.exit
-  %.0152 = phi i64 [ %593, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit ], [ %307, %306 ], [ %198, %._crit_edge ], [ %.0153.lcssa, %_ZN6duckdb15SelectionVectorD2Ev.exit ], [ %4, %6 ], [ 0, %311 ], [ %.021.lcssa.i, %_ZN6duckdb15SelectionVectorD2Ev.exit.i ], [ %442, %441 ], [ %.021.lcssa.i215, %_ZN6duckdb15SelectionVectorD2Ev.exit.i228 ]
+  %.0152 = phi i64 [ %.0153.lcssa, %_ZN6duckdb15SelectionVectorD2Ev.exit ], [ %198, %._crit_edge ], [ %307, %306 ], [ %593, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit ], [ %4, %6 ], [ 0, %311 ], [ %.021.lcssa.i, %_ZN6duckdb15SelectionVectorD2Ev.exit.i ], [ %442, %441 ], [ %.021.lcssa.i215, %_ZN6duckdb15SelectionVectorD2Ev.exit.i228 ]
   ret i64 %.0152
 
 657:                                              ; preds = %646, %295
@@ -153037,31 +153037,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #43
 declare i64 @llvm.umax.i64(i64, i64) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #41
+declare i32 @llvm.umin.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #41
+declare i32 @llvm.umax.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #41
@@ -153070,10 +153049,31 @@ declare i16 @llvm.umin.i16(i16, i16) #41
 declare i16 @llvm.umax.i16(i16, i16) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #41
+declare i8 @llvm.umin.i8(i8, i8) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #41
+declare i8 @llvm.umax.i8(i8, i8) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smax.i16(i16, i16) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smin.i8(i8, i8) #41
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.smax.i8(i8, i8) #41
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

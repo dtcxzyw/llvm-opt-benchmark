@@ -2870,9 +2870,9 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit: ; preds = %13, %22, %28
-  %.sroa.6.0 = phi i32 [ %33, %28 ], [ %25, %22 ], [ %18, %13 ]
-  %.sroa.0.0 = phi i32 [ %30, %28 ], [ %23, %22 ], [ %15, %13 ]
-  %.sink.i = phi i32 [ %36, %28 ], [ %27, %22 ], [ %21, %13 ]
+  %.sroa.6.0 = phi i32 [ %33, %28 ], [ %18, %13 ], [ %25, %22 ]
+  %.sroa.0.0 = phi i32 [ %30, %28 ], [ %15, %13 ], [ %23, %22 ]
+  %.sink.i = phi i32 [ %36, %28 ], [ %21, %13 ], [ %27, %22 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %38 = load i32, ptr %37, align 4, !tbaa !70
   %39 = icmp eq i32 %38, 1
@@ -3135,9 +3135,9 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   br label %_ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit
 
 _ZNK22btGImpactMeshShapePart23TrimeshPrimitiveManager11get_indicesEiRjS1_S1_.exit: ; preds = %13, %22, %28
-  %.sroa.6.0 = phi i32 [ %33, %28 ], [ %25, %22 ], [ %18, %13 ]
-  %.sroa.0.0 = phi i32 [ %30, %28 ], [ %23, %22 ], [ %15, %13 ]
-  %.sink.i = phi i32 [ %36, %28 ], [ %27, %22 ], [ %21, %13 ]
+  %.sroa.6.0 = phi i32 [ %33, %28 ], [ %18, %13 ], [ %25, %22 ]
+  %.sroa.0.0 = phi i32 [ %30, %28 ], [ %15, %13 ], [ %23, %22 ]
+  %.sink.i = phi i32 [ %36, %28 ], [ %21, %13 ], [ %27, %22 ]
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %39 = load i32, ptr %38, align 4, !tbaa !70

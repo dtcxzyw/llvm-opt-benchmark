@@ -1648,7 +1648,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._crit_edge, %38, %
   br label %49
 
 49:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %48
-  %.1 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %48 ]
+  %.1 = phi i1 [ true, %48 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   ret i1 %.1
 }
 
@@ -3761,8 +3761,8 @@ define linkonce_odr hidden ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorIPKN
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i
-  %45 = phi ptr [ %.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %40, %42 ]
-  %.sroa.032.1.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %43, %42 ]
+  %45 = phi ptr [ %40, %42 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.sroa.032.1.i.i = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %46 = load ptr, ptr %.sroa.032.1.i.i, align 8, !tbaa !19
   %47 = icmp eq ptr %46, %45
   br i1 %47, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops17_Iter_equals_iterISB_EEET_SF_SF_T0_.exit, label %48
@@ -3772,8 +3772,8 @@ define linkonce_odr hidden ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorIPKN
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge57.i.i
-  %51 = phi ptr [ %.pre58.i.i, %._crit_edge._crit_edge57.i.i ], [ %45, %48 ]
-  %.sroa.032.2.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge57.i.i ], [ %49, %48 ]
+  %51 = phi ptr [ %45, %48 ], [ %.pre58.i.i, %._crit_edge._crit_edge57.i.i ]
+  %.sroa.032.2.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i, %._crit_edge._crit_edge57.i.i ]
   %52 = load ptr, ptr %.sroa.032.2.i.i, align 8, !tbaa !19
   %53 = icmp eq ptr %52, %51
   %spec.select.i.i = select i1 %53, ptr %.sroa.032.2.i.i, ptr %1
@@ -3858,8 +3858,8 @@ define linkonce_odr hidden ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorIPKN
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge._crit_edge.i.i24
-  %87 = phi ptr [ %.pre.i.i25, %._crit_edge._crit_edge.i.i24 ], [ %82, %84 ]
-  %.sroa.032.1.i.i26 = phi ptr [ %.sroa.032.0.lcssa.i.i18, %._crit_edge._crit_edge.i.i24 ], [ %85, %84 ]
+  %87 = phi ptr [ %82, %84 ], [ %.pre.i.i25, %._crit_edge._crit_edge.i.i24 ]
+  %.sroa.032.1.i.i26 = phi ptr [ %85, %84 ], [ %.sroa.032.0.lcssa.i.i18, %._crit_edge._crit_edge.i.i24 ]
   %88 = load ptr, ptr %.sroa.032.1.i.i26, align 8, !tbaa !19
   %89 = icmp eq ptr %88, %87
   br i1 %89, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops17_Iter_equals_iterISB_EEET_SF_SF_T0_.exit37, label %90
@@ -3869,8 +3869,8 @@ define linkonce_odr hidden ptr @_ZSt8__searchIN9__gnu_cxx17__normal_iteratorIPKN
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge._crit_edge57.i.i19
-  %93 = phi ptr [ %.pre58.i.i20, %._crit_edge._crit_edge57.i.i19 ], [ %87, %90 ]
-  %.sroa.032.2.i.i21 = phi ptr [ %.sroa.032.0.lcssa.i.i18, %._crit_edge._crit_edge57.i.i19 ], [ %91, %90 ]
+  %93 = phi ptr [ %87, %90 ], [ %.pre58.i.i20, %._crit_edge._crit_edge57.i.i19 ]
+  %.sroa.032.2.i.i21 = phi ptr [ %91, %90 ], [ %.sroa.032.0.lcssa.i.i18, %._crit_edge._crit_edge57.i.i19 ]
   %94 = load ptr, ptr %.sroa.032.2.i.i21, align 8, !tbaa !19
   %95 = icmp eq ptr %94, %93
   %spec.select.i.i22 = select i1 %95, ptr %.sroa.032.2.i.i21, ptr %1

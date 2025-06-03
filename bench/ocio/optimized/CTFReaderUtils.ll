@@ -354,7 +354,7 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev22GetInterpolation3DNameENS_1
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ null, %4 ], [ null, %3 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %2 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %1 ]
+  %.0 = phi ptr [ null, %4 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %2 ], [ null, %3 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %1 ]
   ret ptr %.0
 }
 
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %10, %8, %6
-  %.013 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.013 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret ptr %.013
 
 36:                                               ; preds = %19

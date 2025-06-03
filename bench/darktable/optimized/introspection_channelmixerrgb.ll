@@ -1853,8 +1853,8 @@ convert_any_XYZ_to_LMS.exit315.i:                 ; preds = %476, %509
   br label %576
 
 .thread.i:                                        ; preds = %522, %514
-  %.sroa.18.0.i = phi nsz float [ %526, %522 ], [ %521, %514 ]
-  %.pn.in.i = phi float [ %523, %522 ], [ %515, %514 ]
+  %.sroa.18.0.i = phi nsz float [ %521, %514 ], [ %526, %522 ]
+  %.pn.in.i = phi float [ %515, %514 ], [ %523, %522 ]
   %.pn92.in.i = load float, ptr %24, align 16, !tbaa !12, !noalias !113
   %541 = fmul reassoc nsz arcp contract afn float %.pn92.in.i, 0x3FEFDFDF00000000
   %542 = fmul reassoc nsz arcp contract afn float %.pn.in.i, 0x3FF05490E0000000

@@ -657,7 +657,7 @@ default.unreachable187:                           ; preds = %34
   br label %90
 
 48:                                               ; preds = %300, %280, %151, %.body, %179, %118, %49
-  %.pn54 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %300 ], [ %.pn43, %280 ], [ %.pn46, %179 ], [ %152, %151 ], [ %.pn50, %118 ], [ %.pn52, %.body ]
+  %.pn54 = phi { ptr, i32 } [ %50, %49 ], [ %.pn52, %.body ], [ %152, %151 ], [ %.pn50, %118 ], [ %.pn46, %179 ], [ %.pn43, %280 ], [ %.pn, %300 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h99b75d85bc37e920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #14
           to label %310 unwind label %99
 
@@ -1839,7 +1839,7 @@ default.unreachable154:                           ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %248, %273, %.body, %303, %307, %332, %336, %361, %365, %390, %238, %222, %93, %78, %63
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %79, %78 ], [ %94, %93 ], [ %223, %222 ], [ %239, %238 ], [ %.pn32, %361 ], [ %.pn, %336 ], [ %.pn36, %332 ], [ %.pn34, %307 ], [ %.pn40, %303 ], [ %.pn38, %.body ], [ %.pn44, %273 ], [ %.pn42, %248 ], [ %.pn48, %390 ], [ %.pn46, %365 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %79, %78 ], [ %94, %93 ], [ %223, %222 ], [ %239, %238 ], [ %.pn44, %273 ], [ %.pn42, %248 ], [ %.pn40, %303 ], [ %.pn38, %.body ], [ %.pn36, %332 ], [ %.pn34, %307 ], [ %.pn32, %361 ], [ %.pn, %336 ], [ %.pn48, %390 ], [ %.pn46, %365 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h2fbf59b00ceb08c9E.exit": ; preds = %65

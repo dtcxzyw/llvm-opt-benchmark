@@ -2152,8 +2152,8 @@ cdf_copy_info.exit.thread:                        ; preds = %115, %108, %101, %9
   br label %cdf_check_stream_offset.exit167
 
 cdf_check_stream_offset.exit167:                  ; preds = %cdf_copy_info.exit187, %cdf_copy_info.exit183, %cdf_copy_info.exit, %._crit_edge, %cdf_copy_info.exit.thread, %99, %99, %157
-  %.2128 = phi i64 [ %.0126212, %cdf_copy_info.exit.thread ], [ %.0126212, %157 ], [ %156, %._crit_edge ], [ %.0126212, %cdf_copy_info.exit187 ], [ %.0126212, %cdf_copy_info.exit183 ], [ %.0126212, %cdf_copy_info.exit ], [ %.0126212, %99 ], [ %.0126212, %99 ]
-  %.3 = phi ptr [ %.0124213, %cdf_copy_info.exit.thread ], [ %.0124213, %157 ], [ %.1125, %._crit_edge ], [ %.0124213, %cdf_copy_info.exit187 ], [ %.0124213, %cdf_copy_info.exit183 ], [ %.0124213, %cdf_copy_info.exit ], [ %.0124213, %99 ], [ %.0124213, %99 ]
+  %.2128 = phi i64 [ %.0126212, %cdf_copy_info.exit.thread ], [ %.0126212, %99 ], [ %.0126212, %99 ], [ %.0126212, %cdf_copy_info.exit ], [ %.0126212, %cdf_copy_info.exit183 ], [ %.0126212, %cdf_copy_info.exit187 ], [ %156, %._crit_edge ], [ %.0126212, %157 ]
+  %.3 = phi ptr [ %.0124213, %cdf_copy_info.exit.thread ], [ %.0124213, %99 ], [ %.0124213, %99 ], [ %.0124213, %cdf_copy_info.exit ], [ %.0124213, %cdf_copy_info.exit183 ], [ %.0124213, %cdf_copy_info.exit187 ], [ %.1125, %._crit_edge ], [ %.0124213, %157 ]
   %159 = add i64 %.2128, 1
   %160 = icmp ult i64 %159, %36
   br i1 %160, label %63, label %.loopexit

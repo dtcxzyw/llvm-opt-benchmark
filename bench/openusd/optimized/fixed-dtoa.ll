@@ -779,8 +779,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %58, %59
-  %.sroa.15.1 = phi i64 [ %64, %59 ], [ %0, %58 ], [ 0, %57 ]
-  %.sroa.0.1 = phi i64 [ %65, %59 ], [ 0, %58 ], [ %0, %57 ]
+  %.sroa.15.1 = phi i64 [ %64, %59 ], [ 0, %57 ], [ %0, %58 ]
+  %.sroa.0.1 = phi i64 [ %65, %59 ], [ %0, %57 ], [ 0, %58 ]
   %66 = icmp sgt i32 %2, 0
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 

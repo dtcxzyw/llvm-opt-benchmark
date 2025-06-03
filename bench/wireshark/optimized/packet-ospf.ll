@@ -1615,7 +1615,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br label %98
 
 98:                                               ; preds = %69, %73, %78
-  %.0192 = phi i32 [ 4, %78 ], [ 2, %73 ], [ 1, %69 ]
+  %.0192 = phi i32 [ 2, %73 ], [ 4, %78 ], [ 1, %69 ]
   %99 = call i32 @in_cksum(ptr noundef nonnull %6, i32 noundef %.0192)
   %100 = and i32 %99, 65535
   %101 = icmp eq i32 %100, 0
@@ -1696,8 +1696,8 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br label %144
 
 144:                                              ; preds = %135, %142, %112, %115, %132, %129, %118
-  %.0195 = phi i32 [ 0, %142 ], [ 0, %135 ], [ 0, %132 ], [ %124, %129 ], [ %124, %118 ], [ 0, %115 ], [ 0, %112 ]
-  %.0194 = phi i8 [ %spec.store.select, %142 ], [ %spec.store.select, %135 ], [ 6, %132 ], [ 6, %129 ], [ 6, %118 ], [ 6, %115 ], [ 6, %112 ]
+  %.0195 = phi i32 [ 0, %132 ], [ 0, %112 ], [ 0, %115 ], [ %124, %129 ], [ %124, %118 ], [ 0, %142 ], [ 0, %135 ]
+  %.0194 = phi i8 [ 6, %132 ], [ 6, %112 ], [ 6, %115 ], [ 6, %129 ], [ 6, %118 ], [ %spec.store.select, %142 ], [ %spec.store.select, %135 ]
   switch i8 %12, label %309 [
     i8 1, label %145
     i8 2, label %196
@@ -2032,7 +2032,7 @@ dissect_ospf_hello.exit.thread238.thread:         ; preds = %.lr.ph.split.i, %.t
   br label %ospf_has_lls_block.exit
 
 ospf_has_lls_block.exit:                          ; preds = %dissect_ospf_hello.exit.thread236.thread, %dissect_ospf_hello.exit.thread236.thread244, %dissect_ospf_hello.exit.thread238.thread282, %dissect_ospf_hello.exit.thread238.thread
-  %.0.i227 = phi i32 [ %323, %dissect_ospf_hello.exit.thread238.thread ], [ %320, %dissect_ospf_hello.exit.thread238.thread282 ], [ %317, %dissect_ospf_hello.exit.thread236.thread244 ], [ %314, %dissect_ospf_hello.exit.thread236.thread ]
+  %.0.i227 = phi i32 [ %314, %dissect_ospf_hello.exit.thread236.thread ], [ %317, %dissect_ospf_hello.exit.thread236.thread244 ], [ %320, %dissect_ospf_hello.exit.thread238.thread282 ], [ %323, %dissect_ospf_hello.exit.thread238.thread ]
   %.not203 = icmp eq i32 %.0.i227, 0
   br i1 %.not203, label %dissect_ospf_lls_data_block.exit, label %324
 
@@ -2274,7 +2274,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   br i1 %.not112.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 dissect_ospfv3_lls_tlv.exit.i:                    ; preds = %.lr.ph.i.i, %.lr.ph131.i.i, %.lr.ph135.i.i, %.lr.ph139.i.i, %430, %415, %405, %400, %.preheader.i.i, %.preheader121.i.i, %.preheader123.i.i, %392
-  %.0.i.i = phi i32 [ %.040.i, %392 ], [ %.040.i, %430 ], [ %.040.i, %405 ], [ %.040.i, %400 ], [ %.040.i, %.preheader.i.i ], [ %424, %415 ], [ %.040.i, %.preheader121.i.i ], [ %.040.i, %.preheader123.i.i ], [ %.040.i, %.lr.ph139.i.i ], [ %429, %.lr.ph135.i.i ], [ %.040.i, %.lr.ph131.i.i ], [ %.040.i, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ %.040.i, %392 ], [ %.040.i, %400 ], [ %.040.i, %405 ], [ %.040.i, %430 ], [ %.040.i, %.preheader.i.i ], [ %424, %415 ], [ %.040.i, %.preheader121.i.i ], [ %.040.i, %.preheader123.i.i ], [ %.040.i, %.lr.ph139.i.i ], [ %429, %.lr.ph135.i.i ], [ %.040.i, %.lr.ph131.i.i ], [ %.040.i, %.lr.ph.i.i ]
   %438 = add i32 %.0.i.i, %380
   %439 = icmp sgt i32 %341, %438
   br i1 %439, label %.lr.ph.split.i231, label %dissect_ospf_lls_data_block.exit, !llvm.loop !16
@@ -4502,7 +4502,7 @@ dissect_ospf_v3_network_lsa_common.exit266:       ; preds = %326, %330
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %255, %.lr.ph418, %93, %68, %264, %227, %dissect_ospf_v3_network_lsa_common.exit, %148, %172, %295, %298, %314, %dissect_ospf_v3_network_lsa_common.exit266, %340, %343, %354, %223, %220, %proto_item_set_hidden.exit
-  %.0403 = phi i32 [ %358, %354 ], [ %353, %343 ], [ %342, %340 ], [ %339, %dissect_ospf_v3_network_lsa_common.exit266 ], [ %325, %314 ], [ %313, %298 ], [ %297, %295 ], [ %226, %223 ], [ %.4, %220 ], [ %179, %172 ], [ %154, %148 ], [ %65, %proto_item_set_hidden.exit ], [ %118, %dissect_ospf_v3_network_lsa_common.exit ], [ %241, %227 ], [ %276, %264 ], [ %76, %68 ], [ %106, %93 ], [ %123, %.lr.ph418 ], [ %261, %255 ], [ %292, %.lr.ph ]
+  %.0403 = phi i32 [ %358, %354 ], [ %154, %148 ], [ %179, %172 ], [ %226, %223 ], [ %.4, %220 ], [ %297, %295 ], [ %313, %298 ], [ %325, %314 ], [ %339, %dissect_ospf_v3_network_lsa_common.exit266 ], [ %342, %340 ], [ %353, %343 ], [ %65, %proto_item_set_hidden.exit ], [ %118, %dissect_ospf_v3_network_lsa_common.exit ], [ %241, %227 ], [ %276, %264 ], [ %76, %68 ], [ %106, %93 ], [ %123, %.lr.ph418 ], [ %261, %255 ], [ %292, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   ret i32 %.0403

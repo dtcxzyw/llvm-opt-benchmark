@@ -2754,7 +2754,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread: ; preds = %8
   unreachable
 
 _ZNK4llvm8CallBase13isDataOperandEPKNS_3UseE.exit: ; preds = %124, %125, %126
-  %.0.i.i.i.i = phi i64 [ %128, %126 ], [ 2, %125 ], [ 0, %124 ]
+  %.0.i.i.i.i = phi i64 [ 2, %125 ], [ %128, %126 ], [ 0, %124 ]
   %130 = sub nsw i64 0, %.0.i.i.i.i
   %131 = getelementptr inbounds %"class.llvm::Use", ptr %28, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 -32
@@ -5886,8 +5886,8 @@ _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit141.i.thread240: ; preds 
   br label %.thread23.i
 
 .thread23.i:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i.thread236, %.thread23thread-pre-split.loopexit.i, %_ZNK4llvm7PHINode15incoming_valuesEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit110.i, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i, %136, %114, %114, %114, %114, %114, %114, %114
-  %.4 = phi i32 [ %124, %_ZNK4llvm7PHINode15incoming_valuesEv.exit.i ], [ %124, %.thread23thread-pre-split.loopexit.i ], [ %124, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit110.i ], [ %124, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i ], [ %124, %136 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %124, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i.thread236 ]
-  %251 = phi i32 [ %121, %_ZNK4llvm7PHINode15incoming_valuesEv.exit.i ], [ %.pr34.pre.i, %.thread23thread-pre-split.loopexit.i ], [ %205, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit110.i ], [ %.pr34.pre58.i, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i ], [ %143, %136 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %.pr34.pre58.i238, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i.thread236 ]
+  %.4 = phi i32 [ %124, %136 ], [ %124, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit110.i ], [ %124, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i ], [ %124, %_ZNK4llvm7PHINode15incoming_valuesEv.exit.i ], [ %124, %.thread23thread-pre-split.loopexit.i ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %.3, %114 ], [ %124, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i.thread236 ]
+  %251 = phi i32 [ %143, %136 ], [ %205, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit110.i ], [ %.pr34.pre58.i, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i ], [ %121, %_ZNK4llvm7PHINode15incoming_valuesEv.exit.i ], [ %.pr34.pre.i, %.thread23thread-pre-split.loopexit.i ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %121, %114 ], [ %.pr34.pre58.i238, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit107.i.thread236 ]
   %.not.i.i97 = icmp eq i32 %251, 0
   br i1 %.not.i.i97, label %.thread23..thread29_crit_edge.i, label %114, !llvm.loop !331
 
@@ -6761,7 +6761,7 @@ define dso_local noundef zeroext i8 @_ZN4llvm15GlobalsAAResult24getModRefInfoFor
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %95, %94 ]
+  %.1.i.i.i.i.i = phi ptr [ %95, %94 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %97 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !93
   %98 = call noundef zeroext i1 @_ZN4llvm18isIdentifiedObjectEPKNS_5ValueE(ptr noundef %97) #21
   br i1 %98, label %99, label %_ZN4llvm6all_ofIRNS_11SmallVectorIPKNS_5ValueELj4EEEPFbS4_EEEbOT_T0_.exit
@@ -6771,7 +6771,7 @@ define dso_local noundef zeroext i8 @_ZN4llvm15GlobalsAAResult24getModRefInfoFor
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %100, %99 ]
+  %.2.i.i.i.i.i = phi ptr [ %100, %99 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %102 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !93
   %103 = call noundef zeroext i1 @_ZN4llvm18isIdentifiedObjectEPKNS_5ValueE(ptr noundef %102) #21
   br i1 %103, label %_ZN4llvm6all_ofIRNS_11SmallVectorIPKNS_5ValueELj4EEEPFbS4_EEEbOT_T0_.exit.thread, label %_ZN4llvm6all_ofIRNS_11SmallVectorIPKNS_5ValueELj4EEEPFbS4_EEEbOT_T0_.exit
@@ -8695,7 +8695,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -8977,8 +8977,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

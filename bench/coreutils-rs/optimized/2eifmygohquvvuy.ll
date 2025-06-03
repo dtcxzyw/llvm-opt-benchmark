@@ -932,9 +932,9 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   br label %.thread
 
 .thread:                                          ; preds = %50, %.noexc31, %48, %47, %46, %41, %39
-  %.sroa.9.i.i.i.i.i.sroa.0.0 = phi i64 [ %.sroa.9.i.i.i.i.i.sroa.0.0.copyload62, %39 ], [ undef, %50 ], [ %.sroa.9.i.i.i.i.i.sroa.0.0.copyload, %.noexc31 ], [ undef, %48 ], [ undef, %47 ], [ undef, %46 ], [ undef, %41 ]
-  %.sroa.9.i.i.i.i.i.sroa.7.0 = phi i64 [ %.sroa.9.i.i.i.i.i.sroa.7.0.copyload63, %39 ], [ undef, %50 ], [ %.sroa.9.i.i.i.i.i.sroa.7.0.copyload, %.noexc31 ], [ undef, %48 ], [ undef, %47 ], [ undef, %46 ], [ undef, %41 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %39 ], [ -9223372036854775803, %50 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %.noexc31 ], [ -9223372036854775805, %48 ], [ -9223372036854775806, %47 ], [ -9223372036854775807, %46 ], [ -9223372036854775808, %41 ]
+  %.sroa.9.i.i.i.i.i.sroa.0.0 = phi i64 [ %.sroa.9.i.i.i.i.i.sroa.0.0.copyload62, %39 ], [ undef, %41 ], [ undef, %46 ], [ undef, %47 ], [ undef, %48 ], [ %.sroa.9.i.i.i.i.i.sroa.0.0.copyload, %.noexc31 ], [ undef, %50 ]
+  %.sroa.9.i.i.i.i.i.sroa.7.0 = phi i64 [ %.sroa.9.i.i.i.i.i.sroa.7.0.copyload63, %39 ], [ undef, %41 ], [ undef, %46 ], [ undef, %47 ], [ undef, %48 ], [ %.sroa.9.i.i.i.i.i.sroa.7.0.copyload, %.noexc31 ], [ undef, %50 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %39 ], [ -9223372036854775808, %41 ], [ -9223372036854775807, %46 ], [ -9223372036854775806, %47 ], [ -9223372036854775805, %48 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %.noexc31 ], [ -9223372036854775803, %50 ]
   %51 = ptrtoint ptr %34 to i64
   store i64 0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1110,7 +1110,7 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   br label %.thread
 
 .thread:                                          ; preds = %32, %31, %30, %29, %28, %23, %21
-  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %21 ], [ -9223372036854775803, %32 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %31 ], [ -9223372036854775805, %30 ], [ -9223372036854775806, %29 ], [ -9223372036854775807, %28 ], [ -9223372036854775808, %23 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %21 ], [ -9223372036854775807, %28 ], [ -9223372036854775806, %29 ], [ -9223372036854775805, %30 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %31 ], [ -9223372036854775803, %32 ], [ -9223372036854775808, %23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i.i.i.i, i64 16, i1 false), !noalias !534
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.i.i.i.i.i)
   store i64 0, ptr %0, align 8

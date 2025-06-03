@@ -1365,8 +1365,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal3smt24ProofPostprocessCallbac
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge._crit_edge.i.i.i
-  %89 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %84, %86 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %87, %86 ]
+  %89 = phi ptr [ %84, %86 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %87, %86 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %90 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !11
   %91 = icmp eq ptr %90, %89
   br i1 %91, label %.loopexit, label %92
@@ -1376,8 +1376,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal3smt24ProofPostprocessCallbac
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge._crit_edge57.i.i.i
-  %95 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %89, %92 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %93, %92 ]
+  %95 = phi ptr [ %89, %92 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %96 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !11
   %97 = icmp eq ptr %96, %95
   %spec.select.i.i.i = select i1 %97, ptr %.sroa.032.2.i.i.i, ptr %53

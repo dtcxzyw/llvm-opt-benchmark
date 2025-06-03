@@ -10299,7 +10299,7 @@ _ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit: ; preds = %_ZNSt7__cxx1112
   br label %315
 
 315:                                              ; preds = %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit, %314, %313, %312
-  %.0 = phi i32 [ %311, %314 ], [ 9, %313 ], [ 13, %312 ], [ 27, %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit ]
+  %.0 = phi i32 [ %311, %314 ], [ 13, %312 ], [ 9, %313 ], [ 27, %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit ]
   %316 = load i32, ptr %17, align 8, !tbaa !193
   %317 = shl i32 %316, 16
   %318 = or i32 %317, %.0
@@ -12255,7 +12255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %83
 
 83:                                               ; preds = %81, %67, %61, %52, %43, %34
-  %.pn39.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %68, %67 ], [ %62, %61 ], [ %53, %52 ], [ %44, %43 ], [ %35, %34 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %35, %34 ], [ %44, %43 ], [ %53, %52 ], [ %62, %61 ], [ %68, %67 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #31
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #31
   br label %84
@@ -14320,7 +14320,7 @@ _ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit: ; preds = %.noexc
   br label %76
 
 56:                                               ; preds = %36, %40, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit, %35
-  %.06 = phi double [ %44, %40 ], [ %39, %36 ], [ %53, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit ], [ 0x7FF8000000000000, %35 ]
+  %.06 = phi double [ %39, %36 ], [ %44, %40 ], [ %53, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit ], [ 0x7FF8000000000000, %35 ]
   %57 = load atomic i64, ptr %19 acquire, align 8
   %58 = icmp eq i64 %57, 4294967297
   %59 = trunc i64 %57 to i32

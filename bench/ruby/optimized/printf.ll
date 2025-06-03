@@ -229,8 +229,8 @@ rb_num2int_inline.exit:                           ; preds = %53, %55
   unreachable
 
 63:                                               ; preds = %58, %rb_num2int_inline.exit
-  %.030 = phi ptr [ %59, %58 ], [ null, %rb_num2int_inline.exit ]
-  %.029 = phi i32 [ 0, %58 ], [ %57, %rb_num2int_inline.exit ]
+  %.030 = phi ptr [ null, %rb_num2int_inline.exit ], [ %59, %58 ]
+  %.029 = phi i32 [ %57, %rb_num2int_inline.exit ], [ 0, %58 ]
   store i8 37, ptr %7, align 16, !tbaa !21
   %64 = load i64, ptr %4, align 8, !tbaa !11
   %65 = icmp eq i64 %64, 4

@@ -3672,7 +3672,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 drsuapi_dissect_DsBindInfo.exit.i:                ; preds = %53, %50, %47, %44, %41, %38
-  %.1.i.i = phi i32 [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.1.i.i = phi i32 [ %55, %53 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.1.i.i, %19
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
@@ -10635,7 +10635,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %63, %65, %68, %71, %74, %77, %80, %83
-  %.1.i.i = phi i32 [ %.0.i.i, %63 ], [ %85, %83 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %63 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ]
   %86 = load ptr, ptr %9, align 8
   %87 = sub i32 %.1.i.i, %39
   call void @proto_item_set_len(ptr noundef %86, i32 noundef %87)
@@ -15619,7 +15619,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
   br label %drsuapi_dissect_element_DsReplicaAdd_req.exit
 
 drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %40, %42, %45
-  %.1.i.i = phi i32 [ %.0.i.i, %40 ], [ %47, %45 ], [ %44, %42 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %40 ], [ %44, %42 ], [ %47, %45 ]
   %48 = load ptr, ptr %7, align 8
   %49 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %48, i32 noundef %49)
@@ -16937,7 +16937,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
   br label %drsuapi_dissect_DsGetNCChangesRequest.exit
 
 drsuapi_dissect_DsGetNCChangesRequest.exit:       ; preds = %13, %22, %25, %28
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1.i = phi i32 [ %.0.i, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ]
   %31 = load ptr, ptr %7, align 8
   %32 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %32)
@@ -17010,7 +17010,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
   br label %drsuapi_dissect_DsGetNCChangesCtr.exit
 
 drsuapi_dissect_DsGetNCChangesCtr.exit:           ; preds = %13, %22, %25, %28, %31
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1.i = phi i32 [ %.0.i, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ]
   %34 = load ptr, ptr %7, align 8
   %35 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
@@ -17984,7 +17984,7 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
   br label %drsuapi_dissect_DsGetDCInfoCtr.exit
 
 drsuapi_dissect_DsGetDCInfoCtr.exit:              ; preds = %33, %35, %38, %41, %44
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
   %47 = load ptr, ptr %7, align 8
   %48 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %48)
@@ -18071,7 +18071,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
   br label %drsuapi_dissect_DsAddEntryRequest.exit
 
 drsuapi_dissect_DsAddEntryRequest.exit:           ; preds = %33, %35, %38
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -18158,7 +18158,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
   br label %drsuapi_dissect_DsAddEntryCtr.exit
 
 drsuapi_dissect_DsAddEntryCtr.exit:               ; preds = %33, %35, %38
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -18299,7 +18299,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
   br label %drsuapi_dissect_DsReplicaGetInfoRequest.exit
 
 drsuapi_dissect_DsReplicaGetInfoRequest.exit:     ; preds = %33, %35, %38
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -18468,7 +18468,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 drsuapi_dissect_DsReplicaInfo.exit:               ; preds = %33, %35, %38, %41, %44, %47, %50, %53, %56, %59, %62, %65, %68, %71, %74, %77
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ]
   %80 = load ptr, ptr %7, align 8
   %81 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81)

@@ -1102,7 +1102,7 @@ _ZN3sat8elim_eqs18drat_delete_clauseEv.exit139:   ; preds = %241, %235, %230
   br label %251
 
 251:                                              ; preds = %._crit_edge.thread, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139, %249, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137
-  %.1108.ph = phi ptr [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137 ], [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138 ], [ %246, %249 ], [ %246, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139 ], [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %37, %._crit_edge.thread ]
+  %.1108.ph = phi ptr [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138 ], [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137 ], [ %246, %249 ], [ %246, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139 ], [ %.0107197, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %37, %._crit_edge.thread ]
   %252 = getelementptr inbounds nuw i8, ptr %.0198, i64 8
   %.not = icmp eq ptr %252, %14
   br i1 %.not, label %._crit_edge201, label %21, !llvm.loop !218

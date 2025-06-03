@@ -2727,7 +2727,7 @@ default.unreachable22:                            ; preds = %12, %3
   br i1 %11, label %17, label %15, !prof !22
 
 12:                                               ; preds = %3, %15, %5
-  %.sroa.0.0 = phi i64 [ %16, %15 ], [ %7, %5 ], [ 0, %3 ]
+  %.sroa.0.0 = phi i64 [ %7, %5 ], [ %16, %15 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val20 = load i64, ptr %13, align 8, !range !267, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2768,7 +2768,7 @@ default.unreachable22:                            ; preds = %12, %3
   unreachable
 
 28:                                               ; preds = %12, %25, %22
-  %.sroa.07.0 = phi i64 [ %24, %22 ], [ %26, %25 ], [ %1, %12 ]
+  %.sroa.07.0 = phi i64 [ %26, %25 ], [ %24, %22 ], [ %1, %12 ]
   %29 = icmp ugt i64 %.sroa.0.0, %.sroa.07.0
   br i1 %29, label %32, label %30, !prof !22
 
@@ -8885,7 +8885,7 @@ common.resume:                                    ; preds = %65, %98, %77, %86, 
   call void @_ZN9ty_server6server8schedule6thread4pool4Pool5spawn17h488a6d1882f63e8bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %59, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   br label %60
 
-60:                                               ; preds = %55, %56, %58
+60:                                               ; preds = %58, %56, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %61
 

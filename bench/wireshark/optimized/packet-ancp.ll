@@ -770,7 +770,7 @@ define internal fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %12, %54, %47, %40
-  %.1 = phi i32 [ %60, %54 ], [ %53, %47 ], [ %46, %40 ], [ %11, %12 ], [ %38, %35 ]
+  %.1 = phi i32 [ %60, %54 ], [ %46, %40 ], [ %53, %47 ], [ %11, %12 ], [ %38, %35 ]
   ret i32 %.1
 }
 

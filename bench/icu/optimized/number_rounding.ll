@@ -2048,7 +2048,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   unreachable
 
 146:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %53, %135, %126, %116, %113, %13, %12, %11
-  %.048 = phi i32 [ %143, %135 ], [ %134, %126 ], [ %125, %116 ], [ %115, %113 ], [ %49, %53 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %25, %13 ], [ 0, %12 ], [ 0, %11 ]
+  %.048 = phi i32 [ 0, %11 ], [ 0, %12 ], [ %25, %13 ], [ %49, %53 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %115, %113 ], [ %125, %116 ], [ %134, %126 ], [ %143, %135 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !90
   %149 = icmp eq i32 %148, 0

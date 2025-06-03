@@ -340,10 +340,10 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %116, %6
-  %.tr149 = phi ptr [ %1, %6 ], [ %118, %116 ]
-  %.tr151 = phi i32 [ %3, %6 ], [ %.sroa.029.0, %116 ]
-  %.tr153 = phi i1 [ %5, %6 ], [ true, %116 ]
-  %42 = load i64, ptr %.tr149, align 8
+  %.tr150 = phi ptr [ %1, %6 ], [ %118, %116 ]
+  %.tr152 = phi i32 [ %3, %6 ], [ %.sroa.029.0, %116 ]
+  %.tr154 = phi i1 [ %5, %6 ], [ true, %116 ]
+  %42 = load i64, ptr %.tr150, align 8
   %43 = add i64 %42, -2
   %44 = icmp ult i64 %43, 7
   %45 = select i1 %44, i64 %43, i64 5
@@ -365,18 +365,18 @@ tailrecurse:                                      ; preds = %116, %6
   br i1 %48, label %92, label %96
 
 49:                                               ; preds = %tailrecurse
-  %50 = icmp eq i32 %.tr151, 0
+  %50 = icmp eq i32 %.tr152, 0
   br i1 %50, label %116, label %114
 
 51:                                               ; preds = %tailrecurse
-  %52 = zext i1 %.tr153 to i8
+  %52 = zext i1 %.tr154 to i8
   store i32 %2, ptr %41, align 4
   store i8 %52, ptr %40, align 1
   %53 = tail call { i8, i8 } @"_ZN84_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h795e78011ae8d3edE"(i8 0)
   %54 = extractvalue { i8, i8 } %53, 0
   %55 = extractvalue { i8, i8 } %53, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.tr150, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = shl i64 %58, 2
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9674684822d2a742E"(ptr nonnull sret([24 x i8]) align 8 %32, i8 %54, i8 %55, i64 %59)
@@ -396,33 +396,33 @@ tailrecurse:                                      ; preds = %116, %6
           to label %120 unwind label %.loopexit.split-lp
 
 66:                                               ; preds = %tailrecurse
-  %67 = zext i1 %.tr153 to i8
+  %67 = zext i1 %.tr154 to i8
   store i32 %2, ptr %41, align 4
   store i8 %67, ptr %40, align 1
-  %68 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %69 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork3new17h4732e8fb0936fbbeE()
   %70 = extractvalue { ptr, i32 } %69, 0
   %71 = extractvalue { ptr, i32 } %69, 1
-  %72 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %70, i32 %71, i32 %.tr151)
+  %72 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %70, i32 %71, i32 %.tr152)
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
   store ptr %73, ptr %37, align 8
   %75 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %74, ptr %75, align 8
   %76 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h64590c7b8061951aE"(ptr nonnull align 8 %68)
-          to label %162 unwind label %.loopexit.split-lp155
+          to label %162 unwind label %.loopexit.split-lp156
 
 77:                                               ; preds = %tailrecurse
-  %78 = zext i1 %.tr153 to i8
+  %78 = zext i1 %.tr154 to i8
   store i32 %2, ptr %41, align 4
   store i8 %78, ptr %40, align 1
   %79 = icmp eq i64 %42, 0
   br i1 %79, label %189, label %192
 
 80:                                               ; preds = %tailrecurse
-  %81 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.tr150, i64 16
   %84 = load i64, ptr %83, align 8
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9b6e4593eece7180E"(ptr nonnull sret([24 x i8]) align 8 %35, ptr align 1 %82, i64 %84)
   call void @"_ZN107_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$GT$4from17h298309863cfa35f3E"(ptr nonnull sret([24 x i8]) align 8 %10, ptr nonnull align 8 %35)
@@ -431,7 +431,7 @@ tailrecurse:                                      ; preds = %116, %6
   store i32 %2, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 0, ptr %86, align 8
-  call void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %34, ptr nonnull align 8 %33, i32 %.tr151)
+  call void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %34, ptr nonnull align 8 %33, i32 %.tr152)
   %87 = icmp eq i32 %4, 0
   br i1 %87, label %88, label %90
 
@@ -443,8 +443,8 @@ tailrecurse:                                      ; preds = %116, %6
   %91 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr nonnull align 8 %34)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
-"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit": ; preds = %tailrecurse, %239, %174, %176, %269, %267, %90, %88, %220, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111", %109
-  %.sroa.021.0 = phi i32 [ %219, %220 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" ], [ %113, %109 ], [ %242, %239 ], [ %89, %88 ], [ %91, %90 ], [ %175, %174 ], [ %177, %176 ], [ %268, %267 ], [ %270, %269 ], [ %2, %tailrecurse ]
+"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit": ; preds = %tailrecurse, %239, %269, %267, %174, %176, %90, %88, %220, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112", %109
+  %.sroa.021.0 = phi i32 [ %113, %109 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" ], [ %219, %220 ], [ %242, %239 ], [ %89, %88 ], [ %91, %90 ], [ %175, %174 ], [ %177, %176 ], [ %268, %267 ], [ %270, %269 ], [ %2, %tailrecurse ]
   ret i32 %.sroa.021.0
 
 92:                                               ; preds = %47
@@ -460,7 +460,7 @@ tailrecurse:                                      ; preds = %116, %6
 96:                                               ; preds = %47, %92
   %storemerge = phi i32 [ %95, %92 ], [ %4, %47 ]
   store i32 %storemerge, ptr %39, align 4
-  %.not = icmp eq i32 %.tr151, 0
+  %.not = icmp eq i32 %.tr152, 0
   br i1 %.not, label %107, label %97
 
 97:                                               ; preds = %96
@@ -472,12 +472,12 @@ tailrecurse:                                      ; preds = %116, %6
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr align 8 %0, ptr nonnull align 8 %7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
   store i32 %100, ptr %38, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %38)
   %104 = load i32, ptr %38, align 4
   %105 = call fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr align 8 %102, i32 %103, i32 %2, i32 %104, i1 zeroext true)
-  %106 = call i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr align 8 %0, i32 %.tr151, i32 %2)
+  %106 = call i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr align 8 %0, i32 %.tr152, i32 %2)
   br label %109
 
 107:                                              ; preds = %96
@@ -489,18 +489,18 @@ tailrecurse:                                      ; preds = %116, %6
   %110 = phi i32 [ %storemerge, %97 ], [ %.pre, %107 ]
   %.sroa.026.0 = phi i32 [ %106, %97 ], [ %2, %107 ]
   %.sroa.024.0 = phi i32 [ %105, %97 ], [ %108, %107 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = call fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr align 8 %112, i32 %.sroa.024.0, i32 %.sroa.026.0, i32 %110, i1 zeroext true)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
 114:                                              ; preds = %49
-  %115 = tail call i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr align 8 %0, i32 %.tr151, i32 %2)
+  %115 = tail call i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr align 8 %0, i32 %.tr152, i32 %2)
   br label %116
 
 116:                                              ; preds = %49, %114
   %.sroa.029.0 = phi i32 [ %115, %114 ], [ %2, %49 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %118 = load ptr, ptr %117, align 8
   br label %tailrecurse
 
@@ -517,7 +517,7 @@ tailrecurse:                                      ; preds = %116, %6
 119:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %32) #13
-          to label %.thread123 unwind label %160
+          to label %.thread124 unwind label %160
 
 120:                                              ; preds = %51
   %121 = extractvalue { ptr, i64 } %65, 0
@@ -553,8 +553,8 @@ tailrecurse:                                      ; preds = %116, %6
 
 135:                                              ; preds = %134
   %136 = load i32, ptr %29, align 4
-  %137 = invoke fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr align 8 %129, i32 %136, i32 %.tr151, i32 %4, i1 zeroext false)
-          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" unwind label %.loopexit.split-lp
+  %137 = invoke fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr align 8 %129, i32 %136, i32 %.tr152, i32 %4, i1 zeroext false)
+          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" unwind label %.loopexit.split-lp
 
 138:                                              ; preds = %134
   %139 = load i64, ptr %31, align 8
@@ -562,7 +562,7 @@ tailrecurse:                                      ; preds = %116, %6
   %141 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfe9a032ee027a402E"(ptr nonnull align 8 %32, i64 %139, i64 %140, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.9)
           to label %142 unwind label %.loopexit.split-lp
 
-"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111": ; preds = %151, %153, %135
+"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112": ; preds = %151, %153, %135
   %.sroa.021.1 = phi i32 [ %137, %135 ], [ %152, %151 ], [ %154, %153 ]
   call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %32)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
@@ -580,7 +580,7 @@ tailrecurse:                                      ; preds = %116, %6
   store i32 %145, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 0, ptr %148, align 8
-  invoke void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %26, ptr nonnull align 8 %25, i32 %.tr151)
+  invoke void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %26, ptr nonnull align 8 %25, i32 %.tr152)
           to label %149 unwind label %.loopexit.split-lp
 
 149:                                              ; preds = %146
@@ -589,11 +589,11 @@ tailrecurse:                                      ; preds = %116, %6
 
 151:                                              ; preds = %149
   %152 = invoke i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b045aee4E"(ptr align 8 %0, ptr nonnull align 8 %26)
-          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" unwind label %.loopexit.split-lp
+          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" unwind label %.loopexit.split-lp
 
 153:                                              ; preds = %149
   %154 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr align 8 %0, i32 %4, ptr nonnull align 8 %26)
-          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit111" unwind label %.loopexit.split-lp
+          to label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" unwind label %.loopexit.split-lp
 
 155:                                              ; preds = %130
   br i1 %131, label %.backedge.backedge, label %156
@@ -610,15 +610,15 @@ tailrecurse:                                      ; preds = %116, %6
   store i32 %158, ptr %29, align 4
   br label %.backedge.backedge
 
-160:                                              ; preds = %.thread138, %256, %246, %.thread126, %231, %188, %119
+160:                                              ; preds = %.thread139, %256, %246, %.thread127, %231, %188, %119
   %161 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
   unreachable
 
-.thread123:                                       ; preds = %.thread126, %.thread138, %246, %188, %119
-  %.pn106.pn = phi { ptr, i32 } [ %.pn106141, %.thread138 ], [ %247, %246 ], [ %lpad.phi158, %188 ], [ %lpad.phi, %119 ], [ %.pn130, %.thread126 ]
-  resume { ptr, i32 } %.pn106.pn
+.thread124:                                       ; preds = %.thread127, %.thread139, %246, %188, %119
+  %.pn108 = phi { ptr, i32 } [ %lpad.phi, %119 ], [ %lpad.phi159, %188 ], [ %.pn106142, %.thread139 ], [ %247, %246 ], [ %.pn131, %.thread127 ]
+  resume { ptr, i32 } %.pn108
 
 162:                                              ; preds = %66
   %163 = extractvalue { ptr, ptr } %76, 0
@@ -630,7 +630,7 @@ tailrecurse:                                      ; preds = %116, %6
 
 166:                                              ; preds = %185, %162
   %167 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbade2c951ff0bec0E"(ptr nonnull align 8 %36)
-          to label %168 unwind label %.loopexit154
+          to label %168 unwind label %.loopexit155
 
 168:                                              ; preds = %166
   %169 = icmp eq ptr %167, null
@@ -655,58 +655,58 @@ tailrecurse:                                      ; preds = %116, %6
   %180 = load i8, ptr %40, align 1
   %181 = trunc i8 %180 to i1
   %182 = invoke fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr nonnull align 8 %167, i32 %179, i32 0, i32 0, i1 zeroext %181)
-          to label %183 unwind label %.loopexit154
+          to label %183 unwind label %.loopexit155
 
 183:                                              ; preds = %178
   %184 = invoke { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_off17he70a55269beed5e0E"(ptr align 8 %0, i32 %182)
-          to label %185 unwind label %.loopexit154
+          to label %185 unwind label %.loopexit155
 
 185:                                              ; preds = %183
   %186 = extractvalue { ptr, i32 } %184, 0
   %187 = extractvalue { ptr, i32 } %184, 1
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %37, ptr align 4 %186, i32 %187, ptr align 8 %0)
-          to label %166 unwind label %.loopexit154
+          to label %166 unwind label %.loopexit155
 
-.loopexit154:                                     ; preds = %166, %178, %183, %185
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+.loopexit155:                                     ; preds = %166, %178, %183, %185
+  %lpad.loopexit157 = landingpad { ptr, i32 }
           cleanup
   br label %188
 
-.loopexit.split-lp155:                            ; preds = %66
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+.loopexit.split-lp156:                            ; preds = %66
+  %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %188
 
-188:                                              ; preds = %.loopexit.split-lp155, %.loopexit154
-  %lpad.phi158 = phi { ptr, i32 } [ %lpad.loopexit156, %.loopexit154 ], [ %lpad.loopexit.split-lp157, %.loopexit.split-lp155 ]
+188:                                              ; preds = %.loopexit.split-lp156, %.loopexit155
+  %lpad.phi159 = phi { ptr, i32 } [ %lpad.loopexit157, %.loopexit155 ], [ %lpad.loopexit.split-lp158, %.loopexit.split-lp156 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %37) #13
-          to label %.thread123 unwind label %160
+          to label %.thread124 unwind label %160
 
 189:                                              ; preds = %77
-  %190 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
-  %191 = tail call zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b37957caE(ptr nonnull align 8 %190, i1 zeroext %.tr153)
+  %190 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
+  %191 = tail call zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b37957caE(ptr nonnull align 8 %190, i1 zeroext %.tr154)
   br i1 %191, label %192, label %204
 
 192:                                              ; preds = %189, %77
   %193 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork3new17h4732e8fb0936fbbeE()
   %194 = extractvalue { ptr, i32 } %193, 0
   %195 = extractvalue { ptr, i32 } %193, 1
-  %196 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %194, i32 %195, i32 %.tr151)
+  %196 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %194, i32 %195, i32 %.tr152)
   %197 = extractvalue { ptr, i32 } %196, 0
   %198 = extractvalue { ptr, i32 } %196, 1
   store ptr %197, ptr %14, align 8
   %199 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %198, ptr %199, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.tr150, i64 16
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.tr150, i64 24
   %203 = load i64, ptr %202, align 8
   br i1 %79, label %248, label %250
 
 204:                                              ; preds = %189
-  %205 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %.tr150, i64 16
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.tr150, i64 24
   %208 = load i64, ptr %207, align 8
   %209 = getelementptr inbounds { i32, i32 }, ptr %206, i64 %208
   store i64 -9223372036854775808, ptr %23, align 8
@@ -733,7 +733,7 @@ tailrecurse:                                      ; preds = %116, %6
           to label %221 unwind label %246
 
 217:                                              ; preds = %214
-  invoke void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %21, ptr nonnull align 8 %22, i32 %.tr151)
+  invoke void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %21, ptr nonnull align 8 %22, i32 %.tr152)
           to label %218 unwind label %246
 
 218:                                              ; preds = %217
@@ -747,7 +747,7 @@ tailrecurse:                                      ; preds = %116, %6
 221:                                              ; preds = %215
   %222 = extractvalue { ptr, i32 } %216, 0
   %223 = extractvalue { ptr, i32 } %216, 1
-  %224 = invoke { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %222, i32 %223, i32 %.tr151)
+  %224 = invoke { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %222, i32 %223, i32 %.tr152)
           to label %225 unwind label %246
 
 225:                                              ; preds = %221
@@ -758,12 +758,12 @@ tailrecurse:                                      ; preds = %116, %6
   store i32 %227, ptr %228, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0e22db1ae438c8e4E"(ptr nonnull sret([32 x i8]) align 8 %19, ptr nonnull align 8 %18)
-          to label %229 unwind label %.thread135
+          to label %229 unwind label %.thread136
 
-.thread135:                                       ; preds = %236, %225
-  %lpad.thr_comm133 = landingpad { ptr, i32 }
+.thread136:                                       ; preds = %236, %225
+  %lpad.thr_comm134 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread126
+  br label %.thread127
 
 229:                                              ; preds = %225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
@@ -777,7 +777,7 @@ tailrecurse:                                      ; preds = %116, %6
   %232 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..rope..Rope$GT$$GT$17h26527fac0ea14897E"(ptr nonnull align 8 %17) #13
-          to label %.thread126 unwind label %160
+          to label %.thread127 unwind label %160
 
 233:                                              ; preds = %230
   %234 = load i64, ptr %16, align 8
@@ -786,7 +786,7 @@ tailrecurse:                                      ; preds = %116, %6
 
 236:                                              ; preds = %233
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..rope..Rope$GT$$GT$17h26527fac0ea14897E"(ptr nonnull align 8 %17)
-          to label %239 unwind label %.thread135
+          to label %239 unwind label %.thread136
 
 237:                                              ; preds = %233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
@@ -805,35 +805,35 @@ tailrecurse:                                      ; preds = %116, %6
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %20, ptr align 4 %244, i32 %245, ptr align 8 %0)
           to label %230 unwind label %231
 
-.thread126:                                       ; preds = %231, %.thread135
-  %.pn130 = phi { ptr, i32 } [ %lpad.thr_comm133, %.thread135 ], [ %232, %231 ]
+.thread127:                                       ; preds = %231, %.thread136
+  %.pn131 = phi { ptr, i32 } [ %lpad.thr_comm134, %.thread136 ], [ %232, %231 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %20) #13
-          to label %.thread123 unwind label %160
+          to label %.thread124 unwind label %160
 
 246:                                              ; preds = %221, %218, %217, %215, %214
   %247 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..rope..Rope$GT$$GT$17h67996f71216644f7E"(ptr nonnull align 8 %24) #13
-          to label %.thread123 unwind label %160
+          to label %.thread124 unwind label %160
 
 248:                                              ; preds = %192
   %249 = getelementptr inbounds { i32, i32 }, ptr %201, i64 %203
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h97a6181fa074e551E"(ptr nonnull sret([24 x i8]) align 8 %12, ptr %201, ptr %249)
-          to label %252 unwind label %.thread146
+          to label %252 unwind label %.thread147
 
 250:                                              ; preds = %192
   %251 = getelementptr inbounds { i8, i8 }, ptr %201, i64 %203
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he81caa02dc316a59E"(ptr nonnull sret([24 x i8]) align 8 %12, ptr %201, ptr %251)
-          to label %252 unwind label %.thread146
+          to label %252 unwind label %.thread147
 
-.thread146:                                       ; preds = %261, %252, %248, %250
-  %lpad.thr_comm144 = landingpad { ptr, i32 }
+.thread147:                                       ; preds = %261, %252, %248, %250
+  %lpad.thr_comm145 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread138
+  br label %.thread139
 
 252:                                              ; preds = %250, %248
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h803904928200c66eE"(ptr nonnull sret([32 x i8]) align 8 %13, ptr nonnull align 8 %12)
-          to label %253 unwind label %.thread146
+          to label %253 unwind label %.thread147
 
 253:                                              ; preds = %252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
@@ -847,7 +847,7 @@ tailrecurse:                                      ; preds = %116, %6
   %257 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..range..Range$GT$$GT$17hdb44a9d10a9c1a3bE"(ptr nonnull align 8 %11) #13
-          to label %.thread138 unwind label %160
+          to label %.thread139 unwind label %160
 
 258:                                              ; preds = %254
   %259 = and i24 %255, 1
@@ -856,7 +856,7 @@ tailrecurse:                                      ; preds = %116, %6
 
 261:                                              ; preds = %258
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$logos_codegen..graph..range..Range$GT$$GT$17hdb44a9d10a9c1a3bE"(ptr nonnull align 8 %11)
-          to label %263 unwind label %.thread146
+          to label %263 unwind label %.thread147
 
 262:                                              ; preds = %258
   %.sroa.3101.0.extract.shift = lshr i24 %255, 16
@@ -880,10 +880,10 @@ tailrecurse:                                      ; preds = %116, %6
   %270 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17h535a457d9c779e6bE"(ptr align 8 %0, i32 %4, ptr align 4 %264, i32 %265)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
-.thread138:                                       ; preds = %256, %.thread146
-  %.pn106141 = phi { ptr, i32 } [ %lpad.thr_comm144, %.thread146 ], [ %257, %256 ]
+.thread139:                                       ; preds = %256, %.thread147
+  %.pn106142 = phi { ptr, i32 } [ %lpad.thr_comm145, %.thread147 ], [ %257, %256 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %14) #13
-          to label %.thread123 unwind label %160
+          to label %.thread124 unwind label %160
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1890,7 +1890,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %43, label %.thread, label %.thread25
 
 44:                                               ; preds = %112, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %117, %115, %94, %.thread25, %51
-  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %117 ], [ %1, %115 ], [ %111, %94 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %112 ]
+  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %115 ], [ %1, %117 ], [ %111, %94 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %112 ]
   ret i32 %.sroa.0.0
 
 45:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18"
@@ -2683,11 +2683,11 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   tail call void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E"(ptr nonnull align 8 %2)
   br label %65
 
-.thread:                                          ; preds = %100, %66, %.thread47, %112
-  %.pn2530 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %67, %66 ], [ %.pn.pn50, %.thread47 ], [ %101, %100 ]
+.thread:                                          ; preds = %100, %.thread47, %66, %112
+  %.pn2530 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %.pn.pn50, %.thread47 ], [ %67, %66 ], [ %101, %100 ]
   resume { ptr, i32 } %.pn2530
 
-112:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread", %41, %46, %44, %37, %4, %.noexc
+112:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread", %46, %44, %37, %41, %4, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E"(ptr nonnull align 8 %2) #13
@@ -2779,7 +2779,7 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   br label %40
 
 40:                                               ; preds = %21, %28, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread"
-  %.merged = phi { ptr, i32 } [ %18, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread" ], [ %39, %28 ], [ %27, %21 ]
+  %.merged = phi { ptr, i32 } [ %18, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread" ], [ %27, %21 ], [ %39, %28 ]
   ret { ptr, i32 } %.merged
 }
 
@@ -3009,7 +3009,7 @@ default.unreachable:                              ; preds = %1
   br label %14
 
 14:                                               ; preds = %1, %8, %5
-  %.sroa.0.0 = phi i32 [ %13, %8 ], [ %7, %5 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i32 [ %7, %5 ], [ %13, %8 ], [ 0, %1 ]
   ret i32 %.sroa.0.0
 }
 

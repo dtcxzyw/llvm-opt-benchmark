@@ -1646,7 +1646,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i: ; preds = %35, %_Z
   unreachable
 
 41:                                               ; preds = %52, %26
-  %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %27, %26 ]
+  %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn.i
 
 42:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h6a2b241d8965508eE.exit.i"
@@ -2069,7 +2069,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h3f39fd6f00474501E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -2129,7 +2129,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -2803,20 +2803,20 @@ _ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable5alloc17h2160b52c3024b
   call void %37(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %12, ptr noundef nonnull align 1 %33, i32 noundef %31)
   %38 = load i32, ptr %12, align 8, !range !67, !noundef !4
   %trunc = trunc nuw i32 %38 to i1
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %40 = load ptr, ptr %39, align 8, !nonnull !4
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %42 = load i32, ptr %41, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %42 = load ptr, ptr %41, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %trunc, label %45, label %43
 
 43:                                               ; preds = %_ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable5alloc17h2160b52c3024bcd7E.exit
-  %44 = icmp eq i32 %42, 0
+  %44 = icmp eq i32 %40, 0
   br i1 %44, label %47, label %62
 
 45:                                               ; preds = %_ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable5alloc17h2160b52c3024bcd7E.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %46, align 8
+  store ptr %42, ptr %46, align 8
   br label %64
 
 47:                                               ; preds = %43
@@ -2865,7 +2865,7 @@ _ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable7dealloc17h9a63c6dda0a
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %63, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %42, ptr %.sroa.4.0..sroa_idx, align 8
+  store i32 %40, ptr %.sroa.4.0..sroa_idx, align 8
   br label %64
 
 64:                                               ; preds = %_ZN16wasmtime_runtime2gc9host_data22ExternRefHostDataTable7dealloc17h9a63c6dda0ade75cE.exit, %62, %45
@@ -3100,10 +3100,10 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17h602
   call void %25(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %3, i64 noundef %10, i64 noundef %spec.store.select, i64 noundef %18, i64 %20)
   %26 = load i8, ptr %8, align 8, !range !34, !noundef !4
   %trunc = trunc nuw i8 %26 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %28 = load ptr, ptr %27, align 8, !nonnull !4
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %30 = load i8, ptr %29, align 1, !range !34
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %28 = load i8, ptr %27, align 1, !range !34
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc, label %38, label %36
 
@@ -3120,12 +3120,12 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17h602
   br i1 %or.cond56, label %46, label %.thread58
 
 36:                                               ; preds = %22
-  %37 = trunc nuw i8 %30 to i1
+  %37 = trunc nuw i8 %28 to i1
   br i1 %37, label %.thread, label %40
 
 38:                                               ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %28, ptr %39, align 8
+  store ptr %30, ptr %39, align 8
   store i64 2, ptr %0, align 8
   br label %21
 
@@ -3251,10 +3251,10 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17hef0
   call void %23(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %3, i64 noundef %10, i64 noundef %spec.store.select, i64 noundef 1, i64 %18)
   %24 = load i8, ptr %8, align 8, !range !34, !noundef !4
   %trunc = trunc nuw i8 %24 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !4
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %28 = load i8, ptr %27, align 1, !range !34
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %26 = load i8, ptr %25, align 1, !range !34
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %28 = load ptr, ptr %27, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc, label %34, label %32
 
@@ -3267,12 +3267,12 @@ define hidden void @_ZN16wasmtime_runtime6memory19RuntimeLinearMemory4grow17hef0
   br i1 %31, label %50, label %37
 
 32:                                               ; preds = %20
-  %33 = trunc nuw i8 %28 to i1
+  %33 = trunc nuw i8 %26 to i1
   br i1 %33, label %.thread, label %36
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %35, align 8
+  store ptr %28, ptr %35, align 8
   store i64 2, ptr %0, align 8
   br label %19
 
@@ -5100,8 +5100,8 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
 
 265:                                              ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
   %.pn = phi { i1, i8 } [ { i1 false, i8 poison }, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ { i1 true, i8 poison }, %5 ], [ { i1 true, i8 poison }, %25 ]
-  %.sroa.4.0.ph.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
-  %.merged = insertvalue { i1, i8 } %.pn, i8 %.sroa.4.0.ph.pn, 1
+  %.0.i.i.i.i.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
+  %.merged = insertvalue { i1, i8 } %.pn, i8 %.0.i.i.i.i.pn, 1
   ret { i1, i8 } %.merged
 }
 
@@ -5870,8 +5870,8 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit
 
 265:                                              ; preds = %25, %5, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit"
   %.pn = phi { i1, i8 } [ { i1 false, i8 poison }, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ { i1 true, i8 poison }, %5 ], [ { i1 true, i8 poison }, %25 ]
-  %.sroa.4.0.ph.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
-  %.merged = insertvalue { i1, i8 } %.pn, i8 %.sroa.4.0.ph.pn, 1
+  %.0.i.i.i.i.pn = phi i8 [ %.0.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h716610226d9e5be0E.exit" ], [ 2, %5 ], [ 1, %25 ]
+  %.merged = insertvalue { i1, i8 } %.pn, i8 %.0.i.i.i.i.pn, 1
   ret { i1, i8 } %.merged
 }
 

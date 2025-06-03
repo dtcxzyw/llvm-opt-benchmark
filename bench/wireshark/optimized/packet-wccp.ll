@@ -1037,22 +1037,22 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %122
 
 122:                                              ; preds = %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %.lr.ph.i
-  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_assignment_map, %119 ], [ @ett_address_table, %118 ], [ @ett_alt_assignment_map, %117 ], [ @ett_alt_assignment_info, %116 ], [ @ett_capabilities_info, %115 ], [ @ett_query_info, %114 ], [ @ett_router_assignment_info, %113 ], [ @ett_wc_view_info, %112 ], [ @ett_router_view_info, %111 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_identity_info, %109 ], [ @ett_service_info, %108 ], [ @ett_security_info, %.lr.ph.i ]
-  %.not.i = phi i1 [ true, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ false, %110 ], [ false, %109 ], [ false, %108 ], [ false, %.lr.ph.i ]
-  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
-  %.1205.i = phi i1 [ %.0204212.i, %121 ], [ %.0204212.i, %120 ], [ %.0204212.i, %119 ], [ %.0204212.i, %118 ], [ %.0204212.i, %117 ], [ %.0204212.i, %116 ], [ %.0204212.i, %115 ], [ %.0204212.i, %114 ], [ %.0204212.i, %113 ], [ %.0204212.i, %112 ], [ %.0204212.i, %111 ], [ %.0204212.i, %110 ], [ %.0204212.i, %109 ], [ %.0204212.i, %108 ], [ true, %.lr.ph.i ]
-  %.1203.i = phi i1 [ %.0202213.i, %121 ], [ %.0202213.i, %120 ], [ %.0202213.i, %119 ], [ %.0202213.i, %118 ], [ %.0202213.i, %117 ], [ %.0202213.i, %116 ], [ %.0202213.i, %115 ], [ %.0202213.i, %114 ], [ %.0202213.i, %113 ], [ %.0202213.i, %112 ], [ %.0202213.i, %111 ], [ %.0202213.i, %110 ], [ %.0202213.i, %109 ], [ true, %108 ], [ %.0202213.i, %.lr.ph.i ]
-  %.1201.i = phi i1 [ %.0200214.i, %121 ], [ %.0200214.i, %120 ], [ %.0200214.i, %119 ], [ %.0200214.i, %118 ], [ %.0200214.i, %117 ], [ %.0200214.i, %116 ], [ %.0200214.i, %115 ], [ %.0200214.i, %114 ], [ %.0200214.i, %113 ], [ %.0200214.i, %112 ], [ %.0200214.i, %111 ], [ %.0200214.i, %110 ], [ true, %109 ], [ %.0200214.i, %108 ], [ %.0200214.i, %.lr.ph.i ]
-  %.1199.i = phi i1 [ %.0198215.i, %121 ], [ %.0198215.i, %120 ], [ %.0198215.i, %119 ], [ %.0198215.i, %118 ], [ %.0198215.i, %117 ], [ %.0198215.i, %116 ], [ %.0198215.i, %115 ], [ %.0198215.i, %114 ], [ %.0198215.i, %113 ], [ %.0198215.i, %112 ], [ %.0198215.i, %111 ], [ true, %110 ], [ %.0198215.i, %109 ], [ %.0198215.i, %108 ], [ %.0198215.i, %.lr.ph.i ]
-  %.1197.i = phi i1 [ %.0196216.i, %121 ], [ %.0196216.i, %120 ], [ %.0196216.i, %119 ], [ %.0196216.i, %118 ], [ %.0196216.i, %117 ], [ %.0196216.i, %116 ], [ %.0196216.i, %115 ], [ %.0196216.i, %114 ], [ %.0196216.i, %113 ], [ %.0196216.i, %112 ], [ true, %111 ], [ %.0196216.i, %110 ], [ %.0196216.i, %109 ], [ %.0196216.i, %108 ], [ %.0196216.i, %.lr.ph.i ]
-  %.1195.i = phi i1 [ %.0194217.i, %121 ], [ %.0194217.i, %120 ], [ %.0194217.i, %119 ], [ %.0194217.i, %118 ], [ %.0194217.i, %117 ], [ %.0194217.i, %116 ], [ %.0194217.i, %115 ], [ %.0194217.i, %114 ], [ %.0194217.i, %113 ], [ true, %112 ], [ %.0194217.i, %111 ], [ %.0194217.i, %110 ], [ %.0194217.i, %109 ], [ %.0194217.i, %108 ], [ %.0194217.i, %.lr.ph.i ]
-  %.1193.i = phi i1 [ %.0192218.i, %121 ], [ %.0192218.i, %120 ], [ %.0192218.i, %119 ], [ %.0192218.i, %118 ], [ %.0192218.i, %117 ], [ %.0192218.i, %116 ], [ %.0192218.i, %115 ], [ %.0192218.i, %114 ], [ true, %113 ], [ %.0192218.i, %112 ], [ %.0192218.i, %111 ], [ %.0192218.i, %110 ], [ %.0192218.i, %109 ], [ %.0192218.i, %108 ], [ %.0192218.i, %.lr.ph.i ]
-  %.1191.i = phi i1 [ %.0190219.i, %121 ], [ %.0190219.i, %120 ], [ %.0190219.i, %119 ], [ %.0190219.i, %118 ], [ %.0190219.i, %117 ], [ %.0190219.i, %116 ], [ %.0190219.i, %115 ], [ true, %114 ], [ %.0190219.i, %113 ], [ %.0190219.i, %112 ], [ %.0190219.i, %111 ], [ %.0190219.i, %110 ], [ %.0190219.i, %109 ], [ %.0190219.i, %108 ], [ %.0190219.i, %.lr.ph.i ]
-  %.1189.i = phi i1 [ %.0188220.i, %121 ], [ %.0188220.i, %120 ], [ %.0188220.i, %119 ], [ %.0188220.i, %118 ], [ %.0188220.i, %117 ], [ %.0188220.i, %116 ], [ true, %115 ], [ %.0188220.i, %114 ], [ %.0188220.i, %113 ], [ %.0188220.i, %112 ], [ %.0188220.i, %111 ], [ %.0188220.i, %110 ], [ %.0188220.i, %109 ], [ %.0188220.i, %108 ], [ %.0188220.i, %.lr.ph.i ]
-  %.1187.i = phi i1 [ %.0186221.i, %121 ], [ %.0186221.i, %120 ], [ %.0186221.i, %119 ], [ %.0186221.i, %118 ], [ %.0186221.i, %117 ], [ true, %116 ], [ %.0186221.i, %115 ], [ %.0186221.i, %114 ], [ %.0186221.i, %113 ], [ %.0186221.i, %112 ], [ %.0186221.i, %111 ], [ %.0186221.i, %110 ], [ %.0186221.i, %109 ], [ %.0186221.i, %108 ], [ %.0186221.i, %.lr.ph.i ]
-  %.1185.i = phi i1 [ %.0184222.i, %121 ], [ %.0184222.i, %120 ], [ true, %119 ], [ %.0184222.i, %118 ], [ %.0184222.i, %117 ], [ %.0184222.i, %116 ], [ %.0184222.i, %115 ], [ %.0184222.i, %114 ], [ %.0184222.i, %113 ], [ %.0184222.i, %112 ], [ %.0184222.i, %111 ], [ %.0184222.i, %110 ], [ %.0184222.i, %109 ], [ %.0184222.i, %108 ], [ %.0184222.i, %.lr.ph.i ]
-  %.1183.i = phi i1 [ %.0182223.i, %121 ], [ true, %120 ], [ %.0182223.i, %119 ], [ %.0182223.i, %118 ], [ %.0182223.i, %117 ], [ %.0182223.i, %116 ], [ %.0182223.i, %115 ], [ %.0182223.i, %114 ], [ %.0182223.i, %113 ], [ %.0182223.i, %112 ], [ %.0182223.i, %111 ], [ %.0182223.i, %110 ], [ %.0182223.i, %109 ], [ %.0182223.i, %108 ], [ %.0182223.i, %.lr.ph.i ]
-  %.1.i = phi i1 [ %.0181224.i, %121 ], [ %.0181224.i, %120 ], [ %.0181224.i, %119 ], [ %.0181224.i, %118 ], [ true, %117 ], [ %.0181224.i, %116 ], [ %.0181224.i, %115 ], [ %.0181224.i, %114 ], [ %.0181224.i, %113 ], [ %.0181224.i, %112 ], [ %.0181224.i, %111 ], [ %.0181224.i, %110 ], [ %.0181224.i, %109 ], [ %.0181224.i, %108 ], [ %.0181224.i, %.lr.ph.i ]
+  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_service_info, %108 ], [ @ett_router_identity_info, %109 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_view_info, %111 ], [ @ett_wc_view_info, %112 ], [ @ett_router_assignment_info, %113 ], [ @ett_query_info, %114 ], [ @ett_capabilities_info, %115 ], [ @ett_alt_assignment_info, %116 ], [ @ett_alt_assignment_map, %117 ], [ @ett_address_table, %118 ], [ @ett_assignment_map, %119 ], [ @ett_command_extension, %120 ], [ @ett_security_info, %.lr.ph.i ]
+  %.not.i = phi i1 [ true, %121 ], [ false, %108 ], [ false, %109 ], [ false, %110 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %117 ], [ false, %118 ], [ false, %119 ], [ false, %120 ], [ false, %.lr.ph.i ]
+  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
+  %.1205.i = phi i1 [ %.0204212.i, %121 ], [ %.0204212.i, %108 ], [ %.0204212.i, %109 ], [ %.0204212.i, %110 ], [ %.0204212.i, %111 ], [ %.0204212.i, %112 ], [ %.0204212.i, %113 ], [ %.0204212.i, %114 ], [ %.0204212.i, %115 ], [ %.0204212.i, %116 ], [ %.0204212.i, %117 ], [ %.0204212.i, %118 ], [ %.0204212.i, %119 ], [ %.0204212.i, %120 ], [ true, %.lr.ph.i ]
+  %.1203.i = phi i1 [ %.0202213.i, %121 ], [ true, %108 ], [ %.0202213.i, %109 ], [ %.0202213.i, %110 ], [ %.0202213.i, %111 ], [ %.0202213.i, %112 ], [ %.0202213.i, %113 ], [ %.0202213.i, %114 ], [ %.0202213.i, %115 ], [ %.0202213.i, %116 ], [ %.0202213.i, %117 ], [ %.0202213.i, %118 ], [ %.0202213.i, %119 ], [ %.0202213.i, %120 ], [ %.0202213.i, %.lr.ph.i ]
+  %.1201.i = phi i1 [ %.0200214.i, %121 ], [ %.0200214.i, %108 ], [ true, %109 ], [ %.0200214.i, %110 ], [ %.0200214.i, %111 ], [ %.0200214.i, %112 ], [ %.0200214.i, %113 ], [ %.0200214.i, %114 ], [ %.0200214.i, %115 ], [ %.0200214.i, %116 ], [ %.0200214.i, %117 ], [ %.0200214.i, %118 ], [ %.0200214.i, %119 ], [ %.0200214.i, %120 ], [ %.0200214.i, %.lr.ph.i ]
+  %.1199.i = phi i1 [ %.0198215.i, %121 ], [ %.0198215.i, %108 ], [ %.0198215.i, %109 ], [ true, %110 ], [ %.0198215.i, %111 ], [ %.0198215.i, %112 ], [ %.0198215.i, %113 ], [ %.0198215.i, %114 ], [ %.0198215.i, %115 ], [ %.0198215.i, %116 ], [ %.0198215.i, %117 ], [ %.0198215.i, %118 ], [ %.0198215.i, %119 ], [ %.0198215.i, %120 ], [ %.0198215.i, %.lr.ph.i ]
+  %.1197.i = phi i1 [ %.0196216.i, %121 ], [ %.0196216.i, %108 ], [ %.0196216.i, %109 ], [ %.0196216.i, %110 ], [ true, %111 ], [ %.0196216.i, %112 ], [ %.0196216.i, %113 ], [ %.0196216.i, %114 ], [ %.0196216.i, %115 ], [ %.0196216.i, %116 ], [ %.0196216.i, %117 ], [ %.0196216.i, %118 ], [ %.0196216.i, %119 ], [ %.0196216.i, %120 ], [ %.0196216.i, %.lr.ph.i ]
+  %.1195.i = phi i1 [ %.0194217.i, %121 ], [ %.0194217.i, %108 ], [ %.0194217.i, %109 ], [ %.0194217.i, %110 ], [ %.0194217.i, %111 ], [ true, %112 ], [ %.0194217.i, %113 ], [ %.0194217.i, %114 ], [ %.0194217.i, %115 ], [ %.0194217.i, %116 ], [ %.0194217.i, %117 ], [ %.0194217.i, %118 ], [ %.0194217.i, %119 ], [ %.0194217.i, %120 ], [ %.0194217.i, %.lr.ph.i ]
+  %.1193.i = phi i1 [ %.0192218.i, %121 ], [ %.0192218.i, %108 ], [ %.0192218.i, %109 ], [ %.0192218.i, %110 ], [ %.0192218.i, %111 ], [ %.0192218.i, %112 ], [ true, %113 ], [ %.0192218.i, %114 ], [ %.0192218.i, %115 ], [ %.0192218.i, %116 ], [ %.0192218.i, %117 ], [ %.0192218.i, %118 ], [ %.0192218.i, %119 ], [ %.0192218.i, %120 ], [ %.0192218.i, %.lr.ph.i ]
+  %.1191.i = phi i1 [ %.0190219.i, %121 ], [ %.0190219.i, %108 ], [ %.0190219.i, %109 ], [ %.0190219.i, %110 ], [ %.0190219.i, %111 ], [ %.0190219.i, %112 ], [ %.0190219.i, %113 ], [ true, %114 ], [ %.0190219.i, %115 ], [ %.0190219.i, %116 ], [ %.0190219.i, %117 ], [ %.0190219.i, %118 ], [ %.0190219.i, %119 ], [ %.0190219.i, %120 ], [ %.0190219.i, %.lr.ph.i ]
+  %.1189.i = phi i1 [ %.0188220.i, %121 ], [ %.0188220.i, %108 ], [ %.0188220.i, %109 ], [ %.0188220.i, %110 ], [ %.0188220.i, %111 ], [ %.0188220.i, %112 ], [ %.0188220.i, %113 ], [ %.0188220.i, %114 ], [ true, %115 ], [ %.0188220.i, %116 ], [ %.0188220.i, %117 ], [ %.0188220.i, %118 ], [ %.0188220.i, %119 ], [ %.0188220.i, %120 ], [ %.0188220.i, %.lr.ph.i ]
+  %.1187.i = phi i1 [ %.0186221.i, %121 ], [ %.0186221.i, %108 ], [ %.0186221.i, %109 ], [ %.0186221.i, %110 ], [ %.0186221.i, %111 ], [ %.0186221.i, %112 ], [ %.0186221.i, %113 ], [ %.0186221.i, %114 ], [ %.0186221.i, %115 ], [ true, %116 ], [ %.0186221.i, %117 ], [ %.0186221.i, %118 ], [ %.0186221.i, %119 ], [ %.0186221.i, %120 ], [ %.0186221.i, %.lr.ph.i ]
+  %.1185.i = phi i1 [ %.0184222.i, %121 ], [ %.0184222.i, %108 ], [ %.0184222.i, %109 ], [ %.0184222.i, %110 ], [ %.0184222.i, %111 ], [ %.0184222.i, %112 ], [ %.0184222.i, %113 ], [ %.0184222.i, %114 ], [ %.0184222.i, %115 ], [ %.0184222.i, %116 ], [ %.0184222.i, %117 ], [ %.0184222.i, %118 ], [ true, %119 ], [ %.0184222.i, %120 ], [ %.0184222.i, %.lr.ph.i ]
+  %.1183.i = phi i1 [ %.0182223.i, %121 ], [ %.0182223.i, %108 ], [ %.0182223.i, %109 ], [ %.0182223.i, %110 ], [ %.0182223.i, %111 ], [ %.0182223.i, %112 ], [ %.0182223.i, %113 ], [ %.0182223.i, %114 ], [ %.0182223.i, %115 ], [ %.0182223.i, %116 ], [ %.0182223.i, %117 ], [ %.0182223.i, %118 ], [ %.0182223.i, %119 ], [ true, %120 ], [ %.0182223.i, %.lr.ph.i ]
+  %.1.i = phi i1 [ %.0181224.i, %121 ], [ %.0181224.i, %108 ], [ %.0181224.i, %109 ], [ %.0181224.i, %110 ], [ %.0181224.i, %111 ], [ %.0181224.i, %112 ], [ %.0181224.i, %113 ], [ %.0181224.i, %114 ], [ %.0181224.i, %115 ], [ %.0181224.i, %116 ], [ true, %117 ], [ %.0181224.i, %118 ], [ %.0181224.i, %119 ], [ %.0181224.i, %120 ], [ %.0181224.i, %.lr.ph.i ]
   %.0207.i = load i32, ptr %.0207.in.i, align 4
   %123 = call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @info_type_vals, ptr noundef nonnull @.str.413)
   %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0225.i, i32 noundef -1, i32 noundef %.0207.i, ptr noundef nonnull %5, ptr noundef %123)
@@ -2717,7 +2717,7 @@ dissect_wccp2_hash_assignment_info.exit:          ; preds = %assignment_bucket_n
   br label %109
 
 109:                                              ; preds = %.thread, %._crit_edge, %32, %107, %105, %dissect_wccp2_hash_assignment_info.exit, %48, %9
-  %.0 = phi i32 [ %10, %9 ], [ %50, %48 ], [ %108, %107 ], [ %106, %105 ], [ %.0.i122, %dissect_wccp2_hash_assignment_info.exit ], [ 8, %32 ], [ %.1105.lcssa, %._crit_edge ], [ %31, %.thread ]
+  %.0 = phi i32 [ %10, %9 ], [ %50, %48 ], [ %.0.i122, %dissect_wccp2_hash_assignment_info.exit ], [ %106, %105 ], [ %108, %107 ], [ 8, %32 ], [ %.1105.lcssa, %._crit_edge ], [ %31, %.thread ]
   ret i32 %.0
 }
 
@@ -2781,7 +2781,7 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
   br label %39
 
 39:                                               ; preds = %29, %36, %33, %30, %8
-  %.052 = phi i32 [ %9, %8 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %18, %29 ]
+  %.052 = phi i32 [ %9, %8 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %18, %29 ]
   ret i32 %.052
 }
 
@@ -2881,7 +2881,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %64
 
 64:                                               ; preds = %61, %44, %43, %58, %57, %10
-  %.0101 = phi i16 [ %15, %61 ], [ 16, %58 ], [ 16, %57 ], [ 4, %44 ], [ 4, %43 ], [ %15, %10 ]
+  %.0101 = phi i16 [ %15, %61 ], [ 4, %44 ], [ 4, %43 ], [ 16, %58 ], [ 16, %57 ], [ %15, %10 ]
   %65 = and i32 %19, 65535
   %.not119 = icmp eq i32 %65, 0
   br i1 %.not119, label %._crit_edge, label %.lr.ph
@@ -2961,7 +2961,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %106
 
 106:                                              ; preds = %88, %93, %95, %99, %73, %78, %80, %84, %101
-  %.098 = phi ptr [ %105, %101 ], [ %90, %99 ], [ %90, %95 ], [ %90, %93 ], [ %90, %88 ], [ %75, %84 ], [ %75, %80 ], [ %75, %78 ], [ %75, %73 ]
+  %.098 = phi ptr [ %105, %101 ], [ %75, %84 ], [ %75, %80 ], [ %75, %78 ], [ %75, %73 ], [ %90, %99 ], [ %90, %95 ], [ %90, %93 ], [ %90, %88 ]
   br i1 %.not115, label %._crit_edge121, label %107
 
 ._crit_edge121:                                   ; preds = %106
@@ -3219,7 +3219,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %65
 
 65:                                               ; preds = %63, %61, %56, %51, %44, %40, %34, %29, %22, %15, %11
-  %.0 = phi ptr [ %16, %15 ], [ %64, %63 ], [ %45, %44 ], [ %52, %51 ], [ %60, %56 ], [ %62, %61 ], [ %23, %22 ], [ %30, %29 ], [ %39, %34 ], [ %41, %40 ], [ %12, %11 ]
+  %.0 = phi ptr [ %16, %15 ], [ %64, %63 ], [ %23, %22 ], [ %30, %29 ], [ %39, %34 ], [ %41, %40 ], [ %45, %44 ], [ %52, %51 ], [ %60, %56 ], [ %62, %61 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   ret ptr %.0
 }
@@ -3412,7 +3412,7 @@ dissect_wccp2_assignment_weight_and_status_element.exit.i: ; preds = %94, %92
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
 dissect_wccp2_extended_assignment_data_element.exit: ; preds = %41, %65, %68, %71, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, %dissect_wccp2_assignment_weight_and_status_element.exit.i
-  %.071.i = phi i32 [ %42, %41 ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.exit.i ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i ], [ %73, %71 ], [ %70, %68 ], [ %54, %65 ]
+  %.071.i = phi i32 [ %42, %41 ], [ %70, %68 ], [ %73, %71 ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.exit.i ], [ %54, %65 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %101
 
@@ -3420,7 +3420,7 @@ default.unreachable61:                            ; preds = %22
   unreachable
 
 101:                                              ; preds = %dissect_wccp2_extended_assignment_data_element.exit, %36, %34, %32, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.071.i, %dissect_wccp2_extended_assignment_data_element.exit ], [ %30, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0 = phi i32 [ %10, %9 ], [ %33, %32 ], [ %35, %34 ], [ %30, %36 ], [ %.071.i, %dissect_wccp2_extended_assignment_data_element.exit ]
   ret i32 %.0
 }
 
@@ -3922,7 +3922,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %76
 
 76:                                               ; preds = %13, %65, %71, %38, %44, %73, %56, %48, %29, %21, %7
-  %.0 = phi ptr [ %10, %7 ], [ %15, %13 ], [ %75, %73 ], [ %50, %48 ], [ %60, %56 ], [ %66, %65 ], [ %72, %71 ], [ %23, %21 ], [ %33, %29 ], [ %39, %38 ], [ %45, %44 ]
+  %.0 = phi ptr [ %10, %7 ], [ %15, %13 ], [ %75, %73 ], [ %23, %21 ], [ %33, %29 ], [ %39, %38 ], [ %45, %44 ], [ %50, %48 ], [ %60, %56 ], [ %66, %65 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   ret ptr %.0
 }
@@ -4246,10 +4246,10 @@ declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

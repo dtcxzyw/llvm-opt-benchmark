@@ -2046,7 +2046,7 @@ _ZNSt15__new_allocatorIhE8allocateEmPKv.exit:     ; preds = %38
   br label %42
 
 42:                                               ; preds = %_ZNSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit
-  %.1 = phi ptr [ %37, %_ZNSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EED2Ev.exit.thread ], [ %41, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit ]
+  %.1 = phi ptr [ %41, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit ], [ %37, %_ZNSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EED2Ev.exit.thread ]
   ret ptr %.1
 }
 

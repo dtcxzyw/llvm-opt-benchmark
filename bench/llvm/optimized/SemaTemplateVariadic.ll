@@ -580,7 +580,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   br label %171
 
 171:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %170, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %170, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !13
   %.val38.val.i.i.i.i.i.i = load i64, ptr %.053230, align 8
   %172 = and i64 %.val38.val.i.i.i.i.i.i, 6
@@ -633,7 +633,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   br label %200
 
 200:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !13
   %.val39.val.i.i.i.i.i.i = load i64, ptr %.053230, align 8
   %201 = and i64 %.val39.val.i.i.i.i.i.i, 6
@@ -846,7 +846,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   br label %288
 
 288:                                              ; preds = %286, %._crit_edge.i.i.i.i.i.i88
-  %.1.i.i.i.i.i.i93 = phi ptr [ %.029.lcssa.i.i.i.i.i.i89, %._crit_edge.i.i.i.i.i.i88 ], [ %287, %286 ]
+  %.1.i.i.i.i.i.i93 = phi ptr [ %287, %286 ], [ %.029.lcssa.i.i.i.i.i.i89, %._crit_edge.i.i.i.i.i.i88 ]
   %289 = getelementptr i8, ptr %.1.i.i.i.i.i.i93, i64 1
   %.1.val.i.i.i.i.i.i94 = load i8, ptr %289, align 1, !tbaa !36, !range !40, !noundef !41
   %290 = trunc nuw i8 %.1.val.i.i.i.i.i.i94 to i1
@@ -857,7 +857,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKN5clang20Template
   br label %293
 
 293:                                              ; preds = %291, %._crit_edge.i.i.i.i.i.i88
-  %.2.i.i.i.i.i.i91 = phi ptr [ %.029.lcssa.i.i.i.i.i.i89, %._crit_edge.i.i.i.i.i.i88 ], [ %292, %291 ]
+  %.2.i.i.i.i.i.i91 = phi ptr [ %292, %291 ], [ %.029.lcssa.i.i.i.i.i.i89, %._crit_edge.i.i.i.i.i.i88 ]
   %294 = getelementptr i8, ptr %.2.i.i.i.i.i.i91, i64 1
   %.2.val.i.i.i.i.i.i92 = load i8, ptr %294, align 1, !tbaa !36, !range !40, !noundef !41
   %295 = trunc nuw i8 %.2.val.i.i.i.i.i.i92 to i1
@@ -3863,7 +3863,7 @@ _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread: 
   br label %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i
 
 _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i: ; preds = %151, %143
-  %.1.i.i.i.i.i.i = phi ptr [ %148, %143 ], [ %159, %151 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %159, %151 ], [ %148, %143 ]
   %160 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 20
   %161 = load i32, ptr %160, align 4, !tbaa !148
   %.fr10.i.i.i = freeze i32 %161
@@ -8322,8 +8322,8 @@ _ZNK5clang4Type5getAsINS_29SubstTemplateTypeParmPackTypeEEEPKT_v.exit: ; preds =
   br label %48
 
 48:                                               ; preds = %47, %.thread97, %27, %.thread84
-  %.sroa.657.0 = phi i32 [ %.sroa.657.0.copyload61, %47 ], [ %.sroa.657.0.copyload, %27 ], [ %.sroa.657.0.copyload88, %.thread84 ], [ %.sroa.657.0.copyload59, %.thread97 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload66, %47 ], [ %.sroa.8.0.copyload, %27 ], [ %.sroa.8.0.copyload90, %.thread84 ], [ %.sroa.8.0.copyload64, %.thread97 ]
+  %.sroa.657.0 = phi i32 [ %.sroa.657.0.copyload, %27 ], [ %.sroa.657.0.copyload61, %47 ], [ %.sroa.657.0.copyload88, %.thread84 ], [ %.sroa.657.0.copyload59, %.thread97 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload, %27 ], [ %.sroa.8.0.copyload66, %47 ], [ %.sroa.8.0.copyload90, %.thread84 ], [ %.sroa.8.0.copyload64, %.thread97 ]
   %49 = zext i32 %.sroa.657.0 to i64
   %50 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.8.0, i64 %49
   %.not112 = icmp eq i32 %.sroa.657.0, 0
@@ -9065,7 +9065,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit: 
   br label %66
 
 66:                                               ; preds = %_ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14SourceLocationE.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit, %8, %6
-  %.sroa.016.0 = phi i64 [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit ], [ %35, %_ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14SourceLocationE.exit ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.016.0 = phi i64 [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit ], [ %7, %6 ], [ %9, %8 ], [ %35, %_ZN5clang22CXXScalarValueInitExprC2ENS_8QualTypeEPNS_14TypeSourceInfoENS_14SourceLocationE.exit ]
   ret i64 %.sroa.016.0
 }
 

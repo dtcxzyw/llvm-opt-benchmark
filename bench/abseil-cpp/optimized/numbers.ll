@@ -1651,21 +1651,21 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   br label %219
 
 219:                                              ; preds = %217, %_ZN4abslL10SplitToSixEd.exit
-  %.2 = phi ptr [ %.1139, %_ZN4abslL10SplitToSixEd.exit ], [ %160, %217 ]
+  %.2 = phi ptr [ %160, %217 ], [ %.1139, %_ZN4abslL10SplitToSixEd.exit ]
   %220 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   store i8 48, ptr %220, align 1, !tbaa !8
   %221 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %222
 
 222:                                              ; preds = %219, %_ZN4abslL10SplitToSixEd.exit
-  %.3 = phi ptr [ %.1139, %_ZN4abslL10SplitToSixEd.exit ], [ %221, %219 ]
+  %.3 = phi ptr [ %221, %219 ], [ %.1139, %_ZN4abslL10SplitToSixEd.exit ]
   %223 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   store i8 48, ptr %223, align 1, !tbaa !8
   %224 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %225
 
 225:                                              ; preds = %222, %_ZN4abslL10SplitToSixEd.exit
-  %.4 = phi ptr [ %.1139, %_ZN4abslL10SplitToSixEd.exit ], [ %224, %222 ]
+  %.4 = phi ptr [ %224, %222 ], [ %.1139, %_ZN4abslL10SplitToSixEd.exit ]
   %226 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   store i8 %.sroa.0.sroa.4.0.extract.trunc, ptr %226, align 1
   %.sroa.0.sroa.12.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.4, i64 3
@@ -1758,7 +1758,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   br label %265
 
 265:                                              ; preds = %161, %172, %184, %.loopexit201, %.loopexit202, %.loopexit203, %232, %251, %25, %13, %5
-  %.0 = phi i64 [ 3, %5 ], [ %17, %13 ], [ %29, %25 ], [ %264, %251 ], [ %235, %232 ], [ %216, %.loopexit203 ], [ %207, %.loopexit202 ], [ %197, %.loopexit201 ], [ %187, %184 ], [ %175, %172 ], [ %165, %161 ]
+  %.0 = phi i64 [ 3, %5 ], [ %17, %13 ], [ %29, %25 ], [ %264, %251 ], [ %165, %161 ], [ %175, %172 ], [ %187, %184 ], [ %197, %.loopexit201 ], [ %207, %.loopexit202 ], [ %216, %.loopexit203 ], [ %235, %232 ]
   ret i64 %.0
 }
 
@@ -3201,7 +3201,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %47, %46 ]
+  %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1, !tbaa !8
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
@@ -3215,7 +3215,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1, !tbaa !8
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58

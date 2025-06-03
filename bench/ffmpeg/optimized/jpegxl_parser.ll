@@ -3189,7 +3189,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 .loopexit:                                        ; preds = %68, %40, %1, %86, %28, %16
-  %.0 = phi i64 [ %92, %86 ], [ %39, %28 ], [ %27, %16 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
+  %.0 = phi i64 [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
   ret i64 %.0
 }
 
@@ -4235,7 +4235,7 @@ get_bitsz.exit.i.i:                               ; preds = %get_bitsz.exit.i.i,
   br label %531
 
 531:                                              ; preds = %.loopexit.i.i, %522, %518, %517, %513, %512, %508
-  %.024.i.i = phi i32 [ 3, %522 ], [ 3, %518 ], [ 2, %517 ], [ 2, %513 ], [ 1, %512 ], [ 1, %508 ], [ 2, %.loopexit.i.i ]
+  %.024.i.i = phi i32 [ 1, %512 ], [ 1, %508 ], [ 2, %517 ], [ 2, %513 ], [ 3, %522 ], [ 3, %518 ], [ 2, %.loopexit.i.i ]
   %532 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %533 = load ptr, ptr %369, align 8, !tbaa !81
   %534 = call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %532, i32 noundef %.024.i.i, i32 noundef %469, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 12, ptr noundef %533) #11
@@ -4245,7 +4245,7 @@ default.unreachable.i.i:                          ; preds = %502
   unreachable
 
 read_simple_vlc_prefix.exit.i:                    ; preds = %531, %503
-  %.0.i.i = phi i32 [ %534, %531 ], [ 0, %503 ]
+  %.0.i.i = phi i32 [ 0, %503 ], [ %534, %531 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   br label %read_vlc_prefix.exit

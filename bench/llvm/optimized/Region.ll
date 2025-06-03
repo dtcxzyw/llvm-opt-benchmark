@@ -197,9 +197,9 @@ define dso_local void @_ZN4llvm9sandboxir10ScoreBoard6removeEPNS0_11InstructionE
   br i1 %28, label %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit, label %.lr.ph.i.i.i.i.i.i, !prof !41, !llvm.loop !42
 
 _ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit: ; preds = %22, %9
-  %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %16, %9 ], [ %25, %22 ]
+  %.pn.i.i = phi i64 [ %16, %9 ], [ %25, %22 ]
   %29 = zext i32 %7 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %29
+  %.not = icmp samesign eq i64 %.pn.i.i, %29
   br i1 %.not, label %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit.thread, label %30
 
 30:                                               ; preds = %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit
@@ -477,9 +477,9 @@ define dso_local void @_ZN4llvm9sandboxir6Region6removeEPNS0_11InstructionE(ptr 
   br i1 %30, label %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !41, !llvm.loop !42
 
 _ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit.i: ; preds = %24, %11
-  %.lcssa.i.i.i.i.pn.i.i.i = phi i64 [ %18, %11 ], [ %27, %24 ]
+  %.pn.i.i.i = phi i64 [ %18, %11 ], [ %27, %24 ]
   %31 = zext i32 %9 to i64
-  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i, %31
+  %.not.i = icmp samesign eq i64 %.pn.i.i.i, %31
   br i1 %.not.i, label %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit.thread.i, label %32
 
 32:                                               ; preds = %_ZNK4llvm9sandboxir6Region8containsEPNS0_11InstructionE.exit.i
@@ -656,8 +656,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_9sandboxir
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge._crit_edge.i.i.i.i
-  %71 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %66, %68 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %69, %68 ]
+  %71 = phi ptr [ %66, %68 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %72 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !37
   %73 = icmp eq ptr %72, %71
   br i1 %73, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit, label %74
@@ -667,8 +667,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_9sandboxir
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge._crit_edge52.i.i.i.i
-  %77 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %71, %74 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %75, %74 ]
+  %77 = phi ptr [ %71, %74 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %75, %74 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %78 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !37
   %79 = icmp eq ptr %78, %77
   br i1 %79, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_9sandboxir11InstructionELj0EEES4_EEDaOT_RKT0_.exit, label %80

@@ -1005,7 +1005,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   ]
 
 .backedge:                                        ; preds = %1, %1, %1, %1, %1, %1, %15, %9
-  %.03.be = phi ptr [ %16, %15 ], [ %.03, %9 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ]
+  %.03.be = phi ptr [ %.03, %9 ], [ %16, %15 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ], [ %.03, %1 ]
   br label %1, !llvm.loop !4
 
 3:                                                ; preds = %1
@@ -5852,8 +5852,8 @@ define internal i32 @test_keygen_with_empty_template(i32 noundef %0) #1 {
   br i1 %.not14, label %27, label %21
 
 21:                                               ; preds = %18, %7, %6
-  %.09 = phi ptr [ null, %6 ], [ %19, %18 ], [ %8, %7 ]
-  %.08 = phi ptr [ null, %6 ], [ %11, %18 ], [ null, %7 ]
+  %.09 = phi ptr [ null, %6 ], [ %8, %7 ], [ %19, %18 ]
+  %.08 = phi ptr [ null, %6 ], [ null, %7 ], [ %11, %18 ]
   %22 = tail call i32 @EVP_PKEY_keygen_init(ptr noundef %.09) #9
   %23 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.18, i32 noundef 4013, ptr noundef nonnull @.str.529, ptr noundef nonnull @.str.112, i32 noundef %22, i32 noundef 0) #9
   %.not16 = icmp eq i32 %23, 0
@@ -5867,9 +5867,9 @@ define internal i32 @test_keygen_with_empty_template(i32 noundef %0) #1 {
   br label %27
 
 27:                                               ; preds = %24, %21, %10, %13, %18, %7
-  %.110 = phi ptr [ %.09, %21 ], [ %19, %18 ], [ null, %13 ], [ null, %10 ], [ %8, %7 ], [ %.09, %24 ]
-  %.1 = phi ptr [ %.08, %21 ], [ %11, %18 ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ %.08, %24 ]
-  %.0 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ %spec.select, %24 ]
+  %.110 = phi ptr [ %.09, %21 ], [ %8, %7 ], [ %19, %18 ], [ null, %13 ], [ null, %10 ], [ %.09, %24 ]
+  %.1 = phi ptr [ %.08, %21 ], [ null, %7 ], [ %11, %18 ], [ %11, %13 ], [ %11, %10 ], [ %.08, %24 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %7 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ %spec.select, %24 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.110) #9
   %28 = load ptr, ptr %2, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %28) #9
@@ -8495,7 +8495,7 @@ define internal range(i32 0, 2) i32 @test_signatures_with_engine(i32 noundef %0)
   br label %67
 
 26:                                               ; preds = %23, %20, %17
-  %.027 = phi ptr [ %24, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.027 = phi ptr [ %19, %17 ], [ %22, %20 ], [ %24, %23 ]
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5795, ptr noundef nonnull @.str.144, ptr noundef %.027) #9
   %.not30 = icmp eq i32 %27, 0
   br i1 %.not30, label %67, label %28

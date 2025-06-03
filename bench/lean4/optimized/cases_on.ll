@@ -6457,7 +6457,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4lean4nameEN9__gnu_cxx
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.1 = phi ptr [ %37, %36 ], [ %.029.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.1, align 8, !tbaa !3
   %40 = load ptr, ptr %2, align 8, !tbaa !3
   %41 = tail call zeroext i8 @lean_name_eq(ptr noundef %39, ptr noundef %40)
@@ -6469,7 +6469,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4lean4nameEN9__gnu_cxx
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.2 = phi ptr [ %43, %42 ], [ %.029.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.2, align 8, !tbaa !3
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = tail call zeroext i8 @lean_name_eq(ptr noundef %45, ptr noundef %46)

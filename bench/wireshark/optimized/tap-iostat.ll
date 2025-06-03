@@ -2375,7 +2375,7 @@ magnitude.exit656:                                ; preds = %201, %204
   br label %213
 
 213:                                              ; preds = %magnitude.exit646, %magnitude.exit651, %211, %209, %magnitude.exit656, %magnitude.exit641
-  %.3565 = phi ptr [ %.0562690, %magnitude.exit656 ], [ %212, %211 ], [ %210, %209 ], [ %194, %magnitude.exit651 ], [ %169, %magnitude.exit646 ], [ %153, %magnitude.exit641 ]
+  %.3565 = phi ptr [ %.0562690, %magnitude.exit656 ], [ %210, %209 ], [ %212, %211 ], [ %169, %magnitude.exit646 ], [ %194, %magnitude.exit651 ], [ %153, %magnitude.exit641 ]
   %214 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv777, i32 1
   %215 = load i32, ptr %214, align 4
   %216 = add i32 %.0566689, 3

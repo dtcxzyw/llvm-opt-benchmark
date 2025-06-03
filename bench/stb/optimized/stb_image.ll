@@ -6382,9 +6382,9 @@ stbi__tga_get_comp.exit:                          ; preds = %243, %239
   br label %554
 
 251:                                              ; preds = %241, %239, %240, %248, %243, %244, %247
-  %252 = phi i1 [ false, %243 ], [ false, %244 ], [ true, %247 ], [ false, %248 ], [ false, %239 ], [ true, %240 ], [ false, %241 ]
-  %.not209 = phi i1 [ true, %243 ], [ true, %244 ], [ false, %247 ], [ true, %248 ], [ true, %239 ], [ false, %240 ], [ true, %241 ]
-  %.0194.ph.shrunk = phi i8 [ 1, %243 ], [ 2, %244 ], [ 3, %247 ], [ %249, %248 ], [ 1, %239 ], [ 3, %240 ], [ %242, %241 ]
+  %252 = phi i1 [ false, %248 ], [ true, %247 ], [ false, %244 ], [ false, %243 ], [ false, %241 ], [ true, %240 ], [ false, %239 ]
+  %.not209 = phi i1 [ true, %248 ], [ false, %247 ], [ true, %244 ], [ true, %243 ], [ true, %241 ], [ false, %240 ], [ true, %239 ]
+  %.0194.ph.shrunk = phi i8 [ %249, %248 ], [ 3, %247 ], [ 2, %244 ], [ 1, %243 ], [ %242, %241 ], [ 3, %240 ], [ 1, %239 ]
   %.0194.ph = zext nneg i8 %.0194.ph.shrunk to i32
   store i32 %160, ptr %1, align 4, !tbaa !23
   store i32 %161, ptr %2, align 4, !tbaa !23
@@ -9486,7 +9486,7 @@ define range(i32 0, 2) i32 @stbi__getn(ptr noundef captures(none) %0, ptr nounde
   br label %35
 
 35:                                               ; preds = %16, %.thread, %31
-  %.1 = phi i32 [ %25, %16 ], [ 1, %31 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 1, %31 ], [ %25, %16 ], [ 0, %.thread ]
   ret i32 %.1
 }
 
@@ -15112,7 +15112,7 @@ stbi__get8.exit177:                               ; preds = %388, %391, %stbi__r
   br label %stbi__skip.exit
 
 stbi__skip.exit:                                  ; preds = %77, %65, %.thread.i, %459, %442, %437, %.thread186, %469, %329, %328, %._crit_edge203, %._crit_edge208, %11, %9, %4
-  %.0112.shrunk = phi i1 [ false, %328 ], [ false, %329 ], [ false, %469 ], [ %318, %._crit_edge203 ], [ %125, %._crit_edge208 ], [ false, %9 ], [ true, %11 ], [ false, %4 ], [ false, %.thread186 ], [ true, %437 ], [ true, %442 ], [ true, %459 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
+  %.0112.shrunk = phi i1 [ false, %328 ], [ false, %329 ], [ false, %469 ], [ false, %4 ], [ false, %9 ], [ true, %11 ], [ %125, %._crit_edge208 ], [ %318, %._crit_edge203 ], [ false, %.thread186 ], [ true, %437 ], [ true, %442 ], [ true, %459 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
   %.0112 = zext i1 %.0112.shrunk to i32
   ret i32 %.0112
 }
@@ -23961,8 +23961,8 @@ stbi_zlib_decode_malloc_guesssize_headerflag.exit: ; preds = %527
   %625 = tail call i32 @stbi__get16be(ptr noundef %9)
   br label %62
 
-.thread384:                                       ; preds = %460, %95, %189, %234, %245, %251, %228, %222, %219, %186, %179, %.loopexit403, %115, %110, %98, %505, %511, %589, %507, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %542, %581, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %.thread374, %453, %454, %263, %258, %254, %410, %417, %414, %373, %368, %365, %361, %357, %450, %stbi__getn.exit.thread, %458, %445, %599, %594, %stbi__check_png_header.exit.thread, %stbi__check_png_header.exit
-  %.0 = phi i32 [ 1, %stbi__check_png_header.exit ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %581 ], [ 0, %542 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %507 ], [ 1, %589 ], [ 0, %511 ], [ 0, %505 ], [ 0, %.thread374 ], [ 1, %453 ], [ 1, %454 ], [ 0, %263 ], [ 0, %258 ], [ 0, %254 ], [ 0, %410 ], [ 1, %417 ], [ 0, %414 ], [ 0, %373 ], [ 0, %368 ], [ 1, %365 ], [ 0, %361 ], [ 0, %357 ], [ 0, %450 ], [ 0, %stbi__getn.exit.thread ], [ 0, %458 ], [ 0, %445 ], [ 0, %599 ], [ 0, %594 ], [ 0, %98 ], [ 0, %110 ], [ 0, %115 ], [ 0, %.loopexit403 ], [ 0, %179 ], [ 0, %186 ], [ 0, %219 ], [ 0, %222 ], [ 0, %228 ], [ 0, %251 ], [ 0, %245 ], [ 0, %234 ], [ 0, %189 ], [ 0, %95 ], [ 0, %460 ]
+.thread384:                                       ; preds = %460, %95, %189, %234, %245, %251, %228, %222, %219, %186, %179, %.loopexit403, %115, %110, %98, %505, %511, %589, %507, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %542, %581, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %.thread374, %453, %454, %450, %stbi__getn.exit.thread, %458, %445, %410, %417, %414, %373, %368, %365, %361, %357, %263, %258, %254, %599, %594, %stbi__check_png_header.exit.thread, %stbi__check_png_header.exit
+  %.0 = phi i32 [ 1, %stbi__check_png_header.exit ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %581 ], [ 0, %542 ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %507 ], [ 1, %589 ], [ 0, %511 ], [ 0, %505 ], [ 0, %.thread374 ], [ 1, %453 ], [ 1, %454 ], [ 0, %450 ], [ 0, %stbi__getn.exit.thread ], [ 0, %458 ], [ 0, %445 ], [ 0, %410 ], [ 1, %417 ], [ 0, %414 ], [ 0, %373 ], [ 0, %368 ], [ 1, %365 ], [ 0, %361 ], [ 0, %357 ], [ 0, %263 ], [ 0, %258 ], [ 0, %254 ], [ 0, %599 ], [ 0, %594 ], [ 0, %98 ], [ 0, %110 ], [ 0, %115 ], [ 0, %.loopexit403 ], [ 0, %179 ], [ 0, %186 ], [ 0, %219 ], [ 0, %222 ], [ 0, %228 ], [ 0, %251 ], [ 0, %245 ], [ 0, %234 ], [ 0, %189 ], [ 0, %95 ], [ 0, %460 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #37
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #37
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #37

@@ -11690,7 +11690,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZSt7ad
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEPN5clang4ExprEEKSB_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEPN5clang4ExprEEKSB_EEbT_RT0_.exit.i: ; preds = %35, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %37, %35 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %37, %35 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %38 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %40 = xor i64 %30, -1
@@ -11756,7 +11756,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i56: ; preds = %_ZSt7
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclIKSt4pairINS2_9StringRefEPN5clang4ExprEEPSB_EEbRT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclIKSt4pairINS2_9StringRefEPN5clang4ExprEEPSB_EEbRT_T0_.exit.i: ; preds = %56, %.thread.i.i.i.i.i.i.i65, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i56
-  %.1.i.i.i.i.i.i.i62 = phi i32 [ %spec.select.i.i.i.i.i.i.i61, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i56 ], [ %58, %56 ], [ 0, %.thread.i.i.i.i.i.i.i65 ]
+  %.1.i.i.i.i.i.i.i62 = phi i32 [ %58, %56 ], [ %spec.select.i.i.i.i.i.i.i61, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i56 ], [ 0, %.thread.i.i.i.i.i.i.i65 ]
   %59 = icmp slt i32 %.1.i.i.i.i.i.i.i62, 0
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %61 = xor i64 %51, -1
@@ -12269,7 +12269,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i103: ; preds = %_ZSt
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEPN5clang4ExprEEKSB_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEPN5clang4ExprEEKSB_EEbT_RT0_.exit.i: ; preds = %123, %.thread.i.i.i.i.i.i.i108, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i103
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i103 ], [ %125, %123 ], [ 0, %.thread.i.i.i.i.i.i.i108 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %125, %123 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i103 ], [ 0, %.thread.i.i.i.i.i.i.i108 ]
   %126 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   %127 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %128 = xor i64 %118, -1
@@ -12335,7 +12335,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i127: ; preds = %_ZSt
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclIKSt4pairINS2_9StringRefEPN5clang4ExprEEPSB_EEbRT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4llvm10less_firstEEclIKSt4pairINS2_9StringRefEPN5clang4ExprEEPSB_EEbRT_T0_.exit.i: ; preds = %144, %.thread.i.i.i.i.i.i.i136, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i127
-  %.1.i.i.i.i.i.i.i133 = phi i32 [ %spec.select.i.i.i.i.i.i.i132, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i127 ], [ %146, %144 ], [ 0, %.thread.i.i.i.i.i.i.i136 ]
+  %.1.i.i.i.i.i.i.i133 = phi i32 [ %146, %144 ], [ %spec.select.i.i.i.i.i.i.i132, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i127 ], [ 0, %.thread.i.i.i.i.i.i.i136 ]
   %147 = icmp slt i32 %.1.i.i.i.i.i.i.i133, 0
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %149 = xor i64 %139, -1

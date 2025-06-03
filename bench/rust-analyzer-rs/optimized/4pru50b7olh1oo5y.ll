@@ -89,8 +89,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %38
 
 38:                                               ; preds = %30, %25
-  %.sroa.6.2 = phi i64 [ %37, %30 ], [ %29, %25 ]
-  %.pn = phi i64 [ %34, %30 ], [ %26, %25 ]
+  %.sroa.6.2 = phi i64 [ %29, %25 ], [ %37, %30 ]
+  %.pn = phi i64 [ %26, %25 ], [ %34, %30 ]
   %.sroa.0.2 = getelementptr inbounds i8, ptr %.val, i64 %.pn
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %22
@@ -651,7 +651,7 @@ define noundef zeroext i1 @_ZN3vfs8vfs_path7VfsPath3pop17hebf7cd4f97b8f8bbE(ptr 
   br label %8
 
 8:                                                ; preds = %6, %4
-  %.0.in = phi i1 [ %7, %6 ], [ %5, %4 ]
+  %.0.in = phi i1 [ %5, %4 ], [ %7, %6 ]
   ret i1 %.0.in
 }
 
@@ -1287,7 +1287,7 @@ define noundef zeroext i1 @"_ZN61_$LT$vfs..vfs_path..VfsPath$u20$as$u20$core..fm
   br label %13
 
 13:                                               ; preds = %7, %4
-  %.0.in = phi i1 [ %12, %7 ], [ %6, %4 ]
+  %.0.in = phi i1 [ %6, %4 ], [ %12, %7 ]
   ret i1 %.0.in
 }
 
@@ -1316,7 +1316,7 @@ define noundef zeroext i1 @"_ZN59_$LT$vfs..vfs_path..VfsPath$u20$as$u20$core..fm
   br label %"_ZN63_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..fmt..Debug$GT$3fmt17ha8eeb3cce2c4253bE.exit"
 
 "_ZN63_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..fmt..Debug$GT$3fmt17ha8eeb3cce2c4253bE.exit": ; preds = %5, %8
-  %.0.in.i = phi i1 [ %13, %8 ], [ %7, %5 ]
+  %.0.in.i = phi i1 [ %7, %5 ], [ %13, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1344,7 +1344,7 @@ define noundef zeroext i1 @"_ZN63_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core
   br label %14
 
 14:                                               ; preds = %8, %5
-  %.0.in = phi i1 [ %13, %8 ], [ %7, %5 ]
+  %.0.in = phi i1 [ %7, %5 ], [ %13, %8 ]
   ret i1 %.0.in
 }
 

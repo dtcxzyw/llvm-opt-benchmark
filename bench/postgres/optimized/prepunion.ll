@@ -1121,7 +1121,7 @@ generate_setop_grouplist.exit124:                 ; preds = %.lr.ph8.i117, %list
   unreachable
 
 461:                                              ; preds = %452, %448
-  %.0124.i = phi i32 [ %456, %452 ], [ %451, %448 ]
+  %.0124.i = phi i32 [ %451, %448 ], [ %456, %452 ]
   br i1 %371, label %462, label %464
 
 462:                                              ; preds = %461

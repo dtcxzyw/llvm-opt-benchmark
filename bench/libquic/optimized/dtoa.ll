@@ -315,7 +315,7 @@ define noundef double @_ZN6dmg_fp6strtodEPKcPPc(ptr noundef %0, ptr noundef writ
   br label %112
 
 112:                                              ; preds = %111, %108
-  %113 = phi i1 [ true, %108 ], [ false, %111 ]
+  %113 = phi i1 [ false, %111 ], [ true, %108 ]
   %114 = getelementptr inbounds nuw i8, ptr %103, i64 2
   store ptr %114, ptr %9, align 8, !tbaa !6
   %115 = load i8, ptr %114, align 1, !tbaa !3
@@ -2390,7 +2390,7 @@ _ZN6dmg_fpL7bigcompEPNS_1UEPKcPNS_6BCinfoE.exit:  ; preds = %1029, %1033, %1041,
   br label %1058
 
 1058:                                             ; preds = %.loopexit637, %1052, %1056, %1053, %212, %150, %_ZN6dmg_fpL5matchEPPKcS1_.exit.thread, %180, %185, %365, %.loopexit, %237, %224, %217, %_ZN6dmg_fpL5matchEPPKcS1_.exit500
-  %.2354 = phi i32 [ %.1353, %217 ], [ %.1353, %224 ], [ %.1353, %.loopexit ], [ %.1353, %1053 ], [ %.1353, %1056 ], [ %.1353, %1052 ], [ %.1353, %365 ], [ %.1353, %237 ], [ %.1353, %212 ], [ %.1353, %150 ], [ 0, %_ZN6dmg_fpL5matchEPPKcS1_.exit.thread ], [ %.1353, %185 ], [ %.1353, %180 ], [ %.1353, %_ZN6dmg_fpL5matchEPPKcS1_.exit500 ], [ %.1353, %.loopexit637 ]
+  %.2354 = phi i32 [ %.1353, %217 ], [ %.1353, %224 ], [ %.1353, %.loopexit ], [ %.1353, %1053 ], [ %.1353, %1056 ], [ %.1353, %1052 ], [ %.1353, %365 ], [ %.1353, %237 ], [ %.1353, %212 ], [ %.1353, %150 ], [ 0, %_ZN6dmg_fpL5matchEPPKcS1_.exit.thread ], [ %.1353, %_ZN6dmg_fpL5matchEPPKcS1_.exit500 ], [ %.1353, %185 ], [ %.1353, %180 ], [ %.1353, %.loopexit637 ]
   %.not474 = icmp eq ptr %1, null
   br i1 %.not474, label %1061, label %1059
 
@@ -3999,7 +3999,7 @@ select.unfold:                                    ; preds = %143
   br label %166
 
 166:                                              ; preds = %165, %162
-  %.1431 = phi i32 [ 1, %162 ], [ 0, %165 ]
+  %.1431 = phi i32 [ 0, %165 ], [ 1, %162 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   br label %171
 
@@ -4007,7 +4007,7 @@ select.unfold:                                    ; preds = %143
   br label %168
 
 168:                                              ; preds = %167, %162
-  %.2432 = phi i32 [ 1, %162 ], [ 0, %167 ]
+  %.2432 = phi i32 [ 0, %167 ], [ 1, %162 ]
   %169 = add nsw i32 %.1438, %2
   %170 = add nsw i32 %169, 1
   %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %170, i32 1)
@@ -4017,11 +4017,11 @@ default.unreachable:                              ; preds = %162
   unreachable
 
 171:                                              ; preds = %168, %166
-  %.0461 = phi i32 [ %170, %168 ], [ %spec.store.select, %166 ]
-  %.1453 = phi i32 [ %spec.store.select4, %168 ], [ %spec.store.select, %166 ]
-  %.0451 = phi i32 [ %169, %168 ], [ %spec.store.select, %166 ]
-  %.0430 = phi i32 [ %.2432, %168 ], [ %.1431, %166 ]
-  %.0399 = phi i32 [ %2, %168 ], [ %spec.store.select, %166 ]
+  %.0461 = phi i32 [ %spec.store.select, %166 ], [ %170, %168 ]
+  %.1453 = phi i32 [ %spec.store.select, %166 ], [ %spec.store.select4, %168 ]
+  %.0451 = phi i32 [ %spec.store.select, %166 ], [ %169, %168 ]
+  %.0430 = phi i32 [ %.1431, %166 ], [ %.2432, %168 ]
+  %.0399 = phi i32 [ %spec.store.select, %166 ], [ %2, %168 ]
   %172 = zext nneg i32 %.1453 to i64
   %.not8.i = icmp samesign ult i32 %.1453, 28
   br i1 %.not8.i, label %._crit_edge.thread.i, label %.lr.ph.i571

@@ -139,7 +139,7 @@ define hidden void @"_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_
   br label %50
 
 50:                                               ; preds = %2, %2, %44, %38, %30, %22
-  %.sroa.0.0.shrunk = phi i1 [ %37, %30 ], [ %29, %22 ], [ %43, %38 ], [ %49, %44 ], [ false, %2 ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ %43, %38 ], [ %49, %44 ], [ %29, %22 ], [ %37, %30 ], [ false, %2 ], [ false, %2 ]
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h68bbca48c69d5c8cE"(i1 zeroext %.sroa.0.0.shrunk, ptr nonnull align 1 @anon.158eba16dc124256d975cac670ba47fe.5, i64 35, ptr nonnull align 8 @anon.158eba16dc124256d975cac670ba47fe.7)
   ret void
 }

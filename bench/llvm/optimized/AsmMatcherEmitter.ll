@@ -7851,7 +7851,7 @@ _ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit.i: ; preds = %_ZN4llvm
   br label %2892
 
 2892:                                             ; preds = %2890, %._crit_edge.i.i.i.i965
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i965 ], [ %2891, %2890 ]
+  %.1.i.i.i.i = phi ptr [ %2891, %2890 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i965 ]
   %.1.val.i.i.i.i = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !298, !range !52, !noundef !53
   %2893 = trunc nuw i8 %.1.val.i.i.i.i to i1
   br i1 %2893, label %"_ZSt7find_ifIPbZL14emitIsSubclassRN4llvm13CodeGenTargetERSt12forward_listIN12_GLOBAL__N_19ClassInfoESaIS6_EERNS1_11raw_ostreamEE3$_1ET_SD_SD_T0_.exit.i", label %2894
@@ -7861,7 +7861,7 @@ _ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit.i: ; preds = %_ZN4llvm
   br label %2896
 
 2896:                                             ; preds = %2894, %._crit_edge.i.i.i.i965
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i965 ], [ %2895, %2894 ]
+  %.2.i.i.i.i = phi ptr [ %2895, %2894 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i965 ]
   %.2.val.i.i.i.i = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !298, !range !52, !noundef !53
   %2897 = trunc nuw i8 %.2.val.i.i.i.i to i1
   br i1 %2897, label %"_ZSt7find_ifIPbZL14emitIsSubclassRN4llvm13CodeGenTargetERSt12forward_listIN12_GLOBAL__N_19ClassInfoESaIS6_EERNS1_11raw_ostreamEE3$_1ET_SD_SD_T0_.exit.i", label %2898
@@ -46208,10 +46208,10 @@ _ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i: ; 
   br label %355
 
 355:                                              ; preds = %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i, %324, %321, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i, %250, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i, %140
-  %.185.i = phi i64 [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ %.08429.i, %250 ], [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.08429.i, %140 ], [ %.0.i.i.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ %276, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ %.08429.i, %324 ], [ %.08429.i, %321 ], [ %.08429.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
-  %.279.i = phi i8 [ 1, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ 1, %250 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.07730.i, %140 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ %.683.i, %324 ], [ %.683.i, %321 ], [ %.07730.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
-  %.174.i = phi i8 [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ 0, %250 ], [ 1, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ 1, %140 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ 0, %324 ], [ 0, %321 ], [ 1, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
-  %.2.i = phi i64 [ %216, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ %251, %250 ], [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.032.i, %140 ], [ %333, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ %296, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ %.08429.i, %324 ], [ %.08429.i, %321 ], [ %.032.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
+  %.185.i = phi i64 [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ %.08429.i, %250 ], [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.08429.i, %140 ], [ %276, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ %.0.i.i.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ %.08429.i, %324 ], [ %.08429.i, %321 ], [ %.08429.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
+  %.279.i = phi i8 [ 1, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ 1, %250 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.07730.i, %140 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ %.683.i, %324 ], [ %.683.i, %321 ], [ %.07730.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
+  %.174.i = phi i8 [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ 0, %250 ], [ 1, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ 1, %140 ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ 0, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ 0, %324 ], [ 0, %321 ], [ 1, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
+  %.2.i = phi i64 [ %216, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit122.i ], [ %251, %250 ], [ %.08429.i, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit.i ], [ %.032.i, %140 ], [ %296, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit169.i ], [ %333, %_ZN12_GLOBAL__N_113MatchableInfo13addAsmOperandEN4llvm9StringRefEb.exit197.i ], [ %.08429.i, %324 ], [ %.08429.i, %321 ], [ %.032.i, %_ZNK4llvm9StringRef8containsEc.exit127.thread.i ]
   %356 = add i64 %.185.i, 1
   %.not.i51 = icmp eq i64 %356, %75
   br i1 %.not.i51, label %._crit_edge.i, label %128, !llvm.loop !963
@@ -54015,7 +54015,7 @@ _ZNK12_GLOBAL__N_113MatchableInfo13getResultInstEv.exit62.i: ; preds = %92, %_ZN
   br label %_ZNK12_GLOBAL__N_113MatchableInfo21shouldBeMatchedBeforeERKS0_b.exit
 
 _ZNK12_GLOBAL__N_113MatchableInfo21shouldBeMatchedBeforeERKS0_b.exit: ; preds = %.lr.ph.i, %31, %0, %12, %19, %_ZNK12_GLOBAL__N_113MatchableInfo13getResultInstEv.exit62.i, %99
-  %.1.i = phi i1 [ %4, %0 ], [ %13, %12 ], [ %20, %19 ], [ %98, %_ZNK12_GLOBAL__N_113MatchableInfo13getResultInstEv.exit62.i ], [ %104, %99 ], [ %30, %31 ], [ %30, %.lr.ph.i ]
+  %.1.i = phi i1 [ %13, %12 ], [ %20, %19 ], [ %98, %_ZNK12_GLOBAL__N_113MatchableInfo13getResultInstEv.exit62.i ], [ %4, %0 ], [ %104, %99 ], [ %30, %31 ], [ %30, %.lr.ph.i ]
   ret i1 %.1.i
 }
 
@@ -55376,7 +55376,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %9
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i: ; preds = %14, %.thread.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %16, %14 ], [ 0, %.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi i32 [ %16, %14 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ]
   %17 = icmp slt i32 %.1.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit
 
@@ -58115,9 +58115,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.ex
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73
-  %62 = phi i32 [ %.pre111, %._crit_edge._crit_edge ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %54, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ]
+  %62 = phi i32 [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ], [ %.pre111, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %54, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit45.thread73 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = load ptr, ptr %.1, align 8, !tbaa !834
   %65 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !836
@@ -58139,9 +58139,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.ex
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge112, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76
-  %73 = phi i32 [ %.pre115, %._crit_edge._crit_edge112 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ]
-  %74 = phi ptr [ %.pre113, %._crit_edge._crit_edge112 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge112 ], [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ]
+  %73 = phi i32 [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ], [ %.pre115, %._crit_edge._crit_edge112 ]
+  %74 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ], [ %.pre113, %._crit_edge._crit_edge112 ]
+  %.2 = phi ptr [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm16CachedHashStringEEclIPS3_EEbT_.exit49.thread76 ], [ %.029.lcssa, %._crit_edge._crit_edge112 ]
   %75 = load ptr, ptr %.2, align 8, !tbaa !834
   %76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !836
@@ -59001,9 +59001,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73
-  %62 = phi i64 [ %.pre111, %._crit_edge._crit_edge ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %54, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ]
+  %62 = phi i64 [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ], [ %.pre111, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %54, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit45.thread73 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = load ptr, ptr %.1, align 8, !tbaa !834
   %65 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !836
@@ -59025,9 +59025,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge112, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76
-  %73 = phi i64 [ %.pre115, %._crit_edge._crit_edge112 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ]
-  %74 = phi ptr [ %.pre113, %._crit_edge._crit_edge112 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge112 ], [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ]
+  %73 = phi i64 [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ], [ %.pre115, %._crit_edge._crit_edge112 ]
+  %74 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ], [ %.pre113, %._crit_edge._crit_edge112 ]
+  %.2 = phi ptr [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPKN4llvm16CachedHashStringEEEbT_.exit49.thread76 ], [ %.029.lcssa, %._crit_edge._crit_edge112 ]
   %75 = load ptr, ptr %.2, align 8, !tbaa !834
   %76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !836
@@ -61110,7 +61110,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   br label %32
 
 32:                                               ; preds = %.thread.i.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %31, %.thread.i.i.thread.i ]
+  %.1.i.i.i = phi i32 [ %31, %.thread.i.i.thread.i ], [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ]
   %33 = icmp slt i32 %.1.i.i.i, 0
   br label %.loopexit.i
 

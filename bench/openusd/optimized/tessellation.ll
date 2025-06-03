@@ -276,7 +276,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub17GetBoundaryCoordsIfEEiNS1_16ParameterizationEPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub17GetBoundaryCoordsIfEEiNS1_16ParameterizationEPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %.lr.ph.i, %104, %2, %.loopexit39, %.loopexit
-  %.0 = phi i32 [ %103, %.loopexit39 ], [ %61, %.loopexit ], [ -1, %2 ], [ 0, %104 ], [ %116, %.lr.ph.i ]
+  %.0 = phi i32 [ %61, %.loopexit ], [ %103, %.loopexit39 ], [ -1, %2 ], [ 0, %104 ], [ %116, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -664,7 +664,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub17GetBoundaryCoordsIdEEiNS1_16ParameterizationEPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub17GetBoundaryCoordsIdEEiNS1_16ParameterizationEPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %.lr.ph.i, %104, %2, %.loopexit39, %.loopexit
-  %.0 = phi i32 [ %103, %.loopexit39 ], [ %61, %.loopexit ], [ -1, %2 ], [ 0, %104 ], [ %116, %.lr.ph.i ]
+  %.0 = phi i32 [ %61, %.loopexit ], [ %103, %.loopexit39 ], [ -1, %2 ], [ 0, %104 ], [ %116, %.lr.ph.i ]
   ret i32 %.0
 }
 

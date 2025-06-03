@@ -1223,7 +1223,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
   ret void
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h60b630c8753717f9E.exit": ; preds = %34, %38, %59, %31
-  %.sroa.038.3 = phi i8 [ 1, %59 ], [ 0, %31 ], [ 0, %38 ], [ 0, %34 ]
+  %.sroa.038.3 = phi i8 [ 0, %31 ], [ 1, %59 ], [ 0, %38 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   invoke void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17he4a17b5b0bc4b900E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %2)
           to label %65 unwind label %63

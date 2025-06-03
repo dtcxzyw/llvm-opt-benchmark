@@ -1371,7 +1371,7 @@ _ZN6vectorISt5tupleIJPN3euf5enodeES3_bEELb0EjE9push_backEOS4_.exit.i.i: ; preds 
   unreachable
 
 96:                                               ; preds = %55, %88, %40
-  %.pn23 = phi { ptr, i32 } [ %41, %40 ], [ %89, %88 ], [ %56, %55 ]
+  %.pn23 = phi { ptr, i32 } [ %41, %40 ], [ %56, %55 ], [ %89, %88 ]
   call void @_ZN2lp11explanation8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #20
   br label %97
 

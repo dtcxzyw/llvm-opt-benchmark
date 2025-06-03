@@ -2343,8 +2343,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not248.i59, label %166, label %doSheng.exit65
 
 166:                                              ; preds = %156, %153
-  %.3211.i55 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %157, %156 ]
-  %167 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %162, %156 ]
+  %.3211.i55 = phi ptr [ %157, %156 ], [ %.0208.i20.lcssa, %153 ]
+  %167 = phi <16 x i8> [ %162, %156 ], [ %.0207.i21.lcssa.in, %153 ]
   %168 = getelementptr inbounds nuw i8, ptr %.3211.i55, i64 1
   %169 = load i8, ptr %.3211.i55, align 1
   %170 = zext i8 %169 to i64
@@ -2358,8 +2358,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not249.i57, label %177, label %doSheng.exit65
 
 177:                                              ; preds = %166, %153
-  %.4212.i50 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %168, %166 ]
-  %178 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %173, %166 ]
+  %.4212.i50 = phi ptr [ %168, %166 ], [ %.0208.i20.lcssa, %153 ]
+  %178 = phi <16 x i8> [ %173, %166 ], [ %.0207.i21.lcssa.in, %153 ]
   %179 = getelementptr inbounds nuw i8, ptr %.4212.i50, i64 1
   %180 = load i8, ptr %.4212.i50, align 1
   %181 = zext i8 %180 to i64
@@ -2373,8 +2373,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not250.i52, label %188, label %doSheng.exit65
 
 188:                                              ; preds = %177, %153
-  %.5213.i45 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %179, %177 ]
-  %189 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %184, %177 ]
+  %.5213.i45 = phi ptr [ %179, %177 ], [ %.0208.i20.lcssa, %153 ]
+  %189 = phi <16 x i8> [ %184, %177 ], [ %.0207.i21.lcssa.in, %153 ]
   %190 = getelementptr inbounds nuw i8, ptr %.5213.i45, i64 1
   %191 = load i8, ptr %.5213.i45, align 1
   %192 = zext i8 %191 to i64
@@ -2388,8 +2388,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not251.i47, label %199, label %doSheng.exit65
 
 199:                                              ; preds = %188, %153
-  %.6214.i40 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %190, %188 ]
-  %200 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %195, %188 ]
+  %.6214.i40 = phi ptr [ %190, %188 ], [ %.0208.i20.lcssa, %153 ]
+  %200 = phi <16 x i8> [ %195, %188 ], [ %.0207.i21.lcssa.in, %153 ]
   %201 = getelementptr inbounds nuw i8, ptr %.6214.i40, i64 1
   %202 = load i8, ptr %.6214.i40, align 1
   %203 = zext i8 %202 to i64
@@ -2403,8 +2403,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not252.i42, label %210, label %doSheng.exit65
 
 210:                                              ; preds = %199, %153
-  %.7215.i35 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %201, %199 ]
-  %211 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %206, %199 ]
+  %.7215.i35 = phi ptr [ %201, %199 ], [ %.0208.i20.lcssa, %153 ]
+  %211 = phi <16 x i8> [ %206, %199 ], [ %.0207.i21.lcssa.in, %153 ]
   %212 = getelementptr inbounds nuw i8, ptr %.7215.i35, i64 1
   %213 = load i8, ptr %.7215.i35, align 1
   %214 = zext i8 %213 to i64
@@ -2418,8 +2418,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   br i1 %.not253.i37, label %221, label %doSheng.exit65
 
 221:                                              ; preds = %210, %153
-  %.8.i30 = phi ptr [ %.0208.i20.lcssa, %153 ], [ %212, %210 ]
-  %222 = phi <16 x i8> [ %.0207.i21.lcssa.in, %153 ], [ %217, %210 ]
+  %.8.i30 = phi ptr [ %212, %210 ], [ %.0208.i20.lcssa, %153 ]
+  %222 = phi <16 x i8> [ %217, %210 ], [ %.0207.i21.lcssa.in, %153 ]
   %223 = getelementptr inbounds nuw i8, ptr %.8.i30, i64 1
   %224 = load i8, ptr %.8.i30, align 1
   %225 = zext i8 %224 to i64
@@ -2799,8 +2799,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not248.i, label %467, label %doSheng.exit
 
 467:                                              ; preds = %457, %454
-  %.3211.i = phi ptr [ %.0208.i.lcssa, %454 ], [ %458, %457 ]
-  %468 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %463, %457 ]
+  %.3211.i = phi ptr [ %458, %457 ], [ %.0208.i.lcssa, %454 ]
+  %468 = phi <16 x i8> [ %463, %457 ], [ %.0207.i.lcssa.in, %454 ]
   %469 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %470 = load i8, ptr %.3211.i, align 1
   %471 = zext i8 %470 to i64
@@ -2814,8 +2814,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not249.i, label %478, label %doSheng.exit
 
 478:                                              ; preds = %467, %454
-  %.4212.i = phi ptr [ %.0208.i.lcssa, %454 ], [ %469, %467 ]
-  %479 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %474, %467 ]
+  %.4212.i = phi ptr [ %469, %467 ], [ %.0208.i.lcssa, %454 ]
+  %479 = phi <16 x i8> [ %474, %467 ], [ %.0207.i.lcssa.in, %454 ]
   %480 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %481 = load i8, ptr %.4212.i, align 1
   %482 = zext i8 %481 to i64
@@ -2829,8 +2829,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not250.i, label %489, label %doSheng.exit
 
 489:                                              ; preds = %478, %454
-  %.5213.i = phi ptr [ %.0208.i.lcssa, %454 ], [ %480, %478 ]
-  %490 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %485, %478 ]
+  %.5213.i = phi ptr [ %480, %478 ], [ %.0208.i.lcssa, %454 ]
+  %490 = phi <16 x i8> [ %485, %478 ], [ %.0207.i.lcssa.in, %454 ]
   %491 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %492 = load i8, ptr %.5213.i, align 1
   %493 = zext i8 %492 to i64
@@ -2844,8 +2844,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not251.i, label %500, label %doSheng.exit
 
 500:                                              ; preds = %489, %454
-  %.6214.i = phi ptr [ %.0208.i.lcssa, %454 ], [ %491, %489 ]
-  %501 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %496, %489 ]
+  %.6214.i = phi ptr [ %491, %489 ], [ %.0208.i.lcssa, %454 ]
+  %501 = phi <16 x i8> [ %496, %489 ], [ %.0207.i.lcssa.in, %454 ]
   %502 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %503 = load i8, ptr %.6214.i, align 1
   %504 = zext i8 %503 to i64
@@ -2859,8 +2859,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not252.i, label %511, label %doSheng.exit
 
 511:                                              ; preds = %500, %454
-  %.7215.i = phi ptr [ %.0208.i.lcssa, %454 ], [ %502, %500 ]
-  %512 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %507, %500 ]
+  %.7215.i = phi ptr [ %502, %500 ], [ %.0208.i.lcssa, %454 ]
+  %512 = phi <16 x i8> [ %507, %500 ], [ %.0207.i.lcssa.in, %454 ]
   %513 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %514 = load i8, ptr %.7215.i, align 1
   %515 = zext i8 %514 to i64
@@ -2874,8 +2874,8 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
   br i1 %.not253.i, label %522, label %doSheng.exit
 
 522:                                              ; preds = %511, %454
-  %.8.i11 = phi ptr [ %.0208.i.lcssa, %454 ], [ %513, %511 ]
-  %523 = phi <16 x i8> [ %.0207.i.lcssa.in, %454 ], [ %518, %511 ]
+  %.8.i11 = phi ptr [ %513, %511 ], [ %.0208.i.lcssa, %454 ]
+  %523 = phi <16 x i8> [ %518, %511 ], [ %.0207.i.lcssa.in, %454 ]
   %524 = getelementptr inbounds nuw i8, ptr %.8.i11, i64 1
   %525 = load i8, ptr %.8.i11, align 1
   %526 = zext i8 %525 to i64
@@ -3280,8 +3280,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not248.i55, label %158, label %doSheng.exit61
 
 158:                                              ; preds = %148, %145
-  %.3211.i51 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %149, %148 ]
-  %159 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %154, %148 ]
+  %.3211.i51 = phi ptr [ %149, %148 ], [ %.0208.i16.lcssa, %145 ]
+  %159 = phi <16 x i8> [ %154, %148 ], [ %.0207.i17.lcssa.in, %145 ]
   %160 = getelementptr inbounds nuw i8, ptr %.3211.i51, i64 1
   %161 = load i8, ptr %.3211.i51, align 1
   %162 = zext i8 %161 to i64
@@ -3295,8 +3295,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not249.i53, label %169, label %doSheng.exit61
 
 169:                                              ; preds = %158, %145
-  %.4212.i46 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %160, %158 ]
-  %170 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %165, %158 ]
+  %.4212.i46 = phi ptr [ %160, %158 ], [ %.0208.i16.lcssa, %145 ]
+  %170 = phi <16 x i8> [ %165, %158 ], [ %.0207.i17.lcssa.in, %145 ]
   %171 = getelementptr inbounds nuw i8, ptr %.4212.i46, i64 1
   %172 = load i8, ptr %.4212.i46, align 1
   %173 = zext i8 %172 to i64
@@ -3310,8 +3310,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not250.i48, label %180, label %doSheng.exit61
 
 180:                                              ; preds = %169, %145
-  %.5213.i41 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %171, %169 ]
-  %181 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %176, %169 ]
+  %.5213.i41 = phi ptr [ %171, %169 ], [ %.0208.i16.lcssa, %145 ]
+  %181 = phi <16 x i8> [ %176, %169 ], [ %.0207.i17.lcssa.in, %145 ]
   %182 = getelementptr inbounds nuw i8, ptr %.5213.i41, i64 1
   %183 = load i8, ptr %.5213.i41, align 1
   %184 = zext i8 %183 to i64
@@ -3325,8 +3325,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not251.i43, label %191, label %doSheng.exit61
 
 191:                                              ; preds = %180, %145
-  %.6214.i36 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %182, %180 ]
-  %192 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %187, %180 ]
+  %.6214.i36 = phi ptr [ %182, %180 ], [ %.0208.i16.lcssa, %145 ]
+  %192 = phi <16 x i8> [ %187, %180 ], [ %.0207.i17.lcssa.in, %145 ]
   %193 = getelementptr inbounds nuw i8, ptr %.6214.i36, i64 1
   %194 = load i8, ptr %.6214.i36, align 1
   %195 = zext i8 %194 to i64
@@ -3340,8 +3340,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not252.i38, label %202, label %doSheng.exit61
 
 202:                                              ; preds = %191, %145
-  %.7215.i31 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %193, %191 ]
-  %203 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %198, %191 ]
+  %.7215.i31 = phi ptr [ %193, %191 ], [ %.0208.i16.lcssa, %145 ]
+  %203 = phi <16 x i8> [ %198, %191 ], [ %.0207.i17.lcssa.in, %145 ]
   %204 = getelementptr inbounds nuw i8, ptr %.7215.i31, i64 1
   %205 = load i8, ptr %.7215.i31, align 1
   %206 = zext i8 %205 to i64
@@ -3355,8 +3355,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   br i1 %.not253.i33, label %213, label %doSheng.exit61
 
 213:                                              ; preds = %202, %145
-  %.8.i26 = phi ptr [ %.0208.i16.lcssa, %145 ], [ %204, %202 ]
-  %214 = phi <16 x i8> [ %.0207.i17.lcssa.in, %145 ], [ %209, %202 ]
+  %.8.i26 = phi ptr [ %204, %202 ], [ %.0208.i16.lcssa, %145 ]
+  %214 = phi <16 x i8> [ %209, %202 ], [ %.0207.i17.lcssa.in, %145 ]
   %215 = getelementptr inbounds nuw i8, ptr %.8.i26, i64 1
   %216 = load i8, ptr %.8.i26, align 1
   %217 = zext i8 %216 to i64
@@ -3671,8 +3671,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not248.i, label %426, label %doSheng.exit
 
 426:                                              ; preds = %416, %413
-  %.3211.i = phi ptr [ %.0208.i.lcssa, %413 ], [ %417, %416 ]
-  %427 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %422, %416 ]
+  %.3211.i = phi ptr [ %417, %416 ], [ %.0208.i.lcssa, %413 ]
+  %427 = phi <16 x i8> [ %422, %416 ], [ %.0207.i.lcssa.in, %413 ]
   %428 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %429 = load i8, ptr %.3211.i, align 1
   %430 = zext i8 %429 to i64
@@ -3686,8 +3686,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not249.i, label %437, label %doSheng.exit
 
 437:                                              ; preds = %426, %413
-  %.4212.i = phi ptr [ %.0208.i.lcssa, %413 ], [ %428, %426 ]
-  %438 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %433, %426 ]
+  %.4212.i = phi ptr [ %428, %426 ], [ %.0208.i.lcssa, %413 ]
+  %438 = phi <16 x i8> [ %433, %426 ], [ %.0207.i.lcssa.in, %413 ]
   %439 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %440 = load i8, ptr %.4212.i, align 1
   %441 = zext i8 %440 to i64
@@ -3701,8 +3701,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not250.i, label %448, label %doSheng.exit
 
 448:                                              ; preds = %437, %413
-  %.5213.i = phi ptr [ %.0208.i.lcssa, %413 ], [ %439, %437 ]
-  %449 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %444, %437 ]
+  %.5213.i = phi ptr [ %439, %437 ], [ %.0208.i.lcssa, %413 ]
+  %449 = phi <16 x i8> [ %444, %437 ], [ %.0207.i.lcssa.in, %413 ]
   %450 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %451 = load i8, ptr %.5213.i, align 1
   %452 = zext i8 %451 to i64
@@ -3716,8 +3716,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not251.i, label %459, label %doSheng.exit
 
 459:                                              ; preds = %448, %413
-  %.6214.i = phi ptr [ %.0208.i.lcssa, %413 ], [ %450, %448 ]
-  %460 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %455, %448 ]
+  %.6214.i = phi ptr [ %450, %448 ], [ %.0208.i.lcssa, %413 ]
+  %460 = phi <16 x i8> [ %455, %448 ], [ %.0207.i.lcssa.in, %413 ]
   %461 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %462 = load i8, ptr %.6214.i, align 1
   %463 = zext i8 %462 to i64
@@ -3731,8 +3731,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not252.i, label %470, label %doSheng.exit
 
 470:                                              ; preds = %459, %413
-  %.7215.i = phi ptr [ %.0208.i.lcssa, %413 ], [ %461, %459 ]
-  %471 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %466, %459 ]
+  %.7215.i = phi ptr [ %461, %459 ], [ %.0208.i.lcssa, %413 ]
+  %471 = phi <16 x i8> [ %466, %459 ], [ %.0207.i.lcssa.in, %413 ]
   %472 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %473 = load i8, ptr %.7215.i, align 1
   %474 = zext i8 %473 to i64
@@ -3746,8 +3746,8 @@ doNormal8.exit71:                                 ; preds = %244, %240, %doSheng
   br i1 %.not253.i, label %481, label %doSheng.exit
 
 481:                                              ; preds = %470, %413
-  %.8.i10 = phi ptr [ %.0208.i.lcssa, %413 ], [ %472, %470 ]
-  %482 = phi <16 x i8> [ %.0207.i.lcssa.in, %413 ], [ %477, %470 ]
+  %.8.i10 = phi ptr [ %472, %470 ], [ %.0208.i.lcssa, %413 ]
+  %482 = phi <16 x i8> [ %477, %470 ], [ %.0207.i.lcssa.in, %413 ]
   %483 = getelementptr inbounds nuw i8, ptr %.8.i10, i64 1
   %484 = load i8, ptr %.8.i10, align 1
   %485 = zext i8 %484 to i64
@@ -4094,8 +4094,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not248.i54, label %156, label %doSheng.exit60
 
 156:                                              ; preds = %146, %143
-  %.3211.i50 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %147, %146 ]
-  %157 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %152, %146 ]
+  %.3211.i50 = phi ptr [ %147, %146 ], [ %.0208.i15.lcssa, %143 ]
+  %157 = phi <16 x i8> [ %152, %146 ], [ %.0207.i16.lcssa.in, %143 ]
   %158 = getelementptr inbounds nuw i8, ptr %.3211.i50, i64 1
   %159 = load i8, ptr %.3211.i50, align 1
   %160 = zext i8 %159 to i64
@@ -4109,8 +4109,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not249.i52, label %167, label %doSheng.exit60
 
 167:                                              ; preds = %156, %143
-  %.4212.i45 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %158, %156 ]
-  %168 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %163, %156 ]
+  %.4212.i45 = phi ptr [ %158, %156 ], [ %.0208.i15.lcssa, %143 ]
+  %168 = phi <16 x i8> [ %163, %156 ], [ %.0207.i16.lcssa.in, %143 ]
   %169 = getelementptr inbounds nuw i8, ptr %.4212.i45, i64 1
   %170 = load i8, ptr %.4212.i45, align 1
   %171 = zext i8 %170 to i64
@@ -4124,8 +4124,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not250.i47, label %178, label %doSheng.exit60
 
 178:                                              ; preds = %167, %143
-  %.5213.i40 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %169, %167 ]
-  %179 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %174, %167 ]
+  %.5213.i40 = phi ptr [ %169, %167 ], [ %.0208.i15.lcssa, %143 ]
+  %179 = phi <16 x i8> [ %174, %167 ], [ %.0207.i16.lcssa.in, %143 ]
   %180 = getelementptr inbounds nuw i8, ptr %.5213.i40, i64 1
   %181 = load i8, ptr %.5213.i40, align 1
   %182 = zext i8 %181 to i64
@@ -4139,8 +4139,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not251.i42, label %189, label %doSheng.exit60
 
 189:                                              ; preds = %178, %143
-  %.6214.i35 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %180, %178 ]
-  %190 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %185, %178 ]
+  %.6214.i35 = phi ptr [ %180, %178 ], [ %.0208.i15.lcssa, %143 ]
+  %190 = phi <16 x i8> [ %185, %178 ], [ %.0207.i16.lcssa.in, %143 ]
   %191 = getelementptr inbounds nuw i8, ptr %.6214.i35, i64 1
   %192 = load i8, ptr %.6214.i35, align 1
   %193 = zext i8 %192 to i64
@@ -4154,8 +4154,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not252.i37, label %200, label %doSheng.exit60
 
 200:                                              ; preds = %189, %143
-  %.7215.i30 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %191, %189 ]
-  %201 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %196, %189 ]
+  %.7215.i30 = phi ptr [ %191, %189 ], [ %.0208.i15.lcssa, %143 ]
+  %201 = phi <16 x i8> [ %196, %189 ], [ %.0207.i16.lcssa.in, %143 ]
   %202 = getelementptr inbounds nuw i8, ptr %.7215.i30, i64 1
   %203 = load i8, ptr %.7215.i30, align 1
   %204 = zext i8 %203 to i64
@@ -4169,8 +4169,8 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   br i1 %.not253.i32, label %211, label %doSheng.exit60
 
 211:                                              ; preds = %200, %143
-  %.8.i25 = phi ptr [ %.0208.i15.lcssa, %143 ], [ %202, %200 ]
-  %212 = phi <16 x i8> [ %.0207.i16.lcssa.in, %143 ], [ %207, %200 ]
+  %.8.i25 = phi ptr [ %202, %200 ], [ %.0208.i15.lcssa, %143 ]
+  %212 = phi <16 x i8> [ %207, %200 ], [ %.0207.i16.lcssa.in, %143 ]
   %213 = getelementptr inbounds nuw i8, ptr %.8.i25, i64 1
   %214 = load i8, ptr %.8.i25, align 1
   %215 = zext i8 %214 to i64
@@ -4473,8 +4473,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not248.i, label %420, label %doSheng.exit
 
 420:                                              ; preds = %410, %407
-  %.3211.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %411, %410 ]
-  %421 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %416, %410 ]
+  %.3211.i = phi ptr [ %411, %410 ], [ %.0208.i.lcssa, %407 ]
+  %421 = phi <16 x i8> [ %416, %410 ], [ %.0207.i.lcssa.in, %407 ]
   %422 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %423 = load i8, ptr %.3211.i, align 1
   %424 = zext i8 %423 to i64
@@ -4488,8 +4488,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not249.i, label %431, label %doSheng.exit
 
 431:                                              ; preds = %420, %407
-  %.4212.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %422, %420 ]
-  %432 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %427, %420 ]
+  %.4212.i = phi ptr [ %422, %420 ], [ %.0208.i.lcssa, %407 ]
+  %432 = phi <16 x i8> [ %427, %420 ], [ %.0207.i.lcssa.in, %407 ]
   %433 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %434 = load i8, ptr %.4212.i, align 1
   %435 = zext i8 %434 to i64
@@ -4503,8 +4503,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not250.i, label %442, label %doSheng.exit
 
 442:                                              ; preds = %431, %407
-  %.5213.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %433, %431 ]
-  %443 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %438, %431 ]
+  %.5213.i = phi ptr [ %433, %431 ], [ %.0208.i.lcssa, %407 ]
+  %443 = phi <16 x i8> [ %438, %431 ], [ %.0207.i.lcssa.in, %407 ]
   %444 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %445 = load i8, ptr %.5213.i, align 1
   %446 = zext i8 %445 to i64
@@ -4518,8 +4518,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not251.i, label %453, label %doSheng.exit
 
 453:                                              ; preds = %442, %407
-  %.6214.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %444, %442 ]
-  %454 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %449, %442 ]
+  %.6214.i = phi ptr [ %444, %442 ], [ %.0208.i.lcssa, %407 ]
+  %454 = phi <16 x i8> [ %449, %442 ], [ %.0207.i.lcssa.in, %407 ]
   %455 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %456 = load i8, ptr %.6214.i, align 1
   %457 = zext i8 %456 to i64
@@ -4533,8 +4533,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not252.i, label %464, label %doSheng.exit
 
 464:                                              ; preds = %453, %407
-  %.7215.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %455, %453 ]
-  %465 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %460, %453 ]
+  %.7215.i = phi ptr [ %455, %453 ], [ %.0208.i.lcssa, %407 ]
+  %465 = phi <16 x i8> [ %460, %453 ], [ %.0207.i.lcssa.in, %407 ]
   %466 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %467 = load i8, ptr %.7215.i, align 1
   %468 = zext i8 %467 to i64
@@ -4548,8 +4548,8 @@ doNormal8.exit70:                                 ; preds = %.lr.ph, %228, %doSh
   br i1 %.not253.i, label %475, label %doSheng.exit
 
 475:                                              ; preds = %464, %407
-  %.8.i = phi ptr [ %.0208.i.lcssa, %407 ], [ %466, %464 ]
-  %476 = phi <16 x i8> [ %.0207.i.lcssa.in, %407 ], [ %471, %464 ]
+  %.8.i = phi ptr [ %466, %464 ], [ %.0208.i.lcssa, %407 ]
+  %476 = phi <16 x i8> [ %471, %464 ], [ %.0207.i.lcssa.in, %407 ]
   %477 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   %478 = load i8, ptr %.8.i, align 1
   %479 = zext i8 %478 to i64
@@ -4916,8 +4916,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not248.i192.i, label %164, label %.thread
 
 164:                                              ; preds = %154, %151
-  %.3211.i188.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %155, %154 ]
-  %165 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %160, %154 ]
+  %.3211.i188.i = phi ptr [ %155, %154 ], [ %.0208.i153.i.lcssa, %151 ]
+  %165 = phi <16 x i8> [ %160, %154 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %166 = getelementptr inbounds nuw i8, ptr %.3211.i188.i, i64 1
   %167 = load i8, ptr %.3211.i188.i, align 1
   %168 = zext i8 %167 to i64
@@ -4931,8 +4931,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not249.i190.i, label %175, label %.thread
 
 175:                                              ; preds = %164, %151
-  %.4212.i183.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %166, %164 ]
-  %176 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %171, %164 ]
+  %.4212.i183.i = phi ptr [ %166, %164 ], [ %.0208.i153.i.lcssa, %151 ]
+  %176 = phi <16 x i8> [ %171, %164 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %177 = getelementptr inbounds nuw i8, ptr %.4212.i183.i, i64 1
   %178 = load i8, ptr %.4212.i183.i, align 1
   %179 = zext i8 %178 to i64
@@ -4946,8 +4946,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not250.i185.i, label %186, label %.thread
 
 186:                                              ; preds = %175, %151
-  %.5213.i178.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %177, %175 ]
-  %187 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %182, %175 ]
+  %.5213.i178.i = phi ptr [ %177, %175 ], [ %.0208.i153.i.lcssa, %151 ]
+  %187 = phi <16 x i8> [ %182, %175 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %188 = getelementptr inbounds nuw i8, ptr %.5213.i178.i, i64 1
   %189 = load i8, ptr %.5213.i178.i, align 1
   %190 = zext i8 %189 to i64
@@ -4961,8 +4961,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not251.i180.i, label %197, label %.thread
 
 197:                                              ; preds = %186, %151
-  %.6214.i173.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %188, %186 ]
-  %198 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %193, %186 ]
+  %.6214.i173.i = phi ptr [ %188, %186 ], [ %.0208.i153.i.lcssa, %151 ]
+  %198 = phi <16 x i8> [ %193, %186 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %199 = getelementptr inbounds nuw i8, ptr %.6214.i173.i, i64 1
   %200 = load i8, ptr %.6214.i173.i, align 1
   %201 = zext i8 %200 to i64
@@ -4976,8 +4976,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not252.i175.i, label %208, label %.thread
 
 208:                                              ; preds = %197, %151
-  %.7215.i168.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %199, %197 ]
-  %209 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %204, %197 ]
+  %.7215.i168.i = phi ptr [ %199, %197 ], [ %.0208.i153.i.lcssa, %151 ]
+  %209 = phi <16 x i8> [ %204, %197 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %210 = getelementptr inbounds nuw i8, ptr %.7215.i168.i, i64 1
   %211 = load i8, ptr %.7215.i168.i, align 1
   %212 = zext i8 %211 to i64
@@ -4991,8 +4991,8 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   br i1 %.not253.i170.i, label %219, label %.thread
 
 219:                                              ; preds = %208, %151
-  %.8.i163.i = phi ptr [ %.0208.i153.i.lcssa, %151 ], [ %210, %208 ]
-  %220 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %151 ], [ %215, %208 ]
+  %.8.i163.i = phi ptr [ %210, %208 ], [ %.0208.i153.i.lcssa, %151 ]
+  %220 = phi <16 x i8> [ %215, %208 ], [ %.0207.i154.i.lcssa.in, %151 ]
   %221 = getelementptr inbounds nuw i8, ptr %.8.i163.i, i64 1
   %222 = load i8, ptr %.8.i163.i, align 1
   %223 = zext i8 %222 to i64
@@ -5442,8 +5442,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not248.i.i, label %509, label %.thread93
 
 509:                                              ; preds = %499, %496
-  %.3211.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %500, %499 ]
-  %510 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %505, %499 ]
+  %.3211.i.i = phi ptr [ %500, %499 ], [ %.0208.i.i.lcssa, %496 ]
+  %510 = phi <16 x i8> [ %505, %499 ], [ %.0207.i.i.lcssa.in, %496 ]
   %511 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %512 = load i8, ptr %.3211.i.i, align 1
   %513 = zext i8 %512 to i64
@@ -5457,8 +5457,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not249.i.i, label %520, label %.thread93
 
 520:                                              ; preds = %509, %496
-  %.4212.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %511, %509 ]
-  %521 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %516, %509 ]
+  %.4212.i.i = phi ptr [ %511, %509 ], [ %.0208.i.i.lcssa, %496 ]
+  %521 = phi <16 x i8> [ %516, %509 ], [ %.0207.i.i.lcssa.in, %496 ]
   %522 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %523 = load i8, ptr %.4212.i.i, align 1
   %524 = zext i8 %523 to i64
@@ -5472,8 +5472,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not250.i.i, label %531, label %.thread93
 
 531:                                              ; preds = %520, %496
-  %.5213.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %522, %520 ]
-  %532 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %527, %520 ]
+  %.5213.i.i = phi ptr [ %522, %520 ], [ %.0208.i.i.lcssa, %496 ]
+  %532 = phi <16 x i8> [ %527, %520 ], [ %.0207.i.i.lcssa.in, %496 ]
   %533 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %534 = load i8, ptr %.5213.i.i, align 1
   %535 = zext i8 %534 to i64
@@ -5487,8 +5487,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not251.i.i, label %542, label %.thread93
 
 542:                                              ; preds = %531, %496
-  %.6214.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %533, %531 ]
-  %543 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %538, %531 ]
+  %.6214.i.i = phi ptr [ %533, %531 ], [ %.0208.i.i.lcssa, %496 ]
+  %543 = phi <16 x i8> [ %538, %531 ], [ %.0207.i.i.lcssa.in, %496 ]
   %544 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %545 = load i8, ptr %.6214.i.i, align 1
   %546 = zext i8 %545 to i64
@@ -5502,8 +5502,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not252.i.i, label %553, label %.thread93
 
 553:                                              ; preds = %542, %496
-  %.7215.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %544, %542 ]
-  %554 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %549, %542 ]
+  %.7215.i.i = phi ptr [ %544, %542 ], [ %.0208.i.i.lcssa, %496 ]
+  %554 = phi <16 x i8> [ %549, %542 ], [ %.0207.i.i.lcssa.in, %496 ]
   %555 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %556 = load i8, ptr %.7215.i.i, align 1
   %557 = zext i8 %556 to i64
@@ -5517,8 +5517,8 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not253.i.i, label %564, label %.thread93
 
 564:                                              ; preds = %553, %496
-  %.8.i.i = phi ptr [ %.0208.i.i.lcssa, %496 ], [ %555, %553 ]
-  %565 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %496 ], [ %560, %553 ]
+  %.8.i.i = phi ptr [ %555, %553 ], [ %.0208.i.i.lcssa, %496 ]
+  %565 = phi <16 x i8> [ %560, %553 ], [ %.0207.i.i.lcssa.in, %496 ]
   %566 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %567 = load i8, ptr %.8.i.i, align 1
   %568 = zext i8 %567 to i64
@@ -6008,8 +6008,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not248.i192.i, label %160, label %.thread
 
 160:                                              ; preds = %150, %147
-  %.3211.i188.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %151, %150 ]
-  %161 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %156, %150 ]
+  %.3211.i188.i = phi ptr [ %151, %150 ], [ %.0208.i153.i.lcssa, %147 ]
+  %161 = phi <16 x i8> [ %156, %150 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %162 = getelementptr inbounds nuw i8, ptr %.3211.i188.i, i64 1
   %163 = load i8, ptr %.3211.i188.i, align 1
   %164 = zext i8 %163 to i64
@@ -6023,8 +6023,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not249.i190.i, label %171, label %.thread
 
 171:                                              ; preds = %160, %147
-  %.4212.i183.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %162, %160 ]
-  %172 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %167, %160 ]
+  %.4212.i183.i = phi ptr [ %162, %160 ], [ %.0208.i153.i.lcssa, %147 ]
+  %172 = phi <16 x i8> [ %167, %160 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %173 = getelementptr inbounds nuw i8, ptr %.4212.i183.i, i64 1
   %174 = load i8, ptr %.4212.i183.i, align 1
   %175 = zext i8 %174 to i64
@@ -6038,8 +6038,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not250.i185.i, label %182, label %.thread
 
 182:                                              ; preds = %171, %147
-  %.5213.i178.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %173, %171 ]
-  %183 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %178, %171 ]
+  %.5213.i178.i = phi ptr [ %173, %171 ], [ %.0208.i153.i.lcssa, %147 ]
+  %183 = phi <16 x i8> [ %178, %171 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %184 = getelementptr inbounds nuw i8, ptr %.5213.i178.i, i64 1
   %185 = load i8, ptr %.5213.i178.i, align 1
   %186 = zext i8 %185 to i64
@@ -6053,8 +6053,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not251.i180.i, label %193, label %.thread
 
 193:                                              ; preds = %182, %147
-  %.6214.i173.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %184, %182 ]
-  %194 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %189, %182 ]
+  %.6214.i173.i = phi ptr [ %184, %182 ], [ %.0208.i153.i.lcssa, %147 ]
+  %194 = phi <16 x i8> [ %189, %182 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %195 = getelementptr inbounds nuw i8, ptr %.6214.i173.i, i64 1
   %196 = load i8, ptr %.6214.i173.i, align 1
   %197 = zext i8 %196 to i64
@@ -6068,8 +6068,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not252.i175.i, label %204, label %.thread
 
 204:                                              ; preds = %193, %147
-  %.7215.i168.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %195, %193 ]
-  %205 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %200, %193 ]
+  %.7215.i168.i = phi ptr [ %195, %193 ], [ %.0208.i153.i.lcssa, %147 ]
+  %205 = phi <16 x i8> [ %200, %193 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %206 = getelementptr inbounds nuw i8, ptr %.7215.i168.i, i64 1
   %207 = load i8, ptr %.7215.i168.i, align 1
   %208 = zext i8 %207 to i64
@@ -6083,8 +6083,8 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   br i1 %.not253.i170.i, label %215, label %.thread
 
 215:                                              ; preds = %204, %147
-  %.8.i163.i = phi ptr [ %.0208.i153.i.lcssa, %147 ], [ %206, %204 ]
-  %216 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %147 ], [ %211, %204 ]
+  %.8.i163.i = phi ptr [ %206, %204 ], [ %.0208.i153.i.lcssa, %147 ]
+  %216 = phi <16 x i8> [ %211, %204 ], [ %.0207.i154.i.lcssa.in, %147 ]
   %217 = getelementptr inbounds nuw i8, ptr %.8.i163.i, i64 1
   %218 = load i8, ptr %.8.i163.i, align 1
   %219 = zext i8 %218 to i64
@@ -6471,8 +6471,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not248.i.i, label %472, label %.thread42
 
 472:                                              ; preds = %462, %459
-  %.3211.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %463, %462 ]
-  %473 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %468, %462 ]
+  %.3211.i.i = phi ptr [ %463, %462 ], [ %.0208.i.i.lcssa, %459 ]
+  %473 = phi <16 x i8> [ %468, %462 ], [ %.0207.i.i.lcssa.in, %459 ]
   %474 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %475 = load i8, ptr %.3211.i.i, align 1
   %476 = zext i8 %475 to i64
@@ -6486,8 +6486,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not249.i.i, label %483, label %.thread42
 
 483:                                              ; preds = %472, %459
-  %.4212.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %474, %472 ]
-  %484 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %479, %472 ]
+  %.4212.i.i = phi ptr [ %474, %472 ], [ %.0208.i.i.lcssa, %459 ]
+  %484 = phi <16 x i8> [ %479, %472 ], [ %.0207.i.i.lcssa.in, %459 ]
   %485 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %486 = load i8, ptr %.4212.i.i, align 1
   %487 = zext i8 %486 to i64
@@ -6501,8 +6501,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not250.i.i, label %494, label %.thread42
 
 494:                                              ; preds = %483, %459
-  %.5213.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %485, %483 ]
-  %495 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %490, %483 ]
+  %.5213.i.i = phi ptr [ %485, %483 ], [ %.0208.i.i.lcssa, %459 ]
+  %495 = phi <16 x i8> [ %490, %483 ], [ %.0207.i.i.lcssa.in, %459 ]
   %496 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %497 = load i8, ptr %.5213.i.i, align 1
   %498 = zext i8 %497 to i64
@@ -6516,8 +6516,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not251.i.i, label %505, label %.thread42
 
 505:                                              ; preds = %494, %459
-  %.6214.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %496, %494 ]
-  %506 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %501, %494 ]
+  %.6214.i.i = phi ptr [ %496, %494 ], [ %.0208.i.i.lcssa, %459 ]
+  %506 = phi <16 x i8> [ %501, %494 ], [ %.0207.i.i.lcssa.in, %459 ]
   %507 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %508 = load i8, ptr %.6214.i.i, align 1
   %509 = zext i8 %508 to i64
@@ -6531,8 +6531,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not252.i.i, label %516, label %.thread42
 
 516:                                              ; preds = %505, %459
-  %.7215.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %507, %505 ]
-  %517 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %512, %505 ]
+  %.7215.i.i = phi ptr [ %507, %505 ], [ %.0208.i.i.lcssa, %459 ]
+  %517 = phi <16 x i8> [ %512, %505 ], [ %.0207.i.i.lcssa.in, %459 ]
   %518 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %519 = load i8, ptr %.7215.i.i, align 1
   %520 = zext i8 %519 to i64
@@ -6546,8 +6546,8 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
   br i1 %.not253.i.i, label %527, label %.thread42
 
 527:                                              ; preds = %516, %459
-  %.8.i.i = phi ptr [ %.0208.i.i.lcssa, %459 ], [ %518, %516 ]
-  %528 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %459 ], [ %523, %516 ]
+  %.8.i.i = phi ptr [ %518, %516 ], [ %.0208.i.i.lcssa, %459 ]
+  %528 = phi <16 x i8> [ %523, %516 ], [ %.0207.i.i.lcssa.in, %459 ]
   %529 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %530 = load i8, ptr %.8.i.i, align 1
   %531 = zext i8 %530 to i64
@@ -6974,8 +6974,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not248.i192.i, label %158, label %doSheng.exit198.i
 
 158:                                              ; preds = %148, %145
-  %.3211.i188.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %149, %148 ]
-  %159 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %154, %148 ]
+  %.3211.i188.i = phi ptr [ %149, %148 ], [ %.0208.i153.i.lcssa, %145 ]
+  %159 = phi <16 x i8> [ %154, %148 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %160 = getelementptr inbounds nuw i8, ptr %.3211.i188.i, i64 1
   %161 = load i8, ptr %.3211.i188.i, align 1
   %162 = zext i8 %161 to i64
@@ -6989,8 +6989,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not249.i190.i, label %169, label %doSheng.exit198.i
 
 169:                                              ; preds = %158, %145
-  %.4212.i183.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %160, %158 ]
-  %170 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %165, %158 ]
+  %.4212.i183.i = phi ptr [ %160, %158 ], [ %.0208.i153.i.lcssa, %145 ]
+  %170 = phi <16 x i8> [ %165, %158 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %171 = getelementptr inbounds nuw i8, ptr %.4212.i183.i, i64 1
   %172 = load i8, ptr %.4212.i183.i, align 1
   %173 = zext i8 %172 to i64
@@ -7004,8 +7004,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not250.i185.i, label %180, label %doSheng.exit198.i
 
 180:                                              ; preds = %169, %145
-  %.5213.i178.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %171, %169 ]
-  %181 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %176, %169 ]
+  %.5213.i178.i = phi ptr [ %171, %169 ], [ %.0208.i153.i.lcssa, %145 ]
+  %181 = phi <16 x i8> [ %176, %169 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %182 = getelementptr inbounds nuw i8, ptr %.5213.i178.i, i64 1
   %183 = load i8, ptr %.5213.i178.i, align 1
   %184 = zext i8 %183 to i64
@@ -7019,8 +7019,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not251.i180.i, label %191, label %doSheng.exit198.i
 
 191:                                              ; preds = %180, %145
-  %.6214.i173.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %182, %180 ]
-  %192 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %187, %180 ]
+  %.6214.i173.i = phi ptr [ %182, %180 ], [ %.0208.i153.i.lcssa, %145 ]
+  %192 = phi <16 x i8> [ %187, %180 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %193 = getelementptr inbounds nuw i8, ptr %.6214.i173.i, i64 1
   %194 = load i8, ptr %.6214.i173.i, align 1
   %195 = zext i8 %194 to i64
@@ -7034,8 +7034,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not252.i175.i, label %202, label %doSheng.exit198.i
 
 202:                                              ; preds = %191, %145
-  %.7215.i168.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %193, %191 ]
-  %203 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %198, %191 ]
+  %.7215.i168.i = phi ptr [ %193, %191 ], [ %.0208.i153.i.lcssa, %145 ]
+  %203 = phi <16 x i8> [ %198, %191 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %204 = getelementptr inbounds nuw i8, ptr %.7215.i168.i, i64 1
   %205 = load i8, ptr %.7215.i168.i, align 1
   %206 = zext i8 %205 to i64
@@ -7049,8 +7049,8 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   br i1 %.not253.i170.i, label %213, label %doSheng.exit198.i
 
 213:                                              ; preds = %202, %145
-  %.8.i163.i = phi ptr [ %.0208.i153.i.lcssa, %145 ], [ %204, %202 ]
-  %214 = phi <16 x i8> [ %.0207.i154.i.lcssa.in, %145 ], [ %209, %202 ]
+  %.8.i163.i = phi ptr [ %204, %202 ], [ %.0208.i153.i.lcssa, %145 ]
+  %214 = phi <16 x i8> [ %209, %202 ], [ %.0207.i154.i.lcssa.in, %145 ]
   %215 = getelementptr inbounds nuw i8, ptr %.8.i163.i, i64 1
   %216 = load i8, ptr %.8.i163.i, align 1
   %217 = zext i8 %216 to i64
@@ -7421,8 +7421,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not248.i.i, label %464, label %doSheng.exit.i
 
 464:                                              ; preds = %454, %451
-  %.3211.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %455, %454 ]
-  %465 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %460, %454 ]
+  %.3211.i.i = phi ptr [ %455, %454 ], [ %.0208.i.i.lcssa, %451 ]
+  %465 = phi <16 x i8> [ %460, %454 ], [ %.0207.i.i.lcssa.in, %451 ]
   %466 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %467 = load i8, ptr %.3211.i.i, align 1
   %468 = zext i8 %467 to i64
@@ -7436,8 +7436,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not249.i.i, label %475, label %doSheng.exit.i
 
 475:                                              ; preds = %464, %451
-  %.4212.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %466, %464 ]
-  %476 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %471, %464 ]
+  %.4212.i.i = phi ptr [ %466, %464 ], [ %.0208.i.i.lcssa, %451 ]
+  %476 = phi <16 x i8> [ %471, %464 ], [ %.0207.i.i.lcssa.in, %451 ]
   %477 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %478 = load i8, ptr %.4212.i.i, align 1
   %479 = zext i8 %478 to i64
@@ -7451,8 +7451,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not250.i.i, label %486, label %doSheng.exit.i
 
 486:                                              ; preds = %475, %451
-  %.5213.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %477, %475 ]
-  %487 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %482, %475 ]
+  %.5213.i.i = phi ptr [ %477, %475 ], [ %.0208.i.i.lcssa, %451 ]
+  %487 = phi <16 x i8> [ %482, %475 ], [ %.0207.i.i.lcssa.in, %451 ]
   %488 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %489 = load i8, ptr %.5213.i.i, align 1
   %490 = zext i8 %489 to i64
@@ -7466,8 +7466,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not251.i.i, label %497, label %doSheng.exit.i
 
 497:                                              ; preds = %486, %451
-  %.6214.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %488, %486 ]
-  %498 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %493, %486 ]
+  %.6214.i.i = phi ptr [ %488, %486 ], [ %.0208.i.i.lcssa, %451 ]
+  %498 = phi <16 x i8> [ %493, %486 ], [ %.0207.i.i.lcssa.in, %451 ]
   %499 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %500 = load i8, ptr %.6214.i.i, align 1
   %501 = zext i8 %500 to i64
@@ -7481,8 +7481,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not252.i.i, label %508, label %doSheng.exit.i
 
 508:                                              ; preds = %497, %451
-  %.7215.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %499, %497 ]
-  %509 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %504, %497 ]
+  %.7215.i.i = phi ptr [ %499, %497 ], [ %.0208.i.i.lcssa, %451 ]
+  %509 = phi <16 x i8> [ %504, %497 ], [ %.0207.i.i.lcssa.in, %451 ]
   %510 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %511 = load i8, ptr %.7215.i.i, align 1
   %512 = zext i8 %511 to i64
@@ -7496,8 +7496,8 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not253.i.i, label %519, label %doSheng.exit.i
 
 519:                                              ; preds = %508, %451
-  %.8.i.i = phi ptr [ %.0208.i.i.lcssa, %451 ], [ %510, %508 ]
-  %520 = phi <16 x i8> [ %.0207.i.i.lcssa.in, %451 ], [ %515, %508 ]
+  %.8.i.i = phi ptr [ %510, %508 ], [ %.0208.i.i.lcssa, %451 ]
+  %520 = phi <16 x i8> [ %515, %508 ], [ %.0207.i.i.lcssa.in, %451 ]
   %521 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %522 = load i8, ptr %.8.i.i, align 1
   %523 = zext i8 %522 to i64

@@ -1358,7 +1358,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %29, %.thread.i.i.thread ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %.1.i.i = phi i32 [ %29, %.thread.i.i.thread ], [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %30 = icmp slt i32 %.1.i.i, 0
   br label %46
 
@@ -1393,7 +1393,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37: ; preds = %_ZN4llvmneENS_9
   br label %_ZN4llvmltENS_9StringRefES0_.exit44
 
 _ZN4llvmltENS_9StringRefES0_.exit44:              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37, %.thread.i.i43, %42
-  %.1.i.i42 = phi i32 [ %spec.select.i.i41, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37 ], [ %44, %42 ], [ 0, %.thread.i.i43 ]
+  %.1.i.i42 = phi i32 [ %44, %42 ], [ %spec.select.i.i41, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37 ], [ 0, %.thread.i.i43 ]
   %45 = icmp slt i32 %.1.i.i42, 0
   br label %46
 
@@ -2564,7 +2564,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %.thread.i.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %42, %.thread.i.i.thread.i ]
+  %.1.i.i.i = phi i32 [ %42, %.thread.i.i.thread.i ], [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ]
   %43 = icmp slt i32 %.1.i.i.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 
@@ -2597,7 +2597,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i: ; preds = %_ZN4llvmneENS
   br label %_ZN4llvmltENS_9StringRefES0_.exit44.i
 
 _ZN4llvmltENS_9StringRefES0_.exit44.i:            ; preds = %53, %.thread.i.i43.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i
-  %.1.i.i42.i = phi i32 [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ %55, %53 ], [ 0, %.thread.i.i43.i ]
+  %.1.i.i42.i = phi i32 [ %55, %53 ], [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ 0, %.thread.i.i43.i ]
   %56 = icmp slt i32 %.1.i.i42.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 
@@ -2877,7 +2877,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %.thread.i.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %101, %.thread.i.i.thread.i ]
+  %.1.i.i.i = phi i32 [ %101, %.thread.i.i.thread.i ], [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ]
   %102 = icmp slt i32 %.1.i.i.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 
@@ -2908,7 +2908,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i: ; preds = %_ZN4llvmneENS
   br label %_ZN4llvmltENS_9StringRefES0_.exit44.i
 
 _ZN4llvmltENS_9StringRefES0_.exit44.i:            ; preds = %110, %.thread.i.i43.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i
-  %.1.i.i42.i = phi i32 [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ %112, %110 ], [ 0, %.thread.i.i43.i ]
+  %.1.i.i42.i = phi i32 [ %112, %110 ], [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ 0, %.thread.i.i43.i ]
   %113 = icmp slt i32 %.1.i.i42.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 
@@ -3843,7 +3843,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %.thread.i.i.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %307, %.thread.i.i.thread.i ]
+  %.1.i.i.i = phi i32 [ %307, %.thread.i.i.thread.i ], [ %spec.select.i.i.mux.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ]
   %308 = icmp slt i32 %.1.i.i.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 
@@ -3874,7 +3874,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i: ; preds = %_ZN4llvmneENS
   br label %_ZN4llvmltENS_9StringRefES0_.exit44.i
 
 _ZN4llvmltENS_9StringRefES0_.exit44.i:            ; preds = %316, %.thread.i.i43.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i
-  %.1.i.i42.i = phi i32 [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ %318, %316 ], [ 0, %.thread.i.i43.i ]
+  %.1.i.i42.i = phi i32 [ %318, %316 ], [ %spec.select.i.i41.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i37.i ], [ 0, %.thread.i.i43.i ]
   %319 = icmp slt i32 %.1.i.i42.i, 0
   br label %_ZN5clang7toolingltERKNS0_11ReplacementES3_.exit
 

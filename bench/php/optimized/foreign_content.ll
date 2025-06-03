@@ -369,7 +369,7 @@ lxb_html_tree_mathml_text_integration_point.exit.i: ; preds = %123, %119
   br label %lxb_html_tree_insertion_mode_foreign_content_script_closed.exit
 
 lxb_html_tree_insertion_mode_foreign_content_script_closed.exit: ; preds = %127, %lxb_html_tree_mathml_text_integration_point.exit.i, %123, %lxb_html_tree_current_node.exit.i22, %110, %.critedge.sink.split.i, %.loopexit.i, %80, %60, %57, %.loopexit.i.i, %45, %25, %130, %97, %95, %93
-  %.0 = phi i1 [ %131, %130 ], [ true, %97 ], [ %96, %95 ], [ %94, %93 ], [ true, %57 ], [ %28, %25 ], [ true, %45 ], [ %56, %.loopexit.i.i ], [ %63, %60 ], [ true, %80 ], [ %91, %.loopexit.i ], [ %129, %.critedge.sink.split.i ], [ false, %110 ], [ false, %lxb_html_tree_current_node.exit.i22 ], [ false, %123 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %127 ]
+  %.0 = phi i1 [ %131, %130 ], [ %94, %93 ], [ %96, %95 ], [ true, %97 ], [ true, %57 ], [ %28, %25 ], [ true, %45 ], [ %56, %.loopexit.i.i ], [ %63, %60 ], [ true, %80 ], [ %91, %.loopexit.i ], [ %129, %.critedge.sink.split.i ], [ false, %110 ], [ false, %lxb_html_tree_current_node.exit.i22 ], [ false, %123 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %127 ]
   ret i1 %.0
 }
 

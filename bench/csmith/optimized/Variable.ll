@@ -2443,7 +2443,7 @@ define dso_local noundef zeroext i1 @_ZNK8Variable13has_field_varEPKS_(ptr nound
   br label %12
 
 12:                                               ; preds = %._crit_edge, %11
-  %.1 = phi i1 [ true, %._crit_edge ], [ false, %11 ]
+  %.1 = phi i1 [ false, %11 ], [ true, %._crit_edge ]
   ret i1 %.1
 }
 

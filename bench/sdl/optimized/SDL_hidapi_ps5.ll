@@ -2345,8 +2345,8 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef nonn
   br label %69
 
 69:                                               ; preds = %59, %68, %66, %64
-  %.040.shrunk = phi i8 [ 0, %68 ], [ %narrow41, %66 ], [ %narrow43, %64 ], [ 100, %59 ]
-  %.0 = phi i32 [ 0, %68 ], [ 3, %66 ], [ 1, %64 ], [ 4, %59 ]
+  %.040.shrunk = phi i8 [ 0, %68 ], [ %narrow43, %64 ], [ %narrow41, %66 ], [ 100, %59 ]
+  %.0 = phi i32 [ 0, %68 ], [ 1, %64 ], [ 3, %66 ], [ 4, %59 ]
   %.040 = zext nneg i8 %.040.shrunk to i32
   tail call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %.040) #9
   br label %70

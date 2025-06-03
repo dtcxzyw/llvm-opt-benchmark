@@ -524,7 +524,7 @@ import_vc_from.exit:                              ; preds = %137, %152, %.crited
   br label %remove_vc_all.exit
 
 remove_vc_all.exit:                               ; preds = %221, %215, %208, %197, %128, %127, %124, %118, %117, %114, %54, %51, %46, %.critedge69, %import_vc_from.exit, %129, %remove_vc_all_except.exit, %37, %33
-  %.062 = phi i32 [ %.0.i77, %import_vc_from.exit ], [ %131, %129 ], [ %.0.i71, %remove_vc_all_except.exit ], [ 1, %37 ], [ 1, %33 ], [ 0, %.critedge69 ], [ 0, %51 ], [ 1, %46 ], [ 1, %54 ], [ 0, %114 ], [ 1, %117 ], [ 1, %118 ], [ 0, %124 ], [ 1, %127 ], [ 1, %128 ], [ 0, %197 ], [ 0, %208 ], [ 1, %221 ], [ 1, %215 ]
+  %.062 = phi i32 [ 1, %33 ], [ 1, %37 ], [ %.0.i71, %remove_vc_all_except.exit ], [ %131, %129 ], [ %.0.i77, %import_vc_from.exit ], [ 0, %.critedge69 ], [ 0, %51 ], [ 1, %46 ], [ 1, %54 ], [ 0, %114 ], [ 1, %117 ], [ 1, %118 ], [ 0, %124 ], [ 1, %127 ], [ 1, %128 ], [ 0, %197 ], [ 0, %208 ], [ 1, %221 ], [ 1, %215 ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %11) #11
   br label %223
 

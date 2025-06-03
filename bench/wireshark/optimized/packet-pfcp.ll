@@ -7298,7 +7298,7 @@ define internal void @dissect_pfcp_node_id(ptr noundef %0, ptr noundef %1, ptr n
   br label %decode_pfcp_address.exit
 
 decode_pfcp_address.exit:                         ; preds = %7, %16, %22, %28
-  %.0.i = phi i32 [ 1, %7 ], [ %29, %28 ], [ 17, %22 ], [ 5, %16 ]
+  %.0.i = phi i32 [ 1, %7 ], [ 5, %16 ], [ 17, %22 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   %30 = zext i16 %4 to i32
   %31 = icmp samesign ult i32 %.0.i, %30
@@ -7651,7 +7651,7 @@ define internal void @dissect_pfcp_fq_csid(ptr noundef %0, ptr noundef %1, ptr n
   br label %28
 
 28:                                               ; preds = %26, %21, %18, %15
-  %.0 = phi i32 [ 1, %26 ], [ 5, %21 ], [ 17, %18 ], [ 5, %15 ]
+  %.0 = phi i32 [ 1, %26 ], [ 5, %15 ], [ 17, %18 ], [ 5, %21 ]
   %.pr = load i32, ptr %9, align 4
   %.not44 = icmp eq i32 %.pr, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph
@@ -9147,7 +9147,7 @@ define internal void @dissect_pfcp_failed_rule_id(ptr noundef %0, ptr noundef %1
   br label %61
 
 61:                                               ; preds = %7, %57, %53, %49, %40, %31, %22, %18
-  %.0 = phi i32 [ 1, %7 ], [ 2, %57 ], [ 3, %53 ], [ 2, %49 ], [ 5, %40 ], [ 5, %31 ], [ 5, %22 ], [ 3, %18 ]
+  %.0 = phi i32 [ 1, %7 ], [ 3, %18 ], [ 5, %22 ], [ 5, %31 ], [ 5, %40 ], [ 2, %49 ], [ 3, %53 ], [ 2, %57 ]
   %62 = zext i16 %4 to i32
   %63 = icmp samesign ult i32 %.0, %62
   br i1 %63, label %64, label %66

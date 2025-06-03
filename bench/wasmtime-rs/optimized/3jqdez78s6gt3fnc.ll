@@ -759,8 +759,8 @@ define hidden { i32, i32 } @_ZN14wasmtime_types11TypeConvert17convert_heap_type1
   br label %37
 
 37:                                               ; preds = %2, %36, %35, %28, %27, %26, %14
-  %.sroa.0.0 = phi i32 [ 8, %36 ], [ 6, %35 ], [ 9, %28 ], [ 7, %27 ], [ 3, %26 ], [ %24, %14 ], [ 4, %2 ]
-  %.sroa.8.0 = phi i32 [ undef, %36 ], [ undef, %35 ], [ undef, %28 ], [ undef, %27 ], [ undef, %26 ], [ %25, %14 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i32 [ %24, %14 ], [ 3, %26 ], [ 7, %27 ], [ 9, %28 ], [ 6, %35 ], [ 8, %36 ], [ 4, %2 ]
+  %.sroa.8.0 = phi i32 [ %25, %14 ], [ undef, %26 ], [ undef, %27 ], [ undef, %28 ], [ undef, %35 ], [ undef, %36 ], [ undef, %2 ]
   %38 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %39 = insertvalue { i32, i32 } %38, i32 %.sroa.8.0, 1
   ret { i32, i32 } %39
@@ -1834,7 +1834,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h7534e1e91b246705E.exit"
 
 "_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h7534e1e91b246705E.exit": ; preds = %9, %11, %13
-  %.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in.i
 }
 
@@ -1892,7 +1892,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c76c5edaec1d3a0E.exit"
 
 "_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c76c5edaec1d3a0E.exit": ; preds = %6, %8, %10, %12, %14, %16
-  %.0.in.i = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.0.in.i
 }
 
@@ -2915,7 +2915,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit": ; preds = %14, %14, %19, %22
-  %.sroa.7.0.i = phi i32 [ %24, %22 ], [ %21, %19 ], [ undef, %14 ], [ undef, %14 ]
+  %.sroa.7.0.i = phi i32 [ %21, %19 ], [ %24, %22 ], [ undef, %14 ], [ undef, %14 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !alias.scope !377, !noalias !380, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2938,7 +2938,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %29, %32
-  %.sroa.7.0.i1 = phi i32 [ %34, %32 ], [ %31, %29 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ]
+  %.sroa.7.0.i1 = phi i32 [ %31, %29 ], [ %34, %32 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load i64, ptr %35, align 8, !alias.scope !382, !noalias !385, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2999,7 +2999,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6": ; preds = %53, %53, %58, %61
-  %.sroa.7.0.i4 = phi i32 [ %63, %61 ], [ %60, %58 ], [ undef, %53 ], [ undef, %53 ]
+  %.sroa.7.0.i4 = phi i32 [ %60, %58 ], [ %63, %61 ], [ undef, %53 ], [ undef, %53 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !387, !noalias !390, !noundef !4
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3022,7 +3022,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6", %68, %71
-  %.sroa.7.0.i7 = phi i32 [ %73, %71 ], [ %70, %68 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ]
+  %.sroa.7.0.i7 = phi i32 [ %70, %68 ], [ %73, %71 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %75 = load i64, ptr %74, align 8, !alias.scope !392, !noalias !395, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3075,7 +3075,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12": ; preds = %86, %86, %91, %94
-  %.sroa.7.0.i10 = phi i32 [ %96, %94 ], [ %93, %91 ], [ undef, %86 ], [ undef, %86 ]
+  %.sroa.7.0.i10 = phi i32 [ %93, %91 ], [ %96, %94 ], [ undef, %86 ], [ undef, %86 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %98 = load i64, ptr %97, align 8, !alias.scope !398, !noalias !401, !noundef !4
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3098,7 +3098,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12", %101, %104
-  %.sroa.7.0.i13 = phi i32 [ %106, %104 ], [ %103, %101 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ]
+  %.sroa.7.0.i13 = phi i32 [ %103, %101 ], [ %106, %104 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %108 = load i64, ptr %107, align 8, !alias.scope !403, !noalias !406, !noundef !4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3198,7 +3198,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$target_lexicon..targets..Architectu
   ]
 
 7:                                                ; preds = %6, %2, %50, %44, %38, %32, %26, %20, %14, %8
-  %.0.shrunk = phi i1 [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ], [ %13, %8 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %13, %8 ], [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %6
@@ -3350,7 +3350,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$wasmparser..readers..core..types..H
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0.in = phi i1 [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
   ret i1 %.0.in
 }
 
@@ -3915,7 +3915,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
 "_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..UserFuncName$GT$17h519e8c106a486b99E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i", %157
   resume { ptr, i32 } %lpad.thr_comm
 
-157:                                              ; preds = %37, %36, %34
+157:                                              ; preds = %34, %36, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %.val4 = load ptr, ptr %12, align 8, !noundef !4
@@ -5423,7 +5423,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder7return_17h375a28f40ca2b23cE.exit2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   ret void
 
-615:                                              ; preds = %.noexc147.invoke, %.noexc128.invoke, %.invoke217, %.invoke215, %495, %488, %467, %446, %423, %417, %386, %369, %367, %350, %328, %311, %309, %292, %278, %267, %256, %233, %222, %189, %182, %171, %139, %159, %170, %181, %208, %.noexc92, %.noexc93, %221, %232, %240, %.noexc104, %246, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i101, %.noexc107, %255, %266, %291, %302, %313, %.noexc125, %318, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i122, %327, %343, %.noexc134, %360, %371, %.noexc144, %376, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i141, %385, %401, %.noexc153, %422, %430, %.noexc163, %436, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i160, %.noexc166, %445, %456, %466, %477, %487, %510, %.noexc186, %.noexc187
+615:                                              ; preds = %.noexc147.invoke, %.noexc128.invoke, %.invoke217, %.invoke215, %495, %488, %467, %446, %423, %417, %367, %386, %369, %350, %309, %328, %311, %292, %278, %267, %256, %233, %222, %189, %182, %171, %139, %159, %170, %181, %208, %.noexc92, %.noexc93, %221, %232, %240, %.noexc104, %246, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i101, %.noexc107, %255, %266, %291, %302, %313, %.noexc125, %318, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i122, %327, %343, %.noexc134, %360, %371, %.noexc144, %376, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i141, %385, %401, %.noexc153, %422, %430, %.noexc163, %436, %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h472210eb71982a5fE.llvm.9732445119195644079.exit.i160, %.noexc166, %445, %456, %466, %477, %487, %510, %.noexc186, %.noexc187
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h54a7c92dcee39ab6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %38) #34
@@ -6485,7 +6485,7 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   br i1 %.not34, label %.invoke, label %49, !prof !169
 
 46:                                               ; preds = %.body, %47
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17hb7748da1a75c4a7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #34
           to label %484 unwind label %482
 
@@ -10105,8 +10105,8 @@ _ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a2030
   br label %680
 
 680:                                              ; preds = %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit
-  %.sroa.15.0 = phi i32 [ 11, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ], [ 15, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ 17, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ 12, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ 16, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ 18, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ 14, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ 13, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ 10, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ 9, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ 8, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ 7, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ]
-  %.pn213 = phi i32 [ %574, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ], [ %530, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ %484, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ %436, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ %388, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ %342, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ %294, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ %250, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ %202, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ %679, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ %644, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ %609, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ]
+  %.sroa.15.0 = phi i32 [ 7, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ], [ 8, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ 9, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ 10, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ 13, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ 14, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ 18, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ 16, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ 12, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ 17, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ 15, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ 11, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ]
+  %.pn213 = phi i32 [ %609, %_ZN18wasmtime_cranelift8compiler9component4host12utf8_to_utf817hf3e7ae9d675e4c64E.exit ], [ %644, %_ZN18wasmtime_cranelift8compiler9component4host14utf16_to_utf1617hfe573aff2ff72f7aE.exit ], [ %679, %_ZN18wasmtime_cranelift8compiler9component4host16latin1_to_latin117ha1f6b44a20302c52E.exit ], [ %202, %_ZN18wasmtime_cranelift8compiler9component4host15latin1_to_utf1617h9ca6cbdc083054c3E.exit ], [ %250, %_ZN18wasmtime_cranelift8compiler9component4host14latin1_to_utf817hec62e12e59fb8109E.exit ], [ %294, %_ZN18wasmtime_cranelift8compiler9component4host31utf16_to_compact_probably_utf1617h5cddc7d4ebadf449E.exit ], [ %342, %_ZN18wasmtime_cranelift8compiler9component4host22utf16_to_compact_utf1617h4b8c9971e869a5c7E.exit ], [ %388, %_ZN18wasmtime_cranelift8compiler9component4host15utf16_to_latin117h5945aef5a94e6f62E.exit ], [ %436, %_ZN18wasmtime_cranelift8compiler9component4host13utf16_to_utf817h2bf1a74eb49e6ce0E.exit ], [ %484, %_ZN18wasmtime_cranelift8compiler9component4host21utf8_to_compact_utf1617h2fc54adabbca857aE.exit ], [ %530, %_ZN18wasmtime_cranelift8compiler9component4host14utf8_to_latin117h5b3559f10fbaadeaE.exit ], [ %574, %_ZN18wasmtime_cranelift8compiler9component4host13utf8_to_utf1617h3725c9585512870cE.exit ]
   %681 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler12load_libcall17h6c4d7d313fa99917E(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %.sroa.15.0)
   %682 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %2)
   %683 = tail call fastcc noundef i32 @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler24load_runtime_memory_base17h18180426473ceb3cE(ptr noalias noundef align 8 dereferenceable(160) %0, i32 noundef %161, i32 noundef %4)
@@ -11865,7 +11865,7 @@ define hidden { i32, i64 } @_ZN18wasmtime_cranelift12func_environ15FuncEnvironme
   br label %22
 
 22:                                               ; preds = %18, %14
-  %.sroa.0.0 = phi i32 [ %21, %18 ], [ %17, %14 ]
+  %.sroa.0.0 = phi i32 [ %17, %14 ], [ %21, %18 ]
   %.sroa.3.0 = zext i32 %2 to i64
   %23 = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %24 = insertvalue { i32, i64 } %23, i64 %.sroa.3.0, 1
@@ -12202,7 +12202,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h523
   br label %11
 
 11:                                               ; preds = %7, %10, %9
-  %.0 = phi i64 [ 0, %10 ], [ 0, %9 ], [ 1, %7 ]
+  %.0 = phi i64 [ 0, %9 ], [ 0, %10 ], [ 1, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = add i64 %13, %.0
@@ -15193,7 +15193,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   unreachable
 
 166:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h0f543c0da839815bE.llvm.7808069312437652055.exit24", %185, %215, %.split14
-  %.0 = phi i8 [ 4, %215 ], [ 2, %.split14 ], [ 4, %185 ], [ %182, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h0f543c0da839815bE.llvm.7808069312437652055.exit24" ]
+  %.0 = phi i8 [ 2, %.split14 ], [ 4, %215 ], [ 4, %185 ], [ %182, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h0f543c0da839815bE.llvm.7808069312437652055.exit24" ]
   ret i8 %.0
 
 167:                                              ; preds = %75
@@ -17114,7 +17114,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i": ; preds = %199, %196, %191, %191
-  %.sroa.7.0.i.i = phi i32 [ %201, %199 ], [ %198, %196 ], [ undef, %191 ], [ undef, %191 ]
+  %.sroa.7.0.i.i = phi i32 [ %198, %196 ], [ %201, %199 ], [ undef, %191 ], [ undef, %191 ]
   %202 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %203 = load i64, ptr %202, align 8, !alias.scope !2481, !noalias !2484, !noundef !4
   %204 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -17137,7 +17137,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i": ; preds = %209, %206, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i"
-  %.sroa.7.0.i1.i = phi i32 [ %211, %209 ], [ %208, %206 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i" ]
+  %.sroa.7.0.i1.i = phi i32 [ %208, %206 ], [ %211, %209 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit.i" ]
   %212 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %213 = load i64, ptr %212, align 8, !alias.scope !2486, !noalias !2489, !noundef !4
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.llvm.7808069312437652055.exit"
@@ -17179,7 +17179,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i": ; preds = %231, %228, %223, %223
-  %.sroa.7.0.i4.i = phi i32 [ %233, %231 ], [ %230, %228 ], [ undef, %223 ], [ undef, %223 ]
+  %.sroa.7.0.i4.i = phi i32 [ %230, %228 ], [ %233, %231 ], [ undef, %223 ], [ undef, %223 ]
   %234 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %235 = load i64, ptr %234, align 8, !alias.scope !2491, !noalias !2494, !noundef !4
   %236 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -17202,7 +17202,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i": ; preds = %241, %238, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i"
-  %.sroa.7.0.i7.i = phi i32 [ %243, %241 ], [ %240, %238 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i" ]
+  %.sroa.7.0.i7.i = phi i32 [ %240, %238 ], [ %243, %241 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6.i" ]
   %244 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %245 = load i64, ptr %244, align 8, !alias.scope !2496, !noalias !2499, !noundef !4
   %246 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -17237,7 +17237,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i": ; preds = %259, %256, %251, %251
-  %.sroa.7.0.i10.i = phi i32 [ %261, %259 ], [ %258, %256 ], [ undef, %251 ], [ undef, %251 ]
+  %.sroa.7.0.i10.i = phi i32 [ %258, %256 ], [ %261, %259 ], [ undef, %251 ], [ undef, %251 ]
   %262 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %263 = load i64, ptr %262, align 8, !alias.scope !2501, !noalias !2504, !noundef !4
   %264 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -17260,21 +17260,21 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i": ; preds = %269, %266, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i"
-  %.sroa.7.0.i13.i = phi i32 [ %271, %269 ], [ %268, %266 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i" ]
+  %.sroa.7.0.i13.i = phi i32 [ %268, %266 ], [ %271, %269 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12.i" ]
   %272 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %273 = load i64, ptr %272, align 8, !alias.scope !2506, !noalias !2509, !noundef !4
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.llvm.7808069312437652055.exit"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.llvm.7808069312437652055.exit": ; preds = %.split83, %184, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i", %214, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i", %248, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i"
-  %.sroa.12.sroa.8.0 = phi i32 [ undef, %.split83 ], [ %.sroa.7.0.i10.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %.sroa.7.0.i4.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %.sroa.12.sroa.8.0.extract.trunc, %214 ], [ %.sroa.7.0.i.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %.sroa.12.sroa.8.0.extract.trunc165, %184 ]
-  %.sroa.12.sroa.0.0 = phi i32 [ undef, %.split83 ], [ %255, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %227, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %.sroa.12.sroa.0.0.extract.trunc, %214 ], [ %195, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %.sroa.12.sroa.0.0.extract.trunc163, %184 ]
-  %.sroa.31.0 = phi i64 [ undef, %.split83 ], [ %273, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %245, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %214 ], [ %213, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %184 ]
-  %.sroa.28.0 = phi i32 [ undef, %.split83 ], [ %.sroa.7.0.i13.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %.sroa.7.0.i7.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %214 ], [ %.sroa.7.0.i1.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %184 ]
-  %.sroa.25.0 = phi i32 [ undef, %.split83 ], [ %265, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %237, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %214 ], [ %205, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %184 ]
-  %.sroa.20.0 = phi i64 [ undef, %.split83 ], [ %263, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %235, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %220, %214 ], [ %203, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %190, %184 ]
-  %.sroa.9.0 = phi i32 [ undef, %.split83 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ %250, %248 ], [ %225, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %216, %214 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %184 ]
-  %.sroa.7160.0 = phi i16 [ undef, %.split83 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %214 ], [ %193, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %186, %184 ]
-  %.sroa.4159.0 = phi i8 [ undef, %.split83 ], [ %253, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %248 ], [ %247, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %222, %214 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %184 ]
+  %.sroa.12.sroa.8.0 = phi i32 [ %.sroa.12.sroa.8.0.extract.trunc165, %184 ], [ %.sroa.7.0.i.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %.sroa.12.sroa.8.0.extract.trunc, %214 ], [ %.sroa.7.0.i4.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %.sroa.7.0.i10.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.12.sroa.0.0 = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc163, %184 ], [ %195, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %.sroa.12.sroa.0.0.extract.trunc, %214 ], [ %227, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %255, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.31.0 = phi i64 [ undef, %184 ], [ %213, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %214 ], [ %245, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %273, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.28.0 = phi i32 [ undef, %184 ], [ %.sroa.7.0.i1.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %214 ], [ %.sroa.7.0.i7.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %.sroa.7.0.i13.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.25.0 = phi i32 [ undef, %184 ], [ %205, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %214 ], [ %237, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %265, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.20.0 = phi i64 [ %190, %184 ], [ %203, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %220, %214 ], [ %235, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %263, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.9.0 = phi i32 [ undef, %184 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %216, %214 ], [ %225, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ %250, %248 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.7160.0 = phi i16 [ %186, %184 ], [ %193, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ undef, %214 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
+  %.sroa.4159.0 = phi i8 [ undef, %184 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3.i" ], [ %222, %214 ], [ %247, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9.i" ], [ undef, %248 ], [ %253, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15.i" ], [ undef, %.split83 ]
   %.sroa.12.sroa.8.0.insert.ext = zext i32 %.sroa.12.sroa.8.0 to i64
   %.sroa.12.sroa.8.0.insert.shift = shl nuw i64 %.sroa.12.sroa.8.0.insert.ext, 32
   %.sroa.12.sroa.0.0.insert.ext = zext i32 %.sroa.12.sroa.0.0 to i64
@@ -17721,7 +17721,7 @@ default.unreachable:                              ; preds = %18
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
 _ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %18, %24, %25, %26, %27, %28, %36, %42
-  %.0.i = phi i16 [ 182, %27 ], [ 124, %26 ], [ 123, %25 ], [ 121, %24 ], [ 120, %18 ], [ 127, %42 ], [ %33, %28 ], [ 126, %36 ]
+  %.0.i = phi i16 [ 121, %24 ], [ 123, %25 ], [ 124, %26 ], [ 182, %27 ], [ 120, %18 ], [ 127, %42 ], [ %33, %28 ], [ 126, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 1, ptr %43, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -18421,7 +18421,7 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment5vmctx17hd2929c5741ccd1ebE
   br label %127
 
 127:                                              ; preds = %.split18, %.split13, %111, %95
-  %.0 = phi i32 [ %202, %.split18 ], [ %164, %.split13 ], [ %126, %111 ], [ %110, %95 ]
+  %.0 = phi i32 [ %126, %111 ], [ %110, %95 ], [ %202, %.split18 ], [ %164, %.split13 ]
   %128 = call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %129 = call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8udiv_imm17hc4ceebcc621e8967E(ptr noalias noundef nonnull align 8 dereferenceable(24) %128, i32 noundef %.0, i64 noundef 65536)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -19150,7 +19150,7 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   br label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment22get_memory_atomic_wait17he7982d191ea20d5aE.llvm.7808069312437652055.exit
 
 _ZN18wasmtime_cranelift12func_environ15FuncEnvironment22get_memory_atomic_wait17he7982d191ea20d5aE.llvm.7808069312437652055.exit: ; preds = %29, %33
-  %.sroa.0.0.i = phi i32 [ %36, %33 ], [ %32, %29 ]
+  %.sroa.0.0.i = phi i32 [ %32, %29 ], [ %36, %33 ]
   %.sroa.3.0.i = zext i32 %3 to i64
   %37 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %38 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h5e453a9191640ed4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i16 noundef 120, i64 noundef %.sroa.3.0.i)
@@ -21883,7 +21883,7 @@ default.unreachable:                              ; preds = %8
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
 _ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %8, %22, %23, %24, %25, %26, %30, %36
-  %.0.i = phi i16 [ 182, %25 ], [ 124, %24 ], [ 123, %23 ], [ 121, %22 ], [ 120, %8 ], [ 127, %36 ], [ %27, %26 ], [ 126, %30 ]
+  %.0.i = phi i16 [ 121, %22 ], [ 123, %23 ], [ 124, %24 ], [ 182, %25 ], [ 120, %8 ], [ 127, %36 ], [ %27, %26 ], [ 126, %30 ]
   %37 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
   %38 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br i1 %37, label %53, label %39
@@ -22078,7 +22078,7 @@ default.unreachable:                              ; preds = %7
   br label %_ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit
 
 _ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %7, %19, %20, %21, %22, %23, %27, %33
-  %.0.i = phi i16 [ 182, %22 ], [ 124, %21 ], [ 123, %20 ], [ 121, %19 ], [ 120, %7 ], [ 127, %33 ], [ %24, %23 ], [ 126, %27 ]
+  %.0.i = phi i16 [ 121, %19 ], [ 123, %20 ], [ 124, %21 ], [ 182, %22 ], [ 120, %7 ], [ 127, %33 ], [ %24, %23 ], [ 126, %27 ]
   %34 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type6is_ref17h520c7c947143aa85E(i16 noundef %.0.i)
   %35 = tail call noundef align 8 dereferenceable(24) ptr @_ZN17cranelift_codegen6cursor10FuncCursor3ins17h2784eebef57e013eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %36 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %6), !noalias !4
@@ -22249,7 +22249,7 @@ default.unreachable:                              ; preds = %3
   br label %_ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit
 
 _ZN18wasmtime_cranelift14reference_type17h43128e68825268b7E.llvm.7808069312437652055.exit: ; preds = %21, %15, %11, %3, %10, %9, %8, %7
-  %.0 = phi i16 [ 182, %10 ], [ 124, %9 ], [ 123, %8 ], [ 121, %7 ], [ 120, %3 ], [ 127, %21 ], [ %12, %11 ], [ 126, %15 ]
+  %.0 = phi i16 [ 121, %7 ], [ 123, %8 ], [ 124, %9 ], [ 182, %10 ], [ 120, %3 ], [ 127, %21 ], [ %12, %11 ], [ 126, %15 ]
   ret i16 %.0
 }
 
@@ -22380,7 +22380,7 @@ default.unreachable:                              ; preds = %26
   br i1 %.not12, label %.thread, label %61
 
 _ZN18wasmtime_cranelift10value_type17hd02e4d2dbd0e836cE.exit: ; preds = %47, %41, %.noexc, %34, %33, %32, %31, %26
-  %.0.i = phi i16 [ 182, %34 ], [ 124, %33 ], [ 123, %32 ], [ 121, %31 ], [ 120, %26 ], [ 127, %47 ], [ %38, %.noexc ], [ 126, %41 ]
+  %.0.i = phi i16 [ 121, %31 ], [ 123, %32 ], [ 124, %33 ], [ 182, %34 ], [ 120, %26 ], [ 127, %47 ], [ %38, %.noexc ], [ 126, %41 ]
   invoke void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) %7, i16 noundef %.0.i)
           to label %55 unwind label %22
 
@@ -22869,7 +22869,7 @@ default.unreachable4:                             ; preds = %1
   br label %23
 
 23:                                               ; preds = %15, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %18, %19, %21, %1, %22
-  %.sroa.3.0 = phi i8 [ 17, %22 ], [ 15, %19 ], [ 14, %18 ], [ 16, %21 ], [ 10, %14 ], [ 9, %13 ], [ 8, %12 ], [ 7, %11 ], [ 6, %10 ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 1, %5 ], [ 0, %1 ], [ 11, %15 ]
+  %.sroa.3.0 = phi i8 [ 17, %22 ], [ 1, %5 ], [ 2, %6 ], [ 3, %7 ], [ 4, %8 ], [ 5, %9 ], [ 6, %10 ], [ 7, %11 ], [ 8, %12 ], [ 9, %13 ], [ 10, %14 ], [ 16, %21 ], [ 14, %18 ], [ 15, %19 ], [ 0, %1 ], [ 11, %15 ]
   %24 = insertvalue { i32, i8 } poison, i32 %3, 0
   %25 = insertvalue { i32, i8 } %24, i8 %.sroa.3.0, 1
   ret { i32, i8 } %25
@@ -23003,9 +23003,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %58
 
 58:                                               ; preds = %54, %51, %switch.lookup
-  %.sroa.01.0 = phi i8 [ 2, %switch.lookup ], [ 1, %54 ], [ 0, %51 ]
-  %.sroa.42.0 = phi i8 [ %switch.load, %switch.lookup ], [ undef, %54 ], [ undef, %51 ]
-  %.sroa.53.0 = phi i32 [ undef, %switch.lookup ], [ %57, %54 ], [ %53, %51 ]
+  %.sroa.01.0 = phi i8 [ 0, %51 ], [ 1, %54 ], [ 2, %switch.lookup ]
+  %.sroa.42.0 = phi i8 [ undef, %51 ], [ undef, %54 ], [ %switch.load, %switch.lookup ]
+  %.sroa.53.0 = phi i32 [ %53, %51 ], [ %57, %54 ], [ undef, %switch.lookup ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %13, ptr %59, align 4
   store i8 %.sroa.01.0, ptr %0, align 8

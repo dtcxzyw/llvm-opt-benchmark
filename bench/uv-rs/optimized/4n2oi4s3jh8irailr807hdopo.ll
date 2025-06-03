@@ -3668,8 +3668,8 @@ define internal fastcc { i64, ptr } @"_ZN75_$LT$F$u20$as$u20$clap_builder..build
   br label %73
 
 73:                                               ; preds = %17, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h2f5d1524f53a5b17E.exit", %26
-  %.sroa.4.0 = phi ptr [ %27, %26 ], [ %72, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h2f5d1524f53a5b17E.exit" ], [ %24, %17 ]
-  %.sroa.0.0 = phi i64 [ 1, %26 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h2f5d1524f53a5b17E.exit" ], [ 0, %17 ]
+  %.sroa.4.0 = phi ptr [ %72, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h2f5d1524f53a5b17E.exit" ], [ %27, %26 ], [ %24, %17 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h2f5d1524f53a5b17E.exit" ], [ 1, %26 ], [ 0, %17 ]
   %74 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %75 = insertvalue { i64, ptr } %74, ptr %.sroa.4.0, 1
   ret { i64, ptr } %75

@@ -488,7 +488,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
   ret void
 
 _ZNSt10unique_ptrIN5ceres8internal7DenseQRESt14default_deleteIS2_EED2Ev.exit: ; preds = %11, %19, %25, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %26, %25 ], [ %20, %19 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %12, %11 ], [ %20, %19 ], [ %26, %25 ]
   store ptr null, ptr %0, align 8, !tbaa !46
   resume { ptr, i32 } %.pn
 }

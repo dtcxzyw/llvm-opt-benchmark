@@ -12425,7 +12425,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -22660,7 +22660,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9579a67eb6493f09E.exit.i.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9579a67eb6493f09E.exit.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i.i", %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i.i", %828
-  %.sroa.0.1.i = phi i64 [ %spec.select.i.i.i.i.i, %828 ], [ %.sroa.0.0.i212, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i.i" ], [ %.sroa.0.0.i212, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i212, %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i.i" ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i212, %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i212, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i.i" ], [ %.sroa.0.0.i212, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i.i" ], [ %spec.select.i.i.i.i.i, %828 ]
   %925 = add nuw i64 %792, 1
   %926 = icmp eq i64 %925, %2
   br i1 %926, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd13eeb9aa0c08d98E.exit.i", label %791
@@ -23528,9 +23528,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %1184, %.noexc51.i, 
   br i1 %1209, label %._crit_edge.i.i.i.i.i, label %1091
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf4a168a57830b407E.exit.i.i": ; preds = %1153, %1150, %1144, %1082, %1078, %1018
-  %.sroa.8.1.i = phi i64 [ %.sroa.8.0.i, %1018 ], [ %.sroa.8.0.i, %1144 ], [ %.sroa.8.0.i, %1082 ], [ %.sroa.8.0.i, %1078 ], [ %.sroa.8.2.i.ph, %1150 ], [ %.sroa.8.2.i.ph, %1153 ]
-  %.sroa.074.1.i = phi ptr [ %.sroa.074.0.i, %1018 ], [ %.sroa.074.0.i, %1144 ], [ %.sroa.074.0.i, %1082 ], [ %.sroa.074.0.i, %1078 ], [ %.sroa.074.2.i.ph, %1150 ], [ %.sroa.074.2.i.ph, %1153 ]
-  %.sroa.0.1.i232 = phi i64 [ %spec.select.i.i.i.i.i248, %1018 ], [ %.sroa.0.0.i228, %1144 ], [ %.sroa.0.0.i228, %1082 ], [ %.sroa.0.0.i228, %1078 ], [ %.sroa.0.0.i228, %1150 ], [ %.sroa.0.0.i228, %1153 ]
+  %.sroa.8.1.i = phi i64 [ %.sroa.8.0.i, %1018 ], [ %.sroa.8.0.i, %1082 ], [ %.sroa.8.0.i, %1078 ], [ %.sroa.8.0.i, %1144 ], [ %.sroa.8.2.i.ph, %1150 ], [ %.sroa.8.2.i.ph, %1153 ]
+  %.sroa.074.1.i = phi ptr [ %.sroa.074.0.i, %1018 ], [ %.sroa.074.0.i, %1082 ], [ %.sroa.074.0.i, %1078 ], [ %.sroa.074.0.i, %1144 ], [ %.sroa.074.2.i.ph, %1150 ], [ %.sroa.074.2.i.ph, %1153 ]
+  %.sroa.0.1.i232 = phi i64 [ %spec.select.i.i.i.i.i248, %1018 ], [ %.sroa.0.0.i228, %1082 ], [ %.sroa.0.0.i228, %1078 ], [ %.sroa.0.0.i228, %1144 ], [ %.sroa.0.0.i228, %1150 ], [ %.sroa.0.0.i228, %1153 ]
   %1210 = add nuw i64 %1014, 1
   %1211 = icmp eq i64 %1210, %2
   br i1 %1211, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h519c295bd4073d1bE.exit.i", label %1013
@@ -23980,7 +23980,7 @@ _ZN11polars_json4json11deserialize23fill_generic_array_from17h0b792628a574e294E.
   store i64 17, ptr %0, align 8
   br label %.critedge47
 
-.critedge47:                                      ; preds = %1370, %1357, %1320, %1323, %1360, %979, %.critedge, %1332, %1326, %1296, %1295, %1293, %1292, %1291, %1290, %1289, %1288, %1287, %1284
+.critedge47:                                      ; preds = %1320, %1357, %1370, %1323, %1360, %979, %.critedge, %1332, %1326, %1296, %1295, %1293, %1292, %1291, %1290, %1289, %1288, %1287, %1284
   ret void
 
 1287:                                             ; preds = %_ZN11polars_json4json11deserialize23fill_generic_array_from17h0b792628a574e294E.exit, %_ZN11polars_json4json11deserialize23fill_generic_array_from17h1f16295877a7b52eE.exit, %_ZN11polars_json4json11deserialize23fill_generic_array_from17h60a0b05ffad71158E.exit, %1345
@@ -24265,7 +24265,7 @@ default.unreachable483:                           ; preds = %666
   call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %.sroa.714)
   br label %1287
 
-.critedge:                                        ; preds = %1335, %1274
+.critedge:                                        ; preds = %1274, %1335
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %3)
   br label %.critedge47
 
@@ -30070,7 +30070,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h41ab39587a8f96b3E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h41ab39587a8f96b3E.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i", %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i", %1652
-  %.sroa.0.1 = phi i64 [ %spec.select.i.i.i.i, %1652 ], [ %.sroa.0.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i" ], [ %.sroa.0.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i" ], [ %.sroa.0.0, %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i" ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17h5a09a1481149cef9E.exit.i.i.i.i" ], [ %.sroa.0.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit.i.i.i.i" ], [ %.sroa.0.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h80fe9664c37ba877E.exit7.i.i.i.i" ], [ %spec.select.i.i.i.i, %1652 ]
   %1751 = add nuw i64 %1616, 1
   %1752 = icmp eq i64 %1751, %2
   br i1 %1752, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7d3048ef4f829976E.exit", label %1615
@@ -30939,9 +30939,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %2009, %.noexc51.i, 
   br i1 %2034, label %._crit_edge.i.i.i.i.i, label %1913
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h42716456fae775e8E.exit.i.i": ; preds = %1976, %1973, %1967, %1904, %1900, %1843
-  %.sroa.8.1.i = phi i64 [ %.sroa.8.0.i, %1843 ], [ %.sroa.8.0.i, %1967 ], [ %.sroa.8.0.i, %1904 ], [ %.sroa.8.0.i, %1900 ], [ %.sroa.8.2.i.ph, %1973 ], [ %.sroa.8.2.i.ph, %1976 ]
-  %.sroa.075.1.i = phi ptr [ %.sroa.075.0.i, %1843 ], [ %.sroa.075.0.i, %1967 ], [ %.sroa.075.0.i, %1904 ], [ %.sroa.075.0.i, %1900 ], [ %.sroa.075.2.i.ph, %1973 ], [ %.sroa.075.2.i.ph, %1976 ]
-  %.sroa.0.1.i = phi i64 [ %spec.select.i.i.i.i.i, %1843 ], [ %.sroa.0.0.i220, %1967 ], [ %.sroa.0.0.i220, %1904 ], [ %.sroa.0.0.i220, %1900 ], [ %.sroa.0.0.i220, %1973 ], [ %.sroa.0.0.i220, %1976 ]
+  %.sroa.8.1.i = phi i64 [ %.sroa.8.0.i, %1843 ], [ %.sroa.8.0.i, %1904 ], [ %.sroa.8.0.i, %1900 ], [ %.sroa.8.0.i, %1967 ], [ %.sroa.8.2.i.ph, %1973 ], [ %.sroa.8.2.i.ph, %1976 ]
+  %.sroa.075.1.i = phi ptr [ %.sroa.075.0.i, %1843 ], [ %.sroa.075.0.i, %1904 ], [ %.sroa.075.0.i, %1900 ], [ %.sroa.075.0.i, %1967 ], [ %.sroa.075.2.i.ph, %1973 ], [ %.sroa.075.2.i.ph, %1976 ]
+  %.sroa.0.1.i = phi i64 [ %spec.select.i.i.i.i.i, %1843 ], [ %.sroa.0.0.i220, %1904 ], [ %.sroa.0.0.i220, %1900 ], [ %.sroa.0.0.i220, %1967 ], [ %.sroa.0.0.i220, %1973 ], [ %.sroa.0.0.i220, %1976 ]
   %2035 = add nuw i64 %1839, 1
   %2036 = icmp eq i64 %2035, %2
   br i1 %2036, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha5f94fb317a83433E.exit.i", label %1838
@@ -31676,7 +31676,7 @@ _ZN11polars_json4json11deserialize23fill_generic_array_from17h88970771c72701a8E.
   store i64 17, ptr %0, align 8
   br label %.critedge47
 
-.critedge47:                                      ; preds = %2278, %2265, %2228, %2231, %2268, %1804, %.critedge, %2240, %2234, %2204, %2203, %2201, %2200, %2199, %2198, %2197, %2196, %2195, %2192
+.critedge47:                                      ; preds = %2228, %2265, %2278, %2231, %2268, %1804, %.critedge, %2240, %2234, %2204, %2203, %2201, %2200, %2199, %2198, %2197, %2196, %2195, %2192
   ret void
 
 2195:                                             ; preds = %_ZN11polars_json4json11deserialize23fill_generic_array_from17h88970771c72701a8E.exit, %_ZN11polars_json4json11deserialize23fill_generic_array_from17h9aaba5c4a03b4e77E.exit, %_ZN11polars_json4json11deserialize23fill_generic_array_from17h1e114dbaae3bd560E.exit, %2253
@@ -31963,7 +31963,7 @@ default.unreachable:                              ; preds = %1286
   call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %.sroa.714)
   br label %2195
 
-.critedge:                                        ; preds = %2243, %2182
+.critedge:                                        ; preds = %2182, %2243
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %3)
   br label %.critedge47
 

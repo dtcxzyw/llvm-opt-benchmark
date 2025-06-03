@@ -4921,7 +4921,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %11 = load double, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !39
   %cmp.i.i21.i.i.i = fcmp ult double %11, 0.000000e+00
   br i1 %cmp.i.i21.i.i.i, label %if.end36.i.i.i, label %invoke.cont
@@ -4931,7 +4931,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %12 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !39
   %cmp.i.i23.i.i.i = fcmp ult double %12, 0.000000e+00
   br i1 %cmp.i.i23.i.i.i, label %if.end43.i.i.i, label %invoke.cont

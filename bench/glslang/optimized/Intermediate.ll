@@ -3869,8 +3869,8 @@ define noundef ptr @_ZN7glslang13TIntermediate12addUnaryMathENS_9TOperatorEPNS_1
 87:                                               ; preds = %17
   br label %88
 
-88:                                               ; preds = %17, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77
-  %.042.ph = phi i32 [ 1, %77 ], [ 8, %78 ], [ 9, %79 ], [ 4, %80 ], [ 5, %81 ], [ 6, %82 ], [ 7, %83 ], [ 10, %84 ], [ 11, %85 ], [ 2, %86 ], [ 3, %87 ], [ 12, %17 ]
+88:                                               ; preds = %17, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87
+  %.042.ph = phi i32 [ 3, %87 ], [ 2, %86 ], [ 11, %85 ], [ 10, %84 ], [ 7, %83 ], [ 6, %82 ], [ 5, %81 ], [ 4, %80 ], [ 9, %79 ], [ 8, %78 ], [ 1, %77 ], [ 12, %17 ]
   %89 = load ptr, ptr %2, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 304
   %91 = load ptr, ptr %90, align 8
@@ -7908,7 +7908,7 @@ _ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit: ; 
   br label %132
 
 132:                                              ; preds = %69, %64, %81, %88, %55, %126, %119, %112, %105, %105, %105, %98, %87, %90, %74, %74, %56, %._crit_edge, %._crit_edge88, %57, %59, %41, %49, %42, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread, %22, %22, %22, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %12, %4, %127, %121, %118, %113, %111, %106, %100, %99, %93, %92, %86, %76, %75, %50, %44
-  %.0 = phi i1 [ %54, %50 ], [ %48, %44 ], [ %131, %127 ], [ %125, %121 ], [ false, %118 ], [ %117, %113 ], [ false, %111 ], [ %110, %106 ], [ %104, %100 ], [ %17, %99 ], [ %97, %93 ], [ %17, %92 ], [ false, %86 ], [ %80, %76 ], [ %17, %75 ], [ false, %4 ], [ true, %12 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread ], [ false, %42 ], [ false, %49 ], [ false, %41 ], [ true, %57 ], [ %63, %59 ], [ %68, %._crit_edge88 ], [ %73, %._crit_edge ], [ false, %56 ], [ true, %74 ], [ true, %74 ], [ true, %88 ], [ %91, %90 ], [ false, %87 ], [ false, %98 ], [ true, %105 ], [ true, %105 ], [ true, %105 ], [ true, %112 ], [ false, %119 ], [ false, %126 ], [ false, %55 ], [ %spec.select, %81 ], [ false, %64 ], [ false, %69 ]
+  %.0 = phi i1 [ %48, %44 ], [ %54, %50 ], [ false, %86 ], [ %17, %75 ], [ %80, %76 ], [ %17, %92 ], [ %97, %93 ], [ %17, %99 ], [ %104, %100 ], [ false, %111 ], [ %110, %106 ], [ false, %118 ], [ %117, %113 ], [ %125, %121 ], [ %131, %127 ], [ false, %4 ], [ true, %12 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_.exit.thread ], [ false, %42 ], [ false, %49 ], [ false, %41 ], [ true, %57 ], [ %63, %59 ], [ %68, %._crit_edge88 ], [ %73, %._crit_edge ], [ false, %56 ], [ true, %74 ], [ true, %74 ], [ true, %88 ], [ %91, %90 ], [ false, %87 ], [ false, %98 ], [ true, %105 ], [ true, %105 ], [ true, %105 ], [ true, %112 ], [ false, %119 ], [ false, %126 ], [ false, %55 ], [ %spec.select, %81 ], [ false, %64 ], [ false, %69 ]
   ret i1 %.0
 }
 
@@ -8886,7 +8886,7 @@ switch.lookup168:                                 ; preds = %257
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %222, %216, %210, %204, %183, %177, %171, %150, %144, %138, %117, %111, %105, %84, %78, %72, %51, %45, %39, %switch.lookup168, %257, %switch.lookup164, %251, %switch.lookup160, %245, %switch.lookup156, %239, %switch.lookup152, %233, %switch.lookup148, %227, %switch.lookup128, %189, %switch.lookup112, %156, %switch.lookup96, %123, %switch.lookup80, %90, %switch.lookup66, %57, %22, %21, %263, %264, %35, %68, %101, %134, %167, %200, %16, %14, %10, %2
-  %.048 = phi i32 [ 579, %2 ], [ 581, %10 ], [ 582, %14 ], [ 0, %16 ], [ 583, %264 ], [ 580, %263 ], [ 0, %257 ], [ 0, %251 ], [ 0, %245 ], [ 0, %239 ], [ 0, %233 ], [ 0, %227 ], [ 0, %200 ], [ 0, %167 ], [ 0, %189 ], [ 0, %134 ], [ 0, %156 ], [ 0, %101 ], [ 0, %123 ], [ 0, %68 ], [ 0, %90 ], [ 0, %35 ], [ 0, %57 ], [ 577, %21 ], [ %spec.select, %22 ], [ %switch.load, %switch.lookup66 ], [ %switch.load83, %switch.lookup80 ], [ %switch.load99, %switch.lookup96 ], [ %switch.load115, %switch.lookup112 ], [ %switch.load131, %switch.lookup128 ], [ %switch.load151, %switch.lookup148 ], [ %switch.load155, %switch.lookup152 ], [ %switch.load159, %switch.lookup156 ], [ %switch.load163, %switch.lookup160 ], [ %switch.load167, %switch.lookup164 ], [ %switch.load171, %switch.lookup168 ], [ %spec.select57, %39 ], [ %spec.select61, %45 ], [ %spec.select65, %51 ], [ %spec.select71, %72 ], [ %spec.select75, %78 ], [ %spec.select79, %84 ], [ %spec.select87, %105 ], [ %spec.select91, %111 ], [ %spec.select95, %117 ], [ %spec.select103, %138 ], [ %spec.select107, %144 ], [ %spec.select111, %150 ], [ %spec.select119, %171 ], [ %spec.select123, %177 ], [ %spec.select127, %183 ], [ %spec.select135, %204 ], [ %spec.select139, %210 ], [ %spec.select143, %216 ], [ %spec.select147, %222 ]
+  %.048 = phi i32 [ 579, %2 ], [ 581, %10 ], [ 582, %14 ], [ 0, %16 ], [ 577, %21 ], [ 0, %35 ], [ 0, %57 ], [ 0, %68 ], [ 0, %90 ], [ 0, %101 ], [ 0, %123 ], [ 0, %134 ], [ 0, %156 ], [ 0, %167 ], [ 0, %189 ], [ 0, %200 ], [ 0, %227 ], [ 0, %233 ], [ 0, %239 ], [ 0, %245 ], [ 0, %251 ], [ 0, %257 ], [ 580, %263 ], [ 583, %264 ], [ %spec.select, %22 ], [ %switch.load, %switch.lookup66 ], [ %switch.load83, %switch.lookup80 ], [ %switch.load99, %switch.lookup96 ], [ %switch.load115, %switch.lookup112 ], [ %switch.load131, %switch.lookup128 ], [ %switch.load151, %switch.lookup148 ], [ %switch.load155, %switch.lookup152 ], [ %switch.load159, %switch.lookup156 ], [ %switch.load163, %switch.lookup160 ], [ %switch.load167, %switch.lookup164 ], [ %switch.load171, %switch.lookup168 ], [ %spec.select57, %39 ], [ %spec.select61, %45 ], [ %spec.select65, %51 ], [ %spec.select71, %72 ], [ %spec.select75, %78 ], [ %spec.select79, %84 ], [ %spec.select87, %105 ], [ %spec.select91, %111 ], [ %spec.select95, %117 ], [ %spec.select103, %138 ], [ %spec.select107, %144 ], [ %spec.select111, %150 ], [ %spec.select119, %171 ], [ %spec.select123, %177 ], [ %spec.select127, %183 ], [ %spec.select135, %204 ], [ %spec.select139, %210 ], [ %spec.select143, %216 ], [ %spec.select147, %222 ]
   ret i32 %.048
 }
 
@@ -13330,7 +13330,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate12promoteUnaryERNS_12TInter
   br i1 %.not25, label %81, label %120
 
 81:                                               ; preds = %76, %72, %49, %57, %62, %67, %41, %10, %37
-  %.019 = phi ptr [ %9, %72 ], [ %9, %76 ], [ %9, %49 ], [ %9, %67 ], [ %9, %62 ], [ %9, %57 ], [ %9, %41 ], [ %35, %37 ], [ %9, %10 ]
+  %.019 = phi ptr [ %9, %72 ], [ %9, %76 ], [ %35, %37 ], [ %9, %10 ], [ %9, %41 ], [ %9, %49 ], [ %9, %67 ], [ %9, %62 ], [ %9, %57 ]
   %82 = load ptr, ptr %.019, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 240
   %84 = load ptr, ptr %83, align 8
@@ -14037,7 +14037,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate13promoteBinaryERNS_13TInte
   br label %332
 
 332:                                              ; preds = %.sink.split, %198, %311, %300, %276
-  %.0201 = phi i32 [ %14, %198 ], [ %14, %311 ], [ %14, %276 ], [ %14, %300 ], [ %.0201.ph, %.sink.split ]
+  %.0201 = phi i32 [ %14, %198 ], [ %14, %276 ], [ %14, %300 ], [ %14, %311 ], [ %.0201.ph, %.sink.split ]
   switch i32 %.0201, label %362 [
     i32 170, label %333
     i32 171, label %333
@@ -15261,7 +15261,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate13promoteBinaryERNS_13TInte
   %1142 = call noundef zeroext i1 @_ZNK7glslang5TTypeneERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %1137, ptr noundef nonnull align 8 dereferenceable(152) %1141)
   br i1 %1142, label %1143, label %.thread
 
-.thread:                                          ; preds = %592, %546, %715, %669, %813, %818, %823, %803, %735, %902, %918, %983, %947, %1133, %.thread232
+.thread:                                          ; preds = %902, %918, %983, %947, %592, %546, %715, %669, %813, %818, %823, %803, %735, %1133, %.thread232
   br label %1143
 
 1143:                                             ; preds = %473, %.thread232, %517, %1097, %1069, %1078, %1035, %1045, %1050, %1003, %1012, %1021, %989, %994, %948, %953, %978, %929, %938, %913, %879, %884, %893, %788, %793, %726, %660, %537, %511, %487, %404, %465, %449, %457, %423, %413, %394, %353, %343, %305, %311, %295, %300, %287, %259, %246, %251, %199, %173, %109, %110, %44, %.thread, %333, %139, %116
@@ -15464,7 +15464,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2EmRKS2_.exit: ; preds = %.lr.ph.preheader.i
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %86, %85 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %86, %85 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %88 = load ptr, ptr %.sroa.031.1.i.i.i.i, align 8
   %.not.i20.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i20.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEZNS6_13TIntermediate16promoteAggregateERNS6_16TIntermAggregateEE3$_0EbT_SF_T0_.exit", label %89
@@ -15474,7 +15474,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2EmRKS2_.exit: ; preds = %.lr.ph.preheader.i
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %90, %89 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %90, %89 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %92 = load ptr, ptr %.sroa.031.2.i.i.i.i, align 8
   %.not.i21.i.i.i.i = icmp eq ptr %92, null
   %spec.select.i.i.i.i = select i1 %.not.i21.i.i.i.i, ptr %.sroa.031.2.i.i.i.i, ptr %37
@@ -18677,7 +18677,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ]
+  %.sroa.049.1 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.049.1, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -18707,7 +18707,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ]
+  %.sroa.049.2 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.049.2, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8
@@ -18941,7 +18941,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 232
@@ -18971,7 +18971,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 232
@@ -19225,7 +19225,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %98
 
 98:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106, %._crit_edge
-  %.sroa.055.1 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ]
+  %.sroa.055.1 = phi ptr [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %99 = load ptr, ptr %.sroa.055.1, align 8
   %.not.i.i.i41 = icmp eq ptr %99, %2
   br i1 %.not.i.i.i41, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42
@@ -19259,7 +19259,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %116
 
 116:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109, %._crit_edge
-  %.sroa.055.2 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ]
+  %.sroa.055.2 = phi ptr [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %117 = load ptr, ptr %.sroa.055.2, align 8
   %.not.i.i.i47 = icmp eq ptr %117, %2
   br i1 %.not.i.i.i47, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48
@@ -19497,7 +19497,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 248
@@ -19527,7 +19527,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 248
@@ -19761,7 +19761,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
@@ -19791,7 +19791,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
@@ -20060,7 +20060,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.036.1, align 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 360
@@ -20097,7 +20097,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %145
 
 145:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.036.2, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 360
@@ -20350,7 +20350,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 328
@@ -20380,7 +20380,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 328
@@ -20684,7 +20684,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %87
 
 87:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97, %._crit_edge
-  %.sroa.048.1 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ]
+  %.sroa.048.1 = phi ptr [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %88 = load ptr, ptr %.sroa.048.1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8
@@ -20728,7 +20728,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101, %._crit_edge
-  %.sroa.048.2 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ]
+  %.sroa.048.2 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.048.2, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -21036,7 +21036,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %137
 
 137:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %138 = load ptr, ptr %.sroa.036.1, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 232
@@ -21078,7 +21078,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %163
 
 163:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %164 = load ptr, ptr %.sroa.036.2, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 232

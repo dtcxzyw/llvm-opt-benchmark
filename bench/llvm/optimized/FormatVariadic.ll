@@ -275,7 +275,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %_ZNK4llvm9StringRef
   br label %94
 
 94:                                               ; preds = %93, %92, %89
-  %.sroa.0.0.i.ph.i.i.i = phi i32 [ 0, %89 ], [ 1, %92 ], [ 2, %93 ]
+  %.sroa.0.0.i.ph.i.i.i = phi i32 [ 0, %89 ], [ 2, %93 ], [ 1, %92 ]
   %95 = load i8, ptr %87, align 1, !tbaa !14, !noalias !28
   %96 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 3
   br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i

@@ -4534,7 +4534,7 @@ rb_float_new_inline.exit:                         ; preds = %27, %25, %21, %10
   br label %rb_float_new_inline.exit16
 
 rb_float_new_inline.exit16:                       ; preds = %45, %43, %39, %47, %61, %60, %rb_float_new_inline.exit, %7
-  %.0 = phi i64 [ %63, %61 ], [ %57, %60 ], [ %29, %rb_float_new_inline.exit ], [ %8, %7 ], [ 4, %47 ], [ %46, %45 ], [ %42, %39 ], [ -9223372036854775806, %43 ]
+  %.0 = phi i64 [ %63, %61 ], [ %57, %60 ], [ %8, %7 ], [ %29, %rb_float_new_inline.exit ], [ 4, %47 ], [ %46, %45 ], [ %42, %39 ], [ -9223372036854775806, %43 ]
   ret i64 %.0
 }
 
@@ -4731,8 +4731,8 @@ rb_float_new_inline.exit23:                       ; preds = %69, %73, %75
 .thread:                                          ; preds = %40, %40
   br label %conversion_to_float.exit
 
-conversion_to_float.exit:                         ; preds = %rb_float_new_inline.exit19, %rb_float_new_inline.exit23, %29, %30, %40, %.thread, %27, %rb_float_new_inline.exit
-  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 4, %27 ], [ 0, %40 ], [ 0, %30 ], [ 0, %29 ], [ 4, %rb_float_new_inline.exit19 ], [ 4, %rb_float_new_inline.exit23 ], [ %44, %.thread ]
+conversion_to_float.exit:                         ; preds = %rb_float_new_inline.exit23, %rb_float_new_inline.exit19, %29, %30, %40, %.thread, %27, %rb_float_new_inline.exit
+  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 4, %27 ], [ 0, %40 ], [ 0, %30 ], [ 0, %29 ], [ 4, %rb_float_new_inline.exit23 ], [ 4, %rb_float_new_inline.exit19 ], [ %44, %.thread ]
   ret i32 %.0
 }
 
@@ -4912,7 +4912,7 @@ numeric_to_float.exit:                            ; preds = %conversion_to_float
   br label %rb_float_flonum_value.exit
 
 rb_float_flonum_value.exit:                       ; preds = %66, %60, %59, %17, %16, %49, %44, %38, %11
-  %.0 = phi double [ %13, %11 ], [ %50, %49 ], [ %45, %44 ], [ %40, %38 ], [ %22, %17 ], [ 0.000000e+00, %16 ], [ %69, %66 ], [ %65, %60 ], [ 0.000000e+00, %59 ]
+  %.0 = phi double [ %13, %11 ], [ %40, %38 ], [ %45, %44 ], [ %50, %49 ], [ %22, %17 ], [ 0.000000e+00, %16 ], [ %69, %66 ], [ %65, %60 ], [ 0.000000e+00, %59 ]
   ret double %.0
 }
 
@@ -5159,7 +5159,7 @@ implicit_conversion_to_float.exit:                ; preds = %20, %30
   br label %rb_float_flonum_value.exit
 
 rb_float_flonum_value.exit:                       ; preds = %54, %48, %47, %14, %13, %40, %38, %35, %8
-  %.0 = phi double [ %10, %8 ], [ %41, %40 ], [ %39, %38 ], [ %37, %35 ], [ %19, %14 ], [ 0.000000e+00, %13 ], [ %57, %54 ], [ %53, %48 ], [ 0.000000e+00, %47 ]
+  %.0 = phi double [ %10, %8 ], [ %37, %35 ], [ %39, %38 ], [ %41, %40 ], [ %19, %14 ], [ 0.000000e+00, %13 ], [ %57, %54 ], [ %53, %48 ], [ 0.000000e+00, %47 ]
   ret double %.0
 }
 
@@ -5377,13 +5377,13 @@ dig_basic_p.exit35:                               ; preds = %35, %38
   br label %.loopexit
 
 47:                                               ; preds = %41, %32, %23
-  %.sroa.039.1 = phi i64 [ %.sroa.039.045, %41 ], [ %.sroa.039.045, %32 ], [ %.sroa.039.2, %23 ]
-  %.sroa.537.1 = phi i32 [ %.sroa.537.046, %41 ], [ %.sroa.537.2, %32 ], [ %.sroa.537.046, %23 ]
-  %.sroa.036.1 = phi i64 [ %.sroa.036.047, %41 ], [ %.sroa.036.2, %32 ], [ %.sroa.036.047, %23 ]
-  %.sroa.540.1 = phi i32 [ %.sroa.540.048, %41 ], [ %.sroa.540.048, %32 ], [ %.sroa.540.2, %23 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.2, %41 ], [ %.sroa.5.049, %32 ], [ %.sroa.5.049, %23 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %41 ], [ %.sroa.0.050, %32 ], [ %.sroa.0.050, %23 ]
-  %.1 = phi i64 [ %43, %41 ], [ %34, %32 ], [ %25, %23 ]
+  %.sroa.039.1 = phi i64 [ %.sroa.039.2, %23 ], [ %.sroa.039.045, %32 ], [ %.sroa.039.045, %41 ]
+  %.sroa.537.1 = phi i32 [ %.sroa.537.046, %23 ], [ %.sroa.537.2, %32 ], [ %.sroa.537.046, %41 ]
+  %.sroa.036.1 = phi i64 [ %.sroa.036.047, %23 ], [ %.sroa.036.2, %32 ], [ %.sroa.036.047, %41 ]
+  %.sroa.540.1 = phi i32 [ %.sroa.540.2, %23 ], [ %.sroa.540.048, %32 ], [ %.sroa.540.048, %41 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.049, %23 ], [ %.sroa.5.049, %32 ], [ %.sroa.5.2, %41 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.050, %23 ], [ %.sroa.0.050, %32 ], [ %.sroa.0.2, %41 ]
+  %.1 = phi i64 [ %25, %23 ], [ %34, %32 ], [ %43, %41 ]
   %48 = getelementptr i8, ptr %.02252, i64 8
   %49 = add nsw i32 %.02351, -1
   %50 = icmp sgt i32 %.02351, 1

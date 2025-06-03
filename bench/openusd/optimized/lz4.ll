@@ -13097,7 +13097,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %148, label %144, label %.backedge, !llvm.loop !6
 
 149:                                              ; preds = %115, %114, %111
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %115 ], [ %.sroa.0.2.insert.insert.i, %114 ], [ %.sroa.0.0.isplat.i, %111 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %111 ], [ %.sroa.0.2.insert.insert.i, %114 ], [ %.sroa.0.0.copyload2.i, %115 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -13711,7 +13711,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %141, label %137, label %.backedge, !llvm.loop !6
 
 142:                                              ; preds = %108, %107, %104
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %108 ], [ %.sroa.0.2.insert.insert.i, %107 ], [ %.sroa.0.0.isplat.i, %104 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %104 ], [ %.sroa.0.2.insert.insert.i, %107 ], [ %.sroa.0.0.copyload2.i, %108 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -14318,7 +14318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %123, label %119, label %.backedge, !llvm.loop !6
 
 124:                                              ; preds = %90, %89, %86
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %90 ], [ %.sroa.0.2.insert.insert.i, %89 ], [ %.sroa.0.0.isplat.i, %86 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %86 ], [ %.sroa.0.2.insert.insert.i, %89 ], [ %.sroa.0.0.copyload2.i, %90 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -14921,7 +14921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %139, label %135, label %.backedge, !llvm.loop !6
 
 140:                                              ; preds = %106, %105, %102
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %106 ], [ %.sroa.0.2.insert.insert.i, %105 ], [ %.sroa.0.0.isplat.i, %102 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %102 ], [ %.sroa.0.2.insert.insert.i, %105 ], [ %.sroa.0.0.copyload2.i, %106 ]
   store i32 %.sroa.7.0.i, ptr %.3.ptr.ptr, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.ptr.ptr, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -15626,7 +15626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %180, label %176, label %.backedge, !llvm.loop !6
 
 181:                                              ; preds = %147, %146, %143
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %147 ], [ %.sroa.0.2.insert.insert.i, %146 ], [ %.sroa.0.0.isplat.i, %143 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %143 ], [ %.sroa.0.2.insert.insert.i, %146 ], [ %.sroa.0.0.copyload2.i, %147 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -17088,7 +17088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %151, label %147, label %.backedge, !llvm.loop !6
 
 152:                                              ; preds = %118, %117, %114
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %118 ], [ %.sroa.0.2.insert.insert.i, %117 ], [ %.sroa.0.0.isplat.i, %114 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %114 ], [ %.sroa.0.2.insert.insert.i, %117 ], [ %.sroa.0.0.copyload2.i, %118 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -17777,7 +17777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %182, label %178, label %.backedge, !llvm.loop !6
 
 183:                                              ; preds = %149, %148, %145
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %149 ], [ %.sroa.0.2.insert.insert.i, %148 ], [ %.sroa.0.0.isplat.i, %145 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %145 ], [ %.sroa.0.2.insert.insert.i, %148 ], [ %.sroa.0.0.copyload2.i, %149 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -18487,7 +18487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %158, label %154, label %.backedge, !llvm.loop !6
 
 159:                                              ; preds = %125, %124, %121
-  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %125 ], [ %.sroa.0.2.insert.insert.i, %124 ], [ %.sroa.0.0.isplat.i, %121 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.0.0.isplat.i, %121 ], [ %.sroa.0.2.insert.insert.i, %124 ], [ %.sroa.0.0.copyload2.i, %125 ]
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
@@ -19123,7 +19123,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4
   br i1 %42, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS1_m.exit, !llvm.loop !6
 
 43:                                               ; preds = %9, %8, %5
-  %.sroa.7.0 = phi i32 [ %.sroa.0.0.copyload2, %9 ], [ %.sroa.0.2.insert.insert, %8 ], [ %.sroa.0.0.isplat, %5 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.0.0.isplat, %5 ], [ %.sroa.0.2.insert.insert, %8 ], [ %.sroa.0.0.copyload2, %9 ]
   store i32 %.sroa.7.0, ptr %0, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1

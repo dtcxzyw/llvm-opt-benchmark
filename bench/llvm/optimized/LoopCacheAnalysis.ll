@@ -1161,7 +1161,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit46: ; preds
   br label %285
 
 285:                                              ; preds = %283, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %284, %283 ]
+  %.1.i.i.i.i.i = phi ptr [ %284, %283 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !73
   %286 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i, i64 24
   %287 = load i16, ptr %286, align 8, !tbaa !100
@@ -1194,7 +1194,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit46: ; preds
   br label %305
 
 305:                                              ; preds = %303, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %304, %303 ]
+  %.2.i.i.i.i.i = phi ptr [ %304, %303 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !73
   %306 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i, i64 24
   %307 = load i16, ptr %306, align 8, !tbaa !100
@@ -1835,7 +1835,7 @@ _ZL16computeTripCountRKN4llvm4LoopERKNS_4SCEVERNS_15ScalarEvolutionE.exit38: ; p
   br label %_ZNK4llvm4Type15getExtendedTypeEv.exit
 
 _ZNK4llvm4Type15getExtendedTypeEv.exit:           ; preds = %118, %131
-  %.1.i = phi ptr [ %130, %118 ], [ %135, %131 ]
+  %.1.i = phi ptr [ %135, %131 ], [ %130, %118 ]
   %136 = load ptr, ptr %17, align 8, !tbaa !76
   %137 = call noundef ptr @_ZN4llvm15ScalarEvolution19getNoopOrZeroExtendEPKNS_4SCEVEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(1344) %136, ptr noundef nonnull %.146, ptr noundef %.1.i) #19
   %138 = load ptr, ptr %17, align 8, !tbaa !76
@@ -2082,7 +2082,7 @@ _ZN4llvm17getPointerOperandEPNS_5ValueE.exit:     ; preds = %_ZN4llvm26getLoadSt
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %78, %77 ]
+  %.1.i.i.i.i.i = phi ptr [ %78, %77 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !73
   %80 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i, i64 24
   %81 = load i16, ptr %80, align 8, !tbaa !100
@@ -2105,7 +2105,7 @@ _ZN4llvm17getPointerOperandEPNS_5ValueE.exit:     ; preds = %_ZN4llvm26getLoadSt
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %88, %87 ]
+  %.2.i.i.i.i.i = phi ptr [ %88, %87 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !73
   %90 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i, i64 24
   %91 = load i16, ptr %90, align 8, !tbaa !100

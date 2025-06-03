@@ -43,7 +43,7 @@ define hidden signext i8 @nfaExecTamarama_testEOD(ptr noundef %0, ptr noundef %1
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %6, %10, %12, %20, %23
-  %.0.i.i = phi i32 [ %25, %23 ], [ %22, %20 ], [ %19, %12 ], [ %11, %10 ], [ 0, %6 ]
+  %.0.i.i = phi i32 [ %11, %10 ], [ %19, %12 ], [ %22, %20 ], [ %25, %23 ], [ 0, %6 ]
   %26 = load i32, ptr %7, align 32
   %27 = icmp eq i32 %.0.i.i, %26
   br i1 %27, label %44, label %28
@@ -211,7 +211,7 @@ define internal fastcc void @updateQueues(ptr noundef %0, ptr noundef captures(n
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %59
-  %.0.i.i = phi i32 [ %61, %59 ], [ %58, %56 ], [ %55, %48 ], [ %47, %46 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ %47, %46 ], [ %55, %48 ], [ %58, %56 ], [ %61, %59 ], [ 0, %3 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8
@@ -444,7 +444,7 @@ define hidden signext i8 @nfaExecTamarama_reportCurrent(ptr noundef %0, ptr noun
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %22
-  %.0.i.i = phi i32 [ %24, %22 ], [ %21, %19 ], [ %18, %11 ], [ %10, %9 ], [ 0, %2 ]
+  %.0.i.i = phi i32 [ %10, %9 ], [ %18, %11 ], [ %21, %19 ], [ %24, %22 ], [ 0, %2 ]
   %25 = load i32, ptr %4, align 32
   %26 = icmp eq i32 %.0.i.i, %25
   br i1 %26, label %81, label %27
@@ -571,7 +571,7 @@ define hidden signext i8 @nfaExecTamarama_inAccept(ptr noundef %0, i32 noundef %
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %23
-  %.0.i.i = phi i32 [ %25, %23 ], [ %22, %20 ], [ %19, %12 ], [ %11, %10 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ %11, %10 ], [ %19, %12 ], [ %22, %20 ], [ %25, %23 ], [ 0, %3 ]
   %26 = load i32, ptr %5, align 32
   %27 = icmp eq i32 %.0.i.i, %26
   br i1 %27, label %82, label %28
@@ -698,7 +698,7 @@ define hidden signext i8 @nfaExecTamarama_inAnyAccept(ptr noundef %0, ptr nounde
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %22
-  %.0.i.i = phi i32 [ %24, %22 ], [ %21, %19 ], [ %18, %11 ], [ %10, %9 ], [ 0, %2 ]
+  %.0.i.i = phi i32 [ %10, %9 ], [ %18, %11 ], [ %21, %19 ], [ %24, %22 ], [ 0, %2 ]
   %25 = load i32, ptr %4, align 32
   %26 = icmp eq i32 %.0.i.i, %25
   br i1 %26, label %81, label %27
@@ -867,7 +867,7 @@ define hidden signext i8 @nfaExecTamarama_queueCompressState(ptr noundef %0, ptr
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %23
-  %.0.i.i = phi i32 [ %25, %23 ], [ %22, %20 ], [ %19, %12 ], [ %11, %10 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ %11, %10 ], [ %19, %12 ], [ %22, %20 ], [ %25, %23 ], [ 0, %3 ]
   %26 = load i32, ptr %5, align 32
   %27 = icmp eq i32 %.0.i.i, %26
   br i1 %27, label %72, label %28
@@ -975,7 +975,7 @@ define hidden signext i8 @nfaExecTamarama_expandState(ptr noundef %0, ptr nounde
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %5, %9, %11, %19, %22
-  %.0.i.i = phi i32 [ %24, %22 ], [ %21, %19 ], [ %18, %11 ], [ %10, %9 ], [ 0, %5 ]
+  %.0.i.i = phi i32 [ %10, %9 ], [ %18, %11 ], [ %21, %19 ], [ %24, %22 ], [ 0, %5 ]
   %25 = load i32, ptr %6, align 32
   %26 = icmp eq i32 %.0.i.i, %25
   br i1 %26, label %40, label %27
@@ -1042,7 +1042,7 @@ define hidden i32 @nfaExecTamarama_zombie_status(ptr noundef %0, ptr noundef cap
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %23
-  %.0.i.i = phi i32 [ %25, %23 ], [ %22, %20 ], [ %19, %12 ], [ %11, %10 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ %11, %10 ], [ %19, %12 ], [ %22, %20 ], [ %25, %23 ], [ 0, %3 ]
   %26 = load i32, ptr %5, align 32
   %27 = icmp eq i32 %.0.i.i, %26
   br i1 %27, label %82, label %28
@@ -1255,7 +1255,7 @@ define internal fastcc void @copyBack(ptr noundef readonly captures(none) %0, pt
   br label %loadActiveIdx.exit
 
 loadActiveIdx.exit:                               ; preds = %16, %21, %23, %31, %34
-  %.0.i.i = phi i32 [ %36, %34 ], [ %33, %31 ], [ %30, %23 ], [ %22, %21 ], [ 0, %16 ]
+  %.0.i.i = phi i32 [ %22, %21 ], [ %30, %23 ], [ %33, %31 ], [ %36, %34 ], [ 0, %16 ]
   %37 = load i32, ptr %0, align 32
   %.not58 = icmp eq i32 %.0.i.i, %37
   br i1 %.not58, label %55, label %38

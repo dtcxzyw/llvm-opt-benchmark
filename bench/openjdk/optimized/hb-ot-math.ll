@@ -1028,7 +1028,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
   br label %108
 
 108:                                              ; preds = %3, %98, %66, %34, %15, %4
-  %.0 = phi i32 [ %107, %98 ], [ %97, %66 ], [ %65, %34 ], [ %33, %15 ], [ %14, %4 ], [ 0, %3 ]
+  %.0 = phi i32 [ %14, %4 ], [ %33, %15 ], [ %65, %34 ], [ %97, %66 ], [ %107, %98 ], [ 0, %3 ]
   ret i32 %.0
 }
 

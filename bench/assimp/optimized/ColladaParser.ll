@@ -34394,7 +34394,7 @@ define hidden noundef i64 @_ZN6Assimp13ColladaParser14ReadPrimitivesERN4pugi8xml
   br label %.loopexit451
 
 .loopexit451:                                     ; preds = %.lr.ph462, %29, %27
-  %.1130 = phi i64 [ %30, %29 ], [ %28, %27 ], [ %25, %.lr.ph462 ]
+  %.1130 = phi i64 [ %28, %27 ], [ %30, %29 ], [ %25, %.lr.ph462 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %.1130, 0
@@ -37644,7 +37644,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backERKS1_.exit: ; preds = %427, %_ZNSt6
   br label %_ZN9aiColor4tIfEixEj.exit
 
 _ZN9aiColor4tIfEixEj.exit:                        ; preds = %450, %456, %457, %458
-  %.0.i = phi ptr [ %.sroa.10, %458 ], [ %.sroa.8, %457 ], [ %.sroa.6, %456 ], [ %.sroa.0, %450 ]
+  %.0.i = phi ptr [ %.sroa.6, %456 ], [ %.sroa.8, %457 ], [ %.sroa.10, %458 ], [ %.sroa.0, %450 ]
   store float %454, ptr %.0.i, align 4
   %459 = add nuw i64 %.0174, 1
   %exitcond181.not = icmp eq i64 %459, %419
@@ -41679,7 +41679,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.031.1 = phi ptr [ %37, %36 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %39 = load i8, ptr %.sroa.031.1, align 1
   %40 = zext i8 %39 to i32
   %41 = tail call i32 @isspace(i32 noundef %40) #39
@@ -41691,7 +41691,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.031.2 = phi ptr [ %43, %42 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %45 = load i8, ptr %.sroa.031.2, align 1
   %46 = zext i8 %45 to i32
   %47 = tail call i32 @isspace(i32 noundef %46) #39
@@ -51417,7 +51417,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %61, %63
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %57, %75, %73
-  %.018.be = phi ptr [ %76, %75 ], [ %74, %73 ], [ %70, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %58, %57 ]
+  %.018.be = phi ptr [ %76, %75 ], [ %70, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %58, %57 ], [ %74, %73 ]
   br label %5, !llvm.loop !402
 
 73:                                               ; preds = %56
@@ -52547,7 +52547,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %_ZN4pugi4impl11utf8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.preheader, %._crit_edge, %5, %29, %11, %128, %124, %120, %101, %105, %147, %143, %166, %162, %193, %189, %185, %181, %2, %98
-  %.383 = phi ptr [ %3, %2 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %167, %166 ], [ %163, %162 ], [ %148, %147 ], [ %144, %143 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %99, %98 ], [ %.175, %29 ], [ %12, %11 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %.383.ph, %.thread.sink.split ]
+  %.383 = phi ptr [ %3, %2 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %148, %147 ], [ %144, %143 ], [ %167, %166 ], [ %163, %162 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %99, %98 ], [ %.175, %29 ], [ %12, %11 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %.383.ph, %.thread.sink.split ]
   ret ptr %.383
 }
 
@@ -53069,7 +53069,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %58, %60
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %54, %84, %70
-  %.022.be = phi ptr [ %85, %84 ], [ %71, %70 ], [ %67, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %55, %54 ]
+  %.022.be = phi ptr [ %85, %84 ], [ %67, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %55, %54 ], [ %71, %70 ]
   br label %4, !llvm.loop !418
 
 70:                                               ; preds = %.split.loop.exit
@@ -53747,7 +53747,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %66, %68
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %62, %100, %78
-  %.037.be = phi ptr [ %101, %100 ], [ %79, %78 ], [ %75, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %63, %62 ]
+  %.037.be = phi ptr [ %101, %100 ], [ %75, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %63, %62 ], [ %79, %78 ]
   br label %4, !llvm.loop !429
 
 78:                                               ; preds = %.split.loop.exit

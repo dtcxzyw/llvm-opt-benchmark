@@ -164,8 +164,8 @@ ttml_write_header_content.exit.thread:            ; preds = %8
   br label %ttml_get_display_alignment.exit.i.i
 
 ttml_get_display_alignment.exit.i.i:              ; preds = %37, %36, %35, %34, %34, %34
-  %38 = phi i1 [ false, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
-  %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.25, %36 ], [ @.str.24, %35 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
+  %38 = phi i1 [ false, %37 ], [ true, %35 ], [ true, %36 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
+  %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.24, %35 ], [ @.str.25, %36 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
   %switch.tableidx = add i32 %.sroa.649.0.copyload.i, -1
   %39 = icmp ult i32 %switch.tableidx, 9
   %.not156 = xor i1 %39, true

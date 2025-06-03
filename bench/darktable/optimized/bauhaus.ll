@@ -2076,11 +2076,11 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %65
 
 65:                                               ; preds = %64, %3, %3
-  %.062 = phi i32 [ -1000000, %3 ], [ -1000000, %3 ], [ 1000000, %64 ]
+  %.062 = phi i32 [ 1000000, %64 ], [ -1000000, %3 ], [ -1000000, %3 ]
   br label %66
 
 66:                                               ; preds = %65, %3, %3
-  %.163 = phi i32 [ -1, %3 ], [ -1, %3 ], [ %.062, %65 ]
+  %.163 = phi i32 [ %.062, %65 ], [ -1, %3 ], [ -1, %3 ]
   %67 = sub nsw i32 0, %.163
   %68 = select i1 %8, i32 %.163, i32 %67
   br label %69
@@ -2090,7 +2090,7 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %70
 
 70:                                               ; preds = %69, %3, %3, %3, %3
-  %.3 = phi i32 [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ %.2.neg, %69 ]
+  %.3 = phi i32 [ %.2.neg, %69 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ]
   %71 = sub nsw i32 0, %.3
   %spec.select75 = select i1 %8, i32 %71, i32 %.3
   br label %72
@@ -8529,7 +8529,7 @@ define internal range(i32 0, 2) i32 @_widget_key_press(ptr noundef %0, ptr nound
   br label %10
 
 10:                                               ; preds = %9, %2, %2
-  %.1 = phi i32 [ -1, %2 ], [ -1, %2 ], [ %.0.neg, %9 ]
+  %.1 = phi i32 [ %.0.neg, %9 ], [ -1, %2 ], [ -1, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !105
   %13 = icmp eq i32 %12, 2
@@ -11734,7 +11734,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %4, %8, %10
   br label %21
 
 21:                                               ; preds = %19, %17
-  %.061 = phi nsz float [ %3, %17 ], [ %20, %19 ]
+  %.061 = phi nsz float [ %20, %19 ], [ %3, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 504
   %23 = load i8, ptr %22, align 8
   %24 = xor i8 %23, 1
@@ -11850,12 +11850,12 @@ dt_bauhaus_slider_get.exit:                       ; preds = %DT_BAUHAUS_WIDGET.e
   br label %71
 
 71:                                               ; preds = %70, %68
-  %.1 = phi nsz float [ %3, %68 ], [ 0.000000e+00, %70 ]
+  %.1 = phi nsz float [ 0.000000e+00, %70 ], [ %3, %68 ]
   %72 = fneg reassoc nsz arcp contract afn float %.1
   br label %73
 
 73:                                               ; preds = %71, %68
-  %.2 = phi nsz float [ %3, %68 ], [ %72, %71 ]
+  %.2 = phi nsz float [ %72, %71 ], [ %3, %68 ]
   tail call fastcc void @_slider_zoom_range(ptr noundef %13, float noundef %.2)
   br label %90
 
@@ -12203,17 +12203,17 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.046 = phi nsz float [ %3, %27 ], [ %30, %29 ]
+  %.046 = phi nsz float [ %30, %29 ], [ %3, %27 ]
   %32 = fmul reassoc nsz arcp contract afn float %.046, 1.000000e+03
   br label %33
 
 33:                                               ; preds = %31, %27
-  %.147 = phi nsz float [ %3, %27 ], [ %32, %31 ]
+  %.147 = phi nsz float [ %32, %31 ], [ %3, %27 ]
   %34 = fneg reassoc nsz arcp contract afn float %.147
   br label %35
 
 35:                                               ; preds = %33, %27
-  %.2 = phi nsz float [ %3, %27 ], [ %34, %33 ]
+  %.2 = phi nsz float [ %34, %33 ], [ %3, %27 ]
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8, !tbaa !208

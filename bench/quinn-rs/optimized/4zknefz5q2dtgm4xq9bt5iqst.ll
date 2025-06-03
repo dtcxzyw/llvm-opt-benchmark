@@ -533,7 +533,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$quinn_proto..connection..Connecti
   br label %30
 
 30:                                               ; preds = %28, %26, %24, %22, %19, %17, %14, %12
-  %.sroa.0.0.in = phi i1 [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %16, %14 ], [ %18, %17 ], [ %21, %19 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2352,7 +2352,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$quinn..recv_stream..ReadError$u20
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2437,7 +2437,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
-  %.sroa.0.0.in = phi i1 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
+  %.sroa.0.0.in = phi i1 [ %14, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2632,7 +2632,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %17, %15, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
-  %.sroa.0.0.in = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
+  %.sroa.0.0.in = phi i1 [ %14, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in
 }
 

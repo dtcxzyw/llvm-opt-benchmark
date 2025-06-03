@@ -3288,36 +3288,36 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit45._crit_edge: ; preds = %_ZN7rocksdb14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %81 = trunc i32 %2 to i8
   switch i8 %81, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread [
-    i8 1, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
-    i8 2, label %82
-    i8 4, label %85
-    i8 8, label %88
+    i8 1, label %82
+    i8 2, label %86
+    i8 4, label %89
+    i8 8, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
   ]
 
 82:                                               ; preds = %68
+  %83 = load i8, ptr %73, align 1, !tbaa !30
+  %84 = trunc i64 %80 to i8
+  %85 = icmp eq i8 %83, %84
+  br i1 %85, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
+
+86:                                               ; preds = %68
   %.0.copyload.i.i.i.i = load i16, ptr %73, align 1
-  %83 = trunc i64 %80 to i16
-  %84 = icmp eq i16 %.0.copyload.i.i.i.i, %83
-  br i1 %84, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
+  %87 = trunc i64 %80 to i16
+  %88 = icmp eq i16 %.0.copyload.i.i.i.i, %87
+  br i1 %88, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
 
-85:                                               ; preds = %68
+89:                                               ; preds = %68
   %.0.copyload.i6.i.i.i = load i32, ptr %73, align 1
-  %86 = trunc i64 %80 to i32
-  %87 = icmp eq i32 %.0.copyload.i6.i.i.i, %86
-  br i1 %87, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
-
-88:                                               ; preds = %68
-  %.0.copyload.i7.i.i.i = load i64, ptr %73, align 1
-  %89 = icmp eq i64 %.0.copyload.i7.i.i.i, %80
-  br i1 %89, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
+  %90 = trunc i64 %80 to i32
+  %91 = icmp eq i32 %.0.copyload.i6.i.i.i, %90
+  br i1 %91, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
 
 _ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit: ; preds = %68
-  %90 = load i8, ptr %73, align 1, !tbaa !30
-  %91 = trunc i64 %80 to i8
-  %92 = icmp eq i8 %90, %91
+  %.0.copyload.i7.i.i.i = load i64, ptr %73, align 1
+  %92 = icmp eq i64 %.0.copyload.i7.i.i.i, %80
   br i1 %92, label %476, label %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread
 
-_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread: ; preds = %68, %82, %85, %88, %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
+_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit.thread: ; preds = %68, %89, %86, %82, %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #35
   %93 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %93, ptr %17, align 8, !tbaa !25
@@ -4314,7 +4314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #35
   resume { ptr, i32 } %.pn40
 
-476:                                              ; preds = %82, %85, %88, %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
+476:                                              ; preds = %89, %86, %82, %_ZNK7rocksdb18ProtectionInfoKVOSImE6VerifyEhPKc.exit
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %477, align 8, !tbaa !423, !alias.scope !455
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !455
@@ -4676,8 +4676,8 @@ define noundef i32 @_ZNK7rocksdb8MemTable13KeyComparatorclEPKcS3_(ptr noundef no
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %10, %.thread.i.i
-  %15 = phi i32 [ %11, %10 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %12, %10 ], [ %14, %.thread.i.i ]
+  %15 = phi i32 [ %.pre.i, %.thread.i.i ], [ %11, %10 ]
+  %.1.i.i = phi ptr [ %14, %.thread.i.i ], [ %12, %10 ]
   %16 = zext i32 %15 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #35
@@ -4698,8 +4698,8 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %10, %.thread.i.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit8
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit8:    ; preds = %19, %.thread.i.i3
-  %24 = phi i32 [ %20, %19 ], [ %.pre.i4, %.thread.i.i3 ]
-  %.1.i.i5 = phi ptr [ %21, %19 ], [ %23, %.thread.i.i3 ]
+  %24 = phi i32 [ %.pre.i4, %.thread.i.i3 ], [ %20, %19 ]
+  %.1.i.i5 = phi ptr [ %23, %.thread.i.i3 ], [ %21, %19 ]
   %25 = zext i32 %24 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #35
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4796,8 +4796,8 @@ define linkonce_odr { ptr, i64 } @_ZN7rocksdb22GetLengthPrefixedSliceEPKc(ptr no
   br label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit:        ; preds = %5, %.thread.i
-  %10 = phi i32 [ %6, %5 ], [ %.pre, %.thread.i ]
-  %.1.i = phi ptr [ %7, %5 ], [ %9, %.thread.i ]
+  %10 = phi i32 [ %.pre, %.thread.i ], [ %6, %5 ]
+  %.1.i = phi ptr [ %9, %.thread.i ], [ %7, %5 ]
   %11 = zext i32 %10 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #35
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.1.i, 0
@@ -4828,8 +4828,8 @@ define noundef i32 @_ZNK7rocksdb8MemTable13KeyComparatorclEPKcRKNS_5SliceE(ptr n
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %9, %.thread.i.i
-  %14 = phi i32 [ %10, %9 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %11, %9 ], [ %13, %.thread.i.i ]
+  %14 = phi i32 [ %.pre.i, %.thread.i.i ], [ %10, %9 ]
+  %.1.i.i = phi ptr [ %13, %.thread.i.i ], [ %11, %9 ]
   %15 = zext i32 %14 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4960,8 +4960,8 @@ define { ptr, i64 } @_ZNK7rocksdb11MemTableRep7UserKeyEPKc(ptr nonnull readnone 
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %6, %.thread.i.i
-  %11 = phi i32 [ %7, %6 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %8, %6 ], [ %10, %.thread.i.i ]
+  %11 = phi i32 [ %.pre.i, %.thread.i.i ], [ %7, %6 ]
+  %.1.i.i = phi ptr [ %10, %.thread.i.i ], [ %8, %6 ]
   %12 = zext i32 %11 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #35
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.1.i.i, 0
@@ -8757,8 +8757,8 @@ define internal noundef zeroext i1 @_ZN7rocksdbL9SaveValueEPvPKc(ptr noundef %0,
   br label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit:        ; preds = %59, %.thread.i
-  %64 = phi i32 [ %60, %59 ], [ %.pre, %.thread.i ]
-  %.1.i = phi ptr [ %61, %59 ], [ %63, %.thread.i ]
+  %64 = phi i32 [ %.pre, %.thread.i ], [ %60, %59 ]
+  %.1.i = phi ptr [ %63, %.thread.i ], [ %61, %59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
   %65 = add i32 %64, -8
   %66 = zext i32 %65 to i64
@@ -9442,8 +9442,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit268: ; pre
   br label %368
 
 368:                                              ; preds = %.noexc271, %363
-  %369 = phi i32 [ %364, %363 ], [ %.pre.i, %.noexc271 ]
-  %.1.i.i = phi ptr [ %365, %363 ], [ %367, %.noexc271 ]
+  %369 = phi i32 [ %.pre.i, %.noexc271 ], [ %364, %363 ]
+  %.1.i.i = phi ptr [ %367, %.noexc271 ], [ %365, %363 ]
   %370 = zext i32 %369 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #35
   store ptr %.1.i.i, ptr %23, align 8
@@ -10539,7 +10539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364: ; preds = %_Z
   br label %850
 
 _ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit.thread379: ; preds = %192, %_ZN7rocksdb6StatusD2Ev.exit253, %_ZN7rocksdb6StatusD2Ev.exit258, %_ZN7rocksdb6StatusD2Ev.exit263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit268, %415, %539, %567, %610, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit, %169
-  %.0 = phi i1 [ false, %169 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361 ], [ %616, %610 ], [ false, %567 ], [ false, %539 ], [ false, %415 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit258 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit263 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit268 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit253 ], [ true, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit ], [ true, %192 ]
+  %.0 = phi i1 [ false, %169 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit258 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit263 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit268 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit253 ], [ false, %415 ], [ false, %539 ], [ false, %567 ], [ %616, %610 ], [ true, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit ], [ true, %192 ]
   br i1 %92, label %845, label %_ZNSt14_Optional_baseIN7rocksdb8ReadLockELb0ELb0EED2Ev.exit
 
 845:                                              ; preds = %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit.thread379
@@ -10559,7 +10559,7 @@ _ZNSt14_Optional_baseIN7rocksdb8ReadLockELb0ELb0EED2Ev.exit: ; preds = %_ZN7rock
   br label %851
 
 850:                                              ; preds = %201, %221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249, %293, %309, %327, %348, %420, %540, %570, %621, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364, %178, %176, %131
-  %.pn230.pn.pn.pn = phi { ptr, i32 } [ %179, %178 ], [ %177, %176 ], [ %132, %131 ], [ %.pn230.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364 ], [ %.pn200, %621 ], [ %571, %570 ], [ %.pn210, %540 ], [ %.pn213, %420 ], [ %310, %309 ], [ %328, %327 ], [ %202, %201 ], [ %349, %348 ], [ %294, %293 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249 ], [ %222, %221 ]
+  %.pn230.pn.pn.pn = phi { ptr, i32 } [ %179, %178 ], [ %177, %176 ], [ %132, %131 ], [ %.pn230.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit364 ], [ %310, %309 ], [ %328, %327 ], [ %202, %201 ], [ %349, %348 ], [ %294, %293 ], [ %.pn213, %420 ], [ %.pn210, %540 ], [ %571, %570 ], [ %.pn200, %621 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249 ], [ %222, %221 ]
   call void @_ZNSt14_Optional_baseIN7rocksdb8ReadLockELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
@@ -11762,7 +11762,7 @@ define void @_ZN7rocksdb8MemTable6UpdateEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18Pr
   br label %88
 
 88:                                               ; preds = %.noexc79, %84
-  %89 = phi i32 [ %85, %84 ], [ %.pre.i, %.noexc79 ]
+  %89 = phi i32 [ %.pre.i, %.noexc79 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #35
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !11
@@ -12235,8 +12235,8 @@ define void @_ZN7rocksdb8MemTable14UpdateCallbackEmRKNS_5SliceES3_PKNS_18Protect
   br label %95
 
 95:                                               ; preds = %90, %.noexc97
-  %96 = phi i32 [ %91, %90 ], [ %.pre.i, %.noexc97 ]
-  %.1.i.i = phi ptr [ %92, %90 ], [ %94, %.noexc97 ]
+  %96 = phi i32 [ %.pre.i, %.noexc97 ], [ %91, %90 ]
+  %.1.i.i = phi ptr [ %94, %.noexc97 ], [ %92, %90 ]
   %97 = zext i32 %96 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #35
@@ -13524,8 +13524,8 @@ define linkonce_odr { ptr, i64 } @_ZNK7rocksdb11MemTableRep13KeyComparator10deco
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %6, %.thread.i.i
-  %11 = phi i32 [ %7, %6 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %8, %6 ], [ %10, %.thread.i.i ]
+  %11 = phi i32 [ %.pre.i, %.thread.i.i ], [ %7, %6 ]
+  %.1.i.i = phi ptr [ %10, %.thread.i.i ], [ %8, %6 ]
   %12 = zext i32 %11 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #35
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.1.i.i, 0
@@ -17136,8 +17136,8 @@ define linkonce_odr { ptr, i64 } @_ZNK7rocksdb16MemTableIterator3keyEv(ptr nound
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %11, %.thread.i.i
-  %16 = phi i32 [ %12, %11 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %13, %11 ], [ %15, %.thread.i.i ]
+  %16 = phi i32 [ %.pre.i, %.thread.i.i ], [ %12, %11 ]
+  %.1.i.i = phi ptr [ %15, %.thread.i.i ], [ %13, %11 ]
   %17 = zext i32 %16 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #35
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.1.i.i, 0
@@ -17305,8 +17305,8 @@ define linkonce_odr { ptr, i64 } @_ZNK7rocksdb16MemTableIterator5valueEv(ptr nou
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %12, %.thread.i.i
-  %17 = phi i32 [ %13, %12 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %14, %12 ], [ %16, %.thread.i.i ]
+  %17 = phi i32 [ %.pre.i, %.thread.i.i ], [ %13, %12 ]
+  %.1.i.i = phi ptr [ %16, %.thread.i.i ], [ %14, %12 ]
   %18 = zext i32 %17 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #35
   %19 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %18
@@ -17328,8 +17328,8 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %12, %.thread.i.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit6
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit6:    ; preds = %22, %.thread.i.i1
-  %27 = phi i32 [ %23, %22 ], [ %.pre.i2, %.thread.i.i1 ]
-  %.1.i.i3 = phi ptr [ %24, %22 ], [ %26, %.thread.i.i1 ]
+  %27 = phi i32 [ %.pre.i2, %.thread.i.i1 ], [ %23, %22 ]
+  %.1.i.i3 = phi ptr [ %26, %.thread.i.i1 ], [ %24, %22 ]
   %28 = zext i32 %27 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #35
   %.fca.0.insert.i4 = insertvalue { ptr, i64 } poison, ptr %.1.i.i3, 0

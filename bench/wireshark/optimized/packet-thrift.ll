@@ -1533,7 +1533,7 @@ define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 34:                                               ; preds = %31, %29, %27, %25, %23, %21, %19, %17
-  %.0 = phi i32 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.0 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   ret i32 %.0
 }
 
@@ -2369,7 +2369,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br label %compact_struct_type_to_generic_type.exit.thread
 
 compact_struct_type_to_generic_type.exit:         ; preds = %22, %27, %27, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28
-  %.0 = phi i32 [ 16, %37 ], [ 13, %36 ], [ 14, %35 ], [ 15, %34 ], [ 11, %33 ], [ 4, %32 ], [ 10, %31 ], [ 8, %30 ], [ 6, %29 ], [ %26, %28 ], [ 2, %27 ], [ 2, %27 ], [ %26, %22 ]
+  %.0 = phi i32 [ %26, %28 ], [ 6, %29 ], [ 8, %30 ], [ 10, %31 ], [ 4, %32 ], [ 11, %33 ], [ 15, %34 ], [ 14, %35 ], [ 13, %36 ], [ 16, %37 ], [ 2, %27 ], [ 2, %27 ], [ %26, %22 ]
   %.not26 = icmp eq i32 %.0, %5
   br i1 %.not26, label %43, label %compact_struct_type_to_generic_type.exit.thread
 
@@ -2706,7 +2706,7 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
   unreachable
 
 dissect_thrift_t_stop.exit:                       ; preds = %133, %132, %111, %110, %25, %17, %12, %10, %164, %150, %136, %81, %72, %63, %54, %45, %36, %27
-  %.0 = phi i32 [ %172, %164 ], [ %163, %150 ], [ %149, %136 ], [ %91, %81 ], [ %80, %72 ], [ %71, %63 ], [ %62, %54 ], [ %53, %45 ], [ %44, %36 ], [ %35, %27 ], [ -2, %17 ], [ %26, %25 ], [ %3, %10 ], [ -1, %12 ], [ %.0.i121, %110 ], [ %.0.i121, %111 ], [ %.0.i123, %132 ], [ %.0.i123, %133 ]
+  %.0 = phi i32 [ %35, %27 ], [ %44, %36 ], [ %53, %45 ], [ %62, %54 ], [ %71, %63 ], [ %80, %72 ], [ %91, %81 ], [ %149, %136 ], [ %163, %150 ], [ %172, %164 ], [ -2, %17 ], [ %26, %25 ], [ %3, %10 ], [ -1, %12 ], [ %.0.i121, %110 ], [ %.0.i121, %111 ], [ %.0.i123, %132 ], [ %.0.i123, %133 ]
   ret i32 %.0
 }
 
@@ -4752,7 +4752,7 @@ dissect_thrift_compact_struct.exit:               ; preds = %dissect_thrift_comp
   br label %dissect_thrift_compact_struct.exit.thread
 
 dissect_thrift_compact_struct.exit.thread:        ; preds = %dissect_thrift_compact_fields.exit.thread, %dissect_thrift_compact_fields.exit, %262, %255, %dissect_thrift_compact_map.exit.thread, %dissect_thrift_compact_binary.exit.thread, %dissect_thrift_compact_struct.exit, %dissect_thrift_compact_map.exit, %147, %144, %dissect_thrift_compact_binary.exit, %56, %52, %48, %302, %298, %88, %70, %40, %22
-  %.0 = phi i32 [ -1, %298 ], [ %303, %302 ], [ -1, %88 ], [ -1, %70 ], [ -1, %40 ], [ -1, %22 ], [ -1, %48 ], [ -1, %52 ], [ -1, %56 ], [ -1, %dissect_thrift_compact_binary.exit ], [ -1, %144 ], [ -1, %147 ], [ -1, %dissect_thrift_compact_map.exit ], [ -1, %dissect_thrift_compact_struct.exit ], [ -1, %dissect_thrift_compact_binary.exit.thread ], [ -1, %dissect_thrift_compact_map.exit.thread ], [ -1, %255 ], [ -1, %262 ], [ -1, %dissect_thrift_compact_fields.exit ], [ -1, %dissect_thrift_compact_fields.exit.thread ]
+  %.0 = phi i32 [ -1, %298 ], [ -1, %22 ], [ %303, %302 ], [ -1, %40 ], [ -1, %70 ], [ -1, %88 ], [ -1, %48 ], [ -1, %52 ], [ -1, %56 ], [ -1, %dissect_thrift_compact_binary.exit ], [ -1, %144 ], [ -1, %147 ], [ -1, %dissect_thrift_compact_map.exit ], [ -1, %dissect_thrift_compact_struct.exit ], [ -1, %dissect_thrift_compact_binary.exit.thread ], [ -1, %dissect_thrift_compact_map.exit.thread ], [ -1, %255 ], [ -1, %262 ], [ -1, %dissect_thrift_compact_fields.exit ], [ -1, %dissect_thrift_compact_fields.exit.thread ]
   ret i32 %.0
 }
 
@@ -5138,7 +5138,7 @@ dissect_thrift_binary_struct.exit:                ; preds = %dissect_thrift_bina
   br label %dissect_thrift_binary_struct.exit.thread
 
 dissect_thrift_binary_struct.exit.thread:         ; preds = %dissect_thrift_binary_fields.exit.thread, %dissect_thrift_binary_fields.exit, %168, %161, %dissect_thrift_binary_binary.exit.thread, %dissect_thrift_binary_struct.exit, %146, %143, %140, %dissect_thrift_binary_binary.exit, %205, %198, %105, %91, %77, %63, %49, %35, %21
-  %.0 = phi i32 [ -1, %198 ], [ %206, %205 ], [ -1, %105 ], [ -1, %91 ], [ -1, %77 ], [ -1, %63 ], [ -1, %49 ], [ -1, %35 ], [ -1, %21 ], [ -1, %dissect_thrift_binary_binary.exit ], [ -1, %140 ], [ -1, %143 ], [ -1, %146 ], [ -1, %dissect_thrift_binary_struct.exit ], [ -1, %dissect_thrift_binary_binary.exit.thread ], [ -1, %161 ], [ -1, %168 ], [ -1, %dissect_thrift_binary_fields.exit ], [ -1, %dissect_thrift_binary_fields.exit.thread ]
+  %.0 = phi i32 [ -1, %198 ], [ -1, %21 ], [ %206, %205 ], [ -1, %35 ], [ -1, %49 ], [ -1, %63 ], [ -1, %77 ], [ -1, %91 ], [ -1, %105 ], [ -1, %dissect_thrift_binary_binary.exit ], [ -1, %140 ], [ -1, %143 ], [ -1, %146 ], [ -1, %dissect_thrift_binary_struct.exit ], [ -1, %dissect_thrift_binary_binary.exit.thread ], [ -1, %161 ], [ -1, %168 ], [ -1, %dissect_thrift_binary_fields.exit ], [ -1, %dissect_thrift_binary_fields.exit.thread ]
   ret i32 %.0
 }
 
@@ -5731,11 +5731,11 @@ default.unreachable74:                            ; preds = %6
   unreachable
 
 16:                                               ; preds = %6, %13, %14
-  %.067.in = phi ptr [ @ett_thrift_map, %14 ], [ @ett_thrift_list, %13 ], [ @ett_thrift_set, %6 ]
-  %.066.in = phi ptr [ @hf_thrift_map, %14 ], [ @hf_thrift_list, %13 ], [ @hf_thrift_set, %6 ]
-  %.065.in = phi ptr [ @hf_thrift_num_map_item, %14 ], [ @hf_thrift_num_list_item, %13 ], [ @hf_thrift_num_set_item, %6 ]
-  %.064 = phi i32 [ %15, %14 ], [ %10, %13 ], [ %10, %6 ]
-  %.063 = phi i32 [ 6, %14 ], [ 5, %13 ], [ 5, %6 ]
+  %.067.in = phi ptr [ @ett_thrift_list, %13 ], [ @ett_thrift_map, %14 ], [ @ett_thrift_set, %6 ]
+  %.066.in = phi ptr [ @hf_thrift_list, %13 ], [ @hf_thrift_map, %14 ], [ @hf_thrift_set, %6 ]
+  %.065.in = phi ptr [ @hf_thrift_num_list_item, %13 ], [ @hf_thrift_num_map_item, %14 ], [ @hf_thrift_num_set_item, %6 ]
+  %.064 = phi i32 [ %10, %13 ], [ %15, %14 ], [ %10, %6 ]
+  %.063 = phi i32 [ 5, %13 ], [ 6, %14 ], [ 5, %6 ]
   %.065 = load i32, ptr %.065.in, align 4
   %.066 = load i32, ptr %.066.in, align 4
   %.067 = load i32, ptr %.067.in, align 4

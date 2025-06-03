@@ -873,9 +873,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9S
   br label %35
 
 35:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109
-  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ]
-  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ]
+  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ], [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ], [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit69.thread109 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i70 = load ptr, ptr %.1, align 8, !tbaa !50
   %.sroa.22.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i72 = load i64, ptr %.sroa.22.0..sroa_idx.i71, align 8, !tbaa !52
@@ -896,9 +896,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9S
   br label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge149, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112
-  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ], [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ]
-  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ], [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge149 ], [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ]
+  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ], [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ]
+  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ], [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ]
+  %.2 = phi ptr [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm21KnownAssumptionStringEEclIPNS2_9StringRefEEEbT_.exit79.thread112 ], [ %.029.lcssa, %._crit_edge._crit_edge149 ]
   %.sroa.01.0.copyload.i80 = load ptr, ptr %.2, align 8, !tbaa !50
   %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i82 = load i64, ptr %.sroa.22.0..sroa_idx.i81, align 8, !tbaa !52

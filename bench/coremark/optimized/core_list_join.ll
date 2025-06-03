@@ -60,7 +60,7 @@ define dso_local signext range(i16 0, 128) i16 @calc_func(ptr noundef captures(n
   br label %36
 
 36:                                               ; preds = %7, %27, %35, %12, %26
-  %.034 = phi i16 [ %31, %35 ], [ %31, %27 ], [ %22, %26 ], [ %22, %12 ], [ %3, %7 ]
+  %.034 = phi i16 [ %22, %26 ], [ %22, %12 ], [ %31, %35 ], [ %31, %27 ], [ %3, %7 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = load i16, ptr %37, align 8, !tbaa !20
   %39 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034, i16 noundef zeroext %38) #9
@@ -396,7 +396,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   br label %110
 
 110:                                              ; preds = %109, %104, %103, %94, %89
-  %.034.i136 = phi i16 [ %106, %109 ], [ %106, %104 ], [ %100, %103 ], [ %100, %94 ], [ %85, %89 ]
+  %.034.i136 = phi i16 [ %100, %103 ], [ %100, %94 ], [ %106, %109 ], [ %106, %104 ], [ %85, %89 ]
   %111 = load i16, ptr %55, align 8, !tbaa !20
   %112 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i136, i16 noundef zeroext %111) #9
   store i16 %112, ptr %55, align 8, !tbaa !20
@@ -456,7 +456,7 @@ calc_func.exit138:                                ; preds = %87, %110
   br label %142
 
 142:                                              ; preds = %141, %136, %135, %126, %121
-  %.034.i = phi i16 [ %138, %141 ], [ %138, %136 ], [ %132, %135 ], [ %132, %126 ], [ %117, %121 ]
+  %.034.i = phi i16 [ %132, %135 ], [ %132, %126 ], [ %138, %141 ], [ %138, %136 ], [ %117, %121 ]
   %143 = load i16, ptr %55, align 8, !tbaa !20
   %144 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i, i16 noundef zeroext %143) #9
   store i16 %144, ptr %55, align 8, !tbaa !20

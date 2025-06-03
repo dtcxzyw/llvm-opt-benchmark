@@ -216,7 +216,7 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr noundef readonly captures(none
   br label %87
 
 87:                                               ; preds = %.thread, %79, %83, %51, %85, %17, %32, %43, %39, %13
-  %.041 = phi i32 [ -1, %13 ], [ 0, %43 ], [ -1, %39 ], [ 0, %32 ], [ 0, %17 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
+  %.041 = phi i32 [ -1, %13 ], [ -1, %39 ], [ 0, %32 ], [ 0, %43 ], [ 0, %17 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
   ret i32 %.041
 }
 
@@ -460,7 +460,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   br label %124
 
 124:                                              ; preds = %.thread, %119, %6, %101, %120, %24
-  %.048 = phi i32 [ -1, %24 ], [ -1, %120 ], [ %.3, %119 ], [ 0, %101 ], [ 0, %6 ], [ -1, %.thread ]
+  %.048 = phi i32 [ -1, %24 ], [ -1, %120 ], [ 0, %101 ], [ %.3, %119 ], [ 0, %6 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   ret i32 %.048
 }

@@ -833,7 +833,7 @@ _ZN6Assimp12NewellNormalILi3ELi3ELi3EfEEvR10aiVector3tIT2_EiPS2_S5_S5_.exit: ; p
   br label %_ZNK10aiVector3tIfEixEj.exit
 
 _ZNK10aiVector3tIfEixEj.exit:                     ; preds = %.preheader349, %344, %346
-  %.0.in.i = phi ptr [ %347, %346 ], [ %345, %344 ], [ %343, %.preheader349 ]
+  %.0.in.i = phi ptr [ %345, %344 ], [ %347, %346 ], [ %343, %.preheader349 ]
   %.0.i = load float, ptr %.0.in.i, align 4
   %348 = load ptr, ptr %59, align 8
   %349 = getelementptr inbounds nuw %class.aiVector2t, ptr %348, i64 %indvars.iv422
@@ -855,7 +855,7 @@ _ZNK10aiVector3tIfEixEj.exit:                     ; preds = %.preheader349, %344
   br label %_ZNK10aiVector3tIfEixEj.exit269
 
 _ZNK10aiVector3tIfEixEj.exit269:                  ; preds = %_ZNK10aiVector3tIfEixEj.exit, %353, %355
-  %.0.in.i267 = phi ptr [ %356, %355 ], [ %354, %353 ], [ %352, %_ZNK10aiVector3tIfEixEj.exit ]
+  %.0.in.i267 = phi ptr [ %354, %353 ], [ %356, %355 ], [ %352, %_ZNK10aiVector3tIfEixEj.exit ]
   %.0.i268 = load float, ptr %.0.in.i267, align 4
   %357 = load ptr, ptr %59, align 8
   %358 = getelementptr inbounds nuw %class.aiVector2t, ptr %357, i64 %indvars.iv422, i32 1

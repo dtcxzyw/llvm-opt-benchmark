@@ -265,7 +265,7 @@ default.unreachable5:                             ; preds = %3
   br label %14
 
 14:                                               ; preds = %3, %11, %7
-  %.0 = phi i64 [ %.0.sroa.speculated.i3, %11 ], [ %.0.sroa.speculated.i, %7 ], [ %6, %3 ]
+  %.0 = phi i64 [ %.0.sroa.speculated.i, %7 ], [ %.0.sroa.speculated.i3, %11 ], [ %6, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.0.sroa.speculated.i4 = tail call noundef i64 @llvm.umin.i64(i64 %.0, i64 %16)

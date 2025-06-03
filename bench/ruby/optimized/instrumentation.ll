@@ -334,7 +334,7 @@ find_last_event.exit:                             ; preds = %.preheader.i
   br label %event_name.exit.i
 
 event_name.exit.i:                                ; preds = %20, %19, %18, %17, %16, %15
-  %.0.i.i = phi ptr [ @.str.18, %20 ], [ @.str.17, %19 ], [ @.str.16, %18 ], [ @.str.15, %17 ], [ @.str.14, %16 ], [ @.str.13, %15 ]
+  %.0.i.i = phi ptr [ @.str.18, %20 ], [ @.str.14, %16 ], [ @.str.15, %17 ], [ @.str.16, %18 ], [ @.str.17, %19 ], [ @.str.13, %15 ]
   br i1 %.not49, label %unexpected.exit, label %21
 
 21:                                               ; preds = %event_name.exit.i
@@ -365,7 +365,7 @@ unexpected.exit:                                  ; preds = %event_name.exit.i
   br label %event_name.exit.i35
 
 event_name.exit.i35:                              ; preds = %24, %27, %26, %25
-  %.0.i.i36 = phi ptr [ @.str.18, %27 ], [ @.str.17, %26 ], [ @.str.15, %25 ], [ @.str.14, %24 ]
+  %.0.i.i36 = phi ptr [ @.str.18, %27 ], [ @.str.15, %25 ], [ @.str.17, %26 ], [ @.str.14, %24 ]
   br i1 %.not49, label %unexpected.exit37, label %28
 
 28:                                               ; preds = %event_name.exit.i35
@@ -399,7 +399,7 @@ unexpected.exit37:                                ; preds = %event_name.exit.i35
   br label %event_name.exit.i38
 
 event_name.exit.i38:                              ; preds = %31, %35, %34, %33, %32
-  %.0.i.i39 = phi ptr [ @.str.18, %35 ], [ @.str.17, %34 ], [ @.str.16, %33 ], [ @.str.15, %32 ], [ @.str.13, %31 ]
+  %.0.i.i39 = phi ptr [ @.str.18, %35 ], [ @.str.15, %32 ], [ @.str.16, %33 ], [ @.str.17, %34 ], [ @.str.13, %31 ]
   br i1 %.not49, label %unexpected.exit40, label %36
 
 36:                                               ; preds = %event_name.exit.i38
@@ -433,7 +433,7 @@ unexpected.exit40:                                ; preds = %event_name.exit.i38
   br label %event_name.exit.i41
 
 event_name.exit.i41:                              ; preds = %39, %43, %42, %41, %40
-  %.0.i.i42 = phi ptr [ @.str.18, %43 ], [ @.str.17, %42 ], [ @.str.16, %41 ], [ @.str.14, %40 ], [ @.str.13, %39 ]
+  %.0.i.i42 = phi ptr [ @.str.18, %43 ], [ @.str.14, %40 ], [ @.str.16, %41 ], [ @.str.17, %42 ], [ @.str.13, %39 ]
   br i1 %.not49, label %unexpected.exit43, label %44
 
 44:                                               ; preds = %event_name.exit.i41
@@ -464,7 +464,7 @@ unexpected.exit43:                                ; preds = %event_name.exit.i41
   br label %event_name.exit.i44
 
 event_name.exit.i44:                              ; preds = %47, %50, %49, %48
-  %.0.i.i45 = phi ptr [ @.str.18, %50 ], [ @.str.17, %49 ], [ @.str.14, %48 ], [ @.str.13, %47 ]
+  %.0.i.i45 = phi ptr [ @.str.18, %50 ], [ @.str.14, %48 ], [ @.str.17, %49 ], [ @.str.13, %47 ]
   br i1 %.not49, label %unexpected.exit46, label %51
 
 51:                                               ; preds = %event_name.exit.i44

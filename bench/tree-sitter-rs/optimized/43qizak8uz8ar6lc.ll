@@ -1860,8 +1860,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread:
   br label %124
 
 124:                                              ; preds = %82, %99, %104, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread, %119
-  %.sroa.4.0 = phi i32 [ %123, %119 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread ], [ undef, %104 ], [ %86, %82 ], [ %103, %99 ]
-  %.sroa.0.0 = phi i32 [ 1, %119 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread ], [ 0, %104 ], [ 1, %82 ], [ 1, %99 ]
+  %.sroa.4.0 = phi i32 [ %123, %119 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread ], [ undef, %104 ], [ %103, %99 ], [ %86, %82 ]
+  %.sroa.0.0 = phi i32 [ 1, %119 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f057f59752977fcE.exit.thread ], [ 0, %104 ], [ 1, %99 ], [ 1, %82 ]
   %125 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %126 = insertvalue { i32, i32 } %125, i32 %.sroa.4.0, 1
   ret { i32, i32 } %126
@@ -3422,7 +3422,7 @@ default.unreachable8:                             ; preds = %1
   br label %25
 
 25:                                               ; preds = %23, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3c03dfeb2a64a612E.exit", %6
-  %.0 = phi i8 [ %24, %23 ], [ %spec.select.i.i, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3c03dfeb2a64a612E.exit" ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %spec.select.i.i, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3c03dfeb2a64a612E.exit" ], [ %24, %23 ]
   %26 = icmp ne i8 %.0, 2
   %.not.i = xor i1 %26, true
   %27 = trunc i8 %.0 to i1
@@ -3760,7 +3760,7 @@ default.unreachable7:                             ; preds = %1
   br label %11
 
 11:                                               ; preds = %9, %7, %5
-  %.0 = phi i8 [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i8 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   %12 = icmp ne i8 %.0, 2
   ret i1 %12
 }
@@ -4001,7 +4001,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN72_$LT$regex_syntax..ast..ClassUnicodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a8bc2e224e07236E.exit"
 
 "_ZN72_$LT$regex_syntax..ast..ClassUnicodeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a8bc2e224e07236E.exit": ; preds = %11, %13, %15
-  %.0.in.i = phi i1 [ %17, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.0.in.i = phi i1 [ %12, %11 ], [ %14, %13 ], [ %17, %15 ]
   ret i1 %.0.in.i
 }
 
@@ -4119,7 +4119,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h11756a1c2d16b8f7E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h11756a1c2d16b8f7E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -4403,7 +4403,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN68_$LT$regex_syntax..ast..ClassSetItem$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf046c558bd1f3ddE.exit"
 
 "_ZN68_$LT$regex_syntax..ast..ClassSetItem$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf046c558bd1f3ddE.exit": ; preds = %17, %19, %21, %23, %25, %27, %29, %31
-  %.0.in.i = phi i1 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.0.in.i = phi i1 [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   ret i1 %.0.in.i
 }
 
@@ -4450,7 +4450,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e8d79d542991740E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e8d79d542991740E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -4575,7 +4575,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5906d0631a255c1eE.exit"
 
 "_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5906d0631a255c1eE.exit": ; preds = %7, %9, %11
-  %.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -4656,7 +4656,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN77_$LT$tree_sitter_cli..generate..nfa..NfaState$u20$as$u20$core..fmt..Debug$GT$3fmt17h107763e11430a5ddE.exit"
 
 "_ZN77_$LT$tree_sitter_cli..generate..nfa..NfaState$u20$as$u20$core..fmt..Debug$GT$3fmt17h107763e11430a5ddE.exit": ; preds = %12, %17, %21
-  %.0.in.i = phi i1 [ %24, %21 ], [ %20, %17 ], [ %16, %12 ]
+  %.0.in.i = phi i1 [ %16, %12 ], [ %20, %17 ], [ %24, %21 ]
   ret i1 %.0.in.i
 }
 
@@ -6288,7 +6288,7 @@ common.resume.sink.split:                         ; preds = %46, %68
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %48, %62
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %49, %48 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %63, %62 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %43
@@ -6537,7 +6537,7 @@ common.resume.sink.split:                         ; preds = %18, %67, %72, %77, 
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body, %131, %146, %154, %161, %168
-  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %162, %161 ], [ %155, %154 ], [ %147, %146 ], [ %132, %131 ], [ %23, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %.body ], [ %132, %131 ], [ %147, %146 ], [ %155, %154 ], [ %162, %161 ], [ %169, %168 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %15
@@ -13857,8 +13857,8 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN83_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..clone..Clone$GT$5clone17h3ccbdee9516e11fcE.llvm.10393017446704266758.exit"
 
 "_ZN83_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..clone..Clone$GT$5clone17h3ccbdee9516e11fcE.llvm.10393017446704266758.exit": ; preds = %6, %10, %13
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload4, %13 ], [ %12, %10 ], [ undef, %6 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload2, %13 ], [ -9223372036854775807, %10 ], [ -9223372036854775808, %6 ]
+  %.sroa.6.0 = phi i32 [ %12, %10 ], [ %.sroa.6.0.copyload4, %13 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %10 ], [ %.sroa.0.0.copyload2, %13 ], [ -9223372036854775808, %6 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -16057,7 +16057,7 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$tree_sitter_tags..Error$u20$as$u20$
   br label %23
 
 23:                                               ; preds = %20, %18, %16, %13, %11
-  %.0.in = phi i1 [ %22, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
   ret i1 %.0.in
 }
 
@@ -16686,7 +16686,7 @@ default.unreachable1:                             ; preds = %2
   br label %80
 
 80:                                               ; preds = %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %57, %55, %53, %51, %49, %47, %44, %42, %40, %37, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8
-  %.0.in = phi i1 [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %43, %42 ], [ %46, %44 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %59, %57 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
   ret i1 %.0.in
 }
 
@@ -16711,7 +16711,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u
   ]
 
 "_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82ec428496f91afcE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h82f4d3c237989007E.exit", %86, %87, %70, %.preheader, %75, %65, %59, %54, %48, %42, %36, %34, %32, %30, %10, %11, %13, %15, %17, %2, %19
-  %.0.shrunk = phi i1 [ %24, %19 ], [ false, %2 ], [ true, %17 ], [ true, %15 ], [ true, %13 ], [ true, %11 ], [ true, %10 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ false, %34 ], [ false, %32 ], [ false, %30 ], [ %64, %59 ], [ false, %54 ], [ false, %65 ], [ false, %75 ], [ %exitcond.not, %.preheader ], [ %exitcond.not, %70 ], [ %.not, %87 ], [ %.not, %86 ], [ %.not, %"_ZN4core6option15Option$LT$T$GT$6map_or17h82f4d3c237989007E.exit" ]
+  %.0.shrunk = phi i1 [ %24, %19 ], [ false, %2 ], [ true, %17 ], [ true, %15 ], [ true, %13 ], [ true, %11 ], [ true, %10 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ false, %34 ], [ false, %32 ], [ false, %30 ], [ %64, %59 ], [ false, %54 ], [ false, %65 ], [ false, %75 ], [ %exitcond.not, %.preheader ], [ %exitcond.not, %70 ], [ %.not, %87 ], [ %.not, %86 ], [ %.not, %"_ZN4core6option15Option$LT$T$GT$6map_or17h82f4d3c237989007E.exit" ]
   ret i1 %.0.shrunk
 
 11:                                               ; preds = %10
@@ -17093,7 +17093,7 @@ default.unreachable1:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %21, %18, %15, %13, %11, %9, %7
-  %.0.in = phi i1 [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ]
   ret i1 %.0.in
 }
 
@@ -26125,7 +26125,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !5219
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i, ptr %48, align 8
@@ -26289,7 +26289,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %63
 
 60:                                               ; preds = %53, %42, %39
-  %.1.i = phi ptr [ %41, %39 ], [ %58, %53 ], [ %47, %42 ]
+  %.1.i = phi ptr [ %47, %42 ], [ %58, %53 ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !5257
   br label %61
 
@@ -29798,7 +29798,7 @@ default.unreachable:                              ; preds = %2
   br label %15
 
 15:                                               ; preds = %13, %10, %8
-  %.0.in = phi i1 [ %14, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %12, %10 ], [ %14, %13 ]
   ret i1 %.0.in
 }
 
@@ -30007,7 +30007,7 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$tree_sitter_cli..generate.
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %31, %28, %25, %21, %18, %16
-  %.0.in = phi i1 [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %21 ], [ %20, %18 ], [ %17, %16 ]
+  %.0.in = phi i1 [ %17, %16 ], [ %20, %18 ], [ %24, %21 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ]
   ret i1 %.0.in
 }
 

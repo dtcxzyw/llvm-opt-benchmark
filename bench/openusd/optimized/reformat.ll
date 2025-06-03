@@ -2865,7 +2865,7 @@ define hidden i32 @avifLimitedToFullY(i32 noundef %0, i32 noundef %1) local_unna
   br label %24
 
 24:                                               ; preds = %17, %10, %3, %2
-  %.0 = phi i32 [ %1, %2 ], [ %23, %17 ], [ %16, %10 ], [ %9, %3 ]
+  %.0 = phi i32 [ %1, %2 ], [ %9, %3 ], [ %16, %10 ], [ %23, %17 ]
   ret i32 %.0
 }
 
@@ -2905,7 +2905,7 @@ define hidden i32 @avifLimitedToFullUV(i32 noundef %0, i32 noundef %1) local_unn
   br label %24
 
 24:                                               ; preds = %17, %10, %3, %2
-  %.0 = phi i32 [ %1, %2 ], [ %23, %17 ], [ %16, %10 ], [ %9, %3 ]
+  %.0 = phi i32 [ %1, %2 ], [ %9, %3 ], [ %16, %10 ], [ %23, %17 ]
   ret i32 %.0
 }
 
@@ -2948,7 +2948,7 @@ define hidden i32 @avifFullToLimitedY(i32 noundef %0, i32 noundef %1) local_unna
   br label %27
 
 27:                                               ; preds = %19, %11, %3, %2
-  %.0 = phi i32 [ %1, %2 ], [ %26, %19 ], [ %18, %11 ], [ %10, %3 ]
+  %.0 = phi i32 [ %1, %2 ], [ %10, %3 ], [ %18, %11 ], [ %26, %19 ]
   ret i32 %.0
 }
 
@@ -2991,7 +2991,7 @@ define hidden i32 @avifFullToLimitedUV(i32 noundef %0, i32 noundef %1) local_unn
   br label %27
 
 27:                                               ; preds = %19, %11, %3, %2
-  %.0 = phi i32 [ %1, %2 ], [ %26, %19 ], [ %18, %11 ], [ %10, %3 ]
+  %.0 = phi i32 [ %1, %2 ], [ %10, %3 ], [ %18, %11 ], [ %26, %19 ]
   ret i32 %.0
 }
 

@@ -272,8 +272,8 @@ define dso_local void @_ZN4llvm11compression10decompressENS_20DebugCompressionTy
   unreachable
 
 16:                                               ; preds = %14, %13, %12, %10
-  %.sroa.5.0.i.i = phi i64 [ 24, %14 ], [ 26, %13 ], [ 23, %12 ], [ 23, %10 ]
-  %.sroa.0.0.i.i = phi ptr [ @.str.10, %14 ], [ @.str.9, %13 ], [ @.str.8, %12 ], [ @.str.7, %10 ]
+  %.sroa.5.0.i.i = phi i64 [ 23, %12 ], [ 26, %13 ], [ 24, %14 ], [ 23, %10 ]
+  %.sroa.0.0.i.i = phi ptr [ @.str.8, %12 ], [ @.str.9, %13 ], [ @.str.10, %14 ], [ @.str.7, %10 ]
   %17 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !11
   %18 = extractvalue { i32, ptr } %17, 0
   %19 = extractvalue { i32, ptr } %17, 1
@@ -352,8 +352,8 @@ define dso_local void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPh
   unreachable
 
 12:                                               ; preds = %5, %10, %9, %8
-  %.sroa.5.0.i = phi i64 [ 24, %10 ], [ 26, %9 ], [ 23, %8 ], [ 23, %5 ]
-  %.sroa.0.0.i = phi ptr [ @.str.10, %10 ], [ @.str.9, %9 ], [ @.str.8, %8 ], [ @.str.7, %5 ]
+  %.sroa.5.0.i = phi i64 [ 23, %8 ], [ 26, %9 ], [ 24, %10 ], [ 23, %5 ]
+  %.sroa.0.0.i = phi ptr [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.7, %5 ]
   %13 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7
   %14 = extractvalue { i32, ptr } %13, 0
   %15 = extractvalue { i32, ptr } %13, 1
@@ -486,8 +486,8 @@ _ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit: ; preds = %5, %.sink.
   unreachable
 
 24:                                               ; preds = %22, %21, %20, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit
-  %.sroa.5.0.i.i = phi i64 [ 24, %22 ], [ 26, %21 ], [ 23, %20 ], [ 23, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
-  %.sroa.0.0.i.i = phi ptr [ @.str.10, %22 ], [ @.str.9, %21 ], [ @.str.8, %20 ], [ @.str.7, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
+  %.sroa.5.0.i.i = phi i64 [ 23, %20 ], [ 26, %21 ], [ 24, %22 ], [ 23, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
+  %.sroa.0.0.i.i = phi ptr [ @.str.8, %20 ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.7, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
   %25 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !45
   %26 = extractvalue { i32, ptr } %25, 0
   %27 = extractvalue { i32, ptr } %25, 1

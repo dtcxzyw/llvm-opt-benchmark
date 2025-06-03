@@ -1243,7 +1243,7 @@ switch.lookup:                                    ; preds = %9
   br label %dissect_wlccp_ccm_msg.exit
 
 dissect_wlccp_ccm_msg.exit:                       ; preds = %185, %.thread146, %356, %353, %346, %339, %326, %323, %320, %.thread145, %.thread144, %.thread142, %313, %300, %297, %288, %274, %254, %195, %194, %.thread143
-  %.0 = phi i32 [ 26, %.thread143 ], [ %.0.i, %194 ], [ %273, %297 ], [ %312, %300 ], [ %319, %313 ], [ %253, %195 ], [ %286, %274 ], [ %296, %288 ], [ %273, %254 ], [ 7, %.thread142 ], [ 7, %.thread144 ], [ 28, %.thread145 ], [ 36, %353 ], [ 32, %346 ], [ 40, %339 ], [ 48, %326 ], [ 32, %323 ], [ 32, %320 ], [ 32, %356 ], [ 7, %.thread146 ], [ 7, %185 ]
+  %.0 = phi i32 [ 26, %.thread143 ], [ %.0.i, %194 ], [ %253, %195 ], [ %319, %313 ], [ %312, %300 ], [ %273, %297 ], [ %286, %274 ], [ %296, %288 ], [ %273, %254 ], [ 7, %.thread142 ], [ 7, %.thread144 ], [ 28, %.thread145 ], [ 32, %356 ], [ 32, %320 ], [ 32, %323 ], [ 48, %326 ], [ 40, %339 ], [ 32, %346 ], [ 36, %353 ], [ 7, %.thread146 ], [ 7, %185 ]
   %359 = load i8, ptr @tlv_flag, align 1, !range !6, !noundef !7
   %360 = trunc nuw i8 %359 to i1
   %361 = load i8, ptr @mic_flag, align 1, !range !6
@@ -2125,8 +2125,8 @@ dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph41
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.487, ptr noundef nonnull @.str.488, i32 noundef 1999, ptr noundef nonnull @.str.491) #4
   unreachable
 
-.loopexit:                                        ; preds = %.preheader, %563, %455, %166, %.thread141, %.thread147, %dissect_wlccp_sec_tlv.exit.thread, %dissect_wlccp_sec_tlv.exit
-  %.1 = phi i32 [ %.0, %dissect_wlccp_sec_tlv.exit ], [ %spec.select, %dissect_wlccp_sec_tlv.exit.thread ], [ %8, %.thread147 ], [ %8, %.thread141 ], [ %8, %166 ], [ %8, %455 ], [ %8, %563 ], [ %.2, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %563, %455, %166, %.thread147, %.thread141, %dissect_wlccp_sec_tlv.exit.thread, %dissect_wlccp_sec_tlv.exit
+  %.1 = phi i32 [ %.0, %dissect_wlccp_sec_tlv.exit ], [ %spec.select, %dissect_wlccp_sec_tlv.exit.thread ], [ %8, %.thread141 ], [ %8, %.thread147 ], [ %8, %166 ], [ %8, %455 ], [ %8, %563 ], [ %.2, %.preheader ]
   %574 = tail call i32 @llvm.umax.i32(i32 %8, i32 %.1)
   ret i32 %574
 }

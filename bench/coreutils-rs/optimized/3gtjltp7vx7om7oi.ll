@@ -985,8 +985,8 @@ define noundef ptr @_ZN7uu_echo7execute17h10569a384cbd0620E(i1 noundef zeroext %
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %61
@@ -1057,13 +1057,13 @@ define noundef ptr @_ZN7uu_echo7execute17h10569a384cbd0620E(i1 noundef zeroext %
 55:                                               ; preds = %49
   %56 = load i8, ptr %14, align 8, !range !294, !noundef !10
   %trunc.us = trunc nuw i8 %56 to i1
-  %57 = load ptr, ptr %36, align 8, !nonnull !10
-  %58 = load i8, ptr %37, align 1, !range !294
+  %57 = load i8, ptr %36, align 1, !range !294
+  %58 = load ptr, ptr %37, align 8, !nonnull !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc.us, label %.loopexit81, label %59
 
 59:                                               ; preds = %55
-  %60 = trunc nuw i8 %58 to i1
+  %60 = trunc nuw i8 %57 to i1
   br i1 %60, label %.loopexit81, label %61
 
 61:                                               ; preds = %59
@@ -1366,7 +1366,7 @@ select.unfold75:                                  ; preds = %121
   br i1 %130, label %._crit_edge, label %.lr.ph.split
 
 .loopexit81:                                      ; preds = %59, %55, %select.unfold71, %select.unfold75
-  %.2 = phi ptr [ %spec.select80, %select.unfold75 ], [ %spec.select79, %select.unfold71 ], [ null, %59 ], [ %57, %55 ]
+  %.2 = phi ptr [ %spec.select80, %select.unfold75 ], [ %spec.select79, %select.unfold71 ], [ %58, %55 ], [ null, %59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %94
 

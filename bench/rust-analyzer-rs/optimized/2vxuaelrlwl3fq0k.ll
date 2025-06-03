@@ -7624,7 +7624,7 @@ common.resume.sink.split:                         ; preds = %21, %26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %28, %.body, %46, %51, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %52, %51 ], [ %47, %46 ], [ %.pn, %.body ], [ %29, %28 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %.body ], [ %47, %46 ], [ %52, %51 ], [ %57, %56 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %18
@@ -17465,7 +17465,7 @@ common.resume.sink.split:                         ; preds = %143, %154
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %181, %.body, %201, %206, %211, %169, %173, %123, %127, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %48, %47 ], [ %124, %127 ], [ %124, %123 ], [ %170, %173 ], [ %170, %169 ], [ %212, %211 ], [ %207, %206 ], [ %202, %201 ], [ %.pn, %.body ], [ %182, %181 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %48, %47 ], [ %124, %127 ], [ %124, %123 ], [ %170, %173 ], [ %170, %169 ], [ %182, %181 ], [ %.pn, %.body ], [ %202, %201 ], [ %207, %206 ], [ %212, %211 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN48_$LT$hir..Type$u20$as$u20$core..clone..Clone$GT$5clone17h2e1b9093a0ae79a6E.llvm.835382560586912698.exit": ; preds = %40
@@ -18877,7 +18877,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.8855768217806144362.exit.i.i.i.i"
 
 "_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.8855768217806144362.exit.i.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6c3914c0aef82057E.llvm.8855768217806144362.exit.i.i.i.i.i", %75
-  %.0.i.i.i.i.i = phi i32 [ %83, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6c3914c0aef82057E.llvm.8855768217806144362.exit.i.i.i.i.i" ], [ %76, %75 ]
+  %.0.i.i.i.i.i = phi i32 [ %76, %75 ], [ %83, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6c3914c0aef82057E.llvm.8855768217806144362.exit.i.i.i.i.i" ]
   %84 = add i32 %.0.i.i.i.i.i, %.0.i.i.i.i
   %.not.i.i.i.i = icmp ugt i32 %.0.i.i.i.i, %84
   br i1 %.not.i.i.i.i, label %85, label %86

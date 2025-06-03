@@ -1870,7 +1870,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %14
   br label %31
 
 31:                                               ; preds = %29, %27, %26, %_ZNK2cv3Mat8elemSizeEv.exit
-  %.0 = phi i64 [ %25, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %30, %29 ], [ %28, %27 ], [ %1, %26 ]
+  %.0 = phi i64 [ %25, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %1, %26 ], [ %28, %27 ], [ %30, %29 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %22, i64 %.0)
   store i64 %.sroa.speculated, ptr %24, align 8, !tbaa !102
   ret i64 %.sroa.speculated
@@ -7551,7 +7551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1263: ; preds = %_
   br label %2138
 
 .loopexit1344:                                    ; preds = %.loopexit1348, %.loopexit.split-lp1349, %.loopexit.split-lp, %.loopexit1344.split.split.us, %.loopexit1344.split.split.split.us, %.loopexit1344.split.split.split, %.loopexit1344.split.us, %1464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1249, %2101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1263, %1455, %.split.us, %1238, %1280, %1176, %1218, %1083, %1125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1054, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1041, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1028, %1079, %1510, %1468, %1573, %1531, %1635, %1593, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1223, %1971, %1929, %2033, %1991, %975
-  %.pn831.pn.pn = phi { ptr, i32 } [ %976, %975 ], [ %.pn831, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1263 ], [ %.pn766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1249 ], [ %.pn754.pn.pn.pn.pn.pn, %2101 ], [ %1465, %1464 ], [ %.pn741, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1236 ], [ %.pn796, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1097 ], [ %.pn784, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1123 ], [ %.pn775, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1110 ], [ %.pn828, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1028 ], [ %1080, %1079 ], [ %.pn812, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1054 ], [ %.pn804, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1041 ], [ %.pn823.pn.pn, %1125 ], [ %1084, %1083 ], [ %.pn799.pn.pn, %1218 ], [ %1177, %1176 ], [ %.pn807.pn.pn, %1280 ], [ %1239, %1238 ], [ %.pn816.pn.pn, %1455 ], [ %1379, %.split.us ], [ %.pn791.pn.pn, %1510 ], [ %1469, %1468 ], [ %.pn770.pn.pn, %1573 ], [ %1532, %1531 ], [ %.pn779.pn.pn, %1635 ], [ %1594, %1593 ], [ %.pn786, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1223 ], [ %.pn736.pn.pn, %1971 ], [ %1930, %1929 ], [ %.pn761.pn.pn, %2033 ], [ %1992, %1991 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit1344.split.us ], [ %lpad.loopexit.us1428, %.loopexit1344.split.split.us ], [ %lpad.loopexit, %.loopexit1344.split.split.split ], [ %lpad.loopexit.us1432, %.loopexit1344.split.split.split.us ], [ %lpad.loopexit1350, %.loopexit1348 ], [ %lpad.loopexit.split-lp1351, %.loopexit.split-lp1349 ]
+  %.pn831.pn.pn = phi { ptr, i32 } [ %976, %975 ], [ %.pn831, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1263 ], [ %.pn796, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1097 ], [ %1465, %1464 ], [ %.pn784, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1123 ], [ %.pn775, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1110 ], [ %.pn766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1249 ], [ %.pn754.pn.pn.pn.pn.pn, %2101 ], [ %.pn741, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1236 ], [ %.pn828, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1028 ], [ %1080, %1079 ], [ %.pn812, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1054 ], [ %.pn804, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1041 ], [ %.pn823.pn.pn, %1125 ], [ %1084, %1083 ], [ %.pn799.pn.pn, %1218 ], [ %1177, %1176 ], [ %.pn807.pn.pn, %1280 ], [ %1239, %1238 ], [ %.pn816.pn.pn, %1455 ], [ %1379, %.split.us ], [ %.pn791.pn.pn, %1510 ], [ %1469, %1468 ], [ %.pn770.pn.pn, %1573 ], [ %1532, %1531 ], [ %.pn779.pn.pn, %1635 ], [ %1594, %1593 ], [ %.pn786, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1223 ], [ %.pn736.pn.pn, %1971 ], [ %1930, %1929 ], [ %.pn761.pn.pn, %2033 ], [ %1992, %1991 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit1344.split.us ], [ %lpad.loopexit.us1428, %.loopexit1344.split.split.us ], [ %lpad.loopexit, %.loopexit1344.split.split.split ], [ %lpad.loopexit.us1432, %.loopexit1344.split.split.split.us ], [ %lpad.loopexit1350, %.loopexit1348 ], [ %lpad.loopexit.split-lp1351, %.loopexit.split-lp1349 ]
   %2130 = load ptr, ptr %94, align 8, !tbaa !125
   %.not.i.i1264 = icmp eq ptr %2130, %965
   br i1 %.not.i.i1264, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit1265, label %2131
@@ -10000,9 +10000,9 @@ default.unreachable:                              ; preds = %514
   unreachable
 
 521:                                              ; preds = %516, %515, %514, %520, %519, %518, %517
-  %.2371 = phi i32 [ 3, %520 ], [ 3, %519 ], [ 2, %518 ], [ 2, %514 ], [ 1, %515 ], [ 1, %516 ], [ 2, %517 ]
-  %.0367 = phi i32 [ 64, %520 ], [ 32, %519 ], [ 32, %518 ], [ 8, %514 ], [ 8, %515 ], [ 16, %516 ], [ 16, %517 ]
-  %.0365 = phi i32 [ 1, %520 ], [ 1, %519 ], [ %.0823826832839, %518 ], [ %.0823826832839, %514 ], [ %.0823826832839, %515 ], [ %.0823826832839, %516 ], [ %.0823826832839, %517 ]
+  %.2371 = phi i32 [ 2, %518 ], [ 3, %519 ], [ 3, %520 ], [ 1, %515 ], [ 2, %514 ], [ 1, %516 ], [ 2, %517 ]
+  %.0367 = phi i32 [ 32, %518 ], [ 32, %519 ], [ 64, %520 ], [ 8, %515 ], [ 8, %514 ], [ 16, %516 ], [ 16, %517 ]
+  %.0365 = phi i32 [ %.0823826832839, %518 ], [ 1, %519 ], [ 1, %520 ], [ %.0823826832839, %515 ], [ %.0823826832839, %514 ], [ %.0823826832839, %516 ], [ %.0823826832839, %517 ]
   %.not = icmp eq i32 %226, 0
   br i1 %.not, label %522, label %535
 
@@ -12694,7 +12694,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1431, %1428
   br i1 %.not507.not, label %200, label %.critedge, !llvm.loop !203
 
 1440:                                             ; preds = %1372, %1414, %1272, %1282, %1291, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit766, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit779, %1352, %1310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit792, %1368
-  %.pn408.pn.pn = phi { ptr, i32 } [ %.pn389, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit792 ], [ %1369, %1368 ], [ %.pn408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit766 ], [ %.pn406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit779 ], [ %1273, %1272 ], [ %.pn391.pn.pn, %1291 ], [ %.pn395.pn.pn, %1282 ], [ %.pn401.pn.pn, %1352 ], [ %1311, %1310 ], [ %.pn384.pn.pn, %1414 ], [ %1373, %1372 ]
+  %.pn408.pn.pn = phi { ptr, i32 } [ %.pn389, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit792 ], [ %1369, %1368 ], [ %.pn408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit766 ], [ %.pn406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit779 ], [ %1273, %1272 ], [ %.pn395.pn.pn, %1282 ], [ %.pn391.pn.pn, %1291 ], [ %.pn401.pn.pn, %1352 ], [ %1311, %1310 ], [ %.pn384.pn.pn, %1414 ], [ %1373, %1372 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #23
   br label %1441
 
@@ -14879,7 +14879,7 @@ define linkonce_odr hidden noundef i64 @_ZN2cv20TiffEncoderBufHelper4seekEPvmi(p
   br label %18
 
 18:                                               ; preds = %9, %7, %6, %3
-  %.0 = phi i64 [ %5, %3 ], [ %17, %9 ], [ %8, %7 ], [ %1, %6 ]
+  %.0 = phi i64 [ %5, %3 ], [ %1, %6 ], [ %8, %7 ], [ %17, %9 ]
   store i64 %.0, ptr %4, align 8, !tbaa !195
   ret i64 %.0
 }

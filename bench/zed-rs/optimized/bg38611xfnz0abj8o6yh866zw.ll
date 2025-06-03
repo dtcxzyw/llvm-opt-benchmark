@@ -35075,7 +35075,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %.not2, label %"_ZN4core3ptr185drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$$LP$core..result..Result$LT$proto..Envelope$C$anyhow..Error$GT$$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17hce0ebdf3ae920086E.exit37", label %105
 
 .body28:                                          ; preds = %103, %96, %91, %.body19, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body20, %.body19 ], [ %eh.lpad-body, %.body ], [ %104, %103 ], [ %92, %96 ], [ %92, %91 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body20, %.body19 ], [ %104, %103 ], [ %92, %96 ], [ %92, %91 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %72 = load i64, ptr %71, align 8, !range !3036, !noundef !4
   %.not = icmp eq i64 %72, 0
@@ -36295,7 +36295,7 @@ define hidden void @"_ZN4core3ptr273drop_in_place$LT$rpc..proto..MessageStream$L
     i8 5, label %69
   ]
 
-common.ret:                                       ; preds = %103, %"_ZN4core3ptr284drop_in_place$LT$futures_util..sink..send..Send$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$C$tungstenite..protocol..message..Message$GT$$GT$17hb3c9dbf3da9abd9cE.exit", %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8", %94, %94, %94, %90, %86, %82, %78, %76, %69, %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4", %64, %64, %64, %60, %56, %52, %48, %46, %39, %8, %4, %1
+common.ret:                                       ; preds = %103, %"_ZN4core3ptr284drop_in_place$LT$futures_util..sink..send..Send$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$C$tungstenite..protocol..message..Message$GT$$GT$17hb3c9dbf3da9abd9cE.exit", %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9", %94, %94, %94, %90, %86, %82, %78, %76, %69, %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5", %64, %64, %64, %60, %56, %52, %48, %46, %39, %8, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -36399,47 +36399,47 @@ common.ret:                                       ; preds = %103, %"_ZN4core3ptr
 
 46:                                               ; preds = %43
   %47 = icmp eq i64 %41, 0
-  br i1 %47, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4"
+  br i1 %47, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5"
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %50 = load i64, ptr %49, align 8, !alias.scope !9782, !noalias !9793, !noundef !4
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4"
+  br i1 %51, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5"
 
 52:                                               ; preds = %43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %54 = load i64, ptr %53, align 8, !alias.scope !9795, !noalias !9804, !noundef !4
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4"
+  br i1 %55, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5"
 
 56:                                               ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %58 = load i64, ptr %57, align 8, !alias.scope !9806, !noalias !9815, !noundef !4
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4"
+  br i1 %59, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5"
 
 60:                                               ; preds = %43
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %62 = load i64, ptr %61, align 8, !alias.scope !9817, !noalias !9826, !noundef !4
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4"
+  br i1 %63, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5"
 
 64:                                               ; preds = %43
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %66 = load i64, ptr %65, align 8, !range !2699, !alias.scope !9828, !noundef !4
-  switch i64 %66, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4" [
+  switch i64 %66, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5" [
     i64 -9223372036854775807, label %common.ret
     i64 -9223372036854775808, label %common.ret
     i64 0, label %common.ret
   ]
 
-"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i4": ; preds = %64, %60, %56, %52, %48, %46
-  %.sink.i.i.i.i5 = phi i64 [ 8, %46 ], [ 16, %48 ], [ 16, %52 ], [ 16, %56 ], [ 16, %60 ], [ 16, %64 ]
-  %.sink6.i.i.i.i6 = phi i64 [ %41, %46 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ], [ %66, %64 ]
-  %67 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink.i.i.i.i5
+"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i5": ; preds = %64, %60, %56, %52, %48, %46
+  %.sink.i.i.i.i6 = phi i64 [ 8, %46 ], [ 16, %48 ], [ 16, %52 ], [ 16, %56 ], [ 16, %60 ], [ 16, %64 ]
+  %.sink6.i.i.i.i7 = phi i64 [ %41, %46 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ], [ %66, %64 ]
+  %67 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink.i.i.i.i6
   %68 = load ptr, ptr %67, align 8, !alias.scope !9831, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %.sink6.i.i.i.i6, i64 noundef 1) #31, !noalias !9831
+  tail call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %.sink6.i.i.i.i7, i64 noundef 1) #31, !noalias !9831
   br label %common.ret
 
 69:                                               ; preds = %1
@@ -36465,47 +36465,47 @@ common.ret:                                       ; preds = %103, %"_ZN4core3ptr
 
 76:                                               ; preds = %73
   %77 = icmp eq i64 %71, 0
-  br i1 %77, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8"
+  br i1 %77, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9"
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %80 = load i64, ptr %79, align 8, !alias.scope !9845, !noalias !9856, !noundef !4
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8"
+  br i1 %81, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9"
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %84 = load i64, ptr %83, align 8, !alias.scope !9858, !noalias !9867, !noundef !4
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8"
+  br i1 %85, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9"
 
 86:                                               ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %88 = load i64, ptr %87, align 8, !alias.scope !9869, !noalias !9878, !noundef !4
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8"
+  br i1 %89, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9"
 
 90:                                               ; preds = %73
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %92 = load i64, ptr %91, align 8, !alias.scope !9880, !noalias !9889, !noundef !4
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8"
+  br i1 %93, label %common.ret, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9"
 
 94:                                               ; preds = %73
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %96 = load i64, ptr %95, align 8, !range !2699, !alias.scope !9891, !noundef !4
-  switch i64 %96, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8" [
+  switch i64 %96, label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9" [
     i64 -9223372036854775807, label %common.ret
     i64 -9223372036854775808, label %common.ret
     i64 0, label %common.ret
   ]
 
-"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i8": ; preds = %94, %90, %86, %82, %78, %76
-  %.sink.i.i.i.i9 = phi i64 [ 8, %76 ], [ 16, %78 ], [ 16, %82 ], [ 16, %86 ], [ 16, %90 ], [ 16, %94 ]
-  %.sink6.i.i.i.i10 = phi i64 [ %71, %76 ], [ %80, %78 ], [ %84, %82 ], [ %88, %86 ], [ %92, %90 ], [ %96, %94 ]
-  %97 = getelementptr inbounds nuw i8, ptr %70, i64 %.sink.i.i.i.i9
+"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i9": ; preds = %94, %90, %86, %82, %78, %76
+  %.sink.i.i.i.i10 = phi i64 [ 8, %76 ], [ 16, %78 ], [ 16, %82 ], [ 16, %86 ], [ 16, %90 ], [ 16, %94 ]
+  %.sink6.i.i.i.i11 = phi i64 [ %71, %76 ], [ %80, %78 ], [ %84, %82 ], [ %88, %86 ], [ %92, %90 ], [ %96, %94 ]
+  %97 = getelementptr inbounds nuw i8, ptr %70, i64 %.sink.i.i.i.i10
   %98 = load ptr, ptr %97, align 8, !alias.scope !9894, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %98, i64 noundef %.sink6.i.i.i.i10, i64 noundef 1) #31, !noalias !9894
+  tail call void @__rust_dealloc(ptr noundef nonnull %98, i64 noundef %.sink6.i.i.i.i11, i64 noundef 1) #31, !noalias !9894
   br label %common.ret
 
 "_ZN4core3ptr284drop_in_place$LT$futures_util..sink..send..Send$LT$alloc..boxed..Box$LT$dyn$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$u2b$Error$u20$$u3d$$u20$anyhow..Error$u2b$core..marker..Unpin$u2b$core..marker..Send$GT$$C$tungstenite..protocol..message..Message$GT$$GT$17hb3c9dbf3da9abd9cE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i.i.i.i", %34, %34, %34, %30, %26, %22, %18, %16, %9
@@ -80674,7 +80674,7 @@ common.resume.sink.split:                         ; preds = %41, %92, %97, %102
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body7, %.body15, %.body, %57, %47, %52, %79, %69, %74
-  %common.resume.op = phi { ptr, i32 } [ %6, %.body ], [ %45, %.body15 ], [ %37, %.body7 ], [ %48, %57 ], [ %48, %47 ], [ %48, %52 ], [ %70, %79 ], [ %70, %69 ], [ %70, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %.body ], [ %37, %.body7 ], [ %45, %.body15 ], [ %48, %57 ], [ %48, %47 ], [ %48, %52 ], [ %70, %79 ], [ %70, %69 ], [ %70, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 41:                                               ; preds = %39
@@ -95649,7 +95649,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h115763b5c0366f92E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -95709,7 +95709,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h527a91022a4ea0a3E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -95769,7 +95769,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h61b4aff8c6d0b75dE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -95829,7 +95829,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h97e71a6e79a2ee92E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -95889,7 +95889,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hb111361784393520E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -95949,7 +95949,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hbeb963d2ab14301dE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -96009,7 +96009,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17he58c78ffffaec425E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -96145,7 +96145,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h757c
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64

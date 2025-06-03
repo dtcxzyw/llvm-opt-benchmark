@@ -3689,7 +3689,7 @@ lean_alloc_ctor.exit684:                          ; preds = %lean_dec.exit
   br label %995
 
 995:                                              ; preds = %lean_dec.exit359, %lean_dec.exit355, %lean_dec.exit351, %lean_dec.exit346, %lean_dec.exit343, %lean_dec.exit340, %lean_alloc_ctor.exit684, %lean_alloc_ctor.exit605, %lean_alloc_ctor.exit604
-  %.2 = phi ptr [ %989, %lean_alloc_ctor.exit684 ], [ %957, %lean_dec.exit340 ], [ %924, %lean_dec.exit343 ], [ %891, %lean_dec.exit346 ], [ %764, %lean_dec.exit351 ], [ %683, %lean_dec.exit355 ], [ %602, %lean_dec.exit359 ], [ %479, %lean_alloc_ctor.exit604 ], [ %516, %lean_alloc_ctor.exit605 ]
+  %.2 = phi ptr [ %989, %lean_alloc_ctor.exit684 ], [ %602, %lean_dec.exit359 ], [ %683, %lean_dec.exit355 ], [ %764, %lean_dec.exit351 ], [ %891, %lean_dec.exit346 ], [ %924, %lean_dec.exit343 ], [ %957, %lean_dec.exit340 ], [ %479, %lean_alloc_ctor.exit604 ], [ %516, %lean_alloc_ctor.exit605 ]
   ret ptr %.2
 }
 
@@ -5460,7 +5460,7 @@ l_Lean_Expr_getUsedConstantsAsSet.exit170:        ; preds = %lean_inc.exit.i165,
   br label %310
 
 310:                                              ; preds = %l_Lean_Expr_getUsedConstantsAsSet.exit170, %lean_dec.exit77, %lean_dec.exit78, %lean_dec.exit80, %lean_dec.exit83, %l_Lean_Expr_getUsedConstantsAsSet.exit139
-  %.0 = phi ptr [ %258, %lean_dec.exit77 ], [ %246, %lean_dec.exit78 ], [ %207, %lean_dec.exit80 ], [ %150, %lean_dec.exit83 ], [ %111, %l_Lean_Expr_getUsedConstantsAsSet.exit139 ], [ %309, %l_Lean_Expr_getUsedConstantsAsSet.exit170 ]
+  %.0 = phi ptr [ %258, %lean_dec.exit77 ], [ %111, %l_Lean_Expr_getUsedConstantsAsSet.exit139 ], [ %150, %lean_dec.exit83 ], [ %207, %lean_dec.exit80 ], [ %246, %lean_dec.exit78 ], [ %309, %l_Lean_Expr_getUsedConstantsAsSet.exit170 ]
   ret ptr %.0
 }
 

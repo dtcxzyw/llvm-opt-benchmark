@@ -1633,7 +1633,7 @@ define hidden void @_ZN5uu_od15multifilereader15MultifileReader9next_file17h2965
   ret void
 
 common.resume:                                    ; preds = %144, %132, %75, %.body, %.body44, %174, %.body32, %.body36
-  %common.resume.op = phi { ptr, i32 } [ %42, %.body ], [ %112, %.body36 ], [ %86, %.body32 ], [ %175, %174 ], [ %155, %.body44 ], [ %76, %75 ], [ %133, %132 ], [ %145, %144 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %.body ], [ %155, %.body44 ], [ %175, %174 ], [ %86, %.body32 ], [ %112, %.body36 ], [ %76, %75 ], [ %133, %132 ], [ %145, %144 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit"

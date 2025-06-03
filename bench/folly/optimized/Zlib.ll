@@ -1670,7 +1670,7 @@ _ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i: ; preds = %13
   br label %_ZN5folly11compression4zlib12_GLOBAL__N_113getWindowBitsENS1_7Options6FormatEi.exit.i
 
 _ZN5folly11compression4zlib12_GLOBAL__N_113getWindowBitsENS1_7Options6FormatEi.exit.i: ; preds = %47, %45, %43, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i
-  %.0.i.i = phi i32 [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i ]
+  %.0.i.i = phi i32 [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %42, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %50 = load i32, ptr %49, align 8, !tbaa !37
@@ -2036,7 +2036,7 @@ _ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i: ; preds = %13
   br label %_ZN5folly11compression4zlib12_GLOBAL__N_113getWindowBitsENS1_7Options6FormatEi.exit.i
 
 _ZN5folly11compression4zlib12_GLOBAL__N_113getWindowBitsENS1_7Options6FormatEi.exit.i: ; preds = %46, %44, %42, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i
-  %.0.i.i = phi i32 [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i ]
+  %.0.i.i = phi i32 [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %41, %_ZN5folly8OptionalI10z_stream_sEaSIS1_EERS2_OT_.exit.i ]
   %48 = tail call i32 @inflateInit2_(ptr noundef nonnull %14, i32 noundef %.0.i.i, ptr noundef nonnull @.str.22, i32 noundef 112)
   store i32 %48, ptr %7, align 4, !tbaa !7
   %.not.i = icmp eq i32 %48, 0

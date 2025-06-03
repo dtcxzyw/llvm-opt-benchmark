@@ -291,7 +291,7 @@ define internal range(i32 0, 2) i32 @test_access_description(i32 noundef %0) #1 
   br label %17
 
 17:                                               ; preds = %11, %5, %1, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %5 ], [ 0, %11 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %11 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 

@@ -90,7 +90,7 @@ _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %3, %4
   br label %_ZN3dpxL26QueryRGBBufferSizeInternalENS_10DescriptorEii.exit
 
 _ZN3dpxL26QueryRGBBufferSizeInternalENS_10DescriptorEii.exit: ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %23, %26, %29, %32, %35
-  %.0.i7 = phi i32 [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ 0, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ]
+  %.0.i7 = phi i32 [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ 0, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ]
   ret i32 %.0.i7
 }
 

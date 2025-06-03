@@ -1079,8 +1079,8 @@ _ZN20ruff_python_semantic7analyze5class22any_member_declaration16any_stmt_in_bod
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e57575da112845bE.exit"
 
 104:                                              ; preds = %2, %30, %28
-  %.sroa.13.0 = phi ptr [ %31, %30 ], [ %29, %28 ], [ %1, %2 ]
-  %.sroa.01.0 = phi i64 [ 1, %30 ], [ 0, %28 ], [ 2, %2 ]
+  %.sroa.13.0 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %1, %2 ]
+  %.sroa.01.0 = phi i64 [ 0, %28 ], [ 1, %30 ], [ 2, %2 ]
   %105 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load ptr, ptr %106, align 8, !nonnull !4, !align !6, !noundef !4
@@ -1518,7 +1518,7 @@ define internal noundef zeroext i1 @"_ZN20ruff_python_semantic7analyze5class12is
   br label %28
 
 28:                                               ; preds = %11, %22, %90, %16
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %90 ], [ %21, %16 ], [ %27, %22 ], [ false, %11 ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %90 ], [ %27, %22 ], [ %21, %16 ], [ false, %11 ]
   ret i1 %.sroa.0.0
 
 29:                                               ; preds = %6
@@ -1896,7 +1896,7 @@ switch.lookup383:                                 ; preds = %"_ZN91_$LT$core..sl
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit: ; preds = %9, %switch.lookup471, %185, %switch.lookup465, %switch.lookup459, %switch.lookup453, %switch.lookup406, %156, %switch.lookup400, %switch.lookup394, %switch.lookup388, %switch.lookup383, %146, %switch.lookup377, %switch.lookup371, %switch.lookup365, %135, %switch.lookup359, %switch.lookup353, %switch.lookup347, %43, %switch.lookup305, %switch.lookup299, %switch.lookup, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit, %128, %36, %92, %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit", %187, %184, %158, %155, %153, %151, %.loopexit, %148, %145, %143, %141, %139, %137, %134, %45, %42, %175, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit", %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i60, %175 ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %.sroa.0.0.ph145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ 4, %45 ], [ %.sroa.0.0.ph145, %42 ], [ 4, %137 ], [ %.sroa.0.0.i38, %134 ], [ 4, %148 ], [ %27, %139 ], [ %.sroa.0.0.ph145, %141 ], [ %27, %143 ], [ %.sroa.0.0.ph145, %145 ], [ 4, %158 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph145, %151 ], [ %.sroa.0.0.i29, %153 ], [ %.sroa.0.0.ph145, %155 ], [ 4, %187 ], [ %.sroa.0.0.i60, %184 ], [ 4, %15 ], [ %spec.select, %92 ], [ %41, %36 ], [ %133, %128 ], [ %.sroa.0.0.i68, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %switch.masked, %switch.lookup ], [ %switch.masked304, %switch.lookup299 ], [ %switch.masked310, %switch.lookup305 ], [ 4, %43 ], [ %switch.masked352, %switch.lookup347 ], [ %switch.masked358, %switch.lookup353 ], [ %switch.masked364, %switch.lookup359 ], [ 4, %135 ], [ %switch.masked370, %switch.lookup365 ], [ %switch.masked376, %switch.lookup371 ], [ %switch.masked382, %switch.lookup377 ], [ 4, %146 ], [ %switch.masked387, %switch.lookup383 ], [ %switch.masked393, %switch.lookup388 ], [ %switch.masked399, %switch.lookup394 ], [ %switch.masked405, %switch.lookup400 ], [ 4, %156 ], [ %switch.masked411, %switch.lookup406 ], [ %switch.masked458, %switch.lookup453 ], [ %switch.masked464, %switch.lookup459 ], [ %switch.masked470, %switch.lookup465 ], [ 4, %185 ], [ %switch.masked476, %switch.lookup471 ], [ %.sroa.0.0.ph145, %9 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ %.sroa.0.0.ph145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %.sroa.0.0.i60, %175 ], [ 4, %45 ], [ %.sroa.0.0.ph145, %42 ], [ 4, %137 ], [ %.sroa.0.0.i38, %134 ], [ 4, %148 ], [ %27, %139 ], [ %.sroa.0.0.ph145, %141 ], [ %27, %143 ], [ %.sroa.0.0.ph145, %145 ], [ 4, %158 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph145, %151 ], [ %.sroa.0.0.i29, %153 ], [ %.sroa.0.0.ph145, %155 ], [ 4, %187 ], [ %.sroa.0.0.i60, %184 ], [ 4, %15 ], [ %spec.select, %92 ], [ %41, %36 ], [ %133, %128 ], [ %.sroa.0.0.i68, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %switch.masked, %switch.lookup ], [ %switch.masked304, %switch.lookup299 ], [ %switch.masked310, %switch.lookup305 ], [ 4, %43 ], [ %switch.masked352, %switch.lookup347 ], [ %switch.masked358, %switch.lookup353 ], [ %switch.masked364, %switch.lookup359 ], [ 4, %135 ], [ %switch.masked370, %switch.lookup365 ], [ %switch.masked376, %switch.lookup371 ], [ %switch.masked382, %switch.lookup377 ], [ 4, %146 ], [ %switch.masked387, %switch.lookup383 ], [ %switch.masked393, %switch.lookup388 ], [ %switch.masked399, %switch.lookup394 ], [ %switch.masked405, %switch.lookup400 ], [ 4, %156 ], [ %switch.masked411, %switch.lookup406 ], [ %switch.masked458, %switch.lookup453 ], [ %switch.masked464, %switch.lookup459 ], [ %switch.masked470, %switch.lookup465 ], [ 4, %185 ], [ %switch.masked476, %switch.lookup471 ], [ %.sroa.0.0.ph145, %9 ]
   %14 = icmp eq ptr %.sroa.027.1140, %4
   %.sroa.027.1.idx135 = select i1 %14, i64 0, i64 120
   %.sroa.027.1136 = getelementptr inbounds nuw i8, ptr %.sroa.027.1140, i64 %.sroa.027.1.idx135
@@ -2835,7 +2835,7 @@ define void @_ZN20ruff_python_semantic7analyze14type_inference18ResolvedPythonTy
   br i1 %24, label %28, label %29
 
 25:                                               ; preds = %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69, %202, %28, %22
-  %.sroa.011.0 = phi i1 [ true, %22 ], [ true, %28 ], [ false, %202 ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69 ]
+  %.sroa.011.0 = phi i1 [ true, %22 ], [ true, %28 ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread ], [ true, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69 ], [ false, %202 ]
   %26 = load i8, ptr %16, align 8, !range !27, !noundef !4
   %27 = icmp eq i8 %26, 1
   br i1 %27, label %258, label %.thread
@@ -2962,7 +2962,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %switch.i = icmp samesign ult i8 %43, 3
   br i1 %switch.i, label %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread, label %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread66
 
-_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread66: ; preds = %51, %71, %47, %49, %73, %56, %58, %60, %62, %64, %66, %68, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit
+_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread66: ; preds = %51, %71, %68, %66, %64, %62, %60, %58, %56, %73, %49, %47, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit
   %75 = add nsw i8 %43, -4
   %76 = icmp ult i8 %75, 10
   %narrow.i25 = select i1 %76, i8 %75, i8 2
@@ -3045,13 +3045,13 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %switch.i28 = icmp samesign ult i8 %41, 3
   br i1 %switch.i28, label %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread, label %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69
 
-_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread: ; preds = %70, %71, %47, %49, %73, %56, %58, %60, %62, %64, %66, %68, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit
+_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit.thread: ; preds = %70, %71, %68, %66, %64, %62, %60, %58, %56, %73, %49, %47, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %43, ptr %105, align 1
   store i8 0, ptr %0, align 8
   br label %25
 
-_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69: ; preds = %82, %101, %78, %80, %103, %86, %88, %90, %92, %94, %96, %98, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29
+_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread69: ; preds = %82, %101, %98, %96, %94, %92, %90, %88, %86, %103, %80, %78, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29
   %.sroa.417.0.insert.ext = zext nneg i8 %43 to i16
   %.sroa.417.0.insert.shift = shl nuw nsw i16 %.sroa.417.0.insert.ext, 8
   %.sroa.016.0.insert.ext = zext nneg i8 %41 to i16
@@ -3061,7 +3061,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   store i8 1, ptr %0, align 8
   br label %25
 
-_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread: ; preds = %100, %101, %78, %80, %103, %86, %88, %90, %92, %94, %96, %98, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29
+_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29.thread: ; preds = %100, %101, %98, %96, %94, %92, %90, %88, %86, %103, %80, %78, %_ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h00d9340e5e9ee8b9E.exit29
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %41, ptr %107, align 1
   store i8 0, ptr %0, align 8
@@ -3100,19 +3100,19 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   br label %114
 
 114:                                              ; preds = %.noexc30, %.lr.ph.i
-  %115 = phi ptr [ %111, %.lr.ph.i ], [ %141, %.noexc30 ]
+  %115 = phi ptr [ %111, %.lr.ph.i ], [ %120, %.noexc30 ]
   %.val5.i = load i8, ptr %115, align 1, !range !237, !noalias !238, !noundef !4
   switch i8 %narrow.i.i.i.i, label %116 [
     i8 0, label %117
-    i8 1, label %119
-    i8 2, label %121
-    i8 3, label %126
-    i8 4, label %128
-    i8 5, label %130
-    i8 6, label %132
-    i8 7, label %134
-    i8 8, label %136
-    i8 9, label %138
+    i8 1, label %121
+    i8 2, label %123
+    i8 3, label %128
+    i8 4, label %130
+    i8 5, label %132
+    i8 6, label %134
+    i8 7, label %136
+    i8 8, label %138
+    i8 9, label %140
   ]
 
 116:                                              ; preds = %142, %114
@@ -3122,55 +3122,55 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %118 = icmp eq i8 %.val5.i, 4
   br i1 %118, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
 
-119:                                              ; preds = %114
-  %120 = icmp eq i8 %.val5.i, 5
-  br i1 %120, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-121:                                              ; preds = %114
-  %122 = add nsw i8 %.val5.i, -4
-  %123 = icmp ugt i8 %122, 9
-  %124 = icmp eq i8 %122, 2
-  %125 = or i1 %123, %124
-  br i1 %125, label %142, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-126:                                              ; preds = %114
-  %127 = icmp eq i8 %.val5.i, 7
-  br i1 %127, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-128:                                              ; preds = %114
-  %129 = icmp eq i8 %.val5.i, 8
-  br i1 %129, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-130:                                              ; preds = %114
-  %131 = icmp eq i8 %.val5.i, 9
-  br i1 %131, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-132:                                              ; preds = %114
-  %133 = icmp eq i8 %.val5.i, 10
-  br i1 %133, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-134:                                              ; preds = %114
-  %135 = icmp eq i8 %.val5.i, 11
-  br i1 %135, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-136:                                              ; preds = %114
-  %137 = icmp eq i8 %.val5.i, 12
-  br i1 %137, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-138:                                              ; preds = %114
-  %139 = icmp eq i8 %.val5.i, 13
-  br i1 %139, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i": ; preds = %146, %144, %143, %138, %136, %134, %132, %130, %128, %126, %121, %119, %117
-  %140 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i": ; preds = %146, %144, %143, %140, %138, %136, %134, %132, %130, %128, %123, %121, %117
+  %119 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %.noexc30 unwind label %.loopexit
 
 .noexc30:                                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
-  %141 = extractvalue { ptr, ptr } %140, 0
-  %.not.not.i = icmp eq ptr %141, null
+  %120 = extractvalue { ptr, ptr } %119, 0
+  %.not.not.i = icmp eq ptr %120, null
   br i1 %.not.not.i, label %.loopexit82, label %114
 
-142:                                              ; preds = %121
+121:                                              ; preds = %114
+  %122 = icmp eq i8 %.val5.i, 5
+  br i1 %122, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+123:                                              ; preds = %114
+  %124 = add nsw i8 %.val5.i, -4
+  %125 = icmp ugt i8 %124, 9
+  %126 = icmp eq i8 %124, 2
+  %127 = or i1 %125, %126
+  br i1 %127, label %142, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+128:                                              ; preds = %114
+  %129 = icmp eq i8 %.val5.i, 7
+  br i1 %129, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+130:                                              ; preds = %114
+  %131 = icmp eq i8 %.val5.i, 8
+  br i1 %131, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+132:                                              ; preds = %114
+  %133 = icmp eq i8 %.val5.i, 9
+  br i1 %133, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+134:                                              ; preds = %114
+  %135 = icmp eq i8 %.val5.i, 10
+  br i1 %135, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+136:                                              ; preds = %114
+  %137 = icmp eq i8 %.val5.i, 11
+  br i1 %137, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+138:                                              ; preds = %114
+  %139 = icmp eq i8 %.val5.i, 12
+  br i1 %139, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+140:                                              ; preds = %114
+  %141 = icmp eq i8 %.val5.i, 13
+  br i1 %141, label %149, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h63cf48dce18487f4E.exit.backedge.i"
+
+142:                                              ; preds = %123
   switch i8 %38, label %116 [
     i8 0, label %143
     i8 1, label %144
@@ -3196,7 +3196,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %148 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf74818737360d9eaE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, i8 noundef %38)
           to label %150 unwind label %.loopexit.split-lp
 
-149:                                              ; preds = %142, %138, %136, %134, %132, %130, %128, %126, %146, %119, %117, %144, %143
+149:                                              ; preds = %142, %117, %121, %146, %128, %130, %132, %134, %136, %138, %140, %144, %143
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %150
 
@@ -3214,7 +3214,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   unreachable
 
 154:                                              ; preds = %264, %260, %204, %160, %108
-  %.pn21 = phi { ptr, i32 } [ %261, %264 ], [ %261, %260 ], [ %.pn, %204 ], [ %lpad.phi93, %160 ], [ %lpad.phi, %108 ]
+  %.pn21 = phi { ptr, i32 } [ %261, %264 ], [ %261, %260 ], [ %lpad.phi, %108 ], [ %.pn, %204 ], [ %lpad.phi93, %160 ]
   resume { ptr, i32 } %.pn21
 
 155:                                              ; preds = %32
@@ -3270,19 +3270,19 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   br label %166
 
 166:                                              ; preds = %.noexc40, %.lr.ph.i32
-  %167 = phi ptr [ %163, %.lr.ph.i32 ], [ %193, %.noexc40 ]
+  %167 = phi ptr [ %163, %.lr.ph.i32 ], [ %172, %.noexc40 ]
   %.val5.i34 = load i8, ptr %167, align 1, !range !237, !noalias !241, !noundef !4
   switch i8 %narrow.i.i.i.i33, label %168 [
     i8 0, label %169
-    i8 1, label %171
-    i8 2, label %173
-    i8 3, label %178
-    i8 4, label %180
-    i8 5, label %182
-    i8 6, label %184
-    i8 7, label %186
-    i8 8, label %188
-    i8 9, label %190
+    i8 1, label %173
+    i8 2, label %175
+    i8 3, label %180
+    i8 4, label %182
+    i8 5, label %184
+    i8 6, label %186
+    i8 7, label %188
+    i8 8, label %190
+    i8 9, label %192
   ]
 
 168:                                              ; preds = %194, %166
@@ -3292,55 +3292,55 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %170 = icmp eq i8 %.val5.i34, 4
   br i1 %170, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
 
-171:                                              ; preds = %166
-  %172 = icmp eq i8 %.val5.i34, 5
-  br i1 %172, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-173:                                              ; preds = %166
-  %174 = add nsw i8 %.val5.i34, -4
-  %175 = icmp ugt i8 %174, 9
-  %176 = icmp eq i8 %174, 2
-  %177 = or i1 %175, %176
-  br i1 %177, label %194, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-178:                                              ; preds = %166
-  %179 = icmp eq i8 %.val5.i34, 7
-  br i1 %179, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-180:                                              ; preds = %166
-  %181 = icmp eq i8 %.val5.i34, 8
-  br i1 %181, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-182:                                              ; preds = %166
-  %183 = icmp eq i8 %.val5.i34, 9
-  br i1 %183, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-184:                                              ; preds = %166
-  %185 = icmp eq i8 %.val5.i34, 10
-  br i1 %185, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-186:                                              ; preds = %166
-  %187 = icmp eq i8 %.val5.i34, 11
-  br i1 %187, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-188:                                              ; preds = %166
-  %189 = icmp eq i8 %.val5.i34, 12
-  br i1 %189, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-190:                                              ; preds = %166
-  %191 = icmp eq i8 %.val5.i34, 13
-  br i1 %191, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i": ; preds = %198, %196, %195, %190, %188, %186, %184, %182, %180, %178, %173, %171, %169
-  %192 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i": ; preds = %198, %196, %195, %192, %190, %188, %186, %184, %182, %180, %175, %173, %169
+  %171 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
           to label %.noexc40 unwind label %.loopexit89
 
 .noexc40:                                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
-  %193 = extractvalue { ptr, ptr } %192, 0
-  %.not.not.i35 = icmp eq ptr %193, null
+  %172 = extractvalue { ptr, ptr } %171, 0
+  %.not.not.i35 = icmp eq ptr %172, null
   br i1 %.not.not.i35, label %.loopexit94, label %166
 
-194:                                              ; preds = %173
+173:                                              ; preds = %166
+  %174 = icmp eq i8 %.val5.i34, 5
+  br i1 %174, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+175:                                              ; preds = %166
+  %176 = add nsw i8 %.val5.i34, -4
+  %177 = icmp ugt i8 %176, 9
+  %178 = icmp eq i8 %176, 2
+  %179 = or i1 %177, %178
+  br i1 %179, label %194, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+180:                                              ; preds = %166
+  %181 = icmp eq i8 %.val5.i34, 7
+  br i1 %181, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+182:                                              ; preds = %166
+  %183 = icmp eq i8 %.val5.i34, 8
+  br i1 %183, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+184:                                              ; preds = %166
+  %185 = icmp eq i8 %.val5.i34, 9
+  br i1 %185, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+186:                                              ; preds = %166
+  %187 = icmp eq i8 %.val5.i34, 10
+  br i1 %187, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+188:                                              ; preds = %166
+  %189 = icmp eq i8 %.val5.i34, 11
+  br i1 %189, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+190:                                              ; preds = %166
+  %191 = icmp eq i8 %.val5.i34, 12
+  br i1 %191, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+192:                                              ; preds = %166
+  %193 = icmp eq i8 %.val5.i34, 13
+  br i1 %193, label %201, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8e64d3e726702d20E.exit.backedge.i"
+
+194:                                              ; preds = %175
   switch i8 %159, label %168 [
     i8 0, label %195
     i8 1, label %196
@@ -3366,7 +3366,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %200 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf74818737360d9eaE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, i8 noundef %159)
           to label %202 unwind label %.loopexit.split-lp90
 
-201:                                              ; preds = %194, %190, %188, %186, %184, %182, %180, %178, %198, %171, %169, %196, %195
+201:                                              ; preds = %194, %169, %173, %198, %180, %182, %184, %186, %188, %190, %192, %196, %195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   br label %202
 
@@ -3453,19 +3453,19 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   br label %220
 
 220:                                              ; preds = %.noexc51, %.lr.ph.i43
-  %221 = phi ptr [ %217, %.lr.ph.i43 ], [ %247, %.noexc51 ]
+  %221 = phi ptr [ %217, %.lr.ph.i43 ], [ %226, %.noexc51 ]
   %.val5.i45 = load i8, ptr %221, align 1, !range !237, !noalias !244, !noundef !4
   switch i8 %narrow.i.i.i.i44, label %222 [
     i8 0, label %223
-    i8 1, label %225
-    i8 2, label %227
-    i8 3, label %232
-    i8 4, label %234
-    i8 5, label %236
-    i8 6, label %238
-    i8 7, label %240
-    i8 8, label %242
-    i8 9, label %244
+    i8 1, label %227
+    i8 2, label %229
+    i8 3, label %234
+    i8 4, label %236
+    i8 5, label %238
+    i8 6, label %240
+    i8 7, label %242
+    i8 8, label %244
+    i8 9, label %246
   ]
 
 222:                                              ; preds = %248, %220
@@ -3475,55 +3475,55 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
   %224 = icmp eq i8 %.val5.i45, 4
   br i1 %224, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
 
-225:                                              ; preds = %220
-  %226 = icmp eq i8 %.val5.i45, 5
-  br i1 %226, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-227:                                              ; preds = %220
-  %228 = add nsw i8 %.val5.i45, -4
-  %229 = icmp ugt i8 %228, 9
-  %230 = icmp eq i8 %228, 2
-  %231 = or i1 %229, %230
-  br i1 %231, label %248, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-232:                                              ; preds = %220
-  %233 = icmp eq i8 %.val5.i45, 7
-  br i1 %233, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-234:                                              ; preds = %220
-  %235 = icmp eq i8 %.val5.i45, 8
-  br i1 %235, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-236:                                              ; preds = %220
-  %237 = icmp eq i8 %.val5.i45, 9
-  br i1 %237, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-238:                                              ; preds = %220
-  %239 = icmp eq i8 %.val5.i45, 10
-  br i1 %239, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-240:                                              ; preds = %220
-  %241 = icmp eq i8 %.val5.i45, 11
-  br i1 %241, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-242:                                              ; preds = %220
-  %243 = icmp eq i8 %.val5.i45, 12
-  br i1 %243, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-244:                                              ; preds = %220
-  %245 = icmp eq i8 %.val5.i45, 13
-  br i1 %245, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i": ; preds = %252, %250, %249, %244, %242, %240, %238, %236, %234, %232, %227, %225, %223
-  %246 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i": ; preds = %252, %250, %249, %246, %244, %242, %240, %238, %236, %234, %229, %227, %223
+  %225 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0406b57dcd016688E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
           to label %.noexc51 unwind label %.loopexit83
 
 .noexc51:                                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
-  %247 = extractvalue { ptr, ptr } %246, 0
-  %.not.not.i46 = icmp eq ptr %247, null
+  %226 = extractvalue { ptr, ptr } %225, 0
+  %.not.not.i46 = icmp eq ptr %226, null
   br i1 %.not.not.i46, label %.loopexit88, label %220
 
-248:                                              ; preds = %227
+227:                                              ; preds = %220
+  %228 = icmp eq i8 %.val5.i45, 5
+  br i1 %228, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+229:                                              ; preds = %220
+  %230 = add nsw i8 %.val5.i45, -4
+  %231 = icmp ugt i8 %230, 9
+  %232 = icmp eq i8 %230, 2
+  %233 = or i1 %231, %232
+  br i1 %233, label %248, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+234:                                              ; preds = %220
+  %235 = icmp eq i8 %.val5.i45, 7
+  br i1 %235, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+236:                                              ; preds = %220
+  %237 = icmp eq i8 %.val5.i45, 8
+  br i1 %237, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+238:                                              ; preds = %220
+  %239 = icmp eq i8 %.val5.i45, 9
+  br i1 %239, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+240:                                              ; preds = %220
+  %241 = icmp eq i8 %.val5.i45, 10
+  br i1 %241, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+242:                                              ; preds = %220
+  %243 = icmp eq i8 %.val5.i45, 11
+  br i1 %243, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+244:                                              ; preds = %220
+  %245 = icmp eq i8 %.val5.i45, 12
+  br i1 %245, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+246:                                              ; preds = %220
+  %247 = icmp eq i8 %.val5.i45, 13
+  br i1 %247, label %255, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hae0bf687dc57b575E.exit.backedge.i"
+
+248:                                              ; preds = %229
   switch i8 %209, label %222 [
     i8 0, label %249
     i8 1, label %250
@@ -3552,7 +3552,7 @@ _ZN20ruff_python_semantic7analyze14type_inference10PythonType13is_subtype_of17h0
 .backedge:                                        ; preds = %.loopexit88, %255
   br label %208
 
-255:                                              ; preds = %248, %244, %242, %240, %238, %236, %234, %232, %252, %225, %223, %250, %249
+255:                                              ; preds = %248, %223, %227, %252, %234, %236, %238, %240, %242, %244, %246, %250, %249
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %.backedge
 

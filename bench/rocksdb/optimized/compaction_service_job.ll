@@ -4319,7 +4319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456: ; preds = %_Z
   br label %1497
 
 1453:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453, %602, %589
-  %.1 = phi i8 [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453 ], [ %590, %589 ], [ %603, %602 ]
+  %.1 = phi i8 [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453 ], [ %603, %602 ], [ %590, %589 ]
   %1454 = load ptr, ptr %26, align 8, !tbaa !11
   %1455 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %1456 = icmp eq ptr %1454, %1455

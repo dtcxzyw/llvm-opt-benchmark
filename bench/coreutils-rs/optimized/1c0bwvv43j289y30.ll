@@ -458,7 +458,7 @@ default.unreachable20:                            ; preds = %2
   br label %44
 
 44:                                               ; preds = %55, %45, %38, %25, %17
-  %.0.in = phi i1 [ %43, %38 ], [ %64, %55 ], [ %54, %45 ], [ %32, %25 ], [ %24, %17 ]
+  %.0.in = phi i1 [ %24, %17 ], [ %32, %25 ], [ %54, %45 ], [ %64, %55 ], [ %43, %38 ]
   ret i1 %.0.in
 
 45:                                               ; preds = %33
@@ -893,11 +893,11 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit: ; 
   br label %173
 
 173:                                              ; preds = %421, %368, %245, %162, %427, %303, %280, %168
-  %.sroa.62.0 = phi i64 [ %132, %427 ], [ undef, %303 ], [ undef, %280 ], [ %132, %168 ], [ undef, %162 ], [ %221, %245 ], [ %342, %368 ], [ %395, %421 ]
-  %.sroa.45.0 = phi i64 [ %431, %427 ], [ %305, %303 ], [ %282, %280 ], [ %172, %168 ], [ %164, %162 ], [ %247, %245 ], [ %370, %368 ], [ %423, %421 ]
-  %.sroa.24.0 = phi i64 [ %428, %427 ], [ 2, %303 ], [ 4, %280 ], [ %169, %168 ], [ 0, %162 ], [ 1, %245 ], [ 5, %368 ], [ 3, %421 ]
-  %174 = phi i1 [ false, %427 ], [ true, %303 ], [ true, %280 ], [ false, %168 ], [ true, %162 ], [ true, %245 ], [ true, %368 ], [ true, %421 ]
-  %.sroa.0148.0 = phi i64 [ 0, %427 ], [ 2, %303 ], [ 2, %280 ], [ 0, %168 ], [ 2, %162 ], [ 2, %245 ], [ 2, %368 ], [ 2, %421 ]
+  %.sroa.62.0 = phi i64 [ %132, %427 ], [ %132, %168 ], [ undef, %303 ], [ undef, %280 ], [ undef, %162 ], [ %221, %245 ], [ %342, %368 ], [ %395, %421 ]
+  %.sroa.45.0 = phi i64 [ %431, %427 ], [ %172, %168 ], [ %305, %303 ], [ %282, %280 ], [ %164, %162 ], [ %247, %245 ], [ %370, %368 ], [ %423, %421 ]
+  %.sroa.24.0 = phi i64 [ %428, %427 ], [ %169, %168 ], [ 2, %303 ], [ 4, %280 ], [ 0, %162 ], [ 1, %245 ], [ 5, %368 ], [ 3, %421 ]
+  %174 = phi i1 [ false, %427 ], [ false, %168 ], [ true, %303 ], [ true, %280 ], [ true, %162 ], [ true, %245 ], [ true, %368 ], [ true, %421 ]
+  %.sroa.0148.0 = phi i64 [ 0, %427 ], [ 0, %168 ], [ 2, %303 ], [ 2, %280 ], [ 2, %162 ], [ 2, %245 ], [ 2, %368 ], [ 2, %421 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52), !noalias !142
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfa074f7fb60b9d3cE.llvm.1206798258238166277"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69)
   %175 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -917,10 +917,10 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit: ; 
   br label %_ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit
 
 183:                                              ; preds = %426, %420, %400, %373, %367, %347, %306, %283, %250, %244, %224, %165
-  %.sroa.62.1 = phi i64 [ %.sroa.481.i.sroa.5.0.copyload, %426 ], [ %.sroa.4.i381.sroa.4.i.sroa.4.0.copyload, %420 ], [ %.sroa.4.i371.sroa.4.i.sroa.4.0.copyload, %400 ], [ %.sroa.4122.i.sroa.5.0.copyload, %373 ], [ %.sroa.4.i360.sroa.4.i.sroa.4.0.copyload, %367 ], [ %.sroa.4.i350.sroa.4.i.sroa.4.0.copyload, %347 ], [ %.sroa.440.i.sroa.5.0.copyload, %250 ], [ %.sroa.4.i305.sroa.4.i.sroa.4.0.copyload, %244 ], [ %.sroa.4.i295.sroa.4.i.sroa.4.0.copyload, %224 ], [ %.sroa.4.i332.sroa.4.i.sroa.4.0.copyload, %306 ], [ %.sroa.4.i322.sroa.4.i.sroa.4.0.copyload, %283 ], [ %.sroa.4.i.sroa.4.i.sroa.4.0.copyload, %165 ]
-  %.sroa.45.1 = phi i64 [ %.sroa.481.i.sroa.4.0.copyload, %426 ], [ %.sroa.4.i381.sroa.4.i.sroa.0.0.copyload, %420 ], [ %.sroa.4.i371.sroa.4.i.sroa.0.0.copyload, %400 ], [ %.sroa.4122.i.sroa.4.0.copyload, %373 ], [ %.sroa.4.i360.sroa.4.i.sroa.0.0.copyload, %367 ], [ %.sroa.4.i350.sroa.4.i.sroa.0.0.copyload, %347 ], [ %.sroa.440.i.sroa.4.0.copyload, %250 ], [ %.sroa.4.i305.sroa.4.i.sroa.0.0.copyload, %244 ], [ %.sroa.4.i295.sroa.4.i.sroa.0.0.copyload, %224 ], [ %.sroa.4.i332.sroa.4.i.sroa.0.0.copyload, %306 ], [ %.sroa.4.i322.sroa.4.i.sroa.0.0.copyload, %283 ], [ %.sroa.4.i.sroa.4.i.sroa.0.0.copyload, %165 ]
-  %.sroa.24.1 = phi i64 [ %.sroa.481.i.sroa.0.0.copyload, %426 ], [ %.sroa.4.i381.sroa.0.0.copyload.i, %420 ], [ %.sroa.4.i371.sroa.0.0.copyload.i, %400 ], [ %.sroa.4122.i.sroa.0.0.copyload, %373 ], [ %.sroa.4.i360.sroa.0.0.copyload.i, %367 ], [ %.sroa.4.i350.sroa.0.0.copyload.i, %347 ], [ %.sroa.440.i.sroa.0.0.copyload, %250 ], [ %.sroa.4.i305.sroa.0.0.copyload.i, %244 ], [ %.sroa.4.i295.sroa.0.0.copyload.i, %224 ], [ %.sroa.4.i332.sroa.0.0.copyload.i, %306 ], [ %.sroa.4.i322.sroa.0.0.copyload.i, %283 ], [ %.sroa.4.i.sroa.0.0.copyload.i, %165 ]
-  %.sroa.0148.1 = phi i64 [ 1, %426 ], [ 1, %420 ], [ 0, %400 ], [ 1, %373 ], [ 1, %367 ], [ 0, %347 ], [ 1, %250 ], [ 1, %244 ], [ 0, %224 ], [ 0, %306 ], [ 0, %283 ], [ 0, %165 ]
+  %.sroa.62.1 = phi i64 [ %.sroa.4.i.sroa.4.i.sroa.4.0.copyload, %165 ], [ %.sroa.440.i.sroa.5.0.copyload, %250 ], [ %.sroa.4.i305.sroa.4.i.sroa.4.0.copyload, %244 ], [ %.sroa.4.i295.sroa.4.i.sroa.4.0.copyload, %224 ], [ %.sroa.4.i332.sroa.4.i.sroa.4.0.copyload, %306 ], [ %.sroa.4.i322.sroa.4.i.sroa.4.0.copyload, %283 ], [ %.sroa.481.i.sroa.5.0.copyload, %426 ], [ %.sroa.4.i381.sroa.4.i.sroa.4.0.copyload, %420 ], [ %.sroa.4.i371.sroa.4.i.sroa.4.0.copyload, %400 ], [ %.sroa.4122.i.sroa.5.0.copyload, %373 ], [ %.sroa.4.i360.sroa.4.i.sroa.4.0.copyload, %367 ], [ %.sroa.4.i350.sroa.4.i.sroa.4.0.copyload, %347 ]
+  %.sroa.45.1 = phi i64 [ %.sroa.4.i.sroa.4.i.sroa.0.0.copyload, %165 ], [ %.sroa.440.i.sroa.4.0.copyload, %250 ], [ %.sroa.4.i305.sroa.4.i.sroa.0.0.copyload, %244 ], [ %.sroa.4.i295.sroa.4.i.sroa.0.0.copyload, %224 ], [ %.sroa.4.i332.sroa.4.i.sroa.0.0.copyload, %306 ], [ %.sroa.4.i322.sroa.4.i.sroa.0.0.copyload, %283 ], [ %.sroa.481.i.sroa.4.0.copyload, %426 ], [ %.sroa.4.i381.sroa.4.i.sroa.0.0.copyload, %420 ], [ %.sroa.4.i371.sroa.4.i.sroa.0.0.copyload, %400 ], [ %.sroa.4122.i.sroa.4.0.copyload, %373 ], [ %.sroa.4.i360.sroa.4.i.sroa.0.0.copyload, %367 ], [ %.sroa.4.i350.sroa.4.i.sroa.0.0.copyload, %347 ]
+  %.sroa.24.1 = phi i64 [ %.sroa.4.i.sroa.0.0.copyload.i, %165 ], [ %.sroa.440.i.sroa.0.0.copyload, %250 ], [ %.sroa.4.i305.sroa.0.0.copyload.i, %244 ], [ %.sroa.4.i295.sroa.0.0.copyload.i, %224 ], [ %.sroa.4.i332.sroa.0.0.copyload.i, %306 ], [ %.sroa.4.i322.sroa.0.0.copyload.i, %283 ], [ %.sroa.481.i.sroa.0.0.copyload, %426 ], [ %.sroa.4.i381.sroa.0.0.copyload.i, %420 ], [ %.sroa.4.i371.sroa.0.0.copyload.i, %400 ], [ %.sroa.4122.i.sroa.0.0.copyload, %373 ], [ %.sroa.4.i360.sroa.0.0.copyload.i, %367 ], [ %.sroa.4.i350.sroa.0.0.copyload.i, %347 ]
+  %.sroa.0148.1 = phi i64 [ 0, %165 ], [ 1, %250 ], [ 1, %244 ], [ 0, %224 ], [ 0, %306 ], [ 0, %283 ], [ 1, %426 ], [ 1, %420 ], [ 0, %400 ], [ 1, %373 ], [ 1, %367 ], [ 0, %347 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51), !noalias !149
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfa074f7fb60b9d3cE.llvm.1206798258238166277"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69)
   %184 = getelementptr inbounds nuw i8, ptr %51, i64 8

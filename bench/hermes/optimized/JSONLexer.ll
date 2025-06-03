@@ -238,7 +238,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit, %if.else, %if.then46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb33, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17, %sw.bb, %if.then
-  %retval.0 = phi i32 [ %call.i.i, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ %call47, %if.then46 ], [ %call48, %if.else ], [ %call44, %sw.bb43 ], [ %call42, %sw.bb41 ], [ %call40, %sw.bb39 ], [ %call38, %sw.bb37 ], [ 1, %sw.bb33 ], [ 1, %sw.bb29 ], [ 1, %sw.bb25 ], [ 1, %sw.bb21 ], [ 1, %sw.bb17 ], [ 1, %sw.bb ], [ 1, %if.then ]
+  %retval.0 = phi i32 [ %call.i.i, %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit ], [ 1, %sw.bb ], [ 1, %sw.bb17 ], [ 1, %sw.bb21 ], [ 1, %sw.bb25 ], [ 1, %sw.bb29 ], [ 1, %sw.bb33 ], [ %call38, %sw.bb37 ], [ %call40, %sw.bb39 ], [ %call42, %sw.bb41 ], [ %call44, %sw.bb43 ], [ %call47, %if.then46 ], [ %call48, %if.else ], [ 1, %if.then ]
   ret i32 %retval.0
 }
 

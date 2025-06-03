@@ -382,9 +382,9 @@ define internal { double, double } @_ZL15nsper_s_inverse5PJ_XYP8PJconsts(double 
   br label %92
 
 92:                                               ; preds = %89, %86, %80, %64, %48
-  %.sroa.0.1 = phi double [ %.sroa.0.0, %48 ], [ %.sroa.0.0, %89 ], [ %.sroa.0.0, %86 ], [ %85, %80 ], [ %79, %64 ]
-  %.sroa.9.1 = phi double [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %89 ], [ %88, %86 ], [ %84, %80 ], [ %77, %64 ]
-  %.sroa.4.2 = phi double [ 0.000000e+00, %48 ], [ %91, %89 ], [ %87, %86 ], [ %83, %80 ], [ %73, %64 ]
+  %.sroa.0.1 = phi double [ %.sroa.0.0, %48 ], [ %79, %64 ], [ %85, %80 ], [ %.sroa.0.0, %86 ], [ %.sroa.0.0, %89 ]
+  %.sroa.9.1 = phi double [ %.sroa.9.0, %48 ], [ %77, %64 ], [ %84, %80 ], [ %88, %86 ], [ %.sroa.9.0, %89 ]
+  %.sroa.4.2 = phi double [ 0.000000e+00, %48 ], [ %73, %64 ], [ %83, %80 ], [ %87, %86 ], [ %91, %89 ]
   %93 = tail call double @atan2(double noundef %.sroa.0.1, double noundef %.sroa.9.1) #6, !tbaa !48
   br label %94
 
@@ -434,7 +434,7 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   br label %24
 
 24:                                               ; preds = %23, %21, %19, %11, %3
-  %.sroa.6.0 = phi double [ 0.000000e+00, %3 ], [ %6, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %11 ]
+  %.sroa.6.0 = phi double [ 0.000000e+00, %3 ], [ %18, %11 ], [ %20, %19 ], [ %22, %21 ], [ %6, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = load double, ptr %25, align 8, !tbaa !54
   %27 = fcmp olt double %.sroa.6.0, %26
@@ -482,13 +482,13 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   br label %54
 
 54:                                               ; preds = %52, %30
-  %.0 = phi double [ %8, %30 ], [ %53, %52 ]
+  %.0 = phi double [ %53, %52 ], [ %8, %30 ]
   %55 = fmul double %7, %.0
   %56 = fmul double %36, %55
   br label %57
 
 57:                                               ; preds = %54, %50, %40, %30
-  %.sroa.6.2 = phi double [ %36, %30 ], [ %56, %54 ], [ %51, %50 ], [ %49, %40 ]
+  %.sroa.6.2 = phi double [ %36, %30 ], [ %49, %40 ], [ %51, %50 ], [ %56, %54 ]
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %59 = load i32, ptr %58, align 4, !tbaa !60
   %.not = icmp eq i32 %59, 0

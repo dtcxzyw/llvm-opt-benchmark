@@ -554,7 +554,7 @@ sw.bb:                                            ; preds = %if.end28
   br label %sw.bb37
 
 sw.bb37:                                          ; preds = %sw.bb, %if.end28
-  %V29.0 = phi i32 [ 0, %if.end28 ], [ %21, %sw.bb ]
+  %V29.0 = phi i32 [ %21, %sw.bb ], [ 0, %if.end28 ]
   %sub39 = add i64 %String.coerce1, 4294967294
   %conv40 = and i64 %sub39, 4294967295
   %arrayidx.i34 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv40
@@ -565,7 +565,7 @@ sw.bb37:                                          ; preds = %sw.bb, %if.end28
   br label %sw.bb44
 
 sw.bb44:                                          ; preds = %sw.bb37, %if.end28
-  %V29.1 = phi i32 [ 0, %if.end28 ], [ %23, %sw.bb37 ]
+  %V29.1 = phi i32 [ %23, %sw.bb37 ], [ 0, %if.end28 ]
   %sub46 = add i64 %String.coerce1, 4294967295
   %conv47 = and i64 %sub46, 4294967295
   %arrayidx.i35 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv47

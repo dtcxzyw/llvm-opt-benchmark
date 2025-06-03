@@ -18542,7 +18542,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %4, %_ZNK3app13get_d
   br label %62
 
 62:                                               ; preds = %53, %61, %44, %52, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %2, %_ZNK3app13get_decl_kindEv.exit.thread, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %43 ], [ true, %42 ], [ true, %41 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %33 ], [ true, %32 ], [ true, %31 ], [ true, %30 ], [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %25 ], [ true, %24 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ false, %2 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ %.pre46, %52 ], [ false, %44 ], [ %.pre47, %61 ], [ false, %53 ]
+  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ false, %2 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ %.pre46, %52 ], [ false, %44 ], [ %.pre47, %61 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -20558,7 +20558,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %5, %_ZNK3app13get_d
   br label %23
 
 23:                                               ; preds = %3, %_ZNK3app13get_decl_kindEv.exit.thread, %22, %21, %20, %18, %16, %15, %14, %13
-  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ true, %18 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %18 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ false, %3 ]
   ret i1 %.0
 }
 

@@ -2685,13 +2685,13 @@ ac_decode_bool.exit:                              ; preds = %410
   %.promoted155.i371 = phi i32 [ %405, %ac_decode_bool.exit ], [ %434, %463 ]
   %.promoted154.i369 = phi i32 [ %.049.i, %ac_decode_bool.exit ], [ %.050.i, %463 ]
   %.promoted.i161367 = phi i32 [ %406, %ac_decode_bool.exit ], [ %435, %463 ]
-  %.2122128.in.i = phi i32 [ %462, %ac_decode_bool.exit ], [ %narrow, %463 ]
-  %.not74.i = icmp slt i32 %374, %.2122128.in.i
+  %.2122129.in.i = phi i32 [ %462, %ac_decode_bool.exit ], [ %narrow, %463 ]
+  %.not74.i = icmp slt i32 %374, %.2122129.in.i
   br i1 %.not74.i, label %470, label %465
 
 465:                                              ; preds = %.loopexit134.i
   %466 = add i32 %.0117.i, 1
-  %467 = shl i32 %.2122128.in.i, %251
+  %467 = shl i32 %.2122129.in.i, %251
   %468 = add i32 %466, %467
   %.not77.i = icmp eq i32 %243, 0
   %469 = sub nsw i32 0, %468
@@ -2702,7 +2702,7 @@ ac_decode_bool.exit:                              ; preds = %410
   %.promoted155.i = phi i32 [ %.promoted155.i371, %.loopexit134.i ], [ %.promoted155.i.pre, %ac_update.exit.i160 ]
   %.promoted154.i = phi i32 [ %.promoted154.i369, %.loopexit134.i ], [ %.promoted154.i.pre, %ac_update.exit.i160 ]
   %.promoted.i161 = phi i32 [ %.promoted.i161367, %.loopexit134.i ], [ %.promoted.i161.pre, %ac_update.exit.i160 ]
-  %.0120.i = phi i32 [ %.2122128.in.i, %.loopexit134.i ], [ 0, %ac_update.exit.i160 ]
+  %.0120.i = phi i32 [ %.2122129.in.i, %.loopexit134.i ], [ 0, %ac_update.exit.i160 ]
   %471 = add nsw i32 %374, 1
   %472 = lshr i32 %.promoted154.i, 1
   store i32 %472, ptr %171, align 4, !tbaa !56
@@ -3003,7 +3003,7 @@ mdl64_decode.exit:                                ; preds = %ac_update.exit98.i,
   br label %636
 
 636:                                              ; preds = %633, %630, %623
-  %.2 = phi i32 [ %628, %623 ], [ %635, %633 ], [ %632, %630 ]
+  %.2 = phi i32 [ %628, %623 ], [ %632, %630 ], [ %635, %633 ]
   %637 = sub nsw i32 %.2, %626
   %638 = getelementptr inbounds nuw [133632 x i32], ptr %175, i64 0, i64 %indvars.iv359
   store i32 %637, ptr %638, align 4, !tbaa !66

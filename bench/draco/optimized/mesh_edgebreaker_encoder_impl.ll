@@ -13269,7 +13269,7 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   br label %31
 
 31:                                               ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.033 = phi i32 [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ %.0.i, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
+  %.033 = phi i32 [ %.0.i, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %6, align 8, !tbaa !377
   %34 = icmp eq i32 %.sroa.01.0.i101, -1
@@ -13605,7 +13605,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i87:                ; preds = %192, %189
   tail call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %200, ptr %186, i32 %.sroa.2.0.copyload.i11.i86, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit88
 
-_ZNSt6vectorIbSaIbEE9push_backEb.exit88:          ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit73, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit82, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %199, %_ZNSt13_Bit_iteratorppEi.exit.i87, %163, %183
+_ZNSt6vectorIbSaIbEE9push_backEb.exit88:          ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit82, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit73, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %199, %_ZNSt13_Bit_iteratorppEi.exit.i87, %163, %183
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %202 = load i32, ptr %201, align 8, !tbaa !354
   %.not37 = icmp eq i32 %202, -1

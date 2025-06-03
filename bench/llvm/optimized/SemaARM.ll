@@ -26244,11 +26244,11 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM28CheckNeonBuiltinFunction
 1372:                                             ; preds = %1289, %1289, %1289
   br label %1373
 
-1373:                                             ; preds = %1289, %1289, %1289, %1289, %1289, %1289, %1289, %1372, %1371, %1370, %1369, %1368, %1367, %1366, %1365, %1364, %1363, %1362, %1361, %1360, %1359, %1358, %1357, %1356, %1355, %1354, %1353, %1352, %1351, %1350, %1349, %1348, %1347, %1346, %1345, %1344, %1343, %1342, %1341, %1340, %1339, %1338, %1337, %1336, %1335, %1334, %1333, %1332, %1331, %1330, %1329, %1328, %1327, %1326, %1325, %1324, %1323, %1322, %1321, %1320, %1319, %1318, %1317, %1316, %1315, %1314, %1313, %1312, %1311, %1310, %1309, %1308, %1307, %1306, %1305, %1304, %1303, %1302, %1301, %1300, %1299, %1298, %1297, %1296, %1295, %1294, %1293, %1292
-  %.055.ph = phi i64 [ 0, %1292 ], [ 0, %1293 ], [ 0, %1294 ], [ 0, %1295 ], [ 0, %1296 ], [ 0, %1297 ], [ 0, %1298 ], [ 0, %1299 ], [ 0, %1300 ], [ 0, %1301 ], [ 0, %1302 ], [ 0, %1303 ], [ 0, %1304 ], [ 0, %1305 ], [ 0, %1306 ], [ 0, %1307 ], [ 0, %1308 ], [ 0, %1309 ], [ 0, %1310 ], [ 0, %1311 ], [ 0, %1312 ], [ 0, %1313 ], [ 0, %1314 ], [ 0, %1315 ], [ 0, %1316 ], [ 0, %1317 ], [ 0, %1318 ], [ 0, %1319 ], [ 0, %1320 ], [ 0, %1321 ], [ 0, %1322 ], [ 0, %1323 ], [ 0, %1324 ], [ 0, %1325 ], [ 0, %1326 ], [ 0, %1327 ], [ 0, %1328 ], [ 0, %1329 ], [ 0, %1330 ], [ 0, %1331 ], [ 0, %1332 ], [ 0, %1333 ], [ 0, %1334 ], [ 0, %1335 ], [ 1, %1336 ], [ 1, %1337 ], [ 1, %1338 ], [ 1, %1339 ], [ 1, %1340 ], [ 1, %1341 ], [ 1, %1342 ], [ 1, %1343 ], [ 0, %1344 ], [ 0, %1345 ], [ 0, %1346 ], [ 0, %1347 ], [ 0, %1348 ], [ 0, %1349 ], [ 0, %1350 ], [ 0, %1351 ], [ 0, %1352 ], [ 0, %1353 ], [ 0, %1354 ], [ 0, %1355 ], [ 0, %1356 ], [ 0, %1357 ], [ 0, %1358 ], [ 0, %1359 ], [ 0, %1360 ], [ 0, %1361 ], [ 0, %1362 ], [ 0, %1363 ], [ 0, %1364 ], [ 0, %1365 ], [ 0, %1366 ], [ 0, %1367 ], [ 0, %1368 ], [ 0, %1369 ], [ 0, %1370 ], [ 0, %1371 ], [ 0, %1372 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ]
-  %.ph = phi i1 [ false, %1292 ], [ false, %1293 ], [ false, %1294 ], [ false, %1295 ], [ false, %1296 ], [ false, %1297 ], [ false, %1298 ], [ false, %1299 ], [ false, %1300 ], [ false, %1301 ], [ false, %1302 ], [ false, %1303 ], [ false, %1304 ], [ false, %1305 ], [ false, %1306 ], [ false, %1307 ], [ false, %1308 ], [ false, %1309 ], [ false, %1310 ], [ false, %1311 ], [ false, %1312 ], [ false, %1313 ], [ false, %1314 ], [ false, %1315 ], [ false, %1316 ], [ false, %1317 ], [ false, %1318 ], [ false, %1319 ], [ false, %1320 ], [ false, %1321 ], [ false, %1322 ], [ false, %1323 ], [ false, %1324 ], [ false, %1325 ], [ false, %1326 ], [ false, %1327 ], [ false, %1328 ], [ false, %1329 ], [ false, %1330 ], [ false, %1331 ], [ false, %1332 ], [ false, %1333 ], [ false, %1334 ], [ false, %1335 ], [ true, %1336 ], [ true, %1337 ], [ true, %1338 ], [ true, %1339 ], [ true, %1340 ], [ true, %1341 ], [ true, %1342 ], [ true, %1343 ], [ false, %1344 ], [ false, %1345 ], [ false, %1346 ], [ false, %1347 ], [ false, %1348 ], [ false, %1349 ], [ false, %1350 ], [ false, %1351 ], [ false, %1352 ], [ false, %1353 ], [ false, %1354 ], [ false, %1355 ], [ false, %1356 ], [ false, %1357 ], [ false, %1358 ], [ false, %1359 ], [ false, %1360 ], [ false, %1361 ], [ false, %1362 ], [ false, %1363 ], [ false, %1364 ], [ false, %1365 ], [ false, %1366 ], [ true, %1367 ], [ true, %1368 ], [ true, %1369 ], [ true, %1370 ], [ false, %1371 ], [ false, %1372 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ]
-  %.054.ph = phi i64 [ 4294967295, %1292 ], [ 4294967295, %1293 ], [ 4294967295, %1294 ], [ 4294967295, %1295 ], [ 4294967295, %1296 ], [ 4294967295, %1297 ], [ 4294967295, %1298 ], [ 4294967295, %1299 ], [ 4294967295, %1300 ], [ 4294967295, %1301 ], [ 4294967295, %1302 ], [ 4294967295, %1303 ], [ 4294967295, %1304 ], [ 4294967295, %1305 ], [ 4294967295, %1306 ], [ 4294967295, %1307 ], [ 4294967295, %1308 ], [ 4294967295, %1309 ], [ 4294967295, %1310 ], [ 4294967295, %1311 ], [ 4294967295, %1312 ], [ 4294967295, %1313 ], [ 4294967295, %1314 ], [ 4294967295, %1315 ], [ 4294967295, %1316 ], [ 4294967295, %1317 ], [ 4294967295, %1318 ], [ 4294967295, %1319 ], [ 4294967295, %1320 ], [ 4294967295, %1321 ], [ 4294967295, %1322 ], [ 4294967295, %1323 ], [ 4294967295, %1324 ], [ 4294967295, %1325 ], [ 4294967295, %1326 ], [ 4294967295, %1327 ], [ 4294967295, %1328 ], [ 4294967295, %1329 ], [ 4294967295, %1330 ], [ 4294967295, %1331 ], [ 4294967295, %1332 ], [ 4294967295, %1333 ], [ 4294967295, %1334 ], [ 4294967295, %1335 ], [ 0, %1336 ], [ 1, %1337 ], [ 0, %1338 ], [ 1, %1339 ], [ 0, %1340 ], [ 1, %1341 ], [ 0, %1342 ], [ 1, %1343 ], [ 4294967295, %1344 ], [ 4294967295, %1345 ], [ 4294967295, %1346 ], [ 4294967295, %1347 ], [ 4294967295, %1348 ], [ 4294967295, %1349 ], [ 4294967295, %1350 ], [ 4294967295, %1351 ], [ 4294967295, %1352 ], [ 4294967295, %1353 ], [ 4294967295, %1354 ], [ 4294967295, %1355 ], [ 4294967295, %1356 ], [ 4294967295, %1357 ], [ 4294967295, %1358 ], [ 4294967295, %1359 ], [ 4294967295, %1360 ], [ 4294967295, %1361 ], [ 4294967295, %1362 ], [ 4294967295, %1363 ], [ 4294967295, %1364 ], [ 4294967295, %1365 ], [ 4294967295, %1366 ], [ 0, %1367 ], [ 0, %1368 ], [ 0, %1369 ], [ 0, %1370 ], [ 4294967295, %1371 ], [ 4294967295, %1372 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ]
-  %.052.ph = phi i64 [ 984959, %1292 ], [ 8796093022208, %1293 ], [ 4230366692900864, %1294 ], [ 256, %1295 ], [ 460295, %1296 ], [ 1099511627776, %1297 ], [ 1976951971512320, %1298 ], [ 1551, %1299 ], [ 6661494276096, %1300 ], [ 112, %1301 ], [ 458759, %1302 ], [ 481036337152, %1303 ], [ 281474976710656, %1304 ], [ 512, %1305 ], [ 2199023255552, %1306 ], [ 4398046511104, %1307 ], [ 8589934592, %1308 ], [ 17179869184, %1309 ], [ 34359738368, %1310 ], [ 4294967296, %1311 ], [ 562949953421312, %1312 ], [ 1125899906842624, %1313 ], [ 2251799813685248, %1314 ], [ 131072, %1315 ], [ 786432, %1316 ], [ 3377699720527872, %1317 ], [ 983040, %1318 ], [ 4222124650659840, %1319 ], [ 7, %1320 ], [ 30064771072, %1321 ], [ 1970354901745664, %1322 ], [ 65553, %1323 ], [ 281547991154688, %1324 ], [ 2, %1325 ], [ 262148, %1326 ], [ 524296, %1327 ], [ 4, %1328 ], [ 8, %1329 ], [ 262144, %1330 ], [ 524288, %1331 ], [ 1125917086711808, %1332 ], [ 2251834173423616, %1333 ], [ 1536, %1334 ], [ 6597069766656, %1335 ], [ 2048, %1336 ], [ 2048, %1337 ], [ 984959, %1338 ], [ 984959, %1339 ], [ 8796093022208, %1340 ], [ 8796093022208, %1341 ], [ 4230366692900864, %1342 ], [ 4230366692900864, %1343 ], [ 1024, %1344 ], [ 64, %1345 ], [ 274877906944, %1346 ], [ 137438953472, %1347 ], [ 68719476736, %1348 ], [ 3940709803491328, %1349 ], [ 16, %1350 ], [ 3940847242444800, %1351 ], [ 917518, %1352 ], [ 459271, %1353 ], [ 4228786144935936, %1354 ], [ 15, %1355 ], [ 64424509440, %1356 ], [ 983055, %1357 ], [ 4222189075169280, %1358 ], [ 51539607552, %1359 ], [ 6, %1360 ], [ 25769803776, %1361 ], [ 458752, %1362 ], [ 263680, %1363 ], [ 1132496976609280, %1364 ], [ 983167, %1365 ], [ 4222670111506432, %1366 ], [ 2048, %1367 ], [ 984959, %1368 ], [ 8796093022208, %1369 ], [ 4230366692900864, %1370 ], [ 459575, %1371 ], [ 1973859595059200, %1372 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ]
+1373:                                             ; preds = %1289, %1289, %1289, %1289, %1289, %1289, %1289, %1292, %1293, %1294, %1295, %1296, %1297, %1298, %1299, %1300, %1301, %1302, %1303, %1304, %1305, %1306, %1307, %1308, %1309, %1310, %1311, %1312, %1313, %1314, %1315, %1316, %1317, %1318, %1319, %1320, %1321, %1322, %1323, %1324, %1325, %1326, %1327, %1328, %1329, %1330, %1331, %1332, %1333, %1334, %1335, %1336, %1337, %1338, %1339, %1340, %1341, %1342, %1343, %1344, %1345, %1346, %1347, %1348, %1349, %1350, %1351, %1352, %1353, %1354, %1355, %1356, %1357, %1358, %1359, %1360, %1361, %1362, %1363, %1364, %1365, %1366, %1367, %1368, %1369, %1370, %1371, %1372
+  %.055.ph = phi i64 [ 0, %1372 ], [ 0, %1371 ], [ 0, %1370 ], [ 0, %1369 ], [ 0, %1368 ], [ 0, %1367 ], [ 0, %1366 ], [ 0, %1365 ], [ 0, %1364 ], [ 0, %1363 ], [ 0, %1362 ], [ 0, %1361 ], [ 0, %1360 ], [ 0, %1359 ], [ 0, %1358 ], [ 0, %1357 ], [ 0, %1356 ], [ 0, %1355 ], [ 0, %1354 ], [ 0, %1353 ], [ 0, %1352 ], [ 0, %1351 ], [ 0, %1350 ], [ 0, %1349 ], [ 0, %1348 ], [ 0, %1347 ], [ 0, %1346 ], [ 0, %1345 ], [ 0, %1344 ], [ 1, %1343 ], [ 1, %1342 ], [ 1, %1341 ], [ 1, %1340 ], [ 1, %1339 ], [ 1, %1338 ], [ 1, %1337 ], [ 1, %1336 ], [ 0, %1335 ], [ 0, %1334 ], [ 0, %1333 ], [ 0, %1332 ], [ 0, %1331 ], [ 0, %1330 ], [ 0, %1329 ], [ 0, %1328 ], [ 0, %1327 ], [ 0, %1326 ], [ 0, %1325 ], [ 0, %1324 ], [ 0, %1323 ], [ 0, %1322 ], [ 0, %1321 ], [ 0, %1320 ], [ 0, %1319 ], [ 0, %1318 ], [ 0, %1317 ], [ 0, %1316 ], [ 0, %1315 ], [ 0, %1314 ], [ 0, %1313 ], [ 0, %1312 ], [ 0, %1311 ], [ 0, %1310 ], [ 0, %1309 ], [ 0, %1308 ], [ 0, %1307 ], [ 0, %1306 ], [ 0, %1305 ], [ 0, %1304 ], [ 0, %1303 ], [ 0, %1302 ], [ 0, %1301 ], [ 0, %1300 ], [ 0, %1299 ], [ 0, %1298 ], [ 0, %1297 ], [ 0, %1296 ], [ 0, %1295 ], [ 0, %1294 ], [ 0, %1293 ], [ 0, %1292 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ], [ 0, %1289 ]
+  %.ph = phi i1 [ false, %1372 ], [ false, %1371 ], [ true, %1370 ], [ true, %1369 ], [ true, %1368 ], [ true, %1367 ], [ false, %1366 ], [ false, %1365 ], [ false, %1364 ], [ false, %1363 ], [ false, %1362 ], [ false, %1361 ], [ false, %1360 ], [ false, %1359 ], [ false, %1358 ], [ false, %1357 ], [ false, %1356 ], [ false, %1355 ], [ false, %1354 ], [ false, %1353 ], [ false, %1352 ], [ false, %1351 ], [ false, %1350 ], [ false, %1349 ], [ false, %1348 ], [ false, %1347 ], [ false, %1346 ], [ false, %1345 ], [ false, %1344 ], [ true, %1343 ], [ true, %1342 ], [ true, %1341 ], [ true, %1340 ], [ true, %1339 ], [ true, %1338 ], [ true, %1337 ], [ true, %1336 ], [ false, %1335 ], [ false, %1334 ], [ false, %1333 ], [ false, %1332 ], [ false, %1331 ], [ false, %1330 ], [ false, %1329 ], [ false, %1328 ], [ false, %1327 ], [ false, %1326 ], [ false, %1325 ], [ false, %1324 ], [ false, %1323 ], [ false, %1322 ], [ false, %1321 ], [ false, %1320 ], [ false, %1319 ], [ false, %1318 ], [ false, %1317 ], [ false, %1316 ], [ false, %1315 ], [ false, %1314 ], [ false, %1313 ], [ false, %1312 ], [ false, %1311 ], [ false, %1310 ], [ false, %1309 ], [ false, %1308 ], [ false, %1307 ], [ false, %1306 ], [ false, %1305 ], [ false, %1304 ], [ false, %1303 ], [ false, %1302 ], [ false, %1301 ], [ false, %1300 ], [ false, %1299 ], [ false, %1298 ], [ false, %1297 ], [ false, %1296 ], [ false, %1295 ], [ false, %1294 ], [ false, %1293 ], [ false, %1292 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ], [ false, %1289 ]
+  %.054.ph = phi i64 [ 4294967295, %1372 ], [ 4294967295, %1371 ], [ 0, %1370 ], [ 0, %1369 ], [ 0, %1368 ], [ 0, %1367 ], [ 4294967295, %1366 ], [ 4294967295, %1365 ], [ 4294967295, %1364 ], [ 4294967295, %1363 ], [ 4294967295, %1362 ], [ 4294967295, %1361 ], [ 4294967295, %1360 ], [ 4294967295, %1359 ], [ 4294967295, %1358 ], [ 4294967295, %1357 ], [ 4294967295, %1356 ], [ 4294967295, %1355 ], [ 4294967295, %1354 ], [ 4294967295, %1353 ], [ 4294967295, %1352 ], [ 4294967295, %1351 ], [ 4294967295, %1350 ], [ 4294967295, %1349 ], [ 4294967295, %1348 ], [ 4294967295, %1347 ], [ 4294967295, %1346 ], [ 4294967295, %1345 ], [ 4294967295, %1344 ], [ 1, %1343 ], [ 0, %1342 ], [ 1, %1341 ], [ 0, %1340 ], [ 1, %1339 ], [ 0, %1338 ], [ 1, %1337 ], [ 0, %1336 ], [ 4294967295, %1335 ], [ 4294967295, %1334 ], [ 4294967295, %1333 ], [ 4294967295, %1332 ], [ 4294967295, %1331 ], [ 4294967295, %1330 ], [ 4294967295, %1329 ], [ 4294967295, %1328 ], [ 4294967295, %1327 ], [ 4294967295, %1326 ], [ 4294967295, %1325 ], [ 4294967295, %1324 ], [ 4294967295, %1323 ], [ 4294967295, %1322 ], [ 4294967295, %1321 ], [ 4294967295, %1320 ], [ 4294967295, %1319 ], [ 4294967295, %1318 ], [ 4294967295, %1317 ], [ 4294967295, %1316 ], [ 4294967295, %1315 ], [ 4294967295, %1314 ], [ 4294967295, %1313 ], [ 4294967295, %1312 ], [ 4294967295, %1311 ], [ 4294967295, %1310 ], [ 4294967295, %1309 ], [ 4294967295, %1308 ], [ 4294967295, %1307 ], [ 4294967295, %1306 ], [ 4294967295, %1305 ], [ 4294967295, %1304 ], [ 4294967295, %1303 ], [ 4294967295, %1302 ], [ 4294967295, %1301 ], [ 4294967295, %1300 ], [ 4294967295, %1299 ], [ 4294967295, %1298 ], [ 4294967295, %1297 ], [ 4294967295, %1296 ], [ 4294967295, %1295 ], [ 4294967295, %1294 ], [ 4294967295, %1293 ], [ 4294967295, %1292 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ], [ 4294967295, %1289 ]
+  %.052.ph = phi i64 [ 1973859595059200, %1372 ], [ 459575, %1371 ], [ 4230366692900864, %1370 ], [ 8796093022208, %1369 ], [ 984959, %1368 ], [ 2048, %1367 ], [ 4222670111506432, %1366 ], [ 983167, %1365 ], [ 1132496976609280, %1364 ], [ 263680, %1363 ], [ 458752, %1362 ], [ 25769803776, %1361 ], [ 6, %1360 ], [ 51539607552, %1359 ], [ 4222189075169280, %1358 ], [ 983055, %1357 ], [ 64424509440, %1356 ], [ 15, %1355 ], [ 4228786144935936, %1354 ], [ 459271, %1353 ], [ 917518, %1352 ], [ 3940847242444800, %1351 ], [ 16, %1350 ], [ 3940709803491328, %1349 ], [ 68719476736, %1348 ], [ 137438953472, %1347 ], [ 274877906944, %1346 ], [ 64, %1345 ], [ 1024, %1344 ], [ 4230366692900864, %1343 ], [ 4230366692900864, %1342 ], [ 8796093022208, %1341 ], [ 8796093022208, %1340 ], [ 984959, %1339 ], [ 984959, %1338 ], [ 2048, %1337 ], [ 2048, %1336 ], [ 6597069766656, %1335 ], [ 1536, %1334 ], [ 2251834173423616, %1333 ], [ 1125917086711808, %1332 ], [ 524288, %1331 ], [ 262144, %1330 ], [ 8, %1329 ], [ 4, %1328 ], [ 524296, %1327 ], [ 262148, %1326 ], [ 2, %1325 ], [ 281547991154688, %1324 ], [ 65553, %1323 ], [ 1970354901745664, %1322 ], [ 30064771072, %1321 ], [ 7, %1320 ], [ 4222124650659840, %1319 ], [ 983040, %1318 ], [ 3377699720527872, %1317 ], [ 786432, %1316 ], [ 131072, %1315 ], [ 2251799813685248, %1314 ], [ 1125899906842624, %1313 ], [ 562949953421312, %1312 ], [ 4294967296, %1311 ], [ 34359738368, %1310 ], [ 17179869184, %1309 ], [ 8589934592, %1308 ], [ 4398046511104, %1307 ], [ 2199023255552, %1306 ], [ 512, %1305 ], [ 281474976710656, %1304 ], [ 481036337152, %1303 ], [ 458759, %1302 ], [ 112, %1301 ], [ 6661494276096, %1300 ], [ 1551, %1299 ], [ 1976951971512320, %1298 ], [ 1099511627776, %1297 ], [ 460295, %1296 ], [ 256, %1295 ], [ 4230366692900864, %1294 ], [ 8796093022208, %1293 ], [ 984959, %1292 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ], [ 2048, %1289 ]
   %1374 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1375 = load i32, ptr %1374, align 8, !tbaa !58
   %1376 = add i32 %1375, -1
@@ -32581,7 +32581,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM27CheckMVEBuiltinFunctionC
   br label %100
 
 100:                                              ; preds = %76, %79, %67, %70, %37, %40, %10, %13, %4, %7, %3, %97, %94, %91, %88, %85, %82, %73, %64, %61, %58, %55, %52, %49, %46, %43, %34, %31, %28, %25, %22, %19, %16
-  %.0 = phi i1 [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %75, %73 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ false, %3 ], [ true, %4 ], [ %9, %7 ], [ true, %10 ], [ %15, %13 ], [ true, %37 ], [ %42, %40 ], [ true, %67 ], [ %72, %70 ], [ true, %76 ], [ %81, %79 ]
+  %.0 = phi i1 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %75, %73 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ false, %3 ], [ true, %4 ], [ %9, %7 ], [ true, %10 ], [ %15, %13 ], [ true, %37 ], [ %42, %40 ], [ true, %67 ], [ %72, %70 ], [ true, %76 ], [ %81, %79 ]
   ret i1 %.0
 }
 
@@ -35238,7 +35238,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM27CheckARMBuiltinFunctionC
   br label %57
 
 57:                                               ; preds = %42, %45, %23, %21, %19, %17, %7, %10, %39, %36, %33, %30, %27, %24, %15, %13, %5
-  %.0 = phi i1 [ %6, %5 ], [ %14, %13 ], [ %16, %15 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ true, %7 ], [ %12, %10 ], [ true, %17 ], [ true, %19 ], [ true, %21 ], [ false, %23 ], [ true, %42 ], [ %56, %45 ]
+  %.0 = phi i1 [ %6, %5 ], [ %14, %13 ], [ %16, %15 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ true, %7 ], [ %12, %10 ], [ true, %17 ], [ true, %19 ], [ true, %21 ], [ false, %23 ], [ true, %42 ], [ %56, %45 ]
   ret i1 %.0
 }
 
@@ -38188,7 +38188,7 @@ _ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit66: ; preds = %.lr
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %114, %122
-  %.1.i.i = phi ptr [ %118, %114 ], [ %123, %122 ]
+  %.1.i.i = phi ptr [ %123, %122 ], [ %118, %114 ]
   %124 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %124, align 8, !tbaa !11
   %125 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -38458,7 +38458,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5
   br label %258
 
 258:                                              ; preds = %256, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %257, %256 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %257, %256 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !3172
   %259 = call i64 @_ZNK5clang11ParmVarDecl15getOriginalTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %.1.val.i.i.i.i.i.i) #20
   %260 = and i64 %259, -16
@@ -38472,7 +38472,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5
   br label %266
 
 266:                                              ; preds = %264, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %265, %264 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %265, %264 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !3172
   %267 = call i64 @_ZNK5clang11ParmVarDecl15getOriginalTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %.2.val.i.i.i.i.i.i) #20
   %268 = and i64 %267, -16
@@ -41454,7 +41454,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit65.th
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i66 = load ptr, ptr %.1, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.2.0.copyload.i68 = load i64, ptr %.sroa.2.0..sroa_idx.i67, align 8, !tbaa !55
@@ -41484,7 +41484,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit74.th
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA3_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i75 = load ptr, ptr %.2, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.2.0.copyload.i77 = load i64, ptr %.sroa.2.0..sroa_idx.i76, align 8, !tbaa !55
@@ -41708,7 +41708,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit65.th
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit65.thread103 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i66 = load ptr, ptr %.1, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.2.0.copyload.i68 = load i64, ptr %.sroa.2.0..sroa_idx.i67, align 8, !tbaa !55
@@ -41738,7 +41738,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit74.th
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIA4_KcEclIPN4llvm9StringRefEEEbT_.exit74.thread106 ], [ %.029.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i75 = load ptr, ptr %.2, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.2.0.copyload.i77 = load i64, ptr %.sroa.2.0..sroa_idx.i76, align 8, !tbaa !55
@@ -42636,9 +42636,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %35
 
 35:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107
-  %.sroa.2.0.copyload.i61 = phi i64 [ %.sroa.2.0.copyload.i61.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ]
-  %.sroa.0.0.copyload.i59 = phi ptr [ %.sroa.0.0.copyload.i59.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ]
-  %.sroa.085.1 = phi ptr [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge ], [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ]
+  %.sroa.2.0.copyload.i61 = phi i64 [ %.sroa.2.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ], [ %.sroa.2.0.copyload.i61.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i59 = phi ptr [ %.sroa.0.0.copyload.i49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ], [ %.sroa.0.0.copyload.i59.pre, %._crit_edge._crit_edge ]
+  %.sroa.085.1 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit55.thread107 ], [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i56 = load ptr, ptr %.sroa.085.1, align 8, !tbaa !54
   %.sroa.22.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %.sroa.085.1, i64 8
   %.sroa.22.0.copyload.i58 = load i64, ptr %.sroa.22.0..sroa_idx.i57, align 8, !tbaa !55
@@ -42659,9 +42659,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge147, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110
-  %.sroa.2.0.copyload.i71 = phi i64 [ %.sroa.2.0.copyload.i71.pre, %._crit_edge._crit_edge147 ], [ %.sroa.2.0.copyload.i61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ]
-  %.sroa.0.0.copyload.i69 = phi ptr [ %.sroa.0.0.copyload.i69.pre, %._crit_edge._crit_edge147 ], [ %.sroa.0.0.copyload.i59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ]
-  %.sroa.085.2 = phi ptr [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge147 ], [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ]
+  %.sroa.2.0.copyload.i71 = phi i64 [ %.sroa.2.0.copyload.i61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ], [ %.sroa.2.0.copyload.i71.pre, %._crit_edge._crit_edge147 ]
+  %.sroa.0.0.copyload.i69 = phi ptr [ %.sroa.0.0.copyload.i59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ], [ %.sroa.0.0.copyload.i69.pre, %._crit_edge._crit_edge147 ]
+  %.sroa.085.2 = phi ptr [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit65.thread110 ], [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge147 ]
   %.sroa.01.0.copyload.i66 = load ptr, ptr %.sroa.085.2, align 8, !tbaa !54
   %.sroa.22.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %.sroa.085.2, i64 8
   %.sroa.22.0.copyload.i68 = load i64, ptr %.sroa.22.0..sroa_idx.i67, align 8, !tbaa !55
@@ -42791,7 +42791,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5
   br label %43
 
 43:                                               ; preds = %._crit_edge.i.i.i.i, %41
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.1.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !81
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i16, ptr %45, align 8
@@ -42803,7 +42803,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9remove_ifIRNS_11SmallVectorIPN5
   br label %50
 
 50:                                               ; preds = %._crit_edge.i.i.i.i, %48
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %49, %48 ]
+  %.2.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %51 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !81
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i16, ptr %52, align 8

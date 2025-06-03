@@ -74937,7 +74937,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %291
 
 291:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %289, %290
-  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.3, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %289 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -75708,7 +75708,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %292
 
 292:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %290, %291
-  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.3, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %290 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -76321,7 +76321,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h744740e7287fe7c0E.exit.un
   br label %219
 
 219:                                              ; preds = %41, %217, %218
-  %.sroa.0.1 = phi i8 [ 2, %218 ], [ %.sroa.0.2, %217 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %218 ], [ 3, %41 ], [ %.sroa.0.2, %217 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -77135,7 +77135,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %306
 
 306:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %304, %305
-  %.sroa.0.2 = phi i8 [ 2, %305 ], [ %.sroa.0.3, %304 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %305 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %304 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -77945,7 +77945,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %303
 
 303:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %301, %302
-  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.3, %301 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %301 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -78761,7 +78761,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %305
 
 305:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %303, %304
-  %.sroa.0.2 = phi i8 [ 2, %304 ], [ %.sroa.0.3, %303 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %304 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %303 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -79531,7 +79531,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %291
 
 291:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %289, %290
-  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.3, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %289 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -80301,7 +80301,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %291
 
 291:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %289, %290
-  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.3, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %289 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -80908,7 +80908,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hb7363b4fe97cfb08E.exit.un
   br label %217
 
 217:                                              ; preds = %41, %215, %216
-  %.sroa.0.1 = phi i8 [ 2, %216 ], [ %.sroa.0.2, %215 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %216 ], [ 3, %41 ], [ %.sroa.0.2, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -81715,7 +81715,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %303
 
 303:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %301, %302
-  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.3, %301 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %301 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -82531,7 +82531,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %305
 
 305:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %303, %304
-  %.sroa.0.2 = phi i8 [ 2, %304 ], [ %.sroa.0.3, %303 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %304 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %303 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -83296,7 +83296,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %290
 
 290:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %288, %289
-  %.sroa.0.2 = phi i8 [ 2, %289 ], [ %.sroa.0.3, %288 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %288 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -83902,7 +83902,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hc6488f17c93ceedfE.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -84670,7 +84670,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %292
 
 292:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %290, %291
-  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.3, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %290 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -85276,7 +85276,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hafb741f2131e08edE.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -85880,7 +85880,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h3ab2e63c04dac04cE.exit.un
   br label %217
 
 217:                                              ; preds = %41, %215, %216
-  %.sroa.0.1 = phi i8 [ 2, %216 ], [ %.sroa.0.2, %215 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %216 ], [ 3, %41 ], [ %.sroa.0.2, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -86688,7 +86688,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %304
 
 304:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %302, %303
-  %.sroa.0.2 = phi i8 [ 2, %303 ], [ %.sroa.0.3, %302 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %303 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %302 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -87294,7 +87294,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h2d2e565f5486af30E.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -87904,7 +87904,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17heb92e1ec9f65a733E.exit.un
   br label %219
 
 219:                                              ; preds = %41, %217, %218
-  %.sroa.0.1 = phi i8 [ 2, %218 ], [ %.sroa.0.2, %217 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %218 ], [ 3, %41 ], [ %.sroa.0.2, %217 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -88513,7 +88513,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h854e5e74d566134dE.exit.un
   br label %218
 
 218:                                              ; preds = %41, %216, %217
-  %.sroa.0.1 = phi i8 [ 2, %217 ], [ %.sroa.0.2, %216 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %217 ], [ 3, %41 ], [ %.sroa.0.2, %216 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -89116,7 +89116,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h7790fa512bdfa5bcE.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -89719,7 +89719,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h2f3ee66525d96e4eE.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -90322,7 +90322,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hc380fa53f1da06b9E.exit.un
   br label %216
 
 216:                                              ; preds = %41, %214, %215
-  %.sroa.0.1 = phi i8 [ 2, %215 ], [ %.sroa.0.2, %214 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %215 ], [ 3, %41 ], [ %.sroa.0.2, %214 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -91090,7 +91090,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %292
 
 292:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %290, %291
-  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.3, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %291 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %290 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -91854,7 +91854,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %289
 
 289:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %287, %288
-  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.3, %287 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %287 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -92619,7 +92619,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %290
 
 290:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %288, %289
-  %.sroa.0.2 = phi i8 [ 2, %289 ], [ %.sroa.0.3, %288 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %288 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -93429,7 +93429,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %303
 
 303:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %301, %302
-  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.3, %301 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %302 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %301 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   ret i8 %.sroa.0.2
@@ -94041,7 +94041,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17he859dbd0ada30c3eE.exit.un
   br label %218
 
 218:                                              ; preds = %41, %216, %217
-  %.sroa.0.1 = phi i8 [ 2, %217 ], [ %.sroa.0.2, %216 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %217 ], [ 3, %41 ], [ %.sroa.0.2, %216 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -94645,7 +94645,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h35afff9d67c15062E.exit.un
   br label %217
 
 217:                                              ; preds = %41, %215, %216
-  %.sroa.0.1 = phi i8 [ 2, %216 ], [ %.sroa.0.2, %215 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %216 ], [ 3, %41 ], [ %.sroa.0.2, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -95406,7 +95406,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %289
 
 289:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %287, %288
-  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.3, %287 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %287 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -96170,7 +96170,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %289
 
 289:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %287, %288
-  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.3, %287 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %288 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %287 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -96783,7 +96783,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h87474ef908ae4bb3E.exit.un
   br label %219
 
 219:                                              ; preds = %41, %217, %218
-  %.sroa.0.1 = phi i8 [ 2, %218 ], [ %.sroa.0.2, %217 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %218 ], [ 3, %41 ], [ %.sroa.0.2, %217 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -97392,7 +97392,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hcae7434268920ceeE.exit.un
   br label %218
 
 218:                                              ; preds = %41, %216, %217
-  %.sroa.0.1 = phi i8 [ 2, %217 ], [ %.sroa.0.2, %216 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %217 ], [ 3, %41 ], [ %.sroa.0.2, %216 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -98002,7 +98002,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h1174fffc007d1340E.exit.un
   br label %219
 
 219:                                              ; preds = %41, %217, %218
-  %.sroa.0.1 = phi i8 [ 2, %218 ], [ %.sroa.0.2, %217 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %218 ], [ 3, %41 ], [ %.sroa.0.2, %217 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -98769,7 +98769,7 @@ _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %.
   br label %291
 
 291:                                              ; preds = %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit, %289, %290
-  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.3, %289 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ]
+  %.sroa.0.2 = phi i8 [ 2, %290 ], [ %.sroa.0.0, %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit ], [ %.sroa.0.3, %289 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret i8 %.sroa.0.2
@@ -99381,7 +99381,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hc959284cb75cf5d0E.exit.un
   br label %218
 
 218:                                              ; preds = %41, %216, %217
-  %.sroa.0.1 = phi i8 [ 2, %217 ], [ %.sroa.0.2, %216 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %217 ], [ 3, %41 ], [ %.sroa.0.2, %216 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -99985,7 +99985,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h44017412d6425919E.exit.un
   br label %217
 
 217:                                              ; preds = %41, %215, %216
-  %.sroa.0.1 = phi i8 [ 2, %216 ], [ %.sroa.0.2, %215 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %216 ], [ 3, %41 ], [ %.sroa.0.2, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -100589,7 +100589,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hf43e5a8d98b69e39E.exit.un
   br label %217
 
 217:                                              ; preds = %41, %215, %216
-  %.sroa.0.1 = phi i8 [ 2, %216 ], [ %.sroa.0.2, %215 ], [ 3, %41 ]
+  %.sroa.0.1 = phi i8 [ 2, %216 ], [ 3, %41 ], [ %.sroa.0.2, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   ret i8 %.sroa.0.1
@@ -108380,9 +108380,9 @@ default.unreachable:                              ; preds = %6
   br i1 %76, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %72, %72, %74
-  %.sroa.05.0107 = phi i8 [ %75, %74 ], [ %73, %72 ], [ %73, %72 ]
+  %.sroa.05.0108 = phi i8 [ %75, %74 ], [ %73, %72 ], [ %73, %72 ]
   %77 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %78 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %77, i8 noundef %.sroa.05.0107)
+  %78 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %77, i8 noundef %.sroa.05.0108)
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %.thread
@@ -108520,9 +108520,9 @@ default.unreachable:                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2527
   invoke void @"_ZN153_$LT$ty_python_semantic..types..Type..member_lookup_with_policy..member_lookup_with_policy_..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17hc601b3f6e0a0a460E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %169
+          to label %.noexc103 unwind label %169
 
-.noexc102:                                        ; preds = %128
+.noexc103:                                        ; preds = %128
   invoke void @"_ZN153_$LT$ty_python_semantic..types..Type..member_lookup_with_policy..member_lookup_with_policy_..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h399b9a7ef28331c6E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %159 unwind label %169
 
@@ -108627,7 +108627,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-159:                                              ; preds = %.noexc102
+159:                                              ; preds = %.noexc103
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !2527
   %160 = load i8, ptr %15, align 8, !range !1737, !noundef !3
   %.not98 = icmp eq i8 %160, 2
@@ -108655,10 +108655,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 168:                                              ; preds = %.body, %169
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %169 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %169 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-169:                                              ; preds = %166, %128, %.noexc102
+169:                                              ; preds = %166, %128, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %16) #19
@@ -108739,7 +108739,7 @@ default.unreachable:                              ; preds = %6
   br label %197
 
 197:                                              ; preds = %50, %196, %217
-  %.sroa.0.3 = phi ptr [ %216, %217 ], [ %49, %196 ], [ %.sroa.0.0, %50 ]
+  %.sroa.0.3 = phi ptr [ %216, %217 ], [ %.sroa.0.0, %50 ], [ %49, %196 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   ret ptr %.sroa.0.3
 
@@ -108767,9 +108767,9 @@ default.unreachable:                              ; preds = %6
 
 207:                                              ; preds = %199
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %172
+          to label %.noexc105 unwind label %172
 
-.noexc104:                                        ; preds = %207
+.noexc105:                                        ; preds = %207
   unreachable
 
 208:                                              ; preds = %204
@@ -109009,7 +109009,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h87e6503a3ba06be5E.exit.un
   br label %88
 
 88:                                               ; preds = %31, %87, %108
-  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %30, %87 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %.sroa.0.0, %31 ], [ %30, %87 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -109199,9 +109199,9 @@ default.unreachable:                              ; preds = %6
   br i1 %67, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %63, %63, %65
-  %.sroa.05.0108 = phi i8 [ %66, %65 ], [ %64, %63 ], [ %64, %63 ]
+  %.sroa.05.0109 = phi i8 [ %66, %65 ], [ %64, %63 ], [ %64, %63 ]
   %68 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %69 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %68, i8 noundef %.sroa.05.0108)
+  %69 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %68, i8 noundef %.sroa.05.0109)
   br i1 %69, label %70, label %.critedge
 
 70:                                               ; preds = %.thread
@@ -109460,8 +109460,8 @@ default.unreachable:                              ; preds = %6
   br label %57
 
 158:                                              ; preds = %.body, %159
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %159 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn102 = phi { ptr, i32 } [ %lpad.thr_comm, %159 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn102
 
 159:                                              ; preds = %119, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -109543,7 +109543,7 @@ default.unreachable:                              ; preds = %6
   br label %187
 
 187:                                              ; preds = %42, %186, %207
-  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %41, %186 ], [ %.sroa.0.0, %42 ]
+  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %.sroa.0.0, %42 ], [ %41, %186 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret ptr %.sroa.0.3
 
@@ -109571,9 +109571,9 @@ default.unreachable:                              ; preds = %6
 
 197:                                              ; preds = %189
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc105 unwind label %162
+          to label %.noexc106 unwind label %162
 
-.noexc105:                                        ; preds = %197
+.noexc106:                                        ; preds = %197
   unreachable
 
 198:                                              ; preds = %194
@@ -109815,7 +109815,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h504c8a418afc98d9E.exit.un
   br label %90
 
 90:                                               ; preds = %31, %89, %110
-  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %30, %89 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %.sroa.0.0, %31 ], [ %30, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -110076,7 +110076,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hf52132b9a39b0ec9E.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -110339,7 +110339,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h10617c15b1553865E.exit.un
   br label %85
 
 85:                                               ; preds = %25, %84, %105
-  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %24, %84 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %.sroa.0.0, %25 ], [ %24, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -110539,9 +110539,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0112 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0113 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0112)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0113)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -110677,9 +110677,9 @@ default.unreachable:                              ; preds = %6
   %128 = load i32, ptr %38, align 4, !noundef !3
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %14, i32 noundef %127, i32 noundef %128)
   %129 = invoke noundef i32 @"_ZN146_$LT$ty_python_semantic..types..class..ClassLiteral..explicit_bases..explicit_bases_..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17h7b9490cfc96da6d0E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc107 unwind label %170
+          to label %.noexc108 unwind label %170
 
-.noexc107:                                        ; preds = %126
+.noexc108:                                        ; preds = %126
   %130 = invoke { ptr, i64 } @"_ZN146_$LT$ty_python_semantic..types..class..ClassLiteral..explicit_bases..explicit_bases_..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h0c96f2e55057ab92E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h4070af768203e764E.exit" unwind label %170
 
@@ -110784,7 +110784,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h4070af768203e764E.exit": ; preds = %.noexc107
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h4070af768203e764E.exit": ; preds = %.noexc108
   %159 = extractvalue { ptr, i64 } %130, 0
   %.not103 = icmp eq ptr %159, null
   br i1 %.not103, label %167, label %160, !prof !5
@@ -110813,10 +110813,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 169:                                              ; preds = %.body, %170
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %170 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn104 = phi { ptr, i32 } [ %lpad.thr_comm, %170 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn104
 
-170:                                              ; preds = %167, %126, %.noexc107
+170:                                              ; preds = %167, %126, %.noexc108
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %14) #19
@@ -110897,7 +110897,7 @@ default.unreachable:                              ; preds = %6
   br label %198
 
 198:                                              ; preds = %48, %197, %218
-  %.sroa.0.3 = phi ptr [ %217, %218 ], [ %47, %197 ], [ %.sroa.0.0, %48 ]
+  %.sroa.0.3 = phi ptr [ %217, %218 ], [ %.sroa.0.0, %48 ], [ %47, %197 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret ptr %.sroa.0.3
 
@@ -110925,9 +110925,9 @@ default.unreachable:                              ; preds = %6
 
 208:                                              ; preds = %200
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc109 unwind label %173
+          to label %.noexc110 unwind label %173
 
-.noexc109:                                        ; preds = %208
+.noexc110:                                        ; preds = %208
   unreachable
 
 209:                                              ; preds = %205
@@ -111160,7 +111160,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hdae9c9b5261f47d0E.exit.un
   br label %85
 
 85:                                               ; preds = %25, %84, %105
-  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %24, %84 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %.sroa.0.0, %25 ], [ %24, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -111430,7 +111430,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17ha9850735a9e55e3aE.exit.un
   br label %88
 
 88:                                               ; preds = %31, %87, %108
-  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %30, %87 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %.sroa.0.0, %31 ], [ %30, %87 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -111620,9 +111620,9 @@ default.unreachable:                              ; preds = %6
   br i1 %67, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %63, %63, %65
-  %.sroa.05.0108 = phi i8 [ %66, %65 ], [ %64, %63 ], [ %64, %63 ]
+  %.sroa.05.0109 = phi i8 [ %66, %65 ], [ %64, %63 ], [ %64, %63 ]
   %68 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %69 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %68, i8 noundef %.sroa.05.0108)
+  %69 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %68, i8 noundef %.sroa.05.0109)
   br i1 %69, label %70, label %.critedge
 
 70:                                               ; preds = %.thread
@@ -111881,8 +111881,8 @@ default.unreachable:                              ; preds = %6
   br label %57
 
 158:                                              ; preds = %.body, %159
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %159 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn102 = phi { ptr, i32 } [ %lpad.thr_comm, %159 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn102
 
 159:                                              ; preds = %119, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -111964,7 +111964,7 @@ default.unreachable:                              ; preds = %6
   br label %187
 
 187:                                              ; preds = %42, %186, %207
-  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %41, %186 ], [ %.sroa.0.0, %42 ]
+  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %.sroa.0.0, %42 ], [ %41, %186 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret ptr %.sroa.0.3
 
@@ -111992,9 +111992,9 @@ default.unreachable:                              ; preds = %6
 
 197:                                              ; preds = %189
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc105 unwind label %162
+          to label %.noexc106 unwind label %162
 
-.noexc105:                                        ; preds = %197
+.noexc106:                                        ; preds = %197
   unreachable
 
 198:                                              ; preds = %194
@@ -112165,9 +112165,9 @@ default.unreachable:                              ; preds = %6
   br i1 %75, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %71, %71, %73
-  %.sroa.05.0107 = phi i8 [ %74, %73 ], [ %72, %71 ], [ %72, %71 ]
+  %.sroa.05.0108 = phi i8 [ %74, %73 ], [ %72, %71 ], [ %72, %71 ]
   %76 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %77 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %76, i8 noundef %.sroa.05.0107)
+  %77 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %76, i8 noundef %.sroa.05.0108)
   br i1 %77, label %78, label %.critedge
 
 78:                                               ; preds = %.thread
@@ -112304,9 +112304,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %128, i32 noundef %129)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %130 = invoke noundef i32 @"_ZN122_$LT$ty_python_semantic..types..infer..infer_expression_type..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17hf97cc614371e4301E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %168
+          to label %.noexc103 unwind label %168
 
-.noexc102:                                        ; preds = %127
+.noexc103:                                        ; preds = %127
   invoke void @"_ZN122_$LT$ty_python_semantic..types..infer..infer_expression_type..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17hfac64a6872d063f2E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %130)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h99c803070e7c089aE.exit" unwind label %168
 
@@ -112411,7 +112411,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h99c803070e7c089aE.exit": ; preds = %.noexc102
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h99c803070e7c089aE.exit": ; preds = %.noexc103
   %159 = load i8, ptr %14, align 8, !range !2125, !noundef !3
   %.not98 = icmp eq i8 %159, 29
   br i1 %.not98, label %165, label %160, !prof !5
@@ -112438,10 +112438,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 167:                                              ; preds = %.body, %168
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %168 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %168 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-168:                                              ; preds = %165, %127, %.noexc102
+168:                                              ; preds = %165, %127, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -112522,7 +112522,7 @@ default.unreachable:                              ; preds = %6
   br label %196
 
 196:                                              ; preds = %49, %195, %216
-  %.sroa.0.3 = phi ptr [ %215, %216 ], [ %48, %195 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %215, %216 ], [ %.sroa.0.0, %49 ], [ %48, %195 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -112550,9 +112550,9 @@ default.unreachable:                              ; preds = %6
 
 206:                                              ; preds = %198
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %171
+          to label %.noexc105 unwind label %171
 
-.noexc104:                                        ; preds = %206
+.noexc105:                                        ; preds = %206
   unreachable
 
 207:                                              ; preds = %203
@@ -112794,7 +112794,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17ha73e30f091134b4bE.exit.un
   br label %90
 
 90:                                               ; preds = %31, %89, %110
-  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %30, %89 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %.sroa.0.0, %31 ], [ %30, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -112994,9 +112994,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0107 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0107)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -113133,9 +113133,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN123_$LT$ty_python_semantic..types..infer..infer_definition_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17hbb62b15daf411fe0E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %167
+          to label %.noexc103 unwind label %167
 
-.noexc102:                                        ; preds = %126
+.noexc103:                                        ; preds = %126
   invoke void @"_ZN123_$LT$ty_python_semantic..types..infer..infer_definition_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h2d1868af81c056feE"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h1f7618d8b17d4ddeE.exit" unwind label %167
 
@@ -113240,7 +113240,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h1f7618d8b17d4ddeE.exit": ; preds = %.noexc102
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h1f7618d8b17d4ddeE.exit": ; preds = %.noexc103
   %158 = load i64, ptr %14, align 8, !range !1974, !noundef !3
   %.not98 = icmp eq i64 %158, -9223372036854775808
   br i1 %.not98, label %164, label %159, !prof !5
@@ -113267,10 +113267,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 166:                                              ; preds = %.body, %167
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %167 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %167 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-167:                                              ; preds = %164, %126, %.noexc102
+167:                                              ; preds = %164, %126, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -113350,7 +113350,7 @@ default.unreachable:                              ; preds = %6
   br label %194
 
 194:                                              ; preds = %49, %193, %214
-  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %48, %193 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %.sroa.0.0, %49 ], [ %48, %193 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -113378,9 +113378,9 @@ default.unreachable:                              ; preds = %6
 
 204:                                              ; preds = %196
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %170
+          to label %.noexc105 unwind label %170
 
-.noexc104:                                        ; preds = %204
+.noexc105:                                        ; preds = %204
   unreachable
 
 205:                                              ; preds = %201
@@ -113620,7 +113620,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h0a4dae2b275f87daE.exit.un
   br label %88
 
 88:                                               ; preds = %31, %87, %108
-  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %30, %87 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %.sroa.0.0, %31 ], [ %30, %87 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -113892,7 +113892,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h76120767dc402408E.exit.un
   br label %90
 
 90:                                               ; preds = %31, %89, %110
-  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %30, %89 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %.sroa.0.0, %31 ], [ %30, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -114153,7 +114153,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h94d1c0c62f3ee714E.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -114355,9 +114355,9 @@ default.unreachable:                              ; preds = %6
   br i1 %76, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %72, %72, %74
-  %.sroa.05.0107 = phi i8 [ %75, %74 ], [ %73, %72 ], [ %73, %72 ]
+  %.sroa.05.0108 = phi i8 [ %75, %74 ], [ %73, %72 ], [ %73, %72 ]
   %77 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %78 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %77, i8 noundef %.sroa.05.0107)
+  %78 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %77, i8 noundef %.sroa.05.0108)
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %.thread
@@ -114495,9 +114495,9 @@ default.unreachable:                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10), !noalias !2627
   invoke void @"_ZN107_$LT$ty_python_semantic..symbol..symbol_by_id..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17h7c5e8844d544b069E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %10, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %169
+          to label %.noexc103 unwind label %169
 
-.noexc102:                                        ; preds = %128
+.noexc103:                                        ; preds = %128
   invoke void @"_ZN107_$LT$ty_python_semantic..symbol..symbol_by_id..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h49435da1ec6bee47E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10)
           to label %159 unwind label %169
 
@@ -114602,7 +114602,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-159:                                              ; preds = %.noexc102
+159:                                              ; preds = %.noexc103
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10), !noalias !2627
   %160 = load i8, ptr %15, align 8, !range !1737, !noundef !3
   %.not98 = icmp eq i8 %160, 2
@@ -114630,10 +114630,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 168:                                              ; preds = %.body, %169
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %169 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %169 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-169:                                              ; preds = %166, %128, %.noexc102
+169:                                              ; preds = %166, %128, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %16) #19
@@ -114714,7 +114714,7 @@ default.unreachable:                              ; preds = %6
   br label %197
 
 197:                                              ; preds = %50, %196, %217
-  %.sroa.0.3 = phi ptr [ %216, %217 ], [ %49, %196 ], [ %.sroa.0.0, %50 ]
+  %.sroa.0.3 = phi ptr [ %216, %217 ], [ %.sroa.0.0, %50 ], [ %49, %196 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   ret ptr %.sroa.0.3
 
@@ -114742,9 +114742,9 @@ default.unreachable:                              ; preds = %6
 
 207:                                              ; preds = %199
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %172
+          to label %.noexc105 unwind label %172
 
-.noexc104:                                        ; preds = %207
+.noexc105:                                        ; preds = %207
   unreachable
 
 208:                                              ; preds = %204
@@ -114905,9 +114905,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0105 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0106 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0105)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0106)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -115178,8 +115178,8 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 160:                                              ; preds = %.body, %161
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %161 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %161 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
 161:                                              ; preds = %158, %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -115261,7 +115261,7 @@ default.unreachable:                              ; preds = %6
   br label %189
 
 189:                                              ; preds = %43, %188, %209
-  %.sroa.0.3 = phi ptr [ %208, %209 ], [ %42, %188 ], [ %.sroa.0.0, %43 ]
+  %.sroa.0.3 = phi ptr [ %208, %209 ], [ %.sroa.0.0, %43 ], [ %42, %188 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -115289,9 +115289,9 @@ default.unreachable:                              ; preds = %6
 
 199:                                              ; preds = %191
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc102 unwind label %164
+          to label %.noexc103 unwind label %164
 
-.noexc102:                                        ; preds = %199
+.noexc103:                                        ; preds = %199
   unreachable
 
 200:                                              ; preds = %196
@@ -115522,7 +115522,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h857b625f69b714bfE.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -115714,9 +115714,9 @@ default.unreachable:                              ; preds = %6
   br i1 %69, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %65, %65, %67
-  %.sroa.05.0105 = phi i8 [ %68, %67 ], [ %66, %65 ], [ %66, %65 ]
+  %.sroa.05.0106 = phi i8 [ %68, %67 ], [ %66, %65 ], [ %66, %65 ]
   %70 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %71 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %70, i8 noundef %.sroa.05.0105)
+  %71 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %70, i8 noundef %.sroa.05.0106)
   br i1 %71, label %72, label %.critedge
 
 72:                                               ; preds = %.thread
@@ -115987,8 +115987,8 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 161:                                              ; preds = %.body, %162
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %162 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %162 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
 162:                                              ; preds = %159, %121, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -116071,7 +116071,7 @@ default.unreachable:                              ; preds = %6
   br label %191
 
 191:                                              ; preds = %43, %190, %211
-  %.sroa.0.3 = phi ptr [ %210, %211 ], [ %42, %190 ], [ %.sroa.0.0, %43 ]
+  %.sroa.0.3 = phi ptr [ %210, %211 ], [ %.sroa.0.0, %43 ], [ %42, %190 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -116099,9 +116099,9 @@ default.unreachable:                              ; preds = %6
 
 201:                                              ; preds = %193
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc102 unwind label %165
+          to label %.noexc103 unwind label %165
 
-.noexc102:                                        ; preds = %201
+.noexc103:                                        ; preds = %201
   unreachable
 
 202:                                              ; preds = %198
@@ -116262,9 +116262,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0106 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0107 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0106)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0107)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -116526,8 +116526,8 @@ default.unreachable:                              ; preds = %6
   br label %58
 
 158:                                              ; preds = %.body, %159
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %159 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn100 = phi { ptr, i32 } [ %lpad.thr_comm, %159 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn100
 
 159:                                              ; preds = %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -116609,7 +116609,7 @@ default.unreachable:                              ; preds = %6
   br label %187
 
 187:                                              ; preds = %43, %186, %207
-  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %42, %186 ], [ %.sroa.0.0, %43 ]
+  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %.sroa.0.0, %43 ], [ %42, %186 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -116637,9 +116637,9 @@ default.unreachable:                              ; preds = %6
 
 197:                                              ; preds = %189
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc103 unwind label %162
+          to label %.noexc104 unwind label %162
 
-.noexc103:                                        ; preds = %197
+.noexc104:                                        ; preds = %197
   unreachable
 
 198:                                              ; preds = %194
@@ -116809,9 +116809,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0107 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0107)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -116948,9 +116948,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN118_$LT$ty_python_semantic..types..infer..infer_scope_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17h7717832d265f18c9E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %167
+          to label %.noexc103 unwind label %167
 
-.noexc102:                                        ; preds = %126
+.noexc103:                                        ; preds = %126
   invoke void @"_ZN118_$LT$ty_python_semantic..types..infer..infer_scope_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h0c5383e4615886eeE"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17he6517a39937da7e1E.exit" unwind label %167
 
@@ -117055,7 +117055,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17he6517a39937da7e1E.exit": ; preds = %.noexc102
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17he6517a39937da7e1E.exit": ; preds = %.noexc103
   %158 = load i64, ptr %14, align 8, !range !1974, !noundef !3
   %.not98 = icmp eq i64 %158, -9223372036854775808
   br i1 %.not98, label %164, label %159, !prof !5
@@ -117082,10 +117082,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 166:                                              ; preds = %.body, %167
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %167 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %167 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-167:                                              ; preds = %164, %126, %.noexc102
+167:                                              ; preds = %164, %126, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -117165,7 +117165,7 @@ default.unreachable:                              ; preds = %6
   br label %194
 
 194:                                              ; preds = %49, %193, %214
-  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %48, %193 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %.sroa.0.0, %49 ], [ %48, %193 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -117193,9 +117193,9 @@ default.unreachable:                              ; preds = %6
 
 204:                                              ; preds = %196
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %170
+          to label %.noexc105 unwind label %170
 
-.noexc104:                                        ; preds = %204
+.noexc105:                                        ; preds = %204
   unreachable
 
 205:                                              ; preds = %201
@@ -117428,7 +117428,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17haddba872ca9cf8f6E.exit.un
   br label %85
 
 85:                                               ; preds = %25, %84, %105
-  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %24, %84 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %.sroa.0.0, %25 ], [ %24, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -117698,7 +117698,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17hed0f516125fe1c52E.exit.un
   br label %88
 
 88:                                               ; preds = %31, %87, %108
-  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %30, %87 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %107, %108 ], [ %.sroa.0.0, %31 ], [ %30, %87 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -117959,7 +117959,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17he655d25ba6560e23E.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -118150,9 +118150,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0105 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0106 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0105)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0106)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -118423,8 +118423,8 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 160:                                              ; preds = %.body, %161
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %161 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %161 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
 161:                                              ; preds = %158, %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -118506,7 +118506,7 @@ default.unreachable:                              ; preds = %6
   br label %189
 
 189:                                              ; preds = %43, %188, %209
-  %.sroa.0.3 = phi ptr [ %208, %209 ], [ %42, %188 ], [ %.sroa.0.0, %43 ]
+  %.sroa.0.3 = phi ptr [ %208, %209 ], [ %.sroa.0.0, %43 ], [ %42, %188 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -118534,9 +118534,9 @@ default.unreachable:                              ; preds = %6
 
 199:                                              ; preds = %191
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc102 unwind label %164
+          to label %.noexc103 unwind label %164
 
-.noexc102:                                        ; preds = %199
+.noexc103:                                        ; preds = %199
   unreachable
 
 200:                                              ; preds = %196
@@ -118697,9 +118697,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0110 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0111 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0110)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0111)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -118971,8 +118971,8 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 163:                                              ; preds = %.body, %164
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %164 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn104 = phi { ptr, i32 } [ %lpad.thr_comm, %164 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn104
 
 164:                                              ; preds = %161, %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -119055,7 +119055,7 @@ default.unreachable:                              ; preds = %6
   br label %193
 
 193:                                              ; preds = %42, %192, %213
-  %.sroa.0.3 = phi ptr [ %212, %213 ], [ %41, %192 ], [ %.sroa.0.0, %42 ]
+  %.sroa.0.3 = phi ptr [ %212, %213 ], [ %.sroa.0.0, %42 ], [ %41, %192 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret ptr %.sroa.0.3
 
@@ -119083,9 +119083,9 @@ default.unreachable:                              ; preds = %6
 
 203:                                              ; preds = %195
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc107 unwind label %167
+          to label %.noexc108 unwind label %167
 
-.noexc107:                                        ; preds = %203
+.noexc108:                                        ; preds = %203
   unreachable
 
 204:                                              ; preds = %200
@@ -119318,7 +119318,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h3612550ba92b63d6E.exit.un
   br label %85
 
 85:                                               ; preds = %25, %84, %105
-  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %24, %84 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %.sroa.0.0, %25 ], [ %24, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -119518,9 +119518,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0109 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0109)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -119657,9 +119657,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN151_$LT$ty_python_semantic..types..narrow..all_negative_narrowing_constraints_for_expression..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17hf49f0a3777b64897E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc103 unwind label %165
+          to label %.noexc104 unwind label %165
 
-.noexc103:                                        ; preds = %126
+.noexc104:                                        ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void @"_ZN151_$LT$ty_python_semantic..types..narrow..all_negative_narrowing_constraints_for_expression..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17hc8be0541475be6b3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %130, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %159 unwind label %165
@@ -119765,7 +119765,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-159:                                              ; preds = %.noexc103
+159:                                              ; preds = %.noexc104
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.442.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false)
@@ -119782,10 +119782,10 @@ default.unreachable:                              ; preds = %6
   br label %64
 
 164:                                              ; preds = %.body, %165
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %165 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn100 = phi { ptr, i32 } [ %lpad.thr_comm, %165 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn100
 
-165:                                              ; preds = %126, %.noexc103
+165:                                              ; preds = %126, %.noexc104
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -119865,7 +119865,7 @@ default.unreachable:                              ; preds = %6
   br label %192
 
 192:                                              ; preds = %49, %191, %212
-  %.sroa.0.3 = phi ptr [ %211, %212 ], [ %48, %191 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %211, %212 ], [ %.sroa.0.0, %49 ], [ %48, %191 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -119893,9 +119893,9 @@ default.unreachable:                              ; preds = %6
 
 202:                                              ; preds = %194
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc105 unwind label %168
+          to label %.noexc106 unwind label %168
 
-.noexc105:                                        ; preds = %202
+.noexc106:                                        ; preds = %202
   unreachable
 
 203:                                              ; preds = %199
@@ -120056,9 +120056,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0105 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0106 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0105)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0106)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -120331,8 +120331,8 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 162:                                              ; preds = %.body, %163
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %163 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %163 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
 163:                                              ; preds = %160, %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -120414,7 +120414,7 @@ default.unreachable:                              ; preds = %6
   br label %191
 
 191:                                              ; preds = %43, %190, %211
-  %.sroa.0.3 = phi ptr [ %210, %211 ], [ %42, %190 ], [ %.sroa.0.0, %43 ]
+  %.sroa.0.3 = phi ptr [ %210, %211 ], [ %.sroa.0.0, %43 ], [ %42, %190 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -120442,9 +120442,9 @@ default.unreachable:                              ; preds = %6
 
 201:                                              ; preds = %193
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc102 unwind label %166
+          to label %.noexc103 unwind label %166
 
-.noexc102:                                        ; preds = %201
+.noexc103:                                        ; preds = %201
   unreachable
 
 202:                                              ; preds = %198
@@ -120677,7 +120677,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h0daa36ee5e492f1fE.exit.un
   br label %85
 
 85:                                               ; preds = %25, %84, %105
-  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %24, %84 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %104, %105 ], [ %.sroa.0.0, %25 ], [ %24, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -120938,7 +120938,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h35c5abfd5dbce7f9E.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -121210,7 +121210,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h8632ecfe28f7a45eE.exit.un
   br label %90
 
 90:                                               ; preds = %31, %89, %110
-  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %30, %89 ], [ %.sroa.0.0, %31 ]
+  %.sroa.0.3 = phi ptr [ %109, %110 ], [ %.sroa.0.0, %31 ], [ %30, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -121410,9 +121410,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0107 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0107)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -121549,9 +121549,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN123_$LT$ty_python_semantic..types..infer..infer_expression_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17hd3811677bb2fd3c0E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %167
+          to label %.noexc103 unwind label %167
 
-.noexc102:                                        ; preds = %126
+.noexc103:                                        ; preds = %126
   invoke void @"_ZN123_$LT$ty_python_semantic..types..infer..infer_expression_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17hc334a639df32df11E"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h9699189a55faca2fE.exit" unwind label %167
 
@@ -121656,7 +121656,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h9699189a55faca2fE.exit": ; preds = %.noexc102
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17h9699189a55faca2fE.exit": ; preds = %.noexc103
   %158 = load i64, ptr %14, align 8, !range !1974, !noundef !3
   %.not98 = icmp eq i64 %158, -9223372036854775808
   br i1 %.not98, label %164, label %159, !prof !5
@@ -121683,10 +121683,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 166:                                              ; preds = %.body, %167
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %167 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %167 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-167:                                              ; preds = %164, %126, %.noexc102
+167:                                              ; preds = %164, %126, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -121766,7 +121766,7 @@ default.unreachable:                              ; preds = %6
   br label %194
 
 194:                                              ; preds = %49, %193, %214
-  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %48, %193 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %.sroa.0.0, %49 ], [ %48, %193 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -121794,9 +121794,9 @@ default.unreachable:                              ; preds = %6
 
 204:                                              ; preds = %196
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %170
+          to label %.noexc105 unwind label %170
 
-.noexc104:                                        ; preds = %204
+.noexc105:                                        ; preds = %204
   unreachable
 
 205:                                              ; preds = %201
@@ -121957,9 +121957,9 @@ default.unreachable:                              ; preds = %6
   br i1 %68, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %64, %64, %66
-  %.sroa.05.0107 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
+  %.sroa.05.0108 = phi i8 [ %67, %66 ], [ %65, %64 ], [ %65, %64 ]
   %69 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0107)
+  %70 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %69, i8 noundef %.sroa.05.0108)
   br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.thread
@@ -122216,8 +122216,8 @@ default.unreachable:                              ; preds = %6
   br label %58
 
 157:                                              ; preds = %.body, %158
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %158 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn101 = phi { ptr, i32 } [ %lpad.thr_comm, %158 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn101
 
 158:                                              ; preds = %120, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -122300,7 +122300,7 @@ default.unreachable:                              ; preds = %6
   br label %187
 
 187:                                              ; preds = %42, %186, %207
-  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %41, %186 ], [ %.sroa.0.0, %42 ]
+  %.sroa.0.3 = phi ptr [ %206, %207 ], [ %.sroa.0.0, %42 ], [ %41, %186 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret ptr %.sroa.0.3
 
@@ -122328,9 +122328,9 @@ default.unreachable:                              ; preds = %6
 
 197:                                              ; preds = %189
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %161
+          to label %.noexc105 unwind label %161
 
-.noexc104:                                        ; preds = %197
+.noexc105:                                        ; preds = %197
   unreachable
 
 198:                                              ; preds = %194
@@ -122500,9 +122500,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0107 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0107)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -122639,9 +122639,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN121_$LT$ty_python_semantic..types..infer..infer_deferred_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17h8b2cdd01db0ab0a5E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc102 unwind label %167
+          to label %.noexc103 unwind label %167
 
-.noexc102:                                        ; preds = %126
+.noexc103:                                        ; preds = %126
   invoke void @"_ZN121_$LT$ty_python_semantic..types..infer..infer_deferred_types..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17hd8c9dee571c91221E"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17hcbeafd38f9f97378E.exit" unwind label %167
 
@@ -122746,7 +122746,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17hcbeafd38f9f97378E.exit": ; preds = %.noexc102
+"_ZN5salsa8function4memo58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$13initial_value17hcbeafd38f9f97378E.exit": ; preds = %.noexc103
   %158 = load i64, ptr %14, align 8, !range !1974, !noundef !3
   %.not98 = icmp eq i64 %158, -9223372036854775808
   br i1 %.not98, label %164, label %159, !prof !5
@@ -122773,10 +122773,10 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 166:                                              ; preds = %.body, %167
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %167 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99 = phi { ptr, i32 } [ %lpad.thr_comm, %167 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn99
 
-167:                                              ; preds = %164, %126, %.noexc102
+167:                                              ; preds = %164, %126, %.noexc103
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -122856,7 +122856,7 @@ default.unreachable:                              ; preds = %6
   br label %194
 
 194:                                              ; preds = %49, %193, %214
-  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %48, %193 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %213, %214 ], [ %.sroa.0.0, %49 ], [ %48, %193 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -122884,9 +122884,9 @@ default.unreachable:                              ; preds = %6
 
 204:                                              ; preds = %196
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc104 unwind label %170
+          to label %.noexc105 unwind label %170
 
-.noexc104:                                        ; preds = %204
+.noexc105:                                        ; preds = %204
   unreachable
 
 205:                                              ; preds = %201
@@ -123056,9 +123056,9 @@ default.unreachable:                              ; preds = %6
   br i1 %74, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %70, %70, %72
-  %.sroa.05.0108 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
+  %.sroa.05.0109 = phi i8 [ %73, %72 ], [ %71, %70 ], [ %71, %70 ]
   %75 = load ptr, ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold10__CALLSITE17h68f13202a4ac37feE", align 8, !nonnull !3, !align !4, !noundef !3
-  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0108)
+  %76 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1b204460f5658196E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.05.0109)
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %.thread
@@ -123195,9 +123195,9 @@ default.unreachable:                              ; preds = %6
   call void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h423f3a5c164f787aE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %15, i32 noundef %127, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %129 = invoke noundef i32 @"_ZN142_$LT$ty_python_semantic..types..narrow..all_narrowing_constraints_for_expression..Configuration_$u20$as$u20$salsa..function..Configuration$GT$11id_to_input17h4086d3d1f9a54dc9E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef range(i32 1, 0) %4)
-          to label %.noexc103 unwind label %165
+          to label %.noexc104 unwind label %165
 
-.noexc103:                                        ; preds = %126
+.noexc104:                                        ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void @"_ZN142_$LT$ty_python_semantic..types..narrow..all_narrowing_constraints_for_expression..Configuration_$u20$as$u20$salsa..function..Configuration$GT$13cycle_initial17h594e48fa03843937E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %130, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %129)
           to label %159 unwind label %165
@@ -123303,7 +123303,7 @@ default.unreachable:                              ; preds = %6
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.3fd87f5833919b5cc5baf784ae87f1a1.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.168) #17
   unreachable
 
-159:                                              ; preds = %.noexc103
+159:                                              ; preds = %.noexc104
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.442.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false)
@@ -123320,10 +123320,10 @@ default.unreachable:                              ; preds = %6
   br label %64
 
 164:                                              ; preds = %.body, %165
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %165 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn100 = phi { ptr, i32 } [ %lpad.thr_comm, %165 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn100
 
-165:                                              ; preds = %126, %.noexc103
+165:                                              ; preds = %126, %.noexc104
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h6672cb538386fc62E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %15) #19
@@ -123403,7 +123403,7 @@ default.unreachable:                              ; preds = %6
   br label %192
 
 192:                                              ; preds = %49, %191, %212
-  %.sroa.0.3 = phi ptr [ %211, %212 ], [ %48, %191 ], [ %.sroa.0.0, %49 ]
+  %.sroa.0.3 = phi ptr [ %211, %212 ], [ %.sroa.0.0, %49 ], [ %48, %191 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   ret ptr %.sroa.0.3
 
@@ -123431,9 +123431,9 @@ default.unreachable:                              ; preds = %6
 
 202:                                              ; preds = %194
   invoke void @_ZN4core4cell22panic_already_borrowed17hfa84c42e95646550E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fd87f5833919b5cc5baf784ae87f1a1.26) #17
-          to label %.noexc105 unwind label %168
+          to label %.noexc106 unwind label %168
 
-.noexc105:                                        ; preds = %202
+.noexc106:                                        ; preds = %202
   unreachable
 
 203:                                              ; preds = %199
@@ -123664,7 +123664,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h996d9df86d77965bE.exit.un
   br label %83
 
 83:                                               ; preds = %25, %82, %103
-  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %24, %82 ], [ %.sroa.0.0, %25 ]
+  %.sroa.0.3 = phi ptr [ %102, %103 ], [ %.sroa.0.0, %25 ], [ %24, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.sroa.0.3
 
@@ -223252,7 +223252,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7
-  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -254195,9 +254195,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11148
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11148
@@ -254261,9 +254261,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11159
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11159
@@ -254327,9 +254327,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11170
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11170
@@ -254396,9 +254396,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11181
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11181
@@ -254462,9 +254462,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11192
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11192
@@ -254527,9 +254527,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11203
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11203
@@ -254592,9 +254592,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11214
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11214
@@ -254660,9 +254660,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11225
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11225
@@ -254729,9 +254729,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11236
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11236
@@ -254798,9 +254798,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11247
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11247
@@ -254867,9 +254867,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11258
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11258
@@ -254935,9 +254935,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11269
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11269
@@ -255000,9 +255000,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11280
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11280
@@ -255068,9 +255068,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11291
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11291
@@ -255134,9 +255134,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11302
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11302
@@ -255199,9 +255199,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11313
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11313
@@ -255267,9 +255267,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11324
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11324
@@ -255333,9 +255333,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11335
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11335
@@ -255402,9 +255402,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11346
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11346
@@ -255467,9 +255467,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11357
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11357
@@ -255536,9 +255536,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11368
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11368
@@ -255604,9 +255604,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11379
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11379
@@ -255672,9 +255672,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11390
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11390
@@ -255738,9 +255738,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11401
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11401
@@ -255804,9 +255804,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11412
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11412
@@ -255869,9 +255869,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11423
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11423
@@ -255938,9 +255938,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11434
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11434
@@ -256007,9 +256007,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11445
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11445
@@ -256072,9 +256072,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11456
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11456
@@ -256138,9 +256138,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11467
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11467
@@ -256204,9 +256204,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11478
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11478
@@ -256273,9 +256273,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11489
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11489
@@ -256339,9 +256339,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11500
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11500
@@ -256405,9 +256405,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %21, %16, %10, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %25, %21 ], [ %20, %16 ], [ undef, %10 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %21 ], [ undef, %16 ], [ %12, %10 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %24, %21 ], [ %19, %16 ], [ %15, %10 ]
+  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %20, %16 ], [ %25, %21 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %12, %10 ], [ undef, %16 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %15, %10 ], [ %19, %16 ], [ %24, %21 ], [ undef, %7 ]
   store i32 %9, ptr %0, align 8, !alias.scope !11511
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11511
@@ -256473,9 +256473,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11522
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11522
@@ -256542,9 +256542,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %24, %19, %13, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %28, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %24 ], [ undef, %19 ], [ %15, %13 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %27, %24 ], [ %22, %19 ], [ %18, %13 ]
+  %.sroa.8.0.i = phi i64 [ undef, %13 ], [ %23, %19 ], [ %28, %24 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %15, %13 ], [ undef, %19 ], [ undef, %24 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %18, %13 ], [ %22, %19 ], [ %27, %24 ], [ undef, %10 ]
   store i32 %12, ptr %0, align 8, !alias.scope !11533
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11533
@@ -256610,9 +256610,9 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %23, %18, %12, %10
-  %.sroa.8.0.i = phi i64 [ undef, %10 ], [ %27, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.4.0.i = phi i32 [ undef, %10 ], [ undef, %23 ], [ undef, %18 ], [ %14, %12 ]
-  %.sroa.5.0.i = phi ptr [ undef, %10 ], [ %26, %23 ], [ %21, %18 ], [ %17, %12 ]
+  %.sroa.8.0.i = phi i64 [ undef, %12 ], [ %22, %18 ], [ %27, %23 ], [ undef, %10 ]
+  %.sroa.4.0.i = phi i32 [ %14, %12 ], [ undef, %18 ], [ undef, %23 ], [ undef, %10 ]
+  %.sroa.5.0.i = phi ptr [ %17, %12 ], [ %21, %18 ], [ %26, %23 ], [ undef, %10 ]
   store i32 %11, ptr %0, align 8, !alias.scope !11544
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11544
@@ -256675,9 +256675,9 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i"
 
 "_ZN70_$LT$salsa..zalsa_local..QueryOrigin$u20$as$u20$core..clone..Clone$GT$5clone17he804e5d92689d281E.exit.i": ; preds = %20, %15, %9, %7
-  %.sroa.8.0.i = phi i64 [ undef, %7 ], [ %24, %20 ], [ %19, %15 ], [ undef, %9 ]
-  %.sroa.4.0.i = phi i32 [ undef, %7 ], [ undef, %20 ], [ undef, %15 ], [ %11, %9 ]
-  %.sroa.5.0.i = phi ptr [ undef, %7 ], [ %23, %20 ], [ %18, %15 ], [ %14, %9 ]
+  %.sroa.8.0.i = phi i64 [ undef, %9 ], [ %19, %15 ], [ %24, %20 ], [ undef, %7 ]
+  %.sroa.4.0.i = phi i32 [ %11, %9 ], [ undef, %15 ], [ undef, %20 ], [ undef, %7 ]
+  %.sroa.5.0.i = phi ptr [ %14, %9 ], [ %18, %15 ], [ %23, %20 ], [ undef, %7 ]
   store i32 %8, ptr %0, align 8, !alias.scope !11555
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !11555

@@ -1286,7 +1286,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 146:                                              ; preds = %60, %.body
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %61, %60 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4220,8 +4220,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hc7d77bf5c4acdc
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !942
   br label %"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h272062fa0ea10049E.llvm.204215390286363894.exit.i"
 
-"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h272062fa0ea10049E.llvm.204215390286363894.exit.i.thread": ; preds = %56, %55, %54, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread"
-  %.sroa.9.0.i.ph = phi i8 [ 116, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread" ], [ 114, %54 ], [ 110, %55 ], [ %57, %56 ]
+"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h272062fa0ea10049E.llvm.204215390286363894.exit.i.thread": ; preds = %54, %55, %56, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread"
+  %.sroa.9.0.i.ph = phi i8 [ 116, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread" ], [ %57, %56 ], [ 110, %55 ], [ 114, %54 ]
   store i8 92, ptr %6, align 1, !noalias !939
   store i8 %.sroa.9.0.i.ph, ptr %.sroa.9.0..sroa_idx.i14, align 1, !noalias !939
   store i64 0, ptr %.sroa.13.0..sroa_idx.i15, align 1, !noalias !939
@@ -4398,8 +4398,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf1e330e833e8f4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !980
   br label %"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h53dc837442bde6fcE.llvm.204215390286363894.exit.i"
 
-"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h53dc837442bde6fcE.llvm.204215390286363894.exit.i.thread": ; preds = %56, %55, %54, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread"
-  %.sroa.9.0.i.ph = phi i8 [ 116, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread" ], [ 114, %54 ], [ 110, %55 ], [ %57, %56 ]
+"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h53dc837442bde6fcE.llvm.204215390286363894.exit.i.thread": ; preds = %54, %55, %56, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread"
+  %.sroa.9.0.i.ph = phi i8 [ 116, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.204215390286363894.exit.thread" ], [ %57, %56 ], [ 110, %55 ], [ 114, %54 ]
   store i8 92, ptr %6, align 1, !noalias !977
   store i8 %.sroa.9.0.i.ph, ptr %.sroa.9.0..sroa_idx.i14, align 1, !noalias !977
   store i64 0, ptr %.sroa.13.0..sroa_idx.i15, align 1, !noalias !977
@@ -4509,11 +4509,11 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   br label %"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h272062fa0ea10049E.llvm.204215390286363894.exit"
 
 "_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h272062fa0ea10049E.llvm.204215390286363894.exit": ; preds = %2, %8, %9, %10, %12, %17
-  %.sroa.13.0 = phi i64 [ %.sroa.13.0.copyload11, %17 ], [ %.sroa.13.0.copyload9, %12 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.9.0.copyload7, %17 ], [ %.sroa.9.0.copyload5, %12 ], [ %11, %10 ], [ 110, %9 ], [ 114, %8 ], [ 116, %2 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload3, %17 ], [ %.sroa.0.0.copyload2, %12 ], [ 92, %10 ], [ 92, %9 ], [ 92, %8 ], [ 92, %2 ]
-  %.sink1.i = phi i8 [ %20, %17 ], [ %14, %12 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ]
-  %.sink.i = phi i8 [ %22, %17 ], [ %16, %12 ], [ 2, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %2 ]
+  %.sroa.13.0 = phi i64 [ %.sroa.13.0.copyload11, %17 ], [ %.sroa.13.0.copyload9, %12 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %2 ]
+  %.sroa.9.0 = phi i8 [ %.sroa.9.0.copyload7, %17 ], [ %.sroa.9.0.copyload5, %12 ], [ 114, %8 ], [ 110, %9 ], [ %11, %10 ], [ 116, %2 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload3, %17 ], [ %.sroa.0.0.copyload2, %12 ], [ 92, %8 ], [ 92, %9 ], [ 92, %10 ], [ 92, %2 ]
+  %.sink1.i = phi i8 [ %20, %17 ], [ %14, %12 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %2 ]
+  %.sink.i = phi i8 [ %22, %17 ], [ %16, %12 ], [ 2, %8 ], [ 2, %9 ], [ 2, %10 ], [ 2, %2 ]
   store i8 %.sroa.0.0, ptr %5, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 1
@@ -4615,11 +4615,11 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   br label %"_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h53dc837442bde6fcE.llvm.204215390286363894.exit"
 
 "_ZN9html5ever4util3str17to_escaped_string28_$u7b$$u7b$closure$u7d$$u7d$17h53dc837442bde6fcE.llvm.204215390286363894.exit": ; preds = %2, %8, %9, %10, %12, %17
-  %.sroa.13.0 = phi i64 [ %.sroa.13.0.copyload11, %17 ], [ %.sroa.13.0.copyload9, %12 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ]
-  %.sroa.9.0 = phi i8 [ %.sroa.9.0.copyload7, %17 ], [ %.sroa.9.0.copyload5, %12 ], [ %11, %10 ], [ 110, %9 ], [ 114, %8 ], [ 116, %2 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload3, %17 ], [ %.sroa.0.0.copyload2, %12 ], [ 92, %10 ], [ 92, %9 ], [ 92, %8 ], [ 92, %2 ]
-  %.sink1.i = phi i8 [ %20, %17 ], [ %14, %12 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %2 ]
-  %.sink.i = phi i8 [ %22, %17 ], [ %16, %12 ], [ 2, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %2 ]
+  %.sroa.13.0 = phi i64 [ %.sroa.13.0.copyload11, %17 ], [ %.sroa.13.0.copyload9, %12 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %2 ]
+  %.sroa.9.0 = phi i8 [ %.sroa.9.0.copyload7, %17 ], [ %.sroa.9.0.copyload5, %12 ], [ 114, %8 ], [ 110, %9 ], [ %11, %10 ], [ 116, %2 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload3, %17 ], [ %.sroa.0.0.copyload2, %12 ], [ 92, %8 ], [ 92, %9 ], [ 92, %10 ], [ 92, %2 ]
+  %.sink1.i = phi i8 [ %20, %17 ], [ %14, %12 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %2 ]
+  %.sink.i = phi i8 [ %22, %17 ], [ %16, %12 ], [ 2, %8 ], [ 2, %9 ], [ 2, %10 ], [ 2, %2 ]
   store i8 %.sroa.0.0, ptr %5, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 1

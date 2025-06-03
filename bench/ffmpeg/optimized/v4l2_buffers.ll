@@ -517,7 +517,7 @@ v4l2_get_color_primaries.exit:                    ; preds = %118, %switch.lookup
   br label %v4l2_get_color_space.exit
 
 v4l2_get_color_space.exit:                        ; preds = %133, %136, %137, %138, %139, %140, %141, %143
-  %.0.i39 = phi i32 [ 2, %143 ], [ 7, %140 ], [ 6, %139 ], [ 5, %138 ], [ 4, %137 ], [ 1, %136 ], [ 0, %133 ], [ %..i, %141 ]
+  %.0.i39 = phi i32 [ 2, %143 ], [ 1, %136 ], [ 4, %137 ], [ 5, %138 ], [ 6, %139 ], [ 7, %140 ], [ 0, %133 ], [ %..i, %141 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %.0.i39, ptr %144, align 4, !tbaa !89
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 280

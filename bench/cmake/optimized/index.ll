@@ -394,7 +394,7 @@ define dso_local i32 @lzma_index_stream_flags(ptr noundef readonly captures(addr
   br label %11
 
 11:                                               ; preds = %5, %2, %7
-  %.0 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 11, %2 ]
+  %.0 = phi i32 [ 0, %7 ], [ %6, %5 ], [ 11, %2 ]
   ret i32 %.0
 }
 
@@ -1585,7 +1585,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_next(ptr noundef cap
   br label %index_tree_next.exit
 
 index_tree_next.exit:                             ; preds = %.preheader17.i, %26, %.preheader.i, %11, %14, %30, %4
-  %.043 = phi ptr [ null, %11 ], [ %32, %30 ], [ %16, %14 ], [ null, %4 ], [ null, %.preheader.i ], [ %25, %26 ], [ %.0.i, %.preheader17.i ]
+  %.043 = phi ptr [ null, %11 ], [ %16, %14 ], [ %32, %30 ], [ null, %4 ], [ null, %.preheader.i ], [ %25, %26 ], [ %.0.i, %.preheader17.i ]
   %33 = icmp ugt i32 %1, 1
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = icmp eq i32 %1, 3

@@ -1468,7 +1468,7 @@ zend_string_alloc.exit:                           ; preds = %77, %74
   br label %99
 
 99:                                               ; preds = %77, %69, %zend_string_alloc.exit
-  %.1 = phi i1 [ %.076138, %77 ], [ %.076138, %zend_string_alloc.exit ], [ true, %69 ]
+  %.1 = phi i1 [ %.076138, %zend_string_alloc.exit ], [ %.076138, %77 ], [ true, %69 ]
   %100 = add nuw i64 %.0139, 1
   %101 = load i64, ptr %5, align 8, !tbaa !113
   %102 = icmp ult i64 %100, %101

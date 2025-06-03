@@ -701,8 +701,8 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit19:          ; preds = %_ZN7mitsuba3refINS_
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %.sink33, i1 noundef zeroext true) #25
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit21
 
-_ZN7mitsuba3refINS_6ObjectEED2Ev.exit21:          ; preds = %10, %15, %20, %25, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit19
-  %.pn30 = phi { ptr, i32 } [ %37, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit19 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ]
+_ZN7mitsuba3refINS_6ObjectEED2Ev.exit21:          ; preds = %20, %15, %10, %25, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit19
+  %.pn30 = phi { ptr, i32 } [ %37, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit19 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn30
 }
 
@@ -3656,7 +3656,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107: ; preds = %
   store i32 48, ptr %348, align 8
   br label %.thread117
 
-.thread117:                                       ; preds = %229, %.loopexit120, %.loopexit121, %.loopexit122, %311, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
+.thread117:                                       ; preds = %229, %311, %.loopexit122, %.loopexit121, %.loopexit120, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
   %360 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %.loopexit123
 
@@ -3888,7 +3888,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  %.sroa.034.0 = phi ptr [ %0, %48 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
   ret ptr %.sroa.034.0
 }
 

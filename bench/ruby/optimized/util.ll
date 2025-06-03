@@ -194,9 +194,9 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %.not37, label %.loopexit, label %.critedge.outer, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %.critedge.outer.split, %.critedge.us, %.critedge.us.preheader
-  %.144 = phi ptr [ %.029.ph, %.critedge.us.preheader ], [ %15, %.critedge.us ], [ %.029.ph, %.critedge.outer.split ], [ %scevgep, %42 ]
+  %.145 = phi ptr [ %.029.ph, %.critedge.us.preheader ], [ %15, %.critedge.us ], [ %.029.ph, %.critedge.outer.split ], [ %scevgep, %42 ]
   %.13243 = phi i64 [ %.031.ph, %.critedge.us.preheader ], [ %18, %.critedge.us ], [ %.031.ph, %.critedge.outer.split ], [ %38, %42 ]
-  %44 = ptrtoint ptr %.144 to i64
+  %44 = ptrtoint ptr %.145 to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
   br label %47
@@ -1024,7 +1024,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br label %184
 
 184:                                              ; preds = %183, %180
-  %185 = phi i1 [ true, %180 ], [ false, %183 ]
+  %185 = phi i1 [ false, %183 ], [ true, %180 ]
   %186 = getelementptr i8, ptr %.20, i64 2
   %187 = load i8, ptr %186, align 1, !tbaa !7
   br label %188
@@ -4259,7 +4259,7 @@ select.unfold:                                    ; preds = %62
   br label %84
 
 84:                                               ; preds = %83, %80
-  %.1508 = phi i32 [ 1, %80 ], [ 0, %83 ]
+  %.1508 = phi i32 [ 0, %83 ], [ 1, %80 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   br label %89
 
@@ -4267,7 +4267,7 @@ select.unfold:                                    ; preds = %62
   br label %86
 
 86:                                               ; preds = %85, %80
-  %.2509 = phi i32 [ 1, %80 ], [ 0, %85 ]
+  %.2509 = phi i32 [ 0, %85 ], [ 1, %80 ]
   %87 = add i32 %.1515, %2
   %88 = add i32 %87, 1
   %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %88, i32 1)
@@ -4277,11 +4277,11 @@ default.unreachable:                              ; preds = %80
   unreachable
 
 89:                                               ; preds = %80, %80, %86, %84
-  %.0539 = phi i32 [ %88, %86 ], [ %spec.store.select, %84 ], [ -1, %80 ], [ -1, %80 ]
-  %.1530 = phi i32 [ %spec.store.select4, %86 ], [ %spec.store.select, %84 ], [ 18, %80 ], [ 18, %80 ]
-  %.0528 = phi i32 [ %87, %86 ], [ %spec.store.select, %84 ], [ -1, %80 ], [ -1, %80 ]
-  %.0507 = phi i32 [ %.2509, %86 ], [ %.1508, %84 ], [ 1, %80 ], [ 1, %80 ]
-  %.0470 = phi i32 [ %2, %86 ], [ %spec.store.select, %84 ], [ 0, %80 ], [ 0, %80 ]
+  %.0539 = phi i32 [ %spec.store.select, %84 ], [ %88, %86 ], [ -1, %80 ], [ -1, %80 ]
+  %.1530 = phi i32 [ %spec.store.select, %84 ], [ %spec.store.select4, %86 ], [ 18, %80 ], [ 18, %80 ]
+  %.0528 = phi i32 [ %spec.store.select, %84 ], [ %87, %86 ], [ -1, %80 ], [ -1, %80 ]
+  %.0507 = phi i32 [ %.1508, %84 ], [ %.2509, %86 ], [ 1, %80 ], [ 1, %80 ]
+  %.0470 = phi i32 [ %spec.store.select, %84 ], [ %2, %86 ], [ 0, %80 ], [ 0, %80 ]
   %90 = add nuw i32 %.1530, 1
   %91 = sext i32 %90 to i64
   %92 = tail call noalias ptr @malloc(i64 noundef %91) #21

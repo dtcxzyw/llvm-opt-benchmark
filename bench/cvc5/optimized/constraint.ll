@@ -251,8 +251,8 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl12ConstraintDb18registerCon
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge._crit_edge.i.i.i
-  %61 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %56, %58 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %59, %58 ]
+  %61 = phi ptr [ %56, %58 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %62 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !20
   %63 = icmp eq ptr %62, %61
   br i1 %63, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %64
@@ -262,8 +262,8 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl12ConstraintDb18registerCon
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge._crit_edge57.i.i.i
-  %67 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %61, %64 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %65, %64 ]
+  %67 = phi ptr [ %61, %64 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %65, %64 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %68 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !20
   %69 = icmp eq ptr %68, %67
   %spec.select.i.i.i = select i1 %69, ptr %.sroa.032.2.i.i.i, ptr %26
@@ -1024,7 +1024,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit183: ; preds = %361, %365, %371
   br label %.body220
 
 _ZN4cvc58internal11Cvc5ostreamlsIA6_cEERS1_RKT_.exit: ; preds = %382, %383, %384, %385, %386, %375
-  %.0527 = phi i32 [ %380, %375 ], [ 75, %386 ], [ 76, %385 ], [ %380, %384 ], [ 78, %383 ], [ 77, %382 ]
+  %.0527 = phi i32 [ %380, %375 ], [ 78, %383 ], [ %380, %384 ], [ 76, %385 ], [ 75, %386 ], [ 77, %382 ]
   %402 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %403 = icmp eq i8 %402, 0
   br i1 %403, label %404, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit306, !prof !31

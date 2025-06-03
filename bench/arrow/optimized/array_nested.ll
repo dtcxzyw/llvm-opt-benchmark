@@ -2373,7 +2373,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit150: ; preds = %308, %_ZN5a
   store ptr %339, ptr %338, align 8, !tbaa !88
   br label %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155
 
-.critedge72:                                      ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit150, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit131, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit112, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit93, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit
+.critedge72:                                      ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit93, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit112, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit131, %_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit150
   %.pre = load ptr, ptr %16, align 8, !tbaa !88
   %.not.i.i151 = icmp eq ptr %.pre, null
   br i1 %.not.i.i151, label %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155, label %340

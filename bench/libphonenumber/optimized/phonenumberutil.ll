@@ -8957,8 +8957,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   ret void
 
 116:                                              ; preds = %114, %77, %44
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %114 ], [ %.pn22.pn.pn, %77 ], [ %.pn26.pn, %44 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn
+  %.pn26.pn.pn = phi { ptr, i32 } [ %.pn26.pn, %44 ], [ %.pn22.pn.pn, %77 ], [ %.pn.pn.pn.pn, %114 ]
+  resume { ptr, i32 } %.pn26.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

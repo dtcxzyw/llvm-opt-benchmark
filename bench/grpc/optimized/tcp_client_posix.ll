@@ -2730,7 +2730,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit160:        ; preds = %_ZN4absl12lts_20240
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit162
 
 256:                                              ; preds = %_ZL30grpc_tcp_client_create_from_fdP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit151, %_ZN4absl12lts_202407226StatusD2Ev.exit160, %_ZN4absl12lts_202407226StatusD2Ev.exit139, %_ZN4absl12lts_202407226StatusD2Ev.exit127
-  %.0 = phi ptr [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit139 ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit160 ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit151 ], [ null, %_ZL30grpc_tcp_client_create_from_fdP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit127 ]
+  %.0 = phi ptr [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit139 ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit160 ], [ null, %_ZL30grpc_tcp_client_create_from_fdP7grpc_fdRKN9grpc_core15PosixTcpOptionsESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit151 ], [ %69, %_ZN4absl12lts_202407226StatusD2Ev.exit127 ]
   br i1 %96, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit, label %257
 
 257:                                              ; preds = %256
@@ -3208,7 +3208,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %_Z
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit162:     ; preds = %.loopexit, %.loopexit.split-lp, %277, %279, %132, %173, %191, %223, %255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %428, %92, %91, %72
-  %.pn108.pn = phi { ptr, i32 } [ %93, %92 ], [ %73, %72 ], [ %.pn.pn.pn, %91 ], [ %429, %428 ], [ %.pn104.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ %.pn97, %173 ], [ %.pn95, %255 ], [ %.pn91, %223 ], [ %.pn93, %191 ], [ %133, %132 ], [ %278, %277 ], [ %280, %279 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn108.pn = phi { ptr, i32 } [ %93, %92 ], [ %73, %72 ], [ %.pn.pn.pn, %91 ], [ %429, %428 ], [ %.pn104.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ %.pn97, %173 ], [ %.pn95, %255 ], [ %.pn93, %191 ], [ %.pn91, %223 ], [ %133, %132 ], [ %278, %277 ], [ %280, %279 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %436 = load ptr, ptr %9, align 8, !tbaa !35
   %437 = icmp eq ptr %436, %36
   br i1 %437, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i199, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198

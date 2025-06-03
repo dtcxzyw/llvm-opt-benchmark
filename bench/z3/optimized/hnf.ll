@@ -3619,7 +3619,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i211:         ; preds = %558
           to label %_ZN3hnf3imp15mk_transitivityEP3appS2_.exit unwind label %691
 
 _ZN3hnf3imp15mk_transitivityEP3appS2_.exit:       ; preds = %583, %567, %595
-  %598 = phi ptr [ %557, %567 ], [ %565, %583 ], [ %597, %595 ]
+  %598 = phi ptr [ %565, %583 ], [ %557, %567 ], [ %597, %595 ]
   %.not.i222 = icmp eq ptr %598, null
   br i1 %.not.i222, label %602, label %_ZN11ast_manager7inc_refEP3ast.exit.i223
 
@@ -5464,7 +5464,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %267, %270
   ret void
 
 275:                                              ; preds = %.loopexit, %.loopexit.split-lp, %222, %259, %113, %150, %53, %177
-  %.pn53.pn = phi { ptr, i32 } [ %54, %53 ], [ %178, %177 ], [ %151, %150 ], [ %114, %113 ], [ %260, %259 ], [ %223, %222 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn53.pn = phi { ptr, i32 } [ %54, %53 ], [ %178, %177 ], [ %114, %113 ], [ %151, %150 ], [ %260, %259 ], [ %223, %222 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn53.pn
@@ -6335,7 +6335,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i30:          ; preds = %132
           to label %_ZN3hnf3imp15mk_transitivityEP3appS2_.exit unwind label %.loopexit.split-lp
 
 _ZN3hnf3imp15mk_transitivityEP3appS2_.exit:       ; preds = %160, %147, %172
-  %.2.i = phi ptr [ %131, %147 ], [ %146, %160 ], [ %174, %172 ]
+  %.2.i = phi ptr [ %146, %160 ], [ %131, %147 ], [ %174, %172 ]
   %.not.i36 = icmp eq ptr %.2.i, null
   br i1 %.not.i36, label %178, label %_ZN11ast_manager7inc_refEP3ast.exit.i37
 

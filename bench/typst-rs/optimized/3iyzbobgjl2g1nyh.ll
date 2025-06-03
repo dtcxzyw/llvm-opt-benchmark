@@ -263,7 +263,7 @@ define hidden noundef i64 @"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$4load17h
   br label %_ZN4core4sync6atomic11atomic_load17ha90daeb530023855E.llvm.6646368916009656577.exit
 
 _ZN4core4sync6atomic11atomic_load17ha90daeb530023855E.llvm.6646368916009656577.exit: ; preds = %7, %14, %21
-  %.0.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   ret i64 %.0.i
 }
 
@@ -796,7 +796,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17ha90daeb530023855E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1163,13 +1163,13 @@ _ZN4core4hash6Hasher11write_isize17h03fa93cfa3a0c9e9E.exit.i.i._ZN5typst4util4ha
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %93 = load i8, ptr %92, align 1, !alias.scope !285, !noalias !234, !noundef !4
   %94 = icmp slt i8 %93, 0
-  %95 = load ptr, ptr %91, align 8, !alias.scope !285, !noalias !234, !nonnull !4
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %97 = load i64, ptr %96, align 16, !alias.scope !285, !noalias !234
-  %98 = and i8 %93, 127
-  %99 = zext nneg i8 %98 to i64
-  %.sroa.3.0.i.i.i = select i1 %94, i64 %99, i64 %97
-  %.sroa.0.0.i.i.i = select i1 %94, ptr %91, ptr %95
+  %95 = and i8 %93, 127
+  %96 = zext nneg i8 %95 to i64
+  %97 = load ptr, ptr %91, align 8, !alias.scope !285, !noalias !234, !nonnull !4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %99 = load i64, ptr %98, align 16, !alias.scope !285, !noalias !234
+  %.sroa.3.0.i.i.i = select i1 %94, i64 %96, i64 %99
+  %.sroa.0.0.i.i.i = select i1 %94, ptr %91, ptr %97
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
@@ -3869,8 +3869,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %91
 
 91:                                               ; preds = %74, %71
-  %.sroa.3.0 = phi i32 [ undef, %74 ], [ %73, %71 ]
-  %.sroa.0.0 = phi i32 [ 0, %74 ], [ 1, %71 ]
+  %.sroa.3.0 = phi i32 [ %73, %71 ], [ undef, %74 ]
+  %.sroa.0.0 = phi i32 [ 1, %71 ], [ 0, %74 ]
   %92 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %93 = insertvalue { i32, i32 } %92, i32 %.sroa.3.0, 1
   ret { i32, i32 } %93

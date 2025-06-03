@@ -1726,7 +1726,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %3, %11
   br label %35
 
 35:                                               ; preds = %32, %27
-  %.090.us = phi ptr [ %31, %27 ], [ %34, %32 ]
+  %.090.us = phi ptr [ %34, %32 ], [ %31, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %.090.us, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !104
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 168
@@ -1789,7 +1789,7 @@ unreachable:                                      ; preds = %.lr.ph.split, %.lr.
   unreachable
 
 65:                                               ; preds = %60, %57
-  %.090 = phi ptr [ %64, %60 ], [ %59, %57 ]
+  %.090 = phi ptr [ %59, %57 ], [ %64, %60 ]
   %66 = getelementptr inbounds nuw i8, ptr %.090, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !104
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
@@ -1846,7 +1846,7 @@ _ZNK3euf5enode11num_parentsEv.exit:               ; preds = %65
   br label %97
 
 97:                                               ; preds = %92, %84, %79
-  %.079 = phi ptr [ %96, %92 ], [ %91, %84 ], [ %83, %79 ]
+  %.079 = phi ptr [ %83, %79 ], [ %91, %84 ], [ %96, %92 ]
   %.not92 = icmp eq ptr %.079, null
   br i1 %.not92, label %.thread, label %98
 
@@ -2530,12 +2530,12 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %23, %29
   store ptr %71, ptr %41, align 8, !tbaa !164
   br label %.backedge.backedge
 
-.backedge.loopexit:                               ; preds = %._crit_edge468, %1951, %1879, %1813, %1753, %1699, %1651, %1615, %.thread408
+.backedge.loopexit:                               ; preds = %1615, %1651, %1699, %1753, %1813, %1879, %1951, %._crit_edge468, %.thread408
   %.pre.pre = load ptr, ptr %41, align 8, !tbaa !164
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.loopexit, %66, %77, %92, %111, %134, %161, %._crit_edge454, %217, %233, %251, %269, %272, %282, %321, %378, %441, %510, %585, %666, %._crit_edge451, %1071, %1548, %._crit_edge, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit251.thread
-  %.be = phi ptr [ %1567, %._crit_edge ], [ %1551, %1548 ], [ %1605, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit251.thread ], [ %1080, %1071 ], [ %773, %._crit_edge451 ], [ %716, %666 ], [ %629, %585 ], [ %548, %510 ], [ %473, %441 ], [ %404, %378 ], [ %341, %321 ], [ %284, %282 ], [ %281, %272 ], [ %271, %269 ], [ %253, %251 ], [ %235, %233 ], [ %219, %217 ], [ %195, %._crit_edge454 ], [ %186, %161 ], [ %155, %134 ], [ %128, %111 ], [ %105, %92 ], [ %86, %77 ], [ %71, %66 ], [ %.pre.pre, %.backedge.loopexit ]
+  %.be = phi ptr [ %71, %66 ], [ %86, %77 ], [ %105, %92 ], [ %128, %111 ], [ %155, %134 ], [ %186, %161 ], [ %195, %._crit_edge454 ], [ %219, %217 ], [ %235, %233 ], [ %253, %251 ], [ %271, %269 ], [ %281, %272 ], [ %284, %282 ], [ %341, %321 ], [ %404, %378 ], [ %473, %441 ], [ %548, %510 ], [ %629, %585 ], [ %716, %666 ], [ %773, %._crit_edge451 ], [ %1080, %1071 ], [ %1605, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit251.thread ], [ %1551, %1548 ], [ %1567, %._crit_edge ], [ %.pre.pre, %.backedge.loopexit ]
   br label %.backedge
 
 72:                                               ; preds = %.backedge
@@ -17950,7 +17950,7 @@ _ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit: ; preds = %_ZNK1q8compile
   br label %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread
 
 _ZNK1q8compiler13is_compatibleEPNS_4bindE.exit.thread: ; preds = %_ZN6vectorIjLb0EjE9push_backEOj.exit, %274, %48, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread, %_ZNK1q8compiler14get_check_markEj.exit.i, %_ZNK1q8compiler14get_check_markEj.exit.thread.i, %244, %237, %_Z9is_groundPK4expr.exit.i64, %185, %21, %28, %_Z9is_groundPK4expr.exit.i, %36, %234, %19, %299, %230, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit
-  %.1 = phi i32 [ %.0116, %19 ], [ %300, %299 ], [ %231, %230 ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit ], [ %spec.select55, %234 ], [ %.0116, %36 ], [ %.0116, %_Z9is_groundPK4expr.exit.i ], [ %.0116, %28 ], [ %.0116, %21 ], [ %.0116, %185 ], [ %.0116, %_Z9is_groundPK4expr.exit.i64 ], [ %.0116, %237 ], [ %.0116, %244 ], [ %.0116, %_ZNK1q8compiler14get_check_markEj.exit.thread.i ], [ %.0116, %_ZNK1q8compiler14get_check_markEj.exit.i ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %spec.select, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit ], [ %spec.select95, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit ], [ %spec.select96, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit ], [ %49, %48 ], [ %.0116, %274 ], [ %49, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
+  %.1 = phi i32 [ %.0116, %19 ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_4bindE.exit ], [ %231, %230 ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_5checkE.exit.thread ], [ %300, %299 ], [ %spec.select55, %234 ], [ %.0116, %36 ], [ %.0116, %_Z9is_groundPK4expr.exit.i ], [ %.0116, %28 ], [ %.0116, %21 ], [ %.0116, %185 ], [ %.0116, %_Z9is_groundPK4expr.exit.i64 ], [ %.0116, %237 ], [ %.0116, %244 ], [ %.0116, %_ZNK1q8compiler14get_check_markEj.exit.thread.i ], [ %.0116, %_ZNK1q8compiler14get_check_markEj.exit.i ], [ %.0116, %_ZNK1q8compiler13is_compatibleEPNS_6filterE.exit.thread ], [ %spec.select, %_ZNK1q8compiler13is_compatibleEPNS_7compareE.exit ], [ %spec.select95, %_ZNK1q8compiler21is_cfilter_compatibleEPNS_6filterE.exit ], [ %spec.select96, %_ZNK1q8compiler18is_semi_compatibleEPNS_6filterE.exit ], [ %49, %48 ], [ %.0116, %274 ], [ %49, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %.049.in = getelementptr inbounds nuw i8, ptr %.049117, i64 8
   %.049 = load ptr, ptr %.049.in, align 8, !tbaa !165
   %.not = icmp eq ptr %.049, null

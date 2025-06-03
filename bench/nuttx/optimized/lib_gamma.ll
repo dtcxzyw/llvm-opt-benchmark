@@ -165,7 +165,7 @@ s.exit:                                           ; preds = %.preheader25.i, %.p
   br label %sinpi.exit
 
 sinpi.exit:                                       ; preds = %81, %83, %85, %88
-  %.0.i = phi double [ %82, %81 ], [ %87, %85 ], [ %84, %83 ], [ %90, %88 ]
+  %.0.i = phi double [ %82, %81 ], [ %90, %88 ], [ %84, %83 ], [ %87, %85 ]
   %91 = fmul double %40, %.0.i
   %92 = fmul double %66, %91
   %93 = fdiv double 0xC00921FB54442D18, %92

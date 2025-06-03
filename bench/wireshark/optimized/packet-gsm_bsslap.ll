@@ -227,7 +227,7 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
   br label %29
 
 29:                                               ; preds = %27, %24, %21
-  %.042 = phi i32 [ %20, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.042 = phi i32 [ %20, %27 ], [ %23, %21 ], [ %26, %24 ]
   %30 = and i32 %.042, 255
   %31 = add i32 %30, %19
   %32 = sub i32 %20, %30

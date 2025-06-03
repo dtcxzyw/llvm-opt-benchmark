@@ -1390,7 +1390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br label %135
 
 135:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %3, %134
-  %.011 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %134 ], [ true, %3 ]
+  %.011 = phi i1 [ false, %134 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %3 ]
   ret i1 %.011
 }
 
@@ -12821,7 +12821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %common.resume
 
 77:                                               ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit
-  %.117 = phi ptr [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ], [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ]
+  %.117 = phi ptr [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ], [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ]
   ret ptr %.117
 }
 

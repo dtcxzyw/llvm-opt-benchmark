@@ -2981,7 +2981,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
   br label %63
 
 63:                                               ; preds = %60, %55, %50, %45, %40, %35, %30, %25, %20, %15, %10, %5, %62
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ %36, %35 ], [ %41, %40 ], [ %46, %45 ], [ %51, %50 ], [ %56, %55 ], [ %61, %60 ], [ 0, %62 ]
+  %.1 = phi i32 [ 0, %62 ], [ %61, %60 ], [ %56, %55 ], [ %51, %50 ], [ %46, %45 ], [ %41, %40 ], [ %36, %35 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4562,7 +4562,7 @@ define internal i32 @incrementalnewlinedecoder_traverse(ptr noundef readonly cap
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -5103,7 +5103,7 @@ default.unreachable3:                             ; preds = %8
   unreachable
 
 27:                                               ; preds = %8, %25, %23, %21, %19, %17, %15, %13, %6
-  %.0 = phi ptr [ null, %6 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ @_Py_NoneStruct, %8 ]
+  %.0 = phi ptr [ null, %6 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ @_Py_NoneStruct, %8 ]
   ret ptr %.0
 }
 
@@ -8988,7 +8988,7 @@ Py_DECREF.exit158.i:                              ; preds = %128, %125, %120
   br label %Py_DECREF.exit.thread.i
 
 147:                                              ; preds = %Py_DECREF.exit164.i, %72
-  %.1.i = phi ptr [ %12, %72 ], [ %87, %Py_DECREF.exit164.i ]
+  %.1.i = phi ptr [ %87, %Py_DECREF.exit164.i ], [ %12, %72 ]
   %148 = call i32 @PyObject_RichCompareBool(ptr noundef nonnull %.1.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i32 noundef 0) #11
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %Py_DECREF.exit.thread.i, label %150
@@ -9204,7 +9204,7 @@ Py_DECREF.exit.i:                                 ; preds = %233
   br i1 %254, label %Py_DECREF.exit.thread.i, label %_io_TextIOWrapper_seek_impl.exit
 
 Py_DECREF.exit.thread.i:                          ; preds = %252, %242, %239, %224, %219, %218, %215, %209, %199, %192, %Py_DECREF.exit154.i, %161, %158, %155, %152, %147, %144, %111, %97, %94, %89, %78, %73, %69
-  %.0111.ph.i = phi ptr [ %12, %69 ], [ %12, %78 ], [ %12, %73 ], [ %12, %111 ], [ %12, %97 ], [ %12, %94 ], [ %12, %89 ], [ %.1.i, %242 ], [ %.1.i, %252 ], [ %.1.i, %192 ], [ %.1.i, %Py_DECREF.exit154.i ], [ %.1.i, %161 ], [ %.1.i, %158 ], [ %.1.i, %155 ], [ %.1.i, %152 ], [ %.1.i, %147 ], [ %12, %144 ], [ %.1.i, %239 ], [ %.1.i, %199 ], [ %.1.i, %219 ], [ %.1.i, %224 ], [ %.1.i, %209 ], [ %.1.i, %215 ], [ %.1.i, %218 ]
+  %.0111.ph.i = phi ptr [ %12, %69 ], [ %12, %111 ], [ %12, %97 ], [ %12, %94 ], [ %12, %89 ], [ %.1.i, %242 ], [ %.1.i, %252 ], [ %.1.i, %192 ], [ %.1.i, %Py_DECREF.exit154.i ], [ %.1.i, %161 ], [ %.1.i, %158 ], [ %.1.i, %155 ], [ %.1.i, %152 ], [ %.1.i, %147 ], [ %12, %78 ], [ %12, %73 ], [ %12, %144 ], [ %.1.i, %239 ], [ %.1.i, %199 ], [ %.1.i, %219 ], [ %.1.i, %224 ], [ %.1.i, %209 ], [ %.1.i, %215 ], [ %.1.i, %218 ]
   %255 = load i32, ptr %.0111.ph.i, align 8, !tbaa !15
   %.not.i.i.i = icmp sgt i32 %255, -1
   br i1 %.not.i.i.i, label %256, label %_io_TextIOWrapper_seek_impl.exit

@@ -11131,9 +11131,9 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtre
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %27, %2
-  %.239 = phi ptr [ %0, %2 ], [ %.138, %27 ]
-  %.133 = phi ptr [ %0, %2 ], [ %.1, %27 ]
-  %.2 = phi ptr [ %0, %2 ], [ %34, %27 ]
+  %.239 = phi ptr [ %.138, %27 ], [ %0, %2 ]
+  %.133 = phi ptr [ %.1, %27 ], [ %0, %2 ]
+  %.2 = phi ptr [ %34, %27 ], [ %0, %2 ]
   %39 = getelementptr inbounds nuw i8, ptr %.2, i64 15
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64

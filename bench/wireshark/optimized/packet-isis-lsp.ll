@@ -3440,8 +3440,8 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr readnone 
   br label %.loopexit242
 
 .loopexit242:                                     ; preds = %.loopexit241, %.loopexit240, %.loopexit, %123, %74, %25, %159, %119, %70, %21
-  %.1224 = phi i32 [ %170, %159 ], [ %121, %119 ], [ %72, %70 ], [ %23, %21 ], [ %35, %25 ], [ %84, %74 ], [ %133, %123 ], [ %.3226.lcssa, %.loopexit ], [ %.5228.lcssa, %.loopexit240 ], [ %.7230.lcssa, %.loopexit241 ]
-  %.1215 = phi i32 [ %171, %159 ], [ %122, %119 ], [ %73, %70 ], [ %24, %21 ], [ %36, %25 ], [ %85, %74 ], [ %134, %123 ], [ %.3217.lcssa, %.loopexit ], [ %.5219.lcssa, %.loopexit240 ], [ %.7.lcssa, %.loopexit241 ]
+  %.1224 = phi i32 [ %170, %159 ], [ %23, %21 ], [ %72, %70 ], [ %121, %119 ], [ %35, %25 ], [ %84, %74 ], [ %133, %123 ], [ %.3226.lcssa, %.loopexit ], [ %.5228.lcssa, %.loopexit240 ], [ %.7230.lcssa, %.loopexit241 ]
+  %.1215 = phi i32 [ %171, %159 ], [ %24, %21 ], [ %73, %70 ], [ %122, %119 ], [ %36, %25 ], [ %85, %74 ], [ %134, %123 ], [ %.3217.lcssa, %.loopexit ], [ %.5219.lcssa, %.loopexit240 ], [ %.7.lcssa, %.loopexit241 ]
   %172 = icmp sgt i32 %.1224, 0
   br i1 %172, label %.lr.ph287, label %._crit_edge, !llvm.loop !28
 
@@ -4005,7 +4005,7 @@ define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, pt
   br label %100
 
 100:                                              ; preds = %77, %80, %58, %61, %50, %53, %95
-  %.1 = phi i32 [ %99, %95 ], [ %79, %77 ], [ %89, %80 ], [ %60, %58 ], [ %70, %61 ], [ %52, %50 ], [ %56, %53 ]
+  %.1 = phi i32 [ %99, %95 ], [ %52, %50 ], [ %56, %53 ], [ %60, %58 ], [ %70, %61 ], [ %79, %77 ], [ %89, %80 ]
   %101 = load i32, ptr %7, align 4
   %102 = sub i32 %101, %40
   store i32 %102, ptr %7, align 4
@@ -5614,7 +5614,7 @@ dissect_subclv_ext_admin_group.exit:              ; preds = %.lr.ph, %.lr.ph.i, 
   br i1 %286, label %.lr.ph394, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %dissect_subclv_ext_admin_group.exit, %.lr.ph397, %207, %.lr.ph401, %.lr.ph404, %.lr.ph408, %.lr.ph411, %.lr.ph414, %.lr.ph418, %233, %219, %182, %173, %162, %146, %118, %101, %85, %6, %54, %62, %40, %42, %211, %72, %47, %8
-  %.0 = phi i32 [ 0, %211 ], [ 0, %72 ], [ 0, %47 ], [ 0, %8 ], [ 0, %42 ], [ 0, %40 ], [ 0, %62 ], [ 0, %54 ], [ -1, %6 ], [ 0, %85 ], [ 0, %101 ], [ 0, %118 ], [ 0, %146 ], [ 0, %162 ], [ 0, %173 ], [ 0, %182 ], [ 0, %219 ], [ 0, %233 ], [ 0, %.lr.ph418 ], [ 0, %.lr.ph414 ], [ 0, %.lr.ph411 ], [ 0, %.lr.ph408 ], [ 0, %.lr.ph404 ], [ 0, %.lr.ph401 ], [ 0, %207 ], [ 0, %.lr.ph397 ], [ 0, %dissect_subclv_ext_admin_group.exit ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %72 ], [ 0, %211 ], [ 0, %42 ], [ 0, %40 ], [ 0, %62 ], [ 0, %54 ], [ -1, %6 ], [ 0, %85 ], [ 0, %101 ], [ 0, %118 ], [ 0, %146 ], [ 0, %162 ], [ 0, %173 ], [ 0, %182 ], [ 0, %219 ], [ 0, %233 ], [ 0, %.lr.ph418 ], [ 0, %.lr.ph414 ], [ 0, %.lr.ph411 ], [ 0, %.lr.ph408 ], [ 0, %.lr.ph404 ], [ 0, %.lr.ph401 ], [ 0, %207 ], [ 0, %.lr.ph397 ], [ 0, %dissect_subclv_ext_admin_group.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   ret i32 %.0
 }

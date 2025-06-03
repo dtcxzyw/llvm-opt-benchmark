@@ -313,10 +313,10 @@ define hidden noundef zeroext i1 @_ZN6Assimp11LWOImporter14HandleTexturesEP10aiM
   %50 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %3, i32 noundef %.0112, i32 noundef 4)
   br label %66
 
-51:                                               ; preds = %36, %43, %42, %41, %40, %39
-  %.ph = phi i1 [ false, %39 ], [ true, %40 ], [ false, %41 ], [ false, %42 ], [ false, %43 ], [ false, %36 ]
-  %.ph98 = phi i1 [ false, %39 ], [ false, %40 ], [ true, %41 ], [ false, %42 ], [ false, %43 ], [ false, %36 ]
-  %.063.ph = phi i32 [ 4, %39 ], [ 2, %40 ], [ 1, %41 ], [ 3, %42 ], [ 5, %43 ], [ 5, %36 ]
+51:                                               ; preds = %36, %39, %40, %41, %42, %43
+  %.ph = phi i1 [ false, %43 ], [ false, %42 ], [ false, %41 ], [ true, %40 ], [ false, %39 ], [ false, %36 ]
+  %.ph98 = phi i1 [ false, %43 ], [ false, %42 ], [ true, %41 ], [ false, %40 ], [ false, %39 ], [ false, %36 ]
+  %.063.ph = phi i32 [ 5, %43 ], [ 3, %42 ], [ 1, %41 ], [ 2, %40 ], [ 4, %39 ], [ 5, %36 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #21
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.095.0113, i64 116
   %53 = load i32, ptr %52, align 4
@@ -4453,7 +4453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
   br i1 %.not57, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 191:                                              ; preds = %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %89, %87
-  %.pn59 = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %96, %95 ]
+  %.pn59 = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ], [ %96, %95 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %192 = load ptr, ptr %3, align 8
   %193 = icmp eq ptr %192, %14
   br i1 %193, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
@@ -5265,7 +5265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 
 310:                                              ; preds = %.loopexit, %.loopexit.split-lp, %133, %135, %294, %287, %266, %255, %244, %235, %226, %217, %208, %197, %188, %179, %167, %158, %143, %96, %87
-  %.pn57.pn = phi { ptr, i32 } [ %88, %87 ], [ %97, %96 ], [ %134, %133 ], [ %136, %135 ], [ %288, %287 ], [ %295, %294 ], [ %267, %266 ], [ %256, %255 ], [ %245, %244 ], [ %236, %235 ], [ %227, %226 ], [ %218, %217 ], [ %209, %208 ], [ %198, %197 ], [ %189, %188 ], [ %180, %179 ], [ %168, %167 ], [ %159, %158 ], [ %144, %143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn57.pn = phi { ptr, i32 } [ %88, %87 ], [ %97, %96 ], [ %134, %133 ], [ %136, %135 ], [ %144, %143 ], [ %159, %158 ], [ %168, %167 ], [ %180, %179 ], [ %189, %188 ], [ %198, %197 ], [ %209, %208 ], [ %218, %217 ], [ %227, %226 ], [ %236, %235 ], [ %245, %244 ], [ %256, %255 ], [ %267, %266 ], [ %288, %287 ], [ %295, %294 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %311 = load ptr, ptr %4, align 8
   %312 = icmp eq ptr %311, %69
   br i1 %312, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
@@ -6493,7 +6493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 
 173:                                              ; preds = %.loopexit, %.loopexit.split-lp, %135, %137, %158, %147, %97, %88
-  %.pn32.pn = phi { ptr, i32 } [ %89, %88 ], [ %98, %97 ], [ %138, %137 ], [ %136, %135 ], [ %159, %158 ], [ %148, %147 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn32.pn = phi { ptr, i32 } [ %89, %88 ], [ %98, %97 ], [ %138, %137 ], [ %136, %135 ], [ %148, %147 ], [ %159, %158 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %174 = load ptr, ptr %4, align 8
   %175 = icmp eq ptr %174, %70
   br i1 %175, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39

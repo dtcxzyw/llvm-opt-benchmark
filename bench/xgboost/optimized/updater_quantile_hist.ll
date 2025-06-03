@@ -56230,7 +56230,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost4tree16MultiExpandEntry11IsV
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %42 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !856
   %47 = fcmp une double %46, 0.000000e+00
@@ -56241,7 +56241,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost4tree16MultiExpandEntry11IsV
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i.i, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !856
   %53 = fcmp une double %52, 0.000000e+00
@@ -56339,7 +56339,7 @@ _ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge.i.i.i.i.i12
-  %.sroa.025.1.i.i.i.i.i17 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i14, %._crit_edge.i.i.i.i.i12 ], [ %94, %93 ]
+  %.sroa.025.1.i.i.i.i.i17 = phi ptr [ %94, %93 ], [ %.sroa.025.0.lcssa.i.i.i.i.i14, %._crit_edge.i.i.i.i.i12 ]
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i17, i64 8
   %97 = load double, ptr %96, align 8, !tbaa !856
   %98 = fcmp une double %97, 0.000000e+00
@@ -56350,7 +56350,7 @@ _ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge.i.i.i.i.i12
-  %.sroa.025.2.i.i.i.i.i15 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i14, %._crit_edge.i.i.i.i.i12 ], [ %100, %99 ]
+  %.sroa.025.2.i.i.i.i.i15 = phi ptr [ %100, %99 ], [ %.sroa.025.0.lcssa.i.i.i.i.i14, %._crit_edge.i.i.i.i.i12 ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i.i15, i64 8
   %103 = load double, ptr %102, align 8, !tbaa !856
   %104 = fcmp une double %103, 0.000000e+00
@@ -122548,7 +122548,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !518
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -123424,7 +123424,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !518
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -142610,7 +142610,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !518
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76

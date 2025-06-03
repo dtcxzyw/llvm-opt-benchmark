@@ -129,7 +129,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.230.us = phi i32 [ %.02855.us, %11 ], [ 2, %12 ]
+  %.230.us = phi i32 [ 2, %12 ], [ %.02855.us, %11 ]
   %14 = and i64 %.03253.us, 15
   %15 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
@@ -142,7 +142,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   br label %20
 
 20:                                               ; preds = %19, %11
-  %.129.us = phi i32 [ %.02855.us, %11 ], [ 2, %19 ]
+  %.129.us = phi i32 [ 2, %19 ], [ %.02855.us, %11 ]
   %21 = urem i64 %.03253.us, 10
   %22 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1

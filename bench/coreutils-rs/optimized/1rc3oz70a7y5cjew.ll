@@ -843,7 +843,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %20, %17, %15, %13, %10, %7
-  %.0.in = phi i1 [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %19, %17 ], [ %21, %20 ]
   ret i1 %.0.in
 }
 
@@ -863,7 +863,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$notify..event..EventKind$u
   ]
 
 "_ZN66_$LT$notify..event..AccessKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd2b2e71355dafef2E.exit": ; preds = %35, %33, %31, %30, %24, %16, %14, %13, %7, %6, %2, %37, %18
-  %.0.shrunk = phi i1 [ %42, %37 ], [ %23, %18 ], [ false, %2 ], [ true, %6 ], [ false, %7 ], [ true, %13 ], [ %15, %14 ], [ %17, %16 ], [ false, %24 ], [ true, %30 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
+  %.0.shrunk = phi i1 [ %23, %18 ], [ %42, %37 ], [ false, %2 ], [ true, %6 ], [ false, %7 ], [ true, %13 ], [ %15, %14 ], [ %17, %16 ], [ false, %24 ], [ true, %30 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
@@ -3439,8 +3439,8 @@ default.unreachable:                              ; preds = %399, %223, %173
 404:                                              ; preds = %.body.thread
   br i1 %.1148212, label %406, label %common.resume
 
-.thread261:                                       ; preds = %71, %177, %176, %175, %76, %_ZN3std4sync4mpmc7channel17h6e9cbc80fce37db8E.exit
-  %.0.ph.ph.ph = phi i1 [ true, %_ZN3std4sync4mpmc7channel17h6e9cbc80fce37db8E.exit ], [ true, %76 ], [ false, %175 ], [ false, %176 ], [ false, %177 ], [ false, %71 ]
+.thread261:                                       ; preds = %71, %175, %176, %177, %76, %_ZN3std4sync4mpmc7channel17h6e9cbc80fce37db8E.exit
+  %.0.ph.ph.ph = phi i1 [ true, %_ZN3std4sync4mpmc7channel17h6e9cbc80fce37db8E.exit ], [ true, %76 ], [ false, %177 ], [ false, %176 ], [ false, %175 ], [ false, %71 ]
   %lpad.thr_comm259 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -4469,7 +4469,7 @@ _ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit: ;
   ]
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.i.loopexit.split-lp, %843, %835, %813, %782, %535, %.loopexit.i
-  %.pn.i238 = phi { ptr, i32 } [ %lpad.phi402, %813 ], [ %lpad.thr_comm.split-lp488.i, %782 ], [ %lpad.phi407, %535 ], [ %836, %843 ], [ %836, %835 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit395, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp396, %.loopexit.split-lp.i.loopexit.split-lp ]
+  %.pn.i238 = phi { ptr, i32 } [ %lpad.phi407, %535 ], [ %lpad.phi402, %813 ], [ %lpad.thr_comm.split-lp488.i, %782 ], [ %836, %843 ], [ %836, %835 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit395, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp396, %.loopexit.split-lp.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h37738dca42e62947E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98) #16
           to label %.thread.i unwind label %759, !noalias !646
 
@@ -5287,8 +5287,8 @@ _ZN7uu_tail6follow5files12FileHandling12contains_key17h2e6c98d7cd146a47E.exit: ;
   br label %750
 
 750:                                              ; preds = %898, %810, %.loopexit408
-  %.sroa.7.0 = phi ptr [ %899, %898 ], [ %807, %810 ], [ %.sink499.i, %.loopexit408 ]
-  %.sroa.12.0 = phi ptr [ %900, %898 ], [ %811, %810 ], [ %.sink.i, %.loopexit408 ]
+  %.sroa.7.0 = phi ptr [ %.sink499.i, %.loopexit408 ], [ %899, %898 ], [ %807, %810 ]
+  %.sroa.12.0 = phi ptr [ %.sink.i, %.loopexit408 ], [ %900, %898 ], [ %811, %810 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !835
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4db3af90df757d8cE.llvm.12436615190307095759"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98)
           to label %.noexc421.i unwind label %.thread470.i.loopexit.split-lp, !noalias !646

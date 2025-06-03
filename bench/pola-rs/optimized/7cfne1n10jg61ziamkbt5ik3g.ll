@@ -77,7 +77,7 @@ default.unreachable1:                             ; preds = %4
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
-  %.sroa.0.0 = phi i64 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i64 %.sroa.0.0
 }
 
@@ -947,7 +947,7 @@ default.unreachable11:                            ; preds = %3
   br i1 %22, label %40, label %38, !prof !5
 
 23:                                               ; preds = %38, %26, %6
-  %.sroa.08.0 = phi i64 [ %39, %38 ], [ %27, %26 ], [ %.sroa.0.0.sroa.speculated.i, %6 ]
+  %.sroa.08.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %6 ], [ %27, %26 ], [ %39, %38 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.08.0, ptr %24, align 8
   %25 = inttoptr i64 %.sroa.08.0 to ptr
@@ -986,8 +986,8 @@ common.resume:                                    ; preds = %42, %30
   br label %35
 
 35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit10", %23
-  %.sroa.03.0 = phi i64 [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit" ], [ 0, %23 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit10" ]
-  %.sroa.4.0 = phi ptr [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit" ], [ %25, %23 ], [ %34, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit10" ]
+  %.sroa.03.0 = phi i64 [ 0, %23 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit10" ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit" ]
+  %.sroa.4.0 = phi ptr [ %25, %23 ], [ %34, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit10" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2d288490c56bfcd6E.exit" ]
   %36 = insertvalue { i64, ptr } poison, i64 %.sroa.03.0, 0
   %37 = insertvalue { i64, ptr } %36, ptr %.sroa.4.0, 1
   ret { i64, ptr } %37

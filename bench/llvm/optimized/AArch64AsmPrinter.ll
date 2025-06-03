@@ -1742,7 +1742,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_117AArch64AsmPrinter13lowerConstant
   br label %12
 
 12:                                               ; preds = %4, %10
-  %.1 = phi ptr [ %9, %4 ], [ %11, %10 ]
+  %.1 = phi ptr [ %11, %10 ], [ %9, %4 ]
   ret ptr %.1
 }
 
@@ -9283,7 +9283,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter15PrintA
   br label %43
 
 43:                                               ; preds = %37, %42, %41, %40, %39, %38
-  %.055 = phi ptr [ @_ZN4llvm7AArch6411ZPRRegClassE, %42 ], [ @_ZN4llvm7AArch6414FPR128RegClassE, %41 ], [ @_ZN4llvm7AArch6413FPR64RegClassE, %40 ], [ @_ZN4llvm7AArch6413FPR32RegClassE, %39 ], [ @_ZN4llvm7AArch6413FPR16RegClassE, %38 ], [ @_ZN4llvm7AArch6412FPR8RegClassE, %37 ]
+  %.055 = phi ptr [ @_ZN4llvm7AArch6413FPR16RegClassE, %38 ], [ @_ZN4llvm7AArch6413FPR32RegClassE, %39 ], [ @_ZN4llvm7AArch6413FPR64RegClassE, %40 ], [ @_ZN4llvm7AArch6414FPR128RegClassE, %41 ], [ @_ZN4llvm7AArch6411ZPRRegClassE, %42 ], [ @_ZN4llvm7AArch6412FPR8RegClassE, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %.val67 = load ptr, ptr %44, align 8, !tbaa !378
   %45 = getelementptr i8, ptr %9, i64 4
@@ -9548,7 +9548,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit90: ; preds = %.thread
   br label %_ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE.exit
 
 _ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE.exit: ; preds = %132, %131, %129, %117, %76, %75, %73, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i, %57, %148, %.thread109, %37, %17, %14, %5, %191, %79, %32, %27, %20
-  %.0 = phi i1 [ false, %79 ], [ %22, %20 ], [ false, %27 ], [ false, %32 ], [ false, %191 ], [ false, %5 ], [ true, %14 ], [ true, %17 ], [ true, %37 ], [ %149, %148 ], [ %190, %.thread109 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i ], [ false, %73 ], [ false, %75 ], [ false, %76 ], [ true, %57 ], [ false, %117 ], [ false, %129 ], [ false, %131 ], [ false, %132 ]
+  %.0 = phi i1 [ %22, %20 ], [ false, %27 ], [ false, %32 ], [ false, %79 ], [ false, %191 ], [ false, %5 ], [ true, %14 ], [ true, %17 ], [ true, %37 ], [ %149, %148 ], [ %190, %.thread109 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i ], [ false, %73 ], [ false, %75 ], [ false, %76 ], [ true, %57 ], [ false, %117 ], [ false, %129 ], [ false, %131 ], [ false, %132 ]
   ret i1 %.0
 }
 
@@ -10676,7 +10676,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter21emitPtrauthAu
   unreachable
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit57: ; preds = %32, %34, %36, %38
-  %.0.i = phi i32 [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -10786,7 +10786,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit63: ; preds = %_ZN4llvm6MCInst10a
   unreachable
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit76: ; preds = %76, %78, %80, %82
-  %.0.i64 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ]
+  %.0.i64 = phi i32 [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #24
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -11734,7 +11734,7 @@ _ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit: ; preds =
   unreachable
 
 _ZN4llvm13MCInstBuilderD2Ev.exit230:              ; preds = %252, %250, %248, %246
-  %.0.i = phi i32 [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ]
+  %.0.i = phi i32 [ %247, %246 ], [ %249, %248 ], [ %251, %250 ], [ %253, %252 ]
   %255 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %256 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 16, i1 false)
@@ -14552,9 +14552,9 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBui
   unreachable
 
 _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit: ; preds = %42, %45, %48
-  %.sroa.21.0.copyload.i = phi i64 [ %.sroa.3.8.insert.ext.i, %48 ], [ %47, %45 ], [ %.sroa.21.0.copyload.i.pre, %42 ]
-  %.sroa.0.0.copyload.i = phi i8 [ 1, %48 ], [ 2, %45 ], [ %.sroa.0.0.copyload.i.pre, %42 ]
-  %.024 = phi i32 [ 1852, %48 ], [ 1851, %45 ], [ 1851, %42 ]
+  %.sroa.21.0.copyload.i = phi i64 [ %.sroa.21.0.copyload.i.pre, %42 ], [ %47, %45 ], [ %.sroa.3.8.insert.ext.i, %48 ]
+  %.sroa.0.0.copyload.i = phi i8 [ %.sroa.0.0.copyload.i.pre, %42 ], [ 2, %45 ], [ 1, %48 ]
+  %.024 = phi i32 [ 1851, %42 ], [ 1851, %45 ], [ 1852, %48 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #24
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -17135,7 +17135,7 @@ define internal fastcc range(i32 268, 239) i32 @_ZN4llvmL15getWRegFromXRegENS_10
   br label %35
 
 35:                                               ; preds = %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 12, %33 ], [ 10, %32 ], [ 238, %31 ], [ 237, %30 ], [ 236, %29 ], [ 235, %28 ], [ 234, %27 ], [ 233, %26 ], [ 232, %25 ], [ 231, %24 ], [ 230, %23 ], [ 229, %22 ], [ 228, %21 ], [ 227, %20 ], [ 226, %19 ], [ 225, %18 ], [ 224, %17 ], [ 223, %16 ], [ 222, %15 ], [ 221, %14 ], [ 220, %13 ], [ 219, %12 ], [ 218, %11 ], [ 217, %10 ], [ 216, %9 ], [ 215, %8 ], [ 214, %7 ], [ 213, %6 ], [ 212, %5 ], [ 211, %4 ], [ 210, %3 ], [ 209, %2 ], [ 208, %1 ]
+  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 209, %2 ], [ 210, %3 ], [ 211, %4 ], [ 212, %5 ], [ 213, %6 ], [ 214, %7 ], [ 215, %8 ], [ 216, %9 ], [ 217, %10 ], [ 218, %11 ], [ 219, %12 ], [ 220, %13 ], [ 221, %14 ], [ 222, %15 ], [ 223, %16 ], [ 224, %17 ], [ 225, %18 ], [ 226, %19 ], [ 227, %20 ], [ 228, %21 ], [ 229, %22 ], [ 230, %23 ], [ 231, %24 ], [ 232, %25 ], [ 233, %26 ], [ 234, %27 ], [ 235, %28 ], [ 236, %29 ], [ 237, %30 ], [ 238, %31 ], [ 10, %32 ], [ 12, %33 ], [ 208, %1 ]
   ret i32 %.sroa.02.0
 }
 
@@ -17773,7 +17773,7 @@ define internal fastcc range(i32 239, 208) i32 @_ZN4llvmL15getXRegFromWRegENS_10
   br label %35
 
 35:                                               ; preds = %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 14, %33 ], [ 8, %32 ], [ 6, %31 ], [ 2, %30 ], [ 267, %29 ], [ 266, %28 ], [ 265, %27 ], [ 264, %26 ], [ 263, %25 ], [ 262, %24 ], [ 261, %23 ], [ 260, %22 ], [ 259, %21 ], [ 258, %20 ], [ 257, %19 ], [ 256, %18 ], [ 255, %17 ], [ 254, %16 ], [ 253, %15 ], [ 252, %14 ], [ 251, %13 ], [ 250, %12 ], [ 249, %11 ], [ 248, %10 ], [ 247, %9 ], [ 246, %8 ], [ 245, %7 ], [ 244, %6 ], [ 243, %5 ], [ 242, %4 ], [ 241, %3 ], [ 240, %2 ], [ 239, %1 ]
+  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 240, %2 ], [ 241, %3 ], [ 242, %4 ], [ 243, %5 ], [ 244, %6 ], [ 245, %7 ], [ 246, %8 ], [ 247, %9 ], [ 248, %10 ], [ 249, %11 ], [ 250, %12 ], [ 251, %13 ], [ 252, %14 ], [ 253, %15 ], [ 254, %16 ], [ 255, %17 ], [ 256, %18 ], [ 257, %19 ], [ 258, %20 ], [ 259, %21 ], [ 260, %22 ], [ 261, %23 ], [ 262, %24 ], [ 263, %25 ], [ 264, %26 ], [ 265, %27 ], [ 266, %28 ], [ 267, %29 ], [ 2, %30 ], [ 6, %31 ], [ 8, %32 ], [ 14, %33 ], [ 239, %1 ]
   ret i32 %.sroa.02.0
 }
 
@@ -18599,7 +18599,7 @@ switch.lookup:                                    ; preds = %7
   br label %_ZN4llvmL20getXRegFromXRegTupleENS_10MCRegisterE.exit
 
 _ZN4llvmL20getXRegFromXRegTupleENS_10MCRegisterE.exit: ; preds = %7, %switch.lookup, %5, %3
-  %.sroa.03.0 = phi i32 [ %6, %5 ], [ %4, %3 ], [ %switch.load, %switch.lookup ], [ %.4.val, %7 ]
+  %.sroa.03.0 = phi i32 [ %4, %3 ], [ %6, %5 ], [ %switch.load, %switch.lookup ], [ %.4.val, %7 ]
   %10 = tail call noundef ptr @_ZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegisterEj(i32 %.sroa.03.0, i32 noundef 0) #24
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i

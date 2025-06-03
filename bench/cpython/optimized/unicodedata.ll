@@ -4980,7 +4980,7 @@ define internal range(i32 0, 136043) i32 @normalization_3_2_0(i32 noundef %0) #8
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %6 ], [ 19799, %5 ], [ 31406, %4 ], [ 17323, %3 ], [ 24371, %2 ], [ 136042, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 24371, %2 ], [ 17323, %3 ], [ 31406, %4 ], [ 19799, %5 ], [ 136042, %1 ]
   ret i32 %.0
 }
 
@@ -5026,7 +5026,7 @@ define internal i32 @ucd_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

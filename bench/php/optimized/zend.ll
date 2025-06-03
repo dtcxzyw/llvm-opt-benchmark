@@ -2164,7 +2164,7 @@ define hidden range(i32 -1, 1) i32 @zend_post_startup() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.1 = phi i32 [ -1, %2 ], [ 0, %4 ]
+  %.1 = phi i32 [ 0, %4 ], [ -1, %2 ]
   ret i32 %.1
 }
 

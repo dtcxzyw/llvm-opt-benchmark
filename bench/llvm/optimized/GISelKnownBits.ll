@@ -316,7 +316,7 @@ tailrecurse:                                      ; preds = %9, %3
   br label %47
 
 47:                                               ; preds = %38, %22, %14
-  %.sroa.0.0 = phi i8 [ %46, %38 ], [ %.sroa.0.0.copyload.i, %22 ], [ %21, %14 ]
+  %.sroa.0.0 = phi i8 [ %46, %38 ], [ %21, %14 ], [ %.sroa.0.0.copyload.i, %22 ]
   ret i8 %.sroa.0.0
 }
 
@@ -5049,7 +5049,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit133: ; preds = %104, %1
   br label %tailrecurse.outer
 
 common.ret:                                       ; preds = %67, %70, %56, %_ZNK4llvm5APIntntEv.exit, %62, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130, %82, %88, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %93, %38, %40, %47, %50, %54, %240, %249, %_ZN4llvm9KnownBitsD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %154, %151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146, %180, %177, %265, %149, %278, %273, %128
-  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %46, %40 ], [ %48, %47 ], [ 0, %38 ], [ %53, %50 ], [ %55, %54 ], [ %.12568, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %257, %249 ], [ %248, %240 ], [ %239, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %150, %149 ], [ 1, %151 ], [ %176, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %155, %154 ], [ 1, %177 ], [ %201, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ %181, %180 ], [ %.0.i.le366, %265 ], [ %279, %278 ], [ %.0.i.le, %273 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
+  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %46, %40 ], [ %48, %47 ], [ 0, %38 ], [ %53, %50 ], [ %55, %54 ], [ %.12568, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %150, %149 ], [ %239, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %248, %240 ], [ %257, %249 ], [ 1, %151 ], [ %176, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %155, %154 ], [ 1, %177 ], [ %201, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ %181, %180 ], [ %.0.i.le366, %265 ], [ %279, %278 ], [ %.0.i.le, %273 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
   %common.ret.op = add i32 %.sroa.speculated191.pn, %accumulator.tr.ph
   ret i32 %common.ret.op
 
@@ -5358,9 +5358,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151: ; preds = %215, %2
   br label %.thread
 
 .thread:                                          ; preds = %280, %273, %270, %141, %144, %202, %210, %258, %265, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151
-  %.0.in.i273 = phi i64 [ %.0.in.i.le400, %265 ], [ %.0.in.i.le400, %258 ], [ %.0.in.i.le397, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %.0.in.i.le394, %202 ], [ %.0.in.i.le394, %210 ], [ %.0.in.i.le385, %144 ], [ %.0.in.i.le385, %141 ], [ 1, %270 ], [ %.0.in.i.le403, %273 ], [ %.0.in.i.le, %280 ]
-  %.0.i261 = phi i32 [ %.0.i.le366, %265 ], [ %.0.i.le366, %258 ], [ %.0.i.le368, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %.0.i.le370, %202 ], [ %.0.i.le370, %210 ], [ %.0.i.le376, %144 ], [ %.0.i.le376, %141 ], [ 1, %270 ], [ %.0.i.le, %273 ], [ %.0.i.le380, %280 ]
-  %.0216 = phi i32 [ 1, %265 ], [ 1, %258 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ 1, %202 ], [ %.sroa.speculated183, %210 ], [ 1, %144 ], [ 1, %141 ], [ 1, %270 ], [ 1, %273 ], [ %spec.select, %280 ]
+  %.0.in.i273 = phi i64 [ %.0.in.i.le397, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %.0.in.i.le400, %265 ], [ %.0.in.i.le400, %258 ], [ %.0.in.i.le394, %202 ], [ %.0.in.i.le394, %210 ], [ %.0.in.i.le385, %144 ], [ %.0.in.i.le385, %141 ], [ 1, %270 ], [ %.0.in.i.le403, %273 ], [ %.0.in.i.le, %280 ]
+  %.0.i261 = phi i32 [ %.0.i.le368, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %.0.i.le366, %265 ], [ %.0.i.le366, %258 ], [ %.0.i.le370, %202 ], [ %.0.i.le370, %210 ], [ %.0.i.le376, %144 ], [ %.0.i.le376, %141 ], [ 1, %270 ], [ %.0.i.le, %273 ], [ %.0.i.le380, %280 ]
+  %.0216 = phi i32 [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ 1, %265 ], [ 1, %258 ], [ 1, %202 ], [ %.sroa.speculated183, %210 ], [ 1, %144 ], [ 1, %141 ], [ 1, %270 ], [ 1, %273 ], [ %spec.select, %280 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   %288 = getelementptr inbounds nuw i8, ptr %7, i64 8

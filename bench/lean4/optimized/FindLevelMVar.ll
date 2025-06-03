@@ -1678,7 +1678,7 @@ lean_dec.exit92:                                  ; preds = %275, %274, %272, %2
   br label %lean_dec.exit100
 
 lean_dec.exit100:                                 ; preds = %lean_dec.exit92, %281, %283, %284, %lean_dec.exit101, %36, %38, %39, %lean_dec.exit93, %lean_dec.exit94, %lean_inc.exit103, %lean_inc.exit108, %lean_inc.exit111, %lean_inc.exit114, %lean_dec.exit99
-  %.0 = phi ptr [ %267, %lean_dec.exit93 ], [ %248, %lean_dec.exit94 ], [ %229, %lean_inc.exit103 ], [ %172, %lean_inc.exit108 ], [ %134, %lean_inc.exit111 ], [ %96, %lean_inc.exit114 ], [ %58, %lean_dec.exit99 ], [ %30, %39 ], [ %30, %38 ], [ %30, %36 ], [ %30, %lean_dec.exit101 ], [ %2, %284 ], [ %2, %283 ], [ %2, %281 ], [ %2, %lean_dec.exit92 ]
+  %.0 = phi ptr [ %58, %lean_dec.exit99 ], [ %96, %lean_inc.exit114 ], [ %134, %lean_inc.exit111 ], [ %172, %lean_inc.exit108 ], [ %229, %lean_inc.exit103 ], [ %248, %lean_dec.exit94 ], [ %267, %lean_dec.exit93 ], [ %30, %39 ], [ %30, %38 ], [ %30, %36 ], [ %30, %lean_dec.exit101 ], [ %2, %284 ], [ %2, %283 ], [ %2, %281 ], [ %2, %lean_dec.exit92 ]
   ret ptr %.0
 }
 

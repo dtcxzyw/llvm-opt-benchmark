@@ -3081,8 +3081,8 @@ der2key_decode_p8.exit:                           ; preds = %3, %6, %17, %22, %2
 define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @RSA_test_flags(ptr noundef %0, i32 noundef 61440) #7
   switch i32 %3, label %.critedge [
-    i32 0, label %10
-    i32 4096, label %4
+    i32 0, label %4
+    i32 4096, label %10
   ]
 
 4:                                                ; preds = %2
@@ -3090,7 +3090,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !41
-  %9 = icmp eq i32 %8, 912
+  %9 = icmp eq i32 %8, 6
   br i1 %9, label %16, label %.critedge
 
 10:                                               ; preds = %2
@@ -3098,7 +3098,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !41
-  %15 = icmp eq i32 %14, 6
+  %15 = icmp eq i32 %14, 912
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %4, %10

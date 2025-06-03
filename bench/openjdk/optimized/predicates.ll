@@ -1251,7 +1251,7 @@ _ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.ex
   br label %133
 
 133:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit
-  %.1 = phi i1 [ true, %_ZN12ResourceMarkD2Ev.exit ], [ false, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit ]
+  %.1 = phi i1 [ false, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit ], [ true, %_ZN12ResourceMarkD2Ev.exit ]
   ret i1 %.1
 }
 

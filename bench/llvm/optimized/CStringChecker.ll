@@ -21203,8 +21203,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit47.i:             ; preds = %478, %476
   %485 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i46.i, i64 %484) #22
   br label %_ZN12_GLOBAL__N_114CStringChecker15SummarizeRegionERN4llvm11raw_ostreamERN5clang10ASTContextEPKNS4_4ento9MemRegionE.exit
 
-_ZN12_GLOBAL__N_114CStringChecker15SummarizeRegionERN4llvm11raw_ostreamERN5clang10ASTContextEPKNS4_4ento9MemRegionE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit121, %398, %396, %386, %384, %374, %372, %368, %366, %_ZN4llvm11raw_ostreamlsEPKc.exit35.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i, %_ZN4llvm11raw_ostreamlsEPKc.exit44.i, %_ZN4llvm11raw_ostreamlsEPKc.exit47.i
-  %.str.67.sink = phi ptr [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit47.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit44.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit35.i ], [ @.str.66, %366 ], [ @.str.66, %368 ], [ @.str.66, %372 ], [ @.str.66, %374 ], [ @.str.66, %384 ], [ @.str.66, %386 ], [ @.str.66, %396 ], [ @.str.66, %398 ], [ @.str.67, %_ZN4llvm11raw_ostreamlsEPKc.exit121 ]
+_ZN12_GLOBAL__N_114CStringChecker15SummarizeRegionERN4llvm11raw_ostreamERN5clang10ASTContextEPKNS4_4ento9MemRegionE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit121, %398, %396, %386, %384, %374, %372, %368, %366, %_ZN4llvm11raw_ostreamlsEPKc.exit47.i, %_ZN4llvm11raw_ostreamlsEPKc.exit44.i, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i, %_ZN4llvm11raw_ostreamlsEPKc.exit35.i
+  %.str.67.sink = phi ptr [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit35.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit44.i ], [ @.str.66, %_ZN4llvm11raw_ostreamlsEPKc.exit47.i ], [ @.str.66, %366 ], [ @.str.66, %368 ], [ @.str.66, %372 ], [ @.str.66, %374 ], [ @.str.66, %384 ], [ @.str.66, %386 ], [ @.str.66, %396 ], [ @.str.66, %398 ], [ @.str.67, %_ZN4llvm11raw_ostreamlsEPKc.exit121 ]
   %486 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %.str.67.sink)
   %487 = load ptr, ptr %2, align 8, !tbaa !130
   %.not.i.i125 = icmp eq ptr %487, null
@@ -21244,8 +21244,8 @@ _ZN4llvm11SmallVectorIcLj120EED2Ev.exit131:       ; preds = %_ZN4llvm18Intrusive
   br label %_ZNK5clang4ento4SVal5getAsINS0_3loc9GotoLabelEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_3loc9GotoLabelEEESt8optionalIT_Ev.exit: ; preds = %25, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit, %283, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit131, %131, %131, %.critedge, %23, %_ZN12_GLOBAL__N_114CStringChecker25getCStringLengthForRegionERN5clang4ento14CheckerContextERN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS1_4ExprEPKNS2_9MemRegionEb.exit, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
-  %.sroa.061.1 = phi ptr [ %.fca.0.extract.pre-phi, %_ZN12_GLOBAL__N_114CStringChecker25getCStringLengthForRegionERN5clang4ento14CheckerContextERN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS1_4ExprEPKNS2_9MemRegionEb.exit ], [ %.fca.0.extract6, %.critedge ], [ %160, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ null, %23 ], [ null, %131 ], [ null, %131 ], [ null, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit131 ], [ null, %283 ], [ null, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit ], [ null, %25 ]
-  %.sroa.9.1 = phi i8 [ %.fca.1.extract.pre-phi, %_ZN12_GLOBAL__N_114CStringChecker25getCStringLengthForRegionERN5clang4ento14CheckerContextERN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS1_4ExprEPKNS2_9MemRegionEb.exit ], [ %.fca.1.extract7, %.critedge ], [ %.sroa.3.0.i101, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ 1, %23 ], [ 1, %131 ], [ 1, %131 ], [ 0, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit131 ], [ 0, %283 ], [ 0, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit ], [ 0, %25 ]
+  %.sroa.061.1 = phi ptr [ %160, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.0.extract.pre-phi, %_ZN12_GLOBAL__N_114CStringChecker25getCStringLengthForRegionERN5clang4ento14CheckerContextERN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS1_4ExprEPKNS2_9MemRegionEb.exit ], [ %.fca.0.extract6, %.critedge ], [ null, %23 ], [ null, %131 ], [ null, %131 ], [ null, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit131 ], [ null, %283 ], [ null, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit ], [ null, %25 ]
+  %.sroa.9.1 = phi i8 [ %.sroa.3.0.i101, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %.fca.1.extract.pre-phi, %_ZN12_GLOBAL__N_114CStringChecker25getCStringLengthForRegionERN5clang4ento14CheckerContextERN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS1_4ExprEPKNS2_9MemRegionEb.exit ], [ %.fca.1.extract7, %.critedge ], [ 1, %23 ], [ 1, %131 ], [ 1, %131 ], [ 0, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit131 ], [ 0, %283 ], [ 0, %_ZN4llvm11SmallVectorIcLj120EED2Ev.exit ], [ 0, %25 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.061.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.9.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -22256,7 +22256,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !1071
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #22
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !310
@@ -23644,7 +23644,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %3
   br label %13
 
 13:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit, %.thread, %10
-  %.1 = phi i32 [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ %12, %10 ], [ 0, %.thread ]
+  %.1 = phi i32 [ %12, %10 ], [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ 0, %.thread ]
   ret i32 %.1
 }
 

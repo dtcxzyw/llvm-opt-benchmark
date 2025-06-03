@@ -1911,9 +1911,9 @@ push_to_contains_stack.exit65.i:                  ; preds = %st_mult.exit.i60.i,
   br label %121
 
 121:                                              ; preds = %push_to_contains_stack.exit65.i, %104, %contains_cache_at.exit55.i, %66, %contains_cache_at.exit.i
-  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.085.i, %66 ], [ %.pre93.i, %push_to_contains_stack.exit65.i ], [ %.sroa.0.085.i, %104 ], [ %103, %contains_cache_at.exit55.i ]
-  %.sroa.14.1.i = phi i32 [ %.sroa.14.086.i, %contains_cache_at.exit.i ], [ %.sroa.14.086.i, %66 ], [ %.sroa.14.3.i, %push_to_contains_stack.exit65.i ], [ %.sroa.14.086.i, %104 ], [ %.sroa.14.086.i, %contains_cache_at.exit55.i ]
-  %.sroa.18.1.i = phi ptr [ %.sroa.18.087.i, %contains_cache_at.exit.i ], [ %.sroa.18.087.i, %66 ], [ %.sroa.18.3.i, %push_to_contains_stack.exit65.i ], [ %.sroa.18.087.i, %104 ], [ %.sroa.18.087.i, %contains_cache_at.exit55.i ]
+  %.sroa.0.1.i = phi i32 [ %65, %contains_cache_at.exit.i ], [ %.sroa.0.085.i, %66 ], [ %103, %contains_cache_at.exit55.i ], [ %.sroa.0.085.i, %104 ], [ %.pre93.i, %push_to_contains_stack.exit65.i ]
+  %.sroa.14.1.i = phi i32 [ %.sroa.14.086.i, %contains_cache_at.exit.i ], [ %.sroa.14.086.i, %66 ], [ %.sroa.14.086.i, %contains_cache_at.exit55.i ], [ %.sroa.14.086.i, %104 ], [ %.sroa.14.3.i, %push_to_contains_stack.exit65.i ]
+  %.sroa.18.1.i = phi ptr [ %.sroa.18.087.i, %contains_cache_at.exit.i ], [ %.sroa.18.087.i, %66 ], [ %.sroa.18.087.i, %contains_cache_at.exit55.i ], [ %.sroa.18.087.i, %104 ], [ %.sroa.18.3.i, %push_to_contains_stack.exit65.i ]
   %.not41.i = icmp eq i32 %.sroa.0.1.i, 0
   br i1 %.not41.i, label %122, label %24, !llvm.loop !81
 

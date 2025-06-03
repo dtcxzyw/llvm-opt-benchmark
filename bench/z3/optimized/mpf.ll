@@ -2979,7 +2979,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %151, %158
 207:                                              ; preds = %187
   br i1 %.0.i121, label %208, label %.critedge
 
-208:                                              ; preds = %192, %199, %202, %207
+208:                                              ; preds = %202, %199, %192, %207
   %209 = load ptr, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   store i32 1, ptr %4, align 8, !tbaa !3
@@ -2999,7 +2999,7 @@ _ZN11mpz_managerILb0EE3incER3mpz.exit127:         ; preds = %208
           cleanup
   br label %293
 
-.critedge:                                        ; preds = %192, %199, %202, %_ZN11mpz_managerILb0EE3incER3mpz.exit127, %187, %206, %207
+.critedge:                                        ; preds = %202, %199, %192, %_ZN11mpz_managerILb0EE3incER3mpz.exit127, %187, %206, %207
   %214 = load i32, ptr %2, align 8
   %215 = lshr i32 %214, 15
   %216 = and i32 %215, 65535
@@ -9365,7 +9365,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %._ZN11mpz_managerIL
 109:                                              ; preds = %._crit_edge
   br i1 %.028.in74, label %110, label %.critedge
 
-110:                                              ; preds = %99, %101, %104, %109
+110:                                              ; preds = %104, %101, %99, %109
   %111 = load ptr, ptr %14, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #24
   store i32 1, ptr %5, align 8, !tbaa !3
@@ -9391,7 +9391,7 @@ _ZN11mpz_managerILb0EE3incER3mpz.exit:            ; preds = %110
   invoke void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %117, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %118)
           to label %.critedge unwind label %95
 
-.critedge:                                        ; preds = %99, %101, %104, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %._crit_edge, %109, %108, %116
+.critedge:                                        ; preds = %104, %101, %99, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %._crit_edge, %109, %108, %116
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %120 = load i8, ptr %17, align 4
   %121 = and i8 %120, 1
@@ -19695,15 +19695,15 @@ define hidden void @_ZN11mpf_manager10round_sqrtE17mpf_rounding_modeR3mpf(ptr no
   %29 = load ptr, ptr %5, align 8, !tbaa !33
   tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %29, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1)
   switch i32 %1, label %32 [
-    i32 0, label %33
-    i32 1, label %33
+    i32 0, label %30
+    i32 1, label %30
     i32 3, label %.critedge
     i32 4, label %.critedge
-    i32 2, label %30
+    i32 2, label %33
   ]
 
-30:                                               ; preds = %21
-  %31 = or i1 %22, %.0.i25
+30:                                               ; preds = %21, %21
+  %31 = and i1 %22, %.0.i25
   br i1 %31, label %35, label %.critedge
 
 32:                                               ; preds = %21
@@ -19711,8 +19711,8 @@ define hidden void @_ZN11mpf_manager10round_sqrtE17mpf_rounding_modeR3mpf(ptr no
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %.critedge
 
-33:                                               ; preds = %21, %21
-  %34 = and i1 %22, %.0.i25
+33:                                               ; preds = %21
+  %34 = or i1 %22, %.0.i25
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %30, %33

@@ -18342,8 +18342,8 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v213basic_processINS_4
   br label %13
 
 13:                                               ; preds = %11, %.noexc5.i, %.noexc.i
-  %.0.i = phi i32 [ %12, %11 ], [ %9, %.noexc.i ], [ 0, %.noexc5.i ]
-  %.1.i.i = phi i1 [ false, %11 ], [ true, %.noexc.i ], [ false, %.noexc5.i ]
+  %.0.i = phi i32 [ %12, %11 ], [ 0, %.noexc5.i ], [ %9, %.noexc.i ]
+  %.1.i.i = phi i1 [ false, %11 ], [ false, %.noexc5.i ], [ true, %.noexc.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #37
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
 
@@ -21301,8 +21301,8 @@ define hidden void @_ZN11with_target8trim_endERNSt7__cxx1112basic_stringIcSt11ch
 
 35:                                               ; preds = %34, %._crit_edge.i
   %.pre-phi = phi i64 [ %.pre, %34 ], [ %28, %._crit_edge.i ]
-  %.sroa.026.2 = phi ptr [ %31, %34 ], [ %.sroa.026.0, %._crit_edge.i ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.026.2, i64 -1
+  %.ptr27.i = phi ptr [ %31, %34 ], [ %.sroa.026.0, %._crit_edge.i ]
+  %36 = getelementptr inbounds i8, ptr %.ptr27.i, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !15, !noalias !659
   %38 = add i8 %37, 1
   %.not17.i = icmp ult i8 %38, 2
@@ -21314,8 +21314,8 @@ define hidden void @_ZN11with_target8trim_endERNSt7__cxx1112basic_stringIcSt11ch
 
 40:                                               ; preds = %39, %._crit_edge.i
   %.pre-phi69 = phi i64 [ %.pre68, %39 ], [ %28, %._crit_edge.i ]
-  %.sroa.026.1 = phi ptr [ %36, %39 ], [ %.sroa.026.0, %._crit_edge.i ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.026.1, i64 -1
+  %.ptr29.i = phi ptr [ %36, %39 ], [ %.sroa.026.0, %._crit_edge.i ]
+  %41 = getelementptr inbounds i8, ptr %.ptr29.i, i64 -1
   %42 = load i8, ptr %41, align 1, !tbaa !15, !noalias !659
   %43 = add i8 %42, 1
   %.not18.i = icmp ult i8 %43, 2
@@ -38350,7 +38350,7 @@ _ZNK5boost7process2v211environment14key_value_pair3keyEv.exit.i.i49.i.i.i: ; pre
   br label %246
 
 246:                                              ; preds = %244, %._crit_edge.i.i.i88
-  %.sroa.084.1.i.i.i = phi ptr [ %.sroa.084.0.lcssa.i.i.i, %._crit_edge.i.i.i88 ], [ %245, %244 ]
+  %.sroa.084.1.i.i.i = phi ptr [ %245, %244 ], [ %.sroa.084.0.lcssa.i.i.i, %._crit_edge.i.i.i88 ]
   %247 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.084.1.i.i.i, i8 noundef signext 61, i64 noundef 0) #37
   %248 = icmp eq i64 %247, 0
   br i1 %248, label %249, label %_ZNK5boost7process2v211environment14key_value_pair3keyEv.exit.i.i60.i.i.i
@@ -38387,7 +38387,7 @@ _ZNK5boost7process2v211environment14key_value_pair3keyEv.exit.i.i60.i.i.i: ; pre
   br label %256
 
 256:                                              ; preds = %254, %._crit_edge.i.i.i88
-  %.sroa.084.2.i.i.i = phi ptr [ %.sroa.084.0.lcssa.i.i.i, %._crit_edge.i.i.i88 ], [ %255, %254 ]
+  %.sroa.084.2.i.i.i = phi ptr [ %255, %254 ], [ %.sroa.084.0.lcssa.i.i.i, %._crit_edge.i.i.i88 ]
   %257 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.084.2.i.i.i, i8 noundef signext 61, i64 noundef 0) #37
   %258 = icmp eq i64 %257, 0
   br i1 %258, label %259, label %_ZNK5boost7process2v211environment14key_value_pair3keyEv.exit.i.i71.i.i.i

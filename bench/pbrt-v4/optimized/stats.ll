@@ -1065,7 +1065,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %190, %186, %184
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %_ZNK4pbrt4HalfcvfEv.exit.i, %198
-  %.0.i = phi float [ %209, %198 ], [ %197, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %167, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
+  %.0.i = phi float [ %167, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %197, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %209, %198 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   %211 = load ptr, ptr %1, align 8, !tbaa !32
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %.sroa.04.0.copyload.i198 = load i64, ptr %212, align 4
@@ -1245,7 +1245,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i208:                    ; preds = %274, %270, %268
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit217: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit519, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i215, %_ZNK4pbrt4HalfcvfEv.exit.i208, %282
-  %.0.i199 = phi float [ %293, %282 ], [ %281, %_ZNK4pbrt4HalfcvfEv.exit.i208 ], [ %251, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i215 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit519 ]
+  %.0.i199 = phi float [ %251, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i215 ], [ %281, %_ZNK4pbrt4HalfcvfEv.exit.i208 ], [ %293, %282 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit519 ]
   %295 = fadd float %.0.i, %.0.i199
   call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %128, i64 %.sroa.0793.0.insert.insert, i32 noundef 0, float noundef %295)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1822,9 +1822,9 @@ _ZNK4pbrt4HalfcvfEv.exit.i274:                    ; preds = %563, %559, %557
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit283: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281, %_ZNK4pbrt4HalfcvfEv.exit.i274, %571
-  %582 = phi i32 [ %504, %571 ], [ %504, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %542, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ %504, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
-  %.sroa.04.0.copyload.i285 = phi i64 [ %.sroa.04.0.copyload.i2851321, %571 ], [ %.sroa.04.0.copyload.i2851321, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %.sroa.04.0.copyload.i285.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ %.sroa.04.0.copyload.i2851321, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
-  %.0.i265 = phi float [ %580, %571 ], [ %570, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %541, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
+  %582 = phi i32 [ %542, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ %504, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %504, %571 ], [ %504, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
+  %.sroa.04.0.copyload.i285 = phi i64 [ %.sroa.04.0.copyload.i285.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ %.sroa.04.0.copyload.i2851321, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %.sroa.04.0.copyload.i2851321, %571 ], [ %.sroa.04.0.copyload.i2851321, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
+  %.0.i265 = phi float [ %541, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i281 ], [ %570, %_ZNK4pbrt4HalfcvfEv.exit.i274 ], [ %580, %571 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit541 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.01145)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.41146)
   %.sroa.9.0.extract.shift.i543 = lshr i64 %.sroa.04.0.copyload.i285, 32
@@ -1993,7 +1993,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i295:                    ; preds = %638, %634, %632
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit304: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit563, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i302, %_ZNK4pbrt4HalfcvfEv.exit.i295, %646
-  %.0.i286 = phi float [ %655, %646 ], [ %645, %_ZNK4pbrt4HalfcvfEv.exit.i295 ], [ %617, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i302 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit563 ]
+  %.0.i286 = phi float [ %617, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i302 ], [ %645, %_ZNK4pbrt4HalfcvfEv.exit.i295 ], [ %655, %646 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit563 ]
   %657 = fadd float %.0.i265, %.0.i286
   call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %450, i64 %.sroa.0771.0.insert.insert, i32 noundef 0, float noundef %657)
   %indvars.iv.next1301 = add nuw nsw i64 %indvars.iv1300, 1
@@ -2406,9 +2406,9 @@ _ZNK4pbrt4HalfcvfEv.exit.i353:                    ; preds = %819, %815, %813
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit362: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360, %_ZNK4pbrt4HalfcvfEv.exit.i353, %827
-  %838 = phi i32 [ %760, %827 ], [ %760, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %798, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ %760, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
-  %.sroa.04.0.copyload.i364 = phi i64 [ %.sroa.04.0.copyload.i3641328, %827 ], [ %.sroa.04.0.copyload.i3641328, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %.sroa.04.0.copyload.i364.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ %.sroa.04.0.copyload.i3641328, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
-  %.0.i344 = phi float [ %836, %827 ], [ %826, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %797, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
+  %838 = phi i32 [ %798, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ %760, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %760, %827 ], [ %760, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
+  %.sroa.04.0.copyload.i364 = phi i64 [ %.sroa.04.0.copyload.i364.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ %.sroa.04.0.copyload.i3641328, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %.sroa.04.0.copyload.i3641328, %827 ], [ %.sroa.04.0.copyload.i3641328, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
+  %.0.i344 = phi float [ %797, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i360 ], [ %826, %_ZNK4pbrt4HalfcvfEv.exit.i353 ], [ %836, %827 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit585 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.01151)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.41152)
   %.sroa.9.0.extract.shift.i587 = lshr i64 %.sroa.04.0.copyload.i364, 32
@@ -2577,7 +2577,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i374:                    ; preds = %894, %890, %888
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit383: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit607, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i381, %_ZNK4pbrt4HalfcvfEv.exit.i374, %902
-  %.0.i365 = phi float [ %911, %902 ], [ %901, %_ZNK4pbrt4HalfcvfEv.exit.i374 ], [ %873, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i381 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit607 ]
+  %.0.i365 = phi float [ %873, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i381 ], [ %901, %_ZNK4pbrt4HalfcvfEv.exit.i374 ], [ %911, %902 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit607 ]
   %913 = fadd float %.0.i344, %.0.i365
   call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %695, i64 %.sroa.0748.0.insert.insert, i32 noundef 0, float noundef %913)
   %.sroa.04.0.copyload.i385 = load i64, ptr %696, align 4
@@ -2753,7 +2753,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i395:                    ; preds = %972, %968, %966
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit404: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit629, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i402, %_ZNK4pbrt4HalfcvfEv.exit.i395, %980
-  %.0.i386 = phi float [ %990, %980 ], [ %979, %_ZNK4pbrt4HalfcvfEv.exit.i395 ], [ %950, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i402 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit629 ]
+  %.0.i386 = phi float [ %950, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i402 ], [ %979, %_ZNK4pbrt4HalfcvfEv.exit.i395 ], [ %990, %980 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit629 ]
   %.sroa.04.0.copyload.i406 = load i64, ptr %689, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.01157)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.41158)
@@ -2927,7 +2927,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i416:                    ; preds = %1050, %1046, %1044
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit425: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit651, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i423, %_ZNK4pbrt4HalfcvfEv.exit.i416, %1058
-  %.0.i407 = phi float [ %1068, %1058 ], [ %1057, %_ZNK4pbrt4HalfcvfEv.exit.i416 ], [ %1028, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i423 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit651 ]
+  %.0.i407 = phi float [ %1028, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i423 ], [ %1057, %_ZNK4pbrt4HalfcvfEv.exit.i416 ], [ %1068, %1058 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit651 ]
   %1070 = fadd float %.0.i386, %.0.i407
   call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %695, i64 %.sroa.0748.0.insert.insert, i32 noundef 1, float noundef %1070)
   %.sroa.04.0.copyload.i427 = load i64, ptr %696, align 4
@@ -3100,7 +3100,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i437:                    ; preds = %1127, %1123, %1121
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit446: ; preds = %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i444, %_ZNK4pbrt4HalfcvfEv.exit.i437, %1135
-  %.0.i428 = phi float [ %1144, %1135 ], [ %1134, %_ZNK4pbrt4HalfcvfEv.exit.i437 ], [ %1106, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i444 ]
+  %.0.i428 = phi float [ %1106, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i444 ], [ %1134, %_ZNK4pbrt4HalfcvfEv.exit.i437 ], [ %1144, %1135 ]
   %1146 = fcmp oeq float %.0.i428, 0.000000e+00
   br i1 %1146, label %1147, label %1190
 
@@ -3531,7 +3531,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i487:                    ; preds = %1325, %1321, %1319
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit496: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit717, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i494, %_ZNK4pbrt4HalfcvfEv.exit.i487, %1333
-  %.0.i478 = phi float [ %1343, %1333 ], [ %1332, %_ZNK4pbrt4HalfcvfEv.exit.i487 ], [ %1303, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i494 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit717 ]
+  %.0.i478 = phi float [ %1303, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i494 ], [ %1332, %_ZNK4pbrt4HalfcvfEv.exit.i487 ], [ %1343, %1333 ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit717 ]
   %1345 = fdiv float %.0.i457, %.0.i478
   call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %695, i64 %.sroa.0748.0.insert.insert, i32 noundef 2, float noundef %1345)
   br label %1346
@@ -4763,7 +4763,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -10950,7 +10950,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i.i:                     ; preds = %369, %365, %363
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit.i: ; preds = %377, %_ZNK4pbrt4HalfcvfEv.exit.i.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i
-  %.0.i.i = phi float [ %386, %377 ], [ %376, %_ZNK4pbrt4HalfcvfEv.exit.i.i ], [ %348, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i ]
+  %.0.i.i = phi float [ %348, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i ], [ %376, %_ZNK4pbrt4HalfcvfEv.exit.i.i ], [ %386, %377 ]
   %389 = fcmp une float %.0.i.i, 0.000000e+00
   br i1 %389, label %"_ZZNK4pbrt16StatsAccumulator16WritePixelImagesEvENK3$_1clERKNS_5ImageE.exit", label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit._crit_edge.i
 

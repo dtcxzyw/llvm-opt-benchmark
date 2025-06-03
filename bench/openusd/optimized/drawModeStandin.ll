@@ -34536,8 +34536,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   br label %257
 
 257:                                              ; preds = %252, %246, %245
-  %.sroa.6.0.in.i63.i = phi ptr [ %.sroa.6.0..sroa_idx.i71.i, %245 ], [ %251, %246 ], [ %244, %252 ]
-  %.sroa.0.0.i64.i = phi <2 x float> [ %.sroa.0.0.copyload10.i70.i, %245 ], [ %.sroa.0.4.vec.insert.i62.i, %246 ], [ %.sroa.0.4.vec.insert12.i69.i, %252 ]
+  %.sroa.6.0.in.i63.i = phi ptr [ %.sroa.6.0..sroa_idx.i71.i, %245 ], [ %244, %252 ], [ %251, %246 ]
+  %.sroa.0.0.i64.i = phi <2 x float> [ %.sroa.0.0.copyload10.i70.i, %245 ], [ %.sroa.0.4.vec.insert12.i69.i, %252 ], [ %.sroa.0.4.vec.insert.i62.i, %246 ]
   %.sroa.6.0.i65.i = load float, ptr %.sroa.6.0.in.i63.i, align 4, !noalias !139
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i64.i, i64 0
   %258 = fsub float 1.000000e+00, %.sroa.0.0.vec.extract.i

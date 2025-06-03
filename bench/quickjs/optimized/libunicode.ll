@@ -409,12 +409,12 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   br label %161
 
 160:                                              ; preds = %132, %110, %95, %87, %77, %71, %45, %51, %48, %35, %25, %28, %90, %79, %73, %64, %39
-  %.082 = phi i32 [ %1, %132 ], [ %1, %110 ], [ %1, %95 ], [ %1, %87 ], [ %94, %90 ], [ %1, %77 ], [ %86, %79 ], [ %1, %71 ], [ %76, %73 ], [ %70, %64 ], [ %47, %45 ], [ %53, %51 ], [ %1, %48 ], [ %1, %35 ], [ %41, %39 ], [ %34, %28 ], [ %1, %25 ]
+  %.082 = phi i32 [ %1, %132 ], [ %34, %28 ], [ %1, %25 ], [ %1, %35 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ], [ %1, %48 ], [ %70, %64 ], [ %1, %71 ], [ %76, %73 ], [ %1, %77 ], [ %86, %79 ], [ %1, %87 ], [ %94, %90 ], [ %1, %95 ], [ %1, %110 ]
   store i32 %.082, ptr %0, align 4, !tbaa !7
   br label %161
 
 161:                                              ; preds = %134, %153, %112, %127, %160, %96, %56
-  %.0 = phi i32 [ 1, %160 ], [ 2, %96 ], [ 2, %56 ], [ 2, %127 ], [ 2, %112 ], [ 3, %153 ], [ 3, %134 ]
+  %.0 = phi i32 [ 1, %160 ], [ 2, %56 ], [ 2, %96 ], [ 2, %127 ], [ 2, %112 ], [ 3, %153 ], [ 3, %134 ]
   ret i32 %.0
 }
 
@@ -941,7 +941,7 @@ define dso_local range(i32 -1, 1) i32 @cr_op(ptr noundef captures(none) %0, ptr 
   unreachable
 
 46:                                               ; preds = %42, %39, %36
-  %.036 = phi i32 [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
+  %.036 = phi i32 [ %38, %36 ], [ %41, %39 ], [ %44, %42 ]
   %47 = load i32, ptr %0, align 8, !tbaa !26
   %48 = and i32 %47, 1
   %.not = icmp eq i32 %.036, %48
@@ -1445,7 +1445,7 @@ default.unreachable:                              ; preds = %187
   unreachable
 
 unicode_get_cc.exit.i:                            ; preds = %111, %107
-  %.029.i.i = phi i32 [ %116, %111 ], [ %110, %107 ]
+  %.029.i.i = phi i32 [ %110, %107 ], [ %116, %111 ]
   %117 = icmp eq i32 %.029.i.i, 0
   br i1 %117, label %unicode_get_cc.exit.thread.i, label %.preheader.i
 
@@ -1590,7 +1590,7 @@ get_index_pos.exit.thread41.i45.i:                ; preds = %get_index_pos.exit.
   br label %unicode_get_cc.exit55.i
 
 unicode_get_cc.exit55.i:                          ; preds = %199, %193, %189, %187, %get_index_pos.exit.i43.i, %122
-  %.029.i36.i = phi i32 [ 0, %get_index_pos.exit.i43.i ], [ 230, %199 ], [ %198, %193 ], [ %192, %189 ], [ 0, %187 ], [ 0, %122 ]
+  %.029.i36.i = phi i32 [ 0, %get_index_pos.exit.i43.i ], [ 230, %199 ], [ %192, %189 ], [ %198, %193 ], [ 0, %187 ], [ 0, %122 ]
   %.not34.i = icmp sgt i32 %.029.i36.i, %.029.i84.i
   br i1 %.not34.i, label %200, label %unicode_get_cc.exit55._crit_edge.i
 
@@ -2040,7 +2040,7 @@ default.unreachable:                              ; preds = %68
   br label %get_index_pos.exit.thread
 
 get_index_pos.exit.thread:                        ; preds = %3, %70, %74, %80, %68, %get_index_pos.exit
-  %.029 = phi i32 [ 0, %get_index_pos.exit ], [ 230, %80 ], [ %79, %74 ], [ %73, %70 ], [ 0, %68 ], [ 0, %3 ]
+  %.029 = phi i32 [ 0, %get_index_pos.exit ], [ 230, %80 ], [ %73, %70 ], [ %79, %74 ], [ 0, %68 ], [ 0, %3 ]
   ret i32 %.029
 }
 
@@ -3887,7 +3887,7 @@ cr_add_interval.exit39.thread:                    ; preds = %._crit_edge.i31, %c
   br label %cr_add_interval.exit
 
 cr_add_interval.exit:                             ; preds = %18, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %114, %cr_add_interval.exit.thread, %cr_add_interval.exit39.thread, %57, %30, %112, %unicode_find_name.exit
-  %.027 = phi i32 [ -2, %unicode_find_name.exit ], [ -2, %112 ], [ -1, %30 ], [ -1, %57 ], [ %115, %114 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ 0, %cr_add_interval.exit.thread ], [ 0, %cr_add_interval.exit39.thread ], [ -2, %18 ]
+  %.027 = phi i32 [ -2, %unicode_find_name.exit ], [ -2, %112 ], [ -1, %30 ], [ -1, %57 ], [ %115, %114 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ 0, %cr_add_interval.exit.thread ], [ 0, %cr_add_interval.exit39.thread ], [ -2, %18 ]
   ret i32 %.027
 }
 
@@ -3982,6 +3982,10 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %.not51 = icmp eq i32 %47, 0
   br i1 %.not51, label %.outer.backedge, label %.loopexit57
 
+.outer.backedge:                                  ; preds = %36, %58, %80, %.thread
+  %.042.ph.be = phi i32 [ %96, %.thread ], [ %83, %80 ], [ %61, %58 ], [ %39, %36 ]
+  br label %.outer
+
 48:                                               ; preds = %22
   %49 = icmp ult i32 %23, 41
   br i1 %49, label %50, label %55
@@ -4055,10 +4059,6 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %91 = call fastcc i32 @unicode_case1(ptr noundef nonnull %85, i32 noundef %82)
   %.not49 = icmp eq i32 %91, 0
   br i1 %.not49, label %.outer.backedge, label %.loopexit57
-
-.outer.backedge:                                  ; preds = %80, %58, %36, %.thread
-  %.042.ph.be = phi i32 [ %96, %.thread ], [ %39, %36 ], [ %61, %58 ], [ %83, %80 ]
-  br label %.outer
 
 92:                                               ; preds = %22, %22, %22
   %93 = add i32 %.042.ph, -2
@@ -4175,7 +4175,7 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
   br label %.loopexit
 
 .loopexit57:                                      ; preds = %128, %80, %58, %36, %126
-  %.1 = phi i32 [ %127, %126 ], [ %.042.ph, %128 ], [ %83, %80 ], [ %61, %58 ], [ %39, %36 ]
+  %.1 = phi i32 [ %127, %126 ], [ %.042.ph, %128 ], [ %39, %36 ], [ %61, %58 ], [ %83, %80 ]
   %159 = icmp sgt i32 %.1, 0
   br i1 %159, label %.lr.ph.preheader, label %.loopexit
 
@@ -4818,7 +4818,7 @@ unicode_get_short_code.exit163:                   ; preds = %184, %190, %192
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %unicode_get_short_code.exit, %78, %54, %.lr.ph179, %22, %23, %13, %112, %unicode_get_short_code.exit163, %139, %unicode_get_short_code.exit158, %11
-  %.0 = phi i32 [ 1, %11 ], [ 2, %unicode_get_short_code.exit163 ], [ 3, %139 ], [ 2, %unicode_get_short_code.exit158 ], [ 0, %112 ], [ 0, %13 ], [ %5, %22 ], [ 0, %23 ], [ %34, %54 ], [ 0, %.lr.ph179 ], [ 0, %unicode_get_short_code.exit ], [ %57, %78 ], [ %.0129, %90 ], [ %.1130, %.lr.ph ]
+  %.0 = phi i32 [ 1, %11 ], [ 2, %unicode_get_short_code.exit158 ], [ 3, %139 ], [ 2, %unicode_get_short_code.exit163 ], [ 0, %112 ], [ 0, %13 ], [ %5, %22 ], [ 0, %23 ], [ %34, %54 ], [ 0, %.lr.ph179 ], [ 0, %unicode_get_short_code.exit ], [ %57, %78 ], [ %.0129, %90 ], [ %.1130, %.lr.ph ]
   ret i32 %.0
 }
 

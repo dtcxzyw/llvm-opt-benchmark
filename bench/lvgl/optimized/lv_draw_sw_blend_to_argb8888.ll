@@ -783,9 +783,9 @@ define void @lv_draw_sw_blend_image_to_argb8888(ptr noundef readonly %0) local_u
   br label %112
 
 112:                                              ; preds = %96, %80, %63
-  %.sroa.6.0.i.us.i = phi i32 [ %75, %63 ], [ %91, %80 ], [ %107, %96 ]
-  %.sroa.01.0.i.us.i = phi i32 [ %79, %63 ], [ %95, %80 ], [ %111, %96 ]
-  %.sroa.9.0.i.us.i = phi i32 [ %69, %63 ], [ %spec.select38.i.us.i, %80 ], [ %spec.select.i.us.i, %96 ]
+  %.sroa.6.0.i.us.i = phi i32 [ %107, %96 ], [ %91, %80 ], [ %75, %63 ]
+  %.sroa.01.0.i.us.i = phi i32 [ %111, %96 ], [ %95, %80 ], [ %79, %63 ]
+  %.sroa.9.0.i.us.i = phi i32 [ %spec.select.i.us.i, %96 ], [ %spec.select38.i.us.i, %80 ], [ %69, %63 ]
   %.sroa.9.0.insert.ext.i.us.i = shl nuw nsw i32 %.sroa.9.0.i.us.i, 16
   %.sroa.9.0.insert.shift.i.us.i = and i32 %.sroa.9.0.insert.ext.i.us.i, 16711680
   %.sroa.6.0.insert.ext.i.us.i = shl nuw nsw i32 %.sroa.6.0.i.us.i, 8
@@ -1619,9 +1619,9 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %
   br label %482
 
 482:                                              ; preds = %465, %448, %430
-  %.sroa.6.0.i.us.i12 = phi i32 [ %442, %430 ], [ %459, %448 ], [ %476, %465 ]
-  %.sroa.01.0.i.us.i13 = phi i32 [ %447, %430 ], [ %464, %448 ], [ %481, %465 ]
-  %.sroa.9.0.i.us.i14 = phi i32 [ %436, %430 ], [ %spec.select38.i.us.i24, %448 ], [ %spec.select.i.us.i25, %465 ]
+  %.sroa.6.0.i.us.i12 = phi i32 [ %476, %465 ], [ %459, %448 ], [ %442, %430 ]
+  %.sroa.01.0.i.us.i13 = phi i32 [ %481, %465 ], [ %464, %448 ], [ %447, %430 ]
+  %.sroa.9.0.i.us.i14 = phi i32 [ %spec.select.i.us.i25, %465 ], [ %spec.select38.i.us.i24, %448 ], [ %436, %430 ]
   %.sroa.9.0.insert.ext.i.us.i15 = shl nuw nsw i32 %.sroa.9.0.i.us.i14, 16
   %.sroa.9.0.insert.shift.i.us.i16 = and i32 %.sroa.9.0.insert.ext.i.us.i15, 16711680
   %.sroa.6.0.insert.ext.i.us.i17 = shl nuw nsw i32 %.sroa.6.0.i.us.i12, 8
@@ -2779,9 +2779,9 @@ lv_color_8_32_mix.exit170.us.i:                   ; preds = %.sink.split.i168.us
   br label %998
 
 998:                                              ; preds = %984, %970, %955
-  %.sroa.6.0.i.us.i51 = phi i32 [ %965, %955 ], [ %979, %970 ], [ %993, %984 ]
-  %.sroa.01.0.i.us.i52 = phi i32 [ %969, %955 ], [ %983, %970 ], [ %997, %984 ]
-  %.sroa.9.0.i.us.i53 = phi i32 [ %960, %955 ], [ %spec.select38.i.us.i91, %970 ], [ %spec.select.i.us.i92, %984 ]
+  %.sroa.6.0.i.us.i51 = phi i32 [ %993, %984 ], [ %979, %970 ], [ %965, %955 ]
+  %.sroa.01.0.i.us.i52 = phi i32 [ %997, %984 ], [ %983, %970 ], [ %969, %955 ]
+  %.sroa.9.0.i.us.i53 = phi i32 [ %spec.select.i.us.i92, %984 ], [ %spec.select38.i.us.i91, %970 ], [ %960, %955 ]
   %.sroa.9.0.insert.ext.i.us.i54 = shl nuw nsw i32 %.sroa.9.0.i.us.i53, 16
   %.sroa.9.0.insert.shift.i.us.i55 = and i32 %.sroa.9.0.insert.ext.i.us.i54, 16711680
   %.sroa.6.0.insert.ext.i.us.i56 = shl nuw nsw i32 %.sroa.6.0.i.us.i51, 8
@@ -3446,9 +3446,9 @@ lv_color_8_32_mix.exit174.us.i:                   ; preds = %.sink.split.i172.us
   br label %1346
 
 1346:                                             ; preds = %1332, %1318, %1303
-  %.sroa.6.0.i.us.i105 = phi i32 [ %1313, %1303 ], [ %1327, %1318 ], [ %1341, %1332 ]
-  %.sroa.01.0.i.us.i106 = phi i32 [ %1317, %1303 ], [ %1331, %1318 ], [ %1345, %1332 ]
-  %.sroa.9.0.i.us.i107 = phi i32 [ %1308, %1303 ], [ %spec.select38.i.us.i147, %1318 ], [ %spec.select.i.us.i148, %1332 ]
+  %.sroa.6.0.i.us.i105 = phi i32 [ %1341, %1332 ], [ %1327, %1318 ], [ %1313, %1303 ]
+  %.sroa.01.0.i.us.i106 = phi i32 [ %1345, %1332 ], [ %1331, %1318 ], [ %1317, %1303 ]
+  %.sroa.9.0.i.us.i107 = phi i32 [ %spec.select.i.us.i148, %1332 ], [ %spec.select38.i.us.i147, %1318 ], [ %1308, %1303 ]
   %.sroa.9.0.insert.ext.i.us.i108 = shl nuw nsw i32 %.sroa.9.0.i.us.i107, 16
   %.sroa.9.0.insert.shift.i.us.i109 = and i32 %.sroa.9.0.insert.ext.i.us.i108, 16711680
   %.sroa.6.0.insert.ext.i.us.i110 = shl nuw nsw i32 %.sroa.6.0.i.us.i105, 8
@@ -4064,9 +4064,9 @@ lv_color_8_32_mix.exit172.us.i:                   ; preds = %.sink.split.i170.us
   br label %1671
 
 1671:                                             ; preds = %1657, %1643, %1628
-  %.sroa.6.0.i.us.i169 = phi i32 [ %1638, %1628 ], [ %1652, %1643 ], [ %1666, %1657 ]
-  %.sroa.01.0.i.us.i170 = phi i32 [ %1642, %1628 ], [ %1656, %1643 ], [ %1670, %1657 ]
-  %.sroa.9.0.i.us.i171 = phi i32 [ %1633, %1628 ], [ %spec.select38.i.us.i210, %1643 ], [ %spec.select.i.us.i211, %1657 ]
+  %.sroa.6.0.i.us.i169 = phi i32 [ %1666, %1657 ], [ %1652, %1643 ], [ %1638, %1628 ]
+  %.sroa.01.0.i.us.i170 = phi i32 [ %1670, %1657 ], [ %1656, %1643 ], [ %1642, %1628 ]
+  %.sroa.9.0.i.us.i171 = phi i32 [ %spec.select.i.us.i211, %1657 ], [ %spec.select38.i.us.i210, %1643 ], [ %1633, %1628 ]
   %.sroa.9.0.insert.ext.i.us.i172 = shl nuw nsw i32 %.sroa.9.0.i.us.i171, 16
   %.sroa.9.0.insert.shift.i.us.i173 = and i32 %.sroa.9.0.insert.ext.i.us.i172, 16711680
   %.sroa.6.0.insert.ext.i.us.i174 = shl nuw nsw i32 %.sroa.6.0.i.us.i169, 8
@@ -4342,9 +4342,9 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %99
 
 99:                                               ; preds = %85, %71, %56
-  %.sroa.6.0.i.us = phi i32 [ %66, %56 ], [ %80, %71 ], [ %94, %85 ]
-  %.sroa.01.0.i.us = phi i32 [ %70, %56 ], [ %84, %71 ], [ %98, %85 ]
-  %.sroa.9.0.i.us = phi i32 [ %61, %56 ], [ %spec.select38.i.us, %71 ], [ %spec.select.i.us, %85 ]
+  %.sroa.6.0.i.us = phi i32 [ %94, %85 ], [ %80, %71 ], [ %66, %56 ]
+  %.sroa.01.0.i.us = phi i32 [ %98, %85 ], [ %84, %71 ], [ %70, %56 ]
+  %.sroa.9.0.i.us = phi i32 [ %spec.select.i.us, %85 ], [ %spec.select38.i.us, %71 ], [ %61, %56 ]
   %.sroa.9.0.insert.ext.i.us = shl nuw nsw i32 %.sroa.9.0.i.us, 16
   %.sroa.9.0.insert.shift.i.us = and i32 %.sroa.9.0.insert.ext.i.us, 16711680
   %.sroa.6.0.insert.ext.i.us = shl nuw nsw i32 %.sroa.6.0.i.us, 8

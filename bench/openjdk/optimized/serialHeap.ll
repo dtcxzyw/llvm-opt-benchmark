@@ -1424,7 +1424,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10SerialHeap24ex
   br label %18, !llvm.loop !15
 
 130:                                              ; preds = %124, %25, %_ZN11MutexLockerD2Ev.exit
-  %.1 = phi ptr [ %.2, %_ZN11MutexLockerD2Ev.exit ], [ %125, %124 ], [ %29, %25 ]
+  %.1 = phi ptr [ %125, %124 ], [ %.2, %_ZN11MutexLockerD2Ev.exit ], [ %29, %25 ]
   ret ptr %.1
 
 131:                                              ; preds = %_ZN11MutexLockerD2Ev.exit

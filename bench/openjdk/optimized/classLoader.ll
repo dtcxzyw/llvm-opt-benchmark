@@ -2633,7 +2633,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
   br label %48
 
 48:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %47
-  %.1 = phi ptr [ %.016, %_ZN12ResourceMarkD2Ev.exit ], [ null, %47 ]
+  %.1 = phi ptr [ null, %47 ], [ %.016, %_ZN12ResourceMarkD2Ev.exit ]
   ret ptr %.1
 }
 
@@ -3283,7 +3283,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN12ResourceMarkD2
   br label %68
 
 68:                                               ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit, %67
-  %.1 = phi ptr [ %.012, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ null, %67 ]
+  %.1 = phi ptr [ null, %67 ], [ %.012, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ]
   ret ptr %.1
 }
 

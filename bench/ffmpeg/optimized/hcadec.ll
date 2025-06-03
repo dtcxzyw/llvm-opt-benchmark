@@ -1170,8 +1170,8 @@ bytestream2_get_be16.exit170:                     ; preds = %113, %115
   br label %122
 
 122:                                              ; preds = %bytestream2_get_be16.exit168, %bytestream2_get_byte.exit175, %120, %bytestream2_get_be16.exit170, %102, %93
-  %123 = phi i32 [ %88, %120 ], [ %.0.i169, %bytestream2_get_be16.exit170 ], [ %88, %bytestream2_get_byte.exit175 ], [ %88, %102 ], [ %88, %bytestream2_get_be16.exit168 ], [ %88, %93 ]
-  %.sroa.0.3 = phi ptr [ %121, %120 ], [ %.sroa.0.6, %bytestream2_get_be16.exit170 ], [ %112, %bytestream2_get_byte.exit175 ], [ %103, %102 ], [ %.sroa.0.5, %bytestream2_get_be16.exit168 ], [ %94, %93 ]
+  %123 = phi i32 [ %88, %93 ], [ %88, %bytestream2_get_be16.exit168 ], [ %88, %102 ], [ %88, %bytestream2_get_byte.exit175 ], [ %.0.i169, %bytestream2_get_be16.exit170 ], [ %88, %120 ]
+  %.sroa.0.3 = phi ptr [ %94, %93 ], [ %.sroa.0.5, %bytestream2_get_be16.exit168 ], [ %103, %102 ], [ %112, %bytestream2_get_byte.exit175 ], [ %.sroa.0.6, %bytestream2_get_be16.exit170 ], [ %121, %120 ]
   %124 = ptrtoint ptr %.sroa.0.3 to i64
   %125 = sub i64 %15, %124
   %126 = trunc i64 %125 to i32

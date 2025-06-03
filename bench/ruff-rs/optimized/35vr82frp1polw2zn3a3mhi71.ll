@@ -12273,7 +12273,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr39drop
   br label %.body.i
 
 .body.i:                                          ; preds = %50, %40, %34
-  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %50 ], [ %41, %40 ], [ %35, %34 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %50 ], [ %35, %34 ], [ %41, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17h2c19bbd87494383dE"(ptr noalias noundef align 8 dereferenceable(64) %52) #24
           to label %common.resume.i unwind label %59
@@ -41486,7 +41486,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$ruff..commands..for
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$ruff_db..panic..PanicError$GT$$GT$17h436debabe6a6b29cE.exit" unwind label %43
 
 common.resume:                                    ; preds = %47, %51, %69, %73, %39, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %74, %73 ], [ %70, %69 ], [ %52, %51 ], [ %48, %47 ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %48, %47 ], [ %52, %51 ], [ %70, %69 ], [ %74, %73 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit3"

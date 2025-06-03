@@ -6316,7 +6316,7 @@ default.unreachable8:                             ; preds = %"_ZN91_$LT$core..sl
 66:                                               ; preds = %67
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %59, %54, %49, %44, %39, %32, %23, %18, %14, %10, %27, %36, %63, %22
+67:                                               ; preds = %59, %54, %49, %44, %39, %32, %23, %18, %14, %10, %22, %63, %36, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$tiny_skia_path..path_builder..PathBuilder$GT$17h2f191e7bbf096a1fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #17
@@ -6786,7 +6786,7 @@ default.unreachable60:                            ; preds = %9
           to label %130 unwind label %53
 
 .body:                                            ; preds = %159, %53, %187, %170, %124, %107
-  %.pn = phi { ptr, i32 } [ %188, %187 ], [ %171, %170 ], [ %125, %124 ], [ %108, %107 ], [ %54, %53 ], [ %160, %159 ]
+  %.pn = phi { ptr, i32 } [ %125, %124 ], [ %108, %107 ], [ %188, %187 ], [ %171, %170 ], [ %54, %53 ], [ %160, %159 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$tiny_skia..shaders..Shader$GT$17h4053a3e3732bc231E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(96) %31)
           to label %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..painter..Paint$GT$17h5b1f7cf881dc7454E.exit" unwind label %190
 

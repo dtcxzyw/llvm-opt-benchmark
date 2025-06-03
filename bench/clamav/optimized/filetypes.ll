@@ -689,8 +689,8 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %exitcond300.not = icmp eq i32 %129, 32
   br i1 %exitcond300.not, label %.loopexit, label %78
 
-.thread241:                                       ; preds = %100, %99, %98, %97, %96, %113, %112, %111, %110, %125
-  %.2.ph = phi i32 [ 505, %125 ], [ 548, %110 ], [ 547, %111 ], [ 546, %112 ], [ 551, %113 ], [ 548, %96 ], [ 547, %97 ], [ 546, %98 ], [ 551, %99 ], [ %95, %100 ]
+.thread241:                                       ; preds = %100, %96, %97, %98, %99, %110, %111, %112, %113, %125
+  %.2.ph = phi i32 [ 505, %125 ], [ 551, %113 ], [ 546, %112 ], [ 547, %111 ], [ 548, %110 ], [ 551, %99 ], [ 546, %98 ], [ 547, %97 ], [ 548, %96 ], [ %95, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %.thread245
 
@@ -863,7 +863,7 @@ cli_compare_ftm_partition.exit.thread:            ; preds = %137, %69, %cli_comp
   br label %.thread245
 
 .thread245:                                       ; preds = %176, %._crit_edge.i, %.loopexit, %132, %136, %203, %.thread265, %.thread241, %150, %cli_compare_ftm_partition.exit, %168, %155, %142, %cli_compare_ftm_partition.exit.thread, %17, %72, %71, %23, %10
-  %.0 = phi i32 [ 505, %23 ], [ 510, %72 ], [ 511, %71 ], [ 505, %10 ], [ 505, %17 ], [ %.0178252, %cli_compare_ftm_partition.exit.thread ], [ %.0178252, %142 ], [ %.0178252, %155 ], [ %.3181, %168 ], [ %.0178, %cli_compare_ftm_partition.exit ], [ %.fr, %150 ], [ %.2.ph, %.thread241 ], [ %.3181, %203 ], [ %.6184.ph, %.thread265 ], [ 559, %132 ], [ 574, %136 ], [ 557, %._crit_edge.i ], [ 517, %.loopexit ], [ %.3181, %176 ]
+  %.0 = phi i32 [ 505, %23 ], [ 511, %71 ], [ 510, %72 ], [ 505, %10 ], [ 505, %17 ], [ %.0178252, %cli_compare_ftm_partition.exit.thread ], [ %.0178252, %142 ], [ %.0178252, %155 ], [ %.3181, %168 ], [ %.0178, %cli_compare_ftm_partition.exit ], [ %.fr, %150 ], [ %.2.ph, %.thread241 ], [ %.3181, %203 ], [ %.6184.ph, %.thread265 ], [ 559, %132 ], [ 574, %136 ], [ 557, %._crit_edge.i ], [ 517, %.loopexit ], [ %.3181, %176 ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %4) #11
   ret i32 %.0

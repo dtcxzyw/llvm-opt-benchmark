@@ -2385,7 +2385,7 @@ _ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit40.thread: ; preds = %
   unreachable
 
 95:                                               ; preds = %43, %42, %58, %62, %88, %83, %_ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit40.thread, %30, %26
-  %.0 = phi i32 [ %25, %88 ], [ %25, %83 ], [ %81, %_ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit40.thread ], [ %44, %43 ], [ %25, %42 ], [ %63, %62 ], [ %60, %58 ], [ %25, %30 ], [ %25, %26 ]
+  %.0 = phi i32 [ %25, %26 ], [ %25, %30 ], [ %44, %43 ], [ %25, %42 ], [ %63, %62 ], [ %60, %58 ], [ %81, %_ZN13LIR_Assembler18is_literal_addressEP11LIR_Address.exit40.thread ], [ %25, %83 ], [ %25, %88 ]
   %.not37 = icmp eq ptr %4, null
   br i1 %.not37, label %98, label %96
 

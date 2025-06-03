@@ -59,7 +59,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -106,7 +106,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 

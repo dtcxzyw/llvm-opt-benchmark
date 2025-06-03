@@ -625,7 +625,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %35, %34 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %37 = load i8, ptr %.sroa.025.1.i.i.i.i, align 1, !tbaa !16
   %.not34.i.i.i.i = icmp eq i8 %37, 0
   br i1 %.not34.i.i.i.i, label %38, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i"
@@ -635,7 +635,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %39, %38 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %41 = load i8, ptr %.sroa.025.2.i.i.i.i, align 1, !tbaa !16
   %.not35.i.i.i.i = icmp eq i8 %41, 0
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %10, ptr %.sroa.025.2.i.i.i.i
@@ -1015,7 +1015,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15getTopLeftOnBitERiS1_(ptr nound
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load i8, ptr %.sroa.025.1.i.i.i, align 1, !tbaa !16
   %.not34.i.i.i = icmp eq i8 %34, 0
   br i1 %.not34.i.i.i, label %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit"
@@ -1025,7 +1025,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15getTopLeftOnBitERiS1_(ptr nound
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %38 = load i8, ptr %.sroa.025.2.i.i.i, align 1, !tbaa !16
   %.not35.i.i.i = icmp eq i8 %38, 0
   %spec.select.i.i.i = select i1 %.not35.i.i.i, ptr %7, ptr %.sroa.025.2.i.i.i

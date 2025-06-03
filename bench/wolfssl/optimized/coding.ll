@@ -805,11 +805,11 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   br label %51
 
 51:                                               ; preds = %50, %49, %48, %47, %26
-  %52 = phi i1 [ true, %47 ], [ false, %50 ], [ false, %49 ], [ false, %48 ], [ true, %26 ]
-  %.046.i = phi i32 [ 1, %47 ], [ 3, %50 ], [ 3, %49 ], [ 3, %48 ], [ 1, %26 ]
-  %.not50.i = phi i1 [ true, %47 ], [ true, %50 ], [ true, %49 ], [ false, %48 ], [ true, %26 ]
-  %.not51.i = phi i1 [ true, %47 ], [ true, %50 ], [ false, %49 ], [ true, %48 ], [ true, %26 ]
-  %.not52.i = phi i1 [ true, %47 ], [ false, %50 ], [ true, %49 ], [ true, %48 ], [ true, %26 ]
+  %52 = phi i1 [ true, %47 ], [ false, %48 ], [ false, %49 ], [ false, %50 ], [ true, %26 ]
+  %.046.i = phi i32 [ 1, %47 ], [ 3, %48 ], [ 3, %49 ], [ 3, %50 ], [ 1, %26 ]
+  %.not50.i = phi i1 [ true, %47 ], [ false, %48 ], [ true, %49 ], [ true, %50 ], [ true, %26 ]
+  %.not51.i = phi i1 [ true, %47 ], [ true, %48 ], [ false, %49 ], [ true, %50 ], [ true, %26 ]
+  %.not52.i = phi i1 [ true, %47 ], [ true, %48 ], [ true, %49 ], [ false, %50 ], [ true, %26 ]
   %53 = add i32 %.046.i, %.0252356
   %54 = icmp ule i32 %53, %43
   %or.cond.i = or i1 %6, %54
@@ -910,11 +910,11 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   br label %104
 
 104:                                              ; preds = %103, %102, %101, %100, %91
-  %105 = phi i1 [ true, %100 ], [ false, %103 ], [ false, %102 ], [ false, %101 ], [ true, %91 ]
-  %.046.i160 = phi i32 [ 1, %100 ], [ 3, %103 ], [ 3, %102 ], [ 3, %101 ], [ 1, %91 ]
-  %.not50.i161 = phi i1 [ true, %100 ], [ true, %103 ], [ true, %102 ], [ false, %101 ], [ true, %91 ]
-  %.not51.i162 = phi i1 [ true, %100 ], [ true, %103 ], [ false, %102 ], [ true, %101 ], [ true, %91 ]
-  %.not52.i163 = phi i1 [ true, %100 ], [ false, %103 ], [ true, %102 ], [ true, %101 ], [ true, %91 ]
+  %105 = phi i1 [ true, %100 ], [ false, %101 ], [ false, %102 ], [ false, %103 ], [ true, %91 ]
+  %.046.i160 = phi i32 [ 1, %100 ], [ 3, %101 ], [ 3, %102 ], [ 3, %103 ], [ 1, %91 ]
+  %.not50.i161 = phi i1 [ true, %100 ], [ false, %101 ], [ true, %102 ], [ true, %103 ], [ true, %91 ]
+  %.not51.i162 = phi i1 [ true, %100 ], [ true, %101 ], [ false, %102 ], [ true, %103 ], [ true, %91 ]
+  %.not52.i163 = phi i1 [ true, %100 ], [ true, %101 ], [ true, %102 ], [ false, %103 ], [ true, %91 ]
   %106 = add i32 %.046.i160, %.7.ph
   %107 = icmp ule i32 %106, %96
   %or.cond.i164 = or i1 %6, %107
@@ -1011,11 +1011,11 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   br label %153
 
 153:                                              ; preds = %152, %151, %150, %149, %144
-  %154 = phi i1 [ true, %149 ], [ false, %152 ], [ false, %151 ], [ false, %150 ], [ true, %144 ]
-  %.046.i168 = phi i32 [ 1, %149 ], [ 3, %152 ], [ 3, %151 ], [ 3, %150 ], [ 1, %144 ]
-  %.not50.i169 = phi i1 [ true, %149 ], [ true, %152 ], [ true, %151 ], [ false, %150 ], [ true, %144 ]
-  %.not51.i170 = phi i1 [ true, %149 ], [ true, %152 ], [ false, %151 ], [ true, %150 ], [ true, %144 ]
-  %.not52.i171 = phi i1 [ true, %149 ], [ false, %152 ], [ true, %151 ], [ true, %150 ], [ true, %144 ]
+  %154 = phi i1 [ true, %149 ], [ false, %150 ], [ false, %151 ], [ false, %152 ], [ true, %144 ]
+  %.046.i168 = phi i32 [ 1, %149 ], [ 3, %150 ], [ 3, %151 ], [ 3, %152 ], [ 1, %144 ]
+  %.not50.i169 = phi i1 [ true, %149 ], [ false, %150 ], [ true, %151 ], [ true, %152 ], [ true, %144 ]
+  %.not51.i170 = phi i1 [ true, %149 ], [ true, %150 ], [ false, %151 ], [ true, %152 ], [ true, %144 ]
+  %.not52.i171 = phi i1 [ true, %149 ], [ true, %150 ], [ true, %151 ], [ false, %152 ], [ true, %144 ]
   %155 = add i32 %.046.i168, %.8258.ph
   %156 = icmp ule i32 %155, %145
   %or.cond.i172 = or i1 %6, %156
@@ -1112,11 +1112,11 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   br label %202
 
 202:                                              ; preds = %201, %200, %199, %198, %193
-  %203 = phi i1 [ true, %198 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ true, %193 ]
-  %.046.i176 = phi i32 [ 1, %198 ], [ 3, %201 ], [ 3, %200 ], [ 3, %199 ], [ 1, %193 ]
-  %.not50.i177 = phi i1 [ true, %198 ], [ true, %201 ], [ true, %200 ], [ false, %199 ], [ true, %193 ]
-  %.not51.i178 = phi i1 [ true, %198 ], [ true, %201 ], [ false, %200 ], [ true, %199 ], [ true, %193 ]
-  %.not52.i179 = phi i1 [ true, %198 ], [ false, %201 ], [ true, %200 ], [ true, %199 ], [ true, %193 ]
+  %203 = phi i1 [ true, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ true, %193 ]
+  %.046.i176 = phi i32 [ 1, %198 ], [ 3, %199 ], [ 3, %200 ], [ 3, %201 ], [ 1, %193 ]
+  %.not50.i177 = phi i1 [ true, %198 ], [ false, %199 ], [ true, %200 ], [ true, %201 ], [ true, %193 ]
+  %.not51.i178 = phi i1 [ true, %198 ], [ true, %199 ], [ false, %200 ], [ true, %201 ], [ true, %193 ]
+  %.not52.i179 = phi i1 [ true, %198 ], [ true, %199 ], [ true, %200 ], [ false, %201 ], [ true, %193 ]
   %204 = add i32 %.046.i176, %.9.ph
   %205 = icmp ule i32 %204, %194
   %or.cond.i180 = or i1 %6, %205
@@ -1301,11 +1301,11 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %293
 
 293:                                              ; preds = %292, %291, %290, %289, %279
-  %294 = phi i1 [ true, %289 ], [ false, %292 ], [ false, %291 ], [ false, %290 ], [ true, %279 ]
-  %.046.i192 = phi i32 [ 1, %289 ], [ 3, %292 ], [ 3, %291 ], [ 3, %290 ], [ 1, %279 ]
-  %.not50.i193 = phi i1 [ true, %289 ], [ true, %292 ], [ true, %291 ], [ false, %290 ], [ true, %279 ]
-  %.not51.i194 = phi i1 [ true, %289 ], [ true, %292 ], [ false, %291 ], [ true, %290 ], [ true, %279 ]
-  %.not52.i195 = phi i1 [ true, %289 ], [ false, %292 ], [ true, %291 ], [ true, %290 ], [ true, %279 ]
+  %294 = phi i1 [ true, %289 ], [ false, %290 ], [ false, %291 ], [ false, %292 ], [ true, %279 ]
+  %.046.i192 = phi i32 [ 1, %289 ], [ 3, %290 ], [ 3, %291 ], [ 3, %292 ], [ 1, %279 ]
+  %.not50.i193 = phi i1 [ true, %289 ], [ false, %290 ], [ true, %291 ], [ true, %292 ], [ true, %279 ]
+  %.not51.i194 = phi i1 [ true, %289 ], [ true, %290 ], [ false, %291 ], [ true, %292 ], [ true, %279 ]
+  %.not52.i195 = phi i1 [ true, %289 ], [ true, %290 ], [ true, %291 ], [ false, %292 ], [ true, %279 ]
   %295 = add i32 %.046.i192, %.0252.lcssa
   %296 = icmp ule i32 %295, %285
   %or.cond.i196 = or i1 %6, %296
@@ -1407,11 +1407,11 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %347
 
 347:                                              ; preds = %346, %345, %344, %343, %333
-  %348 = phi i1 [ true, %343 ], [ false, %346 ], [ false, %345 ], [ false, %344 ], [ true, %333 ]
-  %.046.i200 = phi i32 [ 1, %343 ], [ 3, %346 ], [ 3, %345 ], [ 3, %344 ], [ 1, %333 ]
-  %.not50.i201 = phi i1 [ true, %343 ], [ true, %346 ], [ true, %345 ], [ false, %344 ], [ true, %333 ]
-  %.not51.i202 = phi i1 [ true, %343 ], [ true, %346 ], [ false, %345 ], [ true, %344 ], [ true, %333 ]
-  %.not52.i203 = phi i1 [ true, %343 ], [ false, %346 ], [ true, %345 ], [ true, %344 ], [ true, %333 ]
+  %348 = phi i1 [ true, %343 ], [ false, %344 ], [ false, %345 ], [ false, %346 ], [ true, %333 ]
+  %.046.i200 = phi i32 [ 1, %343 ], [ 3, %344 ], [ 3, %345 ], [ 3, %346 ], [ 1, %333 ]
+  %.not50.i201 = phi i1 [ true, %343 ], [ false, %344 ], [ true, %345 ], [ true, %346 ], [ true, %333 ]
+  %.not51.i202 = phi i1 [ true, %343 ], [ true, %344 ], [ false, %345 ], [ true, %346 ], [ true, %333 ]
+  %.not52.i203 = phi i1 [ true, %343 ], [ true, %344 ], [ true, %345 ], [ false, %346 ], [ true, %333 ]
   %349 = add i32 %.046.i200, %.12.ph
   %350 = icmp ule i32 %349, %339
   %or.cond.i204 = or i1 %6, %350
@@ -1510,11 +1510,11 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %396
 
 396:                                              ; preds = %395, %394, %393, %392, %389
-  %397 = phi i1 [ true, %392 ], [ false, %395 ], [ false, %394 ], [ false, %393 ], [ true, %389 ]
-  %.046.i208 = phi i32 [ 1, %392 ], [ 3, %395 ], [ 3, %394 ], [ 3, %393 ], [ 1, %389 ]
-  %.not50.i209 = phi i1 [ true, %392 ], [ true, %395 ], [ true, %394 ], [ false, %393 ], [ true, %389 ]
-  %.not51.i210 = phi i1 [ true, %392 ], [ true, %395 ], [ false, %394 ], [ true, %393 ], [ true, %389 ]
-  %.not52.i211 = phi i1 [ true, %392 ], [ false, %395 ], [ true, %394 ], [ true, %393 ], [ true, %389 ]
+  %397 = phi i1 [ true, %392 ], [ false, %393 ], [ false, %394 ], [ false, %395 ], [ true, %389 ]
+  %.046.i208 = phi i32 [ 1, %392 ], [ 3, %393 ], [ 3, %394 ], [ 3, %395 ], [ 1, %389 ]
+  %.not50.i209 = phi i1 [ true, %392 ], [ false, %393 ], [ true, %394 ], [ true, %395 ], [ true, %389 ]
+  %.not51.i210 = phi i1 [ true, %392 ], [ true, %393 ], [ false, %394 ], [ true, %395 ], [ true, %389 ]
+  %.not52.i211 = phi i1 [ true, %392 ], [ true, %393 ], [ true, %394 ], [ false, %395 ], [ true, %389 ]
   %398 = add i32 %.046.i208, %.4255.ph
   %399 = icmp ule i32 %398, %388
   %or.cond.i212 = or i1 %6, %399

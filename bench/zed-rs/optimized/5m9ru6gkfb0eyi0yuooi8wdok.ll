@@ -2285,7 +2285,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hf47dd6a2bfce93a1E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -2362,7 +2362,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -3203,10 +3203,10 @@ _ZN5serde2de9MapAccess10next_value17hfafab16309b15140E.exit.i.i: ; preds = %75
   br label %149
 
 149:                                              ; preds = %.invoke, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i", %82, %70, %36
-  %.sroa.14.2 = phi ptr [ %38, %36 ], [ %81, %82 ], [ %.sroa.10.4.i, %70 ], [ %114, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ %74, %.invoke ]
-  %150 = phi i64 [ %.sroa.0192.2226316.i.ph, %36 ], [ %.sroa.0192.2226316.i.ph, %82 ], [ 3, %70 ], [ %.sroa.0192.2226316.i.ph, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ %.sroa.0192.2226316.i.ph, %.invoke ]
-  %151 = phi i64 [ %.ph467, %36 ], [ 2, %82 ], [ %.ph467, %70 ], [ 2, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ %.ph467, %.invoke ]
-  %.sroa.0103.5.i = phi i8 [ 1, %36 ], [ 1, %82 ], [ 1, %70 ], [ %.sroa.0103.6.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ 1, %.invoke ]
+  %.sroa.14.2 = phi ptr [ %38, %36 ], [ %114, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ %.sroa.10.4.i, %70 ], [ %81, %82 ], [ %74, %.invoke ]
+  %150 = phi i64 [ %.sroa.0192.2226316.i.ph, %36 ], [ %.sroa.0192.2226316.i.ph, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ 3, %70 ], [ %.sroa.0192.2226316.i.ph, %82 ], [ %.sroa.0192.2226316.i.ph, %.invoke ]
+  %151 = phi i64 [ %.ph467, %36 ], [ 2, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ %.ph467, %70 ], [ 2, %82 ], [ %.ph467, %.invoke ]
+  %.sroa.0103.5.i = phi i8 [ 1, %36 ], [ %.sroa.0103.6.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE.exit177.i" ], [ 1, %70 ], [ 1, %82 ], [ 1, %.invoke ]
   %152 = ptrtoint ptr %.sroa.4.0.copyload.i.ph460 to i64
   %153 = ptrtoint ptr %.sroa.10.0.i.ph to i64
   %.not139.i = icmp eq i64 %.ph480, 3
@@ -5763,7 +5763,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hf7b4162bd33c2412E.exit.i.i" unwind label %.loopexit29, !noalias !1522
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hf7b4162bd33c2412E.exit.thread.i.i": ; preds = %.noexc8.i.i, %.noexc7.i.i, %39
-  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %43, %.noexc7.i.i ], [ %48, %.noexc8.i.i ], [ %41, %39 ]
+  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %48, %.noexc8.i.i ], [ %43, %.noexc7.i.i ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1521
   br label %55
 

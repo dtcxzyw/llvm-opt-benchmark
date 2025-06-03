@@ -5781,8 +5781,8 @@ _ZN12_GLOBAL__N_111IfConverter16IfConvertDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjb
   call void @_ZN4llvm22recomputeLivenessFlagsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(288) %2061) #24
   br label %.thread213
 
-.thread213:                                       ; preds = %.split, %1479, %1875, %_ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.exit, %1490, %1481, %1473, %.critedge102, %1845, %1974, %2059, %.thread218, %_ZN12_GLOBAL__N_111IfConverter16IfConvertDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjbb.exit
-  %.184215 = phi i1 [ true, %2059 ], [ true, %.thread218 ], [ false, %_ZN12_GLOBAL__N_111IfConverter16IfConvertDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjbb.exit ], [ false, %_ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.exit ], [ false, %1490 ], [ false, %1481 ], [ false, %1473 ], [ false, %.critedge102 ], [ false, %1845 ], [ false, %1974 ], [ false, %1875 ], [ false, %1479 ], [ false, %.split ]
+.thread213:                                       ; preds = %.split, %1479, %1875, %_ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.exit, %1490, %1481, %1473, %.critedge102, %1974, %1845, %2059, %.thread218, %_ZN12_GLOBAL__N_111IfConverter16IfConvertDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjbb.exit
+  %.184215 = phi i1 [ true, %2059 ], [ true, %.thread218 ], [ false, %_ZN12_GLOBAL__N_111IfConverter16IfConvertDiamondERNS0_6BBInfoENS0_9IfcvtKindEjjbb.exit ], [ false, %_ZN12_GLOBAL__N_111IfConverter17IfConvertTriangleERNS0_6BBInfoENS0_9IfcvtKindE.exit ], [ false, %1490 ], [ false, %1481 ], [ false, %1473 ], [ false, %.critedge102 ], [ false, %1974 ], [ false, %1845 ], [ false, %1875 ], [ false, %1479 ], [ false, %.split ]
   %2062 = or i1 %.089280, %.184215
   %2063 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10IfCvtLimit, i64 120), align 8, !tbaa !34
   %.not = icmp eq i32 %2063, -1

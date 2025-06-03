@@ -4805,7 +4805,7 @@ _ZN10arith_util7mk_idivEP4exprS1_.exit344:        ; preds = %638
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit305 unwind label %592
 
 660:                                              ; preds = %642, %613, %577
-  %.sroa.0.0 = phi i32 [ -2, %577 ], [ %641, %642 ], [ %612, %613 ]
+  %.sroa.0.0 = phi i32 [ -2, %577 ], [ %612, %613 ], [ %641, %642 ]
   %661 = load ptr, ptr %18, align 8, !tbaa !51
   %662 = invoke noundef ptr @_ZN10arith_util6mk_intEj(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef %569)
           to label %663 unwind label %592
@@ -4831,7 +4831,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit305: ; preds = %.inv
   br label %674
 
 669:                                              ; preds = %.loopexit, %.loopexit.split-lp, %592, %625, %633, %654, %655, %585, %591, %494, %551, %534, %502, %496, %402, %459, %442, %409, %408, %338, %340, %318, %301, %299
-  %.pn186.pn.pn = phi { ptr, i32 } [ %300, %299 ], [ %302, %301 ], [ %319, %318 ], [ %339, %338 ], [ %341, %340 ], [ %403, %402 ], [ %410, %409 ], [ %443, %442 ], [ %460, %459 ], [ %.pn184, %408 ], [ %495, %494 ], [ %497, %496 ], [ %535, %534 ], [ %552, %551 ], [ %.pn179, %502 ], [ %586, %585 ], [ %.pn166, %591 ], [ %593, %592 ], [ %656, %655 ], [ %.pn168, %654 ], [ %.pn172.pn, %633 ], [ %.pn170, %625 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn186.pn.pn = phi { ptr, i32 } [ %300, %299 ], [ %302, %301 ], [ %319, %318 ], [ %339, %338 ], [ %341, %340 ], [ %403, %402 ], [ %410, %409 ], [ %443, %442 ], [ %460, %459 ], [ %.pn184, %408 ], [ %495, %494 ], [ %497, %496 ], [ %535, %534 ], [ %552, %551 ], [ %.pn179, %502 ], [ %586, %585 ], [ %.pn166, %591 ], [ %593, %592 ], [ %.pn172.pn, %633 ], [ %.pn170, %625 ], [ %656, %655 ], [ %.pn168, %654 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #20
   br label %670
 
@@ -8916,8 +8916,8 @@ _ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit: ; preds = 
           to label %91 unwind label %147
 
 91:                                               ; preds = %.noexc50, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread66
-  %.0.i64 = phi i32 [ -2, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread66 ], [ 2, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread ], [ 0, %.noexc50 ]
-  %.0.i49 = phi i32 [ %90, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread66 ], [ %89, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread ], [ 0, %.noexc50 ]
+  %.0.i64 = phi i32 [ 2, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread ], [ -2, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread66 ], [ 0, %.noexc50 ]
+  %.0.i49 = phi i32 [ %89, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread ], [ %90, %_ZN5arith6solver21bound2constraint_kindEbN6lp_api10bound_kindEb.exit.thread66 ], [ 0, %.noexc50 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %93 = load ptr, ptr %92, align 8, !tbaa !341
   %94 = invoke noundef i32 @_ZN2lp10lar_solver12mk_var_boundEjNS_16lconstraint_kindERK8rational(ptr noundef nonnull align 8 dereferenceable(2128) %93, i32 noundef %86, i32 noundef %.0.i64, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -9325,7 +9325,7 @@ define hidden noundef range(i32 -2, 3) i32 @_ZN5arith6solver21bound2constraint_k
   br label %12
 
 12:                                               ; preds = %11, %8, %5
-  %.0 = phi i32 [ 0, %11 ], [ %10, %8 ], [ %7, %5 ]
+  %.0 = phi i32 [ 0, %11 ], [ %7, %5 ], [ %10, %8 ]
   ret i32 %.0
 }
 

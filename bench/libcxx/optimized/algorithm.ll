@@ -644,7 +644,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcE
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %21, %34, %56
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
 }
 
@@ -1141,7 +1141,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -1636,7 +1636,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaE
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %21, %34, %56
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
 }
 
@@ -2131,7 +2131,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhE
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %21, %34, %56
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
 }
 
@@ -2628,7 +2628,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 2
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -3125,7 +3125,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 2
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -3622,7 +3622,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -4119,7 +4119,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -4616,7 +4616,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -5113,7 +5113,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -5610,7 +5610,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -6107,7 +6107,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyE
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %22, %35, %57
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
 }
 
@@ -6627,7 +6627,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfE
   %256 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %22, %38, %65
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
   ret void
 }
 
@@ -7147,7 +7147,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdE
   %256 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %22, %38, %65
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
   ret void
 }
 
@@ -8488,7 +8488,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !207
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %47 ], [ true, %25 ], [ true, %12 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -9359,7 +9359,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !226
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -10202,7 +10202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !245
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %47 ], [ true, %25 ], [ true, %12 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -11043,7 +11043,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !264
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %47 ], [ true, %25 ], [ true, %12 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -11911,7 +11911,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !283
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -12781,7 +12781,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !302
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -13651,7 +13651,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !321
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -14521,7 +14521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !340
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -15370,7 +15370,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !359
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -16219,7 +16219,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !378
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -17089,7 +17089,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !397
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -17959,7 +17959,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !416
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %48 ], [ true, %26 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -18844,7 +18844,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !435
 
 .loopexit:                                        ; preds = %123, %97, %.thread, %7, %12, %2, %2, %56, %29, %13
-  %.013 = phi i1 [ true, %56 ], [ true, %29 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %29 ], [ true, %56 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
   ret i1 %.013
 }
 
@@ -19713,7 +19713,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !454
 
 .loopexit:                                        ; preds = %123, %97, %.thread, %7, %12, %2, %2, %56, %29, %13
-  %.013 = phi i1 [ true, %56 ], [ true, %29 ], [ true, %13 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
+  %.013 = phi i1 [ true, %13 ], [ true, %29 ], [ true, %56 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
   ret i1 %.013
 }
 

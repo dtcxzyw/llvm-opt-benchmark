@@ -963,8 +963,8 @@ ssl_tls13_validate_certificate.exit.thread34:     ; preds = %170, %ssl_tls13_val
   %178 = tail call i32 @mbedtls_ssl_add_hs_msg_to_checksum(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull %13, i64 noundef %16) #8
   br label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
-mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %140, %175, %174, %127, %139, %73, %90, %96, %103, %102, %111, %119, %65, %61, %147, %41, %23, %11, %3, %ssl_tls13_validate_certificate.exit.thread34, %ssl_tls13_validate_certificate.exit, %mbedtls_ssl_tls13_parse_certificate.exit
-  %.0 = phi i32 [ %.0.i14, %mbedtls_ssl_tls13_parse_certificate.exit ], [ %177, %ssl_tls13_validate_certificate.exit ], [ %178, %ssl_tls13_validate_certificate.exit.thread34 ], [ -30464, %11 ], [ %2, %3 ], [ -29440, %127 ], [ -29440, %139 ], [ -29440, %73 ], [ -29440, %90 ], [ -29440, %96 ], [ -9600, %103 ], [ -10368, %102 ], [ -29440, %111 ], [ -29440, %119 ], [ -29440, %65 ], [ -32512, %61 ], [ -29440, %147 ], [ -29440, %41 ], [ -29440, %23 ], [ -30592, %175 ], [ -29824, %174 ], [ %141, %140 ]
+mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %140, %175, %174, %127, %139, %73, %90, %96, %111, %119, %102, %103, %65, %61, %147, %41, %23, %11, %3, %ssl_tls13_validate_certificate.exit.thread34, %ssl_tls13_validate_certificate.exit, %mbedtls_ssl_tls13_parse_certificate.exit
+  %.0 = phi i32 [ %.0.i14, %mbedtls_ssl_tls13_parse_certificate.exit ], [ %177, %ssl_tls13_validate_certificate.exit ], [ %178, %ssl_tls13_validate_certificate.exit.thread34 ], [ -30464, %11 ], [ %2, %3 ], [ -29440, %127 ], [ -29440, %139 ], [ -29440, %73 ], [ -29440, %90 ], [ -29440, %96 ], [ -29440, %111 ], [ -29440, %119 ], [ -10368, %102 ], [ -9600, %103 ], [ -29440, %65 ], [ -32512, %61 ], [ -29440, %147 ], [ -29440, %41 ], [ -29440, %23 ], [ -30592, %175 ], [ -29824, %174 ], [ %141, %140 ]
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 731, ptr noundef nonnull @.str.10) #8
   ret i32 %.0
 }
@@ -1160,7 +1160,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ssl_tls13_check_sig_alg_cert_key_matc
   br label %14
 
 14:                                               ; preds = %12, %13, %10, %8, %6
-  %.0.shrunk = phi i1 [ false, %13 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ true, %12 ]
+  %.0.shrunk = phi i1 [ false, %13 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ true, %12 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1339,17 +1339,17 @@ mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i: ; preds = %mbedtl
 
 73:                                               ; preds = %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i
   switch i64 %72, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i [
-    i64 256, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i
-    i64 384, label %74
-    i64 521, label %76
+    i64 256, label %74
+    i64 384, label %76
+    i64 521, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i
   ]
 
 74:                                               ; preds = %73
-  %75 = icmp eq i16 %52, 1283
+  %75 = icmp eq i16 %52, 1027
   br i1 %75, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread78.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 76:                                               ; preds = %73
-  %77 = icmp eq i16 %52, 1539
+  %77 = icmp eq i16 %52, 1283
   br i1 %77, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread78.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 78:                                               ; preds = %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i
@@ -1358,7 +1358,7 @@ mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i: ; preds = %mbedtl
   br i1 %switch.i.i, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread78.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i: ; preds = %73
-  %79 = icmp eq i16 %52, 1027
+  %79 = icmp eq i16 %52, 1539
   br i1 %79, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread78.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread78.i: ; preds = %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i, %78, %76, %74

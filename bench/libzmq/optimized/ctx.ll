@@ -2008,8 +2008,8 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit:      ; preds = %19, %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %16, ptr %27, align 4, !tbaa !23
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i34 = icmp eq i32 %28, 0
-  br i1 %.not.i.i34, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %29, !prof !93
+  %.not.i.i35 = icmp eq i32 %28, 0
+  br i1 %.not.i.i35, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %29, !prof !93
 
 29:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit
   %30 = tail call ptr @strerror(i32 noundef %28) #25
@@ -2036,8 +2036,8 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit:      ; preds = %19, %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   store ptr %0, ptr %6, align 8, !tbaa !129
   %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i35 = icmp eq i32 %41, 0
-  br i1 %.not.i.i35, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36, label %42, !prof !93
+  %.not.i.i36 = icmp eq i32 %41, 0
+  br i1 %.not.i.i36, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37, label %42, !prof !93
 
 42:                                               ; preds = %40
   %43 = tail call ptr @strerror(i32 noundef %41) #25
@@ -2046,17 +2046,17 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit:      ; preds = %19, %21
   %46 = load ptr, ptr @stderr, align 8, !tbaa !94
   %47 = tail call i32 @fflush(ptr noundef %46)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %43)
-  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36
+  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36:    ; preds = %40, %42
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37:    ; preds = %40, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.02022.i.i.i = load ptr, ptr %48, align 8, !tbaa !111
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36, %.lr.ph.i.i.i
-  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37, %.lr.ph.i.i.i
+  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37 ]
   %50 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
   %51 = load i32, ptr %50, align 4, !tbaa !124
   %52 = icmp slt i32 %16, %51
@@ -2069,8 +2069,8 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36:    ; preds = %40, %42
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   br i1 %52, label %._crit_edge.thread.i.i.i, label %58
 
-._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %49, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit36 ]
+._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %49, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit37 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8, !tbaa !26
   %55 = icmp eq ptr %.019.lcssa28.i.i.i, %54
@@ -2116,8 +2116,8 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 72:                                               ; preds = %.noexc, %58
   %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i37 = icmp eq i32 %73, 0
-  br i1 %.not.i.i37, label %_ZN3zmq13scoped_lock_tD2Ev.exit38, label %74, !prof !93
+  %.not.i.i38 = icmp eq i32 %73, 0
+  br i1 %.not.i.i38, label %_ZN3zmq13scoped_lock_tD2Ev.exit39, label %74, !prof !93
 
 74:                                               ; preds = %72
   %75 = tail call ptr @strerror(i32 noundef %73) #25
@@ -2126,7 +2126,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %78 = load ptr, ptr @stderr, align 8, !tbaa !94
   %79 = tail call i32 @fflush(ptr noundef %78)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %75)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit38 unwind label %80
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit39 unwind label %80
 
 80:                                               ; preds = %74
   %81 = landingpad { ptr, i32 }
@@ -2135,7 +2135,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   tail call void @__clang_call_terminate(ptr %82) #28
   unreachable
 
-_ZN3zmq13scoped_lock_tD2Ev.exit38:                ; preds = %72, %74
+_ZN3zmq13scoped_lock_tD2Ev.exit39:                ; preds = %72, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
@@ -2155,8 +2155,8 @@ _ZN3zmq13scoped_lock_tD2Ev.exit38:                ; preds = %72, %74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
   store ptr %0, ptr %7, align 8, !tbaa !129
   %88 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i39 = icmp eq i32 %88, 0
-  br i1 %.not.i.i39, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit40, label %89, !prof !93
+  %.not.i.i40 = icmp eq i32 %88, 0
+  br i1 %.not.i.i40, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit41, label %89, !prof !93
 
 89:                                               ; preds = %87
   %90 = tail call ptr @strerror(i32 noundef %88) #25
@@ -2165,14 +2165,14 @@ _ZN3zmq13scoped_lock_tD2Ev.exit38:                ; preds = %72, %74
   %93 = load ptr, ptr @stderr, align 8, !tbaa !94
   %94 = tail call i32 @fflush(ptr noundef %93)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %90)
-  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit40
+  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit41
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit40:    ; preds = %87, %89
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit41:    ; preds = %87, %89
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = invoke noundef i64 @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5eraseERKi(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit unwind label %100
 
-_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit40
+_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit41
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %102
 
@@ -2181,7 +2181,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_loc
   store i32 22, ptr %99, align 4, !tbaa !124
   br label %102
 
-100:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit40
+100:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit41
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq13scoped_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
@@ -2191,8 +2191,8 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_loc
 102:                                              ; preds = %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit, %98
   %.1 = phi i32 [ -1, %98 ], [ 0, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit ]
   %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i42 = icmp eq i32 %103, 0
-  br i1 %.not.i.i42, label %_ZN3zmq13scoped_lock_tD2Ev.exit43, label %104, !prof !93
+  %.not.i.i43 = icmp eq i32 %103, 0
+  br i1 %.not.i.i43, label %_ZN3zmq13scoped_lock_tD2Ev.exit44, label %104, !prof !93
 
 104:                                              ; preds = %102
   %105 = call ptr @strerror(i32 noundef %103) #25
@@ -2201,7 +2201,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_loc
   %108 = load ptr, ptr @stderr, align 8, !tbaa !94
   %109 = call i32 @fflush(ptr noundef %108)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %105)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit43 unwind label %110
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit44 unwind label %110
 
 110:                                              ; preds = %104
   %111 = landingpad { ptr, i32 }
@@ -2210,7 +2210,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %_ZN3zmq13scoped_loc
   call void @__clang_call_terminate(ptr %112) #28
   unreachable
 
-_ZN3zmq13scoped_lock_tD2Ev.exit43:                ; preds = %102, %104
+_ZN3zmq13scoped_lock_tD2Ev.exit44:                ; preds = %102, %104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
@@ -2221,8 +2221,8 @@ _ZN3zmq13scoped_lock_tD2Ev.exit43:                ; preds = %102, %104
 
 115:                                              ; preds = %113
   %116 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i44 = icmp eq i32 %116, 0
-  br i1 %.not.i.i44, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45, label %117, !prof !93
+  %.not.i.i45 = icmp eq i32 %116, 0
+  br i1 %.not.i.i45, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46, label %117, !prof !93
 
 117:                                              ; preds = %115
   %118 = tail call ptr @strerror(i32 noundef %116) #25
@@ -2231,16 +2231,16 @@ _ZN3zmq13scoped_lock_tD2Ev.exit43:                ; preds = %102, %104
   %121 = load ptr, ptr @stderr, align 8, !tbaa !94
   %122 = tail call i32 @fflush(ptr noundef %121)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %118)
-  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45
+  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45:    ; preds = %115, %117
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46:    ; preds = %115, %117
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %16, ptr %123, align 8, !tbaa !3
   %124 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i46 = icmp eq i32 %124, 0
-  br i1 %.not.i.i46, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %125, !prof !93
+  %.not.i.i47 = icmp eq i32 %124, 0
+  br i1 %.not.i.i47, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %125, !prof !93
 
-125:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45
+125:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46
   %126 = tail call ptr @strerror(i32 noundef %124) #25
   %127 = load ptr, ptr @stderr, align 8, !tbaa !94
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.4, ptr noundef %126, ptr noundef nonnull @.str.10, i32 noundef 125) #27
@@ -2269,8 +2269,8 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45:    ; preds = %115, %117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
   store ptr %0, ptr %9, align 8, !tbaa !129
   %138 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i48 = icmp eq i32 %138, 0
-  br i1 %.not.i.i48, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50, label %139, !prof !93
+  %.not.i.i49 = icmp eq i32 %138, 0
+  br i1 %.not.i.i49, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51, label %139, !prof !93
 
 139:                                              ; preds = %137
   %140 = call ptr @strerror(i32 noundef %138) #25
@@ -2279,9 +2279,9 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45:    ; preds = %115, %117
   %143 = load ptr, ptr @stderr, align 8, !tbaa !94
   %144 = call i32 @fflush(ptr noundef %143)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %140)
-          to label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50 unwind label %231
+          to label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51 unwind label %231
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50:    ; preds = %137, %139
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51:    ; preds = %137, %139
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
@@ -2298,10 +2298,10 @@ _ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50:    ; preds = %137, %139
   %151 = icmp ugt ptr %148, %150
   %.08.i.i.i = select i1 %151, ptr %148, ptr %150
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
-  %.not.i.i51 = select i1 %.not.i.not.i.i, i1 true, i1 %.not5.i.i
-  br i1 %.not.i.i51, label %165, label %152
+  %.not.i.i52 = select i1 %.not.i.not.i.i, i1 true, i1 %.not5.i.i
+  br i1 %.not.i.i52, label %165, label %152
 
-152:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50
+152:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %154 = load ptr, ptr %153, align 8, !tbaa !154, !noalias !149
   %155 = ptrtoint ptr %.08.i.i.i to i64
@@ -2327,7 +2327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPv(ptr noundef %161) #26
   br label %.body
 
-165:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit50
+165:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %166)
           to label %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %159
@@ -2436,8 +2436,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
   %203 = load ptr, ptr %9, align 8, !tbaa !139
   %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %203) #25
-  %.not.i.i52 = icmp eq i32 %204, 0
-  br i1 %.not.i.i52, label %_ZN3zmq13scoped_lock_tD2Ev.exit53, label %205, !prof !93
+  %.not.i.i53 = icmp eq i32 %204, 0
+  br i1 %.not.i.i53, label %_ZN3zmq13scoped_lock_tD2Ev.exit54, label %205, !prof !93
 
 205:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %206 = call ptr @strerror(i32 noundef %204) #25
@@ -2446,7 +2446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %209 = load ptr, ptr @stderr, align 8, !tbaa !94
   %210 = call i32 @fflush(ptr noundef %209)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %206)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit53 unwind label %211
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit54 unwind label %211
 
 211:                                              ; preds = %205
   %212 = landingpad { ptr, i32 }
@@ -2455,7 +2455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @__clang_call_terminate(ptr %213) #28
   unreachable
 
-_ZN3zmq13scoped_lock_tD2Ev.exit53:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %205
+_ZN3zmq13scoped_lock_tD2Ev.exit54:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %205
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   %214 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %214, ptr %8, align 8, !tbaa !119
@@ -2472,14 +2472,14 @@ _ZN3zmq13scoped_lock_tD2Ev.exit53:                ; preds = %_ZNSt7__cxx1112basi
   %223 = icmp eq ptr %221, %222
   br i1 %223, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3zmq13scoped_lock_tD2Ev.exit53
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3zmq13scoped_lock_tD2Ev.exit54
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %225 = load i64, ptr %224, align 8, !tbaa !30
   %226 = icmp ult i64 %225, 16
   call void @llvm.assume(i1 %226)
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZN3zmq13scoped_lock_tD2Ev.exit53
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZN3zmq13scoped_lock_tD2Ev.exit54
   call void @_ZdlPv(ptr noundef %221) #26
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
@@ -2527,8 +2527,8 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
   store ptr %0, ptr %11, align 8, !tbaa !129
   %238 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i54 = icmp eq i32 %238, 0
-  br i1 %.not.i.i54, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55, label %239, !prof !93
+  %.not.i.i55 = icmp eq i32 %238, 0
+  br i1 %.not.i.i55, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit56, label %239, !prof !93
 
 239:                                              ; preds = %237
   %240 = tail call ptr @strerror(i32 noundef %238) #25
@@ -2537,19 +2537,19 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %243 = load ptr, ptr @stderr, align 8, !tbaa !94
   %244 = tail call i32 @fflush(ptr noundef %243)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %240)
-  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
+  br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit56
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55:    ; preds = %237, %239
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit56:    ; preds = %237, %239
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %247 = load i64, ptr %246, align 8, !tbaa !30
   %248 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %245, i64 noundef 0, i64 noundef %247, ptr noundef %2, i64 noundef %3)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit unwind label %259
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit56
   %249 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i57 = icmp eq i32 %249, 0
-  br i1 %.not.i.i57, label %_ZN3zmq13scoped_lock_tD2Ev.exit58, label %250, !prof !93
+  %.not.i.i58 = icmp eq i32 %249, 0
+  br i1 %.not.i.i58, label %_ZN3zmq13scoped_lock_tD2Ev.exit59, label %250, !prof !93
 
 250:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit
   %251 = tail call ptr @strerror(i32 noundef %249) #25
@@ -2558,7 +2558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds 
   %254 = load ptr, ptr @stderr, align 8, !tbaa !94
   %255 = tail call i32 @fflush(ptr noundef %254)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %251)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit58 unwind label %256
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit59 unwind label %256
 
 256:                                              ; preds = %250
   %257 = landingpad { ptr, i32 }
@@ -2567,11 +2567,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit: ; preds 
   tail call void @__clang_call_terminate(ptr %258) #28
   unreachable
 
-_ZN3zmq13scoped_lock_tD2Ev.exit58:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %250
+_ZN3zmq13scoped_lock_tD2Ev.exit59:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %250
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
-259:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
+259:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit56
   %260 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq13scoped_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
@@ -2583,15 +2583,15 @@ _ZN3zmq13scoped_lock_tD2Ev.exit58:                ; preds = %_ZNSt7__cxx1112basi
   store i32 22, ptr %262, align 4, !tbaa !124
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
-_ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %125, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45, %29, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, %261, %_ZN3zmq13scoped_lock_tD2Ev.exit58, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZN3zmq13scoped_lock_tD2Ev.exit43, %_ZN3zmq13scoped_lock_tD2Ev.exit38
-  %.0 = phi i32 [ -1, %261 ], [ 0, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit58 ], [ %.1, %_ZN3zmq13scoped_lock_tD2Ev.exit43 ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit38 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %29 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit45 ], [ 0, %125 ]
+_ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %125, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46, %29, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, %261, %_ZN3zmq13scoped_lock_tD2Ev.exit59, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZN3zmq13scoped_lock_tD2Ev.exit44, %_ZN3zmq13scoped_lock_tD2Ev.exit39
+  %.0 = phi i32 [ -1, %261 ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit39 ], [ %.1, %_ZN3zmq13scoped_lock_tD2Ev.exit44 ], [ 0, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit59 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %29 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit46 ], [ 0, %125 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
   ret i32 %.0
 
 263:                                              ; preds = %259, %234, %100, %83
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %234 ], [ %260, %259 ], [ %101, %100 ], [ %84, %83 ]
+  %.pn33 = phi { ptr, i32 } [ %84, %83 ], [ %101, %100 ], [ %.pn.pn, %234 ], [ %260, %259 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
-  resume { ptr, i32 } %.pn.pn.pn
+  resume { ptr, i32 } %.pn33
 }
 
 ; Function Attrs: mustprogress uwtable

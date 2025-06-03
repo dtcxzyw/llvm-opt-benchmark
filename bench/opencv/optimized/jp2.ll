@@ -2150,7 +2150,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_header_procedure(ptr noundef %
   br label %.loopexit
 
 35:                                               ; preds = %34, %24, %17
-  %.1 = phi i32 [ 8, %17 ], [ 16, %34 ], [ 8, %24 ]
+  %.1 = phi i32 [ 8, %17 ], [ 8, %24 ], [ 16, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %36 = load i32, ptr %10, align 4, !tbaa !124
   %37 = icmp eq i32 %36, 1785737827

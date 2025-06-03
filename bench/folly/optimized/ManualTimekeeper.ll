@@ -1076,7 +1076,7 @@ _ZN5folly17exception_wrapperD2Ev.exit31.i.i:      ; preds = %111, %109
 default.unreachable:                              ; preds = %22
   unreachable
 
-.thread:                                          ; preds = %105, %_ZN5folly17exception_wrapperD2Ev.exit31.i.i, %.noexc7
+.thread:                                          ; preds = %.noexc7, %105, %_ZN5folly17exception_wrapperD2Ev.exit31.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %"_ZZN5folly16ManualTimekeeper14TimeoutHandler6createEONS_7PromiseINS_4UnitEEEEN3$_0D2Ev.exit"
 

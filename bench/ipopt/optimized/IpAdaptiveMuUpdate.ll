@@ -8530,9 +8530,9 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193: ; preds = %_ZN5Ipopt8Smar
   br label %379
 
 379:                                              ; preds = %352, %376, %306, %332, %280, %303, %335, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193
-  %.080 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %371, %376 ], [ %371, %352 ], [ %341, %335 ], [ %327, %332 ], [ %327, %306 ], [ %298, %303 ], [ %298, %280 ]
-  %.076 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %.379, %376 ], [ %.379, %352 ], [ %346, %335 ], [ %.278, %332 ], [ %.278, %306 ], [ %.177, %303 ], [ %.177, %280 ]
-  %.075 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %378, %376 ], [ %368, %352 ], [ %351, %335 ], [ %334, %332 ], [ %325, %306 ], [ %305, %303 ], [ %296, %280 ]
+  %.080 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %298, %303 ], [ %298, %280 ], [ %327, %332 ], [ %327, %306 ], [ %341, %335 ], [ %371, %376 ], [ %371, %352 ]
+  %.076 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %.177, %303 ], [ %.177, %280 ], [ %.278, %332 ], [ %.278, %306 ], [ %346, %335 ], [ %.379, %376 ], [ %.379, %352 ]
+  %.075 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193 ], [ %305, %303 ], [ %296, %280 ], [ %334, %332 ], [ %325, %306 ], [ %351, %335 ], [ %378, %376 ], [ %368, %352 ]
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %381 = load i32, ptr %380, align 4, !tbaa !76
   %.not = icmp eq i32 %381, 0
@@ -8568,7 +8568,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit193: ; preds = %_ZN5Ipopt8Smar
   br label %399
 
 399:                                              ; preds = %390, %394, %396, %382, %379
-  %.073 = phi double [ 0.000000e+00, %379 ], [ 0.000000e+00, %382 ], [ %398, %396 ], [ %395, %394 ], [ %393, %390 ]
+  %.073 = phi double [ 0.000000e+00, %379 ], [ 0.000000e+00, %382 ], [ %393, %390 ], [ %395, %394 ], [ %398, %396 ]
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %401 = load i32, ptr %400, align 8, !tbaa !77
   %cond = icmp eq i32 %401, 1

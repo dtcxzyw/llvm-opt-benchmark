@@ -1455,8 +1455,8 @@ define dso_local double @compute_bitmap_pages(ptr noundef readonly captures(none
   unreachable
 
 cost_bitmap_tree_node.exit:                       ; preds = %8, %17, %21
-  %.066 = phi double [ %23, %21 ], [ %19, %17 ], [ %16, %8 ]
-  %.065.in = phi ptr [ %24, %21 ], [ %20, %17 ], [ %11, %8 ]
+  %.066 = phi double [ %16, %8 ], [ %19, %17 ], [ %23, %21 ]
+  %.065.in = phi ptr [ %11, %8 ], [ %20, %17 ], [ %24, %21 ]
   %.065 = load double, ptr %.065.in, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %30 = load double, ptr %29, align 8
@@ -1762,8 +1762,8 @@ define dso_local void @cost_bitmap_and_node(ptr noundef captures(none) %0, ptr n
   unreachable
 
 list_head.exit:                                   ; preds = %21, %28, %32
-  %.028 = phi double [ %34, %32 ], [ %30, %28 ], [ %27, %21 ]
-  %.027.in = phi ptr [ %35, %32 ], [ %31, %28 ], [ %24, %21 ]
+  %.028 = phi double [ %27, %21 ], [ %30, %28 ], [ %34, %32 ]
+  %.027.in = phi ptr [ %24, %21 ], [ %31, %28 ], [ %35, %32 ]
   %.027 = load double, ptr %.027.in, align 8
   %39 = fmul double %.0203445, %.027
   %40 = fadd double %.03544, %.028
@@ -4295,7 +4295,7 @@ list_length.exit53:                               ; preds = %list_length.exit, %
   br label %107
 
 107:                                              ; preds = %104, %101, %97, %92, %87, %80
-  %.0.i = phi double [ %103, %101 ], [ %100, %97 ], [ %96, %92 ], [ %91, %87 ], [ %106, %104 ], [ 1.000000e+00, %80 ]
+  %.0.i = phi double [ %103, %101 ], [ %91, %87 ], [ %96, %92 ], [ %100, %97 ], [ %106, %104 ], [ 1.000000e+00, %80 ]
   %108 = and i32 %43, 4
   %.not66.i = icmp eq i32 %108, 0
   br i1 %.not66.i, label %111, label %109
@@ -4764,8 +4764,8 @@ cost_memoize_rescan.exit.i:                       ; preds = %._crit_edge.loopexi
   br label %cost_rescan.exit
 
 cost_rescan.exit:                                 ; preds = %63, %83, %38, %58, %17, %27, %33, %cost_memoize_rescan.exit.i, %202
-  %.045 = phi double [ %204, %202 ], [ %201, %cost_memoize_rescan.exit.i ], [ 0.000000e+00, %27 ], [ %35, %33 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %38 ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %63 ]
-  %.044 = phi double [ %206, %202 ], [ %199, %cost_memoize_rescan.exit.i ], [ %32, %27 ], [ %37, %33 ], [ %22, %17 ], [ %62, %58 ], [ %42, %38 ], [ %87, %83 ], [ %67, %63 ]
+  %.045 = phi double [ %204, %202 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %27 ], [ %35, %33 ], [ %201, %cost_memoize_rescan.exit.i ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %38 ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %63 ]
+  %.044 = phi double [ %206, %202 ], [ %22, %17 ], [ %32, %27 ], [ %37, %33 ], [ %199, %cost_memoize_rescan.exit.i ], [ %62, %58 ], [ %42, %38 ], [ %87, %83 ], [ %67, %63 ]
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %208 = load double, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -6668,7 +6668,7 @@ clamp_row_est.exit:                               ; preds = %37, %42, %44
   br label %57
 
 57:                                               ; preds = %48, %55, %clamp_row_est.exit
-  %.sroa.8.1 = phi double [ %56, %55 ], [ %54, %48 ], [ %47, %clamp_row_est.exit ]
+  %.sroa.8.1 = phi double [ %56, %55 ], [ %47, %clamp_row_est.exit ], [ %54, %48 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -7911,7 +7911,7 @@ get_foreign_key_join_selectivity.exit:            ; preds = %.lr.ph162.i, %6, %.
   unreachable
 
 197:                                              ; preds = %189, %186, %179, %173, %169
-  %.067 = phi double [ %193, %189 ], [ %188, %186 ], [ %185, %179 ], [ %178, %173 ], [ %172, %169 ]
+  %.067 = phi double [ %172, %169 ], [ %178, %173 ], [ %185, %179 ], [ %188, %186 ], [ %193, %189 ]
   %198 = fcmp ogt double %.067, 1.000000e+100
   %199 = fcmp uno double %.067, 0.000000e+00
   %or.cond.i81 = or i1 %198, %199

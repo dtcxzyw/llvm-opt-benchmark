@@ -7866,8 +7866,8 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %37
 
 37:                                               ; preds = %._crit_edge._crit_edge, %35
-  %38 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %33, %35 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %36, %35 ]
+  %38 = phi i32 [ %33, %35 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %39 = load i32, ptr %.sroa.032.1, align 4, !tbaa !47
   %40 = icmp eq i32 %39, %38
   br i1 %40, label %.loopexit, label %41
@@ -7877,8 +7877,8 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %43
 
 43:                                               ; preds = %._crit_edge._crit_edge57, %41
-  %44 = phi i32 [ %.pre58, %._crit_edge._crit_edge57 ], [ %38, %41 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge57 ], [ %42, %41 ]
+  %44 = phi i32 [ %38, %41 ], [ %.pre58, %._crit_edge._crit_edge57 ]
+  %.sroa.032.2 = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge57 ]
   %45 = load i32, ptr %.sroa.032.2, align 4, !tbaa !47
   %46 = icmp eq i32 %45, %44
   %spec.select = select i1 %46, ptr %.sroa.032.2, ptr %1
@@ -8154,8 +8154,8 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPj
   br label %37
 
 37:                                               ; preds = %._crit_edge._crit_edge, %35
-  %38 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %33, %35 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %36, %35 ]
+  %38 = phi i32 [ %33, %35 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %39 = load i32, ptr %.sroa.032.1, align 4, !tbaa !47
   %40 = icmp eq i32 %39, %38
   br i1 %40, label %.loopexit, label %41
@@ -8165,8 +8165,8 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPj
   br label %43
 
 43:                                               ; preds = %._crit_edge._crit_edge57, %41
-  %44 = phi i32 [ %.pre58, %._crit_edge._crit_edge57 ], [ %38, %41 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge57 ], [ %42, %41 ]
+  %44 = phi i32 [ %38, %41 ], [ %.pre58, %._crit_edge._crit_edge57 ]
+  %.sroa.032.2 = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge57 ]
   %45 = load i32, ptr %.sroa.032.2, align 4, !tbaa !47
   %46 = icmp eq i32 %45, %44
   %spec.select = select i1 %46, ptr %.sroa.032.2, ptr %1

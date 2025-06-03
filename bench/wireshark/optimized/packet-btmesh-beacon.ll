@@ -283,7 +283,7 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   br label %91
 
 91:                                               ; preds = %58, %61, %85, %78
-  %.0 = phi i32 [ %90, %85 ], [ 22, %78 ], [ 23, %61 ], [ 19, %58 ]
+  %.0 = phi i32 [ %90, %85 ], [ 23, %61 ], [ 19, %58 ], [ 22, %78 ]
   %92 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0)
   %.not137 = icmp eq i32 %92, 0
   br i1 %.not137, label %95, label %93

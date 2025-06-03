@@ -1676,7 +1676,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1812,7 +1812,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b1
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -1971,7 +1971,7 @@ define hidden { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h0
   br label %20
 
 20:                                               ; preds = %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %18, %16, %14
-  %.pn = phi { i8, i1 } [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i8, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ]
   %.sroa.18.0.in = extractvalue { i8, i1 } %.pn, 1
   %.sroa.0.0 = xor i1 %.sroa.18.0.in, true
   %.sroa.07.0 = extractvalue { i8, i1 } %.pn, 0
@@ -2130,7 +2130,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -4786,21 +4786,21 @@ define void @_ZN5tokio3net3tcp6socket9TcpSocket6new_v417h1ff6968eb63d6cb1E(ptr n
   call void @_ZN7socket26socket6Socket3new17hacb059b847c4db41E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %2, i32 noundef 2, i32 noundef 2049, i32 noundef 1, i32 6), !noalias !975
   %3 = load i32, ptr %2, align 8, !range !978, !noalias !975, !noundef !4
   %trunc.i = trunc nuw i32 %3 to i1
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !noalias !975, !nonnull !4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !range !979, !noalias !975
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %5 = load i32, ptr %4, align 4, !range !979, !noalias !975
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8, !noalias !975, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !975
   br i1 %trunc.i, label %10, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %7, ptr %9, align 4, !alias.scope !975
+  store i32 %5, ptr %9, align 4, !alias.scope !975
   br label %_ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %11, align 8, !alias.scope !975
+  store ptr %7, ptr %11, align 8, !alias.scope !975
   br label %_ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit
 
 _ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit: ; preds = %8, %10
@@ -4817,21 +4817,21 @@ define void @_ZN5tokio3net3tcp6socket9TcpSocket6new_v617hf0e8fd63e6ec34b6E(ptr n
   call void @_ZN7socket26socket6Socket3new17hacb059b847c4db41E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %2, i32 noundef 10, i32 noundef 2049, i32 noundef 1, i32 6), !noalias !980
   %3 = load i32, ptr %2, align 8, !range !978, !noalias !980, !noundef !4
   %trunc.i = trunc nuw i32 %3 to i1
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !noalias !980, !nonnull !4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !range !979, !noalias !980
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %5 = load i32, ptr %4, align 4, !range !979, !noalias !980
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8, !noalias !980, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !980
   br i1 %trunc.i, label %10, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %7, ptr %9, align 4, !alias.scope !980
+  store i32 %5, ptr %9, align 4, !alias.scope !980
   br label %_ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %11, align 8, !alias.scope !980
+  store ptr %7, ptr %11, align 8, !alias.scope !980
   br label %_ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit
 
 _ZN5tokio3net3tcp6socket9TcpSocket3new17h3240961845a2612dE.exit: ; preds = %8, %10
@@ -7007,7 +7007,7 @@ define hidden noundef range(i64 0, 3) i64 @_ZN5tokio4sync6notify18AtomicNotifica
   br label %_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.10338052584253536188.exit
 
 _ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.10338052584253536188.exit: ; preds = %6, %13, %20
-  %.0.i = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.i = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %switch = icmp ult i64 %.0.i, 3
   br i1 %switch, label %23, label %22
 
@@ -7993,7 +7993,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %114, %61
-  %.052.be = phi i64 [ %.sroa.07.0.i114, %114 ], [ %.sroa.07.0.i100, %61 ]
+  %.052.be = phi i64 [ %.sroa.07.0.i100, %61 ], [ %.sroa.07.0.i114, %114 ]
   br label %.preheader
 
 115:                                              ; preds = %111
@@ -8021,8 +8021,8 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
           to label %43 unwind label %100
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.exit121": ; preds = %.thread238, %215, %121, %123, %43
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn67, %43 ], [ %.pn67180, %123 ], [ %.pn67180, %121 ], [ %.pn.pn200, %.thread238 ], [ %.pn.pn200, %215 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %43 ], [ %.pn67180, %123 ], [ %.pn67180, %121 ], [ %.pn.pn200, %.thread238 ], [ %.pn.pn200, %215 ]
+  resume { ptr, i32 } %.pn67.pn
 
 121:                                              ; preds = %.thread, %43
   %.pn67180 = phi { ptr, i32 } [ %45, %.thread ], [ %.pn67, %43 ]
@@ -10066,7 +10066,7 @@ define noundef zeroext i1 @"_ZN84_$LT$tokio..sync..batch_semaphore..TryAcquireEr
   br label %18
 
 18:                                               ; preds = %12, %6
-  %.0.in = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in
 }
 

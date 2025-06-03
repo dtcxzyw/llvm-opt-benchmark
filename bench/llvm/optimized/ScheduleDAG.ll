@@ -4717,10 +4717,10 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm4SDepEN9__gnu_cxx5__ops16
   br label %68
 
 68:                                               ; preds = %._crit_edge._crit_edge, %66
-  %69 = phi i32 [ %.pre78, %._crit_edge._crit_edge ], [ %63, %66 ]
-  %70 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %58, %66 ]
-  %.0.copyload.i.i2.i.i.i.i47 = phi i64 [ %.0.copyload.i.i2.i.i.i.i47.pre, %._crit_edge._crit_edge ], [ %.0.copyload.i.i2.i.i.i.i43, %66 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %67, %66 ]
+  %69 = phi i32 [ %63, %66 ], [ %.pre78, %._crit_edge._crit_edge ]
+  %70 = phi i32 [ %58, %66 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.0.copyload.i.i2.i.i.i.i47 = phi i64 [ %.0.copyload.i.i2.i.i.i.i43, %66 ], [ %.0.copyload.i.i2.i.i.i.i47.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %67, %66 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.0.copyload.i.i.i.i.i.i46 = load i64, ptr %.1, align 8
   %.not.i.i.i48 = icmp eq i64 %.0.copyload.i.i.i.i.i.i46, %.0.copyload.i.i2.i.i.i.i47
   %71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -4738,10 +4738,10 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm4SDepEN9__gnu_cxx5__ops16
   br label %80
 
 80:                                               ; preds = %._crit_edge._crit_edge79, %78
-  %81 = phi i32 [ %.pre84, %._crit_edge._crit_edge79 ], [ %69, %78 ]
-  %82 = phi i32 [ %.pre82, %._crit_edge._crit_edge79 ], [ %70, %78 ]
-  %.0.copyload.i.i2.i.i.i.i51 = phi i64 [ %.0.copyload.i.i2.i.i.i.i51.pre, %._crit_edge._crit_edge79 ], [ %.0.copyload.i.i2.i.i.i.i47, %78 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge79 ], [ %79, %78 ]
+  %81 = phi i32 [ %69, %78 ], [ %.pre84, %._crit_edge._crit_edge79 ]
+  %82 = phi i32 [ %70, %78 ], [ %.pre82, %._crit_edge._crit_edge79 ]
+  %.0.copyload.i.i2.i.i.i.i51 = phi i64 [ %.0.copyload.i.i2.i.i.i.i47, %78 ], [ %.0.copyload.i.i2.i.i.i.i51.pre, %._crit_edge._crit_edge79 ]
+  %.2 = phi ptr [ %79, %78 ], [ %.029.lcssa, %._crit_edge._crit_edge79 ]
   %.0.copyload.i.i.i.i.i.i50 = load i64, ptr %.2, align 8
   %.not.i.i.i52 = icmp eq i64 %.0.copyload.i.i.i.i.i.i50, %.0.copyload.i.i2.i.i.i.i51
   %83 = getelementptr inbounds nuw i8, ptr %.2, i64 8

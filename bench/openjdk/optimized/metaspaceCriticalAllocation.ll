@@ -268,7 +268,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %"_ZZN27MetaspaceCri
   br label %16
 
 16:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %12
-  %.1 = phi i1 [ false, %_ZN11MutexLockerD2Ev.exit ], [ %15, %12 ]
+  %.1 = phi i1 [ %15, %12 ], [ false, %_ZN11MutexLockerD2Ev.exit ]
   ret i1 %.1
 }
 

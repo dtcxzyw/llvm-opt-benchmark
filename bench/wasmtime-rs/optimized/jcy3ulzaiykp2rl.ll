@@ -464,11 +464,11 @@ define hidden void @_ZN14cranelift_wasm17translation_utils24blocktype_params_res
   br i1 %10, label %13, label %14
 
 11:                                               ; preds = %3, %22, %5
-  %.sroa.02.0 = phi ptr [ %23, %22 ], [ null, %5 ], [ null, %3 ]
-  %.sroa.6.0 = phi ptr [ %24, %22 ], [ undef, %5 ], [ undef, %3 ]
-  %.sroa.9.sroa.0.0 = phi ptr [ %24, %22 ], [ null, %5 ], [ null, %3 ]
-  %.sroa.9.sroa.6.0 = phi i32 [ %.sroa.431.8.extract.trunc, %22 ], [ %.sroa.038.0.insert.insert, %5 ], [ 6, %3 ]
-  %.sroa.9.sroa.7.0 = phi i32 [ %.sroa.431.12.extract.trunc, %22 ], [ undef, %5 ], [ undef, %3 ]
+  %.sroa.02.0 = phi ptr [ null, %5 ], [ %23, %22 ], [ null, %3 ]
+  %.sroa.6.0 = phi ptr [ undef, %5 ], [ %24, %22 ], [ undef, %3 ]
+  %.sroa.9.sroa.0.0 = phi ptr [ null, %5 ], [ %24, %22 ], [ null, %3 ]
+  %.sroa.9.sroa.6.0 = phi i32 [ %.sroa.038.0.insert.insert, %5 ], [ %.sroa.431.8.extract.trunc, %22 ], [ 6, %3 ]
+  %.sroa.9.sroa.7.0 = phi i32 [ undef, %5 ], [ %.sroa.431.12.extract.trunc, %22 ], [ undef, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.02.0, ptr %12, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1126,8 +1126,8 @@ default.unreachable:                              ; preds = %14
   %30 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %30, label %32, label %33
 
-31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %23, %19, %17, %11
-  %.1 = phi ptr [ @anon.3c866b6a381fe8435a7c48ae7353dc40.12, %11 ], [ %.val, %17 ], [ %.val, %19 ], [ %.val, %23 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
+31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %17, %19, %23, %11
+  %.1 = phi ptr [ @anon.3c866b6a381fe8435a7c48ae7353dc40.12, %11 ], [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -1145,7 +1145,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %14
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %31
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %23, %19, %17
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %17, %19, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !107
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h208843ff22907fa4E.llvm.3191862155771161713(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !107
   %36 = load i8, ptr %4, align 8, !range !114, !alias.scope !115, !noalias !107, !noundef !4
@@ -1401,7 +1401,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$regalloc2..checker..CheckerError$u20$as$u20$core..fmt..Debug$GT$3fmt17hdbc032771491cca4E.exit"
 
 "_ZN69_$LT$regalloc2..checker..CheckerError$u20$as$u20$core..fmt..Debug$GT$3fmt17hdbc032771491cca4E.exit": ; preds = %18, %21, %25, %29, %34, %38, %42, %46, %51, %55, %58, %62
-  %.0.in.i = phi i1 [ %64, %62 ], [ %61, %58 ], [ %57, %55 ], [ %54, %51 ], [ %50, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ]
+  %.0.in.i = phi i1 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %33, %29 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %50, %46 ], [ %54, %51 ], [ %57, %55 ], [ %61, %58 ], [ %64, %62 ]
   ret i1 %.0.in.i
 }
 
@@ -1427,7 +1427,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h15a1639d56e24190E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h15a1639d56e24190E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1968,11 +1968,11 @@ default.unreachable1.i.i.i:                       ; preds = %13
   br label %"_ZN98_$LT$cranelift_codegen..machinst..buffer..MachRelocBase$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h45495b8204400497E.llvm.14171400993280223970.exit"
 
 "_ZN98_$LT$cranelift_codegen..machinst..buffer..MachRelocBase$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h45495b8204400497E.llvm.14171400993280223970.exit": ; preds = %14, %17, %30, %33, %36
-  %.sroa.8.0.i = phi ptr [ undef, %36 ], [ undef, %33 ], [ undef, %30 ], [ %27, %17 ], [ undef, %14 ]
-  %.sroa.61.0.i = phi i32 [ %38, %36 ], [ undef, %33 ], [ undef, %30 ], [ undef, %17 ], [ %16, %14 ]
-  %.sroa.9.0.i = phi i64 [ undef, %36 ], [ undef, %33 ], [ undef, %30 ], [ %28, %17 ], [ undef, %14 ]
-  %.sroa.5.0.i = phi i8 [ undef, %36 ], [ %35, %33 ], [ %32, %30 ], [ undef, %17 ], [ undef, %14 ]
-  %.sroa.0.0.i = phi i8 [ 4, %36 ], [ 3, %33 ], [ 2, %30 ], [ 1, %17 ], [ 0, %14 ]
+  %.sroa.8.0.i = phi ptr [ undef, %36 ], [ undef, %14 ], [ %27, %17 ], [ undef, %30 ], [ undef, %33 ]
+  %.sroa.61.0.i = phi i32 [ %38, %36 ], [ %16, %14 ], [ undef, %17 ], [ undef, %30 ], [ undef, %33 ]
+  %.sroa.9.0.i = phi i64 [ undef, %36 ], [ undef, %14 ], [ %28, %17 ], [ undef, %30 ], [ undef, %33 ]
+  %.sroa.5.0.i = phi i8 [ undef, %36 ], [ undef, %14 ], [ undef, %17 ], [ %32, %30 ], [ %35, %33 ]
+  %.sroa.0.0.i = phi i8 [ 4, %36 ], [ 0, %14 ], [ 1, %17 ], [ 2, %30 ], [ 3, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !218, !noalias !221, !noundef !4
   store i8 %.sroa.0.0.i, ptr %0, align 8
@@ -2092,9 +2092,9 @@ default.unreachable:                              ; preds = %6
   br label %_ZN4core5clone5Clone5clone17h18cbc868b22051e1E.llvm.14171400993280223970.exit
 
 _ZN4core5clone5Clone5clone17h18cbc868b22051e1E.llvm.14171400993280223970.exit: ; preds = %10, %13, %18, %21, %26
-  %.sroa.5.0 = phi i8 [ %28, %26 ], [ %25, %21 ], [ undef, %18 ], [ undef, %13 ], [ undef, %10 ]
-  %.sroa.72.0 = phi i32 [ undef, %26 ], [ %23, %21 ], [ %20, %18 ], [ %15, %13 ], [ %12, %10 ]
-  %.sroa.11.0 = phi i32 [ undef, %26 ], [ undef, %21 ], [ undef, %18 ], [ %17, %13 ], [ undef, %10 ]
+  %.sroa.5.0 = phi i8 [ undef, %10 ], [ undef, %13 ], [ undef, %18 ], [ %25, %21 ], [ %28, %26 ]
+  %.sroa.72.0 = phi i32 [ %12, %10 ], [ %15, %13 ], [ %20, %18 ], [ %23, %21 ], [ undef, %26 ]
+  %.sroa.11.0 = phi i32 [ undef, %10 ], [ %17, %13 ], [ undef, %18 ], [ undef, %21 ], [ undef, %26 ]
   store i32 %7, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %9, ptr %.sroa.4.0..sroa_idx, align 4
@@ -10397,10 +10397,10 @@ default.unreachable1.i:                           ; preds = %6
   br label %"_ZN83_$LT$cranelift_codegen..ir..extname..ExternalName$u20$as$u20$core..clone..Clone$GT$5clone17hfe286a7989ecaf6cE.llvm.14171400993280223970.exit"
 
 "_ZN83_$LT$cranelift_codegen..ir..extname..ExternalName$u20$as$u20$core..clone..Clone$GT$5clone17hfe286a7989ecaf6cE.llvm.14171400993280223970.exit": ; preds = %7, %10, %23, %26
-  %.sroa.61.0 = phi i32 [ undef, %26 ], [ undef, %23 ], [ undef, %10 ], [ %9, %7 ]
-  %.sroa.7.0 = phi ptr [ undef, %26 ], [ undef, %23 ], [ %20, %10 ], [ undef, %7 ]
-  %.sroa.4.0 = phi i8 [ %28, %26 ], [ %25, %23 ], [ undef, %10 ], [ undef, %7 ]
-  %.sroa.8.0 = phi i64 [ undef, %26 ], [ undef, %23 ], [ %21, %10 ], [ undef, %7 ]
+  %.sroa.61.0 = phi i32 [ %9, %7 ], [ undef, %10 ], [ undef, %23 ], [ undef, %26 ]
+  %.sroa.7.0 = phi ptr [ undef, %7 ], [ %20, %10 ], [ undef, %23 ], [ undef, %26 ]
+  %.sroa.4.0 = phi i8 [ undef, %7 ], [ undef, %10 ], [ %25, %23 ], [ %28, %26 ]
+  %.sroa.8.0 = phi i64 [ undef, %7 ], [ %21, %10 ], [ undef, %23 ], [ undef, %26 ]
   store i8 %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
@@ -10518,11 +10518,11 @@ default.unreachable1.i.i:                         ; preds = %10
   br label %"_ZN96_$LT$cranelift_codegen..machinst..buffer..FinalizedRelocTarget$u20$as$u20$core..clone..Clone$GT$5clone17h8468c73cc2fe3ab5E.llvm.14171400993280223970.exit"
 
 "_ZN96_$LT$cranelift_codegen..machinst..buffer..FinalizedRelocTarget$u20$as$u20$core..clone..Clone$GT$5clone17h8468c73cc2fe3ab5E.llvm.14171400993280223970.exit": ; preds = %11, %14, %27, %30, %33
-  %.sroa.8.0 = phi ptr [ undef, %33 ], [ undef, %30 ], [ undef, %27 ], [ %24, %14 ], [ undef, %11 ]
-  %.sroa.61.0 = phi i32 [ %35, %33 ], [ undef, %30 ], [ undef, %27 ], [ undef, %14 ], [ %13, %11 ]
-  %.sroa.9.0 = phi i64 [ undef, %33 ], [ undef, %30 ], [ undef, %27 ], [ %25, %14 ], [ undef, %11 ]
-  %.sroa.5.0 = phi i8 [ undef, %33 ], [ %32, %30 ], [ %29, %27 ], [ undef, %14 ], [ undef, %11 ]
-  %.sroa.0.0 = phi i8 [ 4, %33 ], [ 3, %30 ], [ 2, %27 ], [ 1, %14 ], [ 0, %11 ]
+  %.sroa.8.0 = phi ptr [ undef, %33 ], [ undef, %11 ], [ %24, %14 ], [ undef, %27 ], [ undef, %30 ]
+  %.sroa.61.0 = phi i32 [ %35, %33 ], [ %13, %11 ], [ undef, %14 ], [ undef, %27 ], [ undef, %30 ]
+  %.sroa.9.0 = phi i64 [ undef, %33 ], [ undef, %11 ], [ %25, %14 ], [ undef, %27 ], [ undef, %30 ]
+  %.sroa.5.0 = phi i8 [ undef, %33 ], [ undef, %11 ], [ undef, %14 ], [ %29, %27 ], [ %32, %30 ]
+  %.sroa.0.0 = phi i8 [ 4, %33 ], [ 0, %11 ], [ 1, %14 ], [ 2, %27 ], [ 3, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32

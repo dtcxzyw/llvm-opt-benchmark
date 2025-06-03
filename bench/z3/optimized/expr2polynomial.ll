@@ -3731,7 +3731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i14: ; pre
   br label %114
 
 114:                                              ; preds = %113, %_ZN8rationalD2Ev.exit, %_ZN15expr2polynomial3imp10push_frameEP3app.exit, %14
-  %.0 = phi i1 [ true, %113 ], [ %.1, %_ZN8rationalD2Ev.exit ], [ false, %_ZN15expr2polynomial3imp10push_frameEP3app.exit ], [ true, %14 ]
+  %.0 = phi i1 [ true, %113 ], [ true, %14 ], [ false, %_ZN15expr2polynomial3imp10push_frameEP3app.exit ], [ %.1, %_ZN8rationalD2Ev.exit ]
   ret i1 %.0
 }
 

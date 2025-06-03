@@ -312,7 +312,7 @@ define internal i32 @dissect_fip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %33
 
 33:                                               ; preds = %30, %28, %26, %24, %22, %20
-  %.0177 = phi ptr [ %32, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.0177 = phi ptr [ %32, %30 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   %34 = load ptr, ptr %7, align 8
   tail call void @col_add_str(ptr noundef %34, i32 noundef 25, ptr noundef %.0177)
   %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)

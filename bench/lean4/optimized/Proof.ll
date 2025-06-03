@@ -11782,7 +11782,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %14, %12
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %28, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %28 ], [ %29, %.thread.i ]
+  %.1.i = phi ptr [ %29, %.thread.i ], [ %.0.i.i.i, %28 ]
   %30 = load ptr, ptr @l_Lean_Grind_CommRing_Mon_denoteExpr___at_Lean_Meta_Grind_Arith_CommRing_getPolyConst___spec__4___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6

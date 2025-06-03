@@ -4087,7 +4087,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit: ;
   br label %30
 
 30:                                               ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %11, %4 ], [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %11, %4 ]
   ret ptr %.1
 }
 
@@ -7819,7 +7819,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit184:     ; preds = %_ZN4llvm12PatternMa
   br label %228
 
 228:                                              ; preds = %53, %39, %57, %55, %47, %45, %43, %63, %227, %41
-  %.1 = phi ptr [ %40, %39 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %1, %41 ], [ %65, %63 ], [ %.9, %227 ]
+  %.1 = phi ptr [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %40, %39 ], [ %1, %41 ], [ %65, %63 ], [ %.9, %227 ]
   ret ptr %.1
 }
 
@@ -7990,7 +7990,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
   br label %36
 
 36:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %14, %5 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ], [ %14, %5 ]
   ret ptr %.1
 }
 
@@ -9728,12 +9728,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i: ; preds = %180, %180, %180, %180, %175, %175, %175, %175
-  %186 = zext i8 %173 to i32
-  %187 = add nsw i32 %186, -29
-  %188 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %189 = load i16, ptr %188, align 2
-  %190 = zext i16 %189 to i32
-  %.1.i.i330 = select i1 %174, i32 %187, i32 %190
+  %186 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %187 = load i16, ptr %186, align 2
+  %188 = zext i16 %187 to i32
+  %189 = zext i8 %173 to i32
+  %190 = add nsw i32 %189, -29
+  %.1.i.i330 = select i1 %174, i32 %190, i32 %188
   %.not10.i = icmp eq i32 %.1.i.i330, 17
   br i1 %.not10.i, label %191, label %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11apint_matchELj17ELj1ELb0EE5matchIS3_EEbPT_.exit.thread.thread603
 
@@ -9814,12 +9814,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i337: ; preds = %223, %223, %223, %223, %218, %218, %218, %218
-  %229 = zext i8 %216 to i32
-  %230 = add nsw i32 %229, -29
-  %231 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %232 = load i16, ptr %231, align 2
-  %233 = zext i16 %232 to i32
-  %.1.i.i338 = select i1 %217, i32 %230, i32 %233
+  %229 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %230 = load i16, ptr %229, align 2
+  %231 = zext i16 %230 to i32
+  %232 = zext i8 %216 to i32
+  %233 = add nsw i32 %232, -29
+  %.1.i.i338 = select i1 %217, i32 %233, i32 %231
   %.not10.i339 = icmp eq i32 %.1.i.i338, 17
   br i1 %.not10.i339, label %234, label %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11apint_matchELj25ELj2ELb0EE5matchIS3_EEbPT_.exit.thread
 
@@ -9968,12 +9968,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i348: ; preds = %302, %302, %302, %302, %297, %297, %297, %297
-  %308 = zext i8 %295 to i32
-  %309 = add nsw i32 %308, -29
-  %310 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %311 = load i16, ptr %310, align 2
-  %312 = zext i16 %311 to i32
-  %.1.i.i349 = select i1 %296, i32 %309, i32 %312
+  %308 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %309 = load i16, ptr %308, align 2
+  %310 = zext i16 %309 to i32
+  %311 = zext i8 %295 to i32
+  %312 = add nsw i32 %311, -29
+  %.1.i.i349 = select i1 %296, i32 %312, i32 %310
   %.not10.i350 = icmp eq i32 %.1.i.i349, 25
   br i1 %.not10.i350, label %313, label %_ZNK4llvm5APInt3ultEm.exit228.thread.thread607
 
@@ -10083,12 +10083,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i359: ; preds = %357, %357, %357, %357, %352, %352, %352, %352
-  %363 = zext i8 %350 to i32
-  %364 = add nsw i32 %363, -29
-  %365 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %366 = load i16, ptr %365, align 2
-  %367 = zext i16 %366 to i32
-  %.1.i.i360 = select i1 %351, i32 %364, i32 %367
+  %363 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %364 = load i16, ptr %363, align 2
+  %365 = zext i16 %364 to i32
+  %366 = zext i8 %350 to i32
+  %367 = add nsw i32 %366, -29
+  %.1.i.i360 = select i1 %351, i32 %367, i32 %365
   %.not10.i361 = icmp eq i32 %.1.i.i360, 25
   br i1 %.not10.i361, label %368, label %_ZNK4llvm5APInt3ultEm.exit228.thread.thread
 
@@ -10853,12 +10853,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i: ; preds = %712, %712, %712, %712, %707, %707, %707, %707
-  %718 = zext i8 %663 to i32
-  %719 = add nsw i32 %718, -29
-  %720 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %721 = load i16, ptr %720, align 2
-  %722 = zext i16 %721 to i32
-  %.1.i.i.i = select i1 %705, i32 %719, i32 %722
+  %718 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %719 = load i16, ptr %718, align 2
+  %720 = zext i16 %719 to i32
+  %721 = zext i8 %663 to i32
+  %722 = add nsw i32 %721, -29
+  %.1.i.i.i = select i1 %705, i32 %722, i32 %720
   %.not10.i.i = icmp eq i32 %.1.i.i.i, 25
   br i1 %.not10.i.i, label %723, label %.critedge31
 
@@ -10924,12 +10924,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i275: ; preds = %744, %744, %744, %744, %739, %739, %739, %739
-  %750 = zext i8 %663 to i32
-  %751 = add nsw i32 %750, -29
-  %752 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %753 = load i16, ptr %752, align 2
-  %754 = zext i16 %753 to i32
-  %.1.i.i.i276 = select i1 %705, i32 %751, i32 %754
+  %750 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %751 = load i16, ptr %750, align 2
+  %752 = zext i16 %751 to i32
+  %753 = zext i8 %663 to i32
+  %754 = add nsw i32 %753, -29
+  %.1.i.i.i276 = select i1 %705, i32 %754, i32 %752
   %.not10.i.i277 = icmp eq i32 %.1.i.i.i276, 25
   br i1 %.not10.i.i277, label %755, label %.critedge31
 
@@ -11665,7 +11665,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EES5
   br label %1086
 
 1086:                                             ; preds = %2, %1085
-  %.1 = phi ptr [ %55, %2 ], [ %.11, %1085 ]
+  %.1 = phi ptr [ %.11, %1085 ], [ %55, %2 ]
   ret ptr %.1
 }
 
@@ -11961,12 +11961,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i: ; preds = %10, %10, %10, %10, %5, %5, %5, %5
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i.i = select i1 %4, i32 %20, i32 %18
   %.not10.i = icmp eq i32 %.1.i.i, 25
   br i1 %.not10.i, label %21, label %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj25ELj1ELb0EE5matchIS3_EEbPT_.exit
 
@@ -12852,7 +12852,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MinMaxIntrinsic8isSign
   unreachable
 
 _ZN4llvm15MinMaxIntrinsic8isSignedEj.exit:        ; preds = %1, %8, %9, %10
-  %.0.i.i = phi i32 [ 38, %10 ], [ 40, %9 ], [ 34, %8 ], [ 36, %1 ]
+  %.0.i.i = phi i32 [ 34, %8 ], [ 40, %9 ], [ 38, %10 ], [ 36, %1 ]
   %12 = tail call noundef zeroext i1 @_ZN4llvm7CmpInst8isSignedENS0_9PredicateE(i32 noundef %.0.i.i) #17
   ret i1 %12
 }
@@ -13255,7 +13255,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %_ZN4llvm12PatternMa
   br label %185
 
 185:                                              ; preds = %28, %32, %30, %184
-  %.1 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.6, %184 ]
+  %.1 = phi ptr [ %.6, %184 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ]
   ret ptr %.1
 }
 
@@ -13517,12 +13517,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i.i: ; preds = %15, %15, %15, %15, %10, %10, %10, %10
-  %21 = zext i8 %8 to i32
-  %22 = add nsw i32 %21, -29
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %.1.i.i.i.i = select i1 %9, i32 %22, i32 %25
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %22 = load i16, ptr %21, align 2
+  %23 = zext i16 %22 to i32
+  %24 = zext i8 %8 to i32
+  %25 = add nsw i32 %24, -29
+  %.1.i.i.i.i = select i1 %9, i32 %25, i32 %23
   %.not10.i.i.i = icmp eq i32 %.1.i.i.i.i, 17
   br i1 %.not10.i.i.i, label %26, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_14specificval_tyENS0_7bind_tyINS_5ValueEEELj17ELj1ELb0EEES6_Lj26ELb0EE5matchIS5_EEbPT_.exit
 
@@ -13608,12 +13608,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i.i: ; preds = %15, %15, %15, %15, %10, %10, %10, %10
-  %21 = zext i8 %8 to i32
-  %22 = add nsw i32 %21, -29
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %.1.i.i.i.i = select i1 %9, i32 %22, i32 %25
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %22 = load i16, ptr %21, align 2
+  %23 = zext i16 %22 to i32
+  %24 = zext i8 %8 to i32
+  %25 = add nsw i32 %24, -29
+  %.1.i.i.i.i = select i1 %9, i32 %25, i32 %23
   %.not10.i.i.i = icmp eq i32 %.1.i.i.i.i, 17
   br i1 %.not10.i.i.i, label %26, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_14specificval_tyELj17ELj1ELb0EEES5_Lj26ELb0EE5matchIS4_EEbPT_.exit
 
@@ -13700,7 +13700,7 @@ _ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit.thread: ; preds = %2, %
   br label %24
 
 24:                                               ; preds = %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit, %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit.thread, %16
-  %.1 = phi ptr [ %10, %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit ], [ %23, %16 ], [ null, %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit.thread ]
+  %.1 = phi ptr [ %23, %16 ], [ %10, %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit ], [ null, %_ZN4llvm16InstCombinerImpl10tryGetLog2EPNS_5ValueEb.exit.thread ]
   ret ptr %.1
 }
 
@@ -13796,7 +13796,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -14573,7 +14573,7 @@ _ZN4llvm5APIntD2Ev.exit147:                       ; preds = %319, %333, %336
   br label %341
 
 341:                                              ; preds = %56, %60, %58, %340
-  %.1 = phi ptr [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %.4, %340 ]
+  %.1 = phi ptr [ %.4, %340 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
   ret ptr %.1
 }
 
@@ -14621,12 +14621,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i: ; preds = %10, %10, %10, %10, %5, %5, %5, %5
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i.i = select i1 %4, i32 %20, i32 %18
   %.not10.i = icmp eq i32 %.1.i.i, 25
   br i1 %.not10.i, label %21, label %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEENS0_7bind_tyINS_5ValueEEELj25ELj2ELb0EE5matchIS7_EEbPT_.exit
 
@@ -14762,7 +14762,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -14921,7 +14921,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -15001,12 +15001,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i: ; preds = %10, %10, %10, %10, %5, %5, %5, %5
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i.i = select i1 %4, i32 %20, i32 %18
   %.not10.i = icmp eq i32 %.1.i.i, 15
   br i1 %.not10.i, label %21, label %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EEENS0_7bind_tyINS_5ValueEEELj15ELj2ELb0EE5matchIS7_EEbPT_.exit
 
@@ -18539,7 +18539,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
   br label %188
 
 188:                                              ; preds = %33, %39, %37, %35, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit, %84, %109, %.thread124
-  %.1 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %79, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %91, %84 ], [ %118, %109 ], [ %.6, %.thread124 ]
+  %.1 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %79, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %91, %84 ], [ %118, %109 ], [ %.6, %.thread124 ]
   ret ptr %.1
 }
 
@@ -19052,7 +19052,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateSRemEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase10CreateSRemEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %185, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %196, %185 ], [ %199, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %199, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %196, %185 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #17
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i16 257, ptr %215, align 8
@@ -19304,7 +19304,7 @@ _ZN4llvm5APIntD2Ev.exit104:                       ; preds = %322, %325, %328
   br label %330
 
 330:                                              ; preds = %329, %.critedge, %26, %30, %28
-  %.1 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %.6, %329 ], [ %1, %.critedge ]
+  %.1 = phi ptr [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %.6, %329 ], [ %1, %.critedge ]
   ret ptr %.1
 }
 
@@ -19388,7 +19388,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl9visitFRemERNS_14BinaryOper
   br label %18
 
 18:                                               ; preds = %12, %16, %14
-  %.1 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
+  %.1 = phi ptr [ %15, %14 ], [ %13, %12 ], [ %17, %16 ]
   ret ptr %.1
 }
 
@@ -20530,7 +20530,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -20784,8 +20784,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !21
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit, label %50
@@ -20795,8 +20795,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !21
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit.thread
@@ -21692,7 +21692,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -22337,7 +22337,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !173
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -22347,7 +22347,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !173
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -22587,8 +22587,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i.i
-  %43 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %38, %40 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %43 = phi ptr [ %38, %40 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !21
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEDaOT_RKT0_.exit, label %46
@@ -22598,8 +22598,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge52.i.i.i.i
-  %49 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %46 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %43, %46 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !21
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEDaOT_RKT0_.exit, label %52
@@ -22777,8 +22777,8 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEE5eraseEPKS2_.exit: ; preds = %57, %
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge._crit_edge.i.i.i.i23
-  %132 = phi ptr [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ], [ %127, %129 ]
-  %.1.i.i.i.i25 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ], [ %130, %129 ]
+  %132 = phi ptr [ %127, %129 ], [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ]
+  %.1.i.i.i.i25 = phi ptr [ %130, %129 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ]
   %133 = load ptr, ptr %.1.i.i.i.i25, align 8, !tbaa !21
   %134 = icmp eq ptr %133, %132
   br i1 %134, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEDaOT_RKT0_.exit30, label %135
@@ -22788,8 +22788,8 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEE5eraseEPKS2_.exit: ; preds = %57, %
   br label %137
 
 137:                                              ; preds = %135, %._crit_edge._crit_edge52.i.i.i.i20
-  %138 = phi ptr [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %132, %135 ]
-  %.2.i.i.i.i22 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %136, %135 ]
+  %138 = phi ptr [ %132, %135 ], [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ]
+  %.2.i.i.i.i22 = phi ptr [ %136, %135 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ]
   %139 = load ptr, ptr %.2.i.i.i.i22, align 8, !tbaa !21
   %140 = icmp eq ptr %139, %138
   br i1 %140, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEDaOT_RKT0_.exit30, label %141
@@ -24567,12 +24567,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !tbaa !72
   %8 = icmp ugt i8 %7, 28
-  %9 = zext i8 %7 to i32
-  %10 = add nsw i32 %9, -29
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i32
-  %.1.i = select i1 %8, i32 %10, i32 %13
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i16, ptr %9, align 2
+  %11 = zext i16 %10 to i32
+  %12 = zext i8 %7 to i32
+  %13 = add nsw i32 %12, -29
+  %.1.i = select i1 %8, i32 %13, i32 %11
   switch i32 %.1.i, label %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit [
     i32 12, label %14
     i32 16, label %28
@@ -25837,12 +25837,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %5, %5, %5, %5, %10, %10, %10, %10
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i = select i1 %4, i32 %20, i32 %18
   %.not10 = icmp eq i32 %.1.i, 13
   br i1 %.not10, label %21, label %.thread
 
@@ -25939,12 +25939,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %5, %5, %5, %5, %10, %10, %10, %10
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i = select i1 %4, i32 %20, i32 %18
   %.not10 = icmp eq i32 %.1.i, 17
   br i1 %.not10, label %21, label %.thread
 
@@ -26145,12 +26145,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %5, %5, %5, %5, %10, %10, %10, %10
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i = select i1 %4, i32 %20, i32 %18
   %.not10 = icmp eq i32 %.1.i, 13
   br i1 %.not10, label %21, label %.thread
 
@@ -26247,12 +26247,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %5, %5, %5, %5, %10, %10, %10, %10
-  %16 = zext i8 %3 to i32
-  %17 = add nsw i32 %16, -29
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %.1.i = select i1 %4, i32 %17, i32 %20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = zext i8 %3 to i32
+  %20 = add nsw i32 %19, -29
+  %.1.i = select i1 %4, i32 %20, i32 %18
   %.not10 = icmp eq i32 %.1.i, 17
   br i1 %.not10, label %21, label %.thread
 
@@ -27112,12 +27112,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i.i: ; preds = %21, %21, %21, %21, %16, %16, %16, %16
-  %27 = zext i8 %14 to i32
-  %28 = add nsw i32 %27, -29
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %.1.i.i.i.i = select i1 %15, i32 %28, i32 %31
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  %30 = zext i8 %14 to i32
+  %31 = add nsw i32 %30, -29
+  %.1.i.i.i.i = select i1 %15, i32 %31, i32 %29
   %.not10.i.i.i = icmp eq i32 %.1.i.i.i.i, 15
   br i1 %.not10.i.i.i, label %32, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_12OneUse_matchINS0_25OverflowingBinaryOp_matchINS0_14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EEENS0_7bind_tyINS_5ValueEEELj15ELj2ELb0EEEEESA_Lj20ELb0EE5matchINS_14BinaryOperatorEEEbjPT_.exit
 
@@ -27747,12 +27747,12 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   ]
 
 _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i.i.i: ; preds = %21, %21, %21, %21, %16, %16, %16, %16
-  %27 = zext i8 %14 to i32
-  %28 = add nsw i32 %27, -29
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %.1.i.i.i.i = select i1 %15, i32 %28, i32 %31
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  %30 = zext i8 %14 to i32
+  %31 = add nsw i32 %30, -29
+  %.1.i.i.i.i = select i1 %15, i32 %31, i32 %29
   %.not10.i.i.i = icmp eq i32 %.1.i.i.i.i, 15
   br i1 %.not10.i.i.i, label %32, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_12OneUse_matchINS0_25OverflowingBinaryOp_matchINS0_14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EEENS0_7bind_tyINS_5ValueEEELj15ELj2ELb0EEEEESA_Lj23ELb0EE5matchINS_14BinaryOperatorEEEbjPT_.exit
 

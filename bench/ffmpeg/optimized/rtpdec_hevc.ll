@@ -290,7 +290,7 @@ define internal i32 @hevc_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br label %71
 
 71:                                               ; preds = %43, %70, %62, %37
-  %.0 = phi i32 [ %35, %37 ], [ %46, %43 ], [ %69, %62 ], [ -1163346256, %70 ]
+  %.0 = phi i32 [ %35, %37 ], [ -1163346256, %70 ], [ %69, %62 ], [ %46, %43 ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !50
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 36

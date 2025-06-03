@@ -981,12 +981,12 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   br label %.sink.split
 
 .sink.split:                                      ; preds = %129, %134, %147, %158
-  %.4.i.ph = phi ptr [ %162, %158 ], [ %131, %129 ], [ %138, %134 ], [ %151, %147 ]
+  %.4.i.ph = phi ptr [ %162, %158 ], [ %151, %147 ], [ %138, %134 ], [ %131, %129 ]
   call void @g_free(ptr noundef nonnull %50) #16
   br label %167
 
 167:                                              ; preds = %.sink.split, %155, %142, %132
-  %.4.i = phi ptr [ %50, %142 ], [ %50, %132 ], [ %50, %155 ], [ %.4.i.ph, %.sink.split ]
+  %.4.i = phi ptr [ %50, %132 ], [ %50, %142 ], [ %50, %155 ], [ %.4.i.ph, %.sink.split ]
   call void @g_free(ptr noundef nonnull %123) #16
   br label %.sink.split121
 
@@ -1045,7 +1045,7 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %202 = call noalias ptr @g_malloc0(i64 noundef %201) #18
   %203 = call i32 @g_unichar_to_utf8(i32 noundef %190, ptr noundef %202) #16
   %204 = getelementptr inbounds i8, ptr %202, i64 %198
-  %205 = call ptr @g_stpcpy(ptr noundef %204, ptr noundef %197) #16
+  %205 = call ptr @g_stpcpy(ptr noundef %204, ptr noundef nonnull %197) #16
   br label %.sink.split121
 
 .sink.split121:                                   ; preds = %172, %179, %189, %108, %115, %101, %105, %60, %56, %96, %167

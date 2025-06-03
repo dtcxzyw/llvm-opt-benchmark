@@ -26466,7 +26466,7 @@ cleanup:                                          ; preds = %if.end54, %invoke.c
   br label %return
 
 ehcleanup:                                        ; preds = %lpad36.body, %lpad33.body, %lpad27, %lpad1
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body28, %lpad36.body ], [ %eh.lpad-body20, %lpad33.body ], [ %14, %lpad1 ], [ %21, %lpad27 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body28, %lpad36.body ], [ %14, %lpad1 ], [ %21, %lpad27 ], [ %eh.lpad-body20, %lpad33.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type) #26
   br label %eh.resume
 
@@ -26982,7 +26982,7 @@ return:                                           ; preds = %invoke.cont41, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad40, %lpad37, %lpad32, %lpad25.body, %lpad21, %lpad17.body, %lpad13.body, %lpad9.body, %lpad4.body, %lpad.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body13, %lpad4.body ], [ %32, %lpad40 ], [ %31, %lpad37 ], [ %30, %lpad32 ], [ %eh.lpad-body47, %lpad25.body ], [ %23, %lpad21 ], [ %eh.lpad-body39, %lpad17.body ], [ %eh.lpad-body31, %lpad13.body ], [ %eh.lpad-body23, %lpad9.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body13, %lpad4.body ], [ %32, %lpad40 ], [ %eh.lpad-body23, %lpad9.body ], [ %eh.lpad-body31, %lpad13.body ], [ %eh.lpad-body39, %lpad17.body ], [ %23, %lpad21 ], [ %eh.lpad-body47, %lpad25.body ], [ %30, %lpad32 ], [ %31, %lpad37 ]
   resume { ptr, i32 } %.pn
 }
 

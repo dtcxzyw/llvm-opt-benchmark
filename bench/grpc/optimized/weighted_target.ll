@@ -8077,8 +8077,8 @@ _ZN4absl12lts_2024072212log_internal12Check_GTImplIjjEEPNSt7__cxx1112basic_strin
   unreachable
 
 _ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE12emplace_backIJRmS5_EEERS6_DpOT_.exit: ; preds = %162, %160
-  %.270.ph = phi i64 [ %.068323, %160 ], [ %163, %162 ]
-  %.267.ph = phi i64 [ %161, %160 ], [ %.065324, %162 ]
+  %.270.ph = phi i64 [ %163, %162 ], [ %.068323, %160 ]
+  %.267.ph = phi i64 [ %.065324, %162 ], [ %161, %160 ]
   %.not.i154 = icmp eq ptr %101, null
   br i1 %.not.i154, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit, label %210
 

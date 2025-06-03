@@ -3084,7 +3084,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit333.i:      ; preds = %1255, %._crit_edge4
   br label %_ZN10aiVector3tIfEixEj.exit.i
 
 _ZN10aiVector3tIfEixEj.exit.i:                    ; preds = %1272, %1270, %1267
-  %.0.i.i = phi ptr [ %1273, %1272 ], [ %1271, %1270 ], [ %1269, %1267 ]
+  %.0.i.i = phi ptr [ %1271, %1270 ], [ %1273, %1272 ], [ %1269, %1267 ]
   %1274 = load i32, ptr %219, align 4
   %1275 = and i32 %1274, 5
   %or.cond.i.i334.i = icmp eq i32 %1275, 0
@@ -12158,7 +12158,7 @@ default.unreachable.i:                            ; preds = %56
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %56, %57, %58, %59
-  %.0.i = phi ptr [ %29, %59 ], [ %30, %58 ], [ %31, %57 ], [ %1, %56 ]
+  %.0.i = phi ptr [ %31, %57 ], [ %30, %58 ], [ %29, %59 ], [ %1, %56 ]
   %60 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv
   %61 = load i32, ptr %32, align 4
   %62 = and i32 %61, 5

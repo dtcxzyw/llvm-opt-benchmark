@@ -359,7 +359,7 @@ HKDF.exit:                                        ; preds = %32, %45, %48
   br label %kdf_hkdf_set_ctx_params.exit.thread42
 
 kdf_hkdf_set_ctx_params.exit.thread42:            ; preds = %12, %4, %kdf_hkdf_set_ctx_params.exit, %58, %50, %HKDF.exit, %28, %25, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %25 ], [ 0, %28 ], [ %.0.i39, %HKDF.exit ], [ %57, %50 ], [ %65, %58 ], [ 0, %kdf_hkdf_set_ctx_params.exit ], [ 0, %4 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %25 ], [ 0, %28 ], [ %.0.i39, %HKDF.exit ], [ %65, %58 ], [ %57, %50 ], [ 0, %kdf_hkdf_set_ctx_params.exit ], [ 0, %4 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -548,7 +548,7 @@ prov_tls13_hkdf_generate_secret.exit:             ; preds = %18, %.thread53.i, %
   br label %75
 
 75:                                               ; preds = %15, %4, %8, %57, %prov_tls13_hkdf_generate_secret.exit, %14
-  %.0 = phi i32 [ 0, %14 ], [ %74, %57 ], [ %.0.i, %prov_tls13_hkdf_generate_secret.exit ], [ 0, %8 ], [ 0, %4 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ %.0.i, %prov_tls13_hkdf_generate_secret.exit ], [ %74, %57 ], [ 0, %8 ], [ 0, %4 ], [ 0, %15 ]
   ret i32 %.0
 }
 

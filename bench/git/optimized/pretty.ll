@@ -2969,9 +2969,9 @@ skip_prefix.exit:                                 ; preds = %28
   br label %45
 
 45:                                               ; preds = %44, %43, %skip_prefix.exit
-  %.ph.i = phi i1 [ false, %43 ], [ false, %44 ], [ true, %skip_prefix.exit ]
-  %.ph40.i = phi i1 [ true, %43 ], [ false, %44 ], [ false, %skip_prefix.exit ]
-  %.ph41.i = phi i1 [ false, %43 ], [ true, %44 ], [ false, %skip_prefix.exit ]
+  %.ph.i = phi i1 [ false, %44 ], [ false, %43 ], [ true, %skip_prefix.exit ]
+  %.ph40.i = phi i1 [ false, %44 ], [ true, %43 ], [ false, %skip_prefix.exit ]
+  %.ph41.i = phi i1 [ true, %44 ], [ false, %43 ], [ false, %skip_prefix.exit ]
   %46 = load i8, ptr %scevgep, align 1, !tbaa !9
   %cond.i = icmp eq i8 %46, 119
   br i1 %cond.i, label %format_commit_item.exit.thread, label %47
@@ -6172,7 +6172,7 @@ skip_prefix.exit281:                              ; preds = %447
   br label %parse_padding_placeholder.exit
 
 parse_padding_placeholder.exit:                   ; preds = %325, %303, %544, %309, %288, %.thread.i265, %163, %155, %509, %512, %442, %411, %408, %418, %419, %420, %413, %425, %422, %430, %427, %435, %432, %440, %437, %405, %391, %355, %374, %379, %358, %363, %349, %351, %341, %346, %121, %27, %34, %37, %3, %567, %539, %531, %526, %514, %493, %477, %467, %396, %380, %353, %338, %335, %332, %282, %278, %265, %254, %245, %154, %119
-  %.0204 = phi i64 [ %.2, %245 ], [ %.0203, %467 ], [ %.0, %567 ], [ 1, %539 ], [ 1, %531 ], [ 1, %526 ], [ 1, %514 ], [ %508, %493 ], [ %492, %477 ], [ 1, %396 ], [ %390, %380 ], [ 1, %353 ], [ 1, %338 ], [ 1, %335 ], [ 1, %332 ], [ 1, %282 ], [ 1, %278 ], [ 1, %265 ], [ 1, %254 ], [ %.1, %154 ], [ %120, %119 ], [ %21, %3 ], [ 7, %37 ], [ 7, %34 ], [ 7, %27 ], [ 0, %121 ], [ 0, %346 ], [ 0, %341 ], [ 0, %351 ], [ 0, %349 ], [ 2, %363 ], [ 2, %358 ], [ 2, %379 ], [ 2, %374 ], [ 0, %355 ], [ 0, %391 ], [ 0, %405 ], [ 2, %437 ], [ 2, %440 ], [ 2, %432 ], [ 2, %435 ], [ 2, %427 ], [ 2, %430 ], [ 2, %422 ], [ 2, %425 ], [ 2, %413 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %408 ], [ 2, %411 ], [ 2, %442 ], [ 1, %512 ], [ 1, %509 ], [ %.154.i, %.thread.i265 ], [ 0, %155 ], [ 0, %163 ], [ 1, %288 ], [ 1, %309 ], [ 0, %544 ], [ 1, %303 ], [ 1, %325 ]
+  %.0204 = phi i64 [ %.2, %245 ], [ %.0203, %467 ], [ %.0, %567 ], [ 1, %526 ], [ 1, %531 ], [ 1, %539 ], [ %492, %477 ], [ %508, %493 ], [ 1, %514 ], [ 1, %254 ], [ 1, %265 ], [ 1, %278 ], [ 1, %282 ], [ 1, %332 ], [ 1, %335 ], [ 1, %338 ], [ 1, %353 ], [ %390, %380 ], [ 1, %396 ], [ %120, %119 ], [ %.1, %154 ], [ %21, %3 ], [ 7, %37 ], [ 7, %34 ], [ 7, %27 ], [ 0, %121 ], [ 0, %346 ], [ 0, %341 ], [ 0, %351 ], [ 0, %349 ], [ 2, %363 ], [ 2, %358 ], [ 2, %379 ], [ 2, %374 ], [ 0, %355 ], [ 0, %391 ], [ 0, %405 ], [ 2, %437 ], [ 2, %440 ], [ 2, %432 ], [ 2, %435 ], [ 2, %427 ], [ 2, %430 ], [ 2, %422 ], [ 2, %425 ], [ 2, %413 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %408 ], [ 2, %411 ], [ 2, %442 ], [ 1, %512 ], [ 1, %509 ], [ %.154.i, %.thread.i265 ], [ 0, %155 ], [ 0, %163 ], [ 1, %288 ], [ 1, %309 ], [ 0, %544 ], [ 1, %303 ], [ 1, %325 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   ret i64 %.0204
 }
@@ -6403,9 +6403,9 @@ match_placeholder_bool_arg.exit.thread:           ; preds = %66, %38, %12, %28, 
   %84 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %84, label %.backedge, label %85
 
-.backedge:                                        ; preds = %match_placeholder_bool_arg.exit.thread, %81, %59, %32, %match_placeholder_bool_arg.exit.thread76
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %match_placeholder_bool_arg.exit.thread ], [ 0, %81 ], [ 0, %59 ], [ 0, %32 ], [ 0, %match_placeholder_bool_arg.exit.thread76 ]
-  %.166115.be = phi ptr [ %.368, %match_placeholder_bool_arg.exit.thread ], [ %.671, %81 ], [ %.570, %59 ], [ %.017.sink.i.i, %32 ], [ %.017.sink.i.i, %match_placeholder_bool_arg.exit.thread76 ]
+.backedge:                                        ; preds = %match_placeholder_bool_arg.exit.thread, %32, %match_placeholder_bool_arg.exit.thread76, %59, %81
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %match_placeholder_bool_arg.exit.thread ], [ 0, %32 ], [ 0, %match_placeholder_bool_arg.exit.thread76 ], [ 0, %59 ], [ 0, %81 ]
+  %.166115.be = phi ptr [ %.368, %match_placeholder_bool_arg.exit.thread ], [ %.017.sink.i.i, %32 ], [ %.017.sink.i.i, %match_placeholder_bool_arg.exit.thread76 ], [ %.570, %59 ], [ %.671, %81 ]
   br label %4, !llvm.loop !224
 
 85:                                               ; preds = %match_placeholder_bool_arg.exit.thread
@@ -7387,7 +7387,7 @@ mailmap_name.exit._crit_edge:                     ; preds = %mailmap_name.exit
   br label %106
 
 106:                                              ; preds = %58, %58, %104, %104, %104, %104, %104, %104, %104, %105, %98, %92, %86, %80, %74, %68, %65, %59, %53, %42, %39
-  %.0 = phi i64 [ 0, %105 ], [ 2, %39 ], [ 2, %42 ], [ 2, %53 ], [ 2, %59 ], [ 2, %98 ], [ 2, %92 ], [ 2, %86 ], [ 2, %80 ], [ 2, %74 ], [ 2, %68 ], [ 2, %65 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %58 ], [ 2, %58 ]
+  %.0 = phi i64 [ 0, %105 ], [ 2, %39 ], [ 2, %42 ], [ 2, %53 ], [ 2, %59 ], [ 2, %65 ], [ 2, %68 ], [ 2, %74 ], [ 2, %80 ], [ 2, %86 ], [ 2, %92 ], [ 2, %98 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %104 ], [ 2, %58 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20

@@ -473,8 +473,8 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   call void @free(ptr noundef nonnull %.1177) #8
   br label %.thread220
 
-.thread220:                                       ; preds = %45, %41, %32, %23, %18, %97, %56, %50, %247, %9, %251, %.loopexit225
-  %.0 = phi i32 [ %.1, %251 ], [ %.1, %.loopexit225 ], [ 0, %9 ], [ 0, %45 ], [ -1, %41 ], [ -1, %32 ], [ -1, %23 ], [ 0, %18 ], [ -1, %97 ], [ -1, %56 ], [ -1, %50 ], [ -1, %247 ]
+.thread220:                                       ; preds = %97, %56, %50, %18, %45, %41, %32, %23, %247, %9, %251, %.loopexit225
+  %.0 = phi i32 [ %.1, %251 ], [ %.1, %.loopexit225 ], [ 0, %9 ], [ -1, %97 ], [ -1, %56 ], [ -1, %50 ], [ 0, %18 ], [ 0, %45 ], [ -1, %41 ], [ -1, %32 ], [ -1, %23 ], [ -1, %247 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #8
   ret i32 %.0
 }

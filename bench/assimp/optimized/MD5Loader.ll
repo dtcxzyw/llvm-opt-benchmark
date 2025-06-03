@@ -2555,7 +2555,7 @@ _ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE.exit: ; preds = %.noe
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %296, %299, %300
-  %.0.i = phi ptr [ %286, %300 ], [ %285, %299 ], [ %284, %296 ]
+  %.0.i = phi ptr [ %285, %299 ], [ %286, %300 ], [ %284, %296 ]
   store float %298, ptr %.0.i, align 4
   br label %305
 
@@ -2572,8 +2572,8 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %296, %299, %300
   br label %_ZN10aiVector3tIfEixEj.exit97
 
 _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %301, %302, %303
-  %.in153 = phi ptr [ %288, %303 ], [ %287, %302 ], [ %.061164, %301 ]
-  %.0.i96 = phi ptr [ %286, %303 ], [ %285, %302 ], [ %284, %301 ]
+  %.in153 = phi ptr [ %287, %302 ], [ %288, %303 ], [ %.061164, %301 ]
+  %.0.i96 = phi ptr [ %285, %302 ], [ %286, %303 ], [ %284, %301 ]
   %304 = load float, ptr %.in153, align 4
   store float %304, ptr %.0.i96, align 4
   br label %305
@@ -2633,7 +2633,7 @@ _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %301, %302, %303
   br label %_ZN10aiVector3tIfEixEj.exit99
 
 _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %326, %329, %330
-  %.0.i98 = phi ptr [ %.sroa.13, %330 ], [ %.sroa.8, %329 ], [ %.sroa.0, %326 ]
+  %.0.i98 = phi ptr [ %.sroa.8, %329 ], [ %.sroa.13, %330 ], [ %.sroa.0, %326 ]
   store float %328, ptr %.0.i98, align 4
   br label %335
 
@@ -2650,8 +2650,8 @@ _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %326, %329, %330
   br label %_ZN10aiVector3tIfEixEj.exit103
 
 _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %331, %332, %333
-  %.in = phi ptr [ %290, %333 ], [ %289, %332 ], [ %291, %331 ]
-  %.0.i102 = phi ptr [ %.sroa.13, %333 ], [ %.sroa.8, %332 ], [ %.sroa.0, %331 ]
+  %.in = phi ptr [ %289, %332 ], [ %290, %333 ], [ %291, %331 ]
+  %.0.i102 = phi ptr [ %.sroa.8, %332 ], [ %.sroa.13, %333 ], [ %.sroa.0, %331 ]
   %334 = load float, ptr %.in, align 4
   store float %334, ptr %.0.i102, align 4
   br label %335

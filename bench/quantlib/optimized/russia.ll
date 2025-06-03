@@ -1069,7 +1069,7 @@ sw.bb37:                                          ; preds = %sw.bb24
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb24, %sw.bb18, %sw.bb6, %sw.bb, %sw.bb37, %sw.bb30, %sw.bb25, %sw.bb19, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb4, %sw.bb2, %sw.bb1
-  %retval.0 = phi i1 [ %5, %sw.bb37 ], [ %spec.select22, %sw.bb30 ], [ %2, %sw.bb25 ], [ %spec.select, %sw.bb19 ], [ %cmp16, %sw.bb15 ], [ %cmp14, %sw.bb13 ], [ %cmp12, %sw.bb11 ], [ %cmp10, %sw.bb9 ], [ %cmp8, %sw.bb7 ], [ %cmp5, %sw.bb4 ], [ %cmp3, %sw.bb2 ], [ %cmp, %sw.bb1 ], [ false, %sw.bb ], [ false, %sw.bb6 ], [ false, %sw.bb18 ], [ false, %sw.bb24 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb1 ], [ %cmp3, %sw.bb2 ], [ %cmp5, %sw.bb4 ], [ %cmp8, %sw.bb7 ], [ %cmp10, %sw.bb9 ], [ %cmp12, %sw.bb11 ], [ %cmp14, %sw.bb13 ], [ %cmp16, %sw.bb15 ], [ %spec.select, %sw.bb19 ], [ %2, %sw.bb25 ], [ %spec.select22, %sw.bb30 ], [ %5, %sw.bb37 ], [ false, %sw.bb ], [ false, %sw.bb6 ], [ false, %sw.bb18 ], [ false, %sw.bb24 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -1323,7 +1323,7 @@ _ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit: ; preds = %if.en
   %spec.select.i = and i1 %cmp11.i, %cond.i79
   br i1 %spec.select.i, label %cleanup, label %if.end35
 
-if.end35:                                         ; preds = %sw.bb4.i, %if.end, %sw.bb13.i, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb16.i, %sw.bb18.i, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
+if.end35:                                         ; preds = %sw.bb4.i, %if.end, %sw.bb13.i, %sw.bb.i, %sw.bb18.i, %sw.bb16.i, %sw.bb14.i, %sw.bb7.i, %sw.bb2.i, %sw.bb1.i, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
   %call36 = tail call noundef zeroext i1 @_ZNK8QuantLib8Calendar12OrthodoxImpl9isWeekendENS_7WeekdayE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %cond.i)
   br i1 %call36, label %cleanup, label %lor.lhs.false
 
@@ -1403,8 +1403,8 @@ if.end82:                                         ; preds = %land.lhs.true47, %l
   %not.call83 = xor i1 %call83, true
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.bb4.i, %sw.bb4.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb16.i, %sw.bb18.i, %if.end82, %if.end35, %land.lhs.true47, %land.lhs.true61, %land.lhs.true75, %lor.lhs.false, %lor.lhs.false41, %lor.lhs.false49, %lor.lhs.false55, %lor.lhs.false63, %lor.lhs.false69, %lor.lhs.false77, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
-  %retval.0 = phi i1 [ true, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false69 ], [ false, %lor.lhs.false63 ], [ false, %lor.lhs.false55 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true75 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true47 ], [ false, %if.end35 ], [ %not.call83, %if.end82 ], [ true, %sw.bb18.i ], [ true, %sw.bb16.i ], [ true, %sw.bb14.i ], [ true, %sw.bb7.i ], [ true, %sw.bb4.i ], [ true, %sw.bb2.i ], [ true, %sw.bb1.i ], [ true, %sw.bb4.i ]
+cleanup:                                          ; preds = %sw.bb4.i, %sw.bb4.i, %sw.bb18.i, %sw.bb16.i, %sw.bb14.i, %sw.bb7.i, %sw.bb2.i, %sw.bb1.i, %if.end82, %if.end35, %land.lhs.true47, %land.lhs.true61, %land.lhs.true75, %lor.lhs.false, %lor.lhs.false41, %lor.lhs.false49, %lor.lhs.false55, %lor.lhs.false63, %lor.lhs.false69, %lor.lhs.false77, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
+  %retval.0 = phi i1 [ true, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false69 ], [ false, %lor.lhs.false63 ], [ false, %lor.lhs.false55 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true75 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true47 ], [ false, %if.end35 ], [ %not.call83, %if.end82 ], [ true, %sw.bb1.i ], [ true, %sw.bb2.i ], [ true, %sw.bb4.i ], [ true, %sw.bb7.i ], [ true, %sw.bb14.i ], [ true, %sw.bb16.i ], [ true, %sw.bb18.i ], [ true, %sw.bb4.i ]
   ret i1 %retval.0
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -1592,7 +1592,7 @@ switch.lookup:                                    ; preds = %sw.bb39
   br label %return
 
 return:                                           ; preds = %sw.bb39, %switch.lookup, %entry, %sw.bb84, %sw.bb73, %sw.bb62, %sw.bb56, %sw.bb38, %sw.bb29, %sw.bb18, %sw.bb8, %sw.bb, %sw.bb96, %sw.bb94, %sw.bb92, %sw.bb85, %sw.bb81, %sw.bb74, %sw.bb70, %sw.bb63, %sw.bb59, %sw.bb57, %sw.bb53, %sw.bb51, %sw.bb46, %sw.bb30, %sw.bb19, %sw.bb9, %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb1
-  %retval.0 = phi i1 [ %cmp97, %sw.bb96 ], [ %cmp95, %sw.bb94 ], [ %cmp93, %sw.bb92 ], [ %spec.select62, %sw.bb85 ], [ %cmp82, %sw.bb81 ], [ %spec.select61, %sw.bb74 ], [ %cmp71, %sw.bb70 ], [ %spec.select60, %sw.bb63 ], [ %cmp60, %sw.bb59 ], [ %cmp58, %sw.bb57 ], [ %cmp54, %sw.bb53 ], [ %cmp52, %sw.bb51 ], [ %5, %sw.bb46 ], [ %spec.select59, %sw.bb30 ], [ %spec.select58, %sw.bb19 ], [ %spec.select, %sw.bb9 ], [ %cmp7, %sw.bb6 ], [ %cmp5, %sw.bb4 ], [ %cmp3, %sw.bb2 ], [ %cmp, %sw.bb1 ], [ false, %sw.bb ], [ false, %sw.bb8 ], [ false, %sw.bb18 ], [ false, %sw.bb29 ], [ false, %sw.bb38 ], [ false, %sw.bb56 ], [ false, %sw.bb62 ], [ false, %sw.bb73 ], [ false, %sw.bb84 ], [ false, %entry ], [ %switch.masked, %switch.lookup ], [ false, %sw.bb39 ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb1 ], [ %cmp3, %sw.bb2 ], [ %cmp5, %sw.bb4 ], [ %cmp7, %sw.bb6 ], [ %spec.select, %sw.bb9 ], [ %spec.select58, %sw.bb19 ], [ %spec.select59, %sw.bb30 ], [ %5, %sw.bb46 ], [ %cmp52, %sw.bb51 ], [ %cmp54, %sw.bb53 ], [ %cmp58, %sw.bb57 ], [ %cmp60, %sw.bb59 ], [ %spec.select60, %sw.bb63 ], [ %cmp71, %sw.bb70 ], [ %spec.select61, %sw.bb74 ], [ %cmp82, %sw.bb81 ], [ %spec.select62, %sw.bb85 ], [ %cmp93, %sw.bb92 ], [ %cmp95, %sw.bb94 ], [ %cmp97, %sw.bb96 ], [ false, %sw.bb ], [ false, %sw.bb8 ], [ false, %sw.bb18 ], [ false, %sw.bb29 ], [ false, %sw.bb38 ], [ false, %sw.bb56 ], [ false, %sw.bb62 ], [ false, %sw.bb73 ], [ false, %sw.bb84 ], [ false, %entry ], [ %switch.masked, %switch.lookup ], [ false, %sw.bb39 ]
   ret i1 %retval.0
 }
 

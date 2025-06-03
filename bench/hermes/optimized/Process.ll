@@ -407,7 +407,7 @@ if.end20.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb22.i.i.i.i.i.i
 
 sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr21.i.i.i.i.i.i, %if.end20.i.i.i.i.i.i ]
+  %__first.addr.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i.i.i, %if.end20.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %call.i.i86.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i.i.i) #18
   %call2.i.i87.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i.i.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i83.i.i.i.i.i.i)
@@ -439,7 +439,7 @@ if.end25.i.i.i.i.i.i:                             ; preds = %sw.bb22.i.i.i.i.i.i
   br label %sw.bb27.i.i.i.i.i.i
 
 sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.addr.2.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr26.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i ]
+  %__first.addr.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %call.i.i100.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.2.i.i.i.i.i.i) #18
   %call2.i.i101.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.2.i.i.i.i.i.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i97.i.i.i.i.i.i)

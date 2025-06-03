@@ -599,9 +599,9 @@ _ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i: ; preds = %12, %8
   unreachable
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE3endEv.exit: ; preds = %3, %7, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i
-  %15 = phi ptr [ %13, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %.pre, %7 ], [ %.pre, %3 ]
-  %16 = phi i8 [ %.pre.i, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %5, %7 ], [ %5, %3 ]
-  %.0.i.i = phi ptr [ %13, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %.pre, %7 ], [ %0, %3 ]
+  %15 = phi ptr [ %.pre, %7 ], [ %13, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %.pre, %3 ]
+  %16 = phi i8 [ %5, %7 ], [ %.pre.i, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %5, %3 ]
+  %.0.i.i = phi ptr [ %.pre, %7 ], [ %13, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i ], [ %0, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !7
   %19 = zext i8 %16 to i64
@@ -649,7 +649,7 @@ _ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i.i.i.i: ; preds = %42, %
   unreachable
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE5beginEv.exit.i.i.i: ; preds = %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i.i.i.i, %35, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE3endEv.exit
-  %.0.i.i.i.i.i = phi ptr [ %43, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i.i.i.i ], [ %36, %35 ], [ %0, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE3endEv.exit ]
+  %.0.i.i.i.i.i = phi ptr [ %36, %35 ], [ %43, %_ZN5folly13fbstring_coreIcE16mutableDataLargeEv.exit.i.i.i.i.i ], [ %0, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE3endEv.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 %28
   %46 = getelementptr inbounds i8, ptr %45, i64 %31
   %gepdiff.i.i.i = sub nsw i64 %22, %28
@@ -2663,7 +2663,7 @@ define linkonce_odr noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_ty
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ 0, %18 ], [ 17, %17 ], [ 16, %16 ], [ 15, %15 ], [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %11 ], [ 10, %10 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ]
+  %.0 = phi i8 [ 0, %18 ], [ 2, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 8, %8 ], [ 9, %9 ], [ 10, %10 ], [ 11, %11 ], [ 12, %12 ], [ 13, %13 ], [ 14, %14 ], [ 15, %15 ], [ 16, %16 ], [ 17, %17 ], [ 1, %1 ]
   ret i8 %.0
 }
 
@@ -3440,7 +3440,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %19, %13, %10, %17, %23
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %23 ], [ %18, %17 ], [ %12, %10 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %18, %17 ], [ %.sroa.05.0.extract.trunc.i, %23 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ]
   %35 = icmp ugt i64 %.0.i, 2147483647
   br i1 %35, label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23, label %36
 
@@ -3663,7 +3663,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %19, %13, %10, %17, %23
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %23 ], [ %18, %17 ], [ %12, %10 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %18, %17 ], [ %.sroa.05.0.extract.trunc.i, %23 ], [ %14, %13 ], [ %.sroa.011.0.extract.trunc.i, %19 ]
   %35 = icmp ugt i64 %.0.i, 2147483647
   br i1 %35, label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread23, label %36
 

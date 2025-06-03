@@ -9765,7 +9765,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit266: ; preds = %_ZN4cvc58internal1
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit150
 
 .body256:                                         ; preds = %785, %787, %783, %746, %651, %655, %659, %665, %663, %661, %657, %653, %330, %334, %336, %338, %332, %736, %.body215, %.body173
-  %.pn127 = phi { ptr, i32 } [ %.pn92, %736 ], [ %.pn112.pn, %.body215 ], [ %.pn120.pn.pn.pn, %.body173 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %339, %338 ], [ %337, %336 ], [ %652, %651 ], [ %654, %653 ], [ %656, %655 ], [ %658, %657 ], [ %660, %659 ], [ %662, %661 ], [ %666, %665 ], [ %664, %663 ], [ %784, %783 ], [ %747, %746 ], [ %788, %787 ], [ %786, %785 ]
+  %.pn127 = phi { ptr, i32 } [ %.pn120.pn.pn.pn, %.body173 ], [ %.pn112.pn, %.body215 ], [ %.pn92, %736 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %339, %338 ], [ %337, %336 ], [ %652, %651 ], [ %654, %653 ], [ %656, %655 ], [ %658, %657 ], [ %660, %659 ], [ %662, %661 ], [ %666, %665 ], [ %664, %663 ], [ %784, %783 ], [ %747, %746 ], [ %788, %787 ], [ %786, %785 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #26
   br label %.body153
 
@@ -10870,8 +10870,8 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit:             ; preds = %.critedge.thread, %
   ret i1 %.037
 
 524:                                              ; preds = %303, %208, %523, %504, %207
-  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn, %523 ], [ %.pn, %504 ], [ %.pn49, %207 ], [ %209, %208 ], [ %304, %303 ]
-  resume { ptr, i32 } %.pn45.pn.pn.pn
+  %.pn62.pn.pn = phi { ptr, i32 } [ %.pn49, %207 ], [ %.pn45.pn.pn, %523 ], [ %.pn, %504 ], [ %209, %208 ], [ %304, %303 ]
+  resume { ptr, i32 } %.pn62.pn.pn
 }
 
 declare void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -11444,9 +11444,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRK
   %76 = select i1 %75, i32 -1, i32 %74
   %77 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %76)
   %78 = icmp eq i32 %77, 2
-  %spec.select.i.i11 = select i1 %78, i64 2, i64 1
+  %spec.select.i.i12 = select i1 %78, i64 2, i64 1
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %79, i64 0, i64 %spec.select.i.i11
+  %80 = getelementptr inbounds nuw [0 x ptr], ptr %79, i64 0, i64 %spec.select.i.i12
   %81 = load ptr, ptr %80, align 8, !tbaa !18, !noalias !837
   store ptr %81, ptr %7, align 8, !tbaa !390, !alias.scope !837
   call void @_ZNK4cvc58internal6theory2eq14EqualityEngine15explainEqualityENS0_12NodeTemplateILb0EEES5_bRSt6vectorIS5_SaIS5_EEPNS2_7EqProofE(ptr noundef nonnull align 8 dereferenceable(1784) %63, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef null)
@@ -17198,7 +17198,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit203:           ; preds = %728, %732, %738
   ret void
 
 743:                                              ; preds = %727, %595, %331, %163, %152, %144, %139, %120
-  %.pn92.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn, %139 ], [ %.pn53.pn.pn, %727 ], [ %.pn70.pn.pn.pn.pn.pn.pn, %595 ], [ %.pn89.pn, %331 ], [ %164, %163 ], [ %153, %152 ], [ %145, %144 ], [ %121, %120 ]
+  %.pn92.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn, %139 ], [ %.pn89.pn, %331 ], [ %.pn70.pn.pn.pn.pn.pn.pn, %595 ], [ %.pn53.pn.pn, %727 ], [ %164, %163 ], [ %153, %152 ], [ %145, %144 ], [ %121, %120 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #26
   resume { ptr, i32 } %.pn92.pn.pn.pn

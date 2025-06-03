@@ -5513,7 +5513,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %61, %63
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %57, %75, %73
-  %.018.be = phi ptr [ %76, %75 ], [ %74, %73 ], [ %70, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %58, %57 ]
+  %.018.be = phi ptr [ %76, %75 ], [ %70, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %58, %57 ], [ %74, %73 ]
   br label %5, !llvm.loop !65
 
 73:                                               ; preds = %56
@@ -6643,7 +6643,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %_ZN4pugi4impl11utf8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.preheader, %._crit_edge, %5, %29, %11, %128, %124, %120, %101, %105, %147, %143, %166, %162, %193, %189, %185, %181, %2, %98
-  %.383 = phi ptr [ %3, %2 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %167, %166 ], [ %163, %162 ], [ %148, %147 ], [ %144, %143 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %99, %98 ], [ %.175, %29 ], [ %12, %11 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %.383.ph, %.thread.sink.split ]
+  %.383 = phi ptr [ %3, %2 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %148, %147 ], [ %144, %143 ], [ %167, %166 ], [ %163, %162 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %99, %98 ], [ %.175, %29 ], [ %12, %11 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %.383.ph, %.thread.sink.split ]
   ret ptr %.383
 }
 
@@ -7165,7 +7165,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %58, %60
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %54, %84, %70
-  %.022.be = phi ptr [ %85, %84 ], [ %71, %70 ], [ %67, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %55, %54 ]
+  %.022.be = phi ptr [ %85, %84 ], [ %67, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %55, %54 ], [ %71, %70 ]
   br label %4, !llvm.loop !81
 
 70:                                               ; preds = %.split.loop.exit
@@ -7843,7 +7843,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %66, %68
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %62, %100, %78
-  %.037.be = phi ptr [ %101, %100 ], [ %79, %78 ], [ %75, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %63, %62 ]
+  %.037.be = phi ptr [ %101, %100 ], [ %75, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %63, %62 ], [ %79, %78 ]
   br label %4, !llvm.loop !92
 
 78:                                               ; preds = %.split.loop.exit

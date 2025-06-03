@@ -3098,7 +3098,7 @@ define void @_ZN10polars_row6encode11get_encoder17h9fcef0c259e71cf2E(ptr dead_on
   unreachable
 
 common.resume:                                    ; preds = %133, %294, %.thread232, %140, %86, %.body130, %386, %383, %.body122
-  %common.resume.op = phi { ptr, i32 } [ %141, %140 ], [ %eh.lpad-body, %.thread232 ], [ %.pn89, %294 ], [ %eh.lpad-body131, %86 ], [ %eh.lpad-body131, %.body130 ], [ %.pn89.pn231, %386 ], [ %.pn89.pn231, %383 ], [ %490, %.body122 ], [ %134, %133 ]
+  %common.resume.op = phi { ptr, i32 } [ %141, %140 ], [ %.pn89, %294 ], [ %eh.lpad-body, %.thread232 ], [ %eh.lpad-body131, %86 ], [ %eh.lpad-body131, %.body130 ], [ %.pn89.pn231, %386 ], [ %.pn89.pn231, %383 ], [ %490, %.body122 ], [ %134, %133 ]
   resume { ptr, i32 } %common.resume.op
 
 107:                                              ; preds = %60
@@ -5208,7 +5208,7 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   unreachable
 
 501:                                              ; preds = %559, %496
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %559 ], [ %497, %496 ]
+  %.pn = phi { ptr, i32 } [ %497, %496 ], [ %lpad.phi, %559 ]
   resume { ptr, i32 } %.pn
 
 502:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17a8be93cf0d19b7E.exit"
@@ -5741,8 +5741,8 @@ define { i64, i64 } @_ZN10polars_row6encode10fixed_size17h00856c1056912de7E(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit", %.lr.ph, %71, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit.thread.loopexit", %56, %._crit_edge.loopexit, %12, %30, %11, %10, %5, %6, %7, %8, %9, %25, %45, %40, %39, %2, %19
-  %.sroa.7.0 = phi i64 [ undef, %2 ], [ %50, %45 ], [ %42, %40 ], [ %spec.store.select, %39 ], [ %28, %25 ], [ 9, %9 ], [ 5, %8 ], [ 3, %7 ], [ 2, %6 ], [ 1, %5 ], [ 0, %19 ], [ 17, %10 ], [ 5, %11 ], [ undef, %30 ], [ undef, %12 ], [ 1, %56 ], [ %66, %._crit_edge.loopexit ], [ 1, %71 ], [ %91, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit.thread.loopexit" ], [ undef, %.lr.ph ], [ undef, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit" ]
-  %.sroa.07.0 = phi i64 [ 0, %2 ], [ 1, %45 ], [ 1, %40 ], [ 1, %39 ], [ 1, %25 ], [ 1, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %6 ], [ 1, %5 ], [ 1, %19 ], [ 1, %10 ], [ 1, %11 ], [ 0, %30 ], [ 0, %12 ], [ 1, %56 ], [ 1, %._crit_edge.loopexit ], [ 1, %71 ], [ 1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit.thread.loopexit" ], [ 0, %.lr.ph ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit" ]
+  %.sroa.7.0 = phi i64 [ undef, %2 ], [ 1, %5 ], [ 2, %6 ], [ 3, %7 ], [ 5, %8 ], [ 9, %9 ], [ %28, %25 ], [ %42, %40 ], [ %spec.store.select, %39 ], [ %50, %45 ], [ 0, %19 ], [ 17, %10 ], [ 5, %11 ], [ undef, %30 ], [ undef, %12 ], [ 1, %56 ], [ %66, %._crit_edge.loopexit ], [ 1, %71 ], [ %91, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit.thread.loopexit" ], [ undef, %.lr.ph ], [ undef, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit" ]
+  %.sroa.07.0 = phi i64 [ 0, %2 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %25 ], [ 1, %40 ], [ 1, %39 ], [ 1, %45 ], [ 1, %19 ], [ 1, %10 ], [ 1, %11 ], [ 0, %30 ], [ 0, %12 ], [ 1, %56 ], [ 1, %._crit_edge.loopexit ], [ 1, %71 ], [ 1, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit.thread.loopexit" ], [ 0, %.lr.ph ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha78574c7d9747f07E.exit" ]
   %43 = insertvalue { i64, i64 } poison, i64 %.sroa.07.0, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.0, 1
   ret { i64, i64 } %44

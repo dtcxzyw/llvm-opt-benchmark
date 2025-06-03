@@ -25664,7 +25664,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.025.1 = phi ptr [ %27, %26 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %29 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.sroa.025.1)
   br i1 %29, label %.loopexit, label %30
 
@@ -25673,7 +25673,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.025.2 = phi ptr [ %31, %30 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %33 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.sroa.025.2)
   %spec.select = select i1 %33, ptr %.sroa.025.2, ptr %1
   br label %.loopexit

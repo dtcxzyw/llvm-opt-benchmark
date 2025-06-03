@@ -843,7 +843,7 @@ tvb_generic_clone_offset_len.exit:                ; preds = %29
   br label %39
 
 39:                                               ; preds = %8, %tvb_generic_clone_offset_len.exit
-  %.1 = phi ptr [ %9, %8 ], [ %38, %tvb_generic_clone_offset_len.exit ]
+  %.1 = phi ptr [ %38, %tvb_generic_clone_offset_len.exit ], [ %9, %8 ]
   ret ptr %.1
 }
 
@@ -3703,7 +3703,7 @@ define i64 @tvb_get_uint64_with_length(ptr noundef %0, i32 noundef %1, i32 nound
   br label %278
 
 278:                                              ; preds = %238, %240, %4, %196, %198, %143, %161, %100, %113, %67, %75, %62, %37, %18, %5
-  %.0 = phi i64 [ %64, %62 ], [ %39, %37 ], [ %19, %18 ], [ %8, %5 ], [ %74, %67 ], [ %97, %75 ], [ %112, %100 ], [ %140, %113 ], [ %160, %143 ], [ %193, %161 ], [ %197, %196 ], [ %235, %198 ], [ 0, %4 ], [ %239, %238 ], [ %277, %240 ]
+  %.0 = phi i64 [ %8, %5 ], [ %19, %18 ], [ %39, %37 ], [ %64, %62 ], [ %74, %67 ], [ %97, %75 ], [ %112, %100 ], [ %140, %113 ], [ %160, %143 ], [ %193, %161 ], [ %197, %196 ], [ %235, %198 ], [ 0, %4 ], [ %239, %238 ], [ %277, %240 ]
   ret i64 %.0
 }
 
@@ -6700,7 +6700,7 @@ tvb_get_apn_string.exit:                          ; preds = %._crit_edge.i, %.lr
   br label %189
 
 189:                                              ; preds = %183, %180, %tvb_get_apn_string.exit, %158, %155, %tvb_get_etsi_ts_102_221_annex_a_string.exit, %tvb_get_ts_23_038_7bits_string_unpacked.exit, %145, %139, %133, %130, %127, %124, %121, %tvb_get_ascii_7bits_string.exit, %tvb_get_ts_23_038_7bits_string_packed.exit, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %30, %26, %22, %19, %16
-  %.0 = phi ptr [ %18, %16 ], [ %182, %180 ], [ %179, %tvb_get_apn_string.exit ], [ %160, %158 ], [ %157, %155 ], [ %154, %tvb_get_etsi_ts_102_221_annex_a_string.exit ], [ %152, %tvb_get_ts_23_038_7bits_string_unpacked.exit ], [ %150, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %tvb_get_ascii_7bits_string.exit ], [ %111, %tvb_get_ts_23_038_7bits_string_packed.exit ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %188, %183 ]
+  %.0 = phi ptr [ %18, %16 ], [ %188, %183 ], [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %111, %tvb_get_ts_23_038_7bits_string_packed.exit ], [ %120, %tvb_get_ascii_7bits_string.exit ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %138, %133 ], [ %144, %139 ], [ %150, %145 ], [ %152, %tvb_get_ts_23_038_7bits_string_unpacked.exit ], [ %154, %tvb_get_etsi_ts_102_221_annex_a_string.exit ], [ %157, %155 ], [ %160, %158 ], [ %179, %tvb_get_apn_string.exit ], [ %182, %180 ]
   ret ptr %.0
 }
 
@@ -7469,7 +7469,7 @@ tvb_get_dect_standard_8bits_stringz.exit:         ; preds = %209, %212
   br label %214
 
 214:                                              ; preds = %tvb_get_dect_standard_8bits_stringz.exit, %tvb_get_euc_kr_stringz.exit, %tvb_get_gb18030_stringz.exit, %tvb_get_t61_stringz.exit, %tvb_get_nonascii_unichar2_stringz.exit202, %tvb_get_nonascii_unichar2_stringz.exit200, %tvb_get_nonascii_unichar2_stringz.exit, %tvb_get_iso_646_stringz.exit, %tvb_get_stringz_unichar2.exit196, %tvb_get_stringz_unichar2.exit194, %tvb_get_stringz_unichar2.exit192, %tvb_get_stringz_unichar2.exit190, %tvb_get_stringz_unichar2.exit188, %tvb_get_stringz_unichar2.exit186, %tvb_get_stringz_unichar2.exit184, %tvb_get_stringz_unichar2.exit182, %tvb_get_stringz_unichar2.exit180, %tvb_get_stringz_unichar2.exit178, %tvb_get_stringz_unichar2.exit176, %tvb_get_stringz_unichar2.exit174, %tvb_get_stringz_unichar2.exit172, %tvb_get_stringz_unichar2.exit170, %tvb_get_stringz_unichar2.exit168, %tvb_get_stringz_unichar2.exit166, %tvb_get_stringz_unichar2.exit164, %tvb_get_stringz_unichar2.exit162, %tvb_get_stringz_unichar2.exit160, %tvb_get_stringz_unichar2.exit158, %tvb_get_stringz_unichar2.exit, %tvb_get_stringz_8859_1.exit, %tvb_get_ucs_4_stringz.exit, %tvb_get_ucs_2_stringz.exit, %tvb_get_utf_16_stringz.exit, %tvb_get_utf_8_stringz.exit, %tvb_get_ascii_stringz.exit
-  %.0 = phi ptr [ %17, %tvb_get_ascii_stringz.exit ], [ %208, %tvb_get_euc_kr_stringz.exit ], [ %203, %tvb_get_gb18030_stringz.exit ], [ %198, %tvb_get_t61_stringz.exit ], [ %193, %tvb_get_nonascii_unichar2_stringz.exit202 ], [ %188, %tvb_get_nonascii_unichar2_stringz.exit200 ], [ %183, %tvb_get_nonascii_unichar2_stringz.exit ], [ %176, %tvb_get_iso_646_stringz.exit ], [ %171, %tvb_get_stringz_unichar2.exit196 ], [ %166, %tvb_get_stringz_unichar2.exit194 ], [ %161, %tvb_get_stringz_unichar2.exit192 ], [ %156, %tvb_get_stringz_unichar2.exit190 ], [ %151, %tvb_get_stringz_unichar2.exit188 ], [ %146, %tvb_get_stringz_unichar2.exit186 ], [ %141, %tvb_get_stringz_unichar2.exit184 ], [ %136, %tvb_get_stringz_unichar2.exit182 ], [ %131, %tvb_get_stringz_unichar2.exit180 ], [ %126, %tvb_get_stringz_unichar2.exit178 ], [ %121, %tvb_get_stringz_unichar2.exit176 ], [ %116, %tvb_get_stringz_unichar2.exit174 ], [ %111, %tvb_get_stringz_unichar2.exit172 ], [ %106, %tvb_get_stringz_unichar2.exit170 ], [ %101, %tvb_get_stringz_unichar2.exit168 ], [ %96, %tvb_get_stringz_unichar2.exit166 ], [ %91, %tvb_get_stringz_unichar2.exit164 ], [ %86, %tvb_get_stringz_unichar2.exit162 ], [ %81, %tvb_get_stringz_unichar2.exit160 ], [ %76, %tvb_get_stringz_unichar2.exit158 ], [ %71, %tvb_get_stringz_unichar2.exit ], [ %66, %tvb_get_stringz_8859_1.exit ], [ %61, %tvb_get_ucs_4_stringz.exit ], [ %42, %tvb_get_ucs_2_stringz.exit ], [ %32, %tvb_get_utf_16_stringz.exit ], [ %22, %tvb_get_utf_8_stringz.exit ], [ %213, %tvb_get_dect_standard_8bits_stringz.exit ]
+  %.0 = phi ptr [ %17, %tvb_get_ascii_stringz.exit ], [ %213, %tvb_get_dect_standard_8bits_stringz.exit ], [ %22, %tvb_get_utf_8_stringz.exit ], [ %32, %tvb_get_utf_16_stringz.exit ], [ %42, %tvb_get_ucs_2_stringz.exit ], [ %61, %tvb_get_ucs_4_stringz.exit ], [ %66, %tvb_get_stringz_8859_1.exit ], [ %71, %tvb_get_stringz_unichar2.exit ], [ %76, %tvb_get_stringz_unichar2.exit158 ], [ %81, %tvb_get_stringz_unichar2.exit160 ], [ %86, %tvb_get_stringz_unichar2.exit162 ], [ %91, %tvb_get_stringz_unichar2.exit164 ], [ %96, %tvb_get_stringz_unichar2.exit166 ], [ %101, %tvb_get_stringz_unichar2.exit168 ], [ %106, %tvb_get_stringz_unichar2.exit170 ], [ %111, %tvb_get_stringz_unichar2.exit172 ], [ %116, %tvb_get_stringz_unichar2.exit174 ], [ %121, %tvb_get_stringz_unichar2.exit176 ], [ %126, %tvb_get_stringz_unichar2.exit178 ], [ %131, %tvb_get_stringz_unichar2.exit180 ], [ %136, %tvb_get_stringz_unichar2.exit182 ], [ %141, %tvb_get_stringz_unichar2.exit184 ], [ %146, %tvb_get_stringz_unichar2.exit186 ], [ %151, %tvb_get_stringz_unichar2.exit188 ], [ %156, %tvb_get_stringz_unichar2.exit190 ], [ %161, %tvb_get_stringz_unichar2.exit192 ], [ %166, %tvb_get_stringz_unichar2.exit194 ], [ %171, %tvb_get_stringz_unichar2.exit196 ], [ %176, %tvb_get_iso_646_stringz.exit ], [ %183, %tvb_get_nonascii_unichar2_stringz.exit ], [ %188, %tvb_get_nonascii_unichar2_stringz.exit200 ], [ %193, %tvb_get_nonascii_unichar2_stringz.exit202 ], [ %198, %tvb_get_t61_stringz.exit ], [ %203, %tvb_get_gb18030_stringz.exit ], [ %208, %tvb_get_euc_kr_stringz.exit ]
   ret ptr %.0
 }
 
@@ -8861,7 +8861,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   unreachable
 
 .thread79:                                        ; preds = %51, %.lr.ph, %43, %37, %20, %.preheader96, %.preheader94, %.preheader, %.thread74, %.thread, %83, %66, %59, %57
-  %.1 = phi i32 [ 8, %83 ], [ 4, %66 ], [ 2, %59 ], [ 1, %57 ], [ %19, %.thread ], [ %36, %.thread74 ], [ 0, %.preheader ], [ 0, %.preheader94 ], [ 0, %.preheader96 ], [ 0, %20 ], [ 0, %37 ], [ 0, %51 ], [ 0, %.lr.ph ], [ %50, %43 ]
+  %.1 = phi i32 [ 1, %57 ], [ 2, %59 ], [ 4, %66 ], [ 8, %83 ], [ %19, %.thread ], [ %36, %.thread74 ], [ 0, %.preheader ], [ 0, %.preheader94 ], [ 0, %.preheader96 ], [ 0, %20 ], [ 0, %37 ], [ 0, %51 ], [ 0, %.lr.ph ], [ %50, %43 ]
   ret i32 %.1
 
 default.unreachable127:                           ; preds = %52

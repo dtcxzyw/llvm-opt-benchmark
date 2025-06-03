@@ -839,8 +839,8 @@ compare_path_costs_fuzzily.exit.thread158.sink.split: ; preds = %202, %161, %129
   %.not137 = icmp samesign ugt i8 %216, %218
   br label %compare_path_costs_fuzzily.exit.thread158
 
-compare_path_costs_fuzzily.exit.thread158:        ; preds = %compare_path_costs_fuzzily.exit.thread158.sink.split, %152, %157, %78, %55, %134, %147, %140, %99, %161, %127, %129, %117, %118, %166, %178, %181, %186, %198, %202, %149, %123, %compare_path_costs_fuzzily.exit
-  %.2162.shrunk = phi i1 [ true, %compare_path_costs_fuzzily.exit ], [ true, %123 ], [ false, %149 ], [ true, %78 ], [ true, %55 ], [ true, %134 ], [ false, %147 ], [ false, %140 ], [ true, %99 ], [ true, %161 ], [ true, %127 ], [ true, %129 ], [ true, %117 ], [ true, %118 ], [ true, %166 ], [ true, %178 ], [ true, %181 ], [ true, %186 ], [ true, %198 ], [ true, %202 ], [ true, %157 ], [ true, %152 ], [ %.not137, %compare_path_costs_fuzzily.exit.thread158.sink.split ]
+compare_path_costs_fuzzily.exit.thread158:        ; preds = %compare_path_costs_fuzzily.exit.thread158.sink.split, %152, %157, %78, %55, %134, %147, %140, %99, %186, %198, %202, %166, %178, %181, %161, %127, %129, %117, %118, %149, %123, %compare_path_costs_fuzzily.exit
+  %.2162.shrunk = phi i1 [ true, %compare_path_costs_fuzzily.exit ], [ true, %123 ], [ false, %149 ], [ true, %78 ], [ true, %55 ], [ true, %134 ], [ false, %147 ], [ false, %140 ], [ true, %99 ], [ true, %186 ], [ true, %198 ], [ true, %202 ], [ true, %166 ], [ true, %178 ], [ true, %181 ], [ true, %161 ], [ true, %127 ], [ true, %129 ], [ true, %117 ], [ true, %118 ], [ true, %157 ], [ true, %152 ], [ %.not137, %compare_path_costs_fuzzily.exit.thread158.sink.split ]
   %219 = load i32, ptr %15, align 8
   %220 = load i32, ptr %33, align 8
   %221 = icmp sgt i32 %219, %220
@@ -5949,7 +5949,7 @@ create_memoize_path.exit:                         ; preds = %199, %223
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph143, %102, %15, %create_memoize_path.exit, %194, %create_material_path.exit, %151, %._crit_edge, %12, %105, %create_subqueryscan_path.exit, %52, %48, %33, %18
-  %.0 = phi ptr [ %106, %105 ], [ %80, %create_subqueryscan_path.exit ], [ %55, %52 ], [ %49, %48 ], [ %34, %33 ], [ %19, %18 ], [ null, %12 ], [ %150, %._crit_edge ], [ %157, %create_material_path.exit ], [ null, %151 ], [ %210, %create_memoize_path.exit ], [ null, %194 ], [ null, %15 ], [ null, %102 ], [ null, %.lr.ph143 ]
+  %.0 = phi ptr [ %19, %18 ], [ %34, %33 ], [ %49, %48 ], [ %55, %52 ], [ %80, %create_subqueryscan_path.exit ], [ %106, %105 ], [ null, %12 ], [ %150, %._crit_edge ], [ %157, %create_material_path.exit ], [ null, %151 ], [ %210, %create_memoize_path.exit ], [ null, %194 ], [ null, %15 ], [ null, %102 ], [ null, %.lr.ph143 ]
   ret ptr %.0
 }
 
@@ -6406,7 +6406,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br label %.critedge334
 
 .critedge334:                                     ; preds = %215, %133, %102, %261, %267, %12, %208, %186, %191, %167, %172, %152, %157, %87, %81, %3, %6, %65, %211, %225
-  %.0 = phi ptr [ null, %225 ], [ null, %211 ], [ null, %65 ], [ %1, %6 ], [ %1, %3 ], [ null, %81 ], [ null, %87 ], [ null, %157 ], [ null, %152 ], [ null, %172 ], [ null, %167 ], [ null, %191 ], [ null, %186 ], [ null, %208 ], [ null, %12 ], [ %1, %267 ], [ %1, %261 ], [ null, %102 ], [ null, %133 ], [ null, %215 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %211 ], [ null, %225 ], [ %1, %6 ], [ %1, %3 ], [ null, %81 ], [ null, %87 ], [ null, %157 ], [ null, %152 ], [ null, %172 ], [ null, %167 ], [ null, %191 ], [ null, %186 ], [ null, %208 ], [ null, %12 ], [ %1, %267 ], [ %1, %261 ], [ null, %102 ], [ null, %133 ], [ null, %215 ]
   ret ptr %.0
 }
 
@@ -6654,7 +6654,7 @@ pathlist_is_reparameterizable_by_child.exit.thread: ; preds = %82, %59, %39, %24
   br label %.thread116
 
 .thread116:                                       ; preds = %.lr.ph135, %.lr.ph140, %.lr.ph145, %.lr.ph150, %71, %67, %50, %98, %94, %90, %13, %11, %2, %5, %pathlist_is_reparameterizable_by_child.exit.thread
-  %.0 = phi i1 [ false, %98 ], [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %94 ], [ false, %90 ], [ false, %13 ], [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %50 ], [ false, %67 ], [ false, %71 ], [ false, %.lr.ph150 ], [ false, %.lr.ph145 ], [ false, %.lr.ph140 ], [ false, %.lr.ph135 ]
+  %.0 = phi i1 [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %13 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %50 ], [ false, %67 ], [ false, %71 ], [ false, %.lr.ph150 ], [ false, %.lr.ph145 ], [ false, %.lr.ph140 ], [ false, %.lr.ph135 ]
   ret i1 %.0
 }
 

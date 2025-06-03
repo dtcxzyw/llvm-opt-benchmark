@@ -10060,7 +10060,7 @@ define internal i32 @dissect_nrup(ptr noundef %0, ptr readnone captures(none) %1
   br label %205
 
 205:                                              ; preds = %4, %204, %156, %79
-  %.4 = phi i32 [ 0, %4 ], [ %.15, %204 ], [ %.11, %156 ], [ %.3, %79 ]
+  %.4 = phi i32 [ 0, %4 ], [ %.3, %79 ], [ %.11, %156 ], [ %.15, %204 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
@@ -11180,8 +11180,8 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   %398 = icmp eq ptr %396, null
   br i1 %398, label %.preheader, label %409
 
-.preheader:                                       ; preds = %.lr.ph464.split, %check_field_presence_and_decoder.exit.thread.loopexit, %check_field_presence_and_decoder.exit.thread433, %check_field_presence_and_decoder.exit, %394
-  %.1423496 = phi i32 [ %397, %394 ], [ %.0422462, %.lr.ph464.split ], [ %.0422462, %check_field_presence_and_decoder.exit.thread.loopexit ], [ %.3425437, %check_field_presence_and_decoder.exit.thread433 ], [ %384, %check_field_presence_and_decoder.exit ]
+.preheader:                                       ; preds = %.lr.ph464.split, %check_field_presence_and_decoder.exit.thread433, %check_field_presence_and_decoder.exit.thread.loopexit, %check_field_presence_and_decoder.exit, %394
+  %.1423496 = phi i32 [ %397, %394 ], [ %.0422462, %.lr.ph464.split ], [ %.3425437, %check_field_presence_and_decoder.exit.thread433 ], [ %.0422462, %check_field_presence_and_decoder.exit.thread.loopexit ], [ %384, %check_field_presence_and_decoder.exit ]
   %399 = zext i8 %363 to i32
   br label %400
 
@@ -13050,7 +13050,7 @@ teid_exists.exit.thread:                          ; preds = %22, %teid_exists.ex
   br label %39
 
 39:                                               ; preds = %36, %7
-  %.0 = phi i32 [ 5, %36 ], [ 3, %7 ]
+  %.0 = phi i32 [ 3, %7 ], [ 5, %36 ]
   ret i32 %.0
 }
 
@@ -13150,7 +13150,7 @@ define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %18, %8
-  %.0 = phi i32 [ 6, %18 ], [ 4, %8 ]
+  %.0 = phi i32 [ 4, %8 ], [ 6, %18 ]
   ret i32 %.0
 }
 
@@ -13679,7 +13679,7 @@ default.unreachable175:                           ; preds = %13
   unreachable
 
 113:                                              ; preds = %94, %74, %decode_triplet.exit, %23
-  %.0168 = phi i32 [ %112, %94 ], [ %93, %74 ], [ %73, %decode_triplet.exit ], [ %44, %23 ]
+  %.0168 = phi i32 [ %44, %23 ], [ %73, %decode_triplet.exit ], [ %93, %74 ], [ %112, %94 ]
   %114 = load i32, ptr @ett_gtp_drx, align 4
   %115 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0168, i32 noundef 2, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.1795)
   %116 = tail call zeroext i16 @de_gmm_drx_param(ptr noundef %0, ptr noundef %115, ptr noundef %2, i32 noundef %.0168, i32 noundef 2, ptr noundef null, i32 noundef 0)
@@ -13792,7 +13792,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i3
   br label %41
 
 41:                                               ; preds = %34, %30
-  %.0 = phi i32 [ %40, %34 ], [ %33, %30 ]
+  %.0 = phi i32 [ %33, %30 ], [ %40, %34 ]
   %42 = load i32, ptr @hf_gtp_sequence_number_down, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %42, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0)
   %44 = load i32, ptr @hf_gtp_sequence_number_up, align 4

@@ -2797,7 +2797,7 @@ sw.epilog:                                        ; preds = %invoke.cont132, %if
   ret void
 
 eh.resume:                                        ; preds = %lpad131, %ehcleanup119, %lpad90, %lpad78, %lpad66, %lpad54, %lpad42, %lpad30, %lpad
-  %.pn98 = phi { ptr, i32 } [ %115, %lpad131 ], [ %.pn95.pn, %ehcleanup119 ], [ %75, %lpad90 ], [ %68, %lpad78 ], [ %61, %lpad66 ], [ %54, %lpad54 ], [ %47, %lpad42 ], [ %40, %lpad30 ], [ %33, %lpad ]
+  %.pn98 = phi { ptr, i32 } [ %33, %lpad ], [ %40, %lpad30 ], [ %47, %lpad42 ], [ %54, %lpad54 ], [ %61, %lpad66 ], [ %68, %lpad78 ], [ %75, %lpad90 ], [ %.pn95.pn, %ehcleanup119 ], [ %115, %lpad131 ]
   resume { ptr, i32 } %.pn98
 }
 

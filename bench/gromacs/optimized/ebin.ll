@@ -199,7 +199,7 @@ define noundef i32 @_Z14get_ebin_spaceP6t_ebiniPKPKcS2_(ptr noundef captures(non
   br label %54
 
 54:                                               ; preds = %53, %52, %51, %50, %48, %43
-  %.1.us = phi ptr [ %.047.us, %48 ], [ @.str.11, %50 ], [ @.str.10, %51 ], [ @.str.9, %52 ], [ @.str.8, %53 ], [ %.047.us, %43 ]
+  %.1.us = phi ptr [ %.047.us, %48 ], [ @.str.8, %53 ], [ @.str.9, %52 ], [ @.str.10, %51 ], [ @.str.11, %50 ], [ %.047.us, %43 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, 95
   br i1 %exitcond.not, label %36, label %43, !llvm.loop !31

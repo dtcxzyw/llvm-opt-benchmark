@@ -2816,7 +2816,7 @@ common.resume:                                    ; preds = %112, %116, %124, %1
   br label %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
 
 "_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit": ; preds = %71, %70, %69, %68, %63
-  %.sroa.0.0.i.i.i = phi i8 [ 10, %71 ], [ 9, %70 ], [ %.val5, %69 ], [ 7, %68 ], [ 6, %63 ]
+  %.sroa.0.0.i.i.i = phi i8 [ 7, %68 ], [ %.val5, %69 ], [ 9, %70 ], [ 10, %71 ], [ 6, %63 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hfd1b48571f5e0afcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i8 noundef %.sroa.0.0.i.i.i)
           to label %72 unwind label %121
@@ -5448,7 +5448,7 @@ common.resume:                                    ; preds = %119, %123, %131, %1
   br label %76
 
 76:                                               ; preds = %75, %74, %73, %72, %65
-  %.sroa.0.0.i.i = phi i8 [ 10, %75 ], [ 9, %74 ], [ %67, %73 ], [ 7, %72 ], [ 6, %65 ]
+  %.sroa.0.0.i.i = phi i8 [ 7, %72 ], [ %67, %73 ], [ 9, %74 ], [ 10, %75 ], [ 6, %65 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %5, ptr noundef nonnull readonly align 1 dereferenceable(18) %1, i64 17, i1 false), !alias.scope !572
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !562, !noalias !565

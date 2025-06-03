@@ -369,7 +369,7 @@ define internal fastcc i64 @H5FD__extend(ptr noundef %0, i32 noundef %1, i64 nou
   br label %59
 
 59:                                               ; preds = %.thread41, %.thread, %53, %3, %55, %36
-  %.033 = phi i64 [ -1, %36 ], [ %20, %53 ], [ -1, %55 ], [ -1, %3 ], [ -1, %.thread ], [ -1, %.thread41 ]
+  %.033 = phi i64 [ -1, %36 ], [ -1, %55 ], [ %20, %53 ], [ -1, %3 ], [ -1, %.thread ], [ -1, %.thread41 ]
   ret i64 %.033
 }
 
@@ -604,7 +604,7 @@ define range(i32 -1, -2147483648) i32 @H5FD__free_real(ptr noundef %0, i32 nound
   br label %98
 
 98:                                               ; preds = %.thread79, %.thread73, %.thread, %94, %77, %92, %55, %4, %61, %57, %32, %15
-  %.055 = phi i32 [ -1, %32 ], [ %49, %55 ], [ -1, %57 ], [ 0, %61 ], [ -1, %15 ], [ 0, %4 ], [ -1, %94 ], [ %86, %92 ], [ 0, %77 ], [ -1, %.thread ], [ -1, %.thread73 ], [ -1, %.thread79 ]
+  %.055 = phi i32 [ -1, %32 ], [ -1, %57 ], [ %49, %55 ], [ 0, %61 ], [ -1, %15 ], [ 0, %4 ], [ -1, %94 ], [ %86, %92 ], [ 0, %77 ], [ -1, %.thread ], [ -1, %.thread73 ], [ -1, %.thread79 ]
   ret i32 %.055
 }
 

@@ -1064,9 +1064,9 @@ _ZN4llvm9sandboxir18ReadyListContainer3popEv.exit: ; preds = %18, %26
   br i1 %58, label %_ZNK4llvm6detail12DenseSetImplIPNS_9sandboxir11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit, label %.lr.ph.i.i.i.i, !prof !64, !llvm.loop !83
 
 _ZNK4llvm6detail12DenseSetImplIPNS_9sandboxir11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit: ; preds = %52, %39
-  %.lcssa.i.i.i.pn.i = phi i64 [ %46, %39 ], [ %55, %52 ]
+  %.pn.i = phi i64 [ %46, %39 ], [ %55, %52 ]
   %59 = zext i32 %37 to i64
-  %.not19 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %59
+  %.not19 = icmp samesign eq i64 %.pn.i, %59
   br i1 %.not19, label %_ZNK4llvm6detail12DenseSetImplIPNS_9sandboxir11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit.thread, label %60
 
 60:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_9sandboxir11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit
@@ -2135,7 +2135,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9sandboxir9Scheduler11tryScheduleEN
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !57
   %44 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.1.val.i.i.i.i.i.i) #15
   %45 = load ptr, ptr %8, align 8, !tbaa !91
@@ -2147,7 +2147,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9sandboxir9Scheduler11tryScheduleEN
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %47, %46 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !57
   %49 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.2.val.i.i.i.i.i.i) #15
   %50 = load ptr, ptr %8, align 8, !tbaa !91
@@ -2305,7 +2305,7 @@ _ZNSt8optionalIN4llvm9sandboxir10BBIteratorEEaSIS2_EENSt9enable_ifIX7__and_vISt6
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i.i.i.i.i.i45
-  %.1.i.i.i.i.i.i51 = phi ptr [ %.029.lcssa.i.i.i.i.i.i47, %._crit_edge.i.i.i.i.i.i45 ], [ %95, %94 ]
+  %.1.i.i.i.i.i.i51 = phi ptr [ %95, %94 ], [ %.029.lcssa.i.i.i.i.i.i47, %._crit_edge.i.i.i.i.i.i45 ]
   %.1.val.i.i.i.i.i.i52 = load ptr, ptr %.1.i.i.i.i.i.i51, align 8, !tbaa !57
   %97 = call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.1.val.i.i.i.i.i.i52) #15
   %.not40.i.i.i.i.i.i53 = icmp eq ptr %97, %75
@@ -2316,7 +2316,7 @@ _ZNSt8optionalIN4llvm9sandboxir10BBIteratorEEaSIS2_EENSt9enable_ifIX7__and_vISt6
   br label %100
 
 100:                                              ; preds = %98, %._crit_edge.i.i.i.i.i.i45
-  %.2.i.i.i.i.i.i48 = phi ptr [ %.029.lcssa.i.i.i.i.i.i47, %._crit_edge.i.i.i.i.i.i45 ], [ %99, %98 ]
+  %.2.i.i.i.i.i.i48 = phi ptr [ %99, %98 ], [ %.029.lcssa.i.i.i.i.i.i47, %._crit_edge.i.i.i.i.i.i45 ]
   %.2.val.i.i.i.i.i.i49 = load ptr, ptr %.2.i.i.i.i.i.i48, align 8, !tbaa !57
   %101 = call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.2.val.i.i.i.i.i.i49) #15
   %.not41.i.i.i.i.i.i50 = icmp eq ptr %101, %75

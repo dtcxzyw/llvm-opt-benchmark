@@ -3863,7 +3863,7 @@ zend_gc_try_delref.exit:                          ; preds = %137, %131, %127
   br i1 %.not137, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %179, %49, %195, %164, %194
-  %.1125 = phi i32 [ -1, %164 ], [ -1, %194 ], [ -1, %179 ], [ %.2, %195 ], [ %.0124, %49 ]
+  %.1125 = phi i32 [ -1, %194 ], [ -1, %164 ], [ -1, %179 ], [ %.2, %195 ], [ %.0124, %49 ]
   br i1 %.not, label %199, label %197
 
 197:                                              ; preds = %.loopexit
@@ -5226,13 +5226,13 @@ zend_forbid_dynamic_call.exit:                    ; preds = %php_valid_var_name.
   br label %173
 
 173:                                              ; preds = %171, %168, %165, %162, %159, %157, %155
-  %.0 = phi i64 [ %172, %171 ], [ %170, %168 ], [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %157 ], [ %156, %155 ]
+  %.0 = phi i64 [ %172, %171 ], [ %156, %155 ], [ %158, %157 ], [ %161, %159 ], [ %164, %162 ], [ %167, %165 ], [ %170, %168 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   br label %174
 
 174:                                              ; preds = %127, %129, %131, %134, %137, %140, %143, %173
-  %.1 = phi i64 [ %144, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ %133, %131 ], [ %130, %129 ], [ %128, %127 ], [ %.0, %173 ]
+  %.1 = phi i64 [ %144, %143 ], [ %128, %127 ], [ %130, %129 ], [ %133, %131 ], [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ %.0, %173 ]
   store i64 %.1, ptr %1, align 8, !tbaa !8
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %175, align 8, !tbaa !8
@@ -11065,7 +11065,7 @@ thread-pre-split:                                 ; preds = %29
   unreachable
 
 .thread:                                          ; preds = %31, %42, %45, %28, %25, %17, %19, %16, %7
-  %.0 = phi i8 [ 0, %16 ], [ 0, %19 ], [ 4, %7 ], [ 5, %17 ], [ 4, %28 ], [ 0, %25 ], [ %., %31 ], [ 0, %42 ], [ 6, %45 ]
+  %.0 = phi i8 [ 4, %7 ], [ 0, %16 ], [ 0, %19 ], [ 5, %17 ], [ 4, %28 ], [ 0, %25 ], [ %., %31 ], [ 0, %42 ], [ 6, %45 ]
   ret i8 %.0
 }
 
@@ -22016,11 +22016,11 @@ php_get_data_compare_func_unstable.exit:          ; preds = %41, %44, %45, %48, 
   br label %.thread274
 
 .loopexit287:                                     ; preds = %.loopexit287.loopexit.critedge, %72, %64
-  %.sroa.6.1 = phi i32 [ 0, %72 ], [ %.sroa.6.0, %64 ], [ 1, %.loopexit287.loopexit.critedge ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %72 ], [ 0, %64 ], [ 1, %.loopexit287.loopexit.critedge ]
-  %.3221 = phi i32 [ %73, %72 ], [ %.0218307, %64 ], [ %.1219, %.loopexit287.loopexit.critedge ]
-  %.3 = phi i32 [ %.0215308, %72 ], [ %66, %64 ], [ %.1216, %.loopexit287.loopexit.critedge ]
-  %.2 = phi i32 [ %.0212309, %72 ], [ %.0212309, %64 ], [ %58, %.loopexit287.loopexit.critedge ]
+  %.sroa.6.1 = phi i32 [ 1, %.loopexit287.loopexit.critedge ], [ %.sroa.6.0, %64 ], [ 0, %72 ]
+  %.sroa.0.1 = phi i32 [ 1, %.loopexit287.loopexit.critedge ], [ 0, %64 ], [ %.sroa.0.0, %72 ]
+  %.3221 = phi i32 [ %.1219, %.loopexit287.loopexit.critedge ], [ %.0218307, %64 ], [ %73, %72 ]
+  %.3 = phi i32 [ %.1216, %.loopexit287.loopexit.critedge ], [ %66, %64 ], [ %.0215308, %72 ]
+  %.2 = phi i32 [ %58, %.loopexit287.loopexit.critedge ], [ %.0212309, %64 ], [ %.0212309, %72 ]
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next344, %13
   br i1 %exitcond.not, label %83, label %16
@@ -22385,7 +22385,7 @@ php_get_data_compare_func_unstable.exit266:       ; preds = %85, %88, %89, %92, 
   tail call void @_efree(ptr noundef nonnull %14) #21
   br label %.thread274
 
-.thread274:                                       ; preds = %80, %67, %74, %77, %12, %226, %113, %111
+.thread274:                                       ; preds = %80, %74, %67, %77, %12, %226, %113, %111
   ret void
 }
 

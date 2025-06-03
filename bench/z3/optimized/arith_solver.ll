@@ -11996,7 +11996,7 @@ _ZNK10arith_util5mk_geEP4exprS1_.exit67:          ; preds = %220
   br label %258
 
 _ZNK5arith6solver7is_realEi.exit.thread:          ; preds = %.noexc59, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i58, %.noexc41, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i40, %_ZNK10arith_util5mk_geEP4exprS1_.exit67, %_ZNK10arith_util5mk_leEP4exprS1_.exit47, %_ZNK5arith6solver7is_realEi.exit60, %200, %_ZNK5arith6solver7is_realEi.exit, %120
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %200 ], [ %.sroa.0.2, %_ZNK5arith6solver7is_realEi.exit60 ], [ %.sroa.0.0, %120 ], [ %.sroa.0.0, %_ZNK5arith6solver7is_realEi.exit ], [ %143, %_ZNK10arith_util5mk_leEP4exprS1_.exit47 ], [ %223, %_ZNK10arith_util5mk_geEP4exprS1_.exit67 ], [ %.sroa.0.0, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i40 ], [ %.sroa.0.0, %.noexc41 ], [ %.sroa.0.2, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i58 ], [ %.sroa.0.2, %.noexc59 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %120 ], [ %.sroa.0.0, %_ZNK5arith6solver7is_realEi.exit ], [ %.sroa.0.2, %200 ], [ %.sroa.0.2, %_ZNK5arith6solver7is_realEi.exit60 ], [ %143, %_ZNK10arith_util5mk_leEP4exprS1_.exit47 ], [ %223, %_ZNK10arith_util5mk_geEP4exprS1_.exit67 ], [ %.sroa.0.0, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i40 ], [ %.sroa.0.0, %.noexc41 ], [ %.sroa.0.2, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i.i58 ], [ %.sroa.0.2, %.noexc59 ]
   %226 = icmp eq i32 %.sroa.0.1, -2
   br i1 %226, label %.thread74, label %227
 
@@ -12064,7 +12064,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %.thread74, %253
   ret void
 
 258:                                              ; preds = %64, %106, %144, %186, %224
-  %.pn34.pn = phi { ptr, i32 } [ %65, %64 ], [ %225, %224 ], [ %.pn, %186 ], [ %145, %144 ], [ %.pn32, %106 ]
+  %.pn34.pn = phi { ptr, i32 } [ %65, %64 ], [ %145, %144 ], [ %.pn32, %106 ], [ %225, %224 ], [ %.pn, %186 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
   resume { ptr, i32 } %.pn34.pn
@@ -20263,7 +20263,7 @@ _ZN5arith6solver9check_nlaEv.exit.thread18:       ; preds = %81, %72
   br label %84
 
 84:                                               ; preds = %81, %_ZN5arith6solver9check_nlaEv.exit.thread18, %_ZN5arith6solver9check_nlaEv.exit.thread
-  %.1 = phi i32 [ 2, %_ZN5arith6solver9check_nlaEv.exit.thread18 ], [ %.05, %_ZN5arith6solver9check_nlaEv.exit.thread ], [ %.05, %81 ]
+  %.1 = phi i32 [ %.05, %_ZN5arith6solver9check_nlaEv.exit.thread ], [ 2, %_ZN5arith6solver9check_nlaEv.exit.thread18 ], [ %.05, %81 ]
   %85 = tail call noundef zeroext i1 @_ZN5arith6solver10assume_eqsEv(ptr noundef nonnull align 8 dereferenceable(1000) %0)
   br i1 %85, label %86, label %90
 
@@ -20739,11 +20739,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %151, 
   br label %168
 
 167:                                              ; preds = %163, %130, %84
-  %.pn26.pn.pn = phi { ptr, i32 } [ %.pn26.pn, %130 ], [ %.pn, %163 ], [ %.pn29.pn.pn.pn, %84 ]
-  resume { ptr, i32 } %.pn26.pn.pn
+  %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn.pn, %84 ], [ %.pn26.pn, %130 ], [ %.pn, %163 ]
+  resume { ptr, i32 } %.pn29.pn.pn.pn.pn
 
 168:                                              ; preds = %26, %15, %13, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37, %160, %165, %166, %20, %164, %1
-  %.0 = phi i32 [ 0, %1 ], [ -1, %13 ], [ -1, %164 ], [ 0, %20 ], [ 0, %166 ], [ -1, %165 ], [ -1, %160 ], [ -1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37 ], [ 1, %15 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %1 ], [ -1, %13 ], [ -1, %164 ], [ 0, %20 ], [ 0, %166 ], [ -1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37 ], [ -1, %160 ], [ -1, %165 ], [ 1, %15 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -24945,9 +24945,9 @@ define hidden i32 @_ZN5arith6solver15mk_ineq_literalERKN3nla4ineqE(ptr noundef n
   %15 = tail call i32 @_ZN5arith6solver5mk_eqERKN2lp8lar_termERK8rational(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br label %45
 
-16:                                               ; preds = %11, %7, %6, %5, %2
-  %.013.ph = phi i1 [ false, %2 ], [ true, %5 ], [ false, %6 ], [ true, %7 ], [ true, %11 ]
-  %.0.ph = phi i1 [ false, %2 ], [ true, %5 ], [ true, %6 ], [ false, %7 ], [ true, %11 ]
+16:                                               ; preds = %11, %5, %6, %7, %2
+  %.013.ph = phi i1 [ false, %2 ], [ true, %7 ], [ false, %6 ], [ true, %5 ], [ true, %11 ]
+  %.0.ph = phi i1 [ false, %2 ], [ false, %7 ], [ true, %6 ], [ true, %5 ], [ true, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26

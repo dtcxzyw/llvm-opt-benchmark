@@ -1731,7 +1731,7 @@ add_cql_uuid.exit:                                ; preds = %378
   br label %682
 
 682:                                              ; preds = %.loopexit, %628, %602, %592, %554, %516, %499, %._crit_edge, %.thread651
-  %.0578 = phi i32 [ %681, %.loopexit ], [ %.12.lcssa, %._crit_edge ], [ %595, %592 ], [ %605, %602 ], [ %630, %628 ], [ %501, %499 ], [ %518, %516 ], [ %557, %554 ], [ %207, %.thread651 ]
+  %.0578 = phi i32 [ %681, %.loopexit ], [ %.12.lcssa, %._crit_edge ], [ %501, %499 ], [ %518, %516 ], [ %557, %554 ], [ %595, %592 ], [ %605, %602 ], [ %630, %628 ], [ %207, %.thread651 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #8
@@ -2894,7 +2894,7 @@ add_cql_uuid.exit236:                             ; preds = %148
   br label %170
 
 170:                                              ; preds = %155, %165, %159
-  %.1 = phi i32 [ %20, %155 ], [ %169, %165 ], [ %164, %159 ]
+  %.1 = phi i32 [ %20, %155 ], [ %164, %159 ], [ %169, %165 ]
   %171 = load i32, ptr %10, align 4
   %172 = and i32 %171, -5
   %or.cond = icmp eq i32 %172, 16
@@ -3226,12 +3226,12 @@ proto_item_set_hidden.exit260:                    ; preds = %326, %330, %333
   br i1 %343, label %.lr.ph282, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph270, %.lr.ph274, %proto_item_set_hidden.exit257, %.lr.ph282, %186, %proto_item_set_hidden.exit251, %proto_item_set_hidden.exit260, %45, %229, %208, %173, %170, %add_cql_uuid.exit236, %add_varint_item.exit231, %121, %add_cql_uuid.exit, %97, %93, %89, %85, %add_varint_item.exit, %69, %63, %59, %53, %47
-  %.0220 = phi i32 [ %20, %45 ], [ %198, %208 ], [ %220, %229 ], [ %177, %173 ], [ %.1, %170 ], [ %154, %add_cql_uuid.exit236 ], [ %134, %add_varint_item.exit231 ], [ %126, %121 ], [ %120, %add_cql_uuid.exit ], [ %100, %97 ], [ %96, %93 ], [ %92, %89 ], [ %88, %85 ], [ %84, %add_varint_item.exit ], [ %72, %69 ], [ %68, %63 ], [ %62, %59 ], [ %58, %53 ], [ %52, %47 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %211, %.lr.ph270 ], [ %189, %.lr.ph ]
+  %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %220, %229 ], [ %198, %208 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %211, %.lr.ph270 ], [ %189, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1)
   br label %344
 
 344:                                              ; preds = %39, %42, %35, %.loopexit, %223, %202, %183
-  %.0 = phi i32 [ %.0220, %.loopexit ], [ %185, %183 ], [ %204, %202 ], [ %225, %223 ], [ %20, %35 ], [ %20, %42 ], [ %20, %39 ]
+  %.0 = phi i32 [ %.0220, %.loopexit ], [ %225, %223 ], [ %204, %202 ], [ %185, %183 ], [ %20, %35 ], [ %20, %42 ], [ %20, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8

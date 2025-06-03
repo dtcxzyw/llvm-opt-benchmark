@@ -8281,7 +8281,7 @@ define linkonce_odr hidden i64 @_ZNK5clang7AnyCall13getReturnTypeERNS_10ASTConte
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %9, %19
-  %.1.i.i = phi ptr [ %15, %9 ], [ %20, %19 ]
+  %.1.i.i = phi ptr [ %20, %19 ], [ %15, %9 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %21, align 8, !tbaa !54
   br label %47
@@ -8326,7 +8326,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %9, %19
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit10
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit10: ; preds = %33, %43
-  %.1.i.i8 = phi ptr [ %39, %33 ], [ %44, %43 ]
+  %.1.i.i8 = phi ptr [ %44, %43 ], [ %39, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i.i8, i64 24
   %.sroa.0.0.copyload.i1.i9 = load i64, ptr %45, align 8, !tbaa !54
   br label %47
@@ -8335,7 +8335,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit10: ; preds = %33, %43
   unreachable
 
 47:                                               ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit10, %30, %26, %24, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit, %7
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i1.i9, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit10 ], [ %32, %30 ], [ %25, %24 ], [ %.sroa.0.0.copyload.i, %26 ], [ %8, %7 ], [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ]
+  %.sroa.0.0 = phi i64 [ %8, %7 ], [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %25, %24 ], [ %.sroa.0.0.copyload.i, %26 ], [ %32, %30 ], [ %.sroa.0.0.copyload.i1.i9, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit10 ]
   ret i64 %.sroa.0.0
 }
 

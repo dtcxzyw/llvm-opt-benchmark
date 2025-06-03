@@ -3026,7 +3026,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.1 = phi ptr [ %58, %57 ], [ %.029.lcssa, %._crit_edge ]
   %60 = load i32, ptr %.1, align 8
   %61 = and i32 %60, 255
   %62 = icmp eq i32 %61, 0
@@ -3041,7 +3041,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %68, %67 ]
+  %.2 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge ]
   %70 = load i32, ptr %.2, align 8
   %71 = and i32 %70, 255
   %72 = icmp eq i32 %71, 0

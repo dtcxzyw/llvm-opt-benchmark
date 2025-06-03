@@ -698,7 +698,7 @@ dt_iop_colorreconstruct_bilateral_free.exit.i71:  ; preds = %208
   br label %image_to_grid.exit.us.i
 
 image_to_grid.exit.us.i:                          ; preds = %322, %316, %304
-  %.065.us.i = phi nsz float [ %321, %316 ], [ %326, %322 ], [ 1.000000e+00, %304 ]
+  %.065.us.i = phi nsz float [ %326, %322 ], [ %321, %316 ], [ 1.000000e+00, %304 ]
   %327 = uitofp nneg i32 %.0643.us.i to float
   %328 = fmul reassoc nsz arcp contract afn float %327, %282
   %329 = fcmp reassoc nsz arcp contract afn ogt float %328, 0.000000e+00

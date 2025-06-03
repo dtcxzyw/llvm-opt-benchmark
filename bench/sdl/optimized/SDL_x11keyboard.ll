@@ -813,7 +813,7 @@ X11_KeyCodeToSym.exit:                            ; preds = %107, %117
   br label %132
 
 132:                                              ; preds = %126, %127, %128, %129, %130, %122
-  %.0 = phi i32 [ %125, %122 ], [ %131, %130 ], [ 127, %129 ], [ 8, %128 ], [ 27, %127 ], [ 13, %126 ]
+  %.0 = phi i32 [ %125, %122 ], [ %131, %130 ], [ 27, %127 ], [ 8, %128 ], [ 127, %129 ], [ 13, %126 ]
   call void @SDL_SetKeymapEntry(ptr noundef %8, i32 noundef %81, i16 noundef zeroext %124, i32 noundef %.0) #9
   br label %133
 

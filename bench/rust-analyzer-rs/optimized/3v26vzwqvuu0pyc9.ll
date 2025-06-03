@@ -1274,7 +1274,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %5
-  %.0.in = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %5 ]
+  %.0.in = phi i1 [ %8, %5 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in
 }
 
@@ -3085,7 +3085,7 @@ define noundef zeroext i1 @_ZN7base_db28SourceDatabaseGroupStorage__9fmt_index17
   br label %38
 
 38:                                               ; preds = %33, %28, %21, %17
-  %.0.in = phi i1 [ %37, %33 ], [ %32, %28 ], [ %27, %21 ], [ %20, %17 ]
+  %.0.in = phi i1 [ %20, %17 ], [ %27, %21 ], [ %32, %28 ], [ %37, %33 ]
   ret i1 %.0.in
 }
 
@@ -3152,7 +3152,7 @@ define noundef zeroext i1 @_ZN7base_db28SourceDatabaseGroupStorage__19maybe_chan
   br label %34
 
 34:                                               ; preds = %29, %24, %19, %15
-  %.0.in = phi i1 [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %15 ]
+  %.0.in = phi i1 [ %18, %15 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ]
   ret i1 %.0.in
 }
 
@@ -4900,7 +4900,7 @@ define noundef zeroext i1 @_ZN7base_db31SourceDatabaseExtGroupStorage__9fmt_inde
   br label %39
 
 39:                                               ; preds = %34, %29, %24, %19, %15
-  %.0.in = phi i1 [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %15 ]
+  %.0.in = phi i1 [ %18, %15 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ]
   ret i1 %.0.in
 }
 
@@ -4975,7 +4975,7 @@ define noundef zeroext i1 @_ZN7base_db31SourceDatabaseExtGroupStorage__19maybe_c
   br label %39
 
 39:                                               ; preds = %34, %29, %24, %19, %15
-  %.0.in = phi i1 [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %15 ]
+  %.0.in = phi i1 [ %18, %15 ], [ %23, %19 ], [ %28, %24 ], [ %33, %29 ], [ %38, %34 ]
   ret i1 %.0.in
 }
 

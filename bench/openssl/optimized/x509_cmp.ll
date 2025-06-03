@@ -714,7 +714,7 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %29, %31, %6, %28, %5
-  %.0 = phi i32 [ 0, %5 ], [ %23, %20 ], [ 0, %28 ], [ 0, %6 ], [ 1, %31 ], [ 1, %29 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %28 ], [ %23, %20 ], [ 0, %6 ], [ 1, %31 ], [ 1, %29 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1008,7 +1008,7 @@ define range(i32 0, 2) i32 @ossl_x509_check_private_key(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %5, %10, %8, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %8 ], [ 0, %7 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %8 ], [ %6, %5 ]
   ret i32 %.0
 }
 

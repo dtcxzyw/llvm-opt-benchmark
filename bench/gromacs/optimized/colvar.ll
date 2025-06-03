@@ -12093,7 +12093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
   br label %56
 
 56:                                               ; preds = %50, %51
-  %.1 = phi i32 [ 4, %50 ], [ 0, %51 ]
+  %.1 = phi i32 [ 0, %51 ], [ 4, %50 ]
   ret i32 %.1
 }
 
@@ -69364,7 +69364,7 @@ define void @_ZN6colvar18communicate_forcesEv(ptr noundef nonnull align 8 derefe
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %64, %63, %62, %61, %59
-  %.0.i = phi i64 [ 4, %63 ], [ 3, %62 ], [ 1, %61 ], [ %70, %64 ], [ 0, %59 ]
+  %.0.i = phi i64 [ %70, %64 ], [ 1, %61 ], [ 3, %62 ], [ 4, %63 ], [ 0, %59 ]
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 592
   %72 = load i32, ptr %71, align 8, !tbaa !254
   switch i32 %72, label %_ZNK11colvarvalue4sizeEv.exit114 [
@@ -69398,7 +69398,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %64, %63, %62, %61, 
   br label %_ZNK11colvarvalue4sizeEv.exit114
 
 _ZNK11colvarvalue4sizeEv.exit114:                 ; preds = %76, %75, %74, %73, %_ZNK11colvarvalue4sizeEv.exit
-  %.0.i113 = phi i64 [ 4, %75 ], [ 3, %74 ], [ 1, %73 ], [ %84, %76 ], [ 0, %_ZNK11colvarvalue4sizeEv.exit ]
+  %.0.i113 = phi i64 [ %84, %76 ], [ 1, %73 ], [ 3, %74 ], [ 4, %75 ], [ 0, %_ZNK11colvarvalue4sizeEv.exit ]
   store i64 %.0.i, ptr %5, align 8, !tbaa !793
   store i64 %.0.i113, ptr %36, align 8, !tbaa !805
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 72, i1 false)
@@ -82764,7 +82764,7 @@ _ZN6colvar12calc_vel_acfERNSt7__cxx114listI11colvarvalueSaIS2_EEERKS2_.exit: ; p
           to label %_ZNSt7__cxx114listI11colvarvalueSaIS1_EE10push_frontERKS1_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111, %321, %300, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i131, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i120, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %368, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i ], [ %417, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i120 ], [ %463, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i131 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %322, %321 ], [ %301, %300 ]
+  %common.resume.op = phi { ptr, i32 } [ %368, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i ], [ %417, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i120 ], [ %463, %_ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i131 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %301, %300 ], [ %322, %321 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeI11colvarvalueEEED2Ev.exit9.i.i.i.i: ; preds = %_ZN6colvar12calc_vel_acfERNSt7__cxx114listI11colvarvalueSaIS2_EEERKS2_.exit

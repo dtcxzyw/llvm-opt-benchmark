@@ -1330,7 +1330,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %616 = add i64 %.1, 1
   br label %138, !llvm.loop !107
 
-.thread202:                                       ; preds = %535, %146, %159, %162, %PACKET_buf_init.exit, %182, %191, %198, %205, %210, %cmp_pkt_hdr.exit, %346, %363, %368, %373, %378, %383, %388, %394, %399, %404, %409, %414, %skip_padding.exit154, %427, %443, %455, %587, %482, %543, %549, %557, %565, %571, %579, %595, %601, %.thread165, %.thread, %419, %613, %508
+.thread202:                                       ; preds = %535, %587, %455, %427, %443, %skip_padding.exit154, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %346, %cmp_pkt_hdr.exit, %210, %205, %191, %198, %182, %162, %PACKET_buf_init.exit, %159, %146, %482, %543, %549, %557, %565, %571, %579, %595, %601, %.thread165, %.thread, %419, %613, %508
   %617 = add nsw i32 %0, 1
   %618 = add i64 %.1, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1611, ptr noundef nonnull @.str.50, i32 noundef %617, i64 noundef %618) #8

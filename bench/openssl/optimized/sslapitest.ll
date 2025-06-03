@@ -2084,12 +2084,12 @@ define internal i32 @test_large_app_data(i32 noundef %0) #1 {
   %26 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.14, i32 noundef 1630, ptr noundef nonnull @.str.162) #24
   br label %121
 
-.thread:                                          ; preds = %1, %11, %15, %21, %24
-  %.052 = phi ptr [ %9, %24 ], [ %9, %1 ], [ %9, %11 ], [ %17, %15 ], [ %23, %21 ]
-  %.02351 = phi ptr [ %8, %24 ], [ %8, %1 ], [ %8, %11 ], [ %16, %15 ], [ %22, %21 ]
-  %.02650 = phi i32 [ %.026, %24 ], [ 772, %1 ], [ 771, %11 ], [ 65277, %15 ], [ 65279, %21 ]
-  %27 = phi i1 [ false, %24 ], [ false, %1 ], [ false, %11 ], [ false, %15 ], [ true, %21 ]
-  %28 = phi i1 [ true, %24 ], [ false, %1 ], [ false, %11 ], [ false, %15 ], [ false, %21 ]
+.thread:                                          ; preds = %1, %21, %15, %11, %24
+  %.052 = phi ptr [ %9, %24 ], [ %9, %1 ], [ %23, %21 ], [ %17, %15 ], [ %9, %11 ]
+  %.02351 = phi ptr [ %8, %24 ], [ %8, %1 ], [ %22, %21 ], [ %16, %15 ], [ %8, %11 ]
+  %.02650 = phi i32 [ %.026, %24 ], [ 772, %1 ], [ 65279, %21 ], [ 65277, %15 ], [ 771, %11 ]
+  %27 = phi i1 [ false, %24 ], [ false, %1 ], [ true, %21 ], [ false, %15 ], [ false, %11 ]
+  %28 = phi i1 [ true, %24 ], [ false, %1 ], [ false, %21 ], [ false, %15 ], [ false, %11 ]
   %29 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16384, ptr noundef nonnull @.str.14, i32 noundef 1633) #24
   %30 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1634, ptr noundef nonnull @.str.163, ptr noundef %29) #24
   %.not = icmp eq i32 %30, 0
@@ -2249,7 +2249,7 @@ define internal i32 @test_large_app_data(i32 noundef %0) #1 {
   br label %121
 
 121:                                              ; preds = %1, %116, %25, %19, %13
-  %.025 = phi i32 [ %20, %19 ], [ %26, %25 ], [ %.027, %116 ], [ %14, %13 ], [ 0, %1 ]
+  %.025 = phi i32 [ %26, %25 ], [ %.027, %116 ], [ %14, %13 ], [ %20, %19 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
@@ -6155,8 +6155,8 @@ define internal i32 @test_early_data_psk(i32 noundef %0) #1 {
   br label %75
 
 75:                                               ; preds = %74, %13
-  %.013 = phi i32 [ 1, %13 ], [ 2, %74 ]
-  %.011 = phi i32 [ 2, %13 ], [ 1, %74 ]
+  %.013 = phi i32 [ 2, %74 ], [ 1, %13 ]
+  %.011 = phi i32 [ 1, %74 ], [ 2, %13 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %78 = call i32 @SSL_SESSION_set1_alpn_selected(ptr noundef %76, ptr noundef nonnull %77, i64 noundef 8) #24
@@ -6219,7 +6219,7 @@ define internal i32 @test_early_data_psk(i32 noundef %0) #1 {
   br label %check_early_data_timeout.exit.thread
 
 114:                                              ; preds = %20, %32, %39
-  %.015 = phi i32 [ 219, %39 ], [ 222, %32 ], [ 231, %20 ]
+  %.015 = phi i32 [ 231, %20 ], [ 222, %32 ], [ 219, %39 ]
   %115 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_set_connect_state(ptr noundef %115) #24
   %116 = load ptr, ptr %4, align 8, !tbaa !21
@@ -6316,7 +6316,7 @@ check_early_data_timeout.exit:                    ; preds = %157, %125
   br label %check_early_data_timeout.exit.thread
 
 check_early_data_timeout.exit.thread:             ; preds = %157, %146, %143, %150, %153, %131, %114, %121, %125, %88, %93, %100, %107, %75, %82, %56, %62, %68, %45, %50, %39, %26, %32, %14, %20, %1, %check_early_data_timeout.exit, %113
-  %.016 = phi i32 [ 0, %113 ], [ 1, %check_early_data_timeout.exit ], [ 0, %125 ], [ 0, %121 ], [ 0, %114 ], [ 0, %107 ], [ 0, %100 ], [ 0, %93 ], [ 0, %88 ], [ 0, %82 ], [ 0, %75 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %45 ], [ 0, %39 ], [ 0, %32 ], [ 0, %26 ], [ 0, %20 ], [ 0, %14 ], [ 0, %1 ], [ 0, %143 ], [ %147, %146 ], [ 0, %150 ], [ 0, %153 ], [ 0, %131 ], [ 0, %157 ]
+  %.016 = phi i32 [ 0, %113 ], [ 1, %check_early_data_timeout.exit ], [ 0, %125 ], [ 0, %121 ], [ 0, %114 ], [ 0, %20 ], [ 0, %14 ], [ 0, %32 ], [ 0, %26 ], [ 0, %39 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %45 ], [ 0, %82 ], [ 0, %75 ], [ 0, %107 ], [ 0, %100 ], [ 0, %93 ], [ 0, %88 ], [ 0, %1 ], [ 0, %143 ], [ %147, %146 ], [ 0, %150 ], [ 0, %153 ], [ 0, %131 ], [ 0, %157 ]
   %161 = load ptr, ptr %6, align 8, !tbaa !25
   call void @SSL_SESSION_free(ptr noundef %161) #24
   %162 = load ptr, ptr @clientpsk, align 8, !tbaa !25
@@ -7382,11 +7382,11 @@ define internal range(i32 0, 2) i32 @test_tls13_ciphersuite(i32 noundef %0) #1 {
   br label %10
 
 10:                                               ; preds = %9, %8, %7, %6, %1
-  %.not42 = phi i1 [ true, %1 ], [ false, %9 ], [ false, %8 ], [ true, %7 ], [ true, %6 ]
-  %11 = phi i1 [ false, %1 ], [ true, %9 ], [ true, %8 ], [ false, %7 ], [ false, %6 ]
-  %.037 = phi ptr [ null, %1 ], [ @.str.576, %9 ], [ @.str.576, %8 ], [ null, %7 ], [ null, %6 ]
-  %.not39 = phi i1 [ true, %1 ], [ true, %9 ], [ false, %8 ], [ true, %7 ], [ false, %6 ]
-  %.not46 = phi i1 [ true, %1 ], [ false, %9 ], [ true, %8 ], [ false, %7 ], [ true, %6 ]
+  %.not42 = phi i1 [ true, %1 ], [ true, %6 ], [ true, %7 ], [ false, %8 ], [ false, %9 ]
+  %11 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %7 ], [ true, %8 ], [ true, %9 ]
+  %.037 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %7 ], [ @.str.576, %8 ], [ @.str.576, %9 ]
+  %.not39 = phi i1 [ true, %1 ], [ false, %6 ], [ true, %7 ], [ false, %8 ], [ true, %9 ]
+  %.not46 = phi i1 [ true, %1 ], [ true, %6 ], [ false, %7 ], [ true, %8 ], [ false, %9 ]
   %.b.pre62.pre = load i1, ptr @is_fips, align 4
   br label %.preheader
 
@@ -8550,11 +8550,11 @@ define internal i32 @test_key_exchange(i32 noundef %0) #1 {
   br label %32
 
 32:                                               ; preds = %24, %17, %1, %7, %31, %30, %29, %28, %27, %26, %25, %23, %22, %21, %20, %19, %18, %10, %9, %8
-  %.039.ph = phi ptr [ null, %25 ], [ null, %24 ], [ @ffdhe_kexch_groups, %18 ], [ @ffdhe_kexch_groups, %17 ], [ @ecdhe_kexch_groups, %1 ], [ @ecdhe_kexch_groups, %7 ], [ %6, %8 ], [ %6, %9 ], [ %6, %10 ], [ %6, %19 ], [ %6, %20 ], [ %6, %21 ], [ %6, %22 ], [ %6, %23 ], [ null, %26 ], [ null, %27 ], [ null, %28 ], [ null, %29 ], [ null, %30 ], [ null, %31 ]
-  %.038.ph = phi i64 [ 1, %25 ], [ 1, %24 ], [ 5, %18 ], [ 5, %17 ], [ 5, %1 ], [ 5, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 1, %19 ], [ 1, %20 ], [ 1, %21 ], [ 1, %22 ], [ 1, %23 ], [ 1, %26 ], [ 1, %27 ], [ 1, %28 ], [ 1, %29 ], [ 1, %30 ], [ 1, %31 ]
-  %.3.ph = phi i32 [ 772, %25 ], [ 771, %24 ], [ 772, %18 ], [ 771, %17 ], [ 772, %1 ], [ 771, %7 ], [ 772, %8 ], [ 772, %9 ], [ 772, %10 ], [ 772, %19 ], [ 772, %20 ], [ 772, %21 ], [ 772, %22 ], [ 772, %23 ], [ 772, %26 ], [ 772, %27 ], [ 772, %28 ], [ 772, %29 ], [ 772, %30 ], [ 772, %31 ]
-  %.035.ph = phi ptr [ @.str.627, %25 ], [ @.str.627, %24 ], [ @.str.620, %18 ], [ @.str.620, %17 ], [ @.str.613, %1 ], [ @.str.613, %7 ], [ @.str.613, %8 ], [ @.str.614, %9 ], [ @.str.615, %10 ], [ @.str.620, %19 ], [ @.str.621, %20 ], [ @.str.622, %21 ], [ @.str.623, %22 ], [ @.str.624, %23 ], [ @.str.627, %26 ], [ @.str.628, %27 ], [ @.str.629, %28 ], [ @.str.630, %29 ], [ @.str.631, %30 ], [ @.str.632, %31 ]
-  %.1.ph = phi ptr [ @.str.626, %25 ], [ @.str.625, %24 ], [ null, %18 ], [ null, %17 ], [ null, %1 ], [ null, %7 ], [ null, %8 ], [ null, %9 ], [ null, %10 ], [ null, %19 ], [ null, %20 ], [ null, %21 ], [ null, %22 ], [ null, %23 ], [ @.str.627, %26 ], [ @.str.628, %27 ], [ @.str.629, %28 ], [ @.str.630, %29 ], [ @.str.631, %30 ], [ @.str.632, %31 ]
+  %.039.ph = phi ptr [ null, %25 ], [ null, %24 ], [ @ffdhe_kexch_groups, %18 ], [ @ffdhe_kexch_groups, %17 ], [ @ecdhe_kexch_groups, %1 ], [ @ecdhe_kexch_groups, %7 ], [ null, %31 ], [ null, %30 ], [ null, %29 ], [ null, %28 ], [ null, %27 ], [ null, %26 ], [ %6, %23 ], [ %6, %22 ], [ %6, %21 ], [ %6, %20 ], [ %6, %19 ], [ %6, %10 ], [ %6, %9 ], [ %6, %8 ]
+  %.038.ph = phi i64 [ 1, %25 ], [ 1, %24 ], [ 5, %18 ], [ 5, %17 ], [ 5, %1 ], [ 5, %7 ], [ 1, %31 ], [ 1, %30 ], [ 1, %29 ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %23 ], [ 1, %22 ], [ 1, %21 ], [ 1, %20 ], [ 1, %19 ], [ 1, %10 ], [ 1, %9 ], [ 1, %8 ]
+  %.3.ph = phi i32 [ 772, %25 ], [ 771, %24 ], [ 772, %18 ], [ 771, %17 ], [ 772, %1 ], [ 771, %7 ], [ 772, %31 ], [ 772, %30 ], [ 772, %29 ], [ 772, %28 ], [ 772, %27 ], [ 772, %26 ], [ 772, %23 ], [ 772, %22 ], [ 772, %21 ], [ 772, %20 ], [ 772, %19 ], [ 772, %10 ], [ 772, %9 ], [ 772, %8 ]
+  %.035.ph = phi ptr [ @.str.627, %25 ], [ @.str.627, %24 ], [ @.str.620, %18 ], [ @.str.620, %17 ], [ @.str.613, %1 ], [ @.str.613, %7 ], [ @.str.632, %31 ], [ @.str.631, %30 ], [ @.str.630, %29 ], [ @.str.629, %28 ], [ @.str.628, %27 ], [ @.str.627, %26 ], [ @.str.624, %23 ], [ @.str.623, %22 ], [ @.str.622, %21 ], [ @.str.621, %20 ], [ @.str.620, %19 ], [ @.str.615, %10 ], [ @.str.614, %9 ], [ @.str.613, %8 ]
+  %.1.ph = phi ptr [ @.str.626, %25 ], [ @.str.625, %24 ], [ null, %18 ], [ null, %17 ], [ null, %1 ], [ null, %7 ], [ @.str.632, %31 ], [ @.str.631, %30 ], [ @.str.630, %29 ], [ @.str.629, %28 ], [ @.str.628, %27 ], [ @.str.627, %26 ], [ null, %23 ], [ null, %22 ], [ null, %21 ], [ null, %20 ], [ null, %19 ], [ null, %10 ], [ null, %9 ], [ null, %8 ]
   %.b.pr = load i1, ptr @is_fips, align 4
   br i1 %.b.pr, label %33, label %.thread
 
@@ -8768,7 +8768,7 @@ define internal i32 @test_key_exchange(i32 noundef %0) #1 {
   br label %153
 
 153:                                              ; preds = %147, %142, %134, %138, %130, %127, %124, %122, %111, %100, %105, %89, %94, %80, %74, %62, %68, %56, %50, %.thread, %152
-  %.040 = phi i32 [ 1, %152 ], [ 0, %147 ], [ 0, %142 ], [ 0, %138 ], [ 0, %134 ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %122 ], [ 0, %111 ], [ 0, %94 ], [ 0, %89 ], [ 0, %105 ], [ 0, %100 ], [ 0, %80 ], [ 0, %74 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %.thread ]
+  %.040 = phi i32 [ 1, %152 ], [ 0, %147 ], [ 0, %142 ], [ 0, %138 ], [ 0, %134 ], [ 0, %130 ], [ 0, %127 ], [ 0, %122 ], [ 0, %124 ], [ 0, %111 ], [ 0, %94 ], [ 0, %89 ], [ 0, %105 ], [ 0, %100 ], [ 0, %80 ], [ 0, %74 ], [ 0, %68 ], [ 0, %62 ], [ 0, %56 ], [ 0, %50 ], [ 0, %.thread ]
   %154 = load ptr, ptr %4, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %154) #24
   %155 = load ptr, ptr %5, align 8, !tbaa !21
@@ -8780,7 +8780,7 @@ define internal i32 @test_key_exchange(i32 noundef %0) #1 {
   br label %158
 
 158:                                              ; preds = %1, %153, %39, %15, %12
-  %.0 = phi i32 [ %40, %39 ], [ %.040, %153 ], [ %16, %15 ], [ %13, %12 ], [ 1, %1 ]
+  %.0 = phi i32 [ %40, %39 ], [ %.040, %153 ], [ %13, %12 ], [ %16, %15 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
@@ -15507,10 +15507,10 @@ define internal range(i32 0, 2) i32 @test_dh_auto(i32 noundef %0) #1 {
   br label %103
 
 35:                                               ; preds = %16, %33, %30, %27, %24, %21, %18
-  %.08 = phi ptr [ %31, %30 ], [ %28, %27 ], [ %25, %24 ], [ %22, %21 ], [ %19, %18 ], [ null, %33 ], [ null, %16 ]
-  %.07 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ null, %33 ], [ null, %16 ]
-  %.06 = phi i64 [ 8192, %30 ], [ 4096, %27 ], [ 3072, %24 ], [ 2048, %21 ], [ 1024, %18 ], [ 1024, %33 ], [ 3072, %16 ]
-  %.0 = phi ptr [ @.str.1127, %30 ], [ @.str.1127, %27 ], [ @.str.1127, %24 ], [ @.str.1127, %21 ], [ @.str.1127, %18 ], [ @.str.1138, %33 ], [ @.str.1139, %16 ]
+  %.08 = phi ptr [ %19, %18 ], [ %22, %21 ], [ %25, %24 ], [ %28, %27 ], [ %31, %30 ], [ null, %33 ], [ null, %16 ]
+  %.07 = phi ptr [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %33 ], [ null, %16 ]
+  %.06 = phi i64 [ 1024, %18 ], [ 2048, %21 ], [ 3072, %24 ], [ 4096, %27 ], [ 8192, %30 ], [ 1024, %33 ], [ 3072, %16 ]
+  %.0 = phi ptr [ @.str.1127, %18 ], [ @.str.1127, %21 ], [ @.str.1127, %24 ], [ @.str.1127, %27 ], [ @.str.1127, %30 ], [ @.str.1138, %33 ], [ @.str.1139, %16 ]
   %36 = load ptr, ptr @libctx, align 8, !tbaa !4
   %37 = call i32 @create_ssl_ctx_pair(ptr noundef %36, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %.08, ptr noundef %.07) #24
   %38 = icmp ne i32 %37, 0
@@ -17811,10 +17811,10 @@ define internal range(i32 0, 2) i32 @test_version(i32 noundef %0) #1 {
   br label %156
 
 14:                                               ; preds = %1, %11, %10, %9, %8
-  %15 = phi i1 [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ true, %1 ]
-  %16 = phi i1 [ false, %11 ], [ true, %10 ], [ false, %9 ], [ false, %8 ], [ false, %1 ]
-  %17 = phi i1 [ true, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %1 ]
-  %.025 = phi i32 [ 65277, %11 ], [ 65279, %10 ], [ 772, %9 ], [ 771, %8 ], [ 769, %1 ]
+  %15 = phi i1 [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ true, %1 ]
+  %16 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %10 ], [ false, %11 ], [ false, %1 ]
+  %17 = phi i1 [ false, %8 ], [ false, %9 ], [ false, %10 ], [ true, %11 ], [ false, %1 ]
+  %.025 = phi i32 [ 771, %8 ], [ 772, %9 ], [ 65279, %10 ], [ 65277, %11 ], [ 769, %1 ]
   %.b = load i1, ptr @is_fips, align 4
   %or.cond3 = or i1 %15, %16
   %or.cond = and i1 %or.cond3, %.b
@@ -22561,7 +22561,7 @@ default.unreachable55:                            ; preds = %95
   br label %157
 
 157:                                              ; preds = %.thread52, %154, %128, %132, %138, %141, %145, %151, %122, %96, %102, %84, %88, %91, %.thread, %81, %70, %60, %51, %43, %30, %37, %14
-  %.026.shrunk = phi i1 [ false, %122 ], [ false, %151 ], [ false, %145 ], [ false, %141 ], [ false, %138 ], [ false, %132 ], [ false, %102 ], [ false, %96 ], [ false, %91 ], [ false, %88 ], [ false, %84 ], [ false, %81 ], [ false, %.thread ], [ false, %70 ], [ false, %51 ], [ false, %60 ], [ false, %43 ], [ false, %37 ], [ false, %30 ], [ false, %14 ], [ %.not41, %128 ], [ %.not49, %154 ], [ false, %.thread52 ]
+  %.026.shrunk = phi i1 [ false, %151 ], [ false, %145 ], [ false, %141 ], [ false, %138 ], [ false, %132 ], [ false, %102 ], [ false, %96 ], [ false, %122 ], [ false, %91 ], [ false, %88 ], [ false, %84 ], [ false, %81 ], [ false, %.thread ], [ false, %70 ], [ false, %51 ], [ false, %60 ], [ false, %43 ], [ false, %37 ], [ false, %30 ], [ false, %14 ], [ %.not41, %128 ], [ %.not49, %154 ], [ false, %.thread52 ]
   %.026 = zext i1 %.026.shrunk to i32
   %158 = load ptr, ptr @clientpsk, align 8, !tbaa !25
   call void @SSL_SESSION_free(ptr noundef %158) #24
@@ -24747,7 +24747,7 @@ define internal noundef i64 @record_pad_cb(ptr readnone captures(none) %0, i32 %
   br label %13
 
 13:                                               ; preds = %4, %12, %11, %9, %7
-  %.0 = phi i64 [ 0, %12 ], [ -1, %11 ], [ %10, %9 ], [ %8, %7 ], [ 512, %4 ]
+  %.0 = phi i64 [ 0, %12 ], [ %8, %7 ], [ %10, %9 ], [ -1, %11 ], [ 512, %4 ]
   ret i64 %.0
 }
 
@@ -24823,7 +24823,7 @@ define internal fastcc i32 @check_version_string(ptr noundef %0, i32 noundef ran
   br label %9
 
 9:                                                ; preds = %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ @.str.1285, %8 ], [ @.str.1284, %7 ], [ @.str.1283, %6 ], [ @.str.1282, %5 ], [ @.str.1281, %4 ], [ @.str.1280, %3 ]
+  %.0 = phi ptr [ null, %2 ], [ @.str.1280, %3 ], [ @.str.1281, %4 ], [ @.str.1282, %5 ], [ @.str.1283, %6 ], [ @.str.1284, %7 ], [ @.str.1285, %8 ]
   %10 = tail call ptr @SSL_get_version(ptr noundef %0) #24
   %11 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 11647, ptr noundef nonnull @.str.1286, ptr noundef nonnull @.str.1287, ptr noundef %.0, ptr noundef %10) #24
   ret i32 %11

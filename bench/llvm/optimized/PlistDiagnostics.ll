@@ -2459,8 +2459,8 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %_ZN4llvm11raw_ostre
   br label %759
 
 759:                                              ; preds = %756, %757, %758, %755
-  %.sroa.8.2 = phi i64 [ 8, %758 ], [ 18, %757 ], [ 10, %756 ], [ 9, %755 ]
-  %.sroa.0356.2 = phi ptr [ @.str.14, %758 ], [ @.str.13, %757 ], [ @.str.12, %756 ], [ @.str.11, %755 ]
+  %.sroa.8.2 = phi i64 [ 10, %756 ], [ 18, %757 ], [ 8, %758 ], [ 9, %755 ]
+  %.sroa.0356.2 = phi ptr [ @.str.12, %756 ], [ @.str.13, %757 ], [ @.str.14, %758 ], [ @.str.11, %755 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #21
   %760 = getelementptr inbounds nuw i8, ptr %748, i64 40
@@ -4749,8 +4749,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_
   br label %_ZN5clang6markup6GetFIDERKN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEERKNS_13SourceManagerENS_14SourceLocationE.exit
 
 _ZN5clang6markup6GetFIDERKN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEERKNS_13SourceManagerENS_14SourceLocationE.exit: ; preds = %171, %165, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i.i.i
-  %.lcssa.i.i.i.pn.i.i = phi i64 [ %177, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i.i.i ], [ %167, %165 ], [ %174, %171 ]
-  %178 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %161, i64 %.lcssa.i.i.i.pn.i.i, i32 0, i32 1
+  %.pn.i.i = phi i64 [ %177, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i.i.i ], [ %167, %165 ], [ %174, %171 ]
+  %178 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %161, i64 %.pn.i.i, i32 0, i32 1
   %179 = load i32, ptr %178, align 4, !tbaa !428
   %180 = zext i32 %179 to i64
   %181 = load ptr, ptr %23, align 8, !tbaa !356

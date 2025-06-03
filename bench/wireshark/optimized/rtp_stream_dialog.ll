@@ -6936,8 +6936,8 @@ define noundef zeroext i1 @_ZN15RtpStreamDialog11eventFilterEP7QObjectP6QEvent(p
   tail call void @_ZN15RtpStreamDialog14rtpAnalysisAddEv(ptr noundef align 8 dereferenceable_or_null(368) %0)
   br label %.thread
 
-.thread:                                          ; preds = %22, %27, %26, %16, %17, %18, %31, %45, %35, %3, %9, %28, %52, %49, %13
-  %.1 = phi i1 [ false, %13 ], [ false, %49 ], [ false, %52 ], [ false, %28 ], [ false, %9 ], [ false, %3 ], [ true, %35 ], [ true, %45 ], [ true, %31 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %26 ], [ true, %27 ], [ true, %22 ]
+.thread:                                          ; preds = %22, %27, %26, %45, %35, %31, %18, %17, %16, %3, %9, %28, %52, %49, %13
+  %.1 = phi i1 [ false, %13 ], [ false, %49 ], [ false, %52 ], [ false, %28 ], [ false, %9 ], [ false, %3 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %31 ], [ true, %35 ], [ true, %45 ], [ true, %26 ], [ true, %27 ], [ true, %22 ]
   ret i1 %.1
 }
 
@@ -11961,7 +11961,7 @@ _ZN7QStringD2Ev.exit102:                          ; preds = %272, %_ZN17QArrayDa
           to label %278 unwind label %79
 
 277:                                              ; preds = %_ZN7QStringD2Ev.exit102, %_ZN17QArrayDataPointerIDsED2Ev.exit93, %227, %219, %213, %207, %201, %195, %189, %183, %177, %.body50, %151, %145, %139, %133, %.body33, %106, %.body, %79
-  %.pn25 = phi { ptr, i32 } [ %80, %79 ], [ %.pn, %_ZN7QStringD2Ev.exit102 ], [ %.pn17, %_ZN17QArrayDataPointerIDsED2Ev.exit93 ], [ %228, %227 ], [ %220, %219 ], [ %214, %213 ], [ %208, %207 ], [ %202, %201 ], [ %196, %195 ], [ %190, %189 ], [ %184, %183 ], [ %178, %177 ], [ %.pn19, %.body50 ], [ %152, %151 ], [ %146, %145 ], [ %140, %139 ], [ %134, %133 ], [ %.pn21, %.body33 ], [ %107, %106 ], [ %.pn23, %.body ]
+  %.pn25 = phi { ptr, i32 } [ %80, %79 ], [ %.pn23, %.body ], [ %107, %106 ], [ %.pn21, %.body33 ], [ %134, %133 ], [ %140, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.pn19, %.body50 ], [ %178, %177 ], [ %184, %183 ], [ %190, %189 ], [ %196, %195 ], [ %202, %201 ], [ %208, %207 ], [ %214, %213 ], [ %220, %219 ], [ %228, %227 ], [ %.pn17, %_ZN17QArrayDataPointerIDsED2Ev.exit93 ], [ %.pn, %_ZN7QStringD2Ev.exit102 ]
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %0) #23
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %47) #23
   resume { ptr, i32 } %.pn25
@@ -16966,7 +16966,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK23RtpStreamTreeWidgetItemltERK15QTre
   br label %_ZL11cmp_addressPK8_addressS1_.exit
 
 _ZL11cmp_addressPK8_addressS1_.exit:              ; preds = %77, %75, %73, %67, %65, %55, %37, %35, %33, %27, %25, %17, %45, %85, %95, %105, %115, %125, %136, %146, %156, %166, %176, %186, %196, %206, %216, %7
-  %.0 = phi i1 [ %8, %7 ], [ %217, %216 ], [ %215, %206 ], [ %205, %196 ], [ %195, %186 ], [ %185, %176 ], [ %175, %166 ], [ %165, %156 ], [ %155, %146 ], [ %145, %136 ], [ %135, %125 ], [ %124, %115 ], [ %114, %105 ], [ %104, %95 ], [ %94, %85 ], [ %54, %45 ], [ %44, %37 ], [ false, %17 ], [ true, %25 ], [ false, %27 ], [ true, %33 ], [ false, %35 ], [ %84, %77 ], [ false, %55 ], [ true, %65 ], [ false, %67 ], [ true, %73 ], [ false, %75 ]
+  %.0 = phi i1 [ %8, %7 ], [ %217, %216 ], [ %54, %45 ], [ %94, %85 ], [ %104, %95 ], [ %114, %105 ], [ %124, %115 ], [ %135, %125 ], [ %145, %136 ], [ %155, %146 ], [ %165, %156 ], [ %175, %166 ], [ %185, %176 ], [ %195, %186 ], [ %205, %196 ], [ %215, %206 ], [ %44, %37 ], [ false, %17 ], [ true, %25 ], [ false, %27 ], [ true, %33 ], [ false, %35 ], [ %84, %77 ], [ false, %55 ], [ true, %65 ], [ false, %67 ], [ true, %73 ], [ false, %75 ]
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %3) #23
   ret i1 %.0
@@ -17092,7 +17092,7 @@ _Zeq9QMetaTypeS_.exit.thread12:                   ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
-  %.1.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI6QBrushE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
@@ -17102,7 +17102,7 @@ _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit
 
 _Zeq9QMetaTypeS_.exit:                            ; preds = %_ZNK9QMetaType2idEi.exit.i, %17
-  %.1.i8.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i ], [ %18, %17 ]
+  %.1.i8.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i ]
   %19 = icmp eq i32 %.1.i.i, %.1.i8.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

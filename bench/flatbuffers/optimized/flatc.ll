@@ -34574,7 +34574,7 @@ _ZN11flexbuffers6StringC2EPKhh.exit:              ; preds = %109, %112, %117, %1
   br label %_ZN11flexbuffers8Verifier15VerifyByteWidthEm.exit
 
 _ZN11flexbuffers8Verifier15VerifyByteWidthEm.exit: ; preds = %7, %132, %100, %_ZN11flexbuffers6StringC2EPKhh.exit, %3, %_ZN11flexbuffers10ReadUInt64EPKhh.exit, %66, %74, %77, %_ZNK11flexbuffers9Reference8IndirectEv.exit, %97, %94, %91, %88, %85, %82, %79, %72, %67, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %73, %72 ], [ %71, %67 ], [ false, %_ZNK11flexbuffers9Reference8IndirectEv.exit ], [ false, %74 ], [ %78, %77 ], [ false, %66 ], [ false, %3 ], [ false, %100 ], [ %131, %_ZN11flexbuffers6StringC2EPKhh.exit ], [ %141, %132 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %71, %67 ], [ %73, %72 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ false, %_ZNK11flexbuffers9Reference8IndirectEv.exit ], [ false, %74 ], [ %78, %77 ], [ false, %66 ], [ false, %3 ], [ false, %100 ], [ %131, %_ZN11flexbuffers6StringC2EPKhh.exit ], [ %141, %132 ], [ true, %7 ]
   ret i1 %.0
 }
 

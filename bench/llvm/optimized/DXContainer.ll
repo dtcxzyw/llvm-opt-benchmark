@@ -2359,9 +2359,9 @@ _ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit: ; preds = %._
   br label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo22getSigPatchOrPrimCountEv.exit
 
 _ZNK4llvm6object7DirectX14PSVRuntimeInfo22getSigPatchOrPrimCountEv.exit: ; preds = %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit
-  %.1.i288368 = phi i8 [ %237, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %243, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %spec.select.i290, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
-  %.1.i359366 = phi i8 [ %235, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %241, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %spec.select.i, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
-  %.1.i291 = phi i8 [ %239, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %245, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %spec.select.i293, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
+  %.1.i288368 = phi i8 [ %243, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %237, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %spec.select.i290, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
+  %.1.i359366 = phi i8 [ %241, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %235, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %spec.select.i, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
+  %.1.i291 = phi i8 [ %245, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread361 ], [ %239, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit.thread ], [ %spec.select.i293, %_ZNK4llvm6object7DirectX14PSVRuntimeInfo16getSigInputCountEv.exit ]
   %252 = zext i8 %.1.i359366 to i32
   %253 = zext i8 %.1.i288368 to i32
   %254 = add nuw nsw i32 %252, %253
@@ -3050,7 +3050,7 @@ define dso_local noundef zeroext i8 @_ZNK4llvm6object7DirectX14PSVRuntimeInfo16g
   br label %13
 
 13:                                               ; preds = %7, %4, %10
-  %.1 = phi i8 [ %6, %4 ], [ %9, %7 ], [ %spec.select, %10 ]
+  %.1 = phi i8 [ %9, %7 ], [ %6, %4 ], [ %spec.select, %10 ]
   ret i8 %.1
 }
 
@@ -3081,7 +3081,7 @@ define dso_local noundef zeroext i8 @_ZNK4llvm6object7DirectX14PSVRuntimeInfo17g
   br label %13
 
 13:                                               ; preds = %7, %4, %10
-  %.1 = phi i8 [ %6, %4 ], [ %9, %7 ], [ %spec.select, %10 ]
+  %.1 = phi i8 [ %9, %7 ], [ %6, %4 ], [ %spec.select, %10 ]
   ret i8 %.1
 }
 
@@ -3112,7 +3112,7 @@ define dso_local noundef zeroext i8 @_ZNK4llvm6object7DirectX14PSVRuntimeInfo22g
   br label %13
 
 13:                                               ; preds = %7, %4, %10
-  %.1 = phi i8 [ %6, %4 ], [ %9, %7 ], [ %spec.select, %10 ]
+  %.1 = phi i8 [ %9, %7 ], [ %6, %4 ], [ %spec.select, %10 ]
   ret i8 %.1
 }
 

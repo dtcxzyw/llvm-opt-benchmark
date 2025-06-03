@@ -1286,10 +1286,10 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit40:              ; preds = %.lr.ph.i33
   call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %93, ptr noundef nonnull @.str.10)
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit40, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31, %91, %86
-  %.sink = phi i32 [ 5, %91 ], [ 3, %86 ], [ 2, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ 2, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
-  %.08.lcssa.i3898.ph = phi ptr [ %83, %91 ], [ %83, %86 ], [ %74, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ %83, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
-  %.025.ph = phi i64 [ 4, %91 ], [ 5, %86 ], [ 5, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ 5, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
+.lr.ph:                                           ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit40, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31, %86, %91
+  %.sink = phi i32 [ 3, %86 ], [ 5, %91 ], [ 2, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ 2, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
+  %.08.lcssa.i3898.ph = phi ptr [ %83, %86 ], [ %83, %91 ], [ %74, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ %83, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
+  %.025.ph = phi i64 [ 5, %86 ], [ 4, %91 ], [ 5, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit31 ], [ 5, %_ZN6Assimp9strtoul10EPKcPS1_.exit40 ]
   %94 = getelementptr inbounds i8, ptr %57, i64 -28
   store i32 %.sink, ptr %94, align 4
   %95 = getelementptr inbounds i8, ptr %57, i64 -24
@@ -2815,7 +2815,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %169, %197
   br label %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNodeEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNodeEEERS1_DpOT_.exit: ; preds = %237, %222, %102, %134, %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE17_M_realloc_insertIJRP7aiSceneRP6aiNodeEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %8, %218, %221, %220
-  %.0129 = phi ptr [ %1, %8 ], [ %1, %221 ], [ %1, %220 ], [ %1, %218 ], [ %128, %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE17_M_realloc_insertIJRP7aiSceneRP6aiNodeEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %128, %134 ], [ %128, %102 ], [ %1, %222 ], [ %1, %237 ]
+  %.0129 = phi ptr [ %1, %8 ], [ %1, %221 ], [ %1, %218 ], [ %1, %220 ], [ %128, %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE17_M_realloc_insertIJRP7aiSceneRP6aiNodeEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %128, %134 ], [ %128, %102 ], [ %1, %222 ], [ %1, %237 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %11) #26
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8395,7 +8395,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5

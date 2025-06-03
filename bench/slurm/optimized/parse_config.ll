@@ -2637,7 +2637,7 @@ _handle_expline.exit:                             ; preds = %119, %._crit_edge
   unreachable
 
 _handle_common.exit:                              ; preds = %s_p_parse_line_complete.exit, %116, %74, %50, %38, %35, %28, %138, %136, %134, %_handle_expline.exit, %99, %_handle_array.exit, %45, %43, %41, %39, %4
-  %.0 = phi i32 [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %.012.i, %_handle_expline.exit ], [ %100, %99 ], [ %.1.i57, %_handle_array.exit ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ 1, %4 ], [ %34, %28 ], [ 1, %38 ], [ -1, %35 ], [ %55, %50 ], [ 1, %74 ], [ -1, %116 ], [ 1, %s_p_parse_line_complete.exit ]
+  %.0 = phi i32 [ 1, %4 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %.1.i57, %_handle_array.exit ], [ %100, %99 ], [ %.012.i, %_handle_expline.exit ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ 1, %38 ], [ %34, %28 ], [ -1, %35 ], [ 1, %74 ], [ %55, %50 ], [ -1, %116 ], [ 1, %s_p_parse_line_complete.exit ]
   ret i32 %.0
 }
 
@@ -4678,7 +4678,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef nonnull 
   br label %36
 
 36:                                               ; preds = %23, %31, %35
-  %.1 = phi i32 [ %30, %23 ], [ 1, %35 ], [ -1, %31 ]
+  %.1 = phi i32 [ 1, %35 ], [ %30, %23 ], [ -1, %31 ]
   ret i32 %.1
 }
 

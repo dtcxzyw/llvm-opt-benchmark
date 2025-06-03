@@ -5393,7 +5393,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %124, %134
   br label %153
 
 153:                                              ; preds = %150, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117
-  %.1 = phi i32 [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %152, %150 ]
+  %.1 = phi i32 [ %152, %150 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ], [ %.099, %117 ]
   %154 = load ptr, ptr %95, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv
@@ -5485,7 +5485,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit77: ; preds = %161, %167
   unreachable
 
 200:                                              ; preds = %160, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %122, %153, %184, %190
-  %.2 = phi i32 [ %.099, %190 ], [ %.099, %184 ], [ %.1, %153 ], [ %.099, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.099, %122 ], [ %.099, %160 ]
+  %.2 = phi i32 [ %.099, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.099, %122 ], [ %.1, %153 ], [ %.099, %184 ], [ %.099, %190 ], [ %.099, %160 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN13CompileReplay9had_errorEv.exit.thread, label %100, !llvm.loop !27
@@ -7197,7 +7197,7 @@ _ZN13CompileReplay9parse_intEPKc.exit153:         ; preds = %382, %_ZN13CompileR
   br label %_ZNK7oopDesc5klassEv.exit
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %426, %416, %.thread156, %354, %309, %246, %242, %37, %.thread169, %401, %356, %.thread161, %select.unfold, %315, %245
-  %.0 = phi ptr [ %.1, %242 ], [ null, %315 ], [ null, %select.unfold ], [ null, %.thread169 ], [ null, %.thread161 ], [ null, %356 ], [ null, %401 ], [ null, %245 ], [ null, %309 ], [ null, %37 ], [ null, %246 ], [ %352, %354 ], [ null, %.thread156 ], [ %425, %416 ], [ %427, %426 ]
+  %.0 = phi ptr [ null, %315 ], [ null, %select.unfold ], [ null, %.thread169 ], [ null, %.thread161 ], [ null, %356 ], [ null, %401 ], [ %.1, %242 ], [ null, %245 ], [ null, %309 ], [ null, %37 ], [ null, %246 ], [ %352, %354 ], [ null, %.thread156 ], [ %425, %416 ], [ %427, %426 ]
   ret ptr %.0
 }
 
@@ -8305,7 +8305,7 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
   unreachable
 
 49:                                               ; preds = %38, %39, %41, %43, %45, %5
-  %.1 = phi ptr [ %7, %5 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %15, %38 ]
+  %.1 = phi ptr [ %7, %5 ], [ %15, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.128 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   br label %3, !llvm.loop !39
 

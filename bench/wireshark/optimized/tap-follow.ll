@@ -962,8 +962,8 @@ follow_print_hex.exit:                            ; preds = %148, %89
   unreachable
 
 .cont:                                            ; preds = %.lr.ph, %254, %follow_print_hex.exit, %67, %189, %191, %._crit_edge
-  %.1130 = phi i32 [ %.0129147, %._crit_edge ], [ %.0129147, %191 ], [ %.0129147, %189 ], [ %spec.select133, %67 ], [ %spec.select135, %follow_print_hex.exit ], [ %.0129147, %254 ], [ %.0129147, %.lr.ph ]
-  %.1127 = phi i32 [ %.0148, %._crit_edge ], [ %.0148, %191 ], [ %.0148, %189 ], [ %spec.select134, %67 ], [ %spec.select136, %follow_print_hex.exit ], [ %.0148, %254 ], [ %.0148, %.lr.ph ]
+  %.1130 = phi i32 [ %.0129147, %189 ], [ %.0129147, %191 ], [ %.0129147, %._crit_edge ], [ %spec.select133, %67 ], [ %spec.select135, %follow_print_hex.exit ], [ %.0129147, %254 ], [ %.0129147, %.lr.ph ]
+  %.1127 = phi i32 [ %.0148, %189 ], [ %.0148, %191 ], [ %.0148, %._crit_edge ], [ %spec.select134, %67 ], [ %spec.select136, %follow_print_hex.exit ], [ %.0148, %254 ], [ %.0148, %.lr.ph ]
   %286 = getelementptr inbounds nuw i8, ptr %.0112149, i64 16
   %287 = load ptr, ptr %286, align 8
   %288 = add i32 %.0111150, 1

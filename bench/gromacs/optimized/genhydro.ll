@@ -1342,7 +1342,7 @@ _ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i187: ; preds = %
   br label %.body178
 
 429:                                              ; preds = %416, %.noexc197, %.noexc196
-  %.2.i = phi i32 [ %.153.i, %.noexc196 ], [ %417, %416 ], [ %spec.select.i, %.noexc197 ]
+  %.2.i = phi i32 [ %417, %416 ], [ %.153.i, %.noexc196 ], [ %spec.select.i, %.noexc197 ]
   %430 = getelementptr inbounds nuw i8, ptr %.sroa.029.052.i, i64 256
   %431 = load ptr, ptr %394, align 8, !tbaa !94
   %.not.i183 = icmp eq ptr %430, %431

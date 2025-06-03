@@ -1211,7 +1211,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99, %98, %97, %._crit_edge.i.i
-  %.0.i.i.i = phi i32 [ 0, %99 ], [ 8, %98 ], [ 10, %97 ], [ 16, %._crit_edge.i.i ]
+  %.0.i.i.i = phi i32 [ 0, %99 ], [ 10, %97 ], [ 8, %98 ], [ 16, %._crit_edge.i.i ]
   %100 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
   %101 = icmp ugt i64 %100, 4294967295
   br i1 %101, label %.thread.i, label %.fold.split.i
@@ -1571,7 +1571,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %100, %99, %98, %._crit_edge.i.i
-  %.0.i.i.i = phi i32 [ 0, %100 ], [ 8, %99 ], [ 10, %98 ], [ 16, %._crit_edge.i.i ]
+  %.0.i.i.i = phi i32 [ 0, %100 ], [ 10, %98 ], [ 8, %99 ], [ 16, %._crit_edge.i.i ]
   %101 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
   %102 = icmp ugt i64 %101, 4294967295
   br i1 %102, label %.thread.i, label %.fold.split.i

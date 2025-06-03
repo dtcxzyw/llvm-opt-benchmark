@@ -538,8 +538,8 @@ define { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369ad
   ]
 
 23:                                               ; preds = %42, %36, %20
-  %24 = phi i64 [ %17, %20 ], [ %46, %42 ], [ %33, %36 ]
-  %.0.i = phi i64 [ %21, %20 ], [ %49, %42 ], [ %37, %36 ]
+  %24 = phi i64 [ %17, %20 ], [ %33, %36 ], [ %46, %42 ]
+  %.0.i = phi i64 [ %21, %20 ], [ %37, %36 ], [ %49, %42 ]
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %.0.i)
   %26 = extractvalue { i64, i1 } %25, 0
   %27 = extractvalue { i64, i1 } %25, 1
@@ -672,8 +672,8 @@ define void @_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E(ptr noa
   ]
 
 30:                                               ; preds = %56, %47, %27
-  %31 = phi i64 [ %22, %27 ], [ %60, %56 ], [ %42, %47 ]
-  %.0 = phi i64 [ %28, %27 ], [ %63, %56 ], [ %48, %47 ]
+  %31 = phi i64 [ %22, %27 ], [ %42, %47 ], [ %60, %56 ]
+  %.0 = phi i64 [ %28, %27 ], [ %48, %47 ], [ %63, %56 ]
   %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %31, i64 %.0)
   %33 = extractvalue { i64, i1 } %32, 0
   %34 = extractvalue { i64, i1 } %32, 1
@@ -823,8 +823,8 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
   ]
 
 22:                                               ; preds = %41, %35, %19
-  %23 = phi i64 [ %16, %19 ], [ %45, %41 ], [ %32, %35 ]
-  %.0.i.i = phi i64 [ %20, %19 ], [ %48, %41 ], [ %36, %35 ]
+  %23 = phi i64 [ %16, %19 ], [ %32, %35 ], [ %45, %41 ]
+  %.0.i.i = phi i64 [ %20, %19 ], [ %36, %35 ], [ %48, %41 ]
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %.0.i.i)
   %25 = extractvalue { i64, i1 } %24, 0
   %26 = extractvalue { i64, i1 } %24, 1

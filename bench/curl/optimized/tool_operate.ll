@@ -4189,7 +4189,7 @@ url_proto_and_rewrite.exit:                       ; preds = %10, %13, %42
   br label %243
 
 243:                                              ; preds = %214, %240, %224
-  %.11006 = phi i32 [ %217, %214 ], [ %242, %240 ], [ %229, %224 ]
+  %.11006 = phi i32 [ %217, %214 ], [ %229, %224 ], [ %242, %240 ]
   %.not1104 = icmp eq i32 %.11006, 0
   br i1 %.not1104, label %244, label %.thread
 
@@ -5655,8 +5655,8 @@ sub_0:                                            ; preds = %655
   %1075 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.247, i32 noundef 10149, ptr noundef nonnull %1) #16
   br label %.thread
 
-.thread:                                          ; preds = %386, %223, %236, %235, %5, %url_proto_and_rewrite.exit, %607, %326, %1069, %1073, %745, %409, %401, %243, %47, %45, %108
-  %.01004 = phi i32 [ 4, %108 ], [ %604, %607 ], [ %325, %326 ], [ %46, %45 ], [ %48, %47 ], [ %.11006, %243 ], [ %402, %401 ], [ %411, %409 ], [ %746, %745 ], [ %1075, %1073 ], [ %.27, %1069 ], [ %387, %386 ], [ %.014.i, %url_proto_and_rewrite.exit ], [ 27, %5 ], [ 2, %223 ], [ %239, %236 ], [ 2, %235 ]
+.thread:                                          ; preds = %386, %236, %235, %223, %5, %url_proto_and_rewrite.exit, %607, %326, %1069, %1073, %745, %409, %401, %243, %47, %45, %108
+  %.01004 = phi i32 [ 4, %108 ], [ %604, %607 ], [ %325, %326 ], [ %46, %45 ], [ %48, %47 ], [ %.11006, %243 ], [ %402, %401 ], [ %411, %409 ], [ %746, %745 ], [ %1075, %1073 ], [ %.27, %1069 ], [ %387, %386 ], [ %.014.i, %url_proto_and_rewrite.exit ], [ 27, %5 ], [ %239, %236 ], [ 2, %235 ], [ 2, %223 ]
   ret i32 %.01004
 }
 
@@ -5792,7 +5792,7 @@ define internal noundef i32 @sockopt_callback(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %19, %17
-  %.017 = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %.017 = phi i32 [ %18, %17 ], [ %20, %19 ]
   %22 = icmp slt i32 %.017, 0
   br i1 %22, label %23, label %.thread
 

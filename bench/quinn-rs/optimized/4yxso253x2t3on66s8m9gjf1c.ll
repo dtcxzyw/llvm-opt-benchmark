@@ -3550,15 +3550,15 @@ define hidden void @_ZN11quinn_proto10connection6spaces18PacketNumberFilter9chec
   %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %switch.not.not.i = icmp eq i8 %15, 0
   %16 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !180, !noalias !3, !noundef !3
-  br i1 %switch.not.not.i, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit, label %17
+  br i1 %switch.not.not.i, label %17, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit
 
 17:                                               ; preds = %13
-  %18 = icmp ult i64 %11, %16
-  br i1 %18, label %19, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread
-
-_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit: ; preds = %13
   %.not = icmp ugt i64 %11, %16
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread, label %19
+
+_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit: ; preds = %13
+  %18 = icmp ult i64 %11, %16
+  br i1 %18, label %19, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread
 
 19:                                               ; preds = %17, %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !181
@@ -10455,7 +10455,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %7
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %11, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

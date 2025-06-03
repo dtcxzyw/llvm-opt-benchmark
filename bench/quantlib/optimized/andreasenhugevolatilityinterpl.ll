@@ -5129,7 +5129,7 @@ if.end28.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb30.i.i
 
 sw.bb30.i.i:                                      ; preds = %if.end28.i.i, %for.end.i.i
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr.i101.i.i, %if.end28.i.i ]
+  %__first.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i101.i.i, %if.end28.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ]
   %23 = load double, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !98
   %cmp.i.i.i102.i.i = fcmp oeq double %23, %__pred.coerce0
   br i1 %cmp.i.i.i102.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end.i.i.i103.i.i
@@ -5164,7 +5164,7 @@ if.end35.i.i:                                     ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb37.i.i
 
 sw.bb37.i.i:                                      ; preds = %if.end35.i.i, %for.end.i.i
-  %__first.sroa.0.2.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr.i120.i.i, %if.end35.i.i ]
+  %__first.sroa.0.2.i.i = phi ptr [ %incdec.ptr.i120.i.i, %if.end35.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ]
   %28 = load double, ptr %__first.sroa.0.2.i.i, align 8, !tbaa !98
   %cmp.i.i.i121.i.i = fcmp oeq double %28, %__pred.coerce0
   br i1 %cmp.i.i.i121.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end.i.i.i122.i.i
@@ -11627,8 +11627,8 @@ ehcleanup372:                                     ; preds = %ehcleanup371, %lpad
   br label %ehcleanup426
 
 sw.epilog:                                        ; preds = %_ZN8QuantLib5ArrayD2Ev.exit489, %_ZN8QuantLib5ArrayD2Ev.exit449, %_ZN8QuantLib5ArrayD2Ev.exit403
-  %vegaDiffs.sroa.19.0 = phi i64 [ %247, %_ZN8QuantLib5ArrayD2Ev.exit489 ], [ %235, %_ZN8QuantLib5ArrayD2Ev.exit449 ], [ %178, %_ZN8QuantLib5ArrayD2Ev.exit403 ]
-  %vegaDiffs.sroa.0.0 = phi ptr [ %246, %_ZN8QuantLib5ArrayD2Ev.exit489 ], [ %234, %_ZN8QuantLib5ArrayD2Ev.exit449 ], [ %cond.i336, %_ZN8QuantLib5ArrayD2Ev.exit403 ]
+  %vegaDiffs.sroa.19.0 = phi i64 [ %178, %_ZN8QuantLib5ArrayD2Ev.exit403 ], [ %235, %_ZN8QuantLib5ArrayD2Ev.exit449 ], [ %247, %_ZN8QuantLib5ArrayD2Ev.exit489 ]
+  %vegaDiffs.sroa.0.0 = phi ptr [ %cond.i336, %_ZN8QuantLib5ArrayD2Ev.exit403 ], [ %234, %_ZN8QuantLib5ArrayD2Ev.exit449 ], [ %246, %_ZN8QuantLib5ArrayD2Ev.exit489 ]
   %add.ptr.i522.idx = shl nuw nsw i64 %vegaDiffs.sroa.19.0, 3
   %add.ptr.i522 = getelementptr inbounds nuw i8, ptr %vegaDiffs.sroa.0.0, i64 %add.ptr.i522.idx
   %cmp.not4.i = icmp eq i64 %vegaDiffs.sroa.19.0, 0
@@ -12072,7 +12072,7 @@ _ZN5boost10shared_ptrIN8QuantLib25AndreasenHugeCostFunctionEED2Ev.exit662: ; pre
   br i1 %cmp191, label %for.body193, label %for.cond.cleanup192.loopexit, !llvm.loop !283
 
 ehcleanup426:                                     ; preds = %ehcleanup372, %ehcleanup333, %ehcleanup320, %ehcleanup308
-  %.pn57.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn, %ehcleanup372 ], [ %.pn50, %ehcleanup333 ], [ %.pn52, %ehcleanup320 ], [ %.pn54.pn, %ehcleanup308 ]
+  %.pn57.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn, %ehcleanup372 ], [ %.pn54.pn, %ehcleanup308 ], [ %.pn52, %ehcleanup320 ], [ %.pn50, %ehcleanup333 ]
   %cmp.not.i.i663 = icmp eq ptr %cond.i336, null
   br i1 %cmp.not.i.i663, label %ehcleanup428, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i664
 
@@ -14756,7 +14756,7 @@ ehcleanup181:                                     ; preds = %_ZNKSt14default_del
   br label %ehcleanup182
 
 ehcleanup182:                                     ; preds = %ehcleanup181, %ehcleanup76, %lpad21, %lpad
-  %.pn23.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn, %ehcleanup76 ], [ %.pn16.pn.pn.pn.pn.pn, %ehcleanup181 ], [ %46, %lpad21 ], [ %25, %lpad ]
+  %.pn23.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn, %ehcleanup76 ], [ %.pn16.pn.pn.pn.pn.pn, %ehcleanup181 ], [ %25, %lpad ], [ %46, %lpad21 ]
   call void @_ZN8QuantLib13InterpolationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sigInterpl) #32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sigInterpl) #32
   %cmp.not.i.i255 = icmp eq ptr %cond.i, null
@@ -16271,7 +16271,7 @@ ehcleanup123:                                     ; preds = %lpad117, %lpad107
   br label %ehcleanup131
 
 ehcleanup131:                                     ; preds = %lpad76, %ehcleanup123, %ehcleanup74, %ehcleanup43, %ehcleanup
-  %.pn18.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn, %ehcleanup74 ], [ %.pn, %ehcleanup43 ], [ %.pn12, %ehcleanup ], [ %140, %lpad76 ], [ %.pn14, %ehcleanup123 ]
+  %.pn18.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn, %ehcleanup74 ], [ %.pn12, %ehcleanup ], [ %.pn, %ehcleanup43 ], [ %140, %lpad76 ], [ %.pn14, %ehcleanup123 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %prices) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %prices) #32
   resume { ptr, i32 } %.pn18.pn.pn.pn.pn.pn
@@ -18393,7 +18393,7 @@ ehcleanup133:                                     ; preds = %lpad127, %lpad117
   br label %ehcleanup141
 
 ehcleanup141:                                     ; preds = %lpad82, %ehcleanup133, %ehcleanup81, %ehcleanup50, %ehcleanup40, %ehcleanup30
-  %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup81 ], [ %.pn, %ehcleanup50 ], [ %.pn8, %ehcleanup40 ], [ %.pn14.pn, %ehcleanup30 ], [ %125, %lpad82 ], [ %.pn10, %ehcleanup133 ]
+  %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup81 ], [ %.pn14.pn, %ehcleanup30 ], [ %.pn8, %ehcleanup40 ], [ %.pn, %ehcleanup50 ], [ %125, %lpad82 ], [ %.pn10, %ehcleanup133 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %localVol) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %localVol) #32
   resume { ptr, i32 } %.pn17.pn.pn.pn.pn.pn
@@ -20443,7 +20443,7 @@ if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb22.i.i.i.i
 
 sw.bb22.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end20.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %9 = load double, ptr %__first.addr.1.i.i.i.i, align 8, !tbaa !98
   %cmp.i.i30.i.i.i.i = fcmp ule double %9, 0.000000e+00
   br i1 %cmp.i.i30.i.i.i.i, label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit, label %if.end25.i.i.i.i
@@ -20453,7 +20453,7 @@ if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
   br label %sw.bb27.i.i.i.i
 
 sw.bb27.i.i.i.i:                                  ; preds = %for.end.i.i.i.i, %if.end25.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %10 = load double, ptr %__first.addr.2.i.i.i.i, align 8, !tbaa !98
   %cmp.i.i31.i.i.i.i = fcmp ule double %10, 0.000000e+00
   br i1 %cmp.i.i31.i.i.i.i, label %_ZSt6all_ofIPKdZNK8QuantLib18PositiveConstraint4Impl4testERKNS2_5ArrayEEUldE_EbT_S9_T0_.exit, label %sw.default.i.i.i.i

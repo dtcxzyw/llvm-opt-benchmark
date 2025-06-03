@@ -132,7 +132,7 @@ define internal i32 @rsa_ossl_public_encrypt(i32 noundef %0, ptr noundef %1, ptr
   br label %._crit_edge
 
 53:                                               ; preds = %50, %47, %44
-  %.057 = phi i32 [ %51, %50 ], [ %49, %47 ], [ %46, %44 ]
+  %.057 = phi i32 [ %46, %44 ], [ %49, %47 ], [ %51, %50 ]
   %54 = icmp slt i32 %.057, 1
   br i1 %54, label %._crit_edge, label %55
 
@@ -382,7 +382,7 @@ define internal i32 @rsa_ossl_public_decrypt(i32 noundef %0, ptr noundef %1, ptr
   br label %98
 
 95:                                               ; preds = %91, %89
-  %.1 = phi i32 [ %92, %91 ], [ %90, %89 ]
+  %.1 = phi i32 [ %90, %89 ], [ %92, %91 ]
   %96 = icmp slt i32 %.1, 0
   br i1 %96, label %97, label %98
 
@@ -460,7 +460,7 @@ define internal i32 @rsa_ossl_private_encrypt(i32 noundef %0, ptr noundef %1, pt
   br label %.thread128
 
 31:                                               ; preds = %28, %26, %24
-  %.098 = phi i32 [ %29, %28 ], [ %27, %26 ], [ %25, %24 ]
+  %.098 = phi i32 [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   %32 = icmp slt i32 %.098, 1
   br i1 %32, label %.thread128, label %33
 
@@ -968,7 +968,7 @@ define internal i32 @rsa_ossl_private_decrypt(i32 noundef %0, ptr noundef %1, pt
   br label %.thread140
 
 136:                                              ; preds = %133, %131, %128, %126
-  %.1107 = phi i32 [ %123, %133 ], [ %132, %131 ], [ %130, %128 ], [ %127, %126 ]
+  %.1107 = phi i32 [ %127, %126 ], [ %130, %128 ], [ %132, %131 ], [ %123, %133 ]
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 694, ptr noundef nonnull @__func__.rsa_ossl_private_decrypt) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 114, ptr noundef null) #9

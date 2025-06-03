@@ -1214,7 +1214,7 @@ select.unfold.i:                                  ; preds = %75, %dom_seek_utf8_
   br label %dom_decode_encode_fast_path.exit
 
 dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._crit_edge97.i, %.thread63.i
-  %.0.i = phi i1 [ false, %.thread63.i ], [ true, %._crit_edge97.i ], [ true, %.thread66.i ]
+  %.0.i = phi i1 [ true, %._crit_edge97.i ], [ false, %.thread63.i ], [ true, %.thread66.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
   br label %153
 
@@ -2010,7 +2010,7 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %178, %174
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
 dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %185, %195, %196, %197, %198
-  %.0.i115 = phi ptr [ @.str.74, %198 ], [ @.str.117, %197 ], [ @.str.116, %196 ], [ @.str.115, %195 ], [ @.str.114, %185 ]
+  %.0.i115 = phi ptr [ @.str.74, %198 ], [ @.str.115, %195 ], [ @.str.116, %196 ], [ @.str.117, %197 ], [ @.str.114, %185 ]
   %199 = load ptr, ptr %5, align 8, !tbaa !10
   call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i115, ptr noundef %199) #10
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8

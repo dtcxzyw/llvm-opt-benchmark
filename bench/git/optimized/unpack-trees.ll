@@ -1202,7 +1202,7 @@ verify_absent.exit.thread:                        ; preds = %334, %verify_absent
   br label %unpack_failed.exit
 
 unpack_failed.exit:                               ; preds = %318, %315, %312, %356, %mark_all_ce_unused.exit236, %375
-  %.0137 = phi i32 [ %spec.store.select, %mark_all_ce_unused.exit236 ], [ %349, %375 ], [ -1, %356 ], [ -1, %312 ], [ -1, %315 ], [ -1, %318 ]
+  %.0137 = phi i32 [ %349, %375 ], [ %spec.store.select, %mark_all_ce_unused.exit236 ], [ -1, %356 ], [ -1, %312 ], [ -1, %315 ], [ -1, %318 ]
   br i1 %.not158.not289, label %376, label %377
 
 376:                                              ; preds = %unpack_failed.exit

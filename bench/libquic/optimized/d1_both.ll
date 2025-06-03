@@ -233,7 +233,7 @@ dtls1_max_record_size.exit79:                     ; preds = %.thread
   br label %113
 
 113:                                              ; preds = %112, %2, %36, %.thread85, %.thread88
-  %.054 = phi i32 [ -1, %2 ], [ %34, %36 ], [ 1, %112 ], [ -1, %.thread85 ], [ %.5.ph, %.thread88 ]
+  %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %34, %36 ], [ -1, %.thread85 ], [ %.5.ph, %.thread88 ]
   call void @CBB_cleanup(ptr noundef nonnull %3) #13
   call void @free(ptr noundef %10) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13

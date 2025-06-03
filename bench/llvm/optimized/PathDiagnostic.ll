@@ -4768,7 +4768,7 @@ define dso_local { i32, ptr } @_ZNK5clang4ento22PathDiagnosticLocation11genLocat
   br label %15
 
 15:                                               ; preds = %3, %5, %10, %13, %8
-  %.sroa.0.0 = phi i32 [ %9, %8 ], [ %.sroa.0.0.copyload.i, %13 ], [ %1, %10 ], [ %1, %5 ], [ %1, %3 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i, %13 ], [ %9, %8 ], [ %1, %10 ], [ %1, %5 ], [ %1, %3 ]
   %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.4.0 = load ptr, ptr %.sroa.4.0.in, align 8, !tbaa !181
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
@@ -4899,8 +4899,8 @@ define dso_local { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN
   br label %.thread62
 
 .thread62:                                        ; preds = %21, %48, %50, %.thread, %19, %34, %52, %4
-  %.sroa.059.0 = phi i64 [ %.sroa.0.0.insert.insert, %52 ], [ %38, %34 ], [ %.sroa.057.0.insert.insert, %4 ], [ %.sroa.055.0.insert.insert, %.thread ], [ %.sroa.053.0.insert.insert, %19 ], [ %49, %48 ], [ %.sroa.050.0.insert.insert, %50 ], [ %22, %21 ]
-  %.sroa.9.0 = phi i8 [ 0, %52 ], [ 0, %34 ], [ 1, %4 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %48 ], [ 1, %50 ], [ 0, %21 ]
+  %.sroa.059.0 = phi i64 [ %.sroa.0.0.insert.insert, %52 ], [ %.sroa.057.0.insert.insert, %4 ], [ %38, %34 ], [ %.sroa.055.0.insert.insert, %.thread ], [ %.sroa.053.0.insert.insert, %19 ], [ %49, %48 ], [ %.sroa.050.0.insert.insert, %50 ], [ %22, %21 ]
+  %.sroa.9.0 = phi i8 [ 0, %52 ], [ 1, %4 ], [ 0, %34 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %48 ], [ 1, %50 ], [ 0, %21 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.059.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.9.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -8181,7 +8181,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvmneENS
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i:            ; preds = %.thread.i.i.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %spec.select.i.i.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %28, %.thread.i.i.thread.i.i ]
+  %.1.i.i.i.i = phi i32 [ %28, %.thread.i.i.thread.i.i ], [ %spec.select.i.i.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ]
   %29 = icmp slt i32 %.1.i.i.i.i, 0
   br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
@@ -8228,7 +8228,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i: ; preds = %_ZN4llvmne
   br label %_ZN4llvmltENS_9StringRefES0_.exit122.i.i
 
 _ZN4llvmltENS_9StringRefES0_.exit122.i.i:         ; preds = %.thread.i.i121.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i
-  %.1.i.i120.i.i = phi i32 [ %spec.select.i.i119.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ], [ %43, %.thread.i.i121.thread.i.i ]
+  %.1.i.i120.i.i = phi i32 [ %43, %.thread.i.i121.thread.i.i ], [ %spec.select.i.i119.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i115.i.i ]
   %44 = icmp slt i32 %.1.i.i120.i.i, 0
   br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
@@ -8275,7 +8275,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i: ; preds = %_ZN4llvmne
   br label %_ZN4llvmltENS_9StringRefES0_.exit143.i.i
 
 _ZN4llvmltENS_9StringRefES0_.exit143.i.i:         ; preds = %.thread.i.i142.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i
-  %.1.i.i141.i.i = phi i32 [ %spec.select.i.i140.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ], [ %58, %.thread.i.i142.thread.i.i ]
+  %.1.i.i141.i.i = phi i32 [ %58, %.thread.i.i142.thread.i.i ], [ %spec.select.i.i140.mux.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i136.i.i ]
   %59 = icmp slt i32 %.1.i.i141.i.i, 0
   br label %"_ZZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeEENK3$_0clEPKPKNS0_14PathDiagnosticES9_.exit"
 
@@ -8646,8 +8646,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZNK5clang12FileEnt
   %67 = select i1 %66, i32 -1, i32 1
   br label %68
 
-68:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %65
-  %.1.i.ph = phi i32 [ %67, %65 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ]
+68:                                               ; preds = %65, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
+  %.1.i.ph = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %67, %65 ]
   %69 = icmp slt i32 %.1.i.ph, 0
   br label %73
 
@@ -8692,7 +8692,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %4
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %.thread.i, %8
-  %.1.i = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %10, %8 ], [ 0, %.thread.i ]
+  %.1.i = phi i32 [ %10, %8 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
   %11 = icmp slt i32 %.1.i, 0
   ret i1 %11
 }
@@ -8903,7 +8903,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %.fr.i.i.lobit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %68, %.thread.i.i.thread ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %.1.i.i = phi i32 [ %68, %.thread.i.i.thread ], [ %.fr.i.i.lobit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %69 = trunc nuw nsw i32 %.1.i.i to i8
   br label %_ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131
 
@@ -9161,8 +9161,8 @@ _ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit.thread131: ; preds
   br label %.critedge
 
 _ZL12comparePieceRKN5clang4ento19PathDiagnosticPieceES3_.exit: ; preds = %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit, %122, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit, %.critedge50.i, %.critedge50.i, %.critedge50.i
-  %.sroa.083.1 = phi i8 [ %.sroa.083.0.extract.trunc, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %.sroa.083.0.extract.trunc84, %122 ], [ %.sroa.083.0.extract.trunc85, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ %.sroa.083.0, %.critedge50.i ], [ %.sroa.083.0, %.critedge50.i ], [ %.sroa.083.0, %.critedge50.i ]
-  %.sroa.12.0 = phi i16 [ %.sroa.12.0.extract.shift, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %.sroa.12.0.extract.shift86, %122 ], [ %.sroa.12.0.extract.shift88, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ 0, %.critedge50.i ], [ 0, %.critedge50.i ], [ 0, %.critedge50.i ]
+  %.sroa.083.1 = phi i8 [ %.sroa.083.0.extract.trunc85, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ %.sroa.083.0.extract.trunc84, %122 ], [ %.sroa.083.0.extract.trunc, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ %.sroa.083.0, %.critedge50.i ], [ %.sroa.083.0, %.critedge50.i ], [ %.sroa.083.0, %.critedge50.i ]
+  %.sroa.12.0 = phi i16 [ %.sroa.12.0.extract.shift88, %_ZL18compareControlFlowRKN5clang4ento30PathDiagnosticControlFlowPieceES3_.exit ], [ %.sroa.12.0.extract.shift86, %122 ], [ %.sroa.12.0.extract.shift, %_ZL11compareCallRKN5clang4ento23PathDiagnosticCallPieceES3_.exit ], [ 0, %.critedge50.i ], [ 0, %.critedge50.i ], [ 0, %.critedge50.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
   %157 = and i16 %.sroa.12.0, 256
   %.not111 = icmp eq i16 %157, 0

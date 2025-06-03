@@ -11416,7 +11416,7 @@ define hidden noundef zeroext i1 @_ZNK10ClipperLib7Clipper14IsContributingERKNS_
   br label %97
 
 97:                                               ; preds = %24, %80, %21, %18, %14, %8, %93, %89, %85, %76, %72, %68, %63, %59, %55, %49, %45, %41, %36, %32, %28
-  %.031 = phi i1 [ %96, %93 ], [ %92, %89 ], [ %88, %85 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ false, %8 ], [ false, %14 ], [ false, %18 ], [ false, %21 ], [ true, %80 ], [ true, %24 ]
+  %.031 = phi i1 [ %39, %36 ], [ %31, %28 ], [ %35, %32 ], [ %52, %49 ], [ %44, %41 ], [ %48, %45 ], [ %66, %63 ], [ %58, %55 ], [ %62, %59 ], [ %79, %76 ], [ %71, %68 ], [ %75, %72 ], [ %96, %93 ], [ %88, %85 ], [ %92, %89 ], [ false, %8 ], [ false, %14 ], [ false, %18 ], [ false, %21 ], [ true, %80 ], [ true, %24 ]
   ret i1 %.031
 }
 
@@ -12747,7 +12747,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %122
 
 122:                                              ; preds = %119, %116, %114
-  %.0186 = phi i64 [ %121, %119 ], [ %118, %116 ], [ %115, %114 ]
+  %.0186 = phi i64 [ %121, %119 ], [ %115, %114 ], [ %118, %116 ]
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %124 = load i32, ptr %123, align 4
   switch i32 %.0189, label %130 [
@@ -12770,7 +12770,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %133
 
 133:                                              ; preds = %130, %127, %125
-  %.0185 = phi i64 [ %132, %130 ], [ %129, %127 ], [ %126, %125 ]
+  %.0185 = phi i64 [ %132, %130 ], [ %126, %125 ], [ %129, %127 ]
   %or.cond = select i1 %7, i1 %10, i1 false
   br i1 %or.cond, label %134, label %162
 
@@ -12911,7 +12911,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %197
 
 197:                                              ; preds = %194, %191, %189
-  %.0184 = phi i64 [ %196, %194 ], [ %193, %191 ], [ %190, %189 ]
+  %.0184 = phi i64 [ %196, %194 ], [ %190, %189 ], [ %193, %191 ]
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %199 = load i32, ptr %198, align 8
   switch i32 %.0187, label %205 [
@@ -12934,7 +12934,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %208
 
 208:                                              ; preds = %205, %202, %200
-  %.0 = phi i64 [ %207, %205 ], [ %204, %202 ], [ %201, %200 ]
+  %.0 = phi i64 [ %207, %205 ], [ %201, %200 ], [ %204, %202 ]
   %.not = icmp eq i32 %106, %110
   br i1 %.not, label %211, label %209
 

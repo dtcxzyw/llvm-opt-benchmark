@@ -1972,8 +1972,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116InitHeaderSearch15
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %25, %28, %30, %32, %37, %41
-  %.sroa.3.0.i = phi i64 [ %43, %41 ], [ %40, %37 ], [ %36, %32 ], [ 0, %28 ], [ %31, %30 ], [ 0, %25 ]
-  %.sroa.0.0.i = phi ptr [ %42, %41 ], [ %38, %37 ], [ %34, %32 ], [ null, %28 ], [ %29, %30 ], [ null, %25 ]
+  %.sroa.3.0.i = phi i64 [ %43, %41 ], [ %36, %32 ], [ %40, %37 ], [ 0, %28 ], [ %31, %30 ], [ 0, %25 ]
+  %.sroa.0.0.i = phi ptr [ %42, %41 ], [ %34, %32 ], [ %38, %37 ], [ null, %28 ], [ %29, %30 ], [ null, %25 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load i8, ptr %44, align 8, !tbaa !30, !range !66, !noundef !67
   %46 = trunc nuw i8 %45 to i1
@@ -2526,8 +2526,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116InitHeaderSearch7AddPathERKN4llv
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %18, %21, %23, %25, %30, %34
-  %.sroa.3.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %25 ], [ 0, %21 ], [ %24, %23 ], [ 0, %18 ]
-  %.sroa.0.0.i = phi ptr [ %35, %34 ], [ %31, %30 ], [ %27, %25 ], [ null, %21 ], [ %22, %23 ], [ null, %18 ]
+  %.sroa.3.0.i = phi i64 [ %36, %34 ], [ %29, %25 ], [ %33, %30 ], [ 0, %21 ], [ %24, %23 ], [ 0, %18 ]
+  %.sroa.0.0.i = phi ptr [ %35, %34 ], [ %27, %25 ], [ %31, %30 ], [ null, %21 ], [ %22, %23 ], [ null, %18 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 5, ptr %37, align 8, !tbaa !49

@@ -3590,7 +3590,7 @@ ZSTDMT_serialState_applySequences.exit:           ; preds = %.thread, %202
   br label %.thread200
 
 .thread200:                                       ; preds = %264, %196, %175, %185, %.thread218, %209, %162, %.thread213, %63, %52, %39
-  %.0 = phi i64 [ 0, %39 ], [ 0, %52 ], [ 0, %63 ], [ 0, %162 ], [ 0, %264 ], [ %.1217, %.thread213 ], [ 0, %209 ], [ 0, %.thread218 ], [ 0, %185 ], [ 0, %175 ], [ 0, %196 ]
+  %.0 = phi i64 [ 0, %39 ], [ 0, %52 ], [ 0, %63 ], [ %.1217, %.thread213 ], [ 0, %264 ], [ 0, %209 ], [ 0, %162 ], [ 0, %.thread218 ], [ 0, %185 ], [ 0, %175 ], [ 0, %196 ]
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %270 = load ptr, ptr %269, align 8, !tbaa !146
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 184

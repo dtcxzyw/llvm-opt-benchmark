@@ -259,8 +259,8 @@ rsa_get_public_exp.exit.thread:                   ; preds = %17, %rsa_get_public
   br label %59
 
 59:                                               ; preds = %45, %58, %57, %rsa_get_public_exp.exit.thread, %12
-  %.036 = phi ptr [ null, %12 ], [ null, %rsa_get_public_exp.exit.thread ], [ %.137, %45 ], [ %.137, %57 ], [ %.137, %58 ]
-  %.034 = phi ptr [ null, %12 ], [ null, %rsa_get_public_exp.exit.thread ], [ null, %45 ], [ null, %57 ], [ %55, %58 ]
+  %.036 = phi ptr [ null, %12 ], [ null, %rsa_get_public_exp.exit.thread ], [ %.137, %57 ], [ %.137, %58 ], [ %.137, %45 ]
+  %.034 = phi ptr [ null, %12 ], [ null, %rsa_get_public_exp.exit.thread ], [ null, %57 ], [ %55, %58 ], [ null, %45 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.035) #3
   %.not = icmp eq ptr %.035, %1
   br i1 %.not, label %61, label %60

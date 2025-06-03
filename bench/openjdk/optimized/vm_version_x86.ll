@@ -951,7 +951,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit.i108: ; preds = %190
   br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
 
 _ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit: ; preds = %190, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108, %200, %202, %205, %208, %213, %216, %220, %223, %226
-  %.0.i107 = phi i1 [ false, %226 ], [ %225, %223 ], [ %222, %220 ], [ %spec.select10.i, %216 ], [ %215, %213 ], [ %212, %208 ], [ %207, %205 ], [ %spec.select.i109, %202 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108 ], [ true, %200 ], [ false, %190 ]
+  %.0.i107 = phi i1 [ false, %226 ], [ %spec.select.i109, %202 ], [ %207, %205 ], [ %212, %208 ], [ %215, %213 ], [ %spec.select10.i, %216 ], [ %222, %220 ], [ %225, %223 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108 ], [ true, %200 ], [ false, %190 ]
   %227 = zext i1 %.0.i107 to i8
   br label %231
 
@@ -3550,7 +3550,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
   br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %0, %10, %_ZN10VM_Version20is_intel_family_coreEv.exit, %36, %33, %30, %26, %23, %18, %15, %12
-  %.0 = phi i1 [ false, %36 ], [ %35, %33 ], [ %32, %30 ], [ %spec.select10, %26 ], [ %25, %23 ], [ %22, %18 ], [ %17, %15 ], [ %spec.select, %12 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ], [ true, %10 ], [ false, %0 ]
+  %.0 = phi i1 [ false, %36 ], [ %spec.select, %12 ], [ %17, %15 ], [ %22, %18 ], [ %25, %23 ], [ %spec.select10, %26 ], [ %32, %30 ], [ %35, %33 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ], [ true, %10 ], [ false, %0 ]
   ret i1 %.0
 }
 

@@ -257,7 +257,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h6d6b0922b6517b21E.exit.thread"
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h6d6b0922b6517b21E.exit.thread": ; preds = %62, %65, %71
-  %.sroa.0.0.i.ph.i = phi ptr [ %66, %65 ], [ %72, %71 ], [ %64, %62 ]
+  %.sroa.0.0.i.ph.i = phi ptr [ %72, %71 ], [ %66, %65 ], [ %64, %62 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !42
   br label %180
 
@@ -355,7 +355,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
           to label %_ZN5serde2de9MapAccess10next_value17hf94d17eb885a6cceE.exit unwind label %100
 
 _ZN5serde2de9MapAccess10next_value17hf94d17eb885a6cceE.exit.thread: ; preds = %85, %.noexc27, %.noexc28
-  %.sroa.0.0.i.ph.i.i = phi ptr [ %89, %.noexc27 ], [ %95, %.noexc28 ], [ %87, %85 ]
+  %.sroa.0.0.i.ph.i.i = phi ptr [ %95, %.noexc28 ], [ %89, %.noexc27 ], [ %87, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !56
   br label %104
 
@@ -532,7 +532,7 @@ _ZN5serde2de9MapAccess10next_value17hf94d17eb885a6cceE.exit._crit_edge: ; preds 
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h1592a9713d15bb4eE.exit.i.i" unwind label %.loopexit103, !noalias !100
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h1592a9713d15bb4eE.exit.thread.i.i": ; preds = %.noexc8.i.i, %.noexc7.i.i, %134
-  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %138, %.noexc7.i.i ], [ %143, %.noexc8.i.i ], [ %136, %134 ]
+  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %143, %.noexc8.i.i ], [ %138, %.noexc7.i.i ], [ %136, %134 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !99
   br label %150
 
@@ -1851,7 +1851,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %46 unwind label %47
 
 46:                                               ; preds = %70, %.body6, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body7, %.body6 ], [ %37, %70 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body7, %.body6 ], [ %37, %70 ]
   resume { ptr, i32 } %.pn
 
 47:                                               ; preds = %70, %.body2, %.body6, %.body
@@ -6359,7 +6359,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit24: ; preds = %2
           to label %37 unwind label %35
 
 34:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0d78553ef9cbcd61E.exit", %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit24, %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
-  %.sroa.0.0.in = phi i1 [ %19, %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit ], [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0d78553ef9cbcd61E.exit" ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit24 ]
+  %.sroa.0.0.in = phi i1 [ %19, %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit24 ], [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0d78553ef9cbcd61E.exit" ]
   ret i1 %.sroa.0.0.in
 
 35:                                               ; preds = %24
@@ -8100,7 +8100,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr376dro
   unreachable
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3723337336813566865.exit.i.i", %89, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1367251721182104800.exit.i1.i.i", %33, %18, %50
-  %.pn11 = phi { ptr, i32 } [ %51, %50 ], [ %19, %18 ], [ %42, %41 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1367251721182104800.exit.i1.i.i" ], [ %34, %33 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3723337336813566865.exit.i.i" ], [ %90, %89 ]
+  %.pn11 = phi { ptr, i32 } [ %19, %18 ], [ %51, %50 ], [ %42, %41 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1367251721182104800.exit.i1.i.i" ], [ %34, %33 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3723337336813566865.exit.i.i" ], [ %90, %89 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr376drop_in_place$LT$futures_channel..mpsc..UnboundedReceiver$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$$GT$17h8573e4c3cfd5e34dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %110) #26
           to label %135 unwind label %108

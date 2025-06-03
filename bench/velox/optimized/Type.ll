@@ -4176,7 +4176,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont22
           to label %invoke.cont24 unwind label %lpad16
 
 invoke.cont24:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %35, %sw.bb.i.i ], [ %call6.i.i33, %sw.bb4.i.i ], [ %call2.i.i.i34, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %35, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i33, %sw.bb4.i.i ], [ %call2.i.i.i34, %sw.bb10.i.i ]
   %conv = trunc i64 %retval.0.i.i to i8
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 5))
           to label %invoke.cont28 unwind label %lpad16
@@ -4224,7 +4224,7 @@ sw.default.i.i54.cont:                            ; preds = %sw.default.i.i54.in
   unreachable
 
 invoke.cont30:                                    ; preds = %sw.bb7.i.i47, %sw.bb.i.i52, %sw.bb4.i.i50, %sw.bb10.i.i41
-  %retval.0.i.i46 = phi i64 [ %conv.i.i.i.i.i49, %sw.bb7.i.i47 ], [ %39, %sw.bb.i.i52 ], [ %call6.i.i56, %sw.bb4.i.i50 ], [ %call2.i.i.i58, %sw.bb10.i.i41 ]
+  %retval.0.i.i46 = phi i64 [ %39, %sw.bb.i.i52 ], [ %conv.i.i.i.i.i49, %sw.bb7.i.i47 ], [ %call6.i.i56, %sw.bb4.i.i50 ], [ %call2.i.i.i58, %sw.bb10.i.i41 ]
   %conv32 = trunc i64 %retval.0.i.i46 to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %call5.i.i.i3.i.i.i.i.i62 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #42
@@ -4766,7 +4766,7 @@ _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit246: ; pred
   ret void
 
 ehcleanup107:                                     ; preds = %lpad16, %common.resume.i, %lpad78, %ehcleanup
-  %.pn14 = phi { ptr, i32 } [ %64, %lpad78 ], [ %.pn, %ehcleanup ], [ %45, %lpad16 ], [ %common.resume.op.i, %common.resume.i ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %64, %lpad78 ], [ %45, %lpad16 ], [ %common.resume.op.i, %common.resume.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %typeName) #39
   br label %ehcleanup109
 
@@ -8486,7 +8486,7 @@ if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i36.i.i.i.i, %if.end29.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i36.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i37.i.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %vtable.i.i38.i.i.i.i = load ptr, ptr %call.val.i37.i.i.i.i, align 8
   %vfn.i.i39.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i38.i.i.i.i, i64 48
@@ -8499,7 +8499,7 @@ if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i42.i.i.i.i, %if.end36.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i = phi ptr [ %incdec.ptr.i42.i.i.i.i, %if.end36.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i43.i.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %vtable.i.i44.i.i.i.i = load ptr, ptr %call.val.i43.i.i.i.i, align 8
   %vfn.i.i45.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i44.i.i.i.i, i64 48
@@ -8611,7 +8611,7 @@ if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i36.i.i.i.i, %if.end29.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i36.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i37.i.i.i.i = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %vtable.i.i38.i.i.i.i = load ptr, ptr %call.val.i37.i.i.i.i, align 8
   %vfn.i.i39.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i38.i.i.i.i, i64 40
@@ -8624,7 +8624,7 @@ if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i42.i.i.i.i, %if.end36.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i = phi ptr [ %incdec.ptr.i42.i.i.i.i, %if.end36.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %call.val.i43.i.i.i.i = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %vtable.i.i44.i.i.i.i = load ptr, ptr %call.val.i43.i.i.i.i, align 8
   %vfn.i.i45.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i44.i.i.i.i, i64 40

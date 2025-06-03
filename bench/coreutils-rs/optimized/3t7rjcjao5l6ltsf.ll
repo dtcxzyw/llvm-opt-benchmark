@@ -1806,7 +1806,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit13"
 
 "_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit13": ; preds = %41, %38, %36, %30, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23", %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit"
-  %.0.in = phi i1 [ %.0.i14, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23" ], [ %.0.i, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ false, %30 ], [ true, %36 ], [ %45, %41 ], [ false, %38 ]
+  %.0.in = phi i1 [ %.0.i, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ %.0.i14, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23" ], [ false, %30 ], [ true, %36 ], [ %45, %41 ], [ false, %38 ]
   ret i1 %.0.in
 
 "_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit21": ; preds = %58, %55, %53, %46
@@ -2634,7 +2634,7 @@ define noundef zeroext i1 @"_ZN85_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   br label %59
 
 67:                                               ; preds = %59, %34, %32, %30, %28
-  %.0.in = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.1.in24, %59 ]
+  %.0.in = phi i1 [ %.1.in24, %59 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   ret i1 %.0.in
 
 .thread:                                          ; preds = %37, %44, %68
@@ -2683,7 +2683,7 @@ define noundef zeroext i1 @"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   br label %11
 
 11:                                               ; preds = %1, %10, %6
-  %.0 = phi i1 [ true, %10 ], [ %9, %6 ], [ false, %1 ]
+  %.0 = phi i1 [ %9, %6 ], [ true, %10 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2991,7 +2991,7 @@ switch.lookup17:                                  ; preds = %2
   br label %37
 
 37:                                               ; preds = %switch.lookup17, %switch.lookup, %25, %12, %2, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16", %55, %54, %53, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit", %36, %32, %30
-  %.0 = phi i8 [ 2, %55 ], [ 0, %54 ], [ 1, %53 ], [ %52, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16" ], [ 2, %36 ], [ %35, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 1, %32 ], [ %31, %30 ], [ 2, %2 ], [ -1, %12 ], [ -1, %25 ], [ %switch.masked, %switch.lookup ], [ %switch.masked21, %switch.lookup17 ]
+  %.0 = phi i8 [ %31, %30 ], [ 1, %32 ], [ %35, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 2, %36 ], [ %52, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16" ], [ 1, %53 ], [ 0, %54 ], [ 2, %55 ], [ 2, %2 ], [ -1, %12 ], [ -1, %25 ], [ %switch.masked, %switch.lookup ], [ %switch.masked21, %switch.lookup17 ]
   ret i8 %.0
 
 38:                                               ; preds = %33
@@ -3027,7 +3027,7 @@ switch.lookup17:                                  ; preds = %2
   unreachable
 
 49:                                               ; preds = %56, %38
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %57, %56 ]
   resume { ptr, i32 } %.pn
 
 50:                                               ; preds = %25

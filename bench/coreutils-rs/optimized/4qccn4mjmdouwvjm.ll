@@ -275,7 +275,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit: ; preds = %switch.lookup, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %47, %44
-  %.0 = phi i8 [ %51, %47 ], [ %46, %44 ], [ 13, %43 ], [ 40, %42 ], [ 1, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0 = phi i8 [ %46, %44 ], [ %51, %47 ], [ 13, %43 ], [ 40, %42 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 1, %41 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -5491,17 +5491,17 @@ common.resume:                                    ; preds = %436, %461, %117, %1
 
 185:                                              ; preds = %183
   %186 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.val62.i = load ptr, ptr %186, align 8, !noalias !1363, !nonnull !5, !noundef !5
+  %.val61.i = load ptr, ptr %186, align 8, !noalias !1363, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37), !noalias !1401
-  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17hacb9d8b5025d610dE.llvm.18033778647048430120(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %37, ptr noundef nonnull %.val62.i)
-          to label %.noexc83.i unwind label %181
+  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17hacb9d8b5025d610dE.llvm.18033778647048430120(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %37, ptr noundef nonnull %.val61.i)
+          to label %.noexc82.i unwind label %181
 
-.noexc83.i:                                       ; preds = %185
+.noexc82.i:                                       ; preds = %185
   %187 = load i8, ptr %37, align 8, !range !30, !alias.scope !1408, !noalias !1401, !noundef !5
-  %switch.not.i.i.i.i.i81.i = icmp eq i8 %187, 3
-  br i1 %switch.not.i.i.i.i.i81.i, label %188, label %.thread3
+  %switch.not.i.i.i.i.i80.i = icmp eq i8 %187, 3
+  br i1 %switch.not.i.i.i.i.i80.i, label %188, label %.thread3
 
-188:                                              ; preds = %.noexc83.i
+188:                                              ; preds = %.noexc82.i
   %189 = getelementptr inbounds nuw i8, ptr %37, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h961775e73a04e5e4E.llvm.18033778647048430120"(ptr noalias noundef nonnull align 8 dereferenceable(8) %189)
           to label %.thread3 unwind label %181
@@ -6217,7 +6217,7 @@ _ZN3std2fs8metadata17hae664d0c052e3406E.exit.thread.i.i: ; preds = %296
   invoke void @_ZN3std7process4exit17h3954ed0e43b1180dE(i32 noundef 1) #15
           to label %366 unwind label %398
 
-.thread3:                                         ; preds = %.noexc83.i, %188
+.thread3:                                         ; preds = %.noexc82.i, %188
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !1401
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %68), !noalias !1363
   call void @llvm.experimental.noalias.scope.decl(metadata !1551)
@@ -6263,8 +6263,8 @@ _ZN3std2fs8metadata17hae664d0c052e3406E.exit.thread.i.i: ; preds = %296
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1589
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hacb9d8b5025d610dE.llvm.18033778647048430120(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %176), !noalias !1596
   %426 = load i8, ptr %5, align 8, !range !30, !alias.scope !1597, !noalias !1589, !noundef !5
-  %switch.not.i.i.i.i86.i = icmp eq i8 %426, 3
-  br i1 %switch.not.i.i.i.i86.i, label %427, label %.thread
+  %switch.not.i.i.i.i85.i = icmp eq i8 %426, 3
+  br i1 %switch.not.i.i.i.i85.i, label %427, label %.thread
 
 427:                                              ; preds = %425
   %428 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -1057,7 +1057,7 @@ define dso_local noundef ptr @_ZNK4llvm9DbgRecord20createDebugIntrinsicEPNS_6Mod
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -3049,7 +3049,7 @@ _ZNK4llvm14DbgLabelRecord5cloneEv.exit:           ; preds = %_ZNK4llvm9DbgRecord
   br label %17
 
 17:                                               ; preds = %_ZNK4llvm14DbgLabelRecord5cloneEv.exit, %5
-  %.0 = phi ptr [ %8, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit ], [ %6, %5 ]
+  %.0 = phi ptr [ %6, %5 ], [ %8, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit ]
   ret ptr %.0
 }
 
@@ -3913,7 +3913,7 @@ _ZNK4llvm14DbgLabelRecord5cloneEv.exit.i:         ; preds = %27, %_ZNK4llvm9DbgR
   br label %_ZNK4llvm9DbgRecord5cloneEv.exit
 
 _ZNK4llvm9DbgRecord5cloneEv.exit:                 ; preds = %16, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i
-  %.0.i = phi ptr [ %19, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i ], [ %17, %16 ]
+  %.0.i = phi ptr [ %17, %16 ], [ %19, %_ZNK4llvm14DbgLabelRecord5cloneEv.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %0, ptr %28, align 8, !tbaa !94
   %29 = load ptr, ptr %.sroa.013.0, align 8, !tbaa !95

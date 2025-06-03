@@ -1253,8 +1253,8 @@ default.unreachable.i:                            ; preds = %.loopexit
   unreachable
 
 ossl_quic_enc_level_to_pkt_type.exit.i.i:         ; preds = %.thread186, %.thread, %228, %227, %226, %.loopexit
-  %229 = phi ptr [ %225, %228 ], [ %225, %227 ], [ %225, %.loopexit ], [ %110, %.thread ], [ %114, %.thread186 ], [ %225, %226 ]
-  %.0.i.i.i = phi i32 [ 36869, %228 ], [ 36866, %227 ], [ 36865, %.loopexit ], [ 36865, %.thread ], [ 36867, %.thread186 ], [ 36867, %226 ]
+  %229 = phi ptr [ %225, %227 ], [ %225, %228 ], [ %225, %.loopexit ], [ %110, %.thread ], [ %114, %.thread186 ], [ %225, %226 ]
+  %.0.i.i.i = phi i32 [ 36866, %227 ], [ 36869, %228 ], [ 36865, %.loopexit ], [ 36865, %.thread ], [ 36867, %.thread186 ], [ 36867, %226 ]
   %230 = getelementptr inbounds nuw i8, ptr %92, i64 152
   %231 = getelementptr inbounds nuw i8, ptr %92, i64 240
   %232 = load i32, ptr %230, align 8
@@ -1784,7 +1784,7 @@ tx_helper_rollback.exit206.thread.i:              ; preds = %466, %463, %460, %t
   br i1 %.not164.i, label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, label %490
 
 490:                                              ; preds = %489, %488, %485, %484, %482, %481
-  %.3.i = phi i32 [ %.0122400.i, %489 ], [ %.0122400.i, %488 ], [ 1, %484 ], [ %.0122400.i, %482 ], [ %.0122400.i, %481 ], [ %486, %485 ]
+  %.3.i = phi i32 [ %.0122400.i, %489 ], [ %.0122400.i, %481 ], [ %.0122400.i, %482 ], [ 1, %484 ], [ %.0122400.i, %488 ], [ %486, %485 ]
   %491 = load i64, ptr %279, align 8, !tbaa !121
   %492 = load i8, ptr %283, align 4
   %493 = and i8 %492, 1
@@ -1880,8 +1880,8 @@ ossl_quic_frame_type_is_ack_eliciting.exit.i:     ; preds = %tx_helper_append_io
   br label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i
 
 ossl_quic_frame_type_is_ack_eliciting.exit.thread.i: ; preds = %ossl_quic_frame_type_is_ack_eliciting.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %489, %487, %483, %482, %481
-  %.10.ph.i = phi i32 [ %.8398.i, %481 ], [ %.8398.i, %482 ], [ %.8398.i, %483 ], [ %.8398.i, %487 ], [ 1, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.8398.i, %489 ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ]
-  %.2.ph.i = phi i32 [ %.0122400.i, %481 ], [ %.0122400.i, %482 ], [ %.0122400.i, %483 ], [ %.0122400.i, %487 ], [ %.3.i, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.0122400.i, %489 ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ]
+  %.10.ph.i = phi i32 [ %.8398.i, %487 ], [ %.8398.i, %483 ], [ %.8398.i, %482 ], [ %.8398.i, %481 ], [ 1, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.8398.i, %489 ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ]
+  %.2.ph.i = phi i32 [ %.0122400.i, %487 ], [ %.0122400.i, %483 ], [ %.0122400.i, %482 ], [ %.0122400.i, %481 ], [ %.3.i, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.0122400.i, %489 ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ]
   %532 = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %.0123399.i, i32 noundef %switch.select3.i.i147) #10
   %.not157.i = icmp eq ptr %532, null
   br i1 %.not157.i, label %.thread278.i, label %477, !llvm.loop !135
@@ -3754,8 +3754,8 @@ txp_pkt_commit.exit:                              ; preds = %1325, %1340, %1342,
   br i1 %exitcond549.not, label %.thread209, label %1172, !llvm.loop !206
 
 .thread209:                                       ; preds = %1370, %1180, %1156, %1120, %1126, %1129, %1143, %1134, %1138, %1367, %.thread230, %.thread228, %txp_should_try_staging.exit
-  %.0115 = phi i64 [ 0, %txp_should_try_staging.exit ], [ %.1116407, %1367 ], [ %.1116407, %.thread228 ], [ %.1116407, %.thread230 ], [ 0, %1138 ], [ 0, %1134 ], [ 0, %1143 ], [ 0, %1129 ], [ 0, %1126 ], [ 0, %1120 ], [ 0, %1156 ], [ %.1116407, %1180 ], [ %.2117, %1370 ]
-  %.097 = phi i32 [ 0, %txp_should_try_staging.exit ], [ 0, %1367 ], [ 0, %.thread228 ], [ 0, %.thread230 ], [ 0, %1138 ], [ 0, %1134 ], [ 0, %1143 ], [ 0, %1129 ], [ 0, %1126 ], [ 0, %1120 ], [ 1, %1156 ], [ 2, %1180 ], [ 1, %1370 ]
+  %.0115 = phi i64 [ %.1116407, %1367 ], [ 0, %txp_should_try_staging.exit ], [ %.1116407, %.thread228 ], [ %.1116407, %.thread230 ], [ 0, %1138 ], [ 0, %1134 ], [ 0, %1143 ], [ 0, %1129 ], [ 0, %1126 ], [ 0, %1120 ], [ 0, %1156 ], [ %.1116407, %1180 ], [ %.2117, %1370 ]
+  %.097 = phi i32 [ 0, %1367 ], [ 0, %txp_should_try_staging.exit ], [ 0, %.thread228 ], [ 0, %.thread230 ], [ 0, %1138 ], [ 0, %1134 ], [ 0, %1143 ], [ 0, %1129 ], [ 0, %1126 ], [ 0, %1120 ], [ 1, %1156 ], [ 2, %1180 ], [ 1, %1370 ]
   %1371 = load ptr, ptr %38, align 8, !tbaa !66
   call void @ossl_qtx_finish_dgram(ptr noundef %1371) #10
   br label %1372

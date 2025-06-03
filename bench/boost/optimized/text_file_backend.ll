@@ -9557,8 +9557,8 @@ _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemIN
   %.sroa.0.0.i8.i.i = zext i1 %narrow to i32
   %.sroa.0129.0 = add nsw i32 %63, %.sroa.0.0.i8.i.i
   switch i32 %.sroa.0129.0, label %65 [
-    i32 -2, label %171
-    i32 -1, label %.fold.split
+    i32 -2, label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
+    i32 -1, label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split
     i32 0, label %.thread148.sink.split
   ]
 
@@ -9566,7 +9566,15 @@ _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemIN
   %66 = zext i32 %.sroa.0129.0 to i64
   %67 = mul nuw nsw i64 %66, 86400000000
   %68 = add nuw nsw i64 %67, %20
-  br label %171
+  br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
+
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
+  br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit
+
+_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split, %65
+  %storemerge.i.i.i.i = phi i64 [ %68, %65 ], [ 9223372036854775806, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit.fold.split ]
+  %.not160 = icmp slt i64 %27, %storemerge.i.i.i.i
+  br i1 %.not160, label %.thread148, label %.thread148.sink.split
 
 _ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit48: ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
@@ -9774,12 +9782,12 @@ thread-pre-split:                                 ; preds = %_ZN5boost9gregorian
 _ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit: ; preds = %163, %162, %.thread10.i.i.i.i, %160, %158, %154, %thread-pre-split
   %.sroa.04.0.copyload = phi i32 [ %.sroa.04.0.copyload.pr, %thread-pre-split ], [ %.sroa.0.0.i8.i.i.i, %163 ], [ %153, %.thread10.i.i.i.i ], [ -2, %160 ], [ -2, %158 ], [ -2, %154 ], [ %spec.select.i.i.i94, %162 ]
   switch i32 %.sroa.04.0.copyload, label %167 [
-    i32 -2, label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104
-    i32 -1, label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.fold.split
-    i32 0, label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.thread
+    i32 -2, label %171
+    i32 -1, label %.fold.split
+    i32 0, label %.thread151
   ]
 
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.thread: ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
+.thread151:                                       ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
   br label %.thread148.sink.split
 
@@ -9787,34 +9795,26 @@ _ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.th
   %168 = zext i32 %.sroa.04.0.copyload to i64
   %169 = mul nuw nsw i64 %168, 86400000000
   %170 = add nuw nsw i64 %169, %20
-  br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104
-
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.fold.split: ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
-  br label %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104
-
-_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104: ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.fold.split, %167
-  %storemerge.i.i.i.i99 = phi i64 [ %170, %167 ], [ 9223372036854775806, %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit ], [ 9223372036854775807, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.fold.split ]
-  %.not = icmp slt i64 %27, %storemerge.i.i.i.i99
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
-  br i1 %.not, label %.thread148, label %.thread148.sink.split
+  br label %171
 
 default.unreachable163:                           ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit
   unreachable
 
-.fold.split:                                      ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit
+.fold.split:                                      ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit
   br label %171
 
-171:                                              ; preds = %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit, %.fold.split, %65
-  %storemerge.i.i.i.i = phi i64 [ %68, %65 ], [ 9223372036854775806, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit ], [ 9223372036854775807, %.fold.split ]
-  %.not160 = icmp slt i64 %27, %storemerge.i.i.i.i
-  br i1 %.not160, label %.thread148, label %.thread148.sink.split
+171:                                              ; preds = %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit, %.fold.split, %167
+  %storemerge.i.i.i.i99 = phi i64 [ %170, %167 ], [ 9223372036854775806, %_ZN5boost9date_timepLERNS_9gregorian4dateERKNS0_15months_durationINS1_21greg_durations_configEEE.exit ], [ 9223372036854775807, %.fold.split ]
+  %.not = icmp slt i64 %27, %storemerge.i.i.i.i99
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #29
+  br i1 %.not, label %.thread148, label %.thread148.sink.split
 
-.thread148.sink.split:                            ; preds = %171, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76.thread, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104.thread, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit, %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
+.thread148.sink.split:                            ; preds = %171, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76, %.thread151, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76.thread, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE4dateEv.exit, %_ZN5boost9date_time12second_clockINS_10posix_time5ptimeEE10local_timeEv.exit
   store i64 %27, ptr %28, align 8
   br label %.thread148
 
-.thread148:                                       ; preds = %.thread148.sink.split, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104, %171
-  %.0 = phi i1 [ false, %171 ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit104 ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76 ], [ false, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit ], [ %31, %.thread148.sink.split ]
+.thread148:                                       ; preds = %.thread148.sink.split, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit, %171
+  %.0 = phi i1 [ false, %171 ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit ], [ false, %_ZN5boost10posix_time5ptimeC2ENS_9gregorian4dateENS0_13time_durationE.exit76 ], [ false, %_ZNK5boost9date_time9base_timeINS_10posix_time5ptimeENS0_19counted_time_systemINS0_16counted_time_repINS2_33millisec_posix_time_system_configEEEEEE11time_of_dayEv.exit ], [ %31, %.thread148.sink.split ]
   ret i1 %.0
 }
 

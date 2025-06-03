@@ -7929,7 +7929,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %651
   br label %.critedge
 
 686:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212, %681, %682
-  %.061 = phi i32 [ 3, %682 ], [ 2, %681 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit212 ]
+  %.061 = phi i32 [ 2, %681 ], [ 3, %682 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit212 ]
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %688 = load ptr, ptr %687, align 8, !tbaa !14
   %689 = icmp eq ptr %688, null
@@ -7999,8 +7999,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit212:                ; preds = %.noexc211, %651
   invoke void @__cxa_end_catch()
           to label %.critedge unwind label %1102
 
-.critedge:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212, %680, %683, %684, %685, %1089, %1056, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239, %1027, %978, %953, %931, %909, %887, %865, %843, %794, %769, %717, %690, %695, %686
-  %.162 = phi i32 [ %.061, %686 ], [ %.061, %695 ], [ %.061, %690 ], [ 4, %717 ], [ 5, %769 ], [ 6, %794 ], [ 10, %843 ], [ 1, %865 ], [ 2, %887 ], [ 3, %909 ], [ 7, %931 ], [ 11, %953 ], [ 12, %978 ], [ 13, %1027 ], [ 16, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239 ], [ 8, %1056 ], [ %.263, %1089 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit212 ], [ 5, %680 ], [ 9, %683 ], [ 7, %684 ], [ 16, %685 ]
+.critedge:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit212, %684, %683, %680, %685, %1089, %1056, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239, %1027, %978, %953, %931, %909, %887, %865, %843, %794, %769, %717, %690, %695, %686
+  %.162 = phi i32 [ %.061, %686 ], [ %.061, %695 ], [ %.061, %690 ], [ 4, %717 ], [ 5, %769 ], [ 6, %794 ], [ 10, %843 ], [ 1, %865 ], [ 2, %887 ], [ 3, %909 ], [ 7, %931 ], [ 11, %953 ], [ 12, %978 ], [ 13, %1027 ], [ 16, %_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE.exit239 ], [ 8, %1056 ], [ %.263, %1089 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit212 ], [ 7, %684 ], [ 9, %683 ], [ 5, %680 ], [ 16, %685 ]
   %718 = load ptr, ptr %3, align 8, !tbaa !123
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 48
   %720 = load i8, ptr %719, align 8, !tbaa !92, !range !61, !noundef !62

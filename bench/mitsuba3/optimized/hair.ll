@@ -2207,8 +2207,8 @@ default.unreachable:                              ; preds = %247
   unreachable
 
 250:                                              ; preds = %247, %249, %248
-  %.019.i986 = phi float [ %210, %249 ], [ %220, %248 ], [ %230, %247 ]
-  %.0.i = phi float [ %213, %249 ], [ %223, %248 ], [ %233, %247 ]
+  %.019.i986 = phi float [ %220, %248 ], [ %210, %249 ], [ %230, %247 ]
+  %.0.i = phi float [ %223, %248 ], [ %213, %249 ], [ %233, %247 ]
   %251 = tail call contract noundef float @llvm.fabs.f32(float %.0.i)
   %252 = icmp eq i64 %.09141148, %234
   %spec.select = select i1 %252, float %.019.i986, float %.011271146
@@ -2589,8 +2589,8 @@ default.unreachable1136:                          ; preds = %530
   unreachable
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %549, %540, %531
-  %.019.i1008 = phi float [ %554, %549 ], [ %545, %540 ], [ %536, %531 ]
-  %.0.i1009 = phi float [ %557, %549 ], [ %548, %540 ], [ %539, %531 ]
+  %.019.i1008 = phi float [ %536, %531 ], [ %545, %540 ], [ %554, %549 ]
+  %.0.i1009 = phi float [ %539, %531 ], [ %548, %540 ], [ %557, %549 ]
   %558 = call contract noundef float @llvm.fabs.f32(float %.0.i1009)
   %559 = fmul contract float %558, %.sroa.01050.4.vec.extract
   %560 = fmul contract float %558, %.sroa.01050.0.vec.extract
@@ -3409,8 +3409,8 @@ define weak_odr <2 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   br label %38
 
 38:                                               ; preds = %4, %27, %16, %5
-  %.019 = phi float [ %34, %27 ], [ %23, %16 ], [ %12, %5 ], [ %1, %4 ]
-  %.0 = phi float [ %37, %27 ], [ %26, %16 ], [ %15, %5 ], [ %2, %4 ]
+  %.019 = phi float [ %12, %5 ], [ %23, %16 ], [ %34, %27 ], [ %1, %4 ]
+  %.0 = phi float [ %15, %5 ], [ %26, %16 ], [ %37, %27 ], [ %2, %4 ]
   %39 = tail call contract noundef float @llvm.fabs.f32(float %.0)
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %.019, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %39, i64 1
@@ -4178,8 +4178,8 @@ default.unreachable:                              ; preds = %412
   unreachable
 
 441:                                              ; preds = %432, %423, %414
-  %.019.i = phi float [ %437, %432 ], [ %428, %423 ], [ %419, %414 ]
-  %.0.i = phi float [ %440, %432 ], [ %431, %423 ], [ %422, %414 ]
+  %.019.i = phi float [ %419, %414 ], [ %428, %423 ], [ %437, %432 ]
+  %.0.i = phi float [ %422, %414 ], [ %431, %423 ], [ %440, %432 ]
   %442 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %443 = fmul contract float %442, %.sroa.0412.4.vec.extract
   %444 = fmul contract float %442, %.sroa.0412.0.vec.extract
@@ -4756,8 +4756,8 @@ default.unreachable:                              ; preds = %228
   unreachable
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %248, %239, %230
-  %.019.i = phi float [ %253, %248 ], [ %244, %239 ], [ %235, %230 ]
-  %.0.i = phi float [ %256, %248 ], [ %247, %239 ], [ %238, %230 ]
+  %.019.i = phi float [ %235, %230 ], [ %244, %239 ], [ %253, %248 ]
+  %.0.i = phi float [ %238, %230 ], [ %247, %239 ], [ %256, %248 ]
   %257 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %258 = fmul contract float %257, %.sroa.0170.4.vec.extract
   %259 = fmul contract float %257, %.sroa.0170.0.vec.extract
@@ -5334,8 +5334,8 @@ default.unreachable:                              ; preds = %417
   unreachable
 
 _ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit: ; preds = %437, %428, %419
-  %.019.i410 = phi float [ %442, %437 ], [ %433, %428 ], [ %424, %419 ]
-  %.0.i = phi float [ %445, %437 ], [ %436, %428 ], [ %427, %419 ]
+  %.019.i410 = phi float [ %424, %419 ], [ %433, %428 ], [ %442, %437 ]
+  %.0.i = phi float [ %427, %419 ], [ %436, %428 ], [ %445, %437 ]
   %446 = call contract noundef float @llvm.fabs.f32(float %.0.i)
   %447 = fmul contract float %446, %.sroa.0432.4.vec.extract
   %448 = fmul contract float %446, %.sroa.0432.0.vec.extract
@@ -6505,7 +6505,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  %.sroa.034.0 = phi ptr [ %0, %48 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
   ret ptr %.sroa.034.0
 }
 
@@ -7701,7 +7701,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107: ; preds = %
   store i32 48, ptr %348, align 8
   br label %.thread117
 
-.thread117:                                       ; preds = %229, %.loopexit120, %.loopexit121, %.loopexit122, %311, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
+.thread117:                                       ; preds = %229, %311, %.loopexit122, %.loopexit121, %.loopexit120, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
   %360 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %.loopexit123
 

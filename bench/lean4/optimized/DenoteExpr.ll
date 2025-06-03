@@ -5779,7 +5779,7 @@ lean_alloc_closure.exit263:                       ; preds = %lean_inc.exit
   br label %378
 
 378:                                              ; preds = %lean_alloc_closure.exit263, %lean_alloc_closure.exit247, %lean_alloc_closure.exit231, %lean_alloc_closure.exit215, %lean_alloc_closure.exit199, %lean_alloc_closure.exit, %l___private_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr_0__Lean_Meta_Grind_Arith_CommRing_denoteNum___rarg.exit
-  %.0 = phi ptr [ %377, %lean_alloc_closure.exit263 ], [ %316, %lean_alloc_closure.exit247 ], [ %255, %lean_alloc_closure.exit231 ], [ %194, %lean_alloc_closure.exit215 ], [ %133, %lean_alloc_closure.exit199 ], [ %83, %lean_alloc_closure.exit ], [ %49, %l___private_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr_0__Lean_Meta_Grind_Arith_CommRing_denoteNum___rarg.exit ]
+  %.0 = phi ptr [ %377, %lean_alloc_closure.exit263 ], [ %49, %l___private_Lean_Meta_Tactic_Grind_Arith_CommRing_DenoteExpr_0__Lean_Meta_Grind_Arith_CommRing_denoteNum___rarg.exit ], [ %83, %lean_alloc_closure.exit ], [ %133, %lean_alloc_closure.exit199 ], [ %194, %lean_alloc_closure.exit215 ], [ %255, %lean_alloc_closure.exit231 ], [ %316, %lean_alloc_closure.exit247 ]
   ret ptr %.0
 }
 

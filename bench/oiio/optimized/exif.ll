@@ -1725,10 +1725,10 @@ define range(i64 256, -4294443008) i64 @_ZN11OpenImageIO6v3_1_025tiff_datatype_t
   br label %16
 
 16:                                               ; preds = %2, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.58.0 = phi i64 [ %spec.store.select, %15 ], [ %spec.store.select, %14 ], [ %spec.store.select, %13 ], [ %spec.store.select, %12 ], [ %spec.store.select, %11 ], [ %spec.store.select, %10 ], [ %spec.store.select, %9 ], [ %spec.store.select, %8 ], [ %spec.store.select, %7 ], [ %spec.store.select, %6 ], [ 0, %5 ], [ %spec.store.select, %4 ], [ 0, %2 ]
-  %.sroa.32.0 = phi i64 [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 458752, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %2 ]
-  %.sroa.19.0 = phi i64 [ 256, %15 ], [ 256, %14 ], [ 256, %13 ], [ 256, %12 ], [ 256, %11 ], [ 256, %10 ], [ 256, %9 ], [ 512, %8 ], [ 256, %7 ], [ 256, %6 ], [ 256, %5 ], [ 256, %4 ], [ 256, %2 ]
-  %.sroa.0.0 = phi i64 [ 9, %15 ], [ 8, %14 ], [ 12, %13 ], [ 11, %12 ], [ 7, %11 ], [ 5, %10 ], [ 3, %9 ], [ 7, %8 ], [ 6, %7 ], [ 4, %6 ], [ 13, %5 ], [ 2, %4 ], [ 0, %2 ]
+  %.sroa.58.0 = phi i64 [ %spec.store.select, %4 ], [ 0, %5 ], [ %spec.store.select, %6 ], [ %spec.store.select, %7 ], [ %spec.store.select, %8 ], [ %spec.store.select, %9 ], [ %spec.store.select, %10 ], [ %spec.store.select, %11 ], [ %spec.store.select, %12 ], [ %spec.store.select, %13 ], [ %spec.store.select, %14 ], [ %spec.store.select, %15 ], [ 0, %2 ]
+  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 458752, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ 0, %2 ]
+  %.sroa.19.0 = phi i64 [ 256, %4 ], [ 256, %5 ], [ 256, %6 ], [ 256, %7 ], [ 512, %8 ], [ 256, %9 ], [ 256, %10 ], [ 256, %11 ], [ 256, %12 ], [ 256, %13 ], [ 256, %14 ], [ 256, %15 ], [ 256, %2 ]
+  %.sroa.0.0 = phi i64 [ 2, %4 ], [ 13, %5 ], [ 4, %6 ], [ 6, %7 ], [ 7, %8 ], [ 3, %9 ], [ 5, %10 ], [ 7, %11 ], [ 11, %12 ], [ 12, %13 ], [ 8, %14 ], [ 9, %15 ], [ 0, %2 ]
   %.sroa.58.0.insert.ext = shl i64 %.sroa.58.0, 32
   %.sroa.32.0.insert.insert = or disjoint i64 %.sroa.58.0.insert.ext, %.sroa.32.0
   %.sroa.19.0.insert.insert = or disjoint i64 %.sroa.32.0.insert.insert, %.sroa.19.0
@@ -7042,10 +7042,10 @@ _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread3
   br label %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit
 
 _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit: ; preds = %7, %31, %35
-  %.sroa.58.0.i.shrunk.i = phi i32 [ %narrow.i, %35 ], [ %narrow.i, %31 ], [ 0, %7 ]
-  %.sroa.32.0.i.i = phi i64 [ 458752, %35 ], [ 0, %31 ], [ 0, %7 ]
-  %.sroa.19.0.i.i = phi i64 [ 512, %35 ], [ 256, %31 ], [ 256, %7 ]
-  %.sroa.0.0.i.i = phi i64 [ 7, %35 ], [ 2, %31 ], [ 0, %7 ]
+  %.sroa.58.0.i.shrunk.i = phi i32 [ %narrow.i, %31 ], [ %narrow.i, %35 ], [ 0, %7 ]
+  %.sroa.32.0.i.i = phi i64 [ 0, %31 ], [ 458752, %35 ], [ 0, %7 ]
+  %.sroa.19.0.i.i = phi i64 [ 256, %31 ], [ 512, %35 ], [ 256, %7 ]
+  %.sroa.0.0.i.i = phi i64 [ 2, %31 ], [ 7, %35 ], [ 0, %7 ]
   %.sroa.58.0.i.i = zext i32 %.sroa.58.0.i.shrunk.i to i64
   %.sroa.58.0.insert.ext.i.i = shl nuw i64 %.sroa.58.0.i.i, 32
   %.sroa.32.0.insert.insert.i.i = or disjoint i64 %.sroa.58.0.insert.ext.i.i, %.sroa.32.0.i.i

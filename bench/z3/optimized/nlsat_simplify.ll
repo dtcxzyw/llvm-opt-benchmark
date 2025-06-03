@@ -6525,7 +6525,7 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit267: ; preds = %_ZN
   ret i1 %.5343443
 
 524:                                              ; preds = %58, %86, %.body210, %279, %.body, %144, %142, %120, %118, %116, %84, %459, %442, %399, %346
-  %.pn144 = phi { ptr, i32 } [ %400, %399 ], [ %460, %459 ], [ %347, %346 ], [ %443, %442 ], [ %59, %58 ], [ %85, %84 ], [ %87, %86 ], [ %121, %120 ], [ %.pn.pn.pn, %.body ], [ %145, %144 ], [ %143, %142 ], [ %119, %118 ], [ %117, %116 ], [ %.pn133, %.body210 ], [ %280, %279 ]
+  %.pn144 = phi { ptr, i32 } [ %400, %399 ], [ %460, %459 ], [ %347, %346 ], [ %443, %442 ], [ %59, %58 ], [ %85, %84 ], [ %87, %86 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %145, %144 ], [ %143, %142 ], [ %.pn.pn.pn, %.body ], [ %.pn133, %.body210 ], [ %280, %279 ]
   invoke void @_ZN6vectorIN5nlsat16bound_constraintELb1EjE7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN6vectorIN5nlsat16bound_constraintELb1EjED2Ev.exit268 unwind label %525
 

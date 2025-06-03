@@ -10949,7 +10949,7 @@ _ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIj
   br label %_ZNK2OT19CmapSubtableFormat09get_glyphEjPj.exit
 
 _ZNK2OT19CmapSubtableFormat09get_glyphEjPj.exit:  ; preds = %189, %_ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIjEERKS1_RKT_S7_.exit.i, %100, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit.i, %50, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i, %17, %12, %10, %3, %101, %19
-  %.0 = phi i1 [ %102, %101 ], [ %20, %19 ], [ false, %3 ], [ false, %12 ], [ true, %17 ], [ false, %10 ], [ false, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i ], [ true, %50 ], [ false, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit.i ], [ true, %100 ], [ false, %_ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIjEERKS1_RKT_S7_.exit.i ], [ true, %189 ]
+  %.0 = phi i1 [ %20, %19 ], [ %102, %101 ], [ false, %3 ], [ false, %12 ], [ true, %17 ], [ false, %10 ], [ false, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i ], [ true, %50 ], [ false, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeIjLj4EEEEixEi.exit.i ], [ true, %100 ], [ false, %_ZNK2OT13SortedArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEE7bsearchIjEERKS1_RKT_S7_.exit.i ], [ true, %189 ]
   ret i1 %.0
 }
 

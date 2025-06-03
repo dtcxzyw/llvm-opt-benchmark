@@ -330,7 +330,7 @@ define dso_local void @_ZN4llvm22RISCVTargetELFStreamer6finishEv(ptr noundef non
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %1
-  %.2 = phi i32 [ %.1, %1 ], [ %19, %18 ], [ %17, %16 ], [ %21, %20 ]
+  %.2 = phi i32 [ %.1, %1 ], [ %21, %20 ], [ %17, %16 ], [ %19, %18 ]
   store i32 %.2, ptr %7, align 8, !tbaa !44
   ret void
 }

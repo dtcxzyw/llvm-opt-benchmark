@@ -2593,7 +2593,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %55, %54, %52, %45, 
   ret void
 
 112:                                              ; preds = %93, %59, %34
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %60, %59 ], [ %35, %34 ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %60, %59 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn
 }
 

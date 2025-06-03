@@ -603,9 +603,9 @@ _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERK
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i: ; preds = %148, %145, %._crit_edge.i.i.i.i.i.i.i
-  %152 = phi ptr [ %140, %._crit_edge.i.i.i.i.i.i.i ], [ %149, %148 ], [ %140, %145 ]
-  %153 = phi ptr [ %139, %._crit_edge.i.i.i.i.i.i.i ], [ %151, %148 ], [ %139, %145 ]
-  %154 = phi ptr [ %138, %._crit_edge.i.i.i.i.i.i.i ], [ %150, %148 ], [ %146, %145 ]
+  %152 = phi ptr [ %149, %148 ], [ %140, %145 ], [ %140, %._crit_edge.i.i.i.i.i.i.i ]
+  %153 = phi ptr [ %151, %148 ], [ %139, %145 ], [ %139, %._crit_edge.i.i.i.i.i.i.i ]
+  %154 = phi ptr [ %150, %148 ], [ %146, %145 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ]
   %155 = getelementptr i8, ptr %154, i64 32
   %.val12.val.i.i.i.i.i.i.i = load ptr, ptr %155, align 8, !tbaa !97, !noalias !101
   %156 = icmp eq ptr %.val12.val.i.i.i.i.i.i.i, %1
@@ -622,7 +622,7 @@ _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERK
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i: ; preds = %160, %157, %._crit_edge.i.i.i.i.i.i.i
-  %163 = phi ptr [ %138, %._crit_edge.i.i.i.i.i.i.i ], [ %162, %160 ], [ %158, %157 ]
+  %163 = phi ptr [ %162, %160 ], [ %158, %157 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ]
   %164 = getelementptr i8, ptr %163, i64 32
   %.val14.val.i.i.i.i.i.i.i = load ptr, ptr %164, align 8, !tbaa !97, !noalias !101
   %165 = icmp eq ptr %.val14.val.i.i.i.i.i.i.i, %1
@@ -1238,9 +1238,9 @@ _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERK
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i: ; preds = %132, %129, %._crit_edge.i.i.i.i.i.i
-  %136 = phi ptr [ %124, %._crit_edge.i.i.i.i.i.i ], [ %133, %132 ], [ %124, %129 ]
-  %137 = phi ptr [ %123, %._crit_edge.i.i.i.i.i.i ], [ %135, %132 ], [ %123, %129 ]
-  %138 = phi ptr [ %122, %._crit_edge.i.i.i.i.i.i ], [ %134, %132 ], [ %130, %129 ]
+  %136 = phi ptr [ %133, %132 ], [ %124, %129 ], [ %124, %._crit_edge.i.i.i.i.i.i ]
+  %137 = phi ptr [ %135, %132 ], [ %123, %129 ], [ %123, %._crit_edge.i.i.i.i.i.i ]
+  %138 = phi ptr [ %134, %132 ], [ %130, %129 ], [ %122, %._crit_edge.i.i.i.i.i.i ]
   %139 = getelementptr i8, ptr %138, i64 32
   %.val12.val.i.i.i.i.i.i = load ptr, ptr %139, align 8, !tbaa !97, !noalias !147
   %140 = icmp eq ptr %.val12.val.i.i.i.i.i.i, %1
@@ -1257,7 +1257,7 @@ _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERK
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i: ; preds = %144, %141, %._crit_edge.i.i.i.i.i.i
-  %147 = phi ptr [ %122, %._crit_edge.i.i.i.i.i.i ], [ %146, %144 ], [ %142, %141 ]
+  %147 = phi ptr [ %146, %144 ], [ %142, %141 ], [ %122, %._crit_edge.i.i.i.i.i.i ]
   %148 = getelementptr i8, ptr %147, i64 32
   %.val14.val.i.i.i.i.i.i = load ptr, ptr %148, align 8, !tbaa !97, !noalias !147
   %149 = icmp eq ptr %.val14.val.i.i.i.i.i.i, %1

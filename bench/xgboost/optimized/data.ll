@@ -6398,7 +6398,7 @@ _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %_ZN4dmlc11LogCheck_
   unreachable
 
 .noexc54:                                         ; preds = %113, %107, %101, %95, %90, %84, %78, %72, %66, %60, %54
-  %.0.i = phi i64 [ %117, %113 ], [ %112, %107 ], [ %106, %101 ], [ %100, %95 ], [ %94, %90 ], [ %89, %84 ], [ %83, %78 ], [ %77, %72 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ]
+  %.0.i = phi i64 [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %94, %90 ], [ %100, %95 ], [ %106, %101 ], [ %112, %107 ], [ %117, %113 ]
   %119 = invoke noundef float @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_(ptr noundef nonnull align 8 dereferenceable(50) %45, ptr nonnull align 8 dereferenceable(50) %45, i64 %51)
           to label %_ZNK7xgboost4data20CSCArrayAdapterBatch4Line10GetElementEm.exit unwind label %125
 
@@ -21419,7 +21419,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %161, %160, %91
   br label %230
 
 230:                                              ; preds = %228, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %229, %228 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %229, %228 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %231 = load i8, ptr %.sroa.025.1.i.i.i.i.i, align 1, !tbaa !322
   %232 = icmp eq i8 %231, 1
   br i1 %232, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit, label %233
@@ -21429,7 +21429,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %161, %160, %91
   br label %235
 
 235:                                              ; preds = %233, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %234, %233 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %234, %233 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %236 = load i8, ptr %.sroa.025.2.i.i.i.i.i, align 1, !tbaa !322
   %237 = icmp eq i8 %236, 1
   %spec.select.i.i.i.i.i = select i1 %237, ptr %.sroa.025.2.i.i.i.i.i, ptr %199
@@ -22452,7 +22452,7 @@ _ZN7xgboost6linalg6TensorIfLi2EE7ReshapeIJRmS4_ETnPNSt9enable_ifIXsr13IsAllInteg
   br label %212
 
 212:                                              ; preds = %210, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %211, %210 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %211, %210 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %213 = load float, ptr %.sroa.025.1.i.i.i.i, align 4, !tbaa !95
   %214 = call float @llvm.fabs.f32(float %213)
   %215 = fcmp ueq float %214, 0x7FF0000000000000
@@ -22463,7 +22463,7 @@ _ZN7xgboost6linalg6TensorIfLi2EE7ReshapeIJRmS4_ETnPNSt9enable_ifIXsr13IsAllInteg
   br label %218
 
 218:                                              ; preds = %216, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %217, %216 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %217, %216 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %219 = load float, ptr %.sroa.025.2.i.i.i.i, align 4, !tbaa !95
   %220 = call float @llvm.fabs.f32(float %219)
   %221 = fcmp ueq float %220, 0x7FF0000000000000
@@ -23492,7 +23492,7 @@ _ZN7xgboosteqENS_10StringViewES0_.exit225.thread: ; preds = %_ZN7xgboosteqENS_10
   br label %562
 
 562:                                              ; preds = %560, %._crit_edge.i.i.i.i226
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i226 ], [ %561, %560 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %561, %560 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i226 ]
   %563 = load float, ptr %.sroa.031.1.i.i.i.i, align 4, !tbaa !95
   %or.cond.i.i20.i.i.i.i = call noundef i1 @llvm.is.fpclass.f32(float %563, i32 543)
   br i1 %or.cond.i.i20.i.i.i.i, label %.loopexit332, label %564
@@ -23502,7 +23502,7 @@ _ZN7xgboosteqENS_10StringViewES0_.exit225.thread: ; preds = %_ZN7xgboosteqENS_10
   br label %566
 
 566:                                              ; preds = %564, %._crit_edge.i.i.i.i226
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i226 ], [ %565, %564 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %565, %564 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i226 ]
   %567 = load float, ptr %.sroa.031.2.i.i.i.i, align 4, !tbaa !95
   %or.cond.i.i21.i.i.i.i = call noundef i1 @llvm.is.fpclass.f32(float %567, i32 543)
   %spec.select.i.i.i.i = select i1 %or.cond.i.i21.i.i.i.i, ptr %.sroa.031.2.i.i.i.i, ptr %536
@@ -25250,7 +25250,7 @@ define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_itera
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load float, ptr %.sroa.025.1.i.i.i, align 4, !tbaa !95
   %35 = tail call noundef i1 @llvm.is.fpclass.f32(float %34, i32 543)
   br i1 %35, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data12WeightsCheckEET_SB_SB_T0_.exit, label %36
@@ -25260,7 +25260,7 @@ define linkonce_odr noundef zeroext i1 @_ZSt7none_ofIN9__gnu_cxx17__normal_itera
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load float, ptr %.sroa.025.2.i.i.i, align 4, !tbaa !95
   %40 = tail call noundef i1 @llvm.is.fpclass.f32(float %39, i32 543)
   %spec.select.i.i.i = select i1 %40, ptr %.sroa.025.2.i.i.i, ptr %1
@@ -36194,7 +36194,7 @@ define linkonce_odr noundef float @_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12Dispa
   unreachable
 
 203:                                              ; preds = %184, %166, %148, %130, %112, %94, %76, %58, %40, %22, %5
-  %.0 = phi float [ %201, %184 ], [ %183, %166 ], [ %165, %148 ], [ %147, %130 ], [ %129, %112 ], [ %111, %94 ], [ %93, %76 ], [ %75, %58 ], [ %57, %40 ], [ %39, %22 ], [ %21, %5 ]
+  %.0 = phi float [ %21, %5 ], [ %39, %22 ], [ %57, %40 ], [ %75, %58 ], [ %93, %76 ], [ %111, %94 ], [ %129, %112 ], [ %147, %130 ], [ %165, %148 ], [ %183, %166 ], [ %201, %184 ]
   ret float %.0
 }
 
@@ -36341,7 +36341,7 @@ define linkonce_odr noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12Dispatc
   unreachable
 
 104:                                              ; preds = %95, %86, %77, %68, %60, %51, %42, %33, %24, %15, %6
-  %.0 = phi i64 [ %102, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %60 ], [ %59, %51 ], [ %50, %42 ], [ %41, %33 ], [ %32, %24 ], [ %23, %15 ], [ %14, %6 ]
+  %.0 = phi i64 [ %14, %6 ], [ %23, %15 ], [ %32, %24 ], [ %41, %33 ], [ %50, %42 ], [ %59, %51 ], [ %67, %60 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %102, %95 ]
   ret i64 %.0
 }
 
@@ -36489,7 +36489,7 @@ define linkonce_odr noundef float @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12Dispa
   unreachable
 
 105:                                              ; preds = %95, %86, %77, %68, %59, %50, %41, %32, %23, %14, %6
-  %.0 = phi float [ %103, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %59 ], [ %58, %50 ], [ %49, %41 ], [ %40, %32 ], [ %31, %23 ], [ %22, %14 ], [ %13, %6 ]
+  %.0 = phi float [ %13, %6 ], [ %22, %14 ], [ %31, %23 ], [ %40, %32 ], [ %49, %41 ], [ %58, %50 ], [ %67, %59 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %103, %95 ]
   ret float %.0
 }
 
@@ -36774,7 +36774,7 @@ define linkonce_odr noundef float @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12Dispa
   unreachable
 
 105:                                              ; preds = %95, %86, %77, %68, %59, %50, %41, %32, %23, %14, %6
-  %.0 = phi float [ %103, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %59 ], [ %58, %50 ], [ %49, %41 ], [ %40, %32 ], [ %31, %23 ], [ %22, %14 ], [ %13, %6 ]
+  %.0 = phi float [ %13, %6 ], [ %22, %14 ], [ %31, %23 ], [ %40, %32 ], [ %49, %41 ], [ %58, %50 ], [ %67, %59 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %103, %95 ]
   ret float %.0
 }
 
@@ -73609,7 +73609,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data17ArrayAdapterBa
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %32, %36, %41, %46, %51, %56, %61, %66, %71, %76, %81
-  %.0.i = phi float [ %85, %81 ], [ %80, %76 ], [ %75, %71 ], [ %70, %66 ], [ %65, %61 ], [ %60, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %32 ]
+  %.0.i = phi float [ %35, %32 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %65, %61 ], [ %70, %66 ], [ %75, %71 ], [ %80, %76 ], [ %85, %81 ]
   %87 = load ptr, ptr %16, align 8, !tbaa !1782
   %88 = load float, ptr %87, align 4, !tbaa !95
   %89 = call float @llvm.fabs.f32(float %88)
@@ -74013,7 +74013,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data17ArrayAdapterBa
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %23, %27, %32, %37, %42, %47, %52, %57, %62, %67, %72
-  %.0.i = phi float [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %31, %27 ], [ %26, %23 ]
+  %.0.i = phi float [ %26, %23 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ]
   %78 = load ptr, ptr %9, align 8, !tbaa !1796
   %79 = fcmp ord float %.0.i, 0.000000e+00
   %80 = load float, ptr %78, align 4
@@ -74524,7 +74524,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20CSRArrayAdapte
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %29, %34, %39, %44, %49, %54, %59, %63, %68, %73, %78
-  %.0.i36 = phi i64 [ %81, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %58, %54 ], [ %53, %49 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ]
+  %.0.i36 = phi i64 [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %48, %44 ], [ %53, %49 ], [ %58, %54 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %81, %78 ]
   switch i8 %.sroa.5683.88.copyload, label %137 [
     i8 0, label %83
     i8 1, label %83
@@ -74621,7 +74621,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %83, %87, %92, %97, %102, %107, %112, %117, %122, %127, %132
-  %.0.i = phi float [ %136, %132 ], [ %131, %127 ], [ %126, %122 ], [ %121, %117 ], [ %116, %112 ], [ %111, %107 ], [ %106, %102 ], [ %101, %97 ], [ %96, %92 ], [ %91, %87 ], [ %86, %83 ]
+  %.0.i = phi float [ %86, %83 ], [ %91, %87 ], [ %96, %92 ], [ %101, %97 ], [ %106, %102 ], [ %111, %107 ], [ %116, %112 ], [ %121, %117 ], [ %126, %122 ], [ %131, %127 ], [ %136, %132 ]
   %138 = load ptr, ptr %16, align 8, !tbaa !1827
   %139 = load float, ptr %138, align 4, !tbaa !95
   %140 = call float @llvm.fabs.f32(float %139)
@@ -75022,7 +75022,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20CSRArrayAdapte
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %20, %25, %30, %35, %40, %45, %50, %54, %59, %64, %69
-  %.0.i15 = phi i64 [ %72, %69 ], [ %68, %64 ], [ %63, %59 ], [ %58, %54 ], [ %53, %50 ], [ %49, %45 ], [ %44, %40 ], [ %39, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %20 ]
+  %.0.i15 = phi i64 [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %39, %35 ], [ %44, %40 ], [ %49, %45 ], [ %53, %50 ], [ %58, %54 ], [ %63, %59 ], [ %68, %64 ], [ %72, %69 ]
   switch i8 %.sroa.5562.88.copyload, label %128 [
     i8 0, label %74
     i8 1, label %74
@@ -75119,7 +75119,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %74, %78, %83, %88, %93, %98, %103, %108, %113, %118, %123
-  %.0.i = phi float [ %127, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %93 ], [ %92, %88 ], [ %87, %83 ], [ %82, %78 ], [ %77, %74 ]
+  %.0.i = phi float [ %77, %74 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %97, %93 ], [ %102, %98 ], [ %107, %103 ], [ %112, %108 ], [ %117, %113 ], [ %122, %118 ], [ %127, %123 ]
   %129 = load ptr, ptr %9, align 8, !tbaa !1844
   %130 = fcmp ord float %.0.i, 0.000000e+00
   %131 = load float, ptr %129, align 4
@@ -75319,7 +75319,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20CSCArrayAdapte
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %29, %34, %39, %44, %49, %54, %59, %63, %68, %73, %78
-  %.0.i36 = phi i64 [ %81, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %58, %54 ], [ %53, %49 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ]
+  %.0.i36 = phi i64 [ %33, %29 ], [ %38, %34 ], [ %43, %39 ], [ %48, %44 ], [ %53, %49 ], [ %58, %54 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %81, %78 ]
   switch i8 %.sroa.5884.96.copyload, label %137 [
     i8 0, label %83
     i8 1, label %83
@@ -75416,7 +75416,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %83, %87, %92, %97, %102, %107, %112, %117, %122, %127, %132
-  %.0.i = phi float [ %136, %132 ], [ %131, %127 ], [ %126, %122 ], [ %121, %117 ], [ %116, %112 ], [ %111, %107 ], [ %106, %102 ], [ %101, %97 ], [ %96, %92 ], [ %91, %87 ], [ %86, %83 ]
+  %.0.i = phi float [ %86, %83 ], [ %91, %87 ], [ %96, %92 ], [ %101, %97 ], [ %106, %102 ], [ %111, %107 ], [ %116, %112 ], [ %121, %117 ], [ %126, %122 ], [ %131, %127 ], [ %136, %132 ]
   %138 = load ptr, ptr %16, align 8, !tbaa !1857
   %139 = load float, ptr %138, align 4, !tbaa !95
   %140 = call float @llvm.fabs.f32(float %139)
@@ -75817,7 +75817,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20CSCArrayAdapte
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %21, %26, %31, %36, %41, %46, %51, %55, %60, %65, %70
-  %.0.i15 = phi i64 [ %73, %70 ], [ %69, %65 ], [ %64, %60 ], [ %59, %55 ], [ %54, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %25, %21 ]
+  %.0.i15 = phi i64 [ %25, %21 ], [ %30, %26 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %54, %51 ], [ %59, %55 ], [ %64, %60 ], [ %69, %65 ], [ %73, %70 ]
   switch i8 %.sroa.5763.96.copyload, label %129 [
     i8 0, label %75
     i8 1, label %75
@@ -75914,7 +75914,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %75, %79, %84, %89, %94, %99, %104, %109, %114, %119, %124
-  %.0.i = phi float [ %128, %124 ], [ %123, %119 ], [ %118, %114 ], [ %113, %109 ], [ %108, %104 ], [ %103, %99 ], [ %98, %94 ], [ %93, %89 ], [ %88, %84 ], [ %83, %79 ], [ %78, %75 ]
+  %.0.i = phi float [ %78, %75 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ]
   %130 = load ptr, ptr %9, align 8, !tbaa !1874
   %131 = fcmp ord float %.0.i, 0.000000e+00
   %132 = load float, ptr %130, align 4
@@ -76945,7 +76945,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20ColumnarAdapte
   unreachable
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %131, %122, %113, %104, %95, %86, %77, %68, %59, %50, %42, %36
-  %141 = phi float [ 0x7FF8000000000000, %36 ], [ %139, %131 ], [ %130, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %59 ], [ %58, %50 ], [ %49, %42 ]
+  %141 = phi float [ 0x7FF8000000000000, %36 ], [ %49, %42 ], [ %58, %50 ], [ %67, %59 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %103, %95 ], [ %112, %104 ], [ %121, %113 ], [ %130, %122 ], [ %139, %131 ]
   %142 = load ptr, ptr %16, align 8, !tbaa !1936
   %143 = load float, ptr %142, align 4, !tbaa !95
   %144 = call float @llvm.fabs.f32(float %143)
@@ -77400,7 +77400,7 @@ define linkonce_odr void @_ZZN7xgboost10SparsePage4PushINS_4data20ColumnarAdapte
   unreachable
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %123, %114, %105, %96, %87, %78, %69, %60, %51, %42, %34
-  %133 = phi float [ %131, %123 ], [ %122, %114 ], [ %113, %105 ], [ %104, %96 ], [ %95, %87 ], [ %86, %78 ], [ %77, %69 ], [ %68, %60 ], [ %59, %51 ], [ %50, %42 ], [ %41, %34 ]
+  %133 = phi float [ %41, %34 ], [ %50, %42 ], [ %59, %51 ], [ %68, %60 ], [ %77, %69 ], [ %86, %78 ], [ %95, %87 ], [ %104, %96 ], [ %113, %105 ], [ %122, %114 ], [ %131, %123 ]
   %134 = load ptr, ptr %9, align 8, !tbaa !1950
   %135 = fcmp ord float %133, 0.000000e+00
   %136 = load float, ptr %134, align 4

@@ -154,8 +154,8 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %45, %51, %64, %74
-  %.025.sink.i = phi i32 [ %75, %74 ], [ %46, %45 ], [ %73, %64 ], [ %57, %51 ]
-  %.024.sink.i = phi i64 [ 1, %74 ], [ 1, %45 ], [ 3, %64 ], [ 2, %51 ]
+  %.025.sink.i = phi i32 [ %75, %74 ], [ %46, %45 ], [ %57, %51 ], [ %73, %64 ]
+  %.024.sink.i = phi i64 [ 1, %74 ], [ 1, %45 ], [ 2, %51 ], [ 3, %64 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink.i
   %77 = and i32 %.025.sink.i, 65535
   store i32 %77, ptr %1, align 4
@@ -295,13 +295,13 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   %35 = or disjoint i16 %33, %34
   br label %38
 
-36:                                               ; preds = %22, %18, %7, %2, %2, %2, %2, %2
+36:                                               ; preds = %2, %2, %2, %2, %2, %7, %22, %18
   %37 = zext i8 %3 to i16
   br label %38
 
 38:                                               ; preds = %26, %11, %5, %36
-  %.025.sink = phi i16 [ %37, %36 ], [ %6, %5 ], [ %35, %26 ], [ %17, %11 ]
-  %.024.sink = phi i64 [ 1, %36 ], [ 1, %5 ], [ 3, %26 ], [ 2, %11 ]
+  %.025.sink = phi i16 [ %37, %36 ], [ %6, %5 ], [ %17, %11 ], [ %35, %26 ]
+  %.024.sink = phi i64 [ 1, %36 ], [ 1, %5 ], [ 2, %11 ], [ 3, %26 ]
   store i16 %.025.sink, ptr %1, align 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
   ret ptr %39
@@ -432,9 +432,9 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   %24 = or disjoint i8 %23, %22
   br label %25
 
-25:                                               ; preds = %21, %9, %2, %5, %13, %17
-  %.025.sink = phi i8 [ %3, %17 ], [ %3, %13 ], [ %3, %5 ], [ %24, %21 ], [ %12, %9 ], [ %3, %2 ]
-  %.024.sink = phi i64 [ 1, %17 ], [ 1, %13 ], [ 1, %5 ], [ 3, %21 ], [ 2, %9 ], [ 1, %2 ]
+25:                                               ; preds = %21, %9, %2, %13, %17, %5
+  %.025.sink = phi i8 [ %3, %5 ], [ %3, %17 ], [ %3, %13 ], [ %12, %9 ], [ %24, %21 ], [ %3, %2 ]
+  %.024.sink = phi i64 [ 1, %5 ], [ 1, %17 ], [ 1, %13 ], [ 2, %9 ], [ 3, %21 ], [ 1, %2 ]
   store i8 %.025.sink, ptr %1, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
   ret ptr %26
@@ -544,8 +544,8 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %17, %23, %38, %48
-  %.025.sink.i = phi i16 [ %49, %48 ], [ %18, %17 ], [ %47, %38 ], [ %29, %23 ]
-  %.024.sink.i = phi i64 [ 1, %48 ], [ 1, %17 ], [ 3, %38 ], [ 2, %23 ]
+  %.025.sink.i = phi i16 [ %49, %48 ], [ %18, %17 ], [ %29, %23 ], [ %47, %38 ]
+  %.024.sink.i = phi i64 [ 1, %48 ], [ 1, %17 ], [ 2, %23 ], [ 3, %38 ]
   store i16 %.025.sink.i, ptr %14, align 2
   %50 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -638,8 +638,8 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextIaEEPcPKcPT_.exit
 
 _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %20, %24, %28, %32
-  %.025.sink.i = phi i8 [ %14, %28 ], [ %14, %24 ], [ %14, %16 ], [ %35, %32 ], [ %23, %20 ], [ %14, %.lr.ph25 ]
-  %.024.sink.i = phi i64 [ 1, %28 ], [ 1, %24 ], [ 1, %16 ], [ 3, %32 ], [ 2, %20 ], [ 1, %.lr.ph25 ]
+  %.025.sink.i = phi i8 [ %14, %16 ], [ %14, %28 ], [ %14, %24 ], [ %23, %20 ], [ %35, %32 ], [ %14, %.lr.ph25 ]
+  %.024.sink.i = phi i64 [ 1, %16 ], [ 1, %28 ], [ 1, %24 ], [ 2, %20 ], [ 3, %32 ], [ 1, %.lr.ph25 ]
   store i8 %.025.sink.i, ptr %13, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -722,8 +722,8 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %8, %14, %29, %39
-  %.025.sink.i = phi i16 [ %40, %39 ], [ %9, %8 ], [ %38, %29 ], [ %20, %14 ]
-  %.024.sink.i = phi i64 [ 1, %39 ], [ 1, %8 ], [ 3, %29 ], [ 2, %14 ]
+  %.025.sink.i = phi i16 [ %40, %39 ], [ %9, %8 ], [ %20, %14 ], [ %38, %29 ]
+  %.024.sink.i = phi i64 [ 1, %39 ], [ 1, %8 ], [ 2, %14 ], [ 3, %29 ]
   %41 = getelementptr inbounds nuw i8, ptr %.01011, i64 %.024.sink.i
   %42 = add i16 %.025.sink.i, -32
   %or.cond = icmp ult i16 %42, 95
@@ -810,8 +810,8 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captu
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
-  %.025.sink.i = phi i16 [ %44, %43 ], [ %13, %12 ], [ %42, %33 ], [ %24, %18 ]
-  %.024.sink.i = phi i64 [ 1, %43 ], [ 1, %12 ], [ 3, %33 ], [ 2, %18 ]
+  %.025.sink.i = phi i16 [ %44, %43 ], [ %13, %12 ], [ %24, %18 ], [ %42, %33 ]
+  %.024.sink.i = phi i64 [ 1, %43 ], [ 1, %12 ], [ 2, %18 ], [ 3, %33 ]
   %45 = getelementptr inbounds nuw i8, ptr %.023, i64 %.024.sink.i
   %46 = zext i16 %.025.sink.i to i32
   %47 = add i16 %.025.sink.i, -32
@@ -1054,7 +1054,7 @@ default.unreachable:                              ; preds = %_ZN4UTF826is_supple
   unreachable
 
 98:                                               ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %74, %93, %34
-  %.2 = phi i32 [ %.188, %34 ], [ %80, %93 ], [ %65, %74 ], [ %37, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
+  %.2 = phi i32 [ %.188, %34 ], [ %65, %74 ], [ %80, %93 ], [ %37, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
   %99 = add nsw i32 %.2, 1
   %.not117 = icmp slt i32 %99, %1
   br i1 %.not117, label %.lr.ph90, label %._crit_edge91, !llvm.loop !17

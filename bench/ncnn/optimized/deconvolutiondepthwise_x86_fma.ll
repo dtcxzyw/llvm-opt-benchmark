@@ -4722,7 +4722,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge260, %.p
   br i1 %exitcond270.not, label %._crit_edge, label %234, !llvm.loop !119
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc85, %.noexc82, %.noexc81, %.noexc80, %.noexc78, %95, %._crit_edge
-  %.0.i = phi nsz <8 x float> [ %233, %.noexc85 ], [ %221, %.noexc82 ], [ %140, %.noexc81 ], [ %114, %.noexc80 ], [ %104, %.noexc78 ], [ %96, %95 ], [ %.1243.lcssa, %._crit_edge ]
+  %.0.i = phi nsz <8 x float> [ %96, %95 ], [ %104, %.noexc78 ], [ %114, %.noexc80 ], [ %140, %.noexc81 ], [ %221, %.noexc82 ], [ %233, %.noexc85 ], [ %.1243.lcssa, %._crit_edge ]
   store <8 x float> %.0.i, ptr %.1258, align 1, !tbaa !117
   %270 = getelementptr inbounds nuw i8, ptr %.1258, i64 32
   %271 = add nuw nsw i32 %.057257, 1
@@ -5162,7 +5162,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge226, %.p
   br i1 %exitcond236.not, label %._crit_edge, label %245, !llvm.loop !132
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %231, %.noexc80, %.noexc79, %105, %.noexc78, %95, %._crit_edge
-  %.0.i = phi nsz <4 x float> [ %244, %231 ], [ %230, %.noexc80 ], [ %143, %.noexc79 ], [ %115, %105 ], [ %104, %.noexc78 ], [ %96, %95 ], [ %.1209.lcssa, %._crit_edge ]
+  %.0.i = phi nsz <4 x float> [ %96, %95 ], [ %104, %.noexc78 ], [ %115, %105 ], [ %143, %.noexc79 ], [ %230, %.noexc80 ], [ %244, %231 ], [ %.1209.lcssa, %._crit_edge ]
   store <4 x float> %.0.i, ptr %.1224, align 1, !tbaa !117
   %281 = getelementptr inbounds nuw i8, ptr %.1224, i64 16
   %282 = add nuw nsw i32 %.057223, 1
@@ -5370,7 +5370,7 @@ define internal void @_ZNK4ncnn30DeconvolutionDepthWise_x86_fma7forwardERKNS_3Ma
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %118, %112, %111, %104, %97, %91, %87, %83, %75, %._crit_edge.us.us.us
-  %.1115.us.us.us = phi nsz float [ %.164.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %.164.lcssa.us.us.us, %83 ], [ %90, %87 ], [ %96, %91 ], [ %103, %97 ], [ %108, %111 ], [ %.0114.us.us.us, %104 ], [ %117, %112 ], [ %119, %118 ], [ 0.000000e+00, %75 ]
+  %.1115.us.us.us = phi nsz float [ %.164.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %119, %118 ], [ %117, %112 ], [ %108, %111 ], [ %.0114.us.us.us, %104 ], [ %103, %97 ], [ %96, %91 ], [ %.164.lcssa.us.us.us, %83 ], [ %90, %87 ], [ 0.000000e+00, %75 ]
   store float %.1115.us.us.us, ptr %.1128.us.us.us, align 4, !tbaa !49
   %120 = getelementptr inbounds nuw i8, ptr %.1128.us.us.us, i64 4
   %121 = add nuw nsw i32 %.061127.us.us.us, 1

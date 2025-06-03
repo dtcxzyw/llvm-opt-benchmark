@@ -88,7 +88,7 @@ default.unreachable5:                             ; preds = %2
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit": ; preds = %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i", %9, %7, %2, %28, %4
-  %.sroa.02.0 = phi ptr [ %30, %28 ], [ %6, %4 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i" ]
+  %.sroa.02.0 = phi ptr [ %6, %4 ], [ %30, %28 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i" ]
   ret ptr %.sroa.02.0
 
 9:                                                ; preds = %7

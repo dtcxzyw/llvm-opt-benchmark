@@ -524,7 +524,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_deltas(ptr noundef %0, ptr noundef
   br label %34
 
 34:                                               ; preds = %.sink.split, %8, %10, %12, %15, %24, %23, %5, %9, %11, %31, %3
-  %.029 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %24 ], [ 0, %23 ], [ 0, %15 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ 1, %9 ], [ 1, %11 ], [ 1, %31 ], [ 1, %.sink.split ]
+  %.029 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ], [ 0, %15 ], [ 0, %24 ], [ 0, %23 ], [ 1, %9 ], [ 1, %11 ], [ 1, %31 ], [ 1, %.sink.split ]
   ret i32 %.029
 }
 
@@ -665,7 +665,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_deltas(ptr noundef %0, ptr no
   br label %51
 
 51:                                               ; preds = %26, %8, %11, %17, %14, %21, %18, %27, %5, %10, %9, %13, %12, %40, %49, %48, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %26 ], [ 0, %27 ], [ 1, %21 ], [ 0, %18 ], [ 1, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 1, %10 ], [ 1, %9 ], [ 1, %13 ], [ 1, %12 ], [ 0, %40 ], [ 1, %49 ], [ 1, %48 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 1, %17 ], [ 0, %14 ], [ 1, %21 ], [ 0, %18 ], [ 0, %26 ], [ 0, %27 ], [ 1, %10 ], [ 1, %9 ], [ 1, %13 ], [ 1, %12 ], [ 0, %40 ], [ 1, %49 ], [ 1, %48 ]
   ret i32 %.0
 }
 
@@ -709,8 +709,8 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_delta(ptr noundef %0, ptr noundef 
   br label %.thread47.i
 
 .thread47.i:                                      ; preds = %9, %4, %8, %7, %.sink.split.i
-  %.2.ph = phi double [ -1.000000e+00, %.sink.split.i ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %8 ], [ 1.000000e+00, %4 ], [ %11, %9 ]
-  %.03.ph = phi double [ 0.000000e+00, %.sink.split.i ], [ -1.000000e+00, %7 ], [ 1.000000e+00, %8 ], [ 0.000000e+00, %4 ], [ %.pre, %9 ]
+  %.2.ph = phi double [ -1.000000e+00, %.sink.split.i ], [ 0.000000e+00, %8 ], [ 0.000000e+00, %7 ], [ 1.000000e+00, %4 ], [ %11, %9 ]
+  %.03.ph = phi double [ 0.000000e+00, %.sink.split.i ], [ 1.000000e+00, %8 ], [ -1.000000e+00, %7 ], [ 0.000000e+00, %4 ], [ %.pre, %9 ]
   %14 = fadd reassoc nsz arcp contract afn double %.03.ph, %.2.ph
   store double %14, ptr %1, align 8, !tbaa !59
   br label %dt_gui_get_scroll_deltas.exit
@@ -785,9 +785,9 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_delta(ptr noundef %0, ptr nou
   %32 = fptosi double %25 to i32
   br label %33
 
-33:                                               ; preds = %4, %9, %8, %7, %28
-  %.04.ph = phi i32 [ 1, %7 ], [ 0, %8 ], [ 0, %9 ], [ %31, %28 ], [ -1, %4 ]
-  %.03.ph = phi i32 [ 0, %7 ], [ -1, %8 ], [ 1, %9 ], [ %32, %28 ], [ 0, %4 ]
+33:                                               ; preds = %4, %8, %9, %7, %28
+  %.04.ph = phi i32 [ %31, %28 ], [ 0, %9 ], [ 0, %8 ], [ 1, %7 ], [ -1, %4 ]
+  %.03.ph = phi i32 [ %32, %28 ], [ 1, %9 ], [ -1, %8 ], [ 0, %7 ], [ 0, %4 ]
   %34 = add nsw i32 %.03.ph, %.04.ph
   store i32 %34, ptr %1, align 4, !tbaa !62
   br label %dt_gui_get_scroll_unit_deltas.exit
@@ -2964,8 +2964,8 @@ define internal noundef i32 @_scrolled(ptr noundef %0, ptr noundef %1, ptr readn
   br label %34
 
 34:                                               ; preds = %29, %10, %9, %8, %5
-  %.04.ph.i = phi i32 [ 1, %8 ], [ 0, %9 ], [ 0, %10 ], [ %32, %29 ], [ -1, %5 ]
-  %.03.ph.i = phi i32 [ 0, %8 ], [ -1, %9 ], [ 1, %10 ], [ %33, %29 ], [ 0, %5 ]
+  %.04.ph.i = phi i32 [ %32, %29 ], [ 0, %10 ], [ 0, %9 ], [ 1, %8 ], [ -1, %5 ]
+  %.03.ph.i = phi i32 [ %33, %29 ], [ 1, %10 ], [ -1, %9 ], [ 0, %8 ], [ 0, %5 ]
   %35 = add nsw i32 %.03.ph.i, %.04.ph.i
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !144
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6125,8 +6125,8 @@ dt_gui_ignore_scroll.exit.thread:                 ; preds = %10, %16, %dt_gui_ig
   br label %dt_gui_get_scroll_unit_delta.exit
 
 dt_gui_get_scroll_unit_delta.exit:                ; preds = %21, %24, %25, %26, %45
-  %.04.ph.i = phi i32 [ 1, %24 ], [ 0, %25 ], [ 0, %26 ], [ %48, %45 ], [ -1, %21 ]
-  %.03.ph.i = phi i32 [ 0, %24 ], [ -1, %25 ], [ 1, %26 ], [ %49, %45 ], [ 0, %21 ]
+  %.04.ph.i = phi i32 [ %48, %45 ], [ 0, %26 ], [ 0, %25 ], [ 1, %24 ], [ -1, %21 ]
+  %.03.ph.i = phi i32 [ %49, %45 ], [ 1, %26 ], [ -1, %25 ], [ 0, %24 ], [ 0, %21 ]
   %50 = add nsw i32 %.03.ph.i, %.04.ph.i
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %dt_gui_ignore_scroll.exit.thread9, label %51
@@ -6341,8 +6341,8 @@ define internal range(i32 0, 2) i32 @_scroll_wrap_height(ptr noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %36, %17, %16, %15, %12
-  %.04.ph.i = phi i32 [ 1, %15 ], [ 0, %16 ], [ 0, %17 ], [ %39, %36 ], [ -1, %12 ]
-  %.03.ph.i = phi i32 [ 0, %15 ], [ -1, %16 ], [ 1, %17 ], [ %40, %36 ], [ 0, %12 ]
+  %.04.ph.i = phi i32 [ %39, %36 ], [ 0, %17 ], [ 0, %16 ], [ 1, %15 ], [ -1, %12 ]
+  %.03.ph.i = phi i32 [ %40, %36 ], [ 1, %17 ], [ -1, %16 ], [ 0, %15 ], [ 0, %12 ]
   %42 = add nsw i32 %.03.ph.i, %.04.ph.i
   %43 = tail call i32 @dt_conf_get_int(ptr noundef %2) #18
   %44 = add nsw i32 %42, %43
@@ -6430,8 +6430,8 @@ define internal range(i32 0, 2) i32 @_resize_wrap_scroll(ptr noundef %0, ptr nou
   br label %dt_gui_get_scroll_unit_delta.exit
 
 dt_gui_get_scroll_unit_delta.exit:                ; preds = %5, %8, %9, %10, %29
-  %.04.ph.i = phi i32 [ 1, %8 ], [ 0, %9 ], [ 0, %10 ], [ %32, %29 ], [ -1, %5 ]
-  %.03.ph.i = phi i32 [ 0, %8 ], [ -1, %9 ], [ 1, %10 ], [ %33, %29 ], [ 0, %5 ]
+  %.04.ph.i = phi i32 [ %32, %29 ], [ 0, %10 ], [ 0, %9 ], [ 1, %8 ], [ -1, %5 ]
+  %.03.ph.i = phi i32 [ %33, %29 ], [ 1, %10 ], [ -1, %9 ], [ 0, %8 ], [ 0, %5 ]
   %34 = add nsw i32 %.03.ph.i, %.04.ph.i
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %dt_gui_get_scroll_unit_delta.exit.thread, label %36

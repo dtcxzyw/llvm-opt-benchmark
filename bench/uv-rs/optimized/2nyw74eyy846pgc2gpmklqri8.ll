@@ -2921,7 +2921,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser15parse_year_sign17h7bd37e534433c5ab
   br label %733
 
 323:                                              ; preds = %288, %299, %.thread912
-  %.sroa.6.0.i51.ph = phi ptr [ %316, %.thread912 ], [ %304, %299 ], [ %293, %288 ]
+  %.sroa.6.0.i51.ph = phi ptr [ %316, %.thread912 ], [ %293, %288 ], [ %304, %299 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174)
   store ptr %.sroa.6.0.i51.ph, ptr %174, align 8, !noalias !577
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173), !noalias !577
@@ -3596,7 +3596,7 @@ thread-pre-split954:                              ; preds = %467, %439, %486
   br label %733
 
 554:                                              ; preds = %520, %531, %.thread994
-  %.sroa.6.0.i141.ph = phi ptr [ %548, %.thread994 ], [ %536, %531 ], [ %525, %520 ]
+  %.sroa.6.0.i141.ph = phi ptr [ %548, %.thread994 ], [ %525, %520 ], [ %536, %531 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139)
   store ptr %.sroa.6.0.i141.ph, ptr %139, align 8, !noalias !701
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138), !noalias !701
@@ -4551,7 +4551,7 @@ thread-pre-split1062:                             ; preds = %783, %755, %802
   br label %961
 
 876:                                              ; preds = %835, %846, %.thread1130
-  %.sroa.6.0.i123.in = phi ptr [ %863, %.thread1130 ], [ %851, %846 ], [ %840, %835 ]
+  %.sroa.6.0.i123.in = phi ptr [ %863, %.thread1130 ], [ %840, %835 ], [ %851, %846 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %179)
   store ptr %.sroa.6.0.i123.in, ptr %179, align 8, !noalias !894
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178), !noalias !894
@@ -5742,7 +5742,7 @@ thread-pre-split1217:                             ; preds = %1202, %1174, %1221
   br label %1373
 
 1288:                                             ; preds = %1247, %1258, %.thread1245
-  %.sroa.6.0.i40.in = phi ptr [ %1275, %.thread1245 ], [ %1263, %1258 ], [ %1252, %1247 ]
+  %.sroa.6.0.i40.in = phi ptr [ %1275, %.thread1245 ], [ %1252, %1247 ], [ %1263, %1258 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154)
   store ptr %.sroa.6.0.i40.in, ptr %154, align 8, !noalias !1146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153), !noalias !1146
@@ -6945,7 +6945,7 @@ thread-pre-split1331:                             ; preds = %1597, %1569, %1616
   br label %1787
 
 1702:                                             ; preds = %1661, %1672, %.thread1368
-  %.sroa.6.0.i105.ph.in = phi ptr [ %1689, %.thread1368 ], [ %1677, %1672 ], [ %1666, %1661 ]
+  %.sroa.6.0.i105.ph.in = phi ptr [ %1689, %.thread1368 ], [ %1666, %1661 ], [ %1677, %1672 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134)
   store ptr %.sroa.6.0.i105.ph.in, ptr %134, align 8, !noalias !1389
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133), !noalias !1389
@@ -7875,7 +7875,7 @@ thread-pre-split1423:                             ; preds = %1918, %1890, %1937
   br label %2100
 
 2015:                                             ; preds = %1975, %1986, %.thread1458
-  %.sroa.6.0.i87.in = phi ptr [ %2003, %.thread1458 ], [ %1991, %1986 ], [ %1980, %1975 ]
+  %.sroa.6.0.i87.in = phi ptr [ %2003, %.thread1458 ], [ %1980, %1975 ], [ %1991, %1986 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129)
   store ptr %.sroa.6.0.i87.in, ptr %129, align 8, !noalias !1586
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128), !noalias !1586
@@ -8752,7 +8752,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17hb99474f9ead
   br i1 %trunc.i164.i.i, label %2376, label %2505
 
 2312:                                             ; preds = %2281, %2292, %.thread1543
-  %.sroa.6.0.i69.in = phi ptr [ %2309, %.thread1543 ], [ %2297, %2292 ], [ %2286, %2281 ]
+  %.sroa.6.0.i69.in = phi ptr [ %2309, %.thread1543 ], [ %2286, %2281 ], [ %2297, %2292 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149)
   store ptr %.sroa.6.0.i69.in, ptr %149, align 8, !noalias !1767
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148), !noalias !1767

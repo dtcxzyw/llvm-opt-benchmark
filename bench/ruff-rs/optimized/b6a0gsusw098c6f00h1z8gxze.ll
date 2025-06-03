@@ -5616,7 +5616,7 @@ default.unreachable22:                            ; preds = %12, %3
   br i1 %11, label %17, label %15, !prof !10
 
 12:                                               ; preds = %3, %15, %5
-  %.sroa.0.0 = phi i64 [ %16, %15 ], [ %7, %5 ], [ 0, %3 ]
+  %.sroa.0.0 = phi i64 [ %7, %5 ], [ %16, %15 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val20 = load i64, ptr %13, align 8, !range !123, !noundef !9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5657,7 +5657,7 @@ default.unreachable22:                            ; preds = %12, %3
   unreachable
 
 28:                                               ; preds = %12, %25, %22
-  %.sroa.07.0 = phi i64 [ %24, %22 ], [ %26, %25 ], [ %1, %12 ]
+  %.sroa.07.0 = phi i64 [ %26, %25 ], [ %24, %22 ], [ %1, %12 ]
   %29 = icmp ugt i64 %.sroa.0.0, %.sroa.07.0
   br i1 %29, label %32, label %30, !prof !10
 

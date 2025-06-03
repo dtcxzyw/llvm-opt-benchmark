@@ -963,7 +963,7 @@ _read_from_wbuf.exit:                             ; preds = %90, %70, %83
   br label %170
 
 170:                                              ; preds = %.thread, %112, %154
-  %.072 = phi i32 [ %169, %154 ], [ %.173, %112 ], [ -2, %.thread ]
+  %.072 = phi i32 [ %.173, %112 ], [ %169, %154 ], [ -2, %.thread ]
   %171 = getelementptr inbounds nuw i8, ptr %.07698, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !133
   tail call void %172(ptr noundef nonnull %3, ptr noundef nonnull %.07698, i32 noundef %.072) #13

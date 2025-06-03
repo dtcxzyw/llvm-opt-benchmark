@@ -13661,8 +13661,8 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h13ad55aae19cc
           to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit.i.i" unwind label %27, !noalias !2085
 
 "_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit.i.i": ; preds = %.invoke.i.i, %.invoke1.i.i, %.invoke2.i.i, %32
-  %.sroa.7.1.i = phi ptr [ %.sroa.6.i.sroa.7.7.copyload.i, %32 ], [ %.sroa.7.3.i, %.invoke2.i.i ], [ %.sroa.7.0.i, %.invoke.i.i ], [ %.sroa.7.2.i, %.invoke1.i.i ]
-  %.sroa.015.1.i = phi i64 [ %.sroa.6.i.sroa.5.7.copyload.i, %32 ], [ %37, %.invoke2.i.i ], [ %37, %.invoke.i.i ], [ %37, %.invoke1.i.i ]
+  %.sroa.7.1.i = phi ptr [ %.sroa.6.i.sroa.7.7.copyload.i, %32 ], [ %.sroa.7.3.i, %.invoke2.i.i ], [ %.sroa.7.2.i, %.invoke1.i.i ], [ %.sroa.7.0.i, %.invoke.i.i ]
+  %.sroa.015.1.i = phi i64 [ %.sroa.6.i.sroa.5.7.copyload.i, %32 ], [ %37, %.invoke2.i.i ], [ %37, %.invoke1.i.i ], [ %37, %.invoke.i.i ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8), !noalias !2081
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h218b715526f55744E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
           to label %.sink.split.i unwind label %48, !noalias !2080
@@ -13891,8 +13891,8 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h5e626406c291d
           to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit.i.i" unwind label %27, !noalias !2104
 
 "_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h8fa2153bc77e80e8E.exit.i.i": ; preds = %.invoke.i.i, %.invoke1.i.i, %.invoke2.i.i, %32
-  %.sroa.7.1.i = phi ptr [ %.sroa.6.i.sroa.7.7.copyload.i, %32 ], [ %.sroa.7.3.i, %.invoke2.i.i ], [ %.sroa.7.0.i, %.invoke.i.i ], [ %.sroa.7.2.i, %.invoke1.i.i ]
-  %.sroa.015.1.i = phi i64 [ %.sroa.6.i.sroa.5.7.copyload.i, %32 ], [ %37, %.invoke2.i.i ], [ %37, %.invoke.i.i ], [ %37, %.invoke1.i.i ]
+  %.sroa.7.1.i = phi ptr [ %.sroa.6.i.sroa.7.7.copyload.i, %32 ], [ %.sroa.7.3.i, %.invoke2.i.i ], [ %.sroa.7.2.i, %.invoke1.i.i ], [ %.sroa.7.0.i, %.invoke.i.i ]
+  %.sroa.015.1.i = phi i64 [ %.sroa.6.i.sroa.5.7.copyload.i, %32 ], [ %37, %.invoke2.i.i ], [ %37, %.invoke1.i.i ], [ %37, %.invoke.i.i ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8), !noalias !2100
   invoke void @"_ZN4core3ptr104drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BooleanType$GT$$GT$17h218b715526f55744E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
           to label %.sink.split.i unwind label %48, !noalias !2099

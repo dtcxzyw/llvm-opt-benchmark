@@ -10469,8 +10469,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322: ; preds = %574, %576
   br label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit
 
 580:                                              ; preds = %.loopexit392, %.loopexit.split-lp, %370, %372, %374, %315, %317, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322, %283, %281, %279, %228, %226, %90
-  %.sroa.0349.2 = phi ptr [ %.sroa.0349.0, %90 ], [ %.sroa.0349.4, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322 ], [ %.sroa.0349.4, %374 ], [ %.sroa.0349.4, %372 ], [ %.sroa.0349.4, %370 ], [ %.sroa.0349.4, %317 ], [ %.sroa.0349.4, %315 ], [ %.sroa.0349.4, %283 ], [ %.sroa.0349.4, %281 ], [ %.sroa.0349.4, %279 ], [ %.sroa.0349.4, %228 ], [ %.sroa.0349.4, %226 ], [ %.sroa.0349.5403, %.loopexit392 ], [ %.sroa.0349.5403, %.loopexit.split-lp ]
-  %.pn196 = phi { ptr, i32 } [ %91, %90 ], [ %.pn190.pn.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %318, %317 ], [ %316, %315 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %229, %228 ], [ %227, %226 ], [ %lpad.loopexit, %.loopexit392 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0349.2 = phi ptr [ %.sroa.0349.0, %90 ], [ %.sroa.0349.4, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322 ], [ %.sroa.0349.4, %374 ], [ %.sroa.0349.4, %372 ], [ %.sroa.0349.4, %370 ], [ %.sroa.0349.4, %228 ], [ %.sroa.0349.4, %283 ], [ %.sroa.0349.4, %281 ], [ %.sroa.0349.4, %279 ], [ %.sroa.0349.4, %317 ], [ %.sroa.0349.4, %315 ], [ %.sroa.0349.4, %226 ], [ %.sroa.0349.5403, %.loopexit392 ], [ %.sroa.0349.5403, %.loopexit.split-lp ]
+  %.pn196 = phi { ptr, i32 } [ %91, %90 ], [ %.pn190.pn.pn.pn.pn, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit322 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %229, %228 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %318, %317 ], [ %316, %315 ], [ %227, %226 ], [ %lpad.loopexit, %.loopexit392 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %581 = load ptr, ptr %11, align 8, !tbaa !132
   %.not.i.i.i325 = icmp eq ptr %581, null
   br i1 %.not.i.i.i325, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit326, label %582

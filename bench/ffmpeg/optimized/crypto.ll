@@ -603,7 +603,7 @@ define internal i64 @crypto_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %69
 
 31:                                               ; preds = %24, %14, %12
-  %.059 = phi i64 [ %25, %24 ], [ %17, %14 ], [ %1, %12 ]
+  %.059 = phi i64 [ %1, %12 ], [ %17, %14 ], [ %25, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8256
   store i32 0, ptr %32, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 8248
@@ -692,7 +692,7 @@ define internal i64 @crypto_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %69
 
 69:                                               ; preds = %57, %.critedge, %.thread, %56, %30, %26, %23, %11
-  %.057 = phi i64 [ -29, %11 ], [ -22, %30 ], [ %29, %26 ], [ %21, %23 ], [ %54, %56 ], [ -22, %.thread ], [ %.pre, %.critedge ], [ %.059, %57 ]
+  %.057 = phi i64 [ -29, %11 ], [ -22, %30 ], [ %54, %56 ], [ -22, %.thread ], [ %21, %23 ], [ %29, %26 ], [ %.pre, %.critedge ], [ %.059, %57 ]
   ret i64 %.057
 }
 

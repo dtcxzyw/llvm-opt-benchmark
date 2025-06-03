@@ -1694,7 +1694,7 @@ heur_dissect_fp_rach.exit:                        ; preds = %247, %282
   br i1 %378, label %426, label %.thread.i
 
 .thread.i:                                        ; preds = %376, %373, %371, %370, %369, %367
-  %.03.i = phi i32 [ 144, %373 ], [ 144, %376 ], [ 144, %371 ], [ 18, %367 ], [ 36, %369 ], [ 72, %370 ]
+  %.03.i = phi i32 [ 144, %373 ], [ 144, %376 ], [ 144, %371 ], [ 18, %367 ], [ 72, %370 ], [ 36, %369 ]
   %.not141.i = icmp eq ptr %.0121.i, null
   br i1 %.not141.i, label %379, label %382
 
@@ -2741,7 +2741,7 @@ make_fake_lchid.exit.i:                           ; preds = %327, %322
   br label %428
 
 421:                                              ; preds = %410, %._crit_edge.i, %366, %._crit_edge377.i, %243
-  %.0328.i = phi i32 [ 0, %410 ], [ 2, %._crit_edge.i ], [ 2, %366 ], [ 2, %._crit_edge377.i ], [ 3, %243 ]
+  %.0328.i = phi i32 [ 3, %243 ], [ 2, %._crit_edge377.i ], [ 2, %366 ], [ 2, %._crit_edge.i ], [ 0, %410 ]
   %422 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %423 = load i32, ptr %422, align 8
   %424 = icmp sgt i32 %423, 0

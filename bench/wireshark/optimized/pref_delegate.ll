@@ -140,7 +140,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -150,7 +150,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -256,7 +256,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %7) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
-  br label %_ZN7QStringD2Ev.exit30
+  br label %_ZN7QStringD2Ev.exit31
 
 .noexc:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -289,7 +289,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
   %.pn.i = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  br label %_ZN7QStringD2Ev.exit30
+  br label %_ZN7QStringD2Ev.exit31
 
 33:                                               ; preds = %26
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #8
@@ -317,9 +317,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %41, %36, %33, %18, 
   %.1 = phi ptr [ null, %33 ], [ null, %18 ], [ null, %4 ], [ null, %36 ], [ %40, %41 ]
   ret ptr %.1
 
-_ZN7QStringD2Ev.exit30:                           ; preds = %19, %32
-  %.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %.pn.i, %32 ]
-  resume { ptr, i32 } %.pn.pn
+_ZN7QStringD2Ev.exit31:                           ; preds = %19, %32
+  %.pn26 = phi { ptr, i32 } [ %20, %19 ], [ %.pn.i, %32 ]
+  resume { ptr, i32 } %.pn26
 }
 
 ; Function Attrs: null_pointer_is_valid

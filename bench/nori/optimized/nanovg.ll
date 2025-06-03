@@ -25563,14 +25563,14 @@ define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr nound
     i32 12, label %.thread
     i32 32, label %.thread
     i32 160, label %.thread
-    i32 10, label %130
-    i32 13, label %123
+    i32 10, label %123
+    i32 13, label %130
     i32 133, label %.thread285
   ]
 
 123:                                              ; preds = %121
-  %.not333 = icmp eq i32 %.0210320, 10
-  br i1 %.not333, label %.thread, label %.thread285
+  %.not334 = icmp eq i32 %.0210320, 13
+  br i1 %.not334, label %.thread, label %.thread285
 
 124:                                              ; preds = %121
   %125 = add i32 %122, -19968
@@ -25593,8 +25593,8 @@ define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr nound
   br label %.thread
 
 130:                                              ; preds = %121
-  %.not334 = icmp eq i32 %.0210320, 13
-  br i1 %.not334, label %.thread, label %.thread285
+  %.not333 = icmp eq i32 %.0210320, 10
+  br i1 %.not333, label %.thread, label %.thread285
 
 .thread285:                                       ; preds = %123, %121, %130
   %.not270 = icmp eq ptr %.0235310, null
@@ -39620,9 +39620,9 @@ stbi__tga_get_comp.exit:                          ; preds = %495, %491
   br label %784
 
 502:                                              ; preds = %493, %491, %492, %500, %495, %496, %499
-  %503 = phi i1 [ false, %495 ], [ false, %496 ], [ true, %499 ], [ false, %500 ], [ false, %491 ], [ true, %492 ], [ false, %493 ]
-  %.not204 = phi i1 [ true, %495 ], [ true, %496 ], [ false, %499 ], [ true, %500 ], [ true, %491 ], [ false, %492 ], [ true, %493 ]
-  %.0190.ph.shrunk = phi i8 [ 1, %495 ], [ 2, %496 ], [ 3, %499 ], [ %501, %500 ], [ 1, %491 ], [ 3, %492 ], [ %494, %493 ]
+  %503 = phi i1 [ false, %500 ], [ true, %499 ], [ false, %496 ], [ false, %495 ], [ false, %493 ], [ true, %492 ], [ false, %491 ]
+  %.not204 = phi i1 [ true, %500 ], [ false, %499 ], [ true, %496 ], [ true, %495 ], [ true, %493 ], [ false, %492 ], [ true, %491 ]
+  %.0190.ph.shrunk = phi i8 [ %501, %500 ], [ 3, %499 ], [ 2, %496 ], [ 1, %495 ], [ %494, %493 ], [ 3, %492 ], [ 1, %491 ]
   %.0190.ph = zext nneg i8 %.0190.ph.shrunk to i32
   store i32 %380, ptr %1, align 4
   store i32 %436, ptr %2, align 4
@@ -42632,7 +42632,7 @@ stbi__get8.exit227:                               ; preds = %663, %666, %stbi__r
   br label %stbi__skip.exit
 
 stbi__skip.exit:                                  ; preds = %467, %464, %727, %721, %703, %732, %613, %612, %._crit_edge247, %427, %._crit_edge251, %291, %224, %stbi__get16be.exit142, %65, %4
-  %.0108.shrunk = phi i1 [ false, %612 ], [ false, %613 ], [ false, %732 ], [ false, %427 ], [ %546, %._crit_edge247 ], [ false, %224 ], [ false, %291 ], [ %328, %._crit_edge251 ], [ false, %65 ], [ true, %stbi__get16be.exit142 ], [ false, %4 ], [ true, %703 ], [ true, %721 ], [ true, %727 ], [ false, %464 ], [ false, %467 ]
+  %.0108.shrunk = phi i1 [ false, %612 ], [ false, %613 ], [ false, %732 ], [ false, %4 ], [ false, %65 ], [ true, %stbi__get16be.exit142 ], [ false, %224 ], [ false, %291 ], [ %328, %._crit_edge251 ], [ false, %427 ], [ %546, %._crit_edge247 ], [ true, %703 ], [ true, %721 ], [ true, %727 ], [ false, %464 ], [ false, %467 ]
   %.0108 = zext i1 %.0108.shrunk to i32
   ret i32 %.0108
 }
@@ -46497,7 +46497,7 @@ stbi__skip.exit:                                  ; preds = %stbi__get8.exit321,
   br label %51
 
 .loopexit:                                        ; preds = %460, %224, %stbi__check_png_header.exit.thread, %557, %528, %512, %507, %stbi__check_png_header.exit, %572, %568, %565, %511, %506, %stbi__getn.exit.thread, %476, %458, %456, %452, %351, %348, %319, %316, %313, %310, %307, %238, %234, %231, %229, %223, %213, %208, %186, %164, %141, %139, %133, %.loopexit377, %87, %83, %79, %77
-  %.0 = phi i32 [ 0, %568 ], [ 0, %572 ], [ 0, %506 ], [ 0, %511 ], [ 1, %565 ], [ 0, %452 ], [ 1, %458 ], [ 0, %476 ], [ 0, %stbi__getn.exit.thread ], [ 0, %456 ], [ 0, %307 ], [ 0, %310 ], [ 1, %313 ], [ 0, %316 ], [ 0, %319 ], [ 0, %351 ], [ 0, %348 ], [ 0, %231 ], [ 0, %234 ], [ 0, %238 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ 0, %.loopexit377 ], [ 0, %133 ], [ 0, %139 ], [ 0, %164 ], [ 0, %186 ], [ 0, %208 ], [ 0, %229 ], [ 0, %223 ], [ 0, %213 ], [ 0, %141 ], [ 0, %77 ], [ 1, %stbi__check_png_header.exit ], [ 1, %507 ], [ 0, %512 ], [ 0, %528 ], [ 0, %557 ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %460 ], [ 1, %224 ]
+  %.0 = phi i32 [ 0, %568 ], [ 0, %572 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ 0, %.loopexit377 ], [ 0, %133 ], [ 0, %139 ], [ 0, %164 ], [ 0, %186 ], [ 0, %208 ], [ 0, %229 ], [ 0, %223 ], [ 0, %213 ], [ 0, %141 ], [ 0, %77 ], [ 0, %231 ], [ 0, %234 ], [ 0, %238 ], [ 0, %307 ], [ 0, %310 ], [ 1, %313 ], [ 0, %316 ], [ 0, %319 ], [ 0, %351 ], [ 0, %348 ], [ 0, %452 ], [ 1, %458 ], [ 0, %476 ], [ 0, %stbi__getn.exit.thread ], [ 0, %456 ], [ 0, %506 ], [ 0, %511 ], [ 1, %565 ], [ 1, %stbi__check_png_header.exit ], [ 1, %507 ], [ 0, %512 ], [ 0, %528 ], [ 0, %557 ], [ 0, %stbi__check_png_header.exit.thread ], [ 0, %460 ], [ 1, %224 ]
   ret i32 %.0
 }
 

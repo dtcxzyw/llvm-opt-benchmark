@@ -26885,7 +26885,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -27016,7 +27016,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %48
 
 48:                                               ; preds = %4, %42, %38, %34, %30, %26, %22, %18, %14
-  %.0 = phi i1 [ true, %42 ], [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ], [ true, %14 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %18 ], [ true, %22 ], [ true, %26 ], [ true, %30 ], [ true, %34 ], [ true, %38 ], [ true, %42 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -27147,7 +27147,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %48
 
 48:                                               ; preds = %4, %44, %40, %36, %30, %26, %22, %18, %14
-  %.0 = phi i1 [ true, %44 ], [ true, %40 ], [ true, %36 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ], [ true, %14 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %18 ], [ true, %22 ], [ true, %26 ], [ true, %30 ], [ true, %36 ], [ true, %40 ], [ true, %44 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -27198,7 +27198,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl26tinyply_tristrips_to_
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -38742,7 +38742,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -46017,7 +46017,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -46068,7 +46068,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -46329,7 +46329,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit7
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
 _ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %._crit_edge.us85.i70, %._crit_edge.us85.i50, %._crit_edge.us85.i, %.preheader72.lr.ph.i54, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76, %.preheader72.lr.ph.i34, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74, %.preheader72.lr.ph.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit, %4, %113, %111, %78, %42, %6
-  %.0 = phi i1 [ %114, %113 ], [ %112, %111 ], [ %79, %78 ], [ %43, %42 ], [ %7, %6 ], [ false, %4 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader72.lr.ph.i ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader72.lr.ph.i34 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %.preheader72.lr.ph.i54 ], [ true, %._crit_edge.us85.i ], [ true, %._crit_edge.us85.i50 ], [ true, %._crit_edge.us85.i70 ]
+  %.0 = phi i1 [ %7, %6 ], [ %43, %42 ], [ %79, %78 ], [ %112, %111 ], [ %114, %113 ], [ false, %4 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader72.lr.ph.i ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader72.lr.ph.i34 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %.preheader72.lr.ph.i54 ], [ true, %._crit_edge.us85.i ], [ true, %._crit_edge.us85.i50 ], [ true, %._crit_edge.us85.i70 ]
   ret i1 %.0
 }
 
@@ -55207,7 +55207,7 @@ thread-pre-split.i.i.i.i.i.i.i.i67:               ; preds = %_ZN5Eigen15PlainObj
   br label %_ZN3igl25_tinyply_buffer_to_matrixIaN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
 _ZN3igl25_tinyply_buffer_to_matrixIaN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %117, %92, %69, %46, %23, %112, %87, %64, %41, %18, %4, %124, %122, %98
-  %.0 = phi i1 [ %125, %124 ], [ %123, %122 ], [ %99, %98 ], [ false, %4 ], [ true, %18 ], [ true, %41 ], [ true, %64 ], [ true, %87 ], [ true, %112 ], [ true, %23 ], [ true, %46 ], [ true, %69 ], [ true, %92 ], [ true, %117 ]
+  %.0 = phi i1 [ %99, %98 ], [ %123, %122 ], [ %125, %124 ], [ false, %4 ], [ true, %18 ], [ true, %41 ], [ true, %64 ], [ true, %87 ], [ true, %112 ], [ true, %23 ], [ true, %46 ], [ true, %69 ], [ true, %92 ], [ true, %117 ]
   ret i1 %.0
 }
 
@@ -55483,7 +55483,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit7
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
 _ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %._crit_edge.us87.i70, %._crit_edge.us87.i50, %._crit_edge.us87.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76, %.preheader.lr.ph.i57.thread, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74, %.preheader.lr.ph.i37.thread, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit, %.preheader.lr.ph.i.thread, %4, %107, %105, %74, %40, %6
-  %.0 = phi i1 [ %108, %107 ], [ %106, %105 ], [ %75, %74 ], [ %41, %40 ], [ %7, %6 ], [ false, %4 ], [ true, %.preheader.lr.ph.i.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader.lr.ph.i37.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader.lr.ph.i57.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %._crit_edge.us87.i ], [ true, %._crit_edge.us87.i50 ], [ true, %._crit_edge.us87.i70 ]
+  %.0 = phi i1 [ %7, %6 ], [ %41, %40 ], [ %75, %74 ], [ %106, %105 ], [ %108, %107 ], [ false, %4 ], [ true, %.preheader.lr.ph.i.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader.lr.ph.i37.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader.lr.ph.i57.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %._crit_edge.us87.i ], [ true, %._crit_edge.us87.i50 ], [ true, %._crit_edge.us87.i70 ]
   ret i1 %.0
 }
 
@@ -63219,7 +63219,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %48
 
 48:                                               ; preds = %4, %42, %38, %34, %30, %26, %22, %18, %14
-  %.0 = phi i1 [ true, %42 ], [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ], [ true, %14 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %18 ], [ true, %22 ], [ true, %26 ], [ true, %30 ], [ true, %34 ], [ true, %38 ], [ true, %42 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -70675,7 +70675,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %22
 
 22:                                               ; preds = %4, %20, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -78306,7 +78306,7 @@ thread-pre-split.i.i.i.i.i.i.i.i77:               ; preds = %_ZN5Eigen15PlainObj
   br label %_ZN3igl25_tinyply_buffer_to_matrixIaN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
 _ZN3igl25_tinyply_buffer_to_matrixIaN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %137, %115, %92, %69, %46, %23, %132, %110, %87, %64, %41, %18, %4, %144, %142
-  %.0 = phi i1 [ %145, %144 ], [ %143, %142 ], [ false, %4 ], [ true, %18 ], [ true, %41 ], [ true, %64 ], [ true, %87 ], [ true, %110 ], [ true, %132 ], [ true, %23 ], [ true, %46 ], [ true, %69 ], [ true, %92 ], [ true, %115 ], [ true, %137 ]
+  %.0 = phi i1 [ %143, %142 ], [ %145, %144 ], [ false, %4 ], [ true, %18 ], [ true, %41 ], [ true, %64 ], [ true, %87 ], [ true, %110 ], [ true, %132 ], [ true, %23 ], [ true, %46 ], [ true, %69 ], [ true, %92 ], [ true, %115 ], [ true, %137 ]
   ret i1 %.0
 }
 
@@ -78582,7 +78582,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit7
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
 _ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %._crit_edge.us87.i70, %._crit_edge.us87.i50, %._crit_edge.us87.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76, %.preheader.lr.ph.i57.thread, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74, %.preheader.lr.ph.i37.thread, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit, %.preheader.lr.ph.i.thread, %4, %107, %105, %74, %40, %6
-  %.0 = phi i1 [ %108, %107 ], [ %106, %105 ], [ %75, %74 ], [ %41, %40 ], [ %7, %6 ], [ false, %4 ], [ true, %.preheader.lr.ph.i.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader.lr.ph.i37.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader.lr.ph.i57.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %._crit_edge.us87.i ], [ true, %._crit_edge.us87.i50 ], [ true, %._crit_edge.us87.i70 ]
+  %.0 = phi i1 [ %7, %6 ], [ %41, %40 ], [ %75, %74 ], [ %106, %105 ], [ %108, %107 ], [ false, %4 ], [ true, %.preheader.lr.ph.i.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader.lr.ph.i37.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader.lr.ph.i57.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIjLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %._crit_edge.us87.i ], [ true, %._crit_edge.us87.i50 ], [ true, %._crit_edge.us87.i70 ]
   ret i1 %.0
 }
 
@@ -92916,7 +92916,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl24tinyply_buffer_to_mat
   br label %48
 
 48:                                               ; preds = %4, %44, %38, %34, %30, %26, %22, %18, %14
-  %.0 = phi i1 [ true, %44 ], [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ], [ true, %14 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %18 ], [ true, %22 ], [ true, %26 ], [ true, %30 ], [ true, %34 ], [ true, %38 ], [ true, %44 ], [ false, %4 ]
   ret i1 %.0
 }
 

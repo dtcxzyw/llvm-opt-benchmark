@@ -2747,7 +2747,7 @@ _ZN4JsonL20decodePrefixedStringEbPKcPjPS1_.exit:  ; preds = %37, %40
   br label %73
 
 73:                                               ; preds = %54, %50, %11, %63, %65, %33, %24, %20, %16, %12, %9
-  %.0 = phi i1 [ %10, %9 ], [ %34, %33 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %64, %63 ], [ %72, %65 ], [ false, %11 ], [ true, %50 ], [ %spec.select, %54 ]
+  %.0 = phi i1 [ %10, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %34, %33 ], [ %64, %63 ], [ %72, %65 ], [ false, %11 ], [ true, %50 ], [ %spec.select, %54 ]
   ret i1 %.0
 }
 
@@ -2987,7 +2987,7 @@ _ZSteqIKN4Json5Value8CZStringES1_EbRKSt4pairIT_T0_ES9_.exit.i.i: ; preds = %_ZNK
   br label %_ZSteqRKSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EESD_.exit
 
 _ZSteqRKSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EESD_.exit: ; preds = %76, %72, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %_ZSteqIKN4Json5Value8CZStringES1_EbRKSt4pairIT_T0_ES9_.exit.i.i, %100, %61, %50, %_ZN4JsonL20decodePrefixedStringEbPKcPjPS1_.exit27, %53, %11, %2, %103, %33, %24, %20, %16, %12
-  %.0 = phi i1 [ false, %103 ], [ %34, %33 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ false, %2 ], [ true, %11 ], [ false, %53 ], [ %52, %50 ], [ false, %_ZN4JsonL20decodePrefixedStringEbPKcPjPS1_.exit27 ], [ true, %61 ], [ false, %76 ], [ false, %72 ], [ false, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ false, %_ZSteqIKN4Json5Value8CZStringES1_EbRKSt4pairIT_T0_ES9_.exit.i.i ], [ true, %100 ]
+  %.0 = phi i1 [ false, %103 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %34, %33 ], [ false, %2 ], [ true, %11 ], [ false, %53 ], [ %52, %50 ], [ false, %_ZN4JsonL20decodePrefixedStringEbPKcPjPS1_.exit27 ], [ true, %61 ], [ false, %76 ], [ false, %72 ], [ false, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ false, %_ZSteqIKN4Json5Value8CZStringES1_EbRKSt4pairIT_T0_ES9_.exit.i.i ], [ true, %100 ]
   ret i1 %.0
 }
 
@@ -3611,11 +3611,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   br label %107
 
 106:                                              ; preds = %1, %84, %82, %56, %33
-  %.012 = phi i32 [ %86, %84 ], [ %83, %82 ], [ %57, %56 ], [ %34, %33 ], [ 0, %1 ]
+  %.012 = phi i32 [ %34, %33 ], [ %57, %56 ], [ %83, %82 ], [ %86, %84 ], [ 0, %1 ]
   ret i32 %.012
 
 107:                                              ; preds = %105, %81, %55, %32
-  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %105 ], [ %.pn.pn, %81 ], [ %.pn15.pn, %55 ], [ %.pn18.pn, %32 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %105 ], [ %.pn18.pn, %32 ], [ %.pn15.pn, %55 ], [ %.pn.pn, %81 ]
   resume { ptr, i32 } %.pn21.pn.pn
 }
 
@@ -3657,7 +3657,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value5isIntEv(ptr noundef nonnull
   br label %18
 
 18:                                               ; preds = %1, %11, %15, %8, %5
-  %.0 = phi i1 [ %10, %8 ], [ %spec.select, %5 ], [ false, %11 ], [ %17, %15 ], [ false, %1 ]
+  %.0 = phi i1 [ %spec.select, %5 ], [ %10, %8 ], [ false, %11 ], [ %17, %15 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -3957,11 +3957,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %107
 
 106:                                              ; preds = %1, %84, %82, %56, %33
-  %.012 = phi i32 [ %86, %84 ], [ %83, %82 ], [ %57, %56 ], [ %34, %33 ], [ 0, %1 ]
+  %.012 = phi i32 [ %34, %33 ], [ %57, %56 ], [ %83, %82 ], [ %86, %84 ], [ 0, %1 ]
   ret i32 %.012
 
 107:                                              ; preds = %105, %81, %55, %32
-  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %105 ], [ %.pn.pn, %81 ], [ %.pn15.pn, %55 ], [ %.pn18.pn, %32 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %105 ], [ %.pn18.pn, %32 ], [ %.pn15.pn, %55 ], [ %.pn.pn, %81 ]
   resume { ptr, i32 } %.pn21.pn.pn
 }
 
@@ -4002,7 +4002,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value6isUIntEv(ptr noundef nonnul
   br label %18
 
 18:                                               ; preds = %1, %11, %15, %8, %5
-  %.0 = phi i1 [ %10, %8 ], [ %7, %5 ], [ false, %11 ], [ %17, %15 ], [ false, %1 ]
+  %.0 = phi i1 [ %7, %5 ], [ %10, %8 ], [ false, %11 ], [ %17, %15 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -4230,11 +4230,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br label %80
 
 _ZNK4Json5Value7isInt64Ev.exit.thread29:          ; preds = %12, %1, %58, %56, %10
-  %.010 = phi i64 [ %60, %58 ], [ %57, %56 ], [ %11, %10 ], [ 0, %1 ], [ %13, %12 ]
+  %.010 = phi i64 [ %11, %10 ], [ %57, %56 ], [ %60, %58 ], [ 0, %1 ], [ %13, %12 ]
   ret i64 %.010
 
 80:                                               ; preds = %79, %55, %32
-  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %79 ], [ %.pn.pn, %55 ], [ %.pn13.pn, %32 ]
+  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %79 ], [ %.pn13.pn, %32 ], [ %.pn.pn, %55 ]
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
@@ -4502,11 +4502,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br label %81
 
 _ZNK4Json5Value8isUInt64Ev.exit.thread29:         ; preds = %10, %1, %59, %57, %31
-  %.010 = phi i64 [ %61, %59 ], [ %58, %57 ], [ %32, %31 ], [ 0, %1 ], [ %11, %10 ]
+  %.010 = phi i64 [ %32, %31 ], [ %58, %57 ], [ %61, %59 ], [ 0, %1 ], [ %11, %10 ]
   ret i64 %.010
 
 81:                                               ; preds = %80, %56, %30
-  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %80 ], [ %.pn.pn, %56 ], [ %.pn13.pn, %30 ]
+  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %80 ], [ %.pn13.pn, %30 ], [ %.pn.pn, %56 ]
   resume { ptr, i32 } %.pn16.pn.pn
 }
 
@@ -4661,7 +4661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn.pn
 
 41:                                               ; preds = %1, %18, %16, %9, %6
-  %.05 = phi double [ %21, %18 ], [ %17, %16 ], [ %15, %9 ], [ %8, %6 ], [ 0.000000e+00, %1 ]
+  %.05 = phi double [ %8, %6 ], [ %15, %9 ], [ %17, %16 ], [ %21, %18 ], [ 0.000000e+00, %1 ]
   ret double %.05
 }
 
@@ -4767,7 +4767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn.pn
 
 43:                                               ; preds = %1, %20, %17, %9, %6
-  %.05 = phi float [ %23, %20 ], [ %19, %17 ], [ %16, %9 ], [ %8, %6 ], [ 0.000000e+00, %1 ]
+  %.05 = phi float [ %8, %6 ], [ %16, %9 ], [ %19, %17 ], [ %23, %20 ], [ 0.000000e+00, %1 ]
   ret float %.05
 }
 
@@ -4867,7 +4867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn.pn
 
 _ZSt10fpclassifyd.exit:                           ; preds = %15, %1, %12, %9, %6
-  %.07 = phi i1 [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ false, %1 ], [ %or.cond, %15 ]
+  %.07 = phi i1 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ false, %1 ], [ %or.cond, %15 ]
   ret i1 %.07
 }
 
@@ -5027,7 +5027,7 @@ _ZNK4Json5Value5isIntEv.exit.thread.thread32:     ; preds = %58, %_ZNK4Json5Valu
   %67 = and i1 %65, %66
   br i1 %67, label %.critedge, label %.thread19
 
-.thread19:                                        ; preds = %49, %55, %52, %_ZNK4Json5Value5isIntEv.exit.thread.thread32
+.thread19:                                        ; preds = %49, %52, %55, %_ZNK4Json5Value5isIntEv.exit.thread.thread32
   %68 = and i16 %51, 255
   %69 = icmp eq i16 %68, 0
   br label %.critedge
@@ -5074,7 +5074,7 @@ _ZNK4Json5Value6isUIntEv.exit.thread.thread34:    ; preds = %79, %_ZNK4Json5Valu
   %88 = and i1 %86, %87
   br i1 %88, label %.critedge, label %.thread21
 
-.thread21:                                        ; preds = %70, %76, %73, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34
+.thread21:                                        ; preds = %70, %73, %76, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34
   %89 = and i16 %72, 255
   %90 = icmp eq i16 %89, 0
   br label %.critedge
@@ -5144,8 +5144,8 @@ switch.lookup:                                    ; preds = %112
   %switch.masked = trunc i6 %switch.downshift to i1
   br label %.critedge
 
-.critedge:                                        ; preds = %112, %switch.lookup, %70, %49, %120, %114, %104, %96, %14, %11, %73, %76, %52, %55, %.thread, %40, %2, %107, %99, %91, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34, %.thread21, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread32, %.thread19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.06 = phi i1 [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread32 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %69, %.thread19 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %90, %.thread21 ], [ true, %91 ], [ true, %99 ], [ true, %107 ], [ false, %2 ], [ true, %40 ], [ %39, %.thread ], [ true, %55 ], [ true, %52 ], [ true, %76 ], [ true, %73 ], [ true, %11 ], [ true, %14 ], [ %spec.select, %96 ], [ %spec.select22, %104 ], [ %spec.select23, %114 ], [ %spec.select24, %120 ], [ true, %49 ], [ true, %70 ], [ %switch.masked, %switch.lookup ], [ false, %112 ]
+.critedge:                                        ; preds = %112, %switch.lookup, %70, %49, %120, %114, %104, %96, %14, %11, %76, %73, %55, %52, %.thread, %40, %2, %107, %99, %91, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34, %.thread21, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread32, %.thread19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.06 = phi i1 [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread32 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %69, %.thread19 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %90, %.thread21 ], [ true, %91 ], [ true, %99 ], [ true, %107 ], [ false, %2 ], [ true, %40 ], [ %39, %.thread ], [ true, %52 ], [ true, %55 ], [ true, %73 ], [ true, %76 ], [ true, %11 ], [ true, %14 ], [ %spec.select, %96 ], [ %spec.select22, %104 ], [ %spec.select23, %114 ], [ %spec.select24, %120 ], [ true, %49 ], [ true, %70 ], [ %switch.masked, %switch.lookup ], [ false, %112 ]
   ret i1 %.06
 }
 
@@ -5192,7 +5192,7 @@ define dso_local noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull readonl
   br label %20
 
 20:                                               ; preds = %1, %4, %15, %9
-  %.0 = phi i32 [ %19, %15 ], [ %14, %9 ], [ 0, %4 ], [ 0, %1 ]
+  %.0 = phi i32 [ %14, %9 ], [ %19, %15 ], [ 0, %4 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -5230,7 +5230,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value5emptyEv(ptr noundef nonnull
   br label %_ZNK4Json5Value4sizeEv.exit
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %1, %4, %9, %15
-  %.0.i = phi i32 [ %19, %15 ], [ %14, %9 ], [ 0, %4 ], [ 0, %1 ]
+  %.0.i = phi i32 [ %14, %9 ], [ %19, %15 ], [ 0, %4 ], [ 0, %1 ]
   %20 = icmp eq i32 %.0.i, 0
   br label %21
 
@@ -5526,7 +5526,7 @@ _ZN4Json5ValueC2ENS_9ValueTypeE.exit:             ; preds = %30
   br label %_ZNK4Json5Value4sizeEv.exit
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %40, %42, %47, %53
-  %.0.i = phi i32 [ %57, %53 ], [ %52, %47 ], [ 0, %42 ], [ 0, %40 ]
+  %.0.i = phi i32 [ %52, %47 ], [ %57, %53 ], [ 0, %42 ], [ 0, %40 ]
   %58 = icmp eq i32 %1, 0
   br i1 %58, label %59, label %60
 
@@ -5588,7 +5588,7 @@ _ZNK4Json5Value4sizeEv.exit:                      ; preds = %40, %42, %47, %53
   br label %_ZNK4Json5Value4sizeEv.exit35
 
 _ZNK4Json5Value4sizeEv.exit35:                    ; preds = %._crit_edge, %67, %72, %78
-  %.0.i34 = phi i32 [ %82, %78 ], [ %77, %72 ], [ 0, %67 ], [ 0, %._crit_edge ]
+  %.0.i34 = phi i32 [ %77, %72 ], [ %82, %78 ], [ 0, %67 ], [ 0, %._crit_edge ]
   %83 = icmp eq i32 %.0.i34, %1
   br i1 %83, label %.loopexit, label %105
 
@@ -7421,7 +7421,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value12isValidIndexEj(ptr noundef
   br label %_ZNK4Json5Value4sizeEv.exit
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %2, %5, %10, %16
-  %.0.i = phi i32 [ %20, %16 ], [ %15, %10 ], [ 0, %5 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %15, %10 ], [ %20, %16 ], [ 0, %5 ], [ 0, %2 ]
   %21 = icmp ult i32 %1, %.0.i
   ret i1 %21
 }
@@ -8029,7 +8029,7 @@ _ZN4Json5ValueC2ENS_9ValueTypeE.exit:             ; preds = %28
   br label %_ZNK4Json5Value4sizeEv.exit
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %38, %41, %45, %51
-  %.0.i = phi i32 [ %54, %51 ], [ %50, %45 ], [ 0, %41 ], [ 0, %38 ]
+  %.0.i = phi i32 [ %50, %45 ], [ %54, %51 ], [ 0, %41 ], [ 0, %38 ]
   store i32 %.0.i, ptr %6, align 4, !tbaa !35
   %55 = call { ptr, i8 } @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE17_M_emplace_uniqueIJjS1_EEES3_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %55, 0
@@ -8845,7 +8845,7 @@ _ZN4Json5ValueaSERKS0_.exit:                      ; preds = %52
   br label %_ZNK4Json5Value4sizeEv.exit
 
 _ZNK4Json5Value4sizeEv.exit:                      ; preds = %63, %65, %70, %75
-  %.0.i = phi i32 [ %80, %75 ], [ %74, %70 ], [ -1, %65 ], [ -1, %63 ]
+  %.0.i = phi i32 [ %74, %70 ], [ %80, %75 ], [ -1, %65 ], [ -1, %63 ]
   %81 = icmp ult i32 %1, %.0.i
   br i1 %81, label %.lr.ph, label %._crit_edge
 
@@ -11513,8 +11513,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   br label %208
 
 207:                                              ; preds = %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %137
-  %.sroa.086.2 = phi ptr [ %.sroa.086.0112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.086.0112, %137 ], [ %.sroa.086.4, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit69 ], [ %.sroa.086.1, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit ]
-  %.4 = phi ptr [ %.5.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %138, %137 ], [ %136, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit69 ], [ %spec.select, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit ]
+  %.sroa.086.2 = phi ptr [ %.sroa.086.0112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.086.4, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit69 ], [ %.sroa.086.0112, %137 ], [ %.sroa.086.1, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit ]
+  %.4 = phi ptr [ %.5.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %136, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit69 ], [ %138, %137 ], [ %spec.select, %_ZN4Json4Path12addPathInArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EERN9__gnu_cxx17__normal_iteratorIPKSC_SE_EENSA_4KindE.exit ]
   %.not = icmp eq ptr %.4, %13
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !116
 

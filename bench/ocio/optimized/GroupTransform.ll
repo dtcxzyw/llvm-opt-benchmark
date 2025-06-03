@@ -2515,7 +2515,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   ret void
 
 106:                                              ; preds = %104, %67
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %68, %67 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %105, %104 ]
   resume { ptr, i32 } %.pn
 }
 

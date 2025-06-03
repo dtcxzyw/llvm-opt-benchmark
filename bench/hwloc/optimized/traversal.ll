@@ -1800,7 +1800,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   br label %hwloc__osdev_type_snprintf_short.exit
 
 hwloc__osdev_type_snprintf_short.exit:            ; preds = %70, %90, %.critedge._crit_edge.i, %58, %54, %51, %48, %93, %94, %37, %29, %27, %25, %hwloc_obj_cache_type_letter.exit, %switch.lookup
-  %.0 = phi i32 [ %38, %37 ], [ %36, %29 ], [ %26, %25 ], [ %28, %27 ], [ %20, %hwloc_obj_cache_type_letter.exit ], [ %9, %switch.lookup ], [ 0, %94 ], [ 0, %93 ], [ %50, %48 ], [ %53, %51 ], [ -1, %54 ], [ %.260.i, %.critedge._crit_edge.i ], [ %spec.select.i, %90 ], [ %56, %58 ], [ -1, %70 ]
+  %.0 = phi i32 [ %9, %switch.lookup ], [ %20, %hwloc_obj_cache_type_letter.exit ], [ %26, %25 ], [ %28, %27 ], [ %36, %29 ], [ %38, %37 ], [ 0, %94 ], [ 0, %93 ], [ %50, %48 ], [ %53, %51 ], [ -1, %54 ], [ %.260.i, %.critedge._crit_edge.i ], [ %spec.select.i, %90 ], [ %56, %58 ], [ -1, %70 ]
   ret i32 %.0
 }
 
@@ -2124,7 +2124,7 @@ define i32 @hwloc_obj_attr_snprintf(ptr noalias noundef writeonly captures(none)
   br label %177
 
 177:                                              ; preds = %154, %143, %83
-  %.3149 = phi i32 [ %176, %154 ], [ %.4, %143 ], [ %.2148, %83 ]
+  %.3149 = phi i32 [ %.2148, %83 ], [ %.4, %143 ], [ %176, %154 ]
   %178 = icmp slt i32 %.3149, 0
   br i1 %178, label %.loopexit, label %.thread192
 
@@ -2193,8 +2193,8 @@ define i32 @hwloc_obj_attr_snprintf(ptr noalias noundef writeonly captures(none)
   %.not181 = icmp samesign ult i64 %indvars.iv.next, %212
   br i1 %.not181, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
-.loopexit:                                        ; preds = %.lr.ph, %200, %44, %144, %84, %180, %.thread192, %177, %50
-  %.0142 = phi i32 [ -1, %50 ], [ -1, %177 ], [ %179, %.thread192 ], [ %179, %180 ], [ %.0146185189, %84 ], [ %.0146185189, %144 ], [ 0, %44 ], [ -1, %.lr.ph ], [ %201, %200 ]
+.loopexit:                                        ; preds = %.lr.ph, %200, %44, %84, %144, %180, %.thread192, %177, %50
+  %.0142 = phi i32 [ -1, %50 ], [ -1, %177 ], [ %179, %.thread192 ], [ %179, %180 ], [ %.0146185189, %144 ], [ %.0146185189, %84 ], [ 0, %44 ], [ -1, %.lr.ph ], [ %201, %200 ]
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #22
   ret i32 %.0142

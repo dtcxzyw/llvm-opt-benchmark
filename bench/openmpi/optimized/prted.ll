@@ -1503,7 +1503,7 @@ pmix_obj_run_constructors.exit419:                ; preds = %.lr.ph.i416, %433
   br label %.thread427
 
 586:                                              ; preds = %193, %448, %pmix_obj_run_constructors.exit419, %282, %pmix_obj_update.exit, %251, %249, %278, %296, %335, %353, %471, %479, %513, %528, %284
-  %.4 = phi i32 [ -8, %193 ], [ -1, %278 ], [ %283, %284 ], [ -1, %296 ], [ %332, %335 ], [ -1, %353 ], [ -1, %471 ], [ -1, %479 ], [ %510, %513 ], [ %525, %528 ], [ 1, %249 ], [ 1, %251 ], [ 1, %pmix_obj_update.exit ], [ %283, %282 ], [ -8, %pmix_obj_run_constructors.exit419 ], [ -8, %448 ]
+  %.4 = phi i32 [ -1, %278 ], [ %283, %284 ], [ -1, %296 ], [ %332, %335 ], [ -1, %353 ], [ -1, %471 ], [ -1, %479 ], [ %510, %513 ], [ %525, %528 ], [ -8, %193 ], [ 1, %249 ], [ 1, %251 ], [ 1, %pmix_obj_update.exit ], [ %283, %282 ], [ -8, %pmix_obj_run_constructors.exit419 ], [ -8, %448 ]
   %587 = load i32, ptr @prte_exit_status, align 4, !tbaa !4
   %588 = icmp eq i32 %587, 0
   %589 = icmp ne i32 %.4, 0

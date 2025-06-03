@@ -516,8 +516,8 @@ _ZL6STtoUVd16S2ProjectionType.exit.thread:        ; preds = %17, %14
   br label %_ZL6STtoUVd16S2ProjectionType.exit23
 
 _ZL6STtoUVd16S2ProjectionType.exit23:             ; preds = %3, %_ZL6STtoUVd16S2ProjectionType.exit.thread27, %28, %32, %_ZL6STtoUVd16S2ProjectionType.exit.thread30
-  %.0.i26 = phi double [ %23, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %.0.i25, %28 ], [ %.0.i25, %32 ], [ %10, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %0, %3 ]
-  %.0.i22 = phi double [ %26, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %31, %28 ], [ %36, %32 ], [ %11, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %1, %3 ]
+  %.0.i26 = phi double [ %10, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %.0.i25, %28 ], [ %.0.i25, %32 ], [ %23, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %0, %3 ]
+  %.0.i22 = phi double [ %11, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %31, %28 ], [ %36, %32 ], [ %26, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %1, %3 ]
   %37 = load i32, ptr %7, align 8, !tbaa !62
   %38 = tail call double @llvm.fmuladd.f64(double %.0.i26, double %.0.i26, double 1.000000e+00)
   %39 = tail call double @llvm.fmuladd.f64(double %.0.i22, double %.0.i22, double %38)
@@ -558,9 +558,9 @@ _ZL6STtoUVd16S2ProjectionType.exit23:             ; preds = %3, %_ZL6STtoUVd16S2
   br label %_Z13UVtoSphereXYZiddP6PJ_XYZ.exit
 
 _Z13UVtoSphereXYZiddP6PJ_XYZ.exit:                ; preds = %_ZL6STtoUVd16S2ProjectionType.exit23, %43, %45, %48, %52, %55
-  %.sroa.9.0 = phi double [ %41, %55 ], [ %53, %52 ], [ %50, %48 ], [ %47, %45 ], [ %40, %43 ], [ %41, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
-  %.sroa.0.0 = phi double [ %42, %55 ], [ %42, %52 ], [ %49, %48 ], [ %46, %45 ], [ %44, %43 ], [ %40, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
-  %.sink.i = phi double [ %56, %55 ], [ %54, %52 ], [ %51, %48 ], [ %40, %45 ], [ %42, %43 ], [ %42, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sroa.9.0 = phi double [ %41, %55 ], [ %40, %43 ], [ %47, %45 ], [ %50, %48 ], [ %53, %52 ], [ %41, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sroa.0.0 = phi double [ %42, %55 ], [ %44, %43 ], [ %46, %45 ], [ %49, %48 ], [ %42, %52 ], [ %40, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sink.i = phi double [ %56, %55 ], [ %42, %43 ], [ %40, %45 ], [ %51, %48 ], [ %54, %52 ], [ %42, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
   %57 = fneg double %.sink.i
   %58 = tail call double @acos(double noundef %57) #24, !tbaa !72
   %59 = fadd double %58, 0xBFF921FB54442D18
@@ -685,8 +685,8 @@ define internal { double, double } @_ZL10s2_forward5PJ_LPP8PJconsts(double %0, d
   br label %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit
 
 _Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit:         ; preds = %25, %28, %32, %37, %40, %44
-  %.sroa.0.0 = phi double [ %46, %44 ], [ %41, %40 ], [ %38, %37 ], [ %34, %32 ], [ %30, %28 ], [ %26, %25 ]
-  %.sink.i = phi double [ %48, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %32 ], [ %31, %28 ], [ %27, %25 ]
+  %.sroa.0.0 = phi double [ %46, %44 ], [ %26, %25 ], [ %30, %28 ], [ %34, %32 ], [ %38, %37 ], [ %41, %40 ]
+  %.sink.i = phi double [ %48, %44 ], [ %27, %25 ], [ %31, %28 ], [ %36, %32 ], [ %39, %37 ], [ %43, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %50 = load i32, ptr %49, align 8, !tbaa !55
   switch i32 %50, label %_ZL6UVtoSTd16S2ProjectionType.exit23 [
@@ -753,8 +753,8 @@ _ZL6UVtoSTd16S2ProjectionType.exit.thread49:      ; preds = %61, %57
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
 _ZL6UVtoSTd16S2ProjectionType.exit23:             ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit, %_ZL6UVtoSTd16S2ProjectionType.exit.thread, %72, %76, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52
-  %.0.i48 = phi double [ %67, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %.0.i51, %72 ], [ %.0.i51, %76 ], [ %52, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.sroa.0.0, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
-  %.0.i22 = phi double [ %70, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %75, %72 ], [ %79, %76 ], [ %54, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.sink.i, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
+  %.0.i48 = phi double [ %52, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.0.i51, %72 ], [ %.0.i51, %76 ], [ %67, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %.sroa.0.0, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
+  %.0.i22 = phi double [ %54, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %75, %72 ], [ %79, %76 ], [ %70, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %.sink.i, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.0.i48, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0.i22, 1
   ret { double, double } %.fca.1.insert

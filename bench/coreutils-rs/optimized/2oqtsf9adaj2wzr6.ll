@@ -4227,7 +4227,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$uu_sort..SortError$GT$17h8
   unreachable
 
 85:                                               ; preds = %104, %95, %86, %70
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %96, %95 ], [ %87, %86 ], [ %71, %70 ]
+  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %87, %86 ], [ %96, %95 ], [ %105, %104 ]
   resume { ptr, i32 } %.pn
 
 86:                                               ; preds = %24
@@ -5460,7 +5460,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %11, %9, %6
-  %.0.in = phi i1 [ %13, %11 ], [ %10, %9 ], [ %8, %6 ]
+  %.0.in = phi i1 [ %8, %6 ], [ %10, %9 ], [ %13, %11 ]
   ret i1 %.0.in
 }
 
@@ -8094,22 +8094,22 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
   %8 = alloca i64, align 8
   %9 = alloca { ptr, i64, i64, {} }, align 8
   %10 = alloca i64, align 8
-  %.sroa.0.0.copyload18 = load ptr, ptr %1, align 8, !alias.scope !1560
-  %.sroa.5.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload22 = load i64, ptr %.sroa.5.0..sroa_idx21, align 8, !alias.scope !1560
-  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload26 = load i64, ptr %.sroa.6.0..sroa_idx25, align 8, !alias.scope !1560
-  %.sroa.7.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = icmp eq i64 %.sroa.5.0.copyload22, 0
+  %.sroa.0.0.copyload17 = load ptr, ptr %1, align 8, !alias.scope !1560
+  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.5.0.copyload21 = load i64, ptr %.sroa.5.0..sroa_idx20, align 8, !alias.scope !1560
+  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.6.0.copyload25 = load i64, ptr %.sroa.6.0..sroa_idx24, align 8, !alias.scope !1560
+  %.sroa.7.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = icmp eq i64 %.sroa.5.0.copyload21, 0
   br i1 %11, label %"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h9fa867087c11a20aE.exit", label %12
 
 12:                                               ; preds = %2
-  %13 = icmp eq i64 %.sroa.6.0.copyload26, 0
+  %13 = icmp eq i64 %.sroa.6.0.copyload25, 0
   br i1 %13, label %18, label %14, !prof !1564
 
 14:                                               ; preds = %12
-  %15 = add i64 %.sroa.5.0.copyload22, -1
-  %16 = udiv i64 %15, %.sroa.6.0.copyload26
+  %15 = add i64 %.sroa.5.0.copyload21, -1
+  %16 = udiv i64 %15, %.sroa.6.0.copyload25
   %17 = add nuw i64 %16, 1
   br label %"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h9fa867087c11a20aE.exit"
 
@@ -8153,24 +8153,24 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
   %28 = load ptr, ptr %27, align 8, !alias.scope !1583, !noalias !1582, !nonnull !12, !noundef !12
   %29 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %28, i64 %25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1588
-  store ptr %.sroa.0.0.copyload18, ptr %5, align 8, !noalias !1592
-  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.5.0.copyload22, ptr %.sroa.437.0..sroa_idx, align 8, !noalias !1592
-  %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.6.0.copyload26, ptr %.sroa.538.0..sroa_idx, align 8, !noalias !1592
-  %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx28, i64 24, i1 false)
+  store ptr %.sroa.0.0.copyload17, ptr %5, align 8, !noalias !1592
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.5.0.copyload21, ptr %.sroa.436.0..sroa_idx, align 8, !noalias !1592
+  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %.sroa.6.0.copyload25, ptr %.sroa.537.0..sroa_idx, align 8, !noalias !1592
+  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.638.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx27, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1593)
-  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.639.0..sroa_idx, align 8, !alias.scope !1593, !noalias !1596
+  %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.638.0..sroa_idx, align 8, !alias.scope !1593, !noalias !1596
   br i1 %11, label %"_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17hc8a3a0c98ee3b84bE.exit.i", label %30
 
 30:                                               ; preds = %"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT$T$GT$8appender17hfb16059cd5ced269E.exit.i"
-  %31 = icmp eq i64 %.sroa.6.0.copyload26, 0
+  %31 = icmp eq i64 %.sroa.6.0.copyload25, 0
   br i1 %31, label %36, label %32, !prof !1564
 
 32:                                               ; preds = %30
-  %33 = add i64 %.sroa.5.0.copyload22, -1
-  %34 = udiv i64 %33, %.sroa.6.0.copyload26
+  %33 = add i64 %.sroa.5.0.copyload21, -1
+  %34 = udiv i64 %33, %.sroa.6.0.copyload25
   %35 = add nuw i64 %34, 1
   br label %"_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17hc8a3a0c98ee3b84bE.exit.i"
 
@@ -8181,7 +8181,7 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
 "_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17hc8a3a0c98ee3b84bE.exit.i": ; preds = %32, %"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT$T$GT$8appender17hfb16059cd5ced269E.exit.i"
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %35, %32 ], [ 0, %"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT$T$GT$8appender17hfb16059cd5ced269E.exit.i" ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %38 = icmp ne ptr %.sroa.0.0.copyload18, null
+  %38 = icmp ne ptr %.sroa.0.0.copyload17, null
   tail call void @llvm.assume(i1 %38)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1613
   store ptr %37, ptr %4, align 8, !noalias !1622
@@ -8195,10 +8195,10 @@ define hidden void @"_ZN5rayon4iter6extend91_$LT$impl$u20$rayon..iter..ParallelE
   store i64 %.sroa.6.0.copyload.i.i.i, ptr %39, align 8, !noalias !1613
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1624
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.6.0.copyload26, ptr %40, align 8, !noalias !1624
-  store ptr %.sroa.0.0.copyload18, ptr %3, align 8, !noalias !1624
+  store i64 %.sroa.6.0.copyload25, ptr %40, align 8, !noalias !1624
+  store ptr %.sroa.0.0.copyload17, ptr %3, align 8, !noalias !1624
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.5.0.copyload22, ptr %41, align 8, !noalias !1624
+  store i64 %.sroa.5.0.copyload21, ptr %41, align 8, !noalias !1624
   call void @"_ZN193_$LT$$LT$rayon..iter..len..MaxLen$LT$I$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$..with_producer..Callback$LT$CB$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$T$GT$$GT$8callback17hf6444c705e79cfa4E"(ptr noalias noundef nonnull sret({ ptr, i64, i64, {} }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !1629
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1624
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1613
@@ -9954,7 +9954,7 @@ default.unreachable1:                             ; preds = %2
   br label %44
 
 44:                                               ; preds = %41, %39, %36, %33, %30, %26, %22, %18, %12
-  %.0.in = phi i1 [ %43, %41 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %12 ]
+  %.0.in = phi i1 [ %17, %12 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %40, %39 ], [ %43, %41 ]
   ret i1 %.0.in
 }
 

@@ -277,7 +277,7 @@ define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr noundef readonly captur
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11, %12
-  %.095 = phi ptr [ %1, %11 ], [ %0, %12 ]
+  %.095 = phi ptr [ %0, %12 ], [ %1, %11 ]
   %13 = icmp ult i64 %9, 10
   %spec.select = tail call i64 @llvm.umin.i64(i64 %9, i64 10)
   br label %.lr.ph

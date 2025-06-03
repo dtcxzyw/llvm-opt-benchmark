@@ -6613,8 +6613,8 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %613, %611, %606, %
   ret void
 
 615:                                              ; preds = %193, %598, %451, %304
-  %.pn56.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn.pn, %598 ], [ %.pn61.pn.pn.pn, %451 ], [ %.pn66, %304 ], [ %.pn.pn.pn.pn, %193 ]
-  resume { ptr, i32 } %.pn56.pn.pn.pn.pn
+  %.pn66.pn = phi { ptr, i32 } [ %.pn66, %304 ], [ %.pn61.pn.pn.pn, %451 ], [ %.pn56.pn.pn.pn, %598 ], [ %.pn.pn.pn.pn, %193 ]
+  resume { ptr, i32 } %.pn66.pn
 }
 
 ; Function Attrs: mustprogress uwtable

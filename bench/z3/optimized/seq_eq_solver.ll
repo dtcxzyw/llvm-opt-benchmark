@@ -2421,8 +2421,8 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5
   %46 = load ptr, ptr %45, align 8, !tbaa !279
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i, %27, %31, %_ZNK3smt7context14e_internalizedEPK4expr.exit, %43
-  %.1 = phi ptr [ %46, %43 ], [ %1, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ %30, %27 ], [ %34, %31 ], [ %1, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i ], [ %1, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i, %31, %27, %_ZNK3smt7context14e_internalizedEPK4expr.exit, %43
+  %.1 = phi ptr [ %46, %43 ], [ %1, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ %34, %31 ], [ %30, %27 ], [ %1, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i ], [ %1, %._crit_edge ]
   ret ptr %.1
 }
 
@@ -2511,7 +2511,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.i:  ; preds = %_ZNK6vectorIPN3smt5
   br label %_ZN3smt10theory_seq8expr2repEP4expr.exit
 
 _ZN3smt10theory_seq8expr2repEP4expr.exit:         ; preds = %27, %31, %._crit_edge.i, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i, %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %43
-  %.1.i = phi ptr [ %46, %43 ], [ %1, %_ZNK3smt7context14e_internalizedEPK4expr.exit.i ], [ %30, %27 ], [ %34, %31 ], [ %1, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i ], [ %1, %._crit_edge.i ]
+  %.1.i = phi ptr [ %46, %43 ], [ %1, %_ZNK3smt7context14e_internalizedEPK4expr.exit.i ], [ %34, %31 ], [ %30, %27 ], [ %1, %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i.i ], [ %1, %._crit_edge.i ]
   ret ptr %.1.i
 }
 
@@ -17366,7 +17366,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %70, %71, %76
   br label %82
 
 82:                                               ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %81
-  %.115 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %81 ]
+  %.115 = phi i1 [ false, %81 ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   ret i1 %.115
 }
 

@@ -693,7 +693,7 @@ list_standards.exit:                              ; preds = %147, %._crit_edge.i
   br label %288
 
 283:                                              ; preds = %206, %188, %242, %244, %227, %222, %211, %list_standards.exit, %list_formats.exit, %55, %43, %33
-  %.0103 = phi i32 [ %36, %33 ], [ %58, %55 ], [ -1414092869, %list_formats.exit ], [ -1414092869, %list_standards.exit ], [ -22, %188 ], [ %213, %211 ], [ %225, %222 ], [ %230, %227 ], [ %243, %242 ], [ %245, %244 ], [ %209, %206 ], [ %46, %43 ]
+  %.0103 = phi i32 [ %36, %33 ], [ %58, %55 ], [ -1414092869, %list_formats.exit ], [ -1414092869, %list_standards.exit ], [ %213, %211 ], [ %225, %222 ], [ %230, %227 ], [ %243, %242 ], [ %245, %244 ], [ %209, %206 ], [ -22, %188 ], [ %46, %43 ]
   %284 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %285 = load ptr, ptr %284, align 8, !tbaa !90
   %286 = load i32, ptr %22, align 8, !tbaa !28

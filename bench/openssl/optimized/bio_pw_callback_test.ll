@@ -319,7 +319,7 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br label %26
 
 26:                                               ; preds = %24, %22
-  %.013.i = phi i32 [ %25, %24 ], [ %23, %22 ]
+  %.013.i = phi i32 [ %23, %22 ], [ %25, %24 ]
   %27 = call i32 @test_int_ne(ptr noundef nonnull @.str.16, i32 noundef 181, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %.013.i, i32 noundef 0) #7
   %.not16.i = icmp eq i32 %27, 0
   br i1 %.not16.i, label %re_encrypt_key.exit, label %28
@@ -389,7 +389,7 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.09.i = phi ptr [ %53, %52 ], [ %51, %50 ]
+  %.09.i = phi ptr [ %51, %50 ], [ %53, %52 ]
   %.not10.i = icmp eq i32 %3, 0
   br i1 %.not10.i, label %57, label %55
 
@@ -514,7 +514,7 @@ define internal noundef i32 @write_callback(ptr noundef %0, i32 noundef %1, i32 
   br label %callback_copy_password.exit
 
 callback_copy_password.exit:                      ; preds = %15, %17, %18, %19, %20, %21, %22, %24
-  %.0.i = phi i32 [ -1, %15 ], [ %1, %22 ], [ 17, %21 ], [ 17, %20 ], [ 16, %19 ], [ 13, %18 ], [ 0, %17 ], [ 1000000, %24 ]
+  %.0.i = phi i32 [ -1, %15 ], [ 1000000, %24 ], [ 0, %17 ], [ 13, %18 ], [ 16, %19 ], [ 17, %20 ], [ 17, %21 ], [ %1, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %26, align 4, !tbaa !19
   br label %27
@@ -612,7 +612,7 @@ define internal noundef i32 @read_callback(ptr noundef %0, i32 noundef %1, i32 n
   br label %callback_copy_password.exit
 
 callback_copy_password.exit:                      ; preds = %15, %17, %18, %19, %20, %21, %22, %24
-  %.0.i = phi i32 [ -1, %15 ], [ %1, %22 ], [ 17, %21 ], [ 17, %20 ], [ 16, %19 ], [ 13, %18 ], [ 0, %17 ], [ 1000000, %24 ]
+  %.0.i = phi i32 [ -1, %15 ], [ 1000000, %24 ], [ 0, %17 ], [ 13, %18 ], [ 16, %19 ], [ 17, %20 ], [ 17, %21 ], [ %1, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %26, align 4, !tbaa !19
   br label %27

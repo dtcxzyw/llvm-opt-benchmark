@@ -3158,7 +3158,7 @@ define dso_local void @_ZN4llvm15InstrProfWriter24addTemporalProfileTracesERNS_1
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !254
   %43 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val31.i.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !254
@@ -3170,7 +3170,7 @@ define dso_local void @_ZN4llvm15InstrProfWriter24addTemporalProfileTracesERNS_1
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %46, %45 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !254
   %48 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val30.i.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !254
@@ -3661,8 +3661,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorImNS_11SmallVec
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi i64 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi i64 [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !56
   %49 = icmp eq i64 %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorImLj8EEEmEEbOT_RKT0_.exit, label %50
@@ -3672,8 +3672,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorImNS_11SmallVec
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi i64 [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi i64 [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load i64, ptr %.2.i.i.i.i, align 8, !tbaa !56
   %55 = icmp eq i64 %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorImLj8EEEmEEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorImLj8EEEmEEbOT_RKT0_.exit.thread
@@ -4466,7 +4466,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseM
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %62, %61 ]
+  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %64 = load i64, ptr %.sroa.025.1.i.i.i.i.i.i, align 8, !tbaa !56
   %.not34.i.i.i.i.i.i = icmp eq i64 %64, 0
   br i1 %.not34.i.i.i.i.i.i, label %65, label %"_ZN4llvm6any_ofIRKSt6vectorImSaImEEZNS_15InstrProfWriter16shouldEncodeDataERKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEE3$_0EEbOT_T0_.exit"
@@ -4476,7 +4476,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseM
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %66, %65 ]
+  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %68 = load i64, ptr %.sroa.025.2.i.i.i.i.i.i, align 8, !tbaa !56
   %.not35.i.i.i.i.i.i = icmp eq i64 %68, 0
   %spec.select.i.i.i.i.i.i = select i1 %.not35.i.i.i.i.i.i, ptr %.val13, ptr %.sroa.025.2.i.i.i.i.i.i
@@ -4571,7 +4571,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseM
   br label %99
 
 99:                                               ; preds = %97, %._crit_edge.i.i.i.i.i.i16
-  %.sroa.025.1.i.i.i.i.i.i22 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i16 ], [ %98, %97 ]
+  %.sroa.025.1.i.i.i.i.i.i22 = phi ptr [ %98, %97 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i16 ]
   %100 = load i8, ptr %.sroa.025.1.i.i.i.i.i.i22, align 1, !tbaa !104
   %.not34.i.i.i.i.i.i23 = icmp eq i8 %100, 0
   br i1 %.not34.i.i.i.i.i.i23, label %101, label %"_ZN4llvm6any_ofIRKSt6vectorIhSaIhEEZNS_15InstrProfWriter16shouldEncodeDataERKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEE3$_1EEbOT_T0_.exit"
@@ -4581,7 +4581,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseM
   br label %103
 
 103:                                              ; preds = %101, %._crit_edge.i.i.i.i.i.i16
-  %.sroa.025.2.i.i.i.i.i.i18 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i16 ], [ %102, %101 ]
+  %.sroa.025.2.i.i.i.i.i.i18 = phi ptr [ %102, %101 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i17, %._crit_edge.i.i.i.i.i.i16 ]
   %104 = load i8, ptr %.sroa.025.2.i.i.i.i.i.i18, align 1, !tbaa !104
   %.not35.i.i.i.i.i.i19 = icmp eq i8 %104, 0
   %spec.select.i.i.i.i.i.i20 = select i1 %.not35.i.i.i.i.i.i19, ptr %.val15, ptr %.sroa.025.2.i.i.i.i.i.i18

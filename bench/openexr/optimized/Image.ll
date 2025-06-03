@@ -352,7 +352,7 @@ define dso_local void @_ZN5Image10addChannelERKNSt7__cxx1112basic_stringIcSt11ch
   ret void
 
 37:                                               ; preds = %32, %27, %19, %11
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ], [ %20, %19 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %12, %11 ], [ %20, %19 ], [ %28, %27 ]
   resume { ptr, i32 } %.pn
 }
 

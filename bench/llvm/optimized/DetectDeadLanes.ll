@@ -804,7 +804,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   unreachable
 
 _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit: ; preds = %65, %59, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit27, %51, %4, %4, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit
-  %.sroa.032.0 = phi i64 [ %3, %4 ], [ %3, %4 ], [ %50, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit27 ], [ %58, %51 ], [ %29, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit ], [ %71, %65 ], [ %3, %59 ]
+  %.sroa.032.0 = phi i64 [ %29, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit ], [ %50, %_ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit27 ], [ %58, %51 ], [ %3, %4 ], [ %3, %4 ], [ %71, %65 ], [ %3, %59 ]
   %73 = load ptr, ptr %0, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !50
@@ -1200,7 +1200,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread: ; preds = %1
   br i1 %.not, label %.thread, label %57
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %29, %33
-  %.038.in.in = phi ptr [ %39, %33 ], [ %32, %29 ]
+  %.038.in.in = phi ptr [ %32, %29 ], [ %39, %33 ]
   %.038.in = load i64, ptr %.038.in.in, align 8, !tbaa !50
   %.038 = trunc i64 %.038.in to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
@@ -2706,7 +2706,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i.i: ; preds 
   br i1 %.not.i.i, label %.thread.i.i, label %232
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i: ; preds = %210, %207
-  %.038.in.in.i.i = phi ptr [ %215, %210 ], [ %209, %207 ]
+  %.038.in.in.i.i = phi ptr [ %209, %207 ], [ %215, %210 ]
   %.038.in.i.i = load i64, ptr %.038.in.in.i.i, align 8, !tbaa !50
   %.038.i.i = trunc i64 %.038.in.i.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16

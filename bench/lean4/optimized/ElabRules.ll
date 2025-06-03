@@ -2923,7 +2923,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %474, %472
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %487, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %487 ], [ %488, %.thread.i ]
+  %.1.i = phi ptr [ %488, %.thread.i ], [ %.0.i.i.i, %487 ]
   %489 = tail call ptr @l_Lean_Elab_Command_getRef(ptr noundef %7, ptr noundef %8, ptr noundef %9) #6
   %.val540 = load i32, ptr %489, align 4, !tbaa !8
   %490 = icmp eq i32 %.val540, 1

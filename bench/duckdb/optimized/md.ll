@@ -333,7 +333,7 @@ define hidden i32 @mbedtls_md_starts(ptr noundef readonly captures(address_is_nu
   br label %21
 
 21:                                               ; preds = %6, %1, %3, %17, %13, %9
-  %.0 = phi i32 [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ -20736, %3 ], [ -20736, %1 ], [ -20736, %6 ]
+  %.0 = phi i32 [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ -20736, %3 ], [ -20736, %1 ], [ -20736, %6 ]
   ret i32 %.0
 }
 
@@ -379,7 +379,7 @@ define hidden i32 @mbedtls_md_update(ptr noundef readonly captures(address_is_nu
   br label %23
 
 23:                                               ; preds = %8, %3, %5, %19, %15, %11
-  %.0 = phi i32 [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ -20736, %5 ], [ -20736, %3 ], [ -20736, %8 ]
+  %.0 = phi i32 [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ -20736, %5 ], [ -20736, %3 ], [ -20736, %8 ]
   ret i32 %.0
 }
 
@@ -425,7 +425,7 @@ define hidden i32 @mbedtls_md_finish(ptr noundef readonly captures(address_is_nu
   br label %22
 
 22:                                               ; preds = %7, %2, %4, %18, %14, %10
-  %.0 = phi i32 [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ -20736, %4 ], [ -20736, %2 ], [ -20736, %7 ]
+  %.0 = phi i32 [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ -20736, %4 ], [ -20736, %2 ], [ -20736, %7 ]
   ret i32 %.0
 }
 
@@ -460,7 +460,7 @@ define hidden i32 @mbedtls_md(ptr noundef readonly captures(address_is_null) %0,
   br label %15
 
 15:                                               ; preds = %6, %4, %13, %11, %9
-  %.0 = phi i32 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ -20736, %4 ], [ -20736, %6 ]
+  %.0 = phi i32 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ -20736, %4 ], [ -20736, %6 ]
   ret i32 %.0
 }
 
@@ -521,7 +521,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef readonly captures(address_
   br label %mbedtls_md_starts.exit
 
 mbedtls_md_starts.exit:                           ; preds = %21, %25, %29
-  %.0.i = phi i32 [ %32, %29 ], [ %28, %25 ], [ %24, %21 ]
+  %.0.i = phi i32 [ %24, %21 ], [ %28, %25 ], [ %32, %29 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %33, label %mbedtls_md_update.exit56
 
@@ -558,7 +558,7 @@ mbedtls_md_starts.exit:                           ; preds = %21, %25, %29
   br label %mbedtls_md_update.exit
 
 mbedtls_md_update.exit:                           ; preds = %39, %43, %47
-  %.0.i52 = phi i32 [ %50, %47 ], [ %46, %43 ], [ %42, %39 ]
+  %.0.i52 = phi i32 [ %42, %39 ], [ %46, %43 ], [ %50, %47 ]
   %.not49 = icmp eq i32 %.0.i52, 0
   br i1 %.not49, label %51, label %mbedtls_md_update.exit56
 
@@ -643,7 +643,7 @@ mbedtls_md_update.exit:                           ; preds = %39, %43, %47
   br label %mbedtls_md_starts.exit54
 
 mbedtls_md_starts.exit54:                         ; preds = %80, %84, %88
-  %.0.i53 = phi i32 [ %91, %88 ], [ %87, %84 ], [ %83, %80 ]
+  %.0.i53 = phi i32 [ %83, %80 ], [ %87, %84 ], [ %91, %88 ]
   %.not51 = icmp eq i32 %.0.i53, 0
   br i1 %.not51, label %92, label %mbedtls_md_update.exit56
 
@@ -679,7 +679,7 @@ mbedtls_md_starts.exit54:                         ; preds = %80, %84, %88
   br label %mbedtls_md_update.exit56
 
 mbedtls_md_update.exit56:                         ; preds = %77, %._crit_edge, %36, %33, %18, %107, %103, %99, %92, %mbedtls_md_starts.exit54, %51, %mbedtls_md_update.exit, %mbedtls_md_starts.exit
-  %.040 = phi i32 [ %.0.i, %mbedtls_md_starts.exit ], [ %.0.i52, %mbedtls_md_update.exit ], [ %52, %51 ], [ %.0.i53, %mbedtls_md_starts.exit54 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ -20736, %92 ], [ -20736, %18 ], [ -20736, %33 ], [ -20736, %36 ], [ -20736, %._crit_edge ], [ -20736, %77 ]
+  %.040 = phi i32 [ %.0.i, %mbedtls_md_starts.exit ], [ %.0.i52, %mbedtls_md_update.exit ], [ %52, %51 ], [ %.0.i53, %mbedtls_md_starts.exit54 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ -20736, %92 ], [ -20736, %18 ], [ -20736, %33 ], [ -20736, %36 ], [ -20736, %._crit_edge ], [ -20736, %77 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 32)
   br label %111
 
@@ -739,7 +739,7 @@ define hidden i32 @mbedtls_md_hmac_update(ptr noundef readonly captures(address_
   br label %mbedtls_md_update.exit
 
 mbedtls_md_update.exit:                           ; preds = %23, %19, %15, %12, %3, %5, %8
-  %.0 = phi i32 [ -20736, %8 ], [ -20736, %5 ], [ -20736, %3 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ -20736, %12 ]
+  %.0 = phi i32 [ -20736, %8 ], [ -20736, %5 ], [ -20736, %3 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ -20736, %12 ]
   ret i32 %.0
 }
 
@@ -793,7 +793,7 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef readonly captures(address_
   br label %mbedtls_md_finish.exit
 
 mbedtls_md_finish.exit:                           ; preds = %19, %23, %27
-  %.0.i = phi i32 [ %30, %27 ], [ %26, %23 ], [ %22, %19 ]
+  %.0.i = phi i32 [ %22, %19 ], [ %26, %23 ], [ %30, %27 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %31, label %mbedtls_md_finish.exit.thread
 
@@ -830,7 +830,7 @@ mbedtls_md_finish.exit:                           ; preds = %19, %23, %27
   br label %mbedtls_md_starts.exit
 
 mbedtls_md_starts.exit:                           ; preds = %37, %41, %45
-  %.0.i28 = phi i32 [ %48, %45 ], [ %44, %41 ], [ %40, %37 ]
+  %.0.i28 = phi i32 [ %40, %37 ], [ %44, %41 ], [ %48, %45 ]
   %.not25 = icmp eq i32 %.0.i28, 0
   br i1 %.not25, label %49, label %mbedtls_md_finish.exit.thread
 
@@ -866,7 +866,7 @@ mbedtls_md_starts.exit:                           ; preds = %37, %41, %45
   br label %mbedtls_md_update.exit
 
 mbedtls_md_update.exit:                           ; preds = %56, %60, %64
-  %.0.i29 = phi i32 [ %67, %64 ], [ %63, %60 ], [ %59, %56 ]
+  %.0.i29 = phi i32 [ %59, %56 ], [ %63, %60 ], [ %67, %64 ]
   %.not26 = icmp eq i32 %.0.i29, 0
   br i1 %.not26, label %68, label %mbedtls_md_finish.exit.thread
 
@@ -933,7 +933,7 @@ define hidden i32 @mbedtls_md_hmac_reset(ptr noundef readonly captures(address_i
   br label %mbedtls_md_starts.exit
 
 mbedtls_md_starts.exit:                           ; preds = %13, %17, %21
-  %.0.i = phi i32 [ %24, %21 ], [ %20, %17 ], [ %16, %13 ]
+  %.0.i = phi i32 [ %16, %13 ], [ %20, %17 ], [ %24, %21 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %25, label %mbedtls_md_update.exit
 
@@ -969,7 +969,7 @@ mbedtls_md_starts.exit:                           ; preds = %13, %17, %21
   br label %mbedtls_md_update.exit
 
 mbedtls_md_update.exit:                           ; preds = %10, %40, %36, %32, %25, %mbedtls_md_starts.exit, %1, %3, %6
-  %.0 = phi i32 [ -20736, %6 ], [ -20736, %3 ], [ -20736, %1 ], [ %.0.i, %mbedtls_md_starts.exit ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ -20736, %25 ], [ -20736, %10 ]
+  %.0 = phi i32 [ -20736, %6 ], [ -20736, %3 ], [ -20736, %1 ], [ %.0.i, %mbedtls_md_starts.exit ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ -20736, %25 ], [ -20736, %10 ]
   ret i32 %.0
 }
 
@@ -1028,7 +1028,7 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %mbedtls_md_hmac_update.exit
 
 mbedtls_md_hmac_update.exit:                      ; preds = %22, %26, %30
-  %.0.i = phi i32 [ %33, %30 ], [ %29, %26 ], [ %25, %22 ]
+  %.0.i = phi i32 [ %25, %22 ], [ %29, %26 ], [ %33, %30 ]
   %.not14 = icmp eq i32 %.0.i, 0
   br i1 %.not14, label %34, label %mbedtls_md_hmac_update.exit.thread
 
@@ -1085,7 +1085,7 @@ define hidden i32 @mbedtls_md_process(ptr noundef readonly captures(address_is_n
   br label %22
 
 22:                                               ; preds = %7, %2, %4, %18, %14, %10
-  %.0 = phi i32 [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ -20736, %4 ], [ -20736, %2 ], [ -20736, %7 ]
+  %.0 = phi i32 [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ -20736, %4 ], [ -20736, %2 ], [ -20736, %7 ]
   ret i32 %.0
 }
 

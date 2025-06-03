@@ -2500,8 +2500,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_12DISubpr
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !288
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit, label %50
@@ -2511,8 +2511,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_12DISubpr
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !288
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKNS_12DISubprogramELj4EEES4_EEbOT_RKT0_.exit.thread
@@ -3329,8 +3329,8 @@ define hidden void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %3, %9, %11, %12
-  %.sroa.6.0.i = phi i64 [ 21, %12 ], [ 13, %11 ], [ %7, %3 ], [ 0, %9 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %12 ], [ @.str.93, %11 ], [ %6, %3 ], [ null, %9 ]
+  %.sroa.6.0.i = phi i64 [ 13, %11 ], [ 21, %12 ], [ %7, %3 ], [ 0, %9 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %11 ], [ @.str.94, %12 ], [ %6, %3 ], [ null, %9 ]
   tail call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %4, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   ret void
 }
@@ -3445,8 +3445,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_6DINodeEPKNS_6DITypeEENS_8codev
   br label %_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeE.exit
 
 _ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeE.exit: ; preds = %56, %62, %64, %65
-  %.sroa.6.0.i.i = phi i64 [ 21, %65 ], [ 13, %64 ], [ %60, %56 ], [ 0, %62 ]
-  %.sroa.02.0.i.i = phi ptr [ @.str.94, %65 ], [ @.str.93, %64 ], [ %59, %56 ], [ null, %62 ]
+  %.sroa.6.0.i.i = phi i64 [ 13, %64 ], [ 21, %65 ], [ %60, %56 ], [ 0, %62 ]
+  %.sroa.02.0.i.i = phi ptr [ @.str.93, %64 ], [ @.str.94, %65 ], [ %59, %56 ], [ null, %62 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %57, ptr %.sroa.02.0.i.i, i64 %.sroa.6.0.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
   %66 = load ptr, ptr %5, align 8, !tbaa !191
@@ -4398,7 +4398,7 @@ _ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIn
   br label %_ZL17dwarfCCToCodeViewj.exit
 
 _ZL17dwarfCCToCodeViewj.exit:                     ; preds = %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit, %133, %134, %135, %136, %137
-  %.0.i = phi i8 [ 0, %137 ], [ 24, %136 ], [ 2, %135 ], [ 7, %134 ], [ 11, %133 ], [ 4, %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit ]
+  %.0.i = phi i8 [ 0, %137 ], [ 11, %133 ], [ 7, %134 ], [ 2, %135 ], [ 24, %136 ], [ 4, %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #25
   %138 = load i32, ptr %25, align 8, !tbaa !64
   %139 = trunc i32 %138 to i16
@@ -5355,7 +5355,7 @@ define hidden void @_ZN4llvm13CodeViewDebug11beginModuleEPNS_6ModuleE(ptr nounde
   unreachable
 
 _ZL18mapArchToCVCPUTypeN4llvm6Triple8ArchTypeE.exit: ; preds = %17, %23, %24, %25, %26
-  %.0.i = phi i16 [ 16, %26 ], [ 246, %25 ], [ 244, %24 ], [ 208, %23 ], [ 7, %17 ]
+  %.0.i = phi i16 [ 208, %23 ], [ 244, %24 ], [ 246, %25 ], [ 16, %26 ], [ 7, %17 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 730
   store i16 %.0.i, ptr %28, align 2, !tbaa !705
   %29 = load ptr, ptr %4, align 8, !tbaa !191
@@ -15718,8 +15718,8 @@ _ZNK4llvm6DIType8getScopeEv.exit:                 ; preds = %65, %68
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %_ZNK4llvm6DIType8getScopeEv.exit, %83, %85, %86
-  %.sroa.6.0.i = phi i64 [ 21, %86 ], [ 13, %85 ], [ %81, %_ZNK4llvm6DIType8getScopeEv.exit ], [ 0, %83 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %86 ], [ @.str.93, %85 ], [ %80, %_ZNK4llvm6DIType8getScopeEv.exit ], [ null, %83 ]
+  %.sroa.6.0.i = phi i64 [ 13, %85 ], [ 21, %86 ], [ %81, %_ZNK4llvm6DIType8getScopeEv.exit ], [ 0, %83 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %85 ], [ @.str.94, %86 ], [ %80, %_ZNK4llvm6DIType8getScopeEv.exit ], [ null, %83 ]
   call fastcc void @_ZL16formatNestedNameB5cxx11N4llvm8ArrayRefINS_9StringRefEEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %76, i64 %78, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   %87 = icmp eq ptr %75, null
   br i1 %87, label %88, label %112
@@ -16032,7 +16032,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit33.thread41:     ; preds = %_ZNK4llvm6DINode12g
   br label %_ZN4llvmeqENS_9StringRefES0_.exit33.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit33.thread:       ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread41, %47, %45, %43, %41, %39, %37, %34, %32, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %9, %7, %5
-  %.sroa.036.0 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread41 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %35, %34 ], [ %33, %32 ], [ %31, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38 ], [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 0, %3 ]
+  %.sroa.036.0 = phi i32 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %31, %_ZN4llvmeqENS_9StringRefES0_.exit.thread38 ], [ %33, %32 ], [ %35, %34 ], [ %40, %39 ], [ %38, %37 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit33.thread41 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 0, %3 ]
   ret i32 %.sroa.036.0
 }
 
@@ -16836,8 +16836,8 @@ switch.lookup188:                                 ; preds = %28
   %switch.load191 = load i32, ptr %switch.gep190, align 4
   br label %.thread162
 
-.thread162:                                       ; preds = %switch.lookup188, %28, %switch.lookup185, %19, %switch.lookup, %15, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit115, %2, %25, %27, %26, %21, %24, %23, %22, %9, %14, %13, %12, %11, %10, %30, %32, %_ZNK4llvm6DIType7getNameEv.exit72, %_ZNK4llvm6DIType7getNameEv.exit46, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit50, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit76, %_ZNK4llvm6DIType7getNameEv.exit111, %_ZNK4llvm6DIType7getNameEv.exit98, %_ZN4llvmeqENS_9StringRefES0_.exit102, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread
-  %.4 = phi i32 [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit102 ], [ 113, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread ], [ 33, %_ZNK4llvm6DIType7getNameEv.exit98 ], [ %.3, %_ZNK4llvm6DIType7getNameEv.exit111 ], [ 0, %2 ], [ 0, %28 ], [ 0, %25 ], [ 36, %27 ], [ 35, %26 ], [ 0, %21 ], [ 20, %24 ], [ 19, %23 ], [ 17, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %9 ], [ 52, %14 ], [ 51, %13 ], [ 50, %12 ], [ 49, %11 ], [ 48, %10 ], [ 0, %30 ], [ 0, %32 ], [ 117, %_ZNK4llvm6DIType7getNameEv.exit72 ], [ 116, %_ZNK4llvm6DIType7getNameEv.exit46 ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 116, %_ZN4llvmeqENS_9StringRefES0_.exit50 ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread ], [ 117, %_ZN4llvmeqENS_9StringRefES0_.exit76 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit115 ], [ 116, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ], [ 117, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65 ], [ 33, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91 ], [ %.3, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104 ], [ %switch.load, %switch.lookup ], [ %switch.load187, %switch.lookup185 ], [ %switch.load191, %switch.lookup188 ]
+.thread162:                                       ; preds = %switch.lookup188, %28, %switch.lookup185, %19, %switch.lookup, %15, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit115, %2, %9, %10, %11, %12, %13, %14, %21, %22, %23, %24, %25, %26, %27, %30, %32, %_ZNK4llvm6DIType7getNameEv.exit72, %_ZNK4llvm6DIType7getNameEv.exit46, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit50, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit76, %_ZNK4llvm6DIType7getNameEv.exit111, %_ZNK4llvm6DIType7getNameEv.exit98, %_ZN4llvmeqENS_9StringRefES0_.exit102, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread
+  %.4 = phi i32 [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit102 ], [ 113, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread ], [ 33, %_ZNK4llvm6DIType7getNameEv.exit98 ], [ %.3, %_ZNK4llvm6DIType7getNameEv.exit111 ], [ 0, %2 ], [ 0, %9 ], [ 48, %10 ], [ 49, %11 ], [ 50, %12 ], [ 51, %13 ], [ 52, %14 ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ], [ 17, %22 ], [ 19, %23 ], [ 20, %24 ], [ 0, %25 ], [ 35, %26 ], [ 36, %27 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ], [ 117, %_ZNK4llvm6DIType7getNameEv.exit72 ], [ 116, %_ZNK4llvm6DIType7getNameEv.exit46 ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 116, %_ZN4llvmeqENS_9StringRefES0_.exit50 ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread ], [ 117, %_ZN4llvmeqENS_9StringRefES0_.exit76 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit115 ], [ 116, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ], [ 117, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65 ], [ 33, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91 ], [ %.3, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104 ], [ %switch.load, %switch.lookup ], [ %switch.load187, %switch.lookup185 ], [ %switch.load191, %switch.lookup188 ]
   ret i32 %.4
 }
 
@@ -16992,7 +16992,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %8, %11
   br label %39
 
 39:                                               ; preds = %31, %38, %37
-  %.0 = phi i32 [ 128, %38 ], [ 32, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 32, %37 ], [ 128, %38 ], [ 0, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load i32, ptr %40, align 4, !tbaa !393
   %42 = and i32 %41, 1024
@@ -17148,7 +17148,7 @@ default.unreachable:                              ; preds = %63, %57
   br label %_ZL23translatePtrToMemberRepjbj.exit
 
 _ZL23translatePtrToMemberRepjbj.exit:             ; preds = %57, %58, %61, %62, %63, %64, %67, %68
-  %.0.i = phi i16 [ 7, %62 ], [ 6, %61 ], [ %60, %58 ], [ 3, %68 ], [ 2, %67 ], [ %66, %64 ], [ 5, %57 ], [ 1, %63 ]
+  %.0.i = phi i16 [ %60, %58 ], [ 6, %61 ], [ 7, %62 ], [ %66, %64 ], [ 2, %67 ], [ 3, %68 ], [ 5, %57 ], [ 1, %63 ]
   %.mask = and i32 %47, -8
   %69 = icmp eq i32 %.mask, 64
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #25
@@ -17204,9 +17204,9 @@ define hidden i32 @_ZN4llvm13CodeViewDebug17lowerTypeModifierEPKNS_13DIDerivedTy
   %8 = or i16 %.02637, 2
   br label %9
 
-9:                                                ; preds = %.lr.ph, %7, %5
-  %.sink = phi i32 [ 512, %7 ], [ 1024, %5 ], [ 4096, %.lr.ph ]
-  %.127.ph = phi i16 [ %8, %7 ], [ %6, %5 ], [ %.02637, %.lr.ph ]
+9:                                                ; preds = %.lr.ph, %5, %7
+  %.sink = phi i32 [ 1024, %5 ], [ 512, %7 ], [ 4096, %.lr.ph ]
+  %.127.ph = phi i16 [ %6, %5 ], [ %8, %7 ], [ %.02637, %.lr.ph ]
   %10 = or i32 %.02438, %.sink
   %11 = getelementptr inbounds i8, ptr %.01339, i64 -16
   %12 = load i64, ptr %11, align 8
@@ -17277,7 +17277,7 @@ define hidden i32 @_ZN4llvm13CodeViewDebug17lowerTypeModifierEPKNS_13DIDerivedTy
   br label %.split.thread
 
 .split.thread:                                    ; preds = %2, %32, %.split, %29, %27
-  %.sroa.012.0 = phi i32 [ %30, %29 ], [ %28, %27 ], [ %40, %32 ], [ %phi.call, %.split ], [ 3, %2 ]
+  %.sroa.012.0 = phi i32 [ %28, %27 ], [ %30, %29 ], [ %40, %32 ], [ %phi.call, %.split ], [ 3, %2 ]
   ret i32 %.sroa.012.0
 }
 
@@ -17479,7 +17479,7 @@ _ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIn
   br label %_ZL17dwarfCCToCodeViewj.exit
 
 _ZL17dwarfCCToCodeViewj.exit:                     ; preds = %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit, %88, %89, %90, %91, %92
-  %.0.i = phi i8 [ 0, %92 ], [ 24, %91 ], [ 2, %90 ], [ 7, %89 ], [ 11, %88 ], [ 4, %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit ]
+  %.0.i = phi i8 [ 0, %92 ], [ 11, %88 ], [ 7, %89 ], [ 2, %90 ], [ 24, %91 ], [ 4, %_ZN4llvm8codeview13ArgListRecordC2ENS0_14TypeRecordKindENS_8ArrayRefINS0_9TypeIndexEEE.exit ]
   %93 = load i64, ptr %9, align 8
   %94 = and i64 %93, 2
   %.not.i.i.i.i.i22 = icmp eq i64 %94, 0
@@ -17849,8 +17849,8 @@ _ZN4llvm16dyn_cast_or_nullINS_12DIEnumeratorEKNS_6DINodeEEEDaPT0_.exit.thread: ;
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %100, %106, %108, %109
-  %.sroa.6.0.i = phi i64 [ 21, %109 ], [ 13, %108 ], [ %104, %100 ], [ 0, %106 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %109 ], [ @.str.93, %108 ], [ %103, %100 ], [ null, %106 ]
+  %.sroa.6.0.i = phi i64 [ 13, %108 ], [ 21, %109 ], [ %104, %100 ], [ 0, %106 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %108 ], [ @.str.94, %109 ], [ %103, %100 ], [ null, %106 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %101, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #25
   %110 = load ptr, ptr %6, align 8, !tbaa !191
@@ -18134,8 +18134,8 @@ _ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread: ; 
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread, %82, %84, %85
-  %.sroa.6.0.i = phi i64 [ 21, %85 ], [ 13, %84 ], [ %80, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %82 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %85 ], [ @.str.93, %84 ], [ %79, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %82 ]
+  %.sroa.6.0.i = phi i64 [ 13, %84 ], [ 21, %85 ], [ %80, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %82 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %84 ], [ @.str.94, %85 ], [ %79, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %82 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %77, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #25
   %86 = load ptr, ptr %3, align 8, !tbaa !191
@@ -18369,8 +18369,8 @@ _ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread: ; 
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread, %48, %50, %51
-  %.sroa.6.0.i = phi i64 [ 21, %51 ], [ 13, %50 ], [ %46, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %48 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %51 ], [ @.str.93, %50 ], [ %45, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %48 ]
+  %.sroa.6.0.i = phi i64 [ 13, %50 ], [ 21, %51 ], [ %46, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %48 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %50 ], [ @.str.94, %51 ], [ %45, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %48 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %43, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #25
   %52 = load ptr, ptr %3, align 8, !tbaa !191
@@ -20046,8 +20046,8 @@ define hidden i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeClassEPKNS_15DIComp
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %2, %26, %28, %29
-  %.sroa.6.0.i = phi i64 [ 21, %29 ], [ 13, %28 ], [ %24, %2 ], [ 0, %26 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %29 ], [ @.str.93, %28 ], [ %23, %2 ], [ null, %26 ]
+  %.sroa.6.0.i = phi i64 [ 13, %28 ], [ 21, %29 ], [ %24, %2 ], [ 0, %26 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %28 ], [ @.str.94, %29 ], [ %23, %2 ], [ null, %26 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %21, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !1405
@@ -20253,7 +20253,7 @@ default.unreachable:                              ; preds = %82, %_ZNK4llvm6DITy
   unreachable
 
 _ZL20translateAccessFlagsjj.exit:                 ; preds = %48, %60, %61, %62
-  %.0.i = phi i16 [ %64, %62 ], [ 2, %61 ], [ 3, %60 ], [ 1, %48 ]
+  %.0.i = phi i16 [ 3, %60 ], [ 2, %61 ], [ %64, %62 ], [ 1, %48 ]
   %65 = getelementptr inbounds i8, ptr %44, i64 -16
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 2
@@ -20314,7 +20314,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %68, %71
   br label %_ZL20translateAccessFlagsjj.exit111
 
 _ZL20translateAccessFlagsjj.exit111:              ; preds = %82, %86, %87, %88
-  %.0.i109 = phi i16 [ %90, %88 ], [ 2, %87 ], [ 3, %86 ], [ 1, %82 ]
+  %.0.i109 = phi i16 [ 3, %86 ], [ 2, %87 ], [ %90, %88 ], [ 1, %82 ]
   %91 = getelementptr inbounds i8, ptr %44, i64 -16
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, 2
@@ -20462,7 +20462,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   br label %_ZL20translateAccessFlagsjj.exit120
 
 _ZL20translateAccessFlagsjj.exit120:              ; preds = %_ZNK4llvm6DIType7getNameEv.exit, %161, %162, %163
-  %.0.i118 = phi i16 [ %165, %163 ], [ 2, %162 ], [ 3, %161 ], [ 1, %_ZNK4llvm6DIType7getNameEv.exit ]
+  %.0.i118 = phi i16 [ 3, %161 ], [ 2, %162 ], [ %165, %163 ], [ 1, %_ZNK4llvm6DIType7getNameEv.exit ]
   %166 = and i32 %159, 4096
   %.not222 = icmp eq i32 %166, 0
   br i1 %.not222, label %168, label %167
@@ -20740,7 +20740,7 @@ _ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEE3endEv.exit: ; preds = %_ZN4llvm13T
   br label %_ZL20translateAccessFlagsjj.exit141
 
 _ZL20translateAccessFlagsjj.exit141:              ; preds = %280, %284, %285, %286
-  %.0.i139 = phi i16 [ %288, %286 ], [ 2, %285 ], [ 3, %284 ], [ 1, %280 ]
+  %.0.i139 = phi i16 [ 3, %284 ], [ 2, %285 ], [ %288, %286 ], [ 1, %280 ]
   %289 = and i32 %282, 4096
   %.not.i142 = icmp eq i32 %289, 0
   br i1 %.not.i142, label %290, label %_ZL24translateMethodKindFlagsPKN4llvm12DISubprogramEb.exit
@@ -20767,7 +20767,7 @@ _ZL20translateAccessFlagsjj.exit141:              ; preds = %280, %284, %285, %2
   unreachable
 
 _ZL24translateMethodKindFlagsPKN4llvm12DISubprogramEb.exit: ; preds = %_ZL20translateAccessFlagsjj.exit141, %290, %294, %296
-  %.0.i143 = phi i16 [ %297, %296 ], [ %295, %294 ], [ 8, %_ZL20translateAccessFlagsjj.exit141 ], [ 0, %290 ]
+  %.0.i143 = phi i16 [ %295, %294 ], [ %297, %296 ], [ 8, %_ZL20translateAccessFlagsjj.exit141 ], [ 0, %290 ]
   %299 = trunc i32 %282 to i16
   %300 = shl i16 %299, 2
   %..i = and i16 %300, 256
@@ -21064,8 +21064,8 @@ define hidden i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeUnionEPKNS_15DIComp
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
 _ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %2, %21, %23, %24
-  %.sroa.6.0.i = phi i64 [ 21, %24 ], [ 13, %23 ], [ %19, %2 ], [ 0, %21 ]
-  %.sroa.02.0.i = phi ptr [ @.str.94, %24 ], [ @.str.93, %23 ], [ %18, %2 ], [ null, %21 ]
+  %.sroa.6.0.i = phi i64 [ 13, %23 ], [ 21, %24 ], [ %19, %2 ], [ 0, %21 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %23 ], [ @.str.94, %24 ], [ %18, %2 ], [ null, %21 ]
   call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %16, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #25
   %25 = trunc i32 %10 to i16

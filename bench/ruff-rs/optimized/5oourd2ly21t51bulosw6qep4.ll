@@ -208,7 +208,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h148e77db0807a382E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h148e77db0807a382E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h33de5dc56ab19083E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hee31e7f6d56e80abE.exit"
 
@@ -338,7 +338,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h148e77db0807a382E.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h148e77db0807a382E.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -899,7 +899,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   unreachable
 
 94:                                               ; preds = %174, %139, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
-  %.sroa.03.1.i = phi i64 [ %52, %174 ], [ %52, %139 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ]
+  %.sroa.03.1.i = phi i64 [ %52, %139 ], [ %52, %174 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ], [ %.sroa.03.0136.i, %50 ]
   store i32 2, ptr %43, align 4, !alias.scope !138, !noalias !115
   %95 = icmp eq ptr %51, %44
   br i1 %95, label %._crit_edge.i2.loopexit, label %50
@@ -1158,7 +1158,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %175, %166, %.thread.i44.i, %140, %131, %.thread.i38.i, %91
-  %eh.lpad-body = phi { ptr, i32 } [ %92, %91 ], [ %lpad.thr_comm84.i, %175 ], [ %lpad.thr_comm.i, %140 ], [ %130, %.thread.i38.i ], [ %132, %131 ], [ %165, %.thread.i44.i ], [ %167, %166 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %92, %91 ], [ %lpad.thr_comm.i, %140 ], [ %lpad.thr_comm84.i, %175 ], [ %130, %.thread.i38.i ], [ %132, %131 ], [ %165, %.thread.i44.i ], [ %167, %166 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$ruff_python_semantic..cfg..graph..CFGBuilder$GT$17h989f6ababb75b8a4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #22
           to label %common.resume unwind label %177
 

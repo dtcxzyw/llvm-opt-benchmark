@@ -2478,7 +2478,7 @@ define internal i32 @get_tds_pdu_len(ptr readnone captures(none) %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %14, %9, %6
-  %.0 = phi i32 [ %17, %14 ], [ %13, %9 ], [ %8, %6 ]
+  %.0 = phi i32 [ %17, %14 ], [ %8, %6 ], [ %13, %9 ]
   ret i32 %.0
 }
 
@@ -3005,15 +3005,15 @@ dissect_tds_type_info.exit.thread.i:              ; preds = %227
   br label %.thread91.i
 
 .thread81.i:                                      ; preds = %264, %257, %254
-  %.083.ph.i.ph.i = phi i32 [ %266, %264 ], [ %259, %257 ], [ %256, %254 ]
-  %.082.ph.i.ph.i = phi i32 [ 2, %264 ], [ 2, %257 ], [ 1, %254 ]
+  %.083.ph.i.ph.i = phi i32 [ %256, %254 ], [ %259, %257 ], [ %266, %264 ]
+  %.082.ph.i.ph.i = phi i32 [ 1, %254 ], [ 2, %257 ], [ 2, %264 ]
   %270 = load i32, ptr @hf_tds_type_info_varlen, align 4
   %271 = load i32, ptr %35, align 4
   %272 = call ptr @proto_tree_add_uint(ptr noundef %248, i32 noundef %270, ptr noundef nonnull %.0181, i32 noundef %271, i32 noundef %.082.ph.i.ph.i, i32 noundef %.083.ph.i.ph.i)
   br label %.thread.i
 
 273:                                              ; preds = %267, %227, %227, %227, %227
-  %.073.i = phi i1 [ false, %227 ], [ false, %227 ], [ false, %227 ], [ false, %227 ], [ true, %267 ]
+  %.073.i = phi i1 [ true, %267 ], [ false, %227 ], [ false, %227 ], [ false, %227 ], [ false, %227 ]
   %274 = call i32 @tvb_get_letohl(ptr noundef nonnull %.0181, i32 noundef %253)
   %275 = load i32, ptr @hf_tds_type_info_varlen, align 4
   %276 = load i32, ptr %35, align 4
@@ -3689,7 +3689,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   br label %658
 
 658:                                              ; preds = %656, %654, %652, %650, %648, %646, %644, %630
-  %.1140.i = phi i32 [ %.0139154.i, %630 ], [ %657, %656 ], [ %655, %654 ], [ %653, %652 ], [ %651, %650 ], [ %649, %648 ], [ %647, %646 ], [ %645, %644 ]
+  %.1140.i = phi i32 [ %.0139154.i, %630 ], [ %645, %644 ], [ %647, %646 ], [ %649, %648 ], [ %651, %650 ], [ %653, %652 ], [ %655, %654 ], [ %657, %656 ]
   %.not.i195 = icmp eq i16 %636, 0
   br i1 %.not.i195, label %683, label %660
 
@@ -3893,13 +3893,13 @@ dissect_tds_query_packet.exit:                    ; preds = %703, %705, %709, %7
   br label %tds_get_variable_token_size_sybase.exit.i
 
 tds_get_variable_token_size_sybase.exit.i:        ; preds = %738, %735, %731, %729, %729
-  %.0126.i = phi i32 [ 3, %738 ], [ 2, %735 ], [ 5, %731 ], [ 1, %729 ], [ 1, %729 ]
-  %.sink.i.i = phi i32 [ %742, %738 ], [ %737, %735 ], [ %734, %731 ], [ 0, %729 ], [ 0, %729 ]
+  %.0126.i = phi i32 [ 3, %738 ], [ 5, %731 ], [ 2, %735 ], [ 1, %729 ], [ 1, %729 ]
+  %.sink.i.i = phi i32 [ %742, %738 ], [ %734, %731 ], [ %737, %735 ], [ 0, %729 ], [ 0, %729 ]
   %743 = add i32 %.sink.i.i, %.0126.i
   br label %tds_get_fixed_token_size_sybase.exit.i
 
 tds_get_fixed_token_size_sybase.exit.i:           ; preds = %tds_get_variable_token_size_sybase.exit.i, %728, %727, %725, %725, %725, %725
-  %.076.i = phi i32 [ %743, %tds_get_variable_token_size_sybase.exit.i ], [ 2, %728 ], [ 5, %727 ], [ 9, %725 ], [ 9, %725 ], [ 9, %725 ], [ 9, %725 ]
+  %.076.i = phi i32 [ %743, %tds_get_variable_token_size_sybase.exit.i ], [ 5, %727 ], [ 2, %728 ], [ 9, %725 ], [ 9, %725 ], [ 9, %725 ], [ 9, %725 ]
   %744 = load i32, ptr @ett_tds_token, align 4
   %745 = zext i8 %726 to i32
   %746 = call ptr @val_to_str_const(i32 noundef %745, ptr noundef nonnull @token_names, ptr noundef nonnull @.str.1404)
@@ -4611,7 +4611,7 @@ dissect_tds5_params_token.exit.i:                 ; preds = %._crit_edge.loopexi
   br label %1113
 
 1113:                                             ; preds = %dissect_tds5_params_token.exit.i, %1090, %1086, %dissect_tds5_dbrpc_token.exit.i, %1060, %dissect_tds5_curopen_token.exit.i, %1008, %dissect_tds5_curfetch_token.exit.i, %dissect_tds5_curdeclare_token.exit.i, %dissect_tds5_curclose_token.exit.i, %753, %752
-  %.1.i204 = phi i32 [ %.076.i, %752 ], [ %1112, %dissect_tds5_params_token.exit.i ], [ %1093, %1090 ], [ %1089, %1086 ], [ %1085, %dissect_tds5_dbrpc_token.exit.i ], [ 2, %1060 ], [ %1059, %dissect_tds5_curopen_token.exit.i ], [ %1011, %1008 ], [ %1007, %dissect_tds5_curfetch_token.exit.i ], [ %922, %dissect_tds5_curdeclare_token.exit.i ], [ %842, %dissect_tds5_curclose_token.exit.i ], [ %770, %753 ]
+  %.1.i204 = phi i32 [ %.076.i, %752 ], [ %770, %753 ], [ %842, %dissect_tds5_curclose_token.exit.i ], [ %922, %dissect_tds5_curdeclare_token.exit.i ], [ %1007, %dissect_tds5_curfetch_token.exit.i ], [ %1011, %1008 ], [ %1059, %dissect_tds5_curopen_token.exit.i ], [ 2, %1060 ], [ %1085, %dissect_tds5_dbrpc_token.exit.i ], [ %1089, %1086 ], [ %1093, %1090 ], [ %1112, %dissect_tds5_params_token.exit.i ]
   %1114 = add i32 %.1.i204, %.0133.i
   %1115 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %1114)
   %1116 = icmp sgt i32 %1115, 0
@@ -4965,7 +4965,7 @@ dissect_tds_prelogin_response.exit:               ; preds = %48, %.lr.ph, %58, %
   br label %tds45_token_to_idx.exit
 
 tds45_token_to_idx.exit:                          ; preds = %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115
-  %.0.in.i = phi ptr [ @hf_tds_unknown_tds_token, %115 ], [ @hf_tds_rowfmt2, %114 ], [ @hf_tds_rowfmt, %113 ], [ @hf_tds_row, %112 ], [ @hf_tds_returnstatus, %111 ], [ @hf_tds_procid, %110 ], [ @hf_tds_params, %109 ], [ @hf_tds_paramfmt2, %108 ], [ @hf_tds_paramfmt, %107 ], [ @hf_tds_order, %106 ], [ @hf_tds_offset, %105 ], [ @hf_tds_msg, %104 ], [ @hf_tds_logout, %103 ], [ @hf_tds_loginack, %102 ], [ @hf_tds_info, %101 ], [ @hf_tds_error, %100 ], [ @hf_tds_envchg, %99 ], [ @hf_tds_eed, %98 ], [ @hf_tds_doneinproc, %97 ], [ @hf_tds_doneproc, %96 ], [ @hf_tds_done, %95 ], [ @hf_tds_dbrpc, %94 ], [ @hf_tds_curopen, %93 ], [ @hf_tds_curinfo, %92 ], [ @hf_tds_curfetch, %91 ], [ @hf_tds_curdeclare, %90 ], [ @hf_tds_curclose, %89 ], [ @hf_tds_control, %88 ], [ @hf_tds_colname, %87 ], [ @hf_tds_colfmt, %86 ], [ @hf_tds_capability, %85 ]
+  %.0.in.i = phi ptr [ @hf_tds_unknown_tds_token, %115 ], [ @hf_tds_colfmt, %86 ], [ @hf_tds_colname, %87 ], [ @hf_tds_control, %88 ], [ @hf_tds_curclose, %89 ], [ @hf_tds_curdeclare, %90 ], [ @hf_tds_curfetch, %91 ], [ @hf_tds_curinfo, %92 ], [ @hf_tds_curopen, %93 ], [ @hf_tds_dbrpc, %94 ], [ @hf_tds_done, %95 ], [ @hf_tds_doneproc, %96 ], [ @hf_tds_doneinproc, %97 ], [ @hf_tds_eed, %98 ], [ @hf_tds_envchg, %99 ], [ @hf_tds_error, %100 ], [ @hf_tds_info, %101 ], [ @hf_tds_loginack, %102 ], [ @hf_tds_logout, %103 ], [ @hf_tds_msg, %104 ], [ @hf_tds_offset, %105 ], [ @hf_tds_order, %106 ], [ @hf_tds_paramfmt, %107 ], [ @hf_tds_paramfmt2, %108 ], [ @hf_tds_params, %109 ], [ @hf_tds_procid, %110 ], [ @hf_tds_returnstatus, %111 ], [ @hf_tds_row, %112 ], [ @hf_tds_rowfmt, %113 ], [ @hf_tds_rowfmt2, %114 ], [ @hf_tds_capability, %85 ]
   %.0.i = load i32, ptr %.0.in.i, align 4
   %116 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0202331)
   %117 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0.i, ptr noundef nonnull %0, i32 noundef %.0202331, i32 noundef %116, i32 noundef 0)
@@ -6265,7 +6265,7 @@ dissect_tds_rowfmt2_token.exit:                   ; preds = %.thread.i271, %751
   br label %753
 
 753:                                              ; preds = %dissect_tds_rowfmt2_token.exit, %dissect_tds_rowfmt_token.exit, %393, %dissect_tds5_params_token.exit, %361, %357, %353, %333, %329, %dissect_tds_control_token.exit, %dissect_tds_colfmt_token.exit, %dissect_tds_col_name_token.exit, %190, %140, %136, %132, %128, %124, %120
-  %.0 = phi i32 [ %.2.i254, %dissect_tds_rowfmt2_token.exit ], [ %.2.i240, %dissect_tds_rowfmt_token.exit ], [ %396, %393 ], [ %382, %dissect_tds5_params_token.exit ], [ %364, %361 ], [ %360, %357 ], [ %356, %353 ], [ %336, %333 ], [ %332, %329 ], [ %.023.i, %dissect_tds_control_token.exit ], [ %.2.i215, %dissect_tds_colfmt_token.exit ], [ %.2.i, %dissect_tds_col_name_token.exit ], [ %193, %190 ], [ %189, %140 ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ]
+  %.0 = phi i32 [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %139, %136 ], [ %189, %140 ], [ %193, %190 ], [ %.2.i, %dissect_tds_col_name_token.exit ], [ %.2.i215, %dissect_tds_colfmt_token.exit ], [ %.023.i, %dissect_tds_control_token.exit ], [ %332, %329 ], [ %336, %333 ], [ %356, %353 ], [ %360, %357 ], [ %364, %361 ], [ %382, %dissect_tds5_params_token.exit ], [ %396, %393 ], [ %.2.i240, %dissect_tds_rowfmt_token.exit ], [ %.2.i254, %dissect_tds_rowfmt2_token.exit ]
   %754 = icmp eq i32 %.0, 0
   br i1 %754, label %.thread299, label %.thread
 
@@ -6273,8 +6273,8 @@ dissect_tds_rowfmt2_token.exit:                   ; preds = %.thread.i271, %751
   %755 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %117, ptr noundef nonnull @ei_tds_token_length_invalid, ptr noundef nonnull @.str.1355, i32 noundef 0)
   br label %.thread305
 
-.thread:                                          ; preds = %337, %341, %383, %387, %753
-  %.0298 = phi i32 [ %.0, %753 ], [ %340, %337 ], [ 5, %341 ], [ 9, %383 ], [ 5, %387 ]
+.thread:                                          ; preds = %387, %383, %341, %337, %753
+  %.0298 = phi i32 [ %.0, %753 ], [ 5, %387 ], [ 9, %383 ], [ 5, %341 ], [ %340, %337 ]
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %.0298)
   br label %1348
 
@@ -6355,7 +6355,7 @@ dissect_tds_rowfmt2_token.exit:                   ; preds = %.thread.i271, %751
   br label %tds7_token_to_idx.exit
 
 tds7_token_to_idx.exit:                           ; preds = %756, %757, %758, %759, %760, %761, %762, %763, %764, %765, %766, %767, %768, %769, %770, %771, %772, %773, %774
-  %.0.in.i272 = phi ptr [ @hf_tds_unknown_tds_token, %774 ], [ @hf_tds_sspi, %773 ], [ @hf_tds_sessionstate, %772 ], [ @hf_tds_row, %771 ], [ @hf_tds_returnstatus, %770 ], [ @hf_tds_order, %769 ], [ @hf_tds_offset, %768 ], [ @hf_tds_nbcrow, %767 ], [ @hf_tds_loginack, %766 ], [ @hf_tds_info, %765 ], [ @hf_tds_featureextack, %764 ], [ @hf_tds_error, %763 ], [ @hf_tds_envchg, %762 ], [ @hf_tds_doneinproc, %761 ], [ @hf_tds_doneproc, %760 ], [ @hf_tds_done, %759 ], [ @hf_tds_colmetadata, %758 ], [ @hf_tds_colfmt, %757 ], [ @hf_tds_capability, %756 ]
+  %.0.in.i272 = phi ptr [ @hf_tds_unknown_tds_token, %774 ], [ @hf_tds_colfmt, %757 ], [ @hf_tds_colmetadata, %758 ], [ @hf_tds_done, %759 ], [ @hf_tds_doneproc, %760 ], [ @hf_tds_doneinproc, %761 ], [ @hf_tds_envchg, %762 ], [ @hf_tds_error, %763 ], [ @hf_tds_featureextack, %764 ], [ @hf_tds_info, %765 ], [ @hf_tds_loginack, %766 ], [ @hf_tds_nbcrow, %767 ], [ @hf_tds_offset, %768 ], [ @hf_tds_order, %769 ], [ @hf_tds_returnstatus, %770 ], [ @hf_tds_row, %771 ], [ @hf_tds_sessionstate, %772 ], [ @hf_tds_sspi, %773 ], [ @hf_tds_capability, %756 ]
   %.0.i273 = load i32, ptr %.0.in.i272, align 4
   %775 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0202331)
   %776 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0.i273, ptr noundef nonnull %0, i32 noundef %.0202331, i32 noundef %775, i32 noundef 0)
@@ -7053,7 +7053,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i280, %.lr.ph657.i, %1155, %1145, %1129, %1097, %1081, %1064, %1059, %1017, %1012, %976, %960, %953, %937, %930, %924, %907, %900, %899, %896, %.thread650.thread.i
-  %.2.i277 = phi i32 [ %895, %896 ], [ %895, %899 ], [ %1154, %1145 ], [ %1106, %1097 ], [ %1069, %1064 ], [ %1063, %1059 ], [ %975, %960 ], [ %959, %953 ], [ %952, %937 ], [ %936, %930 ], [ %929, %924 ], [ %923, %907 ], [ %1158, %1155 ], [ %906, %900 ], [ %1022, %1017 ], [ %1016, %1012 ], [ %978, %976 ], [ %895, %.thread650.thread.i ], [ %1086, %1081 ], [ %1134, %1129 ], [ %1095, %.lr.ph657.i ], [ %1143, %.lr.ph.i280 ]
+  %.2.i277 = phi i32 [ %895, %896 ], [ %895, %899 ], [ %906, %900 ], [ %1158, %1155 ], [ %923, %907 ], [ %929, %924 ], [ %936, %930 ], [ %952, %937 ], [ %959, %953 ], [ %975, %960 ], [ %1069, %1064 ], [ %1063, %1059 ], [ %1106, %1097 ], [ %1154, %1145 ], [ %1022, %1017 ], [ %1016, %1012 ], [ %978, %976 ], [ %895, %.thread650.thread.i ], [ %1086, %1081 ], [ %1134, %1129 ], [ %1095, %.lr.ph657.i ], [ %1143, %.lr.ph.i280 ]
   %1159 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.2.i277)
   %1160 = load i32, ptr @hf_tds_colmetadata_colname_length, align 4
   %1161 = call ptr @proto_tree_add_item(ptr noundef %795, i32 noundef %1160, ptr noundef nonnull %0, i32 noundef %.2.i277, i32 noundef 1, i32 noundef 0)
@@ -7389,12 +7389,12 @@ dissect_tds_sspi_token.exit:                      ; preds = %1324, %1342
   br label %dissect_tds7_colmetadata_token.exit
 
 dissect_tds7_colmetadata_token.exit:              ; preds = %._crit_edge.i278, %dissect_tds_sspi_token.exit, %dissect_tds_sessionstate_token.exit, %1280, %1270, %dissect_tds_nbc_row_token.exit, %dissect_tds_featureextack_token.exit, %1192, %1188, %1184, %1180, %1176, %1172
-  %.1 = phi i32 [ %1346, %dissect_tds_sspi_token.exit ], [ %.lcssa.i, %dissect_tds_sessionstate_token.exit ], [ %1283, %1280 ], [ %1273, %1270 ], [ %1262, %dissect_tds_nbc_row_token.exit ], [ %1221, %dissect_tds_featureextack_token.exit ], [ %1195, %1192 ], [ %1191, %1188 ], [ %1187, %1184 ], [ %1183, %1180 ], [ %1179, %1176 ], [ %1175, %1172 ], [ %1171, %._crit_edge.i278 ]
+  %.1 = phi i32 [ %1175, %1172 ], [ %1179, %1176 ], [ %1183, %1180 ], [ %1187, %1184 ], [ %1191, %1188 ], [ %1195, %1192 ], [ %1221, %dissect_tds_featureextack_token.exit ], [ %1262, %dissect_tds_nbc_row_token.exit ], [ %1273, %1270 ], [ %1283, %1280 ], [ %.lcssa.i, %dissect_tds_sessionstate_token.exit ], [ %1346, %dissect_tds_sspi_token.exit ], [ %1171, %._crit_edge.i278 ]
   %1347 = icmp eq i32 %.1, 0
   br i1 %1347, label %.thread305, label %.thread302
 
-.thread302:                                       ; preds = %dissect_tds7_colmetadata_token.exit.thread, %1222, %1263, %1274, %dissect_tds7_colmetadata_token.exit
-  %.1304 = phi i32 [ %.1, %dissect_tds7_colmetadata_token.exit ], [ %1225, %1222 ], [ 5, %1263 ], [ 5, %1274 ], [ 3, %dissect_tds7_colmetadata_token.exit.thread ]
+.thread302:                                       ; preds = %dissect_tds7_colmetadata_token.exit.thread, %1274, %1263, %1222, %dissect_tds7_colmetadata_token.exit
+  %.1304 = phi i32 [ %.1, %dissect_tds7_colmetadata_token.exit ], [ 5, %1274 ], [ 5, %1263 ], [ %1225, %1222 ], [ 3, %dissect_tds7_colmetadata_token.exit.thread ]
   call void @proto_item_set_len(ptr noundef %776, i32 noundef %.1304)
   br label %1348
 
@@ -9651,8 +9651,8 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %.pre = load i32, ptr %7, align 4
   br label %.thread
 
-.thread:                                          ; preds = %36, %40, %33, %49, %44
-  %54 = phi i32 [ %34, %36 ], [ %34, %40 ], [ %34, %33 ], [ %.pre, %49 ], [ %.pre15, %44 ]
+.thread:                                          ; preds = %40, %36, %33, %49, %44
+  %54 = phi i32 [ %34, %40 ], [ %34, %36 ], [ %34, %33 ], [ %.pre, %49 ], [ %.pre15, %44 ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
@@ -10157,7 +10157,7 @@ define internal fastcc i32 @dissect_tds_envchg_token(ptr noundef nonnull %0, i32
   br label %63
 
 63:                                               ; preds = %49, %54, %17, %26, %59, %4
-  %.0 = phi i32 [ %16, %4 ], [ %62, %59 ], [ %58, %54 ], [ %52, %49 ], [ %31, %26 ], [ %20, %17 ]
+  %.0 = phi i32 [ %16, %4 ], [ %31, %26 ], [ %20, %17 ], [ %58, %54 ], [ %52, %49 ], [ %62, %59 ]
   switch i8 %13, label %93 [
     i8 1, label %64
     i8 2, label %64
@@ -10232,7 +10232,7 @@ define internal fastcc i32 @dissect_tds_envchg_token(ptr noundef nonnull %0, i32
   br label %93
 
 93:                                               ; preds = %83, %88, %64, %73, %79, %63
-  %.1 = phi i32 [ %.0, %63 ], [ %92, %88 ], [ %86, %83 ], [ %82, %79 ], [ %78, %73 ], [ %67, %64 ]
+  %.1 = phi i32 [ %.0, %63 ], [ %78, %73 ], [ %67, %64 ], [ %82, %79 ], [ %92, %88 ], [ %86, %83 ]
   %94 = sub i32 %.1, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
@@ -11191,7 +11191,7 @@ define internal fastcc range(i32 -1, 17) i32 @get_size_by_coltype(i32 noundef %0
   br label %7
 
 7:                                                ; preds = %1, %1, %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %6 ], [ 16, %5 ], [ 8, %4 ], [ 4, %3 ], [ 2, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
+  %.0 = phi i32 [ -1, %6 ], [ 2, %2 ], [ 4, %3 ], [ 8, %4 ], [ 16, %5 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.0
 }
 

@@ -8803,7 +8803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1710: ; preds = %_
   br label %2373
 
 .thread2268:                                      ; preds = %1623, %1628, %1615, %1619, %2146, %2003, %1999, %2020, %2013, %2007, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707, %._crit_edge2478, %1958, %1596, %.thread2321, %.thread2297, %.thread2293, %.thread2317, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1532, %"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT12InitFromInfoERKN17cmQtAutoGenerator5InfoTEEN3$_0D2Ev.exit", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1278, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1261, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1565, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1333
-  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1261 ], [ %.23, %1958 ], [ %1660, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1565 ], [ %.4, %"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT12InitFromInfoERKN17cmQtAutoGenerator5InfoTEEN3$_0D2Ev.exit" ], [ %718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1333 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1193 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1246 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1278 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1312 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1532 ], [ true, %.thread2317 ], [ %1707, %.thread2293 ], [ false, %.thread2297 ], [ %1970, %.thread2321 ], [ %1597, %1596 ], [ true, %._crit_edge2478 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707 ], [ %.35, %2146 ], [ false, %2003 ], [ false, %1999 ], [ false, %2020 ], [ false, %2013 ], [ false, %2007 ], [ false, %1619 ], [ false, %1615 ], [ false, %1628 ], [ false, %1623 ]
+  %.0 = phi i1 [ %.23, %1958 ], [ %1660, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1565 ], [ %.4, %"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT12InitFromInfoERKN17cmQtAutoGenerator5InfoTEEN3$_0D2Ev.exit" ], [ %718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1333 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1261 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1193 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1246 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1278 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1312 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1532 ], [ true, %.thread2317 ], [ %1707, %.thread2293 ], [ false, %.thread2297 ], [ %1970, %.thread2321 ], [ %1597, %1596 ], [ true, %._crit_edge2478 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707 ], [ %.35, %2146 ], [ false, %2003 ], [ false, %1999 ], [ false, %2020 ], [ false, %2013 ], [ false, %2007 ], [ false, %1619 ], [ false, %1615 ], [ false, %1628 ], [ false, %1623 ]
   ret i1 %.0
 
 2373:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1636, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1669, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1583, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1628, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1549, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1555, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1710, %2341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1571, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1541, %1503, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1284, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1232
@@ -12793,7 +12793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i: ; preds = %_
   br label %_ZN12_GLOBAL__N_115cmQtAutoMocUicT17SettingsFileWriteEv.exit
 
 _ZN12_GLOBAL__N_115cmQtAutoMocUicT17SettingsFileWriteEv.exit: ; preds = %1521, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT15ParseCacheWriteEv.exit, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT17CreateDirectoriesEv.exit, %1099, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT8InitJobsEv.exit
-  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT17CreateDirectoriesEv.exit ], [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT8InitJobsEv.exit ], [ false, %1099 ], [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT15ParseCacheWriteEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i ], [ true, %1521 ]
+  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT17CreateDirectoriesEv.exit ], [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT8InitJobsEv.exit ], [ false, %1099 ], [ false, %_ZN12_GLOBAL__N_115cmQtAutoMocUicT15ParseCacheWriteEv.exit ], [ true, %1521 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70.i ]
   ret i1 %.0
 }
 
@@ -31973,7 +31973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i.i.i
-  %.sroa.046.1.i.i.i.i.i = phi ptr [ %.sroa.046.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %76, %75 ]
+  %.sroa.046.1.i.i.i.i.i = phi ptr [ %76, %75 ], [ %.sroa.046.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %78 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_"(ptr nonnull readonly %8, i64 %4, ptr %5, ptr %.sroa.046.1.i.i.i.i.i)
   br i1 %78, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINSF_11SourceFileTEESt17basic_string_viewIcS5_ESM_E3$_0EbT_SO_T0_.exit", label %79
 
@@ -31982,7 +31982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge.i.i.i.i.i
-  %.sroa.046.2.i.i.i.i.i = phi ptr [ %.sroa.046.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %80, %79 ]
+  %.sroa.046.2.i.i.i.i.i = phi ptr [ %80, %79 ], [ %.sroa.046.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %82 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINS3_11SourceFileTEESt17basic_string_viewIcSt11char_traitsIcEESC_E3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSB_SaIcEEESt6vectorISK_SaISK_EEEEEEbT_"(ptr nonnull readonly %8, i64 %4, ptr %5, ptr %.sroa.046.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %82, ptr %.sroa.046.2.i.i.i.i.i, ptr %52
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocT18FindIncludedHeaderERSt10shared_ptrINSF_11SourceFileTEESt17basic_string_viewIcS5_ESM_E3$_0EbT_SO_T0_.exit"
@@ -35099,7 +35099,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.sroa.027.1.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.sroa.027.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.1.i.i.i.i)
           to label %.noexc23 unwind label %.loopexit.split-lp
 
@@ -35111,7 +35111,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.027.2.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.027.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS3_11SourceFileTEEE3$_0EclINS_17__normal_iteratorIPKNS3_11IncludeKeyTESt6vectorISE_SaISE_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr %.sroa.027.2.i.i.i.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
@@ -50428,7 +50428,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %189
 
 189:                                              ; preds = %187, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %188, %187 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %188, %187 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %190 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc127 unwind label %.loopexit.split-lp263.loopexit.split-lp
 
@@ -50440,7 +50440,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %193
 
 193:                                              ; preds = %191, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %192, %191 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %192, %191 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %194 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115cmQtAutoMocUicT17JobDepFilesMergeT7ProcessEvE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc128 unwind label %.loopexit.split-lp263.loopexit.split-lp
 

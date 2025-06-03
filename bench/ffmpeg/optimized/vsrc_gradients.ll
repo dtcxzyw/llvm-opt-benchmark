@@ -551,8 +551,8 @@ define internal noundef i32 @draw_gradients_slice(ptr noundef readonly captures(
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %67, %58, %54
-  %.041.i.us = phi float [ %45, %.thread45.i.us ], [ 0x401921FB60000000, %58 ], [ 0x401921FB60000000, %67 ], [ %48, %.thread42.i.us ], [ %47, %.thread.i.us ], [ 0x401921FB60000000, %54 ]
-  %.038.i.us = phi nsz float [ %73, %.thread45.i.us ], [ %66, %58 ], [ %71, %67 ], [ %75, %.thread42.i.us ], [ %76, %.thread.i.us ], [ undef, %54 ]
+  %.041.i.us = phi float [ %47, %.thread.i.us ], [ %48, %.thread42.i.us ], [ 0x401921FB60000000, %67 ], [ 0x401921FB60000000, %58 ], [ %45, %.thread45.i.us ], [ 0x401921FB60000000, %54 ]
+  %.038.i.us = phi nsz float [ %76, %.thread.i.us ], [ %75, %.thread42.i.us ], [ %71, %67 ], [ %66, %58 ], [ %73, %.thread45.i.us ], [ undef, %54 ]
   %77 = fdiv nsz float %.038.i.us, %.041.i.us
   %78 = fcmp nsz ogt float %77, 0.000000e+00
   %79 = select nsz i1 %78, float %77, float 0.000000e+00
@@ -783,8 +783,8 @@ define internal noundef i32 @draw_gradients_slice16(ptr noundef readonly capture
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %80, %71, %67
-  %.041.i.us = phi float [ %48, %.thread45.i.us ], [ 0x401921FB60000000, %71 ], [ 0x401921FB60000000, %80 ], [ %51, %.thread42.i.us ], [ %50, %.thread.i.us ], [ 0x401921FB60000000, %67 ]
-  %.038.i.us = phi nsz float [ %86, %.thread45.i.us ], [ %79, %71 ], [ %84, %80 ], [ %88, %.thread42.i.us ], [ %89, %.thread.i.us ], [ undef, %67 ]
+  %.041.i.us = phi float [ %50, %.thread.i.us ], [ %51, %.thread42.i.us ], [ 0x401921FB60000000, %80 ], [ 0x401921FB60000000, %71 ], [ %48, %.thread45.i.us ], [ 0x401921FB60000000, %67 ]
+  %.038.i.us = phi nsz float [ %89, %.thread.i.us ], [ %88, %.thread42.i.us ], [ %84, %80 ], [ %79, %71 ], [ %86, %.thread45.i.us ], [ undef, %67 ]
   %90 = fdiv nsz float %.038.i.us, %.041.i.us
   %91 = fcmp nsz ogt float %90, 0.000000e+00
   %92 = select nsz i1 %91, float %90, float 0.000000e+00
@@ -1068,8 +1068,8 @@ define internal noundef i32 @draw_gradients_slice32_planar(ptr noundef readonly 
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %95, %85, %74
-  %.041.i.us = phi float [ %102, %.thread45.i.us ], [ 0x401921FB60000000, %85 ], [ 0x401921FB60000000, %95 ], [ %108, %.thread42.i.us ], [ %113, %.thread.i.us ], [ 0x401921FB60000000, %74 ]
-  %.038.i.us = phi nsz float [ %105, %.thread45.i.us ], [ %94, %85 ], [ %99, %95 ], [ %111, %.thread42.i.us ], [ %115, %.thread.i.us ], [ undef, %74 ]
+  %.041.i.us = phi float [ %113, %.thread.i.us ], [ %108, %.thread42.i.us ], [ 0x401921FB60000000, %95 ], [ 0x401921FB60000000, %85 ], [ %102, %.thread45.i.us ], [ 0x401921FB60000000, %74 ]
+  %.038.i.us = phi nsz float [ %115, %.thread.i.us ], [ %111, %.thread42.i.us ], [ %99, %95 ], [ %94, %85 ], [ %105, %.thread45.i.us ], [ undef, %74 ]
   %116 = fdiv nsz float %.038.i.us, %.041.i.us
   %117 = fcmp nsz ogt float %116, 0.000000e+00
   %118 = select nsz i1 %117, float %116, float 0.000000e+00

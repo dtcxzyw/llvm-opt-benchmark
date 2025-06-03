@@ -355,7 +355,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %28
 
 28:                                               ; preds = %22, %6
-  %.084 = phi ptr [ %12, %6 ], [ %27, %22 ]
+  %.084 = phi ptr [ %27, %22 ], [ %12, %6 ]
   %29 = icmp eq ptr %.084, %17
   br i1 %29, label %30, label %31
 
@@ -375,7 +375,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %39
 
 39:                                               ; preds = %31, %6
-  %.1 = phi ptr [ %12, %6 ], [ %38, %31 ]
+  %.1 = phi ptr [ %38, %31 ], [ %12, %6 ]
   %40 = icmp eq ptr %.1, %17
   br i1 %40, label %41, label %42
 
@@ -395,7 +395,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %50
 
 50:                                               ; preds = %42, %6
-  %.2 = phi ptr [ %12, %6 ], [ %49, %42 ]
+  %.2 = phi ptr [ %49, %42 ], [ %12, %6 ]
   %51 = icmp eq ptr %.2, %17
   br i1 %51, label %52, label %53
 
@@ -414,7 +414,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %60
 
 60:                                               ; preds = %53, %6
-  %.3 = phi ptr [ %12, %6 ], [ %59, %53 ]
+  %.3 = phi ptr [ %59, %53 ], [ %12, %6 ]
   %61 = icmp eq ptr %.3, %17
   br i1 %61, label %62, label %63
 
@@ -432,7 +432,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %69
 
 69:                                               ; preds = %63, %6
-  %.4 = phi ptr [ %12, %6 ], [ %68, %63 ]
+  %.4 = phi ptr [ %68, %63 ], [ %12, %6 ]
   %70 = icmp eq ptr %.4, %17
   br i1 %70, label %71, label %72
 
@@ -452,7 +452,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %80
 
 80:                                               ; preds = %72, %6
-  %.5 = phi ptr [ %12, %6 ], [ %79, %72 ]
+  %.5 = phi ptr [ %79, %72 ], [ %12, %6 ]
   %81 = icmp eq ptr %.5, %17
   br i1 %81, label %82, label %83
 
@@ -472,7 +472,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %91
 
 91:                                               ; preds = %83, %6
-  %.6 = phi ptr [ %12, %6 ], [ %90, %83 ]
+  %.6 = phi ptr [ %90, %83 ], [ %12, %6 ]
   %92 = icmp eq ptr %.6, %17
   br i1 %92, label %93, label %94
 
@@ -491,7 +491,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   br label %101
 
 101:                                              ; preds = %94, %6
-  %.7 = phi ptr [ %12, %6 ], [ %100, %94 ]
+  %.7 = phi ptr [ %100, %94 ], [ %12, %6 ]
   %.not89 = icmp eq ptr %17, %.7
   br i1 %.not89, label %._crit_edge, label %102
 

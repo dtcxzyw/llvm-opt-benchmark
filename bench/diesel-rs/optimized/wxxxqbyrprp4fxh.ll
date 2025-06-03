@@ -168,7 +168,7 @@ default.unreachable11:                            ; preds = %2
   br label %58
 
 58:                                               ; preds = %52, %46, %38, %30, %24, %16
-  %.0.in = phi i1 [ %57, %52 ], [ %51, %46 ], [ %45, %38 ], [ %37, %30 ], [ %29, %24 ], [ %23, %16 ]
+  %.0.in = phi i1 [ %23, %16 ], [ %29, %24 ], [ %37, %30 ], [ %45, %38 ], [ %51, %46 ], [ %57, %52 ]
   ret i1 %.0.in
 }
 
@@ -198,7 +198,7 @@ define noundef zeroext i1 @"_ZN82_$LT$diesel_migrations..errors..MigrationError$
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2, %12, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit", %9
-  %.0.shrunk = phi i1 [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit" ], [ %11, %9 ], [ false, %12 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %11, %9 ], [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit" ], [ false, %12 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
 16:                                               ; preds = %12
@@ -474,7 +474,7 @@ default.unreachable9:                             ; preds = %2
   br label %45
 
 45:                                               ; preds = %37, %26, %15
-  %.0.in = phi i1 [ %44, %37 ], [ %36, %26 ], [ %25, %15 ]
+  %.0.in = phi i1 [ %25, %15 ], [ %36, %26 ], [ %44, %37 ]
   ret i1 %.0.in
 }
 

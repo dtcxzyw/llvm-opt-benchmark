@@ -1165,7 +1165,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br label %412
 
 412:                                              ; preds = %410, %405, %403, %396, %369, %360
-  %.0542.i = phi i16 [ %334, %410 ], [ %394, %396 ], [ %401, %403 ], [ %401, %405 ], [ %334, %360 ], [ %334, %369 ]
+  %.0542.i = phi i16 [ %334, %410 ], [ %334, %360 ], [ %334, %369 ], [ %394, %396 ], [ %401, %403 ], [ %401, %405 ]
   %413 = icmp ult i16 %338, 4096
   br i1 %413, label %dissect_hip_tlv.exit, label %414
 

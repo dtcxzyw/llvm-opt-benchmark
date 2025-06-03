@@ -373,7 +373,7 @@ if.end30.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i42.i.i.i, %if.end30.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i42.i.i.i, %if.end30.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %32 = load ptr, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !26
   %cmp.not.i.i.i43.i.i.i = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i43.i.i.i, label %cond.false.i.i.i45.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit47.i.i.i, !prof !17
@@ -393,7 +393,7 @@ if.end37.i.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i48.i.i.i, %if.end37.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i48.i.i.i, %if.end37.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %34 = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !26
   %cmp.not.i.i.i49.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i49.i.i.i, label %cond.false.i.i.i51.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_19points_toEEclINS_17__normal_iteratorIPKN5boost10shared_ptrINS2_11DefaultTypeEEESt6vectorISB_SaISB_EEEEEEbT_.exit53.i.i.i, !prof !17

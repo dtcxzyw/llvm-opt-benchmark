@@ -1595,7 +1595,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i: ; preds = %98
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i: ; preds = %102, %.thread.i.i.i.i16.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i
-  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i ], [ %104, %102 ], [ 0, %.thread.i.i.i.i16.i ]
+  %.1.i.i.i.i.i = phi i32 [ %104, %102 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i ], [ 0, %.thread.i.i.i.i16.i ]
   %105 = icmp slt i32 %.1.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit
 
@@ -1763,7 +1763,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183: ; preds = %168
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189: ; preds = %172, %.thread.i.i.i.i16.i192, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183
-  %.1.i.i.i.i.i190 = phi i32 [ %spec.select.i.i.i.i.i188, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183 ], [ %174, %172 ], [ 0, %.thread.i.i.i.i16.i192 ]
+  %.1.i.i.i.i.i190 = phi i32 [ %174, %172 ], [ %spec.select.i.i.i.i.i188, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183 ], [ 0, %.thread.i.i.i.i16.i192 ]
   %175 = icmp slt i32 %.1.i.i.i.i.i190, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit194
 

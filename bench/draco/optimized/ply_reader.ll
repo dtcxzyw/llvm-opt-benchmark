@@ -1524,7 +1524,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %73, %72 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %73, %72 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %75 = load i8, ptr %.sroa.038.1.i.i.i.i, align 1, !tbaa !15
   %76 = sext i8 %75 to i32
   %77 = call noundef i32 @isspace(i32 noundef %76) #24
@@ -1536,7 +1536,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %79, %78 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %79, %78 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %81 = load i8, ptr %.sroa.038.2.i.i.i.i, align 1, !tbaa !15
   %82 = sext i8 %81 to i32
   %83 = call noundef i32 @isspace(i32 noundef %82) #24
@@ -1813,7 +1813,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i29:
   br label %180
 
 180:                                              ; preds = %178, %._crit_edge.i.i.i.i36
-  %.sroa.038.1.i.i.i.i43 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ], [ %179, %178 ]
+  %.sroa.038.1.i.i.i.i43 = phi ptr [ %179, %178 ], [ %.sroa.038.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ]
   %181 = load i8, ptr %.sroa.038.1.i.i.i.i43, align 1, !tbaa !15
   %182 = sext i8 %181 to i32
   %183 = call noundef i32 @isspace(i32 noundef %182) #24
@@ -1825,7 +1825,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i29:
   br label %186
 
 186:                                              ; preds = %184, %._crit_edge.i.i.i.i36
-  %.sroa.038.2.i.i.i.i39 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ], [ %185, %184 ]
+  %.sroa.038.2.i.i.i.i39 = phi ptr [ %185, %184 ], [ %.sroa.038.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ]
   %187 = load i8, ptr %.sroa.038.2.i.i.i.i39, align 1, !tbaa !15
   %188 = sext i8 %187 to i32
   %189 = call noundef i32 @isspace(i32 noundef %188) #24

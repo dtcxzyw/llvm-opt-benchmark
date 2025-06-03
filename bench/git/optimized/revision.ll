@@ -12671,10 +12671,10 @@ rev_compare_tree.exit:                            ; preds = %.thread36.i, %107
   ]
 
 rev_compare_tree.exit.thread.sink.split:          ; preds = %.lr.ph.i, %107
-  %count_bloom_filter_false_positive.sink208 = phi ptr [ @count_bloom_filter_false_positive, %107 ], [ @count_bloom_filter_definitely_not, %.lr.ph.i ]
-  %112 = load i32, ptr %count_bloom_filter_false_positive.sink208, align 4, !tbaa !42
+  %count_bloom_filter_false_positive.sink210 = phi ptr [ @count_bloom_filter_false_positive, %107 ], [ @count_bloom_filter_definitely_not, %.lr.ph.i ]
+  %112 = load i32, ptr %count_bloom_filter_false_positive.sink210, align 4, !tbaa !42
   %113 = add i32 %112, 1
-  store i32 %113, ptr %count_bloom_filter_false_positive.sink208, align 4, !tbaa !42
+  store i32 %113, ptr %count_bloom_filter_false_positive.sink210, align 4, !tbaa !42
   br label %rev_compare_tree.exit.thread
 
 rev_compare_tree.exit.thread:                     ; preds = %rev_compare_tree.exit.thread.sink.split, %74, %rev_compare_tree.exit
@@ -12705,16 +12705,16 @@ rev_compare_tree.exit.thread:                     ; preds = %rev_compare_tree.ex
   tail call void @free_commit_list(ptr noundef %124) #26
   store ptr null, ptr %123, align 8, !tbaa !251
   %125 = load ptr, ptr %10, align 8, !tbaa !363
-  %.not102166 = icmp eq ptr %125, %29
-  br i1 %.not102166, label %._crit_edge169, label %.lr.ph168
+  %.not102168 = icmp eq ptr %125, %29
+  br i1 %.not102168, label %._crit_edge171, label %.lr.ph170
 
-.lr.ph168:                                        ; preds = %122, %.lr.ph168
+.lr.ph170:                                        ; preds = %122, %.lr.ph170
   %126 = tail call ptr @pop_commit(ptr noundef nonnull %10) #26
   %127 = load ptr, ptr %10, align 8, !tbaa !363
   %.not102 = icmp eq ptr %127, %29
-  br i1 %.not102, label %._crit_edge169, label %.lr.ph168, !llvm.loop !438
+  br i1 %.not102, label %._crit_edge171, label %.lr.ph170, !llvm.loop !438
 
-._crit_edge169:                                   ; preds = %.lr.ph168, %122
+._crit_edge171:                                   ; preds = %.lr.ph170, %122
   store ptr %29, ptr %10, align 8, !tbaa !363
   %128 = load i64, ptr %3, align 8
   %129 = and i64 %128, 256
@@ -12797,13 +12797,13 @@ default.unreachable:                              ; preds = %rev_compare_tree.ex
   %.not104 = icmp eq i32 %.072.lcssa.ph, 0
   br i1 %.not104, label %.thread123.sink.split, label %.thread123
 
-.thread123.sink.split:                            ; preds = %156, %157, %._crit_edge169, %12
+.thread123.sink.split:                            ; preds = %156, %157, %._crit_edge171, %12
   %158 = load i32, ptr %1, align 8
   %159 = or i32 %158, 64
   store i32 %159, ptr %1, align 8
   br label %.thread123
 
-.thread123:                                       ; preds = %.thread123.sink.split, %._crit_edge169, %156, %157, %17, %12, %6, %2
+.thread123:                                       ; preds = %.thread123.sink.split, %._crit_edge171, %156, %157, %17, %12, %6, %2
   ret void
 }
 

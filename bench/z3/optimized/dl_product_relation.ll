@@ -4044,7 +4044,7 @@ _ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0
   br label %86
 
 86:                                               ; preds = %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit, %85
-  %.119 = phi ptr [ %.01832, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit ], [ null, %85 ], [ %54, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread ]
+  %.119 = phi ptr [ null, %85 ], [ %.01832, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit ], [ %54, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread ]
   ret ptr %.119
 }
 
@@ -4291,7 +4291,7 @@ _ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0
   br label %86
 
 86:                                               ; preds = %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit, %85
-  %.121 = phi ptr [ %.02032, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit ], [ null, %85 ], [ %54, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread ]
+  %.121 = phi ptr [ null, %85 ], [ %.02032, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit ], [ %54, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE10mutator_fnELb0EjED2Ev.exit.thread ]
   ret ptr %.121
 }
 
@@ -16525,8 +16525,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIN7datalog18relati
   br label %242
 
 242:                                              ; preds = %._crit_edge._crit_edge, %235
-  %243 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %236, %235 ]
-  %.2 = phi i32 [ %228, %._crit_edge._crit_edge ], [ %241, %235 ]
+  %243 = phi ptr [ %236, %235 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %241, %235 ], [ %228, %._crit_edge._crit_edge ]
   %244 = load ptr, ptr %243, align 8, !tbaa !132
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 12
   %246 = load i32, ptr %245, align 4, !tbaa !314
@@ -16575,7 +16575,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIN7datalog18relati
   br label %285
 
 285:                                              ; preds = %4, %248, %90, %43, %7
-  %.0 = phi i32 [ %284, %248 ], [ %176, %90 ], [ %89, %43 ], [ %42, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %284, %248 ], [ %42, %7 ], [ %89, %43 ], [ %176, %90 ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -18511,8 +18511,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIijE22def
   br label %222
 
 222:                                              ; preds = %._crit_edge._crit_edge, %217
-  %223 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %218, %217 ]
-  %.2 = phi i32 [ %210, %._crit_edge._crit_edge ], [ %221, %217 ]
+  %223 = phi ptr [ %218, %217 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %221, %217 ], [ %210, %._crit_edge._crit_edge ]
   %224 = load i32, ptr %223, align 4, !tbaa !39
   %225 = add i32 %224, %214
   br label %226
@@ -18559,7 +18559,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIijE22def
   br label %263
 
 263:                                              ; preds = %4, %226, %84, %41, %7
-  %.0 = phi i32 [ %262, %226 ], [ %164, %84 ], [ %83, %41 ], [ %40, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %262, %226 ], [ %40, %7 ], [ %83, %41 ], [ %164, %84 ], [ 11, %4 ]
   ret i32 %.0
 }
 

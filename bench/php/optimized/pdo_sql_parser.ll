@@ -633,8 +633,8 @@ zend_string_copy.exit353:                         ; preds = %266, %271
   store ptr %267, ptr %274, align 8, !tbaa !46
   br label %.thread382
 
-.thread382:                                       ; preds = %208, %zval_get_long.exit, %223, %257, %252, %248, %241, %zend_string_release_ex.exit, %zend_string_copy.exit353
-  %275 = phi ptr [ %212, %208 ], [ %221, %zval_get_long.exit ], [ %226, %223 ], [ %.pre534, %257 ], [ %246, %252 ], [ %246, %248 ], [ %246, %241 ], [ %198, %zend_string_release_ex.exit ], [ %267, %zend_string_copy.exit353 ]
+.thread382:                                       ; preds = %223, %zval_get_long.exit, %208, %257, %252, %248, %241, %zend_string_release_ex.exit, %zend_string_copy.exit353
+  %275 = phi ptr [ %226, %223 ], [ %221, %zval_get_long.exit ], [ %212, %208 ], [ %.pre534, %257 ], [ %246, %252 ], [ %246, %248 ], [ %246, %241 ], [ %198, %zend_string_release_ex.exit ], [ %267, %zend_string_copy.exit353 ]
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load i64, ptr %276, align 8, !tbaa !33
   %278 = add i64 %277, %.1269484
@@ -990,8 +990,8 @@ zend_string_init.exit360:                         ; preds = %.lr.ph472, %zend_st
   br i1 %.not315, label %.loopexit393, label %zend_string_init.exit360
 
 .thread370:                                       ; preds = %200, %205, %zend_string_release_ex.exit347, %324, %154, %.loopexit396, %92
-  %.0281.ph.lcssa542 = phi ptr [ %.0281.ph.lcssa, %92 ], [ %.0281.ph.lcssa541, %154 ], [ %.0281.ph.lcssa541, %324 ], [ %.0281.ph.lcssa541, %.loopexit396 ], [ %.0281.ph.lcssa541, %zend_string_release_ex.exit347 ], [ %.0281.ph.lcssa541, %205 ], [ %.0281.ph.lcssa541, %200 ]
-  %.0253 = phi i32 [ -1, %92 ], [ -1, %154 ], [ 1, %324 ], [ -1, %.loopexit396 ], [ -1, %zend_string_release_ex.exit347 ], [ -1, %205 ], [ -1, %200 ]
+  %.0281.ph.lcssa542 = phi ptr [ %.0281.ph.lcssa, %92 ], [ %.0281.ph.lcssa541, %.loopexit396 ], [ %.0281.ph.lcssa541, %154 ], [ %.0281.ph.lcssa541, %324 ], [ %.0281.ph.lcssa541, %zend_string_release_ex.exit347 ], [ %.0281.ph.lcssa541, %205 ], [ %.0281.ph.lcssa541, %200 ]
+  %.0253 = phi i32 [ -1, %92 ], [ -1, %.loopexit396 ], [ -1, %154 ], [ 1, %324 ], [ -1, %zend_string_release_ex.exit347 ], [ -1, %205 ], [ -1, %200 ]
   %.not330489 = icmp eq ptr %.0281.ph.lcssa542, null
   br i1 %.not330489, label %.loopexit, label %.lr.ph491.preheader
 

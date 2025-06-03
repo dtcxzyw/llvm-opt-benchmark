@@ -2869,7 +2869,7 @@ define hidden void @_ZN3h3i6client13parse_streams17h3b4fe9d848cc8b20E(ptr dead_o
   br label %123
 
 .loopexit.split-lp:                               ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.thread65, %220, %267, %234, %215
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp64, %267 ], [ %lpad.thr_comm55, %234 ], [ %lpad.thr_comm.split-lp56, %220 ], [ %lpad.thr_comm.split-lp, %215 ], [ %lpad.thr_comm63, %.thread65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit71, %.thread.loopexit ], [ %lpad.loopexit.split-lp72, %.thread.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp64, %267 ], [ %lpad.thr_comm.split-lp, %215 ], [ %lpad.thr_comm55, %234 ], [ %lpad.thr_comm.split-lp56, %220 ], [ %lpad.thr_comm63, %.thread65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit71, %.thread.loopexit ], [ %lpad.loopexit.split-lp72, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$quiche..stream..StreamIter$GT$17hc8868a8a21b1bffeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %32) #19
           to label %59 unwind label %216
 
@@ -3871,19 +3871,19 @@ define internal fastcc void @_ZN3h3i6client21handle_response_frame17hdc21683eb4b
           to label %183 unwind label %180
 
 177:                                              ; preds = %188, %180, %168
-  %.sroa.017.3 = phi i1 [ %.sroa.017.4, %180 ], [ true, %188 ], [ false, %168 ]
-  %.sroa.016.3 = phi i1 [ %.sroa.016.4, %180 ], [ false, %188 ], [ true, %168 ]
-  %.sroa.014.2 = phi i1 [ %182, %180 ], [ true, %188 ], [ true, %168 ]
-  %.pn23 = phi { ptr, i32 } [ %181, %180 ], [ %.pn, %188 ], [ %.pn20, %168 ]
+  %.sroa.017.3 = phi i1 [ %.sroa.017.4, %180 ], [ false, %168 ], [ true, %188 ]
+  %.sroa.016.3 = phi i1 [ %.sroa.016.4, %180 ], [ true, %168 ], [ false, %188 ]
+  %.sroa.014.2 = phi i1 [ %182, %180 ], [ true, %168 ], [ true, %188 ]
+  %.pn23 = phi { ptr, i32 } [ %181, %180 ], [ %.pn20, %168 ], [ %.pn, %188 ]
   %178 = load i64, ptr %19, align 8, !range !397, !noundef !12
   %179 = icmp ne i64 %178, 12
   %or.cond = select i1 %179, i1 %.sroa.014.2, i1 false
   br i1 %or.cond, label %217, label %.body
 
 180:                                              ; preds = %207, %201, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit"
-  %.sroa.017.4 = phi i1 [ %.sroa.017.5, %201 ], [ true, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ %.sroa.017.248, %207 ]
-  %.sroa.016.4 = phi i1 [ %.sroa.016.5, %201 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ true, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ %.sroa.016.250, %207 ]
-  %.sroa.014.3 = phi i8 [ 0, %201 ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ %.sroa.014.052, %207 ]
+  %.sroa.017.4 = phi i1 [ %.sroa.017.5, %201 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ true, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ %.sroa.017.248, %207 ]
+  %.sroa.016.4 = phi i1 [ %.sroa.016.5, %201 ], [ true, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ %.sroa.016.250, %207 ]
+  %.sroa.014.3 = phi i8 [ 0, %201 ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit" ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..events..h3..Http3Frame$GT$$GT$17h0935b855a5690713E.exit41" ], [ %.sroa.014.052, %207 ]
   %181 = landingpad { ptr, i32 }
           cleanup
   %182 = trunc nuw i8 %.sroa.014.3 to i1
@@ -3894,9 +3894,9 @@ define internal fastcc void @_ZN3h3i6client21handle_response_frame17hdc21683eb4b
   br label %184
 
 184:                                              ; preds = %200, %183
-  %.sroa.017.5 = phi i1 [ true, %200 ], [ false, %183 ]
-  %.sroa.016.5 = phi i1 [ false, %200 ], [ true, %183 ]
-  %.sroa.510.2 = phi i8 [ 0, %200 ], [ %spec.select, %183 ]
+  %.sroa.017.5 = phi i1 [ false, %183 ], [ true, %200 ]
+  %.sroa.016.5 = phi i1 [ true, %183 ], [ false, %200 ]
+  %.sroa.510.2 = phi i8 [ %spec.select, %183 ], [ 0, %200 ]
   %185 = load i64, ptr %19, align 8, !range !397, !noundef !12
   %.not = icmp eq i64 %185, 12
   br i1 %.not, label %202, label %201
@@ -4055,7 +4055,7 @@ define void @"_ZN3h3i12recordreplay4qlog123_$LT$impl$u20$core..convert..From$LT$
           to label %27 unwind label %25
 
 24:                                               ; preds = %319, %.body, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb3fa0dc4d030601dE.exit", %25
-  %.pn51 = phi { ptr, i32 } [ %26, %25 ], [ %191, %319 ], [ %eh.lpad-body, %.body ], [ %.pn49, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb3fa0dc4d030601dE.exit" ]
+  %.pn51 = phi { ptr, i32 } [ %26, %25 ], [ %.pn49, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb3fa0dc4d030601dE.exit" ], [ %eh.lpad-body, %.body ], [ %191, %319 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$h3i..recordreplay..qlog..H3FrameCreatedEx$GT$17habd02b8dcce93fecE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1) #19
           to label %321 unwind label %126
 
@@ -4912,7 +4912,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$h3i..frame..H3iFrame$u20$as$u20$c
   br label %20
 
 20:                                               ; preds = %17, %14, %12
-  %.sroa.0.0.in = phi i1 [ %19, %17 ], [ %16, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %16, %14 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -158,7 +158,7 @@ define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame19exit_is
   br label %14
 
 14:                                               ; preds = %1, %11, %8
-  %.0 = phi i8 [ %13, %11 ], [ %10, %8 ], [ 0, %1 ]
+  %.0 = phi i8 [ %10, %8 ], [ %13, %11 ], [ 0, %1 ]
   %15 = trunc nuw i8 %.0 to i1
   ret i1 %15
 }

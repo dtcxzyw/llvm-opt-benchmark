@@ -1310,7 +1310,7 @@ define internal fastcc i32 @_log_init(ptr noundef %0, ptr noundef readonly byval
   br label %124
 
 124:                                              ; preds = %103, %114
-  %.2 = phi i32 [ %104, %103 ], [ 0, %114 ]
+  %.2 = phi i32 [ 0, %114 ], [ %104, %103 ]
   ret i32 %.2
 }
 
@@ -1565,7 +1565,7 @@ define internal fastcc i32 @_sched_log_init(ptr noundef %0, ptr noundef readonly
   br label %105
 
 105:                                              ; preds = %83, %103
-  %.2 = phi i32 [ %84, %83 ], [ 0, %103 ]
+  %.2 = phi i32 [ 0, %103 ], [ %84, %83 ]
   ret i32 %.2
 }
 
@@ -2435,7 +2435,7 @@ _set_idbuf.exit:                                  ; preds = %235, %239
   br label %.thread
 
 thread-pre-split:                                 ; preds = %switch.lookup, %218, %219, %222, %55, %_stepid2fmt.exit, %._crit_edge179, %._crit_edge187, %._crit_edge195, %_print_data_json.exit, %_addr2fmt.exit, %234, %230, %229, %228, %227, %226, %223
-  %.2.ph = phi ptr [ %56, %_addr2fmt.exit ], [ %56, %_print_data_json.exit ], [ %56, %._crit_edge195 ], [ %56, %._crit_edge187 ], [ %56, %._crit_edge179 ], [ %56, %_stepid2fmt.exit ], [ %56, %55 ], [ %41, %218 ], [ %41, %219 ], [ %41, %222 ], [ %41, %226 ], [ %41, %227 ], [ %41, %228 ], [ %41, %229 ], [ %41, %230 ], [ %41, %234 ], [ %41, %223 ], [ %41, %switch.lookup ]
+  %.2.ph = phi ptr [ %41, %222 ], [ %41, %234 ], [ %41, %230 ], [ %41, %229 ], [ %41, %228 ], [ %41, %227 ], [ %41, %226 ], [ %41, %223 ], [ %41, %219 ], [ %41, %218 ], [ %56, %_stepid2fmt.exit ], [ %56, %._crit_edge179 ], [ %56, %._crit_edge187 ], [ %56, %._crit_edge195 ], [ %56, %_print_data_json.exit ], [ %56, %_addr2fmt.exit ], [ %56, %55 ], [ %41, %switch.lookup ]
   %.pr = load ptr, ptr %11, align 8
   br label %250
 
@@ -3007,8 +3007,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br label %83
 
 83:                                               ; preds = %66, %67, %70, %74, %76, %78, %80, %81, %82, %62
-  %.047 = phi i32 [ 3, %82 ], [ 7, %81 ], [ 7, %80 ], [ 7, %78 ], [ 7, %76 ], [ 7, %74 ], [ %71, %70 ], [ 3, %67 ], [ 6, %62 ], [ 2, %66 ]
-  %.0 = phi ptr [ @.str.72, %82 ], [ @.str.71, %81 ], [ @.str.70, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %70 ], [ %69, %67 ], [ @.str.9, %62 ], [ @.str.59, %66 ]
+  %.047 = phi i32 [ 3, %82 ], [ 3, %67 ], [ %71, %70 ], [ 7, %74 ], [ 7, %76 ], [ 7, %78 ], [ 7, %80 ], [ 7, %81 ], [ 6, %62 ], [ 2, %66 ]
+  %.0 = phi ptr [ @.str.72, %82 ], [ %69, %67 ], [ %73, %70 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ @.str.70, %80 ], [ @.str.71, %81 ], [ @.str.9, %62 ], [ @.str.59, %66 ]
   %84 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %85 = load i32, ptr %84, align 4
   %.not59 = icmp ugt i32 %0, %85

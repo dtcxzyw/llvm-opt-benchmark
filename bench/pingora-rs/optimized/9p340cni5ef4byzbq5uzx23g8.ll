@@ -713,11 +713,11 @@ default.unreachable507:                           ; preds = %.critedge364
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit"
 
 .thread438:                                       ; preds = %208, %224, %335, %260, %251, %241, %109
-  %.sroa.0197.5 = phi i1 [ %.sroa.0197.4, %109 ], [ true, %335 ], [ true, %260 ], [ true, %251 ], [ false, %241 ], [ false, %224 ], [ false, %208 ]
-  %.sroa.0198.5 = phi i1 [ %.sroa.0198.4, %109 ], [ true, %335 ], [ true, %260 ], [ false, %251 ], [ true, %241 ], [ true, %224 ], [ true, %208 ]
-  %.sroa.0199.5 = phi i1 [ %.sroa.0199.4, %109 ], [ true, %335 ], [ false, %260 ], [ true, %251 ], [ true, %241 ], [ true, %224 ], [ true, %208 ]
-  %.sroa.0200.5 = phi i1 [ %.sroa.0200.4, %109 ], [ false, %335 ], [ true, %260 ], [ true, %251 ], [ true, %241 ], [ true, %224 ], [ true, %208 ]
-  %.pn357 = phi { ptr, i32 } [ %110, %109 ], [ %336, %335 ], [ %261, %260 ], [ %252, %251 ], [ %242, %241 ], [ %225, %224 ], [ %209, %208 ]
+  %.sroa.0197.5 = phi i1 [ %.sroa.0197.4, %109 ], [ false, %241 ], [ true, %251 ], [ true, %260 ], [ true, %335 ], [ false, %224 ], [ false, %208 ]
+  %.sroa.0198.5 = phi i1 [ %.sroa.0198.4, %109 ], [ true, %241 ], [ false, %251 ], [ true, %260 ], [ true, %335 ], [ true, %224 ], [ true, %208 ]
+  %.sroa.0199.5 = phi i1 [ %.sroa.0199.4, %109 ], [ true, %241 ], [ true, %251 ], [ false, %260 ], [ true, %335 ], [ true, %224 ], [ true, %208 ]
+  %.sroa.0200.5 = phi i1 [ %.sroa.0200.4, %109 ], [ true, %241 ], [ true, %251 ], [ true, %260 ], [ false, %335 ], [ true, %224 ], [ true, %208 ]
+  %.pn357 = phi { ptr, i32 } [ %110, %109 ], [ %242, %241 ], [ %252, %251 ], [ %261, %260 ], [ %336, %335 ], [ %225, %224 ], [ %209, %208 ]
   %106 = load i64, ptr %60, align 8, !range !53, !noalias !55, !noundef !22
   %.not.i.i = icmp eq i64 %106, 2
   br i1 %.not.i.i, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit", label %107
@@ -728,10 +728,10 @@ default.unreachable507:                           ; preds = %.critedge364
           to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit" unwind label %243
 
 109:                                              ; preds = %.invoke, %439, %.thread487, %417, %403, %.thread477, %381, %.critedge376, %328, %.thread457, %306, %292, %.thread447, %270, %188, %174, %168, %164, %162, %155, %154, %147, %141, %.thread428, %119
-  %.sroa.0197.4 = phi i1 [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %.critedge376 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %155 ], [ true, %154 ], [ true, %147 ], [ false, %188 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
-  %.sroa.0198.4 = phi i1 [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %.critedge376 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %155 ], [ true, %154 ], [ false, %147 ], [ true, %188 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
-  %.sroa.0199.4 = phi i1 [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %.critedge376 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ false, %155 ], [ true, %154 ], [ true, %147 ], [ true, %188 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
-  %.sroa.0200.4 = phi i1 [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ false, %.critedge376 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %155 ], [ true, %154 ], [ true, %147 ], [ true, %188 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
+  %.sroa.0197.4 = phi i1 [ false, %188 ], [ true, %147 ], [ true, %154 ], [ true, %155 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %.critedge376 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
+  %.sroa.0198.4 = phi i1 [ true, %188 ], [ false, %147 ], [ true, %154 ], [ true, %155 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %.critedge376 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
+  %.sroa.0199.4 = phi i1 [ true, %188 ], [ true, %147 ], [ true, %154 ], [ false, %155 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ true, %.critedge376 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
+  %.sroa.0200.4 = phi i1 [ true, %188 ], [ true, %147 ], [ true, %154 ], [ true, %155 ], [ true, %292 ], [ true, %.thread447 ], [ true, %270 ], [ true, %162 ], [ true, %328 ], [ true, %.thread457 ], [ true, %306 ], [ true, %164 ], [ false, %.critedge376 ], [ true, %403 ], [ true, %.thread477 ], [ true, %381 ], [ true, %168 ], [ true, %439 ], [ true, %.thread487 ], [ true, %417 ], [ true, %174 ], [ true, %141 ], [ true, %.thread428 ], [ true, %119 ], [ true, %.invoke ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %.thread438
@@ -1076,10 +1076,10 @@ default.unreachable507:                           ; preds = %.critedge364
   br label %210
 
 226:                                              ; preds = %.critedge386, %.critedge381, %373, %.critedge371, %.critedge366, %262, %253, %210
-  %.sroa.0197.6 = phi i1 [ true, %.critedge386 ], [ true, %.critedge381 ], [ true, %373 ], [ true, %.critedge371 ], [ true, %.critedge366 ], [ true, %262 ], [ true, %253 ], [ false, %210 ]
-  %.sroa.0198.6 = phi i1 [ true, %.critedge386 ], [ true, %.critedge381 ], [ true, %373 ], [ true, %.critedge371 ], [ true, %.critedge366 ], [ true, %262 ], [ false, %253 ], [ true, %210 ]
-  %.sroa.0199.6 = phi i1 [ true, %.critedge386 ], [ true, %.critedge381 ], [ true, %373 ], [ true, %.critedge371 ], [ true, %.critedge366 ], [ false, %262 ], [ true, %253 ], [ true, %210 ]
-  %.sroa.0200.6 = phi i1 [ true, %.critedge386 ], [ true, %.critedge381 ], [ false, %373 ], [ true, %.critedge371 ], [ true, %.critedge366 ], [ true, %262 ], [ true, %253 ], [ true, %210 ]
+  %.sroa.0197.6 = phi i1 [ false, %210 ], [ true, %253 ], [ true, %262 ], [ true, %.critedge366 ], [ true, %.critedge371 ], [ true, %373 ], [ true, %.critedge381 ], [ true, %.critedge386 ]
+  %.sroa.0198.6 = phi i1 [ true, %210 ], [ false, %253 ], [ true, %262 ], [ true, %.critedge366 ], [ true, %.critedge371 ], [ true, %373 ], [ true, %.critedge381 ], [ true, %.critedge386 ]
+  %.sroa.0199.6 = phi i1 [ true, %210 ], [ true, %253 ], [ false, %262 ], [ true, %.critedge366 ], [ true, %.critedge371 ], [ true, %373 ], [ true, %.critedge381 ], [ true, %.critedge386 ]
+  %.sroa.0200.6 = phi i1 [ true, %210 ], [ true, %253 ], [ true, %262 ], [ true, %.critedge366 ], [ true, %.critedge371 ], [ false, %373 ], [ true, %.critedge381 ], [ true, %.critedge386 ]
   %227 = load i64, ptr %60, align 8, !range !53, !noundef !22
   %.not.i.i393 = icmp eq i64 %227, 2
   br i1 %.not.i.i393, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit417", label %228

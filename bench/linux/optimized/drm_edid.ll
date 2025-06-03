@@ -7503,7 +7503,7 @@ do_standard_modes.exit:                           ; preds = %215, %192, %198, %2
   br i1 %219, label %.loopexit.i, label %192, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %do_standard_modes.exit, %do_standard_modes.exit75, %180, %146, %140, %138
-  %.sroa.1282.3 = phi i32 [ %.sroa.1282.2, %138 ], [ %.sroa.1282.2, %180 ], [ %.sroa.1282.2, %140 ], [ %.sroa.1282.2, %146 ], [ %.sroa.1282.12, %do_standard_modes.exit75 ], [ %.sroa.1282.9, %do_standard_modes.exit ]
+  %.sroa.1282.3 = phi i32 [ %.sroa.1282.2, %138 ], [ %.sroa.1282.2, %140 ], [ %.sroa.1282.2, %146 ], [ %.sroa.1282.2, %180 ], [ %.sroa.1282.12, %do_standard_modes.exit75 ], [ %.sroa.1282.9, %do_standard_modes.exit ]
   br label %.preheader.i, !llvm.loop !53
 
 drm_for_each_detailed_block.exit:                 ; preds = %126, %56
@@ -11557,7 +11557,7 @@ get_timing_level.exit:                            ; preds = %151, %152, %134, %1
   br i1 %155, label %.loopexit.i, label %134, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %get_timing_level.exit, %get_timing_level.exit22, %122, %94, %88, %86
-  %.2 = phi i32 [ %.1, %86 ], [ %.1, %122 ], [ %.1, %88 ], [ %.1, %94 ], [ %.7, %get_timing_level.exit22 ], [ %.6, %get_timing_level.exit ]
+  %.2 = phi i32 [ %.1, %86 ], [ %.1, %88 ], [ %.1, %94 ], [ %.1, %122 ], [ %.7, %get_timing_level.exit22 ], [ %.6, %get_timing_level.exit ]
   br label %.preheader.i, !llvm.loop !53
 
 156:                                              ; preds = %3
@@ -11969,7 +11969,7 @@ is_rb.exit:                                       ; preds = %395, %377, %383, %3
   br i1 %401, label %.loopexit.i19, label %377, !llvm.loop !52
 
 .loopexit.i19:                                    ; preds = %is_rb.exit, %is_rb.exit24, %365, %334, %328, %326
-  %.229 = phi i8 [ %.128, %326 ], [ %.128, %365 ], [ %.128, %328 ], [ %.128, %334 ], [ %.734, %is_rb.exit24 ], [ %.633, %is_rb.exit ]
+  %.229 = phi i8 [ %.128, %326 ], [ %.128, %328 ], [ %.128, %334 ], [ %.128, %365 ], [ %.734, %is_rb.exit24 ], [ %.633, %is_rb.exit ]
   br label %.preheader.i15, !llvm.loop !53
 
 drm_for_each_detailed_block.exit21:               ; preds = %316

@@ -536,7 +536,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -1121,7 +1121,7 @@ default.unreachable:                              ; preds = %.noexc
           to label %66 unwind label %64
 
 _ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit: ; preds = %20, %23, %28, %16
-  %.0.i.i = phi i8 [ %32, %28 ], [ %27, %23 ], [ %22, %20 ], [ %19, %16 ]
+  %.0.i.i = phi i8 [ %22, %20 ], [ %27, %23 ], [ %32, %28 ], [ %19, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !126
   %35 = icmp eq i8 %.0.i.i, 36
   %.0.val.i = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8

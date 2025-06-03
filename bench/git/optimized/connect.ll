@@ -837,7 +837,7 @@ process_dummy_ref.exit:                           ; preds = %77
   br i1 %.not6.i.not, label %.thread, label %83
 
 83:                                               ; preds = %process_dummy_ref.exit.thread, %process_dummy_ref.exit, %27
-  %.3 = phi i64 [ %.141, %27 ], [ %.5, %process_dummy_ref.exit ], [ %.5, %process_dummy_ref.exit.thread ]
+  %.3 = phi i64 [ %.5, %process_dummy_ref.exit ], [ %.141, %27 ], [ %.5, %process_dummy_ref.exit.thread ]
   %.val = load ptr, ptr %13, align 8, !tbaa !23
   %.val15 = load ptr, ptr %14, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #24

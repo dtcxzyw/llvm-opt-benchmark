@@ -5910,7 +5910,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread8.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %171, %.lr.ph.i.i.i63
-  %.1.i.i.i.i = phi ptr [ %167, %.lr.ph.i.i.i63 ], [ %172, %171 ]
+  %.1.i.i.i.i = phi ptr [ %172, %171 ], [ %167, %.lr.ph.i.i.i63 ]
   %173 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %174 = load i24, ptr %173, align 16
   %175 = and i24 %174, 1048576
@@ -7444,9 +7444,9 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %.thread203, %439
   br label %458
 
 458:                                              ; preds = %456, %454, %452, %.lr.ph.i91
-  %.128.i = phi i64 [ %.02747.i, %.lr.ph.i91 ], [ %457, %456 ], [ %.02747.i, %454 ], [ %.02747.i, %452 ]
-  %.125.i93 = phi i64 [ %.02448.i92, %.lr.ph.i91 ], [ %.02448.i92, %456 ], [ %455, %454 ], [ %.02448.i92, %452 ]
-  %.1.i = phi i64 [ %.049.i, %.lr.ph.i91 ], [ %.049.i, %456 ], [ %.049.i, %454 ], [ %453, %452 ]
+  %.128.i = phi i64 [ %.02747.i, %.lr.ph.i91 ], [ %.02747.i, %452 ], [ %.02747.i, %454 ], [ %457, %456 ]
+  %.125.i93 = phi i64 [ %.02448.i92, %.lr.ph.i91 ], [ %.02448.i92, %452 ], [ %455, %454 ], [ %.02448.i92, %456 ]
+  %.1.i = phi i64 [ %.049.i, %.lr.ph.i91 ], [ %453, %452 ], [ %.049.i, %454 ], [ %.049.i, %456 ]
   %459 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 4
   %.not.i94 = icmp eq ptr %459, %448
   br i1 %.not.i94, label %._crit_edge.i95, label %.lr.ph.i91
@@ -12663,7 +12663,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit.
   br label %_ZN4llvm13IRBuilderBase18CreateExtractValueEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase18CreateExtractValueEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineE.exit: ; preds = %.lr.ph1642, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %2162, %.lr.ph1642 ], [ %2164, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %2164, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit.i ], [ %2162, %.lr.ph1642 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72) #19
   %2198 = load ptr, ptr %65, align 8, !tbaa !1413
   %2199 = load i32, ptr %2112, align 8, !tbaa !1416
@@ -15087,12 +15087,12 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitAttributedStmtERK
   br label %60
 
 60:                                               ; preds = %41, %51, %55, %28, %58, %36, %35, %34, %33, %32
-  %.156 = phi ptr [ %.05558, %28 ], [ %.05558, %58 ], [ %.05558, %41 ], [ %.05558, %51 ], [ %.05558, %55 ], [ %40, %36 ], [ %.05558, %35 ], [ %.05558, %34 ], [ %.05558, %33 ], [ %.05558, %32 ]
-  %.154 = phi i32 [ %.05359, %28 ], [ %59, %58 ], [ %.05359, %41 ], [ %.05359, %51 ], [ %.05359, %55 ], [ %.05359, %36 ], [ %.05359, %35 ], [ %.05359, %34 ], [ %.05359, %33 ], [ %.05359, %32 ]
-  %.152 = phi i8 [ %.05160, %28 ], [ %.05160, %58 ], [ %.05160, %41 ], [ %.05160, %51 ], [ %.05160, %55 ], [ %.05160, %36 ], [ 1, %35 ], [ %.05160, %34 ], [ %.05160, %33 ], [ %.05160, %32 ]
-  %.150 = phi i8 [ %.04961, %28 ], [ %.04961, %58 ], [ %.04961, %41 ], [ %.04961, %51 ], [ %.04961, %55 ], [ %.04961, %36 ], [ %.04961, %35 ], [ 1, %34 ], [ %.04961, %33 ], [ %.04961, %32 ]
-  %.148 = phi i8 [ %.04762, %28 ], [ %.04762, %58 ], [ %.04762, %41 ], [ %.04762, %51 ], [ %.04762, %55 ], [ %.04762, %36 ], [ %.04762, %35 ], [ %.04762, %34 ], [ 1, %33 ], [ %.04762, %32 ]
-  %.1 = phi i8 [ %.04663, %28 ], [ %.04663, %58 ], [ %.04663, %41 ], [ %.04663, %51 ], [ %.04663, %55 ], [ %.04663, %36 ], [ %.04663, %35 ], [ %.04663, %34 ], [ %.04663, %33 ], [ 1, %32 ]
+  %.156 = phi ptr [ %.05558, %28 ], [ %.05558, %32 ], [ %.05558, %33 ], [ %.05558, %34 ], [ %.05558, %35 ], [ %40, %36 ], [ %.05558, %41 ], [ %.05558, %51 ], [ %.05558, %55 ], [ %.05558, %58 ]
+  %.154 = phi i32 [ %.05359, %28 ], [ %.05359, %32 ], [ %.05359, %33 ], [ %.05359, %34 ], [ %.05359, %35 ], [ %.05359, %36 ], [ %.05359, %41 ], [ %.05359, %51 ], [ %.05359, %55 ], [ %59, %58 ]
+  %.152 = phi i8 [ %.05160, %28 ], [ %.05160, %32 ], [ %.05160, %33 ], [ %.05160, %34 ], [ 1, %35 ], [ %.05160, %36 ], [ %.05160, %41 ], [ %.05160, %51 ], [ %.05160, %55 ], [ %.05160, %58 ]
+  %.150 = phi i8 [ %.04961, %28 ], [ %.04961, %32 ], [ %.04961, %33 ], [ 1, %34 ], [ %.04961, %35 ], [ %.04961, %36 ], [ %.04961, %41 ], [ %.04961, %51 ], [ %.04961, %55 ], [ %.04961, %58 ]
+  %.148 = phi i8 [ %.04762, %28 ], [ %.04762, %32 ], [ 1, %33 ], [ %.04762, %34 ], [ %.04762, %35 ], [ %.04762, %36 ], [ %.04762, %41 ], [ %.04762, %51 ], [ %.04762, %55 ], [ %.04762, %58 ]
+  %.1 = phi i8 [ %.04663, %28 ], [ 1, %32 ], [ %.04663, %33 ], [ %.04663, %34 ], [ %.04663, %35 ], [ %.04663, %36 ], [ %.04663, %41 ], [ %.04663, %51 ], [ %.04663, %55 ], [ %.04663, %58 ]
   %61 = getelementptr inbounds nuw i8, ptr %.064, i64 8
   %.not = icmp eq ptr %61, %.ptr70
   br i1 %.not, label %._crit_edge, label %28
@@ -18956,8 +18956,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -21392,7 +21392,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit:
   br label %54
 
 54:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %12, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %12, %5 ]
   ret ptr %.1
 }
 
@@ -23967,7 +23967,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -24805,7 +24805,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !1097
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -24815,7 +24815,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !1097
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

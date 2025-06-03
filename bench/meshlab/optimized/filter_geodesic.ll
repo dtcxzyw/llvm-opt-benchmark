@@ -4419,8 +4419,8 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityRampERS2_ffNS_8ColorMapE.exit
   ret void
 
 _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit116:      ; preds = %863, %.loopexit.split-lp500, %587, %.loopexit.split-lp, %181, %184, %179, %126
-  %.pn95.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %127, %126 ], [ %182, %181 ], [ %182, %184 ], [ %.pn99, %.loopexit.split-lp ], [ %.pn99, %587 ], [ %.pn95.pn, %.loopexit.split-lp500 ], [ %.pn95.pn, %863 ]
-  resume { ptr, i32 } %.pn95.pn.pn
+  %.pn101.pn = phi { ptr, i32 } [ %180, %179 ], [ %127, %126 ], [ %182, %181 ], [ %182, %184 ], [ %.pn99, %.loopexit.split-lp ], [ %.pn99, %587 ], [ %.pn95.pn, %.loopexit.split-lp500 ], [ %.pn95.pn, %863 ]
+  resume { ptr, i32 } %.pn101.pn
 }
 
 declare noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
@@ -27456,12 +27456,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %68, %71
   br label %124
 
 124:                                              ; preds = %43, %99, %74, %.lr.ph
-  %.sroa.8249.2 = phi double [ %.sroa.8249.1251, %.lr.ph ], [ %113, %99 ], [ %88, %74 ], [ %57, %43 ]
-  %.sroa.0238.2 = phi <2 x i64> [ %.sroa.0238.1252, %.lr.ph ], [ %.sroa.0238.8.vec.insert, %99 ], [ %.sroa.0238.8.vec.insert246, %74 ], [ %.sroa.0238.8.vec.insert248, %43 ]
-  %.sroa.8236.2 = phi double [ %.sroa.8236.1253, %.lr.ph ], [ %121, %99 ], [ %96, %74 ], [ %65, %43 ]
-  %.sroa.0225.2 = phi <2 x i64> [ %.sroa.0225.1254, %.lr.ph ], [ %.sroa.0225.8.vec.insert, %99 ], [ %.sroa.0225.8.vec.insert233, %74 ], [ %.sroa.0225.8.vec.insert235, %43 ]
-  %.sroa.8.2 = phi double [ %.sroa.8.1255, %.lr.ph ], [ %105, %99 ], [ %80, %74 ], [ %49, %43 ]
-  %.sroa.0.2 = phi <2 x i64> [ %.sroa.0.1256, %.lr.ph ], [ %.sroa.0.8.vec.insert, %99 ], [ %.sroa.0.8.vec.insert221, %74 ], [ %.sroa.0.8.vec.insert223, %43 ]
+  %.sroa.8249.2 = phi double [ %.sroa.8249.1251, %.lr.ph ], [ %57, %43 ], [ %88, %74 ], [ %113, %99 ]
+  %.sroa.0238.2 = phi <2 x i64> [ %.sroa.0238.1252, %.lr.ph ], [ %.sroa.0238.8.vec.insert248, %43 ], [ %.sroa.0238.8.vec.insert246, %74 ], [ %.sroa.0238.8.vec.insert, %99 ]
+  %.sroa.8236.2 = phi double [ %.sroa.8236.1253, %.lr.ph ], [ %65, %43 ], [ %96, %74 ], [ %121, %99 ]
+  %.sroa.0225.2 = phi <2 x i64> [ %.sroa.0225.1254, %.lr.ph ], [ %.sroa.0225.8.vec.insert235, %43 ], [ %.sroa.0225.8.vec.insert233, %74 ], [ %.sroa.0225.8.vec.insert, %99 ]
+  %.sroa.8.2 = phi double [ %.sroa.8.1255, %.lr.ph ], [ %49, %43 ], [ %80, %74 ], [ %105, %99 ]
+  %.sroa.0.2 = phi <2 x i64> [ %.sroa.0.1256, %.lr.ph ], [ %.sroa.0.8.vec.insert223, %43 ], [ %.sroa.0.8.vec.insert221, %74 ], [ %.sroa.0.8.vec.insert, %99 ]
   %125 = xor <2 x i64> %.sroa.0.2, splat (i64 -9223372036854775808)
   %126 = fneg double %.sroa.8.2
   %127 = xor <2 x i64> %.sroa.0225.2, splat (i64 -9223372036854775808)
@@ -29197,9 +29197,9 @@ _ZN7QStringD2Ev.exit85:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 211:                                              ; preds = %210, %178, %123, %112, %31
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %210 ], [ %32, %31 ], [ %.pn25.pn.pn, %178 ], [ %.pn33.pn.pn, %123 ], [ %.pn29.pn.pn, %112 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %123 ], [ %32, %31 ], [ %.pn29.pn.pn, %112 ], [ %.pn25.pn.pn, %178 ], [ %.pn.pn.pn, %210 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #32
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn33.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0

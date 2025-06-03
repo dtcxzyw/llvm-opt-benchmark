@@ -3101,7 +3101,7 @@ common.ret:                                       ; preds = %30, %"_ZN77_$LT$asy
   br label %common.ret
 
 common.resume:                                    ; preds = %21, %26, %12, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %13, %12 ], [ %22, %26 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %17, %16 ], [ %22, %26 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %16, %12
@@ -5551,7 +5551,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$async_process..driv
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %"_ZN4core3ptr77drop_in_place$LT$async_process..Reaper..reap..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca8c3e5d2375fe22E.exit", %"_ZN4core3ptr60drop_in_place$LT$async_lock..mutex..Lock$LT$$LP$$RP$$GT$$GT$17h6d7bc27325e53b61E.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr60drop_in_place$LT$async_lock..mutex..Lock$LT$$LP$$RP$$GT$$GT$17h6d7bc27325e53b61E.exit", %"_ZN4core3ptr77drop_in_place$LT$async_process..Reaper..reap..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca8c3e5d2375fe22E.exit", %1
   ret void
 
 6:                                                ; preds = %1
@@ -5590,13 +5590,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %23, align 8, !nonnull !5, !align !4, !noundef !5
-  %24 = atomicrmw sub ptr %.val.i, i64 1 release, align 8
+  %.val4.i = load ptr, ptr %23, align 8, !nonnull !5, !align !4, !noundef !5
+  %24 = atomicrmw sub ptr %.val4.i, i64 1 release, align 8
   %25 = invoke noundef i64 @"_ZN64_$LT$i32$u20$as$u20$event_listener..notify..IntoNotification$GT$17into_notification17h1560063b65d058faE"(i32 noundef 1)
           to label %.noexc2 unwind label %58
 
 .noexc2:                                          ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #27, !srcloc !217
@@ -5624,13 +5624,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
 
 34:                                               ; preds = %32, %19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val4.i = load ptr, ptr %35, align 8, !nonnull !5, !align !4, !noundef !5
-  %36 = atomicrmw sub ptr %.val4.i, i64 1 release, align 8
+  %.val.i = load ptr, ptr %35, align 8, !nonnull !5, !align !4, !noundef !5
+  %36 = atomicrmw sub ptr %.val.i, i64 1 release, align 8
   %37 = invoke noundef i64 @"_ZN64_$LT$i32$u20$as$u20$event_listener..notify..IntoNotification$GT$17into_notification17h1560063b65d058faE"(i32 noundef 1)
           to label %.noexc6 unwind label %58
 
 .noexc6:                                          ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %2) #27, !srcloc !217
@@ -7297,7 +7297,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -7492,7 +7492,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64

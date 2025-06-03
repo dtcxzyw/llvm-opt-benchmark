@@ -6110,7 +6110,7 @@ do.body131:                                       ; preds = %do.end5
   unreachable
 
 return:                                           ; preds = %if.then.i.i, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %sw.bb16, %sw.bb8, %if.end13, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit
-  %retval.0 = phi i32 [ %call15, %if.end13 ], [ %retval.0.i, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit ], [ 1, %sw.bb8 ], [ 1, %sw.bb16 ], [ %retval.1, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %retval.1, %if.then.i.i ]
+  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceE.exit ], [ %call15, %if.end13 ], [ 1, %sw.bb8 ], [ 1, %sw.bb16 ], [ %retval.1, %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i ], [ %retval.1, %if.then.i.i ]
   ret i32 %retval.0
 }
 
@@ -6461,7 +6461,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw.bb7, %sw.bb6
-  %curve.0 = phi ptr [ @.str.3, %sw.bb8 ], [ @.str.2, %sw.bb7 ], [ @.str.1, %sw.bb6 ], [ @.str, %entry ]
+  %curve.0 = phi ptr [ @.str.1, %sw.bb6 ], [ @.str.2, %sw.bb7 ], [ @.str.3, %sw.bb8 ], [ @.str, %entry ]
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %1, align 8

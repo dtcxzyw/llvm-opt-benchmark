@@ -785,7 +785,7 @@ define dso_local void @_ZN14b3OptimizedBvh14updateBvhNodesEP23b3StridingMeshInte
   br label %80
 
 80:                                               ; preds = %77, %73, %69, %68
-  %.285.us = phi i32 [ %.184141.us, %68 ], [ %72, %69 ], [ %76, %73 ], [ %79, %77 ]
+  %.285.us = phi i32 [ %.184141.us, %68 ], [ %79, %77 ], [ %76, %73 ], [ %72, %69 ]
   %81 = mul nsw i32 %64, %.285.us
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %63, i64 %82
@@ -942,7 +942,7 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   br label %181
 
 181:                                              ; preds = %169, %177, %173, %170
-  %.285 = phi i32 [ %.184141, %169 ], [ %180, %177 ], [ %176, %173 ], [ %172, %170 ]
+  %.285 = phi i32 [ %.184141, %169 ], [ %172, %170 ], [ %176, %173 ], [ %180, %177 ]
   %182 = mul nsw i32 %64, %.285
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i8, ptr %63, i64 %183

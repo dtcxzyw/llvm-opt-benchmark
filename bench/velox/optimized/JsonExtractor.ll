@@ -1860,8 +1860,8 @@ for.end50:                                        ; preds = %for.inc48, %invoke.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit, %for.end50, %if.then30, %if.then24
-  %input.sroa.0.1178 = phi ptr [ %input.sroa.0.1208, %if.then24 ], [ %input.sroa.0.1.lcssa, %for.end50 ], [ %input.sroa.0.1.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ], [ %input.sroa.0.1.lcssa, %if.then30 ]
-  %result.sroa.0.5 = phi ptr [ %result.sroa.0.2.lcssa242, %if.then24 ], [ %result.sroa.0.1.lcssa, %for.end50 ], [ %result.sroa.0.1.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ], [ %result.sroa.0.1.lcssa, %if.then30 ]
+  %input.sroa.0.1178 = phi ptr [ %input.sroa.0.1208, %if.then24 ], [ %input.sroa.0.1.lcssa, %for.end50 ], [ %input.sroa.0.1.lcssa, %if.then30 ], [ %input.sroa.0.1.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ]
+  %result.sroa.0.5 = phi ptr [ %result.sroa.0.2.lcssa242, %if.then24 ], [ %result.sroa.0.1.lcssa, %for.end50 ], [ %result.sroa.0.1.lcssa, %if.then30 ], [ %result.sroa.0.1.lcssa, %_ZN5folly8OptionalINS_7dynamicEEC2ERKS1_.exit ]
   %tobool.not.i.i.i = icmp eq ptr %result.sroa.0.5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN5folly7dynamicESaIS3_EED2Ev.exit, label %if.then.i.i.i82
 

@@ -353,7 +353,7 @@ define dso_local ptr @sdsdup(ptr noundef readonly captures(address) %0) local_un
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   %24 = tail call ptr @_sdsnewlen(ptr noundef nonnull readonly %0, i64 noundef %.0.i, i32 noundef 0)
   ret ptr %24
 }
@@ -556,7 +556,7 @@ define dso_local ptr @_sdsMakeRoomFor(ptr noundef %0, i64 noundef %1, i32 nounde
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %3, %8, %16, %24, %31
-  %.0.i = phi i64 [ %36, %31 ], [ %30, %24 ], [ %23, %16 ], [ %15, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %15, %8 ], [ %23, %16 ], [ %30, %24 ], [ %36, %31 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   %.not = icmp ult i64 %.0.i, %1
   br i1 %.not, label %37, label %sdssetalloc.exit
@@ -601,7 +601,7 @@ sdsavail.exit:                                    ; preds = %3, %8, %16, %24, %3
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %37, %40, %43, %47, %51, %55
-  %.0.i57 = phi i64 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ], [ 0, %37 ]
+  %.0.i57 = phi i64 [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %57, %55 ], [ 0, %37 ]
   %58 = icmp samesign ult i8 %7, 5
   br i1 %58, label %switch.lookup, label %sdsHdrSize.exit
 
@@ -889,7 +889,7 @@ define dso_local ptr @sdsRemoveFreeSpace(ptr noundef %0, i32 noundef %1) local_u
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = tail call ptr @sdsResize(ptr noundef nonnull %0, i64 noundef %.0.i, i32 noundef %1)
   ret ptr %25
 }
@@ -975,9 +975,9 @@ sdslen.exit:                                      ; preds = %sdsHdrSize.exit
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %sdslen.exit, %sdslen.exit.thread, %sdslen.exit.thread75, %sdslen.exit.thread78, %sdslen.exit.thread81, %sdslen.exit.thread84
-  %47 = phi ptr [ %42, %sdslen.exit.thread84 ], [ %35, %sdslen.exit.thread81 ], [ %27, %sdslen.exit.thread78 ], [ %19, %sdslen.exit.thread75 ], [ %14, %sdslen.exit.thread ], [ %46, %sdslen.exit ]
-  %.0.i6774 = phi i64 [ %40, %sdslen.exit.thread84 ], [ %33, %sdslen.exit.thread81 ], [ %25, %sdslen.exit.thread78 ], [ %17, %sdslen.exit.thread75 ], [ %12, %sdslen.exit.thread ], [ 0, %sdslen.exit ]
-  %.0.i68 = phi i64 [ %44, %sdslen.exit.thread84 ], [ %38, %sdslen.exit.thread81 ], [ %30, %sdslen.exit.thread78 ], [ %22, %sdslen.exit.thread75 ], [ %12, %sdslen.exit.thread ], [ 0, %sdslen.exit ]
+  %47 = phi ptr [ %14, %sdslen.exit.thread ], [ %19, %sdslen.exit.thread75 ], [ %27, %sdslen.exit.thread78 ], [ %35, %sdslen.exit.thread81 ], [ %42, %sdslen.exit.thread84 ], [ %46, %sdslen.exit ]
+  %.0.i6774 = phi i64 [ %12, %sdslen.exit.thread ], [ %17, %sdslen.exit.thread75 ], [ %25, %sdslen.exit.thread78 ], [ %33, %sdslen.exit.thread81 ], [ %40, %sdslen.exit.thread84 ], [ 0, %sdslen.exit ]
+  %.0.i68 = phi i64 [ %12, %sdslen.exit.thread ], [ %22, %sdslen.exit.thread75 ], [ %30, %sdslen.exit.thread78 ], [ %38, %sdslen.exit.thread81 ], [ %44, %sdslen.exit.thread84 ], [ 0, %sdslen.exit ]
   %48 = icmp eq i64 %.0.i68, %1
   br i1 %48, label %sdssetalloc.exit, label %49
 
@@ -1182,7 +1182,7 @@ define dso_local i64 @sdsAllocSize(ptr noundef readonly captures(none) %0) local
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %1, %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   %24 = and i8 %3, 7
   %25 = icmp samesign ult i8 %24, 5
   br i1 %25, label %switch.lookup, label %sdsHdrSize.exit
@@ -1407,7 +1407,7 @@ define dso_local void @sdsIncrLen(ptr noundef captures(none) %0, i64 noundef %1)
   br label %88
 
 88:                                               ; preds = %2, %.critedge73, %.critedge69, %.critedge65, %.critedge61, %.critedge
-  %.0 = phi i64 [ %87, %.critedge73 ], [ %74, %.critedge69 ], [ %58, %.critedge65 ], [ %39, %.critedge61 ], [ %.pre-phi86, %.critedge ], [ 0, %2 ]
+  %.0 = phi i64 [ %.pre-phi86, %.critedge ], [ %39, %.critedge61 ], [ %58, %.critedge65 ], [ %74, %.critedge69 ], [ %87, %.critedge73 ], [ 0, %2 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
   store i8 0, ptr %89, align 1, !tbaa !13
   ret void
@@ -1456,7 +1456,7 @@ define dso_local ptr @sdsgrowzero(ptr noundef %0, i64 noundef %1) local_unnamed_
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %.not = icmp ugt i64 %1, %.0.i
   br i1 %.not, label %25, label %sdssetlen.exit
 
@@ -1558,7 +1558,7 @@ define dso_local ptr @sdscatlen(ptr noundef %0, ptr noundef readonly captures(no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
   %26 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %48, label %28
@@ -1660,7 +1660,7 @@ define dso_local ptr @sdscat(ptr noundef %0, ptr noundef readonly captures(none)
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %23, %19, %15, %11, %8, %2
-  %.0.i.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %2 ]
+  %.0.i.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %2 ]
   %26 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %sdscatlen.exit, label %28
@@ -1761,7 +1761,7 @@ define dso_local ptr @sdscatsds(ptr noundef %0, ptr noundef readonly captures(no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !13
   %27 = zext i8 %26 to i32
@@ -1803,7 +1803,7 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %44, %40, %36, %32, %29, %sdslen.exit
-  %.0.i.i = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %29 ], [ 0, %sdslen.exit ]
+  %.0.i.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %sdslen.exit ]
   %47 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %0, i64 noundef %.0.i, i32 noundef 1)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %sdscatlen.exit, label %49
@@ -1904,7 +1904,7 @@ define dso_local ptr @sdscpylen(ptr noundef %0, ptr noundef readonly captures(no
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
   %26 = icmp ult i64 %.0.i, %2
   br i1 %26, label %27, label %49
 
@@ -1946,7 +1946,7 @@ sdsalloc.exit:                                    ; preds = %3, %8, %11, %15, %1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %27, %28, %31, %35, %39, %43
-  %.0.i17 = phi i64 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %28 ], [ 0, %27 ]
+  %.0.i17 = phi i64 [ %30, %28 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ], [ 0, %27 ]
   %46 = sub i64 %2, %.0.i17
   %47 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %0, i64 noundef %46, i32 noundef 1)
   %48 = icmp eq ptr %47, null
@@ -2122,7 +2122,7 @@ define dso_local ptr @sdscatvprintf(ptr noundef %0, ptr noundef readonly capture
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %44, %40, %36, %32, %29, %24
-  %.0.i.i = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %29 ], [ 0, %24 ]
+  %.0.i.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %24 ]
   %47 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %0, i64 noundef %17, i32 noundef 1)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %sdscatlen.exit, label %49
@@ -2261,7 +2261,7 @@ define dso_local ptr @sdscatfmt(ptr noundef %0, ptr noundef readonly captures(no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %29 = shl i64 %28, 1
@@ -2329,7 +2329,7 @@ sdslen.exit:                                      ; preds = %2, %10, %13, %17, %
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %39, %47, %55, %62
-  %.0.i81 = phi i64 [ %67, %62 ], [ %61, %55 ], [ %54, %47 ], [ %46, %39 ]
+  %.0.i81 = phi i64 [ %46, %39 ], [ %54, %47 ], [ %61, %55 ], [ %67, %62 ]
   %68 = icmp eq i64 %.0.i81, 0
   br i1 %68, label %sdsavail.exit.thread, label %70
 
@@ -2428,7 +2428,7 @@ sdsavail.exit.thread:                             ; preds = %34, %sdsavail.exit
   br label %sdslen.exit83
 
 sdslen.exit83:                                    ; preds = %112, %108, %104, %100, %97, %92, %90
-  %115 = phi i64 [ %91, %90 ], [ %114, %112 ], [ %111, %108 ], [ %107, %104 ], [ %103, %100 ], [ %99, %97 ], [ 0, %92 ]
+  %115 = phi i64 [ %91, %90 ], [ %99, %97 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %114, %112 ], [ 0, %92 ]
   %116 = getelementptr inbounds i8, ptr %.1, i64 -1
   %117 = load i8, ptr %116, align 1, !tbaa !13
   %118 = and i8 %117, 7
@@ -2477,7 +2477,7 @@ sdslen.exit83:                                    ; preds = %112, %108, %104, %1
   br label %sdsavail.exit85
 
 sdsavail.exit85:                                  ; preds = %sdslen.exit83, %119, %127, %135, %142
-  %.0.i84 = phi i64 [ %147, %142 ], [ %141, %135 ], [ %134, %127 ], [ %126, %119 ], [ 0, %sdslen.exit83 ]
+  %.0.i84 = phi i64 [ %126, %119 ], [ %134, %127 ], [ %141, %135 ], [ %147, %142 ], [ 0, %sdslen.exit83 ]
   %148 = icmp ult i64 %.0.i84, %115
   br i1 %148, label %149, label %151
 
@@ -2645,7 +2645,7 @@ sdsinclen.exit:                                   ; preds = %151, %156, %161, %1
   br label %sdsavail.exit87
 
 sdsavail.exit87:                                  ; preds = %210, %216, %224, %232, %239
-  %.0.i86 = phi i64 [ %244, %239 ], [ %238, %232 ], [ %231, %224 ], [ %223, %216 ], [ 0, %210 ]
+  %.0.i86 = phi i64 [ %223, %216 ], [ %231, %224 ], [ %238, %232 ], [ %244, %239 ], [ 0, %210 ]
   %245 = icmp ult i64 %.0.i86, %212
   br i1 %245, label %246, label %248
 
@@ -2813,7 +2813,7 @@ sdsinclen.exit88:                                 ; preds = %248, %253, %258, %2
   br label %sdsavail.exit90
 
 sdsavail.exit90:                                  ; preds = %306, %312, %320, %328, %335
-  %.0.i89 = phi i64 [ %340, %335 ], [ %334, %328 ], [ %327, %320 ], [ %319, %312 ], [ 0, %306 ]
+  %.0.i89 = phi i64 [ %319, %312 ], [ %327, %320 ], [ %334, %328 ], [ %340, %335 ], [ 0, %306 ]
   %341 = icmp ult i64 %.0.i89, %308
   br i1 %341, label %342, label %344
 
@@ -2978,9 +2978,9 @@ sdsinclen.exit91:                                 ; preds = %344, %349, %354, %3
   br label %sdsinclen.exit92
 
 sdsinclen.exit92:                                 ; preds = %419, %415, %411, %407, %404, %398, %394, %390, %386, %382, %379, %373, %72, %sdsinclen.exit, %sdsinclen.exit88, %sdsinclen.exit91
-  %.171 = phi i64 [ %.07096, %72 ], [ %372, %sdsinclen.exit91 ], [ %276, %sdsinclen.exit88 ], [ %180, %sdsinclen.exit ], [ %374, %373 ], [ %374, %379 ], [ %374, %382 ], [ %374, %386 ], [ %374, %390 ], [ %374, %394 ], [ %399, %398 ], [ %399, %404 ], [ %399, %407 ], [ %399, %411 ], [ %399, %415 ], [ %399, %419 ]
-  %.169 = phi ptr [ %.06897, %72 ], [ %73, %sdsinclen.exit91 ], [ %73, %sdsinclen.exit88 ], [ %73, %sdsinclen.exit ], [ %73, %373 ], [ %73, %379 ], [ %73, %382 ], [ %73, %386 ], [ %73, %390 ], [ %73, %394 ], [ %.06897, %398 ], [ %.06897, %404 ], [ %.06897, %407 ], [ %.06897, %411 ], [ %.06897, %415 ], [ %.06897, %419 ]
-  %.2 = phi ptr [ %.1, %72 ], [ %.5, %sdsinclen.exit91 ], [ %.4, %sdsinclen.exit88 ], [ %.3, %sdsinclen.exit ], [ %.1, %373 ], [ %.1, %379 ], [ %.1, %382 ], [ %.1, %386 ], [ %.1, %390 ], [ %.1, %394 ], [ %.1, %398 ], [ %.1, %404 ], [ %.1, %407 ], [ %.1, %411 ], [ %.1, %415 ], [ %.1, %419 ]
+  %.171 = phi i64 [ %.07096, %72 ], [ %180, %sdsinclen.exit ], [ %276, %sdsinclen.exit88 ], [ %372, %sdsinclen.exit91 ], [ %374, %373 ], [ %374, %379 ], [ %374, %382 ], [ %374, %386 ], [ %374, %390 ], [ %374, %394 ], [ %399, %398 ], [ %399, %404 ], [ %399, %407 ], [ %399, %411 ], [ %399, %415 ], [ %399, %419 ]
+  %.169 = phi ptr [ %.06897, %72 ], [ %73, %sdsinclen.exit ], [ %73, %sdsinclen.exit88 ], [ %73, %sdsinclen.exit91 ], [ %73, %373 ], [ %73, %379 ], [ %73, %382 ], [ %73, %386 ], [ %73, %390 ], [ %73, %394 ], [ %.06897, %398 ], [ %.06897, %404 ], [ %.06897, %407 ], [ %.06897, %411 ], [ %.06897, %415 ], [ %.06897, %419 ]
+  %.2 = phi ptr [ %.1, %72 ], [ %.3, %sdsinclen.exit ], [ %.4, %sdsinclen.exit88 ], [ %.5, %sdsinclen.exit91 ], [ %.1, %373 ], [ %.1, %379 ], [ %.1, %382 ], [ %.1, %386 ], [ %.1, %390 ], [ %.1, %394 ], [ %.1, %398 ], [ %.1, %404 ], [ %.1, %407 ], [ %.1, %411 ], [ %.1, %415 ], [ %.1, %419 ]
   %423 = getelementptr inbounds nuw i8, ptr %.169, i64 1
   %424 = load i8, ptr %423, align 1, !tbaa !13
   %.not = icmp eq i8 %424, 0
@@ -3042,7 +3042,7 @@ define dso_local noundef ptr @sdstrim(ptr noundef returned %0, ptr noundef reado
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
   %.not31 = icmp ugt ptr %0, %27
@@ -3197,7 +3197,7 @@ define dso_local void @sdssubstr(ptr noundef captures(none) %0, i64 noundef %1, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
   %.not = icmp uge i64 %1, %.0.i
   %spec.select22 = select i1 %.not, i64 0, i64 %1
   %26 = sub i64 %.0.i, %spec.select22
@@ -3331,7 +3331,7 @@ define dso_local void @sdsrange(ptr noundef captures(none) %0, i64 noundef %1, i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = icmp eq i64 %.0.i, 0
   br i1 %26, label %sdslen.exit.thread, label %27
 
@@ -3396,7 +3396,7 @@ define dso_local void @sdstolower(ptr noundef captures(none) %0) local_unnamed_a
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3468,7 +3468,7 @@ define dso_local void @sdstoupper(ptr noundef captures(none) %0) local_unnamed_a
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3540,7 +3540,7 @@ define dso_local i32 @sdscmp(ptr noundef readonly captures(none) %0, ptr noundef
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !13
   %27 = zext i8 %26 to i32
@@ -3582,7 +3582,7 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
   br label %sdslen.exit17
 
 sdslen.exit17:                                    ; preds = %sdslen.exit, %29, %32, %36, %40, %44
-  %.0.i16 = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %29 ], [ 0, %sdslen.exit ]
+  %.0.i16 = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %sdslen.exit ]
   %47 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %.0.i16)
   %48 = tail call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %47) #27
   %49 = icmp eq i32 %48, 0
@@ -3893,7 +3893,7 @@ define dso_local ptr @sdscatrepr(ptr noundef %0, ptr noundef readonly captures(n
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %25, %21, %17, %13, %10, %3
-  %.0.i.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %3 ]
+  %.0.i.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %3 ]
   %28 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %sdscatlen.exit, label %30
@@ -4014,7 +4014,7 @@ sdscatlen.exit:                                   ; preds = %sdslen.exit.i, %sds
   br label %sdslen.exit.i21
 
 sdslen.exit.i21:                                  ; preds = %75, %71, %67, %63, %60, %55
-  %.0.i.i22 = phi i64 [ %77, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %60 ], [ 0, %55 ]
+  %.0.i.i22 = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %55 ]
   %78 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 2, i32 noundef 1)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %sdscatlen.exit25, label %80
@@ -4110,7 +4110,7 @@ sdssetlen.exit.i23:                               ; preds = %97, %94, %91, %88, 
   br label %sdslen.exit.i26
 
 sdslen.exit.i26:                                  ; preds = %120, %116, %112, %108, %105, %100
-  %.0.i.i27 = phi i64 [ %122, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %105 ], [ 0, %100 ]
+  %.0.i.i27 = phi i64 [ %107, %105 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ 0, %100 ]
   %123 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 2, i32 noundef 1)
   %124 = icmp eq ptr %123, null
   br i1 %124, label %sdscatlen.exit25, label %125
@@ -4206,7 +4206,7 @@ sdssetlen.exit.i28:                               ; preds = %142, %139, %136, %1
   br label %sdslen.exit.i31
 
 sdslen.exit.i31:                                  ; preds = %165, %161, %157, %153, %150, %145
-  %.0.i.i32 = phi i64 [ %167, %165 ], [ %164, %161 ], [ %160, %157 ], [ %156, %153 ], [ %152, %150 ], [ 0, %145 ]
+  %.0.i.i32 = phi i64 [ %152, %150 ], [ %156, %153 ], [ %160, %157 ], [ %164, %161 ], [ %167, %165 ], [ 0, %145 ]
   %168 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 2, i32 noundef 1)
   %169 = icmp eq ptr %168, null
   br i1 %169, label %sdscatlen.exit25, label %170
@@ -4302,7 +4302,7 @@ sdssetlen.exit.i33:                               ; preds = %187, %184, %181, %1
   br label %sdslen.exit.i36
 
 sdslen.exit.i36:                                  ; preds = %210, %206, %202, %198, %195, %190
-  %.0.i.i37 = phi i64 [ %212, %210 ], [ %209, %206 ], [ %205, %202 ], [ %201, %198 ], [ %197, %195 ], [ 0, %190 ]
+  %.0.i.i37 = phi i64 [ %197, %195 ], [ %201, %198 ], [ %205, %202 ], [ %209, %206 ], [ %212, %210 ], [ 0, %190 ]
   %213 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 2, i32 noundef 1)
   %214 = icmp eq ptr %213, null
   br i1 %214, label %sdscatlen.exit25, label %215
@@ -4398,7 +4398,7 @@ sdssetlen.exit.i38:                               ; preds = %232, %229, %226, %2
   br label %sdslen.exit.i41
 
 sdslen.exit.i41:                                  ; preds = %255, %251, %247, %243, %240, %235
-  %.0.i.i42 = phi i64 [ %257, %255 ], [ %254, %251 ], [ %250, %247 ], [ %246, %243 ], [ %242, %240 ], [ 0, %235 ]
+  %.0.i.i42 = phi i64 [ %242, %240 ], [ %246, %243 ], [ %250, %247 ], [ %254, %251 ], [ %257, %255 ], [ 0, %235 ]
   %258 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 2, i32 noundef 1)
   %259 = icmp eq ptr %258, null
   br i1 %259, label %sdscatlen.exit25, label %260
@@ -4504,7 +4504,7 @@ sdssetlen.exit.i43:                               ; preds = %277, %274, %271, %2
   br label %sdslen.exit.i46
 
 sdslen.exit.i46:                                  ; preds = %307, %303, %299, %295, %292, %287
-  %.0.i.i47 = phi i64 [ %309, %307 ], [ %306, %303 ], [ %302, %299 ], [ %298, %295 ], [ %294, %292 ], [ 0, %287 ]
+  %.0.i.i47 = phi i64 [ %294, %292 ], [ %298, %295 ], [ %302, %299 ], [ %306, %303 ], [ %309, %307 ], [ 0, %287 ]
   %310 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01957, i64 noundef 1, i32 noundef 1)
   %311 = icmp eq ptr %310, null
   br i1 %311, label %sdscatlen.exit25, label %312
@@ -4613,7 +4613,7 @@ sdscatlen.exit25:                                 ; preds = %sdssetlen.exit.i48,
   br label %sdslen.exit.i51
 
 sdslen.exit.i51:                                  ; preds = %356, %352, %348, %344, %341, %._crit_edge
-  %.0.i.i52 = phi i64 [ %358, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %341 ], [ 0, %._crit_edge ]
+  %.0.i.i52 = phi i64 [ %343, %341 ], [ %347, %344 ], [ %351, %348 ], [ %355, %352 ], [ %358, %356 ], [ 0, %._crit_edge ]
   %359 = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.019.lcssa, i64 noundef 1, i32 noundef 1)
   %360 = icmp eq ptr %359, null
   br i1 %360, label %sdscatlen.exit55, label %361
@@ -4717,7 +4717,7 @@ define dso_local range(i32 0, 2) i32 @sdsneedsrepr(ptr noundef readonly captures
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
   %.not18 = icmp eq i64 %.0.i, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -4840,7 +4840,7 @@ define dso_local range(i32 0, 16) i32 @hex_digit_to_int(i8 noundef signext %0) l
   br label %17
 
 17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %16 ], [ 15, %15 ], [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %11 ], [ 10, %10 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %16 ], [ 2, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 8, %8 ], [ 9, %9 ], [ 10, %10 ], [ 11, %11 ], [ 12, %12 ], [ 13, %13 ], [ 14, %14 ], [ 15, %15 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -5004,7 +5004,7 @@ sdsempty.exit:                                    ; preds = %.critedge, %19
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %72, %68, %64, %60, %57, %47
-  %.0.i.i99 = phi i64 [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %57 ], [ 0, %47 ]
+  %.0.i.i99 = phi i64 [ %59, %57 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ], [ 0, %47 ]
   %75 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %sdscatlen.exit, label %77
@@ -5074,7 +5074,7 @@ sdssetlen.exit.i:                                 ; preds = %94, %91, %88, %85, 
   br label %101
 
 101:                                              ; preds = %30, %.thread, %100, %99, %98, %97
-  %.0129 = phi i8 [ %32, %.thread ], [ 7, %100 ], [ 8, %99 ], [ 9, %98 ], [ 13, %97 ], [ 10, %30 ]
+  %.0129 = phi i8 [ %32, %.thread ], [ 13, %97 ], [ 9, %98 ], [ 8, %99 ], [ 7, %100 ], [ 10, %30 ]
   %102 = getelementptr inbounds i8, ptr %.270148, i64 -1
   %103 = load i8, ptr %102, align 1, !tbaa !13
   %104 = zext i8 %103 to i32
@@ -5116,7 +5116,7 @@ sdssetlen.exit.i:                                 ; preds = %94, %91, %88, %85, 
   br label %sdslen.exit.i100
 
 sdslen.exit.i100:                                 ; preds = %121, %117, %113, %109, %106, %101
-  %.0.i.i101 = phi i64 [ %123, %121 ], [ %120, %117 ], [ %116, %113 ], [ %112, %109 ], [ %108, %106 ], [ 0, %101 ]
+  %.0.i.i101 = phi i64 [ %108, %106 ], [ %112, %109 ], [ %116, %113 ], [ %120, %117 ], [ %123, %121 ], [ 0, %101 ]
   %124 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %125 = icmp eq ptr %124, null
   br i1 %125, label %sdscatlen.exit, label %126
@@ -5227,7 +5227,7 @@ sdssetlen.exit.i102:                              ; preds = %143, %140, %137, %1
   br label %sdslen.exit.i105
 
 sdslen.exit.i105:                                 ; preds = %174, %170, %166, %162, %159, %.thread130
-  %.0.i.i106 = phi i64 [ %176, %174 ], [ %173, %170 ], [ %169, %166 ], [ %165, %162 ], [ %161, %159 ], [ 0, %.thread130 ]
+  %.0.i.i106 = phi i64 [ %161, %159 ], [ %165, %162 ], [ %169, %166 ], [ %173, %170 ], [ %176, %174 ], [ 0, %.thread130 ]
   %177 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %178 = icmp eq ptr %177, null
   br i1 %178, label %sdscatlen.exit, label %179
@@ -5342,7 +5342,7 @@ sdssetlen.exit.i107:                              ; preds = %197, %194, %191, %1
   br label %sdslen.exit.i110
 
 sdslen.exit.i110:                                 ; preds = %227, %223, %219, %215, %212, %207
-  %.0.i.i111 = phi i64 [ %229, %227 ], [ %226, %223 ], [ %222, %219 ], [ %218, %215 ], [ %214, %212 ], [ 0, %207 ]
+  %.0.i.i111 = phi i64 [ %214, %212 ], [ %218, %215 ], [ %222, %219 ], [ %226, %223 ], [ %229, %227 ], [ 0, %207 ]
   %230 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %231 = icmp eq ptr %230, null
   br i1 %231, label %sdscatlen.exit, label %232
@@ -5453,7 +5453,7 @@ sdssetlen.exit.i112:                              ; preds = %249, %246, %243, %2
   br label %sdslen.exit.i115
 
 sdslen.exit.i115:                                 ; preds = %280, %276, %272, %268, %265, %.thread131
-  %.0.i.i116 = phi i64 [ %282, %280 ], [ %279, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %265 ], [ 0, %.thread131 ]
+  %.0.i.i116 = phi i64 [ %267, %265 ], [ %271, %268 ], [ %275, %272 ], [ %279, %276 ], [ %282, %280 ], [ 0, %.thread131 ]
   %283 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %284 = icmp eq ptr %283, null
   br i1 %284, label %sdscatlen.exit, label %285
@@ -5564,7 +5564,7 @@ sdssetlen.exit.i117:                              ; preds = %303, %300, %297, %2
   br label %sdslen.exit.i120
 
 sdslen.exit.i120:                                 ; preds = %328, %324, %320, %316, %313, %308
-  %.0.i.i121 = phi i64 [ %330, %328 ], [ %327, %324 ], [ %323, %320 ], [ %319, %316 ], [ %315, %313 ], [ 0, %308 ]
+  %.0.i.i121 = phi i64 [ %315, %313 ], [ %319, %316 ], [ %323, %320 ], [ %327, %324 ], [ %330, %328 ], [ 0, %308 ]
   %331 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.270148, i64 noundef 1, i32 noundef 1)
   %332 = icmp eq ptr %331, null
   br i1 %332, label %sdscatlen.exit, label %333
@@ -5777,7 +5777,7 @@ define dso_local noundef ptr @sdsmapchars(ptr noundef returned captures(ret: add
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %9, %12, %16, %20, %24
-  %.0.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %9 ]
+  %.0.i = phi i64 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %.not = icmp eq i64 %.0.i, 0
   %.not20 = icmp eq i64 %3, 0
   %or.cond = or i1 %.not, %.not20
@@ -5899,7 +5899,7 @@ sdsempty.exit:                                    ; preds = %3, %7
   br label %sdslen.exit.i.i
 
 sdslen.exit.i.i:                                  ; preds = %41, %37, %33, %29, %26, %18
-  %.0.i.i.i = phi i64 [ %43, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %26 ], [ 0, %18 ]
+  %.0.i.i.i = phi i64 [ %28, %26 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %43, %41 ], [ 0, %18 ]
   %44 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.01017, i64 noundef %21, i32 noundef 1)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %sdscat.exit, label %46
@@ -6000,7 +6000,7 @@ sdscat.exit:                                      ; preds = %sdslen.exit.i.i, %s
   br label %sdslen.exit.i.i12
 
 sdslen.exit.i.i12:                                ; preds = %87, %83, %79, %75, %72, %66
-  %.0.i.i.i13 = phi i64 [ %89, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %72 ], [ 0, %66 ]
+  %.0.i.i.i13 = phi i64 [ %74, %72 ], [ %78, %75 ], [ %82, %79 ], [ %86, %83 ], [ %89, %87 ], [ 0, %66 ]
   %90 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %44, i64 noundef %67, i32 noundef 1)
   %91 = icmp eq ptr %90, null
   br i1 %91, label %sdscat.exit16, label %92
@@ -6152,7 +6152,7 @@ sdsempty.exit:                                    ; preds = %4, %8
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %43, %39, %35, %31, %28, %23
-  %.0.i.i13 = phi i64 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %28 ], [ 0, %23 ]
+  %.0.i.i13 = phi i64 [ %30, %28 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ], [ 0, %23 ]
   %46 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %22, i64 noundef %3, i32 noundef 1)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %sdscatlen.exit, label %48
@@ -6316,7 +6316,7 @@ sdsempty.exit:                                    ; preds = %3, %7
   br label %sdslen.exit.i.i
 
 sdslen.exit.i.i:                                  ; preds = %38, %34, %30, %26, %23, %17
-  %.0.i.i.i = phi i64 [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ], [ 0, %17 ]
+  %.0.i.i.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %17 ]
   %41 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.03482, i64 noundef %18, i32 noundef 1)
   %42 = icmp eq ptr %41, null
   br i1 %42, label %sdsfree.exit66, label %43
@@ -6419,7 +6419,7 @@ sdssetlen.exit.i.i:                               ; preds = %60, %57, %54, %51, 
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %88, %84, %80, %76, %73, %65
-  %.0.i.i50 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %73 ], [ 0, %65 ]
+  %.0.i.i50 = phi i64 [ %75, %73 ], [ %79, %76 ], [ %83, %80 ], [ %87, %84 ], [ %90, %88 ], [ 0, %65 ]
   %91 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.03482, i64 noundef %68, i32 noundef 1)
   %92 = icmp eq ptr %91, null
   br i1 %92, label %sdscatlen.exit, label %93
@@ -6525,7 +6525,7 @@ sdscatlen.exit:                                   ; preds = %sdssetlen.exit.i, %
   br label %sdslen.exit.i.i51
 
 sdslen.exit.i.i51:                                ; preds = %136, %132, %128, %124, %121, %115
-  %.0.i.i.i52 = phi i64 [ %138, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %121 ], [ 0, %115 ]
+  %.0.i.i.i52 = phi i64 [ %123, %121 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %138, %136 ], [ 0, %115 ]
   %139 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.3, i64 noundef 1, i32 noundef 1)
   %140 = icmp eq ptr %139, null
   br i1 %140, label %sdscat.exit, label %141, !llvm.loop !44
@@ -6659,7 +6659,7 @@ sdsfree.exit:                                     ; preds = %163, %sdsHdrSize.ex
   br label %sdslen.exit.i.i56
 
 sdslen.exit.i.i56:                                ; preds = %198, %194, %190, %186, %183, %177
-  %.0.i.i.i57 = phi i64 [ %200, %198 ], [ %197, %194 ], [ %193, %190 ], [ %189, %186 ], [ %185, %183 ], [ 0, %177 ]
+  %.0.i.i.i57 = phi i64 [ %185, %183 ], [ %189, %186 ], [ %193, %190 ], [ %197, %194 ], [ %200, %198 ], [ 0, %177 ]
   %201 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %.3, i64 noundef %178, i32 noundef 1)
   %202 = icmp eq ptr %201, null
   br i1 %202, label %sdscat.exit60, label %203

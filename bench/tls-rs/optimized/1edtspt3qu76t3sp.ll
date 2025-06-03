@@ -1310,7 +1310,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit"
 
 "_ZN82_$LT$rustls_pki_types..server_name..ServerName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h25993decb7bf591aE.llvm.13587593001660552149.exit": ; preds = %2, %8, %12, %20, %26
-  %.0.shrunk.i = phi i1 [ %11, %8 ], [ false, %2 ], [ %31, %26 ], [ %25, %20 ], [ false, %12 ]
+  %.0.shrunk.i = phi i1 [ %11, %8 ], [ false, %2 ], [ %25, %20 ], [ %31, %26 ], [ false, %12 ]
   ret i1 %.0.shrunk.i
 }
 
@@ -4469,7 +4469,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$rustls_pki_types..server_name..IpAd
   br i1 %trunc, label %15, label %9
 
 8:                                                ; preds = %2, %15, %9
-  %.0.shrunk = phi i1 [ %20, %15 ], [ %14, %9 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %14, %9 ], [ %20, %15 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
 9:                                                ; preds = %7
@@ -4733,7 +4733,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$rustls_pki_types..server_name..Serv
   br i1 %trunc, label %12, label %8
 
 "_ZN78_$LT$rustls_pki_types..server_name..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha9d99d938e16f090E.llvm.13587593001660552149.exit": ; preds = %26, %20, %12, %2, %8
-  %.0.shrunk = phi i1 [ %11, %8 ], [ false, %2 ], [ %31, %26 ], [ %25, %20 ], [ false, %12 ]
+  %.0.shrunk = phi i1 [ %11, %8 ], [ false, %2 ], [ %25, %20 ], [ %31, %26 ], [ false, %12 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %7
@@ -5382,7 +5382,7 @@ _ZN3std2fs11OpenOptions4open17hd0dee411088ddb9eE.exit.i: ; preds = %13
   br label %23
 
 23:                                               ; preds = %54, %20
-  %.0.i = phi i32 [ -1, %54 ], [ %22, %20 ]
+  %.0.i = phi i32 [ %22, %20 ], [ -1, %54 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !726
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !726
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !726
@@ -6075,7 +6075,7 @@ default.unreachable:                              ; preds = %177
   br i1 %193, label %195, label %196
 
 194:                                              ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i, %186, %182, %180, %174
-  %.1.i36 = phi ptr [ @anon.34a29c52120135f2975fa669c61e2cbe.1, %174 ], [ %.val.i, %180 ], [ %.val.i, %182 ], [ %.val.i, %186 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i ]
+  %.1.i36 = phi ptr [ @anon.34a29c52120135f2975fa669c61e2cbe.1, %174 ], [ %.val.i, %186 ], [ %.val.i, %182 ], [ %.val.i, %180 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !882
   br label %select.unfold
 

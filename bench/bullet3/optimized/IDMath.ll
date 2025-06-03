@@ -1066,7 +1066,7 @@ _ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thr
   br label %149
 
 149:                                              ; preds = %117, %140, %144, %135, %126, %92, %70, %_ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thread
-  %.078 = phi i1 [ false, %117 ], [ false, %126 ], [ false, %135 ], [ false, %144 ], [ false, %70 ], [ false, %92 ], [ false, %_ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thread ], [ true, %140 ]
+  %.078 = phi i1 [ false, %126 ], [ false, %135 ], [ false, %144 ], [ false, %117 ], [ false, %70 ], [ false, %92 ], [ false, %_ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thread ], [ true, %140 ]
   ret i1 %.078
 }
 
@@ -1301,7 +1301,7 @@ define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTrans
   br label %182
 
 182:                                              ; preds = %17, %146, %163, %127, %102, %68
-  %.3 = phi i1 [ false, %17 ], [ false, %68 ], [ false, %102 ], [ false, %127 ], [ false, %163 ], [ true, %146 ]
+  %.3 = phi i1 [ false, %68 ], [ false, %102 ], [ false, %127 ], [ false, %163 ], [ false, %17 ], [ true, %146 ]
   ret i1 %.3
 }
 

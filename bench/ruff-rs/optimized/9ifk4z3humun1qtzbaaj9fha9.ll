@@ -289,7 +289,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3v
   unreachable
 
 112:                                              ; preds = %149, %53
-  %.pn.i = phi { ptr, i32 } [ %150, %149 ], [ %54, %53 ]
+  %.pn.i = phi { ptr, i32 } [ %54, %53 ], [ %150, %149 ]
   resume { ptr, i32 } %.pn.i
 
 .lr.ph:                                           ; preds = %50, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i
@@ -581,9 +581,9 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
   br label %"_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit"
 
 "_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit": ; preds = %109, %236
-  %.sroa.10.sroa.10.sroa.0.3 = phi i56 [ %.sroa.10.sroa.10.sroa.0.0, %236 ], [ %.sroa.10.sroa.10.sroa.0.2, %109 ]
-  %.sroa.10.sroa.0.3 = phi i8 [ %.sroa.10.sroa.0.0, %236 ], [ %.sroa.10.sroa.0.2, %109 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.0, %236 ], [ %.sroa.0.2, %109 ]
+  %.sroa.10.sroa.10.sroa.0.3 = phi i56 [ %.sroa.10.sroa.10.sroa.0.2, %109 ], [ %.sroa.10.sroa.10.sroa.0.0, %236 ]
+  %.sroa.10.sroa.0.3 = phi i8 [ %.sroa.10.sroa.0.2, %109 ], [ %.sroa.10.sroa.0.0, %236 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.2, %109 ], [ %.sroa.0.0, %236 ]
   %237 = icmp eq i64 %.sroa.0.3, 3
   br i1 %237, label %"_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit.thread", label %240
 

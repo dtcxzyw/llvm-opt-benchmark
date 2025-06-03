@@ -742,7 +742,7 @@ define dso_local i64 @_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20Un
   br label %18
 
 18:                                               ; preds = %11, %7, %15
-  %.sroa.013.1 = phi i64 [ %10, %7 ], [ %14, %11 ], [ %17, %15 ]
+  %.sroa.013.1 = phi i64 [ %17, %15 ], [ %14, %11 ], [ %10, %7 ]
   ret i64 %.sroa.013.1
 }
 
@@ -808,7 +808,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %29, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %30, %29 ]
+  %.1.i.i.i = phi ptr [ %30, %29 ], [ %25, %.lr.ph.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %32 = load i24, ptr %31, align 16
   %33 = and i24 %32, 1048576
@@ -984,7 +984,7 @@ _ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit74: ; preds = %ta
   br label %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread
 
 _ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit74, %switch.lookup, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit64, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit44, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit34, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread7.i, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread12, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit, %37, %17
-  %.0 = phi i32 [ %39, %37 ], [ %20, %17 ], [ 7, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread12 ], [ 12, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit ], [ 12, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread7.i ], [ 9, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit34 ], [ 19, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit44 ], [ -1, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit64 ], [ %switch.load, %switch.lookup ], [ 18, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit74 ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ]
+  %.0 = phi i32 [ %20, %17 ], [ %39, %37 ], [ 7, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread12 ], [ 12, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit ], [ 12, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread7.i ], [ 9, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit34 ], [ 19, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit44 ], [ -1, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit64 ], [ %switch.load, %switch.lookup ], [ 18, %_ZNK5clang4Type23isMemberDataPointerTypeEv.exit.thread.loopexit74 ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ], [ 5, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -6514,7 +6514,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit24:           ; preds = %57, %60
   unreachable
 
 _ZL22EvalPointerValueAsBoolRKN5clang7APValueERb.exit: ; preds = %106, %100, %95, %2, %2, %2, %2, %2, %112, %2, %2, %115, %87, %65, %31, %_ZNK4llvm12APFixedPoint12getBoolValueEv.exit, %_ZNK4llvm5APInt12getBoolValueEv.exit
-  %.0 = phi i1 [ true, %115 ], [ true, %87 ], [ true, %65 ], [ true, %31 ], [ true, %_ZNK4llvm12APFixedPoint12getBoolValueEv.exit ], [ true, %_ZNK4llvm5APInt12getBoolValueEv.exit ], [ false, %2 ], [ false, %2 ], [ false, %112 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %95 ], [ true, %100 ], [ %109, %106 ]
+  %.0 = phi i1 [ true, %_ZNK4llvm5APInt12getBoolValueEv.exit ], [ true, %_ZNK4llvm12APFixedPoint12getBoolValueEv.exit ], [ true, %31 ], [ true, %65 ], [ true, %87 ], [ true, %115 ], [ false, %2 ], [ false, %2 ], [ false, %112 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %95 ], [ true, %100 ], [ %109, %106 ]
   ret i1 %.0
 }
 
@@ -6693,7 +6693,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %5
   %spec.select.i = icmp ult i32 %33, 20
   br i1 %spec.select.i, label %34, label %51
 
-34:                                               ; preds = %28, %20, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+34:                                               ; preds = %20, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #30
   %35 = call fastcc noundef zeroext i1 @_ZL20FastEvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br i1 %35, label %36, label %_ZL16EvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERN12_GLOBAL__N_18EvalInfoE.exit
@@ -6735,8 +6735,8 @@ _ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.e
 _ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit.thread: ; preds = %45, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit
   br label %51
 
-51:                                               ; preds = %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit.thread, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit, %36, %28, %20, %_ZL16EvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERN12_GLOBAL__N_18EvalInfoE.exit, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ false, %41 ], [ false, %_ZL16EvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERN12_GLOBAL__N_18EvalInfoE.exit ], [ false, %20 ], [ false, %28 ], [ false, %36 ], [ false, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit.thread ], [ true, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit ]
+51:                                               ; preds = %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit.thread, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit, %36, %20, %28, %_ZL16EvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERN12_GLOBAL__N_18EvalInfoE.exit, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %.0 = phi i1 [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ false, %41 ], [ false, %_ZL16EvaluateAsRValuePKN5clang4ExprERNS0_10EvalResultERKNS_10ASTContextERN12_GLOBAL__N_18EvalInfoE.exit ], [ false, %28 ], [ false, %20 ], [ false, %36 ], [ false, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit.thread ], [ true, %_ZL25hasUnacceptableSideEffectRN5clang4Expr10EvalStatusENS0_15SideEffectsKindE.exit ]
   ret i1 %.0
 }
 
@@ -8659,7 +8659,7 @@ _ZN5clang7APValueD2Ev.exit83:                     ; preds = %109
   br label %.thread103
 
 .thread103:                                       ; preds = %117, %_ZN5clang7APValueD2Ev.exit81, %105, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, %64, %52, %121, %123
-  %.1 = phi i1 [ true, %52 ], [ true, %64 ], [ true, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i ], [ true, %105 ], [ true, %123 ], [ false, %121 ], [ true, %_ZN5clang7APValueD2Ev.exit81 ], [ %120, %117 ]
+  %.1 = phi i1 [ true, %123 ], [ true, %105 ], [ true, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i ], [ true, %64 ], [ true, %52 ], [ false, %121 ], [ true, %_ZN5clang7APValueD2Ev.exit81 ], [ %120, %117 ]
   ret i1 %.1
 }
 
@@ -9488,7 +9488,7 @@ _ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit: ; preds = %_ZN12_GLOBAL
   br label %193
 
 193:                                              ; preds = %191, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %192, %191 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %192, %191 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i.i.i, align 8
   %194 = and i64 %.1.val.i.i.i.i.i.i.i, 6
   %.not.i.i37.i.i.i.i.i.i.i = icmp eq i64 %194, 0
@@ -9499,7 +9499,7 @@ _ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit: ; preds = %_ZN12_GLOBAL
   br label %197
 
 197:                                              ; preds = %195, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %196, %195 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i.i.i, align 8
   %198 = and i64 %.2.val.i.i.i.i.i.i.i, 6
   %.not.i.i38.i.i.i.i.i.i.i = icmp eq i64 %198, 0
@@ -11149,7 +11149,7 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstant
   br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit.thread
 
 _ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit.thread: ; preds = %45, %41, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit, %20, %17, %22, %26, %50, %51, %58, %60, %61, %30, %37, %34, %2
-  %.0 = phi i1 [ true, %2 ], [ %.not27, %61 ], [ true, %60 ], [ %59, %58 ], [ %57, %51 ], [ true, %50 ], [ false, %30 ], [ false, %34 ], [ %40, %37 ], [ %spec.select.i.i17, %26 ], [ true, %22 ], [ true, %20 ], [ %19, %17 ], [ true, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit ], [ %49, %45 ], [ false, %41 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %50 ], [ %57, %51 ], [ %59, %58 ], [ true, %60 ], [ %.not27, %61 ], [ false, %30 ], [ false, %34 ], [ %40, %37 ], [ %spec.select.i.i17, %26 ], [ true, %22 ], [ true, %20 ], [ %19, %17 ], [ true, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_10MSGuidDeclEJNS1_25UnnamedGlobalConstantDeclEEPKNS1_9ValueDeclEEEbRKT2_.exit ], [ %49, %45 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -11310,11 +11310,11 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %2
   %spec.select.i = icmp ult i32 %37, 20
   br i1 %spec.select.i, label %40, label %38
 
-38:                                               ; preds = %32, %24, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+38:                                               ; preds = %24, %32, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %39 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
   br label %.critedge5
 
-40:                                               ; preds = %32, %24, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+40:                                               ; preds = %24, %32, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %41 = load i16, ptr %0, align 8
   %42 = and i16 %41, 511
   switch i16 %42, label %392 [
@@ -12333,8 +12333,8 @@ _ZN4llvm5APIntD2Ev.exit191:                       ; preds = %358, %364, %367
   unreachable
 
 .critedge5:                                       ; preds = %_ZN4llvm5APIntD2Ev.exit191, %_ZN4llvm5APIntD2Ev.exit178, %355, %353, %351, %343, %339, %.critedge165, %314, %309, %304, %_ZN4llvm5APIntD2Ev.exit187, %142, %138, %.critedge, %101, %113, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %.critedge167, %.critedge165.thread, %300, %302, %162, %_ZN4llvm5APIntD2Ev.exit177, %231, %229, %227, %263, %156, %130, %132, %93, %95, %388, %386, %374, %371, %368, %136, %97, %79, %75, %71, %67, %64, %62, %59, %43, %38
-  %.sroa.0241.0 = phi i64 [ %391, %388 ], [ 2, %386 ], [ %383, %374 ], [ %373, %371 ], [ %370, %368 ], [ %338, %.critedge167 ], [ %312, %.critedge165.thread ], [ 2, %302 ], [ %301, %300 ], [ %.sroa.0241.2, %_ZN4llvm5APIntD2Ev.exit187 ], [ %.sroa.0.0.copyload.i182, %263 ], [ 1, %_ZN4llvm5APIntD2Ev.exit177 ], [ 2, %229 ], [ 1, %227 ], [ %.sroa.0.0.copyload.i176, %231 ], [ 2, %162 ], [ 2, %156 ], [ %137, %136 ], [ %135, %132 ], [ 2, %130 ], [ %100, %97 ], [ 2, %95 ], [ %94, %93 ], [ %90, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %64 ], [ %61, %59 ], [ 2, %62 ], [ 2, %43 ], [ 2, %38 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 2, %.critedge ], [ 0, %101 ], [ 0, %113 ], [ 0, %138 ], [ 0, %142 ], [ 2, %304 ], [ 2, %309 ], [ 1, %314 ], [ 0, %.critedge165 ], [ 2, %339 ], [ 2, %343 ], [ 2, %351 ], [ 1, %353 ], [ 0, %355 ], [ %spec.select, %_ZN4llvm5APIntD2Ev.exit178 ], [ %spec.select294, %_ZN4llvm5APIntD2Ev.exit191 ]
-  %.sroa.54.0 = phi i32 [ %.sroa.54.0.extract.trunc292, %388 ], [ %387, %386 ], [ %.sroa.54.0.extract.trunc290, %374 ], [ %.sroa.54.0.extract.trunc288, %371 ], [ %.sroa.54.0.extract.trunc286, %368 ], [ %.sroa.54.0.extract.trunc284, %.critedge167 ], [ %.sroa.745.0.extract.trunc, %.critedge165.thread ], [ %303, %302 ], [ %.sroa.54.0.extract.trunc282, %300 ], [ %.sroa.54.2, %_ZN4llvm5APIntD2Ev.exit187 ], [ %.sroa.54.0.extract.trunc280, %263 ], [ %.sroa.54.3, %_ZN4llvm5APIntD2Ev.exit177 ], [ %230, %229 ], [ %228, %227 ], [ %.sroa.54.0.extract.trunc278, %231 ], [ %163, %162 ], [ %157, %156 ], [ %.sroa.54.0.extract.trunc276, %136 ], [ %.sroa.54.0.extract.trunc274, %132 ], [ %131, %130 ], [ %.sroa.54.0.extract.trunc272, %97 ], [ %96, %95 ], [ %.sroa.54.0.extract.trunc270, %93 ], [ %.sroa.54.0.extract.trunc268, %79 ], [ %.sroa.54.0.extract.trunc266, %75 ], [ %.sroa.54.0.extract.trunc264, %71 ], [ %.sroa.54.0.extract.trunc262, %67 ], [ %.sroa.54.0.extract.trunc260, %64 ], [ %.sroa.54.0.extract.trunc, %59 ], [ %63, %62 ], [ %44, %43 ], [ %39, %38 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ %125, %.critedge ], [ 0, %101 ], [ 0, %113 ], [ 0, %138 ], [ 0, %142 ], [ %.sroa.751.0.extract.trunc, %304 ], [ %.sroa.745.0.extract.trunc, %309 ], [ %.sroa.751.0.extract.trunc, %314 ], [ 0, %.critedge165 ], [ %.sroa.731.0.extract.trunc, %339 ], [ %.sroa.725.0.extract.trunc, %343 ], [ %.sroa.7.0.extract.trunc, %351 ], [ %.sroa.731.0.extract.trunc, %353 ], [ 0, %355 ], [ %spec.select293, %_ZN4llvm5APIntD2Ev.exit178 ], [ %spec.select295, %_ZN4llvm5APIntD2Ev.exit191 ]
+  %.sroa.0241.0 = phi i64 [ 2, %43 ], [ %61, %59 ], [ 2, %62 ], [ %66, %64 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %90, %79 ], [ 2, %95 ], [ %94, %93 ], [ %100, %97 ], [ %135, %132 ], [ 2, %130 ], [ %137, %136 ], [ 2, %156 ], [ 2, %162 ], [ 1, %_ZN4llvm5APIntD2Ev.exit177 ], [ 2, %229 ], [ 1, %227 ], [ %.sroa.0.0.copyload.i176, %231 ], [ %.sroa.0.0.copyload.i182, %263 ], [ 2, %302 ], [ %301, %300 ], [ %.sroa.0241.2, %_ZN4llvm5APIntD2Ev.exit187 ], [ %312, %.critedge165.thread ], [ %338, %.critedge167 ], [ %370, %368 ], [ %373, %371 ], [ %383, %374 ], [ %391, %388 ], [ 2, %386 ], [ 2, %38 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 2, %.critedge ], [ 0, %101 ], [ 0, %113 ], [ 0, %138 ], [ 0, %142 ], [ 2, %304 ], [ 2, %309 ], [ 1, %314 ], [ 0, %.critedge165 ], [ 2, %339 ], [ 2, %343 ], [ 2, %351 ], [ 1, %353 ], [ 0, %355 ], [ %spec.select, %_ZN4llvm5APIntD2Ev.exit178 ], [ %spec.select294, %_ZN4llvm5APIntD2Ev.exit191 ]
+  %.sroa.54.0 = phi i32 [ %44, %43 ], [ %.sroa.54.0.extract.trunc, %59 ], [ %63, %62 ], [ %.sroa.54.0.extract.trunc260, %64 ], [ %.sroa.54.0.extract.trunc262, %67 ], [ %.sroa.54.0.extract.trunc264, %71 ], [ %.sroa.54.0.extract.trunc266, %75 ], [ %.sroa.54.0.extract.trunc268, %79 ], [ %96, %95 ], [ %.sroa.54.0.extract.trunc270, %93 ], [ %.sroa.54.0.extract.trunc272, %97 ], [ %.sroa.54.0.extract.trunc274, %132 ], [ %131, %130 ], [ %.sroa.54.0.extract.trunc276, %136 ], [ %157, %156 ], [ %163, %162 ], [ %.sroa.54.3, %_ZN4llvm5APIntD2Ev.exit177 ], [ %230, %229 ], [ %228, %227 ], [ %.sroa.54.0.extract.trunc278, %231 ], [ %.sroa.54.0.extract.trunc280, %263 ], [ %303, %302 ], [ %.sroa.54.0.extract.trunc282, %300 ], [ %.sroa.54.2, %_ZN4llvm5APIntD2Ev.exit187 ], [ %.sroa.745.0.extract.trunc, %.critedge165.thread ], [ %.sroa.54.0.extract.trunc284, %.critedge167 ], [ %.sroa.54.0.extract.trunc286, %368 ], [ %.sroa.54.0.extract.trunc288, %371 ], [ %.sroa.54.0.extract.trunc290, %374 ], [ %.sroa.54.0.extract.trunc292, %388 ], [ %387, %386 ], [ %39, %38 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ 0, %40 ], [ %125, %.critedge ], [ 0, %101 ], [ 0, %113 ], [ 0, %138 ], [ 0, %142 ], [ %.sroa.751.0.extract.trunc, %304 ], [ %.sroa.745.0.extract.trunc, %309 ], [ %.sroa.751.0.extract.trunc, %314 ], [ 0, %.critedge165 ], [ %.sroa.731.0.extract.trunc, %339 ], [ %.sroa.725.0.extract.trunc, %343 ], [ %.sroa.7.0.extract.trunc, %351 ], [ %.sroa.731.0.extract.trunc, %353 ], [ 0, %355 ], [ %spec.select293, %_ZN4llvm5APIntD2Ev.exit178 ], [ %spec.select295, %_ZN4llvm5APIntD2Ev.exit191 ]
   %.sroa.54.0.insert.ext = zext i32 %.sroa.54.0 to i64
   %.sroa.54.0.insert.shift = shl nuw i64 %.sroa.54.0.insert.ext, 32
   %.sroa.0241.0.insert.ext = and i64 %.sroa.0241.0, 4294967295
@@ -15174,7 +15174,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit49:     ; preds = %140, %147
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %153, %161
-  %.1.i.i = phi ptr [ %157, %153 ], [ %162, %161 ]
+  %.1.i.i = phi ptr [ %162, %161 ], [ %157, %153 ]
   %163 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %163, align 8, !tbaa !21
   %164 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -16041,7 +16041,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i53: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i60
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i60: ; preds = %182, %.lr.ph.i.i.i56
-  %.1.i.i.i.i61 = phi ptr [ %178, %.lr.ph.i.i.i56 ], [ %183, %182 ]
+  %.1.i.i.i.i61 = phi ptr [ %183, %182 ], [ %178, %.lr.ph.i.i.i56 ]
   %184 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i61, i64 16
   %185 = load i24, ptr %184, align 16
   %186 = and i24 %185, 1048576
@@ -16400,7 +16400,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10MemberExprEKNS1_4ExprEEEDaPT0_.exit.thread.i
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %372, %369, %367
-  %.sink233.i.i = phi ptr [ %368, %367 ], [ %359, %369 ], [ %373, %372 ]
+  %.sink233.i.i = phi ptr [ %368, %367 ], [ %373, %372 ], [ %359, %369 ]
   %374 = getelementptr inbounds nuw i8, ptr %.sink233.i.i, i64 32
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %374, align 16, !tbaa !21
   br label %375
@@ -16486,7 +16486,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit.i.i: ; preds = %401, %393
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i: ; preds = %414, %411
-  %.1.i135.i.i = phi ptr [ %382, %411 ], [ %415, %414 ]
+  %.1.i135.i.i = phi ptr [ %415, %414 ], [ %382, %411 ]
   %416 = load i64, ptr %379, align 8, !tbaa !912
   %.not101.i.i = icmp eq i64 %416, 1
   br i1 %.not101.i.i, label %.thread182.i.i, label %_ZL22isUserWritingOffTheEndRKN5clang10ASTContextERKN12_GLOBAL__N_16LValueE.exit.thread
@@ -16702,7 +16702,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %513, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %509, %.lr.ph.i.i.i ], [ %514, %513 ]
+  %.1.i.i.i.i = phi ptr [ %514, %513 ], [ %509, %.lr.ph.i.i.i ]
   %515 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %516 = load i24, ptr %515, align 16
   %517 = and i24 %516, 1048576
@@ -19026,7 +19026,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   br label %.thread
 
 .thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %23, %16 ], [ %25, %24 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 
@@ -20222,8 +20222,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %152, %_ZN4llvm5
   %344 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19LValueExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr417)
   br label %.thread411
 
-.thread411:                                       ; preds = %88, %90, %92, %94, %96, %97, %111, %112, %113, %114, %116, %121, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %343, %341, %340, %339, %338, %337, %335, %334, %333, %332, %330, %328, %327, %323, %322, %321, %319, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %304, %303, %302, %301, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %265, %255, %254, %253, %252, %251, %249, %248, %247, %246, %245, %243, %242, %240, %239, %238, %236, %234, %233, %232, %220, %219, %218, %216, %215, %214, %213, %212, %210, %209, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %185, %184, %183, %182, %148, %147, %145, %144, %143, %142, %141, %140, %139, %138, %136, %135, %131, %130, %129, %128, %127, %126
-  %.3 = phi i1 [ %344, %343 ], [ %342, %341 ], [ false, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ %336, %335 ], [ false, %334 ], [ false, %333 ], [ false, %332 ], [ %331, %330 ], [ %329, %328 ], [ false, %327 ], [ false, %323 ], [ false, %322 ], [ false, %321 ], [ %320, %319 ], [ %318, %317 ], [ false, %316 ], [ false, %315 ], [ false, %314 ], [ false, %313 ], [ false, %312 ], [ false, %311 ], [ false, %310 ], [ false, %309 ], [ false, %308 ], [ false, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ %300, %299 ], [ false, %298 ], [ true, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ false, %265 ], [ true, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ %250, %249 ], [ false, %248 ], [ false, %247 ], [ false, %246 ], [ false, %245 ], [ %244, %243 ], [ false, %242 ], [ %241, %240 ], [ false, %239 ], [ false, %238 ], [ %237, %236 ], [ %235, %234 ], [ false, %233 ], [ false, %232 ], [ false, %220 ], [ false, %219 ], [ false, %218 ], [ %217, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ %211, %210 ], [ false, %209 ], [ %208, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ true, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ %187, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %148 ], [ true, %147 ], [ %146, %145 ], [ false, %144 ], [ false, %143 ], [ false, %142 ], [ false, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ %137, %136 ], [ true, %135 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ false, %96 ], [ %107, %97 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ %115, %114 ], [ %117, %116 ], [ false, %121 ]
+.thread411:                                       ; preds = %121, %116, %114, %113, %112, %111, %97, %96, %94, %92, %90, %88, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %343, %341, %340, %339, %338, %337, %335, %334, %333, %332, %330, %328, %327, %323, %322, %321, %319, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %304, %303, %302, %301, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %265, %255, %254, %253, %252, %251, %249, %248, %247, %246, %245, %243, %242, %240, %239, %238, %236, %234, %233, %232, %220, %219, %218, %216, %215, %214, %213, %212, %210, %209, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %185, %184, %183, %182, %148, %147, %145, %144, %143, %142, %141, %140, %139, %138, %136, %135, %131, %130, %129, %128, %127, %126
+  %.3 = phi i1 [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ false, %130 ], [ false, %131 ], [ true, %135 ], [ %137, %136 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ false, %141 ], [ false, %142 ], [ false, %143 ], [ false, %144 ], [ %146, %145 ], [ true, %147 ], [ false, %148 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ %187, %186 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ true, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ %208, %207 ], [ false, %209 ], [ %211, %210 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ %217, %216 ], [ false, %218 ], [ false, %219 ], [ false, %220 ], [ false, %232 ], [ false, %233 ], [ %235, %234 ], [ %237, %236 ], [ false, %238 ], [ false, %239 ], [ %241, %240 ], [ false, %242 ], [ %244, %243 ], [ false, %245 ], [ false, %246 ], [ false, %247 ], [ false, %248 ], [ %250, %249 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ false, %254 ], [ true, %255 ], [ false, %265 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ true, %296 ], [ false, %298 ], [ %300, %299 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ false, %304 ], [ false, %308 ], [ false, %309 ], [ false, %310 ], [ false, %311 ], [ false, %312 ], [ false, %313 ], [ false, %314 ], [ false, %315 ], [ false, %316 ], [ %318, %317 ], [ %320, %319 ], [ false, %321 ], [ false, %322 ], [ false, %323 ], [ false, %327 ], [ %329, %328 ], [ %331, %330 ], [ false, %332 ], [ false, %333 ], [ false, %334 ], [ %336, %335 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ false, %340 ], [ %342, %341 ], [ %344, %343 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ false, %121 ], [ %117, %116 ], [ %115, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %107, %97 ], [ false, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ]
   ret i1 %.3
 }
 
@@ -22459,7 +22459,7 @@ _ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE15VisitMemb
   br label %196
 
 196:                                              ; preds = %73, %43, %_ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE15VisitMemberExprEPKN5clang10MemberExprE.exit
-  %.1 = phi i1 [ %44, %43 ], [ true, %73 ], [ %.0.i, %_ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE15VisitMemberExprEPKN5clang10MemberExprE.exit ]
+  %.1 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE15VisitMemberExprEPKN5clang10MemberExprE.exit ], [ true, %73 ], [ %44, %43 ]
   ret i1 %.1
 }
 
@@ -22876,8 +22876,8 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i:    ; preds = %165, %156
   br label %195
 
 195:                                              ; preds = %190, %179, %.loopexit, %.lr.ph71
-  %196 = phi ptr [ %136, %.lr.ph71 ], [ %191, %190 ], [ %180, %179 ], [ %169, %.loopexit ]
-  %.sroa.015.1 = phi i64 [ %.sroa.015.070, %.lr.ph71 ], [ %.sroa.0.0.copyload.i59, %190 ], [ %.sroa.0.0.copyload.i58, %179 ], [ %.sroa.0.0.copyload.i57, %.loopexit ]
+  %196 = phi ptr [ %136, %.lr.ph71 ], [ %169, %.loopexit ], [ %180, %179 ], [ %191, %190 ]
+  %.sroa.015.1 = phi i64 [ %.sroa.015.070, %.lr.ph71 ], [ %.sroa.0.0.copyload.i57, %.loopexit ], [ %.sroa.0.0.copyload.i58, %179 ], [ %.sroa.0.0.copyload.i59, %190 ]
   %.not48.wide = icmp eq i64 %137, 0
   br i1 %.not48.wide, label %_ZL20HandleLValueBasePathRN12_GLOBAL__N_18EvalInfoEPKN5clang8CastExprENS2_8QualTypeERNS_6LValueE.exit, label %.lr.ph71, !llvm.loop !977
 
@@ -23366,7 +23366,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119LValueExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %27, %41
-  %.1.i = phi ptr [ %37, %27 ], [ %42, %41 ]
+  %.1.i = phi ptr [ %42, %41 ], [ %37, %27 ]
   %43 = load ptr, ptr %0, align 8, !tbaa !947
   %44 = load ptr, ptr %28, align 8, !tbaa !948
   %45 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
@@ -25491,7 +25491,7 @@ _ZL14CheckArraySizeRN12_GLOBAL__N_18EvalInfoEPKN5clang17ConstantArrayTypeENS2_14
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i: ; preds = %365, %362
-  %.1.i.i.i = phi ptr [ %255, %362 ], [ %366, %365 ]
+  %.1.i.i.i = phi ptr [ %366, %365 ], [ %255, %362 ]
   %367 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 32
   %.sroa.0.0.copyload.i313.i.i = load i64, ptr %367, align 16, !tbaa !21
   %368 = call fastcc i64 @_ZL16getSubobjectTypeN5clang8QualTypeES0_b(i64 %.sroa.0423.1.i.i, i64 %.sroa.0.0.copyload.i313.i.i, i1 noundef zeroext false)
@@ -29793,7 +29793,7 @@ _ZL14CheckArraySizeRN12_GLOBAL__N_18EvalInfoEPKN5clang17ConstantArrayTypeENS2_14
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i.i: ; preds = %319, %316
-  %.1.i.i.i = phi ptr [ %209, %316 ], [ %320, %319 ]
+  %.1.i.i.i = phi ptr [ %320, %319 ], [ %209, %316 ]
   %321 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 32
   %.sroa.0.0.copyload.i315.i.i = load i64, ptr %321, align 16, !tbaa !21
   %322 = call fastcc i64 @_ZL16getSubobjectTypeN5clang8QualTypeES0_b(i64 %.sroa.0436.1.i.i, i64 %.sroa.0.0.copyload.i315.i.i, i1 noundef zeroext false)
@@ -31322,7 +31322,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang4Type20getAsArrayTypeUnsafeEv(
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -33532,7 +33532,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %31, %35
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %50, %51
-  %.1.i = phi ptr [ %17, %50 ], [ %52, %51 ]
+  %.1.i = phi ptr [ %52, %51 ], [ %17, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i62 = load i64, ptr %53, align 16, !tbaa !21
   store i64 %.sroa.0.0.copyload.i62, ptr %6, align 8, !tbaa !21
@@ -36576,7 +36576,7 @@ _ZL14CheckArraySizeRN12_GLOBAL__N_18EvalInfoEPKN5clang17ConstantArrayTypeENS2_14
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %349, %346
-  %.1.i.i = phi ptr [ %229, %346 ], [ %350, %349 ]
+  %.1.i.i = phi ptr [ %350, %349 ], [ %229, %346 ]
   %351 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i346.i = load i64, ptr %351, align 16, !tbaa !21
   %352 = call fastcc i64 @_ZL16getSubobjectTypeN5clang8QualTypeES0_b(i64 %.sroa.0458.1.i, i64 %.sroa.0.0.copyload.i346.i, i1 noundef zeroext false)
@@ -37050,7 +37050,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122IncDecSubobjectHan
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %18, %25
-  %.1.i = phi ptr [ %22, %18 ], [ %26, %25 ]
+  %.1.i = phi ptr [ %26, %25 ], [ %22, %18 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %27, align 16, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -37076,7 +37076,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %18, %25
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit18
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit18: ; preds = %33, %40
-  %.1.i17 = phi ptr [ %37, %33 ], [ %41, %40 ]
+  %.1.i17 = phi ptr [ %41, %40 ], [ %37, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 32
   %.sroa.0.0.copyload.i19 = load i64, ptr %42, align 16, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -37225,7 +37225,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit.i:              ; preds = %101, %98
   br label %_ZN12_GLOBAL__N_122IncDecSubobjectHandler12foundPointerERN5clang7APValueENS1_8QualTypeE.exit
 
 _ZN12_GLOBAL__N_122IncDecSubobjectHandler12foundPointerERN5clang7APValueENS1_8QualTypeE.exit: ; preds = %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i, %.thread.i, %56, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i, %102, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit18, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit, %15, %12
-  %.0 = phi i1 [ false, %102 ], [ %47, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit18 ], [ %32, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ], [ %17, %15 ], [ %14, %12 ], [ %90, %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i ], [ false, %.thread.i ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i ], [ false, %56 ]
+  %.0 = phi i1 [ false, %102 ], [ %14, %12 ], [ %17, %15 ], [ %32, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit ], [ %47, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit18 ], [ %90, %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i ], [ false, %.thread.i ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i ], [ false, %56 ]
   ret i1 %.0
 }
 
@@ -37965,7 +37965,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -39506,8 +39506,8 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %291, %295
   br i1 %.not461, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit, label %.lr.ph
 
 317:                                              ; preds = %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562, %47, %44, %44, %44, %44, %42
-  %.0375 = phi ptr [ %3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ %3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ %spec.store.select, %47 ], [ %3, %44 ], [ %3, %44 ], [ %3, %44 ], [ %3, %44 ], [ null, %42 ]
-  %.1 = phi i32 [ %.11, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ 3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ undef, %47 ], [ undef, %44 ], [ undef, %44 ], [ undef, %44 ], [ undef, %44 ], [ undef, %42 ]
+  %.0375 = phi ptr [ %3, %44 ], [ %3, %44 ], [ %3, %44 ], [ %3, %44 ], [ %spec.store.select, %47 ], [ %3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ %3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ null, %42 ]
+  %.1 = phi i32 [ undef, %44 ], [ undef, %44 ], [ undef, %44 ], [ undef, %44 ], [ undef, %47 ], [ 3, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ %.11, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ undef, %42 ]
   %318 = load i16, ptr %2, align 8
   %319 = and i16 %318, 511
   switch i16 %319, label %327 [
@@ -42652,7 +42652,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit.loopexit2001: ;
   br label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %308, %314, %.critedge534, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit, %382, %430, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit617, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit.loopexit2001, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921.thread, %_ZNK5clang8DeclStmt5declsEv.exit, %_ZNK5clang8DeclStmt5declsEv.exit570, %.thread1163, %356, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921, %332, %360, %357, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663.thread, %_ZN12_GLOBAL__N_18EvalInfo8nextStepEPKN5clang4StmtE.exit, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663, %317, %44, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562, %1699, %_ZNK5clang10SwitchCase10getSubStmtEv.exit, %.thread1352, %1614, %1613, %1612, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit737, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit650, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit645, %.thread1259, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit604, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit585, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit578, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit
-  %.0 = phi i32 [ %1702, %1699 ], [ %1698, %_ZNK5clang10SwitchCase10getSubStmtEv.exit ], [ %.69, %.thread1352 ], [ %1617, %1614 ], [ 4, %1613 ], [ 3, %1612 ], [ %.3.i, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit737 ], [ %.591324, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit650 ], [ %.501309, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit645 ], [ %.47, %.thread1259 ], [ %.351210, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit604 ], [ %.311189, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit585 ], [ %.271169, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit578 ], [ %.11, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ %switch.load, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ %.51125, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit ], [ 0, %_ZN12_GLOBAL__N_18EvalInfo8nextStepEPKN5clang4StmtE.exit ], [ 5, %44 ], [ 2, %317 ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663.thread ], [ 0, %357 ], [ 0, %360 ], [ 0, %332 ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921 ], [ 2, %356 ], [ 0, %.thread1163 ], [ 2, %_ZNK5clang8DeclStmt5declsEv.exit570 ], [ 5, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921.thread ], [ 2, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit.loopexit2001 ], [ %.411239, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit617 ], [ 0, %430 ], [ 2, %382 ], [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit ], [ 5, %.critedge534 ], [ 0, %314 ], [ 0, %308 ]
+  %.0 = phi i32 [ %.271169, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit578 ], [ %.311189, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit585 ], [ %.351210, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit604 ], [ %.47, %.thread1259 ], [ %.501309, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit645 ], [ %.591324, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit650 ], [ %.3.i, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit737 ], [ 3, %1612 ], [ 4, %1613 ], [ %1617, %1614 ], [ %.69, %.thread1352 ], [ %1698, %_ZNK5clang10SwitchCase10getSubStmtEv.exit ], [ %1702, %1699 ], [ %.51125, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit ], [ %switch.load, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663 ], [ %.11, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit562 ], [ 0, %_ZN12_GLOBAL__N_18EvalInfo8nextStepEPKN5clang4StmtE.exit ], [ 5, %44 ], [ 2, %317 ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit663.thread ], [ 0, %357 ], [ 0, %360 ], [ 0, %332 ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921 ], [ 2, %356 ], [ 0, %.thread1163 ], [ 2, %_ZNK5clang8DeclStmt5declsEv.exit570 ], [ 5, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE1EED2Ev.exit921.thread ], [ 2, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit.loopexit2001 ], [ %.411239, %_ZN12_GLOBAL__N_19ScopeRAIIILNS_9ScopeKindE0EED2Ev.exit617 ], [ 0, %430 ], [ 2, %382 ], [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_4DeclEEEDaPT0_.exit ], [ 5, %.critedge534 ], [ 0, %314 ], [ 0, %308 ]
   ret i32 %.0
 }
 
@@ -47860,7 +47860,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKPN5clang11BindingDeclEN
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.1 = phi ptr [ %31, %30 ], [ %.029.lcssa, %._crit_edge ]
   %33 = load ptr, ptr %.1, align 8, !tbaa !1298
   %34 = tail call noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56) %33) #30
   br i1 %34, label %.loopexit, label %35
@@ -47870,7 +47870,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKPN5clang11BindingDeclEN
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %36, %35 ]
+  %.2 = phi ptr [ %36, %35 ], [ %.029.lcssa, %._crit_edge ]
   %38 = load ptr, ptr %.2, align 8, !tbaa !1298
   %39 = tail call noundef zeroext i1 @_ZNK5clang9ValueDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #30
   br i1 %39, label %.loopexit, label %40
@@ -49464,7 +49464,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %182, %184
   br label %186
 
 186:                                              ; preds = %_ZN5clang7APValueD2Ev.exit, %172, %6, %185
-  %.039 = phi i1 [ false, %_ZN5clang7APValueD2Ev.exit ], [ true, %185 ], [ false, %6 ], [ false, %172 ]
+  %.039 = phi i1 [ true, %185 ], [ false, %_ZN5clang7APValueD2Ev.exit ], [ false, %6 ], [ false, %172 ]
   ret i1 %.039
 }
 
@@ -50628,8 +50628,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %142, %_ZN4llvm5
   %335 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr424)
   br label %.thread418
 
-.thread418:                                       ; preds = %87, %89, %91, %92, %93, %94, %98, %99, %100, %101, %102, %106, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %334, %332, %331, %330, %329, %328, %327, %326, %325, %324, %322, %320, %319, %315, %313, %311, %309, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %294, %292, %291, %290, %289, %288, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %256, %243, %242, %241, %240, %239, %238, %237, %236, %235, %233, %232, %230, %229, %228, %226, %224, %223, %222, %210, %209, %208, %206, %205, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
-  %.3 = phi i1 [ %335, %334 ], [ %333, %332 ], [ false, %331 ], [ false, %330 ], [ false, %329 ], [ false, %328 ], [ false, %327 ], [ false, %326 ], [ false, %325 ], [ false, %324 ], [ %323, %322 ], [ %321, %320 ], [ false, %319 ], [ false, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ false, %306 ], [ false, %305 ], [ false, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ false, %300 ], [ false, %299 ], [ false, %298 ], [ false, %294 ], [ %293, %292 ], [ false, %291 ], [ false, %290 ], [ false, %289 ], [ false, %288 ], [ false, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ false, %256 ], [ false, %243 ], [ false, %242 ], [ false, %241 ], [ false, %240 ], [ false, %239 ], [ false, %238 ], [ false, %237 ], [ false, %236 ], [ false, %235 ], [ %234, %233 ], [ false, %232 ], [ %231, %230 ], [ false, %229 ], [ false, %228 ], [ %227, %226 ], [ %225, %224 ], [ false, %223 ], [ false, %222 ], [ false, %210 ], [ false, %209 ], [ false, %208 ], [ %207, %206 ], [ false, %205 ], [ %204, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ %198, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ false, %178 ], [ %177, %176 ], [ false, %175 ], [ false, %174 ], [ false, %173 ], [ false, %172 ], [ false, %138 ], [ %131, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ %122, %121 ], [ false, %120 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %98 ], [ false, %99 ], [ false, %100 ], [ false, %101 ], [ false, %102 ], [ false, %106 ]
+.thread418:                                       ; preds = %106, %102, %101, %100, %99, %98, %94, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %334, %332, %331, %330, %329, %328, %327, %326, %325, %324, %322, %320, %319, %315, %313, %311, %309, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %294, %292, %291, %290, %289, %288, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %256, %243, %242, %241, %240, %239, %238, %237, %236, %235, %233, %232, %230, %229, %228, %226, %224, %223, %222, %210, %209, %208, %206, %205, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
+  %.3 = phi i1 [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ %122, %121 ], [ false, %123 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ %131, %130 ], [ false, %138 ], [ false, %172 ], [ false, %173 ], [ false, %174 ], [ false, %175 ], [ %177, %176 ], [ false, %178 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ %198, %197 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ %204, %203 ], [ false, %205 ], [ %207, %206 ], [ false, %208 ], [ false, %209 ], [ false, %210 ], [ false, %222 ], [ false, %223 ], [ %225, %224 ], [ %227, %226 ], [ false, %228 ], [ false, %229 ], [ %231, %230 ], [ false, %232 ], [ %234, %233 ], [ false, %235 ], [ false, %236 ], [ false, %237 ], [ false, %238 ], [ false, %239 ], [ false, %240 ], [ false, %241 ], [ false, %242 ], [ false, %243 ], [ false, %256 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ false, %287 ], [ false, %288 ], [ false, %289 ], [ false, %290 ], [ false, %291 ], [ %293, %292 ], [ false, %294 ], [ false, %298 ], [ false, %299 ], [ false, %300 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ false, %304 ], [ false, %305 ], [ false, %306 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ false, %315 ], [ false, %319 ], [ %321, %320 ], [ %323, %322 ], [ false, %324 ], [ false, %325 ], [ false, %326 ], [ false, %327 ], [ false, %328 ], [ false, %329 ], [ false, %330 ], [ false, %331 ], [ %333, %332 ], [ %335, %334 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %106 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %99 ], [ false, %98 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -55895,7 +55895,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i:    ; preds = %125, %116
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit, label %.lr.ph.i, !llvm.loop !976
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i, %.lr.ph.i, %99, %_ZN5clang7APValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit9, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %27, %_ZN5clang7APValueD2Ev.exit16, %91, %93, %95
-  %.0 = phi i1 [ false, %95 ], [ %84, %_ZN5clang7APValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit9 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %27 ], [ %20, %_ZN5clang7APValueD2Ev.exit16 ], [ false, %91 ], [ false, %93 ], [ true, %99 ], [ %115, %.lr.ph.i ], [ %115, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
+  %.0 = phi i1 [ false, %95 ], [ %20, %_ZN5clang7APValueD2Ev.exit16 ], [ %30, %27 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit9 ], [ %84, %_ZN5clang7APValueD2Ev.exit ], [ false, %91 ], [ false, %93 ], [ true, %99 ], [ %115, %.lr.ph.i ], [ %115, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
   ret i1 %.0
 }
 
@@ -57081,7 +57081,7 @@ _ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread: ; preds = %100, %_ZNK5clang4
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %163, %160
-  %.1.i.i = phi ptr [ %15, %160 ], [ %164, %163 ]
+  %.1.i.i = phi ptr [ %164, %163 ], [ %15, %160 ]
   %165 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %165, align 16, !tbaa !21
   %166 = load ptr, ptr %0, align 8, !tbaa !1476
@@ -57205,7 +57205,7 @@ _ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang
   unreachable
 
 _ZN12_GLOBAL__N_124APValueToBufferConverter10visitArrayERKN5clang7APValueENS1_8QualTypeENS1_9CharUnitsE.exit: ; preds = %154, %67, %.lr.ph88, %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread, %75, %50, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread66, %214, %208, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit23.i, %173, %_ZN4llvm5APIntD2Ev.exit, %.critedge.i, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %85, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit, %27
-  %.0 = phi i1 [ %86, %85 ], [ true, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit ], [ true, %27 ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ true, %.critedge.i ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ true, %173 ], [ true, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit23.i ], [ false, %208 ], [ false, %214 ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread66 ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit ], [ false, %50 ], [ true, %75 ], [ true, %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread ], [ %83, %.lr.ph88 ], [ false, %67 ], [ %159, %154 ]
+  %.0 = phi i1 [ true, %27 ], [ true, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit ], [ %86, %85 ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ true, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ true, %.critedge.i ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ true, %173 ], [ true, %_ZN12_GLOBAL__N_124APValueToBufferConverter10visitFloatERKN4llvm7APFloatEN5clang8QualTypeENS5_9CharUnitsE.exit23.i ], [ false, %208 ], [ false, %214 ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread66 ], [ false, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit ], [ false, %50 ], [ true, %75 ], [ true, %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread ], [ %83, %.lr.ph88 ], [ false, %67 ], [ %159, %154 ]
   ret i1 %.0
 }
 
@@ -59555,7 +59555,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %_ZN4llvm6APSIntC
   %spec.select.i50 = icmp ult i32 %173, 20
   br i1 %spec.select.i50, label %174, label %291
 
-174:                                              ; preds = %168, %160, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+174:                                              ; preds = %160, %168, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %175 = call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %2) #30
   %176 = xor i1 %175, true
   %177 = zext i1 %176 to i8
@@ -59870,7 +59870,7 @@ _ZN4llvm5APIntD2Ev.exit55:                        ; preds = %_ZN5clang7APValueD2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #30
   br label %320
 
-291:                                              ; preds = %168, %160, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+291:                                              ; preds = %160, %168, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %292 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %2) #30
   %293 = load ptr, ptr %1, align 8, !tbaa !1495
   br i1 %292, label %294, label %312
@@ -61952,7 +61952,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %52, %55
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_22TemporaryExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -63546,8 +63546,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %148, %_ZN4llvm5
   %343 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr429)
   br label %.thread423
 
-.thread423:                                       ; preds = %87, %89, %91, %92, %93, %100, %104, %105, %106, %107, %108, %112, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %342, %340, %339, %338, %337, %336, %335, %334, %333, %332, %330, %328, %327, %323, %322, %321, %319, %317, %316, %315, %314, %313, %312, %311, %308, %307, %306, %300, %299, %298, %297, %296, %295, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %263, %250, %249, %248, %247, %246, %245, %244, %243, %242, %240, %239, %237, %236, %235, %233, %231, %230, %229, %217, %216, %213, %211, %210, %209, %208, %207, %206, %205, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %182, %181, %180, %179, %178, %144, %136, %135, %134, %133, %132, %131, %130, %129, %127, %126, %122, %121, %120, %119, %118, %117
-  %.3 = phi i1 [ %343, %342 ], [ %341, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ false, %335 ], [ false, %334 ], [ false, %333 ], [ false, %332 ], [ %331, %330 ], [ %329, %328 ], [ false, %327 ], [ false, %323 ], [ false, %322 ], [ false, %321 ], [ %320, %319 ], [ %318, %317 ], [ false, %316 ], [ false, %315 ], [ false, %314 ], [ false, %313 ], [ false, %312 ], [ false, %311 ], [ true, %308 ], [ false, %307 ], [ false, %306 ], [ true, %300 ], [ false, %299 ], [ false, %298 ], [ false, %297 ], [ false, %296 ], [ false, %295 ], [ false, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ false, %263 ], [ false, %250 ], [ false, %249 ], [ false, %248 ], [ false, %247 ], [ false, %246 ], [ false, %245 ], [ false, %244 ], [ false, %243 ], [ false, %242 ], [ %241, %240 ], [ false, %239 ], [ %238, %237 ], [ false, %236 ], [ false, %235 ], [ %234, %233 ], [ %232, %231 ], [ false, %230 ], [ false, %229 ], [ false, %217 ], [ false, %216 ], [ true, %213 ], [ %212, %211 ], [ false, %210 ], [ false, %209 ], [ false, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ %204, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ %183, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ false, %178 ], [ false, %144 ], [ %137, %136 ], [ false, %135 ], [ false, %134 ], [ false, %133 ], [ false, %132 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ %128, %127 ], [ false, %126 ], [ false, %122 ], [ false, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ true, %93 ], [ false, %100 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ false, %107 ], [ false, %108 ], [ false, %112 ]
+.thread423:                                       ; preds = %112, %108, %107, %106, %105, %104, %100, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %342, %340, %339, %338, %337, %336, %335, %334, %333, %332, %330, %328, %327, %323, %322, %321, %319, %317, %316, %315, %314, %313, %312, %311, %308, %307, %306, %300, %299, %298, %297, %296, %295, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %263, %250, %249, %248, %247, %246, %245, %244, %243, %242, %240, %239, %237, %236, %235, %233, %231, %230, %229, %217, %216, %213, %211, %210, %209, %208, %207, %206, %205, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %182, %181, %180, %179, %178, %144, %136, %135, %134, %133, %132, %131, %130, %129, %127, %126, %122, %121, %120, %119, %118, %117
+  %.3 = phi i1 [ false, %117 ], [ false, %118 ], [ false, %119 ], [ false, %120 ], [ false, %121 ], [ false, %122 ], [ false, %126 ], [ %128, %127 ], [ false, %129 ], [ false, %130 ], [ false, %131 ], [ false, %132 ], [ false, %133 ], [ false, %134 ], [ false, %135 ], [ %137, %136 ], [ false, %144 ], [ false, %178 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ %183, %182 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ %204, %203 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ false, %209 ], [ false, %210 ], [ %212, %211 ], [ true, %213 ], [ false, %216 ], [ false, %217 ], [ false, %229 ], [ false, %230 ], [ %232, %231 ], [ %234, %233 ], [ false, %235 ], [ false, %236 ], [ %238, %237 ], [ false, %239 ], [ %241, %240 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %245 ], [ false, %246 ], [ false, %247 ], [ false, %248 ], [ false, %249 ], [ false, %250 ], [ false, %263 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ false, %294 ], [ false, %295 ], [ false, %296 ], [ false, %297 ], [ false, %298 ], [ false, %299 ], [ true, %300 ], [ false, %306 ], [ false, %307 ], [ true, %308 ], [ false, %311 ], [ false, %312 ], [ false, %313 ], [ false, %314 ], [ false, %315 ], [ false, %316 ], [ %318, %317 ], [ %320, %319 ], [ false, %321 ], [ false, %322 ], [ false, %323 ], [ false, %327 ], [ %329, %328 ], [ %331, %330 ], [ false, %332 ], [ false, %333 ], [ false, %334 ], [ false, %335 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ %341, %340 ], [ %343, %342 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %112 ], [ false, %108 ], [ false, %107 ], [ false, %106 ], [ false, %105 ], [ false, %104 ], [ false, %100 ], [ true, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -67970,7 +67970,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %70, %73
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -70647,7 +70647,7 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.thread: ; preds = %27, %_ZNK5
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %38, %45
-  %.1.i160 = phi ptr [ %41, %38 ], [ %46, %45 ]
+  %.1.i160 = phi ptr [ %46, %45 ], [ %41, %38 ]
   %47 = getelementptr inbounds nuw i8, ptr %.1.i160, i64 32
   %.sroa.0.0.copyload.i161 = load i64, ptr %47, align 16, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %.tr248286, i64 16
@@ -71555,7 +71555,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %201, %211
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %223, %230
-  %.1.i41 = phi ptr [ %227, %223 ], [ %231, %230 ]
+  %.1.i41 = phi ptr [ %231, %230 ], [ %227, %223 ]
   %232 = getelementptr inbounds nuw i8, ptr %.1.i41, i64 40
   %233 = load ptr, ptr %232, align 8, !tbaa !1668
   %234 = load ptr, ptr %200, align 8, !tbaa !1633
@@ -71736,7 +71736,7 @@ _ZN12_GLOBAL__N_19MemberPtr10castToBaseEPKN5clang13CXXRecordDeclE.exit: ; preds 
   br i1 %.not, label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit, label %250, !llvm.loop !1672
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_26MemberPointerExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %.critedge34, %242, %_ZN12_GLOBAL__N_19MemberPtr10castToBaseEPKN5clang13CXXRecordDeclE.exit, %317, %221, %219, %_ZN5clang7APValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit60, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %47, %_ZN5clang7APValueD2Ev.exit67, %165, %167, %238, %237, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit, %189, %185, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ true, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %185 ], [ true, %189 ], [ true, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ false, %237 ], [ false, %238 ], [ %140, %_ZN5clang7APValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit60 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %50, %47 ], [ %22, %_ZN5clang7APValueD2Ev.exit67 ], [ false, %165 ], [ false, %167 ], [ false, %219 ], [ false, %221 ], [ false, %317 ], [ false, %_ZN12_GLOBAL__N_19MemberPtr10castToBaseEPKN5clang13CXXRecordDeclE.exit ], [ true, %242 ], [ true, %.critedge34 ]
+  %.0 = phi i1 [ true, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %185 ], [ true, %189 ], [ true, %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ false, %237 ], [ false, %238 ], [ %22, %_ZN5clang7APValueD2Ev.exit67 ], [ %50, %47 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit60 ], [ %140, %_ZN5clang7APValueD2Ev.exit ], [ false, %165 ], [ false, %167 ], [ false, %219 ], [ false, %221 ], [ false, %317 ], [ false, %_ZN12_GLOBAL__N_19MemberPtr10castToBaseEPKN5clang13CXXRecordDeclE.exit ], [ true, %242 ], [ true, %.critedge34 ]
   ret i1 %.0
 }
 
@@ -73103,7 +73103,7 @@ _ZN5clang18OptionalDiagnosticlsIPKNS_13CXXMethodDeclEEERS0_RKT_.exit: ; preds = 
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %59, %67
-  %.1.i.i = phi ptr [ %63, %59 ], [ %68, %67 ]
+  %.1.i.i = phi ptr [ %68, %67 ], [ %63, %59 ]
   %69 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %69, align 8, !tbaa !21
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -73122,7 +73122,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %59, %67
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit60
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit60: ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit, %77
-  %.1.i.i58 = phi ptr [ %73, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ], [ %78, %77 ]
+  %.1.i.i58 = phi ptr [ %78, %77 ], [ %73, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit ]
   %79 = getelementptr inbounds nuw i8, ptr %.1.i.i58, i64 24
   %.sroa.0.0.copyload.i1.i59 = load i64, ptr %79, align 8, !tbaa !21
   %80 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -73158,7 +73158,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit60: ; preds = %_ZNK5clang12Functio
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit65
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit65: ; preds = %95, %102
-  %.1.i.i63 = phi ptr [ %98, %95 ], [ %103, %102 ]
+  %.1.i.i63 = phi ptr [ %103, %102 ], [ %98, %95 ]
   %104 = getelementptr inbounds nuw i8, ptr %.1.i.i63, i64 24
   %.sroa.0.0.copyload.i1.i64 = load i64, ptr %104, align 8, !tbaa !21
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -73212,7 +73212,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; p
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit70
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit70: ; preds = %._crit_edge130, %129
-  %.1.i.i68 = phi ptr [ %125, %._crit_edge130 ], [ %130, %129 ]
+  %.1.i.i68 = phi ptr [ %130, %129 ], [ %125, %._crit_edge130 ]
   %131 = getelementptr inbounds nuw i8, ptr %.1.i.i68, i64 24
   %.sroa.0.0.copyload.i1.i69 = load i64, ptr %131, align 8, !tbaa !21
   %132 = load ptr, ptr %4, align 8, !tbaa !626
@@ -73296,7 +73296,7 @@ _ZL16getBaseClassTypeRN12_GLOBAL__N_119SubobjectDesignatorEj.exit75: ; preds = %
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit80
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit80: ; preds = %175, %183
-  %.1.i.i78 = phi ptr [ %179, %175 ], [ %184, %183 ]
+  %.1.i.i78 = phi ptr [ %184, %183 ], [ %179, %175 ]
   %185 = getelementptr inbounds nuw i8, ptr %.1.i.i78, i64 24
   %.sroa.0.0.copyload.i1.i79 = load i64, ptr %185, align 8, !tbaa !21
   %186 = load ptr, ptr %4, align 8, !tbaa !626
@@ -73339,8 +73339,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit80: ; preds = %175, %183
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit85
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit85: ; preds = %206, %213
-  %215 = phi i32 [ %187, %206 ], [ %.pre, %213 ]
-  %.1.i.i83 = phi ptr [ %209, %206 ], [ %214, %213 ]
+  %215 = phi i32 [ %.pre, %213 ], [ %187, %206 ]
+  %.1.i.i83 = phi ptr [ %214, %213 ], [ %209, %206 ]
   %216 = getelementptr inbounds nuw i8, ptr %.1.i.i83, i64 24
   %.sroa.0.0.copyload.i1.i84 = load i64, ptr %216, align 8, !tbaa !21
   %217 = load i32, ptr %107, align 4, !tbaa !627
@@ -73388,8 +73388,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit88: ;
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit93
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit93: ; preds = %229, %236
-  %238 = phi i32 [ %133, %229 ], [ %.pre131, %236 ]
-  %.1.i.i91 = phi ptr [ %232, %229 ], [ %237, %236 ]
+  %238 = phi i32 [ %.pre131, %236 ], [ %133, %229 ]
+  %.1.i.i91 = phi ptr [ %237, %236 ], [ %232, %229 ]
   %239 = getelementptr inbounds nuw i8, ptr %.1.i.i91, i64 24
   %.sroa.0.0.copyload.i1.i92 = load i64, ptr %239, align 8, !tbaa !21
   %240 = load i32, ptr %107, align 4, !tbaa !627
@@ -75561,7 +75561,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19ScopeRAIIILNS_9Scop
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i64, ptr %.1.i.i.i.i, align 8
   %43 = and i64 %.1.val.i.i.i.i, 4
   %.not33.i.i.i.i = icmp eq i64 %43, 0
@@ -75572,7 +75572,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19ScopeRAIIILNS_9Scop
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i64, ptr %.2.i.i.i.i, align 8
   %47 = and i64 %.2.val.i.i.i.i, 4
   %.not34.i.i.i.i = icmp eq i64 %47, 0
@@ -78063,7 +78063,7 @@ _ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit: ; preds = %130, %132
   br label %_ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_123LValueExprEvaluatorBaseINS_19LValueExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %.lr.ph.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i, %96, %92, %94, %_ZN5clang7APValueD2Ev.exit.i, %28, %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i, %_ZN5clang7APValueD2Ev.exit29.i, %_ZN5clang7APValueD2Ev.exit31.i, %100, %160, %151, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit, %164, %155, %144
-  %.0 = phi i1 [ %168, %164 ], [ %159, %155 ], [ true, %144 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit ], [ false, %151 ], [ false, %160 ], [ false, %96 ], [ %85, %_ZN5clang7APValueD2Ev.exit31.i ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit29.i ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i ], [ %31, %28 ], [ %21, %_ZN5clang7APValueD2Ev.exit.i ], [ false, %94 ], [ false, %92 ], [ true, %100 ], [ %116, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ], [ %116, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %144 ], [ %159, %155 ], [ %168, %164 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit ], [ false, %151 ], [ false, %160 ], [ false, %96 ], [ %21, %_ZN5clang7APValueD2Ev.exit.i ], [ %31, %28 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit.i ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit29.i ], [ %85, %_ZN5clang7APValueD2Ev.exit31.i ], [ false, %94 ], [ false, %92 ], [ true, %100 ], [ %116, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ], [ %116, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -80215,7 +80215,7 @@ _ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler10checkConstEN5clang8QualTypeE.
   br label %_ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler11foundVectorERN5clang7APValueENS1_8QualTypeE.exit
 
 _ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler11foundVectorERN5clang7APValueENS1_8QualTypeE.exit: ; preds = %132, %137, %126, %124, %115, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i18, %142, %_ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler12foundPointerERN5clang7APValueENS1_8QualTypeE.exit, %15, %12, %9
-  %.0 = phi i1 [ false, %142 ], [ %.0.i, %_ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler12foundPointerERN5clang7APValueENS1_8QualTypeE.exit ], [ false, %15 ], [ %14, %12 ], [ %11, %9 ], [ %131, %126 ], [ false, %124 ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i18 ], [ false, %115 ], [ false, %137 ], [ false, %132 ]
+  %.0 = phi i1 [ false, %142 ], [ %11, %9 ], [ %14, %12 ], [ false, %15 ], [ %.0.i, %_ZN12_GLOBAL__N_130CompoundAssignSubobjectHandler12foundPointerERN5clang7APValueENS1_8QualTypeE.exit ], [ %131, %126 ], [ false, %124 ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i18 ], [ false, %115 ], [ false, %137 ], [ false, %132 ]
   ret i1 %.0
 }
 
@@ -81625,7 +81625,7 @@ define internal fastcc noundef zeroext i1 @_ZL23handleVectorVectorBinOpRN12_GLOB
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %5, %21
-  %.1.i = phi ptr [ %17, %5 ], [ %22, %21 ]
+  %.1.i = phi ptr [ %22, %21 ], [ %17, %5 ]
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %24 = load i32, ptr %23, align 4, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
@@ -84821,7 +84821,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i197:    ; preds = %_ZNK4llvm6APSIntneE
   br label %_ZL20CheckedIntArithmeticISt5minusIN4llvm6APSIntEEEbRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprERKS2_SC_jT_RS2_.exit
 
 _ZL20CheckedIntArithmeticISt5minusIN4llvm6APSIntEEEbRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprERKS2_SC_jT_RS2_.exit: ; preds = %912, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i197, %886, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i192, %861, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i187, %837, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i182, %813, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i177, %790, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, %365, %363, %_ZN4llvm5APIntD2Ev.exit43.i, %_ZN4llvm5APIntD2Ev.exit.i, %_ZN4llvm5APIntD2Ev.exit174, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit172, %698, %_ZN4llvm5APIntD2Ev.exit148, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit, %590, %606, %503, %_ZN4llvm5APIntD2Ev.exit130, %_ZN4llvm5APIntD2Ev.exit115, %_ZN4llvm5APIntD2Ev.exit106, %_ZN4llvm5APIntD2Ev.exit, %57, %52, %50
-  %.0 = phi i1 [ false, %50 ], [ %.095, %_ZN4llvm5APIntD2Ev.exit130 ], [ true, %_ZN4llvm5APIntD2Ev.exit115 ], [ true, %_ZN4llvm5APIntD2Ev.exit106 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ %61, %57 ], [ %56, %52 ], [ false, %503 ], [ true, %_ZN4llvm5APIntD2Ev.exit148 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit ], [ false, %590 ], [ false, %606 ], [ false, %698 ], [ true, %_ZN4llvm5APIntD2Ev.exit174 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit172 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i ], [ %.1.i, %_ZN4llvm5APIntD2Ev.exit43.i ], [ false, %363 ], [ false, %365 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ true, %790 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i177 ], [ true, %813 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i182 ], [ true, %837 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i187 ], [ true, %861 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i192 ], [ true, %886 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i197 ], [ true, %912 ]
+  %.0 = phi i1 [ false, %50 ], [ %56, %52 ], [ %61, %57 ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit106 ], [ true, %_ZN4llvm5APIntD2Ev.exit115 ], [ %.095, %_ZN4llvm5APIntD2Ev.exit130 ], [ false, %503 ], [ true, %_ZN4llvm5APIntD2Ev.exit148 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit ], [ false, %590 ], [ false, %606 ], [ false, %698 ], [ true, %_ZN4llvm5APIntD2Ev.exit174 ], [ false, %_ZN5clang18OptionalDiagnosticlsIjEERS0_RKT_.exit172 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i ], [ %.1.i, %_ZN4llvm5APIntD2Ev.exit43.i ], [ false, %363 ], [ false, %365 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ true, %790 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i177 ], [ true, %813 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i182 ], [ true, %837 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i187 ], [ true, %861 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i192 ], [ true, %886 ], [ true, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i197 ], [ true, %912 ]
   ret i1 %.0
 }
 
@@ -89554,8 +89554,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %143, %_ZN4llvm5
   %369 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr424)
   br label %.thread418
 
-.thread418:                                       ; preds = %87, %89, %91, %92, %93, %94, %98, %99, %100, %101, %102, %106, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %368, %366, %365, %364, %362, %361, %360, %359, %358, %357, %355, %353, %352, %348, %341, %334, %332, %330, %329, %328, %327, %326, %325, %324, %322, %320, %319, %314, %313, %312, %311, %310, %309, %308, %302, %296, %290, %284, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %257, %244, %243, %242, %241, %240, %239, %238, %237, %236, %234, %233, %231, %230, %229, %227, %225, %224, %223, %211, %210, %208, %206, %205, %204, %203, %202, %201, %200, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %177, %176, %175, %174, %173, %139, %131, %130, %129, %128, %127, %126, %125, %124, %122, %120, %116, %115, %114, %113, %112, %111
-  %.3 = phi i1 [ %369, %368 ], [ %367, %366 ], [ false, %365 ], [ false, %364 ], [ %363, %362 ], [ false, %361 ], [ false, %360 ], [ false, %359 ], [ false, %358 ], [ false, %357 ], [ %356, %355 ], [ %354, %353 ], [ false, %352 ], [ false, %348 ], [ %347, %341 ], [ %340, %334 ], [ %333, %332 ], [ %331, %330 ], [ false, %329 ], [ false, %328 ], [ false, %327 ], [ false, %326 ], [ false, %325 ], [ false, %324 ], [ %323, %322 ], [ %321, %320 ], [ false, %319 ], [ %315, %314 ], [ false, %313 ], [ false, %312 ], [ false, %311 ], [ false, %310 ], [ false, %309 ], [ false, %308 ], [ %307, %302 ], [ %301, %296 ], [ %295, %290 ], [ %289, %284 ], [ %283, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ false, %257 ], [ false, %244 ], [ false, %243 ], [ false, %242 ], [ false, %241 ], [ false, %240 ], [ false, %239 ], [ false, %238 ], [ false, %237 ], [ false, %236 ], [ %235, %234 ], [ false, %233 ], [ %232, %231 ], [ false, %230 ], [ false, %229 ], [ %228, %227 ], [ %226, %225 ], [ false, %224 ], [ false, %223 ], [ false, %211 ], [ false, %210 ], [ %209, %208 ], [ %207, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ %199, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ %178, %177 ], [ false, %176 ], [ false, %175 ], [ false, %174 ], [ false, %173 ], [ false, %139 ], [ %132, %131 ], [ false, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ %123, %122 ], [ true, %120 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %98 ], [ false, %99 ], [ false, %100 ], [ false, %101 ], [ false, %102 ], [ false, %106 ]
+.thread418:                                       ; preds = %106, %102, %101, %100, %99, %98, %94, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %368, %366, %365, %364, %362, %361, %360, %359, %358, %357, %355, %353, %352, %348, %341, %334, %332, %330, %329, %328, %327, %326, %325, %324, %322, %320, %319, %314, %313, %312, %311, %310, %309, %308, %302, %296, %290, %284, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %257, %244, %243, %242, %241, %240, %239, %238, %237, %236, %234, %233, %231, %230, %229, %227, %225, %224, %223, %211, %210, %208, %206, %205, %204, %203, %202, %201, %200, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %177, %176, %175, %174, %173, %139, %131, %130, %129, %128, %127, %126, %125, %124, %122, %120, %116, %115, %114, %113, %112, %111
+  %.3 = phi i1 [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ true, %120 ], [ %123, %122 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ false, %130 ], [ %132, %131 ], [ false, %139 ], [ false, %173 ], [ false, %174 ], [ false, %175 ], [ false, %176 ], [ %178, %177 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ %199, %198 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ %207, %206 ], [ %209, %208 ], [ false, %210 ], [ false, %211 ], [ false, %223 ], [ false, %224 ], [ %226, %225 ], [ %228, %227 ], [ false, %229 ], [ false, %230 ], [ %232, %231 ], [ false, %233 ], [ %235, %234 ], [ false, %236 ], [ false, %237 ], [ false, %238 ], [ false, %239 ], [ false, %240 ], [ false, %241 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %257 ], [ %259, %258 ], [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %283, %278 ], [ %289, %284 ], [ %295, %290 ], [ %301, %296 ], [ %307, %302 ], [ false, %308 ], [ false, %309 ], [ false, %310 ], [ false, %311 ], [ false, %312 ], [ false, %313 ], [ %315, %314 ], [ false, %319 ], [ %321, %320 ], [ %323, %322 ], [ false, %324 ], [ false, %325 ], [ false, %326 ], [ false, %327 ], [ false, %328 ], [ false, %329 ], [ %331, %330 ], [ %333, %332 ], [ %340, %334 ], [ %347, %341 ], [ false, %348 ], [ false, %352 ], [ %354, %353 ], [ %356, %355 ], [ false, %357 ], [ false, %358 ], [ false, %359 ], [ false, %360 ], [ false, %361 ], [ %363, %362 ], [ false, %364 ], [ false, %365 ], [ %367, %366 ], [ %369, %368 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %106 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %99 ], [ false, %98 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -90143,7 +90143,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %85, %82, %_ZN5clang
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.i:  ; preds = %119, %115, %111
-  %.0.i.i = phi i32 [ %121, %119 ], [ %118, %115 ], [ %114, %111 ]
+  %.0.i.i = phi i32 [ %114, %111 ], [ %118, %115 ], [ %121, %119 ]
   %123 = zext i32 %.0.i.i to i64
   %124 = load i32, ptr %47, align 8, !tbaa !673
   %125 = icmp ult i32 %124, 65
@@ -93214,7 +93214,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %52, %55
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -93437,7 +93437,7 @@ _ZN12_GLOBAL__N_114getStorageTypeERKN5clang10ASTContextEPKNS0_4ExprE.exit: ; pre
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %52, %60
-  %.1.i = phi ptr [ %56, %52 ], [ %61, %60 ]
+  %.1.i = phi ptr [ %61, %60 ], [ %56, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %63 = load i32, ptr %62, align 16
   %64 = and i32 %63, 33554432
@@ -95001,7 +95001,7 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %141, %142
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit:    ; preds = %185, %189, %193
-  %.0.i = phi i32 [ %195, %193 ], [ %192, %189 ], [ %188, %185 ]
+  %.0.i = phi i32 [ %188, %185 ], [ %192, %189 ], [ %195, %193 ]
   %197 = zext i32 %.0.i to i64
   %198 = load i32, ptr %139, align 8, !tbaa !673
   %199 = icmp ult i32 %198, 65
@@ -95943,7 +95943,7 @@ _ZN5clang7APValueD2Ev.exit27:                     ; preds = %87, %89
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18ArrayExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %92, %90, %_ZN5clang7APValueD2Ev.exit27, %_ZN5clang7APValueD2Ev.exit25, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %26, %_ZN5clang7APValueD2Ev.exit
-  %.1 = phi i1 [ %83, %_ZN5clang7APValueD2Ev.exit27 ], [ %.4, %_ZN5clang7APValueD2Ev.exit25 ], [ %.2, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %29, %26 ], [ %19, %_ZN5clang7APValueD2Ev.exit ], [ false, %90 ], [ false, %92 ]
+  %.1 = phi i1 [ %19, %_ZN5clang7APValueD2Ev.exit ], [ %29, %26 ], [ %.2, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4, %_ZN5clang7APValueD2Ev.exit25 ], [ %83, %_ZN5clang7APValueD2Ev.exit27 ], [ false, %90 ], [ false, %92 ]
   ret i1 %.1
 }
 
@@ -99019,8 +99019,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %142, %_ZN4llvm5
   %369 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr422)
   br label %.thread416
 
-.thread416:                                       ; preds = %87, %89, %91, %92, %93, %94, %98, %99, %100, %101, %102, %106, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %368, %366, %365, %364, %363, %362, %361, %360, %359, %358, %356, %354, %353, %349, %346, %343, %341, %339, %338, %337, %336, %334, %333, %332, %329, %323, %322, %316, %314, %313, %312, %311, %310, %309, %303, %297, %291, %285, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %258, %245, %244, %243, %242, %241, %240, %239, %238, %237, %235, %234, %232, %231, %230, %228, %226, %225, %224, %212, %211, %208, %206, %205, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
-  %.3 = phi i1 [ %369, %368 ], [ %367, %366 ], [ false, %365 ], [ false, %364 ], [ false, %363 ], [ false, %362 ], [ false, %361 ], [ false, %360 ], [ false, %359 ], [ false, %358 ], [ %357, %356 ], [ %355, %354 ], [ false, %353 ], [ false, %349 ], [ %348, %346 ], [ %345, %343 ], [ %342, %341 ], [ %340, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ %335, %334 ], [ false, %333 ], [ false, %332 ], [ %331, %329 ], [ %328, %323 ], [ false, %322 ], [ %318, %316 ], [ %315, %314 ], [ false, %313 ], [ false, %312 ], [ false, %311 ], [ false, %310 ], [ false, %309 ], [ %308, %303 ], [ %302, %297 ], [ %296, %291 ], [ %290, %285 ], [ %284, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ false, %258 ], [ false, %245 ], [ false, %244 ], [ false, %243 ], [ false, %242 ], [ false, %241 ], [ false, %240 ], [ false, %239 ], [ false, %238 ], [ false, %237 ], [ %236, %235 ], [ false, %234 ], [ %233, %232 ], [ false, %231 ], [ false, %230 ], [ %229, %228 ], [ %227, %226 ], [ false, %225 ], [ false, %224 ], [ false, %212 ], [ false, %211 ], [ %210, %208 ], [ %207, %206 ], [ false, %205 ], [ %204, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ %198, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ false, %178 ], [ %177, %176 ], [ false, %175 ], [ false, %174 ], [ false, %173 ], [ false, %172 ], [ false, %138 ], [ %131, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ %122, %121 ], [ false, %120 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %98 ], [ false, %99 ], [ false, %100 ], [ false, %101 ], [ false, %102 ], [ false, %106 ]
+.thread416:                                       ; preds = %106, %102, %101, %100, %99, %98, %94, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %368, %366, %365, %364, %363, %362, %361, %360, %359, %358, %356, %354, %353, %349, %346, %343, %341, %339, %338, %337, %336, %334, %333, %332, %329, %323, %322, %316, %314, %313, %312, %311, %310, %309, %303, %297, %291, %285, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %258, %245, %244, %243, %242, %241, %240, %239, %238, %237, %235, %234, %232, %231, %230, %228, %226, %225, %224, %212, %211, %208, %206, %205, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
+  %.3 = phi i1 [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ %122, %121 ], [ false, %123 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ %131, %130 ], [ false, %138 ], [ false, %172 ], [ false, %173 ], [ false, %174 ], [ false, %175 ], [ %177, %176 ], [ false, %178 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ %198, %197 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ %204, %203 ], [ false, %205 ], [ %207, %206 ], [ %210, %208 ], [ false, %211 ], [ false, %212 ], [ false, %224 ], [ false, %225 ], [ %227, %226 ], [ %229, %228 ], [ false, %230 ], [ false, %231 ], [ %233, %232 ], [ false, %234 ], [ %236, %235 ], [ false, %237 ], [ false, %238 ], [ false, %239 ], [ false, %240 ], [ false, %241 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %245 ], [ false, %258 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %284, %279 ], [ %290, %285 ], [ %296, %291 ], [ %302, %297 ], [ %308, %303 ], [ false, %309 ], [ false, %310 ], [ false, %311 ], [ false, %312 ], [ false, %313 ], [ %315, %314 ], [ %318, %316 ], [ false, %322 ], [ %328, %323 ], [ %331, %329 ], [ false, %332 ], [ false, %333 ], [ %335, %334 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ %340, %339 ], [ %342, %341 ], [ %345, %343 ], [ %348, %346 ], [ false, %349 ], [ false, %353 ], [ %355, %354 ], [ %357, %356 ], [ false, %358 ], [ false, %359 ], [ false, %360 ], [ false, %361 ], [ false, %362 ], [ false, %363 ], [ false, %364 ], [ false, %365 ], [ %367, %366 ], [ %369, %368 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %106 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %99 ], [ false, %98 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -99683,7 +99683,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit110: ; preds = %51
   %spec.select.i105 = icmp ult i32 %94, 20
   br i1 %spec.select.i105, label %95, label %215
 
-95:                                               ; preds = %89, %81, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit110
+95:                                               ; preds = %81, %89, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit110
   %96 = and i64 %.sroa.0.0.copyload.i112, -16
   %97 = inttoptr i64 %96 to ptr
   %98 = load ptr, ptr %97, align 16, !tbaa !22
@@ -99728,7 +99728,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %95
   %spec.select.i99 = icmp ult i32 %121, 20
   br i1 %spec.select.i99, label %122, label %215
 
-122:                                              ; preds = %116, %108, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+122:                                              ; preds = %108, %116, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #30
   %123 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 1, ptr %123, align 8, !tbaa !673
@@ -99949,7 +99949,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #30
   br label %"_ZL32EvaluateComparisonBinaryOperatorIRZN12_GLOBAL__N_119RecordExprEvaluator11VisitBinCmpEPKN5clang14BinaryOperatorEE3$_0ZNS1_11VisitBinCmpES5_E3$_1EbRNS0_8EvalInfoES5_OT_OT0_.exit"
 
-215:                                              ; preds = %116, %108, %89, %81, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit110
+215:                                              ; preds = %108, %116, %81, %89, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit110
   %216 = load ptr, ptr %70, align 16, !tbaa !22
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %.sroa.0.0.copyload.i.i.i.i89 = load i64, ptr %217, align 8, !tbaa !21
@@ -105478,7 +105478,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %52, %55
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -107682,7 +107682,7 @@ define internal fastcc noundef i32 @_ZL22FindDesignatorMismatchN5clang8QualTypeE
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %.thread51, %41
-  %.1.i = phi ptr [ %16, %.thread51 ], [ %42, %41 ]
+  %.1.i = phi ptr [ %42, %41 ], [ %16, %.thread51 ]
   %43 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %43, align 16, !tbaa !21
   br label %70
@@ -107699,7 +107699,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %.thread51, %41
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %44, %48
-  %.1.i36 = phi ptr [ %16, %44 ], [ %49, %48 ]
+  %.1.i36 = phi ptr [ %49, %48 ], [ %16, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %.1.i36, i64 32
   %.sroa.0.0.copyload.i37 = load i64, ptr %50, align 16, !tbaa !21
   br label %70
@@ -109021,8 +109021,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %153, %_ZN4llvm5
   %345 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr416)
   br label %.thread410
 
-.thread410:                                       ; preds = %87, %89, %91, %93, %95, %97, %102, %104, %106, %108, %110, %115, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %344, %342, %341, %340, %339, %338, %337, %336, %335, %334, %332, %330, %329, %325, %324, %323, %321, %319, %318, %317, %316, %315, %314, %313, %311, %310, %309, %304, %303, %302, %301, %300, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %267, %254, %253, %252, %251, %250, %249, %248, %247, %246, %244, %243, %241, %240, %239, %237, %235, %234, %233, %221, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
-  %.3 = phi i1 [ %345, %344 ], [ %343, %342 ], [ false, %341 ], [ false, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ false, %335 ], [ false, %334 ], [ %333, %332 ], [ %331, %330 ], [ false, %329 ], [ false, %325 ], [ false, %324 ], [ false, %323 ], [ %322, %321 ], [ %320, %319 ], [ false, %318 ], [ false, %317 ], [ false, %316 ], [ false, %315 ], [ false, %314 ], [ false, %313 ], [ true, %311 ], [ false, %310 ], [ false, %309 ], [ true, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ false, %300 ], [ false, %299 ], [ false, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ false, %267 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %248 ], [ false, %247 ], [ false, %246 ], [ %245, %244 ], [ false, %243 ], [ %242, %241 ], [ true, %240 ], [ false, %239 ], [ %238, %237 ], [ %236, %235 ], [ false, %234 ], [ false, %233 ], [ false, %221 ], [ false, %220 ], [ true, %218 ], [ %217, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ false, %211 ], [ false, %210 ], [ %209, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ %188, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %149 ], [ %142, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ false, %137 ], [ false, %136 ], [ false, %135 ], [ false, %134 ], [ %133, %132 ], [ false, %131 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ %123, %122 ], [ false, %121 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %116, %115 ]
+.thread410:                                       ; preds = %115, %110, %108, %106, %104, %102, %97, %95, %93, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %344, %342, %341, %340, %339, %338, %337, %336, %335, %334, %332, %330, %329, %325, %324, %323, %321, %319, %318, %317, %316, %315, %314, %313, %311, %310, %309, %304, %303, %302, %301, %300, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %267, %254, %253, %252, %251, %250, %249, %248, %247, %246, %244, %243, %241, %240, %239, %237, %235, %234, %233, %221, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
+  %.3 = phi i1 [ false, %121 ], [ %123, %122 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %131 ], [ %133, %132 ], [ false, %134 ], [ false, %135 ], [ false, %136 ], [ false, %137 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ %142, %141 ], [ false, %149 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ %188, %187 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ %209, %208 ], [ false, %210 ], [ false, %211 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ %217, %216 ], [ true, %218 ], [ false, %220 ], [ false, %221 ], [ false, %233 ], [ false, %234 ], [ %236, %235 ], [ %238, %237 ], [ false, %239 ], [ true, %240 ], [ %242, %241 ], [ false, %243 ], [ %245, %244 ], [ false, %246 ], [ false, %247 ], [ false, %248 ], [ false, %249 ], [ false, %250 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ false, %254 ], [ false, %267 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ false, %298 ], [ false, %299 ], [ false, %300 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ true, %304 ], [ false, %309 ], [ false, %310 ], [ true, %311 ], [ false, %313 ], [ false, %314 ], [ false, %315 ], [ false, %316 ], [ false, %317 ], [ false, %318 ], [ %320, %319 ], [ %322, %321 ], [ false, %323 ], [ false, %324 ], [ false, %325 ], [ false, %329 ], [ %331, %330 ], [ %333, %332 ], [ false, %334 ], [ false, %335 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ false, %340 ], [ false, %341 ], [ %343, %342 ], [ %345, %344 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %116, %115 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -109234,7 +109234,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZL26EvaluateAsBool
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %32, %30, %15, %13, %21, %80, %_ZN4llvm12APFixedPointD2Ev.exit, %17
-  %.0 = phi i1 [ %.0.i, %80 ], [ %.1, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %20, %17 ], [ false, %21 ], [ false, %13 ], [ false, %15 ], [ false, %30 ], [ false, %32 ]
+  %.0 = phi i1 [ %20, %17 ], [ %.1, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %.0.i, %80 ], [ false, %21 ], [ false, %13 ], [ false, %15 ], [ false, %30 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -114184,7 +114184,7 @@ _ZN4llvm12APFixedPointD2Ev.exit60:                ; preds = %399, %402, %405
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit85, %44, %46, %_ZN4llvm12APFixedPointD2Ev.exit60
-  %.0 = phi i1 [ %.1, %_ZN4llvm12APFixedPointD2Ev.exit60 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %63, %_ZN5clang7APValueD2Ev.exit85 ], [ false, %44 ], [ false, %46 ]
+  %.0 = phi i1 [ %.1, %_ZN4llvm12APFixedPointD2Ev.exit60 ], [ %63, %_ZN5clang7APValueD2Ev.exit85 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %44 ], [ false, %46 ]
   ret i1 %.0
 }
 
@@ -116659,7 +116659,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %551, %554
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_23FixedPointExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %557, %555, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %524, %_ZN4llvm7APFloatD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm12APFixedPointD2Ev.exit42
-  %.2 = phi i1 [ %.5, %_ZN4llvm7APFloatD2Ev.exit ], [ %.3, %_ZN4llvm5APIntD2Ev.exit ], [ %.0, %_ZN4llvm12APFixedPointD2Ev.exit42 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %526, %524 ], [ false, %555 ], [ false, %557 ]
+  %.2 = phi i1 [ %.0, %_ZN4llvm12APFixedPointD2Ev.exit42 ], [ %.3, %_ZN4llvm5APIntD2Ev.exit ], [ %.5, %_ZN4llvm7APFloatD2Ev.exit ], [ %526, %524 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %555 ], [ false, %557 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #30
   ret i1 %.2
 }
@@ -117967,8 +117967,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %153, %_ZN4llvm5
   %345 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr416)
   br label %.thread410
 
-.thread410:                                       ; preds = %87, %89, %91, %93, %95, %97, %102, %104, %106, %108, %110, %115, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %344, %342, %341, %340, %339, %338, %337, %336, %335, %334, %332, %330, %329, %325, %324, %323, %321, %319, %318, %317, %316, %315, %314, %313, %311, %310, %309, %304, %303, %302, %301, %300, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %267, %254, %253, %252, %251, %250, %249, %248, %247, %246, %244, %243, %241, %240, %239, %237, %235, %234, %233, %221, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
-  %.3 = phi i1 [ %345, %344 ], [ %343, %342 ], [ false, %341 ], [ false, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ false, %335 ], [ false, %334 ], [ %333, %332 ], [ %331, %330 ], [ false, %329 ], [ false, %325 ], [ false, %324 ], [ false, %323 ], [ %322, %321 ], [ %320, %319 ], [ false, %318 ], [ false, %317 ], [ false, %316 ], [ false, %315 ], [ false, %314 ], [ false, %313 ], [ true, %311 ], [ false, %310 ], [ false, %309 ], [ true, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ false, %300 ], [ false, %299 ], [ false, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ false, %267 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %248 ], [ false, %247 ], [ false, %246 ], [ %245, %244 ], [ false, %243 ], [ %242, %241 ], [ false, %240 ], [ true, %239 ], [ %238, %237 ], [ %236, %235 ], [ false, %234 ], [ false, %233 ], [ false, %221 ], [ false, %220 ], [ true, %218 ], [ %217, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ false, %211 ], [ false, %210 ], [ %209, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ %188, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %149 ], [ %142, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ false, %137 ], [ false, %136 ], [ false, %135 ], [ false, %134 ], [ %133, %132 ], [ false, %131 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ %123, %122 ], [ false, %121 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %116, %115 ]
+.thread410:                                       ; preds = %115, %110, %108, %106, %104, %102, %97, %95, %93, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %344, %342, %341, %340, %339, %338, %337, %336, %335, %334, %332, %330, %329, %325, %324, %323, %321, %319, %318, %317, %316, %315, %314, %313, %311, %310, %309, %304, %303, %302, %301, %300, %299, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %267, %254, %253, %252, %251, %250, %249, %248, %247, %246, %244, %243, %241, %240, %239, %237, %235, %234, %233, %221, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
+  %.3 = phi i1 [ false, %121 ], [ %123, %122 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %131 ], [ %133, %132 ], [ false, %134 ], [ false, %135 ], [ false, %136 ], [ false, %137 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ %142, %141 ], [ false, %149 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ %188, %187 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ %209, %208 ], [ false, %210 ], [ false, %211 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ %217, %216 ], [ true, %218 ], [ false, %220 ], [ false, %221 ], [ false, %233 ], [ false, %234 ], [ %236, %235 ], [ %238, %237 ], [ true, %239 ], [ false, %240 ], [ %242, %241 ], [ false, %243 ], [ %245, %244 ], [ false, %246 ], [ false, %247 ], [ false, %248 ], [ false, %249 ], [ false, %250 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ false, %254 ], [ false, %267 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ false, %298 ], [ false, %299 ], [ false, %300 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ true, %304 ], [ false, %309 ], [ false, %310 ], [ true, %311 ], [ false, %313 ], [ false, %314 ], [ false, %315 ], [ false, %316 ], [ false, %317 ], [ false, %318 ], [ %320, %319 ], [ %322, %321 ], [ false, %323 ], [ false, %324 ], [ false, %325 ], [ false, %329 ], [ %331, %330 ], [ %333, %332 ], [ false, %334 ], [ false, %335 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ false, %340 ], [ false, %341 ], [ %343, %342 ], [ %345, %344 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %116, %115 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -122486,7 +122486,7 @@ _ZN4llvm7APFloatD2Ev.exit70:                      ; preds = %844, %847, %843
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %557, %555, %535, %533, %575, %584, %559, %537, %515, %492, %_ZN4llvm7APFloatD2Ev.exit70, %_ZN4llvm7APFloatD2Ev.exit66, %_ZN4llvm7APFloatD2Ev.exit62, %_ZN4llvm7APFloatD2Ev.exit50, %_ZN4llvm7APFloatD2Ev.exit39, %585, %_ZN4llvm7APFloatD2Ev.exit, %_ZN5clang7APValueD2Ev.exit
-  %.0 = phi i1 [ %.5, %_ZN4llvm7APFloatD2Ev.exit70 ], [ %.4, %_ZN4llvm7APFloatD2Ev.exit66 ], [ %.3, %_ZN4llvm7APFloatD2Ev.exit62 ], [ %.2, %_ZN4llvm7APFloatD2Ev.exit50 ], [ %.1, %_ZN4llvm7APFloatD2Ev.exit39 ], [ %600, %585 ], [ true, %_ZN4llvm7APFloatD2Ev.exit ], [ %.5.i, %_ZN5clang7APValueD2Ev.exit ], [ false, %492 ], [ true, %515 ], [ true, %537 ], [ false, %559 ], [ true, %584 ], [ true, %575 ], [ false, %533 ], [ false, %535 ], [ false, %555 ], [ false, %557 ]
+  %.0 = phi i1 [ true, %_ZN4llvm7APFloatD2Ev.exit ], [ %600, %585 ], [ %.1, %_ZN4llvm7APFloatD2Ev.exit39 ], [ %.2, %_ZN4llvm7APFloatD2Ev.exit50 ], [ %.3, %_ZN4llvm7APFloatD2Ev.exit62 ], [ %.4, %_ZN4llvm7APFloatD2Ev.exit66 ], [ %.5, %_ZN4llvm7APFloatD2Ev.exit70 ], [ %.5.i, %_ZN5clang7APValueD2Ev.exit ], [ false, %492 ], [ true, %515 ], [ true, %537 ], [ false, %559 ], [ true, %584 ], [ true, %575 ], [ false, %533 ], [ false, %535 ], [ false, %555 ], [ false, %557 ]
   ret i1 %.0
 }
 
@@ -123249,7 +123249,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %101, %104, %100
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit13, %18, %20, %_ZN4llvm7APFloatD2Ev.exit
-  %.0 = phi i1 [ %.1, %_ZN4llvm7APFloatD2Ev.exit ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %37, %_ZN5clang7APValueD2Ev.exit13 ], [ false, %18 ], [ false, %20 ]
+  %.0 = phi i1 [ %.1, %_ZN4llvm7APFloatD2Ev.exit ], [ %37, %_ZN5clang7APValueD2Ev.exit13 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %18 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -124962,7 +124962,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN12_GLOBAL__N_117
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_18FloatExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %_ZN5clang7APValueD2Ev.exit39, %_ZN5clang7APValueD2Ev.exit41, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %39, %_ZN5clang7APValueD2Ev.exit48, %98, %100, %201, %_ZN5clang7APValueD2Ev.exit, %229, %203, %_ZN4llvm12APFixedPointD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit
-  %.0 = phi i1 [ %234, %_ZN5clang7APValueD2Ev.exit ], [ %224, %229 ], [ %208, %203 ], [ %177, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %144, %_ZN4llvm5APIntD2Ev.exit ], [ false, %201 ], [ %90, %_ZN5clang7APValueD2Ev.exit39 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit41 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %40, %39 ], [ %31, %_ZN5clang7APValueD2Ev.exit48 ], [ false, %98 ], [ false, %100 ]
+  %.0 = phi i1 [ %144, %_ZN4llvm5APIntD2Ev.exit ], [ %177, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %208, %203 ], [ %224, %229 ], [ %234, %_ZN5clang7APValueD2Ev.exit ], [ false, %201 ], [ %31, %_ZN5clang7APValueD2Ev.exit48 ], [ %40, %39 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit41 ], [ %90, %_ZN5clang7APValueD2Ev.exit39 ], [ false, %98 ], [ false, %100 ]
   ret i1 %.0
 }
 
@@ -126081,8 +126081,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %154, %_ZN4llvm5
   %347 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19VectorExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr415)
   br label %.thread409
 
-.thread409:                                       ; preds = %87, %89, %91, %93, %95, %97, %102, %104, %106, %111, %115, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %346, %344, %343, %342, %341, %340, %339, %338, %337, %336, %334, %332, %331, %327, %326, %325, %323, %321, %320, %319, %318, %317, %316, %315, %313, %312, %311, %306, %305, %304, %303, %302, %301, %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %269, %256, %254, %253, %252, %251, %250, %249, %248, %247, %245, %244, %242, %241, %240, %238, %236, %235, %234, %222, %221, %219, %217, %216, %215, %214, %213, %212, %211, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %188, %187, %186, %185, %184, %150, %142, %141, %140, %139, %138, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
-  %.3 = phi i1 [ %347, %346 ], [ %345, %344 ], [ false, %343 ], [ false, %342 ], [ false, %341 ], [ false, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ %335, %334 ], [ %333, %332 ], [ false, %331 ], [ false, %327 ], [ false, %326 ], [ false, %325 ], [ %324, %323 ], [ %322, %321 ], [ false, %320 ], [ false, %319 ], [ false, %318 ], [ false, %317 ], [ false, %316 ], [ false, %315 ], [ true, %313 ], [ false, %312 ], [ false, %311 ], [ true, %306 ], [ false, %305 ], [ false, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ false, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ false, %269 ], [ false, %256 ], [ %255, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %248 ], [ false, %247 ], [ %246, %245 ], [ false, %244 ], [ %243, %242 ], [ false, %241 ], [ false, %240 ], [ %239, %238 ], [ %237, %236 ], [ false, %235 ], [ false, %234 ], [ false, %222 ], [ false, %221 ], [ true, %219 ], [ %218, %217 ], [ false, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ false, %211 ], [ %210, %209 ], [ false, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ %189, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %150 ], [ %143, %142 ], [ false, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ %137, %136 ], [ false, %135 ], [ false, %134 ], [ %133, %132 ], [ false, %131 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ %123, %122 ], [ false, %121 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ true, %111 ], [ %116, %115 ]
+.thread409:                                       ; preds = %115, %111, %106, %104, %102, %97, %95, %93, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %346, %344, %343, %342, %341, %340, %339, %338, %337, %336, %334, %332, %331, %327, %326, %325, %323, %321, %320, %319, %318, %317, %316, %315, %313, %312, %311, %306, %305, %304, %303, %302, %301, %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %269, %256, %254, %253, %252, %251, %250, %249, %248, %247, %245, %244, %242, %241, %240, %238, %236, %235, %234, %222, %221, %219, %217, %216, %215, %214, %213, %212, %211, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %188, %187, %186, %185, %184, %150, %142, %141, %140, %139, %138, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
+  %.3 = phi i1 [ false, %121 ], [ %123, %122 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %131 ], [ %133, %132 ], [ false, %134 ], [ false, %135 ], [ %137, %136 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ false, %141 ], [ %143, %142 ], [ false, %150 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ %189, %188 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ %210, %209 ], [ false, %211 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ false, %216 ], [ %218, %217 ], [ true, %219 ], [ false, %221 ], [ false, %222 ], [ false, %234 ], [ false, %235 ], [ %237, %236 ], [ %239, %238 ], [ false, %240 ], [ false, %241 ], [ %243, %242 ], [ false, %244 ], [ %246, %245 ], [ false, %247 ], [ false, %248 ], [ false, %249 ], [ false, %250 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ %255, %254 ], [ false, %256 ], [ false, %269 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ false, %300 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ false, %304 ], [ false, %305 ], [ true, %306 ], [ false, %311 ], [ false, %312 ], [ true, %313 ], [ false, %315 ], [ false, %316 ], [ false, %317 ], [ false, %318 ], [ false, %319 ], [ false, %320 ], [ %322, %321 ], [ %324, %323 ], [ false, %325 ], [ false, %326 ], [ false, %327 ], [ false, %331 ], [ %333, %332 ], [ %335, %334 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ false, %340 ], [ false, %341 ], [ false, %342 ], [ false, %343 ], [ %345, %344 ], [ %347, %346 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %116, %115 ], [ true, %111 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -126172,7 +126172,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119VectorExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %20
-  %.1.i = phi ptr [ %16, %2 ], [ %21, %20 ]
+  %.1.i = phi ptr [ %21, %20 ], [ %16, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i21 = load i64, ptr %22, align 16, !tbaa !21
   %23 = load i32, ptr %1, align 8
@@ -127206,7 +127206,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119VectorExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %22, %30
-  %.1.i = phi ptr [ %26, %22 ], [ %31, %30 ]
+  %.1.i = phi ptr [ %31, %30 ], [ %26, %22 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %33 = load i32, ptr %32, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #30
@@ -128783,7 +128783,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119VectorExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %27
-  %.1.i = phi ptr [ %23, %2 ], [ %28, %27 ]
+  %.1.i = phi ptr [ %28, %27 ], [ %23, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !818
@@ -130268,7 +130268,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119VectorExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %19, %27
-  %.1.i = phi ptr [ %23, %19 ], [ %28, %27 ]
+  %.1.i = phi ptr [ %28, %27 ], [ %23, %19 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i26 = load i64, ptr %29, align 16, !tbaa !21
   %30 = and i64 %.sroa.0.0.copyload.i, -16
@@ -130285,7 +130285,7 @@ _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %19, %27
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit30
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit30: ; preds = %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit, %36
-  %.1.i29 = phi ptr [ %32, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ], [ %37, %36 ]
+  %.1.i29 = phi ptr [ %37, %36 ], [ %32, %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i29, i64 32
   %.sroa.0.0.copyload.i31 = load i64, ptr %38, align 16, !tbaa !21
   %39 = load ptr, ptr %0, align 8, !tbaa !2181
@@ -131946,7 +131946,7 @@ _ZN5clang7APValueD2Ev.exit119:                    ; preds = %_ZN12_GLOBAL__N_117
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %498, %506
-  %.1.i = phi ptr [ %502, %498 ], [ %507, %506 ]
+  %.1.i = phi ptr [ %507, %506 ], [ %502, %498 ]
   %508 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i37 = load i64, ptr %508, align 16, !tbaa !21
   %509 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -132405,7 +132405,7 @@ _ZN5clang7APValueD2Ev.exit59:                     ; preds = %676, %678
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit64
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit64: ; preds = %708, %716
-  %.1.i63 = phi ptr [ %712, %708 ], [ %717, %716 ]
+  %.1.i63 = phi ptr [ %717, %716 ], [ %712, %708 ]
   %718 = getelementptr inbounds nuw i8, ptr %.1.i63, i64 32
   %.sroa.0.0.copyload.i65 = load i64, ptr %718, align 16, !tbaa !21
   %719 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -132851,7 +132851,7 @@ _ZN5clang7APValueD2Ev.exit117:                    ; preds = %_ZN5clang7APValueD2
   br label %903
 
 903:                                              ; preds = %482, %_ZN5clang7APValueD2Ev.exit117, %_ZN5clang7APValueD2Ev.exit59, %_ZN5clang7APValueD2Ev.exit119
-  %.032 = phi i1 [ %.2, %_ZN5clang7APValueD2Ev.exit117 ], [ %497, %_ZN5clang7APValueD2Ev.exit59 ], [ %.5.i, %_ZN5clang7APValueD2Ev.exit119 ], [ false, %482 ]
+  %.032 = phi i1 [ %497, %_ZN5clang7APValueD2Ev.exit59 ], [ %.2, %_ZN5clang7APValueD2Ev.exit117 ], [ %.5.i, %_ZN5clang7APValueD2Ev.exit119 ], [ false, %482 ]
   ret i1 %.032
 }
 
@@ -134578,7 +134578,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119VectorExprEvaluator18ZeroInitial
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %1, %14
-  %.1.i = phi ptr [ %10, %1 ], [ %15, %14 ]
+  %.1.i = phi ptr [ %15, %14 ], [ %10, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i6 = load i64, ptr %16, align 16, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #30
@@ -135090,7 +135090,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119VectorExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %2, %35
-  %.1.i = phi ptr [ %31, %2 ], [ %36, %35 ]
+  %.1.i = phi ptr [ %36, %35 ], [ %31, %2 ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -135908,7 +135908,7 @@ _ZN5clang7APValueD2Ev.exit76:                     ; preds = %323, %325
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19VectorExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19VectorExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %_ZN5clang7APValueD2Ev.exit76, %_ZN5clang7APValueD2Ev.exit78, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %270, %_ZN5clang7APValueD2Ev.exit85, %326, %328, %_ZN5clang7APValueD2Ev.exit70, %_ZN5clang7APValueD2Ev.exit53, %_ZN5clang7APValueD2Ev.exit50
-  %.3 = phi i1 [ %215, %_ZN5clang7APValueD2Ev.exit70 ], [ %.4, %_ZN5clang7APValueD2Ev.exit53 ], [ %.127, %_ZN5clang7APValueD2Ev.exit50 ], [ %319, %_ZN5clang7APValueD2Ev.exit76 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit78 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %271, %270 ], [ %263, %_ZN5clang7APValueD2Ev.exit85 ], [ false, %326 ], [ false, %328 ]
+  %.3 = phi i1 [ %.127, %_ZN5clang7APValueD2Ev.exit50 ], [ %.4, %_ZN5clang7APValueD2Ev.exit53 ], [ %215, %_ZN5clang7APValueD2Ev.exit70 ], [ %263, %_ZN5clang7APValueD2Ev.exit85 ], [ %271, %270 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit78 ], [ %319, %_ZN5clang7APValueD2Ev.exit76 ], [ false, %326 ], [ false, %328 ]
   ret i1 %.3
 }
 
@@ -137592,8 +137592,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %153, %_ZN4llvm5
   %346 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr416)
   br label %.thread410
 
-.thread410:                                       ; preds = %87, %89, %91, %93, %95, %97, %102, %104, %106, %108, %110, %115, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %345, %343, %342, %341, %340, %339, %338, %337, %336, %335, %333, %331, %330, %326, %325, %324, %322, %320, %319, %318, %317, %316, %315, %314, %312, %311, %310, %305, %304, %303, %302, %301, %300, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %268, %255, %254, %253, %252, %251, %250, %249, %248, %247, %245, %244, %242, %241, %240, %238, %236, %235, %234, %222, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
-  %.3 = phi i1 [ %346, %345 ], [ %344, %343 ], [ false, %342 ], [ false, %341 ], [ false, %340 ], [ false, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ false, %335 ], [ %334, %333 ], [ %332, %331 ], [ false, %330 ], [ false, %326 ], [ false, %325 ], [ false, %324 ], [ %323, %322 ], [ %321, %320 ], [ false, %319 ], [ false, %318 ], [ false, %317 ], [ false, %316 ], [ false, %315 ], [ false, %314 ], [ true, %312 ], [ false, %311 ], [ false, %310 ], [ true, %305 ], [ false, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ false, %300 ], [ false, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ false, %268 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %248 ], [ false, %247 ], [ %246, %245 ], [ false, %244 ], [ %243, %242 ], [ false, %241 ], [ false, %240 ], [ %239, %238 ], [ %237, %236 ], [ false, %235 ], [ false, %234 ], [ false, %222 ], [ %221, %220 ], [ true, %218 ], [ %217, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ false, %211 ], [ false, %210 ], [ %209, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ %188, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %149 ], [ %142, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ false, %137 ], [ false, %136 ], [ false, %135 ], [ false, %134 ], [ %133, %132 ], [ false, %131 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ %123, %122 ], [ false, %121 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %116, %115 ]
+.thread410:                                       ; preds = %115, %110, %108, %106, %104, %102, %97, %95, %93, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %345, %343, %342, %341, %340, %339, %338, %337, %336, %335, %333, %331, %330, %326, %325, %324, %322, %320, %319, %318, %317, %316, %315, %314, %312, %311, %310, %305, %304, %303, %302, %301, %300, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %268, %255, %254, %253, %252, %251, %250, %249, %248, %247, %245, %244, %242, %241, %240, %238, %236, %235, %234, %222, %220, %218, %216, %215, %214, %213, %212, %211, %210, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %122, %121
+  %.3 = phi i1 [ false, %121 ], [ %123, %122 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %131 ], [ %133, %132 ], [ false, %134 ], [ false, %135 ], [ false, %136 ], [ false, %137 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ %142, %141 ], [ false, %149 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ %188, %187 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ %209, %208 ], [ false, %210 ], [ false, %211 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ %217, %216 ], [ true, %218 ], [ %221, %220 ], [ false, %222 ], [ false, %234 ], [ false, %235 ], [ %237, %236 ], [ %239, %238 ], [ false, %240 ], [ false, %241 ], [ %243, %242 ], [ false, %244 ], [ %246, %245 ], [ false, %247 ], [ false, %248 ], [ false, %249 ], [ false, %250 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ false, %254 ], [ false, %255 ], [ false, %268 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ false, %299 ], [ false, %300 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ false, %304 ], [ true, %305 ], [ false, %310 ], [ false, %311 ], [ true, %312 ], [ false, %314 ], [ false, %315 ], [ false, %316 ], [ false, %317 ], [ false, %318 ], [ false, %319 ], [ %321, %320 ], [ %323, %322 ], [ false, %324 ], [ false, %325 ], [ false, %326 ], [ false, %330 ], [ %332, %331 ], [ %334, %333 ], [ false, %335 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ false, %339 ], [ false, %340 ], [ false, %341 ], [ false, %342 ], [ %344, %343 ], [ %346, %345 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %116, %115 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -143379,13 +143379,13 @@ _ZN4llvm5APIntD2Ev.exit128:                       ; preds = %509, %512, %515
   br label %.critedge
 
 .critedge:                                        ; preds = %194, %192, %171, %377, %270, %185, %_ZN4llvm5APIntD2Ev.exit128, %516
-  %.3 = phi i1 [ true, %516 ], [ false, %377 ], [ false, %_ZN4llvm5APIntD2Ev.exit128 ], [ false, %270 ], [ false, %185 ], [ false, %171 ], [ false, %192 ], [ false, %194 ]
+  %.3 = phi i1 [ true, %516 ], [ false, %270 ], [ false, %377 ], [ false, %_ZN4llvm5APIntD2Ev.exit128 ], [ false, %185 ], [ false, %171 ], [ false, %192 ], [ false, %194 ]
   call fastcc void @_ZN12_GLOBAL__N_112ComplexValueD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #30
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %22) #30
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit132, %61, %63, %.critedge, %.thread136
-  %.0 = phi i1 [ %.3, %.critedge ], [ false, %.thread136 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %80, %_ZN5clang7APValueD2Ev.exit132 ], [ false, %61 ], [ false, %63 ]
+  %.0 = phi i1 [ %.3, %.critedge ], [ false, %.thread136 ], [ %80, %_ZN5clang7APValueD2Ev.exit132 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %61 ], [ false, %63 ]
   ret i1 %.0
 }
 
@@ -144562,7 +144562,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexEx
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %9, %1
-  %.1.i.i = phi ptr [ %6, %1 ], [ %10, %9 ]
+  %.1.i.i = phi ptr [ %10, %9 ], [ %6, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i3.i = load i64, ptr %11, align 16, !tbaa !21
   %12 = and i64 %.sroa.0.0.copyload.i3.i, -16
@@ -145027,7 +145027,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %110, %113, %109
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %118, %125
-  %.1.i71 = phi ptr [ %122, %118 ], [ %126, %125 ]
+  %.1.i71 = phi ptr [ %126, %125 ], [ %122, %118 ]
   %127 = getelementptr inbounds nuw i8, ptr %.1.i71, i64 32
   %.sroa.0.0.copyload.i72 = load i64, ptr %127, align 16, !tbaa !21
   %128 = load ptr, ptr %115, align 8, !tbaa !834
@@ -145082,7 +145082,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit77: ; preds = %_ZNK5clang4Ty
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit83
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit83: ; preds = %151, %158
-  %.1.i82 = phi ptr [ %155, %151 ], [ %159, %158 ]
+  %.1.i82 = phi ptr [ %159, %158 ], [ %155, %151 ]
   %160 = getelementptr inbounds nuw i8, ptr %.1.i82, i64 32
   %.sroa.0.0.copyload.i84 = load i64, ptr %160, align 16, !tbaa !21
   %161 = load ptr, ptr %148, align 8, !tbaa !834
@@ -145265,7 +145265,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %234, %231, %_ZN4llv
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit95
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit95: ; preds = %243, %250
-  %.1.i94 = phi ptr [ %247, %243 ], [ %251, %250 ]
+  %.1.i94 = phi ptr [ %251, %250 ], [ %247, %243 ]
   %252 = getelementptr inbounds nuw i8, ptr %.1.i94, i64 32
   %.sroa.0.0.copyload.i96 = load i64, ptr %252, align 16, !tbaa !21
   %253 = load ptr, ptr %240, align 8, !tbaa !834
@@ -145396,7 +145396,7 @@ _ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit112
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit112: ; preds = %_ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit, %323
-  %.1.i111 = phi ptr [ %320, %_ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit ], [ %324, %323 ]
+  %.1.i111 = phi ptr [ %324, %323 ], [ %320, %_ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit ]
   %325 = getelementptr inbounds nuw i8, ptr %.1.i111, i64 32
   %.sroa.0.0.copyload.i113 = load i64, ptr %325, align 16, !tbaa !21
   %326 = load ptr, ptr %302, align 8, !tbaa !834
@@ -145436,7 +145436,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit118: ; preds = %_ZNK5clang4T
   unreachable
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20ComplexExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %88, %86, %_ZN5clang7APValueD2Ev.exit124, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %32, %_ZN5clang7APValueD2Ev.exit131, %82, %84, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit118, %341, %301, %239, %_ZN4llvm5APIntD2Ev.exit, %_ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exit, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit89, %176, %147, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit77, %142, %114, %_ZN4llvm7APFloatD2Ev.exit, %90, %_ZN4llvm5APIntD2Ev.exit106
-  %.0 = phi i1 [ true, %_ZN4llvm5APIntD2Ev.exit106 ], [ false, %90 ], [ true, %_ZN4llvm7APFloatD2Ev.exit ], [ false, %114 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit77 ], [ %146, %142 ], [ false, %147 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit89 ], [ %181, %176 ], [ false, %_ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ false, %239 ], [ false, %301 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit118 ], [ %346, %341 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit124 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %35, %32 ], [ %26, %_ZN5clang7APValueD2Ev.exit131 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ]
+  %.0 = phi i1 [ true, %_ZN4llvm5APIntD2Ev.exit106 ], [ false, %90 ], [ true, %_ZN4llvm7APFloatD2Ev.exit ], [ false, %114 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit77 ], [ %146, %142 ], [ false, %147 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit89 ], [ %181, %176 ], [ false, %_ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit ], [ false, %239 ], [ false, %301 ], [ false, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit118 ], [ %346, %341 ], [ %26, %_ZN5clang7APValueD2Ev.exit131 ], [ %35, %32 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit124 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ]
   ret i1 %.0
 }
 
@@ -147127,7 +147127,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN12_GLOBAL__N_117
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19RecordExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %_ZN5clang7APValueD2Ev.exit27, %_ZN5clang7APValueD2Ev.exit29, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %28, %_ZN5clang7APValueD2Ev.exit36, %92, %94, %_ZN5clang7APValueD2Ev.exit, %96
-  %.0 = phi i1 [ %.1, %_ZN5clang7APValueD2Ev.exit ], [ %99, %96 ], [ %85, %_ZN5clang7APValueD2Ev.exit27 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit29 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %31, %28 ], [ %21, %_ZN5clang7APValueD2Ev.exit36 ], [ false, %92 ], [ false, %94 ]
+  %.0 = phi i1 [ %99, %96 ], [ %.1, %_ZN5clang7APValueD2Ev.exit ], [ %21, %_ZN5clang7APValueD2Ev.exit36 ], [ %31, %28 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit29 ], [ %85, %_ZN5clang7APValueD2Ev.exit27 ], [ false, %92 ], [ false, %94 ]
   ret i1 %.0
 }
 
@@ -149962,7 +149962,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %92, %.lr.ph.i.i19
-  %.1.i.i.i = phi ptr [ %88, %.lr.ph.i.i19 ], [ %93, %92 ]
+  %.1.i.i.i = phi ptr [ %93, %92 ], [ %88, %.lr.ph.i.i19 ]
   %94 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %95 = load i24, ptr %94, align 16
   %96 = and i24 %95, 1048576
@@ -151345,8 +151345,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %142, %_ZN4llvm5
   %337 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr428)
   br label %.thread422
 
-.thread422:                                       ; preds = %87, %89, %91, %92, %93, %94, %98, %99, %100, %101, %102, %106, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %336, %334, %333, %332, %331, %330, %329, %328, %327, %326, %324, %322, %321, %317, %316, %315, %313, %311, %310, %309, %308, %307, %306, %305, %302, %301, %300, %294, %293, %292, %291, %290, %289, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %257, %244, %243, %242, %241, %240, %239, %238, %237, %236, %234, %233, %231, %230, %229, %227, %225, %224, %223, %211, %210, %207, %205, %204, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
-  %.3 = phi i1 [ %337, %336 ], [ %335, %334 ], [ false, %333 ], [ false, %332 ], [ false, %331 ], [ false, %330 ], [ false, %329 ], [ false, %328 ], [ false, %327 ], [ false, %326 ], [ %325, %324 ], [ %323, %322 ], [ false, %321 ], [ false, %317 ], [ false, %316 ], [ false, %315 ], [ %314, %313 ], [ %312, %311 ], [ false, %310 ], [ false, %309 ], [ false, %308 ], [ false, %307 ], [ false, %306 ], [ false, %305 ], [ %304, %302 ], [ false, %301 ], [ false, %300 ], [ %296, %294 ], [ false, %293 ], [ false, %292 ], [ false, %291 ], [ false, %290 ], [ false, %289 ], [ false, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ false, %257 ], [ false, %244 ], [ false, %243 ], [ false, %242 ], [ false, %241 ], [ false, %240 ], [ false, %239 ], [ false, %238 ], [ false, %237 ], [ false, %236 ], [ %235, %234 ], [ false, %233 ], [ %232, %231 ], [ false, %230 ], [ false, %229 ], [ %228, %227 ], [ %226, %225 ], [ false, %224 ], [ false, %223 ], [ false, %211 ], [ false, %210 ], [ %209, %207 ], [ %206, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ %198, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ false, %178 ], [ %177, %176 ], [ false, %175 ], [ false, %174 ], [ false, %173 ], [ false, %172 ], [ false, %138 ], [ %131, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ %122, %121 ], [ false, %120 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %98 ], [ false, %99 ], [ false, %100 ], [ false, %101 ], [ false, %102 ], [ false, %106 ]
+.thread422:                                       ; preds = %106, %102, %101, %100, %99, %98, %94, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %336, %334, %333, %332, %331, %330, %329, %328, %327, %326, %324, %322, %321, %317, %316, %315, %313, %311, %310, %309, %308, %307, %306, %305, %302, %301, %300, %294, %293, %292, %291, %290, %289, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %257, %244, %243, %242, %241, %240, %239, %238, %237, %236, %234, %233, %231, %230, %229, %227, %225, %224, %223, %211, %210, %207, %205, %204, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
+  %.3 = phi i1 [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ %122, %121 ], [ false, %123 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ %131, %130 ], [ false, %138 ], [ false, %172 ], [ false, %173 ], [ false, %174 ], [ false, %175 ], [ %177, %176 ], [ false, %178 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ %198, %197 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ %206, %205 ], [ %209, %207 ], [ false, %210 ], [ false, %211 ], [ false, %223 ], [ false, %224 ], [ %226, %225 ], [ %228, %227 ], [ false, %229 ], [ false, %230 ], [ %232, %231 ], [ false, %233 ], [ %235, %234 ], [ false, %236 ], [ false, %237 ], [ false, %238 ], [ false, %239 ], [ false, %240 ], [ false, %241 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %257 ], [ %259, %258 ], [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %285, %284 ], [ %287, %286 ], [ false, %288 ], [ false, %289 ], [ false, %290 ], [ false, %291 ], [ false, %292 ], [ false, %293 ], [ %296, %294 ], [ false, %300 ], [ false, %301 ], [ %304, %302 ], [ false, %305 ], [ false, %306 ], [ false, %307 ], [ false, %308 ], [ false, %309 ], [ false, %310 ], [ %312, %311 ], [ %314, %313 ], [ false, %315 ], [ false, %316 ], [ false, %317 ], [ false, %321 ], [ %323, %322 ], [ %325, %324 ], [ false, %326 ], [ false, %327 ], [ false, %328 ], [ false, %329 ], [ false, %330 ], [ false, %331 ], [ false, %332 ], [ false, %333 ], [ %335, %334 ], [ %337, %336 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %106 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %99 ], [ false, %98 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -155627,7 +155627,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %52, %55
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -156700,7 +156700,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AtomicExprEvaluato
   br label %_ZNK5clang4Type6castAsINS_10AtomicTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10AtomicTypeEEEPKT_v.exit: ; preds = %1, %8
-  %.1.i = phi ptr [ %5, %1 ], [ %9, %8 ]
+  %.1.i = phi ptr [ %9, %8 ], [ %5, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i2 = load i64, ptr %10, align 16, !tbaa !21
   store i16 56, ptr %2, align 8
@@ -157033,7 +157033,7 @@ _ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit: ; preds
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_19AtomicExprEvaluatorEE13VisitCastExprEPKN5clang8CastExprE.exit: ; preds = %_ZN5clang7APValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %27, %_ZN5clang7APValueD2Ev.exit16, %91, %93, %119, %121, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %110, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %120, %119 ], [ %122, %121 ], [ %84, %_ZN5clang7APValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit10 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %27 ], [ %20, %_ZN5clang7APValueD2Ev.exit16 ], [ false, %91 ], [ false, %93 ]
+  %.0 = phi i1 [ %110, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %120, %119 ], [ %122, %121 ], [ %20, %_ZN5clang7APValueD2Ev.exit16 ], [ %30, %27 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit10 ], [ %84, %_ZN5clang7APValueD2Ev.exit ], [ false, %91 ], [ false, %93 ]
   ret i1 %.0
 }
 
@@ -158992,8 +158992,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %164, %_ZN4llvm5
   %396 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr451)
   br label %.thread445
 
-.thread445:                                       ; preds = %87, %89, %91, %93, %95, %97, %102, %104, %106, %108, %110, %115, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %395, %393, %392, %389, %388, %387, %386, %381, %380, %379, %377, %375, %374, %367, %366, %365, %363, %361, %360, %359, %358, %357, %356, %352, %348, %347, %346, %339, %338, %337, %336, %335, %334, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %298, %280, %279, %278, %277, %275, %274, %273, %272, %271, %269, %264, %262, %261, %260, %258, %256, %255, %251, %239, %238, %234, %232, %231, %230, %229, %228, %227, %226, %224, %223, %222, %221, %220, %219, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %200, %198, %197, %196, %195, %194, %160, %152, %151, %147, %146, %145, %144, %139, %138, %136, %135, %131, %127, %126, %124, %122, %121
-  %.3 = phi i1 [ %396, %395 ], [ %394, %393 ], [ false, %392 ], [ %391, %389 ], [ false, %388 ], [ false, %387 ], [ false, %386 ], [ true, %381 ], [ false, %380 ], [ false, %379 ], [ %378, %377 ], [ %376, %375 ], [ false, %374 ], [ true, %367 ], [ false, %366 ], [ false, %365 ], [ %364, %363 ], [ %362, %361 ], [ false, %360 ], [ false, %359 ], [ false, %358 ], [ false, %357 ], [ false, %356 ], [ true, %352 ], [ true, %348 ], [ false, %347 ], [ false, %346 ], [ true, %339 ], [ false, %338 ], [ false, %337 ], [ false, %336 ], [ false, %335 ], [ false, %334 ], [ false, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ true, %298 ], [ true, %280 ], [ false, %279 ], [ false, %278 ], [ false, %277 ], [ %276, %275 ], [ false, %274 ], [ false, %273 ], [ false, %272 ], [ false, %271 ], [ %270, %269 ], [ true, %264 ], [ %263, %262 ], [ false, %261 ], [ false, %260 ], [ %259, %258 ], [ %257, %256 ], [ false, %255 ], [ true, %251 ], [ false, %239 ], [ false, %238 ], [ true, %234 ], [ %233, %232 ], [ true, %231 ], [ false, %230 ], [ false, %229 ], [ false, %228 ], [ false, %227 ], [ false, %226 ], [ %225, %224 ], [ false, %223 ], [ false, %222 ], [ false, %221 ], [ false, %220 ], [ false, %219 ], [ true, %214 ], [ false, %213 ], [ false, %212 ], [ false, %211 ], [ false, %210 ], [ false, %209 ], [ false, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ %201, %200 ], [ %199, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %160 ], [ %153, %152 ], [ false, %151 ], [ true, %147 ], [ false, %146 ], [ false, %145 ], [ false, %144 ], [ true, %139 ], [ true, %138 ], [ %137, %136 ], [ false, %135 ], [ false, %131 ], [ true, %127 ], [ false, %126 ], [ %125, %124 ], [ %123, %122 ], [ false, %121 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %116, %115 ]
+.thread445:                                       ; preds = %115, %110, %108, %106, %104, %102, %97, %95, %93, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %395, %393, %392, %389, %388, %387, %386, %381, %380, %379, %377, %375, %374, %367, %366, %365, %363, %361, %360, %359, %358, %357, %356, %352, %348, %347, %346, %339, %338, %337, %336, %335, %334, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %298, %280, %279, %278, %277, %275, %274, %273, %272, %271, %269, %264, %262, %261, %260, %258, %256, %255, %251, %239, %238, %234, %232, %231, %230, %229, %228, %227, %226, %224, %223, %222, %221, %220, %219, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %200, %198, %197, %196, %195, %194, %160, %152, %151, %147, %146, %145, %144, %139, %138, %136, %135, %131, %127, %126, %124, %122, %121
+  %.3 = phi i1 [ false, %121 ], [ %123, %122 ], [ %125, %124 ], [ false, %126 ], [ true, %127 ], [ false, %131 ], [ false, %135 ], [ %137, %136 ], [ true, %138 ], [ true, %139 ], [ false, %144 ], [ false, %145 ], [ false, %146 ], [ true, %147 ], [ false, %151 ], [ %153, %152 ], [ false, %160 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ %199, %198 ], [ %201, %200 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ false, %209 ], [ false, %210 ], [ false, %211 ], [ false, %212 ], [ false, %213 ], [ true, %214 ], [ false, %219 ], [ false, %220 ], [ false, %221 ], [ false, %222 ], [ false, %223 ], [ %225, %224 ], [ false, %226 ], [ false, %227 ], [ false, %228 ], [ false, %229 ], [ false, %230 ], [ true, %231 ], [ %233, %232 ], [ true, %234 ], [ false, %238 ], [ false, %239 ], [ true, %251 ], [ false, %255 ], [ %257, %256 ], [ %259, %258 ], [ false, %260 ], [ false, %261 ], [ %263, %262 ], [ true, %264 ], [ %270, %269 ], [ false, %271 ], [ false, %272 ], [ false, %273 ], [ false, %274 ], [ %276, %275 ], [ false, %277 ], [ false, %278 ], [ false, %279 ], [ true, %280 ], [ true, %298 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ false, %333 ], [ false, %334 ], [ false, %335 ], [ false, %336 ], [ false, %337 ], [ false, %338 ], [ true, %339 ], [ false, %346 ], [ false, %347 ], [ true, %348 ], [ true, %352 ], [ false, %356 ], [ false, %357 ], [ false, %358 ], [ false, %359 ], [ false, %360 ], [ %362, %361 ], [ %364, %363 ], [ false, %365 ], [ false, %366 ], [ true, %367 ], [ false, %374 ], [ %376, %375 ], [ %378, %377 ], [ false, %379 ], [ false, %380 ], [ true, %381 ], [ false, %386 ], [ false, %387 ], [ false, %388 ], [ %391, %389 ], [ false, %392 ], [ %394, %393 ], [ %396, %395 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %116, %115 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
   ret i1 %.3
 }
 
@@ -160289,7 +160289,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit: ; preds = %_Z
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %188, %186, %49, %47, %28, %26, %177, %_ZN4llvm5APIntD2Ev.exit42, %_ZN4llvm5APIntD2Ev.exit41, %38, %275, %_ZN4llvm5APIntD2Ev.exit58, %34, %30
-  %.0 = phi i1 [ %.0.i59, %275 ], [ true, %_ZN4llvm5APIntD2Ev.exit58 ], [ %37, %34 ], [ %33, %30 ], [ false, %38 ], [ true, %_ZN4llvm5APIntD2Ev.exit42 ], [ false, %_ZN4llvm5APIntD2Ev.exit41 ], [ false, %177 ], [ false, %26 ], [ false, %28 ], [ false, %47 ], [ false, %49 ], [ false, %186 ], [ false, %188 ]
+  %.0 = phi i1 [ %33, %30 ], [ %37, %34 ], [ true, %_ZN4llvm5APIntD2Ev.exit58 ], [ %.0.i59, %275 ], [ false, %38 ], [ true, %_ZN4llvm5APIntD2Ev.exit42 ], [ false, %_ZN4llvm5APIntD2Ev.exit41 ], [ false, %177 ], [ false, %26 ], [ false, %28 ], [ false, %47 ], [ false, %49 ], [ false, %186 ], [ false, %188 ]
   ret i1 %.0
 }
 
@@ -160423,7 +160423,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit:
   br label %_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit
 
 _Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit: ; preds = %59, %63, %67
-  %.sroa.013.1.i = phi i64 [ %62, %59 ], [ %66, %63 ], [ %69, %67 ]
+  %.sroa.013.1.i = phi i64 [ %69, %67 ], [ %66, %63 ], [ %62, %59 ]
   %.val61 = load ptr, ptr %0, align 8, !tbaa !2344
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val62 = load ptr, ptr %70, align 8, !tbaa !2346
@@ -160583,7 +160583,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %141, %145
-  %.1.i = phi ptr [ %133, %141 ], [ %146, %145 ]
+  %.1.i = phi ptr [ %146, %145 ], [ %133, %141 ]
   %147 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %148 = load i32, ptr %147, align 4, !tbaa !21
   %149 = icmp eq i32 %148, 3
@@ -160756,7 +160756,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread121: ; preds = %194,
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %223, %.lr.ph.i
-  %.1.i.i = phi ptr [ %219, %.lr.ph.i ], [ %224, %223 ]
+  %.1.i.i = phi ptr [ %224, %223 ], [ %219, %.lr.ph.i ]
   %225 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %226 = load i24, ptr %225, align 16
   %227 = and i24 %226, 1048576
@@ -161022,7 +161022,7 @@ _ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit108: ; preds = 
   unreachable
 
 _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %.critedge, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit108, %336, %338, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit77, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit80, %91, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit96, %258, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit70, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit
-  %.0 = phi i1 [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit96 ], [ %235, %258 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit70 ], [ false, %91 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit80 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit77 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit108 ], [ false, %.critedge ], [ false, %336 ], [ false, %338 ]
+  %.0 = phi i1 [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEN5clang9CharUnitsEPKNS1_4ExprE.exit70 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit ], [ %235, %258 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit96 ], [ false, %91 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit80 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit77 ], [ true, %_ZN12_GLOBAL__N_116IntExprEvaluator7SuccessEmPKN5clang4ExprE.exit108 ], [ false, %.critedge ], [ false, %336 ], [ false, %338 ]
   ret i1 %.0
 }
 
@@ -162354,7 +162354,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %175, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %171, %.lr.ph.i.i ], [ %176, %175 ]
+  %.1.i.i.i = phi ptr [ %176, %175 ], [ %171, %.lr.ph.i.i ]
   %177 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %178 = load i24, ptr %177, align 16
   %179 = and i24 %178, 1048576
@@ -167457,7 +167457,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit194: ; preds = %623
   %spec.select.i189 = icmp ult i32 %664, 20
   br i1 %spec.select.i189, label %665, label %781
 
-665:                                              ; preds = %659, %651, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit194
+665:                                              ; preds = %651, %659, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit194
   %666 = and i64 %.sroa.0.0.copyload.i196, -16
   %667 = inttoptr i64 %666 to ptr
   %668 = load ptr, ptr %667, align 16, !tbaa !22
@@ -167502,7 +167502,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %665
   %spec.select.i182 = icmp ult i32 %691, 20
   br i1 %spec.select.i182, label %692, label %781
 
-692:                                              ; preds = %686, %678, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+692:                                              ; preds = %678, %686, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #30
   %693 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 1, ptr %693, align 8, !tbaa !673
@@ -167713,7 +167713,7 @@ _ZN4llvm5APIntD2Ev.exit179:                       ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #30
   br label %"_ZL32EvaluateComparisonBinaryOperatorIRZN12_GLOBAL__N_116IntExprEvaluator19VisitBinaryOperatorEPKN5clang14BinaryOperatorEE3$_0ZNS1_19VisitBinaryOperatorES5_E3$_1EbRNS0_8EvalInfoES5_OT_OT0_.exit"
 
-781:                                              ; preds = %686, %678, %659, %651, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit194
+781:                                              ; preds = %678, %686, %651, %659, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit194
   %782 = load ptr, ptr %640, align 16, !tbaa !22
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
   %.sroa.0.0.copyload.i.i.i.i172 = load i64, ptr %783, align 8, !tbaa !21
@@ -169640,7 +169640,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %1667, %1673
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %1689, %1697
-  %.1.i52 = phi ptr [ %1694, %1689 ], [ %1698, %1697 ]
+  %.1.i52 = phi ptr [ %1698, %1697 ], [ %1694, %1689 ]
   %1699 = getelementptr inbounds nuw i8, ptr %.1.i52, i64 32
   %.sroa.0.0.copyload.i53 = load i64, ptr %1699, align 16, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #30
@@ -173151,7 +173151,7 @@ _ZN5clang7APValueD2Ev.exit138:                    ; preds = %598, %600
   unreachable
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %_ZN5clang7APValueD2Ev.exit145, %_ZN12_GLOBAL__N_16LValueD2Ev.exit148, %61, %_ZN5clang7APValueD2Ev.exit153, %105, %107, %50, %48, %226, %_ZN5clang7APValueD2Ev.exit138, %_ZN4llvm7APFloatD2Ev.exit, %560, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit126, %250, %235, %_ZN5clang7APValueD2Ev.exit, %_ZN4llvm12APFixedPointD2Ev.exit, %146
-  %.0 = phi i1 [ %.0.i, %146 ], [ %.2, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %207, %_ZN5clang7APValueD2Ev.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit126 ], [ %249, %235 ], [ %264, %250 ], [ %.5, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %557, %560 ], [ %.7, %_ZN4llvm7APFloatD2Ev.exit ], [ %592, %_ZN5clang7APValueD2Ev.exit138 ], [ false, %226 ], [ false, %48 ], [ false, %50 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit145 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit148 ], [ %62, %61 ], [ %55, %_ZN5clang7APValueD2Ev.exit153 ], [ false, %105 ], [ false, %107 ]
+  %.0 = phi i1 [ %592, %_ZN5clang7APValueD2Ev.exit138 ], [ %.7, %_ZN4llvm7APFloatD2Ev.exit ], [ %557, %560 ], [ %.5, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit126 ], [ %249, %235 ], [ %264, %250 ], [ %207, %_ZN5clang7APValueD2Ev.exit ], [ %.2, %_ZN4llvm12APFixedPointD2Ev.exit ], [ %.0.i, %146 ], [ false, %226 ], [ false, %48 ], [ false, %50 ], [ %55, %_ZN5clang7APValueD2Ev.exit153 ], [ %62, %61 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit148 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit145 ], [ false, %105 ], [ false, %107 ]
   ret i1 %.0
 }
 
@@ -173881,7 +173881,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %205, %226
   br label %284
 
 284:                                              ; preds = %276, %274, %262, %240
-  %.1188 = phi i1 [ true, %240 ], [ true, %262 ], [ true, %276 ], [ false, %274 ]
+  %.1188 = phi i1 [ true, %240 ], [ true, %262 ], [ false, %274 ], [ true, %276 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #30
   br label %3850
 
@@ -175784,7 +175784,7 @@ _ZN4llvm5APIntD2Ev.exit506:                       ; preds = %1167, %1170, %1173
   br label %1202
 
 1202:                                             ; preds = %1201, %1198, %1197, %1190
-  %.0203 = phi i64 [ 4, %1201 ], [ %1200, %1198 ], [ 1, %1197 ], [ 0, %1190 ]
+  %.0203 = phi i64 [ 1, %1197 ], [ %1200, %1198 ], [ 4, %1201 ], [ 0, %1190 ]
   %1203 = load ptr, ptr %54, align 8, !tbaa !2469
   %1204 = load i32, ptr %1203, align 8
   %1205 = lshr i32 %1204, 24
@@ -181359,7 +181359,7 @@ _ZN4llvm5APIntD2Ev.exit699:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %3850
 
 3850:                                             ; preds = %934, %932, %841, %853, %857, %3, %_ZN4llvm5APIntD2Ev.exit699, %_ZN4llvm5APIntD2Ev.exit692, %_ZN4llvm5APIntD2Ev.exit687, %_ZN4llvm5APIntD2Ev.exit685, %_ZN4llvm5APIntD2Ev.exit683, %_ZN4llvm5APIntD2Ev.exit681, %_ZN12_GLOBAL__N_16LValueD2Ev.exit676, %_ZN5clang7APValueD2Ev.exit656, %_ZN12_GLOBAL__N_16LValueD2Ev.exit648, %_ZN12_GLOBAL__N_16LValueD2Ev.exit615, %_ZN4llvm5APIntD2Ev.exit599, %_ZN12_GLOBAL__N_16LValueD2Ev.exit588, %2157, %_ZN4llvm5APIntD2Ev.exit553, %_ZN4llvm5APIntD2Ev.exit547, %_ZN4llvm5APIntD2Ev.exit541, %_ZN4llvm5APIntD2Ev.exit538, %_ZN4llvm5APIntD2Ev.exit535, %_ZN4llvm5APIntD2Ev.exit532, %_ZN4llvm5APIntD2Ev.exit528, %_ZN4llvm5APIntD2Ev.exit526, %1515, %_ZN4llvm7APFloatD2Ev.exit523, %1437, %1409, %1380, %1357, %1334, %1305, %1276, %1247, %1216, %_ZN4llvm5APIntD2Ev.exit506, %1106, %1094, %_ZN4llvm5APIntD2Ev.exit502, %_ZN4llvm5APIntD2Ev.exit499, %_ZNK5clang14IdentifierInfo5isStrILm22EEEbRAT__Kc.exit.thread, %859, %_ZN4llvm5APIntD2Ev.exit490, %_ZN4llvm5APIntD2Ev.exit486, %668, %_ZN4llvm5APIntD2Ev.exit485, %_ZN4llvm5APIntD2Ev.exit483, %_ZN5clang7APValueD2Ev.exit481, %_ZN5clang7APValueD2Ev.exit472, %_ZN5clang7APValueD2Ev.exit, %_ZN5clang14analyze_os_log17OSLogBufferLayoutD2Ev.exit, %284
-  %.0187 = phi i1 [ %.62, %_ZN4llvm5APIntD2Ev.exit699 ], [ %.61, %_ZN4llvm5APIntD2Ev.exit692 ], [ %3618, %_ZN4llvm5APIntD2Ev.exit687 ], [ %3581, %_ZN4llvm5APIntD2Ev.exit685 ], [ %.58, %_ZN4llvm5APIntD2Ev.exit683 ], [ %.56, %_ZN4llvm5APIntD2Ev.exit681 ], [ %.54, %_ZN12_GLOBAL__N_16LValueD2Ev.exit676 ], [ %.51, %_ZN5clang7APValueD2Ev.exit656 ], [ %.49, %_ZN12_GLOBAL__N_16LValueD2Ev.exit648 ], [ %.47, %_ZN12_GLOBAL__N_16LValueD2Ev.exit615 ], [ %.39, %_ZN4llvm5APIntD2Ev.exit599 ], [ %.31, %_ZN12_GLOBAL__N_16LValueD2Ev.exit588 ], [ %2150, %2157 ], [ %.29, %_ZN4llvm5APIntD2Ev.exit553 ], [ %.28, %_ZN4llvm5APIntD2Ev.exit547 ], [ %.27, %_ZN4llvm5APIntD2Ev.exit541 ], [ %.26, %_ZN4llvm5APIntD2Ev.exit538 ], [ %.0.i913, %_ZN4llvm5APIntD2Ev.exit535 ], [ %.24, %_ZN4llvm5APIntD2Ev.exit532 ], [ %1581, %_ZN4llvm5APIntD2Ev.exit528 ], [ %.22, %_ZN4llvm5APIntD2Ev.exit526 ], [ %1507, %1515 ], [ %.21, %_ZN4llvm7APFloatD2Ev.exit523 ], [ %1424, %1437 ], [ %1395, %1409 ], [ %1372, %1380 ], [ %1349, %1357 ], [ %1320, %1334 ], [ %1291, %1305 ], [ %1262, %1276 ], [ %1231, %1247 ], [ %.20, %1216 ], [ %1149, %_ZN4llvm5APIntD2Ev.exit506 ], [ true, %1106 ], [ %1105, %1094 ], [ true, %_ZN4llvm5APIntD2Ev.exit502 ], [ %.16, %_ZN4llvm5APIntD2Ev.exit499 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm22EEEbRAT__Kc.exit.thread ], [ true, %859 ], [ %.9, %_ZN4llvm5APIntD2Ev.exit490 ], [ %690, %_ZN4llvm5APIntD2Ev.exit486 ], [ true, %668 ], [ %650, %_ZN4llvm5APIntD2Ev.exit485 ], [ %.0.i903, %_ZN4llvm5APIntD2Ev.exit483 ], [ %.5, %_ZN5clang7APValueD2Ev.exit481 ], [ %.4, %_ZN5clang7APValueD2Ev.exit472 ], [ %.2, %_ZN5clang7APValueD2Ev.exit ], [ true, %_ZN5clang14analyze_os_log17OSLogBufferLayoutD2Ev.exit ], [ %.1188, %284 ], [ false, %3 ], [ true, %841 ], [ true, %853 ], [ false, %857 ], [ false, %932 ], [ true, %934 ]
+  %.0187 = phi i1 [ %.1188, %284 ], [ true, %_ZN5clang14analyze_os_log17OSLogBufferLayoutD2Ev.exit ], [ %.2, %_ZN5clang7APValueD2Ev.exit ], [ %.4, %_ZN5clang7APValueD2Ev.exit472 ], [ %.5, %_ZN5clang7APValueD2Ev.exit481 ], [ %.0.i903, %_ZN4llvm5APIntD2Ev.exit483 ], [ %650, %_ZN4llvm5APIntD2Ev.exit485 ], [ true, %668 ], [ %690, %_ZN4llvm5APIntD2Ev.exit486 ], [ %.9, %_ZN4llvm5APIntD2Ev.exit490 ], [ true, %859 ], [ true, %_ZNK5clang14IdentifierInfo5isStrILm22EEEbRAT__Kc.exit.thread ], [ %.16, %_ZN4llvm5APIntD2Ev.exit499 ], [ true, %_ZN4llvm5APIntD2Ev.exit502 ], [ %1105, %1094 ], [ true, %1106 ], [ %1149, %_ZN4llvm5APIntD2Ev.exit506 ], [ %.20, %1216 ], [ %1231, %1247 ], [ %1262, %1276 ], [ %1291, %1305 ], [ %1320, %1334 ], [ %1349, %1357 ], [ %1372, %1380 ], [ %1395, %1409 ], [ %1424, %1437 ], [ %.21, %_ZN4llvm7APFloatD2Ev.exit523 ], [ %1507, %1515 ], [ %.22, %_ZN4llvm5APIntD2Ev.exit526 ], [ %1581, %_ZN4llvm5APIntD2Ev.exit528 ], [ %.24, %_ZN4llvm5APIntD2Ev.exit532 ], [ %.0.i913, %_ZN4llvm5APIntD2Ev.exit535 ], [ %.26, %_ZN4llvm5APIntD2Ev.exit538 ], [ %.27, %_ZN4llvm5APIntD2Ev.exit541 ], [ %.28, %_ZN4llvm5APIntD2Ev.exit547 ], [ %.29, %_ZN4llvm5APIntD2Ev.exit553 ], [ %2150, %2157 ], [ %.31, %_ZN12_GLOBAL__N_16LValueD2Ev.exit588 ], [ %.39, %_ZN4llvm5APIntD2Ev.exit599 ], [ %.47, %_ZN12_GLOBAL__N_16LValueD2Ev.exit615 ], [ %.49, %_ZN12_GLOBAL__N_16LValueD2Ev.exit648 ], [ %.51, %_ZN5clang7APValueD2Ev.exit656 ], [ %.54, %_ZN12_GLOBAL__N_16LValueD2Ev.exit676 ], [ %.56, %_ZN4llvm5APIntD2Ev.exit681 ], [ %.58, %_ZN4llvm5APIntD2Ev.exit683 ], [ %3581, %_ZN4llvm5APIntD2Ev.exit685 ], [ %3618, %_ZN4llvm5APIntD2Ev.exit687 ], [ %.61, %_ZN4llvm5APIntD2Ev.exit692 ], [ %.62, %_ZN4llvm5APIntD2Ev.exit699 ], [ false, %3 ], [ true, %841 ], [ true, %853 ], [ false, %857 ], [ false, %932 ], [ true, %934 ]
   ret i1 %.0187
 }
 
@@ -181741,7 +181741,7 @@ _Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.ex
   br label %_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit.thread
 
 _Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit.thread: ; preds = %20, %24, %28, %6, %_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit
-  %.sroa.011.1 = phi i64 [ %10, %6 ], [ %34, %_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit ], [ %30, %28 ], [ %27, %24 ], [ %23, %20 ]
+  %.sroa.011.1 = phi i64 [ %34, %_Z14GetAlignOfExprRKN5clang10ASTContextEPKNS_4ExprENS_20UnaryExprOrTypeTraitE.exit ], [ %10, %6 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ]
   ret i64 %.sroa.011.1
 }
 
@@ -182025,7 +182025,7 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %44
   %54 = icmp eq i32 %53, 255328256
   br i1 %54, label %55, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
-55:                                               ; preds = %44, %44, %35, %27, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+55:                                               ; preds = %44, %44, %27, %35, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #30
   store i32 0, ptr %3, align 8, !tbaa !669
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -182485,7 +182485,7 @@ _ZNK4llvm7APFloat7compareERKS0_.exit11:           ; preds = %43, %45
   unreachable
 
 49:                                               ; preds = %_ZNK4llvm7APFloat7compareERKS0_.exit11, %_ZNK4llvm7APFloat7compareERKS0_.exit, %_ZNK4llvm7APFloatleERKS0_.exit, %_ZNK4llvm7APFloatltERKS0_.exit, %_ZNK4llvm7APFloatgeERKS0_.exit, %_ZNK4llvm7APFloatgtERKS0_.exit
-  %.0 = phi i1 [ %47, %_ZNK4llvm7APFloat7compareERKS0_.exit11 ], [ %41, %_ZNK4llvm7APFloat7compareERKS0_.exit ], [ %34, %_ZNK4llvm7APFloatleERKS0_.exit ], [ %28, %_ZNK4llvm7APFloatltERKS0_.exit ], [ %22, %_ZNK4llvm7APFloatgeERKS0_.exit ], [ %15, %_ZNK4llvm7APFloatgtERKS0_.exit ]
+  %.0 = phi i1 [ %15, %_ZNK4llvm7APFloatgtERKS0_.exit ], [ %22, %_ZNK4llvm7APFloatgeERKS0_.exit ], [ %28, %_ZNK4llvm7APFloatltERKS0_.exit ], [ %34, %_ZNK4llvm7APFloatleERKS0_.exit ], [ %41, %_ZNK4llvm7APFloat7compareERKS0_.exit ], [ %47, %_ZNK4llvm7APFloat7compareERKS0_.exit11 ]
   ret i1 %.0
 }
 
@@ -184167,7 +184167,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %8
   %spec.select.i = icmp ult i32 %35, 20
   br i1 %spec.select.i, label %36, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit27
 
-36:                                               ; preds = %30, %22, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+36:                                               ; preds = %22, %30, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !824
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -184216,7 +184216,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16: ; preds = %36
   %spec.select.i11 = icmp ult i32 %65, 20
   br i1 %spec.select.i11, label %66, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit27
 
-66:                                               ; preds = %60, %52, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16
+66:                                               ; preds = %52, %60, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !824
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -184265,8 +184265,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16: ; preds = %36
   %96 = icmp eq i8 %78, 10
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit27
 
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit27: ; preds = %1, %1, %1, %95, %87, %80, %60, %52, %30, %22, %5, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16
-  %97 = phi i1 [ true, %1 ], [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16 ], [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ false, %5 ], [ false, %22 ], [ false, %30 ], [ false, %52 ], [ false, %60 ], [ %94, %87 ], [ %96, %95 ], [ %spec.select.i22, %80 ], [ true, %1 ], [ true, %1 ]
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit27: ; preds = %1, %1, %1, %95, %87, %80, %52, %60, %22, %30, %5, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16
+  %97 = phi i1 [ true, %1 ], [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit16 ], [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ false, %5 ], [ false, %30 ], [ false, %22 ], [ false, %60 ], [ false, %52 ], [ %96, %95 ], [ %94, %87 ], [ %spec.select.i22, %80 ], [ true, %1 ], [ true, %1 ]
   ret i1 %97
 }
 
@@ -184598,7 +184598,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %51, %54
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -186323,8 +186323,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %142, %_ZN4llvm5
   %329 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr424)
   br label %.thread418
 
-.thread418:                                       ; preds = %107, %107, %107, %87, %89, %91, %92, %93, %94, %98, %99, %100, %101, %102, %106, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %328, %326, %325, %324, %323, %322, %321, %320, %319, %318, %316, %314, %313, %309, %308, %307, %305, %303, %301, %300, %299, %298, %297, %296, %295, %294, %290, %289, %288, %287, %286, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %254, %241, %240, %239, %238, %237, %236, %235, %234, %233, %231, %230, %228, %227, %226, %224, %222, %221, %220, %208, %207, %205, %204, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
-  %.3 = phi i1 [ %329, %328 ], [ %327, %326 ], [ false, %325 ], [ false, %324 ], [ false, %323 ], [ false, %322 ], [ false, %321 ], [ false, %320 ], [ false, %319 ], [ false, %318 ], [ %317, %316 ], [ %315, %314 ], [ false, %313 ], [ false, %309 ], [ false, %308 ], [ false, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ false, %300 ], [ false, %299 ], [ false, %298 ], [ false, %297 ], [ false, %296 ], [ false, %295 ], [ false, %294 ], [ false, %290 ], [ false, %289 ], [ false, %288 ], [ false, %287 ], [ false, %286 ], [ false, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ false, %254 ], [ false, %241 ], [ false, %240 ], [ false, %239 ], [ false, %238 ], [ false, %237 ], [ false, %236 ], [ false, %235 ], [ false, %234 ], [ false, %233 ], [ %232, %231 ], [ false, %230 ], [ %229, %228 ], [ false, %227 ], [ false, %226 ], [ %225, %224 ], [ %223, %222 ], [ false, %221 ], [ false, %220 ], [ false, %208 ], [ false, %207 ], [ %206, %205 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ %198, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ false, %192 ], [ false, %191 ], [ false, %190 ], [ false, %189 ], [ false, %188 ], [ false, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %182 ], [ false, %181 ], [ false, %180 ], [ false, %179 ], [ false, %178 ], [ %177, %176 ], [ false, %175 ], [ false, %174 ], [ false, %173 ], [ false, %172 ], [ false, %138 ], [ %131, %130 ], [ false, %129 ], [ false, %128 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ %122, %121 ], [ false, %120 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %88, %87 ], [ %90, %89 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %98 ], [ false, %99 ], [ false, %100 ], [ false, %101 ], [ false, %102 ], [ false, %106 ], [ true, %107 ], [ true, %107 ], [ true, %107 ]
+.thread418:                                       ; preds = %107, %107, %107, %106, %102, %101, %100, %99, %98, %94, %93, %92, %91, %89, %87, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %328, %326, %325, %324, %323, %322, %321, %320, %319, %318, %316, %314, %313, %309, %308, %307, %305, %303, %301, %300, %299, %298, %297, %296, %295, %294, %290, %289, %288, %287, %286, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %254, %241, %240, %239, %238, %237, %236, %235, %234, %233, %231, %230, %228, %227, %226, %224, %222, %221, %220, %208, %207, %205, %204, %203, %202, %201, %200, %199, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %176, %175, %174, %173, %172, %138, %130, %129, %128, %127, %126, %125, %124, %123, %121, %120, %116, %115, %114, %113, %112, %111
+  %.3 = phi i1 [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ %122, %121 ], [ false, %123 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ false, %129 ], [ %131, %130 ], [ false, %138 ], [ false, %172 ], [ false, %173 ], [ false, %174 ], [ false, %175 ], [ %177, %176 ], [ false, %178 ], [ false, %179 ], [ false, %180 ], [ false, %181 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ false, %187 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ %198, %197 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ %206, %205 ], [ false, %207 ], [ false, %208 ], [ false, %220 ], [ false, %221 ], [ %223, %222 ], [ %225, %224 ], [ false, %226 ], [ false, %227 ], [ %229, %228 ], [ false, %230 ], [ %232, %231 ], [ false, %233 ], [ false, %234 ], [ false, %235 ], [ false, %236 ], [ false, %237 ], [ false, %238 ], [ false, %239 ], [ false, %240 ], [ false, %241 ], [ false, %254 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ false, %285 ], [ false, %286 ], [ false, %287 ], [ false, %288 ], [ false, %289 ], [ false, %290 ], [ false, %294 ], [ false, %295 ], [ false, %296 ], [ false, %297 ], [ false, %298 ], [ false, %299 ], [ false, %300 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ false, %307 ], [ false, %308 ], [ false, %309 ], [ false, %313 ], [ %315, %314 ], [ %317, %316 ], [ false, %318 ], [ false, %319 ], [ false, %320 ], [ false, %321 ], [ false, %322 ], [ false, %323 ], [ false, %324 ], [ false, %325 ], [ %327, %326 ], [ %329, %328 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ false, %106 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %99 ], [ false, %98 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ %90, %89 ], [ %88, %87 ], [ true, %107 ], [ true, %107 ], [ true, %107 ]
   ret i1 %.3
 }
 
@@ -190866,7 +190866,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %48, %51
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %12, %10, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit
-  %.0 = phi i1 [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %30, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %10 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -192157,7 +192157,7 @@ _ZN5clang7APValueD2Ev.exit23:                     ; preds = %67, %74
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_17VoidExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit: ; preds = %77, %75, %_ZN5clang7APValueD2Ev.exit23, %_ZN5clang7APValueD2Ev.exit21, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %22, %_ZN5clang7APValueD2Ev.exit
-  %.1 = phi i1 [ %72, %_ZN5clang7APValueD2Ev.exit23 ], [ %.4, %_ZN5clang7APValueD2Ev.exit21 ], [ %.2, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %25, %22 ], [ %19, %_ZN5clang7APValueD2Ev.exit ], [ false, %75 ], [ false, %77 ]
+  %.1 = phi i1 [ %19, %_ZN5clang7APValueD2Ev.exit ], [ %25, %22 ], [ %.2, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %.4, %_ZN5clang7APValueD2Ev.exit21 ], [ %72, %_ZN5clang7APValueD2Ev.exit23 ], [ false, %75 ], [ false, %77 ]
   ret i1 %.1
 }
 
@@ -194246,8 +194246,8 @@ _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %153, %_ZN4llvm5
   %357 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20PointerExprEvaluatorEE30VisitBinaryConditionalOperatorEPKN5clang25BinaryConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr429)
   br label %.thread423
 
-.thread423:                                       ; preds = %88, %90, %92, %93, %94, %105, %109, %110, %111, %112, %113, %117, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %356, %354, %352, %351, %350, %349, %348, %347, %346, %345, %343, %341, %338, %334, %333, %332, %330, %328, %327, %326, %325, %324, %322, %321, %317, %316, %315, %308, %307, %305, %304, %303, %302, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %270, %257, %256, %255, %254, %253, %252, %251, %250, %249, %247, %245, %244, %243, %241, %239, %238, %237, %225, %224, %220, %218, %217, %216, %215, %214, %213, %212, %210, %209, %208, %207, %206, %205, %204, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %123, %122
-  %.3 = phi i1 [ %357, %356 ], [ %355, %354 ], [ true, %352 ], [ false, %351 ], [ false, %350 ], [ false, %349 ], [ false, %348 ], [ false, %347 ], [ false, %346 ], [ false, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %338 ], [ false, %334 ], [ false, %333 ], [ false, %332 ], [ %331, %330 ], [ %329, %328 ], [ false, %327 ], [ false, %326 ], [ false, %325 ], [ false, %324 ], [ %323, %322 ], [ false, %321 ], [ true, %317 ], [ false, %316 ], [ false, %315 ], [ true, %308 ], [ false, %307 ], [ %306, %305 ], [ false, %304 ], [ false, %303 ], [ false, %302 ], [ false, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ false, %270 ], [ false, %257 ], [ false, %256 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %247 ], [ %246, %245 ], [ false, %244 ], [ false, %243 ], [ %242, %241 ], [ %240, %239 ], [ false, %238 ], [ false, %237 ], [ false, %225 ], [ false, %224 ], [ true, %220 ], [ %219, %218 ], [ false, %217 ], [ false, %216 ], [ false, %215 ], [ false, %214 ], [ false, %213 ], [ false, %212 ], [ %211, %210 ], [ false, %209 ], [ false, %208 ], [ false, %207 ], [ false, %206 ], [ false, %205 ], [ false, %204 ], [ %203, %202 ], [ false, %201 ], [ false, %200 ], [ false, %199 ], [ false, %198 ], [ false, %197 ], [ false, %196 ], [ false, %195 ], [ false, %194 ], [ false, %193 ], [ true, %191 ], [ false, %190 ], [ false, %189 ], [ %188, %187 ], [ false, %186 ], [ false, %185 ], [ false, %184 ], [ false, %183 ], [ false, %149 ], [ %142, %141 ], [ false, %140 ], [ false, %139 ], [ false, %138 ], [ true, %137 ], [ false, %136 ], [ false, %135 ], [ true, %134 ], [ %133, %132 ], [ false, %131 ], [ false, %127 ], [ false, %126 ], [ false, %125 ], [ false, %124 ], [ false, %123 ], [ false, %122 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %89, %88 ], [ %91, %90 ], [ false, %92 ], [ false, %93 ], [ %104, %94 ], [ false, %105 ], [ false, %109 ], [ false, %110 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %117 ]
+.thread423:                                       ; preds = %117, %113, %112, %111, %110, %109, %105, %94, %93, %92, %90, %88, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %356, %354, %352, %351, %350, %349, %348, %347, %346, %345, %343, %341, %338, %334, %333, %332, %330, %328, %327, %326, %325, %324, %322, %321, %317, %316, %315, %308, %307, %305, %304, %303, %302, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %270, %257, %256, %255, %254, %253, %252, %251, %250, %249, %247, %245, %244, %243, %241, %239, %238, %237, %225, %224, %220, %218, %217, %216, %215, %214, %213, %212, %210, %209, %208, %207, %206, %205, %204, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %191, %190, %189, %187, %186, %185, %184, %183, %149, %141, %140, %139, %138, %137, %136, %135, %134, %132, %131, %127, %126, %125, %124, %123, %122
+  %.3 = phi i1 [ false, %122 ], [ false, %123 ], [ false, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %131 ], [ %133, %132 ], [ true, %134 ], [ false, %135 ], [ false, %136 ], [ true, %137 ], [ false, %138 ], [ false, %139 ], [ false, %140 ], [ %142, %141 ], [ false, %149 ], [ false, %183 ], [ false, %184 ], [ false, %185 ], [ false, %186 ], [ %188, %187 ], [ false, %189 ], [ false, %190 ], [ true, %191 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ %203, %202 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ false, %209 ], [ %211, %210 ], [ false, %212 ], [ false, %213 ], [ false, %214 ], [ false, %215 ], [ false, %216 ], [ false, %217 ], [ %219, %218 ], [ true, %220 ], [ false, %224 ], [ false, %225 ], [ false, %237 ], [ false, %238 ], [ %240, %239 ], [ %242, %241 ], [ false, %243 ], [ false, %244 ], [ %246, %245 ], [ false, %247 ], [ false, %249 ], [ false, %250 ], [ false, %251 ], [ false, %252 ], [ false, %253 ], [ false, %254 ], [ false, %255 ], [ false, %256 ], [ false, %257 ], [ false, %270 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ false, %301 ], [ false, %302 ], [ false, %303 ], [ false, %304 ], [ %306, %305 ], [ false, %307 ], [ true, %308 ], [ false, %315 ], [ false, %316 ], [ true, %317 ], [ false, %321 ], [ %323, %322 ], [ false, %324 ], [ false, %325 ], [ false, %326 ], [ false, %327 ], [ %329, %328 ], [ %331, %330 ], [ false, %332 ], [ false, %333 ], [ false, %334 ], [ %340, %338 ], [ %342, %341 ], [ %344, %343 ], [ false, %345 ], [ false, %346 ], [ false, %347 ], [ false, %348 ], [ false, %349 ], [ false, %350 ], [ false, %351 ], [ true, %352 ], [ %355, %354 ], [ %357, %356 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ false, %117 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ false, %110 ], [ false, %109 ], [ false, %105 ], [ %104, %94 ], [ false, %93 ], [ false, %92 ], [ %91, %90 ], [ %89, %88 ]
   ret i1 %.3
 }
 
@@ -198206,7 +198206,7 @@ _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20PointerExprEvaluatorEE13VisitCallExprE
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %488, %511
-  %.1.i11 = phi ptr [ %508, %488 ], [ %512, %511 ]
+  %.1.i11 = phi ptr [ %512, %511 ], [ %508, %488 ]
   %513 = getelementptr inbounds nuw i8, ptr %.1.i11, i64 32
   %.sroa.0.0.copyload.i9 = load i64, ptr %513, align 16, !tbaa !21
   %514 = load ptr, ptr %489, align 8, !tbaa !2594
@@ -200097,7 +200097,7 @@ _ZN12_GLOBAL__N_16LValueD2Ev.exit:                ; preds = %_ZN12_GLOBAL__N_16L
   br label %_ZN12_GLOBAL__N_120PointerExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj.exit
 
 _ZN12_GLOBAL__N_120PointerExprEvaluator20VisitBuiltinCallExprEPKN5clang8CallExprEj.exit: ; preds = %_ZL20IsOpaqueConstantCallPKN5clang8CallExprE.exit, %_ZN4llvm5APIntD2Ev.exit88, %843, %793, %788, %_ZN4llvm5APIntD2Ev.exit128, %694, %_ZN12_GLOBAL__N_16LValueD2Ev.exit133, %554, %535, %519, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %1098, %_ZN12_GLOBAL__N_120PointerExprEvaluator23visitNonBuiltinCallExprEPKN5clang8CallExprE.exit
-  %.0 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_120PointerExprEvaluator23visitNonBuiltinCallExprEPKN5clang8CallExprE.exit ], [ true, %519 ], [ %.8.i, %_ZN4llvm5APIntD2Ev.exit88 ], [ %811, %793 ], [ %792, %788 ], [ %.6.i, %_ZN4llvm5APIntD2Ev.exit128 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit133 ], [ %553, %535 ], [ false, %554 ], [ false, %694 ], [ false, %843 ], [ false, %_ZL20IsOpaqueConstantCallPKN5clang8CallExprE.exit ], [ %.17.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %1098 ]
+  %.0 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_120PointerExprEvaluator23visitNonBuiltinCallExprEPKN5clang8CallExprE.exit ], [ true, %519 ], [ %553, %535 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit133 ], [ %.6.i, %_ZN4llvm5APIntD2Ev.exit128 ], [ %792, %788 ], [ %811, %793 ], [ %.8.i, %_ZN4llvm5APIntD2Ev.exit88 ], [ false, %554 ], [ false, %694 ], [ false, %843 ], [ false, %_ZL20IsOpaqueConstantCallPKN5clang8CallExprE.exit ], [ %.17.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %1098 ]
   ret i1 %.0
 }
 
@@ -200695,7 +200695,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120PointerExprEvaluat
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %40, %49
-  %.1.i.i = phi ptr [ %46, %40 ], [ %50, %49 ]
+  %.1.i.i = phi ptr [ %50, %49 ], [ %46, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %51, align 16, !tbaa !21
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -203333,7 +203333,7 @@ _ZN5clang7APValueD2Ev.exit22:                     ; preds = %_ZL15EvaluateIntege
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %124, %131
-  %.1.i17 = phi ptr [ %128, %124 ], [ %132, %131 ]
+  %.1.i17 = phi ptr [ %132, %131 ], [ %128, %124 ]
   %133 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 32
   %.sroa.0.0.copyload.i18 = load i64, ptr %133, align 16, !tbaa !21
   %134 = load ptr, ptr %0, align 8, !tbaa !2593
@@ -203391,7 +203391,7 @@ _ZN4llvm5APIntD2Ev.exit19:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20PointerExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit
 
 _ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_20PointerExprEvaluatorEE19VisitBinaryOperatorEPKN5clang14BinaryOperatorE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit19, %84, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %_ZN5clang7APValueD2Ev.exit24, %15, %17
-  %.0 = phi i1 [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %34, %_ZN5clang7APValueD2Ev.exit24 ], [ false, %15 ], [ false, %17 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit19 ], [ false, %84 ]
+  %.0 = phi i1 [ %34, %_ZN5clang7APValueD2Ev.exit24 ], [ %.1.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %15 ], [ false, %17 ], [ %.2, %_ZN4llvm5APIntD2Ev.exit19 ], [ false, %84 ]
   ret i1 %.0
 }
 
@@ -204974,7 +204974,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit103: ; preds = %.cri
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %247, %256
-  %.1.i = phi ptr [ %253, %247 ], [ %257, %256 ]
+  %.1.i = phi ptr [ %257, %256 ], [ %253, %247 ]
   %258 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i116 = load i64, ptr %258, align 16, !tbaa !21
   %259 = load ptr, ptr %231, align 8, !tbaa !2594
@@ -205685,7 +205685,7 @@ _ZN5clang7APValueD2Ev.exit138:                    ; preds = %567, %569
   br label %_ZL20HandleLValueBasePathRN12_GLOBAL__N_18EvalInfoEPKN5clang8CastExprENS2_8QualTypeERNS_6LValueE.exit
 
 _ZL20HandleLValueBasePathRN12_GLOBAL__N_18EvalInfoEPKN5clang8CastExprENS2_8QualTypeERNS_6LValueE.exit: ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i, %.lr.ph.i, %570, %_ZN5clang7APValueD2Ev.exit138, %_ZN5clang7APValueD2Ev.exit140, %_ZN12_GLOBAL__N_16LValueD2Ev.exit143, %510, %_ZN5clang7APValueD2Ev.exit148, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %447, %448, %396, %297, %290, %284, %242, %230, %205, %209, %215, %31, %_ZN5clang7APValueD2Ev.exit, %405, %_ZN12_GLOBAL__N_16LValueD2Ev.exit, %450, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit, %299, %294
-  %.0 = phi i1 [ %.3, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ %458, %450 ], [ false, %405 ], [ %.1, %_ZN5clang7APValueD2Ev.exit ], [ true, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %303, %299 ], [ %296, %294 ], [ false, %31 ], [ true, %215 ], [ true, %209 ], [ true, %205 ], [ false, %230 ], [ true, %242 ], [ false, %284 ], [ true, %290 ], [ false, %297 ], [ false, %396 ], [ true, %448 ], [ true, %447 ], [ true, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %570 ], [ %563, %_ZN5clang7APValueD2Ev.exit138 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit140 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit143 ], [ %512, %510 ], [ %503, %_ZN5clang7APValueD2Ev.exit148 ], [ %270, %.lr.ph.i ], [ %270, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
+  %.0 = phi i1 [ %296, %294 ], [ %303, %299 ], [ true, %_ZL20EvaluateIgnoredValueRN12_GLOBAL__N_18EvalInfoEPKN5clang4ExprE.exit ], [ %.1, %_ZN5clang7APValueD2Ev.exit ], [ false, %405 ], [ %458, %450 ], [ %.3, %_ZN12_GLOBAL__N_16LValueD2Ev.exit ], [ false, %31 ], [ true, %215 ], [ true, %209 ], [ true, %205 ], [ false, %230 ], [ true, %242 ], [ false, %284 ], [ true, %290 ], [ false, %297 ], [ false, %396 ], [ true, %448 ], [ true, %447 ], [ true, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %570 ], [ %503, %_ZN5clang7APValueD2Ev.exit148 ], [ %512, %510 ], [ %.2.i, %_ZN12_GLOBAL__N_16LValueD2Ev.exit143 ], [ %.4.i, %_ZN5clang7APValueD2Ev.exit140 ], [ %563, %_ZN5clang7APValueD2Ev.exit138 ], [ %270, %.lr.ph.i ], [ %270, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
   ret i1 %.0
 }
 
@@ -205970,7 +205970,7 @@ _ZN12_GLOBAL__N_122tryUnwrapAllocSizeCallEPKN5clang4ExprE.exit: ; preds = %76
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %_ZN12_GLOBAL__N_122tryUnwrapAllocSizeCallEPKN5clang4ExprE.exit, %86
-  %.1.i = phi ptr [ %83, %_ZN12_GLOBAL__N_122tryUnwrapAllocSizeCallEPKN5clang4ExprE.exit ], [ %87, %86 ]
+  %.1.i = phi ptr [ %87, %86 ], [ %83, %_ZN12_GLOBAL__N_122tryUnwrapAllocSizeCallEPKN5clang4ExprE.exit ]
   %88 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i26 = load i64, ptr %88, align 16, !tbaa !21
   call fastcc void @_ZN12_GLOBAL__N_16LValue15addUnsizedArrayERNS_8EvalInfoEPKN5clang4ExprENS3_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(130) %3, ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull %46, i64 %.sroa.0.0.copyload.i26)
@@ -206331,7 +206331,7 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %49, %50
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit:    ; preds = %66, %70, %74
-  %.0.i = phi i32 [ %76, %74 ], [ %73, %70 ], [ %69, %66 ]
+  %.0.i = phi i32 [ %69, %66 ], [ %73, %70 ], [ %76, %74 ]
   %78 = zext i32 %.0.i to i64
   %79 = load i32, ptr %47, align 8, !tbaa !673
   %80 = icmp ult i32 %79, 65
@@ -206484,7 +206484,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19ScopeRAIIILNS_9Scop
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i64, ptr %.1.i.i.i.i, align 8
   %43 = and i64 %.1.val.i.i.i.i, 6
   %.not33.i.i.i.i = icmp eq i64 %43, 0
@@ -206495,7 +206495,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19ScopeRAIIILNS_9Scop
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i64, ptr %.2.i.i.i.i, align 8
   %47 = and i64 %.2.val.i.i.i.i, 6
   %.not34.i.i.i.i = icmp eq i64 %47, 0

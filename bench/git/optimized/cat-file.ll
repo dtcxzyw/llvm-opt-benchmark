@@ -1784,7 +1784,7 @@ thread-pre-split.i:                               ; preds = %671, %667, %600, %5
   br label %cat_one_file.exit
 
 cat_one_file.exit:                                ; preds = %566, %590, %593, %597, %610, %615, %677, %.thread73.i
-  %.035.i = phi i32 [ 0, %677 ], [ 0, %.thread73.i ], [ %614, %610 ], [ %596, %593 ], [ 0, %590 ], [ 0, %566 ], [ -1, %597 ], [ 0, %615 ]
+  %.035.i = phi i32 [ 0, %566 ], [ 0, %.thread73.i ], [ 0, %590 ], [ %596, %593 ], [ %614, %610 ], [ 0, %677 ], [ -1, %597 ], [ 0, %615 ]
   %684 = load ptr, ptr %12, align 8, !tbaa !26
   call void @free(ptr noundef %684) #14
   call void @object_context_release(ptr noundef nonnull %14) #14

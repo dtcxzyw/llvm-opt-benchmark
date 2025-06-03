@@ -621,7 +621,7 @@ common.resume:                                    ; preds = %81, %66
   unreachable
 
 81:                                               ; preds = %16, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %17, %16 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %eh.lpad-body, %.body ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$vfs..file_set..FileSet$GT$17h16599295c397eb20E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2) #23
           to label %common.resume unwind label %79
 }

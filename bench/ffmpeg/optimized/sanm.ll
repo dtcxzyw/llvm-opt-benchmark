@@ -604,8 +604,8 @@ process_ftch.exit:                                ; preds = %215
   br label %235
 
 235:                                              ; preds = %process_ftch.exit.thread, %process_xpal.exit.thread, %228, %process_ftch.exit, %56, %83, %90, %105, %106, %75, %78, %232
-  %.3114 = phi i32 [ %.0111230, %232 ], [ 1, %90 ], [ 1, %105 ], [ 1, %106 ], [ 1, %83 ], [ %.0111230, %78 ], [ %.0111230, %75 ], [ %.0111230, %56 ], [ 1, %process_ftch.exit ], [ 1, %228 ], [ %.0111230, %process_xpal.exit.thread ], [ 1, %process_ftch.exit.thread ]
-  %.2110 = phi i32 [ %.0108231, %232 ], [ 0, %90 ], [ 0, %105 ], [ 0, %106 ], [ 0, %83 ], [ %.0108231, %78 ], [ %.0108231, %75 ], [ 1, %56 ], [ %.0108231, %process_ftch.exit ], [ %.0108231, %228 ], [ %.0108231, %process_xpal.exit.thread ], [ %.0108231, %process_ftch.exit.thread ]
+  %.3114 = phi i32 [ %.0111230, %232 ], [ %.0111230, %78 ], [ %.0111230, %75 ], [ 1, %90 ], [ 1, %105 ], [ 1, %106 ], [ 1, %83 ], [ %.0111230, %56 ], [ 1, %process_ftch.exit ], [ 1, %228 ], [ %.0111230, %process_xpal.exit.thread ], [ 1, %process_ftch.exit.thread ]
+  %.2110 = phi i32 [ %.0108231, %232 ], [ %.0108231, %78 ], [ %.0108231, %75 ], [ 0, %90 ], [ 0, %105 ], [ 0, %106 ], [ 0, %83 ], [ 1, %56 ], [ %.0108231, %process_ftch.exit ], [ %.0108231, %228 ], [ %.0108231, %process_xpal.exit.thread ], [ %.0108231, %process_ftch.exit.thread ]
   %236 = add i32 %48, %52
   %237 = load ptr, ptr %20, align 8, !tbaa !58
   %238 = load ptr, ptr %17, align 8, !tbaa !57

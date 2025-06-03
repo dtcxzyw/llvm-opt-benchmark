@@ -810,7 +810,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN6hermes5regex9constants15messageForErrorENS1_9ErrorTypeE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.bb14.i
-  %retval.0.i = phi ptr [ @.str.27, %sw.bb14.i ], [ @.str.26, %sw.bb13.i ], [ @.str.25, %sw.bb12.i ], [ @.str.24, %sw.bb11.i ], [ @.str.23, %sw.bb10.i ], [ @.str.22, %sw.bb9.i ], [ @.str.21, %sw.bb8.i ], [ @.str.20, %sw.bb7.i ], [ @.str.19, %sw.bb6.i ], [ @.str.18, %sw.bb5.i ], [ @.str.17, %sw.bb4.i ], [ @.str.16, %sw.bb3.i ], [ @.str.15, %sw.bb2.i ], [ @.str.14, %sw.bb1.i ], [ @.str.13, %entry ]
+  %retval.0.i = phi ptr [ @.str.14, %sw.bb1.i ], [ @.str.15, %sw.bb2.i ], [ @.str.16, %sw.bb3.i ], [ @.str.17, %sw.bb4.i ], [ @.str.18, %sw.bb5.i ], [ @.str.19, %sw.bb6.i ], [ @.str.20, %sw.bb7.i ], [ @.str.21, %sw.bb8.i ], [ @.str.22, %sw.bb9.i ], [ @.str.23, %sw.bb10.i ], [ @.str.24, %sw.bb11.i ], [ @.str.25, %sw.bb12.i ], [ @.str.26, %sw.bb13.i ], [ @.str.27, %sw.bb14.i ], [ @.str.13, %entry ]
   %call.i.i12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #20
   %cmp.i.i16 = icmp eq i64 %call.i.i12, 0
   store ptr @.str.1, ptr %ref.tmp, align 8
@@ -4838,7 +4838,7 @@ if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i, %if.end29.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %45 = load ptr, ptr %__first.sroa.0.1.i.i.i.i, align 8
   %cmp.i21.i.i.i.i = icmp eq ptr %45, null
   br i1 %cmp.i21.i.i.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS5_SaIS5_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i, label %if.end36.i.i.i.i
@@ -4848,7 +4848,7 @@ if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i22.i.i.i.i, %if.end36.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i.i, %if.end36.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %46 = load ptr, ptr %__first.sroa.0.2.i.i.i.i, align 8
   %cmp.i23.i.i.i.i = icmp eq ptr %46, null
   %spec.select.i.i.i.i = select i1 %cmp.i23.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %.pre202
@@ -5375,7 +5375,7 @@ if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb21.i.i.i.i
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %8 = load i32, ptr %__first.addr.1.i.i.i.i, align 4
   %cmp.i3 = icmp ult i32 %8, 128
   br i1 %cmp.i3, label %if.end24.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
@@ -5385,7 +5385,7 @@ if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
   br label %sw.bb26.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %9 = load i32, ptr %__first.addr.2.i.i.i.i, align 4
   %cmp.i2 = icmp ult i32 %9, 128
   br i1 %cmp.i2, label %sw.default.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
@@ -5526,7 +5526,7 @@ if.end19.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
   br label %sw.bb21.i.i.i.i.i
 
 sw.bb21.i.i.i.i.i:                                ; preds = %if.end19.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ]
+  %__first.addr.1.i.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %9 = load i32, ptr %__first.addr.1.i.i.i.i.i, align 4
   %cmp.i55 = icmp ult i32 %9, 128
   br i1 %cmp.i55, label %if.end24.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
@@ -5536,7 +5536,7 @@ if.end24.i.i.i.i.i:                               ; preds = %sw.bb21.i.i.i.i.i
   br label %sw.bb26.i.i.i.i.i
 
 sw.bb26.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.2.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ]
+  %__first.addr.2.i.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %10 = load i32, ptr %__first.addr.2.i.i.i.i.i, align 4
   %cmp.i54 = icmp ult i32 %10, 128
   br i1 %cmp.i54, label %sw.default.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
@@ -5627,7 +5627,7 @@ if.end19.i.i.i.i.i27:                             ; preds = %sw.bb.i.i.i.i.i26
   br label %sw.bb21.i.i.i.i.i21
 
 sw.bb21.i.i.i.i.i21:                              ; preds = %if.end19.i.i.i.i.i27, %for.end.i.i.i.i.i8
-  %__first.addr.1.i.i.i.i.i22 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ], [ %incdec.ptr20.i.i.i.i.i28, %if.end19.i.i.i.i.i27 ]
+  %__first.addr.1.i.i.i.i.i22 = phi ptr [ %incdec.ptr20.i.i.i.i.i28, %if.end19.i.i.i.i.i27 ], [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ]
   %17 = load i32, ptr %__first.addr.1.i.i.i.i.i22, align 4
   %cmp.i62 = icmp ult i32 %17, 128
   br i1 %cmp.i62, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %if.end24.i.i.i.i.i24
@@ -5637,7 +5637,7 @@ if.end24.i.i.i.i.i24:                             ; preds = %sw.bb21.i.i.i.i.i21
   br label %sw.bb26.i.i.i.i.i11
 
 sw.bb26.i.i.i.i.i11:                              ; preds = %if.end24.i.i.i.i.i24, %for.end.i.i.i.i.i8
-  %__first.addr.2.i.i.i.i.i12 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ], [ %incdec.ptr25.i.i.i.i.i25, %if.end24.i.i.i.i.i24 ]
+  %__first.addr.2.i.i.i.i.i12 = phi ptr [ %incdec.ptr25.i.i.i.i.i25, %if.end24.i.i.i.i.i24 ], [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ]
   %18 = load i32, ptr %__first.addr.2.i.i.i.i.i12, align 4
   %cmp.i61 = icmp ult i32 %18, 128
   br i1 %cmp.i61, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %sw.default.i.i.i.i.i13

@@ -443,7 +443,7 @@ lor.rhs:                                          ; preds = %sw.bb21
   br label %return
 
 return:                                           ; preds = %for.body, %for.body9, %for.cond.preheader, %for.cond7.preheader, %entry, %sw.bb21, %lor.rhs, %sw.bb18, %sw.bb3
-  %retval.0 = phi i1 [ %tobool20, %sw.bb18 ], [ true, %sw.bb3 ], [ true, %sw.bb21 ], [ %cmp25, %lor.rhs ], [ false, %entry ], [ false, %for.cond7.preheader ], [ true, %for.cond.preheader ], [ %tobool12, %for.body9 ], [ %tobool, %for.body ]
+  %retval.0 = phi i1 [ true, %sw.bb3 ], [ %tobool20, %sw.bb18 ], [ true, %sw.bb21 ], [ %cmp25, %lor.rhs ], [ false, %entry ], [ false, %for.cond7.preheader ], [ true, %for.cond.preheader ], [ %tobool12, %for.body9 ], [ %tobool, %for.body ]
   ret i1 %retval.0
 }
 

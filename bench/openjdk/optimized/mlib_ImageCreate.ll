@@ -81,8 +81,8 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly captures(address_
   br label %42
 
 42:                                               ; preds = %23, %39, %35, %31, %27
-  %.072 = phi i32 [ %41, %39 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ], [ %24, %23 ]
-  %.0 = phi i32 [ 0, %39 ], [ 1, %35 ], [ 3, %31 ], [ 7, %27 ], [ 0, %23 ]
+  %.072 = phi i32 [ %28, %27 ], [ %32, %31 ], [ %36, %35 ], [ %41, %39 ], [ %24, %23 ]
+  %.0 = phi i32 [ 7, %27 ], [ 3, %31 ], [ 1, %35 ], [ 0, %39 ], [ 0, %23 ]
   %43 = and i32 %.0, %5
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %44, label %66
@@ -215,7 +215,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %31
 
 31:                                               ; preds = %16, %20, %24, %28, %12
-  %.077 = phi i32 [ %30, %28 ], [ %13, %12 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ]
+  %.077 = phi i32 [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %13, %12 ], [ %30, %28 ]
   %32 = udiv i32 2147483647, %.077
   %33 = icmp samesign ugt i32 %32, %3
   br i1 %33, label %34, label %66
@@ -438,8 +438,8 @@ define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly captures(addres
   br label %66
 
 66:                                               ; preds = %57, %53, %48, %43, %38
-  %.072 = phi i32 [ %65, %57 ], [ 0, %53 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ]
-  %.0 = phi ptr [ %64, %57 ], [ %56, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ]
+  %.072 = phi i32 [ 0, %38 ], [ 0, %43 ], [ 0, %48 ], [ 0, %53 ], [ %65, %57 ]
+  %.0 = phi ptr [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %56, %53 ], [ %64, %57 ]
   %67 = icmp slt i32 %18, 1
   br i1 %67, label %j2d_mlib_ImageCreateStruct.exit.thread, label %68
 
@@ -537,8 +537,8 @@ define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef captures(address, r
   br label %48
 
 48:                                               ; preds = %36, %32, %27, %22, %17
-  %.052 = phi ptr [ %46, %36 ], [ %35, %32 ], [ %31, %27 ], [ %26, %22 ], [ %21, %17 ]
-  %.0 = phi i32 [ %47, %36 ], [ 0, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ]
+  %.052 = phi ptr [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %35, %32 ], [ %46, %36 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ %47, %36 ]
   %49 = icmp sgt i32 %5, 0
   br i1 %49, label %50, label %52
 

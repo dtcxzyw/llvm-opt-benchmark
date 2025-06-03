@@ -1179,21 +1179,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0261583866aab3dcE
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !193
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !196, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !196, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !196
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !196
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !196, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !196
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !193, !noalias !199
+  store i32 %9, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !193, !noalias !199
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !193, !noalias !199
+  store ptr %11, ptr %14, align 8, !alias.scope !193, !noalias !199
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9eda4f2da3bea298E.exit": ; preds = %12, %13
@@ -1210,19 +1210,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h073310c93c888d1dE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !200
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !203, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !203, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !203
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !203
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !203, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !203
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !200, !noalias !205
+  store i8 %9, ptr %0, align 8, !alias.scope !200, !noalias !205
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !200, !noalias !205
+  store ptr %11, ptr %0, align 8, !alias.scope !200, !noalias !205
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h89303023717501a3E.exit": ; preds = %12, %13
@@ -1240,20 +1240,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h074808254654c42cE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !206
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !209, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !209, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !209
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !209
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !209, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !209
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !206, !noalias !211
+  store i8 %9, ptr %12, align 8, !alias.scope !206, !noalias !211
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !206, !noalias !211
+  store ptr %11, ptr %12, align 8, !alias.scope !206, !noalias !211
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8012b8c9203cfcc1E.exit": ; preds = %13, %14
@@ -1270,19 +1270,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0757f4c4cd41259cE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !212
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !215, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !215, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !215
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !215
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !215, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !215
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !212, !noalias !217
+  store i8 %9, ptr %0, align 8, !alias.scope !212, !noalias !217
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !212, !noalias !217
+  store ptr %11, ptr %0, align 8, !alias.scope !212, !noalias !217
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5b94b475c747708dE.exit": ; preds = %12, %13
@@ -1300,20 +1300,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h150f5f6cb77d3653E
   call void @"_ZN91_$LT$wasmtime..config..Strategy$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h5a25201e1b8a4fe2E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !218
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !221, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !221, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !223, !noalias !221
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !223, !noalias !221
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !221, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !221
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !218, !noalias !224
+  store i8 %9, ptr %12, align 8, !alias.scope !218, !noalias !224
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !218, !noalias !224
+  store ptr %11, ptr %12, align 8, !alias.scope !218, !noalias !224
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit"
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h51a17de285dece19E.exit": ; preds = %13, %14
@@ -1330,19 +1330,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1589c9e28b360a84E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !225
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !228, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !228, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !228
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !228
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !228, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !228
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !225, !noalias !230
+  store i8 %9, ptr %0, align 8, !alias.scope !225, !noalias !230
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !225, !noalias !230
+  store ptr %11, ptr %0, align 8, !alias.scope !225, !noalias !230
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1ac67cc2c028ae4aE.exit": ; preds = %12, %13
@@ -1444,21 +1444,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1d4f423f9ae6c470E
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !247
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !250, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !250, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !250
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !250
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !250, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !250
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !247, !noalias !252
+  store i32 %9, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !247, !noalias !252
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !247, !noalias !252
+  store ptr %11, ptr %14, align 8, !alias.scope !247, !noalias !252
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfa787fe1b56a1eebE.exit": ; preds = %12, %13
@@ -1475,19 +1475,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1df5131b7b2e93e7E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !253
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !256, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !256, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !256
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !256
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !256, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !256
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !253, !noalias !258
+  store i8 %9, ptr %0, align 8, !alias.scope !253, !noalias !258
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !253, !noalias !258
+  store ptr %11, ptr %0, align 8, !alias.scope !253, !noalias !258
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h93c5022d97019211E.exit": ; preds = %12, %13
@@ -1540,20 +1540,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h23979fe3670201d4E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !266
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !269, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !269, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !269
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !269
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !269, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !269
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !266, !noalias !271
+  store i8 %9, ptr %12, align 8, !alias.scope !266, !noalias !271
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !266, !noalias !271
+  store ptr %11, ptr %12, align 8, !alias.scope !266, !noalias !271
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h4d0f78c39fea543cE.exit": ; preds = %13, %14
@@ -1570,20 +1570,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h243b7953a27e11bdE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !272
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !275, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !275, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !275
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !275
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !275, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !275
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !272, !noalias !277
+  store i8 %9, ptr %12, align 8, !alias.scope !272, !noalias !277
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !272, !noalias !277
+  store ptr %11, ptr %12, align 8, !alias.scope !272, !noalias !277
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6bae588760d7d86E.exit": ; preds = %13, %14
@@ -1600,20 +1600,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2a0b4a3bea90c7fdE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !278
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !281, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !281, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !281
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !281
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !281, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !281
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !278, !noalias !283
+  store i8 %9, ptr %12, align 8, !alias.scope !278, !noalias !283
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !278, !noalias !283
+  store ptr %11, ptr %12, align 8, !alias.scope !278, !noalias !283
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit"
 
 "_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2bd5a44f8ee615ecE.exit": ; preds = %13, %14
@@ -1630,20 +1630,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2d89900465370434E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !284
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !287, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !287, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !287
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !287
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !287, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !287
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !284, !noalias !289
+  store i8 %9, ptr %12, align 8, !alias.scope !284, !noalias !289
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !284, !noalias !289
+  store ptr %11, ptr %12, align 8, !alias.scope !284, !noalias !289
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb001baae52028010E.exit": ; preds = %13, %14
@@ -1660,20 +1660,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3106ca1278d41693E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !290
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !293, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !293, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !293
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !293
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !293, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !293
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !290, !noalias !295
+  store i8 %9, ptr %12, align 8, !alias.scope !290, !noalias !295
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !290, !noalias !295
+  store ptr %11, ptr %12, align 8, !alias.scope !290, !noalias !295
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb94b648545237c1fE.exit": ; preds = %13, %14
@@ -1690,20 +1690,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3275a68ed9abb7caE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !296
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !299, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !299, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !299
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !299
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !299, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !299
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !296, !noalias !301
+  store i8 %9, ptr %12, align 8, !alias.scope !296, !noalias !301
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !296, !noalias !301
+  store ptr %11, ptr %12, align 8, !alias.scope !296, !noalias !301
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hfb25a92a1accc348E.exit": ; preds = %13, %14
@@ -1721,11 +1721,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h35a0a336f2e8fdaeE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !305, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !305
+  %9 = load i64, ptr %8, align 8, !noalias !305
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !305
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000012
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !302, !noalias !307
+  store i64 %9, ptr %0, align 8, !alias.scope !302, !noalias !307
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !302, !noalias !307
   ret void
@@ -1740,11 +1739,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3a03677325c465a1E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !311, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !311
+  %9 = load i64, ptr %8, align 8, !noalias !311
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !311
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000008
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !308, !noalias !313
+  store i64 %9, ptr %0, align 8, !alias.scope !308, !noalias !313
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !308, !noalias !313
   ret void
@@ -1758,20 +1756,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3c3262137ad5ae65E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !314
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !317, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !317, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !317
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !317
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !317, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !317
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !314, !noalias !319
+  store i8 %9, ptr %12, align 8, !alias.scope !314, !noalias !319
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !314, !noalias !319
+  store ptr %11, ptr %12, align 8, !alias.scope !314, !noalias !319
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit"
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h6fb91d94efe63b3cE.exit": ; preds = %13, %14
@@ -1788,19 +1786,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h41e9d9737a73de00E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !320
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !323, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !323, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !323
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !323
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !323, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !323
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !320, !noalias !325
+  store i8 %9, ptr %0, align 8, !alias.scope !320, !noalias !325
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !320, !noalias !325
+  store ptr %11, ptr %0, align 8, !alias.scope !320, !noalias !325
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he0c29ed832e27d91E.exit": ; preds = %12, %13
@@ -1818,21 +1816,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h445a3e643a4781b9E
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !326
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !329, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !329, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !329
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !329
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !329, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !329
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !326, !noalias !331
+  store i32 %9, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !326, !noalias !331
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !326, !noalias !331
+  store ptr %11, ptr %14, align 8, !alias.scope !326, !noalias !331
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hdc9953b1be4aa236E.exit": ; preds = %12, %13
@@ -1850,12 +1848,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5101a17d3f695410E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !335, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !335
+  %9 = load i64, ptr %8, align 8, !noalias !335
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !335
   %spec.select.i = select i1 %trunc.i, i8 17, i8 4
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !332, !noalias !337
+  store i64 %9, ptr %10, align 8, !alias.scope !332, !noalias !337
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !332, !noalias !337
   ret void
 }
@@ -1869,12 +1866,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h52fe2ef74f885de8E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !341, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !341
+  %9 = load i64, ptr %8, align 8, !noalias !341
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !341
   %spec.select.i = select i1 %trunc.i, i8 17, i8 3
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !338, !noalias !343
+  store i64 %9, ptr %10, align 8, !alias.scope !338, !noalias !343
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !338, !noalias !343
   ret void
 }
@@ -1887,20 +1883,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5447c45a070540c8E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !344
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !347, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !347, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !347
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !347
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !347, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !347
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !344, !noalias !349
+  store i8 %9, ptr %12, align 8, !alias.scope !344, !noalias !349
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !344, !noalias !349
+  store ptr %11, ptr %12, align 8, !alias.scope !344, !noalias !349
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcce056ecf770ef6eE.exit": ; preds = %13, %14
@@ -1917,21 +1913,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5603f058fd93fdb4E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !350
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !353, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !353, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !353
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !353
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !353, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !353
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !350, !noalias !355
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !350, !noalias !355
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !350, !noalias !355
+  store ptr %11, ptr %14, align 8, !alias.scope !350, !noalias !355
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcf01a2bf76ab4c0cE.exit": ; preds = %12, %13
@@ -1948,19 +1944,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h56ad2b6e36c1a460E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !356
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !359, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !359, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !359
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !359
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !359, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !359
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !356, !noalias !361
+  store i8 %9, ptr %0, align 8, !alias.scope !356, !noalias !361
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !356, !noalias !361
+  store ptr %11, ptr %0, align 8, !alias.scope !356, !noalias !361
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h940e6c472fd64247E.exit": ; preds = %12, %13
@@ -1978,19 +1974,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5b0283c5faee2577E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !362
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !365, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !365, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !365
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !365
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !365, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !365
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !362, !noalias !367
+  store i8 %9, ptr %0, align 8, !alias.scope !362, !noalias !367
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !362, !noalias !367
+  store ptr %11, ptr %0, align 8, !alias.scope !362, !noalias !367
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9ff4a991fd4d7ee8E.exit": ; preds = %12, %13
@@ -2008,19 +2004,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5f31e32e66db8d9dE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !368
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !371, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !371, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !371
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !371
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !371, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !371
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !368, !noalias !373
+  store i8 %9, ptr %0, align 8, !alias.scope !368, !noalias !373
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !368, !noalias !373
+  store ptr %11, ptr %0, align 8, !alias.scope !368, !noalias !373
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17he7b8e25d0669c351E.exit": ; preds = %12, %13
@@ -2038,20 +2034,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h6c151b950ceb1cbaE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !374
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !377, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !377, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !377
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !377
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !377, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !377
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !374, !noalias !379
+  store i8 %9, ptr %12, align 8, !alias.scope !374, !noalias !379
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !374, !noalias !379
+  store ptr %11, ptr %12, align 8, !alias.scope !374, !noalias !379
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h864e545fb1c95a5bE.exit": ; preds = %13, %14
@@ -2069,12 +2065,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h6eac664c3973478eE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !383, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !383
+  %9 = load i64, ptr %8, align 8, !noalias !383
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !383
   %spec.select.i = select i1 %trunc.i, i8 17, i8 1
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !380, !noalias !385
+  store i64 %9, ptr %10, align 8, !alias.scope !380, !noalias !385
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !380, !noalias !385
   ret void
 }
@@ -2087,19 +2082,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h762a2ca00a3978ffE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !386
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !389, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !389, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !389
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !389
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !389, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !389
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !386, !noalias !391
+  store i8 %9, ptr %0, align 8, !alias.scope !386, !noalias !391
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !386, !noalias !391
+  store ptr %11, ptr %0, align 8, !alias.scope !386, !noalias !391
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h31c2108547f6c050E.exit": ; preds = %12, %13
@@ -2118,12 +2113,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7c3f8c0d54b6bbc2E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !395, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !395
+  %9 = load i64, ptr %8, align 8, !noalias !395
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !395
   %spec.select.i = select i1 %trunc.i, i8 17, i8 9
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !392, !noalias !397
+  store i64 %9, ptr %10, align 8, !alias.scope !392, !noalias !397
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !392, !noalias !397
   ret void
 }
@@ -2136,20 +2130,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cfe6cee99994efaE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !398
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !401, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !401, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !401
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !401
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !401, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !401
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !398, !noalias !403
+  store i8 %9, ptr %12, align 8, !alias.scope !398, !noalias !403
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !398, !noalias !403
+  store ptr %11, ptr %12, align 8, !alias.scope !398, !noalias !403
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit"
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc7f00bfeafe70e3E.exit": ; preds = %13, %14
@@ -2166,19 +2160,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d92de620121816bE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !404
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !407, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !407, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !407
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !407
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !407, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !407
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !404, !noalias !409
+  store i8 %9, ptr %0, align 8, !alias.scope !404, !noalias !409
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !404, !noalias !409
+  store ptr %11, ptr %0, align 8, !alias.scope !404, !noalias !409
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h7a8a873544f594eaE.exit": ; preds = %12, %13
@@ -2196,19 +2190,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h826c3c0a516aaa20E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !410
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !413, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !413, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !413
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !413
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !413, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !413
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !410, !noalias !415
+  store i8 %9, ptr %0, align 8, !alias.scope !410, !noalias !415
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !410, !noalias !415
+  store ptr %11, ptr %0, align 8, !alias.scope !410, !noalias !415
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hbc47bd35733ef619E.exit": ; preds = %12, %13
@@ -2227,11 +2221,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8559ad6ace6a4fedE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !419, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !419
+  %9 = load i64, ptr %8, align 8, !noalias !419
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !419
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000010
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !416, !noalias !421
+  store i64 %9, ptr %0, align 8, !alias.scope !416, !noalias !421
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !416, !noalias !421
   ret void
@@ -2246,12 +2239,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h872124ba00bd80eaE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !425, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !425
+  %9 = load i64, ptr %8, align 8, !noalias !425
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !425
   %spec.select.i = select i1 %trunc.i, i8 17, i8 5
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !422, !noalias !427
+  store i64 %9, ptr %10, align 8, !alias.scope !422, !noalias !427
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !422, !noalias !427
   ret void
 }
@@ -2264,21 +2256,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8a10c2297fc410a5E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !428
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !431, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !431, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !431
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !431
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !431, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !431
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !428, !noalias !433
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !428, !noalias !433
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !428, !noalias !433
+  store ptr %11, ptr %14, align 8, !alias.scope !428, !noalias !433
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h36b126069b0fa3e7E.exit": ; preds = %12, %13
@@ -2295,19 +2287,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8b34d9ebeb35f383E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !434
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !437, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !437, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !437
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !437
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !437, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !437
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !434, !noalias !439
+  store i8 %9, ptr %0, align 8, !alias.scope !434, !noalias !439
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !434, !noalias !439
+  store ptr %11, ptr %0, align 8, !alias.scope !434, !noalias !439
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haae03ba353ec1366E.exit": ; preds = %12, %13
@@ -2326,11 +2318,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9095ca3b1cfd3484E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !443, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !443
+  %9 = load i64, ptr %8, align 8, !noalias !443
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !443
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000003
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !440, !noalias !445
+  store i64 %9, ptr %0, align 8, !alias.scope !440, !noalias !445
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !440, !noalias !445
   ret void
@@ -2344,20 +2335,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h926e44aab4a70909E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !446
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !449, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !449, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !449
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !449
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !449, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !449
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !446, !noalias !451
+  store i8 %9, ptr %12, align 8, !alias.scope !446, !noalias !451
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !446, !noalias !451
+  store ptr %11, ptr %12, align 8, !alias.scope !446, !noalias !451
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb6fc96ffdd0a142eE.exit": ; preds = %13, %14
@@ -2374,21 +2365,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9df243574913e177E
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !452
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !455, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !455, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !455
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !455
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !455, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !455
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !452, !noalias !457
+  store i32 %9, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !452, !noalias !457
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !452, !noalias !457
+  store ptr %11, ptr %14, align 8, !alias.scope !452, !noalias !457
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hcde833289de261e6E.exit": ; preds = %12, %13
@@ -2405,19 +2396,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha3574688d3eabf97E
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !458
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !461, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !461, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !461
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !461
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !461, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !461
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i32 %11, ptr %0, align 8, !alias.scope !458, !noalias !463
+  store i32 %9, ptr %0, align 8, !alias.scope !458, !noalias !463
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !458, !noalias !463
+  store ptr %11, ptr %0, align 8, !alias.scope !458, !noalias !463
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hb0b143fcbfb88fa3E.exit": ; preds = %12, %13
@@ -2435,19 +2426,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha4bf2d150b0ab8fbE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !464
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !467, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !467, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !467
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !467
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !467, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !467
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !464, !noalias !469
+  store i8 %9, ptr %0, align 8, !alias.scope !464, !noalias !469
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !464, !noalias !469
+  store ptr %11, ptr %0, align 8, !alias.scope !464, !noalias !469
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8e49e5ab3d60f6c1E.exit": ; preds = %12, %13
@@ -2465,19 +2456,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha5643491f2e9b9e5E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !470
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !473, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !473, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !473
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !473
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !473, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !473
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !470, !noalias !475
+  store i8 %9, ptr %0, align 8, !alias.scope !470, !noalias !475
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !470, !noalias !475
+  store ptr %11, ptr %0, align 8, !alias.scope !470, !noalias !475
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h99efcb55ff6b277fE.exit": ; preds = %12, %13
@@ -2495,19 +2486,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha6ffae17db5c6695E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !476
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !479, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !479, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !479
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !479
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !479, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !479
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !476, !noalias !481
+  store i8 %9, ptr %0, align 8, !alias.scope !476, !noalias !481
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !476, !noalias !481
+  store ptr %11, ptr %0, align 8, !alias.scope !476, !noalias !481
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hc02a7680f9120964E.exit": ; preds = %12, %13
@@ -2525,20 +2516,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha9dbe6621eb2578cE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !482
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !485, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !485, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !485
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !485
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !485, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !485
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !482, !noalias !487
+  store i8 %9, ptr %12, align 8, !alias.scope !482, !noalias !487
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !482, !noalias !487
+  store ptr %11, ptr %12, align 8, !alias.scope !482, !noalias !487
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit"
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h06ea06f4ad075a94E.exit": ; preds = %13, %14
@@ -2555,19 +2546,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hacf21f55a89a892dE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !488
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !491, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !491, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !491
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !491
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !491, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !491
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !488, !noalias !493
+  store i8 %9, ptr %0, align 8, !alias.scope !488, !noalias !493
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !488, !noalias !493
+  store ptr %11, ptr %0, align 8, !alias.scope !488, !noalias !493
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8657f93986cc21d2E.exit": ; preds = %12, %13
@@ -2638,19 +2629,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb2edfc49d3e84c69E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !504
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !507, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !507, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !507
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !507
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !507, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !507
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !504, !noalias !509
+  store i8 %9, ptr %0, align 8, !alias.scope !504, !noalias !509
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !504, !noalias !509
+  store ptr %11, ptr %0, align 8, !alias.scope !504, !noalias !509
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5a1444ab6de9e79aE.exit": ; preds = %12, %13
@@ -2721,20 +2712,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc70cdddbaf51d82dE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !520
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !523, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !523, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !523
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !523
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !523, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !523
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !520, !noalias !525
+  store i8 %9, ptr %12, align 8, !alias.scope !520, !noalias !525
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !520, !noalias !525
+  store ptr %11, ptr %12, align 8, !alias.scope !520, !noalias !525
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit"
 
 "_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17haf4d550f78d1780aE.exit": ; preds = %13, %14
@@ -2751,21 +2742,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc7378710a84552c2E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !526
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !529, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !529, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !529
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !529
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !529, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !529
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !526, !noalias !531
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !526, !noalias !531
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !526, !noalias !531
+  store ptr %11, ptr %14, align 8, !alias.scope !526, !noalias !531
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hac63b630e20bf23dE.exit": ; preds = %12, %13
@@ -2783,12 +2774,11 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hca5852d43ba4e115E
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !535, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !535
+  %9 = load i64, ptr %8, align 8, !noalias !535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !535
   %spec.select.i = select i1 %trunc.i, i8 17, i8 8
-  %.cast.sink.i = ptrtoint ptr %9 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.sink.i, ptr %10, align 8, !alias.scope !532, !noalias !537
+  store i64 %9, ptr %10, align 8, !alias.scope !532, !noalias !537
   store i8 %spec.select.i, ptr %0, align 8, !alias.scope !532, !noalias !537
   ret void
 }
@@ -2801,20 +2791,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hca70e8b3b273f1f2E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !538
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !541, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !541, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !541
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !541
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !541, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !541
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !538, !noalias !543
+  store i8 %9, ptr %12, align 8, !alias.scope !538, !noalias !543
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !538, !noalias !543
+  store ptr %11, ptr %12, align 8, !alias.scope !538, !noalias !543
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h76e41386552ce89bE.exit": ; preds = %13, %14
@@ -2831,20 +2821,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcaba6bb256108afeE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !544
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !547, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !547, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !547
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !547
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !547, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !547
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !544, !noalias !549
+  store i8 %9, ptr %12, align 8, !alias.scope !544, !noalias !549
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !544, !noalias !549
+  store ptr %11, ptr %12, align 8, !alias.scope !544, !noalias !549
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit"
 
 "_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8f066adb1493d0eeE.exit": ; preds = %13, %14
@@ -2861,19 +2851,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcafe6604a53c8451E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !550
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !553, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !553, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !553
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !553
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !553, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !553
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !550, !noalias !555
+  store i8 %9, ptr %0, align 8, !alias.scope !550, !noalias !555
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !550, !noalias !555
+  store ptr %11, ptr %0, align 8, !alias.scope !550, !noalias !555
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5ffb258149a26452E.exit": ; preds = %12, %13
@@ -2891,21 +2881,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hce7f59fa32207d91E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !556
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !559, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !559, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !559
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !559
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !559, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !559
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !556, !noalias !561
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !556, !noalias !561
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !556, !noalias !561
+  store ptr %11, ptr %14, align 8, !alias.scope !556, !noalias !561
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h705cabad2b50fc4aE.exit": ; preds = %12, %13
@@ -2922,21 +2912,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcebd93b9d0f415f8E
   call void @"_ZN91_$LT$wasmtime..config..OptLevel$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17he0486f5bbe0f868dE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !562
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !565, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !565, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !223, !noalias !565
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !223, !noalias !565
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !565, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !565
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !562, !noalias !567
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !562, !noalias !567
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !562, !noalias !567
+  store ptr %11, ptr %14, align 8, !alias.scope !562, !noalias !567
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h415fb000b83dd03dE.exit": ; preds = %12, %13
@@ -2954,11 +2944,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd7879e5d309bd19aE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !571, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !571
+  %9 = load i64, ptr %8, align 8, !noalias !571
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !571
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000011
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !568, !noalias !573
+  store i64 %9, ptr %0, align 8, !alias.scope !568, !noalias !573
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !568, !noalias !573
   ret void
@@ -2972,21 +2961,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd83434472c1b26f4E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !574
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !577, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !577, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !577
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !577
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !577, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !577
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !574, !noalias !579
+  store i8 %9, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !574, !noalias !579
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !574, !noalias !579
+  store ptr %11, ptr %14, align 8, !alias.scope !574, !noalias !579
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h2b8b536db5d8302aE.exit": ; preds = %12, %13
@@ -3003,21 +2992,21 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd920440db2bd36a7E
   call void @"_ZN68_$LT$u32$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17hb4c36e06be9f1c4eE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !580
   %7 = load i32, ptr %6, align 8, !range !198, !noalias !583, !noundef !18
   %trunc.i = trunc nuw i32 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !583, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %11 = load i32, ptr %10, align 4, !noalias !583
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !noalias !583
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !583, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !583
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %11, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !580, !noalias !585
+  store i32 %9, ptr %.sroa.51.0..sroa_idx.i, align 4, !alias.scope !580, !noalias !585
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit"
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %14, align 8, !alias.scope !580, !noalias !585
+  store ptr %11, ptr %14, align 8, !alias.scope !580, !noalias !585
   br label %"_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit"
 
 "_ZN88_$LT$wasmtime_cli_flags..Optimize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9336374a1d0e361cE.exit": ; preds = %12, %13
@@ -3034,19 +3023,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdd5a90aa69ff6b3cE
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !586
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !589, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !589, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !589
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !589
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !589, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !589
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !586, !noalias !591
+  store i8 %9, ptr %0, align 8, !alias.scope !586, !noalias !591
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !586, !noalias !591
+  store ptr %11, ptr %0, align 8, !alias.scope !586, !noalias !591
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h8dc84b1f989a0a23E.exit": ; preds = %12, %13
@@ -3064,20 +3053,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he12ae8b05a4cf3b4E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !592
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !595, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !595, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !595
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !595
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !595, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !595
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !592, !noalias !597
+  store i8 %9, ptr %12, align 8, !alias.scope !592, !noalias !597
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !592, !noalias !597
+  store ptr %11, ptr %12, align 8, !alias.scope !592, !noalias !597
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h1c2a030b2fb3e75eE.exit": ; preds = %13, %14
@@ -3094,20 +3083,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1e32ee9f3650b04E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !598
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !601, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !601, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !601
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !601
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !601, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !601
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !598, !noalias !603
+  store i8 %9, ptr %12, align 8, !alias.scope !598, !noalias !603
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !598, !noalias !603
+  store ptr %11, ptr %12, align 8, !alias.scope !598, !noalias !603
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit"
 
 "_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17heb2a67670a9c8633E.exit": ; preds = %13, %14
@@ -3124,19 +3113,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1eef58da6f23452E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !604
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !607, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !607, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !607
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !607
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !607, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !607
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !604, !noalias !609
+  store i8 %9, ptr %0, align 8, !alias.scope !604, !noalias !609
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !604, !noalias !609
+  store ptr %11, ptr %0, align 8, !alias.scope !604, !noalias !609
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h97ee60e20368a6edE.exit": ; preds = %12, %13
@@ -3154,19 +3143,19 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he5a21434708e05d5E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !610
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !613, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !613, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !613
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !613
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !613, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !613
   br i1 %trunc.i, label %13, label %12
 
 12:                                               ; preds = %5
-  store i8 %11, ptr %0, align 8, !alias.scope !610, !noalias !615
+  store i8 %9, ptr %0, align 8, !alias.scope !610, !noalias !615
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit"
 
 13:                                               ; preds = %5
-  store ptr %9, ptr %0, align 8, !alias.scope !610, !noalias !615
+  store ptr %11, ptr %0, align 8, !alias.scope !610, !noalias !615
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasm$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h050c2fc19b7a7e72E.exit": ; preds = %12, %13
@@ -3236,11 +3225,10 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf0fc06429f8f347dE
   %7 = load i64, ptr %6, align 8, !range !20, !noalias !629, !noundef !18
   %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !629
+  %9 = load i64, ptr %8, align 8, !noalias !629
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !629
   %spec.select.i = select i1 %trunc.i, i32 1000000029, i32 1000000001
-  %.cast.sink.i = ptrtoint ptr %9 to i64
-  store i64 %.cast.sink.i, ptr %0, align 8, !alias.scope !626, !noalias !631
+  store i64 %9, ptr %0, align 8, !alias.scope !626, !noalias !631
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select.i, ptr %10, align 8, !alias.scope !626, !noalias !631
   ret void
@@ -3254,20 +3242,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf1d5b1c48e886d01E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !632
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !635, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !635, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !635
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !635
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !635, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !635
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !632, !noalias !637
+  store i8 %9, ptr %12, align 8, !alias.scope !632, !noalias !637
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !632, !noalias !637
+  store ptr %11, ptr %12, align 8, !alias.scope !632, !noalias !637
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h33c887fb1dbd413fE.exit": ; preds = %13, %14
@@ -3284,20 +3272,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf5654558e4b370b8E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !638
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !641, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !641, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !641
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !641
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !641, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !641
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !638, !noalias !643
+  store i8 %9, ptr %12, align 8, !alias.scope !638, !noalias !643
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !638, !noalias !643
+  store ptr %11, ptr %12, align 8, !alias.scope !638, !noalias !643
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit"
 
 "_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h3fa8d7091a9dd527E.exit": ; preds = %13, %14
@@ -3314,20 +3302,20 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hfaa217a442285979E
   call void @"_ZN69_$LT$bool$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h16418b5d524b201eE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 1 %3, i64 %4), !noalias !644
   %7 = load i8, ptr %6, align 8, !range !16, !noalias !647, !noundef !18
   %trunc.i = trunc nuw i8 %7 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !647, !nonnull !18
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %11 = load i8, ptr %10, align 1, !range !16, !noalias !647
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %9 = load i8, ptr %8, align 1, !range !16, !noalias !647
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !647, !nonnull !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !647
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %trunc.i, label %14, label %13
 
 13:                                               ; preds = %5
-  store i8 %11, ptr %12, align 8, !alias.scope !644, !noalias !649
+  store i8 %9, ptr %12, align 8, !alias.scope !644, !noalias !649
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit"
 
 14:                                               ; preds = %5
-  store ptr %9, ptr %12, align 8, !alias.scope !644, !noalias !649
+  store ptr %11, ptr %12, align 8, !alias.scope !644, !noalias !649
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit"
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h074ffd59fee04595E.exit": ; preds = %13, %14

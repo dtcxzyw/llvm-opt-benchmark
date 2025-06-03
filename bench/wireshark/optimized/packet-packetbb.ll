@@ -472,7 +472,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br label %72
 
 72:                                               ; preds = %71, %70, %69, %59
-  %.0.i35 = phi i8 [ 3, %71 ], [ 2, %70 ], [ 1, %69 ], [ 0, %59 ]
+  %.0.i35 = phi i8 [ 3, %71 ], [ 1, %69 ], [ 2, %70 ], [ 0, %59 ]
   %73 = zext i16 %64 to i32
   %74 = trunc i32 %.03338 to i16
   %75 = add i16 %64, %74
@@ -904,7 +904,7 @@ default.unreachable:                              ; preds = %303
   unreachable
 
 322:                                              ; preds = %317, %314, %311, %307
-  %.1.i.i = phi ptr [ %321, %317 ], [ %316, %314 ], [ %313, %311 ], [ %310, %307 ]
+  %.1.i.i = phi ptr [ %310, %307 ], [ %313, %311 ], [ %316, %314 ], [ %321, %317 ]
   %323 = load i32, ptr @ett_packetbb_addr_value, align 4
   %324 = call ptr @proto_item_add_subtree(ptr noundef %.1.i.i, i32 noundef %323)
   %325 = load i32, ptr @hf_packetbb_addr_value_mid, align 4

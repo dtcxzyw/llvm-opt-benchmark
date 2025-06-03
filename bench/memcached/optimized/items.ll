@@ -451,7 +451,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   br label %111
 
 111:                                              ; preds = %106, %105
-  %.4 = phi i64 [ %.0112292, %105 ], [ %110, %106 ]
+  %.4 = phi i64 [ %110, %106 ], [ %.0112292, %105 ]
   %112 = icmp eq i64 %.4, 0
   br i1 %112, label %113, label %118
 
@@ -1085,9 +1085,9 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   %478 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   br label %497
 
-479:                                              ; preds = %do_item_unlink_q.exit182, %do_item_unlink_q.exit173, %263, %274
-  %.4135.ph = phi i32 [ %123, %274 ], [ %123, %263 ], [ %354, %do_item_unlink_q.exit173 ], [ %472, %do_item_unlink_q.exit182 ]
-  %.4118.ph = phi i8 [ 64, %274 ], [ 64, %263 ], [ -128, %do_item_unlink_q.exit173 ], [ 64, %do_item_unlink_q.exit182 ]
+479:                                              ; preds = %do_item_unlink_q.exit173, %do_item_unlink_q.exit182, %263, %274
+  %.4135.ph = phi i32 [ %123, %274 ], [ %123, %263 ], [ %472, %do_item_unlink_q.exit182 ], [ %354, %do_item_unlink_q.exit173 ]
+  %.4118.ph = phi i8 [ 64, %274 ], [ 64, %263 ], [ 64, %do_item_unlink_q.exit182 ], [ -128, %do_item_unlink_q.exit173 ]
   %480 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   %481 = getelementptr inbounds nuw i8, ptr %.0127291, i64 40
   %482 = load i8, ptr %481, align 8, !tbaa !30
@@ -3018,10 +3018,10 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   br label %111
 
 111:                                              ; preds = %108, %105, %102, %99, %.thread
-  %.sroa.48.2 = phi i64 [ %.sroa.48.1291, %.thread ], [ %.sroa.48.1291, %108 ], [ %.sroa.48.1291, %105 ], [ %.sroa.48.1291, %102 ], [ %101, %99 ]
-  %.sroa.50.2 = phi i64 [ %.sroa.50.1292, %.thread ], [ %.sroa.50.1292, %108 ], [ %.sroa.50.1292, %105 ], [ %104, %102 ], [ %.sroa.50.1292, %99 ]
-  %.sroa.52.2 = phi i64 [ %.sroa.52.1293, %.thread ], [ %.sroa.52.1293, %108 ], [ %107, %105 ], [ %.sroa.52.1293, %102 ], [ %.sroa.52.1293, %99 ]
-  %.sroa.54.2 = phi i64 [ %.sroa.54.1294, %.thread ], [ %110, %108 ], [ %.sroa.54.1294, %105 ], [ %.sroa.54.1294, %102 ], [ %.sroa.54.1294, %99 ]
+  %.sroa.48.2 = phi i64 [ %.sroa.48.1291, %.thread ], [ %101, %99 ], [ %.sroa.48.1291, %102 ], [ %.sroa.48.1291, %105 ], [ %.sroa.48.1291, %108 ]
+  %.sroa.50.2 = phi i64 [ %.sroa.50.1292, %.thread ], [ %.sroa.50.1292, %99 ], [ %104, %102 ], [ %.sroa.50.1292, %105 ], [ %.sroa.50.1292, %108 ]
+  %.sroa.52.2 = phi i64 [ %.sroa.52.1293, %.thread ], [ %.sroa.52.1293, %99 ], [ %.sroa.52.1293, %102 ], [ %107, %105 ], [ %.sroa.52.1293, %108 ]
+  %.sroa.54.2 = phi i64 [ %.sroa.54.1294, %.thread ], [ %.sroa.54.1294, %99 ], [ %.sroa.54.1294, %102 ], [ %.sroa.54.1294, %105 ], [ %110, %108 ]
   %112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

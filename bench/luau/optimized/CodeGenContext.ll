@@ -1741,7 +1741,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %84
 
 84:                                               ; preds = %82, %._crit_edge.i.i.i.i
-  %.sroa.024.1.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %83, %82 ]
+  %.sroa.024.1.i.i.i.i = phi ptr [ %83, %82 ], [ %.sroa.024.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %85 = load ptr, ptr %.sroa.024.1.i.i.i.i, align 8, !tbaa !64
   %86 = icmp eq ptr %85, null
   br i1 %86, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP5ProtoSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN4Luau7CodeGenL15compileInternalERKSt8optionalISt5arrayIhLm16EEEP9lua_StateiRKNSC_18CompilationOptionsEPNSC_16CompilationStatsEE3$_0EEET_SS_SS_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4Luau7CodeGenL15compileInternalERKSt8optionalISt5arrayIhLm16EEEP9lua_StateiRKNS3_18CompilationOptionsEPNS3_16CompilationStatsEE3$_0EclINS_17__normal_iteratorIPP5ProtoSt6vectorISM_SaISM_EEEEEEbT_.exit20.i.i.i.i"
@@ -1757,7 +1757,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i.i.i.i
-  %.sroa.024.2.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %90, %89 ]
+  %.sroa.024.2.i.i.i.i = phi ptr [ %90, %89 ], [ %.sroa.024.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %92 = load ptr, ptr %.sroa.024.2.i.i.i.i, align 8, !tbaa !64
   %93 = icmp eq ptr %92, null
   br i1 %93, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP5ProtoSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN4Luau7CodeGenL15compileInternalERKSt8optionalISt5arrayIhLm16EEEP9lua_StateiRKNSC_18CompilationOptionsEPNSC_16CompilationStatsEE3$_0EEET_SS_SS_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4Luau7CodeGenL15compileInternalERKSt8optionalISt5arrayIhLm16EEEP9lua_StateiRKNS3_18CompilationOptionsEPNS3_16CompilationStatsEE3$_0EclINS_17__normal_iteratorIPP5ProtoSt6vectorISM_SaISM_EEEEEEbT_.exit21.i.i.i.i"

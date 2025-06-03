@@ -968,7 +968,7 @@ sw.bb3.i.i:                                       ; preds = %while.body.i
   br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
 
 "_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i": ; preds = %sw.bb3.i.i, %sw.bb2.i.i, %while.body.i
-  %retval.0.i8.i = phi i32 [ 55, %sw.bb3.i.i ], [ 53, %sw.bb2.i.i ], [ 49, %while.body.i ]
+  %retval.0.i8.i = phi i32 [ 53, %sw.bb2.i.i ], [ 55, %sw.bb3.i.i ], [ 49, %while.body.i ]
   %81 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %82 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
   %cmp.i.i.i.i116 = icmp eq ptr %81, %82

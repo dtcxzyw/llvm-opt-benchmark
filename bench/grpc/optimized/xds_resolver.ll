@@ -13357,7 +13357,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i17.i.i.i.i.thread.i: ; preds =
   unreachable
 
 "_ZN9grpc_core5MatchIJZNS_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPS2_RKNS_22XdsRouteConfigResource5RouteERKNS_8DurationEE3$_0ZNS3_13AddRouteEntryES4_S8_SB_E3$_1ZNS3_13AddRouteEntryES4_S8_SB_E3$_2ENS6_11RouteAction11ClusterNameEJSt6vectorINSF_13ClusterWeightESaISI_EENSF_26ClusterSpecifierPluginNameEEEEDTclclsr3stdE7declvalINS_12OverloadTypeIJDpT_EEEEEclsr3stdE7declvalIT0_EEEERKSt7variantIJSQ_DpT1_EESO_.exit.i.i": ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i"
-  %.sroa.0.2.i = phi i64 [ %386, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %220, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %.sroa.0.492.i, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.2.i = phi i64 [ %220, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %386, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202407226StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryEPSB_RKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEE3$_0ZNSC_13AddRouteEntryESD_SH_SK_E3$_1ZNSC_13AddRouteEntryESD_SH_SK_E3$_2EEERKSt7variantIJNSF_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %.sroa.0.492.i, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
   %447 = icmp eq i64 %.sroa.0.2.i, 1
   br i1 %447, label %.loopexit48.i, label %448
 
@@ -24081,11 +24081,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14.i.i.i.i.i.i.i.i
   br i1 %302, label %492, label %.critedge40
 
 492:                                              ; preds = %.thread, %491
-  %.val7.val.val.pn.i.i.i193 = phi i64 [ %.val7.val.val.i.i.i, %.thread ], [ %.sroa.015.0.i.i.i.i.i.i.i.i, %491 ]
+  %.sroa.015.0.i.i.i.i.i.pn.i.i.i193 = phi i64 [ %.val7.val.val.i.i.i, %.thread ], [ %.sroa.015.0.i.i.i.i.i.i.i.i, %491 ]
   %493 = trunc nuw i8 %.sroa.8140.0259 to i1
   %494 = call i64 @llvm.fshl.i64(i64 %.sroa.0137.0258, i64 %.sroa.0137.0258, i64 1)
   %spec.select = select i1 %493, i64 %494, i64 0
-  %495 = xor i64 %.val7.val.val.pn.i.i.i193, %spec.select
+  %495 = xor i64 %.sroa.015.0.i.i.i.i.i.pn.i.i.i193, %spec.select
   br label %.critedge40
 
 496:                                              ; preds = %293
@@ -25939,36 +25939,36 @@ _ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit: ; preds = %.
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %43 = load i8, ptr %42, align 8, !tbaa !180
   switch i8 %41, label %51 [
-    i8 0, label %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
-    i8 1, label %44
-    i8 2, label %47
-    i8 -1, label %49
+    i8 0, label %44
+    i8 1, label %46
+    i8 2, label %49
+    i8 -1, label %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
   ]
 
 44:                                               ; preds = %37
-  %45 = icmp eq i8 %43, 1
-  br i1 %45, label %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
+  %45 = icmp eq i8 %43, 0
+  br i1 %45, label %53, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
-_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i: ; preds = %44
-  %46 = tail call noundef zeroext i1 @_ZNK9grpc_core22XdsRouteConfigResource5Route11RouteActioneqERKS2_(ptr noundef nonnull align 8 dereferenceable(121) %38, ptr noundef nonnull align 8 dereferenceable(121) %39)
-  br i1 %46, label %53, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
+46:                                               ; preds = %37
+  %47 = icmp eq i8 %43, 1
+  br i1 %47, label %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
-47:                                               ; preds = %37
-  %48 = icmp eq i8 %43, 2
+_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i: ; preds = %46
+  %48 = tail call noundef zeroext i1 @_ZNK9grpc_core22XdsRouteConfigResource5Route11RouteActioneqERKS2_(ptr noundef nonnull align 8 dereferenceable(121) %38, ptr noundef nonnull align 8 dereferenceable(121) %39)
   br i1 %48, label %53, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
 49:                                               ; preds = %37
-  %50 = icmp eq i8 %43, -1
+  %50 = icmp eq i8 %43, 2
   br i1 %50, label %53, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
 51:                                               ; preds = %37
   unreachable
 
 _ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit: ; preds = %37
-  %52 = icmp eq i8 %43, 0
+  %52 = icmp eq i8 %43, -1
   br i1 %52, label %53, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
-53:                                               ; preds = %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, %47, %49, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
+53:                                               ; preds = %49, %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, %44, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %55 = load i64, ptr %54, align 8, !tbaa !330
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -25985,8 +25985,8 @@ _ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActi
   %65 = tail call noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigEEESF_EEbT_SG_T0_(ptr %61, ptr nonnull %62, ptr %64)
   br label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit
 
-_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %44, %4, %2, %59, %53, %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, %47, %49, %31, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit
-  %66 = phi i1 [ false, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit ], [ false, %31 ], [ false, %49 ], [ false, %47 ], [ false, %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i ], [ false, %53 ], [ %65, %59 ], [ false, %2 ], [ false, %4 ], [ false, %44 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core17XdsHttpFilterImpl12FilterConfigESt4lessIS5_ESaISt4pairIKS5_S8_EEEbRKSt3mapIT_T0_T1_T2_ESM_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %46, %4, %2, %59, %53, %49, %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i, %44, %31, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit
+  %66 = phi i1 [ false, %_ZSteqIJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEEbRKSt7variantIJDpT_EESB_.exit ], [ false, %_ZNK9grpc_core22XdsRouteConfigResource5Route8MatcherseqERKS2_.exit ], [ false, %31 ], [ false, %44 ], [ false, %_ZSt3getILm1EJN9grpc_core22XdsRouteConfigResource5Route13UnknownActionENS2_11RouteActionENS2_19NonForwardingActionEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSA_.exit.i.i.i.i.i.i.i ], [ false, %49 ], [ false, %53 ], [ %65, %59 ], [ false, %2 ], [ false, %4 ], [ false, %46 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %66
 }
 
@@ -26050,7 +26050,7 @@ _ZSt3getILm0EJN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicy
   unreachable
 
 _ZNK9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicyeqERKS3_.exit.i.i.i.i.i: ; preds = %28, %26, %_ZSt3getILm0EJN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicy6HeaderENS4_9ChannelIdEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.0.shrunk.i.i.i.i.i.i.i = phi i1 [ %29, %28 ], [ %27, %26 ], [ %25, %_ZSt3getILm0EJN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicy6HeaderENS4_9ChannelIdEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.0.shrunk.i.i.i.i.i.i.i = phi i1 [ %25, %_ZSt3getILm0EJN9grpc_core22XdsRouteConfigResource5Route11RouteAction10HashPolicy6HeaderENS4_9ChannelIdEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %27, %26 ], [ %29, %28 ]
   %31 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 80
   %32 = load i8, ptr %31, align 8, !range !115
   %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 80

@@ -2575,10 +2575,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit383:                 ; preds = %971, %969, %967
   br label %.body
 
 976:                                              ; preds = %89, %_ZNSt6vectorIiSaIiEED2Ev.exit377, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.2 = phi i32 [ %.11033, %89 ], [ %.4, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ], [ %.11033, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.sroa.23.4 = phi ptr [ %.sroa.23.21034, %89 ], [ %.sroa.23.8, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ], [ %.sroa.23.21034, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.11035, %89 ], [ %.sroa.13.4, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ], [ %.sroa.13.11035, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.sroa.0531.4 = phi ptr [ %.sroa.0531.21036, %89 ], [ %.sroa.0531.8, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ], [ %.sroa.0531.21036, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.2 = phi i32 [ %.11033, %89 ], [ %.11033, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.4, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ]
+  %.sroa.23.4 = phi ptr [ %.sroa.23.21034, %89 ], [ %.sroa.23.21034, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.23.8, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.11035, %89 ], [ %.sroa.13.11035, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.13.4, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ]
+  %.sroa.0531.4 = phi ptr [ %.sroa.0531.21036, %89 ], [ %.sroa.0531.21036, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.0531.8, %_ZNSt6vectorIiSaIiEED2Ev.exit377 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #25
   %indvars.iv.next1291 = add nuw nsw i64 %indvars.iv1290, 1

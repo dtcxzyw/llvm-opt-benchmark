@@ -293,7 +293,7 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
   br label %84
 
 84:                                               ; preds = %46, %39, %base_yylex_location.exit37, %41, %40, %82, %42, %44, %80, %base_yylex_location.exit
-  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit37 ], [ %spec.store.select, %82 ], [ 618, %40 ], [ 839, %41 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select28, %46 ], [ 328, %80 ]
+  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit37 ], [ 618, %40 ], [ 839, %41 ], [ %spec.store.select, %82 ], [ %spec.select, %39 ], [ %43, %42 ], [ %45, %44 ], [ %spec.select28, %46 ], [ 328, %80 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)
   ret i32 %.0
 }

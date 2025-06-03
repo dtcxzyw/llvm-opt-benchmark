@@ -197,7 +197,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_range(ptr noundef 
   unreachable
 
 27:                                               ; preds = %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0 = phi i1 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   ret i1 %.0
 }
 
@@ -317,7 +317,7 @@ multirange_union_range_equal.exit:                ; preds = %34, %37, %41, %46
   unreachable
 
 53:                                               ; preds = %multirange_union_range_equal.exit, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0 = phi i1 [ %.0.i, %multirange_union_range_equal.exit ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %.0.i, %multirange_union_range_equal.exit ]
   ret i1 %.0
 }
 
@@ -466,7 +466,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_range(ptr noundef %
   unreachable
 
 73:                                               ; preds = %55, %49, %43, %46, %34, %37, %25, %28, %14, %17, %5, %8, %67, %63, %58, %53, %51, %40, %31, %23, %20, %11
-  %.0 = phi i1 [ %66, %63 ], [ %68, %67 ], [ %59, %58 ], [ %54, %53 ], [ %52, %51 ], [ %42, %40 ], [ %33, %31 ], [ %24, %23 ], [ %22, %20 ], [ %13, %11 ], [ false, %8 ], [ false, %5 ], [ false, %17 ], [ false, %14 ], [ false, %28 ], [ false, %25 ], [ false, %37 ], [ false, %34 ], [ false, %46 ], [ false, %43 ], [ true, %49 ], [ true, %55 ]
+  %.0 = phi i1 [ %13, %11 ], [ %22, %20 ], [ %24, %23 ], [ %33, %31 ], [ %42, %40 ], [ %52, %51 ], [ %54, %53 ], [ %59, %58 ], [ %66, %63 ], [ %68, %67 ], [ false, %8 ], [ false, %5 ], [ false, %17 ], [ false, %14 ], [ false, %28 ], [ false, %25 ], [ false, %37 ], [ false, %34 ], [ false, %46 ], [ false, %43 ], [ true, %49 ], [ true, %55 ]
   ret i1 %.0
 }
 
@@ -615,7 +615,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   unreachable
 
 79:                                               ; preds = %60, %54, %47, %50, %37, %40, %27, %30, %15, %18, %5, %8, %73, %69, %63, %58, %56, %44, %34, %25, %22, %12
-  %.0 = phi i1 [ %72, %69 ], [ %74, %73 ], [ %64, %63 ], [ %59, %58 ], [ %57, %56 ], [ %46, %44 ], [ %36, %34 ], [ %26, %25 ], [ %24, %22 ], [ %14, %12 ], [ false, %8 ], [ false, %5 ], [ false, %18 ], [ false, %15 ], [ false, %30 ], [ false, %27 ], [ false, %40 ], [ false, %37 ], [ false, %50 ], [ false, %47 ], [ true, %54 ], [ true, %60 ]
+  %.0 = phi i1 [ %14, %12 ], [ %24, %22 ], [ %26, %25 ], [ %36, %34 ], [ %46, %44 ], [ %57, %56 ], [ %59, %58 ], [ %64, %63 ], [ %72, %69 ], [ %74, %73 ], [ false, %8 ], [ false, %5 ], [ false, %18 ], [ false, %15 ], [ false, %30 ], [ false, %27 ], [ false, %40 ], [ false, %37 ], [ false, %50 ], [ false, %47 ], [ true, %54 ], [ true, %60 ]
   ret i1 %.0
 }
 

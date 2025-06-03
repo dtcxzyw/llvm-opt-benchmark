@@ -1280,7 +1280,7 @@ match_next_pattern.exit:                          ; preds = %42, %44, %55, %57, 
   br label %62
 
 62:                                               ; preds = %match_next_pattern.exit, %.lr.ph.split, %39
-  %.2 = phi i32 [ %.128, %.lr.ph.split ], [ %61, %match_next_pattern.exit ], [ %.128, %39 ]
+  %.2 = phi i32 [ %.128, %.lr.ph.split ], [ %.128, %39 ], [ %61, %match_next_pattern.exit ]
   %.020 = load ptr, ptr %.02029, align 8, !tbaa !43
   %.not = icmp eq ptr %.020, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !73
@@ -1598,9 +1598,9 @@ grep_attr_unlock.exit.thread:                     ; preds = %42, %grep_attr_unlo
   unreachable
 
 98:                                               ; preds = %85, %grep_attr_unlock.exit.thread, %91, %grep_attr_unlock.exit
-  %.not166298 = phi i1 [ false, %grep_attr_unlock.exit ], [ true, %grep_attr_unlock.exit.thread ], [ true, %91 ], [ true, %85 ]
-  %.0137296 = phi ptr [ %76, %grep_attr_unlock.exit ], [ null, %grep_attr_unlock.exit.thread ], [ null, %91 ], [ null, %85 ]
-  %.not191 = phi i1 [ true, %grep_attr_unlock.exit ], [ true, %grep_attr_unlock.exit.thread ], [ true, %91 ], [ %.not168, %85 ]
+  %.not166298 = phi i1 [ false, %grep_attr_unlock.exit ], [ true, %91 ], [ true, %grep_attr_unlock.exit.thread ], [ true, %85 ]
+  %.0137296 = phi ptr [ %76, %grep_attr_unlock.exit ], [ null, %91 ], [ null, %grep_attr_unlock.exit.thread ], [ null, %85 ]
+  %.not191 = phi i1 [ true, %grep_attr_unlock.exit ], [ true, %91 ], [ true, %grep_attr_unlock.exit.thread ], [ %.not168, %85 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %7, ptr %99, align 8, !tbaa !109
@@ -2762,7 +2762,7 @@ define internal fastcc ptr @compile_pattern_not(ptr noundef nonnull captures(non
   br label %compile_pattern_atom.exit
 
 compile_pattern_atom.exit:                        ; preds = %3, %27, %15, %1, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %1 ], [ %21, %27 ], [ %16, %15 ], [ null, %3 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %1 ], [ %16, %15 ], [ %21, %27 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -4178,7 +4178,7 @@ grep_source_load_oid.exit:                        ; preds = %46, %_.exit.i8
   unreachable
 
 62:                                               ; preds = %6, %1, %grep_source_load_oid.exit, %grep_source_load_file.exit
-  %.0 = phi i32 [ %.0.i6, %grep_source_load_oid.exit ], [ %.0.i, %grep_source_load_file.exit ], [ 0, %1 ], [ -1, %6 ]
+  %.0 = phi i32 [ %.0.i, %grep_source_load_file.exit ], [ %.0.i6, %grep_source_load_oid.exit ], [ 0, %1 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -4385,7 +4385,7 @@ common.ret:                                       ; preds = %72, %90, %89
   unreachable
 
 89:                                               ; preds = %tailrecurse, %57, %60, %match_one_pattern.exit.thread, %44, %.split, %48
-  %.0 = phi i32 [ %87, %.split ], [ %64, %60 ], [ 0, %57 ], [ %52, %48 ], [ %.0.i93, %44 ], [ %.0.i93, %match_one_pattern.exit.thread ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ %.0.i93, %44 ], [ %.0.i93, %match_one_pattern.exit.thread ], [ %52, %48 ], [ %64, %60 ], [ 0, %57 ], [ %87, %.split ], [ 1, %tailrecurse ]
   %.not88 = icmp eq i32 %.tr102, 0
   br i1 %.not88, label %common.ret, label %90
 

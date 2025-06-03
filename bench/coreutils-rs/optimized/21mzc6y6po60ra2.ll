@@ -2489,8 +2489,8 @@ switch.lookup7:                                   ; preds = %1
   br label %22
 
 22:                                               ; preds = %switch.lookup7, %switch.lookup, %1, %21, %16
-  %.sroa.12.0 = phi i64 [ 2, %21 ], [ %20, %16 ], [ 18, %1 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ]
-  %.sroa.0.0 = phi ptr [ @anon.e757aea1808e252d06bcdd209b6ae9a2.61, %21 ], [ %18, %16 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.58, %1 ], [ %switch.load6, %switch.lookup ], [ %switch.load11, %switch.lookup7 ]
+  %.sroa.12.0 = phi i64 [ %20, %16 ], [ 2, %21 ], [ 18, %1 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ]
+  %.sroa.0.0 = phi ptr [ %18, %16 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.61, %21 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.58, %1 ], [ %switch.load6, %switch.lookup ], [ %switch.load11, %switch.lookup7 ]
   %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.12.0, 1
   ret { ptr, i64 } %24

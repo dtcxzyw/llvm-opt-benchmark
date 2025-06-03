@@ -23438,7 +23438,7 @@ _ZN2cv4util3anyD2Ev.exit60:                       ; preds = %_ZNKSt7__cxx1112bas
   br label %135
 
 134:                                              ; preds = %68, %44, %_ZN2cv4util3anyD2Ev.exit48
-  %.016 = phi i1 [ false, %68 ], [ true, %_ZN2cv4util3anyD2Ev.exit48 ], [ false, %44 ]
+  %.016 = phi i1 [ true, %_ZN2cv4util3anyD2Ev.exit48 ], [ false, %68 ], [ false, %44 ]
   ret i1 %.016
 
 135:                                              ; preds = %_ZN2cv4util3anyD2Ev.exit54, %_ZN2cv4util3anyD2Ev.exit60, %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

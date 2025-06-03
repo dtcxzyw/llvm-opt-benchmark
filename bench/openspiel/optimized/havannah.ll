@@ -3710,7 +3710,7 @@ define noundef range(i32 0, 3) i32 @_ZN10open_spiel8havannah14PlayerRelativeENS0
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %2, %8, %5
-  %.06 = phi i32 [ %10, %8 ], [ %7, %5 ], [ 2, %2 ]
+  %.06 = phi i32 [ %7, %5 ], [ %10, %8 ], [ 2, %2 ]
   ret i32 %.06
 }
 
@@ -3883,7 +3883,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit: ; preds = %63, %64, %65
-  %.06.i = phi i32 [ %54, %65 ], [ %56, %64 ], [ 2, %63 ]
+  %.06.i = phi i32 [ %56, %64 ], [ %54, %65 ], [ 2, %63 ]
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   br label %67
 

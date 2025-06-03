@@ -142,8 +142,8 @@ define internal i32 @dissect_ax25_kiss(ptr noundef %0, ptr noundef %1, ptr nound
   br label %33
 
 33:                                               ; preds = %25, %4, %31, %23, %21, %19, %17, %15
-  %.0131 = phi i32 [ 0, %4 ], [ 2, %31 ], [ 1, %23 ], [ 1, %21 ], [ 1, %19 ], [ 1, %17 ], [ 1, %15 ], [ %spec.select136, %25 ]
-  %.0130.shrunk = phi i8 [ 0, %4 ], [ %32, %31 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ 0, %25 ]
+  %.0131 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 1, %17 ], [ 1, %19 ], [ 1, %21 ], [ 1, %23 ], [ 2, %31 ], [ %spec.select136, %25 ]
+  %.0130.shrunk = phi i8 [ 0, %4 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %32, %31 ], [ 0, %25 ]
   %.0130 = zext i8 %.0130.shrunk to i32
   %34 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @kiss_frame_types, ptr noundef nonnull @.str.32)
   %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.33, ptr noundef %34, i32 noundef %14)
@@ -217,7 +217,7 @@ define internal i32 @dissect_ax25_kiss(ptr noundef %0, ptr noundef %1, ptr nound
   br label %73
 
 73:                                               ; preds = %42, %70, %67, %64, %61, %58, %55, %52
-  %.1 = phi i32 [ 1, %42 ], [ %40, %67 ], [ %40, %64 ], [ %40, %61 ], [ %40, %58 ], [ %40, %55 ], [ %40, %52 ], [ %40, %70 ]
+  %.1 = phi i32 [ 1, %42 ], [ %40, %70 ], [ %40, %52 ], [ %40, %55 ], [ %40, %58 ], [ %40, %61 ], [ %40, %64 ], [ %40, %67 ]
   %74 = load i8, ptr @gPREF_CKSUM_MODE, align 1, !range !6, !noundef !7
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %87

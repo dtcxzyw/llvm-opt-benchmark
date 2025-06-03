@@ -657,7 +657,7 @@ define dso_local i64 @_ZN14cmFileLockPool7ReleaseERKNSt7__cxx1112basic_stringIcS
   br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %15, %._crit_edge.i
-  %.sroa.0.3.i = phi i64 [ %16, %15 ], [ %17, %._crit_edge.i ]
+  %.sroa.0.3.i = phi i64 [ %17, %._crit_edge.i ], [ %16, %15 ]
   store i64 %.sroa.0.3.i, ptr %3, align 8
   %18 = call noundef zeroext i1 @_ZNK16cmFileLockResult4IsOkEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
   br i1 %18, label %7, label %.loopexit
@@ -702,7 +702,7 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
 
 _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %31, %._crit_edge.i20
-  %.sroa.0.3.i21 = phi i64 [ %32, %31 ], [ %33, %._crit_edge.i20 ]
+  %.sroa.0.3.i21 = phi i64 [ %33, %._crit_edge.i20 ], [ %32, %31 ]
   store i64 %.sroa.0.3.i21, ptr %3, align 8
   %34 = call noundef zeroext i1 @_ZNK16cmFileLockResult4IsOkEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
   br i1 %34, label %23, label %.loopexit
@@ -734,7 +734,7 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29
 
 _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29: ; preds = %42, %._crit_edge.i27
-  %.sroa.0.3.i28 = phi i64 [ %43, %42 ], [ %44, %._crit_edge.i27 ]
+  %.sroa.0.3.i28 = phi i64 [ %44, %._crit_edge.i27 ], [ %43, %42 ]
   store i64 %.sroa.0.3.i28, ptr %3, align 8
   br label %.loopexit
 
@@ -773,7 +773,7 @@ define dso_local i64 @_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic
   br label %12
 
 12:                                               ; preds = %9, %._crit_edge
-  %.sroa.0.3 = phi i64 [ %10, %9 ], [ %11, %._crit_edge ]
+  %.sroa.0.3 = phi i64 [ %11, %._crit_edge ], [ %10, %9 ]
   ret i64 %.sroa.0.3
 }
 
@@ -846,7 +846,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLo
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %30, %29 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %32 = tail call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %32, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPK10cmFileLockSt6vectorIS2_SaIS2_EEEEZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SK_T0_.exit", label %33
 
@@ -855,7 +855,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLo
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %34, %33 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %36 = tail call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %spec.select.i.i.i.i.i = select i1 %36, ptr %.sroa.032.2.i.i.i.i.i, ptr %5
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPK10cmFileLockSt6vectorIS2_SaIS2_EEEEZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SK_T0_.exit"

@@ -584,7 +584,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i": ; preds = %36, %34, %32, %30
-  %.sroa.0.0.i.i.i.i = phi i1 [ %31, %30 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.sroa.0.0.i.i.i.i = phi i1 [ %33, %32 ], [ %31, %30 ], [ %35, %34 ], [ %37, %36 ]
   %..i = select i1 %.sroa.0.0.i.i.i.i, ptr %19, ptr %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %..i, i64 32, i1 false), !noalias !98
   %38 = xor i1 %.sroa.0.0.i.i.i.i, true
@@ -643,7 +643,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i19"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i19": ; preds = %61, %59, %57, %55
-  %.sroa.0.0.i.i.i.i20 = phi i1 [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ]
+  %.sroa.0.0.i.i.i.i20 = phi i1 [ %58, %57 ], [ %56, %55 ], [ %60, %59 ], [ %62, %61 ]
   %63 = xor i1 %.sroa.0.0.i.i.i.i20, true
   %.sroa.05.0.i = select i1 %.sroa.0.0.i.i.i.i20, ptr %.sroa.0.02.i, ptr %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.0.i, i64 32, i1 false), !noalias !104
@@ -1262,7 +1262,7 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h7004a4fe124a5b00E(
 21:                                               ; preds = %15, %.outer._crit_edge
   ret void
 
-22:                                               ; preds = %26
+22:                                               ; preds = %30
   %23 = icmp ult i8 %.sroa.022.0.val29, %.val30
   br i1 %23, label %.thread, label %.thread57
 
@@ -1287,29 +1287,29 @@ default.unreachable:                              ; preds = %.lr.ph.i45, %.lr.ph
 
 26:                                               ; preds = %24
   %27 = icmp eq i8 %.val, 0
-  br i1 %27, label %22, label %32
+  br i1 %27, label %34, label %32
 
 28:                                               ; preds = %24
   %29 = icmp eq i8 %.val, 1
-  br i1 %29, label %34, label %32
+  br i1 %29, label %36, label %32
 
 30:                                               ; preds = %24
   %31 = icmp eq i8 %.val, 2
-  br i1 %31, label %36, label %32
+  br i1 %31, label %22, label %32
 
 32:                                               ; preds = %30, %28, %26, %24
   %33 = icmp samesign ult i8 %.sroa.022.0.val, %.val
   br i1 %33, label %.thread, label %.thread57
 
-34:                                               ; preds = %28
+34:                                               ; preds = %26
   %35 = icmp ult i8 %.sroa.022.0.val29, %.val30
   br i1 %35, label %.thread, label %.thread57
 
-36:                                               ; preds = %30
+36:                                               ; preds = %28
   %37 = icmp ult i8 %.sroa.022.0.val29, %.val30
   br i1 %37, label %.thread, label %.thread57
 
-.thread:                                          ; preds = %34, %36, %32, %16, %22
+.thread:                                          ; preds = %36, %32, %34, %16, %22
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %.not60 = icmp ult i64 %3, %.sroa.12.099
   br i1 %.not60, label %41, label %38, !prof !121
@@ -1384,7 +1384,7 @@ default.unreachable:                              ; preds = %.lr.ph.i45, %.lr.ph
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h9eec06b2ffd6d573E.exit.i": ; preds = %59, %57, %55, %53
-  %.sroa.0.0.i.i.i.i = phi i1 [ %54, %53 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ]
+  %.sroa.0.0.i.i.i.i = phi i1 [ %56, %55 ], [ %54, %53 ], [ %58, %57 ], [ %60, %59 ]
   %61 = getelementptr inbounds i8, ptr %.sroa.19.116.i, i64 -32
   %.sroa.01.0.i.i = select i1 %.sroa.0.0.i.i.i.i, ptr %2, ptr %61
   %62 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.01.0.i.i, i64 %.sroa.11.114.i
@@ -1431,7 +1431,7 @@ default.unreachable:                              ; preds = %.lr.ph.i45, %.lr.ph
   %.not = icmp ugt i64 %.sroa.11.1.lcssa.i, %.sroa.12.099
   br i1 %.not, label %129, label %134, !prof !130
 
-.thread57:                                        ; preds = %34, %36, %32, %22, %.loopexit
+.thread57:                                        ; preds = %36, %32, %34, %22, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %.not61 = icmp ult i64 %3, %.sroa.12.099
   br i1 %.not61, label %85, label %82, !prof !121
@@ -1506,7 +1506,7 @@ default.unreachable:                              ; preds = %.lr.ph.i45, %.lr.ph
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h668cb7fe7dc68ad8E.exit.i"
 
 "_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17h668cb7fe7dc68ad8E.exit.i": ; preds = %103, %101, %99, %97
-  %.sroa.0.0.i.i.i.i.i = phi i1 [ %98, %97 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ]
+  %.sroa.0.0.i.i.i.i.i = phi i1 [ %100, %99 ], [ %98, %97 ], [ %102, %101 ], [ %104, %103 ]
   %105 = xor i1 %.sroa.0.0.i.i.i.i.i, true
   %106 = getelementptr inbounds i8, ptr %.sroa.19.116.i46, i64 -32
   %.sroa.01.0.i.i53 = select i1 %.sroa.0.0.i.i.i.i.i, ptr %106, ptr %2

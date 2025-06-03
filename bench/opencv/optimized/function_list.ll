@@ -104,7 +104,7 @@ define hidden range(i32 0, 2) i32 @opj_procedure_list_add_procedure(ptr noundef 
   br label %24
 
 24:                                               ; preds = %15, %18
-  %.1 = phi i32 [ 0, %15 ], [ 1, %18 ]
+  %.1 = phi i32 [ 1, %18 ], [ 0, %15 ]
   ret i32 %.1
 }
 

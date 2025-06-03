@@ -838,7 +838,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1457,7 +1457,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 
@@ -4071,16 +4071,16 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   call void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList12check_layout17hbb169f9629930a0cE.llvm.16389591707760502172(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef 8, i64 noundef 24), !noalias !318
   %11 = load i32, ptr %5, align 8, !range !319, !noalias !314, !noundef !9
   %trunc.i = trunc nuw i32 %11 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !314, !nonnull !9
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %15 = load i32, ptr %14, align 4, !noalias !314
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %13 = load i32, ptr %12, align 4, !noalias !314
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !314, !nonnull !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !314
   br i1 %trunc.i, label %31, label %16
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !314
-  call void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList9first_fit17he0065a019487f181E.llvm.16389591707760502172(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %15), !noalias !318
+  call void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList9first_fit17he0065a019487f181E.llvm.16389591707760502172(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %13), !noalias !318
   %17 = load i32, ptr %4, align 4, !range !319, !noalias !314, !noundef !9
   %trunc4.i = trunc nuw i32 %17 to i1
   br i1 %trunc4.i, label %18, label %.thread
@@ -4095,12 +4095,12 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 4, !noalias !314, !noundef !9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !314
-  %23 = sub i32 %22, %15
+  %23 = sub i32 %22, %13
   %24 = icmp ult i32 %23, 24
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %18
-  %26 = add i32 %20, %15
+  %26 = add i32 %20, %13
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = tail call { i32, i32 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h8199e976d9f2e35cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i32 noundef %26, i32 noundef %23), !noalias !318
   br label %29
@@ -4111,7 +4111,7 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %32, align 8
+  store ptr %15, ptr %32, align 8
   br label %64
 
 33:                                               ; preds = %.thread, %29

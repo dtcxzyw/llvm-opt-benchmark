@@ -4678,10 +4678,10 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge, %349
-  %351 = phi ptr [ %.pre468, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ], [ %344, %349 ]
-  %.sroa.14.2 = phi i64 [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ], [ %350, %349 ]
-  %352 = icmp eq i64 %.sroa.14.2, 0
-  %353 = getelementptr %"struct.std::pair.314", ptr %310, i64 %.sroa.14.2
+  %351 = phi ptr [ %344, %349 ], [ %.pre468, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ]
+  %.sroa.213.0.copyload.i = phi i64 [ %350, %349 ], [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ]
+  %352 = icmp eq i64 %.sroa.213.0.copyload.i, 0
+  %353 = getelementptr %"struct.std::pair.314", ptr %310, i64 %.sroa.213.0.copyload.i
   %354 = getelementptr i8, ptr %353, i64 -152
   %.0.i.i.i10.i = select i1 %352, ptr %351, ptr %354
   %355 = load i64, ptr %.0.i.i.i10.i, align 8, !tbaa !355, !noalias !352
@@ -4689,19 +4689,19 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
   br i1 %356, label %.loopexit, label %357
 
 357:                                              ; preds = %._crit_edge._crit_edge.i
-  %358 = add i64 %.sroa.14.2, 1
+  %358 = add i64 %.sroa.213.0.copyload.i, 1
   br label %._crit_edge._crit_edge35.i
 
 ._crit_edge._crit_edge35.i:                       ; preds = %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge, %357
-  %359 = phi ptr [ %.pre470, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ], [ %351, %357 ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ], [ %358, %357 ]
-  %360 = icmp eq i64 %.sroa.14.1, 0
-  %361 = getelementptr %"struct.std::pair.314", ptr %310, i64 %.sroa.14.1
+  %359 = phi ptr [ %351, %357 ], [ %.pre470, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ]
+  %.sroa.2.0.copyload.i = phi i64 [ %358, %357 ], [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ]
+  %360 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  %361 = getelementptr %"struct.std::pair.314", ptr %310, i64 %.sroa.2.0.copyload.i
   %362 = getelementptr i8, ptr %361, i64 -152
   %.0.i.i.i11.i = select i1 %360, ptr %359, ptr %362
   %363 = load i64, ptr %.0.i.i.i11.i, align 8, !tbaa !355, !noalias !352
   %364 = icmp eq i64 %363, %303
-  %spec.select = select i1 %364, i64 %.sroa.14.1, i64 %315
+  %spec.select = select i1 %364, i64 %.sroa.2.0.copyload.i, i64 %315
   br label %.loopexit
 
 .loopexit.thread.split.loop.exit492:              ; preds = %.lr.ph442
@@ -4716,7 +4716,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
 
 .loopexit:                                        ; preds = %._crit_edge._crit_edge35.i, %._crit_edge.i._crit_edge, %341, %._crit_edge._crit_edge.i
   %368 = phi ptr [ %344, %341 ], [ %351, %._crit_edge._crit_edge.i ], [ %.pre472, %._crit_edge.i._crit_edge ], [ %359, %._crit_edge._crit_edge35.i ]
-  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.14.0, %341 ], [ %.sroa.14.2, %._crit_edge._crit_edge.i ], [ %315, %._crit_edge.i._crit_edge ], [ %spec.select, %._crit_edge._crit_edge35.i ]
+  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.14.0, %341 ], [ %.sroa.213.0.copyload.i, %._crit_edge._crit_edge.i ], [ %315, %._crit_edge.i._crit_edge ], [ %spec.select, %._crit_edge._crit_edge35.i ]
   %.sink.i.sroa.phi.sroa.speculated.fr = freeze i64 %.sink.i.sroa.phi.sroa.speculated
   %369 = icmp eq i64 %.sink.i.sroa.phi.sroa.speculated.fr, 0
   %370 = getelementptr %"struct.std::pair.314", ptr %310, i64 %.sink.i.sroa.phi.sroa.speculated.fr
@@ -7745,11 +7745,11 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %218, %_ZNKSt14defau
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge, %289
-  %291 = phi ptr [ %.pre, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ], [ %283, %289 ]
-  %.sroa.14.2 = phi i64 [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ], [ %290, %289 ]
-  %292 = icmp ult i64 %.sroa.14.2, 8
-  %293 = getelementptr inbounds nuw i64, ptr %291, i64 %.sroa.14.2
-  %294 = getelementptr i64, ptr %246, i64 %.sroa.14.2
+  %291 = phi ptr [ %283, %289 ], [ %.pre, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ]
+  %.sroa.213.0.copyload.i = phi i64 [ %290, %289 ], [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge ]
+  %292 = icmp ult i64 %.sroa.213.0.copyload.i, 8
+  %293 = getelementptr inbounds nuw i64, ptr %291, i64 %.sroa.213.0.copyload.i
+  %294 = getelementptr i64, ptr %246, i64 %.sroa.213.0.copyload.i
   %295 = getelementptr i8, ptr %294, i64 -64
   %.0.i.i.i10.i = select i1 %292, ptr %293, ptr %295
   %296 = load i64, ptr %.0.i.i.i10.i, align 8, !tbaa !183, !noalias !466
@@ -7757,15 +7757,15 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %218, %_ZNKSt14defau
   br i1 %297, label %.noexc65, label %298
 
 298:                                              ; preds = %._crit_edge._crit_edge.i
-  %299 = add i64 %.sroa.14.2, 1
+  %299 = add i64 %.sroa.213.0.copyload.i, 1
   br label %._crit_edge._crit_edge35.i
 
 ._crit_edge._crit_edge35.i:                       ; preds = %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge, %298
-  %300 = phi ptr [ %.pre231, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ], [ %291, %298 ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ], [ %299, %298 ]
-  %301 = icmp ult i64 %.sroa.14.1, 8
-  %302 = getelementptr inbounds nuw i64, ptr %300, i64 %.sroa.14.1
-  %303 = getelementptr i64, ptr %246, i64 %.sroa.14.1
+  %300 = phi ptr [ %291, %298 ], [ %.pre231, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ]
+  %.sroa.2.0.copyload.i = phi i64 [ %299, %298 ], [ %.sroa.14.0, %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge ]
+  %301 = icmp ult i64 %.sroa.2.0.copyload.i, 8
+  %302 = getelementptr inbounds nuw i64, ptr %300, i64 %.sroa.2.0.copyload.i
+  %303 = getelementptr i64, ptr %246, i64 %.sroa.2.0.copyload.i
   %304 = getelementptr i8, ptr %303, i64 -64
   %.0.i.i.i11.i = select i1 %301, ptr %302, ptr %304
   %305 = load i64, ptr %.0.i.i.i11.i, align 8, !tbaa !183, !noalias !466
@@ -7773,7 +7773,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %218, %_ZNKSt14defau
   br i1 %306, label %.noexc65, label %_ZN7rocksdb16PointLockManager9UnLockKeyEPNS_22PessimisticTransactionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13LockMapStripeEPNS_7LockMapEPNS_3EnvE.exit
 
 .noexc65:                                         ; preds = %259, %.lr.ph, %269, %273, %.lr.ph.i, %._crit_edge._crit_edge35.i, %._crit_edge._crit_edge.i, %280
-  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.14.0, %280 ], [ %.sroa.14.2, %._crit_edge._crit_edge.i ], [ %.sroa.14.1, %._crit_edge._crit_edge35.i ], [ 0, %.lr.ph.i ], [ %260, %259 ], [ %265, %.lr.ph ], [ %270, %269 ], [ %274, %273 ]
+  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.14.0, %280 ], [ %.sroa.213.0.copyload.i, %._crit_edge._crit_edge.i ], [ %.sroa.2.0.copyload.i, %._crit_edge._crit_edge35.i ], [ 0, %.lr.ph.i ], [ %260, %259 ], [ %265, %.lr.ph ], [ %270, %269 ], [ %274, %273 ]
   %.not42.i = icmp eq i64 %.sink.i.sroa.phi.sroa.speculated, %251
   br i1 %.not42.i, label %_ZN7rocksdb16PointLockManager9UnLockKeyEPNS_22PessimisticTransactionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13LockMapStripeEPNS_7LockMapEPNS_3EnvE.exit, label %307
 

@@ -7120,7 +7120,7 @@ default.unreachable17:                            ; preds = %38
   br label %53
 
 53:                                               ; preds = %52, %51, %38
-  %.sroa.09.0 = phi ptr [ %18, %38 ], [ %17, %52 ], [ %16, %51 ]
+  %.sroa.09.0 = phi ptr [ %16, %51 ], [ %17, %52 ], [ %18, %38 ]
   %54 = load ptr, ptr %.sroa.09.0, align 8, !align !5, !noundef !3
   %.not14 = icmp eq ptr %54, null
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7881,8 +7881,8 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZN21ruff_python_formatter8
   br label %17
 
 17:                                               ; preds = %19, %16, %.lr.ph
-  %.sroa.04.2 = phi i32 [ %.sroa.04.018, %19 ], [ %.sroa.04.018, %.lr.ph ], [ %.sroa.0.0.sroa.speculated.i13, %16 ]
-  %.sroa.0.1 = phi i32 [ %20, %19 ], [ %.sroa.0.019, %.lr.ph ], [ 0, %16 ]
+  %.sroa.04.2 = phi i32 [ %.sroa.0.0.sroa.speculated.i13, %16 ], [ %.sroa.04.018, %.lr.ph ], [ %.sroa.04.018, %19 ]
+  %.sroa.0.1 = phi i32 [ 0, %16 ], [ %.sroa.0.019, %.lr.ph ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
@@ -9191,7 +9191,7 @@ _ZN21ruff_python_formatter9statement6clause12ClauseHeader19first_keyword_range17
   br label %173
 
 173:                                              ; preds = %171, %144, %151
-  %.sroa.053.0 = phi i32 [ %spec.select58, %151 ], [ %spec.select, %144 ], [ %spec.select59, %171 ]
+  %.sroa.053.0 = phi i32 [ %spec.select, %144 ], [ %spec.select58, %151 ], [ %spec.select59, %171 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !1076
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !1076
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, i32 noundef %.sroa.053.0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !1080
@@ -10780,8 +10780,8 @@ define noundef zeroext i1 @"_ZN111_$LT$ruff_python_ast..expression..StringLike$u
   br label %8
 
 8:                                                ; preds = %.backedge.i, %.lr.ph.i
-  %9 = phi i64 [ %6, %.lr.ph.i ], [ %22, %.backedge.i ]
-  %10 = phi { i64, ptr } [ %5, %.lr.ph.i ], [ %21, %.backedge.i ]
+  %9 = phi i64 [ %6, %.lr.ph.i ], [ %30, %.backedge.i ]
+  %10 = phi { i64, ptr } [ %5, %.lr.ph.i ], [ %29, %.backedge.i ]
   %11 = extractvalue { i64, ptr } %10, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1224
   store i64 %9, ptr %3, align 8, !noalias !1224
@@ -10793,7 +10793,7 @@ define noundef zeroext i1 @"_ZN111_$LT$ruff_python_ast..expression..StringLike$u
   %13 = call noundef i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
   %14 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %13)
   %15 = call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %14)
-  br i1 %15, label %23, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2751bb5e1d113408E.exit.i"
+  br i1 %15, label %21, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2751bb5e1d113408E.exit.i"
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -10803,29 +10803,29 @@ define noundef zeroext i1 @"_ZN111_$LT$ruff_python_ast..expression..StringLike$u
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1224
   br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit, label %.backedge.i
 
-.backedge.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2751bb5e1d113408E.exit.i", %23, %16
-  %21 = call { i64, ptr } @"_ZN106_$LT$ruff_python_ast..expression..StringLikePartIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb48730bcdc24d3e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %22 = extractvalue { i64, ptr } %21, 0
-  %.not.not.i = icmp eq i64 %22, 3
-  br i1 %.not.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit, label %8
-
-23:                                               ; preds = %12
-  %24 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %25 = extractvalue { ptr, i64 } %24, 0
-  %26 = extractvalue { ptr, i64 } %24, 1
-  %27 = call { i32, i32 } @"_ZN94_$LT$ruff_python_ast..expression..StringLikePart$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h75346936316ac2e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = extractvalue { i32, i32 } %27, 1
-  %30 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26, i32 noundef %28, i32 noundef %29)
+21:                                               ; preds = %12
+  %22 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %23 = extractvalue { ptr, i64 } %22, 0
+  %24 = extractvalue { ptr, i64 } %22, 1
+  %25 = call { i32, i32 } @"_ZN94_$LT$ruff_python_ast..expression..StringLikePart$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h75346936316ac2e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = extractvalue { i32, i32 } %25, 1
+  %28 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, i32 noundef %26, i32 noundef %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1224
-  br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit, label %.backedge.i
+  br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit, label %.backedge.i
+
+.backedge.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2751bb5e1d113408E.exit.i", %21, %16
+  %29 = call { i64, ptr } @"_ZN106_$LT$ruff_python_ast..expression..StringLikePartIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb48730bcdc24d3e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %30 = extractvalue { i64, ptr } %29, 0
+  %.not.not.i = icmp eq i64 %30, 3
+  br i1 %.not.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit, label %8
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h2751bb5e1d113408E.exit.i": ; preds = %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1224
   br label %.backedge.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit: ; preds = %16, %.backedge.i, %23, %2
-  %.not.lcssa.i = phi i1 [ false, %2 ], [ true, %23 ], [ true, %16 ], [ false, %.backedge.i ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f7333ef6229f687E.exit: ; preds = %16, %21, %.backedge.i, %2
+  %.not.lcssa.i = phi i1 [ false, %2 ], [ true, %16 ], [ true, %21 ], [ false, %.backedge.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret i1 %.not.lcssa.i
 }

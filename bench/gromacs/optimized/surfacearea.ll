@@ -1843,7 +1843,7 @@ _ZL6divarcffffffiiPfS_S_.exit181.us.us.us.i.i:    ; preds = %366, %279
   br label %1311
 
 1311:                                             ; preds = %1294, %1280, %.lr.ph.i.i
-  %.4.i.i = phi i32 [ %.3371.i.i, %.lr.ph.i.i ], [ %.3371.i.i, %1280 ], [ %1310, %1294 ]
+  %.4.i.i = phi i32 [ %1310, %1294 ], [ %.3371.i.i, %1280 ], [ %.3371.i.i, %.lr.ph.i.i ]
   %exitcond.not.i143.i = icmp eq i64 %indvars.iv.next454.i.i, 11
   br i1 %exitcond.not.i143.i, label %.loopexit362.i.i, label %.lr.ph.i.i, !llvm.loop !41
 

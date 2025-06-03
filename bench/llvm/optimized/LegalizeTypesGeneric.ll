@@ -779,8 +779,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %254
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %254, %256, %257, %258, %259, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i404 = phi ptr [ %265, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %259 ], [ null, %258 ], [ null, %257 ], [ null, %256 ], [ null, %254 ]
-  %.sroa.0.0.i405 = phi i16 [ %264, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %259 ], [ 8, %258 ], [ 7, %257 ], [ 6, %256 ], [ 5, %254 ]
+  %.sroa.3.0.i404 = phi ptr [ %265, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %256 ], [ null, %257 ], [ null, %258 ], [ null, %259 ], [ null, %254 ]
+  %.sroa.0.0.i405 = phi i16 [ %264, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 6, %256 ], [ 7, %257 ], [ 8, %258 ], [ 9, %259 ], [ 5, %254 ]
   store i16 %.sroa.0.0.i405, ptr %28, align 8, !tbaa !23
   store ptr %.sroa.3.0.i404, ptr %.sroa.2151.0..sroa_idx, align 8, !tbaa !25
   %266 = load ptr, ptr %48, align 8, !tbaa !46
@@ -1031,8 +1031,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i422:           ; preds = %_ZNK4llvm7SDValue18
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit423
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit423: ; preds = %_ZNK4llvm7SDValue18getValueSizeInBitsEv.exit, %352, %353, %354, %355, %356, %357, %_ZN4llvm3MVT12getIntegerVTEj.exit.i422
-  %.sroa.3.0.i418 = phi ptr [ %360, %_ZN4llvm3MVT12getIntegerVTEj.exit.i422 ], [ null, %357 ], [ null, %356 ], [ null, %355 ], [ null, %354 ], [ null, %353 ], [ null, %352 ], [ null, %_ZNK4llvm7SDValue18getValueSizeInBitsEv.exit ]
-  %.sroa.0.0.i419 = phi i16 [ %359, %_ZN4llvm3MVT12getIntegerVTEj.exit.i422 ], [ 9, %357 ], [ 8, %356 ], [ 7, %355 ], [ 6, %354 ], [ 5, %353 ], [ 4, %352 ], [ 3, %_ZNK4llvm7SDValue18getValueSizeInBitsEv.exit ]
+  %.sroa.3.0.i418 = phi ptr [ %360, %_ZN4llvm3MVT12getIntegerVTEj.exit.i422 ], [ null, %352 ], [ null, %353 ], [ null, %354 ], [ null, %355 ], [ null, %356 ], [ null, %357 ], [ null, %_ZNK4llvm7SDValue18getValueSizeInBitsEv.exit ]
+  %.sroa.0.0.i419 = phi i16 [ %359, %_ZN4llvm3MVT12getIntegerVTEj.exit.i422 ], [ 4, %352 ], [ 5, %353 ], [ 6, %354 ], [ 7, %355 ], [ 8, %356 ], [ 9, %357 ], [ 3, %_ZNK4llvm7SDValue18getValueSizeInBitsEv.exit ]
   store ptr %.sroa.0482.0, ptr %34, align 8, !tbaa !138
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx486, align 8, !tbaa !139
   store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx492, align 4
@@ -1400,13 +1400,13 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !188, !llvm.loop !223
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %24, %15
-  %.lcssa.i.i.pn = phi i64 [ %18, %15 ], [ %27, %24 ]
+  %.pn = phi i64 [ %18, %15 ], [ %27, %24 ]
   %31 = zext i32 %13 to i64
-  %32 = icmp samesign eq i64 %.lcssa.i.i.pn, %31
+  %32 = icmp samesign eq i64 %.pn, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %33
 
 33:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pn, i32 0, i32 1
   tail call void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 4 dereferenceable(4) %34) #12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %36 = load i32, ptr %35, align 8

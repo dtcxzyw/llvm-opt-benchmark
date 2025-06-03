@@ -204,7 +204,7 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   br label %103
 
 103:                                              ; preds = %91, %20, %24, %6, %12, %2, %.thread71, %95
-  %.0 = phi i1 [ false, %91 ], [ %102, %.thread71 ], [ %99, %95 ], [ false, %2 ], [ false, %12 ], [ false, %6 ], [ false, %24 ], [ false, %20 ]
+  %.0 = phi i1 [ %102, %.thread71 ], [ false, %91 ], [ %99, %95 ], [ false, %2 ], [ false, %12 ], [ false, %6 ], [ false, %24 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -1353,7 +1353,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
   br i1 %95, label %.thread, label %100
 
 common.ret78:                                     ; preds = %78, %76, %74, %71, %60, %57, %101, %100, %7, %12, %2, %.thread76, %106, %.thread
-  %common.ret78.op = phi ptr [ %96, %.thread ], [ %0, %100 ], [ %0, %101 ], [ %114, %106 ], [ %121, %.thread76 ], [ null, %2 ], [ %0, %7 ], [ %0, %12 ], [ %36, %57 ], [ %36, %60 ], [ %36, %74 ], [ %36, %76 ], [ %84, %78 ], [ %73, %71 ]
+  %common.ret78.op = phi ptr [ %96, %.thread ], [ %114, %106 ], [ %121, %.thread76 ], [ %0, %101 ], [ %0, %100 ], [ null, %2 ], [ %0, %7 ], [ %0, %12 ], [ %36, %57 ], [ %36, %60 ], [ %36, %74 ], [ %36, %76 ], [ %84, %78 ], [ %73, %71 ]
   ret ptr %common.ret78.op
 
 .thread:                                          ; preds = %90

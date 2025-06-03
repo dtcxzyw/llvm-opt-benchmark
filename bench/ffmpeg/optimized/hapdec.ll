@@ -158,7 +158,7 @@ define internal range(i32 -2147483648, 1) i32 @hap_init(ptr noundef %0) #0 {
   br label %69
 
 69:                                               ; preds = %57, %51, %45, %39, %34
-  %.043 = phi ptr [ @.str.7, %57 ], [ @.str.6, %51 ], [ @.str.5, %45 ], [ @.str.4, %39 ], [ @.str.3, %34 ]
+  %.043 = phi ptr [ @.str.3, %34 ], [ @.str.4, %39 ], [ @.str.5, %45 ], [ @.str.6, %51 ], [ @.str.7, %57 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.8, ptr noundef nonnull %.043) #9
   br label %70
 

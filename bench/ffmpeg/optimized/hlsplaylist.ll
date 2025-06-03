@@ -440,7 +440,7 @@ define range(i32 -1313558101, 1) i32 @ff_hls_write_file_entry(ptr noundef %0, i3
   br label %79
 
 79:                                               ; preds = %73, %13, %77
-  %.0 = phi i32 [ -1313558101, %73 ], [ 0, %77 ], [ -22, %13 ]
+  %.0 = phi i32 [ 0, %77 ], [ -1313558101, %73 ], [ -22, %13 ]
   ret i32 %.0
 }
 

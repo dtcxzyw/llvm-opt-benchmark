@@ -65,8 +65,8 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   unreachable
 
 19:                                               ; preds = %4, %14, %9
-  %.019 = phi i1 [ true, %14 ], [ false, %9 ], [ false, %4 ]
-  %.0 = phi i32 [ -1, %14 ], [ %13, %9 ], [ -1, %4 ]
+  %.019 = phi i1 [ false, %9 ], [ true, %14 ], [ false, %4 ]
+  %.0 = phi i32 [ %13, %9 ], [ -1, %14 ], [ -1, %4 ]
   %20 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef %.0) #8
   tail call void @smgrcreate(ptr noundef %20, i32 noundef 0, i1 noundef zeroext false) #8
   br i1 %.019, label %21, label %24

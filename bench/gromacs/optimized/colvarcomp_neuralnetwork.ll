@@ -6308,7 +6308,7 @@ define void @_ZN6colvar13neuralNetwork14calc_gradientsEv(ptr noundef nonnull ali
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, %47
-  %.0.i = phi i64 [ 4, %46 ], [ 3, %45 ], [ 1, %44 ], [ %53, %47 ], [ 0, %43 ]
+  %.0.i = phi i64 [ %53, %47 ], [ 1, %44 ], [ 3, %45 ], [ 4, %46 ], [ 0, %43 ]
   %54 = icmp ult i64 %.025, %.0.i
   br i1 %54, label %.preheader27, label %.loopexit
 

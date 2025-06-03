@@ -2751,7 +2751,7 @@ define internal fastcc void @dissect_ptp_v2(ptr noundef %0, ptr noundef %1, ptr 
   br label %145
 
 145:                                              ; preds = %52, %69, %131, %111, %99, %80
-  %.0625 = phi ptr [ %132, %131 ], [ %112, %111 ], [ %100, %99 ], [ %81, %80 ], [ %53, %52 ], [ %53, %69 ]
+  %.0625 = phi ptr [ %53, %52 ], [ %53, %69 ], [ %81, %80 ], [ %100, %99 ], [ %112, %111 ], [ %132, %131 ]
   %.not641 = icmp eq ptr %.0625, null
   br i1 %.not641, label %.critedge686.thread, label %146
 
@@ -5850,7 +5850,7 @@ proto_item_set_generated.exit755:                 ; preds = %952, %1006, %1009
   br label %1015
 
 1015:                                             ; preds = %proto_item_set_generated.exit755, %912, %871, %proto_item_set_generated.exit, %820
-  %.4 = phi i8 [ %.0774, %820 ], [ %.0774, %proto_item_set_generated.exit755 ], [ %.0774, %912 ], [ %.0774, %871 ], [ 1, %proto_item_set_generated.exit ]
+  %.4 = phi i8 [ %.0774, %820 ], [ 1, %proto_item_set_generated.exit ], [ %.0774, %871 ], [ %.0774, %912 ], [ %.0774, %proto_item_set_generated.exit755 ]
   br i1 %7, label %dissect_ptp_v2_text.exit757, label %1016
 
 1016:                                             ; preds = %1015
@@ -6620,7 +6620,7 @@ proto_item_set_generated.exit755:                 ; preds = %952, %1006, %1009
   br label %dissect_ptp_v2_text.exit757.thread
 
 dissect_ptp_v2_text.exit757:                      ; preds = %813, %1016, %1015, %1056, %1020, %1019, %1096, %1097, %1199, %1262, %1263, %1264, %.loopexit
-  %.2 = phi i8 [ %.0774, %.loopexit ], [ %.0774, %813 ], [ %.0774, %1264 ], [ %.0774, %1263 ], [ %.0774, %1262 ], [ %.0774, %1199 ], [ %.0774, %1097 ], [ %.0774, %1096 ], [ %.0774, %1019 ], [ %.0774, %1056 ], [ %.0774, %1020 ], [ %.4, %1015 ], [ %.4, %1016 ]
+  %.2 = phi i8 [ %.0774, %.loopexit ], [ %.0774, %813 ], [ %.4, %1015 ], [ %.4, %1016 ], [ %.0774, %1019 ], [ %.0774, %1020 ], [ %.0774, %1056 ], [ %.0774, %1097 ], [ %.0774, %1096 ], [ %.0774, %1262 ], [ %.0774, %1199 ], [ %.0774, %1264 ], [ %.0774, %1263 ]
   %1622 = load i32, ptr %9, align 4
   %1623 = icmp eq i32 %1622, %24
   %1624 = icmp eq i16 %26, 3

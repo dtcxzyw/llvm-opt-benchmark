@@ -13843,7 +13843,7 @@ switch.lookup:                                    ; preds = %1230
   br label %_ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit
 
 _ZL10mapToLevelRKN5clang14CodeGenOptionsE.exit:   ; preds = %switch.lookup, %1230, %1235, %1238
-  %.sroa.0.0.in.i = phi ptr [ @_ZN4llvm17OptimizationLevel2O3E, %1238 ], [ @_ZN4llvm17OptimizationLevel2O1E, %1235 ], [ @_ZN4llvm17OptimizationLevel2O0E, %1230 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0.in.i = phi ptr [ @_ZN4llvm17OptimizationLevel2O1E, %1235 ], [ @_ZN4llvm17OptimizationLevel2O3E, %1238 ], [ @_ZN4llvm17OptimizationLevel2O0E, %1230 ], [ %switch.load, %switch.lookup ]
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 4
   %1239 = getelementptr inbounds nuw i8, ptr %1211, i64 24
   %1240 = load i64, ptr %1239, align 8

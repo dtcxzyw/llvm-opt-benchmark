@@ -5547,7 +5547,7 @@ lean_alloc_ctor.exit128:                          ; preds = %lean_alloc_ctor.exi
   br label %101
 
 101:                                              ; preds = %92, %99, %97
-  %.0112 = phi ptr [ %100, %99 ], [ %98, %97 ], [ inttoptr (i64 1 to ptr), %92 ]
+  %.0112 = phi ptr [ %98, %97 ], [ %100, %99 ], [ inttoptr (i64 1 to ptr), %92 ]
   %102 = tail call ptr @l_List_appendTR___rarg(ptr noundef %96, ptr noundef %.0112) #7
   %103 = icmp eq i8 %19, 0
   br i1 %103, label %104, label %133
@@ -5990,7 +5990,7 @@ lean_alloc_ctor.exit128:                          ; preds = %lean_alloc_ctor.exi
   br label %101
 
 101:                                              ; preds = %92, %99, %97
-  %.0112 = phi ptr [ %100, %99 ], [ %98, %97 ], [ inttoptr (i64 1 to ptr), %92 ]
+  %.0112 = phi ptr [ %98, %97 ], [ %100, %99 ], [ inttoptr (i64 1 to ptr), %92 ]
   %102 = tail call ptr @l_List_appendTR___rarg(ptr noundef %96, ptr noundef %.0112) #7
   %103 = icmp eq i8 %19, 0
   br i1 %103, label %104, label %133
@@ -9705,7 +9705,7 @@ lean_alloc_closure.exit103:                       ; preds = %lean_inc.exit
   br label %132
 
 132:                                              ; preds = %lean_alloc_closure.exit103, %lean_alloc_closure.exit93, %lean_alloc_closure.exit
-  %.0 = phi ptr [ %131, %lean_alloc_closure.exit103 ], [ %94, %lean_alloc_closure.exit93 ], [ %44, %lean_alloc_closure.exit ]
+  %.0 = phi ptr [ %131, %lean_alloc_closure.exit103 ], [ %44, %lean_alloc_closure.exit ], [ %94, %lean_alloc_closure.exit93 ]
   ret ptr %.0
 }
 

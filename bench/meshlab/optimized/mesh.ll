@@ -2942,33 +2942,33 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i111: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit116:                          ; preds = %145, %_ZN9QtPrivate8RefCount5derefEv.exit.i112, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i111
   %150 = load i32, ptr @_ZZN3vcg3tri2io8ImporterI4MeshE8LastTypeEvE8lastType, align 4
   switch i32 %150, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread [
-    i32 1, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
-    i32 2, label %151
-    i32 3, label %153
-    i32 4, label %155
+    i32 1, label %151
+    i32 2, label %153
+    i32 3, label %155
+    i32 4, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
   ]
 
 151:                                              ; preds = %_ZN7QStringD2Ev.exit116
-  %152 = icmp sgt i32 %144, 0
-  br i1 %152, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread, label %216
+  %152 = and i32 %144, -17
+  %or.cond.i.i.not = icmp eq i32 %152, 0
+  br i1 %or.cond.i.i.not, label %216, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread
 
 153:                                              ; preds = %_ZN7QStringD2Ev.exit116
   %154 = icmp sgt i32 %144, 0
   br i1 %154, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread, label %216
 
 155:                                              ; preds = %_ZN7QStringD2Ev.exit116
-  %156 = icmp ne i32 %144, 0
-  %157 = and i32 %144, 1
-  %.not.i.i = icmp eq i32 %157, 0
-  %.0.i.i = and i1 %156, %.not.i.i
-  br i1 %.0.i.i, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread, label %216
+  %156 = icmp sgt i32 %144, 0
+  br i1 %156, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread, label %216
 
 _ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit: ; preds = %_ZN7QStringD2Ev.exit116
-  %158 = and i32 %144, -17
-  %or.cond.i.i.not = icmp eq i32 %158, 0
-  br i1 %or.cond.i.i.not, label %216, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread
+  %157 = icmp ne i32 %144, 0
+  %158 = and i32 %144, 1
+  %.not.i.i = icmp eq i32 %158, 0
+  %.0.i.i = and i1 %157, %.not.i.i
+  br i1 %.0.i.i, label %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread, label %216
 
-_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread: ; preds = %_ZN7QStringD2Ev.exit116, %151, %153, %155, %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
+_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit.thread: ; preds = %_ZN7QStringD2Ev.exit116, %155, %153, %151, %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
   %159 = invoke noundef i32 @_ZN7logging6Logger11GetLogLevelEv()
           to label %160 unwind label %.loopexit.split-lp
 
@@ -3139,7 +3139,7 @@ _ZN7logging6BufferlsIPKcEERS0_RKT_.exit121:       ; preds = %_ZN3vcg3tri2io8Impo
   call void @_ZN7logging6BufferD1Ev(ptr noundef nonnull align 8 dereferenceable(376) %20) #37
   br label %344
 
-216:                                              ; preds = %151, %153, %155, %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
+216:                                              ; preds = %155, %153, %151, %_ZN3vcg3tri2io8ImporterI4MeshE13ErrorCriticalEi.exit
   %.not = icmp eq i32 %144, 0
   br i1 %.not, label %.critedge81, label %217
 
@@ -28725,7 +28725,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #37
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   %66 = icmp eq i64 %64, %65
@@ -28748,7 +28748,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #37
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   %77 = icmp eq i64 %75, %76
@@ -52010,8 +52010,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %964, %967
   br label %980
 
 980:                                              ; preds = %761, %798, %760, %678, %692, %706, %720, %734, %747, %677, %835, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit
-  %.21677 = phi i8 [ %.116762157, %835 ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.51680, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116762157, %760 ], [ %.116762157, %798 ], [ %.116762157, %761 ], [ %.116762157, %677 ], [ %.116762157, %747 ], [ %746, %734 ], [ %.116762157, %720 ], [ %.116762157, %706 ], [ %.116762157, %692 ], [ %.116762157, %678 ]
-  %.21672 = phi i8 [ %.116712158, %835 ], [ %.5, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116712158, %760 ], [ %.116712158, %798 ], [ %.116712158, %761 ], [ %.116712158, %677 ], [ %759, %747 ], [ %.116712158, %734 ], [ %.116712158, %720 ], [ %.116712158, %706 ], [ %.116712158, %692 ], [ %.116712158, %678 ]
+  %.21677 = phi i8 [ %.116762157, %835 ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.51680, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.116762157, %760 ], [ %.116762157, %761 ], [ %.116762157, %798 ], [ %.116762157, %677 ], [ %.116762157, %678 ], [ %.116762157, %692 ], [ %.116762157, %706 ], [ %.116762157, %720 ], [ %746, %734 ], [ %.116762157, %747 ]
+  %.21672 = phi i8 [ %.116712158, %835 ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.5, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.116712158, %760 ], [ %.116712158, %761 ], [ %.116712158, %798 ], [ %.116712158, %677 ], [ %.116712158, %678 ], [ %.116712158, %692 ], [ %.116712158, %706 ], [ %.116712158, %720 ], [ %.116712158, %734 ], [ %759, %747 ]
   %981 = add nuw i64 %.08612159, 1
   %982 = load ptr, ptr %111, align 8
   %983 = load ptr, ptr %110, align 8
@@ -53119,8 +53119,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1649,
   br label %1665
 
 1665:                                             ; preds = %1446, %1483, %1445, %1363, %1377, %1391, %1405, %1419, %1432, %1362, %1520, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155
-  %.21667 = phi i8 [ %.116662182, %1520 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.41669, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116662182, %1445 ], [ %.116662182, %1483 ], [ %.116662182, %1446 ], [ %.116662182, %1362 ], [ %.116662182, %1432 ], [ %1431, %1419 ], [ %.116662182, %1405 ], [ %.116662182, %1391 ], [ %.116662182, %1377 ], [ %.116662182, %1363 ]
-  %.2 = phi i8 [ %.116642183, %1520 ], [ %.4, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116642183, %1445 ], [ %.116642183, %1483 ], [ %.116642183, %1446 ], [ %.116642183, %1362 ], [ %1444, %1432 ], [ %.116642183, %1419 ], [ %.116642183, %1405 ], [ %.116642183, %1391 ], [ %.116642183, %1377 ], [ %.116642183, %1363 ]
+  %.21667 = phi i8 [ %.116662182, %1520 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.41669, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.116662182, %1445 ], [ %.116662182, %1446 ], [ %.116662182, %1483 ], [ %.116662182, %1362 ], [ %.116662182, %1363 ], [ %.116662182, %1377 ], [ %.116662182, %1391 ], [ %.116662182, %1405 ], [ %1431, %1419 ], [ %.116662182, %1432 ]
+  %.2 = phi i8 [ %.116642183, %1520 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.4, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.116642183, %1445 ], [ %.116642183, %1446 ], [ %.116642183, %1483 ], [ %.116642183, %1362 ], [ %.116642183, %1363 ], [ %.116642183, %1377 ], [ %.116642183, %1391 ], [ %.116642183, %1405 ], [ %.116642183, %1419 ], [ %1444, %1432 ]
   %1666 = add nuw i64 %.08532184, 1
   %1667 = load ptr, ptr %178, align 8
   %1668 = load ptr, ptr %177, align 8

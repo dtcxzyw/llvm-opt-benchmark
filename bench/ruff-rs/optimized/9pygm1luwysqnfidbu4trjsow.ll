@@ -201,7 +201,7 @@ define internal fastcc i8 @_ZN13unicode_width6tables12lookup_width17h4e08546b925
   br label %37
 
 37:                                               ; preds = %29, %28, %28, %28, %18, %36, %35
-  %.sroa.0.0 = phi i8 [ 0, %36 ], [ 3, %35 ], [ %27, %18 ], [ 1, %28 ], [ 1, %28 ], [ 1, %28 ], [ %spec.select, %29 ]
+  %.sroa.0.0 = phi i8 [ 3, %35 ], [ 0, %36 ], [ %27, %18 ], [ 1, %28 ], [ 1, %28 ], [ 1, %28 ], [ %spec.select, %29 ]
   ret i8 %.sroa.0.0
 }
 

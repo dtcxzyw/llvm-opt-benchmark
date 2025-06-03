@@ -2488,7 +2488,7 @@ _ZN7QStringD2Ev.exit74:                           ; preds = %.body64, %_ZN17QArr
   br i1 %142, label %18, label %.critedge, !llvm.loop !17
 
 143:                                              ; preds = %_ZN7QStringD2Ev.exit74, %_ZN7QStringD2Ev.exit62, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit38, %_ZN7QStringD2Ev.exit26
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body65, %_ZN7QStringD2Ev.exit74 ], [ %eh.lpad-body53, %_ZN7QStringD2Ev.exit62 ], [ %eh.lpad-body41, %_ZN7QStringD2Ev.exit50 ], [ %eh.lpad-body29, %_ZN7QStringD2Ev.exit38 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit26 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %_ZN7QStringD2Ev.exit26 ], [ %eh.lpad-body29, %_ZN7QStringD2Ev.exit38 ], [ %eh.lpad-body41, %_ZN7QStringD2Ev.exit50 ], [ %eh.lpad-body53, %_ZN7QStringD2Ev.exit62 ], [ %eh.lpad-body65, %_ZN7QStringD2Ev.exit74 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3010,9 +3010,9 @@ _ZN5QListI8QVariantElsEOS0_.exit32:               ; preds = %65
   br i1 %75, label %14, label %.critedge, !llvm.loop !18
 
 76:                                               ; preds = %71, %61, %51, %41, %31
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %71 ], [ %.pn20, %61 ], [ %.pn22, %51 ], [ %.pn24, %41 ], [ %.pn26, %31 ]
+  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %31 ], [ %.pn24, %41 ], [ %.pn22, %51 ], [ %.pn20, %61 ], [ %.pn, %71 ]
   call void @_ZN5QListI8QVariantED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #26
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn26.pn
 
 .critedge:                                        ; preds = %72, %14, %2
   ret void
@@ -3844,7 +3844,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK30SimpleStatisticsTreeWidgetItemltER
   br label %62
 
 62:                                               ; preds = %19, %27, %35, %44, %52, %60, %11
-  %.0 = phi i1 [ %12, %11 ], [ %61, %60 ], [ %59, %52 ], [ %51, %44 ], [ %43, %35 ], [ %34, %27 ], [ %26, %19 ]
+  %.0 = phi i1 [ %12, %11 ], [ %61, %60 ], [ %26, %19 ], [ %34, %27 ], [ %43, %35 ], [ %51, %44 ], [ %59, %52 ]
   ret i1 %.0
 }
 

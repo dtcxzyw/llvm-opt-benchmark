@@ -580,7 +580,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
   unreachable
 
 gen_exists.exit:                                  ; preds = %129, %122, %97, %147, %135, %gen_test.exit
-  %.0 = phi ptr [ %148, %147 ], [ %136, %135 ], [ %98, %97 ], [ null, %gen_test.exit ], [ null, %122 ], [ null, %129 ]
+  %.0 = phi ptr [ null, %gen_test.exit ], [ %98, %97 ], [ %136, %135 ], [ %148, %147 ], [ null, %122 ], [ null, %129 ]
   ret ptr %.0
 }
 
@@ -707,7 +707,7 @@ default.unreachable:                              ; preds = %10
   unreachable
 
 select_opcode.exit:                               ; preds = %5, %11, %15
-  %.0.i = phi i32 [ %18, %15 ], [ %14, %11 ], [ %1, %5 ]
+  %.0.i = phi i32 [ %14, %11 ], [ %18, %15 ], [ %1, %5 ]
   %19 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
   %20 = call ptr @dfvm_value_ref(ptr noundef %7)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -835,7 +835,7 @@ default.unreachable:                              ; preds = %41
   unreachable
 
 select_opcode.exit:                               ; preds = %._crit_edge, %42, %46
-  %.0.i = phi i32 [ %49, %46 ], [ %45, %42 ], [ %1, %._crit_edge ]
+  %.0.i = phi i32 [ %45, %42 ], [ %49, %46 ], [ %1, %._crit_edge ]
   %50 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
   %51 = call ptr @dfvm_value_ref(ptr noundef %8)
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -1442,7 +1442,7 @@ dfw_append_function.exit:                         ; preds = %210, %231, %._crit_
   unreachable
 
 301:                                              ; preds = %298, %297, %296, %295, %294, %293, %292, %290
-  %.0.i67 = phi i32 [ 0, %290 ], [ 38, %298 ], [ 44, %297 ], [ 43, %296 ], [ 42, %295 ], [ 41, %294 ], [ 40, %293 ], [ 39, %292 ]
+  %.0.i67 = phi i32 [ 0, %290 ], [ 39, %292 ], [ 40, %293 ], [ 41, %294 ], [ 42, %295 ], [ 43, %296 ], [ 44, %297 ], [ 38, %298 ]
   %302 = load ptr, ptr %4, align 8
   %303 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %302, ptr noundef %2)
   %304 = load ptr, ptr %5, align 8

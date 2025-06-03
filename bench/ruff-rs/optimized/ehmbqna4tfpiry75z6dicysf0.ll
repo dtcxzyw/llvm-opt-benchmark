@@ -434,7 +434,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   unreachable
 
 119:                                              ; preds = %265, %193, %109
-  %.pn.i = phi { ptr, i32 } [ %266, %265 ], [ %194, %193 ], [ %110, %109 ]
+  %.pn.i = phi { ptr, i32 } [ %110, %109 ], [ %194, %193 ], [ %266, %265 ]
   resume { ptr, i32 } %.pn.i
 
 120:                                              ; preds = %32

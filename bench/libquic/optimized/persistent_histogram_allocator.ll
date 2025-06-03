@@ -1597,8 +1597,8 @@ _ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146: ; preds = %197,
   call void %208(ptr noundef nonnull align 8 dereferenceable(44) %195) #21
   br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147: ; preds = %177, %182, %187, %192, %205, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146
-  %.pn171 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %205 ], [ %lpad.thr_comm, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146 ], [ %178, %177 ], [ %183, %182 ], [ %188, %187 ], [ %193, %192 ]
+_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit147: ; preds = %192, %187, %182, %177, %205, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146
+  %.pn171 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %205 ], [ %lpad.thr_comm, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i146 ], [ %193, %192 ], [ %188, %187 ], [ %183, %182 ], [ %178, %177 ]
   store ptr null, ptr %0, align 8, !tbaa !86
   %209 = load ptr, ptr %8, align 8, !tbaa !83
   %210 = getelementptr inbounds nuw i8, ptr %8, i64 16

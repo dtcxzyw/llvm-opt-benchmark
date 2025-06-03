@@ -1030,8 +1030,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %55,
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h6778d8705156a4bdE.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h6778d8705156a4bdE.exit": ; preds = %1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i", %77
-  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %80, %77 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i" ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %79, %77 ], [ %.sroa.0.0.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i" ], [ %80, %77 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %.sroa.0.0.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i" ], [ %79, %77 ]
   %81 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %82 = insertvalue { ptr, i64 } %81, i64 %.sroa.4.0.i, 1
   ret { ptr, i64 } %82

@@ -8383,7 +8383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %71
 
 71:                                               ; preds = %69, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
+  %.sroa.038.1.i.i.i = phi ptr [ %70, %69 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %72 = load i8, ptr %.sroa.038.1.i.i.i, align 1, !tbaa !25
   %73 = sext i8 %72 to i32
   %74 = tail call noundef i32 @isspace(i32 noundef %73)
@@ -8395,7 +8395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %76, %75 ]
+  %.sroa.038.2.i.i.i = phi ptr [ %76, %75 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %78 = load i8, ptr %.sroa.038.2.i.i.i, align 1, !tbaa !25
   %79 = sext i8 %78 to i32
   %80 = tail call noundef i32 @isspace(i32 noundef %79)

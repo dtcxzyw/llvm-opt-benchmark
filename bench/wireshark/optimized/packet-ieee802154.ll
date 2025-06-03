@@ -4035,9 +4035,9 @@ proto_item_set_generated.exit:                    ; preds = %61, %58, %53, %51, 
   %76 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %75)
   br label %79
 
-.critedge.sink.split:                             ; preds = %51, %68, %67, %66, %65
-  %.str.25.sink = phi ptr [ @.str.26, %65 ], [ @.str.27, %66 ], [ @.str.28, %67 ], [ @.str.29, %68 ], [ @.str.25, %51 ]
-  %77 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %10, ptr noundef nonnull @ei_ieee802154_decrypt_error, ptr noundef nonnull %.str.25.sink)
+.critedge.sink.split:                             ; preds = %51, %65, %66, %67, %68
+  %.str.29.sink = phi ptr [ @.str.29, %68 ], [ @.str.28, %67 ], [ @.str.27, %66 ], [ @.str.26, %65 ], [ @.str.25, %51 ]
+  %77 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %10, ptr noundef nonnull @ei_ieee802154_decrypt_error, ptr noundef nonnull %.str.29.sink)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %69
@@ -8678,8 +8678,8 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %102
 
 52:                                               ; preds = %.thread, %33, %20
-  %.1110 = phi i32 [ %37, %33 ], [ %22, %20 ], [ %15, %.thread ]
-  %.0108 = phi i32 [ 8, %33 ], [ 5, %20 ], [ 3, %.thread ]
+  %.1110 = phi i32 [ %22, %20 ], [ %37, %33 ], [ %15, %.thread ]
+  %.0108 = phi i32 [ 5, %20 ], [ 8, %33 ], [ 3, %.thread ]
   %trunc = trunc nuw i32 %.1110 to i16
   switch i16 %trunc, label %85 [
     i16 1, label %53
@@ -8762,8 +8762,8 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread120
 
 .thread120:                                       ; preds = %75, %77, %79, %82, %58, %60, %63, %67, %87, %85
-  %.1112 = phi ptr [ %89, %87 ], [ null, %85 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ %59, %58 ], [ null, %82 ], [ null, %79 ], [ %78, %77 ], [ %76, %75 ]
-  %.3 = phi i32 [ %.0108, %87 ], [ %.0108, %85 ], [ %57, %67 ], [ %66, %63 ], [ %57, %60 ], [ %57, %58 ], [ %74, %82 ], [ %74, %79 ], [ %74, %77 ], [ %74, %75 ]
+  %.1112 = phi ptr [ %89, %87 ], [ null, %85 ], [ null, %67 ], [ %59, %58 ], [ null, %60 ], [ null, %63 ], [ null, %82 ], [ %76, %75 ], [ %78, %77 ], [ null, %79 ]
+  %.3 = phi i32 [ %.0108, %87 ], [ %.0108, %85 ], [ %57, %67 ], [ %57, %58 ], [ %57, %60 ], [ %66, %63 ], [ %74, %82 ], [ %74, %75 ], [ %74, %77 ], [ %74, %79 ]
   %or.cond = icmp samesign ult i8 %9, 2
   br i1 %or.cond, label %90, label %.thread120.thread
 
@@ -8781,8 +8781,8 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   %96 = tail call i32 @call_data_dissector(ptr noundef %91, ptr noundef %1, ptr noundef %92)
   br label %100
 
-.thread120.thread:                                ; preds = %28, %40, %.thread120
-  %.3126 = phi i32 [ %.3, %.thread120 ], [ 4, %40 ], [ 4, %28 ]
+.thread120.thread:                                ; preds = %40, %28, %.thread120
+  %.3126 = phi i32 [ %.3, %.thread120 ], [ 4, %28 ], [ 4, %40 ]
   %97 = load i32, ptr @hf_ieee802159_mpx_fragment, align 4
   %98 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3126)
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %97, ptr noundef %0, i32 noundef %.3126, i32 noundef %98, i32 noundef 0)
@@ -9085,8 +9085,8 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not233 = icmp eq i32 %170, 0
   br i1 %.not233, label %.thread237, label %.lr.ph, !llvm.loop !35
 
-.thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %82, %85, %119, %104, %111, %105, %114, %103, %103, %103, %103, %103, %103, %103, %103, %117, %47, %45, %61, %59, %68, %67, %80, %91, %89, %94, %11, %4
-  %.0210 = phi i32 [ %8, %4 ], [ %8, %11 ], [ 9, %82 ], [ %8, %85 ], [ 7, %119 ], [ %8, %104 ], [ %8, %111 ], [ 9, %105 ], [ 7, %114 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %117 ], [ 11, %47 ], [ 7, %45 ], [ 10, %61 ], [ 7, %59 ], [ 15, %68 ], [ 7, %67 ], [ 7, %80 ], [ 9, %91 ], [ 7, %89 ], [ 7, %94 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
+.thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %82, %85, %119, %103, %103, %103, %103, %103, %103, %103, %103, %114, %104, %111, %105, %117, %91, %89, %80, %68, %67, %61, %59, %47, %45, %94, %11, %4
+  %.0210 = phi i32 [ %8, %4 ], [ %8, %11 ], [ 9, %82 ], [ %8, %85 ], [ 7, %119 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ 7, %45 ], [ 7, %94 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
   ret i32 %.0210
 }
 

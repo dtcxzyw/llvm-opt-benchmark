@@ -2321,7 +2321,7 @@ sw.bb.i.i:                                        ; preds = %if.end35.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb.i.i, %if.end35.i.i
-  %closed.0.i.i = phi i32 [ 0, %if.end35.i.i ], [ 2, %sw.bb.i.i ]
+  %closed.0.i.i = phi i32 [ 2, %sw.bb.i.i ], [ 0, %if.end35.i.i ]
   br i1 %cmp27.i.i, label %if.end41.i.i, label %if.then.i
 
 if.end41.i.i:                                     ; preds = %sw.epilog.i.i
@@ -2520,7 +2520,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then7.i, %memptr.end.i, %if.else.i, %if.then.i, %do.body
-  %bytes_consumed.0.i = phi i32 [ 0, %if.then.i ], [ %bytes_consumed.1.i, %if.else.i ], [ %bytes_consumed.1.i, %if.then7.i ], [ 0, %memptr.end.i ], [ 0, %do.body ]
+  %bytes_consumed.0.i = phi i32 [ 0, %if.then.i ], [ %bytes_consumed.1.i, %if.else.i ], [ 0, %memptr.end.i ], [ %bytes_consumed.1.i, %if.then7.i ], [ 0, %do.body ]
   %27 = load ptr, ptr %output.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit, label %if.then.i.i.i.i
@@ -3136,7 +3136,7 @@ if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end19.i.i.i, %for.end.i.i.i
-  %__first.addr.1.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ]
+  %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %__first.addr.1.val.i.i.i = load i8, ptr %__first.addr.1.i.i.i, align 1
   %cmp.i.i31.not.i.i.i = icmp eq i8 %__first.addr.1.val.i.i.i, 0
   br i1 %cmp.i.i31.not.i.i.i, label %if.end24.i.i.i, label %"_ZSt11find_if_notIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SD_SD_T0_.exit"
@@ -3146,7 +3146,7 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.i.i.i
-  %__first.addr.2.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ]
+  %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %__first.addr.2.val.i.i.i = load i8, ptr %__first.addr.2.i.i.i, align 1
   %cmp.i.i32.not.i.i.i = icmp eq i8 %__first.addr.2.val.i.i.i, 0
   br i1 %cmp.i.i32.not.i.i.i, label %sw.default.i.i.i, label %"_ZSt11find_if_notIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SD_SD_T0_.exit"

@@ -2050,7 +2050,7 @@ thread-pre-split:                                 ; preds = %81, %87
   br label %read_encoded_part_content.exit
 
 read_encoded_part_content.exit:                   ; preds = %75, %95, %76, %90, %99
-  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select, %76 ], [ %spec.select163, %95 ], [ %.048.i.ph, %75 ]
+  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select163, %95 ], [ %spec.select, %76 ], [ %.048.i.ph, %75 ]
   switch i64 %.159, label %111 [
     i64 0, label %101
     i64 268435456, label %read_encoded_part_content.exit.thread
@@ -2085,7 +2085,7 @@ read_encoded_part_content.exit.thread:            ; preds = %90, %read_encoded_p
   br label %.thread104
 
 111:                                              ; preds = %readback_bytes.exit89, %19, %25, %.preheader.i.preheader, %63, %readback_bytes.exit, %readback_bytes.exit.thread, %36, %readback_bytes.exit89.thread, %read_encoded_part_content.exit, %16
-  %.058 = phi i64 [ 0, %16 ], [ %.159, %read_encoded_part_content.exit ], [ 0, %63 ], [ %spec.select.i88, %readback_bytes.exit89 ], [ 0, %readback_bytes.exit89.thread ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %readback_bytes.exit.thread ], [ 0, %36 ], [ 0, %.preheader.i.preheader ], [ 0, %25 ], [ 0, %19 ]
+  %.058 = phi i64 [ 0, %16 ], [ 0, %19 ], [ 0, %.preheader.i.preheader ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %readback_bytes.exit.thread ], [ 0, %36 ], [ 0, %25 ], [ %spec.select.i88, %readback_bytes.exit89 ], [ 0, %readback_bytes.exit89.thread ], [ 0, %63 ], [ %.159, %read_encoded_part_content.exit ]
   %112 = add i64 %.058, %.060131
   %113 = getelementptr inbounds nuw i8, ptr %.062129, i64 %.058
   %114 = sub i64 %.064127, %.058
@@ -3404,8 +3404,8 @@ qp_lookahead_eol.exit68.thread77:                 ; preds = %qp_lookahead_eol.ex
   br label %qp_lookahead_eol.exit.thread74
 
 qp_lookahead_eol.exit.thread74:                   ; preds = %qp_lookahead_eol.exit, %45, %38, %qp_lookahead_eol.exit68.thread, %qp_lookahead_eol.exit68.thread77, %qp_lookahead_eol.exit.thread, %66, %15
-  %.051 = phi i64 [ 3, %66 ], [ 3, %qp_lookahead_eol.exit68.thread77 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 3, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %15 ], [ 1, %38 ], [ 1, %45 ]
-  %.049 = phi i64 [ 1, %66 ], [ 1, %qp_lookahead_eol.exit68.thread77 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 1, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %15 ], [ 1, %38 ], [ 1, %45 ]
+  %.051 = phi i64 [ 3, %66 ], [ 1, %15 ], [ 3, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 3, %qp_lookahead_eol.exit68.thread77 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 1, %38 ], [ 1, %45 ]
+  %.049 = phi i64 [ 1, %66 ], [ 1, %15 ], [ 1, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %qp_lookahead_eol.exit68.thread77 ], [ 2, %qp_lookahead_eol.exit68.thread ], [ 1, %38 ], [ 1, %45 ]
   %67 = add nsw i64 %.051, -1
   %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !67
@@ -3690,7 +3690,7 @@ readback_bytes.exit48.thread:                     ; preds = %29
   br label %70
 
 70:                                               ; preds = %readback_bytes.exit48, %24, %27, %readback_bytes.exit48.thread, %61, %63, %64, %67, %58, %48
-  %.047.i = phi i64 [ 0, %24 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ 0, %61 ], [ %spec.select.i47, %readback_bytes.exit48 ], [ 0, %readback_bytes.exit48.thread ], [ 0, %27 ], [ %spec.select.i41, %48 ], [ %spec.select.i, %58 ]
+  %.047.i = phi i64 [ 0, %24 ], [ 0, %27 ], [ %spec.select.i47, %readback_bytes.exit48 ], [ 0, %readback_bytes.exit48.thread ], [ 0, %61 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ %spec.select.i41, %48 ], [ %spec.select.i, %58 ]
   %71 = add i64 %.047.i, %.049.i66
   %72 = getelementptr inbounds nuw i8, ptr %.051.i64, i64 %.047.i
   %73 = sub i64 %.053.i62, %.047.i
@@ -4261,7 +4261,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   br label %221
 
 221:                                              ; preds = %.thread194, %76, %199, %200, %207, %213, %214, %180, %174, %151, %147, %56, %35
-  %.0 = phi i32 [ %37, %35 ], [ 0, %56 ], [ 26, %180 ], [ 26, %174 ], [ 42, %151 ], [ 26, %147 ], [ %79, %76 ], [ 0, %214 ], [ 0, %213 ], [ 0, %207 ], [ 0, %200 ], [ 0, %199 ], [ %114, %.thread194 ]
+  %.0 = phi i32 [ %37, %35 ], [ 0, %56 ], [ 26, %180 ], [ 26, %147 ], [ 42, %151 ], [ 26, %174 ], [ %79, %76 ], [ 0, %214 ], [ 0, %213 ], [ 0, %207 ], [ 0, %200 ], [ 0, %199 ], [ %114, %.thread194 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #18
   ret i32 %.0
 }

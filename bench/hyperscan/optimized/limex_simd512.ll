@@ -977,7 +977,7 @@ moNfaReportCurrent512.exit:                       ; preds = %10, %25
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %176, %185, %187, %189, %191, %193, %195
-  %.0.i101 = phi i64 [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ 0, %176 ]
+  %.0.i101 = phi i64 [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ 0, %176 ]
   %197 = load <4 x i64>, ptr %148, align 32, !noalias !89
   %198 = load <4 x i64>, ptr %149, align 32, !noalias !89
   %.0.i94.sroa.speculated = select i1 %161, <4 x i64> %197, <4 x i64> %198
@@ -1222,8 +1222,8 @@ lshift64_m256.exit121:                            ; preds = %lshift64_m256.exit9
   br label %lshift64_m256.exit117
 
 lshift64_m256.exit117:                            ; preds = %lshift64_m256.exit121, %lshift64_m256.exit93
-  %.sroa.0793.6 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %103, %lshift64_m256.exit121 ]
-  %.sroa.27809.6 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %104, %lshift64_m256.exit121 ]
+  %.sroa.0793.6 = phi <4 x i64> [ %103, %lshift64_m256.exit121 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.6 = phi <4 x i64> [ %104, %lshift64_m256.exit121 ], [ %89, %lshift64_m256.exit93 ]
   %105 = load <4 x i64>, ptr %50, align 32, !noalias !104
   %106 = and <4 x i64> %105, %.sroa.14.01604
   %107 = load i8, ptr %51, align 2
@@ -1241,8 +1241,8 @@ lshift64_m256.exit117:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit113
 
 lshift64_m256.exit113:                            ; preds = %lshift64_m256.exit117, %lshift64_m256.exit93
-  %.sroa.0793.5 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %117, %lshift64_m256.exit117 ]
-  %.sroa.27809.5 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %118, %lshift64_m256.exit117 ]
+  %.sroa.0793.5 = phi <4 x i64> [ %117, %lshift64_m256.exit117 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.5 = phi <4 x i64> [ %118, %lshift64_m256.exit117 ], [ %89, %lshift64_m256.exit93 ]
   %119 = load <4 x i64>, ptr %53, align 32, !noalias !107
   %120 = and <4 x i64> %119, %.sroa.14.01604
   %121 = load i8, ptr %54, align 1
@@ -1260,8 +1260,8 @@ lshift64_m256.exit113:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit109
 
 lshift64_m256.exit109:                            ; preds = %lshift64_m256.exit113, %lshift64_m256.exit93
-  %.sroa.0793.4 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %131, %lshift64_m256.exit113 ]
-  %.sroa.27809.4 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %132, %lshift64_m256.exit113 ]
+  %.sroa.0793.4 = phi <4 x i64> [ %131, %lshift64_m256.exit113 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.4 = phi <4 x i64> [ %132, %lshift64_m256.exit113 ], [ %89, %lshift64_m256.exit93 ]
   %133 = load <4 x i64>, ptr %56, align 32, !noalias !110
   %134 = and <4 x i64> %133, %.sroa.14.01604
   %135 = load i8, ptr %57, align 4
@@ -1279,8 +1279,8 @@ lshift64_m256.exit109:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit105
 
 lshift64_m256.exit105:                            ; preds = %lshift64_m256.exit109, %lshift64_m256.exit93
-  %.sroa.0793.3 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %145, %lshift64_m256.exit109 ]
-  %.sroa.27809.3 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %146, %lshift64_m256.exit109 ]
+  %.sroa.0793.3 = phi <4 x i64> [ %145, %lshift64_m256.exit109 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.3 = phi <4 x i64> [ %146, %lshift64_m256.exit109 ], [ %89, %lshift64_m256.exit93 ]
   %147 = load <4 x i64>, ptr %59, align 32, !noalias !113
   %148 = and <4 x i64> %147, %.sroa.14.01604
   %149 = load i8, ptr %60, align 1
@@ -1298,8 +1298,8 @@ lshift64_m256.exit105:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit101
 
 lshift64_m256.exit101:                            ; preds = %lshift64_m256.exit105, %lshift64_m256.exit93
-  %.sroa.0793.2 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %159, %lshift64_m256.exit105 ]
-  %.sroa.27809.2 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %160, %lshift64_m256.exit105 ]
+  %.sroa.0793.2 = phi <4 x i64> [ %159, %lshift64_m256.exit105 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.2 = phi <4 x i64> [ %160, %lshift64_m256.exit105 ], [ %89, %lshift64_m256.exit93 ]
   %161 = load <4 x i64>, ptr %62, align 32, !noalias !116
   %162 = and <4 x i64> %161, %.sroa.14.01604
   %163 = load i8, ptr %63, align 2
@@ -1317,8 +1317,8 @@ lshift64_m256.exit101:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit97
 
 lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit101, %lshift64_m256.exit93
-  %.sroa.0793.0 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %173, %lshift64_m256.exit101 ]
-  %.sroa.27809.0 = phi <4 x i64> [ %89, %lshift64_m256.exit93 ], [ %174, %lshift64_m256.exit101 ]
+  %.sroa.0793.0 = phi <4 x i64> [ %173, %lshift64_m256.exit101 ], [ %86, %lshift64_m256.exit93 ]
+  %.sroa.27809.0 = phi <4 x i64> [ %174, %lshift64_m256.exit101 ], [ %89, %lshift64_m256.exit93 ]
   %175 = load <4 x i64>, ptr %65, align 32, !noalias !119
   %176 = and <4 x i64> %175, %.sroa.14.01604
   %177 = load i8, ptr %66, align 1
@@ -1623,7 +1623,7 @@ diff512.exit.thread:                              ; preds = %209, %diff512.exit
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %308, %329, %331, %333, %335
-  %.0.i235 = phi i32 [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %309, %308 ]
+  %.0.i235 = phi i32 [ %309, %308 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ]
   switch i32 %.0.i235, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread1281
     i32 2, label %repeatHasMatch.exit.thread1283
@@ -1896,8 +1896,8 @@ lshift64_m256.exit89:                             ; preds = %lshift64_m256.exit6
   br label %lshift64_m256.exit85
 
 lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit89, %lshift64_m256.exit61
-  %.sroa.0584.6 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %467, %lshift64_m256.exit89 ]
-  %.sroa.27600.6 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %468, %lshift64_m256.exit89 ]
+  %.sroa.0584.6 = phi <4 x i64> [ %467, %lshift64_m256.exit89 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.6 = phi <4 x i64> [ %468, %lshift64_m256.exit89 ], [ %453, %lshift64_m256.exit61 ]
   %469 = load <4 x i64>, ptr %409, align 32, !noalias !145
   %470 = and <4 x i64> %469, %.sroa.15.01618
   %471 = load i8, ptr %410, align 2
@@ -1915,8 +1915,8 @@ lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit81
 
 lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit85, %lshift64_m256.exit61
-  %.sroa.0584.5 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %481, %lshift64_m256.exit85 ]
-  %.sroa.27600.5 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %482, %lshift64_m256.exit85 ]
+  %.sroa.0584.5 = phi <4 x i64> [ %481, %lshift64_m256.exit85 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.5 = phi <4 x i64> [ %482, %lshift64_m256.exit85 ], [ %453, %lshift64_m256.exit61 ]
   %483 = load <4 x i64>, ptr %412, align 32, !noalias !148
   %484 = and <4 x i64> %483, %.sroa.15.01618
   %485 = load i8, ptr %413, align 1
@@ -1934,8 +1934,8 @@ lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit77
 
 lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit81, %lshift64_m256.exit61
-  %.sroa.0584.4 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %495, %lshift64_m256.exit81 ]
-  %.sroa.27600.4 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %496, %lshift64_m256.exit81 ]
+  %.sroa.0584.4 = phi <4 x i64> [ %495, %lshift64_m256.exit81 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.4 = phi <4 x i64> [ %496, %lshift64_m256.exit81 ], [ %453, %lshift64_m256.exit61 ]
   %497 = load <4 x i64>, ptr %415, align 32, !noalias !151
   %498 = and <4 x i64> %497, %.sroa.15.01618
   %499 = load i8, ptr %416, align 4
@@ -1953,8 +1953,8 @@ lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit73
 
 lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit77, %lshift64_m256.exit61
-  %.sroa.0584.3 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %509, %lshift64_m256.exit77 ]
-  %.sroa.27600.3 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %510, %lshift64_m256.exit77 ]
+  %.sroa.0584.3 = phi <4 x i64> [ %509, %lshift64_m256.exit77 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.3 = phi <4 x i64> [ %510, %lshift64_m256.exit77 ], [ %453, %lshift64_m256.exit61 ]
   %511 = load <4 x i64>, ptr %418, align 32, !noalias !154
   %512 = and <4 x i64> %511, %.sroa.15.01618
   %513 = load i8, ptr %419, align 1
@@ -1972,8 +1972,8 @@ lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit69
 
 lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit73, %lshift64_m256.exit61
-  %.sroa.0584.2 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %523, %lshift64_m256.exit73 ]
-  %.sroa.27600.2 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %524, %lshift64_m256.exit73 ]
+  %.sroa.0584.2 = phi <4 x i64> [ %523, %lshift64_m256.exit73 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.2 = phi <4 x i64> [ %524, %lshift64_m256.exit73 ], [ %453, %lshift64_m256.exit61 ]
   %525 = load <4 x i64>, ptr %421, align 32, !noalias !157
   %526 = and <4 x i64> %525, %.sroa.15.01618
   %527 = load i8, ptr %422, align 2
@@ -1991,8 +1991,8 @@ lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit65
 
 lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit69, %lshift64_m256.exit61
-  %.sroa.0584.0 = phi <4 x i64> [ %450, %lshift64_m256.exit61 ], [ %537, %lshift64_m256.exit69 ]
-  %.sroa.27600.0 = phi <4 x i64> [ %453, %lshift64_m256.exit61 ], [ %538, %lshift64_m256.exit69 ]
+  %.sroa.0584.0 = phi <4 x i64> [ %537, %lshift64_m256.exit69 ], [ %450, %lshift64_m256.exit61 ]
+  %.sroa.27600.0 = phi <4 x i64> [ %538, %lshift64_m256.exit69 ], [ %453, %lshift64_m256.exit61 ]
   %539 = load <4 x i64>, ptr %424, align 32, !noalias !160
   %540 = and <4 x i64> %539, %.sroa.15.01618
   %541 = load i8, ptr %425, align 1
@@ -2297,7 +2297,7 @@ diff512.exit165.thread:                           ; preds = %573, %diff512.exit1
   br label %repeatHasMatch.exit237
 
 repeatHasMatch.exit237:                           ; preds = %672, %693, %695, %697, %699
-  %.0.i236 = phi i32 [ %700, %699 ], [ %698, %697 ], [ %696, %695 ], [ %694, %693 ], [ %673, %672 ]
+  %.0.i236 = phi i32 [ %673, %672 ], [ %694, %693 ], [ %696, %695 ], [ %698, %697 ], [ %700, %699 ]
   switch i32 %.0.i236, label %repeatHasMatch.exit237.thread [
     i32 1, label %repeatHasMatch.exit237.thread1365
     i32 2, label %repeatHasMatch.exit237.thread1367
@@ -2622,8 +2622,8 @@ lshift64_m256.exit57:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit53
 
 lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit57, %lshift64_m256.exit29
-  %.sroa.0321.6 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %854, %lshift64_m256.exit57 ]
-  %.sroa.27.6 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %855, %lshift64_m256.exit57 ]
+  %.sroa.0321.6 = phi <4 x i64> [ %854, %lshift64_m256.exit57 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.6 = phi <4 x i64> [ %855, %lshift64_m256.exit57 ], [ %840, %lshift64_m256.exit29 ]
   %856 = load <4 x i64>, ptr %774, align 32, !noalias !190
   %857 = and <4 x i64> %856, %.sroa.23.11638
   %858 = load i8, ptr %775, align 2
@@ -2641,8 +2641,8 @@ lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit49
 
 lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit53, %lshift64_m256.exit29
-  %.sroa.0321.5 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %868, %lshift64_m256.exit53 ]
-  %.sroa.27.5 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %869, %lshift64_m256.exit53 ]
+  %.sroa.0321.5 = phi <4 x i64> [ %868, %lshift64_m256.exit53 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.5 = phi <4 x i64> [ %869, %lshift64_m256.exit53 ], [ %840, %lshift64_m256.exit29 ]
   %870 = load <4 x i64>, ptr %777, align 32, !noalias !193
   %871 = and <4 x i64> %870, %.sroa.23.11638
   %872 = load i8, ptr %778, align 1
@@ -2660,8 +2660,8 @@ lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit45
 
 lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit49, %lshift64_m256.exit29
-  %.sroa.0321.4 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %882, %lshift64_m256.exit49 ]
-  %.sroa.27.4 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %883, %lshift64_m256.exit49 ]
+  %.sroa.0321.4 = phi <4 x i64> [ %882, %lshift64_m256.exit49 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.4 = phi <4 x i64> [ %883, %lshift64_m256.exit49 ], [ %840, %lshift64_m256.exit29 ]
   %884 = load <4 x i64>, ptr %780, align 32, !noalias !196
   %885 = and <4 x i64> %884, %.sroa.23.11638
   %886 = load i8, ptr %781, align 4
@@ -2679,8 +2679,8 @@ lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit41
 
 lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit45, %lshift64_m256.exit29
-  %.sroa.0321.3 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %896, %lshift64_m256.exit45 ]
-  %.sroa.27.3 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %897, %lshift64_m256.exit45 ]
+  %.sroa.0321.3 = phi <4 x i64> [ %896, %lshift64_m256.exit45 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.3 = phi <4 x i64> [ %897, %lshift64_m256.exit45 ], [ %840, %lshift64_m256.exit29 ]
   %898 = load <4 x i64>, ptr %783, align 32, !noalias !199
   %899 = and <4 x i64> %898, %.sroa.23.11638
   %900 = load i8, ptr %784, align 1
@@ -2698,8 +2698,8 @@ lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit37
 
 lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit41, %lshift64_m256.exit29
-  %.sroa.0321.2 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %910, %lshift64_m256.exit41 ]
-  %.sroa.27.2 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %911, %lshift64_m256.exit41 ]
+  %.sroa.0321.2 = phi <4 x i64> [ %910, %lshift64_m256.exit41 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.2 = phi <4 x i64> [ %911, %lshift64_m256.exit41 ], [ %840, %lshift64_m256.exit29 ]
   %912 = load <4 x i64>, ptr %786, align 32, !noalias !202
   %913 = and <4 x i64> %912, %.sroa.23.11638
   %914 = load i8, ptr %787, align 2
@@ -2717,8 +2717,8 @@ lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit33
 
 lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit37, %lshift64_m256.exit29
-  %.sroa.0321.0 = phi <4 x i64> [ %837, %lshift64_m256.exit29 ], [ %924, %lshift64_m256.exit37 ]
-  %.sroa.27.0 = phi <4 x i64> [ %840, %lshift64_m256.exit29 ], [ %925, %lshift64_m256.exit37 ]
+  %.sroa.0321.0 = phi <4 x i64> [ %924, %lshift64_m256.exit37 ], [ %837, %lshift64_m256.exit29 ]
+  %.sroa.27.0 = phi <4 x i64> [ %925, %lshift64_m256.exit37 ], [ %840, %lshift64_m256.exit29 ]
   %926 = load <4 x i64>, ptr %789, align 32, !noalias !205
   %927 = and <4 x i64> %926, %.sroa.23.11638
   %928 = load i8, ptr %790, align 1
@@ -3023,7 +3023,7 @@ diff512.exit167.thread:                           ; preds = %960, %diff512.exit1
   br label %repeatHasMatch.exit239
 
 repeatHasMatch.exit239:                           ; preds = %1059, %1080, %1082, %1084, %1086
-  %.0.i238 = phi i32 [ %1087, %1086 ], [ %1085, %1084 ], [ %1083, %1082 ], [ %1081, %1080 ], [ %1060, %1059 ]
+  %.0.i238 = phi i32 [ %1060, %1059 ], [ %1081, %1080 ], [ %1083, %1082 ], [ %1085, %1084 ], [ %1087, %1086 ]
   switch i32 %.0.i238, label %repeatHasMatch.exit239.thread [
     i32 1, label %repeatHasMatch.exit239.thread1451
     i32 2, label %repeatHasMatch.exit239.thread1453
@@ -3664,7 +3664,7 @@ moNfaReportCurrent512.exit:                       ; preds = %12, %27
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %215, %222, %224, %226, %228, %230, %232
-  %.0.i140 = phi i64 [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ 0, %215 ]
+  %.0.i140 = phi i64 [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ 0, %215 ]
   %234 = load <4 x i64>, ptr %187, align 32, !noalias !246
   %235 = load <4 x i64>, ptr %188, align 32, !noalias !246
   %.0.i133.sroa.speculated = select i1 %200, <4 x i64> %234, <4 x i64> %235
@@ -3908,8 +3908,8 @@ lshift64_m256.exit124:                            ; preds = %lshift64_m256.exit9
   br label %lshift64_m256.exit120
 
 lshift64_m256.exit120:                            ; preds = %lshift64_m256.exit124, %lshift64_m256.exit96
-  %.sroa.0766.6 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %103, %lshift64_m256.exit124 ]
-  %.sroa.27782.6 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %104, %lshift64_m256.exit124 ]
+  %.sroa.0766.6 = phi <4 x i64> [ %103, %lshift64_m256.exit124 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.6 = phi <4 x i64> [ %104, %lshift64_m256.exit124 ], [ %89, %lshift64_m256.exit96 ]
   %105 = load <4 x i64>, ptr %50, align 32, !noalias !261
   %106 = and <4 x i64> %105, %.sroa.14.01442
   %107 = load i8, ptr %51, align 2
@@ -3927,8 +3927,8 @@ lshift64_m256.exit120:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit116
 
 lshift64_m256.exit116:                            ; preds = %lshift64_m256.exit120, %lshift64_m256.exit96
-  %.sroa.0766.5 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %117, %lshift64_m256.exit120 ]
-  %.sroa.27782.5 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %118, %lshift64_m256.exit120 ]
+  %.sroa.0766.5 = phi <4 x i64> [ %117, %lshift64_m256.exit120 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.5 = phi <4 x i64> [ %118, %lshift64_m256.exit120 ], [ %89, %lshift64_m256.exit96 ]
   %119 = load <4 x i64>, ptr %53, align 32, !noalias !264
   %120 = and <4 x i64> %119, %.sroa.14.01442
   %121 = load i8, ptr %54, align 1
@@ -3946,8 +3946,8 @@ lshift64_m256.exit116:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit112
 
 lshift64_m256.exit112:                            ; preds = %lshift64_m256.exit116, %lshift64_m256.exit96
-  %.sroa.0766.4 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %131, %lshift64_m256.exit116 ]
-  %.sroa.27782.4 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %132, %lshift64_m256.exit116 ]
+  %.sroa.0766.4 = phi <4 x i64> [ %131, %lshift64_m256.exit116 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.4 = phi <4 x i64> [ %132, %lshift64_m256.exit116 ], [ %89, %lshift64_m256.exit96 ]
   %133 = load <4 x i64>, ptr %56, align 32, !noalias !267
   %134 = and <4 x i64> %133, %.sroa.14.01442
   %135 = load i8, ptr %57, align 4
@@ -3965,8 +3965,8 @@ lshift64_m256.exit112:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit108
 
 lshift64_m256.exit108:                            ; preds = %lshift64_m256.exit112, %lshift64_m256.exit96
-  %.sroa.0766.3 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %145, %lshift64_m256.exit112 ]
-  %.sroa.27782.3 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %146, %lshift64_m256.exit112 ]
+  %.sroa.0766.3 = phi <4 x i64> [ %145, %lshift64_m256.exit112 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.3 = phi <4 x i64> [ %146, %lshift64_m256.exit112 ], [ %89, %lshift64_m256.exit96 ]
   %147 = load <4 x i64>, ptr %59, align 32, !noalias !270
   %148 = and <4 x i64> %147, %.sroa.14.01442
   %149 = load i8, ptr %60, align 1
@@ -3984,8 +3984,8 @@ lshift64_m256.exit108:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit104
 
 lshift64_m256.exit104:                            ; preds = %lshift64_m256.exit108, %lshift64_m256.exit96
-  %.sroa.0766.2 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %159, %lshift64_m256.exit108 ]
-  %.sroa.27782.2 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %160, %lshift64_m256.exit108 ]
+  %.sroa.0766.2 = phi <4 x i64> [ %159, %lshift64_m256.exit108 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.2 = phi <4 x i64> [ %160, %lshift64_m256.exit108 ], [ %89, %lshift64_m256.exit96 ]
   %161 = load <4 x i64>, ptr %62, align 32, !noalias !273
   %162 = and <4 x i64> %161, %.sroa.14.01442
   %163 = load i8, ptr %63, align 2
@@ -4003,8 +4003,8 @@ lshift64_m256.exit104:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit100
 
 lshift64_m256.exit100:                            ; preds = %lshift64_m256.exit104, %lshift64_m256.exit96
-  %.sroa.0766.0 = phi <4 x i64> [ %86, %lshift64_m256.exit96 ], [ %173, %lshift64_m256.exit104 ]
-  %.sroa.27782.0 = phi <4 x i64> [ %89, %lshift64_m256.exit96 ], [ %174, %lshift64_m256.exit104 ]
+  %.sroa.0766.0 = phi <4 x i64> [ %173, %lshift64_m256.exit104 ], [ %86, %lshift64_m256.exit96 ]
+  %.sroa.27782.0 = phi <4 x i64> [ %174, %lshift64_m256.exit104 ], [ %89, %lshift64_m256.exit96 ]
   %175 = load <4 x i64>, ptr %65, align 32, !noalias !276
   %176 = and <4 x i64> %175, %.sroa.14.01442
   %177 = load i8, ptr %66, align 1
@@ -4290,7 +4290,7 @@ diff512.exit.thread:                              ; preds = %.critedge.i15, %dif
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %303, %324, %326, %328, %330
-  %.0.i203 = phi i32 [ %331, %330 ], [ %329, %328 ], [ %327, %326 ], [ %325, %324 ], [ %304, %303 ]
+  %.0.i203 = phi i32 [ %304, %303 ], [ %325, %324 ], [ %327, %326 ], [ %329, %328 ], [ %331, %330 ]
   switch i32 %.0.i203, label %runException512.exit [
     i32 1, label %repeatHasMatch.exit.thread1293
     i32 2, label %repeatHasMatch.exit.thread1295
@@ -4518,8 +4518,8 @@ lshift64_m256.exit92:                             ; preds = %lshift64_m256.exit6
   br label %lshift64_m256.exit88
 
 lshift64_m256.exit88:                             ; preds = %lshift64_m256.exit92, %lshift64_m256.exit64
-  %.sroa.0557.6 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %449, %lshift64_m256.exit92 ]
-  %.sroa.27573.6 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %450, %lshift64_m256.exit92 ]
+  %.sroa.0557.6 = phi <4 x i64> [ %449, %lshift64_m256.exit92 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.6 = phi <4 x i64> [ %450, %lshift64_m256.exit92 ], [ %435, %lshift64_m256.exit64 ]
   %451 = load <4 x i64>, ptr %391, align 32, !noalias !303
   %452 = and <4 x i64> %451, %.sroa.15.01449
   %453 = load i8, ptr %392, align 2
@@ -4537,8 +4537,8 @@ lshift64_m256.exit88:                             ; preds = %lshift64_m256.exit9
   br label %lshift64_m256.exit84
 
 lshift64_m256.exit84:                             ; preds = %lshift64_m256.exit88, %lshift64_m256.exit64
-  %.sroa.0557.5 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %463, %lshift64_m256.exit88 ]
-  %.sroa.27573.5 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %464, %lshift64_m256.exit88 ]
+  %.sroa.0557.5 = phi <4 x i64> [ %463, %lshift64_m256.exit88 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.5 = phi <4 x i64> [ %464, %lshift64_m256.exit88 ], [ %435, %lshift64_m256.exit64 ]
   %465 = load <4 x i64>, ptr %394, align 32, !noalias !306
   %466 = and <4 x i64> %465, %.sroa.15.01449
   %467 = load i8, ptr %395, align 1
@@ -4556,8 +4556,8 @@ lshift64_m256.exit84:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit80
 
 lshift64_m256.exit80:                             ; preds = %lshift64_m256.exit84, %lshift64_m256.exit64
-  %.sroa.0557.4 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %477, %lshift64_m256.exit84 ]
-  %.sroa.27573.4 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %478, %lshift64_m256.exit84 ]
+  %.sroa.0557.4 = phi <4 x i64> [ %477, %lshift64_m256.exit84 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.4 = phi <4 x i64> [ %478, %lshift64_m256.exit84 ], [ %435, %lshift64_m256.exit64 ]
   %479 = load <4 x i64>, ptr %397, align 32, !noalias !309
   %480 = and <4 x i64> %479, %.sroa.15.01449
   %481 = load i8, ptr %398, align 4
@@ -4575,8 +4575,8 @@ lshift64_m256.exit80:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit76
 
 lshift64_m256.exit76:                             ; preds = %lshift64_m256.exit80, %lshift64_m256.exit64
-  %.sroa.0557.3 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %491, %lshift64_m256.exit80 ]
-  %.sroa.27573.3 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %492, %lshift64_m256.exit80 ]
+  %.sroa.0557.3 = phi <4 x i64> [ %491, %lshift64_m256.exit80 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.3 = phi <4 x i64> [ %492, %lshift64_m256.exit80 ], [ %435, %lshift64_m256.exit64 ]
   %493 = load <4 x i64>, ptr %400, align 32, !noalias !312
   %494 = and <4 x i64> %493, %.sroa.15.01449
   %495 = load i8, ptr %401, align 1
@@ -4594,8 +4594,8 @@ lshift64_m256.exit76:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit72
 
 lshift64_m256.exit72:                             ; preds = %lshift64_m256.exit76, %lshift64_m256.exit64
-  %.sroa.0557.2 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %505, %lshift64_m256.exit76 ]
-  %.sroa.27573.2 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %506, %lshift64_m256.exit76 ]
+  %.sroa.0557.2 = phi <4 x i64> [ %505, %lshift64_m256.exit76 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.2 = phi <4 x i64> [ %506, %lshift64_m256.exit76 ], [ %435, %lshift64_m256.exit64 ]
   %507 = load <4 x i64>, ptr %403, align 32, !noalias !315
   %508 = and <4 x i64> %507, %.sroa.15.01449
   %509 = load i8, ptr %404, align 2
@@ -4613,8 +4613,8 @@ lshift64_m256.exit72:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit68
 
 lshift64_m256.exit68:                             ; preds = %lshift64_m256.exit72, %lshift64_m256.exit64
-  %.sroa.0557.0 = phi <4 x i64> [ %432, %lshift64_m256.exit64 ], [ %519, %lshift64_m256.exit72 ]
-  %.sroa.27573.0 = phi <4 x i64> [ %435, %lshift64_m256.exit64 ], [ %520, %lshift64_m256.exit72 ]
+  %.sroa.0557.0 = phi <4 x i64> [ %519, %lshift64_m256.exit72 ], [ %432, %lshift64_m256.exit64 ]
+  %.sroa.27573.0 = phi <4 x i64> [ %520, %lshift64_m256.exit72 ], [ %435, %lshift64_m256.exit64 ]
   %521 = load <4 x i64>, ptr %406, align 32, !noalias !318
   %522 = and <4 x i64> %521, %.sroa.15.01449
   %523 = load i8, ptr %407, align 1
@@ -4900,7 +4900,7 @@ diff512.exit156.thread:                           ; preds = %.critedge.i21, %dif
   br label %repeatHasMatch.exit205
 
 repeatHasMatch.exit205:                           ; preds = %649, %670, %672, %674, %676
-  %.0.i204 = phi i32 [ %677, %676 ], [ %675, %674 ], [ %673, %672 ], [ %671, %670 ], [ %650, %649 ]
+  %.0.i204 = phi i32 [ %650, %649 ], [ %671, %670 ], [ %673, %672 ], [ %675, %674 ], [ %677, %676 ]
   switch i32 %.0.i204, label %runException512.exit174 [
     i32 1, label %repeatHasMatch.exit205.thread1328
     i32 2, label %repeatHasMatch.exit205.thread1330
@@ -5180,8 +5180,8 @@ lshift64_m256.exit60:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit56
 
 lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit60, %lshift64_m256.exit32
-  %.sroa.0291.6 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %818, %lshift64_m256.exit60 ]
-  %.sroa.27.6 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %819, %lshift64_m256.exit60 ]
+  %.sroa.0291.6 = phi <4 x i64> [ %818, %lshift64_m256.exit60 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.6 = phi <4 x i64> [ %819, %lshift64_m256.exit60 ], [ %804, %lshift64_m256.exit32 ]
   %820 = load <4 x i64>, ptr %738, align 32, !noalias !351
   %821 = and <4 x i64> %820, %.sroa.24.11464
   %822 = load i8, ptr %739, align 2
@@ -5199,8 +5199,8 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit6
   br label %lshift64_m256.exit52
 
 lshift64_m256.exit52:                             ; preds = %lshift64_m256.exit56, %lshift64_m256.exit32
-  %.sroa.0291.5 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %832, %lshift64_m256.exit56 ]
-  %.sroa.27.5 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %833, %lshift64_m256.exit56 ]
+  %.sroa.0291.5 = phi <4 x i64> [ %832, %lshift64_m256.exit56 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.5 = phi <4 x i64> [ %833, %lshift64_m256.exit56 ], [ %804, %lshift64_m256.exit32 ]
   %834 = load <4 x i64>, ptr %741, align 32, !noalias !354
   %835 = and <4 x i64> %834, %.sroa.24.11464
   %836 = load i8, ptr %742, align 1
@@ -5218,8 +5218,8 @@ lshift64_m256.exit52:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit48
 
 lshift64_m256.exit48:                             ; preds = %lshift64_m256.exit52, %lshift64_m256.exit32
-  %.sroa.0291.4 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %846, %lshift64_m256.exit52 ]
-  %.sroa.27.4 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %847, %lshift64_m256.exit52 ]
+  %.sroa.0291.4 = phi <4 x i64> [ %846, %lshift64_m256.exit52 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.4 = phi <4 x i64> [ %847, %lshift64_m256.exit52 ], [ %804, %lshift64_m256.exit32 ]
   %848 = load <4 x i64>, ptr %744, align 32, !noalias !357
   %849 = and <4 x i64> %848, %.sroa.24.11464
   %850 = load i8, ptr %745, align 4
@@ -5237,8 +5237,8 @@ lshift64_m256.exit48:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit44
 
 lshift64_m256.exit44:                             ; preds = %lshift64_m256.exit48, %lshift64_m256.exit32
-  %.sroa.0291.3 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %860, %lshift64_m256.exit48 ]
-  %.sroa.27.3 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %861, %lshift64_m256.exit48 ]
+  %.sroa.0291.3 = phi <4 x i64> [ %860, %lshift64_m256.exit48 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.3 = phi <4 x i64> [ %861, %lshift64_m256.exit48 ], [ %804, %lshift64_m256.exit32 ]
   %862 = load <4 x i64>, ptr %747, align 32, !noalias !360
   %863 = and <4 x i64> %862, %.sroa.24.11464
   %864 = load i8, ptr %748, align 1
@@ -5256,8 +5256,8 @@ lshift64_m256.exit44:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit40
 
 lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit44, %lshift64_m256.exit32
-  %.sroa.0291.2 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %874, %lshift64_m256.exit44 ]
-  %.sroa.27.2 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %875, %lshift64_m256.exit44 ]
+  %.sroa.0291.2 = phi <4 x i64> [ %874, %lshift64_m256.exit44 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.2 = phi <4 x i64> [ %875, %lshift64_m256.exit44 ], [ %804, %lshift64_m256.exit32 ]
   %876 = load <4 x i64>, ptr %750, align 32, !noalias !363
   %877 = and <4 x i64> %876, %.sroa.24.11464
   %878 = load i8, ptr %751, align 2
@@ -5275,8 +5275,8 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit36
 
 lshift64_m256.exit36:                             ; preds = %lshift64_m256.exit40, %lshift64_m256.exit32
-  %.sroa.0291.0 = phi <4 x i64> [ %801, %lshift64_m256.exit32 ], [ %888, %lshift64_m256.exit40 ]
-  %.sroa.27.0 = phi <4 x i64> [ %804, %lshift64_m256.exit32 ], [ %889, %lshift64_m256.exit40 ]
+  %.sroa.0291.0 = phi <4 x i64> [ %888, %lshift64_m256.exit40 ], [ %801, %lshift64_m256.exit32 ]
+  %.sroa.27.0 = phi <4 x i64> [ %889, %lshift64_m256.exit40 ], [ %804, %lshift64_m256.exit32 ]
   %890 = load <4 x i64>, ptr %753, align 32, !noalias !366
   %891 = and <4 x i64> %890, %.sroa.24.11464
   %892 = load i8, ptr %754, align 1
@@ -5562,7 +5562,7 @@ diff512.exit158.thread:                           ; preds = %.critedge.i28, %dif
   br label %repeatHasMatch.exit207
 
 repeatHasMatch.exit207:                           ; preds = %1018, %1039, %1041, %1043, %1045
-  %.0.i206 = phi i32 [ %1046, %1045 ], [ %1044, %1043 ], [ %1042, %1041 ], [ %1040, %1039 ], [ %1019, %1018 ]
+  %.0.i206 = phi i32 [ %1019, %1018 ], [ %1040, %1039 ], [ %1042, %1041 ], [ %1044, %1043 ], [ %1046, %1045 ]
   switch i32 %.0.i206, label %runException512.exit187 [
     i32 1, label %repeatHasMatch.exit207.thread1363
     i32 2, label %repeatHasMatch.exit207.thread1365
@@ -6007,7 +6007,7 @@ nfaExecLimEx512_HandleEvent.exit:                 ; preds = %nfaExecLimEx512_Han
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %144, %151, %153, %155, %157, %159, %161
-  %.0.i96 = phi i64 [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ 0, %144 ]
+  %.0.i96 = phi i64 [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ 0, %144 ]
   %163 = load <4 x i64>, ptr %116, align 32, !noalias !407
   %164 = load <4 x i64>, ptr %117, align 32, !noalias !407
   %.0.i84.sroa.speculated = select i1 %129, <4 x i64> %163, <4 x i64> %164
@@ -6196,7 +6196,7 @@ limexExpireExtendedState512.exit:                 ; preds = %limexExpireExtended
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %241, %262, %264, %266, %268
-  %.0.i92 = phi i32 [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %242, %241 ]
+  %.0.i92 = phi i32 [ %242, %241 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ]
   %.not20.i = icmp eq i32 %.0.i92, 1
   br i1 %.not20.i, label %.cont, label %repeatHasMatch.exit.thread
 
@@ -6471,8 +6471,8 @@ lshift64_m256.exit121:                            ; preds = %lshift64_m256.exit9
   br label %lshift64_m256.exit117
 
 lshift64_m256.exit117:                            ; preds = %lshift64_m256.exit121, %lshift64_m256.exit93
-  %.sroa.0748.6 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %100, %lshift64_m256.exit121 ]
-  %.sroa.27764.6 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %101, %lshift64_m256.exit121 ]
+  %.sroa.0748.6 = phi <4 x i64> [ %100, %lshift64_m256.exit121 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.6 = phi <4 x i64> [ %101, %lshift64_m256.exit121 ], [ %86, %lshift64_m256.exit93 ]
   %102 = load <4 x i64>, ptr %49, align 32, !noalias !425
   %103 = and <4 x i64> %102, %.sroa.14.01326
   %104 = load i8, ptr %50, align 2
@@ -6490,8 +6490,8 @@ lshift64_m256.exit117:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit113
 
 lshift64_m256.exit113:                            ; preds = %lshift64_m256.exit117, %lshift64_m256.exit93
-  %.sroa.0748.5 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %114, %lshift64_m256.exit117 ]
-  %.sroa.27764.5 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %115, %lshift64_m256.exit117 ]
+  %.sroa.0748.5 = phi <4 x i64> [ %114, %lshift64_m256.exit117 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.5 = phi <4 x i64> [ %115, %lshift64_m256.exit117 ], [ %86, %lshift64_m256.exit93 ]
   %116 = load <4 x i64>, ptr %52, align 32, !noalias !428
   %117 = and <4 x i64> %116, %.sroa.14.01326
   %118 = load i8, ptr %53, align 1
@@ -6509,8 +6509,8 @@ lshift64_m256.exit113:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit109
 
 lshift64_m256.exit109:                            ; preds = %lshift64_m256.exit113, %lshift64_m256.exit93
-  %.sroa.0748.4 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %128, %lshift64_m256.exit113 ]
-  %.sroa.27764.4 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %129, %lshift64_m256.exit113 ]
+  %.sroa.0748.4 = phi <4 x i64> [ %128, %lshift64_m256.exit113 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.4 = phi <4 x i64> [ %129, %lshift64_m256.exit113 ], [ %86, %lshift64_m256.exit93 ]
   %130 = load <4 x i64>, ptr %55, align 32, !noalias !431
   %131 = and <4 x i64> %130, %.sroa.14.01326
   %132 = load i8, ptr %56, align 4
@@ -6528,8 +6528,8 @@ lshift64_m256.exit109:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit105
 
 lshift64_m256.exit105:                            ; preds = %lshift64_m256.exit109, %lshift64_m256.exit93
-  %.sroa.0748.3 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %142, %lshift64_m256.exit109 ]
-  %.sroa.27764.3 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %143, %lshift64_m256.exit109 ]
+  %.sroa.0748.3 = phi <4 x i64> [ %142, %lshift64_m256.exit109 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.3 = phi <4 x i64> [ %143, %lshift64_m256.exit109 ], [ %86, %lshift64_m256.exit93 ]
   %144 = load <4 x i64>, ptr %58, align 32, !noalias !434
   %145 = and <4 x i64> %144, %.sroa.14.01326
   %146 = load i8, ptr %59, align 1
@@ -6547,8 +6547,8 @@ lshift64_m256.exit105:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit101
 
 lshift64_m256.exit101:                            ; preds = %lshift64_m256.exit105, %lshift64_m256.exit93
-  %.sroa.0748.2 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %156, %lshift64_m256.exit105 ]
-  %.sroa.27764.2 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %157, %lshift64_m256.exit105 ]
+  %.sroa.0748.2 = phi <4 x i64> [ %156, %lshift64_m256.exit105 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.2 = phi <4 x i64> [ %157, %lshift64_m256.exit105 ], [ %86, %lshift64_m256.exit93 ]
   %158 = load <4 x i64>, ptr %61, align 32, !noalias !437
   %159 = and <4 x i64> %158, %.sroa.14.01326
   %160 = load i8, ptr %62, align 2
@@ -6566,8 +6566,8 @@ lshift64_m256.exit101:                            ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit97
 
 lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit101, %lshift64_m256.exit93
-  %.sroa.0748.0 = phi <4 x i64> [ %83, %lshift64_m256.exit93 ], [ %170, %lshift64_m256.exit101 ]
-  %.sroa.27764.0 = phi <4 x i64> [ %86, %lshift64_m256.exit93 ], [ %171, %lshift64_m256.exit101 ]
+  %.sroa.0748.0 = phi <4 x i64> [ %170, %lshift64_m256.exit101 ], [ %83, %lshift64_m256.exit93 ]
+  %.sroa.27764.0 = phi <4 x i64> [ %171, %lshift64_m256.exit101 ], [ %86, %lshift64_m256.exit93 ]
   %172 = load <4 x i64>, ptr %64, align 32, !noalias !440
   %173 = and <4 x i64> %172, %.sroa.14.01326
   %174 = load i8, ptr %65, align 1
@@ -6838,7 +6838,7 @@ diff512.exit.thread:                              ; preds = %206, %diff512.exit
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %291, %312, %314, %316, %318
-  %.0.i200 = phi i32 [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %292, %291 ]
+  %.0.i200 = phi i32 [ %292, %291 ], [ %313, %312 ], [ %315, %314 ], [ %317, %316 ], [ %319, %318 ]
   switch i32 %.0.i200, label %runException512.exit [
     i32 1, label %repeatHasMatch.exit.thread1226
     i32 2, label %repeatHasMatch.exit.thread1228
@@ -7059,8 +7059,8 @@ lshift64_m256.exit89:                             ; preds = %lshift64_m256.exit6
   br label %lshift64_m256.exit85
 
 lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit89, %lshift64_m256.exit61
-  %.sroa.0539.6 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %434, %lshift64_m256.exit89 ]
-  %.sroa.27555.6 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %435, %lshift64_m256.exit89 ]
+  %.sroa.0539.6 = phi <4 x i64> [ %434, %lshift64_m256.exit89 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.6 = phi <4 x i64> [ %435, %lshift64_m256.exit89 ], [ %420, %lshift64_m256.exit61 ]
   %436 = load <4 x i64>, ptr %378, align 32, !noalias !464
   %437 = and <4 x i64> %436, %.sroa.15.01333
   %438 = load i8, ptr %379, align 2
@@ -7078,8 +7078,8 @@ lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit81
 
 lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit85, %lshift64_m256.exit61
-  %.sroa.0539.5 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %448, %lshift64_m256.exit85 ]
-  %.sroa.27555.5 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %449, %lshift64_m256.exit85 ]
+  %.sroa.0539.5 = phi <4 x i64> [ %448, %lshift64_m256.exit85 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.5 = phi <4 x i64> [ %449, %lshift64_m256.exit85 ], [ %420, %lshift64_m256.exit61 ]
   %450 = load <4 x i64>, ptr %381, align 32, !noalias !467
   %451 = and <4 x i64> %450, %.sroa.15.01333
   %452 = load i8, ptr %382, align 1
@@ -7097,8 +7097,8 @@ lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit77
 
 lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit81, %lshift64_m256.exit61
-  %.sroa.0539.4 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %462, %lshift64_m256.exit81 ]
-  %.sroa.27555.4 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %463, %lshift64_m256.exit81 ]
+  %.sroa.0539.4 = phi <4 x i64> [ %462, %lshift64_m256.exit81 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.4 = phi <4 x i64> [ %463, %lshift64_m256.exit81 ], [ %420, %lshift64_m256.exit61 ]
   %464 = load <4 x i64>, ptr %384, align 32, !noalias !470
   %465 = and <4 x i64> %464, %.sroa.15.01333
   %466 = load i8, ptr %385, align 4
@@ -7116,8 +7116,8 @@ lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit73
 
 lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit77, %lshift64_m256.exit61
-  %.sroa.0539.3 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %476, %lshift64_m256.exit77 ]
-  %.sroa.27555.3 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %477, %lshift64_m256.exit77 ]
+  %.sroa.0539.3 = phi <4 x i64> [ %476, %lshift64_m256.exit77 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.3 = phi <4 x i64> [ %477, %lshift64_m256.exit77 ], [ %420, %lshift64_m256.exit61 ]
   %478 = load <4 x i64>, ptr %387, align 32, !noalias !473
   %479 = and <4 x i64> %478, %.sroa.15.01333
   %480 = load i8, ptr %388, align 1
@@ -7135,8 +7135,8 @@ lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit69
 
 lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit73, %lshift64_m256.exit61
-  %.sroa.0539.2 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %490, %lshift64_m256.exit73 ]
-  %.sroa.27555.2 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %491, %lshift64_m256.exit73 ]
+  %.sroa.0539.2 = phi <4 x i64> [ %490, %lshift64_m256.exit73 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.2 = phi <4 x i64> [ %491, %lshift64_m256.exit73 ], [ %420, %lshift64_m256.exit61 ]
   %492 = load <4 x i64>, ptr %390, align 32, !noalias !476
   %493 = and <4 x i64> %492, %.sroa.15.01333
   %494 = load i8, ptr %391, align 2
@@ -7154,8 +7154,8 @@ lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit65
 
 lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit69, %lshift64_m256.exit61
-  %.sroa.0539.0 = phi <4 x i64> [ %417, %lshift64_m256.exit61 ], [ %504, %lshift64_m256.exit69 ]
-  %.sroa.27555.0 = phi <4 x i64> [ %420, %lshift64_m256.exit61 ], [ %505, %lshift64_m256.exit69 ]
+  %.sroa.0539.0 = phi <4 x i64> [ %504, %lshift64_m256.exit69 ], [ %417, %lshift64_m256.exit61 ]
+  %.sroa.27555.0 = phi <4 x i64> [ %505, %lshift64_m256.exit69 ], [ %420, %lshift64_m256.exit61 ]
   %506 = load <4 x i64>, ptr %393, align 32, !noalias !479
   %507 = and <4 x i64> %506, %.sroa.15.01333
   %508 = load i8, ptr %394, align 1
@@ -7426,7 +7426,7 @@ diff512.exit153.thread:                           ; preds = %540, %diff512.exit1
   br label %repeatHasMatch.exit202
 
 repeatHasMatch.exit202:                           ; preds = %625, %646, %648, %650, %652
-  %.0.i201 = phi i32 [ %653, %652 ], [ %651, %650 ], [ %649, %648 ], [ %647, %646 ], [ %626, %625 ]
+  %.0.i201 = phi i32 [ %626, %625 ], [ %647, %646 ], [ %649, %648 ], [ %651, %650 ], [ %653, %652 ]
   switch i32 %.0.i201, label %runException512.exit171 [
     i32 1, label %repeatHasMatch.exit202.thread1247
     i32 2, label %repeatHasMatch.exit202.thread1249
@@ -7699,8 +7699,8 @@ lshift64_m256.exit57:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit53
 
 lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit57, %lshift64_m256.exit29
-  %.sroa.0285.6 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %791, %lshift64_m256.exit57 ]
-  %.sroa.27.6 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %792, %lshift64_m256.exit57 ]
+  %.sroa.0285.6 = phi <4 x i64> [ %791, %lshift64_m256.exit57 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.6 = phi <4 x i64> [ %792, %lshift64_m256.exit57 ], [ %777, %lshift64_m256.exit29 ]
   %793 = load <4 x i64>, ptr %713, align 32, !noalias !509
   %794 = and <4 x i64> %793, %.sroa.22.11347
   %795 = load i8, ptr %714, align 2
@@ -7718,8 +7718,8 @@ lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit49
 
 lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit53, %lshift64_m256.exit29
-  %.sroa.0285.5 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %805, %lshift64_m256.exit53 ]
-  %.sroa.27.5 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %806, %lshift64_m256.exit53 ]
+  %.sroa.0285.5 = phi <4 x i64> [ %805, %lshift64_m256.exit53 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.5 = phi <4 x i64> [ %806, %lshift64_m256.exit53 ], [ %777, %lshift64_m256.exit29 ]
   %807 = load <4 x i64>, ptr %716, align 32, !noalias !512
   %808 = and <4 x i64> %807, %.sroa.22.11347
   %809 = load i8, ptr %717, align 1
@@ -7737,8 +7737,8 @@ lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit45
 
 lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit49, %lshift64_m256.exit29
-  %.sroa.0285.4 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %819, %lshift64_m256.exit49 ]
-  %.sroa.27.4 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %820, %lshift64_m256.exit49 ]
+  %.sroa.0285.4 = phi <4 x i64> [ %819, %lshift64_m256.exit49 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.4 = phi <4 x i64> [ %820, %lshift64_m256.exit49 ], [ %777, %lshift64_m256.exit29 ]
   %821 = load <4 x i64>, ptr %719, align 32, !noalias !515
   %822 = and <4 x i64> %821, %.sroa.22.11347
   %823 = load i8, ptr %720, align 4
@@ -7756,8 +7756,8 @@ lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit41
 
 lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit45, %lshift64_m256.exit29
-  %.sroa.0285.3 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %833, %lshift64_m256.exit45 ]
-  %.sroa.27.3 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %834, %lshift64_m256.exit45 ]
+  %.sroa.0285.3 = phi <4 x i64> [ %833, %lshift64_m256.exit45 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.3 = phi <4 x i64> [ %834, %lshift64_m256.exit45 ], [ %777, %lshift64_m256.exit29 ]
   %835 = load <4 x i64>, ptr %722, align 32, !noalias !518
   %836 = and <4 x i64> %835, %.sroa.22.11347
   %837 = load i8, ptr %723, align 1
@@ -7775,8 +7775,8 @@ lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit37
 
 lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit41, %lshift64_m256.exit29
-  %.sroa.0285.2 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %847, %lshift64_m256.exit41 ]
-  %.sroa.27.2 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %848, %lshift64_m256.exit41 ]
+  %.sroa.0285.2 = phi <4 x i64> [ %847, %lshift64_m256.exit41 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.2 = phi <4 x i64> [ %848, %lshift64_m256.exit41 ], [ %777, %lshift64_m256.exit29 ]
   %849 = load <4 x i64>, ptr %725, align 32, !noalias !521
   %850 = and <4 x i64> %849, %.sroa.22.11347
   %851 = load i8, ptr %726, align 2
@@ -7794,8 +7794,8 @@ lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit33
 
 lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit37, %lshift64_m256.exit29
-  %.sroa.0285.0 = phi <4 x i64> [ %774, %lshift64_m256.exit29 ], [ %861, %lshift64_m256.exit37 ]
-  %.sroa.27.0 = phi <4 x i64> [ %777, %lshift64_m256.exit29 ], [ %862, %lshift64_m256.exit37 ]
+  %.sroa.0285.0 = phi <4 x i64> [ %861, %lshift64_m256.exit37 ], [ %774, %lshift64_m256.exit29 ]
+  %.sroa.27.0 = phi <4 x i64> [ %862, %lshift64_m256.exit37 ], [ %777, %lshift64_m256.exit29 ]
   %863 = load <4 x i64>, ptr %728, align 32, !noalias !524
   %864 = and <4 x i64> %863, %.sroa.22.11347
   %865 = load i8, ptr %729, align 1
@@ -8066,7 +8066,7 @@ diff512.exit155.thread:                           ; preds = %897, %diff512.exit1
   br label %repeatHasMatch.exit204
 
 repeatHasMatch.exit204:                           ; preds = %982, %1003, %1005, %1007, %1009
-  %.0.i203 = phi i32 [ %1010, %1009 ], [ %1008, %1007 ], [ %1006, %1005 ], [ %1004, %1003 ], [ %983, %982 ]
+  %.0.i203 = phi i32 [ %983, %982 ], [ %1004, %1003 ], [ %1006, %1005 ], [ %1008, %1007 ], [ %1010, %1009 ]
   switch i32 %.0.i203, label %runException512.exit184 [
     i32 1, label %repeatHasMatch.exit204.thread1268
     i32 2, label %repeatHasMatch.exit204.thread1270
@@ -8336,7 +8336,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx512_testEOD(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %57, %78, %80, %82, %84
-  %.0.i14 = phi i32 [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %57 ]
+  %.0.i14 = phi i32 [ %58, %57 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread29, label %repeatHasMatch.exit.thread
 
@@ -8607,7 +8607,7 @@ define hidden noundef signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef %0, i64 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %76, %78, %80, %82, %84
-  %.0.i33 = phi i32 [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ]
+  %.0.i33 = phi i32 [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
   %.not20.i = icmp eq i32 %.0.i33, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread54, label %repeatHasMatch.exit.thread
 
@@ -8772,8 +8772,8 @@ lshift64_m256.exit89:                             ; preds = %lshift64_m256.exit9
   br label %lshift64_m256.exit85
 
 lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit89, %lshift64_m256.exit93
-  %.sroa.0168.0 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %79, %lshift64_m256.exit89 ]
-  %.sroa.25.0 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %80, %lshift64_m256.exit89 ]
+  %.sroa.0168.0 = phi <4 x i64> [ %79, %lshift64_m256.exit89 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.0 = phi <4 x i64> [ %80, %lshift64_m256.exit89 ], [ %65, %lshift64_m256.exit93 ]
   %81 = load <4 x i64>, ptr %23, align 32, !noalias !569
   %82 = and <4 x i64> %81, %.sroa.17.0492
   %83 = load i8, ptr %24, align 2
@@ -8791,8 +8791,8 @@ lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit81
 
 lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit85, %lshift64_m256.exit93
-  %.sroa.0168.1 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %93, %lshift64_m256.exit85 ]
-  %.sroa.25.1 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %94, %lshift64_m256.exit85 ]
+  %.sroa.0168.1 = phi <4 x i64> [ %93, %lshift64_m256.exit85 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.1 = phi <4 x i64> [ %94, %lshift64_m256.exit85 ], [ %65, %lshift64_m256.exit93 ]
   %95 = load <4 x i64>, ptr %26, align 32, !noalias !572
   %96 = and <4 x i64> %95, %.sroa.17.0492
   %97 = load i8, ptr %27, align 1
@@ -8810,8 +8810,8 @@ lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit77
 
 lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit81, %lshift64_m256.exit93
-  %.sroa.0168.2 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %107, %lshift64_m256.exit81 ]
-  %.sroa.25.2 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %108, %lshift64_m256.exit81 ]
+  %.sroa.0168.2 = phi <4 x i64> [ %107, %lshift64_m256.exit81 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.2 = phi <4 x i64> [ %108, %lshift64_m256.exit81 ], [ %65, %lshift64_m256.exit93 ]
   %109 = load <4 x i64>, ptr %29, align 32, !noalias !575
   %110 = and <4 x i64> %109, %.sroa.17.0492
   %111 = load i8, ptr %30, align 4
@@ -8829,8 +8829,8 @@ lshift64_m256.exit77:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit73
 
 lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit77, %lshift64_m256.exit93
-  %.sroa.0168.3 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %121, %lshift64_m256.exit77 ]
-  %.sroa.25.3 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %122, %lshift64_m256.exit77 ]
+  %.sroa.0168.3 = phi <4 x i64> [ %121, %lshift64_m256.exit77 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.3 = phi <4 x i64> [ %122, %lshift64_m256.exit77 ], [ %65, %lshift64_m256.exit93 ]
   %123 = load <4 x i64>, ptr %32, align 32, !noalias !578
   %124 = and <4 x i64> %123, %.sroa.17.0492
   %125 = load i8, ptr %33, align 1
@@ -8848,8 +8848,8 @@ lshift64_m256.exit73:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit69
 
 lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit73, %lshift64_m256.exit93
-  %.sroa.0168.4 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %135, %lshift64_m256.exit73 ]
-  %.sroa.25.4 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %136, %lshift64_m256.exit73 ]
+  %.sroa.0168.4 = phi <4 x i64> [ %135, %lshift64_m256.exit73 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.4 = phi <4 x i64> [ %136, %lshift64_m256.exit73 ], [ %65, %lshift64_m256.exit93 ]
   %137 = load <4 x i64>, ptr %35, align 32, !noalias !581
   %138 = and <4 x i64> %137, %.sroa.17.0492
   %139 = load i8, ptr %36, align 2
@@ -8867,8 +8867,8 @@ lshift64_m256.exit69:                             ; preds = %lshift64_m256.exit7
   br label %lshift64_m256.exit65
 
 lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit69, %lshift64_m256.exit93
-  %.sroa.0168.5 = phi <4 x i64> [ %62, %lshift64_m256.exit93 ], [ %149, %lshift64_m256.exit69 ]
-  %.sroa.25.5 = phi <4 x i64> [ %65, %lshift64_m256.exit93 ], [ %150, %lshift64_m256.exit69 ]
+  %.sroa.0168.5 = phi <4 x i64> [ %149, %lshift64_m256.exit69 ], [ %62, %lshift64_m256.exit93 ]
+  %.sroa.25.5 = phi <4 x i64> [ %150, %lshift64_m256.exit69 ], [ %65, %lshift64_m256.exit93 ]
   %151 = load <4 x i64>, ptr %38, align 32, !noalias !584
   %152 = and <4 x i64> %151, %.sroa.17.0492
   %153 = load i8, ptr %39, align 1
@@ -9334,7 +9334,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx512_inAccept(ptr noundef %0
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %68, %89, %91, %93, %95
-  %.0.i15 = phi i32 [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %69, %68 ]
+  %.0.i15 = phi i32 [ %69, %68 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %.cont, label %repeatHasMatch.exit.thread
 
@@ -9596,7 +9596,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx512_inAnyAccept(ptr noundef
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %65, %86, %88, %90, %92
-  %.0.i14 = phi i32 [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %66, %65 ]
+  %.0.i14 = phi i32 [ %66, %65 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %.cont, label %repeatHasMatch.exit.thread
 
@@ -9759,7 +9759,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx512_zombie_status(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %52, %73, %75, %77, %79
-  %.0.i16 = phi i32 [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %53, %52 ]
+  %.0.i16 = phi i32 [ %53, %52 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ]
   %.not20.i = icmp eq i32 %.0.i16, 1
   br i1 %.not20.i, label %.cont, label %repeatHasMatch.exit.thread
 

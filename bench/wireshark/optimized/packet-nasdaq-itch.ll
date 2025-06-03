@@ -380,8 +380,8 @@ proto_item_set_generated.exit.thread:             ; preds = %14
 
 .split190:                                        ; preds = %50, %.thread214
   %84 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209226 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
-  %85 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209226, i32 noundef %84, i32 noundef 0)
+  %.0178209230 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %85 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209230, i32 noundef %84, i32 noundef 0)
   br label %191
 
 .split187:                                        ; preds = %50, %.thread214
@@ -392,84 +392,84 @@ proto_item_set_generated.exit.thread:             ; preds = %14
 
 .split184:                                        ; preds = %50, %.thread214
   %88 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209230 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
-  %89 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209230, i32 noundef %88, i32 noundef 0)
+  %.0178209226 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %89 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209226, i32 noundef %88, i32 noundef 0)
   br label %133
 
 90:                                               ; preds = %50, %.thread214
   %91 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209233 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209222 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %92 = load i32, ptr @hf_nasdaq_itch_system_event, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209233, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0)
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209222, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0)
   br label %time_stamp.exit198
 
 94:                                               ; preds = %50, %.thread214
   %95 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209232 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209223 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
   %98 = tail call ptr @tvb_get_string_enc(ptr noundef %97, ptr noundef %0, i32 noundef %95, i32 noundef 6, i32 noundef 0)
   %99 = load i32, ptr @hf_nasdaq_itch_stock, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %99, ptr noundef %0, i32 noundef %95, i32 noundef 6, i32 noundef 0)
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %99, ptr noundef %0, i32 noundef %95, i32 noundef 6, i32 noundef 0)
   %101 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %98)
   %102 = or disjoint i32 %95, 6
   %103 = load i32, ptr @hf_nasdaq_itch_market_category, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef 0)
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef 0)
   %105 = add nuw nsw i32 %95, 7
   %106 = load i32, ptr @hf_nasdaq_itch_financial_status, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0)
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0)
   %108 = add nuw nsw i32 %95, 8
   %109 = load i32, ptr @hf_nasdaq_itch_round_lot_size, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef 6, i32 noundef 0)
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef 6, i32 noundef 0)
   %111 = add nuw nsw i32 %95, 14
   %112 = load i32, ptr @hf_nasdaq_itch_round_lots_only, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0)
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0)
   br label %time_stamp.exit198
 
 114:                                              ; preds = %50, %.thread214
   %115 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209231 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209224 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %117 = load ptr, ptr %116, align 8
   %118 = tail call ptr @tvb_get_string_enc(ptr noundef %117, ptr noundef %0, i32 noundef %115, i32 noundef 6, i32 noundef 0)
   %119 = load i32, ptr @hf_nasdaq_itch_stock, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %119, ptr noundef %0, i32 noundef %115, i32 noundef 6, i32 noundef 0)
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %119, ptr noundef %0, i32 noundef %115, i32 noundef 6, i32 noundef 0)
   %121 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %121, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %118)
   %122 = or disjoint i32 %115, 6
   %123 = load i32, ptr @hf_nasdaq_itch_trading_state, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0)
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0)
   %125 = add nuw nsw i32 %115, 7
   %126 = load i32, ptr @hf_nasdaq_itch_reserved, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 1, i32 noundef 0)
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 1, i32 noundef 0)
   %128 = add nuw nsw i32 %115, 8
   %129 = load i32, ptr @hf_nasdaq_itch_reason, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef 0)
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef 0)
   br label %time_stamp.exit198
 
 .split:                                           ; preds = %.thread214, %50
   %131 = phi i32 [ 9, %.thread214 ], [ 1, %50 ]
-  %.0178209229 = phi ptr [ %.0178209.ph, %.thread214 ], [ %.0178209, %50 ]
-  %132 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209229, i32 noundef %131, i32 noundef 1)
+  %.0178209225 = phi ptr [ %.0178209.ph, %.thread214 ], [ %.0178209, %50 ]
+  %132 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209225, i32 noundef %131, i32 noundef 1)
   br label %133
 
 133:                                              ; preds = %.split184, %.split
-  %.0178212 = phi ptr [ %.0178209229, %.split ], [ %.0178209230, %.split184 ]
+  %.0178211 = phi ptr [ %.0178209225, %.split ], [ %.0178209226, %.split184 ]
   %phi.call = phi i32 [ %132, %.split ], [ %89, %.split184 ]
   br i1 %or.cond, label %134, label %time_stamp.exit198
 
 134:                                              ; preds = %133
   %135 = load i32, ptr @hf_nasdaq_itch_printable, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %.0178212, i32 noundef %135, ptr noundef %0, i32 noundef %phi.call, i32 noundef 1, i32 noundef 0)
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %.0178211, i32 noundef %135, ptr noundef %0, i32 noundef %phi.call, i32 noundef 1, i32 noundef 0)
   br label %time_stamp.exit198
 
 137:                                              ; preds = %50, %.thread214
   %138 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209228 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
-  %139 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209228, i32 noundef %138, i32 noundef 0)
+  %.0178209227 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %139 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209227, i32 noundef %138, i32 noundef 0)
   %140 = load i32, ptr @hf_nasdaq_itch_attribution, align 4
-  %141 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209228, i32 noundef %140, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209227, i32 noundef %140, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
   br label %time_stamp.exit198
 
 .split186:                                        ; preds = %.thread214, %50
@@ -480,10 +480,10 @@ proto_item_set_generated.exit.thread:             ; preds = %14
 
 144:                                              ; preds = %50, %.thread214
   %145 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209227 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
-  %146 = tail call fastcc i32 @executed(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209227, i32 noundef %145, i32 noundef 0)
+  %.0178209228 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %146 = tail call fastcc i32 @executed(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209228, i32 noundef %145, i32 noundef 0)
   %147 = load i32, ptr @hf_nasdaq_itch_printable, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209227, i32 noundef %147, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0)
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209228, i32 noundef %147, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0)
   %149 = add i32 %146, 1
   %150 = load i32, ptr @hf_nasdaq_itch_execution_price, align 4
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -492,7 +492,7 @@ proto_item_set_generated.exit.thread:             ; preds = %14
   %154 = tail call i64 @g_ascii_strtoull(ptr noundef %153, ptr noundef null, i32 noundef 10)
   %155 = uitofp i64 %154 to double
   %156 = fdiv double %155, 1.000000e+04
-  %157 = tail call ptr @proto_tree_add_double(ptr noundef %.0178209227, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 10, double noundef %156)
+  %157 = tail call ptr @proto_tree_add_double(ptr noundef %.0178209228, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 10, double noundef %156)
   %158 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.124, double noundef %156)
   br label %time_stamp.exit198
@@ -503,9 +503,9 @@ proto_item_set_generated.exit.thread:             ; preds = %14
   br label %161
 
 161:                                              ; preds = %50, %159, %.thread214
-  %162 = phi i32 [ 9, %.thread214 ], [ %160, %159 ], [ 1, %50 ]
-  %.0178213 = phi ptr [ %.0178209.ph, %.thread214 ], [ %.0178209236, %159 ], [ %.0178209, %50 ]
-  %.not.i201 = phi i32 [ 6, %.thread214 ], [ 10, %159 ], [ 6, %50 ]
+  %162 = phi i32 [ %160, %159 ], [ 9, %.thread214 ], [ 1, %50 ]
+  %.0178213 = phi ptr [ %.0178209236, %159 ], [ %.0178209.ph, %.thread214 ], [ %.0178209, %50 ]
+  %.not.i201 = phi i32 [ 10, %159 ], [ 6, %.thread214 ], [ 6, %50 ]
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %164 = load ptr, ptr %163, align 8
   %165 = tail call ptr @tvb_get_string_enc(ptr noundef %164, ptr noundef %0, i32 noundef %162, i32 noundef 9, i32 noundef 0)
@@ -542,34 +542,34 @@ proto_item_set_generated.exit.thread:             ; preds = %14
 
 .split189:                                        ; preds = %.thread214, %50
   %189 = phi i32 [ 9, %.thread214 ], [ 1, %50 ]
-  %.0178209225 = phi ptr [ %.0178209.ph, %.thread214 ], [ %.0178209, %50 ]
-  %190 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209225, i32 noundef %189, i32 noundef 1)
+  %.0178209229 = phi ptr [ %.0178209.ph, %.thread214 ], [ %.0178209, %50 ]
+  %190 = tail call fastcc i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %.0178209229, i32 noundef %189, i32 noundef 1)
   br label %191
 
 191:                                              ; preds = %.split190, %.split189
-  %.0178211 = phi ptr [ %.0178209225, %.split189 ], [ %.0178209226, %.split190 ]
+  %.0178212 = phi ptr [ %.0178209229, %.split189 ], [ %.0178209230, %.split190 ]
   %phi.call191 = phi i32 [ %190, %.split189 ], [ %85, %.split190 ]
   %192 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %.0178211, i32 noundef %192, ptr noundef %0, i32 noundef %phi.call191, i32 noundef 9, i32 noundef 0)
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %.0178212, i32 noundef %192, ptr noundef %0, i32 noundef %phi.call191, i32 noundef 9, i32 noundef 0)
   br label %time_stamp.exit198
 
 194:                                              ; preds = %50, %.thread214
   %195 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209224 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209231 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %196 = load i32, ptr @hf_nasdaq_itch_shares, align 4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %198 = load ptr, ptr %197, align 8
   %199 = tail call ptr @tvb_get_string_enc(ptr noundef %198, ptr noundef %0, i32 noundef %195, i32 noundef 6, i32 noundef 0)
   %200 = tail call i64 @strtoul(ptr noundef captures(none) %199, ptr noundef null, i32 noundef 10) #4
   %201 = trunc i64 %200 to i32
-  %202 = tail call ptr @proto_tree_add_uint(ptr noundef %.0178209224, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 6, i32 noundef %201)
+  %202 = tail call ptr @proto_tree_add_uint(ptr noundef %.0178209231, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 6, i32 noundef %201)
   %203 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.126, i32 noundef %201)
   %204 = or disjoint i32 %195, 6
   %205 = load ptr, ptr %197, align 8
   %206 = tail call ptr @tvb_get_string_enc(ptr noundef %205, ptr noundef %0, i32 noundef %204, i32 noundef 6, i32 noundef 0)
   %207 = load i32, ptr @hf_nasdaq_itch_stock, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %207, ptr noundef %0, i32 noundef %204, i32 noundef 6, i32 noundef 0)
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %207, ptr noundef %0, i32 noundef %204, i32 noundef 6, i32 noundef 0)
   %209 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %209, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %206)
   %210 = add nuw nsw i32 %195, 12
@@ -579,37 +579,37 @@ proto_item_set_generated.exit.thread:             ; preds = %14
   %214 = tail call i64 @g_ascii_strtoull(ptr noundef %213, ptr noundef null, i32 noundef 10)
   %215 = uitofp i64 %214 to double
   %216 = fdiv double %215, 1.000000e+04
-  %217 = tail call ptr @proto_tree_add_double(ptr noundef %.0178209224, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 10, double noundef %216)
+  %217 = tail call ptr @proto_tree_add_double(ptr noundef %.0178209231, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 10, double noundef %216)
   %218 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %218, i32 noundef 25, ptr noundef nonnull @.str.124, double noundef %216)
   %219 = or disjoint i32 %195, 22
   %220 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %220, ptr noundef %0, i32 noundef %219, i32 noundef 9, i32 noundef 0)
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %220, ptr noundef %0, i32 noundef %219, i32 noundef 9, i32 noundef 0)
   %222 = add nuw nsw i32 %195, 31
   %223 = load i32, ptr @hf_nasdaq_itch_cross, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209224, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 1, i32 noundef 0)
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209231, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 1, i32 noundef 0)
   br label %time_stamp.exit198
 
 225:                                              ; preds = %50, %.thread214
   %226 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209223 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209232 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %227 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209223, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 9, i32 noundef 0)
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209232, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 9, i32 noundef 0)
   br label %time_stamp.exit198
 
 229:                                              ; preds = %50, %.thread214
   %230 = phi i32 [ 1, %50 ], [ 9, %.thread214 ]
-  %.0178209222 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
+  %.0178209233 = phi ptr [ %.0178209, %50 ], [ %.0178209.ph, %.thread214 ]
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %232 = load ptr, ptr %231, align 8
   %233 = tail call ptr @tvb_get_string_enc(ptr noundef %232, ptr noundef %0, i32 noundef %230, i32 noundef 6, i32 noundef 0)
   %234 = load i32, ptr @hf_nasdaq_itch_stock, align 4
-  %235 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209222, i32 noundef %234, ptr noundef %0, i32 noundef %230, i32 noundef 6, i32 noundef 0)
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209233, i32 noundef %234, ptr noundef %0, i32 noundef %230, i32 noundef 6, i32 noundef 0)
   %236 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %236, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %233)
   %237 = or disjoint i32 %230, 6
   %238 = load i32, ptr @hf_nasdaq_itch_cross, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209222, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0)
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %.0178209233, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0)
   br label %time_stamp.exit198
 
 240:                                              ; preds = %50, %.thread214

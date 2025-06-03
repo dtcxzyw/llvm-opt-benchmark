@@ -535,7 +535,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer17SoftenFloatResultEPNS_6SDNodeEj(
   br label %143
 
 143:                                              ; preds = %141, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %13, %11, %9, %7
-  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %16, %13 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %142, %141 ]
   %.sroa.0529.0 = extractvalue { ptr, i32 } %.pn, 0
   %.not = icmp eq ptr %.sroa.0529.0, null
   br i1 %.not, label %145, label %144
@@ -1345,7 +1345,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit: ; preds = %2
   br label %14
 
 14:                                               ; preds = %7, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit
-  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %13, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit ]
+  %.pn = phi { ptr, i32 } [ %13, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit ], [ %8, %7 ]
   ret { ptr, i32 } %.pn
 }
 
@@ -1376,7 +1376,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit: ; preds = %2
   br label %14
 
 14:                                               ; preds = %7, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit
-  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %13, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit ]
+  %.pn = phi { ptr, i32 } [ %13, %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit ], [ %8, %7 ]
   ret { ptr, i32 } %.pn
 }
 
@@ -5351,13 +5351,13 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !220, !llvm.loop !269
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %24, %15
-  %.lcssa.i.i.pn = phi i64 [ %18, %15 ], [ %27, %24 ]
+  %.pn = phi i64 [ %18, %15 ], [ %27, %24 ]
   %31 = zext i32 %13 to i64
-  %32 = icmp samesign eq i64 %.lcssa.i.i.pn, %31
+  %32 = icmp samesign eq i64 %.pn, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %33
 
 33:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pn, i32 0, i32 1
   tail call void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 4 dereferenceable(4) %34) #16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %36 = load i32, ptr %35, align 8
@@ -5687,7 +5687,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %1
   br label %_ZN4llvm3MVT19changeTypeToIntegerEv.exit
 
 _ZN4llvm3MVT19changeTypeToIntegerEv.exit:         ; preds = %14, %20, %21, %22, %23, %24, %25, %26, %27
-  %.sroa.0.0.i.i = phi i16 [ 0, %27 ], [ 9, %26 ], [ 8, %25 ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 4, %21 ], [ 3, %20 ], [ 2, %14 ]
+  %.sroa.0.0.i.i = phi i16 [ 0, %27 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 8, %25 ], [ 9, %26 ], [ 2, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %28 = insertvalue { i16, ptr } poison, i16 %.sroa.0.0.i.i, 0
   %29 = insertvalue { i16, ptr } %28, ptr null, 1
@@ -6119,7 +6119,7 @@ _ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LLRINTEPNS_6SDNodeE.exit: ; preds = %3
   br label %90
 
 90:                                               ; preds = %88, %86, %84, %82, %80, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LLRINTEPNS_6SDNodeE.exit, %_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_LRINTEPNS_6SDNodeE.exit, %_ZN4llvm16DAGTypeLegalizer21SoftenFloatOp_LLROUNDEPNS_6SDNodeE.exit, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LROUNDEPNS_6SDNodeE.exit, %15, %13, %11, %9, %7
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LLRINTEPNS_6SDNodeE.exit ], [ %64, %_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_LRINTEPNS_6SDNodeE.exit ], [ %49, %_ZN4llvm16DAGTypeLegalizer21SoftenFloatOp_LLROUNDEPNS_6SDNodeE.exit ], [ %34, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LROUNDEPNS_6SDNodeE.exit ], [ %19, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %19, %15 ], [ %34, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LROUNDEPNS_6SDNodeE.exit ], [ %49, %_ZN4llvm16DAGTypeLegalizer21SoftenFloatOp_LLROUNDEPNS_6SDNodeE.exit ], [ %64, %_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_LRINTEPNS_6SDNodeE.exit ], [ %79, %_ZN4llvm16DAGTypeLegalizer20SoftenFloatOp_LLRINTEPNS_6SDNodeE.exit ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ]
   %.sroa.0130.0 = extractvalue { ptr, i32 } %.pn, 0
   %.sroa.21.0 = extractvalue { ptr, i32 } %.pn, 1
   %.not = icmp eq ptr %.sroa.0130.0, null
@@ -7402,8 +7402,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %45, %46, %47, %48, %49, %50, %51, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %54, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %51 ], [ null, %50 ], [ null, %49 ], [ null, %48 ], [ null, %47 ], [ null, %46 ], [ null, %45 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %53, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %51 ], [ 8, %50 ], [ 7, %49 ], [ 6, %48 ], [ 5, %47 ], [ 4, %46 ], [ 3, %45 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %54, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %45 ], [ null, %46 ], [ null, %47 ], [ null, %48 ], [ null, %49 ], [ null, %50 ], [ null, %51 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %53, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 7, %49 ], [ 8, %50 ], [ 9, %51 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %55 = getelementptr inbounds nuw i8, ptr %.fca.0.extract90, i64 48
@@ -10729,7 +10729,7 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18ExpandFloatOperand
   br label %48
 
 48:                                               ; preds = %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ]
   %.sroa.0119.0 = extractvalue { ptr, i32 } %.pn, 0
   %.sroa.21.0 = extractvalue { ptr, i32 } %.pn, 1
   %.not = icmp eq ptr %.sroa.0119.0, null
@@ -12542,7 +12542,7 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer19PromoteFloatOperan
   br label %42
 
 42:                                               ; preds = %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ]
   %.sroa.0103.0 = extractvalue { ptr, i32 } %.pn, 0
   %.not = icmp eq ptr %.sroa.0103.0, null
   br i1 %.not, label %44, label %43
@@ -12710,8 +12710,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %61, %62, %63, %64, %65, %66, %67, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %70, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %67 ], [ null, %66 ], [ null, %65 ], [ null, %64 ], [ null, %63 ], [ null, %62 ], [ null, %61 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %69, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %67 ], [ 8, %66 ], [ 7, %65 ], [ 6, %64 ], [ 5, %63 ], [ 4, %62 ], [ 3, %61 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %70, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %61 ], [ null, %62 ], [ null, %63 ], [ null, %64 ], [ null, %65 ], [ null, %66 ], [ null, %67 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %69, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %61 ], [ 4, %62 ], [ 5, %63 ], [ 6, %64 ], [ 7, %65 ], [ 8, %66 ], [ 9, %67 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %71 = load ptr, ptr %49, align 8, !tbaa !46
   %.sroa.012.0.copyload = load i16, ptr %5, align 8, !tbaa !52
@@ -14047,8 +14047,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %74, %75, %76, %77, %78, %79, %80, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %83, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %77 ], [ null, %76 ], [ null, %75 ], [ null, %74 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %82, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %80 ], [ 8, %79 ], [ 7, %78 ], [ 6, %77 ], [ 5, %76 ], [ 4, %75 ], [ 3, %74 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %83, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %74 ], [ null, %75 ], [ null, %76 ], [ null, %77 ], [ null, %78 ], [ null, %79 ], [ null, %80 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %82, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %74 ], [ 4, %75 ], [ 5, %76 ], [ 6, %77 ], [ 7, %78 ], [ 8, %79 ], [ 9, %80 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %84 = load ptr, ptr %62, align 8, !tbaa !46
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
@@ -14287,8 +14287,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %78, %79, %80, %81, %82, %83, %84, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %87, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %84 ], [ null, %83 ], [ null, %82 ], [ null, %81 ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %86, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %84 ], [ 8, %83 ], [ 7, %82 ], [ 6, %81 ], [ 5, %80 ], [ 4, %79 ], [ 3, %78 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %87, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %78 ], [ null, %79 ], [ null, %80 ], [ null, %81 ], [ null, %82 ], [ null, %83 ], [ null, %84 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %86, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %78 ], [ 4, %79 ], [ 5, %80 ], [ 6, %81 ], [ 7, %82 ], [ 8, %83 ], [ 9, %84 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %88 = load ptr, ptr %66, align 8, !tbaa !46
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
@@ -14535,7 +14535,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer18PromoteFloatResultEPNS_6SDNodeEj
   br label %57
 
 57:                                               ; preds = %55, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %56, %55 ]
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ]
   %.sroa.0172.0 = extractvalue { ptr, i32 } %.pn, 0
   %.not = icmp eq ptr %.sroa.0172.0, null
   br i1 %.not, label %59, label %58
@@ -14657,8 +14657,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %41, %42, %43, %44, %45, %46, %47, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %50, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %47 ], [ null, %46 ], [ null, %45 ], [ null, %44 ], [ null, %43 ], [ null, %42 ], [ null, %41 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %49, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %47 ], [ 8, %46 ], [ 7, %45 ], [ 6, %44 ], [ 5, %43 ], [ 4, %42 ], [ 3, %41 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %50, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %41 ], [ null, %42 ], [ null, %43 ], [ null, %44 ], [ null, %45 ], [ null, %46 ], [ null, %47 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %49, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %41 ], [ 4, %42 ], [ 5, %43 ], [ 6, %44 ], [ 7, %45 ], [ 8, %46 ], [ 9, %47 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %51 = load ptr, ptr %10, align 8, !tbaa !46
@@ -14827,8 +14827,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %30, %31, %32, %33, %34, %35, %36, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %39, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %36 ], [ null, %35 ], [ null, %34 ], [ null, %33 ], [ null, %32 ], [ null, %31 ], [ null, %30 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %38, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %36 ], [ 8, %35 ], [ 7, %34 ], [ 6, %33 ], [ 5, %32 ], [ 4, %31 ], [ 3, %30 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %39, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %30 ], [ null, %31 ], [ null, %32 ], [ null, %33 ], [ null, %34 ], [ null, %35 ], [ null, %36 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %38, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %30 ], [ 4, %31 ], [ 5, %32 ], [ 6, %33 ], [ 7, %34 ], [ 8, %35 ], [ 9, %36 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %40 = load ptr, ptr %18, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
@@ -15419,7 +15419,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #16
   br label %223
 
-.critedge:                                        ; preds = %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit, %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, %176
+.critedge:                                        ; preds = %176, %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   br label %223
 
@@ -16671,8 +16671,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %45, %46, %47, %48, %49, %50, %51, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %54, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %51 ], [ null, %50 ], [ null, %49 ], [ null, %48 ], [ null, %47 ], [ null, %46 ], [ null, %45 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %53, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %51 ], [ 8, %50 ], [ 7, %49 ], [ 6, %48 ], [ 5, %47 ], [ 4, %46 ], [ 3, %45 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %54, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %45 ], [ null, %46 ], [ null, %47 ], [ null, %48 ], [ null, %49 ], [ null, %50 ], [ null, %51 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %53, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 7, %49 ], [ 8, %50 ], [ 9, %51 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %55 = load ptr, ptr %24, align 8, !tbaa !46
   %.sroa.017.0.copyload = load i16, ptr %4, align 8, !tbaa !52
@@ -16869,8 +16869,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %48, %49, %50, %51, %52, %53, %54, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %57, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %54 ], [ null, %53 ], [ null, %52 ], [ null, %51 ], [ null, %50 ], [ null, %49 ], [ null, %48 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %56, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %54 ], [ 8, %53 ], [ 7, %52 ], [ 6, %51 ], [ 5, %50 ], [ 4, %49 ], [ 3, %48 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %57, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %48 ], [ null, %49 ], [ null, %50 ], [ null, %51 ], [ null, %52 ], [ null, %53 ], [ null, %54 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %56, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %48 ], [ 4, %49 ], [ 5, %50 ], [ 6, %51 ], [ 7, %52 ], [ 8, %53 ], [ 9, %54 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %58 = load ptr, ptr %27, align 8, !tbaa !46
   %.sroa.031.0.copyload = load i16, ptr %5, align 8, !tbaa !52
@@ -17042,8 +17042,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %25, %26, %27, %28, %29, %30, %31, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %34, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %31 ], [ null, %30 ], [ null, %29 ], [ null, %28 ], [ null, %27 ], [ null, %26 ], [ null, %25 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %33, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %31 ], [ 8, %30 ], [ 7, %29 ], [ 6, %28 ], [ 5, %27 ], [ 4, %26 ], [ 3, %25 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %34, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %25 ], [ null, %26 ], [ null, %27 ], [ null, %28 ], [ null, %29 ], [ null, %30 ], [ null, %31 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %33, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %25 ], [ 4, %26 ], [ 5, %27 ], [ 6, %28 ], [ 7, %29 ], [ 8, %30 ], [ 9, %31 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %35 = load ptr, ptr %13, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -17258,8 +17258,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %26, %27, %28, %29, %30, %31, %32, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i = phi ptr [ %35, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %32 ], [ null, %31 ], [ null, %30 ], [ null, %29 ], [ null, %28 ], [ null, %27 ], [ null, %26 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i = phi i16 [ %34, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %32 ], [ 8, %31 ], [ 7, %30 ], [ 6, %29 ], [ 5, %28 ], [ 4, %27 ], [ 3, %26 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i = phi ptr [ %35, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %26 ], [ null, %27 ], [ null, %28 ], [ null, %29 ], [ null, %30 ], [ null, %31 ], [ null, %32 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ %34, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %26 ], [ 4, %27 ], [ 5, %28 ], [ 6, %29 ], [ 7, %30 ], [ 8, %31 ], [ 9, %32 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %36 = load ptr, ptr %14, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -18069,7 +18069,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer21SoftPromoteHalfResultEPNS_6SDNod
   br label %59
 
 59:                                               ; preds = %57, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %15, %13
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %15 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %18, %15 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %58, %57 ]
   %.sroa.0172.0 = extractvalue { ptr, i32 } %.pn, 0
   %.not = icmp eq ptr %.sroa.0172.0, null
   br i1 %.not, label %61, label %60
@@ -21202,7 +21202,7 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer22SoftPromoteHalfOpe
   br label %44
 
 44:                                               ; preds = %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ]
   %.sroa.0107.0 = extractvalue { ptr, i32 } %.pn, 0
   %.not = icmp eq ptr %.sroa.0107.0, null
   br i1 %.not, label %46, label %45
@@ -24545,7 +24545,7 @@ define linkonce_odr hidden i16 @_ZNK4llvm3MVT32changeVectorElementTypeToIntegerE
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %1, %13, %14, %15, %16, %17, %18, %19, %20
-  %.sroa.0.0.i = phi i16 [ 0, %20 ], [ 9, %19 ], [ 8, %18 ], [ 7, %17 ], [ 6, %16 ], [ 5, %15 ], [ 4, %14 ], [ 3, %13 ], [ 2, %1 ]
+  %.sroa.0.0.i = phi i16 [ 0, %20 ], [ 3, %13 ], [ 4, %14 ], [ 5, %15 ], [ 6, %16 ], [ 7, %17 ], [ 8, %18 ], [ 9, %19 ], [ 2, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %21 = load i16, ptr %0, align 2, !tbaa !279
   %22 = zext i16 %21 to i64

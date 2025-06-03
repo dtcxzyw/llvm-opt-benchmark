@@ -414,7 +414,7 @@ define dso_local range(i32 2, 4) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %166
 
 166:                                              ; preds = %117, %.thread, %159, %152, %162, %161, %154, %150, %137, %135, %133
-  %.0 = phi i32 [ 2, %137 ], [ 2, %135 ], [ 0, %133 ], [ 2, %154 ], [ 2, %161 ], [ %165, %162 ], [ 2, %150 ], [ 0, %152 ], [ 0, %159 ], [ 0, %117 ], [ %.07.i.ph.ph, %.thread ]
+  %.0 = phi i32 [ 2, %137 ], [ 2, %154 ], [ 2, %161 ], [ %165, %162 ], [ 2, %150 ], [ 0, %133 ], [ 2, %135 ], [ 0, %152 ], [ 0, %159 ], [ 0, %117 ], [ %.07.i.ph.ph, %.thread ]
   %167 = load ptr, ptr %6, align 8, !tbaa !4
   call void @onas_cleanup(ptr noundef %167)
   call void @exit(i32 noundef %.0) #14

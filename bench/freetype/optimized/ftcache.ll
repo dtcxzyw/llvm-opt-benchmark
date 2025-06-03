@@ -3706,7 +3706,7 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nou
   br label %28
 
 28:                                               ; preds = %2, %17, %7
-  %.0 = phi i64 [ 0, %2 ], [ %27, %17 ], [ %16, %7 ]
+  %.0 = phi i64 [ 0, %2 ], [ %16, %7 ], [ %27, %17 ]
   %29 = add nuw nsw i64 %.0, 64
   ret i64 %29
 }

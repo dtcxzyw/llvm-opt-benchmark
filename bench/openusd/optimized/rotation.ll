@@ -885,56 +885,56 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169:
   ]
 
 64:                                               ; preds = %.cont151
-  br i1 %14, label %.cont219, label %.else221
+  br i1 %14, label %.cont217, label %.else219
 
-.else221:                                         ; preds = %64
-  %.else.val222 = load double, ptr %4, align 8
-  br label %.cont219
+.else219:                                         ; preds = %64
+  %.else.val220 = load double, ptr %4, align 8
+  br label %.cont217
 
-.cont219:                                         ; preds = %64, %.else221
-  %65 = phi double [ 0.000000e+00, %64 ], [ %.else.val222, %.else221 ]
+.cont217:                                         ; preds = %64, %.else219
+  %65 = phi double [ 0.000000e+00, %64 ], [ %.else.val220, %.else219 ]
   %66 = fneg double %51
-  br label %.cont161
+  br label %.cont157
 
 67:                                               ; preds = %.cont151, %.cont151
-  br i1 %15, label %.cont201, label %.else203
+  br i1 %15, label %.cont197, label %.else199
 
-.else203:                                         ; preds = %67
-  %.else.val204 = load double, ptr %5, align 8
-  br label %.cont201
+.else199:                                         ; preds = %67
+  %.else.val200 = load double, ptr %5, align 8
+  br label %.cont197
 
-.cont201:                                         ; preds = %67, %.else203
-  %68 = phi double [ 0.000000e+00, %67 ], [ %.else.val204, %.else203 ]
+.cont197:                                         ; preds = %67, %.else199
+  %68 = phi double [ 0.000000e+00, %67 ], [ %.else.val200, %.else199 ]
   %69 = fneg double %68
-  br i1 %17, label %.cont181, label %.else183
+  br i1 %17, label %.cont179, label %.else181
 
-.else183:                                         ; preds = %.cont201
-  %.else.val184 = load double, ptr %6, align 8
-  br label %.cont181
+.else181:                                         ; preds = %.cont197
+  %.else.val182 = load double, ptr %6, align 8
+  br label %.cont179
 
-.cont181:                                         ; preds = %.cont201, %.else183
-  %70 = phi double [ 0.000000e+00, %.cont201 ], [ %.else.val184, %.else183 ]
+.cont179:                                         ; preds = %.cont197, %.else181
+  %70 = phi double [ 0.000000e+00, %.cont197 ], [ %.else.val182, %.else181 ]
   %71 = fneg double %70
-  br label %.cont161
+  br label %.cont157
 
 72:                                               ; preds = %.cont151
   %73 = fneg double %55
-  br i1 %19, label %.cont161, label %.else163
-
-.else163:                                         ; preds = %72
-  %.else.val164 = load double, ptr %7, align 8
-  br label %.cont161
-
-74:                                               ; preds = %.cont151
-  %75 = fneg double %55
   br i1 %19, label %.cont157, label %.else159
 
-.else159:                                         ; preds = %74
+.else159:                                         ; preds = %72
   %.else.val160 = load double, ptr %7, align 8
   br label %.cont157
 
-.cont157:                                         ; preds = %74, %.else159
-  %76 = phi double [ 0.000000e+00, %74 ], [ %.else.val160, %.else159 ]
+74:                                               ; preds = %.cont151
+  %75 = fneg double %55
+  br i1 %19, label %.cont161, label %.else163
+
+.else163:                                         ; preds = %74
+  %.else.val164 = load double, ptr %7, align 8
+  br label %.cont161
+
+.cont161:                                         ; preds = %74, %.else163
+  %76 = phi double [ 0.000000e+00, %74 ], [ %.else.val164, %.else163 ]
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store double %59, ptr %77, align 16
   %.sroa.2123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -943,23 +943,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169:
   store double %51, ptr %.sroa.3124.0..sroa_idx, align 16
   %.sroa.4125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   store double %76, ptr %.sroa.4125.0..sroa_idx, align 8
-  br i1 %15, label %.cont157.cont197, label %.cont157.else199
+  br i1 %15, label %.cont161.cont201, label %.cont161.else203
 
-.cont157.else199:                                 ; preds = %.cont157
-  %.else.val200 = load double, ptr %5, align 8
-  br label %.cont157.cont197
+.cont161.else203:                                 ; preds = %.cont161
+  %.else.val204 = load double, ptr %5, align 8
+  br label %.cont161.cont201
 
-.cont157.cont197:                                 ; preds = %.cont157, %.cont157.else199
-  %78 = phi double [ 0.000000e+00, %.cont157 ], [ %.else.val200, %.cont157.else199 ]
+.cont161.cont201:                                 ; preds = %.cont161, %.cont161.else203
+  %78 = phi double [ 0.000000e+00, %.cont161 ], [ %.else.val204, %.cont161.else203 ]
   %79 = fneg double %78
-  br i1 %17, label %.cont157.cont, label %.cont157.else
+  br i1 %17, label %.cont161.cont, label %.cont161.else
 
-.cont157.else:                                    ; preds = %.cont157.cont197
-  %.else.val180 = load double, ptr %6, align 8
-  br label %.cont157.cont
+.cont161.else:                                    ; preds = %.cont161.cont201
+  %.else.val184 = load double, ptr %6, align 8
+  br label %.cont161.cont
 
-.cont157.cont:                                    ; preds = %.cont157.cont197, %.cont157.else
-  %80 = phi double [ 0.000000e+00, %.cont157.cont197 ], [ %.else.val180, %.cont157.else ]
+.cont161.cont:                                    ; preds = %.cont161.cont201, %.cont161.else
+  %80 = phi double [ 0.000000e+00, %.cont161.cont201 ], [ %.else.val184, %.cont161.else ]
   %81 = fneg double %80
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store double %59, ptr %82, align 16
@@ -969,29 +969,29 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169:
   store double %81, ptr %.sroa.3120.0..sroa_idx, align 16
   %.sroa.4121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 88
   store double %63, ptr %.sroa.4121.0..sroa_idx, align 8
-  br i1 %14, label %.cont157.cont.cont, label %.cont157.cont.else
+  br i1 %14, label %.cont161.cont.cont, label %.cont161.cont.else
 
-.cont157.cont.else:                               ; preds = %.cont157.cont
-  %.else.val218 = load double, ptr %4, align 8
-  br label %.cont157.cont.cont
+.cont161.cont.else:                               ; preds = %.cont161.cont
+  %.else.val222 = load double, ptr %4, align 8
+  br label %.cont161.cont.cont
 
-.cont157.cont.cont:                               ; preds = %.cont157.cont, %.cont157.cont.else
-  %83 = phi double [ 0.000000e+00, %.cont157.cont ], [ %.else.val218, %.cont157.cont.else ]
+.cont161.cont.cont:                               ; preds = %.cont161.cont, %.cont161.cont.else
+  %83 = phi double [ 0.000000e+00, %.cont161.cont ], [ %.else.val222, %.cont161.cont.else ]
   %84 = fneg double %51
-  br label %.cont161
+  br label %.cont157
 
 default.unreachable246:                           ; preds = %.cont151
   unreachable
 
-.cont161:                                         ; preds = %.else163, %72, %.cont157.cont.cont, %.cont181, %.cont219
-  %.sink258.sroa.phi = phi ptr [ %.sink258.sroa.gep, %.cont157.cont.cont ], [ %.sink258.sroa.gep280, %.cont181 ], [ %.sink258.sroa.gep281, %.cont219 ], [ %.sink258.sroa.gep282, %72 ], [ %.sink258.sroa.gep283, %.else163 ]
-  %.sink256 = phi double [ %83, %.cont157.cont.cont ], [ %59, %.cont181 ], [ %65, %.cont219 ], [ %59, %72 ], [ %59, %.else163 ]
-  %.sink255.sroa.phi = phi ptr [ %.sink255.sroa.gep, %.cont157.cont.cont ], [ %.sink255.sroa.gep276, %.cont181 ], [ %.sink255.sroa.gep277, %.cont219 ], [ %.sink255.sroa.gep278, %72 ], [ %.sink255.sroa.gep279, %.else163 ]
-  %.sink254 = phi double [ %55, %.cont157.cont.cont ], [ %69, %.cont181 ], [ %55, %.cont219 ], [ %73, %72 ], [ %73, %.else163 ]
-  %.sink253.sroa.phi = phi ptr [ %.sink253.sroa.gep, %.cont157.cont.cont ], [ %.sink253.sroa.gep272, %.cont181 ], [ %.sink253.sroa.gep273, %.cont219 ], [ %.sink253.sroa.gep274, %72 ], [ %.sink253.sroa.gep275, %.else163 ]
-  %.sink252 = phi double [ %84, %.cont157.cont.cont ], [ %71, %.cont181 ], [ %66, %.cont219 ], [ %51, %72 ], [ %51, %.else163 ]
-  %.sink251.sroa.phi = phi ptr [ %.sink251.sroa.gep, %.cont157.cont.cont ], [ %.sink251.sroa.gep268, %.cont181 ], [ %.sink251.sroa.gep269, %.cont219 ], [ %.sink251.sroa.gep270, %72 ], [ %.sink251.sroa.gep271, %.else163 ]
-  %.sink = phi double [ %63, %.cont157.cont.cont ], [ %63, %.cont181 ], [ %63, %.cont219 ], [ 0.000000e+00, %72 ], [ %.else.val164, %.else163 ]
+.cont157:                                         ; preds = %.else159, %72, %.cont161.cont.cont, %.cont179, %.cont217
+  %.sink258.sroa.phi = phi ptr [ %.sink258.sroa.gep, %.cont161.cont.cont ], [ %.sink258.sroa.gep280, %.cont179 ], [ %.sink258.sroa.gep281, %.cont217 ], [ %.sink258.sroa.gep282, %72 ], [ %.sink258.sroa.gep283, %.else159 ]
+  %.sink256 = phi double [ %83, %.cont161.cont.cont ], [ %59, %.cont179 ], [ %65, %.cont217 ], [ %59, %72 ], [ %59, %.else159 ]
+  %.sink255.sroa.phi = phi ptr [ %.sink255.sroa.gep, %.cont161.cont.cont ], [ %.sink255.sroa.gep276, %.cont179 ], [ %.sink255.sroa.gep277, %.cont217 ], [ %.sink255.sroa.gep278, %72 ], [ %.sink255.sroa.gep279, %.else159 ]
+  %.sink254 = phi double [ %55, %.cont161.cont.cont ], [ %69, %.cont179 ], [ %55, %.cont217 ], [ %73, %72 ], [ %73, %.else159 ]
+  %.sink253.sroa.phi = phi ptr [ %.sink253.sroa.gep, %.cont161.cont.cont ], [ %.sink253.sroa.gep272, %.cont179 ], [ %.sink253.sroa.gep273, %.cont217 ], [ %.sink253.sroa.gep274, %72 ], [ %.sink253.sroa.gep275, %.else159 ]
+  %.sink252 = phi double [ %84, %.cont161.cont.cont ], [ %71, %.cont179 ], [ %66, %.cont217 ], [ %51, %72 ], [ %51, %.else159 ]
+  %.sink251.sroa.phi = phi ptr [ %.sink251.sroa.gep, %.cont161.cont.cont ], [ %.sink251.sroa.gep268, %.cont179 ], [ %.sink251.sroa.gep269, %.cont217 ], [ %.sink251.sroa.gep270, %72 ], [ %.sink251.sroa.gep271, %.else159 ]
+  %.sink = phi double [ %63, %.cont161.cont.cont ], [ %63, %.cont179 ], [ %63, %.cont217 ], [ 0.000000e+00, %72 ], [ %.else.val160, %.else159 ]
   store double %.sink256, ptr %.sink258.sroa.phi, align 16
   store double %.sink254, ptr %.sink255.sroa.phi, align 8
   store double %.sink252, ptr %.sink253.sroa.phi, align 16
@@ -1004,8 +1004,8 @@ default.unreachable246:                           ; preds = %.cont151
   %.sroa.8.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %101
 
-85:                                               ; preds = %.cont161, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117
-  %indvars.iv = phi i64 [ 0, %.cont161 ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117 ]
+85:                                               ; preds = %.cont157, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117
+  %indvars.iv = phi i64 [ 0, %.cont157 ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117 ]
   %86 = getelementptr inbounds nuw [4 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d"], ptr %11, i64 0, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 16 dereferenceable(32) %86, i64 32, i1 false)

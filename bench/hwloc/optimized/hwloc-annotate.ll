@@ -1745,9 +1745,9 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %136
 
 136:                                              ; preds = %112, %.thread, %132, %43, %.thread135, %119, %72, %40, %33, %27, %16
-  %.099 = phi ptr [ null, %40 ], [ %46, %112 ], [ %46, %132 ], [ %46, %.thread135 ], [ %46, %119 ], [ %46, %72 ], [ %46, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %46, %.thread ]
-  %.098 = phi ptr [ null, %40 ], [ %50, %112 ], [ %50, %132 ], [ %50, %.thread135 ], [ %50, %119 ], [ %50, %72 ], [ %50, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %50, %.thread ]
-  %.091 = phi ptr [ %.1, %40 ], [ %.1, %112 ], [ %.1, %132 ], [ %.1, %.thread135 ], [ %.1, %119 ], [ %.1, %72 ], [ %.1, %43 ], [ %.1, %33 ], [ %.2, %27 ], [ null, %16 ], [ %.1, %.thread ]
+  %.099 = phi ptr [ null, %40 ], [ %46, %132 ], [ %46, %.thread135 ], [ %46, %112 ], [ %46, %119 ], [ %46, %72 ], [ %46, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %46, %.thread ]
+  %.098 = phi ptr [ null, %40 ], [ %50, %132 ], [ %50, %.thread135 ], [ %50, %112 ], [ %50, %119 ], [ %50, %72 ], [ %50, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ], [ %50, %.thread ]
+  %.091 = phi ptr [ %.1, %40 ], [ %.1, %132 ], [ %.1, %.thread135 ], [ %.1, %112 ], [ %.1, %119 ], [ %.1, %72 ], [ %.1, %43 ], [ %.1, %33 ], [ %.2, %27 ], [ null, %16 ], [ %.1, %.thread ]
   call void @free(ptr noundef %.091) #29
   call void @free(ptr noundef %.099) #29
   call void @free(ptr noundef %.098) #29
@@ -4515,7 +4515,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br label %.thread
 
 .thread:                                          ; preds = %22, %17, %29, %hwloc_obj_get_info_by_name.exit, %42, %65, %56, %47, %5, %8, %70
-  %.0 = phi i32 [ 1, %42 ], [ 0, %70 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %70 ], [ 1, %42 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
   ret i32 %.0
 }
 

@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN79_$LT$uv_requirements_txt..shquote..UnquoteError$u20$as$u20$core..fmt..Debug$GT$3fmt17h48b0e83c0b097aa0E.exit"
 
 "_ZN79_$LT$uv_requirements_txt..shquote..UnquoteError$u20$as$u20$core..fmt..Debug$GT$3fmt17h48b0e83c0b097aa0E.exit": ; preds = %9, %11
-  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -163,7 +163,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN78_$LT$uv_pep508..verbatim_url..VerbatimUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0bc003eb1aed1a7E.exit"
 
 "_ZN78_$LT$uv_pep508..verbatim_url..VerbatimUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0bc003eb1aed1a7E.exit": ; preds = %11, %14, %17, %20
-  %.sroa.0.0.in.i = phi i1 [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 

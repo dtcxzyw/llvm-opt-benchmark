@@ -796,10 +796,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
-  %.sroa.088.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.088.0.copyload, %24 ]
-  %.sroa.390.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.390.0.copyload, %24 ]
-  %.sroa.493.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.493.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ -9223372036854775803, %24 ]
+  %.sroa.088.0 = phi i64 [ %.sroa.088.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.390.0 = phi ptr [ %.sroa.390.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.493.0 = phi i64 [ %.sroa.493.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !221
@@ -1389,10 +1389,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %88
 
 43:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51", %27
-  %.sroa.092.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ], [ %.sroa.092.0.copyload, %27 ]
-  %.sroa.394.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ], [ %.sroa.394.0.copyload, %27 ]
-  %.sroa.497.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ], [ %.sroa.497.0.copyload, %27 ]
-  %44 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ], [ -9223372036854775803, %27 ]
+  %.sroa.092.0 = phi i64 [ %.sroa.092.0.copyload, %27 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ]
+  %.sroa.394.0 = phi ptr [ %.sroa.394.0.copyload, %27 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ]
+  %.sroa.497.0 = phi i64 [ %.sroa.497.0.copyload, %27 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ]
+  %44 = phi i64 [ -9223372036854775803, %27 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !411)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !414
@@ -2057,10 +2057,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
-  %.sroa.088.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.088.0.copyload, %24 ]
-  %.sroa.390.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.390.0.copyload, %24 ]
-  %.sroa.493.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.493.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ -9223372036854775803, %24 ]
+  %.sroa.088.0 = phi i64 [ %.sroa.088.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.390.0 = phi ptr [ %.sroa.390.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.493.0 = phi i64 [ %.sroa.493.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !613)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !616
@@ -2647,10 +2647,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
-  %.sroa.088.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.088.0.copyload, %24 ]
-  %.sroa.390.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.390.0.copyload, %24 ]
-  %.sroa.493.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.493.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ -9223372036854775803, %24 ]
+  %.sroa.088.0 = phi i64 [ %.sroa.088.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.390.0 = phi ptr [ %.sroa.390.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.493.0 = phi i64 [ %.sroa.493.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !804)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !807
@@ -3240,10 +3240,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %79
 
 43:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50", %27
-  %.sroa.091.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.091.0.copyload, %27 ]
-  %.sroa.393.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.393.0.copyload, %27 ]
-  %.sroa.496.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.496.0.copyload, %27 ]
-  %44 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ -9223372036854775803, %27 ]
+  %.sroa.091.0 = phi i64 [ %.sroa.091.0.copyload, %27 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %.sroa.393.0 = phi ptr [ %.sroa.393.0.copyload, %27 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %.sroa.496.0 = phi i64 [ %.sroa.496.0.copyload, %27 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %44 = phi i64 [ -9223372036854775803, %27 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !995)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !998
@@ -3892,10 +3892,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48", %24
-  %.sroa.089.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ], [ %.sroa.089.0.copyload, %24 ]
-  %.sroa.391.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ], [ %.sroa.391.0.copyload, %24 ]
-  %.sroa.494.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ], [ %.sroa.494.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ], [ -9223372036854775803, %24 ]
+  %.sroa.089.0 = phi i64 [ %.sroa.089.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ]
+  %.sroa.391.0 = phi ptr [ %.sroa.391.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ]
+  %.sroa.494.0 = phi i64 [ %.sroa.494.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1195)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1198
@@ -4488,10 +4488,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %72
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50", %24
-  %.sroa.091.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.091.0.copyload, %24 ]
-  %.sroa.393.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.393.0.copyload, %24 ]
-  %.sroa.496.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ %.sroa.496.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ], [ -9223372036854775803, %24 ]
+  %.sroa.091.0 = phi i64 [ %.sroa.091.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %.sroa.393.0 = phi ptr [ %.sroa.393.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %.sroa.496.0 = phi i64 [ %.sroa.496.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1386)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1389
@@ -5107,10 +5107,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
-  %.sroa.088.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.088.0.copyload, %24 ]
-  %.sroa.390.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.390.0.copyload, %24 ]
-  %.sroa.493.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.493.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ -9223372036854775803, %24 ]
+  %.sroa.088.0 = phi i64 [ %.sroa.088.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.390.0 = phi ptr [ %.sroa.390.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.493.0 = phi i64 [ %.sroa.493.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1578)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1581
@@ -5697,10 +5697,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %66
 
 40:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
-  %.sroa.088.0 = phi i64 [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.088.0.copyload, %24 ]
-  %.sroa.390.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.390.0.copyload, %24 ]
-  %.sroa.493.0 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ %.sroa.493.0.copyload, %24 ]
-  %41 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ], [ -9223372036854775803, %24 ]
+  %.sroa.088.0 = phi i64 [ %.sroa.088.0.copyload, %24 ], [ %.sroa.0.0.copyload1.i, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.390.0 = phi ptr [ %.sroa.390.0.copyload, %24 ], [ %.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %.sroa.493.0 = phi i64 [ %.sroa.493.0.copyload, %24 ], [ %.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
+  %41 = phi i64 [ -9223372036854775803, %24 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1769)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1772
@@ -12780,10 +12780,10 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 16:                                               ; preds = %9
   %17 = and i64 %13, 3
   switch i64 %17, label %default.unreachable [
-    i64 2, label %36
+    i64 2, label %25
     i64 3, label %18
-    i64 0, label %25
-    i64 1, label %30
+    i64 0, label %27
+    i64 1, label %32
   ]
 
 default.unreachable:                              ; preds = %16
@@ -12807,7 +12807,7 @@ default.unreachable:                              ; preds = %16
   %22 = getelementptr inbounds i8, ptr %.sroa.0.051.i, i64 %13
   br label %39
 
-23:                                               ; preds = %36, %30, %25, %18
+23:                                               ; preds = %32, %27, %25, %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3957
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h9a85d6c469133735E.llvm.7238318159812895458(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %12), !noalias !3967
   %24 = load i8, ptr %5, align 8, !range !1405, !alias.scope !3968, !noalias !3957, !noundef !9
@@ -12815,26 +12815,26 @@ default.unreachable:                              ; preds = %16
   br i1 %switch.not.i.i.i.i.i, label %38, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hc2221557fddc041bE.exit.i"
 
 25:                                               ; preds = %16
-  %26 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %28 = load i8, ptr %27, align 8, !range !3971, !noundef !9
-  %29 = icmp eq i8 %28, 35
-  br i1 %29, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread
-
-30:                                               ; preds = %16
-  %31 = getelementptr i8, ptr %12, i64 -1
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  %33 = getelementptr i8, ptr %12, i64 15
-  %34 = load i8, ptr %33, align 8, !range !3971, !noundef !9
-  %35 = icmp eq i8 %34, 35
-  br i1 %35, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread
-
-36:                                               ; preds = %16
   %.mask43.i = and i64 %13, -4294967296
-  %37 = icmp eq i64 %.mask43.i, 17179869184
-  br i1 %37, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit
+  %26 = icmp eq i64 %.mask43.i, 17179869184
+  br i1 %26, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit
+
+27:                                               ; preds = %16
+  %28 = icmp ne ptr %12, null
+  call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %30 = load i8, ptr %29, align 8, !range !3971, !noundef !9
+  %31 = icmp eq i8 %30, 35
+  br i1 %31, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread
+
+32:                                               ; preds = %16
+  %33 = getelementptr i8, ptr %12, i64 -1
+  %34 = icmp ne ptr %33, null
+  call void @llvm.assume(i1 %34)
+  %35 = getelementptr i8, ptr %12, i64 15
+  %36 = load i8, ptr %35, align 8, !range !3971, !noundef !9
+  %37 = icmp eq i8 %36, 35
+  br i1 %37, label %23, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread
 
 38:                                               ; preds = %23
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hf53461dc09c9b359E.llvm.7238318159812895458"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !3967
@@ -12850,12 +12850,12 @@ default.unreachable:                              ; preds = %16
   %40 = icmp eq i64 %.sroa.4.159.i, 0
   br i1 %40, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread12, label %9
 
-_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit: ; preds = %18, %36
+_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit: ; preds = %18, %25
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread12, label %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread
 
-_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread: ; preds = %14, %25, %30, %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit
-  %.sroa.04.0.i10 = phi ptr [ %12, %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit ], [ %12, %30 ], [ %12, %25 ], [ @anon.046cd7016801ffc79c2eb3213b1c85fd.22, %14 ]
+_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit.thread: ; preds = %14, %27, %32, %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit
+  %.sroa.04.0.i10 = phi ptr [ %12, %_ZN3std2io5Write9write_all17h774ef1207bb4a515E.exit ], [ %12, %32 ], [ %12, %27 ], [ @anon.046cd7016801ffc79c2eb3213b1c85fd.22, %14 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3972)
   %42 = load ptr, ptr %41, align 8, !alias.scope !3972, !noundef !9

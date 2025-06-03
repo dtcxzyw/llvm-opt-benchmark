@@ -19179,7 +19179,7 @@ _ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit384: ; preds = %_ZN5
   br label %1265
 
 1265:                                             ; preds = %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit384, %909, %890
-  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn, %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit384 ], [ %910, %909 ], [ %891, %890 ]
+  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn, %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit384 ], [ %891, %890 ], [ %910, %909 ]
   %1266 = load ptr, ptr %43, align 8, !tbaa !47
   %.not.i.i385 = icmp eq ptr %1266, null
   br i1 %.not.i.i385, label %_ZN5Ipopt8SmartPtrINS_14HessianUpdaterEED2Ev.exit386, label %1267

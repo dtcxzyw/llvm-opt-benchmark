@@ -989,8 +989,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %75
 
 75:                                               ; preds = %71, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread"
-  %.sroa.6.2 = phi i64 [ %74, %71 ], [ %70, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ]
-  %.pn = phi i64 [ %.sroa.6.0518, %71 ], [ %67, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ]
+  %.sroa.6.2 = phi i64 [ %70, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ], [ %74, %71 ]
+  %.pn = phi i64 [ %67, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ], [ %.sroa.6.0518, %71 ]
   %.sroa.0.2 = getelementptr inbounds i8, ptr %.val, i64 %.pn
   br label %64
 }
@@ -1501,7 +1501,7 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10
-  %.sroa.0.0.in = phi i1 [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7592,8 +7592,8 @@ default.unreachable:                              ; preds = %1
   br label %14
 
 14:                                               ; preds = %1, %10, %5
-  %.sroa.4.0 = phi ptr [ %13, %10 ], [ %9, %5 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %12, %10 ], [ %8, %5 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ %9, %5 ], [ %13, %10 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %5 ], [ %12, %10 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %16
@@ -7628,7 +7628,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %9, %6
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %11, %9 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

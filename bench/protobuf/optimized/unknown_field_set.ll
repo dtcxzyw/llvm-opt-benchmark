@@ -763,7 +763,7 @@ sw.bb13:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb13, %for.body
-  %total_size.1 = phi i64 [ %total_size.09, %for.body ], [ %add16, %sw.bb13 ], [ %add12, %sw.bb ]
+  %total_size.1 = phi i64 [ %total_size.09, %for.body ], [ %add12, %sw.bb ], [ %add16, %sw.bb13 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
@@ -829,7 +829,7 @@ sw.bb13.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb13.i, %sw.bb.i, %for.body.i
-  %total_size.1.i = phi i64 [ %total_size.0.i4, %for.body.i ], [ %add16.i, %sw.bb13.i ], [ %add12.i, %sw.bb.i ]
+  %total_size.1.i = phi i64 [ %total_size.0.i4, %for.body.i ], [ %add12.i, %sw.bb.i ], [ %add16.i, %sw.bb13.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.03, i64 16
   %cmp.i.i.not = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.i.not, label %_ZNK6google8protobuf15UnknownFieldSet26SpaceUsedExcludingSelfLongEv.exit.loopexit, label %for.body.i
@@ -2652,7 +2652,7 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed32Ejj.exit: ; pr
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit.thread102, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed32Ejj.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed64Ejm.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
-  %ptr.addr.0 = phi ptr [ %add.ptr25, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed32Ejj.exit ], [ %call.i94, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit ], [ %call5.i.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit ], [ %add.ptr, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed64Ejm.exit ], [ %retval.0.i99, %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit ], [ %add.ptr4.i.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit.thread102 ]
+  %ptr.addr.0 = phi ptr [ %retval.0.i99, %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit ], [ %add.ptr, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed64Ejm.exit ], [ %call5.i.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit ], [ %call.i94, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit ], [ %add.ptr25, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10AddFixed32Ejj.exit ], [ %add.ptr4.i.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit.thread102 ]
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, %if.end, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit, %entry, %sw.epilog

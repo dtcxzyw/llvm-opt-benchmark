@@ -8524,8 +8524,8 @@ _ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit74:         ; preds = %.body50, %339
   br label %common.resume
 
 344:                                              ; preds = %_ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit, %_ZN6Assimp4Ogre13MorphKeyFrameD2Ev.exit
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %_ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit ], [ %.sroa.0.0188, %_ZN6Assimp4Ogre13MorphKeyFrameD2Ev.exit ]
-  %.1 = phi i16 [ %.2, %_ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit ], [ -12015, %_ZN6Assimp4Ogre13MorphKeyFrameD2Ev.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0188, %_ZN6Assimp4Ogre13MorphKeyFrameD2Ev.exit ], [ %.sroa.0.2, %_ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit ]
+  %.1 = phi i16 [ -12015, %_ZN6Assimp4Ogre13MorphKeyFrameD2Ev.exit ], [ %.2, %_ZN6Assimp4Ogre12PoseKeyFrameD2Ev.exit ]
   %345 = load ptr, ptr %6, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %347 = load ptr, ptr %346, align 8
@@ -9708,8 +9708,8 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %2
           to label %79 unwind label %.loopexit
 
 79:                                               ; preds = %78, %77, %72, %71, %64, %50
-  %.125 = phi i1 [ %.02440, %50 ], [ %.02440, %78 ], [ %.02440, %77 ], [ %.02440, %72 ], [ false, %71 ], [ %.02440, %64 ]
-  %.122 = phi i1 [ %.02141, %50 ], [ %.02141, %78 ], [ false, %77 ], [ %.02141, %72 ], [ %.02141, %71 ], [ %.02141, %64 ]
+  %.125 = phi i1 [ %.02440, %50 ], [ %.02440, %64 ], [ false, %71 ], [ %.02440, %72 ], [ %.02440, %77 ], [ %.02440, %78 ]
+  %.122 = phi i1 [ %.02141, %50 ], [ %.02141, %64 ], [ %.02141, %71 ], [ %.02141, %72 ], [ false, %77 ], [ %.02141, %78 ]
   %80 = load ptr, ptr %4, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
@@ -13172,7 +13172,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.031.1 = phi ptr [ %37, %36 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %39 = load i8, ptr %.sroa.031.1, align 1
   %40 = zext i8 %39 to i32
   %41 = tail call i32 @isspace(i32 noundef %40) #30
@@ -13184,7 +13184,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.031.2 = phi ptr [ %43, %42 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %45 = load i8, ptr %.sroa.031.2, align 1
   %46 = zext i8 %45 to i32
   %47 = tail call i32 @isspace(i32 noundef %46) #30

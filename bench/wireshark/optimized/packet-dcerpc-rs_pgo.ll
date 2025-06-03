@@ -1527,7 +1527,7 @@ dissect_rs_pgo_unix_num_key_t.exit:               ; preds = %76, %84
   br label %100
 
 100:                                              ; preds = %97, %95, %92, %dissect_rs_pgo_unix_num_key_t.exit, %dissect_rs_pgo_id_key_t.exit, %27
-  %.049 = phi i32 [ %25, %97 ], [ %25, %95 ], [ %94, %92 ], [ %.0.i53, %dissect_rs_pgo_unix_num_key_t.exit ], [ %.0.i, %dissect_rs_pgo_id_key_t.exit ], [ %29, %27 ]
+  %.049 = phi i32 [ %25, %97 ], [ %29, %27 ], [ %.0.i, %dissect_rs_pgo_id_key_t.exit ], [ %.0.i53, %dissect_rs_pgo_unix_num_key_t.exit ], [ %94, %92 ], [ %25, %95 ]
   %101 = load ptr, ptr %11, align 8
   %102 = sub i32 %.049, %1
   call void @proto_item_set_len(ptr noundef %101, i32 noundef %102)

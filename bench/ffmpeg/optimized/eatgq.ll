@@ -297,7 +297,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %112
   br label %161
 
 161:                                              ; preds = %154, %143
-  %.2.i.i = phi i32 [ %.05967.i.i, %143 ], [ %155, %154 ]
+  %.2.i.i = phi i32 [ %155, %154 ], [ %.05967.i.i, %143 ]
   %162 = add nsw i32 %.2.i.i, 1
   %163 = sext i32 %.2.i.i to i64
   %164 = getelementptr inbounds i8, ptr @ff_zigzag_direct, i64 %163
@@ -444,8 +444,8 @@ default.unreachable:                              ; preds = %143
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %258, %203, %190, %.preheader.i.i, %161
-  %.sroa.5.3.i = phi i32 [ %.sroa.5.2.i, %258 ], [ %205, %203 ], [ %192, %190 ], [ %181, %.preheader.i.i ], [ %181, %.loopexit.loopexit.i.i ], [ %169, %161 ]
-  %.1.i.i = phi i32 [ %261, %258 ], [ %214, %203 ], [ %202, %190 ], [ %.05967.i.i, %.preheader.i.i ], [ %262, %.loopexit.loopexit.i.i ], [ %162, %161 ]
+  %.sroa.5.3.i = phi i32 [ %169, %161 ], [ %181, %.preheader.i.i ], [ %181, %.loopexit.loopexit.i.i ], [ %192, %190 ], [ %205, %203 ], [ %.sroa.5.2.i, %258 ]
+  %.1.i.i = phi i32 [ %162, %161 ], [ %.05967.i.i, %.preheader.i.i ], [ %262, %.loopexit.loopexit.i.i ], [ %202, %190 ], [ %214, %203 ], [ %261, %258 ]
   %263 = icmp slt i32 %.1.i.i, 64
   br i1 %263, label %143, label %264, !llvm.loop !53
 
@@ -748,7 +748,7 @@ bytestream2_get_byte.exit126.i:                   ; preds = %420, %.preheader147
   br label %tgq_decode_mb.exit.thread70
 
 .loopexit.i:                                      ; preds = %bytestream2_get_byte.exit126.i, %410, %bytestream2_get_byte.exit124.i
-  %.sroa.0.3 = phi ptr [ %415, %410 ], [ %.sroa.0.5, %bytestream2_get_byte.exit124.i ], [ %426, %bytestream2_get_byte.exit126.i ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.5, %bytestream2_get_byte.exit124.i ], [ %415, %410 ], [ %426, %bytestream2_get_byte.exit126.i ]
   %428 = load i32, ptr %91, align 8, !tbaa !31
   %429 = sext i32 %428 to i64
   %430 = load ptr, ptr %1, align 8, !tbaa !55

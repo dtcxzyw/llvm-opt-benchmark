@@ -2196,10 +2196,10 @@ pdo_get_lazy_object.exit:                         ; preds = %._crit_edge.i, %29
   unreachable
 
 .thread268:                                       ; preds = %128, %116, %124, %148, %138, %89
-  %.0206 = phi ptr [ %152, %148 ], [ null, %138 ], [ null, %116 ], [ null, %124 ], [ null, %89 ], [ null, %128 ]
-  %.0202 = phi i32 [ 0, %148 ], [ 0, %138 ], [ %.1203, %116 ], [ %.1203, %124 ], [ 0, %89 ], [ %.1203, %128 ]
-  %.0200 = phi ptr [ null, %148 ], [ null, %138 ], [ %.1201, %116 ], [ %.1201, %124 ], [ null, %89 ], [ %.1201, %128 ]
-  %.0198 = phi ptr [ null, %148 ], [ null, %138 ], [ %.3, %116 ], [ %.3, %124 ], [ %90, %89 ], [ %.3, %128 ]
+  %.0206 = phi ptr [ null, %89 ], [ null, %116 ], [ null, %124 ], [ null, %138 ], [ %152, %148 ], [ null, %128 ]
+  %.0202 = phi i32 [ 0, %89 ], [ %.1203, %116 ], [ %.1203, %124 ], [ 0, %138 ], [ 0, %148 ], [ %.1203, %128 ]
+  %.0200 = phi ptr [ null, %89 ], [ %.1201, %116 ], [ %.1201, %124 ], [ null, %138 ], [ null, %148 ], [ %.1201, %128 ]
+  %.0198 = phi ptr [ %90, %89 ], [ %.3, %116 ], [ %.3, %124 ], [ null, %138 ], [ null, %148 ], [ %.3, %128 ]
   %.not235 = icmp eq ptr %5, null
   br i1 %.not235, label %160, label %154
 
@@ -2467,7 +2467,7 @@ zend_symtable_update.exit256:                     ; preds = %228, %_zend_handle_
   unreachable
 
 270:                                              ; preds = %252, %254, %235, %zend_symtable_update.exit256, %262, %260, %257, %zend_symtable_update.exit
-  %.1208 = phi i32 [ %263, %262 ], [ %.0207300, %260 ], [ %.0207300, %257 ], [ %.0207300, %zend_symtable_update.exit256 ], [ %.0207300, %zend_symtable_update.exit ], [ %.0207300, %235 ], [ %.0207300, %254 ], [ %.0207300, %252 ]
+  %.1208 = phi i32 [ %.0207300, %zend_symtable_update.exit ], [ %.0207300, %zend_symtable_update.exit256 ], [ %.0207300, %257 ], [ %.0207300, %260 ], [ %263, %262 ], [ %.0207300, %235 ], [ %.0207300, %254 ], [ %.0207300, %252 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = load i32, ptr %181, align 8, !tbaa !4
@@ -2566,7 +2566,7 @@ zend_call_known_fcc.exit:                         ; preds = %295, %287, %281
   br label %308
 
 308:                                              ; preds = %59, %63, %74, %77, %68, %17, %305, %.thread296, %pdo_get_lazy_object.exit, %22
-  %.0196 = phi i1 [ true, %22 ], [ true, %pdo_get_lazy_object.exit ], [ false, %305 ], [ true, %.thread296 ], [ false, %17 ], [ false, %59 ], [ false, %63 ], [ true, %74 ], [ true, %77 ], [ true, %68 ]
+  %.0196 = phi i1 [ true, %22 ], [ true, %pdo_get_lazy_object.exit ], [ true, %.thread296 ], [ false, %305 ], [ false, %17 ], [ false, %59 ], [ false, %63 ], [ true, %74 ], [ true, %77 ], [ true, %68 ]
   ret i1 %.0196
 }
 
@@ -5711,7 +5711,7 @@ zend_gc_try_addref.exit:                          ; preds = %175, %179
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split.i, %49, %200, %199, %192, %186, %148, %147, %140, %134, %131, %130, %123, %117, %115, %114, %107, %101, %85, %84, %77, %71, %69, %68, %61, %55, %152, %164, %174, %157, %212, %211, %204, %94, %89
-  %.0 = phi i1 [ false, %211 ], [ false, %204 ], [ true, %212 ], [ false, %89 ], [ false, %94 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %69 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %85 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %115 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %131 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %148 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %200 ], [ false, %49 ], [ false, %.critedge.sink.split.i ]
+  %.0 = phi i1 [ false, %211 ], [ true, %212 ], [ false, %89 ], [ false, %94 ], [ false, %204 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %69 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %85 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %115 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %131 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %148 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %200 ], [ false, %49 ], [ false, %.critedge.sink.split.i ]
   ret i1 %.0
 }
 
@@ -6900,7 +6900,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %9, %4, %zend_string
   br label %14
 
 14:                                               ; preds = %12, %zend_string_equals_cstr.exit.thread
-  %.1 = phi ptr [ %2, %12 ], [ %13, %zend_string_equals_cstr.exit.thread ]
+  %.1 = phi ptr [ %13, %zend_string_equals_cstr.exit.thread ], [ %2, %12 ]
   ret ptr %.1
 }
 
@@ -7483,7 +7483,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %70, %68, %61, %57, %56, %53, %52, %46, %43, %41, %77
-  %.in = phi i1 [ %80, %77 ], [ %69, %68 ], [ true, %56 ], [ false, %53 ], [ false, %52 ], [ true, %46 ], [ false, %43 ], [ %.not16.i, %41 ], [ %.not13.i, %57 ], [ true, %61 ], [ %.not.i15, %70 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
+  %.in = phi i1 [ %80, %77 ], [ true, %46 ], [ false, %43 ], [ true, %56 ], [ false, %53 ], [ false, %52 ], [ %69, %68 ], [ %.not16.i, %41 ], [ %.not13.i, %57 ], [ true, %61 ], [ %.not.i15, %70 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %82 = load i8, ptr %81, align 1, !tbaa !37
   %.not.i = icmp eq i8 %82, 0
@@ -7744,7 +7744,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %28
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %28, %i_zend_is_true.exit.loopexit, %31, %33, %36, %42, %43, %46, %47, %51, %58, %60
-  %.0.i = phi i1 [ %59, %58 ], [ true, %46 ], [ false, %43 ], [ false, %42 ], [ true, %36 ], [ false, %33 ], [ %.not16.i, %31 ], [ %.not13.i, %47 ], [ true, %51 ], [ %.not.i29, %60 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %28 ]
+  %.0.i = phi i1 [ true, %36 ], [ false, %33 ], [ true, %46 ], [ false, %43 ], [ false, %42 ], [ %59, %58 ], [ %.not16.i, %31 ], [ %.not13.i, %47 ], [ true, %51 ], [ %.not.i29, %60 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %28 ]
   %67 = load i8, ptr %.0.i31.sroa.gep, align 1, !tbaa !37
   %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %68

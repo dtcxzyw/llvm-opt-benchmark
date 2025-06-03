@@ -1327,7 +1327,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %193, %190, %186, %1
   br label %dt_dev_get_zoom_scale.exit
 
 dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processed_size.exit.i, %212, %214, %216
-  %.0.i = phi nsz float [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ 1.000000e+00, %dt_dev_get_processed_size.exit.i ]
+  %.0.i = phi nsz float [ %217, %216 ], [ %213, %212 ], [ %215, %214 ], [ 1.000000e+00, %dt_dev_get_processed_size.exit.i ]
   %218 = fcmp reassoc nsz arcp contract afn une float %.0.i, 0.000000e+00
   %.1.i = select nsz i1 %218, float %.0.i, float 1.000000e+00
   %219 = fpext reassoc nsz arcp contract afn float %.1.i to double
@@ -1858,7 +1858,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %131, %128, %124, %1
   br label %dt_dev_get_zoom_scale.exit
 
 dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processed_size.exit.i, %152, %154, %156
-  %.0.i227 = phi nsz float [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %106, %dt_dev_get_processed_size.exit.i ]
+  %.0.i227 = phi nsz float [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %106, %dt_dev_get_processed_size.exit.i ]
   %158 = fcmp reassoc nsz arcp contract afn une float %.0.i227, 0.000000e+00
   %.1.i = select nsz i1 %158, float %.0.i227, float 1.000000e+00
   switch i32 %1, label %169 [
@@ -2094,7 +2094,7 @@ default.unreachable:                              ; preds = %343, %dt_dev_get_pr
   br label %dt_dev_get_zoom_scale.exit249
 
 dt_dev_get_zoom_scale.exit249:                    ; preds = %dt_dev_get_processed_size.exit.i242, %275, %277, %279
-  %.0.i245 = phi nsz float [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ 1.000000e+00, %dt_dev_get_processed_size.exit.i242 ]
+  %.0.i245 = phi nsz float [ %280, %279 ], [ %276, %275 ], [ %278, %277 ], [ 1.000000e+00, %dt_dev_get_processed_size.exit.i242 ]
   %281 = fcmp reassoc nsz arcp contract afn une float %.0.i245, 0.000000e+00
   %.1.i246 = select nsz i1 %281, float %.0.i245, float 1.000000e+00
   br label %402
@@ -2235,8 +2235,8 @@ dt_dev_get_zoom_scale.exit260:                    ; preds = %289, %292, %296, %2
   br label %_calculate_new_scroll_zoom_tscale.exit
 
 _calculate_new_scroll_zoom_tscale.exit:           ; preds = %347, %355, %361
-  %.056.i = phi nsz float [ %363, %361 ], [ %357, %355 ], [ %351, %347 ]
-  %.055.i = phi nsz float [ %346, %361 ], [ %360, %355 ], [ %354, %347 ]
+  %.056.i = phi nsz float [ %351, %347 ], [ %357, %355 ], [ %363, %361 ]
+  %.055.i = phi nsz float [ %354, %347 ], [ %360, %355 ], [ %346, %361 ]
   %364 = fcmp reassoc nsz arcp contract afn olt float %.054.i, %.056.i
   %365 = select reassoc nsz arcp contract afn i1 %364, float %.054.i, float %.056.i
   %366 = fcmp reassoc nsz arcp contract afn ogt float %.054.i, %.055.i
@@ -2400,7 +2400,7 @@ dt_dev_get_processed_size.exit.i266:              ; preds = %426, %423, %419, %4
   br label %dt_dev_get_zoom_scale.exit273
 
 dt_dev_get_zoom_scale.exit273:                    ; preds = %dt_dev_get_processed_size.exit.i266, %445, %447, %449
-  %.0.i269 = phi nsz float [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %405, %dt_dev_get_processed_size.exit.i266 ]
+  %.0.i269 = phi nsz float [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %405, %dt_dev_get_processed_size.exit.i266 ]
   %451 = fcmp reassoc nsz arcp contract afn une float %.0.i269, 0.000000e+00
   %.1.i270 = select nsz i1 %451, float %.0.i269, float 1.000000e+00
   %452 = fmul reassoc nsz arcp contract afn float %.1.i270, %111
@@ -2827,7 +2827,7 @@ dt_dev_get_processed_size.exit:                   ; preds = %11, %21, %4, %14, %
   br label %51
 
 51:                                               ; preds = %48, %46, %44, %42
-  %.0 = phi nsz float [ %50, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ]
+  %.0 = phi nsz float [ %50, %48 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ]
   %52 = fcmp reassoc nsz arcp contract afn une float %.0, 0.000000e+00
   %.1 = select nsz i1 %52, float %.0, float 1.000000e+00
   %.not = icmp eq i32 %3, 0
@@ -3141,7 +3141,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %28, %25, %22, %19
   br label %58
 
 58:                                               ; preds = %55, %53, %51, %49
-  %.0.i = phi nsz float [ %57, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ]
+  %.0.i = phi nsz float [ %57, %55 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
   %59 = fcmp reassoc nsz arcp contract afn une float %.0.i, 0.000000e+00
   %.1.i = select nsz i1 %59, float %.0.i, float 1.000000e+00
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -3321,7 +3321,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %69, %66, %60, %57
   br label %dt_dev_get_zoom_scale.exit9
 
 dt_dev_get_zoom_scale.exit9:                      ; preds = %87, %89, %91, %93
-  %.0.i = phi nsz float [ %95, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ]
+  %.0.i = phi nsz float [ %95, %93 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ]
   %96 = sitofp i32 %.118.i14 to float
   %97 = fdiv reassoc nsz arcp contract afn float %82, %96
   %98 = sitofp i32 %.016.i17 to float
@@ -8429,7 +8429,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %63, %60, %54, %51
   br label %dt_dev_get_zoom_scale.exit
 
 dt_dev_get_zoom_scale.exit:                       ; preds = %86, %88, %90, %92
-  %.0.i = phi nsz float [ %94, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ]
+  %.0.i = phi nsz float [ %94, %92 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ]
   %95 = fcmp reassoc nsz arcp contract afn une float %.0.i, 0.000000e+00
   %.1.i = select nsz i1 %95, float %.0.i, float 1.000000e+00
   %.not = icmp eq i32 %.124, 0
@@ -8651,7 +8651,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %dt_dev_get_processe
   br label %93
 
 93:                                               ; preds = %90, %88, %86, %84
-  %.0.i = phi nsz float [ %92, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ]
+  %.0.i = phi nsz float [ %92, %90 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ]
   %94 = fcmp reassoc nsz arcp contract afn une float %.0.i, 0.000000e+00
   %.1.i = select nsz i1 %94, float %.0.i, float 1.000000e+00
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8756,7 +8756,7 @@ dt_dev_get_processed_size.exit.i21:               ; preds = %133, %130, %126, %1
   br label %157
 
 157:                                              ; preds = %154, %152, %150, %148
-  %.0.i24 = phi nsz float [ %156, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ]
+  %.0.i24 = phi nsz float [ %156, %154 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ]
   %158 = fcmp reassoc nsz arcp contract afn une float %.0.i24, 0.000000e+00
   %.1.i25 = select nsz i1 %158, float %.0.i24, float 1.000000e+00
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !190
@@ -8932,7 +8932,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %62, %59, %54, %51
   br label %93
 
 93:                                               ; preds = %90, %88, %86, %84
-  %.0.i = phi nsz float [ %92, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ]
+  %.0.i = phi nsz float [ %92, %90 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ]
   %94 = fcmp reassoc nsz arcp contract afn une float %.0.i, 0.000000e+00
   %.1.i = select nsz i1 %94, float %.0.i, float 1.000000e+00
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9032,7 +9032,7 @@ dt_dev_get_processed_size.exit.i27:               ; preds = %129, %126, %122, %1
   br label %153
 
 153:                                              ; preds = %150, %148, %146, %144
-  %.0.i30 = phi nsz float [ %152, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ]
+  %.0.i30 = phi nsz float [ %152, %150 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ]
   %154 = fcmp reassoc nsz arcp contract afn une float %.0.i30, 0.000000e+00
   %.1.i31 = select nsz i1 %154, float %.0.i30, float 1.000000e+00
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !190

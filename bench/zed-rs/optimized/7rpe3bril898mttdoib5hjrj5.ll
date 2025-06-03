@@ -6472,7 +6472,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %switch = icmp eq i64 %92, 1
   br i1 %switch, label %94, label %93
 
-"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread": ; preds = %.preheader.split.i.i.i, %101, %._crit_edge, %116, %117, %119, %121, %123, %154, %139, %143, %147, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit", %223
+"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread": ; preds = %.preheader.split.i.i.i, %101, %._crit_edge, %116, %117, %119, %121, %123, %154, %147, %143, %139, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit", %223
   ret void
 
 93:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfca6d4d48fa800acE.exit24"
@@ -6664,8 +6664,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %.pre81 = tail call i64 @llvm.umin.i64(i64 %.pre80, i64 5)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit": ; preds = %163, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73", %168, %158, %151, %131, %.loopexit, %154, %139, %143, %147, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
-  %.pre-phi82 = phi i64 [ %.pre81, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73" ], [ %114, %168 ], [ %114, %158 ], [ %114, %151 ], [ %114, %131 ], [ %114, %.loopexit ], [ %114, %154 ], [ %114, %139 ], [ %114, %143 ], [ %114, %147 ], [ %114, %125 ], [ %114, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit" ], [ %114, %163 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit": ; preds = %163, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73", %168, %158, %151, %131, %.loopexit, %154, %147, %143, %139, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
+  %.pre-phi82 = phi i64 [ %.pre81, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73" ], [ %114, %168 ], [ %114, %158 ], [ %114, %151 ], [ %114, %131 ], [ %114, %.loopexit ], [ %114, %154 ], [ %114, %147 ], [ %114, %143 ], [ %114, %139 ], [ %114, %125 ], [ %114, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit" ], [ %114, %163 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   call void @llvm.experimental.noalias.scope.decl(metadata !1407)

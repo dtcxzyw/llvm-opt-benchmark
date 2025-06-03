@@ -4528,7 +4528,7 @@ take_successor_1.exit405:                         ; preds = %417, %435
   br label %take_successor_1.exit
 
 take_successor_1.exit:                            ; preds = %._crit_edge, %557, %577, %474, %494, %239, %221, %116, %98, %64, %take_successor_1.exit405, %299, %192, %79
-  %.3 = phi i32 [ %.0532, %64 ], [ %610, %._crit_edge ], [ %86, %79 ], [ %300, %299 ], [ %422, %take_successor_1.exit405 ], [ %193, %192 ], [ %103, %98 ], [ %103, %116 ], [ %226, %221 ], [ %226, %239 ], [ %481, %474 ], [ %481, %494 ], [ %564, %557 ], [ %564, %577 ]
+  %.3 = phi i32 [ %86, %79 ], [ %193, %192 ], [ %300, %299 ], [ %422, %take_successor_1.exit405 ], [ %610, %._crit_edge ], [ %.0532, %64 ], [ %103, %98 ], [ %103, %116 ], [ %226, %221 ], [ %226, %239 ], [ %481, %474 ], [ %481, %494 ], [ %564, %557 ], [ %564, %577 ]
   %.promoted.i459 = load i32, ptr %62, align 8, !tbaa !107
   %.not9.i460 = icmp eq i32 %.promoted.i459, 0
   br i1 %.not9.i460, label %compress_block.exit468, label %.lr.ph.i461

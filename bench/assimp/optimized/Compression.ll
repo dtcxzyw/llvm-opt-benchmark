@@ -238,7 +238,7 @@ define hidden noundef i64 @_ZN6Assimp11Compression10decompressEPKvmRSt6vectorIcS
   br label %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit
 
 _ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit: ; preds = %8, %17, %18, %19
-  %.0.i = phi i32 [ 2, %19 ], [ 6, %18 ], [ 5, %17 ], [ 0, %8 ]
+  %.0.i = phi i32 [ 5, %17 ], [ 6, %18 ], [ 2, %19 ], [ 0, %8 ]
   br label %45
 
 20:                                               ; preds = %8

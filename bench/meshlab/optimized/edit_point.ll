@@ -15279,7 +15279,7 @@ define void @_ZN15EditPointPlugin13keyPressEventEP9QKeyEventR9MeshModelP6GLArea(
   tail call void @_ZN3vcg3tri15ComponentFinderI6CMeshOE8DijkstraERS2_R8CVertexOifRSt6vectorIPS5_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1196) %2, ptr noundef nonnull align 8 dereferenceable(44) %82, i32 noundef 6, float noundef %81, ptr noundef nonnull align 8 dereferenceable(24) %83)
   br label %84
 
-84:                                               ; preds = %31, %47, %63, %75, %.thread29
+84:                                               ; preds = %75, %63, %47, %31, %.thread29
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -15324,7 +15324,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit:     ; preds = %84, %89
   %108 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIP8CVertexOSaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %.sink34)
   br label %.thread32
 
-.thread32:                                        ; preds = %.thread32.sink.split, %4, %69, %57, %41, %25, %16, %7, %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
+.thread32:                                        ; preds = %.thread32.sink.split, %4, %7, %16, %25, %41, %57, %69, %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 }

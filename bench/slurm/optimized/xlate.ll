@@ -406,8 +406,8 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %.lr.ph32, %18, %32, %46, %43, %41, %11, %8
-  %52 = phi ptr [ %48, %46 ], [ %45, %43 ], [ %42, %41 ], [ %.pre, %32 ], [ %20, %18 ], [ %13, %11 ], [ %10, %8 ], [ null, %.lr.ph32 ], [ %16, %14 ], [ %17, %.lr.ph ]
-  %.0 = phi i32 [ 116, %46 ], [ 112, %43 ], [ 110, %41 ], [ 316, %32 ], [ 316, %18 ], [ %7, %11 ], [ 68, %8 ], [ 288, %.lr.ph32 ], [ 119, %14 ], [ 119, %.lr.ph ]
+  %52 = phi ptr [ %10, %8 ], [ %13, %11 ], [ %.pre, %32 ], [ %20, %18 ], [ %42, %41 ], [ %45, %43 ], [ %48, %46 ], [ null, %.lr.ph32 ], [ %16, %14 ], [ %17, %.lr.ph ]
+  %.0 = phi i32 [ 68, %8 ], [ %7, %11 ], [ 316, %32 ], [ 316, %18 ], [ 110, %41 ], [ 112, %43 ], [ 116, %46 ], [ 288, %.lr.ph32 ], [ 119, %14 ], [ 119, %.lr.ph ]
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef %.0, ptr noundef %52, i1 noundef zeroext false, i1 noundef zeroext false) #10
   call void @slurm_xfree(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
@@ -2044,9 +2044,9 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   call void @exit(i32 noundef %669) #13
   unreachable
 
-670:                                              ; preds = %.lr.ph, %658, %653, %646, %639, %636, %633, %630, %_xlate_pbs_mail_type.exit, %23, %20, %17, %14
-  %671 = phi ptr [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %629, %_xlate_pbs_mail_type.exit ], [ %632, %630 ], [ %635, %633 ], [ %638, %636 ], [ %641, %639 ], [ %.pre, %646 ], [ %655, %653 ], [ %661, %658 ], [ null, %.lr.ph ]
-  %.0.ph = phi i32 [ 98, %14 ], [ %13, %17 ], [ 68, %20 ], [ 97, %23 ], [ 311, %_xlate_pbs_mail_type.exit ], [ 312, %630 ], [ 74, %633 ], [ 327, %636 ], [ 112, %639 ], [ 289, %646 ], [ 376, %653 ], [ 100, %658 ], [ 72, %.lr.ph ]
+670:                                              ; preds = %.lr.ph, %14, %17, %20, %23, %_xlate_pbs_mail_type.exit, %630, %633, %636, %639, %646, %658, %653
+  %671 = phi ptr [ %655, %653 ], [ %661, %658 ], [ %.pre, %646 ], [ %641, %639 ], [ %638, %636 ], [ %635, %633 ], [ %632, %630 ], [ %629, %_xlate_pbs_mail_type.exit ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ null, %.lr.ph ]
+  %.0.ph = phi i32 [ 376, %653 ], [ 100, %658 ], [ 289, %646 ], [ 112, %639 ], [ 327, %636 ], [ 74, %633 ], [ 312, %630 ], [ 311, %_xlate_pbs_mail_type.exit ], [ 97, %23 ], [ 68, %20 ], [ %13, %17 ], [ 98, %14 ], [ 72, %.lr.ph ]
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef %.0.ph, ptr noundef %671, i1 noundef zeroext false, i1 noundef zeroext false) #10
   br label %672
 

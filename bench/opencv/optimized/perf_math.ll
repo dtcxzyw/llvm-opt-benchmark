@@ -9171,7 +9171,7 @@ _ZNK7testing18WithParamInterfaceISt5tupleIJiN11opencv_test12_GLOBAL__N_112_GLOBA
   br label %40
 
 40:                                               ; preds = %_ZNK7testing18WithParamInterfaceISt5tupleIJiN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEN4perf12_GLOBAL__N_18MatDepthENS4_15SolveDecompEnumEbNS4_13SolutionsEnumEEEE8GetParamEv.exit, %38, %36
-  %.036 = phi i32 [ %.sroa.9.0.copyload, %_ZNK7testing18WithParamInterfaceISt5tupleIJiN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEN4perf12_GLOBAL__N_18MatDepthENS4_15SolveDecompEnumEbNS4_13SolutionsEnumEEEE8GetParamEv.exit ], [ %39, %38 ], [ %37, %36 ]
+  %.036 = phi i32 [ %.sroa.9.0.copyload, %_ZNK7testing18WithParamInterfaceISt5tupleIJiN11opencv_test12_GLOBAL__N_112_GLOBAL__N_18RankEnumEN4perf12_GLOBAL__N_18MatDepthENS4_15SolveDecompEnumEbNS4_13SolutionsEnumEEEE8GetParamEv.exit ], [ %37, %36 ], [ %39, %38 ]
   %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #30
   call fastcc void @_ZN11opencv_test12_GLOBAL__N_114buildRandomMatEiiiRN2cv3RNGEib(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef %.sroa.9.0.copyload, i32 noundef %.sroa.9.0.copyload, i32 noundef %.sroa.7.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef %.036, i1 noundef zeroext %33)
@@ -9423,7 +9423,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %72
   ret void
 
 113:                                              ; preds = %110, %90, %86, %80, %60, %48
-  %.pn50 = phi { ptr, i32 } [ %49, %48 ], [ %111, %110 ], [ %91, %90 ], [ %.pn40, %86 ], [ %81, %80 ], [ %61, %60 ]
+  %.pn50 = phi { ptr, i32 } [ %49, %48 ], [ %111, %110 ], [ %91, %90 ], [ %61, %60 ], [ %.pn40, %86 ], [ %81, %80 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   br label %114
 
@@ -18291,7 +18291,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_117SvdTest_decompose12PerfTes
   br label %12
 
 12:                                               ; preds = %1, %10, %8
-  %.013 = phi i32 [ %.sroa.speculated, %1 ], [ %11, %10 ], [ %9, %8 ]
+  %.013 = phi i32 [ %.sroa.speculated, %1 ], [ %9, %8 ], [ %11, %10 ]
   %13 = select i1 %7, i32 0, i32 2
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #30
@@ -22711,7 +22711,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_117SvdTest_backSubst12PerfTes
   br label %19
 
 19:                                               ; preds = %15, %17, %1
-  %.020 = phi i32 [ %.sroa.speculated, %1 ], [ %18, %17 ], [ %16, %15 ]
+  %.020 = phi i32 [ %.sroa.speculated, %1 ], [ %16, %15 ], [ %18, %17 ]
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #30
   call fastcc void @_ZN11opencv_test12_GLOBAL__N_114buildRandomMatEiiiRN2cv3RNGEib(ptr dead_on_unwind noalias writable align 8 %2, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.044.0.extract.trunc, i32 noundef %.sroa.4.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %.020, i1 noundef zeroext false)

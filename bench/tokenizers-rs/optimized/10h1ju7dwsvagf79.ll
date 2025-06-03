@@ -29845,7 +29845,7 @@ define { ptr, ptr } @_ZN10tokenizers5utils7padding13pad_encodings17h8d5a86c09f0b
   br label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3max17h19d0515b337f75cbE.exit"
 
 "_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3max17h19d0515b337f75cbE.exit": ; preds = %16, %20
-  %.pn.i = phi { i64, i64 } [ %22, %20 ], [ %19, %16 ]
+  %.pn.i = phi { i64, i64 } [ %19, %16 ], [ %22, %20 ]
   %23 = extractvalue { i64, i64 } %.pn.i, 0
   %switch8 = icmp eq i64 %23, 0
   br i1 %switch8, label %27, label %28
@@ -30417,7 +30417,7 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
 "_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit": ; preds = %83, %81, %23, %21, %85, %75, %72, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit", %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", %42, %39, %36, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
-  %.pn = phi { ptr, ptr } [ %86, %85 ], [ %76, %75 ], [ %74, %72 ], [ %.pn.i, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit" ], [ %63, %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit" ], [ %45, %42 ], [ %41, %39 ], [ %38, %36 ], [ %.merged.i2, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit" ], [ %22, %21 ], [ %18, %23 ], [ %84, %83 ], [ %82, %81 ]
+  %.pn = phi { ptr, ptr } [ %.merged.i2, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit" ], [ %38, %36 ], [ %41, %39 ], [ %45, %42 ], [ %63, %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit" ], [ %.pn.i, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit" ], [ %74, %72 ], [ %76, %75 ], [ %86, %85 ], [ %22, %21 ], [ %18, %23 ], [ %84, %83 ], [ %82, %81 ]
   ret { ptr, ptr } %.pn
 }
 

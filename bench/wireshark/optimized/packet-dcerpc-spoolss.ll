@@ -2498,7 +2498,7 @@ dissect_notify_field.exit:                        ; preds = %6, %.sink.split.i
   br label %printer_notify_hf_index.exit.i
 
 printer_notify_hf_index.exit.i:                   ; preds = %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %52
-  %.0.i.i = phi i32 [ -1, %52 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
+  %.0.i.i = phi i32 [ -1, %52 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %78 = sext i32 %.0.i.i to i64
   %79 = inttoptr i64 %78 to ptr
   %80 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.500, i32 noundef %55, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %79)
@@ -2545,7 +2545,7 @@ printer_notify_hf_index.exit.i:                   ; preds = %76, %74, %72, %70, 
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
 dissect_NOTIFY_INFO_DATA_printer.exit:            ; preds = %printer_notify_hf_index.exit.i, %81, %91, %98, %103
-  %.0.i48 = phi i32 [ %107, %103 ], [ %102, %98 ], [ %95, %91 ], [ %90, %81 ], [ %80, %printer_notify_hf_index.exit.i ]
+  %.0.i48 = phi i32 [ %107, %103 ], [ %80, %printer_notify_hf_index.exit.i ], [ %90, %81 ], [ %95, %91 ], [ %102, %98 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   br label %187
 
@@ -2627,7 +2627,7 @@ dissect_NOTIFY_INFO_DATA_printer.exit:            ; preds = %printer_notify_hf_i
   br label %job_notify_hf_index.exit.i
 
 job_notify_hf_index.exit.i:                       ; preds = %129, %127, %125, %123, %121, %119, %117, %115, %113, %109
-  %.0.i.i50 = phi i32 [ -1, %109 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ]
+  %.0.i.i50 = phi i32 [ -1, %109 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ]
   %131 = sext i32 %.0.i.i50 to i64
   %132 = inttoptr i64 %131 to ptr
   %133 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.500, i32 noundef %112, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %132)
@@ -2695,7 +2695,7 @@ job_notify_hf_index.exit.i:                       ; preds = %129, %127, %125, %1
   br label %job_notify_hf_index.exit80.i
 
 job_notify_hf_index.exit80.i:                     ; preds = %164, %162, %160, %158, %156, %154, %148
-  %.0.i79.i = phi i32 [ -1, %148 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ]
+  %.0.i79.i = phi i32 [ -1, %148 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ]
   %166 = load i32, ptr %9, align 4
   %167 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %.0.i79.i, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef %166)
   %.not.i.i = icmp eq ptr %167, null
@@ -2733,7 +2733,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %171, %168, %job_not
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
 dissect_NOTIFY_INFO_DATA_job.exit:                ; preds = %job_notify_hf_index.exit.i, %134, %144, %proto_item_set_hidden.exit.i, %175, %180
-  %.0.i49 = phi i32 [ %184, %180 ], [ %179, %175 ], [ %152, %proto_item_set_hidden.exit.i ], [ %147, %144 ], [ %143, %134 ], [ %133, %job_notify_hf_index.exit.i ]
+  %.0.i49 = phi i32 [ %184, %180 ], [ %133, %job_notify_hf_index.exit.i ], [ %143, %134 ], [ %147, %144 ], [ %152, %proto_item_set_hidden.exit.i ], [ %179, %175 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   br label %187
 
@@ -2742,7 +2742,7 @@ dissect_NOTIFY_INFO_DATA_job.exit:                ; preds = %job_notify_hf_index
   br label %187
 
 187:                                              ; preds = %185, %dissect_NOTIFY_INFO_DATA_job.exit, %dissect_NOTIFY_INFO_DATA_printer.exit
-  %.047 = phi i32 [ %48, %185 ], [ %.0.i49, %dissect_NOTIFY_INFO_DATA_job.exit ], [ %.0.i48, %dissect_NOTIFY_INFO_DATA_printer.exit ]
+  %.047 = phi i32 [ %48, %185 ], [ %.0.i48, %dissect_NOTIFY_INFO_DATA_printer.exit ], [ %.0.i49, %dissect_NOTIFY_INFO_DATA_job.exit ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
@@ -7302,7 +7302,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %26, %29
   br label %proto_item_set_hidden.exit36
 
 proto_item_set_hidden.exit36:                     ; preds = %52, %49, %38, %proto_item_set_hidden.exit, %56, %16, %7
-  %.0 = phi i32 [ %18, %16 ], [ %18, %56 ], [ %18, %proto_item_set_hidden.exit ], [ %14, %7 ], [ %18, %38 ], [ %18, %49 ], [ %18, %52 ]
+  %.0 = phi i32 [ %18, %16 ], [ %18, %proto_item_set_hidden.exit ], [ %18, %56 ], [ %14, %7 ], [ %18, %38 ], [ %18, %49 ], [ %18, %52 ]
   %59 = load ptr, ptr %8, align 8
   %60 = load i32, ptr %9, align 4
   %61 = add i32 %60, 4

@@ -7113,7 +7113,7 @@ if.end63:                                         ; preds = %_ZN4node17BaseObjec
   %cmp64 = icmp eq i32 %inc, 16
   br i1 %cmp64, label %return, label %for.cond.outer, !llvm.loop !100
 
-if.then.i37:                                      ; preds = %sw.bb43, %sw.bb41, %do.end38, %sw.epilog, %if.end.i24
+if.then.i37:                                      ; preds = %do.end38, %sw.bb41, %sw.bb43, %sw.epilog, %if.end.i24
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %packet.sroa.0.1) #29
   br label %return
 
@@ -9898,7 +9898,7 @@ do.body.i:                                        ; preds = %_ZN4node4quic13Call
   unreachable
 
 "_ZZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusEENK3$_0clEv.exit": ; preds = %sw.bb.i, %sw.bb4.i
-  %retval.sroa.0.0.i = phi ptr [ %call5.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
+  %retval.sroa.0.0.i = phi ptr [ %call.i, %sw.bb.i ], [ %call5.i, %sw.bb4.i ]
   store ptr %retval.sroa.0.0.i, ptr %arrayinit.element, align 8
   %call22 = call ptr @_ZNK4node4quic11BindingData32session_datagram_status_callbackEv(ptr noundef nonnull align 8 dereferenceable(992) %call4) #29
   %call30 = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %call22, i32 noundef 2, ptr noundef nonnull %argv) #29
@@ -10765,7 +10765,7 @@ do.body.i:                                        ; preds = %_ZN4node4quic13Call
   unreachable
 
 "_ZZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_ENK3$_0clEv.exit": ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb9.i
-  %retval.sroa.0.0.i = phi ptr [ %call10.i, %sw.bb9.i ], [ %call5.i, %sw.bb4.i ], [ %call.i, %sw.bb.i ]
+  %retval.sroa.0.0.i = phi ptr [ %call.i, %sw.bb.i ], [ %call5.i, %sw.bb4.i ], [ %call10.i, %sw.bb9.i ]
   store ptr %retval.sroa.0.0.i, ptr %argv, align 16
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %12 = load ptr, ptr %realm_.i, align 8

@@ -657,7 +657,7 @@ cf_hc_baller_is_active.exit141.thread:            ; preds = %time_to_start_h21.e
   br label %281
 
 281:                                              ; preds = %104, %238, %269, %278, %273, %272, %11
-  %.0107 = phi i32 [ 0, %11 ], [ 0, %278 ], [ %275, %273 ], [ %270, %269 ], [ 0, %272 ], [ %239, %238 ], [ %105, %104 ]
+  %.0107 = phi i32 [ 0, %11 ], [ %270, %269 ], [ 0, %272 ], [ %239, %238 ], [ %105, %104 ], [ %275, %273 ], [ 0, %278 ]
   %.not132 = icmp eq ptr %1, null
   br i1 %.not132, label %301, label %282
 
@@ -1302,7 +1302,7 @@ cf_hc_baller_needs_flush.exit31.thread:           ; preds = %cf_hc_baller_needs_
   br label %41
 
 41:                                               ; preds = %36, %cf_hc_baller_needs_flush.exit31.thread, %33, %16, %12
-  %.0 = phi i32 [ 0, %33 ], [ 0, %16 ], [ 0, %12 ], [ %40, %36 ], [ 48, %cf_hc_baller_needs_flush.exit31.thread ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %33 ], [ %40, %36 ], [ 48, %cf_hc_baller_needs_flush.exit31.thread ]
   ret i32 %.0
 }
 

@@ -1935,7 +1935,7 @@ _ZN4ncnn3MatD2Ev.exit53.us.us.us.us.us:           ; preds = %81, %80
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %130, %124, %123, %116, %109, %103, %99, %95, %87, %._crit_edge.us.us.us.us.us
-  %.1113.us.us.us.us.us = phi nsz float [ %.148.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %.148.lcssa.us.us.us.us.us, %95 ], [ %102, %99 ], [ %108, %103 ], [ %115, %109 ], [ %120, %123 ], [ %.0112.us.us.us.us.us, %116 ], [ %129, %124 ], [ %131, %130 ], [ 0.000000e+00, %87 ]
+  %.1113.us.us.us.us.us = phi nsz float [ %.148.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %131, %130 ], [ %129, %124 ], [ %120, %123 ], [ %.0112.us.us.us.us.us, %116 ], [ %115, %109 ], [ %108, %103 ], [ %.148.lcssa.us.us.us.us.us, %95 ], [ %102, %99 ], [ 0.000000e+00, %87 ]
   %132 = getelementptr inbounds nuw float, ptr %.1123.us.us.us.us.us, i64 %indvars.iv157
   store float %.1113.us.us.us.us.us, ptr %132, align 4, !tbaa !86
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
@@ -2225,7 +2225,7 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us.us: ; preds = %147, %141, %140, %133, %126, %120, %116, %112, %104, %._crit_edge.us.us.us.us.us.us
-  %.1138.us.us.us.us.us.us = phi nsz float [ %.172.lcssa.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us ], [ %.172.lcssa.us.us.us.us.us.us, %112 ], [ %119, %116 ], [ %125, %120 ], [ %132, %126 ], [ %137, %140 ], [ %.0137.us.us.us.us.us.us, %133 ], [ %146, %141 ], [ %148, %147 ], [ 0.000000e+00, %104 ]
+  %.1138.us.us.us.us.us.us = phi nsz float [ %.172.lcssa.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us ], [ %148, %147 ], [ %146, %141 ], [ %137, %140 ], [ %.0137.us.us.us.us.us.us, %133 ], [ %132, %126 ], [ %125, %120 ], [ %.172.lcssa.us.us.us.us.us.us, %112 ], [ %119, %116 ], [ 0.000000e+00, %104 ]
   %149 = getelementptr inbounds nuw float, ptr %.1153.us.us.us.us.us.us, i64 %indvars.iv195
   store float %.1138.us.us.us.us.us.us, ptr %149, align 4, !tbaa !86
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1

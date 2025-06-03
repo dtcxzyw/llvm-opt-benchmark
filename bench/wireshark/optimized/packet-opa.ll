@@ -1113,8 +1113,8 @@ find_next_header_sequence.exit.thread:            ; preds = %contains.exit90.i
 default.unreachable:                              ; preds = %28
   unreachable
 
-.critedge:                                        ; preds = %find_next_header_sequence.exit.thread.thread313, %28, %190, %79, %find_next_header_sequence.exit.thread, %226, %220
-  %231 = phi i32 [ 8, %28 ], [ %196, %190 ], [ 48, %79 ], [ %.pre309, %find_next_header_sequence.exit.thread ], [ %230, %226 ], [ %.pre309311, %220 ], [ %.pre309314, %find_next_header_sequence.exit.thread.thread313 ]
+.critedge:                                        ; preds = %find_next_header_sequence.exit.thread.thread313, %28, %79, %190, %find_next_header_sequence.exit.thread, %226, %220
+  %231 = phi i32 [ 8, %28 ], [ 48, %79 ], [ %196, %190 ], [ %.pre309, %find_next_header_sequence.exit.thread ], [ %230, %226 ], [ %.pre309311, %220 ], [ %.pre309314, %find_next_header_sequence.exit.thread.thread313 ]
   %232 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %231)
   %.not197 = icmp eq i32 %232, 4
   %233 = add i32 %231, -4
@@ -1630,7 +1630,7 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
   br label %203
 
 203:                                              ; preds = %186, %181, %173, %165, %157, %152, %144, %139, %134, %126, %121, %110, %99, %88, %75, %65, %52, %38, %25, %4
-  %.0 = phi i32 [ %21, %4 ], [ %185, %181 ], [ %202, %186 ], [ %180, %173 ], [ %172, %165 ], [ %164, %157 ], [ %156, %152 ], [ %151, %144 ], [ %143, %139 ], [ %138, %134 ], [ %133, %126 ], [ %125, %121 ], [ %120, %110 ], [ %109, %99 ], [ %98, %88 ], [ %87, %75 ], [ %74, %65 ], [ %64, %52 ], [ %51, %38 ], [ %37, %25 ]
+  %.0 = phi i32 [ %21, %4 ], [ %37, %25 ], [ %51, %38 ], [ %64, %52 ], [ %74, %65 ], [ %87, %75 ], [ %98, %88 ], [ %109, %99 ], [ %120, %110 ], [ %125, %121 ], [ %133, %126 ], [ %138, %134 ], [ %143, %139 ], [ %151, %144 ], [ %156, %152 ], [ %164, %157 ], [ %172, %165 ], [ %180, %173 ], [ %185, %181 ], [ %202, %186 ]
   store i32 %.0, ptr %2, align 4
   ret void
 }

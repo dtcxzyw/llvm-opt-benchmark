@@ -308,7 +308,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   br label %31
 
 31:                                               ; preds = %._crit_edge, %11
-  %.047 = phi i64 [ %1, %11 ], [ %30, %._crit_edge ]
+  %.047 = phi i64 [ %30, %._crit_edge ], [ %1, %11 ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !30
   %34 = add i64 %33, -1

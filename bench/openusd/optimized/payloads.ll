@@ -4827,7 +4827,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.032.1 = phi ptr [ %28, %27 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br i1 %30, label %.loopexit, label %31
 
@@ -4836,7 +4836,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.2 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %spec.select = select i1 %34, ptr %.sroa.032.2, ptr %1
   br label %.loopexit

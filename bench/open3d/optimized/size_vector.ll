@@ -15449,7 +15449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %common.resume
 
 77:                                               ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit
-  %.117 = phi ptr [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ], [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ]
+  %.117 = phi ptr [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ], [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ]
   ret ptr %.117
 }
 
@@ -42285,8 +42285,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi i64 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi i64 [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load i64, ptr %.1.i.i.i, align 8, !tbaa !124
   %42 = icmp eq i64 %41, %40
   br i1 %42, label %_ZSt4findIPllET_S1_S1_RKT0_.exit, label %43
@@ -42296,8 +42296,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge52.i.i.i
-  %46 = phi i64 [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %40, %43 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %44, %43 ]
+  %46 = phi i64 [ %40, %43 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %47 = load i64, ptr %.2.i.i.i, align 8, !tbaa !124
   %48 = icmp eq i64 %47, %46
   br i1 %48, label %_ZSt4findIPllET_S1_S1_RKT0_.exit, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.thread
@@ -42634,8 +42634,8 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge.i.i.i.i
-  %46 = phi i64 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %43 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %44, %43 ]
+  %46 = phi i64 [ %41, %43 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %47 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !124
   %48 = icmp eq i64 %47, %46
   br i1 %48, label %_ZZN8pybind116detail24vector_if_equal_operatorIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKlE0_clESI_SK_.exit, label %49
@@ -42645,8 +42645,8 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge._crit_edge52.i.i.i.i
-  %52 = phi i64 [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %46, %49 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %50, %49 ]
+  %52 = phi i64 [ %46, %49 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %53 = load i64, ptr %.2.i.i.i.i, align 8, !tbaa !124
   %54 = icmp eq i64 %53, %52
   br i1 %54, label %_ZZN8pybind116detail24vector_if_equal_operatorIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKlE0_clESI_SK_.exit, label %55
@@ -49819,7 +49819,7 @@ _ZN8pybind116objectD2Ev.exit60:                   ; preds = %76
   br label %_ZN8pybind116objectD2Ev.exit
 
 79:                                               ; preds = %74, %64, %56, %52, %38
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %65, %64 ], [ %57, %56 ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %57, %56 ], [ %65, %64 ], [ %39, %38 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   resume { ptr, i32 } %.pn
@@ -57890,8 +57890,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS5_EEbT
   br label %69
 
 69:                                               ; preds = %._crit_edge._crit_edge, %67
-  %70 = phi i8 [ %.pre, %._crit_edge._crit_edge ], [ %59, %67 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %68, %67 ]
+  %70 = phi i8 [ %59, %67 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %71 = load i8, ptr %.1, align 8, !tbaa !1948, !range !111, !noundef !117
   %72 = trunc nuw i8 %71 to i1
   %73 = icmp eq i8 %71, %70
@@ -57914,8 +57914,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS5_EEbT
   br label %82
 
 82:                                               ; preds = %._crit_edge._crit_edge78, %80
-  %83 = phi i8 [ %.pre79, %._crit_edge._crit_edge78 ], [ %70, %80 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge78 ], [ %81, %80 ]
+  %83 = phi i8 [ %70, %80 ], [ %.pre79, %._crit_edge._crit_edge78 ]
+  %.2 = phi ptr [ %81, %80 ], [ %.029.lcssa, %._crit_edge._crit_edge78 ]
   %84 = load i8, ptr %.2, align 8, !tbaa !1948, !range !111, !noundef !117
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp eq i8 %84, %83
@@ -58321,8 +58321,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT
   br label %69
 
 69:                                               ; preds = %._crit_edge._crit_edge, %67
-  %70 = phi i8 [ %.pre, %._crit_edge._crit_edge ], [ %59, %67 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %68, %67 ]
+  %70 = phi i8 [ %59, %67 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %71 = load i8, ptr %.1, align 8, !tbaa !1948, !range !111, !noundef !117
   %72 = trunc nuw i8 %71 to i1
   %73 = icmp eq i8 %71, %70
@@ -58345,8 +58345,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT
   br label %82
 
 82:                                               ; preds = %._crit_edge._crit_edge78, %80
-  %83 = phi i8 [ %.pre79, %._crit_edge._crit_edge78 ], [ %70, %80 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge78 ], [ %81, %80 ]
+  %83 = phi i8 [ %70, %80 ], [ %.pre79, %._crit_edge._crit_edge78 ]
+  %.2 = phi ptr [ %81, %80 ], [ %.029.lcssa, %._crit_edge._crit_edge78 ]
   %84 = load i8, ptr %.2, align 8, !tbaa !1948, !range !111, !noundef !117
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp eq i8 %84, %83

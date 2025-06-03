@@ -438,7 +438,7 @@ r_en_ending.exit.i:                               ; preds = %155
   br i1 %168, label %.thread.i47, label %r_standard_suffix.exit.thread
 
 .thread.i47:                                      ; preds = %166, %164, %162, %r_en_ending.exit.i, %151, %148, %146, %143, %141, %139, %137, %133, %126, %r_mark_regions.exit
-  %.0.i = phi i32 [ undef, %r_mark_regions.exit ], [ undef, %126 ], [ undef, %139 ], [ 0, %162 ], [ 1, %164 ], [ 1, %166 ], [ 0, %141 ], [ 1, %143 ], [ undef, %137 ], [ undef, %133 ], [ 0, %151 ], [ 0, %148 ], [ 0, %146 ], [ %.fr.i, %r_en_ending.exit.i ]
+  %.0.i = phi i32 [ undef, %r_mark_regions.exit ], [ undef, %126 ], [ undef, %139 ], [ 1, %143 ], [ 0, %141 ], [ 1, %164 ], [ 1, %166 ], [ 0, %162 ], [ undef, %137 ], [ undef, %133 ], [ 0, %151 ], [ 0, %148 ], [ 0, %146 ], [ %.fr.i, %r_en_ending.exit.i ]
   %169 = load i32, ptr %5, align 4
   store i32 %169, ptr %2, align 8
   %170 = load ptr, ptr %91, align 8
@@ -578,7 +578,7 @@ r_en_ending.exit:                                 ; preds = %222
   br i1 %cond, label %.thread452.i, label %r_standard_suffix.exit
 
 .thread452.i:                                     ; preds = %212, %215, %218, %r_en_ending.exit, %229, %209, %200, %196, %r_e_ending.exit.thread.i
-  %.9.i = phi i32 [ %.0.i, %196 ], [ %.fr..0.i, %229 ], [ %.0.i, %209 ], [ %.0.i, %r_e_ending.exit.thread.i ], [ %.0.i, %200 ], [ %.0.i, %r_en_ending.exit ], [ %.0.i, %218 ], [ %.0.i, %215 ], [ %.0.i, %212 ]
+  %.9.i = phi i32 [ %.fr..0.i, %229 ], [ %.0.i, %209 ], [ %.0.i, %196 ], [ %.0.i, %r_e_ending.exit.thread.i ], [ %.0.i, %200 ], [ %.0.i, %r_en_ending.exit ], [ %.0.i, %218 ], [ %.0.i, %215 ], [ %.0.i, %212 ]
   %231 = load i32, ptr %5, align 4
   store i32 %231, ptr %2, align 8
   store i32 %231, ptr %6, align 8
@@ -900,8 +900,8 @@ r_standard_suffix.exit.thread105:                 ; preds = %334, %327, %325, %3
   store i32 %338, ptr %2, align 8
   br label %r_standard_suffix.exit.thread
 
-r_standard_suffix.exit.thread:                    ; preds = %25, %28, %31, %34, %37, %71, %80, %354, %351, %222, %269, %r_en_ending.exit.i, %266, %301, %294, %287, %283, %249, %206, %185, %155, %166, %143, %334, %r_e_ending.exit.i, %364, %55, %r_standard_suffix.exit
-  %.1 = phi i32 [ %.7.i, %r_standard_suffix.exit ], [ %57, %55 ], [ 1, %364 ], [ %.fr502.i, %269 ], [ %.fr.i, %r_en_ending.exit.i ], [ %267, %266 ], [ %302, %301 ], [ %295, %294 ], [ %288, %287 ], [ %284, %283 ], [ %250, %249 ], [ %207, %206 ], [ %188, %185 ], [ %158, %155 ], [ %167, %166 ], [ %144, %143 ], [ %335, %334 ], [ %192, %r_e_ending.exit.i ], [ %225, %222 ], [ %355, %354 ], [ %352, %351 ], [ %82, %80 ], [ %72, %71 ], [ %38, %37 ], [ %35, %34 ], [ %32, %31 ], [ %29, %28 ], [ %26, %25 ]
+r_standard_suffix.exit.thread:                    ; preds = %37, %34, %31, %28, %25, %71, %80, %351, %354, %222, %269, %r_en_ending.exit.i, %266, %249, %283, %287, %294, %301, %206, %185, %155, %143, %166, %334, %r_e_ending.exit.i, %364, %55, %r_standard_suffix.exit
+  %.1 = phi i32 [ %.7.i, %r_standard_suffix.exit ], [ %57, %55 ], [ 1, %364 ], [ %.fr502.i, %269 ], [ %.fr.i, %r_en_ending.exit.i ], [ %267, %266 ], [ %250, %249 ], [ %284, %283 ], [ %288, %287 ], [ %295, %294 ], [ %302, %301 ], [ %207, %206 ], [ %188, %185 ], [ %158, %155 ], [ %144, %143 ], [ %167, %166 ], [ %335, %334 ], [ %192, %r_e_ending.exit.i ], [ %225, %222 ], [ %352, %351 ], [ %355, %354 ], [ %82, %80 ], [ %72, %71 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ]
   ret i32 %.1
 }
 
@@ -995,7 +995,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef ini
   br label %32
 
 32:                                               ; preds = %19, %28, %23, %16, %1, %10
-  %.0 = phi i32 [ 0, %16 ], [ %26, %23 ], [ 0, %10 ], [ 0, %1 ], [ %31, %28 ], [ 0, %19 ]
+  %.0 = phi i32 [ %26, %23 ], [ 0, %16 ], [ 0, %10 ], [ 0, %1 ], [ %31, %28 ], [ 0, %19 ]
   ret i32 %.0
 }
 

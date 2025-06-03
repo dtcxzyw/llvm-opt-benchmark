@@ -550,7 +550,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 common.resume:                                    ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit146, %_ZN3gmx14LogEntryWriterD2Ev.exit153, %_ZN3gmx14LogEntryWriterD2Ev.exit160, %_ZN3gmx14LogEntryWriterD2Ev.exit167, %134, %_ZNSt6vectorIiSaIiEED2Ev.exit177, %_ZNSt6vectorIiSaIiEED2Ev.exit222, %498, %182
-  %common.resume.op = phi { ptr, i32 } [ %183, %182 ], [ %499, %498 ], [ %135, %134 ], [ %125, %_ZN3gmx14LogEntryWriterD2Ev.exit167 ], [ %97, %_ZN3gmx14LogEntryWriterD2Ev.exit160 ], [ %69, %_ZN3gmx14LogEntryWriterD2Ev.exit153 ], [ %41, %_ZN3gmx14LogEntryWriterD2Ev.exit146 ], [ %.pn139, %_ZNSt6vectorIiSaIiEED2Ev.exit177 ], [ %.pn124.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ]
+  %common.resume.op = phi { ptr, i32 } [ %183, %182 ], [ %499, %498 ], [ %135, %134 ], [ %41, %_ZN3gmx14LogEntryWriterD2Ev.exit146 ], [ %69, %_ZN3gmx14LogEntryWriterD2Ev.exit153 ], [ %97, %_ZN3gmx14LogEntryWriterD2Ev.exit160 ], [ %125, %_ZN3gmx14LogEntryWriterD2Ev.exit167 ], [ %.pn139, %_ZNSt6vectorIiSaIiEED2Ev.exit177 ], [ %.pn124.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ]
   resume { ptr, i32 } %common.resume.op
 
 182:                                              ; preds = %.lr.ph381.us.split.us

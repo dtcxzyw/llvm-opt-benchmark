@@ -984,7 +984,7 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr noundef re
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %18, %25, %31, %37, %24
-  %.1 = phi i64 [ 0, %24 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ 0, %18 ], [ 0, %20 ]
+  %.1 = phi i64 [ 0, %24 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ 0, %18 ], [ 0, %20 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %15) #7
   br label %43
 

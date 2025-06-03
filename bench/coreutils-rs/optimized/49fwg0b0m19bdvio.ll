@@ -1033,7 +1033,7 @@ define internal fastcc void @"_ZN58_$LT$bigdecimal..BigDecimal$u20$as$u20$num_tr
   br i1 %68, label %.thread, label %70
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h29afb07d9dcc11c0E.exit.thread": ; preds = %.loopexit.i.i, %43, %.critedge
-  %.0127 = phi i64 [ %131, %.critedge ], [ 0, %43 ], [ 0, %.loopexit.i.i ]
+  %.0127 = phi i64 [ %129, %.critedge ], [ 0, %43 ], [ 0, %.loopexit.i.i ]
   %.sroa.13.0 = phi i64 [ %15, %.critedge ], [ %2, %43 ], [ %2, %.loopexit.i.i ]
   %69 = icmp eq i64 %.sroa.13.0, 0
   br i1 %69, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h29afb07d9dcc11c0E.exit.thread.thread", label %.lr.ph.split.split.i.i
@@ -1147,10 +1147,10 @@ define internal fastcc void @"_ZN58_$LT$bigdecimal..BigDecimal$u20$as$u20$num_tr
   call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17h4c73c187d2c0e8f5E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.030.0, i64 noundef %.sroa.634.0)
   %127 = load i8, ptr %11, align 8, !range !215, !noundef !11
   %trunc = trunc nuw i8 %127 to i1
-  %128 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %129 = load i8, ptr %128, align 1, !range !216
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %131 = load i64, ptr %130, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %129 = load i64, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %131 = load i8, ptr %130, align 1, !range !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %trunc, label %141, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h29afb07d9dcc11c0E.exit.thread"
 
@@ -1178,7 +1178,7 @@ define internal fastcc void @"_ZN58_$LT$bigdecimal..BigDecimal$u20$as$u20$num_tr
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %142, align 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %129, ptr %.sroa.477.0..sroa_idx, align 8
+  store i8 %131, ptr %.sroa.477.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %168
 
@@ -1260,10 +1260,10 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %153
   br label %174
 
 174:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit, %169
-  %.sroa.0112.0 = phi i64 [ %.sroa.0112.0.copyload113, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ], [ %171, %169 ]
-  %.sroa.3114.0 = phi ptr [ %.sroa.3114.0.copyload116, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ], [ %172, %169 ]
-  %.sroa.4117.0 = phi i64 [ %260, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ], [ %.sroa.13.0, %169 ]
-  %.0 = phi i64 [ %.0.lcssa.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ], [ 0, %169 ]
+  %.sroa.0112.0 = phi i64 [ %171, %169 ], [ %.sroa.0112.0.copyload113, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ]
+  %.sroa.3114.0 = phi ptr [ %172, %169 ], [ %.sroa.3114.0.copyload116, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ]
+  %.sroa.4117.0 = phi i64 [ %.sroa.13.0, %169 ], [ %260, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ]
+  %.0 = phi i64 [ 0, %169 ], [ %.0.lcssa.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h3fd49c06c014ecaaE.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 %.sroa.0112.0, ptr %10, align 8
   %.sroa.3114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1723,7 +1723,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit13"
 
 "_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit13": ; preds = %41, %38, %36, %30, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23", %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit"
-  %.0.in = phi i1 [ %.0.i14, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23" ], [ %.0.i, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ false, %30 ], [ true, %36 ], [ %45, %41 ], [ false, %38 ]
+  %.0.in = phi i1 [ %.0.i, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ %.0.i14, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit23" ], [ false, %30 ], [ true, %36 ], [ %45, %41 ], [ false, %38 ]
   ret i1 %.0.in
 
 "_ZN67_$LT$num_bigint..bigint..BigInt$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60fd945455146d86E.exit21": ; preds = %58, %55, %53, %46

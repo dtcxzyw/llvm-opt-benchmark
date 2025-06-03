@@ -2371,7 +2371,7 @@ define internal fastcc noalias ptr @_dt_collection_get_sort_text(i32 noundef %0,
   br label %7
 
 7:                                                ; preds = %2, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.182, %6 ], [ @.str.181, %5 ], [ @.str.180, %4 ], [ @.str.179, %3 ], [ @.str.178, %2 ]
+  %.0 = phi ptr [ @.str.179, %3 ], [ @.str.180, %4 ], [ @.str.181, %5 ], [ @.str.182, %6 ], [ @.str.178, %2 ]
   %.not26 = icmp eq i32 %1, 0
   %8 = select i1 %.not26, ptr @.str.34, ptr @.str.85
   %9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.183, ptr noundef nonnull %.0, ptr noundef nonnull %8) #19
@@ -2446,7 +2446,7 @@ define internal fastcc noalias ptr @_dt_collection_get_sort_text(i32 noundef %0,
   br label %44
 
 44:                                               ; preds = %42, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
-  %.016 = phi ptr [ %43, %42 ], [ %41, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.016 = phi ptr [ %43, %42 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ]
   ret ptr %.016
 }
 
@@ -5165,7 +5165,7 @@ sub_1540.i:                                       ; preds = %sub_0539.i
   br label %561
 
 561:                                              ; preds = %560, %559, %558, %557, %48, %48
-  %.0334.i = phi ptr [ @.str.182, %560 ], [ @.str.181, %559 ], [ @.str.180, %558 ], [ @.str.179, %557 ], [ @.str.178, %48 ], [ @.str.178, %48 ]
+  %.0334.i = phi ptr [ @.str.179, %557 ], [ @.str.180, %558 ], [ @.str.181, %559 ], [ @.str.182, %560 ], [ @.str.178, %48 ], [ @.str.178, %48 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #19

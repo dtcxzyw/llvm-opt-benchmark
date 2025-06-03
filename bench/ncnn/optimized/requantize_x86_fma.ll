@@ -839,8 +839,8 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898: ; preds = %.lr.ph963
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156:   ; preds = %.lr.ph963, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread886, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread889, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread892, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread895, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898
-  %.0.i885 = phi <8 x float> [ %292, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898 ], [ %199, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread895 ], [ %92, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread892 ], [ %64, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread889 ], [ %50, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread886 ], [ %41, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread ], [ %39, %.lr.ph963 ]
-  %.0.i155 = phi nsz <8 x float> [ %296, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898 ], [ %280, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread895 ], [ %118, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread892 ], [ %66, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread889 ], [ %54, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread886 ], [ %42, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread ], [ %40, %.lr.ph963 ]
+  %.0.i885 = phi <8 x float> [ %41, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread ], [ %50, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread886 ], [ %64, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread889 ], [ %92, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread892 ], [ %199, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread895 ], [ %292, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898 ], [ %39, %.lr.ph963 ]
+  %.0.i155 = phi nsz <8 x float> [ %42, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread ], [ %54, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread886 ], [ %66, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread889 ], [ %118, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread892 ], [ %280, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread895 ], [ %296, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit.thread898 ], [ %40, %.lr.ph963 ]
   %297 = fmul fast <8 x float> %.0.i885, %.0149
   %298 = fmul fast <8 x float> %.0.i155, %.0149
   %299 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %297)
@@ -1047,7 +1047,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156:   ; preds = %.lr.ph963, %_ZL14ac
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit158
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit158:   ; preds = %323, %327, %329, %337, %346, %373, %455
-  %.0.i157 = phi nsz <8 x float> [ %465, %455 ], [ %454, %373 ], [ %372, %346 ], [ %345, %337 ], [ %336, %329 ], [ %328, %327 ], [ %326, %323 ]
+  %.0.i157 = phi nsz <8 x float> [ %328, %327 ], [ %336, %329 ], [ %345, %337 ], [ %372, %346 ], [ %454, %373 ], [ %465, %455 ], [ %326, %323 ]
   %466 = fmul fast <8 x float> %.0.i157, %.0149
   %467 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %466)
   %468 = fadd fast <8 x float> %467, %466
@@ -1258,7 +1258,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit158:   ; preds = %323, %327, %329, %3
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.lr.ph977, %487, %489, %498, %509, %538, %626
-  %.0.i165 = phi nsz <4 x float> [ %639, %626 ], [ %625, %538 ], [ %537, %509 ], [ %508, %498 ], [ %497, %489 ], [ %488, %487 ], [ %486, %.lr.ph977 ]
+  %.0.i165 = phi nsz <4 x float> [ %488, %487 ], [ %497, %489 ], [ %508, %498 ], [ %537, %509 ], [ %625, %538 ], [ %639, %626 ], [ %486, %.lr.ph977 ]
   %640 = fmul fast <4 x float> %.0.i165, %20
   %641 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %640)
   %642 = fadd fast <4 x float> %641, %640
@@ -1368,7 +1368,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.lr.ph977, %487, %4
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %692, %.lr.ph984, %663, %665, %671, %678, %679, %686, %700, %704
-  %.1882 = phi nsz float [ %662, %.lr.ph984 ], [ %662, %700 ], [ %707, %704 ], [ %691, %686 ], [ %685, %679 ], [ %675, %678 ], [ %.0881, %671 ], [ %670, %665 ], [ %664, %663 ], [ 0.000000e+00, %692 ]
+  %.1882 = phi nsz float [ %662, %.lr.ph984 ], [ %664, %663 ], [ %670, %665 ], [ %675, %678 ], [ %.0881, %671 ], [ %685, %679 ], [ %691, %686 ], [ %662, %700 ], [ %707, %704 ], [ 0.000000e+00, %692 ]
   %708 = fmul fast float %.1882, %18
   %709 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %708)
   %710 = fptosi float %709 to i32
@@ -1719,8 +1719,8 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916: ; preds = %.lr.ph
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162:   ; preds = %.lr.ph, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread904, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread907, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread910, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread913, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916
-  %.0.i159903 = phi <8 x float> [ %988, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916 ], [ %895, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread913 ], [ %788, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread910 ], [ %760, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread907 ], [ %746, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread904 ], [ %737, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread ], [ %735, %.lr.ph ]
-  %.0.i161 = phi nsz <8 x float> [ %992, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916 ], [ %976, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread913 ], [ %814, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread910 ], [ %762, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread907 ], [ %750, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread904 ], [ %738, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread ], [ %736, %.lr.ph ]
+  %.0.i159903 = phi <8 x float> [ %737, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread ], [ %746, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread904 ], [ %760, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread907 ], [ %788, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread910 ], [ %895, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread913 ], [ %988, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916 ], [ %735, %.lr.ph ]
+  %.0.i161 = phi nsz <8 x float> [ %738, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread ], [ %750, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread904 ], [ %762, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread907 ], [ %814, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread910 ], [ %976, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread913 ], [ %992, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit160.thread916 ], [ %736, %.lr.ph ]
   %993 = fmul fast <8 x float> %.0.i159903, %.0149
   %994 = fmul fast <8 x float> %.0.i161, %.0149
   %995 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %993)
@@ -1927,7 +1927,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162:   ; preds = %.lr.ph, %_ZL14activ
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit164
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit164:   ; preds = %1019, %1023, %1025, %1033, %1042, %1069, %1151
-  %.0.i163 = phi nsz <8 x float> [ %1161, %1151 ], [ %1150, %1069 ], [ %1068, %1042 ], [ %1041, %1033 ], [ %1032, %1025 ], [ %1024, %1023 ], [ %1022, %1019 ]
+  %.0.i163 = phi nsz <8 x float> [ %1024, %1023 ], [ %1032, %1025 ], [ %1041, %1033 ], [ %1068, %1042 ], [ %1150, %1069 ], [ %1161, %1151 ], [ %1022, %1019 ]
   %1162 = fmul fast <8 x float> %.0.i163, %.0149
   %1163 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %1162)
   %1164 = fadd fast <8 x float> %1163, %1162
@@ -2138,7 +2138,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit164:   ; preds = %1019, %1023, %1025,
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit167
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit167:   ; preds = %.lr.ph952, %1183, %1185, %1194, %1205, %1234, %1322
-  %.0.i166 = phi nsz <4 x float> [ %1335, %1322 ], [ %1321, %1234 ], [ %1233, %1205 ], [ %1204, %1194 ], [ %1193, %1185 ], [ %1184, %1183 ], [ %1182, %.lr.ph952 ]
+  %.0.i166 = phi nsz <4 x float> [ %1184, %1183 ], [ %1193, %1185 ], [ %1204, %1194 ], [ %1233, %1205 ], [ %1321, %1234 ], [ %1335, %1322 ], [ %1182, %.lr.ph952 ]
   %1336 = fmul fast <4 x float> %.0.i166, %20
   %1337 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1336)
   %1338 = fadd fast <4 x float> %1337, %1336
@@ -2249,7 +2249,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit167:   ; preds = %.lr.ph952, %1183, %
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit168
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit168:        ; preds = %1389, %.lr.ph959, %1360, %1362, %1368, %1375, %1376, %1383, %1397, %1401
-  %.1879 = phi nsz float [ %1359, %.lr.ph959 ], [ %1359, %1397 ], [ %1404, %1401 ], [ %1388, %1383 ], [ %1382, %1376 ], [ %1372, %1375 ], [ %.0878, %1368 ], [ %1367, %1362 ], [ %1361, %1360 ], [ 0.000000e+00, %1389 ]
+  %.1879 = phi nsz float [ %1359, %.lr.ph959 ], [ %1361, %1360 ], [ %1367, %1362 ], [ %1372, %1375 ], [ %.0878, %1368 ], [ %1382, %1376 ], [ %1388, %1383 ], [ %1359, %1397 ], [ %1404, %1401 ], [ 0.000000e+00, %1389 ]
   %1405 = fmul fast float %.1879, %18
   %1406 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %1405)
   %1407 = fptosi float %1406 to i32

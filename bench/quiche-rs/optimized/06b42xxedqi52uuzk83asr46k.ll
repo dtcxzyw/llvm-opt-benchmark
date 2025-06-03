@@ -1268,7 +1268,7 @@ default.unreachable1:                             ; preds = %1
   br label %8
 
 8:                                                ; preds = %6, %4, %2
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.sroa.0.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3670,7 +3670,7 @@ default.unreachable1:                             ; preds = %1
   br label %8
 
 8:                                                ; preds = %6, %4, %2
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.sroa.0.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3969,7 +3969,7 @@ define void @_ZN6quiche2h35qpack7decoder7Decoder6decode17hacca2d01099dea1fE(ptr 
           to label %54 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %359, %188, %368, %.body207
-  %.pn204 = phi { ptr, i32 } [ %lpad.phi293, %368 ], [ %.pn200, %.body207 ], [ %189, %188 ], [ %360, %359 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn204 = phi { ptr, i32 } [ %.pn200, %.body207 ], [ %lpad.phi293, %368 ], [ %189, %188 ], [ %360, %359 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h60f01f5c1406a926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #19
           to label %392 unwind label %303
 
@@ -4348,7 +4348,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit.thread.split
   br label %196
 
 196:                                              ; preds = %363, %299, %192
-  %.pn = phi i64 [ %345, %363 ], [ %279, %299 ], [ %181, %192 ]
+  %.pn = phi i64 [ %181, %192 ], [ %279, %299 ], [ %345, %363 ]
   %.sroa.0.1 = sub nuw i64 %.sroa.0.0, %.pn
   br label %134
 
@@ -5338,7 +5338,7 @@ default.unreachable8:                             ; preds = %7
   br label %14
 
 14:                                               ; preds = %7, %7, %13, %11, %10
-  %.sroa.05.0 = phi i8 [ 7, %13 ], [ 6, %11 ], [ 5, %10 ], [ 1, %7 ], [ 1, %7 ]
+  %.sroa.05.0 = phi i8 [ 5, %10 ], [ 6, %11 ], [ 7, %13 ], [ 1, %7 ], [ 1, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf321cacb1ef03aebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3532c359de83a36efb23c8f8954d829.219)
   store i8 %.sroa.05.0, ptr %4, align 8, !alias.scope !230
@@ -6422,7 +6422,7 @@ define void @_ZN6quiche6packet6Header10from_bytes17he442f438081c0428E(ptr dead_o
   br label %168
 
 116:                                              ; preds = %170, %210, %161, %132, %120
-  %.pn67 = phi { ptr, i32 } [ %121, %120 ], [ %lpad.phi, %210 ], [ %171, %170 ], [ %162, %161 ], [ %133, %132 ]
+  %.pn67 = phi { ptr, i32 } [ %121, %120 ], [ %133, %132 ], [ %162, %161 ], [ %lpad.phi, %210 ], [ %171, %170 ]
   %117 = load i64, ptr %14, align 8, !range !15, !alias.scope !267, !noundef !3
   %118 = icmp eq i64 %117, -9223372036854775808
   br i1 %118, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u32$GT$$GT$$GT$17h25a499ab0ddbc763E.exit", label %119
@@ -6814,7 +6814,7 @@ define { i64, i64 } @_ZN6quiche6packet6Header8to_bytes17he5e853c4687ace95E(ptr n
   br label %28
 
 28:                                               ; preds = %2, %27, %26, %25
-  %.sroa.06.0 = phi i8 [ -48, %27 ], [ -32, %26 ], [ -16, %25 ], [ -64, %2 ]
+  %.sroa.06.0 = phi i8 [ -16, %25 ], [ -32, %26 ], [ -48, %27 ], [ -64, %2 ]
   %29 = or i8 %.sroa.06.0, %6
   %30 = tail call { ptr, i64 } @_ZN6octets9OctetsMut6put_u817h54d84031fecbdc9aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef %29)
   %31 = extractvalue { ptr, i64 } %30, 0
@@ -7352,8 +7352,8 @@ default.unreachable49:                            ; preds = %66
   br i1 %96, label %110, label %114
 
 97:                                               ; preds = %110, %106, %102, %98, %90, %53
-  %.sroa.12.2 = phi i64 [ %54, %53 ], [ %109, %106 ], [ %113, %110 ], [ %105, %102 ], [ %101, %98 ], [ %93, %90 ]
-  %.sroa.0.2 = phi i64 [ %51, %53 ], [ %108, %106 ], [ %112, %110 ], [ %104, %102 ], [ %100, %98 ], [ %92, %90 ]
+  %.sroa.12.2 = phi i64 [ %54, %53 ], [ %93, %90 ], [ %113, %110 ], [ %101, %98 ], [ %105, %102 ], [ %109, %106 ]
+  %.sroa.0.2 = phi i64 [ %51, %53 ], [ %92, %90 ], [ %112, %110 ], [ %100, %98 ], [ %104, %102 ], [ %108, %106 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %140

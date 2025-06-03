@@ -159,7 +159,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %15, %16
   br label %_ZL19DecodeDWARFEncodingj.exit
 
 _ZL19DecodeDWARFEncodingj.exit:                   ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %.0.i = phi ptr [ @.str.27, %35 ], [ @.str.26, %34 ], [ @.str.25, %33 ], [ @.str.24, %32 ], [ @.str.23, %31 ], [ @.str.22, %30 ], [ @.str.21, %29 ], [ @.str.20, %28 ], [ @.str.19, %27 ], [ @.str.18, %26 ], [ @.str.17, %25 ], [ @.str.16, %24 ], [ @.str.15, %23 ], [ @.str.14, %22 ], [ @.str.13, %21 ], [ @.str.12, %20 ], [ @.str.11, %19 ], [ @.str.10, %18 ], [ @.str.9, %17 ], [ @.str.8, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.0.i = phi ptr [ @.str.27, %35 ], [ @.str.9, %17 ], [ @.str.10, %18 ], [ @.str.11, %19 ], [ @.str.12, %20 ], [ @.str.13, %21 ], [ @.str.14, %22 ], [ @.str.15, %23 ], [ @.str.16, %24 ], [ @.str.17, %25 ], [ @.str.18, %26 ], [ @.str.19, %27 ], [ @.str.20, %28 ], [ @.str.21, %29 ], [ @.str.22, %30 ], [ @.str.23, %31 ], [ @.str.24, %32 ], [ @.str.25, %33 ], [ @.str.26, %34 ], [ @.str.8, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %36 = load i8, ptr %.0.i, align 1, !tbaa !126
   %.not.i6 = icmp eq i8 %36, 0
   br i1 %.not.i6, label %37, label %_ZN4llvm5TwineC2EPKc.exit8
@@ -270,7 +270,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit23:                ; preds = %37, %_ZN4llvm5Twine
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
 _ZL19DecodeDWARFEncodingj.exit26:                 ; preds = %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63
-  %.0.i25 = phi ptr [ @.str.27, %63 ], [ @.str.26, %62 ], [ @.str.25, %61 ], [ @.str.24, %60 ], [ @.str.23, %59 ], [ @.str.22, %58 ], [ @.str.21, %57 ], [ @.str.20, %56 ], [ @.str.19, %55 ], [ @.str.18, %54 ], [ @.str.17, %53 ], [ @.str.16, %52 ], [ @.str.15, %51 ], [ @.str.14, %50 ], [ @.str.13, %49 ], [ @.str.12, %48 ], [ @.str.11, %47 ], [ @.str.10, %46 ], [ @.str.9, %45 ], [ @.str.8, %44 ]
+  %.0.i25 = phi ptr [ @.str.27, %63 ], [ @.str.9, %45 ], [ @.str.10, %46 ], [ @.str.11, %47 ], [ @.str.12, %48 ], [ @.str.13, %49 ], [ @.str.14, %50 ], [ @.str.15, %51 ], [ @.str.16, %52 ], [ @.str.17, %53 ], [ @.str.18, %54 ], [ @.str.19, %55 ], [ @.str.20, %56 ], [ @.str.21, %57 ], [ @.str.22, %58 ], [ @.str.23, %59 ], [ @.str.24, %60 ], [ @.str.25, %61 ], [ @.str.26, %62 ], [ @.str.8, %44 ]
   %64 = load i8, ptr %.0.i25, align 1, !tbaa !126
   %.not.i27 = icmp eq i8 %64, 0
   store ptr @.str.1, ptr %6, align 8
@@ -342,7 +342,7 @@ define dso_local noundef i32 @_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj(ptr
   br label %14
 
 14:                                               ; preds = %4, %2, %13, %12, %7
-  %.0 = phi i32 [ 8, %13 ], [ 4, %12 ], [ %11, %7 ], [ 0, %2 ], [ %5, %4 ]
+  %.0 = phi i32 [ %11, %7 ], [ 4, %12 ], [ 8, %13 ], [ 0, %2 ], [ %5, %4 ]
   ret i32 %.0
 }
 
@@ -393,7 +393,7 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitTTypeReferenceEPKNS_11GlobalVal
   br label %_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit
 
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %4, %18, %21, %26, %27
-  %.0.i = phi i32 [ 8, %27 ], [ 4, %26 ], [ %25, %21 ], [ 0, %4 ], [ %19, %18 ]
+  %.0.i = phi i32 [ %25, %21 ], [ 4, %26 ], [ 8, %27 ], [ 0, %4 ], [ %19, %18 ]
   tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(296) %16, ptr noundef %15, i32 noundef %.0.i, ptr null) #6
   br label %45
 
@@ -429,7 +429,7 @@ _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %4, %18, %21, %26
   br label %_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit8
 
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit8: ; preds = %28, %32, %35, %40, %41
-  %.0.i7 = phi i32 [ 8, %41 ], [ 4, %40 ], [ %39, %35 ], [ 0, %28 ], [ %33, %32 ]
+  %.0.i7 = phi i32 [ %39, %35 ], [ 4, %40 ], [ 8, %41 ], [ 0, %28 ], [ %33, %32 ]
   %42 = load ptr, ptr %30, align 8, !tbaa !143
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 544
   %44 = load ptr, ptr %43, align 8
@@ -627,7 +627,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCallSiteOffsetEPKNS_8MCSymbolE
   br label %_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit
 
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %8, %10, %12, %17, %18
-  %.0.i = phi i32 [ 8, %18 ], [ 4, %17 ], [ %16, %12 ], [ 0, %8 ], [ %5, %10 ]
+  %.0.i = phi i32 [ %16, %12 ], [ 4, %17 ], [ 8, %18 ], [ 0, %8 ], [ %5, %10 ]
   tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i) #6
   br label %19
 
@@ -678,7 +678,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter17emitCallSiteValueEmj(ptr noundef n
   br label %_ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit
 
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %7, %11, %13, %18, %19
-  %.0.i = phi i32 [ 8, %19 ], [ 4, %18 ], [ %17, %13 ], [ 0, %7 ], [ %4, %11 ]
+  %.0.i = phi i32 [ %17, %13 ], [ 4, %18 ], [ 8, %19 ], [ 0, %7 ], [ %4, %11 ]
   %20 = load ptr, ptr %9, align 8, !tbaa !143
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %22 = load ptr, ptr %21, align 8

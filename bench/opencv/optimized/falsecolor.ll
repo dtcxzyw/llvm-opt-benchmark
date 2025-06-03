@@ -670,13 +670,13 @@ default.unreachable:                              ; preds = %112
   unreachable
 
 255:                                              ; preds = %252, %204, %154
-  %.sroa.0129.1.i = phi i64 [ %247, %252 ], [ %189, %204 ], [ %149, %154 ]
+  %.sroa.0129.1.i = phi i64 [ %149, %154 ], [ %189, %204 ], [ %247, %252 ]
   %256 = add nuw nsw i32 %.041202.i, 1
   %exitcond204.not.i = icmp eq i32 %256, 257
   br i1 %exitcond204.not.i, label %_ZL11DrawMyImageii.exit, label %112, !llvm.loop !49
 
 257:                                              ; preds = %253, %205, %155, %110
-  %.pn50.pn.i = phi { ptr, i32 } [ %111, %110 ], [ %254, %253 ], [ %206, %205 ], [ %156, %155 ]
+  %.pn50.pn.i = phi { ptr, i32 } [ %111, %110 ], [ %156, %155 ], [ %206, %205 ], [ %254, %253 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
   br label %.body
 

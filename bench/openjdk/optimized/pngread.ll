@@ -1959,7 +1959,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br label %50
 
 50:                                               ; preds = %40, %46, %42
-  %.0 = phi i32 [ %49, %46 ], [ %45, %42 ], [ 256, %40 ]
+  %.0 = phi i32 [ %45, %42 ], [ %49, %46 ], [ 256, %40 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.0, i32 256)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %spec.store.select, ptr %51, align 4
@@ -3678,10 +3678,10 @@ make_ga_colormap.exit.thread:                     ; preds = %318, %781, %777, %m
     i32 3, label %make_ga_colormap.exit.thread.thread572
   ]
 
-make_ga_colormap.exit.thread.thread.sink.split:   ; preds = %123, %178, %596
-  %.sink = phi ptr [ %5, %596 ], [ %3, %178 ], [ %2, %123 ]
-  %.0384558567.ph = phi i32 [ 3, %596 ], [ 0, %178 ], [ 0, %123 ]
-  %.0383559565.ph = phi i32 [ %405, %596 ], [ 256, %178 ], [ 256, %123 ]
+make_ga_colormap.exit.thread.thread.sink.split:   ; preds = %596, %178, %123
+  %.sink = phi ptr [ %2, %123 ], [ %3, %178 ], [ %5, %596 ]
+  %.0384558567.ph = phi i32 [ 0, %123 ], [ 0, %178 ], [ 3, %596 ]
+  %.0383559565.ph = phi i32 [ 256, %123 ], [ 256, %178 ], [ %405, %596 ]
   call void @png_set_background_fixed(ptr noundef %8, ptr noundef nonnull %.sink, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
   br label %make_ga_colormap.exit.thread.thread
 
@@ -3692,10 +3692,10 @@ make_ga_colormap.exit.thread.thread:              ; preds = %617, %148, %266, %m
   call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #11
   br label %make_ga_colormap.exit.thread.thread572
 
-make_ga_colormap.exit.thread.thread572:           ; preds = %773, %._crit_edge, %92, %89, %make_ga_colormap.exit.thread.thread, %make_ga_colormap.exit.thread
-  %.0394556568 = phi i32 [ %.0394556569, %make_ga_colormap.exit.thread.thread ], [ %.0394556, %make_ga_colormap.exit.thread ], [ 256, %89 ], [ 256, %92 ], [ 256, %._crit_edge ], [ 256, %773 ]
-  %.0384558566 = phi i32 [ %.0384558567, %make_ga_colormap.exit.thread.thread ], [ %.0384558, %make_ga_colormap.exit.thread ], [ 0, %89 ], [ 0, %92 ], [ 0, %._crit_edge ], [ 0, %773 ]
-  %.0383559564 = phi i32 [ %.0383559565, %make_ga_colormap.exit.thread.thread ], [ %.0383559, %make_ga_colormap.exit.thread ], [ %65, %89 ], [ %65, %92 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %773 ]
+make_ga_colormap.exit.thread.thread572:           ; preds = %92, %89, %773, %._crit_edge, %make_ga_colormap.exit.thread.thread, %make_ga_colormap.exit.thread
+  %.0394556568 = phi i32 [ %.0394556569, %make_ga_colormap.exit.thread.thread ], [ %.0394556, %make_ga_colormap.exit.thread ], [ 256, %._crit_edge ], [ 256, %773 ], [ 256, %89 ], [ 256, %92 ]
+  %.0384558566 = phi i32 [ %.0384558567, %make_ga_colormap.exit.thread.thread ], [ %.0384558, %make_ga_colormap.exit.thread ], [ 0, %._crit_edge ], [ 0, %773 ], [ 0, %89 ], [ 0, %92 ]
+  %.0383559564 = phi i32 [ %.0383559565, %make_ga_colormap.exit.thread.thread ], [ %.0383559, %make_ga_colormap.exit.thread ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %773 ], [ %65, %89 ], [ %65, %92 ]
   %782 = getelementptr inbounds nuw i8, ptr %8, i64 520
   %783 = load i8, ptr %782, align 8
   %784 = icmp ugt i8 %783, 8
@@ -5037,7 +5037,7 @@ png_gamma_not_sRGB.exit.thread10.i:               ; preds = %png_gamma_not_sRGB.
   unreachable
 
 43:                                               ; preds = %.thread, %37, %32, %26
-  %.011 = phi i32 [ %38, %37 ], [ %1, %.thread ], [ %36, %32 ], [ %31, %26 ]
+  %.011 = phi i32 [ %31, %26 ], [ %36, %32 ], [ %1, %.thread ], [ %38, %37 ]
   ret i32 %.011
 }
 

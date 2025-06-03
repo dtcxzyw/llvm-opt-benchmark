@@ -2146,7 +2146,7 @@ rb_scan_args_set.exit:                            ; preds = %26
   br label %33
 
 33:                                               ; preds = %29, %rb_scan_args_set.exit
-  %.1 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %32, %29 ]
+  %.1 = phi i32 [ %32, %29 ], [ 0, %rb_scan_args_set.exit ]
   %34 = load i64, ptr %4, align 8, !tbaa !6
   %35 = and i64 %34, 1
   %.not.i13 = icmp eq i64 %35, 0
@@ -3219,7 +3219,7 @@ RSTRING_PTR.exit37:                               ; preds = %31, %41
   br label %65
 
 65:                                               ; preds = %.sink.split, %RSTRING_PTR.exit37, %RSTRING_PTR.exit
-  %.024 = phi i64 [ %36, %RSTRING_PTR.exit37 ], [ %22, %RSTRING_PTR.exit ], [ %64, %.sink.split ]
+  %.024 = phi i64 [ %22, %RSTRING_PTR.exit ], [ %36, %RSTRING_PTR.exit37 ], [ %64, %.sink.split ]
   ret i64 %.024
 }
 
@@ -3330,7 +3330,7 @@ rb_type.exit.thread:                              ; preds = %9, %7, %7, %7, %7, 
   unreachable
 
 30:                                               ; preds = %rb_type.exit.thread, %ossl_bn_to_i.exit, %15
-  %.0 = phi i64 [ %0, %rb_type.exit.thread ], [ %24, %ossl_bn_to_i.exit ], [ %16, %15 ]
+  %.0 = phi i64 [ %0, %rb_type.exit.thread ], [ %16, %15 ], [ %24, %ossl_bn_to_i.exit ]
   %31 = tail call i64 @rb_assoc_new(i64 noundef %1, i64 noundef %.0) #11
   ret i64 %31
 }

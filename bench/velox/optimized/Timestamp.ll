@@ -689,7 +689,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb3.i
-  %retval.0.i = phi i64 [ %add5.i, %sw.bb3.i ], [ %add.i, %sw.bb1.i ], [ 10, %entry ]
+  %retval.0.i = phi i64 [ %add.i, %sw.bb1.i ], [ %add5.i, %sw.bb3.i ], [ 10, %entry ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %retval.0.i)
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

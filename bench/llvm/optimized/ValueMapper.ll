@@ -2089,7 +2089,7 @@ _ZN12_GLOBAL__N_112MDNodeMapperD2Ev.exit:         ; preds = %_ZN4llvm13SmallDens
   br label %108
 
 108:                                              ; preds = %2, %_ZN12_GLOBAL__N_112MDNodeMapperD2Ev.exit
-  %.1 = phi ptr [ %5, %2 ], [ %28, %_ZN12_GLOBAL__N_112MDNodeMapperD2Ev.exit ]
+  %.1 = phi ptr [ %28, %_ZN12_GLOBAL__N_112MDNodeMapperD2Ev.exit ], [ %5, %2 ]
   ret ptr %.1
 }
 
@@ -2957,7 +2957,7 @@ _ZNK4llvm15SmallVectorImplIPNS_5ValueEEeqERKS3_.exit.thread67: ; preds = %._crit
   br label %166
 
 166:                                              ; preds = %164, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %165, %164 ]
+  %.1.i.i.i.i = phi ptr [ %165, %164 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %167 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !103
   %168 = icmp eq ptr %167, null
   br i1 %168, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEEDnEEbOT_RKT0_.exit, label %169
@@ -2967,7 +2967,7 @@ _ZNK4llvm15SmallVectorImplIPNS_5ValueEEeqERKS3_.exit.thread67: ; preds = %._crit
   br label %171
 
 171:                                              ; preds = %169, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %170, %169 ]
+  %.2.i.i.i.i = phi ptr [ %170, %169 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %172 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !103
   %173 = icmp eq ptr %172, null
   br i1 %173, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEEDnEEbOT_RKT0_.exit, label %.critedge

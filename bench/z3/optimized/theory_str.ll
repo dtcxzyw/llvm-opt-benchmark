@@ -99366,7 +99366,7 @@ _ZNK8seq_util3str9is_concatEPK4expr.exit.thread:  ; preds = %35, %30, %19, %3, %
   br label %235
 
 235:                                              ; preds = %_ZN7zstringD2Ev.exit96, %_ZN7zstringD2Ev.exit70, %_ZNK8seq_util3str9is_concatEPK4expr.exit.thread
-  %.3 = phi i1 [ false, %_ZN7zstringD2Ev.exit70 ], [ false, %_ZN7zstringD2Ev.exit96 ], [ true, %_ZNK8seq_util3str9is_concatEPK4expr.exit.thread ]
+  %.3 = phi i1 [ true, %_ZNK8seq_util3str9is_concatEPK4expr.exit.thread ], [ false, %_ZN7zstringD2Ev.exit96 ], [ false, %_ZN7zstringD2Ev.exit70 ]
   ret i1 %.3
 
 236:                                              ; preds = %234, %209
@@ -135911,7 +135911,7 @@ _ZN7zstringD2Ev.exit86:                           ; preds = %.critedge, %231
   br label %237
 
 236:                                              ; preds = %83, %_ZNK8seq_util3str9is_stringEPK4expr.exit, %_ZN7zstringD2Ev.exit86
-  %.0 = phi ptr [ %54, %83 ], [ %.3, %_ZN7zstringD2Ev.exit86 ], [ %1, %_ZNK8seq_util3str9is_stringEPK4expr.exit ]
+  %.0 = phi ptr [ %.3, %_ZN7zstringD2Ev.exit86 ], [ %54, %83 ], [ %1, %_ZNK8seq_util3str9is_stringEPK4expr.exit ]
   ret ptr %.0
 
 237:                                              ; preds = %235, %82

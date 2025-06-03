@@ -122,7 +122,7 @@ define hidden void @_ZN10duckdb_re27CEscapeB5cxx11ERKNS_11StringPieceE(ptr dead_
   br label %52
 
 52:                                               ; preds = %49, %45, %37, %33, %29, %25, %21, %17
-  %.255.ph.i = phi i64 [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %50, %49 ], [ %48, %45 ]
+  %.255.ph.i = phi i64 [ %39, %37 ], [ %35, %33 ], [ %31, %29 ], [ %27, %25 ], [ %23, %21 ], [ %19, %17 ], [ %50, %49 ], [ %48, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %.05662.i, i64 1
   %54 = icmp ult ptr %53, %10
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15

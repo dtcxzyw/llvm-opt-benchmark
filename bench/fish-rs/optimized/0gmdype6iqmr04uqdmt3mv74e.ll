@@ -4686,7 +4686,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %15, %13, %11, %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %17, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -39618,14 +39618,14 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i86: ; preds = %316, %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %"_ZN4core3ptr99drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..threads..ThreadPoolProtected$GT$$GT$17hed7bfca4cc36a32fE.exit89"
 
-.thread148.sink.split:                            ; preds = %329, %217
-  %.sink = phi ptr [ %213, %217 ], [ %325, %329 ]
-  %.pn30143.ph = phi { ptr, i32 } [ %218, %217 ], [ %330, %329 ]
+.thread148.sink.split:                            ; preds = %217, %329
+  %.sink = phi ptr [ %325, %329 ], [ %213, %217 ]
+  %.pn30143.ph = phi { ptr, i32 } [ %330, %329 ], [ %218, %217 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 24, i64 noundef 8) #37
   br label %.thread148
 
-.thread148:                                       ; preds = %.thread148.sink.split, %67, %.body74, %.body97, %296, %.thread144
-  %.pn30143 = phi { ptr, i32 } [ %eh.lpad-body147, %.thread144 ], [ %297, %296 ], [ %.pn24, %67 ], [ %.pn28, %.body74 ], [ %.pn26, %.body97 ], [ %.pn30143.ph, %.thread148.sink.split ]
+.thread148:                                       ; preds = %.thread148.sink.split, %67, %.body97, %.body74, %296, %.thread144
+  %.pn30143 = phi { ptr, i32 } [ %eh.lpad-body147, %.thread144 ], [ %297, %296 ], [ %.pn24, %67 ], [ %.pn26, %.body97 ], [ %.pn28, %.body74 ], [ %.pn30143.ph, %.thread148.sink.split ]
   resume { ptr, i32 } %.pn30143
 
 .thread144:                                       ; preds = %53, %43

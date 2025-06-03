@@ -1883,8 +1883,8 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   br label %100
 
 100:                                              ; preds = %98, %._crit_edge._crit_edge.i.i.i.i
-  %101 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %96, %98 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %99, %98 ]
+  %101 = phi ptr [ %96, %98 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %99, %98 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %102 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !60
   %104 = icmp eq ptr %103, %101
@@ -1895,8 +1895,8 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge._crit_edge52.i.i.i.i
-  %108 = phi ptr [ %.pre54.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %101, %105 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %106, %105 ]
+  %108 = phi ptr [ %101, %105 ], [ %.pre54.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %106, %105 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %109 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !60
   %111 = icmp eq ptr %110, %108
@@ -4944,8 +4944,8 @@ define linkonce_odr noundef ptr @_ZSt11__remove_ifIPN4llvm15AssumptionCache10Res
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i
-  %40 = phi ptr [ %.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %35, %37 ]
-  %.1.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %38, %37 ]
+  %40 = phi ptr [ %35, %37 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.1.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !60
   %43 = icmp eq ptr %42, %40
@@ -4956,8 +4956,8 @@ define linkonce_odr noundef ptr @_ZSt11__remove_ifIPN4llvm15AssumptionCache10Res
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge52.i.i
-  %47 = phi ptr [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ], [ %40, %44 ]
-  %.2.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %40, %44 ], [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ]
+  %.2.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !60
   %50 = icmp eq ptr %49, %47

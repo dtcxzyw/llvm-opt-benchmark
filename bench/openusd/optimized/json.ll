@@ -1740,7 +1740,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
 
 _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit: ; preds = %.lr.ph, %99, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit, %185, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i, %141, %123, %53, %35, %31, %10, %103, %57, %199, %197, %191, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit, %._crit_edge, %._crit_edge47, %8
-  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %193, %191 ], [ %198, %197 ], [ %200, %199 ], [ %122, %._crit_edge ], [ %102, %._crit_edge47 ], [ %9, %8 ], [ false, %57 ], [ false, %103 ], [ true, %10 ], [ true, %31 ], [ true, %35 ], [ true, %53 ], [ %135, %123 ], [ %135, %141 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ true, %185 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %99 ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %193, %191 ], [ %198, %197 ], [ %200, %199 ], [ %9, %8 ], [ %102, %._crit_edge47 ], [ %122, %._crit_edge ], [ false, %57 ], [ false, %103 ], [ true, %10 ], [ true, %31 ], [ true, %35 ], [ true, %53 ], [ %135, %123 ], [ %135, %141 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ true, %185 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %99 ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 
@@ -2273,7 +2273,7 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %.lr.ph45, %49, %13, %104, %102, %96, %91, %84, %69, %._crit_edge, %._crit_edge46, %11, %9, %7
-  %.021 = phi i1 [ %88, %84 ], [ %93, %91 ], [ %98, %96 ], [ %103, %102 ], [ %105, %104 ], [ %81, %69 ], [ %68, %._crit_edge ], [ %48, %._crit_edge46 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ false, %13 ], [ false, %49 ], [ false, %.lr.ph45 ], [ false, %45 ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ %88, %84 ], [ %93, %91 ], [ %98, %96 ], [ %103, %102 ], [ %105, %104 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %48, %._crit_edge46 ], [ %68, %._crit_edge ], [ %81, %69 ], [ false, %13 ], [ false, %49 ], [ false, %.lr.ph45 ], [ false, %45 ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 

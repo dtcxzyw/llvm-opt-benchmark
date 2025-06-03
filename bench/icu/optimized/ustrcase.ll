@@ -1342,7 +1342,7 @@ define noundef range(i32 0, 131073) i32 @_ZN6icu_7710GreekUpper16getDiacriticDat
   br label %7
 
 7:                                                ; preds = %1, %1, %1, %1, %1, %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %6 ], [ 131072, %5 ], [ 8192, %4 ], [ 81920, %3 ], [ 65536, %2 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 65536, %2 ], [ 81920, %3 ], [ 8192, %4 ], [ 131072, %5 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ], [ 16384, %1 ]
   ret i32 %.0
 }
 
@@ -1567,8 +1567,8 @@ _ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread301: ; preds = %51, %_ZN6icu_
 71:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
 
-_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit:  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %68, %69, %70, %71
-  %.0.i236.ph = phi i32 [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 65536, %68 ], [ 81920, %69 ], [ 8192, %70 ], [ 131072, %71 ]
+_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit:  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %71, %70, %69, %68
+  %.0.i236.ph = phi i32 [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 131072, %71 ], [ 8192, %70 ], [ 81920, %69 ], [ 65536, %68 ]
   %72 = or i32 %.0.i236.ph, %.1169277
   %73 = lshr exact i32 %.0.i236.ph, 13
   %74 = and i32 %73, 1

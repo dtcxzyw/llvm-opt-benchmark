@@ -2810,7 +2810,7 @@ _ZSt7reverseIPN5clang6driver8MultilibEEvT_S4_.exit: ; preds = %_ZSt7reverseIPN5c
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge.i.i.i.i.i
-  %.sroa.050.1.i.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %124, %123 ]
+  %.sroa.050.1.i.i.i.i.i = phi ptr [ %124, %123 ], [ %.sroa.050.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i34.i.i.i.i.i = load ptr, ptr %.sroa.050.1.i.i.i.i.i, align 8, !tbaa !11
   %126 = getelementptr i8, ptr %.sroa.050.1.i.i.i.i.i, i64 8
   %.val2.i35.i.i.i.i.i = load i64, ptr %126, align 8, !tbaa !14
@@ -2824,7 +2824,7 @@ _ZSt7reverseIPN5clang6driver8MultilibEEvT_S4_.exit: ; preds = %_ZSt7reverseIPN5c
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge.i.i.i.i.i
-  %.sroa.050.2.i.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %130, %129 ]
+  %.sroa.050.2.i.i.i.i.i = phi ptr [ %130, %129 ], [ %.sroa.050.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i37.i.i.i.i.i = load ptr, ptr %.sroa.050.2.i.i.i.i.i, align 8, !tbaa !11
   %132 = getelementptr i8, ptr %.sroa.050.2.i.i.i.i.i, i64 8
   %.val2.i38.i.i.i.i.i = load i64, ptr %132, align 8, !tbaa !14
@@ -3248,7 +3248,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNSt7__cxx1112basi
   br label %106
 
 106:                                              ; preds = %104, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %105, %104 ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %105, %104 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %107 = load ptr, ptr %.sroa.032.1.i.i.i.i.i.i, align 8, !tbaa !11
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !14
@@ -3260,7 +3260,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNSt7__cxx1112basi
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %112, %111 ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %114 = load ptr, ptr %.sroa.032.2.i.i.i.i.i.i, align 8, !tbaa !11
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i.i.i, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !14
@@ -5915,9 +5915,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetail
   br label %36
 
 36:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109
-  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ]
-  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %35, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ]
+  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ], [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ], [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %35, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit69.thread109 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i.i70 = load ptr, ptr %.1, align 8, !tbaa !105
   %.sroa.22.0..sroa_idx.i.i71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i.i72 = load i64, ptr %.sroa.22.0..sroa_idx.i.i71, align 8, !tbaa !9
@@ -5938,9 +5938,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetail
   br label %41
 
 41:                                               ; preds = %._crit_edge._crit_edge149, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112
-  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ], [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ]
-  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ], [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge149 ], [ %40, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ]
+  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ], [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ]
+  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ], [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ]
+  %.2 = phi ptr [ %40, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang6driver11custom_flag20ValueNameToDetailMap3getEN4llvm9StringRefEEUlRKT_E_EclIPKSt4pairIS7_PKNS4_11ValueDetailEEEEbS8_.exit79.thread112 ], [ %.029.lcssa, %._crit_edge._crit_edge149 ]
   %.sroa.01.0.copyload.i.i80 = load ptr, ptr %.2, align 8, !tbaa !105
   %.sroa.22.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i.i82 = load i64, ptr %.sroa.22.0..sroa_idx.i.i81, align 8, !tbaa !9
@@ -9074,7 +9074,7 @@ define linkonce_odr ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN5cla
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i
-  %.sroa.038.1.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ], [ %29, %28 ]
+  %.sroa.038.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ]
   %31 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.038.1.i.i) #19
   br i1 %31, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang6driver8MultilibESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN4llvm12function_refIFbRKS4_EEEEEET_SJ_SJ_T0_.exit, label %32
 
@@ -9083,7 +9083,7 @@ define linkonce_odr ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN5cla
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i
-  %.sroa.038.2.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ], [ %33, %32 ]
+  %.sroa.038.2.i.i = phi ptr [ %33, %32 ], [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ]
   %35 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.038.2.i.i) #19
   %spec.select.i.i = select i1 %35, ptr %.sroa.038.2.i.i, ptr %1
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang6driver8MultilibESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN4llvm12function_refIFbRKS4_EEEEEET_SJ_SJ_T0_.exit

@@ -2799,8 +2799,8 @@ UpdateFlagsAndSize.exit.thread:                   ; preds = %1148, %.lr.ph1327, 
   br label %1203
 
 1203:                                             ; preds = %1199, %.thread869, %717, %.thread807, %.thread885, %1202, %1201, %WriteWebPWithMetadata.exit.thread, %899, %890, %863, %855, %742, %669, %594, %557, %.loopexit.thread
-  %.0498 = phi ptr [ null, %.loopexit.thread ], [ null, %717 ], [ %.1499867, %1199 ], [ %.1499867, %WriteWebPWithMetadata.exit.thread ], [ %.1499867, %899 ], [ %.1499867, %890 ], [ %.1499867, %863 ], [ %.1499867, %855 ], [ %.1499867, %742 ], [ null, %669 ], [ null, %594 ], [ null, %557 ], [ %.1499867, %1201 ], [ %.1499867, %1202 ], [ %.1499867, %.thread885 ], [ null, %.thread807 ], [ %.1499867, %.thread869 ]
-  %.0473 = phi i32 [ 1, %.loopexit.thread ], [ 1, %717 ], [ 1, %1199 ], [ 1, %WriteWebPWithMetadata.exit.thread ], [ 1, %899 ], [ 1, %890 ], [ 1, %863 ], [ 1, %855 ], [ 1, %742 ], [ 1, %669 ], [ 1, %594 ], [ 1, %557 ], [ 0, %1201 ], [ 0, %1202 ], [ 0, %.thread885 ], [ 1, %.thread807 ], [ 1, %.thread869 ]
+  %.0498 = phi ptr [ null, %.loopexit.thread ], [ %.1499867, %1199 ], [ %.1499867, %WriteWebPWithMetadata.exit.thread ], [ %.1499867, %899 ], [ %.1499867, %890 ], [ %.1499867, %863 ], [ %.1499867, %855 ], [ %.1499867, %742 ], [ null, %717 ], [ null, %669 ], [ null, %594 ], [ null, %557 ], [ %.1499867, %1201 ], [ %.1499867, %1202 ], [ %.1499867, %.thread885 ], [ null, %.thread807 ], [ %.1499867, %.thread869 ]
+  %.0473 = phi i32 [ 1, %.loopexit.thread ], [ 1, %1199 ], [ 1, %WriteWebPWithMetadata.exit.thread ], [ 1, %899 ], [ 1, %890 ], [ 1, %863 ], [ 1, %855 ], [ 1, %742 ], [ 1, %717 ], [ 1, %669 ], [ 1, %594 ], [ 1, %557 ], [ 0, %1201 ], [ 0, %1202 ], [ 0, %.thread885 ], [ 1, %.thread807 ], [ 1, %.thread869 ]
   call void @WebPMemoryWriterClear(ptr noundef nonnull %12) #13
   %1204 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %1205 = load ptr, ptr %1204, align 8, !tbaa !76

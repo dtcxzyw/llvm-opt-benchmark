@@ -1111,9 +1111,9 @@ yytnamerr.exit119:                                ; preds = %.preheader32.split.
   br label %.thread4
 
 .thread4:                                         ; preds = %40, %24, %yytnamerr.exit, %3, %._crit_edge, %64, %63, %62, %61, %60
-  %.0838 = phi i32 [ %.588, %63 ], [ %.588, %62 ], [ %.588, %61 ], [ %.588, %64 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.588, %60 ], [ 1, %24 ], [ 1, %40 ]
-  %.0907 = phi i64 [ %.696, %63 ], [ %.696, %62 ], [ %.696, %61 ], [ %.696, %64 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.696, %60 ], [ %.122.i, %24 ], [ %.122.i, %40 ]
-  %.079 = phi ptr [ @.str.9, %63 ], [ @.str.8, %62 ], [ @.str.7, %61 ], [ @.str.10, %64 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %60 ], [ @.str.6, %24 ], [ @.str.6, %40 ]
+  %.0838 = phi i32 [ %.588, %64 ], [ %.588, %61 ], [ %.588, %62 ], [ %.588, %63 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.588, %60 ], [ 1, %24 ], [ 1, %40 ]
+  %.0907 = phi i64 [ %.696, %64 ], [ %.696, %61 ], [ %.696, %62 ], [ %.696, %63 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.696, %60 ], [ %.122.i, %24 ], [ %.122.i, %40 ]
+  %.079 = phi ptr [ @.str.10, %64 ], [ @.str.7, %61 ], [ @.str.8, %62 ], [ @.str.9, %63 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %60 ], [ @.str.6, %24 ], [ @.str.6, %40 ]
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.079)
   %65 = shl nsw i32 %.0838, 1
   %66 = sext i32 %65 to i64

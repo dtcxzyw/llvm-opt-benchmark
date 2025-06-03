@@ -1321,7 +1321,7 @@ get_effect_replay_length.exit.thread.i:           ; preds = %67, %57, %56, %56, 
   br label %get_effect_direction.exit.i.i
 
 get_effect_direction.exitthread-pre-split.i.i:    ; preds = %220, %218, %214, %202, %196, %179, %177, %173, %161, %155, %151, %138, %136, %132, %120, %114, %111, %110, %97, %95, %91, %79, %73, %70
-  %.0.i.ph.i.i = phi i32 [ %201, %196 ], [ %208, %202 ], [ %216, %214 ], [ %219, %218 ], [ %232, %220 ], [ %160, %155 ], [ %167, %161 ], [ %175, %173 ], [ %178, %177 ], [ %191, %179 ], [ 16384, %111 ], [ %119, %114 ], [ %126, %120 ], [ %134, %132 ], [ %137, %136 ], [ %150, %138 ], [ 0, %151 ], [ 16384, %70 ], [ %78, %73 ], [ %85, %79 ], [ %93, %91 ], [ %96, %95 ], [ %109, %97 ], [ 0, %110 ]
+  %.0.i.ph.i.i = phi i32 [ %216, %214 ], [ %219, %218 ], [ %232, %220 ], [ %208, %202 ], [ %201, %196 ], [ %175, %173 ], [ %178, %177 ], [ %191, %179 ], [ %167, %161 ], [ %160, %155 ], [ 16384, %111 ], [ %134, %132 ], [ %137, %136 ], [ %150, %138 ], [ %126, %120 ], [ %119, %114 ], [ 0, %151 ], [ 16384, %70 ], [ %93, %91 ], [ %96, %95 ], [ %109, %97 ], [ %85, %79 ], [ %78, %73 ], [ 0, %110 ]
   %.pre.pre.pr.i.i = load i16, ptr %48, align 8
   %234 = and i32 %.0.i.ph.i.i, 65535
   %235 = mul nuw nsw i32 %234, 360
@@ -1842,7 +1842,7 @@ get_effect_replay_length.exit.i.i:                ; preds = %398, %397
   br label %lg4ff_calculate_periodic.exit.i
 
 lg4ff_calculate_periodic.exit.i:                  ; preds = %448, %442, %432, %427, %418, %417
-  %.048.i.i = phi i32 [ %375, %417 ], [ %453, %448 ], [ %447, %442 ], [ %441, %432 ], [ %431, %427 ], [ %426, %418 ]
+  %.048.i.i = phi i32 [ %375, %417 ], [ %426, %418 ], [ %431, %427 ], [ %441, %432 ], [ %447, %442 ], [ %453, %448 ]
   %454 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %455 = load double, ptr %454, align 8
   %456 = sitofp i32 %.048.i.i to double
@@ -2052,19 +2052,19 @@ lg4ff_calculate_ramp.exit.i:                      ; preds = %562, %543, %517
   br label %lg4ff_update_state.exit.i
 
 lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %lg4ff_calculate_ramp.exit.i, %lg4ff_calculate_constant.exit.i, %lg4ff_calculate_periodic.exit.i, %352, %347, %344, %64, %.lr.ph.i
-  %616 = phi i32 [ %36, %lg4ff_calculate_periodic.exit.i ], [ %36, %606 ], [ %36, %596 ], [ %595, %577 ], [ %36, %lg4ff_calculate_ramp.exit.i ], [ %36, %lg4ff_calculate_constant.exit.i ], [ %36, %64 ], [ %36, %.lr.ph.i ], [ %36, %352 ], [ %36, %344 ], [ %36, %347 ]
-  %617 = phi i32 [ %37, %lg4ff_calculate_periodic.exit.i ], [ %37, %606 ], [ %37, %596 ], [ %592, %577 ], [ %37, %lg4ff_calculate_ramp.exit.i ], [ %37, %lg4ff_calculate_constant.exit.i ], [ %37, %64 ], [ %37, %.lr.ph.i ], [ %37, %352 ], [ %37, %344 ], [ %37, %347 ]
-  %618 = phi i32 [ %38, %lg4ff_calculate_periodic.exit.i ], [ %38, %606 ], [ %38, %596 ], [ %589, %577 ], [ %38, %lg4ff_calculate_ramp.exit.i ], [ %38, %lg4ff_calculate_constant.exit.i ], [ %38, %64 ], [ %38, %.lr.ph.i ], [ %38, %352 ], [ %38, %344 ], [ %38, %347 ]
-  %619 = phi i32 [ %39, %lg4ff_calculate_periodic.exit.i ], [ %39, %606 ], [ %39, %596 ], [ %586, %577 ], [ %39, %lg4ff_calculate_ramp.exit.i ], [ %39, %lg4ff_calculate_constant.exit.i ], [ %39, %64 ], [ %39, %.lr.ph.i ], [ %39, %352 ], [ %39, %344 ], [ %39, %347 ]
-  %620 = phi i32 [ %40, %lg4ff_calculate_periodic.exit.i ], [ %40, %606 ], [ %40, %596 ], [ %585, %577 ], [ %40, %lg4ff_calculate_ramp.exit.i ], [ %40, %lg4ff_calculate_constant.exit.i ], [ %40, %64 ], [ %40, %.lr.ph.i ], [ %40, %352 ], [ %40, %344 ], [ %40, %347 ]
-  %621 = phi i32 [ %41, %lg4ff_calculate_periodic.exit.i ], [ %41, %606 ], [ %605, %596 ], [ %41, %577 ], [ %41, %lg4ff_calculate_ramp.exit.i ], [ %41, %lg4ff_calculate_constant.exit.i ], [ %41, %64 ], [ %41, %.lr.ph.i ], [ %41, %352 ], [ %41, %344 ], [ %41, %347 ]
-  %622 = phi i32 [ %42, %lg4ff_calculate_periodic.exit.i ], [ %42, %606 ], [ %602, %596 ], [ %42, %577 ], [ %42, %lg4ff_calculate_ramp.exit.i ], [ %42, %lg4ff_calculate_constant.exit.i ], [ %42, %64 ], [ %42, %.lr.ph.i ], [ %42, %352 ], [ %42, %344 ], [ %42, %347 ]
-  %623 = phi i32 [ %43, %lg4ff_calculate_periodic.exit.i ], [ %43, %606 ], [ %599, %596 ], [ %43, %577 ], [ %43, %lg4ff_calculate_ramp.exit.i ], [ %43, %lg4ff_calculate_constant.exit.i ], [ %43, %64 ], [ %43, %.lr.ph.i ], [ %43, %352 ], [ %43, %344 ], [ %43, %347 ]
-  %624 = phi i32 [ %44, %lg4ff_calculate_periodic.exit.i ], [ %615, %606 ], [ %44, %596 ], [ %44, %577 ], [ %44, %lg4ff_calculate_ramp.exit.i ], [ %44, %lg4ff_calculate_constant.exit.i ], [ %44, %64 ], [ %44, %.lr.ph.i ], [ %44, %352 ], [ %44, %344 ], [ %44, %347 ]
-  %625 = phi i32 [ %45, %lg4ff_calculate_periodic.exit.i ], [ %612, %606 ], [ %45, %596 ], [ %45, %577 ], [ %45, %lg4ff_calculate_ramp.exit.i ], [ %45, %lg4ff_calculate_constant.exit.i ], [ %45, %64 ], [ %45, %.lr.ph.i ], [ %45, %352 ], [ %45, %344 ], [ %45, %347 ]
-  %626 = phi i32 [ %46, %lg4ff_calculate_periodic.exit.i ], [ %609, %606 ], [ %46, %596 ], [ %46, %577 ], [ %46, %lg4ff_calculate_ramp.exit.i ], [ %46, %lg4ff_calculate_constant.exit.i ], [ %46, %64 ], [ %46, %.lr.ph.i ], [ %46, %352 ], [ %46, %344 ], [ %46, %347 ]
-  %627 = phi i32 [ %459, %lg4ff_calculate_periodic.exit.i ], [ %47, %606 ], [ %47, %596 ], [ %47, %577 ], [ %576, %lg4ff_calculate_ramp.exit.i ], [ %511, %lg4ff_calculate_constant.exit.i ], [ %47, %64 ], [ %47, %.lr.ph.i ], [ %47, %352 ], [ %47, %344 ], [ %47, %347 ]
-  %.1.i = phi i32 [ %53, %lg4ff_calculate_periodic.exit.i ], [ %53, %606 ], [ %53, %596 ], [ %53, %577 ], [ %53, %lg4ff_calculate_ramp.exit.i ], [ %53, %lg4ff_calculate_constant.exit.i ], [ %53, %64 ], [ %.090.i, %.lr.ph.i ], [ %53, %352 ], [ %53, %344 ], [ %53, %347 ]
+  %616 = phi i32 [ %36, %lg4ff_calculate_periodic.exit.i ], [ %36, %lg4ff_calculate_constant.exit.i ], [ %36, %lg4ff_calculate_ramp.exit.i ], [ %595, %577 ], [ %36, %596 ], [ %36, %606 ], [ %36, %64 ], [ %36, %.lr.ph.i ], [ %36, %352 ], [ %36, %344 ], [ %36, %347 ]
+  %617 = phi i32 [ %37, %lg4ff_calculate_periodic.exit.i ], [ %37, %lg4ff_calculate_constant.exit.i ], [ %37, %lg4ff_calculate_ramp.exit.i ], [ %592, %577 ], [ %37, %596 ], [ %37, %606 ], [ %37, %64 ], [ %37, %.lr.ph.i ], [ %37, %352 ], [ %37, %344 ], [ %37, %347 ]
+  %618 = phi i32 [ %38, %lg4ff_calculate_periodic.exit.i ], [ %38, %lg4ff_calculate_constant.exit.i ], [ %38, %lg4ff_calculate_ramp.exit.i ], [ %589, %577 ], [ %38, %596 ], [ %38, %606 ], [ %38, %64 ], [ %38, %.lr.ph.i ], [ %38, %352 ], [ %38, %344 ], [ %38, %347 ]
+  %619 = phi i32 [ %39, %lg4ff_calculate_periodic.exit.i ], [ %39, %lg4ff_calculate_constant.exit.i ], [ %39, %lg4ff_calculate_ramp.exit.i ], [ %586, %577 ], [ %39, %596 ], [ %39, %606 ], [ %39, %64 ], [ %39, %.lr.ph.i ], [ %39, %352 ], [ %39, %344 ], [ %39, %347 ]
+  %620 = phi i32 [ %40, %lg4ff_calculate_periodic.exit.i ], [ %40, %lg4ff_calculate_constant.exit.i ], [ %40, %lg4ff_calculate_ramp.exit.i ], [ %585, %577 ], [ %40, %596 ], [ %40, %606 ], [ %40, %64 ], [ %40, %.lr.ph.i ], [ %40, %352 ], [ %40, %344 ], [ %40, %347 ]
+  %621 = phi i32 [ %41, %lg4ff_calculate_periodic.exit.i ], [ %41, %lg4ff_calculate_constant.exit.i ], [ %41, %lg4ff_calculate_ramp.exit.i ], [ %41, %577 ], [ %605, %596 ], [ %41, %606 ], [ %41, %64 ], [ %41, %.lr.ph.i ], [ %41, %352 ], [ %41, %344 ], [ %41, %347 ]
+  %622 = phi i32 [ %42, %lg4ff_calculate_periodic.exit.i ], [ %42, %lg4ff_calculate_constant.exit.i ], [ %42, %lg4ff_calculate_ramp.exit.i ], [ %42, %577 ], [ %602, %596 ], [ %42, %606 ], [ %42, %64 ], [ %42, %.lr.ph.i ], [ %42, %352 ], [ %42, %344 ], [ %42, %347 ]
+  %623 = phi i32 [ %43, %lg4ff_calculate_periodic.exit.i ], [ %43, %lg4ff_calculate_constant.exit.i ], [ %43, %lg4ff_calculate_ramp.exit.i ], [ %43, %577 ], [ %599, %596 ], [ %43, %606 ], [ %43, %64 ], [ %43, %.lr.ph.i ], [ %43, %352 ], [ %43, %344 ], [ %43, %347 ]
+  %624 = phi i32 [ %44, %lg4ff_calculate_periodic.exit.i ], [ %44, %lg4ff_calculate_constant.exit.i ], [ %44, %lg4ff_calculate_ramp.exit.i ], [ %44, %577 ], [ %44, %596 ], [ %615, %606 ], [ %44, %64 ], [ %44, %.lr.ph.i ], [ %44, %352 ], [ %44, %344 ], [ %44, %347 ]
+  %625 = phi i32 [ %45, %lg4ff_calculate_periodic.exit.i ], [ %45, %lg4ff_calculate_constant.exit.i ], [ %45, %lg4ff_calculate_ramp.exit.i ], [ %45, %577 ], [ %45, %596 ], [ %612, %606 ], [ %45, %64 ], [ %45, %.lr.ph.i ], [ %45, %352 ], [ %45, %344 ], [ %45, %347 ]
+  %626 = phi i32 [ %46, %lg4ff_calculate_periodic.exit.i ], [ %46, %lg4ff_calculate_constant.exit.i ], [ %46, %lg4ff_calculate_ramp.exit.i ], [ %46, %577 ], [ %46, %596 ], [ %609, %606 ], [ %46, %64 ], [ %46, %.lr.ph.i ], [ %46, %352 ], [ %46, %344 ], [ %46, %347 ]
+  %627 = phi i32 [ %459, %lg4ff_calculate_periodic.exit.i ], [ %511, %lg4ff_calculate_constant.exit.i ], [ %576, %lg4ff_calculate_ramp.exit.i ], [ %47, %577 ], [ %47, %596 ], [ %47, %606 ], [ %47, %64 ], [ %47, %.lr.ph.i ], [ %47, %352 ], [ %47, %344 ], [ %47, %347 ]
+  %.1.i = phi i32 [ %53, %lg4ff_calculate_periodic.exit.i ], [ %53, %lg4ff_calculate_constant.exit.i ], [ %53, %lg4ff_calculate_ramp.exit.i ], [ %53, %577 ], [ %53, %596 ], [ %53, %606 ], [ %53, %64 ], [ %.090.i, %.lr.ph.i ], [ %53, %352 ], [ %53, %344 ], [ %53, %347 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %628 = icmp samesign ult i64 %indvars.iv.i, 15
   %629 = icmp ne i32 %.1.i, 0

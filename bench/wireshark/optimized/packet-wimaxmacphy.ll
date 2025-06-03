@@ -1104,7 +1104,7 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   br label %114
 
 114:                                              ; preds = %102, %87, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ %86, %.lr.ph.i.i ], [ %113, %102 ], [ %101, %87 ]
+  %.0.i.i.i = phi i32 [ %86, %.lr.ph.i.i ], [ %101, %87 ], [ %113, %102 ]
   %115 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i.i.i)
   %116 = load i32, ptr @hf_wimaxmacphy_number_of_burst_descriptors, align 4
   %117 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %116, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 1, i32 noundef 0)
@@ -1777,7 +1777,7 @@ dissect_wimaxmacphy_phy_txstart_request.exit:     ; preds = %dissect_wimaxmacphy
   br label %613
 
 613:                                              ; preds = %586, %574, %565, %553, %526, %511, %490, %469, %457, %445, %.lr.ph.i.i.i112
-  %.0.i.i.i.i115 = phi i32 [ %444, %.lr.ph.i.i.i112 ], [ %573, %565 ], [ %612, %586 ], [ %585, %574 ], [ %564, %553 ], [ %552, %526 ], [ %525, %511 ], [ %510, %490 ], [ %489, %469 ], [ %468, %457 ], [ %456, %445 ]
+  %.0.i.i.i.i115 = phi i32 [ %444, %.lr.ph.i.i.i112 ], [ %456, %445 ], [ %468, %457 ], [ %489, %469 ], [ %510, %490 ], [ %525, %511 ], [ %552, %526 ], [ %564, %553 ], [ %573, %565 ], [ %585, %574 ], [ %612, %586 ]
   %614 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i.i.i.i115)
   %615 = load i32, ptr @hf_wimaxmacphy_number_of_sub_burst_descriptors, align 4
   %616 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %615, ptr noundef %0, i32 noundef %.0.i.i.i.i115, i32 noundef 1, i32 noundef 0)
@@ -1988,7 +1988,7 @@ dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i: ; 
   br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i, %695, %687, %651, %639
-  %.0.i.i.i.i.i122 = phi i32 [ %.0.i.i.i.i.i.i, %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i ], [ %727, %695 ], [ %694, %687 ], [ %686, %651 ], [ %650, %639 ]
+  %.0.i.i.i.i.i122 = phi i32 [ %.0.i.i.i.i.i.i, %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i ], [ %650, %639 ], [ %686, %651 ], [ %694, %687 ], [ %727, %695 ]
   %772 = sub i32 %.0.i.i.i.i.i122, %.12.i.i.i.i121
   %773 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %773, i32 noundef %772)
@@ -2218,7 +2218,7 @@ dissect_wimaxmacphy_phy_rxstart_request.exit:     ; preds = %dissect_wimaxmacphy
   br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 dissect_wimaxmacphy_phy_rxend_indication.exit:    ; preds = %900, %854, %839, %834, %801, %934, %905, %794, %787, %dissect_wimaxmacphy_phy_rxstart_request.exit, %322, %307, %296, %285, %278, %dissect_wimaxmacphy_phy_txstart_request.exit
-  %.0101 = phi i32 [ %939, %934 ], [ 24, %905 ], [ 4, %794 ], [ 4, %787 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.exit ], [ 8, %322 ], [ 8, %307 ], [ %306, %296 ], [ 8, %285 ], [ 4, %278 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.exit ], [ 24, %801 ], [ 32, %854 ], [ 28, %839 ], [ %838, %834 ], [ %903, %900 ]
+  %.0101 = phi i32 [ %939, %934 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.exit ], [ 4, %278 ], [ 8, %285 ], [ %306, %296 ], [ 8, %307 ], [ 8, %322 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.exit ], [ 4, %787 ], [ 4, %794 ], [ 24, %905 ], [ 24, %801 ], [ %838, %834 ], [ 28, %839 ], [ 32, %854 ], [ %903, %900 ]
   %940 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0101)
   %941 = icmp sgt i32 %940, 0
   br i1 %941, label %942, label %947

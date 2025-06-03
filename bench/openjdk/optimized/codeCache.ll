@@ -1557,7 +1557,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph66, %.lr.ph.i
   br label %34
 
 34:                                               ; preds = %30, %32, %31
-  %.0 = phi i32 [ %spec.store.select, %32 ], [ 1, %31 ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %31 ], [ %spec.store.select, %32 ], [ 0, %30 ]
   %.not32 = icmp eq i32 %.0, %.tr3949
   %.not33 = icmp eq i32 %.0, %spec.select
   %or.cond = or i1 %.not32, %.not33

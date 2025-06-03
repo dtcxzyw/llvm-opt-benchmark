@@ -10248,7 +10248,7 @@ _add_resv_to_lists.exit:                          ; preds = %69, %74
   br label %102
 
 102:                                              ; preds = %101, %89, %55, %36, %11
-  %.022 = phi i32 [ 0, %11 ], [ 14, %101 ], [ 14, %55 ], [ 0, %89 ], [ 2, %36 ]
+  %.022 = phi i32 [ 0, %11 ], [ 14, %55 ], [ 14, %101 ], [ 0, %89 ], [ 2, %36 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
@@ -15383,9 +15383,9 @@ declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_handle_add_remove_names(ptr noundef nonnull %0, i32 noundef range(i32 1, 3) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %switch = icmp eq i32 %1, 2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %.0124 = select i1 %switch, ptr %10, ptr %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0124 = select i1 %switch, ptr %9, ptr %10
   %.0123.v = select i1 %switch, i64 288, i64 8
   %.0123 = getelementptr inbounds nuw i8, ptr %0, i64 %.0123.v
   %11 = load i32, ptr %.0124, align 4
@@ -15653,7 +15653,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %106, align 4
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %109 = load i32, ptr %10, align 4
+  %109 = load i32, ptr %9, align 4
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next215, %110
   br i1 %111, label %.lr.ph183.split.us, label %.loopexit167, !llvm.loop !90
@@ -15666,7 +15666,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   %115 = load ptr, ptr %114, align 8
   store ptr %115, ptr %113, align 8
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %116 = load i32, ptr %9, align 4
+  %116 = load i32, ptr %10, align 4
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next212, %117
   br i1 %118, label %.lr.ph183.split, label %.loopexit167, !llvm.loop !90
@@ -15776,32 +15776,32 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %74, %
   br i1 %switch, label %161, label %173
 
 161:                                              ; preds = %158
-  %162 = load i32, ptr %10, align 4
+  %162 = load i32, ptr %9, align 4
   %163 = add nsw i32 %162, 1
   %164 = sext i32 %163 to i64
   %165 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %122, i64 noundef %164, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1493, ptr noundef nonnull @__func__._handle_add_remove_names) #19
   %166 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv228
   %167 = load i32, ptr %166, align 4
   %168 = load ptr, ptr %122, align 8
-  %169 = load i32, ptr %10, align 4
+  %169 = load i32, ptr %9, align 4
   %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %10, align 4
+  store i32 %170, ptr %9, align 4
   %171 = sext i32 %169 to i64
   %172 = getelementptr inbounds i32, ptr %168, i64 %171
   store i32 %167, ptr %172, align 4
   br label %.thread164
 
 173:                                              ; preds = %158
-  %174 = load i32, ptr %9, align 4
+  %174 = load i32, ptr %10, align 4
   %175 = add nsw i32 %174, 1
   %176 = sext i32 %175 to i64
   %177 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %121, i64 noundef %176, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1499, ptr noundef nonnull @__func__._handle_add_remove_names) #19
   %178 = load ptr, ptr %159, align 8
   %179 = tail call ptr @xstrdup(ptr noundef %178) #19
   %180 = load ptr, ptr %121, align 8
-  %181 = load i32, ptr %9, align 4
+  %181 = load i32, ptr %10, align 4
   %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %9, align 4
+  store i32 %182, ptr %10, align 4
   %183 = sext i32 %181 to i64
   %184 = getelementptr inbounds ptr, ptr %180, i64 %183
   store ptr %179, ptr %184, align 8

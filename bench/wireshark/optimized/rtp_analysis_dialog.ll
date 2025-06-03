@@ -18041,7 +18041,7 @@ define noundef zeroext i1 @_ZN17RtpAnalysisDialog11eventFilterEP7QObjectP6QEvent
   br label %11
 
 11:                                               ; preds = %9, %10, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %10 ], [ true, %9 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %9 ], [ true, %10 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -22464,7 +22464,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK25RtpAnalysisTreeWidgetItemltERK15QT
   br label %49
 
 49:                                               ; preds = %11, %17, %23, %29, %35, %41, %47, %5
-  %.0 = phi i1 [ %6, %5 ], [ %48, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0 = phi i1 [ %6, %5 ], [ %48, %47 ], [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %46, %41 ]
   ret i1 %.0
 }
 

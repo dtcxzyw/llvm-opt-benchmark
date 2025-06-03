@@ -866,7 +866,7 @@ default.unreachable:                              ; preds = %85
   ret void
 
 135:                                              ; preds = %128, %125, %120, %116, %110, %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn82 = phi { ptr, i32 } [ %126, %125 ], [ %129, %128 ], [ %117, %116 ], [ %121, %120 ], [ %99, %98 ], [ %111, %110 ], [ %.pn80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ], [ %.pn78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %.pn76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn82 = phi { ptr, i32 } [ %99, %98 ], [ %111, %110 ], [ %117, %116 ], [ %121, %120 ], [ %126, %125 ], [ %129, %128 ], [ %.pn80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ], [ %.pn78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %.pn76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn82
 }
 
@@ -1903,7 +1903,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %305
 
 305:                                              ; preds = %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn, %304 ], [ %55, %54 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn, %304 ], [ %55, %54 ], [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn45.pn.pn.pn
@@ -1983,7 +1983,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIfE7computeERKNS_3MatERS3_(
           to label %_ZN2cv4Mat_ItEC2ERKNS_3MatE.exit unwind label %17
 
 common.resume:                                    ; preds = %20, %30, %40, %37, %27, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %28, %27 ], [ %38, %37 ], [ %41, %40 ], [ %31, %30 ], [ %21, %20 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %28, %27 ], [ %38, %37 ], [ %21, %20 ], [ %31, %30 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %12
@@ -2106,7 +2106,7 @@ define linkonce_odr hidden void @_ZNK2cv4rgbd7LINEMODIdE7computeERKNS_3MatERS3_(
           to label %_ZN2cv4Mat_ItEC2ERKNS_3MatE.exit unwind label %17
 
 common.resume:                                    ; preds = %20, %30, %40, %37, %27, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %28, %27 ], [ %38, %37 ], [ %41, %40 ], [ %31, %30 ], [ %21, %20 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %28, %27 ], [ %38, %37 ], [ %21, %20 ], [ %31, %30 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %12

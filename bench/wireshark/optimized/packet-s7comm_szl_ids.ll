@@ -3491,7 +3491,7 @@ s7comm_decode_szl_id_xy91_idx_0000.exit:          ; preds = %349, %349, %364, %3
   br label %386
 
 386:                                              ; preds = %385, %384, %383, %382, %381, %380, %379, %378
-  %.0.i223 = phi ptr [ @.str.1851, %385 ], [ @.str.1850, %384 ], [ @.str.1849, %383 ], [ @.str.1848, %382 ], [ @.str.1847, %381 ], [ @.str.1846, %380 ], [ @.str.1845, %379 ], [ @.str.1844, %378 ]
+  %.0.i223 = phi ptr [ @.str.1851, %385 ], [ @.str.1845, %379 ], [ @.str.1846, %380 ], [ @.str.1847, %381 ], [ @.str.1848, %382 ], [ @.str.1849, %383 ], [ @.str.1850, %384 ], [ @.str.1844, %378 ]
   %387 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_0, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #4
   %388 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %387, ptr noundef %0, i32 noundef %.1232, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %23)
@@ -4287,8 +4287,8 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   %791 = add i32 %.1232, %87
   br label %.thread
 
-.thread:                                          ; preds = %s7comm_decode_szl_id_xy00.exit, %121, %126, %170, %183, %196, %212, %227, %s7comm_decode_szl_id_xy1c_idx_000x.exit, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %317, %319, %321, %323, %325, %327, %329, %331, %333, %s7comm_decode_szl_id_xy91_idx_0000.exit, %s7comm_decode_szl_id_xy92_idx_xxxx.exit, %s7comm_decode_szl_id_0x94_idx_xxxx.exit, %702, %759, %788
-  %.3 = phi i32 [ %791, %788 ], [ %.0.i220, %s7comm_decode_szl_id_xy00.exit ], [ %124, %121 ], [ %169, %126 ], [ %182, %170 ], [ %195, %183 ], [ %211, %196 ], [ %226, %212 ], [ %228, %227 ], [ %.0.i222, %s7comm_decode_szl_id_xy1c_idx_000x.exit ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %309, %308 ], [ %311, %310 ], [ %313, %312 ], [ %315, %314 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %348, %333 ], [ %377, %s7comm_decode_szl_id_xy91_idx_0000.exit ], [ %673, %s7comm_decode_szl_id_xy92_idx_xxxx.exit ], [ %701, %s7comm_decode_szl_id_0x94_idx_xxxx.exit ], [ %757, %702 ], [ %787, %759 ]
+.thread:                                          ; preds = %759, %702, %s7comm_decode_szl_id_0x94_idx_xxxx.exit, %s7comm_decode_szl_id_xy92_idx_xxxx.exit, %s7comm_decode_szl_id_xy91_idx_0000.exit, %333, %331, %329, %327, %325, %323, %321, %319, %317, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %s7comm_decode_szl_id_xy1c_idx_000x.exit, %227, %212, %196, %183, %170, %126, %121, %s7comm_decode_szl_id_xy00.exit, %788
+  %.3 = phi i32 [ %791, %788 ], [ %787, %759 ], [ %757, %702 ], [ %701, %s7comm_decode_szl_id_0x94_idx_xxxx.exit ], [ %673, %s7comm_decode_szl_id_xy92_idx_xxxx.exit ], [ %377, %s7comm_decode_szl_id_xy91_idx_0000.exit ], [ %348, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %.0.i222, %s7comm_decode_szl_id_xy1c_idx_000x.exit ], [ %228, %227 ], [ %226, %212 ], [ %211, %196 ], [ %195, %183 ], [ %182, %170 ], [ %169, %126 ], [ %124, %121 ], [ %.0.i220, %s7comm_decode_szl_id_xy00.exit ]
   %792 = add i16 %.0207231, 1
   %.not235 = icmp ugt i16 %792, %.0208
   br i1 %.not235, label %.loopexit, label %113, !llvm.loop !10

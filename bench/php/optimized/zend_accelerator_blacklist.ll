@@ -469,7 +469,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 47, ptr %144, align 1, !tbaa !27
   %145 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
   store i8 93, ptr %145, align 1, !tbaa !27
-  %.264.add.i = add nsw i64 %.264.idx85.i, 4
+  %.264.add69.i = add nsw i64 %.264.idx85.i, 4
   br label %162
 
 146:                                              ; preds = %.lr.ph.i13
@@ -483,7 +483,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 46, ptr %.264.ptr87.i, align 1, !tbaa !27
   %152 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
   store i8 42, ptr %152, align 1, !tbaa !27
-  %.264.add69.i = add nsw i64 %.264.idx85.i, 2
+  %.264.add68.i = add nsw i64 %.264.idx85.i, 2
   br label %162
 
 153:                                              ; preds = %146
@@ -496,7 +496,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   store i8 93, ptr %156, align 1, !tbaa !27
   %157 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 4
   store i8 42, ptr %157, align 1, !tbaa !27
-  %.264.add68.i = add nsw i64 %.264.idx85.i, 5
+  %.264.add.i = add nsw i64 %.264.idx85.i, 5
   br label %162
 
 158:                                              ; preds = %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13
@@ -515,8 +515,8 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   br label %162
 
 162:                                              ; preds = %159, %153, %150, %141
-  %.4.idx.i = phi i64 [ %.3.add.i, %159 ], [ %.264.add69.i, %150 ], [ %.264.add68.i, %153 ], [ %.264.add.i, %141 ]
-  %.259.i = phi ptr [ %161, %159 ], [ %151, %150 ], [ %147, %153 ], [ %142, %141 ]
+  %.4.idx.i = phi i64 [ %.3.add.i, %159 ], [ %.264.add69.i, %141 ], [ %.264.add68.i, %150 ], [ %.264.add.i, %153 ]
+  %.259.i = phi ptr [ %161, %159 ], [ %142, %141 ], [ %151, %150 ], [ %147, %153 ]
   %163 = load i8, ptr %.259.i, align 1, !tbaa !27
   %164 = icmp ne i8 %163, 0
   %165 = icmp slt i64 %.4.idx.i, 12279

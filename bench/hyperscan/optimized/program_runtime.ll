@@ -107,10 +107,10 @@ define hidden range(i64 -1, 1) i64 @roseRunProgram(ptr noundef %0, ptr noundef %
   ]
 
 24:                                               ; preds = %6, %11182
-  %.0827 = phi i32 [ %.1828, %11182 ], [ 0, %6 ]
-  %.0761 = phi ptr [ %.sink7149.in, %11182 ], [ %22, %6 ]
-  %.0699 = phi ptr [ %.1700, %11182 ], [ %22, %6 ]
-  %.0698 = phi i64 [ %.1, %11182 ], [ %3, %6 ]
+  %.0827 = phi i32 [ 0, %6 ], [ %.1828, %11182 ]
+  %.0761 = phi ptr [ %22, %6 ], [ %.sink7149.in, %11182 ]
+  %.0699 = phi ptr [ %22, %6 ], [ %.1700, %11182 ]
+  %.0698 = phi i64 [ %3, %6 ], [ %.1, %11182 ]
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %122, label %25
 
@@ -885,7 +885,7 @@ roseCheckLookaround.exit:                         ; preds = %349, %347
   br label %partial_load_u64a.exit1100
 
 partial_load_u64a.exit1100:                       ; preds = %463, %466, %468, %481, %489, %497, %500, %508, %511
-  %.0.i1099 = phi i64 [ %513, %511 ], [ %510, %508 ], [ %507, %500 ], [ %499, %497 ], [ %496, %489 ], [ %488, %481 ], [ %480, %468 ], [ %467, %466 ], [ 0, %463 ]
+  %.0.i1099 = phi i64 [ %467, %466 ], [ %480, %468 ], [ %488, %481 ], [ %496, %489 ], [ %499, %497 ], [ %507, %500 ], [ %510, %508 ], [ %513, %511 ], [ 0, %463 ]
   %514 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %515 = load i64, ptr %514, align 8
   %516 = icmp sgt i64 %399, %515
@@ -972,7 +972,7 @@ partial_load_u64a.exit1100:                       ; preds = %463, %466, %468, %4
   br label %partial_load_u64a.exit1098
 
 partial_load_u64a.exit1098:                       ; preds = %partial_load_u64a.exit1100, %521, %523, %536, %544, %552, %555, %563, %566
-  %.0.i1097 = phi i64 [ %568, %566 ], [ %565, %563 ], [ %562, %555 ], [ %554, %552 ], [ %551, %544 ], [ %543, %536 ], [ %535, %523 ], [ %522, %521 ], [ 0, %partial_load_u64a.exit1100 ]
+  %.0.i1097 = phi i64 [ %522, %521 ], [ %535, %523 ], [ %543, %536 ], [ %551, %544 ], [ %554, %552 ], [ %562, %555 ], [ %565, %563 ], [ %568, %566 ], [ 0, %partial_load_u64a.exit1100 ]
   %.neg4097 = mul i32 %465, -8
   %569 = zext nneg i32 %.neg4097 to i64
   %570 = shl i64 %.0.i1097, %569
@@ -980,8 +980,8 @@ partial_load_u64a.exit1098:                       ; preds = %partial_load_u64a.e
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %460, %457, %449, %446, %438, %430, %417, %415, %414, %partial_load_u64a.exit1098
-  %.070.i = phi i64 [ %571, %partial_load_u64a.exit1098 ], [ %462, %460 ], [ %459, %457 ], [ %456, %449 ], [ %448, %446 ], [ %445, %438 ], [ %437, %430 ], [ %429, %417 ], [ %416, %415 ], [ 0, %414 ]
-  %.067.i = phi i32 [ %.168.i, %partial_load_u64a.exit1098 ], [ 0, %460 ], [ 0, %457 ], [ 0, %449 ], [ 0, %446 ], [ 0, %438 ], [ 0, %430 ], [ 0, %417 ], [ 0, %415 ], [ 0, %414 ]
+  %.070.i = phi i64 [ %571, %partial_load_u64a.exit1098 ], [ %416, %415 ], [ %429, %417 ], [ %437, %430 ], [ %445, %438 ], [ %448, %446 ], [ %456, %449 ], [ %459, %457 ], [ %462, %460 ], [ 0, %414 ]
+  %.067.i = phi i32 [ %.168.i, %partial_load_u64a.exit1098 ], [ 0, %415 ], [ 0, %417 ], [ 0, %430 ], [ 0, %438 ], [ 0, %446 ], [ 0, %449 ], [ 0, %457 ], [ 0, %460 ], [ 0, %414 ]
   %572 = shl i32 %.066.i, 3
   %573 = zext nneg i32 %572 to i64
   %574 = shl i64 %.070.i, %573
@@ -1088,9 +1088,9 @@ partial_load_u64a.exit:                           ; preds = %460, %457, %449, %4
   br label %partial_load_u64a.exit1102
 
 partial_load_u64a.exit1102:                       ; preds = %633, %630, %622, %619, %611, %603, %590, %588, %580, %636, %partial_load_u64a.exit
-  %.272.i = phi i64 [ %574, %partial_load_u64a.exit ], [ %640, %636 ], [ %635, %633 ], [ %632, %630 ], [ %629, %622 ], [ %621, %619 ], [ %618, %611 ], [ %610, %603 ], [ %602, %590 ], [ %589, %588 ], [ 0, %580 ]
-  %.2.i915 = phi i32 [ %.067.i, %partial_load_u64a.exit ], [ 0, %636 ], [ %582, %633 ], [ %582, %630 ], [ %582, %622 ], [ %582, %619 ], [ %582, %611 ], [ %582, %603 ], [ %582, %590 ], [ %582, %588 ], [ %582, %580 ]
-  %.1.i916 = phi i32 [ %.066.i, %partial_load_u64a.exit ], [ 0, %636 ], [ 0, %633 ], [ 0, %630 ], [ 0, %622 ], [ 0, %619 ], [ 0, %611 ], [ 0, %603 ], [ 0, %590 ], [ 0, %588 ], [ 0, %580 ]
+  %.272.i = phi i64 [ %574, %partial_load_u64a.exit ], [ %640, %636 ], [ %589, %588 ], [ %602, %590 ], [ %610, %603 ], [ %618, %611 ], [ %621, %619 ], [ %629, %622 ], [ %632, %630 ], [ %635, %633 ], [ 0, %580 ]
+  %.2.i915 = phi i32 [ %.067.i, %partial_load_u64a.exit ], [ 0, %636 ], [ %582, %588 ], [ %582, %590 ], [ %582, %603 ], [ %582, %611 ], [ %582, %619 ], [ %582, %622 ], [ %582, %630 ], [ %582, %633 ], [ %582, %580 ]
+  %.1.i916 = phi i32 [ %.066.i, %partial_load_u64a.exit ], [ 0, %636 ], [ 0, %588 ], [ 0, %590 ], [ 0, %603 ], [ 0, %611 ], [ 0, %619 ], [ 0, %622 ], [ 0, %630 ], [ 0, %633 ], [ 0, %580 ]
   %641 = icmp ne i32 %.2.i915, 0
   %642 = icmp ne i32 %.1.i916, 0
   %or.cond.i = select i1 %641, i1 true, i1 %642
@@ -4459,7 +4459,7 @@ roseMiracleScan.exit.thread:                      ; preds = %2256, %roseMiracleS
   br i1 %.not55.i1315, label %.thread3080, label %2284
 
 2284:                                             ; preds = %.split.loop.exit5325, %roseMiracleScan.exit
-  %.3.i1316 = phi i64 [ %2261, %roseMiracleScan.exit ], [ %spec.select.i1317, %.split.loop.exit5325 ]
+  %.3.i1316 = phi i64 [ %spec.select.i1317, %.split.loop.exit5325 ], [ %2261, %roseMiracleScan.exit ]
   %2285 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.3.i1316, i1 true)
   %2286 = add nuw nsw i64 %2285, %2237
   %2287 = xor i64 %2286, -1
@@ -5327,7 +5327,7 @@ roseMiracleScan.exit1344.thread:                  ; preds = %2791, %roseMiracleS
   br i1 %.not55.i1307, label %.thread3120, label %2819
 
 2819:                                             ; preds = %.split.loop.exit, %roseMiracleScan.exit1344
-  %.3.i1308 = phi i64 [ %2796, %roseMiracleScan.exit1344 ], [ %spec.select.i1309, %.split.loop.exit ]
+  %.3.i1308 = phi i64 [ %spec.select.i1309, %.split.loop.exit ], [ %2796, %roseMiracleScan.exit1344 ]
   %2820 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.3.i1308, i1 true)
   %2821 = add nuw nsw i64 %2820, %2772
   %2822 = xor i64 %2821, -1
@@ -5847,7 +5847,7 @@ canSkipCatchUpMPV.exit1415.thread3138:            ; preds = %3056, %canSkipCatch
   br label %mmbit_any.exit1378
 
 mmbit_any.exit1378:                               ; preds = %3096, %3088, %3085, %3082, %.critedge.i1381, %3111
-  %.0.i1377.in.in = phi i64 [ %3112, %3111 ], [ %3110, %.critedge.i1381 ], [ %3102, %3096 ], [ %3095, %3088 ], [ %3087, %3085 ], [ %3084, %3082 ]
+  %.0.i1377.in.in = phi i64 [ %3112, %3111 ], [ %3110, %.critedge.i1381 ], [ %3102, %3096 ], [ %3084, %3082 ], [ %3087, %3085 ], [ %3095, %3088 ]
   %.0.i1377.in.not = icmp eq i64 %.0.i1377.in.in, 0
   br i1 %.0.i1377.in.not, label %3113, label %mmbit_any.exit1378.thread
 
@@ -7587,7 +7587,7 @@ canSkipCatchUpMPV.exit.i.thread3226:              ; preds = %4132, %canSkipCatch
   br label %mmbit_any.exit.i
 
 mmbit_any.exit.i:                                 ; preds = %4152, %4155, %4158, %4166, %.critedge.i.i1434, %4181
-  %.0.i55.i1435.in.in = phi i64 [ %4182, %4181 ], [ %4180, %.critedge.i.i1434 ], [ %4172, %4166 ], [ %4165, %4158 ], [ %4157, %4155 ], [ %4154, %4152 ]
+  %.0.i55.i1435.in.in = phi i64 [ %4182, %4181 ], [ %4180, %.critedge.i.i1434 ], [ %4172, %4166 ], [ %4154, %4152 ], [ %4157, %4155 ], [ %4165, %4158 ]
   %.0.i55.i1435.in.not = icmp eq i64 %.0.i55.i1435.in.in, 0
   br i1 %.0.i55.i1435.in.not, label %4183, label %mmbit_any.exit.i.thread
 
@@ -8862,7 +8862,7 @@ mmbit_set_i.exit1656.thread3297:                  ; preds = %.thread3292, %mmbit
   br label %mmbit_any.exit.i1569
 
 mmbit_any.exit.i1569:                             ; preds = %4903, %4906, %4909, %4917, %.critedge.i.i1566, %4932
-  %.0.i.i1570.in.in = phi i64 [ %4933, %4932 ], [ %4931, %.critedge.i.i1566 ], [ %4923, %4917 ], [ %4916, %4909 ], [ %4908, %4906 ], [ %4905, %4903 ]
+  %.0.i.i1570.in.in = phi i64 [ %4933, %4932 ], [ %4931, %.critedge.i.i1566 ], [ %4923, %4917 ], [ %4905, %4903 ], [ %4908, %4906 ], [ %4916, %4909 ]
   %.0.i.i1570.in.not = icmp eq i64 %.0.i.i1570.in.in, 0
   br i1 %.0.i.i1570.in.not, label %mmbit_any.exit.i1569.thread, label %roseCatchUpMpvFeeders.exit
 
@@ -10229,7 +10229,7 @@ mmbit_isset.exit1012.thread3413:                  ; preds = %5646, %mmbit_isset.
   br label %mmbit_get_flat_block.exit63.i1956
 
 mmbit_get_flat_block.exit63.i1956:                ; preds = %5690, %5682, %5679, %5676
-  %.0.i61.i1957 = phi i64 [ %5696, %5690 ], [ %5689, %5682 ], [ %5681, %5679 ], [ %5678, %5676 ]
+  %.0.i61.i1957 = phi i64 [ %5696, %5690 ], [ %5678, %5676 ], [ %5681, %5679 ], [ %5689, %5682 ]
   %5697 = load i64, ptr %5664, align 8
   %5698 = and i64 %5697, %.0.i61.i1957
   %.not59.i1958 = icmp eq i64 %5698, 0
@@ -10325,7 +10325,7 @@ mmbit_mask_index.exit1973:                        ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i1952
 
 mmbit_get_flat_block.exit.i1952:                  ; preds = %5729, %5732, %5735, %5743, %5750
-  %.052.i1947 = phi i64 [ %5751, %5750 ], [ %5749, %5743 ], [ %5742, %5735 ], [ %5734, %5732 ], [ %5731, %5729 ]
+  %.052.i1947 = phi i64 [ %5751, %5750 ], [ %5749, %5743 ], [ %5731, %5729 ], [ %5734, %5732 ], [ %5742, %5735 ]
   %5752 = load i64, ptr %5720, align 8
   %5753 = and i64 %5752, %.052.i1947
   %.not58.i1948 = icmp eq i64 %5753, 0
@@ -10644,7 +10644,7 @@ mmbit_mask_index.exit.i2061:                      ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i2066
 
 mmbit_get_flat_block.exit.i2066:                  ; preds = %5916, %5919, %5922, %5930, %5937
-  %.0.i2064 = phi i64 [ %5938, %5937 ], [ %5936, %5930 ], [ %5929, %5922 ], [ %5921, %5919 ], [ %5918, %5916 ]
+  %.0.i2064 = phi i64 [ %5938, %5937 ], [ %5936, %5930 ], [ %5918, %5916 ], [ %5921, %5919 ], [ %5929, %5922 ]
   %5939 = load i64, ptr %5907, align 8
   %5940 = and i64 %5939, %.0.i2064
   %.not.i2059.not = icmp eq i64 %5940, 0
@@ -10843,7 +10843,7 @@ mmbit_sparse_iter_next.exit.thread3469:           ; preds = %5863, %5870, %5884,
   br label %mmbit_get_flat_block.exit63.i1938
 
 mmbit_get_flat_block.exit63.i1938:                ; preds = %6055, %6047, %6044, %6041
-  %.0.i61.i1939 = phi i64 [ %6061, %6055 ], [ %6054, %6047 ], [ %6046, %6044 ], [ %6043, %6041 ]
+  %.0.i61.i1939 = phi i64 [ %6061, %6055 ], [ %6043, %6041 ], [ %6046, %6044 ], [ %6054, %6047 ]
   %6062 = load i64, ptr %6029, align 8
   %6063 = and i64 %6062, %.0.i61.i1939
   %.not59.i1940 = icmp eq i64 %6063, 0
@@ -10929,7 +10929,7 @@ mmbit_mask_index.exit1979:                        ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i1934
 
 mmbit_get_flat_block.exit.i1934:                  ; preds = %6086, %6089, %6092, %6100, %6107
-  %.052.i1929 = phi i64 [ %6108, %6107 ], [ %6106, %6100 ], [ %6099, %6092 ], [ %6091, %6089 ], [ %6088, %6086 ]
+  %.052.i1929 = phi i64 [ %6108, %6107 ], [ %6106, %6100 ], [ %6088, %6086 ], [ %6091, %6089 ], [ %6099, %6092 ]
   %6109 = load i64, ptr %6077, align 8
   %6110 = and i64 %6109, %.052.i1929
   %.not58.i1930 = icmp eq i64 %6110, 0
@@ -11151,7 +11151,7 @@ mmbit_sparse_iter_begin.exit1017.thread3491:      ; preds = %6111, %6064, %mmbit
   br label %mmbit_get_flat_block.exit63.i
 
 mmbit_get_flat_block.exit63.i:                    ; preds = %6232, %6224, %6221, %6218
-  %.0.i61.i = phi i64 [ %6238, %6232 ], [ %6231, %6224 ], [ %6223, %6221 ], [ %6220, %6218 ]
+  %.0.i61.i = phi i64 [ %6238, %6232 ], [ %6220, %6218 ], [ %6223, %6221 ], [ %6231, %6224 ]
   %6239 = load i64, ptr %6211, align 8
   %6240 = and i64 %6239, %.0.i61.i
   %.not59.i1924 = icmp eq i64 %6240, 0
@@ -11239,7 +11239,7 @@ mmbit_mask_index.exit1985:                        ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i1921
 
 mmbit_get_flat_block.exit.i1921:                  ; preds = %6265, %6268, %6271, %6279, %6286
-  %.052.i1916 = phi i64 [ %6287, %6286 ], [ %6285, %6279 ], [ %6278, %6271 ], [ %6270, %6268 ], [ %6267, %6265 ]
+  %.052.i1916 = phi i64 [ %6287, %6286 ], [ %6285, %6279 ], [ %6267, %6265 ], [ %6270, %6268 ], [ %6278, %6271 ]
   %6288 = load i64, ptr %6256, align 8
   %6289 = and i64 %6288, %.052.i1916
   %.not58.i1917 = icmp eq i64 %6289, 0
@@ -11671,7 +11671,7 @@ mmbit_mask_index.exit.i2046:                      ; preds = %.lr.ph5092
   br label %mmbit_get_flat_block.exit.i2050
 
 mmbit_get_flat_block.exit.i2050:                  ; preds = %6527, %6530, %6533, %6541, %6548
-  %.0.i2048 = phi i64 [ %6549, %6548 ], [ %6547, %6541 ], [ %6540, %6533 ], [ %6532, %6530 ], [ %6529, %6527 ]
+  %.0.i2048 = phi i64 [ %6549, %6548 ], [ %6547, %6541 ], [ %6529, %6527 ], [ %6532, %6530 ], [ %6540, %6533 ]
   %6550 = load i64, ptr %6518, align 8
   %6551 = and i64 %6550, %.0.i2048
   %.not.i2044.not = icmp eq i64 %6551, 0
@@ -11843,7 +11843,7 @@ roseEnginesEod.exit:                              ; preds = %6478
   br label %mmbit_get_flat_block.exit84.i
 
 mmbit_get_flat_block.exit84.i:                    ; preds = %6645, %6637, %6634, %6631
-  %.0.i82.i = phi i64 [ %6651, %6645 ], [ %6644, %6637 ], [ %6636, %6634 ], [ %6633, %6631 ]
+  %.0.i82.i = phi i64 [ %6651, %6645 ], [ %6633, %6631 ], [ %6636, %6634 ], [ %6644, %6637 ]
   %.not74.i = icmp eq i64 %.0.i82.i, 0
   br i1 %.not74.i, label %._crit_edge5076, label %6652
 
@@ -11930,7 +11930,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %6645, %6637, %6634,
   br label %mmbit_get_flat_block.exit.i2136
 
 mmbit_get_flat_block.exit.i2136:                  ; preds = %6689, %6681, %6678, %6675
-  %.0.i.i2137 = phi i64 [ %6695, %6689 ], [ %6688, %6681 ], [ %6680, %6678 ], [ %6677, %6675 ]
+  %.0.i.i2137 = phi i64 [ %6695, %6689 ], [ %6677, %6675 ], [ %6680, %6678 ], [ %6688, %6681 ]
   %.not71.i = icmp eq i64 %.0.i.i2137, 0
   br i1 %.not71.i, label %._crit_edge5076, label %6696
 
@@ -12105,7 +12105,7 @@ mmbit_iterate.exit2130:                           ; preds = %6720, %6659
   br label %mmbit_get_flat_block.exit84.i2161
 
 mmbit_get_flat_block.exit84.i2161:                ; preds = %6779, %6782, %6785, %6788
-  %.0.i82.i2162 = phi i64 [ %6789, %6788 ], [ %6787, %6785 ], [ %6784, %6782 ], [ %6781, %6779 ]
+  %.0.i82.i2162 = phi i64 [ %6789, %6788 ], [ %6781, %6779 ], [ %6784, %6782 ], [ %6787, %6785 ]
   %6790 = add nuw i32 %.025.i5074, 1
   %6791 = icmp eq i32 %6790, 64
   %6792 = zext nneg i32 %6790 to i64
@@ -12173,7 +12173,7 @@ mmbit_get_flat_block.exit84.i2161:                ; preds = %6779, %6782, %6785,
   br label %mmbit_get_flat_block.exit80.i
 
 mmbit_get_flat_block.exit80.i:                    ; preds = %6826, %6818, %6815, %6812
-  %.0.i78.i = phi i64 [ %6832, %6826 ], [ %6825, %6818 ], [ %6817, %6815 ], [ %6814, %6812 ]
+  %.0.i78.i = phi i64 [ %6832, %6826 ], [ %6814, %6812 ], [ %6817, %6815 ], [ %6825, %6818 ]
   %6833 = sub i32 %6799, %6805
   %6834 = icmp eq i32 %6833, 64
   %6835 = zext nneg i32 %6833 to i64
@@ -12272,7 +12272,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %6826, %6818, %6815,
   br label %mmbit_get_flat_block.exit.i2152
 
 mmbit_get_flat_block.exit.i2152:                  ; preds = %6878, %6870, %6867, %6864
-  %.0.i.i2153 = phi i64 [ %6884, %6878 ], [ %6877, %6870 ], [ %6869, %6867 ], [ %6866, %6864 ]
+  %.0.i.i2153 = phi i64 [ %6884, %6878 ], [ %6866, %6864 ], [ %6869, %6867 ], [ %6877, %6870 ]
   %.not71.i2154 = icmp eq i64 %.0.i.i2153, 0
   br i1 %.not71.i2154, label %._crit_edge5076, label %6885
 
@@ -14230,7 +14230,7 @@ mmbit_set_i.exit1614:                             ; preds = %.thread3629, %.lr.p
   br label %mmbit_any.exit1374
 
 mmbit_any.exit1374:                               ; preds = %7990, %7982, %7979, %7976, %.critedge.i1385, %8005
-  %.0.i1373.in.in = phi i64 [ %8006, %8005 ], [ %8004, %.critedge.i1385 ], [ %7996, %7990 ], [ %7989, %7982 ], [ %7981, %7979 ], [ %7978, %7976 ]
+  %.0.i1373.in.in = phi i64 [ %8006, %8005 ], [ %8004, %.critedge.i1385 ], [ %7996, %7990 ], [ %7978, %7976 ], [ %7981, %7979 ], [ %7989, %7982 ]
   %.0.i1373.in.not = icmp eq i64 %.0.i1373.in.in, 0
   br i1 %.0.i1373.in.not, label %flushActiveCombinations.exit.thread, label %mmbit_any.exit1374.thread3634
 
@@ -14283,7 +14283,7 @@ mmbit_any.exit1374.thread3634:                    ; preds = %.lr.ph4876, %mmbit_
   br label %mmbit_get_flat_block.exit84.i2182
 
 mmbit_get_flat_block.exit84.i2182:                ; preds = %8026, %8018, %8015, %8012
-  %.0.i82.i2183 = phi i64 [ %8032, %8026 ], [ %8025, %8018 ], [ %8017, %8015 ], [ %8014, %8012 ]
+  %.0.i82.i2183 = phi i64 [ %8032, %8026 ], [ %8014, %8012 ], [ %8017, %8015 ], [ %8025, %8018 ]
   %.not74.i2185 = icmp eq i64 %.0.i82.i2183, 0
   br i1 %.not74.i2185, label %.critedge.i1068, label %8033
 
@@ -14370,7 +14370,7 @@ mmbit_get_flat_block.exit84.i2182:                ; preds = %8026, %8018, %8015,
   br label %mmbit_get_flat_block.exit.i2173
 
 mmbit_get_flat_block.exit.i2173:                  ; preds = %8070, %8062, %8059, %8056
-  %.0.i.i2174 = phi i64 [ %8076, %8070 ], [ %8069, %8062 ], [ %8061, %8059 ], [ %8058, %8056 ]
+  %.0.i.i2174 = phi i64 [ %8076, %8070 ], [ %8058, %8056 ], [ %8061, %8059 ], [ %8069, %8062 ]
   %.not71.i2175 = icmp eq i64 %.0.i.i2174, 0
   br i1 %.not71.i2175, label %.critedge.i1068.thread, label %8077
 
@@ -15657,7 +15657,7 @@ roseReportComb.exit2695.thread3729:               ; preds = %8175, %8685, %.lr.p
   br label %mmbit_get_flat_block.exit84.i2216
 
 mmbit_get_flat_block.exit84.i2216:                ; preds = %8866, %8869, %8872, %8878
-  %.0.i82.i2217 = phi i64 [ %8882, %8878 ], [ %8877, %8872 ], [ %8871, %8869 ], [ %8868, %8866 ]
+  %.0.i82.i2217 = phi i64 [ %8882, %8878 ], [ %8868, %8866 ], [ %8871, %8869 ], [ %8877, %8872 ]
   %8883 = add nuw i32 %.045.i10584946, 1
   %8884 = icmp eq i32 %8883, 64
   %8885 = zext nneg i32 %8883 to i64
@@ -15726,7 +15726,7 @@ mmbit_get_flat_block.exit84.i2216:                ; preds = %8866, %8869, %8872,
   br label %mmbit_get_flat_block.exit80.i2190
 
 mmbit_get_flat_block.exit80.i2190:                ; preds = %8920, %8912, %8909, %8906
-  %.0.i78.i2191 = phi i64 [ %8926, %8920 ], [ %8919, %8912 ], [ %8911, %8909 ], [ %8908, %8906 ]
+  %.0.i78.i2191 = phi i64 [ %8926, %8920 ], [ %8908, %8906 ], [ %8911, %8909 ], [ %8919, %8912 ]
   %8927 = sub i32 %8893, %8899
   %8928 = icmp eq i32 %8927, 64
   %8929 = zext nneg i32 %8927 to i64
@@ -15831,7 +15831,7 @@ mmbit_get_flat_block.exit80.i2190:                ; preds = %8920, %8912, %8909,
   br label %mmbit_get_flat_block.exit.i2205
 
 mmbit_get_flat_block.exit.i2205:                  ; preds = %8974, %8966, %8963, %8960
-  %.0.i.i2206 = phi i64 [ %8980, %8974 ], [ %8973, %8966 ], [ %8965, %8963 ], [ %8962, %8960 ]
+  %.0.i.i2206 = phi i64 [ %8980, %8974 ], [ %8962, %8960 ], [ %8965, %8963 ], [ %8973, %8966 ]
   %.not71.i2207 = icmp eq i64 %.0.i.i2206, 0
   br i1 %.not71.i2207, label %.critedge.i1068, label %8981
 
@@ -16197,10 +16197,10 @@ isAllExhausted.exit1454.thread:                   ; preds = %.lr.ph4865, %.lr.ph
   br label %11182
 
 9173:                                             ; preds = %6, %11182
-  %.53880 = phi i32 [ 0, %6 ], [ %.1828, %11182 ]
-  %.67 = phi ptr [ %22, %6 ], [ %.sink7149.in, %11182 ]
-  %.65 = phi ptr [ %22, %6 ], [ %.1700, %11182 ]
-  %.61 = phi i64 [ %3, %6 ], [ %.1, %11182 ]
+  %.53880 = phi i32 [ %.1828, %11182 ], [ 0, %6 ]
+  %.67 = phi ptr [ %.sink7149.in, %11182 ], [ %22, %6 ]
+  %.65 = phi ptr [ %.1700, %11182 ], [ %22, %6 ]
+  %.61 = phi i64 [ %.1, %11182 ], [ %3, %6 ]
   %9174 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %9175 = load ptr, ptr %9174, align 8
   %9176 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16284,7 +16284,7 @@ isAllExhausted.exit1454.thread:                   ; preds = %.lr.ph4865, %.lr.ph
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %9199, %9191, %9188, %9185, %.critedge.i1391, %9214
-  %.0.i1370.in.in = phi i64 [ %9215, %9214 ], [ %9213, %.critedge.i1391 ], [ %9205, %9199 ], [ %9198, %9191 ], [ %9190, %9188 ], [ %9187, %9185 ]
+  %.0.i1370.in.in = phi i64 [ %9215, %9214 ], [ %9213, %.critedge.i1391 ], [ %9205, %9199 ], [ %9187, %9185 ], [ %9190, %9188 ], [ %9198, %9191 ]
   %.0.i1370.in.not = icmp eq i64 %.0.i1370.in.in, 0
   br i1 %.0.i1370.in.not, label %mmbit_any.exit.thread, label %mmbit_any.exit.thread3778
 
@@ -16339,7 +16339,7 @@ mmbit_any.exit.thread3778:                        ; preds = %.lr.ph4733, %mmbit_
   br label %mmbit_get_flat_block.exit84.i2240
 
 mmbit_get_flat_block.exit84.i2240:                ; preds = %9237, %9229, %9226, %9223
-  %.0.i82.i2241 = phi i64 [ %9243, %9237 ], [ %9236, %9229 ], [ %9228, %9226 ], [ %9225, %9223 ]
+  %.0.i82.i2241 = phi i64 [ %9243, %9237 ], [ %9225, %9223 ], [ %9228, %9226 ], [ %9236, %9229 ]
   %.not74.i2243 = icmp eq i64 %.0.i82.i2241, 0
   br i1 %.not74.i2243, label %.critedge.i1085, label %9244
 
@@ -16426,7 +16426,7 @@ mmbit_get_flat_block.exit84.i2240:                ; preds = %9237, %9229, %9226,
   br label %mmbit_get_flat_block.exit.i2231
 
 mmbit_get_flat_block.exit.i2231:                  ; preds = %9281, %9273, %9270, %9267
-  %.0.i.i2232 = phi i64 [ %9287, %9281 ], [ %9280, %9273 ], [ %9272, %9270 ], [ %9269, %9267 ]
+  %.0.i.i2232 = phi i64 [ %9287, %9281 ], [ %9269, %9267 ], [ %9272, %9270 ], [ %9280, %9273 ]
   %.not71.i2233 = icmp eq i64 %.0.i.i2232, 0
   br i1 %.not71.i2233, label %.critedge.i1085.thread, label %9288
 
@@ -17717,7 +17717,7 @@ roseReportComb.exit2644.thread3873:               ; preds = %9386, %9896, %.lr.p
   br label %mmbit_get_flat_block.exit84.i2274
 
 mmbit_get_flat_block.exit84.i2274:                ; preds = %10077, %10080, %10083, %10089
-  %.0.i82.i2275 = phi i64 [ %10093, %10089 ], [ %10088, %10083 ], [ %10082, %10080 ], [ %10079, %10077 ]
+  %.0.i82.i2275 = phi i64 [ %10093, %10089 ], [ %10079, %10077 ], [ %10082, %10080 ], [ %10088, %10083 ]
   %10094 = add nuw i32 %.045.i10714798, 1
   %10095 = icmp eq i32 %10094, 64
   %10096 = zext nneg i32 %10094 to i64
@@ -17786,7 +17786,7 @@ mmbit_get_flat_block.exit84.i2274:                ; preds = %10077, %10080, %100
   br label %mmbit_get_flat_block.exit80.i2248
 
 mmbit_get_flat_block.exit80.i2248:                ; preds = %10131, %10123, %10120, %10117
-  %.0.i78.i2249 = phi i64 [ %10137, %10131 ], [ %10130, %10123 ], [ %10122, %10120 ], [ %10119, %10117 ]
+  %.0.i78.i2249 = phi i64 [ %10137, %10131 ], [ %10119, %10117 ], [ %10122, %10120 ], [ %10130, %10123 ]
   %10138 = sub i32 %10104, %10110
   %10139 = icmp eq i32 %10138, 64
   %10140 = zext nneg i32 %10138 to i64
@@ -17891,7 +17891,7 @@ mmbit_get_flat_block.exit80.i2248:                ; preds = %10131, %10123, %101
   br label %mmbit_get_flat_block.exit.i2263
 
 mmbit_get_flat_block.exit.i2263:                  ; preds = %10185, %10177, %10174, %10171
-  %.0.i.i2264 = phi i64 [ %10191, %10185 ], [ %10184, %10177 ], [ %10176, %10174 ], [ %10173, %10171 ]
+  %.0.i.i2264 = phi i64 [ %10191, %10185 ], [ %10173, %10171 ], [ %10176, %10174 ], [ %10184, %10177 ]
   %.not71.i2265 = icmp eq i64 %.0.i.i2264, 0
   br i1 %.not71.i2265, label %.critedge.i1085, label %10192
 
@@ -21987,7 +21987,7 @@ define hidden range(i64 -1, 1) i64 @roseRunProgram_l(ptr noundef %0, ptr noundef
   br label %partial_load_u64a.exit589
 
 partial_load_u64a.exit589:                        ; preds = %162, %165, %167, %180, %188, %196, %199, %207, %210
-  %.0.i588 = phi i64 [ %212, %210 ], [ %209, %207 ], [ %206, %199 ], [ %198, %196 ], [ %195, %188 ], [ %187, %180 ], [ %179, %167 ], [ %166, %165 ], [ 0, %162 ]
+  %.0.i588 = phi i64 [ %166, %165 ], [ %179, %167 ], [ %187, %180 ], [ %195, %188 ], [ %198, %196 ], [ %206, %199 ], [ %209, %207 ], [ %212, %210 ], [ 0, %162 ]
   %213 = load i64, ptr %66, align 8
   %214 = icmp sgt i64 %100, %213
   %215 = sub i64 %100, %213
@@ -22072,7 +22072,7 @@ partial_load_u64a.exit589:                        ; preds = %162, %165, %167, %1
   br label %partial_load_u64a.exit587
 
 partial_load_u64a.exit587:                        ; preds = %partial_load_u64a.exit589, %218, %220, %233, %241, %249, %252, %260, %263
-  %.0.i586 = phi i64 [ %265, %263 ], [ %262, %260 ], [ %259, %252 ], [ %251, %249 ], [ %248, %241 ], [ %240, %233 ], [ %232, %220 ], [ %219, %218 ], [ 0, %partial_load_u64a.exit589 ]
+  %.0.i586 = phi i64 [ %219, %218 ], [ %232, %220 ], [ %240, %233 ], [ %248, %241 ], [ %251, %249 ], [ %259, %252 ], [ %262, %260 ], [ %265, %263 ], [ 0, %partial_load_u64a.exit589 ]
   %.neg = mul i32 %164, -8
   %266 = zext nneg i32 %.neg to i64
   %267 = shl i64 %.0.i586, %266
@@ -22080,8 +22080,8 @@ partial_load_u64a.exit587:                        ; preds = %partial_load_u64a.e
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %159, %156, %148, %145, %137, %129, %116, %114, %113, %partial_load_u64a.exit587
-  %.070.i = phi i64 [ %268, %partial_load_u64a.exit587 ], [ %161, %159 ], [ %158, %156 ], [ %155, %148 ], [ %147, %145 ], [ %144, %137 ], [ %136, %129 ], [ %128, %116 ], [ %115, %114 ], [ 0, %113 ]
-  %.067.i = phi i32 [ %.168.i, %partial_load_u64a.exit587 ], [ 0, %159 ], [ 0, %156 ], [ 0, %148 ], [ 0, %145 ], [ 0, %137 ], [ 0, %129 ], [ 0, %116 ], [ 0, %114 ], [ 0, %113 ]
+  %.070.i = phi i64 [ %268, %partial_load_u64a.exit587 ], [ %115, %114 ], [ %128, %116 ], [ %136, %129 ], [ %144, %137 ], [ %147, %145 ], [ %155, %148 ], [ %158, %156 ], [ %161, %159 ], [ 0, %113 ]
+  %.067.i = phi i32 [ %.168.i, %partial_load_u64a.exit587 ], [ 0, %114 ], [ 0, %116 ], [ 0, %129 ], [ 0, %137 ], [ 0, %145 ], [ 0, %148 ], [ 0, %156 ], [ 0, %159 ], [ 0, %113 ]
   %269 = shl i32 %.066.i, 3
   %270 = zext nneg i32 %269 to i64
   %271 = shl i64 %.070.i, %270
@@ -22185,9 +22185,9 @@ partial_load_u64a.exit:                           ; preds = %159, %156, %148, %1
   br label %partial_load_u64a.exit591
 
 partial_load_u64a.exit591:                        ; preds = %328, %325, %317, %314, %306, %298, %285, %283, %276, %331, %partial_load_u64a.exit
-  %.272.i = phi i64 [ %271, %partial_load_u64a.exit ], [ %334, %331 ], [ %330, %328 ], [ %327, %325 ], [ %324, %317 ], [ %316, %314 ], [ %313, %306 ], [ %305, %298 ], [ %297, %285 ], [ %284, %283 ], [ 0, %276 ]
-  %.2.i = phi i32 [ %.067.i, %partial_load_u64a.exit ], [ 0, %331 ], [ %278, %328 ], [ %278, %325 ], [ %278, %317 ], [ %278, %314 ], [ %278, %306 ], [ %278, %298 ], [ %278, %285 ], [ %278, %283 ], [ %278, %276 ]
-  %.1.i = phi i32 [ %.066.i, %partial_load_u64a.exit ], [ 0, %331 ], [ 0, %328 ], [ 0, %325 ], [ 0, %317 ], [ 0, %314 ], [ 0, %306 ], [ 0, %298 ], [ 0, %285 ], [ 0, %283 ], [ 0, %276 ]
+  %.272.i = phi i64 [ %271, %partial_load_u64a.exit ], [ %334, %331 ], [ %284, %283 ], [ %297, %285 ], [ %305, %298 ], [ %313, %306 ], [ %316, %314 ], [ %324, %317 ], [ %327, %325 ], [ %330, %328 ], [ 0, %276 ]
+  %.2.i = phi i32 [ %.067.i, %partial_load_u64a.exit ], [ 0, %331 ], [ %278, %283 ], [ %278, %285 ], [ %278, %298 ], [ %278, %306 ], [ %278, %314 ], [ %278, %317 ], [ %278, %325 ], [ %278, %328 ], [ %278, %276 ]
+  %.1.i = phi i32 [ %.066.i, %partial_load_u64a.exit ], [ 0, %331 ], [ 0, %283 ], [ 0, %285 ], [ 0, %298 ], [ 0, %306 ], [ 0, %314 ], [ 0, %317 ], [ 0, %325 ], [ 0, %328 ], [ 0, %276 ]
   %335 = icmp ne i32 %.2.i, 0
   %336 = icmp ne i32 %.1.i, 0
   %or.cond.i = select i1 %335, i1 true, i1 %336
@@ -22884,10 +22884,10 @@ rosePushDelayedMatch.exit:                        ; preds = %.thread1655, %.lr.p
   %687 = getelementptr inbounds nuw i8, ptr %.0363, i64 8
   br label %.backedge2632.backedge
 
-.backedge2632.backedge:                           ; preds = %rosePushDelayedMatch.exit, %829, %2304, %2714, %mmbit_set_i.exit796, %mmbit_set_i.exit793, %roseCatchUpTo.exit, %74, %.thread1609, %.thread1634, %.thread1653, %roseCatchUpTo.exit.thread, %827, %roseTriggerSuffix.exit, %.thread1815, %.thread1860, %1951, %1967, %roseReport.exit523, %2132, %dedupeCatchup.exit, %.thread1983, %.thread2004, %.thread2025, %.thread2046, %.thread2067, %.thread2069, %flushActiveCombinations.exit578, %isAllExhausted.exit675.thread, %flushActiveCombinations.exit, %2719, %cmpForward.exit1135.thread, %cmpForward.exit.thread, %cmpForward.exit1159.thread, %cmpForward.exit1147.thread, %mmbit_isset.exit.thread1965, %600, %roseCheckMask32.exit.thread, %360, %mmbit_set_i.exit820.thread1788, %mmbit_set_i.exit814.thread1825, %mmbit_set_i.exit811.thread1942
-  %.0382.be = phi i32 [ %.0382, %mmbit_set_i.exit811.thread1942 ], [ %.0382, %mmbit_set_i.exit814.thread1825 ], [ %.0382, %mmbit_set_i.exit820.thread1788 ], [ %.0382, %360 ], [ %.0382, %roseCheckMask32.exit.thread ], [ %.0382, %600 ], [ %.0382, %mmbit_isset.exit.thread1965 ], [ %.0382, %cmpForward.exit1147.thread ], [ %.0382, %cmpForward.exit1159.thread ], [ %.0382, %cmpForward.exit.thread ], [ %.0382, %cmpForward.exit1135.thread ], [ 0, %2719 ], [ %.0382, %flushActiveCombinations.exit ], [ 1, %isAllExhausted.exit675.thread ], [ %.0382, %flushActiveCombinations.exit578 ], [ %.0382, %mmbit_set_i.exit793 ], [ %.0382, %mmbit_set_i.exit796 ], [ 0, %2714 ], [ %.0382, %2304 ], [ 1, %dedupeCatchup.exit ], [ 1, %2132 ], [ 1, %roseReport.exit523 ], [ 1, %1967 ], [ 1, %1951 ], [ 1, %roseTriggerSuffix.exit ], [ %.0382, %829 ], [ %.0382, %827 ], [ %.0382, %roseCatchUpTo.exit ], [ %.0382, %rosePushDelayedMatch.exit ], [ %.0382, %74 ], [ %.0382, %.thread1609 ], [ %.0382, %.thread1634 ], [ %.0382, %.thread1653 ], [ %.0382, %roseCatchUpTo.exit.thread ], [ %.0382, %.thread1815 ], [ %.0382, %.thread1860 ], [ %.0382, %.thread1983 ], [ %.0382, %.thread2004 ], [ %.0382, %.thread2025 ], [ %.0382, %.thread2046 ], [ %.0382, %.thread2067 ], [ %.0382, %.thread2069 ]
-  %.0363.be = phi ptr [ %2224, %mmbit_set_i.exit811.thread1942 ], [ %1891, %mmbit_set_i.exit814.thread1825 ], [ %1727, %mmbit_set_i.exit820.thread1788 ], [ %364, %360 ], [ %564, %roseCheckMask32.exit.thread ], [ %604, %600 ], [ %2297, %mmbit_isset.exit.thread1965 ], [ %2385, %cmpForward.exit1147.thread ], [ %2507, %cmpForward.exit1159.thread ], [ %2589, %cmpForward.exit.thread ], [ %2713, %cmpForward.exit1135.thread ], [ %2733, %2719 ], [ %6020, %flushActiveCombinations.exit ], [ %4054, %isAllExhausted.exit675.thread ], [ %3918, %flushActiveCombinations.exit578 ], [ %2871, %mmbit_set_i.exit793 ], [ %2805, %mmbit_set_i.exit796 ], [ %2715, %2714 ], [ %2305, %2304 ], [ %2235, %dedupeCatchup.exit ], [ %2133, %2132 ], [ %2117, %roseReport.exit523 ], [ %1968, %1967 ], [ %1952, %1951 ], [ %1636, %roseTriggerSuffix.exit ], [ %832, %829 ], [ %828, %827 ], [ %784, %roseCatchUpTo.exit ], [ %687, %rosePushDelayedMatch.exit ], [ %79, %74 ], [ %359, %.thread1609 ], [ %560, %.thread1634 ], [ %599, %.thread1653 ], [ %783, %roseCatchUpTo.exit.thread ], [ %1728, %.thread1815 ], [ %1892, %.thread1860 ], [ %2293, %.thread1983 ], [ %2381, %.thread2004 ], [ %2503, %.thread2025 ], [ %2585, %.thread2046 ], [ %2709, %.thread2067 ], [ %2718, %.thread2069 ]
-  %.0360.be = phi i64 [ %.0360, %mmbit_set_i.exit811.thread1942 ], [ %.0360, %mmbit_set_i.exit814.thread1825 ], [ %.0360, %mmbit_set_i.exit820.thread1788 ], [ %.0360, %360 ], [ %.0360, %roseCheckMask32.exit.thread ], [ %.0360, %600 ], [ %.0360, %mmbit_isset.exit.thread1965 ], [ %.0360, %cmpForward.exit1147.thread ], [ %.0360, %cmpForward.exit1159.thread ], [ %.0360, %cmpForward.exit.thread ], [ %.0360, %cmpForward.exit1135.thread ], [ %.0360, %2719 ], [ %.0360, %flushActiveCombinations.exit ], [ %.0360, %isAllExhausted.exit675.thread ], [ %.0360, %flushActiveCombinations.exit578 ], [ %.0360, %mmbit_set_i.exit793 ], [ %.0360, %mmbit_set_i.exit796 ], [ %.0360, %2714 ], [ %.0360, %2304 ], [ %.0360, %dedupeCatchup.exit ], [ %.0360, %2132 ], [ %.0360, %roseReport.exit523 ], [ %.0360, %1967 ], [ %.0360, %1951 ], [ %.0360, %roseTriggerSuffix.exit ], [ %831, %829 ], [ %.0360, %827 ], [ %.0360, %roseCatchUpTo.exit ], [ %.0360, %rosePushDelayedMatch.exit ], [ %.0360, %74 ], [ %.0360, %.thread1609 ], [ %.0360, %.thread1634 ], [ %.0360, %.thread1653 ], [ %.0360, %roseCatchUpTo.exit.thread ], [ %.0360, %.thread1815 ], [ %.0360, %.thread1860 ], [ %.0360, %.thread1983 ], [ %.0360, %.thread2004 ], [ %.0360, %.thread2025 ], [ %.0360, %.thread2046 ], [ %.0360, %.thread2067 ], [ %.0360, %.thread2069 ]
+.backedge2632.backedge:                           ; preds = %rosePushDelayedMatch.exit, %829, %2304, %2714, %mmbit_set_i.exit796, %mmbit_set_i.exit793, %roseCatchUpTo.exit, %74, %.thread1609, %.thread1634, %.thread1653, %roseCatchUpTo.exit.thread, %827, %roseTriggerSuffix.exit, %.thread1815, %.thread1860, %1951, %1967, %roseReport.exit523, %2132, %dedupeCatchup.exit, %.thread1983, %.thread2004, %.thread2025, %.thread2046, %.thread2067, %.thread2069, %flushActiveCombinations.exit578, %isAllExhausted.exit675.thread, %flushActiveCombinations.exit, %360, %roseCheckMask32.exit.thread, %600, %mmbit_isset.exit.thread1965, %cmpForward.exit1147.thread, %cmpForward.exit1159.thread, %cmpForward.exit.thread, %cmpForward.exit1135.thread, %2719, %mmbit_set_i.exit820.thread1788, %mmbit_set_i.exit814.thread1825, %mmbit_set_i.exit811.thread1942
+  %.0382.be = phi i32 [ %.0382, %mmbit_set_i.exit811.thread1942 ], [ %.0382, %mmbit_set_i.exit814.thread1825 ], [ %.0382, %mmbit_set_i.exit820.thread1788 ], [ 0, %2719 ], [ %.0382, %cmpForward.exit1135.thread ], [ %.0382, %cmpForward.exit.thread ], [ %.0382, %cmpForward.exit1159.thread ], [ %.0382, %cmpForward.exit1147.thread ], [ %.0382, %mmbit_isset.exit.thread1965 ], [ %.0382, %600 ], [ %.0382, %roseCheckMask32.exit.thread ], [ %.0382, %360 ], [ %.0382, %74 ], [ %.0382, %rosePushDelayedMatch.exit ], [ %.0382, %roseCatchUpTo.exit ], [ %.0382, %827 ], [ %.0382, %829 ], [ 1, %roseTriggerSuffix.exit ], [ 1, %1951 ], [ 1, %1967 ], [ 1, %roseReport.exit523 ], [ 1, %2132 ], [ 1, %dedupeCatchup.exit ], [ %.0382, %2304 ], [ 0, %2714 ], [ %.0382, %mmbit_set_i.exit796 ], [ %.0382, %mmbit_set_i.exit793 ], [ %.0382, %flushActiveCombinations.exit578 ], [ 1, %isAllExhausted.exit675.thread ], [ %.0382, %flushActiveCombinations.exit ], [ %.0382, %.thread1609 ], [ %.0382, %.thread1634 ], [ %.0382, %.thread1653 ], [ %.0382, %roseCatchUpTo.exit.thread ], [ %.0382, %.thread1815 ], [ %.0382, %.thread1860 ], [ %.0382, %.thread1983 ], [ %.0382, %.thread2004 ], [ %.0382, %.thread2025 ], [ %.0382, %.thread2046 ], [ %.0382, %.thread2067 ], [ %.0382, %.thread2069 ]
+  %.0363.be = phi ptr [ %2224, %mmbit_set_i.exit811.thread1942 ], [ %1891, %mmbit_set_i.exit814.thread1825 ], [ %1727, %mmbit_set_i.exit820.thread1788 ], [ %2733, %2719 ], [ %2713, %cmpForward.exit1135.thread ], [ %2589, %cmpForward.exit.thread ], [ %2507, %cmpForward.exit1159.thread ], [ %2385, %cmpForward.exit1147.thread ], [ %2297, %mmbit_isset.exit.thread1965 ], [ %604, %600 ], [ %564, %roseCheckMask32.exit.thread ], [ %364, %360 ], [ %79, %74 ], [ %687, %rosePushDelayedMatch.exit ], [ %784, %roseCatchUpTo.exit ], [ %828, %827 ], [ %832, %829 ], [ %1636, %roseTriggerSuffix.exit ], [ %1952, %1951 ], [ %1968, %1967 ], [ %2117, %roseReport.exit523 ], [ %2133, %2132 ], [ %2235, %dedupeCatchup.exit ], [ %2305, %2304 ], [ %2715, %2714 ], [ %2805, %mmbit_set_i.exit796 ], [ %2871, %mmbit_set_i.exit793 ], [ %3918, %flushActiveCombinations.exit578 ], [ %4054, %isAllExhausted.exit675.thread ], [ %6020, %flushActiveCombinations.exit ], [ %359, %.thread1609 ], [ %560, %.thread1634 ], [ %599, %.thread1653 ], [ %783, %roseCatchUpTo.exit.thread ], [ %1728, %.thread1815 ], [ %1892, %.thread1860 ], [ %2293, %.thread1983 ], [ %2381, %.thread2004 ], [ %2503, %.thread2025 ], [ %2585, %.thread2046 ], [ %2709, %.thread2067 ], [ %2718, %.thread2069 ]
+  %.0360.be = phi i64 [ %.0360, %mmbit_set_i.exit811.thread1942 ], [ %.0360, %mmbit_set_i.exit814.thread1825 ], [ %.0360, %mmbit_set_i.exit820.thread1788 ], [ %.0360, %2719 ], [ %.0360, %cmpForward.exit1135.thread ], [ %.0360, %cmpForward.exit.thread ], [ %.0360, %cmpForward.exit1159.thread ], [ %.0360, %cmpForward.exit1147.thread ], [ %.0360, %mmbit_isset.exit.thread1965 ], [ %.0360, %600 ], [ %.0360, %roseCheckMask32.exit.thread ], [ %.0360, %360 ], [ %.0360, %74 ], [ %.0360, %rosePushDelayedMatch.exit ], [ %.0360, %roseCatchUpTo.exit ], [ %.0360, %827 ], [ %831, %829 ], [ %.0360, %roseTriggerSuffix.exit ], [ %.0360, %1951 ], [ %.0360, %1967 ], [ %.0360, %roseReport.exit523 ], [ %.0360, %2132 ], [ %.0360, %dedupeCatchup.exit ], [ %.0360, %2304 ], [ %.0360, %2714 ], [ %.0360, %mmbit_set_i.exit796 ], [ %.0360, %mmbit_set_i.exit793 ], [ %.0360, %flushActiveCombinations.exit578 ], [ %.0360, %isAllExhausted.exit675.thread ], [ %.0360, %flushActiveCombinations.exit ], [ %.0360, %.thread1609 ], [ %.0360, %.thread1634 ], [ %.0360, %.thread1653 ], [ %.0360, %roseCatchUpTo.exit.thread ], [ %.0360, %.thread1815 ], [ %.0360, %.thread1860 ], [ %.0360, %.thread1983 ], [ %.0360, %.thread2004 ], [ %.0360, %.thread2025 ], [ %.0360, %.thread2046 ], [ %.0360, %.thread2067 ], [ %.0360, %.thread2069 ]
   br label %.backedge2632
 
 688:                                              ; preds = %.backedge2632
@@ -23062,7 +23062,7 @@ canSkipCatchUpMPV.exit650.thread1660:             ; preds = %722, %canSkipCatchU
   br label %mmbit_any.exit614
 
 mmbit_any.exit614:                                ; preds = %759, %751, %748, %745, %.critedge.i616, %774
-  %.0.i613.in.in = phi i64 [ %775, %774 ], [ %773, %.critedge.i616 ], [ %765, %759 ], [ %758, %751 ], [ %750, %748 ], [ %747, %745 ]
+  %.0.i613.in.in = phi i64 [ %775, %774 ], [ %773, %.critedge.i616 ], [ %765, %759 ], [ %747, %745 ], [ %750, %748 ], [ %758, %751 ]
   %.0.i613.in.not = icmp eq i64 %.0.i613.in.in, 0
   br i1 %.0.i613.in.not, label %776, label %mmbit_any.exit614.thread
 
@@ -23849,7 +23849,7 @@ canSkipCatchUpMPV.exit.i.thread1721:              ; preds = %1198, %canSkipCatch
   br label %mmbit_any.exit.i
 
 mmbit_any.exit.i:                                 ; preds = %1217, %1220, %1223, %1231, %.critedge.i.i662, %1246
-  %.0.i55.i.in.in = phi i64 [ %1247, %1246 ], [ %1245, %.critedge.i.i662 ], [ %1237, %1231 ], [ %1230, %1223 ], [ %1222, %1220 ], [ %1219, %1217 ]
+  %.0.i55.i.in.in = phi i64 [ %1247, %1246 ], [ %1245, %.critedge.i.i662 ], [ %1237, %1231 ], [ %1219, %1217 ], [ %1222, %1220 ], [ %1230, %1223 ]
   %.0.i55.i.in.not = icmp eq i64 %.0.i55.i.in.in, 0
   br i1 %.0.i55.i.in.not, label %1248, label %mmbit_any.exit.i.thread
 
@@ -25056,7 +25056,7 @@ mmbit_set_i.exit814.thread1825:                   ; preds = %.thread1820, %mmbit
   br label %mmbit_any.exit.i761
 
 mmbit_any.exit.i761:                              ; preds = %1917, %1920, %1923, %1931, %.critedge.i.i758, %1946
-  %.0.i.i762.in.in = phi i64 [ %1947, %1946 ], [ %1945, %.critedge.i.i758 ], [ %1937, %1931 ], [ %1930, %1923 ], [ %1922, %1920 ], [ %1919, %1917 ]
+  %.0.i.i762.in.in = phi i64 [ %1947, %1946 ], [ %1945, %.critedge.i.i758 ], [ %1937, %1931 ], [ %1919, %1917 ], [ %1922, %1920 ], [ %1930, %1923 ]
   %.0.i.i762.in.not = icmp eq i64 %.0.i.i762.in.in, 0
   br i1 %.0.i.i762.in.not, label %mmbit_any.exit.i761.thread, label %roseCatchUpMpvFeeders.exit
 
@@ -26732,7 +26732,7 @@ mmbit_set_i.exit793:                              ; preds = %.thread2075, %.lr.p
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %2899, %2891, %2888, %2885, %.critedge.i626, %2914
-  %.0.i606.in.in = phi i64 [ %2915, %2914 ], [ %2913, %.critedge.i626 ], [ %2905, %2899 ], [ %2898, %2891 ], [ %2890, %2888 ], [ %2887, %2885 ]
+  %.0.i606.in.in = phi i64 [ %2915, %2914 ], [ %2913, %.critedge.i626 ], [ %2905, %2899 ], [ %2887, %2885 ], [ %2890, %2888 ], [ %2898, %2891 ]
   %.0.i606.in.not = icmp eq i64 %.0.i606.in.in, 0
   br i1 %.0.i606.in.not, label %flushActiveCombinations.exit578, label %mmbit_any.exit.thread2080
 
@@ -26785,7 +26785,7 @@ mmbit_any.exit.thread2080:                        ; preds = %.lr.ph3130, %mmbit_
   br label %mmbit_get_flat_block.exit84.i1021
 
 mmbit_get_flat_block.exit84.i1021:                ; preds = %2935, %2927, %2924, %2921
-  %.0.i82.i1022 = phi i64 [ %2941, %2935 ], [ %2934, %2927 ], [ %2926, %2924 ], [ %2923, %2921 ]
+  %.0.i82.i1022 = phi i64 [ %2941, %2935 ], [ %2923, %2921 ], [ %2926, %2924 ], [ %2934, %2927 ]
   %.not74.i1024 = icmp eq i64 %.0.i82.i1022, 0
   br i1 %.not74.i1024, label %.critedge.i575, label %2942
 
@@ -26872,7 +26872,7 @@ mmbit_get_flat_block.exit84.i1021:                ; preds = %2935, %2927, %2924,
   br label %mmbit_get_flat_block.exit.i1012
 
 mmbit_get_flat_block.exit.i1012:                  ; preds = %2979, %2971, %2968, %2965
-  %.0.i.i1013 = phi i64 [ %2985, %2979 ], [ %2978, %2971 ], [ %2970, %2968 ], [ %2967, %2965 ]
+  %.0.i.i1013 = phi i64 [ %2985, %2979 ], [ %2967, %2965 ], [ %2970, %2968 ], [ %2978, %2971 ]
   %.not71.i1014 = icmp eq i64 %.0.i.i1013, 0
   br i1 %.not71.i1014, label %.critedge.i575.thread, label %2986
 
@@ -28142,7 +28142,7 @@ roseReportComb.exit1352.thread2175:               ; preds = %3069, %3579, %.lr.p
   br label %mmbit_get_flat_block.exit84.i1055
 
 mmbit_get_flat_block.exit84.i1055:                ; preds = %3757, %3760, %3763, %3769
-  %.0.i82.i1056 = phi i64 [ %3773, %3769 ], [ %3768, %3763 ], [ %3762, %3760 ], [ %3759, %3757 ]
+  %.0.i82.i1056 = phi i64 [ %3773, %3769 ], [ %3759, %3757 ], [ %3762, %3760 ], [ %3768, %3763 ]
   %3774 = add nuw i32 %.045.i5613200, 1
   %3775 = icmp eq i32 %3774, 64
   %3776 = zext nneg i32 %3774 to i64
@@ -28211,7 +28211,7 @@ mmbit_get_flat_block.exit84.i1055:                ; preds = %3757, %3760, %3763,
   br label %mmbit_get_flat_block.exit80.i1029
 
 mmbit_get_flat_block.exit80.i1029:                ; preds = %3811, %3803, %3800, %3797
-  %.0.i78.i1030 = phi i64 [ %3817, %3811 ], [ %3810, %3803 ], [ %3802, %3800 ], [ %3799, %3797 ]
+  %.0.i78.i1030 = phi i64 [ %3817, %3811 ], [ %3799, %3797 ], [ %3802, %3800 ], [ %3810, %3803 ]
   %3818 = sub i32 %3784, %3790
   %3819 = icmp eq i32 %3818, 64
   %3820 = zext nneg i32 %3818 to i64
@@ -28316,7 +28316,7 @@ mmbit_get_flat_block.exit80.i1029:                ; preds = %3811, %3803, %3800,
   br label %mmbit_get_flat_block.exit.i1044
 
 mmbit_get_flat_block.exit.i1044:                  ; preds = %3865, %3857, %3854, %3851
-  %.0.i.i1045 = phi i64 [ %3871, %3865 ], [ %3864, %3857 ], [ %3856, %3854 ], [ %3853, %3851 ]
+  %.0.i.i1045 = phi i64 [ %3871, %3865 ], [ %3853, %3851 ], [ %3856, %3854 ], [ %3864, %3857 ]
   %.not71.i1046 = icmp eq i64 %.0.i.i1045, 0
   br i1 %.not71.i1046, label %.critedge.i575, label %3872
 
@@ -28751,7 +28751,7 @@ isAllExhausted.exit675.thread:                    ; preds = %.lr.ph3119, %.lr.ph
   br label %mmbit_any.exit610
 
 mmbit_any.exit610:                                ; preds = %4079, %4071, %4068, %4065, %.critedge.i620, %4094
-  %.0.i609.in.in = phi i64 [ %4095, %4094 ], [ %4093, %.critedge.i620 ], [ %4085, %4079 ], [ %4078, %4071 ], [ %4070, %4068 ], [ %4067, %4065 ]
+  %.0.i609.in.in = phi i64 [ %4095, %4094 ], [ %4093, %.critedge.i620 ], [ %4085, %4079 ], [ %4067, %4065 ], [ %4070, %4068 ], [ %4078, %4071 ]
   %.0.i609.in.not = icmp eq i64 %.0.i609.in.in, 0
   br i1 %.0.i609.in.not, label %mmbit_any.exit610.thread, label %mmbit_any.exit610.thread2239
 
@@ -28805,7 +28805,7 @@ mmbit_any.exit610.thread2239:                     ; preds = %.lr.ph, %mmbit_any.
   br label %mmbit_get_flat_block.exit84.i
 
 mmbit_get_flat_block.exit84.i:                    ; preds = %4116, %4108, %4105, %4102
-  %.0.i82.i = phi i64 [ %4122, %4116 ], [ %4115, %4108 ], [ %4107, %4105 ], [ %4104, %4102 ]
+  %.0.i82.i = phi i64 [ %4122, %4116 ], [ %4104, %4102 ], [ %4107, %4105 ], [ %4115, %4108 ]
   %.not74.i = icmp eq i64 %.0.i82.i, 0
   br i1 %.not74.i, label %.critedge.i558, label %4123
 
@@ -28892,7 +28892,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %4116, %4108, %4105,
   br label %mmbit_get_flat_block.exit.i980
 
 mmbit_get_flat_block.exit.i980:                   ; preds = %4160, %4152, %4149, %4146
-  %.0.i.i981 = phi i64 [ %4166, %4160 ], [ %4159, %4152 ], [ %4151, %4149 ], [ %4148, %4146 ]
+  %.0.i.i981 = phi i64 [ %4166, %4160 ], [ %4148, %4146 ], [ %4151, %4149 ], [ %4159, %4152 ]
   %.not71.i = icmp eq i64 %.0.i.i981, 0
   br i1 %.not71.i, label %.critedge.i558.thread, label %4167
 
@@ -30166,7 +30166,7 @@ roseReportComb.exit1403.thread2334:               ; preds = %4250, %4760, %.lr.p
   br label %mmbit_get_flat_block.exit84.i1001
 
 mmbit_get_flat_block.exit84.i1001:                ; preds = %4938, %4941, %4944, %4950
-  %.0.i82.i1002 = phi i64 [ %4954, %4950 ], [ %4949, %4944 ], [ %4943, %4941 ], [ %4940, %4938 ]
+  %.0.i82.i1002 = phi i64 [ %4954, %4950 ], [ %4940, %4938 ], [ %4943, %4941 ], [ %4949, %4944 ]
   %4955 = add nuw i32 %.045.i3052, 1
   %4956 = icmp eq i32 %4955, 64
   %4957 = zext nneg i32 %4955 to i64
@@ -30235,7 +30235,7 @@ mmbit_get_flat_block.exit84.i1001:                ; preds = %4938, %4941, %4944,
   br label %mmbit_get_flat_block.exit80.i
 
 mmbit_get_flat_block.exit80.i:                    ; preds = %4992, %4984, %4981, %4978
-  %.0.i78.i = phi i64 [ %4998, %4992 ], [ %4991, %4984 ], [ %4983, %4981 ], [ %4980, %4978 ]
+  %.0.i78.i = phi i64 [ %4998, %4992 ], [ %4980, %4978 ], [ %4983, %4981 ], [ %4991, %4984 ]
   %4999 = sub i32 %4965, %4971
   %5000 = icmp eq i32 %4999, 64
   %5001 = zext nneg i32 %4999 to i64
@@ -30340,7 +30340,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %4992, %4984, %4981,
   br label %mmbit_get_flat_block.exit.i992
 
 mmbit_get_flat_block.exit.i992:                   ; preds = %5046, %5038, %5035, %5032
-  %.0.i.i993 = phi i64 [ %5052, %5046 ], [ %5045, %5038 ], [ %5037, %5035 ], [ %5034, %5032 ]
+  %.0.i.i993 = phi i64 [ %5052, %5046 ], [ %5034, %5032 ], [ %5037, %5035 ], [ %5045, %5038 ]
   %.not71.i994 = icmp eq i64 %.0.i.i993, 0
   br i1 %.not71.i994, label %.critedge.i558, label %5053
 
@@ -31896,7 +31896,7 @@ flushActiveCombinations.exit:                     ; preds = %roseReportComb.exit
   br label %roseReport.exit.thread2481
 
 roseReport.exit.thread2481:                       ; preds = %727, %778, %roseCatchUpMpvFeeders.exit, %roseCatchUpAndHandleChainMatch.exit, %1203, %1250, %roseCatchUpTo.exit.i, %821, %roseCatchUpMPV.exit487, %.backedge2632, %flushStoredSomMatches.exit750, %flushStoredSomMatches.exit747, %flushStoredSomMatches.exit, %74, %roseCatchUpTo.exit, %select.unfold1950, %roseDeliverReport.exit.i, %isAllExhausted.exit.i.thread2456, %isAllExhausted.exit.i1367.thread2329, %roseDeliverReport.exit.i1354, %isAllExhausted.exit.i1316.thread2170, %roseDeliverReport.exit.i1303, %roseDeliverReport.exit771, %isAllExhausted.exit.thread1911, %isAllExhausted.exit678.thread1760, %.thread2231, %2248, %updateSeqPoint.exit1566, %.thread1929, %.thread1883, %6021
-  %.12487 = phi i64 [ 0, %.thread2231 ], [ -1, %updateSeqPoint.exit1566 ], [ 0, %2248 ], [ 0, %.thread1929 ], [ 0, %.thread1883 ], [ 0, %6021 ], [ 0, %isAllExhausted.exit678.thread1760 ], [ 0, %isAllExhausted.exit.thread1911 ], [ 0, %roseDeliverReport.exit771 ], [ 0, %roseDeliverReport.exit.i1303 ], [ 0, %isAllExhausted.exit.i1316.thread2170 ], [ 0, %roseDeliverReport.exit.i1354 ], [ 0, %isAllExhausted.exit.i1367.thread2329 ], [ 0, %isAllExhausted.exit.i.thread2456 ], [ 0, %roseDeliverReport.exit.i ], [ 0, %select.unfold1950 ], [ 0, %flushStoredSomMatches.exit750 ], [ 0, %flushStoredSomMatches.exit747 ], [ 0, %flushStoredSomMatches.exit ], [ -1, %74 ], [ 0, %roseCatchUpTo.exit ], [ 0, %727 ], [ 0, %778 ], [ 0, %roseCatchUpMpvFeeders.exit ], [ 0, %roseCatchUpAndHandleChainMatch.exit ], [ 0, %1203 ], [ 0, %1250 ], [ 0, %roseCatchUpTo.exit.i ], [ 0, %821 ], [ 0, %roseCatchUpMPV.exit487 ], [ -1, %.backedge2632 ]
+  %.12487 = phi i64 [ 0, %.thread2231 ], [ -1, %updateSeqPoint.exit1566 ], [ 0, %2248 ], [ 0, %.thread1929 ], [ 0, %.thread1883 ], [ 0, %6021 ], [ 0, %isAllExhausted.exit678.thread1760 ], [ 0, %isAllExhausted.exit.thread1911 ], [ 0, %roseDeliverReport.exit771 ], [ 0, %roseDeliverReport.exit.i1303 ], [ 0, %isAllExhausted.exit.i1316.thread2170 ], [ 0, %roseDeliverReport.exit.i1354 ], [ 0, %isAllExhausted.exit.i1367.thread2329 ], [ 0, %isAllExhausted.exit.i.thread2456 ], [ 0, %roseDeliverReport.exit.i ], [ 0, %select.unfold1950 ], [ 0, %flushStoredSomMatches.exit750 ], [ 0, %flushStoredSomMatches.exit747 ], [ 0, %flushStoredSomMatches.exit ], [ 0, %roseCatchUpTo.exit ], [ -1, %74 ], [ 0, %727 ], [ 0, %778 ], [ 0, %roseCatchUpMpvFeeders.exit ], [ 0, %roseCatchUpAndHandleChainMatch.exit ], [ 0, %1203 ], [ 0, %1250 ], [ 0, %roseCatchUpTo.exit.i ], [ 0, %821 ], [ 0, %roseCatchUpMPV.exit487 ], [ -1, %.backedge2632 ]
   ret i64 %.12487
 }
 

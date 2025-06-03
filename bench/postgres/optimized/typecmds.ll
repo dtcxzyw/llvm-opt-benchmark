@@ -4666,8 +4666,8 @@ heap_getattr.exit:                                ; preds = %13
   %68 = trunc nuw i8 %.pre to i1
   br i1 %68, label %77, label %heap_getattr.exit.thread
 
-heap_getattr.exit.thread:                         ; preds = %59, %44, %47, %50, %53, %61, %65, %heap_getattr.exit
-  %.0.i30 = phi i64 [ %67, %heap_getattr.exit ], [ %60, %59 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %62, %61 ], [ %66, %65 ]
+heap_getattr.exit.thread:                         ; preds = %59, %53, %50, %47, %44, %61, %65, %heap_getattr.exit
+  %.0.i30 = phi i64 [ %67, %heap_getattr.exit ], [ %60, %59 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %62, %61 ], [ %66, %65 ]
   %69 = inttoptr i64 %.0.i30 to ptr
   %70 = call ptr @pg_detoast_datum(ptr noundef %69) #8
   %71 = getelementptr inbounds nuw i8, ptr %18, i64 72

@@ -761,7 +761,7 @@ obj_is_recent.exit.thread:                        ; preds = %5, %obj_is_recent.e
   unreachable
 
 81:                                               ; preds = %75, %72, %70
-  %.0 = phi ptr [ %77, %75 ], [ %74, %72 ], [ %71, %70 ]
+  %.0 = phi ptr [ %71, %70 ], [ %74, %72 ], [ %77, %75 ]
   %.not23 = icmp eq ptr %.0, null
   br i1 %.not23, label %82, label %84
 

@@ -4097,7 +4097,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ %call3, %sw.bb1 ], [ %call, %sw.bb ]
+  %retval.0 = phi i32 [ %call, %sw.bb ], [ %call3, %sw.bb1 ]
   ret i32 %retval.0
 }
 
@@ -4246,7 +4246,7 @@ do.body.i:                                        ; preds = %if.end65
   unreachable
 
 _ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit: ; preds = %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call3.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %retval.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %call3.i, %sw.bb1.i ]
   %cmp68 = icmp eq i32 %retval.0.i, 0
   br i1 %cmp68, label %if.end71, label %if.then.i
 
@@ -4420,7 +4420,7 @@ do.body.i:                                        ; preds = %if.end52
   unreachable
 
 _ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit: ; preds = %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call3.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %retval.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %call3.i, %sw.bb1.i ]
   %cmp55 = icmp eq i32 %retval.0.i, 0
   br i1 %cmp55, label %if.then56, label %if.then.i
 
@@ -5376,7 +5376,7 @@ do.body.i:                                        ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit: ; preds = %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call3.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %retval.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %call3.i, %sw.bb1.i ]
   %cmp224 = icmp eq i32 %retval.0.i, 0
   %89 = load ptr, ptr %buf_.i102, align 8
   %cmp.i.i.i.i104 = icmp ne ptr %89, null
@@ -5787,7 +5787,7 @@ if.end67:                                         ; preds = %if.else, %cleanup.t
   br label %return
 
 return:                                           ; preds = %cleanup, %entry, %if.end67, %do.end44
-  %retval.0 = phi i64 [ -38, %cleanup ], [ %conv68, %if.end67 ], [ %add45, %do.end44 ], [ -9, %entry ]
+  %retval.0 = phi i64 [ %conv68, %if.end67 ], [ -38, %cleanup ], [ %add45, %do.end44 ], [ -9, %entry ]
   ret i64 %retval.0
 }
 

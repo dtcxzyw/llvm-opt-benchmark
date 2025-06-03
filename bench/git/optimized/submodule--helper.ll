@@ -3610,7 +3610,7 @@ _.exit59.i.i.i.i:                                 ; preds = %723, %721
   unreachable
 
 run_update_command.exit.i.i.i:                    ; preds = %_.exit59.i.i.i.i, %_.exit56.i.i.i.i, %_.exit53.i.i.i.i, %_.exit50.i.i.i.i, %699, %_.exit47.i.i.i.i, %_.exit44.i.i.i.i, %_.exit41.i.i.i.i, %_.exit.i.i.i.i
-  %.033.i.i.i.i = phi i32 [ %697, %_.exit47.i.i.i.i ], [ %690, %_.exit44.i.i.i.i ], [ %684, %_.exit41.i.i.i.i ], [ %670, %_.exit.i.i.i.i ], [ 0, %699 ], [ 0, %_.exit59.i.i.i.i ], [ 0, %_.exit56.i.i.i.i ], [ 0, %_.exit53.i.i.i.i ], [ 0, %_.exit50.i.i.i.i ]
+  %.033.i.i.i.i = phi i32 [ %670, %_.exit.i.i.i.i ], [ %684, %_.exit41.i.i.i.i ], [ %690, %_.exit44.i.i.i.i ], [ %697, %_.exit47.i.i.i.i ], [ 0, %699 ], [ 0, %_.exit59.i.i.i.i ], [ 0, %_.exit56.i.i.i.i ], [ 0, %_.exit53.i.i.i.i ], [ 0, %_.exit50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #20
   br label %run_update_procedure.exit.i.i
 
@@ -3753,7 +3753,7 @@ run_update_procedure.exit.i.i:                    ; preds = %run_update_command.
   unreachable
 
 submodule_update_type_to_label.exit.i.i.i:        ; preds = %769, %768, %767
-  %.0.i.i88.i.i = phi ptr [ @.str.157, %769 ], [ @.str.155, %768 ], [ @.str.124, %767 ]
+  %.0.i.i88.i.i = phi ptr [ @.str.155, %768 ], [ @.str.157, %769 ], [ @.str.124, %767 ]
   %771 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %19, ptr noundef nonnull @.str.230, ptr noundef nonnull %.0.i.i88.i.i) #20
   br label %772
 
@@ -3886,7 +3886,7 @@ update_submodules.exit:                           ; preds = %384, %804, %806, %3
   br label %814
 
 814:                                              ; preds = %333, %271, %update_submodules.exit
-  %.012 = phi i32 [ 1, %333 ], [ %.025.i, %update_submodules.exit ], [ 1, %271 ]
+  %.012 = phi i32 [ %.025.i, %update_submodules.exit ], [ 1, %333 ], [ 1, %271 ]
   %815 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %816 = load ptr, ptr %815, align 8, !tbaa !145
   call void @free(ptr noundef %816) #20

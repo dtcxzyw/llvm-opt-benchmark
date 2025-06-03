@@ -279,7 +279,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   br label %141
 
 141:                                              ; preds = %121, %123, %128
-  %.1150 = phi i32 [ %140, %128 ], [ %127, %123 ], [ %.0149202, %121 ]
+  %.1150 = phi i32 [ %140, %128 ], [ %.0149202, %121 ], [ %127, %123 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond233 = icmp eq i64 %indvars.iv.next229, %wide.trip.count232
   br i1 %exitcond233, label %.loopexit, label %118, !llvm.loop !24

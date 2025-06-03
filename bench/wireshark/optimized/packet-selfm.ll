@@ -2599,7 +2599,7 @@ region_lookup.exit495.i:                          ; preds = %823, %region_lookup
   br i1 %exitcond.not.i201, label %.loopexit.i198, label %847, !llvm.loop !33
 
 .loopexit.i198:                                   ; preds = %861, %833, %.loopexit498.i, %.lr.ph531.i, %.lr.ph536.i, %.lr.ph553.i, %region_lookup.exit495.i, %802, %._crit_edge.i202, %726, %724, %._crit_edge526.i, %679, %region_lookup.exit485.i, %637, %._crit_edge548.i, %553, %545, %region_lookup.exit473.i, %511, %501, %.preheader.i197, %494
-  %.0.i = phi i32 [ %498, %494 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %725, %724 ], [ %683, %679 ], [ %678, %region_lookup.exit485.i ], [ %636, %._crit_edge548.i ], [ %556, %553 ], [ %544, %region_lookup.exit473.i ], [ %520, %511 ], [ %510, %501 ], [ %spec.select468.i, %802 ], [ %498, %545 ], [ %652, %637 ], [ %718, %._crit_edge526.i ], [ %730, %726 ], [ %829, %region_lookup.exit495.i ], [ %498, %.preheader.i197 ], [ %551, %.lr.ph553.i ], [ %656, %.lr.ph536.i ], [ %722, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %844, %833 ], [ %.11.i, %861 ]
+  %.0.i = phi i32 [ %498, %494 ], [ %510, %501 ], [ %520, %511 ], [ %544, %region_lookup.exit473.i ], [ %556, %553 ], [ %636, %._crit_edge548.i ], [ %678, %region_lookup.exit485.i ], [ %683, %679 ], [ %725, %724 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %spec.select468.i, %802 ], [ %498, %545 ], [ %652, %637 ], [ %718, %._crit_edge526.i ], [ %730, %726 ], [ %829, %region_lookup.exit495.i ], [ %498, %.preheader.i197 ], [ %551, %.lr.ph553.i ], [ %656, %.lr.ph536.i ], [ %722, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %844, %833 ], [ %.11.i, %861 ]
   %863 = load i32, ptr @hf_selfm_fastmsg_crc16, align 4
   %864 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %863, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
   %865 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
@@ -2722,7 +2722,7 @@ dissect_fastop_frame.exit:                        ; preds = %875, %.sink.split.i
   br label %950
 
 950:                                              ; preds = %dissect_relaydef_frame.exit, %dissect_fmconfig_frame.exit, %391, %393, %395, %dissect_foconfig_frame.exit, %dissect_fastmsg_frame.exit, %dissect_fastop_frame.exit, %899, %932, %215, %.thread6
-  %.0170 = phi i32 [ 2, %215 ], [ %949, %932 ], [ %931, %899 ], [ %898, %dissect_fastop_frame.exit ], [ %874, %dissect_fastmsg_frame.exit ], [ %461, %dissect_foconfig_frame.exit ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %dissect_fmconfig_frame.exit ], [ %270, %dissect_relaydef_frame.exit ], [ 2, %.thread6 ]
+  %.0170 = phi i32 [ 2, %215 ], [ %270, %dissect_relaydef_frame.exit ], [ %390, %dissect_fmconfig_frame.exit ], [ %392, %391 ], [ %394, %393 ], [ %396, %395 ], [ %461, %dissect_foconfig_frame.exit ], [ %874, %dissect_fastmsg_frame.exit ], [ %898, %dissect_fastop_frame.exit ], [ %931, %899 ], [ %949, %932 ], [ 2, %.thread6 ]
   ret i32 %.0170
 }
 
@@ -2930,7 +2930,7 @@ region_lookup.exit246:                            ; preds = %region_lookup.exit,
   br label %74
 
 74:                                               ; preds = %60, %70, %66, %63
-  %.0213 = phi i16 [ %73, %70 ], [ %69, %66 ], [ %65, %63 ], [ 0, %60 ]
+  %.0213 = phi i16 [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ 0, %60 ]
   %75 = zext i16 %.0213 to i32
   %76 = load i32, ptr @ett_selfm_fastmsg_tag, align 4
   %77 = getelementptr inbounds nuw i8, ptr %56, i64 9
@@ -3474,7 +3474,7 @@ proto_item_set_generated.exit:                    ; preds = %122, %119, %114, %1
   br label %142
 
 142:                                              ; preds = %138, %134, %proto_item_set_generated.exit, %90
-  %.5 = phi i32 [ %.4245, %90 ], [ %141, %138 ], [ %137, %134 ], [ %133, %proto_item_set_generated.exit ]
+  %.5 = phi i32 [ %.4245, %90 ], [ %133, %proto_item_set_generated.exit ], [ %137, %134 ], [ %141, %138 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1517,8 +1517,8 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.
   br label %473
 
 473:                                              ; preds = %471, %._crit_edge._crit_edge.i.i.i
-  %474 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %469, %471 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %472, %471 ]
+  %474 = phi ptr [ %469, %471 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %472, %471 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %475 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !22
   %476 = icmp eq ptr %475, %474
   br i1 %476, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4cvc58internal9ProofNodeEESt6vectorIS6_SaIS6_EEEES6_ET_SC_SC_RKT0_.exit, label %477
@@ -1528,8 +1528,8 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.
   br label %479
 
 479:                                              ; preds = %477, %._crit_edge._crit_edge57.i.i.i
-  %480 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %474, %477 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %478, %477 ]
+  %480 = phi ptr [ %474, %477 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %478, %477 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %481 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !22
   %482 = icmp eq ptr %481, %480
   %spec.select.i.i.i = select i1 %482, ptr %.sroa.032.2.i.i.i, ptr %439
@@ -2559,7 +2559,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNKSt3mapIN4cvc58i
   br label %82
 
 82:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %81
-  %.1 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %81 ]
+  %.1 = phi i1 [ false, %81 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   ret i1 %.1
 }
 

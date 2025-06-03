@@ -928,7 +928,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %dxtory_decode_v1_420.exit.thread
 
 dxtory_decode_v1_420.exit:                        ; preds = %506, %502, %498, %494, %490, %426, %184, %19, %15
-  %.0 = phi i32 [ %509, %506 ], [ %505, %502 ], [ %501, %498 ], [ %497, %494 ], [ %493, %490 ], [ %429, %426 ], [ %187, %184 ], [ %22, %19 ], [ %18, %15 ]
+  %.0 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %187, %184 ], [ %429, %426 ], [ %493, %490 ], [ %497, %494 ], [ %501, %498 ], [ %505, %502 ], [ %509, %506 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %dxtory_decode_v1_420.exit.thread95, label %dxtory_decode_v1_420.exit.thread
 
@@ -1069,7 +1069,7 @@ define internal fastcc range(i64 -6442450944, 6442450942) i64 @get_raw_size(i32 
   br label %33
 
 33:                                               ; preds = %3, %22, %12, %8, %4
-  %.0 = phi i64 [ %32, %22 ], [ %21, %12 ], [ %11, %8 ], [ %7, %4 ], [ 0, %3 ]
+  %.0 = phi i64 [ %7, %4 ], [ %11, %8 ], [ %21, %12 ], [ %32, %22 ], [ 0, %3 ]
   ret i64 %.0
 }
 

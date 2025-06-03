@@ -54,7 +54,7 @@ define hidden noundef i32 @_ZN8protobuf2rt10value_size17h0895dd1b5f89a237E(i32 n
   br label %_ZN8protobuf2rt17value_size_no_tag17h4f1ec5feb0ce45a7E.exit
 
 _ZN8protobuf2rt17value_size_no_tag17h4f1ec5feb0ce45a7E.exit: ; preds = %3, %7, %9
-  %.sroa.0.0.i = phi i32 [ 4, %9 ], [ %8, %7 ], [ 8, %3 ]
+  %.sroa.0.0.i = phi i32 [ %8, %7 ], [ 4, %9 ], [ 8, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %10 = add i32 %.sroa.0.0.i, %5
   ret i32 %10
@@ -84,7 +84,7 @@ define hidden noundef i32 @_ZN8protobuf2rt10value_size17ha406cc1fd9c52e0fE(i32 n
   br label %_ZN8protobuf2rt17value_size_no_tag17h7bb9eb3ba62574f3E.exit
 
 _ZN8protobuf2rt17value_size_no_tag17h7bb9eb3ba62574f3E.exit: ; preds = %3, %7, %9
-  %.sroa.0.0.i = phi i32 [ 4, %9 ], [ %8, %7 ], [ 8, %3 ]
+  %.sroa.0.0.i = phi i32 [ %8, %7 ], [ 4, %9 ], [ 8, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %10 = add i32 %.sroa.0.0.i, %5
   ret i32 %10

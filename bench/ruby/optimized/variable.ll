@@ -412,7 +412,7 @@ define internal noundef i64 @make_temporary_path(i64 noundef %0, i64 noundef %1)
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0 = phi i64 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi i64 [ %9, %8 ], [ %5, %4 ], [ %7, %6 ]
   tail call void @rb_obj_freeze_inline(i64 noundef %.0)
   ret i64 %.0
 }
@@ -2591,7 +2591,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %77, %66, %62
   br label %88
 
 88:                                               ; preds = %.thread, %rb_ractor_main_p.exit.thread, %57, %87, %68, %3
-  %.0 = phi i64 [ %2, %3 ], [ %.5, %87 ], [ %.2, %57 ], [ %54, %rb_ractor_main_p.exit.thread ], [ %2, %68 ], [ %.3, %.thread ]
+  %.0 = phi i64 [ %2, %3 ], [ %.5, %87 ], [ %54, %rb_ractor_main_p.exit.thread ], [ %.2, %57 ], [ %2, %68 ], [ %.3, %.thread ]
   ret i64 %.0
 }
 
@@ -2760,7 +2760,7 @@ IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit:         ; preds = %24, %rb_ractor_main
   br label %51
 
 51:                                               ; preds = %50, %42, %39
-  %.0 = phi ptr [ %.1, %50 ], [ %44, %42 ], [ %41, %39 ]
+  %.0 = phi ptr [ %.1, %50 ], [ %41, %39 ], [ %44, %42 ]
   %.not16 = icmp eq ptr %.0, null
   br i1 %.not16, label %55, label %52
 
@@ -2935,7 +2935,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_shape_set_shape_
   br label %63
 
 63:                                               ; preds = %rb_vm_lock_leave.exit, %rb_shape_set_shape_id.exit22, %rb_shape_set_shape_id.exit
-  %.1 = phi ptr [ %.2, %rb_vm_lock_leave.exit ], [ %22, %rb_shape_set_shape_id.exit22 ], [ %.0, %rb_shape_set_shape_id.exit ]
+  %.1 = phi ptr [ %.2, %rb_vm_lock_leave.exit ], [ %.0, %rb_shape_set_shape_id.exit ], [ %22, %rb_shape_set_shape_id.exit22 ]
   call void @ruby_xfree(ptr noundef %.1) #27
   ret void
 }
@@ -3121,7 +3121,7 @@ gen_ivtbl_count.exit:                             ; preds = %49
   br label %64
 
 64:                                               ; preds = %RB_FL_TEST.exit, %gen_ivtbl_count.exit, %gen_ivtbl_count.exit.thread, %1, %RCLASS_IV_COUNT.exit, %ROBJECT_IV_COUNT.exit
-  %.09 = phi i64 [ %46, %RCLASS_IV_COUNT.exit ], [ %27, %ROBJECT_IV_COUNT.exit ], [ 0, %1 ], [ %.1.ph, %gen_ivtbl_count.exit.thread ], [ 0, %gen_ivtbl_count.exit ], [ 0, %RB_FL_TEST.exit ]
+  %.09 = phi i64 [ %27, %ROBJECT_IV_COUNT.exit ], [ %46, %RCLASS_IV_COUNT.exit ], [ 0, %1 ], [ %.1.ph, %gen_ivtbl_count.exit.thread ], [ 0, %gen_ivtbl_count.exit ], [ 0, %RB_FL_TEST.exit ]
   ret i64 %.09
 }
 
@@ -3839,7 +3839,7 @@ define dso_local range(i64 0, 21) i64 @rb_ivar_defined(i64 noundef %0, i64 nound
   br label %29
 
 29:                                               ; preds = %28, %20, %17
-  %.0 = phi ptr [ %.1, %28 ], [ %22, %20 ], [ %19, %17 ]
+  %.0 = phi ptr [ %.1, %28 ], [ %19, %17 ], [ %22, %20 ]
   %.not13 = icmp eq ptr %.0, null
   br i1 %.not13, label %32, label %30
 
@@ -7823,7 +7823,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %cvar_lookup_at.exit
   %.1 = phi i64 [ %.0, %cvar_lookup_at.exit.thread.rbimpl_RB_TYPE_P_fastpath.exit.i.i_crit_edge.i ], [ 0, %16 ]
   %25 = phi i64 [ %.pre.i, %cvar_lookup_at.exit.thread.rbimpl_RB_TYPE_P_fastpath.exit.i.i_crit_edge.i ], [ %13, %16 ]
   %.pre.i43.i = phi ptr [ %.pre.i.i, %cvar_lookup_at.exit.thread.rbimpl_RB_TYPE_P_fastpath.exit.i.i_crit_edge.i ], [ %12, %16 ]
-  %.13341.i = phi i64 [ %21, %cvar_lookup_at.exit.thread.rbimpl_RB_TYPE_P_fastpath.exit.i.i_crit_edge.i ], [ 36, %16 ]
+  %.13342.i = phi i64 [ %21, %cvar_lookup_at.exit.thread.rbimpl_RB_TYPE_P_fastpath.exit.i.i_crit_edge.i ], [ 36, %16 ]
   %26 = and i64 %25, 8223
   %or.cond.i.i = icmp eq i64 %26, 8194
   br i1 %or.cond.i.i, label %27, label %cvar_front_klass.exit.i
@@ -7847,7 +7847,7 @@ rb_namespace_p.exit.i.i:                          ; preds = %27
 cvar_front_klass.exit.i:                          ; preds = %rb_namespace_p.exit.i.i, %27, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %cvar_lookup_at.exit.thread.i
   %.2 = phi i64 [ %.0, %cvar_lookup_at.exit.thread.i ], [ %.1, %27 ], [ %.1, %rb_namespace_p.exit.i.i ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
   %.pre.i44.i = phi ptr [ %.pre.i.i, %cvar_lookup_at.exit.thread.i ], [ %.pre.i43.i, %27 ], [ %.pre.i43.i, %rb_namespace_p.exit.i.i ], [ %.pre.i43.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
-  %.13342.i = phi i64 [ %21, %cvar_lookup_at.exit.thread.i ], [ %.13341.i, %27 ], [ %.13341.i, %rb_namespace_p.exit.i.i ], [ %.13341.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
+  %.13341.i = phi i64 [ %21, %cvar_lookup_at.exit.thread.i ], [ %.13342.i, %27 ], [ %.13342.i, %rb_namespace_p.exit.i.i ], [ %.13342.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.pre.i44.i, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !194
   %.not1745.i = icmp eq i64 %38, 0
@@ -7856,7 +7856,7 @@ cvar_front_klass.exit.i:                          ; preds = %rb_namespace_p.exit
 .lr.ph.i.preheader:                               ; preds = %cvar_front_klass.exit.i, %rb_namespace_p.exit.i.i
   %.4.ph = phi i64 [ %.1, %rb_namespace_p.exit.i.i ], [ %.2, %cvar_front_klass.exit.i ]
   %.047.i.ph = phi i64 [ %29, %rb_namespace_p.exit.i.i ], [ %38, %cvar_front_klass.exit.i ]
-  %.02846.i.ph = phi i64 [ %.13341.i, %rb_namespace_p.exit.i.i ], [ %.13342.i, %cvar_front_klass.exit.i ]
+  %.02846.i.ph = phi i64 [ %.13342.i, %rb_namespace_p.exit.i.i ], [ %.13341.i, %cvar_front_klass.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %cvar_lookup_at.exit27.thread.i
@@ -7910,7 +7910,7 @@ cvar_lookup_at.exit27.thread.i:                   ; preds = %cvar_lookup_at.exit
 
 find_cvar.exit:                                   ; preds = %cvar_lookup_at.exit27.thread.i, %cvar_front_klass.exit.i
   %.6 = phi i64 [ %.2, %cvar_front_klass.exit.i ], [ %.5, %cvar_lookup_at.exit27.thread.i ]
-  %.028.lcssa.i = phi i64 [ %.13342.i, %cvar_front_klass.exit.i ], [ %.237.i, %cvar_lookup_at.exit27.thread.i ]
+  %.028.lcssa.i = phi i64 [ %.13341.i, %cvar_front_klass.exit.i ], [ %.237.i, %cvar_lookup_at.exit27.thread.i ]
   %.not = icmp eq i64 %.6, 0
   br i1 %.not, label %56, label %58
 

@@ -4316,7 +4316,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9symbolize12MarkupFilter8checkTagE
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %33, %32 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i.i, align 1, !tbaa !64
   %35 = add i8 %.1.val.i.i.i.i.i.i, -123
   %36 = icmp ult i8 %35, -26
@@ -4327,7 +4327,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9symbolize12MarkupFilter8checkTagE
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %38, %37 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i.i, align 1, !tbaa !64
   %40 = add i8 %.2.val.i.i.i.i.i.i, -123
   %41 = icmp ult i8 %40, -26
@@ -6852,7 +6852,7 @@ define dso_local { i64, i8 } @_ZNK4llvm9symbolize12MarkupFilter9parseAddrENS_9St
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %26, %25 ]
+  %.1.i.i.i.i.i = phi ptr [ %26, %25 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !64
   %.not33.i.i.i.i.i = icmp eq i8 %.1.val.i.i.i.i.i, 48
   br i1 %.not33.i.i.i.i.i, label %28, label %"_ZN4llvm6all_ofIRNS_9StringRefEZNKS_9symbolize12MarkupFilter9parseAddrES1_E3$_0EEbOT_T0_.exit"
@@ -6862,7 +6862,7 @@ define dso_local { i64, i8 } @_ZNK4llvm9symbolize12MarkupFilter9parseAddrENS_9St
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %29, %28 ]
+  %.2.i.i.i.i.i = phi ptr [ %29, %28 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !64
   %.not34.i.i.i.i.i = icmp eq i8 %.2.val.i.i.i.i.i, 48
   br i1 %.not34.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_9StringRefEZNKS_9symbolize12MarkupFilter9parseAddrES1_E3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofIRNS_9StringRefEZNKS_9symbolize12MarkupFilter9parseAddrES1_E3$_0EEbOT_T0_.exit"
@@ -7679,8 +7679,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter
   br label %33
 
 33:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E6doFindImEEPKSD_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.i.ph, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E6doFindImEEPKSD_RKT_.exit ], [ %32, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E6doFindImEEPKSD_RKT_.exit ], [ %32, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %32, %.loopexit ], [ %.0.i.i.ph, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E6doFindImEEPKSD_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %32, %.loopexit ], [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E6doFindImEEPKSD_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert

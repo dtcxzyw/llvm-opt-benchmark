@@ -4871,7 +4871,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   unreachable
 
 common.resume:                                    ; preds = %442, %253, %.thread299, %495, %525, %356, %.thread341, %382, %346, %283, %224, %173, %72
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %174, %173 ], [ %225, %224 ], [ %284, %283 ], [ %526, %525 ], [ %lpad.phi, %495 ], [ %eh.lpad-body298, %.thread299 ], [ %254, %253 ], [ %357, %356 ], [ %472, %.thread341 ], [ %347, %346 ], [ %383, %382 ], [ %443, %442 ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %174, %173 ], [ %225, %224 ], [ %284, %283 ], [ %526, %525 ], [ %eh.lpad-body298, %.thread299 ], [ %254, %253 ], [ %lpad.phi, %495 ], [ %357, %356 ], [ %472, %.thread341 ], [ %347, %346 ], [ %383, %382 ], [ %443, %442 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread:                                          ; preds = %63

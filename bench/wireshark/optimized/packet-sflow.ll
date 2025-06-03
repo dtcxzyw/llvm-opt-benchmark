@@ -1835,7 +1835,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %360
 
 360:                                              ; preds = %358, %356, %343, %.lr.ph.i89.i
-  %.2.i.i = phi i32 [ %342, %.lr.ph.i89.i ], [ %359, %358 ], [ %357, %356 ], [ %355, %343 ]
+  %.2.i.i = phi i32 [ %342, %.lr.ph.i89.i ], [ %355, %343 ], [ %357, %356 ], [ %359, %358 ]
   call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.2.i.i)
   %361 = add nuw i32 %.089.i.i, 1
   %exitcond.not.i90.i = icmp eq i32 %361, %335
@@ -1954,7 +1954,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %dissect_sflow_245_samples.exit
 
 dissect_sflow_245_samples.exit:                   ; preds = %360, %.lr.ph.split, %334, %441, %442, %444, %446, %448
-  %.0.i81 = phi i32 [ %290, %.lr.ph.split ], [ %336, %334 ], [ %.0.i.i, %441 ], [ %449, %448 ], [ %447, %446 ], [ %445, %444 ], [ %443, %442 ], [ %.2.i.i, %360 ]
+  %.0.i81 = phi i32 [ %290, %.lr.ph.split ], [ %336, %334 ], [ %.0.i.i, %441 ], [ %443, %442 ], [ %445, %444 ], [ %447, %446 ], [ %449, %448 ], [ %.2.i.i, %360 ]
   %450 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %450, ptr noundef %0, i32 noundef %.0.i81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
@@ -2331,7 +2331,7 @@ dissect_sflow_5_extended_url.exit:                ; preds = %167, %169, %171
   br label %dissect_sflow_245_address_type.exit.i
 
 dissect_sflow_245_address_type.exit.i:            ; preds = %201, %199, %197, %192
-  %.0.i.i = phi i32 [ 0, %201 ], [ 16, %199 ], [ 4, %197 ], [ %195, %192 ]
+  %.0.i.i = phi i32 [ 0, %201 ], [ 4, %197 ], [ 16, %199 ], [ %195, %192 ]
   %203 = add i32 %.0.i.i, %196
   %204 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %203)
   %205 = load i32, ptr @hf_sflow_245_extended_mpls_in_label_stack_entries, align 4
@@ -2409,7 +2409,7 @@ dissect_sflow_5_extended_mpls_data.exit:          ; preds = %.lr.ph59.i, %._crit
   br label %dissect_sflow_245_address_type.exit.i116
 
 dissect_sflow_245_address_type.exit.i116:         ; preds = %243, %241, %239, %234
-  %.0.i.i117 = phi i32 [ 0, %243 ], [ 16, %241 ], [ 4, %239 ], [ %237, %234 ]
+  %.0.i.i117 = phi i32 [ 0, %243 ], [ 4, %239 ], [ 16, %241 ], [ %237, %234 ]
   %245 = add i32 %.0.i.i117, %238
   %246 = load i32, ptr @hf_sflow_245_ipv4_dst, align 4
   %247 = load i32, ptr @hf_sflow_245_ipv6_dst, align 4
@@ -2434,7 +2434,7 @@ dissect_sflow_245_address_type.exit.i116:         ; preds = %243, %241, %239, %2
   br label %dissect_sflow_5_extended_nat.exit
 
 dissect_sflow_5_extended_nat.exit:                ; preds = %dissect_sflow_245_address_type.exit.i116, %250, %252, %254
-  %.0.i8.i = phi i32 [ 0, %254 ], [ 16, %252 ], [ 4, %250 ], [ %248, %dissect_sflow_245_address_type.exit.i116 ]
+  %.0.i8.i = phi i32 [ 0, %254 ], [ 4, %250 ], [ 16, %252 ], [ %248, %dissect_sflow_245_address_type.exit.i116 ]
   %256 = add i32 %.0.i8.i, %249
   br label %dissect_sflow_5_extended_vlan_tunnel.exit
 
@@ -2714,7 +2714,7 @@ dissect_sflow_5_extended_80211_tx.exit:           ; preds = %411, %413
   br label %dissect_sflow_5_extended_vlan_tunnel.exit
 
 dissect_sflow_5_extended_vlan_tunnel.exit:        ; preds = %.lr.ph.i126, %306, %21, %23, %36, %83, %122, %135, %137, %139, %dissect_sflow_5_extended_url.exit, %dissect_sflow_5_extended_mpls_data.exit, %dissect_sflow_5_extended_nat.exit, %257, %273, %289, %302, %dissect_sflow_5_extended_80211_payload.exit, %dissect_sflow_5_extended_80211_rx.exit, %dissect_sflow_5_extended_80211_tx.exit, %9, %425
-  %.0 = phi i32 [ %424, %dissect_sflow_5_extended_80211_tx.exit ], [ %373, %dissect_sflow_5_extended_80211_rx.exit ], [ %.1.i131, %dissect_sflow_5_extended_80211_payload.exit ], [ %305, %302 ], [ %301, %289 ], [ %288, %273 ], [ %272, %257 ], [ %256, %dissect_sflow_5_extended_nat.exit ], [ %233, %dissect_sflow_5_extended_mpls_data.exit ], [ %.1.i114, %dissect_sflow_5_extended_url.exit ], [ %.1.i, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %122 ], [ %121, %83 ], [ %82, %36 ], [ %35, %23 ], [ %22, %21 ], [ %.1, %425 ], [ %.01314.i, %306 ], [ %20, %9 ], [ %.013.i, %.lr.ph.i126 ]
+  %.0 = phi i32 [ %22, %21 ], [ %35, %23 ], [ %82, %36 ], [ %121, %83 ], [ %134, %122 ], [ %136, %135 ], [ %138, %137 ], [ %.1.i, %139 ], [ %.1.i114, %dissect_sflow_5_extended_url.exit ], [ %233, %dissect_sflow_5_extended_mpls_data.exit ], [ %256, %dissect_sflow_5_extended_nat.exit ], [ %272, %257 ], [ %288, %273 ], [ %301, %289 ], [ %305, %302 ], [ %.1.i131, %dissect_sflow_5_extended_80211_payload.exit ], [ %373, %dissect_sflow_5_extended_80211_rx.exit ], [ %424, %dissect_sflow_5_extended_80211_tx.exit ], [ %.1, %425 ], [ %.01314.i, %306 ], [ %20, %9 ], [ %.013.i, %.lr.ph.i126 ]
   %442 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %442, ptr noundef %0, i32 noundef %.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
@@ -3032,7 +3032,7 @@ define internal fastcc noundef i32 @dissect_sflow_245_extended_router(ptr nounde
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %4, %9, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 16, %11 ], [ 4, %9 ], [ %7, %4 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 4, %9 ], [ 16, %11 ], [ %7, %4 ]
   %15 = add i32 %.0.i, %8
   %16 = load i32, ptr @hf_sflow_245_nexthop_src_mask, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
@@ -3073,7 +3073,7 @@ define internal fastcc i32 @dissect_sflow_245_extended_gateway(ptr noundef %0, p
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
-  %.0.i = phi i32 [ 0, %16 ], [ 16, %14 ], [ 4, %12 ], [ %10, %7 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 4, %12 ], [ 16, %14 ], [ %10, %7 ]
   %18 = add i32 %.0.i, %11
   br label %19
 
@@ -3532,7 +3532,7 @@ define internal fastcc noundef i32 @dissect_sflow_5_counters_record(ptr noundef 
   br label %274
 
 274:                                              ; preds = %20, %80, %120, %122, %124, %126, %170, %231, %247, %8, %257
-  %.0 = phi i32 [ %19, %8 ], [ %256, %247 ], [ %246, %231 ], [ %230, %170 ], [ %169, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %80 ], [ %79, %20 ], [ %.1, %257 ]
+  %.0 = phi i32 [ %19, %8 ], [ %79, %20 ], [ %119, %80 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %169, %126 ], [ %230, %170 ], [ %246, %231 ], [ %256, %247 ], [ %.1, %257 ]
   %275 = load ptr, ptr %4, align 8
   call void @proto_item_set_end(ptr noundef %275, ptr noundef %0, i32 noundef %.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7

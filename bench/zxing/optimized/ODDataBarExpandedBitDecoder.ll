@@ -2387,7 +2387,7 @@ default.unreachable:                              ; preds = %19
   unreachable
 
 "_ZZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5cxx11ERNS_12BitArrayViewEENK3$_0clEZNS1_L24DecodeGeneralPurposeBitsB5cxx11ES3_E5StateS3_.exit79": ; preds = %.invoke128, %.invoke127, %._crit_edge.i.invoke, %.invoke, %.noexc100, %.noexc83, %.noexc102, %.noexc101, %173, %._crit_edge.i88, %.noexc85, %.noexc84, %137, %215, %34, %41, %56
-  %.1 = phi i32 [ 2, %215 ], [ 0, %41 ], [ 0, %34 ], [ 0, %56 ], [ 0, %.noexc85 ], [ 0, %.noexc84 ], [ 1, %137 ], [ 2, %._crit_edge.i88 ], [ 0, %.noexc102 ], [ 0, %.noexc101 ], [ 0, %173 ], [ 2, %.noexc83 ], [ 1, %.noexc100 ], [ 0, %.invoke ], [ 1, %._crit_edge.i.invoke ], [ 1, %.invoke127 ], [ 2, %.invoke128 ]
+  %.1 = phi i32 [ 0, %41 ], [ 0, %34 ], [ 0, %56 ], [ 2, %215 ], [ 0, %.noexc85 ], [ 0, %.noexc84 ], [ 1, %137 ], [ 2, %._crit_edge.i88 ], [ 0, %.noexc102 ], [ 0, %.noexc101 ], [ 0, %173 ], [ 2, %.noexc83 ], [ 1, %.noexc100 ], [ 0, %.invoke ], [ 1, %._crit_edge.i.invoke ], [ 1, %.invoke127 ], [ 2, %.invoke128 ]
   %218 = load ptr, ptr %1, align 8, !tbaa !36
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !8
@@ -2420,7 +2420,7 @@ default.unreachable:                              ; preds = %19
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %179, %205, %91, %57, %67, %42, %23
-  %.pn72 = phi { ptr, i32 } [ %24, %23 ], [ %43, %42 ], [ %68, %67 ], [ %58, %57 ], [ %92, %91 ], [ %180, %179 ], [ %206, %205 ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82 ], [ %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113 ], [ %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112 ]
+  %.pn72 = phi { ptr, i32 } [ %43, %42 ], [ %24, %23 ], [ %68, %67 ], [ %58, %57 ], [ %92, %91 ], [ %180, %179 ], [ %206, %205 ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82 ], [ %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113 ], [ %208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112 ]
   %234 = load ptr, ptr %0, align 8, !tbaa !22
   %235 = icmp eq ptr %234, %6
   br i1 %235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115

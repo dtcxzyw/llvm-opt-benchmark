@@ -1504,7 +1504,7 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %118, %142, %145, %148, %151, %157, %159, %171, %172, %174
-  %.0.i = phi i64 [ %119, %118 ], [ %175, %174 ], [ 0, %171 ], [ %173, %172 ], [ %160, %159 ], [ %152, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %158, %157 ]
+  %.0.i = phi i64 [ %119, %118 ], [ %175, %174 ], [ 0, %171 ], [ %173, %172 ], [ %160, %159 ], [ %144, %142 ], [ %147, %145 ], [ %150, %148 ], [ %152, %151 ], [ %158, %157 ]
   %176 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %.critedge.i, label %178
@@ -2017,7 +2017,7 @@ HeapKeyTest.exit.us74:                            ; preds = %138, %.lr.ph.split.
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %199, %223, %226, %229, %232, %238, %240, %252, %253, %255
-  %.0.i = phi i64 [ %200, %199 ], [ %256, %255 ], [ 0, %252 ], [ %254, %253 ], [ %241, %240 ], [ %233, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ %239, %238 ]
+  %.0.i = phi i64 [ %200, %199 ], [ %256, %255 ], [ 0, %252 ], [ %254, %253 ], [ %241, %240 ], [ %225, %223 ], [ %228, %226 ], [ %231, %229 ], [ %233, %232 ], [ %239, %238 ]
   %257 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %.critedge.i, label %259
@@ -5543,8 +5543,8 @@ get_mxact_status_for_lock.exit:                   ; preds = %50
   br label %74
 
 74:                                               ; preds = %72, %71, %69, %63
-  %.129.i = phi i16 [ %.02837.i, %63 ], [ %70, %69 ], [ %.02837.i, %71 ], [ %73, %72 ]
-  %.127.i = phi i1 [ %.02638.i, %63 ], [ %.02638.i, %69 ], [ true, %71 ], [ true, %72 ]
+  %.129.i = phi i16 [ %.02837.i, %63 ], [ %73, %72 ], [ %.02837.i, %71 ], [ %70, %69 ]
+  %.127.i = phi i1 [ %.02638.i, %63 ], [ true, %72 ], [ true, %71 ], [ %.02638.i, %69 ]
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i100
   br i1 %exitcond.not.i103, label %._crit_edge.i, label %63, !llvm.loop !25
@@ -5640,8 +5640,8 @@ get_mxact_status_for_lock.exit106:                ; preds = %84
   br label %108
 
 108:                                              ; preds = %106, %105, %103, %97
-  %.129.i116 = phi i16 [ %.02837.i113, %97 ], [ %104, %103 ], [ %.02837.i113, %105 ], [ %107, %106 ]
-  %.127.i117 = phi i1 [ %.02638.i112, %97 ], [ %.02638.i112, %103 ], [ true, %105 ], [ true, %106 ]
+  %.129.i116 = phi i16 [ %.02837.i113, %97 ], [ %107, %106 ], [ %.02837.i113, %105 ], [ %104, %103 ]
+  %.127.i117 = phi i1 [ %.02638.i112, %97 ], [ true, %106 ], [ true, %105 ], [ %.02638.i112, %103 ]
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i109
   br i1 %exitcond.not.i119, label %._crit_edge.i120, label %97, !llvm.loop !25
@@ -5783,8 +5783,8 @@ get_mxact_status_for_lock.exit129:                ; preds = %137
   br label %161
 
 161:                                              ; preds = %159, %158, %156, %150
-  %.129.i139 = phi i16 [ %.02837.i136, %150 ], [ %157, %156 ], [ %.02837.i136, %158 ], [ %160, %159 ]
-  %.127.i140 = phi i1 [ %.02638.i135, %150 ], [ %.02638.i135, %156 ], [ true, %158 ], [ true, %159 ]
+  %.129.i139 = phi i16 [ %.02837.i136, %150 ], [ %160, %159 ], [ %.02837.i136, %158 ], [ %157, %156 ]
+  %.127.i140 = phi i1 [ %.02638.i135, %150 ], [ true, %159 ], [ true, %158 ], [ %.02638.i135, %156 ]
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i133, 1
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i132
   br i1 %exitcond.not.i142, label %._crit_edge.i143, label %150, !llvm.loop !25
@@ -5882,8 +5882,8 @@ get_mxact_status_for_lock.exit152:                ; preds = %172
   br label %196
 
 196:                                              ; preds = %194, %193, %191, %185
-  %.129.i162 = phi i16 [ %.02837.i159, %185 ], [ %192, %191 ], [ %.02837.i159, %193 ], [ %195, %194 ]
-  %.127.i163 = phi i1 [ %.02638.i158, %185 ], [ %.02638.i158, %191 ], [ true, %193 ], [ true, %194 ]
+  %.129.i162 = phi i16 [ %.02837.i159, %185 ], [ %195, %194 ], [ %.02837.i159, %193 ], [ %192, %191 ]
+  %.127.i163 = phi i1 [ %.02638.i158, %185 ], [ true, %194 ], [ true, %193 ], [ %.02638.i158, %191 ]
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, %wide.trip.count.i155
   br i1 %exitcond.not.i165, label %._crit_edge.i166, label %185, !llvm.loop !25
@@ -5916,9 +5916,9 @@ GetMultiXactIdHintBits.exit172:                   ; preds = %get_mxact_status_fo
   br label %204
 
 204:                                              ; preds = %20, %.thread188, %.thread, %22, %GetMultiXactIdHintBits.exit172, %GetMultiXactIdHintBits.exit126, %25, %24, %23
-  %.0179 = phi i16 [ %203, %GetMultiXactIdHintBits.exit172 ], [ %115, %GetMultiXactIdHintBits.exit126 ], [ 192, %25 ], [ 192, %24 ], [ 208, %23 ], [ 144, %22 ], [ %81, %.thread ], [ %168, %.thread188 ], [ 0, %20 ]
-  %.0176 = phi i16 [ %.028.lcssa4658728694.i153, %GetMultiXactIdHintBits.exit172 ], [ %.028.lcssa4658728694.i107, %GetMultiXactIdHintBits.exit126 ], [ 8192, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ %.028.lcssa4658728694.i, %.thread ], [ %.028.lcssa4658728694.i130, %.thread188 ], [ %spec.select196, %20 ]
-  %.181 = phi i32 [ %181, %GetMultiXactIdHintBits.exit172 ], [ %93, %GetMultiXactIdHintBits.exit126 ], [ %3, %25 ], [ %3, %24 ], [ %3, %23 ], [ %3, %22 ], [ %59, %.thread ], [ %146, %.thread188 ], [ %3, %20 ]
+  %.0179 = phi i16 [ %203, %GetMultiXactIdHintBits.exit172 ], [ %115, %GetMultiXactIdHintBits.exit126 ], [ 208, %23 ], [ 192, %24 ], [ 192, %25 ], [ 144, %22 ], [ %81, %.thread ], [ %168, %.thread188 ], [ 0, %20 ]
+  %.0176 = phi i16 [ %.028.lcssa4658728694.i153, %GetMultiXactIdHintBits.exit172 ], [ %.028.lcssa4658728694.i107, %GetMultiXactIdHintBits.exit126 ], [ 0, %23 ], [ 0, %24 ], [ 8192, %25 ], [ 0, %22 ], [ %.028.lcssa4658728694.i, %.thread ], [ %.028.lcssa4658728694.i130, %.thread188 ], [ %spec.select196, %20 ]
+  %.181 = phi i32 [ %181, %GetMultiXactIdHintBits.exit172 ], [ %93, %GetMultiXactIdHintBits.exit126 ], [ %3, %23 ], [ %3, %24 ], [ %3, %25 ], [ %3, %22 ], [ %59, %.thread ], [ %146, %.thread188 ], [ %3, %20 ]
   store i16 %.0179, ptr %7, align 2
   store i16 %.0176, ptr %8, align 2
   store i32 %.181, ptr %6, align 4
@@ -6713,8 +6713,8 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread454, %HeapTu
   br label %352
 
 352:                                              ; preds = %350, %349, %347, %341
-  %.129.i = phi i16 [ %.02837.i, %341 ], [ %348, %347 ], [ %.02837.i, %349 ], [ %351, %350 ]
-  %.127.i = phi i1 [ %.02638.i, %341 ], [ %.02638.i, %347 ], [ true, %349 ], [ true, %350 ]
+  %.129.i = phi i16 [ %.02837.i, %341 ], [ %351, %350 ], [ %.02837.i, %349 ], [ %348, %347 ]
+  %.127.i = phi i1 [ %.02638.i, %341 ], [ true, %350 ], [ true, %349 ], [ %.02638.i, %347 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %341, !llvm.loop !25
@@ -8619,8 +8619,8 @@ UpdateXmaxHintBits.exit:                          ; preds = %277, %278, %290, %2
   br label %448
 
 .critedge:                                        ; preds = %140, %.thread368, %274, %192, %199, %179, %186, %167, %174, %152
-  %.2291 = phi i8 [ %.0289, %192 ], [ %.3292, %.thread368 ], [ %.3292, %274 ], [ %.0289, %199 ], [ %.0289, %179 ], [ %.0289, %186 ], [ %.0289, %167 ], [ %.0289, %174 ], [ %.0289, %152 ], [ %.0289, %140 ]
-  %.4228 = phi i1 [ %.1225302, %192 ], [ %.1225302, %.thread368 ], [ %.1225302, %274 ], [ %.1225302, %199 ], [ %.1225315453, %179 ], [ %.1225315453, %186 ], [ %.1225, %167 ], [ %.1225, %174 ], [ %.1225308, %152 ], [ %.1225, %140 ]
+  %.2291 = phi i8 [ %.0289, %192 ], [ %.3292, %.thread368 ], [ %.3292, %274 ], [ %.0289, %199 ], [ %.0289, %152 ], [ %.0289, %179 ], [ %.0289, %186 ], [ %.0289, %167 ], [ %.0289, %174 ], [ %.0289, %140 ]
+  %.4228 = phi i1 [ %.1225302, %192 ], [ %.1225302, %.thread368 ], [ %.1225302, %274 ], [ %.1225302, %199 ], [ %.1225308, %152 ], [ %.1225315453, %179 ], [ %.1225315453, %186 ], [ %.1225, %167 ], [ %.1225, %174 ], [ %.1225, %140 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #13
   br label %.backedge.backedge
 
@@ -10674,8 +10674,8 @@ FreezeMultiXactId.exit.thread:                    ; preds = %46, %71, %95, %91, 
   br label %212
 
 212:                                              ; preds = %210, %209, %207, %201
-  %.129.i = phi i16 [ %.02837.i, %201 ], [ %208, %207 ], [ %.02837.i, %209 ], [ %211, %210 ]
-  %.127.i = phi i1 [ %.02638.i, %201 ], [ %.02638.i, %207 ], [ true, %209 ], [ true, %210 ]
+  %.129.i = phi i16 [ %.02837.i, %201 ], [ %211, %210 ], [ %.02837.i, %209 ], [ %208, %207 ]
+  %.127.i = phi i1 [ %.02638.i, %201 ], [ true, %210 ], [ true, %209 ], [ %.02638.i, %207 ]
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i106
   br i1 %exitcond.not.i110, label %._crit_edge.i111, label %201, !llvm.loop !25
@@ -12542,7 +12542,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ]
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
   ret i64 %.0
 }
 

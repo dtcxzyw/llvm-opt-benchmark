@@ -140,7 +140,7 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
   br label %18
 
 18:                                               ; preds = %12, %9
-  %.sroa.0.0 = phi ptr [ %15, %12 ], [ %11, %9 ]
+  %.sroa.0.0 = phi ptr [ %11, %9 ], [ %15, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
@@ -1335,7 +1335,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i32 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i32 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i32 %.sroa.01.0
 }
 
@@ -5171,7 +5171,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit26: ; preds = %2
   br label %42
 
 42:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit26, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit21, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %15
-  %.sroa.0.0.in = phi i1 [ %41, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit26 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit21 ], [ %25, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %17, %15 ]
+  %.sroa.0.0.in = phi i1 [ %17, %15 ], [ %25, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit21 ], [ %41, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit26 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -20496,8 +20496,8 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br i1 %119, label %79, label %._crit_edge
 
 120:                                              ; preds = %18, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %19, %18 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn116.pn = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %.body ]
+  resume { ptr, i32 } %.pn116.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

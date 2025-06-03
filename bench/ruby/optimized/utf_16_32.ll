@@ -954,7 +954,7 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_16(ptr noundef readonly cap
   br label %11
 
 11:                                               ; preds = %5, %9, %7
-  %.0 = phi i64 [ %10, %9 ], [ %8, %7 ], [ 0, %5 ]
+  %.0 = phi i64 [ %8, %7 ], [ %10, %9 ], [ 0, %5 ]
   ret i64 %.0
 }
 

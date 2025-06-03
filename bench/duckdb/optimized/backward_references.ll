@@ -2188,7 +2188,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1039, %1023, %1034, %1027, %1043, %1046
-  %.1.i241 = phi i64 [ 3, %1043 ], [ %1047, %1046 ], [ 2, %1039 ], [ 1, %1023 ], [ %1038, %1034 ], [ %1031, %1027 ]
+  %.1.i241 = phi i64 [ %1047, %1046 ], [ 3, %1043 ], [ 2, %1039 ], [ 1, %1023 ], [ %1038, %1034 ], [ %1031, %1027 ]
   %1048 = icmp ule i64 %.sroa.18429.1530, %1013
   %1049 = icmp ne i64 %.1.i241, 0
   %or.cond = and i1 %1048, %1049
@@ -4654,7 +4654,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1043, %1027, %1038, %1031, %1047, %1050
-  %.1.i = phi i64 [ 3, %1047 ], [ %1051, %1050 ], [ 2, %1043 ], [ 1, %1027 ], [ %1042, %1038 ], [ %1035, %1031 ]
+  %.1.i = phi i64 [ %1051, %1050 ], [ 3, %1047 ], [ 2, %1043 ], [ 1, %1027 ], [ %1042, %1038 ], [ %1035, %1031 ]
   %1052 = icmp ule i64 %.sroa.18406.1507, %1017
   %1053 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1052, %1053
@@ -7023,7 +7023,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %982, %966, %977, %970, %986, %989
-  %.1.i = phi i64 [ 3, %986 ], [ %990, %989 ], [ 2, %982 ], [ 1, %966 ], [ %981, %977 ], [ %974, %970 ]
+  %.1.i = phi i64 [ %990, %989 ], [ 3, %986 ], [ 2, %982 ], [ 1, %966 ], [ %981, %977 ], [ %974, %970 ]
   %991 = icmp ule i64 %.sroa.18419.1524, %956
   %992 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %991, %992
@@ -9423,7 +9423,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %995, %979, %990, %983, %999, %1002
-  %.1.i = phi i64 [ 3, %999 ], [ %1003, %1002 ], [ 2, %995 ], [ 1, %979 ], [ %994, %990 ], [ %987, %983 ]
+  %.1.i = phi i64 [ %1003, %1002 ], [ 3, %999 ], [ 2, %995 ], [ 1, %979 ], [ %994, %990 ], [ %987, %983 ]
   %1004 = icmp ule i64 %.sroa.18419.1524, %969
   %1005 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1004, %1005
@@ -11863,7 +11863,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1017, %1001, %1012, %1005, %1021, %1024
-  %.1.i = phi i64 [ 3, %1021 ], [ %1025, %1024 ], [ 2, %1017 ], [ 1, %1001 ], [ %1016, %1012 ], [ %1009, %1005 ]
+  %.1.i = phi i64 [ %1025, %1024 ], [ 3, %1021 ], [ 2, %1017 ], [ 1, %1001 ], [ %1016, %1012 ], [ %1009, %1005 ]
   %1026 = icmp ule i64 %.sroa.18419.1524, %991
   %1027 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1026, %1027
@@ -14031,7 +14031,7 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %787
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %815, %799, %810, %803, %819, %822
-  %.1.i = phi i64 [ 3, %819 ], [ %823, %822 ], [ 2, %815 ], [ 1, %799 ], [ %814, %810 ], [ %807, %803 ]
+  %.1.i = phi i64 [ %823, %822 ], [ 3, %819 ], [ 2, %815 ], [ 1, %799 ], [ %814, %810 ], [ %807, %803 ]
   %824 = icmp ule i64 %.sroa.18404.1473, %786
   %825 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %824, %825
@@ -16780,7 +16780,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1194, %1178, %1189, %1182, %1198, %1201
-  %.1.i = phi i64 [ 3, %1198 ], [ %1202, %1201 ], [ 2, %1194 ], [ 1, %1178 ], [ %1193, %1189 ], [ %1186, %1182 ]
+  %.1.i = phi i64 [ %1202, %1201 ], [ 3, %1198 ], [ 2, %1194 ], [ 1, %1178 ], [ %1193, %1189 ], [ %1186, %1182 ]
   %1203 = icmp ule i64 %.sroa.20.1537, %1168
   %1204 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1203, %1204
@@ -18158,7 +18158,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %525, %509, %520, %513, %529, %532
-  %.1.i = phi i64 [ 3, %529 ], [ %533, %532 ], [ 2, %525 ], [ 1, %509 ], [ %524, %520 ], [ %517, %513 ]
+  %.1.i = phi i64 [ %533, %532 ], [ 3, %529 ], [ 2, %525 ], [ 1, %509 ], [ %524, %520 ], [ %517, %513 ]
   %534 = icmp ule i64 %.sroa.14.1344, %499
   %535 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %534, %535
@@ -19131,7 +19131,7 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %288
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %316, %300, %311, %304, %320, %323
-  %.1.i = phi i64 [ 3, %320 ], [ %324, %323 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
+  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
   %325 = icmp ule i64 %.sroa.13.1296, %287
   %326 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %325, %326
@@ -20553,7 +20553,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEP
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %584, %568, %579, %572, %588, %591
-  %.1.i = phi i64 [ 3, %588 ], [ %592, %591 ], [ 2, %584 ], [ 1, %568 ], [ %583, %579 ], [ %576, %572 ]
+  %.1.i = phi i64 [ %592, %591 ], [ 3, %588 ], [ 2, %584 ], [ 1, %568 ], [ %583, %579 ], [ %576, %572 ]
   %593 = icmp ule i64 %.sroa.14.1352, %558
   %594 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %593, %594
@@ -22228,7 +22228,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %709, %693, %704, %697, %713, %716
-  %.1.i222 = phi i64 [ 3, %713 ], [ %717, %716 ], [ 2, %709 ], [ 1, %693 ], [ %708, %704 ], [ %701, %697 ]
+  %.1.i222 = phi i64 [ %717, %716 ], [ 3, %713 ], [ 2, %709 ], [ 1, %693 ], [ %708, %704 ], [ %701, %697 ]
   %718 = icmp ule i64 %.sroa.15.1410, %683
   %719 = icmp ne i64 %.1.i222, 0
   %or.cond = and i1 %718, %719
@@ -23985,7 +23985,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %713, %697, %708, %701, %717, %720
-  %.1.i = phi i64 [ 3, %717 ], [ %721, %720 ], [ 2, %713 ], [ 1, %697 ], [ %712, %708 ], [ %705, %701 ]
+  %.1.i = phi i64 [ %721, %720 ], [ 3, %717 ], [ 2, %713 ], [ 1, %697 ], [ %712, %708 ], [ %705, %701 ]
   %722 = icmp ule i64 %.sroa.15.1388, %687
   %723 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %722, %723
@@ -25641,7 +25641,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %649, %633, %644, %637, %653, %656
-  %.1.i = phi i64 [ 3, %653 ], [ %657, %656 ], [ 2, %649 ], [ 1, %633 ], [ %648, %644 ], [ %641, %637 ]
+  %.1.i = phi i64 [ %657, %656 ], [ 3, %653 ], [ 2, %649 ], [ 1, %633 ], [ %648, %644 ], [ %641, %637 ]
   %658 = icmp ule i64 %.sroa.15.1399, %623
   %659 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %658, %659
@@ -27328,7 +27328,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %662, %646, %657, %650, %666, %669
-  %.1.i = phi i64 [ 3, %666 ], [ %670, %669 ], [ 2, %662 ], [ 1, %646 ], [ %661, %657 ], [ %654, %650 ]
+  %.1.i = phi i64 [ %670, %669 ], [ 3, %666 ], [ 2, %662 ], [ 1, %646 ], [ %661, %657 ], [ %654, %650 ]
   %671 = icmp ule i64 %.sroa.15.1399, %636
   %672 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %671, %672
@@ -29055,7 +29055,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %684, %668, %679, %672, %688, %691
-  %.1.i = phi i64 [ 3, %688 ], [ %692, %691 ], [ 2, %684 ], [ 1, %668 ], [ %683, %679 ], [ %676, %672 ]
+  %.1.i = phi i64 [ %692, %691 ], [ 3, %688 ], [ 2, %684 ], [ 1, %668 ], [ %683, %679 ], [ %676, %672 ]
   %693 = icmp ule i64 %.sroa.15.1399, %658
   %694 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %693, %694
@@ -30171,7 +30171,7 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %300
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %328, %312, %323, %316, %332, %335
-  %.1.i = phi i64 [ 3, %332 ], [ %336, %335 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
+  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
   %337 = icmp ule i64 %.sroa.13.1296, %299
   %338 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %337, %338
@@ -31514,7 +31514,7 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %442
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %470, %454, %465, %458, %474, %477
-  %.1.i = phi i64 [ 3, %474 ], [ %478, %477 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
+  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
   %479 = icmp ule i64 %.sroa.15.1333, %441
   %480 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %479, %480
@@ -32871,7 +32871,7 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %453
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %481, %465, %476, %469, %485, %488
-  %.1.i = phi i64 [ 3, %485 ], [ %489, %488 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
+  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
   %490 = icmp ule i64 %.sroa.15.1353, %452
   %491 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %490, %491
@@ -34911,7 +34911,7 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
 _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %862, %846, %857, %850, %866, %869
-  %.1.i = phi i64 [ 3, %866 ], [ %870, %869 ], [ 2, %862 ], [ 1, %846 ], [ %861, %857 ], [ %854, %850 ]
+  %.1.i = phi i64 [ %870, %869 ], [ 3, %866 ], [ 2, %862 ], [ 1, %846 ], [ %861, %857 ], [ %854, %850 ]
   %871 = icmp ule i64 %.sroa.17.1419, %836
   %872 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %871, %872

@@ -5341,7 +5341,7 @@ define internal void @_ZNK4ncnn24DeformableConv2D_x86_fma7forwardERKSt6vectorINS
   br label %.noexc281.us.us.us
 
 .noexc281.us.us.us:                               ; preds = %130, %124, %123, %116, %109, %103, %99, %95, %87, %._crit_edge582.us.us.us
-  %.1489.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge582.us.us.us ], [ %.1.lcssa.us.us.us, %95 ], [ %102, %99 ], [ %108, %103 ], [ %115, %109 ], [ %120, %123 ], [ %.0.us.us.us, %116 ], [ %129, %124 ], [ %131, %130 ], [ 0.000000e+00, %87 ]
+  %.1489.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge582.us.us.us ], [ %131, %130 ], [ %129, %124 ], [ %120, %123 ], [ %.0.us.us.us, %116 ], [ %115, %109 ], [ %108, %103 ], [ %.1.lcssa.us.us.us, %95 ], [ %102, %99 ], [ 0.000000e+00, %87 ]
   %.reass.us.us.us = mul i64 %factor.op.mul591.us.us, %indvars.iv624
   %gep593.us.us.us = getelementptr i8, ptr %invariant.gep592.us.us.us, i64 %.reass.us.us.us
   store float %.1489.us.us.us, ptr %gep593.us.us.us, align 4, !tbaa !34
@@ -6582,7 +6582,7 @@ _ZN4ncnn3MatD2Ev.exit.us873.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc388, %.noexc387, %.noexc386, %514, %.noexc385, %504, %._crit_edge913
-  %.0.i = phi nsz <8 x float> [ %643, %.noexc388 ], [ %631, %.noexc387 ], [ %550, %.noexc386 ], [ %524, %514 ], [ %513, %.noexc385 ], [ %505, %504 ], [ %.1863.lcssa, %._crit_edge913 ]
+  %.0.i = phi nsz <8 x float> [ %505, %504 ], [ %513, %.noexc385 ], [ %524, %514 ], [ %550, %.noexc386 ], [ %631, %.noexc387 ], [ %643, %.noexc388 ], [ %.1863.lcssa, %._crit_edge913 ]
   %644 = load i32, ptr %3, align 4, !tbaa !70
   %645 = mul nsw i32 %644, %60
   %646 = add nsw i32 %645, %65
@@ -7246,7 +7246,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc318, %.noexc317, %.noexc316, %294, %.noexc315, %284, %._crit_edge662
-  %.0.i = phi nsz <8 x float> [ %423, %.noexc318 ], [ %411, %.noexc317 ], [ %330, %.noexc316 ], [ %304, %294 ], [ %293, %.noexc315 ], [ %285, %284 ], [ %.1628.lcssa, %._crit_edge662 ]
+  %.0.i = phi nsz <8 x float> [ %285, %284 ], [ %293, %.noexc315 ], [ %304, %294 ], [ %330, %.noexc316 ], [ %411, %.noexc317 ], [ %423, %.noexc318 ], [ %.1628.lcssa, %._crit_edge662 ]
   %424 = load i32, ptr %3, align 4, !tbaa !70
   %425 = mul nsw i32 %424, %60
   %426 = add nsw i32 %425, %65
@@ -8023,7 +8023,7 @@ _ZN4ncnn3MatD2Ev.exit.us738.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc348, %.noexc347, %.noexc346, %394, %.noexc345, %384, %._crit_edge774
-  %.0.i = phi nsz <8 x float> [ %523, %.noexc348 ], [ %511, %.noexc347 ], [ %430, %.noexc346 ], [ %404, %394 ], [ %393, %.noexc345 ], [ %385, %384 ], [ %.1728.lcssa, %._crit_edge774 ]
+  %.0.i = phi nsz <8 x float> [ %385, %384 ], [ %393, %.noexc345 ], [ %404, %394 ], [ %430, %.noexc346 ], [ %511, %.noexc347 ], [ %523, %.noexc348 ], [ %.1728.lcssa, %._crit_edge774 ]
   %524 = load i32, ptr %3, align 4, !tbaa !70
   %525 = mul nsw i32 %524, %60
   %526 = add nsw i32 %525, %65
@@ -8236,7 +8236,7 @@ define internal void @_ZN4ncnnL29deformableconv2d_pack8to1_avxERKSt6vectorINS_3M
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %128, %123, %122, %117, %110, %104, %100, %96, %90, %._crit_edge709.us.us.us
-  %.1671.us.us.us = phi nsz float [ %.1373.lcssa.us.us.us, %._crit_edge709.us.us.us ], [ %.1373.lcssa.us.us.us, %96 ], [ %103, %100 ], [ %109, %104 ], [ %116, %110 ], [ %119, %122 ], [ %.0670.us.us.us, %117 ], [ %127, %123 ], [ %129, %128 ], [ 0.000000e+00, %90 ]
+  %.1671.us.us.us = phi nsz float [ %.1373.lcssa.us.us.us, %._crit_edge709.us.us.us ], [ %129, %128 ], [ %127, %123 ], [ %119, %122 ], [ %.0670.us.us.us, %117 ], [ %116, %110 ], [ %109, %104 ], [ %.1373.lcssa.us.us.us, %96 ], [ %103, %100 ], [ 0.000000e+00, %90 ]
   %gep728.us.us.us = getelementptr i8, ptr %invariant.gep727.us.us.us, i64 %.reass725.us.us.us
   store float %.1671.us.us.us, ptr %gep728.us.us.us, align 4, !tbaa !34
   %indvars.iv.next765 = add nuw nsw i64 %indvars.iv764, 1
@@ -9639,7 +9639,7 @@ _ZN4ncnn3MatD2Ev.exit.us824.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %640, %.noexc367, %.noexc366, %514, %.noexc365, %504, %._crit_edge864
-  %.0.i = phi nsz <4 x float> [ %653, %640 ], [ %639, %.noexc367 ], [ %552, %.noexc366 ], [ %524, %514 ], [ %513, %.noexc365 ], [ %505, %504 ], [ %.1814.lcssa, %._crit_edge864 ]
+  %.0.i = phi nsz <4 x float> [ %505, %504 ], [ %513, %.noexc365 ], [ %524, %514 ], [ %552, %.noexc366 ], [ %639, %.noexc367 ], [ %653, %640 ], [ %.1814.lcssa, %._crit_edge864 ]
   %654 = load i32, ptr %3, align 4, !tbaa !70
   %655 = mul nsw i32 %654, %60
   %656 = add nsw i32 %655, %65
@@ -10432,7 +10432,7 @@ _ZN4ncnn3MatD2Ev.exit.us689.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %520, %.noexc327, %.noexc326, %394, %.noexc325, %384, %._crit_edge725
-  %.0.i = phi nsz <4 x float> [ %533, %520 ], [ %519, %.noexc327 ], [ %432, %.noexc326 ], [ %404, %394 ], [ %393, %.noexc325 ], [ %385, %384 ], [ %.1679.lcssa, %._crit_edge725 ]
+  %.0.i = phi nsz <4 x float> [ %385, %384 ], [ %393, %.noexc325 ], [ %404, %394 ], [ %432, %.noexc326 ], [ %519, %.noexc327 ], [ %533, %520 ], [ %.1679.lcssa, %._crit_edge725 ]
   %534 = load i32, ptr %3, align 4, !tbaa !70
   %535 = mul nsw i32 %534, %60
   %536 = add nsw i32 %535, %65
@@ -11091,7 +11091,7 @@ _ZN4ncnn3MatD2Ev.exit.us.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %420, %.noexc297, %.noexc296, %294, %.noexc295, %284, %._crit_edge613
-  %.0.i = phi nsz <4 x float> [ %433, %420 ], [ %419, %.noexc297 ], [ %332, %.noexc296 ], [ %304, %294 ], [ %293, %.noexc295 ], [ %285, %284 ], [ %.1579.lcssa, %._crit_edge613 ]
+  %.0.i = phi nsz <4 x float> [ %285, %284 ], [ %293, %.noexc295 ], [ %304, %294 ], [ %332, %.noexc296 ], [ %419, %.noexc297 ], [ %433, %420 ], [ %.1579.lcssa, %._crit_edge613 ]
   %434 = load i32, ptr %3, align 4, !tbaa !70
   %435 = mul nsw i32 %434, %60
   %436 = add nsw i32 %435, %65
@@ -11304,7 +11304,7 @@ define internal void @_ZN4ncnnL29deformableconv2d_pack4to1_sseERKSt6vectorINS_3M
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %128, %123, %122, %117, %110, %104, %100, %96, %90, %._crit_edge581.us.us.us
-  %.1543.us.us.us = phi nsz float [ %.1294.lcssa.us.us.us, %._crit_edge581.us.us.us ], [ %.1294.lcssa.us.us.us, %96 ], [ %103, %100 ], [ %109, %104 ], [ %116, %110 ], [ %119, %122 ], [ %.0542.us.us.us, %117 ], [ %127, %123 ], [ %129, %128 ], [ 0.000000e+00, %90 ]
+  %.1543.us.us.us = phi nsz float [ %.1294.lcssa.us.us.us, %._crit_edge581.us.us.us ], [ %129, %128 ], [ %127, %123 ], [ %119, %122 ], [ %.0542.us.us.us, %117 ], [ %116, %110 ], [ %109, %104 ], [ %.1294.lcssa.us.us.us, %96 ], [ %103, %100 ], [ 0.000000e+00, %90 ]
   %gep600.us.us.us = getelementptr i8, ptr %invariant.gep599.us.us.us, i64 %.reass597.us.us.us
   store float %.1543.us.us.us, ptr %gep600.us.us.us, align 4, !tbaa !34
   %indvars.iv.next637 = add nuw nsw i64 %indvars.iv636, 1

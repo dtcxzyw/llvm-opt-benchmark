@@ -715,7 +715,7 @@ define internal zeroext i1 @VULKAN_CreateTexture(ptr noundef readonly captures(n
   br label %SDLPixelFormatToVkTextureFormat.exit
 
 SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %23, %24, %25, %26, %27, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 1000156013, %27 ], [ 1000156003, %26 ], [ 1000156002, %25 ], [ 1000156001, %24 ], [ 1000156000, %23 ], [ 64, %18 ], [ 97, %3 ], [ %..i, %19 ], [ %.4.i, %21 ]
+  %.0.i = phi i32 [ 0, %28 ], [ 64, %18 ], [ 1000156000, %23 ], [ 1000156001, %24 ], [ 1000156002, %25 ], [ 1000156003, %26 ], [ 1000156013, %27 ], [ 97, %3 ], [ %..i, %19 ], [ %.4.i, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1748,7 +1748,7 @@ define internal zeroext i1 @VULKAN_LockTexture(ptr noundef readonly captures(non
   br label %VULKAN_GetBytesPerPixel.exit
 
 VULKAN_GetBytesPerPixel.exit:                     ; preds = %17, %21, %22, %23
-  %.0.i = phi i64 [ 4, %23 ], [ 8, %22 ], [ 2, %21 ], [ 1, %17 ]
+  %.0.i = phi i64 [ 4, %23 ], [ 2, %21 ], [ 8, %22 ], [ 1, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
@@ -3331,7 +3331,7 @@ define internal ptr @VULKAN_RenderReadPixels(ptr noundef readonly captures(none)
   br label %VULKAN_GetBytesPerPixel.exit
 
 VULKAN_GetBytesPerPixel.exit:                     ; preds = %33, %34, %35, %36
-  %.0.i = phi i64 [ 4, %36 ], [ 8, %35 ], [ 2, %34 ], [ 1, %33 ]
+  %.0.i = phi i64 [ 4, %36 ], [ 2, %34 ], [ 8, %35 ], [ 1, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
@@ -3484,7 +3484,7 @@ VULKAN_RecordPipelineImageBarrier.exit53:         ; preds = %VULKAN_RecordPipeli
   br label %VULKAN_VkFormatToSDLPixelFormat.exit
 
 VULKAN_VkFormatToSDLPixelFormat.exit:             ; preds = %VULKAN_RecordPipelineImageBarrier.exit53, %105, %106, %107, %108
-  %.0.i54 = phi i32 [ 0, %108 ], [ 438321160, %107 ], [ 376905732, %106 ], [ 376840196, %105 ], [ 372645892, %VULKAN_RecordPipelineImageBarrier.exit53 ]
+  %.0.i54 = phi i32 [ 0, %108 ], [ 376840196, %105 ], [ 376905732, %106 ], [ 438321160, %107 ], [ 372645892, %VULKAN_RecordPipelineImageBarrier.exit53 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %110 = load ptr, ptr %109, align 8
   %.not51 = icmp eq ptr %110, null
@@ -6898,7 +6898,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_UpdateTextureInternal(ptr noun
   br label %VULKAN_GetBytesPerPixel.exit.thread
 
 VULKAN_GetBytesPerPixel.exit.thread:              ; preds = %11, %15, %16
-  %.0.i.ph = phi i64 [ 1, %11 ], [ 2, %15 ], [ 8, %16 ]
+  %.0.i.ph = phi i64 [ 1, %11 ], [ 8, %16 ], [ 2, %15 ]
   %17 = sext i32 %6 to i64
   %18 = mul nsw i64 %.0.i.ph, %17
   %19 = sext i32 %7 to i64

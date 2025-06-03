@@ -1303,8 +1303,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %424, %427
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit216
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit216: ; preds = %430, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit, %431, %423, %421
-  %.263 = phi i1 [ %.061, %421 ], [ %432, %431 ], [ %.061, %423 ], [ %.061, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %.061, %430 ]
-  %.260 = phi i1 [ false, %421 ], [ false, %431 ], [ true, %423 ], [ false, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ false, %430 ]
+  %.263 = phi i1 [ %.061, %421 ], [ %.061, %423 ], [ %432, %431 ], [ %.061, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %.061, %430 ]
+  %.260 = phi i1 [ false, %421 ], [ true, %423 ], [ false, %431 ], [ false, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ false, %430 ]
   %433 = load ptr, ptr %170, align 8, !tbaa !56
   %434 = load ptr, ptr %177, align 16, !tbaa !54
   %435 = load ptr, ptr %182, align 8, !tbaa !67

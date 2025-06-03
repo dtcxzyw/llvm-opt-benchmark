@@ -377,7 +377,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %58, %_ZNK6Method15i
   br label %71
 
 71:                                               ; preds = %68, %_ZNK6Method15is_empty_methodEv.exit.thread, %_ZNK6Method15is_empty_methodEv.exit, %56, %49, %38, %13, %1, %53, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %11
-  %.0 = phi i32 [ %12, %11 ], [ %55, %53 ], [ 27, %37 ], [ 20, %36 ], [ 19, %35 ], [ 25, %34 ], [ 26, %33 ], [ 24, %32 ], [ 23, %31 ], [ 22, %30 ], [ 21, %29 ], [ 18, %28 ], [ 17, %27 ], [ 16, %26 ], [ 15, %25 ], [ 39, %24 ], [ 36, %23 ], [ 35, %22 ], [ 38, %21 ], [ 37, %20 ], [ 34, %19 ], [ 33, %18 ], [ 32, %17 ], [ 31, %16 ], [ 30, %15 ], [ 29, %14 ], [ 7, %1 ], [ 28, %13 ], [ 0, %38 ], [ 7, %49 ], [ 1, %56 ], [ 4, %_ZNK6Method15is_empty_methodEv.exit ], [ 5, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ %., %68 ]
+  %.0 = phi i32 [ %12, %11 ], [ %55, %53 ], [ 29, %14 ], [ 30, %15 ], [ 31, %16 ], [ 32, %17 ], [ 33, %18 ], [ 34, %19 ], [ 37, %20 ], [ 38, %21 ], [ 35, %22 ], [ 36, %23 ], [ 39, %24 ], [ 15, %25 ], [ 16, %26 ], [ 17, %27 ], [ 18, %28 ], [ 21, %29 ], [ 22, %30 ], [ 23, %31 ], [ 24, %32 ], [ 26, %33 ], [ 25, %34 ], [ 19, %35 ], [ 20, %36 ], [ 27, %37 ], [ 7, %1 ], [ 28, %13 ], [ 0, %38 ], [ 7, %49 ], [ 1, %56 ], [ 4, %_ZNK6Method15is_empty_methodEv.exit ], [ 5, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ %., %68 ]
   ret i32 %.0
 }
 
@@ -563,7 +563,7 @@ _ZN9Bytecodes12must_rewriteENS_4CodeE.exit:       ; preds = %82
   br label %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit.thread
 
 _ZN9Bytecodes12must_rewriteENS_4CodeE.exit.thread: ; preds = %88, %82, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit, %45, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %34
-  %.0 = phi i1 [ %81, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ], [ %44, %34 ], [ false, %45 ], [ false, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit ], [ false, %82 ], [ %or.cond, %88 ]
+  %.0 = phi i1 [ %44, %34 ], [ %81, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ], [ false, %45 ], [ false, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit ], [ false, %82 ], [ %or.cond, %88 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   ret i1 %.0
 }

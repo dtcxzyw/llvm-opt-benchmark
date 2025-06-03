@@ -4638,7 +4638,7 @@ report_type_length_mismatch.exit:                 ; preds = %29, %31
   br label %36
 
 36:                                               ; preds = %22, %24, %17, %19, %report_type_length_mismatch.exit, %14, %6
-  %.027 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %15, %14 ], [ %8, %6 ], [ %18, %17 ], [ %20, %19 ], [ %23, %22 ], [ %25, %24 ]
+  %.027 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %8, %6 ], [ %15, %14 ], [ %18, %17 ], [ %20, %19 ], [ %23, %22 ], [ %25, %24 ]
   ret i32 %.027
 }
 
@@ -4879,7 +4879,7 @@ ws_sign_ext32.exit:                               ; preds = %6, %15
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %21, %21, %21, %26, %29, %30, %31, %32, %33, %34, %35
-  %.0.i.i = phi i32 [ %28, %26 ], [ 64, %35 ], [ 56, %34 ], [ 48, %33 ], [ 40, %32 ], [ 32, %31 ], [ 24, %30 ], [ 16, %29 ], [ 8, %21 ], [ 8, %21 ], [ 8, %21 ]
+  %.0.i.i = phi i32 [ %28, %26 ], [ 16, %29 ], [ 24, %30 ], [ 32, %31 ], [ 40, %32 ], [ 48, %33 ], [ 56, %34 ], [ 64, %35 ], [ 8, %21 ], [ 8, %21 ], [ 8, %21 ]
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = add i32 %.0.i.i, %38
@@ -5456,7 +5456,7 @@ report_type_length_mismatch.exit:                 ; preds = %35, %37
   br label %42
 
 42:                                               ; preds = %28, %30, %23, %25, %17, %20, %6, %10, %report_type_length_mismatch.exit
-  %.032 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %spec.store.select1, %20 ], [ %18, %17 ], [ %spec.store.select, %10 ], [ %8, %6 ], [ %24, %23 ], [ %26, %25 ], [ %29, %28 ], [ %31, %30 ]
+  %.032 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %spec.store.select, %10 ], [ %8, %6 ], [ %spec.store.select1, %20 ], [ %18, %17 ], [ %24, %23 ], [ %26, %25 ], [ %29, %28 ], [ %31, %30 ]
   ret i32 %.032
 }
 
@@ -5534,7 +5534,7 @@ define internal fastcc void @proto_tree_set_uint(ptr noundef captures(address_is
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %12, %12, %12, %17, %20, %21, %22, %23, %24, %25, %26
-  %.0.i.i = phi i32 [ %19, %17 ], [ 64, %26 ], [ 56, %25 ], [ 48, %24 ], [ 40, %23 ], [ 32, %22 ], [ 24, %21 ], [ 16, %20 ], [ 8, %12 ], [ 8, %12 ], [ 8, %12 ]
+  %.0.i.i = phi i32 [ %19, %17 ], [ 16, %20 ], [ 24, %21 ], [ 32, %22 ], [ 40, %23 ], [ 48, %24 ], [ 56, %25 ], [ 64, %26 ], [ 8, %12 ], [ 8, %12 ], [ 8, %12 ]
   %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = add i32 %.0.i.i, %29
@@ -6145,7 +6145,7 @@ define internal fastcc i32 @get_full_length(ptr noundef nonnull readonly capture
   unreachable
 
 45:                                               ; preds = %31, %33, %.thread, %22, %28, %6, %6, %6, %6, %6, %6, %35, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %16, %11, %6, %6, %6
-  %.0 = phi i32 [ %38, %35 ], [ %4, %16 ], [ %13, %11 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %25, %28 ], [ %3, %22 ], [ %.pre, %33 ], [ %3, %31 ], [ %3, %.thread ]
+  %.0 = phi i32 [ %13, %11 ], [ %4, %16 ], [ %38, %35 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %25, %28 ], [ %3, %22 ], [ %.pre, %33 ], [ %3, %31 ], [ %3, %.thread ]
   ret i32 %.0
 }
 
@@ -6957,9 +6957,9 @@ get_stringztrunc_value.exit:                      ; preds = %303, %311
   unreachable
 
 proto_tree_set_eui64_tvb.exit:                    ; preds = %172, %148, %6, %22, %proto_tree_set_bytes_tvb.exit, %proto_tree_set_bytes_tvb.exit293, %get_uint64_value.exit, %72, %93, %95, %97, %106, %112, %proto_tree_set_ipv6_tvb.exit, %proto_tree_set_fcwwn_tvb.exit, %132, %137, %142, %199, %proto_tree_set_oid_tvb.exit, %proto_tree_set_system_id_tvb.exit, %231, %242, %get_string_value.exit, %get_stringz_value.exit, %275, %get_stringzpad_value.exit, %get_stringztrunc_value.exit, %316, %319, %325, %330, %329
-  %.0358 = phi i32 [ 4, %329 ], [ %4, %330 ], [ %4, %325 ], [ %4, %319 ], [ %4, %316 ], [ %.0.i311, %get_stringztrunc_value.exit ], [ %.0.i308, %get_stringzpad_value.exit ], [ %287, %275 ], [ %272, %get_stringz_value.exit ], [ %.0.i, %get_string_value.exit ], [ %4, %242 ], [ %4, %231 ], [ %4, %proto_tree_set_system_id_tvb.exit ], [ %4, %proto_tree_set_oid_tvb.exit ], [ %4, %199 ], [ %4, %142 ], [ %4, %137 ], [ %4, %132 ], [ %4, %proto_tree_set_fcwwn_tvb.exit ], [ %4, %proto_tree_set_ipv6_tvb.exit ], [ %4, %112 ], [ %4, %106 ], [ %4, %97 ], [ %4, %95 ], [ %4, %93 ], [ %4, %72 ], [ %4, %get_uint64_value.exit ], [ %4, %proto_tree_set_bytes_tvb.exit293 ], [ %4, %proto_tree_set_bytes_tvb.exit ], [ %4, %22 ], [ %4, %6 ], [ %4, %148 ], [ %4, %172 ]
-  %.0240 = phi ptr [ null, %329 ], [ null, %330 ], [ null, %325 ], [ null, %319 ], [ null, %316 ], [ %313, %get_stringztrunc_value.exit ], [ %300, %get_stringzpad_value.exit ], [ %286, %275 ], [ %.0.i303, %get_stringz_value.exit ], [ %253, %get_string_value.exit ], [ null, %242 ], [ null, %231 ], [ null, %proto_tree_set_system_id_tvb.exit ], [ null, %proto_tree_set_oid_tvb.exit ], [ null, %199 ], [ null, %142 ], [ null, %137 ], [ null, %132 ], [ null, %proto_tree_set_fcwwn_tvb.exit ], [ null, %proto_tree_set_ipv6_tvb.exit ], [ null, %112 ], [ null, %106 ], [ null, %97 ], [ null, %95 ], [ null, %93 ], [ null, %72 ], [ null, %get_uint64_value.exit ], [ null, %proto_tree_set_bytes_tvb.exit293 ], [ null, %proto_tree_set_bytes_tvb.exit ], [ null, %22 ], [ null, %6 ], [ null, %148 ], [ null, %172 ]
-  %.2 = phi i32 [ %spec.store.select14, %329 ], [ %spec.store.select14, %330 ], [ %spec.store.select13, %325 ], [ %spec.store.select12, %319 ], [ %spec.store.select11, %316 ], [ %5, %get_stringztrunc_value.exit ], [ %5, %get_stringzpad_value.exit ], [ %spec.store.select10, %275 ], [ %5, %get_stringz_value.exit ], [ %5, %get_string_value.exit ], [ %spec.store.select9, %242 ], [ %spec.store.select8, %231 ], [ %5, %proto_tree_set_system_id_tvb.exit ], [ %5, %proto_tree_set_oid_tvb.exit ], [ %spec.store.select7, %199 ], [ %5, %142 ], [ %5, %137 ], [ %5, %132 ], [ %5, %proto_tree_set_fcwwn_tvb.exit ], [ %5, %proto_tree_set_ipv6_tvb.exit ], [ %5, %112 ], [ %spec.store.select5, %106 ], [ %spec.store.select4, %97 ], [ %spec.store.select3, %95 ], [ %.1, %93 ], [ %.0, %72 ], [ %spec.store.select, %get_uint64_value.exit ], [ %5, %proto_tree_set_bytes_tvb.exit293 ], [ %5, %proto_tree_set_bytes_tvb.exit ], [ %5, %22 ], [ %5, %6 ], [ -2147483648, %148 ], [ 0, %172 ]
+  %.0358 = phi i32 [ %4, %6 ], [ %4, %22 ], [ %4, %proto_tree_set_bytes_tvb.exit ], [ %4, %proto_tree_set_bytes_tvb.exit293 ], [ %4, %get_uint64_value.exit ], [ %4, %72 ], [ %4, %93 ], [ %4, %95 ], [ %4, %97 ], [ %4, %106 ], [ %4, %112 ], [ %4, %proto_tree_set_ipv6_tvb.exit ], [ %4, %proto_tree_set_fcwwn_tvb.exit ], [ %4, %132 ], [ %4, %137 ], [ %4, %142 ], [ %4, %199 ], [ %4, %proto_tree_set_oid_tvb.exit ], [ %4, %proto_tree_set_system_id_tvb.exit ], [ %4, %231 ], [ %4, %242 ], [ %.0.i, %get_string_value.exit ], [ %272, %get_stringz_value.exit ], [ %287, %275 ], [ %.0.i308, %get_stringzpad_value.exit ], [ %.0.i311, %get_stringztrunc_value.exit ], [ %4, %316 ], [ %4, %319 ], [ %4, %325 ], [ 4, %329 ], [ %4, %330 ], [ %4, %148 ], [ %4, %172 ]
+  %.0240 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %proto_tree_set_bytes_tvb.exit ], [ null, %proto_tree_set_bytes_tvb.exit293 ], [ null, %get_uint64_value.exit ], [ null, %72 ], [ null, %93 ], [ null, %95 ], [ null, %97 ], [ null, %106 ], [ null, %112 ], [ null, %proto_tree_set_ipv6_tvb.exit ], [ null, %proto_tree_set_fcwwn_tvb.exit ], [ null, %132 ], [ null, %137 ], [ null, %142 ], [ null, %199 ], [ null, %proto_tree_set_oid_tvb.exit ], [ null, %proto_tree_set_system_id_tvb.exit ], [ null, %231 ], [ null, %242 ], [ %253, %get_string_value.exit ], [ %.0.i303, %get_stringz_value.exit ], [ %286, %275 ], [ %300, %get_stringzpad_value.exit ], [ %313, %get_stringztrunc_value.exit ], [ null, %316 ], [ null, %319 ], [ null, %325 ], [ null, %329 ], [ null, %330 ], [ null, %148 ], [ null, %172 ]
+  %.2 = phi i32 [ %5, %6 ], [ %5, %22 ], [ %5, %proto_tree_set_bytes_tvb.exit ], [ %5, %proto_tree_set_bytes_tvb.exit293 ], [ %spec.store.select, %get_uint64_value.exit ], [ %.0, %72 ], [ %.1, %93 ], [ %spec.store.select3, %95 ], [ %spec.store.select4, %97 ], [ %spec.store.select5, %106 ], [ %5, %112 ], [ %5, %proto_tree_set_ipv6_tvb.exit ], [ %5, %proto_tree_set_fcwwn_tvb.exit ], [ %5, %132 ], [ %5, %137 ], [ %5, %142 ], [ %spec.store.select7, %199 ], [ %5, %proto_tree_set_oid_tvb.exit ], [ %5, %proto_tree_set_system_id_tvb.exit ], [ %spec.store.select8, %231 ], [ %spec.store.select9, %242 ], [ %5, %get_string_value.exit ], [ %5, %get_stringz_value.exit ], [ %spec.store.select10, %275 ], [ %5, %get_stringzpad_value.exit ], [ %5, %get_stringztrunc_value.exit ], [ %spec.store.select11, %316 ], [ %spec.store.select12, %319 ], [ %spec.store.select13, %325 ], [ %spec.store.select14, %329 ], [ %spec.store.select14, %330 ], [ -2147483648, %148 ], [ 0, %172 ]
   %.not287 = icmp eq ptr %0, null
   br i1 %.not287, label %.split, label %.split244
 
@@ -7502,8 +7502,8 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
   unreachable
 
 79:                                               ; preds = %get_stringztrunc_value.exit, %get_stringzpad_value.exit, %52, %get_stringz_value.exit, %get_string_value.exit
-  %.0104 = phi i32 [ %.0.i101, %get_stringztrunc_value.exit ], [ %.0.i100, %get_stringzpad_value.exit ], [ %61, %52 ], [ %51, %get_stringz_value.exit ], [ %.0.i, %get_string_value.exit ]
-  %.077 = phi ptr [ %75, %get_stringztrunc_value.exit ], [ %68, %get_stringzpad_value.exit ], [ %60, %52 ], [ %.0.i99, %get_stringz_value.exit ], [ %36, %get_string_value.exit ]
+  %.0104 = phi i32 [ %.0.i, %get_string_value.exit ], [ %51, %get_stringz_value.exit ], [ %61, %52 ], [ %.0.i100, %get_stringzpad_value.exit ], [ %.0.i101, %get_stringztrunc_value.exit ]
+  %.077 = phi ptr [ %36, %get_string_value.exit ], [ %.0.i99, %get_stringz_value.exit ], [ %60, %52 ], [ %68, %get_stringzpad_value.exit ], [ %75, %get_stringztrunc_value.exit ]
   %.not87 = icmp eq ptr %5, null
   br i1 %.not87, label %81, label %80
 
@@ -8383,7 +8383,7 @@ define internal fastcc void @proto_tree_set_uint64(ptr noundef captures(address_
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %10, %10, %10, %15, %18, %19, %20, %21, %22, %23, %24
-  %.0.i.i = phi i32 [ %17, %15 ], [ 64, %24 ], [ 56, %23 ], [ 48, %22 ], [ 40, %21 ], [ 32, %20 ], [ 24, %19 ], [ 16, %18 ], [ 8, %10 ], [ 8, %10 ], [ 8, %10 ]
+  %.0.i.i = phi i32 [ %17, %15 ], [ 16, %18 ], [ 24, %19 ], [ 32, %20 ], [ 40, %21 ], [ 48, %22 ], [ 56, %23 ], [ 64, %24 ], [ 8, %10 ], [ 8, %10 ], [ 8, %10 ]
   %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = add i32 %.0.i.i, %27
@@ -8760,7 +8760,7 @@ get_uint64_value.exit:                            ; preds = %5, %report_type_len
   br label %34
 
 34:                                               ; preds = %31, %28, %25, %22, %19, %16, %13, %get_uint64_value.exit
-  %.0 = phi i64 [ %6, %get_uint64_value.exit ], [ %.010.i24, %31 ], [ %.010.i22, %28 ], [ %.010.i20, %25 ], [ %.010.i18, %22 ], [ %.010.i16, %19 ], [ %.010.i14, %16 ], [ %.010.i, %13 ]
+  %.0 = phi i64 [ %6, %get_uint64_value.exit ], [ %.010.i, %13 ], [ %.010.i14, %16 ], [ %.010.i16, %19 ], [ %.010.i18, %22 ], [ %.010.i20, %25 ], [ %.010.i22, %28 ], [ %.010.i24, %31 ]
   ret i64 %.0
 }
 
@@ -8854,7 +8854,7 @@ ws_sign_ext64.exit:                               ; preds = %6, %12
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %19, %19, %19, %24, %27, %28, %29, %30, %31, %32, %33
-  %.0.i.i = phi i32 [ %26, %24 ], [ 64, %33 ], [ 56, %32 ], [ 48, %31 ], [ 40, %30 ], [ 32, %29 ], [ 24, %28 ], [ 16, %27 ], [ 8, %19 ], [ 8, %19 ], [ 8, %19 ]
+  %.0.i.i = phi i32 [ %26, %24 ], [ 16, %27 ], [ 24, %28 ], [ 32, %29 ], [ 40, %30 ], [ 48, %31 ], [ 56, %32 ], [ 64, %33 ], [ 8, %19 ], [ 8, %19 ], [ 8, %19 ]
   %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = add i32 %.0.i.i, %36
@@ -10761,7 +10761,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
   unreachable
 
 66:                                               ; preds = %get_stringztrunc_value.exit, %get_stringzpad_value.exit, %47, %get_stringz_value.exit, %get_string_value.exit
-  %.0 = phi ptr [ %62, %get_stringztrunc_value.exit ], [ %57, %get_stringzpad_value.exit ], [ %51, %47 ], [ %.0.i110, %get_stringz_value.exit ], [ %35, %get_string_value.exit ]
+  %.0 = phi ptr [ %35, %get_string_value.exit ], [ %.0.i110, %get_stringz_value.exit ], [ %51, %47 ], [ %57, %get_stringzpad_value.exit ], [ %62, %get_stringztrunc_value.exit ]
   %.not97 = icmp eq ptr %7, null
   br i1 %.not97, label %68, label %67
 
@@ -11186,8 +11186,8 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
   unreachable
 
 95:                                               ; preds = %86, %83, %get_stringztrunc_value.exit, %get_stringzpad_value.exit, %55, %get_stringz_value.exit, %get_string_value.exit
-  %.0150 = phi ptr [ %89, %86 ], [ %84, %83 ], [ %78, %get_stringztrunc_value.exit ], [ %69, %get_stringzpad_value.exit ], [ %59, %55 ], [ %.0.i176, %get_stringz_value.exit ], [ %35, %get_string_value.exit ]
-  %.0 = phi i32 [ %87, %86 ], [ 0, %83 ], [ 0, %get_stringztrunc_value.exit ], [ 0, %get_stringzpad_value.exit ], [ 0, %55 ], [ 0, %get_stringz_value.exit ], [ 0, %get_string_value.exit ]
+  %.0150 = phi ptr [ %35, %get_string_value.exit ], [ %.0.i176, %get_stringz_value.exit ], [ %59, %55 ], [ %69, %get_stringzpad_value.exit ], [ %78, %get_stringztrunc_value.exit ], [ %84, %83 ], [ %89, %86 ]
+  %.0 = phi i32 [ 0, %get_string_value.exit ], [ 0, %get_stringz_value.exit ], [ 0, %55 ], [ 0, %get_stringzpad_value.exit ], [ 0, %get_stringztrunc_value.exit ], [ 0, %83 ], [ %87, %86 ]
   %.not160 = icmp eq ptr %0, null
   br i1 %.not160, label %detect_trailing_stray_characters.exit, label %96
 
@@ -15287,8 +15287,8 @@ hfinfo_container_bitwidth.exit.thread67:          ; preds = %43, %hfinfo_contain
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 5606, ptr noundef nonnull @.str.376) #37
   unreachable
 
-hfinfo_container_bitwidth.exit.thread:            ; preds = %48, %48, %48, %50, %51, %52, %53, %54, %55, %56, %hfinfo_container_bitwidth.exit
-  %.0.i6266 = phi i32 [ %59, %hfinfo_container_bitwidth.exit ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 16, %50 ], [ 24, %51 ], [ 32, %52 ], [ 40, %53 ], [ 48, %54 ], [ 56, %55 ], [ 64, %56 ]
+hfinfo_container_bitwidth.exit.thread:            ; preds = %48, %48, %48, %56, %55, %54, %53, %52, %51, %50, %hfinfo_container_bitwidth.exit
+  %.0.i6266 = phi i32 [ %59, %hfinfo_container_bitwidth.exit ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 64, %56 ], [ 56, %55 ], [ 48, %54 ], [ 40, %53 ], [ 32, %52 ], [ 24, %51 ], [ 16, %50 ]
   %61 = add nsw i32 %.0.i6266, -1
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 1, %62
@@ -20626,7 +20626,7 @@ protoo_strlcpy.exit373:                           ; preds = %454, %456
   br label %protoo_strlcpy.exit
 
 protoo_strlcpy.exit:                              ; preds = %346, %344, %protoo_strlcpy.exit341, %326, %324, %protoo_strlcpy.exit337, %286, %281, %276, %274, %178, %174, %169, %167, %109, %106, %101, %99, %68, %59, %15, %13, %protoo_strlcpy.exit254, %protoo_strlcpy.exit258, %protoo_strlcpy.exit262, %protoo_strlcpy.exit332, %protoo_strlcpy.exit348, %protoo_strlcpy.exit352, %protoo_strlcpy.exit356, %protoo_strlcpy.exit360, %protoo_strlcpy.exit364, %protoo_strlcpy.exit368, %428, %protoo_strlcpy.exit373, %protoo_strlcpy.exit270, %protoo_strlcpy.exit290, %protoo_strlcpy.exit282, %protoo_strlcpy.exit313, %protoo_strlcpy.exit302, %440, %431
-  %.0 = phi i32 [ %.08.i372, %protoo_strlcpy.exit373 ], [ %441, %440 ], [ %439, %431 ], [ %430, %428 ], [ %.08.i367, %protoo_strlcpy.exit368 ], [ %.08.i363, %protoo_strlcpy.exit364 ], [ %.08.i359, %protoo_strlcpy.exit360 ], [ %.08.i355, %protoo_strlcpy.exit356 ], [ %.08.i351, %protoo_strlcpy.exit352 ], [ %.08.i347, %protoo_strlcpy.exit348 ], [ %.08.i331, %protoo_strlcpy.exit332 ], [ %.08.i301, %protoo_strlcpy.exit302 ], [ %255, %protoo_strlcpy.exit313 ], [ %.08.i281, %protoo_strlcpy.exit282 ], [ %161, %protoo_strlcpy.exit290 ], [ %.08.i269, %protoo_strlcpy.exit270 ], [ %.08.i261, %protoo_strlcpy.exit262 ], [ %.08.i257, %protoo_strlcpy.exit258 ], [ %.08.i253, %protoo_strlcpy.exit254 ], [ %19, %15 ], [ 0, %13 ], [ %72, %68 ], [ 0, %59 ], [ %105, %101 ], [ 0, %99 ], [ %113, %109 ], [ 0, %106 ], [ %173, %169 ], [ 0, %167 ], [ %182, %178 ], [ 0, %174 ], [ %280, %276 ], [ 0, %274 ], [ %290, %286 ], [ 0, %281 ], [ %.08.i336, %protoo_strlcpy.exit337 ], [ %.08.i336, %324 ], [ %.08.i336, %326 ], [ %.08.i340, %protoo_strlcpy.exit341 ], [ %.08.i340, %344 ], [ %.08.i340, %346 ]
+  %.0 = phi i32 [ %.08.i372, %protoo_strlcpy.exit373 ], [ %.08.i253, %protoo_strlcpy.exit254 ], [ %.08.i257, %protoo_strlcpy.exit258 ], [ %.08.i261, %protoo_strlcpy.exit262 ], [ %.08.i269, %protoo_strlcpy.exit270 ], [ %.08.i281, %protoo_strlcpy.exit282 ], [ %161, %protoo_strlcpy.exit290 ], [ %.08.i301, %protoo_strlcpy.exit302 ], [ %255, %protoo_strlcpy.exit313 ], [ %.08.i331, %protoo_strlcpy.exit332 ], [ %.08.i347, %protoo_strlcpy.exit348 ], [ %.08.i351, %protoo_strlcpy.exit352 ], [ %.08.i355, %protoo_strlcpy.exit356 ], [ %.08.i359, %protoo_strlcpy.exit360 ], [ %.08.i363, %protoo_strlcpy.exit364 ], [ %.08.i367, %protoo_strlcpy.exit368 ], [ %430, %428 ], [ %441, %440 ], [ %439, %431 ], [ %19, %15 ], [ 0, %13 ], [ %72, %68 ], [ 0, %59 ], [ %105, %101 ], [ 0, %99 ], [ %113, %109 ], [ 0, %106 ], [ %173, %169 ], [ 0, %167 ], [ %182, %178 ], [ 0, %174 ], [ %280, %276 ], [ 0, %274 ], [ %290, %286 ], [ 0, %281 ], [ %.08.i336, %protoo_strlcpy.exit337 ], [ %.08.i336, %324 ], [ %.08.i336, %326 ], [ %.08.i340, %protoo_strlcpy.exit341 ], [ %.08.i340, %344 ], [ %.08.i340, %346 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #39
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #39
   ret i32 %.0
@@ -20754,7 +20754,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nound
   br label %61
 
 61:                                               ; preds = %49, %52, %41, %37, %33, %29, %59, %57, %.critedge, %12
-  %.051 = phi ptr [ %13, %12 ], [ %27, %.critedge ], [ %51, %49 ], [ %54, %52 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %58, %57 ], [ %60, %59 ]
+  %.051 = phi ptr [ %13, %12 ], [ %27, %.critedge ], [ %51, %49 ], [ %54, %52 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %58, %57 ], [ %60, %59 ]
   ret ptr %.051
 }
 
@@ -21209,7 +21209,7 @@ display_to_port_type.exit:                        ; preds = %83, %switch.lookup8
   unreachable
 
 101:                                              ; preds = %95, %97, %34, %36, %10, %12, %display_to_port_type.exit, %hfinfo_hex_digits.exit75, %hfinfo_hex_digits.exit70, %38
-  %.0 = phi ptr [ %2, %display_to_port_type.exit ], [ %82, %hfinfo_hex_digits.exit75 ], [ %56, %hfinfo_hex_digits.exit70 ], [ %39, %38 ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ], [ %2, %97 ], [ %2, %95 ]
+  %.0 = phi ptr [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit70 ], [ %82, %hfinfo_hex_digits.exit75 ], [ %2, %display_to_port_type.exit ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ], [ %2, %97 ], [ %2, %95 ]
   ret ptr %.0
 }
 
@@ -21403,7 +21403,7 @@ hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup65, %h
   unreachable
 
 85:                                               ; preds = %34, %36, %10, %12, %hfinfo_hex_digits.exit56, %hfinfo_hex_digits.exit51, %38
-  %.0 = phi ptr [ %82, %hfinfo_hex_digits.exit56 ], [ %56, %hfinfo_hex_digits.exit51 ], [ %39, %38 ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ]
+  %.0 = phi ptr [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit51 ], [ %82, %hfinfo_hex_digits.exit56 ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ]
   ret ptr %.0
 }
 
@@ -21502,7 +21502,7 @@ define internal fastcc i64 @fill_display_label_float(ptr noundef readonly captur
   unreachable
 
 37:                                               ; preds = %24, %26, %34, %32, %30
-  %.038 = phi i32 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %25, %24 ], [ %29, %26 ]
+  %.038 = phi i32 [ %25, %24 ], [ %29, %26 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   %38 = icmp slt i32 %.038, 0
   br i1 %38, label %64, label %39
 
@@ -26607,7 +26607,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !57
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph91, %.lr.ph94, %.lr.ph102, %5, %._crit_edge, %._crit_edge99, %.preheader, %.preheader78, %.preheader80, %.preheader82, %6, %9, %15, %48, %38, %71
-  %.05177 = phi ptr [ null, %71 ], [ null, %38 ], [ %2, %48 ], [ %2, %6 ], [ %2, %9 ], [ %2, %15 ], [ %2, %.preheader82 ], [ %2, %.preheader80 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ null, %._crit_edge99 ], [ null, %._crit_edge ], [ %2, %5 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph ]
+  %.05177 = phi ptr [ null, %71 ], [ null, %38 ], [ %2, %48 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader80 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ null, %._crit_edge99 ], [ null, %._crit_edge ], [ %2, %5 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph ]
   tail call void @g_free(ptr noundef %.05177)
   br label %79
 
@@ -26820,8 +26820,8 @@ define internal fastcc void @fill_label_boolean(ptr readonly captures(none) %.0.
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-hfinfo_container_bitwidth.exit.thread:            ; preds = %15, %14, %13, %12, %11, %10, %9, %6, %6, %6
-  %.0.i.ph = phi i32 [ 8, %6 ], [ 8, %6 ], [ 8, %6 ], [ 16, %9 ], [ 24, %10 ], [ 32, %11 ], [ 40, %12 ], [ 48, %13 ], [ 56, %14 ], [ 64, %15 ]
+hfinfo_container_bitwidth.exit.thread:            ; preds = %9, %10, %11, %12, %13, %14, %15, %6, %6, %6
+  %.0.i.ph = phi i32 [ 8, %6 ], [ 8, %6 ], [ 8, %6 ], [ 64, %15 ], [ 56, %14 ], [ 48, %13 ], [ 40, %12 ], [ 32, %11 ], [ 24, %10 ], [ 16, %9 ]
   %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   br label %23
 
@@ -27053,7 +27053,7 @@ define internal fastcc void @fill_label_bitfield_char(ptr noundef nonnull readon
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %3, %9, %9, %9, %12, %15, %16, %17, %18, %19, %20, %21
-  %.0.i = phi i32 [ %14, %12 ], [ 0, %3 ], [ 64, %21 ], [ 56, %20 ], [ 48, %19 ], [ 40, %18 ], [ 32, %17 ], [ 24, %16 ], [ 16, %15 ], [ 8, %9 ], [ 8, %9 ], [ 8, %9 ]
+  %.0.i = phi i32 [ %14, %12 ], [ 0, %3 ], [ 16, %15 ], [ 24, %16 ], [ 32, %17 ], [ 40, %18 ], [ 48, %19 ], [ 56, %20 ], [ 64, %21 ], [ 8, %9 ], [ 8, %9 ], [ 8, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @fvalue_get_uinteger(ptr noundef %24)
@@ -27319,7 +27319,7 @@ define internal fastcc void @fill_label_bitfield(ptr noundef nonnull readonly ca
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, %26, %25, %24, %21, %18, %18, %18, %15, %11
-  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 64, %30 ], [ 56, %29 ], [ 48, %28 ], [ 40, %27 ], [ 32, %26 ], [ 24, %25 ], [ 16, %24 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
+  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 64, %30 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   br i1 %3, label %34, label %36
@@ -27785,7 +27785,7 @@ define internal fastcc void @fill_label_bitfield64(ptr noundef nonnull readonly 
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, %26, %25, %24, %21, %18, %18, %18, %15, %11
-  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 64, %30 ], [ 56, %29 ], [ 48, %28 ], [ 40, %27 ], [ 32, %26 ], [ 24, %25 ], [ 16, %24 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
+  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 64, %30 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   br i1 %3, label %34, label %36
@@ -31777,7 +31777,7 @@ hf_try_val64_to_str.exit387.thread:               ; preds = %hf_try_val64_to_str
   unreachable
 
 393:                                              ; preds = %115, %126, %122, %107, %148, %180, %155, %139, %208, %235, %214, %200, %252, %296, %257, %244, %323, %367, %328, %315, %384, %385, %377, %378, %372, %92, %73
-  %.1270 = phi i8 [ %.0269471, %73 ], [ %.0269471, %92 ], [ 0, %385 ], [ %.0269471, %384 ], [ 0, %315 ], [ %.0269471, %328 ], [ 0, %367 ], [ 0, %323 ], [ 0, %244 ], [ %.0269471, %257 ], [ 0, %296 ], [ 0, %252 ], [ 0, %200 ], [ %.0269471, %214 ], [ 0, %235 ], [ 0, %208 ], [ 0, %139 ], [ %.0269471, %155 ], [ 0, %180 ], [ 0, %148 ], [ 0, %107 ], [ 0, %115 ], [ %.0269471, %122 ], [ 0, %126 ], [ 0, %372 ], [ %.0269471, %377 ], [ 0, %378 ]
+  %.1270 = phi i8 [ %.0269471, %73 ], [ %.0269471, %92 ], [ 0, %107 ], [ 0, %115 ], [ %.0269471, %122 ], [ 0, %126 ], [ 0, %139 ], [ %.0269471, %155 ], [ 0, %180 ], [ 0, %148 ], [ 0, %200 ], [ %.0269471, %214 ], [ 0, %235 ], [ 0, %208 ], [ 0, %244 ], [ %.0269471, %257 ], [ 0, %296 ], [ 0, %252 ], [ 0, %315 ], [ %.0269471, %328 ], [ 0, %367 ], [ 0, %323 ], [ 0, %385 ], [ %.0269471, %384 ], [ 0, %372 ], [ %.0269471, %377 ], [ 0, %378 ]
   %.1 = getelementptr i8, ptr %.0472, i64 8
   %394 = load ptr, ptr %.1, align 8
   %.not307 = icmp eq ptr %394, null
@@ -32809,12 +32809,12 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidde
   unreachable
 
 190:                                              ; preds = %169, %165, %160, %155, %149
-  %.0.i = phi ptr [ %170, %169 ], [ %166, %165 ], [ %162, %160 ], [ %157, %155 ], [ %151, %149 ]
+  %.0.i = phi ptr [ %151, %149 ], [ %157, %155 ], [ %162, %160 ], [ %166, %165 ], [ %170, %169 ]
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.0.i, ptr noundef nonnull @.str.179, ptr noundef %139, ptr noundef nonnull %8)
   br label %_proto_tree_add_bits_ret_val.exit
 
 _proto_tree_add_bits_ret_val.exit:                ; preds = %132, %142, %173, %190
-  %.0129.i = phi ptr [ %183, %173 ], [ %.0.i, %190 ], [ %148, %142 ], [ %133, %132 ]
+  %.0129.i = phi ptr [ %148, %142 ], [ %.0.i, %190 ], [ %183, %173 ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #39
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #39
   %.not = icmp eq ptr %.0129.i, null
@@ -33280,12 +33280,12 @@ other_decode_bitfield_value.exit:                 ; preds = %174
   unreachable
 
 218:                                              ; preds = %210, %206, %201, %196, %190
-  %.0142 = phi ptr [ %211, %210 ], [ %207, %206 ], [ %203, %201 ], [ %198, %196 ], [ %192, %190 ]
+  %.0142 = phi ptr [ %192, %190 ], [ %198, %196 ], [ %203, %201 ], [ %207, %206 ], [ %211, %210 ]
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.0142, ptr noundef nonnull @.str.179, ptr noundef nonnull %7, ptr noundef nonnull %8)
   br label %219
 
 219:                                              ; preds = %91, %218, %183, %153
-  %.0 = phi ptr [ %.0142, %218 ], [ %189, %183 ], [ %154, %153 ], [ null, %91 ]
+  %.0 = phi ptr [ %189, %183 ], [ %.0142, %218 ], [ %154, %153 ], [ null, %91 ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #39
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #39
   ret ptr %.0
@@ -33797,7 +33797,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidde
   unreachable
 
 _proto_tree_add_bits_format_value.exit:           ; preds = %70, %112, %115, %118, %121, %124, %127
-  %.0.i = phi ptr [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %71, %70 ]
+  %.0.i = phi ptr [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %71, %70 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %.thread, label %134
 

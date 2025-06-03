@@ -4356,7 +4356,7 @@ define i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef %0, i32 nounde
   br label %15
 
 15:                                               ; preds = %7, %10, %14, %3
-  %.0 = phi i32 [ 0, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %14 ], [ %9, %7 ], [ %13, %10 ], [ 0, %3 ]
   ret i32 %.0
 }
 

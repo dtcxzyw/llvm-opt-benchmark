@@ -468,7 +468,7 @@ define dso_local noundef i32 @_ZN4llvm15StatepointOpers21getNumGcMapEntriesIdxEv
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i.i
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i.i: ; preds = %32, %30, %28, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.05.i.i, %.lr.ph.i.i ]
+  %.0.i.i.i = phi i32 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.05.i.i, %.lr.ph.i.i ]
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %_ZN4llvm15StatepointOpers14getNumGCPtrIdxEv.exit.i, label %.lr.ph.i.i, !llvm.loop !87
 
@@ -519,7 +519,7 @@ _ZN4llvm15StatepointOpers14getNumGCPtrIdxEv.exit.i: ; preds = %_ZN4llvm9StackMap
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i: ; preds = %54, %52, %50, %.lr.ph.i
-  %.0.i.i = phi i32 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %.058.i, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %.058.i, %.lr.ph.i ]
   %56 = add i32 %.0.i.i, 1
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %_ZN4llvm15StatepointOpers15getNumAllocaIdxEv.exit, label %.lr.ph.i, !llvm.loop !88
@@ -571,7 +571,7 @@ _ZN4llvm15StatepointOpers15getNumAllocaIdxEv.exit: ; preds = %_ZN4llvm9StackMaps
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit: ; preds = %.lr.ph, %73, %75, %77
-  %.0.i = phi i32 [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %.058, %.lr.ph ]
+  %.0.i = phi i32 [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %.058, %.lr.ph ]
   %79 = add i32 %.0.i, 1
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
@@ -640,7 +640,7 @@ define dso_local noundef i32 @_ZN4llvm15StatepointOpers15getNumAllocaIdxEv(ptr n
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i: ; preds = %32, %30, %28, %.lr.ph.i
-  %.0.i.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.05.i, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.05.i, %.lr.ph.i ]
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %_ZN4llvm15StatepointOpers14getNumGCPtrIdxEv.exit, label %.lr.ph.i, !llvm.loop !87
 
@@ -691,7 +691,7 @@ _ZN4llvm15StatepointOpers14getNumGCPtrIdxEv.exit: ; preds = %_ZN4llvm9StackMaps1
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit: ; preds = %.lr.ph, %50, %52, %54
-  %.0.i = phi i32 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %.058, %.lr.ph ]
+  %.0.i = phi i32 [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %.058, %.lr.ph ]
   %56 = add i32 %.0.i, 1
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
@@ -738,7 +738,7 @@ define dso_local noundef i32 @_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12Machi
   br label %20
 
 20:                                               ; preds = %14, %16, %18, %2
-  %.0 = phi i32 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %1, %2 ]
+  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %1, %2 ]
   %21 = add i32 %.0, 1
   ret i32 %21
 }
@@ -801,7 +801,7 @@ define dso_local noundef i32 @_ZN4llvm15StatepointOpers14getNumGCPtrIdxEv(ptr no
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit: ; preds = %.lr.ph, %28, %30, %32
-  %.0.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.05, %.lr.ph ]
+  %.0.i = phi i32 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.05, %.lr.ph ]
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
@@ -869,7 +869,7 @@ define dso_local noundef i32 @_ZN4llvm15StatepointOpers16getFirstGCPtrIdxEv(ptr 
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i: ; preds = %32, %30, %28, %.lr.ph.i
-  %.0.i.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.05.i, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.05.i, %.lr.ph.i ]
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %_ZN4llvm15StatepointOpers14getNumGCPtrIdxEv.exit, label %.lr.ph.i, !llvm.loop !87
 
@@ -1504,7 +1504,7 @@ _ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12Location
   br label %221
 
 221:                                              ; preds = %220, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERljS6_EEERS2_DpOT_.exit, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERjjRlEEERS2_DpOT_.exit
-  %.044 = phi ptr [ %143, %220 ], [ %102, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERljS6_EEERS2_DpOT_.exit ], [ %57, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERjjRlEEERS2_DpOT_.exit ]
+  %.044 = phi ptr [ %57, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERjjRlEEERS2_DpOT_.exit ], [ %102, %_ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12LocationTypeERljS6_EEERS2_DpOT_.exit ], [ %143, %220 ]
   %222 = getelementptr inbounds nuw i8, ptr %.044, i64 32
   br label %352
 
@@ -2182,7 +2182,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE9push_backES2_.
   br label %158
 
 158:                                              ; preds = %156, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %157, %156 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %157, %156 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i16, ptr %.1.i.i.i.i.i.i, align 2, !tbaa !397
   %159 = icmp eq i16 %.1.val.i.i.i.i.i.i, 0
   br i1 %159, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i", label %160
@@ -2192,7 +2192,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE9push_backES2_.
   br label %162
 
 162:                                              ; preds = %160, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %161, %160 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %161, %160 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !397
   %163 = icmp eq i16 %.2.val.i.i.i.i.i.i, 0
   br i1 %163, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i", label %"_ZN4llvm8erase_ifINS_11SmallVectorINS_9StackMaps10LiveOutRegELj8EEEZNKS2_24parseRegisterLiveOutMaskEPKjE3$_1EEvRT_T0_.exit"
@@ -3640,7 +3640,7 @@ define dso_local void @_ZN4llvm9StackMaps20parseStatepointOpersERKNS_12MachineIn
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i.i
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit.i.i: ; preds = %65, %63, %61, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %.05.i.i, %.lr.ph.i.i ]
+  %.0.i.i.i = phi i32 [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %.05.i.i, %.lr.ph.i.i ]
   %.not.i.i = icmp eq i32 %51, 0
   br i1 %.not.i.i, label %_ZN4llvm15StatepointOpers16getFirstGCPtrIdxEv.exit, label %.lr.ph.i.i, !llvm.loop !87
 
@@ -3714,7 +3714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %74, %78
   br label %_ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit
 
 _ZN4llvm9StackMaps17getNextMetaArgIdxEPKNS_12MachineInstrEj.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %97, %99, %101
-  %.0.i66 = phi i32 [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %.05973, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
+  %.0.i66 = phi i32 [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %.05973, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
   %103 = add i32 %.0.i66, 1
   %.not63 = icmp eq i32 %76, 0
   br i1 %.not63, label %104, label %74, !llvm.loop !439

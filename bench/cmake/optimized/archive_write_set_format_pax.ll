@@ -3019,7 +3019,7 @@ url_encode.exit.thread24:                         ; preds = %49, %._crit_edge.th
   br label %155
 
 155:                                              ; preds = %127, %111, %._crit_edge.i.i
-  %.1.i.i = phi ptr [ %.033.lcssa.i.i, %._crit_edge.i.i ], [ %126, %111 ], [ %154, %127 ]
+  %.1.i.i = phi ptr [ %.033.lcssa.i.i, %._crit_edge.i.i ], [ %154, %127 ], [ %126, %111 ]
   store i8 0, ptr %.1.i.i, align 1, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %156 = call ptr @archive_strncat(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, i64 noundef 17) #15

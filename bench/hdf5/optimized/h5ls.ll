@@ -3352,7 +3352,7 @@ print_obj_name.exit:                              ; preds = %27, %28
   br label %172
 
 select.unfold:                                    ; preds = %165, %83, %.thread92, %65, %71, %86, %37
-  %.0 = phi ptr [ %99, %165 ], [ %42, %37 ], [ %42, %86 ], [ %42, %71 ], [ %42, %65 ], [ %99, %.thread92 ], [ %42, %83 ]
+  %.0 = phi ptr [ %42, %37 ], [ %42, %86 ], [ %99, %165 ], [ %42, %71 ], [ %42, %65 ], [ %99, %.thread92 ], [ %42, %83 ]
   call void @h5tools_str_close(ptr noundef nonnull %6) #20
   %.not86 = icmp eq ptr %.0, null
   br i1 %.not86, label %172, label %171
@@ -4754,8 +4754,8 @@ define internal fastcc void @print_precision(ptr noundef nonnull %0, i64 noundef
   br label %24
 
 24:                                               ; preds = %20, %21, %22, %23, %18, %9
-  %25 = phi i1 [ false, %18 ], [ true, %23 ], [ true, %22 ], [ true, %21 ], [ true, %20 ], [ false, %9 ]
-  %.038 = phi ptr [ null, %18 ], [ @.str.172, %23 ], [ @.str.171, %22 ], [ @.str.170, %21 ], [ @.str.169, %20 ], [ null, %9 ]
+  %25 = phi i1 [ false, %18 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ false, %9 ]
+  %.038 = phi ptr [ null, %18 ], [ @.str.169, %20 ], [ @.str.170, %21 ], [ @.str.171, %22 ], [ @.str.172, %23 ], [ null, %9 ]
   %26 = call i32 @H5Tget_offset(i64 noundef %1) #20
   %27 = zext i32 %26 to i64
   %28 = add i64 %8, %27

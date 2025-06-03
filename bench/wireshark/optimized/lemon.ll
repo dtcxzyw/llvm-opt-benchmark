@@ -7065,10 +7065,10 @@ handleflags.exit:                                 ; preds = %._crit_edge.thread.
   br label %114
 
 114:                                              ; preds = %113, %104, %103, %98, %89, %88, %84, %82, %81, %78
-  %.051.i = phi i32 [ 0, %78 ], [ 0, %113 ], [ %100, %98 ], [ 0, %84 ], [ 0, %82 ], [ 0, %81 ], [ 0, %89 ], [ 0, %88 ], [ %100, %104 ], [ %100, %103 ]
-  %.050.i = phi double [ 0.000000e+00, %78 ], [ 0.000000e+00, %113 ], [ 0.000000e+00, %98 ], [ %85, %84 ], [ 0.000000e+00, %82 ], [ 0.000000e+00, %81 ], [ %85, %89 ], [ %85, %88 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %103 ]
-  %.049.i = phi ptr [ null, %78 ], [ %79, %113 ], [ null, %98 ], [ null, %84 ], [ null, %82 ], [ null, %81 ], [ null, %89 ], [ null, %88 ], [ null, %104 ], [ null, %103 ]
-  %.1.i = phi i32 [ 0, %78 ], [ 0, %113 ], [ 0, %98 ], [ 0, %84 ], [ 1, %82 ], [ 1, %81 ], [ 1, %89 ], [ 1, %88 ], [ 1, %104 ], [ 1, %103 ]
+  %.051.i = phi i32 [ 0, %78 ], [ 0, %84 ], [ %100, %98 ], [ 0, %113 ], [ 0, %82 ], [ 0, %81 ], [ 0, %89 ], [ 0, %88 ], [ %100, %104 ], [ %100, %103 ]
+  %.050.i = phi double [ 0.000000e+00, %78 ], [ %85, %84 ], [ 0.000000e+00, %98 ], [ 0.000000e+00, %113 ], [ 0.000000e+00, %82 ], [ 0.000000e+00, %81 ], [ %85, %89 ], [ %85, %88 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %103 ]
+  %.049.i = phi ptr [ null, %78 ], [ null, %84 ], [ null, %98 ], [ %79, %113 ], [ null, %82 ], [ null, %81 ], [ null, %89 ], [ null, %88 ], [ null, %104 ], [ null, %103 ]
+  %.1.i = phi i32 [ 0, %78 ], [ 0, %84 ], [ 0, %98 ], [ 0, %113 ], [ 1, %82 ], [ 1, %81 ], [ 1, %89 ], [ 1, %88 ], [ 1, %104 ], [ 1, %103 ]
   %115 = load ptr, ptr @op, align 8
   %116 = getelementptr %struct.s_options, ptr %115, i64 %.lcssa.i
   %117 = load i32, ptr %116, align 8
@@ -7118,7 +7118,7 @@ handleflags.exit:                                 ; preds = %._crit_edge.thread.
   br label %handleswitch.exit
 
 handleswitch.exit:                                ; preds = %75, %76, %114, %118, %121, %124, %127, %130, %133
-  %.0.i = phi i32 [ %.1.i, %114 ], [ %.1.i, %127 ], [ %.1.i, %124 ], [ %.1.i, %121 ], [ %.1.i, %118 ], [ %.1.i, %130 ], [ %.1.i, %133 ], [ 1, %76 ], [ 1, %75 ]
+  %.0.i = phi i32 [ %.1.i, %114 ], [ %.1.i, %133 ], [ %.1.i, %130 ], [ %.1.i, %118 ], [ %.1.i, %121 ], [ %.1.i, %124 ], [ %.1.i, %127 ], [ 1, %76 ], [ 1, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42
   %136 = add i32 %.0.i, %.137
   br label %137
@@ -10793,7 +10793,7 @@ define hidden void @ResortStates(ptr noundef captures(none) %0) local_unnamed_ad
   br label %compute_action.exit
 
 compute_action.exit:                              ; preds = %26, %42, %49, %56, %63, %65
-  %.0.i = phi i32 [ %66, %65 ], [ %64, %63 ], [ %62, %56 ], [ %48, %42 ], [ %55, %49 ], [ %30, %26 ]
+  %.0.i = phi i32 [ %30, %26 ], [ %48, %42 ], [ %55, %49 ], [ %62, %56 ], [ %64, %63 ], [ %66, %65 ]
   %67 = icmp sgt i32 %.0.i, -1
   br i1 %67, label %68, label %compute_action.exit.thread
 
@@ -12246,7 +12246,7 @@ acttab_alloc.exit:                                ; preds = %._crit_edge1045
   br label %compute_action.exit
 
 compute_action.exit:                              ; preds = %500, %505, %512, %519, %521
-  %.0.i947 = phi i32 [ %522, %521 ], [ %520, %519 ], [ %518, %512 ], [ %511, %505 ], [ %504, %500 ]
+  %.0.i947 = phi i32 [ %504, %500 ], [ %511, %505 ], [ %518, %512 ], [ %520, %519 ], [ %522, %521 ]
   %523 = icmp slt i32 %.0.i947, 0
   br i1 %523, label %compute_action.exit.thread, label %524
 
@@ -12350,7 +12350,7 @@ compute_action.exit.thread:                       ; preds = %497, %compute_actio
   br label %compute_action.exit952
 
 compute_action.exit952:                           ; preds = %540, %551, %558, %565, %572, %574
-  %.0.i949 = phi i32 [ %575, %574 ], [ %573, %572 ], [ %571, %565 ], [ %557, %551 ], [ %564, %558 ], [ %544, %540 ]
+  %.0.i949 = phi i32 [ %544, %540 ], [ %557, %551 ], [ %564, %558 ], [ %571, %565 ], [ %573, %572 ], [ %575, %574 ]
   %576 = icmp slt i32 %.0.i949, 0
   br i1 %576, label %compute_action.exit952.thread, label %577
 
@@ -13995,7 +13995,7 @@ define hidden void @OptPrint() local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %.lr.ph
-  %.0 = phi i32 [ %11, %.lr.ph ], [ %16, %15 ], [ %14, %13 ], [ %18, %17 ]
+  %.0 = phi i32 [ %11, %.lr.ph ], [ %18, %17 ], [ %14, %13 ], [ %16, %15 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0, i32 %.02837)
   %20 = add i32 %.02936, 1
   %21 = sext i32 %20 to i64
@@ -14725,7 +14725,7 @@ define hidden range(i32 0, 2) i32 @PrintAction(ptr noundef readonly captures(non
   %73 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.103, i32 noundef %2, ptr noundef %68, i32 noundef %72)
   br label %74
 
-74:                                               ; preds = %3, %66, %56, %46, %38, %34, %30, %22, %14, %6
+74:                                               ; preds = %3, %6, %14, %22, %30, %34, %38, %46, %56, %66
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load ptr, ptr %75, align 8
   %.not50 = icmp eq ptr %76, null
@@ -15626,7 +15626,7 @@ define hidden i32 @compute_action(ptr noundef readonly captures(none) %0, ptr no
   br label %53
 
 53:                                               ; preds = %2, %23, %31, %50, %47, %39, %5
-  %.0 = phi i32 [ %52, %50 ], [ %49, %47 ], [ %46, %39 ], [ %30, %23 ], [ %38, %31 ], [ %9, %5 ], [ -1, %2 ]
+  %.0 = phi i32 [ %9, %5 ], [ %30, %23 ], [ %38, %31 ], [ %46, %39 ], [ %49, %47 ], [ %52, %50 ], [ -1, %2 ]
   ret i32 %.0
 }
 

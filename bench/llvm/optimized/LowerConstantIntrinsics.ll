@@ -475,7 +475,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llv
   br label %_ZL24lowerIsConstantIntrinsicPN4llvm13IntrinsicInstE.exit
 
 _ZL24lowerIsConstantIntrinsicPN4llvm13IntrinsicInstE.exit: ; preds = %156, %152, %160
-  %.0 = phi ptr [ %161, %160 ], [ %155, %152 ], [ %159, %156 ]
+  %.0 = phi ptr [ %161, %160 ], [ %159, %156 ], [ %155, %152 ]
   %162 = load i8, ptr %16, align 8, !tbaa !3, !range !90, !noundef !91
   %163 = trunc nuw i8 %162 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)

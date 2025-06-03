@@ -1403,7 +1403,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
   br label %52
 
 52:                                               ; preds = %39, %29, %36, %26, %23, %47, %20, %14
-  %.0 = phi ptr [ %2, %20 ], [ %51, %47 ], [ %25, %23 ], [ %2, %14 ], [ %28, %26 ], [ %spec.select, %29 ], [ %38, %36 ], [ %spec.select25, %39 ]
+  %.0 = phi ptr [ %2, %20 ], [ %25, %23 ], [ %51, %47 ], [ %2, %14 ], [ %28, %26 ], [ %spec.select, %29 ], [ %38, %36 ], [ %spec.select25, %39 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %53 = load ptr, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1491,7 +1491,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
   br label %40
 
 40:                                               ; preds = %23, %27, %30, %36, %20, %14
-  %.0 = phi i64 [ %2, %20 ], [ %39, %36 ], [ %35, %30 ], [ %29, %27 ], [ %26, %23 ], [ %2, %14 ]
+  %.0 = phi i64 [ %2, %20 ], [ %26, %23 ], [ %29, %27 ], [ %35, %30 ], [ %39, %36 ], [ %2, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1581,7 +1581,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
   br label %40
 
 40:                                               ; preds = %23, %28, %32, %35, %20, %14
-  %.0 = phi float [ %2, %20 ], [ %39, %35 ], [ %34, %32 ], [ %31, %28 ], [ %27, %23 ], [ %2, %14 ]
+  %.0 = phi float [ %2, %20 ], [ %27, %23 ], [ %31, %28 ], [ %34, %32 ], [ %39, %35 ], [ %2, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1668,7 +1668,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %23, %27, %31, %35, %20, %14
-  %.0 = phi i1 [ %2, %20 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %2, %14 ]
+  %.0 = phi i1 [ %2, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %2, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

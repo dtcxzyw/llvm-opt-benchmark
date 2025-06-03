@@ -719,7 +719,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..Local
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h042b6de1e7b644f8E.exit"
 
 common.resume:                                    ; preds = %150, %110, %118, %127, %139, %102, %75, %83, %91, %58, %66
-  %common.resume.op = phi { ptr, i32 } [ %59, %66 ], [ %59, %58 ], [ %84, %91 ], [ %84, %83 ], [ %140, %139 ], [ %128, %127 ], [ %103, %102 ], [ %76, %75 ], [ %111, %118 ], [ %111, %110 ], [ %151, %150 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %66 ], [ %59, %58 ], [ %84, %91 ], [ %84, %83 ], [ %140, %139 ], [ %76, %75 ], [ %103, %102 ], [ %128, %127 ], [ %111, %118 ], [ %111, %110 ], [ %151, %150 ]
   resume { ptr, i32 } %common.resume.op
 
 75:                                               ; preds = %22, %18

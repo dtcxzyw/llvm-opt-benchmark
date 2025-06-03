@@ -4231,7 +4231,7 @@ define hidden noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocReq
   br label %18
 
 18:                                               ; preds = %16, %13, %11
-  %.0 = phi ptr [ null, %13 ], [ %12, %11 ], [ %17, %16 ]
+  %.0 = phi ptr [ %12, %11 ], [ null, %13 ], [ %17, %16 ]
   ret ptr %.0
 }
 

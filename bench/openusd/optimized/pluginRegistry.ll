@@ -1222,7 +1222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit15: ; 
   br label %71
 
 71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit15, %10, %69
-  %.010 = phi ptr [ null, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit15 ], [ %70, %69 ], [ null, %10 ]
+  %.010 = phi ptr [ %70, %69 ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit15 ], [ null, %10 ]
   ret ptr %.010
 }
 

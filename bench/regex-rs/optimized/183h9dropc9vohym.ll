@@ -1343,7 +1343,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler7c_empty17h9e56ff3a417e5700E.e
   br i1 %141, label %145, label %_ZN14regex_automata4util4look4Look8reversed17hbffba012c1029bc2E.exit.i.i
 
 _ZN14regex_automata4util4look4Look8reversed17hbffba012c1029bc2E.exit.i.i: ; preds = %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %145, %137
-  %.0.i.i = phi i32 [ %.val, %137 ], [ 65536, %160 ], [ 131072, %159 ], [ 16384, %158 ], [ 32768, %157 ], [ 4096, %156 ], [ 8192, %155 ], [ 1024, %154 ], [ 2048, %153 ], [ %.val, %152 ], [ 16, %151 ], [ 32, %150 ], [ 4, %149 ], [ 8, %148 ], [ 1, %147 ], [ 2, %145 ]
+  %.0.i.i = phi i32 [ %.val, %137 ], [ 1, %147 ], [ 8, %148 ], [ 4, %149 ], [ 32, %150 ], [ 16, %151 ], [ %.val, %152 ], [ 2048, %153 ], [ 1024, %154 ], [ 8192, %155 ], [ 4096, %156 ], [ 32768, %157 ], [ 16384, %158 ], [ 131072, %159 ], [ 65536, %160 ], [ 2, %145 ]
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %143 = load i64, ptr %142, align 8, !noalias !126, !noundef !4
   %144 = icmp eq i64 %143, 0

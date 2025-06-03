@@ -46038,7 +46038,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEmLERKd.exit: ; preds 
   br label %611
 
 291:                                              ; preds = %244, %237, %230, %221, %215
-  %.pn189 = phi { ptr, i32 } [ %245, %244 ], [ %238, %237 ], [ %231, %230 ], [ %216, %215 ], [ %222, %221 ]
+  %.pn189 = phi { ptr, i32 } [ %231, %230 ], [ %238, %237 ], [ %245, %244 ], [ %216, %215 ], [ %222, %221 ]
   %292 = load ptr, ptr %31, align 8, !tbaa !4
   call void @free(ptr noundef %292) #34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #34

@@ -3892,7 +3892,7 @@ lean_dec.exit35:                                  ; preds = %61, %60, %58, %lean
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit35, %66, %68, %69, %lean_dec.exit36, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %43, %lean_dec.exit36 ], [ %19, %lean_alloc_ctor.exit ], [ %62, %69 ], [ %62, %68 ], [ %62, %66 ], [ %62, %lean_dec.exit35 ]
+  %.0 = phi ptr [ %19, %lean_alloc_ctor.exit ], [ %43, %lean_dec.exit36 ], [ %62, %69 ], [ %62, %68 ], [ %62, %66 ], [ %62, %lean_dec.exit35 ]
   ret ptr %.0
 }
 
@@ -6789,7 +6789,7 @@ lean_inc.exit:                                    ; preds = %409, %408, %406, %l
   br label %.backedge.backedge
 
 lean_dec.exit293:                                 ; preds = %lean_dec.exit270, %317, %319, %320, %lean_dec.exit278, %258, %260, %261, %lean_dec.exit287, %181, %183, %184, %lean_dec.exit294, %139, %141, %142, %lean_dec.exit281, %lean_alloc_ctor.exit441, %lean_dec.exit297, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit447, %lean_dec.exit268
-  %.5 = phi ptr [ %348, %lean_alloc_ctor.exit447 ], [ %339, %lean_dec.exit268 ], [ %111, %lean_dec.exit297 ], [ %171, %lean_alloc_ctor.exit ], [ %213, %lean_dec.exit281 ], [ %307, %lean_alloc_ctor.exit441 ], [ %135, %142 ], [ %135, %141 ], [ %135, %139 ], [ %135, %lean_dec.exit294 ], [ %177, %184 ], [ %177, %183 ], [ %177, %181 ], [ %177, %lean_dec.exit287 ], [ %254, %261 ], [ %254, %260 ], [ %254, %258 ], [ %254, %lean_dec.exit278 ], [ %313, %320 ], [ %313, %319 ], [ %313, %317 ], [ %313, %lean_dec.exit270 ]
+  %.5 = phi ptr [ %339, %lean_dec.exit268 ], [ %348, %lean_alloc_ctor.exit447 ], [ %111, %lean_dec.exit297 ], [ %171, %lean_alloc_ctor.exit ], [ %213, %lean_dec.exit281 ], [ %307, %lean_alloc_ctor.exit441 ], [ %135, %142 ], [ %135, %141 ], [ %135, %139 ], [ %135, %lean_dec.exit294 ], [ %177, %184 ], [ %177, %183 ], [ %177, %181 ], [ %177, %lean_dec.exit287 ], [ %254, %261 ], [ %254, %260 ], [ %254, %258 ], [ %254, %lean_dec.exit278 ], [ %313, %320 ], [ %313, %319 ], [ %313, %317 ], [ %313, %lean_dec.exit270 ]
   ret ptr %.5
 }
 

@@ -3712,7 +3712,7 @@ parse_rockridge_NM1.exit:                         ; preds = %173, %175, %177, %1
   br label %284
 
 284:                                              ; preds = %282, %280, %278, %276, %274, %271, %265
-  %.2.i = phi ptr [ @.str.41, %282 ], [ @.str.41, %280 ], [ @.str.40, %278 ], [ @.str.41, %276 ], [ @.str.41, %274 ], [ @.str.40, %271 ], [ @.str.41, %265 ]
+  %.2.i = phi ptr [ @.str.41, %265 ], [ @.str.40, %271 ], [ @.str.41, %274 ], [ @.str.41, %276 ], [ @.str.40, %278 ], [ @.str.41, %280 ], [ @.str.41, %282 ]
   %285 = zext i8 %259 to i32
   %286 = zext i8 %259 to i64
   %287 = getelementptr inbounds nuw i8, ptr %258, i64 %286
@@ -5639,7 +5639,7 @@ cache_get_entry.exit198:                          ; preds = %479, %481, %485
   br label %rede_get_entry.exit162.thread239
 
 rede_get_entry.exit162.thread239:                 ; preds = %read_children.exit, %281, %279, %next_CE.exit.i, %314, %303, %246, %.thread149.i, %218, %198, %188, %re_get_entry.exit, %100, %rede_get_entry.exit162.thread233, %392, %.loopexit256, %cache_get_entry.exit198, %.critedge.thread, %21
-  %.0 = phi i32 [ 0, %21 ], [ -30, %.loopexit256 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ %101, %100 ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %.thread149.i ], [ -30, %246 ], [ -30, %303 ], [ -30, %314 ], [ -30, %next_CE.exit.i ], [ -30, %279 ], [ -30, %281 ], [ %366, %read_children.exit ]
+  %.0 = phi i32 [ 0, %21 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ -30, %.loopexit256 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ %101, %100 ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %.thread149.i ], [ -30, %246 ], [ -30, %303 ], [ -30, %314 ], [ -30, %next_CE.exit.i ], [ -30, %279 ], [ -30, %281 ], [ %366, %read_children.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
   ret i32 %.0
 }

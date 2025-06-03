@@ -1821,7 +1821,7 @@ pmix_mca_base_var_source_file.exit:               ; preds = %48, %53, %54
   br label %62
 
 62:                                               ; preds = %58, %pmix_mca_base_var_source_file.exit, %43
-  %.2.ph = phi i32 [ %57, %pmix_mca_base_var_source_file.exit ], [ %61, %58 ], [ 0, %43 ]
+  %.2.ph = phi i32 [ %61, %58 ], [ %57, %pmix_mca_base_var_source_file.exit ], [ 0, %43 ]
   %.pr = load ptr, ptr %4, align 8, !tbaa !51
   %.not39 = icmp eq ptr %.pr, null
   br i1 %.not39, label %pmix_pointer_array_get_item.exit.thread, label %63
@@ -1993,7 +1993,7 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   br label %66
 
 66:                                               ; preds = %63, %59, %56, %53, %50, %47, %44, %41
-  %.0 = phi i32 [ %65, %63 ], [ %62, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ]
+  %.0 = phi i32 [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %62, %59 ], [ %65, %63 ]
   %.0.fr = freeze i32 %.0
   %67 = icmp slt i32 %.0.fr, 0
   br i1 %67, label %.thread, label %pmix_mca_base_var_get_value.exit.thread
@@ -4436,7 +4436,7 @@ int_from_string.exit:                             ; preds = %20
   br i1 %38, label %46, label %39
 
 .sink.split:                                      ; preds = %26, %31, %32, %34, %36, %17, %13, %int_from_string.exit.thread58
-  %.156.ph = phi i64 [ %25, %int_from_string.exit.thread58 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %27, %31 ], [ %27, %26 ], [ 0, %17 ], [ 0, %13 ]
+  %.156.ph = phi i64 [ %25, %int_from_string.exit.thread58 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %27, %31 ], [ %27, %26 ], [ 0, %17 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   br label %39
 

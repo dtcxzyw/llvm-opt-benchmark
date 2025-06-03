@@ -188,7 +188,7 @@ define range(i32 -1, 55) i32 @RSA_X931_hash_id(i32 noundef %0) local_unnamed_add
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ 53, %4 ], [ 54, %3 ], [ 52, %2 ], [ 51, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ 52, %2 ], [ 54, %3 ], [ 53, %4 ], [ 51, %1 ]
   ret i32 %.0
 }
 

@@ -784,7 +784,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br label %136
 
 136:                                              ; preds = %erkStep_AccessStepMem.exit, %._crit_edge.us.i, %32, %91, %98, %60, %._crit_edge.us.i66, %110, %135, %109, %80, %31
-  %.0 = phi i32 [ -8, %135 ], [ -8, %109 ], [ -8, %80 ], [ -8, %31 ], [ -21, %erkStep_AccessStepMem.exit ], [ 0, %110 ], [ 0, %._crit_edge.us.i66 ], [ 0, %60 ], [ 0, %98 ], [ 0, %91 ], [ 0, %32 ], [ 0, %._crit_edge.us.i ]
+  %.0 = phi i32 [ -8, %135 ], [ -8, %31 ], [ -8, %80 ], [ -8, %109 ], [ -21, %erkStep_AccessStepMem.exit ], [ 0, %110 ], [ 0, %._crit_edge.us.i66 ], [ 0, %60 ], [ 0, %98 ], [ 0, %91 ], [ 0, %32 ], [ 0, %._crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   ret i32 %.0

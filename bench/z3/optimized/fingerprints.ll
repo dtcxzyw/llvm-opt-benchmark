@@ -528,7 +528,7 @@ define hidden noundef ptr @_ZN3smt15fingerprint_set6insertEPvjjPKPNS_5enodeEP4ex
   br label %250
 
 250:                                              ; preds = %243, %._crit_edge.i
-  %.2.i = phi i32 [ %237, %._crit_edge.i ], [ %249, %243 ]
+  %.2.i = phi i32 [ %249, %243 ], [ %237, %._crit_edge.i ]
   %251 = load ptr, ptr %4, align 8, !tbaa !16
   %252 = load ptr, ptr %251, align 8, !tbaa !47
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 12
@@ -579,7 +579,7 @@ define hidden noundef ptr @_ZN3smt15fingerprint_set6insertEPvjjPKPNS_5enodeEP4ex
   br label %_Z18get_composite_hashIZN3smt15fingerprint_set6insertEPvjjPKPNS0_5enodeEP4exprE8arg_dataZNS1_6insertES2_jjS6_S8_E5khashZNS1_6insertES2_jjS6_S8_E7arghashEjT_jRKT0_RKT1_.exit
 
 _Z18get_composite_hashIZN3smt15fingerprint_set6insertEPvjjPKPNS0_5enodeEP4exprE8arg_dataZNS1_6insertES2_jjS6_S8_E5khashZNS1_6insertES2_jjS6_S8_E7arghashEjT_jRKT0_RKT1_.exit: ; preds = %6, %10, %49, %96, %256
-  %.0.i = phi i32 [ %292, %256 ], [ %183, %96 ], [ %95, %49 ], [ %48, %10 ], [ 11, %6 ]
+  %.0.i = phi i32 [ %292, %256 ], [ %48, %10 ], [ %95, %49 ], [ %183, %96 ], [ 11, %6 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %294 = load ptr, ptr %293, align 8, !tbaa !20

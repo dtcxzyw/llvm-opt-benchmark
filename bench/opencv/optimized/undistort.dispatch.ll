@@ -7419,12 +7419,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %.noexc258.us
 
 .noexc258.us:                                     ; preds = %395, %368
-  %.sroa.12.2.us = phi double [ %392, %368 ], [ %399, %395 ]
-  %.sroa.9.2.us = phi double [ %390, %368 ], [ %398, %395 ]
-  %.sroa.6327.2.us = phi double [ %388, %368 ], [ %397, %395 ]
-  %.sroa.0326.2.us = phi double [ %386, %368 ], [ %396, %395 ]
-  %.sink26.i277.us = phi double [ %394, %368 ], [ %401, %395 ]
-  %.sink25.in.i278.us = phi double [ %393, %368 ], [ %400, %395 ]
+  %.sroa.12.2.us = phi double [ %399, %395 ], [ %392, %368 ]
+  %.sroa.9.2.us = phi double [ %398, %395 ], [ %390, %368 ]
+  %.sroa.6327.2.us = phi double [ %397, %395 ], [ %388, %368 ]
+  %.sroa.0326.2.us = phi double [ %396, %395 ], [ %386, %368 ]
+  %.sink26.i277.us = phi double [ %401, %395 ], [ %394, %368 ]
+  %.sink25.in.i278.us = phi double [ %400, %395 ], [ %393, %368 ]
   %.sink25.i279.us = fptrunc double %.sink25.in.i278.us to float
   %402 = fptrunc double %.sink26.i277.us to float
   %403 = fpext float %.sink25.i279.us to double

@@ -251,7 +251,7 @@ list_config.exit:                                 ; preds = %60, %63, %64
   br label %73
 
 73:                                               ; preds = %66, %51, %69, %list_config.exit, %45, %28, %20, %18, %16
-  %.041 = phi i32 [ 1, %16 ], [ 1, %45 ], [ 1, %28 ], [ 0, %20 ], [ 0, %18 ], [ %.0.i, %list_config.exit ], [ %72, %69 ], [ 0, %51 ], [ 1, %66 ]
+  %.041 = phi i32 [ 1, %16 ], [ 1, %45 ], [ 0, %18 ], [ 0, %20 ], [ 1, %28 ], [ %.0.i, %list_config.exit ], [ %72, %69 ], [ 0, %51 ], [ 1, %66 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14

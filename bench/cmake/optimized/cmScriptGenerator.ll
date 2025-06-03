@@ -1415,7 +1415,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %121
 
 121:                                              ; preds = %119, %._crit_edge.i.i.i.i.i
-  %.sroa.073.1.i.i.i.i.i = phi ptr [ %.sroa.073.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %120, %119 ]
+  %.sroa.073.1.i.i.i.i.i = phi ptr [ %120, %119 ], [ %.sroa.073.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
   invoke void @_ZN5cmsys11SystemTools9UpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.073.1.i.i.i.i.i)
           to label %.noexc10 unwind label %.loopexit.split-lp
@@ -1470,7 +1470,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %141
 
 141:                                              ; preds = %139, %._crit_edge.i.i.i.i.i
-  %.sroa.073.2.i.i.i.i.i = phi ptr [ %.sroa.073.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %140, %139 ]
+  %.sroa.073.2.i.i.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.073.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
   invoke void @_ZN5cmsys11SystemTools9UpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.073.2.i.i.i.i.i)
           to label %.noexc11 unwind label %.loopexit.split-lp

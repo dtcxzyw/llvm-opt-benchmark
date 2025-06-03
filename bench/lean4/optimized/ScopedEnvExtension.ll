@@ -26130,7 +26130,7 @@ l_Lean_ScopedEnvExtension_addLocalEntry___rarg.exit: ; preds = %lean_inc.exit.i
   br label %49
 
 49:                                               ; preds = %47, %l_Lean_ScopedEnvExtension_addLocalEntry___rarg.exit, %lean_dec.exit16
-  %.0 = phi ptr [ %48, %47 ], [ %46, %l_Lean_ScopedEnvExtension_addLocalEntry___rarg.exit ], [ %16, %lean_dec.exit16 ]
+  %.0 = phi ptr [ %48, %47 ], [ %16, %lean_dec.exit16 ], [ %46, %l_Lean_ScopedEnvExtension_addLocalEntry___rarg.exit ]
   ret ptr %.0
 }
 

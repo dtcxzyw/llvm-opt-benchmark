@@ -3720,7 +3720,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %71, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %72, %71 ], [ %100, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %100, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %72, %71 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !533
   %101 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %102 = load i32, ptr %101, align 8, !tbaa !389
@@ -5394,7 +5394,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %47, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %48, %47 ], [ %74, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %74, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %48, %47 ]
   %.1.i55 = load ptr, ptr %.1.in.i, align 8, !tbaa !533
   %75 = getelementptr inbounds nuw i8, ptr %.1.i55, i64 24
   %76 = load i32, ptr %75, align 8, !tbaa !389
@@ -6618,7 +6618,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %21, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %22, %21 ], [ %50, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %50, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %22, %21 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !533
   %51 = and i64 %.sroa.0.0.copyload.i8, -8
   %52 = inttoptr i64 %51 to ptr
@@ -6678,7 +6678,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i23: ; preds = %_ZS
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit25
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit25: ; preds = %55, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i23
-  %.1.in.i11 = phi ptr [ %56, %55 ], [ %84, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i23 ]
+  %.1.in.i11 = phi ptr [ %84, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i23 ], [ %56, %55 ]
   %.1.i12 = load ptr, ptr %.1.in.i11, align 8, !tbaa !533
   %85 = icmp eq ptr %.1.i, %.1.i12
   %86 = select i1 %85, ptr %.1.i, ptr null
@@ -6772,7 +6772,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %23, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %24, %23 ], [ %49, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %49, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %24, %23 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !533
   %50 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 72
   %51 = load i32, ptr %50, align 8, !tbaa !63
@@ -13366,7 +13366,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %130, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %131, %130 ], [ %159, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %159, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %131, %130 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !533
   %160 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24

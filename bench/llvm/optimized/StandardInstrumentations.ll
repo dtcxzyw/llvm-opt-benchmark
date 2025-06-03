@@ -8375,7 +8375,7 @@ _ZN4llvm3AnyD2Ev.exit50:                          ; preds = %_ZL8unwrapIRIN4llvm
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %124, %123 ]
+  %.sroa.031.1.i.i.i.i.i.i.i = phi ptr [ %124, %123 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %126 = load ptr, ptr %.sroa.031.1.i.i.i.i.i.i.i, align 8, !tbaa !113
   %127 = getelementptr i8, ptr %126, i64 8
   %.val.i13.i.i.i.i.i.i.i = load ptr, ptr %127, align 8, !tbaa !115
@@ -8390,7 +8390,7 @@ _ZN4llvm3AnyD2Ev.exit50:                          ; preds = %_ZL8unwrapIRIN4llvm
   br label %134
 
 134:                                              ; preds = %132, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %133, %132 ]
+  %.sroa.031.2.i.i.i.i.i.i.i = phi ptr [ %133, %132 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %135 = load ptr, ptr %.sroa.031.2.i.i.i.i.i.i.i, align 8, !tbaa !113
   %136 = getelementptr i8, ptr %135, i64 8
   %.val.i14.i.i.i.i.i.i.i = load ptr, ptr %136, align 8, !tbaa !115
@@ -8516,7 +8516,7 @@ _ZN4llvm3AnyD2Ev.exit65:                          ; preds = %_ZN4llvm3AnyC2ERKS0
   br label %_ZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKN4llvm6ModuleE.exit
 
 _ZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKN4llvm6ModuleE.exit: ; preds = %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i", %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.thread.i", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.i", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.thread.i", %161, %52, %_ZN4llvm3AnyD2Ev.exit65
-  %.1 = phi i1 [ %56, %52 ], [ %170, %161 ], [ %190, %_ZN4llvm3AnyD2Ev.exit65 ], [ true, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.i" ], [ %35, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.thread.i" ], [ true, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i" ], [ %144, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.thread.i" ]
+  %.1 = phi i1 [ %170, %161 ], [ %56, %52 ], [ %190, %_ZN4llvm3AnyD2Ev.exit65 ], [ true, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.i" ], [ %35, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb1EEEEEZN12_GLOBAL__N_129moduleContainsFilterPrintFuncERKNS_6ModuleEE3$_0EEbOT_T0_.exit.thread.i" ], [ true, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.i" ], [ %144, %"_ZN4llvm6any_ofIRKNS_13LazyCallGraph3SCCEZN12_GLOBAL__N_126sccContainsFilterPrintFuncES4_E3$_0EEbOT_T0_.exit.thread.i" ]
   ret i1 %.1
 }
 
@@ -39298,9 +39298,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %50
 
 50:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89
-  %.sroa.2.0.copyload.i46 = phi i64 [ %.sroa.2.0.copyload.i46.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ]
-  %.sroa.0.0.copyload.i44 = phi ptr [ %.sroa.0.0.copyload.i44.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i37, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ]
-  %.sroa.067.1 = phi ptr [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ]
+  %.sroa.2.0.copyload.i46 = phi i64 [ %.sroa.2.0.copyload.i39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ], [ %.sroa.2.0.copyload.i46.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i44 = phi ptr [ %.sroa.0.0.copyload.i37, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ], [ %.sroa.0.0.copyload.i44.pre, %._crit_edge._crit_edge ]
+  %.sroa.067.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit43.thread89 ], [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge ]
   %51 = load ptr, ptr %.sroa.067.1, align 8, !tbaa !65
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.067.1, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !58
@@ -39321,9 +39321,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iterat
   br label %58
 
 58:                                               ; preds = %._crit_edge._crit_edge129, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92
-  %.sroa.2.0.copyload.i53 = phi i64 [ %.sroa.2.0.copyload.i53.pre, %._crit_edge._crit_edge129 ], [ %.sroa.2.0.copyload.i46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ]
-  %.sroa.0.0.copyload.i51 = phi ptr [ %.sroa.0.0.copyload.i51.pre, %._crit_edge._crit_edge129 ], [ %.sroa.0.0.copyload.i44, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ]
-  %.sroa.067.2 = phi ptr [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge129 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ]
+  %.sroa.2.0.copyload.i53 = phi i64 [ %.sroa.2.0.copyload.i46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ], [ %.sroa.2.0.copyload.i53.pre, %._crit_edge._crit_edge129 ]
+  %.sroa.0.0.copyload.i51 = phi ptr [ %.sroa.0.0.copyload.i44, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ], [ %.sroa.0.0.copyload.i51.pre, %._crit_edge._crit_edge129 ]
+  %.sroa.067.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEEEEbT_.exit50.thread92 ], [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge129 ]
   %59 = load ptr, ptr %.sroa.067.2, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !58

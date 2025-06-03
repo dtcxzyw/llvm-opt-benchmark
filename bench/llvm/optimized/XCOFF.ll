@@ -677,8 +677,8 @@ define dso_local { ptr, i64 } @_ZN4llvm5XCOFF13getTCPUStringENS0_10CFileCpuIdE(i
   br label %22
 
 22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.23.0 = phi i64 [ 7, %21 ], [ 4, %20 ], [ 5, %19 ], [ 4, %18 ], [ 4, %17 ], [ 4, %16 ], [ 5, %15 ], [ 5, %14 ], [ 4, %13 ], [ 3, %12 ], [ 4, %11 ], [ 3, %10 ], [ 3, %9 ], [ 3, %8 ], [ 3, %7 ], [ 3, %6 ], [ 3, %5 ], [ 3, %4 ], [ 3, %3 ], [ 5, %2 ], [ 3, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.102, %21 ], [ @.str.106, %20 ], [ @.str.93, %19 ], [ @.str.91, %18 ], [ @.str.89, %17 ], [ @.str.87, %16 ], [ @.str.85, %15 ], [ @.str.81, %14 ], [ @.str.83, %13 ], [ @.str.70, %12 ], [ @.str.79, %11 ], [ @.str.105, %10 ], [ @.str.69, %9 ], [ @.str.67, %8 ], [ @.str.64, %7 ], [ @.str.62, %6 ], [ @.str.101, %5 ], [ @.str.104, %4 ], [ @.str.61, %3 ], [ @.str.103, %2 ], [ @.str.95, %1 ]
+  %.sroa.23.0 = phi i64 [ 7, %21 ], [ 5, %2 ], [ 3, %3 ], [ 3, %4 ], [ 3, %5 ], [ 3, %6 ], [ 3, %7 ], [ 3, %8 ], [ 3, %9 ], [ 3, %10 ], [ 4, %11 ], [ 3, %12 ], [ 4, %13 ], [ 5, %14 ], [ 5, %15 ], [ 4, %16 ], [ 4, %17 ], [ 4, %18 ], [ 5, %19 ], [ 4, %20 ], [ 3, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.102, %21 ], [ @.str.103, %2 ], [ @.str.61, %3 ], [ @.str.104, %4 ], [ @.str.101, %5 ], [ @.str.62, %6 ], [ @.str.64, %7 ], [ @.str.67, %8 ], [ @.str.69, %9 ], [ @.str.105, %10 ], [ @.str.79, %11 ], [ @.str.70, %12 ], [ @.str.83, %13 ], [ @.str.81, %14 ], [ @.str.85, %15 ], [ @.str.87, %16 ], [ @.str.89, %17 ], [ @.str.91, %18 ], [ @.str.93, %19 ], [ @.str.106, %20 ], [ @.str.95, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.23.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1266,10 +1266,10 @@ default.unreachable:                              ; preds = %25
   unreachable
 
 56:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32
-  %57 = phi i64 [ %54, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ], [ %48, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %42, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %36, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ]
-  %.129 = phi i32 [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ], [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %37, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ]
-  %.127 = phi i32 [ %55, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ], [ %49, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %.02683, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %.02683, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ]
-  %.1 = phi i32 [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ], [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %43, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ]
+  %57 = phi i64 [ %36, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ], [ %42, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %48, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %54, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ]
+  %.129 = phi i32 [ %37, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ], [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %.02882, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ]
+  %.127 = phi i32 [ %.02683, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ], [ %.02683, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %49, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %55, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ]
+  %.1 = phi i32 [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i32 ], [ %43, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38 ], [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i44 ], [ %.02584, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i50 ]
   %58 = shl i32 %.02386, 2
   %59 = add nuw nsw i32 %.087, 2
   %60 = icmp samesign ult i32 %.087, 30

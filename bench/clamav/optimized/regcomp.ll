@@ -421,11 +421,11 @@ switch.early.test.i:                              ; preds = %107
   br label %120
 
 120:                                              ; preds = %118, %.loopexit.i, %104, %98, %98, %98
-  %.3.i = phi ptr [ %99, %98 ], [ %99, %98 ], [ %99, %98 ], [ %99, %104 ], [ %.149.i, %118 ], [ %.149.i, %.loopexit.i ]
-  %.247.i = phi ptr [ %.045.i, %98 ], [ %.045.i, %98 ], [ %.045.i, %98 ], [ %.045.i, %104 ], [ %.042.i, %118 ], [ %.045.i, %.loopexit.i ]
-  %.244.i = phi ptr [ %.042.i, %98 ], [ %.042.i, %98 ], [ %.042.i, %98 ], [ %spec.select.i, %104 ], [ %.042.i, %118 ], [ %.042.i, %.loopexit.i ]
-  %.141.i = phi i64 [ %.040.i, %98 ], [ %.040.i, %98 ], [ %.040.i, %98 ], [ %106, %104 ], [ 0, %118 ], [ 0, %.loopexit.i ]
-  %.2.i = phi i64 [ %100, %98 ], [ %100, %98 ], [ %100, %98 ], [ %100, %104 ], [ %.039.i, %118 ], [ %.039.i, %.loopexit.i ]
+  %.3.i = phi ptr [ %99, %104 ], [ %99, %98 ], [ %99, %98 ], [ %99, %98 ], [ %.149.i, %118 ], [ %.149.i, %.loopexit.i ]
+  %.247.i = phi ptr [ %.045.i, %104 ], [ %.045.i, %98 ], [ %.045.i, %98 ], [ %.045.i, %98 ], [ %.042.i, %118 ], [ %.045.i, %.loopexit.i ]
+  %.244.i = phi ptr [ %spec.select.i, %104 ], [ %.042.i, %98 ], [ %.042.i, %98 ], [ %.042.i, %98 ], [ %.042.i, %118 ], [ %.042.i, %.loopexit.i ]
+  %.141.i = phi i64 [ %106, %104 ], [ %.040.i, %98 ], [ %.040.i, %98 ], [ %.040.i, %98 ], [ 0, %118 ], [ 0, %.loopexit.i ]
+  %.2.i = phi i64 [ %100, %104 ], [ %100, %98 ], [ %100, %98 ], [ %100, %98 ], [ %.039.i, %118 ], [ %.039.i, %.loopexit.i ]
   %121 = and i64 %.2.i, 4160749568
   %.not56.i = icmp eq i64 %121, 134217728
   br i1 %.not56.i, label %122, label %98
@@ -523,8 +523,8 @@ findmust.exit:                                    ; preds = %112, %122, %127, %1
   br label %156
 
 156:                                              ; preds = %154, %152, %149
-  %.114.i = phi i64 [ %.013.i, %149 ], [ %155, %154 ], [ %153, %152 ]
-  %.2.i103 = phi i64 [ %.0.i, %149 ], [ %spec.select.i102, %154 ], [ %.0.i, %152 ]
+  %.114.i = phi i64 [ %.013.i, %149 ], [ %153, %152 ], [ %155, %154 ]
+  %.2.i103 = phi i64 [ %.0.i, %149 ], [ %.0.i, %152 ], [ %spec.select.i102, %154 ]
   %.not17.i = icmp eq i64 %151, 134217728
   br i1 %.not17.i, label %157, label %149
 
@@ -1304,7 +1304,7 @@ seterr.exit131:                                   ; preds = %279, %282
   br label %doemit.exit140
 
 doemit.exit140:                                   ; preds = %265, %enlarge.exit.thread.i7.i, %enlarge.exit.i9.i, %244, %enlarge.exit.thread.i.i, %enlarge.exit.i.i, %223, %enlarge.exit.thread.i137, %enlarge.exit.i139, %189, %287, %210, %188, %seterr.exit141, %seterr.exit142, %doemit.exit149, %doemit.exit156, %seterr.exit157, %111
-  %.not167.i = phi i1 [ true, %287 ], [ true, %210 ], [ true, %188 ], [ true, %seterr.exit141 ], [ true, %seterr.exit142 ], [ true, %doemit.exit149 ], [ false, %doemit.exit156 ], [ true, %111 ], [ true, %seterr.exit157 ], [ true, %189 ], [ true, %enlarge.exit.i139 ], [ true, %enlarge.exit.thread.i137 ], [ true, %223 ], [ true, %enlarge.exit.i.i ], [ true, %enlarge.exit.thread.i.i ], [ true, %244 ], [ true, %enlarge.exit.i9.i ], [ true, %enlarge.exit.thread.i7.i ], [ true, %265 ]
+  %.not167.i = phi i1 [ true, %287 ], [ true, %111 ], [ true, %seterr.exit157 ], [ false, %doemit.exit156 ], [ true, %doemit.exit149 ], [ true, %seterr.exit142 ], [ true, %seterr.exit141 ], [ true, %188 ], [ true, %210 ], [ true, %189 ], [ true, %enlarge.exit.i139 ], [ true, %enlarge.exit.thread.i137 ], [ true, %223 ], [ true, %enlarge.exit.i.i ], [ true, %enlarge.exit.thread.i.i ], [ true, %244 ], [ true, %enlarge.exit.i9.i ], [ true, %enlarge.exit.thread.i7.i ], [ true, %265 ]
   %288 = load ptr, ptr %4, align 8, !tbaa !18
   %289 = load ptr, ptr %0, align 8, !tbaa !17
   %290 = ptrtoint ptr %288 to i64

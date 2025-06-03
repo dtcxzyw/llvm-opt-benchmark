@@ -512,7 +512,7 @@ define hidden noundef i64 @_ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd409
   br i1 %trunc, label %10, label %9
 
 9:                                                ; preds = %4, %5, %15
-  %.0 = phi i64 [ %23, %15 ], [ %7, %5 ], [ 0, %4 ]
+  %.0 = phi i64 [ %7, %5 ], [ %23, %15 ], [ 0, %4 ]
   ret i64 %.0
 
 10:                                               ; preds = %5
@@ -910,7 +910,7 @@ define hidden void @_ZN6uu_fmt9linebreak18accum_words_simple17hec876937b4d67f5bE
   unreachable
 
 _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds = %5, %15
-  %.0.i = phi i64 [ %23, %15 ], [ %9, %5 ]
+  %.0.i = phi i64 [ %9, %5 ], [ %23, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i8, ptr %25, align 8, !range !89, !noundef !16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 58
@@ -1408,7 +1408,7 @@ define hidden void @_ZN6uu_fmt9linebreak21restart_active_breaks17hc23d684a4e27bc
   unreachable
 
 _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds = %11, %23
-  %.0.i = phi i64 [ %31, %23 ], [ %17, %11 ]
+  %.0.i = phi i64 [ %17, %11 ], [ %31, %23 ]
   %33 = sub i64 %6, %15
   %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %35 = load i64, ptr %34, align 8, !noundef !16

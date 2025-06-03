@@ -9592,8 +9592,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14385,7 +14385,7 @@ _ZN4llvm3isaINS_6DINodeEPNS_6MDNodeEEEbRKT0_.exit: ; preds = %571
   br label %_ZZN12_GLOBAL__N_120DebugTypeInfoRemoval5remapEPN4llvm6MDNodeEENKUlS3_E_clES3_.exit
 
 _ZZN12_GLOBAL__N_120DebugTypeInfoRemoval5remapEPN4llvm6MDNodeEENKUlS3_E_clES3_.exit: ; preds = %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %571, %387, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit, %393, %572, %567, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit.thread, %.loopexit, %388, %_ZN4llvm3isaINS_6DINodeEPNS_6MDNodeEEEbRKT0_.exit
-  %.0.i = phi ptr [ %.0.i39, %387 ], [ %390, %388 ], [ %551, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit ], [ %570, %567 ], [ %573, %572 ], [ %574, %_ZN4llvm3isaINS_6DINodeEPNS_6MDNodeEEEbRKT0_.exit ], [ null, %.loopexit ], [ %1, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit.thread ], [ null, %393 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ]
+  %.0.i = phi ptr [ %390, %388 ], [ %574, %_ZN4llvm3isaINS_6DINodeEPNS_6MDNodeEEEbRKT0_.exit ], [ %573, %572 ], [ %570, %567 ], [ %551, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit ], [ %.0.i39, %387 ], [ null, %.loopexit ], [ %1, %_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16getReplacementCUEPN4llvm13DICompileUnitE.exit.thread ], [ null, %393 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ], [ null, %571 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
   store ptr %1, ptr %15, align 8, !tbaa !84
   %575 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -17152,9 +17152,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm2at9VarRecordEN9__gnu_cxx
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi ptr [ %.pre52, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %53, %59 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi ptr [ %56, %59 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %53, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %59 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %65 = load ptr, ptr %.1, align 8, !tbaa !557
   %66 = icmp eq ptr %65, %63
@@ -17168,9 +17168,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm2at9VarRecordEN9__gnu_cxx
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge53, %70
-  %73 = phi ptr [ %.pre56, %._crit_edge._crit_edge53 ], [ %62, %70 ]
-  %74 = phi ptr [ %.pre54, %._crit_edge._crit_edge53 ], [ %63, %70 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge53 ], [ %71, %70 ]
+  %73 = phi ptr [ %62, %70 ], [ %.pre56, %._crit_edge._crit_edge53 ]
+  %74 = phi ptr [ %63, %70 ], [ %.pre54, %._crit_edge._crit_edge53 ]
+  %.2 = phi ptr [ %71, %70 ], [ %.029.lcssa, %._crit_edge._crit_edge53 ]
   %75 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %76 = load ptr, ptr %.2, align 8, !tbaa !557
   %77 = icmp eq ptr %76, %74

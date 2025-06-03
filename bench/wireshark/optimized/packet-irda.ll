@@ -1048,8 +1048,8 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %.thread158.i.i
 
 .thread158.i.i:                                   ; preds = %168, %167, %164, %163, %.thread.i.i
-  %.0140152162.i.i = phi i8 [ %112, %163 ], [ %112, %168 ], [ %112, %167 ], [ %112, %164 ], [ 0, %.thread.i.i ]
-  %.1.i.i = phi i32 [ 3, %163 ], [ 5, %168 ], [ 4, %167 ], [ %spec.select.i.i, %164 ], [ 2, %.thread.i.i ]
+  %.0140152162.i.i = phi i8 [ %112, %163 ], [ %112, %167 ], [ %112, %168 ], [ %112, %164 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ 3, %163 ], [ 4, %167 ], [ 5, %168 ], [ %spec.select.i.i, %164 ], [ 2, %.thread.i.i ]
   %169 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef %.1.i.i)
   br label %170
 
@@ -1439,7 +1439,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br label %353
 
 353:                                              ; preds = %346, %342, %339, %337, %335
-  %.1210.i.i.i = phi i32 [ 0, %335 ], [ %348, %346 ], [ 0, %342 ], [ 0, %339 ], [ 0, %337 ]
+  %.1210.i.i.i = phi i32 [ 0, %335 ], [ 0, %337 ], [ 0, %339 ], [ 0, %342 ], [ %348, %346 ]
   %354 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.0.i.i, i32 noundef 2)
   %355 = icmp ugt i16 %354, 1
   br i1 %355, label %356, label %358
@@ -1520,7 +1520,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br label %400
 
 400:                                              ; preds = %399, %394, %390, %387
-  %.0218.i.i.i = phi i16 [ 0, %399 ], [ %398, %394 ], [ %393, %390 ], [ 4, %387 ]
+  %.0218.i.i.i = phi i16 [ 0, %399 ], [ %393, %390 ], [ %398, %394 ], [ 4, %387 ]
   %401 = load i32, ptr @hf_iap_list_entry, align 4
   %402 = zext i16 %.0218.i.i.i to i32
   %403 = add nuw nsw i32 %402, 3
@@ -1680,7 +1680,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br label %487
 
 487:                                              ; preds = %.sink.split.i.i.i, %481, %476, %474, %471, %469, %468, %464
-  %.1219.i.i.i = phi i16 [ %480, %481 ], [ %480, %476 ], [ %473, %474 ], [ %473, %471 ], [ 4, %469 ], [ 4, %468 ], [ 0, %464 ], [ %.1219.ph.i.i.i, %.sink.split.i.i.i ]
+  %.1219.i.i.i = phi i16 [ 4, %469 ], [ 4, %468 ], [ %473, %474 ], [ %473, %471 ], [ %480, %481 ], [ %480, %476 ], [ 0, %464 ], [ %.1219.ph.i.i.i, %.sink.split.i.i.i ]
   %488 = zext i16 %.1219.i.i.i to i32
   %489 = add i32 %467, %488
   %490 = add i32 %.3212267.i.i.i, 1
@@ -1877,7 +1877,7 @@ dissect_iap_result.exit.i.i:                      ; preds = %.thread251.i.i.i, %
   br label %dissect_irlap.exit
 
 572:                                              ; preds = %566, %.thread148.i, %547, %539, %.thread.i11, %507, %504
-  %.0.i = phi i32 [ 2, %507 ], [ %569, %566 ], [ 2, %547 ], [ %544, %539 ], [ 2, %504 ], [ %538, %.thread.i11 ], [ %565, %.thread148.i ]
+  %.0.i = phi i32 [ 2, %507 ], [ %544, %539 ], [ %569, %566 ], [ 2, %547 ], [ 2, %504 ], [ %538, %.thread.i11 ], [ %565, %.thread148.i ]
   %573 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
   %574 = icmp sgt i32 %573, 0
   br i1 %574, label %575, label %dissect_irlap.exit

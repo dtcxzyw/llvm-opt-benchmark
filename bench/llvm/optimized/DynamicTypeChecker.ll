@@ -836,7 +836,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %46, %38, %31
-  %.1.i.i = phi ptr [ %35, %31 ], [ %47, %46 ], [ null, %38 ]
+  %.1.i.i = phi ptr [ %47, %46 ], [ %35, %31 ], [ null, %38 ]
   %48 = and i64 %.sroa.0.0.copyload.i41.i, -16
   %49 = inttoptr i64 %48 to ptr
   %50 = load ptr, ptr %49, align 16, !tbaa !84
@@ -861,7 +861,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %46, 
   br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit47.i: ; preds = %61, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i
-  %.1.i46.i = phi ptr [ %50, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %62, %61 ]
+  %.1.i46.i = phi ptr [ %62, %61 ], [ %50, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ]
   %63 = icmp ne ptr %.1.i.i, null
   %64 = icmp ne ptr %.1.i46.i, null
   %or.cond.i = and i1 %63, %64
@@ -948,7 +948,7 @@ define internal fastcc noundef zeroext i1 @_ZL13hasDefinitionPKN5clang21ObjCObje
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader: ; preds = %7, %0
-  %.pn.i.i.ph = phi ptr [ %8, %7 ], [ %3, %0 ]
+  %.pn.i.i.ph = phi ptr [ %3, %0 ], [ %8, %7 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i
@@ -1048,7 +1048,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang21ObjCObjectPointerType
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %1, %9
-  %.1.i.i = phi ptr [ %5, %1 ], [ %10, %9 ]
+  %.1.i.i = phi ptr [ %10, %9 ], [ %5, %1 ]
   %11 = tail call noundef zeroext i1 @_ZNK5clang14ObjCObjectType13isSpecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.1.i.i) #17
   ret i1 %11
 }

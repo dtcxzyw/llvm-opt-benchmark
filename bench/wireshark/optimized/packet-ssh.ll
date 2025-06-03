@@ -2330,7 +2330,7 @@ ssh_decryption_setup_mac.exit.i.i:                ; preds = %ssh_decryption_setu
   br label %716
 
 716:                                              ; preds = %ssh_decryption_setup_mac.exit.i.i, %685, %410, %407
-  %.0152.i.i = phi i32 [ %409, %407 ], [ %414, %410 ], [ %414, %ssh_decryption_setup_mac.exit.i.i ], [ %528, %685 ]
+  %.0152.i.i = phi i32 [ %409, %407 ], [ %414, %410 ], [ %528, %685 ], [ %414, %ssh_decryption_setup_mac.exit.i.i ]
   %717 = add i32 %.0153.i.i, 4
   %718 = sub i32 %717, %394
   %.neg.i.i = sub i32 %.06494.i, %.0152.i.i
@@ -8564,7 +8564,7 @@ ssh_hash_buffer_put_uint32.exit131:               ; preds = %199, %195, %ssh_has
   br label %222
 
 222:                                              ; preds = %220, %143, %100, %68, %18, %7
-  %.0 = phi i32 [ %13, %7 ], [ %212, %220 ], [ %135, %143 ], [ %92, %100 ], [ %60, %68 ], [ %21, %18 ]
+  %.0 = phi i32 [ %13, %7 ], [ %21, %18 ], [ %60, %68 ], [ %92, %100 ], [ %135, %143 ], [ %212, %220 ]
   ret i32 %.0
 }
 
@@ -8727,7 +8727,7 @@ ssh_read_f.exit:                                  ; preds = %ssh_kex_make_bignum
   br label %94
 
 94:                                               ; preds = %82, %45, %7
-  %.0 = phi i32 [ %10, %7 ], [ %93, %82 ], [ %54, %45 ]
+  %.0 = phi i32 [ %10, %7 ], [ %54, %45 ], [ %93, %82 ]
   ret i32 %.0
 }
 

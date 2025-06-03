@@ -838,7 +838,7 @@ define range(i32 -1, 1) i32 @pqPutMsgEnd(ptr noundef %0) local_unnamed_addr #2 {
   br label %40
 
 40:                                               ; preds = %35, %39
-  %.1 = phi i32 [ -1, %35 ], [ 0, %39 ]
+  %.1 = phi i32 [ 0, %39 ], [ -1, %35 ]
   ret i32 %.1
 }
 

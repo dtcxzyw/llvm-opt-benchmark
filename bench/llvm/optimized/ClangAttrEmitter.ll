@@ -3153,7 +3153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   br label %637
 
 637:                                              ; preds = %635, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %636, %635 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %636, %635 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %638 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i, i64 32
   %.val.i20.i.i.i.i = load ptr, ptr %638, align 8, !tbaa !136
   %639 = icmp eq ptr %20, %.val.i20.i.i.i.i
@@ -3164,7 +3164,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   br label %642
 
 642:                                              ; preds = %640, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %641, %640 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %641, %640 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %643 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i, i64 32
   %.val.i21.i.i.i.i = load ptr, ptr %643, align 8, !tbaa !136
   %644 = icmp eq ptr %20, %.val.i21.i.i.i.i
@@ -11516,7 +11516,7 @@ _ZN12_GLOBAL__N_118AttrClassHierarchyD2Ev.exit:   ; preds = %_ZSt8_DestroyISt10u
   br label %387
 
 387:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit42.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.056.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %386, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit42.thread.i.i.i.i.i.i.i" ]
+  %.sroa.056.1.i.i.i.i.i.i.i = phi ptr [ %386, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit42.thread.i.i.i.i.i.i.i" ], [ %.sroa.056.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %388 = getelementptr i8, ptr %.sroa.056.1.i.i.i.i.i.i.i, i64 8
   %.val2.i43.i.i.i.i.i.i.i = load i64, ptr %388, align 8, !tbaa !82
   %.not.i.i.i44.i.i.i.i.i.i.i = icmp eq i64 %.val2.i43.i.i.i.i.i.i.i, 6
@@ -11533,7 +11533,7 @@ _ZN12_GLOBAL__N_118AttrClassHierarchyD2Ev.exit:   ; preds = %_ZSt8_DestroyISt10u
   br label %391
 
 391:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.056.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %390, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread.i.i.i.i.i.i.i" ]
+  %.sroa.056.2.i.i.i.i.i.i.i = phi ptr [ %390, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21AttrHasPragmaSpellingPKN4llvm6RecordEE3$_0EclINS_17__normal_iteratorIPN12_GLOBAL__N_117FlattenedSpellingESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread.i.i.i.i.i.i.i" ], [ %.sroa.056.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %392 = getelementptr i8, ptr %.sroa.056.2.i.i.i.i.i.i.i, i64 8
   %.val2.i49.i.i.i.i.i.i.i = load i64, ptr %392, align 8, !tbaa !82
   %.not.i.i.i50.i.i.i.i.i.i.i = icmp eq i64 %.val2.i49.i.i.i.i.i.i.i, 6
@@ -15847,7 +15847,7 @@ _ZL25isRegularKeywordAttributeRKN12_GLOBAL__N_117FlattenedSpellingE.exit: ; pred
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %69, %68 ]
+  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %71 = load ptr, ptr %.sroa.025.1.i.i.i.i.i.i, align 8, !tbaa !32
   %72 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %71, ptr nonnull @.str.60, i64 4) #25
   br i1 %72, label %73, label %"_ZN4llvm6any_ofIRSt6vectorIPKNS_6RecordESaIS4_EEZN5clang36EmitClangRegularKeywordAttributeInfoERKNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEbOT_T0_.exit"
@@ -15857,7 +15857,7 @@ _ZL25isRegularKeywordAttributeRKN12_GLOBAL__N_117FlattenedSpellingE.exit: ; pred
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %74, %73 ]
+  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %74, %73 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %76 = load ptr, ptr %.sroa.025.2.i.i.i.i.i.i, align 8, !tbaa !32
   %77 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %76, ptr nonnull @.str.60, i64 4) #25
   %spec.select.i.i.i.i.i.i = select i1 %77, ptr %.val24, ptr %.sroa.025.2.i.i.i.i.i.i
@@ -16530,8 +16530,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN12_GLOBAL__N_117FlattenedSpellingC2ERKN4llvm6RecordE.exit
 
 _ZN12_GLOBAL__N_117FlattenedSpellingC2ERKN4llvm6RecordE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit59.thread147, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit13.i, %_ZN4llvmeqENS_9StringRefES0_.exit17.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
-  %.sroa.12.2 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread147 ], [ %180, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit13.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.10.2 = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread147 ], [ %179, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit17.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit13.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.12.2 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread147 ], [ %180, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit13.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit17.i ]
+  %.sroa.10.2 = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread147 ], [ %179, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit13.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit17.i ]
   %181 = load ptr, ptr %8, align 8, !tbaa !158
   %.not.i.i = icmp eq ptr %17, %181
   br i1 %.not.i.i, label %184, label %182
@@ -18543,7 +18543,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14: ; preds = %85
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17: ; preds = %90, %.thread.i.i.i.i.i.i18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14 ], [ %92, %90 ], [ 0, %.thread.i.i.i.i.i.i18 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %92, %90 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14 ], [ 0, %.thread.i.i.i.i.i.i18 ]
   %93 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %94
 
@@ -27604,7 +27604,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit340:              ; preds = %1478, %1480
   br label %1510
 
 1510:                                             ; preds = %1508, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.033.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1509, %1508 ]
+  %.sroa.033.1.i.i.i.i.i.i.i = phi ptr [ %1509, %1508 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1511 = getelementptr i8, ptr %.sroa.033.1.i.i.i.i.i.i.i, i64 48
   %.val1.i23.i.i.i.i.i.i.i = load i8, ptr %1511, align 8, !tbaa !347, !range !43, !noundef !44
   %1512 = trunc nuw i8 %.val1.i23.i.i.i.i.i.i.i to i1
@@ -27615,7 +27615,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit340:              ; preds = %1478, %1480
   br label %1515
 
 1515:                                             ; preds = %1513, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.033.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %1514, %1513 ]
+  %.sroa.033.2.i.i.i.i.i.i.i = phi ptr [ %1514, %1513 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %1516 = getelementptr i8, ptr %.sroa.033.2.i.i.i.i.i.i.i, i64 48
   %.val1.i24.i.i.i.i.i.i.i = load i8, ptr %1516, align 8, !tbaa !347, !range !43, !noundef !44
   %1517 = trunc nuw i8 %.val1.i24.i.i.i.i.i.i.i to i1
@@ -30125,9 +30125,9 @@ _ZN4llvm6RecordD2Ev.exit1140:                     ; preds = %_ZN4llvm11SmallVect
   br label %2607
 
 2607:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %.val20.val23.i.i.i.i.i.i.i = phi i64 [ %.val20.val23.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.val19.val24.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ]
-  %.val20.val.i.i.i.i.i.i.i = phi ptr [ %.val20.val.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.val19.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ]
-  %.sroa.03.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.03.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %2606, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ]
+  %.val20.val23.i.i.i.i.i.i.i = phi i64 [ %.val19.val24.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ], [ %.val20.val23.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.val20.val.i.i.i.i.i.i.i = phi ptr [ %.val19.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ], [ %.val20.val.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.sroa.03.1.i.i.i.i.i.i.i = phi ptr [ %2606, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit56.thread25.i.i.i.i.i.i.i" ], [ %.sroa.03.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %2608 = load ptr, ptr %.sroa.03.1.i.i.i.i.i.i.i, align 8, !tbaa !32
   %.val1.i57.i.i.i.i.i.i.i = load ptr, ptr %2608, align 8, !tbaa !45
   %2609 = getelementptr i8, ptr %.val1.i57.i.i.i.i.i.i.i, i64 24
@@ -30151,9 +30151,9 @@ _ZN4llvm6RecordD2Ev.exit1140:                     ; preds = %_ZN4llvm11SmallVect
   br label %2615
 
 2615:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i", %._crit_edge._crit_edge212.i.i.i.i.i.i.i
-  %.val21.val22.i.i.i.i.i.i.i = phi i64 [ %.val21.val22.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ], [ %.val20.val23.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ]
-  %.val21.val.i.i.i.i.i.i.i = phi ptr [ %.val21.val.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ], [ %.val20.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ]
-  %.sroa.03.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.03.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ], [ %2614, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ]
+  %.val21.val22.i.i.i.i.i.i.i = phi i64 [ %.val20.val23.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ], [ %.val21.val22.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ]
+  %.val21.val.i.i.i.i.i.i.i = phi ptr [ %.val20.val.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ], [ %.val21.val.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ]
+  %.sroa.03.2.i.i.i.i.i.i.i = phi ptr [ %2614, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clangL30GenerateMutualExclusionsChecksERKN4llvm6RecordERKNS3_12RecordKeeperERNS3_11raw_ostreamESB_SB_E3$_0EclINS_17__normal_iteratorIPPS5_St6vectorISG_SaISG_EEEEEEbT_.exit63.thread28.i.i.i.i.i.i.i" ], [ %.sroa.03.0.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge212.i.i.i.i.i.i.i ]
   %2616 = load ptr, ptr %.sroa.03.2.i.i.i.i.i.i.i, align 8, !tbaa !32
   %.val1.i64.i.i.i.i.i.i.i = load ptr, ptr %2616, align 8, !tbaa !45
   %2617 = getelementptr i8, ptr %.val1.i64.i.i.i.i.i.i.i, i64 24
@@ -41708,7 +41708,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %57
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i: ; preds = %62, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %64, %62 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %64, %62 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %65 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   br label %.thread.i.i
 
@@ -43396,7 +43396,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i16.i.i.i72.i.i.i.i.i.i: ; preds = %755
   br label %769
 
 769:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit83.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.0120.1.i.i.i.i.i.i = phi ptr [ %.sroa.0120.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %768, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit83.thread.i.i.i.i.i.i" ]
+  %.sroa.0120.1.i.i.i.i.i.i = phi ptr [ %768, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit83.thread.i.i.i.i.i.i" ], [ %.sroa.0120.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %770 = load ptr, ptr %.sroa.0120.1.i.i.i.i.i.i, align 8, !tbaa !32
   %771 = getelementptr i8, ptr %770, i64 160
   %.val1.i84.i.i.i.i.i.i = load i32, ptr %771, align 8, !tbaa !41
@@ -43449,7 +43449,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i16.i.i.i89.i.i.i.i.i.i: ; preds = %773
   br label %787
 
 787:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit100.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.0120.2.i.i.i.i.i.i = phi ptr [ %.sroa.0120.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %786, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit100.thread.i.i.i.i.i.i" ]
+  %.sroa.0120.2.i.i.i.i.i.i = phi ptr [ %786, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL36emitClangAttrStrictIdentifierArgListRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEEEEbT_.exit100.thread.i.i.i.i.i.i" ], [ %.sroa.0120.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %788 = load ptr, ptr %.sroa.0120.2.i.i.i.i.i.i, align 8, !tbaa !32
   %789 = getelementptr i8, ptr %788, i64 160
   %.val1.i101.i.i.i.i.i.i = load i32, ptr %789, align 8, !tbaa !41
@@ -46477,7 +46477,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i7.i: ; preds = %308
   br label %_ZZN5clang17EmitClangAttrDocsERKN4llvm12RecordKeeperERNS0_11raw_ostreamEENK12CategoryLessclEPKNS0_6RecordES9_.exit.i.i.i10.i
 
 _ZZN5clang17EmitClangAttrDocsERKN4llvm12RecordKeeperERNS0_11raw_ostreamEENK12CategoryLessclEPKNS0_6RecordES9_.exit.i.i.i10.i: ; preds = %321, %.thread.i.i.i.i.i.i11.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i7.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i7.i ], [ %323, %321 ], [ 0, %.thread.i.i.i.i.i.i11.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %323, %321 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i7.i ], [ 0, %.thread.i.i.i.i.i.i11.i ]
   %324 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   br label %325
 
@@ -93289,7 +93289,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14.i.i.i: ; preds = %1
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17.i.i.i: ; preds = %119, %.thread.i.i.i.i.i.i18.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14.i.i.i ], [ %121, %119 ], [ 0, %.thread.i.i.i.i.i.i18.i.i.i ]
+  %.1.i.i.i.i.i.i.i.i.i = phi i32 [ %121, %119 ], [ %spec.select.i.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14.i.i.i ], [ 0, %.thread.i.i.i.i.i.i18.i.i.i ]
   %122 = icmp slt i32 %.1.i.i.i.i.i.i.i.i.i, 0
   br label %123
 
@@ -95843,7 +95843,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %9
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i: ; preds = %14, %.thread.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.1.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %16, %14 ], [ 0, %.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi i32 [ %16, %14 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ]
   %17 = icmp slt i32 %.1.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit
 

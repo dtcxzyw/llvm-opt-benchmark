@@ -21841,7 +21841,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$ruff_python_formatter..FormatModu
   br label %21
 
 21:                                               ; preds = %18, %15, %13
-  %.sroa.0.0.in = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in = phi i1 [ %14, %13 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -22204,8 +22204,8 @@ default.unreachable25:                            ; preds = %2
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit20": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit24", %77, %50, %53, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit"
-  %.pn.pn = phi { ptr, i32 } [ %.pn16, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit" ], [ %.pn12, %53 ], [ %.pn12, %50 ], [ %.pn, %77 ], [ %.pn, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit24" ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit" ], [ %.pn12, %53 ], [ %.pn12, %50 ], [ %.pn, %77 ], [ %.pn, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit24" ]
+  resume { ptr, i32 } %.pn16.pn
 
 47:                                               ; preds = %19
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h0f8fab51c3d39265E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
@@ -32161,7 +32161,7 @@ _ZN11ruff_server6server10connection10Connection11make_sender17hd80ffbba15a3fab5E
   unreachable
 
 .body:                                            ; preds = %.loopexit256, %.loopexit.split-lp257, %467, %383, %1888, %1887, %1884, %1883, %1882, %1881
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body59, %1888 ], [ %eh.lpad-body59, %1881 ], [ %eh.lpad-body59, %1887 ], [ %eh.lpad-body59, %1883 ], [ %eh.lpad-body59, %1884 ], [ %eh.lpad-body59, %1882 ], [ %.pn163.pn.pn.i, %383 ], [ %468, %467 ], [ %lpad.loopexit258, %.loopexit256 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp257 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body59, %1888 ], [ %eh.lpad-body59, %1881 ], [ %eh.lpad-body59, %1884 ], [ %eh.lpad-body59, %1882 ], [ %eh.lpad-body59, %1887 ], [ %eh.lpad-body59, %1883 ], [ %.pn163.pn.pn.i, %383 ], [ %468, %467 ], [ %lpad.loopexit258, %.loopexit256 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp257 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_server..server..schedule..Scheduler$GT$17hf5677e8d8b64fe42E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %275) #22
           to label %278 unwind label %1885
 
@@ -33946,8 +33946,8 @@ _ZN11ruff_server6server10connection10Connection11make_sender17hd80ffbba15a3fab5E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %219)
   br i1 %.sroa.0.1, label %.loopexit270, label %1187
 
-.loopexit270.sink.split:                          ; preds = %.noexc40, %.noexc60, %.thread247
-  %.sroa.13209.3246.ph = phi ptr [ %883, %.thread247 ], [ %807, %.noexc40 ], [ %1173, %.noexc60 ]
+.loopexit270.sink.split:                          ; preds = %.noexc60, %.noexc40, %.thread247
+  %.sroa.13209.3246.ph = phi ptr [ %883, %.thread247 ], [ %1173, %.noexc60 ], [ %807, %.noexc40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %181)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %196)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %208)
@@ -36707,10 +36707,10 @@ _ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit: ; preds = %1
   br label %1878
 
 1878:                                             ; preds = %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit, %1552
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ], [ %.sroa.19.0, %1552 ], [ %.sroa.19.8, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ]
-  %.sroa.04.1 = phi i1 [ true, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ], [ true, %1552 ], [ false, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ]
-  %.sroa.05.1 = phi i1 [ false, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ], [ true, %1552 ], [ true, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ]
-  %.sroa.06.1 = phi i1 [ true, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ], [ false, %1552 ], [ true, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.8, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ], [ %.sroa.19.0, %1552 ], [ %.sroa.19.0, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ]
+  %.sroa.04.1 = phi i1 [ false, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ], [ true, %1552 ], [ true, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ]
+  %.sroa.05.1 = phi i1 [ true, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ], [ true, %1552 ], [ false, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ]
+  %.sroa.06.1 = phi i1 [ true, %_ZN11ruff_server6server3api7request17h57166ca152fee004E.exit ], [ false, %1552 ], [ true, %_ZN11ruff_server6server3api12notification17hcf2773613fa032efE.exit ]
   invoke void @_ZN11ruff_server6server8schedule9Scheduler8dispatch17hb8d5495de1eac5fdE(ptr noalias noundef nonnull align 8 dereferenceable(168) %275, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %268)
           to label %1879 unwind label %.loopexit.split-lp.loopexit
 

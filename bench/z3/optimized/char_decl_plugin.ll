@@ -1557,7 +1557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335: ; preds = %_Z
           to label %480 unwind label %39
 
 480:                                              ; preds = %479, %_ZN9decl_infoD2Ev.exit332, %_ZN9decl_infoD2Ev.exit305, %_ZN9decl_infoD2Ev.exit261, %_ZN9decl_infoD2Ev.exit227, %_ZN9decl_infoD2Ev.exit199, %_ZN9decl_infoD2Ev.exit
-  %.0 = phi ptr [ %444, %_ZN9decl_infoD2Ev.exit332 ], [ %384, %_ZN9decl_infoD2Ev.exit305 ], [ %291, %_ZN9decl_infoD2Ev.exit261 ], [ %219, %_ZN9decl_infoD2Ev.exit227 ], [ %162, %_ZN9decl_infoD2Ev.exit199 ], [ %90, %_ZN9decl_infoD2Ev.exit ], [ null, %479 ]
+  %.0 = phi ptr [ %90, %_ZN9decl_infoD2Ev.exit ], [ %162, %_ZN9decl_infoD2Ev.exit199 ], [ %219, %_ZN9decl_infoD2Ev.exit227 ], [ %291, %_ZN9decl_infoD2Ev.exit261 ], [ %384, %_ZN9decl_infoD2Ev.exit305 ], [ %444, %_ZN9decl_infoD2Ev.exit332 ], [ null, %479 ]
   %481 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %481, ptr %8, align 8, !tbaa !11
   %482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
@@ -1608,7 +1608,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   ret ptr %.0
 
 506:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335, %463, %418, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264, %315, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230, %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %109, %75, %58, %39
-  %.pn169 = phi { ptr, i32 } [ %40, %39 ], [ %.pn122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335 ], [ %.pn.pn, %463 ], [ %.pn130.pn, %418 ], [ %.pn141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264 ], [ %.pn136.pn.pn.pn, %315 ], [ %.pn149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.pn145.pn.pn, %241 ], [ %.pn155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202 ], [ %.pn153, %178 ], [ %.pn167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn165, %58 ], [ %.pn163, %75 ], [ %.pn160.pn, %109 ]
+  %.pn169 = phi { ptr, i32 } [ %40, %39 ], [ %.pn167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn165, %58 ], [ %.pn163, %75 ], [ %.pn160.pn, %109 ], [ %.pn155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202 ], [ %.pn153, %178 ], [ %.pn149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.pn145.pn.pn, %241 ], [ %.pn141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264 ], [ %.pn136.pn.pn.pn, %315 ], [ %.pn130.pn, %418 ], [ %.pn122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335 ], [ %.pn.pn, %463 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #20
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %8) #20
   resume { ptr, i32 } %.pn169

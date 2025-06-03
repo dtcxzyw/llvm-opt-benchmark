@@ -126,7 +126,7 @@ define noundef ptr @ubrk_open_77(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %53
 
 40:                                               ; preds = %37, %32, %27, %22, %17
-  %.027 = phi ptr [ %36, %37 ], [ %31, %32 ], [ %26, %27 ], [ %21, %22 ], [ %16, %17 ]
+  %.027 = phi ptr [ %16, %17 ], [ %21, %22 ], [ %26, %27 ], [ %31, %32 ], [ %36, %37 ]
   %41 = load i32, ptr %4, align 4, !tbaa !3
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %43, label %54
@@ -163,7 +163,7 @@ define noundef ptr @ubrk_open_77(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %54
 
 53:                                               ; preds = %38, %33, %28, %23, %18
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %24, %23 ], [ %29, %28 ], [ %34, %33 ], [ %39, %38 ]
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %.thread, %.thread35, %40, %46, %45, %5

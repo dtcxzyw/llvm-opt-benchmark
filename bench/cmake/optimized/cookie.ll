@@ -1365,7 +1365,7 @@ sanitize_cookie_path.exit.i90:                    ; preds = %.thread.i.i93, %405
   br i1 %.not69.i, label %parse_cookie_header.exit.thread108, label %453
 
 453:                                              ; preds = %450, %447, %444, %441, %434, %431, %423, %sanitize_cookie_path.exit.i90, %sanitize_cookie_path.exit.thread.i92, %372, %367, %366
-  %.2.i = phi i32 [ %.095.i, %366 ], [ 6, %450 ], [ 5, %441 ], [ 5, %447 ], [ 5, %444 ], [ 4, %434 ], [ 3, %431 ], [ 3, %423 ], [ 2, %sanitize_cookie_path.exit.i90 ], [ 1, %372 ], [ 0, %367 ], [ 2, %sanitize_cookie_path.exit.thread.i92 ]
+  %.2.i = phi i32 [ %.095.i, %366 ], [ 0, %367 ], [ 1, %372 ], [ 2, %sanitize_cookie_path.exit.i90 ], [ 3, %431 ], [ 3, %423 ], [ 4, %434 ], [ 5, %441 ], [ 5, %447 ], [ 5, %444 ], [ 6, %450 ], [ 2, %sanitize_cookie_path.exit.thread.i92 ]
   %454 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %9) #12
   %455 = add i32 %.2.i, 1
   %.not66.i = icmp eq ptr %454, null

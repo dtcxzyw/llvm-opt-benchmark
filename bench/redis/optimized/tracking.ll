@@ -256,7 +256,7 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %25, %28, %32, %36, %40
-  %.0.i = phi i64 [ %42, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %25 ], [ 0, %15 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %15 ]
   %43 = call i64 @llvm.umin.i64(i64 %17, i64 %.0.i)
   %bcmp.i = call i32 @bcmp(ptr readonly %16, ptr nonnull readonly %20, i64 %43)
   %.not55 = icmp eq i32 %bcmp.i, 0
@@ -338,7 +338,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   br label %sdslen.exit47
 
 sdslen.exit47:                                    ; preds = %67, %68, %69, %72, %75, %78
-  %.0.i46 = phi i64 [ %79, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %64, %68 ], [ 0, %67 ]
+  %.0.i46 = phi i64 [ %64, %68 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %79, %78 ], [ 0, %67 ]
   %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %.066
   %81 = load ptr, ptr %80, align 8, !tbaa !64
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -384,7 +384,7 @@ sdslen.exit47:                                    ; preds = %67, %68, %69, %72, 
   br label %sdslen.exit49
 
 sdslen.exit49:                                    ; preds = %sdslen.exit47, %88, %91, %95, %99, %103
-  %.0.i48 = phi i64 [ %105, %103 ], [ %102, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %88 ], [ 0, %sdslen.exit47 ]
+  %.0.i48 = phi i64 [ %90, %88 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %105, %103 ], [ 0, %sdslen.exit47 ]
   %106 = call i64 @llvm.umin.i64(i64 %.0.i46, i64 %.0.i48)
   %bcmp.i50 = call i32 @bcmp(ptr nonnull readonly %54, ptr nonnull readonly %83, i64 %106)
   %.not56 = icmp eq i32 %bcmp.i50, 0
@@ -569,7 +569,7 @@ define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i6
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %36, %39, %43, %47, %51
-  %.0.i = phi i64 [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %36 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ], [ 0, %.lr.ph ]
   tail call void @enableBcastTrackingForPrefix(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %.0.i)
   %54 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %54, %4
@@ -684,7 +684,7 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %40, %43, %47, %51, %55
-  %.0.i = phi i64 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %57, %55 ], [ 0, %.lr.ph ]
   %58 = call i32 @raxFind(ptr noundef %35, ptr noundef nonnull %34, i64 noundef %.0.i, ptr noundef nonnull %4) #9
   %.not32 = icmp eq i32 %58, 0
   br i1 %.not32, label %59, label %86
@@ -732,7 +732,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %40, %43, %
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %59, %65, %68, %72, %76, %80
-  %.0.i34 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %59 ]
+  %.0.i34 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %59 ]
   %83 = call i32 @raxTryInsert(ptr noundef %61, ptr noundef nonnull %34, i64 noundef %.0.i34, ptr noundef %60, ptr noundef null) #9
   %84 = icmp eq i32 %83, 1
   br i1 %84, label %88, label %85, !prof !89
@@ -1096,7 +1096,7 @@ define dso_local void @trackingInvalidateKey(ptr noundef %0, ptr noundef %1, i32
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ], [ 0, %8 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ 0, %8 ]
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %37, label %33
 
@@ -1211,7 +1211,7 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %65, %71, %74, %78, %82, %86
-  %.0.i34 = phi i64 [ %88, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %71 ], [ 0, %65 ]
+  %.0.i34 = phi i64 [ %73, %71 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %88, %86 ], [ 0, %65 ]
   call void @sendTrackingMessage(ptr noundef nonnull %47, ptr noundef nonnull %66, i64 noundef %.0.i34, i32 noundef 0)
   br label %89
 
@@ -1319,7 +1319,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
   br label %.thread15
 
 .thread15:                                        ; preds = %37, %33, %29, %25, %22, %15
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ 0, %15 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %15 ]
   call void @sendTrackingMessage(ptr noundef nonnull %13, ptr noundef nonnull %17, i64 noundef %.0.i, i32 noundef 0)
   br label %71
 
@@ -1372,7 +1372,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %67, %63, %59, %55, %52, %40
-  %.0.i12 = phi i64 [ %69, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %52 ], [ 0, %40 ]
+  %.0.i12 = phi i64 [ %54, %52 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %69, %67 ], [ 0, %40 ]
   call void @sendTrackingMessage(ptr noundef nonnull %13, ptr noundef nonnull %47, i64 noundef %.0.i12, i32 noundef 1)
   br label %72
 
@@ -1504,7 +1504,7 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %31, %34, %38, %42, %46
-  %.0.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %19 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %19 ]
   call void @sendTrackingMessage(ptr noundef nonnull %9, ptr noundef nonnull %26, i64 noundef %.0.i, i32 noundef 1)
   br label %49
 
@@ -1861,7 +1861,7 @@ define dso_local void @trackingBroadcastInvalidationMessages() local_unnamed_add
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %37, %42, %45, %49, %53, %57
-  %.0.i = phi i64 [ %59, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %42 ], [ 0, %37 ]
+  %.0.i = phi i64 [ %44, %42 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %59, %57 ], [ 0, %37 ]
   call void @sendTrackingMessage(ptr noundef nonnull %.0.copyload, ptr noundef nonnull %36, i64 noundef %.0.i, i32 noundef 1)
   call void @sdsfree(ptr noundef nonnull %36) #9
   br label %78
@@ -1903,7 +1903,7 @@ sdslen.exit:                                      ; preds = %37, %42, %45, %49, 
   br label %sdslen.exit23
 
 sdslen.exit23:                                    ; preds = %60, %64, %67, %70, %73, %76
-  %.0.i22 = phi i64 [ %77, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ 0, %60 ]
+  %.0.i22 = phi i64 [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %77, %76 ], [ 0, %60 ]
   call void @sendTrackingMessage(ptr noundef nonnull %.0.copyload, ptr noundef nonnull %19, i64 noundef %.0.i22, i32 noundef 1)
   br label %78
 

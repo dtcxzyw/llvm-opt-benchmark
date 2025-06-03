@@ -4850,7 +4850,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -5339,9 +5339,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %144, %146
   br i1 %175, label %_ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, label %.lr.ph.i.i.i.i, !prof !384, !llvm.loop !612
 
 _ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %169, %156
-  %.lcssa.i.i.i.pn.i = phi i64 [ %163, %156 ], [ %172, %169 ]
+  %.pn.i = phi i64 [ %163, %156 ], [ %172, %169 ]
   %176 = zext i32 %154 to i64
-  %.not62 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %176
+  %.not62 = icmp samesign eq i64 %.pn.i, %176
   br i1 %.not62, label %.loopexit, label %.thread
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %149

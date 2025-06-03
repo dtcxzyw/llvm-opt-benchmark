@@ -1555,7 +1555,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   br label %21
 
 21:                                               ; preds = %16, %12
-  %.0.i = phi i32 [ 0, %12 ], [ %20, %16 ]
+  %.0.i = phi i32 [ %20, %16 ], [ 0, %12 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(i64 noundef %4) #14
@@ -1564,7 +1564,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %21, %12
-  %.1.i = phi i32 [ 0, %12 ], [ %26, %21 ]
+  %.1.i = phi i32 [ %26, %21 ], [ 0, %12 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(i64 noundef %3) #14
@@ -1580,7 +1580,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
-  %.2.i = phi i32 [ 0, %12 ], [ %32, %27 ]
+  %.2.i = phi i32 [ %32, %27 ], [ 0, %12 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(i64 noundef %2) #14
@@ -1884,7 +1884,7 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
   br label %18
 
 18:                                               ; preds = %13, %10
-  %.0.i = phi i32 [ 0, %10 ], [ %17, %13 ]
+  %.0.i = phi i32 [ %17, %13 ], [ 0, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(i64 noundef %3) #14
@@ -1893,7 +1893,7 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
   br label %24
 
 24:                                               ; preds = %18, %10
-  %.1.i = phi i32 [ 0, %10 ], [ %23, %18 ]
+  %.1.i = phi i32 [ %23, %18 ], [ 0, %10 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(i64 noundef %2) #14
@@ -1909,7 +1909,7 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %10, %24
-  %.2.i = phi i32 [ 0, %10 ], [ %29, %24 ]
+  %.2.i = phi i32 [ %29, %24 ], [ 0, %10 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(i64 noundef %1) #14
@@ -2074,7 +2074,7 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   br label %82
 
 82:                                               ; preds = %77, %76
-  %.0.i = phi i32 [ 0, %76 ], [ %81, %77 ]
+  %.0.i = phi i32 [ %81, %77 ], [ 0, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 %84(i64 noundef %4) #14
@@ -2083,7 +2083,7 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   br label %88
 
 88:                                               ; preds = %82, %76
-  %.1.i = phi i32 [ 0, %76 ], [ %87, %82 ]
+  %.1.i = phi i32 [ %87, %82 ], [ 0, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 %90(i64 noundef %3) #14
@@ -2099,7 +2099,7 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
-  %.2.i = phi i32 [ 0, %76 ], [ %93, %88 ]
+  %.2.i = phi i32 [ %93, %88 ], [ 0, %76 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 %98(i64 noundef %2) #14
@@ -2768,7 +2768,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %3, %16
-  %.021 = phi i64 [ 0, %3 ], [ %19, %16 ]
+  %.021 = phi i64 [ %19, %16 ], [ 0, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load i32, ptr %21, align 4
   %23 = call fastcc i64 @fastgetattr(ptr noundef %2, i32 noundef %22, ptr noundef %6, ptr noundef %4)
@@ -2789,7 +2789,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef readon
   br label %35
 
 35:                                               ; preds = %20, %30
-  %.0.i = phi i32 [ 0, %20 ], [ %34, %30 ]
+  %.0.i = phi i32 [ %34, %30 ], [ 0, %20 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(i64 noundef %23) #14
@@ -3783,7 +3783,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 

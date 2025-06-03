@@ -5953,7 +5953,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorISt4pai
   br label %551
 
 551:                                              ; preds = %550, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115, %78, %76, %330, %402, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130, %143, %74
-  %.pn79.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn71.pn.pn.pn, %550 ], [ %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115 ], [ %77, %76 ], [ %79, %78 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %315, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %144, %143 ], [ %.pn87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %.pn79.pn, %402 ], [ %331, %330 ]
+  %.pn87.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn71.pn.pn.pn, %550 ], [ %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115 ], [ %77, %76 ], [ %79, %78 ], [ %.pn87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %315, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %144, %143 ], [ %.pn79.pn, %402 ], [ %331, %330 ]
   %552 = load ptr, ptr %5, align 8, !tbaa !15
   %.not.i.i.i230 = icmp eq ptr %552, null
   br i1 %.not.i.i.i230, label %_ZN7xgboost4JsonD2Ev.exit231, label %553
@@ -5973,14 +5973,14 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorISt4pai
   br label %_ZN7xgboost4JsonD2Ev.exit231
 
 _ZN7xgboost4JsonD2Ev.exit231:                     ; preds = %557, %553, %551, %72
-  %.pn79.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn79.pn.pn.pn.pn.pn, %551 ], [ %.pn79.pn.pn.pn.pn.pn, %553 ], [ %.pn79.pn.pn.pn.pn.pn, %557 ]
+  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn87.pn.pn.pn, %551 ], [ %.pn87.pn.pn.pn, %553 ], [ %.pn87.pn.pn.pn, %557 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   br label %561
 
 561:                                              ; preds = %33, %_ZN7xgboost4JsonD2Ev.exit231
-  %.pn79.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn79.pn.pn.pn.pn.pn.pn, %_ZN7xgboost4JsonD2Ev.exit231 ], [ %.pn, %33 ]
-  %.032 = extractvalue { ptr, i32 } %.pn79.pn.pn.pn.pn.pn.pn.pn.pn, 0
-  %.033 = extractvalue { ptr, i32 } %.pn79.pn.pn.pn.pn.pn.pn.pn.pn, 1
+  %.pn87.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn.pn.pn, %_ZN7xgboost4JsonD2Ev.exit231 ], [ %.pn, %33 ]
+  %.032 = extractvalue { ptr, i32 } %.pn87.pn.pn.pn.pn.pn.pn, 0
+  %.033 = extractvalue { ptr, i32 } %.pn87.pn.pn.pn.pn.pn.pn, 1
   %562 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #21
   %563 = icmp eq i32 %.033, %562
   br i1 %563, label %564, label %570
@@ -6107,7 +6107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %_Z
   ret i32 %.0
 
 608:                                              ; preds = %605, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %570
-  %.merged = phi { ptr, i32 } [ %.pn79.pn.pn.pn.pn.pn.pn.pn.pn, %570 ], [ %.pn95.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %606, %605 ]
+  %.merged = phi { ptr, i32 } [ %.pn87.pn.pn.pn.pn.pn.pn, %570 ], [ %.pn95.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %606, %605 ]
   resume { ptr, i32 } %.merged
 
 609:                                              ; preds = %605, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %503, %336, %31
@@ -16945,8 +16945,8 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorIN7xgbo
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge._crit_edge.i.i.i.i
-  %111 = phi i64 [ %.pre64.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %105, %108 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %109, %108 ]
+  %111 = phi i64 [ %105, %108 ], [ %.pre64.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %109, %108 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 24
   %113 = load i64, ptr %112, align 8, !tbaa !32
   %.not41.i.i.i.i = icmp eq i64 %113, %111
@@ -16957,8 +16957,8 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZNSt6vectorIN7xgbo
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge._crit_edge65.i.i.i.i
-  %117 = phi i64 [ %.pre69.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %111, %114 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %115, %114 ]
+  %117 = phi i64 [ %111, %114 ], [ %.pre69.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %115, %114 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i, i64 24
   %119 = load i64, ptr %118, align 8, !tbaa !32
   %.not42.i.i.i.i = icmp eq i64 %119, %117
@@ -88084,7 +88084,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   ret void
 
 478:                                              ; preds = %476, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
-  %.pn14 = phi { ptr, i32 } [ %475, %476 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %.pn10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ]
+  %.pn14 = phi { ptr, i32 } [ %475, %476 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ %.pn10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ]
   resume { ptr, i32 } %.pn14
 
 479:                                              ; preds = %474

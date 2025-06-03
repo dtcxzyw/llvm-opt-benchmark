@@ -7244,7 +7244,7 @@ _ZN14sat_smt_solver7get_eufEv.exit:               ; preds = %159
           to label %187 unwind label %178
 
 187:                                              ; preds = %.critedge.thread83, %157, %158, %.critedge.thread, %46, %153
-  %.1 = phi i32 [ 0, %153 ], [ %19, %46 ], [ -1, %158 ], [ 1, %157 ], [ %.027, %.critedge.thread ], [ 1, %.critedge.thread83 ]
+  %.1 = phi i32 [ 0, %153 ], [ %19, %46 ], [ 1, %157 ], [ -1, %158 ], [ %.027, %.critedge.thread ], [ 1, %.critedge.thread83 ]
   %188 = load ptr, ptr %18, align 8, !tbaa !209
   %189 = icmp eq ptr %188, null
   br i1 %189, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i

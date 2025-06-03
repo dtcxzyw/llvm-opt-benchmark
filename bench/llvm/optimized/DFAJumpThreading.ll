@@ -20506,7 +20506,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_112TransformDFA11getClonedBBEPN4l
   br label %130
 
 130:                                              ; preds = %128, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %129, %128 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %129, %128 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !375
@@ -20528,7 +20528,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_112TransformDFA11getClonedBBEPN4l
   br label %142
 
 142:                                              ; preds = %140, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %141, %140 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %141, %140 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.032.2.i.i.i.i, i64 16
   %145 = load i32, ptr %144, align 8, !tbaa !375

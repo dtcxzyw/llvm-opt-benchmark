@@ -2424,7 +2424,7 @@ _ZN21Bytecode_lookupswitchC2EPK16ciBytecodeStream.exit: ; preds = %582, %585
   br label %_ZN16BlockListBuilder10handle_jsrEP10BlockBeginii.exit
 
 _ZN16BlockListBuilder10handle_jsrEP10BlockBeginii.exit: ; preds = %544, %539, %510, %505, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124, %._crit_edge, %._crit_edge130, %_ZNK16ciBytecodeStream12get_far_destEv.exit, %_ZNK16ciBytecodeStream8get_destEv.exit96, %_ZNK16ciBytecodeStream8get_destEv.exit, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124.thread, %418, %413, %408, %403, %395, %387, %379, %371, %366, %361, %356, %351, %343, %335, %327, %319, %314, %309, %304, %299, %_ZNK16ciBytecodeStream9get_indexEv.exit93, %_ZNK16ciBytecodeStream9get_indexEv.exit86, %_ZNK16ciBytecodeStream9get_indexEv.exit79, %_ZNK16ciBytecodeStream9get_indexEv.exit72, %_ZNK16ciBytecodeStream9get_indexEv.exit65, %_ZNK16ciBytecodeStream9get_indexEv.exit
-  %.2 = phi ptr [ %.1, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124 ], [ null, %._crit_edge ], [ null, %._crit_edge130 ], [ null, %_ZNK16ciBytecodeStream12get_far_destEv.exit ], [ null, %_ZNK16ciBytecodeStream8get_destEv.exit96 ], [ null, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ null, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124.thread ], [ %.1, %418 ], [ %.1, %413 ], [ %.1, %408 ], [ %.1, %403 ], [ %.1, %395 ], [ %.1, %387 ], [ %.1, %379 ], [ %.1, %371 ], [ %.1, %366 ], [ %.1, %361 ], [ %.1, %356 ], [ %.1, %351 ], [ %.1, %343 ], [ %.1, %335 ], [ %.1, %327 ], [ %.1, %319 ], [ %.1, %314 ], [ %.1, %309 ], [ %.1, %304 ], [ %.1, %299 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit93 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit86 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit79 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit72 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit65 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit ], [ null, %505 ], [ null, %510 ], [ null, %539 ], [ null, %544 ]
+  %.2 = phi ptr [ %.1, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit65 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit72 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit79 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit86 ], [ %.1, %_ZNK16ciBytecodeStream9get_indexEv.exit93 ], [ %.1, %299 ], [ %.1, %304 ], [ %.1, %309 ], [ %.1, %314 ], [ %.1, %319 ], [ %.1, %327 ], [ %.1, %335 ], [ %.1, %343 ], [ %.1, %351 ], [ %.1, %356 ], [ %.1, %361 ], [ %.1, %366 ], [ %.1, %371 ], [ %.1, %379 ], [ %.1, %387 ], [ %.1, %395 ], [ %.1, %403 ], [ %.1, %408 ], [ %.1, %413 ], [ %.1, %418 ], [ null, %_ZN12GraphBuilder8can_trapEP8ciMethodN9Bytecodes4CodeE.exit.thread124.thread ], [ null, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ null, %_ZNK16ciBytecodeStream8get_destEv.exit96 ], [ null, %_ZNK16ciBytecodeStream12get_far_destEv.exit ], [ null, %._crit_edge130 ], [ null, %._crit_edge ], [ null, %505 ], [ null, %510 ], [ null, %539 ], [ null, %544 ]
   %615 = load ptr, ptr %28, align 8
   store ptr %615, ptr %27, align 8
   %616 = load ptr, ptr %33, align 8
@@ -17316,66 +17316,66 @@ _ZN11FieldBuffer2atEP7ciField.exit.thread:        ; preds = %_ZNK17GrowableArray
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %50 = load i32, ptr %49, align 4
-  switch i32 %50, label %78 [
-    i32 0, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit
-    i32 1, label %51
-    i32 2, label %59
-    i32 3, label %67
-    i32 4, label %75
+  switch i32 %50, label %83 [
+    i32 0, label %51
+    i32 1, label %59
+    i32 2, label %67
+    i32 3, label %75
+    i32 4, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit
   ]
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %48, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = icmp eq i64 %57, 0
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %57, 0
   br i1 %58, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
 
 59:                                               ; preds = %46
   %60 = load ptr, ptr %48, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 144
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 0
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp eq i64 %65, 0
   br i1 %66, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
 
 67:                                               ; preds = %46
   %68 = load ptr, ptr %48, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 152
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp eq i64 %73, 0
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp eq i32 %73, 0
   br i1 %74, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
 
 75:                                               ; preds = %46
-  %76 = load ptr, ptr @objectNull, align 8
-  %77 = icmp eq ptr %48, %76
-  br i1 %77, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
+  %76 = load ptr, ptr %48, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 160
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
 
-78:                                               ; preds = %46
-  %79 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %79, align 1
+83:                                               ; preds = %46
+  %84 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %84, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 668) #20
   unreachable
 
 _ZN12MemoryBuffer16is_default_valueEP11Instruction.exit: ; preds = %46
-  %80 = load ptr, ptr %48, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp eq i32 %85, 0
+  %85 = load ptr, ptr @objectNull, align 8
+  %86 = icmp eq ptr %48, %85
   br i1 %86, label %167, label %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread
 
-_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread: ; preds = %_ZN11FieldBuffer2atEP7ciField.exit.thread, %51, %59, %67, %75, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit, %_ZN11FieldBuffer2atEP7ciField.exit
+_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit.thread: ; preds = %_ZN11FieldBuffer2atEP7ciField.exit.thread, %75, %67, %59, %51, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit, %_ZN11FieldBuffer2atEP7ciField.exit
   %87 = load i32, ptr %17, align 8
   %88 = load i32, ptr %33, align 8
   %.not.i.i = icmp slt i32 %87, %88
@@ -17561,8 +17561,8 @@ _ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39: ; preds = %_ZN26Growable
   store i32 0, ptr %166, align 8
   br label %167
 
-167:                                              ; preds = %51, %59, %67, %75, %160, %163, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit
-  %.0 = phi ptr [ null, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit ], [ %1, %163 ], [ %1, %160 ], [ null, %75 ], [ null, %67 ], [ null, %59 ], [ null, %51 ]
+167:                                              ; preds = %75, %67, %59, %51, %160, %163, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit
+  %.0 = phi ptr [ null, %_ZN12MemoryBuffer16is_default_valueEP11Instruction.exit ], [ %1, %163 ], [ %1, %160 ], [ null, %51 ], [ null, %59 ], [ null, %67 ], [ null, %75 ]
   ret ptr %.0
 }
 

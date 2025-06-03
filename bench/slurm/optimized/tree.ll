@@ -561,7 +561,7 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   br label %166
 
 166:                                              ; preds = %162, %165, %.thread, %98
-  %.0 = phi i32 [ -1, %.thread ], [ -1, %98 ], [ %160, %165 ], [ %160, %162 ]
+  %.0 = phi i32 [ -1, %98 ], [ -1, %.thread ], [ %160, %165 ], [ %160, %162 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
@@ -917,7 +917,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   br label %108
 
 108:                                              ; preds = %3, %.thread, %105
-  %.0 = phi i32 [ -1, %.thread ], [ %.046, %105 ], [ -1, %3 ]
+  %.0 = phi i32 [ %.046, %105 ], [ -1, %.thread ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   ret i32 %.0
 }

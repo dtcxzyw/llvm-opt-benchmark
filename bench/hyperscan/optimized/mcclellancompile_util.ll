@@ -521,7 +521,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.thread: ; preds = %25, %_ZN3ue2
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i
-  %.sroa.055.1.i.i.i.i.i = phi ptr [ %.sroa.055.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %69, %68 ]
+  %.sroa.055.1.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.055.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %71 = getelementptr i8, ptr %.sroa.055.1.i.i.i.i.i, i64 40
   %.val.i36.i.i.i.i.i = load i64, ptr %71, align 8
   %72 = getelementptr i8, ptr %.sroa.055.1.i.i.i.i.i, i64 72
@@ -536,7 +536,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.thread: ; preds = %25, %_ZN3ue2
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i
-  %.sroa.055.2.i.i.i.i.i = phi ptr [ %.sroa.055.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %74, %73 ]
+  %.sroa.055.2.i.i.i.i.i = phi ptr [ %74, %73 ], [ %.sroa.055.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %76 = getelementptr i8, ptr %.sroa.055.2.i.i.i.i.i, i64 40
   %.val.i41.i.i.i.i.i = load i64, ptr %76, align 8
   %77 = getelementptr i8, ptr %.sroa.055.2.i.i.i.i.i, i64 72

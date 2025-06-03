@@ -4352,10 +4352,10 @@ common.resume:                                    ; preds = %23, %31
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.765511907922745139.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.765511907922745139.exit": ; preds = %2, %9, %12, %14, %16, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit"
-  %.sroa.14.sroa.8.0 = phi i64 [ %28, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %16 ], [ undef, %14 ], [ undef, %12 ], [ undef, %9 ], [ undef, %2 ]
-  %.sroa.14.sroa.9.0 = phi i64 [ %30, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %16 ], [ undef, %14 ], [ undef, %12 ], [ undef, %9 ], [ undef, %2 ]
-  %.sroa.10.0 = phi i8 [ %.sroa.417.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ %.sroa.10.8.copyload, %16 ], [ %.sroa.10.8.copyload7, %14 ], [ %.sroa.021.0.copyload, %12 ], [ %11, %9 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.016.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ -9223372036854775804, %16 ], [ -9223372036854775805, %14 ], [ -9223372036854775806, %12 ], [ -9223372036854775807, %9 ], [ -9223372036854775808, %2 ]
+  %.sroa.14.sroa.8.0 = phi i64 [ undef, %9 ], [ undef, %12 ], [ undef, %14 ], [ undef, %16 ], [ %28, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.14.sroa.9.0 = phi i64 [ undef, %9 ], [ undef, %12 ], [ undef, %14 ], [ undef, %16 ], [ %30, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.10.0 = phi i8 [ %11, %9 ], [ %.sroa.021.0.copyload, %12 ], [ %.sroa.10.8.copyload7, %14 ], [ %.sroa.10.8.copyload, %16 ], [ %.sroa.417.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %9 ], [ -9223372036854775806, %12 ], [ -9223372036854775805, %14 ], [ -9223372036854775804, %16 ], [ %.sroa.016.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ -9223372036854775808, %2 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h74b7a5b81b252084E.llvm.765511907922745139"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
           to label %33 unwind label %31
 
@@ -15860,10 +15860,10 @@ common.resume:                                    ; preds = %28, %36
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.765511907922745139.exit.i"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.765511907922745139.exit.i": ; preds = %2, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit", %21, %19, %17, %14
-  %.sroa.14.sroa.8.0 = phi i64 [ %33, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %21 ], [ undef, %19 ], [ undef, %17 ], [ undef, %14 ], [ undef, %2 ]
-  %.sroa.14.sroa.9.0 = phi i64 [ %35, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %21 ], [ undef, %19 ], [ undef, %17 ], [ undef, %14 ], [ undef, %2 ]
-  %.sroa.10.0 = phi i8 [ %.sroa.424.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ %.sroa.10.8.copyload, %21 ], [ %.sroa.10.8.copyload7, %19 ], [ %.sroa.021.0.copyload, %17 ], [ %16, %14 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.023.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ -9223372036854775804, %21 ], [ -9223372036854775805, %19 ], [ -9223372036854775806, %17 ], [ -9223372036854775807, %14 ], [ -9223372036854775808, %2 ]
+  %.sroa.14.sroa.8.0 = phi i64 [ undef, %14 ], [ undef, %17 ], [ undef, %19 ], [ undef, %21 ], [ %33, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.14.sroa.9.0 = phi i64 [ undef, %14 ], [ undef, %17 ], [ undef, %19 ], [ undef, %21 ], [ %35, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.10.0 = phi i8 [ %16, %14 ], [ %.sroa.021.0.copyload, %17 ], [ %.sroa.10.8.copyload7, %19 ], [ %.sroa.10.8.copyload, %21 ], [ %.sroa.424.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %14 ], [ -9223372036854775806, %17 ], [ -9223372036854775805, %19 ], [ -9223372036854775804, %21 ], [ %.sroa.023.0.copyload, %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haddc3d712ec8b6cdE.exit" ], [ -9223372036854775808, %2 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h74b7a5b81b252084E.llvm.765511907922745139"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
           to label %_ZN4core5clone5Clone10clone_from17h2f37c6f9e462f37fE.llvm.765511907922745139.exit unwind label %36
 
@@ -17239,7 +17239,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %42
 
 42:                                               ; preds = %18, %15
-  %.sroa.3.0 = phi i64 [ %21, %18 ], [ %17, %15 ]
+  %.sroa.3.0 = phi i64 [ %17, %15 ], [ %21, %18 ]
   %43 = insertvalue { i64, i64 } poison, i64 %13, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44

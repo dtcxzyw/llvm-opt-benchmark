@@ -224,7 +224,7 @@ default.unreachable:                              ; preds = %29
           to label %95 unwind label %.loopexit
 
 .thread:                                          ; preds = %.thread60.loopexit, %.thread60.loopexit.split-lp, %.loopexit, %.loopexit.split-lp, %107, %100, %72, %switch.early.test56, %switch.early.test56, %42, %130, %94, %67, %59, %58, %57
-  %.pn53 = phi { ptr, i32 } [ %102, %switch.early.test56 ], [ %102, %130 ], [ %lpad.thr_comm.split-lp, %94 ], [ %lpad.thr_comm.split-lp, %67 ], [ %lpad.phi83, %59 ], [ %lpad.phi83, %57 ], [ %lpad.phi83, %58 ], [ %lpad.phi83, %42 ], [ %101, %100 ], [ %102, %switch.early.test56 ], [ %.pn47, %72 ], [ %.pn, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit76, %.thread60.loopexit ], [ %lpad.loopexit.split-lp77, %.thread60.loopexit.split-lp ]
+  %.pn53 = phi { ptr, i32 } [ %lpad.phi83, %59 ], [ %lpad.phi83, %57 ], [ %lpad.phi83, %58 ], [ %lpad.phi83, %42 ], [ %lpad.thr_comm.split-lp, %94 ], [ %lpad.thr_comm.split-lp, %67 ], [ %102, %switch.early.test56 ], [ %102, %130 ], [ %101, %100 ], [ %102, %switch.early.test56 ], [ %.pn47, %72 ], [ %.pn, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit76, %.thread60.loopexit ], [ %lpad.loopexit.split-lp77, %.thread60.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$proc_macro2..token_stream..IntoIter$GT$17ha227d63d784302e3E"(ptr nonnull align 8 %23) #5
           to label %24 unwind label %60
 
@@ -295,7 +295,7 @@ default.unreachable:                              ; preds = %29
           to label %.backedge unwind label %.loopexit
 
 .backedge:                                        ; preds = %.invoke, %106, %106, %46, %46, %71
-  %.be = phi i8 [ 1, %106 ], [ 2, %71 ], [ 1, %46 ], [ 1, %46 ], [ 1, %106 ], [ 1, %.invoke ]
+  %.be = phi i8 [ 1, %46 ], [ 2, %71 ], [ 1, %106 ], [ 1, %46 ], [ 1, %106 ], [ 1, %.invoke ]
   br label %29
 
 49:                                               ; preds = %36

@@ -1808,7 +1808,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayer
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i
-  %.sroa.066.1.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
+  %.sroa.066.1.i.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %62 = getelementptr i8, ptr %.sroa.066.1.i.i.i.i, i64 8
   %.val1.i48.i.i.i.i = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i.i.i.i49.i.i.i.i = icmp eq ptr %.val1.i48.i.i.i.i, null
@@ -1828,7 +1828,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayer
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i
-  %.sroa.066.2.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %68, %67 ]
+  %.sroa.066.2.i.i.i.i = phi ptr [ %68, %67 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %70 = getelementptr i8, ptr %.sroa.066.2.i.i.i.i, i64 8
   %.val1.i56.i.i.i.i = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i.i.i.i57.i.i.i.i = icmp eq ptr %.val1.i56.i.i.i.i, null
@@ -2761,7 +2761,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i
-  %.sroa.067.1.i.i.i = phi ptr [ %.sroa.067.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %93, %92 ]
+  %.sroa.067.1.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.067.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %95 = getelementptr i8, ptr %.sroa.067.1.i.i.i, i64 8
   %.val1.i50.i.i.i = load ptr, ptr %95, align 8
   %.not.i.i.i.i.i.i.i51.i.i.i = icmp eq ptr %.val1.i50.i.i.i, null
@@ -2798,7 +2798,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i
-  %.sroa.067.2.i.i.i = phi ptr [ %.sroa.067.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %110, %109 ]
+  %.sroa.067.2.i.i.i = phi ptr [ %110, %109 ], [ %.sroa.067.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %112 = getelementptr i8, ptr %.sroa.067.2.i.i.i, i64 8
   %.val1.i57.i.i.i = load ptr, ptr %112, align 8
   %.not.i.i.i.i.i.i.i58.i.i.i = icmp eq ptr %.val1.i57.i.i.i, null

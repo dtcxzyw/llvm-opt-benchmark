@@ -187,7 +187,7 @@ dh_X9_42_kdf_derive.exit:                         ; preds = %20, %23, %dh_plain_
   br label %59
 
 59:                                               ; preds = %7, %4, %dh_X9_42_kdf_derive.exit, %10
-  %.0 = phi i32 [ %.022.i, %dh_X9_42_kdf_derive.exit ], [ %15, %10 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ %15, %10 ], [ %.022.i, %dh_X9_42_kdf_derive.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

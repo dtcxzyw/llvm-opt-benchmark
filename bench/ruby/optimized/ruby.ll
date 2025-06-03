@@ -1074,7 +1074,7 @@ define internal range(i64 1, 6) i64 @opt_W_getter(i64 %0, ptr readnone captures(
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5
-  %.0 = phi i64 [ 4, %7 ], [ 5, %6 ], [ 3, %5 ], [ 1, %2 ]
+  %.0 = phi i64 [ 4, %7 ], [ 3, %5 ], [ 5, %6 ], [ 1, %2 ]
   ret i64 %.0
 }
 
@@ -4140,8 +4140,8 @@ define internal fastcc i64 @proc_options(i64 noundef range(i64 -2147483648, 2305
   br i1 %.not184, label %proc_W_option.exit.thread.thread, label %.preheader
 
 thread-pre-split:                                 ; preds = %37, %45, %49, %54, %61, %72, %281, %296, %303, %forbid_setid.exit234, %set_option_encoding_once.exit, %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit
-  %.2.ph = phi i32 [ %.2, %37 ], [ %.2, %45 ], [ %.2, %49 ], [ %.2, %54 ], [ %.2, %61 ], [ %.3267, %72 ], [ 1, %proc_W_option.exit ], [ %.2, %281 ], [ %.2, %296 ], [ %.2, %303 ], [ %.2, %forbid_setid.exit234 ], [ %.2, %set_option_encoding_once.exit ], [ %.2, %proc_K_option.exit ], [ %.2, %proc_0_option.exit ]
-  %.0163.ph = phi ptr [ %40, %37 ], [ %48, %45 ], [ %52, %49 ], [ %57, %54 ], [ %62, %61 ], [ %77, %72 ], [ %.1.i, %proc_W_option.exit ], [ %284, %281 ], [ %297, %296 ], [ %307, %303 ], [ %318, %forbid_setid.exit234 ], [ %442, %set_option_encoding_once.exit ], [ %.010.i, %proc_K_option.exit ], [ %485, %proc_0_option.exit ]
+  %.2.ph = phi i32 [ %.2, %proc_0_option.exit ], [ %.2, %proc_K_option.exit ], [ %.2, %set_option_encoding_once.exit ], [ %.2, %forbid_setid.exit234 ], [ %.2, %303 ], [ %.2, %296 ], [ %.2, %281 ], [ 1, %proc_W_option.exit ], [ %.2, %61 ], [ %.3267, %72 ], [ %.2, %54 ], [ %.2, %49 ], [ %.2, %45 ], [ %.2, %37 ]
+  %.0163.ph = phi ptr [ %485, %proc_0_option.exit ], [ %.010.i, %proc_K_option.exit ], [ %442, %set_option_encoding_once.exit ], [ %318, %forbid_setid.exit234 ], [ %307, %303 ], [ %297, %296 ], [ %284, %281 ], [ %.1.i, %proc_W_option.exit ], [ %62, %61 ], [ %77, %72 ], [ %57, %54 ], [ %52, %49 ], [ %48, %45 ], [ %40, %37 ]
   %.pr = load i8, ptr %.0163.ph, align 1, !tbaa !7
   br label %.preheader
 
@@ -5186,7 +5186,7 @@ set_option_encoding_once.exit:                    ; preds = %432, %rbimpl_intern
   br label %449
 
 449:                                              ; preds = %448, %447, %446, %443, %443
-  %.0.ph.i = phi ptr [ @.str.61, %446 ], [ @.str.42, %447 ], [ @.str.62, %448 ], [ @.str.60, %443 ], [ @.str.60, %443 ]
+  %.0.ph.i = phi ptr [ @.str.62, %448 ], [ @.str.42, %447 ], [ @.str.61, %446 ], [ @.str.60, %443 ], [ @.str.60, %443 ]
   %450 = call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.ph.i) #25
   store i64 %450, ptr %16, align 8, !tbaa !90
   %451 = load i64, ptr %17, align 8, !tbaa !100
@@ -6079,16 +6079,16 @@ proc_long_options.exit:                           ; preds = %498, %514, %515, %.
   unreachable
 
 proc_W_option.exit.thread:                        ; preds = %.preheader, %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit, %name_match_p.exit.i, %.loopexit.i, %proc_e_option.exit, %forbid_setid.exit244, %431, %780, %367, %368, %add_modules.exit, %394, %forbid_setid.exit247, %410, %418, %415, %466, %467, %465, %784
-  %.1266 = phi i32 [ %.2, %784 ], [ %.2, %780 ], [ %.2, %466 ], [ %.2, %467 ], [ %.2, %465 ], [ %.2, %431 ], [ %.2, %415 ], [ %.2, %418 ], [ %.2, %410 ], [ %.2, %forbid_setid.exit247 ], [ %.2, %394 ], [ %.2, %forbid_setid.exit244 ], [ %.2, %367 ], [ %.2, %368 ], [ %.2, %add_modules.exit ], [ %.2, %proc_e_option.exit ], [ %.2, %.loopexit.i ], [ %.2, %name_match_p.exit.i ], [ 1, %proc_W_option.exit ], [ %.2, %proc_K_option.exit ], [ %.2, %proc_0_option.exit ], [ %.2, %.preheader ]
-  %.1158 = phi ptr [ %.0157930, %784 ], [ %783, %780 ], [ %.0157930, %466 ], [ %468, %467 ], [ %.0157930, %465 ], [ %.4161, %431 ], [ %.0157930, %415 ], [ %.0157930, %418 ], [ %.3160, %410 ], [ %.0157930, %forbid_setid.exit247 ], [ %.0157930, %394 ], [ %.0157930, %forbid_setid.exit244 ], [ %.0157930, %367 ], [ %369, %368 ], [ %.0157930, %add_modules.exit ], [ %349, %proc_e_option.exit ], [ %.0157930, %.loopexit.i ], [ %.0157930, %name_match_p.exit.i ], [ %.0157930, %proc_0_option.exit ], [ %.0157930, %proc_K_option.exit ], [ %.0157930, %proc_W_option.exit ], [ %.0157930, %.preheader ]
-  %.1 = phi i64 [ %.0156931, %784 ], [ %.0262.i, %780 ], [ 1, %466 ], [ %470, %467 ], [ %.0156931, %465 ], [ %.4, %431 ], [ %.0156931, %415 ], [ %.0156931, %418 ], [ %.3, %410 ], [ %.0156931, %forbid_setid.exit247 ], [ %.0156931, %394 ], [ %.0156931, %forbid_setid.exit244 ], [ 1, %367 ], [ %371, %368 ], [ %.0156931, %add_modules.exit ], [ %347, %proc_e_option.exit ], [ %.0156931, %.loopexit.i ], [ %.0156931, %name_match_p.exit.i ], [ %.0156931, %proc_0_option.exit ], [ %.0156931, %proc_K_option.exit ], [ %.0156931, %proc_W_option.exit ], [ %.0156931, %.preheader ]
+  %.1266 = phi i32 [ %.2, %proc_e_option.exit ], [ %.2, %367 ], [ %.2, %368 ], [ %.2, %add_modules.exit ], [ %.2, %forbid_setid.exit244 ], [ %.2, %forbid_setid.exit247 ], [ %.2, %394 ], [ %.2, %410 ], [ %.2, %415 ], [ %.2, %418 ], [ %.2, %431 ], [ %.2, %466 ], [ %.2, %467 ], [ %.2, %465 ], [ %.2, %780 ], [ %.2, %784 ], [ %.2, %.loopexit.i ], [ %.2, %name_match_p.exit.i ], [ %.2, %.preheader ], [ %.2, %proc_0_option.exit ], [ %.2, %proc_K_option.exit ], [ 1, %proc_W_option.exit ]
+  %.1158 = phi ptr [ %349, %proc_e_option.exit ], [ %.0157930, %367 ], [ %369, %368 ], [ %.0157930, %add_modules.exit ], [ %.0157930, %forbid_setid.exit244 ], [ %.0157930, %forbid_setid.exit247 ], [ %.0157930, %394 ], [ %.3160, %410 ], [ %.0157930, %415 ], [ %.0157930, %418 ], [ %.4161, %431 ], [ %.0157930, %466 ], [ %468, %467 ], [ %.0157930, %465 ], [ %783, %780 ], [ %.0157930, %784 ], [ %.0157930, %.loopexit.i ], [ %.0157930, %name_match_p.exit.i ], [ %.0157930, %proc_0_option.exit ], [ %.0157930, %proc_K_option.exit ], [ %.0157930, %proc_W_option.exit ], [ %.0157930, %.preheader ]
+  %.1 = phi i64 [ %347, %proc_e_option.exit ], [ 1, %367 ], [ %371, %368 ], [ %.0156931, %add_modules.exit ], [ %.0156931, %forbid_setid.exit244 ], [ %.0156931, %forbid_setid.exit247 ], [ %.0156931, %394 ], [ %.3, %410 ], [ %.0156931, %415 ], [ %.0156931, %418 ], [ %.4, %431 ], [ 1, %466 ], [ %470, %467 ], [ %.0156931, %465 ], [ %.0262.i, %780 ], [ %.0156931, %784 ], [ %.0156931, %.loopexit.i ], [ %.0156931, %name_match_p.exit.i ], [ %.0156931, %proc_0_option.exit ], [ %.0156931, %proc_K_option.exit ], [ %.0156931, %proc_W_option.exit ], [ %.0156931, %.preheader ]
   %.0156 = add i64 %.1, -1
   %812 = icmp sgt i64 %.0156, 0
   br i1 %812, label %.lr.ph, label %proc_W_option.exit.thread.thread
 
-proc_W_option.exit.thread.thread:                 ; preds = %proc_W_option.exit.thread, %.lr.ph, %32, %proc_long_options.exit, %30, %.preheader284, %proc_long_options.exit.thread, %299, %492
-  %.4268 = phi i32 [ %.2, %proc_long_options.exit.thread ], [ %.2, %299 ], [ %.2, %492 ], [ %15, %.preheader284 ], [ %.0265927, %30 ], [ %.2, %proc_long_options.exit ], [ %.0265927, %32 ], [ %.0265927, %.lr.ph ], [ %.1266, %proc_W_option.exit.thread ]
-  %.5 = phi i64 [ %.0156931, %proc_long_options.exit.thread ], [ %.0156931, %299 ], [ %493, %492 ], [ %.0156926, %.preheader284 ], [ %.0156931, %30 ], [ %.0156931, %proc_long_options.exit ], [ %.0156931, %32 ], [ %.0156931, %.lr.ph ], [ %.0156, %proc_W_option.exit.thread ]
+proc_W_option.exit.thread.thread:                 ; preds = %proc_W_option.exit.thread, %.lr.ph, %32, %proc_long_options.exit, %30, %.preheader284, %proc_long_options.exit.thread, %492, %299
+  %.4268 = phi i32 [ %.2, %proc_long_options.exit.thread ], [ %.2, %492 ], [ %.2, %299 ], [ %15, %.preheader284 ], [ %.0265927, %30 ], [ %.2, %proc_long_options.exit ], [ %.0265927, %32 ], [ %.0265927, %.lr.ph ], [ %.1266, %proc_W_option.exit.thread ]
+  %.5 = phi i64 [ %.0156931, %proc_long_options.exit.thread ], [ %493, %492 ], [ %.0156931, %299 ], [ %.0156926, %.preheader284 ], [ %.0156931, %30 ], [ %.0156931, %proc_long_options.exit ], [ %.0156931, %32 ], [ %.0156931, %.lr.ph ], [ %.0156, %proc_W_option.exit.thread ]
   %.not225 = icmp eq i32 %.4268, 0
   br i1 %.not225, label %820, label %813
 

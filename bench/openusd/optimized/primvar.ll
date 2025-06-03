@@ -10181,7 +10181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
   br label %108
 
 108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %106
-  %.2 = phi i1 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %107, %106 ]
+  %.2 = phi i1 [ %107, %106 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ]
   ret i1 %.2
 }
 
@@ -10425,7 +10425,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
   br label %108
 
 108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %106
-  %.2 = phi i1 [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %107, %106 ]
+  %.2 = phi i1 [ %107, %106 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ]
   ret i1 %.2
 }
 
@@ -10925,7 +10925,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit33: ; preds = %_ZN32
   br label %233
 
 233:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit33, %231
-  %.1 = phi i1 [ %.08, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit33 ], [ %232, %231 ]
+  %.1 = phi i1 [ %232, %231 ], [ %.08, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit33 ]
   ret i1 %.1
 }
 
@@ -11103,7 +11103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %_ZN32px
   br label %62
 
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %60
-  %.1 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ %61, %60 ]
+  %.1 = phi i1 [ %61, %60 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ]
   ret i1 %.1
 }
 

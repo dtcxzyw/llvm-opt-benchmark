@@ -579,7 +579,7 @@ MBCSOkForBaseFromUnicode.exit123.thread:          ; preds = %163, %154, %MBCSOkF
   br label %_ZL15MBCSPostprocessP8MBCSDataPK20UConverterStaticData.exit
 
 190:                                              ; preds = %177, %184, %143, %MBCSOkForBaseFromUnicode.exit.thread, %123, %166, %MBCSOkForBaseFromUnicode.exit123.thread, %150, %175, %171, %170
-  %.1 = phi i8 [ %.0105162, %184 ], [ %183, %177 ], [ %.0105162, %175 ], [ %.0105162, %171 ], [ %.0105162, %170 ], [ %153, %150 ], [ %168, %166 ], [ %.0105162, %MBCSOkForBaseFromUnicode.exit123.thread ], [ %125, %123 ], [ %145, %143 ], [ %120, %MBCSOkForBaseFromUnicode.exit.thread ]
+  %.1 = phi i8 [ %125, %123 ], [ %145, %143 ], [ %120, %MBCSOkForBaseFromUnicode.exit.thread ], [ %153, %150 ], [ %168, %166 ], [ %.0105162, %MBCSOkForBaseFromUnicode.exit123.thread ], [ %.0105162, %175 ], [ %.0105162, %171 ], [ %.0105162, %170 ], [ %183, %177 ], [ %.0105162, %184 ]
   %191 = getelementptr inbounds nuw i8, ptr %.0106161, i64 12
   %192 = add nuw nsw i32 %.0107160, 1
   %193 = load i32, ptr %91, align 4, !tbaa !51
@@ -2106,7 +2106,7 @@ _ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %155, %180, %178, %_
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
 _ZL11setFallbackP8MBCSDataji.exit:                ; preds = %260, %212, %209, %202, %129, %191, %217, %284, %297, %290, %273, %268, %309, %185, %174, %119, %105, %101, %97, %_ZL10printBytesPcmPKhi.exit184, %_ZL10printBytesPcmPKhi.exit, %12
-  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %309 ], [ 0, %260 ], [ 0, %174 ], [ 0, %185 ], [ 0, %119 ], [ 0, %105 ], [ 0, %101 ], [ 0, %97 ], [ 1, %268 ], [ 1, %273 ], [ 1, %290 ], [ 1, %297 ], [ 1, %284 ], [ 1, %217 ], [ 1, %191 ], [ 1, %129 ], [ 1, %202 ], [ 0, %209 ], [ 1, %212 ]
+  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %309 ], [ 0, %97 ], [ 0, %101 ], [ 0, %105 ], [ 0, %119 ], [ 0, %174 ], [ 0, %185 ], [ 0, %260 ], [ 1, %268 ], [ 1, %273 ], [ 1, %290 ], [ 1, %297 ], [ 1, %284 ], [ 1, %217 ], [ 1, %191 ], [ 1, %129 ], [ 1, %202 ], [ 0, %209 ], [ 1, %212 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #17
   ret i8 %.0156
 }
@@ -2762,8 +2762,8 @@ _ZL10printBytesPcmPKhi.exit206:                   ; preds = %.lr.ph.i199, %171
   br label %224
 
 224:                                              ; preds = %219, %218
-  %.1172 = phi i32 [ 0, %218 ], [ %223, %219 ]
-  %.1 = phi ptr [ %1, %218 ], [ %220, %219 ]
+  %.1172 = phi i32 [ %223, %219 ], [ 0, %218 ]
+  %.1 = phi ptr [ %220, %219 ], [ %1, %218 ]
   %225 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %226 = load i8, ptr %.1, align 1, !tbaa !15
   %227 = zext i8 %226 to i32
@@ -2772,8 +2772,8 @@ _ZL10printBytesPcmPKhi.exit206:                   ; preds = %.lr.ph.i199, %171
   br label %230
 
 230:                                              ; preds = %224, %218
-  %.2173 = phi i32 [ 0, %218 ], [ %229, %224 ]
-  %.2 = phi ptr [ %1, %218 ], [ %225, %224 ]
+  %.2173 = phi i32 [ %229, %224 ], [ 0, %218 ]
+  %.2 = phi ptr [ %225, %224 ], [ %1, %218 ]
   %231 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %232 = load i8, ptr %.2, align 1, !tbaa !15
   %233 = zext i8 %232 to i32
@@ -2832,7 +2832,7 @@ _ZL10printBytesPcmPKhi.exit206:                   ; preds = %.lr.ph.i199, %171
   br label %267
 
 267:                                              ; preds = %236, %265, %248, %244
-  %.0170 = phi i32 [ 0, %236 ], [ %266, %265 ], [ %264, %248 ], [ %246, %244 ]
+  %.0170 = phi i32 [ 0, %236 ], [ %246, %244 ], [ %264, %248 ], [ %266, %265 ]
   %268 = lshr i32 %138, 4
   %269 = add nuw nsw i32 %268, %136
   %270 = zext nneg i32 %269 to i64

@@ -167,7 +167,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc788704bca638c6E.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc788704bca638c6E.exit": ; preds = %10, %13, %17
-  %.sroa.0.0.in.i.i = phi i1 [ %19, %17 ], [ %16, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %12, %10 ], [ %16, %13 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -378,7 +378,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h40cc37e3d52db464E.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h40cc37e3d52db464E.exit": ; preds = %28, %31, %34, %37, %40, %43, %46, %49, %52, %55, %57, %60, %63, %66, %69, %72, %75, %78, %81
-  %.sroa.0.0.in.i.i = phi i1 [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %56, %55 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 

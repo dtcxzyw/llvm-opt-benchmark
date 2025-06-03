@@ -609,7 +609,7 @@ _ZL11TestGettersv.exit:                           ; preds = %242
   br label %_ZL11TestGettersv.exit.thread
 
 _ZL11TestGettersv.exit.thread:                    ; preds = %239, %242, %235, %_ZL11TestGettersv.exit, %246
-  %.1 = phi i32 [ 1, %235 ], [ 0, %246 ], [ 1, %_ZL11TestGettersv.exit ], [ 1, %242 ], [ 1, %239 ]
+  %.1 = phi i32 [ 0, %246 ], [ 1, %235 ], [ 1, %_ZL11TestGettersv.exit ], [ 1, %242 ], [ 1, %239 ]
   ret i32 %.1
 }
 

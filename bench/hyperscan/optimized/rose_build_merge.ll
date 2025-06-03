@@ -30689,7 +30689,7 @@ define internal fastcc void @_ZN3ue2L16mergeOutfixHaigsERNS_13RoseBuildImplERSt6
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i
-  %.sroa.026.1.i.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %69, %68 ]
+  %.sroa.026.1.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %71 = load ptr, ptr %.sroa.026.1.i.i.i.i.i, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN3ue211raw_som_dfaESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SE_SE_T0_.exit.i.i.i, label %73
@@ -30699,7 +30699,7 @@ define internal fastcc void @_ZN3ue2L16mergeOutfixHaigsERNS_13RoseBuildImplERSt6
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i.i.i
-  %.sroa.026.2.i.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %74, %73 ]
+  %.sroa.026.2.i.i.i.i.i = phi ptr [ %74, %73 ], [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %76 = load ptr, ptr %.sroa.026.2.i.i.i.i.i, align 8
   %77 = icmp eq ptr %76, null
   %spec.select.i.i.i.i.i = select i1 %77, ptr %.sroa.026.2.i.i.i.i.i, ptr %37
@@ -46555,7 +46555,7 @@ define internal fastcc void @_ZN3ue2L18removeDeadOutfixesERSt6vectorINS_10Outfix
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i.i.i.i
-  %.sroa.048.1.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %95, %94 ]
+  %.sroa.048.1.i.i.i.i = phi ptr [ %95, %94 ], [ %.sroa.048.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %97 = load i32, ptr %.sroa.048.1.i.i.i.i, align 8
   %98 = add i32 %97, 4
   %switch.i.i.i.i.i.i.i36.i.i.i.i = icmp ult i32 %98, 8
@@ -46585,7 +46585,7 @@ define internal fastcc void @_ZN3ue2L18removeDeadOutfixesERSt6vectorINS_10Outfix
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i
-  %.sroa.048.2.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %112, %111 ]
+  %.sroa.048.2.i.i.i.i = phi ptr [ %112, %111 ], [ %.sroa.048.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %114 = load i32, ptr %.sroa.048.2.i.i.i.i, align 8
   %115 = add i32 %114, 4
   %switch.i.i.i.i.i.i.i41.i.i.i.i = icmp ult i32 %115, 8
@@ -48228,7 +48228,7 @@ define internal fastcc void @_ZN3ue2L15chunkedDfaMergeINS_7raw_dfaENS_12_GLOBAL_
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i
-  %.sroa.026.1.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %.sroa.026.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %59 = load ptr, ptr %.sroa.026.1.i.i.i.i, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN3ue27raw_dfaESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SE_SE_T0_.exit.i.i, label %61
@@ -48238,7 +48238,7 @@ define internal fastcc void @_ZN3ue2L15chunkedDfaMergeINS_7raw_dfaENS_12_GLOBAL_
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i
-  %.sroa.026.2.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %62, %61 ]
+  %.sroa.026.2.i.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %64 = load ptr, ptr %.sroa.026.2.i.i.i.i, align 8
   %65 = icmp eq ptr %64, null
   %spec.select.i.i.i.i = select i1 %65, ptr %.sroa.026.2.i.i.i.i, ptr %25

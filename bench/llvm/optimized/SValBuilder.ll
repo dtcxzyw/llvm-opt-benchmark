@@ -2053,8 +2053,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.
   br label %16
 
 16:                                               ; preds = %10, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread
-  %.sroa.06.1 = phi ptr [ %12, %10 ], [ %15, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread ]
-  %.sroa.3.1 = phi i8 [ 4, %10 ], [ 10, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread ]
+  %.sroa.06.1 = phi ptr [ %15, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread ], [ %12, %10 ]
+  %.sroa.3.1 = phi i8 [ 10, %_ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread ], [ 4, %10 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.06.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -2870,7 +2870,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang4ento9APS
   br label %48
 
 48:                                               ; preds = %3, %42, %_ZN4llvm5APIntD2Ev.exit
-  %.fca.1.insert.merged = phi { ptr, i8 } [ %.fca.1.insert.i26, %42 ], [ %.fca.1.insert.i, %_ZN4llvm5APIntD2Ev.exit ], [ { ptr null, i8 1 }, %3 ]
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %.fca.1.insert.i, %_ZN4llvm5APIntD2Ev.exit ], [ %.fca.1.insert.i26, %42 ], [ { ptr null, i8 1 }, %3 ]
   ret { ptr, i8 } %.fca.1.insert.merged
 }
 
@@ -2983,7 +2983,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang4ento9APS
   br label %47
 
 47:                                               ; preds = %3, %41, %_ZN4llvm5APIntD2Ev.exit
-  %.fca.1.insert.merged = phi { ptr, i8 } [ %.fca.1.insert.i26, %41 ], [ %.fca.1.insert.i, %_ZN4llvm5APIntD2Ev.exit ], [ { ptr null, i8 1 }, %3 ]
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %.fca.1.insert.i, %_ZN4llvm5APIntD2Ev.exit ], [ %.fca.1.insert.i26, %41 ], [ { ptr null, i8 1 }, %3 ]
   ret { ptr, i8 } %.fca.1.insert.merged
 }
 
@@ -4753,7 +4753,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i50: ; preds = %_ZN5clang4en
   %spec.select.i88.i = icmp ult i32 %470, 20
   br i1 %spec.select.i88.i, label %471, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i46.thread203
 
-471:                                              ; preds = %465, %457, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i50
+471:                                              ; preds = %457, %465, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i50
   %472 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %18) #15
   %.not83.i = icmp eq ptr %472, null
   br i1 %.not83.i, label %483, label %473
@@ -4779,7 +4779,7 @@ _ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualType
   %.sroa.11.0.copyload62.i = load i8, ptr %.sroa.253.0..sroa_idx.i, align 8, !tbaa !689
   br label %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit104.i
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i46.thread203: ; preds = %441, %465, %457, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i46
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i46.thread203: ; preds = %441, %457, %465, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i46
   %484 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %18) #15
   %485 = icmp eq ptr %484, null
   br i1 %485, label %535, label %486
@@ -4836,7 +4836,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit98.i: ; preds = %486
   %spec.select.i93.i = icmp ult i32 %512, 20
   br i1 %spec.select.i93.i, label %513, label %515
 
-513:                                              ; preds = %507, %499, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit98.i
+513:                                              ; preds = %499, %507, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit98.i
   %514 = call fastcc { ptr, i8 } @_ZN12_GLOBAL__N_115EvalCastVisitor17VisitMemRegionValEN5clang4ento3loc12MemRegionValE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %484, i8 4)
   %.fca.0.extract22.i = extractvalue { ptr, i8 } %514, 0
   %.fca.1.extract23.i = extractvalue { ptr, i8 } %514, 1
@@ -5423,7 +5423,7 @@ _ZN12_GLOBAL__N_115EvalCastVisitor14VisitSymbolValEN5clang4ento6nonloc9SymbolVal
   unreachable
 
 _ZN5clang4ento11SValVisitorIN12_GLOBAL__N_115EvalCastVisitorENS0_4SValEE5VisitES4_.exit: ; preds = %109, %109, %_ZN4llvm5APIntD2Ev.exit43.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i75, %384, %_ZN4llvm5APIntD2Ev.exit.i, %_ZNK4llvm5APInt12getBoolValueEv.exit.i, %_ZN4llvm5APIntD2Ev.exit34.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i137, %190, %_ZN4llvm5APIntD2Ev.exit.i126, %_ZNK4llvm5APInt12getBoolValueEv.exit.i142, %110, %111, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitGotoLabelEN5clang4ento3loc9GotoLabelE.exit, %304, %_ZN12_GLOBAL__N_115EvalCastVisitor17VisitLocAsIntegerEN5clang4ento6nonloc12LocAsIntegerE.exit, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitSymbolValEN5clang4ento6nonloc9SymbolValE.exit, %789
-  %.pn.i = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %789 ], [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitSymbolValEN5clang4ento6nonloc9SymbolValE.exit ], [ %.fca.1.insert.merged.i, %_ZN12_GLOBAL__N_115EvalCastVisitor17VisitLocAsIntegerEN5clang4ento6nonloc12LocAsIntegerE.exit ], [ %305, %304 ], [ %.fca.1.insert.merged.i103, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitGotoLabelEN5clang4ento3loc9GotoLabelE.exit ], [ %.fca.1.insert.i.i.i157, %111 ], [ %.fca.1.insert.i.i.i164, %110 ], [ %.fca.1.insert.i.i145, %_ZNK4llvm5APInt12getBoolValueEv.exit.i142 ], [ %.fca.1.insert.i24.i, %_ZN4llvm5APIntD2Ev.exit.i126 ], [ %230, %_ZN4llvm5APIntD2Ev.exit34.i ], [ { ptr null, i8 1 }, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i137 ], [ { ptr null, i8 1 }, %190 ], [ %.fca.1.insert.i.i80, %_ZNK4llvm5APInt12getBoolValueEv.exit.i ], [ %.fca.1.insert.i27.i, %_ZN4llvm5APIntD2Ev.exit.i ], [ %.fca.1.insert.i42.i, %_ZN4llvm5APIntD2Ev.exit43.i ], [ { ptr null, i8 1 }, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i75 ], [ { ptr null, i8 1 }, %384 ], [ { ptr null, i8 1 }, %109 ], [ { ptr null, i8 1 }, %109 ]
+  %.pn.i = phi { ptr, i8 } [ %.fca.1.insert.i.i.i164, %110 ], [ %.fca.1.insert.i.i.i157, %111 ], [ %.fca.1.insert.merged.i103, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitGotoLabelEN5clang4ento3loc9GotoLabelE.exit ], [ %305, %304 ], [ %.fca.1.insert.merged.i, %_ZN12_GLOBAL__N_115EvalCastVisitor17VisitLocAsIntegerEN5clang4ento6nonloc12LocAsIntegerE.exit ], [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_115EvalCastVisitor14VisitSymbolValEN5clang4ento6nonloc9SymbolValE.exit ], [ %.fca.1.insert.i.i.i, %789 ], [ %.fca.1.insert.i.i145, %_ZNK4llvm5APInt12getBoolValueEv.exit.i142 ], [ %.fca.1.insert.i24.i, %_ZN4llvm5APIntD2Ev.exit.i126 ], [ %230, %_ZN4llvm5APIntD2Ev.exit34.i ], [ { ptr null, i8 1 }, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i137 ], [ { ptr null, i8 1 }, %190 ], [ %.fca.1.insert.i.i80, %_ZNK4llvm5APInt12getBoolValueEv.exit.i ], [ %.fca.1.insert.i27.i, %_ZN4llvm5APIntD2Ev.exit.i ], [ %.fca.1.insert.i42.i, %_ZN4llvm5APIntD2Ev.exit43.i ], [ { ptr null, i8 1 }, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i75 ], [ { ptr null, i8 1 }, %384 ], [ { ptr null, i8 1 }, %109 ], [ { ptr null, i8 1 }, %109 ]
   %.fca.0.extract = extractvalue { ptr, i8 } %.pn.i, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %.pn.i, 1
   br label %791
@@ -6936,9 +6936,9 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168: ; preds = %178
   %spec.select256 = select i1 %246, i8 4, i8 1
   br label %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit180
 
-_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit180: ; preds = %238, %168, %128, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168, %205, %214, %191, %199, %.thread223, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit, %61, %38, %119, %227, %71
-  %.sroa.097.7 = phi ptr [ %80, %71 ], [ %70, %61 ], [ %41, %38 ], [ %127, %119 ], [ %.fca.0.extract, %227 ], [ %164, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit ], [ %1, %.thread223 ], [ %1, %199 ], [ %1, %191 ], [ %1, %214 ], [ %1, %205 ], [ %1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168 ], [ null, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ null, %128 ], [ %spec.select, %168 ], [ %spec.select255, %238 ]
-  %.sroa.12.7 = phi i8 [ 6, %71 ], [ 9, %61 ], [ 9, %38 ], [ 8, %119 ], [ %.fca.1.extract, %227 ], [ 4, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit ], [ %2, %.thread223 ], [ %2, %199 ], [ %2, %191 ], [ %2, %214 ], [ %2, %205 ], [ %2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168 ], [ 1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ 1, %128 ], [ %spec.select254, %168 ], [ %spec.select256, %238 ]
+_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit180: ; preds = %238, %168, %128, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168, %205, %214, %199, %191, %.thread223, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit, %61, %38, %119, %227, %71
+  %.sroa.097.7 = phi ptr [ %80, %71 ], [ %70, %61 ], [ %41, %38 ], [ %127, %119 ], [ %.fca.0.extract, %227 ], [ %164, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit ], [ %1, %.thread223 ], [ %1, %191 ], [ %1, %199 ], [ %1, %214 ], [ %1, %205 ], [ %1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168 ], [ null, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ null, %128 ], [ %spec.select, %168 ], [ %spec.select255, %238 ]
+  %.sroa.12.7 = phi i8 [ 6, %71 ], [ 9, %61 ], [ 9, %38 ], [ 8, %119 ], [ %.fca.1.extract, %227 ], [ 4, %_ZN5clang4ento11SValBuilder21getCastedMemRegionValEPKNS0_9MemRegionENS_8QualTypeE.exit ], [ %2, %.thread223 ], [ %2, %191 ], [ %2, %199 ], [ %2, %214 ], [ %2, %205 ], [ %2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit168 ], [ 1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ 1, %128 ], [ %spec.select254, %168 ], [ %spec.select256, %238 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.097.7, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.12.7, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7051,7 +7051,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !208
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #15
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !172

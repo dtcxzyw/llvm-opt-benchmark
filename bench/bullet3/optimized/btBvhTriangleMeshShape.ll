@@ -941,7 +941,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   br label %43
 
 43:                                               ; preds = %40, %36, %32, %.split.us
-  %.1.us = phi i32 [ %.02940.us, %.split.us ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ]
+  %.1.us = phi i32 [ %.02940.us, %.split.us ], [ %42, %40 ], [ %39, %36 ], [ %35, %32 ]
   %44 = mul nsw i32 %29, %.1.us
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %28, i64 %45
@@ -1018,7 +1018,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   br label %79
 
 79:                                               ; preds = %.split, %75, %71, %68
-  %.1 = phi i32 [ %.02940, %.split ], [ %78, %75 ], [ %74, %71 ], [ %70, %68 ]
+  %.1 = phi i32 [ %.02940, %.split ], [ %70, %68 ], [ %74, %71 ], [ %78, %75 ]
   %80 = mul nsw i32 %29, %.1
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %28, i64 %81
@@ -1127,7 +1127,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   br label %43
 
 43:                                               ; preds = %40, %36, %32, %.split.us
-  %.1.us = phi i32 [ %.02940.us, %.split.us ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ]
+  %.1.us = phi i32 [ %.02940.us, %.split.us ], [ %42, %40 ], [ %39, %36 ], [ %35, %32 ]
   %44 = mul nsw i32 %29, %.1.us
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %28, i64 %45
@@ -1204,7 +1204,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   br label %79
 
 79:                                               ; preds = %.split, %75, %71, %68
-  %.1 = phi i32 [ %.02940, %.split ], [ %78, %75 ], [ %74, %71 ], [ %70, %68 ]
+  %.1 = phi i32 [ %.02940, %.split ], [ %70, %68 ], [ %74, %71 ], [ %78, %75 ]
   %80 = mul nsw i32 %29, %.1
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %28, i64 %81

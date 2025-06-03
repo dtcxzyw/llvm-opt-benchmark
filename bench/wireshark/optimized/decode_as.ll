@@ -181,7 +181,7 @@ define noundef zeroext i1 @decode_as_default_reset(ptr noundef %0, ptr noundef %
   br label %10
 
 10:                                               ; preds = %2, %8, %7, %4
-  %.0 = phi i1 [ true, %8 ], [ true, %7 ], [ true, %4 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %7 ], [ true, %8 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -218,7 +218,7 @@ define noundef zeroext i1 @decode_as_default_change(ptr noundef %0, ptr noundef 
   br label %12
 
 12:                                               ; preds = %4, %10, %9, %6
-  %.0 = phi i1 [ true, %10 ], [ true, %9 ], [ true, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %9 ], [ true, %10 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -733,7 +733,7 @@ define internal void @decode_as_write_entry(ptr noundef %0, i32 noundef %1, ptr 
   unreachable
 
 25:                                               ; preds = %22, %20, %16
-  %.0 = phi ptr [ %23, %22 ], [ %21, %20 ], [ %19, %16 ]
+  %.0 = phi ptr [ %19, %16 ], [ %21, %20 ], [ %23, %22 ]
   %26 = load ptr, ptr %4, align 8
   %27 = tail call ptr @g_list_insert_sorted(ptr noundef %26, ptr noundef %.0, ptr noundef nonnull @g_ascii_strcasecmp)
   store ptr %27, ptr %4, align 8

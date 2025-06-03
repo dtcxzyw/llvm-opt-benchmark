@@ -2875,7 +2875,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit504: ; preds = %420, %.lr.ph663, %4
   br label %431
 
 _ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread: ; preds = %101, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484, %53, %63, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit, %.thread552, %133, %.preheader594, %.preheader684, %.preheader585, %260, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498, %._crit_edge, %210, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492, %395, %.loopexit598, %285, %238
-  %.3526 = phi ptr [ %.2525, %238 ], [ %262, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498 ], [ %.5528, %.loopexit598 ], [ %.5528, %285 ], [ %.5528, %395 ], [ %202, %210 ], [ %202, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492 ], [ %.lcssa610, %._crit_edge ], [ %262, %260 ], [ %202, %.preheader585 ], [ %93, %.preheader684 ], [ %55, %.preheader594 ], [ %93, %101 ], [ %93, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484 ], [ %47, %53 ], [ %55, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit ], [ %55, %63 ], [ %.6529, %133 ], [ %.6529, %.thread552 ]
+  %.3526 = phi ptr [ %.2525, %238 ], [ %.5528, %.loopexit598 ], [ %.5528, %285 ], [ %262, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498 ], [ %.5528, %395 ], [ %202, %210 ], [ %202, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492 ], [ %.lcssa610, %._crit_edge ], [ %262, %260 ], [ %202, %.preheader585 ], [ %93, %.preheader684 ], [ %55, %.preheader594 ], [ %93, %101 ], [ %93, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484 ], [ %47, %53 ], [ %55, %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit ], [ %55, %63 ], [ %.6529, %133 ], [ %.6529, %.thread552 ]
   %427 = ptrtoint ptr %.3526 to i64
   %428 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %428, %427
@@ -4448,7 +4448,7 @@ define internal fastcc void @_ZN10duckdb_lz4L23LZ4_memcpy_using_offsetEPhPKhS0_m
   br i1 %42, label %38, label %_ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit, !llvm.loop !23
 
 43:                                               ; preds = %9, %8, %5
-  %.sroa.9.0 = phi i32 [ %.sroa.0.0.copyload2, %9 ], [ %.sroa.0.2.insert.insert, %8 ], [ %.sroa.0.0.isplat, %5 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.0.0.isplat, %5 ], [ %.sroa.0.2.insert.insert, %8 ], [ %.sroa.0.0.copyload2, %9 ]
   store i32 %.sroa.9.0, ptr %0, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 1

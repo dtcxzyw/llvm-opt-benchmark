@@ -339,7 +339,7 @@ define void @pcapng_process_uint32_option(ptr noundef readonly captures(none) %0
   br label %17
 
 17:                                               ; preds = %15, %13, %8, %10
-  %.024 = phi i32 [ %9, %8 ], [ %9, %10 ], [ %14, %13 ], [ %16, %15 ]
+  %.024 = phi i32 [ %9, %10 ], [ %9, %8 ], [ %14, %13 ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %3 to i32
@@ -384,8 +384,8 @@ define void @pcapng_process_timestamp_option(ptr noundef readonly captures(none)
   br label %21
 
 21:                                               ; preds = %18, %15, %8, %12
-  %.050 = phi i32 [ %9, %8 ], [ %9, %12 ], [ %16, %15 ], [ %19, %18 ]
-  %.049 = phi i32 [ %11, %8 ], [ %11, %12 ], [ %17, %15 ], [ %20, %18 ]
+  %.050 = phi i32 [ %9, %12 ], [ %9, %8 ], [ %16, %15 ], [ %19, %18 ]
+  %.049 = phi i32 [ %11, %12 ], [ %11, %8 ], [ %17, %15 ], [ %20, %18 ]
   %22 = zext i32 %.050 to i64
   %23 = shl nuw i64 %22, 32
   %24 = zext i32 %.049 to i64
@@ -430,7 +430,7 @@ define void @pcapng_process_uint64_option(ptr noundef readonly captures(none) %0
   br label %17
 
 17:                                               ; preds = %15, %13, %8, %10
-  %.032 = phi i64 [ %9, %8 ], [ %9, %10 ], [ %14, %13 ], [ %16, %15 ]
+  %.032 = phi i64 [ %9, %10 ], [ %9, %8 ], [ %14, %13 ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %3 to i32
@@ -468,7 +468,7 @@ define void @pcapng_process_int64_option(ptr noundef readonly captures(none) %0,
   br label %17
 
 17:                                               ; preds = %15, %13, %8, %10
-  %.032 = phi i64 [ %9, %8 ], [ %9, %10 ], [ %14, %13 ], [ %16, %15 ]
+  %.032 = phi i64 [ %9, %10 ], [ %9, %8 ], [ %14, %13 ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %3 to i32
@@ -590,8 +590,8 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
   br label %148
 
 40:                                               ; preds = %29, %33, %36, %37
-  %.076 = phi i16 [ %rev, %37 ], [ %rev86, %36 ], [ %30, %33 ], [ %30, %29 ]
-  %.075 = phi i16 [ %rev85, %37 ], [ %rev87, %36 ], [ %32, %33 ], [ %32, %29 ]
+  %.076 = phi i16 [ %rev86, %36 ], [ %30, %33 ], [ %rev, %37 ], [ %30, %29 ]
+  %.075 = phi i16 [ %rev87, %36 ], [ %32, %33 ], [ %rev85, %37 ], [ %32, %29 ]
   %41 = getelementptr i8, ptr %.07893, i64 4
   %42 = add i32 %.07794, -4
   %43 = zext i16 %.075 to i32
@@ -797,7 +797,7 @@ pcapng_process_custom_option.exit.thread:         ; preds = %69, %127, %pcapng_p
   br label %148
 
 143:                                              ; preds = %127, %49, %140, %pcapng_process_custom_option.exit, %50
-  %.1 = phi i32 [ %42, %140 ], [ %42, %pcapng_process_custom_option.exit ], [ %42, %50 ], [ %45, %49 ], [ %42, %127 ]
+  %.1 = phi i32 [ %42, %140 ], [ %42, %50 ], [ %42, %pcapng_process_custom_option.exit ], [ %45, %49 ], [ %42, %127 ]
   %144 = zext nneg i32 %45 to i64
   %145 = getelementptr i8, ptr %41, i64 %144
   %146 = sub i32 %.1, %45
@@ -1084,7 +1084,7 @@ get_block_type_internal.exit.thread:              ; preds = %113, %103, %thread-
   br label %116
 
 116:                                              ; preds = %109, %84, %25, %16, %12, %get_block_type_internal.exit.thread, %47, %29, %22, %14
-  %.0 = phi i32 [ 1, %get_block_type_internal.exit.thread ], [ -1, %47 ], [ 0, %22 ], [ 0, %29 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %109 ]
+  %.0 = phi i32 [ 1, %get_block_type_internal.exit.thread ], [ -1, %47 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %109 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
@@ -1795,7 +1795,7 @@ pcapng_read_sysdig_event_block.exit:              ; preds = %169
   br i1 %188, label %189, label %pcapng_read_meta_event_block.exit.thread
 
 189:                                              ; preds = %pcapng_read_sysdig_event_block.exit, %pcapng_read_meta_event_block.exit, %22, %42, %44, %46, %48, %50, %52, %54, %80, %185, %187
-  %.098 = phi ptr [ %2, %187 ], [ %2, %185 ], [ %2, %pcapng_read_sysdig_event_block.exit ], [ %2, %80 ], [ %2, %pcapng_read_meta_event_block.exit ], [ %2, %54 ], [ %2, %52 ], [ %2, %50 ], [ %2, %48 ], [ %2, %46 ], [ %2, %44 ], [ %2, %42 ], [ %3, %22 ]
+  %.098 = phi ptr [ %2, %187 ], [ %2, %42 ], [ %2, %44 ], [ %2, %46 ], [ %2, %48 ], [ %2, %50 ], [ %2, %52 ], [ %2, %54 ], [ %2, %pcapng_read_meta_event_block.exit ], [ %2, %80 ], [ %2, %pcapng_read_sysdig_event_block.exit ], [ %2, %185 ], [ %3, %22 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
   %190 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %5, ptr noundef %6)
   br i1 %190, label %191, label %pcapng_read_and_check_block_trailer.exit
@@ -3228,7 +3228,7 @@ name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
   br label %177
 
 177:                                              ; preds = %171, %160, %102
-  %.2 = phi i32 [ %176, %171 ], [ %167, %160 ], [ %109, %102 ]
+  %.2 = phi i32 [ %176, %171 ], [ %109, %102 ], [ %167, %160 ]
   %178 = icmp slt i32 %.2, %16
   br i1 %178, label %29, label %._crit_edge209, !llvm.loop !48
 
@@ -3245,7 +3245,7 @@ name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
   br label %183
 
 183:                                              ; preds = %._crit_edge209, %181, %170, %159, %.loopexit157, %128, %118, %112, %101, %.loopexit, %70, %60, %50, %36, %32, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %32 ], [ false, %50 ], [ false, %170 ], [ false, %112 ], [ false, %118 ], [ false, %.loopexit157 ], [ false, %159 ], [ false, %128 ], [ false, %60 ], [ false, %.loopexit ], [ false, %101 ], [ false, %70 ], [ true, %181 ], [ false, %36 ], [ false, %._crit_edge209 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %32 ], [ false, %50 ], [ false, %170 ], [ true, %181 ], [ false, %60 ], [ false, %.loopexit ], [ false, %101 ], [ false, %70 ], [ false, %112 ], [ false, %118 ], [ false, %.loopexit157 ], [ false, %159 ], [ false, %128 ], [ false, %36 ], [ false, %._crit_edge209 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
   ret i1 %.0
@@ -4317,7 +4317,7 @@ pcapng_process_unhandled_option.exit.thread:      ; preds = %120, %122, %126
   br label %pcapng_process_unhandled_option.exit
 
 pcapng_process_unhandled_option.exit:             ; preds = %pcapng_process_uint32_option.exit, %27, %pcapng_process_uint64_option.exit, %pcapng_process_uint64_option.exit117, %pcapng_process_uint32_option.exit119, %116, %pcapng_process_unhandled_option.exit.thread, %126, %83, %105, %93, %81, %66, %53, %40, %25, %11
-  %.0 = phi i1 [ false, %81 ], [ false, %105 ], [ false, %93 ], [ false, %66 ], [ false, %53 ], [ false, %40 ], [ false, %25 ], [ false, %11 ], [ true, %83 ], [ false, %126 ], [ true, %pcapng_process_unhandled_option.exit.thread ], [ true, %116 ], [ true, %pcapng_process_uint32_option.exit119 ], [ true, %pcapng_process_uint64_option.exit117 ], [ true, %pcapng_process_uint64_option.exit ], [ true, %27 ], [ true, %pcapng_process_uint32_option.exit ]
+  %.0 = phi i1 [ false, %11 ], [ false, %25 ], [ false, %40 ], [ false, %53 ], [ false, %66 ], [ false, %81 ], [ false, %93 ], [ false, %105 ], [ true, %83 ], [ false, %126 ], [ true, %pcapng_process_unhandled_option.exit.thread ], [ true, %116 ], [ true, %pcapng_process_uint32_option.exit119 ], [ true, %pcapng_process_uint64_option.exit117 ], [ true, %pcapng_process_uint64_option.exit ], [ true, %27 ], [ true, %pcapng_process_uint32_option.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
   ret i1 %.0
@@ -6682,7 +6682,7 @@ define internal range(i32 0, 65536) i32 @compute_nrb_option_size(ptr readnone ca
   br label %11
 
 11:                                               ; preds = %4, %10, %9, %5
-  %.0 = phi i32 [ 0, %10 ], [ 16, %9 ], [ %8, %5 ], [ 4, %4 ]
+  %.0 = phi i32 [ 0, %10 ], [ %8, %5 ], [ 16, %9 ], [ 4, %4 ]
   ret i32 %.0
 }
 
@@ -6838,7 +6838,7 @@ define internal noundef zeroext i1 @compute_block_option_size(ptr noundef %0, i3
   br label %20
 
 20:                                               ; preds = %16, %10, %6
-  %.0 = phi i32 [ %19, %16 ], [ %15, %10 ], [ %9, %6 ]
+  %.0 = phi i32 [ %19, %16 ], [ %9, %6 ], [ %15, %10 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %.thread, label %21
 
@@ -7575,7 +7575,7 @@ define internal range(i32 0, 65536) i32 @compute_idb_option_size(ptr readnone ca
   br label %pcapng_compute_if_filter_option_size.exit
 
 pcapng_compute_if_filter_option_size.exit:        ; preds = %19, %12, %10, %4, %25, %9, %5
-  %.0 = phi i32 [ 0, %25 ], [ 1, %9 ], [ %8, %5 ], [ %1, %4 ], [ %18, %12 ], [ %24, %19 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %25 ], [ %8, %5 ], [ 1, %9 ], [ %1, %4 ], [ %18, %12 ], [ %24, %19 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -7717,7 +7717,7 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
   br i1 %56, label %pcapng_write_if_filter_option.exit, label %57
 
 57:                                               ; preds = %51, %46
-  %.0.i23 = phi i64 [ %55, %51 ], [ %49, %46 ]
+  %.0.i23 = phi i64 [ %49, %46 ], [ %55, %51 ]
   %58 = trunc nuw i64 %.0.i23 to i32
   %59 = add nuw i32 %58, 1
   %60 = and i32 %59, 3

@@ -33,7 +33,7 @@ define i32 @mknod(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 no
   br label %16
 
 16:                                               ; preds = %8, %12, %14, %5
-  %.0 = phi i32 [ -1, %14 ], [ %13, %12 ], [ %10, %8 ], [ %7, %5 ]
+  %.0 = phi i32 [ -1, %14 ], [ %7, %5 ], [ %13, %12 ], [ %10, %8 ]
   ret i32 %.0
 }
 
@@ -89,7 +89,7 @@ define i32 @mknodat(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   br label %mknod.exit
 
 mknod.exit:                                       ; preds = %22, %20, %16, %13, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %22 ], [ %21, %20 ], [ %18, %16 ], [ %15, %13 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %22 ], [ %15, %13 ], [ %21, %20 ], [ %18, %16 ]
   ret i32 %.0
 }
 

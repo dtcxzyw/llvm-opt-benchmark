@@ -572,8 +572,8 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   br label %258
 
 258:                                              ; preds = %253, %225, %225
-  %.2264.i = phi ptr [ %.126373.i, %225 ], [ %.126373.i, %225 ], [ %236, %253 ]
-  %.0246.i = phi ptr [ %227, %225 ], [ %227, %225 ], [ %257, %253 ]
+  %.2264.i = phi ptr [ %236, %253 ], [ %.126373.i, %225 ], [ %.126373.i, %225 ]
+  %.0246.i = phi ptr [ %257, %253 ], [ %227, %225 ], [ %227, %225 ]
   br label %259
 
 259:                                              ; preds = %259, %258
@@ -755,8 +755,8 @@ bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byt
   br label %348
 
 348:                                              ; preds = %343, %308
-  %.5267.i = phi ptr [ %.326555.i, %308 ], [ %323, %343 ]
-  %.3249.i = phi ptr [ %315, %308 ], [ %347, %343 ]
+  %.5267.i = phi ptr [ %323, %343 ], [ %.326555.i, %308 ]
+  %.3249.i = phi ptr [ %347, %343 ], [ %315, %308 ]
   %349 = load i8, ptr %.3249.i, align 1, !tbaa !38
   %350 = getelementptr inbounds i8, ptr %226, i64 %314
   store i8 %349, ptr %350, align 1, !tbaa !38
@@ -829,8 +829,8 @@ default.unreachable:                              ; preds = %308
   unreachable
 
 399:                                              ; preds = %380, %366, %348
-  %.7276.i = phi ptr [ %394, %380 ], [ %379, %366 ], [ %.627554.i, %348 ]
-  %.4266.i = phi ptr [ %.326555.i, %380 ], [ %.326555.i, %366 ], [ %.5267.i, %348 ]
+  %.7276.i = phi ptr [ %.627554.i, %348 ], [ %379, %366 ], [ %394, %380 ]
+  %.4266.i = phi ptr [ %.5267.i, %348 ], [ %.326555.i, %366 ], [ %.326555.i, %380 ]
   %400 = shl i32 %.357.i, 2
   %401 = add nuw nsw i32 %.024256.i, 1
   %exitcond112.not.i = icmp eq i32 %401, 4
@@ -920,9 +920,9 @@ default.unreachable:                              ; preds = %308
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %399, %259, %.loopexit.i.loopexit196, %432, %416, %297
-  %.8.i = phi ptr [ %436, %432 ], [ %418, %416 ], [ %298, %297 ], [ %.4273.i, %.loopexit.i.loopexit196 ], [ %.127072.i, %259 ], [ %.7276.i, %399 ], [ %300, %.preheader7.i ]
-  %.6268.i = phi ptr [ %.126373.i, %432 ], [ %.126373.i, %416 ], [ %.126373.i, %297 ], [ %.126373.i, %.loopexit.i.loopexit196 ], [ %.2264.i, %259 ], [ %.4266.i, %399 ], [ %.126373.i, %.preheader7.i ]
-  %.3261.i = phi ptr [ %433, %432 ], [ %417, %416 ], [ %.125974.i, %297 ], [ %438, %.loopexit.i.loopexit196 ], [ %.125974.i, %259 ], [ %304, %399 ], [ %.125974.i, %.preheader7.i ]
+  %.8.i = phi ptr [ %298, %297 ], [ %418, %416 ], [ %436, %432 ], [ %.4273.i, %.loopexit.i.loopexit196 ], [ %.127072.i, %259 ], [ %.7276.i, %399 ], [ %300, %.preheader7.i ]
+  %.6268.i = phi ptr [ %.126373.i, %297 ], [ %.126373.i, %416 ], [ %.126373.i, %432 ], [ %.126373.i, %.loopexit.i.loopexit196 ], [ %.2264.i, %259 ], [ %.4266.i, %399 ], [ %.126373.i, %.preheader7.i ]
+  %.3261.i = phi ptr [ %.125974.i, %297 ], [ %417, %416 ], [ %433, %432 ], [ %438, %.loopexit.i.loopexit196 ], [ %.125974.i, %259 ], [ %304, %399 ], [ %.125974.i, %.preheader7.i ]
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 4
   %439 = load i32, ptr %191, align 8, !tbaa !27
   %440 = trunc nuw i64 %indvars.iv.next125.i to i32

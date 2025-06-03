@@ -21788,7 +21788,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit310:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %1420
 
 1420:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit310, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit98, %1419
-  %.147 = phi i1 [ true, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit98 ], [ false, %1419 ], [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit310 ]
+  %.147 = phi i1 [ false, %1419 ], [ true, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit98 ], [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit310 ]
   ret i1 %.147
 }
 
@@ -27428,7 +27428,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115merge_operatorsEPN5Yosys5RTLIL6M
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge.i.i.i.i.i
-  %.sroa.035.1.i.i.i.i.i = phi ptr [ %.sroa.035.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %122, %121 ]
+  %.sroa.035.1.i.i.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.035.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val24.val.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !549
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.035.1.i.i.i.i.i, i64 56
   %125 = getelementptr inbounds nuw i8, ptr %.val24.val.i.i.i.i.i, i64 56
@@ -27443,7 +27443,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115merge_operatorsEPN5Yosys5RTLIL6M
   br label %129
 
 129:                                              ; preds = %127, %._crit_edge.i.i.i.i.i
-  %.sroa.035.2.i.i.i.i.i = phi ptr [ %.sroa.035.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %128, %127 ]
+  %.sroa.035.2.i.i.i.i.i = phi ptr [ %128, %127 ], [ %.sroa.035.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val25.val.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !549
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.035.2.i.i.i.i.i, i64 56
   %131 = getelementptr inbounds nuw i8, ptr %.val25.val.i.i.i.i.i, i64 56

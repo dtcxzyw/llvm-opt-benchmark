@@ -380,7 +380,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit: ; preds = %for.body, %sw.bb3.i, %sw.bb6.i, %sw.bb9.i, %sw.bb13.i, %sw.bb19.i, %sw.bb23.i, %sw.bb27.i, %if.then.i.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i
-  %retval.sroa.0.0.i = phi i32 [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i, %sw.bb9.i ], [ 15, %sw.bb6.i ], [ 14, %sw.bb3.i ], [ 7, %for.body ], [ %or.i.i16.i, %if.then.i.i ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %retval.sroa.0.0.i = phi i32 [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ 7, %for.body ], [ %or.i.i16.i, %if.then.i.i ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call6, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %7 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -2114,7 +2114,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit: ; preds = %while.body, %sw.bb3.i, %sw.bb6.i, %sw.bb9.i, %sw.bb13.i, %sw.bb19.i, %sw.bb23.i, %sw.bb27.i, %if.then.i.i12, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i
-  %retval.sroa.0.0.i9 = phi i32 [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i, %sw.bb9.i ], [ 15, %sw.bb6.i ], [ 14, %sw.bb3.i ], [ 7, %while.body ], [ %or.i.i16.i, %if.then.i.i12 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %retval.sroa.0.0.i9 = phi i32 [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ 7, %while.body ], [ %or.i.i16.i, %if.then.i.i12 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %33 = inttoptr i64 %and.i.i.i.i to ptr
@@ -2302,7 +2302,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit: ; preds = %while.body, %sw.bb3.i, %sw.bb6.i, %sw.bb9.i, %sw.bb13.i, %sw.bb19.i, %sw.bb23.i, %sw.bb27.i, %if.then.i.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i
-  %retval.sroa.0.0.i = phi i32 [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i, %sw.bb9.i ], [ 15, %sw.bb6.i ], [ 14, %sw.bb3.i ], [ 7, %while.body ], [ %or.i.i16.i, %if.then.i.i ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %retval.sroa.0.0.i = phi i32 [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ 7, %while.body ], [ %or.i.i16.i, %if.then.i.i ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %7 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -2933,9 +2933,9 @@ case_Call:                                        ; preds = %indirectgoto
   br label %doCall
 
 doCall:                                           ; preds = %case_Call, %case_Construct, %case_Call4, %case_Call3, %case_Call2, %case_Call1, %case_CallLong, %case_ConstructLong
-  %callNewTarget.0 = phi i64 [ %53, %case_ConstructLong ], [ -1688849860263936, %case_CallLong ], [ -1688849860263936, %case_Call4 ], [ -1688849860263936, %case_Call3 ], [ -1688849860263936, %case_Call2 ], [ -1688849860263936, %case_Call1 ], [ %71, %case_Construct ], [ -1688849860263936, %case_Call ]
-  %callArgCount.0 = phi i32 [ %51, %case_ConstructLong ], [ %54, %case_CallLong ], [ 4, %case_Call4 ], [ 3, %case_Call3 ], [ 2, %case_Call2 ], [ 1, %case_Call1 ], [ %conv311, %case_Construct ], [ %conv318, %case_Call ]
-  %nextIP.1 = phi ptr [ %add.ptr226, %case_ConstructLong ], [ %add.ptr232, %case_CallLong ], [ %add.ptr284, %case_Call4 ], [ %add.ptr263, %case_Call3 ], [ %add.ptr247, %case_Call2 ], [ %add.ptr237, %case_Call1 ], [ %add.ptr312, %case_Construct ], [ %add.ptr319, %case_Call ]
+  %callNewTarget.0 = phi i64 [ -1688849860263936, %case_Call ], [ %71, %case_Construct ], [ -1688849860263936, %case_Call1 ], [ -1688849860263936, %case_Call2 ], [ -1688849860263936, %case_Call3 ], [ -1688849860263936, %case_Call4 ], [ -1688849860263936, %case_CallLong ], [ %53, %case_ConstructLong ]
+  %callArgCount.0 = phi i32 [ %conv318, %case_Call ], [ %conv311, %case_Construct ], [ 1, %case_Call1 ], [ 2, %case_Call2 ], [ 3, %case_Call3 ], [ 4, %case_Call4 ], [ %54, %case_CallLong ], [ %51, %case_ConstructLong ]
+  %nextIP.1 = phi ptr [ %add.ptr319, %case_Call ], [ %add.ptr312, %case_Construct ], [ %add.ptr237, %case_Call1 ], [ %add.ptr247, %case_Call2 ], [ %add.ptr263, %case_Call3 ], [ %add.ptr284, %case_Call4 ], [ %add.ptr232, %case_CallLong ], [ %add.ptr226, %case_ConstructLong ]
   %73 = load ptr, ptr %stackPointer_.i, align 8
   %add.ptr327 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -8
   %sub328 = add i32 %callArgCount.0, -1
@@ -3324,7 +3324,7 @@ default.unreachable:                              ; preds = %_ZN6hermes2vm8JSObj
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %case_ResumeGenerator, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i2559, %sw.bb22.i ], [ %137, %sw.bb18.i ], [ %retval.sroa.0.0.i.i2561, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %case_ResumeGenerator ]
+  %retval.sroa.0.0.i = phi i64 [ %or.i.i.i.i, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i2561, %sw.bb12.i ], [ %137, %sw.bb18.i ], [ %or.i.i.i2559, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ], [ -1970324836974592, %sw.bb36.i ], [ -1548112371908608, %sw.bb39.i ], [ -1688849860263936, %case_ResumeGenerator ]
   %op1531 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 1
   %138 = load i8, ptr %op1531, align 1
   %idxprom532 = zext i8 %138 to i64
@@ -4482,7 +4482,7 @@ sw.bb39.i2899:                                    ; preds = %_ZN6hermes2vm8JSObj
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit2935
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit2935: ; preds = %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE1EEES4_PS1_RNS0_11PointerBaseEj.exit, %sw.bb.i2929, %sw.bb4.i2924, %sw.bb8.i2919, %sw.bb12.i2913, %sw.bb18.i2910, %sw.bb22.i2906, %sw.bb29.i2902, %sw.bb36.i2901, %sw.bb39.i2899
-  %retval.sroa.0.0.i2900 = phi i64 [ -1548112371908608, %sw.bb39.i2899 ], [ -1970324836974592, %sw.bb36.i2901 ], [ %or.i.i14.i2905, %sw.bb29.i2902 ], [ %or.i.i.i2909, %sw.bb22.i2906 ], [ %325, %sw.bb18.i2910 ], [ %retval.sroa.0.0.i.i2918, %sw.bb12.i2913 ], [ %or.i.i.i8.i2923, %sw.bb8.i2919 ], [ %or.i.i.i4.i2928, %sw.bb4.i2924 ], [ %or.i.i.i.i2933, %sw.bb.i2929 ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE1EEES4_PS1_RNS0_11PointerBaseEj.exit ]
+  %retval.sroa.0.0.i2900 = phi i64 [ %or.i.i.i.i2933, %sw.bb.i2929 ], [ %or.i.i.i4.i2928, %sw.bb4.i2924 ], [ %or.i.i.i8.i2923, %sw.bb8.i2919 ], [ %retval.sroa.0.0.i.i2918, %sw.bb12.i2913 ], [ %325, %sw.bb18.i2910 ], [ %or.i.i.i2909, %sw.bb22.i2906 ], [ %or.i.i14.i2905, %sw.bb29.i2902 ], [ -1970324836974592, %sw.bb36.i2901 ], [ -1548112371908608, %sw.bb39.i2899 ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE1EEES4_PS1_RNS0_11PointerBaseEj.exit ]
   %op11134 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 1
   %326 = load i8, ptr %op11134, align 1
   %idxprom1135 = zext i8 %326 to i64
@@ -4682,7 +4682,7 @@ sw.bb39.i2978:                                    ; preds = %_ZN6hermes2vm8JSObj
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit3014
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit3014: ; preds = %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit, %sw.bb.i3008, %sw.bb4.i3003, %sw.bb8.i2998, %sw.bb12.i2992, %sw.bb18.i2989, %sw.bb22.i2985, %sw.bb29.i2981, %sw.bb36.i2980, %sw.bb39.i2978
-  %retval.sroa.0.0.i2979 = phi i64 [ -1548112371908608, %sw.bb39.i2978 ], [ -1970324836974592, %sw.bb36.i2980 ], [ %or.i.i14.i2984, %sw.bb29.i2981 ], [ %or.i.i.i2988, %sw.bb22.i2985 ], [ %354, %sw.bb18.i2989 ], [ %retval.sroa.0.0.i.i2997, %sw.bb12.i2992 ], [ %or.i.i.i8.i3002, %sw.bb8.i2998 ], [ %or.i.i.i4.i3007, %sw.bb4.i3003 ], [ %or.i.i.i.i3012, %sw.bb.i3008 ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit ]
+  %retval.sroa.0.0.i2979 = phi i64 [ %or.i.i.i.i3012, %sw.bb.i3008 ], [ %or.i.i.i4.i3007, %sw.bb4.i3003 ], [ %or.i.i.i8.i3002, %sw.bb8.i2998 ], [ %retval.sroa.0.0.i.i2997, %sw.bb12.i2992 ], [ %354, %sw.bb18.i2989 ], [ %or.i.i.i2988, %sw.bb22.i2985 ], [ %or.i.i14.i2984, %sw.bb29.i2981 ], [ -1970324836974592, %sw.bb36.i2980 ], [ -1548112371908608, %sw.bb39.i2978 ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit ]
   %op11184 = getelementptr inbounds nuw i8, ptr %333, i64 1
   %355 = load i8, ptr %op11184, align 1
   %idxprom1185 = zext i8 %355 to i64
@@ -4970,8 +4970,8 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit: ; preds = %if.then1312, %sw.bb3.i, %sw.bb6.i, %sw.bb9.i, %sw.bb13.i, %sw.bb19.i, %sw.bb23.i, %sw.bb27.i, %if.then.i.i3100, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i
-  %392 = phi ptr [ %.sink.sink.in, %sw.bb27.i ], [ %.sink.sink.in, %sw.bb23.i ], [ %.sink.sink.in, %sw.bb19.i ], [ %.sink.sink.in, %sw.bb13.i ], [ %.sink.sink.in, %sw.bb9.i ], [ %.sink.sink.in, %sw.bb6.i ], [ %.sink.sink.in, %sw.bb3.i ], [ %.sink.sink.in, %if.then1312 ], [ %.sink.sink.in, %if.then.i.i3100 ], [ %.pre5315, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
-  %retval.sroa.0.0.i3090 = phi i32 [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i.i8.i3091, %sw.bb23.i ], [ %or.i.i.i.i3093, %sw.bb19.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i3096, %sw.bb9.i ], [ 15, %sw.bb6.i ], [ 14, %sw.bb3.i ], [ 7, %if.then1312 ], [ %or.i.i16.i, %if.then.i.i3100 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %392 = phi ptr [ %.sink.sink.in, %sw.bb3.i ], [ %.sink.sink.in, %sw.bb6.i ], [ %.sink.sink.in, %sw.bb9.i ], [ %.sink.sink.in, %sw.bb13.i ], [ %.sink.sink.in, %sw.bb19.i ], [ %.sink.sink.in, %sw.bb23.i ], [ %.sink.sink.in, %sw.bb27.i ], [ %.sink.sink.in, %if.then1312 ], [ %.sink.sink.in, %if.then.i.i3100 ], [ %.pre5315, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %retval.sroa.0.0.i3090 = phi i32 [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i3096, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i3093, %sw.bb19.i ], [ %or.i.i.i8.i3091, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ 7, %if.then1312 ], [ %or.i.i16.i, %if.then.i.i3100 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %op11323 = getelementptr inbounds nuw i8, ptr %392, i64 1
   %393 = load i8, ptr %op11323, align 1
   %idxprom1324 = zext i8 %393 to i64
@@ -5390,8 +5390,8 @@ case_PutOwnByIndex:                               ; preds = %indirectgoto
   br label %putOwnByIndex
 
 putOwnByIndex:                                    ; preds = %case_PutOwnByIndex, %case_PutOwnByIndexL
-  %idVal.5 = phi i32 [ %469, %case_PutOwnByIndexL ], [ %conv1599, %case_PutOwnByIndex ]
-  %nextIP.8 = phi ptr [ %add.ptr1595, %case_PutOwnByIndexL ], [ %add.ptr1597, %case_PutOwnByIndex ]
+  %idVal.5 = phi i32 [ %conv1599, %case_PutOwnByIndex ], [ %469, %case_PutOwnByIndexL ]
+  %nextIP.8 = phi ptr [ %add.ptr1597, %case_PutOwnByIndex ], [ %add.ptr1595, %case_PutOwnByIndexL ]
   %conv.i3295 = uitofp i32 %idVal.5 to double
   store double %conv.i3295, ptr %inlineStorage_.i, align 8
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
@@ -6850,8 +6850,8 @@ case_PutNewOwnById:                               ; preds = %indirectgoto
   br label %putOwnById
 
 putOwnById:                                       ; preds = %case_PutNewOwnById, %case_PutNewOwnByIdLong, %case_PutNewOwnByIdShort
-  %idVal.6 = phi i32 [ %724, %case_PutNewOwnByIdLong ], [ %conv2933, %case_PutNewOwnById ], [ %conv2928, %case_PutNewOwnByIdShort ]
-  %nextIP.9 = phi ptr [ %add.ptr2929, %case_PutNewOwnByIdLong ], [ %add.ptr2931, %case_PutNewOwnById ], [ %add.ptr2926, %case_PutNewOwnByIdShort ]
+  %idVal.6 = phi i32 [ %conv2928, %case_PutNewOwnByIdShort ], [ %conv2933, %case_PutNewOwnById ], [ %724, %case_PutNewOwnByIdLong ]
+  %nextIP.9 = phi ptr [ %add.ptr2926, %case_PutNewOwnByIdShort ], [ %add.ptr2931, %case_PutNewOwnById ], [ %add.ptr2929, %case_PutNewOwnByIdLong ]
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
   %op12936 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 1
   %726 = load i8, ptr %op12936, align 1
@@ -10012,9 +10012,9 @@ exceptionthread-pre-split.loopexit5512:           ; preds = %land.lhs.true5614, 
   br label %exceptionthread-pre-split
 
 exceptionthread-pre-split:                        ; preds = %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %exceptionthread-pre-split.loopexit5512, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread, %do.end624, %if.then2556, %if.then2889, %if.then3035, %handleExceptionInParent
-  %frameRegs.2.ph = phi ptr [ %frameRegs.1, %if.then2889 ], [ %frameRegs.1, %if.then3035 ], [ %frameRegs.1, %do.end624 ], [ %frameRegs.1, %if.then2556 ], [ %arrayidx.i5855, %handleExceptionInParent ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %frameRegs.1, %exceptionthread-pre-split.loopexit5512 ], [ %frameRegs.1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
-  %ip.3.ph5349 = phi ptr [ %717, %if.then2889 ], [ %747, %if.then3035 ], [ %163, %do.end624 ], [ %654, %if.then2556 ], [ %1278, %handleExceptionInParent ], [ %466, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %448, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %ip.3.ph5349.ph, %exceptionthread-pre-split.loopexit5512 ], [ %490, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
-  %curCodeBlock.3.ph = phi ptr [ %curCodeBlock.2, %if.then2889 ], [ %curCodeBlock.2, %if.then3035 ], [ %curCodeBlock.2, %do.end624 ], [ %curCodeBlock.2, %if.then2556 ], [ %1276, %handleExceptionInParent ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %curCodeBlock.2, %exceptionthread-pre-split.loopexit5512 ], [ %curCodeBlock.2, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+  %frameRegs.2.ph = phi ptr [ %frameRegs.1, %if.then2556 ], [ %frameRegs.1, %do.end624 ], [ %frameRegs.1, %if.then3035 ], [ %frameRegs.1, %if.then2889 ], [ %arrayidx.i5855, %handleExceptionInParent ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %frameRegs.1, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %frameRegs.1, %exceptionthread-pre-split.loopexit5512 ], [ %frameRegs.1, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+  %ip.3.ph5349 = phi ptr [ %654, %if.then2556 ], [ %163, %do.end624 ], [ %747, %if.then3035 ], [ %717, %if.then2889 ], [ %1278, %handleExceptionInParent ], [ %466, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %448, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %ip.3.ph5349.ph, %exceptionthread-pre-split.loopexit5512 ], [ %490, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
+  %curCodeBlock.3.ph = phi ptr [ %curCodeBlock.2, %if.then2556 ], [ %curCodeBlock.2, %do.end624 ], [ %curCodeBlock.2, %if.then3035 ], [ %curCodeBlock.2, %if.then2889 ], [ %1276, %handleExceptionInParent ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21putByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_S6_b.exit.thread ], [ %curCodeBlock.2, %_ZN6hermes2vm11Interpreter21getByValTransient_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES6_.exit.thread5345 ], [ %curCodeBlock.2, %exceptionthread-pre-split.loopexit5512 ], [ %curCodeBlock.2, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ]
   %agg.tmp5646.sroa.0.0.copyload.pr = load i64, ptr %thrownValue_5647, align 8
   br label %exception
 
@@ -10320,7 +10320,7 @@ default.unreachable:                              ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb39, %sw.bb36, %sw.bb29, %sw.bb22, %sw.bb18, %sw.bb12, %sw.bb8, %sw.bb4, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ -1548112371908608, %sw.bb39 ], [ -1970324836974592, %sw.bb36 ], [ %or.i.i14, %sw.bb29 ], [ %or.i.i, %sw.bb22 ], [ %11, %sw.bb18 ], [ %retval.sroa.0.0.i, %sw.bb12 ], [ %or.i.i.i8, %sw.bb8 ], [ %or.i.i.i4, %sw.bb4 ], [ %or.i.i.i, %sw.bb ], [ -1688849860263936, %entry ]
+  %retval.sroa.0.0 = phi i64 [ %or.i.i.i, %sw.bb ], [ %or.i.i.i4, %sw.bb4 ], [ %or.i.i.i8, %sw.bb8 ], [ %retval.sroa.0.0.i, %sw.bb12 ], [ %11, %sw.bb18 ], [ %or.i.i, %sw.bb22 ], [ %or.i.i14, %sw.bb29 ], [ -1970324836974592, %sw.bb36 ], [ -1548112371908608, %sw.bb39 ], [ -1688849860263936, %entry ]
   ret i64 %retval.sroa.0.0
 }
 

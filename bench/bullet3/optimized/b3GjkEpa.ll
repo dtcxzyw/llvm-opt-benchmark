@@ -1335,7 +1335,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit117: ; p
   br label %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit
 
 _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %343, %339, %333, %364, %354, %302
-  %.457 = phi float [ %.053, %302 ], [ %376, %364 ], [ %363, %354 ], [ %336, %333 ], [ %342, %339 ], [ %353, %343 ]
+  %.457 = phi float [ %.053, %302 ], [ %363, %354 ], [ %376, %364 ], [ %336, %333 ], [ %342, %339 ], [ %353, %343 ]
   %377 = fcmp ult float %.457, 0.000000e+00
   br i1 %377, label %.thread146, label %378
 
@@ -4663,7 +4663,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277: ; p
   br label %711
 
 711:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277, %432, %206, %654, %.thread
-  %.320 = phi i1 [ false, %.thread ], [ true, %432 ], [ true, %206 ], [ true, %654 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228 ]
+  %.320 = phi i1 [ false, %.thread ], [ true, %206 ], [ true, %432 ], [ true, %654 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228 ]
   ret i1 %.320
 }
 

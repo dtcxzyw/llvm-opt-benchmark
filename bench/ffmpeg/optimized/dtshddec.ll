@@ -173,14 +173,14 @@ define internal range(i32 -2147483648, 1) i32 @dtshd_read_header(ptr noundef %0)
   br label %98
 
 94:                                               ; preds = %26, %86, %84, %30
-  %.1 = phi i64 [ %.06992, %26 ], [ %.06992, %84 ], [ %.06992, %86 ], [ %28, %30 ]
+  %.1 = phi i64 [ %.06992, %26 ], [ %28, %30 ], [ %.06992, %84 ], [ %.06992, %86 ]
   %95 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef %19) #4
   %96 = trunc i64 %95 to i32
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %.loopexit, label %98
 
 98:                                               ; preds = %94, %88, %40
-  %.2 = phi i64 [ %.1, %94 ], [ %.06992, %88 ], [ %.06992, %40 ]
+  %.2 = phi i64 [ %.1, %94 ], [ %.06992, %40 ], [ %.06992, %88 ]
   %99 = tail call i64 @avio_rb64(ptr noundef %5) #4
   %100 = tail call i64 @avio_rb64(ptr noundef %5) #4
   %101 = tail call i32 @avio_feof(ptr noundef %5) #4

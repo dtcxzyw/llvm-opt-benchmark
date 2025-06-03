@@ -406,7 +406,7 @@ define dso_local void @_ZN4llvm3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8
   br label %164
 
 164:                                              ; preds = %162, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %163, %162 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %163, %162 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !17
   %165 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val44.i.i.i.i.i.i = load i64, ptr %165, align 8, !tbaa !22
@@ -437,7 +437,7 @@ define dso_local void @_ZN4llvm3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8
   br label %173
 
 173:                                              ; preds = %171, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %172, %171 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %172, %171 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !17
   %174 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val46.i.i.i.i.i.i = load i64, ptr %174, align 8, !tbaa !22

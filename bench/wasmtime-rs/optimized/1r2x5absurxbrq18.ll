@@ -2742,7 +2742,7 @@ define hidden void @_ZN14wasmtime_types11TypeConvert16convert_ref_type17h37420a2
   br label %_ZN14wasmtime_types11TypeConvert17convert_heap_type17he204622f18620da1E.llvm.3269599604001853466.exit
 
 _ZN14wasmtime_types11TypeConvert17convert_heap_type17he204622f18620da1E.llvm.3269599604001853466.exit: ; preds = %3, %22, %23, %24, %31, %32
-  %.sroa.0.0.i = phi i32 [ 8, %32 ], [ 6, %31 ], [ 9, %24 ], [ 7, %23 ], [ 3, %22 ], [ 4, %3 ]
+  %.sroa.0.0.i = phi i32 [ 3, %22 ], [ 7, %23 ], [ 9, %24 ], [ 6, %31 ], [ 8, %32 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %sum.shift = lshr i24 %2, 23
@@ -2832,7 +2832,7 @@ define hidden { i32, i32 } @_ZN14wasmtime_types11TypeConvert17convert_heap_type1
   br label %30
 
 30:                                               ; preds = %2, %29, %28, %21, %20, %19
-  %.sroa.0.0 = phi i32 [ 8, %29 ], [ 6, %28 ], [ 9, %21 ], [ 7, %20 ], [ 3, %19 ], [ 4, %2 ]
+  %.sroa.0.0 = phi i32 [ 3, %19 ], [ 7, %20 ], [ 9, %21 ], [ 6, %28 ], [ 8, %29 ], [ 4, %2 ]
   %31 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %32 = insertvalue { i32, i32 } %31, i32 undef, 1
   ret { i32, i32 } %32
@@ -8752,7 +8752,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %58 = icmp eq i32 %.val4.i.i.i, 23
   br i1 %58, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge": ; preds = %57, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %61
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge": ; preds = %57, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %61
   %.not59 = icmp eq ptr %24, %7
   br i1 %.not59, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread", label %.lr.ph.split
 
@@ -8814,8 +8814,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %81 = icmp eq i32 %.val7, %.val5.i.i.i
   br i1 %81, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread": ; preds = %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %57, %59, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", %2, %.lr.ph.split.us, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i"
-  %82 = phi i1 [ true, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i" ], [ true, %.lr.ph.split.us ], [ false, %2 ], [ true, %62 ], [ true, %64 ], [ true, %66 ], [ true, %68 ], [ true, %70 ], [ true, %72 ], [ true, %74 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %57 ], [ true, %59 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge" ]
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.thread": ; preds = %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %57, %59, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge", %2, %.lr.ph.split.us, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i"
+  %82 = phi i1 [ true, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hec99efe18eb18928E.exit.i.i.i" ], [ true, %.lr.ph.split.us ], [ false, %2 ], [ true, %80 ], [ true, %78 ], [ true, %76 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %64 ], [ true, %62 ], [ true, %57 ], [ true, %59 ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h18cee799f533457cE.exit.backedge" ]
   ret i1 %82
 }
 
@@ -9100,7 +9100,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN85_$LT$wasmtime_environ..component..types..TypeList$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb7cbb215032b4332E.llvm.3269599604001853466.exit"
 
 "_ZN85_$LT$wasmtime_environ..component..types..TypeList$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb7cbb215032b4332E.llvm.3269599604001853466.exit": ; preds = %2, %6, %7, %13, %19, %25, %31, %37, %43, %49, %55, %61
-  %.0.shrunk.i.i = phi i1 [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk.i.i = phi i1 [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %66, %61 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk.i.i
 }
 
@@ -9176,7 +9176,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN87_$LT$wasmtime_environ..component..types..TypeRecord$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf5e2dc4f9c8d2000E.llvm.3269599604001853466.exit"
 
 "_ZN87_$LT$wasmtime_environ..component..types..TypeRecord$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf5e2dc4f9c8d2000E.llvm.3269599604001853466.exit": ; preds = %2, %10, %16, %22, %28, %40, %42, %43
-  %.0.i = phi i1 [ false, %2 ], [ %48, %43 ], [ %41, %40 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %42 ]
+  %.0.i = phi i1 [ false, %2 ], [ %41, %40 ], [ %48, %43 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %42 ]
   ret i1 %.0.i
 }
 
@@ -9282,7 +9282,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN86_$LT$wasmtime_environ..component..types..TypeTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10dd4bf559e83374E.llvm.3269599604001853466.exit"
 
 "_ZN86_$LT$wasmtime_environ..component..types..TypeTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10dd4bf559e83374E.llvm.3269599604001853466.exit": ; preds = %.lr.ph.i.i, %13, %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit.i", %21, %27, %33, %45, %47, %48
-  %.0.i = phi i1 [ %53, %48 ], [ %46, %45 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit.i" ], [ false, %47 ], [ false, %2 ], [ false, %13 ], [ false, %.lr.ph.i.i ]
+  %.0.i = phi i1 [ %46, %45 ], [ %53, %48 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit.i" ], [ false, %47 ], [ false, %2 ], [ false, %13 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0.i
 }
 
@@ -9355,12 +9355,15 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load i8, ptr %42, align 8, !range !1064, !alias.scope !2722, !noalias !2721, !noundef !16
   %44 = trunc nuw i8 %43 to i1
-  br i1 %trunc.i.i, label %45, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i"
+  br i1 %trunc.i.i, label %46, label %45
 
 45:                                               ; preds = %39
-  br i1 %44, label %46, label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit"
+  br i1 %44, label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit", label %52
 
-46:                                               ; preds = %45
+46:                                               ; preds = %39
+  br i1 %44, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit"
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i": ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %48 = load i8, ptr %47, align 1, !alias.scope !2721, !noalias !2722, !noundef !16
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -9368,10 +9371,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %51 = icmp eq i8 %48, %50
   br i1 %51, label %52, label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit"
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i": ; preds = %39
-  br i1 %44, label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit", label %52
-
-52:                                               ; preds = %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %46
+52:                                               ; preds = %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %54 = load i8, ptr %53, align 4, !range !851, !alias.scope !2700, !noalias !2703, !noundef !16
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -9396,7 +9396,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit"
 
 "_ZN88_$LT$wasmtime_environ..component..types..TypeVariant$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0973d6f6b86bf7edE.llvm.3269599604001853466.exit": ; preds = %2, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.i", %15, %21, %27, %33, %45, %46, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %52, %58, %64
-  %.0.i = phi i1 [ %69, %64 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i" ], [ false, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.i" ], [ false, %58 ], [ false, %52 ], [ false, %46 ], [ false, %2 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %45 ]
+  %.0.i = phi i1 [ %69, %64 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i" ], [ false, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.i" ], [ false, %58 ], [ false, %52 ], [ false, %45 ], [ false, %2 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %46 ]
   ret i1 %.0.i
 }
 
@@ -9491,7 +9491,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN86_$LT$wasmtime_environ..component..types..TypeFlags$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97d4887550423707E.llvm.3269599604001853466.exit"
 
 "_ZN86_$LT$wasmtime_environ..component..types..TypeFlags$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97d4887550423707E.llvm.3269599604001853466.exit": ; preds = %2, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i", %14, %20, %26, %32, %44, %46, %47
-  %.0.i = phi i1 [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i" ], [ %52, %47 ], [ %45, %44 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %46 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i" ], [ %45, %44 ], [ %52, %47 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %46 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -9578,12 +9578,15 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load i8, ptr %41, align 8, !range !1064, !alias.scope !2775, !noalias !2774, !noundef !16
   %43 = trunc nuw i8 %42 to i1
-  br i1 %trunc.i.i, label %44, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i"
+  br i1 %trunc.i.i, label %45, label %44
 
 44:                                               ; preds = %38
-  br i1 %43, label %45, label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit"
+  br i1 %43, label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit", label %51
 
-45:                                               ; preds = %44
+45:                                               ; preds = %38
+  br i1 %43, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit"
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i": ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %47 = load i8, ptr %46, align 1, !alias.scope !2774, !noalias !2775, !noundef !16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -9591,10 +9594,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %50 = icmp eq i8 %47, %49
   br i1 %50, label %51, label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit"
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i": ; preds = %38
-  br i1 %43, label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit", label %51
-
-51:                                               ; preds = %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %45
+51:                                               ; preds = %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %53 = load i8, ptr %52, align 4, !range !851, !alias.scope !2752, !noalias !2755, !noundef !16
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -9619,7 +9619,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit"
 
 "_ZN85_$LT$wasmtime_environ..component..types..TypeEnum$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d4c244398dd2330E.llvm.3269599604001853466.exit": ; preds = %2, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i", %14, %20, %26, %32, %44, %45, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i", %51, %57, %63
-  %.0.i = phi i1 [ %68, %63 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i" ], [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i" ], [ false, %57 ], [ false, %51 ], [ false, %45 ], [ false, %2 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %44 ]
+  %.0.i = phi i1 [ %68, %63 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit.i" ], [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.i" ], [ false, %57 ], [ false, %51 ], [ false, %44 ], [ false, %2 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %45 ]
   ret i1 %.0.i
 }
 
@@ -10536,8 +10536,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not17 = icmp eq i64 %1, 0
   br i1 %.not17, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %20, %26, %32, %38, %44, %50, %56, %62, %68, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %.critedge.backedge, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i", %13, %.lr.ph, %.critedge.preheader.split, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %62 ], [ false, %68 ], [ false, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit ], [ true, %.critedge.backedge ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i" ], [ false, %13 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %68, %62, %56, %50, %44, %38, %32, %26, %20, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %.critedge.backedge, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i", %13, %.lr.ph, %.critedge.preheader.split, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %68 ], [ false, %62 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit ], [ true, %.critedge.backedge ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h305c803186b0d211E.exit.i.i" ], [ false, %13 ], [ false, %.lr.ph ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.critedge.preheader.split, %.critedge.backedge
@@ -10577,16 +10577,16 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 19:                                               ; preds = %13
   switch i32 %16, label %.critedge.backedge [
-    i32 13, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
-    i32 14, label %20
-    i32 15, label %26
-    i32 16, label %32
-    i32 17, label %38
-    i32 18, label %44
-    i32 19, label %50
-    i32 20, label %56
-    i32 21, label %62
-    i32 22, label %68
+    i32 13, label %20
+    i32 14, label %26
+    i32 15, label %32
+    i32 16, label %38
+    i32 17, label %44
+    i32 18, label %50
+    i32 19, label %56
+    i32 20, label %62
+    i32 21, label %68
+    i32 22, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
   ]
 
 20:                                               ; preds = %19
@@ -10669,7 +10669,7 @@ _ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit: ; preds = %19
   %78 = icmp eq i32 %75, %77
   br i1 %78, label %.critedge.backedge, label %.thread
 
-.critedge.backedge:                               ; preds = %20, %26, %32, %38, %44, %50, %56, %62, %68, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %19
+.critedge.backedge:                               ; preds = %68, %62, %56, %50, %44, %38, %32, %26, %20, %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit, %19
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 }
@@ -11172,7 +11172,7 @@ define internal noundef zeroext i1 @"_ZN79_$LT$wasmparser..readers..core..types.
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0.in = phi i1 [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
   ret i1 %.0.in
 }
 
@@ -19548,7 +19548,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$wasmtime_environ..component..types.
   ]
 
 7:                                                ; preds = %6, %2, %62, %56, %50, %44, %38, %32, %26, %20, %14, %8
-  %.0.shrunk = phi i1 [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ], [ %13, %8 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %13, %8 ], [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %6
@@ -19727,7 +19727,7 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$wasmtime_environ..component..types.
   br i1 %trunc, label %33, label %31
 
 30:                                               ; preds = %33, %2, %6, %12, %18, %31, %34
-  %.0 = phi i1 [ %39, %34 ], [ %32, %31 ], [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %2 ], [ false, %33 ]
+  %.0 = phi i1 [ %32, %31 ], [ %39, %34 ], [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %2 ], [ false, %33 ]
   ret i1 %.0
 
 31:                                               ; preds = %24
@@ -19882,7 +19882,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   br label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
 
 "_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %43, %42, %40, %28, %22, %16, %10, %2
-  %.0 = phi i1 [ false, %2 ], [ %48, %43 ], [ %41, %40 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %42 ]
+  %.0 = phi i1 [ false, %2 ], [ %41, %40 ], [ %48, %43 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %10 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -19953,12 +19953,15 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$wasmtime_environ..component..types.
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load i8, ptr %42, align 8, !range !1064, !alias.scope !4415, !noalias !4412, !noundef !16
   %44 = trunc nuw i8 %43 to i1
-  br i1 %trunc.i, label %45, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+  br i1 %trunc.i, label %46, label %45
 
 45:                                               ; preds = %39
-  br i1 %44, label %46, label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread"
+  br i1 %44, label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread", label %52
 
-46:                                               ; preds = %45
+46:                                               ; preds = %39
+  br i1 %44, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread"
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %48 = load i8, ptr %47, align 1, !alias.scope !4412, !noalias !4415, !noundef !16
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -19966,10 +19969,7 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$wasmtime_environ..component..types.
   %51 = icmp eq i8 %48, %50
   br i1 %51, label %52, label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread"
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %39
-  br i1 %44, label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread", label %52
-
-52:                                               ; preds = %46, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+52:                                               ; preds = %45, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %54 = load i8, ptr %53, align 4, !range !851, !noundef !16
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -19977,8 +19977,8 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$wasmtime_environ..component..types.
   %57 = icmp eq i8 %54, %56
   br i1 %57, label %58, label %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread"
 
-"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread": ; preds = %45, %15, %21, %27, %33, %2, %46, %52, %58, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %64
-  %.0 = phi i1 [ %69, %64 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit" ], [ false, %58 ], [ false, %52 ], [ false, %46 ], [ false, %2 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %45 ]
+"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit.thread": ; preds = %46, %15, %21, %27, %33, %2, %45, %52, %58, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %64
+  %.0 = phi i1 [ %69, %64 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN133_$LT$indexmap..map..IndexMap$LT$K$C$V1$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..map..IndexMap$LT$K$C$V2$C$S2$GT$$GT$$GT$2eq17h78f81a19dd840fa3E.llvm.3269599604001853466.exit" ], [ false, %58 ], [ false, %52 ], [ false, %45 ], [ false, %2 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %46 ]
   ret i1 %.0
 
 58:                                               ; preds = %52
@@ -20125,7 +20125,7 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$wasmtime_environ..component..types.
   br label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
 
 "_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %13, %.lr.ph.i, %2, %48, %47, %45, %33, %27, %21, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit"
-  %.0 = phi i1 [ %53, %48 ], [ %46, %45 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit" ], [ false, %47 ], [ false, %2 ], [ false, %.lr.ph.i ], [ false, %13 ]
+  %.0 = phi i1 [ %46, %45 ], [ %53, %48 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8bb3540924471314E.llvm.3269599604001853466.exit" ], [ false, %47 ], [ false, %2 ], [ false, %.lr.ph.i ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -20212,7 +20212,7 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$wasmtime_environ..component..types.
   br label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
 
 "_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %2, %47, %46, %44, %32, %26, %20, %14, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit"
-  %.0 = phi i1 [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit" ], [ %52, %47 ], [ %45, %44 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %46 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit" ], [ %45, %44 ], [ %52, %47 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %46 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -20281,12 +20281,15 @@ define hidden noundef zeroext i1 @"_ZN85_$LT$wasmtime_environ..component..types.
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load i8, ptr %41, align 8, !range !1064, !alias.scope !4465, !noalias !4462, !noundef !16
   %43 = trunc nuw i8 %42 to i1
-  br i1 %trunc.i, label %44, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+  br i1 %trunc.i, label %45, label %44
 
 44:                                               ; preds = %38
-  br i1 %43, label %45, label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread"
+  br i1 %43, label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread", label %51
 
-45:                                               ; preds = %44
+45:                                               ; preds = %38
+  br i1 %43, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread"
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %47 = load i8, ptr %46, align 1, !alias.scope !4462, !noalias !4465, !noundef !16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -20294,10 +20297,7 @@ define hidden noundef zeroext i1 @"_ZN85_$LT$wasmtime_environ..component..types.
   %50 = icmp eq i8 %47, %49
   br i1 %50, label %51, label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread"
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %38
-  br i1 %43, label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread", label %51
-
-51:                                               ; preds = %45, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+51:                                               ; preds = %44, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %53 = load i8, ptr %52, align 4, !range !851, !noundef !16
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -20305,8 +20305,8 @@ define hidden noundef zeroext i1 @"_ZN85_$LT$wasmtime_environ..component..types.
   %56 = icmp eq i8 %53, %55
   br i1 %56, label %57, label %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread"
 
-"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread": ; preds = %44, %14, %20, %26, %32, %2, %45, %51, %57, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %63
-  %.0 = phi i1 [ %68, %63 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit" ], [ false, %57 ], [ false, %51 ], [ false, %45 ], [ false, %2 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %44 ]
+"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit.thread": ; preds = %45, %14, %20, %26, %32, %2, %44, %51, %57, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %63
+  %.0 = phi i1 [ %68, %63 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN123_$LT$indexmap..set..IndexSet$LT$T$C$S1$GT$$u20$as$u20$core..cmp..PartialEq$LT$indexmap..set..IndexSet$LT$T$C$S2$GT$$GT$$GT$2eq17h2584b5a7fe54bd6bE.exit" ], [ false, %57 ], [ false, %51 ], [ false, %44 ], [ false, %2 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %45 ]
   ret i1 %.0
 
 57:                                               ; preds = %51
@@ -20368,16 +20368,16 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
 
 6:                                                ; preds = %2
   switch i32 %3, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread" [
-    i32 13, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit"
-    i32 14, label %7
-    i32 15, label %13
-    i32 16, label %19
-    i32 17, label %25
-    i32 18, label %31
-    i32 19, label %37
-    i32 20, label %43
-    i32 21, label %49
-    i32 22, label %55
+    i32 13, label %7
+    i32 14, label %13
+    i32 15, label %19
+    i32 16, label %25
+    i32 17, label %31
+    i32 18, label %37
+    i32 19, label %43
+    i32 20, label %49
+    i32 21, label %55
+    i32 22, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit"
   ]
 
 7:                                                ; preds = %6
@@ -20460,7 +20460,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %65 = icmp eq i32 %62, %64
   br i1 %65, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread", label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread": ; preds = %6, %7, %13, %19, %25, %31, %37, %43, %49, %55, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit"
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread": ; preds = %6, %55, %49, %43, %37, %31, %25, %19, %13, %7, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit"
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4488)
@@ -20501,12 +20501,15 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %93 = load i8, ptr %92, align 4, !range !1064, !alias.scope !4491, !noalias !4488, !noundef !16
   %94 = trunc nuw i8 %93 to i1
-  br i1 %trunc.i, label %95, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+  br i1 %trunc.i, label %96, label %95
 
 95:                                               ; preds = %89
-  br i1 %94, label %96, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2"
+  br i1 %94, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2", label %102
 
-96:                                               ; preds = %95
+96:                                               ; preds = %89
+  br i1 %94, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2"
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %96
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %98 = load i8, ptr %97, align 1, !alias.scope !4488, !noalias !4491, !noundef !16
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 25
@@ -20514,10 +20517,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %101 = icmp eq i8 %98, %100
   br i1 %101, label %102, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2"
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %89
-  br i1 %94, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2", label %102
-
-102:                                              ; preds = %96, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+102:                                              ; preds = %95, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %104 = load i8, ptr %103, align 4, !range !851, !noundef !16
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -20525,8 +20525,8 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %107 = icmp eq i8 %104, %106
   br i1 %107, label %108, label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2"
 
-"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2": ; preds = %95, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread", %71, %77, %83, %2, %96, %7, %13, %19, %25, %31, %37, %43, %49, %55, %102, %108, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %114
-  %.0 = phi i1 [ %119, %114 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit" ], [ false, %108 ], [ false, %102 ], [ false, %55 ], [ false, %49 ], [ false, %43 ], [ false, %37 ], [ false, %31 ], [ false, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ], [ false, %96 ], [ false, %2 ], [ false, %83 ], [ false, %77 ], [ false, %71 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread" ], [ false, %95 ]
+"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread2": ; preds = %96, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread", %71, %77, %83, %2, %95, %55, %49, %43, %37, %31, %25, %19, %13, %7, %102, %108, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit", %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %114
+  %.0 = phi i1 [ %119, %114 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit" ], [ false, %108 ], [ false, %102 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %31 ], [ false, %37 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %95 ], [ false, %2 ], [ false, %83 ], [ false, %77 ], [ false, %71 ], [ false, %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit.thread" ], [ false, %96 ]
   ret i1 %.0
 
 108:                                              ; preds = %102
@@ -20639,16 +20639,16 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
 
 17:                                               ; preds = %15
   switch i32 %3, label %.thread [
-    i32 13, label %9
-    i32 14, label %18
-    i32 15, label %24
-    i32 16, label %30
-    i32 17, label %36
-    i32 18, label %42
-    i32 19, label %48
-    i32 20, label %54
-    i32 21, label %60
-    i32 22, label %66
+    i32 13, label %18
+    i32 14, label %24
+    i32 15, label %30
+    i32 16, label %36
+    i32 17, label %42
+    i32 18, label %48
+    i32 19, label %54
+    i32 20, label %60
+    i32 21, label %66
+    i32 22, label %9
   ]
 
 18:                                               ; preds = %17
@@ -20723,7 +20723,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %71 = icmp eq i32 %68, %70
   br i1 %71, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %17, %18, %24, %30, %36, %42, %48, %54, %60, %66, %7, %9
+.thread:                                          ; preds = %17, %66, %60, %54, %48, %42, %36, %30, %24, %18, %7, %9
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i32, ptr %72, align 4, !range !3828, !noundef !16
   %74 = icmp eq i32 %73, 23
@@ -20754,16 +20754,16 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
 
 88:                                               ; preds = %86
   switch i32 %73, label %.thread12 [
-    i32 13, label %80
-    i32 14, label %89
-    i32 15, label %95
-    i32 16, label %101
-    i32 17, label %107
-    i32 18, label %113
-    i32 19, label %119
-    i32 20, label %125
-    i32 21, label %131
-    i32 22, label %137
+    i32 13, label %89
+    i32 14, label %95
+    i32 15, label %101
+    i32 16, label %107
+    i32 17, label %113
+    i32 18, label %119
+    i32 19, label %125
+    i32 20, label %131
+    i32 21, label %137
+    i32 22, label %80
   ]
 
 89:                                               ; preds = %88
@@ -20838,7 +20838,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %142 = icmp eq i32 %139, %141
   br i1 %142, label %.thread12, label %.critedge
 
-.thread12:                                        ; preds = %88, %89, %95, %101, %107, %113, %119, %125, %131, %137, %78, %80
+.thread12:                                        ; preds = %88, %137, %131, %125, %119, %113, %107, %101, %95, %89, %78, %80
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4529)
@@ -20879,12 +20879,15 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %170 = load i8, ptr %169, align 4, !range !1064, !alias.scope !4532, !noalias !4529, !noundef !16
   %171 = trunc nuw i8 %170 to i1
-  br i1 %trunc.i, label %172, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+  br i1 %trunc.i, label %173, label %172
 
 172:                                              ; preds = %166
-  br i1 %171, label %173, label %.critedge
+  br i1 %171, label %.critedge, label %179
 
-173:                                              ; preds = %172
+173:                                              ; preds = %166
+  br i1 %171, label %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", label %.critedge
+
+"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %173
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %175 = load i8, ptr %174, align 1, !alias.scope !4529, !noalias !4532, !noundef !16
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 33
@@ -20892,10 +20895,7 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %178 = icmp eq i8 %175, %177
   br i1 %178, label %179, label %.critedge
 
-"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit": ; preds = %166
-  br i1 %171, label %.critedge, label %179
-
-179:                                              ; preds = %173, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
+179:                                              ; preds = %172, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit"
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %181 = load i8, ptr %180, align 4, !range !851, !noundef !16
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -20903,8 +20903,8 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_environ..component..types.
   %184 = icmp eq i8 %181, %183
   br i1 %184, label %185, label %.critedge
 
-.critedge:                                        ; preds = %172, %.thread12, %148, %154, %160, %173, %86, %89, %95, %101, %107, %113, %119, %125, %131, %137, %78, %15, %18, %24, %30, %36, %42, %48, %54, %60, %66, %7, %179, %185, %79, %9, %80, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %8, %191
-  %.0 = phi i1 [ %196, %191 ], [ false, %8 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %80 ], [ false, %9 ], [ false, %79 ], [ false, %185 ], [ false, %179 ], [ false, %7 ], [ false, %66 ], [ false, %60 ], [ false, %54 ], [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %15 ], [ false, %78 ], [ false, %137 ], [ false, %131 ], [ false, %125 ], [ false, %119 ], [ false, %113 ], [ false, %107 ], [ false, %101 ], [ false, %95 ], [ false, %89 ], [ false, %86 ], [ false, %173 ], [ false, %160 ], [ false, %154 ], [ false, %148 ], [ false, %.thread12 ], [ false, %172 ]
+.critedge:                                        ; preds = %173, %.thread12, %148, %154, %160, %172, %86, %137, %131, %125, %119, %113, %107, %101, %95, %89, %78, %15, %66, %60, %54, %48, %42, %36, %30, %24, %18, %7, %179, %185, %79, %9, %80, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit", %8, %191
+  %.0 = phi i1 [ %196, %191 ], [ false, %8 ], [ false, %"_ZN93_$LT$wasmtime_environ..component..types..CanonicalAbiInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd28f8e4fb4148f0dE.llvm.3269599604001853466.exit" ], [ false, %80 ], [ false, %9 ], [ false, %79 ], [ false, %185 ], [ false, %179 ], [ false, %7 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ false, %42 ], [ false, %48 ], [ false, %54 ], [ false, %60 ], [ false, %66 ], [ false, %15 ], [ false, %78 ], [ false, %89 ], [ false, %95 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %119 ], [ false, %125 ], [ false, %131 ], [ false, %137 ], [ false, %86 ], [ false, %172 ], [ false, %160 ], [ false, %154 ], [ false, %148 ], [ false, %.thread12 ], [ false, %173 ]
   ret i1 %.0
 
 185:                                              ; preds = %179
@@ -21034,7 +21034,7 @@ define hidden noundef zeroext i1 @"_ZN85_$LT$wasmtime_environ..component..types.
   br label %"_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit"
 
 "_ZN90_$LT$wasmtime_environ..component..types..InterfaceType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e59da56dcdc6eb3E.llvm.3269599604001853466.exit": ; preds = %2, %6, %7, %13, %19, %25, %31, %37, %43, %49, %55, %61
-  %.0.shrunk.i = phi i1 [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ], [ %12, %7 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk.i = phi i1 [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %66, %61 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0.shrunk.i
 }
 

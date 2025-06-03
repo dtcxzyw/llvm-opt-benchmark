@@ -633,7 +633,7 @@ define i64 @lean_object_byte_size(ptr noundef readonly captures(none) %0) local_
   br label %40
 
 40:                                               ; preds = %8, %38, %35, %28, %24, %20, %13, %9
-  %.0 = phi i64 [ %22, %20 ], [ %19, %13 ], [ %12, %9 ], [ %39, %38 ], [ %37, %35 ], [ %34, %28 ], [ %27, %24 ], [ 0, %8 ]
+  %.0 = phi i64 [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ %37, %35 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -712,7 +712,7 @@ define i64 @lean_object_data_byte_size(ptr noundef readonly captures(none) %0) l
   br label %40
 
 40:                                               ; preds = %8, %38, %35, %28, %24, %20, %13, %9
-  %.0 = phi i64 [ %22, %20 ], [ %19, %13 ], [ %12, %9 ], [ %39, %38 ], [ %37, %35 ], [ %34, %28 ], [ %27, %24 ], [ 0, %8 ]
+  %.0 = phi i64 [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ %37, %35 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -890,7 +890,7 @@ define void @lean_dec_ref_cold(ptr noundef %0) local_unnamed_addr #0 personality
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit87
 
 _ZN4leanL3decEP11lean_objectRS1_.exit87:          ; preds = %.lr.ph119, %21, %23, %24, %31, %34
-  %.13 = phi ptr [ %.6116, %21 ], [ %15, %34 ], [ %.6116, %31 ], [ %.6116, %23 ], [ %15, %24 ], [ %.6116, %.lr.ph119 ]
+  %.13 = phi ptr [ %.6116, %21 ], [ %15, %34 ], [ %.6116, %31 ], [ %15, %24 ], [ %.6116, %23 ], [ %.6116, %.lr.ph119 ]
   %.not67.i = icmp eq ptr %.0.i117, %14
   br i1 %.not67.i, label %._crit_edge120, label %.lr.ph119, !llvm.loop !32
 
@@ -994,7 +994,7 @@ _ZN4leanL3decEP11lean_objectRS1_.exit87:          ; preds = %.lr.ph119, %21, %23
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit71
 
 _ZN4leanL3decEP11lean_objectRS1_.exit71:          ; preds = %.lr.ph112, %54, %56, %57, %64, %67
-  %.12 = phi ptr [ %.5109, %54 ], [ %48, %67 ], [ %.5109, %64 ], [ %.5109, %56 ], [ %48, %57 ], [ %.5109, %.lr.ph112 ]
+  %.12 = phi ptr [ %.5109, %54 ], [ %48, %67 ], [ %.5109, %64 ], [ %48, %57 ], [ %.5109, %56 ], [ %.5109, %.lr.ph112 ]
   %74 = getelementptr inbounds nuw i8, ptr %.057.i110, i64 8
   %.not66.i = icmp eq ptr %74, %.ptr125
   br i1 %.not66.i, label %._crit_edge113, label %.lr.ph112, !llvm.loop !35
@@ -1082,7 +1082,7 @@ _ZN4leanL3decEP11lean_objectRS1_.exit71:          ; preds = %.lr.ph112, %54, %56
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit55
 
 _ZN4leanL3decEP11lean_objectRS1_.exit55:          ; preds = %.lr.ph, %84, %86, %87, %94, %97
-  %.11 = phi ptr [ %.4106, %84 ], [ %78, %97 ], [ %.4106, %94 ], [ %.4106, %86 ], [ %78, %87 ], [ %.4106, %.lr.ph ]
+  %.11 = phi ptr [ %.4106, %84 ], [ %78, %97 ], [ %.4106, %94 ], [ %78, %87 ], [ %.4106, %86 ], [ %.4106, %.lr.ph ]
   %104 = getelementptr inbounds nuw i8, ptr %.058.i107, i64 8
   %.not65.i = icmp eq ptr %104, %.ptr122
   br i1 %.not65.i, label %._crit_edge, label %.lr.ph, !llvm.loop !36
@@ -1186,7 +1186,7 @@ _ZN4leanL3decEP11lean_objectRS1_.exit55:          ; preds = %.lr.ph, %84, %86, %
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit38
 
 _ZN4leanL3decEP11lean_objectRS1_.exit38:          ; preds = %140, %137, %130, %129, %127, %120
-  %.2 = phi ptr [ %.0101, %120 ], [ %.0101, %127 ], [ %.0.i.i.i39, %140 ], [ %.0101, %137 ], [ %.0101, %129 ], [ %.0.i.i.i39, %130 ]
+  %.2 = phi ptr [ %.0101, %120 ], [ %.0101, %127 ], [ %.0.i.i.i39, %140 ], [ %.0101, %137 ], [ %.0.i.i.i39, %130 ], [ %.0101, %129 ]
   %147 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %148 = load atomic i64, ptr %147 seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %148 to ptr
@@ -1252,7 +1252,7 @@ _ZN4leanL3decEP11lean_objectRS1_.exit38:          ; preds = %140, %137, %130, %1
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit22
 
 _ZN4leanL3decEP11lean_objectRS1_.exit22:          ; preds = %166, %163, %156, %155, %153, %_ZN4leanL3decEP11lean_objectRS1_.exit38
-  %.3 = phi ptr [ %.2, %_ZN4leanL3decEP11lean_objectRS1_.exit38 ], [ %.2, %153 ], [ %.0.i.i.i, %166 ], [ %.2, %163 ], [ %.2, %155 ], [ %.0.i.i.i, %156 ]
+  %.3 = phi ptr [ %.2, %_ZN4leanL3decEP11lean_objectRS1_.exit38 ], [ %.2, %153 ], [ %.0.i.i.i, %166 ], [ %.2, %163 ], [ %.0.i.i.i, %156 ], [ %.2, %155 ]
   tail call void @mi_free(ptr noundef nonnull %.0) #40
   br label %_ZN4leanL13lean_del_coreEP11lean_objectRS1_.exit
 
@@ -1322,7 +1322,7 @@ _ZN4leanL3decEP11lean_objectRS1_.exit22:          ; preds = %166, %163, %156, %1
   br label %_ZN4leanL3decEP11lean_objectRS1_.exit
 
 _ZN4leanL3decEP11lean_objectRS1_.exit:            ; preds = %194, %191, %184, %183, %181, %173
-  %.1 = phi ptr [ %.0101, %173 ], [ %.0101, %181 ], [ %175, %194 ], [ %.0101, %191 ], [ %.0101, %183 ], [ %175, %184 ]
+  %.1 = phi ptr [ %.0101, %173 ], [ %.0101, %181 ], [ %175, %194 ], [ %.0101, %191 ], [ %175, %184 ], [ %.0101, %183 ]
   tail call void @mi_free(ptr noundef nonnull %.0) #40
   br label %_ZN4leanL13lean_del_coreEP11lean_objectRS1_.exit
 
@@ -1425,7 +1425,7 @@ _ZN4leanL18deactivate_promiseEP12lean_promise.exit: ; preds = %225, %227, %228
   unreachable
 
 _ZN4leanL13lean_del_coreEP11lean_objectRS1_.exit: ; preds = %_ZN4leanL9free_taskEP9lean_task.exit.i, %203, %._crit_edge120, %._crit_edge113, %._crit_edge, %108, %115, %118, %_ZN4leanL3decEP11lean_objectRS1_.exit22, %_ZN4leanL3decEP11lean_objectRS1_.exit, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit, %229
-  %.7 = phi ptr [ %.6.lcssa, %._crit_edge120 ], [ %.0101, %229 ], [ %.0101, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit ], [ %.1, %_ZN4leanL3decEP11lean_objectRS1_.exit ], [ %.3, %_ZN4leanL3decEP11lean_objectRS1_.exit22 ], [ %.0101, %118 ], [ %.0101, %115 ], [ %.0101, %108 ], [ %.4.lcssa, %._crit_edge ], [ %.5.lcssa, %._crit_edge113 ], [ %.0101, %203 ], [ %.0101, %_ZN4leanL9free_taskEP9lean_task.exit.i ]
+  %.7 = phi ptr [ %.6.lcssa, %._crit_edge120 ], [ %.5.lcssa, %._crit_edge113 ], [ %.4.lcssa, %._crit_edge ], [ %.0101, %108 ], [ %.0101, %115 ], [ %.0101, %118 ], [ %.3, %_ZN4leanL3decEP11lean_objectRS1_.exit22 ], [ %.1, %_ZN4leanL3decEP11lean_objectRS1_.exit ], [ %.0101, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit ], [ %.0101, %229 ], [ %.0101, %203 ], [ %.0101, %_ZN4leanL9free_taskEP9lean_task.exit.i ]
   %240 = icmp eq ptr %.7, null
   br i1 %240, label %.loopexit, label %241
 
@@ -1904,7 +1904,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i69: ; preds = %35, %_ZSt18un
   br label %91
 
 91:                                               ; preds = %.noexc79, %77
-  %.1.in.i = phi i64 [ %79, %77 ], [ %90, %.noexc79 ]
+  %.1.in.i = phi i64 [ %90, %.noexc79 ], [ %79, %77 ]
   %.1.i = inttoptr i64 %.1.in.i to ptr
   %92 = load i64, ptr %3, align 8, !tbaa !64
   %93 = load i64, ptr %4, align 8, !tbaa !63
@@ -2446,7 +2446,7 @@ _ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit:    ; preds = %273, %275
   ret void
 
 278:                                              ; preds = %.loopexit, %.loopexit.split-lp, %45, %112, %135, %217, %242, %265, %47, %164, %192
-  %.pn54.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %266, %265 ], [ %243, %242 ], [ %218, %217 ], [ %136, %135 ], [ %113, %112 ], [ %48, %47 ], [ %165, %164 ], [ %193, %192 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %113, %112 ], [ %136, %135 ], [ %243, %242 ], [ %218, %217 ], [ %266, %265 ], [ %48, %47 ], [ %165, %164 ], [ %193, %192 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %279 = load ptr, ptr %1, align 8, !tbaa !60
   %.not.i.i.i159 = icmp eq ptr %279, %2
   br i1 %.not.i.i.i159, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit160, label %280
@@ -2505,7 +2505,7 @@ define ptr @lean_task_get(ptr noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %1, %14
-  %.1.in = phi i64 [ %3, %1 ], [ %15, %14 ]
+  %.1.in = phi i64 [ %15, %14 ], [ %3, %1 ]
   %.1 = inttoptr i64 %.1.in to ptr
   ret ptr %.1
 }
@@ -2774,7 +2774,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i71: ; preds = %42, %_ZSt18un
   br label %98
 
 98:                                               ; preds = %.noexc194, %84
-  %.1.in.i = phi i64 [ %86, %84 ], [ %97, %.noexc194 ]
+  %.1.in.i = phi i64 [ %97, %.noexc194 ], [ %86, %84 ]
   %.1.i = inttoptr i64 %.1.in.i to ptr
   %99 = load i64, ptr %8, align 8, !tbaa !64
   %100 = load i64, ptr %9, align 8, !tbaa !63
@@ -3319,7 +3319,7 @@ _ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit:    ; preds = %280, %282
   ret void
 
 286:                                              ; preds = %.loopexit, %.loopexit.split-lp, %52, %119, %142, %224, %249, %272, %54, %171, %199
-  %.pn55.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %273, %272 ], [ %250, %249 ], [ %225, %224 ], [ %143, %142 ], [ %120, %119 ], [ %55, %54 ], [ %172, %171 ], [ %200, %199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn55.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %120, %119 ], [ %143, %142 ], [ %250, %249 ], [ %225, %224 ], [ %273, %272 ], [ %55, %54 ], [ %172, %171 ], [ %200, %199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %287 = load ptr, ptr %2, align 8, !tbaa !60
   %.not.i.i.i158 = icmp eq ptr %287, %7
   br i1 %.not.i.i.i158, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit159, label %288
@@ -3470,7 +3470,7 @@ define void @lean_init_task_manager() local_unnamed_addr #0 personality ptr @__g
   br label %_ZN4leanL20get_lean_num_threadsEv.exit
 
 _ZN4leanL20get_lean_num_threadsEv.exit:           ; preds = %2, %5
-  %.1.i = phi i32 [ %4, %2 ], [ %6, %5 ]
+  %.1.i = phi i32 [ %6, %5 ], [ %4, %2 ]
   %.not.i = icmp eq i32 %.1.i, 0
   br i1 %.not.i, label %lean_init_task_manager_using.exit, label %7
 
@@ -3955,7 +3955,7 @@ define nonnull ptr @lean_task_map_core(ptr noundef %0, ptr noundef %1, i32 nound
   br label %lean_task_get.exit.i
 
 lean_task_get.exit.i:                             ; preds = %24, %11
-  %.1.in.i.i = phi i64 [ %13, %11 ], [ %25, %24 ]
+  %.1.in.i.i = phi i64 [ %25, %24 ], [ %13, %11 ]
   %.1.i.i = inttoptr i64 %.1.in.i.i to ptr
   %26 = and i64 %.1.in.i.i, 1
   %.not.i = icmp eq i64 %26, 0
@@ -4447,7 +4447,7 @@ define noundef ptr @lean_task_bind_core(ptr noundef %0, ptr noundef %1, i32 noun
   br label %lean_task_get.exit.i
 
 lean_task_get.exit.i:                             ; preds = %24, %11
-  %.1.in.i.i = phi i64 [ %13, %11 ], [ %25, %24 ]
+  %.1.in.i.i = phi i64 [ %25, %24 ], [ %13, %11 ]
   %.1.i.i = inttoptr i64 %.1.in.i.i to ptr
   %26 = and i64 %.1.in.i.i, 1
   %.not.i = icmp eq i64 %26, 0
@@ -13017,7 +13017,7 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   br label %.thread59
 
 .thread59:                                        ; preds = %50, %.thread, %47, %61, %37, %11
-  %.2 = phi i32 [ %18, %11 ], [ %72, %61 ], [ %42, %37 ], [ 65, %47 ], [ 65, %.thread ], [ 65, %50 ]
+  %.2 = phi i32 [ %72, %61 ], [ %18, %11 ], [ %42, %37 ], [ 65, %47 ], [ 65, %.thread ], [ 65, %50 ]
   ret i32 %.2
 }
 

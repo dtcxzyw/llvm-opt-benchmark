@@ -8449,7 +8449,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3smt5enodeENS0_
   br label %267
 
 267:                                              ; preds = %258, %._crit_edge
-  %.2 = phi i32 [ %252, %._crit_edge ], [ %266, %258 ]
+  %.2 = phi i32 [ %266, %258 ], [ %252, %._crit_edge ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %269 = load ptr, ptr %268, align 8, !tbaa !655
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
@@ -8502,7 +8502,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3smt5enodeENS0_
   br label %313
 
 313:                                              ; preds = %4, %276, %99, %46, %7
-  %.0 = phi i32 [ %312, %276 ], [ %194, %99 ], [ %98, %46 ], [ %45, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %312, %276 ], [ %45, %7 ], [ %98, %46 ], [ %194, %99 ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -13446,7 +13446,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3smt5enodeENS0_
   br label %268
 
 268:                                              ; preds = %259, %._crit_edge
-  %.2 = phi i32 [ %252, %._crit_edge ], [ %267, %259 ]
+  %.2 = phi i32 [ %267, %259 ], [ %252, %._crit_edge ]
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %270 = load ptr, ptr %269, align 8, !tbaa !655
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -13499,7 +13499,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3smt5enodeENS0_
   br label %314
 
 314:                                              ; preds = %4, %277, %99, %46, %7
-  %.0 = phi i32 [ %313, %277 ], [ %194, %99 ], [ %98, %46 ], [ %45, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %313, %277 ], [ %45, %7 ], [ %98, %46 ], [ %194, %99 ], [ 11, %4 ]
   ret i32 %.0
 }
 

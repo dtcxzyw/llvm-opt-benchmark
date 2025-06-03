@@ -973,7 +973,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %exitcond.not, label %.loopexit184, label %.lr.ph, !llvm.loop !7
 
 .loopexit184:                                     ; preds = %.lr.ph, %.preheader183, %464, %470, %._crit_edge, %._crit_edge193
-  %.1156 = phi i32 [ %474, %470 ], [ %469, %464 ], [ %463, %._crit_edge ], [ %445, %._crit_edge193 ], [ 0, %.preheader183 ], [ %476, %.lr.ph ]
+  %.1156 = phi i32 [ %474, %470 ], [ %463, %._crit_edge ], [ %445, %._crit_edge193 ], [ %469, %464 ], [ 0, %.preheader183 ], [ %476, %.lr.ph ]
   %478 = load i32, ptr %2, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.4, i32 noundef %478, i32 noundef %5) #14
   %479 = sext i32 %.1156 to i64
@@ -4660,19 +4660,19 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %1, label %182, label %184
 
 181:                                              ; preds = %113, %127, %135, %.loopexit
-  %.0168 = phi i8 [ 1, %127 ], [ 1, %135 ], [ 1, %113 ], [ %.2170, %.loopexit ]
-  %.0158 = phi i1 [ %1, %127 ], [ %1, %135 ], [ %1, %113 ], [ %.2160, %.loopexit ]
+  %.0168 = phi i8 [ %.2170, %.loopexit ], [ 1, %127 ], [ 1, %135 ], [ 1, %113 ]
+  %.0158 = phi i1 [ %.2160, %.loopexit ], [ %1, %127 ], [ %1, %135 ], [ %1, %113 ]
   br i1 %.0158, label %182, label %184
 
-182:                                              ; preds = %111, %26, %138, %170, %171, %181
-  %.0168247 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %170 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
+182:                                              ; preds = %170, %138, %111, %26, %171, %181
+  %.0168247 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %183 = load ptr, ptr %11, align 8
   call void @PQclear(ptr noundef %183) #14
   store ptr null, ptr %11, align 8
   br label %184
 
-184:                                              ; preds = %111, %26, %138, %170, %171, %182, %181
-  %.0168246 = phi i8 [ 0, %171 ], [ %.0168247, %182 ], [ %.0168, %181 ], [ 0, %170 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
+184:                                              ; preds = %170, %138, %111, %26, %171, %182, %181
+  %.0168246 = phi i8 [ 0, %171 ], [ %.0168247, %182 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8

@@ -8973,7 +8973,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %26
 
 26:                                               ; preds = %lean_alloc_ctor.exit, %8, %6
-  %.0 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -9294,7 +9294,7 @@ define ptr @l_Lean_Compiler_LCNF_getExt(i8 noundef zeroext %0) local_unnamed_add
   br label %10
 
 10:                                               ; preds = %6, %4, %2
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %9, %6 ], [ %3, %2 ], [ %5, %4 ]
   ret ptr %.0
 }
 
@@ -9346,7 +9346,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Compiler_LCNF_getExt.exit
 
 l_Lean_Compiler_LCNF_getExt.exit:                 ; preds = %13, %15, %17
-  %.0.i = phi ptr [ %20, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.0.i = phi ptr [ %20, %17 ], [ %14, %13 ], [ %16, %15 ]
   ret ptr %.0.i
 }
 
@@ -12371,7 +12371,7 @@ define ptr @l_Lean_Compiler_LCNF_forEachDecl(ptr noundef %0, i8 noundef zeroext 
   br label %l_Lean_Compiler_LCNF_getExt.exit
 
 l_Lean_Compiler_LCNF_getExt.exit:                 ; preds = %6, %8, %10
-  %.0.i = phi ptr [ %13, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.i = phi ptr [ %13, %10 ], [ %7, %6 ], [ %9, %8 ]
   %14 = tail call ptr @lean_st_ref_get(ptr noundef %3, ptr noundef %4) #6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !9
@@ -13938,7 +13938,7 @@ define ptr @l_Lean_Compiler_LCNF_forEachModuleDecl(ptr noundef %0, ptr noundef %
   br label %l_Lean_Compiler_LCNF_getExt.exit
 
 l_Lean_Compiler_LCNF_getExt.exit:                 ; preds = %7, %9, %11
-  %.0.i = phi ptr [ %14, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %14, %11 ], [ %8, %7 ], [ %10, %9 ]
   %15 = tail call ptr @lean_st_ref_get(ptr noundef %4, ptr noundef %5) #6
   %.val281 = load i32, ptr %15, align 4, !tbaa !4
   %16 = icmp eq i32 %.val281, 1
@@ -15693,7 +15693,7 @@ lean_dec.exit30:                                  ; preds = %52, %51, %49, %lean
   br label %l_Lean_Compiler_LCNF_getExt.exit
 
 l_Lean_Compiler_LCNF_getExt.exit:                 ; preds = %53, %55, %57
-  %.0.i = phi ptr [ %60, %57 ], [ %56, %55 ], [ %54, %53 ]
+  %.0.i = phi ptr [ %60, %57 ], [ %54, %53 ], [ %56, %55 ]
   %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !9
   %63 = ptrtoint ptr %62 to i64

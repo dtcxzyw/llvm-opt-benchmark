@@ -830,7 +830,7 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %1, %._crit_e
   invoke void @_ZN6parser7grammar5paths4path17h38ae402311003c89E.llvm.2695951543922396832(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i8 noundef 0)
           to label %_ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit unwind label %.body.thread19
 
-.body.thread19:                                   ; preds = %60, %41, %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit, %31, %42, %._crit_edge.i.i.i.i.i, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i, %50
+.body.thread19:                                   ; preds = %41, %60, %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit, %31, %42, %._crit_edge.i.i.i.i.i, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i, %50
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1984,7 +1984,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %81
   ]
 
 93:                                               ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread, %95, %99, %_ZN6parser7grammar8patterns12wildcard_pat17h3bf4b93810b101d1E.exit, %_ZN6parser7grammar8patterns7ref_pat17h78f2a426a1f75974E.exit, %_ZN6parser7grammar8patterns9slice_pat17h3535d4fbf631c75cE.exit, %_ZN6parser7grammar8patterns9tuple_pat17h941a176c145a71fdE.exit, %_ZN6parser7grammar8patterns11literal_pat17hc557367d61827536E.exit, %103, %78, %_ZN6parser7grammar8patterns15const_block_pat17h123b854a98251ad1E.exit, %43
-  %.pn4 = phi { i32, i16 } [ %104, %103 ], [ %138, %_ZN6parser7grammar8patterns11literal_pat17hc557367d61827536E.exit ], [ %390, %_ZN6parser7grammar8patterns12wildcard_pat17h3bf4b93810b101d1E.exit ], [ %358, %_ZN6parser7grammar8patterns7ref_pat17h78f2a426a1f75974E.exit ], [ %313, %_ZN6parser7grammar8patterns9slice_pat17h3535d4fbf631c75cE.exit ], [ %278, %_ZN6parser7grammar8patterns9tuple_pat17h941a176c145a71fdE.exit ], [ %79, %78 ], [ %77, %_ZN6parser7grammar8patterns15const_block_pat17h123b854a98251ad1E.exit ], [ %44, %43 ], [ %94, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread ], [ %100, %99 ], [ %96, %95 ]
+  %.pn4 = phi { i32, i16 } [ %104, %103 ], [ %138, %_ZN6parser7grammar8patterns11literal_pat17hc557367d61827536E.exit ], [ %278, %_ZN6parser7grammar8patterns9tuple_pat17h941a176c145a71fdE.exit ], [ %313, %_ZN6parser7grammar8patterns9slice_pat17h3535d4fbf631c75cE.exit ], [ %358, %_ZN6parser7grammar8patterns7ref_pat17h78f2a426a1f75974E.exit ], [ %390, %_ZN6parser7grammar8patterns12wildcard_pat17h3bf4b93810b101d1E.exit ], [ %44, %43 ], [ %77, %_ZN6parser7grammar8patterns15const_block_pat17h123b854a98251ad1E.exit ], [ %79, %78 ], [ %94, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.thread ], [ %100, %99 ], [ %96, %95 ]
   %.sroa.13.0 = extractvalue { i32, i16 } %.pn4, 1
   %.sroa.02.0 = extractvalue { i32, i16 } %.pn4, 0
   br label %391

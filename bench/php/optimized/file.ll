@@ -1975,7 +1975,7 @@ zend_tmp_string_release.exit.thread257:           ; preds = %134, %127, %174, %1
   br label %220
 
 zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_release.exit.thread, %zval_ptr_dtor_str.exit.thread, %130, %121
-  %.1 = phi i64 [ %129, %130 ], [ %.0, %121 ], [ %.7, %zval_ptr_dtor_str.exit.thread ], [ %.4, %zend_tmp_string_release.exit.thread ]
+  %.1 = phi i64 [ %.0, %121 ], [ %129, %130 ], [ %.7, %zval_ptr_dtor_str.exit.thread ], [ %.4, %zend_tmp_string_release.exit.thread ]
   %218 = call i32 @_php_stream_free(ptr noundef nonnull %93, i32 noundef 3) #18
   %219 = icmp slt i64 %.1, 0
   br i1 %219, label %220, label %223
@@ -1985,7 +1985,7 @@ zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_rel
   store i32 2, ptr %221, align 8, !tbaa !21
   br label %225
 
-.sink.split279:                                   ; preds = %123, %135, %139
+.sink.split279:                                   ; preds = %135, %123, %139
   %222 = call i32 @_php_stream_free(ptr noundef nonnull %93, i32 noundef 3) #18
   br label %223
 
@@ -6774,7 +6774,7 @@ define dso_local ptr @php_fgetcsv(ptr noundef %0, i8 noundef signext %1, i8 noun
   br label %php_fgetcsv_lookup_trailing_spaces.exit
 
 php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, %22, %24
-  %.0.i = phi ptr [ %25, %24 ], [ %23, %22 ], [ %.016.lcssa.ph.i, %._crit_edge.i ], [ %5, %6 ]
+  %.0.i = phi ptr [ %23, %22 ], [ %25, %24 ], [ %.016.lcssa.ph.i, %._crit_edge.i ], [ %5, %6 ]
   %26 = ptrtoint ptr %.0.i to i64
   %27 = ptrtoint ptr %5 to i64
   %.neg = sub i64 %27, %26
@@ -6921,8 +6921,8 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   br label %83
 
 83:                                               ; preds = %78, %71
-  %.1305 = phi ptr [ %.0304, %71 ], [ %.4267, %78 ]
-  %.1299 = phi ptr [ %.0298, %71 ], [ %82, %78 ]
+  %.1305 = phi ptr [ %.4267, %78 ], [ %.0304, %71 ]
+  %.1299 = phi ptr [ %82, %78 ], [ %.0298, %71 ]
   %.not349 = icmp eq ptr %.1305, %.2272
   br i1 %.not349, label %89, label %84
 
@@ -7028,7 +7028,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   br label %.thread410
 
 .thread410:                                       ; preds = %120, %118, %._crit_edge.i369, %98
-  %.0.i373 = phi ptr [ %121, %120 ], [ %119, %118 ], [ %.016.lcssa.ph.i370, %._crit_edge.i369 ], [ %97, %98 ]
+  %.0.i373 = phi ptr [ %119, %118 ], [ %121, %120 ], [ %.016.lcssa.ph.i370, %._crit_edge.i369 ], [ %97, %98 ]
   %122 = ptrtoint ptr %.0.i373 to i64
   %123 = ptrtoint ptr %97 to i64
   %.neg351 = add i64 %106, %123
@@ -7127,16 +7127,16 @@ default.unreachable575:                           ; preds = %71
   unreachable
 
 168:                                              ; preds = %.thread410, %158, %165, %131, %141, %145
-  %.5321 = phi i64 [ %.2318, %165 ], [ %.2318, %158 ], [ %.2318, %145 ], [ %.2318, %141 ], [ %.2318, %131 ], [ %124, %.thread410 ]
-  %.8312 = phi ptr [ %.0304, %165 ], [ %160, %158 ], [ %.0304, %145 ], [ %144, %141 ], [ %.0304, %131 ], [ %97, %.thread410 ]
-  %.5303 = phi ptr [ %.0298, %165 ], [ %164, %158 ], [ %.0298, %145 ], [ %143, %141 ], [ %.0298, %131 ], [ %105, %.thread410 ]
-  %.2293 = phi i32 [ %.0291, %165 ], [ 0, %158 ], [ %.3294, %145 ], [ 0, %141 ], [ 0, %131 ], [ 0, %.thread410 ]
-  %.5289 = phi i64 [ %.2286, %165 ], [ %.2286, %158 ], [ %.2286, %145 ], [ %.2286, %141 ], [ %.2286, %131 ], [ %100, %.thread410 ]
-  %.5282 = phi ptr [ %.2279, %165 ], [ %.2279, %158 ], [ %.2279, %145 ], [ %.2279, %141 ], [ %.2279, %131 ], [ %.0.i373, %.thread410 ]
-  %.5275 = phi ptr [ %.2272, %165 ], [ %.2272, %158 ], [ %.2272, %145 ], [ %.2272, %141 ], [ %.2272, %131 ], [ %.0.i373, %.thread410 ]
-  %.8 = phi ptr [ %167, %165 ], [ %160, %158 ], [ %150, %145 ], [ %144, %141 ], [ %132, %131 ], [ %97, %.thread410 ]
-  %.5261 = phi ptr [ %.2258, %165 ], [ %.2258, %158 ], [ %.2258, %145 ], [ %.2258, %141 ], [ %.2258, %131 ], [ %101, %.thread410 ]
-  %.5 = phi ptr [ %.2, %165 ], [ %.2, %158 ], [ %.2, %145 ], [ %.2, %141 ], [ %.2, %131 ], [ %97, %.thread410 ]
+  %.5321 = phi i64 [ %.2318, %165 ], [ %.2318, %158 ], [ %.2318, %145 ], [ %.2318, %131 ], [ %.2318, %141 ], [ %124, %.thread410 ]
+  %.8312 = phi ptr [ %.0304, %165 ], [ %160, %158 ], [ %.0304, %145 ], [ %.0304, %131 ], [ %144, %141 ], [ %97, %.thread410 ]
+  %.5303 = phi ptr [ %.0298, %165 ], [ %164, %158 ], [ %.0298, %145 ], [ %.0298, %131 ], [ %143, %141 ], [ %105, %.thread410 ]
+  %.2293 = phi i32 [ %.0291, %165 ], [ 0, %158 ], [ %.3294, %145 ], [ 0, %131 ], [ 0, %141 ], [ 0, %.thread410 ]
+  %.5289 = phi i64 [ %.2286, %165 ], [ %.2286, %158 ], [ %.2286, %145 ], [ %.2286, %131 ], [ %.2286, %141 ], [ %100, %.thread410 ]
+  %.5282 = phi ptr [ %.2279, %165 ], [ %.2279, %158 ], [ %.2279, %145 ], [ %.2279, %131 ], [ %.2279, %141 ], [ %.0.i373, %.thread410 ]
+  %.5275 = phi ptr [ %.2272, %165 ], [ %.2272, %158 ], [ %.2272, %145 ], [ %.2272, %131 ], [ %.2272, %141 ], [ %.0.i373, %.thread410 ]
+  %.8 = phi ptr [ %167, %165 ], [ %160, %158 ], [ %150, %145 ], [ %132, %131 ], [ %144, %141 ], [ %97, %.thread410 ]
+  %.5261 = phi ptr [ %.2258, %165 ], [ %.2258, %158 ], [ %.2258, %145 ], [ %.2258, %131 ], [ %.2258, %141 ], [ %101, %.thread410 ]
+  %.5 = phi ptr [ %.2, %165 ], [ %.2, %158 ], [ %.2, %145 ], [ %.2, %131 ], [ %.2, %141 ], [ %97, %.thread410 ]
   %169 = icmp ult ptr %.8, %.5282
   br i1 %169, label %170, label %.backedge705
 
@@ -7157,9 +7157,9 @@ default.unreachable575:                           ; preds = %71
   br label %.backedge705
 
 178:                                              ; preds = %125, %91, %93, %152, %137, %72
-  %.2306 = phi ptr [ %.4267, %152 ], [ %.4267, %137 ], [ %spec.select355, %93 ], [ %.3307, %91 ], [ %.5309, %125 ], [ %.4267, %72 ]
-  %.2300 = phi ptr [ %157, %152 ], [ %140, %137 ], [ %90, %93 ], [ %90, %91 ], [ %90, %125 ], [ %77, %72 ]
-  %.5268 = phi ptr [ %.4267, %152 ], [ %.4267, %137 ], [ %95, %93 ], [ %.4267, %91 ], [ %.6269, %125 ], [ %.4267, %72 ]
+  %.2306 = phi ptr [ %.4267, %152 ], [ %.4267, %72 ], [ %spec.select355, %93 ], [ %.3307, %91 ], [ %.5309, %125 ], [ %.4267, %137 ]
+  %.2300 = phi ptr [ %157, %152 ], [ %77, %72 ], [ %90, %93 ], [ %90, %91 ], [ %90, %125 ], [ %140, %137 ]
+  %.5268 = phi ptr [ %.4267, %152 ], [ %.4267, %72 ], [ %95, %93 ], [ %.4267, %91 ], [ %.6269, %125 ], [ %.4267, %137 ]
   %179 = ptrtoint ptr %.2279 to i64
   br label %180
 
@@ -7205,7 +7205,7 @@ default.unreachable575:                           ; preds = %71
   br label %.backedge704
 
 197:                                              ; preds = %183, %180
-  %.4329 = phi i32 [ 1, %183 ], [ %.2327, %180 ]
+  %.4329 = phi i32 [ %.2327, %180 ], [ 1, %183 ]
   %198 = ptrtoint ptr %.9 to i64
   %199 = ptrtoint ptr %.2306 to i64
   %200 = sub i64 %198, %199
@@ -7263,7 +7263,7 @@ default.unreachable575:                           ; preds = %71
   br label %.backedge
 
 223:                                              ; preds = %209, %206
-  %.9334 = phi i32 [ 1, %209 ], [ %.7332, %206 ]
+  %.9334 = phi i32 [ %.7332, %206 ], [ 1, %209 ]
   %224 = ptrtoint ptr %.11 to i64
   %225 = ptrtoint ptr %.1264404409 to i64
   %226 = sub i64 %224, %225
@@ -7328,7 +7328,7 @@ default.unreachable575:                           ; preds = %71
   br label %php_fgetcsv_lookup_trailing_spaces.exit400
 
 php_fgetcsv_lookup_trailing_spaces.exit400:       ; preds = %223, %._crit_edge.i388, %238, %240
-  %.0.i392 = phi ptr [ %241, %240 ], [ %239, %238 ], [ %.016.lcssa.ph.i389, %._crit_edge.i388 ], [ %.0256, %223 ]
+  %.0.i392 = phi ptr [ %239, %238 ], [ %241, %240 ], [ %.016.lcssa.ph.i389, %._crit_edge.i388 ], [ %.0256, %223 ]
   %242 = load i8, ptr %.11, align 1, !tbaa !21
   %243 = icmp eq i8 %242, %1
   %spec.select358.idx = zext i1 %243 to i64

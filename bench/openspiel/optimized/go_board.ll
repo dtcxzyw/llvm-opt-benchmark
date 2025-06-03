@@ -1027,7 +1027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 49:                                               ; preds = %47, %.body18, %.body13, %.body8, %.body
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body14, %.body13 ], [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body14, %.body13 ], [ %eh.lpad-body19, %.body18 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4677,7 +4677,7 @@ _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.
   resume { ptr, i32 } %.pn
 
 55:                                               ; preds = %45, %21, %26, %28, %43, %30
-  %.1 = phi i32 [ %.02737, %21 ], [ %.02737, %30 ], [ %44, %43 ], [ %29, %28 ], [ %27, %26 ], [ %spec.select, %45 ]
+  %.1 = phi i32 [ %.02737, %21 ], [ %27, %26 ], [ %29, %28 ], [ %.02737, %30 ], [ %44, %43 ], [ %spec.select, %45 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.030.036, i64 2
   %.not33 = icmp eq ptr %56, %16
   br i1 %.not33, label %._crit_edge.loopexit, label %21

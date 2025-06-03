@@ -4366,8 +4366,8 @@ define dso_local void @_ZN5clang8QualType5printEPKNS_4TypeENS_10QualifiersERN4ll
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %14, %17, %19, %21, %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %21 ], [ 0, %17 ], [ %20, %19 ], [ 0, %14 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ], [ null, %17 ], [ %18, %19 ], [ null, %14 ]
+  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %25, %21 ], [ %29, %26 ], [ 0, %17 ], [ %20, %19 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %23, %21 ], [ %27, %26 ], [ null, %17 ], [ %18, %19 ], [ null, %14 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !121
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -5314,7 +5314,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i: ; pred
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i: ; preds = %45, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i
-  %.1.i.i.i.i.i = phi ptr [ %41, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i ], [ %46, %45 ]
+  %.1.i.i.i.i.i = phi ptr [ %46, %45 ], [ %41, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   %48 = load i32, ptr %47, align 16
   %49 = icmp ult i32 %48, 67108864
@@ -5383,7 +5383,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %82, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i
-  %.1.i.i.i.i = phi ptr [ %78, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ], [ %83, %82 ]
+  %.1.i.i.i.i = phi ptr [ %83, %82 ], [ %78, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ]
   %84 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %85 = load i32, ptr %84, align 16
   %86 = icmp ult i32 %85, 67108864
@@ -6328,7 +6328,7 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit105.i: ; 
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i: ; preds = %232, %224
-  %.1.i.i = phi ptr [ %228, %224 ], [ %233, %232 ]
+  %.1.i.i = phi ptr [ %233, %232 ], [ %228, %224 ]
   %234 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %235 = load i64, ptr %234, align 16
   %236 = and i64 %235, 33554432
@@ -6549,7 +6549,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13SwiftAttrAttrEKNS1_4AttrEEEDaPT0_.exit.i: ; 
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit94.i
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit94.i: ; preds = %330, %._crit_edge.i
-  %.1.i93.i = phi ptr [ %.lcssa.i, %._crit_edge.i ], [ %331, %330 ]
+  %.1.i93.i = phi ptr [ %331, %330 ], [ %.lcssa.i, %._crit_edge.i ]
   %332 = getelementptr inbounds nuw i8, ptr %.1.i93.i, i64 16
   %333 = load i64, ptr %332, align 16
   %334 = and i64 %333, 16252928
@@ -7634,7 +7634,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %866, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %862, %.lr.ph.i.i.i ], [ %867, %866 ]
+  %.1.i.i.i.i = phi ptr [ %867, %866 ], [ %862, %.lr.ph.i.i.i ]
   %868 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %869 = load i24, ptr %868, align 16
   %870 = and i24 %869, 1048576
@@ -16427,7 +16427,7 @@ _ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostrea
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %69, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit
-  %.1.i.i.i = phi ptr [ %65, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit ], [ %70, %69 ]
+  %.1.i.i.i = phi ptr [ %70, %69 ], [ %65, %_ZN12_GLOBAL__N_111TypePrinter11printBeforeEN5clang8QualTypeERN4llvm11raw_ostreamE.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %72 = load i32, ptr %71, align 16
   %73 = icmp ult i32 %72, 67108864
@@ -16473,7 +16473,7 @@ _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread: ; preds = %74, %_
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i12
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i12: ; preds = %95, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread
-  %.1.i.i.i13 = phi ptr [ %91, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread ], [ %96, %95 ]
+  %.1.i.i.i13 = phi ptr [ %96, %95 ], [ %91, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i.i.i13, i64 16
   %98 = load i32, ptr %97, align 16
   %99 = icmp ult i32 %98, 67108864
@@ -16519,7 +16519,7 @@ _ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i20
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i20: ; preds = %121, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread
-  %.1.i.i.i21 = phi ptr [ %117, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread ], [ %122, %121 ]
+  %.1.i.i.i21 = phi ptr [ %122, %121 ], [ %117, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread ]
   %123 = getelementptr inbounds nuw i8, ptr %.1.i.i.i21, i64 16
   %124 = load i32, ptr %123, align 16
   %125 = icmp ult i32 %124, 67108864
@@ -16565,7 +16565,7 @@ _ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread: ; preds = %126
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i28
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i28: ; preds = %147, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread
-  %.1.i.i.i29 = phi ptr [ %143, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread ], [ %148, %147 ]
+  %.1.i.i.i29 = phi ptr [ %148, %147 ], [ %143, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread ]
   %149 = getelementptr inbounds nuw i8, ptr %.1.i.i.i29, i64 16
   %150 = load i32, ptr %149, align 16
   %151 = icmp ult i32 %150, 67108864
@@ -21568,7 +21568,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %20, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread
-  %.1.i.i.i = phi ptr [ %16, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ %21, %20 ]
+  %.1.i.i.i = phi ptr [ %21, %20 ], [ %16, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %23 = load i32, ptr %22, align 16
   %24 = icmp ult i32 %23, 67108864
@@ -21644,7 +21644,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %20, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread
-  %.1.i.i.i = phi ptr [ %16, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ %21, %20 ]
+  %.1.i.i.i = phi ptr [ %21, %20 ], [ %16, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %23 = load i32, ptr %22, align 16
   %24 = icmp ult i32 %23, 67108864

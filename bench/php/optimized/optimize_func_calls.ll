@@ -1054,7 +1054,7 @@ zend_check_arg_send_type.exit249.thread:          ; preds = %485, %zend_check_ar
   br label %has_known_send_mode.exit.thread278
 
 has_known_send_mode.exit.thread278:               ; preds = %469, %430, %385, %349, %297, %43, %506, %has_known_send_mode.exit276, %505, %zend_check_arg_send_type.exit249.thread, %502, %has_known_send_mode.exit272, %zend_check_arg_send_type.exit241.thread, %462, %408, %412, %has_known_send_mode.exit268, %has_known_send_mode.exit268.thread, %has_known_send_mode.exit264, %zend_check_arg_send_type.exit237.thread, %zend_check_arg_send_type.exit237, %292, %has_known_send_mode.exit, %.thread282, %342, %.thread, %334, %512, %510, %468, %429, %382, %348, %339, %330, %zend_try_inline_call.exit, %62
-  %.1 = phi i32 [ %.0203326, %43 ], [ %.0203326, %512 ], [ %.0203326, %510 ], [ %.0203326, %506 ], [ %.0203326, %468 ], [ %.0203326, %502 ], [ %.0203326, %505 ], [ %.0203326, %zend_check_arg_send_type.exit249.thread ], [ %.0203326, %has_known_send_mode.exit276 ], [ %.0203326, %429 ], [ %.0203326, %462 ], [ %.0203326, %zend_check_arg_send_type.exit241.thread ], [ %.0203326, %has_known_send_mode.exit272 ], [ %.0203326, %412 ], [ %.0203326, %408 ], [ %.0203326, %382 ], [ %.0203326, %has_known_send_mode.exit268.thread ], [ %.0203326, %has_known_send_mode.exit268 ], [ %.0203326, %348 ], [ %.0203326, %zend_check_arg_send_type.exit237 ], [ %.0203326, %zend_check_arg_send_type.exit237.thread ], [ %.0203326, %has_known_send_mode.exit264 ], [ %.0203326, %330 ], [ %.0203326, %.thread ], [ %.0203326, %334 ], [ %.0203326, %339 ], [ %.0203326, %.thread282 ], [ %.0203326, %342 ], [ %.0203326, %has_known_send_mode.exit ], [ %.0203326, %292 ], [ %69, %zend_try_inline_call.exit ], [ %67, %62 ], [ %.0203326, %297 ], [ %.0203326, %349 ], [ %.0203326, %385 ], [ %.0203326, %430 ], [ %.0203326, %469 ]
+  %.1 = phi i32 [ %.0203326, %43 ], [ %67, %62 ], [ %69, %zend_try_inline_call.exit ], [ %.0203326, %330 ], [ %.0203326, %.thread ], [ %.0203326, %334 ], [ %.0203326, %339 ], [ %.0203326, %.thread282 ], [ %.0203326, %342 ], [ %.0203326, %has_known_send_mode.exit ], [ %.0203326, %292 ], [ %.0203326, %348 ], [ %.0203326, %zend_check_arg_send_type.exit237 ], [ %.0203326, %zend_check_arg_send_type.exit237.thread ], [ %.0203326, %has_known_send_mode.exit264 ], [ %.0203326, %382 ], [ %.0203326, %has_known_send_mode.exit268.thread ], [ %.0203326, %has_known_send_mode.exit268 ], [ %.0203326, %412 ], [ %.0203326, %408 ], [ %.0203326, %429 ], [ %.0203326, %462 ], [ %.0203326, %zend_check_arg_send_type.exit241.thread ], [ %.0203326, %has_known_send_mode.exit272 ], [ %.0203326, %468 ], [ %.0203326, %502 ], [ %.0203326, %505 ], [ %.0203326, %zend_check_arg_send_type.exit249.thread ], [ %.0203326, %has_known_send_mode.exit276 ], [ %.0203326, %510 ], [ %.0203326, %506 ], [ %.0203326, %512 ], [ %.0203326, %297 ], [ %.0203326, %349 ], [ %.0203326, %385 ], [ %.0203326, %430 ], [ %.0203326, %469 ]
   %514 = getelementptr inbounds nuw i8, ptr %.0327, i64 32
   %515 = icmp ult ptr %514, %9
   br i1 %515, label %43, label %._crit_edge
@@ -1181,7 +1181,7 @@ define internal fastcc void @zend_delete_call_instructions(ptr noundef %0, ptr n
   br label %23
 
 23:                                               ; preds = %20, %22, %18, %16, %3
-  %.1 = phi i32 [ %.0, %3 ], [ 0, %22 ], [ %.0, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.1 = phi i32 [ %.0, %3 ], [ %17, %16 ], [ %19, %18 ], [ 0, %22 ], [ %.0, %20 ]
   %24 = getelementptr inbounds i8, ptr %.014, i64 -32
   br label %3
 }

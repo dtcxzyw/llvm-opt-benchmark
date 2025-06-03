@@ -2170,8 +2170,8 @@ define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFall
 
 .loopexit:                                        ; preds = %.preheader, %20, %28, %35, %42
   %.017.ph = phi i32 [ %48, %42 ], [ %41, %35 ], [ %34, %28 ], [ %27, %20 ], [ %48, %.preheader ]
-  %.2.pn.ph = phi ptr [ %44, %42 ], [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %51, %.preheader ]
-  store ptr %.2.pn.ph, ptr %0, align 8, !tbaa !15
+  %.018.pn.ph = phi ptr [ %44, %42 ], [ %37, %35 ], [ %30, %28 ], [ %23, %20 ], [ %51, %.preheader ]
+  store ptr %.018.pn.ph, ptr %0, align 8, !tbaa !15
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
 53:                                               ; preds = %11

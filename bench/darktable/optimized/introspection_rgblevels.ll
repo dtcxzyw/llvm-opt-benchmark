@@ -1094,7 +1094,7 @@ define internal float @_action_process(ptr noundef %0, i32 noundef %1, i32 nound
   br label %26
 
 26:                                               ; preds = %24, %12
-  %.1 = phi nsz float [ %3, %12 ], [ %25, %24 ]
+  %.1 = phi nsz float [ %25, %24 ], [ %3, %12 ]
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 172
   %29 = load i32, ptr %28, align 4, !tbaa !116
@@ -3454,8 +3454,8 @@ default.unreachable:                              ; preds = %9
   br label %66
 
 55:                                               ; preds = %27, %10
-  %.033.ph = phi float [ 0.000000e+00, %10 ], [ %42, %27 ]
-  %.0.ph = phi float [ %26, %10 ], [ 1.000000e+00, %27 ]
+  %.033.ph = phi float [ %42, %27 ], [ 0.000000e+00, %10 ]
+  %.0.ph = phi float [ 1.000000e+00, %27 ], [ %26, %10 ]
   %56 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.033.ph, float %2)
   %57 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %.0.ph, float %56)
   %58 = zext nneg i32 %1 to i64

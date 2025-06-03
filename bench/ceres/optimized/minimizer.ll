@@ -356,7 +356,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit47: ; 
   ret i1 %.028
 
 65:                                               ; preds = %58, %42
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn
 }
 

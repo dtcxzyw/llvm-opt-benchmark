@@ -56,7 +56,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %.loopex
   br label %15
 
 15:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %14
-  %.1 = phi i1 [ true, %_ZN13MonitorLockerD2Ev.exit ], [ false, %14 ]
+  %.1 = phi i1 [ false, %14 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
   ret i1 %.1
 }
 

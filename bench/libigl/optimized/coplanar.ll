@@ -519,9 +519,9 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN
   br i1 %78, label %.critedge, label %.critedge20.thread
 
 .critedge:                                        ; preds = %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52, %63, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35, %48, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %26, %77, %61, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit, %8
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0129, %8 ], [ %.sroa.0.0129, %77 ], [ %.sroa.0.0129, %61 ], [ %.sroa.0.0129, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %32, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0.0129, %26 ], [ %52, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %.sroa.0.0129, %48 ], [ %67, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %.sroa.0.0129, %63 ]
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0130, %8 ], [ %.sroa.19.0130, %77 ], [ %.sroa.19.0130, %61 ], [ %.sroa.19.0130, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %36, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %27, %26 ], [ %56, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %49, %48 ], [ %71, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %64, %63 ]
-  %.sroa.32.1 = phi ptr [ %.sroa.32.0131, %8 ], [ %.sroa.32.0131, %77 ], [ %.sroa.32.0131, %61 ], [ %.sroa.32.0131, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %38, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.32.0131, %26 ], [ %57, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %.sroa.32.0131, %48 ], [ %72, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %.sroa.32.0131, %63 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0129, %8 ], [ %.sroa.0.0129, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %.sroa.0.0129, %61 ], [ %.sroa.0.0129, %77 ], [ %32, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0.0129, %26 ], [ %52, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %.sroa.0.0129, %48 ], [ %67, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %.sroa.0.0129, %63 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0130, %8 ], [ %.sroa.19.0130, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %.sroa.19.0130, %61 ], [ %.sroa.19.0130, %77 ], [ %36, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %27, %26 ], [ %56, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %49, %48 ], [ %71, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %64, %63 ]
+  %.sroa.32.1 = phi ptr [ %.sroa.32.0131, %8 ], [ %.sroa.32.0131, %_ZN4CGALneINS_5EpickEEENT_7BooleanERKNS_7Point_3IS2_EES7_.exit ], [ %.sroa.32.0131, %61 ], [ %.sroa.32.0131, %77 ], [ %38, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.32.0131, %26 ], [ %57, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i35 ], [ %.sroa.32.0131, %48 ], [ %72, %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i52 ], [ %.sroa.32.0131, %63 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i64, ptr %5, align 8, !tbaa !4
@@ -2945,7 +2945,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   resume { ptr, i32 } %.merged
 
 84:                                               ; preds = %72, %76
-  %.3 = phi i1 [ %.1, %72 ], [ %77, %76 ]
+  %.3 = phi i1 [ %77, %76 ], [ %.1, %72 ]
   ret i1 %.3
 }
 
@@ -7752,7 +7752,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 143:                                              ; preds = %131, %135
-  %.3 = phi i32 [ %.1, %131 ], [ %136, %135 ]
+  %.3 = phi i32 [ %136, %135 ], [ %.1, %131 ]
   ret i32 %.3
 }
 

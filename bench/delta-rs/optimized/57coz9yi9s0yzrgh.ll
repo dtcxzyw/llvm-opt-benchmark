@@ -1210,9 +1210,9 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   ]
 
 .body:                                            ; preds = %52, %82, %112, %127, %132, %97, %67, %292, %287, %282, %276, %271, %267, %252, %237, %223, %208, %193, %178, %163, %147
-  %.121 = phi i1 [ true, %292 ], [ true, %287 ], [ true, %282 ], [ true, %276 ], [ true, %271 ], [ true, %267 ], [ true, %252 ], [ true, %237 ], [ true, %223 ], [ true, %208 ], [ true, %193 ], [ true, %178 ], [ true, %163 ], [ true, %147 ], [ true, %52 ], [ true, %67 ], [ true, %82 ], [ true, %97 ], [ true, %112 ], [ %.020, %132 ], [ true, %127 ]
-  %.1 = phi i1 [ true, %292 ], [ true, %287 ], [ true, %282 ], [ true, %276 ], [ true, %271 ], [ true, %267 ], [ true, %252 ], [ true, %237 ], [ true, %223 ], [ true, %208 ], [ true, %193 ], [ true, %178 ], [ true, %163 ], [ true, %147 ], [ true, %52 ], [ true, %67 ], [ true, %82 ], [ true, %97 ], [ true, %112 ], [ %.0, %132 ], [ true, %127 ]
-  %.pn = phi { ptr, i32 } [ %293, %292 ], [ %288, %287 ], [ %283, %282 ], [ %277, %276 ], [ %272, %271 ], [ %268, %267 ], [ %253, %252 ], [ %238, %237 ], [ %224, %223 ], [ %209, %208 ], [ %194, %193 ], [ %179, %178 ], [ %164, %163 ], [ %148, %147 ], [ %53, %52 ], [ %68, %67 ], [ %83, %82 ], [ %98, %97 ], [ %113, %112 ], [ %133, %132 ], [ %128, %127 ]
+  %.121 = phi i1 [ true, %147 ], [ true, %163 ], [ true, %178 ], [ true, %193 ], [ true, %208 ], [ true, %223 ], [ true, %237 ], [ true, %252 ], [ true, %267 ], [ true, %271 ], [ true, %276 ], [ true, %282 ], [ true, %287 ], [ true, %292 ], [ true, %52 ], [ true, %67 ], [ true, %82 ], [ true, %97 ], [ true, %112 ], [ %.020, %132 ], [ true, %127 ]
+  %.1 = phi i1 [ true, %147 ], [ true, %163 ], [ true, %178 ], [ true, %193 ], [ true, %208 ], [ true, %223 ], [ true, %237 ], [ true, %252 ], [ true, %267 ], [ true, %271 ], [ true, %276 ], [ true, %282 ], [ true, %287 ], [ true, %292 ], [ true, %52 ], [ true, %67 ], [ true, %82 ], [ true, %97 ], [ true, %112 ], [ %.0, %132 ], [ true, %127 ]
+  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %164, %163 ], [ %179, %178 ], [ %194, %193 ], [ %209, %208 ], [ %224, %223 ], [ %238, %237 ], [ %253, %252 ], [ %268, %267 ], [ %272, %271 ], [ %277, %276 ], [ %283, %282 ], [ %288, %287 ], [ %293, %292 ], [ %53, %52 ], [ %68, %67 ], [ %83, %82 ], [ %98, %97 ], [ %113, %112 ], [ %133, %132 ], [ %128, %127 ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0ac2d20d7c09acf9E.llvm.7971432176722068333"(ptr noalias noundef nonnull align 8 dereferenceable(24) %131) #28
           to label %297 unwind label %295
@@ -3752,7 +3752,7 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Opti
   unreachable
 
 56:                                               ; preds = %57, %41
-  %.pn.i.i = phi { ptr, i32 } [ %58, %57 ], [ %42, %41 ]
+  %.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %58, %57 ]
   resume { ptr, i32 } %.pn.i.i
 
 57:                                               ; preds = %31
@@ -3937,7 +3937,7 @@ define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..task..poll..
   br label %"_ZN4core3ptr159drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hed6e7c7d41f0679eE.exit"
 
 common.resume.i:                                  ; preds = %337, %320, %312, %304, %295, %287, %279, %270, %262, %254, %243, %235, %227, %188, %180, %172, %151, %142, %135, %55, %47
-  %common.resume.op.i = phi { ptr, i32 } [ %48, %55 ], [ %48, %47 ], [ %152, %151 ], [ %143, %142 ], [ %136, %135 ], [ %173, %172 ], [ %181, %188 ], [ %181, %180 ], [ %236, %243 ], [ %236, %235 ], [ %305, %304 ], [ %280, %279 ], [ %255, %254 ], [ %228, %227 ], [ %263, %270 ], [ %263, %262 ], [ %288, %295 ], [ %288, %287 ], [ %313, %320 ], [ %313, %312 ], [ %338, %337 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %48, %55 ], [ %48, %47 ], [ %152, %151 ], [ %136, %135 ], [ %143, %142 ], [ %173, %172 ], [ %181, %188 ], [ %181, %180 ], [ %236, %243 ], [ %236, %235 ], [ %228, %227 ], [ %255, %254 ], [ %280, %279 ], [ %305, %304 ], [ %263, %270 ], [ %263, %262 ], [ %288, %295 ], [ %288, %287 ], [ %313, %320 ], [ %313, %312 ], [ %338, %337 ]
   resume { ptr, i32 } %common.resume.op.i
 
 64:                                               ; preds = %29
@@ -5385,7 +5385,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %58 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %27, %26 ], [ %.pn, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17h1edab111f1e5b025E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h71128e9e66a98936E.llvm.2651239618181311204.exit.i", %36, %40

@@ -1334,7 +1334,7 @@ define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime27addBufferResourceAnnota
   br label %19
 
 19:                                               ; preds = %17, %15, %13
-  %.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.0 = phi ptr [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %21 = load i8, ptr %20, align 4, !tbaa !589, !range !535, !noundef !536
@@ -1718,7 +1718,7 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit17.i: ; preds = %_ZNK5clang4Type21i
   unreachable
 
 _ZL20calculateElementTypeRKN5clang10ASTContextEPKNS_4TypeE.exit: ; preds = %120, %123, %124, %128, %131, %132, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit17.i
-  %.0.i44 = phi i32 [ 6, %124 ], [ 4, %123 ], [ 7, %132 ], [ 5, %131 ], [ 2, %120 ], [ 3, %128 ], [ 8, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i ], [ %spec.select.i, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit17.i ]
+  %.0.i44 = phi i32 [ 4, %123 ], [ 6, %124 ], [ 5, %131 ], [ 7, %132 ], [ 2, %120 ], [ 3, %128 ], [ 8, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i ], [ %spec.select.i, %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit17.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #19
   %145 = load i32, ptr %43, align 4
   %146 = and i32 %145, 256
@@ -1793,7 +1793,7 @@ _ZNK5clang4Decl7getAttrINS_23HLSLResourceBindingAttrEEEPT_v.exit: ; preds = %158
   br label %181
 
 181:                                              ; preds = %179, %177, %175
-  %.0.i53 = phi ptr [ %180, %179 ], [ %178, %177 ], [ %176, %175 ]
+  %.0.i53 = phi ptr [ %176, %175 ], [ %178, %177 ], [ %180, %179 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   %182 = load i8, ptr %44, align 4, !tbaa !589, !range !535, !noundef !536
   %183 = trunc nuw i8 %182 to i1
@@ -4617,7 +4617,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit
   br label %32
 
 32:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -4851,7 +4851,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !722
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -4861,7 +4861,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !722
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

@@ -4640,7 +4640,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN8nlohmann16json_abi_v3_11_310basic_jsonISt3m
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %97, %96 ]
+  %.1 = phi ptr [ %97, %96 ], [ %.029.lcssa, %._crit_edge ]
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %.not.i.i.i.i46 = icmp eq ptr %100, null
@@ -4672,7 +4672,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN8nlohmann16json_abi_v3_11_310basic_jsonISt3m
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %115, %114 ]
+  %.2 = phi ptr [ %115, %114 ], [ %.029.lcssa, %._crit_edge ]
   %117 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !4
   %.not.i.i.i.i50 = icmp eq ptr %118, null
@@ -6588,7 +6588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %65
   br i1 %.0, label %.sink.split74, label %77
 
 75:                                               ; preds = %57, %10
-  %.127 = phi ptr [ %59, %57 ], [ %11, %10 ]
+  %.127 = phi ptr [ %11, %10 ], [ %59, %57 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.039.064, i64 32
   %.not = icmp eq ptr %76, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph

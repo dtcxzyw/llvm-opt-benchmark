@@ -3863,7 +3863,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %267, %270
   ret void
 
 275:                                              ; preds = %238, %259, %68, %92, %177, %41, %189
-  %.pn53.pn = phi { ptr, i32 } [ %42, %41 ], [ %190, %189 ], [ %69, %68 ], [ %178, %177 ], [ %93, %92 ], [ %260, %259 ], [ %239, %238 ]
+  %.pn53.pn = phi { ptr, i32 } [ %42, %41 ], [ %190, %189 ], [ %69, %68 ], [ %93, %92 ], [ %178, %177 ], [ %260, %259 ], [ %239, %238 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5) #20
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5) #20
   resume { ptr, i32 } %.pn53.pn
@@ -4893,7 +4893,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %289, %292
   ret void
 
 297:                                              ; preds = %.loopexit, %.loopexit.split-lp, %260, %281, %98, %160, %45, %207
-  %.pn53.pn = phi { ptr, i32 } [ %46, %45 ], [ %208, %207 ], [ %161, %160 ], [ %99, %98 ], [ %282, %281 ], [ %261, %260 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn53.pn = phi { ptr, i32 } [ %46, %45 ], [ %208, %207 ], [ %99, %98 ], [ %161, %160 ], [ %282, %281 ], [ %261, %260 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #20
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #20
   resume { ptr, i32 } %.pn53.pn

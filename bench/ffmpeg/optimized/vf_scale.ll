@@ -2196,7 +2196,7 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   br label %318
 
 318:                                              ; preds = %317, %315, %291
-  %.0110 = phi i32 [ %.1, %317 ], [ 0, %291 ], [ %307, %315 ]
+  %.0110 = phi i32 [ 0, %291 ], [ %307, %315 ], [ %.1, %317 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
@@ -2715,7 +2715,7 @@ define internal ptr @child_class_iterate(ptr noundef captures(none) %0) #1 {
   br label %7
 
 7:                                                ; preds = %1, %6, %4
-  %.0 = phi ptr [ @ff_framesync_class, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ @ff_framesync_class, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 

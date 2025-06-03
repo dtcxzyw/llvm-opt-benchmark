@@ -170,7 +170,7 @@ copy_cstring_.exit39:                             ; preds = %65
   br label %vorbiscomment_calculate_length_.exit
 
 vorbiscomment_calculate_length_.exit:             ; preds = %32, %24, %copy_cstring_.exit39, %3, %5, %8, %6, %1, %68, %64, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %68 ], [ null, %64 ], [ null, %1 ], [ %4, %6 ], [ %4, %8 ], [ %4, %copy_cstring_.exit39 ], [ %4, %5 ], [ null, %3 ], [ %4, %24 ], [ %4, %32 ]
+  %.0 = phi ptr [ null, %68 ], [ null, %64 ], [ null, %23 ], [ null, %1 ], [ %4, %6 ], [ %4, %8 ], [ %4, %copy_cstring_.exit39 ], [ %4, %5 ], [ null, %3 ], [ %4, %24 ], [ %4, %32 ]
   ret ptr %.0
 }
 
@@ -647,7 +647,7 @@ copy_bytes_.exit125:                              ; preds = %186, %.thread.i124
   br label %197
 
 197:                                              ; preds = %copy_bytes_.exit125, %copy_bytes_.exit119, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit96, %copy_bytes_.exit, %1, %108, %vorbiscomment_entry_array_copy_.exit, %12, %4, %196, %185, %157, %150, %141, %103, %74, %52, %40, %34, %19
-  %.0 = phi ptr [ null, %196 ], [ null, %185 ], [ null, %157 ], [ null, %150 ], [ null, %141 ], [ null, %103 ], [ null, %74 ], [ null, %40 ], [ null, %52 ], [ null, %19 ], [ null, %34 ], [ %3, %4 ], [ %3, %12 ], [ %3, %vorbiscomment_entry_array_copy_.exit ], [ %3, %copy_bytes_.exit ], [ %3, %copy_bytes_.exit96 ], [ %3, %cuesheet_track_array_copy_.exit ], [ %3, %108 ], [ %3, %copy_bytes_.exit119 ], [ %3, %copy_bytes_.exit125 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %196 ], [ null, %19 ], [ null, %34 ], [ null, %40 ], [ null, %52 ], [ null, %103 ], [ null, %74 ], [ null, %141 ], [ null, %185 ], [ null, %157 ], [ null, %150 ], [ %3, %4 ], [ %3, %12 ], [ %3, %vorbiscomment_entry_array_copy_.exit ], [ %3, %copy_bytes_.exit ], [ %3, %copy_bytes_.exit96 ], [ %3, %cuesheet_track_array_copy_.exit ], [ %3, %108 ], [ %3, %copy_bytes_.exit119 ], [ %3, %copy_bytes_.exit125 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -917,7 +917,7 @@ compare_block_data_unknown_.exit:                 ; preds = %43, %46
   br label %48
 
 48:                                               ; preds = %15, %10, %5, %2, %compare_block_data_unknown_.exit, %36, %32, %28, %24, %20, %16
-  %.0 = phi i32 [ %.0.i, %compare_block_data_unknown_.exit ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ %3, %15 ]
+  %.0 = phi i32 [ %.0.i, %compare_block_data_unknown_.exit ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ %3, %15 ]
   ret i32 %.0
 }
 

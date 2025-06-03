@@ -3838,8 +3838,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %67
 
 67:                                               ; preds = %62, %70
-  %.sroa.3.0 = phi ptr [ undef, %70 ], [ %66, %62 ]
-  %.sroa.0.0 = phi ptr [ null, %70 ], [ %64, %62 ]
+  %.sroa.3.0 = phi ptr [ %66, %62 ], [ undef, %70 ]
+  %.sroa.0.0 = phi ptr [ %64, %62 ], [ null, %70 ]
   %68 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %69 = insertvalue { ptr, ptr } %68, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %69
@@ -4025,8 +4025,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %65
 
 65:                                               ; preds = %60, %68
-  %.sroa.3.0 = phi ptr [ undef, %68 ], [ %64, %60 ]
-  %.sroa.0.0 = phi ptr [ null, %68 ], [ %62, %60 ]
+  %.sroa.3.0 = phi ptr [ %64, %60 ], [ undef, %68 ]
+  %.sroa.0.0 = phi ptr [ %62, %60 ], [ null, %68 ]
   %66 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %67 = insertvalue { ptr, ptr } %66, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %67

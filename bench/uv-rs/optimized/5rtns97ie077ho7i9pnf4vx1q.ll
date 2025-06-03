@@ -1169,7 +1169,7 @@ default.unreachable:                              ; preds = %20
   br label %"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i": ; preds = %25, %23, %21, %17
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %18, %17 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i8 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %18, %17 ]
   %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i = freeze i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i
   switch i8 %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66b7ec84a706aa6fE.exit.thread" [
     i8 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he9e6a506490f090bE.exit.i.i.i"
@@ -2119,7 +2119,7 @@ default.unreachable:                              ; preds = %20
   br label %"_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3cmp28_$u7b$$u7b$closure$u7d$$u7d$17hec385471b38b5b5dE.exit.i.i.i.i.i.i.i.i": ; preds = %25, %23, %21, %17
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %18, %17 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %18, %17 ]
   %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i.i = freeze i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i
   switch i8 %.sroa.0.0.i.i.fr.i.i.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator12iter_compare17hc0917b77e6b22a06E.llvm.8488369856913705139.exit [
     i8 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he9e6a506490f090bE.exit.i.i.i.i"
@@ -2801,7 +2801,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i64 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i64 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i64 %.sroa.01.0
 }
 
@@ -2861,7 +2861,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i8 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i8 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i8 %.sroa.01.0
 }
 
@@ -2938,7 +2938,7 @@ default.unreachable10:                            ; preds = %12, %11, %10, %9, %
   br label %19
 
 19:                                               ; preds = %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %17, %15, %13
-  %.pn = phi { i32, i1 } [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.pn = phi { i32, i1 } [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -3476,11 +3476,11 @@ default.unreachable:                              ; preds = %25
   br label %"_ZN80_$LT$uv_pep508..marker..tree..MarkerExpression$u20$as$u20$core..clone..Clone$GT$5clone17h4170c1034d203473E.exit"
 
 "_ZN80_$LT$uv_pep508..marker..tree..MarkerExpression$u20$as$u20$core..clone..Clone$GT$5clone17h4170c1034d203473E.exit": ; preds = %111, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i", %.noexc12, %128, %125, %121, %116
-  %.sroa.1316.0 = phi i64 [ %94, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %46, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %112, %111 ], [ %.sroa.02.0.copyload.i, %.noexc12 ], [ -9223372036854775808, %116 ], [ -9223372036854775808, %121 ], [ -9223372036854775808, %125 ], [ -9223372036854775808, %128 ]
-  %.sroa.11.1 = phi i8 [ %81, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %75, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %.sroa.11.044, %111 ], [ %.sroa.11.044, %.noexc12 ], [ %.sroa.11.044, %116 ], [ %.sroa.11.044, %121 ], [ %.sroa.11.044, %125 ], [ %.sroa.11.044, %128 ]
-  %.sroa.715.0 = phi i8 [ %79, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %40, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %31, %111 ], [ %97, %.noexc12 ], [ %97, %116 ], [ %97, %121 ], [ %97, %125 ], [ %97, %128 ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.047, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %44, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %.sroa.21.24.insert.insert, %111 ], [ %.sroa.6.0.copyload.i, %.noexc12 ], [ undef, %116 ], [ undef, %121 ], [ undef, %125 ], [ undef, %128 ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.049, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %49, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %114, %111 ], [ %.sroa.54.0.copyload.i, %.noexc12 ], [ %.val.i, %116 ], [ %.val.i, %121 ], [ %.val.i, %125 ], [ %.val.i, %128 ]
+  %.sroa.1316.0 = phi i64 [ %112, %111 ], [ %46, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %94, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.02.0.copyload.i, %.noexc12 ], [ -9223372036854775808, %116 ], [ -9223372036854775808, %121 ], [ -9223372036854775808, %125 ], [ -9223372036854775808, %128 ]
+  %.sroa.11.1 = phi i8 [ %.sroa.11.044, %111 ], [ %75, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %81, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.11.044, %.noexc12 ], [ %.sroa.11.044, %116 ], [ %.sroa.11.044, %121 ], [ %.sroa.11.044, %125 ], [ %.sroa.11.044, %128 ]
+  %.sroa.715.0 = phi i8 [ %31, %111 ], [ %40, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %79, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %97, %.noexc12 ], [ %97, %116 ], [ %97, %121 ], [ %97, %125 ], [ %97, %128 ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.24.insert.insert, %111 ], [ %44, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %.sroa.21.047, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.6.0.copyload.i, %.noexc12 ], [ undef, %116 ], [ undef, %121 ], [ undef, %125 ], [ undef, %128 ]
+  %.sroa.17.1 = phi ptr [ %114, %111 ], [ %49, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc6262ca5166975E.exit.i" ], [ %.sroa.17.049, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.54.0.copyload.i, %.noexc12 ], [ %.val.i, %116 ], [ %.val.i, %121 ], [ %.val.i, %125 ], [ %.val.i, %128 ]
   %131 = getelementptr inbounds nuw { [4 x i64] }, ptr %14, i64 %.sroa.7.046
   store i8 %28, ptr %131, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 1
@@ -5353,10 +5353,10 @@ define hidden { i64, i64 } @"_ZN6either8iterator96_$LT$impl$u20$core..iter..trai
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa76de8d1391f814E.llvm.8488369856913705139.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa76de8d1391f814E.llvm.8488369856913705139.exit": ; preds = %17, %13, %9, %5
-  %.sroa.0.0.i3.pn = phi i64 [ 1, %9 ], [ 0, %5 ], [ 1, %17 ], [ 0, %13 ]
-  %.sroa.3.0.i2.pn = phi i64 [ %12, %9 ], [ undef, %5 ], [ %20, %17 ], [ undef, %13 ]
-  %.pn4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i3.pn, 0
-  %.pn = insertvalue { i64, i64 } %.pn4, i64 %.sroa.3.0.i2.pn, 1
+  %.sroa.0.0.i.pn = phi i64 [ 1, %9 ], [ 0, %5 ], [ 1, %17 ], [ 0, %13 ]
+  %.sroa.3.0.i.pn = phi i64 [ %12, %9 ], [ undef, %5 ], [ %20, %17 ], [ undef, %13 ]
+  %.pn4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
+  %.pn = insertvalue { i64, i64 } %.pn4, i64 %.sroa.3.0.i.pn, 1
   ret { i64, i64 } %.pn
 }
 
@@ -5422,10 +5422,10 @@ define hidden { i64, i64 } @"_ZN6either8iterator96_$LT$impl$u20$core..iter..trai
   br label %"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h68e84d9a157282b6E.llvm.8488369856913705139.exit"
 
 "_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$either..Either$LT$L$C$R$GT$$GT$4next17h68e84d9a157282b6E.llvm.8488369856913705139.exit": ; preds = %29, %24, %20, %16, %12, %8
-  %.sroa.0.0.i.pn = phi i64 [ 1, %12 ], [ 0, %8 ], [ 1, %20 ], [ 0, %16 ], [ 1, %29 ], [ 0, %24 ]
-  %.sroa.3.0.i.pn = phi i64 [ %15, %12 ], [ undef, %8 ], [ %23, %20 ], [ undef, %16 ], [ %34, %29 ], [ undef, %24 ]
-  %.pn2 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
-  %.pn = insertvalue { i64, i64 } %.pn2, i64 %.sroa.3.0.i.pn, 1
+  %.sroa.0.0.i.pn.i.pn = phi i64 [ 1, %12 ], [ 0, %8 ], [ 1, %20 ], [ 0, %16 ], [ 1, %29 ], [ 0, %24 ]
+  %.sroa.3.0.i.pn.i.pn = phi i64 [ %15, %12 ], [ undef, %8 ], [ %23, %20 ], [ undef, %16 ], [ %34, %29 ], [ undef, %24 ]
+  %.pn4.i.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn.i.pn, 0
+  %.pn = insertvalue { i64, i64 } %.pn4.i.pn, i64 %.sroa.3.0.i.pn.i.pn, 1
   ret { i64, i64 } %.pn
 }
 

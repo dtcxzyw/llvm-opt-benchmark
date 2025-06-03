@@ -7349,7 +7349,7 @@ define hidden void @_ZN4cvc58internal6theory2uf16TheoryUfRewriter14rewriteViaRul
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
 
 common.resume:                                    ; preds = %.body, %.body416, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit620, %1079, %92
-  %common.resume.op = phi { ptr, i32 } [ %93, %92 ], [ %1080, %1079 ], [ %.pn212, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit620 ], [ %1033, %.body416 ], [ %.pn243, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %93, %92 ], [ %1080, %1079 ], [ %.pn243, %.body ], [ %1033, %.body416 ], [ %.pn212, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit620 ]
   resume { ptr, i32 } %common.resume.op
 
 92:                                               ; preds = %88
@@ -11836,7 +11836,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit421.thread: ; preds = %1037, %1041
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %2033), !noalias !287
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit421
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit421: ; preds = %1057, %1064, %2046, %2044, %2039, %1034, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit618, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit414
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit421: ; preds = %1064, %1057, %2046, %2044, %2039, %1034, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit618, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit414
   ret void
 }
 

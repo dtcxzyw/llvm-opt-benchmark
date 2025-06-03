@@ -2251,7 +2251,7 @@ define range(i32 8, 0) i32 @_ZNK18ColoringRulesModel5flagsERK11QModelIndex(ptr n
   br label %10
 
 10:                                               ; preds = %8, %6, %2
-  %.sroa.0.0 = phi i32 [ %3, %2 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0 = phi i32 [ %3, %2 ], [ %7, %6 ], [ %9, %8 ]
   %11 = load i32, ptr %1, align 8
   %12 = or i32 %11, %5
   %or.cond = icmp sgt i32 %12, -1
@@ -2860,7 +2860,7 @@ _ZN5QListIiED2Ev.exit65:                          ; preds = %170, %_ZN17QArrayDa
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 177:                                              ; preds = %_ZN5QListIiED2Ev.exit65, %161, %_ZN7QStringD2Ev.exit59, %_ZN7QStringD2Ev.exit50
-  %.pn = phi { ptr, i32 } [ %171, %_ZN5QListIiED2Ev.exit65 ], [ %162, %161 ], [ %128, %_ZN7QStringD2Ev.exit59 ], [ %110, %_ZN7QStringD2Ev.exit50 ]
+  %.pn = phi { ptr, i32 } [ %171, %_ZN5QListIiED2Ev.exit65 ], [ %110, %_ZN7QStringD2Ev.exit50 ], [ %128, %_ZN7QStringD2Ev.exit59 ], [ %162, %161 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   br label %common.resume
@@ -2917,7 +2917,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -2927,7 +2927,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -3114,7 +3114,7 @@ _ZN7QStringD2Ev.exit18:                           ; preds = %31, %_ZN17QArrayDat
   ret void
 
 40:                                               ; preds = %_ZN7QStringD2Ev.exit18, %_ZN7QStringD2Ev.exit10
-  %.pn = phi { ptr, i32 } [ %32, %_ZN7QStringD2Ev.exit18 ], [ %20, %_ZN7QStringD2Ev.exit10 ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZN7QStringD2Ev.exit10 ], [ %32, %_ZN7QStringD2Ev.exit18 ]
   resume { ptr, i32 } %.pn
 }
 

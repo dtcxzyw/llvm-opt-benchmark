@@ -1084,7 +1084,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$quinn..recv_stream..ReadError$u20
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1155,7 +1155,7 @@ define internal noundef zeroext i1 @"_ZN67_$LT$quinn..send_stream..WriteError$u2
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   ret i1 %.sroa.0.0.in
 }
 

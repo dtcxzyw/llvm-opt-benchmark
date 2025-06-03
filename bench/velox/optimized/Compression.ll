@@ -363,7 +363,7 @@ sw.epilog:                                        ; preds = %entry
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA11_cN8facebook5velox6common15CompressionKindEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_NS_6detail11LastElementIJDpRKT0_EE4typeEEE5valueESD_E4typeESJ_.exit unwind label %lpad.i51
 
 common.resume:                                    ; preds = %lpad.body, %lpad3.body, %lpad7.body, %lpad11.body, %lpad15.body, %lpad19.body, %lpad23.body, %lpad.i51
-  %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i51 ], [ %eh.lpad-body49, %lpad23.body ], [ %eh.lpad-body41, %lpad19.body ], [ %eh.lpad-body33, %lpad15.body ], [ %eh.lpad-body25, %lpad11.body ], [ %eh.lpad-body17, %lpad7.body ], [ %eh.lpad-body9, %lpad3.body ], [ %eh.lpad-body, %lpad.body ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i51 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body9, %lpad3.body ], [ %eh.lpad-body17, %lpad7.body ], [ %eh.lpad-body25, %lpad11.body ], [ %eh.lpad-body33, %lpad15.body ], [ %eh.lpad-body41, %lpad19.body ], [ %eh.lpad-body49, %lpad23.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i51:                                         ; preds = %sw.epilog

@@ -609,7 +609,7 @@ select.unfold:                                    ; preds = %64, %51
   br i1 %.not228, label %157, label %163
 
 157:                                              ; preds = %150, %115, %133, %85
-  %.0212 = phi i64 [ 2, %150 ], [ 1, %133 ], [ 4, %115 ], [ 2, %85 ]
+  %.0212 = phi i64 [ 2, %85 ], [ 4, %115 ], [ 1, %133 ], [ 2, %150 ]
   %158 = load ptr, ptr %33, align 8, !tbaa !71
   %159 = getelementptr inbounds double, ptr %158, i64 %35
   store double %37, ptr %159, align 8, !tbaa !69
@@ -3841,7 +3841,7 @@ define internal i32 @cvQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1, 
   br label %85
 
 85:                                               ; preds = %82, %73
-  %.0101.i = phi i64 [ 1, %82 ], [ 2, %73 ]
+  %.0101.i = phi i64 [ 2, %73 ], [ 1, %82 ]
   %86 = load ptr, ptr %15, align 8, !tbaa !71
   %87 = getelementptr inbounds double, ptr %86, i64 %42
   store double %44, ptr %87, align 8, !tbaa !69

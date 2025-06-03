@@ -90,7 +90,7 @@ define i64 @text_normalize_buffer(ptr noundef captures(none) %0, ptr noundef rea
   br label %30
 
 30:                                               ; preds = %17, %28
-  %.0 = phi i8 [ %19, %17 ], [ %29, %28 ]
+  %.0 = phi i8 [ %29, %28 ], [ %19, %17 ]
   store i32 0, ptr %16, align 8, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %.02429, i64 1
   store i8 %.0, ptr %.02429, align 1, !tbaa !14
@@ -196,7 +196,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   br label %37
 
 37:                                               ; preds = %35, %24
-  %.0.i = phi i8 [ %26, %24 ], [ %36, %35 ]
+  %.0.i = phi i8 [ %36, %35 ], [ %26, %24 ]
   store i32 0, ptr %13, align 8, !tbaa !13
   %38 = getelementptr inbounds nuw i8, ptr %.02429.i, i64 1
   store i8 %.0.i, ptr %.02429.i, align 1, !tbaa !14

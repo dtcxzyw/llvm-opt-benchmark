@@ -160,7 +160,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i: ; preds = %.lr.ph391.i, %972, %896, %735, %269, %240, %209, %168, %118, %40
-  %.010.be.i = phi i32 [ %.010.i, %972 ], [ %.515.i, %735 ], [ %13, %209 ], [ %13, %118 ], [ %13, %40 ], [ %.010.i, %896 ], [ %.010.i, %240 ], [ %.010.i, %269 ], [ %.010.i, %168 ], [ %.212.ph.i, %.lr.ph391.i ]
+  %.010.be.i = phi i32 [ %13, %40 ], [ %.515.i, %735 ], [ %13, %118 ], [ %13, %209 ], [ %.010.i, %168 ], [ %.010.i, %240 ], [ %.010.i, %269 ], [ %.010.i, %896 ], [ %.010.i, %972 ], [ %.212.ph.i, %.lr.ph391.i ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !4
   %.pre322 = load i32, ptr %10, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
@@ -1932,7 +1932,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i: ; 
   ]
 
 .critedge233.preheader.i:                         ; preds = %920, %794, %768, %682, %674, %628, %588, %554, %192, %103, %72
-  %.212.ph.i = phi i32 [ %.010.i, %192 ], [ %13, %72 ], [ %13, %103 ], [ %13, %554 ], [ %13, %588 ], [ %13, %628 ], [ %13, %768 ], [ %.313.i, %682 ], [ %.313.i, %674 ], [ %13, %794 ], [ %13, %920 ]
+  %.212.ph.i = phi i32 [ %.010.i, %192 ], [ %13, %768 ], [ %13, %628 ], [ %13, %588 ], [ %13, %554 ], [ %13, %794 ], [ %13, %103 ], [ %.313.i, %682 ], [ %.313.i, %674 ], [ %13, %72 ], [ %13, %920 ]
   %.val55387.i = load i32, ptr %10, align 8, !tbaa !17
   %.val56388.i = load ptr, ptr %6, align 8, !tbaa !4
   %926 = sext i32 %.val55387.i to i64
@@ -2078,7 +2078,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   br label %.critedge51.preheader.i
 
 .critedge51.preheader.i:                          ; preds = %519, %509, %switch.lookup558, %301, %.loopexit236.i, %.loopexit240.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %53
-  %.111.ph.i = phi i32 [ %.010.i, %53 ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.717.i, %.loopexit236.i ], [ %.616.i, %.loopexit240.i ], [ %.212.ph.i, %301 ], [ %.212.ph.i, %switch.lookup558 ], [ %.212.ph.i, %509 ], [ %.212.ph.i, %519 ]
+  %.111.ph.i = phi i32 [ %.616.i, %.loopexit240.i ], [ %.717.i, %.loopexit236.i ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.010.i, %53 ], [ %.212.ph.i, %301 ], [ %.212.ph.i, %switch.lookup558 ], [ %.212.ph.i, %509 ], [ %.212.ph.i, %519 ]
   %995 = icmp slt i32 %.111.ph.i, 131071
   %996 = load i32, ptr %22, align 8
   %997 = icmp sgt i32 %996, 0

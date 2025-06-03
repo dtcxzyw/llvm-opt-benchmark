@@ -30081,7 +30081,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EED2Ev.exit250.i: ; pre
   br label %_ZN5arrow7compute8internal12_GLOBAL__N_111FilterTableERKNS_5TableERKNS_5DatumEPKNS0_15FunctionOptionsEPNS0_11ExecContextE.exit
 
 1429:                                             ; preds = %1427, %1047, %996, %987, %982, %939
-  %.pn115.pn.i = phi { ptr, i32 } [ %.pn115.i, %939 ], [ %997, %996 ], [ %.pn107.pn.pn.pn.pn.i, %1427 ], [ %1048, %1047 ], [ %988, %987 ], [ %.pn.i, %982 ]
+  %.pn115.pn.i = phi { ptr, i32 } [ %.pn115.i, %939 ], [ %997, %996 ], [ %.pn107.pn.pn.pn.pn.i, %1427 ], [ %1048, %1047 ], [ %.pn.i, %982 ], [ %988, %987 ]
   call void @_ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #26
   br label %1430
 

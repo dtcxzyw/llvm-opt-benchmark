@@ -16824,7 +16824,7 @@ _ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit27: ;
   br i1 %.not46, label %_ZNK4llvm9StringRef4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !488
 
 61:                                               ; preds = %50, %47
-  %.1.i = phi i32 [ %48, %47 ], [ %51, %50 ]
+  %.1.i = phi i32 [ %51, %50 ], [ %48, %47 ]
   %62 = add i32 %.1.i, %.020.lcssa
   ret i32 %62
 }

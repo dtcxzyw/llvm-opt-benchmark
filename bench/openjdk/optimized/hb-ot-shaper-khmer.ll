@@ -232,7 +232,7 @@ define internal noundef zeroext i1 @_ZL15decompose_khmerPK31hb_ot_shape_normaliz
   br label %19
 
 19:                                               ; preds = %10, %9, %8, %7, %6, %5
-  %.0 = phi i1 [ %18, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ true, %6 ], [ true, %5 ]
+  %.0 = phi i1 [ %18, %10 ], [ true, %5 ], [ true, %6 ], [ true, %7 ], [ true, %8 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -1022,10 +1022,10 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %138
 
 138:                                              ; preds = %41, %44, %._crit_edge217, %._crit_edge211, %._crit_edge205, %._crit_edge199, %._crit_edge193, %._crit_edge187, %134, %136, %._crit_edge, %._crit_edge181, %110, %35
-  %.3152 = phi i32 [ %.2151, %35 ], [ %.2151, %41 ], [ 3, %136 ], [ 2, %134 ], [ %.2151, %110 ], [ 3, %._crit_edge ], [ 2, %._crit_edge181 ], [ %.2151, %._crit_edge187 ], [ %.2151, %._crit_edge193 ], [ %.2151, %._crit_edge199 ], [ %.2151, %._crit_edge205 ], [ %.2151, %._crit_edge211 ], [ %.2151, %._crit_edge217 ], [ %.2151, %44 ]
-  %.3148 = phi i32 [ %.2147, %35 ], [ %.2147, %41 ], [ %.2147, %136 ], [ %.2147, %134 ], [ %.2147, %110 ], [ %spec.store.select8, %._crit_edge ], [ %spec.store.select7, %._crit_edge181 ], [ %spec.store.select6, %._crit_edge187 ], [ %spec.store.select5, %._crit_edge193 ], [ %spec.store.select4, %._crit_edge199 ], [ %spec.store.select3, %._crit_edge205 ], [ %spec.store.select2, %._crit_edge211 ], [ %spec.store.select, %._crit_edge217 ], [ %.2147, %44 ]
-  %.3144 = phi i32 [ %.2143, %35 ], [ %.2143, %41 ], [ %137, %136 ], [ %135, %134 ], [ %.2143, %110 ], [ %.2143, %._crit_edge ], [ %.2143, %._crit_edge181 ], [ %.2143, %._crit_edge187 ], [ %.2143, %._crit_edge193 ], [ %.2, %._crit_edge199 ], [ %.2, %._crit_edge205 ], [ %.2, %._crit_edge211 ], [ %47, %._crit_edge217 ], [ %45, %44 ]
-  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %136 ], [ %.2, %134 ], [ %.2, %110 ], [ %125, %._crit_edge ], [ %112, %._crit_edge181 ], [ %98, %._crit_edge187 ], [ %89, %._crit_edge193 ], [ %79, %._crit_edge199 ], [ %66, %._crit_edge205 ], [ %57, %._crit_edge211 ], [ %.2, %._crit_edge217 ], [ %.2, %44 ]
+  %.3152 = phi i32 [ %.2151, %35 ], [ %.2151, %41 ], [ %.2151, %44 ], [ %.2151, %._crit_edge217 ], [ %.2151, %._crit_edge211 ], [ %.2151, %._crit_edge205 ], [ %.2151, %._crit_edge199 ], [ %.2151, %._crit_edge193 ], [ %.2151, %._crit_edge187 ], [ %.2151, %110 ], [ 2, %._crit_edge181 ], [ 3, %._crit_edge ], [ 2, %134 ], [ 3, %136 ]
+  %.3148 = phi i32 [ %.2147, %35 ], [ %.2147, %41 ], [ %.2147, %44 ], [ %spec.store.select, %._crit_edge217 ], [ %spec.store.select2, %._crit_edge211 ], [ %spec.store.select3, %._crit_edge205 ], [ %spec.store.select4, %._crit_edge199 ], [ %spec.store.select5, %._crit_edge193 ], [ %spec.store.select6, %._crit_edge187 ], [ %.2147, %110 ], [ %spec.store.select7, %._crit_edge181 ], [ %spec.store.select8, %._crit_edge ], [ %.2147, %134 ], [ %.2147, %136 ]
+  %.3144 = phi i32 [ %.2143, %35 ], [ %.2143, %41 ], [ %45, %44 ], [ %47, %._crit_edge217 ], [ %.2, %._crit_edge211 ], [ %.2, %._crit_edge205 ], [ %.2, %._crit_edge199 ], [ %.2143, %._crit_edge193 ], [ %.2143, %._crit_edge187 ], [ %.2143, %110 ], [ %.2143, %._crit_edge181 ], [ %.2143, %._crit_edge ], [ %135, %134 ], [ %137, %136 ]
+  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %44 ], [ %.2, %._crit_edge217 ], [ %57, %._crit_edge211 ], [ %66, %._crit_edge205 ], [ %79, %._crit_edge199 ], [ %89, %._crit_edge193 ], [ %98, %._crit_edge187 ], [ %.2, %110 ], [ %112, %._crit_edge181 ], [ %125, %._crit_edge ], [ %.2, %134 ], [ %.2, %136 ]
   %139 = sext i8 %37 to i64
   %140 = getelementptr inbounds [43 x i8], ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 0, i64 %139
   %141 = load i8, ptr %140, align 1

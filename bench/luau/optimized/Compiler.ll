@@ -18451,7 +18451,7 @@ _ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit: ; preds = %75
   br label %_ZN4Luau8Compiler16getJumpOpCompareENS_13AstExprBinary2OpEb.exit
 
 _ZN4Luau8Compiler16getJumpOpCompareENS_13AstExprBinary2OpEb.exit: ; preds = %145, %147, %149, %151, %153
-  %.0.i = phi i32 [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ 0, %145 ]
+  %.0.i = phi i32 [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ 0, %145 ]
   %155 = invoke noundef zeroext i8 @_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.07487, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %156 unwind label %164
 
@@ -18624,7 +18624,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %_ZN4Luau8Compiler15
   br label %61
 
 61:                                               ; preds = %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit
-  %.1 = phi i8 [ %50, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ %60, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ]
+  %.1 = phi i8 [ %60, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ], [ %50, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ]
   ret i8 %.1
 }
 
@@ -19420,7 +19420,7 @@ _ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit: ; preds = %60, %_ZN
   br label %92
 
 92:                                               ; preds = %17, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit
-  %.1 = phi i8 [ %18, %17 ], [ %91, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit ]
+  %.1 = phi i8 [ %91, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit ], [ %18, %17 ]
   ret i8 %.1
 }
 
@@ -20771,7 +20771,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler17compileExprBinaryEPNS_13A
   store i32 %9, ptr %7, align 8, !tbaa !609
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4, !tbaa !479
-  switch i32 %11, label %.critedge126 [
+  switch i32 %11, label %.critedge125 [
     i32 0, label %12
     i32 1, label %12
     i32 2, label %12
@@ -20855,9 +20855,9 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler17compileExprBinaryEPNS_13A
 51:                                               ; preds = %.noexc
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 12
   invoke void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %52, ptr noundef nonnull @.str.106) #29
-          to label %.noexc127 unwind label %66
+          to label %.noexc126 unwind label %66
 
-.noexc127:                                        ; preds = %51
+.noexc126:                                        ; preds = %51
   unreachable
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit: ; preds = %.noexc
@@ -20887,16 +20887,16 @@ switch.lookup:                                    ; preds = %57
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit
 
 _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit: ; preds = %switch.lookup, %57
-  %.0.i128 = phi i32 [ 0, %57 ], [ %switch.load, %switch.lookup ]
+  %.0.i127 = phi i32 [ 0, %57 ], [ %switch.load, %switch.lookup ]
   %62 = trunc nuw i32 %49 to i8
-  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %58, i32 noundef %.0.i128, i8 noundef zeroext %2, i8 noundef zeroext %56, i8 noundef zeroext %62)
+  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %58, i32 noundef %.0.i127, i8 noundef zeroext %2, i8 noundef zeroext %56, i8 noundef zeroext %62)
           to label %63 unwind label %68
 
 63:                                               ; preds = %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit
   %64 = load ptr, ptr %54, align 8, !tbaa !483
   %65 = zext i8 %56 to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %64, i32 noundef %65, i32 noundef 2, i32 noundef 1)
-          to label %.critedge126 unwind label %68
+          to label %.critedge125 unwind label %68
 
 66:                                               ; preds = %51, %45
   %67 = landingpad { ptr, i32 }
@@ -20940,10 +20940,10 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread: ; preds = %36, %
   br label %89
 
 89:                                               ; preds = %95, %80
-  %.pn.i.i.i129 = phi i64 [ %87, %80 ], [ %97, %95 ]
-  %.02028.i.i.i130 = phi i64 [ 0, %80 ], [ %96, %95 ]
-  %.02129.i.i.i131 = and i64 %.pn.i.i.i129, %83
-  %90 = getelementptr inbounds nuw %"struct.std::pair.231", ptr %88, i64 %.02129.i.i.i131
+  %.pn.i.i.i128 = phi i64 [ %87, %80 ], [ %97, %95 ]
+  %.02028.i.i.i129 = phi i64 [ 0, %80 ], [ %96, %95 ]
+  %.02129.i.i.i130 = and i64 %.pn.i.i.i128, %83
+  %90 = getelementptr inbounds nuw %"struct.std::pair.231", ptr %88, i64 %.02129.i.i.i130
   %91 = load ptr, ptr %90, align 8, !tbaa !476
   %92 = icmp eq ptr %91, %73
   br i1 %92, label %98, label %93
@@ -20953,10 +20953,10 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread: ; preds = %36, %
   br i1 %94, label %.critedge, label %95
 
 95:                                               ; preds = %93
-  %96 = add i64 %.02028.i.i.i130, 1
-  %97 = add i64 %96, %.02129.i.i.i131
-  %.not.i.i.i132 = icmp ugt i64 %96, %83
-  br i1 %.not.i.i.i132, label %.critedge, label %89, !llvm.loop !478
+  %96 = add i64 %.02028.i.i.i129, 1
+  %97 = add i64 %96, %.02129.i.i.i130
+  %.not.i.i.i131 = icmp ugt i64 %96, %83
+  br i1 %.not.i.i.i131, label %.critedge, label %89, !llvm.loop !478
 
 98:                                               ; preds = %89
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -20969,25 +20969,25 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread: ; preds = %36, %
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %105 = load double, ptr %104, align 8, !tbaa !20
   %106 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantNumberEd(ptr noundef nonnull align 8 dereferenceable(840) %103, double noundef %105)
-          to label %.noexc134 unwind label %122
+          to label %.noexc133 unwind label %122
 
-.noexc134:                                        ; preds = %102
+.noexc133:                                        ; preds = %102
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %108, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136
+  br i1 %107, label %108, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit135
 
-108:                                              ; preds = %.noexc134
+108:                                              ; preds = %.noexc133
   %109 = getelementptr inbounds nuw i8, ptr %73, i64 12
   invoke void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %109, ptr noundef nonnull @.str.106) #29
-          to label %.noexc135 unwind label %122
+          to label %.noexc134 unwind label %122
 
-.noexc135:                                        ; preds = %108
+.noexc134:                                        ; preds = %108
   unreachable
 
-_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136: ; preds = %.noexc134
+_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit135: ; preds = %.noexc133
   %or.cond6 = icmp samesign ugt i32 %106, 255
   br i1 %or.cond6, label %.critedge, label %110
 
-110:                                              ; preds = %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136
+110:                                              ; preds = %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit135
   %111 = load ptr, ptr %13, align 8, !tbaa !482
   %112 = invoke noundef zeroext i8 @_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(12) %5)
           to label %113 unwind label %124
@@ -21005,7 +21005,7 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136: ; preds = %.noexc134
   %120 = load ptr, ptr %13, align 8, !tbaa !482
   %121 = zext i8 %112 to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %120, i32 noundef %121, i32 noundef 2, i32 noundef 1)
-          to label %.critedge126 unwind label %126
+          to label %.critedge125 unwind label %126
 
 122:                                              ; preds = %108, %102
   %123 = landingpad { ptr, i32 }
@@ -21102,37 +21102,37 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136: ; preds = %.noexc134
   %173 = load ptr, ptr %0, align 8, !tbaa !232
   %174 = load i32, ptr %10, align 4, !tbaa !479
   %175 = icmp ult i32 %174, 7
-  br i1 %175, label %switch.lookup186, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138
+  br i1 %175, label %switch.lookup185, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137
 
-switch.lookup186:                                 ; preds = %172
+switch.lookup185:                                 ; preds = %172
   %176 = zext nneg i32 %174 to i64
-  %switch.gep187 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %176
-  %switch.load188 = load i32, ptr %switch.gep187, align 4
-  br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138
+  %switch.gep186 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %176
+  %switch.load187 = load i32, ptr %switch.gep186, align 4
+  br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137
 
-_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138: ; preds = %switch.lookup186, %172
-  %.0.i137 = phi i32 [ 0, %172 ], [ %switch.load188, %switch.lookup186 ]
+_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137: ; preds = %switch.lookup185, %172
+  %.0.i136 = phi i32 [ 0, %172 ], [ %switch.load187, %switch.lookup185 ]
   %177 = trunc nuw i32 %167 to i8
-  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %173, i32 noundef %.0.i137, i8 noundef zeroext %2, i8 noundef zeroext %171, i8 noundef zeroext %177)
+  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %173, i32 noundef %.0.i136, i8 noundef zeroext %2, i8 noundef zeroext %171, i8 noundef zeroext %177)
           to label %178 unwind label %183
 
-178:                                              ; preds = %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138
+178:                                              ; preds = %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137
   %179 = load ptr, ptr %13, align 8, !tbaa !482
   %180 = zext i8 %171 to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %179, i32 noundef %180, i32 noundef 2, i32 noundef 1)
-          to label %.critedge126 unwind label %183
+          to label %.critedge125 unwind label %183
 
 181:                                              ; preds = %164
   %182 = landingpad { ptr, i32 }
           cleanup
   br label %296
 
-183:                                              ; preds = %178, %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138, %169
+183:                                              ; preds = %178, %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137, %169
   %184 = landingpad { ptr, i32 }
           cleanup
   br label %296
 
-.critedge:                                        ; preds = %93, %95, %155, %157, %138, %133, %76, %71, %98, %160, %168, %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit136, %132, %128
+.critedge:                                        ; preds = %93, %95, %155, %157, %138, %133, %76, %71, %98, %160, %168, %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit135, %132, %128
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %186 = load ptr, ptr %185, align 8, !tbaa !483
   %187 = invoke noundef zeroext i8 @_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %186, ptr noundef nonnull align 8 dereferenceable(12) %5)
@@ -21147,20 +21147,20 @@ _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit138: ; preds = %
   %192 = load ptr, ptr %0, align 8, !tbaa !232
   %193 = load i32, ptr %10, align 4, !tbaa !479
   %194 = icmp ult i32 %193, 7
-  br i1 %194, label %switch.lookup189, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140
+  br i1 %194, label %switch.lookup188, label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139
 
-switch.lookup189:                                 ; preds = %191
+switch.lookup188:                                 ; preds = %191
   %195 = zext nneg i32 %193 to i64
-  %switch.gep190 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 0, i64 %195
-  %switch.load191 = load i32, ptr %switch.gep190, align 4
-  br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140
+  %switch.gep189 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 0, i64 %195
+  %switch.load190 = load i32, ptr %switch.gep189, align 4
+  br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139
 
-_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140: ; preds = %switch.lookup189, %191
-  %.0.i139 = phi i32 [ 0, %191 ], [ %switch.load191, %switch.lookup189 ]
-  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %192, i32 noundef %.0.i139, i8 noundef zeroext %2, i8 noundef zeroext %187, i8 noundef zeroext %190)
+_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139: ; preds = %switch.lookup188, %191
+  %.0.i138 = phi i32 [ 0, %191 ], [ %switch.load190, %switch.lookup188 ]
+  invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %192, i32 noundef %.0.i138, i8 noundef zeroext %2, i8 noundef zeroext %187, i8 noundef zeroext %190)
           to label %196 unwind label %204
 
-196:                                              ; preds = %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140
+196:                                              ; preds = %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139
   %197 = load ptr, ptr %185, align 8, !tbaa !483
   %198 = zext i8 %187 to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %197, i32 noundef %198, i32 noundef 2, i32 noundef 1)
@@ -21170,14 +21170,14 @@ _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140: ; preds = %
   %200 = load ptr, ptr %13, align 8, !tbaa !482
   %201 = zext i8 %190 to i32
   invoke void @_ZN4Luau8Compiler24hintTemporaryExprRegTypeEPNS_7AstExprEi16LuauBytecodeTypei(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %200, i32 noundef %201, i32 noundef 2, i32 noundef 1)
-          to label %.critedge126 unwind label %204
+          to label %.critedge125 unwind label %204
 
 202:                                              ; preds = %.critedge
   %203 = landingpad { ptr, i32 }
           cleanup
   br label %296
 
-204:                                              ; preds = %199, %196, %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140, %188
+204:                                              ; preds = %199, %196, %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139, %188
   %205 = landingpad { ptr, i32 }
           cleanup
   br label %296
@@ -21220,9 +21220,9 @@ _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit140: ; preds = %
 227:                                              ; preds = %216
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 12
   invoke void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %228, ptr noundef nonnull @.str.104, i32 noundef %223, i32 noundef 255) #29
-          to label %.noexc142 unwind label %241
+          to label %.noexc141 unwind label %241
 
-.noexc142:                                        ; preds = %227
+.noexc141:                                        ; preds = %227
   unreachable
 
 _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %216
@@ -21240,17 +21240,17 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %216
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit
-  %.lcssa162 = phi i8 [ 0, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ], [ %233, %._crit_edge.loopexit ]
+  %.lcssa161 = phi i8 [ 0, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ], [ %233, %._crit_edge.loopexit ]
   %234 = load ptr, ptr %0, align 8, !tbaa !232
   %235 = add i8 %232, -1
-  %236 = add i8 %235, %.lcssa162
+  %236 = add i8 %235, %.lcssa161
   invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %234, i32 noundef 49, i8 noundef zeroext %2, i8 noundef zeroext %232, i8 noundef zeroext %236)
           to label %258 unwind label %241
 
 237:                                              ; preds = %206
   %238 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146
+  br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145
 
 239:                                              ; preds = %212
   %240 = landingpad { ptr, i32 }
@@ -21264,16 +21264,16 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %216
 
 .lr.ph:                                           ; preds = %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit, %_ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit
   %243 = phi ptr [ %250, %_ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit ], [ %218, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ]
-  %.094164 = phi i64 [ %248, %_ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit ], [ 0, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ]
-  %244 = getelementptr inbounds nuw ptr, ptr %243, i64 %.094164
+  %.094163 = phi i64 [ %248, %_ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit ], [ 0, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ]
+  %244 = getelementptr inbounds nuw ptr, ptr %243, i64 %.094163
   %245 = load ptr, ptr %244, align 8, !tbaa !476
-  %246 = trunc i64 %.094164 to i8
+  %246 = trunc i64 %.094163 to i8
   %247 = add i8 %246, %232
   invoke void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %245, i8 noundef zeroext %247, i1 noundef zeroext true)
           to label %_ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit unwind label %256
 
 _ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit: ; preds = %.lr.ph
-  %248 = add nuw i64 %.094164, 1
+  %248 = add nuw i64 %.094163, 1
   %249 = load ptr, ptr %215, align 8, !tbaa !647
   %250 = load ptr, ptr %6, align 8, !tbaa !644
   %251 = ptrtoint ptr %249 to i64
@@ -21290,8 +21290,8 @@ _ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit: ; preds = %.lr.ph
 
 258:                                              ; preds = %._crit_edge
   %259 = load ptr, ptr %6, align 8, !tbaa !644
-  %.not.i.i.i144 = icmp eq ptr %259, null
-  br i1 %.not.i.i.i144, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %260
+  %.not.i.i.i143 = icmp eq ptr %259, null
+  br i1 %.not.i.i.i143, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %260
 
 260:                                              ; preds = %258
   %261 = load ptr, ptr %214, align 8, !tbaa !646
@@ -21303,13 +21303,13 @@ _ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit: ; preds = %.lr.ph
 
 _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %258, %260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
-  br label %.critedge126
+  br label %.critedge125
 
 265:                                              ; preds = %241, %256, %239
   %.pn105.pn = phi { ptr, i32 } [ %240, %239 ], [ %257, %256 ], [ %242, %241 ]
   %266 = load ptr, ptr %6, align 8, !tbaa !644
-  %.not.i.i.i145 = icmp eq ptr %266, null
-  br i1 %.not.i.i.i145, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146, label %267
+  %.not.i.i.i144 = icmp eq ptr %266, null
+  br i1 %.not.i.i.i144, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145, label %267
 
 267:                                              ; preds = %265
   %268 = load ptr, ptr %214, align 8, !tbaa !646
@@ -21317,9 +21317,9 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %258, %260
   %270 = ptrtoint ptr %266 to i64
   %271 = sub i64 %269, %270
   call void @_ZdlPvm(ptr noundef nonnull %266, i64 noundef %271) #28
-  br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146
+  br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146: ; preds = %267, %265, %237
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145: ; preds = %267, %265, %237
   %.pn105.pn.pn = phi { ptr, i32 } [ %238, %237 ], [ %.pn105.pn, %265 ], [ %.pn105.pn, %267 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   br label %296
@@ -21346,17 +21346,17 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146: ; preds = %267, %265, %237
 281:                                              ; preds = %279
   %282 = load ptr, ptr %0, align 8, !tbaa !232
   %283 = invoke noundef zeroext i1 @_ZN4Luau15BytecodeBuilder10patchJumpDEmm(ptr noundef nonnull align 8 dereferenceable(840) %282, i64 noundef %273, i64 noundef %278)
-          to label %.noexc147 unwind label %288
+          to label %.noexc146 unwind label %288
 
-.noexc147:                                        ; preds = %281
-  br i1 %283, label %.critedge126, label %284
+.noexc146:                                        ; preds = %281
+  br i1 %283, label %.critedge125, label %284
 
-284:                                              ; preds = %.noexc147
+284:                                              ; preds = %.noexc146
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 12
   invoke void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %285, ptr noundef nonnull @.str.116) #29
-          to label %.noexc148 unwind label %288
+          to label %.noexc147 unwind label %288
 
-.noexc148:                                        ; preds = %284
+.noexc147:                                        ; preds = %284
   unreachable
 
 286:                                              ; preds = %274, %272
@@ -21371,14 +21371,14 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146: ; preds = %267, %265, %237
 
 290:                                              ; preds = %4, %4
   invoke void @_ZN4Luau8Compiler16compileExprAndOrEPNS_13AstExprBinaryEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %1, i8 noundef zeroext %2, i1 noundef zeroext %3)
-          to label %.critedge126 unwind label %291
+          to label %.critedge125 unwind label %291
 
 291:                                              ; preds = %290
   %292 = landingpad { ptr, i32 }
           cleanup
   br label %296
 
-.critedge126:                                     ; preds = %.noexc147, %178, %119, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, %290, %4, %63, %199
+.critedge125:                                     ; preds = %.noexc146, %178, %119, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, %290, %4, %63, %199
   %293 = load i32, ptr %7, align 8, !tbaa !609
   %294 = load ptr, ptr %5, align 8, !tbaa !607
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 1148
@@ -21386,14 +21386,14 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146: ; preds = %267, %265, %237
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
   ret void
 
-296:                                              ; preds = %286, %288, %66, %68, %124, %126, %122, %181, %183, %204, %202, %291, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146
-  %.pn119 = phi { ptr, i32 } [ %292, %291 ], [ %.pn105.pn.pn, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit146 ], [ %69, %68 ], [ %67, %66 ], [ %123, %122 ], [ %127, %126 ], [ %125, %124 ], [ %184, %183 ], [ %182, %181 ], [ %205, %204 ], [ %203, %202 ], [ %289, %288 ], [ %287, %286 ]
+296:                                              ; preds = %286, %288, %66, %68, %124, %126, %122, %181, %183, %204, %202, %291, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145
+  %.pn117.pn = phi { ptr, i32 } [ %.pn105.pn.pn, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit145 ], [ %292, %291 ], [ %69, %68 ], [ %67, %66 ], [ %123, %122 ], [ %127, %126 ], [ %125, %124 ], [ %184, %183 ], [ %182, %181 ], [ %205, %204 ], [ %203, %202 ], [ %289, %288 ], [ %287, %286 ]
   %297 = load i32, ptr %7, align 8, !tbaa !609
   %298 = load ptr, ptr %5, align 8, !tbaa !607
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 1148
   store i32 %297, ptr %299, align 4, !tbaa !195
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
-  resume { ptr, i32 } %.pn119
+  resume { ptr, i32 } %.pn117.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24398,7 +24398,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau8Compiler16getConstantIndexEP
   br label %65
 
 65:                                               ; preds = %57, %46, %41, %35, %32
-  %.015 = phi i32 [ %64, %57 ], [ %56, %46 ], [ %45, %41 ], [ %40, %35 ], [ %34, %32 ]
+  %.015 = phi i32 [ %34, %32 ], [ %40, %35 ], [ %45, %41 ], [ %56, %46 ], [ %64, %57 ]
   %66 = icmp slt i32 %.015, 0
   br i1 %66, label %67, label %_ZN4Luau12DenseHashMapIPNS_7AstExprENS_7Compile8ConstantENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
@@ -29238,7 +29238,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %_ZN4Luau8Compiler15
   br label %_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit
 
 _ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit: ; preds = %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit64, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit
-  %.1.i = phi i8 [ %125, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit64 ], [ %135, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ]
+  %.1.i = phi i8 [ %135, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit ], [ %125, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit64 ]
   store i8 %.1.i, ptr %74, align 4, !tbaa !618
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload = load ptr, ptr %136, align 8, !tbaa !22
@@ -29368,7 +29368,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit116: ; preds = %_ZN4Luau8Compiler1
   br label %_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit46
 
 _ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit46: ; preds = %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit82, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit116
-  %.1.i45 = phi i8 [ %190, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit82 ], [ %200, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit116 ]
+  %.1.i45 = phi i8 [ %200, %_ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit116 ], [ %190, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit82 ]
   %201 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %202 = load ptr, ptr %201, align 8, !tbaa !674
   tail call void @_ZN4Luau8Compiler18compileLValueIndexEhPNS_7AstExprERNS0_8RegScopeE(ptr dead_on_unwind writable sret(%"struct.Luau::Compiler::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1344) %1, i8 noundef zeroext %.1.i45, ptr noundef %202, ptr noundef nonnull align 8 dereferenceable(12) %3)

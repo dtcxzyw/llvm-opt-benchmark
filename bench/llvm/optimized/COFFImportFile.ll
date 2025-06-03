@@ -151,8 +151,8 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14COFFImportFile17getFileFormatNa
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5
-  %.sroa.8.0 = phi i64 [ 31, %10 ], [ 23, %9 ], [ 24, %8 ], [ 22, %7 ], [ 20, %6 ], [ 23, %5 ], [ 21, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.6, %10 ], [ @.str.5, %9 ], [ @.str.4, %8 ], [ @.str.3, %7 ], [ @.str.2, %6 ], [ @.str.1, %5 ], [ @.str, %1 ]
+  %.sroa.8.0 = phi i64 [ 31, %10 ], [ 23, %5 ], [ 20, %6 ], [ 22, %7 ], [ 24, %8 ], [ 23, %9 ], [ 21, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.6, %10 ], [ @.str.1, %5 ], [ @.str.2, %6 ], [ @.str.3, %7 ], [ @.str.4, %8 ], [ @.str.5, %9 ], [ @.str, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert

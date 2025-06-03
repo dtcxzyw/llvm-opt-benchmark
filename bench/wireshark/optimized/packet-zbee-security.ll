@@ -751,8 +751,8 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   br label %149
 
 149:                                              ; preds = %.thread280, %148, %147, %146
-  %.not242 = phi i1 [ false, %147 ], [ false, %146 ], [ false, %148 ], [ true, %.thread280 ]
-  %.0208 = phi i32 [ 8, %147 ], [ 4, %146 ], [ 16, %148 ], [ 0, %.thread280 ]
+  %.not242 = phi i1 [ false, %148 ], [ false, %146 ], [ false, %147 ], [ true, %.thread280 ]
+  %.0208 = phi i32 [ 16, %148 ], [ 4, %146 ], [ 8, %147 ], [ 0, %.thread280 ]
   %150 = add i32 %.0208, %.1
   %151 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %150)
   %or.cond16 = icmp ult i8 %30, 4
@@ -1186,7 +1186,7 @@ zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   br label %39
 
 39:                                               ; preds = %7, %zbee_sec_key_hash.exit21, %zbee_sec_key_hash.exit, %14
-  %.0 = phi ptr [ %11, %7 ], [ %11, %zbee_sec_key_hash.exit21 ], [ %11, %zbee_sec_key_hash.exit ], [ %6, %14 ]
+  %.0 = phi ptr [ %11, %7 ], [ %6, %14 ], [ %11, %zbee_sec_key_hash.exit ], [ %11, %zbee_sec_key_hash.exit21 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i8

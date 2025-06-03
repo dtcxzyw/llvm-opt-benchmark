@@ -661,8 +661,8 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   br label %49
 
 49:                                               ; preds = %37, %43, %46
-  %.059 = phi i1 [ false, %46 ], [ false, %43 ], [ true, %37 ]
-  %.0 = phi ptr [ %48, %46 ], [ %45, %43 ], [ %42, %37 ]
+  %.059 = phi i1 [ false, %46 ], [ true, %37 ], [ false, %43 ]
+  %.0 = phi ptr [ %48, %46 ], [ %42, %37 ], [ %45, %43 ]
   %50 = icmp eq ptr %.0, null
   br i1 %50, label %.thread97, label %zend_string_alloc.exit
 
@@ -1247,7 +1247,7 @@ dom_create_attribute.exit:                        ; preds = %110, %112
   %124 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.0.i116, ptr noundef %1, ptr noundef nonnull %38) #10
   br label %.critedge110
 
-.critedge110:                                     ; preds = %.thread, %106, %121, %114, %98, %dom_check_register_attribute_id.exit, %123, %41, %33, %28
+.critedge110:                                     ; preds = %.thread, %121, %114, %106, %98, %dom_check_register_attribute_id.exit, %123, %41, %33, %28
   ret void
 }
 

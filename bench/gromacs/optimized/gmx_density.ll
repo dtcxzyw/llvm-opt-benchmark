@@ -1194,7 +1194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.lr
   unreachable
 
 .noexc.i.i:                                       ; preds = %440, %439, %438, %421
-  %.047.i = phi ptr [ @.str.113, %440 ], [ @.str.112, %439 ], [ @.str.111, %438 ], [ @.str.110, %421 ]
+  %.047.i = phi ptr [ @.str.111, %438 ], [ @.str.112, %439 ], [ @.str.113, %440 ], [ @.str.110, %421 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext 2)
           to label %.noexc59 unwind label %406

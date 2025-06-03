@@ -8203,7 +8203,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_6TfTypeES
   br label %222
 
 222:                                              ; preds = %220, %._crit_edge.i.i.i.i
-  %.sroa.049.1.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %221, %220 ]
+  %.sroa.049.1.i.i.i.i = phi ptr [ %221, %220 ], [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i34.i.i.i.i = load ptr, ptr %.sroa.049.1.i.i.i.i, align 8
   %223 = ptrtoint ptr %.val.i34.i.i.i.i to i64
   %224 = and i64 %223, -8
@@ -8234,7 +8234,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrINS_9TfHashMapINS_6TfTypeES
   br label %236
 
 236:                                              ; preds = %234, %._crit_edge.i.i.i.i
-  %.sroa.049.2.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %235, %234 ]
+  %.sroa.049.2.i.i.i.i = phi ptr [ %235, %234 ], [ %.sroa.049.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i37.i.i.i.i = load ptr, ptr %.sroa.049.2.i.i.i.i, align 8
   %237 = ptrtoint ptr %.val.i37.i.i.i.i to i64
   %238 = and i64 %237, -8
@@ -17655,7 +17655,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %26, %25 ]
+  %.sroa.025.1 = phi ptr [ %26, %25 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %28 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue8IsStringEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.1)
   br i1 %28, label %29, label %.loopexit
 
@@ -17664,7 +17664,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %30, %29 ]
+  %.sroa.025.2 = phi ptr [ %30, %29 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %32 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue8IsStringEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.025.2)
   %spec.select = select i1 %32, ptr %1, ptr %.sroa.025.2
   br label %.loopexit

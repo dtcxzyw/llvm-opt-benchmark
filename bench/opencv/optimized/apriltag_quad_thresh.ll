@@ -2088,7 +2088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %exitcond436.not, label %317, label %320, !llvm.loop !88
 
 350:                                              ; preds = %241, %.thread364, %317, %278, %184
-  %.2 = phi i32 [ 0, %241 ], [ 0, %278 ], [ %..9, %317 ], [ 0, %184 ], [ 0, %.thread364 ]
+  %.2 = phi i32 [ %..9, %317 ], [ 0, %278 ], [ 0, %241 ], [ 0, %184 ], [ 0, %.thread364 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
   %351 = load ptr, ptr %7, align 8, !tbaa !69
   %.not.i.i333 = icmp eq ptr %351, %93

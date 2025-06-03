@@ -375,7 +375,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %14
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %14, %i_zend_is_true.exit.loopexit, %17, %19, %22, %28, %29, %32, %33, %37, %44, %46
-  %.0.i = phi i1 [ %45, %44 ], [ true, %32 ], [ false, %29 ], [ false, %28 ], [ true, %22 ], [ false, %19 ], [ %.not16.i, %17 ], [ %.not13.i, %33 ], [ true, %37 ], [ %.not.i, %46 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %14 ]
+  %.0.i = phi i1 [ true, %22 ], [ false, %19 ], [ true, %32 ], [ false, %29 ], [ false, %28 ], [ %45, %44 ], [ %.not16.i, %17 ], [ %.not13.i, %33 ], [ true, %37 ], [ %.not.i, %46 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %14 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #9
   %not. = xor i1 %.0.i, true
   %53 = sext i1 %not. to i32

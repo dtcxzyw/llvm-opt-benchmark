@@ -32444,8 +32444,8 @@ if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end19.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i
-  %11 = phi ptr [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ], [ %10, %if.end19.i.i.i ]
-  %__first.addr.1.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ], [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ]
+  %11 = phi ptr [ %10, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
+  %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
   %12 = load ptr, ptr %__first.addr.1.i.i.i, align 8
   %cmp.i.i30.i.i.i = icmp eq ptr %12, %11
   br i1 %cmp.i.i30.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end24.i.i.i
@@ -32455,8 +32455,8 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i
-  %13 = phi ptr [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ], [ %11, %if.end24.i.i.i ]
-  %__first.addr.2.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ], [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ]
+  %13 = phi ptr [ %11, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
+  %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
   %14 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i.i31.i.i.i = icmp eq ptr %14, %13
   br i1 %cmp.i.i31.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end
@@ -32625,8 +32625,8 @@ if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end19.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i
-  %11 = phi ptr [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ], [ %10, %if.end19.i.i.i ]
-  %__first.addr.1.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ], [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ]
+  %11 = phi ptr [ %10, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
+  %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
   %12 = load ptr, ptr %__first.addr.1.i.i.i, align 8
   %cmp.i.i30.i.i.i = icmp eq ptr %12, %11
   br i1 %cmp.i.i30.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end24.i.i.i
@@ -32636,8 +32636,8 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i
-  %13 = phi ptr [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ], [ %11, %if.end24.i.i.i ]
-  %__first.addr.2.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ], [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ]
+  %13 = phi ptr [ %11, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
+  %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
   %14 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i.i31.i.i.i = icmp eq ptr %14, %13
   br i1 %cmp.i.i31.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %return
@@ -35307,7 +35307,7 @@ if.end20.i.i:                                     ; preds = %sw.bb.i.i
   br label %sw.bb22.i.i
 
 sw.bb22.i.i:                                      ; preds = %if.end20.i.i, %for.end.i.i
-  %__first.addr.1.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr21.i.i, %if.end20.i.i ]
+  %__first.addr.1.i.i = phi ptr [ %incdec.ptr21.i.i, %if.end20.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.i.i ]
   %6 = load ptr, ptr %__first.addr.1.i.i, align 8
   %cmp.i.not.i.i.i30.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.not.i.i.i30.i.i, label %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_.exit, label %if.end25.i.i
@@ -35317,7 +35317,7 @@ if.end25.i.i:                                     ; preds = %sw.bb22.i.i
   br label %sw.bb27.i.i
 
 sw.bb27.i.i:                                      ; preds = %if.end25.i.i, %for.end.i.i
-  %__first.addr.2.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr26.i.i, %if.end25.i.i ]
+  %__first.addr.2.i.i = phi ptr [ %incdec.ptr26.i.i, %if.end25.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.i.i ]
   %7 = load ptr, ptr %__first.addr.2.i.i, align 8
   %cmp.i.not.i.i.i31.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.not.i.i.i31.i.i, label %_ZSt9__find_ifIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_22ObserverContainerStoreISA_NS1_35ObserverContainerStorePolicyDefaultILj2EEEE21invokeForEachObserverEONS1_8FunctionIFvRSB_EEENS1_26ObserverContainerStoreBaseISA_E26InvokeWhileIteratingPolicyEENKUlvE_clEvEUlRKT_E_EEEST_ST_ST_T0_.exit, label %return

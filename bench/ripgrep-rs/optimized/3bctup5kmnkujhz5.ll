@@ -150,7 +150,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h31f6033fff9317b7E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h31f6033fff9317b7E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1107,9 +1107,9 @@ define hidden void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d607
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { ptr, ptr, {} } } }, align 8
-  %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %tailrecurse
 
@@ -1327,7 +1327,7 @@ default.unreachable:                              ; preds = %86
   br label %.lr.ph69.preheader
 
 .lr.ph69.preheader:                               ; preds = %86, %88, %89, %90
-  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %90 ], [ %.sroa.5.0.i.sroa.gep92, %89 ], [ %.sroa.5.0.i.sroa.gep93, %88 ], [ %.sroa.5.0.i.sroa.gep94, %86 ]
+  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %88 ], [ %.sroa.5.0.i.sroa.gep92, %89 ], [ %.sroa.5.0.i.sroa.gep93, %90 ], [ %.sroa.5.0.i.sroa.gep94, %86 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.sroa.phi, i64 1
   br label %.lr.ph69
 

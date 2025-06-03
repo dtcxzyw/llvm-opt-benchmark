@@ -5412,8 +5412,8 @@ lpad298:                                          ; preds = %invoke.cont299, %if
   br label %common.resume
 
 sw.epilog:                                        ; preds = %if.end282, %invoke.cont301, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit155, %if.end203
-  %version.sroa.0.1 = phi i8 [ %version.sroa.0.0, %if.end203 ], [ %version.sroa.0.3, %if.end282 ], [ %version.sroa.0.3, %invoke.cont301 ], [ %version.sroa.0.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit155 ]
-  %version.sroa.15.1 = phi i8 [ %version.sroa.15.0, %if.end203 ], [ %version.sroa.15.3, %if.end282 ], [ %version.sroa.15.3, %invoke.cont301 ], [ %version.sroa.15.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit155 ]
+  %version.sroa.0.1 = phi i8 [ %version.sroa.0.0, %if.end203 ], [ %version.sroa.0.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit155 ], [ %version.sroa.0.3, %if.end282 ], [ %version.sroa.0.3, %invoke.cont301 ]
+  %version.sroa.15.1 = phi i8 [ %version.sroa.15.0, %if.end203 ], [ %version.sroa.15.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit155 ], [ %version.sroa.15.3, %if.end282 ], [ %version.sroa.15.3, %invoke.cont301 ]
   %70 = load i64, ptr %len, align 8
   %add305 = add i64 %70, 2
   store i64 %add305, ptr %len, align 8
@@ -7545,10 +7545,10 @@ sw.default.us.i:                                  ; preds = %sw.bb.us.i
   br i1 %or.cond.i, label %if.then4, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %sw.default.us.i, %sw.bb5.us.i, %sw.bb9.us.i, %sw.bb.us.i, %sw.bb25.us.i, %sw.bb30.us.i, %sw.bb30.us.i, %if.then44.us.i, %sw.bb38.us.i, %sw.bb38.us.i, %for.body.us.i
-  %escape.2.us.i = phi i1 [ false, %for.body.us.i ], [ false, %if.then44.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.bb9.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ]
-  %quote.1.us.i = phi i1 [ %quote.026.us.i, %for.body.us.i ], [ %quote.026.us.i, %if.then44.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ %quote.026.us.i, %sw.bb.us.i ], [ %quote.026.us.i, %sw.bb25.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.default.us.i ]
-  %state.1.us.i = phi i32 [ %state.027.us.i, %for.body.us.i ], [ 0, %if.then44.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.bb9.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ]
-  %p.1.us.i = phi ptr [ %p.028.us.i, %for.body.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.bb9.us.i ], [ %p.028.us.i, %sw.bb5.us.i ], [ %p.028.us.i, %sw.bb.us.i ], [ %p.028.us.i, %sw.bb25.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.default.us.i ]
+  %escape.2.us.i = phi i1 [ false, %for.body.us.i ], [ false, %sw.bb9.us.i ], [ false, %if.then44.us.i ], [ false, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ]
+  %quote.1.us.i = phi i1 [ %quote.026.us.i, %for.body.us.i ], [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.026.us.i, %if.then44.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.bb5.us.i ], [ %quote.026.us.i, %sw.bb.us.i ], [ %quote.026.us.i, %sw.bb25.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb30.us.i ], [ %quote.026.us.i, %sw.bb38.us.i ], [ %quote.026.us.i, %sw.default.us.i ]
+  %state.1.us.i = phi i32 [ %state.027.us.i, %for.body.us.i ], [ 0, %sw.bb9.us.i ], [ 0, %if.then44.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ]
+  %p.1.us.i = phi ptr [ %p.028.us.i, %for.body.us.i ], [ %p.028.us.i, %sw.bb9.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.bb5.us.i ], [ %p.028.us.i, %sw.bb.us.i ], [ %p.028.us.i, %sw.bb25.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb30.us.i ], [ %p.028.us.i, %sw.bb38.us.i ], [ %p.028.us.i, %sw.default.us.i ]
   %incdec.ptr47.us.i = getelementptr inbounds nuw i8, ptr %p.1.us.i, i64 1
   %cmp.not.us.i = icmp eq ptr %incdec.ptr47.us.i, %add.ptr.i5
   br i1 %cmp.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !61

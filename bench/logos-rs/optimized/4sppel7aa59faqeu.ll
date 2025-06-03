@@ -365,7 +365,7 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
           to label %21 unwind label %19
 
 18:                                               ; preds = %66, %42, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %43, %42 ], [ %67, %66 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #6
           to label %76 unwind label %55
 
@@ -539,7 +539,7 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
           to label %21 unwind label %19
 
 18:                                               ; preds = %66, %42, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %43, %42 ], [ %67, %66 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17h5a34d033b9e58d51E"(ptr nonnull align 8 %5) #6
           to label %76 unwind label %55
 

@@ -1237,7 +1237,7 @@ _ZN5boost9iteratorsneIN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %112, %111 ]
+  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.03.2.i.i.i.i.i.i, align 4, !noalias !94
   %114 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %1, i32 noundef %.val12.val.i.i.i.i.i.i.i)
           to label %.noexc63.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -1253,7 +1253,7 @@ _ZN5boost9iteratorsneIN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.03.3.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %118, %117 ]
+  %.sroa.03.3.i.i.i.i.i.i = phi ptr [ %118, %117 ], [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val14.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.03.3.i.i.i.i.i.i, align 4, !noalias !94
   %120 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %1, i32 noundef %.val14.val.i.i.i.i.i.i.i)
           to label %.noexc64.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -1478,7 +1478,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %195
 
 195:                                              ; preds = %193, %._crit_edge.i.i.i.i.i.i69.i
-  %.sroa.03.2.i.i.i.i.i77.i = phi ptr [ %.sroa.03.1.i.i.i.i.i70.i, %._crit_edge.i.i.i.i.i.i69.i ], [ %194, %193 ]
+  %.sroa.03.2.i.i.i.i.i77.i = phi ptr [ %194, %193 ], [ %.sroa.03.1.i.i.i.i.i70.i, %._crit_edge.i.i.i.i.i.i69.i ]
   %.val12.val.i.i.i.i.i.i78.i = load i32, ptr %.sroa.03.2.i.i.i.i.i77.i, align 4, !noalias !121
   %196 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %1, i32 noundef %.val12.val.i.i.i.i.i.i78.i)
           to label %.noexc101.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -1494,7 +1494,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %201
 
 201:                                              ; preds = %199, %._crit_edge.i.i.i.i.i.i69.i
-  %.sroa.03.3.i.i.i.i.i72.i = phi ptr [ %.sroa.03.1.i.i.i.i.i70.i, %._crit_edge.i.i.i.i.i.i69.i ], [ %200, %199 ]
+  %.sroa.03.3.i.i.i.i.i72.i = phi ptr [ %200, %199 ], [ %.sroa.03.1.i.i.i.i.i70.i, %._crit_edge.i.i.i.i.i.i69.i ]
   %.val14.val.i.i.i.i.i.i73.i = load i32, ptr %.sroa.03.3.i.i.i.i.i72.i, align 4, !noalias !121
   %202 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %1, i32 noundef %.val14.val.i.i.i.i.i.i73.i)
           to label %.noexc102.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i

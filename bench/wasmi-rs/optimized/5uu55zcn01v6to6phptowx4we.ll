@@ -11822,7 +11822,7 @@ _ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07
   br label %389
 
 389:                                              ; preds = %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit
-  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i6, %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit ], [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ]
+  %.sroa.02.0 = phi ptr [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator19translate_end_block17hb9e2f43fa161253eE.exit ], [ %.sroa.0.0.i6, %_ZN5wasmi6engine10translator14FuncTranslator16translate_end_if17h6584c2ed1cb6a07fE.exit ]
   %.not = icmp eq ptr %.sroa.02.0, null
   br i1 %.not, label %.thread, label %390
 
@@ -13733,7 +13733,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br i1 %.not, label %27, label %21
 
 .sink.split:                                      ; preds = %71, %32, %57, %64, %36, %35
-  %.sroa.0.0.ph = phi ptr [ null, %35 ], [ %.sroa.0.4, %64 ], [ %.sroa.0.3, %57 ], [ %34, %32 ], [ %44, %36 ], [ %spec.select, %71 ]
+  %.sroa.0.0.ph = phi ptr [ null, %35 ], [ %.sroa.0.3, %57 ], [ %.sroa.0.4, %64 ], [ %34, %32 ], [ %44, %36 ], [ %spec.select, %71 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %20
 
@@ -17965,7 +17965,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   br label %42
 
 42:                                               ; preds = %36, %30
-  %.sroa.01.0.in = phi i1 [ %41, %36 ], [ %35, %30 ]
+  %.sroa.01.0.in = phi i1 [ %35, %30 ], [ %41, %36 ]
   %43 = zext i1 %.sroa.01.0.in to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %44 = call { i64, i64 } @"_ZN82_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17h80ffd1aae9b36f39E"(i32 noundef %43)
@@ -52960,7 +52960,7 @@ define internal noundef zeroext i1 @"_ZN91_$LT$wasmi..engine..translator..contro
   br label %23
 
 23:                                               ; preds = %20, %18, %15, %12
-  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in
 }
 

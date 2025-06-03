@@ -205,18 +205,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_cm_popretz
   br label %38
 
 38:                                               ; preds = %33, %37, %33, %33
-  %.2.i = phi i64 [ 48, %33 ], [ 48, %33 ], [ 48, %33 ], [ 64, %37 ]
+  %.2.i = phi i64 [ 48, %33 ], [ 48, %33 ], [ 64, %37 ], [ 48, %33 ]
   br label %39
 
 39:                                               ; preds = %33, %33, %38, %33, %33
-  %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ]
+  %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %39, %33, %33
-  %.0.i47 = phi i64 [ 16, %33 ], [ 16, %33 ], [ 16, %33 ], [ 16, %33 ], [ %.4.i, %39 ]
+  %.0.i47 = phi i64 [ 16, %33 ], [ 16, %33 ], [ %.4.i, %39 ], [ 16, %33 ], [ 16, %33 ]
   %40 = shl i64 %1, 2
   %41 = and i64 %40, 48
   %42 = add i64 %36, %41
@@ -467,7 +467,7 @@ define noundef i64 @_Z21fast_rv64i_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %38
 
 38:                                               ; preds = %37, %33
-  %.1.i = phi i64 [ 96, %33 ], [ 112, %37 ]
+  %.1.i = phi i64 [ 112, %37 ], [ 96, %33 ]
   br label %39
 
 39:                                               ; preds = %38, %33, %33
@@ -475,7 +475,7 @@ define noundef i64 @_Z21fast_rv64i_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %40
 
 40:                                               ; preds = %39, %33, %33
-  %.3.i = phi i64 [ 64, %33 ], [ 64, %33 ], [ %.2.i, %39 ]
+  %.3.i = phi i64 [ %.2.i, %39 ], [ 64, %33 ], [ 64, %33 ]
   br label %41
 
 41:                                               ; preds = %40, %33, %33
@@ -483,7 +483,7 @@ define noundef i64 @_Z21fast_rv64i_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %42
 
 42:                                               ; preds = %41, %33, %33
-  %.5.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.4.i, %41 ]
+  %.5.i = phi i64 [ %.4.i, %41 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %33
@@ -725,18 +725,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_cm_popre
   br label %41
 
 41:                                               ; preds = %36, %40, %36, %36
-  %.2.i = phi i64 [ 48, %36 ], [ 48, %36 ], [ 48, %36 ], [ 64, %40 ]
+  %.2.i = phi i64 [ 48, %36 ], [ 48, %36 ], [ 64, %40 ], [ 48, %36 ]
   br label %42
 
 42:                                               ; preds = %36, %36, %41, %36, %36
-  %.4.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ 32, %36 ], [ 32, %36 ], [ %.2.i, %41 ]
+  %.4.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ %.2.i, %41 ], [ 32, %36 ], [ 32, %36 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %36
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %36, %36, %42, %36, %36
-  %.0.i59 = phi i64 [ 16, %36 ], [ 16, %36 ], [ 16, %36 ], [ 16, %36 ], [ %.4.i, %42 ]
+  %.0.i59 = phi i64 [ 16, %36 ], [ 16, %36 ], [ %.4.i, %42 ], [ 16, %36 ], [ 16, %36 ]
   %43 = shl i64 %1, 2
   %44 = and i64 %43, 48
   %45 = add i64 %39, %44
@@ -1081,7 +1081,7 @@ define noundef i64 @_Z23logged_rv64i_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %41
 
 41:                                               ; preds = %40, %36
-  %.1.i = phi i64 [ 96, %36 ], [ 112, %40 ]
+  %.1.i = phi i64 [ 112, %40 ], [ 96, %36 ]
   br label %42
 
 42:                                               ; preds = %41, %36, %36
@@ -1089,7 +1089,7 @@ define noundef i64 @_Z23logged_rv64i_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %43
 
 43:                                               ; preds = %42, %36, %36
-  %.3.i = phi i64 [ 64, %36 ], [ 64, %36 ], [ %.2.i, %42 ]
+  %.3.i = phi i64 [ %.2.i, %42 ], [ 64, %36 ], [ 64, %36 ]
   br label %44
 
 44:                                               ; preds = %43, %36, %36
@@ -1097,7 +1097,7 @@ define noundef i64 @_Z23logged_rv64i_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %45
 
 45:                                               ; preds = %44, %36, %36
-  %.5.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ %.4.i, %44 ]
+  %.5.i = phi i64 [ %.4.i, %44 ], [ 32, %36 ], [ 32, %36 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %36
@@ -1357,18 +1357,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_cm_popretz
   br label %38
 
 38:                                               ; preds = %33, %37, %33, %33
-  %.2.i = phi i64 [ 48, %33 ], [ 48, %33 ], [ 48, %33 ], [ 64, %37 ]
+  %.2.i = phi i64 [ 48, %33 ], [ 48, %33 ], [ 64, %37 ], [ 48, %33 ]
   br label %39
 
 39:                                               ; preds = %33, %33, %38, %33, %33
-  %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ]
+  %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %39, %33, %33
-  %.0.i50 = phi i64 [ 16, %33 ], [ 16, %33 ], [ 16, %33 ], [ 16, %33 ], [ %.4.i, %39 ]
+  %.0.i50 = phi i64 [ 16, %33 ], [ 16, %33 ], [ %.4.i, %39 ], [ 16, %33 ], [ 16, %33 ]
   %40 = shl i64 %1, 2
   %41 = and i64 %40, 48
   %42 = add i64 %36, %41
@@ -1619,7 +1619,7 @@ define noundef i64 @_Z21fast_rv64e_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %38
 
 38:                                               ; preds = %37, %33
-  %.1.i = phi i64 [ 96, %33 ], [ 112, %37 ]
+  %.1.i = phi i64 [ 112, %37 ], [ 96, %33 ]
   br label %39
 
 39:                                               ; preds = %38, %33, %33
@@ -1627,7 +1627,7 @@ define noundef i64 @_Z21fast_rv64e_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %40
 
 40:                                               ; preds = %39, %33, %33
-  %.3.i = phi i64 [ 64, %33 ], [ 64, %33 ], [ %.2.i, %39 ]
+  %.3.i = phi i64 [ %.2.i, %39 ], [ 64, %33 ], [ 64, %33 ]
   br label %41
 
 41:                                               ; preds = %40, %33, %33
@@ -1635,7 +1635,7 @@ define noundef i64 @_Z21fast_rv64e_cm_popretzP11processor_t6insn_tm(ptr noundef 
   br label %42
 
 42:                                               ; preds = %41, %33, %33
-  %.5.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.4.i, %41 ]
+  %.5.i = phi i64 [ %.4.i, %41 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %33
@@ -1893,18 +1893,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_cm_popre
   br label %41
 
 41:                                               ; preds = %36, %40, %36, %36
-  %.2.i = phi i64 [ 48, %36 ], [ 48, %36 ], [ 48, %36 ], [ 64, %40 ]
+  %.2.i = phi i64 [ 48, %36 ], [ 48, %36 ], [ 64, %40 ], [ 48, %36 ]
   br label %42
 
 42:                                               ; preds = %36, %36, %41, %36, %36
-  %.4.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ 32, %36 ], [ 32, %36 ], [ %.2.i, %41 ]
+  %.4.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ %.2.i, %41 ], [ 32, %36 ], [ 32, %36 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %36
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %36, %36, %42, %36, %36
-  %.0.i62 = phi i64 [ 16, %36 ], [ 16, %36 ], [ 16, %36 ], [ 16, %36 ], [ %.4.i, %42 ]
+  %.0.i62 = phi i64 [ 16, %36 ], [ 16, %36 ], [ %.4.i, %42 ], [ 16, %36 ], [ 16, %36 ]
   %43 = shl i64 %1, 2
   %44 = and i64 %43, 48
   %45 = add i64 %39, %44
@@ -2179,7 +2179,7 @@ define noundef i64 @_Z23logged_rv64e_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %41
 
 41:                                               ; preds = %40, %36
-  %.1.i = phi i64 [ 96, %36 ], [ 112, %40 ]
+  %.1.i = phi i64 [ 112, %40 ], [ 96, %36 ]
   br label %42
 
 42:                                               ; preds = %41, %36, %36
@@ -2187,7 +2187,7 @@ define noundef i64 @_Z23logged_rv64e_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %43
 
 43:                                               ; preds = %42, %36, %36
-  %.3.i = phi i64 [ 64, %36 ], [ 64, %36 ], [ %.2.i, %42 ]
+  %.3.i = phi i64 [ %.2.i, %42 ], [ 64, %36 ], [ 64, %36 ]
   br label %44
 
 44:                                               ; preds = %43, %36, %36
@@ -2195,7 +2195,7 @@ define noundef i64 @_Z23logged_rv64e_cm_popretzP11processor_t6insn_tm(ptr nounde
   br label %45
 
 45:                                               ; preds = %44, %36, %36
-  %.5.i = phi i64 [ 32, %36 ], [ 32, %36 ], [ %.4.i, %44 ]
+  %.5.i = phi i64 [ %.4.i, %44 ], [ 32, %36 ], [ 32, %36 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 default.unreachable:                              ; preds = %36

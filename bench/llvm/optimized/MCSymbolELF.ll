@@ -33,7 +33,7 @@ define dso_local void @_ZNK4llvm11MCSymbolELF10setBindingEj(ptr noundef nonnull 
   br label %9
 
 9:                                                ; preds = %2, %8, %7, %6
-  %.0 = phi i64 [ 103079215104, %8 ], [ 68719476736, %7 ], [ 34359738368, %6 ], [ 0, %2 ]
+  %.0 = phi i64 [ 34359738368, %6 ], [ 68719476736, %7 ], [ 103079215104, %8 ], [ 0, %2 ]
   %10 = and i64 %4, -17695265259521
   %11 = or disjoint i64 %10, %.0
   %12 = or disjoint i64 %11, 17592186044416

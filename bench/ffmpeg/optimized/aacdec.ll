@@ -1337,7 +1337,7 @@ thread-pre-split.thread:                          ; preds = %.thread206, %193, %
   br label %235
 
 235:                                              ; preds = %71, %41, %thread-pre-split, %226, %229, %220, %209, %197, %184, %157, %145, %118, %109, %98, %81, %8
-  %.0 = phi ptr [ null, %41 ], [ null, %71 ], [ %231, %229 ], [ %212, %209 ], [ %222, %220 ], [ %188, %184 ], [ %199, %197 ], [ %159, %157 ], [ %149, %145 ], [ %120, %118 ], [ %111, %109 ], [ %104, %98 ], [ %87, %81 ], [ %13, %8 ], [ null, %226 ], [ null, %thread-pre-split ]
+  %.0 = phi ptr [ %87, %81 ], [ %104, %98 ], [ %111, %109 ], [ %120, %118 ], [ %149, %145 ], [ %159, %157 ], [ %188, %184 ], [ %199, %197 ], [ %212, %209 ], [ %222, %220 ], [ %231, %229 ], [ null, %71 ], [ null, %41 ], [ %13, %8 ], [ null, %226 ], [ null, %thread-pre-split ]
   ret ptr %.0
 }
 
@@ -6066,7 +6066,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %89
 
 89:                                               ; preds = %86, %84, %81
-  %.272.us = phi i32 [ %83, %81 ], [ %85, %84 ], [ %88, %86 ]
+  %.272.us = phi i32 [ %88, %86 ], [ %85, %84 ], [ %83, %81 ]
   %90 = icmp sgt i32 %.272.us, -1
   br i1 %90, label %.thread118, label %frame_configure_elements.exit
 
@@ -6126,7 +6126,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %113
 
 113:                                              ; preds = %105, %108, %110
-  %.272 = phi i32 [ %112, %110 ], [ %109, %108 ], [ %107, %105 ]
+  %.272 = phi i32 [ %107, %105 ], [ %109, %108 ], [ %112, %110 ]
   %114 = icmp sgt i32 %.272, -1
   br i1 %114, label %.thread123, label %frame_configure_elements.exit
 
@@ -6961,7 +6961,7 @@ pop_output_configuration.exit.i:                  ; preds = %push_output_configu
   br label %412
 
 412:                                              ; preds = %411, %410
-  %.061.i.i = phi i32 [ 0, %410 ], [ 1, %411 ]
+  %.061.i.i = phi i32 [ 1, %411 ], [ 0, %410 ]
   br i1 %.not64.i.i, label %413, label %415
 
 413:                                              ; preds = %412
@@ -7478,16 +7478,16 @@ decode_fill.exit.i.i:                             ; preds = %696, %693, %659
   br label %decode_extension_payload.exit.i
 
 decode_extension_payload.exit.i:                  ; preds = %707, %decode_fill.exit.i.i, %decode_dynamic_range.exit.i.i, %479, %477, %472, %445, %432, %421, %413
-  %.0.i195.i = phi i32 [ %.1144.i, %421 ], [ %.1144.i, %445 ], [ %.1144.i, %432 ], [ %.1144.i, %413 ], [ %.1144.i, %707 ], [ %.1144.i, %decode_fill.exit.i.i ], [ %658, %decode_dynamic_range.exit.i.i ], [ %.1144.i, %477 ], [ %.1144.i, %479 ], [ %.1144.i, %472 ]
+  %.0.i195.i = phi i32 [ %.1144.i, %421 ], [ %.1144.i, %445 ], [ %.1144.i, %432 ], [ %.1144.i, %413 ], [ %.1144.i, %707 ], [ %.1144.i, %477 ], [ %.1144.i, %479 ], [ %.1144.i, %472 ], [ %658, %decode_dynamic_range.exit.i.i ], [ %.1144.i, %decode_fill.exit.i.i ]
   %716 = icmp slt i32 %.0.i195.i, 0
   %717 = sub nsw i32 %.1144.i, %.0.i195.i
   br i1 %716, label %decode_frame_ga.exit.thread, label %389
 
 skip_data_stream_element.exit.i:                  ; preds = %pop_output_configuration.exit.thread.i, %285, %282, %280, %276
-  %.1162.i = phi i32 [ 1, %285 ], [ %.0161.i, %282 ], [ 1, %280 ], [ 1, %276 ], [ %.0161.i, %pop_output_configuration.exit.thread.i ]
-  %.1158.i = phi i32 [ %.0157.i, %285 ], [ %.0157.i, %282 ], [ %.0157.i, %280 ], [ %.0157.i, %276 ], [ %.2159.ph.i, %pop_output_configuration.exit.thread.i ]
-  %.1156.i = phi i32 [ %.0155.i, %285 ], [ %.0155.i, %282 ], [ %.0155.i, %280 ], [ %279, %276 ], [ %.0155.i, %pop_output_configuration.exit.thread.i ]
-  %.1138.i = phi i32 [ %287, %285 ], [ %284, %282 ], [ %281, %280 ], [ %278, %276 ], [ %.2139.ph.i, %pop_output_configuration.exit.thread.i ]
+  %.1162.i = phi i32 [ 1, %276 ], [ 1, %280 ], [ %.0161.i, %282 ], [ 1, %285 ], [ %.0161.i, %pop_output_configuration.exit.thread.i ]
+  %.1158.i = phi i32 [ %.0157.i, %276 ], [ %.0157.i, %280 ], [ %.0157.i, %282 ], [ %.0157.i, %285 ], [ %.2159.ph.i, %pop_output_configuration.exit.thread.i ]
+  %.1156.i = phi i32 [ %279, %276 ], [ %.0155.i, %280 ], [ %.0155.i, %282 ], [ %.0155.i, %285 ], [ %.0155.i, %pop_output_configuration.exit.thread.i ]
+  %.1138.i = phi i32 [ %278, %276 ], [ %281, %280 ], [ %284, %282 ], [ %287, %285 ], [ %.2139.ph.i, %pop_output_configuration.exit.thread.i ]
   %.not185.i = icmp eq i32 %.1138.i, 0
   br i1 %.not185.i, label %skip_data_stream_element.exit._crit_edge.i, label %decode_frame_ga.exit
 
@@ -7632,8 +7632,8 @@ skip_data_stream_element.exit._crit_edge.i:       ; preds = %389, %skip_data_str
 default.unreachable.i:                            ; preds = %275
   unreachable
 
-decode_frame_ga.exit.thread:                      ; preds = %253, %264, %decode_extension_payload.exit.i, %721, %388, %pop_output_configuration.exit.i, %270, %751, %335
-  %.1.i.ph = phi i32 [ -1094995529, %335 ], [ -1094995529, %751 ], [ -1094995529, %270 ], [ -1094995529, %pop_output_configuration.exit.i ], [ -1094995529, %388 ], [ -1094995529, %721 ], [ %.0.i195.i, %decode_extension_payload.exit.i ], [ -1094995529, %264 ], [ -1094995529, %253 ]
+decode_frame_ga.exit.thread:                      ; preds = %253, %264, %decode_extension_payload.exit.i, %721, %pop_output_configuration.exit.i, %388, %270, %751, %335
+  %.1.i.ph = phi i32 [ -1094995529, %335 ], [ -1094995529, %751 ], [ -1094995529, %270 ], [ -1094995529, %388 ], [ -1094995529, %pop_output_configuration.exit.i ], [ -1094995529, %721 ], [ %.0.i195.i, %decode_extension_payload.exit.i ], [ -1094995529, %264 ], [ -1094995529, %253 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %frame_configure_elements.exit

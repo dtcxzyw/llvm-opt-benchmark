@@ -245,7 +245,7 @@ define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %0, i32 noundef %1, i
   br label %16
 
 16:                                               ; preds = %4, %12, %14, %9, %5
-  %.0 = phi i32 [ 1, %14 ], [ 1, %9 ], [ 1, %5 ], [ 0, %12 ], [ -1, %4 ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %9 ], [ 1, %14 ], [ 0, %12 ], [ -1, %4 ]
   ret i32 %.0
 }
 

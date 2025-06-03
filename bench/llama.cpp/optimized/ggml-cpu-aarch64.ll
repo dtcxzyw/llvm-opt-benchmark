@@ -3733,7 +3733,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -4716,7 +4716,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -5808,7 +5808,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -7049,7 +7049,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI12bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 

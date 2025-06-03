@@ -292,7 +292,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   unreachable
 
 38:                                               ; preds = %39, %34
-  %.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %35, %34 ]
+  %.pn.i = phi { ptr, i32 } [ %35, %34 ], [ %40, %39 ]
   resume { ptr, i32 } %.pn.i
 
 39:                                               ; preds = %33

@@ -671,7 +671,7 @@ define hidden noundef i32 @_ZN10duckdb_re29ApplyFoldEPKNS_8CaseFoldEi(ptr nounde
   br label %29
 
 29:                                               ; preds = %18, %7, %27, %25, %16, %14, %5
-  %.0 = phi i32 [ %6, %5 ], [ %26, %25 ], [ %28, %27 ], [ %15, %14 ], [ %17, %16 ], [ %1, %7 ], [ %1, %18 ]
+  %.0 = phi i32 [ %6, %5 ], [ %15, %14 ], [ %17, %16 ], [ %26, %25 ], [ %28, %27 ], [ %1, %7 ], [ %1, %18 ]
   ret i32 %.0
 }
 
@@ -776,7 +776,7 @@ _ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11: ; preds = %10, 
   br label %_ZN10duckdb_re29ApplyFoldEPKNS_8CaseFoldEi.exit
 
 _ZN10duckdb_re29ApplyFoldEPKNS_8CaseFoldEi.exit:  ; preds = %1, %._crit_edge.i, %43, %41, %35, %33, %31, %25, %23, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11
-  %.0 = phi i32 [ %0, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11 ], [ %24, %23 ], [ %42, %41 ], [ %44, %43 ], [ %32, %31 ], [ %34, %33 ], [ %0, %25 ], [ %0, %35 ], [ %0, %._crit_edge.i ], [ %0, %1 ]
+  %.0 = phi i32 [ %0, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11 ], [ %24, %23 ], [ %32, %31 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ], [ %0, %25 ], [ %0, %35 ], [ %0, %._crit_edge.i ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -991,7 +991,7 @@ _ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39: ; preds = %
   br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
 
 _ZN10duckdb_re213CycleFoldRuneEi.exit50:          ; preds = %._crit_edge.i.i46, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39, %68, %70, %76, %78, %80, %86, %88
-  %.0.i33 = phi i32 [ %.023, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39 ], [ %69, %68 ], [ %87, %86 ], [ %89, %88 ], [ %77, %76 ], [ %79, %78 ], [ %.023, %70 ], [ %.023, %80 ], [ %.023, %._crit_edge.i.i46 ]
+  %.0.i33 = phi i32 [ %.023, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39 ], [ %69, %68 ], [ %77, %76 ], [ %79, %78 ], [ %87, %86 ], [ %89, %88 ], [ %.023, %70 ], [ %.023, %80 ], [ %.023, %._crit_edge.i.i46 ]
   %.not32 = icmp eq i32 %.0.i33, %1
   br i1 %.not32, label %.sink.split, label %39, !llvm.loop !57
 
@@ -2955,8 +2955,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %231
 
 148:                                              ; preds = %_ZN10LogMessageD2Ev.exit, %111, %101
-  %.267 = phi i32 [ %.166.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %113, %111 ], [ %103, %101 ]
-  %.2 = phi i32 [ %.164.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %118, %111 ], [ %108, %101 ]
+  %.267 = phi i32 [ %.166.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %103, %101 ], [ %113, %111 ]
+  %.2 = phi i32 [ %.164.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %108, %101 ], [ %118, %111 ]
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.099.0141, i64 24
   %150 = load ptr, ptr %46, align 8, !tbaa !107
   %151 = icmp eq ptr %149, %150
@@ -3264,9 +3264,9 @@ define hidden void @_ZN10duckdb_re221FactorAlternationImpl6Round1EPPNS_6RegexpEi
   br label %_ZN10duckdb_re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit
 
 _ZN10duckdb_re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit: ; preds = %.thread.i, %.critedge.i, %29, %31
-  %.2.in.in = phi i16 [ %28, %31 ], [ %28, %29 ], [ %19, %.thread.i ], [ %28, %.critedge.i ]
-  %.170 = phi i32 [ %36, %31 ], [ 1, %29 ], [ 0, %.thread.i ], [ 0, %.critedge.i ]
-  %.0.i = phi ptr [ %35, %31 ], [ %30, %29 ], [ null, %.thread.i ], [ null, %.critedge.i ]
+  %.2.in.in = phi i16 [ %28, %29 ], [ %28, %31 ], [ %19, %.thread.i ], [ %28, %.critedge.i ]
+  %.170 = phi i32 [ 1, %29 ], [ %36, %31 ], [ 0, %.thread.i ], [ 0, %.critedge.i ]
+  %.0.i = phi ptr [ %30, %29 ], [ %35, %31 ], [ null, %.thread.i ], [ null, %.critedge.i ]
   %.2.in = and i16 %.2.in.in, 1
   %.2 = zext nneg i16 %.2.in to i32
   %37 = icmp eq i32 %.04588, %.2
@@ -5824,7 +5824,7 @@ thread-pre-split:                                 ; preds = %53, %40
   br label %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread
 
 _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread: ; preds = %107, %.thread28.i, %32, %113, %50, %81, %132, %138, %139, %140, %141, %142, %143, %.thread, %84, %90, %117, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
-  %.166 = phi i1 [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ], [ false, %.thread ], [ true, %50 ], [ true, %143 ], [ true, %142 ], [ true, %141 ], [ true, %140 ], [ true, %139 ], [ true, %138 ], [ true, %132 ], [ true, %81 ], [ false, %84 ], [ false, %90 ], [ false, %117 ], [ true, %113 ], [ false, %32 ], [ false, %.thread28.i ], [ false, %107 ]
+  %.166 = phi i1 [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ], [ false, %.thread ], [ true, %50 ], [ true, %81 ], [ true, %132 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %142 ], [ true, %143 ], [ false, %84 ], [ false, %90 ], [ false, %117 ], [ true, %113 ], [ false, %32 ], [ false, %.thread28.i ], [ false, %107 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #32
   br label %149
@@ -6774,9 +6774,9 @@ _ZN10duckdb_re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %137
   br label %.loopexit
 
 144:                                              ; preds = %135, %131, %133, %125, %127, %119, %121, %113, %115
-  %.138 = phi i8 [ 1, %131 ], [ 0, %133 ], [ 1, %125 ], [ 0, %127 ], [ 1, %119 ], [ 0, %121 ], [ 1, %113 ], [ 0, %115 ], [ 1, %135 ]
-  %.136 = phi i1 [ true, %131 ], [ true, %133 ], [ true, %125 ], [ true, %127 ], [ true, %119 ], [ true, %121 ], [ true, %113 ], [ true, %115 ], [ false, %135 ]
-  %.134 = phi i32 [ %132, %131 ], [ %134, %133 ], [ %126, %125 ], [ %128, %127 ], [ %120, %119 ], [ %122, %121 ], [ %114, %113 ], [ %116, %115 ], [ %.03373133, %135 ]
+  %.138 = phi i8 [ 1, %113 ], [ 0, %115 ], [ 1, %119 ], [ 0, %121 ], [ 1, %125 ], [ 0, %127 ], [ 1, %131 ], [ 0, %133 ], [ 1, %135 ]
+  %.136 = phi i1 [ true, %113 ], [ true, %115 ], [ true, %119 ], [ true, %121 ], [ true, %125 ], [ true, %127 ], [ true, %131 ], [ true, %133 ], [ false, %135 ]
+  %.134 = phi i32 [ %114, %113 ], [ %116, %115 ], [ %120, %119 ], [ %122, %121 ], [ %126, %125 ], [ %128, %127 ], [ %132, %131 ], [ %134, %133 ], [ %.03373133, %135 ]
   %145 = icmp eq i64 %108, 0
   br i1 %145, label %.thread, label %.lr.ph, !llvm.loop !207
 
@@ -6806,7 +6806,7 @@ _ZN10duckdb_re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %137
   br label %.thread50
 
 .thread50:                                        ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit, %.thread28.i, %104, %.thread, %147
-  %.4 = phi i1 [ false, %.thread ], [ true, %147 ], [ false, %104 ], [ false, %.thread28.i ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ]
+  %.4 = phi i1 [ true, %147 ], [ false, %.thread ], [ false, %104 ], [ false, %.thread28.i ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
   br label %155
 
@@ -7476,7 +7476,7 @@ _ZN10duckdb_re26Regexp10ParseState9PushCaretEv.exit: ; preds = %_ZN10duckdb_re26
   br label %208
 
 208:                                              ; preds = %94, %207, %206
-  %.065 = phi i32 [ 9, %207 ], [ 8, %206 ], [ 7, %94 ]
+  %.065 = phi i32 [ 8, %206 ], [ 9, %207 ], [ 7, %94 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !16
   %209 = getelementptr inbounds nuw i8, ptr %96, i64 1
@@ -8233,8 +8233,8 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duc
   br label %.thread235
 
 .critedge118thread-pre-split:                     ; preds = %386, %485, %438, %205, %123, %469, %.critedge114, %.critedge112, %134
-  %.sroa.9.1.ph = phi i64 [ 0, %134 ], [ 0, %438 ], [ 0, %205 ], [ %235, %.critedge112 ], [ %.sroa.7.3, %.critedge114 ], [ 0, %469 ], [ 0, %485 ], [ 0, %123 ], [ %387, %386 ]
-  %.sroa.0186.1.ph = phi ptr [ null, %134 ], [ null, %438 ], [ null, %205 ], [ %232, %.critedge112 ], [ %.sroa.0191.3, %.critedge114 ], [ null, %469 ], [ null, %485 ], [ null, %123 ], [ null, %386 ]
+  %.sroa.9.1.ph = phi i64 [ 0, %134 ], [ 0, %438 ], [ 0, %469 ], [ 0, %485 ], [ %.sroa.7.3, %.critedge114 ], [ %235, %.critedge112 ], [ 0, %205 ], [ 0, %123 ], [ %387, %386 ]
+  %.sroa.0186.1.ph = phi ptr [ null, %134 ], [ null, %438 ], [ null, %469 ], [ null, %485 ], [ %.sroa.0191.3, %.critedge114 ], [ %232, %.critedge112 ], [ null, %205 ], [ null, %123 ], [ null, %386 ]
   %.pr414 = load i64, ptr %63, align 8, !tbaa !97
   br label %.critedge118
 
@@ -8253,8 +8253,8 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #32
   br label %.thread235
 
-.thread235:                                       ; preds = %162, %134, %440, %.critedge120, %.critedge116, %.critedge110, %.critedge108, %.loopexit249, %.loopexit248, %._crit_edge330, %._crit_edge, %.critedge
-  %.2 = phi ptr [ null, %.critedge ], [ %93, %._crit_edge ], [ %488, %._crit_edge330 ], [ null, %.loopexit248 ], [ null, %.loopexit249 ], [ null, %.critedge108 ], [ null, %.critedge110 ], [ null, %.critedge116 ], [ null, %.critedge120 ], [ null, %440 ], [ null, %134 ], [ null, %162 ]
+.thread235:                                       ; preds = %162, %134, %440, %.critedge120, %.critedge116, %.critedge110, %.critedge108, %.loopexit248, %.loopexit249, %._crit_edge330, %._crit_edge, %.critedge
+  %.2 = phi ptr [ null, %.critedge ], [ %93, %._crit_edge ], [ %488, %._crit_edge330 ], [ null, %.loopexit249 ], [ null, %.loopexit248 ], [ null, %.critedge108 ], [ null, %.critedge110 ], [ null, %.critedge116 ], [ null, %.critedge120 ], [ null, %440 ], [ null, %134 ], [ null, %162 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
   %489 = load ptr, ptr %23, align 8, !tbaa !20
   br label %490
@@ -8343,7 +8343,7 @@ _ZN10duckdb_re212RegexpStatusD2Ev.exit:           ; preds = %_ZN10duckdb_re26Reg
   ret ptr %.2
 
 .body:                                            ; preds = %.loopexit247, %.loopexit.split-lp, %.loopexit251, %.loopexit.split-lp252, %98, %142, %common.resume.i144, %100, %370, %360, %common.resume.i, %480, %475, %473, %471, %434, %436, %417, %328, %221, %200, %147, %119, %86, %59
-  %.pn104 = phi { ptr, i32 } [ %87, %86 ], [ %60, %59 ], [ %99, %98 ], [ %120, %119 ], [ %418, %417 ], [ %.pn96, %328 ], [ %222, %221 ], [ %201, %200 ], [ %148, %147 ], [ %437, %436 ], [ %435, %434 ], [ %481, %480 ], [ %472, %471 ], [ %476, %475 ], [ %474, %473 ], [ %143, %142 ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i145, %common.resume.i144 ], [ %361, %360 ], [ %101, %100 ], [ %371, %370 ], [ %lpad.loopexit253, %.loopexit251 ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp252 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn104 = phi { ptr, i32 } [ %87, %86 ], [ %60, %59 ], [ %99, %98 ], [ %120, %119 ], [ %148, %147 ], [ %201, %200 ], [ %222, %221 ], [ %.pn96, %328 ], [ %418, %417 ], [ %437, %436 ], [ %435, %434 ], [ %481, %480 ], [ %472, %471 ], [ %476, %475 ], [ %474, %473 ], [ %143, %142 ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i145, %common.resume.i144 ], [ %361, %360 ], [ %101, %100 ], [ %371, %370 ], [ %lpad.loopexit253, %.loopexit251 ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp252 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
   call void @_ZN10duckdb_re26Regexp10ParseStateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #32
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #32
@@ -9524,7 +9524,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIiEESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit75: ;
   br label %158
 
 158:                                              ; preds = %96, %141, %157, %154, %69
-  %.265 = phi i32 [ %75, %69 ], [ %82, %96 ], [ %151, %154 ], [ %151, %157 ], [ %151, %141 ]
+  %.265 = phi i32 [ %75, %69 ], [ %151, %154 ], [ %151, %157 ], [ %151, %141 ], [ %82, %96 ]
   %159 = load ptr, ptr %35, align 8, !tbaa !227
   %160 = load ptr, ptr %44, align 8, !tbaa !236
   %.not.i.i = icmp eq ptr %159, %160

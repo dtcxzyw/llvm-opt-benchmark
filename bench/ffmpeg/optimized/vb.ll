@@ -470,7 +470,7 @@ bytestream2_get_byte.exit157.i:                   ; preds = %188, %bytestream2_g
   br label %199
 
 199:                                              ; preds = %197, %bytestream2_get_byte.exit153.i
-  %.0125.i = phi i32 [ %179, %bytestream2_get_byte.exit153.i ], [ %198, %197 ]
+  %.0125.i = phi i32 [ %198, %197 ], [ %179, %bytestream2_get_byte.exit153.i ]
   %200 = ptrtoint ptr %171 to i64
   %201 = sub i64 %23, %200
   %202 = icmp slt i64 %201, 1

@@ -303,7 +303,7 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
   %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, i32 noundef %93) #6
   br label %_script_list_create.exit.thread80
 
-_script_list_create.exit.thread80:                ; preds = %92, %108, %106, %104
+_script_list_create.exit.thread80:                ; preds = %92, %108, %104, %106
   call void @globfree(ptr noundef nonnull %4) #6
   br label %.thread88.sink.split
 

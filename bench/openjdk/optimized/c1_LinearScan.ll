@@ -1253,8 +1253,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 _ZN10LinearScan25calc_operand_for_intervalEPK8Interval.exit: ; preds = %switch.lookup, %107, %111, %115, %119, %123, %133, %136, %142, %149
-  %.pre = phi ptr [ %80, %switch.lookup ], [ %80, %142 ], [ %.pre.pre, %149 ], [ %80, %133 ], [ %80, %136 ], [ %80, %123 ], [ %80, %119 ], [ %80, %115 ], [ %80, %111 ], [ %80, %107 ]
-  %.sroa.0.0.i30 = phi i64 [ %.sroa.014.0.i.i32, %switch.lookup ], [ %148, %142 ], [ %151, %149 ], [ %135, %133 ], [ %138, %136 ], [ %128, %123 ], [ %122, %119 ], [ %118, %115 ], [ %114, %111 ], [ %110, %107 ]
+  %.pre = phi ptr [ %80, %switch.lookup ], [ %80, %107 ], [ %80, %111 ], [ %80, %115 ], [ %80, %119 ], [ %80, %123 ], [ %80, %133 ], [ %80, %136 ], [ %80, %142 ], [ %.pre.pre, %149 ]
+  %.sroa.0.0.i30 = phi i64 [ %.sroa.014.0.i.i32, %switch.lookup ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %128, %123 ], [ %135, %133 ], [ %138, %136 ], [ %148, %142 ], [ %151, %149 ]
   store i64 %.sroa.0.0.i30, ptr %89, align 8
   br label %_ZN10LinearScan20operand_for_intervalEP8Interval.exit
 
@@ -1361,7 +1361,7 @@ default.unreachable:                              ; preds = %184
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit.i:                       ; preds = %184, %192, %191, %190, %189, %188, %187
-  %.0.i.i = phi i8 [ 17, %192 ], [ 15, %191 ], [ 12, %190 ], [ 7, %189 ], [ 6, %188 ], [ 11, %187 ], [ 10, %184 ]
+  %.0.i.i = phi i8 [ 11, %187 ], [ 6, %188 ], [ 7, %189 ], [ 12, %190 ], [ 15, %191 ], [ 17, %192 ], [ 10, %184 ]
   %195 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i64 %.sroa.014.0.i.i, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -11048,7 +11048,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 63:                                               ; preds = %58, %51, %45, %42, %32, %28, %24, %20, %16, %switch.lookup
-  %.sroa.0.0 = phi i64 [ %.sroa.014.0.i, %switch.lookup ], [ %57, %51 ], [ %60, %58 ], [ %44, %42 ], [ %47, %45 ], [ %37, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.014.0.i, %switch.lookup ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %37, %32 ], [ %44, %42 ], [ %47, %45 ], [ %57, %51 ], [ %60, %58 ]
   ret i64 %.sroa.0.0
 }
 
@@ -13438,7 +13438,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 _ZN10LinearScan25calc_operand_for_intervalEPK8Interval.exit: ; preds = %switch.lookup, %147, %151, %155, %159, %163, %173, %176, %182, %189
-  %.sroa.0.0.i = phi i64 [ %.sroa.014.0.i.i, %switch.lookup ], [ %188, %182 ], [ %191, %189 ], [ %175, %173 ], [ %178, %176 ], [ %168, %163 ], [ %162, %159 ], [ %158, %155 ], [ %154, %151 ], [ %150, %147 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.014.0.i.i, %switch.lookup ], [ %150, %147 ], [ %154, %151 ], [ %158, %155 ], [ %162, %159 ], [ %168, %163 ], [ %175, %173 ], [ %178, %176 ], [ %188, %182 ], [ %191, %189 ]
   store i64 %.sroa.0.0.i, ptr %129, align 8
   br label %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
 
@@ -14876,7 +14876,7 @@ default.unreachable:                              ; preds = %208, %133
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit.i:                       ; preds = %133, %141, %140, %139, %138, %137, %136
-  %.0.i.i77 = phi i8 [ 17, %141 ], [ 15, %140 ], [ 12, %139 ], [ 7, %138 ], [ 6, %137 ], [ 11, %136 ], [ 10, %133 ]
+  %.0.i.i77 = phi i8 [ 11, %136 ], [ 6, %137 ], [ 7, %138 ], [ 12, %139 ], [ 15, %140 ], [ 17, %141 ], [ 10, %133 ]
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 8
   store i64 %.sroa.015.0.i.i9.i, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 16
@@ -15044,7 +15044,7 @@ _ZN22CompilationResourceObjnwEm.exit.i79:         ; preds = %205, %203
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit.i81:                     ; preds = %208, %216, %215, %214, %213, %212, %211
-  %.0.i.i82 = phi i8 [ 17, %216 ], [ 15, %215 ], [ 12, %214 ], [ 7, %213 ], [ 6, %212 ], [ 11, %211 ], [ 10, %208 ]
+  %.0.i.i82 = phi i8 [ 11, %211 ], [ 6, %212 ], [ 7, %213 ], [ 12, %214 ], [ 15, %215 ], [ 17, %216 ], [ 10, %208 ]
   %219 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 8
   store i64 %.sroa.015.0.i.i.i54, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 16

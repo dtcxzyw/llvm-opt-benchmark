@@ -3634,6 +3634,12 @@ _ir_skip_empty_blocks.exit.i:                     ; preds = %.lr.ph.i.i, %ir_bit
   %498 = add i32 %.0487.ph.i.ph, 1
   br label %.outer657.i.outer.backedge
 
+.outer657.i.outer.backedge:                       ; preds = %_ir_skip_empty_blocks.exit617.i, %_ir_skip_empty_blocks.exit.i, %625, %_ir_skip_empty_blocks.exit612.i, %640
+  %.sroa.4.0.ph.i.ph.be = phi i32 [ %.sroa.4.5.i, %640 ], [ %.sroa.4.5.i, %_ir_skip_empty_blocks.exit612.i ], [ %.sroa.4.4.i, %625 ], [ %.sroa.4.2.i, %_ir_skip_empty_blocks.exit.i ], [ %.sroa.4.7.i, %_ir_skip_empty_blocks.exit617.i ]
+  %.0505.ph.i.ph.be = phi ptr [ %.4509.i, %640 ], [ %.4509.i, %_ir_skip_empty_blocks.exit612.i ], [ %627, %625 ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit.i ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit617.i ]
+  %.0487.ph.i.ph.be = phi i32 [ %.3.i70, %640 ], [ %668, %_ir_skip_empty_blocks.exit612.i ], [ %.3.i70, %625 ], [ %498, %_ir_skip_empty_blocks.exit.i ], [ %736, %_ir_skip_empty_blocks.exit617.i ]
+  br label %.outer657.i.outer
+
 499:                                              ; preds = %455
   %500 = load ptr, ptr %0, align 8, !tbaa !32
   %501 = getelementptr inbounds nuw i8, ptr %404, i64 8
@@ -3860,12 +3866,6 @@ _ir_skip_empty_blocks.exit607.i:                  ; preds = %.lr.ph.i605.i, %593
   store i32 %515, ptr %.4509.i, align 4, !tbaa !35
   %627 = getelementptr inbounds i8, ptr %.4509.i, i64 -4
   br label %.outer657.i.outer.backedge
-
-.outer657.i.outer.backedge:                       ; preds = %_ir_skip_empty_blocks.exit617.i, %625, %_ir_skip_empty_blocks.exit612.i, %640, %_ir_skip_empty_blocks.exit.i
-  %.sroa.4.0.ph.i.ph.be = phi i32 [ %.sroa.4.2.i, %_ir_skip_empty_blocks.exit.i ], [ %.sroa.4.5.i, %640 ], [ %.sroa.4.5.i, %_ir_skip_empty_blocks.exit612.i ], [ %.sroa.4.4.i, %625 ], [ %.sroa.4.7.i, %_ir_skip_empty_blocks.exit617.i ]
-  %.0505.ph.i.ph.be = phi ptr [ %.1506.ph.i, %_ir_skip_empty_blocks.exit.i ], [ %.4509.i, %640 ], [ %.4509.i, %_ir_skip_empty_blocks.exit612.i ], [ %627, %625 ], [ %.1506.ph.i, %_ir_skip_empty_blocks.exit617.i ]
-  %.0487.ph.i.ph.be = phi i32 [ %498, %_ir_skip_empty_blocks.exit.i ], [ %.3.i70, %640 ], [ %668, %_ir_skip_empty_blocks.exit612.i ], [ %.3.i70, %625 ], [ %736, %_ir_skip_empty_blocks.exit617.i ]
-  br label %.outer657.i.outer
 
 628:                                              ; preds = %622, %615
   %629 = lshr i32 %515, 6

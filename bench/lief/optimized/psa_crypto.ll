@@ -190,7 +190,7 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   br label %20
 
 20:                                               ; preds = %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ -132, %19 ], [ -147, %18 ], [ -133, %17 ], [ -146, %16 ], [ -148, %15 ], [ -151, %14 ], [ -150, %13 ], [ -137, %12 ], [ -149, %11 ], [ -138, %10 ], [ -141, %9 ], [ -135, %8 ], [ -135, %7 ], [ -134, %6 ], [ %5, %1 ]
+  %.0 = phi i32 [ -132, %19 ], [ -134, %6 ], [ -135, %7 ], [ -135, %8 ], [ -141, %9 ], [ -138, %10 ], [ -149, %11 ], [ -137, %12 ], [ -150, %13 ], [ -151, %14 ], [ -148, %15 ], [ -146, %16 ], [ -133, %17 ], [ -147, %18 ], [ %5, %1 ]
   ret i32 %.0
 }
 
@@ -8978,7 +8978,7 @@ switch.lookup84:                                  ; preds = %switch.hole_check83
   br label %psa_hkdf_input.exit
 
 psa_hkdf_input.exit:                              ; preds = %19, %22, %24, %psa_key_derivation_start_hmac.exit.i, %50, %59, %66, %72, %psa_key_derivation_start_hmac.exit143.i, %97, %100, %psa_mac_update.exit.thread149.i, %psa_mac_update.exit.thread.i, %135, %144, %147, %148, %153, %160, %164
-  %.0.i35 = phi i32 [ 0, %164 ], [ 0, %50 ], [ -135, %22 ], [ -137, %24 ], [ %49, %psa_key_derivation_start_hmac.exit.i ], [ -137, %59 ], [ -135, %66 ], [ -137, %72 ], [ %92, %psa_key_derivation_start_hmac.exit143.i ], [ -137, %97 ], [ %121, %psa_mac_update.exit.thread.i ], [ 0, %144 ], [ 0, %135 ], [ -135, %147 ], [ -137, %148 ], [ -137, %153 ], [ -141, %160 ], [ -135, %19 ], [ %.0.i.ph.i, %psa_mac_update.exit.thread149.i ], [ -137, %100 ]
+  %.0.i35 = phi i32 [ 0, %50 ], [ 0, %164 ], [ -135, %22 ], [ -137, %24 ], [ %49, %psa_key_derivation_start_hmac.exit.i ], [ -137, %59 ], [ -135, %66 ], [ -137, %72 ], [ %92, %psa_key_derivation_start_hmac.exit143.i ], [ -137, %97 ], [ %121, %psa_mac_update.exit.thread.i ], [ 0, %144 ], [ 0, %135 ], [ -135, %147 ], [ -137, %148 ], [ -137, %153 ], [ -141, %160 ], [ -135, %19 ], [ %.0.i.ph.i, %psa_mac_update.exit.thread149.i ], [ -137, %100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %psa_key_derivation_check_input_type.exit
 
@@ -9245,7 +9245,7 @@ define hidden i32 @psa_key_agreement_raw_builtin(ptr noundef %0, ptr noundef %1,
   br label %14
 
 14:                                               ; preds = %9, %12, %10
-  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ -134, %9 ]
+  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -134, %9 ]
   ret i32 %.0
 }
 
@@ -9325,7 +9325,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   br label %psa_key_agreement_raw_internal.exit.i
 
 psa_key_agreement_raw_internal.exit.i:            ; preds = %38, %36
-  %.0.i.i = phi i32 [ %39, %38 ], [ %37, %36 ]
+  %.0.i.i = phi i32 [ %37, %36 ], [ %39, %38 ]
   %.not.i26 = icmp eq i32 %.0.i.i, 0
   %.pre11.i = load i64, ptr %7, align 8, !tbaa !25
   br i1 %.not.i26, label %psa_crypto_local_input_alloc.exit, label %psa_crypto_local_input_alloc.exit.thread51
@@ -9566,7 +9566,7 @@ define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr n
   br label %psa_driver_wrapper_key_agreement.exit
 
 psa_driver_wrapper_key_agreement.exit:            ; preds = %18, %16, %15, %9, %7
-  %.0 = phi i32 [ -134, %7 ], [ -134, %9 ], [ %19, %18 ], [ %17, %16 ], [ -134, %15 ]
+  %.0 = phi i32 [ -134, %7 ], [ -134, %9 ], [ %17, %16 ], [ %19, %18 ], [ -134, %15 ]
   ret i32 %.0
 }
 
@@ -11648,7 +11648,7 @@ psa_key_derivation_input_bytes.exit:              ; preds = %21, %25
   br label %psa_driver_wrapper_pake_get_implicit_key.exit.thread
 
 psa_driver_wrapper_pake_get_implicit_key.exit.thread: ; preds = %14, %11, %7, %psa_driver_wrapper_pake_get_implicit_key.exit, %psa_key_derivation_input_bytes.exit
-  %.013.ph = phi i32 [ -134, %7 ], [ %.0.i18, %psa_key_derivation_input_bytes.exit ], [ %17, %psa_driver_wrapper_pake_get_implicit_key.exit ], [ -137, %11 ], [ -135, %14 ]
+  %.013.ph = phi i32 [ -134, %7 ], [ -137, %11 ], [ %.0.i18, %psa_key_derivation_input_bytes.exit ], [ %17, %psa_driver_wrapper_pake_get_implicit_key.exit ], [ -135, %14 ]
   %.pr = load i8, ptr %5, align 4, !tbaa !120
   %27 = icmp eq i8 %.pr, 2
   br i1 %27, label %28, label %psa_driver_wrapper_pake_abort.exit.i

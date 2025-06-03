@@ -186,7 +186,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr noundef 
   br label %24
 
 24:                                               ; preds = %1, %23, %21, %19
-  %.0 = phi i32 [ -1, %21 ], [ -1, %19 ], [ 0, %23 ], [ -1, %1 ]
+  %.0 = phi i32 [ -1, %21 ], [ 0, %23 ], [ -1, %19 ], [ -1, %1 ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %2) #9
   ret i32 %.0

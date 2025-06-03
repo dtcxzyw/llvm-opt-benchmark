@@ -886,7 +886,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %5
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %5 ]
+  %.0.in = phi i1 [ %7, %5 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 
@@ -4605,9 +4605,9 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984
   %507 = phi i8 [ %..i.i.i, %.noexc82.i.i ], [ 2, %.noexc105.i.i ], [ 2, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984e1E.exit.i.i.i.i.i.loopexit ], [ 1, %.noexc106.i.i ]
   store i8 %507, ptr %.sroa.0.sroa.0.sroa.10.0..sroa_idx.i.i, align 2, !noalias !867
   %switch.i.i = icmp eq i8 %507, 2
-  %.sroa.9.8.insert.mask120.i.i = and i64 %.sroa.9.1.i.i, -256
+  %.sroa.9.8.insert.mask.i.i = and i64 %.sroa.9.1.i.i, -256
   %.sroa.9.8.insert.insert121.i.i = zext i1 %switch.i.i to i64
-  %.sroa.9.4.ph.i.i = or disjoint i64 %.sroa.9.8.insert.mask120.i.i, %.sroa.9.8.insert.insert121.i.i
+  %.sroa.9.4.ph.i.i = or disjoint i64 %.sroa.9.8.insert.mask.i.i, %.sroa.9.8.insert.insert121.i.i
   %.sroa.9.8.extract.trunc128.i.i = zext i1 %switch.i.i to i8
   br label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17h3051b6276d8984e1E.exit.thread.i.i.i.i.i
 
@@ -6298,8 +6298,8 @@ _ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit: ; preds = %_ZN7uu_more5Pager
   br label %.loopexit221
 
 _ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit: ; preds = %.thread192, %1182, %.noexc150._ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit_crit_edge, %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit, %1080, %1078, %1201, %_ZN7uu_more5Pager9page_down17h1ce130d057230db3E.exit, %1183, %1156
-  %1162 = phi i64 [ %1065, %1183 ], [ %1065, %1201 ], [ %1065, %_ZN7uu_more5Pager9page_down17h1ce130d057230db3E.exit ], [ %.pre568, %1156 ], [ %1065, %1078 ], [ %1065, %1080 ], [ %.pre567, %.noexc150._ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit_crit_edge ], [ %1065, %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit ], [ %1065, %1182 ], [ %1065, %.thread192 ]
-  %.073 = phi i32 [ 1114112, %1183 ], [ 1114112, %1201 ], [ 1114112, %_ZN7uu_more5Pager9page_down17h1ce130d057230db3E.exit ], [ 1114112, %1156 ], [ 1114112, %1078 ], [ 1114112, %1080 ], [ 1114112, %.noexc150._ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit_crit_edge ], [ 1114112, %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit ], [ %.pre565, %1182 ], [ %.pre565, %.thread192 ]
+  %1162 = phi i64 [ %1065, %_ZN7uu_more5Pager9page_down17h1ce130d057230db3E.exit ], [ %1065, %1201 ], [ %1065, %1183 ], [ %.pre568, %1156 ], [ %1065, %1078 ], [ %1065, %1080 ], [ %.pre567, %.noexc150._ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit_crit_edge ], [ %1065, %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit ], [ %1065, %1182 ], [ %1065, %.thread192 ]
+  %.073 = phi i32 [ 1114112, %_ZN7uu_more5Pager9page_down17h1ce130d057230db3E.exit ], [ 1114112, %1201 ], [ 1114112, %1183 ], [ 1114112, %1156 ], [ 1114112, %1078 ], [ 1114112, %1080 ], [ 1114112, %.noexc150._ZN7uu_more5Pager11page_resize17h995b69d30222edeaE.exit_crit_edge ], [ 1114112, %_ZN7uu_more5Pager7page_up17h506a6c9f69f93a57E.exit ], [ %.pre565, %1182 ], [ %.pre565, %.thread192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   %1163 = icmp sgt i64 %1162, -9223372036854775803
   %cond1.i152 = icmp eq i64 %1162, -9223372036854775804

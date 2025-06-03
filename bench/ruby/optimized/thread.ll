@@ -4528,9 +4528,9 @@ define internal fastcc void @native_thread_init_stack(ptr noundef readonly captu
   br label %46
 
 46:                                               ; preds = %32, %25
-  %47 = phi i64 [ %30, %25 ], [ %45, %32 ]
-  %48 = phi ptr [ %31, %25 ], [ %38, %32 ]
-  %.0.i = phi ptr [ %1, %25 ], [ %38, %32 ]
+  %47 = phi i64 [ %45, %32 ], [ %30, %25 ]
+  %48 = phi ptr [ %38, %32 ], [ %31, %25 ]
+  %.0.i = phi ptr [ %38, %32 ], [ %1, %25 ]
   %49 = sub i64 0, %47
   %50 = getelementptr i8, ptr %48, i64 %49
   %51 = icmp ult ptr %.0.i, %50
@@ -14012,7 +14012,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 thread_status_name.exit:                          ; preds = %1, %7, %10, %11
-  %.0.i = phi ptr [ @.str.239, %11 ], [ %9, %7 ], [ @.str.238, %10 ], [ @.str.240, %1 ]
+  %.0.i = phi ptr [ %9, %7 ], [ @.str.239, %11 ], [ @.str.238, %10 ], [ @.str.240, %1 ]
   %12 = inttoptr i64 %0 to ptr
   %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.244, i64 noundef %3, ptr noundef %12) #17
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 448
@@ -14314,7 +14314,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %26
-  %.037.be = phi ptr [ %28, %26 ], [ %25, %23 ]
+  %.037.be = phi ptr [ %25, %23 ], [ %28, %26 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.037.be, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !371
   br label %.preheader
@@ -14326,8 +14326,8 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   br i1 %.not52, label %.thread, label %.backedge
 
 29:                                               ; preds = %19, %9
-  %.pn = phi ptr [ %22, %19 ], [ %13, %9 ]
-  %.139 = phi i64 [ %20, %19 ], [ %14, %9 ]
+  %.pn = phi ptr [ %13, %9 ], [ %22, %19 ]
+  %.139 = phi i64 [ %14, %9 ], [ %20, %19 ]
   %.141.in.in.in.in = getelementptr inbounds nuw i8, ptr %.pn, i64 96
   %.141.in.in.in = load i32, ptr %.141.in.in.in.in, align 8, !tbaa !377
   %.141.in.in = sext i32 %.141.in.in.in to i64

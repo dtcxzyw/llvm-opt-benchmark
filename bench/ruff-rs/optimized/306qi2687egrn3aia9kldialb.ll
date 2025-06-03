@@ -1563,8 +1563,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %10 = icmp eq i8 %8, %9
   br i1 %10, label %11, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
-"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread": ; preds = %46, %50, %12, %23, %29, %39, %.backedge, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit", %.lr.ph, %18, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %46 ], [ false, %50 ], [ false, %12 ], [ false, %23 ], [ false, %29 ], [ false, %39 ], [ true, %.backedge ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit" ], [ false, %.lr.ph ], [ false, %18 ]
+"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread": ; preds = %50, %46, %39, %29, %23, %12, %.backedge, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit", %.lr.ph, %18, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %50 ], [ false, %46 ], [ false, %39 ], [ false, %29 ], [ false, %23 ], [ false, %12 ], [ true, %.backedge ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit" ], [ false, %.lr.ph ], [ false, %18 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %.lr.ph
@@ -1634,9 +1634,9 @@ default.unreachable:                              ; preds = %43, %11
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   switch i64 %21, label %default.unreachable [
-    i64 0, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
-    i64 1, label %46
-    i64 2, label %50
+    i64 0, label %46
+    i64 1, label %50
+    i64 2, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
   ]
 
 46:                                               ; preds = %43
@@ -1646,18 +1646,18 @@ default.unreachable:                              ; preds = %43, %11
   br i1 %49, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
 50:                                               ; preds = %43
-  %51 = load double, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
-  %52 = load double, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
-  %53 = fcmp oeq double %51, %52
+  %51 = load i64, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
+  %52 = load i64, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
+  %53 = icmp eq i64 %51, %52
   br i1 %53, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit": ; preds = %43
-  %54 = load i64, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
-  %55 = load i64, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
-  %56 = icmp eq i64 %54, %55
+  %54 = load double, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
+  %55 = load double, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
+  %56 = fcmp oeq double %54, %55
   br i1 %56, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
-.backedge:                                        ; preds = %46, %50, %12, %23, %29, %39, %11, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
+.backedge:                                        ; preds = %50, %46, %39, %29, %23, %12, %11, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread", label %.lr.ph
 }

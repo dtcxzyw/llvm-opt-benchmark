@@ -2546,7 +2546,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llv
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %17, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %19, %17 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %19, %17 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %20 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %22 = xor i64 %8, -1
@@ -2925,7 +2925,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %27, %22, %18, %14, %12, %2
-  %.0 = phi i1 [ true, %2 ], [ %spec.select.i7.not.i, %27 ], [ %17, %14 ], [ false, %12 ], [ false, %18 ], [ %spec.select.i.not.i, %22 ]
+  %.0 = phi i1 [ true, %2 ], [ %17, %14 ], [ %spec.select.i7.not.i, %27 ], [ false, %12 ], [ false, %18 ], [ %spec.select.i.not.i, %22 ]
   ret i1 %.0
 }
 
@@ -2996,7 +2996,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %28, %23, %19, %15, %13, %2
-  %.0 = phi i1 [ true, %2 ], [ %spec.select.i7.not.i, %28 ], [ %18, %15 ], [ false, %13 ], [ false, %19 ], [ %spec.select.i.not.i, %23 ]
+  %.0 = phi i1 [ true, %2 ], [ %18, %15 ], [ %spec.select.i7.not.i, %28 ], [ false, %13 ], [ false, %19 ], [ %spec.select.i.not.i, %23 ]
   ret i1 %.0
 }
 

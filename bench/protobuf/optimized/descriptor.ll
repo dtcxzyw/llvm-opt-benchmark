@@ -8125,7 +8125,7 @@ sw.bb27.i24:                                      ; preds = %invoke.cont35
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont35, %invoke.cont9, %sw.bb27.i24, %sw.bb25.i27, %sw.bb21.i28, %sw.bb18.i31, %sw.bb14.i33, %sw.bb11.i36, %sw.bb7.i38, %sw.bb4.i41, %sw.bb.i43, %sw.bb27.i, %sw.bb25.i, %sw.bb21.i, %sw.bb18.i, %sw.bb14.i, %sw.bb11.i, %sw.bb7.i, %sw.bb4.i, %sw.bb.i, %invoke.cont26, %invoke.cont19
-  %retval.0 = phi ptr [ %call20, %invoke.cont19 ], [ null, %invoke.cont26 ], [ %25, %sw.bb27.i ], [ %call8, %sw.bb25.i ], [ %24, %sw.bb21.i ], [ %22, %sw.bb18.i ], [ %21, %sw.bb14.i ], [ %19, %sw.bb11.i ], [ %18, %sw.bb7.i ], [ %16, %sw.bb4.i ], [ %15, %sw.bb.i ], [ %39, %sw.bb27.i24 ], [ %call33, %sw.bb25.i27 ], [ %38, %sw.bb21.i28 ], [ %36, %sw.bb18.i31 ], [ %35, %sw.bb14.i33 ], [ %33, %sw.bb11.i36 ], [ %32, %sw.bb7.i38 ], [ %30, %sw.bb4.i41 ], [ %29, %sw.bb.i43 ], [ null, %invoke.cont9 ], [ null, %invoke.cont35 ]
+  %retval.0 = phi ptr [ %call20, %invoke.cont19 ], [ null, %invoke.cont26 ], [ %15, %sw.bb.i ], [ %16, %sw.bb4.i ], [ %18, %sw.bb7.i ], [ %19, %sw.bb11.i ], [ %21, %sw.bb14.i ], [ %22, %sw.bb18.i ], [ %24, %sw.bb21.i ], [ %call8, %sw.bb25.i ], [ %25, %sw.bb27.i ], [ %29, %sw.bb.i43 ], [ %30, %sw.bb4.i41 ], [ %32, %sw.bb7.i38 ], [ %33, %sw.bb11.i36 ], [ %35, %sw.bb14.i33 ], [ %36, %sw.bb18.i31 ], [ %38, %sw.bb21.i28 ], [ %call33, %sw.bb25.i27 ], [ %39, %sw.bb27.i24 ], [ null, %invoke.cont9 ], [ null, %invoke.cont35 ]
   %40 = load ptr, ptr %lock, align 8
   %cmp.not.i46 = icmp eq ptr %40, null
   br i1 %cmp.not.i46, label %_ZN4absl12lts_2023080214MutexLockMaybeD2Ev.exit, label %if.then.i47
@@ -12241,7 +12241,7 @@ sw.bb:                                            ; preds = %_ZNK6google8protobu
           to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad29.body, %lpad38, %lpad.i30, %lpad.i20, %lpad.i10, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i ], [ %13, %lpad.i10 ], [ %16, %lpad.i20 ], [ %19, %lpad.i30 ], [ %37, %lpad38 ], [ %eh.lpad-body, %lpad29.body ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i ], [ %13, %lpad.i10 ], [ %16, %lpad.i20 ], [ %19, %lpad.i30 ], [ %eh.lpad-body, %lpad29.body ], [ %37, %lpad38 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %sw.bb
@@ -29176,7 +29176,7 @@ sw.bb27.i:                                        ; preds = %entry
   br label %_ZNK6google8protobuf6Symbol7GetFileEv.exit
 
 _ZNK6google8protobuf6Symbol7GetFileEv.exit:       ; preds = %entry, %sw.bb.i, %sw.bb4.i, %sw.bb7.i, %sw.bb11.i, %sw.bb14.i, %sw.bb18.i, %sw.bb21.i, %sw.bb25.i, %sw.bb27.i
-  %retval.0.i = phi ptr [ %12, %sw.bb27.i ], [ %call, %sw.bb25.i ], [ %11, %sw.bb21.i ], [ %9, %sw.bb18.i ], [ %8, %sw.bb14.i ], [ %6, %sw.bb11.i ], [ %5, %sw.bb7.i ], [ %3, %sw.bb4.i ], [ %2, %sw.bb.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %2, %sw.bb.i ], [ %3, %sw.bb4.i ], [ %5, %sw.bb7.i ], [ %6, %sw.bb11.i ], [ %8, %sw.bb14.i ], [ %9, %sw.bb18.i ], [ %11, %sw.bb21.i ], [ %call, %sw.bb25.i ], [ %12, %sw.bb27.i ], [ null, %entry ]
   %file_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %13 = load ptr, ptr %file_, align 8
   %cmp = icmp eq ptr %retval.0.i, %13
@@ -29603,7 +29603,7 @@ sw.bb27.i96:                                      ; preds = %entry
   br label %_ZNK6google8protobuf6Symbol7GetFileEv.exit117
 
 _ZNK6google8protobuf6Symbol7GetFileEv.exit117:    ; preds = %entry, %sw.bb.i115, %sw.bb4.i113, %sw.bb7.i110, %sw.bb11.i108, %sw.bb14.i105, %sw.bb18.i103, %sw.bb21.i100, %sw.bb25.i99, %sw.bb27.i96
-  %retval.0.i98 = phi ptr [ %12, %sw.bb27.i96 ], [ %call.i, %sw.bb25.i99 ], [ %11, %sw.bb21.i100 ], [ %9, %sw.bb18.i103 ], [ %8, %sw.bb14.i105 ], [ %6, %sw.bb11.i108 ], [ %5, %sw.bb7.i110 ], [ %3, %sw.bb4.i113 ], [ %2, %sw.bb.i115 ], [ null, %entry ]
+  %retval.0.i98 = phi ptr [ %2, %sw.bb.i115 ], [ %3, %sw.bb4.i113 ], [ %5, %sw.bb7.i110 ], [ %6, %sw.bb11.i108 ], [ %8, %sw.bb14.i105 ], [ %9, %sw.bb18.i103 ], [ %11, %sw.bb21.i100 ], [ %call.i, %sw.bb25.i99 ], [ %12, %sw.bb27.i96 ], [ null, %entry ]
   %file_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %13 = load ptr, ptr %file_.i, align 8
   %cmp.i = icmp eq ptr %retval.0.i98, %13
@@ -29860,7 +29860,7 @@ sw.bb27.i:                                        ; preds = %if.end5
   br label %_ZNK6google8protobuf6Symbol7GetFileEv.exit
 
 _ZNK6google8protobuf6Symbol7GetFileEv.exit:       ; preds = %if.end5, %sw.bb.i, %sw.bb4.i, %sw.bb7.i, %sw.bb11.i, %sw.bb14.i, %sw.bb18.i, %sw.bb21.i, %sw.bb25.i, %sw.bb27.i
-  %retval.0.i = phi ptr [ %52, %sw.bb27.i ], [ %call.i, %sw.bb25.i ], [ %51, %sw.bb21.i ], [ %49, %sw.bb18.i ], [ %48, %sw.bb14.i ], [ %46, %sw.bb11.i ], [ %45, %sw.bb7.i ], [ %43, %sw.bb4.i ], [ %42, %sw.bb.i ], [ null, %if.end5 ]
+  %retval.0.i = phi ptr [ %42, %sw.bb.i ], [ %43, %sw.bb4.i ], [ %45, %sw.bb7.i ], [ %46, %sw.bb11.i ], [ %48, %sw.bb14.i ], [ %49, %sw.bb18.i ], [ %51, %sw.bb21.i ], [ %call.i, %sw.bb25.i ], [ %52, %sw.bb27.i ], [ null, %if.end5 ]
   %53 = load ptr, ptr %file_.i, align 8
   %cmp = icmp eq ptr %retval.0.i, %53
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -31566,7 +31566,7 @@ sw.bb27.i:                                        ; preds = %if.else
   br label %_ZNK6google8protobuf6Symbol7GetFileEv.exit
 
 _ZNK6google8protobuf6Symbol7GetFileEv.exit:       ; preds = %if.else, %sw.bb.i, %sw.bb4.i, %sw.bb7.i, %sw.bb11.i, %sw.bb14.i, %sw.bb18.i, %sw.bb21.i, %sw.bb25.i, %sw.bb27.i
-  %retval.0.i = phi ptr [ %19, %sw.bb27.i ], [ %call25, %sw.bb25.i ], [ %18, %sw.bb21.i ], [ %16, %sw.bb18.i ], [ %15, %sw.bb14.i ], [ %13, %sw.bb11.i ], [ %12, %sw.bb7.i ], [ %10, %sw.bb4.i ], [ %9, %sw.bb.i ], [ null, %if.else ]
+  %retval.0.i = phi ptr [ %9, %sw.bb.i ], [ %10, %sw.bb4.i ], [ %12, %sw.bb7.i ], [ %13, %sw.bb11.i ], [ %15, %sw.bb14.i ], [ %16, %sw.bb18.i ], [ %18, %sw.bb21.i ], [ %call25, %sw.bb25.i ], [ %19, %sw.bb27.i ], [ null, %if.else ]
   store ptr %retval.0.i, ptr %other_file, align 8
   %20 = load ptr, ptr %file_, align 8
   %cmp29 = icmp eq ptr %retval.0.i, %20
@@ -52022,7 +52022,7 @@ sw.bb27.i:                                        ; preds = %if.end24
   br label %_ZNK6google8protobuf6Symbol7GetFileEv.exit
 
 _ZNK6google8protobuf6Symbol7GetFileEv.exit:       ; preds = %if.end24, %sw.bb.i, %sw.bb4.i, %sw.bb7.i, %sw.bb11.i, %sw.bb14.i, %sw.bb18.i, %sw.bb21.i, %sw.bb25.i, %sw.bb27.i
-  %retval.0.i221 = phi ptr [ %37, %sw.bb27.i ], [ %call.i45, %sw.bb25.i ], [ %36, %sw.bb21.i ], [ %34, %sw.bb18.i ], [ %33, %sw.bb14.i ], [ %31, %sw.bb11.i ], [ %30, %sw.bb7.i ], [ %28, %sw.bb4.i ], [ %27, %sw.bb.i ], [ null, %if.end24 ]
+  %retval.0.i221 = phi ptr [ %27, %sw.bb.i ], [ %28, %sw.bb4.i ], [ %30, %sw.bb7.i ], [ %31, %sw.bb11.i ], [ %33, %sw.bb14.i ], [ %34, %sw.bb18.i ], [ %36, %sw.bb21.i ], [ %call.i45, %sw.bb25.i ], [ %37, %sw.bb27.i ], [ null, %if.end24 ]
   %file_.i = getelementptr inbounds nuw i8, ptr %21, i64 168
   %38 = load ptr, ptr %file_.i, align 8
   %cmp.i46 = icmp eq ptr %retval.0.i221, %38
@@ -54229,7 +54229,7 @@ sw.bb27.i:                                        ; preds = %call.i165.noexc
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %sw.bb27.i, %sw.bb25.i, %sw.bb21.i, %sw.bb18.i, %sw.bb14.i, %sw.bb11.i, %sw.bb7.i, %sw.bb4.i, %sw.bb.i, %call.i165.noexc
-  %retval.0.i = phi ptr [ %130, %sw.bb27.i ], [ %call.i165169, %sw.bb25.i ], [ %129, %sw.bb21.i ], [ %127, %sw.bb18.i ], [ %126, %sw.bb14.i ], [ %124, %sw.bb11.i ], [ %123, %sw.bb7.i ], [ %121, %sw.bb4.i ], [ %120, %sw.bb.i ], [ null, %call.i165.noexc ]
+  %retval.0.i = phi ptr [ %120, %sw.bb.i ], [ %121, %sw.bb4.i ], [ %123, %sw.bb7.i ], [ %124, %sw.bb11.i ], [ %126, %sw.bb14.i ], [ %127, %sw.bb18.i ], [ %129, %sw.bb21.i ], [ %call.i165169, %sw.bb25.i ], [ %130, %sw.bb27.i ], [ null, %call.i165.noexc ]
   store ptr %retval.0.i, ptr %file.i, align 8
   %file_.i166 = getelementptr inbounds nuw i8, ptr %117, i64 168
   %131 = load ptr, ptr %file_.i166, align 8
@@ -54380,7 +54380,7 @@ sw.epilog:                                        ; preds = %sw.bb260, %_ZNK6goo
   br label %return
 
 return:                                           ; preds = %cleanup, %sw.bb260, %sw.epilog, %if.then252, %if.then240, %if.then197, %if.else187, %if.then173, %if.else160, %if.else130, %if.else104, %if.else91, %if.then80, %if.else65, %if.then47, %if.else33, %if.then22, %if.then6
-  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %if.then252 ], [ false, %cleanup ], [ false, %if.then240 ], [ false, %if.then197 ], [ false, %if.else187 ], [ false, %if.then173 ], [ false, %if.else160 ], [ false, %if.else130 ], [ false, %if.else104 ], [ false, %if.then80 ], [ false, %if.else91 ], [ false, %if.then47 ], [ false, %if.else65 ], [ false, %if.then6 ], [ false, %if.then22 ], [ false, %if.else33 ], [ false, %sw.bb260 ]
+  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %if.then6 ], [ false, %if.then22 ], [ false, %if.else33 ], [ false, %if.then47 ], [ false, %if.else65 ], [ false, %if.then80 ], [ false, %if.else91 ], [ false, %if.else104 ], [ false, %if.else130 ], [ false, %if.else160 ], [ false, %if.else187 ], [ false, %if.then173 ], [ false, %if.then240 ], [ false, %cleanup ], [ false, %if.then197 ], [ false, %if.then252 ], [ false, %sw.bb260 ]
   ret i1 %retval.0
 }
 
@@ -56987,8 +56987,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb33, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb
-  %call38.pn = phi { i64, ptr } [ %.fca.1.insert.i, %sw.bb33 ], [ %call32, %sw.bb29 ], [ %call28, %sw.bb25 ], [ %call24, %sw.bb21 ], [ %call20, %sw.bb17 ], [ %call16, %sw.bb13 ], [ %call12, %sw.bb9 ], [ %call8, %sw.bb5 ], [ %call4, %sw.bb ]
-  ret { i64, ptr } %call38.pn
+  %call4.pn = phi { i64, ptr } [ %call4, %sw.bb ], [ %call8, %sw.bb5 ], [ %call12, %sw.bb9 ], [ %call16, %sw.bb13 ], [ %call20, %sw.bb17 ], [ %call24, %sw.bb21 ], [ %call28, %sw.bb25 ], [ %call32, %sw.bb29 ], [ %.fca.1.insert.i, %sw.bb33 ]
+  ret { i64, ptr } %call4.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -58887,7 +58887,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i23.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i23.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %16 = load i8, ptr %__first.sroa.0.1.i.i.i, align 1
   %idxprom.i4 = zext i8 %16 to i64
   %arrayidx.i5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i4
@@ -58901,7 +58901,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i26.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %19 = load i8, ptr %__first.sroa.0.2.i.i.i, align 1
   %idxprom.i = zext i8 %19 to i64
   %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i

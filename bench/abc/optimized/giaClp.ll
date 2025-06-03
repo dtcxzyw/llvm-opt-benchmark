@@ -387,7 +387,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %55, %.preheader53, %.preheader, %._crit_edge, %63, %54
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %66, %63 ], [ 1, %54 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %58, %55 ], [ %62, %59 ]
+  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 1, %54 ], [ %66, %63 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %58, %55 ], [ %62, %59 ]
   %67 = sext i32 %.1 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %67) #14
   ret i32 %.1

@@ -110,8 +110,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %68
 
 68:                                               ; preds = %63, %60
-  %.1218 = phi i32 [ 0, %60 ], [ %67, %63 ]
-  %.2 = phi ptr [ %62, %60 ], [ %64, %63 ]
+  %.1218 = phi i32 [ %67, %63 ], [ 0, %60 ]
+  %.2 = phi ptr [ %64, %63 ], [ %62, %60 ]
   %69 = getelementptr inbounds i8, ptr %.2, i64 -1
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = zext i8 %70 to i32
@@ -120,8 +120,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %74
 
 74:                                               ; preds = %68, %60
-  %.2219 = phi i32 [ 0, %60 ], [ %73, %68 ]
-  %.3 = phi ptr [ %62, %60 ], [ %69, %68 ]
+  %.2219 = phi i32 [ %73, %68 ], [ 0, %60 ]
+  %.3 = phi ptr [ %69, %68 ], [ %62, %60 ]
   %75 = getelementptr inbounds i8, ptr %.3, i64 -1
   %76 = load i8, ptr %75, align 1, !tbaa !3
   %77 = zext i8 %76 to i32
@@ -130,8 +130,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %80
 
 80:                                               ; preds = %74, %60
-  %.3220 = phi i32 [ 0, %60 ], [ %79, %74 ]
-  %.4 = phi ptr [ %62, %60 ], [ %75, %74 ]
+  %.3220 = phi i32 [ %79, %74 ], [ 0, %60 ]
+  %.4 = phi ptr [ %75, %74 ], [ %62, %60 ]
   %81 = getelementptr inbounds i8, ptr %.4, i64 -1
   %82 = load i8, ptr %81, align 1, !tbaa !3
   %83 = zext i8 %82 to i32
@@ -139,8 +139,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %85
 
 85:                                               ; preds = %80, %60
-  %.4221 = phi i32 [ 0, %60 ], [ %84, %80 ]
-  %.5 = phi ptr [ %62, %60 ], [ %81, %80 ]
+  %.4221 = phi i32 [ %84, %80 ], [ 0, %60 ]
+  %.5 = phi ptr [ %81, %80 ], [ %62, %60 ]
   %86 = getelementptr inbounds i8, ptr %.5, i64 -1
   %87 = load i8, ptr %86, align 1, !tbaa !3
   %88 = zext i8 %87 to i32
@@ -148,9 +148,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %90
 
 90:                                               ; preds = %85, %60
-  %.5222 = phi i32 [ 0, %60 ], [ %.4221, %85 ]
-  %.1210 = phi i32 [ 0, %60 ], [ %89, %85 ]
-  %.6 = phi ptr [ %62, %60 ], [ %86, %85 ]
+  %.5222 = phi i32 [ %.4221, %85 ], [ 0, %60 ]
+  %.1210 = phi i32 [ %89, %85 ], [ 0, %60 ]
+  %.6 = phi ptr [ %86, %85 ], [ %62, %60 ]
   %91 = getelementptr inbounds i8, ptr %.6, i64 -1
   %92 = load i8, ptr %91, align 1, !tbaa !3
   %93 = zext i8 %92 to i32
@@ -159,9 +159,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %96
 
 96:                                               ; preds = %90, %60
-  %.6223 = phi i32 [ 0, %60 ], [ %.5222, %90 ]
-  %.2211 = phi i32 [ 0, %60 ], [ %95, %90 ]
-  %.7 = phi ptr [ %62, %60 ], [ %91, %90 ]
+  %.6223 = phi i32 [ %.5222, %90 ], [ 0, %60 ]
+  %.2211 = phi i32 [ %95, %90 ], [ 0, %60 ]
+  %.7 = phi ptr [ %91, %90 ], [ %62, %60 ]
   %97 = getelementptr inbounds i8, ptr %.7, i64 -1
   %98 = load i8, ptr %97, align 1, !tbaa !3
   %99 = zext i8 %98 to i32
@@ -170,9 +170,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %102
 
 102:                                              ; preds = %96, %60
-  %.7224 = phi i32 [ 0, %60 ], [ %.6223, %96 ]
-  %.3212 = phi i32 [ 0, %60 ], [ %101, %96 ]
-  %.8 = phi ptr [ %62, %60 ], [ %97, %96 ]
+  %.7224 = phi i32 [ %.6223, %96 ], [ 0, %60 ]
+  %.3212 = phi i32 [ %101, %96 ], [ 0, %60 ]
+  %.8 = phi ptr [ %97, %96 ], [ %62, %60 ]
   %103 = getelementptr inbounds i8, ptr %.8, i64 -1
   %104 = load i8, ptr %103, align 1, !tbaa !3
   %105 = zext i8 %104 to i32
@@ -208,7 +208,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %118
 
 118:                                              ; preds = %114, %107
-  %.2191 = phi ptr [ %113, %107 ], [ %117, %114 ]
+  %.2191 = phi ptr [ %117, %114 ], [ %113, %107 ]
   %119 = lshr i32 %112, 16
   %120 = trunc i32 %119 to i8
   %121 = getelementptr inbounds i8, ptr %.2191, i64 -1
@@ -216,7 +216,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %122
 
 122:                                              ; preds = %118, %107
-  %.3192 = phi ptr [ %113, %107 ], [ %121, %118 ]
+  %.3192 = phi ptr [ %121, %118 ], [ %113, %107 ]
   %123 = lshr i32 %112, 8
   %124 = trunc i32 %123 to i8
   %125 = getelementptr inbounds i8, ptr %.3192, i64 -1
@@ -224,14 +224,14 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %126
 
 126:                                              ; preds = %122, %107
-  %.4193 = phi ptr [ %113, %107 ], [ %125, %122 ]
+  %.4193 = phi ptr [ %125, %122 ], [ %113, %107 ]
   %127 = trunc i32 %112 to i8
   %128 = getelementptr inbounds i8, ptr %.4193, i64 -1
   store i8 %127, ptr %128, align 1, !tbaa !3
   br label %129
 
 129:                                              ; preds = %126, %107
-  %.5194 = phi ptr [ %113, %107 ], [ %128, %126 ]
+  %.5194 = phi ptr [ %128, %126 ], [ %113, %107 ]
   %130 = lshr i32 %110, 24
   %131 = trunc nuw i32 %130 to i8
   %132 = getelementptr inbounds i8, ptr %.5194, i64 -1
@@ -239,7 +239,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %133
 
 133:                                              ; preds = %129, %107
-  %.6195 = phi ptr [ %113, %107 ], [ %132, %129 ]
+  %.6195 = phi ptr [ %132, %129 ], [ %113, %107 ]
   %134 = lshr i32 %110, 16
   %135 = trunc i32 %134 to i8
   %136 = getelementptr inbounds i8, ptr %.6195, i64 -1
@@ -247,7 +247,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %137
 
 137:                                              ; preds = %133, %107
-  %.7196 = phi ptr [ %113, %107 ], [ %136, %133 ]
+  %.7196 = phi ptr [ %136, %133 ], [ %113, %107 ]
   %138 = lshr i32 %110, 8
   %139 = trunc i32 %138 to i8
   %140 = getelementptr inbounds i8, ptr %.7196, i64 -1
@@ -255,7 +255,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %141
 
 141:                                              ; preds = %137, %107
-  %.8197 = phi ptr [ %113, %107 ], [ %140, %137 ]
+  %.8197 = phi ptr [ %140, %137 ], [ %113, %107 ]
   %142 = trunc i32 %110 to i8
   %143 = getelementptr inbounds i8, ptr %.8197, i64 -1
   store i8 %142, ptr %143, align 1, !tbaa !3
@@ -346,8 +346,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %171
 
 171:                                              ; preds = %166, %163
-  %.9226 = phi i32 [ 0, %163 ], [ %170, %166 ]
-  %.11 = phi ptr [ %165, %163 ], [ %167, %166 ]
+  %.9226 = phi i32 [ %170, %166 ], [ 0, %163 ]
+  %.11 = phi ptr [ %167, %166 ], [ %165, %163 ]
   %172 = getelementptr inbounds i8, ptr %.11, i64 -1
   %173 = load i8, ptr %172, align 1, !tbaa !3
   %174 = zext i8 %173 to i32
@@ -356,8 +356,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %177
 
 177:                                              ; preds = %171, %163
-  %.10227 = phi i32 [ 0, %163 ], [ %176, %171 ]
-  %.12 = phi ptr [ %165, %163 ], [ %172, %171 ]
+  %.10227 = phi i32 [ %176, %171 ], [ 0, %163 ]
+  %.12 = phi ptr [ %172, %171 ], [ %165, %163 ]
   %178 = getelementptr inbounds i8, ptr %.12, i64 -1
   %179 = load i8, ptr %178, align 1, !tbaa !3
   %180 = zext i8 %179 to i32
@@ -366,8 +366,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %183
 
 183:                                              ; preds = %177, %163
-  %.11228 = phi i32 [ 0, %163 ], [ %182, %177 ]
-  %.13 = phi ptr [ %165, %163 ], [ %178, %177 ]
+  %.11228 = phi i32 [ %182, %177 ], [ 0, %163 ]
+  %.13 = phi ptr [ %178, %177 ], [ %165, %163 ]
   %184 = getelementptr inbounds i8, ptr %.13, i64 -1
   %185 = load i8, ptr %184, align 1, !tbaa !3
   %186 = zext i8 %185 to i32
@@ -375,8 +375,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %188
 
 188:                                              ; preds = %183, %163
-  %.12229 = phi i32 [ 0, %163 ], [ %187, %183 ]
-  %.14 = phi ptr [ %165, %163 ], [ %184, %183 ]
+  %.12229 = phi i32 [ %187, %183 ], [ 0, %163 ]
+  %.14 = phi ptr [ %184, %183 ], [ %165, %163 ]
   %189 = getelementptr inbounds i8, ptr %.14, i64 -1
   %190 = load i8, ptr %189, align 1, !tbaa !3
   %191 = zext i8 %190 to i32
@@ -384,9 +384,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %193
 
 193:                                              ; preds = %188, %163
-  %.13230 = phi i32 [ 0, %163 ], [ %.12229, %188 ]
-  %.5214 = phi i32 [ 0, %163 ], [ %192, %188 ]
-  %.15 = phi ptr [ %165, %163 ], [ %189, %188 ]
+  %.13230 = phi i32 [ %.12229, %188 ], [ 0, %163 ]
+  %.5214 = phi i32 [ %192, %188 ], [ 0, %163 ]
+  %.15 = phi ptr [ %189, %188 ], [ %165, %163 ]
   %194 = getelementptr inbounds i8, ptr %.15, i64 -1
   %195 = load i8, ptr %194, align 1, !tbaa !3
   %196 = zext i8 %195 to i32
@@ -395,9 +395,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %199
 
 199:                                              ; preds = %193, %163
-  %.14231 = phi i32 [ 0, %163 ], [ %.13230, %193 ]
-  %.6215 = phi i32 [ 0, %163 ], [ %198, %193 ]
-  %.16 = phi ptr [ %165, %163 ], [ %194, %193 ]
+  %.14231 = phi i32 [ %.13230, %193 ], [ 0, %163 ]
+  %.6215 = phi i32 [ %198, %193 ], [ 0, %163 ]
+  %.16 = phi ptr [ %194, %193 ], [ %165, %163 ]
   %200 = getelementptr inbounds i8, ptr %.16, i64 -1
   %201 = load i8, ptr %200, align 1, !tbaa !3
   %202 = zext i8 %201 to i32
@@ -406,9 +406,9 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %205
 
 205:                                              ; preds = %199, %163
-  %.15232 = phi i32 [ 0, %163 ], [ %.14231, %199 ]
-  %.7216 = phi i32 [ 0, %163 ], [ %204, %199 ]
-  %.17 = phi ptr [ %165, %163 ], [ %200, %199 ]
+  %.15232 = phi i32 [ %.14231, %199 ], [ 0, %163 ]
+  %.7216 = phi i32 [ %204, %199 ], [ 0, %163 ]
+  %.17 = phi ptr [ %200, %199 ], [ %165, %163 ]
   %206 = getelementptr inbounds i8, ptr %.17, i64 -1
   %207 = load i8, ptr %206, align 1, !tbaa !3
   %208 = zext i8 %207 to i32
@@ -493,7 +493,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %238
 
 238:                                              ; preds = %234, %.loopexit
-  %.11200 = phi ptr [ %233, %.loopexit ], [ %237, %234 ]
+  %.11200 = phi ptr [ %237, %234 ], [ %233, %.loopexit ]
   %239 = lshr i32 %232, 16
   %240 = trunc i32 %239 to i8
   %241 = getelementptr inbounds i8, ptr %.11200, i64 -1
@@ -501,7 +501,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %242
 
 242:                                              ; preds = %238, %.loopexit
-  %.12201 = phi ptr [ %233, %.loopexit ], [ %241, %238 ]
+  %.12201 = phi ptr [ %241, %238 ], [ %233, %.loopexit ]
   %243 = lshr i32 %232, 8
   %244 = trunc i32 %243 to i8
   %245 = getelementptr inbounds i8, ptr %.12201, i64 -1
@@ -509,14 +509,14 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %246
 
 246:                                              ; preds = %242, %.loopexit
-  %.13202 = phi ptr [ %233, %.loopexit ], [ %245, %242 ]
+  %.13202 = phi ptr [ %245, %242 ], [ %233, %.loopexit ]
   %247 = trunc i32 %232 to i8
   %248 = getelementptr inbounds i8, ptr %.13202, i64 -1
   store i8 %247, ptr %248, align 1, !tbaa !3
   br label %249
 
 249:                                              ; preds = %246, %.loopexit
-  %.14203 = phi ptr [ %233, %.loopexit ], [ %248, %246 ]
+  %.14203 = phi ptr [ %248, %246 ], [ %233, %.loopexit ]
   %250 = lshr i32 %230, 24
   %251 = trunc nuw i32 %250 to i8
   %252 = getelementptr inbounds i8, ptr %.14203, i64 -1
@@ -524,7 +524,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %253
 
 253:                                              ; preds = %249, %.loopexit
-  %.15204 = phi ptr [ %233, %.loopexit ], [ %252, %249 ]
+  %.15204 = phi ptr [ %252, %249 ], [ %233, %.loopexit ]
   %254 = lshr i32 %230, 16
   %255 = trunc i32 %254 to i8
   %256 = getelementptr inbounds i8, ptr %.15204, i64 -1
@@ -532,7 +532,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %257
 
 257:                                              ; preds = %253, %.loopexit
-  %.16205 = phi ptr [ %233, %.loopexit ], [ %256, %253 ]
+  %.16205 = phi ptr [ %256, %253 ], [ %233, %.loopexit ]
   %258 = lshr i32 %230, 8
   %259 = trunc i32 %258 to i8
   %260 = getelementptr inbounds i8, ptr %.16205, i64 -1
@@ -540,7 +540,7 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %261
 
 261:                                              ; preds = %257, %.loopexit
-  %.17206 = phi ptr [ %233, %.loopexit ], [ %260, %257 ]
+  %.17206 = phi ptr [ %260, %257 ], [ %233, %.loopexit ]
   %262 = trunc i32 %230 to i8
   %263 = getelementptr inbounds i8, ptr %.17206, i64 -1
   store i8 %262, ptr %263, align 1, !tbaa !3

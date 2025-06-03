@@ -3051,7 +3051,7 @@ define internal fastcc void @compute_reachable_generation_numbers(ptr noundef no
   unreachable
 
 compute_generation_from_max.exit:                 ; preds = %49, %50
-  %.0.in.i = phi i64 [ %.08.i, %50 ], [ %spec.store.select.i, %49 ]
+  %.0.in.i = phi i64 [ %spec.store.select.i, %49 ], [ %.08.i, %50 ]
   %.0.i = add nuw i64 %.0.in.i, 1
   %56 = load ptr, ptr %12, align 8, !tbaa !162
   %57 = load ptr, ptr %9, align 8, !tbaa !163

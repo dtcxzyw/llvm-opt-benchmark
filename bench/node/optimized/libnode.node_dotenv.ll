@@ -224,7 +224,7 @@ if.end29.i.i:                                     ; preds = %sw.bb.i.i
   br label %sw.bb31.i.i
 
 sw.bb31.i.i:                                      ; preds = %if.end29.i.i, %for.end.i.i
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr.i28.i.i, %if.end29.i.i ]
+  %__first.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i28.i.i, %if.end29.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ]
   %call.i.i29.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i) #15
   %call4.i.i30.i.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call.i.i29.i.i, ptr noundef nonnull dereferenceable(11) @.str.6, i64 noundef 10) #16
   %cmp.i.i31.i.i = icmp eq i32 %call4.i.i30.i.i, 0
@@ -235,7 +235,7 @@ if.end36.i.i:                                     ; preds = %sw.bb31.i.i
   br label %sw.bb38.i.i
 
 sw.bb38.i.i:                                      ; preds = %if.end36.i.i, %for.end.i.i
-  %__first.sroa.0.2.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ], [ %incdec.ptr.i32.i.i, %if.end36.i.i ]
+  %__first.sroa.0.2.i.i = phi ptr [ %incdec.ptr.i32.i.i, %if.end36.i.i ], [ %__first.sroa.0.0.lcssa.i.i, %for.end.i.i ]
   %call.i.i33.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2.i.i) #15
   %call4.i.i34.i.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call.i.i33.i.i, ptr noundef nonnull dereferenceable(11) @.str.6, i64 noundef 10) #16
   %cmp.i.i35.i.i = icmp eq i32 %call4.i.i34.i.i, 0

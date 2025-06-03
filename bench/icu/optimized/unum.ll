@@ -432,7 +432,7 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread165
 
 .critedge145:                                     ; preds = %.thread151, %123, %118, %114, %.critedge143, %26
-  %.088 = phi ptr [ %122, %123 ], [ %117, %118 ], [ %.290, %114 ], [ %61, %.critedge143 ], [ %25, %26 ], [ %48, %.thread151 ]
+  %.088 = phi ptr [ %25, %26 ], [ %61, %.critedge143 ], [ %.290, %114 ], [ %117, %118 ], [ %122, %123 ], [ %48, %.thread151 ]
   %127 = icmp eq ptr %.088, null
   br i1 %127, label %.critedge145.thread, label %.critedge145.thread162
 
@@ -445,8 +445,8 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   store i32 7, ptr %5, align 4, !tbaa !3
   br label %.thread165
 
-.critedge145.thread162:                           ; preds = %74, %84, %94, %.critedge145
-  %.088159 = phi ptr [ %.088, %.critedge145 ], [ %71, %74 ], [ %81, %84 ], [ %91, %94 ]
+.critedge145.thread162:                           ; preds = %94, %84, %74, %.critedge145
+  %.088159 = phi ptr [ %.088, %.critedge145 ], [ %91, %94 ], [ %81, %84 ], [ %71, %74 ]
   %131 = load i32, ptr %5, align 4, !tbaa !3
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %133, label %.thread165
@@ -459,7 +459,7 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread165
 
 137:                                              ; preds = %99, %89, %79, %124, %119, %115, %69, %58, %27
-  %.pn139 = phi { ptr, i32 } [ %125, %124 ], [ %120, %119 ], [ %.pn, %115 ], [ %.pn121, %99 ], [ %.pn124, %89 ], [ %.pn127, %79 ], [ %.pn130, %69 ], [ %.pn137, %58 ], [ %28, %27 ]
+  %.pn139 = phi { ptr, i32 } [ %28, %27 ], [ %.pn137, %58 ], [ %.pn130, %69 ], [ %.pn127, %79 ], [ %.pn124, %89 ], [ %.pn121, %99 ], [ %.pn, %115 ], [ %120, %119 ], [ %125, %124 ]
   resume { ptr, i32 } %.pn139
 
 .thread165:                                       ; preds = %.critedge145.thread, %130, %57, %126, %133, %.critedge145.thread162, %6
@@ -2148,7 +2148,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit:           ; preds = %87
   br label %114
 
 113:                                              ; preds = %30, %44, %.body, %71, %109, %102, %103, %81, %21
-  %.pn53.pn = phi { ptr, i32 } [ %22, %21 ], [ %110, %109 ], [ %eh.lpad-body, %.body ], [ %45, %44 ], [ %31, %30 ], [ %72, %71 ], [ %82, %81 ], [ %104, %103 ], [ %.pn, %102 ]
+  %.pn53.pn = phi { ptr, i32 } [ %22, %21 ], [ %110, %109 ], [ %31, %30 ], [ %45, %44 ], [ %eh.lpad-body, %.body ], [ %72, %71 ], [ %82, %81 ], [ %104, %103 ], [ %.pn, %102 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
   resume { ptr, i32 } %.pn53.pn

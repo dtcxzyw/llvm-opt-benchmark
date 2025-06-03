@@ -6382,7 +6382,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %_ZNK5Block8get_node
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK5Block8get_nodeEj.exit14, %53, %.preheader, %45, %45, %37, %61, %52
-  %.0 = phi i32 [ 0, %61 ], [ 1, %52 ], [ 1, %37 ], [ 2, %45 ], [ 2, %45 ], [ 0, %.preheader ], [ 1, %_ZNK5Block8get_nodeEj.exit14 ], [ 0, %53 ]
+  %.0 = phi i32 [ 1, %52 ], [ 0, %61 ], [ 1, %37 ], [ 2, %45 ], [ 2, %45 ], [ 0, %.preheader ], [ 1, %_ZNK5Block8get_nodeEj.exit14 ], [ 0, %53 ]
   ret i32 %.0
 }
 
@@ -7884,7 +7884,7 @@ _ZNK5Block8get_nodeEj.exit30:                     ; preds = %98
   unreachable
 
 149:                                              ; preds = %98, %98, %_ZNK5Block8get_nodeEj.exit30, %_ZNK5Block8get_nodeEj.exit28, %146, %145, %141, %_ZNK5Block8get_nodeEj.exit29, %113, %83, %75, %55
-  %.0 = phi float [ %61, %55 ], [ %82, %75 ], [ %92, %83 ], [ 0.000000e+00, %146 ], [ 0.000000e+00, %145 ], [ %144, %141 ], [ %129, %_ZNK5Block8get_nodeEj.exit29 ], [ %114, %113 ], [ %100, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 1.000000e+00, %98 ], [ 1.000000e+00, %98 ]
+  %.0 = phi float [ %61, %55 ], [ %82, %75 ], [ %92, %83 ], [ %114, %113 ], [ %129, %_ZNK5Block8get_nodeEj.exit29 ], [ %144, %141 ], [ 0.000000e+00, %145 ], [ 0.000000e+00, %146 ], [ %100, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 1.000000e+00, %98 ], [ 1.000000e+00, %98 ]
   ret float %.0
 }
 
@@ -8009,7 +8009,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %58
   unreachable
 
 73:                                               ; preds = %58, %58, %58, %58, %70, %_ZNK5Block8get_nodeEj.exit14, %_ZNK5Block8get_nodeEj.exit13
-  %.0 = phi i1 [ %52, %_ZNK5Block8get_nodeEj.exit13 ], [ false, %70 ], [ %69, %_ZNK5Block8get_nodeEj.exit14 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ]
+  %.0 = phi i1 [ %52, %_ZNK5Block8get_nodeEj.exit13 ], [ %69, %_ZNK5Block8get_nodeEj.exit14 ], [ false, %70 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ]
   ret i1 %.0
 }
 

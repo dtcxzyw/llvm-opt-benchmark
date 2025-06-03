@@ -4094,7 +4094,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit241.thread: ;
   br label %.thread244
 
 .thread244:                                       ; preds = %567, %564, %698, %695, %392, %389, %293, %290, %134, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit, %.preheader, %417, %318, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit241.thread, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit235.thread, %.thread255, %.thread247, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread, %206, %45, %102, %137, %205, %765, %431, %428, %721, %591, %121, %2, %27, %9
-  %.0 = phi i8 [ 0, %9 ], [ %28, %27 ], [ 0, %2 ], [ 0, %45 ], [ 0, %102 ], [ 0, %121 ], [ 0, %765 ], [ 0, %205 ], [ 0, %137 ], [ 0, %591 ], [ 0, %721 ], [ 0, %428 ], [ 1, %431 ], [ %spec.select, %206 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread ], [ 0, %.thread247 ], [ 0, %.thread255 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit235.thread ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit241.thread ], [ 0, %318 ], [ 0, %417 ], [ 0, %.preheader ], [ 1, %134 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit ], [ 0, %290 ], [ 1, %293 ], [ 0, %389 ], [ 1, %392 ], [ 1, %698 ], [ 0, %695 ], [ 1, %567 ], [ 0, %564 ]
+  %.0 = phi i8 [ 0, %9 ], [ %28, %27 ], [ 0, %2 ], [ 0, %45 ], [ 0, %102 ], [ 0, %121 ], [ 0, %765 ], [ 0, %137 ], [ 0, %205 ], [ 0, %591 ], [ 0, %721 ], [ 0, %428 ], [ 1, %431 ], [ %spec.select, %206 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread ], [ 0, %.thread247 ], [ 0, %.thread255 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit235.thread ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit241.thread ], [ 0, %318 ], [ 0, %417 ], [ 0, %.preheader ], [ 1, %134 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit ], [ 0, %290 ], [ 1, %293 ], [ 0, %389 ], [ 1, %392 ], [ 1, %698 ], [ 0, %695 ], [ 1, %567 ], [ 0, %564 ]
   ret i8 %.0
 }
 
@@ -4717,7 +4717,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit202.thread: ;
   br label %.thread219
 
 .thread219:                                       ; preds = %242, %245, %283, %286, %193, %190, %149, %146, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit, %69, %.preheader, %197, %153, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit202.thread, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit196.thread, %.thread231, %.thread223, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread, %102, %58, %248, %288, %210, %213, %312, %101, %72, %46, %25
-  %.0 = phi i8 [ 0, %25 ], [ 0, %46 ], [ 0, %58 ], [ 0, %312 ], [ 0, %101 ], [ 0, %72 ], [ 0, %248 ], [ 0, %288 ], [ 0, %210 ], [ 1, %213 ], [ %spec.select184, %102 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread ], [ 0, %.thread223 ], [ 0, %.thread231 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit196.thread ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit202.thread ], [ 0, %153 ], [ 0, %197 ], [ 0, %.preheader ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit ], [ 1, %69 ], [ 0, %146 ], [ 1, %149 ], [ 0, %190 ], [ 1, %193 ], [ 1, %286 ], [ 0, %283 ], [ 1, %245 ], [ 0, %242 ]
+  %.0 = phi i8 [ 0, %25 ], [ 0, %46 ], [ 0, %58 ], [ 0, %312 ], [ 0, %72 ], [ 0, %101 ], [ 0, %248 ], [ 0, %288 ], [ 0, %210 ], [ 1, %213 ], [ %spec.select184, %102 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit.thread ], [ 0, %.thread223 ], [ 0, %.thread231 ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit196.thread ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit202.thread ], [ 0, %153 ], [ 0, %197 ], [ 0, %.preheader ], [ 0, %_ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit ], [ 1, %69 ], [ 0, %146 ], [ 1, %149 ], [ 0, %190 ], [ 1, %193 ], [ 1, %286 ], [ 0, %283 ], [ 1, %245 ], [ 0, %242 ]
   ret i8 %.0
 }
 
@@ -4835,7 +4835,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 132
   %66 = load i32, ptr %65, align 4, !tbaa !57
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph, label %.preheader1418
+  br i1 %67, label %.lr.ph, label %.preheader1417
 
 .lr.ph:                                           ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -4843,11 +4843,11 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %70 = zext nneg i32 %66 to i64
   %71 = shl nuw nsw i64 %70, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %69, i8 0, i64 %71, i1 false), !tbaa !110
-  br label %.preheader1418
+  br label %.preheader1417
 
-.preheader1418:                                   ; preds = %.lr.ph, %63
+.preheader1417:                                   ; preds = %.lr.ph, %63
   %invariant.gep = getelementptr i8, ptr %16, i64 -16
-  %invariant.gep1449 = getelementptr i8, ptr %16, i64 -8
+  %invariant.gep1448 = getelementptr i8, ptr %16, i64 -8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -4869,11 +4869,11 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.not1046 = icmp eq i8 %2, 0
+  %.not1045 = icmp eq i8 %2, 0
   br label %93
 
-93:                                               ; preds = %.preheader1418, %.critedge1073
-  %.0726 = phi ptr [ %.1727.ph, %.critedge1073 ], [ %.0.i.i, %.preheader1418 ]
+93:                                               ; preds = %.preheader1417, %.critedge1072
+  %.0726 = phi ptr [ %.1727.ph, %.critedge1072 ], [ %.0.i.i, %.preheader1417 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0726, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !135
   %96 = getelementptr inbounds i64, ptr %16, i64 %95
@@ -4884,8 +4884,8 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   store i64 %100, ptr %94, align 8, !tbaa !135
   %101 = lshr i64 %97, 24
   %trunc = trunc i64 %101 to i8
-  switch i8 %trunc, label %.thread1399.sink.split [
-    i8 7, label %.critedge1073
+  switch i8 %trunc, label %.thread1398.sink.split [
+    i8 7, label %.critedge1072
     i8 1, label %102
     i8 3, label %115
     i8 4, label %194
@@ -4916,7 +4916,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
     i8 21, label %1908
     i8 27, label %2043
     i8 13, label %2134
-    i8 14, label %.thread1399
+    i8 14, label %.thread1398
     i8 15, label %2136
     i8 18, label %2187
     i8 25, label %2249
@@ -4958,7 +4958,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %112 = sext i32 %104 to i64
   %113 = sub nsw i64 0, %112
   %114 = getelementptr inbounds i64, ptr %111, i64 %113
-  br label %.critedge1073
+  br label %.critedge1072
 
 115:                                              ; preds = %93
   %116 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -4997,14 +4997,14 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 
 139:                                              ; preds = %130, %125, %119
   call void @utext_setNativeIndex_77(ptr noundef nonnull %120, i64 noundef %116)
-  %.pre1564 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1565 = getelementptr inbounds nuw i8, ptr %.pre1564, i64 40
-  %.pre1566 = load i32, ptr %.phi.trans.insert1565, align 8, !tbaa !95
+  %.pre1563 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1564 = getelementptr inbounds nuw i8, ptr %.pre1563, i64 40
+  %.pre1565 = load i32, ptr %.phi.trans.insert1564, align 8, !tbaa !95
   br label %140
 
 140:                                              ; preds = %139, %136
-  %141 = phi i32 [ %.pre1566, %139 ], [ %137, %136 ]
-  %142 = phi ptr [ %.pre1564, %139 ], [ %120, %136 ]
+  %141 = phi i32 [ %.pre1565, %139 ], [ %137, %136 ]
+  %142 = phi ptr [ %.pre1563, %139 ], [ %120, %136 ]
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 44
   %145 = load i32, ptr %144, align 4, !tbaa !96
@@ -5041,8 +5041,8 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %165 = load i32, ptr %164, align 8, !tbaa !95
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 28
   %167 = load i32, ptr %166, align 4, !tbaa !87
-  %.not1054 = icmp sgt i32 %165, %167
-  br i1 %.not1054, label %173, label %168
+  %.not1053 = icmp sgt i32 %165, %167
+  br i1 %.not1053, label %173, label %168
 
 168:                                              ; preds = %162
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 32
@@ -5062,7 +5062,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 179:                                              ; preds = %168, %173
   %180 = phi i64 [ %172, %168 ], [ %178, %173 ]
   store i64 %180, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 181:                                              ; preds = %115
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -5074,16 +5074,16 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %185 = load i32, ptr %184, align 8, !tbaa !134
   %186 = sub nsw i32 %185, %183
-  %spec.select.i1091 = call i32 @llvm.smax.i32(i32 %186, i32 0)
-  store i32 %spec.select.i1091, ptr %184, align 8, !tbaa !134
+  %spec.select.i1090 = call i32 @llvm.smax.i32(i32 %186, i32 0)
+  store i32 %spec.select.i1090, ptr %184, align 8, !tbaa !134
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !131
-  %189 = zext nneg i32 %spec.select.i1091 to i64
+  %189 = zext nneg i32 %spec.select.i1090 to i64
   %190 = getelementptr inbounds nuw i64, ptr %188, i64 %189
   %191 = sext i32 %183 to i64
   %192 = sub nsw i64 0, %191
   %193 = getelementptr inbounds i64, ptr %190, i64 %192
-  br label %.critedge1073
+  br label %.critedge1072
 
 194:                                              ; preds = %93
   %195 = getelementptr inbounds i64, ptr %16, i64 %100
@@ -5121,28 +5121,28 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %220 = trunc nuw nsw i64 %206 to i32
   %221 = getelementptr inbounds nuw i8, ptr %203, i64 40
   store i32 %220, ptr %221, align 8, !tbaa !95
-  br label %.preheader1609
+  br label %.preheader1608
 
 222:                                              ; preds = %213, %208, %194
   call void @utext_setNativeIndex_77(ptr noundef nonnull %203, i64 noundef %202)
-  br label %.preheader1609
+  br label %.preheader1608
 
-.preheader1609:                                   ; preds = %222, %219
+.preheader1608:                                   ; preds = %222, %219
   br label %223
 
-223:                                              ; preds = %.preheader1609, %286
-  %.0744 = phi i32 [ %.2746, %286 ], [ 0, %.preheader1609 ]
+223:                                              ; preds = %.preheader1608, %286
+  %.0744 = phi i32 [ %.2746, %286 ], [ 0, %.preheader1608 ]
   %224 = icmp slt i32 %.0744, %199
   %225 = load ptr, ptr %72, align 8, !tbaa !77
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 40
   %227 = load i32, ptr %226, align 8, !tbaa !95
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 28
   %229 = load i32, ptr %228, align 4, !tbaa !87
-  %.not1048 = icmp sgt i32 %227, %229
+  %.not1047 = icmp sgt i32 %227, %229
   br i1 %224, label %230, label %.critedge
 
 230:                                              ; preds = %223
-  br i1 %.not1048, label %236, label %231
+  br i1 %.not1047, label %236, label %231
 
 231:                                              ; preds = %230
   %232 = getelementptr inbounds nuw i8, ptr %225, i64 32
@@ -5162,8 +5162,8 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 242:                                              ; preds = %236, %231
   %243 = phi i64 [ %235, %231 ], [ %241, %236 ]
   %244 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1049 = icmp slt i64 %243, %244
-  br i1 %.not1049, label %246, label %245
+  %.not1048 = icmp slt i64 %243, %244
+  br i1 %.not1048, label %246, label %245
 
 245:                                              ; preds = %242
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -5206,9 +5206,9 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %271 = zext i16 %270 to i32
   %272 = and i32 %271, 64512
   %273 = icmp ne i32 %272, 55296
-  %.not1050 = icmp eq i32 %267, %199
-  %or.cond1089 = select i1 %273, i1 true, i1 %.not1050
-  br i1 %or.cond1089, label %286, label %274
+  %.not1049 = icmp eq i32 %267, %199
+  %or.cond1088 = select i1 %273, i1 true, i1 %.not1049
+  br i1 %or.cond1088, label %286, label %274
 
 274:                                              ; preds = %265
   %275 = sext i32 %267 to i64
@@ -5229,11 +5229,11 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 286:                                              ; preds = %274, %281, %265
   %.1748 = phi i32 [ %271, %265 ], [ %285, %281 ], [ %271, %274 ]
   %.2746 = phi i32 [ %267, %265 ], [ %282, %281 ], [ %267, %274 ]
-  %.not1051 = icmp eq i32 %.1748, %266
-  br i1 %.not1051, label %223, label %.loopexit, !llvm.loop !138
+  %.not1050 = icmp eq i32 %.1748, %266
+  br i1 %.not1050, label %223, label %.loopexit, !llvm.loop !138
 
 .critedge:                                        ; preds = %223
-  br i1 %.not1048, label %292, label %287
+  br i1 %.not1047, label %292, label %287
 
 287:                                              ; preds = %.critedge
   %288 = getelementptr inbounds nuw i8, ptr %225, i64 32
@@ -5253,7 +5253,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 298:                                              ; preds = %292, %287
   %299 = phi i64 [ %291, %287 ], [ %297, %292 ]
   store i64 %299, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 .loopexit:                                        ; preds = %286, %245
   %300 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5261,22 +5261,22 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %303 = load i32, ptr %302, align 8, !tbaa !134
   %304 = sub nsw i32 %303, %301
-  %spec.select.i1092 = call i32 @llvm.smax.i32(i32 %304, i32 0)
-  store i32 %spec.select.i1092, ptr %302, align 8, !tbaa !134
+  %spec.select.i1091 = call i32 @llvm.smax.i32(i32 %304, i32 0)
+  store i32 %spec.select.i1091, ptr %302, align 8, !tbaa !134
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %306 = load ptr, ptr %305, align 8, !tbaa !131
-  %307 = zext nneg i32 %spec.select.i1092 to i64
+  %307 = zext nneg i32 %spec.select.i1091 to i64
   %308 = getelementptr inbounds nuw i64, ptr %306, i64 %307
   %309 = sext i32 %301 to i64
   %310 = sub nsw i64 0, %309
   %311 = getelementptr inbounds i64, ptr %308, i64 %310
-  br label %.critedge1073
+  br label %.critedge1072
 
 312:                                              ; preds = %93
   %313 = and i64 %97, 16777215
   %314 = load i32, ptr %3, align 4, !tbaa !13
   %315 = icmp slt i32 %314, 1
-  br i1 %315, label %316, label %.thread1399
+  br i1 %315, label %316, label %.thread1398
 
 316:                                              ; preds = %312
   %317 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5287,51 +5287,51 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %322 = icmp slt i32 %321, 0
   %323 = getelementptr inbounds nuw i8, ptr %317, i64 12
   %324 = load i32, ptr %323, align 4
-  %.not.i.i.i1093 = icmp slt i32 %324, %321
-  %or.cond.i.i.i1094 = select i1 %322, i1 true, i1 %.not.i.i.i1093
-  br i1 %or.cond.i.i.i1094, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1100, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1095
+  %.not.i.i.i1092 = icmp slt i32 %324, %321
+  %or.cond.i.i.i1093 = select i1 %322, i1 true, i1 %.not.i.i.i1092
+  br i1 %or.cond.i.i.i1093, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1099, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1094
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1100: ; preds = %316
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1099: ; preds = %316
   %325 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %317, i32 noundef %321, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %326 = icmp eq i8 %325, 0
-  br i1 %326, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1101
+  br i1 %326, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1100
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1101: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1100
-  %.pre.i.i1102 = load i32, ptr %319, align 8, !tbaa !134
-  %.pre6.i.i1103 = add nsw i32 %.pre.i.i1102, %318
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1095
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1100: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1099
+  %.pre.i.i1101 = load i32, ptr %319, align 8, !tbaa !134
+  %.pre6.i.i1102 = add nsw i32 %.pre.i.i1101, %318
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1094
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1095: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1101, %316
-  %.pre-phi.i.i1096 = phi i32 [ %.pre6.i.i1103, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1101 ], [ %321, %316 ]
-  %327 = phi i32 [ %.pre.i.i1102, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1101 ], [ %320, %316 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1094: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1100, %316
+  %.pre-phi.i.i1095 = phi i32 [ %.pre6.i.i1102, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1100 ], [ %321, %316 ]
+  %327 = phi i32 [ %.pre.i.i1101, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1100 ], [ %320, %316 ]
   %328 = getelementptr inbounds nuw i8, ptr %317, i64 24
   %329 = load ptr, ptr %328, align 8, !tbaa !131
   %330 = sext i32 %327 to i64
   %331 = getelementptr inbounds i64, ptr %329, i64 %330
-  store i32 %.pre-phi.i.i1096, ptr %319, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097
+  store i32 %.pre-phi.i.i1095, ptr %319, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1095, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1100
-  %.0.i.i1098 = phi ptr [ %331, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1095 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1100 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1094, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1099
+  %.0.i.i1097 = phi ptr [ %331, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1094 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1099 ]
   %332 = load i32, ptr %3, align 4, !tbaa !13
   %333 = icmp slt i32 %332, 1
-  br i1 %333, label %334, label %.thread1399.sink.split
+  br i1 %333, label %334, label %.thread1398.sink.split
 
-334:                                              ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097
+334:                                              ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096
   %335 = load i32, ptr %31, align 8, !tbaa !17
   %336 = sext i32 %335 to i64
   %337 = sub nsw i64 0, %336
-  %338 = getelementptr inbounds i64, ptr %.0.i.i1098, i64 %337
+  %338 = getelementptr inbounds i64, ptr %.0.i.i1097, i64 %337
   br label %339
 
 339:                                              ; preds = %339, %334
   %.018.i = phi ptr [ %338, %334 ], [ %340, %339 ]
-  %.0.i1099 = phi ptr [ %.0.i.i1098, %334 ], [ %342, %339 ]
+  %.0.i1098 = phi ptr [ %.0.i.i1097, %334 ], [ %342, %339 ]
   %340 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %341 = load i64, ptr %.018.i, align 8, !tbaa !110
-  %342 = getelementptr inbounds nuw i8, ptr %.0.i1099, i64 8
-  store i64 %341, ptr %.0.i1099, align 8, !tbaa !110
-  %343 = icmp eq ptr %340, %.0.i.i1098
+  %342 = getelementptr inbounds nuw i8, ptr %.0.i1098, i64 8
+  store i64 %341, ptr %.0.i1098, align 8, !tbaa !110
+  %343 = icmp eq ptr %340, %.0.i.i1097
   br i1 %343, label %344, label %339, !llvm.loop !139
 
 344:                                              ; preds = %339
@@ -5376,16 +5376,16 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097: ; preds = %_ZN6icu
 _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.split.i.i, %356, %344
   %360 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i64 %313, ptr %360, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 361:                                              ; preds = %93
-  br i1 %.not1046, label %3858, label %362
+  br i1 %.not1045, label %3858, label %362
 
 362:                                              ; preds = %361
   %363 = load i64, ptr %.0726, align 8, !tbaa !137
   %364 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1047 = icmp eq i64 %363, %364
-  br i1 %.not1047, label %3858, label %365
+  %.not1046 = icmp eq i64 %363, %364
+  br i1 %.not1046, label %3858, label %365
 
 365:                                              ; preds = %362
   %366 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5393,16 +5393,16 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %369 = load i32, ptr %368, align 8, !tbaa !134
   %370 = sub nsw i32 %369, %367
-  %spec.select.i1104 = call i32 @llvm.smax.i32(i32 %370, i32 0)
-  store i32 %spec.select.i1104, ptr %368, align 8, !tbaa !134
+  %spec.select.i1103 = call i32 @llvm.smax.i32(i32 %370, i32 0)
+  store i32 %spec.select.i1103, ptr %368, align 8, !tbaa !134
   %371 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %372 = load ptr, ptr %371, align 8, !tbaa !131
-  %373 = zext nneg i32 %spec.select.i1104 to i64
+  %373 = zext nneg i32 %spec.select.i1103 to i64
   %374 = getelementptr inbounds nuw i64, ptr %372, i64 %373
   %375 = sext i32 %367 to i64
   %376 = sub nsw i64 0, %375
   %377 = getelementptr inbounds i64, ptr %374, i64 %376
-  br label %.critedge1073
+  br label %.critedge1072
 
 378:                                              ; preds = %93
   %379 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -5411,7 +5411,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %382 = zext nneg i32 %381 to i64
   %383 = getelementptr inbounds nuw [1 x i64], ptr %380, i64 0, i64 %382
   store i64 %379, ptr %383, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 384:                                              ; preds = %93
   %385 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -5427,18 +5427,18 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %394 = zext nneg i32 %393 to i64
   %395 = getelementptr inbounds nuw [1 x i64], ptr %385, i64 0, i64 %394
   store i64 %392, ptr %395, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 396:                                              ; preds = %93
   %397 = load i64, ptr %.0726, align 8, !tbaa !137
   %398 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1040 = icmp slt i64 %397, %398
-  br i1 %.not1040, label %400, label %399
+  %.not1039 = icmp slt i64 %397, %398
+  br i1 %.not1039, label %400, label %399
 
 399:                                              ; preds = %396
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 400:                                              ; preds = %396
   %401 = load ptr, ptr %72, align 8, !tbaa !77
@@ -5471,14 +5471,14 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 420:                                              ; preds = %411, %406, %400
   call void @utext_setNativeIndex_77(ptr noundef nonnull %401, i64 noundef %397)
-  %.pre1555 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1556 = getelementptr inbounds nuw i8, ptr %.pre1555, i64 40
-  %.pre1557 = load i32, ptr %.phi.trans.insert1556, align 8, !tbaa !95
+  %.pre1554 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1555 = getelementptr inbounds nuw i8, ptr %.pre1554, i64 40
+  %.pre1556 = load i32, ptr %.phi.trans.insert1555, align 8, !tbaa !95
   br label %421
 
 421:                                              ; preds = %420, %417
-  %422 = phi i32 [ %.pre1557, %420 ], [ %418, %417 ]
-  %423 = phi ptr [ %.pre1555, %420 ], [ %401, %417 ]
+  %422 = phi i32 [ %.pre1556, %420 ], [ %418, %417 ]
+  %423 = phi ptr [ %.pre1554, %420 ], [ %401, %417 ]
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 40
   %425 = getelementptr inbounds nuw i8, ptr %423, i64 44
   %426 = load i32, ptr %425, align 4, !tbaa !96
@@ -5502,19 +5502,19 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 438:                                              ; preds = %428, %421
   %439 = call i32 @utext_next32_77(ptr noundef nonnull %423)
-  %.pre1558 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1559 = getelementptr inbounds nuw i8, ptr %.pre1558, i64 40
-  %.pre1560 = load i32, ptr %.phi.trans.insert1559, align 8, !tbaa !95
+  %.pre1557 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1558 = getelementptr inbounds nuw i8, ptr %.pre1557, i64 40
+  %.pre1559 = load i32, ptr %.phi.trans.insert1558, align 8, !tbaa !95
   br label %440
 
 440:                                              ; preds = %438, %435
-  %441 = phi i32 [ %436, %435 ], [ %.pre1560, %438 ]
-  %442 = phi ptr [ %423, %435 ], [ %.pre1558, %438 ]
+  %441 = phi i32 [ %436, %435 ], [ %.pre1559, %438 ]
+  %442 = phi ptr [ %423, %435 ], [ %.pre1557, %438 ]
   %443 = phi i32 [ %437, %435 ], [ %439, %438 ]
   %444 = getelementptr inbounds nuw i8, ptr %442, i64 28
   %445 = load i32, ptr %444, align 4, !tbaa !87
-  %.not1041 = icmp sgt i32 %441, %445
-  br i1 %.not1041, label %451, label %446
+  %.not1040 = icmp sgt i32 %441, %445
+  br i1 %.not1040, label %451, label %446
 
 446:                                              ; preds = %440
   %447 = getelementptr inbounds nuw i8, ptr %442, i64 32
@@ -5534,13 +5534,13 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 457:                                              ; preds = %451, %446
   %458 = phi i64 [ %450, %446 ], [ %456, %451 ]
   %459 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1042 = icmp slt i64 %458, %459
-  br i1 %.not1042, label %510, label %460
+  %.not1041 = icmp slt i64 %458, %459
+  br i1 %.not1041, label %510, label %460
 
 460:                                              ; preds = %457
   %461 = call fastcc noundef signext i8 @_ZN6icu_77L16isLineTerminatorEi(i32 noundef %443)
-  %.not1045 = icmp eq i8 %461, 0
-  br i1 %.not1045, label %553, label %462
+  %.not1044 = icmp eq i8 %461, 0
+  br i1 %.not1044, label %553, label %462
 
 462:                                              ; preds = %460
   %463 = icmp eq i32 %443, 10
@@ -5576,14 +5576,14 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 483:                                              ; preds = %473, %468
   %484 = call i32 @utext_previous32_77(ptr noundef nonnull %469)
-  %.pre1561 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1562 = getelementptr inbounds nuw i8, ptr %.pre1561, i64 40
-  %.pre1563 = load i32, ptr %.phi.trans.insert1562, align 8, !tbaa !95
+  %.pre1560 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1561 = getelementptr inbounds nuw i8, ptr %.pre1560, i64 40
+  %.pre1562 = load i32, ptr %.phi.trans.insert1561, align 8, !tbaa !95
   br label %485
 
 485:                                              ; preds = %483, %481
-  %486 = phi i32 [ %.pre1563, %483 ], [ %482, %481 ]
-  %487 = phi ptr [ %.pre1561, %483 ], [ %469, %481 ]
+  %486 = phi i32 [ %.pre1562, %483 ], [ %482, %481 ]
+  %487 = phi ptr [ %.pre1560, %483 ], [ %469, %481 ]
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 40
   %489 = icmp sgt i32 %486, 0
   br i1 %489, label %490, label %504
@@ -5619,7 +5619,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 509:                                              ; preds = %506, %464, %462
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 510:                                              ; preds = %457
   %511 = load ptr, ptr %72, align 8, !tbaa !77
@@ -5662,8 +5662,8 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %536 = load i32, ptr %535, align 8, !tbaa !95
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 28
   %538 = load i32, ptr %537, align 4, !tbaa !87
-  %.not1043 = icmp sgt i32 %536, %538
-  br i1 %.not1043, label %544, label %539
+  %.not1042 = icmp sgt i32 %536, %538
+  br i1 %.not1042, label %544, label %539
 
 539:                                              ; preds = %533
   %540 = getelementptr inbounds nuw i8, ptr %534, i64 32
@@ -5683,13 +5683,13 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 550:                                              ; preds = %544, %539
   %551 = phi i64 [ %543, %539 ], [ %549, %544 ]
   %552 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1044 = icmp slt i64 %551, %552
-  br i1 %.not1044, label %553, label %.critedge1058
+  %.not1043 = icmp slt i64 %551, %552
+  br i1 %.not1043, label %553, label %.critedge1057
 
-.critedge1058:                                    ; preds = %550
+.critedge1057:                                    ; preds = %550
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 553:                                              ; preds = %550, %529, %460, %506
   %554 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5697,27 +5697,27 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %556 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %557 = load i32, ptr %556, align 8, !tbaa !134
   %558 = sub nsw i32 %557, %555
-  %spec.select.i1105 = call i32 @llvm.smax.i32(i32 %558, i32 0)
-  store i32 %spec.select.i1105, ptr %556, align 8, !tbaa !134
+  %spec.select.i1104 = call i32 @llvm.smax.i32(i32 %558, i32 0)
+  store i32 %spec.select.i1104, ptr %556, align 8, !tbaa !134
   %559 = getelementptr inbounds nuw i8, ptr %554, i64 24
   %560 = load ptr, ptr %559, align 8, !tbaa !131
-  %561 = zext nneg i32 %spec.select.i1105 to i64
+  %561 = zext nneg i32 %spec.select.i1104 to i64
   %562 = getelementptr inbounds nuw i64, ptr %560, i64 %561
   %563 = sext i32 %555 to i64
   %564 = sub nsw i64 0, %563
   %565 = getelementptr inbounds i64, ptr %562, i64 %564
-  br label %.critedge1073
+  br label %.critedge1072
 
 566:                                              ; preds = %93
   %567 = load i64, ptr %.0726, align 8, !tbaa !137
   %568 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1038 = icmp slt i64 %567, %568
-  br i1 %.not1038, label %570, label %569
+  %.not1037 = icmp slt i64 %567, %568
+  br i1 %.not1037, label %570, label %569
 
 569:                                              ; preds = %566
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 570:                                              ; preds = %566
   %571 = load ptr, ptr %72, align 8, !tbaa !77
@@ -5750,14 +5750,14 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 590:                                              ; preds = %581, %576, %570
   call void @utext_setNativeIndex_77(ptr noundef nonnull %571, i64 noundef %567)
-  %.pre1552 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1553 = getelementptr inbounds nuw i8, ptr %.pre1552, i64 40
-  %.pre1554 = load i32, ptr %.phi.trans.insert1553, align 8, !tbaa !95
+  %.pre1551 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1552 = getelementptr inbounds nuw i8, ptr %.pre1551, i64 40
+  %.pre1553 = load i32, ptr %.phi.trans.insert1552, align 8, !tbaa !95
   br label %591
 
 591:                                              ; preds = %590, %587
-  %592 = phi i32 [ %.pre1554, %590 ], [ %588, %587 ]
-  %593 = phi ptr [ %.pre1552, %590 ], [ %571, %587 ]
+  %592 = phi i32 [ %.pre1553, %590 ], [ %588, %587 ]
+  %593 = phi ptr [ %.pre1551, %590 ], [ %571, %587 ]
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 40
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 44
   %596 = load i32, ptr %595, align 4, !tbaa !96
@@ -5794,8 +5794,8 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %616 = load i32, ptr %615, align 8, !tbaa !95
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 28
   %618 = load i32, ptr %617, align 4, !tbaa !87
-  %.not1039 = icmp sgt i32 %616, %618
-  br i1 %.not1039, label %624, label %619
+  %.not1038 = icmp sgt i32 %616, %618
+  br i1 %.not1038, label %624, label %619
 
 619:                                              ; preds = %613
   %620 = getelementptr inbounds nuw i8, ptr %614, i64 32
@@ -5821,7 +5821,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 634:                                              ; preds = %630
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 635:                                              ; preds = %630, %610
   %636 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5829,27 +5829,27 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %638 = getelementptr inbounds nuw i8, ptr %636, i64 8
   %639 = load i32, ptr %638, align 8, !tbaa !134
   %640 = sub nsw i32 %639, %637
-  %spec.select.i1106 = call i32 @llvm.smax.i32(i32 %640, i32 0)
-  store i32 %spec.select.i1106, ptr %638, align 8, !tbaa !134
+  %spec.select.i1105 = call i32 @llvm.smax.i32(i32 %640, i32 0)
+  store i32 %spec.select.i1105, ptr %638, align 8, !tbaa !134
   %641 = getelementptr inbounds nuw i8, ptr %636, i64 24
   %642 = load ptr, ptr %641, align 8, !tbaa !131
-  %643 = zext nneg i32 %spec.select.i1106 to i64
+  %643 = zext nneg i32 %spec.select.i1105 to i64
   %644 = getelementptr inbounds nuw i64, ptr %642, i64 %643
   %645 = sext i32 %637 to i64
   %646 = sub nsw i64 0, %645
   %647 = getelementptr inbounds i64, ptr %644, i64 %646
-  br label %.critedge1073
+  br label %.critedge1072
 
 648:                                              ; preds = %93
   %649 = load i64, ptr %.0726, align 8, !tbaa !137
   %650 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1036 = icmp slt i64 %649, %650
-  br i1 %.not1036, label %652, label %651
+  %.not1035 = icmp slt i64 %649, %650
+  br i1 %.not1035, label %652, label %651
 
 651:                                              ; preds = %648
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 652:                                              ; preds = %648
   %653 = load ptr, ptr %72, align 8, !tbaa !77
@@ -5882,14 +5882,14 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 672:                                              ; preds = %663, %658, %652
   call void @utext_setNativeIndex_77(ptr noundef nonnull %653, i64 noundef %649)
-  %.pre1549 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1550 = getelementptr inbounds nuw i8, ptr %.pre1549, i64 40
-  %.pre1551 = load i32, ptr %.phi.trans.insert1550, align 8, !tbaa !95
+  %.pre1548 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1549 = getelementptr inbounds nuw i8, ptr %.pre1548, i64 40
+  %.pre1550 = load i32, ptr %.phi.trans.insert1549, align 8, !tbaa !95
   br label %673
 
 673:                                              ; preds = %672, %669
-  %674 = phi i32 [ %.pre1551, %672 ], [ %670, %669 ]
-  %675 = phi ptr [ %.pre1549, %672 ], [ %653, %669 ]
+  %674 = phi i32 [ %.pre1550, %672 ], [ %670, %669 ]
+  %675 = phi ptr [ %.pre1548, %672 ], [ %653, %669 ]
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 44
   %677 = load i32, ptr %676, align 4, !tbaa !96
   %678 = icmp slt i32 %674, %677
@@ -5915,25 +5915,25 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 690:                                              ; preds = %688, %686
   %691 = phi i32 [ %687, %686 ], [ %689, %688 ]
   %692 = and i32 %691, -8368
-  %.not.i1107 = icmp eq i32 %692, 0
-  br i1 %.not.i1107, label %693, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread
+  %.not.i1106 = icmp eq i32 %692, 0
+  br i1 %.not.i1106, label %693, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread
 
 693:                                              ; preds = %690
   switch i32 %691, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread [
     i32 10, label %694
-    i32 11, label %.critedge1073
-    i32 12, label %.critedge1073
-    i32 13, label %.critedge1073
-    i32 133, label %.critedge1073
-    i32 8232, label %.critedge1073
-    i32 8233, label %.critedge1073
+    i32 11, label %.critedge1072
+    i32 12, label %.critedge1072
+    i32 13, label %.critedge1072
+    i32 133, label %.critedge1072
+    i32 8232, label %.critedge1072
+    i32 8233, label %.critedge1072
   ]
 
 694:                                              ; preds = %693
   %695 = load i64, ptr %.0726, align 8, !tbaa !137
   %696 = load i64, ptr %92, align 8, !tbaa !70
   %697 = icmp sgt i64 %695, %696
-  br i1 %697, label %698, label %.critedge1073
+  br i1 %697, label %698, label %.critedge1072
 
 698:                                              ; preds = %694
   %699 = load ptr, ptr %72, align 8, !tbaa !77
@@ -5968,7 +5968,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 719:                                              ; preds = %717, %711
   %720 = phi i32 [ %716, %711 ], [ %718, %717 ]
   %721 = icmp eq i32 %720, 13
-  br i1 %721, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread, label %.critedge1073
+  br i1 %721, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread, label %.critedge1072
 
 _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %722 = load ptr, ptr %32, align 8, !tbaa !64
@@ -5976,27 +5976,27 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %724 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %725 = load i32, ptr %724, align 8, !tbaa !134
   %726 = sub nsw i32 %725, %723
-  %spec.select.i1109 = call i32 @llvm.smax.i32(i32 %726, i32 0)
-  store i32 %spec.select.i1109, ptr %724, align 8, !tbaa !134
+  %spec.select.i1108 = call i32 @llvm.smax.i32(i32 %726, i32 0)
+  store i32 %spec.select.i1108, ptr %724, align 8, !tbaa !134
   %727 = getelementptr inbounds nuw i8, ptr %722, i64 24
   %728 = load ptr, ptr %727, align 8, !tbaa !131
-  %729 = zext nneg i32 %spec.select.i1109 to i64
+  %729 = zext nneg i32 %spec.select.i1108 to i64
   %730 = getelementptr inbounds nuw i64, ptr %728, i64 %729
   %731 = sext i32 %723 to i64
   %732 = sub nsw i64 0, %731
   %733 = getelementptr inbounds i64, ptr %730, i64 %732
-  br label %.critedge1073
+  br label %.critedge1072
 
 734:                                              ; preds = %93
   %735 = load i64, ptr %.0726, align 8, !tbaa !137
   %736 = load i64, ptr %86, align 8, !tbaa !71
-  %.not1034 = icmp slt i64 %735, %736
-  br i1 %.not1034, label %738, label %737
+  %.not1033 = icmp slt i64 %735, %736
+  br i1 %.not1033, label %738, label %737
 
 737:                                              ; preds = %734
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 738:                                              ; preds = %734
   %739 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6029,14 +6029,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 758:                                              ; preds = %749, %744, %738
   call void @utext_setNativeIndex_77(ptr noundef nonnull %739, i64 noundef %735)
-  %.pre1546 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1547 = getelementptr inbounds nuw i8, ptr %.pre1546, i64 40
-  %.pre1548 = load i32, ptr %.phi.trans.insert1547, align 8, !tbaa !95
+  %.pre1545 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1546 = getelementptr inbounds nuw i8, ptr %.pre1545, i64 40
+  %.pre1547 = load i32, ptr %.phi.trans.insert1546, align 8, !tbaa !95
   br label %759
 
 759:                                              ; preds = %758, %755
-  %760 = phi i32 [ %.pre1548, %758 ], [ %756, %755 ]
-  %761 = phi ptr [ %.pre1546, %758 ], [ %739, %755 ]
+  %760 = phi i32 [ %.pre1547, %758 ], [ %756, %755 ]
+  %761 = phi ptr [ %.pre1545, %758 ], [ %739, %755 ]
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 44
   %763 = load i32, ptr %762, align 4, !tbaa !96
   %764 = icmp slt i32 %760, %763
@@ -6061,8 +6061,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 776:                                              ; preds = %774, %772
   %777 = phi i32 [ %773, %772 ], [ %775, %774 ]
-  %.not1035 = icmp eq i32 %777, 10
-  br i1 %.not1035, label %.critedge1073, label %778
+  %.not1034 = icmp eq i32 %777, 10
+  br i1 %.not1034, label %.critedge1072, label %778
 
 778:                                              ; preds = %776
   %779 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6070,22 +6070,22 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %781 = getelementptr inbounds nuw i8, ptr %779, i64 8
   %782 = load i32, ptr %781, align 8, !tbaa !134
   %783 = sub nsw i32 %782, %780
-  %spec.select.i1110 = call i32 @llvm.smax.i32(i32 %783, i32 0)
-  store i32 %spec.select.i1110, ptr %781, align 8, !tbaa !134
+  %spec.select.i1109 = call i32 @llvm.smax.i32(i32 %783, i32 0)
+  store i32 %spec.select.i1109, ptr %781, align 8, !tbaa !134
   %784 = getelementptr inbounds nuw i8, ptr %779, i64 24
   %785 = load ptr, ptr %784, align 8, !tbaa !131
-  %786 = zext nneg i32 %spec.select.i1110 to i64
+  %786 = zext nneg i32 %spec.select.i1109 to i64
   %787 = getelementptr inbounds nuw i64, ptr %785, i64 %786
   %788 = sext i32 %780 to i64
   %789 = sub nsw i64 0, %788
   %790 = getelementptr inbounds i64, ptr %787, i64 %789
-  br label %.critedge1073
+  br label %.critedge1072
 
 791:                                              ; preds = %93
   %792 = load i64, ptr %.0726, align 8, !tbaa !137
   %793 = load i64, ptr %92, align 8, !tbaa !70
-  %.not1033 = icmp eq i64 %792, %793
-  br i1 %.not1033, label %.critedge1073, label %794
+  %.not1032 = icmp eq i64 %792, %793
+  br i1 %.not1032, label %.critedge1072, label %794
 
 794:                                              ; preds = %791
   %795 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6093,22 +6093,22 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %797 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %798 = load i32, ptr %797, align 8, !tbaa !134
   %799 = sub nsw i32 %798, %796
-  %spec.select.i1111 = call i32 @llvm.smax.i32(i32 %799, i32 0)
-  store i32 %spec.select.i1111, ptr %797, align 8, !tbaa !134
+  %spec.select.i1110 = call i32 @llvm.smax.i32(i32 %799, i32 0)
+  store i32 %spec.select.i1110, ptr %797, align 8, !tbaa !134
   %800 = getelementptr inbounds nuw i8, ptr %795, i64 24
   %801 = load ptr, ptr %800, align 8, !tbaa !131
-  %802 = zext nneg i32 %spec.select.i1111 to i64
+  %802 = zext nneg i32 %spec.select.i1110 to i64
   %803 = getelementptr inbounds nuw i64, ptr %801, i64 %802
   %804 = sext i32 %796 to i64
   %805 = sub nsw i64 0, %804
   %806 = getelementptr inbounds i64, ptr %803, i64 %805
-  br label %.critedge1073
+  br label %.critedge1072
 
 807:                                              ; preds = %93
   %808 = load i64, ptr %.0726, align 8, !tbaa !137
   %809 = load i64, ptr %92, align 8, !tbaa !70
   %810 = icmp eq i64 %808, %809
-  br i1 %810, label %.critedge1073, label %811
+  br i1 %810, label %.critedge1072, label %811
 
 811:                                              ; preds = %807
   %812 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6141,14 +6141,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 831:                                              ; preds = %822, %817, %811
   call void @utext_setNativeIndex_77(ptr noundef nonnull %812, i64 noundef %808)
-  %.pre1543 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1544 = getelementptr inbounds nuw i8, ptr %.pre1543, i64 40
-  %.pre1545 = load i32, ptr %.phi.trans.insert1544, align 8, !tbaa !95
+  %.pre1542 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1543 = getelementptr inbounds nuw i8, ptr %.pre1542, i64 40
+  %.pre1544 = load i32, ptr %.phi.trans.insert1543, align 8, !tbaa !95
   br label %832
 
 832:                                              ; preds = %831, %828
-  %833 = phi i32 [ %.pre1545, %831 ], [ %829, %828 ]
-  %834 = phi ptr [ %.pre1543, %831 ], [ %812, %828 ]
+  %833 = phi i32 [ %.pre1544, %831 ], [ %829, %828 ]
+  %834 = phi ptr [ %.pre1542, %831 ], [ %812, %828 ]
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 40
   %836 = icmp sgt i32 %833, 0
   br i1 %836, label %837, label %851
@@ -6185,8 +6185,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 858:                                              ; preds = %853
   %859 = call fastcc noundef signext i8 @_ZN6icu_77L16isLineTerminatorEi(i32 noundef %854)
-  %.not1032 = icmp eq i8 %859, 0
-  br i1 %.not1032, label %860, label %.critedge1073
+  %.not1031 = icmp eq i8 %859, 0
+  br i1 %.not1031, label %860, label %.critedge1072
 
 860:                                              ; preds = %858, %853
   %861 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6194,22 +6194,22 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %863 = getelementptr inbounds nuw i8, ptr %861, i64 8
   %864 = load i32, ptr %863, align 8, !tbaa !134
   %865 = sub nsw i32 %864, %862
-  %spec.select.i1112 = call i32 @llvm.smax.i32(i32 %865, i32 0)
-  store i32 %spec.select.i1112, ptr %863, align 8, !tbaa !134
+  %spec.select.i1111 = call i32 @llvm.smax.i32(i32 %865, i32 0)
+  store i32 %spec.select.i1111, ptr %863, align 8, !tbaa !134
   %866 = getelementptr inbounds nuw i8, ptr %861, i64 24
   %867 = load ptr, ptr %866, align 8, !tbaa !131
-  %868 = zext nneg i32 %spec.select.i1112 to i64
+  %868 = zext nneg i32 %spec.select.i1111 to i64
   %869 = getelementptr inbounds nuw i64, ptr %867, i64 %868
   %870 = sext i32 %862 to i64
   %871 = sub nsw i64 0, %870
   %872 = getelementptr inbounds i64, ptr %869, i64 %871
-  br label %.critedge1073
+  br label %.critedge1072
 
 873:                                              ; preds = %93
   %874 = load i64, ptr %.0726, align 8, !tbaa !137
   %875 = load i64, ptr %92, align 8, !tbaa !70
-  %.not1030 = icmp sgt i64 %874, %875
-  br i1 %.not1030, label %876, label %.critedge1073
+  %.not1029 = icmp sgt i64 %874, %875
+  br i1 %.not1029, label %876, label %.critedge1072
 
 876:                                              ; preds = %873
   %877 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6242,14 +6242,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 896:                                              ; preds = %887, %882, %876
   call void @utext_setNativeIndex_77(ptr noundef nonnull %877, i64 noundef %874)
-  %.pre1540 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1541 = getelementptr inbounds nuw i8, ptr %.pre1540, i64 40
-  %.pre1542 = load i32, ptr %.phi.trans.insert1541, align 8, !tbaa !95
+  %.pre1539 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1540 = getelementptr inbounds nuw i8, ptr %.pre1539, i64 40
+  %.pre1541 = load i32, ptr %.phi.trans.insert1540, align 8, !tbaa !95
   br label %897
 
 897:                                              ; preds = %896, %893
-  %898 = phi i32 [ %.pre1542, %896 ], [ %894, %893 ]
-  %899 = phi ptr [ %.pre1540, %896 ], [ %877, %893 ]
+  %898 = phi i32 [ %.pre1541, %896 ], [ %894, %893 ]
+  %899 = phi ptr [ %.pre1539, %896 ], [ %877, %893 ]
   %900 = getelementptr inbounds nuw i8, ptr %899, i64 40
   %901 = icmp sgt i32 %898, 0
   br i1 %901, label %902, label %916
@@ -6279,8 +6279,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
 
 918:                                              ; preds = %916, %910
   %919 = phi i32 [ %915, %910 ], [ %917, %916 ]
-  %.not1031 = icmp eq i32 %919, 10
-  br i1 %.not1031, label %.critedge1073, label %920
+  %.not1030 = icmp eq i32 %919, 10
+  br i1 %.not1030, label %.critedge1072, label %920
 
 920:                                              ; preds = %918
   %921 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6288,24 +6288,24 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %923 = getelementptr inbounds nuw i8, ptr %921, i64 8
   %924 = load i32, ptr %923, align 8, !tbaa !134
   %925 = sub nsw i32 %924, %922
-  %spec.select.i1113 = call i32 @llvm.smax.i32(i32 %925, i32 0)
-  store i32 %spec.select.i1113, ptr %923, align 8, !tbaa !134
+  %spec.select.i1112 = call i32 @llvm.smax.i32(i32 %925, i32 0)
+  store i32 %spec.select.i1112, ptr %923, align 8, !tbaa !134
   %926 = getelementptr inbounds nuw i8, ptr %921, i64 24
   %927 = load ptr, ptr %926, align 8, !tbaa !131
-  %928 = zext nneg i32 %spec.select.i1113 to i64
+  %928 = zext nneg i32 %spec.select.i1112 to i64
   %929 = getelementptr inbounds nuw i64, ptr %927, i64 %928
   %930 = sext i32 %922 to i64
   %931 = sub nsw i64 0, %930
   %932 = getelementptr inbounds i64, ptr %929, i64 %931
-  br label %.critedge1073
+  br label %.critedge1072
 
 933:                                              ; preds = %93
   %934 = load i64, ptr %.0726, align 8, !tbaa !137
   %935 = call noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %934)
   %936 = icmp ne i32 %99, 0
   %937 = zext i1 %936 to i8
-  %.not1029 = icmp eq i8 %935, %937
-  br i1 %.not1029, label %938, label %.critedge1073
+  %.not1028 = icmp eq i8 %935, %937
+  br i1 %.not1028, label %938, label %.critedge1072
 
 938:                                              ; preds = %933
   %939 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6313,16 +6313,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %693, %690, %719
   %941 = getelementptr inbounds nuw i8, ptr %939, i64 8
   %942 = load i32, ptr %941, align 8, !tbaa !134
   %943 = sub nsw i32 %942, %940
-  %spec.select.i1114 = call i32 @llvm.smax.i32(i32 %943, i32 0)
-  store i32 %spec.select.i1114, ptr %941, align 8, !tbaa !134
+  %spec.select.i1113 = call i32 @llvm.smax.i32(i32 %943, i32 0)
+  store i32 %spec.select.i1113, ptr %941, align 8, !tbaa !134
   %944 = getelementptr inbounds nuw i8, ptr %939, i64 24
   %945 = load ptr, ptr %944, align 8, !tbaa !131
-  %946 = zext nneg i32 %spec.select.i1114 to i64
+  %946 = zext nneg i32 %spec.select.i1113 to i64
   %947 = getelementptr inbounds nuw i64, ptr %945, i64 %946
   %948 = sext i32 %940 to i64
   %949 = sub nsw i64 0, %948
   %950 = getelementptr inbounds i64, ptr %947, i64 %949
-  br label %.critedge1073
+  br label %.critedge1072
 
 951:                                              ; preds = %93
   %952 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -6368,8 +6368,8 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %.07.i = phi i8 [ 0, %955 ], [ 1, %967 ], [ %974, %968 ]
   %975 = icmp ne i32 %99, 0
   %976 = zext i1 %975 to i8
-  %.not1028 = icmp eq i8 %.07.i, %976
-  br i1 %.not1028, label %977, label %.critedge1073
+  %.not1027 = icmp eq i8 %.07.i, %976
+  br i1 %.not1027, label %977, label %.critedge1072
 
 977:                                              ; preds = %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
   %978 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6377,22 +6377,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %980 = getelementptr inbounds nuw i8, ptr %978, i64 8
   %981 = load i32, ptr %980, align 8, !tbaa !134
   %982 = sub nsw i32 %981, %979
-  %spec.select.i1115 = call i32 @llvm.smax.i32(i32 %982, i32 0)
-  store i32 %spec.select.i1115, ptr %980, align 8, !tbaa !134
+  %spec.select.i1114 = call i32 @llvm.smax.i32(i32 %982, i32 0)
+  store i32 %spec.select.i1114, ptr %980, align 8, !tbaa !134
   %983 = getelementptr inbounds nuw i8, ptr %978, i64 24
   %984 = load ptr, ptr %983, align 8, !tbaa !131
-  %985 = zext nneg i32 %spec.select.i1115 to i64
+  %985 = zext nneg i32 %spec.select.i1114 to i64
   %986 = getelementptr inbounds nuw i64, ptr %984, i64 %985
   %987 = sext i32 %979 to i64
   %988 = sub nsw i64 0, %987
   %989 = getelementptr inbounds i64, ptr %986, i64 %988
-  br label %.critedge1073
+  br label %.critedge1072
 
 990:                                              ; preds = %93
   %991 = load i64, ptr %.0726, align 8, !tbaa !137
   %992 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1026 = icmp slt i64 %991, %992
-  br i1 %.not1026, label %1006, label %993
+  %.not1025 = icmp slt i64 %991, %992
+  br i1 %.not1025, label %1006, label %993
 
 993:                                              ; preds = %990
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -6401,16 +6401,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %996 = getelementptr inbounds nuw i8, ptr %994, i64 8
   %997 = load i32, ptr %996, align 8, !tbaa !134
   %998 = sub nsw i32 %997, %995
-  %spec.select.i1116 = call i32 @llvm.smax.i32(i32 %998, i32 0)
-  store i32 %spec.select.i1116, ptr %996, align 8, !tbaa !134
+  %spec.select.i1115 = call i32 @llvm.smax.i32(i32 %998, i32 0)
+  store i32 %spec.select.i1115, ptr %996, align 8, !tbaa !134
   %999 = getelementptr inbounds nuw i8, ptr %994, i64 24
   %1000 = load ptr, ptr %999, align 8, !tbaa !131
-  %1001 = zext nneg i32 %spec.select.i1116 to i64
+  %1001 = zext nneg i32 %spec.select.i1115 to i64
   %1002 = getelementptr inbounds nuw i64, ptr %1000, i64 %1001
   %1003 = sext i32 %995 to i64
   %1004 = sub nsw i64 0, %1003
   %1005 = getelementptr inbounds i64, ptr %1002, i64 %1004
-  br label %.critedge1073
+  br label %.critedge1072
 
 1006:                                             ; preds = %990
   %1007 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6443,14 +6443,14 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 
 1026:                                             ; preds = %1017, %1012, %1006
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1007, i64 noundef %991)
-  %.pre1537 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1538 = getelementptr inbounds nuw i8, ptr %.pre1537, i64 40
-  %.pre1539 = load i32, ptr %.phi.trans.insert1538, align 8, !tbaa !95
+  %.pre1536 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1537 = getelementptr inbounds nuw i8, ptr %.pre1536, i64 40
+  %.pre1538 = load i32, ptr %.phi.trans.insert1537, align 8, !tbaa !95
   br label %1027
 
 1027:                                             ; preds = %1026, %1023
-  %1028 = phi i32 [ %.pre1539, %1026 ], [ %1024, %1023 ]
-  %1029 = phi ptr [ %.pre1537, %1026 ], [ %1007, %1023 ]
+  %1028 = phi i32 [ %.pre1538, %1026 ], [ %1024, %1023 ]
+  %1029 = phi ptr [ %.pre1536, %1026 ], [ %1007, %1023 ]
   %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 40
   %1031 = getelementptr inbounds nuw i8, ptr %1029, i64 44
   %1032 = load i32, ptr %1031, align 4, !tbaa !96
@@ -6490,8 +6490,8 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1055 = load i32, ptr %1054, align 8, !tbaa !95
   %1056 = getelementptr inbounds nuw i8, ptr %1053, i64 28
   %1057 = load i32, ptr %1056, align 4, !tbaa !87
-  %.not1027 = icmp sgt i32 %1055, %1057
-  br i1 %.not1027, label %1063, label %1058
+  %.not1026 = icmp sgt i32 %1055, %1057
+  br i1 %.not1026, label %1063, label %1058
 
 1058:                                             ; preds = %1052
   %1059 = getelementptr inbounds nuw i8, ptr %1053, i64 32
@@ -6511,7 +6511,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 1069:                                             ; preds = %1063, %1058
   %1070 = phi i64 [ %1062, %1058 ], [ %1068, %1063 ]
   store i64 %1070, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1071:                                             ; preds = %1046
   %1072 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6519,32 +6519,32 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1074 = getelementptr inbounds nuw i8, ptr %1072, i64 8
   %1075 = load i32, ptr %1074, align 8, !tbaa !134
   %1076 = sub nsw i32 %1075, %1073
-  %spec.select.i1117 = call i32 @llvm.smax.i32(i32 %1076, i32 0)
-  store i32 %spec.select.i1117, ptr %1074, align 8, !tbaa !134
+  %spec.select.i1116 = call i32 @llvm.smax.i32(i32 %1076, i32 0)
+  store i32 %spec.select.i1116, ptr %1074, align 8, !tbaa !134
   %1077 = getelementptr inbounds nuw i8, ptr %1072, i64 24
   %1078 = load ptr, ptr %1077, align 8, !tbaa !131
-  %1079 = zext nneg i32 %spec.select.i1117 to i64
+  %1079 = zext nneg i32 %spec.select.i1116 to i64
   %1080 = getelementptr inbounds nuw i64, ptr %1078, i64 %1079
   %1081 = sext i32 %1073 to i64
   %1082 = sub nsw i64 0, %1081
   %1083 = getelementptr inbounds i64, ptr %1080, i64 %1082
-  br label %.critedge1073
+  br label %.critedge1072
 
 1084:                                             ; preds = %93
   %1085 = load i8, ptr %89, align 2, !tbaa !29
-  %.not1025 = icmp eq i8 %1085, 0
+  %.not1024 = icmp eq i8 %1085, 0
   %1086 = load i64, ptr %.0726, align 8, !tbaa !137
-  br i1 %.not1025, label %1090, label %1087
+  br i1 %.not1024, label %1090, label %1087
 
 1087:                                             ; preds = %1084
   %1088 = load i64, ptr %90, align 8, !tbaa !92
   %1089 = icmp eq i64 %1086, %1088
-  br i1 %1089, label %.critedge1073, label %1093
+  br i1 %1089, label %.critedge1072, label %1093
 
 1090:                                             ; preds = %1084
   %1091 = load i64, ptr %81, align 8, !tbaa !68
   %1092 = icmp eq i64 %1086, %1091
-  br i1 %1092, label %.critedge1073, label %1093
+  br i1 %1092, label %.critedge1072, label %1093
 
 1093:                                             ; preds = %1087, %1090
   %1094 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6552,22 +6552,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1096 = getelementptr inbounds nuw i8, ptr %1094, i64 8
   %1097 = load i32, ptr %1096, align 8, !tbaa !134
   %1098 = sub nsw i32 %1097, %1095
-  %spec.select.i1118 = call i32 @llvm.smax.i32(i32 %1098, i32 0)
-  store i32 %spec.select.i1118, ptr %1096, align 8, !tbaa !134
+  %spec.select.i1117 = call i32 @llvm.smax.i32(i32 %1098, i32 0)
+  store i32 %spec.select.i1117, ptr %1096, align 8, !tbaa !134
   %1099 = getelementptr inbounds nuw i8, ptr %1094, i64 24
   %1100 = load ptr, ptr %1099, align 8, !tbaa !131
-  %1101 = zext nneg i32 %spec.select.i1118 to i64
+  %1101 = zext nneg i32 %spec.select.i1117 to i64
   %1102 = getelementptr inbounds nuw i64, ptr %1100, i64 %1101
   %1103 = sext i32 %1095 to i64
   %1104 = sub nsw i64 0, %1103
   %1105 = getelementptr inbounds i64, ptr %1102, i64 %1104
-  br label %.critedge1073
+  br label %.critedge1072
 
 1106:                                             ; preds = %93
   %1107 = load i64, ptr %.0726, align 8, !tbaa !137
   %1108 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1023 = icmp slt i64 %1107, %1108
-  br i1 %.not1023, label %1122, label %1109
+  %.not1022 = icmp slt i64 %1107, %1108
+  br i1 %.not1022, label %1122, label %1109
 
 1109:                                             ; preds = %1106
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -6576,16 +6576,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1112 = getelementptr inbounds nuw i8, ptr %1110, i64 8
   %1113 = load i32, ptr %1112, align 8, !tbaa !134
   %1114 = sub nsw i32 %1113, %1111
-  %spec.select.i1119 = call i32 @llvm.smax.i32(i32 %1114, i32 0)
-  store i32 %spec.select.i1119, ptr %1112, align 8, !tbaa !134
+  %spec.select.i1118 = call i32 @llvm.smax.i32(i32 %1114, i32 0)
+  store i32 %spec.select.i1118, ptr %1112, align 8, !tbaa !134
   %1115 = getelementptr inbounds nuw i8, ptr %1110, i64 24
   %1116 = load ptr, ptr %1115, align 8, !tbaa !131
-  %1117 = zext nneg i32 %spec.select.i1119 to i64
+  %1117 = zext nneg i32 %spec.select.i1118 to i64
   %1118 = getelementptr inbounds nuw i64, ptr %1116, i64 %1117
   %1119 = sext i32 %1111 to i64
   %1120 = sub nsw i64 0, %1119
   %1121 = getelementptr inbounds i64, ptr %1118, i64 %1120
-  br label %.critedge1073
+  br label %.critedge1072
 
 1122:                                             ; preds = %1106
   %1123 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6618,14 +6618,14 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 
 1142:                                             ; preds = %1133, %1128, %1122
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1123, i64 noundef %1107)
-  %.pre1534 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1535 = getelementptr inbounds nuw i8, ptr %.pre1534, i64 40
-  %.pre1536 = load i32, ptr %.phi.trans.insert1535, align 8, !tbaa !95
+  %.pre1533 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1534 = getelementptr inbounds nuw i8, ptr %.pre1533, i64 40
+  %.pre1535 = load i32, ptr %.phi.trans.insert1534, align 8, !tbaa !95
   br label %1143
 
 1143:                                             ; preds = %1142, %1139
-  %1144 = phi i32 [ %.pre1536, %1142 ], [ %1140, %1139 ]
-  %1145 = phi ptr [ %.pre1534, %1142 ], [ %1123, %1139 ]
+  %1144 = phi i32 [ %.pre1535, %1142 ], [ %1140, %1139 ]
+  %1145 = phi ptr [ %.pre1533, %1142 ], [ %1123, %1139 ]
   %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 40
   %1147 = getelementptr inbounds nuw i8, ptr %1145, i64 44
   %1148 = load i32, ptr %1147, align 4, !tbaa !96
@@ -6667,8 +6667,8 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1173 = load i32, ptr %1172, align 8, !tbaa !95
   %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 28
   %1175 = load i32, ptr %1174, align 4, !tbaa !87
-  %.not1024 = icmp sgt i32 %1173, %1175
-  br i1 %.not1024, label %1181, label %1176
+  %.not1023 = icmp sgt i32 %1173, %1175
+  br i1 %.not1023, label %1181, label %1176
 
 1176:                                             ; preds = %1170
   %1177 = getelementptr inbounds nuw i8, ptr %1171, i64 32
@@ -6688,7 +6688,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 1187:                                             ; preds = %1181, %1176
   %1188 = phi i64 [ %1180, %1176 ], [ %1186, %1181 ]
   store i64 %1188, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1189:                                             ; preds = %1162
   %1190 = load ptr, ptr %32, align 8, !tbaa !64
@@ -6696,22 +6696,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1192 = getelementptr inbounds nuw i8, ptr %1190, i64 8
   %1193 = load i32, ptr %1192, align 8, !tbaa !134
   %1194 = sub nsw i32 %1193, %1191
-  %spec.select.i1120 = call i32 @llvm.smax.i32(i32 %1194, i32 0)
-  store i32 %spec.select.i1120, ptr %1192, align 8, !tbaa !134
+  %spec.select.i1119 = call i32 @llvm.smax.i32(i32 %1194, i32 0)
+  store i32 %spec.select.i1119, ptr %1192, align 8, !tbaa !134
   %1195 = getelementptr inbounds nuw i8, ptr %1190, i64 24
   %1196 = load ptr, ptr %1195, align 8, !tbaa !131
-  %1197 = zext nneg i32 %spec.select.i1120 to i64
+  %1197 = zext nneg i32 %spec.select.i1119 to i64
   %1198 = getelementptr inbounds nuw i64, ptr %1196, i64 %1197
   %1199 = sext i32 %1191 to i64
   %1200 = sub nsw i64 0, %1199
   %1201 = getelementptr inbounds i64, ptr %1198, i64 %1200
-  br label %.critedge1073
+  br label %.critedge1072
 
 1202:                                             ; preds = %93
   %1203 = load i64, ptr %.0726, align 8, !tbaa !137
   %1204 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1020 = icmp slt i64 %1203, %1204
-  br i1 %.not1020, label %1218, label %1205
+  %.not1019 = icmp slt i64 %1203, %1204
+  br i1 %.not1019, label %1218, label %1205
 
 1205:                                             ; preds = %1202
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -6720,16 +6720,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
   %1208 = getelementptr inbounds nuw i8, ptr %1206, i64 8
   %1209 = load i32, ptr %1208, align 8, !tbaa !134
   %1210 = sub nsw i32 %1209, %1207
-  %spec.select.i1121 = call i32 @llvm.smax.i32(i32 %1210, i32 0)
-  store i32 %spec.select.i1121, ptr %1208, align 8, !tbaa !134
+  %spec.select.i1120 = call i32 @llvm.smax.i32(i32 %1210, i32 0)
+  store i32 %spec.select.i1120, ptr %1208, align 8, !tbaa !134
   %1211 = getelementptr inbounds nuw i8, ptr %1206, i64 24
   %1212 = load ptr, ptr %1211, align 8, !tbaa !131
-  %1213 = zext nneg i32 %spec.select.i1121 to i64
+  %1213 = zext nneg i32 %spec.select.i1120 to i64
   %1214 = getelementptr inbounds nuw i64, ptr %1212, i64 %1213
   %1215 = sext i32 %1207 to i64
   %1216 = sub nsw i64 0, %1215
   %1217 = getelementptr inbounds i64, ptr %1214, i64 %1216
-  br label %.critedge1073
+  br label %.critedge1072
 
 1218:                                             ; preds = %1202
   %1219 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6762,14 +6762,14 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 
 1238:                                             ; preds = %1229, %1224, %1218
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1219, i64 noundef %1203)
-  %.pre1531 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1532 = getelementptr inbounds nuw i8, ptr %.pre1531, i64 40
-  %.pre1533 = load i32, ptr %.phi.trans.insert1532, align 8, !tbaa !95
+  %.pre1530 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1531 = getelementptr inbounds nuw i8, ptr %.pre1530, i64 40
+  %.pre1532 = load i32, ptr %.phi.trans.insert1531, align 8, !tbaa !95
   br label %1239
 
 1239:                                             ; preds = %1238, %1235
-  %1240 = phi i32 [ %.pre1533, %1238 ], [ %1236, %1235 ]
-  %1241 = phi ptr [ %.pre1531, %1238 ], [ %1219, %1235 ]
+  %1240 = phi i32 [ %.pre1532, %1238 ], [ %1236, %1235 ]
+  %1241 = phi ptr [ %.pre1530, %1238 ], [ %1219, %1235 ]
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 40
   %1243 = getelementptr inbounds nuw i8, ptr %1241, i64 44
   %1244 = load i32, ptr %1243, align 4, !tbaa !96
@@ -6798,48 +6798,48 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %955, %
 1258:                                             ; preds = %1256, %1253
   %1259 = phi i32 [ %1255, %1253 ], [ %1257, %1256 ]
   %1260 = and i32 %1259, -8368
-  %.not.i1122 = icmp eq i32 %1260, 0
-  br i1 %.not.i1122, label %1261, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread
+  %.not.i1121 = icmp eq i32 %1260, 0
+  br i1 %.not.i1121, label %1261, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread
 
 1261:                                             ; preds = %1258
-  switch i32 %1259, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread [
+  switch i32 %1259, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread [
     i32 13, label %1262
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
-    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
+    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
   ]
 
 1262:                                             ; preds = %1261
   %1263 = load ptr, ptr %72, align 8, !tbaa !77
   %1264 = call i32 @utext_current32_77(ptr noundef %1263)
   %1265 = icmp eq i32 %1264, 10
-  br i1 %1265, label %1266, label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
+  br i1 %1265, label %1266, label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
 
 1266:                                             ; preds = %1262
   %1267 = load ptr, ptr %72, align 8, !tbaa !77
   %1268 = call i32 @utext_next32_77(ptr noundef %1267)
-  br label %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
+  br label %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
 
-_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355: ; preds = %1261, %1261, %1261, %1261, %1261, %1261, %1266, %1262
+_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354: ; preds = %1261, %1261, %1261, %1261, %1261, %1261, %1266, %1262
   %1269 = load ptr, ptr %72, align 8, !tbaa !77
   %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 40
   %1271 = load i32, ptr %1270, align 8, !tbaa !95
   %1272 = getelementptr inbounds nuw i8, ptr %1269, i64 28
   %1273 = load i32, ptr %1272, align 4, !tbaa !87
-  %.not1022 = icmp sgt i32 %1271, %1273
-  br i1 %.not1022, label %1279, label %1274
+  %.not1021 = icmp sgt i32 %1271, %1273
+  br i1 %.not1021, label %1279, label %1274
 
-1274:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
+1274:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
   %1275 = getelementptr inbounds nuw i8, ptr %1269, i64 32
   %1276 = load i64, ptr %1275, align 8, !tbaa !83
   %1277 = sext i32 %1271 to i64
   %1278 = add nsw i64 %1276, %1277
   br label %1285
 
-1279:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355
+1279:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread1354
   %1280 = getelementptr inbounds nuw i8, ptr %1269, i64 56
   %1281 = load ptr, ptr %1280, align 8, !tbaa !89
   %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 64
@@ -6850,30 +6850,30 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124.thread1355: ; preds = %1261, %1261, %12
 1285:                                             ; preds = %1279, %1274
   %1286 = phi i64 [ %1278, %1274 ], [ %1284, %1279 ]
   store i64 %1286, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
-_ZN6icu_77L16isLineTerminatorEi.exit1124.thread:  ; preds = %1261, %1258
+_ZN6icu_77L16isLineTerminatorEi.exit1123.thread:  ; preds = %1261, %1258
   %1287 = load ptr, ptr %32, align 8, !tbaa !64
   %1288 = load i32, ptr %31, align 8, !tbaa !17
   %1289 = getelementptr inbounds nuw i8, ptr %1287, i64 8
   %1290 = load i32, ptr %1289, align 8, !tbaa !134
   %1291 = sub nsw i32 %1290, %1288
-  %spec.select.i1125 = call i32 @llvm.smax.i32(i32 %1291, i32 0)
-  store i32 %spec.select.i1125, ptr %1289, align 8, !tbaa !134
+  %spec.select.i1124 = call i32 @llvm.smax.i32(i32 %1291, i32 0)
+  store i32 %spec.select.i1124, ptr %1289, align 8, !tbaa !134
   %1292 = getelementptr inbounds nuw i8, ptr %1287, i64 24
   %1293 = load ptr, ptr %1292, align 8, !tbaa !131
-  %1294 = zext nneg i32 %spec.select.i1125 to i64
+  %1294 = zext nneg i32 %spec.select.i1124 to i64
   %1295 = getelementptr inbounds nuw i64, ptr %1293, i64 %1294
   %1296 = sext i32 %1288 to i64
   %1297 = sub nsw i64 0, %1296
   %1298 = getelementptr inbounds i64, ptr %1295, i64 %1297
-  br label %.critedge1073
+  br label %.critedge1072
 
 1299:                                             ; preds = %93
   %1300 = load i64, ptr %.0726, align 8, !tbaa !137
   %1301 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1017 = icmp slt i64 %1300, %1301
-  br i1 %.not1017, label %1315, label %1302
+  %.not1016 = icmp slt i64 %1300, %1301
+  br i1 %.not1016, label %1315, label %1302
 
 1302:                                             ; preds = %1299
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -6882,16 +6882,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124.thread:  ; preds = %1261, %1258
   %1305 = getelementptr inbounds nuw i8, ptr %1303, i64 8
   %1306 = load i32, ptr %1305, align 8, !tbaa !134
   %1307 = sub nsw i32 %1306, %1304
-  %spec.select.i1126 = call i32 @llvm.smax.i32(i32 %1307, i32 0)
-  store i32 %spec.select.i1126, ptr %1305, align 8, !tbaa !134
+  %spec.select.i1125 = call i32 @llvm.smax.i32(i32 %1307, i32 0)
+  store i32 %spec.select.i1125, ptr %1305, align 8, !tbaa !134
   %1308 = getelementptr inbounds nuw i8, ptr %1303, i64 24
   %1309 = load ptr, ptr %1308, align 8, !tbaa !131
-  %1310 = zext nneg i32 %spec.select.i1126 to i64
+  %1310 = zext nneg i32 %spec.select.i1125 to i64
   %1311 = getelementptr inbounds nuw i64, ptr %1309, i64 %1310
   %1312 = sext i32 %1304 to i64
   %1313 = sub nsw i64 0, %1312
   %1314 = getelementptr inbounds i64, ptr %1311, i64 %1313
-  br label %.critedge1073
+  br label %.critedge1072
 
 1315:                                             ; preds = %1299
   %1316 = load ptr, ptr %72, align 8, !tbaa !77
@@ -6924,14 +6924,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124.thread:  ; preds = %1261, %1258
 
 1335:                                             ; preds = %1326, %1321, %1315
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1316, i64 noundef %1300)
-  %.pre1528 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1529 = getelementptr inbounds nuw i8, ptr %.pre1528, i64 40
-  %.pre1530 = load i32, ptr %.phi.trans.insert1529, align 8, !tbaa !95
+  %.pre1527 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1528 = getelementptr inbounds nuw i8, ptr %.pre1527, i64 40
+  %.pre1529 = load i32, ptr %.phi.trans.insert1528, align 8, !tbaa !95
   br label %1336
 
 1336:                                             ; preds = %1335, %1332
-  %1337 = phi i32 [ %.pre1530, %1335 ], [ %1333, %1332 ]
-  %1338 = phi ptr [ %.pre1528, %1335 ], [ %1316, %1332 ]
+  %1337 = phi i32 [ %.pre1529, %1335 ], [ %1333, %1332 ]
+  %1338 = phi ptr [ %.pre1527, %1335 ], [ %1316, %1332 ]
   %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 40
   %1340 = getelementptr inbounds nuw i8, ptr %1338, i64 44
   %1341 = load i32, ptr %1340, align 4, !tbaa !96
@@ -6960,39 +6960,39 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124.thread:  ; preds = %1261, %1258
 1355:                                             ; preds = %1353, %1350
   %1356 = phi i32 [ %1352, %1350 ], [ %1354, %1353 ]
   %1357 = and i32 %1356, -8368
-  %.not.i1127 = icmp eq i32 %1357, 0
-  br i1 %.not.i1127, label %1358, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
+  %.not.i1126 = icmp eq i32 %1357, 0
+  br i1 %.not.i1126, label %1358, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
 
 1358:                                             ; preds = %1355
   switch i32 %1356, label %1359 [
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
-    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1129
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
+    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1128
   ]
 
 1359:                                             ; preds = %1358
   %1360 = icmp eq i32 %1356, 8233
   %1361 = zext i1 %1360 to i8
-  br label %_ZN6icu_77L16isLineTerminatorEi.exit1129
+  br label %_ZN6icu_77L16isLineTerminatorEi.exit1128
 
-_ZN6icu_77L16isLineTerminatorEi.exit1129:         ; preds = %1355, %1358, %1358, %1358, %1358, %1358, %1358, %1359
-  %.0.i1128 = phi i8 [ 0, %1355 ], [ %1361, %1359 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ]
+_ZN6icu_77L16isLineTerminatorEi.exit1128:         ; preds = %1355, %1358, %1358, %1358, %1358, %1358, %1358, %1359
+  %.0.i1127 = phi i8 [ 0, %1355 ], [ %1361, %1359 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ], [ 1, %1358 ]
   %1362 = icmp ne i32 %99, 0
   %1363 = zext i1 %1362 to i8
-  %.not1018 = icmp eq i8 %.0.i1128, %1363
-  br i1 %.not1018, label %1383, label %1364
+  %.not1017 = icmp eq i8 %.0.i1127, %1363
+  br i1 %.not1017, label %1383, label %1364
 
-1364:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1129
+1364:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1128
   %1365 = load ptr, ptr %72, align 8, !tbaa !77
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 40
   %1367 = load i32, ptr %1366, align 8, !tbaa !95
   %1368 = getelementptr inbounds nuw i8, ptr %1365, i64 28
   %1369 = load i32, ptr %1368, align 4, !tbaa !87
-  %.not1019 = icmp sgt i32 %1367, %1369
-  br i1 %.not1019, label %1375, label %1370
+  %.not1018 = icmp sgt i32 %1367, %1369
+  br i1 %.not1018, label %1375, label %1370
 
 1370:                                             ; preds = %1364
   %1371 = getelementptr inbounds nuw i8, ptr %1365, i64 32
@@ -7012,30 +7012,30 @@ _ZN6icu_77L16isLineTerminatorEi.exit1129:         ; preds = %1355, %1358, %1358,
 1381:                                             ; preds = %1375, %1370
   %1382 = phi i64 [ %1374, %1370 ], [ %1380, %1375 ]
   store i64 %1382, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
-1383:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1129
+1383:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1128
   %1384 = load ptr, ptr %32, align 8, !tbaa !64
   %1385 = load i32, ptr %31, align 8, !tbaa !17
   %1386 = getelementptr inbounds nuw i8, ptr %1384, i64 8
   %1387 = load i32, ptr %1386, align 8, !tbaa !134
   %1388 = sub nsw i32 %1387, %1385
-  %spec.select.i1130 = call i32 @llvm.smax.i32(i32 %1388, i32 0)
-  store i32 %spec.select.i1130, ptr %1386, align 8, !tbaa !134
+  %spec.select.i1129 = call i32 @llvm.smax.i32(i32 %1388, i32 0)
+  store i32 %spec.select.i1129, ptr %1386, align 8, !tbaa !134
   %1389 = getelementptr inbounds nuw i8, ptr %1384, i64 24
   %1390 = load ptr, ptr %1389, align 8, !tbaa !131
-  %1391 = zext nneg i32 %spec.select.i1130 to i64
+  %1391 = zext nneg i32 %spec.select.i1129 to i64
   %1392 = getelementptr inbounds nuw i64, ptr %1390, i64 %1391
   %1393 = sext i32 %1385 to i64
   %1394 = sub nsw i64 0, %1393
   %1395 = getelementptr inbounds i64, ptr %1392, i64 %1394
-  br label %.critedge1073
+  br label %.critedge1072
 
 1396:                                             ; preds = %93
   %1397 = load i64, ptr %.0726, align 8, !tbaa !137
   %1398 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1015 = icmp slt i64 %1397, %1398
-  br i1 %.not1015, label %1412, label %1399
+  %.not1014 = icmp slt i64 %1397, %1398
+  br i1 %.not1014, label %1412, label %1399
 
 1399:                                             ; preds = %1396
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7044,16 +7044,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1129:         ; preds = %1355, %1358, %1358,
   %1402 = getelementptr inbounds nuw i8, ptr %1400, i64 8
   %1403 = load i32, ptr %1402, align 8, !tbaa !134
   %1404 = sub nsw i32 %1403, %1401
-  %spec.select.i1131 = call i32 @llvm.smax.i32(i32 %1404, i32 0)
-  store i32 %spec.select.i1131, ptr %1402, align 8, !tbaa !134
+  %spec.select.i1130 = call i32 @llvm.smax.i32(i32 %1404, i32 0)
+  store i32 %spec.select.i1130, ptr %1402, align 8, !tbaa !134
   %1405 = getelementptr inbounds nuw i8, ptr %1400, i64 24
   %1406 = load ptr, ptr %1405, align 8, !tbaa !131
-  %1407 = zext nneg i32 %spec.select.i1131 to i64
+  %1407 = zext nneg i32 %spec.select.i1130 to i64
   %1408 = getelementptr inbounds nuw i64, ptr %1406, i64 %1407
   %1409 = sext i32 %1401 to i64
   %1410 = sub nsw i64 0, %1409
   %1411 = getelementptr inbounds i64, ptr %1408, i64 %1410
-  br label %.critedge1073
+  br label %.critedge1072
 
 1412:                                             ; preds = %1396
   %1413 = load ptr, ptr %88, align 8, !tbaa !80
@@ -7086,20 +7086,20 @@ _ZN6icu_77L16isLineTerminatorEi.exit1129:         ; preds = %1355, %1358, %1358,
   %1431 = call noundef i32 %1430(ptr noundef nonnull align 8 dereferenceable(32) %1426, i32 noundef %1427)
   %1432 = sext i32 %1431 to i64
   %1433 = icmp eq i32 %1431, -1
-  %spec.select.i1132 = select i1 %1433, i64 %1397, i64 %1432
+  %spec.select.i1131 = select i1 %1433, i64 %1397, i64 %1432
   br label %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit
 
 _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %1415, %1425
-  %.010.i = phi i64 [ %spec.select.i1132, %1425 ], [ %1397, %1415 ]
+  %.010.i = phi i64 [ %spec.select.i1131, %1425 ], [ %1397, %1415 ]
   store i64 %.010.i, ptr %.0726, align 8, !tbaa !137
   %1434 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1016 = icmp slt i64 %.010.i, %1434
-  br i1 %.not1016, label %.critedge1073, label %1435
+  %.not1015 = icmp slt i64 %.010.i, %1434
+  br i1 %.not1015, label %.critedge1072, label %1435
 
 1435:                                             ; preds = %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit
   store i8 1, ptr %79, align 8, !tbaa !32
   store i64 %1434, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1436:                                             ; preds = %93
   %1437 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -7113,27 +7113,27 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1443 = getelementptr inbounds nuw i8, ptr %1441, i64 8
   %1444 = load i32, ptr %1443, align 8, !tbaa !134
   %1445 = sub nsw i32 %1444, %1442
-  %spec.select.i1133 = call i32 @llvm.smax.i32(i32 %1445, i32 0)
-  store i32 %spec.select.i1133, ptr %1443, align 8, !tbaa !134
+  %spec.select.i1132 = call i32 @llvm.smax.i32(i32 %1445, i32 0)
+  store i32 %spec.select.i1132, ptr %1443, align 8, !tbaa !134
   %1446 = getelementptr inbounds nuw i8, ptr %1441, i64 24
   %1447 = load ptr, ptr %1446, align 8, !tbaa !131
-  %1448 = zext nneg i32 %spec.select.i1133 to i64
+  %1448 = zext nneg i32 %spec.select.i1132 to i64
   %1449 = getelementptr inbounds nuw i64, ptr %1447, i64 %1448
   %1450 = sext i32 %1442 to i64
   %1451 = sub nsw i64 0, %1450
   %1452 = getelementptr inbounds i64, ptr %1449, i64 %1451
-  br label %.critedge1073
+  br label %.critedge1072
 
 1453:                                             ; preds = %1436
   store i8 1, ptr %79, align 8, !tbaa !32
   store i8 1, ptr %87, align 1, !tbaa !33
-  br label %.critedge1073
+  br label %.critedge1072
 
 1454:                                             ; preds = %93
   %1455 = load i64, ptr %.0726, align 8, !tbaa !137
   %1456 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1009 = icmp slt i64 %1455, %1456
-  br i1 %.not1009, label %1470, label %1457
+  %.not1008 = icmp slt i64 %1455, %1456
+  br i1 %.not1008, label %1470, label %1457
 
 1457:                                             ; preds = %1454
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7142,20 +7142,20 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1460 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   %1461 = load i32, ptr %1460, align 8, !tbaa !134
   %1462 = sub nsw i32 %1461, %1459
-  %spec.select.i1134 = call i32 @llvm.smax.i32(i32 %1462, i32 0)
-  store i32 %spec.select.i1134, ptr %1460, align 8, !tbaa !134
+  %spec.select.i1133 = call i32 @llvm.smax.i32(i32 %1462, i32 0)
+  store i32 %spec.select.i1133, ptr %1460, align 8, !tbaa !134
   %1463 = getelementptr inbounds nuw i8, ptr %1458, i64 24
   %1464 = load ptr, ptr %1463, align 8, !tbaa !131
-  %1465 = zext nneg i32 %spec.select.i1134 to i64
+  %1465 = zext nneg i32 %spec.select.i1133 to i64
   %1466 = getelementptr inbounds nuw i64, ptr %1464, i64 %1465
   %1467 = sext i32 %1459 to i64
   %1468 = sub nsw i64 0, %1467
   %1469 = getelementptr inbounds i64, ptr %1466, i64 %1468
-  br label %.critedge1073
+  br label %.critedge1072
 
 1470:                                             ; preds = %1454
   %1471 = and i32 %98, 8388608
-  %.not1010 = icmp eq i32 %1471, 0
+  %.not1009 = icmp eq i32 %1471, 0
   %.lobit = lshr exact i32 %1471, 23
   %1472 = trunc nuw nsw i32 %.lobit to i8
   %1473 = and i64 %97, 8388607
@@ -7189,14 +7189,14 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1493:                                             ; preds = %1484, %1479, %1470
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1474, i64 noundef %1455)
-  %.pre1525 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1526 = getelementptr inbounds nuw i8, ptr %.pre1525, i64 40
-  %.pre1527 = load i32, ptr %.phi.trans.insert1526, align 8, !tbaa !95
+  %.pre1524 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1525 = getelementptr inbounds nuw i8, ptr %.pre1524, i64 40
+  %.pre1526 = load i32, ptr %.phi.trans.insert1525, align 8, !tbaa !95
   br label %1494
 
 1494:                                             ; preds = %1493, %1490
-  %1495 = phi i32 [ %.pre1527, %1493 ], [ %1491, %1490 ]
-  %1496 = phi ptr [ %.pre1525, %1493 ], [ %1474, %1490 ]
+  %1495 = phi i32 [ %.pre1526, %1493 ], [ %1491, %1490 ]
+  %1496 = phi ptr [ %.pre1524, %1493 ], [ %1474, %1490 ]
   %1497 = getelementptr inbounds nuw i8, ptr %1496, i64 40
   %1498 = getelementptr inbounds nuw i8, ptr %1496, i64 44
   %1499 = load i32, ptr %1498, align 4, !tbaa !96
@@ -7239,22 +7239,22 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1525 = and i32 %1514, 7
   %1526 = shl nuw nsw i32 1, %1525
   %1527 = and i32 %1526, %1524
-  %.not1012 = icmp eq i32 %1527, 0
+  %.not1011 = icmp eq i32 %1527, 0
   br label %1532
 
 1528:                                             ; preds = %1513
   %1529 = getelementptr inbounds nuw i8, ptr %1516, i64 8
   %1530 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %1529, i64 0, i64 %1473
   %1531 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1530, i32 noundef %1514)
-  %.not1011 = icmp eq i8 %1531, 0
+  %.not1010 = icmp eq i8 %1531, 0
   br label %1532
 
 1532:                                             ; preds = %1528, %1517
-  %.not1011.sink = phi i1 [ %.not1011, %1528 ], [ %.not1012, %1517 ]
-  %1533 = zext i1 %.not1010 to i8
-  %spec.select1061 = select i1 %.not1011.sink, i8 %1472, i8 %1533
-  %.not1013 = icmp eq i8 %spec.select1061, 0
-  br i1 %.not1013, label %1553, label %1534
+  %.not1010.sink = phi i1 [ %.not1010, %1528 ], [ %.not1011, %1517 ]
+  %1533 = zext i1 %.not1009 to i8
+  %spec.select1060 = select i1 %.not1010.sink, i8 %1472, i8 %1533
+  %.not1012 = icmp eq i8 %spec.select1060, 0
+  br i1 %.not1012, label %1553, label %1534
 
 1534:                                             ; preds = %1532
   %1535 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7262,8 +7262,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1537 = load i32, ptr %1536, align 8, !tbaa !95
   %1538 = getelementptr inbounds nuw i8, ptr %1535, i64 28
   %1539 = load i32, ptr %1538, align 4, !tbaa !87
-  %.not1014 = icmp sgt i32 %1537, %1539
-  br i1 %.not1014, label %1545, label %1540
+  %.not1013 = icmp sgt i32 %1537, %1539
+  br i1 %.not1013, label %1545, label %1540
 
 1540:                                             ; preds = %1534
   %1541 = getelementptr inbounds nuw i8, ptr %1535, i64 32
@@ -7283,7 +7283,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1551:                                             ; preds = %1545, %1540
   %1552 = phi i64 [ %1544, %1540 ], [ %1550, %1545 ]
   store i64 %1552, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1553:                                             ; preds = %1532
   %1554 = load ptr, ptr %32, align 8, !tbaa !64
@@ -7291,22 +7291,22 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1556 = getelementptr inbounds nuw i8, ptr %1554, i64 8
   %1557 = load i32, ptr %1556, align 8, !tbaa !134
   %1558 = sub nsw i32 %1557, %1555
-  %spec.select.i1135 = call i32 @llvm.smax.i32(i32 %1558, i32 0)
-  store i32 %spec.select.i1135, ptr %1556, align 8, !tbaa !134
+  %spec.select.i1134 = call i32 @llvm.smax.i32(i32 %1558, i32 0)
+  store i32 %spec.select.i1134, ptr %1556, align 8, !tbaa !134
   %1559 = getelementptr inbounds nuw i8, ptr %1554, i64 24
   %1560 = load ptr, ptr %1559, align 8, !tbaa !131
-  %1561 = zext nneg i32 %spec.select.i1135 to i64
+  %1561 = zext nneg i32 %spec.select.i1134 to i64
   %1562 = getelementptr inbounds nuw i64, ptr %1560, i64 %1561
   %1563 = sext i32 %1555 to i64
   %1564 = sub nsw i64 0, %1563
   %1565 = getelementptr inbounds i64, ptr %1562, i64 %1564
-  br label %.critedge1073
+  br label %.critedge1072
 
 1566:                                             ; preds = %93
   %1567 = load i64, ptr %.0726, align 8, !tbaa !137
   %1568 = load i64, ptr %78, align 8, !tbaa !69
-  %.not1004 = icmp slt i64 %1567, %1568
-  br i1 %.not1004, label %1582, label %1569
+  %.not1003 = icmp slt i64 %1567, %1568
+  br i1 %.not1003, label %1582, label %1569
 
 1569:                                             ; preds = %1566
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7315,16 +7315,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1572 = getelementptr inbounds nuw i8, ptr %1570, i64 8
   %1573 = load i32, ptr %1572, align 8, !tbaa !134
   %1574 = sub nsw i32 %1573, %1571
-  %spec.select.i1136 = call i32 @llvm.smax.i32(i32 %1574, i32 0)
-  store i32 %spec.select.i1136, ptr %1572, align 8, !tbaa !134
+  %spec.select.i1135 = call i32 @llvm.smax.i32(i32 %1574, i32 0)
+  store i32 %spec.select.i1135, ptr %1572, align 8, !tbaa !134
   %1575 = getelementptr inbounds nuw i8, ptr %1570, i64 24
   %1576 = load ptr, ptr %1575, align 8, !tbaa !131
-  %1577 = zext nneg i32 %spec.select.i1136 to i64
+  %1577 = zext nneg i32 %spec.select.i1135 to i64
   %1578 = getelementptr inbounds nuw i64, ptr %1576, i64 %1577
   %1579 = sext i32 %1571 to i64
   %1580 = sub nsw i64 0, %1579
   %1581 = getelementptr inbounds i64, ptr %1578, i64 %1580
-  br label %.critedge1073
+  br label %.critedge1072
 
 1582:                                             ; preds = %1566
   %1583 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7357,14 +7357,14 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1602:                                             ; preds = %1593, %1588, %1582
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1583, i64 noundef %1567)
-  %.pre1522 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1523 = getelementptr inbounds nuw i8, ptr %.pre1522, i64 40
-  %.pre1524 = load i32, ptr %.phi.trans.insert1523, align 8, !tbaa !95
+  %.pre1521 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1522 = getelementptr inbounds nuw i8, ptr %.pre1521, i64 40
+  %.pre1523 = load i32, ptr %.phi.trans.insert1522, align 8, !tbaa !95
   br label %1603
 
 1603:                                             ; preds = %1602, %1599
-  %1604 = phi i32 [ %.pre1524, %1602 ], [ %1600, %1599 ]
-  %1605 = phi ptr [ %.pre1522, %1602 ], [ %1583, %1599 ]
+  %1604 = phi i32 [ %.pre1523, %1602 ], [ %1600, %1599 ]
+  %1605 = phi ptr [ %.pre1521, %1602 ], [ %1583, %1599 ]
   %1606 = getelementptr inbounds nuw i8, ptr %1605, i64 40
   %1607 = getelementptr inbounds nuw i8, ptr %1605, i64 44
   %1608 = load i32, ptr %1607, align 4, !tbaa !96
@@ -7408,8 +7408,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1635 = and i32 %1623, 7
   %1636 = shl nuw nsw i32 1, %1635
   %1637 = and i32 %1636, %1634
-  %.not1008 = icmp eq i32 %1637, 0
-  br i1 %.not1008, label %1638, label %.critedge1063
+  %.not1007 = icmp eq i32 %1637, 0
+  br i1 %.not1007, label %1638, label %.critedge1062
 
 1638:                                             ; preds = %1627
   %1639 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7417,8 +7417,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1641 = load i32, ptr %1640, align 8, !tbaa !95
   %1642 = getelementptr inbounds nuw i8, ptr %1639, i64 28
   %1643 = load i32, ptr %1642, align 4, !tbaa !87
-  %.not1007 = icmp sgt i32 %1641, %1643
-  br i1 %.not1007, label %1649, label %1644
+  %.not1006 = icmp sgt i32 %1641, %1643
+  br i1 %.not1006, label %1649, label %1644
 
 1644:                                             ; preds = %1638
   %1645 = getelementptr inbounds nuw i8, ptr %1639, i64 32
@@ -7438,14 +7438,14 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1655:                                             ; preds = %1649, %1644
   %1656 = phi i64 [ %1648, %1644 ], [ %1654, %1649 ]
   store i64 %1656, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1657:                                             ; preds = %1622
   %1658 = getelementptr inbounds nuw i8, ptr %1625, i64 8
   %1659 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %1658, i64 0, i64 %1626
   %1660 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1659, i32 noundef %1623)
-  %.not1006 = icmp eq i8 %1660, 0
-  br i1 %.not1006, label %1661, label %.critedge1063
+  %.not1005 = icmp eq i8 %1660, 0
+  br i1 %.not1005, label %1661, label %.critedge1062
 
 1661:                                             ; preds = %1657
   %1662 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7453,8 +7453,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1664 = load i32, ptr %1663, align 8, !tbaa !95
   %1665 = getelementptr inbounds nuw i8, ptr %1662, i64 28
   %1666 = load i32, ptr %1665, align 4, !tbaa !87
-  %.not1005 = icmp sgt i32 %1664, %1666
-  br i1 %.not1005, label %1672, label %1667
+  %.not1004 = icmp sgt i32 %1664, %1666
+  br i1 %.not1004, label %1672, label %1667
 
 1667:                                             ; preds = %1661
   %1668 = getelementptr inbounds nuw i8, ptr %1662, i64 32
@@ -7474,30 +7474,30 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1678:                                             ; preds = %1672, %1667
   %1679 = phi i64 [ %1671, %1667 ], [ %1677, %1672 ]
   store i64 %1679, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
-.critedge1063:                                    ; preds = %1657, %1627
+.critedge1062:                                    ; preds = %1657, %1627
   %1680 = load ptr, ptr %32, align 8, !tbaa !64
   %1681 = load i32, ptr %31, align 8, !tbaa !17
   %1682 = getelementptr inbounds nuw i8, ptr %1680, i64 8
   %1683 = load i32, ptr %1682, align 8, !tbaa !134
   %1684 = sub nsw i32 %1683, %1681
-  %spec.select.i1137 = call i32 @llvm.smax.i32(i32 %1684, i32 0)
-  store i32 %spec.select.i1137, ptr %1682, align 8, !tbaa !134
+  %spec.select.i1136 = call i32 @llvm.smax.i32(i32 %1684, i32 0)
+  store i32 %spec.select.i1136, ptr %1682, align 8, !tbaa !134
   %1685 = getelementptr inbounds nuw i8, ptr %1680, i64 24
   %1686 = load ptr, ptr %1685, align 8, !tbaa !131
-  %1687 = zext nneg i32 %spec.select.i1137 to i64
+  %1687 = zext nneg i32 %spec.select.i1136 to i64
   %1688 = getelementptr inbounds nuw i64, ptr %1686, i64 %1687
   %1689 = sext i32 %1681 to i64
   %1690 = sub nsw i64 0, %1689
   %1691 = getelementptr inbounds i64, ptr %1688, i64 %1690
-  br label %.critedge1073
+  br label %.critedge1072
 
 1692:                                             ; preds = %93
   %1693 = load i64, ptr %.0726, align 8, !tbaa !137
   %1694 = load i64, ptr %78, align 8, !tbaa !69
-  %.not999 = icmp slt i64 %1693, %1694
-  br i1 %.not999, label %1708, label %1695
+  %.not998 = icmp slt i64 %1693, %1694
+  br i1 %.not998, label %1708, label %1695
 
 1695:                                             ; preds = %1692
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7506,16 +7506,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1698 = getelementptr inbounds nuw i8, ptr %1696, i64 8
   %1699 = load i32, ptr %1698, align 8, !tbaa !134
   %1700 = sub nsw i32 %1699, %1697
-  %spec.select.i1138 = call i32 @llvm.smax.i32(i32 %1700, i32 0)
-  store i32 %spec.select.i1138, ptr %1698, align 8, !tbaa !134
+  %spec.select.i1137 = call i32 @llvm.smax.i32(i32 %1700, i32 0)
+  store i32 %spec.select.i1137, ptr %1698, align 8, !tbaa !134
   %1701 = getelementptr inbounds nuw i8, ptr %1696, i64 24
   %1702 = load ptr, ptr %1701, align 8, !tbaa !131
-  %1703 = zext nneg i32 %spec.select.i1138 to i64
+  %1703 = zext nneg i32 %spec.select.i1137 to i64
   %1704 = getelementptr inbounds nuw i64, ptr %1702, i64 %1703
   %1705 = sext i32 %1697 to i64
   %1706 = sub nsw i64 0, %1705
   %1707 = getelementptr inbounds i64, ptr %1704, i64 %1706
-  br label %.critedge1073
+  br label %.critedge1072
 
 1708:                                             ; preds = %1692
   %1709 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7548,14 +7548,14 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1728:                                             ; preds = %1719, %1714, %1708
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1709, i64 noundef %1693)
-  %.pre1519 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1520 = getelementptr inbounds nuw i8, ptr %.pre1519, i64 40
-  %.pre1521 = load i32, ptr %.phi.trans.insert1520, align 8, !tbaa !95
+  %.pre1518 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1519 = getelementptr inbounds nuw i8, ptr %.pre1518, i64 40
+  %.pre1520 = load i32, ptr %.phi.trans.insert1519, align 8, !tbaa !95
   br label %1729
 
 1729:                                             ; preds = %1728, %1725
-  %1730 = phi i32 [ %.pre1521, %1728 ], [ %1726, %1725 ]
-  %1731 = phi ptr [ %.pre1519, %1728 ], [ %1709, %1725 ]
+  %1730 = phi i32 [ %.pre1520, %1728 ], [ %1726, %1725 ]
+  %1731 = phi ptr [ %.pre1518, %1728 ], [ %1709, %1725 ]
   %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 40
   %1733 = getelementptr inbounds nuw i8, ptr %1731, i64 44
   %1734 = load i32, ptr %1733, align 4, !tbaa !96
@@ -7600,8 +7600,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1762 = and i32 %1749, 7
   %1763 = shl nuw nsw i32 1, %1762
   %1764 = and i32 %1763, %1761
-  %.not1002 = icmp eq i32 %1764, 0
-  br i1 %.not1002, label %.critedge1067, label %1765
+  %.not1001 = icmp eq i32 %1764, 0
+  br i1 %.not1001, label %.critedge1066, label %1765
 
 1765:                                             ; preds = %1751
   %1766 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7609,8 +7609,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1768 = load i32, ptr %1767, align 8, !tbaa !95
   %1769 = getelementptr inbounds nuw i8, ptr %1766, i64 28
   %1770 = load i32, ptr %1769, align 4, !tbaa !87
-  %.not1003 = icmp sgt i32 %1768, %1770
-  br i1 %.not1003, label %1776, label %1771
+  %.not1002 = icmp sgt i32 %1768, %1770
+  br i1 %.not1002, label %1776, label %1771
 
 1771:                                             ; preds = %1765
   %1772 = getelementptr inbounds nuw i8, ptr %1766, i64 32
@@ -7630,13 +7630,13 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1782:                                             ; preds = %1776, %1771
   %1783 = phi i64 [ %1775, %1771 ], [ %1781, %1776 ]
   store i64 %1783, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1784:                                             ; preds = %1748
   %1785 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %99)
   %1786 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1785, i32 noundef %1749)
-  %.not1000 = icmp eq i8 %1786, 0
-  br i1 %.not1000, label %.critedge1067, label %1787
+  %.not999 = icmp eq i8 %1786, 0
+  br i1 %.not999, label %.critedge1066, label %1787
 
 1787:                                             ; preds = %1784
   %1788 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7644,8 +7644,8 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1790 = load i32, ptr %1789, align 8, !tbaa !95
   %1791 = getelementptr inbounds nuw i8, ptr %1788, i64 28
   %1792 = load i32, ptr %1791, align 4, !tbaa !87
-  %.not1001 = icmp sgt i32 %1790, %1792
-  br i1 %.not1001, label %1798, label %1793
+  %.not1000 = icmp sgt i32 %1790, %1792
+  br i1 %.not1000, label %1798, label %1793
 
 1793:                                             ; preds = %1787
   %1794 = getelementptr inbounds nuw i8, ptr %1788, i64 32
@@ -7665,30 +7665,30 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1804:                                             ; preds = %1798, %1793
   %1805 = phi i64 [ %1797, %1793 ], [ %1803, %1798 ]
   store i64 %1805, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
-.critedge1067:                                    ; preds = %1784, %1751
+.critedge1066:                                    ; preds = %1784, %1751
   %1806 = load ptr, ptr %32, align 8, !tbaa !64
   %1807 = load i32, ptr %31, align 8, !tbaa !17
   %1808 = getelementptr inbounds nuw i8, ptr %1806, i64 8
   %1809 = load i32, ptr %1808, align 8, !tbaa !134
   %1810 = sub nsw i32 %1809, %1807
-  %spec.select.i1139 = call i32 @llvm.smax.i32(i32 %1810, i32 0)
-  store i32 %spec.select.i1139, ptr %1808, align 8, !tbaa !134
+  %spec.select.i1138 = call i32 @llvm.smax.i32(i32 %1810, i32 0)
+  store i32 %spec.select.i1138, ptr %1808, align 8, !tbaa !134
   %1811 = getelementptr inbounds nuw i8, ptr %1806, i64 24
   %1812 = load ptr, ptr %1811, align 8, !tbaa !131
-  %1813 = zext nneg i32 %spec.select.i1139 to i64
+  %1813 = zext nneg i32 %spec.select.i1138 to i64
   %1814 = getelementptr inbounds nuw i64, ptr %1812, i64 %1813
   %1815 = sext i32 %1807 to i64
   %1816 = sub nsw i64 0, %1815
   %1817 = getelementptr inbounds i64, ptr %1814, i64 %1816
-  br label %.critedge1073
+  br label %.critedge1072
 
 1818:                                             ; preds = %93
   %1819 = load i64, ptr %.0726, align 8, !tbaa !137
   %1820 = load i64, ptr %78, align 8, !tbaa !69
-  %.not996 = icmp slt i64 %1819, %1820
-  br i1 %.not996, label %1834, label %1821
+  %.not995 = icmp slt i64 %1819, %1820
+  br i1 %.not995, label %1834, label %1821
 
 1821:                                             ; preds = %1818
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7697,16 +7697,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1824 = getelementptr inbounds nuw i8, ptr %1822, i64 8
   %1825 = load i32, ptr %1824, align 8, !tbaa !134
   %1826 = sub nsw i32 %1825, %1823
-  %spec.select.i1140 = call i32 @llvm.smax.i32(i32 %1826, i32 0)
-  store i32 %spec.select.i1140, ptr %1824, align 8, !tbaa !134
+  %spec.select.i1139 = call i32 @llvm.smax.i32(i32 %1826, i32 0)
+  store i32 %spec.select.i1139, ptr %1824, align 8, !tbaa !134
   %1827 = getelementptr inbounds nuw i8, ptr %1822, i64 24
   %1828 = load ptr, ptr %1827, align 8, !tbaa !131
-  %1829 = zext nneg i32 %spec.select.i1140 to i64
+  %1829 = zext nneg i32 %spec.select.i1139 to i64
   %1830 = getelementptr inbounds nuw i64, ptr %1828, i64 %1829
   %1831 = sext i32 %1823 to i64
   %1832 = sub nsw i64 0, %1831
   %1833 = getelementptr inbounds i64, ptr %1830, i64 %1832
-  br label %.critedge1073
+  br label %.critedge1072
 
 1834:                                             ; preds = %1818
   %1835 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7739,14 +7739,14 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1854:                                             ; preds = %1845, %1840, %1834
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1835, i64 noundef %1819)
-  %.pre1516 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1517 = getelementptr inbounds nuw i8, ptr %.pre1516, i64 40
-  %.pre1518 = load i32, ptr %.phi.trans.insert1517, align 8, !tbaa !95
+  %.pre1515 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1516 = getelementptr inbounds nuw i8, ptr %.pre1515, i64 40
+  %.pre1517 = load i32, ptr %.phi.trans.insert1516, align 8, !tbaa !95
   br label %1855
 
 1855:                                             ; preds = %1854, %1851
-  %1856 = phi i32 [ %.pre1518, %1854 ], [ %1852, %1851 ]
-  %1857 = phi ptr [ %.pre1516, %1854 ], [ %1835, %1851 ]
+  %1856 = phi i32 [ %.pre1517, %1854 ], [ %1852, %1851 ]
+  %1857 = phi ptr [ %.pre1515, %1854 ], [ %1835, %1851 ]
   %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 40
   %1859 = getelementptr inbounds nuw i8, ptr %1857, i64 44
   %1860 = load i32, ptr %1859, align 4, !tbaa !96
@@ -7775,54 +7775,54 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1874:                                             ; preds = %1872, %1869
   %1875 = phi i32 [ %1871, %1869 ], [ %1873, %1872 ]
   %1876 = and i32 %1875, -8368
-  %.not.i1141 = icmp eq i32 %1876, 0
-  br i1 %.not.i1141, label %1877, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread
+  %.not.i1140 = icmp eq i32 %1876, 0
+  br i1 %.not.i1140, label %1877, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread
 
 1877:                                             ; preds = %1874
-  switch i32 %1875, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread [
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
-    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360
+  switch i32 %1875, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread [
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
+    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359
   ]
 
-_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360: ; preds = %1877, %1877, %1877, %1877, %1877, %1877, %1877
+_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359: ; preds = %1877, %1877, %1877, %1877, %1877, %1877, %1877
   %1878 = load ptr, ptr %32, align 8, !tbaa !64
   %1879 = load i32, ptr %31, align 8, !tbaa !17
   %1880 = getelementptr inbounds nuw i8, ptr %1878, i64 8
   %1881 = load i32, ptr %1880, align 8, !tbaa !134
   %1882 = sub nsw i32 %1881, %1879
-  %spec.select.i1144 = call i32 @llvm.smax.i32(i32 %1882, i32 0)
-  store i32 %spec.select.i1144, ptr %1880, align 8, !tbaa !134
+  %spec.select.i1143 = call i32 @llvm.smax.i32(i32 %1882, i32 0)
+  store i32 %spec.select.i1143, ptr %1880, align 8, !tbaa !134
   %1883 = getelementptr inbounds nuw i8, ptr %1878, i64 24
   %1884 = load ptr, ptr %1883, align 8, !tbaa !131
-  %1885 = zext nneg i32 %spec.select.i1144 to i64
+  %1885 = zext nneg i32 %spec.select.i1143 to i64
   %1886 = getelementptr inbounds nuw i64, ptr %1884, i64 %1885
   %1887 = sext i32 %1879 to i64
   %1888 = sub nsw i64 0, %1887
   %1889 = getelementptr inbounds i64, ptr %1886, i64 %1888
-  br label %.critedge1073
+  br label %.critedge1072
 
-_ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
+_ZN6icu_77L16isLineTerminatorEi.exit1142.thread:  ; preds = %1877, %1874
   %1890 = load ptr, ptr %72, align 8, !tbaa !77
   %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 40
   %1892 = load i32, ptr %1891, align 8, !tbaa !95
   %1893 = getelementptr inbounds nuw i8, ptr %1890, i64 28
   %1894 = load i32, ptr %1893, align 4, !tbaa !87
-  %.not998 = icmp sgt i32 %1892, %1894
-  br i1 %.not998, label %1900, label %1895
+  %.not997 = icmp sgt i32 %1892, %1894
+  br i1 %.not997, label %1900, label %1895
 
-1895:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread
+1895:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread
   %1896 = getelementptr inbounds nuw i8, ptr %1890, i64 32
   %1897 = load i64, ptr %1896, align 8, !tbaa !83
   %1898 = sext i32 %1892 to i64
   %1899 = add nsw i64 %1897, %1898
   br label %1906
 
-1900:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread
+1900:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread
   %1901 = getelementptr inbounds nuw i8, ptr %1890, i64 56
   %1902 = load ptr, ptr %1901, align 8, !tbaa !89
   %1903 = getelementptr inbounds nuw i8, ptr %1902, i64 64
@@ -7833,13 +7833,13 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 1906:                                             ; preds = %1900, %1895
   %1907 = phi i64 [ %1899, %1895 ], [ %1905, %1900 ]
   store i64 %1907, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 1908:                                             ; preds = %93
   %1909 = load i64, ptr %.0726, align 8, !tbaa !137
   %1910 = load i64, ptr %78, align 8, !tbaa !69
-  %.not993 = icmp slt i64 %1909, %1910
-  br i1 %.not993, label %1924, label %1911
+  %.not992 = icmp slt i64 %1909, %1910
+  br i1 %.not992, label %1924, label %1911
 
 1911:                                             ; preds = %1908
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -7848,16 +7848,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %1914 = getelementptr inbounds nuw i8, ptr %1912, i64 8
   %1915 = load i32, ptr %1914, align 8, !tbaa !134
   %1916 = sub nsw i32 %1915, %1913
-  %spec.select.i1145 = call i32 @llvm.smax.i32(i32 %1916, i32 0)
-  store i32 %spec.select.i1145, ptr %1914, align 8, !tbaa !134
+  %spec.select.i1144 = call i32 @llvm.smax.i32(i32 %1916, i32 0)
+  store i32 %spec.select.i1144, ptr %1914, align 8, !tbaa !134
   %1917 = getelementptr inbounds nuw i8, ptr %1912, i64 24
   %1918 = load ptr, ptr %1917, align 8, !tbaa !131
-  %1919 = zext nneg i32 %spec.select.i1145 to i64
+  %1919 = zext nneg i32 %spec.select.i1144 to i64
   %1920 = getelementptr inbounds nuw i64, ptr %1918, i64 %1919
   %1921 = sext i32 %1913 to i64
   %1922 = sub nsw i64 0, %1921
   %1923 = getelementptr inbounds i64, ptr %1920, i64 %1922
-  br label %.critedge1073
+  br label %.critedge1072
 
 1924:                                             ; preds = %1908
   %1925 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7890,14 +7890,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 
 1944:                                             ; preds = %1935, %1930, %1924
   call void @utext_setNativeIndex_77(ptr noundef nonnull %1925, i64 noundef %1909)
-  %.pre1507 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1508 = getelementptr inbounds nuw i8, ptr %.pre1507, i64 40
-  %.pre1509 = load i32, ptr %.phi.trans.insert1508, align 8, !tbaa !95
+  %.pre1506 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1507 = getelementptr inbounds nuw i8, ptr %.pre1506, i64 40
+  %.pre1508 = load i32, ptr %.phi.trans.insert1507, align 8, !tbaa !95
   br label %1945
 
 1945:                                             ; preds = %1944, %1941
-  %1946 = phi i32 [ %.pre1509, %1944 ], [ %1942, %1941 ]
-  %1947 = phi ptr [ %.pre1507, %1944 ], [ %1925, %1941 ]
+  %1946 = phi i32 [ %.pre1508, %1944 ], [ %1942, %1941 ]
+  %1947 = phi ptr [ %.pre1506, %1944 ], [ %1925, %1941 ]
   %1948 = getelementptr inbounds nuw i8, ptr %1947, i64 40
   %1949 = getelementptr inbounds nuw i8, ptr %1947, i64 44
   %1950 = load i32, ptr %1949, align 4, !tbaa !96
@@ -7921,19 +7921,19 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 
 1962:                                             ; preds = %1952, %1945
   %1963 = call i32 @utext_next32_77(ptr noundef nonnull %1947)
-  %.pre1510 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1511 = getelementptr inbounds nuw i8, ptr %.pre1510, i64 40
-  %.pre1512 = load i32, ptr %.phi.trans.insert1511, align 8, !tbaa !95
+  %.pre1509 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1510 = getelementptr inbounds nuw i8, ptr %.pre1509, i64 40
+  %.pre1511 = load i32, ptr %.phi.trans.insert1510, align 8, !tbaa !95
   br label %1964
 
 1964:                                             ; preds = %1962, %1959
-  %1965 = phi i32 [ %1960, %1959 ], [ %.pre1512, %1962 ]
-  %1966 = phi ptr [ %1947, %1959 ], [ %.pre1510, %1962 ]
+  %1965 = phi i32 [ %1960, %1959 ], [ %.pre1511, %1962 ]
+  %1966 = phi ptr [ %1947, %1959 ], [ %.pre1509, %1962 ]
   %1967 = phi i32 [ %1961, %1959 ], [ %1963, %1962 ]
   %1968 = getelementptr inbounds nuw i8, ptr %1966, i64 28
   %1969 = load i32, ptr %1968, align 4, !tbaa !87
-  %.not994 = icmp sgt i32 %1965, %1969
-  br i1 %.not994, label %1975, label %1970
+  %.not993 = icmp sgt i32 %1965, %1969
+  br i1 %.not993, label %1975, label %1970
 
 1970:                                             ; preds = %1964
   %1971 = getelementptr inbounds nuw i8, ptr %1966, i64 32
@@ -7956,8 +7956,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %1983 = icmp eq i32 %1967, 13
   %1984 = load i64, ptr %78, align 8
   %1985 = icmp slt i64 %1982, %1984
-  %or.cond1071 = select i1 %1983, i1 %1985, i1 false
-  br i1 %or.cond1071, label %1986, label %.critedge1073
+  %or.cond1070 = select i1 %1983, i1 %1985, i1 false
+  br i1 %or.cond1070, label %1986, label %.critedge1072
 
 1986:                                             ; preds = %1981
   %1987 = load ptr, ptr %72, align 8, !tbaa !77
@@ -7988,7 +7988,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 2004:                                             ; preds = %2002, %2000
   %2005 = phi i32 [ %2001, %2000 ], [ %2003, %2002 ]
   %2006 = icmp eq i32 %2005, 10
-  br i1 %2006, label %2007, label %.critedge1073
+  br i1 %2006, label %2007, label %.critedge1072
 
 2007:                                             ; preds = %2004
   %2008 = load ptr, ptr %72, align 8, !tbaa !77
@@ -8015,18 +8015,18 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 
 2023:                                             ; preds = %2014, %2007
   %2024 = call i32 @utext_next32_77(ptr noundef nonnull %2008)
-  %.pre1513 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1514 = getelementptr inbounds nuw i8, ptr %.pre1513, i64 40
-  %.pre1515 = load i32, ptr %.phi.trans.insert1514, align 8, !tbaa !95
+  %.pre1512 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1513 = getelementptr inbounds nuw i8, ptr %.pre1512, i64 40
+  %.pre1514 = load i32, ptr %.phi.trans.insert1513, align 8, !tbaa !95
   br label %2025
 
 2025:                                             ; preds = %2023, %2021
-  %2026 = phi i32 [ %.pre1515, %2023 ], [ %2022, %2021 ]
-  %2027 = phi ptr [ %.pre1513, %2023 ], [ %2008, %2021 ]
+  %2026 = phi i32 [ %.pre1514, %2023 ], [ %2022, %2021 ]
+  %2027 = phi ptr [ %.pre1512, %2023 ], [ %2008, %2021 ]
   %2028 = getelementptr inbounds nuw i8, ptr %2027, i64 28
   %2029 = load i32, ptr %2028, align 4, !tbaa !87
-  %.not995 = icmp sgt i32 %2026, %2029
-  br i1 %.not995, label %2035, label %2030
+  %.not994 = icmp sgt i32 %2026, %2029
+  br i1 %.not994, label %2035, label %2030
 
 2030:                                             ; preds = %2025
   %2031 = getelementptr inbounds nuw i8, ptr %2027, i64 32
@@ -8046,13 +8046,13 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 2041:                                             ; preds = %2035, %2030
   %2042 = phi i64 [ %2034, %2030 ], [ %2040, %2035 ]
   store i64 %2042, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 2043:                                             ; preds = %93
   %2044 = load i64, ptr %.0726, align 8, !tbaa !137
   %2045 = load i64, ptr %78, align 8, !tbaa !69
-  %.not991 = icmp slt i64 %2044, %2045
-  br i1 %.not991, label %2059, label %2046
+  %.not990 = icmp slt i64 %2044, %2045
+  br i1 %.not990, label %2059, label %2046
 
 2046:                                             ; preds = %2043
   store i8 1, ptr %79, align 8, !tbaa !32
@@ -8061,16 +8061,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %2049 = getelementptr inbounds nuw i8, ptr %2047, i64 8
   %2050 = load i32, ptr %2049, align 8, !tbaa !134
   %2051 = sub nsw i32 %2050, %2048
-  %spec.select.i1146 = call i32 @llvm.smax.i32(i32 %2051, i32 0)
-  store i32 %spec.select.i1146, ptr %2049, align 8, !tbaa !134
+  %spec.select.i1145 = call i32 @llvm.smax.i32(i32 %2051, i32 0)
+  store i32 %spec.select.i1145, ptr %2049, align 8, !tbaa !134
   %2052 = getelementptr inbounds nuw i8, ptr %2047, i64 24
   %2053 = load ptr, ptr %2052, align 8, !tbaa !131
-  %2054 = zext nneg i32 %spec.select.i1146 to i64
+  %2054 = zext nneg i32 %spec.select.i1145 to i64
   %2055 = getelementptr inbounds nuw i64, ptr %2053, i64 %2054
   %2056 = sext i32 %2048 to i64
   %2057 = sub nsw i64 0, %2056
   %2058 = getelementptr inbounds i64, ptr %2055, i64 %2057
-  br label %.critedge1073
+  br label %.critedge1072
 
 2059:                                             ; preds = %2043
   %2060 = load ptr, ptr %72, align 8, !tbaa !77
@@ -8103,14 +8103,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 
 2079:                                             ; preds = %2070, %2065, %2059
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2060, i64 noundef %2044)
-  %.pre1504 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1505 = getelementptr inbounds nuw i8, ptr %.pre1504, i64 40
-  %.pre1506 = load i32, ptr %.phi.trans.insert1505, align 8, !tbaa !95
+  %.pre1503 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1504 = getelementptr inbounds nuw i8, ptr %.pre1503, i64 40
+  %.pre1505 = load i32, ptr %.phi.trans.insert1504, align 8, !tbaa !95
   br label %2080
 
 2080:                                             ; preds = %2079, %2076
-  %2081 = phi i32 [ %.pre1506, %2079 ], [ %2077, %2076 ]
-  %2082 = phi ptr [ %.pre1504, %2079 ], [ %2060, %2076 ]
+  %2081 = phi i32 [ %.pre1505, %2079 ], [ %2077, %2076 ]
+  %2082 = phi ptr [ %.pre1503, %2079 ], [ %2060, %2076 ]
   %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 40
   %2084 = getelementptr inbounds nuw i8, ptr %2082, i64 44
   %2085 = load i32, ptr %2084, align 4, !tbaa !96
@@ -8147,16 +8147,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %2105 = getelementptr inbounds nuw i8, ptr %2103, i64 8
   %2106 = load i32, ptr %2105, align 8, !tbaa !134
   %2107 = sub nsw i32 %2106, %2104
-  %spec.select.i1147 = call i32 @llvm.smax.i32(i32 %2107, i32 0)
-  store i32 %spec.select.i1147, ptr %2105, align 8, !tbaa !134
+  %spec.select.i1146 = call i32 @llvm.smax.i32(i32 %2107, i32 0)
+  store i32 %spec.select.i1146, ptr %2105, align 8, !tbaa !134
   %2108 = getelementptr inbounds nuw i8, ptr %2103, i64 24
   %2109 = load ptr, ptr %2108, align 8, !tbaa !131
-  %2110 = zext nneg i32 %spec.select.i1147 to i64
+  %2110 = zext nneg i32 %spec.select.i1146 to i64
   %2111 = getelementptr inbounds nuw i64, ptr %2109, i64 %2110
   %2112 = sext i32 %2104 to i64
   %2113 = sub nsw i64 0, %2112
   %2114 = getelementptr inbounds i64, ptr %2111, i64 %2113
-  br label %.critedge1073
+  br label %.critedge1072
 
 2115:                                             ; preds = %2099
   %2116 = load ptr, ptr %72, align 8, !tbaa !77
@@ -8164,8 +8164,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %2118 = load i32, ptr %2117, align 8, !tbaa !95
   %2119 = getelementptr inbounds nuw i8, ptr %2116, i64 28
   %2120 = load i32, ptr %2119, align 4, !tbaa !87
-  %.not992 = icmp sgt i32 %2118, %2120
-  br i1 %.not992, label %2126, label %2121
+  %.not991 = icmp sgt i32 %2118, %2120
+  br i1 %.not991, label %2126, label %2121
 
 2121:                                             ; preds = %2115
   %2122 = getelementptr inbounds nuw i8, ptr %2116, i64 32
@@ -8185,17 +8185,17 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
 2132:                                             ; preds = %2126, %2121
   %2133 = phi i64 [ %2125, %2121 ], [ %2131, %2126 ]
   store i64 %2133, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 2134:                                             ; preds = %93
   %2135 = and i64 %97, 16777215
   store i64 %2135, ptr %94, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 2136:                                             ; preds = %93
   %2137 = load i32, ptr %3, align 4, !tbaa !13
   %2138 = icmp slt i32 %2137, 1
-  br i1 %2138, label %2139, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169
+  br i1 %2138, label %2139, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168
 
 2139:                                             ; preds = %2136
   %2140 = load ptr, ptr %32, align 8, !tbaa !64
@@ -8206,55 +8206,55 @@ _ZN6icu_77L16isLineTerminatorEi.exit1143.thread:  ; preds = %1877, %1874
   %2145 = icmp slt i32 %2144, 0
   %2146 = getelementptr inbounds nuw i8, ptr %2140, i64 12
   %2147 = load i32, ptr %2146, align 4
-  %.not.i.i.i1149 = icmp slt i32 %2147, %2144
-  %or.cond.i.i.i1150 = select i1 %2145, i1 true, i1 %.not.i.i.i1149
-  br i1 %or.cond.i.i.i1150, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1165, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1151
+  %.not.i.i.i1148 = icmp slt i32 %2147, %2144
+  %or.cond.i.i.i1149 = select i1 %2145, i1 true, i1 %.not.i.i.i1148
+  br i1 %or.cond.i.i.i1149, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1164, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1150
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1165: ; preds = %2139
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1164: ; preds = %2139
   %2148 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2140, i32 noundef %2144, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2149 = icmp eq i8 %2148, 0
-  br i1 %2149, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1166
+  br i1 %2149, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1152, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1165
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1166: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1165
-  %.pre.i.i1167 = load i32, ptr %2142, align 8, !tbaa !134
-  %.pre6.i.i1168 = add nsw i32 %.pre.i.i1167, %2141
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1151
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1165: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1164
+  %.pre.i.i1166 = load i32, ptr %2142, align 8, !tbaa !134
+  %.pre6.i.i1167 = add nsw i32 %.pre.i.i1166, %2141
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1150
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1151: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1166, %2139
-  %.pre-phi.i.i1152 = phi i32 [ %.pre6.i.i1168, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1166 ], [ %2144, %2139 ]
-  %2150 = phi i32 [ %.pre.i.i1167, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1166 ], [ %2143, %2139 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1150: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1165, %2139
+  %.pre-phi.i.i1151 = phi i32 [ %.pre6.i.i1167, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1165 ], [ %2144, %2139 ]
+  %2150 = phi i32 [ %.pre.i.i1166, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1165 ], [ %2143, %2139 ]
   %2151 = getelementptr inbounds nuw i8, ptr %2140, i64 24
   %2152 = load ptr, ptr %2151, align 8, !tbaa !131
   %2153 = sext i32 %2150 to i64
   %2154 = getelementptr inbounds i64, ptr %2152, i64 %2153
-  store i32 %.pre-phi.i.i1152, ptr %2142, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153
+  store i32 %.pre-phi.i.i1151, ptr %2142, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1152
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1151, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1165
-  %.0.i.i1154 = phi ptr [ %2154, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1151 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1165 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1152: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1150, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1164
+  %.0.i.i1153 = phi ptr [ %2154, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1150 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1164 ]
   %2155 = load i32, ptr %3, align 4, !tbaa !13
   %2156 = icmp slt i32 %2155, 1
   br i1 %2156, label %2158, label %2157
 
-2157:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153
+2157:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1152
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168
 
-2158:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153
+2158:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1152
   %2159 = load i32, ptr %31, align 8, !tbaa !17
   %2160 = sext i32 %2159 to i64
   %2161 = sub nsw i64 0, %2160
-  %2162 = getelementptr inbounds i64, ptr %.0.i.i1154, i64 %2161
+  %2162 = getelementptr inbounds i64, ptr %.0.i.i1153, i64 %2161
   br label %2163
 
 2163:                                             ; preds = %2163, %2158
-  %.018.i1155 = phi ptr [ %2162, %2158 ], [ %2164, %2163 ]
-  %.0.i1156 = phi ptr [ %.0.i.i1154, %2158 ], [ %2166, %2163 ]
-  %2164 = getelementptr inbounds nuw i8, ptr %.018.i1155, i64 8
-  %2165 = load i64, ptr %.018.i1155, align 8, !tbaa !110
-  %2166 = getelementptr inbounds nuw i8, ptr %.0.i1156, i64 8
-  store i64 %2165, ptr %.0.i1156, align 8, !tbaa !110
-  %2167 = icmp eq ptr %2164, %.0.i.i1154
+  %.018.i1154 = phi ptr [ %2162, %2158 ], [ %2164, %2163 ]
+  %.0.i1155 = phi ptr [ %.0.i.i1153, %2158 ], [ %2166, %2163 ]
+  %2164 = getelementptr inbounds nuw i8, ptr %.018.i1154, i64 8
+  %2165 = load i64, ptr %.018.i1154, align 8, !tbaa !110
+  %2166 = getelementptr inbounds nuw i8, ptr %.0.i1155, i64 8
+  store i64 %2165, ptr %.0.i1155, align 8, !tbaa !110
+  %2167 = icmp eq ptr %2164, %.0.i.i1153
   br i1 %2167, label %2168, label %2163, !llvm.loop !139
 
 2168:                                             ; preds = %2163
@@ -8262,7 +8262,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153: ; preds = %_ZN6icu
   %2170 = add nsw i32 %2169, -1
   store i32 %2170, ptr %73, align 8, !tbaa !36
   %2171 = icmp slt i32 %2169, 2
-  br i1 %2171, label %2172, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157
+  br i1 %2171, label %2172, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156
 
 2172:                                             ; preds = %2168
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -8270,60 +8270,60 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1153: ; preds = %_ZN6icu
   %2174 = add nsw i32 %2173, 1
   store i32 %2174, ptr %74, align 4, !tbaa !35
   %2175 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1158 = icmp eq ptr %2175, null
-  br i1 %.not.i.i1158, label %2180, label %2176
+  %.not.i.i1157 = icmp eq ptr %2175, null
+  br i1 %.not.i.i1157, label %2180, label %2176
 
 2176:                                             ; preds = %2172
   %2177 = load ptr, ptr %76, align 8, !tbaa !141
   %2178 = call noundef signext i8 %2175(ptr noundef %2177, i32 noundef %2174)
   %2179 = icmp eq i8 %2178, 0
-  br i1 %2179, label %.sink.split.i.i1163, label %._crit_edge.i.i1159
+  br i1 %2179, label %.sink.split.i.i1162, label %._crit_edge.i.i1158
 
-._crit_edge.i.i1159:                              ; preds = %2176
-  %.pre.i22.i1160 = load i32, ptr %74, align 4
+._crit_edge.i.i1158:                              ; preds = %2176
+  %.pre.i22.i1159 = load i32, ptr %74, align 4
   br label %2180
 
-2180:                                             ; preds = %._crit_edge.i.i1159, %2172
-  %2181 = phi i32 [ %.pre.i22.i1160, %._crit_edge.i.i1159 ], [ %2174, %2172 ]
+2180:                                             ; preds = %._crit_edge.i.i1158, %2172
+  %2181 = phi i32 [ %.pre.i22.i1159, %._crit_edge.i.i1158 ], [ %2174, %2172 ]
   %2182 = load i32, ptr %77, align 8, !tbaa !34
   %2183 = icmp slt i32 %2182, 1
-  %.not4.i.i1161 = icmp slt i32 %2181, %2182
-  %or.cond.i.i1162 = select i1 %2183, i1 true, i1 %.not4.i.i1161
-  br i1 %or.cond.i.i1162, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157, label %.sink.split.i.i1163
+  %.not4.i.i1160 = icmp slt i32 %2181, %2182
+  %or.cond.i.i1161 = select i1 %2183, i1 true, i1 %.not4.i.i1160
+  br i1 %or.cond.i.i1161, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156, label %.sink.split.i.i1162
 
-.sink.split.i.i1163:                              ; preds = %2180, %2176
-  %.sink.i.i1164 = phi i32 [ 66323, %2176 ], [ 66322, %2180 ]
-  store i32 %.sink.i.i1164, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157
+.sink.split.i.i1162:                              ; preds = %2180, %2176
+  %.sink.i.i1163 = phi i32 [ 66323, %2176 ], [ 66322, %2180 ]
+  store i32 %.sink.i.i1163, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157: ; preds = %.sink.split.i.i1163, %2180, %2168
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156: ; preds = %.sink.split.i.i1162, %2180, %2168
   %2184 = getelementptr inbounds nuw i8, ptr %2162, i64 8
   store i64 %100, ptr %2184, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169: ; preds = %2136, %2157, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157
-  %.019.i1148 = phi ptr [ %.0726, %2136 ], [ %.0726, %2157 ], [ %.0.i.i1154, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1157 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168: ; preds = %2136, %2157, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156
+  %.019.i1147 = phi ptr [ %.0726, %2136 ], [ %.0726, %2157 ], [ %.0.i.i1153, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1156 ]
   %2185 = and i64 %97, 16777215
-  %2186 = getelementptr inbounds nuw i8, ptr %.019.i1148, i64 8
+  %2186 = getelementptr inbounds nuw i8, ptr %.019.i1147, i64 8
   store i64 %2185, ptr %2186, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 2187:                                             ; preds = %93
   %2188 = and i64 %97, 16777215
-  %gep1450 = getelementptr i64, ptr %invariant.gep1449, i64 %2188
-  %2189 = load i64, ptr %gep1450, align 8, !tbaa !110
+  %gep1449 = getelementptr i64, ptr %invariant.gep1448, i64 %2188
+  %2189 = load i64, ptr %gep1449, align 8, !tbaa !110
   %2190 = and i64 %2189, 16777215
   %2191 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2192 = getelementptr inbounds nuw [1 x i64], ptr %2191, i64 0, i64 %2190
   %2193 = load i64, ptr %2192, align 8, !tbaa !110
   %2194 = load i64, ptr %.0726, align 8, !tbaa !137
   %2195 = icmp slt i64 %2193, %2194
-  br i1 %2195, label %2196, label %.critedge1073
+  br i1 %2195, label %2196, label %.critedge1072
 
 2196:                                             ; preds = %2187
   %2197 = load i32, ptr %3, align 4, !tbaa !13
   %2198 = icmp slt i32 %2197, 1
-  br i1 %2198, label %2199, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191
+  br i1 %2198, label %2199, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190
 
 2199:                                             ; preds = %2196
   %2200 = load ptr, ptr %32, align 8, !tbaa !64
@@ -8334,55 +8334,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169: ;
   %2205 = icmp slt i32 %2204, 0
   %2206 = getelementptr inbounds nuw i8, ptr %2200, i64 12
   %2207 = load i32, ptr %2206, align 4
-  %.not.i.i.i1171 = icmp slt i32 %2207, %2204
-  %or.cond.i.i.i1172 = select i1 %2205, i1 true, i1 %.not.i.i.i1171
-  br i1 %or.cond.i.i.i1172, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1187, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1173
+  %.not.i.i.i1170 = icmp slt i32 %2207, %2204
+  %or.cond.i.i.i1171 = select i1 %2205, i1 true, i1 %.not.i.i.i1170
+  br i1 %or.cond.i.i.i1171, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1186, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1172
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1187: ; preds = %2199
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1186: ; preds = %2199
   %2208 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2200, i32 noundef %2204, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2209 = icmp eq i8 %2208, 0
-  br i1 %2209, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1188
+  br i1 %2209, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1174, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1187
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1188: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1187
-  %.pre.i.i1189 = load i32, ptr %2202, align 8, !tbaa !134
-  %.pre6.i.i1190 = add nsw i32 %.pre.i.i1189, %2201
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1173
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1187: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1186
+  %.pre.i.i1188 = load i32, ptr %2202, align 8, !tbaa !134
+  %.pre6.i.i1189 = add nsw i32 %.pre.i.i1188, %2201
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1172
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1173: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1188, %2199
-  %.pre-phi.i.i1174 = phi i32 [ %.pre6.i.i1190, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1188 ], [ %2204, %2199 ]
-  %2210 = phi i32 [ %.pre.i.i1189, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1188 ], [ %2203, %2199 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1172: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1187, %2199
+  %.pre-phi.i.i1173 = phi i32 [ %.pre6.i.i1189, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1187 ], [ %2204, %2199 ]
+  %2210 = phi i32 [ %.pre.i.i1188, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1187 ], [ %2203, %2199 ]
   %2211 = getelementptr inbounds nuw i8, ptr %2200, i64 24
   %2212 = load ptr, ptr %2211, align 8, !tbaa !131
   %2213 = sext i32 %2210 to i64
   %2214 = getelementptr inbounds i64, ptr %2212, i64 %2213
-  store i32 %.pre-phi.i.i1174, ptr %2202, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175
+  store i32 %.pre-phi.i.i1173, ptr %2202, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1174
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1173, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1187
-  %.0.i.i1176 = phi ptr [ %2214, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1173 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1187 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1174: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1172, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1186
+  %.0.i.i1175 = phi ptr [ %2214, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1172 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1186 ]
   %2215 = load i32, ptr %3, align 4, !tbaa !13
   %2216 = icmp slt i32 %2215, 1
   br i1 %2216, label %2218, label %2217
 
-2217:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175
+2217:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1174
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190
 
-2218:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175
+2218:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1174
   %2219 = load i32, ptr %31, align 8, !tbaa !17
   %2220 = sext i32 %2219 to i64
   %2221 = sub nsw i64 0, %2220
-  %2222 = getelementptr inbounds i64, ptr %.0.i.i1176, i64 %2221
+  %2222 = getelementptr inbounds i64, ptr %.0.i.i1175, i64 %2221
   br label %2223
 
 2223:                                             ; preds = %2223, %2218
-  %.018.i1177 = phi ptr [ %2222, %2218 ], [ %2224, %2223 ]
-  %.0.i1178 = phi ptr [ %.0.i.i1176, %2218 ], [ %2226, %2223 ]
-  %2224 = getelementptr inbounds nuw i8, ptr %.018.i1177, i64 8
-  %2225 = load i64, ptr %.018.i1177, align 8, !tbaa !110
-  %2226 = getelementptr inbounds nuw i8, ptr %.0.i1178, i64 8
-  store i64 %2225, ptr %.0.i1178, align 8, !tbaa !110
-  %2227 = icmp eq ptr %2224, %.0.i.i1176
+  %.018.i1176 = phi ptr [ %2222, %2218 ], [ %2224, %2223 ]
+  %.0.i1177 = phi ptr [ %.0.i.i1175, %2218 ], [ %2226, %2223 ]
+  %2224 = getelementptr inbounds nuw i8, ptr %.018.i1176, i64 8
+  %2225 = load i64, ptr %.018.i1176, align 8, !tbaa !110
+  %2226 = getelementptr inbounds nuw i8, ptr %.0.i1177, i64 8
+  store i64 %2225, ptr %.0.i1177, align 8, !tbaa !110
+  %2227 = icmp eq ptr %2224, %.0.i.i1175
   br i1 %2227, label %2228, label %2223, !llvm.loop !139
 
 2228:                                             ; preds = %2223
@@ -8390,7 +8390,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175: ; preds = %_ZN6icu
   %2230 = add nsw i32 %2229, -1
   store i32 %2230, ptr %73, align 8, !tbaa !36
   %2231 = icmp slt i32 %2229, 2
-  br i1 %2231, label %2232, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179
+  br i1 %2231, label %2232, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178
 
 2232:                                             ; preds = %2228
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -8398,46 +8398,46 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1175: ; preds = %_ZN6icu
   %2234 = add nsw i32 %2233, 1
   store i32 %2234, ptr %74, align 4, !tbaa !35
   %2235 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1180 = icmp eq ptr %2235, null
-  br i1 %.not.i.i1180, label %2240, label %2236
+  %.not.i.i1179 = icmp eq ptr %2235, null
+  br i1 %.not.i.i1179, label %2240, label %2236
 
 2236:                                             ; preds = %2232
   %2237 = load ptr, ptr %76, align 8, !tbaa !141
   %2238 = call noundef signext i8 %2235(ptr noundef %2237, i32 noundef %2234)
   %2239 = icmp eq i8 %2238, 0
-  br i1 %2239, label %.sink.split.i.i1185, label %._crit_edge.i.i1181
+  br i1 %2239, label %.sink.split.i.i1184, label %._crit_edge.i.i1180
 
-._crit_edge.i.i1181:                              ; preds = %2236
-  %.pre.i22.i1182 = load i32, ptr %74, align 4
+._crit_edge.i.i1180:                              ; preds = %2236
+  %.pre.i22.i1181 = load i32, ptr %74, align 4
   br label %2240
 
-2240:                                             ; preds = %._crit_edge.i.i1181, %2232
-  %2241 = phi i32 [ %.pre.i22.i1182, %._crit_edge.i.i1181 ], [ %2234, %2232 ]
+2240:                                             ; preds = %._crit_edge.i.i1180, %2232
+  %2241 = phi i32 [ %.pre.i22.i1181, %._crit_edge.i.i1180 ], [ %2234, %2232 ]
   %2242 = load i32, ptr %77, align 8, !tbaa !34
   %2243 = icmp slt i32 %2242, 1
-  %.not4.i.i1183 = icmp slt i32 %2241, %2242
-  %or.cond.i.i1184 = select i1 %2243, i1 true, i1 %.not4.i.i1183
-  br i1 %or.cond.i.i1184, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179, label %.sink.split.i.i1185
+  %.not4.i.i1182 = icmp slt i32 %2241, %2242
+  %or.cond.i.i1183 = select i1 %2243, i1 true, i1 %.not4.i.i1182
+  br i1 %or.cond.i.i1183, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178, label %.sink.split.i.i1184
 
-.sink.split.i.i1185:                              ; preds = %2240, %2236
-  %.sink.i.i1186 = phi i32 [ 66323, %2236 ], [ 66322, %2240 ]
-  store i32 %.sink.i.i1186, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179
+.sink.split.i.i1184:                              ; preds = %2240, %2236
+  %.sink.i.i1185 = phi i32 [ 66323, %2236 ], [ 66322, %2240 ]
+  store i32 %.sink.i.i1185, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179: ; preds = %.sink.split.i.i1185, %2240, %2228
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178: ; preds = %.sink.split.i.i1184, %2240, %2228
   %2244 = getelementptr inbounds nuw i8, ptr %2222, i64 8
   store i64 %100, ptr %2244, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191: ; preds = %2196, %2217, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179
-  %.019.i1170 = phi ptr [ %.0726, %2196 ], [ %.0726, %2217 ], [ %.0.i.i1176, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1179 ]
-  %2245 = getelementptr inbounds nuw i8, ptr %.019.i1170, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190: ; preds = %2196, %2217, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178
+  %.019.i1169 = phi ptr [ %.0726, %2196 ], [ %.0726, %2217 ], [ %.0.i.i1175, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1178 ]
+  %2245 = getelementptr inbounds nuw i8, ptr %.019.i1169, i64 8
   store i64 %2188, ptr %2245, align 8, !tbaa !135
-  %2246 = load i64, ptr %.019.i1170, align 8, !tbaa !137
-  %2247 = getelementptr inbounds nuw i8, ptr %.019.i1170, i64 16
+  %2246 = load i64, ptr %.019.i1169, align 8, !tbaa !137
+  %2247 = getelementptr inbounds nuw i8, ptr %.019.i1169, i64 16
   %2248 = getelementptr inbounds nuw [1 x i64], ptr %2247, i64 0, i64 %2190
   store i64 %2246, ptr %2248, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 2249:                                             ; preds = %93
   %2250 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -8447,18 +8447,18 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191: ;
   %2253 = add nsw i64 %95, 4
   store i64 %2253, ptr %94, align 8, !tbaa !135
   %2254 = shl i64 %100, 32
-  %sext989 = add i64 %2254, 4294967296
-  %2255 = ashr exact i64 %sext989, 29
+  %sext988 = add i64 %2254, 4294967296
+  %2255 = ashr exact i64 %sext988, 29
   %2256 = getelementptr inbounds i8, ptr %16, i64 %2255
   %2257 = load i64, ptr %2256, align 8, !tbaa !110
-  %sext990 = add i64 %2254, 8589934592
-  %2258 = ashr exact i64 %sext990, 29
+  %sext989 = add i64 %2254, 8589934592
+  %2258 = ashr exact i64 %sext989, 29
   %2259 = getelementptr inbounds i8, ptr %16, i64 %2258
   %2260 = load i64, ptr %2259, align 8, !tbaa !110
   %2261 = trunc i64 %2260 to i32
   %2262 = and i64 %2257, 4294967295
   %2263 = icmp eq i64 %2262, 0
-  br i1 %2263, label %2264, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+  br i1 %2263, label %2264, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
 
 2264:                                             ; preds = %2249
   %2265 = ashr exact i64 %2254, 29
@@ -8468,7 +8468,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191: ;
   %2269 = add nuw nsw i64 %2268, 1
   %2270 = load i32, ptr %3, align 4, !tbaa !13
   %2271 = icmp slt i32 %2270, 1
-  br i1 %2271, label %2272, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+  br i1 %2271, label %2272, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
 
 2272:                                             ; preds = %2264
   %2273 = load ptr, ptr %32, align 8, !tbaa !64
@@ -8479,55 +8479,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191: ;
   %2278 = icmp slt i32 %2277, 0
   %2279 = getelementptr inbounds nuw i8, ptr %2273, i64 12
   %2280 = load i32, ptr %2279, align 4
-  %.not.i.i.i1193 = icmp slt i32 %2280, %2277
-  %or.cond.i.i.i1194 = select i1 %2278, i1 true, i1 %.not.i.i.i1193
-  br i1 %or.cond.i.i.i1194, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195
+  %.not.i.i.i1192 = icmp slt i32 %2280, %2277
+  %or.cond.i.i.i1193 = select i1 %2278, i1 true, i1 %.not.i.i.i1192
+  br i1 %or.cond.i.i.i1193, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1208, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1194
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209: ; preds = %2272
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1208: ; preds = %2272
   %2281 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2273, i32 noundef %2277, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2282 = icmp eq i8 %2281, 0
-  br i1 %2282, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210
+  br i1 %2282, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1196, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1209
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209
-  %.pre.i.i1211 = load i32, ptr %2275, align 8, !tbaa !134
-  %.pre6.i.i1212 = add nsw i32 %.pre.i.i1211, %2274
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1209: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1208
+  %.pre.i.i1210 = load i32, ptr %2275, align 8, !tbaa !134
+  %.pre6.i.i1211 = add nsw i32 %.pre.i.i1210, %2274
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1194
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210, %2272
-  %.pre-phi.i.i1196 = phi i32 [ %.pre6.i.i1212, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210 ], [ %2277, %2272 ]
-  %2283 = phi i32 [ %.pre.i.i1211, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210 ], [ %2276, %2272 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1194: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1209, %2272
+  %.pre-phi.i.i1195 = phi i32 [ %.pre6.i.i1211, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1209 ], [ %2277, %2272 ]
+  %2283 = phi i32 [ %.pre.i.i1210, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1209 ], [ %2276, %2272 ]
   %2284 = getelementptr inbounds nuw i8, ptr %2273, i64 24
   %2285 = load ptr, ptr %2284, align 8, !tbaa !131
   %2286 = sext i32 %2283 to i64
   %2287 = getelementptr inbounds i64, ptr %2285, i64 %2286
-  store i32 %.pre-phi.i.i1196, ptr %2275, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
+  store i32 %.pre-phi.i.i1195, ptr %2275, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1196
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209
-  %.0.i.i1198 = phi ptr [ %2287, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1196: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1194, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1208
+  %.0.i.i1197 = phi ptr [ %2287, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1194 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1208 ]
   %2288 = load i32, ptr %3, align 4, !tbaa !13
   %2289 = icmp slt i32 %2288, 1
   br i1 %2289, label %2291, label %2290
 
-2290:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
+2290:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1196
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
 
-2291:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
+2291:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1196
   %2292 = load i32, ptr %31, align 8, !tbaa !17
   %2293 = sext i32 %2292 to i64
   %2294 = sub nsw i64 0, %2293
-  %2295 = getelementptr inbounds i64, ptr %.0.i.i1198, i64 %2294
+  %2295 = getelementptr inbounds i64, ptr %.0.i.i1197, i64 %2294
   br label %2296
 
 2296:                                             ; preds = %2296, %2291
-  %.018.i1199 = phi ptr [ %2295, %2291 ], [ %2297, %2296 ]
-  %.0.i1200 = phi ptr [ %.0.i.i1198, %2291 ], [ %2299, %2296 ]
-  %2297 = getelementptr inbounds nuw i8, ptr %.018.i1199, i64 8
-  %2298 = load i64, ptr %.018.i1199, align 8, !tbaa !110
-  %2299 = getelementptr inbounds nuw i8, ptr %.0.i1200, i64 8
-  store i64 %2298, ptr %.0.i1200, align 8, !tbaa !110
-  %2300 = icmp eq ptr %2297, %.0.i.i1198
+  %.018.i1198 = phi ptr [ %2295, %2291 ], [ %2297, %2296 ]
+  %.0.i1199 = phi ptr [ %.0.i.i1197, %2291 ], [ %2299, %2296 ]
+  %2297 = getelementptr inbounds nuw i8, ptr %.018.i1198, i64 8
+  %2298 = load i64, ptr %.018.i1198, align 8, !tbaa !110
+  %2299 = getelementptr inbounds nuw i8, ptr %.0.i1199, i64 8
+  store i64 %2298, ptr %.0.i1199, align 8, !tbaa !110
+  %2300 = icmp eq ptr %2297, %.0.i.i1197
   br i1 %2300, label %2301, label %2296, !llvm.loop !139
 
 2301:                                             ; preds = %2296
@@ -8535,7 +8535,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197: ; preds = %_ZN6icu
   %2303 = add nsw i32 %2302, -1
   store i32 %2303, ptr %73, align 8, !tbaa !36
   %2304 = icmp slt i32 %2302, 2
-  br i1 %2304, label %2305, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201
+  br i1 %2304, label %2305, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200
 
 2305:                                             ; preds = %2301
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -8543,69 +8543,69 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197: ; preds = %_ZN6icu
   %2307 = add nsw i32 %2306, 1
   store i32 %2307, ptr %74, align 4, !tbaa !35
   %2308 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1202 = icmp eq ptr %2308, null
-  br i1 %.not.i.i1202, label %2313, label %2309
+  %.not.i.i1201 = icmp eq ptr %2308, null
+  br i1 %.not.i.i1201, label %2313, label %2309
 
 2309:                                             ; preds = %2305
   %2310 = load ptr, ptr %76, align 8, !tbaa !141
   %2311 = call noundef signext i8 %2308(ptr noundef %2310, i32 noundef %2307)
   %2312 = icmp eq i8 %2311, 0
-  br i1 %2312, label %.sink.split.i.i1207, label %._crit_edge.i.i1203
+  br i1 %2312, label %.sink.split.i.i1206, label %._crit_edge.i.i1202
 
-._crit_edge.i.i1203:                              ; preds = %2309
-  %.pre.i22.i1204 = load i32, ptr %74, align 4
+._crit_edge.i.i1202:                              ; preds = %2309
+  %.pre.i22.i1203 = load i32, ptr %74, align 4
   br label %2313
 
-2313:                                             ; preds = %._crit_edge.i.i1203, %2305
-  %2314 = phi i32 [ %.pre.i22.i1204, %._crit_edge.i.i1203 ], [ %2307, %2305 ]
+2313:                                             ; preds = %._crit_edge.i.i1202, %2305
+  %2314 = phi i32 [ %.pre.i22.i1203, %._crit_edge.i.i1202 ], [ %2307, %2305 ]
   %2315 = load i32, ptr %77, align 8, !tbaa !34
   %2316 = icmp slt i32 %2315, 1
-  %.not4.i.i1205 = icmp slt i32 %2314, %2315
-  %or.cond.i.i1206 = select i1 %2316, i1 true, i1 %.not4.i.i1205
-  br i1 %or.cond.i.i1206, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201, label %.sink.split.i.i1207
+  %.not4.i.i1204 = icmp slt i32 %2314, %2315
+  %or.cond.i.i1205 = select i1 %2316, i1 true, i1 %.not4.i.i1204
+  br i1 %or.cond.i.i1205, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200, label %.sink.split.i.i1206
 
-.sink.split.i.i1207:                              ; preds = %2313, %2309
-  %.sink.i.i1208 = phi i32 [ 66323, %2309 ], [ 66322, %2313 ]
-  store i32 %.sink.i.i1208, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201
+.sink.split.i.i1206:                              ; preds = %2313, %2309
+  %.sink.i.i1207 = phi i32 [ 66323, %2309 ], [ 66322, %2313 ]
+  store i32 %.sink.i.i1207, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201: ; preds = %.sink.split.i.i1207, %2313, %2301
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200: ; preds = %.sink.split.i.i1206, %2313, %2301
   %2317 = getelementptr inbounds nuw i8, ptr %2295, i64 8
   store i64 %2269, ptr %2317, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ; preds = %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201, %2290, %2264, %2249
-  %.20 = phi ptr [ %.0726, %2249 ], [ %.0726, %2264 ], [ %.0726, %2290 ], [ %.0.i.i1198, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201 ]
-  switch i32 %2261, label %.critedge1073 [
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212: ; preds = %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200, %2290, %2264, %2249
+  %.20 = phi ptr [ %.0726, %2249 ], [ %.0726, %2264 ], [ %.0726, %2290 ], [ %.0.i.i1197, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1200 ]
+  switch i32 %2261, label %.critedge1072 [
     i32 -1, label %2318
     i32 0, label %2324
   ]
 
-2318:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+2318:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
   %2319 = load i64, ptr %.20, align 8, !tbaa !137
   %2320 = getelementptr inbounds nuw i8, ptr %.20, i64 16
   %2321 = add nuw nsw i32 %99, 1
   %2322 = zext nneg i32 %2321 to i64
   %2323 = getelementptr inbounds nuw [1 x i64], ptr %2320, i64 0, i64 %2322
   store i64 %2319, ptr %2323, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
-2324:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
+2324:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212
   %2325 = load ptr, ptr %32, align 8, !tbaa !64
   %2326 = load i32, ptr %31, align 8, !tbaa !17
   %2327 = getelementptr inbounds nuw i8, ptr %2325, i64 8
   %2328 = load i32, ptr %2327, align 8, !tbaa !134
   %2329 = sub nsw i32 %2328, %2326
-  %spec.select.i1214 = call i32 @llvm.smax.i32(i32 %2329, i32 0)
-  store i32 %spec.select.i1214, ptr %2327, align 8, !tbaa !134
+  %spec.select.i1213 = call i32 @llvm.smax.i32(i32 %2329, i32 0)
+  store i32 %spec.select.i1213, ptr %2327, align 8, !tbaa !134
   %2330 = getelementptr inbounds nuw i8, ptr %2325, i64 24
   %2331 = load ptr, ptr %2330, align 8, !tbaa !131
-  %2332 = zext nneg i32 %spec.select.i1214 to i64
+  %2332 = zext nneg i32 %spec.select.i1213 to i64
   %2333 = getelementptr inbounds nuw i64, ptr %2331, i64 %2332
   %2334 = sext i32 %2326 to i64
   %2335 = sub nsw i64 0, %2334
   %2336 = getelementptr inbounds i64, ptr %2333, i64 %2335
-  br label %.critedge1073
+  br label %.critedge1072
 
 2337:                                             ; preds = %93
   %2338 = and i64 %97, 16777215
@@ -8626,13 +8626,13 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2352 = icmp uge i64 %2350, %2351
   %2353 = icmp ne i32 %2348, -1
   %or.cond9 = and i1 %2353, %2352
-  br i1 %or.cond9, label %.critedge1073, label %2354
+  br i1 %or.cond9, label %.critedge1072, label %2354
 
 2354:                                             ; preds = %2337
-  %sext985 = shl i64 %2345, 32
-  %2355 = ashr exact i64 %sext985, 32
-  %.not986 = icmp slt i64 %2350, %2355
-  br i1 %.not986, label %2366, label %2356
+  %sext984 = shl i64 %2345, 32
+  %2355 = ashr exact i64 %sext984, 32
+  %.not985 = icmp slt i64 %2350, %2355
+  br i1 %.not985, label %2366, label %2356
 
 2356:                                             ; preds = %2354
   %2357 = icmp eq i32 %2348, -1
@@ -8643,8 +8643,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2360 = getelementptr inbounds nuw [1 x i64], ptr %2341, i64 0, i64 %2359
   %2361 = load i64, ptr %.0726, align 8, !tbaa !137
   %2362 = load i64, ptr %2360, align 8, !tbaa !110
-  %.not987 = icmp eq i64 %2361, %2362
-  br i1 %.not987, label %.critedge1073, label %2363
+  %.not986 = icmp eq i64 %2361, %2362
+  br i1 %.not986, label %.critedge1072, label %2363
 
 2363:                                             ; preds = %2358
   store i64 %2361, ptr %2360, align 8, !tbaa !110
@@ -8671,7 +8671,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2373 = zext nneg i32 %2372 to i64
   %2374 = getelementptr inbounds nuw i8, ptr %.23, i64 8
   store i64 %2373, ptr %2374, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 2375:                                             ; preds = %93
   %2376 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -8680,29 +8680,29 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   store i64 0, ptr %2378, align 8, !tbaa !110
   %2379 = add nsw i64 %95, 4
   store i64 %2379, ptr %94, align 8, !tbaa !135
-  %sext981 = shl i64 %100, 32
-  %2380 = ashr exact i64 %sext981, 29
+  %sext980 = shl i64 %100, 32
+  %2380 = ashr exact i64 %sext980, 29
   %2381 = getelementptr inbounds i8, ptr %16, i64 %2380
   %2382 = load i64, ptr %2381, align 8, !tbaa !110
   %2383 = and i64 %2382, 16777215
-  %sext982 = add i64 %sext981, 4294967296
-  %2384 = ashr exact i64 %sext982, 29
+  %sext981 = add i64 %sext980, 4294967296
+  %2384 = ashr exact i64 %sext981, 29
   %2385 = getelementptr inbounds i8, ptr %16, i64 %2384
   %2386 = load i64, ptr %2385, align 8, !tbaa !110
-  %sext983 = add i64 %sext981, 8589934592
-  %2387 = ashr exact i64 %sext983, 29
+  %sext982 = add i64 %sext980, 8589934592
+  %2387 = ashr exact i64 %sext982, 29
   %2388 = getelementptr inbounds i8, ptr %16, i64 %2387
   %2389 = load i64, ptr %2388, align 8, !tbaa !110
   %2390 = trunc i64 %2389 to i32
   %2391 = icmp eq i32 %2390, -1
-  br i1 %2391, label %.thread1363, label %2392
+  br i1 %2391, label %.thread1362, label %2392
 
 2392:                                             ; preds = %2375
   %2393 = and i64 %2386, 4294967295
   %2394 = icmp eq i64 %2393, 0
-  br i1 %2394, label %2401, label %.critedge1073
+  br i1 %2394, label %2401, label %.critedge1072
 
-.thread1363:                                      ; preds = %2375
+.thread1362:                                      ; preds = %2375
   %2395 = load i64, ptr %.0726, align 8, !tbaa !137
   %2396 = add nuw nsw i32 %99, 1
   %2397 = zext nneg i32 %2396 to i64
@@ -8710,22 +8710,22 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   store i64 %2395, ptr %2398, align 8, !tbaa !110
   %2399 = and i64 %2386, 4294967295
   %2400 = icmp eq i64 %2399, 0
-  br i1 %2400, label %.thread1364, label %.critedge1073
+  br i1 %2400, label %.thread1363, label %.critedge1072
 
 2401:                                             ; preds = %2392
-  %.not984 = icmp eq i32 %2390, 0
-  br i1 %.not984, label %2403, label %.thread1364
+  %.not983 = icmp eq i32 %2390, 0
+  br i1 %.not983, label %2403, label %.thread1363
 
-.thread1364:                                      ; preds = %.thread1363, %2401
+.thread1363:                                      ; preds = %.thread1362, %2401
   %2402 = call noundef ptr @_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %.0726, i64 noundef %2379, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %2403
 
-2403:                                             ; preds = %.thread1364, %2401
-  %.25 = phi ptr [ %2402, %.thread1364 ], [ %.0726, %2401 ]
+2403:                                             ; preds = %.thread1363, %2401
+  %.25 = phi ptr [ %2402, %.thread1363 ], [ %.0726, %2401 ]
   %2404 = add nuw nsw i64 %2383, 1
   %2405 = getelementptr inbounds nuw i8, ptr %.25, i64 8
   store i64 %2404, ptr %2405, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 2406:                                             ; preds = %93
   %2407 = and i64 %97, 16777215
@@ -8746,11 +8746,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2421 = icmp uge i64 %2419, %2420
   %2422 = icmp ne i32 %2417, -1
   %or.cond11 = and i1 %2422, %2421
-  br i1 %or.cond11, label %.critedge1073, label %2423
+  br i1 %or.cond11, label %.critedge1072, label %2423
 
 2423:                                             ; preds = %2406
-  %sext979 = shl i64 %2414, 32
-  %2424 = ashr exact i64 %sext979, 32
+  %sext978 = shl i64 %2414, 32
+  %2424 = ashr exact i64 %sext978, 32
   %2425 = icmp slt i64 %2419, %2424
   br i1 %2425, label %2426, label %2433
 
@@ -8762,11 +8762,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2430 = add nsw i32 %2429, -1
   store i32 %2430, ptr %73, align 8, !tbaa !36
   %2431 = icmp slt i32 %2429, 2
-  br i1 %2431, label %2432, label %.critedge1073
+  br i1 %2431, label %2432, label %.critedge1072
 
 2432:                                             ; preds = %2426
   call void @_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %.critedge1073
+  br label %.critedge1072
 
 2433:                                             ; preds = %2423
   %2434 = icmp eq i32 %2417, -1
@@ -8777,8 +8777,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2437 = getelementptr inbounds nuw [1 x i64], ptr %2410, i64 0, i64 %2436
   %2438 = load i64, ptr %.0726, align 8, !tbaa !137
   %2439 = load i64, ptr %2437, align 8, !tbaa !110
-  %.not980 = icmp eq i64 %2438, %2439
-  br i1 %.not980, label %.critedge1073, label %2440
+  %.not979 = icmp eq i64 %2438, %2439
+  br i1 %.not979, label %.critedge1072, label %2440
 
 2440:                                             ; preds = %2435
   store i64 %2438, ptr %2437, align 8, !tbaa !110
@@ -8788,7 +8788,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2442 = add nuw nsw i32 %99, 4
   %2443 = zext nneg i32 %2442 to i64
   %2444 = call noundef ptr @_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %.0726, i64 noundef %2443, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %.critedge1073
+  br label %.critedge1072
 
 2445:                                             ; preds = %93
   %2446 = load ptr, ptr %32, align 8, !tbaa !64
@@ -8799,7 +8799,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2451 = and i64 %97, 16777215
   %2452 = getelementptr inbounds nuw i64, ptr %2450, i64 %2451
   store i64 %2449, ptr %2452, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 2453:                                             ; preds = %93
   %2454 = load ptr, ptr %80, align 8, !tbaa !40
@@ -8810,37 +8810,37 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2459 = load ptr, ptr %32, align 8, !tbaa !64
   %2460 = getelementptr inbounds nuw i8, ptr %2459, i64 24
   %2461 = load ptr, ptr %2460, align 8, !tbaa !131
-  %sext978 = shl i64 %2457, 32
-  %2462 = ashr exact i64 %sext978, 29
+  %sext977 = shl i64 %2457, 32
+  %2462 = ashr exact i64 %sext977, 29
   %2463 = getelementptr inbounds i8, ptr %2461, i64 %2462
   %2464 = load i32, ptr %31, align 8, !tbaa !17
   %2465 = sext i32 %2464 to i64
   %2466 = sub nsw i64 0, %2465
   %2467 = getelementptr inbounds i64, ptr %2463, i64 %2466
   %2468 = icmp eq ptr %2467, %.0726
-  br i1 %2468, label %.critedge1073, label %.preheader
+  br i1 %2468, label %.critedge1072, label %.preheader
 
 .preheader:                                       ; preds = %2453
   %2469 = icmp sgt i32 %2464, 0
-  br i1 %2469, label %.lr.ph1447.preheader, label %._crit_edge1448
+  br i1 %2469, label %.lr.ph1446.preheader, label %._crit_edge1447
 
-.lr.ph1447.preheader:                             ; preds = %.preheader
-  %wide.trip.count1468 = zext nneg i32 %2464 to i64
-  br label %.lr.ph1447
+.lr.ph1446.preheader:                             ; preds = %.preheader
+  %wide.trip.count1467 = zext nneg i32 %2464 to i64
+  br label %.lr.ph1446
 
-.lr.ph1447:                                       ; preds = %.lr.ph1447.preheader, %.lr.ph1447
-  %indvars.iv1465 = phi i64 [ 0, %.lr.ph1447.preheader ], [ %indvars.iv.next1466, %.lr.ph1447 ]
-  %2470 = getelementptr inbounds nuw i64, ptr %.0726, i64 %indvars.iv1465
+.lr.ph1446:                                       ; preds = %.lr.ph1446.preheader, %.lr.ph1446
+  %indvars.iv1464 = phi i64 [ 0, %.lr.ph1446.preheader ], [ %indvars.iv.next1465, %.lr.ph1446 ]
+  %2470 = getelementptr inbounds nuw i64, ptr %.0726, i64 %indvars.iv1464
   %2471 = load i64, ptr %2470, align 8, !tbaa !110
-  %2472 = getelementptr inbounds nuw i64, ptr %2467, i64 %indvars.iv1465
+  %2472 = getelementptr inbounds nuw i64, ptr %2467, i64 %indvars.iv1464
   store i64 %2471, ptr %2472, align 8, !tbaa !110
-  %indvars.iv.next1466 = add nuw nsw i64 %indvars.iv1465, 1
-  %exitcond1469.not = icmp eq i64 %indvars.iv.next1466, %wide.trip.count1468
-  br i1 %exitcond1469.not, label %._crit_edge1448, label %.lr.ph1447, !llvm.loop !143
+  %indvars.iv.next1465 = add nuw nsw i64 %indvars.iv1464, 1
+  %exitcond1468.not = icmp eq i64 %indvars.iv.next1465, %wide.trip.count1467
+  br i1 %exitcond1468.not, label %._crit_edge1447, label %.lr.ph1446, !llvm.loop !143
 
-._crit_edge1448:                                  ; preds = %.lr.ph1447, %.preheader
+._crit_edge1447:                                  ; preds = %.lr.ph1446, %.preheader
   call void @_ZN6icu_779UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %2459, i32 noundef %2458)
-  br label %.critedge1073
+  br label %.critedge1072
 
 2473:                                             ; preds = %93
   %2474 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -8860,16 +8860,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2486 = getelementptr inbounds nuw i8, ptr %2484, i64 8
   %2487 = load i32, ptr %2486, align 8, !tbaa !134
   %2488 = sub nsw i32 %2487, %2485
-  %spec.select.i1215 = call i32 @llvm.smax.i32(i32 %2488, i32 0)
-  store i32 %spec.select.i1215, ptr %2486, align 8, !tbaa !134
+  %spec.select.i1214 = call i32 @llvm.smax.i32(i32 %2488, i32 0)
+  store i32 %spec.select.i1214, ptr %2486, align 8, !tbaa !134
   %2489 = getelementptr inbounds nuw i8, ptr %2484, i64 24
   %2490 = load ptr, ptr %2489, align 8, !tbaa !131
-  %2491 = zext nneg i32 %spec.select.i1215 to i64
+  %2491 = zext nneg i32 %spec.select.i1214 to i64
   %2492 = getelementptr inbounds nuw i64, ptr %2490, i64 %2491
   %2493 = sext i32 %2485 to i64
   %2494 = sub nsw i64 0, %2493
   %2495 = getelementptr inbounds i64, ptr %2492, i64 %2494
-  br label %.critedge1073
+  br label %.critedge1072
 
 2496:                                             ; preds = %2473
   %2497 = load ptr, ptr %85, align 8, !tbaa !78
@@ -8932,56 +8932,56 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2536 = trunc nuw nsw i64 %2522 to i32
   %2537 = getelementptr inbounds nuw i8, ptr %2519, i64 40
   store i32 %2536, ptr %2537, align 8, !tbaa !95
-  br label %.preheader1610
+  br label %.preheader1609
 
 2538:                                             ; preds = %2529, %2524, %2517
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2519, i64 noundef %2518)
-  br label %.preheader1610
+  br label %.preheader1609
 
-.preheader1610:                                   ; preds = %2538, %2535
+.preheader1609:                                   ; preds = %2538, %2535
   br label %2539
 
-2539:                                             ; preds = %.preheader1610, %2546
+2539:                                             ; preds = %.preheader1609, %2546
   %2540 = load ptr, ptr %85, align 8, !tbaa !78
   %2541 = call i64 @utext_getNativeIndex_77(ptr noundef %2540)
-  %.not973 = icmp slt i64 %2541, %2481
+  %.not972 = icmp slt i64 %2541, %2481
   %2542 = load ptr, ptr %72, align 8, !tbaa !77
-  br i1 %.not973, label %2543, label %.thread1369
+  br i1 %.not972, label %2543, label %.thread1368
 
 2543:                                             ; preds = %2539
   %2544 = call i64 @utext_getNativeIndex_77(ptr noundef %2542)
   %2545 = load i64, ptr %78, align 8, !tbaa !69
-  %.not974 = icmp slt i64 %2544, %2545
-  br i1 %.not974, label %2546, label %.thread1366
+  %.not973 = icmp slt i64 %2544, %2545
+  br i1 %.not973, label %2546, label %.thread1365
 
-.thread1366:                                      ; preds = %2543
+.thread1365:                                      ; preds = %2543
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.loopexit1409
+  br label %.loopexit1408
 
 2546:                                             ; preds = %2543
   %2547 = load ptr, ptr %85, align 8, !tbaa !78
   %2548 = call i32 @utext_next32_77(ptr noundef %2547)
   %2549 = load ptr, ptr %72, align 8, !tbaa !77
   %2550 = call i32 @utext_next32_77(ptr noundef %2549)
-  %.not975 = icmp eq i32 %2550, %2548
-  br i1 %.not975, label %2539, label %.loopexit1409
+  %.not974 = icmp eq i32 %2550, %2548
+  br i1 %.not974, label %2539, label %.loopexit1408
 
-.thread1369:                                      ; preds = %2539
+.thread1368:                                      ; preds = %2539
   %2551 = getelementptr inbounds nuw i8, ptr %2542, i64 40
   %2552 = load i32, ptr %2551, align 8, !tbaa !95
   %2553 = getelementptr inbounds nuw i8, ptr %2542, i64 28
   %2554 = load i32, ptr %2553, align 4, !tbaa !87
-  %.not977 = icmp sgt i32 %2552, %2554
-  br i1 %.not977, label %2560, label %2555
+  %.not976 = icmp sgt i32 %2552, %2554
+  br i1 %.not976, label %2560, label %2555
 
-2555:                                             ; preds = %.thread1369
+2555:                                             ; preds = %.thread1368
   %2556 = getelementptr inbounds nuw i8, ptr %2542, i64 32
   %2557 = load i64, ptr %2556, align 8, !tbaa !83
   %2558 = sext i32 %2552 to i64
   %2559 = add nsw i64 %2557, %2558
   br label %2566
 
-2560:                                             ; preds = %.thread1369
+2560:                                             ; preds = %.thread1368
   %2561 = getelementptr inbounds nuw i8, ptr %2542, i64 56
   %2562 = load ptr, ptr %2561, align 8, !tbaa !89
   %2563 = getelementptr inbounds nuw i8, ptr %2562, i64 64
@@ -8992,24 +8992,24 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 2566:                                             ; preds = %2560, %2555
   %2567 = phi i64 [ %2559, %2555 ], [ %2565, %2560 ]
   store i64 %2567, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
-.loopexit1409:                                    ; preds = %2546, %.thread1366
+.loopexit1408:                                    ; preds = %2546, %.thread1365
   %2568 = load ptr, ptr %32, align 8, !tbaa !64
   %2569 = load i32, ptr %31, align 8, !tbaa !17
   %2570 = getelementptr inbounds nuw i8, ptr %2568, i64 8
   %2571 = load i32, ptr %2570, align 8, !tbaa !134
   %2572 = sub nsw i32 %2571, %2569
-  %spec.select.i1216 = call i32 @llvm.smax.i32(i32 %2572, i32 0)
-  store i32 %spec.select.i1216, ptr %2570, align 8, !tbaa !134
+  %spec.select.i1215 = call i32 @llvm.smax.i32(i32 %2572, i32 0)
+  store i32 %spec.select.i1215, ptr %2570, align 8, !tbaa !134
   %2573 = getelementptr inbounds nuw i8, ptr %2568, i64 24
   %2574 = load ptr, ptr %2573, align 8, !tbaa !131
-  %2575 = zext nneg i32 %spec.select.i1216 to i64
+  %2575 = zext nneg i32 %spec.select.i1215 to i64
   %2576 = getelementptr inbounds nuw i64, ptr %2574, i64 %2575
   %2577 = sext i32 %2569 to i64
   %2578 = sub nsw i64 0, %2577
   %2579 = getelementptr inbounds i64, ptr %2576, i64 %2578
-  br label %.critedge1073
+  br label %.critedge1072
 
 2580:                                             ; preds = %93
   %2581 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -9029,16 +9029,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2593 = getelementptr inbounds nuw i8, ptr %2591, i64 8
   %2594 = load i32, ptr %2593, align 8, !tbaa !134
   %2595 = sub nsw i32 %2594, %2592
-  %spec.select.i1217 = call i32 @llvm.smax.i32(i32 %2595, i32 0)
-  store i32 %spec.select.i1217, ptr %2593, align 8, !tbaa !134
+  %spec.select.i1216 = call i32 @llvm.smax.i32(i32 %2595, i32 0)
+  store i32 %spec.select.i1216, ptr %2593, align 8, !tbaa !134
   %2596 = getelementptr inbounds nuw i8, ptr %2591, i64 24
   %2597 = load ptr, ptr %2596, align 8, !tbaa !131
-  %2598 = zext nneg i32 %spec.select.i1217 to i64
+  %2598 = zext nneg i32 %spec.select.i1216 to i64
   %2599 = getelementptr inbounds nuw i64, ptr %2597, i64 %2598
   %2600 = sext i32 %2592 to i64
   %2601 = sub nsw i64 0, %2600
   %2602 = getelementptr inbounds i64, ptr %2599, i64 %2601
-  br label %.critedge1073
+  br label %.critedge1072
 
 2603:                                             ; preds = %2580
   %2604 = load ptr, ptr %85, align 8, !tbaa !78
@@ -9052,43 +9052,43 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   %2608 = load ptr, ptr %72, align 8, !tbaa !77
   invoke void @_ZN6icu_7724CaseFoldingUTextIteratorC1ER5UText(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(144) %2608)
-          to label %.preheader1410 unwind label %2615
+          to label %.preheader1409 unwind label %2615
 
-.preheader1410:                                   ; preds = %2603, %2629
+.preheader1409:                                   ; preds = %2603, %2629
   %2609 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %2610 unwind label %.loopexit1411
+          to label %2610 unwind label %.loopexit1410
 
-2610:                                             ; preds = %.preheader1410
+2610:                                             ; preds = %.preheader1409
   %.not958 = icmp eq i8 %2609, 0
   br i1 %.not958, label %2611, label %2617
 
 2611:                                             ; preds = %2610
   %2612 = load ptr, ptr %85, align 8, !tbaa !78
   %2613 = invoke i64 @utext_getNativeIndex_77(ptr noundef %2612)
-          to label %2614 unwind label %.loopexit1411
+          to label %2614 unwind label %.loopexit1410
 
 2614:                                             ; preds = %2611
   %.not959 = icmp slt i64 %2613, %2588
-  br i1 %.not959, label %2617, label %.thread1375
+  br i1 %.not959, label %2617, label %.thread1374
 
 2615:                                             ; preds = %2603
   %2616 = landingpad { ptr, i32 }
           cleanup
   br label %2669
 
-.loopexit1411:                                    ; preds = %.preheader1410, %2611, %2617, %2620
+.loopexit1410:                                    ; preds = %.preheader1409, %2611, %2617, %2620
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %2668
 
-.loopexit.split-lp:                               ; preds = %.thread1375, %2647
+.loopexit.split-lp:                               ; preds = %.thread1374, %2647
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %2668
 
 2617:                                             ; preds = %2614, %2610
   %2618 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %2619 unwind label %.loopexit1411
+          to label %2619 unwind label %.loopexit1410
 
 2619:                                             ; preds = %2617
   %.not960 = icmp eq i8 %2618, 0
@@ -9097,16 +9097,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 2620:                                             ; preds = %2619
   %2621 = load ptr, ptr %72, align 8, !tbaa !77
   %2622 = invoke i64 @utext_getNativeIndex_77(ptr noundef %2621)
-          to label %2623 unwind label %.loopexit1411
+          to label %2623 unwind label %.loopexit1410
 
 2623:                                             ; preds = %2620
   %2624 = load i64, ptr %78, align 8, !tbaa !69
   %.not961 = icmp slt i64 %2622, %2624
-  br i1 %.not961, label %2625, label %.thread1372
+  br i1 %.not961, label %2625, label %.thread1371
 
-.thread1372:                                      ; preds = %2623
+.thread1371:                                      ; preds = %2623
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.critedge1079
+  br label %.critedge1078
 
 2625:                                             ; preds = %2623, %2619
   %2626 = invoke noundef i32 @_ZN6icu_7724CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -9118,7 +9118,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 2629:                                             ; preds = %2627
   %.not963 = icmp eq i32 %2628, %2626
-  br i1 %.not963, label %.preheader1410, label %.critedge1079
+  br i1 %.not963, label %.preheader1409, label %.critedge1078
 
 2630:                                             ; preds = %2625
   %2631 = landingpad { ptr, i32 }
@@ -9130,13 +9130,13 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
           cleanup
   br label %2668
 
-.thread1375:                                      ; preds = %2614
+.thread1374:                                      ; preds = %2614
   %2634 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %2635 unwind label %.loopexit.split-lp
 
-2635:                                             ; preds = %.thread1375
+2635:                                             ; preds = %.thread1374
   %.not965.not = icmp eq i8 %2634, 0
-  br i1 %.not965.not, label %2636, label %.critedge1079
+  br i1 %.not965.not, label %2636, label %.critedge1078
 
 2636:                                             ; preds = %2635
   %2637 = load ptr, ptr %72, align 8, !tbaa !77
@@ -9167,33 +9167,33 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   store i64 %2654, ptr %.0726, align 8, !tbaa !137
   br label %2667
 
-.critedge1079:                                    ; preds = %2629, %.thread1372, %2635
+.critedge1078:                                    ; preds = %2629, %.thread1371, %2635
   %2655 = load ptr, ptr %32, align 8, !tbaa !64
   %2656 = load i32, ptr %31, align 8, !tbaa !17
   %2657 = getelementptr inbounds nuw i8, ptr %2655, i64 8
   %2658 = load i32, ptr %2657, align 8, !tbaa !134
   %2659 = sub nsw i32 %2658, %2656
-  %spec.select.i1218 = call i32 @llvm.smax.i32(i32 %2659, i32 0)
-  store i32 %spec.select.i1218, ptr %2657, align 8, !tbaa !134
+  %spec.select.i1217 = call i32 @llvm.smax.i32(i32 %2659, i32 0)
+  store i32 %spec.select.i1217, ptr %2657, align 8, !tbaa !134
   %2660 = getelementptr inbounds nuw i8, ptr %2655, i64 24
   %2661 = load ptr, ptr %2660, align 8, !tbaa !131
-  %2662 = zext nneg i32 %spec.select.i1218 to i64
+  %2662 = zext nneg i32 %spec.select.i1217 to i64
   %2663 = getelementptr inbounds nuw i64, ptr %2661, i64 %2662
   %2664 = sext i32 %2656 to i64
   %2665 = sub nsw i64 0, %2664
   %2666 = getelementptr inbounds i64, ptr %2663, i64 %2665
   br label %2667
 
-2667:                                             ; preds = %.critedge1079, %2653
-  %.32 = phi ptr [ %.0726, %2653 ], [ %2666, %.critedge1079 ]
+2667:                                             ; preds = %.critedge1078, %2653
+  %.32 = phi ptr [ %.0726, %2653 ], [ %2666, %.critedge1078 ]
   call void @_ZN6icu_7724CaseFoldingUTextIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @_ZN6icu_7724CaseFoldingUTextIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
-  br label %.critedge1073
+  br label %.critedge1072
 
-2668:                                             ; preds = %.loopexit1411, %.loopexit.split-lp, %2630, %2632
-  %.pn968 = phi { ptr, i32 } [ %2633, %2632 ], [ %2631, %2630 ], [ %lpad.loopexit, %.loopexit1411 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+2668:                                             ; preds = %.loopexit1410, %.loopexit.split-lp, %2630, %2632
+  %.pn968 = phi { ptr, i32 } [ %2633, %2632 ], [ %2631, %2630 ], [ %lpad.loopexit, %.loopexit1410 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7724CaseFoldingUTextIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   br label %2669
 
@@ -9210,7 +9210,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2673 = and i64 %97, 16777215
   %2674 = getelementptr inbounds nuw [1 x i64], ptr %2672, i64 0, i64 %2673
   store i64 %2671, ptr %2674, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 2675:                                             ; preds = %93
   %2676 = add nsw i64 %95, 2
@@ -9230,7 +9230,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 2686:                                             ; preds = %2675
   %2687 = and i64 %97, 16777215
   store i64 %2687, ptr %94, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 2688:                                             ; preds = %2675
   %2689 = load ptr, ptr %32, align 8, !tbaa !64
@@ -9238,16 +9238,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2691 = getelementptr inbounds nuw i8, ptr %2689, i64 8
   %2692 = load i32, ptr %2691, align 8, !tbaa !134
   %2693 = sub nsw i32 %2692, %2690
-  %spec.select.i1219 = call i32 @llvm.smax.i32(i32 %2693, i32 0)
-  store i32 %spec.select.i1219, ptr %2691, align 8, !tbaa !134
+  %spec.select.i1218 = call i32 @llvm.smax.i32(i32 %2693, i32 0)
+  store i32 %spec.select.i1218, ptr %2691, align 8, !tbaa !134
   %2694 = getelementptr inbounds nuw i8, ptr %2689, i64 24
   %2695 = load ptr, ptr %2694, align 8, !tbaa !131
-  %2696 = zext nneg i32 %spec.select.i1219 to i64
+  %2696 = zext nneg i32 %spec.select.i1218 to i64
   %2697 = getelementptr inbounds nuw i64, ptr %2695, i64 %2696
   %2698 = sext i32 %2690 to i64
   %2699 = sub nsw i64 0, %2698
   %2700 = getelementptr inbounds i64, ptr %2697, i64 %2699
-  br label %.critedge1073
+  br label %.critedge1072
 
 2701:                                             ; preds = %93
   %2702 = load ptr, ptr %32, align 8, !tbaa !64
@@ -9271,7 +9271,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   store i64 %2715, ptr %81, align 8, !tbaa !68
   %2716 = load i64, ptr %84, align 8, !tbaa !73
   store i64 %2716, ptr %78, align 8, !tbaa !69
-  br label %.critedge1073
+  br label %.critedge1072
 
 2717:                                             ; preds = %93
   %2718 = load ptr, ptr %32, align 8, !tbaa !64
@@ -9296,30 +9296,30 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2734 = sub nsw i64 0, %2733
   %2735 = getelementptr inbounds i64, ptr %2731, i64 %2734
   %2736 = icmp sgt i32 %2732, 0
-  br i1 %2736, label %.lr.ph1444.preheader, label %._crit_edge1445
+  br i1 %2736, label %.lr.ph1443.preheader, label %._crit_edge1444
 
-.lr.ph1444.preheader:                             ; preds = %2727
+.lr.ph1443.preheader:                             ; preds = %2727
   %wide.trip.count = zext nneg i32 %2732 to i64
-  br label %.lr.ph1444
+  br label %.lr.ph1443
 
-.lr.ph1444:                                       ; preds = %.lr.ph1444.preheader, %.lr.ph1444
-  %indvars.iv = phi i64 [ 0, %.lr.ph1444.preheader ], [ %indvars.iv.next, %.lr.ph1444 ]
+.lr.ph1443:                                       ; preds = %.lr.ph1443.preheader, %.lr.ph1443
+  %indvars.iv = phi i64 [ 0, %.lr.ph1443.preheader ], [ %indvars.iv.next, %.lr.ph1443 ]
   %2737 = getelementptr inbounds nuw i64, ptr %.0726, i64 %indvars.iv
   %2738 = load i64, ptr %2737, align 8, !tbaa !110
   %2739 = getelementptr inbounds nuw i64, ptr %2735, i64 %indvars.iv
   store i64 %2738, ptr %2739, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1445, label %.lr.ph1444, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge1444, label %.lr.ph1443, !llvm.loop !144
 
-._crit_edge1445:                                  ; preds = %.lr.ph1444, %2727
+._crit_edge1444:                                  ; preds = %.lr.ph1443, %2727
   call void @_ZN6icu_779UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %2718, i32 noundef %2725)
-  %.pre1503 = load ptr, ptr %80, align 8, !tbaa !40
+  %.pre1502 = load ptr, ptr %80, align 8, !tbaa !40
   br label %2740
 
-2740:                                             ; preds = %._crit_edge1445, %2717
-  %2741 = phi ptr [ %.pre1503, %._crit_edge1445 ], [ %2721, %2717 ]
-  %.34 = phi ptr [ %2735, %._crit_edge1445 ], [ %.0726, %2717 ]
+2740:                                             ; preds = %._crit_edge1444, %2717
+  %2741 = phi ptr [ %.pre1502, %._crit_edge1444 ], [ %2721, %2717 ]
+  %.34 = phi ptr [ %2735, %._crit_edge1444 ], [ %.0726, %2717 ]
   %2742 = getelementptr inbounds nuw i64, ptr %2741, i64 %2722
   %2743 = getelementptr inbounds nuw i8, ptr %2742, i64 8
   %2744 = load i64, ptr %2743, align 8, !tbaa !110
@@ -9330,7 +9330,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2747 = getelementptr inbounds nuw i8, ptr %2742, i64 24
   %2748 = load i64, ptr %2747, align 8, !tbaa !110
   store i64 %2748, ptr %78, align 8, !tbaa !69
-  br label %.critedge1073
+  br label %.critedge1072
 
 2749:                                             ; preds = %93
   %2750 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -9369,14 +9369,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 2773:                                             ; preds = %2764, %2759, %2753
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2754, i64 noundef %2750)
-  %.pre1500 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1501 = getelementptr inbounds nuw i8, ptr %.pre1500, i64 40
-  %.pre1502 = load i32, ptr %.phi.trans.insert1501, align 8, !tbaa !95
+  %.pre1499 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1500 = getelementptr inbounds nuw i8, ptr %.pre1499, i64 40
+  %.pre1501 = load i32, ptr %.phi.trans.insert1500, align 8, !tbaa !95
   br label %2774
 
 2774:                                             ; preds = %2773, %2770
-  %2775 = phi i32 [ %.pre1502, %2773 ], [ %2771, %2770 ]
-  %2776 = phi ptr [ %.pre1500, %2773 ], [ %2754, %2770 ]
+  %2775 = phi i32 [ %.pre1501, %2773 ], [ %2771, %2770 ]
+  %2776 = phi ptr [ %.pre1499, %2773 ], [ %2754, %2770 ]
   %2777 = getelementptr inbounds nuw i8, ptr %2776, i64 40
   %2778 = getelementptr inbounds nuw i8, ptr %2776, i64 44
   %2779 = load i32, ptr %2778, align 4, !tbaa !96
@@ -9406,7 +9406,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2794 = phi i32 [ %2790, %2788 ], [ %2792, %2791 ]
   %2795 = call i32 @u_foldCase_77(i32 noundef %2794, i32 noundef 0)
   %2796 = icmp eq i32 %2795, %99
-  br i1 %2796, label %2797, label %.thread1378
+  br i1 %2796, label %2797, label %.thread1377
 
 2797:                                             ; preds = %2793
   %2798 = load ptr, ptr %72, align 8, !tbaa !77
@@ -9435,28 +9435,28 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 2814:                                             ; preds = %2803, %2808
   %2815 = phi i64 [ %2807, %2803 ], [ %2813, %2808 ]
   store i64 %2815, ptr %.0726, align 8, !tbaa !137
-  br label %.critedge1073
+  br label %.critedge1072
 
 2816:                                             ; preds = %2749
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.thread1378
+  br label %.thread1377
 
-.thread1378:                                      ; preds = %2793, %2816
+.thread1377:                                      ; preds = %2793, %2816
   %2817 = load ptr, ptr %32, align 8, !tbaa !64
   %2818 = load i32, ptr %31, align 8, !tbaa !17
   %2819 = getelementptr inbounds nuw i8, ptr %2817, i64 8
   %2820 = load i32, ptr %2819, align 8, !tbaa !134
   %2821 = sub nsw i32 %2820, %2818
-  %spec.select.i1220 = call i32 @llvm.smax.i32(i32 %2821, i32 0)
-  store i32 %spec.select.i1220, ptr %2819, align 8, !tbaa !134
+  %spec.select.i1219 = call i32 @llvm.smax.i32(i32 %2821, i32 0)
+  store i32 %spec.select.i1219, ptr %2819, align 8, !tbaa !134
   %2822 = getelementptr inbounds nuw i8, ptr %2817, i64 24
   %2823 = load ptr, ptr %2822, align 8, !tbaa !131
-  %2824 = zext nneg i32 %spec.select.i1220 to i64
+  %2824 = zext nneg i32 %spec.select.i1219 to i64
   %2825 = getelementptr inbounds nuw i64, ptr %2823, i64 %2824
   %2826 = sext i32 %2818 to i64
   %2827 = sub nsw i64 0, %2826
   %2828 = getelementptr inbounds i64, ptr %2825, i64 %2827
-  br label %.critedge1073
+  br label %.critedge1072
 
 2829:                                             ; preds = %93
   %2830 = and i64 %97, 16777215
@@ -9498,11 +9498,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 2857:                                             ; preds = %2848, %2843, %2829
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2838, i64 noundef %2837)
-  %.pre1499 = load ptr, ptr %72, align 8, !tbaa !77
+  %.pre1498 = load ptr, ptr %72, align 8, !tbaa !77
   br label %2858
 
 2858:                                             ; preds = %2857, %2854
-  %2859 = phi ptr [ %.pre1499, %2857 ], [ %2838, %2854 ]
+  %2859 = phi ptr [ %.pre1498, %2857 ], [ %2838, %2854 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
   call void @_ZN6icu_7724CaseFoldingUTextIteratorC1ER5UText(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(144) %2859)
   br label %2860
@@ -9510,11 +9510,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 2860:                                             ; preds = %2909, %2858
   %.0774 = phi i32 [ 0, %2858 ], [ %.2776, %2909 ]
   %2861 = icmp slt i32 %.0774, %2836
-  br i1 %2861, label %2862, label %.loopexit1412
+  br i1 %2861, label %2862, label %.loopexit1411
 
 2862:                                             ; preds = %2860
   %2863 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %2864 unwind label %.loopexit1413
+          to label %2864 unwind label %.loopexit1412
 
 2864:                                             ; preds = %2862
   %.not947 = icmp eq i8 %2863, 0
@@ -9542,7 +9542,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2879 = getelementptr inbounds nuw i8, ptr %2878, i64 64
   %2880 = load ptr, ptr %2879, align 8, !tbaa !111
   %2881 = invoke noundef i64 %2880(ptr noundef nonnull %2866)
-          to label %2882 unwind label %.loopexit1413
+          to label %2882 unwind label %.loopexit1412
 
 2882:                                             ; preds = %2876, %2871
   %2883 = phi i64 [ %2875, %2871 ], [ %2881, %2876 ]
@@ -9552,20 +9552,20 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 2885:                                             ; preds = %2882
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.loopexit1412
+  br label %.loopexit1411
 
-.loopexit1413:                                    ; preds = %2862, %2876, %2907
-  %lpad.loopexit1415 = landingpad { ptr, i32 }
+.loopexit1412:                                    ; preds = %2862, %2876, %2907
+  %lpad.loopexit1414 = landingpad { ptr, i32 }
           cleanup
   br label %2886
 
-.loopexit.split-lp1414:                           ; preds = %.loopexit1412, %2924
-  %lpad.loopexit.split-lp1416 = landingpad { ptr, i32 }
+.loopexit.split-lp1413:                           ; preds = %.loopexit1411, %2924
+  %lpad.loopexit.split-lp1415 = landingpad { ptr, i32 }
           cleanup
   br label %2886
 
-2886:                                             ; preds = %.loopexit.split-lp1414, %.loopexit1413
-  %lpad.phi1417 = phi { ptr, i32 } [ %lpad.loopexit1415, %.loopexit1413 ], [ %lpad.loopexit.split-lp1416, %.loopexit.split-lp1414 ]
+2886:                                             ; preds = %.loopexit.split-lp1413, %.loopexit1412
+  %lpad.phi1416 = phi { ptr, i32 } [ %lpad.loopexit1414, %.loopexit1412 ], [ %lpad.loopexit.split-lp1415, %.loopexit.split-lp1413 ]
   call void @_ZN6icu_7724CaseFoldingUTextIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   br label %3866
@@ -9579,8 +9579,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2893 = and i32 %2892, 64512
   %2894 = icmp ne i32 %2893, 55296
   %.not950 = icmp eq i32 %2888, %2836
-  %or.cond1090 = select i1 %2894, i1 true, i1 %.not950
-  br i1 %or.cond1090, label %2907, label %2895
+  %or.cond1089 = select i1 %2894, i1 true, i1 %.not950
+  br i1 %or.cond1089, label %2907, label %2895
 
 2895:                                             ; preds = %2887
   %2896 = sext i32 %2888 to i64
@@ -9602,18 +9602,18 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %.1778 = phi i32 [ %2892, %2887 ], [ %2906, %2902 ], [ %2892, %2895 ]
   %.2776 = phi i32 [ %2888, %2887 ], [ %2903, %2902 ], [ %2888, %2895 ]
   %2908 = invoke noundef i32 @_ZN6icu_7724CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %2909 unwind label %.loopexit1413
+          to label %2909 unwind label %.loopexit1412
 
 2909:                                             ; preds = %2907
   %.not951 = icmp eq i32 %2908, %.1778
-  br i1 %.not951, label %2860, label %.loopexit1412, !llvm.loop !145
+  br i1 %.not951, label %2860, label %.loopexit1411, !llvm.loop !145
 
-.loopexit1412:                                    ; preds = %2909, %2860, %2885
+.loopexit1411:                                    ; preds = %2909, %2860, %2885
   %2910 = phi i1 [ true, %2885 ], [ %2861, %2860 ], [ %2861, %2909 ]
   %2911 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %2912 unwind label %.loopexit.split-lp1414
+          to label %2912 unwind label %.loopexit.split-lp1413
 
-2912:                                             ; preds = %.loopexit1412
+2912:                                             ; preds = %.loopexit1411
   %.not952 = icmp ne i8 %2911, 0
   %.not953 = or i1 %2910, %.not952
   br i1 %.not953, label %2932, label %2913
@@ -9640,7 +9640,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2927 = getelementptr inbounds nuw i8, ptr %2926, i64 64
   %2928 = load ptr, ptr %2927, align 8, !tbaa !111
   %2929 = invoke noundef i64 %2928(ptr noundef nonnull %2914)
-          to label %2930 unwind label %.loopexit.split-lp1414
+          to label %2930 unwind label %.loopexit.split-lp1413
 
 2930:                                             ; preds = %2924, %2919
   %2931 = phi i64 [ %2923, %2919 ], [ %2929, %2924 ]
@@ -9653,11 +9653,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2935 = getelementptr inbounds nuw i8, ptr %2933, i64 8
   %2936 = load i32, ptr %2935, align 8, !tbaa !134
   %2937 = sub nsw i32 %2936, %2934
-  %spec.select.i1221 = call i32 @llvm.smax.i32(i32 %2937, i32 0)
-  store i32 %spec.select.i1221, ptr %2935, align 8, !tbaa !134
+  %spec.select.i1220 = call i32 @llvm.smax.i32(i32 %2937, i32 0)
+  store i32 %spec.select.i1220, ptr %2935, align 8, !tbaa !134
   %2938 = getelementptr inbounds nuw i8, ptr %2933, i64 24
   %2939 = load ptr, ptr %2938, align 8, !tbaa !131
-  %2940 = zext nneg i32 %spec.select.i1221 to i64
+  %2940 = zext nneg i32 %spec.select.i1220 to i64
   %2941 = getelementptr inbounds nuw i64, ptr %2939, i64 %2940
   %2942 = sext i32 %2934 to i64
   %2943 = sub nsw i64 0, %2942
@@ -9668,7 +9668,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %.35 = phi ptr [ %.0726, %2930 ], [ %2944, %2932 ]
   call void @_ZN6icu_7724CaseFoldingUTextIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
-  br label %.critedge1073
+  br label %.critedge1072
 
 2946:                                             ; preds = %93
   %2947 = load ptr, ptr %32, align 8, !tbaa !64
@@ -9694,7 +9694,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   store i64 %2961, ptr %78, align 8, !tbaa !69
   %2962 = getelementptr inbounds nuw i8, ptr %2953, i64 32
   store i64 -1, ptr %2962, align 8, !tbaa !110
-  br label %.critedge1073
+  br label %.critedge1072
 
 2963:                                             ; preds = %93
   %2964 = add nsw i64 %95, 2
@@ -9712,7 +9712,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %2974 = load ptr, ptr %2973, align 8, !tbaa !90
   %2975 = icmp eq ptr %2974, null
   %2976 = mul i64 %2969, 3
-  %spec.select1083 = select i1 %2975, i64 %2969, i64 %2976
+  %spec.select1082 = select i1 %2975, i64 %2969, i64 %2976
   %2977 = load ptr, ptr %80, align 8, !tbaa !40
   %2978 = and i64 %97, 16777215
   %2979 = getelementptr inbounds nuw i64, ptr %2977, i64 %2978
@@ -9760,17 +9760,17 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 3007:                                             ; preds = %2998, %2993, %2988
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2970, i64 noundef %2986)
-  %.pre1494 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1495 = getelementptr inbounds nuw i8, ptr %.pre1494, i64 40
-  %.pre1496 = load i32, ptr %.phi.trans.insert1495, align 8, !tbaa !95
-  %.phi.trans.insert1497 = getelementptr inbounds nuw i8, ptr %.pre1494, i64 28
-  %.pre1498 = load i32, ptr %.phi.trans.insert1497, align 4, !tbaa !87
+  %.pre1493 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1494 = getelementptr inbounds nuw i8, ptr %.pre1493, i64 40
+  %.pre1495 = load i32, ptr %.phi.trans.insert1494, align 8, !tbaa !95
+  %.phi.trans.insert1496 = getelementptr inbounds nuw i8, ptr %.pre1493, i64 28
+  %.pre1497 = load i32, ptr %.phi.trans.insert1496, align 4, !tbaa !87
   br label %3008
 
 3008:                                             ; preds = %3007, %3004
-  %3009 = phi i32 [ %.pre1498, %3007 ], [ %2995, %3004 ]
-  %3010 = phi i32 [ %.pre1496, %3007 ], [ %3005, %3004 ]
-  %3011 = phi ptr [ %.pre1494, %3007 ], [ %2970, %3004 ]
+  %3009 = phi i32 [ %.pre1497, %3007 ], [ %2995, %3004 ]
+  %3010 = phi i32 [ %.pre1495, %3007 ], [ %3005, %3004 ]
+  %3011 = phi ptr [ %.pre1493, %3007 ], [ %2970, %3004 ]
   %.not945 = icmp sgt i32 %3010, %3009
   br i1 %.not945, label %3017, label %3012
 
@@ -9791,9 +9791,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 3023:                                             ; preds = %2963
   %3024 = icmp eq i64 %2981, 0
-  br i1 %3024, label %.thread1381, label %3025
+  br i1 %3024, label %.thread1380, label %3025
 
-.thread1381:                                      ; preds = %3023
+.thread1380:                                      ; preds = %3023
   store i64 -1, ptr %2980, align 8, !tbaa !110
   br label %3086
 
@@ -9827,14 +9827,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 3044:                                             ; preds = %3035, %3030, %3025
   call void @utext_setNativeIndex_77(ptr noundef nonnull %2970, i64 noundef %2981)
-  %.pre1488 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1489 = getelementptr inbounds nuw i8, ptr %.pre1488, i64 40
-  %.pre1490 = load i32, ptr %.phi.trans.insert1489, align 8, !tbaa !95
+  %.pre1487 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1488 = getelementptr inbounds nuw i8, ptr %.pre1487, i64 40
+  %.pre1489 = load i32, ptr %.phi.trans.insert1488, align 8, !tbaa !95
   br label %3045
 
 3045:                                             ; preds = %3044, %3041
-  %3046 = phi i32 [ %.pre1490, %3044 ], [ %3042, %3041 ]
-  %3047 = phi ptr [ %.pre1488, %3044 ], [ %2970, %3041 ]
+  %3046 = phi i32 [ %.pre1489, %3044 ], [ %3042, %3041 ]
+  %3047 = phi ptr [ %.pre1487, %3044 ], [ %2970, %3041 ]
   %3048 = getelementptr inbounds nuw i8, ptr %3047, i64 40
   %3049 = icmp sgt i32 %3046, 0
   br i1 %3049, label %3050, label %3060
@@ -9856,14 +9856,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 3060:                                             ; preds = %3050, %3045
   %3061 = call i32 @utext_previous32_77(ptr noundef nonnull %3047)
-  %.pre1491 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1492 = getelementptr inbounds nuw i8, ptr %.pre1491, i64 40
-  %.pre1493 = load i32, ptr %.phi.trans.insert1492, align 8, !tbaa !95
+  %.pre1490 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1491 = getelementptr inbounds nuw i8, ptr %.pre1490, i64 40
+  %.pre1492 = load i32, ptr %.phi.trans.insert1491, align 8, !tbaa !95
   br label %3062
 
 3062:                                             ; preds = %3060, %3058
-  %3063 = phi i32 [ %.pre1493, %3060 ], [ %3059, %3058 ]
-  %3064 = phi ptr [ %.pre1491, %3060 ], [ %3047, %3058 ]
+  %3063 = phi i32 [ %.pre1492, %3060 ], [ %3059, %3058 ]
+  %3064 = phi ptr [ %.pre1490, %3060 ], [ %3047, %3058 ]
   %3065 = getelementptr inbounds nuw i8, ptr %3064, i64 28
   %3066 = load i32, ptr %3065, align 4, !tbaa !87
   %.not943 = icmp sgt i32 %3063, %3066
@@ -9896,23 +9896,23 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
 
 3081:                                             ; preds = %3078
   %3082 = load i64, ptr %.0726, align 8, !tbaa !137
-  %sext946 = shl i64 %spec.select1083, 32
+  %sext946 = shl i64 %spec.select1082, 32
   %3083 = ashr exact i64 %sext946, 32
   %3084 = sub nsw i64 %3082, %3083
   %3085 = icmp slt i64 %3079, %3084
   br i1 %3085, label %3086, label %3105
 
-3086:                                             ; preds = %.thread1381, %3081, %3078
+3086:                                             ; preds = %.thread1380, %3081, %3078
   %3087 = load ptr, ptr %32, align 8, !tbaa !64
   %3088 = load i32, ptr %31, align 8, !tbaa !17
   %3089 = getelementptr inbounds nuw i8, ptr %3087, i64 8
   %3090 = load i32, ptr %3089, align 8, !tbaa !134
   %3091 = sub nsw i32 %3090, %3088
-  %spec.select.i1222 = call i32 @llvm.smax.i32(i32 %3091, i32 0)
-  store i32 %spec.select.i1222, ptr %3089, align 8, !tbaa !134
+  %spec.select.i1221 = call i32 @llvm.smax.i32(i32 %3091, i32 0)
+  store i32 %spec.select.i1221, ptr %3089, align 8, !tbaa !134
   %3092 = getelementptr inbounds nuw i8, ptr %3087, i64 24
   %3093 = load ptr, ptr %3092, align 8, !tbaa !131
-  %3094 = zext nneg i32 %spec.select.i1222 to i64
+  %3094 = zext nneg i32 %spec.select.i1221 to i64
   %3095 = getelementptr inbounds nuw i64, ptr %3093, i64 %3094
   %3096 = sext i32 %3088 to i64
   %3097 = sub nsw i64 0, %3096
@@ -9925,14 +9925,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %3103 = getelementptr inbounds nuw i8, ptr %3100, i64 24
   %3104 = load i64, ptr %3103, align 8, !tbaa !110
   store i64 %3104, ptr %78, align 8, !tbaa !69
-  br label %.critedge1073
+  br label %.critedge1072
 
 3105:                                             ; preds = %3081
   %3106 = load i64, ptr %94, align 8, !tbaa !135
   %3107 = add nsw i64 %3106, -3
   %3108 = load i32, ptr %3, align 4, !tbaa !13
   %3109 = icmp slt i32 %3108, 1
-  br i1 %3109, label %3110, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244
+  br i1 %3109, label %3110, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243
 
 3110:                                             ; preds = %3105
   %3111 = load ptr, ptr %32, align 8, !tbaa !64
@@ -9943,55 +9943,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ;
   %3116 = icmp slt i32 %3115, 0
   %3117 = getelementptr inbounds nuw i8, ptr %3111, i64 12
   %3118 = load i32, ptr %3117, align 4
-  %.not.i.i.i1224 = icmp slt i32 %3118, %3115
-  %or.cond.i.i.i1225 = select i1 %3116, i1 true, i1 %.not.i.i.i1224
-  br i1 %or.cond.i.i.i1225, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1240, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1226
+  %.not.i.i.i1223 = icmp slt i32 %3118, %3115
+  %or.cond.i.i.i1224 = select i1 %3116, i1 true, i1 %.not.i.i.i1223
+  br i1 %or.cond.i.i.i1224, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1239, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1225
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1240: ; preds = %3110
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1239: ; preds = %3110
   %3119 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %3111, i32 noundef %3115, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %3120 = icmp eq i8 %3119, 0
-  br i1 %3120, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1241
+  br i1 %3120, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1227, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1240
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1241: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1240
-  %.pre.i.i1242 = load i32, ptr %3113, align 8, !tbaa !134
-  %.pre6.i.i1243 = add nsw i32 %.pre.i.i1242, %3112
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1226
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1240: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1239
+  %.pre.i.i1241 = load i32, ptr %3113, align 8, !tbaa !134
+  %.pre6.i.i1242 = add nsw i32 %.pre.i.i1241, %3112
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1225
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1226: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1241, %3110
-  %.pre-phi.i.i1227 = phi i32 [ %.pre6.i.i1243, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1241 ], [ %3115, %3110 ]
-  %3121 = phi i32 [ %.pre.i.i1242, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1241 ], [ %3114, %3110 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1225: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1240, %3110
+  %.pre-phi.i.i1226 = phi i32 [ %.pre6.i.i1242, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1240 ], [ %3115, %3110 ]
+  %3121 = phi i32 [ %.pre.i.i1241, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1240 ], [ %3114, %3110 ]
   %3122 = getelementptr inbounds nuw i8, ptr %3111, i64 24
   %3123 = load ptr, ptr %3122, align 8, !tbaa !131
   %3124 = sext i32 %3121 to i64
   %3125 = getelementptr inbounds i64, ptr %3123, i64 %3124
-  store i32 %.pre-phi.i.i1227, ptr %3113, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228
+  store i32 %.pre-phi.i.i1226, ptr %3113, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1227
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1226, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1240
-  %.0.i.i1229 = phi ptr [ %3125, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1226 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1240 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1227: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1225, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1239
+  %.0.i.i1228 = phi ptr [ %3125, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1225 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1239 ]
   %3126 = load i32, ptr %3, align 4, !tbaa !13
   %3127 = icmp slt i32 %3126, 1
   br i1 %3127, label %3129, label %3128
 
-3128:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228
+3128:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1227
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243
 
-3129:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228
+3129:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1227
   %3130 = load i32, ptr %31, align 8, !tbaa !17
   %3131 = sext i32 %3130 to i64
   %3132 = sub nsw i64 0, %3131
-  %3133 = getelementptr inbounds i64, ptr %.0.i.i1229, i64 %3132
+  %3133 = getelementptr inbounds i64, ptr %.0.i.i1228, i64 %3132
   br label %3134
 
 3134:                                             ; preds = %3134, %3129
-  %.018.i1230 = phi ptr [ %3133, %3129 ], [ %3135, %3134 ]
-  %.0.i1231 = phi ptr [ %.0.i.i1229, %3129 ], [ %3137, %3134 ]
-  %3135 = getelementptr inbounds nuw i8, ptr %.018.i1230, i64 8
-  %3136 = load i64, ptr %.018.i1230, align 8, !tbaa !110
-  %3137 = getelementptr inbounds nuw i8, ptr %.0.i1231, i64 8
-  store i64 %3136, ptr %.0.i1231, align 8, !tbaa !110
-  %3138 = icmp eq ptr %3135, %.0.i.i1229
+  %.018.i1229 = phi ptr [ %3133, %3129 ], [ %3135, %3134 ]
+  %.0.i1230 = phi ptr [ %.0.i.i1228, %3129 ], [ %3137, %3134 ]
+  %3135 = getelementptr inbounds nuw i8, ptr %.018.i1229, i64 8
+  %3136 = load i64, ptr %.018.i1229, align 8, !tbaa !110
+  %3137 = getelementptr inbounds nuw i8, ptr %.0.i1230, i64 8
+  store i64 %3136, ptr %.0.i1230, align 8, !tbaa !110
+  %3138 = icmp eq ptr %3135, %.0.i.i1228
   br i1 %3138, label %3139, label %3134, !llvm.loop !139
 
 3139:                                             ; preds = %3134
@@ -9999,7 +9999,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228: ; preds = %_ZN6icu
   %3141 = add nsw i32 %3140, -1
   store i32 %3141, ptr %73, align 8, !tbaa !36
   %3142 = icmp slt i32 %3140, 2
-  br i1 %3142, label %3143, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232
+  br i1 %3142, label %3143, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231
 
 3143:                                             ; preds = %3139
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -10007,42 +10007,42 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1228: ; preds = %_ZN6icu
   %3145 = add nsw i32 %3144, 1
   store i32 %3145, ptr %74, align 4, !tbaa !35
   %3146 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1233 = icmp eq ptr %3146, null
-  br i1 %.not.i.i1233, label %3151, label %3147
+  %.not.i.i1232 = icmp eq ptr %3146, null
+  br i1 %.not.i.i1232, label %3151, label %3147
 
 3147:                                             ; preds = %3143
   %3148 = load ptr, ptr %76, align 8, !tbaa !141
   %3149 = call noundef signext i8 %3146(ptr noundef %3148, i32 noundef %3145)
   %3150 = icmp eq i8 %3149, 0
-  br i1 %3150, label %.sink.split.i.i1238, label %._crit_edge.i.i1234
+  br i1 %3150, label %.sink.split.i.i1237, label %._crit_edge.i.i1233
 
-._crit_edge.i.i1234:                              ; preds = %3147
-  %.pre.i22.i1235 = load i32, ptr %74, align 4
+._crit_edge.i.i1233:                              ; preds = %3147
+  %.pre.i22.i1234 = load i32, ptr %74, align 4
   br label %3151
 
-3151:                                             ; preds = %._crit_edge.i.i1234, %3143
-  %3152 = phi i32 [ %.pre.i22.i1235, %._crit_edge.i.i1234 ], [ %3145, %3143 ]
+3151:                                             ; preds = %._crit_edge.i.i1233, %3143
+  %3152 = phi i32 [ %.pre.i22.i1234, %._crit_edge.i.i1233 ], [ %3145, %3143 ]
   %3153 = load i32, ptr %77, align 8, !tbaa !34
   %3154 = icmp slt i32 %3153, 1
-  %.not4.i.i1236 = icmp slt i32 %3152, %3153
-  %or.cond.i.i1237 = select i1 %3154, i1 true, i1 %.not4.i.i1236
-  br i1 %or.cond.i.i1237, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232, label %.sink.split.i.i1238
+  %.not4.i.i1235 = icmp slt i32 %3152, %3153
+  %or.cond.i.i1236 = select i1 %3154, i1 true, i1 %.not4.i.i1235
+  br i1 %or.cond.i.i1236, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231, label %.sink.split.i.i1237
 
-.sink.split.i.i1238:                              ; preds = %3151, %3147
-  %.sink.i.i1239 = phi i32 [ 66323, %3147 ], [ 66322, %3151 ]
-  store i32 %.sink.i.i1239, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232
+.sink.split.i.i1237:                              ; preds = %3151, %3147
+  %.sink.i.i1238 = phi i32 [ 66323, %3147 ], [ 66322, %3151 ]
+  store i32 %.sink.i.i1238, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232: ; preds = %.sink.split.i.i1238, %3151, %3139
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231: ; preds = %.sink.split.i.i1237, %3151, %3139
   %3155 = getelementptr inbounds nuw i8, ptr %3133, i64 8
   store i64 %3107, ptr %3155, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ; preds = %3105, %3128, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232
-  %.019.i1223 = phi ptr [ %.0726, %3105 ], [ %.0726, %3128 ], [ %.0.i.i1229, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1232 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243: ; preds = %3105, %3128, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231
+  %.019.i1222 = phi ptr [ %.0726, %3105 ], [ %.0726, %3128 ], [ %.0.i.i1228, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1231 ]
   %3156 = load i64, ptr %2980, align 8, !tbaa !110
-  store i64 %3156, ptr %.019.i1223, align 8, !tbaa !137
-  br label %.critedge1073
+  store i64 %3156, ptr %.019.i1222, align 8, !tbaa !137
+  br label %.critedge1072
 
 3157:                                             ; preds = %93
   %3158 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -10056,16 +10056,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3163 = getelementptr inbounds nuw i8, ptr %3161, i64 8
   %3164 = load i32, ptr %3163, align 8, !tbaa !134
   %3165 = sub nsw i32 %3164, %3162
-  %spec.select.i1245 = call i32 @llvm.smax.i32(i32 %3165, i32 0)
-  store i32 %spec.select.i1245, ptr %3163, align 8, !tbaa !134
+  %spec.select.i1244 = call i32 @llvm.smax.i32(i32 %3165, i32 0)
+  store i32 %spec.select.i1244, ptr %3163, align 8, !tbaa !134
   %3166 = getelementptr inbounds nuw i8, ptr %3161, i64 24
   %3167 = load ptr, ptr %3166, align 8, !tbaa !131
-  %3168 = zext nneg i32 %spec.select.i1245 to i64
+  %3168 = zext nneg i32 %spec.select.i1244 to i64
   %3169 = getelementptr inbounds nuw i64, ptr %3167, i64 %3168
   %3170 = sext i32 %3162 to i64
   %3171 = sub nsw i64 0, %3170
   %3172 = getelementptr inbounds i64, ptr %3169, i64 %3171
-  br label %.critedge1073
+  br label %.critedge1072
 
 3173:                                             ; preds = %3157
   %3174 = load ptr, ptr %80, align 8, !tbaa !40
@@ -10077,7 +10077,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3179 = getelementptr inbounds nuw i8, ptr %3176, i64 24
   %3180 = load i64, ptr %3179, align 8, !tbaa !110
   store i64 %3180, ptr %78, align 8, !tbaa !69
-  br label %.critedge1073
+  br label %.critedge1072
 
 3181:                                             ; preds = %93
   %3182 = add nsw i64 %95, 2
@@ -10095,7 +10095,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3192 = load ptr, ptr %3191, align 8, !tbaa !90
   %3193 = icmp eq ptr %3192, null
   %3194 = mul i64 %3187, 3
-  %spec.select1084 = select i1 %3193, i64 %3187, i64 %3194
+  %spec.select1083 = select i1 %3193, i64 %3187, i64 %3194
   %3195 = add nsw i64 %95, 4
   store i64 %3195, ptr %94, align 8, !tbaa !135
   %3196 = getelementptr inbounds i64, ptr %16, i64 %3185
@@ -10148,17 +10148,17 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
 
 3229:                                             ; preds = %3220, %3215, %3210
   call void @utext_setNativeIndex_77(ptr noundef nonnull %3188, i64 noundef %3208)
-  %.pre1483 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1484 = getelementptr inbounds nuw i8, ptr %.pre1483, i64 40
-  %.pre1485 = load i32, ptr %.phi.trans.insert1484, align 8, !tbaa !95
-  %.phi.trans.insert1486 = getelementptr inbounds nuw i8, ptr %.pre1483, i64 28
-  %.pre1487 = load i32, ptr %.phi.trans.insert1486, align 4, !tbaa !87
+  %.pre1482 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1483 = getelementptr inbounds nuw i8, ptr %.pre1482, i64 40
+  %.pre1484 = load i32, ptr %.phi.trans.insert1483, align 8, !tbaa !95
+  %.phi.trans.insert1485 = getelementptr inbounds nuw i8, ptr %.pre1482, i64 28
+  %.pre1486 = load i32, ptr %.phi.trans.insert1485, align 4, !tbaa !87
   br label %3230
 
 3230:                                             ; preds = %3229, %3226
-  %3231 = phi i32 [ %.pre1487, %3229 ], [ %3217, %3226 ]
-  %3232 = phi i32 [ %.pre1485, %3229 ], [ %3227, %3226 ]
-  %3233 = phi ptr [ %.pre1483, %3229 ], [ %3188, %3226 ]
+  %3231 = phi i32 [ %.pre1486, %3229 ], [ %3217, %3226 ]
+  %3232 = phi i32 [ %.pre1484, %3229 ], [ %3227, %3226 ]
+  %3233 = phi ptr [ %.pre1482, %3229 ], [ %3188, %3226 ]
   %.not940 = icmp sgt i32 %3232, %3231
   br i1 %.not940, label %3239, label %3234
 
@@ -10167,7 +10167,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3236 = load i64, ptr %3235, align 8, !tbaa !83
   %3237 = sext i32 %3232 to i64
   %3238 = add nsw i64 %3236, %3237
-  br label %.sink.split1581
+  br label %.sink.split1580
 
 3239:                                             ; preds = %3230
   %3240 = getelementptr inbounds nuw i8, ptr %3233, i64 56
@@ -10175,13 +10175,13 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3242 = getelementptr inbounds nuw i8, ptr %3241, i64 64
   %3243 = load ptr, ptr %3242, align 8, !tbaa !111
   %3244 = call noundef i64 %3243(ptr noundef nonnull %3233)
-  br label %.sink.split1581
+  br label %.sink.split1580
 
 3245:                                             ; preds = %3181
   %3246 = icmp eq i64 %3203, 0
-  br i1 %3246, label %.thread1382, label %3247
+  br i1 %3246, label %.thread1381, label %3247
 
-.thread1382:                                      ; preds = %3245
+.thread1381:                                      ; preds = %3245
   store i64 -1, ptr %3202, align 8, !tbaa !110
   br label %3308
 
@@ -10215,14 +10215,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
 
 3266:                                             ; preds = %3257, %3252, %3247
   call void @utext_setNativeIndex_77(ptr noundef nonnull %3188, i64 noundef %3203)
-  %.pre1477 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1478 = getelementptr inbounds nuw i8, ptr %.pre1477, i64 40
-  %.pre1479 = load i32, ptr %.phi.trans.insert1478, align 8, !tbaa !95
+  %.pre1476 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1477 = getelementptr inbounds nuw i8, ptr %.pre1476, i64 40
+  %.pre1478 = load i32, ptr %.phi.trans.insert1477, align 8, !tbaa !95
   br label %3267
 
 3267:                                             ; preds = %3266, %3263
-  %3268 = phi i32 [ %.pre1479, %3266 ], [ %3264, %3263 ]
-  %3269 = phi ptr [ %.pre1477, %3266 ], [ %3188, %3263 ]
+  %3268 = phi i32 [ %.pre1478, %3266 ], [ %3264, %3263 ]
+  %3269 = phi ptr [ %.pre1476, %3266 ], [ %3188, %3263 ]
   %3270 = getelementptr inbounds nuw i8, ptr %3269, i64 40
   %3271 = icmp sgt i32 %3268, 0
   br i1 %3271, label %3272, label %3282
@@ -10244,14 +10244,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
 
 3282:                                             ; preds = %3272, %3267
   %3283 = call i32 @utext_previous32_77(ptr noundef nonnull %3269)
-  %.pre1480 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1481 = getelementptr inbounds nuw i8, ptr %.pre1480, i64 40
-  %.pre1482 = load i32, ptr %.phi.trans.insert1481, align 8, !tbaa !95
+  %.pre1479 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1480 = getelementptr inbounds nuw i8, ptr %.pre1479, i64 40
+  %.pre1481 = load i32, ptr %.phi.trans.insert1480, align 8, !tbaa !95
   br label %3284
 
 3284:                                             ; preds = %3282, %3280
-  %3285 = phi i32 [ %.pre1482, %3282 ], [ %3281, %3280 ]
-  %3286 = phi ptr [ %.pre1480, %3282 ], [ %3269, %3280 ]
+  %3285 = phi i32 [ %.pre1481, %3282 ], [ %3281, %3280 ]
+  %3286 = phi ptr [ %.pre1479, %3282 ], [ %3269, %3280 ]
   %3287 = getelementptr inbounds nuw i8, ptr %3286, i64 28
   %3288 = load i32, ptr %3287, align 4, !tbaa !87
   %.not939 = icmp sgt i32 %3285, %3288
@@ -10262,7 +10262,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3291 = load i64, ptr %3290, align 8, !tbaa !83
   %3292 = sext i32 %3285 to i64
   %3293 = add nsw i64 %3291, %3292
-  br label %.sink.split1581
+  br label %.sink.split1580
 
 3294:                                             ; preds = %3284
   %3295 = getelementptr inbounds nuw i8, ptr %3286, i64 56
@@ -10270,27 +10270,27 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3297 = getelementptr inbounds nuw i8, ptr %3296, i64 64
   %3298 = load ptr, ptr %3297, align 8, !tbaa !111
   %3299 = call noundef i64 %3298(ptr noundef nonnull %3286)
-  br label %.sink.split1581
+  br label %.sink.split1580
 
-.sink.split1581:                                  ; preds = %3289, %3294, %3234, %3239
-  %.sink1583 = phi i64 [ %3238, %3234 ], [ %3244, %3239 ], [ %3293, %3289 ], [ %3299, %3294 ]
-  store i64 %.sink1583, ptr %3202, align 8, !tbaa !110
+.sink.split1580:                                  ; preds = %3289, %3294, %3234, %3239
+  %.sink1582 = phi i64 [ %3238, %3234 ], [ %3244, %3239 ], [ %3293, %3289 ], [ %3299, %3294 ]
+  store i64 %.sink1582, ptr %3202, align 8, !tbaa !110
   br label %3300
 
-3300:                                             ; preds = %.sink.split1581, %3205
-  %3301 = phi i64 [ %3208, %3205 ], [ %.sink1583, %.sink.split1581 ]
+3300:                                             ; preds = %.sink.split1580, %3205
+  %3301 = phi i64 [ %3208, %3205 ], [ %.sink1582, %.sink.split1580 ]
   %3302 = icmp slt i64 %3301, 0
   br i1 %3302, label %3308, label %3303
 
 3303:                                             ; preds = %3300
   %3304 = load i64, ptr %.0726, align 8, !tbaa !137
-  %sext941 = shl i64 %spec.select1084, 32
+  %sext941 = shl i64 %spec.select1083, 32
   %3305 = ashr exact i64 %sext941, 32
   %3306 = sub nsw i64 %3304, %3305
   %3307 = icmp slt i64 %3301, %3306
   br i1 %3307, label %3308, label %3315
 
-3308:                                             ; preds = %.thread1382, %3303, %3300
+3308:                                             ; preds = %.thread1381, %3303, %3300
   %3309 = load ptr, ptr %80, align 8, !tbaa !40
   %3310 = getelementptr inbounds nuw i64, ptr %3309, i64 %3200
   %3311 = getelementptr inbounds nuw i8, ptr %3310, i64 16
@@ -10300,14 +10300,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3314 = load i64, ptr %3313, align 8, !tbaa !110
   store i64 %3314, ptr %78, align 8, !tbaa !69
   store i64 %3198, ptr %94, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 3315:                                             ; preds = %3303
   %3316 = load i64, ptr %94, align 8, !tbaa !135
   %3317 = add nsw i64 %3316, -4
   %3318 = load i32, ptr %3, align 4, !tbaa !13
   %3319 = icmp slt i32 %3318, 1
-  br i1 %3319, label %3320, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267
+  br i1 %3319, label %3320, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266
 
 3320:                                             ; preds = %3315
   %3321 = load ptr, ptr %32, align 8, !tbaa !64
@@ -10318,55 +10318,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244: ;
   %3326 = icmp slt i32 %3325, 0
   %3327 = getelementptr inbounds nuw i8, ptr %3321, i64 12
   %3328 = load i32, ptr %3327, align 4
-  %.not.i.i.i1247 = icmp slt i32 %3328, %3325
-  %or.cond.i.i.i1248 = select i1 %3326, i1 true, i1 %.not.i.i.i1247
-  br i1 %or.cond.i.i.i1248, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1263, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1249
+  %.not.i.i.i1246 = icmp slt i32 %3328, %3325
+  %or.cond.i.i.i1247 = select i1 %3326, i1 true, i1 %.not.i.i.i1246
+  br i1 %or.cond.i.i.i1247, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1262, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1248
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1263: ; preds = %3320
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1262: ; preds = %3320
   %3329 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %3321, i32 noundef %3325, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %3330 = icmp eq i8 %3329, 0
-  br i1 %3330, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1264
+  br i1 %3330, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1250, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1263
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1264: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1263
-  %.pre.i.i1265 = load i32, ptr %3323, align 8, !tbaa !134
-  %.pre6.i.i1266 = add nsw i32 %.pre.i.i1265, %3322
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1249
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1263: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1262
+  %.pre.i.i1264 = load i32, ptr %3323, align 8, !tbaa !134
+  %.pre6.i.i1265 = add nsw i32 %.pre.i.i1264, %3322
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1248
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1249: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1264, %3320
-  %.pre-phi.i.i1250 = phi i32 [ %.pre6.i.i1266, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1264 ], [ %3325, %3320 ]
-  %3331 = phi i32 [ %.pre.i.i1265, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1264 ], [ %3324, %3320 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1248: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1263, %3320
+  %.pre-phi.i.i1249 = phi i32 [ %.pre6.i.i1265, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1263 ], [ %3325, %3320 ]
+  %3331 = phi i32 [ %.pre.i.i1264, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1263 ], [ %3324, %3320 ]
   %3332 = getelementptr inbounds nuw i8, ptr %3321, i64 24
   %3333 = load ptr, ptr %3332, align 8, !tbaa !131
   %3334 = sext i32 %3331 to i64
   %3335 = getelementptr inbounds i64, ptr %3333, i64 %3334
-  store i32 %.pre-phi.i.i1250, ptr %3323, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251
+  store i32 %.pre-phi.i.i1249, ptr %3323, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1250
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1249, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1263
-  %.0.i.i1252 = phi ptr [ %3335, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1249 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1263 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1250: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1248, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1262
+  %.0.i.i1251 = phi ptr [ %3335, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1248 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1262 ]
   %3336 = load i32, ptr %3, align 4, !tbaa !13
   %3337 = icmp slt i32 %3336, 1
   br i1 %3337, label %3339, label %3338
 
-3338:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251
+3338:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1250
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266
 
-3339:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251
+3339:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1250
   %3340 = load i32, ptr %31, align 8, !tbaa !17
   %3341 = sext i32 %3340 to i64
   %3342 = sub nsw i64 0, %3341
-  %3343 = getelementptr inbounds i64, ptr %.0.i.i1252, i64 %3342
+  %3343 = getelementptr inbounds i64, ptr %.0.i.i1251, i64 %3342
   br label %3344
 
 3344:                                             ; preds = %3344, %3339
-  %.018.i1253 = phi ptr [ %3343, %3339 ], [ %3345, %3344 ]
-  %.0.i1254 = phi ptr [ %.0.i.i1252, %3339 ], [ %3347, %3344 ]
-  %3345 = getelementptr inbounds nuw i8, ptr %.018.i1253, i64 8
-  %3346 = load i64, ptr %.018.i1253, align 8, !tbaa !110
-  %3347 = getelementptr inbounds nuw i8, ptr %.0.i1254, i64 8
-  store i64 %3346, ptr %.0.i1254, align 8, !tbaa !110
-  %3348 = icmp eq ptr %3345, %.0.i.i1252
+  %.018.i1252 = phi ptr [ %3343, %3339 ], [ %3345, %3344 ]
+  %.0.i1253 = phi ptr [ %.0.i.i1251, %3339 ], [ %3347, %3344 ]
+  %3345 = getelementptr inbounds nuw i8, ptr %.018.i1252, i64 8
+  %3346 = load i64, ptr %.018.i1252, align 8, !tbaa !110
+  %3347 = getelementptr inbounds nuw i8, ptr %.0.i1253, i64 8
+  store i64 %3346, ptr %.0.i1253, align 8, !tbaa !110
+  %3348 = icmp eq ptr %3345, %.0.i.i1251
   br i1 %3348, label %3349, label %3344, !llvm.loop !139
 
 3349:                                             ; preds = %3344
@@ -10374,7 +10374,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251: ; preds = %_ZN6icu
   %3351 = add nsw i32 %3350, -1
   store i32 %3351, ptr %73, align 8, !tbaa !36
   %3352 = icmp slt i32 %3350, 2
-  br i1 %3352, label %3353, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255
+  br i1 %3352, label %3353, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254
 
 3353:                                             ; preds = %3349
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -10382,42 +10382,42 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1251: ; preds = %_ZN6icu
   %3355 = add nsw i32 %3354, 1
   store i32 %3355, ptr %74, align 4, !tbaa !35
   %3356 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1256 = icmp eq ptr %3356, null
-  br i1 %.not.i.i1256, label %3361, label %3357
+  %.not.i.i1255 = icmp eq ptr %3356, null
+  br i1 %.not.i.i1255, label %3361, label %3357
 
 3357:                                             ; preds = %3353
   %3358 = load ptr, ptr %76, align 8, !tbaa !141
   %3359 = call noundef signext i8 %3356(ptr noundef %3358, i32 noundef %3355)
   %3360 = icmp eq i8 %3359, 0
-  br i1 %3360, label %.sink.split.i.i1261, label %._crit_edge.i.i1257
+  br i1 %3360, label %.sink.split.i.i1260, label %._crit_edge.i.i1256
 
-._crit_edge.i.i1257:                              ; preds = %3357
-  %.pre.i22.i1258 = load i32, ptr %74, align 4
+._crit_edge.i.i1256:                              ; preds = %3357
+  %.pre.i22.i1257 = load i32, ptr %74, align 4
   br label %3361
 
-3361:                                             ; preds = %._crit_edge.i.i1257, %3353
-  %3362 = phi i32 [ %.pre.i22.i1258, %._crit_edge.i.i1257 ], [ %3355, %3353 ]
+3361:                                             ; preds = %._crit_edge.i.i1256, %3353
+  %3362 = phi i32 [ %.pre.i22.i1257, %._crit_edge.i.i1256 ], [ %3355, %3353 ]
   %3363 = load i32, ptr %77, align 8, !tbaa !34
   %3364 = icmp slt i32 %3363, 1
-  %.not4.i.i1259 = icmp slt i32 %3362, %3363
-  %or.cond.i.i1260 = select i1 %3364, i1 true, i1 %.not4.i.i1259
-  br i1 %or.cond.i.i1260, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255, label %.sink.split.i.i1261
+  %.not4.i.i1258 = icmp slt i32 %3362, %3363
+  %or.cond.i.i1259 = select i1 %3364, i1 true, i1 %.not4.i.i1258
+  br i1 %or.cond.i.i1259, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254, label %.sink.split.i.i1260
 
-.sink.split.i.i1261:                              ; preds = %3361, %3357
-  %.sink.i.i1262 = phi i32 [ 66323, %3357 ], [ 66322, %3361 ]
-  store i32 %.sink.i.i1262, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255
+.sink.split.i.i1260:                              ; preds = %3361, %3357
+  %.sink.i.i1261 = phi i32 [ 66323, %3357 ], [ 66322, %3361 ]
+  store i32 %.sink.i.i1261, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255: ; preds = %.sink.split.i.i1261, %3361, %3349
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254: ; preds = %.sink.split.i.i1260, %3361, %3349
   %3365 = getelementptr inbounds nuw i8, ptr %3343, i64 8
   store i64 %3317, ptr %3365, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ; preds = %3315, %3338, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255
-  %.019.i1246 = phi ptr [ %.0726, %3315 ], [ %.0726, %3338 ], [ %.0.i.i1252, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1255 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266: ; preds = %3315, %3338, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254
+  %.019.i1245 = phi ptr [ %.0726, %3315 ], [ %.0726, %3338 ], [ %.0.i.i1251, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1254 ]
   %3366 = load i64, ptr %3202, align 8, !tbaa !110
-  store i64 %3366, ptr %.019.i1246, align 8, !tbaa !137
-  br label %.critedge1073
+  store i64 %3366, ptr %.019.i1245, align 8, !tbaa !137
+  br label %.critedge1072
 
 3367:                                             ; preds = %93
   %3368 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -10431,16 +10431,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3373 = getelementptr inbounds nuw i8, ptr %3371, i64 8
   %3374 = load i32, ptr %3373, align 8, !tbaa !134
   %3375 = sub nsw i32 %3374, %3372
-  %spec.select.i1268 = call i32 @llvm.smax.i32(i32 %3375, i32 0)
-  store i32 %spec.select.i1268, ptr %3373, align 8, !tbaa !134
+  %spec.select.i1267 = call i32 @llvm.smax.i32(i32 %3375, i32 0)
+  store i32 %spec.select.i1267, ptr %3373, align 8, !tbaa !134
   %3376 = getelementptr inbounds nuw i8, ptr %3371, i64 24
   %3377 = load ptr, ptr %3376, align 8, !tbaa !131
-  %3378 = zext nneg i32 %spec.select.i1268 to i64
+  %3378 = zext nneg i32 %spec.select.i1267 to i64
   %3379 = getelementptr inbounds nuw i64, ptr %3377, i64 %3378
   %3380 = sext i32 %3372 to i64
   %3381 = sub nsw i64 0, %3380
   %3382 = getelementptr inbounds i64, ptr %3379, i64 %3381
-  br label %.critedge1073
+  br label %.critedge1072
 
 3383:                                             ; preds = %3367
   %3384 = load ptr, ptr %80, align 8, !tbaa !40
@@ -10461,16 +10461,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3396 = getelementptr inbounds nuw i8, ptr %3394, i64 8
   %3397 = load i32, ptr %3396, align 8, !tbaa !134
   %3398 = sub nsw i32 %3397, %3395
-  %spec.select.i1269 = call i32 @llvm.smax.i32(i32 %3398, i32 0)
-  store i32 %spec.select.i1269, ptr %3396, align 8, !tbaa !134
+  %spec.select.i1268 = call i32 @llvm.smax.i32(i32 %3398, i32 0)
+  store i32 %spec.select.i1268, ptr %3396, align 8, !tbaa !134
   %3399 = getelementptr inbounds nuw i8, ptr %3394, i64 24
   %3400 = load ptr, ptr %3399, align 8, !tbaa !131
-  %3401 = zext nneg i32 %spec.select.i1269 to i64
+  %3401 = zext nneg i32 %spec.select.i1268 to i64
   %3402 = getelementptr inbounds nuw i64, ptr %3400, i64 %3401
   %3403 = sext i32 %3395 to i64
   %3404 = sub nsw i64 0, %3403
   %3405 = getelementptr inbounds i64, ptr %3402, i64 %3404
-  br label %.critedge1073
+  br label %.critedge1072
 
 3406:                                             ; preds = %93
   %3407 = load ptr, ptr %11, align 8, !tbaa !42
@@ -10514,16 +10514,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
 
 3434:                                             ; preds = %3433, %3430
   %3435 = load i64, ptr %78, align 8, !tbaa !69
-  %.not9361436 = icmp slt i64 %3413, %3435
-  br i1 %.not9361436, label %.lr.ph1439, label %._crit_edge1440
+  %.not9361435 = icmp slt i64 %3413, %3435
+  br i1 %.not9361435, label %.lr.ph1438, label %._crit_edge1439
 
-._crit_edge1440:                                  ; preds = %3487, %3434
+._crit_edge1439:                                  ; preds = %3487, %3434
   %.0753.lcssa = phi i64 [ %3413, %3434 ], [ %.2755, %3487 ]
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.thread1384
+  br label %.thread1383
 
-.lr.ph1439:                                       ; preds = %3434, %3487
-  %.07531437 = phi i64 [ %.2755, %3487 ], [ %3413, %3434 ]
+.lr.ph1438:                                       ; preds = %3434, %3487
+  %.07531436 = phi i64 [ %.2755, %3487 ], [ %3413, %3434 ]
   %3436 = load ptr, ptr %72, align 8, !tbaa !77
   %3437 = getelementptr inbounds nuw i8, ptr %3436, i64 40
   %3438 = load i32, ptr %3437, align 8, !tbaa !95
@@ -10532,7 +10532,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3441 = icmp slt i32 %3438, %3440
   br i1 %3441, label %3442, label %3452
 
-3442:                                             ; preds = %.lr.ph1439
+3442:                                             ; preds = %.lr.ph1438
   %3443 = getelementptr inbounds nuw i8, ptr %3436, i64 48
   %3444 = load ptr, ptr %3443, align 8, !tbaa !88
   %3445 = sext i32 %3438 to i64
@@ -10547,7 +10547,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3451 = zext i16 %3447 to i32
   br label %3454
 
-3452:                                             ; preds = %3442, %.lr.ph1439
+3452:                                             ; preds = %3442, %.lr.ph1438
   %3453 = call i32 @utext_next32_77(ptr noundef nonnull %3436)
   br label %3454
 
@@ -10566,12 +10566,12 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3464 = shl nuw nsw i32 1, %3463
   %3465 = and i32 %3464, %3462
   %3466 = icmp eq i32 %3465, 0
-  br i1 %3466, label %.thread1384, label %3470
+  br i1 %3466, label %.thread1383, label %3470
 
 3467:                                             ; preds = %3454
   %3468 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %3412, i32 noundef %3455)
   %3469 = icmp eq i8 %3468, 0
-  br i1 %3469, label %.thread1384, label %3470
+  br i1 %3469, label %.thread1383, label %3470
 
 3470:                                             ; preds = %3467, %3457
   %3471 = load ptr, ptr %72, align 8, !tbaa !77
@@ -10601,31 +10601,31 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %.2755 = phi i64 [ %3480, %3476 ], [ %3486, %3481 ]
   %3488 = load i64, ptr %78, align 8, !tbaa !69
   %.not936 = icmp slt i64 %.2755, %3488
-  br i1 %.not936, label %.lr.ph1439, label %._crit_edge1440
+  br i1 %.not936, label %.lr.ph1438, label %._crit_edge1439
 
-.thread1384:                                      ; preds = %3467, %3457, %._crit_edge1440
-  %.07531421 = phi i64 [ %.0753.lcssa, %._crit_edge1440 ], [ %.07531437, %3457 ], [ %.07531437, %3467 ]
+.thread1383:                                      ; preds = %3467, %3457, %._crit_edge1439
+  %.07531420 = phi i64 [ %.0753.lcssa, %._crit_edge1439 ], [ %.07531436, %3457 ], [ %.07531436, %3467 ]
   %3489 = load i64, ptr %.0726, align 8, !tbaa !137
-  %3490 = icmp eq i64 %.07531421, %3489
+  %3490 = icmp eq i64 %.07531420, %3489
   %3491 = load i64, ptr %94, align 8, !tbaa !135
   br i1 %3490, label %3492, label %3494
 
-3492:                                             ; preds = %.thread1384
+3492:                                             ; preds = %.thread1383
   %3493 = add nsw i64 %3491, 1
   store i64 %3493, ptr %94, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
-3494:                                             ; preds = %.thread1384
+3494:                                             ; preds = %.thread1383
   %3495 = getelementptr inbounds i64, ptr %16, i64 %3491
   %3496 = load i64, ptr %3495, align 8, !tbaa !110
   %3497 = and i64 %3496, 16777215
   %3498 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %3499 = getelementptr inbounds nuw [1 x i64], ptr %3498, i64 0, i64 %3497
   store i64 %3489, ptr %3499, align 8, !tbaa !110
-  store i64 %.07531421, ptr %.0726, align 8, !tbaa !137
+  store i64 %.07531420, ptr %.0726, align 8, !tbaa !137
   %3500 = load i32, ptr %3, align 4, !tbaa !13
   %3501 = icmp slt i32 %3500, 1
-  br i1 %3501, label %3502, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291
+  br i1 %3501, label %3502, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290
 
 3502:                                             ; preds = %3494
   %3503 = load ptr, ptr %32, align 8, !tbaa !64
@@ -10636,55 +10636,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267: ;
   %3508 = icmp slt i32 %3507, 0
   %3509 = getelementptr inbounds nuw i8, ptr %3503, i64 12
   %3510 = load i32, ptr %3509, align 4
-  %.not.i.i.i1271 = icmp slt i32 %3510, %3507
-  %or.cond.i.i.i1272 = select i1 %3508, i1 true, i1 %.not.i.i.i1271
-  br i1 %or.cond.i.i.i1272, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1287, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1273
+  %.not.i.i.i1270 = icmp slt i32 %3510, %3507
+  %or.cond.i.i.i1271 = select i1 %3508, i1 true, i1 %.not.i.i.i1270
+  br i1 %or.cond.i.i.i1271, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1286, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1272
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1287: ; preds = %3502
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1286: ; preds = %3502
   %3511 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %3503, i32 noundef %3507, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %3512 = icmp eq i8 %3511, 0
-  br i1 %3512, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1288
+  br i1 %3512, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1274, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1287
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1288: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1287
-  %.pre.i.i1289 = load i32, ptr %3505, align 8, !tbaa !134
-  %.pre6.i.i1290 = add nsw i32 %.pre.i.i1289, %3504
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1273
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1287: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1286
+  %.pre.i.i1288 = load i32, ptr %3505, align 8, !tbaa !134
+  %.pre6.i.i1289 = add nsw i32 %.pre.i.i1288, %3504
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1272
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1273: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1288, %3502
-  %.pre-phi.i.i1274 = phi i32 [ %.pre6.i.i1290, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1288 ], [ %3507, %3502 ]
-  %3513 = phi i32 [ %.pre.i.i1289, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1288 ], [ %3506, %3502 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1272: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1287, %3502
+  %.pre-phi.i.i1273 = phi i32 [ %.pre6.i.i1289, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1287 ], [ %3507, %3502 ]
+  %3513 = phi i32 [ %.pre.i.i1288, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1287 ], [ %3506, %3502 ]
   %3514 = getelementptr inbounds nuw i8, ptr %3503, i64 24
   %3515 = load ptr, ptr %3514, align 8, !tbaa !131
   %3516 = sext i32 %3513 to i64
   %3517 = getelementptr inbounds i64, ptr %3515, i64 %3516
-  store i32 %.pre-phi.i.i1274, ptr %3505, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275
+  store i32 %.pre-phi.i.i1273, ptr %3505, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1274
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1273, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1287
-  %.0.i.i1276 = phi ptr [ %3517, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1273 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1287 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1274: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1272, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1286
+  %.0.i.i1275 = phi ptr [ %3517, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1272 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1286 ]
   %3518 = load i32, ptr %3, align 4, !tbaa !13
   %3519 = icmp slt i32 %3518, 1
   br i1 %3519, label %3521, label %3520
 
-3520:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275
+3520:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1274
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290
 
-3521:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275
+3521:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1274
   %3522 = load i32, ptr %31, align 8, !tbaa !17
   %3523 = sext i32 %3522 to i64
   %3524 = sub nsw i64 0, %3523
-  %3525 = getelementptr inbounds i64, ptr %.0.i.i1276, i64 %3524
+  %3525 = getelementptr inbounds i64, ptr %.0.i.i1275, i64 %3524
   br label %3526
 
 3526:                                             ; preds = %3526, %3521
-  %.018.i1277 = phi ptr [ %3525, %3521 ], [ %3527, %3526 ]
-  %.0.i1278 = phi ptr [ %.0.i.i1276, %3521 ], [ %3529, %3526 ]
-  %3527 = getelementptr inbounds nuw i8, ptr %.018.i1277, i64 8
-  %3528 = load i64, ptr %.018.i1277, align 8, !tbaa !110
-  %3529 = getelementptr inbounds nuw i8, ptr %.0.i1278, i64 8
-  store i64 %3528, ptr %.0.i1278, align 8, !tbaa !110
-  %3530 = icmp eq ptr %3527, %.0.i.i1276
+  %.018.i1276 = phi ptr [ %3525, %3521 ], [ %3527, %3526 ]
+  %.0.i1277 = phi ptr [ %.0.i.i1275, %3521 ], [ %3529, %3526 ]
+  %3527 = getelementptr inbounds nuw i8, ptr %.018.i1276, i64 8
+  %3528 = load i64, ptr %.018.i1276, align 8, !tbaa !110
+  %3529 = getelementptr inbounds nuw i8, ptr %.0.i1277, i64 8
+  store i64 %3528, ptr %.0.i1277, align 8, !tbaa !110
+  %3530 = icmp eq ptr %3527, %.0.i.i1275
   br i1 %3530, label %3531, label %3526, !llvm.loop !139
 
 3531:                                             ; preds = %3526
@@ -10692,7 +10692,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275: ; preds = %_ZN6icu
   %3533 = add nsw i32 %3532, -1
   store i32 %3533, ptr %73, align 8, !tbaa !36
   %3534 = icmp slt i32 %3532, 2
-  br i1 %3534, label %3535, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279
+  br i1 %3534, label %3535, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278
 
 3535:                                             ; preds = %3531
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -10700,44 +10700,44 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1275: ; preds = %_ZN6icu
   %3537 = add nsw i32 %3536, 1
   store i32 %3537, ptr %74, align 4, !tbaa !35
   %3538 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1280 = icmp eq ptr %3538, null
-  br i1 %.not.i.i1280, label %3543, label %3539
+  %.not.i.i1279 = icmp eq ptr %3538, null
+  br i1 %.not.i.i1279, label %3543, label %3539
 
 3539:                                             ; preds = %3535
   %3540 = load ptr, ptr %76, align 8, !tbaa !141
   %3541 = call noundef signext i8 %3538(ptr noundef %3540, i32 noundef %3537)
   %3542 = icmp eq i8 %3541, 0
-  br i1 %3542, label %.sink.split.i.i1285, label %._crit_edge.i.i1281
+  br i1 %3542, label %.sink.split.i.i1284, label %._crit_edge.i.i1280
 
-._crit_edge.i.i1281:                              ; preds = %3539
-  %.pre.i22.i1282 = load i32, ptr %74, align 4
+._crit_edge.i.i1280:                              ; preds = %3539
+  %.pre.i22.i1281 = load i32, ptr %74, align 4
   br label %3543
 
-3543:                                             ; preds = %._crit_edge.i.i1281, %3535
-  %3544 = phi i32 [ %.pre.i22.i1282, %._crit_edge.i.i1281 ], [ %3537, %3535 ]
+3543:                                             ; preds = %._crit_edge.i.i1280, %3535
+  %3544 = phi i32 [ %.pre.i22.i1281, %._crit_edge.i.i1280 ], [ %3537, %3535 ]
   %3545 = load i32, ptr %77, align 8, !tbaa !34
   %3546 = icmp slt i32 %3545, 1
-  %.not4.i.i1283 = icmp slt i32 %3544, %3545
-  %or.cond.i.i1284 = select i1 %3546, i1 true, i1 %.not4.i.i1283
-  br i1 %or.cond.i.i1284, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279, label %.sink.split.i.i1285
+  %.not4.i.i1282 = icmp slt i32 %3544, %3545
+  %or.cond.i.i1283 = select i1 %3546, i1 true, i1 %.not4.i.i1282
+  br i1 %or.cond.i.i1283, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278, label %.sink.split.i.i1284
 
-.sink.split.i.i1285:                              ; preds = %3543, %3539
-  %.sink.i.i1286 = phi i32 [ 66323, %3539 ], [ 66322, %3543 ]
-  store i32 %.sink.i.i1286, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279
+.sink.split.i.i1284:                              ; preds = %3543, %3539
+  %.sink.i.i1285 = phi i32 [ 66323, %3539 ], [ 66322, %3543 ]
+  store i32 %.sink.i.i1285, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279: ; preds = %.sink.split.i.i1285, %3543, %3531
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278: ; preds = %.sink.split.i.i1284, %3543, %3531
   %3547 = getelementptr inbounds nuw i8, ptr %3525, i64 8
   store i64 %3491, ptr %3547, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291: ; preds = %3494, %3520, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279
-  %.019.i1270 = phi ptr [ %.0726, %3494 ], [ %.0726, %3520 ], [ %.0.i.i1276, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1279 ]
-  %3548 = getelementptr inbounds nuw i8, ptr %.019.i1270, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290: ; preds = %3494, %3520, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278
+  %.019.i1269 = phi ptr [ %.0726, %3494 ], [ %.0726, %3520 ], [ %.0.i.i1275, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1278 ]
+  %3548 = getelementptr inbounds nuw i8, ptr %.019.i1269, i64 8
   %3549 = load i64, ptr %3548, align 8, !tbaa !135
   %3550 = add nsw i64 %3549, 1
   store i64 %3550, ptr %3548, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 3551:                                             ; preds = %93
   %3552 = and i32 %98, 1
@@ -10746,7 +10746,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291: ;
 
 3553:                                             ; preds = %3551
   %3554 = load i64, ptr %78, align 8, !tbaa !69
-  br label %.thread1394.sink.split
+  br label %.thread1393.sink.split
 
 3555:                                             ; preds = %3551
   %3556 = load i64, ptr %.0726, align 8, !tbaa !137
@@ -10784,15 +10784,15 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291: ;
 
 3577:                                             ; preds = %3576, %3573
   %3578 = load i64, ptr %78, align 8, !tbaa !69
-  %.not9331433 = icmp slt i64 %3556, %3578
-  br i1 %.not9331433, label %.lr.ph1435, label %.thread1394.sink.split
+  %.not9331432 = icmp slt i64 %3556, %3578
+  br i1 %.not9331432, label %.lr.ph1434, label %.thread1393.sink.split
 
-.lr.ph1435:                                       ; preds = %3577
+.lr.ph1434:                                       ; preds = %3577
   %3579 = and i32 %98, 2
   br label %3580
 
-3580:                                             ; preds = %.lr.ph1435, %3625
-  %.17421434 = phi i64 [ %3556, %.lr.ph1435 ], [ %.2743, %3625 ]
+3580:                                             ; preds = %.lr.ph1434, %3625
+  %.17421433 = phi i64 [ %3556, %.lr.ph1434 ], [ %.2743, %3625 ]
   %3581 = load ptr, ptr %72, align 8, !tbaa !77
   %3582 = getelementptr inbounds nuw i8, ptr %3581, i64 40
   %3583 = load i32, ptr %3582, align 8, !tbaa !95
@@ -10824,29 +10824,29 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291: ;
   %3600 = phi i32 [ %3596, %3594 ], [ %3598, %3597 ]
   %3601 = and i32 %3600, 126
   %3602 = icmp samesign ult i32 %3601, 42
-  br i1 %3602, label %3603, label %_ZN6icu_77L16isLineTerminatorEi.exit1294.thread
+  br i1 %3602, label %3603, label %_ZN6icu_77L16isLineTerminatorEi.exit1293.thread
 
 3603:                                             ; preds = %3599
   %3604 = icmp eq i32 %3600, 10
-  br i1 %3604, label %.thread1394, label %3605
+  br i1 %3604, label %.thread1393, label %3605
 
 3605:                                             ; preds = %3603
   %3606 = and i32 %3600, -8368
   %3607 = or disjoint i32 %3606, %3579
-  %or.cond1404 = icmp eq i32 %3607, 0
-  br i1 %or.cond1404, label %3608, label %_ZN6icu_77L16isLineTerminatorEi.exit1294.thread
+  %or.cond1403 = icmp eq i32 %3607, 0
+  br i1 %or.cond1403, label %3608, label %_ZN6icu_77L16isLineTerminatorEi.exit1293.thread
 
 3608:                                             ; preds = %3605
-  switch i32 %3600, label %_ZN6icu_77L16isLineTerminatorEi.exit1294.thread [
-    i32 8232, label %.thread1394
-    i32 133, label %.thread1394
-    i32 13, label %.thread1394
-    i32 12, label %.thread1394
-    i32 11, label %.thread1394
-    i32 8233, label %.thread1394
+  switch i32 %3600, label %_ZN6icu_77L16isLineTerminatorEi.exit1293.thread [
+    i32 8232, label %.thread1393
+    i32 133, label %.thread1393
+    i32 13, label %.thread1393
+    i32 12, label %.thread1393
+    i32 11, label %.thread1393
+    i32 8233, label %.thread1393
   ]
 
-_ZN6icu_77L16isLineTerminatorEi.exit1294.thread:  ; preds = %3608, %3605, %3599
+_ZN6icu_77L16isLineTerminatorEi.exit1293.thread:  ; preds = %3608, %3605, %3599
   %3609 = load ptr, ptr %72, align 8, !tbaa !77
   %3610 = getelementptr inbounds nuw i8, ptr %3609, i64 40
   %3611 = load i32, ptr %3610, align 8, !tbaa !95
@@ -10855,14 +10855,14 @@ _ZN6icu_77L16isLineTerminatorEi.exit1294.thread:  ; preds = %3608, %3605, %3599
   %.not935 = icmp sgt i32 %3611, %3613
   br i1 %.not935, label %3619, label %3614
 
-3614:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1294.thread
+3614:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1293.thread
   %3615 = getelementptr inbounds nuw i8, ptr %3609, i64 32
   %3616 = load i64, ptr %3615, align 8, !tbaa !83
   %3617 = sext i32 %3611 to i64
   %3618 = add nsw i64 %3616, %3617
   br label %3625
 
-3619:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1294.thread
+3619:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1293.thread
   %3620 = getelementptr inbounds nuw i8, ptr %3609, i64 56
   %3621 = load ptr, ptr %3620, align 8, !tbaa !89
   %3622 = getelementptr inbounds nuw i8, ptr %3621, i64 64
@@ -10874,26 +10874,26 @@ _ZN6icu_77L16isLineTerminatorEi.exit1294.thread:  ; preds = %3608, %3605, %3599
   %.2743 = phi i64 [ %3618, %3614 ], [ %3624, %3619 ]
   %3626 = load i64, ptr %78, align 8, !tbaa !69
   %.not933 = icmp slt i64 %.2743, %3626
-  br i1 %.not933, label %3580, label %.thread1394.sink.split
+  br i1 %.not933, label %3580, label %.thread1393.sink.split
 
-.thread1394.sink.split:                           ; preds = %3625, %3577, %3553
+.thread1393.sink.split:                           ; preds = %3625, %3577, %3553
   %.0741.ph = phi i64 [ %3554, %3553 ], [ %3556, %3577 ], [ %.2743, %3625 ]
   store i8 1, ptr %79, align 8, !tbaa !32
-  br label %.thread1394
+  br label %.thread1393
 
-.thread1394:                                      ; preds = %3608, %3608, %3608, %3608, %3608, %3608, %3603, %.thread1394.sink.split
-  %.0741 = phi i64 [ %.0741.ph, %.thread1394.sink.split ], [ %.17421434, %3603 ], [ %.17421434, %3608 ], [ %.17421434, %3608 ], [ %.17421434, %3608 ], [ %.17421434, %3608 ], [ %.17421434, %3608 ], [ %.17421434, %3608 ]
+.thread1393:                                      ; preds = %3608, %3608, %3608, %3608, %3608, %3608, %3603, %.thread1393.sink.split
+  %.0741 = phi i64 [ %.0741.ph, %.thread1393.sink.split ], [ %.17421433, %3603 ], [ %.17421433, %3608 ], [ %.17421433, %3608 ], [ %.17421433, %3608 ], [ %.17421433, %3608 ], [ %.17421433, %3608 ], [ %.17421433, %3608 ]
   %3627 = load i64, ptr %.0726, align 8, !tbaa !137
   %3628 = icmp eq i64 %.0741, %3627
   %3629 = load i64, ptr %94, align 8, !tbaa !135
   br i1 %3628, label %3630, label %3632
 
-3630:                                             ; preds = %.thread1394
+3630:                                             ; preds = %.thread1393
   %3631 = add nsw i64 %3629, 1
   store i64 %3631, ptr %94, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
-3632:                                             ; preds = %.thread1394
+3632:                                             ; preds = %.thread1393
   %3633 = getelementptr inbounds i64, ptr %16, i64 %3629
   %3634 = load i64, ptr %3633, align 8, !tbaa !110
   %3635 = and i64 %3634, 16777215
@@ -10903,7 +10903,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1294.thread:  ; preds = %3608, %3605, %3599
   store i64 %.0741, ptr %.0726, align 8, !tbaa !137
   %3638 = load i32, ptr %3, align 4, !tbaa !13
   %3639 = icmp slt i32 %3638, 1
-  br i1 %3639, label %3640, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316
+  br i1 %3639, label %3640, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315
 
 3640:                                             ; preds = %3632
   %3641 = load ptr, ptr %32, align 8, !tbaa !64
@@ -10914,55 +10914,55 @@ _ZN6icu_77L16isLineTerminatorEi.exit1294.thread:  ; preds = %3608, %3605, %3599
   %3646 = icmp slt i32 %3645, 0
   %3647 = getelementptr inbounds nuw i8, ptr %3641, i64 12
   %3648 = load i32, ptr %3647, align 4
-  %.not.i.i.i1296 = icmp slt i32 %3648, %3645
-  %or.cond.i.i.i1297 = select i1 %3646, i1 true, i1 %.not.i.i.i1296
-  br i1 %or.cond.i.i.i1297, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1312, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1298
+  %.not.i.i.i1295 = icmp slt i32 %3648, %3645
+  %or.cond.i.i.i1296 = select i1 %3646, i1 true, i1 %.not.i.i.i1295
+  br i1 %or.cond.i.i.i1296, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1311, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1297
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1312: ; preds = %3640
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1311: ; preds = %3640
   %3649 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %3641, i32 noundef %3645, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %3650 = icmp eq i8 %3649, 0
-  br i1 %3650, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1313
+  br i1 %3650, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1299, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1312
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1313: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1312
-  %.pre.i.i1314 = load i32, ptr %3643, align 8, !tbaa !134
-  %.pre6.i.i1315 = add nsw i32 %.pre.i.i1314, %3642
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1298
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1312: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1311
+  %.pre.i.i1313 = load i32, ptr %3643, align 8, !tbaa !134
+  %.pre6.i.i1314 = add nsw i32 %.pre.i.i1313, %3642
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1297
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1298: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1313, %3640
-  %.pre-phi.i.i1299 = phi i32 [ %.pre6.i.i1315, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1313 ], [ %3645, %3640 ]
-  %3651 = phi i32 [ %.pre.i.i1314, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1313 ], [ %3644, %3640 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1297: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1312, %3640
+  %.pre-phi.i.i1298 = phi i32 [ %.pre6.i.i1314, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1312 ], [ %3645, %3640 ]
+  %3651 = phi i32 [ %.pre.i.i1313, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1312 ], [ %3644, %3640 ]
   %3652 = getelementptr inbounds nuw i8, ptr %3641, i64 24
   %3653 = load ptr, ptr %3652, align 8, !tbaa !131
   %3654 = sext i32 %3651 to i64
   %3655 = getelementptr inbounds i64, ptr %3653, i64 %3654
-  store i32 %.pre-phi.i.i1299, ptr %3643, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300
+  store i32 %.pre-phi.i.i1298, ptr %3643, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1299
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1298, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1312
-  %.0.i.i1301 = phi ptr [ %3655, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1298 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1312 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1299: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1297, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1311
+  %.0.i.i1300 = phi ptr [ %3655, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1297 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1311 ]
   %3656 = load i32, ptr %3, align 4, !tbaa !13
   %3657 = icmp slt i32 %3656, 1
   br i1 %3657, label %3659, label %3658
 
-3658:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300
+3658:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1299
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315
 
-3659:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300
+3659:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1299
   %3660 = load i32, ptr %31, align 8, !tbaa !17
   %3661 = sext i32 %3660 to i64
   %3662 = sub nsw i64 0, %3661
-  %3663 = getelementptr inbounds i64, ptr %.0.i.i1301, i64 %3662
+  %3663 = getelementptr inbounds i64, ptr %.0.i.i1300, i64 %3662
   br label %3664
 
 3664:                                             ; preds = %3664, %3659
-  %.018.i1302 = phi ptr [ %3663, %3659 ], [ %3665, %3664 ]
-  %.0.i1303 = phi ptr [ %.0.i.i1301, %3659 ], [ %3667, %3664 ]
-  %3665 = getelementptr inbounds nuw i8, ptr %.018.i1302, i64 8
-  %3666 = load i64, ptr %.018.i1302, align 8, !tbaa !110
-  %3667 = getelementptr inbounds nuw i8, ptr %.0.i1303, i64 8
-  store i64 %3666, ptr %.0.i1303, align 8, !tbaa !110
-  %3668 = icmp eq ptr %3665, %.0.i.i1301
+  %.018.i1301 = phi ptr [ %3663, %3659 ], [ %3665, %3664 ]
+  %.0.i1302 = phi ptr [ %.0.i.i1300, %3659 ], [ %3667, %3664 ]
+  %3665 = getelementptr inbounds nuw i8, ptr %.018.i1301, i64 8
+  %3666 = load i64, ptr %.018.i1301, align 8, !tbaa !110
+  %3667 = getelementptr inbounds nuw i8, ptr %.0.i1302, i64 8
+  store i64 %3666, ptr %.0.i1302, align 8, !tbaa !110
+  %3668 = icmp eq ptr %3665, %.0.i.i1300
   br i1 %3668, label %3669, label %3664, !llvm.loop !139
 
 3669:                                             ; preds = %3664
@@ -10970,7 +10970,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300: ; preds = %_ZN6icu
   %3671 = add nsw i32 %3670, -1
   store i32 %3671, ptr %73, align 8, !tbaa !36
   %3672 = icmp slt i32 %3670, 2
-  br i1 %3672, label %3673, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304
+  br i1 %3672, label %3673, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303
 
 3673:                                             ; preds = %3669
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -10978,44 +10978,44 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1300: ; preds = %_ZN6icu
   %3675 = add nsw i32 %3674, 1
   store i32 %3675, ptr %74, align 4, !tbaa !35
   %3676 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1305 = icmp eq ptr %3676, null
-  br i1 %.not.i.i1305, label %3681, label %3677
+  %.not.i.i1304 = icmp eq ptr %3676, null
+  br i1 %.not.i.i1304, label %3681, label %3677
 
 3677:                                             ; preds = %3673
   %3678 = load ptr, ptr %76, align 8, !tbaa !141
   %3679 = call noundef signext i8 %3676(ptr noundef %3678, i32 noundef %3675)
   %3680 = icmp eq i8 %3679, 0
-  br i1 %3680, label %.sink.split.i.i1310, label %._crit_edge.i.i1306
+  br i1 %3680, label %.sink.split.i.i1309, label %._crit_edge.i.i1305
 
-._crit_edge.i.i1306:                              ; preds = %3677
-  %.pre.i22.i1307 = load i32, ptr %74, align 4
+._crit_edge.i.i1305:                              ; preds = %3677
+  %.pre.i22.i1306 = load i32, ptr %74, align 4
   br label %3681
 
-3681:                                             ; preds = %._crit_edge.i.i1306, %3673
-  %3682 = phi i32 [ %.pre.i22.i1307, %._crit_edge.i.i1306 ], [ %3675, %3673 ]
+3681:                                             ; preds = %._crit_edge.i.i1305, %3673
+  %3682 = phi i32 [ %.pre.i22.i1306, %._crit_edge.i.i1305 ], [ %3675, %3673 ]
   %3683 = load i32, ptr %77, align 8, !tbaa !34
   %3684 = icmp slt i32 %3683, 1
-  %.not4.i.i1308 = icmp slt i32 %3682, %3683
-  %or.cond.i.i1309 = select i1 %3684, i1 true, i1 %.not4.i.i1308
-  br i1 %or.cond.i.i1309, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304, label %.sink.split.i.i1310
+  %.not4.i.i1307 = icmp slt i32 %3682, %3683
+  %or.cond.i.i1308 = select i1 %3684, i1 true, i1 %.not4.i.i1307
+  br i1 %or.cond.i.i1308, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303, label %.sink.split.i.i1309
 
-.sink.split.i.i1310:                              ; preds = %3681, %3677
-  %.sink.i.i1311 = phi i32 [ 66323, %3677 ], [ 66322, %3681 ]
-  store i32 %.sink.i.i1311, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304
+.sink.split.i.i1309:                              ; preds = %3681, %3677
+  %.sink.i.i1310 = phi i32 [ 66323, %3677 ], [ 66322, %3681 ]
+  store i32 %.sink.i.i1310, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304: ; preds = %.sink.split.i.i1310, %3681, %3669
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303: ; preds = %.sink.split.i.i1309, %3681, %3669
   %3685 = getelementptr inbounds nuw i8, ptr %3663, i64 8
   store i64 %3629, ptr %3685, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ; preds = %3632, %3658, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304
-  %.019.i1295 = phi ptr [ %.0726, %3632 ], [ %.0726, %3658 ], [ %.0.i.i1301, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1304 ]
-  %3686 = getelementptr inbounds nuw i8, ptr %.019.i1295, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315: ; preds = %3632, %3658, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303
+  %.019.i1294 = phi ptr [ %.0726, %3632 ], [ %.0726, %3658 ], [ %.0.i.i1300, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1303 ]
+  %3686 = getelementptr inbounds nuw i8, ptr %.019.i1294, i64 8
   %3687 = load i64, ptr %3686, align 8, !tbaa !135
   %3688 = add nsw i64 %3687, 1
   store i64 %3688, ptr %3686, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
 3689:                                             ; preds = %93
   %3690 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
@@ -11024,7 +11024,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
   %3693 = load i64, ptr %3692, align 8, !tbaa !110
   %3694 = load i64, ptr %.0726, align 8, !tbaa !137
   %3695 = icmp eq i64 %3693, %3694
-  br i1 %3695, label %.critedge1073, label %3696
+  br i1 %3695, label %.critedge1072, label %3696
 
 3696:                                             ; preds = %3689
   %3697 = load ptr, ptr %72, align 8, !tbaa !77
@@ -11059,11 +11059,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
   call void @utext_setNativeIndex_77(ptr noundef nonnull %3697, i64 noundef %3694)
   %.pre = load ptr, ptr %72, align 8, !tbaa !77
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre1470 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !95
+  %.pre1469 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !95
   br label %3717
 
 3717:                                             ; preds = %3716, %3713
-  %3718 = phi i32 [ %.pre1470, %3716 ], [ %3714, %3713 ]
+  %3718 = phi i32 [ %.pre1469, %3716 ], [ %3714, %3713 ]
   %3719 = phi ptr [ %.pre, %3716 ], [ %3697, %3713 ]
   %3720 = getelementptr inbounds nuw i8, ptr %3719, i64 40
   %3721 = icmp sgt i32 %3718, 0
@@ -11090,14 +11090,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
 
 3736:                                             ; preds = %3722, %3717
   %3737 = call i32 @utext_previous32_77(ptr noundef nonnull %3719)
-  %.pre1471 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1472 = getelementptr inbounds nuw i8, ptr %.pre1471, i64 40
-  %.pre1473 = load i32, ptr %.phi.trans.insert1472, align 8, !tbaa !95
+  %.pre1470 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1471 = getelementptr inbounds nuw i8, ptr %.pre1470, i64 40
+  %.pre1472 = load i32, ptr %.phi.trans.insert1471, align 8, !tbaa !95
   br label %3738
 
 3738:                                             ; preds = %3736, %3730
-  %3739 = phi i32 [ %3731, %3730 ], [ %.pre1473, %3736 ]
-  %3740 = phi ptr [ %3719, %3730 ], [ %.pre1471, %3736 ]
+  %3739 = phi i32 [ %3731, %3730 ], [ %.pre1472, %3736 ]
+  %3740 = phi ptr [ %3719, %3730 ], [ %.pre1470, %3736 ]
   %3741 = phi i32 [ %3735, %3730 ], [ %3737, %3736 ]
   %3742 = getelementptr inbounds nuw i8, ptr %3740, i64 28
   %3743 = load i32, ptr %3742, align 4, !tbaa !87
@@ -11117,14 +11117,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
   %3752 = getelementptr inbounds nuw i8, ptr %3751, i64 64
   %3753 = load ptr, ptr %3752, align 8, !tbaa !111
   %3754 = call noundef i64 %3753(ptr noundef nonnull %3740)
-  %.pre1474 = load ptr, ptr %72, align 8, !tbaa !77
-  %.phi.trans.insert1475 = getelementptr inbounds nuw i8, ptr %.pre1474, i64 40
-  %.pre1476 = load i32, ptr %.phi.trans.insert1475, align 8, !tbaa !95
+  %.pre1473 = load ptr, ptr %72, align 8, !tbaa !77
+  %.phi.trans.insert1474 = getelementptr inbounds nuw i8, ptr %.pre1473, i64 40
+  %.pre1475 = load i32, ptr %.phi.trans.insert1474, align 8, !tbaa !95
   br label %3755
 
 3755:                                             ; preds = %3749, %3744
-  %3756 = phi i32 [ %3739, %3744 ], [ %.pre1476, %3749 ]
-  %3757 = phi ptr [ %3740, %3744 ], [ %.pre1474, %3749 ]
+  %3756 = phi i32 [ %3739, %3744 ], [ %.pre1475, %3749 ]
+  %3757 = phi ptr [ %3740, %3744 ], [ %.pre1473, %3749 ]
   %3758 = phi i64 [ %3748, %3744 ], [ %3754, %3749 ]
   store i64 %3758, ptr %.0726, align 8, !tbaa !137
   %3759 = getelementptr inbounds nuw i8, ptr %3757, i64 40
@@ -11208,7 +11208,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
   %3809 = add nsw i64 %3808, -1
   %3810 = load i32, ptr %3, align 4, !tbaa !13
   %3811 = icmp slt i32 %3810, 1
-  br i1 %3811, label %3812, label %.thread1399
+  br i1 %3811, label %3812, label %.thread1398
 
 3812:                                             ; preds = %3807
   %3813 = load ptr, ptr %32, align 8, !tbaa !64
@@ -11219,51 +11219,51 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316: ;
   %3818 = icmp slt i32 %3817, 0
   %3819 = getelementptr inbounds nuw i8, ptr %3813, i64 12
   %3820 = load i32, ptr %3819, align 4
-  %.not.i.i.i1318 = icmp slt i32 %3820, %3817
-  %or.cond.i.i.i1319 = select i1 %3818, i1 true, i1 %.not.i.i.i1318
-  br i1 %or.cond.i.i.i1319, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1334, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1320
+  %.not.i.i.i1317 = icmp slt i32 %3820, %3817
+  %or.cond.i.i.i1318 = select i1 %3818, i1 true, i1 %.not.i.i.i1317
+  br i1 %or.cond.i.i.i1318, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1333, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1319
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1334: ; preds = %3812
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1333: ; preds = %3812
   %3821 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %3813, i32 noundef %3817, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %3822 = icmp eq i8 %3821, 0
-  br i1 %3822, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1335
+  br i1 %3822, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1334
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1335: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1334
-  %.pre.i.i1336 = load i32, ptr %3815, align 8, !tbaa !134
-  %.pre6.i.i1337 = add nsw i32 %.pre.i.i1336, %3814
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1320
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1334: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1333
+  %.pre.i.i1335 = load i32, ptr %3815, align 8, !tbaa !134
+  %.pre6.i.i1336 = add nsw i32 %.pre.i.i1335, %3814
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1319
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1320: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1335, %3812
-  %.pre-phi.i.i1321 = phi i32 [ %.pre6.i.i1337, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1335 ], [ %3817, %3812 ]
-  %3823 = phi i32 [ %.pre.i.i1336, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1335 ], [ %3816, %3812 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1319: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1334, %3812
+  %.pre-phi.i.i1320 = phi i32 [ %.pre6.i.i1336, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1334 ], [ %3817, %3812 ]
+  %3823 = phi i32 [ %.pre.i.i1335, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1334 ], [ %3816, %3812 ]
   %3824 = getelementptr inbounds nuw i8, ptr %3813, i64 24
   %3825 = load ptr, ptr %3824, align 8, !tbaa !131
   %3826 = sext i32 %3823 to i64
   %3827 = getelementptr inbounds i64, ptr %3825, i64 %3826
-  store i32 %.pre-phi.i.i1321, ptr %3815, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322
+  store i32 %.pre-phi.i.i1320, ptr %3815, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1320, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1334
-  %.0.i.i1323 = phi ptr [ %3827, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1320 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1334 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1319, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1333
+  %.0.i.i1322 = phi ptr [ %3827, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1319 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1333 ]
   %3828 = load i32, ptr %3, align 4, !tbaa !13
   %3829 = icmp slt i32 %3828, 1
-  br i1 %3829, label %3830, label %.thread1399.sink.split
+  br i1 %3829, label %3830, label %.thread1398.sink.split
 
-3830:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322
+3830:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321
   %3831 = load i32, ptr %31, align 8, !tbaa !17
   %3832 = sext i32 %3831 to i64
   %3833 = sub nsw i64 0, %3832
-  %3834 = getelementptr inbounds i64, ptr %.0.i.i1323, i64 %3833
+  %3834 = getelementptr inbounds i64, ptr %.0.i.i1322, i64 %3833
   br label %3835
 
 3835:                                             ; preds = %3835, %3830
-  %.018.i1324 = phi ptr [ %3834, %3830 ], [ %3836, %3835 ]
-  %.0.i1325 = phi ptr [ %.0.i.i1323, %3830 ], [ %3838, %3835 ]
-  %3836 = getelementptr inbounds nuw i8, ptr %.018.i1324, i64 8
-  %3837 = load i64, ptr %.018.i1324, align 8, !tbaa !110
-  %3838 = getelementptr inbounds nuw i8, ptr %.0.i1325, i64 8
-  store i64 %3837, ptr %.0.i1325, align 8, !tbaa !110
-  %3839 = icmp eq ptr %3836, %.0.i.i1323
+  %.018.i1323 = phi ptr [ %3834, %3830 ], [ %3836, %3835 ]
+  %.0.i1324 = phi ptr [ %.0.i.i1322, %3830 ], [ %3838, %3835 ]
+  %3836 = getelementptr inbounds nuw i8, ptr %.018.i1323, i64 8
+  %3837 = load i64, ptr %.018.i1323, align 8, !tbaa !110
+  %3838 = getelementptr inbounds nuw i8, ptr %.0.i1324, i64 8
+  store i64 %3837, ptr %.0.i1324, align 8, !tbaa !110
+  %3839 = icmp eq ptr %3836, %.0.i.i1322
   br i1 %3839, label %3840, label %3835, !llvm.loop !139
 
 3840:                                             ; preds = %3835
@@ -11271,7 +11271,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322: ; preds = %_ZN6icu
   %3842 = add nsw i32 %3841, -1
   store i32 %3842, ptr %73, align 8, !tbaa !36
   %3843 = icmp slt i32 %3841, 2
-  br i1 %3843, label %3844, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326
+  br i1 %3843, label %3844, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325
 
 3844:                                             ; preds = %3840
   store i32 10000, ptr %73, align 8, !tbaa !36
@@ -11279,50 +11279,50 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322: ; preds = %_ZN6icu
   %3846 = add nsw i32 %3845, 1
   store i32 %3846, ptr %74, align 4, !tbaa !35
   %3847 = load ptr, ptr %75, align 8, !tbaa !140
-  %.not.i.i1327 = icmp eq ptr %3847, null
-  br i1 %.not.i.i1327, label %3852, label %3848
+  %.not.i.i1326 = icmp eq ptr %3847, null
+  br i1 %.not.i.i1326, label %3852, label %3848
 
 3848:                                             ; preds = %3844
   %3849 = load ptr, ptr %76, align 8, !tbaa !141
   %3850 = call noundef signext i8 %3847(ptr noundef %3849, i32 noundef %3846)
   %3851 = icmp eq i8 %3850, 0
-  br i1 %3851, label %.sink.split.i.i1332, label %._crit_edge.i.i1328
+  br i1 %3851, label %.sink.split.i.i1331, label %._crit_edge.i.i1327
 
-._crit_edge.i.i1328:                              ; preds = %3848
-  %.pre.i22.i1329 = load i32, ptr %74, align 4
+._crit_edge.i.i1327:                              ; preds = %3848
+  %.pre.i22.i1328 = load i32, ptr %74, align 4
   br label %3852
 
-3852:                                             ; preds = %._crit_edge.i.i1328, %3844
-  %3853 = phi i32 [ %.pre.i22.i1329, %._crit_edge.i.i1328 ], [ %3846, %3844 ]
+3852:                                             ; preds = %._crit_edge.i.i1327, %3844
+  %3853 = phi i32 [ %.pre.i22.i1328, %._crit_edge.i.i1327 ], [ %3846, %3844 ]
   %3854 = load i32, ptr %77, align 8, !tbaa !34
   %3855 = icmp slt i32 %3854, 1
-  %.not4.i.i1330 = icmp slt i32 %3853, %3854
-  %or.cond.i.i1331 = select i1 %3855, i1 true, i1 %.not4.i.i1330
-  br i1 %or.cond.i.i1331, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326, label %.sink.split.i.i1332
+  %.not4.i.i1329 = icmp slt i32 %3853, %3854
+  %or.cond.i.i1330 = select i1 %3855, i1 true, i1 %.not4.i.i1329
+  br i1 %or.cond.i.i1330, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325, label %.sink.split.i.i1331
 
-.sink.split.i.i1332:                              ; preds = %3852, %3848
-  %.sink.i.i1333 = phi i32 [ 66323, %3848 ], [ 66322, %3852 ]
-  store i32 %.sink.i.i1333, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326
+.sink.split.i.i1331:                              ; preds = %3852, %3848
+  %.sink.i.i1332 = phi i32 [ 66323, %3848 ], [ 66322, %3852 ]
+  store i32 %.sink.i.i1332, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326: ; preds = %.sink.split.i.i1332, %3852, %3840
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325: ; preds = %.sink.split.i.i1331, %3852, %3840
   %3856 = getelementptr inbounds nuw i8, ptr %3834, i64 8
   store i64 %3809, ptr %3856, align 8, !tbaa !135
-  br label %.critedge1073
+  br label %.critedge1072
 
-.critedge1073:                                    ; preds = %693, %693, %693, %693, %693, %693, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326, %2814, %.thread1363, %1804, %1782, %1678, %1655, %634, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i, %179, %3630, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316, %3492, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291, %3308, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267, %3086, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244, %2686, %2688, %2590, %2667, %2483, %.loopexit1409, %2566, %._crit_edge1448, %2453, %2406, %2426, %2432, %2441, %2435, %2392, %2403, %2371, %2337, %2358, %2318, %2324, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213, %2187, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191, %2102, %2132, %1981, %2041, %2004, %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360, %1906, %.critedge1067, %.critedge1063, %1551, %1553, %1381, %1383, %1285, %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread, %1187, %1189, %1069, %1071, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit, %977, %933, %938, %918, %920, %860, %858, %_ZN6icu_77L16isLineTerminatorEi.exit.thread, %719, %694, %509, %553, %.critedge1058, %298, %.loopexit, %3689, %1440, %1453, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit, %1435, %1087, %1090, %1093, %873, %807, %791, %794, %776, %778, %3383, %3370, %3173, %3160, %2946, %2945, %.thread1378, %2740, %2701, %2670, %2445, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169, %2134, %2046, %1911, %1821, %1695, %1569, %1457, %1399, %1302, %1205, %1109, %993, %737, %651, %635, %569, %399, %384, %378, %365, %.thread, %102, %93
-  %.1727.ph = phi ptr [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0.i.i1323, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326 ], [ %.0726, %.thread1363 ], [ %.0.i.i1098, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i ], [ %.019.i1295, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1316 ], [ %.0726, %3630 ], [ %.019.i1270, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1291 ], [ %.0726, %3492 ], [ %.019.i1246, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1267 ], [ %.0726, %3308 ], [ %.019.i1223, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1244 ], [ %3098, %3086 ], [ %2700, %2688 ], [ %.0726, %2686 ], [ %.32, %2667 ], [ %2602, %2590 ], [ %2579, %.loopexit1409 ], [ %.0726, %2566 ], [ %2495, %2483 ], [ %.0726, %2453 ], [ %2467, %._crit_edge1448 ], [ %.0726, %2435 ], [ %2444, %2441 ], [ %.0726, %2426 ], [ %.0726, %2432 ], [ %.0726, %2406 ], [ %.0726, %2392 ], [ %.25, %2403 ], [ %.0726, %2358 ], [ %.0726, %2337 ], [ %.23, %2371 ], [ %.20, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213 ], [ %2336, %2324 ], [ %.20, %2318 ], [ %.0726, %2187 ], [ %.019.i1170, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1191 ], [ %.0726, %2132 ], [ %2114, %2102 ], [ %.0726, %1981 ], [ %.0726, %2041 ], [ %.0726, %2004 ], [ %.0726, %1906 ], [ %1889, %_ZN6icu_77L16isLineTerminatorEi.exit1143.thread1360 ], [ %.0726, %1804 ], [ %.0726, %1782 ], [ %1817, %.critedge1067 ], [ %.0726, %1678 ], [ %.0726, %1655 ], [ %1691, %.critedge1063 ], [ %1565, %1553 ], [ %.0726, %1551 ], [ %1395, %1383 ], [ %.0726, %1381 ], [ %1298, %_ZN6icu_77L16isLineTerminatorEi.exit1124.thread ], [ %.0726, %1285 ], [ %1201, %1189 ], [ %.0726, %1187 ], [ %1083, %1071 ], [ %.0726, %1069 ], [ %989, %977 ], [ %.0726, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit ], [ %950, %938 ], [ %.0726, %933 ], [ %.0726, %918 ], [ %932, %920 ], [ %.0726, %858 ], [ %872, %860 ], [ %.0726, %694 ], [ %.0726, %719 ], [ %733, %_ZN6icu_77L16isLineTerminatorEi.exit.thread ], [ %.0726, %.critedge1058 ], [ %.0726, %509 ], [ %565, %553 ], [ %311, %.loopexit ], [ %.0726, %298 ], [ %.0726, %93 ], [ %114, %102 ], [ %193, %.thread ], [ %.0726, %179 ], [ %377, %365 ], [ %.0726, %378 ], [ %.0726, %384 ], [ %.0726, %399 ], [ %647, %635 ], [ %.0726, %634 ], [ %.0726, %569 ], [ %.0726, %651 ], [ %.0726, %776 ], [ %790, %778 ], [ %.0726, %737 ], [ %.0726, %791 ], [ %806, %794 ], [ %.0726, %807 ], [ %.0726, %873 ], [ %1005, %993 ], [ %1105, %1093 ], [ %.0726, %1090 ], [ %.0726, %1087 ], [ %1121, %1109 ], [ %1217, %1205 ], [ %1314, %1302 ], [ %.0726, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit ], [ %.0726, %1435 ], [ %1411, %1399 ], [ %.0726, %1453 ], [ %1452, %1440 ], [ %1469, %1457 ], [ %1581, %1569 ], [ %1707, %1695 ], [ %1833, %1821 ], [ %1923, %1911 ], [ %2058, %2046 ], [ %.0726, %2134 ], [ %.019.i1148, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1169 ], [ %.0726, %2445 ], [ %.0726, %2670 ], [ %.0726, %2701 ], [ %.34, %2740 ], [ %2828, %.thread1378 ], [ %.0726, %2814 ], [ %.35, %2945 ], [ %.0726, %2946 ], [ %.0726, %3173 ], [ %3172, %3160 ], [ %3405, %3383 ], [ %3382, %3370 ], [ %.0726, %3689 ]
+.critedge1072:                                    ; preds = %693, %693, %693, %693, %693, %693, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325, %2814, %.thread1362, %1804, %1782, %1678, %1655, %634, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i, %179, %3630, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315, %3492, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290, %3308, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266, %3086, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243, %2686, %2688, %2590, %2667, %2483, %.loopexit1408, %2566, %._crit_edge1447, %2453, %2406, %2426, %2432, %2441, %2435, %2392, %2403, %2371, %2337, %2358, %2318, %2324, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212, %2187, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190, %2102, %2132, %1981, %2041, %2004, %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359, %1906, %.critedge1066, %.critedge1062, %1551, %1553, %1381, %1383, %1285, %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread, %1187, %1189, %1069, %1071, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit, %977, %933, %938, %918, %920, %860, %858, %_ZN6icu_77L16isLineTerminatorEi.exit.thread, %719, %694, %509, %553, %.critedge1057, %298, %.loopexit, %3689, %1440, %1453, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit, %1435, %1087, %1090, %1093, %873, %807, %791, %794, %776, %778, %3383, %3370, %3173, %3160, %2946, %2945, %.thread1377, %2740, %2701, %2670, %2445, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168, %2134, %2046, %1911, %1821, %1695, %1569, %1457, %1399, %1302, %1205, %1109, %993, %737, %651, %635, %569, %399, %384, %378, %365, %.thread, %102, %93
+  %.1727.ph = phi ptr [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0726, %693 ], [ %.0.i.i1322, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1325 ], [ %.0726, %.thread1362 ], [ %.0.i.i1097, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i ], [ %.019.i1294, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1315 ], [ %.0726, %3630 ], [ %.019.i1269, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1290 ], [ %.0726, %3492 ], [ %.019.i1245, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1266 ], [ %.0726, %3308 ], [ %.019.i1222, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1243 ], [ %3098, %3086 ], [ %2700, %2688 ], [ %.0726, %2686 ], [ %.32, %2667 ], [ %2602, %2590 ], [ %2579, %.loopexit1408 ], [ %.0726, %2566 ], [ %2495, %2483 ], [ %.0726, %2453 ], [ %2467, %._crit_edge1447 ], [ %.0726, %2435 ], [ %2444, %2441 ], [ %.0726, %2426 ], [ %.0726, %2432 ], [ %.0726, %2406 ], [ %.0726, %2392 ], [ %.25, %2403 ], [ %.0726, %2358 ], [ %.0726, %2337 ], [ %.23, %2371 ], [ %.20, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1212 ], [ %2336, %2324 ], [ %.20, %2318 ], [ %.0726, %2187 ], [ %.019.i1169, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1190 ], [ %.0726, %2132 ], [ %2114, %2102 ], [ %.0726, %1981 ], [ %.0726, %2041 ], [ %.0726, %2004 ], [ %.0726, %1906 ], [ %1889, %_ZN6icu_77L16isLineTerminatorEi.exit1142.thread1359 ], [ %.0726, %1804 ], [ %.0726, %1782 ], [ %1817, %.critedge1066 ], [ %.0726, %1678 ], [ %.0726, %1655 ], [ %1691, %.critedge1062 ], [ %1565, %1553 ], [ %.0726, %1551 ], [ %1395, %1383 ], [ %.0726, %1381 ], [ %1298, %_ZN6icu_77L16isLineTerminatorEi.exit1123.thread ], [ %.0726, %1285 ], [ %1201, %1189 ], [ %.0726, %1187 ], [ %1083, %1071 ], [ %.0726, %1069 ], [ %989, %977 ], [ %.0726, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit ], [ %950, %938 ], [ %.0726, %933 ], [ %.0726, %918 ], [ %932, %920 ], [ %.0726, %858 ], [ %872, %860 ], [ %.0726, %694 ], [ %.0726, %719 ], [ %733, %_ZN6icu_77L16isLineTerminatorEi.exit.thread ], [ %.0726, %.critedge1057 ], [ %.0726, %509 ], [ %565, %553 ], [ %311, %.loopexit ], [ %.0726, %298 ], [ %.0726, %3689 ], [ %3405, %3383 ], [ %3382, %3370 ], [ %.0726, %3173 ], [ %3172, %3160 ], [ %.0726, %2946 ], [ %.35, %2945 ], [ %.0726, %2814 ], [ %2828, %.thread1377 ], [ %.34, %2740 ], [ %.0726, %2701 ], [ %.0726, %2670 ], [ %.0726, %2445 ], [ %.019.i1147, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1168 ], [ %.0726, %2134 ], [ %2058, %2046 ], [ %1923, %1911 ], [ %1833, %1821 ], [ %1707, %1695 ], [ %1581, %1569 ], [ %1469, %1457 ], [ %.0726, %1453 ], [ %1452, %1440 ], [ %.0726, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit ], [ %.0726, %1435 ], [ %1411, %1399 ], [ %1314, %1302 ], [ %1217, %1205 ], [ %1121, %1109 ], [ %1105, %1093 ], [ %.0726, %1090 ], [ %.0726, %1087 ], [ %1005, %993 ], [ %.0726, %873 ], [ %.0726, %807 ], [ %.0726, %791 ], [ %806, %794 ], [ %.0726, %776 ], [ %790, %778 ], [ %.0726, %737 ], [ %.0726, %651 ], [ %.0726, %634 ], [ %647, %635 ], [ %.0726, %569 ], [ %.0726, %399 ], [ %.0726, %384 ], [ %.0726, %378 ], [ %377, %365 ], [ %.0726, %179 ], [ %193, %.thread ], [ %114, %102 ], [ %.0726, %93 ]
   %.pr = load i32, ptr %3, align 4, !tbaa !13
   %3857 = icmp slt i32 %.pr, 1
-  br i1 %3857, label %93, label %.thread1399, !llvm.loop !146
+  br i1 %3857, label %93, label %.thread1398, !llvm.loop !146
 
-.thread1399.sink.split:                           ; preds = %93, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097
-  %.sink1584 = phi i32 [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1097 ], [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1322 ], [ 5, %93 ]
-  store i32 %.sink1584, ptr %3, align 4, !tbaa !13
-  br label %.thread1399
+.thread1398.sink.split:                           ; preds = %93, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096
+  %.sink1583 = phi i32 [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1096 ], [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1321 ], [ 5, %93 ]
+  store i32 %.sink1583, ptr %3, align 4, !tbaa !13
+  br label %.thread1398
 
-.thread1399:                                      ; preds = %312, %3807, %93, %.critedge1073, %.thread1399.sink.split
-  %.3729.ph = phi ptr [ %.0726, %.thread1399.sink.split ], [ %.0726, %312 ], [ %.0726, %3807 ], [ %.0726, %93 ], [ %.1727.ph, %.critedge1073 ]
+.thread1398:                                      ; preds = %312, %3807, %93, %.critedge1072, %.thread1398.sink.split
+  %.3729.ph = phi ptr [ %.0726, %.thread1398.sink.split ], [ %.0726, %312 ], [ %.0726, %3807 ], [ %.0726, %93 ], [ %.1727.ph, %.critedge1072 ]
   store i8 0, ptr %89, align 2, !tbaa !29
   br label %3863
 
@@ -11337,18 +11337,18 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1326: ; preds = %.si
   store i64 %3862, ptr %90, align 8, !tbaa !92
   br label %3863
 
-3863:                                             ; preds = %.thread1399, %3858
-  %.37291403 = phi ptr [ %.3729.ph, %.thread1399 ], [ %.0726, %3858 ]
+3863:                                             ; preds = %.thread1398, %3858
+  %.37291402 = phi ptr [ %.3729.ph, %.thread1398 ], [ %.0726, %3858 ]
   %3864 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.37291403, ptr %3864, align 8, !tbaa !109
+  store ptr %.37291402, ptr %3864, align 8, !tbaa !109
   br label %3865
 
 3865:                                             ; preds = %62, %3863, %4
   ret void
 
 3866:                                             ; preds = %2886, %2669
-  %.pn971 = phi { ptr, i32 } [ %lpad.phi1417, %2886 ], [ %.pn968.pn, %2669 ]
-  resume { ptr, i32 } %.pn971
+  %.pn968.pn.pn = phi { ptr, i32 } [ %.pn968.pn, %2669 ], [ %lpad.phi1416, %2886 ]
+  resume { ptr, i32 } %.pn968.pn.pn
 }
 
 declare noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #9
@@ -11614,7 +11614,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %70 = getelementptr inbounds nuw i8, ptr %58, i64 132
   %71 = load i32, ptr %70, align 4, !tbaa !57
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph, label %.preheader1494
+  br i1 %72, label %.lr.ph, label %.preheader1493
 
 .lr.ph:                                           ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -11622,13 +11622,13 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %75 = zext nneg i32 %71 to i64
   %76 = shl nuw nsw i64 %75, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 %76, i1 false), !tbaa !110
-  br label %.preheader1494
+  br label %.preheader1493
 
-.preheader1494:                                   ; preds = %.lr.ph, %67
+.preheader1493:                                   ; preds = %.lr.ph, %67
   %invariant.gep = getelementptr i8, ptr %16, i64 -16
-  %invariant.gep1534 = getelementptr i8, ptr %32, i64 -4
-  %invariant.gep1546 = getelementptr i8, ptr %32, i64 -2
-  %invariant.gep1548 = getelementptr i8, ptr %16, i64 -8
+  %invariant.gep1533 = getelementptr i8, ptr %32, i64 -4
+  %invariant.gep1545 = getelementptr i8, ptr %32, i64 -2
+  %invariant.gep1547 = getelementptr i8, ptr %16, i64 -8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -11649,11 +11649,11 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.not1071 = icmp eq i8 %2, 0
+  %.not1070 = icmp eq i8 %2, 0
   br label %97
 
-97:                                               ; preds = %.preheader1494, %.critedge1082
-  %.0806 = phi ptr [ %.1807.ph, %.critedge1082 ], [ %.0.i.i, %.preheader1494 ]
+97:                                               ; preds = %.preheader1493, %.critedge1081
+  %.0806 = phi ptr [ %.1807.ph, %.critedge1081 ], [ %.0.i.i, %.preheader1493 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0806, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !135
   %100 = getelementptr inbounds i64, ptr %16, i64 %99
@@ -11664,8 +11664,8 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   store i64 %104, ptr %98, align 8, !tbaa !135
   %105 = lshr i64 %101, 24
   %trunc = trunc i64 %105 to i8
-  switch i8 %trunc, label %.thread1475.sink.split [
-    i8 7, label %.critedge1082
+  switch i8 %trunc, label %.thread1474.sink.split [
+    i8 7, label %.critedge1081
     i8 1, label %106
     i8 3, label %119
     i8 4, label %158
@@ -11696,7 +11696,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
     i8 21, label %1140
     i8 27, label %1179
     i8 13, label %1224
-    i8 14, label %.thread1475
+    i8 14, label %.thread1474
     i8 15, label %1226
     i8 18, label %1277
     i8 25, label %1340
@@ -11738,7 +11738,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %116 = sext i32 %108 to i64
   %117 = sub nsw i64 0, %116
   %118 = getelementptr inbounds i64, ptr %115, i64 %117
-  br label %.critedge1082
+  br label %.critedge1081
 
 119:                                              ; preds = %97
   %120 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -11755,9 +11755,9 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %128 = and i32 %127, 64512
   %129 = icmp ne i32 %128, 55296
   %130 = load i64, ptr %82, align 8
-  %.not1076 = icmp eq i64 %124, %130
-  %or.cond1119 = select i1 %129, i1 true, i1 %.not1076
-  br i1 %or.cond1119, label %142, label %131
+  %.not1075 = icmp eq i64 %124, %130
+  %or.cond1118 = select i1 %129, i1 true, i1 %.not1075
+  br i1 %or.cond1118, label %142, label %131
 
 131:                                              ; preds = %123
   %132 = getelementptr inbounds i16, ptr %32, i64 %124
@@ -11778,7 +11778,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 142:                                              ; preds = %131, %137, %123
   %.1830 = phi i32 [ %127, %123 ], [ %141, %137 ], [ %127, %131 ]
   %143 = icmp eq i32 %.1830, %103
-  br i1 %143, label %.critedge1082, label %145
+  br i1 %143, label %.critedge1081, label %145
 
 144:                                              ; preds = %119
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -11790,16 +11790,16 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load i32, ptr %148, align 8, !tbaa !134
   %150 = sub nsw i32 %149, %147
-  %spec.select.i1135 = call i32 @llvm.smax.i32(i32 %150, i32 0)
-  store i32 %spec.select.i1135, ptr %148, align 8, !tbaa !134
+  %spec.select.i1134 = call i32 @llvm.smax.i32(i32 %150, i32 0)
+  store i32 %spec.select.i1134, ptr %148, align 8, !tbaa !134
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %152 = load ptr, ptr %151, align 8, !tbaa !131
-  %153 = zext nneg i32 %spec.select.i1135 to i64
+  %153 = zext nneg i32 %spec.select.i1134 to i64
   %154 = getelementptr inbounds nuw i64, ptr %152, i64 %153
   %155 = sext i32 %147 to i64
   %156 = sub nsw i64 0, %155
   %157 = getelementptr inbounds i64, ptr %154, i64 %156
-  br label %.critedge1082
+  br label %.critedge1081
 
 158:                                              ; preds = %97
   %159 = getelementptr inbounds i64, ptr %16, i64 %104
@@ -11823,8 +11823,8 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   br i1 %171, label %172, label %.critedge
 
 172:                                              ; preds = %170
-  %.not1073 = icmp ult ptr %.0831, %166
-  br i1 %.not1073, label %174, label %173
+  %.not1072 = icmp ult ptr %.0831, %166
+  br i1 %.not1072, label %174, label %173
 
 173:                                              ; preds = %172
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -11835,13 +11835,13 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %176 = load i16, ptr %.0831, align 2, !tbaa !93
   %177 = getelementptr inbounds nuw i8, ptr %.0832, i64 2
   %178 = load i16, ptr %.0832, align 2, !tbaa !93
-  %.not1074 = icmp eq i16 %176, %178
-  br i1 %.not1074, label %170, label %.loopexit, !llvm.loop !147
+  %.not1073 = icmp eq i16 %176, %178
+  br i1 %.not1073, label %170, label %.loopexit, !llvm.loop !147
 
 .critedge:                                        ; preds = %170
   %179 = add nsw i64 %163, %162
   store i64 %179, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
 .loopexit:                                        ; preds = %174, %173
   %180 = load ptr, ptr %36, align 8, !tbaa !64
@@ -11849,22 +11849,22 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %183 = load i32, ptr %182, align 8, !tbaa !134
   %184 = sub nsw i32 %183, %181
-  %spec.select.i1136 = call i32 @llvm.smax.i32(i32 %184, i32 0)
-  store i32 %spec.select.i1136, ptr %182, align 8, !tbaa !134
+  %spec.select.i1135 = call i32 @llvm.smax.i32(i32 %184, i32 0)
+  store i32 %spec.select.i1135, ptr %182, align 8, !tbaa !134
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %186 = load ptr, ptr %185, align 8, !tbaa !131
-  %187 = zext nneg i32 %spec.select.i1136 to i64
+  %187 = zext nneg i32 %spec.select.i1135 to i64
   %188 = getelementptr inbounds nuw i64, ptr %186, i64 %187
   %189 = sext i32 %181 to i64
   %190 = sub nsw i64 0, %189
   %191 = getelementptr inbounds i64, ptr %188, i64 %190
-  br label %.critedge1082
+  br label %.critedge1081
 
 192:                                              ; preds = %97
   %193 = and i64 %101, 16777215
   %194 = load i32, ptr %3, align 4, !tbaa !13
   %195 = icmp slt i32 %194, 1
-  br i1 %195, label %196, label %.thread1475
+  br i1 %195, label %196, label %.thread1474
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %36, align 8, !tbaa !64
@@ -11875,51 +11875,51 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %202 = icmp slt i32 %201, 0
   %203 = getelementptr inbounds nuw i8, ptr %197, i64 12
   %204 = load i32, ptr %203, align 4
-  %.not.i.i.i1137 = icmp slt i32 %204, %201
-  %or.cond.i.i.i1138 = select i1 %202, i1 true, i1 %.not.i.i.i1137
-  br i1 %or.cond.i.i.i1138, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1144, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1139
+  %.not.i.i.i1136 = icmp slt i32 %204, %201
+  %or.cond.i.i.i1137 = select i1 %202, i1 true, i1 %.not.i.i.i1136
+  br i1 %or.cond.i.i.i1137, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1143, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1138
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1144: ; preds = %196
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1143: ; preds = %196
   %205 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %197, i32 noundef %201, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %206 = icmp eq i8 %205, 0
-  br i1 %206, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1145
+  br i1 %206, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1144
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1145: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1144
-  %.pre.i.i1146 = load i32, ptr %199, align 8, !tbaa !134
-  %.pre6.i.i1147 = add nsw i32 %.pre.i.i1146, %198
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1139
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1144: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1143
+  %.pre.i.i1145 = load i32, ptr %199, align 8, !tbaa !134
+  %.pre6.i.i1146 = add nsw i32 %.pre.i.i1145, %198
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1138
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1139: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1145, %196
-  %.pre-phi.i.i1140 = phi i32 [ %.pre6.i.i1147, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1145 ], [ %201, %196 ]
-  %207 = phi i32 [ %.pre.i.i1146, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1145 ], [ %200, %196 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1138: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1144, %196
+  %.pre-phi.i.i1139 = phi i32 [ %.pre6.i.i1146, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1144 ], [ %201, %196 ]
+  %207 = phi i32 [ %.pre.i.i1145, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1144 ], [ %200, %196 ]
   %208 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %209 = load ptr, ptr %208, align 8, !tbaa !131
   %210 = sext i32 %207 to i64
   %211 = getelementptr inbounds i64, ptr %209, i64 %210
-  store i32 %.pre-phi.i.i1140, ptr %199, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141
+  store i32 %.pre-phi.i.i1139, ptr %199, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1139, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1144
-  %.0.i.i1142 = phi ptr [ %211, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1139 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1144 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1138, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1143
+  %.0.i.i1141 = phi ptr [ %211, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1138 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1143 ]
   %212 = load i32, ptr %3, align 4, !tbaa !13
   %213 = icmp slt i32 %212, 1
-  br i1 %213, label %214, label %.thread1475.sink.split
+  br i1 %213, label %214, label %.thread1474.sink.split
 
-214:                                              ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141
+214:                                              ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140
   %215 = load i32, ptr %35, align 8, !tbaa !17
   %216 = sext i32 %215 to i64
   %217 = sub nsw i64 0, %216
-  %218 = getelementptr inbounds i64, ptr %.0.i.i1142, i64 %217
+  %218 = getelementptr inbounds i64, ptr %.0.i.i1141, i64 %217
   br label %219
 
 219:                                              ; preds = %219, %214
   %.018.i = phi ptr [ %218, %214 ], [ %220, %219 ]
-  %.0.i1143 = phi ptr [ %.0.i.i1142, %214 ], [ %222, %219 ]
+  %.0.i1142 = phi ptr [ %.0.i.i1141, %214 ], [ %222, %219 ]
   %220 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %221 = load i64, ptr %.018.i, align 8, !tbaa !110
-  %222 = getelementptr inbounds nuw i8, ptr %.0.i1143, i64 8
-  store i64 %221, ptr %.0.i1143, align 8, !tbaa !110
-  %223 = icmp eq ptr %220, %.0.i.i1142
+  %222 = getelementptr inbounds nuw i8, ptr %.0.i1142, i64 8
+  store i64 %221, ptr %.0.i1142, align 8, !tbaa !110
+  %223 = icmp eq ptr %220, %.0.i.i1141
   br i1 %223, label %224, label %219, !llvm.loop !139
 
 224:                                              ; preds = %219
@@ -11964,16 +11964,16 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141: ; preds = %_ZN6icu
 _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.split.i.i, %236, %224
   %240 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i64 %193, ptr %240, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 241:                                              ; preds = %97
-  br i1 %.not1071, label %2529, label %242
+  br i1 %.not1070, label %2529, label %242
 
 242:                                              ; preds = %241
   %243 = load i64, ptr %.0806, align 8, !tbaa !137
   %244 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1072 = icmp eq i64 %243, %244
-  br i1 %.not1072, label %2529, label %245
+  %.not1071 = icmp eq i64 %243, %244
+  br i1 %.not1071, label %2529, label %245
 
 245:                                              ; preds = %242
   %246 = load ptr, ptr %36, align 8, !tbaa !64
@@ -11981,16 +11981,16 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %249 = load i32, ptr %248, align 8, !tbaa !134
   %250 = sub nsw i32 %249, %247
-  %spec.select.i1148 = call i32 @llvm.smax.i32(i32 %250, i32 0)
-  store i32 %spec.select.i1148, ptr %248, align 8, !tbaa !134
+  %spec.select.i1147 = call i32 @llvm.smax.i32(i32 %250, i32 0)
+  store i32 %spec.select.i1147, ptr %248, align 8, !tbaa !134
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %252 = load ptr, ptr %251, align 8, !tbaa !131
-  %253 = zext nneg i32 %spec.select.i1148 to i64
+  %253 = zext nneg i32 %spec.select.i1147 to i64
   %254 = getelementptr inbounds nuw i64, ptr %252, i64 %253
   %255 = sext i32 %247 to i64
   %256 = sub nsw i64 0, %255
   %257 = getelementptr inbounds i64, ptr %254, i64 %256
-  br label %.critedge1082
+  br label %.critedge1081
 
 258:                                              ; preds = %97
   %259 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -11999,7 +11999,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %262 = zext nneg i32 %261 to i64
   %263 = getelementptr inbounds nuw [1 x i64], ptr %260, i64 0, i64 %262
   store i64 %259, ptr %263, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 264:                                              ; preds = %97
   %265 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -12015,7 +12015,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %274 = zext nneg i32 %273 to i64
   %275 = getelementptr inbounds nuw [1 x i64], ptr %265, i64 0, i64 %274
   store i64 %272, ptr %275, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 276:                                              ; preds = %97
   %277 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -12030,25 +12030,25 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %285 = load i32, ptr %284, align 8, !tbaa !134
   %286 = sub nsw i32 %285, %283
-  %spec.select.i1149 = call i32 @llvm.smax.i32(i32 %286, i32 0)
-  store i32 %spec.select.i1149, ptr %284, align 8, !tbaa !134
+  %spec.select.i1148 = call i32 @llvm.smax.i32(i32 %286, i32 0)
+  store i32 %spec.select.i1148, ptr %284, align 8, !tbaa !134
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 24
   %288 = load ptr, ptr %287, align 8, !tbaa !131
-  %289 = zext nneg i32 %spec.select.i1149 to i64
+  %289 = zext nneg i32 %spec.select.i1148 to i64
   %290 = getelementptr inbounds nuw i64, ptr %288, i64 %289
   %291 = sext i32 %283 to i64
   %292 = sub nsw i64 0, %291
   %293 = getelementptr inbounds i64, ptr %290, i64 %292
-  br label %.critedge1082
+  br label %.critedge1081
 
 294:                                              ; preds = %276
-  %.not1068 = icmp slt i64 %277, %278
-  br i1 %.not1068, label %296, label %295
+  %.not1067 = icmp slt i64 %277, %278
+  br i1 %.not1067, label %296, label %295
 
 295:                                              ; preds = %294
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 296:                                              ; preds = %294
   %297 = add nsw i64 %278, -1
@@ -12070,8 +12070,8 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 
 308:                                              ; preds = %305
   %309 = add nsw i64 %277, 1
-  %.not1069 = icmp eq i64 %309, %278
-  br i1 %.not1069, label %333, label %310
+  %.not1068 = icmp eq i64 %309, %278
+  br i1 %.not1068, label %333, label %310
 
 310:                                              ; preds = %308
   %311 = getelementptr inbounds i16, ptr %32, i64 %309
@@ -12109,15 +12109,15 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 333:                                              ; preds = %316, %310, %308, %329, %323, %320, %299
   %.1835 = phi i32 [ %302, %299 ], [ %319, %316 ], [ %302, %310 ], [ %302, %308 ], [ %332, %329 ], [ %302, %323 ], [ %302, %320 ]
   %334 = call fastcc noundef signext i8 @_ZN6icu_77L16isLineTerminatorEi(i32 noundef %.1835)
-  %.not1070 = icmp eq i8 %334, 0
-  br i1 %.not1070, label %.thread, label %335
+  %.not1069 = icmp eq i8 %334, 0
+  br i1 %.not1069, label %.thread, label %335
 
 335:                                              ; preds = %333
   %336 = icmp eq i32 %.1835, 10
   %337 = load i64, ptr %96, align 8
   %338 = icmp sgt i64 %277, %337
-  %or.cond1482 = select i1 %336, i1 %338, i1 false
-  br i1 %or.cond1482, label %339, label %343
+  %or.cond1481 = select i1 %336, i1 %338, i1 false
+  br i1 %or.cond1481, label %339, label %343
 
 339:                                              ; preds = %335
   %340 = getelementptr i8, ptr %300, i64 -2
@@ -12128,7 +12128,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 343:                                              ; preds = %335, %339
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 344:                                              ; preds = %296
   %345 = icmp eq i64 %277, %279
@@ -12149,7 +12149,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 354:                                              ; preds = %350
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 .thread:                                          ; preds = %333, %339, %344, %346, %350
   %355 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12157,23 +12157,23 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %358 = load i32, ptr %357, align 8, !tbaa !134
   %359 = sub nsw i32 %358, %356
-  %spec.select.i1150 = call i32 @llvm.smax.i32(i32 %359, i32 0)
-  store i32 %spec.select.i1150, ptr %357, align 8, !tbaa !134
+  %spec.select.i1149 = call i32 @llvm.smax.i32(i32 %359, i32 0)
+  store i32 %spec.select.i1149, ptr %357, align 8, !tbaa !134
   %360 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %361 = load ptr, ptr %360, align 8, !tbaa !131
-  %362 = zext nneg i32 %spec.select.i1150 to i64
+  %362 = zext nneg i32 %spec.select.i1149 to i64
   %363 = getelementptr inbounds nuw i64, ptr %361, i64 %362
   %364 = sext i32 %356 to i64
   %365 = sub nsw i64 0, %364
   %366 = getelementptr inbounds i64, ptr %363, i64 %365
-  br label %.critedge1082
+  br label %.critedge1081
 
 367:                                              ; preds = %97
   %368 = load i64, ptr %.0806, align 8, !tbaa !137
   %369 = load i64, ptr %90, align 8, !tbaa !71
   %370 = add nsw i64 %369, -1
-  %.not1067 = icmp slt i64 %368, %370
-  br i1 %.not1067, label %379, label %371
+  %.not1066 = icmp slt i64 %368, %370
+  br i1 %.not1066, label %379, label %371
 
 371:                                              ; preds = %367
   %372 = icmp eq i64 %368, %370
@@ -12188,12 +12188,12 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 377:                                              ; preds = %373
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 378:                                              ; preds = %371
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 379:                                              ; preds = %373, %367
   %380 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12201,58 +12201,58 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %383 = load i32, ptr %382, align 8, !tbaa !134
   %384 = sub nsw i32 %383, %381
-  %spec.select.i1151 = call i32 @llvm.smax.i32(i32 %384, i32 0)
-  store i32 %spec.select.i1151, ptr %382, align 8, !tbaa !134
+  %spec.select.i1150 = call i32 @llvm.smax.i32(i32 %384, i32 0)
+  store i32 %spec.select.i1150, ptr %382, align 8, !tbaa !134
   %385 = getelementptr inbounds nuw i8, ptr %380, i64 24
   %386 = load ptr, ptr %385, align 8, !tbaa !131
-  %387 = zext nneg i32 %spec.select.i1151 to i64
+  %387 = zext nneg i32 %spec.select.i1150 to i64
   %388 = getelementptr inbounds nuw i64, ptr %386, i64 %387
   %389 = sext i32 %381 to i64
   %390 = sub nsw i64 0, %389
   %391 = getelementptr inbounds i64, ptr %388, i64 %390
-  br label %.critedge1082
+  br label %.critedge1081
 
 392:                                              ; preds = %97
   %393 = load i64, ptr %.0806, align 8, !tbaa !137
   %394 = load i64, ptr %90, align 8, !tbaa !71
-  %.not1065 = icmp slt i64 %393, %394
-  br i1 %.not1065, label %396, label %395
+  %.not1064 = icmp slt i64 %393, %394
+  br i1 %.not1064, label %396, label %395
 
 395:                                              ; preds = %392
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 396:                                              ; preds = %392
   %397 = getelementptr inbounds i16, ptr %32, i64 %393
   %398 = load i16, ptr %397, align 2, !tbaa !93
   %399 = and i16 %398, -8368
-  %.not.i1152 = icmp eq i16 %399, 0
-  br i1 %.not.i1152, label %400, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread
+  %.not.i1151 = icmp eq i16 %399, 0
+  br i1 %.not.i1151, label %400, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread
 
 400:                                              ; preds = %396
   switch i16 %398, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread [
-    i16 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 133, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 13, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 12, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 11, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 10, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
-    i16 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
+    i16 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 133, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 13, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 12, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 11, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 10, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
+    i16 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
   ]
 
-_ZN6icu_77L16isLineTerminatorEi.exit.thread1391:  ; preds = %400, %400, %400, %400, %400, %400, %400
+_ZN6icu_77L16isLineTerminatorEi.exit.thread1390:  ; preds = %400, %400, %400, %400, %400, %400, %400
   %401 = icmp eq i16 %398, 10
   %402 = load i64, ptr %96, align 8
   %403 = icmp sgt i64 %393, %402
-  %or.cond1485 = select i1 %401, i1 %403, i1 false
-  br i1 %or.cond1485, label %404, label %.critedge1082
+  %or.cond1484 = select i1 %401, i1 %403, i1 false
+  br i1 %or.cond1484, label %404, label %.critedge1081
 
-404:                                              ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391
+404:                                              ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390
   %405 = getelementptr i8, ptr %397, i64 -2
   %406 = load i16, ptr %405, align 2, !tbaa !93
   %407 = icmp eq i16 %406, 13
-  br i1 %407, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread, label %.critedge1082
+  br i1 %407, label %_ZN6icu_77L16isLineTerminatorEi.exit.thread, label %.critedge1081
 
 _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %408 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12260,33 +12260,33 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %410 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %411 = load i32, ptr %410, align 8, !tbaa !134
   %412 = sub nsw i32 %411, %409
-  %spec.select.i1154 = call i32 @llvm.smax.i32(i32 %412, i32 0)
-  store i32 %spec.select.i1154, ptr %410, align 8, !tbaa !134
+  %spec.select.i1153 = call i32 @llvm.smax.i32(i32 %412, i32 0)
+  store i32 %spec.select.i1153, ptr %410, align 8, !tbaa !134
   %413 = getelementptr inbounds nuw i8, ptr %408, i64 24
   %414 = load ptr, ptr %413, align 8, !tbaa !131
-  %415 = zext nneg i32 %spec.select.i1154 to i64
+  %415 = zext nneg i32 %spec.select.i1153 to i64
   %416 = getelementptr inbounds nuw i64, ptr %414, i64 %415
   %417 = sext i32 %409 to i64
   %418 = sub nsw i64 0, %417
   %419 = getelementptr inbounds i64, ptr %416, i64 %418
-  br label %.critedge1082
+  br label %.critedge1081
 
 420:                                              ; preds = %97
   %421 = load i64, ptr %.0806, align 8, !tbaa !137
   %422 = load i64, ptr %90, align 8, !tbaa !71
-  %.not1063 = icmp slt i64 %421, %422
-  br i1 %.not1063, label %424, label %423
+  %.not1062 = icmp slt i64 %421, %422
+  br i1 %.not1062, label %424, label %423
 
 423:                                              ; preds = %420
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 424:                                              ; preds = %420
   %425 = getelementptr inbounds i16, ptr %32, i64 %421
   %426 = load i16, ptr %425, align 2, !tbaa !93
-  %.not1064 = icmp eq i16 %426, 10
-  br i1 %.not1064, label %.critedge1082, label %427
+  %.not1063 = icmp eq i16 %426, 10
+  br i1 %.not1063, label %.critedge1081, label %427
 
 427:                                              ; preds = %424
   %428 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12294,22 +12294,22 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %431 = load i32, ptr %430, align 8, !tbaa !134
   %432 = sub nsw i32 %431, %429
-  %spec.select.i1155 = call i32 @llvm.smax.i32(i32 %432, i32 0)
-  store i32 %spec.select.i1155, ptr %430, align 8, !tbaa !134
+  %spec.select.i1154 = call i32 @llvm.smax.i32(i32 %432, i32 0)
+  store i32 %spec.select.i1154, ptr %430, align 8, !tbaa !134
   %433 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %434 = load ptr, ptr %433, align 8, !tbaa !131
-  %435 = zext nneg i32 %spec.select.i1155 to i64
+  %435 = zext nneg i32 %spec.select.i1154 to i64
   %436 = getelementptr inbounds nuw i64, ptr %434, i64 %435
   %437 = sext i32 %429 to i64
   %438 = sub nsw i64 0, %437
   %439 = getelementptr inbounds i64, ptr %436, i64 %438
-  br label %.critedge1082
+  br label %.critedge1081
 
 440:                                              ; preds = %97
   %441 = load i64, ptr %.0806, align 8, !tbaa !137
   %442 = load i64, ptr %96, align 8, !tbaa !70
-  %.not1062 = icmp eq i64 %441, %442
-  br i1 %.not1062, label %.critedge1082, label %443
+  %.not1061 = icmp eq i64 %441, %442
+  br i1 %.not1061, label %.critedge1081, label %443
 
 443:                                              ; preds = %440
   %444 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12317,22 +12317,22 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %446 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %447 = load i32, ptr %446, align 8, !tbaa !134
   %448 = sub nsw i32 %447, %445
-  %spec.select.i1156 = call i32 @llvm.smax.i32(i32 %448, i32 0)
-  store i32 %spec.select.i1156, ptr %446, align 8, !tbaa !134
+  %spec.select.i1155 = call i32 @llvm.smax.i32(i32 %448, i32 0)
+  store i32 %spec.select.i1155, ptr %446, align 8, !tbaa !134
   %449 = getelementptr inbounds nuw i8, ptr %444, i64 24
   %450 = load ptr, ptr %449, align 8, !tbaa !131
-  %451 = zext nneg i32 %spec.select.i1156 to i64
+  %451 = zext nneg i32 %spec.select.i1155 to i64
   %452 = getelementptr inbounds nuw i64, ptr %450, i64 %451
   %453 = sext i32 %445 to i64
   %454 = sub nsw i64 0, %453
   %455 = getelementptr inbounds i64, ptr %452, i64 %454
-  br label %.critedge1082
+  br label %.critedge1081
 
 456:                                              ; preds = %97
   %457 = load i64, ptr %.0806, align 8, !tbaa !137
   %458 = load i64, ptr %96, align 8, !tbaa !70
   %459 = icmp eq i64 %457, %458
-  br i1 %459, label %.critedge1082, label %460
+  br i1 %459, label %.critedge1081, label %460
 
 460:                                              ; preds = %456
   %461 = load i64, ptr %90, align 8, !tbaa !71
@@ -12340,12 +12340,12 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   br i1 %462, label %463, label %467
 
 463:                                              ; preds = %460
-  %gep1555 = getelementptr i16, ptr %invariant.gep1546, i64 %457
-  %464 = load i16, ptr %gep1555, align 2, !tbaa !93
+  %gep1554 = getelementptr i16, ptr %invariant.gep1545, i64 %457
+  %464 = load i16, ptr %gep1554, align 2, !tbaa !93
   %465 = zext i16 %464 to i32
   %466 = call fastcc noundef signext i8 @_ZN6icu_77L16isLineTerminatorEi(i32 noundef %465)
-  %.not1061 = icmp eq i8 %466, 0
-  br i1 %.not1061, label %467, label %.critedge1082
+  %.not1060 = icmp eq i8 %466, 0
+  br i1 %.not1060, label %467, label %.critedge1081
 
 467:                                              ; preds = %463, %460
   %468 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12353,28 +12353,28 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %471 = load i32, ptr %470, align 8, !tbaa !134
   %472 = sub nsw i32 %471, %469
-  %spec.select.i1157 = call i32 @llvm.smax.i32(i32 %472, i32 0)
-  store i32 %spec.select.i1157, ptr %470, align 8, !tbaa !134
+  %spec.select.i1156 = call i32 @llvm.smax.i32(i32 %472, i32 0)
+  store i32 %spec.select.i1156, ptr %470, align 8, !tbaa !134
   %473 = getelementptr inbounds nuw i8, ptr %468, i64 24
   %474 = load ptr, ptr %473, align 8, !tbaa !131
-  %475 = zext nneg i32 %spec.select.i1157 to i64
+  %475 = zext nneg i32 %spec.select.i1156 to i64
   %476 = getelementptr inbounds nuw i64, ptr %474, i64 %475
   %477 = sext i32 %469 to i64
   %478 = sub nsw i64 0, %477
   %479 = getelementptr inbounds i64, ptr %476, i64 %478
-  br label %.critedge1082
+  br label %.critedge1081
 
 480:                                              ; preds = %97
   %481 = load i64, ptr %.0806, align 8, !tbaa !137
   %482 = load i64, ptr %96, align 8, !tbaa !70
-  %.not1059 = icmp sgt i64 %481, %482
-  br i1 %.not1059, label %483, label %.critedge1082
+  %.not1058 = icmp sgt i64 %481, %482
+  br i1 %.not1058, label %483, label %.critedge1081
 
 483:                                              ; preds = %480
-  %gep1553 = getelementptr i16, ptr %invariant.gep1546, i64 %481
-  %484 = load i16, ptr %gep1553, align 2, !tbaa !93
-  %.not1060 = icmp eq i16 %484, 10
-  br i1 %.not1060, label %.critedge1082, label %485
+  %gep1552 = getelementptr i16, ptr %invariant.gep1545, i64 %481
+  %484 = load i16, ptr %gep1552, align 2, !tbaa !93
+  %.not1059 = icmp eq i16 %484, 10
+  br i1 %.not1059, label %.critedge1081, label %485
 
 485:                                              ; preds = %483
   %486 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12382,16 +12382,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %489 = load i32, ptr %488, align 8, !tbaa !134
   %490 = sub nsw i32 %489, %487
-  %spec.select.i1158 = call i32 @llvm.smax.i32(i32 %490, i32 0)
-  store i32 %spec.select.i1158, ptr %488, align 8, !tbaa !134
+  %spec.select.i1157 = call i32 @llvm.smax.i32(i32 %490, i32 0)
+  store i32 %spec.select.i1157, ptr %488, align 8, !tbaa !134
   %491 = getelementptr inbounds nuw i8, ptr %486, i64 24
   %492 = load ptr, ptr %491, align 8, !tbaa !131
-  %493 = zext nneg i32 %spec.select.i1158 to i64
+  %493 = zext nneg i32 %spec.select.i1157 to i64
   %494 = getelementptr inbounds nuw i64, ptr %492, i64 %493
   %495 = sext i32 %487 to i64
   %496 = sub nsw i64 0, %495
   %497 = getelementptr inbounds i64, ptr %494, i64 %496
-  br label %.critedge1082
+  br label %.critedge1081
 
 498:                                              ; preds = %97
   %499 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -12399,8 +12399,8 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %501 = call noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr noundef nonnull align 8 dereferenceable(336) %0, i32 noundef %500)
   %502 = icmp ne i32 %103, 0
   %503 = zext i1 %502 to i8
-  %.not1058 = icmp eq i8 %501, %503
-  br i1 %.not1058, label %504, label %.critedge1082
+  %.not1057 = icmp eq i8 %501, %503
+  br i1 %.not1057, label %504, label %.critedge1081
 
 504:                                              ; preds = %498
   %505 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12408,16 +12408,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %400, %396, %404
   %507 = getelementptr inbounds nuw i8, ptr %505, i64 8
   %508 = load i32, ptr %507, align 8, !tbaa !134
   %509 = sub nsw i32 %508, %506
-  %spec.select.i1159 = call i32 @llvm.smax.i32(i32 %509, i32 0)
-  store i32 %spec.select.i1159, ptr %507, align 8, !tbaa !134
+  %spec.select.i1158 = call i32 @llvm.smax.i32(i32 %509, i32 0)
+  store i32 %spec.select.i1158, ptr %507, align 8, !tbaa !134
   %510 = getelementptr inbounds nuw i8, ptr %505, i64 24
   %511 = load ptr, ptr %510, align 8, !tbaa !131
-  %512 = zext nneg i32 %spec.select.i1159 to i64
+  %512 = zext nneg i32 %spec.select.i1158 to i64
   %513 = getelementptr inbounds nuw i64, ptr %511, i64 %512
   %514 = sext i32 %506 to i64
   %515 = sub nsw i64 0, %514
   %516 = getelementptr inbounds i64, ptr %513, i64 %515
-  br label %.critedge1082
+  br label %.critedge1081
 
 517:                                              ; preds = %97
   %518 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -12463,8 +12463,8 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %.07.i = phi i8 [ 0, %521 ], [ 1, %533 ], [ %540, %534 ]
   %541 = icmp ne i32 %103, 0
   %542 = zext i1 %541 to i8
-  %.not1057 = icmp eq i8 %.07.i, %542
-  br i1 %.not1057, label %543, label %.critedge1082
+  %.not1056 = icmp eq i8 %.07.i, %542
+  br i1 %.not1056, label %543, label %.critedge1081
 
 543:                                              ; preds = %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
   %544 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12472,22 +12472,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %546 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %547 = load i32, ptr %546, align 8, !tbaa !134
   %548 = sub nsw i32 %547, %545
-  %spec.select.i1160 = call i32 @llvm.smax.i32(i32 %548, i32 0)
-  store i32 %spec.select.i1160, ptr %546, align 8, !tbaa !134
+  %spec.select.i1159 = call i32 @llvm.smax.i32(i32 %548, i32 0)
+  store i32 %spec.select.i1159, ptr %546, align 8, !tbaa !134
   %549 = getelementptr inbounds nuw i8, ptr %544, i64 24
   %550 = load ptr, ptr %549, align 8, !tbaa !131
-  %551 = zext nneg i32 %spec.select.i1160 to i64
+  %551 = zext nneg i32 %spec.select.i1159 to i64
   %552 = getelementptr inbounds nuw i64, ptr %550, i64 %551
   %553 = sext i32 %545 to i64
   %554 = sub nsw i64 0, %553
   %555 = getelementptr inbounds i64, ptr %552, i64 %554
-  br label %.critedge1082
+  br label %.critedge1081
 
 556:                                              ; preds = %97
   %557 = load i64, ptr %.0806, align 8, !tbaa !137
   %558 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1055 = icmp slt i64 %557, %558
-  br i1 %.not1055, label %572, label %559
+  %.not1054 = icmp slt i64 %557, %558
+  br i1 %.not1054, label %572, label %559
 
 559:                                              ; preds = %556
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -12496,16 +12496,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %562 = getelementptr inbounds nuw i8, ptr %560, i64 8
   %563 = load i32, ptr %562, align 8, !tbaa !134
   %564 = sub nsw i32 %563, %561
-  %spec.select.i1161 = call i32 @llvm.smax.i32(i32 %564, i32 0)
-  store i32 %spec.select.i1161, ptr %562, align 8, !tbaa !134
+  %spec.select.i1160 = call i32 @llvm.smax.i32(i32 %564, i32 0)
+  store i32 %spec.select.i1160, ptr %562, align 8, !tbaa !134
   %565 = getelementptr inbounds nuw i8, ptr %560, i64 24
   %566 = load ptr, ptr %565, align 8, !tbaa !131
-  %567 = zext nneg i32 %spec.select.i1161 to i64
+  %567 = zext nneg i32 %spec.select.i1160 to i64
   %568 = getelementptr inbounds nuw i64, ptr %566, i64 %567
   %569 = sext i32 %561 to i64
   %570 = sub nsw i64 0, %569
   %571 = getelementptr inbounds i64, ptr %568, i64 %570
-  br label %.critedge1082
+  br label %.critedge1081
 
 572:                                              ; preds = %556
   %573 = add nsw i64 %557, 1
@@ -12516,9 +12516,9 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %577 = and i32 %576, 64512
   %578 = icmp ne i32 %577, 55296
   %579 = load i64, ptr %82, align 8
-  %.not1056 = icmp eq i64 %573, %579
-  %or.cond1120 = select i1 %578, i1 true, i1 %.not1056
-  br i1 %or.cond1120, label %591, label %580
+  %.not1055 = icmp eq i64 %573, %579
+  %or.cond1119 = select i1 %578, i1 true, i1 %.not1055
+  br i1 %or.cond1119, label %591, label %580
 
 580:                                              ; preds = %572
   %581 = getelementptr inbounds i16, ptr %32, i64 %573
@@ -12542,7 +12542,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %593 = icmp eq i8 %592, 9
   %594 = icmp ne i32 %103, 0
   %595 = xor i1 %594, %593
-  br i1 %595, label %.critedge1082, label %596
+  br i1 %595, label %.critedge1081, label %596
 
 596:                                              ; preds = %591
   %597 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12550,32 +12550,32 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %599 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %600 = load i32, ptr %599, align 8, !tbaa !134
   %601 = sub nsw i32 %600, %598
-  %spec.select.i1162 = call i32 @llvm.smax.i32(i32 %601, i32 0)
-  store i32 %spec.select.i1162, ptr %599, align 8, !tbaa !134
+  %spec.select.i1161 = call i32 @llvm.smax.i32(i32 %601, i32 0)
+  store i32 %spec.select.i1161, ptr %599, align 8, !tbaa !134
   %602 = getelementptr inbounds nuw i8, ptr %597, i64 24
   %603 = load ptr, ptr %602, align 8, !tbaa !131
-  %604 = zext nneg i32 %spec.select.i1162 to i64
+  %604 = zext nneg i32 %spec.select.i1161 to i64
   %605 = getelementptr inbounds nuw i64, ptr %603, i64 %604
   %606 = sext i32 %598 to i64
   %607 = sub nsw i64 0, %606
   %608 = getelementptr inbounds i64, ptr %605, i64 %607
-  br label %.critedge1082
+  br label %.critedge1081
 
 609:                                              ; preds = %97
   %610 = load i8, ptr %93, align 2, !tbaa !29
-  %.not1054 = icmp eq i8 %610, 0
+  %.not1053 = icmp eq i8 %610, 0
   %611 = load i64, ptr %.0806, align 8, !tbaa !137
-  br i1 %.not1054, label %615, label %612
+  br i1 %.not1053, label %615, label %612
 
 612:                                              ; preds = %609
   %613 = load i64, ptr %94, align 8, !tbaa !92
   %614 = icmp eq i64 %611, %613
-  br i1 %614, label %.critedge1082, label %618
+  br i1 %614, label %.critedge1081, label %618
 
 615:                                              ; preds = %609
   %616 = load i64, ptr %85, align 8, !tbaa !68
   %617 = icmp eq i64 %611, %616
-  br i1 %617, label %.critedge1082, label %618
+  br i1 %617, label %.critedge1081, label %618
 
 618:                                              ; preds = %612, %615
   %619 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12583,22 +12583,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %621 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %622 = load i32, ptr %621, align 8, !tbaa !134
   %623 = sub nsw i32 %622, %620
-  %spec.select.i1163 = call i32 @llvm.smax.i32(i32 %623, i32 0)
-  store i32 %spec.select.i1163, ptr %621, align 8, !tbaa !134
+  %spec.select.i1162 = call i32 @llvm.smax.i32(i32 %623, i32 0)
+  store i32 %spec.select.i1162, ptr %621, align 8, !tbaa !134
   %624 = getelementptr inbounds nuw i8, ptr %619, i64 24
   %625 = load ptr, ptr %624, align 8, !tbaa !131
-  %626 = zext nneg i32 %spec.select.i1163 to i64
+  %626 = zext nneg i32 %spec.select.i1162 to i64
   %627 = getelementptr inbounds nuw i64, ptr %625, i64 %626
   %628 = sext i32 %620 to i64
   %629 = sub nsw i64 0, %628
   %630 = getelementptr inbounds i64, ptr %627, i64 %629
-  br label %.critedge1082
+  br label %.critedge1081
 
 631:                                              ; preds = %97
   %632 = load i64, ptr %.0806, align 8, !tbaa !137
   %633 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1052 = icmp slt i64 %632, %633
-  br i1 %.not1052, label %647, label %634
+  %.not1051 = icmp slt i64 %632, %633
+  br i1 %.not1051, label %647, label %634
 
 634:                                              ; preds = %631
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -12607,16 +12607,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %637 = getelementptr inbounds nuw i8, ptr %635, i64 8
   %638 = load i32, ptr %637, align 8, !tbaa !134
   %639 = sub nsw i32 %638, %636
-  %spec.select.i1164 = call i32 @llvm.smax.i32(i32 %639, i32 0)
-  store i32 %spec.select.i1164, ptr %637, align 8, !tbaa !134
+  %spec.select.i1163 = call i32 @llvm.smax.i32(i32 %639, i32 0)
+  store i32 %spec.select.i1163, ptr %637, align 8, !tbaa !134
   %640 = getelementptr inbounds nuw i8, ptr %635, i64 24
   %641 = load ptr, ptr %640, align 8, !tbaa !131
-  %642 = zext nneg i32 %spec.select.i1164 to i64
+  %642 = zext nneg i32 %spec.select.i1163 to i64
   %643 = getelementptr inbounds nuw i64, ptr %641, i64 %642
   %644 = sext i32 %636 to i64
   %645 = sub nsw i64 0, %644
   %646 = getelementptr inbounds i64, ptr %643, i64 %645
-  br label %.critedge1082
+  br label %.critedge1081
 
 647:                                              ; preds = %631
   %648 = add nsw i64 %632, 1
@@ -12627,9 +12627,9 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %652 = and i32 %651, 64512
   %653 = icmp ne i32 %652, 55296
   %654 = load i64, ptr %82, align 8
-  %.not1053 = icmp eq i64 %648, %654
-  %or.cond1121 = select i1 %653, i1 true, i1 %.not1053
-  br i1 %or.cond1121, label %666, label %655
+  %.not1052 = icmp eq i64 %648, %654
+  %or.cond1120 = select i1 %653, i1 true, i1 %.not1052
+  br i1 %or.cond1120, label %666, label %655
 
 655:                                              ; preds = %647
   %656 = getelementptr inbounds i16, ptr %32, i64 %648
@@ -12655,7 +12655,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %670 = or i1 %669, %668
   %671 = icmp ne i32 %103, 0
   %672 = xor i1 %671, %670
-  br i1 %672, label %.critedge1082, label %673
+  br i1 %672, label %.critedge1081, label %673
 
 673:                                              ; preds = %666
   %674 = load ptr, ptr %36, align 8, !tbaa !64
@@ -12663,22 +12663,22 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %676 = getelementptr inbounds nuw i8, ptr %674, i64 8
   %677 = load i32, ptr %676, align 8, !tbaa !134
   %678 = sub nsw i32 %677, %675
-  %spec.select.i1165 = call i32 @llvm.smax.i32(i32 %678, i32 0)
-  store i32 %spec.select.i1165, ptr %676, align 8, !tbaa !134
+  %spec.select.i1164 = call i32 @llvm.smax.i32(i32 %678, i32 0)
+  store i32 %spec.select.i1164, ptr %676, align 8, !tbaa !134
   %679 = getelementptr inbounds nuw i8, ptr %674, i64 24
   %680 = load ptr, ptr %679, align 8, !tbaa !131
-  %681 = zext nneg i32 %spec.select.i1165 to i64
+  %681 = zext nneg i32 %spec.select.i1164 to i64
   %682 = getelementptr inbounds nuw i64, ptr %680, i64 %681
   %683 = sext i32 %675 to i64
   %684 = sub nsw i64 0, %683
   %685 = getelementptr inbounds i64, ptr %682, i64 %684
-  br label %.critedge1082
+  br label %.critedge1081
 
 686:                                              ; preds = %97
   %687 = load i64, ptr %.0806, align 8, !tbaa !137
   %688 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1047 = icmp slt i64 %687, %688
-  br i1 %.not1047, label %702, label %689
+  %.not1046 = icmp slt i64 %687, %688
+  br i1 %.not1046, label %702, label %689
 
 689:                                              ; preds = %686
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -12687,16 +12687,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %692 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %693 = load i32, ptr %692, align 8, !tbaa !134
   %694 = sub nsw i32 %693, %691
-  %spec.select.i1166 = call i32 @llvm.smax.i32(i32 %694, i32 0)
-  store i32 %spec.select.i1166, ptr %692, align 8, !tbaa !134
+  %spec.select.i1165 = call i32 @llvm.smax.i32(i32 %694, i32 0)
+  store i32 %spec.select.i1165, ptr %692, align 8, !tbaa !134
   %695 = getelementptr inbounds nuw i8, ptr %690, i64 24
   %696 = load ptr, ptr %695, align 8, !tbaa !131
-  %697 = zext nneg i32 %spec.select.i1166 to i64
+  %697 = zext nneg i32 %spec.select.i1165 to i64
   %698 = getelementptr inbounds nuw i64, ptr %696, i64 %697
   %699 = sext i32 %691 to i64
   %700 = sub nsw i64 0, %699
   %701 = getelementptr inbounds i64, ptr %698, i64 %700
-  br label %.critedge1082
+  br label %.critedge1081
 
 702:                                              ; preds = %686
   %703 = add nsw i64 %687, 1
@@ -12707,9 +12707,9 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %707 = and i32 %706, 64512
   %708 = icmp ne i32 %707, 55296
   %709 = load i64, ptr %82, align 8
-  %.not1048 = icmp eq i64 %703, %709
-  %or.cond1122 = select i1 %708, i1 true, i1 %.not1048
-  br i1 %or.cond1122, label %721, label %710
+  %.not1047 = icmp eq i64 %703, %709
+  %or.cond1121 = select i1 %708, i1 true, i1 %.not1047
+  br i1 %or.cond1121, label %721, label %710
 
 710:                                              ; preds = %702
   %711 = getelementptr inbounds i16, ptr %32, i64 %703
@@ -12731,23 +12731,23 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %722 = phi i64 [ %703, %702 ], [ %717, %716 ], [ %703, %710 ]
   %.1841 = phi i32 [ %706, %702 ], [ %720, %716 ], [ %706, %710 ]
   %723 = and i32 %.1841, -8368
-  %.not.i1167 = icmp eq i32 %723, 0
-  br i1 %.not.i1167, label %724, label %_ZN6icu_77L16isLineTerminatorEi.exit1169.thread
+  %.not.i1166 = icmp eq i32 %723, 0
+  br i1 %.not.i1166, label %724, label %_ZN6icu_77L16isLineTerminatorEi.exit1168.thread
 
 724:                                              ; preds = %721
-  switch i32 %.1841, label %_ZN6icu_77L16isLineTerminatorEi.exit1169.thread [
+  switch i32 %.1841, label %_ZN6icu_77L16isLineTerminatorEi.exit1168.thread [
     i32 13, label %725
-    i32 10, label %.critedge1082
-    i32 11, label %.critedge1082
-    i32 12, label %.critedge1082
-    i32 133, label %.critedge1082
-    i32 8232, label %.critedge1082
-    i32 8233, label %.critedge1082
+    i32 10, label %.critedge1081
+    i32 11, label %.critedge1081
+    i32 12, label %.critedge1081
+    i32 133, label %.critedge1081
+    i32 8232, label %.critedge1081
+    i32 8233, label %.critedge1081
   ]
 
 725:                                              ; preds = %724
   %726 = icmp slt i64 %722, %709
-  br i1 %726, label %727, label %.critedge1082
+  br i1 %726, label %727, label %.critedge1081
 
 727:                                              ; preds = %725
   %728 = add nsw i64 %722, 1
@@ -12757,16 +12757,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %731 = and i16 %730, -1024
   %732 = icmp ne i16 %731, -10240
   %733 = load i64, ptr %82, align 8
-  %.not1050 = icmp eq i64 %728, %733
-  %or.cond1123 = select i1 %732, i1 true, i1 %.not1050
-  br i1 %or.cond1123, label %744, label %734
+  %.not1049 = icmp eq i64 %728, %733
+  %or.cond1122 = select i1 %732, i1 true, i1 %.not1049
+  br i1 %or.cond1122, label %744, label %734
 
 734:                                              ; preds = %727
   %735 = getelementptr inbounds i16, ptr %32, i64 %728
   %736 = load i16, ptr %735, align 2, !tbaa !93
   %737 = and i16 %736, -1024
   %738 = icmp eq i16 %737, -9216
-  br i1 %738, label %739, label %.thread1400
+  br i1 %738, label %739, label %.thread1399
 
 739:                                              ; preds = %734
   %740 = add nsw i64 %722, 2
@@ -12779,10 +12779,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
 744:                                              ; preds = %739, %727
   %745 = phi i64 [ %728, %727 ], [ %740, %739 ]
   %.1843 = phi i16 [ %730, %727 ], [ %743, %739 ]
-  %.not1051 = icmp eq i16 %.1843, 10
-  br i1 %.not1051, label %.critedge1082, label %.thread1400
+  %.not1050 = icmp eq i16 %.1843, 10
+  br i1 %.not1050, label %.critedge1081, label %.thread1399
 
-.thread1400:                                      ; preds = %744, %734
+.thread1399:                                      ; preds = %744, %734
   %746 = phi i64 [ %728, %734 ], [ %745, %744 ]
   %747 = add nsw i64 %746, -1
   store i64 %747, ptr %.0806, align 8, !tbaa !137
@@ -12791,43 +12791,43 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %521, %
   %750 = and i16 %749, -1024
   %751 = icmp eq i16 %750, -9216
   %752 = icmp sgt i64 %746, 1
-  %or.cond1124 = and i1 %752, %751
-  br i1 %or.cond1124, label %753, label %.critedge1082
+  %or.cond1123 = and i1 %752, %751
+  br i1 %or.cond1123, label %753, label %.critedge1081
 
-753:                                              ; preds = %.thread1400
-  %gep1551 = getelementptr i16, ptr %invariant.gep1534, i64 %746
-  %754 = load i16, ptr %gep1551, align 2, !tbaa !93
+753:                                              ; preds = %.thread1399
+  %gep1550 = getelementptr i16, ptr %invariant.gep1533, i64 %746
+  %754 = load i16, ptr %gep1550, align 2, !tbaa !93
   %755 = and i16 %754, -1024
   %756 = icmp eq i16 %755, -10240
-  br i1 %756, label %757, label %.critedge1082
+  br i1 %756, label %757, label %.critedge1081
 
 757:                                              ; preds = %753
   %758 = add nsw i64 %746, -2
   store i64 %758, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
-_ZN6icu_77L16isLineTerminatorEi.exit1169.thread:  ; preds = %724, %721
+_ZN6icu_77L16isLineTerminatorEi.exit1168.thread:  ; preds = %724, %721
   %759 = load ptr, ptr %36, align 8, !tbaa !64
   %760 = load i32, ptr %35, align 8, !tbaa !17
   %761 = getelementptr inbounds nuw i8, ptr %759, i64 8
   %762 = load i32, ptr %761, align 8, !tbaa !134
   %763 = sub nsw i32 %762, %760
-  %spec.select.i1170 = call i32 @llvm.smax.i32(i32 %763, i32 0)
-  store i32 %spec.select.i1170, ptr %761, align 8, !tbaa !134
+  %spec.select.i1169 = call i32 @llvm.smax.i32(i32 %763, i32 0)
+  store i32 %spec.select.i1169, ptr %761, align 8, !tbaa !134
   %764 = getelementptr inbounds nuw i8, ptr %759, i64 24
   %765 = load ptr, ptr %764, align 8, !tbaa !131
-  %766 = zext nneg i32 %spec.select.i1170 to i64
+  %766 = zext nneg i32 %spec.select.i1169 to i64
   %767 = getelementptr inbounds nuw i64, ptr %765, i64 %766
   %768 = sext i32 %760 to i64
   %769 = sub nsw i64 0, %768
   %770 = getelementptr inbounds i64, ptr %767, i64 %769
-  br label %.critedge1082
+  br label %.critedge1081
 
 771:                                              ; preds = %97
   %772 = load i64, ptr %.0806, align 8, !tbaa !137
   %773 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1044 = icmp slt i64 %772, %773
-  br i1 %.not1044, label %787, label %774
+  %.not1043 = icmp slt i64 %772, %773
+  br i1 %.not1043, label %787, label %774
 
 774:                                              ; preds = %771
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -12836,16 +12836,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1169.thread:  ; preds = %724, %721
   %777 = getelementptr inbounds nuw i8, ptr %775, i64 8
   %778 = load i32, ptr %777, align 8, !tbaa !134
   %779 = sub nsw i32 %778, %776
-  %spec.select.i1171 = call i32 @llvm.smax.i32(i32 %779, i32 0)
-  store i32 %spec.select.i1171, ptr %777, align 8, !tbaa !134
+  %spec.select.i1170 = call i32 @llvm.smax.i32(i32 %779, i32 0)
+  store i32 %spec.select.i1170, ptr %777, align 8, !tbaa !134
   %780 = getelementptr inbounds nuw i8, ptr %775, i64 24
   %781 = load ptr, ptr %780, align 8, !tbaa !131
-  %782 = zext nneg i32 %spec.select.i1171 to i64
+  %782 = zext nneg i32 %spec.select.i1170 to i64
   %783 = getelementptr inbounds nuw i64, ptr %781, i64 %782
   %784 = sext i32 %776 to i64
   %785 = sub nsw i64 0, %784
   %786 = getelementptr inbounds i64, ptr %783, i64 %785
-  br label %.critedge1082
+  br label %.critedge1081
 
 787:                                              ; preds = %771
   %788 = add nsw i64 %772, 1
@@ -12856,9 +12856,9 @@ _ZN6icu_77L16isLineTerminatorEi.exit1169.thread:  ; preds = %724, %721
   %792 = and i32 %791, 64512
   %793 = icmp ne i32 %792, 55296
   %794 = load i64, ptr %82, align 8
-  %.not1045 = icmp eq i64 %788, %794
-  %or.cond1125 = select i1 %793, i1 true, i1 %.not1045
-  br i1 %or.cond1125, label %806, label %795
+  %.not1044 = icmp eq i64 %788, %794
+  %or.cond1124 = select i1 %793, i1 true, i1 %.not1044
+  br i1 %or.cond1124, label %806, label %795
 
 795:                                              ; preds = %787
   %796 = getelementptr inbounds i16, ptr %32, i64 %788
@@ -12879,53 +12879,53 @@ _ZN6icu_77L16isLineTerminatorEi.exit1169.thread:  ; preds = %724, %721
 806:                                              ; preds = %795, %801, %787
   %.1852 = phi i32 [ %791, %787 ], [ %805, %801 ], [ %791, %795 ]
   %807 = and i32 %.1852, -8368
-  %.not.i1172 = icmp eq i32 %807, 0
-  br i1 %.not.i1172, label %808, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
+  %.not.i1171 = icmp eq i32 %807, 0
+  br i1 %.not.i1171, label %808, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
 
 808:                                              ; preds = %806
   switch i32 %.1852, label %809 [
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
-    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1174
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
+    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1173
   ]
 
 809:                                              ; preds = %808
   %810 = icmp eq i32 %.1852, 8233
   %811 = zext i1 %810 to i8
-  br label %_ZN6icu_77L16isLineTerminatorEi.exit1174
+  br label %_ZN6icu_77L16isLineTerminatorEi.exit1173
 
-_ZN6icu_77L16isLineTerminatorEi.exit1174:         ; preds = %806, %808, %808, %808, %808, %808, %808, %809
-  %.0.i1173 = phi i8 [ 0, %806 ], [ %811, %809 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ]
+_ZN6icu_77L16isLineTerminatorEi.exit1173:         ; preds = %806, %808, %808, %808, %808, %808, %808, %809
+  %.0.i1172 = phi i8 [ 0, %806 ], [ %811, %809 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ], [ 1, %808 ]
   %812 = icmp ne i32 %103, 0
   %813 = zext i1 %812 to i8
-  %.not1046 = icmp eq i8 %.0.i1173, %813
-  br i1 %.not1046, label %814, label %.critedge1082
+  %.not1045 = icmp eq i8 %.0.i1172, %813
+  br i1 %.not1045, label %814, label %.critedge1081
 
-814:                                              ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1174
+814:                                              ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1173
   %815 = load ptr, ptr %36, align 8, !tbaa !64
   %816 = load i32, ptr %35, align 8, !tbaa !17
   %817 = getelementptr inbounds nuw i8, ptr %815, i64 8
   %818 = load i32, ptr %817, align 8, !tbaa !134
   %819 = sub nsw i32 %818, %816
-  %spec.select.i1175 = call i32 @llvm.smax.i32(i32 %819, i32 0)
-  store i32 %spec.select.i1175, ptr %817, align 8, !tbaa !134
+  %spec.select.i1174 = call i32 @llvm.smax.i32(i32 %819, i32 0)
+  store i32 %spec.select.i1174, ptr %817, align 8, !tbaa !134
   %820 = getelementptr inbounds nuw i8, ptr %815, i64 24
   %821 = load ptr, ptr %820, align 8, !tbaa !131
-  %822 = zext nneg i32 %spec.select.i1175 to i64
+  %822 = zext nneg i32 %spec.select.i1174 to i64
   %823 = getelementptr inbounds nuw i64, ptr %821, i64 %822
   %824 = sext i32 %816 to i64
   %825 = sub nsw i64 0, %824
   %826 = getelementptr inbounds i64, ptr %823, i64 %825
-  br label %.critedge1082
+  br label %.critedge1081
 
 827:                                              ; preds = %97
   %828 = load i64, ptr %.0806, align 8, !tbaa !137
   %829 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1042 = icmp slt i64 %828, %829
-  br i1 %.not1042, label %843, label %830
+  %.not1041 = icmp slt i64 %828, %829
+  br i1 %.not1041, label %843, label %830
 
 830:                                              ; preds = %827
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -12934,16 +12934,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1174:         ; preds = %806, %808, %808, %8
   %833 = getelementptr inbounds nuw i8, ptr %831, i64 8
   %834 = load i32, ptr %833, align 8, !tbaa !134
   %835 = sub nsw i32 %834, %832
-  %spec.select.i1176 = call i32 @llvm.smax.i32(i32 %835, i32 0)
-  store i32 %spec.select.i1176, ptr %833, align 8, !tbaa !134
+  %spec.select.i1175 = call i32 @llvm.smax.i32(i32 %835, i32 0)
+  store i32 %spec.select.i1175, ptr %833, align 8, !tbaa !134
   %836 = getelementptr inbounds nuw i8, ptr %831, i64 24
   %837 = load ptr, ptr %836, align 8, !tbaa !131
-  %838 = zext nneg i32 %spec.select.i1176 to i64
+  %838 = zext nneg i32 %spec.select.i1175 to i64
   %839 = getelementptr inbounds nuw i64, ptr %837, i64 %838
   %840 = sext i32 %832 to i64
   %841 = sub nsw i64 0, %840
   %842 = getelementptr inbounds i64, ptr %839, i64 %841
-  br label %.critedge1082
+  br label %.critedge1081
 
 843:                                              ; preds = %827
   %844 = load ptr, ptr %92, align 8, !tbaa !80
@@ -12976,20 +12976,20 @@ _ZN6icu_77L16isLineTerminatorEi.exit1174:         ; preds = %806, %808, %808, %8
   %862 = call noundef i32 %861(ptr noundef nonnull align 8 dereferenceable(32) %857, i32 noundef %858)
   %863 = sext i32 %862 to i64
   %864 = icmp eq i32 %862, -1
-  %spec.select.i1177 = select i1 %864, i64 %828, i64 %863
+  %spec.select.i1176 = select i1 %864, i64 %828, i64 %863
   br label %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit
 
 _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %846, %856
-  %.010.i = phi i64 [ %spec.select.i1177, %856 ], [ %828, %846 ]
+  %.010.i = phi i64 [ %spec.select.i1176, %856 ], [ %828, %846 ]
   store i64 %.010.i, ptr %.0806, align 8, !tbaa !137
   %865 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1043 = icmp slt i64 %.010.i, %865
-  br i1 %.not1043, label %.critedge1082, label %866
+  %.not1042 = icmp slt i64 %.010.i, %865
+  br i1 %.not1042, label %.critedge1081, label %866
 
 866:                                              ; preds = %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit
   store i8 1, ptr %83, align 8, !tbaa !32
   store i64 %865, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
 867:                                              ; preds = %97
   %868 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -13003,27 +13003,27 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %874 = getelementptr inbounds nuw i8, ptr %872, i64 8
   %875 = load i32, ptr %874, align 8, !tbaa !134
   %876 = sub nsw i32 %875, %873
-  %spec.select.i1178 = call i32 @llvm.smax.i32(i32 %876, i32 0)
-  store i32 %spec.select.i1178, ptr %874, align 8, !tbaa !134
+  %spec.select.i1177 = call i32 @llvm.smax.i32(i32 %876, i32 0)
+  store i32 %spec.select.i1177, ptr %874, align 8, !tbaa !134
   %877 = getelementptr inbounds nuw i8, ptr %872, i64 24
   %878 = load ptr, ptr %877, align 8, !tbaa !131
-  %879 = zext nneg i32 %spec.select.i1178 to i64
+  %879 = zext nneg i32 %spec.select.i1177 to i64
   %880 = getelementptr inbounds nuw i64, ptr %878, i64 %879
   %881 = sext i32 %873 to i64
   %882 = sub nsw i64 0, %881
   %883 = getelementptr inbounds i64, ptr %880, i64 %882
-  br label %.critedge1082
+  br label %.critedge1081
 
 884:                                              ; preds = %867
   store i8 1, ptr %83, align 8, !tbaa !32
   store i8 1, ptr %91, align 1, !tbaa !33
-  br label %.critedge1082
+  br label %.critedge1081
 
 885:                                              ; preds = %97
   %886 = load i64, ptr %.0806, align 8, !tbaa !137
   %887 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1036 = icmp slt i64 %886, %887
-  br i1 %.not1036, label %901, label %888
+  %.not1035 = icmp slt i64 %886, %887
+  br i1 %.not1035, label %901, label %888
 
 888:                                              ; preds = %885
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13032,20 +13032,20 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %891 = getelementptr inbounds nuw i8, ptr %889, i64 8
   %892 = load i32, ptr %891, align 8, !tbaa !134
   %893 = sub nsw i32 %892, %890
-  %spec.select.i1179 = call i32 @llvm.smax.i32(i32 %893, i32 0)
-  store i32 %spec.select.i1179, ptr %891, align 8, !tbaa !134
+  %spec.select.i1178 = call i32 @llvm.smax.i32(i32 %893, i32 0)
+  store i32 %spec.select.i1178, ptr %891, align 8, !tbaa !134
   %894 = getelementptr inbounds nuw i8, ptr %889, i64 24
   %895 = load ptr, ptr %894, align 8, !tbaa !131
-  %896 = zext nneg i32 %spec.select.i1179 to i64
+  %896 = zext nneg i32 %spec.select.i1178 to i64
   %897 = getelementptr inbounds nuw i64, ptr %895, i64 %896
   %898 = sext i32 %890 to i64
   %899 = sub nsw i64 0, %898
   %900 = getelementptr inbounds i64, ptr %897, i64 %899
-  br label %.critedge1082
+  br label %.critedge1081
 
 901:                                              ; preds = %885
   %902 = and i32 %102, 8388608
-  %.not1037 = icmp eq i32 %902, 0
+  %.not1036 = icmp eq i32 %902, 0
   %.lobit = lshr exact i32 %902, 23
   %903 = trunc nuw nsw i32 %.lobit to i8
   %904 = and i64 %101, 8388607
@@ -13057,9 +13057,9 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %909 = and i32 %908, 64512
   %910 = icmp ne i32 %909, 55296
   %911 = load i64, ptr %82, align 8
-  %.not1038 = icmp eq i64 %905, %911
-  %or.cond1126 = select i1 %910, i1 true, i1 %.not1038
-  br i1 %or.cond1126, label %923, label %912
+  %.not1037 = icmp eq i64 %905, %911
+  %or.cond1125 = select i1 %910, i1 true, i1 %.not1037
+  br i1 %or.cond1125, label %923, label %912
 
 912:                                              ; preds = %901
   %913 = getelementptr inbounds i16, ptr %32, i64 %905
@@ -13067,7 +13067,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %915 = zext i16 %914 to i32
   %916 = and i32 %915, 64512
   %917 = icmp eq i32 %916, 56320
-  br i1 %917, label %918, label %.thread1404
+  br i1 %917, label %918, label %.thread1403
 
 918:                                              ; preds = %912
   %919 = add nsw i64 %886, 2
@@ -13075,11 +13075,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %920 = shl nuw nsw i32 %908, 10
   %921 = add nsw i32 %920, -56613888
   %922 = add nuw nsw i32 %921, %915
-  br label %.thread1404
+  br label %.thread1403
 
 923:                                              ; preds = %901
   %924 = icmp ult i16 %907, 256
-  br i1 %924, label %925, label %.thread1404
+  br i1 %924, label %925, label %.thread1403
 
 925:                                              ; preds = %923
   %926 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
@@ -13093,24 +13093,24 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %934 = and i16 %907, 7
   %935 = shl nuw nsw i16 1, %934
   %936 = and i16 %935, %933
-  %.not1040 = icmp eq i16 %936, 0
+  %.not1039 = icmp eq i16 %936, 0
   br label %941
 
-.thread1404:                                      ; preds = %912, %918, %923
-  %.18571406 = phi i32 [ %908, %923 ], [ %908, %912 ], [ %922, %918 ]
+.thread1403:                                      ; preds = %912, %918, %923
+  %.18571405 = phi i32 [ %908, %923 ], [ %908, %912 ], [ %922, %918 ]
   %937 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %938 = getelementptr inbounds nuw i8, ptr %937, i64 8
   %939 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %938, i64 0, i64 %904
-  %940 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %939, i32 noundef %.18571406)
-  %.not1039 = icmp eq i8 %940, 0
+  %940 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %939, i32 noundef %.18571405)
+  %.not1038 = icmp eq i8 %940, 0
   br label %941
 
-941:                                              ; preds = %.thread1404, %925
-  %.not1039.sink = phi i1 [ %.not1039, %.thread1404 ], [ %.not1040, %925 ]
-  %942 = zext i1 %.not1037 to i8
-  %spec.select1079 = select i1 %.not1039.sink, i8 %903, i8 %942
-  %.not1041 = icmp eq i8 %spec.select1079, 0
-  br i1 %.not1041, label %943, label %.critedge1082
+941:                                              ; preds = %.thread1403, %925
+  %.not1038.sink = phi i1 [ %.not1038, %.thread1403 ], [ %.not1039, %925 ]
+  %942 = zext i1 %.not1036 to i8
+  %spec.select1078 = select i1 %.not1038.sink, i8 %903, i8 %942
+  %.not1040 = icmp eq i8 %spec.select1078, 0
+  br i1 %.not1040, label %943, label %.critedge1081
 
 943:                                              ; preds = %941
   %944 = load ptr, ptr %36, align 8, !tbaa !64
@@ -13118,22 +13118,22 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %946 = getelementptr inbounds nuw i8, ptr %944, i64 8
   %947 = load i32, ptr %946, align 8, !tbaa !134
   %948 = sub nsw i32 %947, %945
-  %spec.select.i1180 = call i32 @llvm.smax.i32(i32 %948, i32 0)
-  store i32 %spec.select.i1180, ptr %946, align 8, !tbaa !134
+  %spec.select.i1179 = call i32 @llvm.smax.i32(i32 %948, i32 0)
+  store i32 %spec.select.i1179, ptr %946, align 8, !tbaa !134
   %949 = getelementptr inbounds nuw i8, ptr %944, i64 24
   %950 = load ptr, ptr %949, align 8, !tbaa !131
-  %951 = zext nneg i32 %spec.select.i1180 to i64
+  %951 = zext nneg i32 %spec.select.i1179 to i64
   %952 = getelementptr inbounds nuw i64, ptr %950, i64 %951
   %953 = sext i32 %945 to i64
   %954 = sub nsw i64 0, %953
   %955 = getelementptr inbounds i64, ptr %952, i64 %954
-  br label %.critedge1082
+  br label %.critedge1081
 
 956:                                              ; preds = %97
   %957 = load i64, ptr %.0806, align 8, !tbaa !137
   %958 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1032 = icmp slt i64 %957, %958
-  br i1 %.not1032, label %972, label %959
+  %.not1031 = icmp slt i64 %957, %958
+  br i1 %.not1031, label %972, label %959
 
 959:                                              ; preds = %956
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13142,16 +13142,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %962 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %963 = load i32, ptr %962, align 8, !tbaa !134
   %964 = sub nsw i32 %963, %961
-  %spec.select.i1181 = call i32 @llvm.smax.i32(i32 %964, i32 0)
-  store i32 %spec.select.i1181, ptr %962, align 8, !tbaa !134
+  %spec.select.i1180 = call i32 @llvm.smax.i32(i32 %964, i32 0)
+  store i32 %spec.select.i1180, ptr %962, align 8, !tbaa !134
   %965 = getelementptr inbounds nuw i8, ptr %960, i64 24
   %966 = load ptr, ptr %965, align 8, !tbaa !131
-  %967 = zext nneg i32 %spec.select.i1181 to i64
+  %967 = zext nneg i32 %spec.select.i1180 to i64
   %968 = getelementptr inbounds nuw i64, ptr %966, i64 %967
   %969 = sext i32 %961 to i64
   %970 = sub nsw i64 0, %969
   %971 = getelementptr inbounds i64, ptr %968, i64 %970
-  br label %.critedge1082
+  br label %.critedge1081
 
 972:                                              ; preds = %956
   %973 = add nsw i64 %957, 1
@@ -13162,9 +13162,9 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %977 = and i32 %976, 64512
   %978 = icmp ne i32 %977, 55296
   %979 = load i64, ptr %82, align 8
-  %.not1033 = icmp eq i64 %973, %979
-  %or.cond1127 = select i1 %978, i1 true, i1 %.not1033
-  br i1 %or.cond1127, label %991, label %980
+  %.not1032 = icmp eq i64 %973, %979
+  %or.cond1126 = select i1 %978, i1 true, i1 %.not1032
+  br i1 %or.cond1126, label %991, label %980
 
 980:                                              ; preds = %972
   %981 = getelementptr inbounds i16, ptr %32, i64 %973
@@ -13172,7 +13172,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %983 = zext i16 %982 to i32
   %984 = and i32 %983, 64512
   %985 = icmp eq i32 %984, 56320
-  br i1 %985, label %986, label %.thread1408
+  br i1 %985, label %986, label %.thread1407
 
 986:                                              ; preds = %980
   %987 = add nsw i64 %957, 2
@@ -13180,11 +13180,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %988 = shl nuw nsw i32 %976, 10
   %989 = add nsw i32 %988, -56613888
   %990 = add nuw nsw i32 %989, %983
-  br label %.thread1408
+  br label %.thread1407
 
 991:                                              ; preds = %972
   %992 = icmp ult i16 %975, 256
-  br i1 %992, label %993, label %.thread1408
+  br i1 %992, label %993, label %.thread1407
 
 993:                                              ; preds = %991
   %994 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
@@ -13199,41 +13199,41 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1003 = and i16 %975, 7
   %1004 = shl nuw nsw i16 1, %1003
   %1005 = and i16 %1004, %1002
-  %.not1035 = icmp eq i16 %1005, 0
-  br i1 %.not1035, label %.critedge1082, label %1011
+  %.not1034 = icmp eq i16 %1005, 0
+  br i1 %.not1034, label %.critedge1081, label %1011
 
-.thread1408:                                      ; preds = %980, %986, %991
-  %.18591410 = phi i32 [ %976, %991 ], [ %976, %980 ], [ %990, %986 ]
+.thread1407:                                      ; preds = %980, %986, %991
+  %.18591409 = phi i32 [ %976, %991 ], [ %976, %980 ], [ %990, %986 ]
   %1006 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 8
   %1008 = and i64 %101, 16777215
   %1009 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %1007, i64 0, i64 %1008
-  %1010 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1009, i32 noundef %.18591410)
-  %.not1034 = icmp eq i8 %1010, 0
-  br i1 %.not1034, label %.critedge1082, label %1011
+  %1010 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1009, i32 noundef %.18591409)
+  %.not1033 = icmp eq i8 %1010, 0
+  br i1 %.not1033, label %.critedge1081, label %1011
 
-1011:                                             ; preds = %.thread1408, %993
+1011:                                             ; preds = %.thread1407, %993
   %1012 = load ptr, ptr %36, align 8, !tbaa !64
   %1013 = load i32, ptr %35, align 8, !tbaa !17
   %1014 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   %1015 = load i32, ptr %1014, align 8, !tbaa !134
   %1016 = sub nsw i32 %1015, %1013
-  %spec.select.i1182 = call i32 @llvm.smax.i32(i32 %1016, i32 0)
-  store i32 %spec.select.i1182, ptr %1014, align 8, !tbaa !134
+  %spec.select.i1181 = call i32 @llvm.smax.i32(i32 %1016, i32 0)
+  store i32 %spec.select.i1181, ptr %1014, align 8, !tbaa !134
   %1017 = getelementptr inbounds nuw i8, ptr %1012, i64 24
   %1018 = load ptr, ptr %1017, align 8, !tbaa !131
-  %1019 = zext nneg i32 %spec.select.i1182 to i64
+  %1019 = zext nneg i32 %spec.select.i1181 to i64
   %1020 = getelementptr inbounds nuw i64, ptr %1018, i64 %1019
   %1021 = sext i32 %1013 to i64
   %1022 = sub nsw i64 0, %1021
   %1023 = getelementptr inbounds i64, ptr %1020, i64 %1022
-  br label %.critedge1082
+  br label %.critedge1081
 
 1024:                                             ; preds = %97
   %1025 = load i64, ptr %.0806, align 8, !tbaa !137
   %1026 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1028 = icmp slt i64 %1025, %1026
-  br i1 %.not1028, label %1040, label %1027
+  %.not1027 = icmp slt i64 %1025, %1026
+  br i1 %.not1027, label %1040, label %1027
 
 1027:                                             ; preds = %1024
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13242,16 +13242,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1030 = getelementptr inbounds nuw i8, ptr %1028, i64 8
   %1031 = load i32, ptr %1030, align 8, !tbaa !134
   %1032 = sub nsw i32 %1031, %1029
-  %spec.select.i1183 = call i32 @llvm.smax.i32(i32 %1032, i32 0)
-  store i32 %spec.select.i1183, ptr %1030, align 8, !tbaa !134
+  %spec.select.i1182 = call i32 @llvm.smax.i32(i32 %1032, i32 0)
+  store i32 %spec.select.i1182, ptr %1030, align 8, !tbaa !134
   %1033 = getelementptr inbounds nuw i8, ptr %1028, i64 24
   %1034 = load ptr, ptr %1033, align 8, !tbaa !131
-  %1035 = zext nneg i32 %spec.select.i1183 to i64
+  %1035 = zext nneg i32 %spec.select.i1182 to i64
   %1036 = getelementptr inbounds nuw i64, ptr %1034, i64 %1035
   %1037 = sext i32 %1029 to i64
   %1038 = sub nsw i64 0, %1037
   %1039 = getelementptr inbounds i64, ptr %1036, i64 %1038
-  br label %.critedge1082
+  br label %.critedge1081
 
 1040:                                             ; preds = %1024
   %1041 = add nsw i64 %1025, 1
@@ -13262,9 +13262,9 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1045 = and i32 %1044, 64512
   %1046 = icmp ne i32 %1045, 55296
   %1047 = load i64, ptr %82, align 8
-  %.not1029 = icmp eq i64 %1041, %1047
-  %or.cond1128 = select i1 %1046, i1 true, i1 %.not1029
-  br i1 %or.cond1128, label %1059, label %1048
+  %.not1028 = icmp eq i64 %1041, %1047
+  %or.cond1127 = select i1 %1046, i1 true, i1 %.not1028
+  br i1 %or.cond1127, label %1059, label %1048
 
 1048:                                             ; preds = %1040
   %1049 = getelementptr inbounds i16, ptr %32, i64 %1041
@@ -13272,7 +13272,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1051 = zext i16 %1050 to i32
   %1052 = and i32 %1051, 64512
   %1053 = icmp eq i32 %1052, 56320
-  br i1 %1053, label %1054, label %.thread1412
+  br i1 %1053, label %1054, label %.thread1411
 
 1054:                                             ; preds = %1048
   %1055 = add nsw i64 %1025, 2
@@ -13280,11 +13280,11 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1056 = shl nuw nsw i32 %1044, 10
   %1057 = add nsw i32 %1056, -56613888
   %1058 = add nuw nsw i32 %1057, %1051
-  br label %.thread1412
+  br label %.thread1411
 
 1059:                                             ; preds = %1040
   %1060 = icmp ult i16 %1043, 256
-  br i1 %1060, label %1061, label %.thread1412
+  br i1 %1060, label %1061, label %.thread1411
 
 1061:                                             ; preds = %1059
   %1062 = load ptr, ptr %11, align 8, !tbaa !42
@@ -13300,38 +13300,38 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1072 = and i16 %1043, 7
   %1073 = shl nuw nsw i16 1, %1072
   %1074 = and i16 %1073, %1071
-  %.not1031 = icmp eq i16 %1074, 0
-  br i1 %.not1031, label %1077, label %.critedge1082
+  %.not1030 = icmp eq i16 %1074, 0
+  br i1 %.not1030, label %1077, label %.critedge1081
 
-.thread1412:                                      ; preds = %1048, %1054, %1059
-  %.18641414 = phi i32 [ %1044, %1059 ], [ %1044, %1048 ], [ %1058, %1054 ]
+.thread1411:                                      ; preds = %1048, %1054, %1059
+  %.18641413 = phi i32 [ %1044, %1059 ], [ %1044, %1048 ], [ %1058, %1054 ]
   %1075 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %103)
-  %1076 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1075, i32 noundef %.18641414)
-  %.not1030 = icmp eq i8 %1076, 0
-  br i1 %.not1030, label %1077, label %.critedge1082
+  %1076 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1075, i32 noundef %.18641413)
+  %.not1029 = icmp eq i8 %1076, 0
+  br i1 %.not1029, label %1077, label %.critedge1081
 
-1077:                                             ; preds = %.thread1412, %1061
+1077:                                             ; preds = %.thread1411, %1061
   %1078 = load ptr, ptr %36, align 8, !tbaa !64
   %1079 = load i32, ptr %35, align 8, !tbaa !17
   %1080 = getelementptr inbounds nuw i8, ptr %1078, i64 8
   %1081 = load i32, ptr %1080, align 8, !tbaa !134
   %1082 = sub nsw i32 %1081, %1079
-  %spec.select.i1184 = call i32 @llvm.smax.i32(i32 %1082, i32 0)
-  store i32 %spec.select.i1184, ptr %1080, align 8, !tbaa !134
+  %spec.select.i1183 = call i32 @llvm.smax.i32(i32 %1082, i32 0)
+  store i32 %spec.select.i1183, ptr %1080, align 8, !tbaa !134
   %1083 = getelementptr inbounds nuw i8, ptr %1078, i64 24
   %1084 = load ptr, ptr %1083, align 8, !tbaa !131
-  %1085 = zext nneg i32 %spec.select.i1184 to i64
+  %1085 = zext nneg i32 %spec.select.i1183 to i64
   %1086 = getelementptr inbounds nuw i64, ptr %1084, i64 %1085
   %1087 = sext i32 %1079 to i64
   %1088 = sub nsw i64 0, %1087
   %1089 = getelementptr inbounds i64, ptr %1086, i64 %1088
-  br label %.critedge1082
+  br label %.critedge1081
 
 1090:                                             ; preds = %97
   %1091 = load i64, ptr %.0806, align 8, !tbaa !137
   %1092 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1025 = icmp slt i64 %1091, %1092
-  br i1 %.not1025, label %1106, label %1093
+  %.not1024 = icmp slt i64 %1091, %1092
+  br i1 %.not1024, label %1106, label %1093
 
 1093:                                             ; preds = %1090
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13340,16 +13340,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1096 = getelementptr inbounds nuw i8, ptr %1094, i64 8
   %1097 = load i32, ptr %1096, align 8, !tbaa !134
   %1098 = sub nsw i32 %1097, %1095
-  %spec.select.i1185 = call i32 @llvm.smax.i32(i32 %1098, i32 0)
-  store i32 %spec.select.i1185, ptr %1096, align 8, !tbaa !134
+  %spec.select.i1184 = call i32 @llvm.smax.i32(i32 %1098, i32 0)
+  store i32 %spec.select.i1184, ptr %1096, align 8, !tbaa !134
   %1099 = getelementptr inbounds nuw i8, ptr %1094, i64 24
   %1100 = load ptr, ptr %1099, align 8, !tbaa !131
-  %1101 = zext nneg i32 %spec.select.i1185 to i64
+  %1101 = zext nneg i32 %spec.select.i1184 to i64
   %1102 = getelementptr inbounds nuw i64, ptr %1100, i64 %1101
   %1103 = sext i32 %1095 to i64
   %1104 = sub nsw i64 0, %1103
   %1105 = getelementptr inbounds i64, ptr %1102, i64 %1104
-  br label %.critedge1082
+  br label %.critedge1081
 
 1106:                                             ; preds = %1090
   %1107 = add nsw i64 %1091, 1
@@ -13360,9 +13360,9 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1111 = and i32 %1110, 64512
   %1112 = icmp ne i32 %1111, 55296
   %1113 = load i64, ptr %82, align 8
-  %.not1026 = icmp eq i64 %1107, %1113
-  %or.cond1129 = select i1 %1112, i1 true, i1 %.not1026
-  br i1 %or.cond1129, label %1125, label %1114
+  %.not1025 = icmp eq i64 %1107, %1113
+  %or.cond1128 = select i1 %1112, i1 true, i1 %.not1025
+  br i1 %or.cond1128, label %1125, label %1114
 
 1114:                                             ; preds = %1106
   %1115 = getelementptr inbounds i16, ptr %32, i64 %1107
@@ -13383,42 +13383,42 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
 1125:                                             ; preds = %1114, %1120, %1106
   %.1866 = phi i32 [ %1110, %1106 ], [ %1124, %1120 ], [ %1110, %1114 ]
   %1126 = and i32 %.1866, -8368
-  %.not.i1186 = icmp eq i32 %1126, 0
-  br i1 %.not.i1186, label %1127, label %.critedge1082
+  %.not.i1185 = icmp eq i32 %1126, 0
+  br i1 %.not.i1185, label %1127, label %.critedge1081
 
 1127:                                             ; preds = %1125
-  switch i32 %.1866, label %.critedge1082 [
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
-    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417
+  switch i32 %.1866, label %.critedge1081 [
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
+    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416
   ]
 
-_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %1127, %1127, %1127, %1127, %1127
+_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416: ; preds = %1127, %1127, %1127, %1127, %1127, %1127, %1127
   %1128 = load ptr, ptr %36, align 8, !tbaa !64
   %1129 = load i32, ptr %35, align 8, !tbaa !17
   %1130 = getelementptr inbounds nuw i8, ptr %1128, i64 8
   %1131 = load i32, ptr %1130, align 8, !tbaa !134
   %1132 = sub nsw i32 %1131, %1129
-  %spec.select.i1189 = call i32 @llvm.smax.i32(i32 %1132, i32 0)
-  store i32 %spec.select.i1189, ptr %1130, align 8, !tbaa !134
+  %spec.select.i1188 = call i32 @llvm.smax.i32(i32 %1132, i32 0)
+  store i32 %spec.select.i1188, ptr %1130, align 8, !tbaa !134
   %1133 = getelementptr inbounds nuw i8, ptr %1128, i64 24
   %1134 = load ptr, ptr %1133, align 8, !tbaa !131
-  %1135 = zext nneg i32 %spec.select.i1189 to i64
+  %1135 = zext nneg i32 %spec.select.i1188 to i64
   %1136 = getelementptr inbounds nuw i64, ptr %1134, i64 %1135
   %1137 = sext i32 %1129 to i64
   %1138 = sub nsw i64 0, %1137
   %1139 = getelementptr inbounds i64, ptr %1136, i64 %1138
-  br label %.critedge1082
+  br label %.critedge1081
 
 1140:                                             ; preds = %97
   %1141 = load i64, ptr %.0806, align 8, !tbaa !137
   %1142 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1022 = icmp slt i64 %1141, %1142
-  br i1 %.not1022, label %1156, label %1143
+  %.not1021 = icmp slt i64 %1141, %1142
+  br i1 %.not1021, label %1156, label %1143
 
 1143:                                             ; preds = %1140
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13427,16 +13427,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1146 = getelementptr inbounds nuw i8, ptr %1144, i64 8
   %1147 = load i32, ptr %1146, align 8, !tbaa !134
   %1148 = sub nsw i32 %1147, %1145
-  %spec.select.i1190 = call i32 @llvm.smax.i32(i32 %1148, i32 0)
-  store i32 %spec.select.i1190, ptr %1146, align 8, !tbaa !134
+  %spec.select.i1189 = call i32 @llvm.smax.i32(i32 %1148, i32 0)
+  store i32 %spec.select.i1189, ptr %1146, align 8, !tbaa !134
   %1149 = getelementptr inbounds nuw i8, ptr %1144, i64 24
   %1150 = load ptr, ptr %1149, align 8, !tbaa !131
-  %1151 = zext nneg i32 %spec.select.i1190 to i64
+  %1151 = zext nneg i32 %spec.select.i1189 to i64
   %1152 = getelementptr inbounds nuw i64, ptr %1150, i64 %1151
   %1153 = sext i32 %1145 to i64
   %1154 = sub nsw i64 0, %1153
   %1155 = getelementptr inbounds i64, ptr %1152, i64 %1154
-  br label %.critedge1082
+  br label %.critedge1081
 
 1156:                                             ; preds = %1140
   %1157 = add nsw i64 %1141, 1
@@ -13446,44 +13446,44 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1160 = and i16 %1159, -1024
   %1161 = icmp ne i16 %1160, -10240
   %1162 = load i64, ptr %82, align 8
-  %.not1023 = icmp eq i64 %1157, %1162
-  %or.cond1130 = select i1 %1161, i1 true, i1 %.not1023
-  br i1 %or.cond1130, label %1170, label %1163
+  %.not1022 = icmp eq i64 %1157, %1162
+  %or.cond1129 = select i1 %1161, i1 true, i1 %.not1022
+  br i1 %or.cond1129, label %1170, label %1163
 
 1163:                                             ; preds = %1156
   %1164 = getelementptr inbounds i16, ptr %32, i64 %1157
   %1165 = load i16, ptr %1164, align 2, !tbaa !93
   %1166 = and i16 %1165, -1024
   %1167 = icmp eq i16 %1166, -9216
-  br i1 %1167, label %1168, label %.critedge1082
+  br i1 %1167, label %1168, label %.critedge1081
 
 1168:                                             ; preds = %1163
   %1169 = add nsw i64 %1141, 2
   store i64 %1169, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
 1170:                                             ; preds = %1156
   %1171 = icmp eq i16 %1159, 13
   %1172 = icmp slt i64 %1157, %1162
-  %or.cond1614 = select i1 %1171, i1 %1172, i1 false
-  br i1 %or.cond1614, label %1173, label %.critedge1082
+  %or.cond1613 = select i1 %1171, i1 %1172, i1 false
+  br i1 %or.cond1613, label %1173, label %.critedge1081
 
 1173:                                             ; preds = %1170
   %1174 = getelementptr inbounds i16, ptr %32, i64 %1157
   %1175 = load i16, ptr %1174, align 2, !tbaa !93
   %1176 = icmp eq i16 %1175, 10
-  br i1 %1176, label %1177, label %.critedge1082
+  br i1 %1176, label %1177, label %.critedge1081
 
 1177:                                             ; preds = %1173
   %1178 = add nsw i64 %1141, 2
   store i64 %1178, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
 1179:                                             ; preds = %97
   %1180 = load i64, ptr %.0806, align 8, !tbaa !137
   %1181 = load i64, ptr %82, align 8, !tbaa !69
-  %.not1020 = icmp slt i64 %1180, %1181
-  br i1 %.not1020, label %1195, label %1182
+  %.not1019 = icmp slt i64 %1180, %1181
+  br i1 %.not1019, label %1195, label %1182
 
 1182:                                             ; preds = %1179
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -13492,16 +13492,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1185 = getelementptr inbounds nuw i8, ptr %1183, i64 8
   %1186 = load i32, ptr %1185, align 8, !tbaa !134
   %1187 = sub nsw i32 %1186, %1184
-  %spec.select.i1191 = call i32 @llvm.smax.i32(i32 %1187, i32 0)
-  store i32 %spec.select.i1191, ptr %1185, align 8, !tbaa !134
+  %spec.select.i1190 = call i32 @llvm.smax.i32(i32 %1187, i32 0)
+  store i32 %spec.select.i1190, ptr %1185, align 8, !tbaa !134
   %1188 = getelementptr inbounds nuw i8, ptr %1183, i64 24
   %1189 = load ptr, ptr %1188, align 8, !tbaa !131
-  %1190 = zext nneg i32 %spec.select.i1191 to i64
+  %1190 = zext nneg i32 %spec.select.i1190 to i64
   %1191 = getelementptr inbounds nuw i64, ptr %1189, i64 %1190
   %1192 = sext i32 %1184 to i64
   %1193 = sub nsw i64 0, %1192
   %1194 = getelementptr inbounds i64, ptr %1191, i64 %1193
-  br label %.critedge1082
+  br label %.critedge1081
 
 1195:                                             ; preds = %1179
   %1196 = add nsw i64 %1180, 1
@@ -13511,25 +13511,25 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1199 = and i16 %1198, -1024
   %1200 = icmp ne i16 %1199, -10240
   %1201 = load i64, ptr %82, align 8
-  %.not1021 = icmp eq i64 %1196, %1201
-  %or.cond1131 = select i1 %1200, i1 true, i1 %.not1021
-  br i1 %or.cond1131, label %1209, label %1202
+  %.not1020 = icmp eq i64 %1196, %1201
+  %or.cond1130 = select i1 %1200, i1 true, i1 %.not1020
+  br i1 %or.cond1130, label %1209, label %1202
 
 1202:                                             ; preds = %1195
   %1203 = getelementptr inbounds i16, ptr %32, i64 %1196
   %1204 = load i16, ptr %1203, align 2, !tbaa !93
   %1205 = and i16 %1204, -1024
   %1206 = icmp eq i16 %1205, -9216
-  br i1 %1206, label %1207, label %.critedge1082
+  br i1 %1206, label %1207, label %.critedge1081
 
 1207:                                             ; preds = %1202
   %1208 = add nsw i64 %1180, 2
   store i64 %1208, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+  br label %.critedge1081
 
 1209:                                             ; preds = %1195
   %1210 = icmp eq i16 %1198, 10
-  br i1 %1210, label %1211, label %.critedge1082
+  br i1 %1210, label %1211, label %.critedge1081
 
 1211:                                             ; preds = %1209
   %1212 = load ptr, ptr %36, align 8, !tbaa !64
@@ -13537,26 +13537,26 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1214 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   %1215 = load i32, ptr %1214, align 8, !tbaa !134
   %1216 = sub nsw i32 %1215, %1213
-  %spec.select.i1192 = call i32 @llvm.smax.i32(i32 %1216, i32 0)
-  store i32 %spec.select.i1192, ptr %1214, align 8, !tbaa !134
+  %spec.select.i1191 = call i32 @llvm.smax.i32(i32 %1216, i32 0)
+  store i32 %spec.select.i1191, ptr %1214, align 8, !tbaa !134
   %1217 = getelementptr inbounds nuw i8, ptr %1212, i64 24
   %1218 = load ptr, ptr %1217, align 8, !tbaa !131
-  %1219 = zext nneg i32 %spec.select.i1192 to i64
+  %1219 = zext nneg i32 %spec.select.i1191 to i64
   %1220 = getelementptr inbounds nuw i64, ptr %1218, i64 %1219
   %1221 = sext i32 %1213 to i64
   %1222 = sub nsw i64 0, %1221
   %1223 = getelementptr inbounds i64, ptr %1220, i64 %1222
-  br label %.critedge1082
+  br label %.critedge1081
 
 1224:                                             ; preds = %97
   %1225 = and i64 %101, 16777215
   store i64 %1225, ptr %98, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 1226:                                             ; preds = %97
   %1227 = load i32, ptr %3, align 4, !tbaa !13
   %1228 = icmp slt i32 %1227, 1
-  br i1 %1228, label %1229, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214
+  br i1 %1228, label %1229, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
 
 1229:                                             ; preds = %1226
   %1230 = load ptr, ptr %36, align 8, !tbaa !64
@@ -13567,55 +13567,55 @@ _ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417: ; preds = %1127, %1127, %11
   %1235 = icmp slt i32 %1234, 0
   %1236 = getelementptr inbounds nuw i8, ptr %1230, i64 12
   %1237 = load i32, ptr %1236, align 4
-  %.not.i.i.i1194 = icmp slt i32 %1237, %1234
-  %or.cond.i.i.i1195 = select i1 %1235, i1 true, i1 %.not.i.i.i1194
-  br i1 %or.cond.i.i.i1195, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1210, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1196
+  %.not.i.i.i1193 = icmp slt i32 %1237, %1234
+  %or.cond.i.i.i1194 = select i1 %1235, i1 true, i1 %.not.i.i.i1193
+  br i1 %or.cond.i.i.i1194, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1210: ; preds = %1229
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209: ; preds = %1229
   %1238 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %1230, i32 noundef %1234, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %1239 = icmp eq i8 %1238, 0
-  br i1 %1239, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1211
+  br i1 %1239, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1211: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1210
-  %.pre.i.i1212 = load i32, ptr %1232, align 8, !tbaa !134
-  %.pre6.i.i1213 = add nsw i32 %.pre.i.i1212, %1231
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1196
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209
+  %.pre.i.i1211 = load i32, ptr %1232, align 8, !tbaa !134
+  %.pre6.i.i1212 = add nsw i32 %.pre.i.i1211, %1231
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1196: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1211, %1229
-  %.pre-phi.i.i1197 = phi i32 [ %.pre6.i.i1213, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1211 ], [ %1234, %1229 ]
-  %1240 = phi i32 [ %.pre.i.i1212, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1211 ], [ %1233, %1229 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210, %1229
+  %.pre-phi.i.i1196 = phi i32 [ %.pre6.i.i1212, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210 ], [ %1234, %1229 ]
+  %1240 = phi i32 [ %.pre.i.i1211, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1210 ], [ %1233, %1229 ]
   %1241 = getelementptr inbounds nuw i8, ptr %1230, i64 24
   %1242 = load ptr, ptr %1241, align 8, !tbaa !131
   %1243 = sext i32 %1240 to i64
   %1244 = getelementptr inbounds i64, ptr %1242, i64 %1243
-  store i32 %.pre-phi.i.i1197, ptr %1232, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198
+  store i32 %.pre-phi.i.i1196, ptr %1232, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1196, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1210
-  %.0.i.i1199 = phi ptr [ %1244, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1196 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1210 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209
+  %.0.i.i1198 = phi ptr [ %1244, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1195 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1209 ]
   %1245 = load i32, ptr %3, align 4, !tbaa !13
   %1246 = icmp slt i32 %1245, 1
   br i1 %1246, label %1248, label %1247
 
-1247:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198
+1247:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
 
-1248:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198
+1248:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1197
   %1249 = load i32, ptr %35, align 8, !tbaa !17
   %1250 = sext i32 %1249 to i64
   %1251 = sub nsw i64 0, %1250
-  %1252 = getelementptr inbounds i64, ptr %.0.i.i1199, i64 %1251
+  %1252 = getelementptr inbounds i64, ptr %.0.i.i1198, i64 %1251
   br label %1253
 
 1253:                                             ; preds = %1253, %1248
-  %.018.i1200 = phi ptr [ %1252, %1248 ], [ %1254, %1253 ]
-  %.0.i1201 = phi ptr [ %.0.i.i1199, %1248 ], [ %1256, %1253 ]
-  %1254 = getelementptr inbounds nuw i8, ptr %.018.i1200, i64 8
-  %1255 = load i64, ptr %.018.i1200, align 8, !tbaa !110
-  %1256 = getelementptr inbounds nuw i8, ptr %.0.i1201, i64 8
-  store i64 %1255, ptr %.0.i1201, align 8, !tbaa !110
-  %1257 = icmp eq ptr %1254, %.0.i.i1199
+  %.018.i1199 = phi ptr [ %1252, %1248 ], [ %1254, %1253 ]
+  %.0.i1200 = phi ptr [ %.0.i.i1198, %1248 ], [ %1256, %1253 ]
+  %1254 = getelementptr inbounds nuw i8, ptr %.018.i1199, i64 8
+  %1255 = load i64, ptr %.018.i1199, align 8, !tbaa !110
+  %1256 = getelementptr inbounds nuw i8, ptr %.0.i1200, i64 8
+  store i64 %1255, ptr %.0.i1200, align 8, !tbaa !110
+  %1257 = icmp eq ptr %1254, %.0.i.i1198
   br i1 %1257, label %1258, label %1253, !llvm.loop !139
 
 1258:                                             ; preds = %1253
@@ -13623,7 +13623,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198: ; preds = %_ZN6icu
   %1260 = add nsw i32 %1259, -1
   store i32 %1260, ptr %77, align 8, !tbaa !36
   %1261 = icmp slt i32 %1259, 2
-  br i1 %1261, label %1262, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202
+  br i1 %1261, label %1262, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201
 
 1262:                                             ; preds = %1258
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -13631,62 +13631,62 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1198: ; preds = %_ZN6icu
   %1264 = add nsw i32 %1263, 1
   store i32 %1264, ptr %78, align 4, !tbaa !35
   %1265 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1203 = icmp eq ptr %1265, null
-  br i1 %.not.i.i1203, label %1270, label %1266
+  %.not.i.i1202 = icmp eq ptr %1265, null
+  br i1 %.not.i.i1202, label %1270, label %1266
 
 1266:                                             ; preds = %1262
   %1267 = load ptr, ptr %80, align 8, !tbaa !141
   %1268 = call noundef signext i8 %1265(ptr noundef %1267, i32 noundef %1264)
   %1269 = icmp eq i8 %1268, 0
-  br i1 %1269, label %.sink.split.i.i1208, label %._crit_edge.i.i1204
+  br i1 %1269, label %.sink.split.i.i1207, label %._crit_edge.i.i1203
 
-._crit_edge.i.i1204:                              ; preds = %1266
-  %.pre.i22.i1205 = load i32, ptr %78, align 4
+._crit_edge.i.i1203:                              ; preds = %1266
+  %.pre.i22.i1204 = load i32, ptr %78, align 4
   br label %1270
 
-1270:                                             ; preds = %._crit_edge.i.i1204, %1262
-  %1271 = phi i32 [ %.pre.i22.i1205, %._crit_edge.i.i1204 ], [ %1264, %1262 ]
+1270:                                             ; preds = %._crit_edge.i.i1203, %1262
+  %1271 = phi i32 [ %.pre.i22.i1204, %._crit_edge.i.i1203 ], [ %1264, %1262 ]
   %1272 = load i32, ptr %81, align 8, !tbaa !34
   %1273 = icmp slt i32 %1272, 1
-  %.not4.i.i1206 = icmp slt i32 %1271, %1272
-  %or.cond.i.i1207 = select i1 %1273, i1 true, i1 %.not4.i.i1206
-  br i1 %or.cond.i.i1207, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202, label %.sink.split.i.i1208
+  %.not4.i.i1205 = icmp slt i32 %1271, %1272
+  %or.cond.i.i1206 = select i1 %1273, i1 true, i1 %.not4.i.i1205
+  br i1 %or.cond.i.i1206, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201, label %.sink.split.i.i1207
 
-.sink.split.i.i1208:                              ; preds = %1270, %1266
-  %.sink.i.i1209 = phi i32 [ 66323, %1266 ], [ 66322, %1270 ]
-  store i32 %.sink.i.i1209, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202
+.sink.split.i.i1207:                              ; preds = %1270, %1266
+  %.sink.i.i1208 = phi i32 [ 66323, %1266 ], [ 66322, %1270 ]
+  store i32 %.sink.i.i1208, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202: ; preds = %.sink.split.i.i1208, %1270, %1258
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201: ; preds = %.sink.split.i.i1207, %1270, %1258
   %1274 = getelementptr inbounds nuw i8, ptr %1252, i64 8
   store i64 %104, ptr %1274, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214: ; preds = %1226, %1247, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202
-  %.019.i1193 = phi ptr [ %.0806, %1226 ], [ %.0806, %1247 ], [ %.0.i.i1199, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1202 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213: ; preds = %1226, %1247, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201
+  %.019.i1192 = phi ptr [ %.0806, %1226 ], [ %.0806, %1247 ], [ %.0.i.i1198, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1201 ]
   %1275 = and i64 %101, 16777215
-  %1276 = getelementptr inbounds nuw i8, ptr %.019.i1193, i64 8
+  %1276 = getelementptr inbounds nuw i8, ptr %.019.i1192, i64 8
   store i64 %1275, ptr %1276, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 1277:                                             ; preds = %97
   %1278 = and i64 %101, 16777215
-  %gep1549 = getelementptr i64, ptr %invariant.gep1548, i64 %1278
-  %1279 = load i64, ptr %gep1549, align 8, !tbaa !110
+  %gep1548 = getelementptr i64, ptr %invariant.gep1547, i64 %1278
+  %1279 = load i64, ptr %gep1548, align 8, !tbaa !110
   %1280 = and i64 %1279, 16777215
   %1281 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1282 = getelementptr inbounds nuw [1 x i64], ptr %1281, i64 0, i64 %1280
   %1283 = load i64, ptr %1282, align 8, !tbaa !110
-  %sext1019 = shl i64 %1283, 32
-  %1284 = ashr exact i64 %sext1019, 32
+  %sext1018 = shl i64 %1283, 32
+  %1284 = ashr exact i64 %sext1018, 32
   %1285 = load i64, ptr %.0806, align 8, !tbaa !137
   %1286 = icmp slt i64 %1284, %1285
-  br i1 %1286, label %1287, label %.critedge1082
+  br i1 %1286, label %1287, label %.critedge1081
 
 1287:                                             ; preds = %1277
   %1288 = load i32, ptr %3, align 4, !tbaa !13
   %1289 = icmp slt i32 %1288, 1
-  br i1 %1289, label %1290, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236
+  br i1 %1289, label %1290, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235
 
 1290:                                             ; preds = %1287
   %1291 = load ptr, ptr %36, align 8, !tbaa !64
@@ -13697,55 +13697,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214: ;
   %1296 = icmp slt i32 %1295, 0
   %1297 = getelementptr inbounds nuw i8, ptr %1291, i64 12
   %1298 = load i32, ptr %1297, align 4
-  %.not.i.i.i1216 = icmp slt i32 %1298, %1295
-  %or.cond.i.i.i1217 = select i1 %1296, i1 true, i1 %.not.i.i.i1216
-  br i1 %or.cond.i.i.i1217, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1232, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1218
+  %.not.i.i.i1215 = icmp slt i32 %1298, %1295
+  %or.cond.i.i.i1216 = select i1 %1296, i1 true, i1 %.not.i.i.i1215
+  br i1 %or.cond.i.i.i1216, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1231, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1217
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1232: ; preds = %1290
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1231: ; preds = %1290
   %1299 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %1291, i32 noundef %1295, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %1300 = icmp eq i8 %1299, 0
-  br i1 %1300, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1233
+  br i1 %1300, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1219, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1232
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1233: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1232
-  %.pre.i.i1234 = load i32, ptr %1293, align 8, !tbaa !134
-  %.pre6.i.i1235 = add nsw i32 %.pre.i.i1234, %1292
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1218
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1232: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1231
+  %.pre.i.i1233 = load i32, ptr %1293, align 8, !tbaa !134
+  %.pre6.i.i1234 = add nsw i32 %.pre.i.i1233, %1292
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1217
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1218: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1233, %1290
-  %.pre-phi.i.i1219 = phi i32 [ %.pre6.i.i1235, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1233 ], [ %1295, %1290 ]
-  %1301 = phi i32 [ %.pre.i.i1234, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1233 ], [ %1294, %1290 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1217: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1232, %1290
+  %.pre-phi.i.i1218 = phi i32 [ %.pre6.i.i1234, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1232 ], [ %1295, %1290 ]
+  %1301 = phi i32 [ %.pre.i.i1233, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1232 ], [ %1294, %1290 ]
   %1302 = getelementptr inbounds nuw i8, ptr %1291, i64 24
   %1303 = load ptr, ptr %1302, align 8, !tbaa !131
   %1304 = sext i32 %1301 to i64
   %1305 = getelementptr inbounds i64, ptr %1303, i64 %1304
-  store i32 %.pre-phi.i.i1219, ptr %1293, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220
+  store i32 %.pre-phi.i.i1218, ptr %1293, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1219
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1218, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1232
-  %.0.i.i1221 = phi ptr [ %1305, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1218 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1232 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1219: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1217, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1231
+  %.0.i.i1220 = phi ptr [ %1305, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1217 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1231 ]
   %1306 = load i32, ptr %3, align 4, !tbaa !13
   %1307 = icmp slt i32 %1306, 1
   br i1 %1307, label %1309, label %1308
 
-1308:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220
+1308:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1219
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235
 
-1309:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220
+1309:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1219
   %1310 = load i32, ptr %35, align 8, !tbaa !17
   %1311 = sext i32 %1310 to i64
   %1312 = sub nsw i64 0, %1311
-  %1313 = getelementptr inbounds i64, ptr %.0.i.i1221, i64 %1312
+  %1313 = getelementptr inbounds i64, ptr %.0.i.i1220, i64 %1312
   br label %1314
 
 1314:                                             ; preds = %1314, %1309
-  %.018.i1222 = phi ptr [ %1313, %1309 ], [ %1315, %1314 ]
-  %.0.i1223 = phi ptr [ %.0.i.i1221, %1309 ], [ %1317, %1314 ]
-  %1315 = getelementptr inbounds nuw i8, ptr %.018.i1222, i64 8
-  %1316 = load i64, ptr %.018.i1222, align 8, !tbaa !110
-  %1317 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 8
-  store i64 %1316, ptr %.0.i1223, align 8, !tbaa !110
-  %1318 = icmp eq ptr %1315, %.0.i.i1221
+  %.018.i1221 = phi ptr [ %1313, %1309 ], [ %1315, %1314 ]
+  %.0.i1222 = phi ptr [ %.0.i.i1220, %1309 ], [ %1317, %1314 ]
+  %1315 = getelementptr inbounds nuw i8, ptr %.018.i1221, i64 8
+  %1316 = load i64, ptr %.018.i1221, align 8, !tbaa !110
+  %1317 = getelementptr inbounds nuw i8, ptr %.0.i1222, i64 8
+  store i64 %1316, ptr %.0.i1222, align 8, !tbaa !110
+  %1318 = icmp eq ptr %1315, %.0.i.i1220
   br i1 %1318, label %1319, label %1314, !llvm.loop !139
 
 1319:                                             ; preds = %1314
@@ -13753,7 +13753,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220: ; preds = %_ZN6icu
   %1321 = add nsw i32 %1320, -1
   store i32 %1321, ptr %77, align 8, !tbaa !36
   %1322 = icmp slt i32 %1320, 2
-  br i1 %1322, label %1323, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224
+  br i1 %1322, label %1323, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223
 
 1323:                                             ; preds = %1319
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -13761,46 +13761,46 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1220: ; preds = %_ZN6icu
   %1325 = add nsw i32 %1324, 1
   store i32 %1325, ptr %78, align 4, !tbaa !35
   %1326 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1225 = icmp eq ptr %1326, null
-  br i1 %.not.i.i1225, label %1331, label %1327
+  %.not.i.i1224 = icmp eq ptr %1326, null
+  br i1 %.not.i.i1224, label %1331, label %1327
 
 1327:                                             ; preds = %1323
   %1328 = load ptr, ptr %80, align 8, !tbaa !141
   %1329 = call noundef signext i8 %1326(ptr noundef %1328, i32 noundef %1325)
   %1330 = icmp eq i8 %1329, 0
-  br i1 %1330, label %.sink.split.i.i1230, label %._crit_edge.i.i1226
+  br i1 %1330, label %.sink.split.i.i1229, label %._crit_edge.i.i1225
 
-._crit_edge.i.i1226:                              ; preds = %1327
-  %.pre.i22.i1227 = load i32, ptr %78, align 4
+._crit_edge.i.i1225:                              ; preds = %1327
+  %.pre.i22.i1226 = load i32, ptr %78, align 4
   br label %1331
 
-1331:                                             ; preds = %._crit_edge.i.i1226, %1323
-  %1332 = phi i32 [ %.pre.i22.i1227, %._crit_edge.i.i1226 ], [ %1325, %1323 ]
+1331:                                             ; preds = %._crit_edge.i.i1225, %1323
+  %1332 = phi i32 [ %.pre.i22.i1226, %._crit_edge.i.i1225 ], [ %1325, %1323 ]
   %1333 = load i32, ptr %81, align 8, !tbaa !34
   %1334 = icmp slt i32 %1333, 1
-  %.not4.i.i1228 = icmp slt i32 %1332, %1333
-  %or.cond.i.i1229 = select i1 %1334, i1 true, i1 %.not4.i.i1228
-  br i1 %or.cond.i.i1229, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224, label %.sink.split.i.i1230
+  %.not4.i.i1227 = icmp slt i32 %1332, %1333
+  %or.cond.i.i1228 = select i1 %1334, i1 true, i1 %.not4.i.i1227
+  br i1 %or.cond.i.i1228, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223, label %.sink.split.i.i1229
 
-.sink.split.i.i1230:                              ; preds = %1331, %1327
-  %.sink.i.i1231 = phi i32 [ 66323, %1327 ], [ 66322, %1331 ]
-  store i32 %.sink.i.i1231, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224
+.sink.split.i.i1229:                              ; preds = %1331, %1327
+  %.sink.i.i1230 = phi i32 [ 66323, %1327 ], [ 66322, %1331 ]
+  store i32 %.sink.i.i1230, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224: ; preds = %.sink.split.i.i1230, %1331, %1319
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223: ; preds = %.sink.split.i.i1229, %1331, %1319
   %1335 = getelementptr inbounds nuw i8, ptr %1313, i64 8
   store i64 %104, ptr %1335, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236: ; preds = %1287, %1308, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224
-  %.019.i1215 = phi ptr [ %.0806, %1287 ], [ %.0806, %1308 ], [ %.0.i.i1221, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1224 ]
-  %1336 = getelementptr inbounds nuw i8, ptr %.019.i1215, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235: ; preds = %1287, %1308, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223
+  %.019.i1214 = phi ptr [ %.0806, %1287 ], [ %.0806, %1308 ], [ %.0.i.i1220, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1223 ]
+  %1336 = getelementptr inbounds nuw i8, ptr %.019.i1214, i64 8
   store i64 %1278, ptr %1336, align 8, !tbaa !135
-  %1337 = load i64, ptr %.019.i1215, align 8, !tbaa !137
-  %1338 = getelementptr inbounds nuw i8, ptr %.019.i1215, i64 16
+  %1337 = load i64, ptr %.019.i1214, align 8, !tbaa !137
+  %1338 = getelementptr inbounds nuw i8, ptr %.019.i1214, i64 16
   %1339 = getelementptr inbounds nuw [1 x i64], ptr %1338, i64 0, i64 %1280
   store i64 %1337, ptr %1339, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 1340:                                             ; preds = %97
   %1341 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -13810,18 +13810,18 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236: ;
   %1344 = add nsw i64 %99, 4
   store i64 %1344, ptr %98, align 8, !tbaa !135
   %1345 = shl i64 %104, 32
-  %sext1017 = add i64 %1345, 4294967296
-  %1346 = ashr exact i64 %sext1017, 29
+  %sext1016 = add i64 %1345, 4294967296
+  %1346 = ashr exact i64 %sext1016, 29
   %1347 = getelementptr inbounds i8, ptr %16, i64 %1346
   %1348 = load i64, ptr %1347, align 8, !tbaa !110
-  %sext1018 = add i64 %1345, 8589934592
-  %1349 = ashr exact i64 %sext1018, 29
+  %sext1017 = add i64 %1345, 8589934592
+  %1349 = ashr exact i64 %sext1017, 29
   %1350 = getelementptr inbounds i8, ptr %16, i64 %1349
   %1351 = load i64, ptr %1350, align 8, !tbaa !110
   %1352 = trunc i64 %1351 to i32
   %1353 = and i64 %1348, 4294967295
   %1354 = icmp eq i64 %1353, 0
-  br i1 %1354, label %1355, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+  br i1 %1354, label %1355, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
 
 1355:                                             ; preds = %1340
   %1356 = ashr exact i64 %1345, 29
@@ -13831,7 +13831,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236: ;
   %1360 = add nuw nsw i64 %1359, 1
   %1361 = load i32, ptr %3, align 4, !tbaa !13
   %1362 = icmp slt i32 %1361, 1
-  br i1 %1362, label %1363, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+  br i1 %1362, label %1363, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
 
 1363:                                             ; preds = %1355
   %1364 = load ptr, ptr %36, align 8, !tbaa !64
@@ -13842,55 +13842,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236: ;
   %1369 = icmp slt i32 %1368, 0
   %1370 = getelementptr inbounds nuw i8, ptr %1364, i64 12
   %1371 = load i32, ptr %1370, align 4
-  %.not.i.i.i1238 = icmp slt i32 %1371, %1368
-  %or.cond.i.i.i1239 = select i1 %1369, i1 true, i1 %.not.i.i.i1238
-  br i1 %or.cond.i.i.i1239, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1254, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1240
+  %.not.i.i.i1237 = icmp slt i32 %1371, %1368
+  %or.cond.i.i.i1238 = select i1 %1369, i1 true, i1 %.not.i.i.i1237
+  br i1 %or.cond.i.i.i1238, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1253, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1239
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1254: ; preds = %1363
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1253: ; preds = %1363
   %1372 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %1364, i32 noundef %1368, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %1373 = icmp eq i8 %1372, 0
-  br i1 %1373, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1255
+  br i1 %1373, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1241, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1254
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1255: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1254
-  %.pre.i.i1256 = load i32, ptr %1366, align 8, !tbaa !134
-  %.pre6.i.i1257 = add nsw i32 %.pre.i.i1256, %1365
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1240
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1254: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1253
+  %.pre.i.i1255 = load i32, ptr %1366, align 8, !tbaa !134
+  %.pre6.i.i1256 = add nsw i32 %.pre.i.i1255, %1365
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1239
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1240: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1255, %1363
-  %.pre-phi.i.i1241 = phi i32 [ %.pre6.i.i1257, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1255 ], [ %1368, %1363 ]
-  %1374 = phi i32 [ %.pre.i.i1256, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1255 ], [ %1367, %1363 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1239: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1254, %1363
+  %.pre-phi.i.i1240 = phi i32 [ %.pre6.i.i1256, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1254 ], [ %1368, %1363 ]
+  %1374 = phi i32 [ %.pre.i.i1255, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1254 ], [ %1367, %1363 ]
   %1375 = getelementptr inbounds nuw i8, ptr %1364, i64 24
   %1376 = load ptr, ptr %1375, align 8, !tbaa !131
   %1377 = sext i32 %1374 to i64
   %1378 = getelementptr inbounds i64, ptr %1376, i64 %1377
-  store i32 %.pre-phi.i.i1241, ptr %1366, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242
+  store i32 %.pre-phi.i.i1240, ptr %1366, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1241
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1240, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1254
-  %.0.i.i1243 = phi ptr [ %1378, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1240 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1254 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1241: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1239, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1253
+  %.0.i.i1242 = phi ptr [ %1378, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1239 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1253 ]
   %1379 = load i32, ptr %3, align 4, !tbaa !13
   %1380 = icmp slt i32 %1379, 1
   br i1 %1380, label %1382, label %1381
 
-1381:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242
+1381:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1241
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
 
-1382:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242
+1382:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1241
   %1383 = load i32, ptr %35, align 8, !tbaa !17
   %1384 = sext i32 %1383 to i64
   %1385 = sub nsw i64 0, %1384
-  %1386 = getelementptr inbounds i64, ptr %.0.i.i1243, i64 %1385
+  %1386 = getelementptr inbounds i64, ptr %.0.i.i1242, i64 %1385
   br label %1387
 
 1387:                                             ; preds = %1387, %1382
-  %.018.i1244 = phi ptr [ %1386, %1382 ], [ %1388, %1387 ]
-  %.0.i1245 = phi ptr [ %.0.i.i1243, %1382 ], [ %1390, %1387 ]
-  %1388 = getelementptr inbounds nuw i8, ptr %.018.i1244, i64 8
-  %1389 = load i64, ptr %.018.i1244, align 8, !tbaa !110
-  %1390 = getelementptr inbounds nuw i8, ptr %.0.i1245, i64 8
-  store i64 %1389, ptr %.0.i1245, align 8, !tbaa !110
-  %1391 = icmp eq ptr %1388, %.0.i.i1243
+  %.018.i1243 = phi ptr [ %1386, %1382 ], [ %1388, %1387 ]
+  %.0.i1244 = phi ptr [ %.0.i.i1242, %1382 ], [ %1390, %1387 ]
+  %1388 = getelementptr inbounds nuw i8, ptr %.018.i1243, i64 8
+  %1389 = load i64, ptr %.018.i1243, align 8, !tbaa !110
+  %1390 = getelementptr inbounds nuw i8, ptr %.0.i1244, i64 8
+  store i64 %1389, ptr %.0.i1244, align 8, !tbaa !110
+  %1391 = icmp eq ptr %1388, %.0.i.i1242
   br i1 %1391, label %1392, label %1387, !llvm.loop !139
 
 1392:                                             ; preds = %1387
@@ -13898,7 +13898,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242: ; preds = %_ZN6icu
   %1394 = add nsw i32 %1393, -1
   store i32 %1394, ptr %77, align 8, !tbaa !36
   %1395 = icmp slt i32 %1393, 2
-  br i1 %1395, label %1396, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246
+  br i1 %1395, label %1396, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245
 
 1396:                                             ; preds = %1392
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -13906,69 +13906,69 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1242: ; preds = %_ZN6icu
   %1398 = add nsw i32 %1397, 1
   store i32 %1398, ptr %78, align 4, !tbaa !35
   %1399 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1247 = icmp eq ptr %1399, null
-  br i1 %.not.i.i1247, label %1404, label %1400
+  %.not.i.i1246 = icmp eq ptr %1399, null
+  br i1 %.not.i.i1246, label %1404, label %1400
 
 1400:                                             ; preds = %1396
   %1401 = load ptr, ptr %80, align 8, !tbaa !141
   %1402 = call noundef signext i8 %1399(ptr noundef %1401, i32 noundef %1398)
   %1403 = icmp eq i8 %1402, 0
-  br i1 %1403, label %.sink.split.i.i1252, label %._crit_edge.i.i1248
+  br i1 %1403, label %.sink.split.i.i1251, label %._crit_edge.i.i1247
 
-._crit_edge.i.i1248:                              ; preds = %1400
-  %.pre.i22.i1249 = load i32, ptr %78, align 4
+._crit_edge.i.i1247:                              ; preds = %1400
+  %.pre.i22.i1248 = load i32, ptr %78, align 4
   br label %1404
 
-1404:                                             ; preds = %._crit_edge.i.i1248, %1396
-  %1405 = phi i32 [ %.pre.i22.i1249, %._crit_edge.i.i1248 ], [ %1398, %1396 ]
+1404:                                             ; preds = %._crit_edge.i.i1247, %1396
+  %1405 = phi i32 [ %.pre.i22.i1248, %._crit_edge.i.i1247 ], [ %1398, %1396 ]
   %1406 = load i32, ptr %81, align 8, !tbaa !34
   %1407 = icmp slt i32 %1406, 1
-  %.not4.i.i1250 = icmp slt i32 %1405, %1406
-  %or.cond.i.i1251 = select i1 %1407, i1 true, i1 %.not4.i.i1250
-  br i1 %or.cond.i.i1251, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246, label %.sink.split.i.i1252
+  %.not4.i.i1249 = icmp slt i32 %1405, %1406
+  %or.cond.i.i1250 = select i1 %1407, i1 true, i1 %.not4.i.i1249
+  br i1 %or.cond.i.i1250, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245, label %.sink.split.i.i1251
 
-.sink.split.i.i1252:                              ; preds = %1404, %1400
-  %.sink.i.i1253 = phi i32 [ 66323, %1400 ], [ 66322, %1404 ]
-  store i32 %.sink.i.i1253, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246
+.sink.split.i.i1251:                              ; preds = %1404, %1400
+  %.sink.i.i1252 = phi i32 [ 66323, %1400 ], [ 66322, %1404 ]
+  store i32 %.sink.i.i1252, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246: ; preds = %.sink.split.i.i1252, %1404, %1392
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245: ; preds = %.sink.split.i.i1251, %1404, %1392
   %1408 = getelementptr inbounds nuw i8, ptr %1386, i64 8
   store i64 %1360, ptr %1408, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ; preds = %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246, %1381, %1355, %1340
-  %.19 = phi ptr [ %.0806, %1340 ], [ %.0806, %1355 ], [ %.0806, %1381 ], [ %.0.i.i1243, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1246 ]
-  switch i32 %1352, label %.critedge1082 [
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257: ; preds = %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245, %1381, %1355, %1340
+  %.19 = phi ptr [ %.0806, %1340 ], [ %.0806, %1355 ], [ %.0806, %1381 ], [ %.0.i.i1242, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1245 ]
+  switch i32 %1352, label %.critedge1081 [
     i32 -1, label %1409
     i32 0, label %1415
   ]
 
-1409:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+1409:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
   %1410 = load i64, ptr %.19, align 8, !tbaa !137
   %1411 = getelementptr inbounds nuw i8, ptr %.19, i64 16
   %1412 = add nuw nsw i32 %103, 1
   %1413 = zext nneg i32 %1412 to i64
   %1414 = getelementptr inbounds nuw [1 x i64], ptr %1411, i64 0, i64 %1413
   store i64 %1410, ptr %1414, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
-1415:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258
+1415:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257
   %1416 = load ptr, ptr %36, align 8, !tbaa !64
   %1417 = load i32, ptr %35, align 8, !tbaa !17
   %1418 = getelementptr inbounds nuw i8, ptr %1416, i64 8
   %1419 = load i32, ptr %1418, align 8, !tbaa !134
   %1420 = sub nsw i32 %1419, %1417
-  %spec.select.i1259 = call i32 @llvm.smax.i32(i32 %1420, i32 0)
-  store i32 %spec.select.i1259, ptr %1418, align 8, !tbaa !134
+  %spec.select.i1258 = call i32 @llvm.smax.i32(i32 %1420, i32 0)
+  store i32 %spec.select.i1258, ptr %1418, align 8, !tbaa !134
   %1421 = getelementptr inbounds nuw i8, ptr %1416, i64 24
   %1422 = load ptr, ptr %1421, align 8, !tbaa !131
-  %1423 = zext nneg i32 %spec.select.i1259 to i64
+  %1423 = zext nneg i32 %spec.select.i1258 to i64
   %1424 = getelementptr inbounds nuw i64, ptr %1422, i64 %1423
   %1425 = sext i32 %1417 to i64
   %1426 = sub nsw i64 0, %1425
   %1427 = getelementptr inbounds i64, ptr %1424, i64 %1426
-  br label %.critedge1082
+  br label %.critedge1081
 
 1428:                                             ; preds = %97
   %1429 = and i64 %101, 16777215
@@ -13989,13 +13989,13 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1443 = icmp uge i64 %1441, %1442
   %1444 = icmp ne i32 %1439, -1
   %or.cond = and i1 %1444, %1443
-  br i1 %or.cond, label %.critedge1082, label %1445
+  br i1 %or.cond, label %.critedge1081, label %1445
 
 1445:                                             ; preds = %1428
-  %sext1013 = shl i64 %1436, 32
-  %1446 = ashr exact i64 %sext1013, 32
-  %.not1014 = icmp slt i64 %1441, %1446
-  br i1 %.not1014, label %1457, label %1447
+  %sext1012 = shl i64 %1436, 32
+  %1446 = ashr exact i64 %sext1012, 32
+  %.not1013 = icmp slt i64 %1441, %1446
+  br i1 %.not1013, label %1457, label %1447
 
 1447:                                             ; preds = %1445
   %1448 = icmp eq i32 %1439, -1
@@ -14006,8 +14006,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1451 = getelementptr inbounds nuw [1 x i64], ptr %1432, i64 0, i64 %1450
   %1452 = load i64, ptr %.0806, align 8, !tbaa !137
   %1453 = load i64, ptr %1451, align 8, !tbaa !110
-  %.not1015 = icmp eq i64 %1452, %1453
-  br i1 %.not1015, label %.critedge1082, label %1454
+  %.not1014 = icmp eq i64 %1452, %1453
+  br i1 %.not1014, label %.critedge1081, label %1454
 
 1454:                                             ; preds = %1449
   store i64 %1452, ptr %1451, align 8, !tbaa !110
@@ -14034,7 +14034,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1464 = zext nneg i32 %1463 to i64
   %1465 = getelementptr inbounds nuw i8, ptr %.22, i64 8
   store i64 %1464, ptr %1465, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 1466:                                             ; preds = %97
   %1467 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -14043,29 +14043,29 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   store i64 0, ptr %1469, align 8, !tbaa !110
   %1470 = add nsw i64 %99, 4
   store i64 %1470, ptr %98, align 8, !tbaa !135
-  %sext1009 = shl i64 %104, 32
-  %1471 = ashr exact i64 %sext1009, 29
+  %sext1008 = shl i64 %104, 32
+  %1471 = ashr exact i64 %sext1008, 29
   %1472 = getelementptr inbounds i8, ptr %16, i64 %1471
   %1473 = load i64, ptr %1472, align 8, !tbaa !110
   %1474 = and i64 %1473, 16777215
-  %sext1010 = add i64 %sext1009, 4294967296
-  %1475 = ashr exact i64 %sext1010, 29
+  %sext1009 = add i64 %sext1008, 4294967296
+  %1475 = ashr exact i64 %sext1009, 29
   %1476 = getelementptr inbounds i8, ptr %16, i64 %1475
   %1477 = load i64, ptr %1476, align 8, !tbaa !110
-  %sext1011 = add i64 %sext1009, 8589934592
-  %1478 = ashr exact i64 %sext1011, 29
+  %sext1010 = add i64 %sext1008, 8589934592
+  %1478 = ashr exact i64 %sext1010, 29
   %1479 = getelementptr inbounds i8, ptr %16, i64 %1478
   %1480 = load i64, ptr %1479, align 8, !tbaa !110
   %1481 = trunc i64 %1480 to i32
   %1482 = icmp eq i32 %1481, -1
-  br i1 %1482, label %.thread1426, label %1483
+  br i1 %1482, label %.thread1425, label %1483
 
 1483:                                             ; preds = %1466
   %1484 = and i64 %1477, 4294967295
   %1485 = icmp eq i64 %1484, 0
-  br i1 %1485, label %1492, label %.critedge1082
+  br i1 %1485, label %1492, label %.critedge1081
 
-.thread1426:                                      ; preds = %1466
+.thread1425:                                      ; preds = %1466
   %1486 = load i64, ptr %.0806, align 8, !tbaa !137
   %1487 = add nuw nsw i32 %103, 1
   %1488 = zext nneg i32 %1487 to i64
@@ -14073,22 +14073,22 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   store i64 %1486, ptr %1489, align 8, !tbaa !110
   %1490 = and i64 %1477, 4294967295
   %1491 = icmp eq i64 %1490, 0
-  br i1 %1491, label %.thread1427, label %.critedge1082
+  br i1 %1491, label %.thread1426, label %.critedge1081
 
 1492:                                             ; preds = %1483
-  %.not1012 = icmp eq i32 %1481, 0
-  br i1 %.not1012, label %1494, label %.thread1427
+  %.not1011 = icmp eq i32 %1481, 0
+  br i1 %.not1011, label %1494, label %.thread1426
 
-.thread1427:                                      ; preds = %.thread1426, %1492
+.thread1426:                                      ; preds = %.thread1425, %1492
   %1493 = call noundef ptr @_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %.0806, i64 noundef %1470, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %1494
 
-1494:                                             ; preds = %.thread1427, %1492
-  %.24 = phi ptr [ %1493, %.thread1427 ], [ %.0806, %1492 ]
+1494:                                             ; preds = %.thread1426, %1492
+  %.24 = phi ptr [ %1493, %.thread1426 ], [ %.0806, %1492 ]
   %1495 = add nuw nsw i64 %1474, 1
   %1496 = getelementptr inbounds nuw i8, ptr %.24, i64 8
   store i64 %1495, ptr %1496, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 1497:                                             ; preds = %97
   %1498 = and i64 %101, 16777215
@@ -14109,11 +14109,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1512 = icmp uge i64 %1510, %1511
   %1513 = icmp ne i32 %1508, -1
   %or.cond8 = and i1 %1513, %1512
-  br i1 %or.cond8, label %.critedge1082, label %1514
+  br i1 %or.cond8, label %.critedge1081, label %1514
 
 1514:                                             ; preds = %1497
-  %sext1007 = shl i64 %1505, 32
-  %1515 = ashr exact i64 %sext1007, 32
+  %sext1006 = shl i64 %1505, 32
+  %1515 = ashr exact i64 %sext1006, 32
   %1516 = icmp slt i64 %1510, %1515
   br i1 %1516, label %1517, label %1524
 
@@ -14125,11 +14125,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1521 = add nsw i32 %1520, -1
   store i32 %1521, ptr %77, align 8, !tbaa !36
   %1522 = icmp slt i32 %1520, 2
-  br i1 %1522, label %1523, label %.critedge1082
+  br i1 %1522, label %1523, label %.critedge1081
 
 1523:                                             ; preds = %1517
   call void @_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %.critedge1082
+  br label %.critedge1081
 
 1524:                                             ; preds = %1514
   %1525 = icmp eq i32 %1508, -1
@@ -14140,8 +14140,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1528 = getelementptr inbounds nuw [1 x i64], ptr %1501, i64 0, i64 %1527
   %1529 = load i64, ptr %.0806, align 8, !tbaa !137
   %1530 = load i64, ptr %1528, align 8, !tbaa !110
-  %.not1008 = icmp eq i64 %1529, %1530
-  br i1 %.not1008, label %.critedge1082, label %1531
+  %.not1007 = icmp eq i64 %1529, %1530
+  br i1 %.not1007, label %.critedge1081, label %1531
 
 1531:                                             ; preds = %1526
   store i64 %1529, ptr %1528, align 8, !tbaa !110
@@ -14151,7 +14151,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1533 = add nuw nsw i32 %103, 4
   %1534 = zext nneg i32 %1533 to i64
   %1535 = call noundef ptr @_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %.0806, i64 noundef %1534, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %.critedge1082
+  br label %.critedge1081
 
 1536:                                             ; preds = %97
   %1537 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14162,7 +14162,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1542 = and i64 %101, 16777215
   %1543 = getelementptr inbounds nuw i64, ptr %1541, i64 %1542
   store i64 %1540, ptr %1543, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 1544:                                             ; preds = %97
   %1545 = load ptr, ptr %84, align 8, !tbaa !40
@@ -14173,37 +14173,37 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1550 = load ptr, ptr %36, align 8, !tbaa !64
   %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 24
   %1552 = load ptr, ptr %1551, align 8, !tbaa !131
-  %sext1006 = shl i64 %1548, 32
-  %1553 = ashr exact i64 %sext1006, 29
+  %sext1005 = shl i64 %1548, 32
+  %1553 = ashr exact i64 %sext1005, 29
   %1554 = getelementptr inbounds i8, ptr %1552, i64 %1553
   %1555 = load i32, ptr %35, align 8, !tbaa !17
   %1556 = sext i32 %1555 to i64
   %1557 = sub nsw i64 0, %1556
   %1558 = getelementptr inbounds i64, ptr %1554, i64 %1557
   %1559 = icmp eq ptr %1558, %.0806
-  br i1 %1559, label %.critedge1082, label %.preheader
+  br i1 %1559, label %.critedge1081, label %.preheader
 
 .preheader:                                       ; preds = %1544
   %1560 = icmp sgt i32 %1555, 0
-  br i1 %1560, label %.lr.ph1532.preheader, label %._crit_edge1533
+  br i1 %1560, label %.lr.ph1531.preheader, label %._crit_edge1532
 
-.lr.ph1532.preheader:                             ; preds = %.preheader
-  %wide.trip.count1581 = zext nneg i32 %1555 to i64
-  br label %.lr.ph1532
+.lr.ph1531.preheader:                             ; preds = %.preheader
+  %wide.trip.count1580 = zext nneg i32 %1555 to i64
+  br label %.lr.ph1531
 
-.lr.ph1532:                                       ; preds = %.lr.ph1532.preheader, %.lr.ph1532
-  %indvars.iv1578 = phi i64 [ 0, %.lr.ph1532.preheader ], [ %indvars.iv.next1579, %.lr.ph1532 ]
-  %1561 = getelementptr inbounds nuw i64, ptr %.0806, i64 %indvars.iv1578
+.lr.ph1531:                                       ; preds = %.lr.ph1531.preheader, %.lr.ph1531
+  %indvars.iv1577 = phi i64 [ 0, %.lr.ph1531.preheader ], [ %indvars.iv.next1578, %.lr.ph1531 ]
+  %1561 = getelementptr inbounds nuw i64, ptr %.0806, i64 %indvars.iv1577
   %1562 = load i64, ptr %1561, align 8, !tbaa !110
-  %1563 = getelementptr inbounds nuw i64, ptr %1558, i64 %indvars.iv1578
+  %1563 = getelementptr inbounds nuw i64, ptr %1558, i64 %indvars.iv1577
   store i64 %1562, ptr %1563, align 8, !tbaa !110
-  %indvars.iv.next1579 = add nuw nsw i64 %indvars.iv1578, 1
-  %exitcond1582.not = icmp eq i64 %indvars.iv.next1579, %wide.trip.count1581
-  br i1 %exitcond1582.not, label %._crit_edge1533, label %.lr.ph1532, !llvm.loop !148
+  %indvars.iv.next1578 = add nuw nsw i64 %indvars.iv1577, 1
+  %exitcond1581.not = icmp eq i64 %indvars.iv.next1578, %wide.trip.count1580
+  br i1 %exitcond1581.not, label %._crit_edge1532, label %.lr.ph1531, !llvm.loop !148
 
-._crit_edge1533:                                  ; preds = %.lr.ph1532, %.preheader
+._crit_edge1532:                                  ; preds = %.lr.ph1531, %.preheader
   call void @_ZN6icu_779UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %1550, i32 noundef %1549)
-  br label %.critedge1082
+  br label %.critedge1081
 
 1564:                                             ; preds = %97
   %1565 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -14223,90 +14223,90 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1577 = getelementptr inbounds nuw i8, ptr %1575, i64 8
   %1578 = load i32, ptr %1577, align 8, !tbaa !134
   %1579 = sub nsw i32 %1578, %1576
-  %spec.select.i1260 = call i32 @llvm.smax.i32(i32 %1579, i32 0)
-  store i32 %spec.select.i1260, ptr %1577, align 8, !tbaa !134
+  %spec.select.i1259 = call i32 @llvm.smax.i32(i32 %1579, i32 0)
+  store i32 %spec.select.i1259, ptr %1577, align 8, !tbaa !134
   %1580 = getelementptr inbounds nuw i8, ptr %1575, i64 24
   %1581 = load ptr, ptr %1580, align 8, !tbaa !131
-  %1582 = zext nneg i32 %spec.select.i1260 to i64
+  %1582 = zext nneg i32 %spec.select.i1259 to i64
   %1583 = getelementptr inbounds nuw i64, ptr %1581, i64 %1582
   %1584 = sext i32 %1576 to i64
   %1585 = sub nsw i64 0, %1584
   %1586 = getelementptr inbounds i64, ptr %1583, i64 %1585
-  br label %.critedge1082
+  br label %.critedge1081
 
 1587:                                             ; preds = %1564
   %1588 = load i64, ptr %.0806, align 8, !tbaa !137
   %1589 = icmp slt i64 %1568, %1572
-  br i1 %1589, label %.lr.ph1529, label %.critedge1092
+  br i1 %1589, label %.lr.ph1528, label %.critedge1091
 
-.lr.ph1529:                                       ; preds = %1587
+.lr.ph1528:                                       ; preds = %1587
   %1590 = load i64, ptr %82, align 8, !tbaa !69
   %1591 = add i64 %1588, %1572
   %1592 = sub i64 %1591, %1568
   br label %1593
 
-1593:                                             ; preds = %.lr.ph1529, %1600
-  %.08721527 = phi i64 [ %1588, %.lr.ph1529 ], [ %1602, %1600 ]
-  %.08751526 = phi i64 [ %1568, %.lr.ph1529 ], [ %1601, %1600 ]
-  %.not1002 = icmp slt i64 %.08721527, %1590
-  br i1 %.not1002, label %1595, label %1594
+1593:                                             ; preds = %.lr.ph1528, %1600
+  %.08721526 = phi i64 [ %1588, %.lr.ph1528 ], [ %1602, %1600 ]
+  %.08751525 = phi i64 [ %1568, %.lr.ph1528 ], [ %1601, %1600 ]
+  %.not1001 = icmp slt i64 %.08721526, %1590
+  br i1 %.not1001, label %1595, label %1594
 
 1594:                                             ; preds = %1593
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.critedge1094
+  br label %.critedge1093
 
 1595:                                             ; preds = %1593
-  %1596 = getelementptr inbounds nuw i16, ptr %32, i64 %.08751526
+  %1596 = getelementptr inbounds nuw i16, ptr %32, i64 %.08751525
   %1597 = load i16, ptr %1596, align 2, !tbaa !93
-  %1598 = getelementptr inbounds i16, ptr %32, i64 %.08721527
+  %1598 = getelementptr inbounds i16, ptr %32, i64 %.08721526
   %1599 = load i16, ptr %1598, align 2, !tbaa !93
-  %.not1003 = icmp eq i16 %1597, %1599
-  br i1 %.not1003, label %1600, label %.critedge1094
+  %.not1002 = icmp eq i16 %1597, %1599
+  br i1 %.not1002, label %1600, label %.critedge1093
 
 1600:                                             ; preds = %1595
-  %1601 = add i64 %.08751526, 1
-  %1602 = add nsw i64 %.08721527, 1
-  %exitcond1577.not = icmp eq i64 %1601, %1572
-  br i1 %exitcond1577.not, label %.critedge1086, label %1593, !llvm.loop !149
+  %1601 = add i64 %.08751525, 1
+  %1602 = add nsw i64 %.08721526, 1
+  %exitcond1576.not = icmp eq i64 %1601, %1572
+  br i1 %exitcond1576.not, label %.critedge1085, label %1593, !llvm.loop !149
 
-.critedge1086:                                    ; preds = %1600
-  %gep1547 = getelementptr i16, ptr %invariant.gep1546, i64 %1572
-  %1603 = load i16, ptr %gep1547, align 2, !tbaa !93
+.critedge1085:                                    ; preds = %1600
+  %gep1546 = getelementptr i16, ptr %invariant.gep1545, i64 %1572
+  %1603 = load i16, ptr %gep1546, align 2, !tbaa !93
   %1604 = and i16 %1603, -1024
   %1605 = icmp eq i16 %1604, -10240
   %1606 = load i64, ptr %82, align 8
   %1607 = icmp slt i64 %1592, %1606
-  %or.cond1089 = select i1 %1605, i1 %1607, i1 false
-  br i1 %or.cond1089, label %1608, label %.critedge1092
+  %or.cond1088 = select i1 %1605, i1 %1607, i1 false
+  br i1 %or.cond1088, label %1608, label %.critedge1091
 
-1608:                                             ; preds = %.critedge1086
+1608:                                             ; preds = %.critedge1085
   %1609 = getelementptr inbounds i16, ptr %32, i64 %1592
   %1610 = load i16, ptr %1609, align 2, !tbaa !93
   %1611 = and i16 %1610, -1024
   %1612 = icmp eq i16 %1611, -9216
-  br i1 %1612, label %.critedge1094, label %.critedge1092
+  br i1 %1612, label %.critedge1093, label %.critedge1091
 
-.critedge1092:                                    ; preds = %1587, %.critedge1086, %1608
-  %.0872.lcssa1587 = phi i64 [ %1592, %.critedge1086 ], [ %1592, %1608 ], [ %1588, %1587 ]
-  store i64 %.0872.lcssa1587, ptr %.0806, align 8, !tbaa !137
-  br label %.critedge1082
+.critedge1091:                                    ; preds = %1587, %.critedge1085, %1608
+  %.0872.lcssa1586 = phi i64 [ %1592, %.critedge1085 ], [ %1592, %1608 ], [ %1588, %1587 ]
+  store i64 %.0872.lcssa1586, ptr %.0806, align 8, !tbaa !137
+  br label %.critedge1081
 
-.critedge1094:                                    ; preds = %1595, %1594, %1608
+.critedge1093:                                    ; preds = %1595, %1594, %1608
   %1613 = load ptr, ptr %36, align 8, !tbaa !64
   %1614 = load i32, ptr %35, align 8, !tbaa !17
   %1615 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   %1616 = load i32, ptr %1615, align 8, !tbaa !134
   %1617 = sub nsw i32 %1616, %1614
-  %spec.select.i1261 = call i32 @llvm.smax.i32(i32 %1617, i32 0)
-  store i32 %spec.select.i1261, ptr %1615, align 8, !tbaa !134
+  %spec.select.i1260 = call i32 @llvm.smax.i32(i32 %1617, i32 0)
+  store i32 %spec.select.i1260, ptr %1615, align 8, !tbaa !134
   %1618 = getelementptr inbounds nuw i8, ptr %1613, i64 24
   %1619 = load ptr, ptr %1618, align 8, !tbaa !131
-  %1620 = zext nneg i32 %spec.select.i1261 to i64
+  %1620 = zext nneg i32 %spec.select.i1260 to i64
   %1621 = getelementptr inbounds nuw i64, ptr %1619, i64 %1620
   %1622 = sext i32 %1614 to i64
   %1623 = sub nsw i64 0, %1622
   %1624 = getelementptr inbounds i64, ptr %1621, i64 %1623
-  br label %.critedge1082
+  br label %.critedge1081
 
 1625:                                             ; preds = %97
   %1626 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -14322,16 +14322,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1634 = getelementptr inbounds nuw i8, ptr %1632, i64 8
   %1635 = load i32, ptr %1634, align 8, !tbaa !134
   %1636 = sub nsw i32 %1635, %1633
-  %spec.select.i1262 = call i32 @llvm.smax.i32(i32 %1636, i32 0)
-  store i32 %spec.select.i1262, ptr %1634, align 8, !tbaa !134
+  %spec.select.i1261 = call i32 @llvm.smax.i32(i32 %1636, i32 0)
+  store i32 %spec.select.i1261, ptr %1634, align 8, !tbaa !134
   %1637 = getelementptr inbounds nuw i8, ptr %1632, i64 24
   %1638 = load ptr, ptr %1637, align 8, !tbaa !131
-  %1639 = zext nneg i32 %spec.select.i1262 to i64
+  %1639 = zext nneg i32 %spec.select.i1261 to i64
   %1640 = getelementptr inbounds nuw i64, ptr %1638, i64 %1639
   %1641 = sext i32 %1633 to i64
   %1642 = sub nsw i64 0, %1641
   %1643 = getelementptr inbounds i64, ptr %1640, i64 %1642
-  br label %.critedge1082
+  br label %.critedge1081
 
 1644:                                             ; preds = %1625
   %1645 = add nuw nsw i32 %103, 1
@@ -14344,22 +14344,22 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1649 = load i64, ptr %.0806, align 8, !tbaa !137
   %1650 = load i64, ptr %82, align 8, !tbaa !69
   invoke void @_ZN6icu_7724CaseFoldingUCharIteratorC1EPKDsll(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %32, i64 noundef %1649, i64 noundef %1650)
-          to label %.preheader1491 unwind label %1654
+          to label %.preheader1490 unwind label %1654
 
-.preheader1491:                                   ; preds = %1644, %1664
+.preheader1490:                                   ; preds = %1644, %1664
   %1651 = invoke noundef i32 @_ZN6icu_7724CaseFoldingUCharIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %1652 unwind label %1656
 
-1652:                                             ; preds = %.preheader1491
+1652:                                             ; preds = %.preheader1490
   %1653 = icmp eq i32 %1651, -1
-  br i1 %1653, label %.thread1438, label %1658
+  br i1 %1653, label %.thread1437, label %1658
 
 1654:                                             ; preds = %1644
   %1655 = landingpad { ptr, i32 }
           cleanup
   br label %1686
 
-1656:                                             ; preds = %.preheader1491
+1656:                                             ; preds = %.preheader1490
   %1657 = landingpad { ptr, i32 }
           cleanup
   br label %1685
@@ -14370,11 +14370,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
 
 1660:                                             ; preds = %1658
   %1661 = icmp eq i32 %1659, -1
-  br i1 %1661, label %.thread1435, label %1664
+  br i1 %1661, label %.thread1434, label %1664
 
-.thread1435:                                      ; preds = %1660
+.thread1434:                                      ; preds = %1660
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.critedge1100
+  br label %.critedge1099
 
 1662:                                             ; preds = %1658
   %1663 = landingpad { ptr, i32 }
@@ -14383,17 +14383,17 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
 
 1664:                                             ; preds = %1660
   %.not993 = icmp eq i32 %1659, %1651
-  br i1 %.not993, label %.preheader1491, label %.critedge1100
+  br i1 %.not993, label %.preheader1490, label %.critedge1099
 
-.thread1438:                                      ; preds = %1652
+.thread1437:                                      ; preds = %1652
   %1665 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUCharIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %1666 unwind label %1667
 
-1666:                                             ; preds = %.thread1438
+1666:                                             ; preds = %.thread1437
   %.not995.not = icmp eq i8 %1665, 0
-  br i1 %.not995.not, label %1669, label %.critedge1100
+  br i1 %.not995.not, label %1669, label %.critedge1099
 
-1667:                                             ; preds = %1669, %.thread1438
+1667:                                             ; preds = %1669, %.thread1437
   %1668 = landingpad { ptr, i32 }
           cleanup
   br label %1685
@@ -14406,30 +14406,30 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   store i64 %1670, ptr %.0806, align 8, !tbaa !137
   br label %1684
 
-.critedge1100:                                    ; preds = %1664, %.thread1435, %1666
+.critedge1099:                                    ; preds = %1664, %.thread1434, %1666
   %1672 = load ptr, ptr %36, align 8, !tbaa !64
   %1673 = load i32, ptr %35, align 8, !tbaa !17
   %1674 = getelementptr inbounds nuw i8, ptr %1672, i64 8
   %1675 = load i32, ptr %1674, align 8, !tbaa !134
   %1676 = sub nsw i32 %1675, %1673
-  %spec.select.i1263 = call i32 @llvm.smax.i32(i32 %1676, i32 0)
-  store i32 %spec.select.i1263, ptr %1674, align 8, !tbaa !134
+  %spec.select.i1262 = call i32 @llvm.smax.i32(i32 %1676, i32 0)
+  store i32 %spec.select.i1262, ptr %1674, align 8, !tbaa !134
   %1677 = getelementptr inbounds nuw i8, ptr %1672, i64 24
   %1678 = load ptr, ptr %1677, align 8, !tbaa !131
-  %1679 = zext nneg i32 %spec.select.i1263 to i64
+  %1679 = zext nneg i32 %spec.select.i1262 to i64
   %1680 = getelementptr inbounds nuw i64, ptr %1678, i64 %1679
   %1681 = sext i32 %1673 to i64
   %1682 = sub nsw i64 0, %1681
   %1683 = getelementptr inbounds i64, ptr %1680, i64 %1682
   br label %1684
 
-1684:                                             ; preds = %.critedge1100, %1671
-  %.31 = phi ptr [ %.0806, %1671 ], [ %1683, %.critedge1100 ]
+1684:                                             ; preds = %.critedge1099, %1671
+  %.31 = phi ptr [ %.0806, %1671 ], [ %1683, %.critedge1099 ]
   call void @_ZN6icu_7724CaseFoldingUCharIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
   call void @_ZN6icu_7724CaseFoldingUCharIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  br label %.critedge1082
+  br label %.critedge1081
 
 1685:                                             ; preds = %1656, %1662, %1667
   %.pn997 = phi { ptr, i32 } [ %1668, %1667 ], [ %1663, %1662 ], [ %1657, %1656 ]
@@ -14449,7 +14449,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1690 = and i64 %101, 16777215
   %1691 = getelementptr inbounds nuw [1 x i64], ptr %1689, i64 0, i64 %1690
   store i64 %1688, ptr %1691, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 1692:                                             ; preds = %97
   %1693 = add nsw i64 %99, 2
@@ -14471,7 +14471,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
 1704:                                             ; preds = %1692
   %1705 = and i64 %101, 16777215
   store i64 %1705, ptr %98, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 1706:                                             ; preds = %1692
   %1707 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14479,16 +14479,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1709 = getelementptr inbounds nuw i8, ptr %1707, i64 8
   %1710 = load i32, ptr %1709, align 8, !tbaa !134
   %1711 = sub nsw i32 %1710, %1708
-  %spec.select.i1264 = call i32 @llvm.smax.i32(i32 %1711, i32 0)
-  store i32 %spec.select.i1264, ptr %1709, align 8, !tbaa !134
+  %spec.select.i1263 = call i32 @llvm.smax.i32(i32 %1711, i32 0)
+  store i32 %spec.select.i1263, ptr %1709, align 8, !tbaa !134
   %1712 = getelementptr inbounds nuw i8, ptr %1707, i64 24
   %1713 = load ptr, ptr %1712, align 8, !tbaa !131
-  %1714 = zext nneg i32 %spec.select.i1264 to i64
+  %1714 = zext nneg i32 %spec.select.i1263 to i64
   %1715 = getelementptr inbounds nuw i64, ptr %1713, i64 %1714
   %1716 = sext i32 %1708 to i64
   %1717 = sub nsw i64 0, %1716
   %1718 = getelementptr inbounds i64, ptr %1715, i64 %1717
-  br label %.critedge1082
+  br label %.critedge1081
 
 1719:                                             ; preds = %97
   %1720 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14512,7 +14512,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   store i64 %1733, ptr %85, align 8, !tbaa !68
   %1734 = load i64, ptr %89, align 8, !tbaa !73
   store i64 %1734, ptr %82, align 8, !tbaa !69
-  br label %.critedge1082
+  br label %.critedge1081
 
 1735:                                             ; preds = %97
   %1736 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14537,30 +14537,30 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1752 = sub nsw i64 0, %1751
   %1753 = getelementptr inbounds i64, ptr %1749, i64 %1752
   %1754 = icmp sgt i32 %1750, 0
-  br i1 %1754, label %.lr.ph1524.preheader, label %._crit_edge1525
+  br i1 %1754, label %.lr.ph1523.preheader, label %._crit_edge1524
 
-.lr.ph1524.preheader:                             ; preds = %1745
+.lr.ph1523.preheader:                             ; preds = %1745
   %wide.trip.count = zext nneg i32 %1750 to i64
-  br label %.lr.ph1524
+  br label %.lr.ph1523
 
-.lr.ph1524:                                       ; preds = %.lr.ph1524.preheader, %.lr.ph1524
-  %indvars.iv = phi i64 [ 0, %.lr.ph1524.preheader ], [ %indvars.iv.next, %.lr.ph1524 ]
+.lr.ph1523:                                       ; preds = %.lr.ph1523.preheader, %.lr.ph1523
+  %indvars.iv = phi i64 [ 0, %.lr.ph1523.preheader ], [ %indvars.iv.next, %.lr.ph1523 ]
   %1755 = getelementptr inbounds nuw i64, ptr %.0806, i64 %indvars.iv
   %1756 = load i64, ptr %1755, align 8, !tbaa !110
   %1757 = getelementptr inbounds nuw i64, ptr %1753, i64 %indvars.iv
   store i64 %1756, ptr %1757, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1525, label %.lr.ph1524, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge1524, label %.lr.ph1523, !llvm.loop !150
 
-._crit_edge1525:                                  ; preds = %.lr.ph1524, %1745
+._crit_edge1524:                                  ; preds = %.lr.ph1523, %1745
   call void @_ZN6icu_779UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %1736, i32 noundef %1743)
-  %.pre1585 = load ptr, ptr %84, align 8, !tbaa !40
+  %.pre1584 = load ptr, ptr %84, align 8, !tbaa !40
   br label %1758
 
-1758:                                             ; preds = %._crit_edge1525, %1735
-  %1759 = phi ptr [ %.pre1585, %._crit_edge1525 ], [ %1739, %1735 ]
-  %.33 = phi ptr [ %1753, %._crit_edge1525 ], [ %.0806, %1735 ]
+1758:                                             ; preds = %._crit_edge1524, %1735
+  %1759 = phi ptr [ %.pre1584, %._crit_edge1524 ], [ %1739, %1735 ]
+  %.33 = phi ptr [ %1753, %._crit_edge1524 ], [ %.0806, %1735 ]
   %1760 = getelementptr inbounds nuw i64, ptr %1759, i64 %1740
   %1761 = getelementptr inbounds nuw i8, ptr %1760, i64 8
   %1762 = load i64, ptr %1761, align 8, !tbaa !110
@@ -14571,7 +14571,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1765 = getelementptr inbounds nuw i8, ptr %1760, i64 24
   %1766 = load i64, ptr %1765, align 8, !tbaa !110
   store i64 %1766, ptr %82, align 8, !tbaa !69
-  br label %.critedge1082
+  br label %.critedge1081
 
 1767:                                             ; preds = %97
   %1768 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -14589,8 +14589,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1777 = icmp ne i32 %1776, 55296
   %1778 = load i64, ptr %82, align 8
   %.not988 = icmp eq i64 %1772, %1778
-  %or.cond1132 = select i1 %1777, i1 true, i1 %.not988
-  br i1 %or.cond1132, label %1790, label %1779
+  %or.cond1131 = select i1 %1777, i1 true, i1 %.not988
+  br i1 %or.cond1131, label %1790, label %1779
 
 1779:                                             ; preds = %1771
   %1780 = getelementptr inbounds i16, ptr %32, i64 %1772
@@ -14612,7 +14612,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %.1861 = phi i32 [ %1775, %1771 ], [ %1789, %1785 ], [ %1775, %1779 ]
   %1791 = call i32 @u_foldCase_77(i32 noundef %.1861, i32 noundef 0)
   %1792 = icmp eq i32 %1791, %103
-  br i1 %1792, label %.critedge1082, label %1794
+  br i1 %1792, label %.critedge1081, label %1794
 
 1793:                                             ; preds = %1767
   store i8 1, ptr %83, align 8, !tbaa !32
@@ -14624,16 +14624,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1797 = getelementptr inbounds nuw i8, ptr %1795, i64 8
   %1798 = load i32, ptr %1797, align 8, !tbaa !134
   %1799 = sub nsw i32 %1798, %1796
-  %spec.select.i1265 = call i32 @llvm.smax.i32(i32 %1799, i32 0)
-  store i32 %spec.select.i1265, ptr %1797, align 8, !tbaa !134
+  %spec.select.i1264 = call i32 @llvm.smax.i32(i32 %1799, i32 0)
+  store i32 %spec.select.i1264, ptr %1797, align 8, !tbaa !134
   %1800 = getelementptr inbounds nuw i8, ptr %1795, i64 24
   %1801 = load ptr, ptr %1800, align 8, !tbaa !131
-  %1802 = zext nneg i32 %spec.select.i1265 to i64
+  %1802 = zext nneg i32 %spec.select.i1264 to i64
   %1803 = getelementptr inbounds nuw i64, ptr %1801, i64 %1802
   %1804 = sext i32 %1796 to i64
   %1805 = sub nsw i64 0, %1804
   %1806 = getelementptr inbounds i64, ptr %1803, i64 %1805
-  br label %.critedge1082
+  br label %.critedge1081
 
 1807:                                             ; preds = %97
   %1808 = and i64 %101, 16777215
@@ -14653,7 +14653,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
 1817:                                             ; preds = %1841, %1807
   %.0844 = phi i32 [ 0, %1807 ], [ %.2846, %1841 ]
   %1818 = icmp slt i32 %.0844, %1814
-  br i1 %1818, label %1819, label %.loopexit1492
+  br i1 %1818, label %1819, label %.loopexit1491
 
 1819:                                             ; preds = %1817
   %1820 = add nsw i32 %.0844, 1
@@ -14664,8 +14664,8 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1825 = and i32 %1824, 64512
   %1826 = icmp ne i32 %1825, 55296
   %.not984 = icmp eq i32 %1820, %1814
-  %or.cond1133 = select i1 %1826, i1 true, i1 %.not984
-  br i1 %or.cond1133, label %1839, label %1827
+  %or.cond1132 = select i1 %1826, i1 true, i1 %.not984
+  br i1 %or.cond1132, label %1839, label %1827
 
 1827:                                             ; preds = %1819
   %1828 = sext i32 %1820 to i64
@@ -14687,7 +14687,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %.1850 = phi i32 [ %1824, %1819 ], [ %1838, %1834 ], [ %1824, %1827 ]
   %.2846 = phi i32 [ %1820, %1819 ], [ %1835, %1834 ], [ %1820, %1827 ]
   %1840 = invoke noundef i32 @_ZN6icu_7724CaseFoldingUCharIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %1841 unwind label %.loopexit1493
+          to label %1841 unwind label %.loopexit1492
 
 1841:                                             ; preds = %1839
   %.not985 = icmp eq i32 %1840, %.1850
@@ -14695,33 +14695,33 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
 
 1842:                                             ; preds = %1841
   %1843 = icmp eq i32 %1840, -1
-  br i1 %1843, label %1844, label %.loopexit1492
+  br i1 %1843, label %1844, label %.loopexit1491
 
 1844:                                             ; preds = %1842
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.loopexit1492
+  br label %.loopexit1491
 
-.loopexit1493:                                    ; preds = %1839
+.loopexit1492:                                    ; preds = %1839
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %1845
 
-.loopexit.split-lp:                               ; preds = %.loopexit1492, %1848
+.loopexit.split-lp:                               ; preds = %.loopexit1491, %1848
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %1845
 
-1845:                                             ; preds = %.loopexit.split-lp, %.loopexit1493
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit1493 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+1845:                                             ; preds = %.loopexit.split-lp, %.loopexit1492
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit1492 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7724CaseFoldingUCharIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
   br label %2537
 
-.loopexit1492:                                    ; preds = %1817, %1842, %1844
+.loopexit1491:                                    ; preds = %1817, %1842, %1844
   %1846 = invoke noundef signext i8 @_ZN6icu_7724CaseFoldingUCharIterator11inExpansionEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %1847 unwind label %.loopexit.split-lp
 
-1847:                                             ; preds = %.loopexit1492
+1847:                                             ; preds = %.loopexit1491
   %.not986 = icmp ne i8 %1846, 0
   %.not987 = or i1 %1818, %.not986
   br i1 %.not987, label %1851, label %1848
@@ -14740,11 +14740,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1854 = getelementptr inbounds nuw i8, ptr %1852, i64 8
   %1855 = load i32, ptr %1854, align 8, !tbaa !134
   %1856 = sub nsw i32 %1855, %1853
-  %spec.select.i1266 = call i32 @llvm.smax.i32(i32 %1856, i32 0)
-  store i32 %spec.select.i1266, ptr %1854, align 8, !tbaa !134
+  %spec.select.i1265 = call i32 @llvm.smax.i32(i32 %1856, i32 0)
+  store i32 %spec.select.i1265, ptr %1854, align 8, !tbaa !134
   %1857 = getelementptr inbounds nuw i8, ptr %1852, i64 24
   %1858 = load ptr, ptr %1857, align 8, !tbaa !131
-  %1859 = zext nneg i32 %spec.select.i1266 to i64
+  %1859 = zext nneg i32 %spec.select.i1265 to i64
   %1860 = getelementptr inbounds nuw i64, ptr %1858, i64 %1859
   %1861 = sext i32 %1853 to i64
   %1862 = sub nsw i64 0, %1861
@@ -14755,7 +14755,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %.34 = phi ptr [ %.0806, %1850 ], [ %1863, %1851 ]
   call void @_ZN6icu_7724CaseFoldingUCharIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
-  br label %.critedge1082
+  br label %.critedge1081
 
 1865:                                             ; preds = %97
   %1866 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14781,7 +14781,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   store i64 %1880, ptr %82, align 8, !tbaa !69
   %1881 = getelementptr inbounds nuw i8, ptr %1872, i64 32
   store i64 -1, ptr %1881, align 8, !tbaa !110
-  br label %.critedge1082
+  br label %.critedge1081
 
 1882:                                             ; preds = %97
   %1883 = add nsw i64 %99, 2
@@ -14809,32 +14809,32 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1899 = icmp sgt i64 %1898, 0
   %1900 = load i64, ptr %86, align 8
   %1901 = icmp slt i64 %1898, %1900
-  %or.cond1105 = select i1 %1899, i1 %1901, i1 false
-  br i1 %or.cond1105, label %1902, label %1929
+  %or.cond1104 = select i1 %1899, i1 %1901, i1 false
+  br i1 %or.cond1104, label %1902, label %1929
 
 1902:                                             ; preds = %1895
   %1903 = getelementptr inbounds nuw i16, ptr %32, i64 %1898
   %1904 = load i16, ptr %1903, align 2, !tbaa !93
   %1905 = and i16 %1904, -1024
   %1906 = icmp eq i16 %1905, -9216
-  br i1 %1906, label %1907, label %.thread1442
+  br i1 %1906, label %1907, label %.thread1441
 
 1907:                                             ; preds = %1902
   %1908 = getelementptr i8, ptr %1903, i64 -2
   %1909 = load i16, ptr %1908, align 2, !tbaa !93
   %1910 = and i16 %1909, -1024
   %1911 = icmp eq i16 %1910, -10240
-  br i1 %1911, label %1912, label %.thread1442
+  br i1 %1911, label %1912, label %.thread1441
 
 1912:                                             ; preds = %1907
   %1913 = add nsw i64 %1898, -1
-  br label %.thread1442.sink.split
+  br label %.thread1441.sink.split
 
 1914:                                             ; preds = %1882
   %1915 = icmp eq i64 %1893, 0
-  br i1 %1915, label %.thread1443, label %1916
+  br i1 %1915, label %.thread1442, label %1916
 
-.thread1443:                                      ; preds = %1914
+.thread1442:                                      ; preds = %1914
   store i64 -1, ptr %1892, align 8, !tbaa !110
   br label %1936
 
@@ -14846,31 +14846,31 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1920 = and i16 %1919, -1024
   %1921 = icmp eq i16 %1920, -9216
   %1922 = icmp ne i64 %1893, 1
-  %or.cond1106 = and i1 %1922, %1921
-  br i1 %or.cond1106, label %1923, label %.thread1442
+  %or.cond1105 = and i1 %1922, %1921
+  br i1 %or.cond1105, label %1923, label %.thread1441
 
 1923:                                             ; preds = %1916
-  %gep1545 = getelementptr i16, ptr %invariant.gep1534, i64 %1893
-  %1924 = load i16, ptr %gep1545, align 2, !tbaa !93
+  %gep1544 = getelementptr i16, ptr %invariant.gep1533, i64 %1893
+  %1924 = load i16, ptr %gep1544, align 2, !tbaa !93
   %1925 = and i16 %1924, -1024
   %1926 = icmp eq i16 %1925, -10240
-  br i1 %1926, label %1927, label %.thread1442
+  br i1 %1926, label %1927, label %.thread1441
 
 1927:                                             ; preds = %1923
   %1928 = add nsw i64 %1893, -2
-  br label %.thread1442.sink.split
+  br label %.thread1441.sink.split
 
 1929:                                             ; preds = %1895
   %1930 = icmp slt i64 %1898, 0
-  br i1 %1930, label %1936, label %.thread1442
+  br i1 %1930, label %1936, label %.thread1441
 
-.thread1442.sink.split:                           ; preds = %1927, %1912
+.thread1441.sink.split:                           ; preds = %1927, %1912
   %.sink = phi i64 [ %1913, %1912 ], [ %1928, %1927 ]
   store i64 %.sink, ptr %1892, align 8, !tbaa !110
-  br label %.thread1442
+  br label %.thread1441
 
-.thread1442:                                      ; preds = %.thread1442.sink.split, %1902, %1907, %1916, %1923, %1929
-  %1931 = phi i64 [ %1898, %1929 ], [ %1898, %1902 ], [ %1898, %1907 ], [ %1917, %1916 ], [ %1917, %1923 ], [ %.sink, %.thread1442.sink.split ]
+.thread1441:                                      ; preds = %.thread1441.sink.split, %1902, %1907, %1916, %1923, %1929
+  %1931 = phi i64 [ %1898, %1929 ], [ %1898, %1902 ], [ %1898, %1907 ], [ %1917, %1916 ], [ %1917, %1923 ], [ %.sink, %.thread1441.sink.split ]
   %1932 = load i64, ptr %.0806, align 8, !tbaa !137
   %sext983 = shl i64 %1888, 32
   %1933 = ashr exact i64 %sext983, 32
@@ -14878,17 +14878,17 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1935 = icmp slt i64 %1931, %1934
   br i1 %1935, label %1936, label %1953
 
-1936:                                             ; preds = %.thread1443, %.thread1442, %1929
+1936:                                             ; preds = %.thread1442, %.thread1441, %1929
   %1937 = load ptr, ptr %36, align 8, !tbaa !64
   %1938 = load i32, ptr %35, align 8, !tbaa !17
   %1939 = getelementptr inbounds nuw i8, ptr %1937, i64 8
   %1940 = load i32, ptr %1939, align 8, !tbaa !134
   %1941 = sub nsw i32 %1940, %1938
-  %spec.select.i1267 = call i32 @llvm.smax.i32(i32 %1941, i32 0)
-  store i32 %spec.select.i1267, ptr %1939, align 8, !tbaa !134
+  %spec.select.i1266 = call i32 @llvm.smax.i32(i32 %1941, i32 0)
+  store i32 %spec.select.i1266, ptr %1939, align 8, !tbaa !134
   %1942 = getelementptr inbounds nuw i8, ptr %1937, i64 24
   %1943 = load ptr, ptr %1942, align 8, !tbaa !131
-  %1944 = zext nneg i32 %spec.select.i1267 to i64
+  %1944 = zext nneg i32 %spec.select.i1266 to i64
   %1945 = getelementptr inbounds nuw i64, ptr %1943, i64 %1944
   %1946 = sext i32 %1938 to i64
   %1947 = sub nsw i64 0, %1946
@@ -14899,14 +14899,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1951 = getelementptr inbounds nuw i8, ptr %1891, i64 24
   %1952 = load i64, ptr %1951, align 8, !tbaa !110
   store i64 %1952, ptr %82, align 8, !tbaa !69
-  br label %.critedge1082
+  br label %.critedge1081
 
-1953:                                             ; preds = %.thread1442
+1953:                                             ; preds = %.thread1441
   %1954 = load i64, ptr %98, align 8, !tbaa !135
   %1955 = add nsw i64 %1954, -3
   %1956 = load i32, ptr %3, align 4, !tbaa !13
   %1957 = icmp slt i32 %1956, 1
-  br i1 %1957, label %1958, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289
+  br i1 %1957, label %1958, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288
 
 1958:                                             ; preds = %1953
   %1959 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14917,55 +14917,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258: ;
   %1964 = icmp slt i32 %1963, 0
   %1965 = getelementptr inbounds nuw i8, ptr %1959, i64 12
   %1966 = load i32, ptr %1965, align 4
-  %.not.i.i.i1269 = icmp slt i32 %1966, %1963
-  %or.cond.i.i.i1270 = select i1 %1964, i1 true, i1 %.not.i.i.i1269
-  br i1 %or.cond.i.i.i1270, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1285, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1271
+  %.not.i.i.i1268 = icmp slt i32 %1966, %1963
+  %or.cond.i.i.i1269 = select i1 %1964, i1 true, i1 %.not.i.i.i1268
+  br i1 %or.cond.i.i.i1269, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1284, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1270
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1285: ; preds = %1958
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1284: ; preds = %1958
   %1967 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %1959, i32 noundef %1963, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %1968 = icmp eq i8 %1967, 0
-  br i1 %1968, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1286
+  br i1 %1968, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1272, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1285
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1286: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1285
-  %.pre.i.i1287 = load i32, ptr %1961, align 8, !tbaa !134
-  %.pre6.i.i1288 = add nsw i32 %.pre.i.i1287, %1960
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1271
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1285: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1284
+  %.pre.i.i1286 = load i32, ptr %1961, align 8, !tbaa !134
+  %.pre6.i.i1287 = add nsw i32 %.pre.i.i1286, %1960
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1270
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1271: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1286, %1958
-  %.pre-phi.i.i1272 = phi i32 [ %.pre6.i.i1288, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1286 ], [ %1963, %1958 ]
-  %1969 = phi i32 [ %.pre.i.i1287, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1286 ], [ %1962, %1958 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1270: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1285, %1958
+  %.pre-phi.i.i1271 = phi i32 [ %.pre6.i.i1287, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1285 ], [ %1963, %1958 ]
+  %1969 = phi i32 [ %.pre.i.i1286, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1285 ], [ %1962, %1958 ]
   %1970 = getelementptr inbounds nuw i8, ptr %1959, i64 24
   %1971 = load ptr, ptr %1970, align 8, !tbaa !131
   %1972 = sext i32 %1969 to i64
   %1973 = getelementptr inbounds i64, ptr %1971, i64 %1972
-  store i32 %.pre-phi.i.i1272, ptr %1961, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273
+  store i32 %.pre-phi.i.i1271, ptr %1961, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1272
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1271, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1285
-  %.0.i.i1274 = phi ptr [ %1973, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1271 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1285 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1272: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1270, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1284
+  %.0.i.i1273 = phi ptr [ %1973, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1270 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1284 ]
   %1974 = load i32, ptr %3, align 4, !tbaa !13
   %1975 = icmp slt i32 %1974, 1
   br i1 %1975, label %1977, label %1976
 
-1976:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273
+1976:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1272
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288
 
-1977:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273
+1977:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1272
   %1978 = load i32, ptr %35, align 8, !tbaa !17
   %1979 = sext i32 %1978 to i64
   %1980 = sub nsw i64 0, %1979
-  %1981 = getelementptr inbounds i64, ptr %.0.i.i1274, i64 %1980
+  %1981 = getelementptr inbounds i64, ptr %.0.i.i1273, i64 %1980
   br label %1982
 
 1982:                                             ; preds = %1982, %1977
-  %.018.i1275 = phi ptr [ %1981, %1977 ], [ %1983, %1982 ]
-  %.0.i1276 = phi ptr [ %.0.i.i1274, %1977 ], [ %1985, %1982 ]
-  %1983 = getelementptr inbounds nuw i8, ptr %.018.i1275, i64 8
-  %1984 = load i64, ptr %.018.i1275, align 8, !tbaa !110
-  %1985 = getelementptr inbounds nuw i8, ptr %.0.i1276, i64 8
-  store i64 %1984, ptr %.0.i1276, align 8, !tbaa !110
-  %1986 = icmp eq ptr %1983, %.0.i.i1274
+  %.018.i1274 = phi ptr [ %1981, %1977 ], [ %1983, %1982 ]
+  %.0.i1275 = phi ptr [ %.0.i.i1273, %1977 ], [ %1985, %1982 ]
+  %1983 = getelementptr inbounds nuw i8, ptr %.018.i1274, i64 8
+  %1984 = load i64, ptr %.018.i1274, align 8, !tbaa !110
+  %1985 = getelementptr inbounds nuw i8, ptr %.0.i1275, i64 8
+  store i64 %1984, ptr %.0.i1275, align 8, !tbaa !110
+  %1986 = icmp eq ptr %1983, %.0.i.i1273
   br i1 %1986, label %1987, label %1982, !llvm.loop !139
 
 1987:                                             ; preds = %1982
@@ -14973,7 +14973,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273: ; preds = %_ZN6icu
   %1989 = add nsw i32 %1988, -1
   store i32 %1989, ptr %77, align 8, !tbaa !36
   %1990 = icmp slt i32 %1988, 2
-  br i1 %1990, label %1991, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277
+  br i1 %1990, label %1991, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276
 
 1991:                                             ; preds = %1987
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -14981,42 +14981,42 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1273: ; preds = %_ZN6icu
   %1993 = add nsw i32 %1992, 1
   store i32 %1993, ptr %78, align 4, !tbaa !35
   %1994 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1278 = icmp eq ptr %1994, null
-  br i1 %.not.i.i1278, label %1999, label %1995
+  %.not.i.i1277 = icmp eq ptr %1994, null
+  br i1 %.not.i.i1277, label %1999, label %1995
 
 1995:                                             ; preds = %1991
   %1996 = load ptr, ptr %80, align 8, !tbaa !141
   %1997 = call noundef signext i8 %1994(ptr noundef %1996, i32 noundef %1993)
   %1998 = icmp eq i8 %1997, 0
-  br i1 %1998, label %.sink.split.i.i1283, label %._crit_edge.i.i1279
+  br i1 %1998, label %.sink.split.i.i1282, label %._crit_edge.i.i1278
 
-._crit_edge.i.i1279:                              ; preds = %1995
-  %.pre.i22.i1280 = load i32, ptr %78, align 4
+._crit_edge.i.i1278:                              ; preds = %1995
+  %.pre.i22.i1279 = load i32, ptr %78, align 4
   br label %1999
 
-1999:                                             ; preds = %._crit_edge.i.i1279, %1991
-  %2000 = phi i32 [ %.pre.i22.i1280, %._crit_edge.i.i1279 ], [ %1993, %1991 ]
+1999:                                             ; preds = %._crit_edge.i.i1278, %1991
+  %2000 = phi i32 [ %.pre.i22.i1279, %._crit_edge.i.i1278 ], [ %1993, %1991 ]
   %2001 = load i32, ptr %81, align 8, !tbaa !34
   %2002 = icmp slt i32 %2001, 1
-  %.not4.i.i1281 = icmp slt i32 %2000, %2001
-  %or.cond.i.i1282 = select i1 %2002, i1 true, i1 %.not4.i.i1281
-  br i1 %or.cond.i.i1282, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277, label %.sink.split.i.i1283
+  %.not4.i.i1280 = icmp slt i32 %2000, %2001
+  %or.cond.i.i1281 = select i1 %2002, i1 true, i1 %.not4.i.i1280
+  br i1 %or.cond.i.i1281, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276, label %.sink.split.i.i1282
 
-.sink.split.i.i1283:                              ; preds = %1999, %1995
-  %.sink.i.i1284 = phi i32 [ 66323, %1995 ], [ 66322, %1999 ]
-  store i32 %.sink.i.i1284, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277
+.sink.split.i.i1282:                              ; preds = %1999, %1995
+  %.sink.i.i1283 = phi i32 [ 66323, %1995 ], [ 66322, %1999 ]
+  store i32 %.sink.i.i1283, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277: ; preds = %.sink.split.i.i1283, %1999, %1987
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276: ; preds = %.sink.split.i.i1282, %1999, %1987
   %2003 = getelementptr inbounds nuw i8, ptr %1981, i64 8
   store i64 %1955, ptr %2003, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ; preds = %1953, %1976, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277
-  %.019.i1268 = phi ptr [ %.0806, %1953 ], [ %.0806, %1976 ], [ %.0.i.i1274, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1277 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288: ; preds = %1953, %1976, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276
+  %.019.i1267 = phi ptr [ %.0806, %1953 ], [ %.0806, %1976 ], [ %.0.i.i1273, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1276 ]
   %2004 = load i64, ptr %1892, align 8, !tbaa !110
-  store i64 %2004, ptr %.019.i1268, align 8, !tbaa !137
-  br label %.critedge1082
+  store i64 %2004, ptr %.019.i1267, align 8, !tbaa !137
+  br label %.critedge1081
 
 2005:                                             ; preds = %97
   %2006 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -15030,16 +15030,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2011 = getelementptr inbounds nuw i8, ptr %2009, i64 8
   %2012 = load i32, ptr %2011, align 8, !tbaa !134
   %2013 = sub nsw i32 %2012, %2010
-  %spec.select.i1290 = call i32 @llvm.smax.i32(i32 %2013, i32 0)
-  store i32 %spec.select.i1290, ptr %2011, align 8, !tbaa !134
+  %spec.select.i1289 = call i32 @llvm.smax.i32(i32 %2013, i32 0)
+  store i32 %spec.select.i1289, ptr %2011, align 8, !tbaa !134
   %2014 = getelementptr inbounds nuw i8, ptr %2009, i64 24
   %2015 = load ptr, ptr %2014, align 8, !tbaa !131
-  %2016 = zext nneg i32 %spec.select.i1290 to i64
+  %2016 = zext nneg i32 %spec.select.i1289 to i64
   %2017 = getelementptr inbounds nuw i64, ptr %2015, i64 %2016
   %2018 = sext i32 %2010 to i64
   %2019 = sub nsw i64 0, %2018
   %2020 = getelementptr inbounds i64, ptr %2017, i64 %2019
-  br label %.critedge1082
+  br label %.critedge1081
 
 2021:                                             ; preds = %2005
   %2022 = load ptr, ptr %84, align 8, !tbaa !40
@@ -15051,7 +15051,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2027 = getelementptr inbounds nuw i8, ptr %2024, i64 24
   %2028 = load i64, ptr %2027, align 8, !tbaa !110
   store i64 %2028, ptr %82, align 8, !tbaa !69
-  br label %.critedge1082
+  br label %.critedge1081
 
 2029:                                             ; preds = %97
   %2030 = add nsw i64 %99, 2
@@ -15084,32 +15084,32 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2050 = icmp sgt i64 %2049, 0
   %2051 = load i64, ptr %86, align 8
   %2052 = icmp slt i64 %2049, %2051
-  %or.cond1109 = select i1 %2050, i1 %2052, i1 false
-  br i1 %or.cond1109, label %2053, label %2080
+  %or.cond1108 = select i1 %2050, i1 %2052, i1 false
+  br i1 %or.cond1108, label %2053, label %2080
 
 2053:                                             ; preds = %2046
   %2054 = getelementptr inbounds nuw i16, ptr %32, i64 %2049
   %2055 = load i16, ptr %2054, align 2, !tbaa !93
   %2056 = and i16 %2055, -1024
   %2057 = icmp eq i16 %2056, -9216
-  br i1 %2057, label %2058, label %.thread1448
+  br i1 %2057, label %2058, label %.thread1447
 
 2058:                                             ; preds = %2053
   %2059 = getelementptr i8, ptr %2054, i64 -2
   %2060 = load i16, ptr %2059, align 2, !tbaa !93
   %2061 = and i16 %2060, -1024
   %2062 = icmp eq i16 %2061, -10240
-  br i1 %2062, label %2063, label %.thread1448
+  br i1 %2062, label %2063, label %.thread1447
 
 2063:                                             ; preds = %2058
   %2064 = add nsw i64 %2049, -1
-  br label %.thread1448.sink.split
+  br label %.thread1447.sink.split
 
 2065:                                             ; preds = %2029
   %2066 = icmp eq i64 %2044, 0
-  br i1 %2066, label %.thread1449, label %2067
+  br i1 %2066, label %.thread1448, label %2067
 
-.thread1449:                                      ; preds = %2065
+.thread1448:                                      ; preds = %2065
   store i64 -1, ptr %2043, align 8, !tbaa !110
   br label %2087
 
@@ -15121,31 +15121,31 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2071 = and i16 %2070, -1024
   %2072 = icmp eq i16 %2071, -9216
   %2073 = icmp ne i64 %2044, 1
-  %or.cond1110 = and i1 %2073, %2072
-  br i1 %or.cond1110, label %2074, label %.thread1448
+  %or.cond1109 = and i1 %2073, %2072
+  br i1 %or.cond1109, label %2074, label %.thread1447
 
 2074:                                             ; preds = %2067
-  %gep1543 = getelementptr i16, ptr %invariant.gep1534, i64 %2044
-  %2075 = load i16, ptr %gep1543, align 2, !tbaa !93
+  %gep1542 = getelementptr i16, ptr %invariant.gep1533, i64 %2044
+  %2075 = load i16, ptr %gep1542, align 2, !tbaa !93
   %2076 = and i16 %2075, -1024
   %2077 = icmp eq i16 %2076, -10240
-  br i1 %2077, label %2078, label %.thread1448
+  br i1 %2077, label %2078, label %.thread1447
 
 2078:                                             ; preds = %2074
   %2079 = add nsw i64 %2044, -2
-  br label %.thread1448.sink.split
+  br label %.thread1447.sink.split
 
 2080:                                             ; preds = %2046
   %2081 = icmp slt i64 %2049, 0
-  br i1 %2081, label %2087, label %.thread1448
+  br i1 %2081, label %2087, label %.thread1447
 
-.thread1448.sink.split:                           ; preds = %2078, %2063
-  %.sink1616 = phi i64 [ %2064, %2063 ], [ %2079, %2078 ]
-  store i64 %.sink1616, ptr %2043, align 8, !tbaa !110
-  br label %.thread1448
+.thread1447.sink.split:                           ; preds = %2078, %2063
+  %.sink1615 = phi i64 [ %2064, %2063 ], [ %2079, %2078 ]
+  store i64 %.sink1615, ptr %2043, align 8, !tbaa !110
+  br label %.thread1447
 
-.thread1448:                                      ; preds = %.thread1448.sink.split, %2053, %2058, %2067, %2074, %2080
-  %2082 = phi i64 [ %2049, %2080 ], [ %2049, %2053 ], [ %2049, %2058 ], [ %2068, %2067 ], [ %2068, %2074 ], [ %.sink1616, %.thread1448.sink.split ]
+.thread1447:                                      ; preds = %.thread1447.sink.split, %2053, %2058, %2067, %2074, %2080
+  %2082 = phi i64 [ %2049, %2080 ], [ %2049, %2053 ], [ %2049, %2058 ], [ %2068, %2067 ], [ %2068, %2074 ], [ %.sink1615, %.thread1447.sink.split ]
   %2083 = load i64, ptr %.0806, align 8, !tbaa !137
   %sext980 = shl i64 %2035, 32
   %2084 = ashr exact i64 %sext980, 32
@@ -15153,7 +15153,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2086 = icmp slt i64 %2082, %2085
   br i1 %2086, label %2087, label %2092
 
-2087:                                             ; preds = %.thread1449, %.thread1448, %2080
+2087:                                             ; preds = %.thread1448, %.thread1447, %2080
   %2088 = getelementptr inbounds nuw i8, ptr %2042, i64 16
   %2089 = load i64, ptr %2088, align 8, !tbaa !110
   store i64 %2089, ptr %85, align 8, !tbaa !68
@@ -15161,14 +15161,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2091 = load i64, ptr %2090, align 8, !tbaa !110
   store i64 %2091, ptr %82, align 8, !tbaa !69
   store i64 %2039, ptr %98, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
-2092:                                             ; preds = %.thread1448
+2092:                                             ; preds = %.thread1447
   %2093 = load i64, ptr %98, align 8, !tbaa !135
   %2094 = add nsw i64 %2093, -4
   %2095 = load i32, ptr %3, align 4, !tbaa !13
   %2096 = icmp slt i32 %2095, 1
-  br i1 %2096, label %2097, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312
+  br i1 %2096, label %2097, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311
 
 2097:                                             ; preds = %2092
   %2098 = load ptr, ptr %36, align 8, !tbaa !64
@@ -15179,55 +15179,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289: ;
   %2103 = icmp slt i32 %2102, 0
   %2104 = getelementptr inbounds nuw i8, ptr %2098, i64 12
   %2105 = load i32, ptr %2104, align 4
-  %.not.i.i.i1292 = icmp slt i32 %2105, %2102
-  %or.cond.i.i.i1293 = select i1 %2103, i1 true, i1 %.not.i.i.i1292
-  br i1 %or.cond.i.i.i1293, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1308, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1294
+  %.not.i.i.i1291 = icmp slt i32 %2105, %2102
+  %or.cond.i.i.i1292 = select i1 %2103, i1 true, i1 %.not.i.i.i1291
+  br i1 %or.cond.i.i.i1292, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1307, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1308: ; preds = %2097
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1307: ; preds = %2097
   %2106 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2098, i32 noundef %2102, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2107 = icmp eq i8 %2106, 0
-  br i1 %2107, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1309
+  br i1 %2107, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1308
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1309: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1308
-  %.pre.i.i1310 = load i32, ptr %2100, align 8, !tbaa !134
-  %.pre6.i.i1311 = add nsw i32 %.pre.i.i1310, %2099
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1294
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1308: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1307
+  %.pre.i.i1309 = load i32, ptr %2100, align 8, !tbaa !134
+  %.pre6.i.i1310 = add nsw i32 %.pre.i.i1309, %2099
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1294: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1309, %2097
-  %.pre-phi.i.i1295 = phi i32 [ %.pre6.i.i1311, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1309 ], [ %2102, %2097 ]
-  %2108 = phi i32 [ %.pre.i.i1310, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1309 ], [ %2101, %2097 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1308, %2097
+  %.pre-phi.i.i1294 = phi i32 [ %.pre6.i.i1310, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1308 ], [ %2102, %2097 ]
+  %2108 = phi i32 [ %.pre.i.i1309, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1308 ], [ %2101, %2097 ]
   %2109 = getelementptr inbounds nuw i8, ptr %2098, i64 24
   %2110 = load ptr, ptr %2109, align 8, !tbaa !131
   %2111 = sext i32 %2108 to i64
   %2112 = getelementptr inbounds i64, ptr %2110, i64 %2111
-  store i32 %.pre-phi.i.i1295, ptr %2100, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296
+  store i32 %.pre-phi.i.i1294, ptr %2100, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1294, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1308
-  %.0.i.i1297 = phi ptr [ %2112, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1294 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1308 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1307
+  %.0.i.i1296 = phi ptr [ %2112, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1307 ]
   %2113 = load i32, ptr %3, align 4, !tbaa !13
   %2114 = icmp slt i32 %2113, 1
   br i1 %2114, label %2116, label %2115
 
-2115:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296
+2115:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311
 
-2116:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296
+2116:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295
   %2117 = load i32, ptr %35, align 8, !tbaa !17
   %2118 = sext i32 %2117 to i64
   %2119 = sub nsw i64 0, %2118
-  %2120 = getelementptr inbounds i64, ptr %.0.i.i1297, i64 %2119
+  %2120 = getelementptr inbounds i64, ptr %.0.i.i1296, i64 %2119
   br label %2121
 
 2121:                                             ; preds = %2121, %2116
-  %.018.i1298 = phi ptr [ %2120, %2116 ], [ %2122, %2121 ]
-  %.0.i1299 = phi ptr [ %.0.i.i1297, %2116 ], [ %2124, %2121 ]
-  %2122 = getelementptr inbounds nuw i8, ptr %.018.i1298, i64 8
-  %2123 = load i64, ptr %.018.i1298, align 8, !tbaa !110
-  %2124 = getelementptr inbounds nuw i8, ptr %.0.i1299, i64 8
-  store i64 %2123, ptr %.0.i1299, align 8, !tbaa !110
-  %2125 = icmp eq ptr %2122, %.0.i.i1297
+  %.018.i1297 = phi ptr [ %2120, %2116 ], [ %2122, %2121 ]
+  %.0.i1298 = phi ptr [ %.0.i.i1296, %2116 ], [ %2124, %2121 ]
+  %2122 = getelementptr inbounds nuw i8, ptr %.018.i1297, i64 8
+  %2123 = load i64, ptr %.018.i1297, align 8, !tbaa !110
+  %2124 = getelementptr inbounds nuw i8, ptr %.0.i1298, i64 8
+  store i64 %2123, ptr %.0.i1298, align 8, !tbaa !110
+  %2125 = icmp eq ptr %2122, %.0.i.i1296
   br i1 %2125, label %2126, label %2121, !llvm.loop !139
 
 2126:                                             ; preds = %2121
@@ -15235,7 +15235,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296: ; preds = %_ZN6icu
   %2128 = add nsw i32 %2127, -1
   store i32 %2128, ptr %77, align 8, !tbaa !36
   %2129 = icmp slt i32 %2127, 2
-  br i1 %2129, label %2130, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300
+  br i1 %2129, label %2130, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299
 
 2130:                                             ; preds = %2126
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -15243,42 +15243,42 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1296: ; preds = %_ZN6icu
   %2132 = add nsw i32 %2131, 1
   store i32 %2132, ptr %78, align 4, !tbaa !35
   %2133 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1301 = icmp eq ptr %2133, null
-  br i1 %.not.i.i1301, label %2138, label %2134
+  %.not.i.i1300 = icmp eq ptr %2133, null
+  br i1 %.not.i.i1300, label %2138, label %2134
 
 2134:                                             ; preds = %2130
   %2135 = load ptr, ptr %80, align 8, !tbaa !141
   %2136 = call noundef signext i8 %2133(ptr noundef %2135, i32 noundef %2132)
   %2137 = icmp eq i8 %2136, 0
-  br i1 %2137, label %.sink.split.i.i1306, label %._crit_edge.i.i1302
+  br i1 %2137, label %.sink.split.i.i1305, label %._crit_edge.i.i1301
 
-._crit_edge.i.i1302:                              ; preds = %2134
-  %.pre.i22.i1303 = load i32, ptr %78, align 4
+._crit_edge.i.i1301:                              ; preds = %2134
+  %.pre.i22.i1302 = load i32, ptr %78, align 4
   br label %2138
 
-2138:                                             ; preds = %._crit_edge.i.i1302, %2130
-  %2139 = phi i32 [ %.pre.i22.i1303, %._crit_edge.i.i1302 ], [ %2132, %2130 ]
+2138:                                             ; preds = %._crit_edge.i.i1301, %2130
+  %2139 = phi i32 [ %.pre.i22.i1302, %._crit_edge.i.i1301 ], [ %2132, %2130 ]
   %2140 = load i32, ptr %81, align 8, !tbaa !34
   %2141 = icmp slt i32 %2140, 1
-  %.not4.i.i1304 = icmp slt i32 %2139, %2140
-  %or.cond.i.i1305 = select i1 %2141, i1 true, i1 %.not4.i.i1304
-  br i1 %or.cond.i.i1305, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300, label %.sink.split.i.i1306
+  %.not4.i.i1303 = icmp slt i32 %2139, %2140
+  %or.cond.i.i1304 = select i1 %2141, i1 true, i1 %.not4.i.i1303
+  br i1 %or.cond.i.i1304, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299, label %.sink.split.i.i1305
 
-.sink.split.i.i1306:                              ; preds = %2138, %2134
-  %.sink.i.i1307 = phi i32 [ 66323, %2134 ], [ 66322, %2138 ]
-  store i32 %.sink.i.i1307, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300
+.sink.split.i.i1305:                              ; preds = %2138, %2134
+  %.sink.i.i1306 = phi i32 [ 66323, %2134 ], [ 66322, %2138 ]
+  store i32 %.sink.i.i1306, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300: ; preds = %.sink.split.i.i1306, %2138, %2126
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299: ; preds = %.sink.split.i.i1305, %2138, %2126
   %2142 = getelementptr inbounds nuw i8, ptr %2120, i64 8
   store i64 %2094, ptr %2142, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ; preds = %2092, %2115, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300
-  %.019.i1291 = phi ptr [ %.0806, %2092 ], [ %.0806, %2115 ], [ %.0.i.i1297, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1300 ]
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ; preds = %2092, %2115, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299
+  %.019.i1290 = phi ptr [ %.0806, %2092 ], [ %.0806, %2115 ], [ %.0.i.i1296, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1299 ]
   %2143 = load i64, ptr %2043, align 8, !tbaa !110
-  store i64 %2143, ptr %.019.i1291, align 8, !tbaa !137
-  br label %.critedge1082
+  store i64 %2143, ptr %.019.i1290, align 8, !tbaa !137
+  br label %.critedge1081
 
 2144:                                             ; preds = %97
   %2145 = load i64, ptr %.0806, align 8, !tbaa !137
@@ -15292,16 +15292,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2150 = getelementptr inbounds nuw i8, ptr %2148, i64 8
   %2151 = load i32, ptr %2150, align 8, !tbaa !134
   %2152 = sub nsw i32 %2151, %2149
-  %spec.select.i1313 = call i32 @llvm.smax.i32(i32 %2152, i32 0)
-  store i32 %spec.select.i1313, ptr %2150, align 8, !tbaa !134
+  %spec.select.i1312 = call i32 @llvm.smax.i32(i32 %2152, i32 0)
+  store i32 %spec.select.i1312, ptr %2150, align 8, !tbaa !134
   %2153 = getelementptr inbounds nuw i8, ptr %2148, i64 24
   %2154 = load ptr, ptr %2153, align 8, !tbaa !131
-  %2155 = zext nneg i32 %spec.select.i1313 to i64
+  %2155 = zext nneg i32 %spec.select.i1312 to i64
   %2156 = getelementptr inbounds nuw i64, ptr %2154, i64 %2155
   %2157 = sext i32 %2149 to i64
   %2158 = sub nsw i64 0, %2157
   %2159 = getelementptr inbounds i64, ptr %2156, i64 %2158
-  br label %.critedge1082
+  br label %.critedge1081
 
 2160:                                             ; preds = %2144
   %2161 = load ptr, ptr %84, align 8, !tbaa !40
@@ -15322,16 +15322,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2173 = getelementptr inbounds nuw i8, ptr %2171, i64 8
   %2174 = load i32, ptr %2173, align 8, !tbaa !134
   %2175 = sub nsw i32 %2174, %2172
-  %spec.select.i1314 = call i32 @llvm.smax.i32(i32 %2175, i32 0)
-  store i32 %spec.select.i1314, ptr %2173, align 8, !tbaa !134
+  %spec.select.i1313 = call i32 @llvm.smax.i32(i32 %2175, i32 0)
+  store i32 %spec.select.i1313, ptr %2173, align 8, !tbaa !134
   %2176 = getelementptr inbounds nuw i8, ptr %2171, i64 24
   %2177 = load ptr, ptr %2176, align 8, !tbaa !131
-  %2178 = zext nneg i32 %spec.select.i1314 to i64
+  %2178 = zext nneg i32 %spec.select.i1313 to i64
   %2179 = getelementptr inbounds nuw i64, ptr %2177, i64 %2178
   %2180 = sext i32 %2172 to i64
   %2181 = sub nsw i64 0, %2180
   %2182 = getelementptr inbounds i64, ptr %2179, i64 %2181
-  br label %.critedge1082
+  br label %.critedge1081
 
 2183:                                             ; preds = %97
   %2184 = load ptr, ptr %11, align 8, !tbaa !42
@@ -15342,22 +15342,22 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2189 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %103)
   %2190 = load i64, ptr %.0806, align 8, !tbaa !137
   %2191 = trunc i64 %2190 to i32
-  %sext1557 = shl i64 %2190, 32
-  %2192 = ashr exact i64 %sext1557, 32
+  %sext1556 = shl i64 %2190, 32
+  %2192 = ashr exact i64 %sext1556, 32
   %2193 = load i64, ptr %82, align 8, !tbaa !69
-  %.not9761516 = icmp sgt i64 %2193, %2192
-  br i1 %.not9761516, label %.lr.ph1519, label %._crit_edge1520
+  %.not9761515 = icmp sgt i64 %2193, %2192
+  br i1 %.not9761515, label %.lr.ph1518, label %._crit_edge1519
 
-._crit_edge1520:                                  ; preds = %2256, %2183
+._crit_edge1519:                                  ; preds = %2256, %2183
   %.0822.lcssa = phi i32 [ %2191, %2183 ], [ %.5827, %2256 ]
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.thread1457
+  br label %.thread1456
 
-.lr.ph1519:                                       ; preds = %2183, %2256
+.lr.ph1518:                                       ; preds = %2183, %2256
   %2194 = phi i64 [ %2257, %2256 ], [ %2193, %2183 ]
   %2195 = phi i64 [ %2258, %2256 ], [ %2192, %2183 ]
-  %.08221517 = phi i32 [ %.5827, %2256 ], [ %2191, %2183 ]
-  %2196 = add nsw i32 %.08221517, 1
+  %.08221516 = phi i32 [ %.5827, %2256 ], [ %2191, %2183 ]
+  %2196 = add nsw i32 %.08221516, 1
   %2197 = getelementptr inbounds i16, ptr %32, i64 %2195
   %2198 = load i16, ptr %2197, align 2, !tbaa !93
   %2199 = zext i16 %2198 to i32
@@ -15365,10 +15365,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2201 = icmp eq i32 %2200, 55296
   br i1 %2201, label %2202, label %2215
 
-2202:                                             ; preds = %.lr.ph1519
+2202:                                             ; preds = %.lr.ph1518
   %2203 = sext i32 %2196 to i64
   %.not977 = icmp eq i64 %2194, %2203
-  br i1 %.not977, label %.thread1451, label %2204
+  br i1 %.not977, label %.thread1450, label %2204
 
 2204:                                             ; preds = %2202
   %2205 = getelementptr inbounds i16, ptr %32, i64 %2203
@@ -15376,18 +15376,18 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2207 = zext i16 %2206 to i32
   %2208 = and i32 %2207, 64512
   %2209 = icmp eq i32 %2208, 56320
-  br i1 %2209, label %2210, label %.thread1451
+  br i1 %2209, label %2210, label %.thread1450
 
 2210:                                             ; preds = %2204
-  %2211 = add nsw i32 %.08221517, 2
+  %2211 = add nsw i32 %.08221516, 2
   %2212 = shl nuw nsw i32 %2199, 10
   %2213 = add nsw i32 %2212, -56613888
   %2214 = add nuw nsw i32 %2213, %2207
-  br label %.thread1451
+  br label %.thread1450
 
-2215:                                             ; preds = %.lr.ph1519
+2215:                                             ; preds = %.lr.ph1518
   %2216 = icmp ult i16 %2198, 256
-  br i1 %2216, label %2217, label %.thread1451
+  br i1 %2216, label %2217, label %.thread1450
 
 2217:                                             ; preds = %2215
   %2218 = lshr i32 %2199, 3
@@ -15402,78 +15402,78 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   br i1 %2226, label %2227, label %2256
 
 2227:                                             ; preds = %2217
-  %2228 = sext i32 %.08221517 to i64
+  %2228 = sext i32 %.08221516 to i64
   %2229 = getelementptr inbounds i16, ptr %32, i64 %2228
   %2230 = load i16, ptr %2229, align 2, !tbaa !93
   %2231 = and i16 %2230, -1024
   %2232 = icmp eq i16 %2231, -9216
-  %2233 = icmp sgt i32 %.08221517, 0
+  %2233 = icmp sgt i32 %.08221516, 0
   %or.cond10 = and i1 %2233, %2232
-  br i1 %or.cond10, label %2234, label %.thread1457
+  br i1 %or.cond10, label %2234, label %.thread1456
 
 2234:                                             ; preds = %2227
   %2235 = zext nneg i32 %2196 to i64
-  %gep1539 = getelementptr i16, ptr %invariant.gep1534, i64 %2235
-  %2236 = load i16, ptr %gep1539, align 2, !tbaa !93
+  %gep1538 = getelementptr i16, ptr %invariant.gep1533, i64 %2235
+  %2236 = load i16, ptr %gep1538, align 2, !tbaa !93
   %2237 = and i16 %2236, -1024
   %2238 = icmp eq i16 %2237, -10240
   %2239 = sext i1 %2238 to i32
-  %spec.select1111 = add nsw i32 %.08221517, %2239
-  br label %.thread1457
+  %spec.select1110 = add nsw i32 %.08221516, %2239
+  br label %.thread1456
 
-.thread1451:                                      ; preds = %2202, %2204, %2210, %2215
-  %.18211455 = phi i32 [ %2199, %2215 ], [ %2199, %2202 ], [ %2199, %2204 ], [ %2214, %2210 ]
-  %.38251454 = phi i32 [ %2196, %2215 ], [ %2196, %2202 ], [ %2196, %2204 ], [ %2211, %2210 ]
-  %2240 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %2189, i32 noundef %.18211455)
+.thread1450:                                      ; preds = %2202, %2204, %2210, %2215
+  %.18211454 = phi i32 [ %2199, %2215 ], [ %2199, %2202 ], [ %2199, %2204 ], [ %2214, %2210 ]
+  %.38251453 = phi i32 [ %2196, %2215 ], [ %2196, %2202 ], [ %2196, %2204 ], [ %2211, %2210 ]
+  %2240 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %2189, i32 noundef %.18211454)
   %2241 = icmp eq i8 %2240, 0
-  br i1 %2241, label %2242, label %.thread1451._crit_edge
+  br i1 %2241, label %2242, label %.thread1450._crit_edge
 
-.thread1451._crit_edge:                           ; preds = %.thread1451
+.thread1450._crit_edge:                           ; preds = %.thread1450
   %.pre = load i64, ptr %82, align 8, !tbaa !69
   br label %2256
 
-2242:                                             ; preds = %.thread1451
-  %2243 = add nsw i32 %.38251454, -1
+2242:                                             ; preds = %.thread1450
+  %2243 = add nsw i32 %.38251453, -1
   %2244 = sext i32 %2243 to i64
   %2245 = getelementptr inbounds i16, ptr %32, i64 %2244
   %2246 = load i16, ptr %2245, align 2, !tbaa !93
   %2247 = and i16 %2246, -1024
   %2248 = icmp eq i16 %2247, -9216
-  %2249 = icmp sgt i32 %.38251454, 1
+  %2249 = icmp sgt i32 %.38251453, 1
   %or.cond12 = select i1 %2248, i1 %2249, i1 false
-  br i1 %or.cond12, label %2250, label %.thread1457
+  br i1 %or.cond12, label %2250, label %.thread1456
 
 2250:                                             ; preds = %2242
-  %2251 = zext nneg i32 %.38251454 to i64
-  %gep1541 = getelementptr i16, ptr %invariant.gep1534, i64 %2251
-  %2252 = load i16, ptr %gep1541, align 2, !tbaa !93
+  %2251 = zext nneg i32 %.38251453 to i64
+  %gep1540 = getelementptr i16, ptr %invariant.gep1533, i64 %2251
+  %2252 = load i16, ptr %gep1540, align 2, !tbaa !93
   %2253 = and i16 %2252, -1024
   %2254 = icmp eq i16 %2253, -10240
-  %2255 = add nsw i32 %.38251454, -2
-  %spec.select1112 = select i1 %2254, i32 %2255, i32 %2243
-  br label %.thread1457
+  %2255 = add nsw i32 %.38251453, -2
+  %spec.select1111 = select i1 %2254, i32 %2255, i32 %2243
+  br label %.thread1456
 
-2256:                                             ; preds = %.thread1451._crit_edge, %2217
-  %2257 = phi i64 [ %.pre, %.thread1451._crit_edge ], [ %2194, %2217 ]
-  %.5827 = phi i32 [ %.38251454, %.thread1451._crit_edge ], [ %2196, %2217 ]
+2256:                                             ; preds = %.thread1450._crit_edge, %2217
+  %2257 = phi i64 [ %.pre, %.thread1450._crit_edge ], [ %2194, %2217 ]
+  %.5827 = phi i32 [ %.38251453, %.thread1450._crit_edge ], [ %2196, %2217 ]
   %2258 = sext i32 %.5827 to i64
   %.not976 = icmp sgt i64 %2257, %2258
-  br i1 %.not976, label %.lr.ph1519, label %._crit_edge1520
+  br i1 %.not976, label %.lr.ph1518, label %._crit_edge1519
 
-.thread1457:                                      ; preds = %2242, %2250, %2227, %2234, %._crit_edge1520
-  %.1823 = phi i32 [ %.0822.lcssa, %._crit_edge1520 ], [ %spec.select1112, %2250 ], [ %2243, %2242 ], [ %spec.select1111, %2234 ], [ %.08221517, %2227 ]
+.thread1456:                                      ; preds = %2242, %2250, %2227, %2234, %._crit_edge1519
+  %.1823 = phi i32 [ %.0822.lcssa, %._crit_edge1519 ], [ %spec.select1111, %2250 ], [ %2243, %2242 ], [ %spec.select1110, %2234 ], [ %.08221516, %2227 ]
   %2259 = sext i32 %.1823 to i64
   %2260 = load i64, ptr %.0806, align 8, !tbaa !137
   %2261 = icmp eq i64 %2260, %2259
   %2262 = load i64, ptr %98, align 8, !tbaa !135
   br i1 %2261, label %2263, label %2265
 
-2263:                                             ; preds = %.thread1457
+2263:                                             ; preds = %.thread1456
   %2264 = add nsw i64 %2262, 1
   store i64 %2264, ptr %98, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
-2265:                                             ; preds = %.thread1457
+2265:                                             ; preds = %.thread1456
   %2266 = getelementptr inbounds i64, ptr %16, i64 %2262
   %2267 = load i64, ptr %2266, align 8, !tbaa !110
   %2268 = and i64 %2267, 16777215
@@ -15483,7 +15483,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   store i64 %2259, ptr %.0806, align 8, !tbaa !137
   %2271 = load i32, ptr %3, align 4, !tbaa !13
   %2272 = icmp slt i32 %2271, 1
-  br i1 %2272, label %2273, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336
+  br i1 %2272, label %2273, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335
 
 2273:                                             ; preds = %2265
   %2274 = load ptr, ptr %36, align 8, !tbaa !64
@@ -15494,55 +15494,55 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312: ;
   %2279 = icmp slt i32 %2278, 0
   %2280 = getelementptr inbounds nuw i8, ptr %2274, i64 12
   %2281 = load i32, ptr %2280, align 4
-  %.not.i.i.i1316 = icmp slt i32 %2281, %2278
-  %or.cond.i.i.i1317 = select i1 %2279, i1 true, i1 %.not.i.i.i1316
-  br i1 %or.cond.i.i.i1317, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1332, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1318
+  %.not.i.i.i1315 = icmp slt i32 %2281, %2278
+  %or.cond.i.i.i1316 = select i1 %2279, i1 true, i1 %.not.i.i.i1315
+  br i1 %or.cond.i.i.i1316, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1331, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1317
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1332: ; preds = %2273
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1331: ; preds = %2273
   %2282 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2274, i32 noundef %2278, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2283 = icmp eq i8 %2282, 0
-  br i1 %2283, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1333
+  br i1 %2283, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1319, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1332
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1333: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1332
-  %.pre.i.i1334 = load i32, ptr %2276, align 8, !tbaa !134
-  %.pre6.i.i1335 = add nsw i32 %.pre.i.i1334, %2275
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1318
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1332: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1331
+  %.pre.i.i1333 = load i32, ptr %2276, align 8, !tbaa !134
+  %.pre6.i.i1334 = add nsw i32 %.pre.i.i1333, %2275
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1317
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1318: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1333, %2273
-  %.pre-phi.i.i1319 = phi i32 [ %.pre6.i.i1335, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1333 ], [ %2278, %2273 ]
-  %2284 = phi i32 [ %.pre.i.i1334, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1333 ], [ %2277, %2273 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1317: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1332, %2273
+  %.pre-phi.i.i1318 = phi i32 [ %.pre6.i.i1334, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1332 ], [ %2278, %2273 ]
+  %2284 = phi i32 [ %.pre.i.i1333, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1332 ], [ %2277, %2273 ]
   %2285 = getelementptr inbounds nuw i8, ptr %2274, i64 24
   %2286 = load ptr, ptr %2285, align 8, !tbaa !131
   %2287 = sext i32 %2284 to i64
   %2288 = getelementptr inbounds i64, ptr %2286, i64 %2287
-  store i32 %.pre-phi.i.i1319, ptr %2276, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320
+  store i32 %.pre-phi.i.i1318, ptr %2276, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1319
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1318, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1332
-  %.0.i.i1321 = phi ptr [ %2288, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1318 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1332 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1319: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1317, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1331
+  %.0.i.i1320 = phi ptr [ %2288, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1317 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1331 ]
   %2289 = load i32, ptr %3, align 4, !tbaa !13
   %2290 = icmp slt i32 %2289, 1
   br i1 %2290, label %2292, label %2291
 
-2291:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320
+2291:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1319
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335
 
-2292:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320
+2292:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1319
   %2293 = load i32, ptr %35, align 8, !tbaa !17
   %2294 = sext i32 %2293 to i64
   %2295 = sub nsw i64 0, %2294
-  %2296 = getelementptr inbounds i64, ptr %.0.i.i1321, i64 %2295
+  %2296 = getelementptr inbounds i64, ptr %.0.i.i1320, i64 %2295
   br label %2297
 
 2297:                                             ; preds = %2297, %2292
-  %.018.i1322 = phi ptr [ %2296, %2292 ], [ %2298, %2297 ]
-  %.0.i1323 = phi ptr [ %.0.i.i1321, %2292 ], [ %2300, %2297 ]
-  %2298 = getelementptr inbounds nuw i8, ptr %.018.i1322, i64 8
-  %2299 = load i64, ptr %.018.i1322, align 8, !tbaa !110
-  %2300 = getelementptr inbounds nuw i8, ptr %.0.i1323, i64 8
-  store i64 %2299, ptr %.0.i1323, align 8, !tbaa !110
-  %2301 = icmp eq ptr %2298, %.0.i.i1321
+  %.018.i1321 = phi ptr [ %2296, %2292 ], [ %2298, %2297 ]
+  %.0.i1322 = phi ptr [ %.0.i.i1320, %2292 ], [ %2300, %2297 ]
+  %2298 = getelementptr inbounds nuw i8, ptr %.018.i1321, i64 8
+  %2299 = load i64, ptr %.018.i1321, align 8, !tbaa !110
+  %2300 = getelementptr inbounds nuw i8, ptr %.0.i1322, i64 8
+  store i64 %2299, ptr %.0.i1322, align 8, !tbaa !110
+  %2301 = icmp eq ptr %2298, %.0.i.i1320
   br i1 %2301, label %2302, label %2297, !llvm.loop !139
 
 2302:                                             ; preds = %2297
@@ -15550,7 +15550,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320: ; preds = %_ZN6icu
   %2304 = add nsw i32 %2303, -1
   store i32 %2304, ptr %77, align 8, !tbaa !36
   %2305 = icmp slt i32 %2303, 2
-  br i1 %2305, label %2306, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324
+  br i1 %2305, label %2306, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323
 
 2306:                                             ; preds = %2302
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -15558,44 +15558,44 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1320: ; preds = %_ZN6icu
   %2308 = add nsw i32 %2307, 1
   store i32 %2308, ptr %78, align 4, !tbaa !35
   %2309 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1325 = icmp eq ptr %2309, null
-  br i1 %.not.i.i1325, label %2314, label %2310
+  %.not.i.i1324 = icmp eq ptr %2309, null
+  br i1 %.not.i.i1324, label %2314, label %2310
 
 2310:                                             ; preds = %2306
   %2311 = load ptr, ptr %80, align 8, !tbaa !141
   %2312 = call noundef signext i8 %2309(ptr noundef %2311, i32 noundef %2308)
   %2313 = icmp eq i8 %2312, 0
-  br i1 %2313, label %.sink.split.i.i1330, label %._crit_edge.i.i1326
+  br i1 %2313, label %.sink.split.i.i1329, label %._crit_edge.i.i1325
 
-._crit_edge.i.i1326:                              ; preds = %2310
-  %.pre.i22.i1327 = load i32, ptr %78, align 4
+._crit_edge.i.i1325:                              ; preds = %2310
+  %.pre.i22.i1326 = load i32, ptr %78, align 4
   br label %2314
 
-2314:                                             ; preds = %._crit_edge.i.i1326, %2306
-  %2315 = phi i32 [ %.pre.i22.i1327, %._crit_edge.i.i1326 ], [ %2308, %2306 ]
+2314:                                             ; preds = %._crit_edge.i.i1325, %2306
+  %2315 = phi i32 [ %.pre.i22.i1326, %._crit_edge.i.i1325 ], [ %2308, %2306 ]
   %2316 = load i32, ptr %81, align 8, !tbaa !34
   %2317 = icmp slt i32 %2316, 1
-  %.not4.i.i1328 = icmp slt i32 %2315, %2316
-  %or.cond.i.i1329 = select i1 %2317, i1 true, i1 %.not4.i.i1328
-  br i1 %or.cond.i.i1329, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324, label %.sink.split.i.i1330
+  %.not4.i.i1327 = icmp slt i32 %2315, %2316
+  %or.cond.i.i1328 = select i1 %2317, i1 true, i1 %.not4.i.i1327
+  br i1 %or.cond.i.i1328, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323, label %.sink.split.i.i1329
 
-.sink.split.i.i1330:                              ; preds = %2314, %2310
-  %.sink.i.i1331 = phi i32 [ 66323, %2310 ], [ 66322, %2314 ]
-  store i32 %.sink.i.i1331, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324
+.sink.split.i.i1329:                              ; preds = %2314, %2310
+  %.sink.i.i1330 = phi i32 [ 66323, %2310 ], [ 66322, %2314 ]
+  store i32 %.sink.i.i1330, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324: ; preds = %.sink.split.i.i1330, %2314, %2302
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323: ; preds = %.sink.split.i.i1329, %2314, %2302
   %2318 = getelementptr inbounds nuw i8, ptr %2296, i64 8
   store i64 %2262, ptr %2318, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336: ; preds = %2265, %2291, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324
-  %.019.i1315 = phi ptr [ %.0806, %2265 ], [ %.0806, %2291 ], [ %.0.i.i1321, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1324 ]
-  %2319 = getelementptr inbounds nuw i8, ptr %.019.i1315, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335: ; preds = %2265, %2291, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323
+  %.019.i1314 = phi ptr [ %.0806, %2265 ], [ %.0806, %2291 ], [ %.0.i.i1320, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1323 ]
+  %2319 = getelementptr inbounds nuw i8, ptr %.019.i1314, i64 8
   %2320 = load i64, ptr %2319, align 8, !tbaa !135
   %2321 = add nsw i64 %2320, 1
   store i64 %2321, ptr %2319, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 2322:                                             ; preds = %97
   %2323 = and i32 %102, 1
@@ -15606,30 +15606,30 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336: ;
   %2325 = load i64, ptr %82, align 8, !tbaa !69
   %2326 = trunc i64 %2325 to i32
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.thread1467
+  br label %.thread1466
 
 2327:                                             ; preds = %2322
   %2328 = load i64, ptr %.0806, align 8, !tbaa !137
   %2329 = trunc i64 %2328 to i32
   %2330 = load i64, ptr %82, align 8, !tbaa !69
-  %sext1556 = shl i64 %2328, 32
-  %2331 = ashr exact i64 %sext1556, 32
-  %.not9731513 = icmp sgt i64 %2330, %2331
-  br i1 %.not9731513, label %.lr.ph1515, label %._crit_edge
+  %sext1555 = shl i64 %2328, 32
+  %2331 = ashr exact i64 %sext1555, 32
+  %.not9731512 = icmp sgt i64 %2330, %2331
+  br i1 %.not9731512, label %.lr.ph1514, label %._crit_edge
 
-.lr.ph1515:                                       ; preds = %2327
+.lr.ph1514:                                       ; preds = %2327
   %2332 = and i32 %102, 2
   br label %2333
 
-._crit_edge:                                      ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread, %2327
-  %.1799.lcssa = phi i32 [ %2329, %2327 ], [ %.3, %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread ]
+._crit_edge:                                      ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread, %2327
+  %.1799.lcssa = phi i32 [ %2329, %2327 ], [ %.3, %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread ]
   store i8 1, ptr %83, align 8, !tbaa !32
-  br label %.thread1467
+  br label %.thread1466
 
-2333:                                             ; preds = %.lr.ph1515, %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread
-  %2334 = phi i64 [ %2331, %.lr.ph1515 ], [ %2376, %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread ]
-  %.17991514 = phi i32 [ %2329, %.lr.ph1515 ], [ %.3, %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread ]
-  %2335 = add nsw i32 %.17991514, 1
+2333:                                             ; preds = %.lr.ph1514, %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread
+  %2334 = phi i64 [ %2331, %.lr.ph1514 ], [ %2376, %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread ]
+  %.17991513 = phi i32 [ %2329, %.lr.ph1514 ], [ %.3, %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread ]
+  %2335 = add nsw i32 %.17991513, 1
   %2336 = getelementptr inbounds i16, ptr %32, i64 %2334
   %2337 = load i16, ptr %2336, align 2, !tbaa !93
   %2338 = zext i16 %2337 to i32
@@ -15651,7 +15651,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336: ;
   br i1 %2348, label %2349, label %2354
 
 2349:                                             ; preds = %2343
-  %2350 = add nsw i32 %.17991514, 2
+  %2350 = add nsw i32 %.17991513, 2
   %2351 = shl nuw nsw i32 %2338, 10
   %2352 = add nsw i32 %2351, -56613888
   %2353 = add nuw nsw i32 %2352, %2346
@@ -15662,30 +15662,30 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336: ;
   %.1797 = phi i32 [ %2338, %2333 ], [ %2353, %2349 ], [ %2338, %2343 ], [ %2338, %2341 ]
   %2355 = and i32 %.1797, 126
   %2356 = icmp samesign ult i32 %2355, 42
-  br i1 %2356, label %2357, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread
+  br i1 %2356, label %2357, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread
 
 2357:                                             ; preds = %2354
   %2358 = icmp eq i32 %.1797, 10
-  br i1 %2358, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463, label %2359
+  br i1 %2358, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462, label %2359
 
 2359:                                             ; preds = %2357
   %2360 = and i32 %.1797, -8368
   %2361 = or disjoint i32 %2360, %2332
-  %or.cond1486 = icmp eq i32 %2361, 0
-  br i1 %or.cond1486, label %2362, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread
+  %or.cond1485 = icmp eq i32 %2361, 0
+  br i1 %or.cond1485, label %2362, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread
 
 2362:                                             ; preds = %2359
-  switch i32 %.1797, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread [
-    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
-    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
+  switch i32 %.1797, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread [
+    i32 8232, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 133, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 13, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 12, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 11, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 10, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
+    i32 8233, label %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
   ]
 
-_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463: ; preds = %2362, %2362, %2362, %2362, %2362, %2362, %2362, %2357
+_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462: ; preds = %2362, %2362, %2362, %2362, %2362, %2362, %2362, %2357
   %2363 = add nsw i32 %.3, -1
   %2364 = sext i32 %2363 to i64
   %2365 = getelementptr inbounds i16, ptr %32, i64 %2364
@@ -15694,36 +15694,36 @@ _ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463: ; preds = %2362, %2362, %23
   %2368 = icmp eq i16 %2367, -9216
   %2369 = icmp sgt i32 %.3, 1
   %or.cond14 = select i1 %2368, i1 %2369, i1 false
-  br i1 %or.cond14, label %2370, label %.thread1467
+  br i1 %or.cond14, label %2370, label %.thread1466
 
-2370:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463
+2370:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462
   %2371 = zext nneg i32 %.3 to i64
-  %gep1537 = getelementptr i16, ptr %invariant.gep1534, i64 %2371
-  %2372 = load i16, ptr %gep1537, align 2, !tbaa !93
+  %gep1536 = getelementptr i16, ptr %invariant.gep1533, i64 %2371
+  %2372 = load i16, ptr %gep1536, align 2, !tbaa !93
   %2373 = and i16 %2372, -1024
   %2374 = icmp eq i16 %2373, -10240
   %2375 = add nsw i32 %.3, -2
-  %spec.select1115 = select i1 %2374, i32 %2375, i32 %2363
-  br label %.thread1467
+  %spec.select1114 = select i1 %2374, i32 %2375, i32 %2363
+  br label %.thread1466
 
-_ZN6icu_77L16isLineTerminatorEi.exit1339.thread:  ; preds = %2362, %2354, %2359
+_ZN6icu_77L16isLineTerminatorEi.exit1338.thread:  ; preds = %2362, %2354, %2359
   %2376 = sext i32 %.3 to i64
   %.not973 = icmp sgt i64 %2330, %2376
   br i1 %.not973, label %2333, label %._crit_edge
 
-.thread1467:                                      ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463, %2370, %._crit_edge, %2324
-  %.0798 = phi i32 [ %2326, %2324 ], [ %.1799.lcssa, %._crit_edge ], [ %spec.select1115, %2370 ], [ %2363, %_ZN6icu_77L16isLineTerminatorEi.exit1339.thread1463 ]
+.thread1466:                                      ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462, %2370, %._crit_edge, %2324
+  %.0798 = phi i32 [ %2326, %2324 ], [ %.1799.lcssa, %._crit_edge ], [ %spec.select1114, %2370 ], [ %2363, %_ZN6icu_77L16isLineTerminatorEi.exit1338.thread1462 ]
   %2377 = sext i32 %.0798 to i64
   %2378 = load i64, ptr %.0806, align 8, !tbaa !137
   %2379 = icmp eq i64 %2378, %2377
   br i1 %2379, label %2380, label %2382
 
-2380:                                             ; preds = %.thread1467
+2380:                                             ; preds = %.thread1466
   %2381 = add nsw i64 %99, 2
   store i64 %2381, ptr %98, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
-2382:                                             ; preds = %.thread1467
+2382:                                             ; preds = %.thread1466
   %2383 = getelementptr inbounds i64, ptr %16, i64 %104
   %2384 = load i64, ptr %2383, align 8, !tbaa !110
   %2385 = and i64 %2384, 16777215
@@ -15733,7 +15733,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1339.thread:  ; preds = %2362, %2354, %2359
   store i64 %2377, ptr %.0806, align 8, !tbaa !137
   %2388 = load i32, ptr %3, align 4, !tbaa !13
   %2389 = icmp slt i32 %2388, 1
-  br i1 %2389, label %2390, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361
+  br i1 %2389, label %2390, label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360
 
 2390:                                             ; preds = %2382
   %2391 = load ptr, ptr %36, align 8, !tbaa !64
@@ -15744,55 +15744,55 @@ _ZN6icu_77L16isLineTerminatorEi.exit1339.thread:  ; preds = %2362, %2354, %2359
   %2396 = icmp slt i32 %2395, 0
   %2397 = getelementptr inbounds nuw i8, ptr %2391, i64 12
   %2398 = load i32, ptr %2397, align 4
-  %.not.i.i.i1341 = icmp slt i32 %2398, %2395
-  %or.cond.i.i.i1342 = select i1 %2396, i1 true, i1 %.not.i.i.i1341
-  br i1 %or.cond.i.i.i1342, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1357, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1343
+  %.not.i.i.i1340 = icmp slt i32 %2398, %2395
+  %or.cond.i.i.i1341 = select i1 %2396, i1 true, i1 %.not.i.i.i1340
+  br i1 %or.cond.i.i.i1341, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1356, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1342
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1357: ; preds = %2390
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1356: ; preds = %2390
   %2399 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2391, i32 noundef %2395, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2400 = icmp eq i8 %2399, 0
-  br i1 %2400, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1358
+  br i1 %2400, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1344, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1357
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1358: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1357
-  %.pre.i.i1359 = load i32, ptr %2393, align 8, !tbaa !134
-  %.pre6.i.i1360 = add nsw i32 %.pre.i.i1359, %2392
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1343
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1357: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1356
+  %.pre.i.i1358 = load i32, ptr %2393, align 8, !tbaa !134
+  %.pre6.i.i1359 = add nsw i32 %.pre.i.i1358, %2392
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1342
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1343: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1358, %2390
-  %.pre-phi.i.i1344 = phi i32 [ %.pre6.i.i1360, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1358 ], [ %2395, %2390 ]
-  %2401 = phi i32 [ %.pre.i.i1359, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1358 ], [ %2394, %2390 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1342: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1357, %2390
+  %.pre-phi.i.i1343 = phi i32 [ %.pre6.i.i1359, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1357 ], [ %2395, %2390 ]
+  %2401 = phi i32 [ %.pre.i.i1358, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1357 ], [ %2394, %2390 ]
   %2402 = getelementptr inbounds nuw i8, ptr %2391, i64 24
   %2403 = load ptr, ptr %2402, align 8, !tbaa !131
   %2404 = sext i32 %2401 to i64
   %2405 = getelementptr inbounds i64, ptr %2403, i64 %2404
-  store i32 %.pre-phi.i.i1344, ptr %2393, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345
+  store i32 %.pre-phi.i.i1343, ptr %2393, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1344
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1343, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1357
-  %.0.i.i1346 = phi ptr [ %2405, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1343 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1357 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1344: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1342, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1356
+  %.0.i.i1345 = phi ptr [ %2405, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1342 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1356 ]
   %2406 = load i32, ptr %3, align 4, !tbaa !13
   %2407 = icmp slt i32 %2406, 1
   br i1 %2407, label %2409, label %2408
 
-2408:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345
+2408:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1344
   store i32 66321, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360
 
-2409:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345
+2409:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1344
   %2410 = load i32, ptr %35, align 8, !tbaa !17
   %2411 = sext i32 %2410 to i64
   %2412 = sub nsw i64 0, %2411
-  %2413 = getelementptr inbounds i64, ptr %.0.i.i1346, i64 %2412
+  %2413 = getelementptr inbounds i64, ptr %.0.i.i1345, i64 %2412
   br label %2414
 
 2414:                                             ; preds = %2414, %2409
-  %.018.i1347 = phi ptr [ %2413, %2409 ], [ %2415, %2414 ]
-  %.0.i1348 = phi ptr [ %.0.i.i1346, %2409 ], [ %2417, %2414 ]
-  %2415 = getelementptr inbounds nuw i8, ptr %.018.i1347, i64 8
-  %2416 = load i64, ptr %.018.i1347, align 8, !tbaa !110
-  %2417 = getelementptr inbounds nuw i8, ptr %.0.i1348, i64 8
-  store i64 %2416, ptr %.0.i1348, align 8, !tbaa !110
-  %2418 = icmp eq ptr %2415, %.0.i.i1346
+  %.018.i1346 = phi ptr [ %2413, %2409 ], [ %2415, %2414 ]
+  %.0.i1347 = phi ptr [ %.0.i.i1345, %2409 ], [ %2417, %2414 ]
+  %2415 = getelementptr inbounds nuw i8, ptr %.018.i1346, i64 8
+  %2416 = load i64, ptr %.018.i1346, align 8, !tbaa !110
+  %2417 = getelementptr inbounds nuw i8, ptr %.0.i1347, i64 8
+  store i64 %2416, ptr %.0.i1347, align 8, !tbaa !110
+  %2418 = icmp eq ptr %2415, %.0.i.i1345
   br i1 %2418, label %2419, label %2414, !llvm.loop !139
 
 2419:                                             ; preds = %2414
@@ -15800,7 +15800,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345: ; preds = %_ZN6icu
   %2421 = add nsw i32 %2420, -1
   store i32 %2421, ptr %77, align 8, !tbaa !36
   %2422 = icmp slt i32 %2420, 2
-  br i1 %2422, label %2423, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349
+  br i1 %2422, label %2423, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348
 
 2423:                                             ; preds = %2419
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -15808,44 +15808,44 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1345: ; preds = %_ZN6icu
   %2425 = add nsw i32 %2424, 1
   store i32 %2425, ptr %78, align 4, !tbaa !35
   %2426 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1350 = icmp eq ptr %2426, null
-  br i1 %.not.i.i1350, label %2431, label %2427
+  %.not.i.i1349 = icmp eq ptr %2426, null
+  br i1 %.not.i.i1349, label %2431, label %2427
 
 2427:                                             ; preds = %2423
   %2428 = load ptr, ptr %80, align 8, !tbaa !141
   %2429 = call noundef signext i8 %2426(ptr noundef %2428, i32 noundef %2425)
   %2430 = icmp eq i8 %2429, 0
-  br i1 %2430, label %.sink.split.i.i1355, label %._crit_edge.i.i1351
+  br i1 %2430, label %.sink.split.i.i1354, label %._crit_edge.i.i1350
 
-._crit_edge.i.i1351:                              ; preds = %2427
-  %.pre.i22.i1352 = load i32, ptr %78, align 4
+._crit_edge.i.i1350:                              ; preds = %2427
+  %.pre.i22.i1351 = load i32, ptr %78, align 4
   br label %2431
 
-2431:                                             ; preds = %._crit_edge.i.i1351, %2423
-  %2432 = phi i32 [ %.pre.i22.i1352, %._crit_edge.i.i1351 ], [ %2425, %2423 ]
+2431:                                             ; preds = %._crit_edge.i.i1350, %2423
+  %2432 = phi i32 [ %.pre.i22.i1351, %._crit_edge.i.i1350 ], [ %2425, %2423 ]
   %2433 = load i32, ptr %81, align 8, !tbaa !34
   %2434 = icmp slt i32 %2433, 1
-  %.not4.i.i1353 = icmp slt i32 %2432, %2433
-  %or.cond.i.i1354 = select i1 %2434, i1 true, i1 %.not4.i.i1353
-  br i1 %or.cond.i.i1354, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349, label %.sink.split.i.i1355
+  %.not4.i.i1352 = icmp slt i32 %2432, %2433
+  %or.cond.i.i1353 = select i1 %2434, i1 true, i1 %.not4.i.i1352
+  br i1 %or.cond.i.i1353, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348, label %.sink.split.i.i1354
 
-.sink.split.i.i1355:                              ; preds = %2431, %2427
-  %.sink.i.i1356 = phi i32 [ 66323, %2427 ], [ 66322, %2431 ]
-  store i32 %.sink.i.i1356, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349
+.sink.split.i.i1354:                              ; preds = %2431, %2427
+  %.sink.i.i1355 = phi i32 [ 66323, %2427 ], [ 66322, %2431 ]
+  store i32 %.sink.i.i1355, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349: ; preds = %.sink.split.i.i1355, %2431, %2419
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348: ; preds = %.sink.split.i.i1354, %2431, %2419
   %2435 = getelementptr inbounds nuw i8, ptr %2413, i64 8
   store i64 %104, ptr %2435, align 8, !tbaa !135
-  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361
+  br label %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360
 
-_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361: ; preds = %2382, %2408, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349
-  %.019.i1340 = phi ptr [ %.0806, %2382 ], [ %.0806, %2408 ], [ %.0.i.i1346, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1349 ]
-  %2436 = getelementptr inbounds nuw i8, ptr %.019.i1340, i64 8
+_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360: ; preds = %2382, %2408, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348
+  %.019.i1339 = phi ptr [ %.0806, %2382 ], [ %.0806, %2408 ], [ %.0.i.i1345, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1348 ]
+  %2436 = getelementptr inbounds nuw i8, ptr %.019.i1339, i64 8
   %2437 = load i64, ptr %2436, align 8, !tbaa !135
   %2438 = add nsw i64 %2437, 1
   store i64 %2438, ptr %2436, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
 2439:                                             ; preds = %97
   %2440 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
@@ -15856,7 +15856,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361: ;
   %2444 = ashr exact i64 %sext, 32
   %2445 = load i64, ptr %.0806, align 8, !tbaa !137
   %2446 = icmp eq i64 %2444, %2445
-  br i1 %2446, label %.critedge1082, label %2447
+  br i1 %2446, label %.critedge1081, label %2447
 
 2447:                                             ; preds = %2439
   %2448 = add nsw i64 %2445, -1
@@ -15866,34 +15866,34 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361: ;
   %2451 = and i16 %2450, -1024
   %2452 = icmp eq i16 %2451, -9216
   %2453 = icmp sgt i64 %2445, 1
-  %or.cond1134 = and i1 %2453, %2452
-  br i1 %or.cond1134, label %2454, label %2458
+  %or.cond1133 = and i1 %2453, %2452
+  br i1 %or.cond1133, label %2454, label %2458
 
 2454:                                             ; preds = %2447
-  %gep1535 = getelementptr i16, ptr %invariant.gep1534, i64 %2445
-  %2455 = load i16, ptr %gep1535, align 2, !tbaa !93
+  %gep1534 = getelementptr i16, ptr %invariant.gep1533, i64 %2445
+  %2455 = load i16, ptr %gep1534, align 2, !tbaa !93
   %2456 = and i16 %2455, -1024
   %2457 = icmp eq i16 %2456, -10240
-  br i1 %2457, label %.thread1472.sink.split, label %.thread1472
+  br i1 %2457, label %.thread1471.sink.split, label %.thread1471
 
 2458:                                             ; preds = %2447
   %2459 = icmp eq i16 %2450, 10
   %2460 = icmp sgt i64 %2448, %2444
-  %or.cond1617 = and i1 %2459, %2460
-  br i1 %or.cond1617, label %2461, label %.thread1472
+  %or.cond1616 = and i1 %2459, %2460
+  br i1 %or.cond1616, label %2461, label %.thread1471
 
 2461:                                             ; preds = %2458
   %2462 = getelementptr i8, ptr %2449, i64 -2
   %2463 = load i16, ptr %2462, align 2, !tbaa !93
   %2464 = icmp eq i16 %2463, 13
-  br i1 %2464, label %2465, label %.thread1472
+  br i1 %2464, label %2465, label %.thread1471
 
 2465:                                             ; preds = %2461
   %gep = getelementptr i64, ptr %invariant.gep, i64 %104
   %2466 = load i64, ptr %gep, align 8, !tbaa !110
   %.mask971 = and i64 %2466, 4278190080
   %2467 = icmp eq i64 %.mask971, 872415232
-  br i1 %2467, label %2468, label %.thread1472
+  br i1 %2467, label %2468, label %.thread1471
 
 2468:                                             ; preds = %2465
   %2469 = add nsw i64 %2445, -2
@@ -15903,28 +15903,28 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361: ;
   %2472 = and i16 %2471, -1024
   %2473 = icmp eq i16 %2472, -9216
   %2474 = icmp sgt i64 %2445, 2
-  %or.cond1118 = and i1 %2474, %2473
-  br i1 %or.cond1118, label %2475, label %.thread1472
+  %or.cond1117 = and i1 %2474, %2473
+  br i1 %or.cond1117, label %2475, label %.thread1471
 
 2475:                                             ; preds = %2468
   %2476 = getelementptr i8, ptr %2449, i64 -4
   %2477 = load i16, ptr %2476, align 2, !tbaa !93
   %2478 = and i16 %2477, -1024
   %2479 = icmp eq i16 %2478, -10240
-  br i1 %2479, label %.thread1472.sink.split, label %.thread1472
+  br i1 %2479, label %.thread1471.sink.split, label %.thread1471
 
-.thread1472.sink.split:                           ; preds = %2475, %2454
-  %.sink1619 = phi i64 [ -2, %2454 ], [ -3, %2475 ]
-  %2480 = add nsw i64 %2445, %.sink1619
+.thread1471.sink.split:                           ; preds = %2475, %2454
+  %.sink1618 = phi i64 [ -2, %2454 ], [ -3, %2475 ]
+  %2480 = add nsw i64 %2445, %.sink1618
   store i64 %2480, ptr %.0806, align 8, !tbaa !137
-  br label %.thread1472
+  br label %.thread1471
 
-.thread1472:                                      ; preds = %.thread1472.sink.split, %2454, %2465, %2475, %2468, %2461, %2458
+.thread1471:                                      ; preds = %.thread1471.sink.split, %2454, %2465, %2475, %2468, %2461, %2458
   %2481 = load i32, ptr %3, align 4, !tbaa !13
   %2482 = icmp slt i32 %2481, 1
-  br i1 %2482, label %2483, label %.thread1475
+  br i1 %2482, label %2483, label %.thread1474
 
-2483:                                             ; preds = %.thread1472
+2483:                                             ; preds = %.thread1471
   %2484 = load ptr, ptr %36, align 8, !tbaa !64
   %2485 = load i32, ptr %35, align 8, !tbaa !17
   %2486 = getelementptr inbounds nuw i8, ptr %2484, i64 8
@@ -15933,51 +15933,51 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361: ;
   %2489 = icmp slt i32 %2488, 0
   %2490 = getelementptr inbounds nuw i8, ptr %2484, i64 12
   %2491 = load i32, ptr %2490, align 4
-  %.not.i.i.i1363 = icmp slt i32 %2491, %2488
-  %or.cond.i.i.i1364 = select i1 %2489, i1 true, i1 %.not.i.i.i1363
-  br i1 %or.cond.i.i.i1364, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1379, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1365
+  %.not.i.i.i1362 = icmp slt i32 %2491, %2488
+  %or.cond.i.i.i1363 = select i1 %2489, i1 true, i1 %.not.i.i.i1362
+  br i1 %or.cond.i.i.i1363, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1378, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1364
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1379: ; preds = %2483
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1378: ; preds = %2483
   %2492 = call noundef signext i8 @_ZN6icu_779UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %2484, i32 noundef %2488, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %2493 = icmp eq i8 %2492, 0
-  br i1 %2493, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1380
+  br i1 %2493, label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1379
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1380: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1379
-  %.pre.i.i1381 = load i32, ptr %2486, align 8, !tbaa !134
-  %.pre6.i.i1382 = add nsw i32 %.pre.i.i1381, %2485
-  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1365
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1379: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1378
+  %.pre.i.i1380 = load i32, ptr %2486, align 8, !tbaa !134
+  %.pre6.i.i1381 = add nsw i32 %.pre.i.i1380, %2485
+  br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1364
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1365: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1380, %2483
-  %.pre-phi.i.i1366 = phi i32 [ %.pre6.i.i1382, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1380 ], [ %2488, %2483 ]
-  %2494 = phi i32 [ %.pre.i.i1381, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1380 ], [ %2487, %2483 ]
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1364: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1379, %2483
+  %.pre-phi.i.i1365 = phi i32 [ %.pre6.i.i1381, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1379 ], [ %2488, %2483 ]
+  %2494 = phi i32 [ %.pre.i.i1380, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i1379 ], [ %2487, %2483 ]
   %2495 = getelementptr inbounds nuw i8, ptr %2484, i64 24
   %2496 = load ptr, ptr %2495, align 8, !tbaa !131
   %2497 = sext i32 %2494 to i64
   %2498 = getelementptr inbounds i64, ptr %2496, i64 %2497
-  store i32 %.pre-phi.i.i1366, ptr %2486, align 8, !tbaa !134
-  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367
+  store i32 %.pre-phi.i.i1365, ptr %2486, align 8, !tbaa !134
+  br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366
 
-_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1365, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1379
-  %.0.i.i1368 = phi ptr [ %2498, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1365 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1379 ]
+_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366: ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1364, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1378
+  %.0.i.i1367 = phi ptr [ %2498, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1364 ], [ null, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i.i1378 ]
   %2499 = load i32, ptr %3, align 4, !tbaa !13
   %2500 = icmp slt i32 %2499, 1
-  br i1 %2500, label %2501, label %.thread1475.sink.split
+  br i1 %2500, label %2501, label %.thread1474.sink.split
 
-2501:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367
+2501:                                             ; preds = %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366
   %2502 = load i32, ptr %35, align 8, !tbaa !17
   %2503 = sext i32 %2502 to i64
   %2504 = sub nsw i64 0, %2503
-  %2505 = getelementptr inbounds i64, ptr %.0.i.i1368, i64 %2504
+  %2505 = getelementptr inbounds i64, ptr %.0.i.i1367, i64 %2504
   br label %2506
 
 2506:                                             ; preds = %2506, %2501
-  %.018.i1369 = phi ptr [ %2505, %2501 ], [ %2507, %2506 ]
-  %.0.i1370 = phi ptr [ %.0.i.i1368, %2501 ], [ %2509, %2506 ]
-  %2507 = getelementptr inbounds nuw i8, ptr %.018.i1369, i64 8
-  %2508 = load i64, ptr %.018.i1369, align 8, !tbaa !110
-  %2509 = getelementptr inbounds nuw i8, ptr %.0.i1370, i64 8
-  store i64 %2508, ptr %.0.i1370, align 8, !tbaa !110
-  %2510 = icmp eq ptr %2507, %.0.i.i1368
+  %.018.i1368 = phi ptr [ %2505, %2501 ], [ %2507, %2506 ]
+  %.0.i1369 = phi ptr [ %.0.i.i1367, %2501 ], [ %2509, %2506 ]
+  %2507 = getelementptr inbounds nuw i8, ptr %.018.i1368, i64 8
+  %2508 = load i64, ptr %.018.i1368, align 8, !tbaa !110
+  %2509 = getelementptr inbounds nuw i8, ptr %.0.i1369, i64 8
+  store i64 %2508, ptr %.0.i1369, align 8, !tbaa !110
+  %2510 = icmp eq ptr %2507, %.0.i.i1367
   br i1 %2510, label %2511, label %2506, !llvm.loop !139
 
 2511:                                             ; preds = %2506
@@ -15985,7 +15985,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367: ; preds = %_ZN6icu
   %2513 = add nsw i32 %2512, -1
   store i32 %2513, ptr %77, align 8, !tbaa !36
   %2514 = icmp slt i32 %2512, 2
-  br i1 %2514, label %2515, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371
+  br i1 %2514, label %2515, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370
 
 2515:                                             ; preds = %2511
   store i32 10000, ptr %77, align 8, !tbaa !36
@@ -15993,50 +15993,50 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367: ; preds = %_ZN6icu
   %2517 = add nsw i32 %2516, 1
   store i32 %2517, ptr %78, align 4, !tbaa !35
   %2518 = load ptr, ptr %79, align 8, !tbaa !140
-  %.not.i.i1372 = icmp eq ptr %2518, null
-  br i1 %.not.i.i1372, label %2523, label %2519
+  %.not.i.i1371 = icmp eq ptr %2518, null
+  br i1 %.not.i.i1371, label %2523, label %2519
 
 2519:                                             ; preds = %2515
   %2520 = load ptr, ptr %80, align 8, !tbaa !141
   %2521 = call noundef signext i8 %2518(ptr noundef %2520, i32 noundef %2517)
   %2522 = icmp eq i8 %2521, 0
-  br i1 %2522, label %.sink.split.i.i1377, label %._crit_edge.i.i1373
+  br i1 %2522, label %.sink.split.i.i1376, label %._crit_edge.i.i1372
 
-._crit_edge.i.i1373:                              ; preds = %2519
-  %.pre.i22.i1374 = load i32, ptr %78, align 4
+._crit_edge.i.i1372:                              ; preds = %2519
+  %.pre.i22.i1373 = load i32, ptr %78, align 4
   br label %2523
 
-2523:                                             ; preds = %._crit_edge.i.i1373, %2515
-  %2524 = phi i32 [ %.pre.i22.i1374, %._crit_edge.i.i1373 ], [ %2517, %2515 ]
+2523:                                             ; preds = %._crit_edge.i.i1372, %2515
+  %2524 = phi i32 [ %.pre.i22.i1373, %._crit_edge.i.i1372 ], [ %2517, %2515 ]
   %2525 = load i32, ptr %81, align 8, !tbaa !34
   %2526 = icmp slt i32 %2525, 1
-  %.not4.i.i1375 = icmp slt i32 %2524, %2525
-  %or.cond.i.i1376 = select i1 %2526, i1 true, i1 %.not4.i.i1375
-  br i1 %or.cond.i.i1376, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371, label %.sink.split.i.i1377
+  %.not4.i.i1374 = icmp slt i32 %2524, %2525
+  %or.cond.i.i1375 = select i1 %2526, i1 true, i1 %.not4.i.i1374
+  br i1 %or.cond.i.i1375, label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370, label %.sink.split.i.i1376
 
-.sink.split.i.i1377:                              ; preds = %2523, %2519
-  %.sink.i.i1378 = phi i32 [ 66323, %2519 ], [ 66322, %2523 ]
-  store i32 %.sink.i.i1378, ptr %3, align 4, !tbaa !13
-  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371
+.sink.split.i.i1376:                              ; preds = %2523, %2519
+  %.sink.i.i1377 = phi i32 [ 66323, %2519 ], [ 66322, %2523 ]
+  store i32 %.sink.i.i1377, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370
 
-_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371: ; preds = %.sink.split.i.i1377, %2523, %2511
+_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370: ; preds = %.sink.split.i.i1376, %2523, %2511
   %2527 = getelementptr inbounds nuw i8, ptr %2505, i64 8
   store i64 %99, ptr %2527, align 8, !tbaa !135
-  br label %.critedge1082
+  br label %.critedge1081
 
-.critedge1082:                                    ; preds = %1127, %724, %724, %724, %724, %724, %724, %1202, %1207, %1163, %1168, %1125, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371, %.thread1426, %1177, %343, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i, %1790, %142, %2380, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361, %2263, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336, %2087, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312, %1936, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289, %1704, %1706, %1631, %1684, %1574, %.critedge1094, %.critedge1092, %._crit_edge1533, %1544, %1497, %1517, %1523, %1532, %1526, %1483, %1494, %1462, %1428, %1449, %1409, %1415, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258, %1277, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236, %1209, %1211, %1170, %1173, %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417, %1077, %.thread1412, %1061, %1011, %.thread1408, %993, %941, %943, %_ZN6icu_77L16isLineTerminatorEi.exit1174, %814, %_ZN6icu_77L16isLineTerminatorEi.exit1169.thread, %725, %753, %757, %.thread1400, %744, %666, %673, %591, %596, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit, %543, %498, %504, %483, %485, %467, %463, %_ZN6icu_77L16isLineTerminatorEi.exit.thread, %404, %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391, %.critedge, %.loopexit, %2439, %871, %884, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit, %866, %612, %615, %618, %480, %456, %440, %443, %424, %427, %2160, %2147, %2021, %2008, %1865, %1864, %1794, %1758, %1719, %1687, %1536, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214, %1224, %1182, %1143, %1093, %1027, %959, %888, %830, %774, %689, %634, %559, %423, %395, %379, %378, %377, %.thread, %354, %295, %281, %264, %258, %245, %145, %106, %97
-  %.1807.ph = phi ptr [ %.0806, %1127 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %1202 ], [ %.0806, %1207 ], [ %.0806, %1163 ], [ %.0806, %1168 ], [ %.0806, %1125 ], [ %.0.i.i1368, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371 ], [ %.0806, %.thread1426 ], [ %.0.i.i1142, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i ], [ %.019.i1340, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1361 ], [ %.0806, %2380 ], [ %.019.i1315, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1336 ], [ %.0806, %2263 ], [ %.019.i1291, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1312 ], [ %.0806, %2087 ], [ %.019.i1268, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1289 ], [ %1948, %1936 ], [ %1718, %1706 ], [ %.0806, %1704 ], [ %.31, %1684 ], [ %1643, %1631 ], [ %1624, %.critedge1094 ], [ %.0806, %.critedge1092 ], [ %1586, %1574 ], [ %.0806, %1544 ], [ %1558, %._crit_edge1533 ], [ %.0806, %1526 ], [ %1535, %1532 ], [ %.0806, %1517 ], [ %.0806, %1523 ], [ %.0806, %1497 ], [ %.0806, %1483 ], [ %.24, %1494 ], [ %.0806, %1449 ], [ %.0806, %1428 ], [ %.22, %1462 ], [ %.19, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1258 ], [ %1427, %1415 ], [ %.19, %1409 ], [ %.0806, %1277 ], [ %.019.i1215, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1236 ], [ %.0806, %1209 ], [ %1223, %1211 ], [ %.0806, %1170 ], [ %.0806, %1177 ], [ %.0806, %1173 ], [ %1139, %_ZN6icu_77L16isLineTerminatorEi.exit1188.thread1417 ], [ %.0806, %.thread1412 ], [ %.0806, %1061 ], [ %1089, %1077 ], [ %.0806, %.thread1408 ], [ %.0806, %993 ], [ %1023, %1011 ], [ %955, %943 ], [ %.0806, %941 ], [ %826, %814 ], [ %.0806, %_ZN6icu_77L16isLineTerminatorEi.exit1174 ], [ %.0806, %744 ], [ %.0806, %.thread1400 ], [ %.0806, %757 ], [ %.0806, %753 ], [ %770, %_ZN6icu_77L16isLineTerminatorEi.exit1169.thread ], [ %.0806, %725 ], [ %685, %673 ], [ %.0806, %666 ], [ %608, %596 ], [ %.0806, %591 ], [ %555, %543 ], [ %.0806, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit ], [ %516, %504 ], [ %.0806, %498 ], [ %.0806, %483 ], [ %497, %485 ], [ %.0806, %463 ], [ %479, %467 ], [ %.0806, %_ZN6icu_77L16isLineTerminatorEi.exit.thread1391 ], [ %.0806, %404 ], [ %419, %_ZN6icu_77L16isLineTerminatorEi.exit.thread ], [ %191, %.loopexit ], [ %.0806, %.critedge ], [ %.0806, %97 ], [ %118, %106 ], [ %157, %145 ], [ %.0806, %142 ], [ %257, %245 ], [ %.0806, %258 ], [ %.0806, %264 ], [ %.0806, %354 ], [ %366, %.thread ], [ %.0806, %343 ], [ %.0806, %295 ], [ %293, %281 ], [ %.0806, %378 ], [ %391, %379 ], [ %.0806, %377 ], [ %.0806, %395 ], [ %.0806, %424 ], [ %439, %427 ], [ %.0806, %423 ], [ %.0806, %440 ], [ %455, %443 ], [ %.0806, %456 ], [ %.0806, %480 ], [ %571, %559 ], [ %630, %618 ], [ %.0806, %615 ], [ %.0806, %612 ], [ %646, %634 ], [ %701, %689 ], [ %786, %774 ], [ %.0806, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit ], [ %.0806, %866 ], [ %842, %830 ], [ %.0806, %884 ], [ %883, %871 ], [ %900, %888 ], [ %971, %959 ], [ %1039, %1027 ], [ %1105, %1093 ], [ %1155, %1143 ], [ %1194, %1182 ], [ %.0806, %1224 ], [ %.019.i1193, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1214 ], [ %.0806, %1536 ], [ %.0806, %1687 ], [ %.0806, %1719 ], [ %.33, %1758 ], [ %1806, %1794 ], [ %.0806, %1790 ], [ %.34, %1864 ], [ %.0806, %1865 ], [ %.0806, %2021 ], [ %2020, %2008 ], [ %2182, %2160 ], [ %2159, %2147 ], [ %.0806, %2439 ]
-  %.pr1593 = load i32, ptr %3, align 4, !tbaa !13
-  %2528 = icmp slt i32 %.pr1593, 1
-  br i1 %2528, label %97, label %.thread1475, !llvm.loop !152
+.critedge1081:                                    ; preds = %1127, %724, %724, %724, %724, %724, %724, %1202, %1207, %1163, %1168, %1125, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370, %.thread1425, %1177, %343, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i, %1790, %142, %2380, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360, %2263, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335, %2087, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311, %1936, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288, %1704, %1706, %1631, %1684, %1574, %.critedge1093, %.critedge1091, %._crit_edge1532, %1544, %1497, %1517, %1523, %1532, %1526, %1483, %1494, %1462, %1428, %1449, %1409, %1415, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257, %1277, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235, %1209, %1211, %1170, %1173, %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416, %1077, %.thread1411, %1061, %1011, %.thread1407, %993, %941, %943, %_ZN6icu_77L16isLineTerminatorEi.exit1173, %814, %_ZN6icu_77L16isLineTerminatorEi.exit1168.thread, %725, %753, %757, %.thread1399, %744, %666, %673, %591, %596, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit, %543, %498, %504, %483, %485, %467, %463, %_ZN6icu_77L16isLineTerminatorEi.exit.thread, %404, %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390, %.critedge, %.loopexit, %2439, %871, %884, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit, %866, %612, %615, %618, %480, %456, %440, %443, %424, %427, %2160, %2147, %2021, %2008, %1865, %1864, %1794, %1758, %1719, %1687, %1536, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213, %1224, %1182, %1143, %1093, %1027, %959, %888, %830, %774, %689, %634, %559, %423, %395, %379, %378, %377, %.thread, %354, %295, %281, %264, %258, %245, %145, %106, %97
+  %.1807.ph = phi ptr [ %.0806, %1127 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %724 ], [ %.0806, %1202 ], [ %.0806, %1207 ], [ %.0806, %1163 ], [ %.0806, %1168 ], [ %.0806, %1125 ], [ %.0.i.i1367, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1370 ], [ %.0806, %.thread1425 ], [ %.0.i.i1141, %_ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i ], [ %.019.i1339, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1360 ], [ %.0806, %2380 ], [ %.019.i1314, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1335 ], [ %.0806, %2263 ], [ %.019.i1290, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311 ], [ %.0806, %2087 ], [ %.019.i1267, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1288 ], [ %1948, %1936 ], [ %1718, %1706 ], [ %.0806, %1704 ], [ %.31, %1684 ], [ %1643, %1631 ], [ %1624, %.critedge1093 ], [ %.0806, %.critedge1091 ], [ %1586, %1574 ], [ %.0806, %1544 ], [ %1558, %._crit_edge1532 ], [ %.0806, %1526 ], [ %1535, %1532 ], [ %.0806, %1517 ], [ %.0806, %1523 ], [ %.0806, %1497 ], [ %.0806, %1483 ], [ %.24, %1494 ], [ %.0806, %1449 ], [ %.0806, %1428 ], [ %.22, %1462 ], [ %.19, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1257 ], [ %1427, %1415 ], [ %.19, %1409 ], [ %.0806, %1277 ], [ %.019.i1214, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1235 ], [ %.0806, %1209 ], [ %1223, %1211 ], [ %.0806, %1170 ], [ %.0806, %1177 ], [ %.0806, %1173 ], [ %1139, %_ZN6icu_77L16isLineTerminatorEi.exit1187.thread1416 ], [ %.0806, %.thread1411 ], [ %.0806, %1061 ], [ %1089, %1077 ], [ %.0806, %.thread1407 ], [ %.0806, %993 ], [ %1023, %1011 ], [ %955, %943 ], [ %.0806, %941 ], [ %826, %814 ], [ %.0806, %_ZN6icu_77L16isLineTerminatorEi.exit1173 ], [ %.0806, %744 ], [ %.0806, %.thread1399 ], [ %.0806, %757 ], [ %.0806, %753 ], [ %770, %_ZN6icu_77L16isLineTerminatorEi.exit1168.thread ], [ %.0806, %725 ], [ %685, %673 ], [ %.0806, %666 ], [ %608, %596 ], [ %.0806, %591 ], [ %555, %543 ], [ %.0806, %_ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit ], [ %516, %504 ], [ %.0806, %498 ], [ %.0806, %483 ], [ %497, %485 ], [ %.0806, %463 ], [ %479, %467 ], [ %.0806, %_ZN6icu_77L16isLineTerminatorEi.exit.thread1390 ], [ %.0806, %404 ], [ %419, %_ZN6icu_77L16isLineTerminatorEi.exit.thread ], [ %191, %.loopexit ], [ %.0806, %.critedge ], [ %.0806, %2439 ], [ %2182, %2160 ], [ %2159, %2147 ], [ %.0806, %2021 ], [ %2020, %2008 ], [ %.0806, %1865 ], [ %.34, %1864 ], [ %.0806, %1790 ], [ %1806, %1794 ], [ %.33, %1758 ], [ %.0806, %1719 ], [ %.0806, %1687 ], [ %.0806, %1536 ], [ %.019.i1192, %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1213 ], [ %.0806, %1224 ], [ %1194, %1182 ], [ %1155, %1143 ], [ %1105, %1093 ], [ %1039, %1027 ], [ %971, %959 ], [ %900, %888 ], [ %.0806, %884 ], [ %883, %871 ], [ %.0806, %_ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit ], [ %.0806, %866 ], [ %842, %830 ], [ %786, %774 ], [ %701, %689 ], [ %646, %634 ], [ %630, %618 ], [ %.0806, %615 ], [ %.0806, %612 ], [ %571, %559 ], [ %.0806, %480 ], [ %.0806, %456 ], [ %.0806, %440 ], [ %455, %443 ], [ %.0806, %424 ], [ %439, %427 ], [ %.0806, %423 ], [ %.0806, %395 ], [ %.0806, %378 ], [ %391, %379 ], [ %.0806, %377 ], [ %.0806, %354 ], [ %.0806, %343 ], [ %366, %.thread ], [ %.0806, %295 ], [ %293, %281 ], [ %.0806, %264 ], [ %.0806, %258 ], [ %257, %245 ], [ %.0806, %142 ], [ %157, %145 ], [ %118, %106 ], [ %.0806, %97 ]
+  %.pr1592 = load i32, ptr %3, align 4, !tbaa !13
+  %2528 = icmp slt i32 %.pr1592, 1
+  br i1 %2528, label %97, label %.thread1474, !llvm.loop !152
 
-.thread1475.sink.split:                           ; preds = %97, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141
-  %.sink1620 = phi i32 [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1141 ], [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1367 ], [ 5, %97 ]
-  store i32 %.sink1620, ptr %3, align 4, !tbaa !13
-  br label %.thread1475
+.thread1474.sink.split:                           ; preds = %97, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140
+  %.sink1619 = phi i32 [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1140 ], [ 66321, %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1366 ], [ 5, %97 ]
+  store i32 %.sink1619, ptr %3, align 4, !tbaa !13
+  br label %.thread1474
 
-.thread1475:                                      ; preds = %192, %.thread1472, %97, %.critedge1082, %.thread1475.sink.split
-  %.3809.ph = phi ptr [ %.0806, %.thread1475.sink.split ], [ %.0806, %192 ], [ %.0806, %.thread1472 ], [ %.0806, %97 ], [ %.1807.ph, %.critedge1082 ]
+.thread1474:                                      ; preds = %192, %.thread1471, %97, %.critedge1081, %.thread1474.sink.split
+  %.3809.ph = phi ptr [ %.0806, %.thread1474.sink.split ], [ %.0806, %192 ], [ %.0806, %.thread1471 ], [ %.0806, %97 ], [ %.1807.ph, %.critedge1081 ]
   store i8 0, ptr %93, align 2, !tbaa !29
   br label %2534
 
@@ -16051,18 +16051,18 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i1371: ; preds = %.si
   store i64 %2533, ptr %94, align 8, !tbaa !92
   br label %2534
 
-2534:                                             ; preds = %.thread1475, %2529
-  %.38091479 = phi ptr [ %.3809.ph, %.thread1475 ], [ %.0806, %2529 ]
+2534:                                             ; preds = %.thread1474, %2529
+  %.38091478 = phi ptr [ %.3809.ph, %.thread1474 ], [ %.0806, %2529 ]
   %2535 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.38091479, ptr %2535, align 8, !tbaa !109
+  store ptr %.38091478, ptr %2535, align 8, !tbaa !109
   br label %2536
 
 2536:                                             ; preds = %66, %2534, %4
   ret void
 
 2537:                                             ; preds = %1845, %1686
-  %.pn1000 = phi { ptr, i32 } [ %lpad.phi, %1845 ], [ %.pn997.pn, %1686 ]
-  resume { ptr, i32 } %.pn1000
+  %.pn997.pn.pn = phi { ptr, i32 } [ %.pn997.pn, %1686 ], [ %lpad.phi, %1845 ]
+  resume { ptr, i32 } %.pn997.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

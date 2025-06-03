@@ -749,7 +749,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.
           to label %267 unwind label %.loopexit.split-lp189
 
 267:                                              ; preds = %280, %273, %284, %279, %266
-  %.sroa.017.3 = phi i8 [ 1, %280 ], [ 1, %284 ], [ 1, %273 ], [ 1, %279 ], [ 0, %266 ]
+  %.sroa.017.3 = phi i8 [ 1, %284 ], [ 1, %280 ], [ 1, %279 ], [ 1, %273 ], [ 0, %266 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)

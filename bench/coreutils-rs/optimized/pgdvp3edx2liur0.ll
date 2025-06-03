@@ -1324,11 +1324,11 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   br label %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"
 
 "_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i", %105, %101, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i", %90
-  %.sroa.0.1.pn.i.i = phi ptr [ %100, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ null, %90 ], [ null, %101 ], [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ null, %105 ]
-  %.sroa.4.1.pn.i.i = phi i64 [ %99, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ undef, %90 ], [ undef, %101 ], [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ undef, %105 ]
-  %121 = icmp eq ptr %.sroa.0.1.pn.i.i, null
-  %.sroa.018.0.i = select i1 %121, ptr %69, ptr %.sroa.0.1.pn.i.i
-  %.sroa.3.0.i27 = select i1 %121, i64 %71, i64 %.sroa.4.1.pn.i.i
+  %.sroa.0.0.i.pn.i.i = phi ptr [ %100, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ null, %90 ], [ null, %101 ], [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ null, %105 ]
+  %.sroa.3.0.i.pn.i.i = phi i64 [ %99, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ undef, %90 ], [ undef, %101 ], [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ undef, %105 ]
+  %121 = icmp eq ptr %.sroa.0.0.i.pn.i.i, null
+  %.sroa.018.0.i = select i1 %121, ptr %69, ptr %.sroa.0.0.i.pn.i.i
+  %.sroa.3.0.i27 = select i1 %121, i64 %71, i64 %.sroa.3.0.i.pn.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   %122 = load i64, ptr %1, align 8, !alias.scope !232, !noalias !233, !noundef !5
   %123 = load i64, ptr %51, align 8, !alias.scope !232, !noalias !233, !noundef !5

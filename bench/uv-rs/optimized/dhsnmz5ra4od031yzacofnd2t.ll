@@ -470,7 +470,7 @@ default.unreachable:                              ; preds = %2
   br label %11
 
 11:                                               ; preds = %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 

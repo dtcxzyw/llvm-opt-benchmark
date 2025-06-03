@@ -1314,7 +1314,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %2, %7, %11
   br label %session_attach_stream_item.exit
 
 session_attach_stream_item.exit:                  ; preds = %22, %20, %52, %45, %46, %17, %16, %66, %63, %42, %37, %34, %31
-  %.0 = phi i32 [ 0, %66 ], [ 0, %63 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %34 ], [ -510, %16 ], [ -529, %17 ], [ 0, %52 ], [ -510, %45 ], [ -901, %46 ], [ 0, %20 ], [ %21, %22 ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %42 ], [ 0, %63 ], [ -510, %16 ], [ -529, %17 ], [ 0, %52 ], [ -510, %45 ], [ -901, %46 ], [ 0, %20 ], [ %21, %22 ]
   ret i32 %.0
 }
 
@@ -3155,8 +3155,8 @@ session_prep_frame.exit.thread.thread:            ; preds = %session_predicate_f
   br label %417
 
 417:                                              ; preds = %406, %411, %414
-  %.0160 = phi i32 [ 2, %414 ], [ %413, %411 ], [ 7, %406 ]
-  %.0159 = phi i32 [ %416, %414 ], [ %408, %411 ], [ %408, %406 ]
+  %.0160 = phi i32 [ %413, %411 ], [ 2, %414 ], [ 7, %406 ]
+  %.0159 = phi i32 [ %408, %411 ], [ %416, %414 ], [ %408, %406 ]
   %.not191 = icmp eq i32 %.0159, 0
   br i1 %.not191, label %.thread236, label %418
 
@@ -3213,7 +3213,7 @@ nghttp2_session_terminate_session.exit:           ; preds = %430, %425
   %436 = icmp sgt i32 %.0149, -901
   br i1 %436, label %.thread263.backedge, label %.thread257.loopexit306.split.loop.exit337
 
-session_prep_frame.exit.thread.thread300:         ; preds = %109, %session_predicate_window_update_send.exit.i, %292, %289, %217, %214, %211, %203, %276, %session_predicate_altsvc_send.exit.i, %select.unfold353.i, %350, %session_prep_frame.exit.thread
+session_prep_frame.exit.thread.thread300:         ; preds = %109, %214, %217, %289, %292, %session_predicate_window_update_send.exit.i, %211, %203, %276, %session_predicate_altsvc_send.exit.i, %select.unfold353.i, %350, %session_prep_frame.exit.thread
   store ptr %.0.i217, ptr %5, align 8, !tbaa !90
   %437 = load ptr, ptr %6, align 8, !tbaa !156
   store ptr %437, ptr %8, align 8, !tbaa !163
@@ -3940,7 +3940,7 @@ nghttp2_session_get_stream.exit171:               ; preds = %199
   br label %.critedge148
 
 .critedge148:                                     ; preds = %nghttp2_session_close_stream_if_shut_rdwr.exit.thread, %nghttp2_session_close_stream_if_shut_rdwr.exit, %80, %52, %70, %199, %192, %195, %95, %86, %91, %.critedge, %session_call_on_frame_send.exit.thread, %84, %220, %nghttp2_session_get_stream.exit171, %190, %172, %._crit_edge, %151, %121, %149, %nghttp2_session_close_stream_if_shut_rdwr.exit165, %116, %nghttp2_session_close_stream_if_shut_rdwr.exit167, %144, %74
-  %.2 = phi i32 [ 0, %74 ], [ 0, %149 ], [ 0, %121 ], [ %112, %nghttp2_session_close_stream_if_shut_rdwr.exit165 ], [ %119, %116 ], [ %140, %nghttp2_session_close_stream_if_shut_rdwr.exit167 ], [ %147, %144 ], [ %., %151 ], [ 0, %172 ], [ %170, %._crit_edge ], [ %..0112, %190 ], [ 0, %nghttp2_session_get_stream.exit171 ], [ %..1113, %220 ], [ 0, %84 ], [ 0, %session_call_on_frame_send.exit.thread ], [ 0, %.critedge ], [ 0, %91 ], [ 0, %86 ], [ 0, %95 ], [ 0, %195 ], [ 0, %192 ], [ 0, %199 ], [ %spec.select190, %70 ], [ -902, %52 ], [ -902, %80 ], [ 0, %nghttp2_session_close_stream_if_shut_rdwr.exit.thread ], [ %.fr, %nghttp2_session_close_stream_if_shut_rdwr.exit ]
+  %.2 = phi i32 [ 0, %74 ], [ 0, %121 ], [ 0, %149 ], [ %112, %nghttp2_session_close_stream_if_shut_rdwr.exit165 ], [ %119, %116 ], [ %140, %nghttp2_session_close_stream_if_shut_rdwr.exit167 ], [ %147, %144 ], [ %., %151 ], [ 0, %172 ], [ %170, %._crit_edge ], [ %..0112, %190 ], [ 0, %nghttp2_session_get_stream.exit171 ], [ %..1113, %220 ], [ 0, %84 ], [ 0, %session_call_on_frame_send.exit.thread ], [ 0, %.critedge ], [ 0, %91 ], [ 0, %86 ], [ 0, %95 ], [ 0, %195 ], [ 0, %192 ], [ 0, %199 ], [ %spec.select190, %70 ], [ -902, %52 ], [ -902, %80 ], [ 0, %nghttp2_session_close_stream_if_shut_rdwr.exit.thread ], [ %.fr, %nghttp2_session_close_stream_if_shut_rdwr.exit ]
   ret i32 %.2
 }
 
@@ -5104,7 +5104,7 @@ define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %0, pt
   br label %get_error_code_from_lib_error_code.exit
 
 get_error_code_from_lib_error_code.exit:          ; preds = %11, %12, %13, %14, %15, %16, %17
-  %.0.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 7, %15 ], [ 3, %14 ], [ 6, %13 ], [ 9, %12 ], [ 5, %11 ]
+  %.0.i = phi i32 [ 2, %17 ], [ 9, %12 ], [ 6, %13 ], [ 3, %14 ], [ 7, %15 ], [ 1, %16 ], [ 5, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2556
   %19 = load i32, ptr %18, align 4, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2676
@@ -8322,7 +8322,7 @@ nghttp2_session_want_read.exit:                   ; preds = %20
   br label %131
 
 131:                                              ; preds = %130, %.critedge
-  %.3738 = phi ptr [ %.1736, %.critedge ], [ %107, %130 ]
+  %.3738 = phi ptr [ %107, %130 ], [ %.1736, %.critedge ]
   %132 = ptrtoint ptr %.3738 to i64
   %133 = sub i64 %31, %132
   %134 = load ptr, ptr %51, align 8, !tbaa !115
@@ -8907,8 +8907,8 @@ inbound_frame_handle_pad.exit945:                 ; preds = %280
   store i32 6, ptr %29, align 8, !tbaa !95
   br label %.thread1058
 
-377:                                              ; preds = %373, %336, %304, %298, %291, %268, %275, %242, %237, %209
-  %.3755.ph.ph = phi i32 [ 1, %373 ], [ 1, %336 ], [ 0, %304 ], [ 0, %298 ], [ 0, %291 ], [ 0, %268 ], [ 1, %275 ], [ 0, %242 ], [ 0, %237 ], [ 0, %209 ]
+377:                                              ; preds = %336, %373, %209, %237, %242, %268, %275, %291, %298, %304
+  %.3755.ph.ph = phi i32 [ 1, %336 ], [ 1, %373 ], [ 0, %209 ], [ 0, %237 ], [ 0, %242 ], [ 0, %268 ], [ 1, %275 ], [ 0, %291 ], [ 0, %298 ], [ 0, %304 ]
   %.pr = load i32, ptr %29, align 8, !tbaa !95
   switch i32 %.pr, label %.thread1045 [
     i32 5, label %.thread1058
@@ -8918,9 +8918,9 @@ inbound_frame_handle_pad.exit945:                 ; preds = %280
     i32 15, label %.thread1058
   ]
 
-.thread1045.sink.split:                           ; preds = %354, %350, %321, %179, %285, %200, %188
-  %.sink = phi i32 [ 12, %188 ], [ 3, %200 ], [ 3, %285 ], [ 13, %179 ], [ 18, %321 ], [ 17, %350 ], [ 17, %354 ]
-  %.3755.ph1047.ph = phi i32 [ 1, %188 ], [ 0, %200 ], [ 0, %285 ], [ 1, %179 ], [ 1, %321 ], [ 1, %350 ], [ 0, %354 ]
+.thread1045.sink.split:                           ; preds = %354, %350, %321, %179, %188, %200, %285
+  %.sink = phi i32 [ 3, %285 ], [ 3, %200 ], [ 12, %188 ], [ 13, %179 ], [ 18, %321 ], [ 17, %350 ], [ 17, %354 ]
+  %.3755.ph1047.ph = phi i32 [ 0, %285 ], [ 0, %200 ], [ 1, %188 ], [ 1, %179 ], [ 1, %321 ], [ 1, %350 ], [ 0, %354 ]
   store i32 %.sink, ptr %29, align 8, !tbaa !95
   br label %.thread1045
 
@@ -9950,7 +9950,7 @@ nghttp2_session_get_stream.exit64.i:              ; preds = %852
   unreachable
 
 875:                                              ; preds = %872, %870, %861, %859
-  %.2.i = phi i32 [ %871, %870 ], [ %873, %872 ], [ %862, %861 ], [ %860, %859 ]
+  %.2.i = phi i32 [ %860, %859 ], [ %862, %861 ], [ %871, %870 ], [ %873, %872 ]
   %876 = icmp eq i32 %.2.i, 0
   br i1 %876, label %877, label %.thread80.i
 
@@ -11165,16 +11165,16 @@ session_process_origin_frame.exit.thread:         ; preds = %1449, %1447, %sessi
   call fastcc void @session_inbound_frame_reset(ptr noundef nonnull %0)
   br label %.thread1058
 
-.thread1058:                                      ; preds = %1140, %1138, %session_after_header_block_received.exit.thread, %826, %825, %814, %174, %208, %236, %241, %252, %290, %297, %303, %335, %332, %329, %342, %349, %372, %369, %360, %376, %323, %232, %233, %234, %377, %377, %377, %377, %377, %379, %.thread1045, %1332, %808, %809, %799, %.thread1064, %1438, %1407, %thread-pre-split1142, %1368, %1333, %1143, %1071, %972, %953, %426, %427, %446, %447, %448, %449, %459, %479, %498, %499, %500, %510, %527, %534, %544, %554, %555, %93, %96, %1456, %1424, %1394, %1381, %1370, %1340, %select.unfold1121, %1234, %1089, %1058, %1025, %962, %.critedge
-  %.1753 = phi i32 [ 0, %.critedge ], [ 0, %1438 ], [ 0, %1456 ], [ 0, %1407 ], [ 0, %1424 ], [ 1, %1381 ], [ 0, %thread-pre-split1142 ], [ 0, %1394 ], [ 0, %1368 ], [ 0, %1370 ], [ 1, %1332 ], [ 0, %1333 ], [ 0, %1340 ], [ 1, %select.unfold1121 ], [ 1, %1234 ], [ 1, %1143 ], [ 0, %1071 ], [ 0, %1089 ], [ 0, %972 ], [ 0, %1025 ], [ 0, %1058 ], [ 0, %953 ], [ 0, %962 ], [ 0, %555 ], [ 0, %554 ], [ 1, %534 ], [ 1, %544 ], [ 0, %527 ], [ 0, %510 ], [ 0, %479 ], [ 1, %498 ], [ 1, %499 ], [ 1, %500 ], [ 0, %459 ], [ 0, %449 ], [ 1, %426 ], [ 0, %427 ], [ 1, %446 ], [ 1, %447 ], [ 1, %448 ], [ 0, %96 ], [ 0, %93 ], [ 1, %.thread1064 ], [ 1, %809 ], [ 0, %808 ], [ 1, %799 ], [ %.3755.ph1047, %.thread1045 ], [ %.3755.ph1047, %379 ], [ 1, %234 ], [ 1, %233 ], [ 1, %232 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ 1, %323 ], [ 1, %376 ], [ 1, %360 ], [ 1, %369 ], [ 1, %372 ], [ 1, %349 ], [ 1, %342 ], [ 1, %329 ], [ 1, %332 ], [ 1, %335 ], [ 1, %303 ], [ 1, %297 ], [ 1, %290 ], [ 1, %252 ], [ 1, %241 ], [ 1, %236 ], [ 1, %208 ], [ 1, %174 ], [ 0, %814 ], [ 0, %825 ], [ 0, %826 ], [ 0, %session_after_header_block_received.exit.thread ], [ 1, %1138 ], [ 1, %1140 ]
-  %.2737 = phi ptr [ %.1736, %.critedge ], [ %.9744, %1438 ], [ %.9744, %1456 ], [ %.8743, %1407 ], [ %.8743, %1424 ], [ %1376, %1381 ], [ %1376, %thread-pre-split1142 ], [ %1376, %1394 ], [ %1346, %1368 ], [ %1346, %1370 ], [ %1251, %1332 ], [ %1251, %1333 ], [ %1251, %1340 ], [ %.1736, %select.unfold1121 ], [ %1154, %1234 ], [ %1105, %1143 ], [ %.7742, %1071 ], [ %.7742, %1089 ], [ %984, %972 ], [ %984, %1025 ], [ %984, %1058 ], [ %958, %953 ], [ %958, %962 ], [ %392, %555 ], [ %392, %554 ], [ %392, %534 ], [ %392, %544 ], [ %392, %527 ], [ %392, %510 ], [ %392, %479 ], [ %392, %498 ], [ %392, %499 ], [ %392, %500 ], [ %392, %459 ], [ %392, %449 ], [ %392, %426 ], [ %392, %427 ], [ %392, %446 ], [ %392, %447 ], [ %392, %448 ], [ %95, %96 ], [ %95, %93 ], [ %392, %.thread1064 ], [ %802, %809 ], [ %802, %808 ], [ %800, %799 ], [ %141, %.thread1045 ], [ %141, %379 ], [ %141, %234 ], [ %141, %233 ], [ %141, %232 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %323 ], [ %141, %376 ], [ %141, %360 ], [ %141, %369 ], [ %141, %372 ], [ %141, %349 ], [ %141, %342 ], [ %141, %329 ], [ %141, %332 ], [ %141, %335 ], [ %141, %303 ], [ %141, %297 ], [ %141, %290 ], [ %141, %252 ], [ %141, %241 ], [ %141, %236 ], [ %141, %208 ], [ %141, %174 ], [ %.6741, %814 ], [ %.6741, %825 ], [ %.6741, %826 ], [ %.6741, %session_after_header_block_received.exit.thread ], [ %1105, %1138 ], [ %1105, %1140 ]
+.thread1058:                                      ; preds = %1140, %1138, %session_after_header_block_received.exit.thread, %826, %825, %814, %303, %297, %290, %252, %241, %236, %208, %174, %372, %369, %360, %342, %349, %335, %332, %329, %376, %323, %232, %233, %234, %377, %377, %377, %377, %377, %379, %.thread1045, %1332, %808, %809, %799, %.thread1064, %1438, %1407, %thread-pre-split1142, %1368, %1333, %1143, %1071, %972, %953, %426, %427, %446, %447, %448, %449, %459, %479, %498, %499, %500, %510, %527, %534, %544, %554, %555, %93, %96, %1456, %1424, %1394, %1381, %1370, %1340, %select.unfold1121, %1234, %1089, %1058, %1025, %962, %.critedge
+  %.1753 = phi i32 [ 0, %.critedge ], [ 0, %96 ], [ 0, %93 ], [ 0, %555 ], [ 1, %426 ], [ 0, %427 ], [ 1, %446 ], [ 1, %447 ], [ 1, %448 ], [ 0, %449 ], [ 0, %459 ], [ 0, %479 ], [ 1, %498 ], [ 1, %499 ], [ 1, %500 ], [ 0, %510 ], [ 0, %527 ], [ 1, %534 ], [ 1, %544 ], [ 0, %554 ], [ 0, %953 ], [ 0, %962 ], [ 0, %972 ], [ 0, %1025 ], [ 0, %1058 ], [ 0, %1071 ], [ 0, %1089 ], [ 1, %1143 ], [ 1, %1234 ], [ 0, %1333 ], [ 0, %1340 ], [ 1, %1332 ], [ 1, %select.unfold1121 ], [ 0, %1368 ], [ 0, %1370 ], [ 1, %1381 ], [ 0, %thread-pre-split1142 ], [ 0, %1394 ], [ 0, %1407 ], [ 0, %1424 ], [ 0, %1438 ], [ 0, %1456 ], [ 1, %.thread1064 ], [ 1, %809 ], [ 0, %808 ], [ 1, %799 ], [ %.3755.ph1047, %.thread1045 ], [ %.3755.ph1047, %379 ], [ 1, %234 ], [ 1, %233 ], [ 1, %232 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ %.3755.ph.ph, %377 ], [ 1, %323 ], [ 1, %376 ], [ 1, %329 ], [ 1, %332 ], [ 1, %335 ], [ 1, %349 ], [ 1, %342 ], [ 1, %360 ], [ 1, %369 ], [ 1, %372 ], [ 1, %174 ], [ 1, %208 ], [ 1, %236 ], [ 1, %241 ], [ 1, %252 ], [ 1, %290 ], [ 1, %297 ], [ 1, %303 ], [ 0, %814 ], [ 0, %825 ], [ 0, %826 ], [ 0, %session_after_header_block_received.exit.thread ], [ 1, %1138 ], [ 1, %1140 ]
+  %.2737 = phi ptr [ %.1736, %.critedge ], [ %95, %96 ], [ %95, %93 ], [ %392, %555 ], [ %392, %426 ], [ %392, %427 ], [ %392, %446 ], [ %392, %447 ], [ %392, %448 ], [ %392, %449 ], [ %392, %459 ], [ %392, %479 ], [ %392, %498 ], [ %392, %499 ], [ %392, %500 ], [ %392, %510 ], [ %392, %527 ], [ %392, %534 ], [ %392, %544 ], [ %392, %554 ], [ %958, %953 ], [ %958, %962 ], [ %984, %972 ], [ %984, %1025 ], [ %984, %1058 ], [ %.7742, %1071 ], [ %.7742, %1089 ], [ %1105, %1143 ], [ %1154, %1234 ], [ %1251, %1333 ], [ %1251, %1340 ], [ %1251, %1332 ], [ %.1736, %select.unfold1121 ], [ %1346, %1368 ], [ %1346, %1370 ], [ %1376, %1381 ], [ %1376, %thread-pre-split1142 ], [ %1376, %1394 ], [ %.8743, %1407 ], [ %.8743, %1424 ], [ %.9744, %1438 ], [ %.9744, %1456 ], [ %392, %.thread1064 ], [ %802, %809 ], [ %802, %808 ], [ %800, %799 ], [ %141, %.thread1045 ], [ %141, %379 ], [ %141, %234 ], [ %141, %233 ], [ %141, %232 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %377 ], [ %141, %323 ], [ %141, %376 ], [ %141, %329 ], [ %141, %332 ], [ %141, %335 ], [ %141, %349 ], [ %141, %342 ], [ %141, %360 ], [ %141, %369 ], [ %141, %372 ], [ %141, %174 ], [ %141, %208 ], [ %141, %236 ], [ %141, %241 ], [ %141, %252 ], [ %141, %290 ], [ %141, %297 ], [ %141, %303 ], [ %.6741, %814 ], [ %.6741, %825 ], [ %.6741, %826 ], [ %.6741, %session_after_header_block_received.exit.thread ], [ %1105, %1138 ], [ %1105, %1140 ]
   %.not912 = icmp eq i32 %.1753, 0
   %1457 = icmp eq ptr %.2737, %15
   %or.cond914 = select i1 %.not912, i1 %1457, i1 false
   br i1 %or.cond914, label %nghttp2_session_want_read.exit.thread, label %.critedge
 
-nghttp2_session_want_read.exit.thread:            ; preds = %1391, %session_call_on_extension_chunk_recv_callback.exit, %1140, %379, %214, %1330, %1309, %1290, %1257, %778, %265, %253, %351, %222, %166, %514, %session_process_origin_frame.exit.thread, %.critedge, %1365, %1352, %nghttp2_session_consume.exit.thread, %1167, %1090, %1086, %1055, %538, %524, %507, %488, %456, %436, %88, %.thread1058, %1449, %session_process_origin_frame.exit.thread1148.split.loop.exit1449, %nghttp2_session_terminate_session_with_reason.exit969.thread, %nghttp2_session_terminate_session_with_reason.exit969, %nghttp2_session_terminate_session_with_reason.exit.thread, %nghttp2_session_terminate_session_with_reason.exit, %session_call_unpack_extension_callback.exit.i, %1326, %1316, %1307, %1288, %1271, %1255, %.loopexit, %782, %797, %261, %363, %307, %inbound_frame_handle_pad.exit945, %inbound_frame_handle_pad.exit940, %inbound_frame_handle_pad.exit, %177, %230, %220, %143, %14, %.thread1096, %1230, %inbound_frame_compute_pad.exit952.thread, %inbound_frame_compute_pad.exit.thread, %126, %968, %nghttp2_session_want_read.exit, %1422, %1363, %1350, %1338, %1223, %nghttp2_session_consume.exit.thread1114, %1165, %1158, %1107, %1084, %1053, %966, %552, %522, %505, %496, %486, %454, %444, %434, %396, %124, %109
-  %.0 = phi i64 [ %1423, %1422 ], [ %1351, %1350 ], [ %1364, %1363 ], [ %1339, %1338 ], [ %1161, %1158 ], [ %1166, %1165 ], [ %1201, %nghttp2_session_consume.exit.thread1114 ], [ %1224, %1223 ], [ %1110, %1107 ], [ %1085, %1084 ], [ %1054, %1053 ], [ %967, %966 ], [ %399, %396 ], [ %553, %552 ], [ %523, %522 ], [ %506, %505 ], [ %487, %486 ], [ %497, %496 ], [ %455, %454 ], [ %435, %434 ], [ %445, %444 ], [ %112, %109 ], [ %125, %124 ], [ %2, %nghttp2_session_want_read.exit ], [ %2, %968 ], [ %spec.select, %126 ], [ %spec.select924, %inbound_frame_compute_pad.exit.thread ], [ %spec.select925, %inbound_frame_compute_pad.exit952.thread ], [ %spec.select927, %1230 ], [ %952, %.thread1096 ], [ %2, %14 ], [ %spec.select921, %363 ], [ %spec.select920, %307 ], [ %spec.select919, %inbound_frame_handle_pad.exit945 ], [ %spec.select917, %inbound_frame_handle_pad.exit940 ], [ %spec.select916, %inbound_frame_handle_pad.exit ], [ %178, %177 ], [ %231, %230 ], [ %221, %220 ], [ %146, %143 ], [ %spec.select918, %261 ], [ %777, %.loopexit ], [ %788, %782 ], [ %798, %797 ], [ %1329, %1326 ], [ %1317, %1316 ], [ %1308, %1307 ], [ %1289, %1288 ], [ %1272, %1271 ], [ %1256, %1255 ], [ -902, %session_call_unpack_extension_callback.exit.i ], [ %2, %nghttp2_session_terminate_session_with_reason.exit.thread ], [ %163, %nghttp2_session_terminate_session_with_reason.exit ], [ %2, %nghttp2_session_terminate_session_with_reason.exit969.thread ], [ %1128, %nghttp2_session_terminate_session_with_reason.exit969 ], [ %1453, %session_process_origin_frame.exit.thread1148.split.loop.exit1449 ], [ -902, %1391 ], [ -902, %session_call_on_extension_chunk_recv_callback.exit ], [ -902, %1140 ], [ -902, %379 ], [ -902, %214 ], [ %2, %1257 ], [ %2, %1290 ], [ %2, %1309 ], [ -902, %1330 ], [ %2, %778 ], [ -901, %265 ], [ %2, %166 ], [ %2, %222 ], [ -901, %351 ], [ -904, %253 ], [ -901, %514 ], [ %2, %session_process_origin_frame.exit.thread ], [ %2, %.critedge ], [ %2, %1365 ], [ %2, %1352 ], [ %2, %nghttp2_session_consume.exit.thread ], [ %2, %1167 ], [ -905, %1090 ], [ %2, %1086 ], [ %2, %1055 ], [ -901, %538 ], [ %2, %524 ], [ %2, %507 ], [ %2, %488 ], [ %2, %456 ], [ %2, %436 ], [ -903, %88 ], [ %2, %.thread1058 ], [ -902, %1449 ]
+nghttp2_session_want_read.exit.thread:            ; preds = %1391, %session_call_on_extension_chunk_recv_callback.exit, %1140, %379, %214, %1330, %1309, %1290, %1257, %778, %265, %253, %351, %222, %166, %514, %session_process_origin_frame.exit.thread, %.critedge, %1365, %1352, %nghttp2_session_consume.exit.thread, %1167, %1090, %1086, %1055, %538, %524, %507, %488, %456, %436, %88, %.thread1058, %1449, %session_process_origin_frame.exit.thread1148.split.loop.exit1449, %nghttp2_session_terminate_session_with_reason.exit969.thread, %nghttp2_session_terminate_session_with_reason.exit969, %nghttp2_session_terminate_session_with_reason.exit.thread, %nghttp2_session_terminate_session_with_reason.exit, %session_call_unpack_extension_callback.exit.i, %1326, %1316, %1307, %1288, %1271, %1255, %.loopexit, %782, %797, %261, %363, %307, %inbound_frame_handle_pad.exit945, %inbound_frame_handle_pad.exit940, %inbound_frame_handle_pad.exit, %230, %220, %177, %143, %14, %.thread1096, %1230, %inbound_frame_compute_pad.exit952.thread, %inbound_frame_compute_pad.exit.thread, %126, %968, %nghttp2_session_want_read.exit, %1422, %1363, %1350, %1338, %1223, %nghttp2_session_consume.exit.thread1114, %1165, %1158, %1107, %1084, %1053, %966, %552, %522, %505, %496, %486, %454, %444, %434, %396, %124, %109
+  %.0 = phi i64 [ %112, %109 ], [ %125, %124 ], [ %399, %396 ], [ %435, %434 ], [ %445, %444 ], [ %455, %454 ], [ %487, %486 ], [ %497, %496 ], [ %506, %505 ], [ %523, %522 ], [ %553, %552 ], [ %967, %966 ], [ %1054, %1053 ], [ %1085, %1084 ], [ %1110, %1107 ], [ %1161, %1158 ], [ %1166, %1165 ], [ %1201, %nghttp2_session_consume.exit.thread1114 ], [ %1224, %1223 ], [ %1339, %1338 ], [ %1351, %1350 ], [ %1364, %1363 ], [ %1423, %1422 ], [ %2, %nghttp2_session_want_read.exit ], [ %2, %968 ], [ %spec.select, %126 ], [ %spec.select924, %inbound_frame_compute_pad.exit.thread ], [ %spec.select925, %inbound_frame_compute_pad.exit952.thread ], [ %spec.select927, %1230 ], [ %952, %.thread1096 ], [ %2, %14 ], [ %spec.select921, %363 ], [ %spec.select920, %307 ], [ %spec.select919, %inbound_frame_handle_pad.exit945 ], [ %spec.select917, %inbound_frame_handle_pad.exit940 ], [ %spec.select916, %inbound_frame_handle_pad.exit ], [ %231, %230 ], [ %221, %220 ], [ %178, %177 ], [ %146, %143 ], [ %spec.select918, %261 ], [ %777, %.loopexit ], [ %788, %782 ], [ %798, %797 ], [ %1329, %1326 ], [ %1317, %1316 ], [ %1308, %1307 ], [ %1289, %1288 ], [ %1272, %1271 ], [ %1256, %1255 ], [ -902, %session_call_unpack_extension_callback.exit.i ], [ %2, %nghttp2_session_terminate_session_with_reason.exit.thread ], [ %163, %nghttp2_session_terminate_session_with_reason.exit ], [ %2, %nghttp2_session_terminate_session_with_reason.exit969.thread ], [ %1128, %nghttp2_session_terminate_session_with_reason.exit969 ], [ %1453, %session_process_origin_frame.exit.thread1148.split.loop.exit1449 ], [ -902, %1391 ], [ -902, %session_call_on_extension_chunk_recv_callback.exit ], [ -902, %1140 ], [ -902, %379 ], [ -902, %214 ], [ %2, %1257 ], [ %2, %1290 ], [ %2, %1309 ], [ -902, %1330 ], [ %2, %778 ], [ -901, %265 ], [ %2, %166 ], [ %2, %222 ], [ -901, %351 ], [ -904, %253 ], [ -901, %514 ], [ %2, %session_process_origin_frame.exit.thread ], [ %2, %.critedge ], [ %2, %1365 ], [ %2, %1352 ], [ %2, %nghttp2_session_consume.exit.thread ], [ %2, %1167 ], [ -905, %1090 ], [ %2, %1086 ], [ %2, %1055 ], [ -901, %538 ], [ %2, %524 ], [ %2, %507 ], [ %2, %488 ], [ %2, %456 ], [ %2, %436 ], [ -903, %88 ], [ %2, %.thread1058 ], [ -902, %1449 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   ret i64 %.0
 }

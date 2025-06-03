@@ -6012,7 +6012,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 56:                                               ; preds = %48, %40, %26, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %55, %48 ], [ %47, %40 ], [ %39, %26 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %39, %26 ], [ %47, %40 ], [ %55, %48 ]
   %57 = shl i32 %.1.i, 3
   %58 = xor i32 %57, %.1.i
   %59 = lshr i32 %58, 5
@@ -6451,7 +6451,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -6598,7 +6598,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 53:                                               ; preds = %45, %37, %23, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %52, %45 ], [ %44, %37 ], [ %36, %23 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %36, %23 ], [ %44, %37 ], [ %52, %45 ]
   %54 = shl i32 %.1.i, 3
   %55 = xor i32 %54, %.1.i
   %56 = lshr i32 %55, 5
@@ -6746,7 +6746,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -6979,7 +6979,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -7212,7 +7212,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 56:                                               ; preds = %48, %40, %26, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %55, %48 ], [ %47, %40 ], [ %39, %26 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %39, %26 ], [ %47, %40 ], [ %55, %48 ]
   %57 = shl i32 %.1.i, 3
   %58 = xor i32 %57, %.1.i
   %59 = lshr i32 %58, 5
@@ -7488,7 +7488,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -7725,7 +7725,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -7875,7 +7875,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -8015,7 +8015,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -8163,7 +8163,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -8312,7 +8312,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 53:                                               ; preds = %45, %37, %23, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %52, %45 ], [ %44, %37 ], [ %36, %23 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %36, %23 ], [ %44, %37 ], [ %52, %45 ]
   %54 = shl i32 %.1.i, 3
   %55 = xor i32 %54, %.1.i
   %56 = lshr i32 %55, 5
@@ -8465,7 +8465,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 53:                                               ; preds = %45, %37, %23, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %52, %45 ], [ %44, %37 ], [ %36, %23 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %36, %23 ], [ %44, %37 ], [ %52, %45 ]
   %54 = shl i32 %.1.i, 3
   %55 = xor i32 %54, %.1.i
   %56 = lshr i32 %55, 5
@@ -8612,7 +8612,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 53:                                               ; preds = %45, %37, %23, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %52, %45 ], [ %44, %37 ], [ %36, %23 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %36, %23 ], [ %44, %37 ], [ %52, %45 ]
   %54 = shl i32 %.1.i, 3
   %55 = xor i32 %54, %.1.i
   %56 = lshr i32 %55, 5
@@ -8759,7 +8759,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 53:                                               ; preds = %45, %37, %23, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %52, %45 ], [ %44, %37 ], [ %36, %23 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %36, %23 ], [ %44, %37 ], [ %52, %45 ]
   %54 = shl i32 %.1.i, 3
   %55 = xor i32 %54, %.1.i
   %56 = lshr i32 %55, 5

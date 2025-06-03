@@ -1742,7 +1742,7 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   br label %133
 
 133:                                              ; preds = %mriStep_AccessStepMem.exit, %127, %57, %.thread, %40, %132, %108, %84, %66, %mriStepInnerStepper_FullRhs.exit.thread, %21, %17
-  %.0 = phi i32 [ -8, %132 ], [ -8, %66 ], [ -8, %84 ], [ -8, %108 ], [ -8, %21 ], [ -8, %mriStepInnerStepper_FullRhs.exit.thread ], [ -8, %17 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %.thread ], [ 0, %57 ], [ 0, %127 ]
+  %.0 = phi i32 [ -8, %132 ], [ -8, %21 ], [ -8, %mriStepInnerStepper_FullRhs.exit.thread ], [ -8, %66 ], [ -8, %84 ], [ -8, %108 ], [ -8, %17 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %.thread ], [ 0, %57 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   ret i32 %.0
 }
@@ -2097,7 +2097,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br label %.loopexit
 
 199:                                              ; preds = %192, %196, %193
-  %.5 = phi i32 [ %198, %196 ], [ %195, %193 ], [ %191, %192 ]
+  %.5 = phi i32 [ %191, %192 ], [ %195, %193 ], [ %198, %196 ]
   %.not279 = icmp eq i32 %.5, 0
   br i1 %.not279, label %.thread379, label %.loopexit
 
@@ -2465,7 +2465,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   br label %.loopexit
 
 392:                                              ; preds = %387, %390, %388
-  %.11 = phi i32 [ %391, %390 ], [ %389, %388 ], [ %386, %387 ]
+  %.11 = phi i32 [ %386, %387 ], [ %389, %388 ], [ %391, %390 ]
   %.not265 = icmp eq i32 %.11, 0
   br i1 %.not265, label %.thread394, label %.loopexit
 
@@ -2562,7 +2562,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   br label %.loopexit
 
 440:                                              ; preds = %435, %438, %436
-  %.12 = phi i32 [ %439, %438 ], [ %437, %436 ], [ %434, %435 ]
+  %.12 = phi i32 [ %434, %435 ], [ %437, %436 ], [ %439, %438 ]
   %.not269 = icmp eq i32 %.12, 0
   br i1 %.not269, label %.thread406, label %.loopexit
 
@@ -6856,7 +6856,7 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   br label %185
 
 185:                                              ; preds = %67, %mriStep_ApplyForcing.exit107, %83, %61, %151, %171, %167, %116, %184, %166, %133, %82, %27
-  %.0 = phi i32 [ -8, %184 ], [ -8, %133 ], [ -8, %166 ], [ -8, %82 ], [ -8, %27 ], [ 0, %116 ], [ 0, %167 ], [ 0, %171 ], [ 0, %151 ], [ 0, %61 ], [ 0, %83 ], [ 0, %mriStep_ApplyForcing.exit107 ], [ 0, %67 ]
+  %.0 = phi i32 [ -8, %184 ], [ -8, %82 ], [ -8, %27 ], [ -8, %133 ], [ -8, %166 ], [ 0, %116 ], [ 0, %167 ], [ 0, %171 ], [ 0, %151 ], [ 0, %61 ], [ 0, %83 ], [ 0, %mriStep_ApplyForcing.exit107 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   ret i32 %.0
 }

@@ -906,7 +906,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT10getUdtKindEv(ptr nou
   unreachable
 
 17:                                               ; preds = %9, %15, %14, %13, %4
-  %.0 = phi i32 [ %8, %4 ], [ 3, %15 ], [ 0, %14 ], [ 2, %13 ], [ 1, %9 ]
+  %.0 = phi i32 [ %8, %4 ], [ 2, %13 ], [ 0, %14 ], [ 3, %15 ], [ 1, %9 ]
   ret i32 %.0
 }
 

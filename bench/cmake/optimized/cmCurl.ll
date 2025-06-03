@@ -233,7 +233,7 @@ define dso_local void @_Z21cmCurlPrintTLSVersionB5cxx11i(ptr dead_on_unwind noal
   ret void
 
 45:                                               ; preds = %42, %33, %24, %15
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %34, %33 ], [ %25, %24 ], [ %16, %15 ]
+  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %25, %24 ], [ %34, %33 ], [ %43, %42 ]
   call void @_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   resume { ptr, i32 } %.pn
 }

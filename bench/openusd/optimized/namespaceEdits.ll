@@ -11056,8 +11056,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75: ; preds = %660, %_
   br label %696
 
 696:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75, %612, %613, %614, %615
-  %.043 = phi i32 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75 ], [ 4, %615 ], [ 3, %614 ], [ 2, %613 ], [ %611, %612 ]
-  %.042 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75 ], [ true, %615 ], [ true, %614 ], [ true, %613 ], [ true, %612 ]
+  %.043 = phi i32 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75 ], [ 2, %613 ], [ 3, %614 ], [ 4, %615 ], [ %611, %612 ]
+  %.042 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit75 ], [ true, %613 ], [ true, %614 ], [ true, %615 ], [ true, %612 ]
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %875, label %697
 

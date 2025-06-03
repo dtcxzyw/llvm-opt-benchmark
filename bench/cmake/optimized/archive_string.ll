@@ -3661,8 +3661,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   br label %250
 
 250:                                              ; preds = %246, %245
-  %.10443 = phi ptr [ %.1399754, %245 ], [ %247, %246 ]
-  %.29 = phi ptr [ %.27, %245 ], [ %249, %246 ]
+  %.10443 = phi ptr [ %247, %246 ], [ %.1399754, %245 ]
+  %.29 = phi ptr [ %249, %246 ], [ %.27, %245 ]
   %251 = getelementptr inbounds nuw i8, ptr %.10443, i64 1
   %252 = load i8, ptr %.10443, align 1, !tbaa !12
   %253 = getelementptr inbounds nuw i8, ptr %.29, i64 1
@@ -3670,8 +3670,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   br label %254
 
 254:                                              ; preds = %250, %245
-  %.11444 = phi ptr [ %.1399754, %245 ], [ %251, %250 ]
-  %.30 = phi ptr [ %.27, %245 ], [ %253, %250 ]
+  %.11444 = phi ptr [ %251, %250 ], [ %.1399754, %245 ]
+  %.30 = phi ptr [ %253, %250 ], [ %.27, %245 ]
   %255 = getelementptr inbounds nuw i8, ptr %.11444, i64 1
   %256 = load i8, ptr %.11444, align 1, !tbaa !12
   %257 = getelementptr inbounds nuw i8, ptr %.30, i64 1
@@ -3679,8 +3679,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   br label %258
 
 258:                                              ; preds = %254, %245
-  %.12445 = phi ptr [ %.1399754, %245 ], [ %255, %254 ]
-  %.31 = phi ptr [ %.27, %245 ], [ %257, %254 ]
+  %.12445 = phi ptr [ %255, %254 ], [ %.1399754, %245 ]
+  %.31 = phi ptr [ %257, %254 ], [ %.27, %245 ]
   %259 = load i8, ptr %.12445, align 1, !tbaa !12
   %260 = getelementptr inbounds nuw i8, ptr %.31, i64 1
   store i8 %259, ptr %.31, align 1, !tbaa !12
@@ -3993,8 +3993,8 @@ get_nfd.exit:                                     ; preds = %296
   br label %408
 
 408:                                              ; preds = %404, %403
-  %.14447 = phi ptr [ %.134461152, %403 ], [ %405, %404 ]
-  %.36 = phi ptr [ %.34, %403 ], [ %407, %404 ]
+  %.14447 = phi ptr [ %405, %404 ], [ %.134461152, %403 ]
+  %.36 = phi ptr [ %407, %404 ], [ %.34, %403 ]
   %409 = getelementptr inbounds nuw i8, ptr %.14447, i64 1
   %410 = load i8, ptr %.14447, align 1, !tbaa !12
   %411 = getelementptr inbounds nuw i8, ptr %.36, i64 1
@@ -4002,8 +4002,8 @@ get_nfd.exit:                                     ; preds = %296
   br label %412
 
 412:                                              ; preds = %408, %403
-  %.15448 = phi ptr [ %.134461152, %403 ], [ %409, %408 ]
-  %.37 = phi ptr [ %.34, %403 ], [ %411, %408 ]
+  %.15448 = phi ptr [ %409, %408 ], [ %.134461152, %403 ]
+  %.37 = phi ptr [ %411, %408 ], [ %.34, %403 ]
   %413 = getelementptr inbounds nuw i8, ptr %.15448, i64 1
   %414 = load i8, ptr %.15448, align 1, !tbaa !12
   %415 = getelementptr inbounds nuw i8, ptr %.37, i64 1
@@ -4011,8 +4011,8 @@ get_nfd.exit:                                     ; preds = %296
   br label %416
 
 416:                                              ; preds = %412, %403
-  %.16449 = phi ptr [ %.134461152, %403 ], [ %413, %412 ]
-  %.38 = phi ptr [ %.34, %403 ], [ %415, %412 ]
+  %.16449 = phi ptr [ %413, %412 ], [ %.134461152, %403 ]
+  %.38 = phi ptr [ %415, %412 ], [ %.34, %403 ]
   %417 = load i8, ptr %.16449, align 1, !tbaa !12
   %418 = getelementptr inbounds nuw i8, ptr %.38, i64 1
   store i8 %417, ptr %.38, align 1, !tbaa !12
@@ -4485,8 +4485,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   br label %144
 
 144:                                              ; preds = %140, %139
-  %.4662 = phi ptr [ %.16591097, %139 ], [ %141, %140 ]
-  %.9620 = phi ptr [ %.6617, %139 ], [ %143, %140 ]
+  %.4662 = phi ptr [ %141, %140 ], [ %.16591097, %139 ]
+  %.9620 = phi ptr [ %143, %140 ], [ %.6617, %139 ]
   %145 = getelementptr inbounds nuw i8, ptr %.4662, i64 1
   %146 = load i8, ptr %.4662, align 1, !tbaa !12
   %147 = getelementptr inbounds nuw i8, ptr %.9620, i64 1
@@ -4494,8 +4494,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   br label %148
 
 148:                                              ; preds = %144, %139
-  %.5663 = phi ptr [ %.16591097, %139 ], [ %145, %144 ]
-  %.10621 = phi ptr [ %.6617, %139 ], [ %147, %144 ]
+  %.5663 = phi ptr [ %145, %144 ], [ %.16591097, %139 ]
+  %.10621 = phi ptr [ %147, %144 ], [ %.6617, %139 ]
   %149 = getelementptr inbounds nuw i8, ptr %.5663, i64 1
   %150 = load i8, ptr %.5663, align 1, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %.10621, i64 1
@@ -4503,8 +4503,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_C(ptr noundef %0,
   br label %152
 
 152:                                              ; preds = %148, %139
-  %.6664 = phi ptr [ %.16591097, %139 ], [ %149, %148 ]
-  %.11622 = phi ptr [ %.6617, %139 ], [ %151, %148 ]
+  %.6664 = phi ptr [ %149, %148 ], [ %.16591097, %139 ]
+  %.11622 = phi ptr [ %151, %148 ], [ %.6617, %139 ]
   %153 = load i8, ptr %.6664, align 1, !tbaa !12
   %154 = getelementptr inbounds nuw i8, ptr %.11622, i64 1
   store i8 %153, ptr %.11622, align 1, !tbaa !12
@@ -4673,8 +4673,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %238
 
 238:                                              ; preds = %234, %233
-  %.9667 = phi ptr [ %.16591097, %233 ], [ %235, %234 ]
-  %.18 = phi ptr [ %.15, %233 ], [ %237, %234 ]
+  %.9667 = phi ptr [ %235, %234 ], [ %.16591097, %233 ]
+  %.18 = phi ptr [ %237, %234 ], [ %.15, %233 ]
   %239 = getelementptr inbounds nuw i8, ptr %.9667, i64 1
   %240 = load i8, ptr %.9667, align 1, !tbaa !12
   %241 = getelementptr inbounds nuw i8, ptr %.18, i64 1
@@ -4682,8 +4682,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %242
 
 242:                                              ; preds = %238, %233
-  %.10668 = phi ptr [ %.16591097, %233 ], [ %239, %238 ]
-  %.19 = phi ptr [ %.15, %233 ], [ %241, %238 ]
+  %.10668 = phi ptr [ %239, %238 ], [ %.16591097, %233 ]
+  %.19 = phi ptr [ %241, %238 ], [ %.15, %233 ]
   %243 = getelementptr inbounds nuw i8, ptr %.10668, i64 1
   %244 = load i8, ptr %.10668, align 1, !tbaa !12
   %245 = getelementptr inbounds nuw i8, ptr %.19, i64 1
@@ -4691,8 +4691,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %246
 
 246:                                              ; preds = %242, %233
-  %.11669 = phi ptr [ %.16591097, %233 ], [ %243, %242 ]
-  %.20 = phi ptr [ %.15, %233 ], [ %245, %242 ]
+  %.11669 = phi ptr [ %243, %242 ], [ %.16591097, %233 ]
+  %.20 = phi ptr [ %245, %242 ], [ %.15, %233 ]
   %247 = load i8, ptr %.11669, align 1, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %.20, i64 1
   store i8 %247, ptr %.20, align 1, !tbaa !12
@@ -4820,8 +4820,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %318
 
 318:                                              ; preds = %314, %313
-  %.14672 = phi ptr [ %.16591097, %313 ], [ %315, %314 ]
-  %.27 = phi ptr [ %.24, %313 ], [ %317, %314 ]
+  %.14672 = phi ptr [ %315, %314 ], [ %.16591097, %313 ]
+  %.27 = phi ptr [ %317, %314 ], [ %.24, %313 ]
   %319 = getelementptr inbounds nuw i8, ptr %.14672, i64 1
   %320 = load i8, ptr %.14672, align 1, !tbaa !12
   %321 = getelementptr inbounds nuw i8, ptr %.27, i64 1
@@ -4829,8 +4829,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %322
 
 322:                                              ; preds = %318, %313
-  %.15673 = phi ptr [ %.16591097, %313 ], [ %319, %318 ]
-  %.28 = phi ptr [ %.24, %313 ], [ %321, %318 ]
+  %.15673 = phi ptr [ %319, %318 ], [ %.16591097, %313 ]
+  %.28 = phi ptr [ %321, %318 ], [ %.24, %313 ]
   %323 = getelementptr inbounds nuw i8, ptr %.15673, i64 1
   %324 = load i8, ptr %.15673, align 1, !tbaa !12
   %325 = getelementptr inbounds nuw i8, ptr %.28, i64 1
@@ -4838,8 +4838,8 @@ archive_string_ensure.exit:                       ; preds = %177, %155
   br label %326
 
 326:                                              ; preds = %322, %313
-  %.16674 = phi ptr [ %.16591097, %313 ], [ %323, %322 ]
-  %.29 = phi ptr [ %.24, %313 ], [ %325, %322 ]
+  %.16674 = phi ptr [ %323, %322 ], [ %.16591097, %313 ]
+  %.29 = phi ptr [ %325, %322 ], [ %.24, %313 ]
   %327 = load i8, ptr %.16674, align 1, !tbaa !12
   %328 = getelementptr inbounds nuw i8, ptr %.29, i64 1
   store i8 %327, ptr %.29, align 1, !tbaa !12
@@ -5023,8 +5023,8 @@ get_nfc.exit.thread:                              ; preds = %376, %get_nfc.exit
   br label %429
 
 429:                                              ; preds = %425, %424
-  %.17675 = phi ptr [ %.16591097, %424 ], [ %426, %425 ]
-  %.34 = phi ptr [ %.32, %424 ], [ %428, %425 ]
+  %.17675 = phi ptr [ %426, %425 ], [ %.16591097, %424 ]
+  %.34 = phi ptr [ %428, %425 ], [ %.32, %424 ]
   %430 = getelementptr inbounds nuw i8, ptr %.17675, i64 1
   %431 = load i8, ptr %.17675, align 1, !tbaa !12
   %432 = getelementptr inbounds nuw i8, ptr %.34, i64 1
@@ -5032,8 +5032,8 @@ get_nfc.exit.thread:                              ; preds = %376, %get_nfc.exit
   br label %433
 
 433:                                              ; preds = %429, %424
-  %.18676 = phi ptr [ %.16591097, %424 ], [ %430, %429 ]
-  %.35 = phi ptr [ %.32, %424 ], [ %432, %429 ]
+  %.18676 = phi ptr [ %430, %429 ], [ %.16591097, %424 ]
+  %.35 = phi ptr [ %432, %429 ], [ %.32, %424 ]
   %434 = getelementptr inbounds nuw i8, ptr %.18676, i64 1
   %435 = load i8, ptr %.18676, align 1, !tbaa !12
   %436 = getelementptr inbounds nuw i8, ptr %.35, i64 1
@@ -5041,8 +5041,8 @@ get_nfc.exit.thread:                              ; preds = %376, %get_nfc.exit
   br label %437
 
 437:                                              ; preds = %433, %424
-  %.19677 = phi ptr [ %.16591097, %424 ], [ %434, %433 ]
-  %.36 = phi ptr [ %.32, %424 ], [ %436, %433 ]
+  %.19677 = phi ptr [ %434, %433 ], [ %.16591097, %424 ]
+  %.36 = phi ptr [ %436, %433 ], [ %.32, %424 ]
   %438 = load i8, ptr %.19677, align 1, !tbaa !12
   %439 = getelementptr inbounds nuw i8, ptr %.36, i64 1
   store i8 %438, ptr %.36, align 1, !tbaa !12
@@ -5464,8 +5464,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %640
 
 640:                                              ; preds = %636, %635
-  %.22680 = phi ptr [ %.20678.lcssa, %635 ], [ %637, %636 ]
-  %.41 = phi ptr [ %.39, %635 ], [ %639, %636 ]
+  %.22680 = phi ptr [ %637, %636 ], [ %.20678.lcssa, %635 ]
+  %.41 = phi ptr [ %639, %636 ], [ %.39, %635 ]
   %641 = getelementptr inbounds nuw i8, ptr %.22680, i64 1
   %642 = load i8, ptr %.22680, align 1, !tbaa !12
   %643 = getelementptr inbounds nuw i8, ptr %.41, i64 1
@@ -5473,8 +5473,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %644
 
 644:                                              ; preds = %640, %635
-  %.23681 = phi ptr [ %.20678.lcssa, %635 ], [ %641, %640 ]
-  %.42 = phi ptr [ %.39, %635 ], [ %643, %640 ]
+  %.23681 = phi ptr [ %641, %640 ], [ %.20678.lcssa, %635 ]
+  %.42 = phi ptr [ %643, %640 ], [ %.39, %635 ]
   %645 = getelementptr inbounds nuw i8, ptr %.23681, i64 1
   %646 = load i8, ptr %.23681, align 1, !tbaa !12
   %647 = getelementptr inbounds nuw i8, ptr %.42, i64 1
@@ -5482,8 +5482,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %648
 
 648:                                              ; preds = %644, %635
-  %.24682 = phi ptr [ %.20678.lcssa, %635 ], [ %645, %644 ]
-  %.43 = phi ptr [ %.39, %635 ], [ %647, %644 ]
+  %.24682 = phi ptr [ %645, %644 ], [ %.20678.lcssa, %635 ]
+  %.43 = phi ptr [ %647, %644 ], [ %.39, %635 ]
   %649 = load i8, ptr %.24682, align 1, !tbaa !12
   %650 = getelementptr inbounds nuw i8, ptr %.43, i64 1
   store i8 %649, ptr %.43, align 1, !tbaa !12
@@ -5799,8 +5799,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %814
 
 814:                                              ; preds = %810, %809
-  %.26684 = phi ptr [ %.2660, %809 ], [ %811, %810 ]
-  %.53 = phi ptr [ %.51, %809 ], [ %813, %810 ]
+  %.26684 = phi ptr [ %811, %810 ], [ %.2660, %809 ]
+  %.53 = phi ptr [ %813, %810 ], [ %.51, %809 ]
   %815 = getelementptr inbounds nuw i8, ptr %.26684, i64 1
   %816 = load i8, ptr %.26684, align 1, !tbaa !12
   %817 = getelementptr inbounds nuw i8, ptr %.53, i64 1
@@ -5808,8 +5808,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %818
 
 818:                                              ; preds = %814, %809
-  %.27685 = phi ptr [ %.2660, %809 ], [ %815, %814 ]
-  %.54 = phi ptr [ %.51, %809 ], [ %817, %814 ]
+  %.27685 = phi ptr [ %815, %814 ], [ %.2660, %809 ]
+  %.54 = phi ptr [ %817, %814 ], [ %.51, %809 ]
   %819 = getelementptr inbounds nuw i8, ptr %.27685, i64 1
   %820 = load i8, ptr %.27685, align 1, !tbaa !12
   %821 = getelementptr inbounds nuw i8, ptr %.54, i64 1
@@ -5817,8 +5817,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %822
 
 822:                                              ; preds = %818, %809
-  %.28686 = phi ptr [ %.2660, %809 ], [ %819, %818 ]
-  %.55 = phi ptr [ %.51, %809 ], [ %821, %818 ]
+  %.28686 = phi ptr [ %819, %818 ], [ %.2660, %809 ]
+  %.55 = phi ptr [ %821, %818 ], [ %.51, %809 ]
   %823 = load i8, ptr %.28686, align 1, !tbaa !12
   %824 = getelementptr inbounds nuw i8, ptr %.55, i64 1
   store i8 %823, ptr %.55, align 1, !tbaa !12
@@ -5972,8 +5972,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %917
 
 917:                                              ; preds = %913, %912
-  %.29687 = phi ptr [ %.2660, %912 ], [ %914, %913 ]
-  %.61 = phi ptr [ %.59, %912 ], [ %916, %913 ]
+  %.29687 = phi ptr [ %914, %913 ], [ %.2660, %912 ]
+  %.61 = phi ptr [ %916, %913 ], [ %.59, %912 ]
   %918 = getelementptr inbounds nuw i8, ptr %.29687, i64 1
   %919 = load i8, ptr %.29687, align 1, !tbaa !12
   %920 = getelementptr inbounds nuw i8, ptr %.61, i64 1
@@ -5981,8 +5981,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %921
 
 921:                                              ; preds = %917, %912
-  %.30688 = phi ptr [ %.2660, %912 ], [ %918, %917 ]
-  %.62 = phi ptr [ %.59, %912 ], [ %920, %917 ]
+  %.30688 = phi ptr [ %918, %917 ], [ %.2660, %912 ]
+  %.62 = phi ptr [ %920, %917 ], [ %.59, %912 ]
   %922 = getelementptr inbounds nuw i8, ptr %.30688, i64 1
   %923 = load i8, ptr %.30688, align 1, !tbaa !12
   %924 = getelementptr inbounds nuw i8, ptr %.62, i64 1
@@ -5990,8 +5990,8 @@ get_nfc.exit828.thread:                           ; preds = %534, %get_nfc.exit8
   br label %925
 
 925:                                              ; preds = %921, %912
-  %.31689 = phi ptr [ %.2660, %912 ], [ %922, %921 ]
-  %.63 = phi ptr [ %.59, %912 ], [ %924, %921 ]
+  %.31689 = phi ptr [ %922, %921 ], [ %.2660, %912 ]
+  %.63 = phi ptr [ %924, %921 ], [ %.59, %912 ]
   %926 = load i8, ptr %.31689, align 1, !tbaa !12
   %927 = getelementptr inbounds nuw i8, ptr %.63, i64 1
   store i8 %926, ptr %.63, align 1, !tbaa !12
@@ -6518,9 +6518,9 @@ utf8_to_unicode.exit:                             ; preds = %_utf8_to_unicode.ex
   %113 = icmp slt i32 %.066.i, 0
   br i1 %113, label %utf8_to_unicode.exit.thread, label %utf8_to_unicode.exit.thread87
 
-utf8_to_unicode.exit.thread:                      ; preds = %44, %37, %81, %108, %_utf8_to_unicode.exit, %utf8_to_unicode.exit
-  %.0.i86 = phi i32 [ %112, %utf8_to_unicode.exit ], [ 3, %_utf8_to_unicode.exit ], [ 3, %108 ], [ 2, %44 ], [ 1, %37 ], [ 4, %81 ]
-  %.57385 = phi i32 [ 65533, %utf8_to_unicode.exit ], [ 65533, %_utf8_to_unicode.exit ], [ %110, %108 ], [ %48, %44 ], [ %38, %37 ], [ %91, %81 ]
+utf8_to_unicode.exit.thread:                      ; preds = %37, %44, %81, %108, %_utf8_to_unicode.exit, %utf8_to_unicode.exit
+  %.0.i86 = phi i32 [ %112, %utf8_to_unicode.exit ], [ 3, %_utf8_to_unicode.exit ], [ 3, %108 ], [ 1, %37 ], [ 2, %44 ], [ 4, %81 ]
+  %.57385 = phi i32 [ 65533, %utf8_to_unicode.exit ], [ 65533, %_utf8_to_unicode.exit ], [ %110, %108 ], [ %38, %37 ], [ %48, %44 ], [ %91, %81 ]
   %114 = zext nneg i32 %.0.i86 to i64
   %115 = getelementptr inbounds nuw i8, ptr %.037118165, i64 %114
   %116 = sub i64 %.149117166, %114
@@ -6530,11 +6530,11 @@ utf8_to_unicode.exit.thread:                      ; preds = %44, %37, %81, %108,
 utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge: ; preds = %utf8_to_unicode.exit.thread
   br label %utf8_to_unicode.exit.thread87, !llvm.loop !117
 
-utf8_to_unicode.exit.thread87:                    ; preds = %.lr.ph, %108, %utf8_to_unicode.exit, %81, %59, %39, %49, %54, %66, %71, %76, %.lr.ph.preheader, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge
-  %.149.lcssa = phi i64 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.048184, %.lr.ph.preheader ], [ %.149117166, %utf8_to_unicode.exit ], [ %.149117166, %108 ], [ %116, %.lr.ph ], [ %.149117166, %81 ], [ %.149117166, %59 ], [ %.149117166, %39 ], [ %.149117166, %49 ], [ %.149117166, %54 ], [ %.149117166, %66 ], [ %.149117166, %71 ], [ %.149117166, %76 ]
-  %.037.lcssa = phi ptr [ %115, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.042186, %.lr.ph.preheader ], [ %.037118165, %utf8_to_unicode.exit ], [ %.037118165, %108 ], [ %115, %.lr.ph ], [ %.037118165, %81 ], [ %.037118165, %59 ], [ %.037118165, %39 ], [ %.037118165, %49 ], [ %.037118165, %54 ], [ %.037118165, %66 ], [ %.037118165, %71 ], [ %.037118165, %76 ]
-  %.0.i91 = phi i32 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %112, %utf8_to_unicode.exit ], [ -3, %108 ], [ 0, %.lr.ph ], [ -4, %81 ], [ -3, %59 ], [ -1, %39 ], [ -1, %49 ], [ -2, %54 ], [ -1, %66 ], [ -2, %71 ], [ -3, %76 ]
-  %.57390 = phi i32 [ %.57385, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.066183, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %110, %108 ], [ %.57385, %.lr.ph ], [ 65533, %81 ], [ 65533, %59 ], [ 65533, %39 ], [ 65533, %49 ], [ 65533, %54 ], [ 65533, %66 ], [ 65533, %71 ], [ 65533, %76 ]
+utf8_to_unicode.exit.thread87:                    ; preds = %.lr.ph, %108, %utf8_to_unicode.exit, %59, %81, %39, %49, %54, %66, %71, %76, %.lr.ph.preheader, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge
+  %.149.lcssa = phi i64 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.048184, %.lr.ph.preheader ], [ %.149117166, %utf8_to_unicode.exit ], [ %.149117166, %108 ], [ %116, %.lr.ph ], [ %.149117166, %59 ], [ %.149117166, %81 ], [ %.149117166, %39 ], [ %.149117166, %49 ], [ %.149117166, %54 ], [ %.149117166, %66 ], [ %.149117166, %71 ], [ %.149117166, %76 ]
+  %.037.lcssa = phi ptr [ %115, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.042186, %.lr.ph.preheader ], [ %.037118165, %utf8_to_unicode.exit ], [ %.037118165, %108 ], [ %115, %.lr.ph ], [ %.037118165, %59 ], [ %.037118165, %81 ], [ %.037118165, %39 ], [ %.037118165, %49 ], [ %.037118165, %54 ], [ %.037118165, %66 ], [ %.037118165, %71 ], [ %.037118165, %76 ]
+  %.0.i91 = phi i32 [ 0, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %112, %utf8_to_unicode.exit ], [ -3, %108 ], [ 0, %.lr.ph ], [ -3, %59 ], [ -4, %81 ], [ -1, %39 ], [ -1, %49 ], [ -2, %54 ], [ -1, %66 ], [ -2, %71 ], [ -3, %76 ]
+  %.57390 = phi i32 [ %.57385, %utf8_to_unicode.exit.thread.utf8_to_unicode.exit.thread87.loopexit_crit_edge ], [ %.066183, %.lr.ph.preheader ], [ 65533, %utf8_to_unicode.exit ], [ %110, %108 ], [ %.57385, %.lr.ph ], [ 65533, %59 ], [ 65533, %81 ], [ 65533, %39 ], [ 65533, %49 ], [ 65533, %54 ], [ 65533, %66 ], [ 65533, %71 ], [ 65533, %76 ]
   %118 = icmp ugt ptr %.037.lcssa, %.042186
   br i1 %118, label %119, label %135
 
@@ -7106,13 +7106,13 @@ define internal fastcc range(i32 -128, -2147483648) i32 @_utf8_to_unicode(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %19, %.loopexit.loopexit105.split.loop.exit, %.loopexit.loopexit.split.loop.exit, %86, %.preheader, %62, %57, %52, %38, %33, %23, %67, %43
-  %.066 = phi i32 [ 4, %67 ], [ 3, %43 ], [ 1, %23 ], [ 1, %33 ], [ 2, %38 ], [ 1, %52 ], [ 2, %57 ], [ 3, %62 ], [ %14, %.preheader ], [ %spec.select, %86 ], [ %91, %.loopexit.loopexit.split.loop.exit ], [ %92, %.loopexit.loopexit105.split.loop.exit ], [ %14, %19 ], [ %spec.select, %90 ]
+  %.066 = phi i32 [ 3, %43 ], [ 4, %67 ], [ 1, %23 ], [ 1, %33 ], [ 2, %38 ], [ 1, %52 ], [ 2, %57 ], [ 3, %62 ], [ %14, %.preheader ], [ %spec.select, %86 ], [ %91, %.loopexit.loopexit.split.loop.exit ], [ %92, %.loopexit.loopexit105.split.loop.exit ], [ %14, %19 ], [ %spec.select, %90 ]
   store i32 65533, ptr %0, align 4, !tbaa !17
   %93 = sub nsw i32 0, %.066
   br label %94
 
 94:                                               ; preds = %5, %3, %.loopexit, %.thread, %28, %21
-  %.069 = phi i32 [ %93, %.loopexit ], [ %13, %.thread ], [ 2, %28 ], [ 1, %21 ], [ 0, %3 ], [ 0, %5 ]
+  %.069 = phi i32 [ %93, %.loopexit ], [ 1, %21 ], [ 2, %28 ], [ %13, %.thread ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.069
 }
 

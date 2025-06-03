@@ -6069,7 +6069,7 @@ if.end19:                                         ; preds = %_ZN4llvh9StringRefC
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %if.end19, %for.end
-  %__first.addr.1 = phi ptr [ %__first.addr.0.lcssa, %for.end ], [ %incdec.ptr20, %if.end19 ]
+  %__first.addr.1 = phi ptr [ %incdec.ptr20, %if.end19 ], [ %__first.addr.0.lcssa, %for.end ]
   %agg.tmp.sroa.0.0.copyload.i82 = load ptr, ptr %__first.addr.1, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %__first.addr.1, i64 8
   %agg.tmp.sroa.2.0.copyload.i84 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i83, align 8
@@ -6099,7 +6099,7 @@ if.end24:                                         ; preds = %_ZN4llvh9StringRefC
   br label %sw.bb26
 
 sw.bb26:                                          ; preds = %if.end24, %for.end
-  %__first.addr.2 = phi ptr [ %__first.addr.0.lcssa, %for.end ], [ %incdec.ptr25, %if.end24 ]
+  %__first.addr.2 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %__first.addr.0.lcssa, %for.end ]
   %agg.tmp.sroa.0.0.copyload.i96 = load ptr, ptr %__first.addr.2, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %__first.addr.2, i64 8
   %agg.tmp.sroa.2.0.copyload.i98 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i97, align 8
@@ -7191,7 +7191,7 @@ if.end19:                                         ; preds = %_ZN4llvh9StringRefC
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %if.end19, %for.end
-  %__first.addr.1 = phi ptr [ %__first.addr.0.lcssa, %for.end ], [ %incdec.ptr20, %if.end19 ]
+  %__first.addr.1 = phi ptr [ %incdec.ptr20, %if.end19 ], [ %__first.addr.0.lcssa, %for.end ]
   %agg.tmp.sroa.0.0.copyload.i82 = load ptr, ptr %__first.addr.1, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %__first.addr.1, i64 8
   %agg.tmp.sroa.2.0.copyload.i84 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i83, align 8
@@ -7221,7 +7221,7 @@ if.end24:                                         ; preds = %_ZN4llvh9StringRefC
   br label %sw.bb26
 
 sw.bb26:                                          ; preds = %if.end24, %for.end
-  %__first.addr.2 = phi ptr [ %__first.addr.0.lcssa, %for.end ], [ %incdec.ptr25, %if.end24 ]
+  %__first.addr.2 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %__first.addr.0.lcssa, %for.end ]
   %agg.tmp.sroa.0.0.copyload.i96 = load ptr, ptr %__first.addr.2, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %__first.addr.2, i64 8
   %agg.tmp.sroa.2.0.copyload.i98 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i97, align 8

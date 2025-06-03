@@ -393,7 +393,7 @@ define noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21e
   br label %64
 
 64:                                               ; preds = %56, %63, %62, %61, %60
-  %.0 = phi i32 [ -2, %63 ], [ -5, %62 ], [ -4, %61 ], [ -3, %60 ], [ %57, %56 ]
+  %.0 = phi i32 [ -2, %63 ], [ -3, %60 ], [ -4, %61 ], [ -5, %62 ], [ %57, %56 ]
   call void @__cxa_end_catch()
   br label %65
 

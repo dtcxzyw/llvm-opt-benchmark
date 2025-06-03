@@ -285,22 +285,22 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !16
   %21 = load i32, ptr %15, align 8, !range !20, !noundef !4
   %trunc = trunc nuw i32 %21 to i1
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load ptr, ptr %22, align 8, !nonnull !4
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %25 = load i32, ptr %24, align 4, !range !21
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %23 = load i32, ptr %22, align 4, !range !21
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %25 = load ptr, ptr %24, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br i1 %trunc, label %27, label %26
 
 26:                                               ; preds = %20
-  store i32 %25, ptr %16, align 4
+  store i32 %23, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   invoke void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$14read_to_string17h92ce9fb3e41035f1E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull align 4 dereferenceable(4) %16, ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %40 unwind label %36
 
 27:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store ptr %23, ptr %11, align 8
+  store ptr %25, ptr %11, align 8
   %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %29 = call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 8, 97) 8, i64 noundef 8) #15
   %30 = icmp eq ptr %29, null
@@ -562,8 +562,8 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   unreachable
 
 105:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit52", %.body38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body38 ], [ %.pn28, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit52" ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit52" ], [ %.pn, %.body38 ]
+  resume { ptr, i32 } %.pn28.pn
 
 106:                                              ; preds = %57
   store ptr %43, ptr %59, align 8
@@ -596,7 +596,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
   br label %90
 
 116:                                              ; preds = %27
-  store ptr %23, ptr %29, align 8
+  store ptr %25, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store ptr %29, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8

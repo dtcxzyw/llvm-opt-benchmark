@@ -877,8 +877,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %71
 
 71:                                               ; preds = %66, %70, %69
-  %.012 = phi i32 [ 16, %66 ], [ 8, %70 ], [ 16, %69 ]
-  %.0 = phi i32 [ 0, %66 ], [ 961, %70 ], [ 256, %69 ]
+  %.012 = phi i32 [ 16, %66 ], [ 16, %69 ], [ 8, %70 ]
+  %.0 = phi i32 [ 0, %66 ], [ 256, %69 ], [ 961, %70 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %73 = zext nneg i32 %.0 to i64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112

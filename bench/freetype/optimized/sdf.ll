@@ -2731,7 +2731,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
   br label %72
 
 72:                                               ; preds = %67, %._crit_edge.i
-  %.3.i = phi i32 [ %71, %67 ], [ %66, %._crit_edge.i ]
+  %.3.i = phi i32 [ %66, %._crit_edge.i ], [ %71, %67 ]
   %.not70.i = icmp eq i32 %.3.i, 0
   br i1 %.not70.i, label %73, label %.thread107.i
 
@@ -2997,36 +2997,36 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %.0141172.sroa.15.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 64
   %.0141172.sroa.15.0.copyload.i = load i32, ptr %.0141172.sroa.15.0..0141.sroa_idx.i, align 8
   switch i32 %.0141172.sroa.15.0.copyload.i, label %get_control_box.exit.i [
-    i32 3, label %175
-    i32 2, label %.critedge.i.i
-    i32 1, label %.critedge4.i.i
+    i32 3, label %.critedge.i.i
+    i32 2, label %.critedge4.i.i
+    i32 1, label %187
   ]
 
-175:                                              ; preds = %.lr.ph.i12
+.critedge.i.i:                                    ; preds = %.lr.ph.i12
   %.0141172.sroa.14.0.copyload.i = load i64, ptr %.0141172.sroa.14.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.13.0.copyload.i = load i64, ptr %.0141172.sroa.13.0..0141.sroa_idx.i, align 8
-  %176 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
-  %177 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
-  %178 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.11.0.copyload.i, i64 %.0141172.sroa.14.0.copyload.i)
-  %179 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.11.0.copyload.i, i64 %.0141172.sroa.14.0.copyload.i)
-  br label %.critedge.i.i
-
-.critedge.i.i:                                    ; preds = %175, %.lr.ph.i12
-  %180 = phi i64 [ %179, %175 ], [ %.0141172.sroa.11.0.copyload.i, %.lr.ph.i12 ]
-  %181 = phi i64 [ %178, %175 ], [ %.0141172.sroa.11.0.copyload.i, %.lr.ph.i12 ]
-  %182 = phi i64 [ %177, %175 ], [ %.0141172.sroa.9.0.copyload.i, %.lr.ph.i12 ]
-  %183 = phi i64 [ %176, %175 ], [ %.0141172.sroa.9.0.copyload.i, %.lr.ph.i12 ]
-  %184 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.0.0.copyload.i, i64 %183)
-  %185 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.0.0.copyload.i, i64 %182)
-  %186 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.5.0.copyload.i, i64 %181)
-  %187 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.5.0.copyload.i, i64 %180)
+  %175 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
+  %176 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
+  %177 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.11.0.copyload.i, i64 %.0141172.sroa.14.0.copyload.i)
+  %178 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.11.0.copyload.i, i64 %.0141172.sroa.14.0.copyload.i)
   br label %.critedge4.i.i
 
 .critedge4.i.i:                                   ; preds = %.critedge.i.i, %.lr.ph.i12
-  %188 = phi i64 [ %187, %.critedge.i.i ], [ %.0141172.sroa.5.0.copyload.i, %.lr.ph.i12 ]
-  %189 = phi i64 [ %186, %.critedge.i.i ], [ %.0141172.sroa.5.0.copyload.i, %.lr.ph.i12 ]
-  %190 = phi i64 [ %185, %.critedge.i.i ], [ %.0141172.sroa.0.0.copyload.i, %.lr.ph.i12 ]
-  %191 = phi i64 [ %184, %.critedge.i.i ], [ %.0141172.sroa.0.0.copyload.i, %.lr.ph.i12 ]
+  %179 = phi i64 [ %178, %.critedge.i.i ], [ %.0141172.sroa.11.0.copyload.i, %.lr.ph.i12 ]
+  %180 = phi i64 [ %177, %.critedge.i.i ], [ %.0141172.sroa.11.0.copyload.i, %.lr.ph.i12 ]
+  %181 = phi i64 [ %176, %.critedge.i.i ], [ %.0141172.sroa.9.0.copyload.i, %.lr.ph.i12 ]
+  %182 = phi i64 [ %175, %.critedge.i.i ], [ %.0141172.sroa.9.0.copyload.i, %.lr.ph.i12 ]
+  %183 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.0.0.copyload.i, i64 %182)
+  %184 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.0.0.copyload.i, i64 %181)
+  %185 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.5.0.copyload.i, i64 %180)
+  %186 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.5.0.copyload.i, i64 %179)
+  br label %187
+
+187:                                              ; preds = %.critedge4.i.i, %.lr.ph.i12
+  %188 = phi i64 [ %186, %.critedge4.i.i ], [ %.0141172.sroa.5.0.copyload.i, %.lr.ph.i12 ]
+  %189 = phi i64 [ %185, %.critedge4.i.i ], [ %.0141172.sroa.5.0.copyload.i, %.lr.ph.i12 ]
+  %190 = phi i64 [ %184, %.critedge4.i.i ], [ %.0141172.sroa.0.0.copyload.i, %.lr.ph.i12 ]
+  %191 = phi i64 [ %183, %.critedge4.i.i ], [ %.0141172.sroa.0.0.copyload.i, %.lr.ph.i12 ]
   %192 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.7.0.copyload.i, i64 %191)
   %193 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.7.0.copyload.i, i64 %190)
   %194 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.8.0.copyload.i, i64 %189)
@@ -3043,11 +3043,11 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %205 = trunc i64 %197 to i32
   br label %get_control_box.exit.i
 
-get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.lr.ph.i12
-  %.sroa.0.3.i = phi i32 [ 0, %.lr.ph.i12 ], [ %205, %.critedge4.i.i ]
-  %.sroa.7.3.i = phi i32 [ 0, %.lr.ph.i12 ], [ %204, %.critedge4.i.i ]
-  %.sroa.9.3.i = phi i64 [ 0, %.lr.ph.i12 ], [ %199, %.critedge4.i.i ]
-  %.sroa.11.3.i = phi i64 [ 0, %.lr.ph.i12 ], [ %203, %.critedge4.i.i ]
+get_control_box.exit.i:                           ; preds = %187, %.lr.ph.i12
+  %.sroa.0.3.i = phi i32 [ 0, %.lr.ph.i12 ], [ %205, %187 ]
+  %.sroa.7.3.i = phi i32 [ 0, %.lr.ph.i12 ], [ %204, %187 ]
+  %.sroa.9.3.i = phi i64 [ 0, %.lr.ph.i12 ], [ %199, %187 ]
+  %.sroa.11.3.i = phi i64 [ 0, %.lr.ph.i12 ], [ %203, %187 ]
   %206 = add nsw i64 %.sroa.9.3.i, %108
   %207 = add nsw i64 %.sroa.11.3.i, %108
   %208 = sub i32 %.sroa.7.3.i, %3
@@ -3796,9 +3796,9 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %710, %647
   br label %734
 
 734:                                              ; preds = %get_min_distance_line.exit.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i
-  %.sroa.0.sroa.12.0.ph.us.us.i = phi i32 [ %.sink.i.i.us.us.i, %get_min_distance_line.exit.i.us.us.i ], [ %.sink.i21.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.sink.i36.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ]
-  %.sroa.0.sroa.0.0.ph.us.us.i = phi i32 [ %708, %get_min_distance_line.exit.i.us.us.i ], [ %.389.i.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.3121.i.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ]
-  %.sroa.15.1.ph.us.us.i = phi i8 [ %706, %get_min_distance_line.exit.i.us.us.i ], [ %621, %get_min_distance_conic.exit.i.us.us.i ], [ %447, %get_min_distance_cubic.exit.i.us.us.i ]
+  %.sroa.0.sroa.12.0.ph.us.us.i = phi i32 [ %.sink.i36.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ], [ %.sink.i21.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.sink.i.i.us.us.i, %get_min_distance_line.exit.i.us.us.i ]
+  %.sroa.0.sroa.0.0.ph.us.us.i = phi i32 [ %.3121.i.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ], [ %.389.i.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %708, %get_min_distance_line.exit.i.us.us.i ]
+  %.sroa.15.1.ph.us.us.i = phi i8 [ %447, %get_min_distance_cubic.exit.i.us.us.i ], [ %621, %get_min_distance_conic.exit.i.us.us.i ], [ %706, %get_min_distance_line.exit.i.us.us.i ]
   store i32 0, ptr %14, align 4, !tbaa !21
   %735 = sub nsw i8 0, %.sroa.15.1.ph.us.us.i
   %spec.select221.us.us.i = select i1 %116, i8 %735, i8 %.sroa.15.1.ph.us.us.i

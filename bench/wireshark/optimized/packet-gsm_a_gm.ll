@@ -7458,9 +7458,9 @@ define hidden noundef zeroext i16 @de_gc_timer(ptr noundef %0, ptr noundef %1, p
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %22
 
-.thread:                                          ; preds = %7, %11, %13, %14
-  %.0.in29 = phi i8 [ %9, %14 ], [ %9, %7 ], [ %12, %11 ], [ %narrow, %13 ]
-  %.02428 = phi ptr [ @.str.83, %14 ], [ @.str.82, %7 ], [ @.str.81, %11 ], [ @.str.82, %13 ]
+.thread:                                          ; preds = %7, %13, %11, %14
+  %.0.in29 = phi i8 [ %9, %14 ], [ %9, %7 ], [ %narrow, %13 ], [ %12, %11 ]
+  %.02428 = phi ptr [ @.str.83, %14 ], [ @.str.82, %7 ], [ @.str.82, %13 ], [ @.str.81, %11 ]
   %19 = load i32, ptr @hf_gsm_a_gm_gprs_timer, align 4
   %20 = zext i8 %.0.in29 to i32
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.85, i32 noundef %20, ptr noundef nonnull %.02428)
@@ -7530,9 +7530,9 @@ default.unreachable38:                            ; preds = %7
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %33
 
-.thread:                                          ; preds = %7, %14, %12, %16, %18, %21, %23, %25
-  %.03137 = phi i16 [ %10, %25 ], [ %10, %7 ], [ %10, %14 ], [ %13, %12 ], [ %17, %16 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ]
-  %.03236 = phi ptr [ null, %25 ], [ @.str.82, %7 ], [ %.str.86..str.87, %14 ], [ @.str.82, %12 ], [ @.str.87, %16 ], [ @.str.81, %18 ], [ @.str.81, %21 ], [ @.str.87, %23 ]
+.thread:                                          ; preds = %7, %14, %23, %21, %18, %16, %12, %25
+  %.03137 = phi i16 [ %10, %25 ], [ %10, %7 ], [ %10, %14 ], [ %24, %23 ], [ %22, %21 ], [ %20, %18 ], [ %17, %16 ], [ %13, %12 ]
+  %.03236 = phi ptr [ null, %25 ], [ @.str.82, %7 ], [ %.str.86..str.87, %14 ], [ @.str.87, %23 ], [ @.str.81, %21 ], [ @.str.81, %18 ], [ @.str.87, %16 ], [ @.str.82, %12 ]
   %30 = load i32, ptr @hf_gsm_a_gm_gprs_timer3, align 4
   %31 = zext nneg i16 %.03137 to i32
   %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %31, ptr noundef nonnull @.str.85, i32 noundef %31, ptr noundef %.03236)
@@ -8165,7 +8165,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %21, %24
   br label %310
 
 310:                                              ; preds = %301, %297, %293
-  %.0505 = phi i32 [ %309, %301 ], [ %300, %297 ], [ %296, %293 ]
+  %.0505 = phi i32 [ %296, %293 ], [ %300, %297 ], [ %309, %301 ]
   %311 = sub i32 %.0505, %56
   %312 = load i32, ptr %8, align 4
   %313 = icmp ult i32 %311, %312
@@ -8615,7 +8615,7 @@ switch.lookup:                                    ; preds = %17
   br label %27
 
 27:                                               ; preds = %17, %switch.lookup, %23, %19, %22, %21, %20
-  %.086 = phi ptr [ @.str.100, %22 ], [ @.str.99, %21 ], [ @.str.98, %20 ], [ @.str.97, %19 ], [ %.str.101..str.65, %23 ], [ %switch.load, %switch.lookup ], [ @.str.96, %17 ]
+  %.086 = phi ptr [ @.str.100, %22 ], [ @.str.98, %20 ], [ @.str.99, %21 ], [ @.str.97, %19 ], [ %.str.101..str.65, %23 ], [ %switch.load, %switch.lookup ], [ @.str.96, %17 ]
   %28 = load i32, ptr @hf_gsm_a_sm_pdp_type_number, align 4
   %29 = zext i8 %16 to i32
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.61, ptr noundef nonnull %.086, i32 noundef %29)
@@ -8672,7 +8672,7 @@ switch.lookup:                                    ; preds = %17
   br label %57
 
 57:                                               ; preds = %42, %46, %53, %.critedge
-  %.085 = phi i32 [ %56, %53 ], [ %52, %46 ], [ %45, %42 ], [ %39, %.critedge ]
+  %.085 = phi i32 [ %56, %53 ], [ %45, %42 ], [ %52, %46 ], [ %39, %.critedge ]
   %58 = sub i32 %.085, %3
   %59 = icmp ugt i32 %4, %58
   br i1 %59, label %60, label %64
@@ -8772,7 +8772,7 @@ define zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %58
 
 .thread:                                          ; preds = %46, %47, %48, %49, %43, %50
-  %.0351387 = phi ptr [ @.str.135, %50 ], [ @.str.131, %43 ], [ @.str.132, %46 ], [ @.str.133, %47 ], [ @.str.134, %48 ], [ @.str.108, %49 ]
+  %.0351387 = phi ptr [ @.str.135, %50 ], [ @.str.131, %43 ], [ @.str.108, %49 ], [ @.str.134, %48 ], [ @.str.133, %47 ], [ @.str.132, %46 ]
   %56 = load i32, ptr @hf_gsm_a_sm_qos_maximum_sdu_size, align 4
   %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef %45, ptr noundef nonnull @.str.61, ptr noundef nonnull %.0351387, i32 noundef %45)
   br label %58
@@ -10791,9 +10791,9 @@ define internal noundef zeroext i16 @de_gc_timer2(ptr noundef %0, ptr noundef %1
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %23
 
-.thread:                                          ; preds = %7, %11, %13, %14
-  %.029.in35 = phi i8 [ %9, %14 ], [ %9, %7 ], [ %12, %11 ], [ %narrow, %13 ]
-  %.03034 = phi ptr [ null, %14 ], [ @.str.82, %7 ], [ @.str.81, %11 ], [ @.str.82, %13 ]
+.thread:                                          ; preds = %7, %13, %11, %14
+  %.029.in35 = phi i8 [ %9, %14 ], [ %9, %7 ], [ %narrow, %13 ], [ %12, %11 ]
+  %.03034 = phi ptr [ null, %14 ], [ @.str.82, %7 ], [ @.str.82, %13 ], [ @.str.81, %11 ]
   %19 = load i32, ptr @hf_gsm_a_gm_gprs_timer2, align 4
   %20 = zext i8 %.029.in35 to i32
   %.not = icmp eq ptr %5, null

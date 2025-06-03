@@ -552,7 +552,7 @@ dissect_winsrepl_wins_address_list.exit.i.i.i:    ; preds = %dissect_winsrepl_wi
   br label %151
 
 151:                                              ; preds = %dissect_winsrepl_wins_address_list.exit.i.i.i, %115
-  %.065.i.i.i = phi i32 [ %.0.lcssa.i.i.i.i, %dissect_winsrepl_wins_address_list.exit.i.i.i ], [ %121, %115 ]
+  %.065.i.i.i = phi i32 [ %121, %115 ], [ %.0.lcssa.i.i.i.i, %dissect_winsrepl_wins_address_list.exit.i.i.i ]
   %152 = load i32, ptr @hf_winsrepl_name_unknown, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %.066.i.i.i, i32 noundef %152, ptr noundef %0, i32 noundef %.065.i.i.i, i32 noundef 4, i32 noundef 0)
   %154 = add i32 %.065.i.i.i, 4

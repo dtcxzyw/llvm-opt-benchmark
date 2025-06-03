@@ -1985,7 +1985,7 @@ sw.epilog:                                        ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end, %entry, %sw.epilog, %sw.bb27, %sw.bb21, %sw.bb15, %sw.bb12, %sw.bb8, %sw.bb3
-  %retval.0 = phi i1 [ false, %sw.epilog ], [ %call32, %sw.bb27 ], [ %call26, %sw.bb21 ], [ %call20, %sw.bb15 ], [ %call, %sw.bb12 ], [ %cmp11, %sw.bb8 ], [ %cmp7, %sw.bb3 ], [ false, %entry ], [ true, %if.end ], [ true, %if.end ]
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ %cmp7, %sw.bb3 ], [ %cmp11, %sw.bb8 ], [ %call, %sw.bb12 ], [ %call20, %sw.bb15 ], [ %call26, %sw.bb21 ], [ %call32, %sw.bb27 ], [ false, %entry ], [ true, %if.end ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

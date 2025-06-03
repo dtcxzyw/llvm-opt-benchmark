@@ -432,7 +432,7 @@ pgsl_cs_to_rlcmac_cs.exit144:                     ; preds = %106, %115
   br label %133
 
 133:                                              ; preds = %36, %pgsl_cs_to_rlcmac_cs.exit, %122, %pgsl_cs_to_rlcmac_cs.exit144, %25, %4
-  %.0 = phi i32 [ 1, %4 ], [ 8, %122 ], [ 11, %pgsl_cs_to_rlcmac_cs.exit144 ], [ %71, %pgsl_cs_to_rlcmac_cs.exit ], [ 7, %36 ], [ 8, %25 ]
+  %.0 = phi i32 [ 1, %4 ], [ 8, %25 ], [ %71, %pgsl_cs_to_rlcmac_cs.exit ], [ 7, %36 ], [ 11, %pgsl_cs_to_rlcmac_cs.exit144 ], [ 8, %122 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
@@ -542,10 +542,10 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %26 = select i1 %3, i32 37, i32 28
   br label %27
 
-27:                                               ; preds = %15, %20, %25
-  %28 = phi i1 [ false, %15 ], [ true, %20 ], [ false, %25 ]
-  %.sroa.0.0.i.ph = phi i32 [ 31, %15 ], [ %21, %20 ], [ %26, %25 ]
-  %.sroa.8.0.i.ph = phi i32 [ 0, %15 ], [ %24, %20 ], [ 0, %25 ]
+27:                                               ; preds = %15, %25, %20
+  %28 = phi i1 [ false, %15 ], [ false, %25 ], [ true, %20 ]
+  %.sroa.0.0.i.ph = phi i32 [ 31, %15 ], [ %26, %25 ], [ %21, %20 ]
+  %.sroa.8.0.i.ph = phi i32 [ 0, %15 ], [ 0, %25 ], [ %24, %20 ]
   %29 = shl i32 %18, 3
   %30 = or disjoint i32 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16

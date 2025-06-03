@@ -1743,7 +1743,7 @@ _ZN13RelocIterator22opt_virtual_call_relocEv.exit: ; preds = %42, %45, %47
   unreachable
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %19, %10, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit, %_ZN13RelocIterator17static_call_relocEv.exit
-  %.0 = phi ptr [ %51, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit ], [ %41, %_ZN13RelocIterator17static_call_relocEv.exit ], [ null, %10 ], [ null, %19 ]
+  %.0 = phi ptr [ %41, %_ZN13RelocIterator17static_call_relocEv.exit ], [ %51, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit ], [ null, %10 ], [ null, %19 ]
   ret ptr %.0
 }
 

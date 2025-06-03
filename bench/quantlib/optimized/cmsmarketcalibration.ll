@@ -4622,7 +4622,7 @@ unreachable.i:                                    ; preds = %invoke.cont25.i
   unreachable
 
 _ZNK12_GLOBAL__N_117ObjectiveFunction36switchErrorFunctionOnCalibrationTypeEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit8.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit12.i
-  %retval.0.i = phi double [ %call12.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit12.i ], [ %call7.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit8.i ], [ %call2.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit.i ]
+  %retval.0.i = phi double [ %call2.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit.i ], [ %call7.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit8.i ], [ %call12.i, %_ZNK5boost10shared_ptrIN8QuantLib9CmsMarketEEptEv.exit12.i ]
   ret double %retval.0.i
 }
 
@@ -16917,7 +16917,7 @@ if.end29:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i36, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i36, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i37 = tail call noundef zeroext i1 @_ZN8QuantLibltERKNS_6PeriodES2_(ptr noundef nonnull align 4 dereferenceable(8) %__first.sroa.0.1, ptr noundef nonnull align 4 dereferenceable(8) %__pred.coerce)
   br i1 %call.i.i37, label %if.end36, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN8QuantLib6PeriodEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit41
 
@@ -16930,7 +16930,7 @@ if.end36:                                         ; preds = %sw.bb31, %_ZN9__gnu
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i42, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i42, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i43 = tail call noundef zeroext i1 @_ZN8QuantLibltERKNS_6PeriodES2_(ptr noundef nonnull align 4 dereferenceable(8) %__first.sroa.0.2, ptr noundef nonnull align 4 dereferenceable(8) %__pred.coerce)
   br i1 %call.i.i43, label %if.end43, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN8QuantLib6PeriodEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit47
 

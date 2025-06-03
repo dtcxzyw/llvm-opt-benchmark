@@ -1825,8 +1825,8 @@ pdo_get_bool_param.exit:                          ; preds = %101
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.36, ptr noundef %108) #13
   br label %212
 
-109:                                              ; preds = %105, %104, %101
-  %.0113.ph = phi i32 [ 1024, %101 ], [ 0, %104 ], [ %107, %105 ]
+109:                                              ; preds = %104, %105, %101
+  %.0113.ph = phi i32 [ 1024, %101 ], [ %107, %105 ], [ 0, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = load i32, ptr %110, align 8
   %112 = and i32 %111, -1025
@@ -2049,7 +2049,7 @@ zend_object_release.exit:                         ; preds = %194, %195, %200
   br label %212
 
 212:                                              ; preds = %pdo_get_bool_param.exit, %pdo_get_long_param.exit111, %pdo_get_long_param.exit108, %pdo_get_long_param.exit105, %pdo_get_long_param.exit, %.thread, %211, %208, %201, %130, %136, %144, %149, %156, %170, %126, %123, %172, %176, %164, %109, %117, %.critedge, %98, %97, %zval_get_long.exit.i106, %43, %40, %24, %21
-  %.0 = phi i1 [ false, %97 ], [ true, %98 ], [ true, %zval_get_long.exit.i106 ], [ false, %43 ], [ true, %40 ], [ false, %24 ], [ true, %21 ], [ false, %pdo_get_long_param.exit ], [ false, %pdo_get_long_param.exit105 ], [ false, %pdo_get_long_param.exit108 ], [ false, %.critedge ], [ false, %pdo_get_long_param.exit111 ], [ false, %pdo_get_bool_param.exit ], [ true, %117 ], [ true, %109 ], [ false, %130 ], [ false, %136 ], [ false, %144 ], [ false, %170 ], [ false, %156 ], [ false, %149 ], [ false, %126 ], [ false, %123 ], [ true, %172 ], [ true, %176 ], [ true, %164 ], [ true, %201 ], [ false, %208 ], [ false, %211 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %24 ], [ true, %21 ], [ false, %43 ], [ true, %40 ], [ true, %zval_get_long.exit.i106 ], [ false, %97 ], [ true, %98 ], [ false, %pdo_get_long_param.exit ], [ false, %pdo_get_long_param.exit105 ], [ false, %pdo_get_long_param.exit108 ], [ false, %.critedge ], [ false, %pdo_get_long_param.exit111 ], [ false, %pdo_get_bool_param.exit ], [ true, %117 ], [ true, %109 ], [ false, %130 ], [ false, %136 ], [ false, %144 ], [ false, %170 ], [ false, %156 ], [ false, %149 ], [ false, %126 ], [ false, %123 ], [ true, %172 ], [ true, %176 ], [ true, %164 ], [ true, %201 ], [ false, %208 ], [ false, %211 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   ret i1 %.0
 }
@@ -2954,7 +2954,7 @@ define dso_local noundef zeroext i1 @pdo_get_bool_param(ptr noundef writeonly ca
   br label %12
 
 12:                                               ; preds = %10, %7, %6, %5
-  %.0 = phi i1 [ false, %10 ], [ true, %7 ], [ true, %6 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %5 ], [ true, %6 ], [ true, %7 ]
   ret i1 %.0
 }
 

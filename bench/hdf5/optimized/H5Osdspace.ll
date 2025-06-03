@@ -396,7 +396,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   br label %198
 
 198:                                              ; preds = %188, %186, %155, %.lr.ph.i
-  %.4.i = phi ptr [ %.220214.i, %.lr.ph.i ], [ %197, %188 ], [ %187, %186 ], [ %174, %155 ]
+  %.4.i = phi ptr [ %.220214.i, %.lr.ph.i ], [ %174, %155 ], [ %187, %186 ], [ %197, %188 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %146
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
@@ -768,7 +768,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   br label %103
 
 103:                                              ; preds = %91, %89, %56, %54
-  %.2.i = phi ptr [ %.1111118.i, %54 ], [ %102, %91 ], [ %90, %89 ], [ %79, %56 ]
+  %.2.i = phi ptr [ %.1111118.i, %54 ], [ %79, %56 ], [ %90, %89 ], [ %102, %91 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %104 = load i32, ptr %30, align 8, !tbaa !22
   %105 = zext i32 %104 to i64
@@ -859,7 +859,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   br label %155
 
 155:                                              ; preds = %143, %141, %108, %.lr.ph125.i
-  %.4.i = phi ptr [ %.3123.i, %.lr.ph125.i ], [ %154, %143 ], [ %142, %141 ], [ %131, %108 ]
+  %.4.i = phi ptr [ %.3123.i, %.lr.ph125.i ], [ %131, %108 ], [ %142, %141 ], [ %154, %143 ]
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %156 = load i32, ptr %30, align 8, !tbaa !22
   %157 = zext i32 %156 to i64

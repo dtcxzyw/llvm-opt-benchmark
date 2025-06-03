@@ -9590,8 +9590,8 @@ ehcleanup127:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup172
 
 sw.epilog:                                        ; preds = %if.then29, %if.else32, %if.then16, %if.else19, %sw.bb, %if.else, %if.end90
-  %upper.0 = phi double [ %.sroa.speculated136, %if.end90 ], [ %strike, %if.else ], [ %0, %sw.bb ], [ %.sroa.speculated148, %if.then16 ], [ %strike, %if.else19 ], [ %.sroa.speculated142, %if.then29 ], [ %strike, %if.else32 ]
-  %lower.0 = phi double [ %.sroa.speculated, %if.end90 ], [ %1, %if.else ], [ %strike, %sw.bb ], [ %strike, %if.then16 ], [ %.sroa.speculated145, %if.else19 ], [ %strike, %if.then29 ], [ %.sroa.speculated139, %if.else32 ]
+  %upper.0 = phi double [ %strike, %if.else ], [ %.sroa.speculated136, %if.end90 ], [ %0, %sw.bb ], [ %.sroa.speculated148, %if.then16 ], [ %strike, %if.else19 ], [ %.sroa.speculated142, %if.then29 ], [ %strike, %if.else32 ]
+  %lower.0 = phi double [ %1, %if.else ], [ %.sroa.speculated, %if.end90 ], [ %strike, %sw.bb ], [ %strike, %if.then16 ], [ %.sroa.speculated145, %if.else19 ], [ %strike, %if.then29 ], [ %.sroa.speculated139, %if.else32 ]
   %cmp129 = fcmp ogt double %upper.0, %lower.0
   br i1 %cmp129, label %if.then130, label %if.end163
 

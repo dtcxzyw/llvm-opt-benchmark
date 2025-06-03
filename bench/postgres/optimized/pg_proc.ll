@@ -339,7 +339,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 151:                                              ; preds = %135, %119, %122, %126, %140, %139, %138
-  %.2 = phi i32 [ %141, %140 ], [ 5077, %139 ], [ 2283, %138 ], [ %.1421, %119 ], [ %.1421, %126 ], [ 0, %122 ], [ %137, %135 ]
+  %.2 = phi i32 [ 0, %122 ], [ %.1421, %126 ], [ %.1421, %119 ], [ %141, %140 ], [ 2283, %138 ], [ 5077, %139 ], [ %137, %135 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond455.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count454
   br i1 %exitcond455.not, label %.loopexit.loopexit, label %119, !llvm.loop !6

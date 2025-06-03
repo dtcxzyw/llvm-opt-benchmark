@@ -2899,7 +2899,7 @@ ExecDeleteEpilogue.exit.i.i:                      ; preds = %579, %575, %574, %5
   unreachable
 
 thread-pre-split207.i.i:                          ; preds = %ExecDeleteEpilogue.exit.i.i, %567, %538, %535
-  %.4161.ph.i.i = phi ptr [ %496, %535 ], [ %496, %538 ], [ %.0157320.i.i, %567 ], [ %.0157320.i.i, %ExecDeleteEpilogue.exit.i.i ]
+  %.4161.ph.i.i = phi ptr [ %.0157320.i.i, %567 ], [ %.0157320.i.i, %ExecDeleteEpilogue.exit.i.i ], [ %496, %535 ], [ %496, %538 ]
   %.pr208.i.i = load i32, ptr %8, align 4
   br label %585
 
@@ -3324,8 +3324,8 @@ ExecProcessReturning.exit.i.i:                    ; preds = %760, %755
   br i1 %793, label %.lr.ph318.i.i, label %.thread223.i.i
 
 .thread230.i.i:                                   ; preds = %654, %650, %631, %552, %543, %525, %516, %ExecProcessReturning.exit.i.i, %738, %737, %.loopexit239.i.i, %612, %531
-  %.3.i = phi i8 [ %.115.i, %.loopexit239.i.i ], [ %.115.i, %737 ], [ %.115.i, %ExecProcessReturning.exit.i.i ], [ %.115.i, %738 ], [ %.115.i, %531 ], [ 0, %612 ], [ %.115.i, %650 ], [ %.115.i, %654 ], [ %.115.i, %552 ], [ %.115.i, %543 ], [ %.115.i, %525 ], [ %.115.i, %516 ], [ 0, %631 ]
-  %.3165.ph.ph.i.i = phi ptr [ null, %.loopexit239.i.i ], [ null, %737 ], [ %768, %ExecProcessReturning.exit.i.i ], [ %741, %738 ], [ %534, %531 ], [ null, %612 ], [ null, %516 ], [ null, %525 ], [ null, %543 ], [ null, %552 ], [ null, %631 ], [ null, %650 ], [ null, %654 ]
+  %.3.i = phi i8 [ %.115.i, %531 ], [ %.115.i, %.loopexit239.i.i ], [ %.115.i, %738 ], [ %.115.i, %ExecProcessReturning.exit.i.i ], [ %.115.i, %737 ], [ 0, %612 ], [ %.115.i, %650 ], [ %.115.i, %654 ], [ %.115.i, %525 ], [ %.115.i, %516 ], [ %.115.i, %552 ], [ %.115.i, %543 ], [ 0, %631 ]
+  %.3165.ph.ph.i.i = phi ptr [ %534, %531 ], [ null, %.loopexit239.i.i ], [ %741, %738 ], [ %768, %ExecProcessReturning.exit.i.i ], [ null, %737 ], [ null, %612 ], [ null, %516 ], [ null, %525 ], [ null, %543 ], [ null, %552 ], [ null, %631 ], [ null, %650 ], [ null, %654 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   br label %.thread223.i.i
@@ -3381,7 +3381,7 @@ ExecMerge.exit.thread:                            ; preds = %800
   unreachable
 
 ExecMerge.exit:                                   ; preds = %.thread22.i, %798, %337, %370, %373, %ExecGetInsertNewTuple.exit
-  %.0135 = phi ptr [ %376, %373 ], [ %369, %370 ], [ %369, %337 ], [ %304, %ExecGetInsertNewTuple.exit ], [ %.2164228.i.i, %798 ], [ %803, %.thread22.i ]
+  %.0135 = phi ptr [ %304, %ExecGetInsertNewTuple.exit ], [ %369, %370 ], [ %369, %337 ], [ %376, %373 ], [ %.2164228.i.i, %798 ], [ %803, %.thread22.i ]
   %.not168 = icmp eq ptr %.0135, null
   br i1 %.not168, label %.outer.backedge, label %.thread196
 
@@ -3840,8 +3840,8 @@ ExecQual.exit:                                    ; preds = %.lr.ph20
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3627, ptr noundef nonnull @__func__.ExecMergeNotMatched) #9
   unreachable
 
-.thread:                                          ; preds = %18, %2, %.lr.ph, %37, %.loopexit
-  %.1 = phi ptr [ %66, %37 ], [ null, %.loopexit ], [ null, %.lr.ph ], [ null, %2 ], [ null, %18 ]
+.thread:                                          ; preds = %18, %2, %.lr.ph, %.loopexit, %37
+  %.1 = phi ptr [ null, %.loopexit ], [ %66, %37 ], [ null, %.lr.ph ], [ null, %2 ], [ null, %18 ]
   ret ptr %.1
 }
 

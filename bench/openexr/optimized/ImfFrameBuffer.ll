@@ -132,7 +132,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %19
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %16, %17, %18, %13
-  %.0 = phi i64 [ 0, %16 ], [ 2, %18 ], [ 4, %17 ], [ %6, %13 ]
+  %.0 = phi i64 [ 0, %16 ], [ 4, %17 ], [ 2, %18 ], [ %6, %13 ]
   %30 = icmp eq i64 %7, 0
   %31 = sext i32 %8 to i64
   br i1 %30, label %32, label %._crit_edge

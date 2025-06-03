@@ -432,8 +432,8 @@ check_retval.exit135:                             ; preds = %159
   br label %174
 
 174:                                              ; preds = %.thread241, %171, %.thread
-  %.0240 = phi ptr [ %172, %171 ], [ %169, %.thread241 ], [ %167, %.thread ]
-  %.0172 = phi i32 [ %173, %171 ], [ %170, %.thread241 ], [ %168, %.thread ]
+  %.0240 = phi ptr [ %172, %171 ], [ %167, %.thread ], [ %169, %.thread241 ]
+  %.0172 = phi i32 [ %173, %171 ], [ %168, %.thread ], [ %170, %.thread241 ]
   %175 = icmp slt i32 %.0172, 0
   br i1 %175, label %check_retval.exit139, label %178
 

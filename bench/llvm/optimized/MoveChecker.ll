@@ -3944,7 +3944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %60
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK5clang4Decl7hasAttrINS_17ReinitializesAttrEEEbv.exit, %1, %59
-  %.05 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %59 ], [ false, %1 ], [ true, %_ZNK5clang4Decl7hasAttrINS_17ReinitializesAttrEEEbv.exit ]
+  %.05 = phi i1 [ false, %59 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %1 ], [ true, %_ZNK5clang4Decl7hasAttrINS_17ReinitializesAttrEEEbv.exit ]
   ret i1 %.05
 }
 
@@ -4025,7 +4025,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17CXXConversionDeclEKNS1_13CXXMethodDeclEEEDaP
   br label %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
 
 _ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang17CXXConversionDeclEKNS1_13CXXMethodDeclEEEDaPT0_.exit, %18
-  %.1.i.i = phi ptr [ %14, %_ZN4llvm16dyn_cast_or_nullIN5clang17CXXConversionDeclEKNS1_13CXXMethodDeclEEEDaPT0_.exit ], [ %19, %18 ]
+  %.1.i.i = phi ptr [ %19, %18 ], [ %14, %_ZN4llvm16dyn_cast_or_nullIN5clang17CXXConversionDeclEKNS1_13CXXMethodDeclEEEDaPT0_.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %20, align 8, !tbaa !52
   %.not.i.i.i = icmp ult i64 %.sroa.0.0.copyload.i1.i, 16
@@ -7273,7 +7273,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i: ; pred
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; preds = %56, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i, %._crit_edge._crit_edge52.i.i.i.i.us.i, %._crit_edge.i.i.i.i.us.i, %39
-  %.sroa.09.3 = phi ptr [ %.sroa.09.2, %39 ], [ %.sroa.09.2, %._crit_edge.i.i.i.i.us.i ], [ %.sroa.09.2, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i ], [ %54, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i ], [ %54, %56 ], [ %.sroa.09.2, %._crit_edge._crit_edge52.i.i.i.i.us.i ]
+  %.sroa.09.3 = phi ptr [ %.sroa.09.2, %39 ], [ %.sroa.09.2, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i ], [ %54, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i ], [ %54, %56 ], [ %.sroa.09.2, %._crit_edge._crit_edge52.i.i.i.i.us.i ], [ %.sroa.09.2, %._crit_edge.i.i.i.i.us.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.01818.us.i, i64 8
   %.not24.us.i = icmp eq ptr %57, %33
   br i1 %.not24.us.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %39
@@ -7402,7 +7402,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.i: ; preds = %97, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i, %59
-  %.sroa.09.1 = phi ptr [ %.sroa.09.0, %59 ], [ %.sroa.09.0, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i ], [ %95, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %95, %97 ], [ %.sroa.09.0, %._crit_edge.loopexit.i.i.i.i.i ], [ %.sroa.09.0, %._crit_edge._crit_edge52.i.i.i.i.i ]
+  %.sroa.09.1 = phi ptr [ %.sroa.09.0, %59 ], [ %.sroa.09.0, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i ], [ %95, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %95, %97 ], [ %.sroa.09.0, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.sroa.09.0, %._crit_edge.loopexit.i.i.i.i.i ]
   %98 = getelementptr inbounds nuw i8, ptr %.01818.i, i64 8
   %.not24.i = icmp eq ptr %98, %33
   br i1 %.not24.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %59

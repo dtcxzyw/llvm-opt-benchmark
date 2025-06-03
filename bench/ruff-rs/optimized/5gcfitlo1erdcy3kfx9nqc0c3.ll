@@ -1199,10 +1199,10 @@ default.unreachable:                              ; preds = %58
   br label %"_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i"
 
 "_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i": ; preds = %70, %63, %61, %58, %58, %58
-  %.sroa.43.1.i = phi i8 [ %.val4.i.i, %70 ], [ %.val6.i.i, %63 ], [ %.val.i.i, %61 ], [ %.sroa.43.023.i, %58 ], [ %.sroa.43.023.i, %58 ], [ %.sroa.43.023.i, %58 ]
-  %.sroa.74.1.i = phi i8 [ %.val5.i.i, %70 ], [ %.val7.i.i, %63 ], [ %.sroa.74.024.i, %61 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %58 ]
-  %.sroa.95.1.i = phi ptr [ %74, %70 ], [ %67, %63 ], [ %.sroa.95.027.i, %61 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %58 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.52.0.i.i, %70 ], [ %.sroa.5.0.i.i, %63 ], [ %.sroa.11.029.i, %61 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %58 ]
+  %.sroa.43.1.i = phi i8 [ %.sroa.43.023.i, %58 ], [ %.val.i.i, %61 ], [ %.val6.i.i, %63 ], [ %.val4.i.i, %70 ], [ %.sroa.43.023.i, %58 ], [ %.sroa.43.023.i, %58 ]
+  %.sroa.74.1.i = phi i8 [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %61 ], [ %.val7.i.i, %63 ], [ %.val5.i.i, %70 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %58 ]
+  %.sroa.95.1.i = phi ptr [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %61 ], [ %67, %63 ], [ %74, %70 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %58 ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %61 ], [ %.sroa.5.0.i.i, %63 ], [ %.sroa.52.0.i.i, %70 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %58 ]
   %77 = getelementptr inbounds nuw { [3 x i64] }, ptr %53, i64 %.sroa.7.026.i
   store i8 %60, ptr %77, align 8, !noalias !76
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %77, i64 1

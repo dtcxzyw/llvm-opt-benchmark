@@ -391,7 +391,7 @@ define internal noundef i32 @_ZL7tinsertP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 12:                                               ; preds = %6, %9, %4
-  %.0 = phi i32 [ %7, %9 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi i32 [ %5, %4 ], [ %7, %9 ], [ %7, %6 ]
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %.0)
   ret i32 0
 }

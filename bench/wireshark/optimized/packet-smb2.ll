@@ -5110,7 +5110,7 @@ define internal fastcc noundef i32 @dissect_windows_sockaddr_storage(ptr noundef
   br label %62
 
 62:                                               ; preds = %53, %28, %9
-  %.0 = phi i32 [ %61, %53 ], [ %52, %28 ], [ %27, %9 ]
+  %.0 = phi i32 [ %61, %53 ], [ %27, %9 ], [ %52, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   ret i32 %.0
 }
@@ -6691,7 +6691,7 @@ dissect_smb2_compression_pattern_v1.exit.i.i:     ; preds = %._crit_edge.i.i.i, 
   br label %append_uncompress_data.exit.i.i
 
 append_uncompress_data.exit.i.i:                  ; preds = %667, %dissect_smb2_compression_pattern_v1.exit.i.i, %640, %638, %636, %634, %632
-  %.1.i.i = phi ptr [ null, %667 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ null, %632 ], [ null, %634 ]
+  %.1.i.i = phi ptr [ null, %667 ], [ %637, %636 ], [ %639, %638 ], [ %641, %640 ], [ null, %dissect_smb2_compression_pattern_v1.exit.i.i ], [ null, %632 ], [ null, %634 ]
   br i1 %619, label %append_uncompress_data.exit57.i.i, label %669
 
 669:                                              ; preds = %append_uncompress_data.exit.i.i
@@ -6819,7 +6819,7 @@ append_uncompress_data.exit.i:                    ; preds = %708, %706
   br label %dissect_smb2_comp_transform_header.exit
 
 728:                                              ; preds = %722, %718, %714
-  %.2.i = phi ptr [ %725, %722 ], [ %721, %718 ], [ %717, %714 ]
+  %.2.i = phi ptr [ %717, %714 ], [ %721, %718 ], [ %725, %722 ]
   %.not98.i = icmp eq ptr %.2.i, null
   br i1 %.not98.i, label %732, label %729
 
@@ -11452,7 +11452,7 @@ smb2_pipe_set_file_id.exit:                       ; preds = %110, %114, %smb2_pi
   br label %135
 
 135:                                              ; preds = %smb2_pipe_set_file_id.exit, %131
-  %.1 = phi i32 [ %123, %smb2_pipe_set_file_id.exit ], [ %..i, %131 ]
+  %.1 = phi i32 [ %..i, %131 ], [ %123, %smb2_pipe_set_file_id.exit ]
   %136 = load i32, ptr @smb2_eo_tap, align 4
   %137 = tail call zeroext i1 @have_tap_listener(i32 noundef %136)
   %138 = icmp eq i32 %109, %22
@@ -15187,7 +15187,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.lr.ph.split.us, %.lr.ph8, %.lr.ph12, %74, %.lr.ph16.split.us, %123, %106, %81, %51, %._crit_edge, %46, %159, %153, %102, %96
-  %.1 = phi i32 [ %164, %159 ], [ %158, %153 ], [ %105, %102 ], [ %101, %96 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %149, %146 ]
+  %.1 = phi i32 [ %164, %159 ], [ %50, %46 ], [ %.0.lcssa, %._crit_edge ], [ %101, %96 ], [ %105, %102 ], [ %158, %153 ], [ %54, %51 ], [ %88, %81 ], [ %115, %106 ], [ %126, %123 ], [ %60, %.lr.ph16.split.us ], [ %77, %74 ], [ %92, %.lr.ph12 ], [ %119, %.lr.ph8 ], [ %132, %.lr.ph.split.us ], [ %149, %146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
@@ -16807,7 +16807,7 @@ default.unreachable142:                           ; preds = %6
   unreachable
 
 154:                                              ; preds = %146, %151, %138, %143, %39, %113, %95
-  %.0106 = phi i32 [ %148, %151 ], [ %148, %146 ], [ %140, %143 ], [ %140, %138 ], [ %.1, %39 ], [ %.1, %113 ], [ %.1, %95 ]
+  %.0106 = phi i32 [ %.1, %39 ], [ %.1, %113 ], [ %.1, %95 ], [ %140, %143 ], [ %140, %138 ], [ %148, %151 ], [ %148, %146 ]
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 208
@@ -16993,7 +16993,7 @@ define internal fastcc void @dissect_SMB2_CREATE_LEASE_VX(ptr noundef %0, ptr no
   br label %14
 
 14:                                               ; preds = %12, %9, %6
-  %.0 = phi ptr [ null, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.0 = phi ptr [ null, %12 ], [ %8, %6 ], [ %11, %9 ]
   %15 = load i32, ptr @hf_smb2_lease_key, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef -2147483648)
   %17 = load i32, ptr @hf_smb2_lease_state, align 4
@@ -19795,11 +19795,11 @@ default.unreachable31:                            ; preds = %6
   unreachable
 
 12:                                               ; preds = %6, %11, %10, %9
-  %.024 = phi i32 [ 9, %11 ], [ 9, %10 ], [ 7, %9 ], [ 7, %6 ]
-  %.023 = phi i64 [ 32, %11 ], [ 32, %10 ], [ 16, %9 ], [ 16, %6 ]
-  %13 = phi i1 [ false, %11 ], [ true, %10 ], [ false, %9 ], [ true, %6 ]
-  %.022 = phi i32 [ 9, %11 ], [ 8, %10 ], [ 9, %9 ], [ 8, %6 ]
-  %.0 = phi i64 [ 12, %11 ], [ 11, %10 ], [ 12, %9 ], [ 11, %6 ]
+  %.024 = phi i32 [ 7, %9 ], [ 9, %10 ], [ 9, %11 ], [ 7, %6 ]
+  %.023 = phi i64 [ 16, %9 ], [ 32, %10 ], [ 32, %11 ], [ 16, %6 ]
+  %13 = phi i1 [ false, %9 ], [ true, %10 ], [ false, %11 ], [ true, %6 ]
+  %.022 = phi i32 [ 9, %9 ], [ 8, %10 ], [ 9, %11 ], [ 8, %6 ]
+  %.0 = phi i64 [ 12, %9 ], [ 11, %10 ], [ 12, %11 ], [ 11, %6 ]
   %14 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef %.024, i32 noundef %.022, i32 noundef 0)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %42

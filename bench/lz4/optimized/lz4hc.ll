@@ -12327,10 +12327,10 @@ LZ4HC_literalsPrice.exit936.i:                    ; preds = %LZ4HC_literalsPrice
   br label %4737
 
 4737:                                             ; preds = %.thread1619.i, %4726
-  %.6374.i = phi i32 [ %4727, %4726 ], [ %.0368.lcssa.i, %.thread1619.i ]
-  %.1367.i = phi i32 [ %.pre-phi, %4726 ], [ %4736, %.thread1619.i ]
-  %.4363.i = phi i32 [ %.sroa.0104.0.extract.trunc.i, %4726 ], [ %4735, %.thread1619.i ]
-  %.4358.i = phi i32 [ %.sroa.0104.4.extract.trunc2274.i, %4726 ], [ %4733, %.thread1619.i ]
+  %.6374.i = phi i32 [ %.0368.lcssa.i, %.thread1619.i ], [ %4727, %4726 ]
+  %.1367.i = phi i32 [ %4736, %.thread1619.i ], [ %.pre-phi, %4726 ]
+  %.4363.i = phi i32 [ %4735, %.thread1619.i ], [ %.sroa.0104.0.extract.trunc.i, %4726 ]
+  %.4358.i = phi i32 [ %4733, %.thread1619.i ], [ %.sroa.0104.4.extract.trunc2274.i, %4726 ]
   br label %4738
 
 4738:                                             ; preds = %4738, %4737

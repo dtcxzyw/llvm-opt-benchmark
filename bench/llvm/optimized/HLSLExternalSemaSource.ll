@@ -5291,7 +5291,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(184) ptr @_ZN12_G
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %28, %36
-  %.1.i.i = phi ptr [ %32, %28 ], [ %37, %36 ]
+  %.1.i.i = phi ptr [ %37, %36 ], [ %32, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %38, align 8, !tbaa !1123
   br label %39
@@ -5628,7 +5628,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i.i: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %43, %42 ]
+  %.1.i.i.i.i.i = phi ptr [ %43, %42 ], [ %38, %.lr.ph.i.i.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   %45 = load i24, ptr %44, align 16
   %46 = and i24 %45, 1048576
@@ -6931,7 +6931,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(184) ptr @_ZN12_G
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %27, %35
-  %.1.i.i = phi ptr [ %31, %27 ], [ %36, %35 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %31, %27 ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %37, align 8, !tbaa !1123
   br label %38

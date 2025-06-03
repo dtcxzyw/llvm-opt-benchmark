@@ -841,7 +841,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %264, %267
   ret void
 
 272:                                              ; preds = %215, %252, %75, %118, %151, %258
-  %.pn53.pn = phi { ptr, i32 } [ %259, %258 ], [ %76, %75 ], [ %152, %151 ], [ %119, %118 ], [ %253, %252 ], [ %216, %215 ]
+  %.pn53.pn = phi { ptr, i32 } [ %259, %258 ], [ %76, %75 ], [ %119, %118 ], [ %152, %151 ], [ %253, %252 ], [ %216, %215 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #24
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #24
   resume { ptr, i32 } %.pn53.pn
@@ -3913,7 +3913,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %228, %231
   ret void
 
 236:                                              ; preds = %197, %218, %69, %96, %129, %43
-  %.pn53.pn = phi { ptr, i32 } [ %44, %43 ], [ %70, %69 ], [ %130, %129 ], [ %97, %96 ], [ %219, %218 ], [ %198, %197 ]
+  %.pn53.pn = phi { ptr, i32 } [ %44, %43 ], [ %70, %69 ], [ %97, %96 ], [ %130, %129 ], [ %219, %218 ], [ %198, %197 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #24
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #24
   resume { ptr, i32 } %.pn53.pn
@@ -4869,12 +4869,12 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126: ; preds = %.noexc131, 
 _ZNK23has_skolem_functions_ns4procclEPK3app.exit108: ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126, %._crit_edge.i128, %._crit_edge.i98, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96, %._crit_edge.i76, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74
   %.sink = phi i32 [ %86, %._crit_edge.i76 ], [ %.pre2.i75, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %106, %._crit_edge.i98 ], [ %.pre2.i97, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96 ], [ %198, %._crit_edge.i128 ], [ %.pre2.i127, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
   %.sink320 = phi ptr [ %.pre.i77, %._crit_edge.i76 ], [ %92, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %.pre.i99, %._crit_edge.i98 ], [ %112, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96 ], [ %.pre.i129, %._crit_edge.i128 ], [ %204, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
-  %.lcssa288.sink = phi ptr [ %57, %._crit_edge.i76 ], [ %57, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %57, %._crit_edge.i98 ], [ %57, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96 ], [ %.0.i, %._crit_edge.i128 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
+  %.lcssa289.sink = phi ptr [ %57, %._crit_edge.i76 ], [ %57, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %57, %._crit_edge.i98 ], [ %57, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96 ], [ %.0.i, %._crit_edge.i128 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
   %215 = zext i32 %.sink to i64
   %216 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink320, i64 %215
-  store ptr %.lcssa288.sink, ptr %216, align 8
-  %.sroa.5143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i32 0, ptr %.sroa.5143.0..sroa_idx, align 8
+  store ptr %.lcssa289.sink, ptr %216, align 8
+  %.sroa.5139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
+  store i32 0, ptr %.sroa.5139.0..sroa_idx, align 8
   %217 = load i32, ptr %30, align 8, !tbaa !25
   %218 = add i32 %217, 1
   store i32 %218, ptr %30, align 8, !tbaa !25
@@ -4909,7 +4909,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %219, %222
   ret void
 
 227:                                              ; preds = %190, %211, %74, %99, %119, %44, %137
-  %.pn53.pn = phi { ptr, i32 } [ %45, %44 ], [ %138, %137 ], [ %75, %74 ], [ %120, %119 ], [ %100, %99 ], [ %212, %211 ], [ %191, %190 ]
+  %.pn53.pn = phi { ptr, i32 } [ %45, %44 ], [ %138, %137 ], [ %75, %74 ], [ %100, %99 ], [ %120, %119 ], [ %212, %211 ], [ %191, %190 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #24
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #24
   resume { ptr, i32 } %.pn53.pn

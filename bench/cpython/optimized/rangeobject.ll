@@ -3034,7 +3034,7 @@ define internal fastcc ptr @range_from_array(ptr noundef %0, ptr noundef readonl
   br label %7
 
 7:                                                ; preds = %4, %3
-  %.0 = phi ptr [ null, %3 ], [ %6, %4 ]
+  %.0 = phi ptr [ %6, %4 ], [ null, %3 ]
   %8 = load ptr, ptr %1, align 8, !tbaa !16
   %9 = tail call ptr @PyNumber_Index(ptr noundef %8) #6
   %.not31 = icmp eq ptr %9, null

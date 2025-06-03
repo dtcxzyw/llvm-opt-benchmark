@@ -107,7 +107,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h831f692fd6d08bb3E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h831f692fd6d08bb3E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -781,7 +781,7 @@ _ZN6parser7grammar5types5type_17he31e974934f144acE.exit: ; preds = %155, %164, %
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   br label %147
 
-166:                                              ; preds = %160, %158, %157, %153, %150, %148, %143, %144, %125, %124, %123, %141, %155
+166:                                              ; preds = %144, %160, %158, %157, %153, %150, %148, %143, %125, %124, %123, %141, %155
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$parser..parser..Marker$GT$17h537f17968311df0dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24) #15
@@ -1830,7 +1830,7 @@ define noundef range(i16 2, 274) i16 @_ZN6parser11syntax_kind9generated10SyntaxK
   br label %30
 
 30:                                               ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %1, %29
-  %.0 = phi i16 [ 273, %1 ], [ 36, %28 ], [ 34, %27 ], [ 31, %26 ], [ 29, %25 ], [ 25, %24 ], [ 24, %23 ], [ 23, %22 ], [ 22, %21 ], [ 21, %20 ], [ 20, %19 ], [ 19, %18 ], [ 18, %17 ], [ 17, %16 ], [ 16, %15 ], [ 15, %14 ], [ 14, %13 ], [ 13, %12 ], [ 12, %11 ], [ 11, %10 ], [ 10, %9 ], [ 9, %8 ], [ 8, %7 ], [ 7, %6 ], [ 6, %5 ], [ 5, %4 ], [ 4, %3 ], [ 3, %2 ], [ 2, %29 ]
+  %.0 = phi i16 [ 273, %1 ], [ 3, %2 ], [ 4, %3 ], [ 5, %4 ], [ 6, %5 ], [ 7, %6 ], [ 8, %7 ], [ 9, %8 ], [ 10, %9 ], [ 11, %10 ], [ 12, %11 ], [ 13, %12 ], [ 14, %13 ], [ 15, %14 ], [ 16, %15 ], [ 17, %16 ], [ 18, %17 ], [ 19, %18 ], [ 20, %19 ], [ 21, %20 ], [ 22, %21 ], [ 23, %22 ], [ 24, %23 ], [ 25, %24 ], [ 29, %25 ], [ 31, %26 ], [ 34, %27 ], [ 36, %28 ], [ 2, %29 ]
   ret i16 %.0
 }
 

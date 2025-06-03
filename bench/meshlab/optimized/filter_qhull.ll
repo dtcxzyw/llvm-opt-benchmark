@@ -3644,9 +3644,9 @@ _ZN7QStringD2Ev.exit89:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 397:                                              ; preds = %396, %385, %374, %363, %352, %214, %197, %92, %55
-  %.pn39.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn, %214 ], [ %56, %55 ], [ %.pn.pn.pn, %197 ], [ %.pn45.pn.pn, %92 ], [ %.pn65.pn.pn, %396 ], [ %.pn61.pn.pn, %385 ], [ %.pn57.pn.pn, %374 ], [ %.pn53.pn.pn, %363 ], [ %.pn49.pn.pn, %352 ]
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %396 ], [ %56, %55 ], [ %.pn61.pn.pn, %385 ], [ %.pn57.pn.pn, %374 ], [ %.pn53.pn.pn, %363 ], [ %.pn49.pn.pn, %352 ], [ %.pn45.pn.pn, %92 ], [ %.pn39.pn.pn.pn.pn, %214 ], [ %.pn.pn.pn, %197 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
-  resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn65.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -5427,8 +5427,8 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit: ; preds = %_ZN9QtPrivate8
   ret void
 
 451:                                              ; preds = %300, %129, %72, %302, %131, %74, %445, %297, %295, %293, %248, %158, %120, %119, %70
-  %.pn123.pn = phi { ptr, i32 } [ %.pn123, %445 ], [ %.pn324, %302 ], [ %301, %300 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %.pn130, %248 ], [ %159, %158 ], [ %.pn134312, %131 ], [ %130, %129 ], [ %121, %120 ], [ %.pn132, %119 ], [ %.pn138306, %74 ], [ %73, %72 ], [ %.pn136, %70 ]
-  resume { ptr, i32 } %.pn123.pn
+  %.pn138.pn = phi { ptr, i32 } [ %.pn138306, %74 ], [ %73, %72 ], [ %.pn136, %70 ], [ %.pn134312, %131 ], [ %130, %129 ], [ %121, %120 ], [ %.pn132, %119 ], [ %.pn130, %248 ], [ %159, %158 ], [ %.pn123, %445 ], [ %.pn324, %302 ], [ %301, %300 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ]
+  resume { ptr, i32 } %.pn138.pn
 
 452:                                              ; preds = %439, %292, %239, %127, %65
   unreachable

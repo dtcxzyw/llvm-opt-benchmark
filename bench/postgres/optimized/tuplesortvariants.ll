@@ -1582,8 +1582,8 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr noundef readonly captur
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %58, %39, %42, %45, %48, %54, %56, %62
-  %64 = phi i1 [ false, %62 ], [ false, %56 ], [ false, %48 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %54 ], [ true, %58 ]
-  %.1.i = phi i64 [ %63, %62 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ], [ 0, %58 ]
+  %64 = phi i1 [ false, %62 ], [ false, %56 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %54 ], [ true, %58 ]
+  %.1.i = phi i64 [ %63, %62 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ], [ 0, %58 ]
   %65 = getelementptr i8, ptr %13, i64 6
   %.val.i89 = load i16, ptr %65, align 2
   %66 = icmp slt i16 %.val.i89, 0
@@ -1661,7 +1661,7 @@ index_getattr.exit:                               ; preds = %58, %39, %42, %45, 
   br label %index_getattr.exit92
 
 index_getattr.exit92:                             ; preds = %81, %84, %87, %90, %96, %98, %104
-  %.1.i90 = phi i64 [ %105, %104 ], [ %99, %98 ], [ %91, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %97, %96 ]
+  %.1.i90 = phi i64 [ %105, %104 ], [ %99, %98 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %91, %90 ], [ %97, %96 ]
   br i1 %64, label %106, label %114
 
 index_getattr.exit92.thread:                      ; preds = %100
@@ -2948,7 +2948,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ]
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -3135,8 +3135,8 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr noundef
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %35, %38, %41, %44, %50, %52, %58, %59
-  %61 = phi i1 [ false, %58 ], [ true, %59 ], [ true, %52 ], [ true, %44 ], [ true, %41 ], [ true, %38 ], [ true, %35 ], [ true, %50 ]
-  %.1.i = phi i64 [ 0, %58 ], [ %60, %59 ], [ %53, %52 ], [ %45, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %51, %50 ]
+  %61 = phi i1 [ false, %58 ], [ true, %59 ], [ true, %52 ], [ true, %35 ], [ true, %38 ], [ true, %41 ], [ true, %44 ], [ true, %50 ]
+  %.1.i = phi i64 [ 0, %58 ], [ %60, %59 ], [ %53, %52 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %51, %50 ]
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.1.i, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3276,7 +3276,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %39, %33, %30, %27, %24, %41, %54, %53
-  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %40, %39 ]
+  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %40, %39 ]
   ret i64 %.1
 }
 

@@ -117,12 +117,12 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   %.not114 = icmp eq i32 %15, 0
   br i1 %.not114, label %.thread143, label %.backedge
 
-16:                                               ; preds = %5
-  br label %.outer273.backedge
-
 .outer273.backedge:                               ; preds = %5, %16
   %.086.ph274.be = phi i32 [ 32769, %16 ], [ 32771, %5 ]
   br label %.outer273, !llvm.loop !8
+
+16:                                               ; preds = %5
+  br label %.outer273.backedge
 
 17:                                               ; preds = %5, %5, %5, %5
   %18 = tail call i32 @opt_provider(i32 noundef %6) #6
@@ -192,7 +192,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %.not104, label %.thread122, label %29, !llvm.loop !20
 
 46:                                               ; preds = %35, %37, %38, %39
-  %.175.ph = phi i64 [ 10, %35 ], [ 20, %37 ], [ 30, %38 ], [ 40, %39 ]
+  %.175.ph = phi i64 [ 10, %35 ], [ 40, %39 ], [ 30, %38 ], [ 20, %37 ]
   %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %.not107 = icmp eq i64 %47, 1
   br i1 %.not107, label %51, label %48

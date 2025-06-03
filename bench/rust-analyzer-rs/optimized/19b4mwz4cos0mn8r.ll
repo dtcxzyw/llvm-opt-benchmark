@@ -1595,7 +1595,7 @@ define hidden noundef align 8 ptr @_ZN4stdx13panic_context8with_ctx3CTX7__getit1
   ]
 
 3:                                                ; preds = %1, %4, %5
-  %.0 = phi ptr [ @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, %5 ], [ @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, %4 ], [ @_ZN4stdx13panic_context8with_ctx3CTX7__getit3VAL17hc3c8e8d00addd5d8E, %5 ], [ null, %1 ]
   ret ptr %.0
 
 4:                                                ; preds = %1

@@ -71,7 +71,7 @@ define noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %0, i64 noundef %1, i32 n
   br label %24
 
 24:                                               ; preds = %18, %._crit_edge
-  %.2 = phi i32 [ %.024.lcssa, %._crit_edge ], [ %23, %18 ]
+  %.2 = phi i32 [ %23, %18 ], [ %.024.lcssa, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = sext i8 %26 to i32
@@ -80,7 +80,7 @@ define noundef i32 @_ZN7rocksdb4HashEPKcmj(ptr noundef %0, i64 noundef %1, i32 n
   br label %30
 
 30:                                               ; preds = %24, %._crit_edge
-  %.3 = phi i32 [ %.024.lcssa, %._crit_edge ], [ %29, %24 ]
+  %.3 = phi i32 [ %29, %24 ], [ %.024.lcssa, %._crit_edge ]
   %31 = load i8, ptr %.0.lcssa, align 1, !tbaa !14
   %32 = sext i8 %31 to i32
   %33 = add i32 %.3, %32

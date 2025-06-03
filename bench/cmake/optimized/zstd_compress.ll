@@ -696,7 +696,7 @@ ZSTD_CCtxParams_init_internal.exit:               ; preds = %37, %.thread13, %40
   br label %ZSTD_checkCParams.exit.thread
 
 ZSTD_checkCParams.exit.thread:                    ; preds = %18, %14, %10, %6, %3, %ZSTD_checkCParams.exit, %2, %ZSTD_CCtxParams_init_internal.exit
-  %.05 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ 0, %ZSTD_CCtxParams_init_internal.exit ], [ -1, %2 ], [ -42, %3 ], [ -42, %6 ], [ -42, %10 ], [ -42, %14 ], [ -42, %18 ]
+  %.05 = phi i64 [ 0, %ZSTD_CCtxParams_init_internal.exit ], [ -42, %ZSTD_checkCParams.exit ], [ -1, %2 ], [ -42, %3 ], [ -42, %6 ], [ -42, %10 ], [ -42, %14 ], [ -42, %18 ]
   ret i64 %.05
 }
 
@@ -847,8 +847,8 @@ define dso_local { i64, i64 } @ZSTD_cParam_getBounds(i32 noundef %0) local_unnam
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %18 ], [ 562949953422336, %17 ], [ 9223372032559808512, %16 ], [ 562949953421376, %15 ], [ 12884901888, %14 ], [ 107374182400, %13 ], [ 34359738369, %12 ], [ 17592186044420, %11 ], [ 8589934592, %10 ], [ 0, %9 ], [ 4294967296, %8 ], [ 38654705665, %7 ], [ 562949953421312, %6 ], [ 30064771075, %5 ], [ 128849018881, %4 ], [ 128849018886, %3 ], [ 98784116736, %2 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
+  %.sroa.3.0 = phi i64 [ 0, %18 ], [ 98784116736, %2 ], [ 128849018886, %3 ], [ 128849018881, %4 ], [ 30064771075, %5 ], [ 562949953421312, %6 ], [ 38654705665, %7 ], [ 4294967296, %8 ], [ 0, %9 ], [ 8589934592, %10 ], [ 17592186044420, %11 ], [ 34359738369, %12 ], [ 107374182400, %13 ], [ 12884901888, %14 ], [ 562949953421376, %15 ], [ 9223372032559808512, %16 ], [ 562949953422336, %17 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %18 ], [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1381,7 +1381,7 @@ ZSTD_cParam_clampBounds.exit.thread:              ; preds = %ZSTD_cParam_clampBo
   br label %175
 
 175:                                              ; preds = %101, %33, %165, %115, %110, %105, %96, %91, %42, %29, %24, %19, %14, %ZSTD_cParam_clampBounds.exit.thread, %3, %170, %160, %155, %150, %145, %140, %135, %130, %125, %120, %86, %80, %79, %78, %77, %74, %72, %69, %67, %37, %4, %172, %167, %162, %157, %152, %147, %142, %137, %132, %127, %122, %117, %112, %107, %102, %98, %93, %88, %81, %62, %56, %51, %46, %43, %39, %34, %30, %26, %21, %16, %6
-  %.0 = phi i64 [ %174, %172 ], [ %168, %167 ], [ %164, %162 ], [ %159, %157 ], [ %154, %152 ], [ %149, %147 ], [ %144, %142 ], [ %139, %137 ], [ %134, %132 ], [ %129, %127 ], [ %124, %122 ], [ %119, %117 ], [ %113, %112 ], [ %109, %107 ], [ %104, %102 ], [ %100, %98 ], [ %95, %93 ], [ %90, %88 ], [ %85, %81 ], [ %66, %62 ], [ %61, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %43 ], [ %41, %39 ], [ %36, %34 ], [ %32, %30 ], [ %28, %26 ], [ %23, %21 ], [ %18, %16 ], [ %7, %6 ], [ -42, %4 ], [ -42, %37 ], [ %71, %69 ], [ -42, %67 ], [ %76, %74 ], [ -42, %72 ], [ %., %77 ], [ %.130, %78 ], [ %.131, %79 ], [ %.132, %80 ], [ -42, %86 ], [ -42, %120 ], [ -42, %125 ], [ -42, %130 ], [ -42, %135 ], [ -42, %140 ], [ -42, %145 ], [ -42, %150 ], [ -42, %155 ], [ -42, %160 ], [ -42, %170 ], [ -40, %3 ], [ %spec.select, %ZSTD_cParam_clampBounds.exit.thread ], [ -42, %14 ], [ -42, %19 ], [ -42, %24 ], [ -42, %29 ], [ -42, %33 ], [ -42, %42 ], [ -42, %91 ], [ -42, %96 ], [ -42, %101 ], [ -42, %105 ], [ -42, %110 ], [ -42, %115 ], [ -42, %165 ]
+  %.0 = phi i64 [ %7, %6 ], [ %18, %16 ], [ %23, %21 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %41, %39 ], [ %45, %43 ], [ %50, %46 ], [ %55, %51 ], [ %61, %56 ], [ %66, %62 ], [ %85, %81 ], [ %90, %88 ], [ %95, %93 ], [ %100, %98 ], [ %104, %102 ], [ %109, %107 ], [ %113, %112 ], [ %119, %117 ], [ %124, %122 ], [ %129, %127 ], [ %134, %132 ], [ %139, %137 ], [ %144, %142 ], [ %149, %147 ], [ %154, %152 ], [ %159, %157 ], [ %164, %162 ], [ %168, %167 ], [ %174, %172 ], [ -42, %4 ], [ -42, %37 ], [ %71, %69 ], [ -42, %67 ], [ %76, %74 ], [ -42, %72 ], [ %., %77 ], [ %.130, %78 ], [ %.131, %79 ], [ %.132, %80 ], [ -42, %86 ], [ -42, %120 ], [ -42, %125 ], [ -42, %130 ], [ -42, %135 ], [ -42, %140 ], [ -42, %145 ], [ -42, %150 ], [ -42, %155 ], [ -42, %160 ], [ -42, %170 ], [ -40, %3 ], [ %spec.select, %ZSTD_cParam_clampBounds.exit.thread ], [ -42, %14 ], [ -42, %19 ], [ -42, %24 ], [ -42, %29 ], [ -42, %33 ], [ -42, %42 ], [ -42, %91 ], [ -42, %96 ], [ -42, %101 ], [ -42, %105 ], [ -42, %110 ], [ -42, %115 ], [ -42, %165 ]
   ret i64 %.0
 }
 
@@ -2442,8 +2442,8 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
   br label %38
 
 38:                                               ; preds = %37, %34, %ZSTD_overrideCParams.exit
-  %.030.i = phi i64 [ %3, %ZSTD_overrideCParams.exit ], [ %3, %34 ], [ 0, %37 ]
-  %.0.i = phi i64 [ %.0, %ZSTD_overrideCParams.exit ], [ %spec.store.select4.i, %34 ], [ %.0, %37 ]
+  %.030.i = phi i64 [ %3, %ZSTD_overrideCParams.exit ], [ 0, %37 ], [ %3, %34 ]
+  %.0.i = phi i64 [ %.0, %ZSTD_overrideCParams.exit ], [ %.0, %37 ], [ %spec.store.select4.i, %34 ]
   %39 = icmp ult i64 %.0.i, 1073741825
   %40 = icmp ult i64 %.030.i, 1073741825
   %or.cond3.i = and i1 %40, %39
@@ -2623,8 +2623,8 @@ ZSTD_getCParamRowSize.exit:                       ; preds = %5, %8
   br label %32
 
 32:                                               ; preds = %31, %29, %27
-  %.030.i = phi i64 [ %3, %27 ], [ %3, %29 ], [ 0, %31 ]
-  %.0.i = phi i64 [ %2, %27 ], [ %spec.store.select4.i, %29 ], [ %2, %31 ]
+  %.030.i = phi i64 [ %3, %27 ], [ 0, %31 ], [ %3, %29 ]
+  %.0.i = phi i64 [ %2, %27 ], [ %2, %31 ], [ %spec.store.select4.i, %29 ]
   %33 = icmp ult i64 %.0.i, 1073741825
   %34 = icmp ult i64 %.030.i, 1073741825
   %or.cond3.i = and i1 %34, %33
@@ -5214,7 +5214,7 @@ define dso_local i64 @ZSTD_compressBlock_deprecated(ptr noundef %0, ptr noundef 
   br label %12
 
 12:                                               ; preds = %5, %10
-  %.1 = phi i64 [ -72, %5 ], [ %11, %10 ]
+  %.1 = phi i64 [ %11, %10 ], [ -72, %5 ]
   ret i64 %.1
 }
 
@@ -5235,7 +5235,7 @@ define dso_local i64 @ZSTD_compressBlock(ptr noundef %0, ptr noundef %1, i64 nou
   br label %ZSTD_compressBlock_deprecated.exit
 
 ZSTD_compressBlock_deprecated.exit:               ; preds = %5, %10
-  %.1.i = phi i64 [ -72, %5 ], [ %11, %10 ]
+  %.1.i = phi i64 [ %11, %10 ], [ -72, %5 ]
   ret i64 %.1.i
 }
 
@@ -6813,7 +6813,7 @@ ZSTD_CCtxParams_init_internal.exit:               ; preds = %43, %.thread18, %46
   br label %ZSTD_checkCParams.exit.thread
 
 ZSTD_checkCParams.exit.thread:                    ; preds = %23, %19, %15, %11, %8, %ZSTD_checkCParams.exit, %ZSTD_CCtxParams_init_internal.exit
-  %.1 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ %54, %ZSTD_CCtxParams_init_internal.exit ], [ -42, %8 ], [ -42, %11 ], [ -42, %15 ], [ -42, %19 ], [ -42, %23 ]
+  %.1 = phi i64 [ %54, %ZSTD_CCtxParams_init_internal.exit ], [ -42, %ZSTD_checkCParams.exit ], [ -42, %8 ], [ -42, %11 ], [ -42, %15 ], [ -42, %19 ], [ -42, %23 ]
   ret i64 %.1
 }
 
@@ -8346,7 +8346,7 @@ define dso_local i64 @ZSTD_compress_usingCDict_advanced(ptr noundef %0, ptr noun
   br label %ZSTD_compress_usingCDict_internal.exit
 
 ZSTD_compress_usingCDict_internal.exit:           ; preds = %7, %11
-  %.1.i = phi i64 [ %9, %7 ], [ %12, %11 ]
+  %.1.i = phi i64 [ %12, %11 ], [ %9, %7 ]
   ret i64 %.1.i
 }
 
@@ -8361,7 +8361,7 @@ define dso_local i64 @ZSTD_compress_usingCDict(ptr noundef %0, ptr noundef %1, i
   br label %ZSTD_compress_usingCDict_internal.exit
 
 ZSTD_compress_usingCDict_internal.exit:           ; preds = %6, %9
-  %.1.i = phi i64 [ %7, %6 ], [ %10, %9 ]
+  %.1.i = phi i64 [ %10, %9 ], [ %7, %6 ]
   ret i64 %.1.i
 }
 
@@ -9623,9 +9623,9 @@ ZSTD_compressBound.exit277.i:                     ; preds = %.thread.i276.i, %20
   br label %260
 
 260:                                              ; preds = %.critedge.i, %._crit_edge.i
-  %261 = phi i64 [ %.pre314.i, %._crit_edge.i ], [ 0, %.critedge.i ]
-  %262 = phi i64 [ %.pre313.i, %._crit_edge.i ], [ %.0242.i, %.critedge.i ]
-  %.2211.i = phi ptr [ %.1210312.i.ph, %._crit_edge.i ], [ %.8217.i, %.critedge.i ]
+  %261 = phi i64 [ 0, %.critedge.i ], [ %.pre314.i, %._crit_edge.i ]
+  %262 = phi i64 [ %.0242.i, %.critedge.i ], [ %.pre313.i, %._crit_edge.i ]
+  %.2211.i = phi ptr [ %.8217.i, %.critedge.i ], [ %.1210312.i.ph, %._crit_edge.i ]
   %263 = sub i64 %262, %261
   %264 = ptrtoint ptr %.0218311.i.ph to i64
   %265 = sub i64 %98, %264
@@ -9739,7 +9739,7 @@ ZSTD_setBufferExpectations.exit74:                ; preds = %301, %304
   br label %ZSTD_setBufferExpectations.exit.thread
 
 ZSTD_setBufferExpectations.exit.thread:           ; preds = %.thread285.i, %250, %229, %147, %70, %67, %76, %38, %34, %46, %41, %ZSTD_compressStream_generic.exit, %16, %10, %4, %ZSTD_setBufferExpectations.exit74
-  %.0 = phi i64 [ %.2.i73, %ZSTD_compressStream_generic.exit ], [ %311, %ZSTD_setBufferExpectations.exit74 ], [ -70, %4 ], [ -72, %10 ], [ -42, %16 ], [ -50, %38 ], [ -50, %34 ], [ %47, %46 ], [ %45, %41 ], [ -50, %76 ], [ -50, %67 ], [ -50, %70 ], [ %148, %147 ], [ -62, %.thread285.i ], [ %251, %250 ], [ %230, %229 ]
+  %.0 = phi i64 [ %311, %ZSTD_setBufferExpectations.exit74 ], [ %.2.i73, %ZSTD_compressStream_generic.exit ], [ -70, %4 ], [ -72, %10 ], [ -42, %16 ], [ -50, %38 ], [ -50, %34 ], [ %47, %46 ], [ %45, %41 ], [ -50, %76 ], [ -50, %67 ], [ -50, %70 ], [ %148, %147 ], [ -62, %.thread285.i ], [ %251, %250 ], [ %230, %229 ]
   ret i64 %.0
 }
 
@@ -11365,7 +11365,7 @@ define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr noundef
   br label %72
 
 72:                                               ; preds = %60, %69, %65, %61
-  %.2 = phi i64 [ %.1, %60 ], [ %68, %65 ], [ %64, %61 ], [ %71, %69 ]
+  %.2 = phi i64 [ %.1, %60 ], [ %71, %69 ], [ %64, %61 ], [ %68, %65 ]
   switch i32 %41, label %73 [
     i32 3, label %87
     i32 1, label %78
@@ -11404,7 +11404,7 @@ define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr noundef
   br label %90
 
 90:                                               ; preds = %78, %83, %87, %74, %73, %40
-  %.061 = phi i64 [ -70, %40 ], [ %76, %74 ], [ %.2, %73 ], [ %86, %83 ], [ %82, %78 ], [ %89, %87 ]
+  %.061 = phi i64 [ -70, %40 ], [ %76, %74 ], [ %.2, %73 ], [ %89, %87 ], [ %82, %78 ], [ %86, %83 ]
   ret i64 %.061
 }
 
@@ -14333,8 +14333,8 @@ define internal fastcc i64 @ZSTD_compressBlock_internal(ptr noundef %0, ptr noun
   store ptr %40, ptr %14, align 8, !tbaa !242
   br label %.thread
 
-.thread:                                          ; preds = %35, %6, %39, %37
-  %.14249 = phi i64 [ %27, %39 ], [ %27, %37 ], [ 1, %35 ], [ 0, %6 ]
+.thread:                                          ; preds = %6, %35, %39, %37
+  %.14249 = phi i64 [ %27, %39 ], [ %27, %37 ], [ 0, %6 ], [ 1, %35 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3176
   %43 = load ptr, ptr %42, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 5604

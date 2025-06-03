@@ -398,9 +398,9 @@ matchfinder_init_sse2.exit.preheader:             ; preds = %8
 matchfinder_init_sse2.exit:                       ; preds = %matchfinder_init_sse2.exit.preheader, %321
   %.0169 = phi i32 [ %.2171185, %321 ], [ 0, %matchfinder_init_sse2.exit.preheader ]
   %.0163 = phi ptr [ %.2165188, %321 ], [ %1, %matchfinder_init_sse2.exit.preheader ]
-  %.061 = phi i32 [ %.364189, %321 ], [ %., %matchfinder_init_sse2.exit.preheader ]
-  %.056 = phi i32 [ %.460191, %321 ], [ 258, %matchfinder_init_sse2.exit.preheader ]
-  %.055 = phi ptr [ %.3193, %321 ], [ %1, %matchfinder_init_sse2.exit.preheader ]
+  %.061 = phi i32 [ %.364190, %321 ], [ %., %matchfinder_init_sse2.exit.preheader ]
+  %.056 = phi i32 [ %.460192, %321 ], [ 258, %matchfinder_init_sse2.exit.preheader ]
+  %.055 = phi ptr [ %.3194, %321 ], [ %1, %matchfinder_init_sse2.exit.preheader ]
   %24 = ptrtoint ptr %.055 to i64
   %25 = sub i64 %15, %24
   %26 = icmp ult i64 %25, 70535
@@ -1015,15 +1015,15 @@ ht_matchfinder_longest_match.exit.thread:         ; preds = %182, %180, %66, %ht
   br i1 %314, label %28, label %.loopexit203
 
 .loopexit203:                                     ; preds = %311, %.preheader202
-  %.3193 = phi ptr [ %35, %.preheader202 ], [ %.3.ph, %311 ]
-  %.460191 = phi i32 [ 0, %.preheader202 ], [ %.258, %311 ]
-  %.364189 = phi i32 [ %.162, %.preheader202 ], [ %.263, %311 ]
+  %.3194 = phi ptr [ %35, %.preheader202 ], [ %.3.ph, %311 ]
+  %.460192 = phi i32 [ 0, %.preheader202 ], [ %.258, %311 ]
+  %.364190 = phi i32 [ %.162, %.preheader202 ], [ %.263, %311 ]
   %.2165188 = phi ptr [ %.1164, %.preheader202 ], [ %.2165.ph, %311 ]
   %.2171185 = phi i32 [ %.1170, %.preheader202 ], [ %.2171.ph, %311 ]
-  %315 = ptrtoint ptr %.3193 to i64
+  %315 = ptrtoint ptr %.3194 to i64
   %316 = sub i64 %315, %24
   %317 = trunc i64 %316 to i32
-  %318 = icmp eq ptr %.3193, %14
+  %318 = icmp eq ptr %.3194, %14
   %319 = load i32, ptr %18, align 8, !tbaa !26
   %320 = add i32 %319, 1
   store i32 %320, ptr %18, align 8, !tbaa !26

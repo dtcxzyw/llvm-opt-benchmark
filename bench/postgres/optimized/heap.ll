@@ -1711,7 +1711,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   unreachable
 
 212:                                              ; preds = %185, %178
-  %.1.i = phi i32 [ %207, %185 ], [ %.034.i, %178 ]
+  %.1.i = phi i32 [ %.034.i, %178 ], [ %207, %185 ]
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
   %213 = load i32, ptr %169, align 4
   %214 = sext i32 %213 to i64
@@ -2749,7 +2749,7 @@ fastgetattr.exit.i:                               ; preds = %195
   unreachable
 
 204:                                              ; preds = %198, %193, %191, %185, %182, %179, %176
-  %.1.i.ph.i = phi i64 [ %192, %191 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %186, %185 ], [ %194, %193 ], [ %199, %198 ]
+  %.1.i.ph.i = phi i64 [ %192, %191 ], [ %186, %185 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %194, %193 ], [ %199, %198 ]
   %205 = inttoptr i64 %.1.i.ph.i to ptr
   %206 = call ptr @text_to_cstring(ptr noundef %205) #11
   %207 = call ptr @stringToNode(ptr noundef %206) #11

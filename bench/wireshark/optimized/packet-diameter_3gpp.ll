@@ -2851,7 +2851,7 @@ define internal noundef i32 @dissect_diameter_3ggp_qos_susbscribed(ptr noundef %
   br label %54
 
 .thread306:                                       ; preds = %42, %43, %44, %45, %39, %46
-  %.0263309 = phi ptr [ @.str.987, %46 ], [ @.str.983, %39 ], [ @.str.984, %42 ], [ @.str.985, %43 ], [ @.str.986, %44 ], [ @.str.826, %45 ]
+  %.0263309 = phi ptr [ @.str.987, %46 ], [ @.str.983, %39 ], [ @.str.826, %45 ], [ @.str.986, %44 ], [ @.str.985, %43 ], [ @.str.984, %42 ]
   %52 = load i32, ptr @hf_diameter_3gpp_qos_maximum_sdu_size, align 4
   %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %52, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.989, ptr noundef nonnull %.0263309, i32 noundef %41)
   br label %54
@@ -4265,7 +4265,7 @@ define internal i32 @dissect_diameter_3gpp_ran_nas_release_cause(ptr noundef %0,
   br label %47
 
 47:                                               ; preds = %.thread61, %16, %19, %22, %25, %28, %43, %40, %37, %34, %31
-  %.058 = phi i32 [ %5, %43 ], [ 3, %40 ], [ 3, %37 ], [ 2, %34 ], [ 2, %31 ], [ 2, %28 ], [ 2, %25 ], [ 2, %22 ], [ 2, %19 ], [ 2, %16 ], [ 2, %.thread61 ]
+  %.058 = phi i32 [ %5, %43 ], [ 2, %31 ], [ 2, %34 ], [ 3, %37 ], [ 3, %40 ], [ 2, %28 ], [ 2, %25 ], [ 2, %22 ], [ 2, %19 ], [ 2, %16 ], [ 2, %.thread61 ]
   ret i32 %.058
 }
 

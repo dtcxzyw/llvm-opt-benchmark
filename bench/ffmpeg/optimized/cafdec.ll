@@ -692,7 +692,7 @@ read_pakt_chunk.exit:                             ; preds = %.loopexit.i
   br i1 %331, label %read_desc_chunk.exit.thread, label %read_kuki_chunk.exit
 
 read_kuki_chunk.exit:                             ; preds = %325, %.lr.ph.i125, %315, %read_pakt_chunk.exit, %244, %242, %147, %114, %116, %119, %332, %121
-  %.1 = phi i32 [ %.091214, %332 ], [ %.091214, %read_pakt_chunk.exit ], [ %.091214, %121 ], [ 1, %119 ], [ 1, %116 ], [ 1, %114 ], [ %.091214, %147 ], [ %.091214, %242 ], [ %.091214, %244 ], [ %.091214, %315 ], [ %.091214, %.lr.ph.i125 ], [ %.091214, %325 ]
+  %.1 = phi i32 [ %.091214, %332 ], [ %.091214, %121 ], [ %.091214, %read_pakt_chunk.exit ], [ 1, %119 ], [ 1, %116 ], [ 1, %114 ], [ %.091214, %147 ], [ %.091214, %242 ], [ %.091214, %244 ], [ %.091214, %315 ], [ %.091214, %.lr.ph.i125 ], [ %.091214, %325 ]
   %333 = icmp sgt i64 %102, 0
   br i1 %333, label %read_kuki_chunk.exit.thread136, label %342
 

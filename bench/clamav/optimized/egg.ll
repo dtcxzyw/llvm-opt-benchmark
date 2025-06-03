@@ -243,7 +243,7 @@ define noundef nonnull ptr @getEncryptName(i8 noundef zeroext %0) local_unnamed_
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.5, %6 ], [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.5, %6 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -303,7 +303,7 @@ define noundef nonnull ptr @getMagicHeaderName(i32 noundef %0) local_unnamed_add
   br label %13
 
 13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.17, %12 ], [ @.str.16, %11 ], [ @.str.15, %10 ], [ @.str.14, %9 ], [ @.str.13, %8 ], [ @.str.12, %7 ], [ @.str.11, %6 ], [ @.str.10, %5 ], [ @.str.9, %4 ], [ @.str.8, %3 ], [ @.str.7, %2 ], [ @.str.6, %1 ]
+  %.0 = phi ptr [ @.str.17, %12 ], [ @.str.7, %2 ], [ @.str.8, %3 ], [ @.str.9, %4 ], [ @.str.10, %5 ], [ @.str.11, %6 ], [ @.str.12, %7 ], [ @.str.13, %8 ], [ @.str.14, %9 ], [ @.str.15, %10 ], [ @.str.16, %11 ], [ @.str.6, %1 ]
   ret ptr %.0
 }
 
@@ -496,7 +496,7 @@ define range(i32 0, 28) i32 @cli_egg_open(ptr noundef %0, ptr noundef writeonly 
   br label %getMagicHeaderName.exit.i.i
 
 getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %71
-  %.0.i.i.i = phi ptr [ @.str.17, %83 ], [ @.str.16, %82 ], [ @.str.15, %81 ], [ @.str.14, %80 ], [ @.str.13, %79 ], [ @.str.12, %78 ], [ @.str.11, %77 ], [ @.str.10, %76 ], [ @.str.9, %75 ], [ @.str.8, %74 ], [ @.str.7, %73 ], [ @.str.6, %71 ]
+  %.0.i.i.i = phi ptr [ @.str.17, %83 ], [ @.str.7, %73 ], [ @.str.8, %74 ], [ @.str.9, %75 ], [ @.str.10, %76 ], [ @.str.11, %77 ], [ @.str.12, %78 ], [ @.str.13, %79 ], [ @.str.14, %80 ], [ @.str.15, %81 ], [ @.str.16, %82 ], [ @.str.6, %71 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.115, i32 noundef %72, ptr noundef nonnull %.0.i.i.i) #11
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %85 = load i8, ptr %84, align 1, !tbaa !30
@@ -675,12 +675,12 @@ getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, 
   br label %getMagicHeaderName.exit78.i.i
 
 getMagicHeaderName.exit78.i.i:                    ; preds = %151, %150, %149, %148, %147, %146, %145, %144, %105
-  %.0.i77.i.i = phi ptr [ @.str.17, %151 ], [ @.str.14, %150 ], [ @.str.13, %149 ], [ @.str.12, %148 ], [ @.str.11, %147 ], [ @.str.10, %146 ], [ @.str.8, %145 ], [ @.str.7, %144 ], [ @.str.6, %105 ]
+  %.0.i77.i.i = phi ptr [ @.str.17, %151 ], [ @.str.7, %144 ], [ @.str.8, %145 ], [ @.str.10, %146 ], [ @.str.11, %147 ], [ @.str.12, %148 ], [ @.str.13, %149 ], [ @.str.14, %150 ], [ @.str.6, %105 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %108, ptr noundef nonnull %.0.i77.i.i) #11
   br label %egg_parse_archive_extra_field.exit.i
 
 egg_parse_archive_extra_field.exit.i:             ; preds = %getMagicHeaderName.exit78.i.i, %141, %125, %117, %112
-  %.1.i.i = phi i32 [ %.056.i.i, %getMagicHeaderName.exit78.i.i ], [ %133, %141 ], [ %.056.i.i, %112 ], [ 8, %125 ], [ %.056.i.i, %117 ]
+  %.1.i.i = phi i32 [ %.056.i.i, %getMagicHeaderName.exit78.i.i ], [ %.056.i.i, %112 ], [ %133, %141 ], [ 8, %125 ], [ %.056.i.i, %117 ]
   %152 = zext i32 %.1.i.i to i64
   %153 = load i64, ptr %17, align 8, !tbaa !26
   %154 = add i64 %153, %152
@@ -740,7 +740,7 @@ egg_parse_archive_extra_field.exit.i:             ; preds = %getMagicHeaderName.
   br label %getMagicHeaderName.exit.i
 
 getMagicHeaderName.exit.i:                        ; preds = %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159
-  %.0.i.i = phi ptr [ @.str.17, %170 ], [ @.str.16, %169 ], [ @.str.15, %168 ], [ @.str.14, %167 ], [ @.str.13, %166 ], [ @.str.12, %165 ], [ @.str.11, %164 ], [ @.str.10, %163 ], [ @.str.9, %162 ], [ @.str.8, %161 ], [ @.str.7, %160 ], [ @.str.6, %159 ]
+  %.0.i.i = phi ptr [ @.str.17, %170 ], [ @.str.7, %160 ], [ @.str.8, %161 ], [ @.str.9, %162 ], [ @.str.10, %163 ], [ @.str.11, %164 ], [ @.str.12, %165 ], [ @.str.13, %166 ], [ @.str.14, %167 ], [ @.str.15, %168 ], [ @.str.16, %169 ], [ @.str.6, %159 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.111, i32 noundef %54, ptr noundef nonnull %.0.i.i) #11
   br label %egg_parse_archive_headers.exit
 
@@ -881,7 +881,7 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   br label %.thread68.i
 
 .thread68.i:                                      ; preds = %212, %.thread68.i.loopexit724, %.thread68.i.loopexit602, %.thread68.i.loopexit480, %.thread68.i.loopexit365, %.thread68.i.loopexit, %218, %217, %216, %215, %214
-  %.0.i.i178 = phi ptr [ @.str.17, %218 ], [ @.str.16, %217 ], [ @.str.15, %216 ], [ @.str.14, %215 ], [ @.str.13, %214 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit365 ], [ @.str.9, %.thread68.i.loopexit480 ], [ @.str.10, %.thread68.i.loopexit602 ], [ @.str.11, %.thread68.i.loopexit724 ], [ @.str.12, %212 ]
+  %.0.i.i178 = phi ptr [ @.str.17, %218 ], [ @.str.13, %214 ], [ @.str.14, %215 ], [ @.str.15, %216 ], [ @.str.16, %217 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit365 ], [ @.str.9, %.thread68.i.loopexit480 ], [ @.str.10, %.thread68.i.loopexit602 ], [ @.str.11, %.thread68.i.loopexit724 ], [ @.str.12, %212 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.145, i32 noundef %213, ptr noundef nonnull %.0.i.i178) #11
   br label %466
 
@@ -1019,7 +1019,7 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   br label %getMagicHeaderName.exit.i.i181
 
 getMagicHeaderName.exit.i.i181:                   ; preds = %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %264
-  %.0.i.i.i182 = phi ptr [ @.str.17, %276 ], [ @.str.16, %275 ], [ @.str.15, %274 ], [ @.str.14, %273 ], [ @.str.13, %272 ], [ @.str.12, %271 ], [ @.str.11, %270 ], [ @.str.10, %269 ], [ @.str.9, %268 ], [ @.str.8, %267 ], [ @.str.7, %266 ], [ @.str.6, %264 ]
+  %.0.i.i.i182 = phi ptr [ @.str.17, %276 ], [ @.str.7, %266 ], [ @.str.8, %267 ], [ @.str.9, %268 ], [ @.str.10, %269 ], [ @.str.11, %270 ], [ @.str.12, %271 ], [ @.str.13, %272 ], [ @.str.14, %273 ], [ @.str.15, %274 ], [ @.str.16, %275 ], [ @.str.6, %264 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.156, i32 noundef %265, ptr noundef nonnull %.0.i.i.i182) #11
   %277 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %278 = load i8, ptr %277, align 1, !tbaa !30
@@ -1456,7 +1456,7 @@ getMagicHeaderName.exit.i.i181:                   ; preds = %276, %275, %274, %2
   br label %egg_parse_file_extra_field.exit.i
 
 egg_parse_file_extra_field.exit.i:                ; preds = %454, %453, %452, %443, %421, %406, %393, %367
-  %.1131.i.i = phi i32 [ %.0130.i.i, %454 ], [ %.0130.i.i, %452 ], [ %.0130.i.i, %453 ], [ %.0130.i.i, %443 ], [ %.0130.i.i, %421 ], [ %398, %406 ], [ %.0130.i.i, %393 ], [ %.0130.i.i, %367 ]
+  %.1131.i.i = phi i32 [ %.0130.i.i, %454 ], [ %.0130.i.i, %367 ], [ %.0130.i.i, %393 ], [ %398, %406 ], [ %.0130.i.i, %421 ], [ %.0130.i.i, %443 ], [ %.0130.i.i, %452 ], [ %.0130.i.i, %453 ]
   %456 = zext i32 %.1131.i.i to i64
   %457 = load i64, ptr %17, align 8, !tbaa !26
   %458 = add i64 %457, %456
@@ -1769,7 +1769,7 @@ egg_parse_file_headers.exit:                      ; preds = %466, %211, %207, %.
   br label %getMagicHeaderName.exit
 
 getMagicHeaderName.exit:                          ; preds = %579, %581, %582, %583, %584, %585, %586, %587, %588, %589, %590, %591
-  %.0.i = phi ptr [ @.str.17, %591 ], [ @.str.16, %590 ], [ @.str.15, %589 ], [ @.str.14, %588 ], [ @.str.13, %587 ], [ @.str.12, %586 ], [ @.str.11, %585 ], [ @.str.10, %584 ], [ @.str.9, %583 ], [ @.str.8, %582 ], [ @.str.7, %581 ], [ @.str.6, %579 ]
+  %.0.i = phi ptr [ @.str.17, %591 ], [ @.str.7, %581 ], [ @.str.8, %582 ], [ @.str.9, %583 ], [ @.str.10, %584 ], [ @.str.11, %585 ], [ @.str.12, %586 ], [ @.str.13, %587 ], [ @.str.14, %588 ], [ @.str.15, %589 ], [ @.str.16, %590 ], [ @.str.6, %579 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, i32 noundef %580, ptr noundef nonnull %.0.i) #11
   %592 = getelementptr inbounds nuw i8, ptr %577, i64 4
   %593 = load i8, ptr %592, align 1, !tbaa !30
@@ -3261,9 +3261,9 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.92, ptr noundef %131) #11
   br label %.thread179
 
-.thread179:                                       ; preds = %77, %103, %121, %130
-  %.3115186 = phi i64 [ %.1113252, %130 ], [ %89, %77 ], [ %107, %103 ], [ %125, %121 ]
-  %.4122185 = phi ptr [ %.2120251, %130 ], [ %76, %77 ], [ %101, %103 ], [ %119, %121 ]
+.thread179:                                       ; preds = %121, %103, %77, %130
+  %.3115186 = phi i64 [ %.1113252, %130 ], [ %125, %121 ], [ %107, %103 ], [ %89, %77 ]
+  %.4122185 = phi ptr [ %.2120251, %130 ], [ %119, %121 ], [ %101, %103 ], [ %76, %77 ]
   %132 = load i64, ptr %47, align 8, !tbaa !80
   %133 = add i64 %132, -1
   %134 = icmp eq i64 %.0111253, %133
@@ -3311,8 +3311,8 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
   store i64 %150, ptr %148, align 8, !tbaa !83
   br label %155
 
-.thread204:                                       ; preds = %128, %127, %126, %.thread, %.thread159, %.thread171
-  %.0100212 = phi i32 [ 27, %128 ], [ 27, %127 ], [ 27, %126 ], [ 20, %.thread ], [ %.5.ph, %.thread159 ], [ %.7.ph, %.thread171 ]
+.thread204:                                       ; preds = %128, %126, %127, %.thread, %.thread159, %.thread171
+  %.0100212 = phi i32 [ 27, %128 ], [ 27, %126 ], [ 27, %127 ], [ 20, %.thread ], [ %.5.ph, %.thread159 ], [ %.7.ph, %.thread171 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %152 = load i64, ptr %151, align 8, !tbaa !83
   %153 = add i64 %152, 1
@@ -3447,7 +3447,7 @@ define internal fastcc range(i32 0, 28) i32 @egg_parse_encrypt_header(ptr nounde
   br label %getEncryptName.exit
 
 getEncryptName.exit:                              ; preds = %9, %12, %13, %14, %15, %16
-  %.0.i = phi ptr [ @.str.5, %16 ], [ @.str.4, %15 ], [ @.str.3, %14 ], [ @.str.2, %13 ], [ @.str.1, %12 ], [ @.str, %9 ]
+  %.0.i = phi ptr [ @.str.5, %16 ], [ @.str.1, %12 ], [ @.str.2, %13 ], [ @.str.3, %14 ], [ @.str.4, %15 ], [ @.str, %9 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.135, i32 noundef %11, ptr noundef nonnull %.0.i) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = add nsw i64 %1, -1
@@ -3511,7 +3511,7 @@ getEncryptName.exit:                              ; preds = %9, %12, %13, %14, %
   store ptr %6, ptr %2, align 8, !tbaa !3
   br label %40
 
-39:                                               ; preds = %21, %36, %33, %28
+39:                                               ; preds = %21, %36, %28, %33
   tail call void @free(ptr noundef nonnull %6) #11
   br label %40
 

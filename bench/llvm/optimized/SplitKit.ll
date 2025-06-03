@@ -1220,7 +1220,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit: ; preds 
   br label %354
 
 354:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit62.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %353, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit62.thread.i.i.i.i.i" ]
+  %.1.i.i.i.i.i = phi ptr [ %353, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit62.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !165
   %.val43.val.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !107
   %355 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 24
@@ -1267,7 +1267,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit: ; preds 
   br label %383
 
 383:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit66.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %382, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit66.thread.i.i.i.i.i" ]
+  %.2.i.i.i.i.i = phi ptr [ %382, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS2_12LiveIntervalERKNS2_17MachineBasicBlockEE3$_0EclIPPS8_EEbT_.exit66.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !165
   %.val45.val.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !107
   %384 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 24
@@ -2186,7 +2186,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %87, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %88, %87 ], [ %119, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %119, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %88, %87 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2582,7 +2582,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i82: ; preds = %_
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit84
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit84: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i82, %327, %322
-  %.sroa.088.1.in = phi ptr [ %323, %322 ], [ %328, %327 ], [ %353, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i82 ]
+  %.sroa.088.1.in = phi ptr [ %323, %322 ], [ %353, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i82 ], [ %328, %327 ]
   %.sroa.088.1 = load ptr, ptr %.sroa.088.1.in, align 8, !tbaa !373
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
   br label %130
@@ -2705,8 +2705,8 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %15, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %47 = phi ptr [ %.pre, %15 ], [ %19, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
-  %.1.in.i.i = phi ptr [ %16, %15 ], [ %46, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %47 = phi ptr [ %19, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %.pre, %15 ]
+  %.1.in.i.i = phi ptr [ %46, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %16, %15 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %48 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !56
@@ -6050,7 +6050,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit.thread: ; preds = %14, %3, 
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %93, %92 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %93, %92 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i, align 8
   %95 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i.i.i = load i32, ptr %95, align 4
@@ -6068,7 +6068,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit.thread: ; preds = %14, %3, 
   br label %103
 
 103:                                              ; preds = %101, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %102, %101 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %102, %101 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i, align 8
   %104 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i.i.i = load i32, ptr %104, align 4
@@ -7748,7 +7748,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %236, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %237, %236 ], [ %267, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %267, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %237, %236 ]
   %.1.i.i60 = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %268 = load ptr, ptr %.sroa.0193.0248, align 8, !tbaa !373
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
@@ -7813,7 +7813,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i76: ; preds = %_
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit78
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit78: ; preds = %274, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i76
-  %.1.in.i.i64 = phi ptr [ %275, %274 ], [ %305, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i76 ]
+  %.1.in.i.i64 = phi ptr [ %305, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i76 ], [ %275, %274 ]
   %.1.i.i65 = load ptr, ptr %.1.in.i.i64, align 8, !tbaa !165
   %306 = icmp eq ptr %.1.i.i60, %.1.i.i65
   br i1 %306, label %307, label %335
@@ -8457,7 +8457,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %152, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %153, %152 ], [ %184, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %184, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %153, %152 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %185 = load i32, ptr %131, align 8, !tbaa !485
   %186 = zext i32 %185 to i64
@@ -8784,7 +8784,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i128: ; preds = %
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit130
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit130: ; preds = %335, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i128
-  %.1.in.i.i116 = phi ptr [ %336, %335 ], [ %367, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i128 ]
+  %.1.in.i.i116 = phi ptr [ %367, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i128 ], [ %336, %335 ]
   %.1.i.i117 = load ptr, ptr %.1.in.i.i116, align 8, !tbaa !165
   %368 = call noundef ptr @_ZN4llvm11SplitEditor20findShallowDominatorEPNS_17MachineBasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr noundef nonnull %322, ptr noundef %.1.i.i117)
   store ptr %368, ptr %321, align 8, !tbaa !614
@@ -9656,8 +9656,8 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %280, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %312 = phi ptr [ %.pre160, %280 ], [ %284, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
-  %.1.in.i.i = phi ptr [ %281, %280 ], [ %311, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %312 = phi ptr [ %284, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %.pre160, %280 ]
+  %.1.in.i.i = phi ptr [ %311, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %281, %280 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %313 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %314 = load i32, ptr %313, align 8, !tbaa !56
@@ -10355,7 +10355,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %100, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %101, %100 ], [ %132, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %132, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %101, %100 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !165
   %133 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %.0.i, i64 %.sroa.030.0.copyload) #20
   %134 = load ptr, ptr %.0.i, align 8, !tbaa !25
@@ -11002,8 +11002,8 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112: ; preds = %
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit114
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit114: ; preds = %448, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112
-  %480 = phi ptr [ %.pre, %448 ], [ %452, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112 ]
-  %.1.in.i.i100 = phi ptr [ %449, %448 ], [ %479, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112 ]
+  %480 = phi ptr [ %452, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112 ], [ %.pre, %448 ]
+  %.1.in.i.i100 = phi ptr [ %479, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i112 ], [ %449, %448 ]
   %.1.i.i101 = load ptr, ptr %.1.in.i.i100, align 8, !tbaa !165
   %481 = load ptr, ptr %39, align 8, !tbaa !420
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
@@ -12998,7 +12998,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %301, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %302, %301 ], [ %324, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %324, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %302, %301 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !165
   %325 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
   %326 = load ptr, ptr %325, align 8, !tbaa !25

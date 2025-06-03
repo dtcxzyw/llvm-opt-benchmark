@@ -544,7 +544,7 @@ define void @UCNV_FROM_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(addres
   br i1 %exitcond192.not, label %.loopexit, label %.lr.ph177, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph177, %.lr.ph181, %.preheader171, %.preheader169, %.preheader, %88, %101, %114, %119, %76, %73
-  %.1157 = phi i32 [ %123, %119 ], [ %116, %114 ], [ %103, %101 ], [ %90, %88 ], [ %75, %73 ], [ %80, %76 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ %50, %.lr.ph181 ], [ %139, %.lr.ph177 ], [ %68, %.lr.ph ]
+  %.1157 = phi i32 [ %75, %73 ], [ %80, %76 ], [ %90, %88 ], [ %103, %101 ], [ %116, %114 ], [ %123, %119 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ %50, %.lr.ph181 ], [ %139, %.lr.ph177 ], [ %68, %.lr.ph ]
   store ptr %8, ptr %9, align 8, !tbaa !23
   store i32 0, ptr %6, align 4, !tbaa !3
   %140 = sext i32 %.1157 to i64

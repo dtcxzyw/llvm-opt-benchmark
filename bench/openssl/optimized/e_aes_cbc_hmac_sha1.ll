@@ -1825,7 +1825,7 @@ tls1_1_multi_block_encrypt.exit:                  ; preds = %240, %._crit_edge34
   br label %510
 
 510:                                              ; preds = %4, %230, %169, %183, %195, %202, %171, %sha1_update.exit153, %162, %115, %139, %tls1_1_multi_block_encrypt.exit, %165, %sha1_update.exit144
-  %.0 = phi i32 [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %168, %165 ], [ 1, %sha1_update.exit144 ], [ %161, %sha1_update.exit153 ], [ 20, %162 ], [ -1, %115 ], [ 0, %139 ], [ %238, %230 ], [ -1, %169 ], [ -1, %183 ], [ 0, %195 ], [ -1, %202 ], [ -1, %171 ], [ -1, %4 ]
+  %.0 = phi i32 [ 1, %sha1_update.exit144 ], [ %168, %165 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %161, %sha1_update.exit153 ], [ 20, %162 ], [ -1, %115 ], [ 0, %139 ], [ %238, %230 ], [ -1, %169 ], [ -1, %183 ], [ 0, %195 ], [ -1, %202 ], [ -1, %171 ], [ -1, %4 ]
   ret i32 %.0
 }
 

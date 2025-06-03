@@ -2988,7 +2988,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr noundef
   br label %23
 
 23:                                               ; preds = %11, %17, %14, %7, %20
-  %.017 = phi ptr [ null, %7 ], [ %12, %11 ], [ %12, %14 ], [ %12, %17 ], [ null, %20 ]
+  %.017 = phi ptr [ null, %7 ], [ %12, %14 ], [ %12, %17 ], [ %12, %11 ], [ null, %20 ]
   call void @slurmdb_destroy_federation_rec(ptr noundef %.017) #6
   store ptr null, ptr %0, align 8
   br label %24
@@ -16713,7 +16713,7 @@ define dso_local void @slurmdb_pack_update_object(ptr noundef readonly captures(
   br label %28
 
 18:                                               ; preds = %3, %3, %3, %3, %3, %14, %13, %12, %11, %9, %8, %7, %6
-  %.0 = phi ptr [ @slurmdb_pack_federation_rec, %14 ], [ @slurmdb_pack_stats_msg, %13 ], [ @slurmdb_pack_tres_rec, %12 ], [ @slurmdb_pack_res_rec, %11 ], [ @slurmdb_pack_wckey_rec, %9 ], [ @slurmdb_pack_qos_rec_with_usage, %8 ], [ @slurmdb_pack_qos_rec, %7 ], [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ]
+  %.0 = phi ptr [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_qos_rec, %7 ], [ @slurmdb_pack_qos_rec_with_usage, %8 ], [ @slurmdb_pack_wckey_rec, %9 ], [ @slurmdb_pack_res_rec, %11 ], [ @slurmdb_pack_tres_rec, %12 ], [ @slurmdb_pack_stats_msg, %13 ], [ @slurmdb_pack_federation_rec, %14 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ]
   tail call void @pack16(i16 noundef zeroext %5, ptr noundef %2) #6
   %19 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %19, null
@@ -16821,8 +16821,8 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr noundef 
   br label %22
 
 20:                                               ; preds = %7, %7, %7, %7, %7, %16, %15, %14, %13, %12, %11, %10, %9
-  %.013 = phi ptr [ @slurmdb_unpack_federation_rec, %16 ], [ @slurmdb_unpack_stats_msg, %15 ], [ @slurmdb_unpack_tres_rec, %14 ], [ @slurmdb_unpack_res_rec, %13 ], [ @slurmdb_unpack_wckey_rec, %12 ], [ @slurmdb_unpack_qos_rec_with_usage, %11 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_assoc_rec, %9 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ]
-  %.0 = phi ptr [ @slurmdb_destroy_federation_rec, %16 ], [ @slurmdb_destroy_stats_rec, %15 ], [ @slurmdb_destroy_tres_rec, %14 ], [ @slurmdb_destroy_res_rec, %13 ], [ @slurmdb_destroy_wckey_rec, %12 ], [ @slurmdb_destroy_qos_rec, %11 ], [ @slurmdb_destroy_qos_rec, %10 ], [ @slurmdb_destroy_assoc_rec, %9 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ]
+  %.013 = phi ptr [ @slurmdb_unpack_assoc_rec, %9 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_qos_rec_with_usage, %11 ], [ @slurmdb_unpack_wckey_rec, %12 ], [ @slurmdb_unpack_res_rec, %13 ], [ @slurmdb_unpack_tres_rec, %14 ], [ @slurmdb_unpack_stats_msg, %15 ], [ @slurmdb_unpack_federation_rec, %16 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ]
+  %.0 = phi ptr [ @slurmdb_destroy_assoc_rec, %9 ], [ @slurmdb_destroy_qos_rec, %10 ], [ @slurmdb_destroy_qos_rec, %11 ], [ @slurmdb_destroy_wckey_rec, %12 ], [ @slurmdb_destroy_res_rec, %13 ], [ @slurmdb_destroy_tres_rec, %14 ], [ @slurmdb_destroy_stats_rec, %15 ], [ @slurmdb_destroy_federation_rec, %16 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ]
   %21 = tail call i32 @slurm_unpack_list(ptr noundef nonnull %4, ptr noundef nonnull %.013, ptr noundef nonnull %.0, ptr noundef %2, i16 noundef zeroext %1) #6
   %.not15 = icmp eq i32 %21, 0
   br i1 %.not15, label %23, label %22

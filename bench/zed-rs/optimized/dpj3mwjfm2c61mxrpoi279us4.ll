@@ -1974,7 +1974,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.body.i
 
 .body.i:                                          ; preds = %150, %145, %60
-  %eh.lpad-body.i = phi { ptr, i32 } [ %61, %60 ], [ %151, %150 ], [ %146, %145 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %61, %60 ], [ %146, %145 ], [ %151, %150 ]
   invoke void @"_ZN4core3ptr121drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$async_broadcast..Inner$LT$live_kit_client..RoomUpdate$GT$$GT$$GT$17h58d5043cebbd822eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #57
           to label %common.resume unwind label %165, !noalias !352
 
@@ -3457,7 +3457,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$live_kit_client..Ro
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteTrackPublication$GT$$GT$17habc1cda6de8c6b4aE.exit": ; preds = %54, %60, %82, %68
-  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %69, %68 ], [ %55, %60 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %83, %82 ], [ %55, %60 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn
 
 68:                                               ; preds = %31
@@ -3863,7 +3863,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h8afc63e77c2815dfE.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -3923,7 +3923,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hd0e5785d92e302abE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -4000,7 +4000,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -8676,7 +8676,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %85
 
 85:                                               ; preds = %86, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit"
-  %.sroa.0.0 = phi ptr [ null, %86 ], [ %75, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ]
+  %.sroa.0.0 = phi ptr [ %75, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ], [ null, %86 ]
   ret ptr %.sroa.0.0
 
 86:                                               ; preds = %60, %64
@@ -9073,8 +9073,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %69
 
 69:                                               ; preds = %64, %72
-  %.sroa.3.0 = phi ptr [ undef, %72 ], [ %68, %64 ]
-  %.sroa.0.0 = phi ptr [ null, %72 ], [ %66, %64 ]
+  %.sroa.3.0 = phi ptr [ %68, %64 ], [ undef, %72 ]
+  %.sroa.0.0 = phi ptr [ %66, %64 ], [ null, %72 ]
   %70 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %71 = insertvalue { ptr, ptr } %70, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %71
@@ -9758,8 +9758,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %69
 
 69:                                               ; preds = %64, %72
-  %.sroa.3.0 = phi ptr [ undef, %72 ], [ %68, %64 ]
-  %.sroa.0.0 = phi ptr [ null, %72 ], [ %66, %64 ]
+  %.sroa.3.0 = phi ptr [ %68, %64 ], [ undef, %72 ]
+  %.sroa.0.0 = phi ptr [ %66, %64 ], [ null, %72 ]
   %70 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %71 = insertvalue { ptr, ptr } %70, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %71
@@ -10437,7 +10437,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %85
 
 85:                                               ; preds = %86, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit"
-  %.sroa.0.0 = phi ptr [ null, %86 ], [ %75, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ]
+  %.sroa.0.0 = phi ptr [ %75, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ], [ null, %86 ]
   ret ptr %.sroa.0.0
 
 86:                                               ; preds = %60, %64
@@ -10902,7 +10902,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %106
 
 106:                                              ; preds = %107, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit"
-  %.sroa.0.0 = phi i1 [ false, %107 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit" ], [ false, %107 ]
   ret i1 %.sroa.0.0
 
 107:                                              ; preds = %85, %89
@@ -11106,8 +11106,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %79
 
 79:                                               ; preds = %57, %61
-  %.sroa.3.0 = phi i32 [ undef, %61 ], [ %60, %57 ]
-  %.sroa.0.0 = phi i32 [ 0, %61 ], [ 1, %57 ]
+  %.sroa.3.0 = phi i32 [ %60, %57 ], [ undef, %61 ]
+  %.sroa.0.0 = phi i32 [ 1, %57 ], [ 0, %61 ]
   %80 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %81 = insertvalue { i32, i32 } %80, i32 %.sroa.3.0, 1
   ret { i32, i32 } %81

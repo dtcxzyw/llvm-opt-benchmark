@@ -180,7 +180,7 @@ define internal i64 @pkey_new0(i64 noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4
-  %.0.in = phi ptr [ @cPKey, %7 ], [ @cEC, %6 ], [ @cDH, %5 ], [ @cDSA, %4 ], [ @cRSA, %1 ]
+  %.0.in = phi ptr [ @cPKey, %7 ], [ @cDSA, %4 ], [ @cDH, %5 ], [ @cEC, %6 ], [ @cRSA, %1 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !10
   %9 = tail call i64 @rb_obj_alloc(i64 noundef %.0) #8
   %10 = inttoptr i64 %9 to ptr

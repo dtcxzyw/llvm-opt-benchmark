@@ -400,9 +400,9 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 392, ptr noundef nonnull @__func__.ClassifyUtilityCommandAsReadOnly) #11
   unreachable
 
-select.unfold:                                    ; preds = %23, %27, %31, %31, %31, %22, %21, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
-  %42 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ true, %22 ], [ true, %31 ], [ true, %31 ], [ true, %31 ], [ true, %27 ], [ true, %23 ]
-  %43 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ false, %22 ], [ false, %31 ], [ false, %31 ], [ false, %31 ], [ false, %27 ], [ false, %23 ]
+select.unfold:                                    ; preds = %27, %23, %31, %31, %31, %21, %22, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
+  %42 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %22 ], [ false, %21 ], [ true, %31 ], [ true, %31 ], [ true, %31 ], [ true, %23 ], [ true, %27 ]
+  %43 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %22 ], [ false, %21 ], [ false, %31 ], [ false, %31 ], [ false, %31 ], [ false, %23 ], [ false, %27 ]
   %44 = load i8, ptr @XactReadOnly, align 1, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %48, label %46
@@ -458,7 +458,7 @@ PreventCommandIfParallelMode.exit:                ; preds = %PreventCommandIfRea
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__func__.PreventCommandDuringRecovery) #11
   unreachable
 
-ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %64, %31, %31, %31, %31, %31, %31, %31, %27, %23, %PreventCommandIfParallelMode.exit, %46
+ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %64, %31, %31, %31, %31, %31, %31, %31, %23, %27, %PreventCommandIfParallelMode.exit, %46
   %71 = tail call ptr @make_parsestate(ptr noundef null) #11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %1, ptr %72, align 8
@@ -1745,7 +1745,7 @@ switch.lookup530.loopexit:                        ; preds = %tailrecurse, %tailr
   br label %switch.lookup530
 
 switch.lookup530:                                 ; preds = %204, %186, %tailrecurse, %switch.lookup530.loopexit, %143, %210, %switch.lookup534, %192, %switch.lookup531, %138, %switch.lookup527, %34, %switch.lookup524, %4, %switch.lookup, %.loopexit414, %.loopexit294, %.loopexit179, %.loopexit, %222, %224, %207, %218, %216, %189, %200, %198, %128, %131, %123, %105, %90, %73, %135, %93, %94, %95, %96, %97, %98, %99, %100, %101, %76, %77, %78, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %142, %137, %136, %127, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %104, %103, %102, %89, %84, %79, %72, %68, %64, %60, %56, %52, %49, %41, %40, %39, %38, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %8
-  %.0 = phi i32 [ %.51, %182 ], [ 31, %181 ], [ 86, %180 ], [ 152, %179 ], [ 166, %178 ], [ 4, %177 ], [ 140, %176 ], [ 32, %175 ], [ 87, %174 ], [ 24, %173 ], [ 79, %172 ], [ 58, %171 ], [ 22, %170 ], [ 77, %169 ], [ 36, %168 ], [ 37, %167 ], [ 19, %166 ], [ 21, %165 ], [ 76, %164 ], [ 75, %163 ], [ 60, %162 ], [ 63, %161 ], [ 170, %160 ], [ 48, %159 ], [ 186, %158 ], [ 161, %157 ], [ 168, %156 ], [ 129, %155 ], [ 133, %154 ], [ 25, %153 ], [ 80, %152 ], [ 72, %151 ], [ 10, %150 ], [ 66, %149 ], [ 96, %148 ], [ 95, %147 ], [ 187, %142 ], [ 33, %137 ], [ 169, %136 ], [ 0, %135 ], [ 153, %127 ], [ 52, %122 ], [ 47, %121 ], [ 160, %120 ], [ 190, %119 ], [ 159, %118 ], [ 165, %117 ], [ 116, %116 ], [ 7, %115 ], [ 64, %114 ], [ 109, %113 ], [ 29, %112 ], [ 84, %111 ], [ 82, %110 ], [ 71, %109 ], [ 99, %104 ], [ 42, %103 ], [ 97, %102 ], [ 0, %101 ], [ 58, %100 ], [ 61, %99 ], [ 91, %98 ], [ 94, %97 ], [ 92, %96 ], [ 93, %95 ], [ 97, %94 ], [ 74, %93 ], [ 8, %89 ], [ %88, %84 ], [ %83, %79 ], [ 0, %78 ], [ 26, %77 ], [ 23, %76 ], [ 9, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %49 ], [ 56, %41 ], [ 178, %40 ], [ 53, %39 ], [ 189, %38 ], [ 157, %33 ], [ 69, %32 ], [ 150, %31 ], [ 43, %30 ], [ 98, %29 ], [ 30, %28 ], [ 85, %27 ], [ 12, %26 ], [ 68, %25 ], [ 11, %24 ], [ 67, %23 ], [ 35, %22 ], [ 142, %21 ], [ 90, %20 ], [ 88, %19 ], [ 83, %18 ], [ 65, %17 ], [ %16, %12 ], [ %., %8 ], [ 14, %73 ], [ 59, %90 ], [ %.48, %105 ], [ %.49, %123 ], [ %.50, %131 ], [ 73, %128 ], [ 179, %189 ], [ 0, %200 ], [ 0, %198 ], [ 179, %207 ], [ 0, %218 ], [ 0, %216 ], [ 0, %224 ], [ 0, %222 ], [ %.0.ph180, %.loopexit179 ], [ %.0.ph295, %.loopexit294 ], [ 163, %.loopexit414 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load526, %switch.lookup524 ], [ 0, %34 ], [ %switch.load529, %switch.lookup527 ], [ 0, %138 ], [ %switch.load533, %switch.lookup531 ], [ 179, %192 ], [ %switch.load537, %switch.lookup534 ], [ 0, %210 ], [ %spec.select, %143 ], [ 179, %switch.lookup530.loopexit ], [ 102, %tailrecurse ], [ 191, %204 ], [ 191, %186 ], [ 158, %.loopexit ]
+  %.0 = phi i32 [ %., %8 ], [ %16, %12 ], [ 65, %17 ], [ 83, %18 ], [ 88, %19 ], [ 90, %20 ], [ 142, %21 ], [ 35, %22 ], [ 67, %23 ], [ 11, %24 ], [ 68, %25 ], [ 12, %26 ], [ 85, %27 ], [ 30, %28 ], [ 98, %29 ], [ 43, %30 ], [ 150, %31 ], [ 69, %32 ], [ 157, %33 ], [ 189, %38 ], [ 53, %39 ], [ 178, %40 ], [ 56, %41 ], [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ 9, %72 ], [ 0, %78 ], [ 23, %76 ], [ 26, %77 ], [ %83, %79 ], [ %88, %84 ], [ 8, %89 ], [ 0, %101 ], [ 74, %93 ], [ 97, %94 ], [ 93, %95 ], [ 92, %96 ], [ 94, %97 ], [ 91, %98 ], [ 61, %99 ], [ 58, %100 ], [ 97, %102 ], [ 42, %103 ], [ 99, %104 ], [ 71, %109 ], [ 82, %110 ], [ 84, %111 ], [ 29, %112 ], [ 109, %113 ], [ 64, %114 ], [ 7, %115 ], [ 116, %116 ], [ 165, %117 ], [ 159, %118 ], [ 190, %119 ], [ 160, %120 ], [ 47, %121 ], [ 52, %122 ], [ 153, %127 ], [ 0, %135 ], [ 169, %136 ], [ 33, %137 ], [ 187, %142 ], [ 95, %147 ], [ 96, %148 ], [ 66, %149 ], [ 10, %150 ], [ 72, %151 ], [ 80, %152 ], [ 25, %153 ], [ 133, %154 ], [ 129, %155 ], [ 168, %156 ], [ 161, %157 ], [ 186, %158 ], [ 48, %159 ], [ 170, %160 ], [ 63, %161 ], [ 60, %162 ], [ 75, %163 ], [ 76, %164 ], [ 21, %165 ], [ 19, %166 ], [ 37, %167 ], [ 36, %168 ], [ 77, %169 ], [ 22, %170 ], [ 58, %171 ], [ 79, %172 ], [ 24, %173 ], [ 87, %174 ], [ 32, %175 ], [ 140, %176 ], [ 4, %177 ], [ 166, %178 ], [ 152, %179 ], [ 86, %180 ], [ 31, %181 ], [ %.51, %182 ], [ 14, %73 ], [ 59, %90 ], [ %.48, %105 ], [ %.49, %123 ], [ %.50, %131 ], [ 73, %128 ], [ 179, %189 ], [ 0, %200 ], [ 0, %198 ], [ 179, %207 ], [ 0, %218 ], [ 0, %216 ], [ 0, %224 ], [ 0, %222 ], [ %.0.ph180, %.loopexit179 ], [ %.0.ph295, %.loopexit294 ], [ 163, %.loopexit414 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load526, %switch.lookup524 ], [ 0, %34 ], [ %switch.load529, %switch.lookup527 ], [ 0, %138 ], [ %switch.load533, %switch.lookup531 ], [ 179, %192 ], [ %switch.load537, %switch.lookup534 ], [ 0, %210 ], [ %spec.select, %143 ], [ 179, %switch.lookup530.loopexit ], [ 102, %tailrecurse ], [ 191, %204 ], [ 191, %186 ], [ 158, %.loopexit ]
   ret i32 %.0
 }
 
@@ -2013,22 +2013,22 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
 
 33:                                               ; preds = %25, %25
   %34 = call ptr @transformCreateStmt(ptr noundef nonnull %14, ptr noundef %2) #11
-  %.not72434 = icmp eq ptr %34, null
-  br i1 %.not72434, label %.loopexit, label %.lr.ph38
+  %.not72435 = icmp eq ptr %34, null
+  br i1 %.not72435, label %.loopexit, label %.lr.ph39
 
-.lr.ph38:                                         ; preds = %33
+.lr.ph39:                                         ; preds = %33
   %.sroa.2505.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 148
   br label %37
 
-37:                                               ; preds = %70, %.lr.ph38
-  %.070336 = phi ptr [ %34, %.lr.ph38 ], [ %.1, %70 ]
-  %.070435 = phi ptr [ null, %.lr.ph38 ], [ %.1705, %70 ]
-  %38 = getelementptr i8, ptr %.070336, i64 16
+37:                                               ; preds = %70, %.lr.ph39
+  %.070337 = phi ptr [ %34, %.lr.ph39 ], [ %.1, %70 ]
+  %.070436 = phi ptr [ null, %.lr.ph39 ], [ %.1705, %70 ]
+  %38 = getelementptr i8, ptr %.070337, i64 16
   %.0703.val = load ptr, ptr %38, align 8
   %39 = load ptr, ptr %.0703.val, align 8
-  %40 = call ptr @list_delete_first(ptr noundef nonnull %.070336) #11
+  %40 = call ptr @list_delete_first(ptr noundef nonnull %.070337) #11
   %41 = load i32, ptr %39, align 4
   switch i32 %41, label %57 [
     i32 159, label %42
@@ -2073,7 +2073,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   br label %ProcessUtility.exit
 
 54:                                               ; preds = %37
-  %55 = call ptr @expandTableLikeClause(ptr noundef %.070435, ptr noundef nonnull %39) #11
+  %55 = call ptr @expandTableLikeClause(ptr noundef %.070436, ptr noundef nonnull %39) #11
   %56 = call ptr @list_concat(ptr noundef %55, ptr noundef %40) #11
   br label %ProcessUtility.exit
 
@@ -2106,7 +2106,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   br label %ProcessUtility.exit
 
 ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, %42
-  %.1705 = phi ptr [ %44, %42 ], [ %52, %50 ], [ %.070435, %54 ], [ %.070435, %68 ], [ %.070435, %69 ]
+  %.1705 = phi ptr [ %44, %42 ], [ %52, %50 ], [ %.070436, %54 ], [ %.070436, %68 ], [ %.070436, %69 ]
   %.1 = phi ptr [ %40, %42 ], [ %40, %50 ], [ %56, %54 ], [ %40, %68 ], [ %40, %69 ]
   %cond = icmp eq ptr %.1, null
   br i1 %cond, label %.loopexit, label %70
@@ -2120,37 +2120,37 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.not721 = icmp eq ptr %73, null
-  br i1 %.not721, label %._crit_edge, label %.lr.ph30
+  br i1 %.not721, label %._crit_edge, label %.lr.ph31
 
-.lr.ph30:                                         ; preds = %71
+.lr.ph31:                                         ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i32, ptr %74, align 4
   %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph33, label %._crit_edge
+  br i1 %77, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %95
-  %.pre46 = load ptr, ptr %72, align 8
+  %.pre47 = load ptr, ptr %72, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph30, %71
-  %78 = phi ptr [ %.pre46, %._crit_edge.loopexit ], [ %73, %.lr.ph30 ], [ null, %71 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph31, %71
+  %78 = phi ptr [ %.pre47, %._crit_edge.loopexit ], [ %73, %.lr.ph31 ], [ null, %71 ]
   %79 = call i32 @AlterTableGetLockLevel(ptr noundef %78) #11
   %80 = call i32 @AlterTableLookupRelation(ptr noundef nonnull %14, i32 noundef %79) #11
   %.not723 = icmp eq i32 %80, 0
   br i1 %.not723, label %104, label %99
 
-.lr.ph33:                                         ; preds = %.lr.ph30, %95
-  %81 = phi i32 [ %96, %95 ], [ %76, %.lr.ph30 ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %95 ], [ 0, %.lr.ph30 ]
+.lr.ph34:                                         ; preds = %.lr.ph31, %95
+  %81 = phi i32 [ %96, %95 ], [ %76, %.lr.ph31 ]
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %95 ], [ 0, %.lr.ph31 ]
   %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv42
+  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv43
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 60
   br i1 %87, label %88, label %95
 
-88:                                               ; preds = %.lr.ph33
+88:                                               ; preds = %.lr.ph34
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
@@ -2160,15 +2160,15 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
 
 94:                                               ; preds = %88
   call void @PreventInTransactionBlock(i1 noundef zeroext %15, ptr noundef nonnull @.str.36) #11
-  %.pre45 = load i32, ptr %74, align 4
+  %.pre46 = load i32, ptr %74, align 4
   br label %95
 
-95:                                               ; preds = %88, %94, %.lr.ph33
-  %96 = phi i32 [ %81, %88 ], [ %.pre45, %94 ], [ %81, %.lr.ph33 ]
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+95:                                               ; preds = %88, %94, %.lr.ph34
+  %96 = phi i32 [ %81, %88 ], [ %.pre46, %94 ], [ %81, %.lr.ph34 ]
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next43, %97
-  br i1 %98, label %.lr.ph33, label %._crit_edge.loopexit
+  %98 = icmp slt i64 %indvars.iv.next44, %97
+  br i1 %98, label %.lr.ph34, label %._crit_edge.loopexit
 
 99:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #11
@@ -2377,8 +2377,8 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
 227:                                              ; preds = %223
   call void @PreventInTransactionBlock(i1 noundef zeroext %15, ptr noundef nonnull @.str.40) #11
   %.pre = load i8, ptr %224, align 8, !range !4
-  %.pre47 = trunc nuw i8 %.pre to i1
-  %228 = select i1 %.pre47, i32 4, i32 5
+  %.pre48 = trunc nuw i8 %.pre to i1
+  %228 = select i1 %.pre48, i32 4, i32 5
   br label %229
 
 229:                                              ; preds = %227, %223
@@ -2409,7 +2409,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %245 = getelementptr inbounds nuw i8, ptr %14, i64 106
   %246 = load i32, ptr %242, align 4
   %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %.lr.ph28, label %.split
+  br i1 %247, label %.lr.ph29, label %.split
 
 .split:                                           ; preds = %277, %.lr.ph
   %248 = phi i32 [ %246, %.lr.ph ], [ %278, %277 ]
@@ -2421,20 +2421,20 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @list_free(ptr noundef %241) #11
   br label %281
 
-.lr.ph28:                                         ; preds = %.lr.ph, %277
+.lr.ph29:                                         ; preds = %.lr.ph, %277
   %indvars.iv = phi i64 [ %indvars.iv.next, %277 ], [ 0, %.lr.ph ]
   %251 = load ptr, ptr %243, align 8
   %252 = getelementptr inbounds nuw %union.ListCell, ptr %251, i64 %indvars.iv
   %253 = load i32, ptr %252, align 8
   %254 = call signext i8 @get_rel_relkind(i32 noundef %253) #11
-  switch i8 %254, label %.split24 [
+  switch i8 %254, label %.split25 [
     i8 102, label %261
     i8 109, label %277
     i8 112, label %277
     i8 114, label %277
   ]
 
-.split24:                                         ; preds = %.lr.ph28
+.split25:                                         ; preds = %.lr.ph29
   %255 = sext i8 %254 to i32
   %256 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %256)
@@ -2445,17 +2445,17 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1512, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-261:                                              ; preds = %.lr.ph28
+261:                                              ; preds = %.lr.ph29
   %262 = load i8, ptr %244, align 8, !range !4, !noundef !5
   %263 = trunc nuw i8 %262 to i1
-  br i1 %263, label %.split26, label %264
+  br i1 %263, label %.split27, label %264
 
 264:                                              ; preds = %261
   %265 = load i8, ptr %245, align 2, !range !4, !noundef !5
   %266 = trunc nuw i8 %265 to i1
-  br i1 %266, label %.split26, label %277
+  br i1 %266, label %.split27, label %277
 
-.split26:                                         ; preds = %261, %264
+.split27:                                         ; preds = %261, %264
   %267 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %267)
   %268 = call i32 @errcode(i32 noundef 151027844) #11
@@ -2470,12 +2470,12 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1521, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-277:                                              ; preds = %.lr.ph28, %.lr.ph28, %.lr.ph28, %264
+277:                                              ; preds = %.lr.ph29, %.lr.ph29, %.lr.ph29, %264
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %278 = load i32, ptr %242, align 4
   %279 = sext i32 %278 to i64
   %280 = icmp slt i64 %indvars.iv.next, %279
-  br i1 %280, label %.lr.ph28, label %.split
+  br i1 %280, label %.lr.ph29, label %.split
 
 281:                                              ; preds = %list_length.exit, %237, %229
   %.0707 = phi i32 [ %250, %list_length.exit ], [ -1, %237 ], [ -1, %229 ]
@@ -2798,10 +2798,10 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1918, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-427:                                              ; preds = %160, %174, %180, %186, %192, %198, %204, %210, %115, %121, %125, %129, %135, %146, %421, %419, %415, %401, %399, %396, %394, %392, %390, %388, %383, %381, %379, %377, %375, %373, %371, %364, %360, %354, %352, %350, %348, %346, %344, %337, %335, %333, %331, %329, %327, %319, %317, %315, %309, %304, %302, %300, %298, %296, %294, %292, %290, %288
-  %.pn719.pn = phi { i64, i32 } [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %314, %309 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %345, %344 ], [ %347, %346 ], [ %349, %348 ], [ %351, %350 ], [ %353, %352 ], [ %355, %354 ], [ %361, %360 ], [ %365, %364 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %400, %399 ], [ %402, %401 ], [ %418, %415 ], [ %420, %419 ], [ %422, %421 ], [ %151, %146 ], [ %145, %135 ], [ %134, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %115 ], [ %218, %210 ], [ %209, %204 ], [ %203, %198 ], [ %197, %192 ], [ %191, %186 ], [ %185, %180 ], [ %179, %174 ], [ %173, %160 ]
-  %.sroa.72.0.ph = extractvalue { i64, i32 } %.pn719.pn, 1
-  %.sroa.0552.0.ph = extractvalue { i64, i32 } %.pn719.pn, 0
+427:                                              ; preds = %160, %174, %180, %186, %192, %198, %204, %210, %115, %121, %125, %129, %135, %146, %288, %290, %292, %294, %296, %298, %300, %302, %304, %309, %315, %317, %319, %327, %329, %331, %333, %335, %337, %344, %346, %348, %350, %352, %354, %360, %364, %371, %373, %375, %377, %379, %381, %383, %388, %390, %392, %394, %396, %399, %401, %415, %419, %421
+  %.pn20 = phi { i64, i32 } [ %422, %421 ], [ %420, %419 ], [ %418, %415 ], [ %402, %401 ], [ %400, %399 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %389, %388 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %365, %364 ], [ %361, %360 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %309 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %120, %115 ], [ %124, %121 ], [ %128, %125 ], [ %134, %129 ], [ %145, %135 ], [ %151, %146 ], [ %173, %160 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %197, %192 ], [ %203, %198 ], [ %209, %204 ], [ %218, %210 ]
+  %.sroa.72.0.ph = extractvalue { i64, i32 } %.pn20, 1
+  %.sroa.0552.0.ph = extractvalue { i64, i32 } %.pn20, 0
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3071,7 +3071,7 @@ define dso_local ptr @UtilityTupleDescriptor(ptr noundef %0) local_unnamed_addr 
   br label %29
 
 29:                                               ; preds = %1, %21, %17, %13, %5, %9, %25, %23, %3
-  %.0 = phi ptr [ %28, %25 ], [ %24, %23 ], [ %4, %3 ], [ %16, %13 ], [ null, %5 ], [ null, %9 ], [ %22, %21 ], [ null, %17 ], [ null, %1 ]
+  %.0 = phi ptr [ %4, %3 ], [ %24, %23 ], [ %28, %25 ], [ %16, %13 ], [ null, %5 ], [ null, %9 ], [ %22, %21 ], [ null, %17 ], [ null, %1 ]
   ret ptr %.0
 }
 

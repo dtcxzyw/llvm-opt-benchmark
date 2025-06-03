@@ -366,7 +366,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16Stm
   br label %11
 
 11:                                               ; preds = %1, %7
-  %.1 = phi ptr [ %6, %1 ], [ %10, %7 ]
+  %.1 = phi ptr [ %10, %7 ], [ %6, %1 ]
   ret ptr %.1
 }
 

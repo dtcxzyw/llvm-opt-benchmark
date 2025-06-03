@@ -2818,7 +2818,7 @@ define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %5, %12, %16, %18, %13, %9
-  %.026 = phi i32 [ %19, %18 ], [ %14, %13 ], [ %10, %9 ], [ 0, %16 ], [ 0, %12 ], [ 0, %5 ], [ 0, %4 ]
+  %.026 = phi i32 [ %10, %9 ], [ %14, %13 ], [ %19, %18 ], [ 0, %16 ], [ 0, %12 ], [ 0, %5 ], [ 0, %4 ]
   ret i32 %.026
 }
 
@@ -3009,7 +3009,7 @@ define internal noundef i32 @dissect_diameter_subscription_id_data(ptr noundef %
   br label %13
 
 13:                                               ; preds = %4, %10, %7
-  %.0 = phi i32 [ %11, %10 ], [ %8, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ %8, %7 ], [ %11, %10 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3110,7 +3110,7 @@ define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value
   br label %45
 
 45:                                               ; preds = %4, %19, %27, %35, %43, %40, %32, %24, %15, %12, %9
-  %.0 = phi i32 [ 8, %40 ], [ 8, %32 ], [ 6, %24 ], [ 8, %9 ], [ 16, %12 ], [ 15, %15 ], [ 0, %43 ], [ 0, %35 ], [ 0, %27 ], [ 0, %19 ], [ 0, %4 ]
+  %.0 = phi i32 [ 8, %9 ], [ 16, %12 ], [ 15, %15 ], [ 6, %24 ], [ 8, %32 ], [ 8, %40 ], [ 0, %43 ], [ 0, %35 ], [ 0, %27 ], [ 0, %19 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -5377,7 +5377,7 @@ define internal ptr @address_radius_avp(ptr noundef readonly captures(none) %0, 
   br label %30
 
 30:                                               ; preds = %23, %19, %15
-  %.027 = phi ptr [ %26, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.027 = phi ptr [ %26, %23 ], [ %18, %15 ], [ %22, %19 ]
   %31 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %42, label %32
@@ -5474,7 +5474,7 @@ define internal ptr @address_rfc_avp(ptr noundef readonly captures(none) %0, ptr
   br label %47
 
 47:                                               ; preds = %32, %37, %26, %21
-  %.0 = phi ptr [ @.str.136, %26 ], [ @.str.136, %21 ], [ %46, %37 ], [ null, %32 ]
+  %.0 = phi ptr [ @.str.136, %21 ], [ @.str.136, %26 ], [ %46, %37 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   ret ptr %.0
 }

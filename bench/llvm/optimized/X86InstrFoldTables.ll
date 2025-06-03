@@ -412,7 +412,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18matchBroadcastSizeERKNS_17X86Fold
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %9
-  %.0 = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ false, %2 ]
+  %.0 = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ false, %2 ]
   ret i1 %.0
 }
 

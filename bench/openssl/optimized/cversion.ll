@@ -102,7 +102,7 @@ define nonnull ptr @OpenSSL_version(i32 noundef %0) local_unnamed_addr #1 {
   br label %14
 
 14:                                               ; preds = %10, %1, %13, %12, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.9, %9 ], [ @.str.8, %8 ], [ @.str.7, %7 ], [ @.str.6, %6 ], [ @compiler_flags, %5 ], [ @.str.5, %4 ], [ @.str.4, %3 ], [ @.str.3, %2 ], [ @.str.2, %1 ], [ %.str.10.ossl_cpu_info_str, %10 ]
+  %.0 = phi ptr [ @.str.12, %13 ], [ @.str.3, %2 ], [ @.str.4, %3 ], [ @.str.5, %4 ], [ @compiler_flags, %5 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.11, %12 ], [ @.str.2, %1 ], [ %.str.10.ossl_cpu_info_str, %10 ]
   ret ptr %.0
 }
 

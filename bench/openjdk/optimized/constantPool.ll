@@ -3214,7 +3214,7 @@ _ZNK7oopDesc5klassEv.exit21.i:                    ; preds = %83, %73
   unreachable
 
 139:                                              ; preds = %124, %117, %99, %91
-  %.0.in.i.i = phi ptr [ %136, %124 ], [ %123, %117 ], [ %116, %99 ], [ %98, %91 ]
+  %.0.in.i.i = phi ptr [ %98, %91 ], [ %116, %99 ], [ %123, %117 ], [ %136, %124 ]
   %.0.i22.i = load ptr, ptr %.0.in.i.i, align 8
   %.not15.i.i = icmp eq ptr %.0.i22.i, null
   br i1 %.not15.i.i, label %_ZL17exception_messageRK18constantPoolHandlei11constantTagP7oopDesc.exit.i, label %140
@@ -3695,7 +3695,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   unreachable
 
 31:                                               ; preds = %20, %12, %4
-  %.0.in.in = phi ptr [ %27, %20 ], [ %19, %12 ], [ %11, %4 ]
+  %.0.in.in = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in = load i16, ptr %.0.in.in, align 2
   %.0 = zext i16 %.0.in to i32
   ret i32 %.0
@@ -3763,7 +3763,7 @@ default.unreachable:                              ; preds = %14
   unreachable
 
 _ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %22, %25
-  %.pn.in.i = phi i8 [ %27, %25 ], [ %24, %22 ]
+  %.pn.in.i = phi i8 [ %24, %22 ], [ %27, %25 ]
   %.pn.i = zext i8 %.pn.in.i to i32
   %.0.i = icmp eq i32 %2, %.pn.i
   br label %_ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit
@@ -3815,7 +3815,7 @@ _ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %22, %25
   unreachable
 
 _ZNK19ResolvedMethodEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %41, %36, %_ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit, %4
-  %.0 = phi i1 [ %.0.i, %_ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit ], [ %13, %4 ], [ %44, %41 ], [ %40, %36 ]
+  %.0 = phi i1 [ %13, %4 ], [ %.0.i, %_ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit ], [ %40, %36 ], [ %44, %41 ]
   ret i1 %.0
 }
 
@@ -3901,7 +3901,7 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_at
   unreachable
 
 _ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
-  %.0.in.in.i = phi ptr [ %27, %20 ], [ %19, %12 ], [ %11, %4 ]
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -3976,7 +3976,7 @@ define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr noundef n
   unreachable
 
 _ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
-  %.0.in.in.i = phi ptr [ %27, %20 ], [ %19, %12 ], [ %11, %4 ]
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -4056,7 +4056,7 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Byte
   unreachable
 
 _ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
-  %.0.in.in.i = phi ptr [ %27, %20 ], [ %19, %12 ], [ %11, %4 ]
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = zext i16 %.0.in.i to i64
@@ -4148,7 +4148,7 @@ define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10
   unreachable
 
 _ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %6, %14, %22
-  %.0.in.in.i.i = phi ptr [ %29, %22 ], [ %21, %14 ], [ %13, %6 ]
+  %.0.in.in.i.i = phi ptr [ %13, %6 ], [ %21, %14 ], [ %29, %22 ]
   %.0.in.i.i = load i16, ptr %.0.in.in.i.i, align 2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = zext i16 %.0.in.i.i to i64
@@ -4254,7 +4254,7 @@ define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecode
   unreachable
 
 _ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
-  %.0.in.in.i.i = phi ptr [ %27, %20 ], [ %19, %12 ], [ %11, %4 ]
+  %.0.in.in.i.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i.i = load i16, ptr %.0.in.in.i.i, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = zext i16 %.0.in.i.i to i64
@@ -5384,7 +5384,7 @@ _ZN19PerfTraceTimedEventD2Ev.exit216:             ; preds = %415, %420
   unreachable
 
 _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %106, %102, %_ZN19PerfTraceTimedEventD2Ev.exit216, %_ZN19PerfTraceTimedEventD2Ev.exit205, %_ZN19PerfTraceTimedEventD2Ev.exit, %457, %450, %443, %435, %427, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit
-  %.2169 = phi ptr [ null, %457 ], [ %454, %450 ], [ %447, %443 ], [ %440, %435 ], [ %432, %427 ], [ %409, %_ZN19PerfTraceTimedEventD2Ev.exit216 ], [ %.4171, %_ZN19PerfTraceTimedEventD2Ev.exit205 ], [ %.0.i, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ %.3170, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ %108, %106 ], [ null, %102 ]
+  %.2169 = phi ptr [ %.3170, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ %.0.i, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ %.4171, %_ZN19PerfTraceTimedEventD2Ev.exit205 ], [ %409, %_ZN19PerfTraceTimedEventD2Ev.exit216 ], [ %432, %427 ], [ %440, %435 ], [ %447, %443 ], [ %454, %450 ], [ null, %457 ], [ %108, %106 ], [ null, %102 ]
   br i1 %40, label %464, label %482
 
 464:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit
@@ -5415,7 +5415,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %106, %102, %_ZN19Pe
   br label %482
 
 482:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit, %468, %457, %450, %443, %435, %427, %_ZN19PerfTraceTimedEventD2Ev.exit216, %_ZN19PerfTraceTimedEventD2Ev.exit205, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit, %_ZN19PerfTraceTimedEventD2Ev.exit, %98, %58, %61, %479, %95, %94
-  %.0164 = phi ptr [ null, %95 ], [ %spec.select193, %479 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit216 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit205 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ null, %94 ], [ %spec.select, %61 ], [ %spec.select, %58 ], [ null, %98 ], [ null, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ null, %427 ], [ null, %435 ], [ null, %443 ], [ null, %450 ], [ null, %457 ], [ %.2169, %468 ], [ %.2169, %_ZNK5Klass11java_mirrorEv.exit ]
+  %.0164 = phi ptr [ null, %95 ], [ null, %94 ], [ %spec.select193, %479 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit205 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit216 ], [ %spec.select, %61 ], [ %spec.select, %58 ], [ null, %98 ], [ null, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ null, %427 ], [ null, %435 ], [ null, %443 ], [ null, %450 ], [ null, %457 ], [ %.2169, %468 ], [ %.2169, %_ZNK5Klass11java_mirrorEv.exit ]
   ret ptr %.0164
 }
 
@@ -6125,7 +6125,7 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool16compare_entry_toEiRK18const
   br label %210
 
 210:                                              ; preds = %198, %189, %155, %135, %118, %109, %100, %82, %73, %64, %52, %34, %25, %4, %209, %174, %159
-  %.0 = phi i1 [ false, %209 ], [ %188, %174 ], [ %173, %159 ], [ false, %4 ], [ true, %25 ], [ true, %34 ], [ true, %52 ], [ true, %64 ], [ true, %73 ], [ true, %82 ], [ true, %100 ], [ true, %109 ], [ true, %118 ], [ true, %135 ], [ true, %155 ], [ true, %189 ], [ true, %198 ]
+  %.0 = phi i1 [ false, %209 ], [ %173, %159 ], [ %188, %174 ], [ false, %4 ], [ true, %25 ], [ true, %34 ], [ true, %52 ], [ true, %64 ], [ true, %73 ], [ true, %82 ], [ true, %100 ], [ true, %109 ], [ true, %118 ], [ true, %135 ], [ true, %155 ], [ true, %189 ], [ true, %198 ]
   ret i1 %.0
 }
 
@@ -7310,7 +7310,7 @@ define hidden noundef range(i32 1, 65539) i32 @_ZN12ConstantPool16cpool_entry_si
   br label %22
 
 22:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %21, %20, %19, %18, %17, %9
-  %.0 = phi i32 [ 1, %21 ], [ 9, %20 ], [ 5, %19 ], [ 5, %18 ], [ 4, %17 ], [ %16, %9 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ]
+  %.0 = phi i32 [ 1, %21 ], [ %16, %9 ], [ 4, %17 ], [ 5, %18 ], [ 5, %19 ], [ 9, %20 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ]
   ret i32 %.0
 }
 
@@ -8071,7 +8071,7 @@ _ZN5Bytes11put_Java_u2EPht.exit121:               ; preds = %292, %293
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
 _ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit, %300, %299, %280, %279, %260, %259, %249, %248, %235, %234, %224, %223, %213, %212, %193, %192, %171, %170, %124, %123, %53, %52, %43, %42, %_ZN5Bytes11put_Java_u8EPhm.exit104, %_ZN5Bytes11put_Java_u8EPhm.exit, %10
-  %.1 = phi i32 [ %.0101128, %10 ], [ %73, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %63, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %.0101128, %42 ], [ %.0101128, %43 ], [ %.0101128, %52 ], [ %.0101128, %53 ], [ %.0101128, %123 ], [ %.0101128, %124 ], [ %.0101128, %170 ], [ %.0101128, %171 ], [ %.0101128, %192 ], [ %.0101128, %193 ], [ %.0101128, %212 ], [ %.0101128, %213 ], [ %.0101128, %223 ], [ %.0101128, %224 ], [ %.0101128, %234 ], [ %.0101128, %235 ], [ %.0101128, %248 ], [ %.0101128, %249 ], [ %.0101128, %259 ], [ %.0101128, %260 ], [ %.0101128, %279 ], [ %.0101128, %280 ], [ %.0101128, %299 ], [ %.0101128, %300 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
+  %.1 = phi i32 [ %.0101128, %10 ], [ %63, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %73, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %.0101128, %42 ], [ %.0101128, %43 ], [ %.0101128, %52 ], [ %.0101128, %53 ], [ %.0101128, %123 ], [ %.0101128, %124 ], [ %.0101128, %170 ], [ %.0101128, %171 ], [ %.0101128, %192 ], [ %.0101128, %193 ], [ %.0101128, %212 ], [ %.0101128, %213 ], [ %.0101128, %223 ], [ %.0101128, %224 ], [ %.0101128, %234 ], [ %.0101128, %235 ], [ %.0101128, %248 ], [ %.0101128, %249 ], [ %.0101128, %259 ], [ %.0101128, %260 ], [ %.0101128, %279 ], [ %.0101128, %280 ], [ %.0101128, %299 ], [ %.0101128, %300 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
   %301 = zext nneg i32 %16 to i64
   %302 = getelementptr inbounds nuw i8, ptr %.0129, i64 %301
   %303 = add nsw i32 %.1, 1

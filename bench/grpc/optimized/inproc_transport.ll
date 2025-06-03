@@ -3296,7 +3296,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %243, %230, %149, %145, %142, %.body10.i.i.i, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %244, %243 ], [ %143, %149 ], [ %143, %145 ], [ %143, %142 ], [ %.pn.pn.i.i.i, %230 ], [ %116, %.body10.i.i.i ], [ %105, %.body.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %244, %243 ], [ %143, %149 ], [ %143, %145 ], [ %143, %142 ], [ %.pn.pn.i.i.i, %230 ], [ %105, %.body.i.i.i ], [ %116, %.body10.i.i.i ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #35, !noalias !200
   br label %.body.i
 

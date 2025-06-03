@@ -2383,12 +2383,12 @@ avifBitsRead.exit185.i.i:                         ; preds = %938
   br i1 %.not84.i.i, label %.thread263.i.i, label %971
 
 971:                                              ; preds = %969, %.thread253.i.i
-  %.sroa.195.11 = phi i64 [ %storemerge.i.i, %969 ], [ %928, %.thread253.i.i ]
-  %.sroa.69.58 = phi i32 [ %.sroa.69.57, %969 ], [ %.sroa.69.51, %.thread253.i.i ]
-  %.sroa.0.59 = phi i32 [ %.sroa.0.58, %969 ], [ %.sroa.0.52, %.thread253.i.i ]
-  %.sroa.477.57 = phi ptr [ %.sroa.477.56, %969 ], [ %.sroa.477.50, %.thread253.i.i ]
-  %.sroa.329.12 = phi i32 [ %.sroa.329.11, %969 ], [ %926, %.thread253.i.i ]
-  %.073257.i.i = phi i8 [ %.174227.i.i, %969 ], [ 1, %.thread253.i.i ]
+  %.sroa.195.11 = phi i64 [ %928, %.thread253.i.i ], [ %storemerge.i.i, %969 ]
+  %.sroa.69.58 = phi i32 [ %.sroa.69.51, %.thread253.i.i ], [ %.sroa.69.57, %969 ]
+  %.sroa.0.59 = phi i32 [ %.sroa.0.52, %.thread253.i.i ], [ %.sroa.0.58, %969 ]
+  %.sroa.477.57 = phi ptr [ %.sroa.477.50, %.thread253.i.i ], [ %.sroa.477.56, %969 ]
+  %.sroa.329.12 = phi i32 [ %926, %.thread253.i.i ], [ %.sroa.329.11, %969 ]
+  %.073257.i.i = phi i8 [ 1, %.thread253.i.i ], [ %.174227.i.i, %969 ]
   %972 = icmp ult i32 %.sroa.329.12, 2
   br i1 %972, label %973, label %avifBitsRead.exit207.i.i
 
@@ -2433,12 +2433,12 @@ avifBitsRead.exit174.i.i.unreachabledefault:      ; preds = %avifBitsRead.exit17
   unreachable
 
 .thread263.i.i:                                   ; preds = %avifBitsRead.exit174.i.i, %avifBitsRead.exit207.i.i, %969, %.thread.i55.i, %.thread259.i.i, %932
-  %.sroa.69.52 = phi i32 [ %.sroa.69.51, %avifBitsRead.exit174.i.i ], [ %.sroa.69.62, %.thread.i55.i ], [ %.sroa.69.57, %969 ], [ %.sroa.69.59, %avifBitsRead.exit207.i.i ], [ %.sroa.69.51, %.thread259.i.i ], [ %.sroa.69.51, %932 ]
-  %.sroa.0.53 = phi i32 [ %.sroa.0.52, %avifBitsRead.exit174.i.i ], [ %.sroa.0.63, %.thread.i55.i ], [ %.sroa.0.58, %969 ], [ %.sroa.0.60, %avifBitsRead.exit207.i.i ], [ %.sroa.0.52, %.thread259.i.i ], [ %.sroa.0.52, %932 ]
-  %.sroa.477.51 = phi ptr [ %.sroa.477.50, %avifBitsRead.exit174.i.i ], [ %.sroa.477.61, %.thread.i55.i ], [ %.sroa.477.56, %969 ], [ %.sroa.477.58, %avifBitsRead.exit207.i.i ], [ %.sroa.477.50, %.thread259.i.i ], [ %.sroa.477.50, %932 ]
-  %.sroa.329.9 = phi i32 [ %926, %avifBitsRead.exit174.i.i ], [ %.sroa.329.13, %.thread.i55.i ], [ %.sroa.329.11, %969 ], [ %985, %avifBitsRead.exit207.i.i ], [ %926, %.thread259.i.i ], [ %926, %932 ]
-  %.0245.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ 0, %.thread.i55.i ], [ 0, %969 ], [ 1, %avifBitsRead.exit207.i.i ], [ 0, %.thread259.i.i ], [ 0, %932 ]
-  %.073244.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ 0, %.thread.i55.i ], [ %.174227.i.i, %969 ], [ %.073257.i.i, %avifBitsRead.exit207.i.i ], [ 1, %.thread259.i.i ], [ 0, %932 ]
+  %.sroa.69.52 = phi i32 [ %.sroa.69.51, %avifBitsRead.exit174.i.i ], [ %.sroa.69.59, %avifBitsRead.exit207.i.i ], [ %.sroa.69.51, %932 ], [ %.sroa.69.62, %.thread.i55.i ], [ %.sroa.69.57, %969 ], [ %.sroa.69.51, %.thread259.i.i ]
+  %.sroa.0.53 = phi i32 [ %.sroa.0.52, %avifBitsRead.exit174.i.i ], [ %.sroa.0.60, %avifBitsRead.exit207.i.i ], [ %.sroa.0.52, %932 ], [ %.sroa.0.63, %.thread.i55.i ], [ %.sroa.0.58, %969 ], [ %.sroa.0.52, %.thread259.i.i ]
+  %.sroa.477.51 = phi ptr [ %.sroa.477.50, %avifBitsRead.exit174.i.i ], [ %.sroa.477.58, %avifBitsRead.exit207.i.i ], [ %.sroa.477.50, %932 ], [ %.sroa.477.61, %.thread.i55.i ], [ %.sroa.477.56, %969 ], [ %.sroa.477.50, %.thread259.i.i ]
+  %.sroa.329.9 = phi i32 [ %926, %avifBitsRead.exit174.i.i ], [ %985, %avifBitsRead.exit207.i.i ], [ %926, %932 ], [ %.sroa.329.13, %.thread.i55.i ], [ %.sroa.329.11, %969 ], [ %926, %.thread259.i.i ]
+  %.0245.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ 1, %avifBitsRead.exit207.i.i ], [ 0, %932 ], [ 0, %.thread.i55.i ], [ 0, %969 ], [ 0, %.thread259.i.i ]
+  %.073244.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ %.073257.i.i, %avifBitsRead.exit207.i.i ], [ 0, %932 ], [ 0, %.thread.i55.i ], [ %.174227.i.i, %969 ], [ 1, %.thread259.i.i ]
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.073244.i.i, ptr %989, align 2
   %990 = getelementptr inbounds nuw i8, ptr %0, i64 43

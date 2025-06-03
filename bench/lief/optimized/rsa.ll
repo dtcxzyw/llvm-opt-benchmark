@@ -2778,7 +2778,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_decrypt(ptr noundef %0, ptr noundef %1, ptr
   br label %14
 
 14:                                               ; preds = %7, %12, %10
-  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ -16640, %7 ]
+  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -16640, %7 ]
   ret i32 %.0
 }
 
@@ -3504,7 +3504,7 @@ mbedtls_rsa_rsassa_pss_verify.exit:               ; preds = %8
   br label %16
 
 16:                                               ; preds = %8, %5, %mbedtls_rsa_rsassa_pss_verify.exit, %11
-  %.0 = phi i32 [ %15, %mbedtls_rsa_rsassa_pss_verify.exit ], [ %12, %11 ], [ -16512, %5 ], [ -16640, %8 ]
+  %.0 = phi i32 [ %12, %11 ], [ %15, %mbedtls_rsa_rsassa_pss_verify.exit ], [ -16512, %5 ], [ -16640, %8 ]
   ret i32 %.0
 }
 

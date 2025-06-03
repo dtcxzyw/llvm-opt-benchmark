@@ -976,7 +976,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverD2Ev.exit: ; preds = %242, %250, %_ZN9_
   br label %270
 
 269:                                              ; preds = %225, %223, %236, %234, %96
-  %.pn114 = phi { ptr, i32 } [ %97, %96 ], [ %.pn107.pn152, %236 ], [ %235, %234 ], [ %.pn110.pn145, %225 ], [ %224, %223 ]
+  %.pn114 = phi { ptr, i32 } [ %97, %96 ], [ %.pn110.pn145, %225 ], [ %224, %223 ], [ %.pn107.pn152, %236 ], [ %235, %234 ]
   call fastcc void @_ZN12_GLOBAL__N_122MempoolSelelemReserverD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   br label %.body122
 
@@ -3128,7 +3128,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   br label %63
 
 63:                                               ; preds = %61, %60, %58, %56, %54, %53, %.lr.ph.split.us
-  %.155.us = phi float [ %.05468.us, %.lr.ph.split.us ], [ 1.000000e+00, %53 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %51, %60 ], [ %62, %61 ]
+  %.155.us = phi float [ %.05468.us, %.lr.ph.split.us ], [ %62, %61 ], [ %51, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ 1.000000e+00, %53 ]
   %64 = load ptr, ptr %42, align 8, !tbaa !12
   %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv75
   store float %.155.us, ptr %65, align 4, !tbaa !53
@@ -3192,7 +3192,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   br label %91
 
 91:                                               ; preds = %89, %87, %85, %83, %81, %79, %69
-  %.155 = phi float [ %.05468, %69 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ]
+  %.155 = phi float [ %.05468, %69 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ]
   %92 = load ptr, ptr %42, align 8, !tbaa !12
   %93 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
   store float %.155, ptr %93, align 4, !tbaa !53

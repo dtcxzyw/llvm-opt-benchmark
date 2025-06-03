@@ -598,7 +598,7 @@ define internal ptr @union_repr(ptr noundef readonly captures(none) %0) #0 {
   br label %24
 
 24:                                               ; preds = %1, %.thread24, %.thread
-  %.0 = phi ptr [ null, %.thread24 ], [ %23, %.thread ], [ null, %1 ]
+  %.0 = phi ptr [ %23, %.thread ], [ null, %.thread24 ], [ null, %1 ]
   ret ptr %.0
 }
 

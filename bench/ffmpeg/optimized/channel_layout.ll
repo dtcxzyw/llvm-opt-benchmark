@@ -1118,8 +1118,8 @@ define i32 @av_channel_layout_channel_from_index(ptr noundef readonly captures(n
   br i1 %.not26, label %.loopexit, label %53
 
 53:                                               ; preds = %._crit_edge, %13
-  %54 = phi i64 [ %.pre, %._crit_edge ], [ %15, %13 ]
-  %.021 = phi i32 [ %1, %._crit_edge ], [ %52, %13 ]
+  %54 = phi i64 [ %15, %13 ], [ %.pre, %._crit_edge ]
+  %.021 = phi i32 [ %52, %13 ], [ %1, %._crit_edge ]
   br label %55
 
 55:                                               ; preds = %53, %60
@@ -1146,7 +1146,7 @@ define i32 @av_channel_layout_channel_from_index(ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.loopexit.loopexit.split.loop.exit, %5, %2, %13, %7
-  %.0 = phi i32 [ %51, %13 ], [ %12, %7 ], [ -1, %2 ], [ -1, %5 ], [ %61, %.loopexit.loopexit.split.loop.exit ], [ -1, %60 ]
+  %.0 = phi i32 [ %12, %7 ], [ %51, %13 ], [ -1, %2 ], [ -1, %5 ], [ %61, %.loopexit.loopexit.split.loop.exit ], [ -1, %60 ]
   ret i32 %.0
 }
 
@@ -1601,7 +1601,7 @@ has_channel_names.exit.thread61:                  ; preds = %24, %32, %29, %.pre
   br label %has_channel_names.exit
 
 has_channel_names.exit:                           ; preds = %masked_description.exit, %.thread, %2, %102, %100, %99, %13
-  %.0 = phi i32 [ %103, %102 ], [ 0, %100 ], [ 0, %99 ], [ 0, %13 ], [ -22, %2 ], [ %75, %masked_description.exit ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %99 ], [ 0, %100 ], [ %103, %102 ], [ -22, %2 ], [ %75, %masked_description.exit ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -2220,7 +2220,7 @@ define range(i32 0, 2) i32 @av_channel_layout_check(ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %45, %1, %88, %50, %7
-  %.014.shrunk = phi i1 [ false, %88 ], [ %87, %50 ], [ %44, %7 ], [ false, %1 ], [ false, %45 ], [ true, %5 ], [ %.not21, %.lr.ph ]
+  %.014.shrunk = phi i1 [ false, %88 ], [ %44, %7 ], [ %87, %50 ], [ false, %1 ], [ false, %45 ], [ true, %5 ], [ %.not21, %.lr.ph ]
   %.014 = zext i1 %.014.shrunk to i32
   ret i32 %.014
 }

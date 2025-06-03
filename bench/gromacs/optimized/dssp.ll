@@ -1742,7 +1742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %_
   br label %239
 
 239:                                              ; preds = %237, %._crit_edge.i.i.i.i.i
-  %.sroa.033.1.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %238, %237 ]
+  %.sroa.033.1.i.i.i.i.i = phi ptr [ %238, %237 ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %240 = getelementptr i8, ptr %.sroa.033.1.i.i.i.i.i, i64 48
   %.val1.i23.i.i.i.i.i = load i64, ptr %240, align 8, !tbaa !208
   %241 = and i64 %.val1.i23.i.i.i.i.i, 31
@@ -1754,7 +1754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %_
   br label %244
 
 244:                                              ; preds = %242, %._crit_edge.i.i.i.i.i
-  %.sroa.033.2.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %243, %242 ]
+  %.sroa.033.2.i.i.i.i.i = phi ptr [ %243, %242 ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %245 = getelementptr i8, ptr %.sroa.033.2.i.i.i.i.i, i64 48
   %.val1.i24.i.i.i.i.i = load i64, ptr %245, align 8, !tbaa !208
   %246 = and i64 %.val1.i24.i.i.i.i.i, 31

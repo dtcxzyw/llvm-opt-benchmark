@@ -536,12 +536,12 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   %33 = call i32 @VP8LHuffmanTablesAllocate(i32 noundef 128, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %.critedge.i, label %34
+  br i1 %.not.i, label %.thread75.i, label %34
 
 34:                                               ; preds = %._crit_edge
   %35 = call i32 @VP8LBuildHuffmanTable(ptr noundef nonnull %5, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 19) #8
   %.not60.i = icmp eq i32 %35, 0
-  br i1 %.not60.i, label %.critedge.i, label %36
+  br i1 %.not60.i, label %.thread75.i, label %36
 
 36:                                               ; preds = %34
   %37 = call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef 1) #8
@@ -555,7 +555,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   %42 = call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef %41) #8
   %43 = add i32 %42, 2
   %44 = icmp sgt i32 %43, %0
-  br i1 %44, label %.critedge.i, label %45
+  br i1 %44, label %.thread75.i, label %45
 
 45:                                               ; preds = %38, %36
   %.049.i = phi i32 [ %43, %38 ], [ %0, %36 ]
@@ -627,7 +627,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
   %84 = add i32 %83, %82
   %85 = add nsw i32 %84, %.04883.i
   %.not62.i = icmp sgt i32 %85, %0
-  br i1 %.not62.i, label %.critedge.i, label %86
+  br i1 %.not62.i, label %.thread75.i, label %86
 
 86:                                               ; preds = %74
   %87 = icmp eq i16 %67, 16
@@ -659,7 +659,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %95 = icmp slt i32 %.1.i, %0
   br i1 %95, label %49, label %ReadHuffmanCodeLengths.exit
 
-.critedge.i:                                      ; preds = %74, %38, %34, %._crit_edge
+.thread75.i:                                      ; preds = %74, %38, %34, %._crit_edge
   call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %5) #8
   %96 = load i32, ptr %1, align 8, !tbaa !13
   switch i32 %96, label %.thread [
@@ -667,11 +667,11 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
     i32 5, label %97
   ]
 
-97:                                               ; preds = %.critedge.i, %.critedge.i
+97:                                               ; preds = %.thread75.i, %.thread75.i
   store i32 3, ptr %1, align 8, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %97, %.critedge.i
+.thread:                                          ; preds = %97, %.thread75.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6) #8
   br label %.thread42
@@ -988,67 +988,68 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 376
-  %13 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not59165168 = icmp eq i32 %13, 0
-  br i1 %.not59165168, label %.critedge, label %.lr.ph166
+  br label %.outer.outer
 
-.lr.ph166:                                        ; preds = %.preheader, %ExpandColorMap.exit
-  %.087.ph169 = phi i32 [ %56, %ExpandColorMap.exit ], [ %0, %.preheader ]
-  br label %14
+.outer.outer:                                     ; preds = %ExpandColorMap.exit, %.preheader
+  %.087.ph.ph = phi i32 [ %56, %ExpandColorMap.exit ], [ %0, %.preheader ]
+  br label %.outer
 
-14:                                               ; preds = %.lr.ph166, %.backedge
-  %15 = load i32, ptr %11, align 8, !tbaa !56
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %10, i64 0, i64 %16
-  %18 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 2) #8
-  %19 = load i32, ptr %12, align 8, !tbaa !60
-  %20 = shl nuw i32 1, %18
-  %21 = and i32 %19, %20
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %.thread111thread-pre-split
+.outer:                                           ; preds = %23, %.outer.outer
+  br label %13
 
-22:                                               ; preds = %14
-  %23 = or i32 %19, %20
-  store i32 %23, ptr %12, align 8, !tbaa !60
-  store i32 %18, ptr %17, align 8, !tbaa !74
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 %.087.ph169, ptr %24, align 8, !tbaa !81
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 %1, ptr %25, align 4, !tbaa !82
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr null, ptr %26, align 8, !tbaa !57
-  %27 = load i32, ptr %11, align 8, !tbaa !56
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %11, align 8, !tbaa !56
-  switch i32 %18, label %.backedge [
-    i32 0, label %29
-    i32 1, label %29
+13:                                               ; preds = %.outer, %30
+  %14 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
+  %.not59 = icmp eq i32 %14, 0
+  br i1 %.not59, label %.critedge, label %15
+
+15:                                               ; preds = %13
+  %16 = load i32, ptr %11, align 8, !tbaa !56
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %10, i64 0, i64 %17
+  %19 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 2) #8
+  %20 = load i32, ptr %12, align 8, !tbaa !60
+  %21 = shl nuw i32 1, %19
+  %22 = and i32 %20, %21
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %.thread111thread-pre-split
+
+23:                                               ; preds = %15
+  %24 = or i32 %20, %21
+  store i32 %24, ptr %12, align 8, !tbaa !60
+  store i32 %19, ptr %18, align 8, !tbaa !74
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 %.087.ph.ph, ptr %25, align 8, !tbaa !81
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  store i32 %1, ptr %26, align 4, !tbaa !82
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr null, ptr %27, align 8, !tbaa !57
+  %28 = load i32, ptr %11, align 8, !tbaa !56
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %11, align 8, !tbaa !56
+  switch i32 %19, label %.outer [
+    i32 0, label %30
+    i32 1, label %30
     i32 3, label %43
   ]
 
-29:                                               ; preds = %22, %22
-  %30 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #8
-  %31 = add i32 %30, 2
-  %32 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %31, ptr %32, align 4, !tbaa !83
-  %33 = load i32, ptr %24, align 8, !tbaa !81
-  %notmask = shl nsw i32 -1, %31
-  %34 = xor i32 %notmask, -1
-  %35 = add i32 %33, %34
-  %36 = lshr i32 %35, %31
-  %37 = load i32, ptr %25, align 4, !tbaa !82
-  %38 = add i32 %37, %34
-  %39 = lshr i32 %38, %31
-  %40 = tail call fastcc i32 @DecodeImageStream(i32 noundef %36, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.thread111thread-pre-split, label %.backedge
+30:                                               ; preds = %23, %23
+  %31 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #8
+  %32 = add i32 %31, 2
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %32, ptr %33, align 4, !tbaa !83
+  %34 = load i32, ptr %25, align 8, !tbaa !81
+  %notmask = shl nsw i32 -1, %32
+  %35 = xor i32 %notmask, -1
+  %36 = add i32 %34, %35
+  %37 = lshr i32 %36, %32
+  %38 = load i32, ptr %26, align 4, !tbaa !82
+  %39 = add i32 %38, %35
+  %40 = lshr i32 %39, %32
+  %41 = tail call fastcc i32 @DecodeImageStream(i32 noundef %37, i32 noundef %40, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %27)
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.thread111thread-pre-split, label %13
 
-.backedge:                                        ; preds = %22, %29
-  %42 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not59 = icmp eq i32 %42, 0
-  br i1 %.not59, label %.critedge, label %14
-
-43:                                               ; preds = %22
+43:                                               ; preds = %23
   %44 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 8) #8
   %45 = add i32 %44, 1
   %46 = icmp sgt i32 %45, 16
@@ -1057,14 +1058,14 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %49 = select i1 %48, i32 2, i32 3
   %50 = select i1 %47, i32 1, i32 %49
   %51 = select i1 %46, i32 0, i32 %50
-  %52 = load i32, ptr %24, align 8, !tbaa !81
+  %52 = load i32, ptr %25, align 8, !tbaa !81
   %53 = shl nuw nsw i32 1, %51
   %54 = add i32 %52, -1
   %55 = add i32 %54, %53
   %56 = lshr i32 %55, %51
-  %57 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %51, ptr %57, align 4, !tbaa !83
-  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %26)
+  %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %27)
   %.not46.i = icmp eq i32 %58, 0
   br i1 %.not46.i, label %.thread111thread-pre-split, label %59
 
@@ -1078,7 +1079,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   br i1 %65, label %.critedge.i, label %66
 
 66:                                               ; preds = %59
-  %67 = load ptr, ptr %26, align 8, !tbaa !57
+  %67 = load ptr, ptr %27, align 8, !tbaa !57
   %68 = load i32, ptr %67, align 4, !tbaa !6
   store i32 %68, ptr %64, align 4, !tbaa !6
   %69 = icmp sgt i32 %45, 1
@@ -1120,325 +1121,323 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !84
 
 ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.ph28.preheader.i
-  %83 = load ptr, ptr %26, align 8, !tbaa !57
+  %83 = load ptr, ptr %27, align 8, !tbaa !57
   tail call void @WebPSafeFree(ptr noundef %83) #8
-  store ptr %64, ptr %26, align 8, !tbaa !57
-  %84 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not59165 = icmp eq i32 %84, 0
-  br i1 %.not59165, label %.critedge, label %.lr.ph166
+  store ptr %64, ptr %27, align 8, !tbaa !57
+  br label %.outer.outer
 
 .critedge.i:                                      ; preds = %59
-  %85 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %85, label %.thread111 [
+  %84 = load i32, ptr %3, align 8, !tbaa !13
+  switch i32 %84, label %.thread111 [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
 
-.critedge:                                        ; preds = %ExpandColorMap.exit, %.backedge, %.preheader, %5
-  %.1 = phi i32 [ %0, %5 ], [ %0, %.preheader ], [ %.087.ph169, %.backedge ], [ %56, %ExpandColorMap.exit ]
-  %86 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not61 = icmp eq i32 %86, 0
-  br i1 %.not61, label %.critedge68, label %87
+.critedge:                                        ; preds = %13, %5
+  %.1 = phi i32 [ %0, %5 ], [ %.087.ph.ph, %13 ]
+  %85 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
+  %.not61 = icmp eq i32 %85, 0
+  br i1 %.not61, label %.critedge68, label %86
 
-87:                                               ; preds = %.critedge
-  %88 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 4) #8
-  %89 = add i32 %88, -1
-  %90 = icmp ult i32 %89, 11
-  br i1 %90, label %.critedge68, label %91
+86:                                               ; preds = %.critedge
+  %87 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 4) #8
+  %88 = add i32 %87, -1
+  %89 = icmp ult i32 %88, 11
+  br i1 %89, label %.critedge68, label %90
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %92, label %VP8LSetError.exit.thread [
+90:                                               ; preds = %86
+  %91 = load i32, ptr %3, align 8, !tbaa !13
+  switch i32 %91, label %VP8LSetError.exit.thread [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
 
-.critedge68:                                      ; preds = %.critedge, %87
-  %.052 = phi i32 [ %88, %87 ], [ 0, %.critedge ]
+.critedge68:                                      ; preds = %.critedge, %86
+  %.052 = phi i32 [ %87, %86 ], [ 0, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   store ptr null, ptr %6, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   store ptr null, ptr %7, align 8, !tbaa !10
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  br i1 %.not, label %VP8LSetError.exit77, label %94
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  br i1 %.not, label %VP8LSetError.exit77, label %93
 
-94:                                               ; preds = %.critedge68
-  %95 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
-  %.not79.i = icmp eq i32 %95, 0
-  br i1 %.not79.i, label %VP8LSetError.exit77, label %96
+93:                                               ; preds = %.critedge68
+  %94 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #8
+  %.not79.i = icmp eq i32 %94, 0
+  br i1 %.not79.i, label %VP8LSetError.exit77, label %95
 
-96:                                               ; preds = %94
-  %97 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #8
-  %98 = add i32 %97, 2
-  %99 = shl nuw i32 1, %98
-  %100 = add i32 %.1, -1
-  %101 = add i32 %100, %99
-  %102 = lshr i32 %101, %98
-  %103 = add i32 %1, -1
-  %104 = add i32 %103, %99
-  %105 = lshr i32 %104, %98
-  %106 = mul i32 %102, %105
-  %107 = call fastcc i32 @DecodeImageStream(i32 noundef %102, i32 noundef %105, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %6)
-  %.not80.i = icmp eq i32 %107, 0
-  br i1 %.not80.i, label %VP8LSetError.exit77.thread, label %108
+95:                                               ; preds = %93
+  %96 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #8
+  %97 = add i32 %96, 2
+  %98 = shl nuw i32 1, %97
+  %99 = add i32 %.1, -1
+  %100 = add i32 %99, %98
+  %101 = lshr i32 %100, %97
+  %102 = add i32 %1, -1
+  %103 = add i32 %102, %98
+  %104 = lshr i32 %103, %97
+  %105 = mul i32 %101, %104
+  %106 = call fastcc i32 @DecodeImageStream(i32 noundef %101, i32 noundef %104, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %6)
+  %.not80.i = icmp eq i32 %106, 0
+  br i1 %.not80.i, label %VP8LSetError.exit77.thread, label %107
 
-108:                                              ; preds = %96
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  store i32 %98, ptr %109, align 4, !tbaa !86
-  %110 = icmp sgt i32 %106, 0
-  br i1 %110, label %.lr.ph, label %._crit_edge
+107:                                              ; preds = %95
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 196
+  store i32 %97, ptr %108, align 4, !tbaa !86
+  %109 = icmp sgt i32 %105, 0
+  br i1 %109, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %108
-  %111 = load ptr, ptr %6, align 8, !tbaa !85
-  %wide.trip.count = zext nneg i32 %106 to i64
-  br label %112
+.lr.ph:                                           ; preds = %107
+  %110 = load ptr, ptr %6, align 8, !tbaa !85
+  %wide.trip.count = zext nneg i32 %105 to i64
+  br label %111
 
-112:                                              ; preds = %.lr.ph, %112
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %.268.i133 = phi i32 [ 1, %.lr.ph ], [ %spec.select.i, %112 ]
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv
-  %114 = load i32, ptr %113, align 4, !tbaa !6
-  %115 = lshr i32 %114, 8
-  %116 = and i32 %115, 65535
-  store i32 %116, ptr %113, align 4, !tbaa !6
-  %.not84.i = icmp slt i32 %116, %.268.i133
-  %117 = add nuw nsw i32 %116, 1
-  %spec.select.i = select i1 %.not84.i, i32 %.268.i133, i32 %117
+111:                                              ; preds = %.lr.ph, %111
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
+  %.268.i133 = phi i32 [ 1, %.lr.ph ], [ %spec.select.i, %111 ]
+  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
+  %113 = load i32, ptr %112, align 4, !tbaa !6
+  %114 = lshr i32 %113, 8
+  %115 = and i32 %114, 65535
+  store i32 %115, ptr %112, align 4, !tbaa !6
+  %.not84.i = icmp slt i32 %115, %.268.i133
+  %116 = add nuw nsw i32 %115, 1
+  %spec.select.i = select i1 %.not84.i, i32 %.268.i133, i32 %116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !87
 
-._crit_edge:                                      ; preds = %112, %108
-  %.268.i.lcssa = phi i32 [ 1, %108 ], [ %spec.select.i, %112 ]
-  %118 = icmp sgt i32 %.268.i.lcssa, 1000
-  %119 = mul nsw i32 %.1, %1
-  %120 = icmp sgt i32 %.268.i.lcssa, %119
-  %or.cond.i = select i1 %118, i1 true, i1 %120
-  br i1 %or.cond.i, label %121, label %VP8LSetError.exit77
+._crit_edge:                                      ; preds = %111, %107
+  %.268.i.lcssa = phi i32 [ 1, %107 ], [ %spec.select.i, %111 ]
+  %117 = icmp sgt i32 %.268.i.lcssa, 1000
+  %118 = mul nsw i32 %.1, %1
+  %119 = icmp sgt i32 %.268.i.lcssa, %118
+  %or.cond.i = select i1 %117, i1 true, i1 %119
+  br i1 %or.cond.i, label %120, label %VP8LSetError.exit77
 
-121:                                              ; preds = %._crit_edge
-  %122 = zext nneg i32 %.268.i.lcssa to i64
-  %123 = call ptr @WebPSafeMalloc(i64 noundef %122, i64 noundef 4) #8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %128
+120:                                              ; preds = %._crit_edge
+  %121 = zext nneg i32 %.268.i.lcssa to i64
+  %122 = call ptr @WebPSafeMalloc(i64 noundef %121, i64 noundef 4) #8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %127
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %126, label %VP8LSetError.exit77.thread [
-    i32 0, label %127
-    i32 5, label %127
+124:                                              ; preds = %120
+  %125 = load i32, ptr %3, align 8, !tbaa !13
+  switch i32 %125, label %VP8LSetError.exit77.thread [
+    i32 0, label %126
+    i32 5, label %126
   ]
 
-127:                                              ; preds = %125, %125
+126:                                              ; preds = %124, %124
   store i32 1, ptr %3, align 8, !tbaa !13
   br label %VP8LSetError.exit77.thread
 
-128:                                              ; preds = %121
-  %129 = shl nuw nsw i64 %122, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 -1, i64 %129, i1 false)
-  br i1 %110, label %.lr.ph138, label %VP8LSetError.exit77
+127:                                              ; preds = %120
+  %128 = shl nuw nsw i64 %121, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %122, i8 -1, i64 %128, i1 false)
+  br i1 %109, label %.lr.ph138, label %VP8LSetError.exit77
 
-.lr.ph138:                                        ; preds = %128
-  %130 = load ptr, ptr %6, align 8, !tbaa !85
-  %wide.trip.count146 = zext nneg i32 %106 to i64
-  br label %131
+.lr.ph138:                                        ; preds = %127
+  %129 = load ptr, ptr %6, align 8, !tbaa !85
+  %wide.trip.count146 = zext nneg i32 %105 to i64
+  br label %130
 
-131:                                              ; preds = %.lr.ph138, %140
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next144, %140 ]
-  %.2.i135 = phi i32 [ 0, %.lr.ph138 ], [ %.3.i, %140 ]
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv143
-  %133 = load i32, ptr %132, align 4, !tbaa !6
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %123, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !6
-  %137 = icmp eq i32 %136, -1
-  br i1 %137, label %138, label %140
+130:                                              ; preds = %.lr.ph138, %139
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next144, %139 ]
+  %.2.i135 = phi i32 [ 0, %.lr.ph138 ], [ %.3.i, %139 ]
+  %131 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv143
+  %132 = load i32, ptr %131, align 4, !tbaa !6
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr inbounds nuw i32, ptr %122, i64 %133
+  %135 = load i32, ptr %134, align 4, !tbaa !6
+  %136 = icmp eq i32 %135, -1
+  br i1 %136, label %137, label %139
 
-138:                                              ; preds = %131
-  %139 = add nsw i32 %.2.i135, 1
-  store i32 %.2.i135, ptr %135, align 4, !tbaa !6
-  br label %140
+137:                                              ; preds = %130
+  %138 = add nsw i32 %.2.i135, 1
+  store i32 %.2.i135, ptr %134, align 4, !tbaa !6
+  br label %139
 
-140:                                              ; preds = %138, %131
-  %141 = phi i32 [ %.2.i135, %138 ], [ %136, %131 ]
-  %.3.i = phi i32 [ %139, %138 ], [ %.2.i135, %131 ]
-  store i32 %141, ptr %132, align 4, !tbaa !6
+139:                                              ; preds = %137, %130
+  %140 = phi i32 [ %.2.i135, %137 ], [ %135, %130 ]
+  %.3.i = phi i32 [ %138, %137 ], [ %.2.i135, %130 ]
+  store i32 %140, ptr %131, align 4, !tbaa !6
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %VP8LSetError.exit77, label %131, !llvm.loop !88
+  br i1 %exitcond147.not, label %VP8LSetError.exit77, label %130, !llvm.loop !88
 
-VP8LSetError.exit77:                              ; preds = %140, %128, %._crit_edge, %94, %.critedge68
-  %.070.i = phi ptr [ null, %94 ], [ null, %.critedge68 ], [ null, %._crit_edge ], [ %123, %128 ], [ %123, %140 ]
-  %.066.i = phi i32 [ 1, %94 ], [ 1, %.critedge68 ], [ %.268.i.lcssa, %._crit_edge ], [ %.268.i.lcssa, %128 ], [ %.268.i.lcssa, %140 ]
-  %.064.i = phi i32 [ 1, %94 ], [ 1, %.critedge68 ], [ %.268.i.lcssa, %._crit_edge ], [ 0, %128 ], [ %.3.i, %140 ]
-  %142 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  %143 = load i32, ptr %142, align 4, !tbaa !51
-  %.not81.i = icmp eq i32 %143, 0
-  br i1 %.not81.i, label %144, label %VP8LSetError.exit77.thread
+VP8LSetError.exit77:                              ; preds = %139, %127, %._crit_edge, %93, %.critedge68
+  %.070.i = phi ptr [ null, %93 ], [ null, %.critedge68 ], [ null, %._crit_edge ], [ %122, %127 ], [ %122, %139 ]
+  %.066.i = phi i32 [ 1, %93 ], [ 1, %.critedge68 ], [ %.268.i.lcssa, %._crit_edge ], [ %.268.i.lcssa, %127 ], [ %.268.i.lcssa, %139 ]
+  %.064.i = phi i32 [ 1, %93 ], [ 1, %.critedge68 ], [ %.268.i.lcssa, %._crit_edge ], [ 0, %127 ], [ %.3.i, %139 ]
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  %142 = load i32, ptr %141, align 4, !tbaa !51
+  %.not81.i = icmp eq i32 %142, 0
+  br i1 %.not81.i, label %143, label %VP8LSetError.exit77.thread
 
-144:                                              ; preds = %VP8LSetError.exit77
-  %145 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 -2147483648, 12) %.052, i32 noundef %.064.i, i32 noundef %.066.i, ptr noundef %.070.i, ptr noundef nonnull %3, ptr noundef nonnull %93, ptr noundef nonnull %7)
-  %.not82.i = icmp eq i32 %145, 0
-  br i1 %.not82.i, label %VP8LSetError.exit77.thread, label %149
+143:                                              ; preds = %VP8LSetError.exit77
+  %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef range(i32 -2147483648, 12) %.052, i32 noundef %.064.i, i32 noundef %.066.i, ptr noundef %.070.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
+  %.not82.i = icmp eq i32 %144, 0
+  br i1 %.not82.i, label %VP8LSetError.exit77.thread, label %148
 
-VP8LSetError.exit77.thread:                       ; preds = %127, %125, %96, %144, %VP8LSetError.exit77
-  %.373.i.ph = phi ptr [ %.070.i, %144 ], [ %.070.i, %VP8LSetError.exit77 ], [ null, %96 ], [ null, %125 ], [ null, %127 ]
+VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %143, %VP8LSetError.exit77
+  %.373.i.ph = phi ptr [ %.070.i, %143 ], [ %.070.i, %VP8LSetError.exit77 ], [ null, %95 ], [ null, %124 ], [ null, %126 ]
   call void @WebPSafeFree(ptr noundef %.373.i.ph) #8
-  %146 = load ptr, ptr %6, align 8, !tbaa !85
-  call void @WebPSafeFree(ptr noundef %146) #8
-  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %93) #8
-  %147 = load ptr, ptr %7, align 8, !tbaa !10
-  call void @VP8LHtreeGroupsFree(ptr noundef %147) #8
+  %145 = load ptr, ptr %6, align 8, !tbaa !85
+  call void @WebPSafeFree(ptr noundef %145) #8
+  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %92) #8
+  %146 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @VP8LHtreeGroupsFree(ptr noundef %146) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   br label %.thread111thread-pre-split
 
-.thread111thread-pre-split:                       ; preds = %43, %14, %29, %VP8LSetError.exit77.thread
+.thread111thread-pre-split:                       ; preds = %43, %15, %30, %VP8LSetError.exit77.thread
   %.pr = load i32, ptr %3, align 8, !tbaa !13
   br label %.thread111
 
 .thread111:                                       ; preds = %.thread111thread-pre-split, %.critedge.i
-  %148 = phi i32 [ %.pr, %.thread111thread-pre-split ], [ %85, %.critedge.i ]
-  switch i32 %148, label %VP8LSetError.exit.thread [
+  %147 = phi i32 [ %.pr, %.thread111thread-pre-split ], [ %84, %.critedge.i ]
+  switch i32 %147, label %VP8LSetError.exit.thread [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %6, align 8, !tbaa !85
-  %151 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  store ptr %150, ptr %151, align 8, !tbaa !53
-  %152 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 %.064.i, ptr %152, align 8, !tbaa !76
-  %153 = load ptr, ptr %7, align 8, !tbaa !10
-  %154 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  store ptr %153, ptr %154, align 8, !tbaa !54
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %6, align 8, !tbaa !85
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  store ptr %149, ptr %150, align 8, !tbaa !53
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  store i32 %.064.i, ptr %151, align 8, !tbaa !76
+  %152 = load ptr, ptr %7, align 8, !tbaa !10
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  store ptr %152, ptr %153, align 8, !tbaa !54
   call void @WebPSafeFree(ptr noundef %.070.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  %155 = icmp sgt i32 %.052, 0
-  br i1 %155, label %156, label %162
+  %154 = icmp sgt i32 %.052, 0
+  br i1 %154, label %155, label %161
 
-156:                                              ; preds = %149
-  %157 = shl nuw nsw i32 1, %.052
-  store i32 %157, ptr %9, align 8, !tbaa !75
-  %158 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %159 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %158, i32 noundef %.052) #8
-  %.not63 = icmp eq i32 %159, 0
-  br i1 %.not63, label %160, label %163
+155:                                              ; preds = %148
+  %156 = shl nuw nsw i32 1, %.052
+  store i32 %156, ptr %9, align 8, !tbaa !75
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %158 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %157, i32 noundef %.052) #8
+  %.not63 = icmp eq i32 %158, 0
+  br i1 %.not63, label %159, label %162
 
-160:                                              ; preds = %156
-  %161 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %161, label %VP8LSetError.exit.thread [
+159:                                              ; preds = %155
+  %160 = load i32, ptr %3, align 8, !tbaa !13
+  switch i32 %160, label %VP8LSetError.exit.thread [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
 
-162:                                              ; preds = %149
+161:                                              ; preds = %148
   store i32 0, ptr %9, align 8, !tbaa !75
-  br label %163
+  br label %162
 
-163:                                              ; preds = %156, %162
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  %165 = load i32, ptr %164, align 4, !tbaa !86
-  %166 = getelementptr inbounds nuw i8, ptr %3, i64 132
-  store i32 %.1, ptr %166, align 4, !tbaa !67
-  %167 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 %1, ptr %167, align 8, !tbaa !69
-  %168 = shl nuw i32 1, %165
-  %169 = add i32 %.1, -1
-  %170 = add i32 %169, %168
-  %171 = lshr i32 %170, %165
-  %172 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store i32 %171, ptr %172, align 8, !tbaa !89
-  %173 = icmp eq i32 %165, 0
-  %notmask.i = shl nsw i32 -1, %165
-  %174 = xor i32 %notmask.i, -1
-  %175 = select i1 %173, i32 -1, i32 %174
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  store i32 %175, ptr %176, align 8, !tbaa !90
-  br i1 %.not, label %178, label %VP8LSetError.exit.thread125
+162:                                              ; preds = %155, %161
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 196
+  %164 = load i32, ptr %163, align 4, !tbaa !86
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 132
+  store i32 %.1, ptr %165, align 4, !tbaa !67
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store i32 %1, ptr %166, align 8, !tbaa !69
+  %167 = shl nuw i32 1, %164
+  %168 = add i32 %.1, -1
+  %169 = add i32 %168, %167
+  %170 = lshr i32 %169, %164
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  store i32 %170, ptr %171, align 8, !tbaa !89
+  %172 = icmp eq i32 %164, 0
+  %notmask.i = shl nsw i32 -1, %164
+  %173 = xor i32 %notmask.i, -1
+  %174 = select i1 %172, i32 -1, i32 %173
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  store i32 %174, ptr %175, align 8, !tbaa !90
+  br i1 %.not, label %177, label %VP8LSetError.exit.thread125
 
-VP8LSetError.exit.thread125:                      ; preds = %163
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %177, align 4, !tbaa !52
-  br label %192
+VP8LSetError.exit.thread125:                      ; preds = %162
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 1, ptr %176, align 4, !tbaa !52
+  br label %191
 
-178:                                              ; preds = %163
-  %179 = sext i32 %.1 to i64
-  %180 = sext i32 %1 to i64
-  %181 = mul nsw i64 %179, %180
-  %182 = call ptr @WebPSafeMalloc(i64 noundef %181, i64 noundef 4) #8
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %184, label %VP8LSetError.exit74
+177:                                              ; preds = %162
+  %178 = sext i32 %.1 to i64
+  %179 = sext i32 %1 to i64
+  %180 = mul nsw i64 %178, %179
+  %181 = call ptr @WebPSafeMalloc(i64 noundef %180, i64 noundef 4) #8
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %183, label %VP8LSetError.exit74
 
-184:                                              ; preds = %178
-  %185 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %185, label %VP8LSetError.exit.thread [
+183:                                              ; preds = %177
+  %184 = load i32, ptr %3, align 8, !tbaa !13
+  switch i32 %184, label %VP8LSetError.exit.thread [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
 
-VP8LSetError.exit74:                              ; preds = %178
-  %186 = call fastcc i32 @DecodeImageData(ptr noundef nonnull %3, ptr noundef nonnull %182, i32 noundef %.1, i32 noundef %1, i32 noundef %1, ptr noundef null)
-  %.not64 = icmp eq i32 %186, 0
+VP8LSetError.exit74:                              ; preds = %177
+  %185 = call fastcc i32 @DecodeImageData(ptr noundef nonnull %3, ptr noundef nonnull %181, i32 noundef %.1, i32 noundef %1, i32 noundef %1, ptr noundef null)
+  %.not64 = icmp eq i32 %185, 0
   br i1 %.not64, label %VP8LSetError.exit.thread, label %VP8LSetError.exit
 
 VP8LSetError.exit:                                ; preds = %VP8LSetError.exit74
-  %187 = load i32, ptr %142, align 4, !tbaa !51
-  %.not65.not = icmp eq i32 %187, 0
-  br i1 %.not65.not, label %192, label %VP8LSetError.exit.thread
+  %186 = load i32, ptr %141, align 4, !tbaa !51
+  %.not65.not = icmp eq i32 %186, 0
+  br i1 %.not65.not, label %191, label %VP8LSetError.exit.thread
 
-VP8LSetError.exit.thread.sink.split:              ; preds = %184, %184, %160, %160, %.thread111, %.thread111, %91, %91, %.critedge.i, %.critedge.i
-  %.sink = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge.i ], [ 3, %91 ], [ 3, %91 ], [ 3, %.thread111 ], [ 3, %.thread111 ], [ 1, %160 ], [ 1, %160 ], [ 1, %184 ], [ 1, %184 ]
+VP8LSetError.exit.thread.sink.split:              ; preds = %183, %183, %159, %159, %.thread111, %.thread111, %90, %90, %.critedge.i, %.critedge.i
+  %.sink = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge.i ], [ 3, %90 ], [ 3, %90 ], [ 3, %.thread111 ], [ 3, %.thread111 ], [ 1, %159 ], [ 1, %159 ], [ 1, %183 ], [ 1, %183 ]
   store i32 %.sink, ptr %3, align 8, !tbaa !13
   br label %VP8LSetError.exit.thread
 
-VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %184, %160, %.thread111, %91, %VP8LSetError.exit74, %VP8LSetError.exit
-  %.053124 = phi ptr [ %182, %VP8LSetError.exit ], [ null, %160 ], [ null, %.thread111 ], [ null, %91 ], [ %182, %VP8LSetError.exit74 ], [ null, %184 ], [ null, %VP8LSetError.exit.thread.sink.split ]
+VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %183, %159, %.thread111, %90, %VP8LSetError.exit74, %VP8LSetError.exit
+  %.053124 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %159 ], [ null, %.thread111 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %183 ], [ null, %VP8LSetError.exit.thread.sink.split ]
   call void @WebPSafeFree(ptr noundef %.053124) #8
-  %188 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %189 = load ptr, ptr %188, align 8, !tbaa !53
-  call void @WebPSafeFree(ptr noundef %189) #8
-  %190 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %190) #8
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  %187 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %188 = load ptr, ptr %187, align 8, !tbaa !53
+  call void @WebPSafeFree(ptr noundef %188) #8
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %189) #8
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 224
   br label %.sink.split
 
-192:                                              ; preds = %VP8LSetError.exit.thread125, %VP8LSetError.exit
-  %.053130 = phi ptr [ null, %VP8LSetError.exit.thread125 ], [ %182, %VP8LSetError.exit ]
+191:                                              ; preds = %VP8LSetError.exit.thread125, %VP8LSetError.exit
+  %.053130 = phi ptr [ null, %VP8LSetError.exit.thread125 ], [ %181, %VP8LSetError.exit ]
   %.not67 = icmp eq ptr %4, null
-  br i1 %.not67, label %194, label %193
+  br i1 %.not67, label %193, label %192
 
-193:                                              ; preds = %192
+192:                                              ; preds = %191
   store ptr %.053130, ptr %4, align 8, !tbaa !85
-  br label %194
+  br label %193
 
-194:                                              ; preds = %192, %193
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  store i32 0, ptr %195, align 8, !tbaa !91
-  br i1 %.not, label %196, label %200
+193:                                              ; preds = %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  store i32 0, ptr %194, align 8, !tbaa !91
+  br i1 %.not, label %195, label %199
 
-196:                                              ; preds = %194
-  %197 = load ptr, ptr %151, align 8, !tbaa !53
-  call void @WebPSafeFree(ptr noundef %197) #8
-  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %93) #8
+195:                                              ; preds = %193
+  %196 = load ptr, ptr %150, align 8, !tbaa !53
+  call void @WebPSafeFree(ptr noundef %196) #8
+  call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %92) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %196, %VP8LSetError.exit.thread
-  %.sink157.in = phi ptr [ %191, %VP8LSetError.exit.thread ], [ %154, %196 ]
-  %.3122.ph = phi i32 [ 0, %VP8LSetError.exit.thread ], [ 1, %196 ]
-  %.sink157 = load ptr, ptr %.sink157.in, align 8, !tbaa !54
-  call void @VP8LHtreeGroupsFree(ptr noundef %.sink157) #8
-  %198 = getelementptr inbounds nuw i8, ptr %3, i64 160
+.sink.split:                                      ; preds = %195, %VP8LSetError.exit.thread
+  %.sink160.in = phi ptr [ %190, %VP8LSetError.exit.thread ], [ %153, %195 ]
+  %.3122.ph = phi i32 [ 0, %VP8LSetError.exit.thread ], [ 1, %195 ]
+  %.sink160 = load ptr, ptr %.sink160.in, align 8, !tbaa !54
+  call void @VP8LHtreeGroupsFree(ptr noundef %.sink160) #8
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  call void @VP8LColorCacheClear(ptr noundef nonnull %197) #8
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 176
   call void @VP8LColorCacheClear(ptr noundef nonnull %198) #8
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  call void @VP8LColorCacheClear(ptr noundef nonnull %199) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 120, i1 false)
-  br label %200
+  br label %199
 
-200:                                              ; preds = %.sink.split, %194
-  %.3122 = phi i32 [ 1, %194 ], [ %.3122.ph, %.sink.split ]
+199:                                              ; preds = %.sink.split, %193
+  %.3122 = phi i32 [ 1, %193 ], [ %.3122.ph, %.sink.split ]
   ret i32 %.3122
 }
 
@@ -1849,7 +1848,7 @@ PlaneCodeToDistance.exit.i:                       ; preds = %215, %213
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %240, %238, %234
-  %.027.i.i = phi i32 [ %.0.copyload.i.i, %240 ], [ %239, %238 ], [ %237, %234 ]
+  %.027.i.i = phi i32 [ %237, %234 ], [ %239, %238 ], [ %.0.copyload.i.i, %240 ]
   %241 = ptrtoint ptr %228 to i64
   %242 = and i64 %241, 3
   %.not22.i.i.i = icmp eq i64 %242, 0

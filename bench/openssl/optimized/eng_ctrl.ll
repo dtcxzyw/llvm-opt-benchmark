@@ -273,7 +273,7 @@ int_ctrl_cmd_is_null.exit52.i:                    ; preds = %76
   br label %int_ctrl_helper.exit
 
 int_ctrl_helper.exit:                             ; preds = %109, %106, %99, %93, %87, %82, %int_ctrl_cmd_is_null.exit52.i, %76, %73, %int_ctrl_cmd_by_name.exit.i, %int_ctrl_cmd_by_name.exit.thread.i, %36, %int_ctrl_cmd_is_null.exit.i, %25, %21, %.critedge21, %111, %.critedge, %12, %7
-  %.0 = phi i32 [ 0, %7 ], [ %112, %.critedge21 ], [ 0, %111 ], [ -1, %.critedge ], [ %13, %12 ], [ -1, %36 ], [ -1, %int_ctrl_cmd_by_name.exit.thread.i ], [ %56, %int_ctrl_cmd_by_name.exit.i ], [ -1, %73 ], [ -1, %109 ], [ %108, %106 ], [ %105, %99 ], [ %98, %93 ], [ %92, %87 ], [ %86, %82 ], [ 0, %21 ], [ 0, %25 ], [ 0, %76 ], [ %spec.select.i, %int_ctrl_cmd_is_null.exit.i ], [ %spec.select5.i, %int_ctrl_cmd_is_null.exit52.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %112, %.critedge21 ], [ 0, %111 ], [ %13, %12 ], [ -1, %.critedge ], [ -1, %36 ], [ -1, %int_ctrl_cmd_by_name.exit.thread.i ], [ %56, %int_ctrl_cmd_by_name.exit.i ], [ -1, %73 ], [ -1, %109 ], [ %86, %82 ], [ %92, %87 ], [ %98, %93 ], [ %105, %99 ], [ %108, %106 ], [ 0, %21 ], [ 0, %25 ], [ 0, %76 ], [ %spec.select.i, %int_ctrl_cmd_is_null.exit.i ], [ %spec.select5.i, %int_ctrl_cmd_is_null.exit52.i ]
   ret i32 %.0
 }
 

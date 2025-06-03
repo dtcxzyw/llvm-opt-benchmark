@@ -328,9 +328,9 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
   br label %130
 
 130:                                              ; preds = %85, %94, %104, %113, %122, %59, %_ZNK7oopDesc5klassEv.exit, %7, %4, %77, %69, %60, %_ZN5ciEnv10get_objectEP7oopDesc.exit
-  %.sroa.10.sroa.10.0 = phi i32 [ %.sroa.10.sroa.10.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.10.sroa.10.0.extract.trunc42, %77 ], [ undef, %69 ], [ %68, %60 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ undef, %122 ], [ undef, %113 ], [ undef, %104 ], [ undef, %94 ], [ undef, %85 ]
-  %.sroa.10.sroa.0.0 = phi i32 [ %.sroa.10.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.10.sroa.0.0.extract.trunc40, %77 ], [ %76, %69 ], [ %67, %60 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ %129, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %94 ], [ %93, %85 ]
-  %.sroa.0.0 = phi i8 [ %1, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ 7, %77 ], [ 6, %69 ], [ 11, %60 ], [ 99, %4 ], [ 99, %7 ], [ 99, %_ZNK7oopDesc5klassEv.exit ], [ 99, %59 ], [ 10, %122 ], [ 5, %113 ], [ 9, %104 ], [ 4, %94 ], [ 8, %85 ]
+  %.sroa.10.sroa.10.0 = phi i32 [ %.sroa.10.sroa.10.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %68, %60 ], [ undef, %69 ], [ %.sroa.10.sroa.10.0.extract.trunc42, %77 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ undef, %122 ], [ undef, %113 ], [ undef, %104 ], [ undef, %94 ], [ undef, %85 ]
+  %.sroa.10.sroa.0.0 = phi i32 [ %.sroa.10.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %67, %60 ], [ %76, %69 ], [ %.sroa.10.sroa.0.0.extract.trunc40, %77 ], [ -1, %4 ], [ -1, %7 ], [ -1, %_ZNK7oopDesc5klassEv.exit ], [ -1, %59 ], [ %129, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %94 ], [ %93, %85 ]
+  %.sroa.0.0 = phi i8 [ %1, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ 11, %60 ], [ 6, %69 ], [ 7, %77 ], [ 99, %4 ], [ 99, %7 ], [ 99, %_ZNK7oopDesc5klassEv.exit ], [ 99, %59 ], [ 10, %122 ], [ 5, %113 ], [ 9, %104 ], [ 4, %94 ], [ 8, %85 ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.sroa.10.sroa.10.0.insert.ext = zext i32 %.sroa.10.sroa.10.0 to i64
   %.sroa.10.sroa.10.0.insert.shift = shl nuw i64 %.sroa.10.sroa.10.0.insert.ext, 32

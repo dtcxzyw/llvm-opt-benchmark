@@ -1643,7 +1643,7 @@ ehcleanup89:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit75, %_ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit48, %_ZNKSt8functionIFddEEclEd.exit
-  %retval.0 = phi double [ %38, %_ZNSt14_Function_baseD2Ev.exit75 ], [ %20, %_ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit48 ], [ %8, %_ZNKSt8functionIFddEEclEd.exit ]
+  %retval.0 = phi double [ %8, %_ZNKSt8functionIFddEEclEd.exit ], [ %20, %_ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit48 ], [ %38, %_ZNSt14_Function_baseD2Ev.exit75 ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup89, %ehcleanup57

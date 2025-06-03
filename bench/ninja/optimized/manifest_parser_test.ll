@@ -3204,8 +3204,8 @@ _ZN7testing15AssertionResultD2Ev.exit83:          ; preds = %210, %_ZNKSt14defau
   br label %224
 
 224:                                              ; preds = %_ZN7testing7MessageD2Ev.exit54, %223, %_ZN7testing7MessageD2Ev.exit45, %_ZN7testing7MessageD2Ev.exit38, %23
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %.pn21.pn, %_ZN7testing7MessageD2Ev.exit45 ], [ %24, %23 ], [ %.pn30.pn.pn, %223 ], [ %.pn24.pn, %_ZN7testing7MessageD2Ev.exit54 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %_ZN7testing7MessageD2Ev.exit45 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %24, %23 ], [ %.pn30.pn.pn, %223 ], [ %.pn24.pn, %_ZN7testing7MessageD2Ev.exit54 ]
+  resume { ptr, i32 } %.pn30.pn.pn.pn.pn
 }
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK10BindingEnv8GetRulesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
@@ -4179,8 +4179,8 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %_ZNSt7__cxx1112basi
   br label %296
 
 296:                                              ; preds = %_ZN7testing7MessageD2Ev.exit69, %295, %236, %_ZN7testing7MessageD2Ev.exit60, %_ZN7testing7MessageD2Ev.exit53, %28
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit60 ], [ %29, %28 ], [ %.pn31.pn, %_ZN7testing7MessageD2Ev.exit69 ], [ %.pn43.pn.pn.pn, %295 ], [ %.pn36.pn.pn.pn, %236 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn43.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit60 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %29, %28 ], [ %.pn31.pn, %_ZN7testing7MessageD2Ev.exit69 ], [ %.pn43.pn.pn.pn, %295 ], [ %.pn36.pn.pn.pn, %236 ]
+  resume { ptr, i32 } %.pn43.pn.pn.pn.pn.pn.pn
 }
 
 declare noundef ptr @_ZN5State7GetNodeE11StringPiecem(ptr noundef nonnull align 8 dereferenceable(256), ptr, i64, i64 noundef) local_unnamed_addr #0
@@ -4529,8 +4529,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %104, %_ZNKSt14defau
   br label %118
 
 118:                                              ; preds = %117, %_ZN7testing7MessageD2Ev.exit22, %15
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit22 ], [ %.pn15.pn.pn, %117 ], [ %16, %15 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn, %117 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit22 ], [ %16, %15 ]
+  resume { ptr, i32 } %.pn15.pn.pn.pn
 }
 
 declare void @_ZN10BindingEnv14LookupVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -5650,8 +5650,8 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %384, %_ZNKSt14defau
   br label %398
 
 398:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %259, %341, %397, %_ZN7testing7MessageD2Ev.exit72, %_ZN7testing7MessageD2Ev.exit65, %33
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit65 ], [ %.pn34.pn, %_ZN7testing7MessageD2Ev.exit72 ], [ %34, %33 ], [ %.pn57.pn.pn, %397 ], [ %.pn50.pn.pn, %341 ], [ %.pn43.pn.pn, %259 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit81 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn57.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn34.pn, %_ZN7testing7MessageD2Ev.exit72 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit65 ], [ %34, %33 ], [ %.pn57.pn.pn, %397 ], [ %.pn50.pn.pn, %341 ], [ %.pn43.pn.pn, %259 ], [ %.pn37.pn, %_ZN7testing7MessageD2Ev.exit81 ]
+  resume { ptr, i32 } %.pn57.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6470,8 +6470,8 @@ _ZN7testing15AssertionResultD2Ev.exit112:         ; preds = %278, %_ZNKSt14defau
   br label %292
 
 292:                                              ; preds = %_ZN7testing7MessageD2Ev.exit62, %243, %291, %_ZN7testing7MessageD2Ev.exit53, %_ZN7testing7MessageD2Ev.exit46, %27
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit46 ], [ %.pn25.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %28, %27 ], [ %.pn38.pn.pn, %291 ], [ %.pn34.pn.pn, %243 ], [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit62 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn38.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit46 ], [ %28, %27 ], [ %.pn38.pn.pn, %291 ], [ %.pn34.pn.pn, %243 ], [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit62 ]
+  resume { ptr, i32 } %.pn38.pn.pn.pn.pn
 }
 
 declare void @_ZNK4Edge15EvaluateCommandB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #0
@@ -7339,8 +7339,8 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %295, %_ZNKSt14defau
   br label %309
 
 309:                                              ; preds = %188, %260, %308, %_ZN7testing7MessageD2Ev.exit54, %_ZN7testing7MessageD2Ev.exit47, %28
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit47 ], [ %.pn25.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %29, %28 ], [ %.pn39.pn.pn, %308 ], [ %.pn35.pn.pn, %260 ], [ %.pn28.pn.pn, %188 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit47 ], [ %29, %28 ], [ %.pn39.pn.pn, %308 ], [ %.pn35.pn.pn, %260 ], [ %.pn28.pn.pn, %188 ]
+  resume { ptr, i32 } %.pn39.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7967,8 +7967,8 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %210, %_ZNKSt14defau
   br label %224
 
 224:                                              ; preds = %223, %175, %_ZN7testing7MessageD2Ev.exit38, %_ZN7testing7MessageD2Ev.exit31, %23
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit31 ], [ %.pn24.pn.pn, %223 ], [ %.pn20.pn.pn, %175 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %24, %23 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %223 ], [ %.pn20.pn.pn, %175 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit31 ], [ %24, %23 ]
+  resume { ptr, i32 } %.pn24.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8600,8 +8600,8 @@ _ZN7testing15AssertionResultD2Ev.exit83:          ; preds = %210, %_ZNKSt14defau
   br label %224
 
 224:                                              ; preds = %_ZN7testing7MessageD2Ev.exit54, %223, %_ZN7testing7MessageD2Ev.exit45, %_ZN7testing7MessageD2Ev.exit38, %23
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %.pn21.pn, %_ZN7testing7MessageD2Ev.exit45 ], [ %24, %23 ], [ %.pn30.pn.pn, %223 ], [ %.pn24.pn, %_ZN7testing7MessageD2Ev.exit54 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %_ZN7testing7MessageD2Ev.exit45 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %24, %23 ], [ %.pn30.pn.pn, %223 ], [ %.pn24.pn, %_ZN7testing7MessageD2Ev.exit54 ]
+  resume { ptr, i32 } %.pn30.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9182,8 +9182,8 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %188, %_ZNKSt14defau
   br label %202
 
 202:                                              ; preds = %201, %145, %_ZN7testing7MessageD2Ev.exit34, %20
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %.pn27.pn.pn, %201 ], [ %.pn20.pn.pn, %145 ], [ %21, %20 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn, %201 ], [ %.pn20.pn.pn, %145 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %21, %20 ]
+  resume { ptr, i32 } %.pn27.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9526,8 +9526,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %104, %_ZNKSt14defau
   br label %118
 
 118:                                              ; preds = %117, %_ZN7testing7MessageD2Ev.exit22, %15
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit22 ], [ %.pn15.pn.pn, %117 ], [ %16, %15 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn15.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn, %117 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit22 ], [ %16, %15 ]
+  resume { ptr, i32 } %.pn15.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10057,8 +10057,8 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %172, %_ZNKSt14defau
   br label %186
 
 186:                                              ; preds = %185, %137, %_ZN7testing7MessageD2Ev.exit29, %19
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn22.pn.pn, %185 ], [ %.pn18.pn.pn, %137 ], [ %20, %19 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %185 ], [ %.pn18.pn.pn, %137 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %20, %19 ]
+  resume { ptr, i32 } %.pn22.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10923,8 +10923,8 @@ _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %297, %_ZNKSt14defau
   br label %311
 
 311:                                              ; preds = %310, %_ZN7testing7MessageD2Ev.exit82, %_ZN7testing7MessageD2Ev.exit69, %_ZN7testing7MessageD2Ev.exit56, %_ZN7testing7MessageD2Ev.exit48, %_ZN7testing7MessageD2Ev.exit39, %27
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %.pn32.pn.pn, %310 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit82 ], [ %.pn26.pn, %_ZN7testing7MessageD2Ev.exit69 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit56 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %28, %27 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %310 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit82 ], [ %.pn26.pn, %_ZN7testing7MessageD2Ev.exit69 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit56 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %28, %27 ]
+  resume { ptr, i32 } %.pn32.pn.pn.pn
 }
 
 declare noundef ptr @_ZNK5State10LookupNodeE11StringPiece(ptr noundef nonnull align 8 dereferenceable(256), ptr, i64) local_unnamed_addr #0
@@ -11675,8 +11675,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %_ZN7testing15Assert
   ret void
 
 261:                                              ; preds = %_ZN7testing7MessageD2Ev.exit95, %_ZN7testing7MessageD2Ev.exit78, %_ZN7testing7MessageD2Ev.exit61, %_ZN7testing7MessageD2Ev.exit48, %_ZN7testing7MessageD2Ev.exit39, %26
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %.pn32.pn.pn, %_ZN7testing7MessageD2Ev.exit95 ], [ %.pn27.pn.pn, %_ZN7testing7MessageD2Ev.exit78 ], [ %.pn23.pn.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %27, %26 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %_ZN7testing7MessageD2Ev.exit95 ], [ %.pn27.pn.pn, %_ZN7testing7MessageD2Ev.exit78 ], [ %.pn23.pn.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %27, %26 ]
+  resume { ptr, i32 } %.pn32.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12103,8 +12103,8 @@ _ZN7testing15AssertionResultD2Ev.exit51:          ; preds = %_ZN7testing15Assert
   ret void
 
 148:                                              ; preds = %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit33, %_ZN7testing7MessageD2Ev.exit24, %18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit24 ], [ %.pn17.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ], [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit33 ], [ %19, %18 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ], [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit33 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit24 ], [ %19, %18 ]
+  resume { ptr, i32 } %.pn17.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12853,8 +12853,8 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %_ZN7testing15Assert
   ret void
 
 261:                                              ; preds = %_ZN7testing7MessageD2Ev.exit95, %_ZN7testing7MessageD2Ev.exit78, %_ZN7testing7MessageD2Ev.exit61, %_ZN7testing7MessageD2Ev.exit48, %_ZN7testing7MessageD2Ev.exit39, %26
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %.pn32.pn.pn, %_ZN7testing7MessageD2Ev.exit95 ], [ %.pn28.pn.pn, %_ZN7testing7MessageD2Ev.exit78 ], [ %.pn23.pn.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %27, %26 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %_ZN7testing7MessageD2Ev.exit95 ], [ %.pn28.pn.pn, %_ZN7testing7MessageD2Ev.exit78 ], [ %.pn23.pn.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %.pn19.pn.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %27, %26 ]
+  resume { ptr, i32 } %.pn32.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14303,8 +14303,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %36, %87, %_ZNKSt14d
   ret void
 
 98:                                               ; preds = %_ZN7testing7MessageD2Ev.exit30, %_ZN7testing7MessageD2Ev.exit21, %14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit21 ], [ %.pn14.pn.pn, %_ZN7testing7MessageD2Ev.exit30 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %_ZN7testing7MessageD2Ev.exit30 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit21 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn14.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -36366,8 +36366,8 @@ _ZN7testing15AssertionResultD2Ev.exit219:         ; preds = %534, %_ZNKSt14defau
   br label %548
 
 548:                                              ; preds = %547, %499, %435, %_ZN7testing7MessageD2Ev.exit149, %_ZN7testing7MessageD2Ev.exit135, %_ZN7testing7MessageD2Ev.exit118, %_ZN7testing7MessageD2Ev.exit101, %_ZN7testing7MessageD2Ev.exit92, %_ZN7testing7MessageD2Ev.exit85, %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
-  %.pn36.pn = phi { ptr, i32 } [ %.pn36, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn63.pn.pn, %547 ], [ %.pn59.pn.pn, %499 ], [ %.pn55.pn.pn, %435 ], [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit149 ], [ %.pn48.pn.pn, %_ZN7testing7MessageD2Ev.exit135 ], [ %.pn44.pn.pn, %_ZN7testing7MessageD2Ev.exit118 ], [ %.pn41.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %.pn38.pn, %_ZN7testing7MessageD2Ev.exit92 ], [ %84, %83 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ]
-  resume { ptr, i32 } %.pn36.pn
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn, %547 ], [ %.pn59.pn.pn, %499 ], [ %.pn55.pn.pn, %435 ], [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit149 ], [ %.pn48.pn.pn, %_ZN7testing7MessageD2Ev.exit135 ], [ %.pn44.pn.pn, %_ZN7testing7MessageD2Ev.exit118 ], [ %.pn41.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %.pn38.pn, %_ZN7testing7MessageD2Ev.exit92 ], [ %.pn36, %_ZN7testing7MessageD2Ev.exit85 ], [ %84, %83 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ]
+  resume { ptr, i32 } %.pn63.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -38691,8 +38691,8 @@ _ZN7testing15AssertionResultD2Ev.exit104:         ; preds = %241, %_ZNKSt14defau
   br label %255
 
 255:                                              ; preds = %254, %_ZN7testing7MessageD2Ev.exit68, %_ZN7testing7MessageD2Ev.exit59, %_ZN7testing7MessageD2Ev.exit52, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN7testing7MessageD2Ev.exit52 ], [ %.pn32.pn.pn, %254 ], [ %.pn26.pn, %_ZN7testing7MessageD2Ev.exit68 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit59 ], [ %59, %58 ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ]
-  resume { ptr, i32 } %.pn21.pn
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %254 ], [ %.pn26.pn, %_ZN7testing7MessageD2Ev.exit68 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit59 ], [ %.pn21, %_ZN7testing7MessageD2Ev.exit52 ], [ %59, %58 ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ]
+  resume { ptr, i32 } %.pn32.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -39593,8 +39593,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %36, %100, %_ZNKSt14
   ret void
 
 111:                                              ; preds = %_ZN7testing7MessageD2Ev.exit29, %_ZN7testing7MessageD2Ev.exit20, %14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn13.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -39874,8 +39874,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %36, %95, %_ZNKSt14d
   ret void
 
 106:                                              ; preds = %_ZN7testing7MessageD2Ev.exit29, %_ZN7testing7MessageD2Ev.exit20, %14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn13.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -40293,8 +40293,8 @@ _ZN7testing15AssertionResultD2Ev.exit52:          ; preds = %136, %_ZNKSt14defau
   ret void
 
 149:                                              ; preds = %_ZN7testing7MessageD2Ev.exit34, %_ZN7testing7MessageD2Ev.exit47, %_ZN7testing7MessageD2Ev.exit26, %18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit26 ], [ %19, %18 ], [ %.pn19.pn, %_ZN7testing7MessageD2Ev.exit47 ], [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit34 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit26 ], [ %19, %18 ], [ %.pn19.pn, %_ZN7testing7MessageD2Ev.exit47 ], [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit34 ]
+  resume { ptr, i32 } %.pn19.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -40748,8 +40748,8 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %104, %157, %_ZNKSt1
   ret void
 
 168:                                              ; preds = %_ZN7testing7MessageD2Ev.exit36, %_ZN7testing7MessageD2Ev.exit50, %_ZN7testing7MessageD2Ev.exit28, %19
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit28 ], [ %20, %19 ], [ %.pn20.pn.pn, %_ZN7testing7MessageD2Ev.exit50 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit36 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit28 ], [ %20, %19 ], [ %.pn20.pn.pn, %_ZN7testing7MessageD2Ev.exit50 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit36 ]
+  resume { ptr, i32 } %.pn20.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -41202,8 +41202,8 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %104, %156, %_ZNKSt1
   ret void
 
 167:                                              ; preds = %_ZN7testing7MessageD2Ev.exit36, %_ZN7testing7MessageD2Ev.exit50, %_ZN7testing7MessageD2Ev.exit28, %19
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit28 ], [ %20, %19 ], [ %.pn20.pn.pn, %_ZN7testing7MessageD2Ev.exit50 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit36 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit28 ], [ %20, %19 ], [ %.pn20.pn.pn, %_ZN7testing7MessageD2Ev.exit50 ], [ %.pn17.pn, %_ZN7testing7MessageD2Ev.exit36 ]
+  resume { ptr, i32 } %.pn20.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -43080,8 +43080,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   br label %175
 
 175:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %_ZN7testing7MessageD2Ev.exit29, %20
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn21.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %21, %20 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn21.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn21.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %21, %20 ]
+  resume { ptr, i32 } %.pn21.pn.pn.pn.pn
 }
 
 declare void @_ZNK5State12DefaultNodesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::vector.18") align 8, ptr noundef nonnull align 8 dereferenceable(256), ptr noundef) local_unnamed_addr #0
@@ -43577,8 +43577,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   br label %175
 
 175:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %_ZN7testing7MessageD2Ev.exit29, %20
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn21.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %21, %20 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn21.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn21.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %21, %20 ]
+  resume { ptr, i32 } %.pn21.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44533,8 +44533,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
   br label %336
 
 336:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134, %_ZN7testing7MessageD2Ev.exit53, %29
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %.pn44.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134 ], [ %30, %29 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn44.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit53 ], [ %30, %29 ]
+  resume { ptr, i32 } %.pn44.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -45864,8 +45864,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %36, %84, %_ZNKSt14d
   ret void
 
 95:                                               ; preds = %_ZN7testing7MessageD2Ev.exit29, %_ZN7testing7MessageD2Ev.exit20, %14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit20 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn13.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46959,8 +46959,8 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %187, %_ZNKSt14defau
   ret void
 
 200:                                              ; preds = %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit63, %_ZN7testing7MessageD2Ev.exit75, %_ZN7testing7MessageD2Ev.exit36, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
+  resume { ptr, i32 } %.pn29.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -47528,8 +47528,8 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %187, %_ZNKSt14defau
   ret void
 
 200:                                              ; preds = %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit63, %_ZN7testing7MessageD2Ev.exit75, %_ZN7testing7MessageD2Ev.exit36, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
+  resume { ptr, i32 } %.pn29.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48097,8 +48097,8 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %187, %_ZNKSt14defau
   ret void
 
 200:                                              ; preds = %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit63, %_ZN7testing7MessageD2Ev.exit75, %_ZN7testing7MessageD2Ev.exit36, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
+  resume { ptr, i32 } %.pn29.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48666,8 +48666,8 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %187, %_ZNKSt14defau
   ret void
 
 200:                                              ; preds = %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit63, %_ZN7testing7MessageD2Ev.exit75, %_ZN7testing7MessageD2Ev.exit36, %21
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %22, %21 ], [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit75 ], [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit63 ], [ %.pn21.pn.pn, %_ZN7testing7MessageD2Ev.exit46 ]
+  resume { ptr, i32 } %.pn29.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

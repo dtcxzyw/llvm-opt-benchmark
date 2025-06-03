@@ -4167,7 +4167,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   br label %common.resume
 
 _ZNSt3mapIdN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIdESaISt4pairIKdS1_EEED2Ev.exit: ; preds = %709, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit282, %611, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit259, %242, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit186, %"_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_MergeValueFnENS_11SdfSpecTypeERKNS_7TfTokenERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEbS9_SC_bPSt8optionalINS_7VtValueEERKSt8functionIFNS_25UsdUtilsStitchValueStatusES4_SC_S9_bS9_bPSE_EEEN3$_0D2Ev.exit", %152, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit175, %840, %844, %798, %802, %756, %760, %890
-  %.1 = phi i1 [ %.0.mux.mux, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit175 ], [ %891, %890 ], [ %4, %152 ], [ false, %760 ], [ false, %756 ], [ false, %802 ], [ false, %798 ], [ false, %844 ], [ false, %840 ], [ %301, %"_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_MergeValueFnENS_11SdfSpecTypeERKNS_7TfTokenERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEbS9_SC_bPSt8optionalINS_7VtValueEERKSt8functionIFNS_25UsdUtilsStitchValueStatusES4_SC_S9_bS9_bPSE_EEEN3$_0D2Ev.exit" ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit186 ], [ true, %242 ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit259 ], [ true, %611 ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit282 ], [ true, %709 ]
+  %.1 = phi i1 [ %891, %890 ], [ %.0.mux.mux, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit175 ], [ %4, %152 ], [ false, %760 ], [ false, %756 ], [ false, %802 ], [ false, %798 ], [ false, %844 ], [ false, %840 ], [ %301, %"_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_MergeValueFnENS_11SdfSpecTypeERKNS_7TfTokenERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathEbS9_SC_bPSt8optionalINS_7VtValueEERKSt8functionIFNS_25UsdUtilsStitchValueStatusES4_SC_S9_bS9_bPSE_EEEN3$_0D2Ev.exit" ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit186 ], [ true, %242 ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit259 ], [ true, %611 ], [ true, %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtValueEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit282 ], [ true, %709 ]
   ret i1 %.1
 }
 
@@ -5712,9 +5712,9 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   br label %548
 
 548:                                              ; preds = %546, %._crit_edge._crit_edge.i.i.i.i81
-  %549 = phi i32 [ %542, %._crit_edge._crit_edge.i.i.i.i81 ], [ %545, %546 ]
-  %.0.copyload.i2.i.i25.i.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i81 ], [ %.0.copyload.i2.i.i23.i.i.i.i, %546 ]
-  %.sroa.044.1.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i81 ], [ %547, %546 ]
+  %549 = phi i32 [ %545, %546 ], [ %542, %._crit_edge._crit_edge.i.i.i.i81 ]
+  %.0.copyload.i2.i.i25.i.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i.i, %546 ], [ %.0.copyload.i2.i.i25.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i81 ]
+  %.sroa.044.1.i.i.i.i = phi ptr [ %547, %546 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i81 ]
   %.0.copyload.i.i.i24.i.i.i.i = load i64, ptr %.sroa.044.1.i.i.i.i, align 4
   %550 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i.i, %.0.copyload.i2.i.i25.i.i.i.i
   br i1 %550, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.i, label %551
@@ -5724,9 +5724,9 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   br label %553
 
 553:                                              ; preds = %551, %._crit_edge._crit_edge70.i.i.i.i
-  %554 = phi i32 [ %541, %._crit_edge._crit_edge70.i.i.i.i ], [ %549, %551 ]
-  %.0.copyload.i2.i.i27.i.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i.i, %551 ]
-  %.sroa.044.2.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ], [ %552, %551 ]
+  %554 = phi i32 [ %549, %551 ], [ %541, %._crit_edge._crit_edge70.i.i.i.i ]
+  %.0.copyload.i2.i.i27.i.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i.i, %551 ], [ %.0.copyload.i2.i.i27.pre.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ]
+  %.sroa.044.2.i.i.i.i = phi ptr [ %552, %551 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i.i = load i64, ptr %.sroa.044.2.i.i.i.i, align 4
   %555 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i.i, %.0.copyload.i2.i.i27.i.i.i.i
   %spec.select.i.i.i.i60 = select i1 %555, ptr %.sroa.044.2.i.i.i.i, ptr %517
@@ -19334,8 +19334,8 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge._crit_edge.i.i.i
-  %68 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %63, %65 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %66, %65 ]
+  %68 = phi i32 [ %63, %65 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %69 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %70 = icmp eq i32 %69, %68
   br i1 %70, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit, label %71
@@ -19345,8 +19345,8 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge._crit_edge57.i.i.i
-  %74 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %68, %71 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %72, %71 ]
+  %74 = phi i32 [ %68, %71 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %75 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %76 = icmp eq i32 %75, %74
   %spec.select.i.i.i = select i1 %76, ptr %.sroa.032.2.i.i.i, ptr %32
@@ -21550,8 +21550,8 @@ _ZNSt6vectorIjSaIjEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge._crit_edge.i.i.i
-  %68 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %63, %65 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %66, %65 ]
+  %68 = phi i32 [ %63, %65 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %69 = load i32, ptr %.sroa.032.1.i.i.i, align 4
   %70 = icmp eq i32 %69, %68
   br i1 %70, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit, label %71
@@ -21561,8 +21561,8 @@ _ZNSt6vectorIjSaIjEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge._crit_edge57.i.i.i
-  %74 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %68, %71 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %72, %71 ]
+  %74 = phi i32 [ %68, %71 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %75 = load i32, ptr %.sroa.032.2.i.i.i, align 4
   %76 = icmp eq i32 %75, %74
   %spec.select.i.i.i = select i1 %76, ptr %.sroa.032.2.i.i.i, ptr %32
@@ -23754,8 +23754,8 @@ _ZNSt6vectorImSaImEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge._crit_edge.i.i.i
-  %68 = phi i64 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %63, %65 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %66, %65 ]
+  %68 = phi i64 [ %63, %65 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %69 = load i64, ptr %.sroa.032.1.i.i.i, align 8
   %70 = icmp eq i64 %69, %68
   br i1 %70, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit, label %71
@@ -23765,8 +23765,8 @@ _ZNSt6vectorImSaImEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge._crit_edge57.i.i.i
-  %74 = phi i64 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %68, %71 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %72, %71 ]
+  %74 = phi i64 [ %68, %71 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %75 = load i64, ptr %.sroa.032.2.i.i.i, align 8
   %76 = icmp eq i64 %75, %74
   %spec.select.i.i.i = select i1 %76, ptr %.sroa.032.2.i.i.i, ptr %32
@@ -30276,7 +30276,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #20
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %66 = icmp eq i64 %64, %65
@@ -30299,7 +30299,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #20
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %77 = icmp eq i64 %75, %76
@@ -32929,8 +32929,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %42 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %42 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %42 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %45 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %45, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %46
@@ -32940,8 +32940,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %46 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %47, %46 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %46 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %49 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.044.2.i.i.i, ptr %17
@@ -37472,7 +37472,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.032.1 = phi ptr [ %27, %26 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12SdfReferenceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %29, label %.loopexit, label %30
 
@@ -37481,7 +37481,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.032.2 = phi ptr [ %31, %30 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %33 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12SdfReferenceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %spec.select = select i1 %33, ptr %.sroa.032.2, ptr %1
   br label %.loopexit
@@ -41455,7 +41455,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.032.1 = phi ptr [ %28, %27 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br i1 %30, label %.loopexit, label %31
 
@@ -41464,7 +41464,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.2 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10SdfPayloadeqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %spec.select = select i1 %34, ptr %.sroa.032.2, ptr %1
   br label %.loopexit
@@ -44710,7 +44710,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.032.1 = phi ptr [ %27, %26 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.032.1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %29, label %.loopexit, label %30
 
@@ -44719,7 +44719,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.032.2 = phi ptr [ %31, %30 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %33 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.032.2, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %spec.select = select i1 %33, ptr %.sroa.032.2, ptr %1
   br label %.loopexit

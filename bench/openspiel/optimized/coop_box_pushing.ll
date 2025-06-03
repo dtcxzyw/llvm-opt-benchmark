@@ -1706,7 +1706,7 @@ _ZN4absl7debian28AlphaNumC2El.exit.i:             ; preds = %_ZN4absl7debian28Al
   br label %76
 
 76:                                               ; preds = %74, %.body18.i, %.body13.i, %.body8.i, %.body.i
-  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body19.i, %.body18.i ], [ %eh.lpad-body14.i, %.body13.i ], [ %eh.lpad-body9.i, %.body8.i ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body9.i, %.body8.i ], [ %eh.lpad-body14.i, %.body13.i ], [ %eh.lpad-body19.i, %.body18.i ]
   resume { ptr, i32 } %.pn.i
 
 _ZN10open_spiel16coop_box_pushing12_GLOBAL__N_114ActionToStringB5cxx11El.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit
@@ -3367,7 +3367,7 @@ define noundef range(i32 0, 5) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBoxP
   resume { ptr, i32 } %.pn
 
 45:                                               ; preds = %24, %2, %34, %33, %32
-  %.010 = phi i32 [ 4, %34 ], [ 3, %33 ], [ 2, %32 ], [ 1, %2 ], [ 0, %24 ]
+  %.010 = phi i32 [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ 1, %2 ], [ 0, %24 ]
   ret i32 %.010
 }
 
@@ -3764,7 +3764,7 @@ default.unreachable30:                            ; preds = %38
   ret void
 
 71:                                               ; preds = %.body27, %.body22, %.body17, %.body12, %.body, %28, %20
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body28, %.body27 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body18, %.body17 ], [ %eh.lpad-body13, %.body12 ], [ %eh.lpad-body, %.body ], [ %29, %28 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body13, %.body12 ], [ %eh.lpad-body18, %.body17 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body28, %.body27 ], [ %29, %28 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4006,7 +4006,7 @@ define noundef range(i32 -1, 11) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBo
   resume { ptr, i32 } %73
 
 74:                                               ; preds = %3, %71, %47, %36, %25, %14, %13, %12
-  %.0 = phi i32 [ -1, %71 ], [ %57, %47 ], [ %46, %36 ], [ %35, %25 ], [ %24, %14 ], [ 2, %13 ], [ 1, %12 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %71 ], [ 1, %12 ], [ 2, %13 ], [ %24, %14 ], [ %35, %25 ], [ %46, %36 ], [ %57, %47 ], [ 0, %3 ]
   ret i32 %.0
 }
 

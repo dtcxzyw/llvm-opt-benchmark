@@ -935,7 +935,7 @@ define internal fastcc i64 @get_bit_rate(ptr noundef readonly captures(none) %0)
   br label %26
 
 26:                                               ; preds = %11, %1, %23, %4
-  %.0 = phi i64 [ %25, %23 ], [ %6, %4 ], [ 0, %1 ], [ %spec.select, %11 ]
+  %.0 = phi i64 [ %6, %4 ], [ %25, %23 ], [ 0, %1 ], [ %spec.select, %11 ]
   ret i64 %.0
 }
 

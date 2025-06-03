@@ -3451,8 +3451,8 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %sw.epilog, %entry, %sw.bb8, %if.end30, %sw.bb7
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end30 ], [ 0, %sw.bb7 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.6.0 = phi i16 [ 256, %if.end30 ], [ 256, %sw.bb7 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  %retval.sroa.0.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %if.end30 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.6.0, %retval.sroa.0.0
   ret i16 %retval.sroa.0.0.insert.insert
 }
@@ -6349,8 +6349,8 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !27
 
 return:                                           ; preds = %sw.epilog, %entry, %sw.bb8, %if.end30, %sw.bb7
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end30 ], [ 0, %sw.bb7 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.6.0 = phi i16 [ 256, %if.end30 ], [ 256, %sw.bb7 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  %retval.sroa.0.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %if.end30 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.6.0, %retval.sroa.0.0
   ret i16 %retval.sroa.0.0.insert.insert
 }

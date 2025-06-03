@@ -1322,7 +1322,7 @@ define hidden noundef range(i64 193, 192) i64 @_ZN3ue28hwlmSizeEPK4HWLM(ptr noun
   br label %9
 
 9:                                                ; preds = %6, %3
-  %.0 = phi i64 [ %8, %6 ], [ %5, %3 ]
+  %.0 = phi i64 [ %5, %3 ], [ %8, %6 ]
   %.not = icmp eq i64 %.0, 0
   %10 = add i64 %.0, 192
   br i1 %.not, label %.thread, label %11

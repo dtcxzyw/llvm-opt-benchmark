@@ -2928,7 +2928,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PB__write_entry(ptr noundef %0, p
   br label %39
 
 39:                                               ; preds = %34, %2, %.thread, %14
-  %.022 = phi i32 [ -1, %14 ], [ -1, %34 ], [ 0, %.thread ], [ 0, %2 ]
+  %.022 = phi i32 [ -1, %14 ], [ 0, %.thread ], [ -1, %34 ], [ 0, %2 ]
   ret i32 %.022
 }
 

@@ -192,7 +192,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$parquet..format..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17heba7ca9e5d99bccdE.exit"
 
 "_ZN62_$LT$parquet..format..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17heba7ca9e5d99bccdE.exit": ; preds = %9, %11, %13
-  %.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in.i
 }
 
@@ -7415,7 +7415,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   br label %69
 
 .body:                                            ; preds = %310, %219, %118, %67, %274, %183, %82
-  %.pn = phi { ptr, i32 } [ %275, %274 ], [ %184, %183 ], [ %83, %82 ], [ %68, %67 ], [ %119, %118 ], [ %220, %219 ], [ %311, %310 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %184, %183 ], [ %275, %274 ], [ %68, %67 ], [ %119, %118 ], [ %220, %219 ], [ %311, %310 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #9
           to label %387 unwind label %177
 
@@ -13274,7 +13274,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..LogicalType$u20$as$u20$
   br label %96
 
 93:                                               ; preds = %438, %415, %392, %369, %346, %321, %296, %271, %248, %223, %200, %177, %154, %121, %94
-  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %439, %438 ], [ %416, %415 ], [ %393, %392 ], [ %370, %369 ], [ %347, %346 ], [ %322, %321 ], [ %297, %296 ], [ %272, %271 ], [ %249, %248 ], [ %224, %223 ], [ %201, %200 ], [ %178, %177 ], [ %155, %154 ], [ %122, %121 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %122, %121 ], [ %155, %154 ], [ %178, %177 ], [ %201, %200 ], [ %224, %223 ], [ %249, %248 ], [ %272, %271 ], [ %297, %296 ], [ %322, %321 ], [ %347, %346 ], [ %370, %369 ], [ %393, %392 ], [ %416, %415 ], [ %439, %438 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #9
           to label %488 unwind label %148
 
@@ -24158,7 +24158,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %105
 
 .body:                                            ; preds = %391, %155, %103, %354, %118
-  %.pn = phi { ptr, i32 } [ %355, %354 ], [ %119, %118 ], [ %104, %103 ], [ %.pn.i, %155 ], [ %.pn.i141, %391 ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %355, %354 ], [ %104, %103 ], [ %.pn.i, %155 ], [ %.pn.i141, %391 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90) #9
           to label %602 unwind label %348
 

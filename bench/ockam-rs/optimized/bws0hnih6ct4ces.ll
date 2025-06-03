@@ -462,8 +462,8 @@ default.unreachable:                              ; preds = %14
   %30 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %30, label %32, label %33
 
-31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %23, %19, %17, %11
-  %.1 = phi ptr [ @anon.9d845625fc183bca31fdcc935f68cd9a.14, %11 ], [ %.val, %17 ], [ %.val, %19 ], [ %.val, %23 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
+31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %17, %19, %23, %11
+  %.1 = phi ptr [ @anon.9d845625fc183bca31fdcc935f68cd9a.14, %11 ], [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -488,7 +488,7 @@ _ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit: ; preds = %14
   %37 = icmp eq i64 %.sroa.4.121, 0
   br i1 %37, label %.loopexit, label %9
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %23, %19, %17
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %17, %19, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !123
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hc3c0dd547c655bbfE.llvm.12387716778192508131(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !123
   %38 = load i8, ptr %4, align 8, !range !130, !alias.scope !131, !noalias !123, !noundef !44
@@ -1084,7 +1084,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 common.resume:                                    ; preds = %209, %140, %175, %181, %201, %221, %226, %231, %236, %241, %246, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %242, %241 ], [ %237, %236 ], [ %232, %231 ], [ %227, %226 ], [ %222, %221 ], [ %.pn2, %201 ], [ %182, %181 ], [ %.pn4, %175 ], [ %.pn10, %140 ], [ %210, %209 ]
+  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %242, %241 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17h3af87a24a2c803b5E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h101345724655dc09E.llvm.12387716778192508131.exit.i", %152, %156
@@ -1495,7 +1495,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h0414b5b8965cc7f0E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -1556,7 +1556,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h43f3e19e231a570dE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1616,7 +1616,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17ha9c5d0b5be5d7debE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -1677,7 +1677,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hf1a37cfe8a6d2298E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -1738,7 +1738,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hfb81a1814a7bcd78E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -1822,7 +1822,7 @@ define hidden { i64, ptr } @_ZN4core4sync6atomic23atomic_compare_exchange17h0d61
   br label %26
 
 26:                                               ; preds = %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %22, %18, %14
-  %.pn = phi { i64, i1 } [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.pn = phi { i64, i1 } [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -2012,7 +2012,7 @@ define hidden { i64, ptr } @_ZN4core4sync6atomic23atomic_compare_exchange17haade
   br label %26
 
 26:                                               ; preds = %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %22, %18, %14
-  %.pn = phi { i64, i1 } [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.pn = phi { i64, i1 } [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -2202,7 +2202,7 @@ define hidden { i64, ptr } @_ZN4core4sync6atomic23atomic_compare_exchange17hd58a
   br label %26
 
 26:                                               ; preds = %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %22, %18, %14
-  %.pn = phi { i64, i1 } [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.pn = phi { i64, i1 } [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -2392,7 +2392,7 @@ define hidden { i64, ptr } @_ZN4core4sync6atomic23atomic_compare_exchange17heae0
   br label %26
 
 26:                                               ; preds = %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %22, %18, %14
-  %.pn = phi { i64, i1 } [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.pn = phi { i64, i1 } [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -3962,7 +3962,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   br label %_ZN4core4sync6atomic11atomic_load17ha9c5d0b5be5d7debE.llvm.2855106210970449457.exit
 
 _ZN4core4sync6atomic11atomic_load17ha9c5d0b5be5d7debE.llvm.2855106210970449457.exit: ; preds = %7, %14, %21
-  %.0.in.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.in.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   %.0.i = inttoptr i64 %.0.in.i to ptr
   ret ptr %.0.i
 }
@@ -4024,7 +4024,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   br label %_ZN4core4sync6atomic11atomic_load17h0414b5b8965cc7f0E.llvm.2855106210970449457.exit
 
 _ZN4core4sync6atomic11atomic_load17h0414b5b8965cc7f0E.llvm.2855106210970449457.exit: ; preds = %7, %14, %21
-  %.0.in.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.in.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   %.0.i = inttoptr i64 %.0.in.i to ptr
   ret ptr %.0.i
 }
@@ -4086,7 +4086,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   br label %_ZN4core4sync6atomic11atomic_load17hf1a37cfe8a6d2298E.llvm.2855106210970449457.exit
 
 _ZN4core4sync6atomic11atomic_load17hf1a37cfe8a6d2298E.llvm.2855106210970449457.exit: ; preds = %7, %14, %21
-  %.0.in.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.in.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   %.0.i = inttoptr i64 %.0.in.i to ptr
   ret ptr %.0.i
 }
@@ -4148,7 +4148,7 @@ define hidden noundef ptr @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$9load_next1
   br label %_ZN4core4sync6atomic11atomic_load17hfb81a1814a7bcd78E.llvm.2855106210970449457.exit
 
 _ZN4core4sync6atomic11atomic_load17hfb81a1814a7bcd78E.llvm.2855106210970449457.exit: ; preds = %7, %14, %21
-  %.0.in.i = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
+  %.0.in.i = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
   %.0.i = inttoptr i64 %.0.in.i to ptr
   ret ptr %.0.i
 }
@@ -4169,7 +4169,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h5a
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -4189,7 +4189,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h75
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -4209,7 +4209,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17haa
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -5297,7 +5297,7 @@ default.unreachable1:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %18, %15, %12, %8
-  %.0.in = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %8 ]
+  %.0.in = phi i1 [ %11, %8 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.0.in
 }
 
@@ -5360,7 +5360,7 @@ default.unreachable1:                             ; preds = %2
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0.in
 }
 

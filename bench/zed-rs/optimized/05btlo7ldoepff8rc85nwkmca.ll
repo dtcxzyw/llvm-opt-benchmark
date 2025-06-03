@@ -1926,8 +1926,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.9604267256581516034.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.9604267256581516034.exit": ; preds = %2, %9, %12, %14, %16, %21
-  %.sroa.10.0 = phi i8 [ %.sroa.415.0.copyload, %21 ], [ %.sroa.10.8.copyload, %16 ], [ %.sroa.10.8.copyload7, %14 ], [ %.sroa.016.0.copyload, %12 ], [ %11, %9 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.014.0.copyload, %21 ], [ -9223372036854775804, %16 ], [ -9223372036854775805, %14 ], [ -9223372036854775806, %12 ], [ -9223372036854775807, %9 ], [ -9223372036854775808, %2 ]
+  %.sroa.10.0 = phi i8 [ %11, %9 ], [ %.sroa.016.0.copyload, %12 ], [ %.sroa.10.8.copyload7, %14 ], [ %.sroa.10.8.copyload, %16 ], [ %.sroa.415.0.copyload, %21 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %9 ], [ -9223372036854775806, %12 ], [ -9223372036854775805, %14 ], [ -9223372036854775804, %16 ], [ %.sroa.014.0.copyload, %21 ], [ -9223372036854775808, %2 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.9604267256581516034"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
           to label %24 unwind label %22
 
@@ -5762,8 +5762,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.9604267256581516034.exit.i"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.llvm.9604267256581516034.exit.i": ; preds = %2, %26, %21, %19, %17, %14
-  %.sroa.10.0 = phi i8 [ %.sroa.415.0.copyload, %26 ], [ %.sroa.10.8.copyload, %21 ], [ %.sroa.10.8.copyload7, %19 ], [ %.sroa.016.0.copyload, %17 ], [ %16, %14 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.014.0.copyload, %26 ], [ -9223372036854775804, %21 ], [ -9223372036854775805, %19 ], [ -9223372036854775806, %17 ], [ -9223372036854775807, %14 ], [ -9223372036854775808, %2 ]
+  %.sroa.10.0 = phi i8 [ %16, %14 ], [ %.sroa.016.0.copyload, %17 ], [ %.sroa.10.8.copyload7, %19 ], [ %.sroa.10.8.copyload, %21 ], [ %.sroa.415.0.copyload, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %14 ], [ -9223372036854775806, %17 ], [ -9223372036854775805, %19 ], [ -9223372036854775804, %21 ], [ %.sroa.014.0.copyload, %26 ], [ -9223372036854775808, %2 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.9604267256581516034"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
           to label %_ZN4core5clone5Clone10clone_from17hf8095d3de6f75efbE.llvm.9604267256581516034.exit unwind label %27
 
@@ -7459,8 +7459,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %68
 
 68:                                               ; preds = %63, %71
-  %.sroa.3.0 = phi ptr [ undef, %71 ], [ %67, %63 ]
-  %.sroa.0.0 = phi ptr [ null, %71 ], [ %65, %63 ]
+  %.sroa.3.0 = phi ptr [ %67, %63 ], [ undef, %71 ]
+  %.sroa.0.0 = phi ptr [ %65, %63 ], [ null, %71 ]
   %69 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %70 = insertvalue { ptr, ptr } %69, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %70
@@ -7733,7 +7733,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %106
 
 106:                                              ; preds = %107, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit"
-  %.sroa.0.0 = phi i1 [ false, %107 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit" ], [ false, %107 ]
   ret i1 %.sroa.0.0
 
 107:                                              ; preds = %85, %89
@@ -12098,7 +12098,7 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   br label %70
 
 70:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h518f1d24aa42c68aE.exit", %69
-  %.sroa.018.0 = phi i32 [ %.sroa.798.0.copyload, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h518f1d24aa42c68aE.exit" ], [ %.sroa.025.0.copyload, %69 ]
+  %.sroa.018.0 = phi i32 [ %.sroa.025.0.copyload, %69 ], [ %.sroa.798.0.copyload, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h518f1d24aa42c68aE.exit" ]
   store i32 %.sroa.018.0, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.421, i64 16, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %39, i64 44
@@ -12112,8 +12112,8 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   br label %76
 
 76:                                               ; preds = %70, %73
-  %.sroa.429.0 = phi float [ %.sroa.10.0.copyload102, %70 ], [ %74, %73 ]
-  %.sroa.027.0 = phi i32 [ %.sroa.9.0.copyload, %70 ], [ %75, %73 ]
+  %.sroa.429.0 = phi float [ %74, %73 ], [ %.sroa.10.0.copyload102, %70 ]
+  %.sroa.027.0 = phi i32 [ %75, %73 ], [ %.sroa.9.0.copyload, %70 ]
   store i32 %.sroa.027.0, ptr %71, align 4
   store float %.sroa.429.0, ptr %72, align 4
   %77 = getelementptr inbounds nuw i8, ptr %39, i64 132
@@ -12139,7 +12139,7 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   br label %84
 
 84:                                               ; preds = %81, %83
-  %.sroa.032.0 = phi i32 [ %.sroa.11103.0.copyload, %81 ], [ %.sroa.038.0.copyload, %83 ]
+  %.sroa.032.0 = phi i32 [ %.sroa.038.0.copyload, %83 ], [ %.sroa.11103.0.copyload, %81 ]
   store i32 %.sroa.032.0, ptr %82, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.439.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.435, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.443, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8.sroa.3, i64 24, i1 false)
@@ -12183,8 +12183,8 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   br label %98
 
 98:                                               ; preds = %92, %95
-  %.sroa.056.0 = phi i32 [ %.sroa.13.0.copyload, %92 ], [ %97, %95 ]
-  %.sroa.458.0 = phi float [ %.sroa.14.0.copyload, %92 ], [ %96, %95 ]
+  %.sroa.056.0 = phi i32 [ %97, %95 ], [ %.sroa.13.0.copyload, %92 ]
+  %.sroa.458.0 = phi float [ %96, %95 ], [ %.sroa.14.0.copyload, %92 ]
   store i32 %.sroa.056.0, ptr %93, align 8
   store float %.sroa.458.0, ptr %94, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3080

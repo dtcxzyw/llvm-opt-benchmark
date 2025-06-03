@@ -101,7 +101,7 @@ define dso_local range(i32 0, 9) i32 @riscv_cpu_gdb_read_register(ptr noundef %0
   unreachable
 
 27:                                               ; preds = %14, %24, %21
-  %.013 = phi i32 [ 8, %24 ], [ 4, %21 ], [ 0, %14 ]
+  %.013 = phi i32 [ 4, %21 ], [ 8, %24 ], [ 0, %14 ]
   ret i32 %.013
 }
 

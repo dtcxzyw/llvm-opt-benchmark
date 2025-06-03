@@ -383,8 +383,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34: ; preds = %_ZNK4cvc58internal1
   br label %136
 
 .thread:                                          ; preds = %32, %29, %27, %24, %21, %18, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit, %75, %42, %112
-  %.sroa.0.1.shrunk = phi i1 [ false, %75 ], [ false, %42 ], [ false, %112 ], [ %63, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ %133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34 ], [ %100, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ %34, %32 ], [ %31, %29 ], [ %.not.i.i.i, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
-  %.sroa.5.1 = phi i16 [ 0, %75 ], [ 0, %42 ], [ 0, %112 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ 256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ 256, %32 ], [ 256, %29 ], [ 256, %27 ], [ 256, %24 ], [ 256, %21 ], [ 256, %18 ]
+  %.sroa.0.1.shrunk = phi i1 [ false, %75 ], [ false, %42 ], [ false, %112 ], [ %63, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ %133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34 ], [ %100, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %.not.i.i.i, %27 ], [ %31, %29 ], [ %34, %32 ]
+  %.sroa.5.1 = phi i16 [ 0, %75 ], [ 0, %42 ], [ 0, %112 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit ], [ 256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34 ], [ 256, %_ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit30 ], [ 256, %18 ], [ 256, %21 ], [ 256, %24 ], [ 256, %27 ], [ 256, %29 ], [ 256, %32 ]
   %.sroa.0.1 = zext i1 %.sroa.0.1.shrunk to i16
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.5.1, %.sroa.0.1
   ret i16 %.sroa.0.0.insert.insert
@@ -580,7 +580,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory5arith8rewrit
   unreachable
 
 24:                                               ; preds = %15, %13, %11, %9, %7, %5
-  %.0 = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0
 }
 

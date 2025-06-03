@@ -3213,7 +3213,7 @@ _Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit9: ; preds = %17, %_Z
   br label %39
 
 39:                                               ; preds = %38, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit9, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit
-  %.0 = phi ptr [ null, %38 ], [ %27, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit9 ], [ %11, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit ]
+  %.0 = phi ptr [ null, %38 ], [ %11, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit ], [ %27, %_Z16mk_accessor_declR11ast_managerRK6symbolRK8type_ref.exit9 ]
   ret ptr %.0
 }
 
@@ -13519,8 +13519,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIP9psort_appNS0_7k
   br label %253
 
 253:                                              ; preds = %._crit_edge._crit_edge, %245
-  %254 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %247, %245 ]
-  %.2 = phi i32 [ %239, %._crit_edge._crit_edge ], [ %252, %245 ]
+  %254 = phi ptr [ %247, %245 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %252, %245 ], [ %239, %._crit_edge._crit_edge ]
   %255 = load ptr, ptr %254, align 8, !tbaa !300
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load i32, ptr %256, align 8, !tbaa !72
@@ -13570,7 +13570,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIP9psort_appNS0_7k
   br label %296
 
 296:                                              ; preds = %4, %259, %100, %52, %12
-  %.0 = phi i32 [ %295, %259 ], [ %187, %100 ], [ %99, %52 ], [ %51, %12 ], [ 11, %4 ]
+  %.0 = phi i32 [ %295, %259 ], [ %51, %12 ], [ %99, %52 ], [ %187, %100 ], [ 11, %4 ]
   ret i32 %.0
 }
 

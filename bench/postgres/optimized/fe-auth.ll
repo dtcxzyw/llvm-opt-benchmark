@@ -816,7 +816,7 @@ pg_SASL_continue.exit:                            ; preds = %311, %312
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %61, %21, %26, %auth_method_description.exit.i, %54, %check_expected_areq.exit, %123, %pg_SASL_continue.exit, %pg_SASL_init.exit.thread, %pg_SASL_continue.exit.thread69, %pg_SASL_init.exit, %266, %323, %319, %83, %121, %324, %66, %65, %64, %63, %62
-  %.043 = phi i32 [ -1, %324 ], [ -1, %66 ], [ -1, %65 ], [ -1, %64 ], [ -1, %63 ], [ -1, %62 ], [ -1, %pg_SASL_init.exit ], [ -1, %121 ], [ -1, %83 ], [ -1, %319 ], [ -1, %323 ], [ -1, %266 ], [ 0, %pg_SASL_continue.exit.thread69 ], [ 0, %pg_SASL_init.exit.thread ], [ 0, %pg_SASL_continue.exit ], [ 0, %123 ], [ %0, %check_expected_areq.exit ], [ 0, %54 ], [ -1, %auth_method_description.exit.i ], [ -1, %26 ], [ -1, %21 ], [ -1, %61 ], [ -1, %60 ]
+  %.043 = phi i32 [ -1, %324 ], [ -1, %62 ], [ -1, %63 ], [ -1, %64 ], [ -1, %65 ], [ -1, %66 ], [ -1, %pg_SASL_init.exit ], [ -1, %121 ], [ -1, %83 ], [ -1, %319 ], [ -1, %323 ], [ -1, %266 ], [ 0, %pg_SASL_continue.exit.thread69 ], [ 0, %pg_SASL_init.exit.thread ], [ 0, %pg_SASL_continue.exit ], [ 0, %123 ], [ %0, %check_expected_areq.exit ], [ 0, %54 ], [ -1, %auth_method_description.exit.i ], [ -1, %26 ], [ -1, %21 ], [ -1, %61 ], [ -1, %60 ]
   ret i32 %.043
 }
 

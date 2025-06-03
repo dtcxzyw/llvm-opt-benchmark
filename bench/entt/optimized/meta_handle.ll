@@ -7205,7 +7205,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI5clazzJRKS3_EEEvDpOT0_.exit: ; preds =
   br label %33
 
 33:                                               ; preds = %3, %32, %30, %16, %11, %9
-  %.0 = phi ptr [ null, %32 ], [ %2, %30 ], [ %18, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %32 ], [ %2, %9 ], [ %2, %11 ], [ %18, %16 ], [ %2, %30 ], [ %8, %3 ]
   ret ptr %.0
 }
 

@@ -1657,11 +1657,11 @@ check_api_version.exit:                           ; preds = %22, %21, %21
   br label %check_api_version.exit.thread
 
 56:                                               ; preds = %49, %.lr.ph, %39, %46
-  %.177 = phi ptr [ %.076140, %46 ], [ %41, %39 ], [ %.076140, %.lr.ph ], [ %.076140, %49 ]
-  %.173 = phi i32 [ 1, %46 ], [ %.072141, %39 ], [ %.072141, %.lr.ph ], [ %.072141, %49 ]
-  %.171 = phi ptr [ %48, %46 ], [ %.070142, %39 ], [ %.070142, %.lr.ph ], [ %.070142, %49 ]
-  %.169 = phi i32 [ %.068143, %46 ], [ %.068143, %39 ], [ %.068143, %.lr.ph ], [ 1, %49 ]
-  %.1 = phi i32 [ %.067144, %46 ], [ %.067144, %39 ], [ 1, %.lr.ph ], [ %.067144, %49 ]
+  %.177 = phi ptr [ %41, %39 ], [ %.076140, %46 ], [ %.076140, %.lr.ph ], [ %.076140, %49 ]
+  %.173 = phi i32 [ %.072141, %39 ], [ 1, %46 ], [ %.072141, %.lr.ph ], [ %.072141, %49 ]
+  %.171 = phi ptr [ %.070142, %39 ], [ %48, %46 ], [ %.070142, %.lr.ph ], [ %.070142, %49 ]
+  %.169 = phi i32 [ %.068143, %39 ], [ %.068143, %46 ], [ %.068143, %.lr.ph ], [ 1, %49 ]
+  %.1 = phi i32 [ %.067144, %39 ], [ %.067144, %46 ], [ 1, %.lr.ph ], [ %.067144, %49 ]
   %57 = getelementptr i8, ptr %.066145, i64 16
   %.not87 = icmp eq ptr %57, null
   br i1 %.not87, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !45
@@ -1831,7 +1831,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %88, %PyObject_TypeC
   br i1 %126, label %Py_DECREF.exit110.sink.split, label %Py_DECREF.exit110
 
 check_api_version.exit.thread:                    ; preds = %22, %120, %115, %85, %77, %78, %69, %63, %18, %109, %105, %82, %53, %50, %43, %36, %28
-  %.074 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %53 ], [ null, %50 ], [ null, %43 ], [ null, %36 ], [ null, %77 ], [ null, %78 ], [ %74, %82 ], [ %.175, %115 ], [ %.175, %120 ], [ %.175, %105 ], [ %.175, %109 ], [ null, %85 ], [ null, %63 ], [ null, %69 ], [ null, %22 ]
+  %.074 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %53 ], [ null, %36 ], [ null, %43 ], [ null, %50 ], [ null, %77 ], [ null, %78 ], [ %74, %82 ], [ %.175, %115 ], [ %.175, %120 ], [ %.175, %105 ], [ %.175, %109 ], [ null, %85 ], [ null, %63 ], [ null, %69 ], [ null, %22 ]
   %127 = load i32, ptr %16, align 8, !tbaa !22
   %.not.i = icmp sgt i32 %127, -1
   br i1 %.not.i, label %128, label %Py_DECREF.exit

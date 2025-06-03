@@ -655,8 +655,8 @@ define internal i32 @math_random(ptr noundef %0) #0 {
   br label %81
 
 36:                                               ; preds = %27, %31
-  %.023 = phi i64 [ %33, %31 ], [ %28, %27 ]
-  %.022 = phi i64 [ %32, %31 ], [ 1, %27 ]
+  %.023 = phi i64 [ %28, %27 ], [ %33, %31 ]
+  %.022 = phi i64 [ 1, %27 ], [ %32, %31 ]
   %.not = icmp sgt i64 %.022, %.023
   br i1 %.not, label %37, label %39, !prof !10
 
@@ -734,7 +734,7 @@ project.exit:                                     ; preds = %44, %46, %..loopexi
   br label %81
 
 81:                                               ; preds = %project.exit, %34, %30, %23
-  %.0 = phi i32 [ %35, %34 ], [ 1, %project.exit ], [ 1, %30 ], [ 1, %23 ]
+  %.0 = phi i32 [ %35, %34 ], [ 1, %23 ], [ 1, %30 ], [ 1, %project.exit ]
   ret i32 %.0
 }
 

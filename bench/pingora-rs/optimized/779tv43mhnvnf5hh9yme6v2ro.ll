@@ -2392,7 +2392,7 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
   %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %66, %65 ], [ %48, %51 ], [ %48, %47 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 216
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$pingora_pool..connection..read_with_timeout$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f6d97e0e1d3427dE"(ptr noundef nonnull align 8 %64) #22
-          to label %.body11.i unwind label %68
+          to label %.body12.i unwind label %68
 
 65:                                               ; preds = %58
   %66 = landingpad { ptr, i32 }
@@ -2437,12 +2437,12 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
   %78 = load ptr, ptr %77, align 8, !alias.scope !452, !nonnull !3, !noundef !3
   %79 = atomicrmw sub ptr %78, i64 1 release, align 8, !noalias !452
   %80 = icmp eq i64 %79, 1
-  br i1 %80, label %81, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit15.i"
+  br i1 %80, label %81, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit16.i"
 
 81:                                               ; preds = %"_ZN4core3ptr124drop_in_place$LT$tokio..sync..mutex..OwnedMutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$17h0bd495e4e6c5a366E.exit.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f97e7d0d8819308E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit15.i" unwind label %83
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit16.i" unwind label %83
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i": ; preds = %83, %76, %.body.i
   %.pn7.i = phi { ptr, i32 } [ %84, %83 ], [ %eh.lpad-body.i, %76 ], [ %eh.lpad-body.i, %.body.i ]
@@ -2455,15 +2455,15 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
           cleanup
   br label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i"
 
-"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit15.i": ; preds = %81, %"_ZN4core3ptr124drop_in_place$LT$tokio..sync..mutex..OwnedMutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$17h0bd495e4e6c5a366E.exit.i"
+"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit16.i": ; preds = %81, %"_ZN4core3ptr124drop_in_place$LT$tokio..sync..mutex..OwnedMutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$17h0bd495e4e6c5a366E.exit.i"
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
-  %.val.i16.i = load ptr, ptr %85, align 8, !alias.scope !453, !noundef !3
-  %.not.i.i.i = icmp eq ptr %.val.i16.i, null
+  %.val.i17.i = load ptr, ptr %85, align 8, !alias.scope !453, !noundef !3
+  %.not.i.i.i = icmp eq ptr %.val.i17.i, null
   br i1 %.not.i.i.i, label %"_ZN4core3ptr294drop_in_place$LT$pingora_pool..connection..ConnectionPool$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$$GT$..idle_poll$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cac5cc01780b8e5E.exit", label %86
 
-86:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit15.i"
-  %87 = getelementptr inbounds nuw i8, ptr %.val.i16.i, i64 16
+86:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit16.i"
+  %87 = getelementptr inbounds nuw i8, ptr %.val.i17.i, i64 16
   %88 = invoke noundef i64 @"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$5close17hd7c3ac9b9512d0f3E"(ptr noundef nonnull align 8 %87)
           to label %.noexc.i.i unwind label %92, !noalias !453
 
@@ -2473,14 +2473,14 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
   br i1 %.not2.i.i.i, label %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c2dbbcd8eeb3188E.exit.i.i", label %90
 
 90:                                               ; preds = %.noexc.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.val.i16.i, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %.val.i17.i, i64 56
   store i8 2, ptr %91, align 1, !noalias !453
   br label %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c2dbbcd8eeb3188E.exit.i.i"
 
 92:                                               ; preds = %86
   %93 = landingpad { ptr, i32 }
           cleanup
-  %94 = atomicrmw sub ptr %.val.i16.i, i64 1 release, align 8, !noalias !456
+  %94 = atomicrmw sub ptr %.val.i17.i, i64 1 release, align 8, !noalias !456
   %95 = icmp eq i64 %94, 1
   br i1 %95, label %96, label %.body
 
@@ -2490,7 +2490,7 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
           to label %.body unwind label %100
 
 "_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c2dbbcd8eeb3188E.exit.i.i": ; preds = %90, %.noexc.i.i
-  %97 = atomicrmw sub ptr %.val.i16.i, i64 1 release, align 8, !noalias !463
+  %97 = atomicrmw sub ptr %.val.i17.i, i64 1 release, align 8, !noalias !463
   %98 = icmp eq i64 %97, 1
   br i1 %98, label %99, label %"_ZN4core3ptr294drop_in_place$LT$pingora_pool..connection..ConnectionPool$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$$GT$..idle_poll$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cac5cc01780b8e5E.exit"
 
@@ -2514,10 +2514,10 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
 104:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17h518567bff9a53c6cE.exit.i.i"
   %105 = landingpad { ptr, i32 }
           cleanup
-  br label %.body11.i
+  br label %.body12.i
 
-.body11.i:                                        ; preds = %104, %.body4.i.i
-  %eh.lpad-body12.i = phi { ptr, i32 } [ %105, %104 ], [ %.pn.i.i, %.body4.i.i ]
+.body12.i:                                        ; preds = %104, %.body4.i.i
+  %eh.lpad-body13.i = phi { ptr, i32 } [ %105, %104 ], [ %.pn.i.i, %.body4.i.i ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 346
   store i8 0, ptr %106, align 2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2526,12 +2526,12 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
   %108 = load ptr, ptr %107, align 8, !alias.scope !476, !nonnull !3, !noundef !3
   %109 = atomicrmw sub ptr %108, i64 1 release, align 8, !noalias !476
   %110 = icmp eq i64 %109, 1
-  br i1 %110, label %111, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i"
+  br i1 %110, label %111, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i"
 
-111:                                              ; preds = %.body11.i
+111:                                              ; preds = %.body12.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f97e7d0d8819308E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %107)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i" unwind label %102
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i" unwind label %102
 
 "_ZN4core3ptr246drop_in_place$LT$$LP$tokio..sync..oneshot..Receiver$LT$bool$GT$$C$tokio..sync..notify..Notified$C$pingora_pool..connection..read_with_timeout$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h20c1db8ab8ebf4b0E.exit.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17h518567bff9a53c6cE.exit.i.i"
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 346
@@ -2542,15 +2542,15 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
   %114 = load ptr, ptr %113, align 8, !alias.scope !483, !nonnull !3, !noundef !3
   %115 = atomicrmw sub ptr %114, i64 1 release, align 8, !noalias !483
   %116 = icmp eq i64 %115, 1
-  br i1 %116, label %117, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit20.i"
+  br i1 %116, label %117, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit21.i"
 
 117:                                              ; preds = %"_ZN4core3ptr246drop_in_place$LT$$LP$tokio..sync..oneshot..Receiver$LT$bool$GT$$C$tokio..sync..notify..Notified$C$pingora_pool..connection..read_with_timeout$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h20c1db8ab8ebf4b0E.exit.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9f97e7d0d8819308E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %113)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit20.i" unwind label %119
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit21.i" unwind label %119
 
-"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i": ; preds = %119, %111, %.body11.i
-  %.pn.i = phi { ptr, i32 } [ %120, %119 ], [ %eh.lpad-body12.i, %111 ], [ %eh.lpad-body12.i, %.body11.i ]
+"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i": ; preds = %119, %111, %.body12.i
+  %.pn.i = phi { ptr, i32 } [ %120, %119 ], [ %eh.lpad-body13.i, %111 ], [ %eh.lpad-body13.i, %.body12.i ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 347
   store i8 0, ptr %118, align 1
   br label %.body
@@ -2558,9 +2558,9 @@ common.ret:                                       ; preds = %182, %"_ZN4core3ptr
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i"
+  br label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i"
 
-"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit20.i": ; preds = %117, %"_ZN4core3ptr246drop_in_place$LT$$LP$tokio..sync..oneshot..Receiver$LT$bool$GT$$C$tokio..sync..notify..Notified$C$pingora_pool..connection..read_with_timeout$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h20c1db8ab8ebf4b0E.exit.i"
+"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit21.i": ; preds = %117, %"_ZN4core3ptr246drop_in_place$LT$$LP$tokio..sync..oneshot..Receiver$LT$bool$GT$$C$tokio..sync..notify..Notified$C$pingora_pool..connection..read_with_timeout$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h20c1db8ab8ebf4b0E.exit.i"
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 347
   store i8 0, ptr %121, align 1
   br label %"_ZN4core3ptr294drop_in_place$LT$pingora_pool..connection..ConnectionPool$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$$GT$..idle_poll$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cac5cc01780b8e5E.exit"
@@ -2718,8 +2718,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr72drop
           cleanup
   br label %.body
 
-.body:                                            ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i", %92, %96, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i", %171
-  %eh.lpad-body = phi { ptr, i32 } [ %172, %171 ], [ %93, %96 ], [ %93, %92 ], [ %.pn.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit18.i" ], [ %.pn7.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i" ]
+.body:                                            ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i", %92, %96, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i", %171
+  %eh.lpad-body = phi { ptr, i32 } [ %172, %171 ], [ %93, %96 ], [ %93, %92 ], [ %.pn7.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit.i" ], [ %.pn.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit19.i" ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
@@ -2733,7 +2733,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr72drop
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5dc0d8d09f5aa808E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %173)
           to label %common.resume unwind label %169
 
-"_ZN4core3ptr294drop_in_place$LT$pingora_pool..connection..ConnectionPool$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$$GT$..idle_poll$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cac5cc01780b8e5E.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit20.i", %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c2dbbcd8eeb3188E.exit.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit15.i", %10, %99
+"_ZN4core3ptr294drop_in_place$LT$pingora_pool..connection..ConnectionPool$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$$GT$$GT$..idle_poll$LT$alloc..boxed..Box$LT$dyn$u20$pingora_core..protocols..IO$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cac5cc01780b8e5E.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit21.i", %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c2dbbcd8eeb3188E.exit.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h53c2221db8614537E.exit16.i", %10, %99
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
@@ -25829,7 +25829,7 @@ common.ret:                                       ; preds = %104, %95, %85, %"_Z
   unreachable
 
 common.resume:                                    ; preds = %105, %114, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$pingora_core..server..transfer_fd..Fds$GT$$GT$$GT$$GT$17h9a9d9dec9e1b6c86E.exit", %.body9, %78, %82
-  %common.resume.op = phi { ptr, i32 } [ %79, %82 ], [ %79, %78 ], [ %46, %.body9 ], [ %.pn, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$pingora_core..server..transfer_fd..Fds$GT$$GT$$GT$$GT$17h9a9d9dec9e1b6c86E.exit" ], [ %106, %114 ], [ %106, %105 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %82 ], [ %79, %78 ], [ %.pn, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$pingora_core..server..transfer_fd..Fds$GT$$GT$$GT$$GT$17h9a9d9dec9e1b6c86E.exit" ], [ %46, %.body9 ], [ %106, %114 ], [ %106, %105 ]
   resume { ptr, i32 } %common.resume.op
 
 88:                                               ; preds = %61, %.body9, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$pingora_core..server..transfer_fd..Fds$GT$$GT$$GT$$GT$17h9a9d9dec9e1b6c86E.exit"

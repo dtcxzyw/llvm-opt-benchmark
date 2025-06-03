@@ -577,12 +577,12 @@ inflate_flush.exit820:                            ; preds = %189
   br i1 %.not801, label %257, label %.thread895.backedge
 
 .thread895.backedge:                              ; preds = %247, %257, %368, %1020, %109, %133, %140, %982, %._crit_edge1169, %788, %780, %668, %661, %653, %647, %179
-  %.sroa.265.0.be = phi i32 [ %.sroa.265.7, %1020 ], [ %.sroa.265.0, %982 ], [ %.sroa.265.6, %._crit_edge1169 ], [ %.sroa.265.23.lcssa, %780 ], [ %.sroa.265.23.lcssa, %788 ], [ %.sroa.265.21.lcssa, %647 ], [ %.sroa.265.21.lcssa, %653 ], [ %.sroa.265.21.lcssa, %661 ], [ %.sroa.265.21.lcssa, %668 ], [ %.sroa.265.14.lcssa, %368 ], [ %.sroa.265.11.lcssa, %179 ], [ %.sroa.265.8.lcssa, %140 ], [ %.sroa.265.8.lcssa, %133 ], [ %.sroa.265.8.lcssa, %109 ], [ %252, %257 ], [ %252, %247 ]
-  %.sroa.219199.0.be = phi ptr [ %.sroa.219199.7, %1020 ], [ %.sroa.219199.0, %982 ], [ %.sroa.219199.6, %._crit_edge1169 ], [ %.sroa.219199.23.lcssa, %780 ], [ %.sroa.219199.23.lcssa, %788 ], [ %.sroa.219199.21.lcssa, %647 ], [ %.sroa.219199.21.lcssa, %653 ], [ %.sroa.219199.21.lcssa, %661 ], [ %.sroa.219199.21.lcssa, %668 ], [ %.sroa.219199.14.lcssa, %368 ], [ %.sroa.219199.11.lcssa, %179 ], [ %.sroa.219199.8.lcssa, %140 ], [ %.sroa.219199.8.lcssa, %133 ], [ %.sroa.219199.8.lcssa, %109 ], [ %251, %257 ], [ %251, %247 ]
-  %.sroa.323276.0.be = phi ptr [ %1018, %1020 ], [ %985, %982 ], [ %.sroa.323276.6.lcssa, %._crit_edge1169 ], [ %.sroa.323276.0, %780 ], [ %.sroa.323276.0, %788 ], [ %.sroa.323276.0, %647 ], [ %.sroa.323276.0, %653 ], [ %.sroa.323276.0, %661 ], [ %.sroa.323276.0, %668 ], [ %.sroa.323276.0, %368 ], [ %.sroa.323276.0, %179 ], [ %.sroa.323276.0, %140 ], [ %.sroa.323276.0, %133 ], [ %.sroa.323276.0, %109 ], [ %253, %257 ], [ %253, %247 ]
-  %.sroa.130.0.be = phi i32 [ %.sroa.130.7, %1020 ], [ %.sroa.130.0, %982 ], [ %.sroa.130.6, %._crit_edge1169 ], [ %776, %780 ], [ %776, %788 ], [ %643, %647 ], [ %643, %653 ], [ %643, %661 ], [ %643, %668 ], [ %.sroa.130.13.lcssa, %368 ], [ 0, %179 ], [ %104, %140 ], [ %104, %133 ], [ %113, %109 ], [ %.sroa.130.0, %257 ], [ %.sroa.130.0, %247 ]
-  %.sroa.5684.0.be = phi i64 [ %.sroa.5684.0, %1020 ], [ %.sroa.5684.0, %982 ], [ %.sroa.5684.6, %._crit_edge1169 ], [ %775, %780 ], [ %775, %788 ], [ %642, %647 ], [ %642, %653 ], [ %642, %661 ], [ %642, %668 ], [ %.sroa.5684.12.lcssa, %368 ], [ 0, %179 ], [ %103, %140 ], [ %103, %133 ], [ %112, %109 ], [ %.sroa.5684.0, %257 ], [ %.sroa.5684.0, %247 ]
-  %.sroa.407.0.be = phi i32 [ %1024, %1020 ], [ %986, %982 ], [ %.sroa.407.6.lcssa, %._crit_edge1169 ], [ %.sroa.407.0, %780 ], [ %.sroa.407.0, %788 ], [ %.sroa.407.0, %647 ], [ %.sroa.407.0, %653 ], [ %.sroa.407.0, %661 ], [ %.sroa.407.0, %668 ], [ %.sroa.407.0, %368 ], [ %.sroa.407.0, %179 ], [ %.sroa.407.0, %140 ], [ %.sroa.407.0, %133 ], [ %.sroa.407.0, %109 ], [ %254, %257 ], [ %254, %247 ]
+  %.sroa.265.0.be = phi i32 [ %.sroa.265.8.lcssa, %109 ], [ %.sroa.265.8.lcssa, %133 ], [ %.sroa.265.8.lcssa, %140 ], [ %.sroa.265.11.lcssa, %179 ], [ %.sroa.265.21.lcssa, %647 ], [ %.sroa.265.21.lcssa, %653 ], [ %.sroa.265.21.lcssa, %661 ], [ %.sroa.265.21.lcssa, %668 ], [ %.sroa.265.14.lcssa, %368 ], [ %.sroa.265.23.lcssa, %780 ], [ %.sroa.265.23.lcssa, %788 ], [ %.sroa.265.6, %._crit_edge1169 ], [ %.sroa.265.0, %982 ], [ %.sroa.265.7, %1020 ], [ %252, %257 ], [ %252, %247 ]
+  %.sroa.219199.0.be = phi ptr [ %.sroa.219199.8.lcssa, %109 ], [ %.sroa.219199.8.lcssa, %133 ], [ %.sroa.219199.8.lcssa, %140 ], [ %.sroa.219199.11.lcssa, %179 ], [ %.sroa.219199.21.lcssa, %647 ], [ %.sroa.219199.21.lcssa, %653 ], [ %.sroa.219199.21.lcssa, %661 ], [ %.sroa.219199.21.lcssa, %668 ], [ %.sroa.219199.14.lcssa, %368 ], [ %.sroa.219199.23.lcssa, %780 ], [ %.sroa.219199.23.lcssa, %788 ], [ %.sroa.219199.6, %._crit_edge1169 ], [ %.sroa.219199.0, %982 ], [ %.sroa.219199.7, %1020 ], [ %251, %257 ], [ %251, %247 ]
+  %.sroa.323276.0.be = phi ptr [ %.sroa.323276.0, %109 ], [ %.sroa.323276.0, %133 ], [ %.sroa.323276.0, %140 ], [ %.sroa.323276.0, %179 ], [ %.sroa.323276.0, %647 ], [ %.sroa.323276.0, %653 ], [ %.sroa.323276.0, %661 ], [ %.sroa.323276.0, %668 ], [ %.sroa.323276.0, %368 ], [ %.sroa.323276.0, %780 ], [ %.sroa.323276.0, %788 ], [ %.sroa.323276.6.lcssa, %._crit_edge1169 ], [ %985, %982 ], [ %1018, %1020 ], [ %253, %257 ], [ %253, %247 ]
+  %.sroa.130.0.be = phi i32 [ %113, %109 ], [ %104, %133 ], [ %104, %140 ], [ 0, %179 ], [ %643, %647 ], [ %643, %653 ], [ %643, %661 ], [ %643, %668 ], [ %.sroa.130.13.lcssa, %368 ], [ %776, %780 ], [ %776, %788 ], [ %.sroa.130.6, %._crit_edge1169 ], [ %.sroa.130.0, %982 ], [ %.sroa.130.7, %1020 ], [ %.sroa.130.0, %257 ], [ %.sroa.130.0, %247 ]
+  %.sroa.5684.0.be = phi i64 [ %112, %109 ], [ %103, %133 ], [ %103, %140 ], [ 0, %179 ], [ %642, %647 ], [ %642, %653 ], [ %642, %661 ], [ %642, %668 ], [ %.sroa.5684.12.lcssa, %368 ], [ %775, %780 ], [ %775, %788 ], [ %.sroa.5684.6, %._crit_edge1169 ], [ %.sroa.5684.0, %982 ], [ %.sroa.5684.0, %1020 ], [ %.sroa.5684.0, %257 ], [ %.sroa.5684.0, %247 ]
+  %.sroa.407.0.be = phi i32 [ %.sroa.407.0, %109 ], [ %.sroa.407.0, %133 ], [ %.sroa.407.0, %140 ], [ %.sroa.407.0, %179 ], [ %.sroa.407.0, %647 ], [ %.sroa.407.0, %653 ], [ %.sroa.407.0, %661 ], [ %.sroa.407.0, %668 ], [ %.sroa.407.0, %368 ], [ %.sroa.407.0, %780 ], [ %.sroa.407.0, %788 ], [ %.sroa.407.6.lcssa, %._crit_edge1169 ], [ %986, %982 ], [ %1024, %1020 ], [ %254, %257 ], [ %254, %247 ]
   br label %.thread895
 
 257:                                              ; preds = %247
@@ -872,11 +872,11 @@ inflate_flush.exit830:                            ; preds = %314
   br label %370
 
 370:                                              ; preds = %._crit_edge1671, %369
-  %.promoted = phi i32 [ %.promoted.pre, %._crit_edge1671 ], [ 0, %369 ]
-  %.sroa.265.2 = phi i32 [ %.sroa.265.0, %._crit_edge1671 ], [ %.sroa.265.14.lcssa, %369 ]
-  %.sroa.219199.2 = phi ptr [ %.sroa.219199.0, %._crit_edge1671 ], [ %.sroa.219199.14.lcssa, %369 ]
-  %.sroa.130.2 = phi i32 [ %.sroa.130.0, %._crit_edge1671 ], [ %.sroa.130.13.lcssa, %369 ]
-  %.sroa.5684.2 = phi i64 [ %.sroa.5684.0, %._crit_edge1671 ], [ %.sroa.5684.12.lcssa, %369 ]
+  %.promoted = phi i32 [ 0, %369 ], [ %.promoted.pre, %._crit_edge1671 ]
+  %.sroa.265.2 = phi i32 [ %.sroa.265.14.lcssa, %369 ], [ %.sroa.265.0, %._crit_edge1671 ]
+  %.sroa.219199.2 = phi ptr [ %.sroa.219199.14.lcssa, %369 ], [ %.sroa.219199.0, %._crit_edge1671 ]
+  %.sroa.130.2 = phi i32 [ %.sroa.130.13.lcssa, %369 ], [ %.sroa.130.0, %._crit_edge1671 ]
+  %.sroa.5684.2 = phi i64 [ %.sroa.5684.12.lcssa, %369 ], [ %.sroa.5684.0, %._crit_edge1671 ]
   %371 = load i32, ptr %10, align 8, !tbaa !21
   %372 = and i32 %371, 31
   %373 = add nuw nsw i32 %372, 258
@@ -1346,12 +1346,12 @@ inflate_flush.exit845:                            ; preds = %505
   br label %586
 
 586:                                              ; preds = %._crit_edge1673, %581
-  %587 = phi ptr [ %.pre1675, %._crit_edge1673 ], [ %584, %581 ]
-  %588 = phi i8 [ %.pre1674, %._crit_edge1673 ], [ %582, %581 ]
-  %.sroa.265.3 = phi i32 [ %.sroa.265.0, %._crit_edge1673 ], [ %.sroa.265.16.lcssa, %581 ]
-  %.sroa.219199.3 = phi ptr [ %.sroa.219199.0, %._crit_edge1673 ], [ %.sroa.219199.16.lcssa, %581 ]
-  %.sroa.130.3 = phi i32 [ %.sroa.130.0, %._crit_edge1673 ], [ %.sroa.130.15.lcssa, %581 ]
-  %.sroa.5684.3 = phi i64 [ %.sroa.5684.0, %._crit_edge1673 ], [ %.sroa.5684.14.lcssa, %581 ]
+  %587 = phi ptr [ %584, %581 ], [ %.pre1675, %._crit_edge1673 ]
+  %588 = phi i8 [ %582, %581 ], [ %.pre1674, %._crit_edge1673 ]
+  %.sroa.265.3 = phi i32 [ %.sroa.265.16.lcssa, %581 ], [ %.sroa.265.0, %._crit_edge1673 ]
+  %.sroa.219199.3 = phi ptr [ %.sroa.219199.16.lcssa, %581 ], [ %.sroa.219199.0, %._crit_edge1673 ]
+  %.sroa.130.3 = phi i32 [ %.sroa.130.15.lcssa, %581 ], [ %.sroa.130.0, %._crit_edge1673 ]
+  %.sroa.5684.3 = phi i64 [ %.sroa.5684.14.lcssa, %581 ], [ %.sroa.5684.0, %._crit_edge1673 ]
   %589 = zext i8 %588 to i32
   store i32 %589, ptr %48, align 8, !tbaa !21
   store ptr %587, ptr %45, align 8, !tbaa !21
@@ -1359,11 +1359,11 @@ inflate_flush.exit845:                            ; preds = %505
   br label %590
 
 590:                                              ; preds = %._crit_edge1676, %586
-  %591 = phi i32 [ %.pre1677, %._crit_edge1676 ], [ %589, %586 ]
-  %.sroa.265.4 = phi i32 [ %.sroa.265.0, %._crit_edge1676 ], [ %.sroa.265.3, %586 ]
-  %.sroa.219199.4 = phi ptr [ %.sroa.219199.0, %._crit_edge1676 ], [ %.sroa.219199.3, %586 ]
-  %.sroa.130.4 = phi i32 [ %.sroa.130.0, %._crit_edge1676 ], [ %.sroa.130.3, %586 ]
-  %.sroa.5684.4 = phi i64 [ %.sroa.5684.0, %._crit_edge1676 ], [ %.sroa.5684.3, %586 ]
+  %591 = phi i32 [ %589, %586 ], [ %.pre1677, %._crit_edge1676 ]
+  %.sroa.265.4 = phi i32 [ %.sroa.265.3, %586 ], [ %.sroa.265.0, %._crit_edge1676 ]
+  %.sroa.219199.4 = phi ptr [ %.sroa.219199.3, %586 ], [ %.sroa.219199.0, %._crit_edge1676 ]
+  %.sroa.130.4 = phi i32 [ %.sroa.130.3, %586 ], [ %.sroa.130.0, %._crit_edge1676 ]
+  %.sroa.5684.4 = phi i64 [ %.sroa.5684.3, %586 ], [ %.sroa.5684.0, %._crit_edge1676 ]
   %592 = icmp ult i32 %.sroa.130.4, %591
   br i1 %592, label %.lr.ph1310, label %._crit_edge1311
 
@@ -1628,11 +1628,11 @@ inflate_flush.exit860:                            ; preds = %681
   br label %723
 
 723:                                              ; preds = %._crit_edge1667, %._crit_edge1178
-  %724 = phi i32 [ %.pre1668, %._crit_edge1667 ], [ %721, %._crit_edge1178 ]
-  %.sroa.265.5 = phi i32 [ %.sroa.265.0, %._crit_edge1667 ], [ %.sroa.265.22.lcssa, %._crit_edge1178 ]
-  %.sroa.219199.5 = phi ptr [ %.sroa.219199.0, %._crit_edge1667 ], [ %.sroa.219199.22.lcssa, %._crit_edge1178 ]
-  %.sroa.130.5 = phi i32 [ %.sroa.130.0, %._crit_edge1667 ], [ %719, %._crit_edge1178 ]
-  %.sroa.5684.5 = phi i64 [ %.sroa.5684.0, %._crit_edge1667 ], [ %718, %._crit_edge1178 ]
+  %724 = phi i32 [ %721, %._crit_edge1178 ], [ %.pre1668, %._crit_edge1667 ]
+  %.sroa.265.5 = phi i32 [ %.sroa.265.22.lcssa, %._crit_edge1178 ], [ %.sroa.265.0, %._crit_edge1667 ]
+  %.sroa.219199.5 = phi ptr [ %.sroa.219199.22.lcssa, %._crit_edge1178 ], [ %.sroa.219199.0, %._crit_edge1667 ]
+  %.sroa.130.5 = phi i32 [ %719, %._crit_edge1178 ], [ %.sroa.130.0, %._crit_edge1667 ]
+  %.sroa.5684.5 = phi i64 [ %718, %._crit_edge1178 ], [ %.sroa.5684.0, %._crit_edge1667 ]
   %725 = icmp ult i32 %.sroa.130.5, %724
   br i1 %725, label %.lr.ph1188, label %._crit_edge1189
 
@@ -1871,11 +1871,11 @@ inflate_flush.exit870:                            ; preds = %805
   br label %844
 
 844:                                              ; preds = %._crit_edge1664, %._crit_edge
-  %845 = phi i32 [ %.pre1665, %._crit_edge1664 ], [ %841, %._crit_edge ]
-  %.sroa.265.6 = phi i32 [ %.sroa.265.0, %._crit_edge1664 ], [ %.sroa.265.24.lcssa, %._crit_edge ]
-  %.sroa.219199.6 = phi ptr [ %.sroa.219199.0, %._crit_edge1664 ], [ %.sroa.219199.24.lcssa, %._crit_edge ]
-  %.sroa.130.6 = phi i32 [ %.sroa.130.0, %._crit_edge1664 ], [ %843, %._crit_edge ]
-  %.sroa.5684.6 = phi i64 [ %.sroa.5684.0, %._crit_edge1664 ], [ %842, %._crit_edge ]
+  %845 = phi i32 [ %841, %._crit_edge ], [ %.pre1665, %._crit_edge1664 ]
+  %.sroa.265.6 = phi i32 [ %.sroa.265.24.lcssa, %._crit_edge ], [ %.sroa.265.0, %._crit_edge1664 ]
+  %.sroa.219199.6 = phi ptr [ %.sroa.219199.24.lcssa, %._crit_edge ], [ %.sroa.219199.0, %._crit_edge1664 ]
+  %.sroa.130.6 = phi i32 [ %843, %._crit_edge ], [ %.sroa.130.0, %._crit_edge1664 ]
+  %.sroa.5684.6 = phi i64 [ %842, %._crit_edge ], [ %.sroa.5684.0, %._crit_edge1664 ]
   %846 = ptrtoint ptr %.sroa.323276.0 to i64
   %847 = sub i64 %846, %43
   %848 = trunc i64 %847 to i32
@@ -2182,9 +2182,9 @@ inflate_flush.exit885:                            ; preds = %947
   br label %993
 
 993:                                              ; preds = %987, %989, %.thread895
-  %.sroa.265.7 = phi i32 [ %.sroa.265.0, %.thread895 ], [ %991, %989 ], [ %.sroa.265.0, %987 ]
-  %.sroa.219199.7 = phi ptr [ %.sroa.219199.0, %.thread895 ], [ %992, %989 ], [ %.sroa.219199.0, %987 ]
-  %.sroa.130.7 = phi i32 [ %.sroa.130.0, %.thread895 ], [ %990, %989 ], [ %.sroa.130.0, %987 ]
+  %.sroa.265.7 = phi i32 [ %991, %989 ], [ %.sroa.265.0, %987 ], [ %.sroa.265.0, %.thread895 ]
+  %.sroa.219199.7 = phi ptr [ %992, %989 ], [ %.sroa.219199.0, %987 ], [ %.sroa.219199.0, %.thread895 ]
+  %.sroa.130.7 = phi i32 [ %990, %989 ], [ %.sroa.130.0, %987 ], [ %.sroa.130.0, %.thread895 ]
   store ptr %.sroa.323276.0, ptr %18, align 8, !tbaa !17
   %994 = load ptr, ptr %20, align 8, !tbaa !18
   br label %995
@@ -2266,10 +2266,10 @@ inflate_flush.exit890:                            ; preds = %999
   br label %.thread906
 
 1028:                                             ; preds = %.thread895, %785, %666, %101
-  %.sroa.265.9 = phi i32 [ %.sroa.265.0, %.thread895 ], [ %.sroa.265.23.lcssa, %785 ], [ %.sroa.265.21.lcssa, %666 ], [ %.sroa.265.8.lcssa, %101 ]
-  %.sroa.219199.9 = phi ptr [ %.sroa.219199.0, %.thread895 ], [ %.sroa.219199.23.lcssa, %785 ], [ %.sroa.219199.21.lcssa, %666 ], [ %.sroa.219199.8.lcssa, %101 ]
-  %.sroa.130.9 = phi i32 [ %.sroa.130.0, %.thread895 ], [ %776, %785 ], [ %643, %666 ], [ %104, %101 ]
-  %.sroa.5684.8 = phi i64 [ %.sroa.5684.0, %.thread895 ], [ %775, %785 ], [ %642, %666 ], [ %103, %101 ]
+  %.sroa.265.9 = phi i32 [ %.sroa.265.0, %.thread895 ], [ %.sroa.265.8.lcssa, %101 ], [ %.sroa.265.21.lcssa, %666 ], [ %.sroa.265.23.lcssa, %785 ]
+  %.sroa.219199.9 = phi ptr [ %.sroa.219199.0, %.thread895 ], [ %.sroa.219199.8.lcssa, %101 ], [ %.sroa.219199.21.lcssa, %666 ], [ %.sroa.219199.23.lcssa, %785 ]
+  %.sroa.130.9 = phi i32 [ %.sroa.130.0, %.thread895 ], [ %104, %101 ], [ %643, %666 ], [ %776, %785 ]
+  %.sroa.5684.8 = phi i64 [ %.sroa.5684.0, %.thread895 ], [ %103, %101 ], [ %642, %666 ], [ %775, %785 ]
   store i32 17, ptr %37, align 8, !tbaa !20
   store i64 %.sroa.5684.8, ptr %14, align 8, !tbaa !15
   store i32 %.sroa.130.9, ptr %16, align 4, !tbaa !16
@@ -2283,7 +2283,7 @@ default.unreachable1682:                          ; preds = %101
   unreachable
 
 .thread906:                                       ; preds = %inflate_flush.exit845, %inflate_flush.exit840, %inflate_flush.exit835, %580, %inflate_flush.exit820, %246, %1028, %1027, %1019, %981, %inflate_flush.exit880, %inflate_flush.exit870, %inflate_flush.exit865, %inflate_flush.exit860, %inflate_flush.exit855, %inflate_flush.exit830, %300, %inflate_flush.exit825, %inflate_flush.exit815, %inflate_flush.exit
-  %.3 = phi i32 [ -2, %1028 ], [ 0, %1019 ], [ 1, %1027 ], [ 0, %981 ], [ 0, %inflate_flush.exit880 ], [ 0, %inflate_flush.exit870 ], [ 0, %inflate_flush.exit865 ], [ 0, %inflate_flush.exit860 ], [ 0, %inflate_flush.exit855 ], [ -3, %580 ], [ 0, %inflate_flush.exit830 ], [ 0, %inflate_flush.exit825 ], [ -3, %300 ], [ 0, %inflate_flush.exit815 ], [ 0, %inflate_flush.exit ], [ 0, %inflate_flush.exit820 ], [ 0, %246 ], [ -3, %inflate_flush.exit845 ], [ 0, %inflate_flush.exit840 ], [ 0, %inflate_flush.exit835 ]
+  %.3 = phi i32 [ -2, %1028 ], [ 0, %inflate_flush.exit ], [ 0, %inflate_flush.exit815 ], [ 0, %inflate_flush.exit825 ], [ -3, %300 ], [ 0, %inflate_flush.exit830 ], [ 0, %inflate_flush.exit855 ], [ -3, %580 ], [ 0, %inflate_flush.exit860 ], [ 0, %inflate_flush.exit865 ], [ 0, %inflate_flush.exit870 ], [ 0, %inflate_flush.exit880 ], [ 0, %981 ], [ 0, %1019 ], [ 1, %1027 ], [ 0, %inflate_flush.exit820 ], [ 0, %246 ], [ -3, %inflate_flush.exit845 ], [ 0, %inflate_flush.exit840 ], [ 0, %inflate_flush.exit835 ]
   ret i32 %.3
 }
 

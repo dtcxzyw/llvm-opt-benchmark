@@ -1140,8 +1140,8 @@ default.unreachable:                              ; preds = %64, %83, %52
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
-  %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
+  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add nsw i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
   store i32 %47, ptr %.160.i.i, align 4
@@ -1235,8 +1235,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPK
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
+  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
+  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
   %77 = add nsw i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
   store i32 %77, ptr %.261.i.i, align 4
@@ -1282,8 +1282,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPK
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
+  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
+  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
   %96 = add nsw i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
   store i32 %96, ptr %.362.i.i, align 4
@@ -1420,8 +1420,8 @@ default.unreachable:                              ; preds = %64, %83, %52
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
-  %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
+  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
   store i32 %47, ptr %.160.i.i, align 4
@@ -1515,8 +1515,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPK
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
+  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
+  %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
   %77 = add i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
   store i32 %77, ptr %.261.i.i, align 4
@@ -1562,8 +1562,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPK
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
+  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
+  %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
   %96 = add i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
   store i32 %96, ptr %.362.i.i, align 4
@@ -2651,8 +2651,8 @@ default.unreachable:                              ; preds = %64, %83, %52
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
-  %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
+  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add nsw i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
   store i64 %47, ptr %.160.i.i, align 8
@@ -2746,8 +2746,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPK
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
+  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
+  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
   %77 = add nsw i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
   store i64 %77, ptr %.261.i.i, align 8
@@ -2793,8 +2793,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPK
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
+  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
+  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
   %96 = add nsw i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
   store i64 %96, ptr %.362.i.i, align 8
@@ -2931,8 +2931,8 @@ default.unreachable:                              ; preds = %64, %83, %52
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
-  %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
-  %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
+  %.256.i.i = phi ptr [ %.155.i.i, %34 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+  %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i.i.i, %34 ], [ %40, %38 ], [ %43, %41 ], [ %.0.copyload.i15.i.i.i, %44 ]
   %47 = add i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
   store i64 %47, ptr %.160.i.i, align 8
@@ -3026,8 +3026,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPK
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
-  %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
-  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
+  %.4.i.i = phi ptr [ %.357.i.i, %64 ], [ %69, %68 ], [ %72, %71 ], [ %75, %74 ]
+  %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i.i.i, %64 ], [ %70, %68 ], [ %73, %71 ], [ %.0.copyload.i15.i16.i.i, %74 ]
   %77 = add i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
   store i64 %77, ptr %.261.i.i, align 8
@@ -3073,8 +3073,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPK
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
-  %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
-  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
+  %.6.i.i = phi ptr [ %.5.i.i, %83 ], [ %88, %87 ], [ %91, %90 ], [ %94, %93 ]
+  %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i.i.i, %83 ], [ %89, %87 ], [ %92, %90 ], [ %.0.copyload.i15.i23.i.i, %93 ]
   %96 = add i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
   store i64 %96, ptr %.362.i.i, align 8

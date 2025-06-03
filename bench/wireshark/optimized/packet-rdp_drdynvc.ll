@@ -235,10 +235,10 @@ define internal i32 @dissect_rdp_drdynvc(ptr noundef %0, ptr noundef %1, ptr nou
 25:                                               ; preds = %4
   br label %26
 
-26:                                               ; preds = %23, %24, %4, %25
-  %hf_rdp_drdynvc_sp.sink = phi ptr [ @hf_rdp_drdynvc_pri, %4 ], [ @hf_rdp_drdynvc_sp, %24 ], [ @hf_rdp_drdynvc_sp, %23 ], [ @hf_rdp_drdynvc_sp, %25 ]
-  %.0368454 = phi i1 [ true, %4 ], [ false, %24 ], [ true, %23 ], [ true, %25 ]
-  %.0370452 = phi i1 [ false, %4 ], [ false, %24 ], [ true, %23 ], [ false, %25 ]
+26:                                               ; preds = %24, %23, %4, %25
+  %hf_rdp_drdynvc_sp.sink = phi ptr [ @hf_rdp_drdynvc_pri, %4 ], [ @hf_rdp_drdynvc_sp, %23 ], [ @hf_rdp_drdynvc_sp, %24 ], [ @hf_rdp_drdynvc_sp, %25 ]
+  %.0368454 = phi i1 [ true, %4 ], [ true, %23 ], [ false, %24 ], [ true, %25 ]
+  %.0370452 = phi i1 [ false, %4 ], [ true, %23 ], [ false, %24 ], [ false, %25 ]
   %27 = load i32, ptr @hf_rdp_drdynvc_cbId, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %29 = load i32, ptr %hf_rdp_drdynvc_sp.sink, align 4
@@ -303,8 +303,8 @@ default.unreachable:                              ; preds = %67, %47
   unreachable
 
 57:                                               ; preds = %55, %52, %49
-  %.019.i = phi i32 [ 4, %55 ], [ 2, %52 ], [ 1, %49 ]
-  %.0.i = phi i32 [ %56, %55 ], [ %54, %52 ], [ %51, %49 ]
+  %.019.i = phi i32 [ 1, %49 ], [ 2, %52 ], [ 4, %55 ]
+  %.0.i = phi i32 [ %51, %49 ], [ %54, %52 ], [ %56, %55 ]
   %58 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef %.019.i, i32 noundef %.0.i)
   %59 = add nuw nsw i32 %.019.i, 1
   br label %dissect_rdp_vlength.exit
@@ -352,8 +352,8 @@ dissect_rdp_vlength.exit:                         ; preds = %47, %57
   br label %79
 
 79:                                               ; preds = %77, %74, %71
-  %.019.i413 = phi i32 [ 4, %77 ], [ 2, %74 ], [ 1, %71 ]
-  %.0.i414 = phi i32 [ %78, %77 ], [ %76, %74 ], [ %73, %71 ]
+  %.019.i413 = phi i32 [ 1, %71 ], [ 2, %74 ], [ 4, %77 ]
+  %.0.i414 = phi i32 [ %73, %71 ], [ %76, %74 ], [ %78, %77 ]
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %70, ptr noundef %0, i32 noundef range(i32 1, 6) %.0363, i32 noundef %.019.i413, i32 noundef %.0.i414)
   br label %dissect_rdp_vlength.exit417
 
@@ -1213,7 +1213,7 @@ proto_item_set_generated.exit435:                 ; preds = %475, %472, %469, %f
   br label %proto_item_set_generated.exit438
 
 proto_item_set_generated.exit438:                 ; preds = %514, %511, %506, %412, %266, %169, %268, %417, %419, %.loopexit, %.loopexit470, %proto_item_set_generated.exit, %504, %82, %drdynvc_find_channel_type.exit, %84, %413
-  %.1 = phi i32 [ %416, %413 ], [ %.3, %412 ], [ %267, %266 ], [ %.1364, %82 ], [ %.1364, %504 ], [ %.9, %.loopexit470 ], [ %.6, %.loopexit ], [ %.1364, %419 ], [ %.1364, %417 ], [ %.1364, %268 ], [ %.3366, %169 ], [ %.1364, %proto_item_set_generated.exit ], [ %.1364, %drdynvc_find_channel_type.exit ], [ %.1364, %84 ], [ %.1364, %506 ], [ %.1364, %511 ], [ %.1364, %514 ]
+  %.1 = phi i32 [ %267, %266 ], [ %416, %413 ], [ %.3, %412 ], [ %.1364, %82 ], [ %.1364, %proto_item_set_generated.exit ], [ %.3366, %169 ], [ %.1364, %268 ], [ %.1364, %417 ], [ %.1364, %419 ], [ %.6, %.loopexit ], [ %.9, %.loopexit470 ], [ %.1364, %504 ], [ %.1364, %drdynvc_find_channel_type.exit ], [ %.1364, %84 ], [ %.1364, %506 ], [ %.1364, %511 ], [ %.1364, %514 ]
   ret i32 %.1
 }
 

@@ -833,7 +833,7 @@ fetch_ushort.exit117.thread.i:                    ; preds = %149
   br label %161
 
 161:                                              ; preds = %fetch_ushort.exit117.thread.i, %125, %100, %90
-  %.sroa.44.2.i = phi ptr [ %92, %90 ], [ %128, %125 ], [ %102, %100 ], [ %159, %fetch_ushort.exit117.thread.i ]
+  %.sroa.44.2.i = phi ptr [ %92, %90 ], [ %102, %100 ], [ %128, %125 ], [ %159, %fetch_ushort.exit117.thread.i ]
   %162 = zext i8 %63 to i32
   store i32 %162, ptr %81, align 8
   %163 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1346,7 +1346,7 @@ define hidden range(i32 0, 2) i32 @xsettings_setting_equal(ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %11, %18, %24, %30, %36, %7, %2, %42, %12
-  %.0.shrunk = phi i1 [ %48, %42 ], [ %17, %12 ], [ false, %2 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ %41, %36 ], [ false, %11 ]
+  %.0.shrunk = phi i1 [ %17, %12 ], [ %48, %42 ], [ false, %2 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ %41, %36 ], [ false, %11 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

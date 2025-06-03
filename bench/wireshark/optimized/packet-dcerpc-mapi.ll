@@ -9093,7 +9093,7 @@ mapi_dissect_element_AuxDataVersion1_AuxiliaryEXOrgInfo.exit.i.i: ; preds = %104
   br label %mapi_dissect_AuxDataVersion1.exit.i
 
 mapi_dissect_AuxDataVersion1.exit.i:              ; preds = %111, %mapi_dissect_element_AuxDataVersion1_AuxiliaryEXOrgInfo.exit.i.i, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35
-  %.0.i.i = phi i32 [ %113, %111 ], [ %109, %mapi_dissect_element_AuxDataVersion1_AuxiliaryEXOrgInfo.exit.i.i ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.0.i.i = phi i32 [ %113, %111 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %100, %98 ], [ %109, %mapi_dissect_element_AuxDataVersion1_AuxiliaryEXOrgInfo.exit.i.i ]
   %114 = load ptr, ptr %10, align 8
   %115 = sub i32 %.0.i.i, %.0.i
   call void @proto_item_set_len(ptr noundef %114, i32 noundef %115)
@@ -9278,7 +9278,7 @@ mapi_dissect_element_AuxDataVersion2_AuxiliaryEXOrgInfo.exit.i.i: ; preds = %190
   br label %mapi_dissect_AuxDataVersion2.exit.i
 
 mapi_dissect_AuxDataVersion2.exit.i:              ; preds = %197, %mapi_dissect_element_AuxDataVersion2_AuxiliaryEXOrgInfo.exit.i.i, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121
-  %.0.i21.i = phi i32 [ %199, %197 ], [ %195, %mapi_dissect_element_AuxDataVersion2_AuxiliaryEXOrgInfo.exit.i.i ], [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ]
+  %.0.i21.i = phi i32 [ %199, %197 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %135, %133 ], [ %138, %136 ], [ %141, %139 ], [ %144, %142 ], [ %147, %145 ], [ %150, %148 ], [ %153, %151 ], [ %156, %154 ], [ %159, %157 ], [ %162, %160 ], [ %165, %163 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %195, %mapi_dissect_element_AuxDataVersion2_AuxiliaryEXOrgInfo.exit.i.i ]
   %200 = load ptr, ptr %9, align 8
   %201 = sub i32 %.0.i21.i, %.0.i
   call void @proto_item_set_len(ptr noundef %200, i32 noundef %201)
@@ -9286,7 +9286,7 @@ mapi_dissect_AuxDataVersion2.exit.i:              ; preds = %197, %mapi_dissect_
   br label %mapi_dissect_AUX_DATA.exit
 
 mapi_dissect_AUX_DATA.exit:                       ; preds = %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit, %mapi_dissect_AuxDataVersion1.exit.i, %mapi_dissect_AuxDataVersion2.exit.i
-  %.0.i37 = phi i32 [ %.0.i21.i, %mapi_dissect_AuxDataVersion2.exit.i ], [ %.0.i.i, %mapi_dissect_AuxDataVersion1.exit.i ], [ %.0.i, %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit ]
+  %.0.i37 = phi i32 [ %.0.i.i, %mapi_dissect_AuxDataVersion1.exit.i ], [ %.0.i21.i, %mapi_dissect_AuxDataVersion2.exit.i ], [ %.0.i, %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit ]
   %202 = load i16, ptr %12, align 2
   %203 = zext i16 %202 to i32
   call void @proto_item_set_len(ptr noundef %.035, i32 noundef %203)
@@ -11446,7 +11446,7 @@ mapi_dissect_element_ActionData_DelegateAction.exit.i.i: ; preds = %75, %72
   br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit: ; preds = %29, %30, %33, %36, %39, %42, %45, %mapi_dissect_element_ActionData_PropValue.exit.i.i, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i
-  %.0.i.i = phi i32 [ %25, %29 ], [ %81, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i ], [ %70, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i ], [ %58, %mapi_dissect_element_ActionData_PropValue.exit.i.i ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.0.i.i = phi i32 [ %25, %29 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %58, %mapi_dissect_element_ActionData_PropValue.exit.i.i ], [ %70, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i ], [ %81, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i ]
   %83 = load ptr, ptr %10, align 8
   %84 = sub i32 %.0.i.i, %25
   call void @proto_item_set_len(ptr noundef %83, i32 noundef %84)
@@ -12175,7 +12175,7 @@ mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i: ; preds = %89, %86
   br label %mapi_dissect_element_SPropValue_value.exit
 
 mapi_dissect_element_SPropValue_value.exit:       ; preds = %26, %35, %38, %41, %44, %47, %50, %53, %mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i, %67, %70, %mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i, %mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i, %97, %100, %103, %106, %109, %112, %115, %118, %121, %124, %127
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %95, %mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i ], [ %83, %mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i ], [ %72, %70 ], [ %69, %67 ], [ %65, %mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %65, %mapi_dissect_element_SPropValue_CTR_svreid.exit.i.i ], [ %69, %67 ], [ %72, %70 ], [ %83, %mapi_dissect_element_SPropValue_CTR_Restrictions.exit.i.i ], [ %95, %mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ]
   %130 = load ptr, ptr %10, align 8
   %131 = sub i32 %.1.i.i, %21
   call void @proto_item_set_len(ptr noundef %130, i32 noundef %131)
@@ -12576,7 +12576,7 @@ define hidden i32 @mapi_dissect_struct_TypedString(ptr noundef %0, i32 noundef %
   br label %mapi_dissect_element_TypedString_String.exit
 
 mapi_dissect_element_TypedString_String.exit:     ; preds = %24, %25, %28, %31
-  %.0.i.i = phi i32 [ %19, %24 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ]
+  %.0.i.i = phi i32 [ %19, %24 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ]
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
@@ -16146,7 +16146,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noun
   br label %mapi_dissect_element_CreateFolder_req_FolderName.exit
 
 mapi_dissect_element_CreateFolder_req_FolderName.exit: ; preds = %37, %38, %41
-  %.0.i.i = phi i32 [ %33, %37 ], [ %43, %41 ], [ %40, %38 ]
+  %.0.i.i = phi i32 [ %33, %37 ], [ %40, %38 ], [ %43, %41 ]
   %44 = load ptr, ptr %10, align 8
   %45 = sub i32 %.0.i.i, %33
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45)
@@ -16178,7 +16178,7 @@ mapi_dissect_element_CreateFolder_req_FolderName.exit: ; preds = %37, %38, %41
   br label %mapi_dissect_element_CreateFolder_req_FolderComment.exit
 
 mapi_dissect_element_CreateFolder_req_FolderComment.exit: ; preds = %49, %50, %53
-  %.0.i.i67 = phi i32 [ %.0.i.i, %49 ], [ %55, %53 ], [ %52, %50 ]
+  %.0.i.i67 = phi i32 [ %.0.i.i, %49 ], [ %52, %50 ], [ %55, %53 ]
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.0.i.i67, %.0.i.i
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
@@ -17575,7 +17575,7 @@ mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.e
   br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit
 
 mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit: ; preds = %24, %25, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i, %38
-  %.0.i.i = phi i32 [ %19, %24 ], [ %40, %38 ], [ %36, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i ], [ %27, %25 ]
+  %.0.i.i = phi i32 [ %19, %24 ], [ %27, %25 ], [ %36, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i ], [ %40, %38 ]
   %41 = load ptr, ptr %9, align 8
   %42 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -17986,7 +17986,7 @@ define hidden i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 n
   br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit
 
 mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit: ; preds = %24, %25, %28, %31
-  %.0.i.i = phi i32 [ %19, %24 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ]
+  %.0.i.i = phi i32 [ %19, %24 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ]
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
@@ -18289,7 +18289,7 @@ mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i: ; pre
   br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 mapi_dissect_element_Notify_repl_NotificationData.exit: ; preds = %28, %29, %32, %35, %38, %41, %44, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102
-  %.0.i.i = phi i32 [ %23, %28 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %55, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.0.i.i = phi i32 [ %23, %28 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %55, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ]
   %105 = load ptr, ptr %9, align 8
   %106 = sub i32 %.0.i.i, %23
   call void @proto_item_set_len(ptr noundef %105, i32 noundef %106)
@@ -21299,7 +21299,7 @@ define hidden i32 @mapi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   br label %mapi_dissect_element_MAPINAMEID_kind.exit
 
 mapi_dissect_element_MAPINAMEID_kind.exit:        ; preds = %26, %27, %30
-  %.0.i.i = phi i32 [ %22, %26 ], [ %32, %30 ], [ %29, %27 ]
+  %.0.i.i = phi i32 [ %22, %26 ], [ %29, %27 ], [ %32, %30 ]
   %33 = load ptr, ptr %9, align 8
   %34 = sub i32 %.0.i.i, %22
   call void @proto_item_set_len(ptr noundef %33, i32 noundef %34)
@@ -26483,7 +26483,7 @@ mapi_dissect_element_SRestriction_CTR_resExist.exit: ; preds = %56, %60
   br label %73
 
 73:                                               ; preds = %13, %70, %67, %mapi_dissect_element_SRestriction_CTR_resExist.exit, %53, %50, %47, %44, %41, %38, %mapi_dissect_element_SRestriction_CTR_resOr.exit, %mapi_dissect_element_SRestriction_CTR_resAnd.exit
-  %.0 = phi i32 [ %1, %13 ], [ %72, %70 ], [ %69, %67 ], [ %65, %mapi_dissect_element_SRestriction_CTR_resExist.exit ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %36, %mapi_dissect_element_SRestriction_CTR_resOr.exit ], [ %24, %mapi_dissect_element_SRestriction_CTR_resAnd.exit ]
+  %.0 = phi i32 [ %1, %13 ], [ %24, %mapi_dissect_element_SRestriction_CTR_resAnd.exit ], [ %36, %mapi_dissect_element_SRestriction_CTR_resOr.exit ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %65, %mapi_dissect_element_SRestriction_CTR_resExist.exit ], [ %69, %67 ], [ %72, %70 ]
   %74 = load ptr, ptr %9, align 8
   %75 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %75)
@@ -27529,7 +27529,7 @@ define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef 
   br label %368
 
 368:                                              ; preds = %12, %365, %362, %359, %356, %353, %351, %348, %345, %342, %339, %336, %333, %330, %327, %324, %321, %318, %315, %312, %309, %306, %303, %300, %297, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13
-  %.0 = phi i32 [ %1, %12 ], [ %367, %365 ], [ %364, %362 ], [ %361, %359 ], [ %358, %356 ], [ %355, %353 ], [ %352, %351 ], [ %350, %348 ], [ %347, %345 ], [ %344, %342 ], [ %341, %339 ], [ %338, %336 ], [ %335, %333 ], [ %332, %330 ], [ %329, %327 ], [ %326, %324 ], [ %323, %321 ], [ %320, %318 ], [ %317, %315 ], [ %314, %312 ], [ %311, %309 ], [ %308, %306 ], [ %305, %303 ], [ %302, %300 ], [ %299, %297 ], [ %296, %294 ], [ %293, %291 ], [ %290, %288 ], [ %287, %285 ], [ %284, %282 ], [ %281, %279 ], [ %278, %276 ], [ %275, %273 ], [ %272, %270 ], [ %269, %267 ], [ %266, %264 ], [ %263, %261 ], [ %260, %258 ], [ %257, %255 ], [ %254, %252 ], [ %251, %249 ], [ %248, %246 ], [ %245, %243 ], [ %242, %240 ], [ %239, %237 ], [ %236, %234 ], [ %233, %231 ], [ %230, %228 ], [ %227, %225 ], [ %224, %222 ], [ %221, %219 ], [ %218, %216 ], [ %215, %213 ], [ %212, %210 ], [ %209, %207 ], [ %206, %204 ], [ %203, %201 ], [ %200, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %177 ], [ %176, %174 ], [ %173, %171 ], [ %170, %168 ], [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %153 ], [ %152, %150 ], [ %149, %147 ], [ %146, %144 ], [ %143, %141 ], [ %140, %138 ], [ %137, %135 ], [ %134, %132 ], [ %131, %129 ], [ %128, %126 ], [ %125, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0 = phi i32 [ %1, %12 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %131, %129 ], [ %134, %132 ], [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ %146, %144 ], [ %149, %147 ], [ %152, %150 ], [ %155, %153 ], [ %158, %156 ], [ %161, %159 ], [ %164, %162 ], [ %167, %165 ], [ %170, %168 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %191, %189 ], [ %194, %192 ], [ %197, %195 ], [ %200, %198 ], [ %203, %201 ], [ %206, %204 ], [ %209, %207 ], [ %212, %210 ], [ %215, %213 ], [ %218, %216 ], [ %221, %219 ], [ %224, %222 ], [ %227, %225 ], [ %230, %228 ], [ %233, %231 ], [ %236, %234 ], [ %239, %237 ], [ %242, %240 ], [ %245, %243 ], [ %248, %246 ], [ %251, %249 ], [ %254, %252 ], [ %257, %255 ], [ %260, %258 ], [ %263, %261 ], [ %266, %264 ], [ %269, %267 ], [ %272, %270 ], [ %275, %273 ], [ %278, %276 ], [ %281, %279 ], [ %284, %282 ], [ %287, %285 ], [ %290, %288 ], [ %293, %291 ], [ %296, %294 ], [ %299, %297 ], [ %302, %300 ], [ %305, %303 ], [ %308, %306 ], [ %311, %309 ], [ %314, %312 ], [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %326, %324 ], [ %329, %327 ], [ %332, %330 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ], [ %347, %345 ], [ %350, %348 ], [ %352, %351 ], [ %355, %353 ], [ %358, %356 ], [ %361, %359 ], [ %364, %362 ], [ %367, %365 ]
   %369 = load ptr, ptr %8, align 8
   %370 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %369, i32 noundef %370)
@@ -28254,7 +28254,7 @@ define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1
   br label %295
 
 295:                                              ; preds = %12, %293, %290, %288, %286, %284, %282, %280, %277, %275, %273, %271, %268, %266, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %240, %238, %235, %232, %230, %228, %226, %224, %221, %219, %217, %214, %212, %210, %208, %206, %204, %201, %199, %197, %195, %193, %191, %189, %186, %183, %180, %177, %174, %172, %170, %167, %164, %162, %159, %156, %154, %152, %150, %148, %146, %143, %141, %139, %137, %135, %133, %131, %129, %127, %124, %122, %120, %118, %116, %113, %111, %108, %106, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %82, %79, %77, %74, %71, %68, %66, %63, %61, %59, %57, %54, %51, %49, %47, %45, %42, %40, %38, %36, %33, %30, %27, %24, %21, %18, %15, %13
-  %.0 = phi i32 [ %1, %12 ], [ %294, %293 ], [ %292, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %1, %282 ], [ %1, %280 ], [ %279, %277 ], [ %1, %275 ], [ %1, %273 ], [ %1, %271 ], [ %270, %268 ], [ %1, %266 ], [ %265, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %1, %255 ], [ %1, %253 ], [ %1, %251 ], [ %1, %249 ], [ %248, %247 ], [ %246, %245 ], [ %1, %243 ], [ %242, %240 ], [ %239, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %214 ], [ %213, %212 ], [ %1, %210 ], [ %1, %208 ], [ %1, %206 ], [ %205, %204 ], [ %203, %201 ], [ %200, %199 ], [ %1, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %1, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %177 ], [ %176, %174 ], [ %1, %172 ], [ %1, %170 ], [ %169, %167 ], [ %166, %164 ], [ %163, %162 ], [ %161, %159 ], [ %158, %156 ], [ %1, %154 ], [ %1, %152 ], [ %1, %150 ], [ %1, %148 ], [ %1, %146 ], [ %145, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %1, %131 ], [ %130, %129 ], [ %1, %127 ], [ %126, %124 ], [ %1, %122 ], [ %1, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %113 ], [ %112, %111 ], [ %110, %108 ], [ %1, %106 ], [ %105, %103 ], [ %1, %101 ], [ %1, %99 ], [ %1, %97 ], [ %96, %95 ], [ %1, %93 ], [ %1, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %82 ], [ %81, %79 ], [ %1, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %66 ], [ %65, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %49 ], [ %1, %47 ], [ %1, %45 ], [ %44, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %1, %13 ]
+  %.0 = phi i32 [ %1, %12 ], [ %1, %13 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %44, %42 ], [ %1, %45 ], [ %1, %47 ], [ %50, %49 ], [ %53, %51 ], [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %67, %66 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %1, %77 ], [ %81, %79 ], [ %84, %82 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %1, %91 ], [ %1, %93 ], [ %96, %95 ], [ %1, %97 ], [ %1, %99 ], [ %1, %101 ], [ %105, %103 ], [ %1, %106 ], [ %110, %108 ], [ %112, %111 ], [ %115, %113 ], [ %117, %116 ], [ %119, %118 ], [ %1, %120 ], [ %1, %122 ], [ %126, %124 ], [ %1, %127 ], [ %130, %129 ], [ %1, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %145, %143 ], [ %1, %146 ], [ %1, %148 ], [ %1, %150 ], [ %1, %152 ], [ %1, %154 ], [ %158, %156 ], [ %161, %159 ], [ %163, %162 ], [ %166, %164 ], [ %169, %167 ], [ %1, %170 ], [ %1, %172 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %1, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %1, %197 ], [ %200, %199 ], [ %203, %201 ], [ %205, %204 ], [ %1, %206 ], [ %1, %208 ], [ %1, %210 ], [ %213, %212 ], [ %216, %214 ], [ %218, %217 ], [ %220, %219 ], [ %223, %221 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %234, %232 ], [ %237, %235 ], [ %239, %238 ], [ %242, %240 ], [ %1, %243 ], [ %246, %245 ], [ %248, %247 ], [ %1, %249 ], [ %1, %251 ], [ %1, %253 ], [ %1, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %265, %263 ], [ %1, %266 ], [ %270, %268 ], [ %1, %271 ], [ %1, %273 ], [ %1, %275 ], [ %279, %277 ], [ %1, %280 ], [ %1, %282 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %292, %290 ], [ %294, %293 ]
   %296 = load ptr, ptr %8, align 8
   %297 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %296, i32 noundef %297)

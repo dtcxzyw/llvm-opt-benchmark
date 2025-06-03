@@ -255,7 +255,7 @@ define internal i32 @be_filter_ctrl(ptr noundef readonly captures(none) %0, i32 
   br label %18
 
 18:                                               ; preds = %3, %7, %10, %13, %16, %4
-  %.0 = phi i32 [ %17, %16 ], [ 0, %4 ], [ -1, %13 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ -1, %13 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ]
   ret i32 %.0
 }
 

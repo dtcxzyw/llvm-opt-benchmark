@@ -16143,7 +16143,7 @@ switch.lookup:                                    ; preds = %0
   br label %16
 
 16:                                               ; preds = %switch.lookup, %0, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi i32 [ 14, %15 ], [ 13, %14 ], [ 12, %13 ], [ 11, %12 ], [ 10, %11 ], [ 9, %10 ], [ 8, %9 ], [ 7, %8 ], [ 6, %7 ], [ 5, %6 ], [ 4, %5 ], [ 15, %0 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 4, %5 ], [ 5, %6 ], [ 6, %7 ], [ 7, %8 ], [ 8, %9 ], [ 9, %10 ], [ 10, %11 ], [ 11, %12 ], [ 12, %13 ], [ 13, %14 ], [ 14, %15 ], [ 15, %0 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -22580,7 +22580,7 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit910: ; preds = %
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit": ; preds = %2350, %2355, %2356
-  %.0.i928 = phi i64 [ 2, %2356 ], [ 1, %2355 ], [ 0, %2350 ]
+  %.0.i928 = phi i64 [ 1, %2355 ], [ 2, %2356 ], [ 0, %2350 ]
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %87, i64 noundef %.0.i928, i32 noundef 2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %87) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %87) #20
@@ -22605,7 +22605,7 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit910: ; preds = %
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit930"
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit930": ; preds = %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit", %2359, %2360
-  %.0.i929 = phi i64 [ 2, %2360 ], [ 1, %2359 ], [ 0, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit" ]
+  %.0.i929 = phi i64 [ 1, %2359 ], [ 2, %2360 ], [ 0, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_16clEPNS_9NamedDeclE.exit" ]
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %88, i64 noundef %.0.i929, i32 noundef 2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %88) #20
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %88) #20
@@ -25439,8 +25439,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13CXXMethodDecl10isVola
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %1, %9
-  %11 = phi i8 [ %7, %1 ], [ %.pre, %9 ]
-  %.1.i = phi ptr [ %5, %1 ], [ %10, %9 ]
+  %11 = phi i8 [ %.pre, %9 ], [ %7, %1 ]
+  %.1.i = phi ptr [ %10, %9 ], [ %5, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %.not.i.i.i.i = icmp eq i8 %11, 26
   br i1 %.not.i.i.i.i, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i, label %13
@@ -25492,8 +25492,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13CXXMethodDecl7isConst
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %1, %9
-  %11 = phi i8 [ %7, %1 ], [ %.pre, %9 ]
-  %.1.i = phi ptr [ %5, %1 ], [ %10, %9 ]
+  %11 = phi i8 [ %.pre, %9 ], [ %7, %1 ]
+  %.1.i = phi ptr [ %10, %9 ], [ %5, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %.not.i.i.i.i = icmp eq i8 %11, 26
   br i1 %.not.i.i.i.i, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i, label %13
@@ -29456,7 +29456,7 @@ _ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %_ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.exit163, %62
-  %.1.i.i = phi ptr [ %58, %_ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.exit163 ], [ %63, %62 ]
+  %.1.i.i = phi ptr [ %63, %62 ], [ %58, %_ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.exit163 ]
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %64, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %13) #20
@@ -29518,7 +29518,7 @@ _ZL14computeODRHashN5clang8QualTypeE.exit:        ; preds = %_ZN4llvm16FoldingSe
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit168
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit168: ; preds = %_ZL14computeODRHashN5clang8QualTypeE.exit, %92
-  %.1.i.i166 = phi ptr [ %88, %_ZL14computeODRHashN5clang8QualTypeE.exit ], [ %93, %92 ]
+  %.1.i.i166 = phi ptr [ %93, %92 ], [ %88, %_ZL14computeODRHashN5clang8QualTypeE.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %.1.i.i166, i64 24
   %.sroa.0.0.copyload.i1.i167 = load i64, ptr %94, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %12) #20
@@ -29588,7 +29588,7 @@ _ZL14computeODRHashN5clang8QualTypeE.exit170:     ; preds = %_ZN4llvm16FoldingSe
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit175
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit175: ; preds = %115, %124
-  %.1.i.i173 = phi ptr [ %120, %115 ], [ %125, %124 ]
+  %.1.i.i173 = phi ptr [ %125, %124 ], [ %120, %115 ]
   %126 = getelementptr inbounds nuw i8, ptr %.1.i.i173, i64 24
   %.sroa.0.0.copyload.i1.i174 = load i64, ptr %126, align 8, !tbaa !12
   %127 = load ptr, ptr %17, align 8, !tbaa !34
@@ -29784,7 +29784,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit182
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit182: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %214
-  %.1.i.i180 = phi ptr [ %210, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %215, %214 ]
+  %.1.i.i180 = phi ptr [ %215, %214 ], [ %210, %_ZN5clang17DiagnosticBuilderD2Ev.exit ]
   %216 = getelementptr inbounds nuw i8, ptr %.1.i.i180, i64 24
   %.sroa.0.0.copyload.i1.i181 = load i64, ptr %216, align 8, !tbaa !12
   %217 = load ptr, ptr %18, align 8, !tbaa !34
@@ -37091,7 +37091,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit: ; preds = %_ZNK5clang1
   br label %_ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit.preheader
 
 _ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit.preheader: ; preds = %72, %79
-  %.pn.i.ph = phi ptr [ %80, %79 ], [ %75, %72 ]
+  %.pn.i.ph = phi ptr [ %75, %72 ], [ %80, %79 ]
   br label %_ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i

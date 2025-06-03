@@ -4521,7 +4521,7 @@ _ZNKSt8_Rb_treeIPKN4Luau4TypeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower
   br label %110
 
 110:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit77.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.0109.1.i.i.i = phi ptr [ %.sroa.0109.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %109, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit77.thread.i.i.i" ]
+  %.sroa.0109.1.i.i.i = phi ptr [ %109, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit77.thread.i.i.i" ], [ %.sroa.0109.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i78.i.i.i = load ptr, ptr %.sroa.0109.1.i.i.i, align 8, !tbaa !158
   %111 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val1.i78.i.i.i)
           to label %.noexc52 unwind label %.loopexit.split-lp
@@ -4559,7 +4559,7 @@ _ZNKSt8_Rb_treeIPKN4Luau4TypeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower
   br label %121
 
 121:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit91.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.0109.2.i.i.i = phi ptr [ %.sroa.0109.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %120, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit91.thread.i.i.i" ]
+  %.sroa.0109.2.i.i.i = phi ptr [ %120, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4LuauL16assignCycleNamesERKSt3setIPKNS2_4TypeESt4lessIS6_ESaIS6_EERKS3_IPKNS2_11TypePackVarES7_ISF_ESaISF_EERNS2_12DenseHashMapIS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_16DenseHashPointerESt8equal_toIS6_EEERNSL_ISF_SR_SS_ST_ISF_EEEbE3$_0EclINS_17__normal_iteratorIPKS6_St6vectorIS6_S9_EEEEEbT_.exit91.thread.i.i.i" ], [ %.sroa.0109.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i92.i.i.i = load ptr, ptr %.sroa.0109.2.i.i.i, align 8, !tbaa !158
   %122 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val1.i92.i.i.i)
           to label %.noexc53 unwind label %.loopexit.split-lp

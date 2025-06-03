@@ -209,7 +209,7 @@ core_h2c_string_to_hash_sha512.exit:              ; preds = %87, %.thread.i12
   br label %103
 
 103:                                              ; preds = %101, %core_h2c_string_to_hash_sha512.exit, %core_h2c_string_to_hash_sha256.exit
-  %.0 = phi i32 [ -1, %101 ], [ 0, %core_h2c_string_to_hash_sha512.exit ], [ 0, %core_h2c_string_to_hash_sha256.exit ]
+  %.0 = phi i32 [ -1, %101 ], [ 0, %core_h2c_string_to_hash_sha256.exit ], [ 0, %core_h2c_string_to_hash_sha512.exit ]
   ret i32 %.0
 }
 

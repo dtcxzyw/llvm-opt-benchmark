@@ -422,10 +422,10 @@ bytestream2_get_le64.exit:                        ; preds = %152, %153
   br label %159
 
 159:                                              ; preds = %92, %158, %bytestream2_get_byte.exit270, %bytestream2_get_byte.exit, %109, %83
-  %.0218 = phi i32 [ %.0.i252, %158 ], [ %135, %bytestream2_get_byte.exit270 ], [ %122, %bytestream2_get_byte.exit ], [ %.0.i252, %109 ], [ %84, %83 ], [ %100, %92 ]
-  %.3210 = phi i32 [ %.0207313, %158 ], [ %.0207313, %bytestream2_get_byte.exit270 ], [ %.0207313, %bytestream2_get_byte.exit ], [ %.0207313, %109 ], [ %.0207313, %83 ], [ 1, %92 ]
-  %.3206 = phi i32 [ %.0203314, %158 ], [ %.0.i269, %bytestream2_get_byte.exit270 ], [ %.0203314, %bytestream2_get_byte.exit ], [ %.0203314, %109 ], [ %.0203314, %83 ], [ %.0203314, %92 ]
-  %.3201 = phi i32 [ %.0198315, %158 ], [ %.0198315, %bytestream2_get_byte.exit270 ], [ %.0.i268, %bytestream2_get_byte.exit ], [ %.0198315, %109 ], [ %.0198315, %83 ], [ %.0198315, %92 ]
+  %.0218 = phi i32 [ %.0.i252, %158 ], [ %84, %83 ], [ %.0.i252, %109 ], [ %122, %bytestream2_get_byte.exit ], [ %135, %bytestream2_get_byte.exit270 ], [ %100, %92 ]
+  %.3210 = phi i32 [ %.0207313, %158 ], [ %.0207313, %83 ], [ %.0207313, %109 ], [ %.0207313, %bytestream2_get_byte.exit ], [ %.0207313, %bytestream2_get_byte.exit270 ], [ 1, %92 ]
+  %.3206 = phi i32 [ %.0203314, %158 ], [ %.0203314, %83 ], [ %.0203314, %109 ], [ %.0203314, %bytestream2_get_byte.exit ], [ %.0.i269, %bytestream2_get_byte.exit270 ], [ %.0203314, %92 ]
+  %.3201 = phi i32 [ %.0198315, %158 ], [ %.0198315, %83 ], [ %.0198315, %109 ], [ %.0.i268, %bytestream2_get_byte.exit ], [ %.0198315, %bytestream2_get_byte.exit270 ], [ %.0198315, %92 ]
   %160 = load ptr, ptr %22, align 8, !tbaa !45
   %161 = load ptr, ptr %10, align 8, !tbaa !43
   %162 = ptrtoint ptr %160 to i64
@@ -514,7 +514,7 @@ bytestream2_get_le64.exit:                        ; preds = %152, %153
   br label %183
 
 183:                                              ; preds = %179, %182, %181
-  %.0193 = phi i32 [ 16, %182 ], [ 12, %181 ], [ 10, %179 ]
+  %.0193 = phi i32 [ 12, %181 ], [ 16, %182 ], [ 10, %179 ]
   br i1 %.0207.lcssa, label %202, label %.preheader295
 
 .preheader295:                                    ; preds = %183

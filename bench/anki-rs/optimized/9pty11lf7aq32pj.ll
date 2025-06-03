@@ -681,7 +681,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
   %15 = and i32 %.sroa.0.sroa.2.0.copyload.i, 61440
   %16 = icmp eq i32 %15, 32768
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
-  br i1 %16, label %22, label %21
+  br i1 %16, label %.critedge11, label %21
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -692,14 +692,18 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
-  br label %.critedge11
+  br label %22
 
 21:                                               ; preds = %14
   invoke void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fc8776a13608bfaE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-          to label %.critedge11 unwind label %9
+          to label %22 unwind label %9
 
-22:                                               ; preds = %14
+.critedge11:                                      ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  br label %26
+
+22:                                               ; preds = %21, %17
+  call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef align 8 dereferenceable(48) %4)
   br label %26
 
 23:                                               ; preds = %9
@@ -711,13 +715,9 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
 25:                                               ; preds = %9
   resume { ptr, i32 } %10
 
-26:                                               ; preds = %22, %.critedge, %.critedge11
+26:                                               ; preds = %.critedge11, %.critedge, %22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret void
-
-.critedge11:                                      ; preds = %21, %17
-  call fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17hc6fba61a38a42657E"(ptr noalias noundef align 8 dereferenceable(48) %4)
-  br label %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

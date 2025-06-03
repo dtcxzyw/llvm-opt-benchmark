@@ -4152,7 +4152,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br label %76
 
 76:                                               ; preds = %77, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
-  %.sroa.0.0 = phi i8 [ 2, %77 ], [ %65, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ]
+  %.sroa.0.0 = phi i8 [ %65, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ], [ 2, %77 ]
   ret i8 %.sroa.0.0
 
 77:                                               ; preds = %52, %56
@@ -4353,7 +4353,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %73
 
 73:                                               ; preds = %74, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
-  %.sroa.0.0 = phi i1 [ false, %74 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ], [ false, %74 ]
   ret i1 %.sroa.0.0
 
 74:                                               ; preds = %52, %56
@@ -4626,7 +4626,7 @@ default.unreachable:                              ; preds = %6, %1
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %18, %17, %16, %15, %14, %13, %10, %1, %1, %1, %1, %19
-  %.sroa.0.0 = phi i8 [ %switch.select2, %19 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ -121, %18 ], [ -117, %17 ], [ 118, %16 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ]
+  %.sroa.0.0 = phi i8 [ %switch.select2, %19 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ 118, %16 ], [ -117, %17 ], [ -121, %18 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ]
   ret i8 %.sroa.0.0
 }
 

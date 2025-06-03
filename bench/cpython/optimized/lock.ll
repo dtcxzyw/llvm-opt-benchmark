@@ -840,7 +840,7 @@ define dso_local void @_PyRWMutex_RLock(ptr noundef %0) local_unnamed_addr #0 {
   br label %rwmutex_set_parked_and_wait.exit
 
 rwmutex_set_parked_and_wait.exit:                 ; preds = %13, %15
-  %.1.i = phi i64 [ %14, %13 ], [ %17, %15 ]
+  %.1.i = phi i64 [ %17, %15 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.backedge.backedge
 
@@ -942,7 +942,7 @@ _Py_atomic_compare_exchange_uintptr.exit:         ; preds = %6
   br label %rwmutex_set_parked_and_wait.exit
 
 rwmutex_set_parked_and_wait.exit:                 ; preds = %19, %21
-  %.1.i = phi i64 [ %20, %19 ], [ %23, %21 ]
+  %.1.i = phi i64 [ %23, %21 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.backedge.backedge
 

@@ -818,10 +818,10 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
   br label %180
 
 180:                                              ; preds = %173, %16
-  %.2122 = phi i32 [ %10, %16 ], [ %.0, %173 ]
-  %.2116 = phi i32 [ %12, %16 ], [ %.5119207, %173 ]
-  %.2110 = phi i32 [ %14, %16 ], [ %57, %173 ]
-  %.2107 = phi i64 [ 0, %16 ], [ %.5.ph, %173 ]
+  %.2122 = phi i32 [ %.0, %173 ], [ %10, %16 ]
+  %.2116 = phi i32 [ %.5119207, %173 ], [ %12, %16 ]
+  %.2110 = phi i32 [ %57, %173 ], [ %14, %16 ]
+  %.2107 = phi i64 [ %.5.ph, %173 ], [ 0, %16 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not147 = icmp eq ptr %1, null
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 112

@@ -692,7 +692,7 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..c
   br label %28
 
 28:                                               ; preds = %"_ZN13wasmtime_wasi4host10filesystem148_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hfd7ae5913e7d408bE.exit", %"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit", %26, %19
-  %.058 = phi ptr [ %1, %26 ], [ %20, %19 ], [ %112, %"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit" ], [ %41, %"_ZN13wasmtime_wasi4host10filesystem148_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hfd7ae5913e7d408bE.exit" ]
+  %.058 = phi ptr [ %20, %19 ], [ %1, %26 ], [ %41, %"_ZN13wasmtime_wasi4host10filesystem148_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hfd7ae5913e7d408bE.exit" ], [ %112, %"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit" ]
   ret ptr %.058
 
 29:                                               ; preds = %21
@@ -1024,7 +1024,7 @@ switch.lookup:                                    ; preds = %7
   br label %20
 
 20:                                               ; preds = %19, %switch.lookup
-  %.0 = phi ptr [ %0, %19 ], [ %18, %switch.lookup ]
+  %.0 = phi ptr [ %18, %switch.lookup ], [ %0, %19 ]
   ret ptr %.0
 }
 
@@ -1186,7 +1186,7 @@ default.unreachable2:                             ; preds = %1
   br label %24
 
 24:                                               ; preds = %25, %22, %20, %14, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %23, %22 ], [ %21, %20 ], [ %19, %25 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %19, %25 ], [ %21, %20 ], [ %23, %22 ]
   ret ptr %.0
 
 25:                                               ; preds = %16

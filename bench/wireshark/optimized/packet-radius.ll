@@ -476,7 +476,7 @@ define hidden void @radius_integer(ptr noundef readonly captures(none) %0, ptr n
   br label %33
 
 24:                                               ; preds = %16, %14, %11, %8
-  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0 = phi i32 [ %10, %8 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 0)
@@ -572,7 +572,7 @@ define hidden void @radius_signed(ptr noundef readonly captures(none) %0, ptr no
   br label %33
 
 24:                                               ; preds = %16, %14, %11, %8
-  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0 = phi i32 [ %10, %8 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @proto_tree_add_int(ptr noundef %1, i32 noundef %26, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %.0)
@@ -1474,8 +1474,8 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   unreachable
 
 139:                                              ; preds = %135, %131, %127
-  %.0443 = phi i32 [ %136, %135 ], [ %133, %131 ], [ %130, %127 ]
-  %.6 = phi i32 [ %137, %135 ], [ %134, %131 ], [ %128, %127 ]
+  %.0443 = phi i32 [ %130, %127 ], [ %133, %131 ], [ %136, %135 ]
+  %.6 = phi i32 [ %128, %127 ], [ %134, %131 ], [ %137, %135 ]
   br i1 %spec.select480, label %155, label %140
 
 140:                                              ; preds = %139
@@ -1503,8 +1503,8 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   unreachable
 
 151:                                              ; preds = %140, %146, %142
-  %.0441 = phi i32 [ %148, %146 ], [ %145, %142 ], [ %89, %140 ]
-  %.7 = phi i32 [ %149, %146 ], [ %143, %142 ], [ %.6, %140 ]
+  %.0441 = phi i32 [ %145, %142 ], [ %148, %146 ], [ %89, %140 ]
+  %.7 = phi i32 [ %143, %142 ], [ %149, %146 ], [ %.6, %140 ]
   %152 = load i32, ptr %121, align 4
   %153 = load i32, ptr %122, align 8
   %154 = add i32 %153, %152
@@ -3320,13 +3320,13 @@ proto_item_set_generated.exit285:                 ; preds = %346, %343, %proto_i
   br label %proto_item_set_generated.exit264
 
 proto_item_set_generated.exit264:                 ; preds = %proto_item_set_generated.exit285, %.thread292, %205, %208, %211
-  %.0217 = phi ptr [ %251, %proto_item_set_generated.exit285 ], [ %.1295, %.thread292 ], [ %.1295, %205 ], [ %.1295, %208 ], [ %.1295, %211 ]
+  %.0217 = phi ptr [ %.1295, %.thread292 ], [ %251, %proto_item_set_generated.exit285 ], [ %.1295, %205 ], [ %.1295, %208 ], [ %.1295, %211 ]
   %351 = getelementptr inbounds nuw i8, ptr %.0217, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %351, i64 16, i1 false)
   br label %proto_item_set_generated.exit264.thread
 
-proto_item_set_generated.exit264.thread:          ; preds = %.thread, %192, %60, %249, %241, %proto_item_set_hidden.exit267, %215, %53, %proto_item_set_generated.exit264
-  %.0217298 = phi ptr [ %.0217, %proto_item_set_generated.exit264 ], [ null, %53 ], [ null, %215 ], [ null, %proto_item_set_hidden.exit267 ], [ null, %241 ], [ null, %249 ], [ null, %60 ], [ null, %192 ], [ null, %.thread ]
+proto_item_set_generated.exit264.thread:          ; preds = %.thread, %249, %241, %proto_item_set_hidden.exit267, %215, %192, %60, %53, %proto_item_set_generated.exit264
+  %.0217298 = phi ptr [ %.0217, %proto_item_set_generated.exit264 ], [ null, %53 ], [ null, %60 ], [ null, %192 ], [ null, %215 ], [ null, %proto_item_set_hidden.exit267 ], [ null, %241 ], [ null, %249 ], [ null, %.thread ]
   %.not250 = icmp eq i32 %54, 0
   br i1 %.not250, label %355, label %352
 
@@ -4159,7 +4159,7 @@ switch.lookup:                                    ; preds = %5
   br label %77
 
 77:                                               ; preds = %10, %37, %61, %53, %17, %25
-  %.0 = phi i32 [ 0, %10 ], [ 0, %37 ], [ 1, %61 ], [ 0, %53 ], [ 0, %17 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ 0, %25 ], [ 0, %37 ], [ 1, %61 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   ret i32 %.0
 }

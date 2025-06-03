@@ -322,7 +322,7 @@ check_symref.exit32:                              ; preds = %103, %110
   unreachable
 
 138:                                              ; preds = %check_symref.exit32, %128, %84
-  %.020 = phi i32 [ %88, %84 ], [ %136, %128 ], [ %.013.i31, %check_symref.exit32 ]
+  %.020 = phi i32 [ %88, %84 ], [ %.013.i31, %check_symref.exit32 ], [ %136, %128 ]
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8

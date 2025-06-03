@@ -838,15 +838,15 @@ switch.early.test.i.i:                            ; preds = %201
   br label %355
 
 355:                                              ; preds = %348, %306, %305, %304, %277, %273
-  %.6 = phi ptr [ %307, %306 ], [ %.4, %348 ], [ %279, %304 ], [ %279, %305 ], [ %258, %273 ], [ %258, %277 ]
-  %.1124.i = phi i8 [ 0, %306 ], [ 1, %348 ], [ 1, %304 ], [ 1, %305 ], [ 0, %273 ], [ 0, %277 ]
-  %.1121.i = phi i1 [ %.0120.i, %306 ], [ true, %348 ], [ %.0120.i, %304 ], [ %.0120.i, %305 ], [ %.0120.i, %273 ], [ false, %277 ]
-  %.1117.i = phi i32 [ %.0116.i, %306 ], [ %349, %348 ], [ %.0116.i, %304 ], [ %.0116.i, %305 ], [ %.0116.i, %273 ], [ %.0116.i, %277 ]
-  %.1114.i = phi i32 [ %.0113.i, %306 ], [ %.0113.i, %348 ], [ %280, %304 ], [ %280, %305 ], [ %276, %273 ], [ %276, %277 ]
-  %.1110.i = phi ptr [ %.0109.i, %306 ], [ %.3112.i, %348 ], [ %.0109.i, %304 ], [ %.0109.i, %305 ], [ %.0109.i, %273 ], [ %.0109.i, %277 ]
-  %.1106.i = phi ptr [ %.0105.i, %306 ], [ %.3108.i, %348 ], [ %.0105.i, %304 ], [ %.0105.i, %305 ], [ %.0105.i, %273 ], [ %.0105.i, %277 ]
-  %.1103.i = phi i32 [ %.0102.i, %306 ], [ %.3.i, %348 ], [ %.0102.i, %304 ], [ %.0102.i, %305 ], [ %.0102.i, %273 ], [ %.0102.i, %277 ]
-  %.1100.i = phi i32 [ %.099.i, %306 ], [ %.0113.i, %348 ], [ %.099.i, %304 ], [ %.099.i, %305 ], [ %.099.i, %273 ], [ %276, %277 ]
+  %.6 = phi ptr [ %307, %306 ], [ %.4, %348 ], [ %258, %273 ], [ %258, %277 ], [ %279, %304 ], [ %279, %305 ]
+  %.1124.i = phi i8 [ 0, %306 ], [ 1, %348 ], [ 0, %273 ], [ 0, %277 ], [ 1, %304 ], [ 1, %305 ]
+  %.1121.i = phi i1 [ %.0120.i, %306 ], [ true, %348 ], [ %.0120.i, %273 ], [ false, %277 ], [ %.0120.i, %304 ], [ %.0120.i, %305 ]
+  %.1117.i = phi i32 [ %.0116.i, %306 ], [ %349, %348 ], [ %.0116.i, %273 ], [ %.0116.i, %277 ], [ %.0116.i, %304 ], [ %.0116.i, %305 ]
+  %.1114.i = phi i32 [ %.0113.i, %306 ], [ %.0113.i, %348 ], [ %276, %273 ], [ %276, %277 ], [ %280, %304 ], [ %280, %305 ]
+  %.1110.i = phi ptr [ %.0109.i, %306 ], [ %.3112.i, %348 ], [ %.0109.i, %273 ], [ %.0109.i, %277 ], [ %.0109.i, %304 ], [ %.0109.i, %305 ]
+  %.1106.i = phi ptr [ %.0105.i, %306 ], [ %.3108.i, %348 ], [ %.0105.i, %273 ], [ %.0105.i, %277 ], [ %.0105.i, %304 ], [ %.0105.i, %305 ]
+  %.1103.i = phi i32 [ %.0102.i, %306 ], [ %.3.i, %348 ], [ %.0102.i, %273 ], [ %.0102.i, %277 ], [ %.0102.i, %304 ], [ %.0102.i, %305 ]
+  %.1100.i = phi i32 [ %.099.i, %306 ], [ %.0113.i, %348 ], [ %.099.i, %273 ], [ %276, %277 ], [ %.099.i, %304 ], [ %.099.i, %305 ]
   %356 = icmp sgt i32 %.1114.i, 0
   br i1 %356, label %182, label %ReadArrayStr.exit, !llvm.loop !11
 
@@ -2194,7 +2194,7 @@ fetch_att.exit:                                   ; preds = %30
   br i1 %49, label %fetch_att.exit.thread, label %52
 
 fetch_att.exit.thread:                            ; preds = %43, %40, %37, %34, %fetch_att.exit
-  %.0.i59 = phi i64 [ %48, %fetch_att.exit ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ]
+  %.0.i59 = phi i64 [ %48, %fetch_att.exit ], [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %50 = zext nneg i32 %3 to i64
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 %50
   br label %84
@@ -3806,7 +3806,7 @@ array_get_isnull.exit.thread:                     ; preds = %._crit_edge, %array
   br label %array_get_element_expanded.exit
 
 array_get_element_expanded.exit:                  ; preds = %121, %116, %113, %110, %107, %._crit_edge._crit_edge.i, %57, %47, %36, %104, %93, %82
-  %.0 = phi i64 [ 0, %82 ], [ 0, %93 ], [ 0, %104 ], [ 0, %36 ], [ 0, %47 ], [ 0, %57 ], [ %59, %._crit_edge._crit_edge.i ], [ %117, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %122, %121 ]
+  %.0 = phi i64 [ 0, %82 ], [ 0, %93 ], [ 0, %104 ], [ 0, %36 ], [ 0, %47 ], [ 0, %57 ], [ %59, %._crit_edge._crit_edge.i ], [ %109, %107 ], [ %112, %110 ], [ %115, %113 ], [ %117, %116 ], [ %122, %121 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   ret i64 %.0
@@ -8286,7 +8286,7 @@ define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2,
   br label %fetch_att.exit.thread.us
 
 fetch_att.exit.thread.us:                         ; preds = %56, %53, %50, %48
-  %.0.i.ph.us = phi i64 [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %48 ]
+  %.0.i.ph.us = phi i64 [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ]
   %59 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv128
   store i64 %.0.i.ph.us, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.05978.us, i64 %37
@@ -9195,9 +9195,9 @@ define dso_local noundef ptr @construct_array_builtin(ptr noundef captures(none)
   unreachable
 
 16:                                               ; preds = %3, %12, %11, %10, %9, %8, %7, %6
-  %.08 = phi i32 [ 6, %12 ], [ -1, %11 ], [ 64, %10 ], [ 2, %9 ], [ 8, %8 ], [ 4, %7 ], [ -2, %6 ], [ 1, %3 ]
-  %.07 = phi i1 [ false, %12 ], [ false, %11 ], [ false, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %3 ]
-  %.0 = phi i8 [ 115, %12 ], [ 105, %11 ], [ 99, %10 ], [ 115, %9 ], [ 100, %8 ], [ 105, %7 ], [ 99, %6 ], [ 99, %3 ]
+  %.08 = phi i32 [ -2, %6 ], [ 4, %7 ], [ 8, %8 ], [ 2, %9 ], [ 64, %10 ], [ -1, %11 ], [ 6, %12 ], [ 1, %3 ]
+  %.07 = phi i1 [ false, %6 ], [ true, %7 ], [ true, %8 ], [ true, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %3 ]
+  %.0 = phi i8 [ 99, %6 ], [ 105, %7 ], [ 100, %8 ], [ 115, %9 ], [ 99, %10 ], [ 105, %11 ], [ 115, %12 ], [ 99, %3 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 %1, ptr %4, align 4
@@ -9267,9 +9267,9 @@ define dso_local void @deconstruct_array_builtin(ptr noundef %0, i32 noundef %1,
   unreachable
 
 15:                                               ; preds = %5, %11, %10, %9, %8, %7, %6
-  %.010 = phi i32 [ 6, %11 ], [ -1, %10 ], [ 4, %9 ], [ 2, %8 ], [ 8, %7 ], [ -2, %6 ], [ 1, %5 ]
-  %.09 = phi i1 [ false, %11 ], [ false, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %5 ]
-  %.0 = phi i8 [ 115, %11 ], [ 105, %10 ], [ 105, %9 ], [ 115, %8 ], [ 100, %7 ], [ 99, %6 ], [ 99, %5 ]
+  %.010 = phi i32 [ -2, %6 ], [ 8, %7 ], [ 2, %8 ], [ 4, %9 ], [ -1, %10 ], [ 6, %11 ], [ 1, %5 ]
+  %.09 = phi i1 [ false, %6 ], [ true, %7 ], [ true, %8 ], [ true, %9 ], [ false, %10 ], [ false, %11 ], [ true, %5 ]
+  %.0 = phi i8 [ 99, %6 ], [ 100, %7 ], [ 115, %8 ], [ 105, %9 ], [ 105, %10 ], [ 115, %11 ], [ 99, %5 ]
   tail call void @deconstruct_array(ptr noundef %0, i32 poison, i32 noundef %.010, i1 noundef zeroext %.09, i8 noundef signext %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
@@ -11677,7 +11677,7 @@ array_get_isnull.exit.thread:                     ; preds = %12, %array_get_isnu
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %34, %37, %40, %43, %49
-  %.0.i108 = phi i64 [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %50, %49 ]
+  %.0.i108 = phi i64 [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ], [ %50, %49 ]
   store i64 %.0.i108, ptr %1, align 8
   %51 = load i16, ptr %31, align 4
   %52 = icmp sgt i16 %51, 0
@@ -11868,7 +11868,7 @@ array_get_isnull.exit111.thread:                  ; preds = %119, %array_get_isn
   br label %fetch_att.exit113
 
 fetch_att.exit113:                                ; preds = %140, %143, %146, %149, %155
-  %.0.i112 = phi i64 [ %150, %149 ], [ %148, %146 ], [ %145, %143 ], [ %142, %140 ], [ %156, %155 ]
+  %.0.i112 = phi i64 [ %142, %140 ], [ %145, %143 ], [ %148, %146 ], [ %150, %149 ], [ %156, %155 ]
   %157 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv
   store i64 %.0.i112, ptr %157, align 8
   %158 = load i16, ptr %117, align 4
@@ -14518,7 +14518,7 @@ fetch_att.exit:                                   ; preds = %103
   br i1 %87, label %fetch_att.exit.thread, label %121
 
 fetch_att.exit.thread:                            ; preds = %114, %111, %108, %105, %fetch_att.exit
-  %.0.i286 = phi i64 [ %119, %fetch_att.exit ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %115, %114 ]
+  %.0.i286 = phi i64 [ %119, %fetch_att.exit ], [ %115, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ]
   %120 = getelementptr inbounds nuw i8, ptr %.0200277, i64 %88
   br label %149
 
@@ -15194,7 +15194,7 @@ array_contains_nulls.exit:                        ; preds = %.lr.ph.i, %48
   br label %fetch_att.exit.us.i
 
 fetch_att.exit.us.i:                              ; preds = %156, %153, %150, %148
-  %.0.i.us.i = phi i64 [ %149, %148 ], [ %152, %150 ], [ %155, %153 ], [ %158, %156 ]
+  %.0.i.us.i = phi i64 [ %158, %156 ], [ %155, %153 ], [ %152, %150 ], [ %149, %148 ]
   store i64 %.0.i.us.i, ptr %141, align 8
   store i8 0, ptr %142, align 8
   %159 = load ptr, ptr %3, align 8
@@ -15459,7 +15459,7 @@ width_bucket_array_fixed.exit:                    ; preds = %fetch_att.exit.i, %
   br label %fetch_att.exit.i47
 
 fetch_att.exit.i47:                               ; preds = %287, %281, %278, %275, %272
-  %.0.i.i = phi i64 [ %282, %281 ], [ %280, %278 ], [ %277, %275 ], [ %274, %272 ], [ %288, %287 ]
+  %.0.i.i = phi i64 [ %274, %272 ], [ %277, %275 ], [ %280, %278 ], [ %282, %281 ], [ %288, %287 ]
   store i64 %.0.i.i, ptr %209, align 8
   store i8 0, ptr %210, align 8
   %289 = load ptr, ptr %2, align 8

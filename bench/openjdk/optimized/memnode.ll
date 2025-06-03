@@ -5872,7 +5872,7 @@ define hidden noundef zeroext i1 @_ZN8LoadNode23has_reinterpret_variantEPK4Type(
   br label %19
 
 19:                                               ; preds = %2, %17, %15, %13, %11
-  %.0 = phi i1 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -5970,7 +5970,7 @@ define hidden noundef zeroext i1 @_ZN9StoreNode23has_reinterpret_variantEPK4Type
   br label %19
 
 19:                                               ; preds = %2, %17, %15, %13, %11
-  %.0 = phi i1 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -13108,29 +13108,29 @@ _ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %_ZN9Node_List4pus
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(60) %0) #13
   switch i32 %138, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread [
-    i32 329, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit
-    i32 330, label %139
-    i32 328, label %141
-    i32 327, label %143
+    i32 329, label %139
+    i32 330, label %141
+    i32 328, label %143
+    i32 327, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit
   ]
 
 139:                                              ; preds = %122
-  %140 = icmp eq i8 %135, 7
+  %140 = icmp eq i8 %135, 6
   br i1 %140, label %146, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread
 
 141:                                              ; preds = %122
-  %142 = icmp eq i8 %135, 10
+  %142 = icmp eq i8 %135, 7
   br i1 %142, label %146, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread
 
 143:                                              ; preds = %122
-  %144 = icmp eq i8 %135, 11
+  %144 = icmp eq i8 %135, 10
   br i1 %144, label %146, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread
 
 _ZN9StoreNode23has_reinterpret_variantEPK4Type.exit: ; preds = %122
-  %145 = icmp eq i8 %135, 6
+  %145 = icmp eq i8 %135, 11
   br i1 %145, label %146, label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread
 
-146:                                              ; preds = %139, %141, %143, %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit
+146:                                              ; preds = %143, %141, %139, %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 112
@@ -13203,7 +13203,7 @@ _ZN9StoreNode23has_reinterpret_variantEPK4Type.exit: ; preds = %122
   tail call void @_ZN7Compile30record_for_post_loop_opts_igvnEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %148, ptr noundef nonnull %0) #13
   br label %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread
 
-_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread: ; preds = %122, %139, %141, %143, %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit, %199, %117
+_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit.thread: ; preds = %122, %143, %141, %139, %_ZN9StoreNode23has_reinterpret_variantEPK4Type.exit, %199, %117
   %200 = load i8, ptr @MergeStores, align 1
   %201 = trunc i8 %200 to i1
   %202 = load i8, ptr @UseUnalignedAccesses, align 1
@@ -19228,7 +19228,7 @@ _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %67, 
   br i1 %147, label %_ZL14store_constantPlilil.exit, label %.thread263
 
 .thread263:                                       ; preds = %130, %134, %138, %141
-  %.0202265 = phi i64 [ %143, %141 ], [ %133, %130 ], [ %137, %134 ], [ %140, %138 ]
+  %.0202265 = phi i64 [ %143, %141 ], [ %140, %138 ], [ %137, %134 ], [ %133, %130 ]
   %148 = getelementptr inbounds i8, ptr %36, i64 %.0.i
   switch i32 %94, label %_ZL14store_constantPlilil.exit223 [
     i32 1, label %149

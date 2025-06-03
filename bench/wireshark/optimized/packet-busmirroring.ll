@@ -545,8 +545,8 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br label %190
 
 190:                                              ; preds = %142, %166, %173, %118, %116
-  %.0308 = phi i1 [ false, %118 ], [ false, %173 ], [ false, %166 ], [ %145, %142 ], [ false, %116 ]
-  %.6303 = phi i32 [ %.4301, %118 ], [ %169, %173 ], [ %147, %166 ], [ %120, %142 ], [ %.4301, %116 ]
+  %.0308 = phi i1 [ false, %118 ], [ %145, %142 ], [ false, %166 ], [ false, %173 ], [ false, %116 ]
+  %.6303 = phi i32 [ %.4301, %118 ], [ %120, %142 ], [ %147, %166 ], [ %169, %173 ], [ %.4301, %116 ]
   %191 = and i8 %65, 32
   %.not318 = icmp eq i8 %191, 0
   br i1 %.not318, label %.backedge, label %192
@@ -633,7 +633,7 @@ switch.early.test:                                ; preds = %203
   %222 = icmp ult i32 %.0297.be, %9
   br i1 %222, label %.lr.ph, label %.thread, !llvm.loop !6
 
-.thread:                                          ; preds = %.backedge, %41, %195, %122, %149, %171, %91, %76, %62, %53, %.thread323
+.thread:                                          ; preds = %.backedge, %41, %195, %171, %149, %122, %91, %76, %62, %53, %.thread323
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
   br label %223

@@ -3276,7 +3276,7 @@ _ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equa
   resume { ptr, i32 } %.pn340.pn.pn.pn.pn.pn.pn
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %37, %37, %200, %.thread523, %128, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %123, %.critedge352, %104, %.critedge, %71, %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit373.thread
-  %.0 = phi ptr [ %36, %123 ], [ %.11, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit373.thread ], [ %6, %9 ], [ %36, %37 ], [ %36, %71 ], [ %36, %.critedge ], [ %36, %104 ], [ %36, %.critedge352 ], [ %36, %.thread523 ], [ %.14, %200 ], [ %36, %128 ], [ %36, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit ], [ %36, %37 ]
+  %.0 = phi ptr [ %.11, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit373.thread ], [ %36, %123 ], [ %6, %9 ], [ %36, %37 ], [ %36, %71 ], [ %36, %.critedge ], [ %36, %104 ], [ %36, %.critedge352 ], [ %36, %.thread523 ], [ %.14, %200 ], [ %36, %128 ], [ %36, %_ZN4Luau12DenseHashSetIPNS_21AstExprConstantStringENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit ], [ %36, %37 ]
   ret ptr %.0
 }
 

@@ -2236,8 +2236,8 @@ define range(i32 -1, 1) i32 @H5HF__hdr_delete(ptr noundef %0) local_unnamed_addr
   br label %60
 
 60:                                               ; preds = %40, %.thread, %53, %56, %47, %14
-  %.031 = phi i32 [ 0, %14 ], [ 0, %40 ], [ 0, %56 ], [ 0, %47 ], [ 259, %53 ], [ 259, %.thread ]
-  %.1 = phi i32 [ -1, %14 ], [ -1, %40 ], [ -1, %56 ], [ -1, %47 ], [ 0, %53 ], [ 0, %.thread ]
+  %.031 = phi i32 [ 0, %14 ], [ 0, %56 ], [ 0, %40 ], [ 0, %47 ], [ 259, %53 ], [ 259, %.thread ]
+  %.1 = phi i32 [ -1, %14 ], [ -1, %56 ], [ -1, %40 ], [ -1, %47 ], [ 0, %53 ], [ 0, %.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %62 = load ptr, ptr %61, align 8, !tbaa !12
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 576

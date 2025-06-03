@@ -55426,7 +55426,7 @@ _ZN14duckdb_httplib6detail10scope_exitD2Ev.exit:  ; preds = %_ZNKSt8functionIFvv
   br label %156
 
 156:                                              ; preds = %56, %_ZN14duckdb_httplib6detail10scope_exitD2Ev.exit
-  %.1 = phi i1 [ false, %56 ], [ %125, %_ZN14duckdb_httplib6detail10scope_exitD2Ev.exit ]
+  %.1 = phi i1 [ %125, %_ZN14duckdb_httplib6detail10scope_exitD2Ev.exit ], [ false, %56 ]
   ret i1 %.1
 
 157:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit40, %.loopexit.split-lp
@@ -63760,7 +63760,7 @@ _ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640: ; preds = %940
   br label %_ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640.thread
 
 _ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640.thread: ; preds = %939, %_ZN14duckdb_httplib6detail12BufferStreamD2Ev.exit, %_ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640, %_ZNK14duckdb_httplib10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorE.exit
-  %.1 = phi i1 [ false, %_ZN14duckdb_httplib6detail12BufferStreamD2Ev.exit ], [ %.011.i, %_ZNK14duckdb_httplib10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorE.exit ], [ false, %_ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640 ], [ true, %939 ]
+  %.1 = phi i1 [ %.011.i, %_ZNK14duckdb_httplib10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorE.exit ], [ false, %_ZN14duckdb_httplib6detail10write_dataERNS_6StreamEPKcm.exit640 ], [ false, %_ZN14duckdb_httplib6detail12BufferStreamD2Ev.exit ], [ true, %939 ]
   ret i1 %.1
 }
 
@@ -72027,7 +72027,7 @@ _ZNSt14_Function_baseD2Ev.exit43:                 ; preds = %126, %129
   br label %135
 
 134:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, %_ZNSt14_Function_baseD2Ev.exit41
-  %.114 = phi i1 [ %.01349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33 ], [ %118, %_ZNSt14_Function_baseD2Ev.exit41 ]
+  %.114 = phi i1 [ %118, %_ZNSt14_Function_baseD2Ev.exit41 ], [ %.01349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33 ]
   ret i1 %.114
 
 135:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39

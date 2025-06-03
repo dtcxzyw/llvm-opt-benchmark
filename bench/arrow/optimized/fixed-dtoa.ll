@@ -775,8 +775,8 @@ define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFracti
   br label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
 
 _ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit: ; preds = %55, %56, %57
-  %.sroa.17.1 = phi i64 [ %62, %57 ], [ %0, %56 ], [ 0, %55 ]
-  %.sroa.0.1 = phi i64 [ %63, %57 ], [ 0, %56 ], [ %0, %55 ]
+  %.sroa.17.1 = phi i64 [ %62, %57 ], [ 0, %55 ], [ %0, %56 ]
+  %.sroa.0.1 = phi i64 [ %63, %57 ], [ %0, %55 ], [ 0, %56 ]
   %64 = icmp sgt i32 %2, 0
   br i1 %64, label %.lr.ph.preheader, label %._crit_edge
 

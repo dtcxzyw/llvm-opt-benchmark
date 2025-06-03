@@ -2060,7 +2060,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   br label %39
 
 39:                                               ; preds = %._crit_edge.i.i.i.i.i, %37
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %38, %37 ]
+  %.1.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !168
   %40 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 48
   %.1.val.val.i.i.i.i.i = load i8, ptr %40, align 8, !tbaa !163
@@ -2072,7 +2072,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   br label %44
 
 44:                                               ; preds = %._crit_edge.i.i.i.i.i, %42
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %42 ]
+  %.2.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !168
   %45 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 48
   %.2.val.val.i.i.i.i.i = load i8, ptr %45, align 8, !tbaa !163

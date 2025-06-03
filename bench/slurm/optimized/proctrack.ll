@@ -388,7 +388,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   br label %81
 
 81:                                               ; preds = %77, %78
-  %.124 = phi i32 [ 0, %77 ], [ %80, %78 ]
+  %.124 = phi i32 [ %80, %78 ], [ 0, %77 ]
   ret i32 %.124
 }
 

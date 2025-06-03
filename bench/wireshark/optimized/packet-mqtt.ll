@@ -1522,9 +1522,9 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   br label %325
 
 325:                                              ; preds = %318, %315, %310, %306, %303, %299, %294, %289, %.lr.ph.i
-  %326 = phi i32 [ %285, %.lr.ph.i ], [ %.pre69.i, %318 ], [ %285, %315 ], [ %285, %294 ], [ %285, %289 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
-  %327 = phi ptr [ %286, %.lr.ph.i ], [ %.pre.i, %318 ], [ %286, %315 ], [ %286, %294 ], [ %286, %289 ], [ %286, %299 ], [ %286, %303 ], [ %286, %306 ], [ %286, %310 ]
-  %.1.i = phi i1 [ false, %.lr.ph.i ], [ %323, %318 ], [ false, %315 ], [ %298, %294 ], [ %293, %289 ], [ false, %299 ], [ %305, %303 ], [ false, %306 ], [ %314, %310 ]
+  %326 = phi i32 [ %285, %.lr.ph.i ], [ %285, %289 ], [ %285, %294 ], [ %.pre69.i, %318 ], [ %285, %315 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
+  %327 = phi ptr [ %286, %.lr.ph.i ], [ %286, %289 ], [ %286, %294 ], [ %.pre.i, %318 ], [ %286, %315 ], [ %286, %299 ], [ %286, %303 ], [ %286, %306 ], [ %286, %310 ]
+  %.1.i = phi i1 [ false, %.lr.ph.i ], [ %293, %289 ], [ %298, %294 ], [ %323, %318 ], [ false, %315 ], [ false, %299 ], [ %305, %303 ], [ false, %306 ], [ %314, %310 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %328 = zext i32 %326 to i64
   %329 = icmp samesign uge i64 %indvars.iv.next.i, %328
@@ -1864,7 +1864,7 @@ dissect_mqtt_reason_code.exit403:                 ; preds = %510, %514
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_mqtt_reason_code.exit401.us, %.lr.ph409, %439, %409, %354, %495, %454, %425, %382, %506, %521, %dissect_mqtt_reason_code.exit403, %487, %463, %483, %dissect_mqtt_reason_code.exit399, %361, %362, %dissect_mqtt_reason_code.exit, %186, %156, %159, %162, %65
-  %.0366 = phi i32 [ %73, %65 ], [ %524, %521 ], [ %519, %dissect_mqtt_reason_code.exit403 ], [ %73, %506 ], [ %490, %487 ], [ %486, %483 ], [ %481, %dissect_mqtt_reason_code.exit399 ], [ %466, %463 ], [ %.8, %361 ], [ %.8, %362 ], [ %189, %186 ], [ %183, %dissect_mqtt_reason_code.exit ], [ %165, %162 ], [ %.5, %159 ], [ %.5, %156 ], [ %.9, %382 ], [ %.12, %425 ], [ %.15, %454 ], [ %498, %495 ], [ %.8, %354 ], [ %410, %409 ], [ %.14, %439 ], [ %460, %.lr.ph409 ], [ %503, %dissect_mqtt_reason_code.exit401.us ]
+  %.0366 = phi i32 [ %73, %65 ], [ %165, %162 ], [ %.5, %159 ], [ %.5, %156 ], [ %189, %186 ], [ %183, %dissect_mqtt_reason_code.exit ], [ %.8, %361 ], [ %.8, %362 ], [ %486, %483 ], [ %481, %dissect_mqtt_reason_code.exit399 ], [ %466, %463 ], [ %490, %487 ], [ %524, %521 ], [ %519, %dissect_mqtt_reason_code.exit403 ], [ %73, %506 ], [ %.9, %382 ], [ %.12, %425 ], [ %.15, %454 ], [ %498, %495 ], [ %.8, %354 ], [ %410, %409 ], [ %.14, %439 ], [ %460, %.lr.ph409 ], [ %503, %dissect_mqtt_reason_code.exit401.us ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
@@ -2103,7 +2103,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   br label %._crit_edge
 
 93:                                               ; preds = %73, %64, %58, %53, %49, %45, %41, %37, %33
-  %.1 = phi i32 [ %89, %73 ], [ %72, %64 ], [ %63, %58 ], [ %57, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ]
+  %.1 = phi i32 [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %57, %53 ], [ %63, %58 ], [ %72, %64 ], [ %89, %73 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
   %94 = icmp ult i32 %.1, %24
   br i1 %94, label %28, label %._crit_edge, !llvm.loop !18

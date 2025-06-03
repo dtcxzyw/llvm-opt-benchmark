@@ -1327,8 +1327,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12Ma
   br label %51
 
 51:                                               ; preds = %41, %30, %26
-  %.049 = phi double [ 0.000000e+00, %26 ], [ %48, %41 ], [ %38, %30 ]
-  %.0 = phi double [ 1.000000e+00, %26 ], [ %50, %41 ], [ %40, %30 ]
+  %.049 = phi double [ 0.000000e+00, %26 ], [ %38, %30 ], [ %48, %41 ]
+  %.0 = phi double [ 1.000000e+00, %26 ], [ %40, %30 ], [ %50, %41 ]
   %52 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #33
           to label %.noexc31 unwind label %57
 
@@ -2863,9 +2863,9 @@ _ZSt18const_pointer_castIN19OpenColorIO_v2_5dev11Lut1DOpDataEKS1_ESt10shared_ptr
   br label %53
 
 53:                                               ; preds = %52, %51, %48
-  %54 = phi i1 [ false, %52 ], [ false, %51 ], [ true, %48 ]
-  %.070 = phi i64 [ 65536, %52 ], [ 65536, %51 ], [ 0, %48 ]
-  %.019 = phi i1 [ true, %52 ], [ false, %51 ], [ false, %48 ]
+  %54 = phi i1 [ false, %51 ], [ false, %52 ], [ true, %48 ]
+  %.070 = phi i64 [ 65536, %51 ], [ 65536, %52 ], [ 0, %48 ]
+  %.019 = phi i1 [ false, %51 ], [ true, %52 ], [ false, %48 ]
   %55 = load ptr, ptr %1, align 8, !tbaa !106
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 176
   %57 = load ptr, ptr %56, align 8, !tbaa !3

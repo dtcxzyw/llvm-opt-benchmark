@@ -846,7 +846,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 
@@ -2298,7 +2298,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %213, %212, %206, %204, %198, %195, %192, %189, %167
-  %.0.i.i = phi i64 [ %168, %167 ], [ 0, %212 ], [ %214, %213 ], [ %207, %206 ], [ %199, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %205, %204 ]
+  %.0.i.i = phi i64 [ %168, %167 ], [ 0, %212 ], [ %214, %213 ], [ %207, %206 ], [ %191, %189 ], [ %194, %192 ], [ %197, %195 ], [ %199, %198 ], [ %205, %204 ]
   %215 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %252, label %217
@@ -2578,8 +2578,8 @@ fastgetattr.exit91:                               ; preds = %354
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4485, ptr noundef nonnull @__func__.AttrDefaultFetch) #13
   br label %379
 
-368:                                              ; preds = %344, %341, %338, %335, %350, %352, %358
-  %.1.i90.ph = phi i64 [ %351, %350 ], [ %337, %335 ], [ %340, %338 ], [ %343, %341 ], [ %345, %344 ], [ %353, %352 ], [ %359, %358 ]
+368:                                              ; preds = %335, %338, %341, %344, %350, %352, %358
+  %.1.i90.ph = phi i64 [ %351, %350 ], [ %345, %344 ], [ %343, %341 ], [ %340, %338 ], [ %337, %335 ], [ %353, %352 ], [ %359, %358 ]
   %369 = inttoptr i64 %.1.i90.ph to ptr
   %370 = call ptr @text_to_cstring(ptr noundef %369) #13
   %371 = getelementptr inbounds nuw i8, ptr %308, i64 8
@@ -2818,8 +2818,8 @@ fastgetattr.exit:                                 ; preds = %490
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4592, ptr noundef nonnull @__func__.CheckConstraintFetch) #13
   br label %508
 
-501:                                              ; preds = %480, %477, %474, %471, %486, %488, %494
-  %.1.i85.ph = phi i64 [ %487, %486 ], [ %473, %471 ], [ %476, %474 ], [ %479, %477 ], [ %481, %480 ], [ %489, %488 ], [ %495, %494 ]
+501:                                              ; preds = %471, %474, %477, %480, %486, %488, %494
+  %.1.i85.ph = phi i64 [ %487, %486 ], [ %481, %480 ], [ %479, %477 ], [ %476, %474 ], [ %473, %471 ], [ %489, %488 ], [ %495, %494 ]
   %502 = inttoptr i64 %.1.i85.ph to ptr
   %503 = call ptr @text_to_cstring(ptr noundef %502) #13
   %504 = load ptr, ptr @CacheMemoryContext, align 8
@@ -8060,7 +8060,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %52, %BuildHardcoded
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %127, %126, %120, %118, %112, %109, %106, %103, %81
-  %.0.i = phi i64 [ %82, %81 ], [ 0, %126 ], [ %128, %127 ], [ %121, %120 ], [ %113, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %119, %118 ]
+  %.0.i = phi i64 [ %82, %81 ], [ 0, %126 ], [ %128, %127 ], [ %121, %120 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %113, %112 ], [ %119, %118 ]
   %129 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %135, label %131
@@ -8212,7 +8212,7 @@ GetPgIndexDescriptor.exit124:                     ; preds = %135, %BuildHardcode
   br label %heap_getattr.exit126
 
 heap_getattr.exit126:                             ; preds = %205, %204, %198, %196, %190, %187, %184, %181, %159
-  %.0.i125 = phi i64 [ %160, %159 ], [ 0, %204 ], [ %206, %205 ], [ %199, %198 ], [ %191, %190 ], [ %189, %187 ], [ %186, %184 ], [ %183, %181 ], [ %197, %196 ]
+  %.0.i125 = phi i64 [ %160, %159 ], [ 0, %204 ], [ %206, %205 ], [ %199, %198 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %191, %190 ], [ %197, %196 ]
   %207 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %213, label %209
@@ -8435,7 +8435,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   unreachable
 
 .loopexit:                                        ; preds = %297, %.preheader, %277, %33, %306, %304, %303, %302, %26, %22, %18, %14, %10
-  %.0 = phi ptr [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %307, %306 ], [ %305, %304 ], [ %.0108.lcssa, %303 ], [ %.0104.lcssa, %302 ], [ null, %33 ], [ %.0103.lcssa, %277 ], [ null, %.preheader ], [ null, %297 ]
+  %.0 = phi ptr [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %.0104.lcssa, %302 ], [ %.0108.lcssa, %303 ], [ %305, %304 ], [ %307, %306 ], [ null, %33 ], [ %.0103.lcssa, %277 ], [ null, %.preheader ], [ null, %297 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   ret ptr %.0

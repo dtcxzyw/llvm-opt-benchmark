@@ -2918,8 +2918,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   ret i1 %26
 
 851:                                              ; preds = %849, %755, %677, %598, %518, %439, %359, %279, %198, %160, %122
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %755 ], [ %.pn61.pn, %677 ], [ %.pn66, %849 ], [ %.pn68.pn, %598 ], [ %.pn71.pn, %518 ], [ %.pn74.pn, %439 ], [ %.pn77.pn, %359 ], [ %.pn80.pn, %279 ], [ %199, %198 ], [ %161, %160 ], [ %.pn83.pn, %122 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn83.pn.pn = phi { ptr, i32 } [ %.pn83.pn, %122 ], [ %161, %160 ], [ %199, %198 ], [ %.pn80.pn, %279 ], [ %.pn77.pn, %359 ], [ %.pn74.pn, %439 ], [ %.pn71.pn, %518 ], [ %.pn68.pn, %598 ], [ %.pn66, %849 ], [ %.pn61.pn, %677 ], [ %.pn.pn, %755 ]
+  resume { ptr, i32 } %.pn83.pn.pn
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getTypeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2

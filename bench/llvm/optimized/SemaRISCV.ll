@@ -3017,7 +3017,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %646, %653
   br label %725
 
 725:                                              ; preds = %619, %641, %724, %686, %680, %268, %597, %609, %616, %561, %564, %552, %555, %541, %544, %547, %550, %535, %538, %529, %532, %520, %523, %526, %511, %514, %517, %497, %500, %503, %506, %509, %421, %438, %404, %418, %387, %401, %364, %381, %384, %274, %277, %269, %272, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit, %594, %591, %588, %585, %582, %579, %576, %573, %570, %567, %558, %496, %360, %317
-  %.1 = phi i1 [ %596, %594 ], [ %593, %591 ], [ %590, %588 ], [ %587, %585 ], [ %584, %582 ], [ %581, %579 ], [ %578, %576 ], [ %575, %573 ], [ %572, %570 ], [ %569, %567 ], [ %560, %558 ], [ %.2, %496 ], [ %363, %360 ], [ %320, %317 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ true, %269 ], [ %273, %272 ], [ true, %274 ], [ %278, %277 ], [ true, %381 ], [ true, %364 ], [ %386, %384 ], [ true, %387 ], [ %403, %401 ], [ true, %404 ], [ %420, %418 ], [ true, %421 ], [ %440, %438 ], [ true, %506 ], [ true, %503 ], [ true, %500 ], [ true, %497 ], [ %510, %509 ], [ true, %514 ], [ true, %511 ], [ %519, %517 ], [ true, %523 ], [ true, %520 ], [ %528, %526 ], [ true, %529 ], [ %534, %532 ], [ true, %535 ], [ %540, %538 ], [ true, %547 ], [ true, %544 ], [ true, %541 ], [ %551, %550 ], [ true, %552 ], [ %557, %555 ], [ true, %561 ], [ %566, %564 ], [ true, %597 ], [ true, %609 ], [ true, %616 ], [ false, %268 ], [ true, %619 ], [ true, %641 ], [ %708, %724 ], [ false, %686 ], [ true, %680 ]
+  %.1 = phi i1 [ %320, %317 ], [ %363, %360 ], [ %.2, %496 ], [ %560, %558 ], [ %569, %567 ], [ %572, %570 ], [ %575, %573 ], [ %578, %576 ], [ %581, %579 ], [ %584, %582 ], [ %587, %585 ], [ %590, %588 ], [ %593, %591 ], [ %596, %594 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ true, %269 ], [ %273, %272 ], [ true, %274 ], [ %278, %277 ], [ true, %381 ], [ true, %364 ], [ %386, %384 ], [ true, %387 ], [ %403, %401 ], [ true, %404 ], [ %420, %418 ], [ true, %421 ], [ %440, %438 ], [ true, %506 ], [ true, %503 ], [ true, %500 ], [ true, %497 ], [ %510, %509 ], [ true, %514 ], [ true, %511 ], [ %519, %517 ], [ true, %523 ], [ true, %520 ], [ %528, %526 ], [ true, %529 ], [ %534, %532 ], [ true, %535 ], [ %540, %538 ], [ true, %547 ], [ true, %544 ], [ true, %541 ], [ %551, %550 ], [ true, %552 ], [ %557, %555 ], [ true, %561 ], [ %566, %564 ], [ true, %597 ], [ true, %609 ], [ true, %616 ], [ false, %268 ], [ true, %619 ], [ true, %641 ], [ %708, %724 ], [ false, %686 ], [ true, %680 ]
   ret i1 %.1
 }
 
@@ -3689,7 +3689,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -6910,7 +6910,7 @@ _ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %315
   br label %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
 
 _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit: ; preds = %325, %335, %338
-  %.1.i37 = phi i32 [ %330, %325 ], [ %337, %335 ], [ %340, %338 ]
+  %.1.i37 = phi i32 [ %340, %338 ], [ %337, %335 ], [ %330, %325 ]
   %.not28 = icmp eq i32 %.1.i37, 0
   br i1 %.not28, label %392, label %341
 
@@ -7015,9 +7015,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit43: ; preds = %370
 392:                                              ; preds = %_ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit, %317, %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
   %393 = call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #21
   %.not.not.i44 = icmp eq ptr %393, null
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
-  %395 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.0.1.in.i = select i1 %.not.not.i44, ptr %395, ptr %394
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %395 = getelementptr inbounds nuw i8, ptr %393, i64 24
+  %.sroa.0.1.in.i = select i1 %.not.not.i44, ptr %394, ptr %395
   %.sroa.0.1.i = load i64, ptr %.sroa.0.1.in.i, align 8, !tbaa !725
   %396 = and i64 %.sroa.0.1.i, -16
   %397 = inttoptr i64 %396 to ptr
@@ -11084,7 +11084,7 @@ define internal fastcc i64 @_ZL12RVVType2QualRN5clang10ASTContextEPKNS_5RISCV7RV
   unreachable
 
 37:                                               ; preds = %30, %32, %34, %25, %21, %17, %15, %13, %11, %9, %7, %5, %2
-  %.sroa.059.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.copyload.i53, %34 ], [ %.sroa.0.0.copyload.i52, %32 ], [ %.sroa.0.0.copyload.i51, %30 ], [ %.sroa.0.0.copyload.i50, %25 ], [ %24, %21 ], [ %20, %17 ], [ %.sroa.0.0.copyload.i49, %15 ], [ %.sroa.0.0.copyload.i48, %13 ], [ %.sroa.0.0.copyload.i47, %11 ], [ %10, %9 ], [ %8, %7 ], [ %.sroa.0.0.copyload.i, %5 ]
+  %.sroa.059.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.copyload.i, %5 ], [ %8, %7 ], [ %10, %9 ], [ %.sroa.0.0.copyload.i47, %11 ], [ %.sroa.0.0.copyload.i48, %13 ], [ %.sroa.0.0.copyload.i49, %15 ], [ %20, %17 ], [ %24, %21 ], [ %.sroa.0.0.copyload.i50, %25 ], [ %.sroa.0.0.copyload.i51, %30 ], [ %.sroa.0.0.copyload.i52, %32 ], [ %.sroa.0.0.copyload.i53, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i8, ptr %39, align 4, !tbaa !736, !range !734, !noundef !735

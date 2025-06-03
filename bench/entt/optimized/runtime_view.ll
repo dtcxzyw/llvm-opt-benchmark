@@ -19035,7 +19035,7 @@ _ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit19: ; preds = %91, %_ZNS
   br label %158
 
 158:                                              ; preds = %124, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit, %46, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit
-  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %129, %124 ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ]
+  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ], [ %129, %124 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %32, 0
   %159 = add nsw i64 %.0, 1
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %159, 1
@@ -22664,7 +22664,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16b
   br label %120
 
 120:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread ]
+  %.sroa.049.1 = phi ptr [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit31.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %121 = load ptr, ptr %.sroa.049.1, align 8, !tbaa !287
   %.not.i.i32 = icmp eq ptr %121, null
   br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread, label %122
@@ -22704,7 +22704,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16b
   br label %145
 
 145:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread ]
+  %.sroa.049.2 = phi ptr [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit35.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.049.2, align 8, !tbaa !287
   %.not.i.i36 = icmp eq ptr %146, null
   br i1 %.not.i.i36, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit39.thread, label %147
@@ -23268,7 +23268,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_
   br label %120
 
 120:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit31.thread, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit31.thread ]
+  %.sroa.049.1 = phi ptr [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit31.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %121 = load ptr, ptr %.sroa.049.1, align 8, !tbaa !287
   %.not.i.i32 = icmp eq ptr %121, null
   br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit35.thread, label %122
@@ -23308,7 +23308,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_
   br label %145
 
 145:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit35.thread, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit35.thread ]
+  %.sroa.049.2 = phi ptr [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit35.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.049.2, align 8, !tbaa !287
   %.not.i.i36 = icmp eq ptr %146, null
   br i1 %.not.i.i36, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit39.thread, label %147
@@ -30965,7 +30965,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16
   br label %120
 
 120:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit31.thread, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit31.thread ]
+  %.sroa.049.1 = phi ptr [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit31.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %121 = load ptr, ptr %.sroa.049.1, align 8, !tbaa !287
   %.not.i.i32 = icmp eq ptr %121, null
   br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit35.thread, label %122
@@ -31005,7 +31005,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16
   br label %145
 
 145:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit35.thread, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit35.thread ]
+  %.sroa.049.2 = phi ptr [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit35.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.049.2, align 8, !tbaa !287
   %.not.i.i36 = icmp eq ptr %146, null
   br i1 %.not.i.i36, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E0_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit39.thread, label %147
@@ -31569,7 +31569,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse
   br label %120
 
 120:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit31.thread, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit31.thread ]
+  %.sroa.049.1 = phi ptr [ %119, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit31.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %121 = load ptr, ptr %.sroa.049.1, align 8, !tbaa !287
   %.not.i.i32 = icmp eq ptr %121, null
   br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit35.thread, label %122
@@ -31609,7 +31609,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse
   br label %145
 
 145:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit35.thread, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit35.thread ]
+  %.sroa.049.2 = phi ptr [ %144, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit35.thread ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.049.2, align 8, !tbaa !287
   %.not.i.i36 = icmp eq ptr %146, null
   br i1 %.not.i.i36, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E0_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit39.thread, label %147

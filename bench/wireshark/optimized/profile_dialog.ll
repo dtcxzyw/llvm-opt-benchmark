@@ -8730,7 +8730,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %20, %32
   br label %44
 
 44:                                               ; preds = %40, %42, %_ZNK11QModelIndex7isValidEv.exit.thread, %19, %18, %17, %16, %11, %6, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %42 ], [ 1, %40 ], [ %39, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ 1, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ %15, %11 ], [ %10, %6 ]
+  %.0 = phi i32 [ 1, %2 ], [ %10, %6 ], [ %15, %11 ], [ 1, %16 ], [ 1, %17 ], [ 1, %18 ], [ 1, %19 ], [ %39, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ 1, %42 ], [ 1, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
   ret i32 %.0
 }

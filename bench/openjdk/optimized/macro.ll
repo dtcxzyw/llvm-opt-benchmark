@@ -13184,7 +13184,7 @@ define hidden void @_ZN16PhaseMacroExpand21eliminate_macro_nodesEv(ptr noundef n
   br label %74
 
 74:                                               ; preds = %.lr.ph40, %73, %71, %69
-  %.0.shrunk = phi i1 [ false, %.lr.ph40 ], [ false, %73 ], [ %72, %71 ], [ %70, %69 ]
+  %.0.shrunk = phi i1 [ false, %.lr.ph40 ], [ %70, %69 ], [ %72, %71 ], [ false, %73 ]
   %75 = or i1 %.337, %.0.shrunk
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 416

@@ -519,8 +519,8 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30: ; preds
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
-  %.val2966 = phi i32 [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
-  %.0.i31 = phi i32 [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.val2966 = phi i32 [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.0.i31 = phi i32 [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
   %.0.i31.fr = freeze i32 %.0.i31
   store i32 %.0.i31.fr, ptr %8, align 4, !tbaa !25
   %81 = load i32, ptr %7, align 4, !tbaa !25
@@ -656,7 +656,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   switch i32 %20, label %..loopexit_crit_edge [
     i32 0, label %41
     i32 1, label %41
-    i32 2, label %.preheader40
+    i32 2, label %.preheader39
     i32 3, label %69
   ]
 
@@ -664,27 +664,27 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   %.pre = load ptr, ptr %2, align 8, !tbaa !37
   br label %.loopexit
 
-.preheader40:                                     ; preds = %18
+.preheader39:                                     ; preds = %18
   %21 = load i32, ptr %4, align 4, !tbaa !25
   %22 = icmp sgt i32 %21, 0
-  %.pre67 = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre66 = load ptr, ptr %2, align 8, !tbaa !37
   br i1 %22, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %.preheader40
+.preheader.lr.ph:                                 ; preds = %.preheader39
   %23 = load i32, ptr %5, align 4, !tbaa !25
   %24 = icmp sgt i32 %23, 0
   %25 = load ptr, ptr %3, align 8
   br i1 %24, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count60 = zext nneg i32 %21 to i64
+  %wide.trip.count59 = zext nneg i32 %21 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv57 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next58, %._crit_edge.us ]
-  %.23047.us = phi i64 [ 0, %.preheader.us.preheader ], [ %35, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %.pre67, i64 %indvars.iv57
+  %indvars.iv56 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next57, %._crit_edge.us ]
+  %.23046.us = phi i64 [ 0, %.preheader.us.preheader ], [ %35, %._crit_edge.us ]
+  %26 = getelementptr inbounds nuw i32, ptr %.pre66, i64 %indvars.iv56
   %27 = load i32, ptr %26, align 4, !tbaa !25
   %28 = sext i32 %27 to i64
   br label %30
@@ -696,19 +696,19 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 
 30:                                               ; preds = %.preheader.us, %29
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %29 ]
-  %.33145.us = phi i64 [ %.23047.us, %.preheader.us ], [ %35, %29 ]
+  %.33144.us = phi i64 [ %.23046.us, %.preheader.us ], [ %35, %29 ]
   %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, %28
-  %35 = add i64 %34, %.33145.us
+  %35 = add i64 %34, %.33144.us
   %36 = icmp ugt i64 %35, 2147483647
   br i1 %36, label %.split.us, label %29
 
 ._crit_edge.us:                                   ; preds = %29
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %.preheader.us, !llvm.loop !45
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %.loopexit, label %.preheader.us, !llvm.loop !45
 
 37:                                               ; preds = %8, %1
   %38 = landingpad { ptr, i32 }
@@ -723,30 +723,30 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
 41:                                               ; preds = %18, %18
   %42 = load i32, ptr %4, align 4, !tbaa !25
   %43 = icmp sgt i32 %42, 0
-  %.pre68 = load ptr, ptr %2, align 8, !tbaa !37
+  %.pre67 = load ptr, ptr %2, align 8, !tbaa !37
   br i1 %43, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %41
   %44 = load ptr, ptr %3, align 8, !tbaa !37
-  %wide.trip.count65 = zext nneg i32 %42 to i64
+  %wide.trip.count64 = zext nneg i32 %42 to i64
   br label %46
 
 45:                                               ; preds = %46
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.loopexit.thread, label %46, !llvm.loop !46
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %.loopexit.thread, label %46, !llvm.loop !46
 
 46:                                               ; preds = %.lr.ph, %45
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next63, %45 ]
-  %.12950 = phi i64 [ 0, %.lr.ph ], [ %54, %45 ]
-  %47 = getelementptr inbounds nuw i32, ptr %.pre68, i64 %indvars.iv62
+  %indvars.iv61 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next62, %45 ]
+  %.12949 = phi i64 [ 0, %.lr.ph ], [ %54, %45 ]
+  %47 = getelementptr inbounds nuw i32, ptr %.pre67, i64 %indvars.iv61
   %48 = load i32, ptr %47, align 4, !tbaa !25
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv62
+  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv61
   %51 = load i32, ptr %50, align 4, !tbaa !25
   %52 = sext i32 %51 to i64
   %53 = mul nsw i64 %52, %49
-  %54 = add i64 %53, %.12950
+  %54 = add i64 %53, %.12949
   %55 = icmp ugt i64 %54, 2147483647
   br i1 %55, label %56, label %45
 
@@ -805,20 +805,20 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   tail call void @__cxa_free_exception(ptr nonnull %70) #13
   br label %83
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %..loopexit_crit_edge, %.preheader40, %41
-  %74 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre68, %41 ], [ %.pre67, %.preheader40 ], [ %.pre67, %.preheader.lr.ph ], [ %.pre67, %._crit_edge.us ]
-  %.028 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %41 ], [ 0, %.preheader40 ], [ 0, %.preheader.lr.ph ], [ %35, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %..loopexit_crit_edge, %.preheader39, %41
+  %74 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre67, %41 ], [ %.pre66, %.preheader39 ], [ %.pre66, %.preheader.lr.ph ], [ %.pre66, %._crit_edge.us ]
+  %.028 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %41 ], [ 0, %.preheader39 ], [ 0, %.preheader.lr.ph ], [ %35, %._crit_edge.us ]
   %75 = icmp eq ptr %74, null
   br i1 %75, label %77, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %45, %.loopexit
-  %.02870 = phi i64 [ %.028, %.loopexit ], [ %54, %45 ]
-  %76 = phi ptr [ %74, %.loopexit ], [ %.pre68, %45 ]
+  %.02869 = phi i64 [ %.028, %.loopexit ], [ %54, %45 ]
+  %76 = phi ptr [ %74, %.loopexit ], [ %.pre67, %45 ]
   tail call void @_ZdaPv(ptr noundef nonnull %76) #17
   br label %77
 
 77:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.02871 = phi i64 [ %.02870, %.loopexit.thread ], [ %.028, %.loopexit ]
+  %.02870 = phi i64 [ %.02869, %.loopexit.thread ], [ %.028, %.loopexit ]
   %78 = load ptr, ptr %3, align 8, !tbaa !37
   %79 = icmp eq ptr %78, null
   br i1 %79, label %81, label %80
@@ -828,7 +828,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   br label %81
 
 81:                                               ; preds = %80, %77
-  %82 = trunc nuw nsw i64 %.02871 to i32
+  %82 = trunc nuw nsw i64 %.02870 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
@@ -836,8 +836,8 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   ret i32 %82
 
 83:                                               ; preds = %39, %72, %61, %59, %67, %65, %37
-  %.pn39.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %73, %72 ], [ %62, %61 ], [ %60, %59 ], [ %68, %67 ], [ %66, %65 ]
-  %.027 = extractvalue { ptr, i32 } %.pn39.pn, 0
+  %.pn38.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %73, %72 ], [ %62, %61 ], [ %60, %59 ], [ %68, %67 ], [ %66, %65 ]
+  %.027 = extractvalue { ptr, i32 } %.pn38.pn.pn, 0
   %84 = tail call ptr @__cxa_begin_catch(ptr %.027) #13
   %85 = load ptr, ptr %2, align 8, !tbaa !37
   %86 = icmp eq ptr %85, null

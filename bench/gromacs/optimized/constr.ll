@@ -1489,7 +1489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   br label %689
 
 524:                                              ; preds = %490, %490, %499, %492
-  %.065 = phi float [ %504, %499 ], [ %498, %492 ], [ 5.000000e-01, %490 ], [ 5.000000e-01, %490 ]
+  %.065 = phi float [ %498, %492 ], [ %504, %499 ], [ 5.000000e-01, %490 ], [ 5.000000e-01, %490 ]
   %525 = load ptr, ptr %117, align 8, !tbaa !117
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 4
   %527 = load i32, ptr %526, align 4, !tbaa !118
@@ -4124,7 +4124,7 @@ define noundef zeroext i1 @_ZN3gmx22hasTriangleConstraintsERK10gmx_mtop_tNS_27Fl
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
-  %.sroa.045.1.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %55, %54 ]
+  %.sroa.045.1.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.045.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.val25.val.i.i.i.i.i = load ptr, ptr %57, align 8, !tbaa !309
   %.val26.val.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !420
@@ -4144,7 +4144,7 @@ define noundef zeroext i1 @_ZN3gmx22hasTriangleConstraintsERK10gmx_mtop_tNS_27Fl
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i
-  %.sroa.045.2.i.i.i.i.i = phi ptr [ %.sroa.045.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %64, %63 ]
+  %.sroa.045.2.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.045.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.val27.val.i.i.i.i.i = load ptr, ptr %66, align 8, !tbaa !309
   %.val28.val.i.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !420

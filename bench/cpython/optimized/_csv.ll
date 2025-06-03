@@ -2624,7 +2624,7 @@ parse_grow_buff.exit.i161:                        ; preds = %194
   br label %parse_add_char.exit.thread
 
 parse_add_char.exit.thread:                       ; preds = %parse_grow_buff.exit.thread.i163, %183, %parse_grow_buff.exit.thread.i152, %149, %parse_grow_buff.exit.thread.i141, %79, %parse_grow_buff.exit.thread.i, %51, %222, %214, %209, %140, %121, %118, %105, %42, %39, %13, %234, %231, %225
-  %.0 = phi i32 [ 0, %234 ], [ -1, %231 ], [ -1, %225 ], [ -1, %13 ], [ -1, %39 ], [ -1, %42 ], [ -1, %105 ], [ -1, %118 ], [ -1, %121 ], [ -1, %140 ], [ -1, %209 ], [ -1, %214 ], [ -1, %222 ], [ -1, %51 ], [ -1, %parse_grow_buff.exit.thread.i ], [ -1, %79 ], [ -1, %parse_grow_buff.exit.thread.i141 ], [ -1, %149 ], [ -1, %parse_grow_buff.exit.thread.i152 ], [ -1, %183 ], [ -1, %parse_grow_buff.exit.thread.i163 ]
+  %.0 = phi i32 [ 0, %234 ], [ -1, %225 ], [ -1, %231 ], [ -1, %13 ], [ -1, %39 ], [ -1, %42 ], [ -1, %105 ], [ -1, %118 ], [ -1, %121 ], [ -1, %140 ], [ -1, %209 ], [ -1, %214 ], [ -1, %222 ], [ -1, %51 ], [ -1, %parse_grow_buff.exit.thread.i ], [ -1, %79 ], [ -1, %parse_grow_buff.exit.thread.i141 ], [ -1, %149 ], [ -1, %parse_grow_buff.exit.thread.i152 ], [ -1, %183 ], [ -1, %parse_grow_buff.exit.thread.i163 ]
   ret i32 %.0
 }
 
@@ -2944,7 +2944,7 @@ Py_DECREF.exit77:                                 ; preds = %Py_DECREF.exit87
   br label %39
 
 39:                                               ; preds = %23, %38, %35, %29, %26
-  %.053 = phi i32 [ 0, %38 ], [ %37, %35 ], [ %34, %29 ], [ %28, %26 ], [ %25, %23 ]
+  %.053 = phi i32 [ 0, %38 ], [ %28, %26 ], [ %34, %29 ], [ %37, %35 ], [ %25, %23 ]
   %40 = icmp eq ptr %24, @_Py_NoneStruct
   %41 = getelementptr i8, ptr %24, i64 8
   %.val = load ptr, ptr %41, align 8, !tbaa !8

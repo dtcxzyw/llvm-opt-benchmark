@@ -1172,9 +1172,9 @@ is_one.exit:                                      ; preds = %482, %487
   br label %.thread
 
 .thread:                                          ; preds = %53, %60, %21, %39, %467, %468, %472, %477, %233, %229, %is_one.exit, %17
-  %.0137 = phi ptr [ null, %17 ], [ null, %229 ], [ %231, %233 ], [ %.1138213250, %467 ], [ %.1138214, %is_one.exit ], [ %.1138214, %477 ], [ %.1138214, %472 ], [ %.1138214, %468 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
-  %.0135 = phi ptr [ null, %17 ], [ null, %229 ], [ null, %233 ], [ %.1136215249, %467 ], [ %.1136216, %is_one.exit ], [ %.1136216, %477 ], [ %.1136216, %472 ], [ %.1136216, %468 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
-  %.0133 = phi i32 [ 0, %17 ], [ 0, %229 ], [ 0, %233 ], [ 0, %467 ], [ 1, %is_one.exit ], [ 0, %477 ], [ 0, %472 ], [ 0, %468 ], [ 0, %39 ], [ 0, %21 ], [ 0, %60 ], [ 0, %53 ]
+  %.0137 = phi ptr [ null, %17 ], [ null, %229 ], [ %231, %233 ], [ %.1138214, %is_one.exit ], [ %.1138214, %477 ], [ %.1138214, %472 ], [ %.1138214, %468 ], [ %.1138213250, %467 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0135 = phi ptr [ null, %17 ], [ null, %229 ], [ null, %233 ], [ %.1136216, %is_one.exit ], [ %.1136216, %477 ], [ %.1136216, %472 ], [ %.1136216, %468 ], [ %.1136215249, %467 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0133 = phi i32 [ 0, %17 ], [ 0, %229 ], [ 0, %233 ], [ 1, %is_one.exit ], [ 0, %477 ], [ 0, %472 ], [ 0, %468 ], [ 0, %467 ], [ 0, %39 ], [ 0, %21 ], [ 0, %60 ], [ 0, %53 ]
   call void @BN_CTX_end(ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef %.0135, ptr noundef nonnull @.str, i32 noundef 1154) #7
   call void @CRYPTO_free(ptr noundef %.0137, ptr noundef nonnull @.str, i32 noundef 1155) #7
@@ -1588,7 +1588,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
   br label %50
 
 50:                                               ; preds = %23, %48, %10, %25
-  %.018 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %25 ], [ %spec.select, %48 ]
+  %.018 = phi i32 [ 0, %10 ], [ 0, %25 ], [ 0, %23 ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #7

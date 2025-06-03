@@ -7094,7 +7094,7 @@ _ZN7Matcher20specialize_mach_nodeEP8MachNode.exit: ; preds = %229, %215, %210
   br label %237
 
 237:                                              ; preds = %3, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit, %206
-  %.0 = phi ptr [ %207, %206 ], [ %236, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %236, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit ], [ %207, %206 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -9972,7 +9972,7 @@ _ZNK4Type8make_ptrEv.exit.thread57:               ; preds = %157, %_ZNK4Type8mak
   br label %_ZNK4Type8make_ptrEv.exit.thread
 
 _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %157, %_ZN7Matcher12set_dontcareEP4Node.exit, %_ZN7Matcher12set_dontcareEP4Node.exit47, %_ZN7Matcher10set_sharedEP4Node.exit55, %168, %174, %78, %70, %66, %57, %92, %88, %79, %149, %143, %164, %_ZNK4Type8make_ptrEv.exit.thread57, %_ZNK4Type8make_ptrEv.exit, %190, %185, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45
-  %.0 = phi i1 [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53 ], [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45 ], [ false, %185 ], [ false, %190 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %_ZNK4Type8make_ptrEv.exit.thread57 ], [ false, %164 ], [ false, %143 ], [ false, %149 ], [ false, %79 ], [ false, %88 ], [ false, %92 ], [ false, %57 ], [ false, %66 ], [ false, %70 ], [ false, %78 ], [ false, %174 ], [ false, %168 ], [ false, %_ZN7Matcher10set_sharedEP4Node.exit55 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit47 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit ], [ false, %157 ]
+  %.0 = phi i1 [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45 ], [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53 ], [ false, %185 ], [ false, %190 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %_ZNK4Type8make_ptrEv.exit.thread57 ], [ false, %164 ], [ false, %143 ], [ false, %149 ], [ false, %79 ], [ false, %88 ], [ false, %92 ], [ false, %57 ], [ false, %66 ], [ false, %70 ], [ false, %78 ], [ false, %174 ], [ false, %168 ], [ false, %_ZN7Matcher10set_sharedEP4Node.exit55 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit47 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit ], [ false, %157 ]
   ret i1 %.0
 }
 

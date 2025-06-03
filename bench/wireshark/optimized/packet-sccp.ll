@@ -1128,17 +1128,17 @@ switch.edge372:                                   ; preds = %189
   %197 = tail call fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %194, i8 noundef zeroext %2, i1 noundef zeroext %196)
   br i1 %197, label %.thread408, label %.critedge
 
-.thread408.thread:                                ; preds = %177, %131, %143, %155, %156, %158, %171
+.thread408.thread:                                ; preds = %177, %171, %158, %156, %155, %143, %131
   br label %.critedge
 
 .thread408:                                       ; preds = %switch.edge372
   %.not365 = icmp eq i32 %.1332, 0
   br i1 %.not365, label %.critedge, label %.thread408.thread422
 
-.thread408.thread422:                             ; preds = %153, %141, %129, %120, %.thread408
-  %.5319407414429 = phi i32 [ %.4318392, %.thread408 ], [ 9, %153 ], [ 6, %141 ], [ 9, %129 ], [ 7, %120 ]
-  %.1330405415428 = phi i8 [ %.0329, %.thread408 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ 1, %120 ]
-  %.2333404416427 = phi i32 [ %.1332, %.thread408 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ %121, %120 ]
+.thread408.thread422:                             ; preds = %120, %129, %141, %153, %.thread408
+  %.5319407414429 = phi i32 [ %.4318392, %.thread408 ], [ 7, %120 ], [ 9, %129 ], [ 6, %141 ], [ 9, %153 ]
+  %.1330405415428 = phi i8 [ %.0329, %.thread408 ], [ 1, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
+  %.2333404416427 = phi i32 [ %.1332, %.thread408 ], [ %121, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
   %198 = zext nneg i8 %.1330405415428 to i32
   %199 = sub nuw nsw i32 %.5319407414429, %198
   %200 = add nuw nsw i32 %199, %.2333404416427

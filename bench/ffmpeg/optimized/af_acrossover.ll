@@ -323,7 +323,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %12
 
 12:                                               ; preds = %3, %11, %10, %9
-  %.08 = phi ptr [ %4, %3 ], [ %4, %11 ], [ %4, %10 ], [ @query_formats.auto_sample_fmts, %9 ]
+  %.08 = phi ptr [ %4, %3 ], [ @query_formats.auto_sample_fmts, %9 ], [ %4, %10 ], [ %4, %11 ]
   %13 = call i32 @ff_set_common_formats_from_list2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.08) #8
   %. = call i32 @llvm.smin.i32(i32 %13, i32 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8

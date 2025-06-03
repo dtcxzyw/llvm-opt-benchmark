@@ -1245,7 +1245,7 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
   br i1 %exitcond67.not, label %.loopexit, label %73
 
 .loopexit:                                        ; preds = %73, %._crit_edge, %10, %21, %13
-  %.043 = phi i64 [ %25, %21 ], [ %20, %13 ], [ 0, %10 ], [ %70, %._crit_edge ], [ %78, %73 ]
+  %.043 = phi i64 [ %20, %13 ], [ %25, %21 ], [ 0, %10 ], [ %70, %._crit_edge ], [ %78, %73 ]
   ret i64 %.043
 }
 

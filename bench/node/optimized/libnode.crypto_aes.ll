@@ -1525,7 +1525,7 @@ do.body248:                                       ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 sw.epilog:                                        ; preds = %do.end7.i200, %do.end7.i185, %do.end7.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462, %sw.bb139, %sw.bb138, %sw.bb137
-  %cipher_nid.0 = phi i32 [ 790, %sw.bb139 ], [ 789, %sw.bb138 ], [ 788, %sw.bb137 ], [ 419, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 423, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 427, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 895, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 898, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 901, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 904, %do.end7.i ], [ 905, %do.end7.i185 ], [ 906, %do.end7.i200 ]
+  %cipher_nid.0 = phi i32 [ 788, %sw.bb137 ], [ 789, %sw.bb138 ], [ 790, %sw.bb139 ], [ 419, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 423, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 427, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 895, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 898, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 901, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 904, %do.end7.i ], [ 905, %do.end7.i185 ], [ 906, %do.end7.i200 ]
   %call250 = call ptr @OBJ_nid2sn(i32 noundef %cipher_nid.0) #17
   %call251 = call ptr @EVP_get_cipherbyname(ptr noundef %call250) #17
   %cipher = getelementptr inbounds nuw i8, ptr %params, i64 16
@@ -1774,7 +1774,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %cond.end, %if.end20, %if.then30, %if.then19, %if.then13, %if.then
-  %retval.0 = phi i1 [ false, %if.then30 ], [ false, %if.then19 ], [ false, %if.then13 ], [ false, %if.then ], [ true, %if.end20 ], [ true, %cond.end ]
+  %retval.0 = phi i1 [ false, %if.then13 ], [ false, %if.then ], [ false, %if.then30 ], [ false, %if.then19 ], [ true, %if.end20 ], [ true, %cond.end ]
   ret i1 %retval.0
 }
 
@@ -1959,7 +1959,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.0 = phi i32 [ %call34, %sw.bb32 ], [ %call31, %sw.bb29 ], [ %call28, %sw.bb26 ], [ %call25, %sw.bb23 ], [ %call22, %sw.bb20 ], [ %call19, %sw.bb17 ], [ %call16, %sw.bb14 ], [ %call13, %sw.bb11 ], [ %call10, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %call4, %sw.bb2 ], [ %call1, %sw.bb ]
+  %retval.0 = phi i32 [ %call1, %sw.bb ], [ %call4, %sw.bb2 ], [ %call7, %sw.bb5 ], [ %call10, %sw.bb8 ], [ %call13, %sw.bb11 ], [ %call16, %sw.bb14 ], [ %call19, %sw.bb17 ], [ %call22, %sw.bb20 ], [ %call25, %sw.bb23 ], [ %call28, %sw.bb26 ], [ %call31, %sw.bb29 ], [ %call34, %sw.bb32 ]
   ret i32 %retval.0
 }
 
@@ -2309,7 +2309,7 @@ do.body78:                                        ; preds = %if.then54
   unreachable
 
 if.end81:                                         ; preds = %sw.bb77, %do.end66, %if.end52
-  %tag_len.0 = phi i64 [ %6, %sw.bb77 ], [ 0, %do.end66 ], [ 0, %if.end52 ]
+  %tag_len.0 = phi i64 [ 0, %do.end66 ], [ %6, %sw.bb77 ], [ 0, %if.end52 ]
   %size_.i28 = getelementptr inbounds nuw i8, ptr %in, i64 16
   %7 = load i64, ptr %size_.i28, align 8
   %call84 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %call16) #17

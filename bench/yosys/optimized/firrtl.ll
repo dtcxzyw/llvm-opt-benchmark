@@ -4402,7 +4402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i.i.i: ; preds 
   unreachable
 
 925:                                              ; preds = %919, %918
-  %.1.i.i.i = phi i32 [ %922, %919 ], [ %.022120.i.i.i, %918 ]
+  %.1.i.i.i = phi i32 [ %.022120.i.i.i, %918 ], [ %922, %919 ]
   %indvars.iv.next125.i.i.i = add nuw nsw i64 %indvars.iv124.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next125.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %916, !llvm.loop !185

@@ -433,7 +433,7 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %202 = getelementptr inbounds nuw i8, ptr %71, i64 %124
   br label %.thread
 
-.thread309:                                       ; preds = %178, %173, %196, %185, %160, %145, %141
+.thread309:                                       ; preds = %178, %173, %196, %185, %160, %141, %145
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %53, i32 noundef %29, i32 noundef %59) #4
   br label %250
 

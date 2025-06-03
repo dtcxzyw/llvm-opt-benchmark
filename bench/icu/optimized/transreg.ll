@@ -2182,7 +2182,7 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
 48:                                               ; preds = %5
   %49 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #18
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.critedge136, label %51
+  br i1 %50, label %.critedge137, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -2195,13 +2195,13 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
 .preheader:                                       ; preds = %51
   %56 = load i32, ptr %4, align 4, !tbaa !13
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.thread146, label %.lr.ph
+  br i1 %57, label %.thread147, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %61
 
-.critedge136:                                     ; preds = %48
+.critedge137:                                     ; preds = %48
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %139
 
@@ -2212,12 +2212,12 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
   br label %140
 
 61:                                               ; preds = %.lr.ph, %92
-  %.0105159 = phi i32 [ 0, %.lr.ph ], [ %93, %92 ]
-  %.0106158 = phi i32 [ 1, %.lr.ph ], [ %78, %92 ]
+  %.0105160 = phi i32 [ 0, %.lr.ph ], [ %93, %92 ]
+  %.0106159 = phi i32 [ 1, %.lr.ph ], [ %78, %92 ]
   %62 = load ptr, ptr %52, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !30
-  %65 = icmp slt i32 %.0105159, %64
+  %65 = icmp slt i32 %.0105160, %64
   br i1 %65, label %66, label %98
 
 66:                                               ; preds = %61
@@ -2252,8 +2252,8 @@ define noundef ptr @_ZN6icu_7722TransliteratorRegistry16instantiateEntryERKNS_13
 
 _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
-  %78 = add nuw nsw i32 %.0106158, 1
-  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %.0106158)
+  %78 = add nuw nsw i32 %.0106159, 1
+  invoke void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %.0106159)
           to label %79 unwind label %84
 
 79:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit
@@ -2262,7 +2262,7 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr %52, align 8, !tbaa !17
-  %82 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %81, i32 noundef %.0105159)
+  %82 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %81, i32 noundef %.0105160)
           to label %83 unwind label %88
 
 83:                                               ; preds = %80
@@ -2271,7 +2271,7 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
 
 .thread:                                          ; preds = %66
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread146
+  br label %.thread147
 
 84:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit
   %85 = landingpad { ptr, i32 }
@@ -2316,11 +2316,11 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #18
   call void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull %67, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.pre = load i32, ptr %4, align 4, !tbaa !13
-  %93 = add nuw nsw i32 %.0105159, 1
+  %93 = add nuw nsw i32 %.0105160, 1
   %94 = icmp sgt i32 %.pre, 0
-  br i1 %94, label %.thread146, label %61, !llvm.loop !61
+  br i1 %94, label %.thread147, label %61, !llvm.loop !61
 
-.thread146:                                       ; preds = %92, %.preheader, %.thread
+.thread147:                                       ; preds = %92, %.preheader, %.thread
   %95 = load ptr, ptr %49, align 8, !tbaa !15
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
@@ -2441,13 +2441,13 @@ _ZN6icu_7713UnicodeStringC2IA_DsvEERKT_.exit:     ; preds = %74
   tail call void @abort() #20
   unreachable
 
-139:                                              ; preds = %106, %117, %.thread146, %37, %15, %118, %107, %.critedge136, %41, %47, %38, %21, %29, %18, %136
-  %.0 = phi ptr [ null, %136 ], [ null, %106 ], [ null, %18 ], [ null, %29 ], [ %27, %21 ], [ null, %38 ], [ null, %37 ], [ null, %47 ], [ %45, %41 ], [ null, %.critedge136 ], [ null, %107 ], [ null, %118 ], [ null, %117 ], [ %13, %15 ], [ null, %.thread146 ]
+139:                                              ; preds = %106, %117, %.thread147, %37, %15, %118, %107, %.critedge137, %41, %47, %38, %21, %29, %18, %136
+  %.0 = phi ptr [ null, %106 ], [ null, %136 ], [ null, %18 ], [ null, %29 ], [ %27, %21 ], [ null, %38 ], [ null, %37 ], [ null, %47 ], [ %45, %41 ], [ null, %.critedge137 ], [ null, %107 ], [ null, %118 ], [ null, %117 ], [ %13, %15 ], [ null, %.thread147 ]
   ret ptr %.0
 
 140:                                              ; preds = %59, %108, %.body, %119, %39, %19, %137
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %137 ], [ %120, %119 ], [ %40, %39 ], [ %20, %19 ], [ %60, %59 ], [ %.pn121.pn.pn, %.body ], [ %109, %108 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn128 = phi { ptr, i32 } [ %20, %19 ], [ %40, %39 ], [ %120, %119 ], [ %.pn, %137 ], [ %60, %59 ], [ %.pn121.pn.pn, %.body ], [ %109, %108 ]
+  resume { ptr, i32 } %.pn128
 }
 
 ; Function Attrs: mustprogress uwtable

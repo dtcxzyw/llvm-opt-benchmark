@@ -1184,8 +1184,8 @@ ehcleanup279:                                     ; preds = %ehcleanup278, %lpad
   br label %ehcleanup282
 
 ehcleanup282:                                     ; preds = %lpad231, %lpad236, %ehcleanup279, %lpad224, %lpad214, %lpad174, %lpad165, %lpad123, %lpad100, %ehcleanup95, %lpad41
-  %125 = phi ptr [ %28, %ehcleanup279 ], [ %84, %lpad224 ], [ %39, %lpad41 ], [ %28, %lpad214 ], [ %74, %lpad174 ], [ %28, %lpad165 ], [ %28, %lpad123 ], [ %28, %lpad100 ], [ %28, %ehcleanup95 ], [ %.pre, %lpad236 ], [ %28, %lpad231 ]
-  %.pn48.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn.pn.pn, %ehcleanup279 ], [ %91, %lpad224 ], [ %40, %lpad41 ], [ %90, %lpad214 ], [ %81, %lpad174 ], [ %80, %lpad165 ], [ %71, %lpad123 ], [ %66, %lpad100 ], [ %.pn42.pn.pn.pn.pn, %ehcleanup95 ], [ %102, %lpad236 ], [ %101, %lpad231 ]
+  %125 = phi ptr [ %28, %ehcleanup279 ], [ %28, %lpad100 ], [ %28, %ehcleanup95 ], [ %39, %lpad41 ], [ %28, %lpad123 ], [ %74, %lpad174 ], [ %28, %lpad165 ], [ %84, %lpad224 ], [ %28, %lpad214 ], [ %.pre, %lpad236 ], [ %28, %lpad231 ]
+  %.pn48.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn.pn.pn, %ehcleanup279 ], [ %66, %lpad100 ], [ %.pn42.pn.pn.pn.pn, %ehcleanup95 ], [ %40, %lpad41 ], [ %71, %lpad123 ], [ %81, %lpad174 ], [ %80, %lpad165 ], [ %91, %lpad224 ], [ %90, %lpad214 ], [ %102, %lpad236 ], [ %101, %lpad231 ]
   %cmp.not.i.i216 = icmp eq ptr %125, null
   br i1 %cmp.not.i.i216, label %ehcleanup284, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i217
 
@@ -6251,8 +6251,8 @@ ehcleanup285:                                     ; preds = %ehcleanup284, %lpad
   br label %ehcleanup348
 
 sw.epilog:                                        ; preds = %for.body, %for.cond.preheader, %do.body163, %_ZN8QuantLib6MatrixD2Ev.exit
-  %eigenValues.sroa.20.0 = phi i64 [ %131, %_ZN8QuantLib6MatrixD2Ev.exit ], [ %87, %do.body163 ], [ %87, %for.cond.preheader ], [ %87, %for.body ]
-  %eigenValues.sroa.0.1 = phi ptr [ %temp.sroa.0.0.i, %_ZN8QuantLib6MatrixD2Ev.exit ], [ %eigenValues.sroa.0.2, %do.body163 ], [ %eigenValues.sroa.0.2, %for.cond.preheader ], [ %eigenValues.sroa.0.2, %for.body ]
+  %eigenValues.sroa.20.0 = phi i64 [ %87, %do.body163 ], [ %131, %_ZN8QuantLib6MatrixD2Ev.exit ], [ %87, %for.cond.preheader ], [ %87, %for.body ]
+  %eigenValues.sroa.0.1 = phi ptr [ %eigenValues.sroa.0.2, %do.body163 ], [ %temp.sroa.0.0.i, %_ZN8QuantLib6MatrixD2Ev.exit ], [ %eigenValues.sroa.0.2, %for.cond.preheader ], [ %eigenValues.sroa.0.2, %for.body ]
   %add.ptr.i232 = getelementptr inbounds nuw double, ptr %eigenValues.sroa.0.1, i64 %eigenValues.sroa.20.0
   %cmp.not4.i = icmp eq i64 %eigenValues.sroa.20.0, 0
   br i1 %cmp.not4.i, label %_ZSt10accumulateIPddET0_T_S2_S1_.exit, label %for.body.i
@@ -6427,7 +6427,7 @@ ehcleanup348:                                     ; preds = %ehcleanup285, %ehcl
   %cmp.not.i.i264 = icmp eq ptr %eigenValues.sroa.0.2, null
   br i1 %cmp.not.i.i264, label %ehcleanup349, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i265
 
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i265: ; preds = %ehcleanup214, %ehcleanup344, %ehcleanup348
+_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i265: ; preds = %ehcleanup344, %ehcleanup214, %ehcleanup348
   %.pn57.pn.pn.pn.pn.pn309 = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn, %ehcleanup348 ], [ %.pn48.pn.pn.pn.pn, %ehcleanup214 ], [ %.pn54.pn, %ehcleanup344 ]
   %eigenValues.sroa.0.0308 = phi ptr [ %eigenValues.sroa.0.2, %ehcleanup348 ], [ %eigenValues.sroa.0.2, %ehcleanup214 ], [ %eigenValues.sroa.0.1, %ehcleanup344 ]
   call void @_ZdaPv(ptr noundef nonnull %eigenValues.sroa.0.0308) #24

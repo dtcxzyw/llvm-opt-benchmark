@@ -337,7 +337,7 @@ _ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit: ; preds = %_ZN5clang
   br label %92
 
 92:                                               ; preds = %_ZN5clang12Preprocessor9LookAheadEj.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit, %8, %1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit3, %30, %7
-  %.0 = phi i1 [ %48, %_ZN5clang12Preprocessor9LookAheadEj.exit3 ], [ true, %30 ], [ %.1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit ], [ true, %7 ], [ false, %1 ], [ true, %8 ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ]
+  %.0 = phi i1 [ true, %7 ], [ true, %30 ], [ %.1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit ], [ %48, %_ZN5clang12Preprocessor9LookAheadEj.exit3 ], [ false, %1 ], [ true, %8 ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ]
   ret i1 %.0
 }
 
@@ -1356,8 +1356,8 @@ _ZNK5clang10Designator14setRBracketLocENS_14SourceLocationE.exit: ; preds = %452
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #12
   br label %.critedge102
 
-.critedge100:                                     ; preds = %348, %332, %340, %350
-  %.sroa.0232.6 = phi i64 [ %351, %350 ], [ 1, %348 ], [ 1, %340 ], [ %335, %332 ]
+.critedge100:                                     ; preds = %348, %340, %350, %332
+  %.sroa.0232.6 = phi i64 [ %335, %332 ], [ %351, %350 ], [ 1, %348 ], [ 1, %340 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #12
   br label %.critedge102
 

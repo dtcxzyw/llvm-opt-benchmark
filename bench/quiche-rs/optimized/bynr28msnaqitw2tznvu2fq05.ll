@@ -391,7 +391,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN50_$LT$quiche..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h135b435b9d6c5d5eE.exit"
 
 "_ZN50_$LT$quiche..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h135b435b9d6c5d5eE.exit": ; preds = %8, %10, %12, %14, %16, %18, %20, %23, %25, %27, %29, %31, %33, %36, %39, %41, %43, %45, %47, %49
-  %.sroa.0.0.in.i = phi i1 [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %35, %33 ], [ %38, %36 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5063,7 +5063,7 @@ define noundef range(i8 0, 11) i8 @_ZN12tokio_quiche4quic6router25initial_packet
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %1, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %8, %20, %25, %26, %27, %28
-  %.sroa.02.0.i = phi i8 [ 10, %28 ], [ 9, %27 ], [ %.val.i, %26 ], [ 7, %25 ], [ 6, %20 ], [ 10, %8 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ], [ 10, %1 ]
+  %.sroa.02.0.i = phi i8 [ 7, %25 ], [ %.val.i, %26 ], [ 9, %27 ], [ 10, %28 ], [ 6, %20 ], [ 10, %8 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ], [ 10, %1 ]
   ret i8 %.sroa.02.0.i
 }
 

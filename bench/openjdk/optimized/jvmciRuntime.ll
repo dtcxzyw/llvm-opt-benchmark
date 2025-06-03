@@ -2688,7 +2688,7 @@ _ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %74, %85
   unreachable
 
 136:                                              ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %131, %128, %124, %120, %116, %112, %108, %61
-  %.0 = phi i64 [ 0, %108 ], [ %132, %131 ], [ %130, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %116 ], [ %115, %112 ], [ 0, %61 ], [ 0, %_ZN17JavaCallArgumentsC2Ei.exit ]
+  %.0 = phi i64 [ 0, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %130, %128 ], [ %132, %131 ], [ 0, %61 ], [ 0, %_ZN17JavaCallArgumentsC2Ei.exit ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   %137 = load ptr, ptr %15, align 8
@@ -8309,7 +8309,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime13lookup_methodEP13InstanceKlassP5Kl
   unreachable
 
 28:                                               ; preds = %21, %19, %17, %15
-  %.0 = phi ptr [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
   ret ptr %.0
 }

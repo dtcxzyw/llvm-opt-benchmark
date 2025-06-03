@@ -1045,8 +1045,8 @@ define dso_local void @onig_st_cleanup_safe(ptr noundef captures(none) %0, i64 n
   br label %31
 
 31:                                               ; preds = %28, %.critedge.i
-  %.137.i = phi ptr [ %22, %28 ], [ %18, %.critedge.i ]
-  %.135.i = phi ptr [ %.03448.i, %28 ], [ %.03647.i, %.critedge.i ]
+  %.137.i = phi ptr [ %18, %.critedge.i ], [ %22, %28 ]
+  %.135.i = phi ptr [ %.03647.i, %.critedge.i ], [ %.03448.i, %28 ]
   %.not.i = icmp eq ptr %.137.i, null
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph49.i, !llvm.loop !44
 
@@ -1156,8 +1156,8 @@ define dso_local range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none)
   br label %43
 
 43:                                               ; preds = %40, %.critedge, %.lr.ph49
-  %.137 = phi ptr [ %.03647, %.lr.ph49 ], [ %34, %40 ], [ %30, %.critedge ]
-  %.135 = phi ptr [ %.03448, %.lr.ph49 ], [ %.03448, %40 ], [ %.03647, %.critedge ]
+  %.137 = phi ptr [ %.03647, %.lr.ph49 ], [ %30, %.critedge ], [ %34, %40 ]
+  %.135 = phi ptr [ %.03448, %.lr.ph49 ], [ %.03647, %.critedge ], [ %.03448, %40 ]
   %.not = icmp eq ptr %.137, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph49, !llvm.loop !44
 

@@ -1361,7 +1361,7 @@ define noundef i32 @_ZNK6icu_7714HebrewCalendar16internalGetMonthER10UErrorCode(
   br label %32
 
 32:                                               ; preds = %.thread, %27, %2, %30
-  %.09 = phi i32 [ %29, %27 ], [ %31, %30 ], [ 0, %2 ], [ %.1.ph, %.thread ]
+  %.09 = phi i32 [ %31, %30 ], [ %29, %27 ], [ 0, %2 ], [ %.1.ph, %.thread ]
   ret i32 %.09
 }
 

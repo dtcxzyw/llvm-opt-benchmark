@@ -229,7 +229,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br label %149
 
 95:                                               ; preds = %86, %83, %73, %70, %60, %57, %82, %69, %56, %.critedge
-  %.1 = phi ptr [ %.0101.lcssa, %.critedge ], [ %.0101.lcssa, %82 ], [ %.0101.lcssa, %69 ], [ %.0101.lcssa, %56 ], [ %58, %57 ], [ %61, %60 ], [ %71, %70 ], [ %74, %73 ], [ %84, %83 ], [ %87, %86 ]
+  %.1 = phi ptr [ %.0101.lcssa, %.critedge ], [ %.0101.lcssa, %56 ], [ %.0101.lcssa, %69 ], [ %.0101.lcssa, %82 ], [ %58, %57 ], [ %61, %60 ], [ %71, %70 ], [ %74, %73 ], [ %84, %83 ], [ %87, %86 ]
   %96 = add i32 %2, -37
   %or.cond = icmp ult i32 %96, -35
   br i1 %or.cond, label %97, label %.preheader136.preheader

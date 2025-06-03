@@ -151,7 +151,7 @@ define internal range(i32 -22, 1) i32 @oma_write_header(ptr noundef %0) #0 {
   br label %75
 
 75:                                               ; preds = %73, %71, %48, %32, %._crit_edge
-  %.033 = phi i32 [ -22, %._crit_edge ], [ -22, %71 ], [ 0, %73 ], [ -22, %32 ], [ -22, %48 ]
+  %.033 = phi i32 [ -22, %._crit_edge ], [ -22, %71 ], [ -22, %32 ], [ 0, %73 ], [ -22, %48 ]
   ret i32 %.033
 }
 

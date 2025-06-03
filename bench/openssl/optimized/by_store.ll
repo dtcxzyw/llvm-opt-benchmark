@@ -97,7 +97,7 @@ by_store.exit:                                    ; preds = %11, %.lr.ph.i, %6
   br label %.thread
 
 .thread:                                          ; preds = %by_store.exit, %21, %26, %22, %32, %28, %19
-  %.023 = phi i32 [ 0, %21 ], [ %31, %32 ], [ 0, %28 ], [ %25, %26 ], [ 0, %22 ], [ 0, %19 ], [ 0, %by_store.exit ]
+  %.023 = phi i32 [ 0, %21 ], [ %25, %26 ], [ 0, %22 ], [ %31, %32 ], [ 0, %28 ], [ 0, %19 ], [ 0, %by_store.exit ]
   ret i32 %.023
 }
 
@@ -226,7 +226,7 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   br label %27
 
 27:                                               ; preds = %24, %21
-  %.2.us = phi i32 [ %23, %21 ], [ %26, %24 ]
+  %.2.us = phi i32 [ %26, %24 ], [ %23, %21 ]
   %.2.fr.us = freeze i32 %.2.us
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %16) #3
   %.not36.us = icmp eq i32 %.2.fr.us, 0
@@ -267,7 +267,7 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 42:                                               ; preds = %36, %39, %33
-  %.2 = phi i32 [ %35, %33 ], [ %41, %39 ], [ %38, %36 ]
+  %.2 = phi i32 [ %35, %33 ], [ %38, %36 ], [ %41, %39 ]
   %.2.fr = freeze i32 %.2
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %31) #3
   %.not36 = icmp eq i32 %.2.fr, 0

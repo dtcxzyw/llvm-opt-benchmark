@@ -511,7 +511,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
 _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %15, %19, %21, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
-  %.0.shrunk.i = phi i8 [ %58, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ %25, %21 ], [ 0, %15 ], [ 0, %19 ]
+  %.0.shrunk.i = phi i8 [ %25, %21 ], [ %58, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ 0, %15 ], [ 0, %19 ]
   %.0.i = zext i8 %.0.shrunk.i to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %60 = load ptr, ptr %59, align 8, !tbaa !60
@@ -996,7 +996,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
 _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
-  %.0.shrunk.i = phi i8 [ %57, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ %24, %20 ], [ 0, %14 ], [ 0, %18 ]
+  %.0.shrunk.i = phi i8 [ %24, %20 ], [ %57, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ 0, %14 ], [ 0, %18 ]
   %.0.i = zext i8 %.0.shrunk.i to i32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %59 = load ptr, ptr %58, align 8, !tbaa !60
@@ -1427,7 +1427,7 @@ _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
 _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
-  %.0.shrunk.i = phi i8 [ %57, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ %24, %20 ], [ 0, %14 ], [ 0, %18 ]
+  %.0.shrunk.i = phi i8 [ %24, %20 ], [ %57, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i ], [ 0, %14 ], [ 0, %18 ]
   %.0.i = zext i8 %.0.shrunk.i to i32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %59 = load ptr, ptr %58, align 8, !tbaa !174
@@ -1669,8 +1669,8 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29: ; preds = %6
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11
 
 _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11: ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29
-  %.0.i22 = phi i32 [ %62, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ], [ %43, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ], [ %23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %13, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ]
-  %.0.i10 = phi i32 [ %67, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ], [ %58, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ], [ %29, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %18, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ]
+  %.0.i22 = phi i32 [ %13, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %23, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %43, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ], [ %62, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ]
+  %.0.i10 = phi i32 [ %18, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread ], [ %29, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread23 ], [ %58, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread26 ], [ %67, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit.thread29 ]
   %68 = icmp ult i32 %.0.i10, %.0.i22
   br i1 %68, label %.critedge, label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread, !prof !193
 
@@ -1726,7 +1726,7 @@ _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread: ; preds = %6, %
   br label %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13
 
 _ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit13: ; preds = %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread, %71, %76, %82, %97
-  %.0.i12 = phi i32 [ %101, %97 ], [ %96, %82 ], [ %81, %76 ], [ %75, %71 ], [ 0, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread ]
+  %.0.i12 = phi i32 [ %75, %71 ], [ %81, %76 ], [ %96, %82 ], [ %101, %97 ], [ 0, %_ZNK2OT8CFFIndexINS_7IntTypeItLj2EEEE9offset_atEj.exit11.thread ]
   %102 = icmp ugt i32 %.0.i1035, %.0.i12
   br i1 %102, label %.critedge, label %103, !prof !50
 
@@ -2639,8 +2639,8 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141: ; pred
   br label %179
 
 179:                                              ; preds = %175, %171
-  %180 = phi i32 [ %177, %175 ], [ %173, %171 ]
-  %.0.i = phi i1 [ %178, %175 ], [ %174, %171 ]
+  %180 = phi i32 [ %173, %171 ], [ %177, %175 ]
+  %.0.i = phi i1 [ %174, %171 ], [ %178, %175 ]
   %181 = icmp ne i32 %180, 0
   %or.cond.i.i = and i1 %.0.i, %181
   br i1 %or.cond.i.i, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i147, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i146, !prof !108
@@ -2709,8 +2709,8 @@ _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_p
   br label %210
 
 210:                                              ; preds = %206, %202, %198
-  %211 = phi i32 [ %208, %206 ], [ %204, %202 ], [ %200, %198 ]
-  %.0.i149 = phi i1 [ %209, %206 ], [ %205, %202 ], [ %201, %198 ]
+  %211 = phi i32 [ %200, %198 ], [ %204, %202 ], [ %208, %206 ]
+  %.0.i149 = phi i1 [ %201, %198 ], [ %205, %202 ], [ %209, %206 ]
   %212 = icmp ne i32 %211, 0
   %or.cond.i.i150 = and i1 %.0.i149, %212
   br i1 %or.cond.i.i150, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i152, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i151, !prof !108
@@ -7857,8 +7857,8 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141: ; pred
   br label %183
 
 183:                                              ; preds = %179, %175
-  %184 = phi i32 [ %181, %179 ], [ %177, %175 ]
-  %.0.i = phi i1 [ %182, %179 ], [ %178, %175 ]
+  %184 = phi i32 [ %177, %175 ], [ %181, %179 ]
+  %.0.i = phi i1 [ %178, %175 ], [ %182, %179 ]
   %185 = icmp ne i32 %184, 0
   %or.cond.i.i = and i1 %.0.i, %185
   br i1 %or.cond.i.i, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i147, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i146, !prof !108
@@ -7927,8 +7927,8 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_pr
   br label %214
 
 214:                                              ; preds = %210, %206, %202
-  %215 = phi i32 [ %212, %210 ], [ %208, %206 ], [ %204, %202 ]
-  %.0.i149 = phi i1 [ %213, %210 ], [ %209, %206 ], [ %205, %202 ]
+  %215 = phi i32 [ %204, %202 ], [ %208, %206 ], [ %212, %210 ]
+  %.0.i149 = phi i1 [ %205, %202 ], [ %209, %206 ], [ %213, %210 ]
   %216 = icmp ne i32 %215, 0
   %or.cond.i.i150 = and i1 %.0.i149, %216
   br i1 %or.cond.i.i150, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i152, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i151, !prof !108
@@ -12045,8 +12045,8 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i141: ; pred
   br label %179
 
 179:                                              ; preds = %175, %171
-  %180 = phi i32 [ %177, %175 ], [ %173, %171 ]
-  %.0.i = phi i1 [ %178, %175 ], [ %174, %171 ]
+  %180 = phi i32 [ %173, %171 ], [ %177, %175 ]
+  %.0.i = phi i1 [ %174, %171 ], [ %178, %175 ]
   %181 = icmp ne i32 %180, 0
   %or.cond.i.i = and i1 %.0.i, %181
   br i1 %or.cond.i.i, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i147, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i146, !prof !108
@@ -12115,8 +12115,8 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs
   br label %210
 
 210:                                              ; preds = %206, %202, %198
-  %211 = phi i32 [ %208, %206 ], [ %204, %202 ], [ %200, %198 ]
-  %.0.i149 = phi i1 [ %209, %206 ], [ %205, %202 ], [ %201, %198 ]
+  %211 = phi i32 [ %200, %198 ], [ %204, %202 ], [ %208, %206 ]
+  %.0.i149 = phi i1 [ %201, %198 ], [ %205, %202 ], [ %209, %206 ]
   %212 = icmp ne i32 %211, 0
   %or.cond.i.i150 = and i1 %.0.i149, %212
   br i1 %or.cond.i.i150, label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.i.i152, label %_ZN3CFF20cff1_cs_interp_env_t9set_widthEb.exit.i151, !prof !108

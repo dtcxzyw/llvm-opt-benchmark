@@ -8651,7 +8651,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maske
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
 _ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %75, %72, %69, %82, %63, %57, %54, %51, %46, %41, %38, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %32, %28, %24, %20, %18, %13, %13, %13, %14, %10, %3, %85, %66, %49, %35, %17
-  %.0 = phi i1 [ false, %85 ], [ true, %66 ], [ true, %49 ], [ true, %35 ], [ true, %17 ], [ false, %3 ], [ false, %10 ], [ false, %14 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %or.cond, %18 ], [ %23, %20 ], [ %27, %24 ], [ %or.cond5, %28 ], [ false, %32 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ false, %38 ], [ %43, %41 ], [ false, %46 ], [ false, %51 ], [ false, %54 ], [ %or.cond10.not, %57 ], [ false, %63 ], [ true, %82 ], [ true, %69 ], [ false, %72 ], [ %78, %75 ]
+  %.0 = phi i1 [ false, %85 ], [ true, %17 ], [ true, %35 ], [ true, %49 ], [ true, %66 ], [ false, %3 ], [ false, %10 ], [ false, %14 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %or.cond, %18 ], [ %23, %20 ], [ %27, %24 ], [ %or.cond5, %28 ], [ false, %32 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ false, %38 ], [ %43, %41 ], [ false, %46 ], [ false, %51 ], [ false, %54 ], [ %or.cond10.not, %57 ], [ false, %63 ], [ true, %82 ], [ true, %69 ], [ false, %72 ], [ %78, %75 ]
   ret i1 %.0
 }
 
@@ -9366,7 +9366,7 @@ define hidden noundef range(i32 9, 14) i32 @_ZN7Matcher16vector_ideal_regEi(i32 
   unreachable
 
 8:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ 13, %5 ], [ 12, %4 ], [ 11, %3 ], [ 10, %2 ], [ 9, %1 ]
+  %.0 = phi i32 [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 9, %1 ]
   ret i32 %.0
 }
 
@@ -58078,7 +58078,7 @@ define hidden void @_ZNK13vconvF2HFNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %13, %14
-  %.0.i.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -58139,7 +58139,7 @@ define hidden void @_ZNK21vconvF2HF_mem_regNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %20, %21
-  %.0.i.i.i = phi i32 [ 2, %21 ], [ 1, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %20 ], [ 2, %21 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %24 = add i32 %10, 2
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %25, align 8
@@ -58228,7 +58228,7 @@ define hidden void @_ZNK21vconvHF2F_reg_memNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -58294,7 +58294,7 @@ define hidden void @_ZNK13vconvHF2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -58356,7 +58356,7 @@ define hidden void @_ZNK24reinterpret_mask_W2BNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %15, %16
-  %.0.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -58433,7 +58433,7 @@ define hidden void @_ZNK24reinterpret_mask_D2BNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %15, %16
-  %.0.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -58506,7 +58506,7 @@ define hidden void @_ZNK24reinterpret_mask_Q2BNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %15, %16
-  %.0.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -59023,7 +59023,7 @@ define hidden void @_ZNK15vroundD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
@@ -59119,7 +59119,7 @@ define hidden void @_ZNK15vroundD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
@@ -59674,7 +59674,7 @@ define hidden void @_ZNK10gatherNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
-  %.0.i.i = phi i32 [ 2, %32 ], [ 1, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %31 ], [ 2, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %35 = add i32 %11, 2
   %36 = add i32 %17, %35
   %37 = add i32 %23, %36
@@ -59834,7 +59834,7 @@ define hidden void @_ZNK12evgatherNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
-  %.0.i.i = phi i32 [ 2, %32 ], [ 1, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %31 ], [ 2, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %35 = add i32 %11, 2
   %36 = add i32 %17, %35
   %37 = add i32 %23, %36
@@ -60002,8 +60002,8 @@ define hidden void @_ZNK19evgather_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %41, %42
-  %45 = phi i1 [ false, %42 ], [ false, %41 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %42 ], [ 1, %41 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %45 = phi i1 [ false, %41 ], [ false, %42 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %41 ], [ 2, %42 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %46 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %47 = load ptr, ptr %34, align 8
   %48 = load ptr, ptr %47, align 8
@@ -60182,7 +60182,7 @@ define hidden void @_ZNK23vgather_subwordLE8BNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
-  %.0.i.i = phi i32 [ 2, %32 ], [ 1, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %31 ], [ 2, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %35 = add i32 %11, 2
   %36 = add i32 %17, %35
   %37 = add i32 %36, %23
@@ -60353,7 +60353,7 @@ define hidden void @_ZNK23vgather_subwordGT8BNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
-  %.0.i.i = phi i32 [ 2, %68 ], [ 1, %67 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %67 ], [ 2, %68 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %71 = add i32 %11, 2
   %72 = add i32 %17, %71
   %73 = add i32 %72, %23
@@ -60537,7 +60537,7 @@ define hidden void @_ZNK27vgather_subwordLE8B_offNode4emitEP17C2_MacroAssemblerP
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
-  %.0.i.i = phi i32 [ 2, %32 ], [ 1, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %31 ], [ 2, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %35 = add i32 %11, 2
   %36 = add i32 %17, %35
   %37 = add i32 %23, %36
@@ -60713,7 +60713,7 @@ define hidden void @_ZNK27vgather_subwordGT8B_offNode4emitEP17C2_MacroAssemblerP
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
-  %.0.i.i = phi i32 [ 2, %68 ], [ 1, %67 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %67 ], [ 2, %68 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %71 = add i32 %11, 2
   %72 = add i32 %17, %71
   %73 = add i32 %23, %72
@@ -60920,7 +60920,7 @@ define hidden void @_ZNK35vgather_masked_subwordLE8B_avx3Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
-  %.0.i.i = phi i32 [ 2, %50 ], [ 1, %49 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %49 ], [ 2, %50 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %53 = add i32 %11, 2
   %54 = add i32 %17, %53
   %55 = add i32 %23, %54
@@ -61156,7 +61156,7 @@ define hidden void @_ZNK35vgather_masked_subwordGT8B_avx3Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
-  %.0.i.i = phi i32 [ 2, %86 ], [ 1, %85 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %85 ], [ 2, %86 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %89 = add i32 %11, 2
   %90 = add i32 %17, %89
   %91 = add i32 %23, %90
@@ -61403,7 +61403,7 @@ define hidden void @_ZNK39vgather_masked_subwordLE8B_off_avx3Node4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
-  %.0.i.i = phi i32 [ 2, %50 ], [ 1, %49 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %49 ], [ 2, %50 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %53 = add i32 %11, 2
   %54 = add i32 %17, %53
   %55 = add i32 %23, %54
@@ -61644,7 +61644,7 @@ define hidden void @_ZNK39vgather_masked_subwordGT8B_off_avx3Node4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
-  %.0.i.i = phi i32 [ 2, %86 ], [ 1, %85 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %85 ], [ 2, %86 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %89 = add i32 %11, 2
   %90 = add i32 %17, %89
   %91 = add i32 %23, %90
@@ -61905,7 +61905,7 @@ define hidden void @_ZNK35vgather_masked_subwordLE8B_avx2Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
-  %.0.i.i = phi i32 [ 2, %57 ], [ 1, %56 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %56 ], [ 2, %57 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %60 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %61 = load ptr, ptr %41, align 8
   %62 = load ptr, ptr %61, align 8
@@ -62185,7 +62185,7 @@ define hidden void @_ZNK35vgather_masked_subwordGT8B_avx2Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
-  %.0.i.i = phi i32 [ 2, %98 ], [ 1, %97 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %97 ], [ 2, %98 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %101 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %0) #23
   %102 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %103 = load ptr, ptr %41, align 8
@@ -62464,7 +62464,7 @@ define hidden void @_ZNK39vgather_masked_subwordLE8B_off_avx2Node4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
-  %.0.i.i = phi i32 [ 2, %57 ], [ 1, %56 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %56 ], [ 2, %57 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %60 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %61 = load ptr, ptr %41, align 8
   %62 = load ptr, ptr %61, align 8
@@ -62747,7 +62747,7 @@ define hidden void @_ZNK39vgather_masked_subwordGT8B_off_avx2Node4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
-  %.0.i.i = phi i32 [ 2, %98 ], [ 1, %97 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %97 ], [ 2, %98 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %101 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %0) #23
   %102 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %103 = load ptr, ptr %90, align 8
@@ -63032,7 +63032,7 @@ define hidden void @_ZNK11scatterNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %40, %41
-  %.0.i.i.i = phi i32 [ 2, %41 ], [ 1, %40 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %40 ], [ 2, %41 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %44 = add i32 %13, 2
   %45 = add i32 %19, %44
   %46 = add i32 %25, %45
@@ -63203,7 +63203,7 @@ define hidden void @_ZNK18scatter_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44, %45
-  %.0.i.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %48 = add i32 %11, 2
   %49 = add i32 %17, %48
   %50 = add i32 %23, %49
@@ -63332,7 +63332,7 @@ define hidden void @_ZNK14vReplB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %7, %7, %7, %9, %10
-  %.0.i.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %7 ], [ 0, %7 ], [ 0, %7 ]
+  %.0.i.i = phi i32 [ 1, %9 ], [ 2, %10 ], [ 0, %7 ], [ 0, %7 ], [ 0, %7 ]
   %13 = icmp eq i32 %4, 64
   br i1 %13, label %18, label %14
 
@@ -63505,7 +63505,7 @@ define hidden void @_ZNK13ReplB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -63572,7 +63572,7 @@ define hidden void @_ZNK14vReplS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = load i32, ptr @UseAVX, align 4
   %11 = icmp sgt i32 %10, 1
   br i1 %11, label %12, label %54
@@ -63729,7 +63729,7 @@ define hidden void @_ZNK13ReplS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -63796,7 +63796,7 @@ define hidden void @_ZNK13ReplI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = icmp eq i32 %4, 16
   br i1 %10, label %14, label %11
 
@@ -63905,7 +63905,7 @@ define hidden void @_ZNK13ReplI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %8, %9
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %12 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %13 = and i64 %12, 524288
   %.not = icmp eq i64 %13, 0
@@ -64175,10 +64175,10 @@ _ZN13GrowableArrayI6jvalueEC2Ei.exit:             ; preds = %3, %.lr.ph.preheade
   unreachable
 
 25:                                               ; preds = %20, %17, %16, %15, %14, %12
-  %.sroa.0.sroa.0.sroa.0.sroa.7.0 = phi i32 [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc35, %20 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.shift3040, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc37, %16 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc33, %15 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc, %14 ], [ 0, %12 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i32 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc28, %20 ], [ %19, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc29, %16 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc27, %15 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %14 ], [ %13, %12 ]
-  %.sroa.0.sroa.0.sroa.7.0 = phi i32 [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc23, %20 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.shift, %17 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc25, %16 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc21, %15 ], [ 0, %14 ], [ 0, %12 ]
-  %.sroa.0.sroa.7.0 = phi i32 [ %.sroa.0.sroa.7.0.extract.trunc, %20 ], [ undef, %17 ], [ %.sroa.0.sroa.7.0.extract.trunc16, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %12 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.7.0 = phi i32 [ 0, %12 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc, %14 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc33, %15 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc37, %16 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.shift3040, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.7.0.extract.trunc35, %20 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i32 [ %13, %12 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %14 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc27, %15 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc29, %16 ], [ %19, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc28, %20 ]
+  %.sroa.0.sroa.0.sroa.7.0 = phi i32 [ 0, %12 ], [ 0, %14 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc21, %15 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc25, %16 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.shift, %17 ], [ %.sroa.0.sroa.0.sroa.7.0.extract.trunc23, %20 ]
+  %.sroa.0.sroa.7.0 = phi i32 [ undef, %12 ], [ undef, %14 ], [ undef, %15 ], [ %.sroa.0.sroa.7.0.extract.trunc16, %16 ], [ undef, %17 ], [ %.sroa.0.sroa.7.0.extract.trunc, %20 ]
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %25
@@ -64253,8 +64253,8 @@ define hidden void @_ZNK14ReplI_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %9 = phi i1 [ false, %6 ], [ false, %5 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %9 = phi i1 [ false, %5 ], [ false, %6 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %11 = and i64 %10, 8724152320
   %or.cond.not = icmp eq i64 %11, 134217728
@@ -64328,7 +64328,7 @@ define hidden void @_ZNK12ReplI_M1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -64368,7 +64368,7 @@ define hidden void @_ZNK13ReplL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = icmp eq i32 %4, 8
   br i1 %10, label %14, label %11
 
@@ -64477,7 +64477,7 @@ define hidden void @_ZNK13ReplL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %8, %9
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %12 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %13 = and i64 %12, 524288
   %.not = icmp eq i64 %13, 0
@@ -64671,8 +64671,8 @@ define hidden void @_ZNK14ReplL_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %9 = phi i1 [ false, %6 ], [ false, %5 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %9 = phi i1 [ false, %5 ], [ false, %6 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %11 = and i64 %10, 8724152320
   %or.cond.not = icmp eq i64 %11, 134217728
@@ -64746,7 +64746,7 @@ define hidden void @_ZNK12ReplL_M1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -64784,7 +64784,7 @@ define hidden void @_ZNK14vReplF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = icmp ult i32 %4, 5
   br i1 %10, label %11, label %24
 
@@ -64923,7 +64923,7 @@ define hidden void @_ZNK13ReplF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -65091,8 +65091,8 @@ define hidden void @_ZNK14ReplF_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %9 = phi i1 [ false, %6 ], [ false, %5 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %9 = phi i1 [ false, %5 ], [ false, %6 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %11 = and i64 %10, 134217728
   %12 = icmp eq i64 %11, 0
@@ -65170,7 +65170,7 @@ define hidden void @_ZNK14vReplD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = icmp ult i32 %4, 3
   br i1 %10, label %11, label %24
 
@@ -65315,7 +65315,7 @@ define hidden void @_ZNK13ReplD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %8, %8, %8, %10, %11
-  %.0.i.i = phi i32 [ 2, %11 ], [ 1, %10 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ]
+  %.0.i.i = phi i32 [ 1, %10 ], [ 2, %11 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
@@ -65512,8 +65512,8 @@ define hidden void @_ZNK14ReplD_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %9 = phi i1 [ false, %6 ], [ false, %5 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %9 = phi i1 [ false, %5 ], [ false, %6 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %11 = and i64 %10, 134217728
   %12 = icmp eq i64 %11, 0
@@ -72142,7 +72142,7 @@ define hidden void @_ZNK13vaddB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -72204,7 +72204,7 @@ define hidden void @_ZNK13vaddB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -72285,7 +72285,7 @@ define hidden void @_ZNK15vaddB_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -72393,7 +72393,7 @@ define hidden void @_ZNK13vaddS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -72455,7 +72455,7 @@ define hidden void @_ZNK13vaddS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -72536,7 +72536,7 @@ define hidden void @_ZNK15vaddS_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -72644,7 +72644,7 @@ define hidden void @_ZNK13vaddI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -72705,7 +72705,7 @@ define hidden void @_ZNK13vaddI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -72794,7 +72794,7 @@ define hidden void @_ZNK15vaddI_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -72911,7 +72911,7 @@ define hidden void @_ZNK13vaddL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -72973,7 +72973,7 @@ define hidden void @_ZNK13vaddL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73054,7 +73054,7 @@ define hidden void @_ZNK15vaddL_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73162,7 +73162,7 @@ define hidden void @_ZNK13vaddF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -73224,7 +73224,7 @@ define hidden void @_ZNK13vaddF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73305,7 +73305,7 @@ define hidden void @_ZNK15vaddF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73411,7 +73411,7 @@ define hidden void @_ZNK13vaddD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -73473,7 +73473,7 @@ define hidden void @_ZNK13vaddD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73554,7 +73554,7 @@ define hidden void @_ZNK15vaddD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73662,7 +73662,7 @@ define hidden void @_ZNK13vsubB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -73724,7 +73724,7 @@ define hidden void @_ZNK13vsubB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -73834,7 +73834,7 @@ define hidden void @_ZNK13vsubS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -73896,7 +73896,7 @@ define hidden void @_ZNK13vsubS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -74006,7 +74006,7 @@ define hidden void @_ZNK13vsubI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -74068,7 +74068,7 @@ define hidden void @_ZNK13vsubI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -74178,7 +74178,7 @@ define hidden void @_ZNK13vsubL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -74240,7 +74240,7 @@ define hidden void @_ZNK13vsubL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -74350,7 +74350,7 @@ define hidden void @_ZNK13vsubF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -74412,7 +74412,7 @@ define hidden void @_ZNK13vsubF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -74522,7 +74522,7 @@ define hidden void @_ZNK13vsubD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -74584,7 +74584,7 @@ define hidden void @_ZNK13vsubD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -74948,7 +74948,7 @@ define hidden void @_ZNK13vmulB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %27 = add i32 %9, 1
   %28 = add i32 %15, %27
   %29 = add i32 %21, %28
@@ -75164,7 +75164,7 @@ define hidden void @_ZNK13vmulS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -75224,7 +75224,7 @@ define hidden void @_ZNK13vmulS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -75305,7 +75305,7 @@ define hidden void @_ZNK15vmulS_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -75413,7 +75413,7 @@ define hidden void @_ZNK13vmulI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -75474,7 +75474,7 @@ define hidden void @_ZNK13vmulI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -75563,7 +75563,7 @@ define hidden void @_ZNK15vmulI_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -75650,7 +75650,7 @@ define hidden void @_ZNK14evmulL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -75712,7 +75712,7 @@ define hidden void @_ZNK14evmulL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -75793,7 +75793,7 @@ define hidden void @_ZNK16evmulL_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76027,7 +76027,7 @@ define hidden void @_ZNK13vmulL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %27 = add i32 %9, 1
   %28 = add i32 %15, %27
   %29 = add i32 %21, %28
@@ -76235,7 +76235,7 @@ define hidden void @_ZNK13vmulF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -76297,7 +76297,7 @@ define hidden void @_ZNK13vmulF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76378,7 +76378,7 @@ define hidden void @_ZNK15vmulF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76484,7 +76484,7 @@ define hidden void @_ZNK13vmulD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -76546,7 +76546,7 @@ define hidden void @_ZNK13vmulD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76627,7 +76627,7 @@ define hidden void @_ZNK15vmulD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76735,7 +76735,7 @@ define hidden void @_ZNK13vdivF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -76797,7 +76797,7 @@ define hidden void @_ZNK13vdivF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -76907,7 +76907,7 @@ define hidden void @_ZNK13vdivD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -76969,7 +76969,7 @@ define hidden void @_ZNK13vdivD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -77121,7 +77121,7 @@ define hidden void @_ZNK15vminmax_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -77187,7 +77187,7 @@ define hidden void @_ZNK17vminmax_reg_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -77347,7 +77347,7 @@ define hidden void @_ZNK20vminmaxL_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %0, align 8
@@ -77417,7 +77417,7 @@ define hidden void @_ZNK22vminmaxL_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %0, align 8
@@ -77481,7 +77481,7 @@ define hidden void @_ZNK21vminmaxL_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %0, align 8
@@ -77545,7 +77545,7 @@ define hidden void @_ZNK23vminmaxL_reg_evex_0Node4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %0, align 8
@@ -77631,7 +77631,7 @@ define hidden void @_ZNK16minmaxFP_regNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -77737,7 +77737,7 @@ define hidden void @_ZNK18minmaxFP_reg_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -77849,7 +77849,7 @@ define hidden void @_ZNK23evminmaxFP_reg_eavxNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %39, %40
-  %.0.i.i = phi i32 [ 2, %40 ], [ 1, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %39 ], [ 2, %40 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %43 = add i32 %9, 1
   %44 = add i32 %15, %43
   %45 = add i32 %21, %44
@@ -77963,7 +77963,7 @@ define hidden void @_ZNK25evminmaxFP_reg_eavx_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %39, %40
-  %.0.i.i = phi i32 [ 2, %40 ], [ 1, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %39 ], [ 2, %40 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %43 = add i32 %9, 1
   %44 = add i32 %15, %43
   %45 = add i32 %21, %44
@@ -78163,7 +78163,7 @@ define hidden void @_ZNK19signumV_reg_avxNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -78262,7 +78262,7 @@ define hidden void @_ZNK21signumV_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -78359,7 +78359,7 @@ define hidden void @_ZNK20signumV_reg_evexNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -78458,7 +78458,7 @@ define hidden void @_ZNK22signumV_reg_evex_0Node4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %33, %34
-  %.0.i.i = phi i32 [ 2, %34 ], [ 1, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %33 ], [ 2, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
   %39 = add i32 %21, %38
@@ -78874,7 +78874,7 @@ define hidden void @_ZNK14vsqrtF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -78922,7 +78922,7 @@ define hidden void @_ZNK14vsqrtF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -78988,7 +78988,7 @@ define hidden void @_ZNK14vsqrtD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -79036,7 +79036,7 @@ define hidden void @_ZNK14vsqrtD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -82087,7 +82087,7 @@ define hidden void @_ZNK11vshiftSNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -82291,7 +82291,7 @@ define hidden void @_ZNK13vshiftS_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -82495,7 +82495,7 @@ define hidden void @_ZNK13vshiftS_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -82699,7 +82699,7 @@ define hidden void @_ZNK11vshiftINode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -82862,7 +82862,7 @@ define hidden void @_ZNK13vshiftI_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -83021,7 +83021,7 @@ define hidden void @_ZNK13vshiftI_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -83173,7 +83173,7 @@ define hidden void @_ZNK15vshiftI_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %17, %17, %17, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -83327,7 +83327,7 @@ define hidden void @_ZNK17vshiftI_imm_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %17, %17, %17, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -83477,7 +83477,7 @@ define hidden void @_ZNK17vshiftI_imm_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %17, %17, %17, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -83634,7 +83634,7 @@ define hidden void @_ZNK11vshiftLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -83749,7 +83749,7 @@ define hidden void @_ZNK13vshiftL_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %24, %24, %24, %26, %27
-  %.0.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
+  %.0.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %24 ], [ 0, %24 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -83853,7 +83853,7 @@ define hidden void @_ZNK15vshiftL_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %17, %17, %17, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -83959,7 +83959,7 @@ define hidden void @_ZNK17vshiftL_imm_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %17, %17, %17, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ]
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -84297,7 +84297,7 @@ define hidden void @_ZNK26vshiftL_arith_reg_evexNode4emitEP17C2_MacroAssemblerP1
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -86272,7 +86272,7 @@ define hidden void @_ZNK23vshiftB_var_evex_bwNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %27, %28
-  %.0.i.i = phi i32 [ 2, %28 ], [ 1, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %27 ], [ 2, %28 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %31 = add i32 %9, 1
   %32 = add i32 %15, %31
   %33 = add i32 %21, %32
@@ -86357,7 +86357,7 @@ define hidden void @_ZNK25vshiftB_var_evex_bw_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %27, %28
-  %.0.i.i = phi i32 [ 2, %28 ], [ 1, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %27 ], [ 2, %28 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %31 = add i32 %9, 1
   %32 = add i32 %15, %31
   %33 = add i32 %21, %32
@@ -86440,7 +86440,7 @@ define hidden void @_ZNK25vshiftB_var_evex_bw_1Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %27, %28
-  %.0.i.i = phi i32 [ 2, %28 ], [ 1, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %27 ], [ 2, %28 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %31 = add i32 %9, 1
   %32 = add i32 %15, %31
   %33 = add i32 %21, %32
@@ -88444,7 +88444,7 @@ define hidden void @_ZNK25vshift16S_var_evex_bwNode4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %21 = and i64 %20, 8589934592
@@ -88513,7 +88513,7 @@ define hidden void @_ZNK27vshift16S_var_evex_bw_0Node4emitEP17C2_MacroAssemblerP
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %21 = and i64 %20, 8589934592
@@ -88580,7 +88580,7 @@ define hidden void @_ZNK27vshift16S_var_evex_bw_1Node4emitEP17C2_MacroAssemblerP
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %21 = and i64 %20, 8589934592
@@ -88647,7 +88647,7 @@ define hidden void @_ZNK15vshiftI_varNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -88710,7 +88710,7 @@ define hidden void @_ZNK17vshiftI_var_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -88773,7 +88773,7 @@ define hidden void @_ZNK17vshiftI_var_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -88836,7 +88836,7 @@ define hidden void @_ZNK15vshiftL_varNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -88901,7 +88901,7 @@ define hidden void @_ZNK17vshiftL_var_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -88976,7 +88976,7 @@ define hidden void @_ZNK21vshiftL_arith_varNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %27, %28
-  %.0.i.i = phi i32 [ 2, %28 ], [ 1, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %27 ], [ 2, %28 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %31 = add i32 %9, 1
   %32 = add i32 %15, %31
   %33 = add i32 %21, %32
@@ -89047,7 +89047,7 @@ define hidden void @_ZNK26vshiftL_arith_var_evexNode4emitEP17C2_MacroAssemblerP1
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -89134,7 +89134,7 @@ define hidden void @_ZNK12vand_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -89195,7 +89195,7 @@ define hidden void @_ZNK12vand_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -89284,7 +89284,7 @@ define hidden void @_ZNK14vand_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = add i32 %11, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -89399,7 +89399,7 @@ define hidden void @_ZNK11vor_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -89459,7 +89459,7 @@ define hidden void @_ZNK11vor_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -89540,7 +89540,7 @@ define hidden void @_ZNK13vor_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %12, %13
-  %.0.i.i = phi i32 [ 2, %13 ], [ 1, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %12 ], [ 2, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %16 = add i32 %10, 2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -89648,8 +89648,8 @@ define hidden void @_ZNK12vxor_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
-  %17 = phi i1 [ false, %14 ], [ false, %13 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %17 = phi i1 [ false, %13 ], [ false, %14 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -89724,8 +89724,8 @@ define hidden void @_ZNK12vxor_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
-  %20 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %20 = phi i1 [ false, %16 ], [ false, %17 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %16 ], [ 2, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -89836,8 +89836,8 @@ define hidden void @_ZNK14vxor_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
-  %20 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %20 = phi i1 [ false, %16 ], [ false, %17 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i = phi i32 [ 1, %16 ], [ 2, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -89938,7 +89938,7 @@ define hidden void @_ZNK13vcastBtoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %6, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 1, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %6 ], [ 2, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -89985,7 +89985,7 @@ define hidden void @_ZNK13vcastBtoDNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -90104,7 +90104,7 @@ define hidden void @_ZNK13vcastStoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %22, %23
-  %.0.i = phi i32 [ 2, %23 ], [ 1, %22 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %22 ], [ 2, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %26 = load ptr, ptr %13, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -90232,7 +90232,7 @@ define hidden void @_ZNK18vcastStoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %15, %16
-  %.0.i.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #23
   switch i32 %19, label %22 [
     i32 4, label %_ZL22vector_length_encodingPK4Node.exit
@@ -90255,8 +90255,8 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %15
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %20, %21
-  %24 = phi i32 [ 1, %21 ], [ 0, %20 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
-  %.0.i.i = phi i32 [ 2, %21 ], [ 1, %20 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
+  %24 = phi i32 [ 0, %20 ], [ 1, %21 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
+  %.0.i.i = phi i32 [ 1, %20 ], [ 2, %21 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
   switch i8 %4, label %100 [
     i8 8, label %25
     i8 10, label %36
@@ -90443,7 +90443,7 @@ define hidden void @_ZNK12castItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %19, %20
-  %.0.i.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = icmp eq i8 %8, 8
   %24 = load ptr, ptr %9, align 8
   %25 = load ptr, ptr %24, align 8
@@ -90611,7 +90611,7 @@ define hidden void @_ZNK13vcastItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %31, %32
-  %.0.i.i.i = phi i32 [ 2, %32 ], [ 1, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %31 ], [ 2, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %35 = icmp eq i8 %22, 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load ptr, ptr %36, align 8
@@ -90846,7 +90846,7 @@ define hidden void @_ZNK18vcastItoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %15, %16
-  %.0.i.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #23
   switch i32 %19, label %22 [
     i32 4, label %_ZL22vector_length_encodingPK4Node.exit
@@ -90869,7 +90869,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %15
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %20, %21
-  %.0.i.i = phi i32 [ 2, %21 ], [ 1, %20 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
+  %.0.i.i = phi i32 [ 1, %20 ], [ 2, %21 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
   switch i8 %4, label %83 [
     i8 8, label %24
     i8 9, label %37
@@ -91173,7 +91173,7 @@ define hidden void @_ZNK18vcastLtoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %17, %18
-  %.0.i.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   switch i8 %4, label %_ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit [
     i8 8, label %21
     i8 9, label %37
@@ -91466,7 +91466,7 @@ define hidden void @_ZNK17vcastFtoD_regNode4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -91552,7 +91552,7 @@ define hidden void @_ZNK20castFtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44, %45
-  %.0.i.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %48 = add i32 %11, 1
   %49 = add i32 %17, %48
   %50 = add i32 %23, %49
@@ -91687,7 +91687,7 @@ define hidden void @_ZNK21castFtoX_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %45, %45, %45, %47, %48
-  %.0.i.i = phi i32 [ 2, %48 ], [ 1, %47 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ]
+  %.0.i.i = phi i32 [ 1, %47 ], [ 2, %48 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ]
   %51 = load ptr, ptr %15, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -91775,7 +91775,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %45, %45, %45, %47, 
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %89, %89, %89, %98, %99
-  %.0.i.i.i = phi i32 [ 2, %99 ], [ 1, %98 ], [ 0, %89 ], [ 0, %89 ], [ 0, %89 ]
+  %.0.i.i.i = phi i32 [ 1, %98 ], [ 2, %99 ], [ 0, %89 ], [ 0, %89 ], [ 0, %89 ]
   %102 = load ptr, ptr %15, align 8
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
@@ -91873,7 +91873,7 @@ define hidden void @_ZNK17vcastDtoF_regNode4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %13, %14
-  %.0.i.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -91964,7 +91964,7 @@ define hidden void @_ZNK20castDtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %50, %51
-  %.0.i.i.i = phi i32 [ 2, %51 ], [ 1, %50 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %50 ], [ 2, %51 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %54 = add i32 %11, 1
   %55 = add i32 %17, %54
   %56 = add i32 %23, %55
@@ -92103,7 +92103,7 @@ define hidden void @_ZNK21castDtoX_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %45, %46
-  %.0.i.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %50 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %51 = and i64 %50, 268435456
@@ -92209,7 +92209,7 @@ define hidden void @_ZNK10vucastNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %9, %10
-  %.0.i.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %9 ], [ 2, %10 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -92259,7 +92259,7 @@ define hidden void @_ZNK12vucast_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %9, %10
-  %.0.i.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %9 ], [ 2, %10 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -92307,7 +92307,7 @@ define hidden void @_ZNK12vucast_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %9, %10
-  %.0.i.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %9 ], [ 2, %10 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -92391,7 +92391,7 @@ define hidden void @_ZNK20vround_float_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
-  %.0.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = add i32 %13, 1
   %50 = add i32 %19, %49
   %51 = add i32 %25, %50
@@ -92561,7 +92561,7 @@ define hidden void @_ZNK21vround_float_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
-  %.0.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = add i32 %13, 1
   %50 = add i32 %19, %49
   %51 = add i32 %25, %50
@@ -92731,7 +92731,7 @@ define hidden void @_ZNK19vround_reg_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
-  %.0.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = add i32 %13, 1
   %50 = add i32 %19, %49
   %51 = add i32 %25, %50
@@ -92882,7 +92882,7 @@ define hidden void @_ZNK10vcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26, %27
-  %.0.i.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -93144,7 +93144,7 @@ define hidden void @_ZNK11evcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26, %27
-  %.0.i.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -93250,7 +93250,7 @@ define hidden void @_ZNK15vcmp_directNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %24, %25
-  %.0.i.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
@@ -93363,7 +93363,7 @@ define hidden void @_ZNK15vcmp_negateNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %36, %37
-  %.0.i.i.i = phi i32 [ 2, %37 ], [ 1, %36 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %36 ], [ 2, %37 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %40 = load ptr, ptr %16, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
@@ -93500,8 +93500,8 @@ define hidden void @_ZNK9vcmpuNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %52, %53
-  %56 = phi i1 [ false, %53 ], [ false, %52 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
-  %.0.i.i.i = phi i32 [ 2, %53 ], [ 1, %52 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %56 = phi i1 [ false, %52 ], [ false, %53 ], [ true, %3 ], [ true, %3 ], [ true, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %52 ], [ 2, %53 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %57 = load ptr, ptr %21, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
@@ -93751,7 +93751,7 @@ define hidden void @_ZNK10vcmp64Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38, %39
-  %.0.i.i.i = phi i32 [ 2, %39 ], [ 1, %38 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %38 ], [ 2, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %42 = load ptr, ptr %23, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -93941,7 +93941,7 @@ define hidden void @_ZNK9evcmpNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26, %27
-  %.0.i.i.i = phi i32 [ 2, %27 ], [ 1, %26 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %26 ], [ 2, %27 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -94780,7 +94780,7 @@ define hidden void @_ZNK13vblendvpINode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -94855,7 +94855,7 @@ define hidden void @_ZNK14vblendvpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -94942,7 +94942,7 @@ define hidden void @_ZNK12vblendvpNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %29, %30
-  %.0.i.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -95145,7 +95145,7 @@ define hidden void @_ZNK22evblendvp64_maskedNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -95232,7 +95232,7 @@ define hidden void @_ZNK13vabsB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %19, %19, %19, %21, %22
-  %.0.i.i = phi i32 [ 2, %22 ], [ 1, %21 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
+  %.0.i.i = phi i32 [ 1, %21 ], [ 2, %22 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
@@ -95309,7 +95309,7 @@ define hidden void @_ZNK13vabsS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %19, %19, %19, %21, %22
-  %.0.i.i = phi i32 [ 2, %22 ], [ 1, %21 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
+  %.0.i.i = phi i32 [ 1, %21 ], [ 2, %22 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
@@ -95386,7 +95386,7 @@ define hidden void @_ZNK13vabsI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %19, %19, %19, %21, %22
-  %.0.i.i = phi i32 [ 2, %22 ], [ 1, %21 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
+  %.0.i.i = phi i32 [ 1, %21 ], [ 2, %22 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
@@ -95438,7 +95438,7 @@ define hidden void @_ZNK13vabsL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %10 = and i64 %9, 8589934592
   %.not = icmp eq i64 %10, 0
@@ -95518,7 +95518,7 @@ define hidden void @_ZNK12vabsnegFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %23, %23, %23, %25, %26
-  %.0.i.i = phi i32 [ 2, %26 ], [ 1, %25 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
+  %.0.i.i = phi i32 [ 1, %25 ], [ 2, %26 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -95599,7 +95599,7 @@ define hidden void @_ZNK14vabsnegF_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %23, %23, %23, %25, %26
-  %.0.i.i = phi i32 [ 2, %26 ], [ 1, %25 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
+  %.0.i.i = phi i32 [ 1, %25 ], [ 2, %26 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -95726,7 +95726,7 @@ define hidden void @_ZNK12vabsnegDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %23, %23, %23, %25, %26
-  %.0.i.i = phi i32 [ 2, %26 ], [ 1, %25 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
+  %.0.i.i = phi i32 [ 1, %25 ], [ 2, %26 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -95807,7 +95807,7 @@ define hidden void @_ZNK14vabsnegD_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %23, %23, %23, %25, %26
-  %.0.i.i = phi i32 [ 2, %26 ], [ 1, %25 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
+  %.0.i.i = phi i32 [ 1, %25 ], [ 2, %26 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -96147,7 +96147,7 @@ define hidden void @_ZNK17loadMask_evexNode4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -96240,7 +96240,7 @@ define hidden void @_ZNK16vstoreMask1BNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %26, %26, %26, %35, %36
-  %.0.i.i.i = phi i32 [ 2, %36 ], [ 1, %35 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ]
+  %.0.i.i.i = phi i32 [ 1, %35 ], [ 2, %36 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ]
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -96971,7 +96971,7 @@ define hidden void @_ZNK32vstoreMask4B_evex_novectmaskNode4emitEP17C2_MacroAssem
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %18, %19
-  %.0.i.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #23
   switch i32 %22, label %25 [
     i32 4, label %_ZL22vector_length_encodingPK4Node.exit
@@ -96994,7 +96994,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %18
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %29 = and i64 %28, 8589934592
@@ -97070,7 +97070,7 @@ define hidden void @_ZNK32vstoreMask8B_evex_novectmaskNode4emitEP17C2_MacroAssem
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %18, %19
-  %.0.i.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #23
   switch i32 %22, label %25 [
     i32 4, label %_ZL22vector_length_encodingPK4Node.exit
@@ -97093,7 +97093,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %18
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ], [ 0, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %29 = and i64 %28, 8589934592
@@ -97231,7 +97231,7 @@ define hidden void @_ZNK19vstoreMask_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -97369,7 +97369,7 @@ define hidden void @_ZNK23VectorPopulateIndexNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
-  %.0.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = add i32 %9, 1
   %29 = add i32 %28, %15
   %30 = add i32 %21, %29
@@ -97470,7 +97470,7 @@ define hidden void @_ZNK24VectorPopulateLIndexNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
-  %.0.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = add i32 %9, 1
   %29 = add i32 %28, %15
   %30 = add i32 %21, %29
@@ -97786,7 +97786,7 @@ define hidden void @_ZNK19rearrangeB_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %47, %48
-  %.0.i.i = phi i32 [ 2, %48 ], [ 1, %47 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %47 ], [ 2, %48 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %51 = add i32 %9, 1
   %52 = add i32 %15, %51
   %53 = add i32 %21, %52
@@ -97887,7 +97887,7 @@ define hidden void @_ZNK24rearrangeB_evex_vbmiNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -98065,7 +98065,7 @@ define hidden void @_ZNK16loadShuffleSNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %89, %89, %89, %91, %92
-  %.0.i.i = phi i32 [ 2, %92 ], [ 1, %91 ], [ 0, %89 ], [ 0, %89 ], [ 0, %89 ]
+  %.0.i.i = phi i32 [ 1, %91 ], [ 2, %92 ], [ 0, %89 ], [ 0, %89 ], [ 0, %89 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %96, align 8
@@ -98377,7 +98377,7 @@ define hidden void @_ZNK21loadShuffleS_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %10 = and i64 %9, 8589934592
   %.not = icmp eq i64 %10, 0
@@ -98432,7 +98432,7 @@ define hidden void @_ZNK19rearrangeS_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %17 = and i64 %16, 8589934592
@@ -98670,7 +98670,7 @@ define hidden void @_ZNK20loadShuffleI_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -98723,7 +98723,7 @@ define hidden void @_ZNK18rearrangeI_avxNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -98793,7 +98793,7 @@ define hidden void @_ZNK16loadShuffleLNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = add i32 %11, 1
   %24 = add i32 %17, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -98927,7 +98927,7 @@ define hidden void @_ZNK14rearrangeLNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -98980,7 +98980,7 @@ define hidden void @_ZNK21loadShuffleL_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %5, %6
-  %.0.i.i = phi i32 [ 2, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -99031,7 +99031,7 @@ define hidden void @_ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.i.i, i32 1)
@@ -99097,7 +99097,7 @@ define hidden void @_ZNK13vfmaF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %4, align 8
@@ -99172,7 +99172,7 @@ define hidden void @_ZNK13vfmaF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = load ptr, ptr %5, align 8
@@ -99265,7 +99265,7 @@ define hidden void @_ZNK13vfmaD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %4, align 8
@@ -99340,7 +99340,7 @@ define hidden void @_ZNK13vfmaD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = load ptr, ptr %5, align 8
@@ -99457,7 +99457,7 @@ define hidden void @_ZNK22vmuladdS2I_reg_avxNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -99524,7 +99524,7 @@ define hidden void @_ZNK21vmuladdaddS2I_regNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -99591,7 +99591,7 @@ define hidden void @_ZNK23vmuladdaddS2I_reg_0Node4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %4, align 8
@@ -99656,7 +99656,7 @@ define hidden void @_ZNK31vpopcount_integral_reg_evexNode4emitEP17C2_MacroAssemb
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %17, %18
-  %.0.i.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %8, align 8
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %22) #23
@@ -99716,7 +99716,7 @@ define hidden void @_ZNK33vpopcount_integral_reg_evex_0Node4emitEP17C2_MacroAsse
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %17, %18
-  %.0.i.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %8, align 8
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %22) #23
@@ -99776,7 +99776,7 @@ define hidden void @_ZNK38vpopcount_integral_reg_evex_maskedNode4emitEP17C2_Macr
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %19, %20
-  %.0.i.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = load ptr, ptr %5, align 8
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %23) #23
   %25 = load ptr, ptr %4, align 8
@@ -99874,7 +99874,7 @@ define hidden void @_ZNK40vpopcount_integral_reg_evex_masked_0Node4emitEP17C2_Ma
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %19, %20
-  %.0.i.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = load ptr, ptr %5, align 8
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %23) #23
   %25 = load ptr, ptr %4, align 8
@@ -99993,7 +99993,7 @@ define hidden void @_ZNK21vpopcount_avx_regNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %40, %41
-  %.0.i.i.i = phi i32 [ 2, %41 ], [ 1, %40 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %40 ], [ 2, %41 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %44 = add i32 %9, 1
   %45 = add i32 %15, %44
   %46 = add i32 %21, %45
@@ -100101,7 +100101,7 @@ define hidden void @_ZNK23vpopcount_avx_reg_0Node4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %40, %41
-  %.0.i.i.i = phi i32 [ 2, %41 ], [ 1, %40 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %40 ], [ 2, %41 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %44 = add i32 %9, 1
   %45 = add i32 %15, %44
   %46 = add i32 %21, %45
@@ -100197,7 +100197,7 @@ define hidden void @_ZNK34vcount_trailing_zeros_reg_evexNode4emitEP17C2_MacroAss
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %30, %31
-  %.0.i.i.i = phi i32 [ 2, %31 ], [ 1, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %30 ], [ 2, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
   %36 = add i32 %21, %35
@@ -100299,7 +100299,7 @@ define hidden void @_ZNK40vcount_trailing_zeros_short_reg_evexNode4emitEP17C2_Ma
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %42, %43
-  %.0.i.i.i = phi i32 [ 2, %43 ], [ 1, %42 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %42 ], [ 2, %43 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %46 = add i32 %9, 1
   %47 = add i32 %15, %46
   %48 = add i32 %21, %47
@@ -100427,7 +100427,7 @@ define hidden void @_ZNK39vcount_trailing_zeros_byte_reg_evexNode4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %54, %55
-  %.0.i.i.i = phi i32 [ 2, %55 ], [ 1, %54 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %54 ], [ 2, %55 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %58 = add i32 %9, 1
   %59 = add i32 %15, %58
   %60 = add i32 %21, %59
@@ -100559,7 +100559,7 @@ define hidden void @_ZNK33vcount_trailing_zeros_reg_avxNode4emitEP17C2_MacroAsse
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %42, %43
-  %.0.i.i.i = phi i32 [ 2, %43 ], [ 1, %42 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %42 ], [ 2, %43 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %46 = add i32 %9, 1
   %47 = add i32 %15, %46
   %48 = add i32 %21, %47
@@ -100658,7 +100658,7 @@ define hidden void @_ZNK13vpternlogNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %27 = add i32 %9, 1
   %28 = add i32 %15, %27
   %29 = load ptr, ptr %4, align 8
@@ -100736,7 +100736,7 @@ define hidden void @_ZNK17vpternlog_memNode4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
-  %.0.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = add i32 %10, 2
   %29 = add i32 %16, %28
   %30 = load ptr, ptr %5, align 8
@@ -100826,7 +100826,7 @@ define hidden void @_ZNK18vprotate_immI8Node4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -100896,7 +100896,7 @@ define hidden void @_ZNK20vprotate_immI8_0Node4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -100964,7 +100964,7 @@ define hidden void @_ZNK12vprorateNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %0, align 8
@@ -101036,7 +101036,7 @@ define hidden void @_ZNK14vprorate_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %0, align 8
@@ -101110,7 +101110,7 @@ define hidden void @_ZNK32vmasked_load_avx_non_subwordNode4emitEP17C2_MacroAssem
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = add i32 %10, 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
@@ -101198,7 +101198,7 @@ define hidden void @_ZNK21vmasked_load_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = add i32 %10, 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -101292,7 +101292,7 @@ define hidden void @_ZNK33vmasked_store_avx_non_subwordNode4emitEP17C2_MacroAsse
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %25, %26
-  %.0.i.i = phi i32 [ 2, %26 ], [ 1, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %25 ], [ 2, %26 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %29 = add i32 %10, 2
   %30 = add i32 %16, %29
   %31 = load ptr, ptr %23, align 8
@@ -101402,7 +101402,7 @@ define hidden void @_ZNK22vmasked_store_evexNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %32, %33
-  %.0.i.i = phi i32 [ 2, %33 ], [ 1, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %32 ], [ 2, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %36 = add i32 %10, 2
   %37 = add i32 %16, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -101558,7 +101558,7 @@ define hidden void @_ZNK18vmask_cmp_nodeNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %46, %47
-  %.0.i.i.i = phi i32 [ 2, %47 ], [ 1, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %46 ], [ 2, %47 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %50 = add i32 %10, 1
   %51 = add i32 %16, %50
   %52 = add i32 %22, %51
@@ -101813,7 +101813,7 @@ define hidden void @_ZNK21vmask_tolong_evexNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %29, %30
-  %.0.i.i.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = mul nsw i32 %20, %17
   %34 = add i32 %9, 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -101895,7 +101895,7 @@ define hidden void @_ZNK21vmask_tolong_boolNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %32, %33
-  %.0.i.i.i = phi i32 [ 2, %33 ], [ 1, %32 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %32 ], [ 2, %33 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
   %38 = load ptr, ptr %10, align 8
@@ -101990,7 +101990,7 @@ define hidden void @_ZNK20vmask_tolong_avxNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38, %39
-  %.0.i.i.i = phi i32 [ 2, %39 ], [ 1, %38 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %38 ], [ 2, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %42 = add i32 %9, 1
   %43 = add i32 %42, %15
   %44 = add i32 %21, %43
@@ -102081,7 +102081,7 @@ define hidden void @_ZNK24vmask_truecount_evexNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %35, %36
-  %.0.i.i.i = phi i32 [ 2, %36 ], [ 1, %35 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %35 ], [ 2, %36 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %39 = mul nsw i32 %26, %23
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -102168,7 +102168,7 @@ define hidden void @_ZNK24vmask_truecount_boolNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38, %39
-  %.0.i.i.i = phi i32 [ 2, %39 ], [ 1, %38 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %38 ], [ 2, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %42 = add i32 %9, 1
   %43 = add i32 %15, %42
   %44 = add i32 %21, %43
@@ -102268,7 +102268,7 @@ define hidden void @_ZNK23vmask_truecount_avxNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44, %45
-  %.0.i.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %48 = add i32 %9, 1
   %49 = add i32 %48, %15
   %50 = add i32 %21, %49
@@ -102360,7 +102360,7 @@ define hidden void @_ZNK33vmask_first_or_last_true_evexNode4emitEP17C2_MacroAsse
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %35, %36
-  %.0.i.i.i = phi i32 [ 2, %36 ], [ 1, %35 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %35 ], [ 2, %36 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %39 = mul nsw i32 %26, %23
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -102444,7 +102444,7 @@ define hidden void @_ZNK35vmask_first_or_last_true_evex_0Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %35, %36
-  %.0.i.i.i = phi i32 [ 2, %36 ], [ 1, %35 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %35 ], [ 2, %36 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %39 = mul nsw i32 %26, %23
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -102531,7 +102531,7 @@ define hidden void @_ZNK33vmask_first_or_last_true_boolNode4emitEP17C2_MacroAsse
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38, %39
-  %.0.i.i.i = phi i32 [ 2, %39 ], [ 1, %38 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %38 ], [ 2, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %42 = add i32 %9, 1
   %43 = add i32 %15, %42
   %44 = add i32 %21, %43
@@ -102625,7 +102625,7 @@ define hidden void @_ZNK35vmask_first_or_last_true_bool_0Node4emitEP17C2_MacroAs
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38, %39
-  %.0.i.i.i = phi i32 [ 2, %39 ], [ 1, %38 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %38 ], [ 2, %39 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %42 = add i32 %9, 1
   %43 = add i32 %15, %42
   %44 = add i32 %21, %43
@@ -102725,7 +102725,7 @@ define hidden void @_ZNK32vmask_first_or_last_true_avxNode4emitEP17C2_MacroAssem
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44, %45
-  %.0.i.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %48 = add i32 %9, 1
   %49 = add i32 %48, %15
   %50 = add i32 %21, %49
@@ -102826,7 +102826,7 @@ define hidden void @_ZNK34vmask_first_or_last_true_avx_0Node4emitEP17C2_MacroAss
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44, %45
-  %.0.i.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %48 = add i32 %9, 1
   %49 = add i32 %48, %15
   %50 = add i32 %21, %49
@@ -102928,7 +102928,7 @@ define hidden void @_ZNK21vcompress_reg_avxNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
-  %.0.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = add i32 %9, 1
   %50 = add i32 %15, %49
   %51 = add i32 %21, %50
@@ -103056,7 +103056,7 @@ define hidden void @_ZNK23vcompress_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %45, %46
-  %.0.i.i = phi i32 [ 2, %46 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %45 ], [ 2, %46 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %49 = add i32 %9, 1
   %50 = add i32 %15, %49
   %51 = add i32 %21, %50
@@ -103152,7 +103152,7 @@ define hidden void @_ZNK29vcompress_expand_reg_evexNode4emitEP17C2_MacroAssemble
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -103218,7 +103218,7 @@ define hidden void @_ZNK31vcompress_expand_reg_evex_0Node4emitEP17C2_MacroAssemb
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %15, %16
-  %.0.i.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %19 = add i32 %9, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -103349,7 +103349,7 @@ define hidden void @_ZNK16vreverse_regNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %29, %30
-  %.0.i.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -103435,7 +103435,7 @@ define hidden void @_ZNK21vreverse_reg_gfniNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %19, %20
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = add i32 %11, 1
   %24 = add i32 %17, %23
   %25 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -103563,7 +103563,7 @@ define hidden void @_ZNK21vreverse_byte_regNode4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -103635,7 +103635,7 @@ define hidden void @_ZNK23vreverse_byte64_regNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %29, %30
-  %.0.i.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -103715,7 +103715,7 @@ define hidden void @_ZNK36vcount_leading_zeros_IL_reg_evexNode4emitEP17C2_MacroA
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %13, %14
-  %.0.i.i.i = phi i32 [ 2, %14 ], [ 1, %13 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %13 ], [ 2, %14 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %4, align 8
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %18) #23
@@ -103777,7 +103777,7 @@ define hidden void @_ZNK43vcount_leading_zeros_IL_reg_evex_maskedNode4emitEP17C2
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %19, %20
-  %.0.i.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %23 = load ptr, ptr %5, align 8
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %23) #23
   %25 = load ptr, ptr %4, align 8
@@ -103886,7 +103886,7 @@ define hidden void @_ZNK39vcount_leading_zeros_short_reg_evexNode4emitEP17C2_Mac
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %30, %31
-  %.0.i.i.i = phi i32 [ 2, %31 ], [ 1, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %30 ], [ 2, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
   %36 = add i32 %21, %35
@@ -103992,7 +103992,7 @@ define hidden void @_ZNK38vcount_leading_zeros_byte_reg_evexNode4emitEP17C2_Macr
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %48, %49
-  %.0.i.i.i = phi i32 [ 2, %49 ], [ 1, %48 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %48 ], [ 2, %49 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %52 = add i32 %9, 1
   %53 = add i32 %15, %52
   %54 = add i32 %21, %53
@@ -104110,7 +104110,7 @@ define hidden void @_ZNK36vcount_leading_zeros_int_reg_avxNode4emitEP17C2_MacroA
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %36, %37
-  %.0.i.i.i = phi i32 [ 2, %37 ], [ 1, %36 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %36 ], [ 2, %37 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
   %42 = add i32 %21, %41
@@ -104220,7 +104220,7 @@ define hidden void @_ZNK32vcount_leading_zeros_reg_avxNode4emitEP17C2_MacroAssem
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %42, %43
-  %.0.i.i.i = phi i32 [ 2, %43 ], [ 1, %42 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %42 ], [ 2, %43 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %46 = add i32 %9, 1
   %47 = add i32 %15, %46
   %48 = add i32 %21, %47
@@ -104311,7 +104311,7 @@ define hidden void @_ZNK19vadd_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104390,7 +104390,7 @@ define hidden void @_ZNK21vadd_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104467,7 +104467,7 @@ define hidden void @_ZNK21vadd_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104544,7 +104544,7 @@ define hidden void @_ZNK21vadd_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104621,7 +104621,7 @@ define hidden void @_ZNK21vadd_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104698,7 +104698,7 @@ define hidden void @_ZNK21vadd_reg_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104776,7 +104776,7 @@ define hidden void @_ZNK19vadd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104875,7 +104875,7 @@ define hidden void @_ZNK21vadd_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -104972,7 +104972,7 @@ define hidden void @_ZNK21vadd_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105069,7 +105069,7 @@ define hidden void @_ZNK21vadd_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105166,7 +105166,7 @@ define hidden void @_ZNK21vadd_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105263,7 +105263,7 @@ define hidden void @_ZNK21vadd_mem_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105359,7 +105359,7 @@ define hidden void @_ZNK19vxor_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105437,7 +105437,7 @@ define hidden void @_ZNK19vxor_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105533,7 +105533,7 @@ define hidden void @_ZNK18vor_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105611,7 +105611,7 @@ define hidden void @_ZNK18vor_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105707,7 +105707,7 @@ define hidden void @_ZNK19vand_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105785,7 +105785,7 @@ define hidden void @_ZNK19vand_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105881,7 +105881,7 @@ define hidden void @_ZNK19vsub_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -105958,7 +105958,7 @@ define hidden void @_ZNK21vsub_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106035,7 +106035,7 @@ define hidden void @_ZNK21vsub_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106112,7 +106112,7 @@ define hidden void @_ZNK21vsub_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106189,7 +106189,7 @@ define hidden void @_ZNK21vsub_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106266,7 +106266,7 @@ define hidden void @_ZNK21vsub_reg_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106344,7 +106344,7 @@ define hidden void @_ZNK19vsub_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106441,7 +106441,7 @@ define hidden void @_ZNK21vsub_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106538,7 +106538,7 @@ define hidden void @_ZNK21vsub_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106635,7 +106635,7 @@ define hidden void @_ZNK21vsub_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106732,7 +106732,7 @@ define hidden void @_ZNK21vsub_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106829,7 +106829,7 @@ define hidden void @_ZNK21vsub_mem_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -106925,7 +106925,7 @@ define hidden void @_ZNK19vmul_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107002,7 +107002,7 @@ define hidden void @_ZNK21vmul_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107079,7 +107079,7 @@ define hidden void @_ZNK21vmul_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107156,7 +107156,7 @@ define hidden void @_ZNK21vmul_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107233,7 +107233,7 @@ define hidden void @_ZNK21vmul_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107311,7 +107311,7 @@ define hidden void @_ZNK19vmul_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107408,7 +107408,7 @@ define hidden void @_ZNK21vmul_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107505,7 +107505,7 @@ define hidden void @_ZNK21vmul_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107602,7 +107602,7 @@ define hidden void @_ZNK21vmul_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107699,7 +107699,7 @@ define hidden void @_ZNK21vmul_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -107789,7 +107789,7 @@ define hidden void @_ZNK20vsqrt_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -107859,7 +107859,7 @@ define hidden void @_ZNK22vsqrt_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -107935,7 +107935,7 @@ define hidden void @_ZNK19vdiv_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108012,7 +108012,7 @@ define hidden void @_ZNK21vdiv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108090,7 +108090,7 @@ define hidden void @_ZNK19vdiv_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108187,7 +108187,7 @@ define hidden void @_ZNK21vdiv_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108283,7 +108283,7 @@ define hidden void @_ZNK19vrol_imm_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108361,7 +108361,7 @@ define hidden void @_ZNK21vrol_imm_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108437,7 +108437,7 @@ define hidden void @_ZNK19vrol_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108514,7 +108514,7 @@ define hidden void @_ZNK21vrol_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108591,7 +108591,7 @@ define hidden void @_ZNK22vlshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108667,7 +108667,7 @@ define hidden void @_ZNK24vlshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108743,7 +108743,7 @@ define hidden void @_ZNK24vlshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108819,7 +108819,7 @@ define hidden void @_ZNK22vlshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108896,7 +108896,7 @@ define hidden void @_ZNK24vlshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -108973,7 +108973,7 @@ define hidden void @_ZNK24vlshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109050,7 +109050,7 @@ define hidden void @_ZNK23vlshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109127,7 +109127,7 @@ define hidden void @_ZNK25vlshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109204,7 +109204,7 @@ define hidden void @_ZNK25vlshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109281,7 +109281,7 @@ define hidden void @_ZNK22vrshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109357,7 +109357,7 @@ define hidden void @_ZNK24vrshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109433,7 +109433,7 @@ define hidden void @_ZNK24vrshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109509,7 +109509,7 @@ define hidden void @_ZNK22vrshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Pha
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109586,7 +109586,7 @@ define hidden void @_ZNK24vrshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109663,7 +109663,7 @@ define hidden void @_ZNK24vrshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109740,7 +109740,7 @@ define hidden void @_ZNK23vrshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109817,7 +109817,7 @@ define hidden void @_ZNK25vrshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109894,7 +109894,7 @@ define hidden void @_ZNK25vrshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -109971,7 +109971,7 @@ define hidden void @_ZNK23vurshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110047,7 +110047,7 @@ define hidden void @_ZNK25vurshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110123,7 +110123,7 @@ define hidden void @_ZNK25vurshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %21, %15
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110199,7 +110199,7 @@ define hidden void @_ZNK23vurshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110276,7 +110276,7 @@ define hidden void @_ZNK25vurshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110353,7 +110353,7 @@ define hidden void @_ZNK25vurshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110430,7 +110430,7 @@ define hidden void @_ZNK24vurshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110507,7 +110507,7 @@ define hidden void @_ZNK26vurshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP1
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110584,7 +110584,7 @@ define hidden void @_ZNK26vurshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP1
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110661,7 +110661,7 @@ define hidden void @_ZNK20vmaxv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110739,7 +110739,7 @@ define hidden void @_ZNK20vmaxv_mem_maskedNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110835,7 +110835,7 @@ define hidden void @_ZNK20vminv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -110913,7 +110913,7 @@ define hidden void @_ZNK20vminv_mem_maskedNode4emitEP17C2_MacroAssemblerP13Phase
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %18, %19
-  %.0.i.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %22 = add i32 %10, 2
   %23 = add i32 %16, %22
   %24 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -111009,7 +111009,7 @@ define hidden void @_ZNK26vrearrangev_reg_maskedNode4emitEP17C2_MacroAssemblerP1
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %17, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %21 = add i32 %9, 1
   %22 = add i32 %15, %21
   %23 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
@@ -111080,7 +111080,7 @@ define hidden void @_ZNK15vabs_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -111150,7 +111150,7 @@ define hidden void @_ZNK17vabs_masked_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -111220,7 +111220,7 @@ define hidden void @_ZNK17vabs_masked_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -111290,7 +111290,7 @@ define hidden void @_ZNK17vabs_masked_2Node4emitEP17C2_MacroAssemblerP13PhaseReg
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %11, %12
-  %.0.i.i = phi i32 [ 2, %12 ], [ 1, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %11 ], [ 2, %12 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %15 = add i32 %9, 1
   %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #23
   %17 = load ptr, ptr %0, align 8
@@ -111372,7 +111372,7 @@ define hidden void @_ZNK19vfma_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %27 = add i32 %9, 1
   %28 = add i32 %15, %27
   %29 = add i32 %21, %28
@@ -111456,7 +111456,7 @@ define hidden void @_ZNK21vfma_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %23, %24
-  %.0.i.i = phi i32 [ 2, %24 ], [ 1, %23 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ 2, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %27 = add i32 %9, 1
   %28 = add i32 %15, %27
   %29 = add i32 %21, %28
@@ -111541,7 +111541,7 @@ define hidden void @_ZNK19vfma_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
-  %.0.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = add i32 %10, 2
   %29 = add i32 %16, %28
   %30 = add i32 %22, %29
@@ -111645,7 +111645,7 @@ define hidden void @_ZNK21vfma_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %24, %25
-  %.0.i.i = phi i32 [ 2, %25 ], [ 1, %24 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %25 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %28 = add i32 %10, 2
   %29 = add i32 %16, %28
   %30 = add i32 %22, %29
@@ -111759,7 +111759,7 @@ define hidden void @_ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %34, %35
-  %.0.i.i.i = phi i32 [ 2, %35 ], [ 1, %34 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i.i = phi i32 [ 1, %34 ], [ 2, %35 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %38 = load ptr, ptr %5, align 8
   %39 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %38) #23
   switch i8 %39, label %256 [
@@ -112300,7 +112300,7 @@ define hidden void @_ZNK23long_to_maskLE8_avxNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %29, %30
-  %.0.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -112386,7 +112386,7 @@ define hidden void @_ZNK23long_to_maskGT8_avxNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _Z22vector_length_encodingi.exit:                 ; preds = %3, %3, %3, %29, %30
-  %.0.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -112695,7 +112695,7 @@ define hidden void @_ZNK23vternlog_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %29, %30
-  %.0.i.i = phi i32 [ 2, %30 ], [ 1, %29 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %29 ], [ 2, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %33 = add i32 %9, 1
   %34 = add i32 %15, %33
   %35 = add i32 %21, %34
@@ -112791,7 +112791,7 @@ define hidden void @_ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13P
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %30, %31
-  %.0.i.i = phi i32 [ 2, %31 ], [ 1, %30 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0.i.i = phi i32 [ 1, %30 ], [ 2, %31 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %34 = add i32 %10, 1
   %35 = add i32 %16, %34
   %36 = add i32 %22, %35

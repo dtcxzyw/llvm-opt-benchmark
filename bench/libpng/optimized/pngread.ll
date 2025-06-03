@@ -1881,7 +1881,7 @@ png_image_is_not_sRGB.exit.thread24:              ; preds = %63, %png_image_is_n
   br label %106
 
 106:                                              ; preds = %png_image_is_not_sRGB.exit.thread24, %102, %99
-  %.0 = phi i32 [ %105, %102 ], [ %101, %99 ], [ 256, %png_image_is_not_sRGB.exit.thread24 ]
+  %.0 = phi i32 [ %101, %99 ], [ %105, %102 ], [ 256, %png_image_is_not_sRGB.exit.thread24 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.0, i32 256)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %spec.store.select, ptr %107, align 4, !tbaa !133
@@ -4969,7 +4969,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   unreachable
 
 44:                                               ; preds = %38, %33, %27, %.thread
-  %.011 = phi i32 [ %39, %38 ], [ %1, %.thread ], [ %37, %33 ], [ %32, %27 ]
+  %.011 = phi i32 [ %32, %27 ], [ %37, %33 ], [ %1, %.thread ], [ %39, %38 ]
   ret i32 %.011
 }
 

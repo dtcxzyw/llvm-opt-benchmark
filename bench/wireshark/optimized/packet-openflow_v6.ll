@@ -3456,7 +3456,7 @@ dissect_openflow_portmod_prop_v6.exit.thread.i:   ; preds = %574, %559
   br label %dissect_openflow_hello_v6.exit
 
 dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %577, %562, %533, %495
-  %.0.i.i155 = phi i32 [ %581, %577 ], [ %573, %562 ], [ %558, %533 ], [ %532, %495 ]
+  %.0.i.i155 = phi i32 [ %581, %577 ], [ %532, %495 ], [ %558, %533 ], [ %573, %562 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
@@ -3760,7 +3760,7 @@ dissect_openflow_portmod_prop_v6.exit.i:          ; preds = %577, %562, %533, %4
   br label %794
 
 794:                                              ; preds = %791, %782, %743
-  %.pn.i.i.i = phi i32 [ %741, %791 ], [ %741, %782 ], [ 72, %743 ]
+  %.pn.i.i.i = phi i32 [ %741, %791 ], [ 72, %743 ], [ %741, %782 ]
   %.0.i.i.i = add i32 %.pn.i.i.i, %.014.i.i
   %795 = load i32, ptr %12, align 4
   %796 = add i32 %795, 7
@@ -4009,7 +4009,7 @@ dissect_openflow_async_config_prop_v6.exit.thread.i: ; preds = %946, %931
   br label %dissect_openflow_hello_v6.exit
 
 dissect_openflow_async_config_prop_v6.exit.i:     ; preds = %949, %934, %921, %911, %899, %881, %869, %851
-  %.0.i.i160 = phi i32 [ %953, %949 ], [ %945, %934 ], [ %930, %921 ], [ %920, %911 ], [ %910, %899 ], [ %898, %881 ], [ %880, %869 ], [ %868, %851 ]
+  %.0.i.i160 = phi i32 [ %953, %949 ], [ %868, %851 ], [ %880, %869 ], [ %898, %881 ], [ %910, %899 ], [ %920, %911 ], [ %930, %921 ], [ %945, %934 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -4527,7 +4527,7 @@ define internal fastcc void @dissect_openflow_multipart_reply_v6(ptr noundef %0,
   br label %dissect_openflow_port_stats_prop_v6.exit.i
 
 dissect_openflow_port_stats_prop_v6.exit.i:       ; preds = %248, %246, %231, %229, %175, %159
-  %.0.i.i = phi i32 [ %61, %246 ], [ %252, %248 ], [ %61, %229 ], [ %242, %231 ], [ %225, %175 ], [ %174, %159 ]
+  %.0.i.i = phi i32 [ %61, %246 ], [ %252, %248 ], [ %174, %159 ], [ %225, %175 ], [ %61, %229 ], [ %242, %231 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
@@ -5206,7 +5206,7 @@ dissect_openflow_meter_desc_v6.exit:              ; preds = %.lr.ph.i165, %.lr.p
   br label %dissect_openflow_queue_desc_prop_v6.exit.i
 
 dissect_openflow_queue_desc_prop_v6.exit.i:       ; preds = %773, %770, %758, %755, %746, %739, %734
-  %.0.i.i168 = phi i32 [ %732, %734 ], [ %41, %770 ], [ %776, %773 ], [ %41, %755 ], [ %767, %758 ], [ %752, %746 ], [ %745, %739 ]
+  %.0.i.i168 = phi i32 [ %732, %734 ], [ %41, %770 ], [ %776, %773 ], [ %745, %739 ], [ %752, %746 ], [ %41, %755 ], [ %767, %758 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
   %777 = icmp slt i32 %.0.i.i168, %705
@@ -5311,7 +5311,7 @@ dissect_openflow_queue_desc_v6.exit:              ; preds = %dissect_openflow_qu
   br label %dissect_openflow_flow_update_v6.exit
 
 dissect_openflow_flow_update_v6.exit:             ; preds = %.lr.ph.i169, %792, %796, %824, %828, %832
-  %.0.i = phi i32 [ %789, %792 ], [ %836, %832 ], [ %831, %828 ], [ %827, %824 ], [ %820, %796 ], [ %822, %.lr.ph.i169 ]
+  %.0.i = phi i32 [ %789, %792 ], [ %836, %832 ], [ %827, %824 ], [ %831, %828 ], [ %820, %796 ], [ %822, %.lr.ph.i169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
@@ -5458,7 +5458,7 @@ define internal fastcc void @dissect_openflow_controller_status_v6(ptr noundef %
   br label %59
 
 59:                                               ; preds = %56, %47, %42
-  %.0.i = phi i32 [ %.pre-phi.i, %56 ], [ %.pre-phi.i, %47 ], [ %46, %42 ]
+  %.0.i = phi i32 [ %.pre-phi.i, %56 ], [ %46, %42 ], [ %.pre-phi.i, %47 ]
   %60 = load i32, ptr %7, align 4
   %61 = add i32 %60, 7
   %62 = and i32 %61, 65528
@@ -5770,7 +5770,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %93, %77, %95, %100, %78, %82, %68, %73, %56, %60, %42, %49, %29, %34, %85, %64, %52, %38, %26
-  %.0 = phi i32 [ %103, %100 ], [ %98, %95 ], [ %15, %85 ], [ %81, %78 ], [ %15, %82 ], [ %76, %73 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %15, %56 ], [ %55, %52 ], [ %15, %49 ], [ %47, %42 ], [ %41, %38 ], [ %37, %34 ], [ %32, %29 ], [ %15, %26 ], [ %14, %77 ], [ %14, %93 ]
+  %.0 = phi i32 [ %103, %100 ], [ %98, %95 ], [ %15, %26 ], [ %37, %34 ], [ %32, %29 ], [ %41, %38 ], [ %15, %49 ], [ %47, %42 ], [ %55, %52 ], [ %63, %60 ], [ %15, %56 ], [ %67, %64 ], [ %76, %73 ], [ %71, %68 ], [ %81, %78 ], [ %15, %82 ], [ %15, %85 ], [ %14, %77 ], [ %14, %93 ]
   %104 = and i32 %17, 65535
   %105 = icmp sgt i32 %104, %.0
   br i1 %105, label %106, label %128
@@ -6417,7 +6417,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @dissect_openflow_port_v6(p
   br label %dissect_openflow_port_desc_prop_v6.exit
 
 dissect_openflow_port_desc_prop_v6.exit:          ; preds = %73, %241, %._crit_edge68.i, %._crit_edge.i, %309, %311, %326, %328
-  %.0.i = phi i32 [ %62, %326 ], [ %332, %328 ], [ %62, %309 ], [ %322, %311 ], [ %305, %._crit_edge.i ], [ %292, %._crit_edge68.i ], [ %281, %241 ], [ %240, %73 ]
+  %.0.i = phi i32 [ %62, %326 ], [ %332, %328 ], [ %240, %73 ], [ %281, %241 ], [ %292, %._crit_edge68.i ], [ %305, %._crit_edge.i ], [ %62, %309 ], [ %322, %311 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %333 = icmp slt i32 %.0.i, %60
@@ -6648,7 +6648,7 @@ dissect_openflow_action_header_v6.exit:           ; preds = %4, %20
   br label %140
 
 140:                                              ; preds = %97, %100, %136, %132, %128, %115, %111, %104, %93, %86, %82, %78, %71, %64, %60, %53, %49, %42, %38, %34, %24
-  %.0 = phi i32 [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %115 ], [ %114, %111 ], [ %110, %104 ], [ %10, %100 ], [ %98, %97 ], [ %96, %93 ], [ %92, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %71 ], [ %70, %64 ], [ %63, %60 ], [ %59, %53 ], [ %52, %49 ], [ %48, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %24 ]
+  %.0 = phi i32 [ %139, %136 ], [ %33, %24 ], [ %37, %34 ], [ %41, %38 ], [ %48, %42 ], [ %52, %49 ], [ %59, %53 ], [ %63, %60 ], [ %70, %64 ], [ %77, %71 ], [ %81, %78 ], [ %85, %82 ], [ %92, %86 ], [ %96, %93 ], [ %10, %100 ], [ %98, %97 ], [ %110, %104 ], [ %114, %111 ], [ %127, %115 ], [ %131, %128 ], [ %135, %132 ]
   ret i32 %.0
 }
 
@@ -6767,7 +6767,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph77, %51, %44, %70, %66, %34, %27
-  %.0 = phi i32 [ %26, %70 ], [ %69, %66 ], [ %43, %34 ], [ %33, %27 ], [ %47, %44 ], [ %62, %51 ], [ %49, %.lr.ph77 ], [ %64, %.lr.ph ]
+  %.0 = phi i32 [ %26, %70 ], [ %33, %27 ], [ %43, %34 ], [ %69, %66 ], [ %47, %44 ], [ %62, %51 ], [ %49, %.lr.ph77 ], [ %64, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   ret i32 %.0
 }
@@ -6916,7 +6916,7 @@ define internal fastcc i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, pt
   br label %76
 
 76:                                               ; preds = %71, %68, %53, %50, %34, %22
-  %.0 = phi i32 [ %70, %68 ], [ %75, %71 ], [ %52, %50 ], [ %64, %53 ], [ %46, %34 ], [ %33, %22 ]
+  %.0 = phi i32 [ %70, %68 ], [ %75, %71 ], [ %33, %22 ], [ %46, %34 ], [ %52, %50 ], [ %64, %53 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -7476,7 +7476,7 @@ define internal fastcc range(i32 -2147483648, 196604) i32 @dissect_openflow_mete
   br label %48
 
 48:                                               ; preds = %45, %39, %33, %30
-  %.pn = phi i32 [ %14, %45 ], [ %14, %39 ], [ 16, %33 ], [ 16, %30 ]
+  %.pn = phi i32 [ %14, %45 ], [ 16, %30 ], [ 16, %33 ], [ %14, %39 ]
   %.058 = add nsw i32 %.pn, %3
   br label %49
 
@@ -7567,7 +7567,7 @@ define internal fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr 
   br label %60
 
 60:                                               ; preds = %55, %52, %37, %34, %20
-  %.0 = phi i32 [ %54, %52 ], [ %59, %55 ], [ %36, %34 ], [ %48, %37 ], [ %30, %20 ]
+  %.0 = phi i32 [ %54, %52 ], [ %59, %55 ], [ %30, %20 ], [ %36, %34 ], [ %48, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4

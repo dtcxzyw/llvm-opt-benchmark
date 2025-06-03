@@ -269,8 +269,8 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   br label %47
 
 47:                                               ; preds = %4, %46, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.030 = phi i16 [ 0, %46 ], [ 4, %17 ], [ 16384, %16 ], [ 2048, %15 ], [ 1024, %14 ], [ 512, %13 ], [ 256, %12 ], [ 128, %11 ], [ 64, %10 ], [ 2, %9 ], [ 1, %4 ]
-  %.029 = phi i1 [ true, %46 ], [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ], [ false, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %4 ]
+  %.030 = phi i16 [ 0, %46 ], [ 2, %9 ], [ 64, %10 ], [ 128, %11 ], [ 256, %12 ], [ 512, %13 ], [ 1024, %14 ], [ 2048, %15 ], [ 16384, %16 ], [ 4, %17 ], [ 1, %4 ]
+  %.029 = phi i1 [ true, %46 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %4 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1716
   %49 = load i16, ptr %48, align 4
   %50 = xor i16 %.030, -1

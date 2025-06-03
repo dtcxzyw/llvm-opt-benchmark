@@ -3012,7 +3012,7 @@ _ZN4llvm3msf9MSFLayoutaSEOS1_.exit:               ; preds = %_ZN4llvm15SmallVect
   br label %_ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit
 
 _ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit: ; preds = %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit, %114, %115, %116
-  %.0.i = phi i64 [ 4294967295, %116 ], [ 17179869180, %115 ], [ 12884901885, %114 ], [ 8589934590, %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit ]
+  %.0.i = phi i64 [ 4294967295, %116 ], [ 12884901885, %114 ], [ 17179869180, %115 ], [ 8589934590, %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit ]
   %117 = icmp ugt i64 %113, %.0.i
   br i1 %117, label %118, label %136
 
@@ -3034,7 +3034,7 @@ _ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit: ; preds = %_ZN4llvm3msf9MSFLay
   br label %_ZN4llvm5ErrorD2Ev.exit63
 
 _ZN4llvm5ErrorD2Ev.exit63:                        ; preds = %121, %120, %119, %118
-  %.0.i62 = phi i32 [ 7, %121 ], [ 10, %120 ], [ 9, %119 ], [ 8, %118 ]
+  %.0.i62 = phi i32 [ 7, %121 ], [ 9, %119 ], [ 10, %120 ], [ 8, %118 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %17) #20
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr @.str.9, ptr %17, align 8, !tbaa !177, !alias.scope !178

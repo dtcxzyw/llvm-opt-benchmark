@@ -21876,7 +21876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27
   resume { ptr, i32 } %.pn65.pn
 
-_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread: ; preds = %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit, %140, %128, %124, %120, %116, %112, %108, %102, %82, %78, %74, %70, %66, %62, %58, %54, %50, %98, %90, %132, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread, %187, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit, %30
+_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread: ; preds = %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit, %50, %54, %58, %62, %66, %70, %74, %78, %82, %102, %108, %112, %116, %120, %124, %128, %140, %98, %90, %132, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread, %187, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit, %30
   %262 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %263 = load i64, ptr %262, align 8, !tbaa !28
   %264 = icmp eq i64 %263, 0
@@ -21886,8 +21886,8 @@ _ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread: ; preds
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %.thread
 
-.thread:                                          ; preds = %138, %96, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %98, %50, %54, %58, %62, %66, %70, %74, %78, %82, %86, %102, %108, %112, %116, %120, %124, %128, %140, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread, %265, %30, %6, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit
-  %.054 = phi i1 [ true, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit ], [ true, %6 ], [ true, %30 ], [ false, %265 ], [ false, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread ], [ true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit74 ], [ %.053.in92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ true, %98 ], [ true, %50 ], [ true, %54 ], [ true, %58 ], [ true, %62 ], [ true, %66 ], [ true, %70 ], [ true, %74 ], [ true, %78 ], [ true, %82 ], [ true, %86 ], [ true, %102 ], [ true, %108 ], [ true, %112 ], [ true, %116 ], [ true, %120 ], [ true, %124 ], [ true, %128 ], [ true, %140 ], [ true, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit ], [ true, %96 ], [ true, %138 ]
+.thread:                                          ; preds = %138, %96, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %98, %140, %128, %124, %120, %116, %112, %108, %102, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread, %265, %30, %6, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit
+  %.054 = phi i1 [ true, %_ZNKSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEclES3_SB_SD_SD_SE_.exit ], [ true, %6 ], [ true, %30 ], [ false, %265 ], [ false, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit.thread.thread ], [ true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit74 ], [ %.053.in92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ true, %98 ], [ true, %140 ], [ true, %128 ], [ true, %124 ], [ true, %120 ], [ true, %116 ], [ true, %112 ], [ true, %108 ], [ true, %102 ], [ true, %86 ], [ true, %82 ], [ true, %78 ], [ true, %74 ], [ true, %70 ], [ true, %66 ], [ true, %62 ], [ true, %58 ], [ true, %54 ], [ true, %50 ], [ true, %_ZN7rocksdbL15AreOptionsEqualENS_10OptionTypeEPKvS2_.exit ], [ true, %96 ], [ true, %138 ]
   ret i1 %.054
 }
 
@@ -23682,7 +23682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   br label %38
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %37
-  %.114 = phi i1 [ %.013, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %37 ]
+  %.114 = phi i1 [ false, %37 ], [ %.013, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i1 %.114
 }
 

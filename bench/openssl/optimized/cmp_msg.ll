@@ -803,7 +803,7 @@ add1_extension.exit:                              ; preds = %133
   br i1 %156, label %add1_extension.exit.thread, label %157
 
 add1_extension.exit.thread:                       ; preds = %154, %149, %133, %97, %145, %141, %add1_extension.exit, %124, %117, %100, %76, %79
-  %.089 = phi ptr [ null, %97 ], [ null, %100 ], [ %.1, %124 ], [ %.1, %145 ], [ %.1, %141 ], [ %.1, %add1_extension.exit ], [ %116, %117 ], [ null, %79 ], [ null, %76 ], [ %.1, %133 ], [ %.1, %149 ], [ %.1, %154 ]
+  %.089 = phi ptr [ null, %100 ], [ %.1, %124 ], [ %.1, %145 ], [ %.1, %141 ], [ %.1, %add1_extension.exit ], [ %116, %117 ], [ null, %97 ], [ null, %79 ], [ null, %76 ], [ %.1, %133 ], [ %.1, %149 ], [ %.1, %154 ]
   call void @OSSL_CRMF_MSG_free(ptr noundef nonnull %74) #7
   br label %157
 
@@ -2391,7 +2391,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   br label %64
 
 57:                                               ; preds = %41, %49
-  %.035 = phi ptr [ %55, %49 ], [ %44, %41 ]
+  %.035 = phi ptr [ %44, %41 ], [ %55, %49 ]
   %58 = icmp eq ptr %.035, null
   br i1 %58, label %.thread, label %59
 

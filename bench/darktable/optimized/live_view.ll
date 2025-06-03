@@ -917,7 +917,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %52, %49
-  %.0166 = phi i32 [ %53, %52 ], [ %51, %49 ]
+  %.0166 = phi i32 [ %51, %49 ], [ %53, %52 ]
   %55 = icmp sgt i32 %.0166, 0
   br i1 %55, label %56, label %.thread
 
@@ -1058,10 +1058,10 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %276
 
 148:                                              ; preds = %139, %131, %123, %115
-  %.0178 = phi nsz double [ %141, %139 ], [ %138, %131 ], [ %130, %123 ], [ %122, %115 ]
-  %.0177 = phi nsz double [ %146, %139 ], [ %133, %131 ], [ %125, %123 ], [ %120, %115 ]
-  %.0176 = phi nsz double [ %144, %139 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %115 ]
-  %.0175 = phi nsz double [ 0.000000e+00, %139 ], [ %136, %131 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %115 ]
+  %.0178 = phi nsz double [ %122, %115 ], [ %130, %123 ], [ %138, %131 ], [ %141, %139 ]
+  %.0177 = phi nsz double [ %120, %115 ], [ %125, %123 ], [ %133, %131 ], [ %146, %139 ]
+  %.0176 = phi nsz double [ 0.000000e+00, %115 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %131 ], [ %144, %139 ]
+  %.0175 = phi nsz double [ 0.000000e+00, %115 ], [ 0.000000e+00, %123 ], [ %136, %131 ], [ 0.000000e+00, %139 ]
   call void @cairo_rectangle(ptr noundef %1, double noundef %.0175, double noundef %.0176, double noundef %.0177, double noundef %.0178) #12
   call void @cairo_clip(ptr noundef %1) #12
   br label %149
@@ -1383,7 +1383,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.031 = phi i32 [ %17, %16 ], [ %15, %13 ]
+  %.031 = phi i32 [ %15, %13 ], [ %17, %16 ]
   %19 = icmp sgt i32 %.031, 0
   br i1 %19, label %20, label %.critedge
 

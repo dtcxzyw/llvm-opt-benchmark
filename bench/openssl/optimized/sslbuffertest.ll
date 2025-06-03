@@ -761,7 +761,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br label %.thread
 
 84:                                               ; preds = %78, %80, %79
-  %.029 = phi i64 [ %82, %80 ], [ 5, %79 ], [ 4, %78 ]
+  %.029 = phi i64 [ 5, %79 ], [ %82, %80 ], [ 4, %78 ]
   br i1 %8, label %85, label %91
 
 85:                                               ; preds = %84

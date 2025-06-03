@@ -373,9 +373,9 @@ find_tongue.exit.us.us.i.i:                       ; preds = %126, %.critedge2.sp
   br label %151
 
 151:                                              ; preds = %144, %137, %135
-  %.0107.us.us.i.i = phi nsz float [ %134, %135 ], [ %141, %137 ], [ %148, %144 ]
-  %.0106.us.us.i.i = phi nsz float [ %225, %135 ], [ %142, %137 ], [ %149, %144 ]
-  %.pn.us.us.i.i = phi float [ %136, %135 ], [ %143, %137 ], [ %150, %144 ]
+  %.0107.us.us.i.i = phi nsz float [ %148, %144 ], [ %141, %137 ], [ %134, %135 ]
+  %.0106.us.us.i.i = phi nsz float [ %149, %144 ], [ %142, %137 ], [ %225, %135 ]
+  %.pn.us.us.i.i = phi float [ %150, %144 ], [ %143, %137 ], [ %136, %135 ]
   %.061.us.us.i.i = fsub nsz float 1.000000e+00, %.pn.us.us.i.i
   %152 = fmul nsz float %231, %.0106.us.us.i.i
   %153 = tail call nsz float @llvm.fmuladd.f32(float %230, float %.0107.us.us.i.i, float %152)

@@ -280,7 +280,7 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br label %128
 
 128:                                              ; preds = %123, %119, %117, %106, %125
-  %.033 = phi i32 [ %116, %106 ], [ %118, %117 ], [ %122, %119 ], [ %124, %123 ], [ %spec.store.select, %125 ]
+  %.033 = phi i32 [ %116, %106 ], [ %118, %117 ], [ %122, %119 ], [ %spec.store.select, %125 ], [ %124, %123 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %24) #8
   br label %.critedge
 

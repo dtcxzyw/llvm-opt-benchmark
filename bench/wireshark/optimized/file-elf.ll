@@ -2260,7 +2260,7 @@ dissect_dwarf_encoding.exit.i:                    ; preds = %value_guard.exit106
   br label %get_dwarf_extension_length.exit.i
 
 get_dwarf_extension_length.exit.i:                ; preds = %735, %734, %733, %732, %731, %730, %dissect_dwarf_encoding.exit.i
-  %.0.i.i1063 = phi i8 [ 0, %735 ], [ -1, %734 ], [ 8, %733 ], [ 4, %732 ], [ 2, %731 ], [ %329, %730 ], [ -2, %dissect_dwarf_encoding.exit.i ]
+  %.0.i.i1063 = phi i8 [ 0, %735 ], [ %329, %730 ], [ 2, %731 ], [ 4, %732 ], [ 8, %733 ], [ -1, %734 ], [ -2, %dissect_dwarf_encoding.exit.i ]
   %736 = add nuw i32 %550, 2
   %737 = load i32, ptr @hf_elf_eh_frame_hdr_fde_count_encoding, align 4
   %738 = call ptr @proto_tree_add_item(ptr noundef %555, i32 noundef %737, ptr noundef %0, i32 noundef %736, i32 noundef 1, i32 noundef range(i32 -2147483648, 1) %.)
@@ -2312,7 +2312,7 @@ dissect_dwarf_encoding.exit117.i:                 ; preds = %get_dwarf_extension
   br label %get_dwarf_extension_length.exit119.i
 
 get_dwarf_extension_length.exit119.i:             ; preds = %755, %754, %753, %752, %751, %750, %dissect_dwarf_encoding.exit117.i
-  %.0.i118.i = phi i8 [ 0, %755 ], [ -1, %754 ], [ 8, %753 ], [ 4, %752 ], [ 2, %751 ], [ %329, %750 ], [ -2, %dissect_dwarf_encoding.exit117.i ]
+  %.0.i118.i = phi i8 [ 0, %755 ], [ %329, %750 ], [ 2, %751 ], [ 4, %752 ], [ 8, %753 ], [ -1, %754 ], [ -2, %dissect_dwarf_encoding.exit117.i ]
   %756 = sext i8 %.0.i118.i to i32
   %757 = add nuw i32 %550, 3
   %758 = load i32, ptr @hf_elf_eh_frame_hdr_binary_search_table_encoding, align 4
@@ -2365,7 +2365,7 @@ dissect_dwarf_encoding.exit121.i:                 ; preds = %get_dwarf_extension
   br label %get_dwarf_extension_length.exit123.i
 
 get_dwarf_extension_length.exit123.i:             ; preds = %776, %775, %774, %773, %772, %771, %dissect_dwarf_encoding.exit121.i
-  %.0.i122.i = phi i8 [ 0, %776 ], [ -1, %775 ], [ 8, %774 ], [ 4, %773 ], [ 2, %772 ], [ %329, %771 ], [ -2, %dissect_dwarf_encoding.exit121.i ]
+  %.0.i122.i = phi i8 [ 0, %776 ], [ %329, %771 ], [ 2, %772 ], [ 4, %773 ], [ 8, %774 ], [ -1, %775 ], [ -2, %dissect_dwarf_encoding.exit121.i ]
   %777 = sext i8 %.0.i122.i to i32
   %778 = add nuw i32 %550, 4
   %779 = icmp eq i8 %.0.i.i1063, -2
@@ -2507,7 +2507,7 @@ dissect_leb128.exit130.i:                         ; preds = %.preheader11.i
   br label %837
 
 837:                                              ; preds = %836, %834, %826, %819, %dissect_leb128.exit130.i, %795
-  %.0111.i = phi i32 [ %796, %795 ], [ %811, %dissect_leb128.exit130.i ], [ %.1.i, %836 ], [ 8, %834 ], [ 4, %826 ], [ 2, %819 ]
+  %.0111.i = phi i32 [ %796, %795 ], [ %811, %dissect_leb128.exit130.i ], [ %.1.i, %836 ], [ 2, %819 ], [ 4, %826 ], [ 8, %834 ]
   %838 = load i32, ptr @hf_elf_eh_frame_hdr_fde_count, align 4
   %839 = call ptr @proto_tree_add_item(ptr noundef %555, i32 noundef %838, ptr noundef %0, i32 noundef %794, i32 noundef %.0111.i, i32 noundef range(i32 -2147483648, 1) %.)
   %840 = add i32 %.0111.i, %794

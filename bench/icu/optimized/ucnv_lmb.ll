@@ -573,7 +573,7 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
   br label %119
 
 119:                                              ; preds = %115, %114
-  %.1.i = phi ptr [ %.034.i, %114 ], [ %118, %115 ]
+  %.1.i = phi ptr [ %118, %115 ], [ %.034.i, %114 ]
   %120 = lshr i32 %96, 16
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
@@ -582,8 +582,8 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
   br label %123
 
 123:                                              ; preds = %119, %114
-  %124 = phi i32 [ %96, %114 ], [ %.pre.i, %119 ]
-  %.2.i = phi ptr [ %.034.i, %114 ], [ %122, %119 ]
+  %124 = phi i32 [ %.pre.i, %119 ], [ %96, %114 ]
+  %.2.i = phi ptr [ %122, %119 ], [ %.034.i, %114 ]
   %125 = lshr i32 %124, 8
   %126 = trunc i32 %125 to i8
   %127 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
@@ -592,8 +592,8 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
   br label %128
 
 128:                                              ; preds = %123, %114
-  %129 = phi i32 [ %96, %114 ], [ %.pre1.i, %123 ]
-  %.3.i = phi ptr [ %.034.i, %114 ], [ %127, %123 ]
+  %129 = phi i32 [ %.pre1.i, %123 ], [ %96, %114 ]
+  %.3.i = phi ptr [ %127, %123 ], [ %.034.i, %114 ]
   %130 = trunc i32 %129 to i8
   %131 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   store i8 %130, ptr %.3.i, align 1, !tbaa !42
@@ -614,10 +614,10 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %137
 
 137:                                              ; preds = %82, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit, %_ZL17FindLMBCSUniRangeDs.exit.thread
-  %.06.i373 = phi i8 [ %59, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ 15, %82 ], [ 20, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
-  %.2358 = phi i8 [ %.10366, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.0356451, %82 ], [ %.0356451, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
-  %.2188 = phi i32 [ %.0.i237, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %85, %82 ], [ %69, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
-  %.1 = phi ptr [ %.0184371, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.2, %82 ], [ %66, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
+  %.06.i373 = phi i8 [ %59, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ 20, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ 15, %82 ]
+  %.2358 = phi i8 [ %.10366, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.0356451, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %.0356451, %82 ]
+  %.2188 = phi i32 [ %.0.i237, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %69, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %85, %82 ]
+  %.1 = phi ptr [ %.0184371, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %66, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %.2, %82 ]
   %.not210 = icmp eq i32 %.2188, 0
   br i1 %.not210, label %.thread376, label %.thread432
 
@@ -701,7 +701,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %171
 
 171:                                              ; preds = %167, %166
-  %.1.i248 = phi ptr [ %.034.i242, %166 ], [ %170, %167 ]
+  %.1.i248 = phi ptr [ %170, %167 ], [ %.034.i242, %166 ]
   %172 = lshr i32 %154, 16
   %173 = trunc i32 %172 to i8
   %174 = getelementptr inbounds nuw i8, ptr %.1.i248, i64 1
@@ -710,8 +710,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %175
 
 175:                                              ; preds = %171, %166
-  %176 = phi i32 [ %154, %166 ], [ %.pre.i249, %171 ]
-  %.2.i246 = phi ptr [ %.034.i242, %166 ], [ %174, %171 ]
+  %176 = phi i32 [ %.pre.i249, %171 ], [ %154, %166 ]
+  %.2.i246 = phi ptr [ %174, %171 ], [ %.034.i242, %166 ]
   %177 = lshr i32 %176, 8
   %178 = trunc i32 %177 to i8
   %179 = getelementptr inbounds nuw i8, ptr %.2.i246, i64 1
@@ -720,8 +720,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %180
 
 180:                                              ; preds = %175, %166
-  %181 = phi i32 [ %154, %166 ], [ %.pre1.i247, %175 ]
-  %.3.i244 = phi ptr [ %.034.i242, %166 ], [ %179, %175 ]
+  %181 = phi i32 [ %.pre1.i247, %175 ], [ %154, %166 ]
+  %.3.i244 = phi ptr [ %179, %175 ], [ %.034.i242, %166 ]
   %182 = trunc i32 %181 to i8
   %183 = getelementptr inbounds nuw i8, ptr %.3.i244, i64 1
   store i8 %182, ptr %.3.i244, align 1, !tbaa !42
@@ -781,7 +781,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %206
 
 206:                                              ; preds = %202, %201
-  %.1.i258 = phi ptr [ %.1384, %201 ], [ %205, %202 ]
+  %.1.i258 = phi ptr [ %205, %202 ], [ %.1384, %201 ]
   %207 = lshr i32 %193, 16
   %208 = trunc i32 %207 to i8
   %209 = getelementptr inbounds nuw i8, ptr %.1.i258, i64 1
@@ -790,8 +790,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %210
 
 210:                                              ; preds = %206, %201
-  %211 = phi i32 [ %193, %201 ], [ %.pre.i259, %206 ]
-  %.2.i256 = phi ptr [ %.1384, %201 ], [ %209, %206 ]
+  %211 = phi i32 [ %.pre.i259, %206 ], [ %193, %201 ]
+  %.2.i256 = phi ptr [ %209, %206 ], [ %.1384, %201 ]
   %212 = lshr i32 %211, 8
   %213 = trunc i32 %212 to i8
   %214 = getelementptr inbounds nuw i8, ptr %.2.i256, i64 1
@@ -800,8 +800,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %215
 
 215:                                              ; preds = %210, %201
-  %216 = phi i32 [ %193, %201 ], [ %.pre1.i257, %210 ]
-  %.3.i254 = phi ptr [ %.1384, %201 ], [ %214, %210 ]
+  %216 = phi i32 [ %.pre1.i257, %210 ], [ %193, %201 ]
+  %.3.i254 = phi ptr [ %214, %210 ], [ %.1384, %201 ]
   %217 = trunc i32 %216 to i8
   %218 = getelementptr inbounds nuw i8, ptr %.3.i254, i64 1
   store i8 %217, ptr %.3.i254, align 1, !tbaa !42
@@ -888,7 +888,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %255
 
 255:                                              ; preds = %251, %250
-  %.1.i271 = phi ptr [ %.034.i265, %250 ], [ %254, %251 ]
+  %.1.i271 = phi ptr [ %254, %251 ], [ %.034.i265, %250 ]
   %256 = lshr i32 %232, 16
   %257 = trunc i32 %256 to i8
   %258 = getelementptr inbounds nuw i8, ptr %.1.i271, i64 1
@@ -897,8 +897,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %259
 
 259:                                              ; preds = %255, %250
-  %260 = phi i32 [ %232, %250 ], [ %.pre.i272, %255 ]
-  %.2.i269 = phi ptr [ %.034.i265, %250 ], [ %258, %255 ]
+  %260 = phi i32 [ %.pre.i272, %255 ], [ %232, %250 ]
+  %.2.i269 = phi ptr [ %258, %255 ], [ %.034.i265, %250 ]
   %261 = lshr i32 %260, 8
   %262 = trunc i32 %261 to i8
   %263 = getelementptr inbounds nuw i8, ptr %.2.i269, i64 1
@@ -907,8 +907,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   br label %264
 
 264:                                              ; preds = %259, %250
-  %265 = phi i32 [ %232, %250 ], [ %.pre1.i270, %259 ]
-  %.3.i267 = phi ptr [ %.034.i265, %250 ], [ %263, %259 ]
+  %265 = phi i32 [ %.pre1.i270, %259 ], [ %232, %250 ]
+  %.3.i267 = phi ptr [ %263, %259 ], [ %.034.i265, %250 ]
   %266 = trunc i32 %265 to i8
   %267 = getelementptr inbounds nuw i8, ptr %.3.i267, i64 1
   store i8 %266, ptr %.3.i267, align 1, !tbaa !42
@@ -988,7 +988,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   br label %301
 
 301:                                              ; preds = %297, %.thread460
-  %.1.i284 = phi ptr [ %.034.i278463, %.thread460 ], [ %300, %297 ]
+  %.1.i284 = phi ptr [ %300, %297 ], [ %.034.i278463, %.thread460 ]
   %302 = lshr i32 %283, 16
   %303 = trunc i32 %302 to i8
   %304 = getelementptr inbounds nuw i8, ptr %.1.i284, i64 1
@@ -997,8 +997,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   br label %305
 
 305:                                              ; preds = %301, %.thread460
-  %306 = phi i32 [ %283, %.thread460 ], [ %.pre.i285, %301 ]
-  %.2.i282 = phi ptr [ %.034.i278463, %.thread460 ], [ %304, %301 ]
+  %306 = phi i32 [ %.pre.i285, %301 ], [ %283, %.thread460 ]
+  %.2.i282 = phi ptr [ %304, %301 ], [ %.034.i278463, %.thread460 ]
   %307 = lshr i32 %306, 8
   %308 = trunc i32 %307 to i8
   %309 = getelementptr inbounds nuw i8, ptr %.2.i282, i64 1
@@ -1007,8 +1007,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   br label %310
 
 310:                                              ; preds = %305, %.thread460
-  %311 = phi i32 [ %283, %.thread460 ], [ %.pre1.i283, %305 ]
-  %.3.i280 = phi ptr [ %.034.i278463, %.thread460 ], [ %309, %305 ]
+  %311 = phi i32 [ %.pre1.i283, %305 ], [ %283, %.thread460 ]
+  %.3.i280 = phi ptr [ %309, %305 ], [ %.034.i278463, %.thread460 ]
   %312 = trunc i32 %311 to i8
   %313 = getelementptr inbounds nuw i8, ptr %.3.i280, i64 1
   store i8 %312, ptr %.3.i280, align 1, !tbaa !42
@@ -1117,7 +1117,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   br label %357
 
 357:                                              ; preds = %353, %352
-  %.1.i297 = phi ptr [ %.034.i291, %352 ], [ %356, %353 ]
+  %.1.i297 = phi ptr [ %356, %353 ], [ %.034.i291, %352 ]
   %358 = lshr i32 %337, 16
   %359 = trunc i32 %358 to i8
   %360 = getelementptr inbounds nuw i8, ptr %.1.i297, i64 1
@@ -1126,8 +1126,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   br label %361
 
 361:                                              ; preds = %357, %352
-  %362 = phi i32 [ %337, %352 ], [ %.pre.i298, %357 ]
-  %.2.i295 = phi ptr [ %.034.i291, %352 ], [ %360, %357 ]
+  %362 = phi i32 [ %.pre.i298, %357 ], [ %337, %352 ]
+  %.2.i295 = phi ptr [ %360, %357 ], [ %.034.i291, %352 ]
   %363 = lshr i32 %362, 8
   %364 = trunc i32 %363 to i8
   %365 = getelementptr inbounds nuw i8, ptr %.2.i295, i64 1
@@ -1136,8 +1136,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   br label %366
 
 366:                                              ; preds = %361, %352
-  %367 = phi i32 [ %337, %352 ], [ %.pre1.i296, %361 ]
-  %.3.i293 = phi ptr [ %.034.i291, %352 ], [ %365, %361 ]
+  %367 = phi i32 [ %.pre1.i296, %361 ], [ %337, %352 ]
+  %.3.i293 = phi ptr [ %365, %361 ], [ %.034.i291, %352 ]
   %368 = trunc i32 %367 to i8
   %369 = getelementptr inbounds nuw i8, ptr %.3.i293, i64 1
   store i8 %368, ptr %.3.i293, align 1, !tbaa !42
@@ -1240,7 +1240,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
   br label %415
 
 415:                                              ; preds = %411, %410
-  %.1.i310 = phi ptr [ %.034.i304, %410 ], [ %414, %411 ]
+  %.1.i310 = phi ptr [ %414, %411 ], [ %.034.i304, %410 ]
   %416 = lshr i32 %395, 16
   %417 = trunc i32 %416 to i8
   %418 = getelementptr inbounds nuw i8, ptr %.1.i310, i64 1
@@ -1249,8 +1249,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
   br label %419
 
 419:                                              ; preds = %415, %410
-  %420 = phi i32 [ %395, %410 ], [ %.pre.i311, %415 ]
-  %.2.i308 = phi ptr [ %.034.i304, %410 ], [ %418, %415 ]
+  %420 = phi i32 [ %.pre.i311, %415 ], [ %395, %410 ]
+  %.2.i308 = phi ptr [ %418, %415 ], [ %.034.i304, %410 ]
   %421 = lshr i32 %420, 8
   %422 = trunc i32 %421 to i8
   %423 = getelementptr inbounds nuw i8, ptr %.2.i308, i64 1
@@ -1259,8 +1259,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
   br label %424
 
 424:                                              ; preds = %419, %410
-  %425 = phi i32 [ %395, %410 ], [ %.pre1.i309, %419 ]
-  %.3.i306 = phi ptr [ %.034.i304, %410 ], [ %423, %419 ]
+  %425 = phi i32 [ %.pre1.i309, %419 ], [ %395, %410 ]
+  %.3.i306 = phi ptr [ %423, %419 ], [ %.034.i304, %410 ]
   %426 = trunc i32 %425 to i8
   %427 = getelementptr inbounds nuw i8, ptr %.3.i306, i64 1
   store i8 %426, ptr %.3.i306, align 1, !tbaa !42
@@ -1365,7 +1365,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
   br label %472
 
 472:                                              ; preds = %468, %467
-  %.1.i323 = phi ptr [ %.034.i317, %467 ], [ %471, %468 ]
+  %.1.i323 = phi ptr [ %471, %468 ], [ %.034.i317, %467 ]
   %473 = lshr i32 %454, 16
   %474 = trunc i32 %473 to i8
   %475 = getelementptr inbounds nuw i8, ptr %.1.i323, i64 1
@@ -1374,8 +1374,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
   br label %476
 
 476:                                              ; preds = %472, %467
-  %477 = phi i32 [ %454, %467 ], [ %.pre.i324, %472 ]
-  %.2.i321 = phi ptr [ %.034.i317, %467 ], [ %475, %472 ]
+  %477 = phi i32 [ %.pre.i324, %472 ], [ %454, %467 ]
+  %.2.i321 = phi ptr [ %475, %472 ], [ %.034.i317, %467 ]
   %478 = lshr i32 %477, 8
   %479 = trunc i32 %478 to i8
   %480 = getelementptr inbounds nuw i8, ptr %.2.i321, i64 1
@@ -1384,8 +1384,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
   br label %481
 
 481:                                              ; preds = %476, %467
-  %482 = phi i32 [ %454, %467 ], [ %.pre1.i322, %476 ]
-  %.3.i319 = phi ptr [ %.034.i317, %467 ], [ %480, %476 ]
+  %482 = phi i32 [ %.pre1.i322, %476 ], [ %454, %467 ]
+  %.3.i319 = phi ptr [ %480, %476 ], [ %.034.i317, %467 ]
   %483 = trunc i32 %482 to i8
   %484 = getelementptr inbounds nuw i8, ptr %.3.i319, i64 1
   store i8 %483, ptr %.3.i319, align 1, !tbaa !42
@@ -1455,7 +1455,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %
   br label %512
 
 512:                                              ; preds = %509, %508
-  %.1.i333 = phi ptr [ %.1384, %508 ], [ %439, %509 ]
+  %.1.i333 = phi ptr [ %439, %509 ], [ %.1384, %508 ]
   %513 = lshr i32 %500, 16
   %514 = trunc i32 %513 to i8
   %515 = getelementptr inbounds nuw i8, ptr %.1.i333, i64 1
@@ -1464,8 +1464,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %
   br label %516
 
 516:                                              ; preds = %512, %508
-  %517 = phi i32 [ %500, %508 ], [ %.pre.i334, %512 ]
-  %.2.i331 = phi ptr [ %.1384, %508 ], [ %515, %512 ]
+  %517 = phi i32 [ %.pre.i334, %512 ], [ %500, %508 ]
+  %.2.i331 = phi ptr [ %515, %512 ], [ %.1384, %508 ]
   %518 = lshr i32 %517, 8
   %519 = trunc i32 %518 to i8
   %520 = getelementptr inbounds nuw i8, ptr %.2.i331, i64 1
@@ -1474,8 +1474,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit325: ; preds = %
   br label %521
 
 521:                                              ; preds = %516, %508
-  %522 = phi i32 [ %500, %508 ], [ %.pre1.i332, %516 ]
-  %.3.i329 = phi ptr [ %.1384, %508 ], [ %520, %516 ]
+  %522 = phi i32 [ %.pre1.i332, %516 ], [ %500, %508 ]
+  %.3.i329 = phi ptr [ %520, %516 ], [ %.1384, %508 ]
   %523 = trunc i32 %522 to i8
   %524 = getelementptr inbounds nuw i8, ptr %.3.i329, i64 1
   store i8 %523, ptr %.3.i329, align 1, !tbaa !42

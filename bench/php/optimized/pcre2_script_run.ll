@@ -335,7 +335,7 @@ switch.lookup246:                                 ; preds = %switch.hole_check24
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %switch.lookup246, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
-  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 5, %160 ], [ 4, %156 ], [ 3, %152 ], [ 2, %143 ], [ 1, %142 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load251, %switch.lookup246 ], [ 1, %.preheader ]
+  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 1, %142 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load251, %switch.lookup246 ], [ 1, %.preheader ]
   %179 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %180 = load i8, ptr %179, align 1, !tbaa !14
   %181 = icmp eq i8 %180, 13

@@ -2855,7 +2855,7 @@ define hidden void @_ZN3csv13string_record12StringRecord4read17h80213b897a7709ec
   br label %31
 
 28:                                               ; preds = %18, %17
-  %.sroa.57.0 = phi ptr [ %.sroa.57.0.copyload9, %18 ], [ %.sroa.57.0.copyload, %17 ]
+  %.sroa.57.0 = phi ptr [ %.sroa.57.0.copyload, %17 ], [ %.sroa.57.0.copyload9, %18 ]
   %29 = icmp ne ptr %.sroa.57.0, null
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2964,7 +2964,7 @@ define hidden void @"_ZN3csv6reader15Reader$LT$R$GT$11read_record17h9e99f03df3b2
   br label %_ZN3csv13string_record12StringRecord4read17h80213b897a7709ecE.llvm.1074626156026677913.exit
 
 29:                                               ; preds = %19, %18
-  %.sroa.57.0.i = phi ptr [ %.sroa.57.0.copyload9.i, %19 ], [ %.sroa.57.0.copyload.i, %18 ]
+  %.sroa.57.0.i = phi ptr [ %.sroa.57.0.copyload.i, %18 ], [ %.sroa.57.0.copyload9.i, %19 ]
   %30 = icmp ne ptr %.sroa.57.0.i, null
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4497,8 +4497,8 @@ common.resume:                                    ; preds = %188, %160
   br i1 %trunc15, label %172, label %179
 
 169:                                              ; preds = %179, %163, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h36dec51f0e845eb6E.exit"
-  %.sroa.4.0 = phi ptr [ %.sroa.1235.0, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h36dec51f0e845eb6E.exit" ], [ %187, %179 ], [ %164, %163 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h36dec51f0e845eb6E.exit" ], [ 1, %179 ], [ 0, %163 ]
+  %.sroa.4.0 = phi ptr [ %164, %163 ], [ %187, %179 ], [ %.sroa.1235.0, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h36dec51f0e845eb6E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %163 ], [ 1, %179 ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17h36dec51f0e845eb6E.exit" ]
   %170 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %171 = insertvalue { i64, ptr } %170, ptr %.sroa.4.0, 1
   ret { i64, ptr } %171

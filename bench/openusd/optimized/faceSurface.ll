@@ -700,114 +700,114 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInt
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.critedge [
     i8 4, label %.critedge31
-    i8 1, label %62
-    i8 2, label %9
-    i8 3, label %30
+    i8 1, label %9
+    i8 2, label %13
+    i8 3, label %34
   ]
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2
-  %12 = sext i16 %11 to i32
-  %13 = icmp eq i16 %11, 1
-  br i1 %13, label %.critedge31, label %14
+  %12 = icmp eq i16 %11, 1
+  br i1 %12, label %.critedge31, label %.critedge
 
-14:                                               ; preds = %9
-  %15 = tail call noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus25hasMoreThanTwoFVarSubsetsERKNS1_10FaceVertexEPKi(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %2)
-  br i1 %15, label %.critedge31, label %16
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %15 = load i16, ptr %14, align 2
+  %16 = sext i16 %15 to i32
+  %17 = icmp eq i16 %15, 1
+  br i1 %17, label %.critedge31, label %18
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = sub nsw i32 %19, %12
-  %21 = icmp sgt i32 %20, 1
-  br i1 %21, label %22, label %.critedge
+18:                                               ; preds = %13
+  %19 = tail call noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus25hasMoreThanTwoFVarSubsetsERKNS1_10FaceVertexEPKi(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %2)
+  br i1 %19, label %.critedge31, label %20
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %24 = load i16, ptr %23, align 8, !noalias !15
-  %25 = and i16 %24, 36
-  %.not.i = icmp eq i16 %25, 0
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %22 = load i16, ptr %21, align 2
+  %23 = sext i16 %22 to i32
+  %24 = sub nsw i32 %23, %16
+  %25 = icmp sgt i32 %24, 1
+  br i1 %25, label %26, label %.critedge
+
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %28 = load i16, ptr %27, align 8, !noalias !15
+  %29 = and i16 %28, 36
+  %.not.i = icmp eq i16 %29, 0
   br i1 %.not.i, label %.critedge, label %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit
 
-_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit: ; preds = %22
-  %26 = load i16, ptr %1, align 4, !noalias !18
-  %27 = and i16 %26, 36
-  %.not18.i = icmp eq i16 %27, 0
-  br i1 %.not18.i, label %28, label %.critedge
+_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit: ; preds = %26
+  %30 = load i16, ptr %1, align 4, !noalias !18
+  %31 = and i16 %30, 36
+  %.not18.i = icmp eq i16 %31, 0
+  br i1 %.not18.i, label %32, label %.critedge
 
-28:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit
-  %29 = tail call noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetEf(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull %1, float noundef %29)
+32:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit
+  %33 = tail call noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 4 dereferenceable(12) %1)
+  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetEf(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull %1, float noundef %33)
   br label %.critedge
 
-30:                                               ; preds = %5
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %32 = load i16, ptr %31, align 2
-  %33 = sext i16 %32 to i32
-  %34 = icmp eq i16 %32, 1
-  br i1 %34, label %.critedge31, label %35
+34:                                               ; preds = %5
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %36 = load i16, ptr %35, align 2
+  %37 = sext i16 %36 to i32
+  %38 = icmp eq i16 %36, 1
+  br i1 %38, label %.critedge31, label %39
 
-35:                                               ; preds = %30
-  %36 = tail call noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus25hasMoreThanTwoFVarSubsetsERKNS1_10FaceVertexEPKi(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %2)
-  br i1 %36, label %.critedge31, label %37
+39:                                               ; preds = %34
+  %40 = tail call noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus25hasMoreThanTwoFVarSubsetsERKNS1_10FaceVertexEPKi(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %2)
+  br i1 %40, label %.critedge31, label %41
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %39 = load i16, ptr %38, align 2
-  %40 = icmp eq i16 %39, %32
-  br i1 %40, label %41, label %44
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %43 = load i16, ptr %42, align 2
+  %44 = icmp eq i16 %43, %36
+  br i1 %44, label %63, label %45
 
-41:                                               ; preds = %37
-  %42 = load i16, ptr %3, align 4
-  %43 = and i16 %42, 1
-  %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %.critedge31, label %.critedge
+45:                                               ; preds = %41
+  %46 = sext i16 %43 to i32
+  %47 = sub nsw i32 %46, %37
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %.critedge31, label %49
 
-44:                                               ; preds = %37
-  %45 = sext i16 %39 to i32
-  %46 = sub nsw i32 %45, %33
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %.critedge31, label %48
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %51 = load i16, ptr %50, align 2
+  %52 = sext i16 %51 to i32
+  %53 = sub nsw i32 %52, %37
+  %54 = icmp sgt i32 %53, 1
+  br i1 %54, label %55, label %.critedge
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %50 = load i16, ptr %49, align 2
-  %51 = sext i16 %50 to i32
-  %52 = sub nsw i32 %51, %33
-  %53 = icmp sgt i32 %52, 1
-  br i1 %53, label %54, label %.critedge
-
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %56 = load i16, ptr %55, align 8, !noalias !21
-  %57 = and i16 %56, 36
-  %.not.i32 = icmp eq i16 %57, 0
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %57 = load i16, ptr %56, align 8, !noalias !21
+  %58 = and i16 %57, 36
+  %.not.i32 = icmp eq i16 %58, 0
   br i1 %.not.i32, label %.critedge, label %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35
 
-_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35: ; preds = %54
-  %58 = load i16, ptr %1, align 4, !noalias !24
-  %59 = and i16 %58, 36
-  %.not18.i34 = icmp eq i16 %59, 0
-  br i1 %.not18.i34, label %60, label %.critedge
+_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35: ; preds = %55
+  %59 = load i16, ptr %1, align 4, !noalias !24
+  %60 = and i16 %59, 36
+  %.not18.i34 = icmp eq i16 %60, 0
+  br i1 %.not18.i34, label %61, label %.critedge
 
-60:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35
-  %61 = tail call noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 4 dereferenceable(12) %1)
-  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetEf(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull %1, float noundef %61)
+61:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35
+  %62 = tail call noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 4 dereferenceable(12) %1)
+  tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetEf(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull %1, float noundef %62)
   br label %.critedge
 
-62:                                               ; preds = %5
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %64 = load i16, ptr %63, align 2
-  %65 = icmp eq i16 %64, 1
-  br i1 %65, label %.critedge31, label %.critedge
+63:                                               ; preds = %41
+  %64 = load i16, ptr %3, align 4
+  %65 = and i16 %64, 1
+  %.not = icmp eq i16 %65, 0
+  br i1 %.not, label %.critedge31, label %.critedge
 
-.critedge31:                                      ; preds = %30, %9, %14, %35, %41, %44, %5, %62
+.critedge31:                                      ; preds = %34, %13, %39, %18, %9, %45, %5, %63
   tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %1)
   br label %.critedge
 
-.critedge:                                        ; preds = %54, %48, %22, %16, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %28, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %60, %41, %5, %.critedge31, %62
+.critedge:                                        ; preds = %55, %49, %26, %20, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %61, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %32, %9, %5, %.critedge31, %63
   ret void
 }
 

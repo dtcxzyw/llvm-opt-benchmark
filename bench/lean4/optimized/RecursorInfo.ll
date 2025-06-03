@@ -20417,7 +20417,7 @@ lean_alloc_ctor.exit63:                           ; preds = %lean_alloc_ctor.exi
   br label %100
 
 100:                                              ; preds = %lean_alloc_ctor.exit, %lean_alloc_ctor.exit59, %lean_alloc_ctor.exit61, %lean_alloc_ctor.exit63
-  %.1 = phi ptr [ %99, %lean_alloc_ctor.exit63 ], [ %82, %lean_alloc_ctor.exit61 ], [ %60, %lean_alloc_ctor.exit59 ], [ %38, %lean_alloc_ctor.exit ]
+  %.1 = phi ptr [ %99, %lean_alloc_ctor.exit63 ], [ %82, %lean_alloc_ctor.exit61 ], [ %38, %lean_alloc_ctor.exit ], [ %60, %lean_alloc_ctor.exit59 ]
   ret ptr %.1
 }
 

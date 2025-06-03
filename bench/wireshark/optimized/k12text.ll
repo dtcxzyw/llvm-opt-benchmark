@@ -3090,7 +3090,7 @@ define internal fastcc noundef zeroext i1 @k12text_set_headers(ptr noundef write
   br label %44
 
 44:                                               ; preds = %36, %4, %4, %42, %40, %38
-  %.0 = phi i1 [ false, %42 ], [ false, %40 ], [ false, %38 ], [ true, %4 ], [ true, %4 ], [ true, %36 ]
+  %.0 = phi i1 [ false, %42 ], [ false, %38 ], [ false, %40 ], [ true, %4 ], [ true, %4 ], [ true, %36 ]
   ret i1 %.0
 }
 

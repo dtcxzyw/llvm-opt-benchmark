@@ -54331,7 +54331,7 @@ _ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %89, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit, %107, %12, %218, %216, %210, %205, %200, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit, %10, %8, %6
-  %.030 = phi i1 [ %202, %200 ], [ %207, %205 ], [ %212, %210 ], [ %217, %216 ], [ %219, %218 ], [ %197, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ false, %12 ], [ false, %107 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %89 ], [ false, %.lr.ph ]
+  %.030 = phi i1 [ %202, %200 ], [ %207, %205 ], [ %212, %210 ], [ %217, %216 ], [ %219, %218 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE9EndObjectEj.exit ], [ true, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE8EndArrayEj.exit ], [ %197, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE6StringEPKcjb.exit ], [ false, %12 ], [ false, %107 ], [ false, %_ZN9rapidjson6WriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3KeyEPKcjb.exit ], [ false, %89 ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 
@@ -56714,8 +56714,8 @@ _ZN9rapidjson8internal19CountDecimalDigit32Ej.exit: ; preds = %6, %20, %22, %24,
   br label %60
 
 60:                                               ; preds = %35, %57, %54, %51, %48, %45, %42, %39, %36
-  %.073 = phi i32 [ %58, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %.069, %35 ]
-  %.1 = phi i32 [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ 0, %35 ]
+  %.073 = phi i32 [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %46, %45 ], [ %49, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %.069, %35 ]
+  %.1 = phi i32 [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ 0, %35 ]
   %.not83 = icmp eq i32 %.073, 0
   %.pre123 = load i32, ptr %4, align 4
   br i1 %.not83, label %.thread, label %._crit_edge
@@ -58377,7 +58377,7 @@ _ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocat
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %147, %.lr.ph62, %253, %251, %245, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit, %212, %197, %._crit_edge, %._crit_edge63, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit37, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit
-  %.030 = phi i1 [ %214, %212 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %247, %245 ], [ %252, %251 ], [ %254, %253 ], [ %209, %197 ], [ %196, %._crit_edge ], [ %151, %._crit_edge63 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit37 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ false, %.lr.ph62 ], [ false, %147 ], [ false, %.lr.ph ]
+  %.030 = phi i1 [ %214, %212 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE3IntEi.exit ], [ %247, %245 ], [ %252, %251 ], [ %254, %253 ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4NullEv.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit ], [ true, %_ZN9rapidjson12PrettyWriterINS_19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEEES3_S3_S4_Lj0EE4BoolEb.exit37 ], [ %151, %._crit_edge63 ], [ %196, %._crit_edge ], [ %209, %197 ], [ false, %.lr.ph62 ], [ false, %147 ], [ false, %.lr.ph ]
   ret i1 %.030
 }
 
@@ -62616,7 +62616,7 @@ define linkonce_odr hidden noundef i64 @_Z6NZDiffN5glTF213ComponentTypeEPvS1_mjj
   br label %21
 
 21:                                               ; preds = %8, %19, %17, %15, %13, %11, %9
-  %.0 = phi i64 [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ 0, %8 ]
+  %.0 = phi i64 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ 0, %8 ]
   ret i64 %.0
 }
 

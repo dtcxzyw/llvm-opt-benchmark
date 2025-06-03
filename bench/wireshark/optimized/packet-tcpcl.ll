@@ -1829,7 +1829,7 @@ proto_item_set_generated.exit177.i:               ; preds = %379, %376, %tcpcl_p
   br label %dissect_v3_msg.exit
 
 dissect_v3_msg.exit:                              ; preds = %178, %204, %273, %proto_item_set_generated.exit172.i, %320, %336, %338, %proto_item_set_generated.exit177.i, %385, %388
-  %.1.i = phi i32 [ 0, %388 ], [ 2, %385 ], [ 2, %proto_item_set_generated.exit177.i ], [ %341, %338 ], [ %.3.i, %336 ], [ %.2.i, %320 ], [ %.2.i, %proto_item_set_generated.exit172.i ], [ 1, %178 ], [ 0, %204 ], [ %274, %273 ]
+  %.1.i = phi i32 [ 0, %388 ], [ %.2.i, %320 ], [ %.2.i, %proto_item_set_generated.exit172.i ], [ %341, %338 ], [ %.3.i, %336 ], [ 2, %385 ], [ 2, %proto_item_set_generated.exit177.i ], [ 1, %178 ], [ 0, %204 ], [ %274, %273 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   br label %dissect_v4_msg.exit
@@ -2494,8 +2494,8 @@ get_clamped_length.exit.i184:                     ; preds = %686, %684, %681
   br label %tcpcl_frame_loc_compare.exit.thread.i
 
 tcpcl_frame_loc_compare.exit.thread.i:            ; preds = %756, %747, %744, %734, %733, %730, %710, %570, %tcpcl_frame_loc_compare.exit.i, %561, %proto_item_set_generated.exit.i189, %538, %535, %495, %tcpcl_frame_loc_equal.exit.thread.i, %tcpcl_frame_loc_equal.exit.i, %481, %391
-  %.0455.i = phi i32 [ 0, %756 ], [ 0, %747 ], [ 0, %391 ], [ %.0.i501.i, %710 ], [ 0, %481 ], [ 0, %tcpcl_frame_loc_equal.exit.thread.i ], [ 0, %tcpcl_frame_loc_equal.exit.i ], [ 0, %495 ], [ 0, %tcpcl_frame_loc_compare.exit.i ], [ 0, %570 ], [ 0, %538 ], [ 0, %535 ], [ 0, %733 ], [ 0, %730 ], [ 0, %744 ], [ 0, %734 ], [ 0, %proto_item_set_generated.exit.i189 ], [ 0, %561 ]
-  %.0.i179 = phi i32 [ 1, %756 ], [ 3, %747 ], [ 1, %391 ], [ %690, %710 ], [ %477, %481 ], [ %477, %tcpcl_frame_loc_equal.exit.thread.i ], [ %477, %tcpcl_frame_loc_equal.exit.i ], [ %477, %495 ], [ 3, %tcpcl_frame_loc_compare.exit.i ], [ 3, %570 ], [ 3, %538 ], [ 3, %535 ], [ 18, %733 ], [ 18, %730 ], [ 10, %744 ], [ 10, %734 ], [ 3, %proto_item_set_generated.exit.i189 ], [ 3, %561 ]
+  %.0455.i = phi i32 [ 0, %756 ], [ %.0.i501.i, %710 ], [ 0, %391 ], [ 0, %747 ], [ 0, %481 ], [ 0, %tcpcl_frame_loc_equal.exit.thread.i ], [ 0, %tcpcl_frame_loc_equal.exit.i ], [ 0, %495 ], [ 0, %tcpcl_frame_loc_compare.exit.i ], [ 0, %570 ], [ 0, %538 ], [ 0, %535 ], [ 0, %733 ], [ 0, %730 ], [ 0, %744 ], [ 0, %734 ], [ 0, %proto_item_set_generated.exit.i189 ], [ 0, %561 ]
+  %.0.i179 = phi i32 [ 1, %756 ], [ %690, %710 ], [ 1, %391 ], [ 3, %747 ], [ %477, %481 ], [ %477, %tcpcl_frame_loc_equal.exit.thread.i ], [ %477, %tcpcl_frame_loc_equal.exit.i ], [ %477, %495 ], [ 3, %tcpcl_frame_loc_compare.exit.i ], [ 3, %570 ], [ 3, %538 ], [ 3, %535 ], [ 18, %733 ], [ 18, %730 ], [ 10, %744 ], [ 10, %734 ], [ 3, %proto_item_set_generated.exit.i189 ], [ 3, %561 ]
   %758 = sub i32 %.0.i179, %.0455.i
   call void @proto_item_set_len(ptr noundef %393, i32 noundef %758)
   %759 = call ptr @wmem_strbuf_get_str(ptr noundef %402)
@@ -2765,7 +2765,7 @@ get_clamped_length.exit:                          ; preds = %9
   br label %30
 
 30:                                               ; preds = %20, %2, %2, %28, %18, %get_clamped_length.exit
-  %.027 = phi i32 [ %29, %28 ], [ %5, %2 ], [ %5, %2 ], [ %19, %18 ], [ %14, %get_clamped_length.exit ], [ %spec.select32, %20 ]
+  %.027 = phi i32 [ %14, %get_clamped_length.exit ], [ %19, %18 ], [ %5, %2 ], [ %5, %2 ], [ %29, %28 ], [ %spec.select32, %20 ]
   %31 = sub i32 %.027, %1
   br label %32
 
@@ -2862,7 +2862,7 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
   br label %46
 
 46:                                               ; preds = %37, %15, %2, %44, %42, %40, %18
-  %.255 = phi i32 [ %45, %44 ], [ %4, %2 ], [ %43, %42 ], [ %41, %40 ], [ %39, %37 ], [ %19, %18 ], [ %17, %15 ]
+  %.255 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %39, %37 ], [ %41, %40 ], [ %43, %42 ], [ %4, %2 ], [ %45, %44 ]
   %47 = sub i32 %.255, %1
   br label %.thread
 

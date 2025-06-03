@@ -628,7 +628,7 @@ switch.lookup:                                    ; preds = %5
   br label %23
 
 23:                                               ; preds = %switch.lookup, %5, %8, %2, %2, %2, %2, %2, %36, %42, %30, %24
-  %.sroa.0.0.shrunk = phi i1 [ %46, %42 ], [ %41, %36 ], [ %35, %30 ], [ %29, %24 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %8 ], [ false, %5 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.0.0.shrunk = phi i1 [ %29, %24 ], [ %35, %30 ], [ %46, %42 ], [ %41, %36 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %8 ], [ false, %5 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.sroa.0.0.shrunk
 
 24:                                               ; preds = %12
@@ -927,8 +927,8 @@ define { i64, ptr } @_ZN20ruff_python_semantic7binding7Binding13as_any_import17h
   br label %10
 
 10:                                               ; preds = %1, %8, %6, %4
-  %.sroa.5.0 = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 2, %6 ], [ 0, %4 ], [ 3, %1 ]
+  %.sroa.5.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 2, %6 ], [ 1, %8 ], [ 3, %1 ]
   %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %12 = insertvalue { i64, ptr } %11, ptr %.sroa.5.0, 1
   ret { i64, ptr } %12
@@ -1690,9 +1690,9 @@ default.unreachable8:                             ; preds = %1
   unreachable
 
 "_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11module_name17hc77c996c0de56a9fE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i2", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i"
-  %.sroa.0.08.i.pn = phi ptr [ %.sroa.0.0.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i" ], [ %.sroa.0.0.i4, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i2" ], [ %.sroa.0.08.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i" ]
+  %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i" ], [ %.sroa.0.0.i4, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i2" ], [ %.sroa.0.08.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i" ]
   %.pn6 = phi i64 [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i" ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit1.i2" ], [ %51, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i" ]
-  %.pn5 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.08.i.pn, 0
+  %.pn5 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %.pn = insertvalue { ptr, i64 } %.pn5, i64 %.pn6, 1
   ret { ptr, i64 } %.pn
 }
@@ -1881,13 +1881,13 @@ define { ptr, i64 } @"_ZN100_$LT$ruff_python_semantic..binding..AnyImport$u20$as
   %2 = load i64, ptr %0, align 8, !range !166, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
-  switch i64 %2, label %default.unreachable9 [
+  switch i64 %2, label %default.unreachable7 [
     i64 0, label %5
     i64 1, label %14
     i64 2, label %23
   ]
 
-default.unreachable9:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -1961,18 +1961,18 @@ default.unreachable9:                             ; preds = %1
   unreachable
 
 "_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split": ; preds = %14, %5
-  %.sink11 = phi ptr [ %6, %5 ], [ %15, %14 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %.sink9 = phi ptr [ %6, %5 ], [ %15, %14 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %.sink11, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sink9, i64 24
   %43 = load i64, ptr %42, align 8, !noalias !4, !noundef !4
   br label %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit"
 
 "_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit": ; preds = %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i.i", %18, %9
-  %.sroa.0.08.i.i.pn = phi ptr [ %6, %9 ], [ %15, %18 ], [ %.sroa.0.08.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i.i" ], [ %41, %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split" ]
-  %.pn7 = phi i64 [ %11, %9 ], [ %20, %18 ], [ %37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i.i" ], [ %43, %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split" ]
-  %.pn6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.08.i.i.pn, 0
-  %.pn = insertvalue { ptr, i64 } %.pn6, i64 %.pn7, 1
+  %.pn3.i.pn = phi ptr [ %6, %9 ], [ %15, %18 ], [ %.sroa.0.08.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i.i" ], [ %41, %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split" ]
+  %.pn1.i.pn = phi i64 [ %11, %9 ], [ %20, %18 ], [ %37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit2.i.i" ], [ %43, %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split" ]
+  %.pn.i.pn = insertvalue { ptr, i64 } poison, ptr %.pn3.i.pn, 0
+  %.pn = insertvalue { ptr, i64 } %.pn.i.pn, i64 %.pn1.i.pn, 1
   ret { ptr, i64 } %.pn
 }
 

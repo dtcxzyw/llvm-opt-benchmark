@@ -1862,7 +1862,7 @@ c_valid_start_p.exit.thread:                      ; preds = %28, %c_valid_start_
   br label %c_valid_start_p.exit.thread30
 
 c_valid_start_p.exit.thread30:                    ; preds = %32, %c_valid_start_p.exit, %c_valid_start_p.exit.thread, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %30, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %30, %32 ]
+  %.1 = phi double [ %30, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %30, %32 ]
   %37 = load i64, ptr %4, align 8, !tbaa !6
   %38 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %39 = call i64 @rb_obj_is_kind_of(i64 noundef %37, i64 noundef %38) #21
@@ -2163,7 +2163,7 @@ c_valid_start_p.exit.thread:                      ; preds = %32, %c_valid_start_
   br label %c_valid_start_p.exit.thread40
 
 c_valid_start_p.exit.thread40:                    ; preds = %36, %c_valid_start_p.exit, %c_valid_start_p.exit.thread, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %34, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %34, %36 ]
+  %.1 = phi double [ %34, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %34, %36 ]
   %41 = load i64, ptr %5, align 8, !tbaa !6
   %42 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %43 = call i64 @rb_obj_is_kind_of(i64 noundef %41, i64 noundef %42) #21
@@ -2253,9 +2253,9 @@ f_zero_p.exit.thread:                             ; preds = %69, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread47:                           ; preds = %69, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.117 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %55, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %69 ]
-  %.114 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %54, %f_zero_p.exit ], [ %54, %f_zero_p.exit.thread ], [ %54, %rb_type.exit.thread8.i ], [ %54, %69 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %69 ]
+  %.117 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %55, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %69 ]
+  %.114 = phi i32 [ %54, %f_zero_p.exit ], [ %0, %rb_scan_args_set.exit ], [ %54, %f_zero_p.exit.thread ], [ %54, %rb_type.exit.thread8.i ], [ %54, %69 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %69 ]
   %78 = load i64, ptr %4, align 8, !tbaa !6
   %79 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %80 = call i64 @rb_obj_is_kind_of(i64 noundef %78, i64 noundef %79) #21
@@ -2553,7 +2553,7 @@ c_valid_start_p.exit.thread:                      ; preds = %36, %c_valid_start_
   br label %c_valid_start_p.exit.thread50
 
 c_valid_start_p.exit.thread50:                    ; preds = %40, %c_valid_start_p.exit, %c_valid_start_p.exit.thread, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %38, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %38, %40 ]
+  %.1 = phi double [ %38, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %38, %40 ]
   %45 = load i64, ptr %6, align 8, !tbaa !6
   %46 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %47 = call i64 @rb_obj_is_kind_of(i64 noundef %45, i64 noundef %46) #21
@@ -2643,9 +2643,9 @@ f_zero_p.exit.thread:                             ; preds = %73, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread57:                           ; preds = %73, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.121 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %59, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %73 ]
-  %.115 = phi i32 [ 1, %rb_scan_args_set.exit ], [ %58, %f_zero_p.exit ], [ %58, %f_zero_p.exit.thread ], [ %58, %rb_type.exit.thread8.i ], [ %58, %73 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %73 ]
+  %.121 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %59, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %73 ]
+  %.115 = phi i32 [ %58, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %58, %f_zero_p.exit.thread ], [ %58, %rb_type.exit.thread8.i ], [ %58, %73 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %73 ]
   %82 = load i64, ptr %5, align 8, !tbaa !6
   %83 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %84 = call i64 @rb_obj_is_kind_of(i64 noundef %82, i64 noundef %83) #21
@@ -2678,10 +2678,10 @@ rb_num2int_inline.exit37:                         ; preds = %90, %92
   br label %95
 
 95:                                               ; preds = %rb_num2int_inline.exit37, %rb_scan_args_set.exit
-  %.222 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.121, %rb_num2int_inline.exit37 ]
-  %.118 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %94, %rb_num2int_inline.exit37 ]
-  %.216 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %.115, %rb_num2int_inline.exit37 ]
-  %.3 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %rb_num2int_inline.exit37 ]
+  %.222 = phi i64 [ %.121, %rb_num2int_inline.exit37 ], [ 1, %rb_scan_args_set.exit ]
+  %.118 = phi i32 [ %94, %rb_num2int_inline.exit37 ], [ %0, %rb_scan_args_set.exit ]
+  %.216 = phi i32 [ %.115, %rb_num2int_inline.exit37 ], [ %0, %rb_scan_args_set.exit ]
+  %.3 = phi double [ %.2, %rb_num2int_inline.exit37 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %96 = load i64, ptr %4, align 8, !tbaa !6
   %97 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %98 = call i64 @rb_obj_is_kind_of(i64 noundef %96, i64 noundef %97) #21
@@ -4676,7 +4676,7 @@ c_valid_start_p.exit.thread:                      ; preds = %44, %c_valid_start_
   br label %c_valid_start_p.exit.thread84
 
 c_valid_start_p.exit.thread84:                    ; preds = %48, %c_valid_start_p.exit, %c_valid_start_p.exit.thread, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %46, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %46, %48 ]
+  %.1 = phi double [ %46, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %46, %48 ]
   %53 = load i64, ptr %6, align 8, !tbaa !6
   %54 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %55 = call i64 @rb_obj_is_kind_of(i64 noundef %53, i64 noundef %54) #21
@@ -4766,9 +4766,9 @@ f_zero_p.exit.thread:                             ; preds = %81, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread91:                           ; preds = %81, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.144 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %67, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %81 ]
-  %.138 = phi i32 [ 1, %rb_scan_args_set.exit ], [ %66, %f_zero_p.exit ], [ %66, %f_zero_p.exit.thread ], [ %66, %rb_type.exit.thread8.i ], [ %66, %81 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %81 ]
+  %.144 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %67, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %81 ]
+  %.138 = phi i32 [ %66, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %66, %f_zero_p.exit.thread ], [ %66, %rb_type.exit.thread8.i ], [ %66, %81 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %81 ]
   %90 = load i64, ptr %5, align 8, !tbaa !6
   %91 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %92 = call i64 @rb_obj_is_kind_of(i64 noundef %90, i64 noundef %91) #21
@@ -4801,10 +4801,10 @@ rb_num2int_inline.exit61:                         ; preds = %98, %100
   br label %103
 
 103:                                              ; preds = %rb_num2int_inline.exit61, %rb_scan_args_set.exit
-  %.245 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.144, %rb_num2int_inline.exit61 ]
-  %.141 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %102, %rb_num2int_inline.exit61 ]
-  %.239 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %.138, %rb_num2int_inline.exit61 ]
-  %.3 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %rb_num2int_inline.exit61 ]
+  %.245 = phi i64 [ %.144, %rb_num2int_inline.exit61 ], [ 1, %rb_scan_args_set.exit ]
+  %.141 = phi i32 [ %102, %rb_num2int_inline.exit61 ], [ %0, %rb_scan_args_set.exit ]
+  %.239 = phi i32 [ %.138, %rb_num2int_inline.exit61 ], [ %0, %rb_scan_args_set.exit ]
+  %.3 = phi double [ %.2, %rb_num2int_inline.exit61 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %104 = load i64, ptr %4, align 8, !tbaa !6
   %105 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %106 = call i64 @rb_obj_is_kind_of(i64 noundef %104, i64 noundef %105) #21
@@ -9318,7 +9318,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %expect_n
   br label %minus_dd.exit
 
 minus_dd.exit:                                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %rbimpl_intern_const.exit, %rb_type.exit.thread22, %rb_long2num_inline.exit
-  %.0 = phi i64 [ %293, %rbimpl_intern_const.exit ], [ %286, %rb_type.exit.thread22 ], [ %282, %rb_long2num_inline.exit ], [ %258, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %.3.i, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %.0 = phi i64 [ %293, %rbimpl_intern_const.exit ], [ %282, %rb_long2num_inline.exit ], [ %286, %rb_type.exit.thread22 ], [ %258, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %.3.i, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   ret i64 %.0
 }
 
@@ -12608,7 +12608,7 @@ c_valid_start_p.exit.thread:                      ; preds = %37, %c_valid_start_
   br label %c_valid_start_p.exit.thread101
 
 c_valid_start_p.exit.thread101:                   ; preds = %41, %rb_scan_args_set.exit, %c_valid_start_p.exit.thread, %c_valid_start_p.exit
-  %.5 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %39, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %39, %41 ]
+  %.5 = phi double [ %39, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %39, %41 ]
   %46 = load i64, ptr %8, align 8, !tbaa !6
   %47 = call fastcc i32 @offset_to_sec(i64 noundef %46, ptr noundef %11)
   %.not35 = icmp eq i32 %47, 0
@@ -12620,7 +12620,7 @@ c_valid_start_p.exit.thread101:                   ; preds = %41, %rb_scan_args_s
   br label %49
 
 49:                                               ; preds = %c_valid_start_p.exit.thread101, %48, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.5, %c_valid_start_p.exit.thread101 ], [ %.5, %48 ]
+  %.1 = phi double [ %.5, %c_valid_start_p.exit.thread101 ], [ %.5, %48 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %50 = load i64, ptr %7, align 8, !tbaa !6
   %51 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %52 = call i64 @rb_obj_is_kind_of(i64 noundef %50, i64 noundef %51) #21
@@ -12710,9 +12710,9 @@ f_zero_p.exit.thread:                             ; preds = %78, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread108:                          ; preds = %78, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.131 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %64, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %78 ]
-  %.121 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %63, %f_zero_p.exit ], [ %63, %f_zero_p.exit.thread ], [ %63, %rb_type.exit.thread8.i ], [ %63, %78 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %78 ]
+  %.131 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %64, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %78 ]
+  %.121 = phi i32 [ %63, %f_zero_p.exit ], [ 0, %rb_scan_args_set.exit ], [ %63, %f_zero_p.exit.thread ], [ %63, %rb_type.exit.thread8.i ], [ %63, %78 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %78 ]
   %87 = load i64, ptr %6, align 8, !tbaa !6
   %88 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %89 = call i64 @rb_obj_is_kind_of(i64 noundef %87, i64 noundef %88) #21
@@ -12800,10 +12800,10 @@ f_zero_p.exit59.thread:                           ; preds = %115, %rb_type.exit.
   unreachable
 
 f_zero_p.exit59.thread116:                        ; preds = %115, %rb_type.exit.thread8.i56, %f_zero_p.exit59.thread, %f_zero_p.exit59, %rb_scan_args_set.exit
-  %.232 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.131, %f_zero_p.exit59 ], [ %101, %f_zero_p.exit59.thread ], [ %.131, %rb_type.exit.thread8.i56 ], [ %.131, %115 ]
-  %.125 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %100, %f_zero_p.exit59 ], [ %100, %f_zero_p.exit59.thread ], [ %100, %rb_type.exit.thread8.i56 ], [ %100, %115 ]
-  %.222 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.121, %f_zero_p.exit59 ], [ %.121, %f_zero_p.exit59.thread ], [ %.121, %rb_type.exit.thread8.i56 ], [ %.121, %115 ]
-  %.3 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit59 ], [ %.2, %f_zero_p.exit59.thread ], [ %.2, %rb_type.exit.thread8.i56 ], [ %.2, %115 ]
+  %.232 = phi i64 [ %.131, %f_zero_p.exit59 ], [ 1, %rb_scan_args_set.exit ], [ %101, %f_zero_p.exit59.thread ], [ %.131, %rb_type.exit.thread8.i56 ], [ %.131, %115 ]
+  %.125 = phi i32 [ %100, %f_zero_p.exit59 ], [ 0, %rb_scan_args_set.exit ], [ %100, %f_zero_p.exit59.thread ], [ %100, %rb_type.exit.thread8.i56 ], [ %100, %115 ]
+  %.222 = phi i32 [ %.121, %f_zero_p.exit59 ], [ 0, %rb_scan_args_set.exit ], [ %.121, %f_zero_p.exit59.thread ], [ %.121, %rb_type.exit.thread8.i56 ], [ %.121, %115 ]
+  %.3 = phi double [ %.2, %f_zero_p.exit59 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit59.thread ], [ %.2, %rb_type.exit.thread8.i56 ], [ %.2, %115 ]
   %122 = load i64, ptr %5, align 8, !tbaa !6
   %123 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %124 = call i64 @rb_obj_is_kind_of(i64 noundef %122, i64 noundef %123) #21
@@ -12891,11 +12891,11 @@ f_zero_p.exit71.thread:                           ; preds = %150, %rb_type.exit.
   unreachable
 
 f_zero_p.exit71.thread124:                        ; preds = %150, %rb_type.exit.thread8.i68, %f_zero_p.exit71.thread, %f_zero_p.exit71, %rb_scan_args_set.exit
-  %.333 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.232, %f_zero_p.exit71 ], [ %136, %f_zero_p.exit71.thread ], [ %.232, %rb_type.exit.thread8.i68 ], [ %.232, %150 ]
-  %.128 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %135, %f_zero_p.exit71 ], [ %135, %f_zero_p.exit71.thread ], [ %135, %rb_type.exit.thread8.i68 ], [ %135, %150 ]
-  %.226 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.125, %f_zero_p.exit71 ], [ %.125, %f_zero_p.exit71.thread ], [ %.125, %rb_type.exit.thread8.i68 ], [ %.125, %150 ]
-  %.323 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.222, %f_zero_p.exit71 ], [ %.222, %f_zero_p.exit71.thread ], [ %.222, %rb_type.exit.thread8.i68 ], [ %.222, %150 ]
-  %.4 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit71 ], [ %.3, %f_zero_p.exit71.thread ], [ %.3, %rb_type.exit.thread8.i68 ], [ %.3, %150 ]
+  %.333 = phi i64 [ %.232, %f_zero_p.exit71 ], [ 1, %rb_scan_args_set.exit ], [ %136, %f_zero_p.exit71.thread ], [ %.232, %rb_type.exit.thread8.i68 ], [ %.232, %150 ]
+  %.128 = phi i32 [ %135, %f_zero_p.exit71 ], [ 0, %rb_scan_args_set.exit ], [ %135, %f_zero_p.exit71.thread ], [ %135, %rb_type.exit.thread8.i68 ], [ %135, %150 ]
+  %.226 = phi i32 [ %.125, %f_zero_p.exit71 ], [ 0, %rb_scan_args_set.exit ], [ %.125, %f_zero_p.exit71.thread ], [ %.125, %rb_type.exit.thread8.i68 ], [ %.125, %150 ]
+  %.323 = phi i32 [ %.222, %f_zero_p.exit71 ], [ 0, %rb_scan_args_set.exit ], [ %.222, %f_zero_p.exit71.thread ], [ %.222, %rb_type.exit.thread8.i68 ], [ %.222, %150 ]
+  %.4 = phi double [ %.3, %f_zero_p.exit71 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit71.thread ], [ %.3, %rb_type.exit.thread8.i68 ], [ %.3, %150 ]
   %.323.fr = freeze i32 %.323
   %.226.fr = freeze i32 %.226
   %.128.fr = freeze i32 %.128
@@ -13291,7 +13291,7 @@ c_valid_start_p.exit.thread:                      ; preds = %41, %c_valid_start_
   br label %c_valid_start_p.exit.thread115
 
 c_valid_start_p.exit.thread115:                   ; preds = %45, %rb_scan_args_set.exit, %c_valid_start_p.exit.thread, %c_valid_start_p.exit
-  %.6 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %43, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %43, %45 ]
+  %.6 = phi double [ %43, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %43, %45 ]
   %50 = load i64, ptr %9, align 8, !tbaa !6
   %51 = call fastcc i32 @offset_to_sec(i64 noundef %50, ptr noundef %12)
   %.not43 = icmp eq i32 %51, 0
@@ -13303,7 +13303,7 @@ c_valid_start_p.exit.thread115:                   ; preds = %45, %rb_scan_args_s
   br label %53
 
 53:                                               ; preds = %c_valid_start_p.exit.thread115, %52, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.6, %c_valid_start_p.exit.thread115 ], [ %.6, %52 ]
+  %.1 = phi double [ %.6, %c_valid_start_p.exit.thread115 ], [ %.6, %52 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %54 = load i64, ptr %8, align 8, !tbaa !6
   %55 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %56 = call i64 @rb_obj_is_kind_of(i64 noundef %54, i64 noundef %55) #21
@@ -13393,9 +13393,9 @@ f_zero_p.exit.thread:                             ; preds = %82, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread122:                          ; preds = %82, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.138 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %68, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %82 ]
-  %.123 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %67, %f_zero_p.exit ], [ %67, %f_zero_p.exit.thread ], [ %67, %rb_type.exit.thread8.i ], [ %67, %82 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %82 ]
+  %.138 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %68, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %82 ]
+  %.123 = phi i32 [ %67, %f_zero_p.exit ], [ 0, %rb_scan_args_set.exit ], [ %67, %f_zero_p.exit.thread ], [ %67, %rb_type.exit.thread8.i ], [ %67, %82 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %82 ]
   %91 = load i64, ptr %7, align 8, !tbaa !6
   %92 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %93 = call i64 @rb_obj_is_kind_of(i64 noundef %91, i64 noundef %92) #21
@@ -13483,10 +13483,10 @@ f_zero_p.exit68.thread:                           ; preds = %119, %rb_type.exit.
   unreachable
 
 f_zero_p.exit68.thread130:                        ; preds = %119, %rb_type.exit.thread8.i65, %f_zero_p.exit68.thread, %f_zero_p.exit68, %rb_scan_args_set.exit
-  %.239 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.138, %f_zero_p.exit68 ], [ %105, %f_zero_p.exit68.thread ], [ %.138, %rb_type.exit.thread8.i65 ], [ %.138, %119 ]
-  %.128 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %104, %f_zero_p.exit68 ], [ %104, %f_zero_p.exit68.thread ], [ %104, %rb_type.exit.thread8.i65 ], [ %104, %119 ]
-  %.224 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.123, %f_zero_p.exit68 ], [ %.123, %f_zero_p.exit68.thread ], [ %.123, %rb_type.exit.thread8.i65 ], [ %.123, %119 ]
-  %.3 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit68 ], [ %.2, %f_zero_p.exit68.thread ], [ %.2, %rb_type.exit.thread8.i65 ], [ %.2, %119 ]
+  %.239 = phi i64 [ %.138, %f_zero_p.exit68 ], [ 1, %rb_scan_args_set.exit ], [ %105, %f_zero_p.exit68.thread ], [ %.138, %rb_type.exit.thread8.i65 ], [ %.138, %119 ]
+  %.128 = phi i32 [ %104, %f_zero_p.exit68 ], [ 0, %rb_scan_args_set.exit ], [ %104, %f_zero_p.exit68.thread ], [ %104, %rb_type.exit.thread8.i65 ], [ %104, %119 ]
+  %.224 = phi i32 [ %.123, %f_zero_p.exit68 ], [ 0, %rb_scan_args_set.exit ], [ %.123, %f_zero_p.exit68.thread ], [ %.123, %rb_type.exit.thread8.i65 ], [ %.123, %119 ]
+  %.3 = phi double [ %.2, %f_zero_p.exit68 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit68.thread ], [ %.2, %rb_type.exit.thread8.i65 ], [ %.2, %119 ]
   %126 = load i64, ptr %6, align 8, !tbaa !6
   %127 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %128 = call i64 @rb_obj_is_kind_of(i64 noundef %126, i64 noundef %127) #21
@@ -13574,11 +13574,11 @@ f_zero_p.exit80.thread:                           ; preds = %154, %rb_type.exit.
   unreachable
 
 f_zero_p.exit80.thread138:                        ; preds = %154, %rb_type.exit.thread8.i77, %f_zero_p.exit80.thread, %f_zero_p.exit80, %rb_scan_args_set.exit
-  %.340 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.239, %f_zero_p.exit80 ], [ %140, %f_zero_p.exit80.thread ], [ %.239, %rb_type.exit.thread8.i77 ], [ %.239, %154 ]
-  %.132 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %139, %f_zero_p.exit80 ], [ %139, %f_zero_p.exit80.thread ], [ %139, %rb_type.exit.thread8.i77 ], [ %139, %154 ]
-  %.229 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.128, %f_zero_p.exit80 ], [ %.128, %f_zero_p.exit80.thread ], [ %.128, %rb_type.exit.thread8.i77 ], [ %.128, %154 ]
-  %.325 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.224, %f_zero_p.exit80 ], [ %.224, %f_zero_p.exit80.thread ], [ %.224, %rb_type.exit.thread8.i77 ], [ %.224, %154 ]
-  %.4 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit80 ], [ %.3, %f_zero_p.exit80.thread ], [ %.3, %rb_type.exit.thread8.i77 ], [ %.3, %154 ]
+  %.340 = phi i64 [ %.239, %f_zero_p.exit80 ], [ 1, %rb_scan_args_set.exit ], [ %140, %f_zero_p.exit80.thread ], [ %.239, %rb_type.exit.thread8.i77 ], [ %.239, %154 ]
+  %.132 = phi i32 [ %139, %f_zero_p.exit80 ], [ 0, %rb_scan_args_set.exit ], [ %139, %f_zero_p.exit80.thread ], [ %139, %rb_type.exit.thread8.i77 ], [ %139, %154 ]
+  %.229 = phi i32 [ %.128, %f_zero_p.exit80 ], [ 0, %rb_scan_args_set.exit ], [ %.128, %f_zero_p.exit80.thread ], [ %.128, %rb_type.exit.thread8.i77 ], [ %.128, %154 ]
+  %.325 = phi i32 [ %.224, %f_zero_p.exit80 ], [ 0, %rb_scan_args_set.exit ], [ %.224, %f_zero_p.exit80.thread ], [ %.224, %rb_type.exit.thread8.i77 ], [ %.224, %154 ]
+  %.4 = phi double [ %.3, %f_zero_p.exit80 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit80.thread ], [ %.3, %rb_type.exit.thread8.i77 ], [ %.3, %154 ]
   %161 = load i64, ptr %5, align 8, !tbaa !6
   %162 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %163 = call i64 @rb_obj_is_kind_of(i64 noundef %161, i64 noundef %162) #21
@@ -13666,12 +13666,12 @@ f_zero_p.exit92.thread:                           ; preds = %189, %rb_type.exit.
   unreachable
 
 f_zero_p.exit92.thread146:                        ; preds = %189, %rb_type.exit.thread8.i89, %f_zero_p.exit92.thread, %f_zero_p.exit92, %rb_scan_args_set.exit
-  %.441 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.340, %f_zero_p.exit92 ], [ %175, %f_zero_p.exit92.thread ], [ %.340, %rb_type.exit.thread8.i89 ], [ %.340, %189 ]
-  %.135 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %174, %f_zero_p.exit92 ], [ %174, %f_zero_p.exit92.thread ], [ %174, %rb_type.exit.thread8.i89 ], [ %174, %189 ]
-  %.233 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.132, %f_zero_p.exit92 ], [ %.132, %f_zero_p.exit92.thread ], [ %.132, %rb_type.exit.thread8.i89 ], [ %.132, %189 ]
-  %.330 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.229, %f_zero_p.exit92 ], [ %.229, %f_zero_p.exit92.thread ], [ %.229, %rb_type.exit.thread8.i89 ], [ %.229, %189 ]
-  %.426 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.325, %f_zero_p.exit92 ], [ %.325, %f_zero_p.exit92.thread ], [ %.325, %rb_type.exit.thread8.i89 ], [ %.325, %189 ]
-  %.5 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.4, %f_zero_p.exit92 ], [ %.4, %f_zero_p.exit92.thread ], [ %.4, %rb_type.exit.thread8.i89 ], [ %.4, %189 ]
+  %.441 = phi i64 [ %.340, %f_zero_p.exit92 ], [ 1, %rb_scan_args_set.exit ], [ %175, %f_zero_p.exit92.thread ], [ %.340, %rb_type.exit.thread8.i89 ], [ %.340, %189 ]
+  %.135 = phi i32 [ %174, %f_zero_p.exit92 ], [ %0, %rb_scan_args_set.exit ], [ %174, %f_zero_p.exit92.thread ], [ %174, %rb_type.exit.thread8.i89 ], [ %174, %189 ]
+  %.233 = phi i32 [ %.132, %f_zero_p.exit92 ], [ 0, %rb_scan_args_set.exit ], [ %.132, %f_zero_p.exit92.thread ], [ %.132, %rb_type.exit.thread8.i89 ], [ %.132, %189 ]
+  %.330 = phi i32 [ %.229, %f_zero_p.exit92 ], [ 0, %rb_scan_args_set.exit ], [ %.229, %f_zero_p.exit92.thread ], [ %.229, %rb_type.exit.thread8.i89 ], [ %.229, %189 ]
+  %.426 = phi i32 [ %.325, %f_zero_p.exit92 ], [ 0, %rb_scan_args_set.exit ], [ %.325, %f_zero_p.exit92.thread ], [ %.325, %rb_type.exit.thread8.i89 ], [ %.325, %189 ]
+  %.5 = phi double [ %.4, %f_zero_p.exit92 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.4, %f_zero_p.exit92.thread ], [ %.4, %rb_type.exit.thread8.i89 ], [ %.4, %189 ]
   %196 = load i64, ptr %4, align 8, !tbaa !6
   %197 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %198 = call i64 @rb_obj_is_kind_of(i64 noundef %196, i64 noundef %197) #21
@@ -14074,7 +14074,7 @@ c_valid_start_p.exit.thread.i:                    ; preds = %c_valid_start_p.exi
   br label %c_valid_start_p.exit.thread192.i
 
 c_valid_start_p.exit.thread192.i:                 ; preds = %c_valid_start_p.exit.thread.i, %c_valid_start_p.exit.i, %74, %rb_scan_args_set.exit.i
-  %.764.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %72, %c_valid_start_p.exit.i ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread.i ], [ %72, %74 ]
+  %.764.i = phi double [ %72, %c_valid_start_p.exit.i ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %72, %74 ]
   %79 = load i64, ptr %10, align 8, !tbaa !6
   %80 = call fastcc i32 @offset_to_sec(i64 noundef %79, ptr noundef %13)
   %.not87.i = icmp eq i32 %80, 0
@@ -14086,7 +14086,7 @@ c_valid_start_p.exit.thread192.i:                 ; preds = %c_valid_start_p.exi
   br label %82
 
 82:                                               ; preds = %81, %c_valid_start_p.exit.thread192.i, %rb_scan_args_set.exit.i
-  %.158.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.764.i, %c_valid_start_p.exit.thread192.i ], [ %.764.i, %81 ]
+  %.158.i = phi double [ %.764.i, %c_valid_start_p.exit.thread192.i ], [ %.764.i, %81 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ]
   %83 = load i64, ptr %9, align 8, !tbaa !6
   %84 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %85 = call i64 @rb_obj_is_kind_of(i64 noundef %83, i64 noundef %84) #21
@@ -14176,9 +14176,9 @@ f_zero_p.exit.thread.i:                           ; preds = %f_zero_p.exit.i, %1
   unreachable
 
 f_zero_p.exit.thread199.i:                        ; preds = %f_zero_p.exit.thread.i, %f_zero_p.exit.i, %111, %rb_type.exit.thread8.i.i, %rb_scan_args_set.exit.i
-  %.166.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %96, %f_zero_p.exit.i ], [ %96, %f_zero_p.exit.thread.i ], [ %96, %rb_type.exit.thread8.i.i ], [ %96, %111 ]
-  %.259.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.158.i, %f_zero_p.exit.i ], [ %.158.i, %f_zero_p.exit.thread.i ], [ %.158.i, %rb_type.exit.thread8.i.i ], [ %.158.i, %111 ]
-  %.1.i = phi i64 [ 1, %rb_scan_args_set.exit.i ], [ 1, %f_zero_p.exit.i ], [ %97, %f_zero_p.exit.thread.i ], [ 1, %rb_type.exit.thread8.i.i ], [ 1, %111 ]
+  %.166.i = phi i32 [ %96, %f_zero_p.exit.i ], [ 0, %rb_scan_args_set.exit.i ], [ %96, %f_zero_p.exit.thread.i ], [ %96, %rb_type.exit.thread8.i.i ], [ %96, %111 ]
+  %.259.i = phi double [ %.158.i, %f_zero_p.exit.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.158.i, %f_zero_p.exit.thread.i ], [ %.158.i, %rb_type.exit.thread8.i.i ], [ %.158.i, %111 ]
+  %.1.i = phi i64 [ 1, %f_zero_p.exit.i ], [ 1, %rb_scan_args_set.exit.i ], [ %97, %f_zero_p.exit.thread.i ], [ 1, %rb_type.exit.thread8.i.i ], [ 1, %111 ]
   %120 = load i64, ptr %8, align 8, !tbaa !6
   %121 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %122 = call i64 @rb_obj_is_kind_of(i64 noundef %120, i64 noundef %121) #21
@@ -14266,10 +14266,10 @@ f_zero_p.exit114.thread.i:                        ; preds = %f_zero_p.exit114.i,
   unreachable
 
 f_zero_p.exit114.thread207.i:                     ; preds = %f_zero_p.exit114.thread.i, %f_zero_p.exit114.i, %148, %rb_type.exit.thread8.i111.i, %rb_scan_args_set.exit.i
-  %.172.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %133, %f_zero_p.exit114.i ], [ %133, %f_zero_p.exit114.thread.i ], [ %133, %rb_type.exit.thread8.i111.i ], [ %133, %148 ]
-  %.267.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.166.i, %f_zero_p.exit114.i ], [ %.166.i, %f_zero_p.exit114.thread.i ], [ %.166.i, %rb_type.exit.thread8.i111.i ], [ %.166.i, %148 ]
-  %.360.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.259.i, %f_zero_p.exit114.i ], [ %.259.i, %f_zero_p.exit114.thread.i ], [ %.259.i, %rb_type.exit.thread8.i111.i ], [ %.259.i, %148 ]
-  %.2.i = phi i64 [ 1, %rb_scan_args_set.exit.i ], [ %.1.i, %f_zero_p.exit114.i ], [ %134, %f_zero_p.exit114.thread.i ], [ %.1.i, %rb_type.exit.thread8.i111.i ], [ %.1.i, %148 ]
+  %.172.i = phi i32 [ %133, %f_zero_p.exit114.i ], [ 0, %rb_scan_args_set.exit.i ], [ %133, %f_zero_p.exit114.thread.i ], [ %133, %rb_type.exit.thread8.i111.i ], [ %133, %148 ]
+  %.267.i = phi i32 [ %.166.i, %f_zero_p.exit114.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.166.i, %f_zero_p.exit114.thread.i ], [ %.166.i, %rb_type.exit.thread8.i111.i ], [ %.166.i, %148 ]
+  %.360.i = phi double [ %.259.i, %f_zero_p.exit114.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.259.i, %f_zero_p.exit114.thread.i ], [ %.259.i, %rb_type.exit.thread8.i111.i ], [ %.259.i, %148 ]
+  %.2.i = phi i64 [ %.1.i, %f_zero_p.exit114.i ], [ 1, %rb_scan_args_set.exit.i ], [ %134, %f_zero_p.exit114.thread.i ], [ %.1.i, %rb_type.exit.thread8.i111.i ], [ %.1.i, %148 ]
   %155 = load i64, ptr %7, align 8, !tbaa !6
   %156 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %157 = call i64 @rb_obj_is_kind_of(i64 noundef %155, i64 noundef %156) #21
@@ -14357,11 +14357,11 @@ f_zero_p.exit126.thread.i:                        ; preds = %f_zero_p.exit126.i,
   unreachable
 
 f_zero_p.exit126.thread215.i:                     ; preds = %f_zero_p.exit126.thread.i, %f_zero_p.exit126.i, %183, %rb_type.exit.thread8.i123.i, %rb_scan_args_set.exit.i
-  %.177.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %168, %f_zero_p.exit126.i ], [ %168, %f_zero_p.exit126.thread.i ], [ %168, %rb_type.exit.thread8.i123.i ], [ %168, %183 ]
-  %.273.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.172.i, %f_zero_p.exit126.i ], [ %.172.i, %f_zero_p.exit126.thread.i ], [ %.172.i, %rb_type.exit.thread8.i123.i ], [ %.172.i, %183 ]
-  %.368.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.267.i, %f_zero_p.exit126.i ], [ %.267.i, %f_zero_p.exit126.thread.i ], [ %.267.i, %rb_type.exit.thread8.i123.i ], [ %.267.i, %183 ]
-  %.461.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.360.i, %f_zero_p.exit126.i ], [ %.360.i, %f_zero_p.exit126.thread.i ], [ %.360.i, %rb_type.exit.thread8.i123.i ], [ %.360.i, %183 ]
-  %.3.i = phi i64 [ 1, %rb_scan_args_set.exit.i ], [ %.2.i, %f_zero_p.exit126.i ], [ %169, %f_zero_p.exit126.thread.i ], [ %.2.i, %rb_type.exit.thread8.i123.i ], [ %.2.i, %183 ]
+  %.177.i = phi i32 [ %168, %f_zero_p.exit126.i ], [ 0, %rb_scan_args_set.exit.i ], [ %168, %f_zero_p.exit126.thread.i ], [ %168, %rb_type.exit.thread8.i123.i ], [ %168, %183 ]
+  %.273.i = phi i32 [ %.172.i, %f_zero_p.exit126.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.172.i, %f_zero_p.exit126.thread.i ], [ %.172.i, %rb_type.exit.thread8.i123.i ], [ %.172.i, %183 ]
+  %.368.i = phi i32 [ %.267.i, %f_zero_p.exit126.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.267.i, %f_zero_p.exit126.thread.i ], [ %.267.i, %rb_type.exit.thread8.i123.i ], [ %.267.i, %183 ]
+  %.461.i = phi double [ %.360.i, %f_zero_p.exit126.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.360.i, %f_zero_p.exit126.thread.i ], [ %.360.i, %rb_type.exit.thread8.i123.i ], [ %.360.i, %183 ]
+  %.3.i = phi i64 [ %.2.i, %f_zero_p.exit126.i ], [ 1, %rb_scan_args_set.exit.i ], [ %169, %f_zero_p.exit126.thread.i ], [ %.2.i, %rb_type.exit.thread8.i123.i ], [ %.2.i, %183 ]
   %190 = load i64, ptr %6, align 8, !tbaa !6
   %191 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %192 = call i64 @rb_obj_is_kind_of(i64 noundef %190, i64 noundef %191) #21
@@ -14449,12 +14449,12 @@ f_zero_p.exit138.thread.i:                        ; preds = %f_zero_p.exit138.i,
   unreachable
 
 f_zero_p.exit138.thread223.i:                     ; preds = %f_zero_p.exit138.thread.i, %f_zero_p.exit138.i, %218, %rb_type.exit.thread8.i135.i, %rb_scan_args_set.exit.i
-  %.181.i = phi i32 [ 1, %rb_scan_args_set.exit.i ], [ %203, %f_zero_p.exit138.i ], [ %203, %f_zero_p.exit138.thread.i ], [ %203, %rb_type.exit.thread8.i135.i ], [ %203, %218 ]
-  %.278.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.177.i, %f_zero_p.exit138.i ], [ %.177.i, %f_zero_p.exit138.thread.i ], [ %.177.i, %rb_type.exit.thread8.i135.i ], [ %.177.i, %218 ]
-  %.374.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.273.i, %f_zero_p.exit138.i ], [ %.273.i, %f_zero_p.exit138.thread.i ], [ %.273.i, %rb_type.exit.thread8.i135.i ], [ %.273.i, %218 ]
-  %.469.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.368.i, %f_zero_p.exit138.i ], [ %.368.i, %f_zero_p.exit138.thread.i ], [ %.368.i, %rb_type.exit.thread8.i135.i ], [ %.368.i, %218 ]
-  %.562.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.461.i, %f_zero_p.exit138.i ], [ %.461.i, %f_zero_p.exit138.thread.i ], [ %.461.i, %rb_type.exit.thread8.i135.i ], [ %.461.i, %218 ]
-  %.4.i = phi i64 [ 1, %rb_scan_args_set.exit.i ], [ %.3.i, %f_zero_p.exit138.i ], [ %204, %f_zero_p.exit138.thread.i ], [ %.3.i, %rb_type.exit.thread8.i135.i ], [ %.3.i, %218 ]
+  %.181.i = phi i32 [ %203, %f_zero_p.exit138.i ], [ 1, %rb_scan_args_set.exit.i ], [ %203, %f_zero_p.exit138.thread.i ], [ %203, %rb_type.exit.thread8.i135.i ], [ %203, %218 ]
+  %.278.i = phi i32 [ %.177.i, %f_zero_p.exit138.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.177.i, %f_zero_p.exit138.thread.i ], [ %.177.i, %rb_type.exit.thread8.i135.i ], [ %.177.i, %218 ]
+  %.374.i = phi i32 [ %.273.i, %f_zero_p.exit138.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.273.i, %f_zero_p.exit138.thread.i ], [ %.273.i, %rb_type.exit.thread8.i135.i ], [ %.273.i, %218 ]
+  %.469.i = phi i32 [ %.368.i, %f_zero_p.exit138.i ], [ 0, %rb_scan_args_set.exit.i ], [ %.368.i, %f_zero_p.exit138.thread.i ], [ %.368.i, %rb_type.exit.thread8.i135.i ], [ %.368.i, %218 ]
+  %.562.i = phi double [ %.461.i, %f_zero_p.exit138.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.461.i, %f_zero_p.exit138.thread.i ], [ %.461.i, %rb_type.exit.thread8.i135.i ], [ %.461.i, %218 ]
+  %.4.i = phi i64 [ %.3.i, %f_zero_p.exit138.i ], [ 1, %rb_scan_args_set.exit.i ], [ %204, %f_zero_p.exit138.thread.i ], [ %.3.i, %rb_type.exit.thread8.i135.i ], [ %.3.i, %218 ]
   %225 = load i64, ptr %5, align 8, !tbaa !6
   %226 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %227 = call i64 @rb_obj_is_kind_of(i64 noundef %225, i64 noundef %226) #21
@@ -14487,13 +14487,13 @@ rb_num2int_inline.exit143.i:                      ; preds = %235, %233
   br label %238
 
 238:                                              ; preds = %rb_num2int_inline.exit143.i, %rb_scan_args_set.exit.i
-  %.184.i = phi i32 [ %0, %rb_scan_args_set.exit.i ], [ %237, %rb_num2int_inline.exit143.i ]
-  %.282.i = phi i32 [ %0, %rb_scan_args_set.exit.i ], [ %.181.i, %rb_num2int_inline.exit143.i ]
-  %.379.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.278.i, %rb_num2int_inline.exit143.i ]
-  %.475.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.374.i, %rb_num2int_inline.exit143.i ]
-  %.570.i = phi i32 [ 0, %rb_scan_args_set.exit.i ], [ %.469.i, %rb_num2int_inline.exit143.i ]
-  %.663.i = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ], [ %.562.i, %rb_num2int_inline.exit143.i ]
-  %.5.i = phi i64 [ 1, %rb_scan_args_set.exit.i ], [ %.4.i, %rb_num2int_inline.exit143.i ]
+  %.184.i = phi i32 [ %237, %rb_num2int_inline.exit143.i ], [ %0, %rb_scan_args_set.exit.i ]
+  %.282.i = phi i32 [ %.181.i, %rb_num2int_inline.exit143.i ], [ %0, %rb_scan_args_set.exit.i ]
+  %.379.i = phi i32 [ %.278.i, %rb_num2int_inline.exit143.i ], [ 0, %rb_scan_args_set.exit.i ]
+  %.475.i = phi i32 [ %.374.i, %rb_num2int_inline.exit143.i ], [ 0, %rb_scan_args_set.exit.i ]
+  %.570.i = phi i32 [ %.469.i, %rb_num2int_inline.exit143.i ], [ 0, %rb_scan_args_set.exit.i ]
+  %.663.i = phi double [ %.562.i, %rb_num2int_inline.exit143.i ], [ 0x41418A8C80000000, %rb_scan_args_set.exit.i ]
+  %.5.i = phi i64 [ %.4.i, %rb_num2int_inline.exit143.i ], [ 1, %rb_scan_args_set.exit.i ]
   %239 = load i64, ptr %4, align 8, !tbaa !6
   %240 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %241 = call i64 @rb_obj_is_kind_of(i64 noundef %239, i64 noundef %240) #21
@@ -15057,7 +15057,7 @@ c_valid_start_p.exit.thread:                      ; preds = %45, %c_valid_start_
   br label %c_valid_start_p.exit.thread128
 
 c_valid_start_p.exit.thread128:                   ; preds = %49, %rb_scan_args_set.exit, %c_valid_start_p.exit.thread, %c_valid_start_p.exit
-  %.7 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %47, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %47, %49 ]
+  %.7 = phi double [ %47, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %47, %49 ]
   %54 = load i64, ptr %10, align 8, !tbaa !6
   %55 = call fastcc i32 @offset_to_sec(i64 noundef %54, ptr noundef %13)
   %.not51 = icmp eq i32 %55, 0
@@ -15069,7 +15069,7 @@ c_valid_start_p.exit.thread128:                   ; preds = %49, %rb_scan_args_s
   br label %57
 
 57:                                               ; preds = %c_valid_start_p.exit.thread128, %56, %rb_scan_args_set.exit
-  %.1 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.7, %c_valid_start_p.exit.thread128 ], [ %.7, %56 ]
+  %.1 = phi double [ %.7, %c_valid_start_p.exit.thread128 ], [ %.7, %56 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %58 = load i64, ptr %9, align 8, !tbaa !6
   %59 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %60 = call i64 @rb_obj_is_kind_of(i64 noundef %58, i64 noundef %59) #21
@@ -15159,9 +15159,9 @@ f_zero_p.exit.thread:                             ; preds = %86, %rb_type.exit.i
   unreachable
 
 f_zero_p.exit.thread135:                          ; preds = %86, %rb_type.exit.thread8.i, %f_zero_p.exit.thread, %f_zero_p.exit, %rb_scan_args_set.exit
-  %.145 = phi i64 [ 1, %rb_scan_args_set.exit ], [ 1, %f_zero_p.exit ], [ %72, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %86 ]
-  %.124 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %71, %f_zero_p.exit ], [ %71, %f_zero_p.exit.thread ], [ %71, %rb_type.exit.thread8.i ], [ %71, %86 ]
-  %.2 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %86 ]
+  %.145 = phi i64 [ 1, %f_zero_p.exit ], [ 1, %rb_scan_args_set.exit ], [ %72, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %86 ]
+  %.124 = phi i32 [ %71, %f_zero_p.exit ], [ 0, %rb_scan_args_set.exit ], [ %71, %f_zero_p.exit.thread ], [ %71, %rb_type.exit.thread8.i ], [ %71, %86 ]
+  %.2 = phi double [ %.1, %f_zero_p.exit ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %86 ]
   %95 = load i64, ptr %8, align 8, !tbaa !6
   %96 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %97 = call i64 @rb_obj_is_kind_of(i64 noundef %95, i64 noundef %96) #21
@@ -15249,10 +15249,10 @@ f_zero_p.exit76.thread:                           ; preds = %123, %rb_type.exit.
   unreachable
 
 f_zero_p.exit76.thread143:                        ; preds = %123, %rb_type.exit.thread8.i73, %f_zero_p.exit76.thread, %f_zero_p.exit76, %rb_scan_args_set.exit
-  %.246 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.145, %f_zero_p.exit76 ], [ %109, %f_zero_p.exit76.thread ], [ %.145, %rb_type.exit.thread8.i73 ], [ %.145, %123 ]
-  %.130 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %108, %f_zero_p.exit76 ], [ %108, %f_zero_p.exit76.thread ], [ %108, %rb_type.exit.thread8.i73 ], [ %108, %123 ]
-  %.225 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.124, %f_zero_p.exit76 ], [ %.124, %f_zero_p.exit76.thread ], [ %.124, %rb_type.exit.thread8.i73 ], [ %.124, %123 ]
-  %.3 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit76 ], [ %.2, %f_zero_p.exit76.thread ], [ %.2, %rb_type.exit.thread8.i73 ], [ %.2, %123 ]
+  %.246 = phi i64 [ %.145, %f_zero_p.exit76 ], [ 1, %rb_scan_args_set.exit ], [ %109, %f_zero_p.exit76.thread ], [ %.145, %rb_type.exit.thread8.i73 ], [ %.145, %123 ]
+  %.130 = phi i32 [ %108, %f_zero_p.exit76 ], [ 0, %rb_scan_args_set.exit ], [ %108, %f_zero_p.exit76.thread ], [ %108, %rb_type.exit.thread8.i73 ], [ %108, %123 ]
+  %.225 = phi i32 [ %.124, %f_zero_p.exit76 ], [ 0, %rb_scan_args_set.exit ], [ %.124, %f_zero_p.exit76.thread ], [ %.124, %rb_type.exit.thread8.i73 ], [ %.124, %123 ]
+  %.3 = phi double [ %.2, %f_zero_p.exit76 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.2, %f_zero_p.exit76.thread ], [ %.2, %rb_type.exit.thread8.i73 ], [ %.2, %123 ]
   %130 = load i64, ptr %7, align 8, !tbaa !6
   %131 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %132 = call i64 @rb_obj_is_kind_of(i64 noundef %130, i64 noundef %131) #21
@@ -15340,11 +15340,11 @@ f_zero_p.exit88.thread:                           ; preds = %158, %rb_type.exit.
   unreachable
 
 f_zero_p.exit88.thread151:                        ; preds = %158, %rb_type.exit.thread8.i85, %f_zero_p.exit88.thread, %f_zero_p.exit88, %rb_scan_args_set.exit
-  %.347 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.246, %f_zero_p.exit88 ], [ %144, %f_zero_p.exit88.thread ], [ %.246, %rb_type.exit.thread8.i85 ], [ %.246, %158 ]
-  %.135 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %143, %f_zero_p.exit88 ], [ %143, %f_zero_p.exit88.thread ], [ %143, %rb_type.exit.thread8.i85 ], [ %143, %158 ]
-  %.231 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.130, %f_zero_p.exit88 ], [ %.130, %f_zero_p.exit88.thread ], [ %.130, %rb_type.exit.thread8.i85 ], [ %.130, %158 ]
-  %.326 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.225, %f_zero_p.exit88 ], [ %.225, %f_zero_p.exit88.thread ], [ %.225, %rb_type.exit.thread8.i85 ], [ %.225, %158 ]
-  %.4 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit88 ], [ %.3, %f_zero_p.exit88.thread ], [ %.3, %rb_type.exit.thread8.i85 ], [ %.3, %158 ]
+  %.347 = phi i64 [ %.246, %f_zero_p.exit88 ], [ 1, %rb_scan_args_set.exit ], [ %144, %f_zero_p.exit88.thread ], [ %.246, %rb_type.exit.thread8.i85 ], [ %.246, %158 ]
+  %.135 = phi i32 [ %143, %f_zero_p.exit88 ], [ 0, %rb_scan_args_set.exit ], [ %143, %f_zero_p.exit88.thread ], [ %143, %rb_type.exit.thread8.i85 ], [ %143, %158 ]
+  %.231 = phi i32 [ %.130, %f_zero_p.exit88 ], [ 0, %rb_scan_args_set.exit ], [ %.130, %f_zero_p.exit88.thread ], [ %.130, %rb_type.exit.thread8.i85 ], [ %.130, %158 ]
+  %.326 = phi i32 [ %.225, %f_zero_p.exit88 ], [ 0, %rb_scan_args_set.exit ], [ %.225, %f_zero_p.exit88.thread ], [ %.225, %rb_type.exit.thread8.i85 ], [ %.225, %158 ]
+  %.4 = phi double [ %.3, %f_zero_p.exit88 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.3, %f_zero_p.exit88.thread ], [ %.3, %rb_type.exit.thread8.i85 ], [ %.3, %158 ]
   %165 = load i64, ptr %6, align 8, !tbaa !6
   %166 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %167 = call i64 @rb_obj_is_kind_of(i64 noundef %165, i64 noundef %166) #21
@@ -15432,12 +15432,12 @@ f_zero_p.exit100.thread:                          ; preds = %193, %rb_type.exit.
   unreachable
 
 f_zero_p.exit100.thread159:                       ; preds = %193, %rb_type.exit.thread8.i97, %f_zero_p.exit100.thread, %f_zero_p.exit100, %rb_scan_args_set.exit
-  %.448 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.347, %f_zero_p.exit100 ], [ %179, %f_zero_p.exit100.thread ], [ %.347, %rb_type.exit.thread8.i97 ], [ %.347, %193 ]
-  %.139 = phi i32 [ 1, %rb_scan_args_set.exit ], [ %178, %f_zero_p.exit100 ], [ %178, %f_zero_p.exit100.thread ], [ %178, %rb_type.exit.thread8.i97 ], [ %178, %193 ]
-  %.236 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.135, %f_zero_p.exit100 ], [ %.135, %f_zero_p.exit100.thread ], [ %.135, %rb_type.exit.thread8.i97 ], [ %.135, %193 ]
-  %.332 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.231, %f_zero_p.exit100 ], [ %.231, %f_zero_p.exit100.thread ], [ %.231, %rb_type.exit.thread8.i97 ], [ %.231, %193 ]
-  %.427 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.326, %f_zero_p.exit100 ], [ %.326, %f_zero_p.exit100.thread ], [ %.326, %rb_type.exit.thread8.i97 ], [ %.326, %193 ]
-  %.5 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.4, %f_zero_p.exit100 ], [ %.4, %f_zero_p.exit100.thread ], [ %.4, %rb_type.exit.thread8.i97 ], [ %.4, %193 ]
+  %.448 = phi i64 [ %.347, %f_zero_p.exit100 ], [ 1, %rb_scan_args_set.exit ], [ %179, %f_zero_p.exit100.thread ], [ %.347, %rb_type.exit.thread8.i97 ], [ %.347, %193 ]
+  %.139 = phi i32 [ %178, %f_zero_p.exit100 ], [ 1, %rb_scan_args_set.exit ], [ %178, %f_zero_p.exit100.thread ], [ %178, %rb_type.exit.thread8.i97 ], [ %178, %193 ]
+  %.236 = phi i32 [ %.135, %f_zero_p.exit100 ], [ 0, %rb_scan_args_set.exit ], [ %.135, %f_zero_p.exit100.thread ], [ %.135, %rb_type.exit.thread8.i97 ], [ %.135, %193 ]
+  %.332 = phi i32 [ %.231, %f_zero_p.exit100 ], [ 0, %rb_scan_args_set.exit ], [ %.231, %f_zero_p.exit100.thread ], [ %.231, %rb_type.exit.thread8.i97 ], [ %.231, %193 ]
+  %.427 = phi i32 [ %.326, %f_zero_p.exit100 ], [ 0, %rb_scan_args_set.exit ], [ %.326, %f_zero_p.exit100.thread ], [ %.326, %rb_type.exit.thread8.i97 ], [ %.326, %193 ]
+  %.5 = phi double [ %.4, %f_zero_p.exit100 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.4, %f_zero_p.exit100.thread ], [ %.4, %rb_type.exit.thread8.i97 ], [ %.4, %193 ]
   %200 = load i64, ptr %5, align 8, !tbaa !6
   %201 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %202 = call i64 @rb_obj_is_kind_of(i64 noundef %200, i64 noundef %201) #21
@@ -15470,13 +15470,13 @@ rb_num2int_inline.exit105:                        ; preds = %208, %210
   br label %213
 
 213:                                              ; preds = %rb_num2int_inline.exit105, %rb_scan_args_set.exit
-  %.549 = phi i64 [ 1, %rb_scan_args_set.exit ], [ %.448, %rb_num2int_inline.exit105 ]
-  %.142 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %212, %rb_num2int_inline.exit105 ]
-  %.240 = phi i32 [ %0, %rb_scan_args_set.exit ], [ %.139, %rb_num2int_inline.exit105 ]
-  %.337 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.236, %rb_num2int_inline.exit105 ]
-  %.433 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.332, %rb_num2int_inline.exit105 ]
-  %.528 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.427, %rb_num2int_inline.exit105 ]
-  %.6 = phi double [ 0x41418A8C80000000, %rb_scan_args_set.exit ], [ %.5, %rb_num2int_inline.exit105 ]
+  %.549 = phi i64 [ %.448, %rb_num2int_inline.exit105 ], [ 1, %rb_scan_args_set.exit ]
+  %.142 = phi i32 [ %212, %rb_num2int_inline.exit105 ], [ %0, %rb_scan_args_set.exit ]
+  %.240 = phi i32 [ %.139, %rb_num2int_inline.exit105 ], [ %0, %rb_scan_args_set.exit ]
+  %.337 = phi i32 [ %.236, %rb_num2int_inline.exit105 ], [ 0, %rb_scan_args_set.exit ]
+  %.433 = phi i32 [ %.332, %rb_num2int_inline.exit105 ], [ 0, %rb_scan_args_set.exit ]
+  %.528 = phi i32 [ %.427, %rb_num2int_inline.exit105 ], [ 0, %rb_scan_args_set.exit ]
+  %.6 = phi double [ %.5, %rb_num2int_inline.exit105 ], [ 0x41418A8C80000000, %rb_scan_args_set.exit ]
   %214 = load i64, ptr %4, align 8, !tbaa !6
   %215 = load i64, ptr @rb_cNumeric, align 8, !tbaa !6
   %216 = call i64 @rb_obj_is_kind_of(i64 noundef %214, i64 noundef %215) #21

@@ -970,7 +970,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L21ures_enum
   br i1 %exitcond.not, label %.thread, label %59, !llvm.loop !48
 
 .thread:                                          ; preds = %.critedge91, %.critedge, %55, %39, %21, %64, %50, %9, %24, %33, %30, %27, %36
-  %.0 = phi i8 [ 1, %9 ], [ 1, %36 ], [ 0, %24 ], [ 1, %33 ], [ 1, %30 ], [ 1, %27 ], [ %47, %50 ], [ 1, %64 ], [ 1, %21 ], [ 1, %39 ], [ 1, %55 ], [ %47, %.critedge ], [ 1, %.critedge91 ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %24 ], [ 1, %33 ], [ 1, %30 ], [ 1, %27 ], [ 1, %36 ], [ %47, %50 ], [ 1, %64 ], [ 1, %21 ], [ 1, %39 ], [ 1, %55 ], [ %47, %.critedge ], [ 1, %.critedge91 ]
   ret i8 %.0
 }
 

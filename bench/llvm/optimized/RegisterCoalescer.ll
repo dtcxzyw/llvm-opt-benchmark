@@ -1428,10 +1428,10 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %35, %3
   br label %43
 
 43:                                               ; preds = %13, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i
-  %.1 = phi i32 [ %.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %20, %13 ]
-  %.sroa.064.4 = phi i32 [ %27, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %17, %13 ]
-  %storemerge24.in.i = phi ptr [ %42, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %22, %13 ]
-  %storemerge.in.in.in.i = phi ptr [ %41, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %21, %13 ]
+  %.1 = phi i32 [ %20, %13 ], [ %.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %.sroa.064.4 = phi i32 [ %17, %13 ], [ %27, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %storemerge24.in.i = phi ptr [ %22, %13 ], [ %42, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %storemerge.in.in.in.i = phi ptr [ %21, %13 ], [ %41, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
   %storemerge24.i = load i32, ptr %storemerge24.in.i, align 4, !tbaa !117
   %storemerge.in.in.i = load i32, ptr %storemerge.in.in.in.i, align 8
   %storemerge.in.i = lshr i32 %storemerge.in.in.i, 8
@@ -1740,10 +1740,10 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %29, %2
   br label %37
 
 37:                                               ; preds = %7, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i
-  %.133 = phi i32 [ %.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %14, %7 ]
-  %.sroa.023.2 = phi i32 [ %21, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %11, %7 ]
-  %storemerge24.in.i = phi ptr [ %36, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %16, %7 ]
-  %storemerge.in.in.in.i = phi ptr [ %35, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %15, %7 ]
+  %.133 = phi i32 [ %14, %7 ], [ %.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %.sroa.023.2 = phi i32 [ %11, %7 ], [ %21, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %storemerge24.in.i = phi ptr [ %16, %7 ], [ %36, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %storemerge.in.in.in.i = phi ptr [ %15, %7 ], [ %35, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
   %storemerge24.i = load i32, ptr %storemerge24.in.i, align 4, !tbaa !117
   %storemerge.in.in.i = load i32, ptr %storemerge.in.in.in.i, align 8
   %storemerge.in.i = lshr i32 %storemerge.in.in.i, 8
@@ -2670,7 +2670,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   br label %257
 
 257:                                              ; preds = %255, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %256, %255 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %256, %255 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i.i, align 8
   %258 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i, i64 4
   %.1.val38.i.i.i.i.i.i.i = load i32, ptr %258, align 4
@@ -2685,7 +2685,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairINS_9SlotIndex
   br label %264
 
 264:                                              ; preds = %262, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %263, %262 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %263, %262 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i.i, align 8
   %265 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i, i64 4
   %.2.val39.i.i.i.i.i.i.i = load i32, ptr %265, align 4
@@ -4031,7 +4031,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit62.i.i: ; p
   br label %846
 
 846:                                              ; preds = %844, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %845, %844 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %845, %844 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %847 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !456
   %848 = icmp eq ptr %847, null
   br i1 %848, label %_ZSt9__find_ifIPPN4llvm12MachineInstrEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %849
@@ -4041,7 +4041,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit62.i.i: ; p
   br label %851
 
 851:                                              ; preds = %849, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %850, %849 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %850, %849 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %852 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !456
   %853 = icmp eq ptr %852, null
   br i1 %853, label %_ZSt9__find_ifIPPN4llvm12MachineInstrEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE5eraseEPKS2_S5_.exit.i.i
@@ -8492,8 +8492,8 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i: ; preds = %27, %1
   br label %34
 
 34:                                               ; preds = %10, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i
-  %.sroa.062.0 = phi i32 [ %20, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %14, %10 ]
-  %storemerge24.in.i = phi ptr [ %33, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ], [ %15, %10 ]
+  %.sroa.062.0 = phi i32 [ %14, %10 ], [ %20, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
+  %storemerge24.in.i = phi ptr [ %15, %10 ], [ %33, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i ]
   %storemerge24.i = load i32, ptr %storemerge24.in.i, align 4, !tbaa !117
   %35 = add i32 %.sroa.062.0, -1
   %36 = icmp ult i32 %35, 1073741823
@@ -8754,8 +8754,8 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39: ; preds = %141,
   br label %148
 
 148:                                              ; preds = %126, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39
-  %.sroa.0.1 = phi i32 [ %134, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39 ], [ %129, %126 ]
-  %storemerge24.in.i41 = phi ptr [ %147, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39 ], [ %130, %126 ]
+  %.sroa.0.1 = phi i32 [ %129, %126 ], [ %134, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39 ]
+  %storemerge24.in.i41 = phi ptr [ %130, %126 ], [ %147, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i39 ]
   %storemerge24.i43 = load i32, ptr %storemerge24.in.i41, align 4, !tbaa !117
   %149 = icmp eq i32 %.sroa.0.1, %storemerge24.i
   %spec.select95 = select i1 %149, i32 %storemerge24.i43, i32 %.sroa.0.1
@@ -9600,10 +9600,10 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i: ; preds = %109,
   br label %117
 
 117:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i, %87
-  %.0259.i = phi i32 [ %.0.i.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ], [ %94, %87 ]
-  %.sroa.0254.0.i = phi i32 [ %101, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ], [ %91, %87 ]
-  %storemerge24.in.i.i = phi ptr [ %116, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ], [ %96, %87 ]
-  %storemerge.in.in.in.i.i = phi ptr [ %115, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ], [ %95, %87 ]
+  %.0259.i = phi i32 [ %94, %87 ], [ %.0.i.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ]
+  %.sroa.0254.0.i = phi i32 [ %91, %87 ], [ %101, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ]
+  %storemerge24.in.i.i = phi ptr [ %96, %87 ], [ %116, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ]
+  %storemerge.in.in.in.i.i = phi ptr [ %95, %87 ], [ %115, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i ]
   %storemerge24.i.i = load i32, ptr %storemerge24.in.i.i, align 4, !tbaa !117
   %storemerge.in.in.i.i = load i32, ptr %storemerge.in.in.in.i.i, align 8
   %storemerge.in.i.i = lshr i32 %storemerge.in.in.i.i, 8
@@ -16310,8 +16310,8 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %314, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %342 = phi ptr [ %.pre273, %314 ], [ %318, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
-  %.1.in.i.i = phi ptr [ %315, %314 ], [ %341, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %342 = phi ptr [ %318, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %.pre273, %314 ]
+  %.1.in.i.i = phi ptr [ %341, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %315, %314 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !466
   %343 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %344 = load i32, ptr %343, align 8, !tbaa !386
@@ -21408,7 +21408,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit.i: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i, %43
-  %.1.in.i.i = phi ptr [ %44, %43 ], [ %72, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %72, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %44, %43 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !466
   %73 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %74 = load i32, ptr %73, align 8, !tbaa !386
@@ -21580,7 +21580,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i: ; preds = %_ZSt7
   br label %_ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm11SlotIndexes15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %150, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i
-  %.1.in.i = phi ptr [ %151, %150 ], [ %180, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ]
+  %.1.in.i = phi ptr [ %180, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i ], [ %151, %150 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !466
   %181 = getelementptr inbounds nuw i8, ptr %.1.i, i64 56
   %182 = load ptr, ptr %181, align 8, !tbaa !447
@@ -24630,7 +24630,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit: ; preds = %_ZSt7ad
   br label %37
 
 37:                                               ; preds = %7, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit
-  %.1.in = phi ptr [ %8, %7 ], [ %36, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit ]
+  %.1.in = phi ptr [ %36, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit ], [ %8, %7 ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !466
   ret ptr %.1
 }
@@ -25892,7 +25892,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.1 = phi ptr [ %58, %57 ], [ %.029.lcssa, %._crit_edge ]
   %60 = load i32, ptr %.1, align 8
   %61 = and i32 %60, 255
   %62 = icmp eq i32 %61, 0
@@ -25907,7 +25907,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %68, %67 ]
+  %.2 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge ]
   %70 = load i32, ptr %.2, align 8
   %71 = and i32 %70, 255
   %72 = icmp eq i32 %71, 0

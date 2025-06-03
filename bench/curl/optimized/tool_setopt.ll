@@ -1038,7 +1038,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br label %41
 
 41:                                               ; preds = %13, %40
-  %.1 = phi ptr [ %6, %13 ], [ %spec.store.select, %40 ]
+  %.1 = phi ptr [ %spec.store.select, %40 ], [ %6, %13 ]
   %42 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.90, i32 noundef %1) #8
   %.not143 = icmp eq i32 %42, 0
   br i1 %.not143, label %43, label %.critedge
@@ -1048,9 +1048,9 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   %.not144 = icmp eq i32 %44, 0
   br i1 %.not144, label %45, label %.critedge
 
-45:                                               ; preds = %13, %43, %34, %38, %26, %20
-  %.089.ph = phi ptr [ null, %20 ], [ %25, %26 ], [ %31, %38 ], [ %31, %34 ], [ null, %43 ], [ null, %13 ]
-  %.088.ph = phi ptr [ %6, %20 ], [ %6, %26 ], [ null, %38 ], [ %6, %34 ], [ %.1, %43 ], [ %6, %13 ]
+45:                                               ; preds = %13, %20, %26, %34, %38, %43
+  %.089.ph = phi ptr [ null, %43 ], [ %31, %38 ], [ %31, %34 ], [ %25, %26 ], [ null, %20 ], [ null, %13 ]
+  %.088.ph = phi ptr [ %.1, %43 ], [ null, %38 ], [ %6, %34 ], [ %6, %26 ], [ %6, %20 ], [ %6, %13 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   %.not154 = icmp eq ptr %47, null
@@ -1151,8 +1151,8 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %84, %69, %61, %54, %48, %28, %22, %11, %17, %20, %26, %32, %38, %41, %43, %51, %56, %64, %72, %74
-  %.7 = phi i32 [ %12, %11 ], [ %57, %56 ], [ %.6, %84 ], [ 0, %74 ], [ %73, %72 ], [ %65, %64 ], [ %52, %51 ], [ %42, %41 ], [ %44, %43 ], [ %33, %32 ], [ %39, %38 ], [ %27, %26 ], [ %19, %17 ], [ %21, %20 ], [ 27, %22 ], [ 27, %28 ], [ 27, %48 ], [ 27, %54 ], [ 27, %61 ], [ 27, %69 ], [ %16, %15 ]
-  %.5 = phi ptr [ null, %11 ], [ %55, %56 ], [ %.4, %84 ], [ %.4, %74 ], [ %71, %72 ], [ %63, %64 ], [ %50, %51 ], [ null, %41 ], [ null, %43 ], [ %31, %32 ], [ %31, %38 ], [ %25, %26 ], [ null, %17 ], [ null, %20 ], [ null, %22 ], [ null, %28 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %69 ], [ null, %15 ]
+  %.7 = phi i32 [ %12, %11 ], [ %57, %56 ], [ %.6, %84 ], [ 0, %74 ], [ %73, %72 ], [ %65, %64 ], [ %52, %51 ], [ %19, %17 ], [ %21, %20 ], [ %27, %26 ], [ %33, %32 ], [ %39, %38 ], [ %42, %41 ], [ %44, %43 ], [ 27, %22 ], [ 27, %28 ], [ 27, %48 ], [ 27, %54 ], [ 27, %61 ], [ 27, %69 ], [ %16, %15 ]
+  %.5 = phi ptr [ null, %11 ], [ %55, %56 ], [ %.4, %84 ], [ %.4, %74 ], [ %71, %72 ], [ %63, %64 ], [ %50, %51 ], [ null, %17 ], [ null, %20 ], [ %25, %26 ], [ %31, %32 ], [ %31, %38 ], [ null, %41 ], [ null, %43 ], [ null, %22 ], [ null, %28 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %69 ], [ null, %15 ]
   tail call void @free(ptr noundef %.5) #8
   br label %85
 

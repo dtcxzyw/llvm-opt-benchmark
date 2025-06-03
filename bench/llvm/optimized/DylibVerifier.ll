@@ -1641,7 +1641,7 @@ _ZNK4llvm9StringRef8containsEc.exit:              ; preds = %7, %_ZNSt11char_tra
   unreachable
 
 18:                                               ; preds = %15, %_ZNK4llvm9StringRef8containsEc.exit, %5
-  %.0 = phi ptr [ %16, %15 ], [ %14, %_ZNK4llvm9StringRef8containsEc.exit ], [ %6, %5 ]
+  %.0 = phi ptr [ %6, %5 ], [ %14, %_ZNK4llvm9StringRef8containsEc.exit ], [ %16, %15 ]
   ret ptr %.0
 }
 
@@ -2895,7 +2895,7 @@ define dso_local noundef range(i32 1, 4) i32 @_ZN5clang10installapi13DylibVerifi
   unreachable
 
 43:                                               ; preds = %20, %36, %30
-  %.1 = phi i32 [ 3, %36 ], [ 1, %30 ], [ %29, %20 ]
+  %.1 = phi i32 [ 1, %30 ], [ 3, %36 ], [ %29, %20 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
   br label %44
 
@@ -3146,7 +3146,7 @@ _ZNK4llvm9StringRef8containsEc.exit.i:            ; preds = %_ZNSt11char_traitsI
   unreachable
 
 _ZN5clang10installapi19findRecordFromSliceEPKN4llvm5MachO12RecordsSliceENS1_9StringRefENS2_10EncodeKindE.exit: ; preds = %62, %_ZNK4llvm9StringRef8containsEc.exit.i, %72
-  %.0.i = phi ptr [ %73, %72 ], [ %71, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %63, %62 ]
+  %.0.i = phi ptr [ %63, %62 ], [ %71, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %73, %72 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %.split, label %76
 
@@ -8828,9 +8828,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN4llvm5MachO6TargetEN9__gnu_cx
   br label %62
 
 62:                                               ; preds = %._crit_edge._crit_edge, %60
-  %63 = phi i32 [ %.pre52, %._crit_edge._crit_edge ], [ %57, %60 ]
-  %64 = phi i8 [ %.pre, %._crit_edge._crit_edge ], [ %54, %60 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %61, %60 ]
+  %63 = phi i32 [ %57, %60 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %64 = phi i8 [ %54, %60 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %61, %60 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %65 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %66 = load i8, ptr %.1, align 1, !tbaa !139
   %67 = icmp eq i8 %66, %64
@@ -8844,9 +8844,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN4llvm5MachO6TargetEN9__gnu_cx
   br label %73
 
 73:                                               ; preds = %._crit_edge._crit_edge53, %71
-  %74 = phi i32 [ %.pre56, %._crit_edge._crit_edge53 ], [ %63, %71 ]
-  %75 = phi i8 [ %.pre54, %._crit_edge._crit_edge53 ], [ %64, %71 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge53 ], [ %72, %71 ]
+  %74 = phi i32 [ %63, %71 ], [ %.pre56, %._crit_edge._crit_edge53 ]
+  %75 = phi i8 [ %64, %71 ], [ %.pre54, %._crit_edge._crit_edge53 ]
+  %.2 = phi ptr [ %72, %71 ], [ %.029.lcssa, %._crit_edge._crit_edge53 ]
   %76 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %77 = load i8, ptr %.2, align 1, !tbaa !139
   %78 = icmp eq i8 %77, %75

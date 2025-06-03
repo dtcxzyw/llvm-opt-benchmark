@@ -1372,8 +1372,8 @@ dissect_idn_laser_gts.exit205.i.i.i:              ; preds = %516, %513
   br label %.loopexit.i24.i.i
 
 .loopexit.i24.i.i:                                ; preds = %.loopexit.loopexit.i.i.i, %dissect_idn_laser_gts.exit205.i.i.i, %dissect_idn_laser_gts.exit203.i.i.i, %dissect_idn_laser_gts.exit201.i.i.i, %dissect_idn_laser_gts.exit199.i.i.i, %determine_color.exit.i.i.i, %dissect_idn_laser_gts.exit195.i.i.i, %dissect_idn_laser_gts.exit193.i.i.i, %dissect_idn_x_area.exit.i.i.i, %dissect_idn_laser_gts.exit191.i.i.i, %dissect_idn_laser_gts.exit190.i.i.i, %374, %366, %dissect_idn_laser_gts.exit.i.i.i, %340
-  %.2224.i.i.i = phi i32 [ %344, %340 ], [ %357, %dissect_idn_laser_gts.exit.i.i.i ], [ %370, %366 ], [ %378, %374 ], [ %386, %dissect_idn_laser_gts.exit190.i.i.i ], [ %401, %dissect_idn_laser_gts.exit191.i.i.i ], [ %416, %dissect_idn_x_area.exit.i.i.i ], [ %433, %dissect_idn_laser_gts.exit193.i.i.i ], [ %446, %dissect_idn_laser_gts.exit195.i.i.i ], [ %461, %determine_color.exit.i.i.i ], [ %479, %dissect_idn_laser_gts.exit205.i.i.i ], [ %479, %dissect_idn_laser_gts.exit203.i.i.i ], [ %479, %dissect_idn_laser_gts.exit201.i.i.i ], [ %479, %dissect_idn_laser_gts.exit199.i.i.i ], [ %525, %.loopexit.loopexit.i.i.i ]
-  %.2.i25.i.i = phi i32 [ %345, %340 ], [ %361, %dissect_idn_laser_gts.exit.i.i.i ], [ %371, %366 ], [ %379, %374 ], [ %390, %dissect_idn_laser_gts.exit190.i.i.i ], [ %405, %dissect_idn_laser_gts.exit191.i.i.i ], [ %.0.i.i.i.i, %dissect_idn_x_area.exit.i.i.i ], [ %437, %dissect_idn_laser_gts.exit193.i.i.i ], [ %450, %dissect_idn_laser_gts.exit195.i.i.i ], [ %465, %determine_color.exit.i.i.i ], [ %519, %dissect_idn_laser_gts.exit205.i.i.i ], [ %508, %dissect_idn_laser_gts.exit203.i.i.i ], [ %497, %dissect_idn_laser_gts.exit201.i.i.i ], [ %486, %dissect_idn_laser_gts.exit199.i.i.i ], [ %349, %.loopexit.loopexit.i.i.i ]
+  %.2224.i.i.i = phi i32 [ %344, %340 ], [ %357, %dissect_idn_laser_gts.exit.i.i.i ], [ %370, %366 ], [ %378, %374 ], [ %386, %dissect_idn_laser_gts.exit190.i.i.i ], [ %401, %dissect_idn_laser_gts.exit191.i.i.i ], [ %416, %dissect_idn_x_area.exit.i.i.i ], [ %433, %dissect_idn_laser_gts.exit193.i.i.i ], [ %446, %dissect_idn_laser_gts.exit195.i.i.i ], [ %461, %determine_color.exit.i.i.i ], [ %479, %dissect_idn_laser_gts.exit205.i.i.i ], [ %479, %dissect_idn_laser_gts.exit199.i.i.i ], [ %479, %dissect_idn_laser_gts.exit201.i.i.i ], [ %479, %dissect_idn_laser_gts.exit203.i.i.i ], [ %525, %.loopexit.loopexit.i.i.i ]
+  %.2.i25.i.i = phi i32 [ %345, %340 ], [ %361, %dissect_idn_laser_gts.exit.i.i.i ], [ %371, %366 ], [ %379, %374 ], [ %390, %dissect_idn_laser_gts.exit190.i.i.i ], [ %405, %dissect_idn_laser_gts.exit191.i.i.i ], [ %.0.i.i.i.i, %dissect_idn_x_area.exit.i.i.i ], [ %437, %dissect_idn_laser_gts.exit193.i.i.i ], [ %450, %dissect_idn_laser_gts.exit195.i.i.i ], [ %465, %determine_color.exit.i.i.i ], [ %519, %dissect_idn_laser_gts.exit205.i.i.i ], [ %486, %dissect_idn_laser_gts.exit199.i.i.i ], [ %497, %dissect_idn_laser_gts.exit201.i.i.i ], [ %508, %dissect_idn_laser_gts.exit203.i.i.i ], [ %349, %.loopexit.loopexit.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %526 = load i8, ptr %.077.i.i.i, align 8
   %527 = zext i8 %526 to i64
@@ -1594,8 +1594,8 @@ dissect_idn_channel_configuration.exit.thread79.i: ; preds = %dissect_idn_channe
   br label %dissect_idn_chunk_header.exit.i
 
 dissect_idn_chunk_header.exit.i:                  ; preds = %639, %623, %609, %599, %589, %579, %575
-  %655 = phi i32 [ %578, %575 ], [ %578, %639 ], [ %578, %623 ], [ %610, %609 ], [ %578, %599 ], [ %578, %589 ], [ %578, %579 ]
-  %.0.i58.i = phi i32 [ %.04884.i, %575 ], [ %654, %639 ], [ %638, %623 ], [ %622, %609 ], [ %608, %599 ], [ %598, %589 ], [ %588, %579 ]
+  %655 = phi i32 [ %578, %575 ], [ %578, %579 ], [ %578, %589 ], [ %578, %599 ], [ %610, %609 ], [ %578, %623 ], [ %578, %639 ]
+  %.0.i58.i = phi i32 [ %.04884.i, %575 ], [ %588, %579 ], [ %598, %589 ], [ %608, %599 ], [ %622, %609 ], [ %638, %623 ], [ %654, %639 ]
   %656 = getelementptr inbounds nuw i8, ptr %.07483.i, i64 1
   %657 = load i8, ptr %656, align 1
   %658 = zext i8 %657 to i32
@@ -2011,7 +2011,7 @@ dissect_idn_laser_data.exit.i:                    ; preds = %set_laser_sample_va
   br label %dissect_idn_servicemap_response.exit
 
 dissect_idn_servicemap_response.exit:             ; preds = %dissect_idn_dmx_sample_values.exit.i.i, %.lr.ph.i.i, %.lr.ph.i, %dissect_idn_laser_data.exit.i, %734, %715, %dissect_idn_octet_segment.exit.i, %659, %574, %572, %dissect_idn_channel_configuration.exit.i, %.thread.i.i, %534, %determine_message_type.exit.i, %51, %dissect_idn_header.exit, %885, %29
-  %.0 = phi i32 [ %.sink.i, %dissect_idn_header.exit ], [ %896, %885 ], [ %.sink.i, %29 ], [ %67, %51 ], [ %.04884.i, %572 ], [ %.0.i58.i, %659 ], [ %123, %determine_message_type.exit.i ], [ %.1.i.i, %dissect_idn_octet_segment.exit.i ], [ %.042.i.i, %dissect_idn_laser_data.exit.i ], [ %.048.i, %dissect_idn_channel_configuration.exit.i ], [ %.05465.i.i, %734 ], [ %.2104.i, %715 ], [ %123, %534 ], [ %123, %.thread.i.i ], [ %.04884.i, %574 ], [ %95, %.lr.ph.i ], [ %.05465.i.i, %.lr.ph.i.i ], [ %.1.i.i64.i, %dissect_idn_dmx_sample_values.exit.i.i ]
+  %.0 = phi i32 [ %.sink.i, %dissect_idn_header.exit ], [ %.sink.i, %29 ], [ %896, %885 ], [ %67, %51 ], [ %.04884.i, %572 ], [ %.0.i58.i, %659 ], [ %123, %determine_message_type.exit.i ], [ %.1.i.i, %dissect_idn_octet_segment.exit.i ], [ %.042.i.i, %dissect_idn_laser_data.exit.i ], [ %.048.i, %dissect_idn_channel_configuration.exit.i ], [ %.05465.i.i, %734 ], [ %.2104.i, %715 ], [ %123, %534 ], [ %123, %.thread.i.i ], [ %.04884.i, %574 ], [ %95, %.lr.ph.i ], [ %.05465.i.i, %.lr.ph.i.i ], [ %.1.i.i64.i, %dissect_idn_dmx_sample_values.exit.i.i ]
   ret i32 %.0
 }
 

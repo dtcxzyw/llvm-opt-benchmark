@@ -77,7 +77,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %39
 
 39:                                               ; preds = %36, %33, %26, %24
-  %.1.us = phi ptr [ %35, %33 ], [ %38, %36 ], [ %25, %24 ], [ %28, %26 ]
+  %.1.us = phi ptr [ %38, %36 ], [ %35, %33 ], [ %28, %26 ], [ %25, %24 ]
   %40 = add nuw i32 %.04144.us, 1
   %exitcond48.not = icmp eq i32 %40, %3
   br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !14
@@ -117,7 +117,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   unreachable
 
 55:                                               ; preds = %.lr.ph.split.split, %48, %50, %52
-  %.042 = phi nsz double [ %45, %.lr.ph.split.split ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
+  %.042 = phi nsz double [ %45, %.lr.ph.split.split ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   %56 = tail call nsz double @llvm.fmuladd.f64(double %.042, double %13, double %4)
   switch i32 %1, label %62 [
     i32 3, label %57
@@ -162,7 +162,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   unreachable
 
 72:                                               ; preds = %69, %66, %60, %57
-  %.1 = phi ptr [ %71, %69 ], [ %68, %66 ], [ %61, %60 ], [ %59, %57 ]
+  %.1 = phi ptr [ %68, %66 ], [ %71, %69 ], [ %59, %57 ], [ %61, %60 ]
   %73 = add nuw i32 %.04144, 1
   %exitcond.not = icmp eq i32 %73, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14

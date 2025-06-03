@@ -1530,7 +1530,7 @@ _ZL13gmx_snew_implI5mem_tEvPKcS2_iRPT_m.exit:     ; preds = %418
   br label %453
 
 453:                                              ; preds = %451, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %452, %451 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %452, %451 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val20.val.i.i.i = load ptr, ptr %39, align 8, !tbaa !52
   %454 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ11init_membedP8_IO_FILEiPK8t_filenmP10gmx_mtop_tP10t_inputrecP7t_stateP9t_commrecPfE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISP_SaISP_EEEEEEbT_"(ptr %.val20.val.i.i.i, ptr %.sroa.032.1.i.i.i)
           to label %.noexc244 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1543,7 +1543,7 @@ _ZL13gmx_snew_implI5mem_tEvPKcS2_iRPT_m.exit:     ; preds = %418
   br label %457
 
 457:                                              ; preds = %455, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %456, %455 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %456, %455 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val21.val.i.i.i = load ptr, ptr %39, align 8, !tbaa !52
   %458 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ11init_membedP8_IO_FILEiPK8t_filenmP10gmx_mtop_tP10t_inputrecP7t_stateP9t_commrecPfE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISP_SaISP_EEEEEEbT_"(ptr %.val21.val.i.i.i, ptr %.sroa.032.2.i.i.i)
           to label %.noexc245 unwind label %.loopexit.split-lp.loopexit.split-lp

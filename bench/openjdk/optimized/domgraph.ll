@@ -971,7 +971,7 @@ _ZNK5Block8get_nodeEj.exit22._crit_edge:          ; preds = %63, %_ZNK5Block8get
   unreachable
 
 68:                                               ; preds = %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit22._crit_edge, %_ZNK5Block8get_nodeEj.exit21
-  %.020 = phi i32 [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ %spec.store.select, %_ZNK5Block8get_nodeEj.exit22._crit_edge ], [ %55, %_ZNK5Block8get_nodeEj.exit21 ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ]
+  %.020 = phi i32 [ %55, %_ZNK5Block8get_nodeEj.exit21 ], [ %spec.store.select, %_ZNK5Block8get_nodeEj.exit22._crit_edge ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ], [ 0, %_ZNK5Block8get_nodeEj.exit ]
   ret i32 %.020
 }
 

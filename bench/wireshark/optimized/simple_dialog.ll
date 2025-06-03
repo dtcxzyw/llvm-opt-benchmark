@@ -375,7 +375,7 @@ _ZN7QStringD2Ev.exit7:                            ; preds = %_ZN7QStringD2Ev.exi
   br label %33
 
 33:                                               ; preds = %28, %29, %30, %31, %32, %_ZN7QStringD2Ev.exit7, %1
-  %.0 = phi i32 [ 0, %1 ], [ 2, %32 ], [ 64, %31 ], [ 32, %30 ], [ 8, %29 ], [ 4, %28 ], [ 1, %_ZN7QStringD2Ev.exit7 ]
+  %.0 = phi i32 [ 0, %1 ], [ 2, %32 ], [ 4, %28 ], [ 8, %29 ], [ 32, %30 ], [ 64, %31 ], [ 1, %_ZN7QStringD2Ev.exit7 ]
   ret i32 %.0
 }
 

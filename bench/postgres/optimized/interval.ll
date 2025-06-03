@@ -542,9 +542,9 @@ AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %
   br label %298
 
 298:                                              ; preds = %._crit_edge229, %292, %294, %296, %89, %98, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit202, %AdjustFractSeconds.exit203, %AdjustFractDays.exit, %AdjustFractDays.exit204, %231, %243, %257, %271, %120, %119, %45
-  %299 = phi i32 [ 7182, %296 ], [ 0, %294 ], [ 0, %292 ], [ %284, %271 ], [ %270, %257 ], [ %256, %243 ], [ %242, %231 ], [ 2, %AdjustFractDays.exit204 ], [ %204, %AdjustFractDays.exit ], [ %176, %AdjustFractSeconds.exit203 ], [ 1024, %AdjustFractSeconds.exit202 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %119 ], [ 28672, %120 ], [ 8192, %98 ], [ 16384, %89 ], [ 32, %45 ], [ %.pre, %._crit_edge229 ]
-  %.1169 = phi i32 [ 0, %296 ], [ %295, %294 ], [ %293, %292 ], [ 28, %271 ], [ 27, %257 ], [ 26, %243 ], [ 25, %231 ], [ 23, %AdjustFractDays.exit204 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit203 ], [ 21, %AdjustFractSeconds.exit202 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %119 ], [ 18, %120 ], [ 29, %98 ], [ 30, %89 ], [ 21, %45 ], [ 21, %._crit_edge229 ]
-  %.1164 = phi i1 [ %.0163226, %296 ], [ true, %294 ], [ %.0163226, %292 ], [ %.0163226, %271 ], [ %.0163226, %257 ], [ %.0163226, %243 ], [ %.0163226, %231 ], [ %.0163226, %AdjustFractDays.exit204 ], [ %.0163226, %AdjustFractDays.exit ], [ %.0163226, %AdjustFractSeconds.exit203 ], [ %.0163226, %AdjustFractSeconds.exit202 ], [ %.0163226, %AdjustFractSeconds.exit ], [ %.0163226, %119 ], [ %.0163226, %120 ], [ %.0163226, %98 ], [ %.0163226, %89 ], [ %.0163226, %45 ], [ %.0163226, %._crit_edge229 ]
+  %299 = phi i32 [ 32, %45 ], [ 16384, %89 ], [ 8192, %98 ], [ 4096, %119 ], [ 28672, %120 ], [ 2048, %AdjustFractSeconds.exit ], [ 1024, %AdjustFractSeconds.exit202 ], [ %176, %AdjustFractSeconds.exit203 ], [ %204, %AdjustFractDays.exit ], [ 2, %AdjustFractDays.exit204 ], [ %242, %231 ], [ %256, %243 ], [ %270, %257 ], [ %284, %271 ], [ 0, %292 ], [ 0, %294 ], [ 7182, %296 ], [ %.pre, %._crit_edge229 ]
+  %.1169 = phi i32 [ 21, %45 ], [ 30, %89 ], [ 29, %98 ], [ 18, %119 ], [ 18, %120 ], [ 19, %AdjustFractSeconds.exit ], [ 21, %AdjustFractSeconds.exit202 ], [ 21, %AdjustFractSeconds.exit203 ], [ 22, %AdjustFractDays.exit ], [ 23, %AdjustFractDays.exit204 ], [ 25, %231 ], [ 26, %243 ], [ 27, %257 ], [ 28, %271 ], [ %293, %292 ], [ %295, %294 ], [ 0, %296 ], [ 21, %._crit_edge229 ]
+  %.1164 = phi i1 [ %.0163226, %45 ], [ %.0163226, %89 ], [ %.0163226, %98 ], [ %.0163226, %119 ], [ %.0163226, %120 ], [ %.0163226, %AdjustFractSeconds.exit ], [ %.0163226, %AdjustFractSeconds.exit202 ], [ %.0163226, %AdjustFractSeconds.exit203 ], [ %.0163226, %AdjustFractDays.exit ], [ %.0163226, %AdjustFractDays.exit204 ], [ %.0163226, %231 ], [ %.0163226, %243 ], [ %.0163226, %257 ], [ %.0163226, %271 ], [ %.0163226, %292 ], [ true, %294 ], [ %.0163226, %296 ], [ %.0163226, %._crit_edge229 ]
   %300 = and i32 %299, %.0174223
   %.not201 = icmp eq i32 %300, 0
   br i1 %.not201, label %301, label %.thread
@@ -554,9 +554,9 @@ AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %
   br label %303
 
 303:                                              ; preds = %285, %301
-  %.1175 = phi i32 [ %.0174223, %285 ], [ %302, %301 ]
-  %.5173 = phi i32 [ 8, %285 ], [ %.1169, %301 ]
-  %.2165 = phi i1 [ %.0163226, %285 ], [ %.1164, %301 ]
+  %.1175 = phi i32 [ %302, %301 ], [ %.0174223, %285 ]
+  %.5173 = phi i32 [ %.1169, %301 ], [ 8, %285 ]
+  %.2165 = phi i1 [ %.1164, %301 ], [ %.0163226, %285 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %304 = icmp sgt i64 %indvars.iv, 0
   br i1 %304, label %17, label %._crit_edge, !llvm.loop !3

@@ -1757,7 +1757,7 @@ _ZNK3smt6clause17get_justificationEv.exit:        ; preds = %._crit_edge
   br label %_ZNK3smt6clause17get_justificationEv.exit.thread
 
 _ZNK3smt6clause17get_justificationEv.exit.thread: ; preds = %._crit_edge, %_ZNK3smt6clause17get_justificationEv.exit, %71, %87, %83, %73, %16
-  %.155 = phi i32 [ %.054, %87 ], [ %.sroa.speculated, %83 ], [ %.054, %16 ], [ %.sroa.speculated21, %73 ], [ %.3.lcssa, %_ZNK3smt6clause17get_justificationEv.exit ], [ %.sroa.speculated25, %71 ], [ %.3.lcssa, %._crit_edge ]
+  %.155 = phi i32 [ %.054, %87 ], [ %.3.lcssa, %_ZNK3smt6clause17get_justificationEv.exit ], [ %.sroa.speculated25, %71 ], [ %.sroa.speculated21, %73 ], [ %.054, %16 ], [ %.sroa.speculated, %83 ], [ %.3.lcssa, %._crit_edge ]
   ret i32 %.155
 }
 
@@ -6640,7 +6640,7 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit148:           ; preds = %259, %263
   br label %269
 
 269:                                              ; preds = %268, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit148, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit, %23, %18, %11
-  %.0 = phi ptr [ null, %268 ], [ %.1, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit ], [ %.2, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit148 ], [ %27, %23 ], [ %22, %18 ], [ %17, %11 ]
+  %.0 = phi ptr [ null, %268 ], [ %17, %11 ], [ %22, %18 ], [ %27, %23 ], [ %.1, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit ], [ %.2, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit148 ]
   ret ptr %.0
 
 270:                                              ; preds = %267, %186

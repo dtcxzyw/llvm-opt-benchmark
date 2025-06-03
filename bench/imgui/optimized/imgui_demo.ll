@@ -29963,7 +29963,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_16MyItem20CompareWithSortSpecsEPKvS
   br label %30
 
 30:                                               ; preds = %26, %22, %18, %14
-  %.0 = phi i32 [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.0 = phi i32 [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ]
   %31 = icmp sgt i32 %.0, 0
   br i1 %31, label %32, label %37
 

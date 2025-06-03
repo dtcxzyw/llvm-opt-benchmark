@@ -309,7 +309,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   resume { ptr, i32 } %.pn59.i
 
 .thread.i:                                        ; preds = %66, %37, %.thread15.i
-  %.pn510.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread15.i ], [ %38, %37 ], [ %67, %66 ]
+  %.pn510.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread15.i ], [ %67, %66 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$GT$17h01cd028ade5a2aa9E"(ptr nonnull align 8 %19) #9
           to label %.thread11.i unwind label %42, !noalias !4
 

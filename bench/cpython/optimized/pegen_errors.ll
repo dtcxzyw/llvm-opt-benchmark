@@ -336,9 +336,9 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   br label %53
 
 53:                                               ; preds = %3, %52, %42, %40, %38
-  %.016 = phi ptr [ @.str.8, %52 ], [ @.str.6, %42 ], [ @.str.5, %40 ], [ @.str.4, %38 ], [ @.str.1, %3 ]
-  %.015 = phi ptr [ %4, %52 ], [ %4, %42 ], [ %41, %40 ], [ %39, %38 ], [ %4, %3 ]
-  %.0 = phi i64 [ -1, %52 ], [ %49, %42 ], [ -1, %40 ], [ -1, %38 ], [ -1, %3 ]
+  %.016 = phi ptr [ @.str.8, %52 ], [ @.str.4, %38 ], [ @.str.5, %40 ], [ @.str.6, %42 ], [ @.str.1, %3 ]
+  %.015 = phi ptr [ %4, %52 ], [ %39, %38 ], [ %41, %40 ], [ %4, %42 ], [ %4, %3 ]
+  %.0 = phi i64 [ -1, %52 ], [ -1, %38 ], [ -1, %40 ], [ %49, %42 ], [ -1, %3 ]
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 512
   %55 = load i32, ptr %54, align 8, !tbaa !28
   %56 = sext i32 %55 to i64

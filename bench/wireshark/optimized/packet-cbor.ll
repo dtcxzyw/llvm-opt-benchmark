@@ -1352,7 +1352,7 @@ default.unreachable:                              ; preds = %20
   unreachable
 
 dissect_cbor_negative_integer.exit:               ; preds = %120, %116, %dissect_cbor_float_simple_data.exit, %dissect_cbor_tag.exit, %dissect_cbor_map.exit, %dissect_cbor_array.exit, %124, %122, %dissect_cbor_unsigned_integer.exit
-  %.0.in = phi i1 [ %.0.i132, %dissect_cbor_float_simple_data.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i59, %dissect_cbor_array.exit ], [ %125, %124 ], [ %123, %122 ], [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ false, %116 ], [ true, %120 ]
+  %.0.in = phi i1 [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ %123, %122 ], [ %125, %124 ], [ %.0.i59, %dissect_cbor_array.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ %.0.i132, %dissect_cbor_float_simple_data.exit ], [ false, %116 ], [ true, %120 ]
   %382 = load i32, ptr @proto_cbor, align 4
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %382, i32 noundef %15)
   br label %383

@@ -927,7 +927,7 @@ default.unreachable36:                            ; preds = %27
   br label %83
 
 83:                                               ; preds = %27, %64, %82
-  %.016 = phi i1 [ true, %27 ], [ true, %82 ], [ false, %64 ]
+  %.016 = phi i1 [ false, %64 ], [ true, %82 ], [ true, %27 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %19, ptr %5, align 8
@@ -6053,7 +6053,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 

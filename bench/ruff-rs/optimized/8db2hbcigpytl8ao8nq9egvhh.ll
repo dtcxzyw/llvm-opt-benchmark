@@ -19306,7 +19306,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9c9e04f4c9de27ccE(pt
           to label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$lsp_types..DocumentChanges$GT$$GT$17h7db50b9fdb2da8cfE.exit.i" unwind label %42, !noalias !3992
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$lsp_types..DocumentChanges$GT$$GT$17h7db50b9fdb2da8cfE.exit.i": ; preds = %44, %53, %63, %62, %60
-  %.sroa.9.0 = phi ptr [ %.sink101.i, %63 ], [ %.sink101.i, %62 ], [ %.sink101.i, %60 ], [ %37, %44 ], [ %54, %53 ]
+  %.sroa.9.0 = phi ptr [ %.sink101.i, %63 ], [ %.sink101.i, %60 ], [ %.sink101.i, %62 ], [ %37, %44 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !3992
   %64 = load ptr, ptr %10, align 8, !alias.scope !4061, !noalias !3992, !noundef !3
   %65 = icmp eq ptr %64, null

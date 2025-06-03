@@ -829,7 +829,7 @@ _ZL13shrinkbuffersP9lua_State.exit:               ; preds = %287, %305
   br label %307
 
 307:                                              ; preds = %2, %._crit_edge, %_ZL13shrinkbuffersP9lua_State.exit, %._crit_edge60, %42, %._crit_edge65, %33, %_ZL6atomicP9lua_State.exit, %26
-  %.0 = phi i64 [ 0, %2 ], [ %.3.lcssa, %_ZL13shrinkbuffersP9lua_State.exit ], [ %.3.lcssa, %._crit_edge ], [ %226, %_ZL6atomicP9lua_State.exit ], [ %.2.lcssa, %._crit_edge60 ], [ %.2.lcssa, %42 ], [ %.1.lcssa, %._crit_edge65 ], [ %.1.lcssa, %33 ], [ 0, %26 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %26 ], [ %.1.lcssa, %._crit_edge65 ], [ %.1.lcssa, %33 ], [ %.2.lcssa, %._crit_edge60 ], [ %.2.lcssa, %42 ], [ %226, %_ZL6atomicP9lua_State.exit ], [ %.3.lcssa, %_ZL13shrinkbuffersP9lua_State.exit ], [ %.3.lcssa, %._crit_edge ]
   ret i64 %.0
 }
 
@@ -2220,7 +2220,7 @@ _ZL13traverseprotoP12global_StateP5Proto.exit:    ; preds = %409, %.preheader.i6
   br label %434
 
 434:                                              ; preds = %1, %237, %239, %_ZL13traverseprotoP12global_StateP5Proto.exit, %_ZL11shrinkstackP9lua_State.exit, %162
-  %.0 = phi i64 [ %433, %_ZL13traverseprotoP12global_StateP5Proto.exit ], [ %326, %_ZL11shrinkstackP9lua_State.exit ], [ %174, %162 ], [ %238, %237 ], [ %240, %239 ], [ 0, %1 ]
+  %.0 = phi i64 [ %174, %162 ], [ %326, %_ZL11shrinkstackP9lua_State.exit ], [ %433, %_ZL13traverseprotoP12global_StateP5Proto.exit ], [ %238, %237 ], [ %240, %239 ], [ 0, %1 ]
   ret i64 %.0
 }
 

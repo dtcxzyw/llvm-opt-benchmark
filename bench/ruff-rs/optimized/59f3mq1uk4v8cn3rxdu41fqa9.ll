@@ -8767,7 +8767,7 @@ common.resume.sink.split:                         ; preds = %9, %16, %35
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %29, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ], [ %30, %29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ], [ %45, %44 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6

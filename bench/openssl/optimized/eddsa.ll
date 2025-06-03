@@ -258,7 +258,7 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   br label %54
 
 54:                                               ; preds = %.thread64, %40, %.thread, %52
-  %.039 = phi i32 [ 0, %40 ], [ -1, %52 ], [ 0, %.thread ], [ 0, %.thread64 ]
+  %.039 = phi i32 [ -1, %52 ], [ 0, %40 ], [ 0, %.thread ], [ 0, %.thread64 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %20) #5
   br label %55
 

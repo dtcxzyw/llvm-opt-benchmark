@@ -1133,7 +1133,7 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   br label %120
 
 120:                                              ; preds = %113, %59, %114, %53, %8, %.critedge, %110, %104, %91, %70
-  %.0 = phi i32 [ 0, %110 ], [ -2, %104 ], [ -2, %91 ], [ -2, %70 ], [ -2, %.critedge ], [ -2, %8 ], [ -2, %53 ], [ -2, %114 ], [ 1, %59 ], [ 1, %113 ]
+  %.0 = phi i32 [ -2, %70 ], [ 0, %110 ], [ -2, %104 ], [ -2, %91 ], [ -2, %.critedge ], [ -2, %8 ], [ -2, %53 ], [ -2, %114 ], [ 1, %59 ], [ 1, %113 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.0
 }

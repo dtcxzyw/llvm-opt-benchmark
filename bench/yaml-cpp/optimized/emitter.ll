@@ -3095,7 +3095,7 @@ define noundef nonnull ptr @_ZNK4YAML7Emitter19ComputeFullBoolNameEb(ptr noundef
   br label %37
 
 37:                                               ; preds = %36, %34, %32, %30, %27, %25, %23, %20, %18, %16
-  %.0 = phi ptr [ %.str.35..str.36, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0 = phi ptr [ %.str.35..str.36, %36 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   ret ptr %.0
 }
 
@@ -3216,7 +3216,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteEb
   br label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
 
 _ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit:    ; preds = %23, %25, %27, %43
-  %.0.i = phi ptr [ %.str.35..str.36.i, %43 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ]
+  %.0.i = phi ptr [ %.str.35..str.36.i, %43 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   br i1 %13, label %44, label %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit.thread
 
 44:                                               ; preds = %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
@@ -3229,7 +3229,7 @@ _ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit:    ; preds = %23, %25, %27, %43
   br label %72
 
 _ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit.thread: ; preds = %41, %39, %37, %34, %32, %30, %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit
-  %.0.i14 = phi ptr [ %.0.i, %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ]
+  %.0.i14 = phi ptr [ %.0.i, %_ZNK4YAML7Emitter19ComputeFullBoolNameEb.exit ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %47, ptr %5, align 8, !tbaa !44

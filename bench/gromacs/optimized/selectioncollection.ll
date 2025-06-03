@@ -1410,8 +1410,8 @@ define range(i16 0, 258) i16 @_ZN3gmx19SelectionCollection4Impl41requiredTopolog
   br label %11
 
 11:                                               ; preds = %6, %9, %10, %2
-  %.sroa.05.0 = phi i16 [ 0, %2 ], [ 0, %6 ], [ 1, %9 ], [ 1, %10 ]
-  %.sroa.6.0 = phi i16 [ 0, %2 ], [ 0, %6 ], [ 0, %9 ], [ 256, %10 ]
+  %.sroa.05.0 = phi i16 [ 0, %2 ], [ 0, %6 ], [ 1, %10 ], [ 1, %9 ]
+  %.sroa.6.0 = phi i16 [ 0, %2 ], [ 0, %6 ], [ 256, %10 ], [ 0, %9 ]
   %.sroa.05.0.insert.insert = or disjoint i16 %.sroa.6.0, %.sroa.05.0
   ret i16 %.sroa.05.0.insert.insert
 }
@@ -4265,8 +4265,8 @@ define i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr noun
   br label %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
 
 _ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %1, %7, %11, %12
-  %.sroa.05.0.i = phi i1 [ false, %1 ], [ false, %7 ], [ true, %11 ], [ true, %12 ]
-  %.sroa.6.0.i = phi i1 [ false, %1 ], [ false, %7 ], [ false, %11 ], [ true, %12 ]
+  %.sroa.05.0.i = phi i1 [ false, %1 ], [ false, %7 ], [ true, %12 ], [ true, %11 ]
+  %.sroa.6.0.i = phi i1 [ false, %1 ], [ false, %7 ], [ true, %12 ], [ false, %11 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !115
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !112
@@ -4310,8 +4310,8 @@ _ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit: ; preds = %.lr.ph
   br label %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit6
 
 _ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit6: ; preds = %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit, %26, %30, %31
-  %.sroa.05.0.i3 = phi i8 [ 0, %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit ], [ 0, %26 ], [ 1, %30 ], [ 1, %31 ]
-  %.sroa.6.0.i4 = phi i8 [ 0, %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit ], [ 0, %26 ], [ 0, %30 ], [ 1, %31 ]
+  %.sroa.05.0.i3 = phi i8 [ 0, %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit ], [ 0, %26 ], [ 1, %31 ], [ 1, %30 ]
+  %.sroa.6.0.i4 = phi i8 [ 0, %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit ], [ 0, %26 ], [ 1, %31 ], [ 0, %30 ]
   %spec.select.i7 = select i1 %.sroa.05.0.i, i8 1, i8 %.sroa.05.0.i3
   %32 = select i1 %.sroa.6.0.i, i8 1, i8 %.sroa.6.0.i4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #32
@@ -8753,7 +8753,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49.i.i.i: ; preds = %58
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i
-  %.sroa.074.1.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %62, %61 ]
+  %.sroa.074.1.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.074.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val2.i53.i.i.i = load ptr, ptr %.sroa.074.1.i.i.i, align 8, !tbaa !73
   %.val2.val.i54.i.i.i = load ptr, ptr %.val2.i53.i.i.i, align 8, !tbaa !67
   %64 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val2.val.i54.i.i.i) #32
@@ -8774,7 +8774,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i55.i.i.i: ; preds = %66
   br label %71
 
 71:                                               ; preds = %69, %._crit_edge.i.i.i
-  %.sroa.074.2.i.i.i = phi ptr [ %.sroa.074.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
+  %.sroa.074.2.i.i.i = phi ptr [ %70, %69 ], [ %.sroa.074.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val2.i59.i.i.i = load ptr, ptr %.sroa.074.2.i.i.i, align 8, !tbaa !73
   %.val2.val.i60.i.i.i = load ptr, ptr %.val2.i59.i.i.i, align 8, !tbaa !67
   %72 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val2.val.i60.i.i.i) #32

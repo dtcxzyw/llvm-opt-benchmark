@@ -5150,7 +5150,7 @@ default.unreachable30:                            ; preds = %24
   unreachable
 
 104:                                              ; preds = %get_transaction_apply_action.exit, %100, %86, %81, %subxact_info_add.exit
-  %.0 = phi i1 [ false, %100 ], [ %99, %86 ], [ %84, %81 ], [ true, %subxact_info_add.exit ], [ false, %get_transaction_apply_action.exit ]
+  %.0 = phi i1 [ true, %subxact_info_add.exit ], [ %84, %81 ], [ %99, %86 ], [ false, %100 ], [ false, %get_transaction_apply_action.exit ]
   ret i1 %.0
 }
 
@@ -5227,7 +5227,7 @@ define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef read
   unreachable
 
 34:                                               ; preds = %1, %26, %.fold.split, %23, %21, %4
-  %.0 = phi i1 [ %22, %21 ], [ %9, %4 ], [ true, %23 ], [ %30, %26 ], [ false, %.fold.split ], [ false, %1 ]
+  %.0 = phi i1 [ %9, %4 ], [ %22, %21 ], [ true, %23 ], [ %30, %26 ], [ false, %.fold.split ], [ false, %1 ]
   ret i1 %.0
 }
 

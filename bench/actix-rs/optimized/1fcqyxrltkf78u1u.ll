@@ -2217,7 +2217,7 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i99: ; preds = %"_
   br label %111
 
 108:                                              ; preds = %204, %.thread228, %109
-  %.pn76.pn.pn = phi { ptr, i32 } [ %.pn76.pn, %.thread228 ], [ %206, %204 ], [ %110, %109 ]
+  %.pn79.pn = phi { ptr, i32 } [ %206, %204 ], [ %110, %109 ], [ %.pn76.pn, %.thread228 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7952e7ce6e8dc6abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55) #27
           to label %427 unwind label %250
 
@@ -3312,7 +3312,7 @@ _ZN3std4path4Path4join17h79664bdffe1fd1b3E.exit:  ; preds = %278
           to label %.thread228 unwind label %250
 
 427:                                              ; preds = %428, %108
-  %.pn86 = phi { ptr, i32 } [ %429, %428 ], [ %.pn76.pn.pn, %108 ]
+  %.pn86 = phi { ptr, i32 } [ %429, %428 ], [ %.pn79.pn, %108 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7952e7ce6e8dc6abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #27
           to label %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit" unwind label %250
 

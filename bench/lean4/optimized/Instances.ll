@@ -296,7 +296,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   br label %28
 
 28:                                               ; preds = %26, %.thread
-  %.1 = phi ptr [ %.0.i.i, %26 ], [ %27, %.thread ]
+  %.1 = phi ptr [ %27, %.thread ], [ %.0.i.i, %26 ]
   ret ptr %.1
 }
 
@@ -9794,7 +9794,7 @@ lean_ensure_exclusive_array.exit.i.i423:          ; preds = %169, %167
   br label %lean_array_set.exit427
 
 lean_array_set.exit427:                           ; preds = %183, %.thread.i420
-  %.1.i421 = phi ptr [ %.0.i.i.i424, %183 ], [ %184, %.thread.i420 ]
+  %.1.i421 = phi ptr [ %184, %.thread.i420 ], [ %.0.i.i.i424, %183 ]
   %185 = lshr i64 %1, 5
   %186 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_addInstanceEntry___spec__19(ptr noundef %163, i64 noundef %185, ptr noundef %2)
   %187 = ptrtoint ptr %186 to i64
@@ -10108,7 +10108,7 @@ lean_ensure_exclusive_array.exit.i.i452:          ; preds = %285, %283
   br label %lean_array_set.exit456
 
 lean_array_set.exit456:                           ; preds = %299, %.thread.i449
-  %.1.i450 = phi ptr [ %.0.i.i.i453, %299 ], [ %300, %.thread.i449 ]
+  %.1.i450 = phi ptr [ %300, %.thread.i449 ], [ %.0.i.i.i453, %299 ]
   %301 = lshr i64 %1, 5
   %302 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_addInstanceEntry___spec__19(ptr noundef %163, i64 noundef %301, ptr noundef %2)
   %303 = ptrtoint ptr %302 to i64
@@ -10483,7 +10483,7 @@ lean_ensure_exclusive_array.exit.i.i483:          ; preds = %423, %421
   br label %lean_array_set.exit487
 
 lean_array_set.exit487:                           ; preds = %437, %.thread.i480
-  %.1.i481 = phi ptr [ %.0.i.i.i484, %437 ], [ %438, %.thread.i480 ]
+  %.1.i481 = phi ptr [ %438, %.thread.i480 ], [ %.0.i.i.i484, %437 ]
   %439 = lshr i64 %1, 5
   %440 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_addInstanceEntry___spec__19(ptr noundef %392, i64 noundef %439, ptr noundef %2)
   %441 = ptrtoint ptr %440 to i64
@@ -13204,7 +13204,7 @@ lean_ensure_exclusive_array.exit.i.i423:          ; preds = %169, %167
   br label %lean_array_set.exit427
 
 lean_array_set.exit427:                           ; preds = %183, %.thread.i420
-  %.1.i421 = phi ptr [ %.0.i.i.i424, %183 ], [ %184, %.thread.i420 ]
+  %.1.i421 = phi ptr [ %184, %.thread.i420 ], [ %.0.i.i.i424, %183 ]
   %185 = lshr i64 %1, 5
   %186 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Instances_eraseCore___spec__2(ptr noundef %163, i64 noundef %185, ptr noundef %2)
   %187 = ptrtoint ptr %186 to i64
@@ -13518,7 +13518,7 @@ lean_ensure_exclusive_array.exit.i.i452:          ; preds = %285, %283
   br label %lean_array_set.exit456
 
 lean_array_set.exit456:                           ; preds = %299, %.thread.i449
-  %.1.i450 = phi ptr [ %.0.i.i.i453, %299 ], [ %300, %.thread.i449 ]
+  %.1.i450 = phi ptr [ %300, %.thread.i449 ], [ %.0.i.i.i453, %299 ]
   %301 = lshr i64 %1, 5
   %302 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Instances_eraseCore___spec__2(ptr noundef %163, i64 noundef %301, ptr noundef %2)
   %303 = ptrtoint ptr %302 to i64
@@ -13893,7 +13893,7 @@ lean_ensure_exclusive_array.exit.i.i483:          ; preds = %423, %421
   br label %lean_array_set.exit487
 
 lean_array_set.exit487:                           ; preds = %437, %.thread.i480
-  %.1.i481 = phi ptr [ %.0.i.i.i484, %437 ], [ %438, %.thread.i480 ]
+  %.1.i481 = phi ptr [ %438, %.thread.i480 ], [ %.0.i.i.i484, %437 ]
   %439 = lshr i64 %1, 5
   %440 = tail call ptr @l_Lean_PersistentHashMap_eraseAux___at_Lean_Meta_Instances_eraseCore___spec__2(ptr noundef %392, i64 noundef %439, ptr noundef %2)
   %441 = ptrtoint ptr %440 to i64

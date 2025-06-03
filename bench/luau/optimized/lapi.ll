@@ -2070,7 +2070,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   br label %38
 
 38:                                               ; preds = %_ZL10index2addrP9lua_Statei.exit, %35, %31, %27, %23
-  %.0 = phi i32 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ 0, %_ZL10index2addrP9lua_Statei.exit ]
+  %.0 = phi i32 [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %_ZL10index2addrP9lua_Statei.exit ]
   ret i32 %.0
 }
 
@@ -2610,7 +2610,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %4, %14, %19
   br label %32
 
 32:                                               ; preds = %30, %28, %26, %23
-  %.0 = phi ptr [ %27, %26 ], [ %25, %23 ], [ %31, %30 ], [ null, %28 ]
+  %.0 = phi ptr [ %25, %23 ], [ %27, %26 ], [ %31, %30 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -3570,7 +3570,7 @@ _ZL10index2addrP9lua_Statei.exit:                 ; preds = %10, %20, %25
   br label %41
 
 41:                                               ; preds = %35, %32, %29
-  %.0.in = phi ptr [ %40, %35 ], [ %34, %32 ], [ %31, %29 ]
+  %.0.in = phi ptr [ %40, %35 ], [ %31, %29 ], [ %34, %32 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !74
   %42 = icmp ne ptr %.0, null
   br i1 %42, label %43, label %49
@@ -4581,7 +4581,7 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %3, %._crit_edge65, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
-  %.0 = phi i32 [ %67, %64 ], [ %63, %61 ], [ %60, %58 ], [ %27, %23 ], [ %22, %18 ], [ %17, %13 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 0, %54 ], [ 0, %._crit_edge65 ], [ -1, %3 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %60, %58 ], [ %63, %61 ], [ %67, %64 ], [ 0, %54 ], [ 0, %._crit_edge65 ], [ -1, %3 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -6026,7 +6026,7 @@ _ZL10getcurrenvP9lua_State.exit:                  ; preds = %16, %18
   br label %50
 
 50:                                               ; preds = %35, %26, %_ZL10getcurrenvP9lua_State.exit, %3
-  %.0 = phi ptr [ %49, %35 ], [ %34, %26 ], [ %25, %_ZL10getcurrenvP9lua_State.exit ], [ %6, %3 ]
+  %.0 = phi ptr [ %49, %35 ], [ %6, %3 ], [ %25, %_ZL10getcurrenvP9lua_State.exit ], [ %34, %26 ]
   ret ptr %.0
 }
 

@@ -7948,7 +7948,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -7995,7 +7995,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -29361,7 +29361,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hb25137bb550d0919E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hb25137bb550d0919E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h717b62b60cb710e4E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h209a142840838d26E.exit"
 
@@ -32112,8 +32112,8 @@ define { i16, i16 } @_ZN11polars_time12chunkedarray6string8strptime7fmt_len17hf5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %6, %8, %2, %30, %24, %18, %23, %29, %35
-  %.sroa.10.0 = phi i16 [ undef, %35 ], [ undef, %29 ], [ undef, %23 ], [ %19, %18 ], [ %25, %24 ], [ %31, %30 ], [ 0, %2 ], [ %16, %15 ], [ undef, %6 ], [ undef, %8 ]
-  %.sroa.0.0 = phi i16 [ 0, %35 ], [ 0, %29 ], [ 0, %23 ], [ 1, %18 ], [ 1, %24 ], [ 1, %30 ], [ 1, %2 ], [ 1, %15 ], [ 0, %6 ], [ 0, %8 ]
+  %.sroa.10.0 = phi i16 [ undef, %23 ], [ undef, %29 ], [ undef, %35 ], [ %19, %18 ], [ %25, %24 ], [ %31, %30 ], [ 0, %2 ], [ %16, %15 ], [ undef, %6 ], [ undef, %8 ]
+  %.sroa.0.0 = phi i16 [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 1, %18 ], [ 1, %24 ], [ 1, %30 ], [ 1, %2 ], [ 1, %15 ], [ 0, %6 ], [ 0, %8 ]
   %36 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %37 = insertvalue { i16, i16 } %36, i16 %.sroa.10.0, 1
   ret { i16, i16 } %37

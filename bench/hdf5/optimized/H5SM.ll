@@ -4866,7 +4866,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__delete_index(ptr noundef %0, 
   br label %63
 
 63:                                               ; preds = %35, %3, %60, %55, %41
-  %.023 = phi i32 [ -1, %35 ], [ -1, %55 ], [ 0, %60 ], [ -1, %41 ], [ 0, %3 ]
+  %.023 = phi i32 [ -1, %55 ], [ 0, %60 ], [ -1, %35 ], [ -1, %41 ], [ 0, %3 ]
   ret i32 %.023
 }
 

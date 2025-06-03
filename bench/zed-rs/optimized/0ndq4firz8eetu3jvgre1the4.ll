@@ -5996,8 +5996,8 @@ _ZN4gpui7element7Element8into_any17hf57f96a82a23438eE.exit.i.i: ; preds = %580
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17he1249b670b179f69E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %77) #33
           to label %.thread99 unwind label %275
 
-.thread99:                                        ; preds = %285, %266, %615, %269, %.thread102
-  %.pn98 = phi { ptr, i32 } [ %264, %.thread102 ], [ %270, %269 ], [ %267, %266 ], [ %286, %285 ], [ %616, %615 ]
+.thread99:                                        ; preds = %285, %615, %266, %269, %.thread102
+  %.pn98 = phi { ptr, i32 } [ %264, %.thread102 ], [ %270, %269 ], [ %286, %285 ], [ %616, %615 ], [ %267, %266 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17he1249b670b179f69E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %105) #33
           to label %common.resume unwind label %275
 

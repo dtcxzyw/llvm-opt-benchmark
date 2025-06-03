@@ -437,17 +437,17 @@ common.resume:                                    ; preds = %59, %61, %30, %26
   store i16 1, ptr %0, align 8
   br label %573
 
-41:                                               ; preds = %3, %34, %19
-  %.sroa.17.sroa.7.0.ph = phi i32 [ %.sroa.9.sroa.4.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.8.0.ph = phi i32 [ %.sroa.9.sroa.5.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.9.0.ph = phi i32 [ %.sroa.9.sroa.6.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.10.0.ph = phi i32 [ %.sroa.9.sroa.7.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.11.0.ph = phi i16 [ %.sroa.9.sroa.8.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.12.0.ph = phi i16 [ %.sroa.9.sroa.9.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.13.0.ph = phi i8 [ %.sroa.9.sroa.10.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.14.0.ph = phi i32 [ %.sroa.763.0.copyload, %19 ], [ %37, %34 ], [ %.sroa.763.0.copyload, %3 ]
-  %.sroa.8.0.ph = phi i64 [ %.sroa.4.0.copyload, %19 ], [ %35, %34 ], [ %.sroa.4.0.copyload, %3 ]
-  %.sroa.0.0.ph = phi i1 [ false, %19 ], [ true, %34 ], [ true, %3 ]
+41:                                               ; preds = %3, %19, %34
+  %.sroa.17.sroa.7.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.4.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.8.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.5.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.9.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.6.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.10.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.7.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.11.0.ph = phi i16 [ undef, %34 ], [ %.sroa.9.sroa.8.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.12.0.ph = phi i16 [ undef, %34 ], [ %.sroa.9.sroa.9.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.13.0.ph = phi i8 [ undef, %34 ], [ %.sroa.9.sroa.10.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.14.0.ph = phi i32 [ %37, %34 ], [ %.sroa.763.0.copyload, %19 ], [ %.sroa.763.0.copyload, %3 ]
+  %.sroa.8.0.ph = phi i64 [ %35, %34 ], [ %.sroa.4.0.copyload, %19 ], [ %.sroa.4.0.copyload, %3 ]
+  %.sroa.0.0.ph = phi i1 [ true, %34 ], [ false, %19 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %.sroa.0.0.ph, label %42, label %191
 
@@ -6509,7 +6509,7 @@ define void @_ZN4jiff3fmt4util27fractional_time_to_duration17hc4443dbd29aa99b9E(
   br label %"_ZN4core3num21_$LT$impl$u20$i64$GT$10div_euclid17h099d63ca55c3cd27E.exit"
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$10div_euclid17h099d63ca55c3cd27E.exit": ; preds = %57, %55, %49, %43, %41, %35, %23, %20, %3
-  %.sroa.05.0 = phi i64 [ %8, %3 ], [ %25, %23 ], [ %22, %20 ], [ %44, %43 ], [ %42, %41 ], [ %36, %35 ], [ %58, %57 ], [ %56, %55 ], [ %50, %49 ]
+  %.sroa.05.0 = phi i64 [ %22, %20 ], [ %25, %23 ], [ %8, %3 ], [ %44, %43 ], [ %42, %41 ], [ %36, %35 ], [ %58, %57 ], [ %56, %55 ], [ %50, %49 ]
   %26 = sdiv i64 %.sroa.05.0, 1000000000
   %27 = srem i64 %.sroa.05.0, 1000000000
   %28 = trunc nsw i64 %27 to i32

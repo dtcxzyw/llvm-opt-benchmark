@@ -5940,7 +5940,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hddd31ebb0c5a042aE.exit: ; preds = %"_Z
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i: ; preds = %121, %116, %113, %110
-  %.sroa.0.0.i3.i.i = phi i8 [ %115, %113 ], [ %126, %121 ], [ %112, %110 ], [ %120, %116 ]
+  %.sroa.0.0.i3.i.i = phi i8 [ %120, %116 ], [ %112, %110 ], [ %126, %121 ], [ %115, %113 ]
   %127 = trunc i8 %.sroa.0.0.i3.i.i to i1
   %128 = icmp ne ptr %.sroa.0.15.ph.i.i, %65
   %or.cond21.not.i.i = select i1 %127, i1 %128, i1 false

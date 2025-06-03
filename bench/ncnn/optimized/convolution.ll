@@ -2083,7 +2083,7 @@ _ZN4ncnn3MatD2Ev.exit38:                          ; preds = %669, %_ZN4ncnn3MatD
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit25, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit35, %_ZNK4ncnn3Mat5emptyEv.exit172, %_ZNK4ncnn3Mat5emptyEv.exit, %2, %.thread.thread
-  %.012 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit35 ], [ 0, %.thread.thread ], [ 0, %2 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit172 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit25 ]
+  %.012 = phi i32 [ 0, %.thread.thread ], [ -100, %_ZN4ncnn3MatD2Ev.exit35 ], [ 0, %2 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit172 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit25 ]
   ret i32 %.012
 
 685:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit38, %_ZN4ncnn3MatD2Ev.exit32, %_ZN4ncnn3MatD2Ev.exit30, %_ZN4ncnn3MatD2Ev.exit29, %_ZN4ncnn3MatD2Ev.exit26, %_ZN4ncnn3MatD2Ev.exit24
@@ -3399,7 +3399,7 @@ _ZN4ncnn3MatD2Ev.exit76:                          ; preds = %454, %452, %460, %4
   br label %470
 
 469:                                              ; preds = %365, %_ZN4ncnn3MatD2Ev.exit75, %15
-  %.0 = phi i32 [ %16, %15 ], [ %297, %365 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit75 ]
+  %.0 = phi i32 [ %16, %15 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit75 ], [ %297, %365 ]
   ret i32 %.0
 
 470:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit76, %364
@@ -4354,7 +4354,7 @@ define internal void @_ZN4ncnnL11convolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %118, %113, %112, %107, %100, %94, %90, %86, %80, %._crit_edge.us.us.us
-  %.1104.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %.1.lcssa.us.us.us, %86 ], [ %93, %90 ], [ %99, %94 ], [ %106, %100 ], [ %109, %112 ], [ %.0103.us.us.us, %107 ], [ %117, %113 ], [ %119, %118 ], [ 0.000000e+00, %80 ]
+  %.1104.us.us.us = phi nsz float [ %.1.lcssa.us.us.us, %._crit_edge.us.us.us ], [ %119, %118 ], [ %117, %113 ], [ %109, %112 ], [ %.0103.us.us.us, %107 ], [ %106, %100 ], [ %99, %94 ], [ %.1.lcssa.us.us.us, %86 ], [ %93, %90 ], [ 0.000000e+00, %80 ]
   %120 = getelementptr inbounds nuw float, ptr %.055118.us.us.us, i64 %indvars.iv141
   store float %.1104.us.us.us, ptr %120, align 4, !tbaa !85
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
@@ -4999,7 +4999,7 @@ define internal void @_ZNK4ncnn11Convolution12forward_int8ERKNS_3MatERS1_RKNS_6O
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %150, %143, %142, %135, %129, %127, %125, %156
-  %.1107 = phi nsz float [ %.056, %125 ], [ %.056, %164 ], [ %171, %168 ], [ %155, %150 ], [ %149, %143 ], [ %139, %142 ], [ %.0106, %135 ], [ %134, %129 ], [ %128, %127 ], [ 0.000000e+00, %156 ]
+  %.1107 = phi nsz float [ %.056, %125 ], [ %128, %127 ], [ %134, %129 ], [ %139, %142 ], [ %.0106, %135 ], [ %149, %143 ], [ %155, %150 ], [ %.056, %164 ], [ %171, %168 ], [ 0.000000e+00, %156 ]
   %172 = load i8, ptr %10, align 1, !tbaa !73, !range !68, !noundef !69
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %181

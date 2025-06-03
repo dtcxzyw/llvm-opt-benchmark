@@ -1349,7 +1349,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %232, 
   unreachable
 
 common.resume:                                    ; preds = %257, %204, %.body.i, %103, %100, %.body153.thread, %267, %.thread261, %.body160.thread, %146, %.body157.thread, %115, %292
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i174, %292 ], [ %.pn280, %267 ], [ %.pn115256264, %.thread261 ], [ %.pn117241, %.body160.thread ], [ %161, %146 ], [ %.pn119234, %.body157.thread ], [ %130, %115 ], [ %92, %.body153.thread ], [ %101, %100 ], [ %101, %103 ], [ %eh.lpad-body.i, %.body.i ], [ %205, %204 ], [ %258, %257 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i174, %292 ], [ %.pn119234, %.body157.thread ], [ %130, %115 ], [ %.pn117241, %.body160.thread ], [ %161, %146 ], [ %.pn115256264, %.thread261 ], [ %.pn280, %267 ], [ %92, %.body153.thread ], [ %101, %100 ], [ %101, %103 ], [ %eh.lpad-body.i, %.body.i ], [ %205, %204 ], [ %258, %257 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h9af6366c8c6b49b3E.exit": ; preds = %291

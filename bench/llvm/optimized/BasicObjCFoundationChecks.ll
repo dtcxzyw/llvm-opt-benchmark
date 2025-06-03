@@ -6023,7 +6023,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   br label %.thread
 
 .thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %23, %16 ], [ %25, %24 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 
@@ -7349,34 +7349,34 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %86, %80
   %119 = call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %118) #20
   %120 = call fastcc noundef i32 @_ZL14findKnownClassPKN5clang17ObjCInterfaceDeclEb(ptr noundef %119, i1 noundef zeroext true)
   switch i32 %120, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit [
-    i32 1, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
-    i32 5, label %121
-    i32 6, label %124
-    i32 2, label %127
+    i32 1, label %121
+    i32 5, label %124
+    i32 6, label %127
+    i32 2, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
   ]
 
 121:                                              ; preds = %114
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.02.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
-  %123 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.03.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
+  %123 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
   br i1 %123, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 124:                                              ; preds = %114
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.01.0.copyload.i.i = load i64, ptr %125, align 8, !tbaa !9
-  %126 = icmp eq i64 %97, %.sroa.01.0.copyload.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.02.0.copyload.i.i = load i64, ptr %125, align 8, !tbaa !9
+  %126 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
   br i1 %126, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 127:                                              ; preds = %114
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %128, align 8, !tbaa !9
-  %129 = icmp eq i64 %97, %.sroa.0.0.copyload.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.01.0.copyload.i.i = load i64, ptr %128, align 8, !tbaa !9
+  %129 = icmp eq i64 %97, %.sroa.01.0.copyload.i.i
   br i1 %129, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i: ; preds = %114
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.03.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
-  %131 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
+  %131 = icmp eq i64 %97, %.sroa.0.0.copyload.i.i
   br i1 %131, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 132:                                              ; preds = %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %127, %124, %121, %111, %108
@@ -8106,7 +8106,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread10.i.i.i: ; 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i.i.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i.i.preheader: ; preds = %86, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread10.i.i.i
-  %.pn.i.i.i.i.i.ph = phi ptr [ %87, %86 ], [ %82, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread10.i.i.i ]
+  %.pn.i.i.i.i.i.ph = phi ptr [ %82, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread10.i.i.i ], [ %87, %86 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.i.i.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i.i.i.i

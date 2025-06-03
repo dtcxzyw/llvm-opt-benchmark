@@ -1004,14 +1004,14 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit40:          ; preds = %_ZNSt7__cxx1112basi
   br label %147
 
 147:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit40, %114, %101, %99, %97, %89
-  %.0 = phi ptr [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit40 ], [ %115, %114 ], [ null, %101 ], [ null, %99 ], [ %98, %97 ], [ %90, %89 ]
+  %.0 = phi ptr [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit40 ], [ %90, %89 ], [ %98, %97 ], [ null, %99 ], [ null, %101 ], [ %115, %114 ]
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %149 = load ptr, ptr %148, align 8, !tbaa !394
   %150 = call ptr @_ZN5clang4Sema22ConvertDeclToDeclGroupEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(17504) %149, ptr noundef %.0, ptr noundef null) #18
   br label %151
 
 151:                                              ; preds = %87, %91, %93, %95, %116, %147, %_ZN5clang6Parser13cutOffParsingEv.exit
-  %.sroa.045.0 = phi ptr [ null, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ %150, %147 ], [ %120, %116 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %88, %87 ]
+  %.sroa.045.0 = phi ptr [ null, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ %150, %147 ], [ %88, %87 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %120, %116 ]
   ret ptr %.sroa.045.0
 }
 
@@ -11395,7 +11395,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %2, %2, %2, %2, %2, 
   br label %46
 
 46:                                               ; preds = %2, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %7
-  %.0 = phi ptr [ %.0.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %7 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.0.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -11820,15 +11820,15 @@ _ZN5clang6Parser9NextTokenEv.exit22:              ; preds = %57, %61
 75:                                               ; preds = %66
   br label %78
 
-.thread:                                          ; preds = %73, %72, %71, %70, %69, %66
-  %.017.ph = phi i32 [ 1, %66 ], [ 4, %69 ], [ 2, %70 ], [ 32, %71 ], [ 8, %72 ], [ 16, %73 ]
+.thread:                                          ; preds = %69, %70, %71, %72, %73, %66
+  %.017.ph = phi i32 [ 1, %66 ], [ 16, %73 ], [ 8, %72 ], [ 32, %71 ], [ 2, %70 ], [ 4, %69 ]
   %76 = load i32, ptr %1, align 8
   %77 = or i32 %76, %.017.ph
   store i32 %77, ptr %1, align 8
   br label %84
 
 78:                                               ; preds = %66, %74, %75
-  %.2 = phi i32 [ 16777216, %75 ], [ 8388608, %74 ], [ 0, %66 ]
+  %.2 = phi i32 [ 8388608, %74 ], [ 16777216, %75 ], [ 0, %66 ]
   %79 = load i32, ptr %1, align 8
   %80 = or i32 %79, 64
   store i32 %80, ptr %1, align 8
@@ -17735,7 +17735,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   br label %276
 
 276:                                              ; preds = %130, %115, %120, %_ZN5clang9FixItHintD2Ev.exit, %.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %244, %241, %238, %235, %_ZN5clang17DiagnosticBuilderD2Ev.exit52, %203, %200, %197, %186, %175, %_ZN5clang6Parser23ParseObjCNumericLiteralENS_14SourceLocationE.exit, %_ZN5clang6Parser25ParseObjCCharacterLiteralENS_14SourceLocationE.exit, %138, %_ZN5clang6Parser13cutOffParsingEv.exit
-  %.sroa.040.0 = phi i64 [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit52 ], [ %245, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %205, %203 ], [ %202, %200 ], [ %199, %197 ], [ %196, %186 ], [ %185, %175 ], [ %174, %_ZN5clang6Parser23ParseObjCNumericLiteralENS_14SourceLocationE.exit ], [ %157, %_ZN5clang6Parser25ParseObjCCharacterLiteralENS_14SourceLocationE.exit ], [ %140, %138 ], [ 1, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ 1, %_ZN5clang9FixItHintD2Ev.exit ], [ 1, %.thread ], [ %137, %130 ], [ 1, %115 ], [ 1, %120 ]
+  %.sroa.040.0 = phi i64 [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit52 ], [ %237, %235 ], [ %240, %238 ], [ %243, %241 ], [ %245, %244 ], [ 1, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ %140, %138 ], [ %157, %_ZN5clang6Parser25ParseObjCCharacterLiteralENS_14SourceLocationE.exit ], [ %174, %_ZN5clang6Parser23ParseObjCNumericLiteralENS_14SourceLocationE.exit ], [ %185, %175 ], [ %196, %186 ], [ %199, %197 ], [ %202, %200 ], [ %205, %203 ], [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ 1, %_ZN5clang9FixItHintD2Ev.exit ], [ 1, %.thread ], [ %137, %130 ], [ 1, %115 ], [ 1, %120 ]
   ret i64 %.sroa.040.0
 }
 
@@ -21562,8 +21562,8 @@ _ZN5clang6Parser9NextTokenEv.exit35:              ; preds = %141, %145
   %170 = call i64 @_ZN5clang6Parser30ParseObjCMessageExpressionBodyENS_14SourceLocationES1_NS_9OpaquePtrINS_8QualTypeEEEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %.sroa.01.0.copyload.i, i32 0, ptr %.sroa.03.0.copyload, ptr noundef null)
   br label %.thread51
 
-.thread51:                                        ; preds = %169, %167, %157, %151
-  %.sroa.029.3.ph = phi i64 [ %154, %151 ], [ 1, %157 ], [ 1, %167 ], [ %170, %169 ]
+.thread51:                                        ; preds = %151, %169, %167, %157
+  %.sroa.029.3.ph = phi i64 [ 1, %157 ], [ 1, %167 ], [ %170, %169 ], [ %154, %151 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   br label %188
 

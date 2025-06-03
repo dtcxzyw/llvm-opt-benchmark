@@ -875,9 +875,9 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   ]
 
 .body:                                            ; preds = %53, %83, %113, %128, %133, %98, %68, %304, %299, %294, %288, %284, %268, %253, %238, %224, %209, %194, %179, %164, %148
-  %.121 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.020, %133 ], [ true, %128 ]
-  %.1 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.0, %133 ], [ true, %128 ]
-  %.pn = phi { ptr, i32 } [ %305, %304 ], [ %300, %299 ], [ %295, %294 ], [ %289, %288 ], [ %285, %284 ], [ %269, %268 ], [ %254, %253 ], [ %239, %238 ], [ %225, %224 ], [ %210, %209 ], [ %195, %194 ], [ %180, %179 ], [ %165, %164 ], [ %149, %148 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %99, %98 ], [ %114, %113 ], [ %134, %133 ], [ %129, %128 ]
+  %.121 = phi i1 [ true, %148 ], [ true, %164 ], [ true, %179 ], [ true, %194 ], [ true, %209 ], [ true, %224 ], [ true, %238 ], [ true, %253 ], [ true, %268 ], [ true, %284 ], [ true, %288 ], [ true, %294 ], [ true, %299 ], [ true, %304 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.020, %133 ], [ true, %128 ]
+  %.1 = phi i1 [ true, %148 ], [ true, %164 ], [ true, %179 ], [ true, %194 ], [ true, %209 ], [ true, %224 ], [ true, %238 ], [ true, %253 ], [ true, %268 ], [ true, %284 ], [ true, %288 ], [ true, %294 ], [ true, %299 ], [ true, %304 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.0, %133 ], [ true, %128 ]
+  %.pn = phi { ptr, i32 } [ %149, %148 ], [ %165, %164 ], [ %180, %179 ], [ %195, %194 ], [ %210, %209 ], [ %225, %224 ], [ %239, %238 ], [ %254, %253 ], [ %269, %268 ], [ %285, %284 ], [ %289, %288 ], [ %295, %294 ], [ %300, %299 ], [ %305, %304 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %99, %98 ], [ %114, %113 ], [ %134, %133 ], [ %129, %128 ]
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h162a5c74d82f497aE.llvm.10399565284327844239"(ptr noalias noundef nonnull align 8 dereferenceable(24) %132) #20
           to label %309 unwind label %307
@@ -1861,7 +1861,7 @@ define hidden void @_ZN12object_store6client13ClientOptions11with_config17h79d09
   br label %97
 
 .body:                                            ; preds = %35, %65, %95, %80, %50, %266, %240, %226, %211, %196, %181, %167, %153, %139, %125, %110
-  %.pn = phi { ptr, i32 } [ %267, %266 ], [ %241, %240 ], [ %227, %226 ], [ %212, %211 ], [ %197, %196 ], [ %182, %181 ], [ %168, %167 ], [ %154, %153 ], [ %140, %139 ], [ %126, %125 ], [ %111, %110 ], [ %36, %35 ], [ %51, %50 ], [ %66, %65 ], [ %81, %80 ], [ %96, %95 ]
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %126, %125 ], [ %140, %139 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %197, %196 ], [ %212, %211 ], [ %227, %226 ], [ %241, %240 ], [ %267, %266 ], [ %36, %35 ], [ %51, %50 ], [ %66, %65 ], [ %81, %80 ], [ %96, %95 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$object_store..client..ClientOptions$GT$17h9c0bf48e3e7ccccaE"(ptr noalias noundef nonnull align 8 dereferenceable(544) %1) #20
           to label %270 unwind label %268
 
@@ -2590,7 +2590,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc679998da6abd6f6E.exit"
 
 "_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc679998da6abd6f6E.exit": ; preds = %8, %11, %14
-  %.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.0.in.i
 }
 
@@ -3650,7 +3650,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$object_store..aws..
   unreachable
 
 55:                                               ; preds = %56, %39
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %40, %39 ]
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %57, %56 ]
   resume { ptr, i32 } %.pn
 
 56:                                               ; preds = %29
@@ -3912,7 +3912,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17hcb
   br label %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit.preheader
 
 _ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit.preheader: ; preds = %7, %14, %21
-  %.0.ph = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
+  %.0.ph = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
   br label %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit
 
 _ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit.preheader, %27
@@ -4000,7 +4000,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -4077,7 +4077,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -7047,7 +7047,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -7141,7 +7141,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 

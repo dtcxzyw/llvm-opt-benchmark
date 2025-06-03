@@ -1363,7 +1363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %30
 
 30:                                               ; preds = %29, %28, %8, %.lr.ph
-  %.08 = phi i64 [ 5, %29 ], [ 9, %28 ], [ %19, %8 ], [ 0, %.lr.ph ]
+  %.08 = phi i64 [ %19, %8 ], [ 9, %28 ], [ 5, %29 ], [ 0, %.lr.ph ]
   %31 = getelementptr inbounds nuw [10 x i8], ptr @_ZZN7rocksdb4test9RandomKeyB5cxx11EPNS_6RandomEiNS0_13RandomKeyTypeEE10kTestChars, i64 0, i64 %.08
   %32 = load i8, ptr %31, align 1, !tbaa !17
   %33 = load i64, ptr %6, align 8, !tbaa !16
@@ -2952,7 +2952,7 @@ define noundef ptr @_ZN7rocksdb4test20RandomSliceTransformEPNS_6RandomEi(ptr nou
   br label %47
 
 47:                                               ; preds = %15, %45, %31, %17
-  %.0 = phi ptr [ %46, %45 ], [ %44, %31 ], [ %30, %17 ], [ null, %15 ]
+  %.0 = phi ptr [ %30, %17 ], [ %44, %31 ], [ %46, %45 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -3296,7 +3296,7 @@ define noundef ptr @_ZN7rocksdb4test18RandomTableFactoryEPNS_6RandomEi(ptr nound
   resume { ptr, i32 } %64
 
 65:                                               ; preds = %62, %26, %20
-  %.0 = phi ptr [ %61, %62 ], [ %31, %26 ], [ %25, %20 ]
+  %.0 = phi ptr [ %61, %62 ], [ %25, %20 ], [ %31, %26 ]
   ret ptr %.0
 }
 
@@ -11113,7 +11113,7 @@ define linkonce_odr noundef i32 @_ZNK7rocksdb16CompactionFilter8FilterV2EiRKNS_5
   br label %23
 
 23:                                               ; preds = %7, %17, %9
-  %.1 = phi i32 [ %22, %17 ], [ %.0, %9 ], [ 0, %7 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %22, %17 ], [ 0, %7 ]
   ret i32 %.1
 }
 

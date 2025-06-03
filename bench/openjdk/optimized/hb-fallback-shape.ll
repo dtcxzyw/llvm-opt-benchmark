@@ -309,7 +309,7 @@ define linkonce_odr hidden noundef i32 @_ZN18hb_unicode_funcs_t20is_default_igno
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
 _ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %20, %17, %34, %3, %39, %36, %31, %26, %14, %11, %9, %7, %5
-  %.0.shrunk = phi i1 [ %33, %31 ], [ %30, %26 ], [ %16, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %41, %39 ], [ %38, %36 ], [ false, %3 ], [ false, %34 ], [ true, %17 ], [ %25, %20 ]
+  %.0.shrunk = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %16, %14 ], [ %30, %26 ], [ %33, %31 ], [ %38, %36 ], [ %41, %39 ], [ false, %3 ], [ false, %34 ], [ true, %17 ], [ %25, %20 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

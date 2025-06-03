@@ -542,10 +542,10 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA14IdentifyTarget
   br label %23
 
 23:                                               ; preds = %.lr.ph, %22, %21, %20, %19
-  %.116 = phi i1 [ %.01522, %.lr.ph ], [ %.01522, %22 ], [ true, %21 ], [ %.01522, %20 ], [ %.01522, %19 ]
-  %.114 = phi i1 [ %.01323, %.lr.ph ], [ %.01323, %22 ], [ %.01323, %21 ], [ %.01323, %20 ], [ true, %19 ]
-  %.112 = phi i1 [ %.01124, %.lr.ph ], [ true, %22 ], [ %.01124, %21 ], [ %.01124, %20 ], [ %.01124, %19 ]
-  %.1 = phi i1 [ %.01025, %.lr.ph ], [ %.01025, %22 ], [ %.01025, %21 ], [ true, %20 ], [ %.01025, %19 ]
+  %.116 = phi i1 [ %.01522, %.lr.ph ], [ %.01522, %19 ], [ %.01522, %20 ], [ true, %21 ], [ %.01522, %22 ]
+  %.114 = phi i1 [ %.01323, %.lr.ph ], [ true, %19 ], [ %.01323, %20 ], [ %.01323, %21 ], [ %.01323, %22 ]
+  %.112 = phi i1 [ %.01124, %.lr.ph ], [ %.01124, %19 ], [ %.01124, %20 ], [ %.01124, %21 ], [ true, %22 ]
+  %.1 = phi i1 [ %.01025, %.lr.ph ], [ %.01025, %19 ], [ true, %20 ], [ %.01025, %21 ], [ %.01025, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.021, i64 8
   %.not = icmp eq ptr %24, %8
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -779,7 +779,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
   br label %104
 
 104:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !439
   %105 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i.i, i64 32
   %106 = load i16, ptr %105, align 8
@@ -798,7 +798,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
   br label %112
 
 112:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %111, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %111, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !439
   %113 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i.i, i64 32
   %114 = load i16, ptr %113, align 8
@@ -955,7 +955,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
   br label %170
 
 170:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i29
-  %.1.i.i.i.i.i.i.i36 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i31, %._crit_edge.i.i.i.i.i.i.i29 ], [ %169, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i36 = phi ptr [ %169, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i31, %._crit_edge.i.i.i.i.i.i.i29 ]
   %.1.val.i.i.i.i.i.i.i37 = load ptr, ptr %.1.i.i.i.i.i.i.i36, align 8, !tbaa !439
   %171 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i.i37, i64 32
   %172 = load i16, ptr %171, align 8
@@ -974,7 +974,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
   br label %178
 
 178:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i29
-  %.2.i.i.i.i.i.i.i33 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i31, %._crit_edge.i.i.i.i.i.i.i29 ], [ %177, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i33 = phi ptr [ %177, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i31, %._crit_edge.i.i.i.i.i.i.i29 ]
   %.2.val.i.i.i.i.i.i.i34 = load ptr, ptr %.2.i.i.i.i.i.i.i33, align 8, !tbaa !439
   %179 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i.i34, i64 32
   %180 = load i16, ptr %179, align 8
@@ -1191,7 +1191,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4Decl
   br label %71
 
 71:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !439
   %72 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %73 = load i16, ptr %72, align 8
@@ -1213,7 +1213,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4Decl
   br label %80
 
 80:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %79, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !439
   %81 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %82 = load i16, ptr %81, align 8
@@ -1437,7 +1437,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEb
   br label %71
 
 71:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %70, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.thread56.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !439
   %72 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %73 = load i16, ptr %72, align 8
@@ -1459,7 +1459,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEb
   br label %80
 
 80:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %79, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %79, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.thread57.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !439
   %81 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %82 = load i16, ptr %81, align 8
@@ -2348,8 +2348,8 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12CUDAHostAttrEN4llvm11SmallVectorIPN
   br label %_ZL15hasImplicitAttrIN5clang12CUDAHostAttrEEbPKNS0_12FunctionDeclE.exit
 
 _ZL15hasImplicitAttrIN5clang12CUDAHostAttrEEbPKNS0_12FunctionDeclE.exit: ; preds = %1, %.loopexit.i13, %.loopexit15.i9
-  %.06.i15 = phi i1 [ %.06.i18, %.loopexit.i13 ], [ %.06.i18, %.loopexit15.i9 ], [ false, %1 ]
-  %.06.i10 = phi i1 [ %69, %.loopexit.i13 ], [ %72, %.loopexit15.i9 ], [ false, %1 ]
+  %.06.i15 = phi i1 [ %.06.i18, %.loopexit15.i9 ], [ %.06.i18, %.loopexit.i13 ], [ false, %1 ]
+  %.06.i10 = phi i1 [ %72, %.loopexit15.i9 ], [ %69, %.loopexit.i13 ], [ false, %1 ]
   %73 = and i1 %.06.i15, %.06.i10
   ret i1 %73
 }
@@ -2464,7 +2464,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %51, %50 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %53 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val.i.i.i.i.i.i = load ptr, ptr %53, align 8, !tbaa !462
   %54 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.1.val.i.i.i.i.i.i)
@@ -2476,7 +2476,7 @@ define dso_local void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionD
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %57, %56 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %59 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val.i.i.i.i.i.i = load ptr, ptr %59, align 8, !tbaa !462
   %60 = tail call noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA18IdentifyPreferenceEPKNS_12FunctionDeclES3_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %.2.val.i.i.i.i.i.i)
@@ -4523,7 +4523,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %131, %130 ]
+  %.1.i.i = phi ptr [ %131, %130 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %133 = load ptr, ptr %.1.i.i, align 8, !tbaa !1185
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !1187
@@ -4544,7 +4544,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   br label %144
 
 144:                                              ; preds = %142, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %143, %142 ]
+  %.2.i.i = phi ptr [ %143, %142 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %145 = load ptr, ptr %.2.i.i, align 8, !tbaa !1185
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !1187
@@ -4889,7 +4889,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %"_ZN9__gnu_cxx5__op
   br label %142
 
 142:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit16.i.thread", %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %141, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit16.i.thread" ]
+  %.1.i.i = phi ptr [ %141, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit16.i.thread" ], [ %.029.i.i.lcssa, %._crit_edge ]
   %143 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i)
   %144 = and i64 %143, -16
   %145 = inttoptr i64 %144 to ptr
@@ -4908,7 +4908,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %"_ZN9__gnu_cxx5__op
   br label %151
 
 151:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit10.i.thread", %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %150, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit10.i.thread" ]
+  %.2.i.i = phi ptr [ %150, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit10.i.thread" ], [ %.029.i.i.lcssa, %._crit_edge ]
   %152 = call i64 @_ZNK5clang16CXXBaseSpecifier7getTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.2.i.i)
   %153 = and i64 %152, -16
   %154 = inttoptr i64 %153 to ptr
@@ -6107,7 +6107,7 @@ define internal fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8Sema
   br label %26
 
 26:                                               ; preds = %24, %._crit_edge.i.i.i
-  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %25, %24 ]
+  %.sroa.039.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %27 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr nonnull readonly %0, ptr nonnull readonly %1, ptr %.sroa.039.1.i.i.i)
   br i1 %27, label %"_ZSt7find_ifIN5clang21UnresolvedSetIteratorEZNS0_8SemaCUDA23maybeAddHostDeviceAttrsEPNS0_12FunctionDeclERKNS0_12LookupResultEE3$_0ET_S9_S9_T0_.exit", label %28
 
@@ -6116,7 +6116,7 @@ define internal fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8Sema
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i
-  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]
+  %.sroa.039.2.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %31 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr nonnull readonly %0, ptr nonnull readonly %1, ptr %.sroa.039.2.i.i.i)
   %spec.select.i.i.i = select i1 %31, ptr %.sroa.039.2.i.i.i, ptr %4
   br label %"_ZSt7find_ifIN5clang21UnresolvedSetIteratorEZNS0_8SemaCUDA23maybeAddHostDeviceAttrsEPNS0_12FunctionDeclERKNS0_12LookupResultEE3$_0ET_S9_S9_T0_.exit"

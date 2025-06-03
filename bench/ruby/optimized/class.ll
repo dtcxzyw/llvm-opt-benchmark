@@ -4940,7 +4940,7 @@ define hidden i64 @rb_special_singleton_class(i64 noundef %0) local_unnamed_addr
   br label %special_singleton_class_of.exit
 
 special_singleton_class_of.exit:                  ; preds = %1, %2, %4, %6
-  %.0.i = phi i64 [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ 4, %1 ]
+  %.0.i = phi i64 [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ 4, %1 ]
   ret i64 %.0.i
 }
 
@@ -5040,7 +5040,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %13
   br label %rb_special_singleton_class.exit
 
 rb_special_singleton_class.exit:                  ; preds = %13, %rbimpl_RB_TYPE_P_fastpath.exit.i, %11, %9, %7, %6, %24
-  %.0 = phi i64 [ %., %24 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ 4, %6 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 4, %13 ]
+  %.0 = phi i64 [ %., %24 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ 4, %6 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 4, %13 ]
   ret i64 %.0
 }
 
@@ -5100,7 +5100,7 @@ rb_type.exit.thread23:                            ; preds = %6, %6, %6, %rb_type
   br label %special_singleton_class_of.exit
 
 special_singleton_class_of.exit:                  ; preds = %rb_type.exit.thread23, %13, %14
-  %.0.i19.in = phi ptr [ @rb_cTrueClass, %14 ], [ @rb_cFalseClass, %13 ], [ @rb_cNilClass, %rb_type.exit.thread23 ]
+  %.0.i19.in = phi ptr [ @rb_cFalseClass, %13 ], [ @rb_cTrueClass, %14 ], [ @rb_cNilClass, %rb_type.exit.thread23 ]
   %.0.i19 = load i64, ptr %.0.i19.in, align 8, !tbaa !29
   %15 = icmp eq i64 %.0.i19, 4
   br i1 %15, label %special_singleton_class_of.exit.thread, label %49

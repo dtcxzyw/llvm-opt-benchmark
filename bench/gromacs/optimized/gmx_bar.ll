@@ -4639,8 +4639,8 @@ _ZL15lambda_vec_copyP12lambda_vec_tPKS_.exit.i228.i: ; preds = %1622, %.noexc356
           to label %.loopexit.i unwind label %.loopexit.split-lp709.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.i:                                      ; preds = %1740, %.thread.i268, %1563, %1561, %1284, %.lr.ph384.i
-  %.459.i = phi double [ %.156380.i, %.lr.ph384.i ], [ %.156380.i, %1563 ], [ %.257.i, %1561 ], [ %.156380.i, %1284 ], [ %.156380.i, %.thread.i268 ], [ %.358.ph.i, %1740 ]
-  %.3172.i = phi i32 [ %.0169381.i, %.lr.ph384.i ], [ %.0169381.i, %1563 ], [ %1562, %1561 ], [ %.0169381.i, %1284 ], [ %1739, %.thread.i268 ], [ %1748, %1740 ]
+  %.459.i = phi double [ %.156380.i, %.lr.ph384.i ], [ %.257.i, %1561 ], [ %.156380.i, %1284 ], [ %.156380.i, %1563 ], [ %.156380.i, %.thread.i268 ], [ %.358.ph.i, %1740 ]
+  %.3172.i = phi i32 [ %.0169381.i, %.lr.ph384.i ], [ %1562, %1561 ], [ %.0169381.i, %1284 ], [ %.0169381.i, %1563 ], [ %1739, %.thread.i268 ], [ %1748, %1740 ]
   %indvars.iv.next584.i = add nuw nsw i64 %indvars.iv583.i, 1
   %1753 = load i32, ptr %1026, align 8, !tbaa !140
   %1754 = sext i32 %1753 to i64

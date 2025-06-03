@@ -2975,7 +2975,7 @@ _ZN7QStringD2Ev.exit63:                           ; preds = %129, %_ZN17QArrayDa
   ret void
 
 138:                                              ; preds = %_ZN7QStringD2Ev.exit63, %_ZN7QStringD2Ev.exit51, %_ZN7QStringD2Ev.exit41, %_ZN7QStringD2Ev.exit33, %_ZN7QStringD2Ev.exit25, %_ZN7QStringD2Ev.exit17
-  %.pn = phi { ptr, i32 } [ %108, %_ZN7QStringD2Ev.exit51 ], [ %130, %_ZN7QStringD2Ev.exit63 ], [ %57, %_ZN7QStringD2Ev.exit25 ], [ %73, %_ZN7QStringD2Ev.exit33 ], [ %85, %_ZN7QStringD2Ev.exit41 ], [ %41, %_ZN7QStringD2Ev.exit17 ]
+  %.pn = phi { ptr, i32 } [ %41, %_ZN7QStringD2Ev.exit17 ], [ %57, %_ZN7QStringD2Ev.exit25 ], [ %73, %_ZN7QStringD2Ev.exit33 ], [ %85, %_ZN7QStringD2Ev.exit41 ], [ %108, %_ZN7QStringD2Ev.exit51 ], [ %130, %_ZN7QStringD2Ev.exit63 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6948,7 +6948,7 @@ _ZN7QStringD2Ev.exit427:                          ; preds = %646, %_ZN17QArrayDa
   br label %653
 
 _ZN7QStringD2Ev.exit157:                          ; preds = %115, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i155, %111, %_ZN7QStringD2Ev.exit177, %_ZN7QStringD2Ev.exit185, %_ZN7QStringD2Ev.exit427, %_ZN7QStringD2Ev.exit315, %_ZN7QStringD2Ev.exit274, %_ZN7QStringD2Ev.exit249, %_ZN7QStringD2Ev.exit225, %_ZN7QStringD2Ev.exit217, %_ZN7QStringD2Ev.exit209, %_ZN7QStringD2Ev.exit201, %_ZN7QStringD2Ev.exit193
-  %.pn131.pn.pn = phi { ptr, i32 } [ %174, %_ZN7QStringD2Ev.exit193 ], [ %188, %_ZN7QStringD2Ev.exit201 ], [ %204, %_ZN7QStringD2Ev.exit209 ], [ %.pn110, %_ZN7QStringD2Ev.exit427 ], [ %.pn117, %_ZN7QStringD2Ev.exit315 ], [ %.pn121, %_ZN7QStringD2Ev.exit274 ], [ %.pn123.pn, %_ZN7QStringD2Ev.exit249 ], [ %235, %_ZN7QStringD2Ev.exit225 ], [ %223, %_ZN7QStringD2Ev.exit217 ], [ %.pn131, %_ZN7QStringD2Ev.exit177 ], [ %157, %_ZN7QStringD2Ev.exit185 ], [ %112, %111 ], [ %112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i155 ], [ %112, %115 ]
+  %.pn131.pn.pn = phi { ptr, i32 } [ %174, %_ZN7QStringD2Ev.exit193 ], [ %188, %_ZN7QStringD2Ev.exit201 ], [ %204, %_ZN7QStringD2Ev.exit209 ], [ %235, %_ZN7QStringD2Ev.exit225 ], [ %223, %_ZN7QStringD2Ev.exit217 ], [ %.pn123.pn, %_ZN7QStringD2Ev.exit249 ], [ %.pn121, %_ZN7QStringD2Ev.exit274 ], [ %.pn117, %_ZN7QStringD2Ev.exit315 ], [ %.pn110, %_ZN7QStringD2Ev.exit427 ], [ %.pn131, %_ZN7QStringD2Ev.exit177 ], [ %157, %_ZN7QStringD2Ev.exit185 ], [ %112, %111 ], [ %112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i155 ], [ %112, %115 ]
   resume { ptr, i32 } %.pn131.pn.pn
 
 653:                                              ; preds = %60, %_ZN7QStringD2Ev.exit189, %_ZN7QStringD2Ev.exit197, %_ZN7QStringD2Ev.exit205, %_ZN7QStringD2Ev.exit213, %_ZN7QStringD2Ev.exit221, %_ZN7QStringD2Ev.exit241, %_ZN7QStringD2Ev.exit270, %_ZN7QStringD2Ev.exit311, %_ZN7QStringD2Ev.exit423, %651, %_ZN7QStringD2Ev.exit181, %_ZN7QStringD2Ev.exit173, %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -7960,7 +7960,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %42, %_ZN17QArrayDat
   ret void
 
 51:                                               ; preds = %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit18, %_ZN7QStringD2Ev.exit10
-  %.pn = phi { ptr, i32 } [ %43, %_ZN7QStringD2Ev.exit26 ], [ %31, %_ZN7QStringD2Ev.exit18 ], [ %19, %_ZN7QStringD2Ev.exit10 ]
+  %.pn = phi { ptr, i32 } [ %19, %_ZN7QStringD2Ev.exit10 ], [ %31, %_ZN7QStringD2Ev.exit18 ], [ %43, %_ZN7QStringD2Ev.exit26 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -20438,7 +20438,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN5QListI7QStringE14const_iteratorEN9__gn
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge
-  %.sroa.046.1 = phi ptr [ %.sroa.046.0.lcssa, %._crit_edge ], [ %55, %54 ]
+  %.sroa.046.1 = phi ptr [ %55, %54 ], [ %.sroa.046.0.lcssa, %._crit_edge ]
   %57 = load ptr, ptr %2, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.046.1, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -20455,7 +20455,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN5QListI7QStringE14const_iteratorEN9__gn
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge
-  %.sroa.046.2 = phi ptr [ %.sroa.046.0.lcssa, %._crit_edge ], [ %65, %64 ]
+  %.sroa.046.2 = phi ptr [ %65, %64 ], [ %.sroa.046.0.lcssa, %._crit_edge ]
   %67 = load ptr, ptr %2, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.046.2, i64 8
   %69 = load ptr, ptr %68, align 8

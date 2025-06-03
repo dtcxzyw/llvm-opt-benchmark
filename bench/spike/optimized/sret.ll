@@ -270,7 +270,7 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -566,7 +566,7 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -839,7 +839,7 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -1112,7 +1112,7 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -1385,7 +1385,7 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -1658,7 +1658,7 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -1931,7 +1931,7 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
@@ -2204,7 +2204,7 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %.189 = phi i64 [ %123, %117 ], [ %127, %124 ]
   %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 

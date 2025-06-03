@@ -6423,8 +6423,8 @@ cond.end.fold.split.i.i:                          ; preds = %cond.true.i.i, %con
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.end.fold.split.i.i, %sw.bb12.i.i.i, %sw.bb10.i.i.i, %sw.bb8.i.i.i, %sw.bb4.i.i.i, %cond.true.i.i, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i, %call1.i14.i.noexc.i
-  %cmp25.not.i.i = phi i1 [ true, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ true, %cond.true.i.i ], [ false, %sw.bb12.i.i.i ], [ false, %sw.bb10.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %sw.bb4.i.i.i ], [ true, %call1.i14.i.noexc.i ], [ false, %cond.end.fold.split.i.i ]
-  %cond.i.i = phi i64 [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ 0, %cond.true.i.i ], [ 16, %sw.bb12.i.i.i ], [ 8, %sw.bb10.i.i.i ], [ 2, %sw.bb8.i.i.i ], [ 4, %sw.bb4.i.i.i ], [ 0, %call1.i14.i.noexc.i ], [ 1, %cond.end.fold.split.i.i ]
+  %cmp25.not.i.i = phi i1 [ true, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ true, %cond.true.i.i ], [ false, %sw.bb4.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %sw.bb10.i.i.i ], [ false, %sw.bb12.i.i.i ], [ true, %call1.i14.i.noexc.i ], [ false, %cond.end.fold.split.i.i ]
+  %cond.i.i = phi i64 [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ 0, %cond.true.i.i ], [ 4, %sw.bb4.i.i.i ], [ 2, %sw.bb8.i.i.i ], [ 8, %sw.bb10.i.i.i ], [ 16, %sw.bb12.i.i.i ], [ 0, %call1.i14.i.noexc.i ], [ 1, %cond.end.fold.split.i.i ]
   %530 = load i64, ptr %numElements_.i.i, align 8, !noalias !186
   %conv.i16.i.i = trunc i64 %530 to i32
   %add.i.i.i.i.i93 = add i32 %conv.i16.i.i, 63

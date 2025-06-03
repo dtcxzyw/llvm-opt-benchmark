@@ -6493,8 +6493,8 @@ compute_chapters_end.exit:                        ; preds = %._crit_edge923, %._
   br i1 %1455, label %1398, label %compute_chapters_end.exit.thread, !llvm.loop !291
 
 compute_chapters_end.exit.threadthread-pre-split: ; preds = %1404, %1486, %.thread795, %1319, %1336, %compute_chapters_end.exit
-  %.2555.ph = phi i32 [ %.8.lcssa, %compute_chapters_end.exit ], [ -12, %1336 ], [ %104, %.thread795 ], [ %1304, %1319 ], [ %.3.ph822, %1486 ], [ %1409, %1404 ]
-  %.0552.ph = phi i32 [ %.187910311036, %compute_chapters_end.exit ], [ %.187910311036, %1336 ], [ 0, %.thread795 ], [ %.187910311036, %1319 ], [ %.1899, %1486 ], [ %.187910311036, %1404 ]
+  %.2555.ph = phi i32 [ %.8.lcssa, %compute_chapters_end.exit ], [ -12, %1336 ], [ %104, %.thread795 ], [ %.3.ph822, %1486 ], [ %1304, %1319 ], [ %1409, %1404 ]
+  %.0552.ph = phi i32 [ %.187910311036, %compute_chapters_end.exit ], [ %.187910311036, %1336 ], [ 0, %.thread795 ], [ %.1899, %1486 ], [ %.187910311036, %1319 ], [ %.187910311036, %1404 ]
   %.pr = load i32, ptr %20, align 4, !tbaa !87
   br label %compute_chapters_end.exit.thread
 

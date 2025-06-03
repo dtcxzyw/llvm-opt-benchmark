@@ -391,7 +391,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang12Lan
   unreachable
 
 45:                                               ; preds = %1, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @_ZL13Lang_hlsl202y, %43 ], [ @_ZL13Lang_hlsl202x, %42 ], [ @_ZL13Lang_hlsl2021, %41 ], [ @_ZL13Lang_hlsl2018, %40 ], [ @_ZL13Lang_hlsl2017, %39 ], [ @_ZL13Lang_hlsl2016, %38 ], [ @_ZL13Lang_hlsl2015, %37 ], [ @_ZL9Lang_hlsl, %36 ], [ @_ZL18Lang_openclcpp2021, %35 ], [ @_ZL16Lang_openclcpp10, %34 ], [ @_ZL13Lang_opencl30, %33 ], [ @_ZL13Lang_opencl20, %32 ], [ @_ZL13Lang_opencl12, %31 ], [ @_ZL13Lang_opencl11, %30 ], [ @_ZL13Lang_opencl10, %29 ], [ @_ZL13Lang_gnucxx26, %28 ], [ @_ZL10Lang_cxx26, %27 ], [ @_ZL13Lang_gnucxx23, %26 ], [ @_ZL10Lang_cxx23, %25 ], [ @_ZL13Lang_gnucxx20, %24 ], [ @_ZL10Lang_cxx20, %23 ], [ @_ZL13Lang_gnucxx17, %22 ], [ @_ZL10Lang_cxx17, %21 ], [ @_ZL13Lang_gnucxx14, %20 ], [ @_ZL10Lang_cxx14, %19 ], [ @_ZL13Lang_gnucxx11, %18 ], [ @_ZL10Lang_cxx11, %17 ], [ @_ZL13Lang_gnucxx98, %16 ], [ @_ZL10Lang_cxx98, %15 ], [ @_ZL10Lang_gnu2y, %14 ], [ @_ZL8Lang_c2y, %13 ], [ @_ZL10Lang_gnu23, %12 ], [ @_ZL8Lang_c23, %11 ], [ @_ZL10Lang_gnu17, %10 ], [ @_ZL8Lang_c17, %9 ], [ @_ZL10Lang_gnu11, %8 ], [ @_ZL8Lang_c11, %7 ], [ @_ZL10Lang_gnu99, %6 ], [ @_ZL8Lang_c99, %5 ], [ @_ZL10Lang_gnu89, %4 ], [ @_ZL8Lang_c94, %3 ], [ @_ZL8Lang_c89, %1 ]
+  %.0 = phi ptr [ @_ZL8Lang_c94, %3 ], [ @_ZL10Lang_gnu89, %4 ], [ @_ZL8Lang_c99, %5 ], [ @_ZL10Lang_gnu99, %6 ], [ @_ZL8Lang_c11, %7 ], [ @_ZL10Lang_gnu11, %8 ], [ @_ZL8Lang_c17, %9 ], [ @_ZL10Lang_gnu17, %10 ], [ @_ZL8Lang_c23, %11 ], [ @_ZL10Lang_gnu23, %12 ], [ @_ZL8Lang_c2y, %13 ], [ @_ZL10Lang_gnu2y, %14 ], [ @_ZL10Lang_cxx98, %15 ], [ @_ZL13Lang_gnucxx98, %16 ], [ @_ZL10Lang_cxx11, %17 ], [ @_ZL13Lang_gnucxx11, %18 ], [ @_ZL10Lang_cxx14, %19 ], [ @_ZL13Lang_gnucxx14, %20 ], [ @_ZL10Lang_cxx17, %21 ], [ @_ZL13Lang_gnucxx17, %22 ], [ @_ZL10Lang_cxx20, %23 ], [ @_ZL13Lang_gnucxx20, %24 ], [ @_ZL10Lang_cxx23, %25 ], [ @_ZL13Lang_gnucxx23, %26 ], [ @_ZL10Lang_cxx26, %27 ], [ @_ZL13Lang_gnucxx26, %28 ], [ @_ZL13Lang_opencl10, %29 ], [ @_ZL13Lang_opencl11, %30 ], [ @_ZL13Lang_opencl12, %31 ], [ @_ZL13Lang_opencl20, %32 ], [ @_ZL13Lang_opencl30, %33 ], [ @_ZL16Lang_openclcpp10, %34 ], [ @_ZL18Lang_openclcpp2021, %35 ], [ @_ZL9Lang_hlsl, %36 ], [ @_ZL13Lang_hlsl2015, %37 ], [ @_ZL13Lang_hlsl2016, %38 ], [ @_ZL13Lang_hlsl2017, %39 ], [ @_ZL13Lang_hlsl2018, %40 ], [ @_ZL13Lang_hlsl2021, %41 ], [ @_ZL13Lang_hlsl202x, %42 ], [ @_ZL13Lang_hlsl202y, %43 ], [ @_ZL8Lang_c89, %1 ]
   ret ptr %.0
 }
 
@@ -1026,7 +1026,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit:                    ; preds = %4
   unreachable
 
 _ZNK4llvm6Triple5isPS4Ev.exit.thread:             ; preds = %_ZNK4llvm6Triple5isPS4Ev.exit, %4, %2, %16, %15, %14, %3
-  %.0 = phi i32 [ 6, %14 ], [ 32, %3 ], [ 20, %15 ], [ 40, %16 ], [ 29, %2 ], [ 8, %4 ], [ %spec.select, %_ZNK4llvm6Triple5isPS4Ev.exit ]
+  %.0 = phi i32 [ 40, %16 ], [ 32, %3 ], [ 6, %14 ], [ 20, %15 ], [ 29, %2 ], [ 8, %4 ], [ %spec.select, %_ZNK4llvm6Triple5isPS4Ev.exit ]
   ret i32 %.0
 }
 

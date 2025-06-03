@@ -93,7 +93,7 @@ define internal signext range(i8 -1, 2) i8 @image_header_cache_compare_cb(ptr no
   br label %image_cache_common_compare.exit
 
 image_cache_common_compare.exit:                  ; preds = %11, %15, %18, %19
-  %.1.i = phi i8 [ %13, %11 ], [ 0, %18 ], [ %17, %15 ], [ %21, %19 ]
+  %.1.i = phi i8 [ 0, %18 ], [ %13, %11 ], [ %17, %15 ], [ %21, %19 ]
   ret i8 %.1.i
 }
 

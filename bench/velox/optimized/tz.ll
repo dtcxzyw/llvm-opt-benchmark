@@ -2387,7 +2387,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i24.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %is_dst.i.i25.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i, i64 40
   %49 = load i8, ptr %is_dst.i.i25.i.i.i, align 8
   %50 = and i8 %49, 1
@@ -2399,7 +2399,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i27.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %is_dst.i.i28.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.2.i.i.i, i64 40
   %51 = load i8, ptr %is_dst.i.i28.i.i.i, align 8
   %52 = and i8 %51, 1
@@ -3000,7 +3000,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i24.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %is_dst.i.i25.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i, i64 40
   %48 = load i8, ptr %is_dst.i.i25.i.i.i, align 8
   %49 = and i8 %48, 1
@@ -3012,7 +3012,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i27.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %is_dst.i.i28.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.2.i.i.i, i64 40
   %50 = load i8, ptr %is_dst.i.i28.i.i.i, align 8
   %51 = and i8 %50, 1
@@ -4749,7 +4749,7 @@ lpad151:                                          ; preds = %cleanup.cont148
   br label %eh.resume
 
 return:                                           ; preds = %cleanup119, %cleanup94, %cleanup144, %invoke.cont74, %if.end25
-  %retval.0 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %call90, %cleanup94 ], [ %call112, %cleanup119 ], [ %retval.7, %cleanup144 ]
+  %retval.0 = phi ptr [ %call28, %if.end25 ], [ %call75, %invoke.cont74 ], [ %retval.7, %cleanup144 ], [ %call112, %cleanup119 ], [ %call90, %cleanup94 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad151, %lpad125, %ehcleanup122, %ehcleanup97, %ehcleanup, %lpad22, %lpad13, %lpad

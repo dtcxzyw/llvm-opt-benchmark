@@ -8312,7 +8312,7 @@ default.unreachable:                              ; preds = %1
   br label %12
 
 12:                                               ; preds = %10, %7, %4
-  %.sroa.0.0 = phi ptr [ %11, %10 ], [ %9, %7 ], [ %6, %4 ]
+  %.sroa.0.0 = phi ptr [ %6, %4 ], [ %9, %7 ], [ %11, %10 ]
   ret ptr %.sroa.0.0
 }
 
@@ -22832,7 +22832,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -25959,7 +25959,7 @@ default.unreachable9:                             ; preds = %75
   br label %111
 
 111:                                              ; preds = %100, %89, %81
-  %.sroa.03.0 = phi i64 [ %110, %100 ], [ %99, %89 ], [ %88, %81 ]
+  %.sroa.03.0 = phi i64 [ %88, %81 ], [ %99, %89 ], [ %110, %100 ]
   %112 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %113 = load i8, ptr %112, align 8, !range !83, !alias.scope !3629, !noundef !3
   %114 = trunc nuw i8 %113 to i1
@@ -26271,7 +26271,7 @@ define void @_ZN11polars_time9offset_by14impl_offset_by17h3191f3c79a47e7b9E(ptr 
           to label %109 unwind label %107
 
 .body:                                            ; preds = %293, %274, %208, %149, %125, %107, %258, %.body131
-  %.pn127 = phi { ptr, i32 } [ %.pn, %258 ], [ %.pn123, %.body131 ], [ %108, %107 ], [ %126, %125 ], [ %150, %149 ], [ %209, %208 ], [ %275, %274 ], [ %294, %293 ]
+  %.pn127 = phi { ptr, i32 } [ %.pn123, %.body131 ], [ %.pn, %258 ], [ %108, %107 ], [ %126, %125 ], [ %150, %149 ], [ %209, %208 ], [ %275, %274 ], [ %294, %293 ]
   %103 = getelementptr inbounds nuw i8, ptr %36, i64 23
   %104 = load i8, ptr %103, align 1, !range !2034, !alias.scope !3665, !noundef !3
   %105 = icmp eq i8 %104, -38
@@ -28695,11 +28695,11 @@ define void @_ZN11polars_time8upsample13upsample_impl17h2a83dfee0f39ea60E(ptr de
           to label %44 unwind label %.thread144
 
 43:                                               ; preds = %.body117, %.body125, %.body133
-  %.sroa.051.1 = phi i1 [ %.sroa.051.9, %.body117 ], [ %.sroa.051.7, %.body125 ], [ %.sroa.051.3, %.body133 ]
-  %.pn112 = phi { ptr, i32 } [ %.pn, %.body117 ], [ %.pn106, %.body125 ], [ %.pn109, %.body133 ]
+  %.sroa.051.1 = phi i1 [ %.sroa.051.3, %.body133 ], [ %.sroa.051.7, %.body125 ], [ %.sroa.051.9, %.body117 ]
+  %.pn112 = phi { ptr, i32 } [ %.pn109, %.body133 ], [ %.pn106, %.body125 ], [ %.pn, %.body117 ]
   br i1 %.sroa.051.1, label %188, label %.thread
 
-.thread144:                                       ; preds = %172, %170, %164, %129, %99, %67, %7, %52, %.noexc, %.noexc136, %61, %64
+.thread144:                                       ; preds = %172, %170, %164, %67, %99, %129, %7, %52, %.noexc, %.noexc136, %61, %64
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %188
@@ -37683,8 +37683,8 @@ _ZN11polars_time7windows6window6Window22get_earliest_bounds_ns17hb8eb12b2933db4b
   br label %108
 
 108:                                              ; preds = %233, %182, %126, %116, %111, %105
-  %.sroa.0113.0.i = phi i64 [ %177, %182 ], [ %228, %233 ], [ %2, %126 ], [ %102, %116 ], [ %88, %111 ], [ %74, %105 ]
-  %.sroa.8115.0.i = phi i64 [ %179, %182 ], [ %230, %233 ], [ %123, %126 ], [ %118, %116 ], [ %113, %111 ], [ %107, %105 ]
+  %.sroa.0113.0.i = phi i64 [ %177, %182 ], [ %228, %233 ], [ %74, %105 ], [ %88, %111 ], [ %102, %116 ], [ %2, %126 ]
+  %.sroa.8115.0.i = phi i64 [ %179, %182 ], [ %230, %233 ], [ %107, %105 ], [ %113, %111 ], [ %118, %116 ], [ %123, %126 ]
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(120) %59, i64 120, i1 false), !alias.scope !4915, !noalias !4916
   store i64 %2, ptr %0, align 8, !alias.scope !4880, !noalias !4914

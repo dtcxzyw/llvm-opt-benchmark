@@ -979,7 +979,7 @@ proto_item_set_generated.exit365:                 ; preds = %121, %118, %115, %p
   br label %178
 
 178:                                              ; preds = %158, %159, %174, %169, %164, %160
-  %.0452 = phi i32 [ 0, %174 ], [ 0, %169 ], [ 0, %164 ], [ %161, %160 ], [ %153, %159 ], [ %153, %158 ]
+  %.0452 = phi i32 [ 0, %174 ], [ %153, %159 ], [ %153, %158 ], [ %161, %160 ], [ 0, %164 ], [ 0, %169 ]
   %179 = load i32, ptr @hf_lbtrm_hdr_next_hdr, align 4
   %180 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %179, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %181 = load i32, ptr @hf_lbtrm_hdr_ucast_port, align 4
@@ -1202,9 +1202,9 @@ dissect_lbtrm_ncf.exit:                           ; preds = %._crit_edge.i, %dis
   br label %317
 
 317:                                              ; preds = %dissect_lbtrm_ncf.exit, %dissect_lbtrm_nak.exit, %209, %dissect_lbtrm_data.exit
-  %.1453 = phi i32 [ %.0452, %dissect_lbtrm_ncf.exit ], [ %.0452, %dissect_lbtrm_nak.exit ], [ %227, %209 ], [ %202, %dissect_lbtrm_data.exit ]
-  %.0451 = phi i1 [ false, %dissect_lbtrm_ncf.exit ], [ false, %dissect_lbtrm_nak.exit ], [ false, %209 ], [ %208, %dissect_lbtrm_data.exit ]
-  %.0316 = phi i32 [ %.0.lcssa.i.i374, %dissect_lbtrm_ncf.exit ], [ %.0.lcssa.i.i, %dissect_lbtrm_nak.exit ], [ 16, %209 ], [ 12, %dissect_lbtrm_data.exit ]
+  %.1453 = phi i32 [ %202, %dissect_lbtrm_data.exit ], [ %227, %209 ], [ %.0452, %dissect_lbtrm_nak.exit ], [ %.0452, %dissect_lbtrm_ncf.exit ]
+  %.0451 = phi i1 [ %208, %dissect_lbtrm_data.exit ], [ false, %209 ], [ false, %dissect_lbtrm_nak.exit ], [ false, %dissect_lbtrm_ncf.exit ]
+  %.0316 = phi i32 [ 12, %dissect_lbtrm_data.exit ], [ 16, %209 ], [ %.0.lcssa.i.i, %dissect_lbtrm_nak.exit ], [ %.0.lcssa.i.i374, %dissect_lbtrm_ncf.exit ]
   %318 = add i32 %.0316, 8
   br label %319
 

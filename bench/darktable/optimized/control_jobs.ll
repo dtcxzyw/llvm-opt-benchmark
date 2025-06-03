@@ -764,7 +764,7 @@ _imageio_dng_make_tag.exit.i.i:                   ; preds = %90
   br label %_imageio_dng_make_tag.exit99.i.i
 
 _imageio_dng_make_tag.exit91.i.i:                 ; preds = %223, %222, %221, %220
-  %.083.ph.i.i = phi i32 [ 65794, %223 ], [ 33620224, %220 ], [ 16777729, %221 ], [ 16908289, %222 ]
+  %.083.ph.i.i = phi i32 [ 65794, %223 ], [ 33620224, %220 ], [ 16908289, %222 ], [ 16777729, %221 ]
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 178
   store i8 -114, ptr %237, align 2, !tbaa !72
   %238 = getelementptr inbounds nuw i8, ptr %2, i64 179

@@ -3602,7 +3602,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb12CompressDataERKNS_5SliceERK
   br label %35
 
 35:                                               ; preds = %4, %30, %25, %20, %15, %8
-  %.0.shrunk = phi i1 [ %34, %30 ], [ %29, %25 ], [ %24, %20 ], [ %19, %15 ], [ true, %8 ], [ false, %4 ]
+  %.0.shrunk = phi i1 [ true, %8 ], [ %19, %15 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ false, %4 ]
   ret i1 %.0.shrunk
 }
 

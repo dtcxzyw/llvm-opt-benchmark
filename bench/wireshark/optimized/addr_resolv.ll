@@ -451,7 +451,7 @@ add_service_name.exit:                            ; preds = %.thread, %switch.lo
   br label %56
 
 56:                                               ; preds = %44, %42, %53, %50, %47, %45
-  %.024 = phi ptr [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %45 ], [ null, %42 ], [ null, %44 ]
+  %.024 = phi ptr [ %46, %45 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ null, %42 ], [ null, %44 ]
   ret ptr %.024
 }
 
@@ -1375,7 +1375,7 @@ sub_1:                                            ; preds = %8
   br label %19
 
 19:                                               ; preds = %16, %18, %9
-  %.08 = phi i1 [ true, %9 ], [ false, %16 ], [ true, %18 ]
+  %.08 = phi i1 [ true, %9 ], [ true, %18 ], [ false, %16 ]
   ret i1 %.08
 }
 

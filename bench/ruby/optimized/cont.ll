@@ -1399,7 +1399,7 @@ fiber_current.exit62:                             ; preds = %85, %93
   br label %make_passing_arg.exit64
 
 make_passing_arg.exit64:                          ; preds = %121, %124, %126, %128
-  %.0.i63 = phi i64 [ %130, %128 ], [ %127, %126 ], [ %125, %124 ], [ 4, %121 ]
+  %.0.i63 = phi i64 [ %130, %128 ], [ %125, %124 ], [ %127, %126 ], [ 4, %121 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.0.i63, ptr %131, align 8, !tbaa !135
   %132 = load ptr, ptr %27, align 8, !tbaa !66
@@ -1747,7 +1747,7 @@ fiber_check_killed.exit:                          ; preds = %310
   unreachable
 
 make_passing_arg.exit:                            ; preds = %34, %32, %30, %29, %fiber_check_killed.exit
-  %.0 = phi i64 [ %315, %fiber_check_killed.exit ], [ %36, %34 ], [ %33, %32 ], [ %31, %30 ], [ 4, %29 ]
+  %.0 = phi i64 [ %315, %fiber_check_killed.exit ], [ %36, %34 ], [ %31, %30 ], [ %33, %32 ], [ 4, %29 ]
   ret i64 %.0
 }
 
@@ -3951,7 +3951,7 @@ define internal fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1) unn
   br label %10
 
 10:                                               ; preds = %2, %7, %5, %3
-  %.0 = phi i64 [ %9, %7 ], [ %6, %5 ], [ %4, %3 ], [ 4, %2 ]
+  %.0 = phi i64 [ %9, %7 ], [ %4, %3 ], [ %6, %5 ], [ 4, %2 ]
   ret i64 %.0
 }
 

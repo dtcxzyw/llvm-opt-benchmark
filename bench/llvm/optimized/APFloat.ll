@@ -2581,59 +2581,59 @@ _ZNK4llvm6detail9IEEEFloat20isSignificandAllOnesEv.exit.thread: ; preds = %.lr.p
 
 120:                                              ; preds = %_ZNK4llvm6detail9IEEEFloat20isSignificandAllOnesEv.exit.thread
   switch i8 %1, label %138 [
-    i8 4, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
-    i8 1, label %121
+    i8 4, label %121
+    i8 1, label %124
     i8 0, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread
-    i8 2, label %132
-    i8 3, label %135
+    i8 2, label %135
+    i8 3, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
   ]
 
 121:                                              ; preds = %120
+  %122 = and i32 %.028, -2
+  %123 = icmp eq i32 %122, 2
+  br i1 %123, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread
+
+124:                                              ; preds = %120
   switch i32 %.028, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread [
     i32 3, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63
-    i32 2, label %122
+    i32 2, label %125
   ]
 
-122:                                              ; preds = %121
-  %123 = load i8, ptr %4, align 4
-  %124 = and i8 %123, 7
-  %.not8.i = icmp eq i8 %124, 3
-  br i1 %.not8.i, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread, label %125
+125:                                              ; preds = %124
+  %126 = load i8, ptr %4, align 4
+  %127 = and i8 %126, 7
+  %.not8.i = icmp eq i8 %127, 3
+  br i1 %.not8.i, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread, label %128
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %127 = load i32, ptr %126, align 4, !tbaa !12
-  %128 = add i32 %127, -64
-  %129 = icmp ult i32 %128, -128
-  %130 = load ptr, ptr %17, align 8
-  %.0.i.i.i45 = select i1 %129, ptr %130, ptr %17
-  %131 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i45, i32 noundef 0) #27
-  %.not67 = icmp eq i32 %131, 0
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %130 = load i32, ptr %129, align 4, !tbaa !12
+  %131 = add i32 %130, -64
+  %132 = icmp ult i32 %131, -128
+  %133 = load ptr, ptr %17, align 8
+  %.0.i.i.i45 = select i1 %132, ptr %133, ptr %17
+  %134 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i45, i32 noundef 0) #27
+  %.not67 = icmp eq i32 %134, 0
   %.pre70.pre = load ptr, ptr %0, align 8, !tbaa !19
   br i1 %.not67, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63
-
-132:                                              ; preds = %120
-  %133 = load i8, ptr %4, align 4
-  %134 = and i8 %133, 8
-  %.not.i44 = icmp eq i8 %134, 0
-  br i1 %.not.i44, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread
 
 135:                                              ; preds = %120
   %136 = load i8, ptr %4, align 4
   %137 = and i8 %136, 8
-  %.not66 = icmp eq i8 %137, 0
-  br i1 %.not66, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63
+  %.not.i44 = icmp eq i8 %137, 0
+  br i1 %.not.i44, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread
 
 138:                                              ; preds = %120
   unreachable
 
 _ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit: ; preds = %120
-  %139 = and i32 %.028, -2
-  %140 = icmp eq i32 %139, 2
-  br i1 %140, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread
+  %139 = load i8, ptr %4, align 4
+  %140 = and i8 %139, 8
+  %.not66 = icmp eq i8 %140, 0
+  br i1 %.not66, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63
 
-_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63: ; preds = %121, %125, %132, %135, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
-  %.pre70 = phi ptr [ %67, %121 ], [ %.pre70.pre, %125 ], [ %67, %132 ], [ %67, %135 ], [ %67, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ]
+_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread63: ; preds = %124, %135, %128, %121, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
+  %.pre70 = phi ptr [ %67, %124 ], [ %67, %135 ], [ %.pre70.pre, %128 ], [ %67, %121 ], [ %67, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ]
   %141 = icmp eq i32 %.027, 0
   br i1 %141, label %142, label %146
 
@@ -2729,9 +2729,9 @@ _ZN4llvm6detail9IEEEFloat21shiftSignificandRightEj.exit56: ; preds = %169
   %202 = tail call noundef i32 @_ZN4llvm6detail9IEEEFloat14handleOverflowENS_12RoundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef signext %1)
   br label %223
 
-_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread: ; preds = %125, %121, %122, %120, %132, %135, %186, %190, %194, %199, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
-  %203 = phi ptr [ %165, %199 ], [ %165, %194 ], [ %165, %190 ], [ %165, %186 ], [ %67, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %67, %135 ], [ %67, %132 ], [ %67, %120 ], [ %67, %122 ], [ %67, %121 ], [ %.pre70.pre, %125 ]
-  %.2 = phi i32 [ %164, %199 ], [ %164, %194 ], [ %164, %190 ], [ %164, %186 ], [ %.027, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %.027, %135 ], [ %.027, %132 ], [ %.027, %120 ], [ %.027, %122 ], [ %.027, %121 ], [ %.027, %125 ]
+_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread: ; preds = %128, %124, %125, %120, %135, %121, %186, %190, %194, %199, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
+  %203 = phi ptr [ %165, %199 ], [ %165, %194 ], [ %165, %190 ], [ %165, %186 ], [ %67, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %67, %121 ], [ %67, %135 ], [ %67, %120 ], [ %67, %125 ], [ %67, %124 ], [ %.pre70.pre, %128 ]
+  %.2 = phi i32 [ %164, %199 ], [ %164, %194 ], [ %164, %190 ], [ %164, %186 ], [ %.027, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %.027, %121 ], [ %.027, %135 ], [ %.027, %120 ], [ %.027, %125 ], [ %.027, %124 ], [ %.027, %128 ]
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load i32, ptr %204, align 4, !tbaa !12
   %206 = icmp eq i32 %.2, %205
@@ -4777,7 +4777,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat17roundAwayFromZe
   unreachable
 
 34:                                               ; preds = %4, %8, %28, %24, %23, %13, %5
-  %.0 = phi i1 [ %32, %28 ], [ %.not, %24 ], [ %22, %13 ], [ false, %23 ], [ %7, %5 ], [ true, %8 ], [ false, %4 ]
+  %.0 = phi i1 [ %7, %5 ], [ %22, %13 ], [ false, %23 ], [ %.not, %24 ], [ %32, %28 ], [ true, %8 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -5018,7 +5018,7 @@ _ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25:    ; preds = %95, %111
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
 _ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %78, %74, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %64, %60, %134, %3, %3, %3, %3, %139, %138, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25, %88
-  %.0 = phi i32 [ 2, %139 ], [ 1, %138 ], [ 0, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25 ], [ 0, %88 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %134 ], [ 1, %60 ], [ 1, %64 ], [ %87, %78 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %74 ]
+  %.0 = phi i32 [ 0, %88 ], [ 0, %_ZN4llvm6detail9IEEEFloat6assignERKS1_.exit25 ], [ 1, %138 ], [ 2, %139 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %134 ], [ 1, %60 ], [ 1, %64 ], [ %87, %78 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %74 ]
   ret i32 %.0
 }
 
@@ -5258,7 +5258,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %53, %46, %_ZNK
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
 _ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %83, %79, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %69, %65, %2, %98, %95, %93
-  %.0 = phi i32 [ 1, %98 ], [ 0, %95 ], [ 0, %93 ], [ 0, %2 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
+  %.0 = phi i32 [ 0, %93 ], [ 0, %95 ], [ 1, %98 ], [ 0, %2 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -5453,7 +5453,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %53, %46, %_ZNK
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
 _ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %83, %79, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %69, %65, %2, %101, %104, %2, %2, %2, %2, %106, %93
-  %.0 = phi i32 [ 1, %106 ], [ 0, %93 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %104 ], [ 2, %101 ], [ 0, %2 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
+  %.0 = phi i32 [ 0, %93 ], [ 1, %106 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %104 ], [ 2, %101 ], [ 0, %2 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -5776,7 +5776,7 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %47, %_ZN4llvm6
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
 _ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %77, %73, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %63, %59, %2, %2, %2, %88, %87
-  %.0 = phi i32 [ 2, %88 ], [ 1, %87 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 1, %59 ], [ 1, %63 ], [ %86, %77 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %73 ]
+  %.0 = phi i32 [ 1, %87 ], [ 2, %88 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 1, %59 ], [ 1, %63 ], [ %86, %77 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -7370,63 +7370,63 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm6detail9IEEEFloat28conve
 63:                                               ; preds = %62, %54, %59
   %.not84 = phi i1 [ false, %59 ], [ false, %54 ], [ true, %62 ]
   %.0.i.ph = phi i32 [ 3, %59 ], [ 2, %54 ], [ 1, %62 ]
-  switch i8 %5, label %82 [
-    i8 4, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
-    i8 1, label %64
+  switch i8 %5, label %80 [
+    i8 4, label %64
+    i8 1, label %65
     i8 0, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit
-    i8 2, label %76
-    i8 3, label %79
+    i8 2, label %77
+    i8 3, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
   ]
 
 64:                                               ; preds = %63
+  br i1 %.not84, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
+
+65:                                               ; preds = %63
   switch i32 %.0.i.ph, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit [
     i32 3, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
-    i32 2, label %65
+    i32 2, label %66
   ]
 
-65:                                               ; preds = %64
-  %66 = load i8, ptr %8, align 4
-  %67 = and i8 %66, 7
-  %.not8.i = icmp eq i8 %67, 3
-  br i1 %.not8.i, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %68
+66:                                               ; preds = %65
+  %67 = load i8, ptr %8, align 4
+  %68 = and i8 %67, 7
+  %.not8.i = icmp eq i8 %68, 3
+  br i1 %.not8.i, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %69
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %0, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 4, !tbaa !12
-  %72 = add i32 %71, -64
-  %73 = icmp ult i32 %72, -128
-  %74 = load ptr, ptr %25, align 8
-  %.0.i.i.i = select i1 %73, ptr %74, ptr %25
-  %75 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i, i32 noundef %.044) #27
-  %.not83 = icmp eq i32 %75, 0
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %0, align 8, !tbaa !19
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 4, !tbaa !12
+  %73 = add i32 %72, -64
+  %74 = icmp ult i32 %73, -128
+  %75 = load ptr, ptr %25, align 8
+  %.0.i.i.i = select i1 %74, ptr %75, ptr %25
+  %76 = tail call noundef i32 @_ZN4llvm5APInt12tcExtractBitEPKmj(ptr noundef %.0.i.i.i, i32 noundef %.044) #27
+  %.not83 = icmp eq i32 %76, 0
   br i1 %.not83, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
 
-76:                                               ; preds = %63
-  %77 = load i8, ptr %8, align 4
-  %78 = and i8 %77, 8
-  %.not.i63 = icmp eq i8 %78, 0
+77:                                               ; preds = %63
+  %78 = load i8, ptr %8, align 4
+  %79 = and i8 %78, 8
+  %.not.i63 = icmp eq i8 %79, 0
   br i1 %.not.i63, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit
 
-79:                                               ; preds = %63
-  %80 = load i8, ptr %8, align 4
-  %81 = and i8 %80, 8
-  %.not82 = icmp eq i8 %81, 0
-  br i1 %.not82, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
-
-82:                                               ; preds = %63
+80:                                               ; preds = %63
   unreachable
 
 _ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit: ; preds = %63
-  br i1 %.not84, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
+  %81 = load i8, ptr %8, align 4
+  %82 = and i8 %81, 8
+  %.not82 = icmp eq i8 %82, 0
+  br i1 %.not82, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
 
-_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77: ; preds = %64, %68, %76, %79, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
+_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77: ; preds = %65, %77, %69, %64, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
   %83 = tail call noundef i64 @_ZN4llvm5APInt9tcAddPartEPmmj(ptr noundef %1, i64 noundef 1, i32 noundef %.sroa.speculated.i) #27
   %.not55 = icmp eq i64 %83, 0
   br i1 %.not55, label %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, label %101
 
-_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit: ; preds = %64, %65, %63, %.thread.thread, %68, %76, %79, %47, %.thread, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
-  %84 = phi i1 [ false, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77 ], [ false, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ true, %.thread ], [ true, %47 ], [ false, %79 ], [ false, %76 ], [ false, %68 ], [ true, %.thread.thread ], [ false, %63 ], [ false, %65 ], [ false, %64 ]
+_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit: ; preds = %65, %66, %63, %.thread.thread, %77, %69, %64, %47, %.thread, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77
+  %84 = phi i1 [ false, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit.thread77 ], [ false, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ true, %.thread ], [ true, %47 ], [ false, %64 ], [ false, %69 ], [ false, %77 ], [ true, %.thread.thread ], [ false, %63 ], [ false, %66 ], [ false, %65 ]
   %85 = tail call noundef i32 @_ZN4llvm5APInt5tcMSBEPKmj(ptr noundef %1, i32 noundef %.sroa.speculated.i) #27
   %86 = add i32 %85, 1
   %87 = load i8, ptr %8, align 4
@@ -9853,7 +9853,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat18convertToHexStringEPcj
   br label %36
 
 36:                                               ; preds = %34, %30, %17, %14, %11
-  %.1 = phi ptr [ %.0, %11 ], [ %35, %34 ], [ %33, %30 ], [ %18, %17 ], [ %16, %14 ]
+  %.1 = phi ptr [ %.0, %11 ], [ %16, %14 ], [ %18, %17 ], [ %33, %30 ], [ %35, %34 ]
   store i8 0, ptr %.1, align 1, !tbaa !24
   %37 = ptrtoint ptr %.1 to i64
   %38 = ptrtoint ptr %1 to i64
@@ -10437,8 +10437,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat42convertPPCDoubleDoubleLegacyA
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %23, %35, %38, %41, %44
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %35 ], [ %.sroa.0.0.copyload.i.i, %23 ], [ %.sroa.0.0.copyload16.i.i, %44 ], [ 0, %41 ], [ 0, %38 ]
-  %.0.i.i = phi i64 [ %.lobit.i.i, %35 ], [ %27, %23 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %35 ], [ %.sroa.0.0.copyload.i.i, %23 ], [ %.sroa.0.0.copyload16.i.i, %44 ], [ 0, %38 ], [ 0, %41 ]
+  %.0.i.i = phi i64 [ %.lobit.i.i, %35 ], [ %27, %23 ], [ %46, %44 ], [ %40, %38 ], [ %43, %41 ]
   %53 = and i64 %.sroa.0.0.i.i, 4503599627370495
   %54 = lshr i8 %17, 3
   %55 = zext nneg i8 %54 to i64
@@ -10567,8 +10567,8 @@ _ZN4llvm6detail9IEEEFloat8subtractERKS1_NS_12RoundingModeE.exit: ; preds = %70, 
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %101, %113, %116, %119, %122
-  %.sroa.0.0.i.i3 = phi i64 [ %.sroa.0.0.copyload.i.i8, %113 ], [ %.sroa.0.0.copyload.i.i8, %101 ], [ %.sroa.0.0.copyload16.i.i6, %122 ], [ 0, %119 ], [ 0, %116 ]
-  %.0.i.i4 = phi i64 [ %.lobit.i.i9, %113 ], [ %105, %101 ], [ %124, %122 ], [ %121, %119 ], [ %118, %116 ]
+  %.sroa.0.0.i.i3 = phi i64 [ %.sroa.0.0.copyload.i.i8, %113 ], [ %.sroa.0.0.copyload.i.i8, %101 ], [ %.sroa.0.0.copyload16.i.i6, %122 ], [ 0, %116 ], [ 0, %119 ]
+  %.0.i.i4 = phi i64 [ %.lobit.i.i9, %113 ], [ %105, %101 ], [ %124, %122 ], [ %118, %116 ], [ %121, %119 ]
   %131 = and i64 %.sroa.0.0.i.i3, 4503599627370495
   %132 = lshr i8 %95, 3
   %133 = zext nneg i8 %132 to i64
@@ -10666,8 +10666,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semIEEEdoubleEEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semIEEEdoubleEEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 4503599627370495
   %44 = lshr i8 %7, 3
   %45 = zext nneg i8 %44 to i64
@@ -10840,8 +10840,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat26convertFloatAPFloatToAPIntEv(
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semIEEEsingleEEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semIEEEsingleEEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 8388607
   %44 = lshr i8 %7, 3
   %45 = and i8 %44, 1
@@ -10923,8 +10923,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat27convertBFloatAPFloatToAPIntEv
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L9semBFloatEEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L9semBFloatEEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 127
   %44 = lshr i8 %7, 3
   %45 = and i8 %44, 1
@@ -11006,8 +11006,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat25convertHalfAPFloatToAPIntEv(p
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEhalfEEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEhalfEEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 1023
   %44 = lshr i8 %7, 3
   %45 = and i8 %44, 1
@@ -11089,8 +11089,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat31convertFloat8E5M2APFloatToAPI
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E5M2EEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E5M2EEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 3
   %44 = shl i8 %7, 4
   %45 = and i8 %44, -128
@@ -11248,8 +11248,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat31convertFloat8E4M3APFloatToAPI
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E4M3EEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E4M3EEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 7
   %44 = shl i8 %7, 4
   %45 = and i8 %44, -128
@@ -11561,8 +11561,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat31convertFloat8E3M4APFloatToAPI
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E3M4EEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L13semFloat8E3M4EEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 15
   %44 = shl i8 %7, 4
   %45 = and i8 %44, -128
@@ -11643,8 +11643,8 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat30convertFloatTF32APFloatToAPIn
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L12semFloatTF32EEEENS_5APIntEv.exit
 
 _ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L12semFloatTF32EEEENS_5APIntEv.exit: ; preds = %13, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %31 ], [ 0, %28 ]
-  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %25 ], [ %.sroa.0.0.copyload.i, %13 ], [ %.sroa.0.0.copyload16.i, %34 ], [ 0, %28 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %.lobit.i, %25 ], [ %17, %13 ], [ %36, %34 ], [ %30, %28 ], [ %33, %31 ]
   %43 = and i64 %.sroa.0.0.i, 1023
   %44 = lshr i8 %7, 3
   %45 = and i8 %44, 1
@@ -16652,7 +16652,7 @@ _ZNK4llvm6detail9IEEEFloat10isDenormalEv.exit.thread: ; preds = %218, %224, %_ZN
   br label %_ZN4llvm6detail9IEEEFloat11makeLargestEb.exit
 
 _ZN4llvm6detail9IEEEFloat11makeLargestEb.exit:    ; preds = %56, %53, %48, %18, %.critedge, %.critedge11, %_ZNK4llvm6detail9IEEEFloat21isSignificandAllZerosEv.exit, %209, %154, %126, %131, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit, %68, %16, %159, %158, %72, %_ZN4llvm6detail9IEEEFloat10changeSignEv.exit
-  %.0 = phi i32 [ 0, %_ZN4llvm6detail9IEEEFloat10changeSignEv.exit ], [ 0, %126 ], [ 0, %131 ], [ 0, %158 ], [ 0, %159 ], [ 0, %72 ], [ 1, %68 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %16 ], [ 0, %154 ], [ 0, %209 ], [ 0, %_ZNK4llvm6detail9IEEEFloat21isSignificandAllZerosEv.exit ], [ 0, %.critedge11 ], [ 0, %.critedge ], [ 0, %18 ], [ 0, %48 ], [ 0, %53 ], [ 0, %56 ]
+  %.0 = phi i32 [ 0, %_ZN4llvm6detail9IEEEFloat10changeSignEv.exit ], [ 0, %16 ], [ 1, %68 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %72 ], [ 0, %126 ], [ 0, %131 ], [ 0, %158 ], [ 0, %159 ], [ 0, %154 ], [ 0, %209 ], [ 0, %_ZNK4llvm6detail9IEEEFloat21isSignificandAllZerosEv.exit ], [ 0, %.critedge11 ], [ 0, %.critedge ], [ 0, %18 ], [ 0, %48 ], [ 0, %53 ], [ 0, %56 ]
   br i1 %1, label %266, label %_ZN4llvm6detail9IEEEFloat10changeSignEv.exit31
 
 266:                                              ; preds = %_ZN4llvm6detail9IEEEFloat11makeLargestEb.exit
@@ -22269,7 +22269,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail13DoubleAPFloat18convertToHexStrin
   br label %_ZNK4llvm6detail9IEEEFloat18convertToHexStringEPcjbNS_12RoundingModeE.exit
 
 _ZNK4llvm6detail9IEEEFloat18convertToHexStringEPcjbNS_12RoundingModeE.exit: ; preds = %15, %17, %20, %33, %37
-  %.1.i = phi ptr [ %.0.i5, %15 ], [ %38, %37 ], [ %36, %33 ], [ %21, %20 ], [ %19, %17 ]
+  %.1.i = phi ptr [ %.0.i5, %15 ], [ %19, %17 ], [ %21, %20 ], [ %36, %33 ], [ %38, %37 ]
   store i8 0, ptr %.1.i, align 1, !tbaa !24
   %39 = ptrtoint ptr %.1.i to i64
   %40 = ptrtoint ptr %1 to i64

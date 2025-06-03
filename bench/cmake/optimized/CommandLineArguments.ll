@@ -1446,7 +1446,7 @@ _ZNSolsEPFRSoS_E.exit90:                          ; preds = %.noexc105
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread117: ; preds = %77, %102, %95, %60, %.thread110, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %187
-  %.457121 = phi i64 [ %.053176, %187 ], [ %.053176, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %.053176, %102 ], [ %.053176, %95 ], [ %.053176, %60 ], [ %73, %77 ], [ %spec.select130, %.thread110 ]
+  %.457121 = phi i64 [ %.053176, %187 ], [ %.053176, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i ], [ %.053176, %60 ], [ %.053176, %95 ], [ %.053176, %102 ], [ %73, %77 ], [ %spec.select130, %.thread110 ]
   %216 = add i64 %.457121, 1
   %217 = load ptr, ptr %0, align 8, !tbaa !22
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -1466,8 +1466,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split: ; preds = %61, %159, %_ZNSolsEPFRSoS_E.exit90, %_ZNSolsEPFRSoS_E.exit, %90
-  %.lcssa254.sink = phi ptr [ %91, %90 ], [ %148, %_ZNSolsEPFRSoS_E.exit ], [ %215, %_ZNSolsEPFRSoS_E.exit90 ], [ %160, %159 ], [ %62, %61 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.lcssa254.sink, i64 120
+  %.sink278 = phi ptr [ %91, %90 ], [ %148, %_ZNSolsEPFRSoS_E.exit ], [ %215, %_ZNSolsEPFRSoS_E.exit90 ], [ %160, %159 ], [ %62, %61 ]
+  %227 = getelementptr inbounds nuw i8, ptr %.sink278, i64 120
   %228 = load i64, ptr %227, align 8, !tbaa !37
   %229 = add i64 %228, -1
   store i64 %229, ptr %227, align 8, !tbaa !37
@@ -2019,7 +2019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %160
 
 160:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %159, %16
-  %.026 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ true, %159 ], [ false, %16 ]
+  %.026 = phi i1 [ true, %159 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ false, %16 ]
   ret i1 %.026
 }
 
@@ -3420,7 +3420,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br label %320
 
 320:                                              ; preds = %318, %316, %314, %309
-  %.096 = phi i64 [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %248, %309 ]
+  %.096 = phi i64 [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %248, %309 ]
   %spec.select = call i64 @llvm.umax.i64(i64 %.096, i64 %.194525)
   %321 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0379.0524) #32
   %.not446 = icmp eq ptr %321, %245

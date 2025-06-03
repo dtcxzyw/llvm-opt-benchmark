@@ -447,7 +447,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -524,7 +524,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -915,7 +915,7 @@ default.unreachable784:                           ; preds = %456, %310, %"_ZN4co
   br i1 %trunc, label %255, label %252
 
 .thread483:                                       ; preds = %573, %554, %564, %548, %424, %.thread676, %278, %.thread672, %466, %410, %320, %270, %96, %.thread454, %.thread610, %530, %.thread563, %.thread490, %.thread, %93
-  %.pn300 = phi { ptr, i32 } [ %94, %93 ], [ %.pn.pn613, %.thread610 ], [ %eh.lpad-body404629, %530 ], [ %eh.lpad-body390566, %.thread563 ], [ %lpad.thr_comm.split-lp570, %410 ], [ %467, %466 ], [ %eh.lpad-body306489, %.thread490 ], [ %lpad.thr_comm.split-lp498, %270 ], [ %321, %320 ], [ %.pn287452, %.thread ], [ %97, %96 ], [ %95, %.thread454 ], [ %279, %278 ], [ %.pn294.pn511, %.thread672 ], [ %425, %424 ], [ %.pn289.pn584, %.thread676 ], [ %lpad.thr_comm.split-lp633, %548 ], [ %555, %554 ], [ %565, %564 ], [ %574, %573 ]
+  %.pn300 = phi { ptr, i32 } [ %94, %93 ], [ %eh.lpad-body306489, %.thread490 ], [ %lpad.thr_comm.split-lp498, %270 ], [ %321, %320 ], [ %eh.lpad-body390566, %.thread563 ], [ %lpad.thr_comm.split-lp570, %410 ], [ %467, %466 ], [ %.pn287452, %.thread ], [ %97, %96 ], [ %.pn.pn613, %.thread610 ], [ %eh.lpad-body404629, %530 ], [ %95, %.thread454 ], [ %279, %278 ], [ %.pn294.pn511, %.thread672 ], [ %425, %424 ], [ %.pn289.pn584, %.thread676 ], [ %lpad.thr_comm.split-lp633, %548 ], [ %555, %554 ], [ %565, %564 ], [ %574, %573 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %89 = load ptr, ptr %55, align 8, !alias.scope !105, !nonnull !7, !noundef !7
@@ -1572,7 +1572,7 @@ select.unfold:                                    ; preds = %.lr.ph732, %177
   br label %.thread483
 
 322:                                              ; preds = %315, %314, %311, %310
-  %.0.i349 = phi i8 [ %317, %315 ], [ %268, %314 ], [ %313, %311 ], [ 1, %310 ]
+  %.0.i349 = phi i8 [ %313, %311 ], [ %268, %314 ], [ %317, %315 ], [ 1, %310 ]
   %323 = trunc nuw i8 %.0.i349 to i1
   invoke void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..LsmStorageInner$GT$30compact_generate_sst_from_iter17h1e814d0eda3309fcE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %26, i1 noundef zeroext %323)
           to label %324 unwind label %320
@@ -2031,7 +2031,7 @@ select.unfold:                                    ; preds = %.lr.ph732, %177
   br label %.thread483
 
 468:                                              ; preds = %461, %460, %457, %456
-  %.0.i375 = phi i8 [ %463, %461 ], [ %409, %460 ], [ %459, %457 ], [ 1, %456 ]
+  %.0.i375 = phi i8 [ %459, %457 ], [ %409, %460 ], [ %463, %461 ], [ 1, %456 ]
   %469 = trunc nuw i8 %.0.i375 to i1
   invoke void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..LsmStorageInner$GT$30compact_generate_sst_from_iter17h3725f8bf6186caa8E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(264) %37, i1 noundef zeroext %469)
           to label %470 unwind label %466
@@ -4497,7 +4497,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %22
 
 22:                                               ; preds = %20, %18, %16
-  %.0.i96 = phi i8 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0.i96 = phi i8 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   %.not144 = icmp eq i8 %.0.i96, 2
   %23 = trunc i8 %.0.i96 to i1
   %or.cond.i.i = or i1 %.not144, %23
@@ -4531,7 +4531,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %34
 
 34:                                               ; preds = %32, %30, %28
-  %.0.i97 = phi i8 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ]
+  %.0.i97 = phi i8 [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
   %.not145 = icmp eq i8 %.0.i97, 2
   %35 = trunc i8 %.0.i97 to i1
   %or.cond.i.i99 = or i1 %.not145, %35
@@ -10273,20 +10273,20 @@ define noundef ptr @_ZN8mini_lsm11lsm_storage15LsmStorageInner8sync_dir17hc4862d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1519
   %9 = load i32, ptr %3, align 8, !range !1527, !noundef !7
   %trunc = trunc nuw i32 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !7
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %13 = load i32, ptr %12, align 4, !range !1528
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %11 = load i32, ptr %10, align 4, !range !1528
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %16, label %14
 
 14:                                               ; preds = %1
-  store i32 %13, ptr %4, align 4
+  store i32 %11, ptr %4, align 4
   %15 = invoke noundef ptr @_ZN3std2fs4File8sync_all17ha918d7fd8011a7efE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %22 unwind label %18
 
 16:                                               ; preds = %1
-  %17 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17ha7b303260d86b060E.llvm.6838852990411476531"(ptr noundef nonnull %11, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.3582dd002b4b33a71be7b41fda319ca3.42.llvm.6838852990411476531)
+  %17 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17ha7b303260d86b060E.llvm.6838852990411476531"(ptr noundef nonnull %13, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.3582dd002b4b33a71be7b41fda319ca3.42.llvm.6838852990411476531)
   br label %28
 
 18:                                               ; preds = %26, %14
@@ -10301,7 +10301,7 @@ define noundef ptr @_ZN8mini_lsm11lsm_storage15LsmStorageInner8sync_dir17hc4862d
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = call noundef i32 @close(i32 noundef %13), !noalias !1540
+  %25 = call noundef i32 @close(i32 noundef %11), !noalias !1540
   br label %28
 
 26:                                               ; preds = %22
@@ -10309,7 +10309,7 @@ define noundef ptr @_ZN8mini_lsm11lsm_storage15LsmStorageInner8sync_dir17hc4862d
           to label %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h68e1f2687aeb71c8E.exit" unwind label %18
 
 28:                                               ; preds = %16, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h68e1f2687aeb71c8E.exit", %24
-  %.1 = phi ptr [ null, %24 ], [ %17, %16 ], [ %27, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h68e1f2687aeb71c8E.exit" ]
+  %.1 = phi ptr [ null, %24 ], [ %27, %"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h68e1f2687aeb71c8E.exit" ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret ptr %.1
 
@@ -11662,7 +11662,7 @@ default.unreachable1:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %17, %14, %11, %8
-  %.0.in = phi i1 [ %20, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %20, %17 ]
   ret i1 %.0.in
 }
 

@@ -301,7 +301,7 @@ define dso_local i32 @lzma_index_encoder(ptr noundef %0, ptr noundef %1) local_u
   br label %33
 
 33:                                               ; preds = %23, %2, %24
-  %.1 = phi i32 [ %3, %2 ], [ %.0.i.ph, %23 ], [ 0, %24 ]
+  %.1 = phi i32 [ 0, %24 ], [ %.0.i.ph, %23 ], [ %3, %2 ]
   ret i32 %.1
 }
 

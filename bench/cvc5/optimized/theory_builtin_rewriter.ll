@@ -304,8 +304,8 @@ _ZNK4cvc58internal8TypeNode9isBooleanEv.exit.thread: ; preds = %_ZN4cvc58interna
   %91 = load ptr, ptr %5, align 8, !tbaa !35
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, 1152920405095219200
-  %.not.i.i18 = icmp eq i64 %93, 1152920405095219200
-  br i1 %.not.i.i18, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %94, !prof !34
+  %.not.i.i17 = icmp eq i64 %93, 1152920405095219200
+  br i1 %.not.i.i17, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %94, !prof !34
 
 94:                                               ; preds = %90
   %95 = add i64 %92, 1152920405095219200
@@ -2058,7 +2058,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %329, %323, %_ZN4cvc
   ret void
 
 335:                                              ; preds = %221, %333, %289, %220, %86
-  %.pn26 = phi { ptr, i32 } [ %334, %333 ], [ %.pn.pn, %289 ], [ %.pn17.pn.pn, %220 ], [ %.pn23.pn, %86 ], [ %222, %221 ]
+  %.pn26 = phi { ptr, i32 } [ %334, %333 ], [ %.pn23.pn, %86 ], [ %.pn17.pn.pn, %220 ], [ %.pn.pn, %289 ], [ %222, %221 ]
   resume { ptr, i32 } %.pn26
 }
 

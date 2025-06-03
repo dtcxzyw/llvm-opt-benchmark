@@ -744,9 +744,9 @@ define internal noundef i32 @fS(i32 %0, double %1, ptr noundef readonly captures
   br label %54
 
 54:                                               ; preds = %50, %46, %42, %10
-  %.046 = phi double [ %36, %10 ], [ %36, %50 ], [ %47, %46 ], [ %44, %42 ]
-  %.045 = phi double [ %41, %10 ], [ %52, %50 ], [ %49, %46 ], [ %45, %42 ]
-  %.0 = phi double [ %39, %10 ], [ %53, %50 ], [ %39, %46 ], [ %39, %42 ]
+  %.046 = phi double [ %36, %10 ], [ %44, %42 ], [ %47, %46 ], [ %36, %50 ]
+  %.045 = phi double [ %41, %10 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
+  %.0 = phi double [ %39, %10 ], [ %39, %42 ], [ %39, %46 ], [ %53, %50 ]
   %55 = load ptr, ptr %6, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !18

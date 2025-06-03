@@ -304,7 +304,7 @@ define noundef zeroext i1 @"_ZN71_$LT$uv_git_types..oid..OidParseError$u20$as$u2
   br label %8
 
 8:                                                ; preds = %6, %4
-  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ]
   ret i1 %.sroa.0.0.in
 }
 

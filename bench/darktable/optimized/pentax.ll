@@ -325,9 +325,9 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
   store i64 %102, ptr %87, align 8, !tbaa !85
   br label %103
 
-103:                                              ; preds = %23, %19, %90, %86, %72, %68, %54, %50, %36, %32
-  %.not75.ph = phi i1 [ false, %32 ], [ false, %36 ], [ true, %50 ], [ true, %54 ], [ false, %68 ], [ false, %72 ], [ false, %86 ], [ false, %90 ], [ false, %19 ], [ false, %23 ]
-  %.0.ph = phi i64 [ 13, %32 ], [ 13, %36 ], [ 12, %50 ], [ 12, %54 ], [ 15, %68 ], [ 15, %72 ], [ 4, %86 ], [ 4, %90 ], [ 3, %19 ], [ 3, %23 ]
+103:                                              ; preds = %23, %19, %90, %86, %36, %32, %54, %50, %72, %68
+  %.not75.ph = phi i1 [ false, %68 ], [ false, %72 ], [ true, %50 ], [ true, %54 ], [ false, %32 ], [ false, %36 ], [ false, %86 ], [ false, %90 ], [ false, %19 ], [ false, %23 ]
+  %.0.ph = phi i64 [ 15, %68 ], [ 15, %72 ], [ 12, %50 ], [ 12, %54 ], [ 13, %32 ], [ 13, %36 ], [ 4, %86 ], [ 4, %90 ], [ 3, %19 ], [ 3, %23 ]
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.ph
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 9
   %106 = load i8, ptr %105, align 1, !tbaa !84

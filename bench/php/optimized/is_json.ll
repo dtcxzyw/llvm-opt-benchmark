@@ -561,8 +561,8 @@ json_parse_number.exit:                           ; preds = %.lr.ph147, %.lr.ph7
   br label %json_parse_const.exit
 
 json_parse_const.exit:                            ; preds = %json_parse_number.exit, %json_parse_object.exit, %json_parse_array.exit, %22
-  %.036 = phi i32 [ %.1.i, %json_parse_number.exit ], [ %.0.i48, %json_parse_object.exit ], [ %.0.i, %json_parse_array.exit ], [ %23, %22 ]
-  %.0 = phi i64 [ 2, %json_parse_number.exit ], [ 3, %json_parse_object.exit ], [ 0, %json_parse_array.exit ], [ 4, %22 ]
+  %.036 = phi i32 [ %.1.i, %json_parse_number.exit ], [ %23, %22 ], [ %.0.i, %json_parse_array.exit ], [ %.0.i48, %json_parse_object.exit ]
+  %.0 = phi i64 [ 2, %json_parse_number.exit ], [ 4, %22 ], [ 0, %json_parse_array.exit ], [ 3, %json_parse_object.exit ]
   %.not = icmp eq i32 %.036, 0
   br i1 %.not, label %json_parse_const.exit.thread114, label %json_parse_const.exit.thread
 

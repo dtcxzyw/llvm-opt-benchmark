@@ -8449,7 +8449,7 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %_ZN6bufferIP4exprLb
   resume { ptr, i32 } %.pn61.pn
 
 507:                                              ; preds = %37, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit
-  %.1 = phi ptr [ %38, %37 ], [ %.sink327, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit ]
+  %.1 = phi ptr [ %.sink327, %_ZN6bufferIP3appLb0ELj16EED2Ev.exit ], [ %38, %37 ]
   ret ptr %.1
 }
 

@@ -105,7 +105,7 @@ define hidden range(i32 -1, 2) i32 @visual_open(ptr noundef %0, ptr noundef %1, 
   br label %52
 
 34:                                               ; preds = %24, %30, %29, %28, %27, %26
-  %.037 = phi i32 [ 13, %30 ], [ 27, %29 ], [ 40, %28 ], [ 12, %27 ], [ 2, %26 ], [ 1, %24 ]
+  %.037 = phi i32 [ 2, %26 ], [ 12, %27 ], [ 40, %28 ], [ 27, %29 ], [ 13, %30 ], [ 1, %24 ]
   %35 = load i32, ptr @visual_file_type_subtype, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %35, ptr %36, align 4
@@ -462,7 +462,7 @@ define internal fastcc noundef zeroext i1 @visual_read_packet(ptr noundef readon
   store i8 0, ptr %122, align 4
   br label %123
 
-.thread:                                          ; preds = %11, %83, %72, %62, %56, %48
+.thread:                                          ; preds = %11, %48, %56, %62, %72, %83
   store i32 %17, ptr %37, align 8
   br label %152
 
@@ -586,7 +586,7 @@ define internal fastcc noundef zeroext i1 @visual_read_packet(ptr noundef readon
   br label %192
 
 192:                                              ; preds = %155, %181, %183, %186, %190, %177, %179, %152, %89, %5, %150, %80, %69, %53, %45
-  %.0 = phi i1 [ false, %150 ], [ false, %80 ], [ false, %69 ], [ false, %53 ], [ false, %45 ], [ false, %5 ], [ false, %89 ], [ false, %152 ], [ true, %179 ], [ true, %177 ], [ true, %190 ], [ true, %186 ], [ true, %183 ], [ true, %181 ], [ true, %155 ]
+  %.0 = phi i1 [ false, %150 ], [ false, %45 ], [ false, %53 ], [ false, %69 ], [ false, %80 ], [ false, %5 ], [ false, %89 ], [ false, %152 ], [ true, %179 ], [ true, %177 ], [ true, %190 ], [ true, %186 ], [ true, %183 ], [ true, %181 ], [ true, %155 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
   ret i1 %.0
@@ -798,7 +798,7 @@ define internal noundef zeroext i1 @visual_dump(ptr noundef %0, ptr noundef read
   br label %.thread
 
 .thread:                                          ; preds = %58, %60, %71, %67, %65
-  %.0 = phi i32 [ 0, %65 ], [ %73, %71 ], [ %70, %67 ], [ 0, %60 ], [ 0, %58 ]
+  %.0 = phi i32 [ 0, %65 ], [ %70, %67 ], [ %73, %71 ], [ 0, %60 ], [ 0, %58 ]
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.0, ptr %74, align 4
   %75 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 20, ptr noundef %3)

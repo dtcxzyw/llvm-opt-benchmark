@@ -1034,8 +1034,8 @@ lean_inc.exit218:                                 ; preds = %163, %162, %160, %l
   br i1 %.not360, label %166, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %lean_inc.exit218, %169, %171, %172, %lean_dec.exit209, %lean_dec.exit207, %124, %123, %121, %lean_inc.exit215
-  %.0168.ph.be = phi ptr [ %99, %lean_dec.exit207 ], [ %63, %lean_dec.exit209 ], [ %.0168.ph, %124 ], [ %.0168.ph, %123 ], [ %.0168.ph, %121 ], [ %.0168.ph, %lean_inc.exit215 ], [ %155, %172 ], [ %155, %171 ], [ %155, %169 ], [ %155, %lean_inc.exit218 ]
-  %.0162.ph.be = phi ptr [ %66, %lean_dec.exit207 ], [ %30, %lean_dec.exit209 ], [ %109, %124 ], [ %109, %123 ], [ %109, %121 ], [ %109, %lean_inc.exit215 ], [ %137, %172 ], [ %137, %171 ], [ %137, %169 ], [ %137, %lean_inc.exit218 ]
+  %.0168.ph.be = phi ptr [ %63, %lean_dec.exit209 ], [ %99, %lean_dec.exit207 ], [ %.0168.ph, %124 ], [ %.0168.ph, %123 ], [ %.0168.ph, %121 ], [ %.0168.ph, %lean_inc.exit215 ], [ %155, %172 ], [ %155, %171 ], [ %155, %169 ], [ %155, %lean_inc.exit218 ]
+  %.0162.ph.be = phi ptr [ %30, %lean_dec.exit209 ], [ %66, %lean_dec.exit207 ], [ %109, %124 ], [ %109, %123 ], [ %109, %121 ], [ %109, %lean_inc.exit215 ], [ %137, %172 ], [ %137, %171 ], [ %137, %169 ], [ %137, %lean_inc.exit218 ]
   br label %.outer
 
 166:                                              ; preds = %lean_inc.exit218

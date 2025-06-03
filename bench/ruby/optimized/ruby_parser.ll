@@ -870,7 +870,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly capture
   unreachable
 
 rb_float_new_inline.exit:                         ; preds = %26, %24, %20, %28, %4
-  %.0 = phi i64 [ %35, %28 ], [ %9, %4 ], [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
+  %.0 = phi i64 [ %9, %4 ], [ %35, %28 ], [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
   %37 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !85

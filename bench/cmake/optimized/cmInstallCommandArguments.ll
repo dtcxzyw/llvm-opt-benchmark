@@ -2075,7 +2075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i47.i.i.i.i
   br label %128
 
 128:                                              ; preds = %124, %._crit_edge.i.i.i.i
-  %.sroa.067.1.i.i.i.i = phi ptr [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %127, %124 ]
+  %.sroa.067.1.i.i.i.i = phi ptr [ %127, %124 ], [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %129 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
   %.not13.not.i.i.i50.i.i.i.i = icmp eq ptr %129, null
   br i1 %.not13.not.i.i.i50.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i51.i.i.i.i
@@ -2122,7 +2122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i54.i.i.i.i
   br label %151
 
 151:                                              ; preds = %147, %._crit_edge.i.i.i.i
-  %.sroa.067.2.i.i.i.i = phi ptr [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %150, %147 ]
+  %.sroa.067.2.i.i.i.i = phi ptr [ %150, %147 ], [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %152 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
   %.not13.not.i.i.i57.i.i.i.i = icmp eq ptr %152, null
   br i1 %.not13.not.i.i.i57.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i58.i.i.i.i

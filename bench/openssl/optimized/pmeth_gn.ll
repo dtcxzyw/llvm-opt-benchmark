@@ -120,7 +120,7 @@ define internal fastcc i32 @gen_init(ptr noundef %0, i32 noundef range(i32 2, 5)
   br label %46
 
 46:                                               ; preds = %39, %44, %22, %50
-  %.0 = phi i32 [ -2, %50 ], [ %45, %44 ], [ %40, %39 ], [ 0, %22 ]
+  %.0 = phi i32 [ -2, %50 ], [ %40, %39 ], [ %45, %44 ], [ 0, %22 ]
   %47 = icmp slt i32 %.0, 1
   %48 = icmp ne ptr %0, null
   %or.cond = and i1 %48, %47
@@ -131,8 +131,8 @@ define internal fastcc i32 @gen_init(ptr noundef %0, i32 noundef range(i32 2, 5)
   store i32 0, ptr %0, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %27, %19, %36, %41, %49, %46
-  %.037 = phi i32 [ %.0, %49 ], [ %.0, %46 ], [ 1, %41 ], [ 1, %36 ], [ 1, %19 ], [ 1, %27 ]
+.thread:                                          ; preds = %27, %19, %41, %36, %49, %46
+  %.037 = phi i32 [ %.0, %49 ], [ %.0, %46 ], [ 1, %36 ], [ 1, %41 ], [ 1, %19 ], [ 1, %27 ]
   ret i32 %.037
 
 50:                                               ; preds = %23, %28, %32, %2
@@ -295,7 +295,7 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   br label %75
 
 75:                                               ; preds = %63, %69, %50
-  %.246 = phi i32 [ %74, %69 ], [ %68, %63 ], [ %51, %50 ]
+  %.246 = phi i32 [ %68, %63 ], [ %74, %69 ], [ %51, %50 ]
   %76 = icmp slt i32 %.246, 1
   br i1 %76, label %.thread65, label %81
 

@@ -1782,7 +1782,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   br label %add_octetstring_value.exit.i
 
 add_octetstring_value.exit.i:                     ; preds = %724, %718, %715, %712, %697, %680, %674, %669, %657, %652, %617, %612
-  %.0144.i.i = phi ptr [ %.6180184.i, %724 ], [ %723, %718 ], [ %.6180184.i, %697 ], [ %.6180184.i, %712 ], [ %.6180184.i, %715 ], [ %.6180184.i, %674 ], [ %.6180184.i, %680 ], [ %.6180184.i, %657 ], [ %.6180184.i, %669 ], [ %.6180184.i, %617 ], [ %.6180184.i, %652 ], [ %.6180184.i, %612 ]
+  %.0144.i.i = phi ptr [ %.6180184.i, %724 ], [ %.6180184.i, %612 ], [ %.6180184.i, %617 ], [ %.6180184.i, %652 ], [ %.6180184.i, %657 ], [ %.6180184.i, %669 ], [ %.6180184.i, %674 ], [ %.6180184.i, %680 ], [ %.6180184.i, %712 ], [ %.6180184.i, %715 ], [ %.6180184.i, %697 ], [ %723, %718 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
   br label %add_charstring_value.exit.i
 
@@ -1969,9 +1969,9 @@ add_octetstring_value.exit.i:                     ; preds = %724, %718, %715, %7
   br label %add_charstring_value.exit.i
 
 add_charstring_value.exit.i:                      ; preds = %825, %818, %817, %810, %737, %736, %729, %add_octetstring_value.exit.i, %605, %add_integer_tree.exit.i, %.split.i, %195
-  %spec.select174.i = phi ptr [ %spec.select.i, %825 ], [ %spec.select.i, %605 ], [ %spec.select.i, %add_octetstring_value.exit.i ], [ %spec.select.i, %195 ], [ %spec.select.i, %add_integer_tree.exit.i ], [ %spec.select.i, %.split.i ], [ %spec.select175.i, %729 ], [ %spec.select175.i, %736 ], [ %spec.select175.i, %737 ], [ %spec.select175.i, %810 ], [ %spec.select175.i, %817 ], [ %spec.select175.i, %818 ]
-  %.3131172.i = phi ptr [ %.2130.i, %825 ], [ %.2130.i, %605 ], [ %.2130.i, %add_octetstring_value.exit.i ], [ %.2130.i, %195 ], [ %.2130.i, %add_integer_tree.exit.i ], [ %.2130.i, %.split.i ], [ %.3131173.i, %729 ], [ %.3131173.i, %736 ], [ %.3131173.i, %737 ], [ %.3131173.i, %810 ], [ %.3131173.i, %817 ], [ %.3131173.i, %818 ]
-  %.4.i = phi ptr [ %.8.i, %825 ], [ %606, %605 ], [ %.0144.i.i, %add_octetstring_value.exit.i ], [ %.3.i, %195 ], [ %340, %add_integer_tree.exit.i ], [ %spec.select147.i, %.split.i ], [ %spec.select147176.i, %729 ], [ %spec.select147176.i, %736 ], [ %spec.select147176.i, %737 ], [ %805, %810 ], [ %805, %817 ], [ %805, %818 ]
+  %spec.select174.i = phi ptr [ %spec.select.i, %825 ], [ %spec.select.i, %195 ], [ %spec.select.i, %605 ], [ %spec.select.i, %add_octetstring_value.exit.i ], [ %spec.select.i, %add_integer_tree.exit.i ], [ %spec.select.i, %.split.i ], [ %spec.select175.i, %729 ], [ %spec.select175.i, %736 ], [ %spec.select175.i, %737 ], [ %spec.select175.i, %810 ], [ %spec.select175.i, %817 ], [ %spec.select175.i, %818 ]
+  %.3131172.i = phi ptr [ %.2130.i, %825 ], [ %.2130.i, %195 ], [ %.2130.i, %605 ], [ %.2130.i, %add_octetstring_value.exit.i ], [ %.2130.i, %add_integer_tree.exit.i ], [ %.2130.i, %.split.i ], [ %.3131173.i, %729 ], [ %.3131173.i, %736 ], [ %.3131173.i, %737 ], [ %.3131173.i, %810 ], [ %.3131173.i, %817 ], [ %.3131173.i, %818 ]
+  %.4.i = phi ptr [ %.8.i, %825 ], [ %.3.i, %195 ], [ %606, %605 ], [ %.0144.i.i, %add_octetstring_value.exit.i ], [ %340, %add_integer_tree.exit.i ], [ %spec.select147.i, %.split.i ], [ %spec.select147176.i, %729 ], [ %spec.select147176.i, %736 ], [ %spec.select147176.i, %737 ], [ %805, %810 ], [ %805, %817 ], [ %805, %818 ]
   %829 = add i32 %.0125205.i, 5
   %830 = add i32 %829, %170
   %831 = add i32 %830, %178

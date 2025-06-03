@@ -2599,8 +2599,8 @@ _ZN15ClassListParser10parse_uintEPi.exit:         ; preds = %_ZN15ClassListParse
   br label %.thread
 
 116:                                              ; preds = %100, %100, %110, %109
-  %.117 = phi i1 [ true, %110 ], [ %.01643, %100 ], [ %.01643, %100 ], [ %.01643, %109 ]
-  %.1 = phi i1 [ %.044, %110 ], [ %.044, %100 ], [ %.044, %100 ], [ true, %109 ]
+  %.117 = phi i1 [ %.01643, %109 ], [ %.01643, %100 ], [ %.01643, %100 ], [ true, %110 ]
+  %.1 = phi i1 [ true, %109 ], [ %.044, %100 ], [ %.044, %100 ], [ %.044, %110 ]
   %117 = load ptr, ptr %12, align 8
   %118 = load i8, ptr %117, align 1
   %.not = icmp eq i8 %118, 0

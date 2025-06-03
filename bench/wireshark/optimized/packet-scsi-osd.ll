@@ -4980,7 +4980,7 @@ osd_lookup_attribute.exit.thread:                 ; preds = %.lr.ph, %69, %.preh
   br label %83
 
 83:                                               ; preds = %79, %43
-  %.4 = phi i32 [ %.1107, %43 ], [ %82, %79 ]
+  %.4 = phi i32 [ %82, %79 ], [ %.1107, %43 ]
   %84 = load ptr, ptr %7, align 8
   %85 = call fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %0, ptr noundef %1, ptr noundef %45, ptr noundef %84, i32 noundef %.4, ptr noundef %4, i1 noundef zeroext %5)
   br label %86
@@ -4990,7 +4990,7 @@ osd_lookup_attribute.exit.thread:                 ; preds = %.lr.ph, %69, %.preh
   br label %.loopexit
 
 86:                                               ; preds = %43, %83, %74, %osd_lookup_attribute.exit.thread
-  %.2 = phi i32 [ %.1107, %43 ], [ %85, %83 ], [ %54, %74 ], [ %54, %osd_lookup_attribute.exit.thread ]
+  %.2 = phi i32 [ %.1107, %43 ], [ %54, %74 ], [ %54, %osd_lookup_attribute.exit.thread ], [ %85, %83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %87 = sub i32 %.2, %2
   %88 = icmp ult i32 %87, %29

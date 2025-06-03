@@ -2804,12 +2804,12 @@ define internal range(i32 0, 2) i32 @test_fromdata_ecx(i32 noundef %0) #0 {
   ]
 
 12:                                               ; preds = %1
-  %.048.sroa.gep114 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %.048.sroa.gep109 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %.048.sroa.gep99 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.048.sroa.gep94 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.048.sroa.gep89 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.048.sroa.gep84 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %.048.sroa.gep112 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %.048.sroa.gep107 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %.048.sroa.gep97 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.048.sroa.gep92 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.048.sroa.gep87 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.048.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 80
   br label %15
 
 13:                                               ; preds = %1
@@ -2822,29 +2822,29 @@ define internal range(i32 0, 2) i32 @test_fromdata_ecx(i32 noundef %0) #0 {
   br label %15
 
 14:                                               ; preds = %1
-  %.048.sroa.gep112 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %.048.sroa.gep107 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %.048.sroa.gep97 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.048.sroa.gep92 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.048.sroa.gep87 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.048.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %.048.sroa.gep114 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %.048.sroa.gep109 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %.048.sroa.gep99 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.048.sroa.gep94 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.048.sroa.gep89 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.048.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 80
   br label %15
 
 default.unreachable125:                           ; preds = %1
   unreachable
 
 15:                                               ; preds = %1, %14, %13, %12
-  %.049 = phi ptr [ @.str.238, %14 ], [ @.str.237, %13 ], [ @.str.236, %12 ], [ @.str.235, %1 ]
-  %.048.sroa.phi = phi ptr [ %.048.sroa.gep, %14 ], [ %.048.sroa.gep83, %13 ], [ %.048.sroa.gep84, %12 ], [ %.048.sroa.gep85, %1 ]
-  %.048.sroa.phi86 = phi ptr [ %.048.sroa.gep87, %14 ], [ %.048.sroa.gep88, %13 ], [ %.048.sroa.gep89, %12 ], [ %.048.sroa.gep90, %1 ]
-  %.048.sroa.phi91 = phi ptr [ %.048.sroa.gep92, %14 ], [ %.048.sroa.gep93, %13 ], [ %.048.sroa.gep94, %12 ], [ %.048.sroa.gep95, %1 ]
-  %.048.sroa.phi96 = phi ptr [ %.048.sroa.gep97, %14 ], [ %.048.sroa.gep98, %13 ], [ %.048.sroa.gep99, %12 ], [ %.048.sroa.gep100, %1 ]
-  %.048.sroa.phi106 = phi ptr [ %.048.sroa.gep107, %14 ], [ %.048.sroa.gep108, %13 ], [ %.048.sroa.gep109, %12 ], [ %.048.sroa.gep110, %1 ]
-  %.048.sroa.phi111 = phi ptr [ %.048.sroa.gep112, %14 ], [ %.048.sroa.gep113, %13 ], [ %.048.sroa.gep114, %12 ], [ %.048.sroa.gep115, %1 ]
-  %.048 = phi ptr [ %10, %14 ], [ %9, %13 ], [ %8, %12 ], [ %7, %1 ]
-  %.047 = phi i32 [ 456, %14 ], [ 256, %13 ], [ 448, %12 ], [ 253, %1 ]
-  %.046 = phi i32 [ 224, %14 ], [ 128, %13 ], [ 224, %12 ], [ 128, %1 ]
-  %.0 = phi i32 [ 114, %14 ], [ 64, %13 ], [ 56, %12 ], [ 32, %1 ]
+  %.049 = phi ptr [ @.str.236, %12 ], [ @.str.237, %13 ], [ @.str.238, %14 ], [ @.str.235, %1 ]
+  %.048.sroa.phi = phi ptr [ %.048.sroa.gep, %12 ], [ %.048.sroa.gep83, %13 ], [ %.048.sroa.gep84, %14 ], [ %.048.sroa.gep85, %1 ]
+  %.048.sroa.phi86 = phi ptr [ %.048.sroa.gep87, %12 ], [ %.048.sroa.gep88, %13 ], [ %.048.sroa.gep89, %14 ], [ %.048.sroa.gep90, %1 ]
+  %.048.sroa.phi91 = phi ptr [ %.048.sroa.gep92, %12 ], [ %.048.sroa.gep93, %13 ], [ %.048.sroa.gep94, %14 ], [ %.048.sroa.gep95, %1 ]
+  %.048.sroa.phi96 = phi ptr [ %.048.sroa.gep97, %12 ], [ %.048.sroa.gep98, %13 ], [ %.048.sroa.gep99, %14 ], [ %.048.sroa.gep100, %1 ]
+  %.048.sroa.phi106 = phi ptr [ %.048.sroa.gep107, %12 ], [ %.048.sroa.gep108, %13 ], [ %.048.sroa.gep109, %14 ], [ %.048.sroa.gep110, %1 ]
+  %.048.sroa.phi111 = phi ptr [ %.048.sroa.gep112, %12 ], [ %.048.sroa.gep113, %13 ], [ %.048.sroa.gep114, %14 ], [ %.048.sroa.gep115, %1 ]
+  %.048 = phi ptr [ %8, %12 ], [ %9, %13 ], [ %10, %14 ], [ %7, %1 ]
+  %.047 = phi i32 [ 448, %12 ], [ 256, %13 ], [ 456, %14 ], [ 253, %1 ]
+  %.046 = phi i32 [ 224, %12 ], [ 128, %13 ], [ 224, %14 ], [ 128, %1 ]
+  %.0 = phi i32 [ 56, %12 ], [ 64, %13 ], [ 114, %14 ], [ 32, %1 ]
   %16 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull %.049, ptr noundef null) #6
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1479, ptr noundef nonnull @.str.239, ptr noundef %16) #6
   %.not = icmp eq i32 %17, 0

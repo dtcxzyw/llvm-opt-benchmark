@@ -387,7 +387,7 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_hid_data.exit
 
 dissect_hid_data.exit:                            ; preds = %.critedge, %.sink.split.i, %127, %114, %.thread140, %28, %37, %.thread137, %98, %85, %75, %63, %23, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %98 ], [ 1, %85 ], [ 2, %75 ], [ %74, %63 ], [ %62, %.thread137 ], [ 1, %23 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread140 ], [ 2, %114 ], [ 2, %127 ], [ %133, %.sink.split.i ], [ 1, %.critedge ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %23 ], [ %62, %.thread137 ], [ %74, %63 ], [ 2, %75 ], [ 1, %85 ], [ 2, %98 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread140 ], [ 2, %114 ], [ 2, %127 ], [ %133, %.sink.split.i ], [ 1, %.critedge ]
   ret i32 %.0
 }
 

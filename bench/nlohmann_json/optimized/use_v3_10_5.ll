@@ -3239,7 +3239,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %97, %96 ]
+  %.1 = phi ptr [ %97, %96 ], [ %.029.lcssa, %._crit_edge ]
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !110
   %.not.i.i.i.i46 = icmp eq ptr %100, null
@@ -3271,7 +3271,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__c
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %115, %114 ]
+  %.2 = phi ptr [ %115, %114 ], [ %.029.lcssa, %._crit_edge ]
   %117 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !110
   %.not.i.i.i.i50 = icmp eq ptr %118, null
@@ -11276,7 +11276,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %100
 
 100:                                              ; preds = %97, %89, %86, %75, %70, %65, %60, %55, %50, %45
-  %.169 = phi i64 [ %88, %86 ], [ %96, %89 ], [ %98, %97 ], [ %78, %75 ], [ %73, %70 ], [ %68, %65 ], [ %63, %60 ], [ %58, %55 ], [ %53, %50 ], [ %48, %45 ]
+  %.169 = phi i64 [ %88, %86 ], [ %96, %89 ], [ %98, %97 ], [ %48, %45 ], [ %53, %50 ], [ %58, %55 ], [ %63, %60 ], [ %68, %65 ], [ %73, %70 ], [ %78, %75 ]
   %101 = add i64 %.169, -500
   %102 = icmp ult i64 %101, 13
   br i1 %102, label %103, label %236

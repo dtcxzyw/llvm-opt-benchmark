@@ -542,11 +542,11 @@ switch.lookup47:                                  ; preds = %57
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %15, %switch.lookup47, %switch.lookup41, %switch.lookup37, %29, %83, %77, %70, %63, %51, %45, %43, %2, %27, %95, %94, %93, %92, %91, %90, %89, %84, %78, %76, %71, %69, %64, %52, %42
-  %.032 = phi i32 [ 60, %95 ], [ 56, %94 ], [ 54, %93 ], [ 59, %92 ], [ 58, %91 ], [ 49, %90 ], [ 50, %89 ], [ 51, %84 ], [ 53, %78 ], [ 64, %76 ], [ 63, %71 ], [ 74, %69 ], [ 73, %64 ], [ 67, %52 ], [ 27, %42 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.load, %switch.lookup37 ], [ %switch.load46, %switch.lookup41 ], [ %switch.offset, %switch.lookup47 ], [ %switch.tableidx, %15 ]
+  %.032 = phi i32 [ 27, %42 ], [ 67, %52 ], [ 73, %64 ], [ 74, %69 ], [ 63, %71 ], [ 64, %76 ], [ 53, %78 ], [ 51, %84 ], [ 50, %89 ], [ 49, %90 ], [ 58, %91 ], [ 59, %92 ], [ 54, %93 ], [ 56, %94 ], [ 60, %95 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.load, %switch.lookup37 ], [ %switch.load46, %switch.lookup41 ], [ %switch.offset, %switch.lookup47 ], [ %switch.tableidx, %15 ]
   ret i32 %.032
 
 105:                                              ; preds = %101, %87, %81, %74, %67, %61, %55, %49, %40, %34, %25, %19
-  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %88, %87 ], [ %82, %81 ], [ %75, %74 ], [ %68, %67 ], [ %62, %61 ], [ %56, %55 ], [ %50, %49 ], [ %41, %40 ], [ %35, %34 ], [ %26, %25 ], [ %20, %19 ]
+  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %20, %19 ], [ %26, %25 ], [ %35, %34 ], [ %41, %40 ], [ %50, %49 ], [ %56, %55 ], [ %62, %61 ], [ %68, %67 ], [ %75, %74 ], [ %82, %81 ], [ %88, %87 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1759,7 +1759,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i14: ; preds = %_ZNSt11char_
   br label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %19, %15
-  %.0.in = phi i32 [ %22, %19 ], [ %18, %15 ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ], [ %31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ], [ %.0.i6.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i14 ]
+  %.0.in = phi i32 [ %18, %15 ], [ %22, %19 ], [ %13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ], [ %31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i11 ], [ %.0.i6.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i14 ]
   %.0 = icmp slt i32 %.0.in, 0
   ret i1 %.0
 }

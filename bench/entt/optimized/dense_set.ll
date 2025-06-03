@@ -5261,8 +5261,8 @@ _ZN7testing7MessageD2Ev.exit932:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %._crit_edge.i.i, %1345
-  %1347 = phi ptr [ %.pre1177, %1345 ], [ %1346, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %1343, %1345 ], [ %1346, %._crit_edge.i.i ]
+  %1347 = phi ptr [ %1346, %._crit_edge.i.i ], [ %.pre1177, %1345 ]
+  %.sroa.0.1.i.i = phi ptr [ %1346, %._crit_edge.i.i ], [ %1343, %1345 ]
   store ptr %.sroa.0.1.i.i, ptr %107, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #26
   store ptr %1347, ptr %108, align 8
@@ -5539,8 +5539,8 @@ _ZN7testing7MessageD2Ev.exit949:                  ; preds = %_ZNKSt14default_del
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %._crit_edge.i.i956, %1431
-  %1433 = phi ptr [ %.pre1178, %1431 ], [ %1432, %._crit_edge.i.i956 ]
-  %.sroa.0.1.i.i957 = phi ptr [ %1429, %1431 ], [ %1432, %._crit_edge.i.i956 ]
+  %1433 = phi ptr [ %1432, %._crit_edge.i.i956 ], [ %.pre1178, %1431 ]
+  %.sroa.0.1.i.i957 = phi ptr [ %1432, %._crit_edge.i.i956 ], [ %1429, %1431 ]
   store ptr %.sroa.0.1.i.i957, ptr %118, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #26
   store ptr %1433, ptr %119, align 8
@@ -8635,8 +8635,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setIiNS_8identity
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %22, %._crit_edge.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %24, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %20, %22 ], [ %24, %._crit_edge.i.i ]
+  %25 = phi ptr [ %24, %._crit_edge.i.i ], [ %.pre, %22 ]
+  %.sroa.0.1.i.i = phi ptr [ %24, %._crit_edge.i.i ], [ %20, %22 ]
   %26 = icmp ne ptr %.sroa.0.1.i.i, %25
   ret i1 %26
 }
@@ -8689,8 +8689,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setIiNS_8identity
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %24, %._crit_edge.i.i
-  %27 = phi ptr [ %.pre, %24 ], [ %26, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %22, %24 ], [ %26, %._crit_edge.i.i ]
+  %27 = phi ptr [ %26, %._crit_edge.i.i ], [ %.pre, %24 ]
+  %.sroa.0.1.i.i = phi ptr [ %26, %._crit_edge.i.i ], [ %22, %24 ]
   %28 = icmp ne ptr %.sroa.0.1.i.i, %27
   ret i1 %28
 }
@@ -8852,8 +8852,8 @@ define linkonce_odr hidden noundef i64 @_ZNK4entt9dense_setIiNS_8identityEN4test
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findERKi.exit: ; preds = %22, %._crit_edge.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %24, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %20, %22 ], [ %24, %._crit_edge.i.i ]
+  %25 = phi ptr [ %24, %._crit_edge.i.i ], [ %.pre, %22 ]
+  %.sroa.0.1.i.i = phi ptr [ %24, %._crit_edge.i.i ], [ %20, %22 ]
   %26 = icmp ne ptr %.sroa.0.1.i.i, %25
   %27 = zext i1 %26 to i64
   ret i64 %27
@@ -8907,8 +8907,8 @@ define linkonce_odr hidden noundef i64 @_ZNK4entt9dense_setIiNS_8identityEN4test
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %24, %._crit_edge.i.i
-  %27 = phi ptr [ %.pre, %24 ], [ %26, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %22, %24 ], [ %26, %._crit_edge.i.i ]
+  %27 = phi ptr [ %26, %._crit_edge.i.i ], [ %.pre, %24 ]
+  %.sroa.0.1.i.i = phi ptr [ %26, %._crit_edge.i.i ], [ %22, %24 ]
   %28 = icmp ne ptr %.sroa.0.1.i.i, %27
   %29 = zext i1 %28 to i64
   ret i64 %29
@@ -13542,8 +13542,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setImNS_8identity
   br label %_ZNK4entt9dense_setImNS_8identityESt8equal_toIvESaImEE4findIjEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setImNS_8identityESt8equal_toIvESaImEE4findIjEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %22, %._crit_edge.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %24, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %20, %22 ], [ %24, %._crit_edge.i.i ]
+  %25 = phi ptr [ %24, %._crit_edge.i.i ], [ %.pre, %22 ]
+  %.sroa.0.1.i.i = phi ptr [ %24, %._crit_edge.i.i ], [ %20, %22 ]
   %26 = icmp ne ptr %.sroa.0.1.i.i, %25
   ret i1 %26
 }
@@ -35672,8 +35672,8 @@ _ZN7testing7MessageD2Ev.exit684:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit693
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit693: ; preds = %._crit_edge.i.i691, %1100
-  %1102 = phi ptr [ %.pre837, %1100 ], [ %1101, %._crit_edge.i.i691 ]
-  %.sroa.0.1.i.i692 = phi ptr [ %1098, %1100 ], [ %1101, %._crit_edge.i.i691 ]
+  %1102 = phi ptr [ %1101, %._crit_edge.i.i691 ], [ %.pre837, %1100 ]
+  %.sroa.0.1.i.i692 = phi ptr [ %1101, %._crit_edge.i.i691 ], [ %1098, %1100 ]
   store ptr %.sroa.0.1.i.i692, ptr %84, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #26
   store ptr %1102, ptr %85, align 8
@@ -36704,8 +36704,8 @@ _ZN7testing7MessageD2Ev.exit769:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit778
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit778: ; preds = %._crit_edge.i.i776, %1418
-  %1420 = phi ptr [ %.pre838, %1418 ], [ %1419, %._crit_edge.i.i776 ]
-  %.sroa.0.1.i.i777 = phi ptr [ %1416, %1418 ], [ %1419, %._crit_edge.i.i776 ]
+  %1420 = phi ptr [ %1419, %._crit_edge.i.i776 ], [ %.pre838, %1418 ]
+  %.sroa.0.1.i.i777 = phi ptr [ %1419, %._crit_edge.i.i776 ], [ %1416, %1418 ]
   store ptr %.sroa.0.1.i.i777, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #26
   store ptr %1420, ptr %123, align 8
@@ -36923,8 +36923,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setIiSt4hashIiESt
   br label %_ZNK4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit
 
 _ZNK4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit: ; preds = %22, %._crit_edge.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %24, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %20, %22 ], [ %24, %._crit_edge.i.i ]
+  %25 = phi ptr [ %24, %._crit_edge.i.i ], [ %.pre, %22 ]
+  %.sroa.0.1.i.i = phi ptr [ %24, %._crit_edge.i.i ], [ %20, %22 ]
   %26 = icmp ne ptr %.sroa.0.1.i.i, %25
   ret i1 %26
 }
@@ -40008,8 +40008,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setImNS_8identity
   br label %_ZNK4entt9dense_setImNS_8identityESt8equal_toIvESaImEE4findERKm.exit
 
 _ZNK4entt9dense_setImNS_8identityESt8equal_toIvESaImEE4findERKm.exit: ; preds = %21, %._crit_edge.i.i
-  %24 = phi ptr [ %.pre, %21 ], [ %23, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %19, %21 ], [ %23, %._crit_edge.i.i ]
+  %24 = phi ptr [ %23, %._crit_edge.i.i ], [ %.pre, %21 ]
+  %.sroa.0.1.i.i = phi ptr [ %23, %._crit_edge.i.i ], [ %19, %21 ]
   %25 = icmp ne ptr %.sroa.0.1.i.i, %24
   ret i1 %25
 }
@@ -45088,8 +45088,8 @@ _ZN7testing7MessageD2Ev.exit636:                  ; preds = %_ZNKSt14default_del
   br label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit645
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIvESaIiEE4findERKi.exit645: ; preds = %._crit_edge.i.i643, %1077
-  %1079 = phi ptr [ %.pre746, %1077 ], [ %1078, %._crit_edge.i.i643 ]
-  %.sroa.0.1.i.i644 = phi ptr [ %1075, %1077 ], [ %1078, %._crit_edge.i.i643 ]
+  %1079 = phi ptr [ %1078, %._crit_edge.i.i643 ], [ %.pre746, %1077 ]
+  %.sroa.0.1.i.i644 = phi ptr [ %1078, %._crit_edge.i.i643 ], [ %1075, %1077 ]
   store ptr %.sroa.0.1.i.i644, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #26
   store ptr %1079, ptr %84, align 8
@@ -55424,7 +55424,7 @@ _ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE
   br label %_ZN4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE4findERKS6_.exit
 
 _ZN4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE4findERKS6_.exit: ; preds = %._crit_edge.i.i102, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i
-  %.sroa.0.1.i.i = phi ptr [ %198, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i ], [ %199, %._crit_edge.i.i102 ]
+  %.sroa.0.1.i.i = phi ptr [ %199, %._crit_edge.i.i102 ], [ %198, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i ]
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %201 = invoke noundef i64 @_ZN4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE5eraseERKS6_(ptr noundef nonnull align 8 dereferenceable(52) %3, ptr noundef nonnull align 8 dereferenceable(32) %200)
           to label %202 unwind label %222
@@ -55914,8 +55914,8 @@ _ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EE
   br label %370
 
 370:                                              ; preds = %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i191, %._crit_edge.i.i187
-  %371 = phi ptr [ %.pre, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i191 ], [ %369, %._crit_edge.i.i187 ]
-  %.sroa.0.1.i.i188 = phi ptr [ %368, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i191 ], [ %369, %._crit_edge.i.i187 ]
+  %371 = phi ptr [ %369, %._crit_edge.i.i187 ], [ %.pre, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i191 ]
+  %.sroa.0.1.i.i188 = phi ptr [ %369, %._crit_edge.i.i187 ], [ %368, %_ZNKSt8equal_toIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTeqclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.thread.i.i191 ]
   %.not = icmp eq ptr %.sroa.0.1.i.i188, %371
   %372 = zext i1 %.not to i8
   store i8 %372, ptr %22, align 8, !tbaa !51
@@ -66193,8 +66193,8 @@ _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE7emplaceIJiE
   br label %137
 
 137:                                              ; preds = %._crit_edge.i.i.i, %134
-  %138 = phi ptr [ %.pre.i, %134 ], [ %136, %._crit_edge.i.i.i ]
-  %.sroa.0.1.i.i.i = phi ptr [ %132, %134 ], [ %136, %._crit_edge.i.i.i ]
+  %138 = phi ptr [ %136, %._crit_edge.i.i.i ], [ %.pre.i, %134 ]
+  %.sroa.0.1.i.i.i = phi ptr [ %136, %._crit_edge.i.i.i ], [ %132, %134 ]
   %139 = icmp ne ptr %.sroa.0.1.i.i.i, %138
   %140 = zext i1 %139 to i64
   %141 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i, i64 %140
@@ -66404,8 +66404,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %208
 
 208:                                              ; preds = %._crit_edge.i.i.i332, %206
-  %209 = phi ptr [ %.pre.i337, %206 ], [ %207, %._crit_edge.i.i.i332 ]
-  %.sroa.0.1.i.i.i333 = phi ptr [ %204, %206 ], [ %207, %._crit_edge.i.i.i332 ]
+  %209 = phi ptr [ %207, %._crit_edge.i.i.i332 ], [ %.pre.i337, %206 ]
+  %.sroa.0.1.i.i.i333 = phi ptr [ %207, %._crit_edge.i.i.i332 ], [ %204, %206 ]
   %210 = icmp ne ptr %.sroa.0.1.i.i.i333, %209
   %211 = zext i1 %210 to i64
   %212 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i333, i64 %211
@@ -66613,8 +66613,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %277
 
 277:                                              ; preds = %._crit_edge.i.i.i366, %275
-  %278 = phi ptr [ %.pre.i371, %275 ], [ %276, %._crit_edge.i.i.i366 ]
-  %.sroa.0.1.i.i.i367 = phi ptr [ %273, %275 ], [ %276, %._crit_edge.i.i.i366 ]
+  %278 = phi ptr [ %276, %._crit_edge.i.i.i366 ], [ %.pre.i371, %275 ]
+  %.sroa.0.1.i.i.i367 = phi ptr [ %276, %._crit_edge.i.i.i366 ], [ %273, %275 ]
   %279 = icmp ne ptr %.sroa.0.1.i.i.i367, %278
   %280 = zext i1 %279 to i64
   %281 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i367, i64 %280
@@ -66822,8 +66822,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %346
 
 346:                                              ; preds = %._crit_edge.i.i.i398, %344
-  %347 = phi ptr [ %.pre.i403, %344 ], [ %345, %._crit_edge.i.i.i398 ]
-  %.sroa.0.1.i.i.i399 = phi ptr [ %342, %344 ], [ %345, %._crit_edge.i.i.i398 ]
+  %347 = phi ptr [ %345, %._crit_edge.i.i.i398 ], [ %.pre.i403, %344 ]
+  %.sroa.0.1.i.i.i399 = phi ptr [ %345, %._crit_edge.i.i.i398 ], [ %342, %344 ]
   %348 = icmp ne ptr %.sroa.0.1.i.i.i399, %347
   %349 = zext i1 %348 to i64
   %350 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i399, i64 %349
@@ -67031,8 +67031,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %415
 
 415:                                              ; preds = %._crit_edge.i.i.i432, %413
-  %416 = phi ptr [ %.pre.i437, %413 ], [ %414, %._crit_edge.i.i.i432 ]
-  %.sroa.0.1.i.i.i433 = phi ptr [ %411, %413 ], [ %414, %._crit_edge.i.i.i432 ]
+  %416 = phi ptr [ %414, %._crit_edge.i.i.i432 ], [ %.pre.i437, %413 ]
+  %.sroa.0.1.i.i.i433 = phi ptr [ %414, %._crit_edge.i.i.i432 ], [ %411, %413 ]
   %417 = icmp ne ptr %.sroa.0.1.i.i.i433, %416
   %418 = zext i1 %417 to i64
   %419 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i433, i64 %418
@@ -67240,8 +67240,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %484
 
 484:                                              ; preds = %._crit_edge.i.i.i465, %482
-  %485 = phi ptr [ %.pre.i470, %482 ], [ %483, %._crit_edge.i.i.i465 ]
-  %.sroa.0.1.i.i.i466 = phi ptr [ %480, %482 ], [ %483, %._crit_edge.i.i.i465 ]
+  %485 = phi ptr [ %483, %._crit_edge.i.i.i465 ], [ %.pre.i470, %482 ]
+  %.sroa.0.1.i.i.i466 = phi ptr [ %483, %._crit_edge.i.i.i465 ], [ %480, %482 ]
   %486 = icmp ne ptr %.sroa.0.1.i.i.i466, %485
   %487 = zext i1 %486 to i64
   %488 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i466, i64 %487
@@ -67449,8 +67449,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %553
 
 553:                                              ; preds = %._crit_edge.i.i.i499, %551
-  %554 = phi ptr [ %.pre.i504, %551 ], [ %552, %._crit_edge.i.i.i499 ]
-  %.sroa.0.1.i.i.i500 = phi ptr [ %549, %551 ], [ %552, %._crit_edge.i.i.i499 ]
+  %554 = phi ptr [ %552, %._crit_edge.i.i.i499 ], [ %.pre.i504, %551 ]
+  %.sroa.0.1.i.i.i500 = phi ptr [ %552, %._crit_edge.i.i.i499 ], [ %549, %551 ]
   %555 = icmp ne ptr %.sroa.0.1.i.i.i500, %554
   %556 = zext i1 %555 to i64
   %557 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i500, i64 %556
@@ -67658,8 +67658,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %622
 
 622:                                              ; preds = %._crit_edge.i.i.i532, %620
-  %623 = phi ptr [ %.pre.i537, %620 ], [ %621, %._crit_edge.i.i.i532 ]
-  %.sroa.0.1.i.i.i533 = phi ptr [ %618, %620 ], [ %621, %._crit_edge.i.i.i532 ]
+  %623 = phi ptr [ %621, %._crit_edge.i.i.i532 ], [ %.pre.i537, %620 ]
+  %.sroa.0.1.i.i.i533 = phi ptr [ %621, %._crit_edge.i.i.i532 ], [ %618, %620 ]
   %624 = icmp ne ptr %.sroa.0.1.i.i.i533, %623
   %625 = zext i1 %624 to i64
   %626 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i533, i64 %625
@@ -67875,8 +67875,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %699
 
 699:                                              ; preds = %._crit_edge.i.i.i566, %697
-  %700 = phi ptr [ %.pre.i571, %697 ], [ %698, %._crit_edge.i.i.i566 ]
-  %.sroa.0.1.i.i.i567 = phi ptr [ %695, %697 ], [ %698, %._crit_edge.i.i.i566 ]
+  %700 = phi ptr [ %698, %._crit_edge.i.i.i566 ], [ %.pre.i571, %697 ]
+  %.sroa.0.1.i.i.i567 = phi ptr [ %698, %._crit_edge.i.i.i566 ], [ %695, %697 ]
   %701 = icmp ne ptr %.sroa.0.1.i.i.i567, %700
   %702 = zext i1 %701 to i64
   %703 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i567, i64 %702
@@ -68297,8 +68297,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %847
 
 847:                                              ; preds = %._crit_edge.i.i.i632, %845
-  %848 = phi ptr [ %.pre.i637, %845 ], [ %846, %._crit_edge.i.i.i632 ]
-  %.sroa.0.1.i.i.i633 = phi ptr [ %843, %845 ], [ %846, %._crit_edge.i.i.i632 ]
+  %848 = phi ptr [ %846, %._crit_edge.i.i.i632 ], [ %.pre.i637, %845 ]
+  %.sroa.0.1.i.i.i633 = phi ptr [ %846, %._crit_edge.i.i.i632 ], [ %843, %845 ]
   %849 = icmp ne ptr %.sroa.0.1.i.i.i633, %848
   %850 = zext i1 %849 to i64
   %851 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i633, i64 %850
@@ -68514,8 +68514,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %924
 
 924:                                              ; preds = %._crit_edge.i.i.i666, %922
-  %925 = phi ptr [ %.pre.i671, %922 ], [ %923, %._crit_edge.i.i.i666 ]
-  %.sroa.0.1.i.i.i667 = phi ptr [ %920, %922 ], [ %923, %._crit_edge.i.i.i666 ]
+  %925 = phi ptr [ %923, %._crit_edge.i.i.i666 ], [ %.pre.i671, %922 ]
+  %.sroa.0.1.i.i.i667 = phi ptr [ %923, %._crit_edge.i.i.i666 ], [ %920, %922 ]
   %926 = icmp ne ptr %.sroa.0.1.i.i.i667, %925
   %927 = zext i1 %926 to i64
   %928 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i667, i64 %927
@@ -68881,8 +68881,8 @@ _ZN7testing7MessageD2Ev.exit717:                  ; preds = %_ZNKSt14default_del
   br label %1051
 
 1051:                                             ; preds = %._crit_edge.i.i.i724, %1049
-  %1052 = phi ptr [ %.pre.i729, %1049 ], [ %1050, %._crit_edge.i.i.i724 ]
-  %.sroa.0.1.i.i.i725 = phi ptr [ %1047, %1049 ], [ %1050, %._crit_edge.i.i.i724 ]
+  %1052 = phi ptr [ %1050, %._crit_edge.i.i.i724 ], [ %.pre.i729, %1049 ]
+  %.sroa.0.1.i.i.i725 = phi ptr [ %1050, %._crit_edge.i.i.i724 ], [ %1047, %1049 ]
   %1053 = icmp ne ptr %.sroa.0.1.i.i.i725, %1052
   %1054 = zext i1 %1053 to i64
   %1055 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i.i725, i64 %1054
@@ -69881,8 +69881,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4entt9dense_setIiNS_8identityEN4test
   br label %_ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZN4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %24, %._crit_edge.i.i
-  %27 = phi ptr [ %.pre, %24 ], [ %26, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %22, %24 ], [ %26, %._crit_edge.i.i ]
+  %27 = phi ptr [ %26, %._crit_edge.i.i ], [ %.pre, %24 ]
+  %.sroa.0.1.i.i = phi ptr [ %26, %._crit_edge.i.i ], [ %22, %24 ]
   %28 = icmp ne ptr %.sroa.0.1.i.i, %27
   %29 = zext i1 %28 to i64
   %30 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i, i64 %29
@@ -69939,8 +69939,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4entt9dense_setIiNS_8identityEN4tes
   br label %_ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit
 
 _ZNK4entt9dense_setIiNS_8identityEN4test20transparent_equal_toESaIiEE4findIdEENSt9enable_ifILb1ENSt11conditionalILb0ET_NS_8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorISF_SaISF_EEEEEEE4typeEE4typeERKS9_.exit: ; preds = %24, %._crit_edge.i.i
-  %27 = phi ptr [ %.pre, %24 ], [ %26, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %22, %24 ], [ %26, %._crit_edge.i.i ]
+  %27 = phi ptr [ %26, %._crit_edge.i.i ], [ %.pre, %24 ]
+  %.sroa.0.1.i.i = phi ptr [ %26, %._crit_edge.i.i ], [ %22, %24 ]
   %28 = icmp ne ptr %.sroa.0.1.i.i, %27
   %29 = zext i1 %28 to i64
   %30 = getelementptr inbounds nuw %"struct.std::pair.182", ptr %.sroa.0.1.i.i, i64 %29
@@ -83001,8 +83001,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt9dense_setImSt4hashImESt
   br label %_ZNK4entt9dense_setImSt4hashImESt8equal_toIvEN4test18throwing_allocatorImEEE4findERKm.exit
 
 _ZNK4entt9dense_setImSt4hashImESt8equal_toIvEN4test18throwing_allocatorImEEE4findERKm.exit: ; preds = %22, %._crit_edge.i.i
-  %25 = phi ptr [ %.pre, %22 ], [ %24, %._crit_edge.i.i ]
-  %.sroa.0.1.i.i = phi ptr [ %20, %22 ], [ %24, %._crit_edge.i.i ]
+  %25 = phi ptr [ %24, %._crit_edge.i.i ], [ %.pre, %22 ]
+  %.sroa.0.1.i.i = phi ptr [ %24, %._crit_edge.i.i ], [ %20, %22 ]
   %26 = icmp ne ptr %.sroa.0.1.i.i, %25
   ret i1 %26
 }

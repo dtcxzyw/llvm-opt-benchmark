@@ -3530,7 +3530,7 @@ define hidden void @_ZN4cvc58internal16ProofNodeToSExpr11getArgumentENS0_12NodeT
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %13, %14, %15, %16, %17, %18, %19, %33, %31, %26
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %19, %18, %17, %16, %15, %14, %13, %33, %31, %26
   ret void
 }
 

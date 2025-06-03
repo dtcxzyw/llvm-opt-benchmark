@@ -359,7 +359,7 @@ define internal noundef zeroext i1 @"_ZN62_$LT$egg..subst..VarParseError$u20$as$
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 

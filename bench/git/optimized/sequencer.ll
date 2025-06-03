@@ -4496,7 +4496,7 @@ _.exit27:                                         ; preds = %67, %69
   br label %73
 
 73:                                               ; preds = %_.exit24, %_.exit27, %git_path_seq_dir.exit, %59, %_.exit20, %_.exit16, %_.exit
-  %.0 = phi i32 [ -1, %_.exit20 ], [ %60, %59 ], [ -1, %_.exit16 ], [ -1, %_.exit ], [ 0, %git_path_seq_dir.exit ], [ -1, %_.exit27 ], [ -1, %_.exit24 ]
+  %.0 = phi i32 [ -1, %_.exit20 ], [ %60, %59 ], [ -1, %_.exit ], [ -1, %_.exit16 ], [ 0, %git_path_seq_dir.exit ], [ -1, %_.exit27 ], [ -1, %_.exit24 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
   ret i32 %.0
 }
@@ -9621,7 +9621,7 @@ _.exit267.i:                                      ; preds = %894, %892
   br label %do_merge.exit
 
 do_merge.exit:                                    ; preds = %._crit_edge330.i, %_.exit.i233, %_.exit237.i, %_.exit240.i, %_.exit243.i, %684, %710, %726, %_.exit253.i, %836, %837, %843, %_.exit264.i, %_.exit267.i, %.thread276.i, %901, %904, %906
-  %.0167.i = phi i32 [ -1, %_.exit243.i ], [ %687, %684 ], [ %909, %906 ], [ %713, %710 ], [ -1, %726 ], [ -1, %_.exit253.i ], [ %.2.i226, %836 ], [ %.4.i, %_.exit264.i ], [ -1, %_.exit267.i ], [ 1, %901 ], [ 0, %904 ], [ -1, %_.exit240.i ], [ -1, %_.exit237.i ], [ -1, %_.exit.i233 ], [ -1, %._crit_edge330.i ], [ -1, %837 ], [ 0, %843 ], [ 1, %.thread276.i ]
+  %.0167.i = phi i32 [ -1, %_.exit243.i ], [ %687, %684 ], [ %909, %906 ], [ %713, %710 ], [ -1, %_.exit253.i ], [ %.2.i226, %836 ], [ %.4.i, %_.exit264.i ], [ -1, %_.exit267.i ], [ 1, %901 ], [ 0, %904 ], [ -1, %726 ], [ -1, %_.exit240.i ], [ -1, %_.exit237.i ], [ -1, %_.exit.i233 ], [ -1, %._crit_edge330.i ], [ -1, %837 ], [ 0, %843 ], [ 1, %.thread276.i ]
   call void @strbuf_release(ptr noundef nonnull %10) #20
   %910 = call i32 @delete_tempfile(ptr noundef nonnull @do_merge.lock) #20
   %911 = load ptr, ptr %13, align 8, !tbaa !215
@@ -9795,8 +9795,8 @@ _.exit248:                                        ; preds = %974, %976
   br label %.thread363
 
 pick_one_commit.exit.thread:                      ; preds = %rebase_path_message.exit20.i.i, %rebase_path_message.exit13.i.i, %382, %381, %395, %451, %do_reset.exit, %971, %972, %record_in_rewritten.exit, %do_label.exit, %pick_one_commit.exit, %pick_one_commit.exit.thread325
-  %.2318 = phi i32 [ %.0415, %pick_one_commit.exit.thread325 ], [ %.0415, %pick_one_commit.exit ], [ %.0415, %972 ], [ %.5321, %971 ], [ %.0415, %record_in_rewritten.exit ], [ %.0415, %do_reset.exit ], [ %.0415, %do_label.exit ], [ %.3319, %451 ], [ %.0415, %381 ], [ %.0415, %395 ], [ %.0415, %382 ], [ %.0415, %rebase_path_message.exit13.i.i ], [ %.0415, %rebase_path_message.exit20.i.i ]
-  %.2131 = phi i32 [ 0, %pick_one_commit.exit.thread325 ], [ %.064.i, %pick_one_commit.exit ], [ 0, %972 ], [ %.0.i243347, %971 ], [ 0, %record_in_rewritten.exit ], [ 0, %do_reset.exit ], [ 0, %do_label.exit ], [ %.013.i333, %451 ], [ %268, %381 ], [ %400, %395 ], [ %268, %382 ], [ -1, %rebase_path_message.exit13.i.i ], [ -1, %rebase_path_message.exit20.i.i ]
+  %.2318 = phi i32 [ %.0415, %pick_one_commit.exit.thread325 ], [ %.0415, %pick_one_commit.exit ], [ %.0415, %972 ], [ %.3319, %451 ], [ %.0415, %do_label.exit ], [ %.0415, %do_reset.exit ], [ %.0415, %record_in_rewritten.exit ], [ %.5321, %971 ], [ %.0415, %381 ], [ %.0415, %395 ], [ %.0415, %382 ], [ %.0415, %rebase_path_message.exit13.i.i ], [ %.0415, %rebase_path_message.exit20.i.i ]
+  %.2131 = phi i32 [ 0, %pick_one_commit.exit.thread325 ], [ %.064.i, %pick_one_commit.exit ], [ 0, %972 ], [ %.013.i333, %451 ], [ 0, %do_label.exit ], [ 0, %do_reset.exit ], [ 0, %record_in_rewritten.exit ], [ %.0.i243347, %971 ], [ %268, %381 ], [ %400, %395 ], [ %268, %382 ], [ -1, %rebase_path_message.exit13.i.i ], [ -1, %rebase_path_message.exit20.i.i ]
   %.not179 = icmp eq i32 %.2318, 0
   br i1 %.not179, label %1016, label %.thread
 
@@ -15403,7 +15403,7 @@ _.exit23:                                         ; preds = %26, %28
   unreachable
 
 32:                                               ; preds = %1, %_.exit23, %_.exit20, %_.exit14, %_.exit8
-  %.0 = phi i32 [ -1, %_.exit23 ], [ -1, %_.exit20 ], [ -1, %_.exit14 ], [ -1, %_.exit8 ], [ 0, %1 ]
+  %.0 = phi i32 [ -1, %_.exit8 ], [ -1, %_.exit14 ], [ -1, %_.exit20 ], [ -1, %_.exit23 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -20301,11 +20301,11 @@ _.exit172.i:                                      ; preds = %244, %242
   br label %try_to_commit.exit
 
 try_to_commit.exit:                               ; preds = %59, %_.exit146.i, %_.exit149.i, %100, %git_path_commit_editmsg.exit.i.i, %_.exit.i.i, %git_path_commit_editmsg.exit157.i, %.thread213.i, %231, %_.exit172.i, %252, %256, %259
-  %.096.i = phi ptr [ null, %59 ], [ %.197.i, %_.exit146.i ], [ %.197.i, %git_path_commit_editmsg.exit157.i ], [ %.197.i, %231 ], [ %.197.i, %_.exit172.i ], [ %.197.i, %252 ], [ %.197.i, %259 ], [ %.197.i, %256 ], [ %.197.i, %.thread213.i ], [ %.197.i, %_.exit149.i ], [ %.197.i, %100 ], [ %.197.i, %git_path_commit_editmsg.exit.i.i ], [ %.197.i, %_.exit.i.i ]
-  %.not35 = phi i1 [ false, %59 ], [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit157.i ], [ true, %231 ], [ false, %_.exit172.i ], [ false, %252 ], [ true, %259 ], [ true, %256 ], [ false, %.thread213.i ], [ false, %_.exit149.i ], [ false, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
-  %261 = phi i1 [ false, %59 ], [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit157.i ], [ false, %231 ], [ false, %_.exit172.i ], [ false, %252 ], [ false, %259 ], [ false, %256 ], [ false, %.thread213.i ], [ false, %_.exit149.i ], [ true, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
-  %.188.i = phi i32 [ -1, %59 ], [ -1, %_.exit146.i ], [ -1, %git_path_commit_editmsg.exit157.i ], [ 0, %231 ], [ -1, %_.exit172.i ], [ -1, %252 ], [ 0, %259 ], [ 0, %256 ], [ -1, %.thread213.i ], [ -1, %_.exit149.i ], [ 1, %100 ], [ -1, %git_path_commit_editmsg.exit.i.i ], [ -1, %_.exit.i.i ]
-  %.182.i = phi ptr [ null, %59 ], [ %.283.i, %_.exit146.i ], [ %.283.i, %git_path_commit_editmsg.exit157.i ], [ %.283.i, %231 ], [ %.283.i, %_.exit172.i ], [ %.283.i, %252 ], [ %.283.i, %259 ], [ %.283.i, %256 ], [ %.283.i, %.thread213.i ], [ %.283.i, %_.exit149.i ], [ %.283.i, %100 ], [ %.283.i, %git_path_commit_editmsg.exit.i.i ], [ %.283.i, %_.exit.i.i ]
+  %.096.i = phi ptr [ %.197.i, %_.exit146.i ], [ %.197.i, %git_path_commit_editmsg.exit157.i ], [ %.197.i, %_.exit172.i ], [ %.197.i, %252 ], [ %.197.i, %259 ], [ %.197.i, %256 ], [ %.197.i, %231 ], [ null, %59 ], [ %.197.i, %.thread213.i ], [ %.197.i, %_.exit149.i ], [ %.197.i, %100 ], [ %.197.i, %git_path_commit_editmsg.exit.i.i ], [ %.197.i, %_.exit.i.i ]
+  %.not35 = phi i1 [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit157.i ], [ false, %_.exit172.i ], [ false, %252 ], [ true, %259 ], [ true, %256 ], [ true, %231 ], [ false, %59 ], [ false, %.thread213.i ], [ false, %_.exit149.i ], [ false, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
+  %261 = phi i1 [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit157.i ], [ false, %_.exit172.i ], [ false, %252 ], [ false, %259 ], [ false, %256 ], [ false, %231 ], [ false, %59 ], [ false, %.thread213.i ], [ false, %_.exit149.i ], [ true, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
+  %.188.i = phi i32 [ -1, %_.exit146.i ], [ -1, %git_path_commit_editmsg.exit157.i ], [ -1, %_.exit172.i ], [ -1, %252 ], [ 0, %259 ], [ 0, %256 ], [ 0, %231 ], [ -1, %59 ], [ -1, %.thread213.i ], [ -1, %_.exit149.i ], [ 1, %100 ], [ -1, %git_path_commit_editmsg.exit.i.i ], [ -1, %_.exit.i.i ]
+  %.182.i = phi ptr [ %.283.i, %_.exit146.i ], [ %.283.i, %git_path_commit_editmsg.exit157.i ], [ %.283.i, %_.exit172.i ], [ %.283.i, %252 ], [ %.283.i, %259 ], [ %.283.i, %256 ], [ %.283.i, %231 ], [ null, %59 ], [ %.283.i, %.thread213.i ], [ %.283.i, %_.exit149.i ], [ %.283.i, %100 ], [ %.283.i, %git_path_commit_editmsg.exit.i.i ], [ %.283.i, %_.exit.i.i ]
   call void @free_commit_extra_headers(ptr noundef %.182.i) #20
   %262 = load ptr, ptr %10, align 8, !tbaa !215
   call void @free_commit_list(ptr noundef %262) #20

@@ -2299,7 +2299,7 @@ yy_get_previous_state.exit430:                    ; preds = %yy_get_next_buffer.
   unreachable
 
 1059:                                             ; preds = %cmListFileLexerSetToken.exit400, %cmListFileLexerSetToken.exit396, %cmListFileLexerSetToken.exit390, %627, %591, %cmListFileLexerSetToken.exit359, %cmListFileLexerSetToken.exit353, %cmListFileLexerSetToken.exit347, %446, %341, %cmListFileLexerSetToken.exit319, %cmListFileLexerSetToken.exit313, %cmListFileLexerSetToken.exit307, %cmListFileLexerSetToken.exit
-  %.0 = phi i32 [ 0, %cmListFileLexerSetToken.exit400 ], [ 1, %cmListFileLexerSetToken.exit396 ], [ 1, %cmListFileLexerSetToken.exit390 ], [ 1, %627 ], [ 1, %591 ], [ 1, %cmListFileLexerSetToken.exit359 ], [ 1, %cmListFileLexerSetToken.exit353 ], [ 1, %cmListFileLexerSetToken.exit347 ], [ 1, %446 ], [ 1, %341 ], [ 1, %cmListFileLexerSetToken.exit319 ], [ 1, %cmListFileLexerSetToken.exit313 ], [ 1, %cmListFileLexerSetToken.exit307 ], [ 1, %cmListFileLexerSetToken.exit ]
+  %.0 = phi i32 [ 1, %cmListFileLexerSetToken.exit ], [ 1, %cmListFileLexerSetToken.exit307 ], [ 1, %cmListFileLexerSetToken.exit313 ], [ 1, %cmListFileLexerSetToken.exit319 ], [ 1, %341 ], [ 1, %446 ], [ 1, %cmListFileLexerSetToken.exit347 ], [ 1, %cmListFileLexerSetToken.exit353 ], [ 1, %cmListFileLexerSetToken.exit359 ], [ 1, %591 ], [ 1, %627 ], [ 1, %cmListFileLexerSetToken.exit390 ], [ 1, %cmListFileLexerSetToken.exit396 ], [ 0, %cmListFileLexerSetToken.exit400 ]
   ret i32 %.0
 }
 

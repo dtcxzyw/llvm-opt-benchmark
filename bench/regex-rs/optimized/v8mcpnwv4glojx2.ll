@@ -1070,9 +1070,9 @@ _ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit: ; preds = %.n
   br label %35
 
 35:                                               ; preds = %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit
-  %.pn22 = phi { i64, ptr } [ { i64 5, ptr poison }, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ], [ { i64 6, ptr poison }, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ { i64 3, ptr poison }, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ { i64 4, ptr poison }, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ { i64 2, ptr poison }, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ]
-  %.fca.0.extract.i.i21.pn = phi ptr [ %.fca.0.extract.i.i21, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ], [ %.fca.0.extract.i.i20, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ %.fca.0.extract.i.i19, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ %.fca.0.extract.i.i18, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ %.fca.0.extract.i.i, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ]
-  %.pn = insertvalue { i64, ptr } %.pn22, ptr %.fca.0.extract.i.i21.pn, 1
+  %.pn22 = phi { i64, ptr } [ { i64 2, ptr poison }, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ], [ { i64 4, ptr poison }, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ { i64 3, ptr poison }, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ { i64 6, ptr poison }, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ { i64 5, ptr poison }, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ]
+  %.fca.0.extract.i.i.pn = phi ptr [ %.fca.0.extract.i.i, %_ZN12regex_syntax3ast3Ast7literal17hf488ccebbf60fc51E.exit ], [ %.fca.0.extract.i.i18, %_ZN12regex_syntax3ast3Ast9assertion17h607066c79212b5b0E.exit ], [ %.fca.0.extract.i.i19, %_ZN12regex_syntax3ast3Ast3dot17he67ac6b45f3955c1E.exit ], [ %.fca.0.extract.i.i20, %_ZN12regex_syntax3ast3Ast10class_perl17h38578c408c9b67e2E.exit ], [ %.fca.0.extract.i.i21, %_ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit ]
+  %.pn = insertvalue { i64, ptr } %.pn22, ptr %.fca.0.extract.i.i.pn, 1
   ret { i64, ptr } %.pn
 }
 
@@ -1625,7 +1625,7 @@ define noundef zeroext i1 @"_ZN65_$LT$regex_syntax..error..Error$u20$as$u20$core
   br label %"_ZN63_$LT$regex_syntax..ast..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h87b0fe0677d62f6eE.exit"
 
 "_ZN63_$LT$regex_syntax..ast..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h87b0fe0677d62f6eE.exit": ; preds = %7, %14, %16, %18
-  %.0.i.i.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ null, %7 ]
+  %.0.i.i.i = phi ptr [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ null, %7 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %9, ptr %4, align 8, !alias.scope !205, !noalias !218
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1696,7 +1696,7 @@ define void @"_ZN142_$LT$regex_syntax..error..Formatter$LT$regex_syntax..ast..Er
   br label %_ZN12regex_syntax3ast5Error14auxiliary_span17h3a64ea56317191a7E.exit
 
 _ZN12regex_syntax3ast5Error14auxiliary_span17h3a64ea56317191a7E.exit: ; preds = %2, %9, %11, %13
-  %.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ null, %2 ]
+  %.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ null, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3123,7 +3123,7 @@ default.unreachable19:                            ; preds = %2
   br label %63
 
 63:                                               ; preds = %46, %32, %21, %13
-  %.0.in = phi i1 [ %62, %46 ], [ %45, %32 ], [ %31, %21 ], [ %20, %13 ]
+  %.0.in = phi i1 [ %20, %13 ], [ %31, %21 ], [ %45, %32 ], [ %62, %46 ]
   ret i1 %.0.in
 }
 

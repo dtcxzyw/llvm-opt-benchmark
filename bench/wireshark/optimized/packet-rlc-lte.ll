@@ -1148,8 +1148,8 @@ define internal noundef zeroext i1 @dissect_rlc_lte_heur(ptr noundef %0, ptr nou
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.split143.us, %.split139.us, %.split134.us, %.split129.us, %.split124.us, %.split119.us, %.split114.us, %.split109.us
-  %.0.ph158.be = phi i8 [ %.0.ph158, %.split143.us ], [ %.0.ph158, %.split139.us ], [ %.0.ph158, %.split134.us ], [ %.0.ph158, %.split129.us ], [ %.0.ph158, %.split124.us ], [ %.0.ph158, %.split119.us ], [ %.0.ph158, %.split114.us ], [ 1, %.split109.us ]
-  %.071.ph157.be = phi i32 [ %45, %.split143.us ], [ %29, %.split139.us ], [ %42, %.split134.us ], [ %40, %.split129.us ], [ %38, %.split124.us ], [ %36, %.split119.us ], [ %34, %.split114.us ], [ %32, %.split109.us ]
+  %.0.ph158.be = phi i8 [ 1, %.split109.us ], [ %.0.ph158, %.split114.us ], [ %.0.ph158, %.split119.us ], [ %.0.ph158, %.split124.us ], [ %.0.ph158, %.split129.us ], [ %.0.ph158, %.split134.us ], [ %.0.ph158, %.split139.us ], [ %.0.ph158, %.split143.us ]
+  %.071.ph157.be = phi i32 [ %32, %.split109.us ], [ %34, %.split114.us ], [ %36, %.split119.us ], [ %38, %.split124.us ], [ %40, %.split129.us ], [ %42, %.split134.us ], [ %29, %.split139.us ], [ %45, %.split143.us ]
   br label %.lr.ph, !llvm.loop !11
 
 .split.us:                                        ; preds = %.lr.ph

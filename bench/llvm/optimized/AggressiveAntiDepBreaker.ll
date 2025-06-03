@@ -911,7 +911,7 @@ define hidden void @_ZN4llvm24AggressiveAntiDepBreakerC2ERNS_15MachineFunctionER
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %69, %68 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %71 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !45
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %71, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %72, label %_ZNK4llvm9BitVector4noneEv.exit
@@ -921,7 +921,7 @@ define hidden void @_ZN4llvm24AggressiveAntiDepBreakerC2ERNS_15MachineFunctionER
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %73, %72 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %73, %72 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %75 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !45
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %75, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm9BitVector4noneEv.exit.thread, label %_ZNK4llvm9BitVector4noneEv.exit
@@ -4733,7 +4733,7 @@ define hidden noundef i32 @_ZN4llvm24AggressiveAntiDepBreaker21BreakAntiDependen
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %67, %66 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %67, %66 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %69 = load i64, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !45
   %.not30.i.i.i.i.i.i.i = icmp eq i64 %69, 0
   br i1 %.not30.i.i.i.i.i.i.i, label %70, label %_ZNK4llvm9BitVector3anyEv.exit
@@ -4743,7 +4743,7 @@ define hidden noundef i32 @_ZN4llvm24AggressiveAntiDepBreaker21BreakAntiDependen
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %71, %70 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %71, %70 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %73 = load i64, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !45
   %.not31.i.i.i.i.i.i.i = icmp eq i64 %73, 0
   br i1 %.not31.i.i.i.i.i.i.i, label %_ZNK4llvm9BitVector3anyEv.exit.thread, label %_ZNK4llvm9BitVector3anyEv.exit
@@ -5264,7 +5264,7 @@ _ZL16CriticalPathStepPKN4llvm5SUnitE.exit:        ; preds = %._crit_edge.i162
   br label %270
 
 270:                                              ; preds = %268, %._crit_edge.i.i.i.i.i.i.i179
-  %.1.i.i.i.i.i.i.i184 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i181, %._crit_edge.i.i.i.i.i.i.i179 ], [ %269, %268 ]
+  %.1.i.i.i.i.i.i.i184 = phi ptr [ %269, %268 ], [ %.029.lcssa.i.i.i.i.i.i.i181, %._crit_edge.i.i.i.i.i.i.i179 ]
   %271 = load i64, ptr %.1.i.i.i.i.i.i.i184, align 8, !tbaa !45
   %.not30.i.i.i.i.i.i.i185 = icmp eq i64 %271, 0
   br i1 %.not30.i.i.i.i.i.i.i185, label %272, label %_ZNK4llvm9BitVector3anyEv.exit188
@@ -5274,7 +5274,7 @@ _ZL16CriticalPathStepPKN4llvm5SUnitE.exit:        ; preds = %._crit_edge.i162
   br label %274
 
 274:                                              ; preds = %272, %._crit_edge.i.i.i.i.i.i.i179
-  %.2.i.i.i.i.i.i.i182 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i181, %._crit_edge.i.i.i.i.i.i.i179 ], [ %273, %272 ]
+  %.2.i.i.i.i.i.i.i182 = phi ptr [ %273, %272 ], [ %.029.lcssa.i.i.i.i.i.i.i181, %._crit_edge.i.i.i.i.i.i.i179 ]
   %275 = load i64, ptr %.2.i.i.i.i.i.i.i182, align 8, !tbaa !45
   %.not31.i.i.i.i.i.i.i183 = icmp eq i64 %275, 0
   br i1 %.not31.i.i.i.i.i.i.i183, label %276, label %_ZNK4llvm9BitVector3anyEv.exit188

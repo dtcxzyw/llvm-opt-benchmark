@@ -408,7 +408,7 @@ proto_item_set_hidden.exit:                       ; preds = %48, %57, %60
   br label %dissect_datarequest.exit
 
 128:                                              ; preds = %124, %120
-  %.077.i = phi i32 [ 5, %124 ], [ 4, %120 ]
+  %.077.i = phi i32 [ 4, %120 ], [ 5, %124 ]
   %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.077.i)
   %130 = icmp slt i32 %129, 1
   br i1 %130, label %dissect_datarequest.exit, label %131
@@ -492,7 +492,7 @@ proto_item_set_hidden.exit:                       ; preds = %48, %57, %60
   br label %dissect_datarequest.exit
 
 dissect_datarequest.exit:                         ; preds = %.lr.ph.i, %176, %._crit_edge.i, %155, %149, %143, %137, %131, %128, %127, %113, %179, %110, %107, %102
-  %.0102 = phi i32 [ 3, %179 ], [ 4, %110 ], [ 4, %107 ], [ %106, %102 ], [ 4, %127 ], [ %173, %176 ], [ 3, %113 ], [ %.077.i, %128 ], [ %134, %131 ], [ %140, %137 ], [ %146, %143 ], [ %152, %149 ], [ %158, %155 ], [ %173, %._crit_edge.i ], [ %.180.i, %.lr.ph.i ]
+  %.0102 = phi i32 [ 3, %179 ], [ %106, %102 ], [ 4, %107 ], [ 4, %110 ], [ 4, %127 ], [ %173, %176 ], [ 3, %113 ], [ %.077.i, %128 ], [ %134, %131 ], [ %140, %137 ], [ %146, %143 ], [ %152, %149 ], [ %158, %155 ], [ %173, %._crit_edge.i ], [ %.180.i, %.lr.ph.i ]
   %180 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0102)
   %181 = icmp sgt i32 %180, 0
   br i1 %181, label %182, label %.sink.split114

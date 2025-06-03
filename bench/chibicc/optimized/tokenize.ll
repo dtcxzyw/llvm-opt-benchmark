@@ -1774,7 +1774,7 @@ define internal fastcc i32 @read_punct(ptr noundef readonly captures(none) %0) u
   br label %20
 
 20:                                               ; preds = %9, %11
-  %.1 = phi i32 [ %10, %9 ], [ %19, %11 ]
+  %.1 = phi i32 [ %19, %11 ], [ %10, %9 ]
   ret i32 %.1
 }
 
@@ -2327,7 +2327,7 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   br label %59
 
 59:                                               ; preds = %48, %57, %56, %55, %54, %53, %52, %51, %50, %._crit_edge, %22
-  %.031 = phi i32 [ %.029, %22 ], [ %41, %._crit_edge ], [ %58, %57 ], [ 27, %56 ], [ 13, %55 ], [ 12, %54 ], [ 11, %53 ], [ 10, %52 ], [ 9, %51 ], [ 8, %50 ], [ 7, %48 ]
+  %.031 = phi i32 [ %.029, %22 ], [ %41, %._crit_edge ], [ %58, %57 ], [ 8, %50 ], [ 9, %51 ], [ 10, %52 ], [ 11, %53 ], [ 12, %54 ], [ 13, %55 ], [ 27, %56 ], [ 7, %48 ]
   ret i32 %.031
 }
 

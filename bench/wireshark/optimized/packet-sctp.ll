@@ -2152,10 +2152,10 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   br label %60
 
 60:                                               ; preds = %18, %20, %30, %41, %4
-  %.0112 = phi i32 [ 0, %18 ], [ 0, %30 ], [ %27, %20 ], [ %48, %41 ], [ 0, %4 ]
-  %.0111 = phi i1 [ false, %18 ], [ %39, %30 ], [ false, %20 ], [ %58, %41 ], [ false, %4 ]
-  %.0110 = phi i1 [ false, %18 ], [ false, %30 ], [ %28, %20 ], [ %49, %41 ], [ false, %4 ]
-  %.0108 = phi i32 [ 0, %18 ], [ %38, %30 ], [ 0, %20 ], [ %57, %41 ], [ 0, %4 ]
+  %.0112 = phi i32 [ 0, %18 ], [ %48, %41 ], [ %27, %20 ], [ 0, %30 ], [ 0, %4 ]
+  %.0111 = phi i1 [ false, %18 ], [ %58, %41 ], [ false, %20 ], [ %39, %30 ], [ false, %4 ]
+  %.0110 = phi i1 [ false, %18 ], [ %49, %41 ], [ %28, %20 ], [ false, %30 ], [ false, %4 ]
+  %.0108 = phi i32 [ 0, %18 ], [ %57, %41 ], [ 0, %20 ], [ %38, %30 ], [ 0, %4 ]
   %61 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %62 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %63 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
@@ -3447,7 +3447,7 @@ define internal fastcc zeroext i1 @dissect_sctp_chunk(ptr noundef %0, ptr nounde
   br label %83
 
 83:                                               ; preds = %53, %53, %82, %81, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %56, %54
-  %.1.shrunk = phi i1 [ false, %82 ], [ false, %81 ], [ false, %77 ], [ false, %76 ], [ false, %75 ], [ false, %74 ], [ false, %73 ], [ false, %72 ], [ false, %71 ], [ false, %70 ], [ false, %69 ], [ false, %68 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %61 ], [ false, %60 ], [ false, %59 ], [ false, %58 ], [ %57, %56 ], [ %55, %54 ], [ false, %53 ], [ false, %53 ]
+  %.1.shrunk = phi i1 [ false, %82 ], [ %55, %54 ], [ %57, %56 ], [ false, %58 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %63 ], [ false, %64 ], [ false, %65 ], [ false, %66 ], [ false, %67 ], [ false, %68 ], [ false, %69 ], [ false, %70 ], [ false, %71 ], [ false, %72 ], [ false, %73 ], [ false, %74 ], [ false, %75 ], [ false, %76 ], [ false, %77 ], [ false, %81 ], [ false, %53 ], [ false, %53 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %.not184 = icmp eq i16 %8, %12
   br i1 %.not184, label %88, label %84

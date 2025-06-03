@@ -2443,7 +2443,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit352:     ; preds = %_ZSt8_DestroyIPN4nc
   br label %933
 
 933:                                              ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit352, %_ZN4ncnn3MatD2Ev.exit203, %932
-  %.5 = phi i32 [ %.0, %_ZN4ncnn3MatD2Ev.exit203 ], [ 0, %932 ], [ %.10, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit352 ]
+  %.5 = phi i32 [ 0, %932 ], [ %.0, %_ZN4ncnn3MatD2Ev.exit203 ], [ %.10, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit352 ]
   ret i32 %.5
 
 934:                                              ; preds = %931, %_ZN4ncnn3MatD2Ev.exit204
@@ -7520,7 +7520,7 @@ define hidden noundef i32 @_ZNK4ncnn3Net23find_blob_index_by_nameEPKc(ptr nounde
   br label %30
 
 30:                                               ; preds = %25, %._crit_edge
-  %.3 = phi i32 [ %26, %25 ], [ -1, %._crit_edge ]
+  %.3 = phi i32 [ -1, %._crit_edge ], [ %26, %25 ]
   ret i32 %.3
 }
 
@@ -11254,7 +11254,7 @@ define hidden noundef i32 @_ZNK4ncnn3Net24find_layer_index_by_nameEPKc(ptr nound
   br label %32
 
 32:                                               ; preds = %27, %._crit_edge
-  %.3 = phi i32 [ %28, %27 ], [ -1, %._crit_edge ]
+  %.3 = phi i32 [ -1, %._crit_edge ], [ %28, %27 ]
   ret i32 %.3
 }
 

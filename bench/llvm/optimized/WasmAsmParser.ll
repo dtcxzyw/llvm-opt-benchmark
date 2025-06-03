@@ -435,9 +435,9 @@ _ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13Strin
   br label %80
 
 80:                                               ; preds = %78, %76, %74, %73, %.lr.ph.i.i
-  %.1176.i = phi i1 [ %.0175.i, %78 ], [ %.0175.i, %76 ], [ %.0175.i, %74 ], [ true, %73 ], [ %.0175.i, %.lr.ph.i.i ]
-  %.1173.i = phi i1 [ %.0172.i, %78 ], [ %.0172.i, %76 ], [ %.0172.i, %74 ], [ %.0172.i, %73 ], [ true, %.lr.ph.i.i ]
-  %.321.ph.i.i = phi i32 [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %.0187.i.i, %73 ], [ %.0187.i.i, %.lr.ph.i.i ]
+  %.1176.i = phi i1 [ true, %73 ], [ %.0175.i, %74 ], [ %.0175.i, %76 ], [ %.0175.i, %78 ], [ %.0175.i, %.lr.ph.i.i ]
+  %.1173.i = phi i1 [ %.0172.i, %73 ], [ %.0172.i, %74 ], [ %.0172.i, %76 ], [ %.0172.i, %78 ], [ true, %.lr.ph.i.i ]
+  %.321.ph.i.i = phi i32 [ %.0187.i.i, %73 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %.0187.i.i, %.lr.ph.i.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.0226.i.i, i64 1
   %.not.i.i = icmp eq ptr %81, %70
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113WasmAsmParser17parseSectionFlagsEN4llvm9StringRefERbS3_.exit.thread219.i, label %.lr.ph.i.i

@@ -1243,7 +1243,7 @@ define dso_local noundef nonnull ptr @submodule_update_type_to_string(i32 nounde
   unreachable
 
 7:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.22, %4 ], [ @.str.24, %3 ], [ @.str.25, %2 ], [ @.str.23, %1 ]
+  %.0 = phi ptr [ @.str.25, %2 ], [ @.str.24, %3 ], [ @.str.22, %4 ], [ @.str.23, %1 ]
   ret ptr %.0
 }
 
@@ -5130,7 +5130,7 @@ get_non_gitmodules_submodule.exit.thread:         ; preds = %16
   br label %get_fetch_recurse_config.exit
 
 get_fetch_recurse_config.exit:                    ; preds = %31, %47, %48
-  %.014.i = phi i32 [ %.013.i, %47 ], [ %50, %48 ], [ %34, %31 ]
+  %.014.i = phi i32 [ %50, %48 ], [ %.013.i, %47 ], [ %34, %31 ]
   switch i32 %.014.i, label %51 [
     i32 0, label %64
     i32 2, label %58

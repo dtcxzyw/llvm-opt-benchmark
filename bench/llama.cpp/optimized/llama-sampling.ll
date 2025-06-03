@@ -9473,8 +9473,8 @@ define internal void @_ZL31llama_sampler_mirostat_v2_applyP13llama_samplerP22lla
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i
-  %.val38.val.val.i.i.i = phi float [ %.val38.val.val.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.val36.val.val.i.i.i, %44 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %45, %44 ]
+  %.val38.val.val.i.i.i = phi float [ %.val36.val.val.i.i.i, %44 ], [ %.val38.val.val.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %47 = getelementptr i8, ptr %.1.i.i.i, i64 8
   %.1.val.i.i.i = load float, ptr %47, align 4, !tbaa !216
   %48 = tail call float @log2f(float noundef %.1.val.i.i.i) #33, !tbaa !27
@@ -9487,8 +9487,8 @@ define internal void @_ZL31llama_sampler_mirostat_v2_applyP13llama_samplerP22lla
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge58.i.i.i
-  %.val39.val.val.i.i.i = phi float [ %.val39.val.val.pre.i.i.i, %._crit_edge._crit_edge58.i.i.i ], [ %.val38.val.val.i.i.i, %51 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge58.i.i.i ], [ %52, %51 ]
+  %.val39.val.val.i.i.i = phi float [ %.val38.val.val.i.i.i, %51 ], [ %.val39.val.val.pre.i.i.i, %._crit_edge._crit_edge58.i.i.i ]
+  %.2.i.i.i = phi ptr [ %52, %51 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge58.i.i.i ]
   %54 = getelementptr i8, ptr %.2.i.i.i, i64 8
   %.2.val.i.i.i = load float, ptr %54, align 4, !tbaa !216
   %55 = tail call float @log2f(float noundef %.2.val.i.i.i) #33, !tbaa !27

@@ -77,7 +77,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 17:                                               ; preds = %2
   %18 = load ptr, ptr @stderr, align 8, !tbaa !26
   %19 = call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %18) #14
-  br label %476
+  br label %477
 
 20:                                               ; preds = %2
   call void @XrmInitialize() #13
@@ -387,20 +387,26 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %233 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %234 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %235 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307397400 = icmp eq i32 %235, 0
-  br i1 %.not307397400, label %.lr.ph, label %.critedge
+  %.not307389392396 = icmp eq i32 %235, 0
+  br i1 %.not307389392396, label %.lr.ph.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %205, %.loopexit
-  %.0289350.ph405 = phi i32 [ %.1290, %.loopexit ], [ 0, %205 ]
-  %.0287351.ph404 = phi i32 [ %.1288, %.loopexit ], [ 0, %205 ]
-  %.0285352.ph403 = phi i32 [ %.1286, %.loopexit ], [ %206, %205 ]
-  %.0283353.ph402 = phi i32 [ %.1284, %.loopexit ], [ %207, %205 ]
-  %.0281354.ph401 = phi i32 [ %.1282, %.loopexit ], [ 0, %205 ]
+.lr.ph.lr.ph:                                     ; preds = %205, %.outer.outer.backedge
+  %.0289350.ph.ph401 = phi i32 [ %.0289350.ph.ph.be, %.outer.outer.backedge ], [ 0, %205 ]
+  %.0287351.ph.ph400 = phi i32 [ %.0287351.ph.ph.be, %.outer.outer.backedge ], [ 0, %205 ]
+  %.0285352.ph.ph399 = phi i32 [ %.1286, %.outer.outer.backedge ], [ %206, %205 ]
+  %.0283353.ph.ph398 = phi i32 [ %.1284, %.outer.outer.backedge ], [ %207, %205 ]
+  %.0281354.ph.ph397 = phi i32 [ 1, %.outer.outer.backedge ], [ 0, %205 ]
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
+  %.0285352.ph395 = phi i32 [ %.0285352.ph.ph399, %.lr.ph.lr.ph ], [ %.1286, %.loopexit ]
+  %.0283353.ph394 = phi i32 [ %.0283353.ph.ph398, %.lr.ph.lr.ph ], [ %.1284, %.loopexit ]
+  %.0281354.ph393 = phi i32 [ %.0281354.ph.ph397, %.lr.ph.lr.ph ], [ %.1282, %.loopexit ]
   br label %236
 
-236:                                              ; preds = %.lr.ph, %461
-  %.0285352399 = phi i32 [ %.0285352.ph403, %.lr.ph ], [ %.1286, %461 ]
-  %.0283353398 = phi i32 [ %.0283353.ph402, %.lr.ph ], [ %.1284, %461 ]
+236:                                              ; preds = %.lr.ph, %.backedge
+  %.0285352391 = phi i32 [ %.0285352.ph395, %.lr.ph ], [ %.1286, %.backedge ]
+  %.0283353390 = phi i32 [ %.0283353.ph394, %.lr.ph ], [ %.1284, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11) #13
   %237 = load ptr, ptr %21, align 8, !tbaa !27
   %238 = call i32 @XEventsQueued(ptr noundef %237, i32 noundef 2) #13
@@ -409,9 +415,9 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 
 239:                                              ; preds = %236
   %240 = load i32, ptr %164, align 8, !tbaa !70
-  %.not309 = icmp eq i32 %240, %.0285352399
+  %.not309 = icmp eq i32 %240, %.0285352391
   %241 = load i32, ptr %165, align 4
-  %.not310 = icmp eq i32 %241, %.0283353398
+  %.not310 = icmp eq i32 %241, %.0283353390
   %or.cond340 = select i1 %.not309, i1 %.not310, i1 false
   br i1 %or.cond340, label %250, label %242
 
@@ -426,19 +432,19 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   br label %250
 
 250:                                              ; preds = %239, %242, %236
-  %.1286 = phi i32 [ %.0285352399, %236 ], [ %248, %242 ], [ %.0285352399, %239 ]
-  %.1284 = phi i32 [ %.0283353398, %236 ], [ %249, %242 ], [ %.0283353398, %239 ]
+  %.1286 = phi i32 [ %.0285352391, %236 ], [ %248, %242 ], [ %.0285352391, %239 ]
+  %.1284 = phi i32 [ %.0283353390, %236 ], [ %249, %242 ], [ %.0283353390, %239 ]
   %251 = load ptr, ptr %21, align 8, !tbaa !27
   %252 = call i32 @XNextEvent(ptr noundef %251, ptr noundef nonnull %11) #13
   %253 = load i32, ptr %11, align 8, !tbaa !81
   switch i32 %253, label %.loopexit [
     i32 12, label %254
-    i32 6, label %269
-    i32 22, label %277
-    i32 4, label %328
-    i32 5, label %334
-    i32 34, label %337
-    i32 2, label %339
+    i32 6, label %270
+    i32 22, label %278
+    i32 4, label %329
+    i32 5, label %336
+    i32 34, label %339
+    i32 2, label %341
   ]
 
 254:                                              ; preds = %250
@@ -465,532 +471,541 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   call void @cairo_show_page(ptr noundef %262) #13
   call void @cairo_destroy(ptr noundef %262) #13
   store ptr null, ptr %117, align 8, !tbaa !55
-  br label %.loopexit
+  br label %.backedge
 
-269:                                              ; preds = %250
-  %.not337 = icmp eq i32 %.0281354.ph401, 0
-  br i1 %.not337, label %.loopexit, label %270
+.backedge:                                        ; preds = %257, %x11_is_maximized.exit, %339, %463
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  %269 = load i32, ptr %219, align 4, !tbaa !80
+  %.not307 = icmp eq i32 %269, 0
+  br i1 %.not307, label %236, label %.critedge, !llvm.loop !82
 
-270:                                              ; preds = %269
-  %271 = load i32, ptr %231, align 8, !tbaa !81
-  %.neg338 = sub i32 %.0289350.ph405, %271
-  %272 = load i32, ptr %164, align 8, !tbaa !70
-  %273 = add i32 %.neg338, %272
-  store i32 %273, ptr %164, align 8, !tbaa !70
-  %274 = load i32, ptr %232, align 4, !tbaa !81
-  %.neg339 = sub i32 %.0287351.ph404, %274
-  %275 = load i32, ptr %165, align 4, !tbaa !71
-  %276 = add i32 %.neg339, %275
-  store i32 %276, ptr %165, align 4, !tbaa !71
+270:                                              ; preds = %250
+  %.not337 = icmp eq i32 %.0281354.ph393, 0
+  br i1 %.not337, label %.loopexit, label %271
+
+271:                                              ; preds = %270
+  %272 = load i32, ptr %231, align 8, !tbaa !81
+  %.neg338 = sub i32 %.0289350.ph.ph401, %272
+  %273 = load i32, ptr %164, align 8, !tbaa !70
+  %274 = add i32 %.neg338, %273
+  store i32 %274, ptr %164, align 8, !tbaa !70
+  %275 = load i32, ptr %232, align 4, !tbaa !81
+  %.neg339 = sub i32 %.0287351.ph.ph400, %275
+  %276 = load i32, ptr %165, align 4, !tbaa !71
+  %277 = add i32 %.neg339, %276
+  store i32 %277, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %.loopexit
+  br label %.outer.outer.backedge
 
-277:                                              ; preds = %250
-  %278 = load i32, ptr %233, align 8, !tbaa !81
-  store i32 %278, ptr %152, align 8, !tbaa !64
-  %279 = load i32, ptr %234, align 4, !tbaa !81
-  store i32 %279, ptr %153, align 4, !tbaa !65
-  %280 = load i32, ptr %150, align 8, !tbaa !62
-  %.not333 = icmp eq i32 %278, %280
-  %281 = load i32, ptr %151, align 4
-  %.not334 = icmp eq i32 %279, %281
+278:                                              ; preds = %250
+  %279 = load i32, ptr %233, align 8, !tbaa !81
+  store i32 %279, ptr %152, align 8, !tbaa !64
+  %280 = load i32, ptr %234, align 4, !tbaa !81
+  store i32 %280, ptr %153, align 4, !tbaa !65
+  %281 = load i32, ptr %150, align 8, !tbaa !62
+  %.not333 = icmp eq i32 %279, %281
+  %282 = load i32, ptr %151, align 4
+  %.not334 = icmp eq i32 %280, %282
   %or.cond341 = select i1 %.not333, i1 %.not334, i1 false
-  br i1 %or.cond341, label %296, label %282
+  br i1 %or.cond341, label %297, label %283
 
-282:                                              ; preds = %277
-  %283 = sitofp i32 %278 to float
-  %284 = load i32, ptr %155, align 8, !tbaa !66
-  %285 = sitofp i32 %284 to float
-  %286 = fdiv float %283, %285
-  %287 = sitofp i32 %279 to float
-  %288 = load i32, ptr %157, align 4, !tbaa !67
-  %289 = sitofp i32 %288 to float
-  %290 = fdiv float %287, %289
-  %291 = fcmp ogt float %286, %290
-  %292 = select i1 %291, float %290, float %286
-  %293 = load float, ptr %167, align 8, !tbaa !73
-  %294 = fmul float %293, %292
-  %295 = fcmp olt float %294, 1.000000e+00
-  %storemerge = select i1 %295, float 1.000000e+00, float %294
+283:                                              ; preds = %278
+  %284 = sitofp i32 %279 to float
+  %285 = load i32, ptr %155, align 8, !tbaa !66
+  %286 = sitofp i32 %285 to float
+  %287 = fdiv float %284, %286
+  %288 = sitofp i32 %280 to float
+  %289 = load i32, ptr %157, align 4, !tbaa !67
+  %290 = sitofp i32 %289 to float
+  %291 = fdiv float %288, %290
+  %292 = fcmp ogt float %287, %291
+  %293 = select i1 %292, float %291, float %287
+  %294 = load float, ptr %167, align 8, !tbaa !73
+  %295 = fmul float %294, %293
+  %296 = fcmp olt float %295, 1.000000e+00
+  %storemerge = select i1 %296, float 1.000000e+00, float %295
   store float %storemerge, ptr %167, align 8, !tbaa !73
   call fastcc void @move_x11(ptr noundef %8)
-  br label %296
+  br label %297
 
-296:                                              ; preds = %277, %282
-  %297 = load i32, ptr %164, align 8, !tbaa !70
-  %.not335 = icmp eq i32 %297, %.1286
-  %298 = load i32, ptr %165, align 4
-  %.not336 = icmp eq i32 %298, %.1284
+297:                                              ; preds = %278, %283
+  %298 = load i32, ptr %164, align 8, !tbaa !70
+  %.not335 = icmp eq i32 %298, %.1286
+  %299 = load i32, ptr %165, align 4
+  %.not336 = icmp eq i32 %299, %.1284
   %or.cond342 = select i1 %.not335, i1 %.not336, i1 false
-  br i1 %or.cond342, label %305, label %299
+  br i1 %or.cond342, label %306, label %300
 
-299:                                              ; preds = %296
-  %300 = load ptr, ptr %21, align 8, !tbaa !27
-  %301 = load i64, ptr %90, align 8, !tbaa !51
-  %302 = sub nsw i32 0, %297
+300:                                              ; preds = %297
+  %301 = load ptr, ptr %21, align 8, !tbaa !27
+  %302 = load i64, ptr %90, align 8, !tbaa !51
   %303 = sub nsw i32 0, %298
-  %304 = call i32 @XMoveWindow(ptr noundef %300, i64 noundef %301, i32 noundef %302, i32 noundef %303) #13
-  br label %305
+  %304 = sub nsw i32 0, %299
+  %305 = call i32 @XMoveWindow(ptr noundef %301, i64 noundef %302, i32 noundef %303, i32 noundef %304) #13
+  br label %306
 
-305:                                              ; preds = %296, %299
+306:                                              ; preds = %297, %300
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
-  %306 = load ptr, ptr %21, align 8, !tbaa !27
-  %307 = call i64 @XInternAtom(ptr noundef %306, ptr noundef nonnull @.str.24, i32 noundef 1) #13
-  store ptr null, ptr %5, align 8, !tbaa !82
-  %308 = load ptr, ptr %21, align 8, !tbaa !27
-  %309 = load i64, ptr %80, align 8, !tbaa !48
-  %310 = call i32 @XGetWindowProperty(ptr noundef %308, i64 noundef %309, i64 noundef %307, i64 noundef 0, i64 noundef -1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
-  %311 = icmp eq i32 %310, 0
-  br i1 %311, label %312, label %x11_is_maximized.exit
+  %307 = load ptr, ptr %21, align 8, !tbaa !27
+  %308 = call i64 @XInternAtom(ptr noundef %307, ptr noundef nonnull @.str.24, i32 noundef 1) #13
+  store ptr null, ptr %5, align 8, !tbaa !84
+  %309 = load ptr, ptr %21, align 8, !tbaa !27
+  %310 = load i64, ptr %80, align 8, !tbaa !48
+  %311 = call i32 @XGetWindowProperty(ptr noundef %309, i64 noundef %310, i64 noundef %308, i64 noundef 0, i64 noundef -1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
+  %312 = icmp eq i32 %311, 0
+  br i1 %312, label %313, label %x11_is_maximized.exit
 
-312:                                              ; preds = %305
-  %313 = load ptr, ptr %21, align 8, !tbaa !27
-  %314 = call i64 @XInternAtom(ptr noundef %313, ptr noundef nonnull @.str.25, i32 noundef 1) #13
-  %315 = load ptr, ptr %21, align 8, !tbaa !27
-  %316 = call i64 @XInternAtom(ptr noundef %315, ptr noundef nonnull @.str.26, i32 noundef 1) #13
-  %317 = load i64, ptr %6, align 8, !tbaa !83
-  %.not.i = icmp eq i64 %317, 0
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !82
+313:                                              ; preds = %306
+  %314 = load ptr, ptr %21, align 8, !tbaa !27
+  %315 = call i64 @XInternAtom(ptr noundef %314, ptr noundef nonnull @.str.25, i32 noundef 1) #13
+  %316 = load ptr, ptr %21, align 8, !tbaa !27
+  %317 = call i64 @XInternAtom(ptr noundef %316, ptr noundef nonnull @.str.26, i32 noundef 1) #13
+  %318 = load i64, ptr %6, align 8, !tbaa !85
+  %.not.i = icmp eq i64 %318, 0
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !84
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %312, %.lr.ph.i
-  %.021.i = phi i64 [ %322, %.lr.ph.i ], [ 0, %312 ]
-  %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %312 ]
-  %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %312 ]
-  %318 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
-  %319 = load i64, ptr %318, align 8, !tbaa !83
-  %320 = icmp eq i64 %319, %314
-  %321 = icmp eq i64 %319, %316
-  %spec.select.i = select i1 %321, i32 1, i32 %.120.i
-  %.217.i = select i1 %320, i32 1, i32 %.11619.i
-  %.2.i = select i1 %320, i32 %.120.i, i32 %spec.select.i
-  %322 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %322, %317
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !84
+.lr.ph.i:                                         ; preds = %313, %.lr.ph.i
+  %.021.i = phi i64 [ %323, %.lr.ph.i ], [ 0, %313 ]
+  %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %313 ]
+  %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %313 ]
+  %319 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
+  %320 = load i64, ptr %319, align 8, !tbaa !85
+  %321 = icmp eq i64 %320, %315
+  %322 = icmp eq i64 %320, %317
+  %spec.select.i = select i1 %322, i32 1, i32 %.120.i
+  %.217.i = select i1 %321, i32 1, i32 %.11619.i
+  %.2.i = select i1 %321, i32 %.120.i, i32 %spec.select.i
+  %323 = add nuw i64 %.021.i, 1
+  %exitcond.not.i = icmp eq i64 %323, %318
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %323 = icmp ne i32 %.217.i, 0
-  %324 = icmp ne i32 %.2.i, 0
-  %325 = select i1 %323, i1 %324, i1 false
-  %326 = zext i1 %325 to i32
+  %324 = icmp ne i32 %.217.i, 0
+  %325 = icmp ne i32 %.2.i, 0
+  %326 = select i1 %324, i1 %325, i1 false
+  %327 = zext i1 %326 to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %312
-  %.116.lcssa.i = phi i32 [ 0, %312 ], [ %326, %._crit_edge.loopexit.i ]
-  %327 = call i32 @XFree(ptr noundef %.pre.i) #13
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %313
+  %.116.lcssa.i = phi i32 [ 0, %313 ], [ %327, %._crit_edge.loopexit.i ]
+  %328 = call i32 @XFree(ptr noundef %.pre.i) #13
   br label %x11_is_maximized.exit
 
-x11_is_maximized.exit:                            ; preds = %305, %._crit_edge.i
-  %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %305 ]
+x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
+  %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %306 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   store i32 %.015.i, ptr %171, align 4, !tbaa !77
-  br label %.loopexit
+  br label %.backedge
 
-328:                                              ; preds = %250
-  %329 = load i32, ptr %230, align 4, !tbaa !81
-  %330 = icmp eq i32 %329, 1
-  br i1 %330, label %331, label %.loopexit
+329:                                              ; preds = %250
+  %330 = load i32, ptr %230, align 4, !tbaa !81
+  %331 = icmp eq i32 %330, 1
+  br i1 %331, label %332, label %.loopexit
 
-331:                                              ; preds = %328
-  %332 = load i32, ptr %231, align 8, !tbaa !81
-  %333 = load i32, ptr %232, align 4, !tbaa !81
-  br label %.loopexit
+332:                                              ; preds = %329
+  %333 = load i32, ptr %231, align 8, !tbaa !81
+  %334 = load i32, ptr %232, align 4, !tbaa !81
+  br label %.outer.outer.backedge
 
-334:                                              ; preds = %250
-  %335 = load i32, ptr %230, align 4, !tbaa !81
-  %336 = icmp eq i32 %335, 1
-  %spec.select343 = select i1 %336, i32 0, i32 %.0281354.ph401
-  br label %.loopexit
+.outer.outer.backedge:                            ; preds = %332, %271
+  %.0287351.ph.ph.be = phi i32 [ %275, %271 ], [ %334, %332 ]
+  %.0289350.ph.ph.be = phi i32 [ %272, %271 ], [ %333, %332 ]
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
+  %335 = load i32, ptr %219, align 4, !tbaa !80
+  %.not307389392 = icmp eq i32 %335, 0
+  br i1 %.not307389392, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !82
 
-337:                                              ; preds = %250
-  %338 = call i32 @XRefreshKeyboardMapping(ptr noundef nonnull %11) #13
+336:                                              ; preds = %250
+  %337 = load i32, ptr %230, align 4, !tbaa !81
+  %338 = icmp eq i32 %337, 1
+  %spec.select343 = select i1 %338, i32 0, i32 %.0281354.ph393
   br label %.loopexit
 
 339:                                              ; preds = %250
+  %340 = call i32 @XRefreshKeyboardMapping(ptr noundef nonnull %11) #13
+  br label %.backedge
+
+341:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
-  %340 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
-  %341 = load i64, ptr %12, align 8, !tbaa !83
-  switch i64 %341, label %461 [
+  %342 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
+  %343 = load i64, ptr %12, align 8, !tbaa !85
+  switch i64 %343, label %463 [
     i64 113, label %.thread355
     i64 81, label %.thread355
     i64 65307, label %.thread355
-    i64 65474, label %342
-    i64 65361, label %343
-    i64 65363, label %347
-    i64 65362, label %352
-    i64 65364, label %356
-    i64 65365, label %361
-    i64 65366, label %372
-    i64 65360, label %383
-    i64 65367, label %384
-    i64 70, label %385
-    i64 43, label %400
-    i64 65451, label %400
-    i64 45, label %403
-    i64 65453, label %403
-    i64 49, label %406
-    i64 65457, label %406
-    i64 114, label %407
-    i64 82, label %408
-    i64 104, label %413
-    i64 72, label %413
-    i64 63, label %413
-    i64 97, label %414
-    i64 116, label %419
-    i64 105, label %424
-    i64 98, label %430
-    i64 100, label %435
-    i64 107, label %440
-    i64 102, label %445
-    i64 108, label %454
-    i64 69, label %460
+    i64 65474, label %344
+    i64 65361, label %345
+    i64 65363, label %349
+    i64 65362, label %354
+    i64 65364, label %358
+    i64 65365, label %363
+    i64 65366, label %374
+    i64 65360, label %385
+    i64 65367, label %386
+    i64 70, label %387
+    i64 43, label %402
+    i64 65451, label %402
+    i64 45, label %405
+    i64 65453, label %405
+    i64 49, label %408
+    i64 65457, label %408
+    i64 114, label %409
+    i64 82, label %410
+    i64 104, label %415
+    i64 72, label %415
+    i64 63, label %415
+    i64 97, label %416
+    i64 116, label %421
+    i64 105, label %426
+    i64 98, label %432
+    i64 100, label %437
+    i64 107, label %442
+    i64 102, label %447
+    i64 108, label %456
+    i64 69, label %462
   ]
 
-.thread355:                                       ; preds = %339, %339, %339
+.thread355:                                       ; preds = %341, %341, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
   br label %.critedge
 
-342:                                              ; preds = %339
+344:                                              ; preds = %341
   store i32 1, ptr %219, align 4, !tbaa !80
-  br label %461
+  br label %463
 
-343:                                              ; preds = %339
-  %344 = load i32, ptr %152, align 8, !tbaa !64
-  %.neg332 = sdiv i32 %344, -10
-  %345 = load i32, ptr %164, align 8, !tbaa !70
-  %346 = add i32 %.neg332, %345
-  store i32 %346, ptr %164, align 8, !tbaa !70
+345:                                              ; preds = %341
+  %346 = load i32, ptr %152, align 8, !tbaa !64
+  %.neg332 = sdiv i32 %346, -10
+  %347 = load i32, ptr %164, align 8, !tbaa !70
+  %348 = add i32 %.neg332, %347
+  store i32 %348, ptr %164, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-347:                                              ; preds = %339
-  %348 = load i32, ptr %152, align 8, !tbaa !64
-  %349 = sdiv i32 %348, 10
-  %350 = load i32, ptr %164, align 8, !tbaa !70
-  %351 = add nsw i32 %350, %349
-  store i32 %351, ptr %164, align 8, !tbaa !70
+349:                                              ; preds = %341
+  %350 = load i32, ptr %152, align 8, !tbaa !64
+  %351 = sdiv i32 %350, 10
+  %352 = load i32, ptr %164, align 8, !tbaa !70
+  %353 = add nsw i32 %352, %351
+  store i32 %353, ptr %164, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-352:                                              ; preds = %339
-  %353 = load i32, ptr %153, align 4, !tbaa !65
-  %.neg = sdiv i32 %353, -10
-  %354 = load i32, ptr %165, align 4, !tbaa !71
-  %355 = add i32 %.neg, %354
-  store i32 %355, ptr %165, align 4, !tbaa !71
+354:                                              ; preds = %341
+  %355 = load i32, ptr %153, align 4, !tbaa !65
+  %.neg = sdiv i32 %355, -10
+  %356 = load i32, ptr %165, align 4, !tbaa !71
+  %357 = add i32 %.neg, %356
+  store i32 %357, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-356:                                              ; preds = %339
-  %357 = load i32, ptr %153, align 4, !tbaa !65
-  %358 = sdiv i32 %357, 10
-  %359 = load i32, ptr %165, align 4, !tbaa !71
-  %360 = add nsw i32 %359, %358
-  store i32 %360, ptr %165, align 4, !tbaa !71
+358:                                              ; preds = %341
+  %359 = load i32, ptr %153, align 4, !tbaa !65
+  %360 = sdiv i32 %359, 10
+  %361 = load i32, ptr %165, align 4, !tbaa !71
+  %362 = add nsw i32 %361, %360
+  store i32 %362, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-361:                                              ; preds = %339
-  %362 = load i32, ptr %229, align 8, !tbaa !81
-  %363 = and i32 %362, 4
-  %.not331 = icmp eq i32 %363, 0
-  br i1 %.not331, label %368, label %364
+363:                                              ; preds = %341
+  %364 = load i32, ptr %229, align 8, !tbaa !81
+  %365 = and i32 %364, 4
+  %.not331 = icmp eq i32 %365, 0
+  br i1 %.not331, label %370, label %366
 
-364:                                              ; preds = %361
-  %365 = load i32, ptr %152, align 8, !tbaa !64
-  %366 = load i32, ptr %164, align 8, !tbaa !70
-  %367 = sub nsw i32 %366, %365
-  store i32 %367, ptr %164, align 8, !tbaa !70
+366:                                              ; preds = %363
+  %367 = load i32, ptr %152, align 8, !tbaa !64
+  %368 = load i32, ptr %164, align 8, !tbaa !70
+  %369 = sub nsw i32 %368, %367
+  store i32 %369, ptr %164, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-368:                                              ; preds = %361
-  %369 = load i32, ptr %153, align 4, !tbaa !65
-  %370 = load i32, ptr %165, align 4, !tbaa !71
-  %371 = sub nsw i32 %370, %369
-  store i32 %371, ptr %165, align 4, !tbaa !71
+370:                                              ; preds = %363
+  %371 = load i32, ptr %153, align 4, !tbaa !65
+  %372 = load i32, ptr %165, align 4, !tbaa !71
+  %373 = sub nsw i32 %372, %371
+  store i32 %373, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-372:                                              ; preds = %339
-  %373 = load i32, ptr %229, align 8, !tbaa !81
-  %374 = and i32 %373, 4
-  %.not330 = icmp eq i32 %374, 0
-  br i1 %.not330, label %379, label %375
+374:                                              ; preds = %341
+  %375 = load i32, ptr %229, align 8, !tbaa !81
+  %376 = and i32 %375, 4
+  %.not330 = icmp eq i32 %376, 0
+  br i1 %.not330, label %381, label %377
 
-375:                                              ; preds = %372
-  %376 = load i32, ptr %152, align 8, !tbaa !64
-  %377 = load i32, ptr %164, align 8, !tbaa !70
-  %378 = add nsw i32 %377, %376
-  store i32 %378, ptr %164, align 8, !tbaa !70
+377:                                              ; preds = %374
+  %378 = load i32, ptr %152, align 8, !tbaa !64
+  %379 = load i32, ptr %164, align 8, !tbaa !70
+  %380 = add nsw i32 %379, %378
+  store i32 %380, ptr %164, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-379:                                              ; preds = %372
-  %380 = load i32, ptr %153, align 4, !tbaa !65
-  %381 = load i32, ptr %165, align 4, !tbaa !71
-  %382 = add nsw i32 %381, %380
-  store i32 %382, ptr %165, align 4, !tbaa !71
+381:                                              ; preds = %374
+  %382 = load i32, ptr %153, align 4, !tbaa !65
+  %383 = load i32, ptr %165, align 4, !tbaa !71
+  %384 = add nsw i32 %383, %382
+  store i32 %384, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-383:                                              ; preds = %339
+385:                                              ; preds = %341
   store i32 0, ptr %164, align 8, !tbaa !70
   store i32 0, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-384:                                              ; preds = %339
+386:                                              ; preds = %341
   store i32 2147483647, ptr %164, align 8, !tbaa !70
   store i32 2147483647, ptr %165, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-385:                                              ; preds = %339
-  %386 = load i32, ptr %152, align 8, !tbaa !64
-  %387 = sitofp i32 %386 to float
-  %388 = load i32, ptr %155, align 8, !tbaa !66
+387:                                              ; preds = %341
+  %388 = load i32, ptr %152, align 8, !tbaa !64
   %389 = sitofp i32 %388 to float
-  %390 = fdiv float %387, %389
-  %391 = load i32, ptr %153, align 4, !tbaa !65
-  %392 = sitofp i32 %391 to float
-  %393 = load i32, ptr %157, align 4, !tbaa !67
+  %390 = load i32, ptr %155, align 8, !tbaa !66
+  %391 = sitofp i32 %390 to float
+  %392 = fdiv float %389, %391
+  %393 = load i32, ptr %153, align 4, !tbaa !65
   %394 = sitofp i32 %393 to float
-  %395 = fdiv float %392, %394
-  %396 = fcmp ogt float %390, %395
-  %397 = select i1 %396, float %395, float %390
-  %398 = load float, ptr %167, align 8, !tbaa !73
-  %399 = fmul float %398, %397
-  store float %399, ptr %167, align 8, !tbaa !73
+  %395 = load i32, ptr %157, align 4, !tbaa !67
+  %396 = sitofp i32 %395 to float
+  %397 = fdiv float %394, %396
+  %398 = fcmp ogt float %392, %397
+  %399 = select i1 %398, float %397, float %392
+  %400 = load float, ptr %167, align 8, !tbaa !73
+  %401 = fmul float %400, %399
+  store float %401, ptr %167, align 8, !tbaa !73
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-400:                                              ; preds = %339, %339
-  %401 = load float, ptr %167, align 8, !tbaa !73
-  %402 = fmul float %401, 0x3FF3333340000000
-  store float %402, ptr %167, align 8, !tbaa !73
+402:                                              ; preds = %341, %341
+  %403 = load float, ptr %167, align 8, !tbaa !73
+  %404 = fmul float %403, 0x3FF3333340000000
+  store float %404, ptr %167, align 8, !tbaa !73
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-403:                                              ; preds = %339, %339
-  %404 = load float, ptr %167, align 8, !tbaa !73
-  %405 = fdiv float %404, 0x3FF3333340000000
-  store float %405, ptr %167, align 8, !tbaa !73
+405:                                              ; preds = %341, %341
+  %406 = load float, ptr %167, align 8, !tbaa !73
+  %407 = fdiv float %406, 0x3FF3333340000000
+  store float %407, ptr %167, align 8, !tbaa !73
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-406:                                              ; preds = %339, %339
+408:                                              ; preds = %341, %341
   store float 1.000000e+00, ptr %167, align 8, !tbaa !73
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-407:                                              ; preds = %339
+409:                                              ; preds = %341
   store i32 2, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-408:                                              ; preds = %339
-  %409 = load i32, ptr %170, align 8, !tbaa !76
-  %410 = xor i32 %409, 1
-  store i32 %410, ptr %170, align 8, !tbaa !76
-  %.not329 = icmp eq i32 %409, 1
-  %411 = select i1 %.not329, ptr @.str.6, ptr @.str.5
-  %412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %411)
+410:                                              ; preds = %341
+  %411 = load i32, ptr %170, align 8, !tbaa !76
+  %412 = xor i32 %411, 1
+  store i32 %412, ptr %170, align 8, !tbaa !76
+  %.not329 = icmp eq i32 %411, 1
+  %413 = select i1 %.not329, ptr @.str.6, ptr @.str.5
+  %414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %413)
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-413:                                              ; preds = %339, %339, %339
+415:                                              ; preds = %341, %341, %341
   call void @lstopo_show_interactive_help() #13
-  br label %461
+  br label %463
 
-414:                                              ; preds = %339
-  %415 = load i32, ptr %228, align 8, !tbaa !86
-  %416 = xor i32 %415, 1
-  store i32 %416, ptr %228, align 8, !tbaa !86
-  %.not328 = icmp eq i32 %415, 1
-  %417 = select i1 %.not328, ptr @.str.6, ptr @.str.5
-  %418 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %417)
+416:                                              ; preds = %341
+  %417 = load i32, ptr %228, align 8, !tbaa !87
+  %418 = xor i32 %417, 1
+  store i32 %418, ptr %228, align 8, !tbaa !87
+  %.not328 = icmp eq i32 %417, 1
+  %419 = select i1 %.not328, ptr @.str.6, ptr @.str.5
+  %420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %419)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-419:                                              ; preds = %339
-  %420 = load i32, ptr %227, align 4, !tbaa !87
-  %421 = xor i32 %420, 1
-  store i32 %421, ptr %227, align 4, !tbaa !87
-  %.not327 = icmp eq i32 %420, 1
-  %422 = select i1 %.not327, ptr @.str.6, ptr @.str.5
-  %423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %422)
+421:                                              ; preds = %341
+  %422 = load i32, ptr %227, align 4, !tbaa !88
+  %423 = xor i32 %422, 1
+  store i32 %423, ptr %227, align 4, !tbaa !88
+  %.not327 = icmp eq i32 %422, 1
+  %424 = select i1 %.not327, ptr @.str.6, ptr @.str.5
+  %425 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %424)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-424:                                              ; preds = %339
-  %425 = load i32, ptr %226, align 4, !tbaa !88
-  %426 = icmp ult i32 %425, 4
-  br i1 %426, label %switch.lookup, label %427
+426:                                              ; preds = %341
+  %427 = load i32, ptr %226, align 4, !tbaa !89
+  %428 = icmp ult i32 %427, 4
+  br i1 %428, label %switch.lookup, label %429
 
-427:                                              ; preds = %424
+429:                                              ; preds = %426
   call void @abort() #16
   unreachable
 
-switch.lookup:                                    ; preds = %424
-  %428 = zext nneg i32 %425 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.output_x11, i64 0, i64 %428
+switch.lookup:                                    ; preds = %426
+  %430 = zext nneg i32 %427 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.output_x11, i64 0, i64 %430
   %switch.load = load i32, ptr %switch.gep, align 4
-  %429 = zext nneg i32 %425 to i64
-  %switch.gep406 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.output_x11.11, i64 0, i64 %429
-  %switch.load407 = load ptr, ptr %switch.gep406, align 8
-  store i32 %switch.load, ptr %226, align 4, !tbaa !88
-  %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load407)
+  %431 = zext nneg i32 %427 to i64
+  %switch.gep402 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.output_x11.11, i64 0, i64 %431
+  %switch.load403 = load ptr, ptr %switch.gep402, align 8
+  store i32 %switch.load, ptr %226, align 4, !tbaa !89
+  %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load403)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-430:                                              ; preds = %339
-  %431 = load i32, ptr %225, align 4, !tbaa !89
-  %432 = xor i32 %431, 1
-  store i32 %432, ptr %225, align 4, !tbaa !89
-  %.not322 = icmp eq i32 %431, 1
-  %433 = select i1 %.not322, ptr @.str.6, ptr @.str.5
-  %434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %433)
+432:                                              ; preds = %341
+  %433 = load i32, ptr %225, align 4, !tbaa !90
+  %434 = xor i32 %433, 1
+  store i32 %434, ptr %225, align 4, !tbaa !90
+  %.not322 = icmp eq i32 %433, 1
+  %435 = select i1 %.not322, ptr @.str.6, ptr @.str.5
+  %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %435)
   store i32 1, ptr %168, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-435:                                              ; preds = %339
-  %436 = load i32, ptr %224, align 8, !tbaa !90
-  %437 = xor i32 %436, 1
-  store i32 %437, ptr %224, align 8, !tbaa !90
-  %.not321 = icmp eq i32 %436, 1
-  %438 = select i1 %.not321, ptr @.str.6, ptr @.str.5
-  %439 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %438)
+437:                                              ; preds = %341
+  %438 = load i32, ptr %224, align 8, !tbaa !91
+  %439 = xor i32 %438, 1
+  store i32 %439, ptr %224, align 8, !tbaa !91
+  %.not321 = icmp eq i32 %438, 1
+  %440 = select i1 %.not321, ptr @.str.6, ptr @.str.5
+  %441 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %440)
   store i32 1, ptr %168, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-440:                                              ; preds = %339
-  %441 = load i32, ptr %223, align 8, !tbaa !91
-  %442 = xor i32 %441, 1
-  store i32 %442, ptr %223, align 8, !tbaa !91
-  %.not320 = icmp eq i32 %441, 1
-  %443 = select i1 %.not320, ptr @.str.6, ptr @.str.5
-  %444 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %443)
+442:                                              ; preds = %341
+  %443 = load i32, ptr %223, align 8, !tbaa !92
+  %444 = xor i32 %443, 1
+  store i32 %444, ptr %223, align 8, !tbaa !92
+  %.not320 = icmp eq i32 %443, 1
+  %445 = select i1 %.not320, ptr @.str.6, ptr @.str.5
+  %446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %445)
   store i32 1, ptr %168, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-445:                                              ; preds = %339
-  %446 = load i32, ptr %221, align 8, !tbaa !92
-  %.not313 = icmp eq i32 %446, 0
-  %447 = load i32, ptr %222, align 4, !tbaa !93
-  %.not316 = icmp eq i32 %447, 0
-  br i1 %.not313, label %450, label %448
+447:                                              ; preds = %341
+  %448 = load i32, ptr %221, align 8, !tbaa !93
+  %.not313 = icmp eq i32 %448, 0
+  %449 = load i32, ptr %222, align 4, !tbaa !94
+  %.not316 = icmp eq i32 %449, 0
+  br i1 %.not313, label %452, label %450
 
-448:                                              ; preds = %445
-  br i1 %.not316, label %452, label %449
-
-449:                                              ; preds = %448
-  store i32 0, ptr %221, align 8, !tbaa !92
-  br label %453
-
-450:                                              ; preds = %445
-  br i1 %.not316, label %452, label %451
+450:                                              ; preds = %447
+  br i1 %.not316, label %454, label %451
 
 451:                                              ; preds = %450
-  store i32 0, ptr %222, align 4, !tbaa !93
-  br label %453
+  store i32 0, ptr %221, align 8, !tbaa !93
+  br label %455
 
-452:                                              ; preds = %448, %450
-  store i32 1, ptr %221, align 8, !tbaa !92
-  store i32 1, ptr %222, align 4, !tbaa !93
-  br label %453
+452:                                              ; preds = %447
+  br i1 %.not316, label %454, label %453
 
-453:                                              ; preds = %451, %452, %449
-  %str.3.sink = phi ptr [ @str.3, %451 ], [ @str.4, %452 ], [ @str.5, %449 ]
+453:                                              ; preds = %452
+  store i32 0, ptr %222, align 4, !tbaa !94
+  br label %455
+
+454:                                              ; preds = %450, %452
+  store i32 1, ptr %221, align 8, !tbaa !93
+  store i32 1, ptr %222, align 4, !tbaa !94
+  br label %455
+
+455:                                              ; preds = %453, %454, %451
+  %str.3.sink = phi ptr [ @str.3, %453 ], [ @str.4, %454 ], [ @str.5, %451 ]
   %puts317 = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.sink)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-454:                                              ; preds = %339
-  %455 = load i32, ptr %220, align 8, !tbaa !94
-  %456 = icmp ult i32 %455, 3
-  br i1 %456, label %switch.lookup408, label %457
+456:                                              ; preds = %341
+  %457 = load i32, ptr %220, align 8, !tbaa !95
+  %458 = icmp ult i32 %457, 3
+  br i1 %458, label %switch.lookup404, label %459
 
-457:                                              ; preds = %454
+459:                                              ; preds = %456
   call void @abort() #16
   unreachable
 
-switch.lookup408:                                 ; preds = %454
-  %458 = zext nneg i32 %455 to i64
-  %switch.gep409 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.output_x11.12, i64 0, i64 %458
-  %switch.load410 = load i32, ptr %switch.gep409, align 4
-  %459 = zext nneg i32 %455 to i64
-  %switch.gep411 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.output_x11.13, i64 0, i64 %459
-  %switch.load412 = load ptr, ptr %switch.gep411, align 8
-  store i32 %switch.load410, ptr %220, align 8, !tbaa !94
-  %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load412)
+switch.lookup404:                                 ; preds = %456
+  %460 = zext nneg i32 %457 to i64
+  %switch.gep405 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.output_x11.12, i64 0, i64 %460
+  %switch.load406 = load i32, ptr %switch.gep405, align 4
+  %461 = zext nneg i32 %457 to i64
+  %switch.gep407 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.output_x11.13, i64 0, i64 %461
+  %switch.load408 = load ptr, ptr %switch.gep407, align 8
+  store i32 %switch.load406, ptr %220, align 8, !tbaa !95
+  %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load408)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %461
+  br label %463
 
-460:                                              ; preds = %339
+462:                                              ; preds = %341
   call void @lstopo_show_interactive_cli_options(ptr noundef nonnull %0) #13
-  br label %461
+  br label %463
 
-461:                                              ; preds = %375, %379, %364, %368, %460, %switch.lookup408, %453, %440, %435, %430, %switch.lookup, %419, %414, %413, %408, %407, %406, %403, %400, %385, %384, %383, %356, %352, %347, %343, %342, %339
+463:                                              ; preds = %377, %381, %366, %370, %462, %switch.lookup404, %455, %442, %437, %432, %switch.lookup, %421, %416, %415, %410, %409, %408, %405, %402, %387, %386, %385, %358, %354, %349, %345, %344, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
-  %462 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307 = icmp eq i32 %462, 0
-  br i1 %.not307, label %236, label %.critedge, !llvm.loop !95
+  br label %.backedge
 
-.loopexit:                                        ; preds = %250, %334, %328, %331, %269, %270, %254, %257, %337, %x11_is_maximized.exit
-  %.1290 = phi i32 [ %.0289350.ph405, %337 ], [ %332, %331 ], [ %.0289350.ph405, %328 ], [ %.0289350.ph405, %x11_is_maximized.exit ], [ %271, %270 ], [ %.0289350.ph405, %269 ], [ %.0289350.ph405, %257 ], [ %.0289350.ph405, %254 ], [ %.0289350.ph405, %334 ], [ %.0289350.ph405, %250 ]
-  %.1288 = phi i32 [ %.0287351.ph404, %337 ], [ %333, %331 ], [ %.0287351.ph404, %328 ], [ %.0287351.ph404, %x11_is_maximized.exit ], [ %274, %270 ], [ %.0287351.ph404, %269 ], [ %.0287351.ph404, %257 ], [ %.0287351.ph404, %254 ], [ %.0287351.ph404, %334 ], [ %.0287351.ph404, %250 ]
-  %.1282 = phi i32 [ %.0281354.ph401, %337 ], [ 1, %331 ], [ %.0281354.ph401, %328 ], [ %.0281354.ph401, %x11_is_maximized.exit ], [ 1, %270 ], [ 0, %269 ], [ %.0281354.ph401, %257 ], [ %.0281354.ph401, %254 ], [ %spec.select343, %334 ], [ %.0281354.ph401, %250 ]
+.loopexit:                                        ; preds = %254, %250, %336, %329, %270
+  %.1282 = phi i32 [ 0, %270 ], [ %.0281354.ph393, %329 ], [ %spec.select343, %336 ], [ %.0281354.ph393, %250 ], [ %.0281354.ph393, %254 ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #13
-  %463 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307397 = icmp eq i32 %463, 0
-  br i1 %.not307397, label %.lr.ph, label %.critedge, !llvm.loop !95
+  %464 = load i32, ptr %219, align 4, !tbaa !80
+  %.not307389 = icmp eq i32 %464, 0
+  br i1 %.not307389, label %.lr.ph, label %.critedge, !llvm.loop !82
 
-.critedge:                                        ; preds = %.loopexit, %461, %205, %.thread355
-  %464 = load ptr, ptr %112, align 8, !tbaa !54
-  call void @cairo_surface_destroy(ptr noundef %464) #13
-  %465 = load ptr, ptr %21, align 8, !tbaa !27
-  %466 = load i64, ptr %90, align 8, !tbaa !51
-  %467 = call i32 @XDestroyWindow(ptr noundef %465, i64 noundef %466) #13
-  %468 = load ptr, ptr %21, align 8, !tbaa !27
-  %469 = load i64, ptr %80, align 8, !tbaa !48
-  %470 = call i32 @XDestroyWindow(ptr noundef %468, i64 noundef %469) #13
-  %471 = load ptr, ptr %21, align 8, !tbaa !27
-  %472 = load i64, ptr %93, align 8, !tbaa !52
-  %473 = call i32 @XFreeCursor(ptr noundef %471, i64 noundef %472) #13
-  %474 = load ptr, ptr %21, align 8, !tbaa !27
-  %475 = call i32 @XCloseDisplay(ptr noundef %474) #13
+.critedge:                                        ; preds = %.outer.outer.backedge, %.loopexit, %.backedge, %205, %.thread355
+  %465 = load ptr, ptr %112, align 8, !tbaa !54
+  call void @cairo_surface_destroy(ptr noundef %465) #13
+  %466 = load ptr, ptr %21, align 8, !tbaa !27
+  %467 = load i64, ptr %90, align 8, !tbaa !51
+  %468 = call i32 @XDestroyWindow(ptr noundef %466, i64 noundef %467) #13
+  %469 = load ptr, ptr %21, align 8, !tbaa !27
+  %470 = load i64, ptr %80, align 8, !tbaa !48
+  %471 = call i32 @XDestroyWindow(ptr noundef %469, i64 noundef %470) #13
+  %472 = load ptr, ptr %21, align 8, !tbaa !27
+  %473 = load i64, ptr %93, align 8, !tbaa !52
+  %474 = call i32 @XFreeCursor(ptr noundef %472, i64 noundef %473) #13
+  %475 = load ptr, ptr %21, align 8, !tbaa !27
+  %476 = call i32 @XCloseDisplay(ptr noundef %475) #13
   call void @destroy_colors(ptr noundef nonnull %0) #13
-  br label %476
+  br label %477
 
-476:                                              ; preds = %.critedge, %17
+477:                                              ; preds = %.critedge, %17
   %.0 = phi i32 [ 0, %.critedge ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #13
   ret i32 %.0
@@ -1850,7 +1865,7 @@ define internal void @topo_cairo_box(ptr noundef readonly captures(none) %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = getelementptr i8, ptr %0, i64 1304
-  %.val = load i32, ptr %13, align 8, !tbaa !91
+  %.val = load i32, ptr %13, align 8, !tbaa !92
   %14 = icmp ne i32 %.val, 0
   %15 = icmp ne ptr %7, null
   %or.cond.i = and i1 %15, %14
@@ -1947,7 +1962,7 @@ define internal void @topo_cairo_text(ptr noundef readonly captures(none) %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr i8, ptr %0, i64 1304
-  %.val = load i32, ptr %12, align 8, !tbaa !91
+  %.val = load i32, ptr %12, align 8, !tbaa !92
   %13 = icmp ne i32 %.val, 0
   %14 = icmp ne ptr %7, null
   %or.cond.i = and i1 %14, %13
@@ -2185,20 +2200,20 @@ attributes #18 = { cold nounwind }
 !79 = !{!5, !10, i64 8}
 !80 = !{!13, !15, i64 12}
 !81 = !{!8, !8, i64 0}
-!82 = !{!22, !22, i64 0}
-!83 = !{!18, !18, i64 0}
-!84 = distinct !{!84, !85}
-!85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!13, !15, i64 1208}
-!87 = !{!13, !15, i64 1124}
-!88 = !{!13, !15, i64 36}
-!89 = !{!13, !15, i64 1292}
-!90 = !{!13, !15, i64 1296}
-!91 = !{!13, !15, i64 1304}
-!92 = !{!13, !15, i64 1328}
-!93 = !{!13, !15, i64 52}
-!94 = !{!13, !15, i64 112}
-!95 = distinct !{!95, !85}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.mustprogress"}
+!84 = !{!22, !22, i64 0}
+!85 = !{!18, !18, i64 0}
+!86 = distinct !{!86, !83}
+!87 = !{!13, !15, i64 1208}
+!88 = !{!13, !15, i64 1124}
+!89 = !{!13, !15, i64 36}
+!90 = !{!13, !15, i64 1292}
+!91 = !{!13, !15, i64 1296}
+!92 = !{!13, !15, i64 1304}
+!93 = !{!13, !15, i64 1328}
+!94 = !{!13, !15, i64 52}
+!95 = !{!13, !15, i64 112}
 !96 = !{!13, !15, i64 32}
 !97 = !{!15, !15, i64 0}
 !98 = !{!13, !16, i64 24}

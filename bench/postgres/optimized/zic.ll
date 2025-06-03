@@ -616,7 +616,7 @@ timerange_option.exit:                            ; preds = %170
   br label %.preheader93.backedge
 
 .preheader93.backedge:                            ; preds = %timerange_option.exit, %66, %75, %74, %178, %126, %125, %118, %114, %112, %99, %89, %79
-  %.0.be = phi i1 [ %.0, %178 ], [ %.0, %126 ], [ %.0, %125 ], [ %.0, %118 ], [ %.0, %114 ], [ %.0, %112 ], [ %.0, %99 ], [ %.0, %89 ], [ %.0, %79 ], [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ true, %timerange_option.exit ]
+  %.0.be = phi i1 [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ %.0, %79 ], [ %.0, %89 ], [ %.0, %99 ], [ %.0, %112 ], [ %.0, %114 ], [ %.0, %118 ], [ %.0, %125 ], [ %.0, %126 ], [ %.0, %178 ], [ true, %timerange_option.exit ]
   br label %.preheader93, !llvm.loop !6
 
 173:                                              ; preds = %145, %137, %156, %170, %152
@@ -5074,7 +5074,7 @@ outzone.exit:                                     ; preds = %.loopexit659.i.i
   br label %close_file.exit
 
 close_file.exit:                                  ; preds = %42, %40, %2172, %2175, %._crit_edge, %2177, %173, %129, %121, %108, %102, %92, %82
-  %.047 = phi i32 [ 1, %129 ], [ 1, %173 ], [ 1, %121 ], [ 1, %108 ], [ 1, %102 ], [ 1, %92 ], [ 1, %82 ], [ %2178, %2177 ], [ 1, %._crit_edge ], [ 1, %2175 ], [ 1, %2172 ], [ 0, %40 ], [ 0, %42 ]
+  %.047 = phi i32 [ 1, %82 ], [ 1, %92 ], [ 1, %102 ], [ 1, %108 ], [ 1, %121 ], [ 1, %129 ], [ 1, %173 ], [ %2178, %2177 ], [ 1, %._crit_edge ], [ 1, %2175 ], [ 1, %2172 ], [ 0, %40 ], [ 0, %42 ]
   ret i32 %.047
 }
 
@@ -6738,7 +6738,7 @@ define internal fastcc range(i64 -7733088616448, 7733088616448) i64 @gethms(ptr 
   br label %23
 
 23:                                               ; preds = %19, %17
-  %.0 = phi i1 [ true, %17 ], [ %22, %19 ]
+  %.0 = phi i1 [ %22, %19 ], [ true, %17 ]
   %24 = load i8, ptr %8, align 1
   %25 = icmp eq i8 %24, 46
   %26 = select i1 %25, i1 %.0, i1 false
@@ -6751,14 +6751,14 @@ define internal fastcc range(i64 -7733088616448, 7733088616448) i64 @gethms(ptr 
   br label %28
 
 28:                                               ; preds = %23, %27, %17
-  %.1.shrunk = phi i1 [ true, %17 ], [ true, %27 ], [ %26, %23 ]
+  %.1.shrunk = phi i1 [ true, %27 ], [ %26, %23 ], [ true, %17 ]
   %29 = load i8, ptr %7, align 1
   %30 = icmp eq i8 %29, 58
   %31 = and i1 %.1.shrunk, %30
   br label %32
 
 32:                                               ; preds = %28, %17
-  %.2 = phi i1 [ true, %17 ], [ %31, %28 ]
+  %.2 = phi i1 [ %31, %28 ], [ true, %17 ]
   %33 = load i8, ptr %6, align 1
   %34 = icmp eq i8 %33, 58
   %35 = select i1 %34, i1 %.2, i1 false

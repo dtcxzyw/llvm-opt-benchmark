@@ -1204,8 +1204,8 @@ _ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStat
   br i1 %cmp431, label %FormatError, label %sw.epilog435
 
 sw.epilog435:                                     ; preds = %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
-  %retval.0.i154.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i130, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i154, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
-  %nWriteCountSum.3 = add nsw i32 %retval.0.i154.pn, %nWriteCountSum.1
+  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i130, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i154, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
+  %nWriteCountSum.3 = add nsw i32 %retval.0.i.pn, %nWriteCountSum.1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sw.bb449, %sw.bb451, %sw.bb453, %sw.bb454, %sw.bb456, %sw.bb458, %sw.bb460, %sw.bb462, %sw.bb464, %sw.default467, %sw.epilog435
@@ -1392,10 +1392,10 @@ sw.bb526:                                         ; preds = %if.then12
   br label %sw.epilog542
 
 FormatError:                                      ; preds = %if.then12, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %sw.bb375, %sw.bb469, %if.end366, %if.else336, %if.then331, %if.else164, %if.then159
-  %ullValue.2 = phi i64 [ %ullValue.0.ph258, %sw.bb469 ], [ %ullValue.0.ph258, %if.end366 ], [ %ullValue.4199, %if.then331 ], [ %ullValue.4192, %if.else336 ], [ %ullValue.0.ph258, %if.then159 ], [ %ullValue.0.ph258, %if.else164 ], [ %ullValue.0.ph258, %sw.bb375 ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %if.then12 ]
-  %llValue.3 = phi i64 [ %llValue.0.ph259, %sw.bb469 ], [ %llValue.0.ph259, %if.end366 ], [ %llValue.0.ph259, %if.then331 ], [ %llValue.0.ph259, %if.else336 ], [ %llValue.2186, %if.then159 ], [ %llValue.2179, %if.else164 ], [ %llValue.0.ph259, %sw.bb375 ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %if.then12 ]
-  %ulValue.2 = phi i64 [ %ulValue.0.ph260, %sw.bb469 ], [ %ulValue.0.ph260, %if.end366 ], [ %ulValue.4200, %if.then331 ], [ %ulValue.4194, %if.else336 ], [ %ulValue.0.ph260, %if.then159 ], [ %ulValue.0.ph260, %if.else164 ], [ %ulValue.0.ph260, %sw.bb375 ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %if.then12 ]
-  %lValue.3 = phi i64 [ %lValue.0.ph261, %sw.bb469 ], [ %lValue.0.ph261, %if.end366 ], [ %lValue.0.ph261, %if.then331 ], [ %lValue.0.ph261, %if.else336 ], [ %lValue.2187, %if.then159 ], [ %lValue.2181, %if.else164 ], [ %lValue.0.ph261, %sw.bb375 ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %if.then12 ]
+  %ullValue.2 = phi i64 [ %ullValue.0.ph258, %if.then159 ], [ %ullValue.0.ph258, %if.else164 ], [ %ullValue.4199, %if.then331 ], [ %ullValue.4192, %if.else336 ], [ %ullValue.0.ph258, %if.end366 ], [ %ullValue.0.ph258, %sw.bb469 ], [ %ullValue.0.ph258, %sw.bb375 ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph258, %if.then12 ]
+  %llValue.3 = phi i64 [ %llValue.2186, %if.then159 ], [ %llValue.2179, %if.else164 ], [ %llValue.0.ph259, %if.then331 ], [ %llValue.0.ph259, %if.else336 ], [ %llValue.0.ph259, %if.end366 ], [ %llValue.0.ph259, %sw.bb469 ], [ %llValue.0.ph259, %sw.bb375 ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph259, %if.then12 ]
+  %ulValue.2 = phi i64 [ %ulValue.0.ph260, %if.then159 ], [ %ulValue.0.ph260, %if.else164 ], [ %ulValue.4200, %if.then331 ], [ %ulValue.4194, %if.else336 ], [ %ulValue.0.ph260, %if.end366 ], [ %ulValue.0.ph260, %sw.bb469 ], [ %ulValue.0.ph260, %sw.bb375 ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph260, %if.then12 ]
+  %lValue.3 = phi i64 [ %lValue.2187, %if.then159 ], [ %lValue.2181, %if.else164 ], [ %lValue.0.ph261, %if.then331 ], [ %lValue.0.ph261, %if.else336 ], [ %lValue.0.ph261, %if.end366 ], [ %lValue.0.ph261, %sw.bb469 ], [ %lValue.0.ph261, %sw.bb375 ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIccEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph261, %if.then12 ]
   %sub.ptr.lhs.cast531 = ptrtoint ptr %call13 to i64
   %sub.ptr.sub533 = sub i64 %sub.ptr.lhs.cast531, %sub.ptr.lhs.cast
   %conv534 = trunc i64 %sub.ptr.sub533 to i32
@@ -1422,12 +1422,12 @@ while.cond.outer.backedge:                        ; preds = %if.end10, %if.end54
   br i1 %tobool.not253, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !26
 
 sw.epilog542:                                     ; preds = %vaarg.end487, %vaarg.end503, %vaarg.end520, %sw.bb526, %if.end369, %if.end341, %if.end169
-  %ullValue.3 = phi i64 [ %ullValue.0.ph258, %sw.bb526 ], [ %ullValue.0.ph258, %vaarg.end520 ], [ %ullValue.0.ph258, %vaarg.end503 ], [ %ullValue.0.ph258, %vaarg.end487 ], [ %ullValue.0.ph258, %if.end369 ], [ %ullValue.4191, %if.end341 ], [ %ullValue.0.ph258, %if.end169 ]
-  %llValue.4 = phi i64 [ %llValue.0.ph259, %sw.bb526 ], [ %llValue.0.ph259, %vaarg.end520 ], [ %llValue.0.ph259, %vaarg.end503 ], [ %llValue.0.ph259, %vaarg.end487 ], [ %llValue.0.ph259, %if.end369 ], [ %llValue.0.ph259, %if.end341 ], [ %llValue.2178, %if.end169 ]
-  %ulValue.3 = phi i64 [ %ulValue.0.ph260, %sw.bb526 ], [ %ulValue.0.ph260, %vaarg.end520 ], [ %ulValue.0.ph260, %vaarg.end503 ], [ %ulValue.0.ph260, %vaarg.end487 ], [ %ulValue.0.ph260, %if.end369 ], [ %ulValue.4193, %if.end341 ], [ %ulValue.0.ph260, %if.end169 ]
-  %lValue.4 = phi i64 [ %lValue.0.ph261, %sw.bb526 ], [ %lValue.0.ph261, %vaarg.end520 ], [ %lValue.0.ph261, %vaarg.end503 ], [ %lValue.0.ph261, %vaarg.end487 ], [ %lValue.0.ph261, %if.end369 ], [ %lValue.0.ph261, %if.end341 ], [ %lValue.2180, %if.end169 ]
-  %pBufferData.4 = phi ptr [ %pBuffer, %sw.bb526 ], [ %pBuffer, %vaarg.end520 ], [ %pBuffer, %vaarg.end503 ], [ %pBuffer, %vaarg.end487 ], [ %call365, %if.end369 ], [ %pBufferData.5, %if.end341 ], [ %pBufferData.3, %if.end169 ]
-  %nWriteCount.0 = phi i32 [ 1, %sw.bb526 ], [ 1, %vaarg.end520 ], [ 1, %vaarg.end503 ], [ 1, %vaarg.end487 ], [ %conv374, %if.end369 ], [ %conv346, %if.end341 ], [ %conv173, %if.end169 ]
+  %ullValue.3 = phi i64 [ %ullValue.0.ph258, %if.end169 ], [ %ullValue.4191, %if.end341 ], [ %ullValue.0.ph258, %if.end369 ], [ %ullValue.0.ph258, %vaarg.end487 ], [ %ullValue.0.ph258, %vaarg.end503 ], [ %ullValue.0.ph258, %vaarg.end520 ], [ %ullValue.0.ph258, %sw.bb526 ]
+  %llValue.4 = phi i64 [ %llValue.2178, %if.end169 ], [ %llValue.0.ph259, %if.end341 ], [ %llValue.0.ph259, %if.end369 ], [ %llValue.0.ph259, %vaarg.end487 ], [ %llValue.0.ph259, %vaarg.end503 ], [ %llValue.0.ph259, %vaarg.end520 ], [ %llValue.0.ph259, %sw.bb526 ]
+  %ulValue.3 = phi i64 [ %ulValue.0.ph260, %if.end169 ], [ %ulValue.4193, %if.end341 ], [ %ulValue.0.ph260, %if.end369 ], [ %ulValue.0.ph260, %vaarg.end487 ], [ %ulValue.0.ph260, %vaarg.end503 ], [ %ulValue.0.ph260, %vaarg.end520 ], [ %ulValue.0.ph260, %sw.bb526 ]
+  %lValue.4 = phi i64 [ %lValue.2180, %if.end169 ], [ %lValue.0.ph261, %if.end341 ], [ %lValue.0.ph261, %if.end369 ], [ %lValue.0.ph261, %vaarg.end487 ], [ %lValue.0.ph261, %vaarg.end503 ], [ %lValue.0.ph261, %vaarg.end520 ], [ %lValue.0.ph261, %sw.bb526 ]
+  %pBufferData.4 = phi ptr [ %pBufferData.3, %if.end169 ], [ %pBufferData.5, %if.end341 ], [ %call365, %if.end369 ], [ %pBuffer, %vaarg.end487 ], [ %pBuffer, %vaarg.end503 ], [ %pBuffer, %vaarg.end520 ], [ %pBuffer, %sw.bb526 ]
+  %nWriteCount.0 = phi i32 [ %conv173, %if.end169 ], [ %conv346, %if.end341 ], [ %conv374, %if.end369 ], [ 1, %vaarg.end487 ], [ 1, %vaarg.end503 ], [ 1, %vaarg.end520 ], [ 1, %sw.bb526 ]
   %call543 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBufferData.4, i32 noundef %nWriteCount.0)
   %cmp544 = icmp slt i32 %call543, 0
   br i1 %cmp544, label %return, label %if.end546
@@ -2377,8 +2377,8 @@ _ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionSta
   br i1 %cmp434, label %FormatError, label %sw.epilog438
 
 sw.epilog438:                                     ; preds = %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
-  %retval.0.i152.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %call2.i17.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i152, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
-  %nWriteCountSum.3 = add nsw i32 %retval.0.i152.pn, %nWriteCountSum.1
+  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %call2.i17.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i152, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
+  %nWriteCountSum.3 = add nsw i32 %retval.0.i.pn, %nWriteCountSum.1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sw.bb452, %sw.bb454, %sw.bb456, %sw.bb457, %sw.bb459, %sw.bb461, %sw.bb463, %sw.bb465, %sw.bb467, %sw.default470, %sw.epilog438
@@ -2567,10 +2567,10 @@ sw.bb529:                                         ; preds = %if.then12
   br label %sw.epilog546
 
 FormatError:                                      ; preds = %if.then12, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %sw.bb378, %sw.bb472, %if.end368, %if.else337, %if.then332, %if.else164, %if.then159
-  %ullValue.2 = phi i64 [ %ullValue.0.ph257, %sw.bb472 ], [ %ullValue.0.ph257, %if.end368 ], [ %ullValue.4197, %if.then332 ], [ %ullValue.4190, %if.else337 ], [ %ullValue.0.ph257, %if.then159 ], [ %ullValue.0.ph257, %if.else164 ], [ %ullValue.0.ph257, %sw.bb378 ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %if.then12 ]
-  %llValue.3 = phi i64 [ %llValue.0.ph258, %sw.bb472 ], [ %llValue.0.ph258, %if.end368 ], [ %llValue.0.ph258, %if.then332 ], [ %llValue.0.ph258, %if.else337 ], [ %llValue.2184, %if.then159 ], [ %llValue.2177, %if.else164 ], [ %llValue.0.ph258, %sw.bb378 ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %if.then12 ]
-  %ulValue.2 = phi i64 [ %ulValue.0.ph259, %sw.bb472 ], [ %ulValue.0.ph259, %if.end368 ], [ %ulValue.4198, %if.then332 ], [ %ulValue.4192, %if.else337 ], [ %ulValue.0.ph259, %if.then159 ], [ %ulValue.0.ph259, %if.else164 ], [ %ulValue.0.ph259, %sw.bb378 ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %if.then12 ]
-  %lValue.3 = phi i64 [ %lValue.0.ph260, %sw.bb472 ], [ %lValue.0.ph260, %if.end368 ], [ %lValue.0.ph260, %if.then332 ], [ %lValue.0.ph260, %if.else337 ], [ %lValue.2185, %if.then159 ], [ %lValue.2179, %if.else164 ], [ %lValue.0.ph260, %sw.bb378 ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %if.then12 ]
+  %ullValue.2 = phi i64 [ %ullValue.0.ph257, %if.then159 ], [ %ullValue.0.ph257, %if.else164 ], [ %ullValue.4197, %if.then332 ], [ %ullValue.4190, %if.else337 ], [ %ullValue.0.ph257, %if.end368 ], [ %ullValue.0.ph257, %sw.bb472 ], [ %ullValue.0.ph257, %sw.bb378 ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %if.then12 ]
+  %llValue.3 = phi i64 [ %llValue.2184, %if.then159 ], [ %llValue.2177, %if.else164 ], [ %llValue.0.ph258, %if.then332 ], [ %llValue.0.ph258, %if.else337 ], [ %llValue.0.ph258, %if.end368 ], [ %llValue.0.ph258, %sw.bb472 ], [ %llValue.0.ph258, %sw.bb378 ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %if.then12 ]
+  %ulValue.2 = phi i64 [ %ulValue.0.ph259, %if.then159 ], [ %ulValue.0.ph259, %if.else164 ], [ %ulValue.4198, %if.then332 ], [ %ulValue.4192, %if.else337 ], [ %ulValue.0.ph259, %if.end368 ], [ %ulValue.0.ph259, %sw.bb472 ], [ %ulValue.0.ph259, %sw.bb378 ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %if.then12 ]
+  %lValue.3 = phi i64 [ %lValue.2185, %if.then159 ], [ %lValue.2179, %if.else164 ], [ %lValue.0.ph260, %if.then332 ], [ %lValue.0.ph260, %if.else337 ], [ %lValue.0.ph260, %if.end368 ], [ %lValue.0.ph260, %sw.bb472 ], [ %lValue.0.ph260, %sw.bb378 ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %if.then12 ]
   %sub.ptr.lhs.cast534 = ptrtoint ptr %call13 to i64
   %sub.ptr.sub536 = sub i64 %sub.ptr.lhs.cast534, %sub.ptr.lhs.cast
   %sub.ptr.div537 = lshr exact i64 %sub.ptr.sub536, 1
@@ -2598,12 +2598,12 @@ while.cond.outer.backedge:                        ; preds = %if.end10, %if.end55
   br i1 %tobool.not252, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !49
 
 sw.epilog546:                                     ; preds = %vaarg.end490, %vaarg.end506, %vaarg.end523, %sw.bb529, %if.end371, %if.end342, %if.end169
-  %ullValue.3 = phi i64 [ %ullValue.0.ph257, %sw.bb529 ], [ %ullValue.0.ph257, %vaarg.end523 ], [ %ullValue.0.ph257, %vaarg.end506 ], [ %ullValue.0.ph257, %vaarg.end490 ], [ %ullValue.0.ph257, %if.end371 ], [ %ullValue.4189, %if.end342 ], [ %ullValue.0.ph257, %if.end169 ]
-  %llValue.4 = phi i64 [ %llValue.0.ph258, %sw.bb529 ], [ %llValue.0.ph258, %vaarg.end523 ], [ %llValue.0.ph258, %vaarg.end506 ], [ %llValue.0.ph258, %vaarg.end490 ], [ %llValue.0.ph258, %if.end371 ], [ %llValue.0.ph258, %if.end342 ], [ %llValue.2176, %if.end169 ]
-  %ulValue.3 = phi i64 [ %ulValue.0.ph259, %sw.bb529 ], [ %ulValue.0.ph259, %vaarg.end523 ], [ %ulValue.0.ph259, %vaarg.end506 ], [ %ulValue.0.ph259, %vaarg.end490 ], [ %ulValue.0.ph259, %if.end371 ], [ %ulValue.4191, %if.end342 ], [ %ulValue.0.ph259, %if.end169 ]
-  %lValue.4 = phi i64 [ %lValue.0.ph260, %sw.bb529 ], [ %lValue.0.ph260, %vaarg.end523 ], [ %lValue.0.ph260, %vaarg.end506 ], [ %lValue.0.ph260, %vaarg.end490 ], [ %lValue.0.ph260, %if.end371 ], [ %lValue.0.ph260, %if.end342 ], [ %lValue.2178, %if.end169 ]
-  %pBufferData.4 = phi ptr [ %pBuffer, %sw.bb529 ], [ %pBuffer, %vaarg.end523 ], [ %pBuffer, %vaarg.end506 ], [ %pBuffer, %vaarg.end490 ], [ %call367, %if.end371 ], [ %pBufferData.5, %if.end342 ], [ %pBufferData.3, %if.end169 ]
-  %nWriteCount.0 = phi i32 [ 1, %sw.bb529 ], [ 1, %vaarg.end523 ], [ 1, %vaarg.end506 ], [ 1, %vaarg.end490 ], [ %conv377, %if.end371 ], [ %conv348, %if.end342 ], [ %conv174, %if.end169 ]
+  %ullValue.3 = phi i64 [ %ullValue.0.ph257, %if.end169 ], [ %ullValue.4189, %if.end342 ], [ %ullValue.0.ph257, %if.end371 ], [ %ullValue.0.ph257, %vaarg.end490 ], [ %ullValue.0.ph257, %vaarg.end506 ], [ %ullValue.0.ph257, %vaarg.end523 ], [ %ullValue.0.ph257, %sw.bb529 ]
+  %llValue.4 = phi i64 [ %llValue.2176, %if.end169 ], [ %llValue.0.ph258, %if.end342 ], [ %llValue.0.ph258, %if.end371 ], [ %llValue.0.ph258, %vaarg.end490 ], [ %llValue.0.ph258, %vaarg.end506 ], [ %llValue.0.ph258, %vaarg.end523 ], [ %llValue.0.ph258, %sw.bb529 ]
+  %ulValue.3 = phi i64 [ %ulValue.0.ph259, %if.end169 ], [ %ulValue.4191, %if.end342 ], [ %ulValue.0.ph259, %if.end371 ], [ %ulValue.0.ph259, %vaarg.end490 ], [ %ulValue.0.ph259, %vaarg.end506 ], [ %ulValue.0.ph259, %vaarg.end523 ], [ %ulValue.0.ph259, %sw.bb529 ]
+  %lValue.4 = phi i64 [ %lValue.2178, %if.end169 ], [ %lValue.0.ph260, %if.end342 ], [ %lValue.0.ph260, %if.end371 ], [ %lValue.0.ph260, %vaarg.end490 ], [ %lValue.0.ph260, %vaarg.end506 ], [ %lValue.0.ph260, %vaarg.end523 ], [ %lValue.0.ph260, %sw.bb529 ]
+  %pBufferData.4 = phi ptr [ %pBufferData.3, %if.end169 ], [ %pBufferData.5, %if.end342 ], [ %call367, %if.end371 ], [ %pBuffer, %vaarg.end490 ], [ %pBuffer, %vaarg.end506 ], [ %pBuffer, %vaarg.end523 ], [ %pBuffer, %sw.bb529 ]
+  %nWriteCount.0 = phi i32 [ %conv174, %if.end169 ], [ %conv348, %if.end342 ], [ %conv377, %if.end371 ], [ 1, %vaarg.end490 ], [ 1, %vaarg.end506 ], [ 1, %vaarg.end523 ], [ 1, %sw.bb529 ]
   %call547 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBufferData.4, i32 noundef %nWriteCount.0)
   %cmp548 = icmp slt i32 %call547, 0
   br i1 %cmp548, label %return, label %if.end550
@@ -3569,8 +3569,8 @@ _ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionSta
   br i1 %cmp433, label %FormatError, label %sw.epilog437
 
 sw.epilog437:                                     ; preds = %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
-  %retval.0.i158.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i133, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i158, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
-  %nWriteCountSum.3 = add nsw i32 %retval.0.i158.pn, %nWriteCountSum.1
+  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i133, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i158, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
+  %nWriteCountSum.3 = add nsw i32 %retval.0.i.pn, %nWriteCountSum.1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sw.bb451, %sw.bb453, %sw.bb455, %sw.bb456, %sw.bb458, %sw.bb460, %sw.bb462, %sw.bb464, %sw.bb466, %sw.default469, %sw.epilog437
@@ -3757,10 +3757,10 @@ sw.bb525:                                         ; preds = %if.then11
   br label %sw.epilog542
 
 FormatError:                                      ; preds = %if.then11, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %sw.bb377, %sw.bb471, %if.end367, %if.else336, %if.then331, %if.else163, %if.then158
-  %ullValue.2 = phi i64 [ %ullValue.0.ph260, %sw.bb471 ], [ %ullValue.0.ph260, %if.end367 ], [ %ullValue.4201, %if.then331 ], [ %ullValue.4194, %if.else336 ], [ %ullValue.0.ph260, %if.then158 ], [ %ullValue.0.ph260, %if.else163 ], [ %ullValue.0.ph260, %sw.bb377 ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %if.then11 ]
-  %llValue.3 = phi i64 [ %llValue.0.ph261, %sw.bb471 ], [ %llValue.0.ph261, %if.end367 ], [ %llValue.0.ph261, %if.then331 ], [ %llValue.0.ph261, %if.else336 ], [ %llValue.2188, %if.then158 ], [ %llValue.2181, %if.else163 ], [ %llValue.0.ph261, %sw.bb377 ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %if.then11 ]
-  %ulValue.2 = phi i64 [ %ulValue.0.ph262, %sw.bb471 ], [ %ulValue.0.ph262, %if.end367 ], [ %ulValue.4202, %if.then331 ], [ %ulValue.4196, %if.else336 ], [ %ulValue.0.ph262, %if.then158 ], [ %ulValue.0.ph262, %if.else163 ], [ %ulValue.0.ph262, %sw.bb377 ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %if.then11 ]
-  %lValue.3 = phi i64 [ %lValue.0.ph263, %sw.bb471 ], [ %lValue.0.ph263, %if.end367 ], [ %lValue.0.ph263, %if.then331 ], [ %lValue.0.ph263, %if.else336 ], [ %lValue.2189, %if.then158 ], [ %lValue.2183, %if.else163 ], [ %lValue.0.ph263, %sw.bb377 ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %if.then11 ]
+  %ullValue.2 = phi i64 [ %ullValue.0.ph260, %if.then158 ], [ %ullValue.0.ph260, %if.else163 ], [ %ullValue.4201, %if.then331 ], [ %ullValue.4194, %if.else336 ], [ %ullValue.0.ph260, %if.end367 ], [ %ullValue.0.ph260, %sw.bb471 ], [ %ullValue.0.ph260, %sw.bb377 ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %if.then11 ]
+  %llValue.3 = phi i64 [ %llValue.2188, %if.then158 ], [ %llValue.2181, %if.else163 ], [ %llValue.0.ph261, %if.then331 ], [ %llValue.0.ph261, %if.else336 ], [ %llValue.0.ph261, %if.end367 ], [ %llValue.0.ph261, %sw.bb471 ], [ %llValue.0.ph261, %sw.bb377 ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %if.then11 ]
+  %ulValue.2 = phi i64 [ %ulValue.0.ph262, %if.then158 ], [ %ulValue.0.ph262, %if.else163 ], [ %ulValue.4202, %if.then331 ], [ %ulValue.4196, %if.else336 ], [ %ulValue.0.ph262, %if.end367 ], [ %ulValue.0.ph262, %sw.bb471 ], [ %ulValue.0.ph262, %sw.bb377 ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %if.then11 ]
+  %lValue.3 = phi i64 [ %lValue.2189, %if.then158 ], [ %lValue.2183, %if.else163 ], [ %lValue.0.ph263, %if.then331 ], [ %lValue.0.ph263, %if.else336 ], [ %lValue.0.ph263, %if.end367 ], [ %lValue.0.ph263, %sw.bb471 ], [ %lValue.0.ph263, %sw.bb377 ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %if.then11 ]
   %sub.ptr.lhs.cast530 = ptrtoint ptr %call12 to i64
   %sub.ptr.sub532 = sub i64 %sub.ptr.lhs.cast530, %sub.ptr.lhs.cast
   %sub.ptr.div533 = lshr exact i64 %sub.ptr.sub532, 2
@@ -3788,12 +3788,12 @@ while.cond.outer.backedge:                        ; preds = %if.end9, %if.end546
   br i1 %tobool.not255, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !71
 
 sw.epilog542:                                     ; preds = %vaarg.end489, %vaarg.end504, %vaarg.end520, %sw.bb525, %if.end370, %if.end341, %if.end168
-  %ullValue.3 = phi i64 [ %ullValue.0.ph260, %sw.bb525 ], [ %ullValue.0.ph260, %vaarg.end520 ], [ %ullValue.0.ph260, %vaarg.end504 ], [ %ullValue.0.ph260, %vaarg.end489 ], [ %ullValue.0.ph260, %if.end370 ], [ %ullValue.4193, %if.end341 ], [ %ullValue.0.ph260, %if.end168 ]
-  %llValue.4 = phi i64 [ %llValue.0.ph261, %sw.bb525 ], [ %llValue.0.ph261, %vaarg.end520 ], [ %llValue.0.ph261, %vaarg.end504 ], [ %llValue.0.ph261, %vaarg.end489 ], [ %llValue.0.ph261, %if.end370 ], [ %llValue.0.ph261, %if.end341 ], [ %llValue.2180, %if.end168 ]
-  %ulValue.3 = phi i64 [ %ulValue.0.ph262, %sw.bb525 ], [ %ulValue.0.ph262, %vaarg.end520 ], [ %ulValue.0.ph262, %vaarg.end504 ], [ %ulValue.0.ph262, %vaarg.end489 ], [ %ulValue.0.ph262, %if.end370 ], [ %ulValue.4195, %if.end341 ], [ %ulValue.0.ph262, %if.end168 ]
-  %lValue.4 = phi i64 [ %lValue.0.ph263, %sw.bb525 ], [ %lValue.0.ph263, %vaarg.end520 ], [ %lValue.0.ph263, %vaarg.end504 ], [ %lValue.0.ph263, %vaarg.end489 ], [ %lValue.0.ph263, %if.end370 ], [ %lValue.0.ph263, %if.end341 ], [ %lValue.2182, %if.end168 ]
-  %pBufferData.4 = phi ptr [ %pBuffer, %sw.bb525 ], [ %pBuffer, %vaarg.end520 ], [ %pBuffer, %vaarg.end504 ], [ %pBuffer, %vaarg.end489 ], [ %call366, %if.end370 ], [ %pBufferData.5, %if.end341 ], [ %pBufferData.3, %if.end168 ]
-  %nWriteCount.0 = phi i32 [ 1, %sw.bb525 ], [ 1, %vaarg.end520 ], [ 1, %vaarg.end504 ], [ 1, %vaarg.end489 ], [ %conv376, %if.end370 ], [ %conv347, %if.end341 ], [ %conv173, %if.end168 ]
+  %ullValue.3 = phi i64 [ %ullValue.0.ph260, %if.end168 ], [ %ullValue.4193, %if.end341 ], [ %ullValue.0.ph260, %if.end370 ], [ %ullValue.0.ph260, %vaarg.end489 ], [ %ullValue.0.ph260, %vaarg.end504 ], [ %ullValue.0.ph260, %vaarg.end520 ], [ %ullValue.0.ph260, %sw.bb525 ]
+  %llValue.4 = phi i64 [ %llValue.2180, %if.end168 ], [ %llValue.0.ph261, %if.end341 ], [ %llValue.0.ph261, %if.end370 ], [ %llValue.0.ph261, %vaarg.end489 ], [ %llValue.0.ph261, %vaarg.end504 ], [ %llValue.0.ph261, %vaarg.end520 ], [ %llValue.0.ph261, %sw.bb525 ]
+  %ulValue.3 = phi i64 [ %ulValue.0.ph262, %if.end168 ], [ %ulValue.4195, %if.end341 ], [ %ulValue.0.ph262, %if.end370 ], [ %ulValue.0.ph262, %vaarg.end489 ], [ %ulValue.0.ph262, %vaarg.end504 ], [ %ulValue.0.ph262, %vaarg.end520 ], [ %ulValue.0.ph262, %sw.bb525 ]
+  %lValue.4 = phi i64 [ %lValue.2182, %if.end168 ], [ %lValue.0.ph263, %if.end341 ], [ %lValue.0.ph263, %if.end370 ], [ %lValue.0.ph263, %vaarg.end489 ], [ %lValue.0.ph263, %vaarg.end504 ], [ %lValue.0.ph263, %vaarg.end520 ], [ %lValue.0.ph263, %sw.bb525 ]
+  %pBufferData.4 = phi ptr [ %pBufferData.3, %if.end168 ], [ %pBufferData.5, %if.end341 ], [ %call366, %if.end370 ], [ %pBuffer, %vaarg.end489 ], [ %pBuffer, %vaarg.end504 ], [ %pBuffer, %vaarg.end520 ], [ %pBuffer, %sw.bb525 ]
+  %nWriteCount.0 = phi i32 [ %conv173, %if.end168 ], [ %conv347, %if.end341 ], [ %conv376, %if.end370 ], [ 1, %vaarg.end489 ], [ 1, %vaarg.end504 ], [ 1, %vaarg.end520 ], [ 1, %sw.bb525 ]
   %call543 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBufferData.4, i32 noundef %nWriteCount.0)
   %cmp544 = icmp slt i32 %call543, 0
   br i1 %cmp544, label %return, label %if.end546
@@ -3887,11 +3887,11 @@ if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb11 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb11 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
   %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 1
   %1 = load i8, ptr %incdec.ptr22, align 1
   br label %for.cond, !llvm.loop !72
@@ -4138,9 +4138,9 @@ if.else175:                                       ; preds = %land.lhs.true, %sw.
   store i32 44, ptr %fd.sroa.69117.0.pFormatData.sroa_idx120, align 4
   br label %return
 
-if.then184:                                       ; preds = %land.lhs.true, %sw.bb101, %sw.bb93, %sw.bb121, %if.end91, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %land.lhs.true142, %land.lhs.true153, %land.lhs.true168
-  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 6, %sw.bb113 ], [ 7, %sw.bb115 ], [ 8, %sw.bb117 ], [ 10, %sw.bb119 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
-  %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
+if.then184:                                       ; preds = %land.lhs.true, %sw.bb101, %sw.bb93, %sw.bb121, %if.end91, %sw.bb113, %sw.bb115, %sw.bb117, %sw.bb119, %land.lhs.true142, %land.lhs.true153, %land.lhs.true168
+  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 10, %sw.bb119 ], [ 8, %sw.bb117 ], [ 7, %sw.bb115 ], [ 6, %sw.bb113 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
+  %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
   %incdec.ptr185 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 1
   %25 = load i8, ptr %incdec.ptr185, align 1
   br label %if.end186
@@ -4214,8 +4214,8 @@ if.then236:                                       ; preds = %sw.bb218
   br label %sw.epilog250
 
 sw.epilog250:                                     ; preds = %if.then236, %if.else195, %sw.bb202, %sw.bb218, %if.then226, %if.then231, %sw.bb208, %if.end186
-  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 11, %if.then231 ], [ 1, %if.then226 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3204, %if.end186 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then231 ], [ %spec.select155, %if.then226 ], [ %fd.sroa.0.3204, %sw.bb208 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3204, %sw.bb202 ], [ %spec.select155, %if.then236 ]
+  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 1, %if.then226 ], [ 11, %if.then231 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3204, %if.end186 ], [ %fd.sroa.0.3204, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3204, %sw.bb202 ], [ %spec.select155, %if.then236 ]
   %27 = add i32 %fd.sroa.26.0, -4097
   %or.cond1 = icmp ult i32 %27, 2147479550
   %28 = and i8 %c.6, -33
@@ -4885,12 +4885,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp45.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp69.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp45.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp69.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i8 87, i8 55
@@ -5116,12 +5116,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp45.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp69.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp45.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp69.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i8 87, i8 55
@@ -5886,11 +5886,11 @@ if.then17:                                        ; preds = %sw.bb11
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb11, %sw.bb3, %if.then17, %for.cond, %sw.bb11, %sw.bb2, %sw.bb9, %sw.bb10
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb11 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb2 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %sw.bb11 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then17 ], [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %sw.bb11 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb11 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then17 ], [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb11 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb11 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then17 ], [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb11 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb11 ], [ 0, %for.cond ], [ 2, %if.then17 ], [ %fd.sroa.0.0, %sw.bb3 ], [ %fd.sroa.0.0, %sw.bb11 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb11 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then17 ], [ %alignmentNonZeroFill.0, %sw.bb3 ], [ %alignmentNonZeroFill.0, %sw.bb11 ]
   %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 2
   %1 = load i16, ptr %incdec.ptr22, align 2
   br label %for.cond, !llvm.loop !105
@@ -6135,9 +6135,9 @@ if.else175:                                       ; preds = %land.lhs.true, %sw.
   store i32 44, ptr %fd.sroa.69117.0.pFormatData.sroa_idx120, align 4
   br label %return
 
-if.then184:                                       ; preds = %land.lhs.true, %sw.bb101, %sw.bb93, %sw.bb121, %if.end91, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %land.lhs.true142, %land.lhs.true153, %land.lhs.true168
-  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 6, %sw.bb113 ], [ 7, %sw.bb115 ], [ 8, %sw.bb117 ], [ 10, %sw.bb119 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
-  %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
+if.then184:                                       ; preds = %land.lhs.true, %sw.bb101, %sw.bb93, %sw.bb121, %if.end91, %sw.bb113, %sw.bb115, %sw.bb117, %sw.bb119, %land.lhs.true142, %land.lhs.true153, %land.lhs.true168
+  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true168 ], [ 15, %land.lhs.true153 ], [ 14, %land.lhs.true142 ], [ 13, %land.lhs.true ], [ 12, %sw.bb121 ], [ 10, %sw.bb119 ], [ 8, %sw.bb117 ], [ 7, %sw.bb115 ], [ 6, %sw.bb113 ], [ 5, %if.end91 ], [ %spec.select150, %sw.bb93 ], [ %spec.select152, %sw.bb101 ]
+  %pFormatCurrent.5.ph = phi ptr [ %arrayidx169, %land.lhs.true168 ], [ %arrayidx154, %land.lhs.true153 ], [ %arrayidx143, %land.lhs.true142 ], [ %arrayidx132, %land.lhs.true ], [ %arrayidx122, %sw.bb121 ], [ %pFormatCurrent.3, %sw.bb119 ], [ %pFormatCurrent.3, %sw.bb117 ], [ %pFormatCurrent.3, %sw.bb115 ], [ %pFormatCurrent.3, %sw.bb113 ], [ %pFormatCurrent.3, %if.end91 ], [ %spec.select151, %sw.bb93 ], [ %spec.select153, %sw.bb101 ]
   %incdec.ptr185 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 2
   %26 = load i16, ptr %incdec.ptr185, align 2
   br label %if.end186
@@ -6211,8 +6211,8 @@ if.then236:                                       ; preds = %sw.bb218
   br label %sw.epilog250
 
 sw.epilog250:                                     ; preds = %if.then236, %if.else195, %sw.bb202, %sw.bb218, %if.then226, %if.then231, %sw.bb208, %if.end186
-  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 11, %if.then231 ], [ 1, %if.then226 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3204, %if.end186 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then231 ], [ %spec.select155, %if.then226 ], [ %fd.sroa.0.3204, %sw.bb208 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3204, %sw.bb202 ], [ %spec.select155, %if.then236 ]
+  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0133, %if.end186 ], [ %fd.sroa.39.0133, %sw.bb208 ], [ %fd.sroa.39.0133, %sw.bb218 ], [ 1, %if.then226 ], [ 11, %if.then231 ], [ %fd.sroa.39.0133, %if.else195 ], [ %fd.sroa.39.0133, %sw.bb202 ], [ %spec.select156, %if.then236 ]
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3204, %if.end186 ], [ %fd.sroa.0.3204, %sw.bb208 ], [ %spec.select155, %sw.bb218 ], [ %spec.select155, %if.then226 ], [ %spec.select155, %if.then231 ], [ %spec.select154, %if.else195 ], [ %fd.sroa.0.3204, %sw.bb202 ], [ %spec.select155, %if.then236 ]
   %28 = add i32 %fd.sroa.26.0, -4097
   %or.cond1 = icmp ult i32 %28, 2147479550
   %29 = and i32 %conv187, 65503
@@ -6885,12 +6885,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp45.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp69.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp45.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp69.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i16 87, i16 55
@@ -7115,12 +7115,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp45.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp69.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp45.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp67.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp69.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i16 87, i16 55
@@ -7867,11 +7867,11 @@ if.then16:                                        ; preds = %sw.bb10
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb10, %sw.bb2, %if.then16, %for.cond, %sw.bb10, %sw.bb1, %sw.bb8, %sw.bb9
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb8 ], [ %fd.sroa.67.0, %sw.bb1 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then16 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb10 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %sw.bb1 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then16 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb10 ]
-  %fd.sroa.13.1 = phi i32 [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb8 ], [ 2, %sw.bb1 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then16 ], [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb10 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb10 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb8 ], [ %fd.sroa.0.0, %sw.bb1 ], [ 0, %for.cond ], [ 2, %if.then16 ], [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb10 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.0, %sw.bb1 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then16 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb10 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb1 ], [ %fd.sroa.67.0, %sw.bb8 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %if.then16 ], [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %sw.bb10 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb1 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %sw.bb9 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %if.then16 ], [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb10 ]
+  %fd.sroa.13.1 = phi i32 [ 2, %sw.bb1 ], [ %fd.sroa.13.0, %sw.bb8 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %sw.bb10 ], [ %fd.sroa.13.0, %for.cond ], [ %fd.sroa.13.0, %if.then16 ], [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb10 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0, %sw.bb1 ], [ %fd.sroa.0.0, %sw.bb8 ], [ %fd.sroa.0.0, %sw.bb9 ], [ %fd.sroa.0.0, %sw.bb10 ], [ 0, %for.cond ], [ 2, %if.then16 ], [ %fd.sroa.0.0, %sw.bb2 ], [ %fd.sroa.0.0, %sw.bb10 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0, %sw.bb1 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.0, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %fd.sroa.0.0, %if.then16 ], [ %alignmentNonZeroFill.0, %sw.bb2 ], [ %alignmentNonZeroFill.0, %sw.bb10 ]
   %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0, i64 4
   %1 = load i32, ptr %incdec.ptr21, align 4
   br label %for.cond, !llvm.loop !139
@@ -8112,9 +8112,9 @@ if.else152:                                       ; preds = %land.lhs.true, %sw.
   store i32 44, ptr %fd.sroa.69120.0.pFormatData.sroa_idx123, align 4
   br label %return
 
-if.then161:                                       ; preds = %land.lhs.true, %sw.bb89, %sw.bb82, %sw.bb108, %if.end81, %sw.bb106, %sw.bb104, %sw.bb102, %sw.bb100, %land.lhs.true125, %land.lhs.true134, %land.lhs.true146
-  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true146 ], [ 15, %land.lhs.true134 ], [ 14, %land.lhs.true125 ], [ 13, %land.lhs.true ], [ 12, %sw.bb108 ], [ 6, %sw.bb100 ], [ 7, %sw.bb102 ], [ 8, %sw.bb104 ], [ 10, %sw.bb106 ], [ 5, %if.end81 ], [ %spec.select153, %sw.bb82 ], [ %spec.select155, %sw.bb89 ]
-  %pFormatCurrent.5.ph = phi ptr [ %arrayidx147, %land.lhs.true146 ], [ %arrayidx135, %land.lhs.true134 ], [ %arrayidx126, %land.lhs.true125 ], [ %arrayidx117, %land.lhs.true ], [ %arrayidx109, %sw.bb108 ], [ %pFormatCurrent.3, %sw.bb100 ], [ %pFormatCurrent.3, %sw.bb102 ], [ %pFormatCurrent.3, %sw.bb104 ], [ %pFormatCurrent.3, %sw.bb106 ], [ %pFormatCurrent.3, %if.end81 ], [ %spec.select154, %sw.bb82 ], [ %spec.select156, %sw.bb89 ]
+if.then161:                                       ; preds = %land.lhs.true, %sw.bb89, %sw.bb82, %sw.bb108, %if.end81, %sw.bb100, %sw.bb102, %sw.bb104, %sw.bb106, %land.lhs.true125, %land.lhs.true134, %land.lhs.true146
+  %fd.sroa.39.0.ph = phi i32 [ 16, %land.lhs.true146 ], [ 15, %land.lhs.true134 ], [ 14, %land.lhs.true125 ], [ 13, %land.lhs.true ], [ 12, %sw.bb108 ], [ 10, %sw.bb106 ], [ 8, %sw.bb104 ], [ 7, %sw.bb102 ], [ 6, %sw.bb100 ], [ 5, %if.end81 ], [ %spec.select153, %sw.bb82 ], [ %spec.select155, %sw.bb89 ]
+  %pFormatCurrent.5.ph = phi ptr [ %arrayidx147, %land.lhs.true146 ], [ %arrayidx135, %land.lhs.true134 ], [ %arrayidx126, %land.lhs.true125 ], [ %arrayidx117, %land.lhs.true ], [ %arrayidx109, %sw.bb108 ], [ %pFormatCurrent.3, %sw.bb106 ], [ %pFormatCurrent.3, %sw.bb104 ], [ %pFormatCurrent.3, %sw.bb102 ], [ %pFormatCurrent.3, %sw.bb100 ], [ %pFormatCurrent.3, %if.end81 ], [ %spec.select154, %sw.bb82 ], [ %spec.select156, %sw.bb89 ]
   %incdec.ptr162 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.5.ph, i64 4
   %25 = load i32, ptr %incdec.ptr162, align 4
   br label %if.end163
@@ -8187,8 +8187,8 @@ if.then211:                                       ; preds = %sw.bb193
   br label %sw.epilog223
 
 sw.epilog223:                                     ; preds = %if.then211, %if.else170, %sw.bb177, %sw.bb193, %if.then201, %if.then206, %sw.bb183, %if.end163
-  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0136, %if.end163 ], [ %fd.sroa.39.0136, %sw.bb193 ], [ 11, %if.then206 ], [ 1, %if.then201 ], [ %fd.sroa.39.0136, %sw.bb183 ], [ %fd.sroa.39.0136, %if.else170 ], [ %fd.sroa.39.0136, %sw.bb177 ], [ %spec.select159, %if.then211 ]
-  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3205, %if.end163 ], [ %spec.select158, %sw.bb193 ], [ %spec.select158, %if.then206 ], [ %spec.select158, %if.then201 ], [ %fd.sroa.0.3205, %sw.bb183 ], [ %spec.select157, %if.else170 ], [ %fd.sroa.0.3205, %sw.bb177 ], [ %spec.select158, %if.then211 ]
+  %fd.sroa.39.1 = phi i32 [ %fd.sroa.39.0136, %if.end163 ], [ %fd.sroa.39.0136, %sw.bb183 ], [ %fd.sroa.39.0136, %sw.bb193 ], [ 1, %if.then201 ], [ 11, %if.then206 ], [ %fd.sroa.39.0136, %if.else170 ], [ %fd.sroa.39.0136, %sw.bb177 ], [ %spec.select159, %if.then211 ]
+  %fd.sroa.0.4 = phi i32 [ %fd.sroa.0.3205, %if.end163 ], [ %fd.sroa.0.3205, %sw.bb183 ], [ %spec.select158, %sw.bb193 ], [ %spec.select158, %if.then201 ], [ %spec.select158, %if.then206 ], [ %spec.select157, %if.else170 ], [ %fd.sroa.0.3205, %sw.bb177 ], [ %spec.select158, %if.then211 ]
   %27 = add i32 %fd.sroa.26.0, -4097
   %or.cond1 = icmp ult i32 %27, 2147479550
   %28 = and i32 %c.6, -33
@@ -8855,12 +8855,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp43.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp64.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp66.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp43.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp64.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp66.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i32 87, i32 55
@@ -9083,12 +9083,12 @@ sw.default:                                       ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then, %if.then
   br label %do.body.preheader
 
-do.body.preheader:                                ; preds = %sw.bb9, %sw.bb4, %if.then
-  %cmp43.ph = phi i1 [ false, %if.then ], [ true, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp64.ph = phi i1 [ true, %if.then ], [ false, %sw.bb4 ], [ false, %sw.bb9 ]
-  %cmp66.ph = phi i1 [ false, %if.then ], [ false, %sw.bb4 ], [ true, %sw.bb9 ]
-  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 3, %sw.bb4 ], [ 4, %sw.bb9 ]
-  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 7, %sw.bb4 ], [ 15, %sw.bb9 ]
+do.body.preheader:                                ; preds = %sw.bb4, %sw.bb9, %if.then
+  %cmp43.ph = phi i1 [ false, %if.then ], [ false, %sw.bb9 ], [ true, %sw.bb4 ]
+  %cmp64.ph = phi i1 [ true, %if.then ], [ false, %sw.bb9 ], [ false, %sw.bb4 ]
+  %cmp66.ph = phi i1 [ false, %if.then ], [ true, %sw.bb9 ], [ false, %sw.bb4 ]
+  %nShift.0.ph = phi i64 [ 1, %if.then ], [ 4, %sw.bb9 ], [ 3, %sw.bb4 ]
+  %nAnd.0.ph = phi i64 [ 1, %if.then ], [ 15, %sw.bb9 ], [ 7, %sw.bb4 ]
   %5 = load i32, ptr %mnType, align 4
   %cmp22 = icmp eq i32 %5, 120
   %nDigit.1.ph.v = select i1 %cmp22, i32 87, i32 55

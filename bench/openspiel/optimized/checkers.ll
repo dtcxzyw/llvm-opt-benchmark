@@ -1943,7 +1943,7 @@ common.resume:                                    ; preds = %28, %39, %50, %70, 
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel8checkers12_GLOBAL__N_113StringToStateEc.exit: ; preds = %.lr.ph, %62, %63, %64, %65
-  %.05.i = phi i32 [ 4, %65 ], [ 3, %64 ], [ 2, %63 ], [ 1, %62 ], [ 0, %.lr.ph ]
+  %.05.i = phi i32 [ 1, %62 ], [ 2, %63 ], [ 3, %64 ], [ 4, %65 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %74 = load i32, ptr %19, align 4
@@ -2468,7 +2468,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit68.thread: ; preds = %4
   br label %91
 
 common.resume:                                    ; preds = %38, %59, %72, %160, %173, %291, %294, %211, %193, %91
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %91 ], [ %.pn.i73, %193 ], [ %.pn.i76, %211 ], [ %39, %38 ], [ %161, %160 ], [ %174, %173 ], [ %60, %59 ], [ %73, %72 ], [ %292, %291 ], [ %292, %294 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %91 ], [ %.pn.i73, %193 ], [ %.pn.i76, %211 ], [ %39, %38 ], [ %60, %59 ], [ %73, %72 ], [ %161, %160 ], [ %174, %173 ], [ %292, %291 ], [ %292, %294 ]
   resume { ptr, i32 } %common.resume.op
 
 91:                                               ; preds = %89, %87

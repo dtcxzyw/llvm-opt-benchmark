@@ -893,7 +893,7 @@ thread-pre-split:                                 ; preds = %_ZL14pj_param_value
   br label %92
 
 92:                                               ; preds = %thread-pre-split, %.critedge, %.split125.us, %90, %76, %68, %61, %47, %36, %20
-  %.0 = phi i32 [ 0, %20 ], [ %77, %76 ], [ %91, %90 ], [ %69, %68 ], [ %62, %61 ], [ %48, %47 ], [ %37, %36 ], [ 0, %.split125.us ], [ 1027, %.critedge ], [ 0, %thread-pre-split ]
+  %.0 = phi i32 [ 0, %20 ], [ %37, %36 ], [ %91, %90 ], [ %48, %47 ], [ %62, %61 ], [ %69, %68 ], [ %77, %76 ], [ 0, %.split125.us ], [ 1027, %.critedge ], [ 0, %thread-pre-split ]
   ret i32 %.0
 }
 
@@ -1137,7 +1137,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
   br label %_ZL12pj_get_paramP8ARG_listPKc.exit.thread
 
 _ZL12pj_get_paramP8ARG_listPKc.exit.thread:       ; preds = %.loopexit, %1, %_ZL12pj_get_paramP8ARG_listPKc.exit, %129, %127, %115, %85, %75, %63
-  %.0 = phi i32 [ %128, %127 ], [ 0, %129 ], [ %116, %115 ], [ %76, %75 ], [ %86, %85 ], [ %64, %63 ], [ 0, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 0, %1 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ %128, %127 ], [ 0, %129 ], [ %64, %63 ], [ %76, %75 ], [ %86, %85 ], [ %116, %115 ], [ 0, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 0, %1 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   ret i32 %.0
 }

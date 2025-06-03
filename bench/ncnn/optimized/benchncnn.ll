@@ -2730,7 +2730,7 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %519, %518, %514, %5
   br i1 %534, label %.lr.ph298.i, label %._crit_edge299.i, !llvm.loop !78
 
 535:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %_ZN4ncnn3MatD2Ev.exit47.i, %_ZN4ncnn3MatD2Ev.exit49.i, %_ZN4ncnn3MatD2Ev.exit51.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %.pn44.i = phi { ptr, i32 } [ %lpad.phi.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.pn.i, %_ZN4ncnn3MatD2Ev.exit.i ], [ %.pn37.i, %_ZN4ncnn3MatD2Ev.exit47.i ], [ %.pn39.i, %_ZN4ncnn3MatD2Ev.exit49.i ], [ %.pn41.i, %_ZN4ncnn3MatD2Ev.exit51.i ]
+  %.pn44.i = phi { ptr, i32 } [ %lpad.phi.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.pn41.i, %_ZN4ncnn3MatD2Ev.exit51.i ], [ %.pn39.i, %_ZN4ncnn3MatD2Ev.exit49.i ], [ %.pn37.i, %_ZN4ncnn3MatD2Ev.exit47.i ], [ %.pn.i, %_ZN4ncnn3MatD2Ev.exit.i ]
   %536 = load ptr, ptr %12, align 8, !tbaa !27
   %537 = load ptr, ptr %104, align 8, !tbaa !24
   %.not4.i.i.i.i752 = icmp eq ptr %536, %537

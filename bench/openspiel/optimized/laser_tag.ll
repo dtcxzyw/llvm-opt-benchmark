@@ -5638,8 +5638,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %18
   br label %87
 
 87:                                               ; preds = %79, %71, %63, %55
-  %.028.i = phi i32 [ %86, %79 ], [ %78, %71 ], [ %70, %63 ], [ %62, %55 ]
-  %.0.i = phi i32 [ %82, %79 ], [ %74, %71 ], [ %67, %63 ], [ %59, %55 ]
+  %.028.i = phi i32 [ %62, %55 ], [ %70, %63 ], [ %78, %71 ], [ %86, %79 ]
+  %.0.i = phi i32 [ %59, %55 ], [ %67, %63 ], [ %74, %71 ], [ %82, %79 ]
   %88 = icmp sgt i32 %.0.i, -1
   br i1 %88, label %89, label %.thread.i
 
@@ -5988,8 +5988,8 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridE
   br label %70
 
 70:                                               ; preds = %55, %40, %25, %10
-  %.028 = phi i32 [ %69, %55 ], [ %54, %40 ], [ %39, %25 ], [ %24, %10 ]
-  %.0 = phi i32 [ %62, %55 ], [ %47, %40 ], [ %32, %25 ], [ %17, %10 ]
+  %.028 = phi i32 [ %24, %10 ], [ %39, %25 ], [ %54, %40 ], [ %69, %55 ]
+  %.0 = phi i32 [ %17, %10 ], [ %32, %25 ], [ %47, %40 ], [ %62, %55 ]
   %71 = icmp sgt i32 %.0, -1
   br i1 %71, label %72, label %.thread
 
@@ -6187,7 +6187,7 @@ define noundef range(i32 -1, 4) i32 @_ZNK10open_spiel9laser_tag13LaserTagState17
   br label %31
 
 31:                                               ; preds = %3, %18, %17, %16, %15
-  %.0 = phi i32 [ -1, %18 ], [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %18 ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -6431,8 +6431,8 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
           cleanup
   br label %common.resume
 
-69:                                               ; preds = %52, %51, %50, %.lr.ph
-  %.0.i.ph = phi i32 [ 0, %.lr.ph ], [ 1, %50 ], [ 2, %51 ], [ 3, %52 ]
+69:                                               ; preds = %50, %51, %52, %.lr.ph
+  %.0.i.ph = phi i32 [ 0, %.lr.ph ], [ 3, %52 ], [ 2, %51 ], [ 1, %50 ]
   store i32 %.0.i.ph, ptr %11, align 4
   store i32 %.026, ptr %33, align 4
   store i32 %.01525, ptr %34, align 4
@@ -6662,8 +6662,8 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   br label %86
 
 86:                                               ; preds = %77, %68, %59, %50
-  %.028.i = phi i32 [ %85, %77 ], [ %76, %68 ], [ %67, %59 ], [ %58, %50 ]
-  %.0.i = phi i32 [ %81, %77 ], [ %72, %68 ], [ %63, %59 ], [ %54, %50 ]
+  %.028.i = phi i32 [ %58, %50 ], [ %67, %59 ], [ %76, %68 ], [ %85, %77 ]
+  %.0.i = phi i32 [ %54, %50 ], [ %63, %59 ], [ %72, %68 ], [ %81, %77 ]
   %87 = icmp sgt i32 %.0.i, -1
   br i1 %87, label %88, label %.thread.i
 
@@ -6769,8 +6769,8 @@ _ZNK10open_spiel9laser_tag13LaserTagState17observation_planeEii.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
   br label %153
 
-134:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %117, %116, %115, %104
-  %.023.ph = phi i32 [ 0, %104 ], [ 1, %115 ], [ 2, %116 ], [ 3, %117 ], [ 3, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+134:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %115, %116, %117, %104
+  %.023.ph = phi i32 [ 0, %104 ], [ 3, %117 ], [ 2, %116 ], [ 1, %115 ], [ 3, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   store i32 %.023.ph, ptr %12, align 4
   store i32 %.022110, ptr %46, align 4
   store i32 %.0102, ptr %47, align 4

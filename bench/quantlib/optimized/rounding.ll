@@ -270,7 +270,7 @@ ehcleanup56:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn18.pn.pn.pn
 
 sw.epilog:                                        ; preds = %sw.bb23, %if.then30, %if.then25, %sw.bb13, %if.then19, %if.then14, %sw.bb8, %if.then10, %sw.bb, %if.then6, %if.end
-  %lvalue.0 = phi double [ %add31, %if.then30 ], [ %sub, %if.then25 ], [ %sub, %sw.bb23 ], [ %sub, %sw.bb13 ], [ %add20, %if.then19 ], [ %sub, %if.then14 ], [ %add11, %if.then10 ], [ %sub, %sw.bb8 ], [ %add, %if.then6 ], [ %sub, %sw.bb ], [ %sub, %if.end ]
+  %lvalue.0 = phi double [ %sub, %if.end ], [ %add, %if.then6 ], [ %sub, %sw.bb ], [ %add11, %if.then10 ], [ %sub, %sw.bb8 ], [ %sub, %sw.bb13 ], [ %add20, %if.then19 ], [ %sub, %if.then14 ], [ %add31, %if.then30 ], [ %sub, %if.then25 ], [ %sub, %sw.bb23 ]
   %27 = fneg double %lvalue.0
   %.pn = select i1 %cmp2, double %27, double %lvalue.0
   %cond = fdiv double %.pn, %call.i

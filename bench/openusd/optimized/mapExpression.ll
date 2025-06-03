@@ -2416,7 +2416,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressi
   br label %36
 
 36:                                               ; preds = %25, %32, %29, %8, %11, %15, %18, %1, %4, %3
-  %.0 = phi i1 [ %7, %4 ], [ false, %3 ], [ true, %1 ], [ false, %15 ], [ false, %11 ], [ false, %8 ], [ %21, %18 ], [ true, %25 ], [ false, %29 ], [ %35, %32 ]
+  %.0 = phi i1 [ false, %3 ], [ %7, %4 ], [ true, %1 ], [ false, %15 ], [ false, %11 ], [ false, %8 ], [ %21, %18 ], [ true, %25 ], [ false, %29 ], [ %35, %32 ]
   ret i1 %.0
 }
 
@@ -2554,7 +2554,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeC2ERKN
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node32_ExpressionTreeAlwaysHasIdentityERKNS1_3KeyE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node32_ExpressionTreeAlwaysHasIdentityERKNS1_3KeyE.exit: ; preds = %31, %28, %24, %18, %15, %11, %8, %5, %4, %2
-  %.0.i = phi i8 [ %7, %5 ], [ 0, %4 ], [ 1, %2 ], [ 0, %15 ], [ 0, %11 ], [ 0, %8 ], [ %20, %18 ], [ 1, %24 ], [ 0, %28 ], [ %33, %31 ]
+  %.0.i = phi i8 [ 0, %4 ], [ %7, %5 ], [ 1, %2 ], [ 0, %15 ], [ 0, %11 ], [ 0, %8 ], [ %20, %18 ], [ 1, %24 ], [ 0, %28 ], [ %33, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = and i8 %.0.i, 1
   store i8 %35, ptr %34, align 8

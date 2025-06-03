@@ -2266,7 +2266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   br label %190
 
 190:                                              ; preds = %188, %._crit_edge.i.i.i.i
-  %.sroa.043.1.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %189, %188 ]
+  %.sroa.043.1.i.i.i.i = phi ptr [ %189, %188 ], [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i28.i.i.i.i = load i8, ptr %.sroa.043.1.i.i.i.i, align 1, !tbaa !36
   %191 = sext i8 %.val.i28.i.i.i.i to i32
   %192 = call i32 @isalnum(i32 noundef %191) #26
@@ -2280,7 +2280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   br label %196
 
 196:                                              ; preds = %194, %._crit_edge.i.i.i.i
-  %.sroa.043.2.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %195, %194 ]
+  %.sroa.043.2.i.i.i.i = phi ptr [ %195, %194 ], [ %.sroa.043.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i31.i.i.i.i = load i8, ptr %.sroa.043.2.i.i.i.i, align 1, !tbaa !36
   %197 = sext i8 %.val.i31.i.i.i.i to i32
   %198 = call i32 @isalnum(i32 noundef %197) #26

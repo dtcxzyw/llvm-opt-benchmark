@@ -1600,13 +1600,13 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit
 
-_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread: ; preds = %80, %85, %82
+_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread: ; preds = %80, %82, %85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.loopexit
 
-_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %82, %85
-  %.0.i = phi i32 [ %86, %85 ], [ %83, %82 ]
+_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
+  %.0.i = phi i32 [ %83, %82 ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.not39 = icmp eq i32 %.0.i, 0
@@ -1658,7 +1658,7 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %82, %85
   br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44
 
 _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
-  %.0.i42 = phi i32 [ %spec.store.select.i3.i41, %106 ], [ %spec.store.select.i.i43, %103 ], [ 0, %100 ]
+  %.0.i42 = phi i32 [ %spec.store.select.i.i43, %103 ], [ %spec.store.select.i3.i41, %106 ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.loopexit
@@ -5741,7 +5741,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %50, %55
   br label %62
 
 62:                                               ; preds = %3, %60, %48, %35, %22, %15
-  %.030 = phi i32 [ 0, %3 ], [ %61, %60 ], [ %49, %48 ], [ %37, %35 ], [ %24, %22 ], [ %17, %15 ]
+  %.030 = phi i32 [ 0, %3 ], [ %17, %15 ], [ %24, %22 ], [ %37, %35 ], [ %49, %48 ], [ %61, %60 ]
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %1, i64 %64
@@ -11813,7 +11813,7 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
   br label %157
 
 157:                                              ; preds = %4, %152, %155, %149, %144, %146, %141, %119, %122, %125, %127, %130, %133, %135, %138, %116, %102, %104, %105, %107, %109, %110, %112, %114, %97, %81, %82, %85, %87, %88, %91, %93, %95, %76, %54, %57, %60, %62, %65, %68, %70, %73, %51, %37, %39, %40, %42, %44, %45, %47, %49, %32, %18, %19, %21, %23, %24, %26, %28, %30, %13
-  %.0 = phi i32 [ 0, %4 ], [ %spec.store.select.i.i75, %149 ], [ %spec.store.select.i.i75, %155 ], [ %spec.store.select.i.i75, %152 ], [ %spec.store.select.i.i74, %141 ], [ %spec.store.select.i.i74, %146 ], [ %spec.store.select.i.i74, %144 ], [ %spec.store.select.i.i73, %116 ], [ %spec.store.select.i.i73, %138 ], [ %spec.store.select.i.i73, %135 ], [ %spec.store.select.i.i73, %133 ], [ %spec.store.select.i.i73, %130 ], [ %spec.store.select.i.i73, %127 ], [ %spec.store.select.i.i73, %125 ], [ %spec.store.select.i.i73, %122 ], [ %spec.store.select.i.i73, %119 ], [ %spec.store.select.i.i72, %97 ], [ %spec.store.select.i.i72, %114 ], [ %spec.store.select.i.i72, %112 ], [ %spec.store.select.i.i72, %110 ], [ %spec.store.select.i.i72, %109 ], [ %spec.store.select.i.i72, %107 ], [ %spec.store.select.i.i72, %105 ], [ %spec.store.select.i.i72, %104 ], [ %spec.store.select.i.i72, %102 ], [ %spec.store.select.i.i71, %76 ], [ %spec.store.select.i.i71, %95 ], [ %spec.store.select.i.i71, %93 ], [ %spec.store.select.i.i71, %91 ], [ %spec.store.select.i.i71, %88 ], [ %spec.store.select.i.i71, %87 ], [ %spec.store.select.i.i71, %85 ], [ %spec.store.select.i.i71, %82 ], [ %spec.store.select.i.i71, %81 ], [ %spec.store.select.i.i70, %51 ], [ %spec.store.select.i.i70, %73 ], [ %spec.store.select.i.i70, %70 ], [ %spec.store.select.i.i70, %68 ], [ %spec.store.select.i.i70, %65 ], [ %spec.store.select.i.i70, %62 ], [ %spec.store.select.i.i70, %60 ], [ %spec.store.select.i.i70, %57 ], [ %spec.store.select.i.i70, %54 ], [ %spec.store.select.i.i69, %32 ], [ %spec.store.select.i.i69, %49 ], [ %spec.store.select.i.i69, %47 ], [ %spec.store.select.i.i69, %45 ], [ %spec.store.select.i.i69, %44 ], [ %spec.store.select.i.i69, %42 ], [ %spec.store.select.i.i69, %40 ], [ %spec.store.select.i.i69, %39 ], [ %spec.store.select.i.i69, %37 ], [ %spec.store.select.i.i, %13 ], [ %spec.store.select.i.i, %30 ], [ %spec.store.select.i.i, %28 ], [ %spec.store.select.i.i, %26 ], [ %spec.store.select.i.i, %24 ], [ %spec.store.select.i.i, %23 ], [ %spec.store.select.i.i, %21 ], [ %spec.store.select.i.i, %19 ], [ %spec.store.select.i.i, %18 ]
+  %.0 = phi i32 [ 0, %4 ], [ %spec.store.select.i.i, %13 ], [ %spec.store.select.i.i, %18 ], [ %spec.store.select.i.i, %19 ], [ %spec.store.select.i.i, %21 ], [ %spec.store.select.i.i, %23 ], [ %spec.store.select.i.i, %24 ], [ %spec.store.select.i.i, %26 ], [ %spec.store.select.i.i, %28 ], [ %spec.store.select.i.i, %30 ], [ %spec.store.select.i.i69, %32 ], [ %spec.store.select.i.i69, %37 ], [ %spec.store.select.i.i69, %39 ], [ %spec.store.select.i.i69, %40 ], [ %spec.store.select.i.i69, %42 ], [ %spec.store.select.i.i69, %44 ], [ %spec.store.select.i.i69, %45 ], [ %spec.store.select.i.i69, %47 ], [ %spec.store.select.i.i69, %49 ], [ %spec.store.select.i.i70, %51 ], [ %spec.store.select.i.i70, %54 ], [ %spec.store.select.i.i70, %57 ], [ %spec.store.select.i.i70, %60 ], [ %spec.store.select.i.i70, %62 ], [ %spec.store.select.i.i70, %65 ], [ %spec.store.select.i.i70, %68 ], [ %spec.store.select.i.i70, %70 ], [ %spec.store.select.i.i70, %73 ], [ %spec.store.select.i.i71, %76 ], [ %spec.store.select.i.i71, %81 ], [ %spec.store.select.i.i71, %82 ], [ %spec.store.select.i.i71, %85 ], [ %spec.store.select.i.i71, %87 ], [ %spec.store.select.i.i71, %88 ], [ %spec.store.select.i.i71, %91 ], [ %spec.store.select.i.i71, %93 ], [ %spec.store.select.i.i71, %95 ], [ %spec.store.select.i.i72, %97 ], [ %spec.store.select.i.i72, %102 ], [ %spec.store.select.i.i72, %104 ], [ %spec.store.select.i.i72, %105 ], [ %spec.store.select.i.i72, %107 ], [ %spec.store.select.i.i72, %109 ], [ %spec.store.select.i.i72, %110 ], [ %spec.store.select.i.i72, %112 ], [ %spec.store.select.i.i72, %114 ], [ %spec.store.select.i.i73, %116 ], [ %spec.store.select.i.i73, %119 ], [ %spec.store.select.i.i73, %122 ], [ %spec.store.select.i.i73, %125 ], [ %spec.store.select.i.i73, %127 ], [ %spec.store.select.i.i73, %130 ], [ %spec.store.select.i.i73, %133 ], [ %spec.store.select.i.i73, %135 ], [ %spec.store.select.i.i73, %138 ], [ %spec.store.select.i.i74, %141 ], [ %spec.store.select.i.i74, %144 ], [ %spec.store.select.i.i74, %146 ], [ %spec.store.select.i.i75, %149 ], [ %spec.store.select.i.i75, %152 ], [ %spec.store.select.i.i75, %155 ]
   ret i32 %.0
 }
 
@@ -12313,7 +12313,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %180, %183
   br label %200
 
 200:                                              ; preds = %5, %195, %198, %192, %187, %189, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit, %158, %161, %164, %166, %169, %172, %174, %177, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %129, %132, %134, %137, %140, %142, %145, %148, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit, %100, %102, %105, %108, %110, %113, %116, %119, %97, %75, %78, %81, %83, %86, %89, %91, %94, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %46, %49, %51, %54, %57, %59, %62, %65, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %17, %19, %22, %25, %27, %30, %33, %36, %14
-  %.0 = phi i32 [ 0, %5 ], [ %194, %192 ], [ %194, %198 ], [ %194, %195 ], [ %186, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ], [ %186, %189 ], [ %186, %187 ], [ %157, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ %157, %177 ], [ %157, %174 ], [ %157, %172 ], [ %157, %169 ], [ %157, %166 ], [ %157, %164 ], [ %157, %161 ], [ %157, %158 ], [ %128, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ], [ %128, %148 ], [ %128, %145 ], [ %128, %142 ], [ %128, %140 ], [ %128, %137 ], [ %128, %134 ], [ %128, %132 ], [ %128, %129 ], [ %99, %97 ], [ %99, %119 ], [ %99, %116 ], [ %99, %113 ], [ %99, %110 ], [ %99, %108 ], [ %99, %105 ], [ %99, %102 ], [ %99, %100 ], [ %74, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ %74, %94 ], [ %74, %91 ], [ %74, %89 ], [ %74, %86 ], [ %74, %83 ], [ %74, %81 ], [ %74, %78 ], [ %74, %75 ], [ %45, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ %45, %65 ], [ %45, %62 ], [ %45, %59 ], [ %45, %57 ], [ %45, %54 ], [ %45, %51 ], [ %45, %49 ], [ %45, %46 ], [ %16, %14 ], [ %16, %36 ], [ %16, %33 ], [ %16, %30 ], [ %16, %27 ], [ %16, %25 ], [ %16, %22 ], [ %16, %19 ], [ %16, %17 ]
+  %.0 = phi i32 [ 0, %5 ], [ %16, %14 ], [ %16, %17 ], [ %16, %19 ], [ %16, %22 ], [ %16, %25 ], [ %16, %27 ], [ %16, %30 ], [ %16, %33 ], [ %16, %36 ], [ %45, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ %45, %46 ], [ %45, %49 ], [ %45, %51 ], [ %45, %54 ], [ %45, %57 ], [ %45, %59 ], [ %45, %62 ], [ %45, %65 ], [ %74, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ %74, %75 ], [ %74, %78 ], [ %74, %81 ], [ %74, %83 ], [ %74, %86 ], [ %74, %89 ], [ %74, %91 ], [ %74, %94 ], [ %99, %97 ], [ %99, %100 ], [ %99, %102 ], [ %99, %105 ], [ %99, %108 ], [ %99, %110 ], [ %99, %113 ], [ %99, %116 ], [ %99, %119 ], [ %128, %_ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit ], [ %128, %129 ], [ %128, %132 ], [ %128, %134 ], [ %128, %137 ], [ %128, %140 ], [ %128, %142 ], [ %128, %145 ], [ %128, %148 ], [ %157, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ %157, %158 ], [ %157, %161 ], [ %157, %164 ], [ %157, %166 ], [ %157, %169 ], [ %157, %172 ], [ %157, %174 ], [ %157, %177 ], [ %186, %_ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit ], [ %186, %187 ], [ %186, %189 ], [ %194, %192 ], [ %194, %195 ], [ %194, %198 ]
   ret i32 %.0
 }
 

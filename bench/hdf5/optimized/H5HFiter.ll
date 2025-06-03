@@ -513,7 +513,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr noundef captures(none) %0)
   br label %25
 
 25:                                               ; preds = %20, %1, %24
-  %.013 = phi i32 [ -1, %20 ], [ 0, %24 ], [ 0, %1 ]
+  %.013 = phi i32 [ 0, %24 ], [ -1, %20 ], [ 0, %1 ]
   ret i32 %.013
 }
 

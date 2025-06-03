@@ -2663,8 +2663,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1f260a54505699b3E(ptr no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !717
   br i1 %11, label %15, label %13
 
-.loopexit:                                        ; preds = %13, %17, %19, %23, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %37, %3
-  %.0 = phi ptr [ null, %3 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ], [ %12, %23 ], [ %12, %19 ], [ %12, %17 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.45, %13 ], [ null, %37 ]
+.loopexit:                                        ; preds = %13, %23, %19, %17, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %37, %3
+  %.0 = phi ptr [ null, %3 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ], [ %12, %17 ], [ %12, %19 ], [ %12, %23 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.45, %13 ], [ null, %37 ]
   ret ptr %.0
 
 13:                                               ; preds = %9
@@ -2721,7 +2721,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %15
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %34, label %.loopexit
 
-34:                                               ; preds = %17, %19, %23, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit
+34:                                               ; preds = %23, %19, %17, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !729
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17ha4fed7327d8484b9E.llvm.17057414408856058071(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %12), !noalias !729
   %35 = load i8, ptr %4, align 8, !range !15, !alias.scope !736, !noalias !729, !noundef !7
@@ -2811,8 +2811,8 @@ default.unreachable:                              ; preds = %14
   %30 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %30, label %32, label %33
 
-31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %23, %19, %17, %11
-  %.1 = phi ptr [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.45, %11 ], [ %.val, %17 ], [ %.val, %19 ], [ %.val, %23 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
+31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %17, %19, %23, %11
+  %.1 = phi ptr [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.45, %11 ], [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -2830,7 +2830,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %14
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %31
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %23, %19, %17
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %17, %19, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !740
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17ha4fed7327d8484b9E.llvm.17057414408856058071(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !740
   %36 = load i8, ptr %4, align 8, !range !15, !alias.scope !747, !noalias !740, !noundef !7
@@ -3137,7 +3137,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hef4
   br i1 %switch.not.not, label %10, label %12
 
 9:                                                ; preds = %10, %12, %2
-  %.014 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
+  %.014 = phi i1 [ false, %2 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.014
 
 10:                                               ; preds = %5
@@ -4868,7 +4868,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
   resume { ptr, i32 } %32
 
 46:                                               ; preds = %13, %23, %22, %21, %20, %19, %18, %17
-  %.sroa.0.0.i = phi i8 [ 24, %23 ], [ 23, %22 ], [ 20, %21 ], [ 19, %20 ], [ 18, %19 ], [ 17, %18 ], [ 14, %17 ], [ 13, %13 ]
+  %.sroa.0.0.i = phi i8 [ 14, %17 ], [ 17, %18 ], [ 18, %19 ], [ 19, %20 ], [ 20, %21 ], [ 23, %22 ], [ 24, %23 ], [ 13, %13 ]
   store i8 0, ptr %0, align 8
   %.sroa.020.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 2, ptr %.sroa.020.sroa.4.0..sroa_idx, align 1

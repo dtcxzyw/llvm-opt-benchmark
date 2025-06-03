@@ -959,7 +959,7 @@ default.unreachable34:                            ; preds = %4
   br label %67
 
 67:                                               ; preds = %73, %63, %111, %91, %36, %30
-  %.0 = phi i16 [ %105, %111 ], [ %41, %36 ], [ %35, %30 ], [ %92, %91 ], [ %66, %63 ], [ %84, %73 ]
+  %.0 = phi i16 [ %92, %91 ], [ %35, %30 ], [ %41, %36 ], [ %105, %111 ], [ %66, %63 ], [ %84, %73 ]
   ret i16 %.0
 
 68:                                               ; preds = %45
@@ -994,7 +994,7 @@ default.unreachable34:                            ; preds = %4
   unreachable
 
 86:                                               ; preds = %93, %87
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %93 ], [ %lpad.thr_comm.split-lp, %87 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %87 ], [ %lpad.phi, %93 ]
   resume { ptr, i32 } %.pn
 
 87:                                               ; preds = %68

@@ -1836,8 +1836,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -12021,8 +12021,8 @@ define hidden { ptr, i64 } @_ZNK5clang6driver10toolchains6Darwin17getPlatformFam
   unreachable
 
 13:                                               ; preds = %4, %1, %11, %10, %9, %8
-  %.sroa.8.0 = phi i64 [ 2, %11 ], [ 9, %10 ], [ 5, %9 ], [ 7, %8 ], [ 6, %1 ], [ 6, %4 ]
-  %.sroa.0.0 = phi ptr [ @.str.136, %11 ], [ @.str.135, %10 ], [ @.str.134, %9 ], [ @.str.133, %8 ], [ @.str.131, %1 ], [ %.str.131..str.132, %4 ]
+  %.sroa.8.0 = phi i64 [ 7, %8 ], [ 5, %9 ], [ 9, %10 ], [ 2, %11 ], [ 6, %1 ], [ 6, %4 ]
+  %.sroa.0.0 = phi ptr [ @.str.133, %8 ], [ @.str.134, %9 ], [ @.str.135, %10 ], [ @.str.136, %11 ], [ @.str.131, %1 ], [ %.str.131..str.132, %4 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -12146,8 +12146,8 @@ define hidden { ptr, i64 } @_ZNK5clang6driver10toolchains6Darwin22getOSLibraryNa
   unreachable
 
 37:                                               ; preds = %5, %2, %35, %28, %21, %14, %9
-  %.sroa.8.0 = phi i64 [ 9, %35 ], [ %34, %28 ], [ %27, %21 ], [ %20, %14 ], [ %13, %9 ], [ 3, %2 ], [ 3, %5 ]
-  %.sroa.0.0 = phi ptr [ @.str.107, %35 ], [ %33, %28 ], [ %26, %21 ], [ %19, %14 ], [ %12, %9 ], [ @.str.138, %2 ], [ @.str.138, %5 ]
+  %.sroa.8.0 = phi i64 [ %13, %9 ], [ %20, %14 ], [ %27, %21 ], [ %34, %28 ], [ 9, %35 ], [ 3, %2 ], [ 3, %5 ]
+  %.sroa.0.0 = phi ptr [ %12, %9 ], [ %19, %14 ], [ %26, %21 ], [ %33, %28 ], [ @.str.107, %35 ], [ @.str.138, %2 ], [ @.str.138, %5 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -14427,7 +14427,7 @@ _ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i:    ; preds = %_ZNSt22_Optional_pa
   unreachable
 
 _ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i: ; preds = %439, %438, %437, %436, %435, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i
-  %.0.i.i.i = phi i32 [ 4, %439 ], [ 5, %438 ], [ 3, %437 ], [ 2, %436 ], [ 1, %435 ], [ 0, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i ], [ 0, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i ]
+  %.0.i.i.i = phi i32 [ 1, %435 ], [ 2, %436 ], [ 3, %437 ], [ 5, %438 ], [ 4, %439 ], [ 0, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i ], [ 0, %_ZNSt8optionalIN4llvm6TripleEEC2ERKS2_.exit.i ]
   store i32 0, ptr %59, align 8, !tbaa !584, !alias.scope !580, !noalias !574
   %441 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %.0.i.i.i, ptr %441, align 4, !tbaa !586, !alias.scope !580, !noalias !574
@@ -16046,7 +16046,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit21.i:        ; preds = %1090, %1087, %_ZNSt
   unreachable
 
 _ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i285: ; preds = %1102, %1101, %1100, %1099, %1098, %1092, %1092
-  %.0.i.i22.i = phi i32 [ 4, %1102 ], [ 5, %1101 ], [ 3, %1100 ], [ 2, %1099 ], [ 1, %1098 ], [ 0, %1092 ], [ 0, %1092 ]
+  %.0.i.i22.i = phi i32 [ 1, %1098 ], [ 2, %1099 ], [ 3, %1100 ], [ 5, %1101 ], [ 4, %1102 ], [ 0, %1092 ], [ 0, %1092 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #23, !noalias !662
   call void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull align 4 dereferenceable(16) %32) #23, !noalias !662
   %1104 = load ptr, ptr %33, align 8, !tbaa !87, !noalias !662
@@ -17551,7 +17551,7 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit404: ; p
   br label %1714
 
 1714:                                             ; preds = %1713, %1712, %1711, %1708
-  %.0.i = phi i32 [ 2898, %1713 ], [ 2851, %1712 ], [ 2364, %1711 ], [ 2413, %1708 ]
+  %.0.i = phi i32 [ 2364, %1711 ], [ 2851, %1712 ], [ 2898, %1713 ], [ 2413, %1708 ]
   %1715 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(176) %121, i32 %.0.i) #23
   %1716 = extractvalue { ptr, ptr } %1715, 0
   %1717 = extractvalue { ptr, ptr } %1715, 1
@@ -19125,8 +19125,8 @@ _ZN4llvm9StringRefC2EPKc.exit572:                 ; preds = %2388, %2392
   unreachable
 
 _ZNK5clang6driver10toolchains6Darwin17getPlatformFamilyEv.exit: ; preds = %2399, %2404, %2407, %2408, %2409, %2410
-  %.sroa.8.0.i = phi i64 [ 2, %2410 ], [ 9, %2409 ], [ 5, %2408 ], [ 7, %2407 ], [ 6, %2399 ], [ 6, %2404 ]
-  %.sroa.0.0.i575 = phi ptr [ @.str.136, %2410 ], [ @.str.135, %2409 ], [ @.str.134, %2408 ], [ @.str.133, %2407 ], [ @.str.131, %2399 ], [ %.str.131..str.132.i, %2404 ]
+  %.sroa.8.0.i = phi i64 [ 7, %2407 ], [ 5, %2408 ], [ 9, %2409 ], [ 2, %2410 ], [ 6, %2399 ], [ 6, %2404 ]
+  %.sroa.0.0.i575 = phi ptr [ @.str.133, %2407 ], [ @.str.134, %2408 ], [ @.str.135, %2409 ], [ @.str.136, %2410 ], [ @.str.131, %2399 ], [ %.str.131..str.132.i, %2404 ]
   %.not.i578 = icmp ult i64 %.sroa.speculated.i, %.sroa.8.0.i
   br i1 %.not.i578, label %2413, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
@@ -19190,8 +19190,8 @@ _ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit: ; preds = %2413, %_
   unreachable
 
 _ZNK5clang6driver10toolchains6Darwin17getPlatformFamilyEv.exit589: ; preds = %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit, %2423, %2426, %2427, %2428, %2429
-  %.sroa.8.0.i584 = phi i64 [ 2, %2429 ], [ 9, %2428 ], [ 5, %2427 ], [ 7, %2426 ], [ 6, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit ], [ 6, %2423 ]
-  %.sroa.0.0.i585 = phi ptr [ @.str.136, %2429 ], [ @.str.135, %2428 ], [ @.str.134, %2427 ], [ @.str.133, %2426 ], [ @.str.131, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit ], [ %.str.131..str.132.i588, %2423 ]
+  %.sroa.8.0.i584 = phi i64 [ 7, %2426 ], [ 5, %2427 ], [ 9, %2428 ], [ 2, %2429 ], [ 6, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit ], [ 6, %2423 ]
+  %.sroa.0.0.i585 = phi ptr [ @.str.133, %2426 ], [ @.str.134, %2427 ], [ @.str.135, %2428 ], [ @.str.136, %2429 ], [ @.str.131, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit ], [ %.str.131..str.132.i588, %2423 ]
   %.not.i590 = icmp ult i64 %.sroa.35.0.i, %.sroa.8.0.i584
   br i1 %.not.i590, label %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit592
 
@@ -19238,8 +19238,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit592.thread: ; preds = %_ZNK5clang6drive
   unreachable
 
 _ZNK5clang6driver10toolchains6Darwin17getPlatformFamilyEv.exit601: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread, %2435, %2438, %2439, %2440, %2441
-  %.sroa.8.0.i596 = phi i64 [ 2, %2441 ], [ 9, %2440 ], [ 5, %2439 ], [ 7, %2438 ], [ 6, %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread ], [ 6, %2435 ]
-  %.sroa.0.0.i597 = phi ptr [ @.str.136, %2441 ], [ @.str.135, %2440 ], [ @.str.134, %2439 ], [ @.str.133, %2438 ], [ @.str.131, %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread ], [ %.str.131..str.132.i600, %2435 ]
+  %.sroa.8.0.i596 = phi i64 [ 7, %2438 ], [ 5, %2439 ], [ 9, %2440 ], [ 2, %2441 ], [ 6, %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread ], [ 6, %2435 ]
+  %.sroa.0.0.i597 = phi ptr [ @.str.133, %2438 ], [ @.str.134, %2439 ], [ @.str.135, %2440 ], [ @.str.136, %2441 ], [ @.str.131, %_ZNK4llvm9StringRef11starts_withES0_.exit592.thread ], [ %.str.131..str.132.i600, %2435 ]
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %119, ptr nonnull %.sroa.0.0.i597, i64 %.sroa.8.0.i596)
   %2443 = getelementptr inbounds nuw i8, ptr %119, i64 64
   %2444 = load i8, ptr %2443, align 8, !tbaa !278, !range !15, !noundef !16
@@ -23547,7 +23547,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin30isAligne
   br label %_ZN5clang22alignedAllocMinVersionEN4llvm6Triple6OSTypeE.exit
 
 _ZN5clang22alignedAllocMinVersionEN4llvm6Triple6OSTypeE.exit: ; preds = %18, %19, %20
-  %.sroa.0.0.i = phi i64 [ 4, %20 ], [ 11, %19 ], [ -9223371981020200950, %18 ]
+  %.sroa.0.0.i = phi i64 [ 11, %19 ], [ 4, %20 ], [ -9223371981020200950, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3972
   %22 = load i64, ptr %21, align 4
   %23 = trunc i64 %22 to i32
@@ -23615,7 +23615,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin30isSizedD
   br label %_ZL22sizedDeallocMinVersionN4llvm6Triple6OSTypeE.exit
 
 _ZL22sizedDeallocMinVersionN4llvm6Triple6OSTypeE.exit: ; preds = %18, %19, %20
-  %.sroa.0.0.i = phi i64 [ 3, %20 ], [ 10, %19 ], [ -9223371985315168246, %18 ]
+  %.sroa.0.0.i = phi i64 [ 10, %19 ], [ 3, %20 ], [ -9223371985315168246, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3972
   %22 = load i64, ptr %21, align 4
   %23 = trunc i64 %22 to i32
@@ -23753,7 +23753,7 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit
   br label %_ZN5clang22alignedAllocMinVersionEN4llvm6Triple6OSTypeE.exit.i
 
 _ZN5clang22alignedAllocMinVersionEN4llvm6Triple6OSTypeE.exit.i: ; preds = %47, %46, %45
-  %.sroa.0.0.i.i = phi i64 [ 4, %47 ], [ 11, %46 ], [ -9223371981020200950, %45 ]
+  %.sroa.0.0.i.i = phi i64 [ 11, %46 ], [ 4, %47 ], [ -9223371981020200950, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 3972
   %49 = load i64, ptr %48, align 4
   %50 = trunc i64 %49 to i32
@@ -23903,7 +23903,7 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit
   br label %_ZL22sizedDeallocMinVersionN4llvm6Triple6OSTypeE.exit.i
 
 _ZL22sizedDeallocMinVersionN4llvm6Triple6OSTypeE.exit.i: ; preds = %108, %107, %106
-  %.sroa.0.0.i.i36 = phi i64 [ 3, %108 ], [ 10, %107 ], [ -9223371985315168246, %106 ]
+  %.sroa.0.0.i.i36 = phi i64 [ 10, %107 ], [ 3, %108 ], [ -9223371985315168246, %106 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 3972
   %110 = load i64, ptr %109, align 4
   %111 = trunc i64 %110 to i32
@@ -26108,7 +26108,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %5, %31
   unreachable
 
 _ZL15getPlatformNameN5clang6driver10toolchains6Darwin18DarwinPlatformKindENS2_21DarwinEnvironmentKindE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %41, %43, %44, %45, %46
-  %.0.i = phi ptr [ @.str.107, %46 ], [ @.str.142, %45 ], [ @.str.105, %44 ], [ @.str.106, %43 ], [ @.str.267, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.str.314..str.108.i, %41 ]
+  %.0.i = phi ptr [ @.str.106, %43 ], [ @.str.105, %44 ], [ @.str.142, %45 ], [ @.str.107, %46 ], [ @.str.267, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.str.314..str.108.i, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %48, ptr %7, align 8, !tbaa !214
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #23
@@ -29635,7 +29635,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81.th
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81.thread134, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81.thread134 ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81.thread134 ], [ %.029.lcssa, %._crit_edge ]
   %51 = load ptr, ptr %.1, align 8, !tbaa !3
   %.not.i.i82 = icmp eq ptr %51, null
   br i1 %.not.i.i82, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94, label %_ZN4llvm9StringRefC2EPKc.exit.i83
@@ -29668,7 +29668,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94.th
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94.thread137, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94.thread137 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94.thread137 ], [ %.029.lcssa, %._crit_edge ]
   %59 = load ptr, ptr %.2, align 8, !tbaa !3
   %.not.i.i95 = icmp eq ptr %59, null
   br i1 %.not.i.i95, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit107, label %_ZN4llvm9StringRefC2EPKc.exit.i96

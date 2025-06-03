@@ -147,7 +147,7 @@ define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf
   br i1 %27, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %28
 
 28:                                               ; preds = %25, %23, %21, %.lr.ph.i
-  %.3 = phi i32 [ %.2, %.lr.ph.i ], [ %24, %23 ], [ %26, %25 ], [ %.2, %21 ]
+  %.3 = phi i32 [ %.2, %.lr.ph.i ], [ %.2, %21 ], [ %26, %25 ], [ %24, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.068.2, i64 4
   %.not.i14 = icmp eq ptr %29, %6
   br i1 %.not.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit, label %.lr.ph.i, !llvm.loop !4
@@ -161,10 +161,10 @@ define range(i64 0, 4294967298) i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf
   br label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResult24SetAndPropagateConstancyES0_.exit: ; preds = %28, %25, %8, %.lr.ph, %14, %30, %32, %17
-  %.sroa.068.1 = phi ptr [ %.sroa.068.083, %.lr.ph ], [ %.sroa.068.083, %32 ], [ %.sroa.068.083, %30 ], [ %.sroa.068.083, %17 ], [ %.sroa.068.083, %14 ], [ %.sroa.068.083, %8 ], [ %.sroa.068.2, %25 ], [ %29, %28 ]
-  %.1 = phi i32 [ %.084, %.lr.ph ], [ %33, %32 ], [ %31, %30 ], [ %.084, %17 ], [ %.084, %14 ], [ %.084, %8 ], [ %.084, %25 ], [ %.3, %28 ]
-  %.sroa.020.1 = phi i8 [ %.sroa.020.085, %.lr.ph ], [ %.sroa.020.085, %32 ], [ %.sroa.020.085, %30 ], [ %.sroa.020.085, %17 ], [ %16, %14 ], [ %11, %8 ], [ %.sroa.020.085, %25 ], [ %.sroa.020.085, %28 ]
-  %.sroa.1045.1 = phi i32 [ %.sroa.1045.086, %.lr.ph ], [ %.sroa.1045.086, %32 ], [ %.sroa.1045.086, %30 ], [ %.sroa.1045.086, %17 ], [ %.sroa.1045.086, %14 ], [ %spec.select, %8 ], [ %.sroa.1045.086, %25 ], [ %.sroa.1045.086, %28 ]
+  %.sroa.068.1 = phi ptr [ %.sroa.068.083, %.lr.ph ], [ %.sroa.068.083, %14 ], [ %.sroa.068.083, %17 ], [ %.sroa.068.083, %30 ], [ %.sroa.068.083, %32 ], [ %.sroa.068.083, %8 ], [ %.sroa.068.2, %25 ], [ %29, %28 ]
+  %.1 = phi i32 [ %.084, %.lr.ph ], [ %.084, %14 ], [ %.084, %17 ], [ %31, %30 ], [ %33, %32 ], [ %.084, %8 ], [ %.084, %25 ], [ %.3, %28 ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.085, %.lr.ph ], [ %16, %14 ], [ %.sroa.020.085, %17 ], [ %.sroa.020.085, %30 ], [ %.sroa.020.085, %32 ], [ %11, %8 ], [ %.sroa.020.085, %25 ], [ %.sroa.020.085, %28 ]
+  %.sroa.1045.1 = phi i32 [ %.sroa.1045.086, %.lr.ph ], [ %.sroa.1045.086, %14 ], [ %.sroa.1045.086, %17 ], [ %.sroa.1045.086, %30 ], [ %.sroa.1045.086, %32 ], [ %spec.select, %8 ], [ %.sroa.1045.086, %25 ], [ %.sroa.1045.086, %28 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.068.1, i64 4
   %.not81 = icmp eq ptr %34, %6
   br i1 %.not81, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6

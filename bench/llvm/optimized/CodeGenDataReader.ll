@@ -1294,7 +1294,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21TextCodeGenDataReader9hasFormatER
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !39
   %43 = add i8 %.1.val.i.i.i.i.i, -127
   %44 = icmp ult i8 %43, -95
@@ -1308,7 +1308,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21TextCodeGenDataReader9hasFormatER
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %47, %46 ]
+  %.2.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !39
   %49 = add i8 %.2.val.i.i.i.i.i, -127
   %50 = icmp ult i8 %49, -95

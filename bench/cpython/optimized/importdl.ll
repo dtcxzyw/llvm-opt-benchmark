@@ -1466,7 +1466,7 @@ define hidden void @_Py_ext_module_loader_result_apply_error(ptr noundef capture
   br label %20
 
 13:                                               ; preds = %2, %9, %8, %7, %6, %5
-  %.0 = phi ptr [ @.str.11, %9 ], [ @.str.10, %8 ], [ @.str.9, %7 ], [ @.str.8, %6 ], [ @.str.7, %5 ], [ @.str.6, %2 ]
+  %.0 = phi ptr [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.6, %2 ]
   %.not = icmp eq ptr %.sroa.43.0.copyload, null
   br i1 %.not, label %17, label %14
 

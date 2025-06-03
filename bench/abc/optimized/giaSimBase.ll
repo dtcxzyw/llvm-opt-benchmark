@@ -23629,7 +23629,7 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %54
   br label %80
 
 80:                                               ; preds = %71, %17, %3, %.thread, %20
-  %.025 = phi i32 [ 1, %20 ], [ 1, %71 ], [ 0, %.thread ], [ 1, %3 ], [ 0, %17 ]
+  %.025 = phi i32 [ 1, %20 ], [ 0, %.thread ], [ 1, %71 ], [ 1, %3 ], [ 0, %17 ]
   ret i32 %.025
 }
 
@@ -24729,7 +24729,7 @@ define range(i32 0, 2) i32 @Gia_ManRelCheck_rec(ptr noundef %0, ptr noundef %1) 
   br label %46
 
 46:                                               ; preds = %36, %16, %2, %.thread, %19
-  %.020 = phi i32 [ 1, %19 ], [ 1, %36 ], [ 0, %.thread ], [ 1, %2 ], [ 0, %16 ]
+  %.020 = phi i32 [ 1, %19 ], [ 0, %.thread ], [ 1, %36 ], [ 1, %2 ], [ 0, %16 ]
   ret i32 %.020
 }
 

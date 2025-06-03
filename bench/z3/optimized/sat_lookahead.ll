@@ -15416,7 +15416,7 @@ _ZNK6vectorIN3sat9lookahead14literal_offsetELb0EjE4sizeEv.exit: ; preds = %7, %1
   br label %_ZNK3sat9lookahead8mix_diffEdd.exit
 
 _ZNK3sat9lookahead8mix_diffEdd.exit:              ; preds = %37, %41, %43, %45, %50, %52
-  %.0.i29 = phi double [ %53, %52 ], [ %51, %50 ], [ %49, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %37 ]
+  %.0.i29 = phi double [ %53, %52 ], [ %40, %37 ], [ %42, %41 ], [ %44, %43 ], [ %49, %45 ], [ %51, %50 ]
   %54 = add i32 %.025, 1
   %55 = fcmp ogt double %.0.i29, %.0
   br i1 %55, label %.critedge, label %56
@@ -15498,7 +15498,7 @@ define hidden noundef double @_ZNK3sat9lookahead8mix_diffEdd(ptr noundef nonnull
   br label %23
 
 23:                                               ; preds = %21, %19, %14, %12, %10, %6
-  %.0 = phi double [ %22, %21 ], [ %20, %19 ], [ %18, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %6 ]
+  %.0 = phi double [ %22, %21 ], [ %9, %6 ], [ %11, %10 ], [ %13, %12 ], [ %18, %14 ], [ %20, %19 ]
   ret double %.0
 }
 
@@ -16778,7 +16778,7 @@ _ZNK6vectorIN3sat9lookahead14literal_offsetELb0EjE4sizeEv.exit.i: ; preds = %65,
   br label %_ZNK3sat9lookahead8mix_diffEdd.exit.i
 
 _ZNK3sat9lookahead8mix_diffEdd.exit.i:            ; preds = %.noexc25, %104, %99, %97, %95, %91
-  %.0.i29.i = phi double [ %107, %.noexc25 ], [ %105, %104 ], [ %103, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %91 ]
+  %.0.i29.i = phi double [ %107, %.noexc25 ], [ %94, %91 ], [ %96, %95 ], [ %98, %97 ], [ %103, %99 ], [ %105, %104 ]
   %108 = add i32 %.025.i, 1
   %109 = fcmp ogt double %.0.i29.i, %.0.i20
   br i1 %109, label %.critedge.i, label %110

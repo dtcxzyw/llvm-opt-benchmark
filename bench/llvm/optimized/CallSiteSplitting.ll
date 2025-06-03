@@ -1055,7 +1055,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit.thread.i.i
   br label %367
 
 367:                                              ; preds = %365, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %366, %365 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %366, %365 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %368 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i.i.i = load i32, ptr %368, align 8, !tbaa !26, !noalias !123
   %.not.i.i.i37.not.i.i.i.i.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i.i.i.i.i, 0
@@ -1066,7 +1066,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit.thread.i.i
   br label %371
 
 371:                                              ; preds = %369, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %370, %369 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %370, %369 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %372 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i.i.i = load i32, ptr %372, align 8, !tbaa !26, !noalias !123
   %.not.i.i.i38.not.i.i.i.i.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i.i.i.i.i, 0
@@ -1879,8 +1879,8 @@ _ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i237.i.i.i: ; preds = %654, %653, %646
-  %658 = phi i32 [ %.pre379.i.i.i, %654 ], [ %647, %653 ], [ %647, %646 ]
-  %.0.i.i.i238.i.i.i = phi i64 [ %656, %654 ], [ 2, %653 ], [ 0, %646 ]
+  %658 = phi i32 [ %647, %653 ], [ %.pre379.i.i.i, %654 ], [ %647, %646 ]
+  %.0.i.i.i238.i.i.i = phi i64 [ 2, %653 ], [ %656, %654 ], [ 0, %646 ]
   %659 = icmp slt i32 %658, 0
   br i1 %659, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i244.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i239.i.i.i
 
@@ -2099,8 +2099,8 @@ _ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit.i.i.i.i.i: ; preds = %_ZN4llv
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i.i.i.i: ; preds = %759, %758, %751
-  %763 = phi i32 [ %.pre.i61.i.i, %759 ], [ %752, %758 ], [ %752, %751 ]
-  %.0.i.i.i234.i.i.i = phi i64 [ %761, %759 ], [ 2, %758 ], [ 0, %751 ]
+  %763 = phi i32 [ %752, %758 ], [ %.pre.i61.i.i, %759 ], [ %752, %751 ]
+  %.0.i.i.i234.i.i.i = phi i64 [ 2, %758 ], [ %761, %759 ], [ 0, %751 ]
   %764 = icmp slt i32 %763, 0
   br i1 %764, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i.i
 
@@ -2228,8 +2228,8 @@ _ZL13addConditionsRN4llvm8CallBaseERKNS_11SmallVectorISt4pairIPNS_8ICmpInstEjELj
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i247.i.i.i: ; preds = %818, %817, %810
-  %822 = phi i32 [ %.pre380.i.i.i, %818 ], [ %811, %817 ], [ %811, %810 ]
-  %.0.i.i.i248.i.i.i = phi i64 [ %820, %818 ], [ 2, %817 ], [ 0, %810 ]
+  %822 = phi i32 [ %811, %817 ], [ %.pre380.i.i.i, %818 ], [ %811, %810 ]
+  %.0.i.i.i248.i.i.i = phi i64 [ 2, %817 ], [ %820, %818 ], [ 0, %810 ]
   %823 = icmp slt i32 %822, 0
   br i1 %823, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i254.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i249.i.i.i
 
@@ -3358,7 +3358,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

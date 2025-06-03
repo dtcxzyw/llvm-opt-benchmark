@@ -227,7 +227,7 @@ define hidden void @_ZN4cvc58internal4expr17getNullTerminatorENS0_4kind6Kind_tEN
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
 
 common.resume:                                    ; preds = %931, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %.pn.pn.pn.pn.pn.pn, %931 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %.pn81.pn, %931 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -2502,7 +2502,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit260:            ; preds = %_ZN4cvc58internal7I
   ret void
 
 931:                                              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit260, %_ZN4cvc58internal7IntegerD2Ev.exit230, %747, %669, %618, %567, %.body158, %.body146, %_ZN4cvc58internal6StringD2Ev.exit144, %333, %324, %_ZN4cvc58internal8RationalD2Ev.exit117, %_ZN4cvc58internal8RationalD2Ev.exit106, %141, %95
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit260 ], [ %325, %324 ], [ %.pn47.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit230 ], [ %.pn53.pn, %747 ], [ %.pn56, %669 ], [ %.pn58, %618 ], [ %.pn60, %567 ], [ %.pn62, %.body158 ], [ %.pn64, %.body146 ], [ %.pn66.pn.pn, %_ZN4cvc58internal6StringD2Ev.exit144 ], [ %.pn70.pn, %333 ], [ %.pn73.pn, %_ZN4cvc58internal8RationalD2Ev.exit117 ], [ %.pn76.pn, %_ZN4cvc58internal8RationalD2Ev.exit106 ], [ %.pn79, %141 ], [ %.pn81, %95 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %95 ], [ %.pn79, %141 ], [ %.pn76.pn, %_ZN4cvc58internal8RationalD2Ev.exit106 ], [ %.pn73.pn, %_ZN4cvc58internal8RationalD2Ev.exit117 ], [ %.pn70.pn, %333 ], [ %325, %324 ], [ %.pn66.pn.pn, %_ZN4cvc58internal6StringD2Ev.exit144 ], [ %.pn64, %.body146 ], [ %.pn62, %.body158 ], [ %.pn60, %567 ], [ %.pn58, %618 ], [ %.pn56, %669 ], [ %.pn53.pn, %747 ], [ %.pn47.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit230 ], [ %.pn.pn.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit260 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   br label %common.resume
 }

@@ -1509,7 +1509,7 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %18, %14, %11, %7
-  %.sroa.0.0.in = phi i1 [ %19, %18 ], [ %17, %14 ], [ %13, %11 ], [ %10, %7 ]
+  %.sroa.0.0.in = phi i1 [ %10, %7 ], [ %13, %11 ], [ %17, %14 ], [ %19, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2709,7 +2709,7 @@ _ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16: ; preds =
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit": ; preds = %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i", %64
-  %.merged.i = phi { i16, i16 } [ %68, %64 ], [ %63, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i" ]
+  %.merged.i = phi { i16, i16 } [ %63, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i" ], [ %68, %64 ]
   %69 = extractvalue { i16, i16 } %.merged.i, 0
   %70 = extractvalue { i16, i16 } %.merged.i, 1
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2750,23 +2750,23 @@ _ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16: ; preds =
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25": ; preds = %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", %83
-  %.merged.i24 = phi { i16, i16 } [ %87, %83 ], [ %82, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23" ]
+  %.merged.i24 = phi { i16, i16 } [ %82, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23" ], [ %87, %83 ]
   %88 = extractvalue { i16, i16 } %.merged.i24, 0
   %switch = icmp eq i16 %69, 0
-  br i1 %switch, label %92, label %89
+  br i1 %switch, label %89, label %91
 
 89:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
-  %90 = extractvalue { i16, i16 } %.merged.i24, 1
+  %90 = icmp eq i16 %88, 0
+  br i1 %90, label %94, label %.thread
+
+91:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
+  %92 = extractvalue { i16, i16 } %.merged.i24, 1
   %switch12 = icmp ne i16 %88, 0
-  %91 = icmp eq i16 %70, %90
-  %or.cond = select i1 %switch12, i1 %91, i1 false
+  %93 = icmp eq i16 %70, %92
+  %or.cond = select i1 %switch12, i1 %93, i1 false
   br i1 %or.cond, label %94, label %.thread
 
-92:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
-  %93 = icmp eq i16 %88, 0
-  br i1 %93, label %94, label %.thread
-
-94:                                               ; preds = %89, %92
+94:                                               ; preds = %91, %89
   %95 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
   %96 = extractvalue { ptr, i64 } %95, 0
   %97 = extractvalue { ptr, i64 } %95, 1
@@ -2785,8 +2785,8 @@ _ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16: ; preds =
   %103 = icmp eq i32 %bcmp.i.i, 0
   br label %.thread
 
-.thread:                                          ; preds = %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i", %94, %44, %92, %89, %49, %46, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %49 ], [ false, %89 ], [ false, %92 ], [ false, %44 ], [ %103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ], [ false, %94 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16 ]
+.thread:                                          ; preds = %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i", %94, %89, %44, %91, %49, %46, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %49 ], [ false, %91 ], [ false, %44 ], [ false, %89 ], [ %103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ], [ false, %94 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -3195,7 +3195,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit: ; preds = %12, %22
   br label %32
 
 32:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
-  %.sroa.0.0.in = phi i1 [ %41, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31 ], [ %31, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ]
+  %.sroa.0.0.in = phi i1 [ %31, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %41, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31 ]
   ret i1 %.sroa.0.0.in
 
 33:                                               ; preds = %18

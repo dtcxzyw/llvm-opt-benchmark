@@ -500,7 +500,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction20GenerateVarArg
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %6, %24
-  %.1.i = phi ptr [ %21, %6 ], [ %25, %24 ]
+  %.1.i = phi ptr [ %25, %24 ], [ %21, %6 ]
   %26 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %.sroa.0.0.copyload.i50 = load i64, ptr %26, align 8, !tbaa !347
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -859,7 +859,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %170, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %166, %.lr.ph.i.i.i ], [ %171, %170 ]
+  %.1.i.i.i.i = phi ptr [ %171, %170 ], [ %166, %.lr.ph.i.i.i ]
   %172 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %173 = load i24, ptr %172, align 16
   %174 = and i24 %173, 1048576
@@ -1837,7 +1837,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8Fu
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %42, %49
-  %.1.i = phi ptr [ %46, %42 ], [ %50, %49 ]
+  %.1.i = phi ptr [ %50, %49 ], [ %46, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %.sroa.0.0.copyload.i15 = load i64, ptr %51, align 8, !tbaa !347
   br label %52
@@ -2198,7 +2198,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %56
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_edge, %118
-  %.1.i = phi ptr [ %115, %._crit_edge ], [ %119, %118 ]
+  %.1.i = phi ptr [ %119, %118 ], [ %115, %._crit_edge ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %121 = load ptr, ptr %120, align 8, !tbaa !351
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 224
@@ -2997,7 +2997,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %41
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %61, %80
-  %.1.i = phi ptr [ %76, %61 ], [ %81, %80 ]
+  %.1.i = phi ptr [ %81, %80 ], [ %76, %61 ]
   %82 = call noundef zeroext i1 @_ZN5clang7CodeGen12CodeGenTypes21isFuncTypeConvertibleEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(232) %72, ptr noundef %.1.i) #20
   %83 = xor i1 %82, true
   %84 = load ptr, ptr %0, align 8, !tbaa !845
@@ -3921,7 +3921,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i
   unreachable
 
 _ZNK5clang15VTableComponent13getGlobalDeclEv.exit: ; preds = %70, %57, %59, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i, %72, %79, %82
-  %.sroa.0.0.i = phi i64 [ %83, %82 ], [ %81, %79 ], [ %78, %72 ], [ %.0.v.i.i, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i ], [ %.0.v.i.i, %59 ], [ %.0.v.i.i, %57 ], [ %.0.v.i.i, %70 ]
+  %.sroa.0.0.i = phi i64 [ %81, %79 ], [ %83, %82 ], [ %78, %72 ], [ %.0.v.i.i, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.i.i ], [ %.0.v.i.i, %59 ], [ %.0.v.i.i, %57 ], [ %.0.v.i.i, %70 ]
   %85 = load ptr, ptr %0, align 8, !tbaa !845
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 152
   %87 = load ptr, ptr %86, align 8, !tbaa !877
@@ -6148,8 +6148,8 @@ _ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 68719476736
-  %.not36 = icmp eq i64 %59, 0
-  %60 = select i1 %.not36, i32 %.sink, i32 7
+  %.not40 = icmp eq i64 %59, 0
+  %60 = select i1 %.not40, i32 %.sink, i32 7
   br label %.thread81
 
 .thread81:                                        ; preds = %.thread81.sink.split, %41, %48, %47
@@ -8086,7 +8086,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !726
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -8096,7 +8096,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !726
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -8610,7 +8610,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 

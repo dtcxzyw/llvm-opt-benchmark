@@ -67,7 +67,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %12
   br label %21
 
 21:                                               ; preds = %17, %._crit_edge
-  %.3 = phi i32 [ -1, %17 ], [ 0, %._crit_edge ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %17 ]
   ret i32 %.3
 }
 

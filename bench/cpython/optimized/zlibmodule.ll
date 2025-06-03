@@ -1354,7 +1354,7 @@ Py_DECREF.exit.thread:                            ; preds = %33, %Py_DECREF.exit
   br label %zlib_error.exit.i
 
 97:                                               ; preds = %92, %91, %90, %86
-  %.1.ph.i.i = phi ptr [ %.0.i.i, %86 ], [ @.str.18, %91 ], [ @.str.19, %92 ], [ @.str.17, %90 ]
+  %.1.ph.i.i = phi ptr [ %.0.i.i, %86 ], [ @.str.19, %92 ], [ @.str.18, %91 ], [ @.str.17, %90 ]
   %98 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !12
   %100 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %99, ptr noundef nonnull @.str.21, i32 noundef %80, ptr noundef nonnull @.str.37, ptr noundef nonnull %.1.ph.i.i) #7
@@ -1451,7 +1451,7 @@ OutputBuffer_WindowGrow.exit.i:                   ; preds = %106
   br label %zlib_error.exit.i
 
 133:                                              ; preds = %128, %127, %126, %122
-  %.1.ph.i39.i = phi ptr [ %.0.i38.i, %122 ], [ @.str.18, %127 ], [ @.str.19, %128 ], [ @.str.17, %126 ]
+  %.1.ph.i39.i = phi ptr [ %.0.i38.i, %122 ], [ @.str.19, %128 ], [ @.str.18, %127 ], [ @.str.17, %126 ]
   %134 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !12
   %136 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %135, ptr noundef nonnull @.str.21, i32 noundef %118, ptr noundef nonnull @.str.38, ptr noundef nonnull %.1.ph.i39.i) #7
@@ -1757,7 +1757,7 @@ Py_DECREF.exit35.i:                               ; preds = %80, %77, %75
   br label %zlib_error.exit.i
 
 92:                                               ; preds = %87, %86, %85, %82
-  %.1.ph.i.i = phi ptr [ %.0.i.i, %82 ], [ @.str.18, %86 ], [ @.str.19, %87 ], [ @.str.17, %85 ]
+  %.1.ph.i.i = phi ptr [ %.0.i.i, %82 ], [ @.str.19, %87 ], [ @.str.18, %86 ], [ @.str.17, %85 ]
   %93 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !12
   %95 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %94, ptr noundef nonnull @.str.21, i32 noundef %52, ptr noundef nonnull @.str.43, ptr noundef nonnull %.1.ph.i.i) #7
@@ -1779,7 +1779,7 @@ zlib_error.exit.i:                                ; preds = %92, %88
   br label %zlib_decompressobj_impl.exit
 
 zlib_decompressobj_impl.exit:                     ; preds = %100, %97, %zlib_error.exit.i, %Py_DECREF.exit35.i, %Py_DECREF.exit37.i, %67, %64, %62, %59, %53, %33, %31, %21, %11
-  %.027 = phi ptr [ null, %21 ], [ null, %11 ], [ null, %31 ], [ null, %33 ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit37.i ], [ %37, %59 ], [ %37, %53 ], [ null, %62 ], [ null, %64 ], [ null, %67 ], [ null, %zlib_error.exit.i ], [ null, %97 ], [ null, %100 ]
+  %.027 = phi ptr [ null, %21 ], [ null, %11 ], [ null, %31 ], [ null, %33 ], [ null, %Py_DECREF.exit37.i ], [ null, %Py_DECREF.exit35.i ], [ %37, %59 ], [ %37, %53 ], [ null, %62 ], [ null, %64 ], [ null, %67 ], [ null, %zlib_error.exit.i ], [ null, %97 ], [ null, %100 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   ret ptr %.027
 }
@@ -1876,8 +1876,8 @@ define internal fastcc void @zlib_error(ptr noundef readonly captures(none) %0, 
   %11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.20, i32 noundef %1, ptr noundef %2) #7
   br label %16
 
-12:                                               ; preds = %5, %7, %6, %3
-  %.1.ph = phi ptr [ %.0, %3 ], [ @.str.18, %6 ], [ @.str.19, %7 ], [ @.str.17, %5 ]
+12:                                               ; preds = %5, %6, %7, %3
+  %.1.ph = phi ptr [ %.0, %3 ], [ @.str.19, %7 ], [ @.str.18, %6 ], [ @.str.17, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.21, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %.1.ph) #7
@@ -2317,7 +2317,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict(ptr noundef reado
   br label %zlib_error.exit
 
 29:                                               ; preds = %24, %23, %22, %19
-  %.1.ph.i = phi ptr [ %.0.i, %19 ], [ @.str.18, %23 ], [ @.str.19, %24 ], [ @.str.17, %22 ]
+  %.1.ph.i = phi ptr [ %.0.i, %19 ], [ @.str.19, %24 ], [ @.str.18, %23 ], [ @.str.17, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.21, i32 noundef %18, ptr noundef nonnull @.str.44, ptr noundef nonnull %.1.ph.i) #7
@@ -2982,7 +2982,7 @@ zlib_error.exit.i:                                ; preds = %61
   br label %zlib_error.exit49.i
 
 88:                                               ; preds = %83, %82, %81, %78
-  %.1.ph.i48.i = phi ptr [ %.0.i.i, %78 ], [ @.str.18, %82 ], [ @.str.19, %83 ], [ @.str.17, %81 ]
+  %.1.ph.i48.i = phi ptr [ %.0.i.i, %78 ], [ @.str.19, %83 ], [ @.str.18, %82 ], [ @.str.17, %81 ]
   %89 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !12
   %91 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %90, ptr noundef nonnull @.str.21, i32 noundef %77, ptr noundef nonnull @.str.15, ptr noundef nonnull %.1.ph.i48.i) #7
@@ -3234,7 +3234,7 @@ define internal fastcc ptr @zlib_Compress_copy_impl(ptr noundef %0, ptr noundef 
   br label %85
 
 32:                                               ; preds = %27, %26, %25, %22
-  %.1.ph.i = phi ptr [ %.0.i, %22 ], [ @.str.18, %26 ], [ @.str.19, %27 ], [ @.str.17, %25 ]
+  %.1.ph.i = phi ptr [ %.0.i, %22 ], [ @.str.19, %27 ], [ @.str.18, %26 ], [ @.str.17, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.21, i32 noundef %17, ptr noundef nonnull @.str.84, ptr noundef nonnull %.1.ph.i) #7
@@ -3668,7 +3668,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %62
   br label %zlib_error.exit.i
 
 121:                                              ; preds = %116, %115, %114, %111
-  %.1.ph.i.i = phi ptr [ %.0.i.i, %111 ], [ @.str.18, %115 ], [ @.str.19, %116 ], [ @.str.17, %114 ]
+  %.1.ph.i.i = phi ptr [ %.0.i.i, %111 ], [ @.str.19, %116 ], [ @.str.18, %115 ], [ @.str.17, %114 ]
   %122 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %123 = load ptr, ptr %122, align 8, !tbaa !12
   %124 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %123, ptr noundef nonnull @.str.21, i32 noundef %.2.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %.1.ph.i.i) #7
@@ -4299,7 +4299,7 @@ define internal fastcc ptr @zlib_Decompress_copy_impl(ptr noundef %0, ptr nounde
   br label %86
 
 33:                                               ; preds = %28, %27, %26, %23
-  %.1.ph.i = phi ptr [ %.0.i, %23 ], [ @.str.18, %27 ], [ @.str.19, %28 ], [ @.str.17, %26 ]
+  %.1.ph.i = phi ptr [ %.0.i, %23 ], [ @.str.19, %28 ], [ @.str.18, %27 ], [ @.str.17, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !12
   %36 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.21, i32 noundef %18, ptr noundef nonnull @.str.93, ptr noundef nonnull %.1.ph.i) #7
@@ -4737,7 +4737,7 @@ Py_DECREF.exit42:                                 ; preds = %72, %74, %77
   br label %zlib_error.exit
 
 89:                                               ; preds = %84, %83, %82, %79
-  %.1.ph.i = phi ptr [ %.0.i, %79 ], [ @.str.18, %83 ], [ @.str.19, %84 ], [ @.str.17, %82 ]
+  %.1.ph.i = phi ptr [ %.0.i, %79 ], [ @.str.19, %84 ], [ @.str.18, %83 ], [ @.str.17, %82 ]
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %91 = load ptr, ptr %90, align 8, !tbaa !12
   %92 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %91, ptr noundef nonnull @.str.21, i32 noundef %49, ptr noundef nonnull @.str.43, ptr noundef nonnull %.1.ph.i) #7
@@ -4759,7 +4759,7 @@ zlib_error.exit:                                  ; preds = %85, %89
   br label %Py_DECREF.exit50
 
 Py_DECREF.exit50:                                 ; preds = %97, %94, %zlib_error.exit, %64, %61, %59, %35, %32, %30, %Py_DECREF.exit48, %8, %50, %56, %Py_DECREF.exit42, %Py_DECREF.exit44, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %Py_DECREF.exit48 ], [ null, %8 ], [ null, %Py_DECREF.exit42 ], [ null, %Py_DECREF.exit44 ], [ %9, %56 ], [ %9, %50 ], [ null, %30 ], [ null, %32 ], [ null, %35 ], [ null, %59 ], [ null, %61 ], [ null, %64 ], [ null, %zlib_error.exit ], [ null, %94 ], [ null, %97 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %Py_DECREF.exit48 ], [ null, %8 ], [ null, %Py_DECREF.exit44 ], [ null, %Py_DECREF.exit42 ], [ %9, %56 ], [ %9, %50 ], [ null, %30 ], [ null, %32 ], [ null, %35 ], [ null, %59 ], [ null, %61 ], [ null, %64 ], [ null, %zlib_error.exit ], [ null, %94 ], [ null, %97 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   ret ptr %.0
@@ -4828,7 +4828,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_inflate_zdict_ZlibDecompressor(
   br label %zlib_error.exit
 
 29:                                               ; preds = %24, %23, %22, %19
-  %.1.ph.i = phi ptr [ %.0.i, %19 ], [ @.str.18, %23 ], [ @.str.19, %24 ], [ @.str.17, %22 ]
+  %.1.ph.i = phi ptr [ %.0.i, %19 ], [ @.str.19, %24 ], [ @.str.18, %23 ], [ @.str.17, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.21, i32 noundef %18, ptr noundef nonnull @.str.44, ptr noundef nonnull %.1.ph.i) #7
@@ -5174,7 +5174,7 @@ arrange_output_buffer_with_maximum.exit.thread62.i.i.i: ; preds = %129, %arrange
   br label %zlib_error.exit.i.i.i
 
 147:                                              ; preds = %142, %141, %140, %137
-  %.1.ph.i.i.i.i = phi ptr [ %.0.i60.i.i.i, %137 ], [ @.str.18, %141 ], [ @.str.19, %142 ], [ @.str.17, %140 ]
+  %.1.ph.i.i.i.i = phi ptr [ %.0.i60.i.i.i, %137 ], [ @.str.19, %142 ], [ @.str.18, %141 ], [ @.str.17, %140 ]
   %148 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %149 = load ptr, ptr %148, align 8, !tbaa !12
   %150 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %149, ptr noundef nonnull @.str.21, i32 noundef %136, ptr noundef nonnull @.str.39, ptr noundef nonnull %.1.ph.i.i.i.i) #7

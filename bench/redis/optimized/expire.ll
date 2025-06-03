@@ -93,7 +93,7 @@ define dso_local range(i32 0, 2) i32 @activeExpireCycleTryExpire(ptr noundef %0,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %6, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %6 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %6 ]
   %30 = tail call ptr @createStringObject(ptr noundef nonnull %7, i64 noundef %.0.i) #10
   tail call void @deleteExpiredKeyAndPropagate(ptr noundef %0, ptr noundef %30) #10
   tail call void @decrRefCount(ptr noundef %30) #10
@@ -686,7 +686,7 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %52, %48, %44, %40, %37, %31
-  %.0.i.i = phi i64 [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ 0, %31 ]
+  %.0.i.i = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %31 ]
   %55 = tail call ptr @createStringObject(ptr noundef nonnull %32, i64 noundef %.0.i.i) #10
   tail call void @deleteExpiredKeyAndPropagate(ptr noundef %29, ptr noundef %55) #10
   tail call void @decrRefCount(ptr noundef %55) #10

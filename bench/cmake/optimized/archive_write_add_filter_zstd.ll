@@ -1068,7 +1068,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
   br label %.backedge
 
 70:                                               ; preds = %32, %28
-  %.041 = phi i64 [ %34, %32 ], [ %30, %28 ]
+  %.041 = phi i64 [ %30, %28 ], [ %34, %32 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !29
   %73 = call ptr @ZSTD_getErrorName(i64 noundef %.041) #10

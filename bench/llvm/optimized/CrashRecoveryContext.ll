@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS
   br label %17
 
 17:                                               ; preds = %4, %16
-  %.1 = phi i1 [ false, %4 ], [ true, %16 ]
+  %.1 = phi i1 [ true, %16 ], [ false, %4 ]
   ret i1 %.1
 }
 

@@ -301,7 +301,7 @@ define range(i32 -1, 1) i32 @H5FS_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %60
 
 60:                                               ; preds = %23, %44, %54, %48, %38, %58, %14
-  %.0 = phi i32 [ 0, %14 ], [ -1, %23 ], [ %.2, %58 ], [ -1, %54 ], [ %.2, %48 ], [ -1, %44 ], [ %.2, %38 ]
+  %.0 = phi i32 [ 0, %14 ], [ -1, %23 ], [ %.2, %58 ], [ -1, %44 ], [ %.2, %38 ], [ -1, %54 ], [ %.2, %48 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #7
   ret i32 %.0
 }

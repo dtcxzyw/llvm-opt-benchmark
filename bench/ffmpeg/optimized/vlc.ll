@@ -114,7 +114,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %47
 
 47:                                               ; preds = %45, %42, %39
-  %.0265 = phi i32 [ %46, %45 ], [ %44, %42 ], [ %41, %39 ]
+  %.0265 = phi i32 [ %46, %45 ], [ %41, %39 ], [ %44, %42 ]
   %48 = icmp ugt i32 %.0265, %1
   br i1 %48, label %49, label %125
 
@@ -573,7 +573,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %255
 
 255:                                              ; preds = %253, %250, %247
-  %.0237 = phi i32 [ %254, %253 ], [ %252, %250 ], [ %249, %247 ]
+  %.0237 = phi i32 [ %254, %253 ], [ %249, %247 ], [ %252, %250 ]
   %256 = add i32 %.0237, -1
   %or.cond296.not = icmp ult i32 %256, %1
   br i1 %or.cond296.not, label %257, label %333
@@ -947,7 +947,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br label %77
 
 77:                                               ; preds = %69, %72, %75
-  %.1 = phi i32 [ %76, %75 ], [ %74, %72 ], [ %71, %69 ]
+  %.1 = phi i32 [ %76, %75 ], [ %71, %69 ], [ %74, %72 ]
   %78 = add i32 %.1, %8
   %79 = trunc i32 %78 to i16
   %80 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %65, i32 1
@@ -1005,9 +1005,9 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %100, %58, %vlc_common_init.exit
-  %.172106 = phi ptr [ %12, %vlc_common_init.exit ], [ %.172103, %58 ], [ %.172103, %100 ]
+  %.172104 = phi ptr [ %12, %vlc_common_init.exit ], [ %.172103, %58 ], [ %.172103, %100 ]
   %.055.lcssa = phi i32 [ 0, %vlc_common_init.exit ], [ %.3.us, %58 ], [ %.3, %100 ]
-  %102 = call fastcc i32 @vlc_common_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.055.lcssa, ptr noundef nonnull %.172106, i32 noundef %9, ptr noundef nonnull %12)
+  %102 = call fastcc i32 @vlc_common_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.055.lcssa, ptr noundef nonnull %.172104, i32 noundef %9, ptr noundef nonnull %12)
   br label %vlc_common_init.exit.thread
 
 103:                                              ; preds = %.split92.us, %.split.us
@@ -1224,7 +1224,7 @@ define range(i32 -1094995529, 1) i32 @ff_vlc_init_multi_from_lengths(ptr noundef
   br label %55
 
 55:                                               ; preds = %40, %47, %50, %53
-  %.1 = phi i32 [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %43, %40 ]
+  %.1 = phi i32 [ %54, %53 ], [ %49, %47 ], [ %52, %50 ], [ %43, %40 ]
   %56 = add i32 %.1, %10
   %57 = trunc i32 %56 to i16
   %58 = getelementptr inbounds %struct.VLCcode, ptr %.192.ph, i64 %41, i32 1

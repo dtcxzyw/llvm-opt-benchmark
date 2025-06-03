@@ -743,7 +743,7 @@ compression_name.exit:                            ; preds = %64, %69
   br label %269
 
 72:                                               ; preds = %60, %58, %56, %54, %52, %50, %48
-  %.1 = phi i32 [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
+  %.1 = phi i32 [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ]
   %.not93 = icmp eq i32 %.1, 0
   br i1 %.not93, label %73, label %269
 
@@ -1734,7 +1734,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   br label %58
 
 58:                                               ; preds = %56, %54, %47, %45, %40, %38, %.lr.ph.i
-  %.1154.i = phi i64 [ %57, %56 ], [ %55, %54 ], [ %48, %47 ], [ %46, %45 ], [ %41, %40 ], [ %39, %38 ], [ %35, %.lr.ph.i ]
+  %.1154.i = phi i64 [ %57, %56 ], [ %39, %38 ], [ %41, %40 ], [ %46, %45 ], [ %48, %47 ], [ %55, %54 ], [ %35, %.lr.ph.i ]
   %59 = icmp slt i64 %.1154.i, %33
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !113
 
@@ -2526,8 +2526,8 @@ zip_read_mac_metadata.exit:                       ; preds = %.thread136.i, %._cr
   call void @free(ptr noundef %362) #21
   br label %zip_read_mac_metadata.exit.thread
 
-zip_read_mac_metadata.exit.thread:                ; preds = %283, %zip_read_mac_metadata.exit, %340, %364, %360, %355, %compression_name.exit.i, %slurp_central_directory.exit.thread, %328, %325, %289
-  %.0 = phi i32 [ 1, %289 ], [ %327, %325 ], [ 0, %328 ], [ -30, %slurp_central_directory.exit.thread ], [ -30, %340 ], [ -30, %364 ], [ -20, %360 ], [ -20, %355 ], [ -20, %compression_name.exit.i ], [ %.4101.i, %zip_read_mac_metadata.exit ], [ 1, %283 ]
+zip_read_mac_metadata.exit.thread:                ; preds = %283, %zip_read_mac_metadata.exit, %364, %360, %355, %340, %compression_name.exit.i, %slurp_central_directory.exit.thread, %328, %325, %289
+  %.0 = phi i32 [ 1, %289 ], [ %327, %325 ], [ 0, %328 ], [ -30, %slurp_central_directory.exit.thread ], [ -30, %364 ], [ -20, %360 ], [ -20, %355 ], [ -30, %340 ], [ -20, %compression_name.exit.i ], [ %.4101.i, %zip_read_mac_metadata.exit ], [ 1, %283 ]
   ret i32 %.0
 }
 
@@ -3169,7 +3169,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %297
 
 297:                                              ; preds = %293, %289
-  %.0 = phi i32 [ %296, %293 ], [ %292, %289 ]
+  %.0 = phi i32 [ %292, %289 ], [ %296, %293 ]
   %298 = icmp eq i32 %.0, 0
   br i1 %298, label %.thread336, label %..thread334_crit_edge
 
@@ -4056,16 +4056,16 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.thread377
 
 .thread377:                                       ; preds = %243, %255, %146, %115, %126, %138, %135, %.thread387, %90, %157, %148, %229, %236, %262, %257, %327, %321, %315, %53, %212, %181, %162, %291, %289, %303, %305, %297, %265, %264, %215, %226, %.thread373, %189, %195
-  %.5276 = phi i16 [ %46, %53 ], [ %46, %327 ], [ %46, %321 ], [ %46, %315 ], [ %46, %262 ], [ %46, %257 ], [ %46, %229 ], [ %233, %236 ], [ %233, %.thread387 ], [ %46, %157 ], [ %46, %148 ], [ %.2273, %90 ], [ 0, %162 ], [ %.11282.lcssa, %181 ], [ %.15286, %212 ], [ %46, %291 ], [ %46, %289 ], [ %46, %303 ], [ %46, %305 ], [ %46, %297 ], [ %46, %265 ], [ 0, %264 ], [ %narrow, %226 ], [ %224, %215 ], [ %105, %.thread373 ], [ %.12283, %189 ], [ %.13284, %195 ], [ %.8279, %135 ], [ %144, %138 ], [ %.7278, %126 ], [ %113, %115 ], [ %46, %146 ], [ %46, %255 ], [ %233, %243 ]
-  %.7256 = phi i32 [ %47, %53 ], [ %47, %327 ], [ %47, %321 ], [ %47, %315 ], [ %47, %262 ], [ %47, %257 ], [ %47, %229 ], [ %232, %236 ], [ %232, %.thread387 ], [ %47, %157 ], [ %47, %148 ], [ %.4253, %90 ], [ %47, %162 ], [ %.13.lcssa, %181 ], [ %.17, %212 ], [ %47, %291 ], [ %47, %289 ], [ %47, %303 ], [ %47, %305 ], [ %47, %297 ], [ %47, %265 ], [ %47, %264 ], [ %228, %226 ], [ %223, %215 ], [ %104, %.thread373 ], [ %.14, %189 ], [ %.15, %195 ], [ %.10259, %135 ], [ %143, %138 ], [ %.9258, %126 ], [ %112, %115 ], [ %47, %146 ], [ %47, %255 ], [ %232, %243 ]
+  %.5276 = phi i16 [ %46, %53 ], [ %.2273, %90 ], [ %46, %157 ], [ %46, %148 ], [ %46, %229 ], [ %233, %236 ], [ %233, %.thread387 ], [ %46, %262 ], [ %46, %257 ], [ %46, %327 ], [ %46, %321 ], [ %46, %315 ], [ 0, %162 ], [ %.11282.lcssa, %181 ], [ %.15286, %212 ], [ %46, %291 ], [ %46, %289 ], [ %46, %303 ], [ %46, %305 ], [ %46, %297 ], [ %46, %265 ], [ 0, %264 ], [ %narrow, %226 ], [ %224, %215 ], [ %105, %.thread373 ], [ %.12283, %189 ], [ %.13284, %195 ], [ %.8279, %135 ], [ %144, %138 ], [ %.7278, %126 ], [ %113, %115 ], [ %46, %146 ], [ %46, %255 ], [ %233, %243 ]
+  %.7256 = phi i32 [ %47, %53 ], [ %.4253, %90 ], [ %47, %157 ], [ %47, %148 ], [ %47, %229 ], [ %232, %236 ], [ %232, %.thread387 ], [ %47, %262 ], [ %47, %257 ], [ %47, %327 ], [ %47, %321 ], [ %47, %315 ], [ %47, %162 ], [ %.13.lcssa, %181 ], [ %.17, %212 ], [ %47, %291 ], [ %47, %289 ], [ %47, %303 ], [ %47, %305 ], [ %47, %297 ], [ %47, %265 ], [ %47, %264 ], [ %228, %226 ], [ %223, %215 ], [ %104, %.thread373 ], [ %.14, %189 ], [ %.15, %195 ], [ %.10259, %135 ], [ %143, %138 ], [ %.9258, %126 ], [ %112, %115 ], [ %47, %146 ], [ %47, %255 ], [ %232, %243 ]
   %340 = zext i16 %.5276 to i32
   %341 = add i32 %.7256, %340
   %342 = zext i32 %341 to i64
   %.not = icmp ult i64 %12, %342
   br i1 %.not, label %.thread392, label %38, !llvm.loop !155
 
-.thread392:                                       ; preds = %.thread377, %32, %72, %89, %106, %145, %314, %51, %36, %5
-  %.0248 = phi i32 [ 0, %5 ], [ -25, %36 ], [ -25, %51 ], [ -25, %314 ], [ -25, %145 ], [ -25, %106 ], [ -25, %89 ], [ -25, %72 ], [ 0, %32 ], [ 0, %.thread377 ]
+.thread392:                                       ; preds = %.thread377, %32, %314, %145, %72, %89, %106, %51, %36, %5
+  %.0248 = phi i32 [ 0, %5 ], [ -25, %36 ], [ -25, %51 ], [ -25, %106 ], [ -25, %89 ], [ -25, %72 ], [ -25, %145 ], [ -25, %314 ], [ 0, %32 ], [ 0, %.thread377 ]
   ret i32 %.0248
 }
 
@@ -4464,7 +4464,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %87, %82, %116
   br label %189
 
 189:                                              ; preds = %zip_deflate_init.exit, %184, %186, %142, %141, %48, %18
-  %.097 = phi i32 [ -30, %18 ], [ -30, %48 ], [ -30, %142 ], [ -30, %141 ], [ 0, %186 ], [ -30, %zip_deflate_init.exit ], [ %185, %184 ]
+  %.097 = phi i32 [ -30, %18 ], [ -30, %48 ], [ -30, %142 ], [ 0, %186 ], [ -30, %141 ], [ -30, %zip_deflate_init.exit ], [ %185, %184 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   ret i32 %.097
 }
@@ -4718,7 +4718,7 @@ zipx_lzma_alone_init.exit:                        ; preds = %45
   br label %116
 
 116:                                              ; preds = %zipx_lzma_alone_init.exit.thread, %113, %95, %92, %88, %65
-  %.0 = phi i32 [ -30, %65 ], [ -30, %95 ], [ 0, %113 ], [ -30, %92 ], [ -30, %88 ], [ %.0.i.ph, %zipx_lzma_alone_init.exit.thread ]
+  %.0 = phi i32 [ -30, %65 ], [ -30, %95 ], [ -30, %88 ], [ -30, %92 ], [ 0, %113 ], [ %.0.i.ph, %zipx_lzma_alone_init.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   ret i32 %.0
 }
@@ -4956,8 +4956,8 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8160
   %7 = load i8, ptr %6, align 8, !tbaa !61
   %.not = icmp eq i8 %7, 0
-  %.057.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.057.sroa.gep65 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.057.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.057.sroa.gep65 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.057.sroa.gep66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not, label %8, label %.thread
 
@@ -4985,9 +4985,9 @@ define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr nou
   br label %18
 
 18:                                               ; preds = %11, %17, %16
-  %.057.sroa.phi = phi ptr [ %.057.sroa.gep, %17 ], [ %.057.sroa.gep65, %16 ], [ %.057.sroa.gep66, %11 ]
-  %.057 = phi i64 [ 32, %17 ], [ 24, %16 ], [ 16, %11 ]
-  %.056 = phi i64 [ 16, %17 ], [ 12, %16 ], [ 8, %11 ]
+  %.057.sroa.phi = phi ptr [ %.057.sroa.gep, %16 ], [ %.057.sroa.gep65, %17 ], [ %.057.sroa.gep66, %11 ]
+  %.057 = phi i64 [ 24, %16 ], [ 32, %17 ], [ 16, %11 ]
+  %.056 = phi i64 [ 12, %16 ], [ 16, %17 ], [ 8, %11 ]
   %19 = or disjoint i64 %.056, 2
   %20 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %19, ptr noundef null) #21
   %21 = icmp eq ptr %20, null
@@ -5990,7 +5990,7 @@ zipx_xz_init.exit:                                ; preds = %19
   br label %zipx_xz_init.exit.thread
 
 zipx_xz_init.exit.thread:                         ; preds = %25, %18, %54, %51, %46, %45, %30
-  %.0 = phi i32 [ -30, %30 ], [ -30, %46 ], [ -30, %51 ], [ 0, %54 ], [ -30, %45 ], [ -30, %25 ], [ -25, %18 ]
+  %.0 = phi i32 [ -30, %30 ], [ -30, %46 ], [ -30, %45 ], [ 0, %54 ], [ -30, %51 ], [ -30, %25 ], [ -25, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   ret i32 %.0
 }
@@ -6338,7 +6338,7 @@ zipx_ppmd8_init.exit:                             ; preds = %50
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %80
   %.not41 = phi i1 [ false, %80 ], [ %89, %.loopexit.loopexit ]
-  %.1368 = phi i64 [ %.035, %80 ], [ %86, %.loopexit.loopexit ]
+  %.1369 = phi i64 [ %.035, %80 ], [ %86, %.loopexit.loopexit ]
   %90 = load i64, ptr %69, align 8, !tbaa !200
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %92 = load i64, ptr %91, align 8, !tbaa !92
@@ -6350,7 +6350,7 @@ zipx_ppmd8_init.exit:                             ; preds = %50
   store i64 %96, ptr %94, align 8, !tbaa !88
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %98 = load i64, ptr %97, align 8, !tbaa !72
-  %99 = add i64 %98, %.1368
+  %99 = add i64 %98, %.1369
   store i64 %99, ptr %97, align 8, !tbaa !72
   br i1 %.not41, label %103, label %100
 
@@ -6364,7 +6364,7 @@ zipx_ppmd8_init.exit:                             ; preds = %50
 103:                                              ; preds = %100, %.loopexit
   %104 = load ptr, ptr %73, align 8, !tbaa !101
   store ptr %104, ptr %1, align 8, !tbaa !73
-  store i64 %.1368, ptr %2, align 8, !tbaa !69
+  store i64 %.1369, ptr %2, align 8, !tbaa !69
   br label %zipx_ppmd8_init.exit.thread
 
 zipx_ppmd8_init.exit.thread:                      ; preds = %25, %45, %49, %57, %36, %.thread, %103, %67

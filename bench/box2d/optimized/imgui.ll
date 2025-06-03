@@ -40878,8 +40878,8 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   br label %_ZL29RenderWindowOuterSingleBorderP11ImGuiWindowijf.exit.i.i
 
 _ZL29RenderWindowOuterSingleBorderP11ImGuiWindowijf.exit.i.i: ; preds = %2717, %2713, %2710, %2706, %.critedge._crit_edge.i.i
-  %.sroa.045.0.i.i.i.i = phi <2 x float> [ %.sroa.045.4.vec.insert58.i.i63.i.i, %2717 ], [ %.sroa.045.4.vec.insert56.i.i.i.i, %2713 ], [ %.sroa.045.4.vec.insert54.i.i71.i.i, %2710 ], [ %.sroa.045.4.vec.insert.i.i.i.i, %2706 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
-  %.sroa.10.0.i.i.i.i = phi <2 x float> [ %.sroa.10.12.vec.insert71.i.i65.i.i, %2717 ], [ %.sroa.10.12.vec.insert69.i.i.i.i, %2713 ], [ %.sroa.10.12.vec.insert67.i.i72.i.i, %2710 ], [ %.sroa.10.12.vec.insert.i.i.i.i, %2706 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
+  %.sroa.045.0.i.i.i.i = phi <2 x float> [ %.sroa.045.4.vec.insert.i.i.i.i, %2706 ], [ %.sroa.045.4.vec.insert54.i.i71.i.i, %2710 ], [ %.sroa.045.4.vec.insert56.i.i.i.i, %2713 ], [ %.sroa.045.4.vec.insert58.i.i63.i.i, %2717 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
+  %.sroa.10.0.i.i.i.i = phi <2 x float> [ %.sroa.10.12.vec.insert.i.i.i.i, %2706 ], [ %.sroa.10.12.vec.insert67.i.i72.i.i, %2710 ], [ %.sroa.10.12.vec.insert69.i.i.i.i, %2713 ], [ %.sroa.10.12.vec.insert71.i.i65.i.i, %2717 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
   %2720 = sext i8 %spec.select.i.i to i64
   %2721 = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %2720
   %2722 = getelementptr inbounds nuw i8, ptr %2143, i64 688
@@ -58036,8 +58036,8 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %6, %switch.lookup, 
   br label %_ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit
 
 _ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit:    ; preds = %28, %33, %38
-  %.045 = phi float [ %27, %38 ], [ %34, %33 ], [ %29, %28 ]
-  %.sink.i = phi float [ %40, %38 ], [ %37, %33 ], [ %32, %28 ]
+  %.045 = phi float [ %27, %38 ], [ %29, %28 ], [ %34, %33 ]
+  %.sink.i = phi float [ %40, %38 ], [ %32, %28 ], [ %37, %33 ]
   %41 = fcmp ogt float %19, %.045
   br i1 %41, label %42, label %_ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit
 
@@ -64391,7 +64391,7 @@ define dso_local <2 x float> @_ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2
   br label %43
 
 43:                                               ; preds = %41, %40, %39, %38, %42
-  %.sroa.0168.2 = phi <2 x float> [ zeroinitializer, %38 ], [ %.sroa.0168.4.vec.insert210, %42 ], [ %.sroa.0168.4.vec.insert212, %41 ], [ %.sroa.0168.4.vec.insert214, %40 ], [ %.sroa.0168.4.vec.insert216, %39 ]
+  %.sroa.0168.2 = phi <2 x float> [ zeroinitializer, %38 ], [ %.sroa.0168.4.vec.insert216, %39 ], [ %.sroa.0168.4.vec.insert214, %40 ], [ %.sroa.0168.4.vec.insert212, %41 ], [ %.sroa.0168.4.vec.insert210, %42 ]
   %.sroa.0168.0.vec.extract178 = extractelement <2 x float> %.sroa.0168.2, i64 0
   %.sroa.0168.4.vec.extract202 = extractelement <2 x float> %.sroa.0168.2, i64 1
   %44 = fadd float %.val125, %.sroa.0168.0.vec.extract178
@@ -71268,8 +71268,8 @@ default.unreachable910:                           ; preds = %277
   unreachable
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs13GetWindowRectEP11ImGuiWindowi.exit: ; preds = %280, %291, %293, %295, %297, %299, %314, %329
-  %.sroa.063.0.i = phi <2 x float> [ %.sroa.063.0.copyload69.i, %329 ], [ %.sroa.0.4.vec.insert.i53.i, %314 ], [ %.sroa.0.4.vec.insert.i47.i, %299 ], [ %.sroa.063.0.copyload68.i, %297 ], [ %.sroa.063.0.copyload67.i, %295 ], [ %.sroa.063.0.copyload66.i, %293 ], [ %.sroa.063.0.copyload.i, %291 ], [ %.sroa.0.4.vec.insert.i.i, %280 ]
-  %.sroa.10.0.i = phi <2 x float> [ %.sroa.10.0.copyload77.i, %329 ], [ %.sroa.0.4.vec.insert.i55.i, %314 ], [ %.sroa.0.4.vec.insert.i49.i, %299 ], [ %.sroa.10.0.copyload75.i, %297 ], [ %.sroa.10.0.copyload73.i, %295 ], [ %.sroa.10.0.copyload71.i, %293 ], [ %.sroa.10.0.copyload.i, %291 ], [ %.sroa.3.12.vec.insert.i.i, %280 ]
+  %.sroa.063.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %280 ], [ %.sroa.063.0.copyload.i, %291 ], [ %.sroa.063.0.copyload66.i, %293 ], [ %.sroa.063.0.copyload67.i, %295 ], [ %.sroa.063.0.copyload68.i, %297 ], [ %.sroa.0.4.vec.insert.i47.i, %299 ], [ %.sroa.0.4.vec.insert.i53.i, %314 ], [ %.sroa.063.0.copyload69.i, %329 ]
+  %.sroa.10.0.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i, %280 ], [ %.sroa.10.0.copyload.i, %291 ], [ %.sroa.10.0.copyload71.i, %293 ], [ %.sroa.10.0.copyload73.i, %295 ], [ %.sroa.10.0.copyload75.i, %297 ], [ %.sroa.0.4.vec.insert.i49.i, %299 ], [ %.sroa.0.4.vec.insert.i55.i, %314 ], [ %.sroa.10.0.copyload77.i, %329 ]
   %.sroa.0895.0.vec.extract = extractelement <2 x float> %.sroa.063.0.i, i64 0
   %331 = fpext float %.sroa.0895.0.vec.extract to double
   %.sroa.0895.4.vec.extract = extractelement <2 x float> %.sroa.063.0.i, i64 1
@@ -71698,8 +71698,8 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %491, %494
   br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit: ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i, %499, %500, %501, %502, %503, %504, %505, %516, %525, %528, %539, %550, %561
-  %.sroa.21.0.i = phi <2 x float> [ %.sroa.21.12.vec.insert123.i, %561 ], [ %.sroa.21.12.vec.insert121.i, %550 ], [ %.sroa.21.12.vec.insert119.i, %539 ], [ %.sroa.21.12.vec.insert117.i, %528 ], [ %.sroa.21.0.copyload102.i, %525 ], [ %.sroa.21.12.vec.insert115.i, %516 ], [ %.sroa.21.12.vec.insert.i, %505 ], [ %.sroa.21.0.copyload100.i, %504 ], [ %.sroa.21.0.copyload98.i, %503 ], [ %.sroa.21.0.copyload96.i, %502 ], [ %.sroa.21.0.copyload94.i, %501 ], [ %.sroa.21.0.copyload92.i, %500 ], [ %.sroa.21.0.copyload.i, %499 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert90.i, %561 ], [ %.sroa.0.4.vec.insert88.i, %550 ], [ %.sroa.0.4.vec.insert86.i, %539 ], [ %.sroa.0.4.vec.insert84.i, %528 ], [ %.sroa.0.0.copyload80.i, %525 ], [ %.sroa.0.4.vec.insert82.i, %516 ], [ %.sroa.0.4.vec.insert.i582, %505 ], [ %.sroa.0.0.copyload79.i, %504 ], [ %.sroa.0.0.copyload78.i, %503 ], [ %.sroa.0.0.copyload77.i, %502 ], [ %.sroa.0.0.copyload76.i, %501 ], [ %.sroa.0.0.copyload75.i, %500 ], [ %.sroa.0.0.copyload.i, %499 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
+  %.sroa.21.0.i = phi <2 x float> [ %.sroa.21.0.copyload.i, %499 ], [ %.sroa.21.0.copyload92.i, %500 ], [ %.sroa.21.0.copyload94.i, %501 ], [ %.sroa.21.0.copyload96.i, %502 ], [ %.sroa.21.0.copyload98.i, %503 ], [ %.sroa.21.0.copyload100.i, %504 ], [ %.sroa.21.12.vec.insert.i, %505 ], [ %.sroa.21.12.vec.insert115.i, %516 ], [ %.sroa.21.0.copyload102.i, %525 ], [ %.sroa.21.12.vec.insert117.i, %528 ], [ %.sroa.21.12.vec.insert119.i, %539 ], [ %.sroa.21.12.vec.insert121.i, %550 ], [ %.sroa.21.12.vec.insert123.i, %561 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %499 ], [ %.sroa.0.0.copyload75.i, %500 ], [ %.sroa.0.0.copyload76.i, %501 ], [ %.sroa.0.0.copyload77.i, %502 ], [ %.sroa.0.0.copyload78.i, %503 ], [ %.sroa.0.0.copyload79.i, %504 ], [ %.sroa.0.4.vec.insert.i582, %505 ], [ %.sroa.0.4.vec.insert82.i, %516 ], [ %.sroa.0.0.copyload80.i, %525 ], [ %.sroa.0.4.vec.insert84.i, %528 ], [ %.sroa.0.4.vec.insert86.i, %539 ], [ %.sroa.0.4.vec.insert88.i, %550 ], [ %.sroa.0.4.vec.insert90.i, %561 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
   %.sroa.0873.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %573 = fpext float %.sroa.0873.0.vec.extract to double
   %.sroa.0873.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 1
@@ -71935,8 +71935,8 @@ default.unreachable:                              ; preds = %_ZN5ImGui20TableGet
   unreachable
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit640: ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i589, %683, %684, %685, %686, %687
-  %.sroa.21.0.i595.in = phi ptr [ %.sroa.21.0..sroa_idx99.i623, %687 ], [ %.sroa.21.0..sroa_idx97.i626, %686 ], [ %.sroa.21.0..sroa_idx95.i629, %685 ], [ %.sroa.21.0..sroa_idx93.i632, %684 ], [ %.sroa.21.0..sroa_idx91.i635, %683 ], [ %.sroa.21.0..sroa_idx.i638, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i589 ]
-  %.sroa.0.0.i596.in = phi ptr [ %452, %687 ], [ %453, %686 ], [ %454, %685 ], [ %455, %684 ], [ %456, %683 ], [ %457, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i589 ]
+  %.sroa.21.0.i595.in = phi ptr [ %.sroa.21.0..sroa_idx91.i635, %683 ], [ %.sroa.21.0..sroa_idx93.i632, %684 ], [ %.sroa.21.0..sroa_idx95.i629, %685 ], [ %.sroa.21.0..sroa_idx97.i626, %686 ], [ %.sroa.21.0..sroa_idx99.i623, %687 ], [ %.sroa.21.0..sroa_idx.i638, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i589 ]
+  %.sroa.0.0.i596.in = phi ptr [ %456, %683 ], [ %455, %684 ], [ %454, %685 ], [ %453, %686 ], [ %452, %687 ], [ %457, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i589 ]
   %.sroa.0.0.i596 = load <2 x float>, ptr %.sroa.0.0.i596.in, align 8
   %.sroa.21.0.i595 = load <2 x float>, ptr %.sroa.21.0.i595.in, align 8
   %.sroa.0852.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i596, i64 0
@@ -75016,8 +75016,8 @@ _Z12ImLowerBoundP16ImGuiStoragePairS0_j.exit.i.i: ; preds = %.lr.ph.i.i.i718, %_
   br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs13GetWindowRectEP11ImGuiWindowi.exit769
 
 _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs13GetWindowRectEP11ImGuiWindowi.exit769: ; preds = %2457, %2459, %2470, %2472, %2474, %2476, %2478, %2493, %2508
-  %.sroa.063.0.i725 = phi <2 x float> [ %.sroa.063.0.copyload69.i722, %2508 ], [ %.sroa.0.4.vec.insert.i53.i736, %2493 ], [ %.sroa.0.4.vec.insert.i47.i748, %2478 ], [ %.sroa.063.0.copyload68.i753, %2476 ], [ %.sroa.063.0.copyload67.i756, %2474 ], [ %.sroa.063.0.copyload66.i759, %2472 ], [ %.sroa.063.0.copyload.i762, %2470 ], [ %.sroa.0.4.vec.insert.i.i766, %2459 ], [ zeroinitializer, %2457 ]
-  %.sroa.10.0.i726 = phi <2 x float> [ %.sroa.10.0.copyload77.i724, %2508 ], [ %.sroa.0.4.vec.insert.i55.i740, %2493 ], [ %.sroa.0.4.vec.insert.i49.i752, %2478 ], [ %.sroa.10.0.copyload75.i755, %2476 ], [ %.sroa.10.0.copyload73.i758, %2474 ], [ %.sroa.10.0.copyload71.i761, %2472 ], [ %.sroa.10.0.copyload.i764, %2470 ], [ %.sroa.3.12.vec.insert.i.i768, %2459 ], [ zeroinitializer, %2457 ]
+  %.sroa.063.0.i725 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i766, %2459 ], [ %.sroa.063.0.copyload.i762, %2470 ], [ %.sroa.063.0.copyload66.i759, %2472 ], [ %.sroa.063.0.copyload67.i756, %2474 ], [ %.sroa.063.0.copyload68.i753, %2476 ], [ %.sroa.0.4.vec.insert.i47.i748, %2478 ], [ %.sroa.0.4.vec.insert.i53.i736, %2493 ], [ %.sroa.063.0.copyload69.i722, %2508 ], [ zeroinitializer, %2457 ]
+  %.sroa.10.0.i726 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i768, %2459 ], [ %.sroa.10.0.copyload.i764, %2470 ], [ %.sroa.10.0.copyload71.i761, %2472 ], [ %.sroa.10.0.copyload73.i758, %2474 ], [ %.sroa.10.0.copyload75.i755, %2476 ], [ %.sroa.0.4.vec.insert.i49.i752, %2478 ], [ %.sroa.0.4.vec.insert.i55.i740, %2493 ], [ %.sroa.10.0.copyload77.i724, %2508 ], [ zeroinitializer, %2457 ]
   store <2 x float> %.sroa.063.0.i725, ptr %20, align 8
   store <2 x float> %.sroa.10.0.i726, ptr %2442, align 8
   call void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(200) %2454, ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %2442, i32 noundef -8388353, float noundef 0.000000e+00, i32 noundef 0, float noundef 1.000000e+00)
@@ -76681,8 +76681,8 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   br label %117
 
 117:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit, %101, %87, %73, %59, %54, %41, %27, %25, %23, %21, %19, %17, %15
-  %.sroa.21.0 = phi <2 x float> [ %.sroa.21.12.vec.insert123, %101 ], [ %.sroa.21.12.vec.insert121, %87 ], [ %.sroa.21.12.vec.insert119, %73 ], [ %.sroa.21.12.vec.insert117, %59 ], [ %.sroa.21.0.copyload102, %54 ], [ %.sroa.21.12.vec.insert115, %41 ], [ %.sroa.21.12.vec.insert, %27 ], [ %.sroa.21.0.copyload100, %25 ], [ %.sroa.21.0.copyload98, %23 ], [ %.sroa.21.0.copyload96, %21 ], [ %.sroa.21.0.copyload94, %19 ], [ %.sroa.21.0.copyload92, %17 ], [ %.sroa.21.0.copyload, %15 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert90, %101 ], [ %.sroa.0.4.vec.insert88, %87 ], [ %.sroa.0.4.vec.insert86, %73 ], [ %.sroa.0.4.vec.insert84, %59 ], [ %.sroa.0.0.copyload80, %54 ], [ %.sroa.0.4.vec.insert82, %41 ], [ %.sroa.0.4.vec.insert, %27 ], [ %.sroa.0.0.copyload79, %25 ], [ %.sroa.0.0.copyload78, %23 ], [ %.sroa.0.0.copyload77, %21 ], [ %.sroa.0.0.copyload76, %19 ], [ %.sroa.0.0.copyload75, %17 ], [ %.sroa.0.0.copyload, %15 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
+  %.sroa.21.0 = phi <2 x float> [ %.sroa.21.0.copyload, %15 ], [ %.sroa.21.0.copyload92, %17 ], [ %.sroa.21.0.copyload94, %19 ], [ %.sroa.21.0.copyload96, %21 ], [ %.sroa.21.0.copyload98, %23 ], [ %.sroa.21.0.copyload100, %25 ], [ %.sroa.21.12.vec.insert, %27 ], [ %.sroa.21.12.vec.insert115, %41 ], [ %.sroa.21.0.copyload102, %54 ], [ %.sroa.21.12.vec.insert117, %59 ], [ %.sroa.21.12.vec.insert119, %73 ], [ %.sroa.21.12.vec.insert121, %87 ], [ %.sroa.21.12.vec.insert123, %101 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload75, %17 ], [ %.sroa.0.0.copyload76, %19 ], [ %.sroa.0.0.copyload77, %21 ], [ %.sroa.0.0.copyload78, %23 ], [ %.sroa.0.0.copyload79, %25 ], [ %.sroa.0.4.vec.insert, %27 ], [ %.sroa.0.4.vec.insert82, %41 ], [ %.sroa.0.0.copyload80, %54 ], [ %.sroa.0.4.vec.insert84, %59 ], [ %.sroa.0.4.vec.insert86, %73 ], [ %.sroa.0.4.vec.insert88, %87 ], [ %.sroa.0.4.vec.insert90, %101 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.21.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -78711,9 +78711,9 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread:        ; preds = %148, %_ZN5ImGui17Is
   br label %_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_.exit
 
 _ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_.exit: ; preds = %171, %157, %194, %195, %196, %197, %198
-  %.sroa.12.0 = phi float [ %186, %198 ], [ %186, %197 ], [ %189, %196 ], [ %.019.i, %195 ], [ %.019.i, %194 ], [ %.019.i, %157 ], [ %193, %171 ]
-  %.sroa.045.0 = phi float [ %.019.i, %198 ], [ %193, %197 ], [ %186, %196 ], [ %186, %195 ], [ %189, %194 ], [ %.019.i, %157 ], [ %.019.i, %171 ]
-  %.sroa.21.0 = phi float [ %189, %198 ], [ %.019.i, %197 ], [ %.019.i, %196 ], [ %193, %195 ], [ %186, %194 ], [ %.019.i, %157 ], [ %186, %171 ]
+  %.sroa.12.0 = phi float [ %186, %198 ], [ %.019.i, %194 ], [ %.019.i, %195 ], [ %189, %196 ], [ %186, %197 ], [ %.019.i, %157 ], [ %193, %171 ]
+  %.sroa.045.0 = phi float [ %.019.i, %198 ], [ %189, %194 ], [ %186, %195 ], [ %186, %196 ], [ %193, %197 ], [ %.019.i, %157 ], [ %.019.i, %171 ]
+  %.sroa.21.0 = phi float [ %189, %198 ], [ %186, %194 ], [ %193, %195 ], [ %.019.i, %196 ], [ %.019.i, %197 ], [ %.019.i, %157 ], [ %186, %171 ]
   call void @_ZN5ImGui18RenderNavHighlightERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %6, i32 noundef %.2.i.i, i32 noundef 0)
   %.sroa.01.0.copyload = load <2 x float>, ptr %6, align 8
   %.sroa.0.0.copyload = load <2 x float>, ptr %115, align 8
@@ -82193,8 +82193,8 @@ define internal fastcc { <2 x float>, <2 x float> } @_ZL19GetResizeBorderRectP11
   br label %38
 
 38:                                               ; preds = %4, %33, %28, %23, %18
-  %.sroa.045.0 = phi <2 x float> [ %.sroa.045.4.vec.insert58, %33 ], [ %.sroa.045.4.vec.insert56, %28 ], [ %.sroa.045.4.vec.insert54, %23 ], [ %.sroa.045.4.vec.insert, %18 ], [ zeroinitializer, %4 ]
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.12.vec.insert71, %33 ], [ %.sroa.10.12.vec.insert69, %28 ], [ %.sroa.10.12.vec.insert67, %23 ], [ %.sroa.10.12.vec.insert, %18 ], [ zeroinitializer, %4 ]
+  %.sroa.045.0 = phi <2 x float> [ %.sroa.045.4.vec.insert, %18 ], [ %.sroa.045.4.vec.insert54, %23 ], [ %.sroa.045.4.vec.insert56, %28 ], [ %.sroa.045.4.vec.insert58, %33 ], [ zeroinitializer, %4 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.12.vec.insert, %18 ], [ %.sroa.10.12.vec.insert67, %23 ], [ %.sroa.10.12.vec.insert69, %28 ], [ %.sroa.10.12.vec.insert71, %33 ], [ zeroinitializer, %4 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.045.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.10.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

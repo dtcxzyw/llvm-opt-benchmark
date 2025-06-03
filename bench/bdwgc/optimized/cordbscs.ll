@@ -1712,7 +1712,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %tailrecurse, %67, %19, %.thread
-  %.050 = phi i32 [ 1, %19 ], [ 0, %.thread ], [ 1, %67 ], [ 0, %tailrecurse ], [ 1, %52 ]
+  %.050 = phi i32 [ 0, %.thread ], [ 1, %19 ], [ 1, %67 ], [ 0, %tailrecurse ], [ 1, %52 ]
   ret i32 %.050
 }
 

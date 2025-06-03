@@ -342,7 +342,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   br i1 %148, label %263, label %266
 
 149:                                              ; preds = %74, %67, %64
-  %.sroa.0.1.i = phi ptr [ %66, %64 ], [ %75, %74 ], [ %68, %67 ]
+  %.sroa.0.1.i = phi ptr [ %68, %67 ], [ %75, %74 ], [ %66, %64 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !13
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i, ptr %150, align 8
@@ -363,7 +363,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   br label %152
 
 154:                                              ; preds = %97, %90, %87
-  %.sroa.0.1.i98 = phi ptr [ %89, %87 ], [ %98, %97 ], [ %91, %90 ]
+  %.sroa.0.1.i98 = phi ptr [ %91, %90 ], [ %98, %97 ], [ %89, %87 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !22
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i98, ptr %155, align 8
@@ -379,7 +379,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   br label %152
 
 157:                                              ; preds = %120, %113, %110
-  %.sroa.0.1.i105 = phi ptr [ %112, %110 ], [ %121, %120 ], [ %114, %113 ]
+  %.sroa.0.1.i105 = phi ptr [ %114, %113 ], [ %121, %120 ], [ %112, %110 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !31
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i105, ptr %158, align 8
@@ -585,7 +585,7 @@ _ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i: ; preds = %196
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h8fd88559937ab9b9E.exit"
 
 common.resume:                                    ; preds = %288, %233, %.body.i, %204, %208, %316, %259
-  %common.resume.op = phi { ptr, i32 } [ %260, %259 ], [ %317, %316 ], [ %205, %208 ], [ %205, %204 ], [ %eh.lpad-body.i, %.body.i ], [ %289, %288 ], [ %234, %233 ]
+  %common.resume.op = phi { ptr, i32 } [ %260, %259 ], [ %317, %316 ], [ %205, %208 ], [ %205, %204 ], [ %eh.lpad-body.i, %.body.i ], [ %234, %233 ], [ %289, %288 ]
   resume { ptr, i32 } %common.resume.op
 
 214:                                              ; preds = %_ZN5serde2de9SeqAccess12next_element17hc9b1d0e72993f3d7E.exit.i
@@ -634,8 +634,8 @@ common.resume:                                    ; preds = %288, %233, %.body.i
   unreachable
 
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h8fd88559937ab9b9E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i", %212, %227
-  %.sroa.0135.0 = phi i64 [ -9223372036854775804, %227 ], [ -9223372036854775803, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i" ], [ -9223372036854775803, %212 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.7.8.copyload, %227 ], [ %201, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i" ], [ %201, %212 ]
+  %.sroa.0135.0 = phi i64 [ -9223372036854775803, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i" ], [ -9223372036854775803, %212 ], [ -9223372036854775804, %227 ]
+  %.sroa.7.0 = phi ptr [ %201, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h832e93e6c108cbdaE.llvm.1367251721182104800.exit.i.i" ], [ %201, %212 ], [ %.sroa.7.8.copyload, %227 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !67
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -844,7 +844,7 @@ common.resume:                                    ; preds = %288, %233, %.body.i
           to label %common.resume unwind label %247
 
 290:                                              ; preds = %.noexc115, %.noexc114, %.noexc113, %276
-  %.sroa.0.0.i112 = phi ptr [ %278, %276 ], [ %285, %.noexc114 ], [ %287, %.noexc115 ], [ %280, %.noexc113 ]
+  %.sroa.0.0.i112 = phi ptr [ %278, %276 ], [ %280, %.noexc113 ], [ %285, %.noexc114 ], [ %287, %.noexc115 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %25, i64 72, i1 false)
   %291 = getelementptr inbounds nuw i8, ptr %26, i64 72
@@ -1351,7 +1351,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h7a5b129a5edd337bE.exit28:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h40109f1ab99e5080E.exit
 
 .thread:                                          ; preds = %63, %84, %83, %82, %81, %80, %79
-  %.sroa.02.0.i = phi ptr [ @anon.c4e85278fcc9fea0836255c393759dd7.31, %84 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.30, %83 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.29, %82 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.28, %81 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.27, %80 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.25, %79 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.24, %63 ]
+  %.sroa.02.0.i = phi ptr [ @anon.c4e85278fcc9fea0836255c393759dd7.25, %79 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.27, %80 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.28, %81 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.29, %82 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.30, %83 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.31, %84 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.24, %63 ]
   %102 = load i64, ptr %6, align 8, !alias.scope !334, !noalias !343, !noundef !5
   %103 = load i64, ptr %.val22, align 8, !alias.scope !334, !noalias !343, !noundef !5
   %104 = sub i64 %103, %102
@@ -1593,7 +1593,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h81b8588da7b5d44aE.exit28:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h09b9550062b707e8E.exit
 
 .thread:                                          ; preds = %63, %84, %83, %82, %81, %80, %79
-  %.sroa.02.0.i = phi ptr [ @anon.c4e85278fcc9fea0836255c393759dd7.31, %84 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.30, %83 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.29, %82 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.28, %81 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.27, %80 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.25, %79 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.24, %63 ]
+  %.sroa.02.0.i = phi ptr [ @anon.c4e85278fcc9fea0836255c393759dd7.25, %79 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.27, %80 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.28, %81 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.29, %82 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.30, %83 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.31, %84 ], [ @anon.c4e85278fcc9fea0836255c393759dd7.24, %63 ]
   %102 = load i64, ptr %6, align 8, !alias.scope !408, !noalias !417, !noundef !5
   %103 = load i64, ptr %.val22, align 8, !alias.scope !408, !noalias !417, !noundef !5
   %104 = sub i64 %103, %102
@@ -2279,7 +2279,7 @@ _ZN10serde_json3ser6indent17h79b65b851ef14236E.exit.i.i: ; preds = %"_ZN79_$LT$s
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h41948d30382ea79dE.exit"
 
 "_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17h16eb9816dd168c75E.exit": ; preds = %_ZN10serde_json3ser9Formatter9write_f6417h7e9d4735b13e6b13E.exit.i.i, %_ZN10serde_json3ser9Formatter10write_null17he8de3485cac0df0bE.exit.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417hd529ce6c685d15d9E.exit.i", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417ha1e81e965cf2ef59E.exit.i", %330, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h420c736fb3d27b3eE.exit", %225, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h03a3fd45de7528b9E.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h6ddacceb868330deE.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h9f1a01088c894085E.exit"
-  %.sroa.0.0 = phi ptr [ %325, %330 ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h420c736fb3d27b3eE.exit" ], [ %227, %225 ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h03a3fd45de7528b9E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h6ddacceb868330deE.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h9f1a01088c894085E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417ha1e81e965cf2ef59E.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417hd529ce6c685d15d9E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter10write_null17he8de3485cac0df0bE.exit.i.i ], [ null, %_ZN10serde_json3ser9Formatter9write_f6417h7e9d4735b13e6b13E.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h9f1a01088c894085E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h6ddacceb868330deE.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h03a3fd45de7528b9E.exit" ], [ %227, %225 ], [ %325, %330 ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h420c736fb3d27b3eE.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417ha1e81e965cf2ef59E.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417hd529ce6c685d15d9E.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter10write_null17he8de3485cac0df0bE.exit.i.i ], [ null, %_ZN10serde_json3ser9Formatter9write_f6417h7e9d4735b13e6b13E.exit.i.i ]
   ret ptr %.sroa.0.0
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h41948d30382ea79dE.exit": ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h644f3ffbfa754681E.exit.i", %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17hb2ad93bd3cc8e528E.exit.i"
@@ -2954,7 +2954,7 @@ _ZN10serde_json3ser9Formatter10end_object17ha169726396b12bedE.exit.i: ; preds = 
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h4a33c7c1e226e2b9E.exit"
 
 "_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17h7c78ce9e7acca835E.exit": ; preds = %_ZN10serde_json3ser9Formatter9write_f6417hc1b5fd1217295ff2E.exit.i.i, %_ZN10serde_json3ser9Formatter10write_null17hfda13011f540eb49E.exit.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h99703f6321825f5aE.exit.i", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hf5099fabc3608d6aE.exit.i", %292, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h80c9d60fff6e697fE.exit", %225, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9fe7b35fdd90b6baE.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h7bf815ed92aa1977E.exit", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h6211b2f6ab6c6f86E.exit"
-  %.sroa.0.0 = phi ptr [ %289, %292 ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h80c9d60fff6e697fE.exit" ], [ %227, %225 ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9fe7b35fdd90b6baE.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h7bf815ed92aa1977E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h6211b2f6ab6c6f86E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hf5099fabc3608d6aE.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h99703f6321825f5aE.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter10write_null17hfda13011f540eb49E.exit.i.i ], [ null, %_ZN10serde_json3ser9Formatter9write_f6417hc1b5fd1217295ff2E.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h6211b2f6ab6c6f86E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h7bf815ed92aa1977E.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9fe7b35fdd90b6baE.exit" ], [ %227, %225 ], [ %289, %292 ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h80c9d60fff6e697fE.exit" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hf5099fabc3608d6aE.exit.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h99703f6321825f5aE.exit.i" ], [ null, %_ZN10serde_json3ser9Formatter10write_null17hfda13011f540eb49E.exit.i.i ], [ null, %_ZN10serde_json3ser9Formatter9write_f6417hc1b5fd1217295ff2E.exit.i.i ]
   ret ptr %.sroa.0.0
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h4a33c7c1e226e2b9E.exit": ; preds = %_ZN10serde_json3ser9Formatter10end_object17ha169726396b12bedE.exit.i, %_ZN10serde_json3ser9Formatter12begin_object17he64ca0ff5e34c001E.exit.i

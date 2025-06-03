@@ -2978,8 +2978,8 @@ mstate.exit90.i:                                  ; preds = %387, %mstate.exit93
   br label %state_do.exit
 
 state_do.exit:                                    ; preds = %319, %323, %327, %mstate.exit90.i
-  %.267.i = phi i32 [ 42, %319 ], [ %.368.i, %mstate.exit90.i ], [ 0, %323 ], [ 0, %327 ]
-  %.062.i = phi i32 [ 0, %319 ], [ %.264.i, %mstate.exit90.i ], [ -1, %323 ], [ -1, %327 ]
+  %.267.i = phi i32 [ %.368.i, %mstate.exit90.i ], [ 42, %319 ], [ 0, %323 ], [ 0, %327 ]
+  %.062.i = phi i32 [ %.264.i, %mstate.exit90.i ], [ 0, %319 ], [ -1, %323 ], [ -1, %327 ]
   store i32 %.267.i, ptr %22, align 4, !tbaa !25
   br label %mstate.exit184thread-pre-split
 
@@ -3648,7 +3648,7 @@ state_performing.exit:                            ; preds = %537, %541, %mstate.
   br label %mstate.exit184thread-pre-split
 
 mstate.exit184thread-pre-split:                   ; preds = %.thread290, %state_connect.exit, %state_resolving.exit, %243, %state_do.exit, %state_ratelimiting.exit, %state_performing.exit, %112, %224, %242, %.thread260, %298, %299, %396, %413, %422, %435, %410, %432, %679
-  %.2137.ph = phi i32 [ -1, %679 ], [ -1, %432 ], [ -1, %410 ], [ 0, %112 ], [ %.0.i, %state_connect.exit ], [ %.033.i, %state_resolving.exit ], [ 0, %224 ], [ 0, %242 ], [ 0, %243 ], [ 0, %.thread260 ], [ 0, %298 ], [ 0, %299 ], [ %.062.i, %state_do.exit ], [ 0, %396 ], [ 0, %413 ], [ 0, %422 ], [ 0, %435 ], [ %.035.i, %state_ratelimiting.exit ], [ %.089.i, %state_performing.exit ], [ 0, %.thread290 ]
+  %.2137.ph = phi i32 [ -1, %679 ], [ -1, %432 ], [ -1, %410 ], [ %.089.i, %state_performing.exit ], [ %.035.i, %state_ratelimiting.exit ], [ 0, %422 ], [ 0, %435 ], [ 0, %396 ], [ 0, %413 ], [ %.062.i, %state_do.exit ], [ 0, %298 ], [ 0, %299 ], [ 0, %.thread260 ], [ 0, %242 ], [ 0, %243 ], [ 0, %224 ], [ %.033.i, %state_resolving.exit ], [ %.0.i, %state_connect.exit ], [ 0, %112 ], [ 0, %.thread290 ]
   %.pr = load i32, ptr %61, align 8, !tbaa !95
   br label %mstate.exit184
 
@@ -5038,7 +5038,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_setopt(ptr noundef captures(add
   br label %225
 
 225:                                              ; preds = %149, %153, %224, %217, %200, %169, %132, %115, %93, %76, %59, %42, %25, %11, %11, %11, %11, %11
-  %.024 = phi i32 [ 6, %224 ], [ 0, %217 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %200 ], [ 0, %169 ], [ 0, %153 ], [ 0, %149 ], [ 0, %132 ], [ 0, %115 ], [ 0, %93 ], [ 0, %76 ], [ 0, %59 ], [ 0, %42 ], [ 0, %25 ]
+  %.024 = phi i32 [ 6, %224 ], [ 0, %25 ], [ 0, %42 ], [ 0, %59 ], [ 0, %76 ], [ 0, %93 ], [ 0, %115 ], [ 0, %132 ], [ 0, %153 ], [ 0, %149 ], [ 0, %169 ], [ 0, %200 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %217 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %226
 

@@ -468,8 +468,8 @@ _ZL18initialize_symbolsv.exit.i.i:                ; preds = %93, %90
   br label %142
 
 142:                                              ; preds = %140, %138, %136, %131, %128, %126, %124, %.lr.ph.i.i42.i
-  %143 = phi ptr [ %122, %.lr.ph.i.i42.i ], [ %141, %140 ], [ %137, %136 ], [ %139, %138 ], [ %135, %131 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ]
-  %.1.i.i.i = phi i16 [ %.023.i.i.i, %.lr.ph.i.i42.i ], [ %.023.i.i.i, %140 ], [ %.023.i.i.i, %136 ], [ %.023.i.i.i, %138 ], [ %.023.i.i.i, %131 ], [ %130, %128 ], [ %.023.i.i.i, %126 ], [ %.023.i.i.i, %124 ]
+  %143 = phi ptr [ %122, %.lr.ph.i.i42.i ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %135, %131 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ]
+  %.1.i.i.i = phi i16 [ %.023.i.i.i, %.lr.ph.i.i42.i ], [ %.023.i.i.i, %124 ], [ %.023.i.i.i, %126 ], [ %130, %128 ], [ %.023.i.i.i, %131 ], [ %.023.i.i.i, %136 ], [ %.023.i.i.i, %138 ], [ %.023.i.i.i, %140 ]
   %144 = add i16 %.1.i.i.i, 1
   %145 = icmp ult i16 %144, %118
   br i1 %145, label %.lr.ph.i.i42.i, label %_ZL24position_stream_after_cpPK15ClassFileStream.exit.i.i, !llvm.loop !8
@@ -1579,8 +1579,8 @@ _ZL21should_register_klassPK13InstanceKlassRb.exit.i: ; preds = %_ZL26java_base_
   br label %103
 
 103:                                              ; preds = %101, %99, %97, %92, %89, %87, %85, %.lr.ph.i.i
-  %104 = phi ptr [ %83, %.lr.ph.i.i ], [ %102, %101 ], [ %98, %97 ], [ %100, %99 ], [ %96, %92 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
-  %.1.i.i = phi i16 [ %.023.i.i, %.lr.ph.i.i ], [ %.023.i.i, %101 ], [ %.023.i.i, %97 ], [ %.023.i.i, %99 ], [ %.023.i.i, %92 ], [ %91, %89 ], [ %.023.i.i, %87 ], [ %.023.i.i, %85 ]
+  %104 = phi ptr [ %83, %.lr.ph.i.i ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %96, %92 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ]
+  %.1.i.i = phi i16 [ %.023.i.i, %.lr.ph.i.i ], [ %.023.i.i, %85 ], [ %.023.i.i, %87 ], [ %91, %89 ], [ %.023.i.i, %92 ], [ %.023.i.i, %97 ], [ %.023.i.i, %99 ], [ %.023.i.i, %101 ]
   %105 = add i16 %.1.i.i, 1
   %106 = icmp ult i16 %105, %79
   br i1 %106, label %.lr.ph.i.i, label %_ZL24position_stream_after_cpPK15ClassFileStream.exit.i, !llvm.loop !8
@@ -8171,7 +8171,7 @@ define internal fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %
   br i1 %41, label %.lr.ph, label %_ZL21next_annotation_indexPhii.exit, !llvm.loop !34
 
 _ZL21next_annotation_indexPhii.exit:              ; preds = %.lr.ph, %.lr.ph37, %29, %15, %27, %9, %11, %5, %13, %3
-  %.024 = phi i32 [ %1, %3 ], [ %1, %13 ], [ %1, %5 ], [ %12, %11 ], [ %10, %9 ], [ %1, %27 ], [ %14, %15 ], [ %28, %29 ], [ %23, %.lr.ph37 ], [ %38, %.lr.ph ]
+  %.024 = phi i32 [ %1, %3 ], [ %1, %13 ], [ %1, %5 ], [ %10, %9 ], [ %12, %11 ], [ %1, %27 ], [ %14, %15 ], [ %28, %29 ], [ %23, %.lr.ph37 ], [ %38, %.lr.ph ]
   ret i32 %.024
 }
 

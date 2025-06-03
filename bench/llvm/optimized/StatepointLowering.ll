@@ -5513,7 +5513,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %236, %_ZNK4llvm8
   br label %_ZNK4llvm16GCStatepointInst13gc_live_beginEv.exit
 
 _ZNK4llvm16GCStatepointInst13gc_live_beginEv.exit: ; preds = %256, %.loopexit.i
-  %.1.i = phi ptr [ %265, %256 ], [ %266, %.loopexit.i ]
+  %.1.i = phi ptr [ %266, %.loopexit.i ], [ %265, %256 ]
   %267 = call noundef ptr @_ZNK4llvm16GCStatepointInst11gc_live_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %268 = ptrtoint ptr %267 to i64
   %269 = ptrtoint ptr %.1.i to i64
@@ -5607,7 +5607,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i110: ; preds = %288, %_ZNK4ll
   br label %_ZNK4llvm16GCStatepointInst11deopt_beginEv.exit
 
 _ZNK4llvm16GCStatepointInst11deopt_beginEv.exit:  ; preds = %308, %.loopexit.i120
-  %.1.i121 = phi ptr [ %317, %308 ], [ %318, %.loopexit.i120 ]
+  %.1.i121 = phi ptr [ %318, %.loopexit.i120 ], [ %317, %308 ]
   %319 = call noundef ptr @_ZNK4llvm16GCStatepointInst9deopt_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %320 = ptrtoint ptr %319 to i64
   %321 = ptrtoint ptr %.1.i121 to i64
@@ -5686,7 +5686,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i125: ; preds = %329, %_ZNK4ll
   br label %_ZNK4llvm16GCStatepointInst24gc_transition_args_beginEv.exit
 
 _ZNK4llvm16GCStatepointInst24gc_transition_args_beginEv.exit: ; preds = %349, %.loopexit.i135
-  %.1.i136 = phi ptr [ %358, %349 ], [ %359, %.loopexit.i135 ]
+  %.1.i136 = phi ptr [ %359, %.loopexit.i135 ], [ %358, %349 ]
   %360 = call noundef ptr @_ZNK4llvm16GCStatepointInst22gc_transition_args_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %361 = ptrtoint ptr %360 to i64
   %362 = ptrtoint ptr %.1.i136 to i64
@@ -6415,7 +6415,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %8, %_ZNK4llvm8Ca
   br label %_ZNK4llvm16GCStatepointInst11deopt_beginEv.exit
 
 _ZNK4llvm16GCStatepointInst11deopt_beginEv.exit:  ; preds = %28, %.loopexit.i
-  %.1.i = phi ptr [ %37, %28 ], [ %38, %.loopexit.i ]
+  %.1.i = phi ptr [ %38, %.loopexit.i ], [ %37, %28 ]
   %39 = tail call noundef ptr @_ZNK4llvm16GCStatepointInst9deopt_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.1.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %39, 1
@@ -6500,7 +6500,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %8, %_ZNK4llvm8Call
   br label %44
 
 44:                                               ; preds = %28, %.loopexit
-  %.1 = phi ptr [ %42, %28 ], [ %43, %.loopexit ]
+  %.1 = phi ptr [ %43, %.loopexit ], [ %42, %28 ]
   ret ptr %.1
 }
 
@@ -6582,7 +6582,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %8, %_ZNK4llvm8Call
   br label %44
 
 44:                                               ; preds = %28, %.loopexit
-  %.1 = phi ptr [ %42, %28 ], [ %43, %.loopexit ]
+  %.1 = phi ptr [ %43, %.loopexit ], [ %42, %28 ]
   ret ptr %.1
 }
 
@@ -6664,7 +6664,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %8, %_ZNK4llvm8Call
   br label %44
 
 44:                                               ; preds = %28, %.loopexit
-  %.1 = phi ptr [ %42, %28 ], [ %43, %.loopexit ]
+  %.1 = phi ptr [ %43, %.loopexit ], [ %42, %28 ]
   ret ptr %.1
 }
 
@@ -9929,9 +9929,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm7SDValueEN9__gnu_cxx5__op
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre52, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %56, %59 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %59 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = load ptr, ptr %.1, align 8, !tbaa !434
   %65 = icmp eq ptr %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -9945,9 +9945,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm7SDValueEN9__gnu_cxx5__op
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge53, %70
-  %73 = phi i32 [ %.pre56, %._crit_edge._crit_edge53 ], [ %62, %70 ]
-  %74 = phi ptr [ %.pre54, %._crit_edge._crit_edge53 ], [ %63, %70 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge53 ], [ %71, %70 ]
+  %73 = phi i32 [ %62, %70 ], [ %.pre56, %._crit_edge._crit_edge53 ]
+  %74 = phi ptr [ %63, %70 ], [ %.pre54, %._crit_edge._crit_edge53 ]
+  %.2 = phi ptr [ %71, %70 ], [ %.029.lcssa, %._crit_edge._crit_edge53 ]
   %75 = load ptr, ptr %.2, align 8, !tbaa !434
   %76 = icmp eq ptr %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -11596,7 +11596,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

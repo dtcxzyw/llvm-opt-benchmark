@@ -374,8 +374,8 @@ default.unreachable209:                           ; preds = %122
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph178, %.lr.ph183, %bytestream2_get_byte.exit126, %128, %145, %134
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %145 ], [ %.sroa.0.2, %134 ], [ %132, %128 ], [ %.sroa.0.7, %bytestream2_get_byte.exit126 ], [ %.sroa.0.2, %.lr.ph183 ], [ %.sroa.0.7, %.lr.ph178 ]
-  %.198 = phi ptr [ %147, %145 ], [ %.097187, %134 ], [ %133, %128 ], [ %.097187, %bytestream2_get_byte.exit126 ], [ %144, %.lr.ph183 ], [ %162, %.lr.ph178 ]
+  %.sroa.0.1 = phi ptr [ %132, %128 ], [ %.sroa.0.2, %134 ], [ %.sroa.0.2, %145 ], [ %.sroa.0.7, %bytestream2_get_byte.exit126 ], [ %.sroa.0.2, %.lr.ph183 ], [ %.sroa.0.7, %.lr.ph178 ]
+  %.198 = phi ptr [ %133, %128 ], [ %.097187, %134 ], [ %147, %145 ], [ %.097187, %bytestream2_get_byte.exit126 ], [ %144, %.lr.ph183 ], [ %162, %.lr.ph178 ]
   %.not113 = icmp eq ptr %.198, %16
   br i1 %.not113, label %.thread165, label %.lr.ph190
 

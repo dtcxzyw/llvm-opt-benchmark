@@ -231,7 +231,7 @@ _ZNK5clang10SwitchStmt7getInitEv.exit:            ; preds = %14
   br i1 %22, label %.thread105, label %.critedge
 
 .thread105:                                       ; preds = %.thread, %21, %3
-  %.047 = phi i32 [ 0, %3 ], [ %23, %21 ], [ %.249104, %.thread ]
+  %.047 = phi i32 [ %23, %21 ], [ 0, %3 ], [ %.249104, %.thread ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %25 = load i32, ptr %5, align 4, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 792

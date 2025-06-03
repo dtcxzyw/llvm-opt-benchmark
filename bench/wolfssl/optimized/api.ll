@@ -35959,7 +35959,7 @@ define internal noundef ptr @run_wolfssl_server(ptr noundef captures(address_is_
   br label %123
 
 123:                                              ; preds = %67, %115, %83, %78, %71, %45, %42, %36, %121, %55, %18
-  %.069 = phi ptr [ null, %18 ], [ null, %36 ], [ null, %42 ], [ null, %45 ], [ null, %55 ], [ %53, %67 ], [ %53, %71 ], [ %53, %78 ], [ %53, %83 ], [ %53, %121 ], [ %53, %115 ]
+  %.069 = phi ptr [ null, %18 ], [ null, %36 ], [ null, %42 ], [ null, %45 ], [ null, %55 ], [ %53, %71 ], [ %53, %78 ], [ %53, %83 ], [ %53, %121 ], [ %53, %115 ], [ %53, %67 ]
   call void @wolfSSL_free(ptr noundef %.069) #27
   call void @wolfSSL_CTX_free(ptr noundef %16) #27
   %124 = load i32, ptr %3, align 4, !tbaa !67

@@ -1393,7 +1393,7 @@ define hidden void @_ZN2cv22createMotionJpegWriterERKNSt7__cxx1112basic_stringIc
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !113
   %45 = icmp eq i32 %44, 4
   br i1 %45, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %46
@@ -1403,7 +1403,7 @@ define hidden void @_ZN2cv22createMotionJpegWriterERKNSt7__cxx1112basic_stringIc
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %49 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !113
   %50 = icmp eq i32 %49, 4
   %spec.select.i.i.i.i = select i1 %50, ptr %.sroa.032.2.i.i.i.i, ptr %11

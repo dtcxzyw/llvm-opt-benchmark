@@ -1077,7 +1077,7 @@ setlocales.exit:                                  ; preds = %50, %icu_validate_l
   br label %collprovider_name.exit
 
 collprovider_name.exit:                           ; preds = %135, %138, %139, %140
-  %.0.i = phi ptr [ @.str.163, %140 ], [ @.str.121, %139 ], [ @.str.120, %138 ], [ @.str.119, %135 ]
+  %.0.i = phi ptr [ @.str.163, %140 ], [ @.str.120, %138 ], [ @.str.121, %139 ], [ @.str.119, %135 ]
   %141 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i) #19
   %142 = load i8, ptr @locale_provider, align 1
   %.not10 = icmp eq i8 %142, 99
@@ -1254,7 +1254,7 @@ define internal fastcc noundef nonnull ptr @collprovider_name(i8 noundef signext
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.163, %4 ], [ @.str.121, %3 ], [ @.str.120, %2 ], [ @.str.119, %1 ]
+  %.0 = phi ptr [ @.str.163, %4 ], [ @.str.120, %2 ], [ @.str.121, %3 ], [ @.str.119, %1 ]
   ret ptr %.0
 }
 

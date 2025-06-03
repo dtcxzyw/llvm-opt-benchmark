@@ -2661,7 +2661,7 @@ ehcleanup67:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 return:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit33, %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit29
-  %retval.0 = phi double [ %call32, %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit33 ], [ %call28, %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit29 ]
+  %retval.0 = phi double [ %call28, %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit29 ], [ %call32, %_ZNK5boost10shared_ptrIN8QuantLib4BondEEptEv.exit33 ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont51, %invoke.cont13

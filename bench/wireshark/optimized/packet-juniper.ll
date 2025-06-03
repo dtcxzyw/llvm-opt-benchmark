@@ -532,7 +532,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %17, %21, %26, %27, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 201, %27 ], [ 5, %26 ], [ %.15.i, %21 ], [ 6, %17 ], [ 0, %13 ]
+  %.0.i = phi i32 [ 0, %28 ], [ 5, %26 ], [ 201, %27 ], [ %.15.i, %21 ], [ 6, %17 ], [ 0, %13 ]
   switch i8 %trunc.i, label %34 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %juniper_svc_cookie_len.exit
@@ -689,7 +689,7 @@ define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr no
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %16, %20, %23, %24, %25
-  %.0.i = phi i32 [ 0, %25 ], [ 201, %24 ], [ 5, %23 ], [ %.16.i, %20 ], [ 6, %16 ], [ 0, %13 ]
+  %.0.i = phi i32 [ 0, %25 ], [ 5, %23 ], [ 201, %24 ], [ %.16.i, %20 ], [ 6, %16 ], [ 0, %13 ]
   switch i8 %trunc.i, label %31 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %.thread
@@ -1856,7 +1856,7 @@ define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noun
   br label %juniper_ext_get_tlv_value.exit
 
 juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, %54, %56, %57, %60, %63, %65
-  %.0.i = phi i32 [ %55, %54 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %66, %65 ], [ %64, %63 ], [ %62, %60 ], [ %59, %57 ], [ -1, %45 ], [ -1, %56 ]
+  %.0.i = phi i32 [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ], [ %66, %65 ], [ -1, %45 ], [ -1, %56 ]
   switch i8 %30, label %88 [
     i8 3, label %67
     i8 7, label %70

@@ -589,7 +589,7 @@ _ZN15PerfDataManager6existsEPKc.exit.thread:      ; preds = %75, %_ZN15PerfDataM
   br label %108
 
 91:                                               ; preds = %86, %83, %80
-  %.037 = phi ptr [ %87, %86 ], [ %84, %83 ], [ %81, %80 ]
+  %.037 = phi ptr [ %81, %80 ], [ %84, %83 ], [ %87, %86 ]
   %92 = getelementptr inbounds nuw i8, ptr %.037, i64 40
   %93 = load ptr, ptr %92, align 8
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #5

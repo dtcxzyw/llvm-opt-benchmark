@@ -263,7 +263,7 @@ define i32 @evp_pkey_ctx_ctrl_to_param(ptr noundef %0, i32 noundef %1, i32 nound
   br label %51
 
 51:                                               ; preds = %45, %48
-  %.029 = phi i32 [ %50, %48 ], [ %47, %45 ]
+  %.029 = phi i32 [ %47, %45 ], [ %50, %48 ]
   %52 = icmp sgt i32 %.029, 0
   br i1 %52, label %.thread, label %.thread44
 
@@ -910,7 +910,7 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   br label %.thread200
 
 .thread200:                                       ; preds = %.thread192, %260, %258, %199, %.thread, %14, %97, %106, %142, %132, %122, %112, %69, %66, %160, %152, %318, %322, %156, %276, %283, %292, %294, %296, %302, %308, %315, %228, %226, %80, %3, %255, %248, %240, %232, %231, %216, %104, %95, %65, %22, %15
-  %.0157 = phi i32 [ 0, %15 ], [ 0, %255 ], [ %254, %248 ], [ %247, %240 ], [ %239, %232 ], [ 1, %231 ], [ %220, %216 ], [ 0, %22 ], [ -2, %65 ], [ 0, %95 ], [ 0, %104 ], [ %12, %3 ], [ 0, %80 ], [ 0, %226 ], [ 0, %228 ], [ 0, %315 ], [ %314, %308 ], [ %307, %302 ], [ %301, %296 ], [ %293, %292 ], [ %295, %294 ], [ %286, %283 ], [ 0, %276 ], [ %.1159195, %322 ], [ %.1159195, %318 ], [ 1, %14 ], [ 1, %156 ], [ 1, %160 ], [ 1, %152 ], [ 1, %66 ], [ 1, %142 ], [ 1, %132 ], [ 1, %122 ], [ 1, %112 ], [ 1, %97 ], [ 1, %106 ], [ 1, %69 ], [ 1, %199 ], [ %.1.ph, %.thread ], [ %209, %258 ], [ %209, %260 ], [ %.1159195, %.thread192 ]
+  %.0157 = phi i32 [ 0, %15 ], [ 0, %22 ], [ -2, %65 ], [ 0, %95 ], [ 0, %104 ], [ 0, %255 ], [ %220, %216 ], [ 1, %231 ], [ %239, %232 ], [ %247, %240 ], [ %254, %248 ], [ %12, %3 ], [ 0, %80 ], [ 0, %226 ], [ 0, %228 ], [ 0, %315 ], [ %286, %283 ], [ %293, %292 ], [ %295, %294 ], [ %301, %296 ], [ %307, %302 ], [ %314, %308 ], [ 0, %276 ], [ 1, %66 ], [ 1, %69 ], [ 1, %97 ], [ 1, %106 ], [ 1, %112 ], [ 1, %122 ], [ 1, %132 ], [ 1, %142 ], [ 1, %156 ], [ 1, %160 ], [ 1, %152 ], [ 1, %14 ], [ %.1159195, %322 ], [ %.1159195, %318 ], [ 1, %199 ], [ %.1.ph, %.thread ], [ %209, %258 ], [ %209, %260 ], [ %.1159195, %.thread192 ]
   ret i32 %.0157
 }
 
@@ -1872,7 +1872,7 @@ define internal i32 @fix_dh_nid5114(i32 noundef %0, ptr noundef readonly capture
   br label %34
 
 34:                                               ; preds = %19, %6, %3, %32, %29, %17
-  %.0 = phi i32 [ %33, %32 ], [ 0, %29 ], [ 0, %17 ], [ %4, %3 ], [ 0, %6 ], [ 0, %19 ]
+  %.0 = phi i32 [ %33, %32 ], [ 0, %17 ], [ 0, %29 ], [ %4, %3 ], [ 0, %6 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2384,8 +2384,8 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
   store ptr null, ptr %66, align 8, !tbaa !35
   br label %.thread74
 
-.thread74:                                        ; preds = %34, %36, %50, %44, %62, %87, %.critedge.thread, %3, %17
-  %.067 = phi i32 [ 1, %17 ], [ %5, %3 ], [ %55, %.critedge.thread ], [ %.1, %87 ], [ %55, %62 ], [ %35, %34 ], [ %37, %36 ], [ -2, %50 ], [ -2, %44 ]
+.thread74:                                        ; preds = %36, %34, %50, %44, %62, %87, %.critedge.thread, %3, %17
+  %.067 = phi i32 [ 1, %17 ], [ %5, %3 ], [ %55, %.critedge.thread ], [ %.1, %87 ], [ %55, %62 ], [ %37, %36 ], [ %35, %34 ], [ -2, %50 ], [ -2, %44 ]
   ret i32 %.067
 }
 
@@ -2829,7 +2829,7 @@ define internal range(i32 0, 2) i32 @fix_group_ecx(i32 noundef %0, ptr readnone 
   br label %26
 
 26:                                               ; preds = %3, %5, %24, %22, %9
-  %.0 = phi i32 [ 0, %22 ], [ 1, %24 ], [ 1, %9 ], [ 0, %5 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %22 ], [ 1, %24 ], [ 0, %5 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i32 %.0
 }
@@ -3353,7 +3353,7 @@ define internal i32 @get_dh_dsa_payload_p(i32 noundef %0, ptr noundef readonly c
   br label %get_payload_bn.exit
 
 13:                                               ; preds = %10, %7
-  %.0 = phi ptr [ %12, %10 ], [ %9, %7 ]
+  %.0 = phi ptr [ %9, %7 ], [ %12, %10 ]
   %14 = icmp eq ptr %.0, null
   br i1 %14, label %get_payload_bn.exit, label %15
 
@@ -3398,7 +3398,7 @@ define internal i32 @get_dh_dsa_payload_g(i32 noundef %0, ptr noundef readonly c
   br label %15
 
 15:                                               ; preds = %11, %7
-  %.0 = phi ptr [ %14, %11 ], [ %10, %7 ]
+  %.0 = phi ptr [ %10, %7 ], [ %14, %11 ]
   %16 = icmp eq ptr %.0, null
   br i1 %16, label %get_payload_bn.exit, label %17
 
@@ -3443,7 +3443,7 @@ define internal i32 @get_dh_dsa_payload_q(i32 noundef %0, ptr noundef readonly c
   br label %15
 
 15:                                               ; preds = %11, %7
-  %.0 = phi ptr [ %14, %11 ], [ %10, %7 ]
+  %.0 = phi ptr [ %10, %7 ], [ %14, %11 ]
   %16 = icmp eq ptr %.0, null
   br i1 %16, label %get_payload_bn.exit, label %17
 

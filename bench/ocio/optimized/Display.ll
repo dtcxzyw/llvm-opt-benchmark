@@ -408,7 +408,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i
-  %.sroa.037.1.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %126, %125 ]
+  %.sroa.037.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val20.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i, align 8, !tbaa !11
   %128 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val20.i.i.i, ptr noundef %.val1.i26.i.i.i)
@@ -423,7 +423,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i
-  %.sroa.037.2.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %131, %130 ]
+  %.sroa.037.2.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val21.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i, align 8, !tbaa !11
   %133 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val21.i.i.i, ptr noundef %.val1.i27.i.i.i)
@@ -983,7 +983,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i
-  %.sroa.037.1.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %126, %125 ]
+  %.sroa.037.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val20.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i, align 8, !tbaa !11
   %128 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val20.i.i.i, ptr noundef %.val1.i26.i.i.i)
@@ -998,7 +998,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i
-  %.sroa.037.2.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %131, %130 ]
+  %.sroa.037.2.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val21.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i, align 8, !tbaa !11
   %133 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val21.i.i.i, ptr noundef %.val1.i27.i.i.i)
@@ -1556,7 +1556,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i
-  %.sroa.037.1.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %126, %125 ]
+  %.sroa.037.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val20.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i, align 8, !tbaa !11
   %128 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val20.i.i.i, ptr noundef %.val1.i26.i.i.i)
@@ -1571,7 +1571,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i
-  %.sroa.037.2.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %131, %130 ]
+  %.sroa.037.2.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val21.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i, align 8, !tbaa !11
   %133 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val21.i.i.i, ptr noundef %.val1.i27.i.i.i)
@@ -2129,7 +2129,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i
-  %.sroa.037.1.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %126, %125 ]
+  %.sroa.037.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val20.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i, align 8, !tbaa !11
   %128 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val20.i.i.i, ptr noundef %.val1.i26.i.i.i)
@@ -2144,7 +2144,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i
-  %.sroa.037.2.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %131, %130 ]
+  %.sroa.037.2.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.037.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val21.i.i.i = load ptr, ptr %4, align 8, !tbaa !11
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i, align 8, !tbaa !11
   %133 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %.val21.i.i.i, ptr noundef %.val1.i27.i.i.i)

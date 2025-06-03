@@ -154,7 +154,7 @@ fsm_settings__set_disabled.exit:                  ; preds = %29, %31
   br label %46
 
 46:                                               ; preds = %44, %40
-  %.0 = phi ptr [ %45, %44 ], [ %41, %40 ]
+  %.0 = phi ptr [ %41, %40 ], [ %45, %44 ]
   %.not11 = icmp eq ptr %.0, null
   br i1 %.not11, label %50, label %47
 

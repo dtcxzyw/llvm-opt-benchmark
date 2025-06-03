@@ -269,8 +269,8 @@ parse_nal_unit.exit:                              ; preds = %95, %94
   call void @llvm.lifetime.end.p0(i64 908, ptr nonnull %4) #7
   br label %parse_nal_unit.exit.thread
 
-parse_nal_unit.exit.thread:                       ; preds = %51, %84, %89, %71, %63, %parse_nal_unit.exit
-  %.0.i105 = phi i32 [ %.1.i, %parse_nal_unit.exit ], [ %82, %84 ], [ %87, %89 ], [ -1094995529, %71 ], [ -1094995529, %63 ], [ -1094995529, %51 ]
+parse_nal_unit.exit.thread:                       ; preds = %51, %89, %84, %71, %63, %parse_nal_unit.exit
+  %.0.i105 = phi i32 [ %.1.i, %parse_nal_unit.exit ], [ %87, %89 ], [ %82, %84 ], [ -1094995529, %71 ], [ -1094995529, %63 ], [ -1094995529, %51 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #7
   br label %.thread

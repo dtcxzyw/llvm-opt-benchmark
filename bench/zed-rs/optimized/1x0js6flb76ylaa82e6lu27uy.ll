@@ -15950,7 +15950,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
   ]
 
 "_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf80951fb848dafecE.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf80951fb848dafecE.exit13", %44, %11, %2, %70, %64, %58, %37, %18
-  %.sroa.0.0.shrunk = phi i1 [ %75, %70 ], [ %69, %64 ], [ %43, %37 ], [ %24, %18 ], [ %63, %58 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf80951fb848dafecE.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
+  %.sroa.0.0.shrunk = phi i1 [ %63, %58 ], [ %24, %18 ], [ %43, %37 ], [ %69, %64 ], [ %75, %70 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf80951fb848dafecE.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable:                              ; preds = %10
@@ -16329,7 +16329,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h534e8c3971842b23E.exit: ; preds = %3
   unreachable
 
 "_ZN89_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..searchable..SearchableItemHandle$GT$25match_index_for_direction28_$u7b$$u7b$closure$u7d$$u7d$17hd18148c84f7a9481E.exit": ; preds = %55, %53, %51
-  %.sroa.01.0.i.i = phi i64 [ %57, %55 ], [ %54, %53 ], [ %52, %51 ]
+  %.sroa.01.0.i.i = phi i64 [ %54, %53 ], [ %52, %51 ], [ %57, %55 ]
   %59 = extractvalue { ptr, ptr } %21, 0
   %60 = icmp ne ptr %59, null
   tail call void @llvm.assume(i1 %60)
@@ -30282,7 +30282,7 @@ default.unreachable:                              ; preds = %"_ZN84_$LT$gpui..ap
   unreachable
 
 149:                                              ; preds = %42, %54, %132, %102, %90, %60
-  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %55, %54 ], [ %91, %90 ], [ %.pn.pn.i, %102 ], [ %.pn25.pn.i, %60 ], [ %133, %132 ]
+  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %55, %54 ], [ %91, %90 ], [ %.pn25.pn.i, %60 ], [ %.pn.pn.i, %102 ], [ %133, %132 ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$gpui..app..entity_map..Lease$LT$language_tools..lsp_log..LspLogView$GT$$GT$17hf12f42cfbeb1ad66E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #35
           to label %150 unwind label %147
 

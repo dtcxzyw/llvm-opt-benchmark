@@ -2608,7 +2608,7 @@ zend_dval_to_lval_safe.exit.loopexit:             ; preds = %3
   br label %zend_dval_to_lval_safe.exit
 
 zend_dval_to_lval_safe.exit:                      ; preds = %3, %zend_dval_to_lval_safe.exit.loopexit, %35, %zend_dval_to_lval.exit, %_zend_handle_numeric_str.exit, %.loopexit, %41, %36
-  %.1 = phi i64 [ 0, %.loopexit ], [ %44, %41 ], [ %37, %36 ], [ %21, %_zend_handle_numeric_str.exit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ %.0.i13, %35 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ 1, %3 ]
+  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %37, %36 ], [ %44, %41 ], [ %.0.i13, %zend_dval_to_lval.exit ], [ %.0.i13, %35 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ 1, %3 ]
   ret i64 %.1
 }
 

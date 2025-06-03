@@ -1106,7 +1106,7 @@ sub_1.i.i:                                        ; preds = %15
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %24, %23, %.thread4.i.i, %.tail.i.i, %15
-  %.0.i.i = phi i32 [ 4, %24 ], [ 3, %23 ], [ 2, %.thread4.i.i ], [ 1, %.tail.i.i ], [ 0, %15 ]
+  %.0.i.i = phi i32 [ 2, %.thread4.i.i ], [ 3, %23 ], [ 4, %24 ], [ 1, %.tail.i.i ], [ 0, %15 ]
   %26 = getelementptr inbounds nuw i8, ptr %.066.i, i64 64
   %27 = load ptr, ptr %26, align 16, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -1159,8 +1159,8 @@ sub_1.i90.i:                                      ; preds = %.lr.ph.i
   unreachable
 
 getStringKind.exit94.i:                           ; preds = %41, %40, %.thread4.i92.i, %.tail.i93.i, %.lr.ph.i
-  %.not87.i = phi i1 [ false, %41 ], [ false, %40 ], [ false, %.thread4.i92.i ], [ false, %.tail.i93.i ], [ true, %.lr.ph.i ]
-  %.0.i89.i = phi i32 [ 4, %41 ], [ 3, %40 ], [ 2, %.thread4.i92.i ], [ 1, %.tail.i93.i ], [ 0, %.lr.ph.i ]
+  %.not87.i = phi i1 [ false, %.thread4.i92.i ], [ false, %40 ], [ false, %41 ], [ false, %.tail.i93.i ], [ true, %.lr.ph.i ]
+  %.0.i89.i = phi i32 [ 2, %.thread4.i92.i ], [ 3, %40 ], [ 4, %41 ], [ 1, %.tail.i93.i ], [ 0, %.lr.ph.i ]
   %43 = icmp eq i32 %.075108.i, 0
   br i1 %43, label %44, label %49
 

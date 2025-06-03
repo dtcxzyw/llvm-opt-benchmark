@@ -5328,7 +5328,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %.loopexit, %149, %1
   br label %161
 
 161:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %160
-  %.232 = phi i1 [ %.030, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ false, %160 ]
+  %.232 = phi i1 [ false, %160 ], [ %.030, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
   ret i1 %.232
 }
 
@@ -5576,8 +5576,8 @@ define hidden void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder13addToTyp
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i
-  %48 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %45 ]
+  %48 = phi ptr [ %43, %45 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %49 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !27
   %50 = icmp eq ptr %49, %48
   br i1 %50, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, label %51
@@ -5587,8 +5587,8 @@ define hidden void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder13addToTyp
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i
-  %54 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %52, %51 ]
+  %54 = phi ptr [ %48, %51 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %55 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !27
   %56 = icmp eq ptr %55, %54
   %spec.select.i.i.i = select i1 %56, ptr %.sroa.032.2.i.i.i, ptr %13

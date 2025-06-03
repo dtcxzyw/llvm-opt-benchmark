@@ -633,7 +633,7 @@ define internal range(i32 0, 2) i32 @zend_compare_file_handles(ptr noundef reado
   br label %zend_string_equals.exit
 
 zend_string_equals.exit:                          ; preds = %8, %14, %20, %7, %2, %26, %22
-  %.0.shrunk = phi i1 [ %29, %26 ], [ %25, %22 ], [ false, %2 ], [ false, %7 ], [ true, %8 ], [ false, %14 ], [ %21, %20 ]
+  %.0.shrunk = phi i1 [ %25, %22 ], [ %29, %26 ], [ false, %2 ], [ false, %7 ], [ true, %8 ], [ false, %14 ], [ %21, %20 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

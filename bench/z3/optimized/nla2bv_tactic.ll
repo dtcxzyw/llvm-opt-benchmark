@@ -1875,7 +1875,7 @@ default.unreachable:                              ; preds = %73, %100, %.prehead
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %50, %46, %42, %34
-  %.07.i.i.i = phi i32 [ %52, %50 ], [ %49, %46 ], [ %45, %42 ], [ 0, %34 ]
+  %.07.i.i.i = phi i32 [ %45, %42 ], [ %49, %46 ], [ %52, %50 ], [ 0, %34 ]
   %53 = zext i32 %.07.i.i.i to i64
   %54 = icmp samesign ult i64 %indvars.iv, %53
   br i1 %54, label %60, label %55
@@ -1958,8 +1958,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %50, %46, %42, %34
   br i1 %exitcond.i.i.i, label %68, label %73, !llvm.loop !133
 
 88:                                               ; preds = %83, %81, %.noexc42, %64
-  %89 = phi i32 [ %61, %64 ], [ %.pre119, %.noexc42 ], [ %61, %83 ], [ %61, %81 ]
-  %.in.i = phi ptr [ %65, %64 ], [ %72, %.noexc42 ], [ %86, %83 ], [ %82, %81 ]
+  %89 = phi i32 [ %61, %64 ], [ %.pre119, %.noexc42 ], [ %61, %81 ], [ %61, %83 ]
+  %.in.i = phi ptr [ %65, %64 ], [ %72, %.noexc42 ], [ %82, %81 ], [ %86, %83 ]
   %90 = load ptr, ptr %.in.i, align 8, !tbaa !134
   %91 = and i32 %89, 268435456
   %.not.i43 = icmp eq i32 %91, 0
@@ -2018,7 +2018,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %50, %46, %42, %34
   br i1 %exitcond.i.i.i49, label %95, label %100, !llvm.loop !136
 
 _ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i: ; preds = %110, %108, %.noexc51
-  %.018.i.i.i = phi ptr [ %99, %.noexc51 ], [ %113, %110 ], [ %109, %108 ]
+  %.018.i.i.i = phi ptr [ %99, %.noexc51 ], [ %109, %108 ], [ %113, %110 ]
   %115 = load ptr, ptr %.018.i.i.i, align 8, !tbaa !137
   br label %_ZNK4goal3depEj.exit
 
@@ -2062,7 +2062,7 @@ _ZNK4goal3depEj.exit:                             ; preds = %_ZNK11ast_manager3g
   br label %_ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i
 
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %132, %128, %124
-  %.07.i.i.i54 = phi i32 [ %134, %132 ], [ %131, %128 ], [ %127, %124 ]
+  %.07.i.i.i54 = phi i32 [ %127, %124 ], [ %131, %128 ], [ %134, %132 ]
   %135 = zext i32 %.07.i.i.i54 to i64
   %136 = icmp samesign ult i64 %indvars.iv, %135
   br i1 %136, label %137, label %_ZNK4goal2prEj.exit
@@ -2120,7 +2120,7 @@ _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i:
   br i1 %exitcond.i.i.i61, label %140, label %145, !llvm.loop !133
 
 _ZNK11ast_manager3getERKN14parray_managerINS_17expr_array_configEE3refEj.exit.i: ; preds = %155, %153, %.noexc63
-  %.018.i.i.i58 = phi ptr [ %144, %.noexc63 ], [ %158, %155 ], [ %154, %153 ]
+  %.018.i.i.i58 = phi ptr [ %144, %.noexc63 ], [ %154, %153 ], [ %158, %155 ]
   %160 = load ptr, ptr %.018.i.i.i58, align 8, !tbaa !139
   br label %_ZNK4goal2prEj.exit
 
@@ -3961,7 +3961,7 @@ default.unreachable:                              ; preds = %72
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %32, %28, %24, %16
-  %.07.i.i.i = phi i32 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ 0, %16 ]
+  %.07.i.i.i = phi i32 [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %16 ]
   %35 = zext i32 %.07.i.i.i to i64
   %36 = icmp samesign ult i64 %indvars.iv, %35
   br i1 %36, label %59, label %37
@@ -4085,7 +4085,7 @@ _ZN10scoped_ptrI13expr_replacerED2Ev.exit:        ; preds = %49
   br i1 %exitcond.i.i.i, label %67, label %72, !llvm.loop !133
 
 87:                                               ; preds = %82, %80, %.noexc, %63
-  %.in.i = phi ptr [ %64, %63 ], [ %71, %.noexc ], [ %85, %82 ], [ %81, %80 ]
+  %.in.i = phi ptr [ %64, %63 ], [ %71, %.noexc ], [ %81, %80 ], [ %85, %82 ]
   %88 = load ptr, ptr %.in.i, align 8, !tbaa !134
   invoke void @_ZN13expr_replacerclEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %88, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %89 unwind label %57
@@ -4188,7 +4188,7 @@ default.unreachable:                              ; preds = %55
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %31, %27, %23, %15
-  %.07.i.i.i = phi i32 [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ 0, %15 ]
+  %.07.i.i.i = phi i32 [ %26, %23 ], [ %30, %27 ], [ %33, %31 ], [ 0, %15 ]
   %34 = zext i32 %.07.i.i.i to i64
   %35 = icmp samesign ult i64 %indvars.iv, %34
   br i1 %35, label %42, label %36
@@ -4267,7 +4267,7 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %31, %27, %23, %15
   br i1 %exitcond.i.i.i, label %50, label %55, !llvm.loop !133
 
 70:                                               ; preds = %65, %63, %.noexc, %46
-  %.in.i = phi ptr [ %47, %46 ], [ %54, %.noexc ], [ %68, %65 ], [ %64, %63 ]
+  %.in.i = phi ptr [ %47, %46 ], [ %54, %.noexc ], [ %64, %63 ], [ %68, %65 ]
   %71 = load ptr, ptr %.in.i, align 8, !tbaa !134
   invoke void @_ZN12rewriter_tplI19bv2int_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerERS4_I3appS5_E(ptr noundef nonnull align 8 dereferenceable(536) %3, ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %_ZN12rewriter_tplI19bv2int_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit unwind label %40
@@ -4434,7 +4434,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %33, %29, %25, %17
-  %.07.i.i.i = phi i32 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ], [ 0, %17 ]
+  %.07.i.i.i = phi i32 [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %17 ]
   %36 = zext i32 %.07.i.i.i to i64
   %37 = icmp samesign ult i64 %indvars.iv, %36
   br i1 %37, label %50, label %38
@@ -4537,7 +4537,7 @@ _ZNK12bv2real_util19num_side_conditionsEv.exit:   ; preds = %38
   br i1 %exitcond.i.i.i, label %58, label %63, !llvm.loop !133
 
 78:                                               ; preds = %73, %71, %.noexc22, %54
-  %.in.i = phi ptr [ %55, %54 ], [ %62, %.noexc22 ], [ %76, %73 ], [ %72, %71 ]
+  %.in.i = phi ptr [ %55, %54 ], [ %62, %.noexc22 ], [ %72, %71 ], [ %76, %73 ]
   %79 = load ptr, ptr %.in.i, align 8, !tbaa !134
   invoke void @_ZN12rewriter_tplI20bv2real_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerERS4_I3appS5_E(ptr noundef nonnull align 8 dereferenceable(536) %3, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %_ZN12rewriter_tplI20bv2real_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit unwind label %48
@@ -4761,7 +4761,7 @@ default.unreachable82:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
-  %.07.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %27 = lshr i32 %.07.i, 1
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
@@ -4963,8 +4963,8 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit: ; 
   br label %134
 
 134:                                              ; preds = %76, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit, %124, %133
-  %.062 = phi ptr [ %73, %133 ], [ %73, %124 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %76 ]
-  %.0 = phi i32 [ %71, %133 ], [ %128, %124 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %71, %76 ]
+  %.062 = phi ptr [ %73, %76 ], [ %.163, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %73, %124 ], [ %73, %133 ]
+  %.0 = phi i32 [ %71, %76 ], [ %123, %_ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit ], [ %128, %124 ], [ %71, %133 ]
   %135 = load i32, ptr %69, align 8
   %136 = add i32 %135, 1
   %137 = and i32 %136, 1073741823
@@ -5504,7 +5504,7 @@ default.unreachable40:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
-  %.1 = phi i32 [ %.03035, %135 ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
+  %.1 = phi i32 [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %135 ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
   %.not16.wide = icmp eq i64 %54, 0
   br i1 %.not16.wide, label %._crit_edge37, label %.lr.ph36, !llvm.loop !238
 }
@@ -5696,7 +5696,7 @@ default.unreachable82:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
-  %.07.i = phi i32 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.07.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
   %27 = lshr i32 %.07.i, 1
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
@@ -5898,8 +5898,8 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18
   br label %134
 
 134:                                              ; preds = %76, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %124, %133
-  %.062 = phi ptr [ %73, %133 ], [ %73, %124 ], [ %.163, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit ], [ %73, %76 ]
-  %.0 = phi i32 [ %71, %133 ], [ %128, %124 ], [ %123, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit ], [ %71, %76 ]
+  %.062 = phi ptr [ %73, %76 ], [ %.163, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit ], [ %73, %124 ], [ %73, %133 ]
+  %.0 = phi i32 [ %71, %76 ], [ %123, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE6expandERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit ], [ %128, %124 ], [ %71, %133 ]
   %135 = load i32, ptr %69, align 8
   %136 = add i32 %135, 1
   %137 = and i32 %136, 1073741823
@@ -6455,7 +6455,7 @@ default.unreachable42:                            ; preds = %.lr.ph38
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE9rpop_backEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERj.exit: ; preds = %103, %95, %88, %149, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10rpush_backERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERjRKS7_.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE4rsetEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyEjRKS7_.exit
-  %.1 = phi i32 [ %.03237, %149 ], [ %148, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10rpush_backERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERjRKS7_.exit ], [ %.03237, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE4rsetEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyEjRKS7_.exit ], [ %90, %88 ], [ %90, %95 ], [ %90, %103 ]
+  %.1 = phi i32 [ %.03237, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE4rsetEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyEjRKS7_.exit ], [ %148, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10rpush_backERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERjRKS7_.exit ], [ %.03237, %149 ], [ %90, %88 ], [ %90, %95 ], [ %90, %103 ]
   %.not16.wide = icmp eq i64 %56, 0
   br i1 %.not16.wide, label %._crit_edge39, label %.lr.ph38, !llvm.loop !259
 }
@@ -7253,7 +7253,7 @@ default.unreachable:                              ; preds = %51
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %23, %19, %15, %7
-  %.07.i.i.i = phi i32 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ 0, %7 ]
+  %.07.i.i.i = phi i32 [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %7 ]
   %26 = zext i32 %.07.i.i.i to i64
   %27 = icmp samesign ult i64 %indvars.iv, %26
   br i1 %27, label %38, label %28
@@ -7349,7 +7349,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %28, %3
   br i1 %exitcond.i.i.i, label %46, label %51, !llvm.loop !133
 
 66:                                               ; preds = %61, %59, %.noexc, %42
-  %.in.i = phi ptr [ %43, %42 ], [ %50, %.noexc ], [ %64, %61 ], [ %60, %59 ]
+  %.in.i = phi ptr [ %43, %42 ], [ %50, %.noexc ], [ %60, %59 ], [ %64, %61 ]
   %67 = load ptr, ptr %.in.i, align 8, !tbaa !134
   invoke void @_Z18for_each_expr_coreIN13nla2bv_tactic3imp17get_uninterp_procE8obj_markI4expr10bit_vector14default_t2uintIS4_EELb1ELb0EEvRT_RT0_PS4_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %67)
           to label %_Z13for_each_exprIN13nla2bv_tactic3imp17get_uninterp_procEEvRT_R8obj_markI4expr10bit_vector14default_t2uintIS6_EEPS6_.exit unwind label %36
@@ -7953,7 +7953,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %200, %203
   ret void
 
 208:                                              ; preds = %170, %191, %70, %95, %116, %41, %68
-  %.pn53.pn = phi { ptr, i32 } [ %42, %41 ], [ %69, %68 ], [ %71, %70 ], [ %117, %116 ], [ %96, %95 ], [ %192, %191 ], [ %171, %170 ]
+  %.pn53.pn = phi { ptr, i32 } [ %42, %41 ], [ %69, %68 ], [ %71, %70 ], [ %96, %95 ], [ %117, %116 ], [ %192, %191 ], [ %171, %170 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #21
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #21
   resume { ptr, i32 } %.pn53.pn

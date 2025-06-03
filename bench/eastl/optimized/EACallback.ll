@@ -1532,8 +1532,8 @@ sw.bb25:                                          ; preds = %if.end20
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end20, %sw.bb25, %sw.bb
-  %units.0 = phi i64 [ 0, %if.end20 ], [ %16, %sw.bb25 ], [ %call24, %sw.bb ]
-  %pNextEventUnits.0 = phi ptr [ %nextUnits, %if.end20 ], [ %mNextCallbackEventTick, %sw.bb25 ], [ %mNextCallbackEventTime, %sw.bb ]
+  %units.0 = phi i64 [ 0, %if.end20 ], [ %call24, %sw.bb ], [ %16, %sw.bb25 ]
+  %pNextEventUnits.0 = phi ptr [ %nextUnits, %if.end20 ], [ %mNextCallbackEventTime, %sw.bb ], [ %mNextCallbackEventTick, %sw.bb25 ]
   %mbOneShot = getelementptr inbounds nuw i8, ptr %pCallback, i64 56
   store i8 %frombool, ptr %mbOneShot, align 8
   %add = add nsw i64 %units.0, %14

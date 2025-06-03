@@ -5126,7 +5126,7 @@ yy_get_previous_state.exit1377:                   ; preds = %yy_get_next_buffer.
   unreachable
 
 2480:                                             ; preds = %2148, %1352, %1326
-  %.0 = phi i32 [ 0, %2148 ], [ 2, %1352 ], [ 1, %1326 ]
+  %.0 = phi i32 [ 1, %1326 ], [ 2, %1352 ], [ 0, %2148 ]
   ret i32 %.0
 }
 

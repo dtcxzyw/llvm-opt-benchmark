@@ -519,10 +519,10 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h05805411e3368d9aE(ptr no
 13:                                               ; preds = %7
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
-    i64 2, label %38
+    i64 2, label %27
     i64 3, label %15
-    i64 0, label %27
-    i64 1, label %32
+    i64 0, label %29
+    i64 1, label %34
   ], !prof !17
 
 default.unreachable:                              ; preds = %13
@@ -548,8 +548,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %20
   unreachable
 
-.thread58:                                        ; preds = %15, %38, %32, %27, %16
-  %.sroa.04.1 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.7, %16 ], [ %10, %27 ], [ %10, %32 ], [ %10, %38 ], [ %10, %15 ]
+.thread58:                                        ; preds = %15, %34, %27, %29, %16
+  %.sroa.04.1 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.7, %16 ], [ %10, %29 ], [ %10, %27 ], [ %10, %34 ], [ %10, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
@@ -566,28 +566,28 @@ default.unreachable:                              ; preds = %13
   br label %40
 
 27:                                               ; preds = %13
-  %28 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %30 = load i8, ptr %29, align 8, !range !19, !noundef !3
-  %31 = icmp eq i8 %30, 35
-  br i1 %31, label %.thread, label %.thread58
-
-32:                                               ; preds = %13
-  %33 = getelementptr i8, ptr %10, i64 -1
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  %35 = getelementptr i8, ptr %10, i64 15
-  %36 = load i8, ptr %35, align 8, !range !19, !noundef !3
-  %37 = icmp eq i8 %36, 35
-  br i1 %37, label %.thread, label %.thread58
-
-38:                                               ; preds = %13
   %.mask60 = and i64 %12, -4294967296
-  %39 = icmp eq i64 %.mask60, 17179869184
+  %28 = icmp eq i64 %.mask60, 17179869184
+  br i1 %28, label %.thread, label %.thread58
+
+29:                                               ; preds = %13
+  %30 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %32 = load i8, ptr %31, align 8, !range !19, !noundef !3
+  %33 = icmp eq i8 %32, 35
+  br i1 %33, label %.thread, label %.thread58
+
+34:                                               ; preds = %13
+  %35 = getelementptr i8, ptr %10, i64 -1
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr i8, ptr %10, i64 15
+  %38 = load i8, ptr %37, align 8, !range !19, !noundef !3
+  %39 = icmp eq i8 %38, 35
   br i1 %39, label %.thread, label %.thread58
 
-.thread:                                          ; preds = %15, %38, %32, %27
+.thread:                                          ; preds = %15, %34, %27, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3104c241a04b329dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %40
 
@@ -4175,10 +4175,10 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i: ; preds = %404
   br label %_ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit
 
 _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1ef220E.exit: ; preds = %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i
-  %.sroa.17.2 = phi ptr [ %.sroa.755.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ], [ %.sroa.7.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ]
-  %.sroa.15.2 = phi i64 [ %.sroa.652.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ], [ %.sroa.6.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ]
-  %.sroa.1276.2 = phi ptr [ %.sroa.549.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ], [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ]
-  %.sroa.874.2 = phi ptr [ %.sroa.047.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ], [ %.sroa.0.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ]
+  %.sroa.17.2 = phi ptr [ %.sroa.7.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ], [ %.sroa.755.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
+  %.sroa.15.2 = phi i64 [ %.sroa.6.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ], [ %.sroa.652.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
+  %.sroa.1276.2 = phi ptr [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ], [ %.sroa.549.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
+  %.sroa.874.2 = phi ptr [ %.sroa.0.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit35.i ], [ %.sroa.047.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE.exit.i ]
   %.not = icmp eq ptr %.sroa.874.2, null
   br i1 %.not, label %.loopexit98, label %410
 
@@ -4550,8 +4550,8 @@ default.unreachable1:                             ; preds = %1
   br label %17
 
 17:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.12.0 = phi i64 [ %16, %12 ], [ 16, %11 ], [ 15, %10 ], [ 13, %9 ], [ 18, %8 ], [ 8, %7 ], [ 13, %6 ], [ 12, %5 ], [ 16, %4 ], [ 14, %3 ], [ 12, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.115, %11 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.114, %10 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.113, %9 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.112, %8 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.111, %7 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.110, %6 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.109, %5 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.108, %4 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.107, %3 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.106, %1 ]
+  %.sroa.12.0 = phi i64 [ 14, %3 ], [ 16, %4 ], [ 12, %5 ], [ 13, %6 ], [ 8, %7 ], [ 18, %8 ], [ 13, %9 ], [ 15, %10 ], [ 16, %11 ], [ %16, %12 ], [ 12, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.107, %3 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.108, %4 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.109, %5 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.110, %6 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.111, %7 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.112, %8 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.113, %9 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.114, %10 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.115, %11 ], [ %14, %12 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.106, %1 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.12.0, 1
   ret { ptr, i64 } %19
@@ -4748,14 +4748,14 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !align !15, !noundef !3
   %.not = icmp eq ptr %8, null
-  %.sink26.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink26.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink26.sroa.gep29 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink26.sroa.gep30 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink26.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink26.sroa.gep33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink26.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink26.sroa.gep36 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink26.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink26.sroa.gep27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink26.sroa.gep29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink26.sroa.gep30 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink26.sroa.gep32 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink26.sroa.gep33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink26.sroa.gep35 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink26.sroa.gep36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -4790,13 +4790,13 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
     i64 0, label %20
     i64 1, label %26
     i64 2, label %26
-    i64 3, label %21
-    i64 4, label %21
-    i64 5, label %21
-    i64 6, label %22
-    i64 7, label %21
-    i64 8, label %23
-    i64 9, label %23
+    i64 3, label %22
+    i64 4, label %22
+    i64 5, label %22
+    i64 6, label %23
+    i64 7, label %22
+    i64 8, label %24
+    i64 9, label %24
     i64 10, label %26
   ], !prof !413
 
@@ -4806,49 +4806,49 @@ default.unreachable20:                            ; preds = %16
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.b7f70d23add93711b34b30bf71ab012b.123, ptr %4, align 8
-  br label %.invoke21
+  br label %.invoke
 
-21:                                               ; preds = %16, %16, %16, %16
-  br label %26
-
-22:                                               ; preds = %16
-  br label %26
-
-23:                                               ; preds = %16, %16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  store ptr @anon.b7f70d23add93711b34b30bf71ab012b.126, ptr %3, align 8
-  br label %.invoke21
-
-.invoke21:                                        ; preds = %20, %23
-  %.sink26.sroa.phi = phi ptr [ %.sink26.sroa.gep, %20 ], [ %.sink26.sroa.gep27, %23 ]
-  %.sink26.sroa.phi28 = phi ptr [ %.sink26.sroa.gep29, %20 ], [ %.sink26.sroa.gep30, %23 ]
-  %.sink26.sroa.phi31 = phi ptr [ %.sink26.sroa.gep32, %20 ], [ %.sink26.sroa.gep33, %23 ]
-  %.sink26.sroa.phi34 = phi ptr [ %.sink26.sroa.gep35, %20 ], [ %.sink26.sroa.gep36, %23 ]
-  %.sink26 = phi ptr [ %4, %20 ], [ %3, %23 ]
-  %24 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.124, %20 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.127, %23 ]
+.invoke:                                          ; preds = %24, %20
+  %.sink26.sroa.phi = phi ptr [ %.sink26.sroa.gep, %24 ], [ %.sink26.sroa.gep27, %20 ]
+  %.sink26.sroa.phi28 = phi ptr [ %.sink26.sroa.gep29, %24 ], [ %.sink26.sroa.gep30, %20 ]
+  %.sink26.sroa.phi31 = phi ptr [ %.sink26.sroa.gep32, %24 ], [ %.sink26.sroa.gep33, %20 ]
+  %.sink26.sroa.phi34 = phi ptr [ %.sink26.sroa.gep35, %24 ], [ %.sink26.sroa.gep36, %20 ]
+  %.sink26 = phi ptr [ %3, %24 ], [ %4, %20 ]
+  %21 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.127, %24 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.124, %20 ]
   store i64 1, ptr %.sink26.sroa.phi, align 8
   store ptr null, ptr %.sink26.sroa.phi28, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sink26.sroa.phi31, align 8
   store i64 0, ptr %.sink26.sroa.phi34, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26, ptr noalias noundef readonly align 8 dereferenceable(24) %24) #25
-          to label %.cont22 unwind label %43
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26, ptr noalias noundef readonly align 8 dereferenceable(24) %21) #25
+          to label %.cont unwind label %43
 
-.cont22:                                          ; preds = %.invoke21
+.cont:                                            ; preds = %.invoke
   unreachable
+
+22:                                               ; preds = %16, %16, %16, %16
+  br label %26
+
+23:                                               ; preds = %16
+  br label %26
+
+24:                                               ; preds = %16, %16
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  store ptr @anon.b7f70d23add93711b34b30bf71ab012b.126, ptr %3, align 8
+  br label %.invoke
 
 25:                                               ; preds = %35
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
 
-26:                                               ; preds = %16, %16, %16, %22, %21
-  %.sroa.04.0 = phi i8 [ 2, %22 ], [ 2, %21 ], [ 3, %16 ], [ 3, %16 ], [ 3, %16 ]
+26:                                               ; preds = %16, %16, %16, %23, %22
+  %.sroa.04.0 = phi i8 [ 2, %23 ], [ 2, %22 ], [ 3, %16 ], [ 3, %16 ], [ 3, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 904
   %28 = load ptr, ptr %27, align 8, !align !240, !noundef !3
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %30 = load ptr, ptr %29, align 8
   %.not11 = icmp eq ptr %28, null
-  br i1 %.not11, label %.invoke, label %31, !prof !4
+  br i1 %.not11, label %.invoke21, label %31, !prof !4
 
 31:                                               ; preds = %26
   %32 = icmp ne ptr %30, null
@@ -4856,7 +4856,7 @@ default.unreachable20:                            ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load i64, ptr %33, align 8, !range !132, !noundef !3
   %.not12 = icmp eq i64 %34, -9223372036854775808
-  br i1 %.not12, label %.invoke, label %35, !prof !4
+  br i1 %.not12, label %.invoke21, label %35, !prof !4
 
 35:                                               ; preds = %31
   %36 = trunc nuw i8 %12 to i1
@@ -4865,12 +4865,12 @@ default.unreachable20:                            ; preds = %16
   invoke void %38(ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %33, ptr noundef nonnull %17, i1 noundef zeroext %36, i8 noundef %.sroa.04.0)
           to label %40 unwind label %25
 
-.invoke:                                          ; preds = %31, %26
+.invoke21:                                        ; preds = %31, %26
   %39 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.128, %26 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.129, %31 ]
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) %39) #25
-          to label %.cont unwind label %43
+          to label %.cont22 unwind label %43
 
-.cont:                                            ; preds = %.invoke
+.cont22:                                          ; preds = %.invoke21
   unreachable
 
 40:                                               ; preds = %35
@@ -5536,7 +5536,7 @@ default.unreachable65:                            ; preds = %19
   br label %22
 
 22:                                               ; preds = %19, %19, %21, %20
-  %.sroa.0.0 = phi i64 [ 4, %21 ], [ %13, %20 ], [ 6, %19 ], [ 6, %19 ]
+  %.sroa.0.0 = phi i64 [ %13, %20 ], [ 4, %21 ], [ 6, %19 ], [ 6, %19 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
@@ -7709,7 +7709,7 @@ default.unreachable1:                             ; preds = %2
   br label %25
 
 25:                                               ; preds = %22, %19, %16, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %15, %12 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7788,7 +7788,7 @@ default.unreachable1:                             ; preds = %2
   br label %30
 
 30:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %6
-  %.sroa.0.0.in = phi i1 [ %29, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %6 ]
+  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %29, %27 ]
   ret i1 %.sroa.0.0.in
 }
 

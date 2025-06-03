@@ -356,7 +356,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_expandState(ptr noundef %0, ptr
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, %38, %46, %49, %57, %60
-  %.0.i9 = phi i64 [ %62, %60 ], [ %59, %57 ], [ %56, %49 ], [ %48, %46 ], [ %45, %38 ], [ %37, %30 ], [ %29, %17 ], [ %16, %15 ], [ 0, %12 ]
+  %.0.i9 = phi i64 [ %16, %15 ], [ %29, %17 ], [ %37, %30 ], [ %45, %38 ], [ %48, %46 ], [ %56, %49 ], [ %59, %57 ], [ %62, %60 ], [ 0, %12 ]
   store i64 %.0.i9, ptr %1, align 8
   br label %moNfaExpandState64.exit
 
@@ -998,7 +998,7 @@ moNfaReportCurrent64.exit:                        ; preds = %8, %15
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %152, %159, %161, %163, %165, %167, %169
-  %.0.i91 = phi i64 [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ 0, %152 ]
+  %.0.i91 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ 0, %152 ]
   %171 = load i64, ptr %132, align 32
   %172 = and i64 %171, %145
   %.not37.i = icmp eq i64 %172, 0
@@ -1184,7 +1184,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %78
 
 78:                                               ; preds = %71, %64
-  %.6289 = phi i64 [ %69, %64 ], [ %77, %71 ]
+  %.6289 = phi i64 [ %77, %71 ], [ %69, %64 ]
   %79 = load i64, ptr %44, align 16
   %80 = and i64 %79, %.059.i6627
   %81 = load i8, ptr %45, align 2
@@ -1194,7 +1194,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %85
 
 85:                                               ; preds = %78, %64
-  %.5288 = phi i64 [ %69, %64 ], [ %84, %78 ]
+  %.5288 = phi i64 [ %84, %78 ], [ %69, %64 ]
   %86 = load i64, ptr %46, align 8
   %87 = and i64 %86, %.059.i6627
   %88 = load i8, ptr %47, align 1
@@ -1204,7 +1204,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %92
 
 92:                                               ; preds = %85, %64
-  %.4287 = phi i64 [ %69, %64 ], [ %91, %85 ]
+  %.4287 = phi i64 [ %91, %85 ], [ %69, %64 ]
   %93 = load i64, ptr %48, align 16
   %94 = and i64 %93, %.059.i6627
   %95 = load i8, ptr %49, align 4
@@ -1214,7 +1214,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %99
 
 99:                                               ; preds = %92, %64
-  %.3286 = phi i64 [ %69, %64 ], [ %98, %92 ]
+  %.3286 = phi i64 [ %98, %92 ], [ %69, %64 ]
   %100 = load i64, ptr %50, align 8
   %101 = and i64 %100, %.059.i6627
   %102 = load i8, ptr %51, align 1
@@ -1224,7 +1224,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %106
 
 106:                                              ; preds = %99, %64
-  %.2285 = phi i64 [ %69, %64 ], [ %105, %99 ]
+  %.2285 = phi i64 [ %105, %99 ], [ %69, %64 ]
   %107 = load i64, ptr %52, align 16
   %108 = and i64 %107, %.059.i6627
   %109 = load i8, ptr %53, align 2
@@ -1234,7 +1234,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %113
 
 113:                                              ; preds = %106, %64
-  %.0283 = phi i64 [ %69, %64 ], [ %112, %106 ]
+  %.0283 = phi i64 [ %112, %106 ], [ %69, %64 ]
   %114 = load i64, ptr %54, align 8
   %115 = and i64 %114, %.059.i6627
   %116 = load i8, ptr %55, align 1
@@ -1453,7 +1453,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %191, %212, %214, %216, %218
-  %.0.i127 = phi i32 [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %192, %191 ]
+  %.0.i127 = phi i32 [ %192, %191 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ]
   switch i32 %.0.i127, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread337
     i32 2, label %repeatHasMatch.exit.thread339
@@ -1658,7 +1658,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %312
 
 312:                                              ; preds = %305, %298
-  %.6274 = phi i64 [ %303, %298 ], [ %311, %305 ]
+  %.6274 = phi i64 [ %311, %305 ], [ %303, %298 ]
   %313 = load i64, ptr %276, align 16
   %314 = and i64 %313, %.059.i638
   %315 = load i8, ptr %277, align 2
@@ -1668,7 +1668,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %319
 
 319:                                              ; preds = %312, %298
-  %.5273 = phi i64 [ %303, %298 ], [ %318, %312 ]
+  %.5273 = phi i64 [ %318, %312 ], [ %303, %298 ]
   %320 = load i64, ptr %278, align 8
   %321 = and i64 %320, %.059.i638
   %322 = load i8, ptr %279, align 1
@@ -1678,7 +1678,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %326
 
 326:                                              ; preds = %319, %298
-  %.4272 = phi i64 [ %303, %298 ], [ %325, %319 ]
+  %.4272 = phi i64 [ %325, %319 ], [ %303, %298 ]
   %327 = load i64, ptr %280, align 16
   %328 = and i64 %327, %.059.i638
   %329 = load i8, ptr %281, align 4
@@ -1688,7 +1688,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %333
 
 333:                                              ; preds = %326, %298
-  %.3271 = phi i64 [ %303, %298 ], [ %332, %326 ]
+  %.3271 = phi i64 [ %332, %326 ], [ %303, %298 ]
   %334 = load i64, ptr %282, align 8
   %335 = and i64 %334, %.059.i638
   %336 = load i8, ptr %283, align 1
@@ -1698,7 +1698,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %340
 
 340:                                              ; preds = %333, %298
-  %.2270 = phi i64 [ %303, %298 ], [ %339, %333 ]
+  %.2270 = phi i64 [ %339, %333 ], [ %303, %298 ]
   %341 = load i64, ptr %284, align 16
   %342 = and i64 %341, %.059.i638
   %343 = load i8, ptr %285, align 2
@@ -1708,7 +1708,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %347
 
 347:                                              ; preds = %340, %298
-  %.0268 = phi i64 [ %303, %298 ], [ %346, %340 ]
+  %.0268 = phi i64 [ %346, %340 ], [ %303, %298 ]
   %348 = load i64, ptr %286, align 8
   %349 = and i64 %348, %.059.i638
   %350 = load i8, ptr %287, align 1
@@ -1927,7 +1927,7 @@ processExceptional64.exit67.thread:               ; preds = %135, %131, %256, %2
   br label %repeatHasMatch.exit129
 
 repeatHasMatch.exit129:                           ; preds = %425, %446, %448, %450, %452
-  %.0.i128 = phi i32 [ %453, %452 ], [ %451, %450 ], [ %449, %448 ], [ %447, %446 ], [ %426, %425 ]
+  %.0.i128 = phi i32 [ %426, %425 ], [ %447, %446 ], [ %449, %448 ], [ %451, %450 ], [ %453, %452 ]
   switch i32 %.0.i128, label %repeatHasMatch.exit129.thread [
     i32 1, label %repeatHasMatch.exit129.thread421
     i32 2, label %repeatHasMatch.exit129.thread423
@@ -2158,7 +2158,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %555
 
 555:                                              ; preds = %548, %541
-  %.6 = phi i64 [ %546, %541 ], [ %554, %548 ]
+  %.6 = phi i64 [ %554, %548 ], [ %546, %541 ]
   %556 = load i64, ptr %510, align 16
   %557 = and i64 %556, %.1262653
   %558 = load i8, ptr %511, align 2
@@ -2168,7 +2168,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %562
 
 562:                                              ; preds = %555, %541
-  %.5 = phi i64 [ %546, %541 ], [ %561, %555 ]
+  %.5 = phi i64 [ %561, %555 ], [ %546, %541 ]
   %563 = load i64, ptr %512, align 8
   %564 = and i64 %563, %.1262653
   %565 = load i8, ptr %513, align 1
@@ -2178,7 +2178,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %569
 
 569:                                              ; preds = %562, %541
-  %.4 = phi i64 [ %546, %541 ], [ %568, %562 ]
+  %.4 = phi i64 [ %568, %562 ], [ %546, %541 ]
   %570 = load i64, ptr %514, align 16
   %571 = and i64 %570, %.1262653
   %572 = load i8, ptr %515, align 4
@@ -2188,7 +2188,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %576
 
 576:                                              ; preds = %569, %541
-  %.3 = phi i64 [ %546, %541 ], [ %575, %569 ]
+  %.3 = phi i64 [ %575, %569 ], [ %546, %541 ]
   %577 = load i64, ptr %516, align 8
   %578 = and i64 %577, %.1262653
   %579 = load i8, ptr %517, align 1
@@ -2198,7 +2198,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %583
 
 583:                                              ; preds = %576, %541
-  %.2 = phi i64 [ %546, %541 ], [ %582, %576 ]
+  %.2 = phi i64 [ %582, %576 ], [ %546, %541 ]
   %584 = load i64, ptr %518, align 16
   %585 = and i64 %584, %.1262653
   %586 = load i8, ptr %519, align 2
@@ -2208,7 +2208,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %590
 
 590:                                              ; preds = %583, %541
-  %.0255 = phi i64 [ %546, %541 ], [ %589, %583 ]
+  %.0255 = phi i64 [ %589, %583 ], [ %546, %541 ]
   %591 = load i64, ptr %520, align 8
   %592 = and i64 %591, %.1262653
   %593 = load i8, ptr %521, align 1
@@ -2427,7 +2427,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %processExceptional6
   br label %repeatHasMatch.exit131
 
 repeatHasMatch.exit131:                           ; preds = %668, %689, %691, %693, %695
-  %.0.i130 = phi i32 [ %696, %695 ], [ %694, %693 ], [ %692, %691 ], [ %690, %689 ], [ %669, %668 ]
+  %.0.i130 = phi i32 [ %669, %668 ], [ %690, %689 ], [ %692, %691 ], [ %694, %693 ], [ %696, %695 ]
   switch i32 %.0.i130, label %repeatHasMatch.exit131.thread [
     i32 1, label %repeatHasMatch.exit131.thread507
     i32 2, label %repeatHasMatch.exit131.thread509
@@ -2966,7 +2966,7 @@ moNfaReportCurrent64.exit:                        ; preds = %10, %17
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %191, %198, %200, %202, %204, %206, %208
-  %.0.i130 = phi i64 [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ 0, %191 ]
+  %.0.i130 = phi i64 [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ 0, %191 ]
   %210 = load i64, ptr %171, align 32
   %211 = and i64 %210, %184
   %.not37.i = icmp eq i64 %211, 0
@@ -3151,7 +3151,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %78
 
 78:                                               ; preds = %71, %64
-  %.6249 = phi i64 [ %69, %64 ], [ %77, %71 ]
+  %.6249 = phi i64 [ %77, %71 ], [ %69, %64 ]
   %79 = load i64, ptr %45, align 16
   %80 = and i64 %79, %.059.i7417
   %81 = load i8, ptr %46, align 2
@@ -3161,7 +3161,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %85
 
 85:                                               ; preds = %78, %64
-  %.5248 = phi i64 [ %69, %64 ], [ %84, %78 ]
+  %.5248 = phi i64 [ %84, %78 ], [ %69, %64 ]
   %86 = load i64, ptr %47, align 8
   %87 = and i64 %86, %.059.i7417
   %88 = load i8, ptr %48, align 1
@@ -3171,7 +3171,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %92
 
 92:                                               ; preds = %85, %64
-  %.4247 = phi i64 [ %69, %64 ], [ %91, %85 ]
+  %.4247 = phi i64 [ %91, %85 ], [ %69, %64 ]
   %93 = load i64, ptr %49, align 16
   %94 = and i64 %93, %.059.i7417
   %95 = load i8, ptr %50, align 4
@@ -3181,7 +3181,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %99
 
 99:                                               ; preds = %92, %64
-  %.3246 = phi i64 [ %69, %64 ], [ %98, %92 ]
+  %.3246 = phi i64 [ %98, %92 ], [ %69, %64 ]
   %100 = load i64, ptr %51, align 8
   %101 = and i64 %100, %.059.i7417
   %102 = load i8, ptr %52, align 1
@@ -3191,7 +3191,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %106
 
 106:                                              ; preds = %99, %64
-  %.2245 = phi i64 [ %69, %64 ], [ %105, %99 ]
+  %.2245 = phi i64 [ %105, %99 ], [ %69, %64 ]
   %107 = load i64, ptr %53, align 16
   %108 = and i64 %107, %.059.i7417
   %109 = load i8, ptr %54, align 2
@@ -3201,7 +3201,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %113
 
 113:                                              ; preds = %106, %64
-  %.0243 = phi i64 [ %69, %64 ], [ %112, %106 ]
+  %.0243 = phi i64 [ %112, %106 ], [ %69, %64 ]
   %114 = load i64, ptr %55, align 8
   %115 = and i64 %114, %.059.i7417
   %116 = load i8, ptr %56, align 1
@@ -3398,7 +3398,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %181, %202, %204, %206, %208
-  %.0.i95 = phi i32 [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %182, %181 ]
+  %.0.i95 = phi i32 [ %182, %181 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ]
   switch i32 %.0.i95, label %runException64.exit [
     i32 1, label %repeatHasMatch.exit.thread293
     i32 2, label %repeatHasMatch.exit.thread295
@@ -3562,7 +3562,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %287
 
 287:                                              ; preds = %280, %273
-  %.6234 = phi i64 [ %278, %273 ], [ %286, %280 ]
+  %.6234 = phi i64 [ %286, %280 ], [ %278, %273 ]
   %288 = load i64, ptr %252, align 16
   %289 = and i64 %288, %.059.i421
   %290 = load i8, ptr %253, align 2
@@ -3572,7 +3572,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %294
 
 294:                                              ; preds = %287, %273
-  %.5233 = phi i64 [ %278, %273 ], [ %293, %287 ]
+  %.5233 = phi i64 [ %293, %287 ], [ %278, %273 ]
   %295 = load i64, ptr %254, align 8
   %296 = and i64 %295, %.059.i421
   %297 = load i8, ptr %255, align 1
@@ -3582,7 +3582,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %301
 
 301:                                              ; preds = %294, %273
-  %.4232 = phi i64 [ %278, %273 ], [ %300, %294 ]
+  %.4232 = phi i64 [ %300, %294 ], [ %278, %273 ]
   %302 = load i64, ptr %256, align 16
   %303 = and i64 %302, %.059.i421
   %304 = load i8, ptr %257, align 4
@@ -3592,7 +3592,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %308
 
 308:                                              ; preds = %301, %273
-  %.3231 = phi i64 [ %278, %273 ], [ %307, %301 ]
+  %.3231 = phi i64 [ %307, %301 ], [ %278, %273 ]
   %309 = load i64, ptr %258, align 8
   %310 = and i64 %309, %.059.i421
   %311 = load i8, ptr %259, align 1
@@ -3602,7 +3602,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %315
 
 315:                                              ; preds = %308, %273
-  %.2230 = phi i64 [ %278, %273 ], [ %314, %308 ]
+  %.2230 = phi i64 [ %314, %308 ], [ %278, %273 ]
   %316 = load i64, ptr %260, align 16
   %317 = and i64 %316, %.059.i421
   %318 = load i8, ptr %261, align 2
@@ -3612,7 +3612,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %322
 
 322:                                              ; preds = %315, %273
-  %.0228 = phi i64 [ %278, %273 ], [ %321, %315 ]
+  %.0228 = phi i64 [ %321, %315 ], [ %278, %273 ]
   %323 = load i64, ptr %262, align 8
   %324 = and i64 %323, %.059.i421
   %325 = load i8, ptr %263, align 1
@@ -3809,7 +3809,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14.thread:       ; preds = %124
   br label %repeatHasMatch.exit97
 
 repeatHasMatch.exit97:                            ; preds = %390, %411, %413, %415, %417
-  %.0.i96 = phi i32 [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %391, %390 ]
+  %.0.i96 = phi i32 [ %391, %390 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ]
   switch i32 %.0.i96, label %runException64.exit70 [
     i32 1, label %repeatHasMatch.exit97.thread331
     i32 2, label %repeatHasMatch.exit97.thread333
@@ -3999,7 +3999,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %505
 
 505:                                              ; preds = %498, %491
-  %.6 = phi i64 [ %496, %491 ], [ %504, %498 ]
+  %.6 = phi i64 [ %504, %498 ], [ %496, %491 ]
   %506 = load i64, ptr %461, align 16
   %507 = and i64 %506, %.1222430
   %508 = load i8, ptr %462, align 2
@@ -4009,7 +4009,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %512
 
 512:                                              ; preds = %505, %491
-  %.5 = phi i64 [ %496, %491 ], [ %511, %505 ]
+  %.5 = phi i64 [ %511, %505 ], [ %496, %491 ]
   %513 = load i64, ptr %463, align 8
   %514 = and i64 %513, %.1222430
   %515 = load i8, ptr %464, align 1
@@ -4019,7 +4019,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %519
 
 519:                                              ; preds = %512, %491
-  %.4 = phi i64 [ %496, %491 ], [ %518, %512 ]
+  %.4 = phi i64 [ %518, %512 ], [ %496, %491 ]
   %520 = load i64, ptr %465, align 16
   %521 = and i64 %520, %.1222430
   %522 = load i8, ptr %466, align 4
@@ -4029,7 +4029,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %526
 
 526:                                              ; preds = %519, %491
-  %.3 = phi i64 [ %496, %491 ], [ %525, %519 ]
+  %.3 = phi i64 [ %525, %519 ], [ %496, %491 ]
   %527 = load i64, ptr %467, align 8
   %528 = and i64 %527, %.1222430
   %529 = load i8, ptr %468, align 1
@@ -4039,7 +4039,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %533
 
 533:                                              ; preds = %526, %491
-  %.2 = phi i64 [ %496, %491 ], [ %532, %526 ]
+  %.2 = phi i64 [ %532, %526 ], [ %496, %491 ]
   %534 = load i64, ptr %469, align 16
   %535 = and i64 %534, %.1222430
   %536 = load i8, ptr %470, align 2
@@ -4049,7 +4049,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %540
 
 540:                                              ; preds = %533, %491
-  %.0215 = phi i64 [ %496, %491 ], [ %539, %533 ]
+  %.0215 = phi i64 [ %539, %533 ], [ %496, %491 ]
   %541 = load i64, ptr %471, align 8
   %542 = and i64 %541, %.1222430
   %543 = load i8, ptr %472, align 1
@@ -4246,7 +4246,7 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %235, %271, %444, %3
   br label %repeatHasMatch.exit99
 
 repeatHasMatch.exit99:                            ; preds = %608, %629, %631, %633, %635
-  %.0.i98 = phi i32 [ %636, %635 ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ %609, %608 ]
+  %.0.i98 = phi i32 [ %609, %608 ], [ %630, %629 ], [ %632, %631 ], [ %634, %633 ], [ %636, %635 ]
   switch i32 %.0.i98, label %runException64.exit79 [
     i32 1, label %repeatHasMatch.exit99.thread370
     i32 2, label %repeatHasMatch.exit99.thread372
@@ -4623,7 +4623,7 @@ nfaExecLimEx64_HandleEvent.exit:                  ; preds = %nfaExecLimEx64_Hand
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %123, %130, %132, %134, %136, %138, %140
-  %.0.i80 = phi i64 [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ 0, %123 ]
+  %.0.i80 = phi i64 [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ 0, %123 ]
   %142 = load i64, ptr %103, align 32
   %143 = and i64 %142, %116
   %.not37.i = icmp eq i64 %143, 0
@@ -4773,7 +4773,7 @@ limexExpireExtendedState64.exit:                  ; preds = %162, %._crit_edge, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %199, %220, %222, %224, %226
-  %.0.i76 = phi i32 [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %200, %199 ]
+  %.0.i76 = phi i32 [ %200, %199 ], [ %221, %220 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ]
   %.not20.i = icmp eq i32 %.0.i76, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread97, label %repeatHasMatch.exit.thread
 
@@ -4960,7 +4960,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %76
 
 76:                                               ; preds = %69, %62
-  %.6244 = phi i64 [ %67, %62 ], [ %75, %69 ]
+  %.6244 = phi i64 [ %75, %69 ], [ %67, %62 ]
   %77 = load i64, ptr %44, align 16
   %78 = and i64 %77, %.059.i6362
   %79 = load i8, ptr %45, align 2
@@ -4970,7 +4970,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %83
 
 83:                                               ; preds = %76, %62
-  %.5243 = phi i64 [ %67, %62 ], [ %82, %76 ]
+  %.5243 = phi i64 [ %82, %76 ], [ %67, %62 ]
   %84 = load i64, ptr %46, align 8
   %85 = and i64 %84, %.059.i6362
   %86 = load i8, ptr %47, align 1
@@ -4980,7 +4980,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %90
 
 90:                                               ; preds = %83, %62
-  %.4242 = phi i64 [ %67, %62 ], [ %89, %83 ]
+  %.4242 = phi i64 [ %89, %83 ], [ %67, %62 ]
   %91 = load i64, ptr %48, align 16
   %92 = and i64 %91, %.059.i6362
   %93 = load i8, ptr %49, align 4
@@ -4990,7 +4990,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %97
 
 97:                                               ; preds = %90, %62
-  %.3241 = phi i64 [ %67, %62 ], [ %96, %90 ]
+  %.3241 = phi i64 [ %96, %90 ], [ %67, %62 ]
   %98 = load i64, ptr %50, align 8
   %99 = and i64 %98, %.059.i6362
   %100 = load i8, ptr %51, align 1
@@ -5000,7 +5000,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %104
 
 104:                                              ; preds = %97, %62
-  %.2240 = phi i64 [ %67, %62 ], [ %103, %97 ]
+  %.2240 = phi i64 [ %103, %97 ], [ %67, %62 ]
   %105 = load i64, ptr %52, align 16
   %106 = and i64 %105, %.059.i6362
   %107 = load i8, ptr %53, align 2
@@ -5010,7 +5010,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %111
 
 111:                                              ; preds = %104, %62
-  %.0238 = phi i64 [ %67, %62 ], [ %110, %104 ]
+  %.0238 = phi i64 [ %110, %104 ], [ %67, %62 ]
   %112 = load i64, ptr %54, align 8
   %113 = and i64 %112, %.059.i6362
   %114 = load i8, ptr %55, align 1
@@ -5198,7 +5198,7 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %176, %197, %199, %201, %203
-  %.0.i92 = phi i32 [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %177, %176 ]
+  %.0.i92 = phi i32 [ %177, %176 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ]
   switch i32 %.0.i92, label %runException64.exit [
     i32 1, label %repeatHasMatch.exit.thread289
     i32 2, label %repeatHasMatch.exit.thread291
@@ -5357,7 +5357,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %281
 
 281:                                              ; preds = %274, %267
-  %.6229 = phi i64 [ %272, %267 ], [ %280, %274 ]
+  %.6229 = phi i64 [ %280, %274 ], [ %272, %267 ]
   %282 = load i64, ptr %247, align 16
   %283 = and i64 %282, %.059.i366
   %284 = load i8, ptr %248, align 2
@@ -5367,7 +5367,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %288
 
 288:                                              ; preds = %281, %267
-  %.5228 = phi i64 [ %272, %267 ], [ %287, %281 ]
+  %.5228 = phi i64 [ %287, %281 ], [ %272, %267 ]
   %289 = load i64, ptr %249, align 8
   %290 = and i64 %289, %.059.i366
   %291 = load i8, ptr %250, align 1
@@ -5377,7 +5377,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %295
 
 295:                                              ; preds = %288, %267
-  %.4227 = phi i64 [ %272, %267 ], [ %294, %288 ]
+  %.4227 = phi i64 [ %294, %288 ], [ %272, %267 ]
   %296 = load i64, ptr %251, align 16
   %297 = and i64 %296, %.059.i366
   %298 = load i8, ptr %252, align 4
@@ -5387,7 +5387,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %302
 
 302:                                              ; preds = %295, %267
-  %.3226 = phi i64 [ %272, %267 ], [ %301, %295 ]
+  %.3226 = phi i64 [ %301, %295 ], [ %272, %267 ]
   %303 = load i64, ptr %253, align 8
   %304 = and i64 %303, %.059.i366
   %305 = load i8, ptr %254, align 1
@@ -5397,7 +5397,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %309
 
 309:                                              ; preds = %302, %267
-  %.2225 = phi i64 [ %272, %267 ], [ %308, %302 ]
+  %.2225 = phi i64 [ %308, %302 ], [ %272, %267 ]
   %310 = load i64, ptr %255, align 16
   %311 = and i64 %310, %.059.i366
   %312 = load i8, ptr %256, align 2
@@ -5407,7 +5407,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %316
 
 316:                                              ; preds = %309, %267
-  %.0223 = phi i64 [ %272, %267 ], [ %315, %309 ]
+  %.0223 = phi i64 [ %315, %309 ], [ %272, %267 ]
   %317 = load i64, ptr %257, align 8
   %318 = and i64 %317, %.059.i366
   %319 = load i8, ptr %258, align 1
@@ -5595,7 +5595,7 @@ runException64.exit:                              ; preds = %218, %178, %174, %1
   br label %repeatHasMatch.exit94
 
 repeatHasMatch.exit94:                            ; preds = %381, %402, %404, %406, %408
-  %.0.i93 = phi i32 [ %409, %408 ], [ %407, %406 ], [ %405, %404 ], [ %403, %402 ], [ %382, %381 ]
+  %.0.i93 = phi i32 [ %382, %381 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ]
   switch i32 %.0.i93, label %runException64.exit67 [
     i32 1, label %repeatHasMatch.exit94.thread308
     i32 2, label %repeatHasMatch.exit94.thread310
@@ -5780,7 +5780,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %495
 
 495:                                              ; preds = %488, %481
-  %.6 = phi i64 [ %486, %481 ], [ %494, %488 ]
+  %.6 = phi i64 [ %494, %488 ], [ %486, %481 ]
   %496 = load i64, ptr %452, align 16
   %497 = and i64 %496, %.1217375
   %498 = load i8, ptr %453, align 2
@@ -5790,7 +5790,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %502
 
 502:                                              ; preds = %495, %481
-  %.5 = phi i64 [ %486, %481 ], [ %501, %495 ]
+  %.5 = phi i64 [ %501, %495 ], [ %486, %481 ]
   %503 = load i64, ptr %454, align 8
   %504 = and i64 %503, %.1217375
   %505 = load i8, ptr %455, align 1
@@ -5800,7 +5800,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %509
 
 509:                                              ; preds = %502, %481
-  %.4 = phi i64 [ %486, %481 ], [ %508, %502 ]
+  %.4 = phi i64 [ %508, %502 ], [ %486, %481 ]
   %510 = load i64, ptr %456, align 16
   %511 = and i64 %510, %.1217375
   %512 = load i8, ptr %457, align 4
@@ -5810,7 +5810,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %516
 
 516:                                              ; preds = %509, %481
-  %.3 = phi i64 [ %486, %481 ], [ %515, %509 ]
+  %.3 = phi i64 [ %515, %509 ], [ %486, %481 ]
   %517 = load i64, ptr %458, align 8
   %518 = and i64 %517, %.1217375
   %519 = load i8, ptr %459, align 1
@@ -5820,7 +5820,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %523
 
 523:                                              ; preds = %516, %481
-  %.2 = phi i64 [ %486, %481 ], [ %522, %516 ]
+  %.2 = phi i64 [ %522, %516 ], [ %486, %481 ]
   %524 = load i64, ptr %460, align 16
   %525 = and i64 %524, %.1217375
   %526 = load i8, ptr %461, align 2
@@ -5830,7 +5830,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %530
 
 530:                                              ; preds = %523, %481
-  %.0 = phi i64 [ %486, %481 ], [ %529, %523 ]
+  %.0 = phi i64 [ %529, %523 ], [ %486, %481 ]
   %531 = load i64, ptr %462, align 8
   %532 = and i64 %531, %.1217375
   %533 = load i8, ptr %463, align 1
@@ -6018,7 +6018,7 @@ nfaExecLimEx64_Loop_No_Accel.exit13:              ; preds = %230, %435, %265, %3
   br label %repeatHasMatch.exit96
 
 repeatHasMatch.exit96:                            ; preds = %595, %616, %618, %620, %622
-  %.0.i95 = phi i32 [ %623, %622 ], [ %621, %620 ], [ %619, %618 ], [ %617, %616 ], [ %596, %595 ]
+  %.0.i95 = phi i32 [ %596, %595 ], [ %617, %616 ], [ %619, %618 ], [ %621, %620 ], [ %623, %622 ]
   switch i32 %.0.i95, label %runException64.exit76 [
     i32 1, label %repeatHasMatch.exit96.thread327
     i32 2, label %repeatHasMatch.exit96.thread329
@@ -6232,7 +6232,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_testEOD(ptr noundef %0, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %44, %65, %67, %69, %71
-  %.0.i12 = phi i32 [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %45, %44 ]
+  %.0.i12 = phi i32 [ %45, %44 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
   %.not20.i = icmp eq i32 %.0.i12, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread25, label %repeatHasMatch.exit.thread
 
@@ -6427,7 +6427,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %0, i64 n
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %58, %60, %62, %64, %66
-  %.0.i31 = phi i32 [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ]
+  %.0.i31 = phi i32 [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ]
   %.not20.i = icmp eq i32 %.0.i31, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread46, label %repeatHasMatch.exit.thread
 
@@ -6535,7 +6535,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %53
 
 53:                                               ; preds = %46, %39
-  %.0113 = phi i64 [ %44, %39 ], [ %52, %46 ]
+  %.0113 = phi i64 [ %52, %46 ], [ %44, %39 ]
   %54 = load i64, ptr %19, align 16
   %55 = and i64 %54, %.069199
   %56 = load i8, ptr %20, align 2
@@ -6545,7 +6545,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %60
 
 60:                                               ; preds = %53, %39
-  %.1114 = phi i64 [ %44, %39 ], [ %59, %53 ]
+  %.1114 = phi i64 [ %59, %53 ], [ %44, %39 ]
   %61 = load i64, ptr %21, align 8
   %62 = and i64 %61, %.069199
   %63 = load i8, ptr %22, align 1
@@ -6555,7 +6555,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %67
 
 67:                                               ; preds = %60, %39
-  %.2 = phi i64 [ %44, %39 ], [ %66, %60 ]
+  %.2 = phi i64 [ %66, %60 ], [ %44, %39 ]
   %68 = load i64, ptr %23, align 16
   %69 = and i64 %68, %.069199
   %70 = load i8, ptr %24, align 4
@@ -6565,7 +6565,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %74
 
 74:                                               ; preds = %67, %39
-  %.3115 = phi i64 [ %44, %39 ], [ %73, %67 ]
+  %.3115 = phi i64 [ %73, %67 ], [ %44, %39 ]
   %75 = load i64, ptr %25, align 8
   %76 = and i64 %75, %.069199
   %77 = load i8, ptr %26, align 1
@@ -6575,7 +6575,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %81
 
 81:                                               ; preds = %74, %39
-  %.4116 = phi i64 [ %44, %39 ], [ %80, %74 ]
+  %.4116 = phi i64 [ %80, %74 ], [ %44, %39 ]
   %82 = load i64, ptr %27, align 16
   %83 = and i64 %82, %.069199
   %84 = load i8, ptr %28, align 2
@@ -6585,7 +6585,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
   br label %88
 
 88:                                               ; preds = %81, %39
-  %.5117 = phi i64 [ %44, %39 ], [ %87, %81 ]
+  %.5117 = phi i64 [ %87, %81 ], [ %44, %39 ]
   %89 = load i64, ptr %29, align 8
   %90 = and i64 %89, %.069199
   %91 = load i8, ptr %30, align 1
@@ -6908,7 +6908,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAccept(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %54, %75, %77, %79, %81
-  %.0.i14 = phi i32 [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %55, %54 ]
+  %.0.i14 = phi i32 [ %55, %54 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread31, label %repeatHasMatch.exit.thread
 
@@ -7107,7 +7107,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAnyAccept(ptr noundef 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %53, %74, %76, %78, %80
-  %.0.i12 = phi i32 [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %54, %53 ]
+  %.0.i12 = phi i32 [ %54, %53 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ]
   %.not20.i = icmp eq i32 %.0.i12, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread22, label %repeatHasMatch.exit.thread
 
@@ -7245,7 +7245,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx64_zombie_status(ptr noundef %0, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %44, %65, %67, %69, %71
-  %.0.i15 = phi i32 [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %45, %44 ]
+  %.0.i15 = phi i32 [ %45, %44 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread25, label %repeatHasMatch.exit.thread
 

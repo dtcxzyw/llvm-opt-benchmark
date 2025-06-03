@@ -9429,8 +9429,8 @@ default.unreachable172:                           ; preds = %2
   unreachable
 
 117:                                              ; preds = %173, %149, %130, %96
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %173 ], [ %150, %149 ], [ %.pn99, %130 ], [ %.pn101, %96 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn101.pn = phi { ptr, i32 } [ %.pn101, %96 ], [ %.pn99, %130 ], [ %.pn, %173 ], [ %150, %149 ]
+  resume { ptr, i32 } %.pn101.pn
 
 118:                                              ; preds = %237, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E.exit113", %129, %123, %95, %89
   ret void

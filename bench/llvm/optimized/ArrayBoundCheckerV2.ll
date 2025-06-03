@@ -4675,7 +4675,7 @@ _ZN4llvm5APIntD2Ev.exit38:                        ; preds = %97, %101, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #20
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc9SymbolValEEESt8optionalIT_Ev.exit
 
-.critedge:                                        ; preds = %_ZN4llvm5APIntD2Ev.exit34, %54, %_ZN4llvm5APIntD2Ev.exit37
+.critedge:                                        ; preds = %_ZN4llvm5APIntD2Ev.exit37, %_ZN4llvm5APIntD2Ev.exit34, %54
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %106 = load i32, ptr %105, align 8, !tbaa !398
   %107 = icmp ugt i32 %106, 64

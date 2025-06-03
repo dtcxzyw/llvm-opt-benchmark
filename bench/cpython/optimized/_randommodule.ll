@@ -67,7 +67,7 @@ define internal i32 @_random_traverse(ptr noundef readonly captures(none) %0, pt
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 

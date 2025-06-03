@@ -11361,7 +11361,7 @@ default.unreachable.i:                            ; preds = %_ZN6Assimp10SkipSpa
   unreachable
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit, %141, %142, %143
-  %.0.i = phi ptr [ %110, %143 ], [ %111, %142 ], [ %112, %141 ], [ %109, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit ]
+  %.0.i = phi ptr [ %112, %141 ], [ %111, %142 ], [ %110, %143 ], [ %109, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit ]
   %144 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv
   store float %140, ptr %144, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

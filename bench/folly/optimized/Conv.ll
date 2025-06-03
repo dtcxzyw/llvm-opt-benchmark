@@ -315,7 +315,7 @@ define weak_odr i64 @_ZN5folly6detail37str_to_floating_fast_float_from_charsIfEE
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.1.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load i8, ptr %.1.i.i.i, align 1, !tbaa !14
   switch i8 %34, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit [
     i8 32, label %35
@@ -331,7 +331,7 @@ define weak_odr i64 @_ZN5folly6detail37str_to_floating_fast_float_from_charsIfEE
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %.2.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %38 = load i8, ptr %.2.i.i.i, align 1, !tbaa !14
   switch i8 %38, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit [
     i8 32, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread
@@ -3509,7 +3509,7 @@ define weak_odr { i64, double } @_ZN5folly6detail37str_to_floating_fast_float_fr
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.1.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load i8, ptr %.1.i.i.i, align 1, !tbaa !14
   switch i8 %34, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit [
     i8 32, label %35
@@ -3525,7 +3525,7 @@ define weak_odr { i64, double } @_ZN5folly6detail37str_to_floating_fast_float_fr
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %.2.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %38 = load i8, ptr %.2.i.i.i, align 1, !tbaa !14
   switch i8 %38, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit [
     i8 32, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread
@@ -5253,7 +5253,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIcEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.065.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.065.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -5455,7 +5455,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %132, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %133
 
 133:                                              ; preds = %.thread83, %103, %78, %131
-  %.343 = phi i8 [ %.040.lcssa, %131 ], [ %120, %103 ], [ %102, %78 ], [ %130, %.thread83 ]
+  %.343 = phi i8 [ %.040.lcssa, %131 ], [ %102, %78 ], [ %120, %103 ], [ %130, %.thread83 ]
   %134 = trunc nuw i8 %.sroa.065.1.ph to i1
   br i1 %134, label %135, label %138
 
@@ -5507,7 +5507,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIaEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.065.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.065.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -5709,7 +5709,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %132, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %133
 
 133:                                              ; preds = %.thread83, %103, %78, %131
-  %.343 = phi i8 [ %.040.lcssa, %131 ], [ %120, %103 ], [ %102, %78 ], [ %130, %.thread83 ]
+  %.343 = phi i8 [ %.040.lcssa, %131 ], [ %102, %78 ], [ %120, %103 ], [ %130, %.thread83 ]
   %134 = trunc nuw i8 %.sroa.065.1.ph to i1
   br i1 %134, label %135, label %138
 
@@ -5933,7 +5933,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %123, label %.loopexit, label %124
 
 124:                                              ; preds = %.thread69, %94, %69, %122
-  %.343 = phi i8 [ %.040.lcssa, %122 ], [ %111, %94 ], [ %93, %69 ], [ %121, %.thread69 ]
+  %.343 = phi i8 [ %.040.lcssa, %122 ], [ %93, %69 ], [ %111, %94 ], [ %121, %.thread69 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %112, %94, %69, %122, %.tail, %.thread, %124
@@ -5968,7 +5968,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.064.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -6152,7 +6152,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br i1 %121, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %122
 
 122:                                              ; preds = %.thread82, %93, %68, %120
-  %.342 = phi i16 [ %.039.lcssa, %120 ], [ %110, %93 ], [ %92, %68 ], [ %119, %.thread82 ]
+  %.342 = phi i16 [ %.039.lcssa, %120 ], [ %92, %68 ], [ %110, %93 ], [ %119, %.thread82 ]
   %123 = trunc nuw i8 %.sroa.064.1.ph to i1
   br i1 %123, label %124, label %127
 
@@ -6365,7 +6365,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %.thread68, %84, %59, %111
-  %.342 = phi i16 [ %.039.lcssa, %111 ], [ %101, %84 ], [ %83, %59 ], [ %110, %.thread68 ]
+  %.342 = phi i16 [ %.039.lcssa, %111 ], [ %83, %59 ], [ %101, %84 ], [ %110, %.thread68 ]
   %114 = zext i16 %.342 to i32
   %115 = shl nuw i32 %114, 16
   br label %.loopexit
@@ -6395,7 +6395,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.064.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -6575,7 +6575,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br i1 %117, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %118
 
 118:                                              ; preds = %.thread83, %90, %67, %116
-  %.342 = phi i32 [ %.039.lcssa, %116 ], [ %105, %90 ], [ %89, %67 ], [ %115, %.thread83 ]
+  %.342 = phi i32 [ %.039.lcssa, %116 ], [ %89, %67 ], [ %105, %90 ], [ %115, %.thread83 ]
   %119 = trunc nuw i8 %.sroa.064.1.ph to i1
   br i1 %119, label %120, label %123
 
@@ -6784,7 +6784,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   br i1 %108, label %.loopexit, label %109
 
 109:                                              ; preds = %.thread69, %81, %58, %107
-  %.342 = phi i32 [ %.039.lcssa, %107 ], [ %96, %81 ], [ %80, %58 ], [ %106, %.thread69 ]
+  %.342 = phi i32 [ %.039.lcssa, %107 ], [ %80, %58 ], [ %96, %81 ], [ %106, %.thread69 ]
   %110 = zext i32 %.342 to i64
   %111 = shl nuw i64 %110, 32
   br label %.loopexit
@@ -6814,7 +6814,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.064.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -6999,7 +6999,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br i1 %122, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %123
 
 123:                                              ; preds = %.thread87, %94, %70, %121
-  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %110, %94 ], [ %93, %70 ], [ %120, %.thread87 ]
+  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %93, %70 ], [ %110, %94 ], [ %120, %.thread87 ]
   %124 = trunc nuw i8 %.sroa.064.1.ph to i1
   br i1 %124, label %125, label %128
 
@@ -7200,7 +7200,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %.thread72, %83, %59, %110
-  %.342 = phi i64 [ %.039.lcssa, %110 ], [ %99, %83 ], [ %82, %59 ], [ %109, %.thread72 ]
+  %.342 = phi i64 [ %.039.lcssa, %110 ], [ %82, %59 ], [ %99, %83 ], [ %109, %.thread72 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
@@ -7231,7 +7231,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
+  %.sroa.064.0 = phi i8 [ 1, %6 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
@@ -7416,7 +7416,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br i1 %122, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %123
 
 123:                                              ; preds = %.thread87, %94, %70, %121
-  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %110, %94 ], [ %93, %70 ], [ %120, %.thread87 ]
+  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %93, %70 ], [ %110, %94 ], [ %120, %.thread87 ]
   %124 = trunc nuw i8 %.sroa.064.1.ph to i1
   br i1 %124, label %125, label %128
 
@@ -7617,7 +7617,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %.thread72, %83, %59, %110
-  %.342 = phi i64 [ %.039.lcssa, %110 ], [ %99, %83 ], [ %82, %59 ], [ %109, %.thread72 ]
+  %.342 = phi i64 [ %.039.lcssa, %110 ], [ %82, %59 ], [ %99, %83 ], [ %109, %.thread72 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
@@ -7672,7 +7672,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.035.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   br label %15
 
@@ -7884,7 +7884,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.035.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   br label %15
 
@@ -8174,7 +8174,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.035.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   br label %15
 
@@ -8454,7 +8454,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.036.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.036.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   br label %15
 
@@ -8734,7 +8734,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.042.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.042.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   br label %15
 
@@ -9017,7 +9017,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.042.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
+  %.sroa.042.0 = phi i8 [ 1, %12 ], [ 0, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   br label %15
 
@@ -9502,8 +9502,8 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
 .critedge:                                        ; preds = %68, %76, %58, %48, %38, %28, %18, %.lr.ph134, %11, %61, %51, %41, %31
-  %.188 = phi i8 [ 0, %61 ], [ 1, %51 ], [ 0, %41 ], [ 1, %31 ], [ 0, %11 ], [ %20, %18 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ 0, %76 ], [ 1, %68 ]
-  %.2 = phi ptr [ %62, %61 ], [ %52, %51 ], [ %42, %41 ], [ %32, %31 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %indvars.iv189, %48 ], [ %indvars.iv179, %58 ], [ %indvars.iv169, %76 ], [ %indvars.iv, %68 ]
+  %.188 = phi i8 [ 1, %31 ], [ 0, %41 ], [ 1, %51 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ 0, %76 ], [ 1, %68 ]
+  %.2 = phi ptr [ %32, %31 ], [ %42, %41 ], [ %52, %51 ], [ %62, %61 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %indvars.iv189, %48 ], [ %indvars.iv179, %58 ], [ %indvars.iv169, %76 ], [ %indvars.iv, %68 ]
   store ptr %.2, ptr %0, align 8, !tbaa !7
   br label %.loopexit
 

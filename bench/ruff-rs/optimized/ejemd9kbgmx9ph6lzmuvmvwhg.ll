@@ -879,7 +879,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef37399616d1649E.exit"
 
 "_ZN62_$LT$ctrlc..signal..SignalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h7ef37399616d1649E.exit": ; preds = %7, %9, %11
-  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4415,7 +4415,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit: ; preds = %.no
   br label %184
 
 184:                                              ; preds = %176, %182, %171, %179
-  %.sroa.014.0 = phi i8 [ 0, %176 ], [ %183, %182 ], [ %1, %171 ], [ 0, %179 ]
+  %.sroa.014.0 = phi i8 [ %183, %182 ], [ 0, %176 ], [ %1, %171 ], [ 0, %179 ]
   %185 = icmp eq i8 %0, 3
   br i1 %185, label %187, label %186
 
@@ -5467,7 +5467,7 @@ define noundef align 8 ptr @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder
   unreachable
 
 55:                                               ; preds = %84, %79, %69, %61, %48
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %80, %79 ], [ %70, %69 ], [ %62, %61 ], [ %49, %48 ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %80, %79 ], [ %62, %61 ], [ %70, %69 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn
 
 56:                                               ; preds = %31
@@ -5638,7 +5638,7 @@ define noundef align 8 ptr @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder
   br label %90
 
 98:                                               ; preds = %52, %74, %96, %63, %71, %"_ZN4core3ptr38drop_in_place$LT$ty..args..Command$GT$17heabf018a8931e68dE.exit", %90, %2
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %90 ], [ null, %"_ZN4core3ptr38drop_in_place$LT$ty..args..Command$GT$17heabf018a8931e68dE.exit" ], [ null, %71 ], [ null, %63 ], [ %95, %96 ], [ %44, %74 ], [ %51, %52 ]
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %90 ], [ null, %"_ZN4core3ptr38drop_in_place$LT$ty..args..Command$GT$17heabf018a8931e68dE.exit" ], [ null, %71 ], [ null, %63 ], [ %44, %74 ], [ %95, %96 ], [ %51, %52 ]
   ret ptr %.sroa.0.0
 }
 

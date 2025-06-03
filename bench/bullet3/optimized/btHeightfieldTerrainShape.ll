@@ -624,7 +624,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   br label %55
 
 55:                                               ; preds = %3, %41, %27, %16, %6
-  %.0 = phi float [ 0.000000e+00, %3 ], [ %54, %41 ], [ %40, %27 ], [ %26, %16 ], [ %15, %6 ]
+  %.0 = phi float [ 0.000000e+00, %3 ], [ %15, %6 ], [ %26, %16 ], [ %40, %27 ], [ %54, %41 ]
   ret float %.0
 }
 

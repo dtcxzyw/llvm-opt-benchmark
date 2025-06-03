@@ -55438,7 +55438,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator30GetMemberO
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %60, %59 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %60, %59 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %62 = load ptr, ptr %.sroa.025.1.i.i.i, align 8, !tbaa !648
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 273
   %64 = load i8, ptr %63, align 1, !tbaa !656, !range !189, !noundef !190
@@ -55450,7 +55450,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator30GetMemberO
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %67, %66 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %67, %66 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %69 = load ptr, ptr %.sroa.025.2.i.i.i, align 8, !tbaa !648
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 273
   %71 = load i8, ptr %70, align 1, !tbaa !656, !range !189, !noundef !190
@@ -61016,7 +61016,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %1
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 
 _ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit:       ; preds = %13, %13, %13, %13, %13, %33, %32, %.thread6, %31, %14, %10
-  %34 = phi i64 [ %12, %10 ], [ %30, %14 ], [ 0, %33 ], [ 8, %32 ], [ 4, %.thread6 ], [ 2, %31 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ]
+  %34 = phi i64 [ %12, %10 ], [ %30, %14 ], [ 0, %33 ], [ 2, %31 ], [ 4, %.thread6 ], [ 8, %32 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
   ret i64 %34
 }
@@ -70014,7 +70014,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 
 _ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49, %121, %124, %.thread11.i, %125, %126
-  %.0.i = phi i64 [ %123, %121 ], [ 0, %126 ], [ 8, %125 ], [ 4, %.thread11.i ], [ 2, %124 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ]
+  %.0.i = phi i64 [ %123, %121 ], [ 0, %126 ], [ 2, %124 ], [ 4, %.thread11.i ], [ 8, %125 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49 ]
   %127 = call noundef i64 @_ZN11flatbuffers10InlineSizeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
   call void @_ZN11flatbuffers11NumToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 noundef %127)

@@ -3286,7 +3286,7 @@ ehcleanup341:                                     ; preds = %ehcleanup340, %lpad
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup113, %ehcleanup195, %ehcleanup271, %ehcleanup341, %lpad
-  %.pn103.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %lpad ], [ %.pn103.pn.pn.pn.pn, %ehcleanup341 ], [ %.pn, %ehcleanup271 ], [ %.pn99, %ehcleanup195 ], [ %.pn101, %ehcleanup113 ]
+  %.pn103.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %lpad ], [ %.pn103.pn.pn.pn.pn, %ehcleanup341 ], [ %.pn101, %ehcleanup113 ], [ %.pn99, %ehcleanup195 ], [ %.pn, %ehcleanup271 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i) #31
   store ptr null, ptr %agg.result, align 8, !tbaa !3
   resume { ptr, i32 } %.pn103.pn.pn.pn.pn.pn.pn

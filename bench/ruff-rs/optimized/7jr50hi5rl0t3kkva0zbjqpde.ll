@@ -5488,8 +5488,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %31
   unreachable
 
-32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %21, %17, %15, %27
-  %.sroa.04.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.69, %27 ], [ %10, %15 ], [ %10, %17 ], [ %10, %21 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
+32:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %15, %17, %21, %27
+  %.sroa.04.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.69, %27 ], [ %10, %21 ], [ %10, %17 ], [ %10, %15 ], [ %10, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
@@ -5510,7 +5510,7 @@ _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %13
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %32
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %21, %17, %15
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %15, %17, %21
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h82d89cac2f7f553aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %39
 
@@ -5929,7 +5929,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hf5b35a5274dd7539E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hf5b35a5274dd7539E.exit: ; preds = %switch.lookup, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %48, %45
-  %.sroa.0.0 = phi i8 [ %52, %48 ], [ %47, %45 ], [ 41, %43 ], [ 13, %44 ], [ 1, %42 ], [ 39, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %52, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -6213,7 +6213,7 @@ default.unreachable:                              ; preds = %33
   unreachable
 
 52:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit.i, %47, %41, %37, %35
-  %.sroa.04.1.i = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.69, %47 ], [ %30, %35 ], [ %30, %37 ], [ %30, %41 ], [ %30, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit.i ]
+  %.sroa.04.1.i = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.69, %47 ], [ %30, %41 ], [ %30, %37 ], [ %30, %35 ], [ %30, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !636
   br label %_ZN3std2io5Write9write_all17h1f2ba72dfe44f9bdE.exit
 
@@ -6353,8 +6353,8 @@ default.unreachable:                              ; preds = %24
   %39 = icmp eq ptr %21, null
   br i1 %39, label %40, label %41
 
-40:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %32, %28, %26, %38
-  %.sroa.0.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.78, %38 ], [ %21, %26 ], [ %21, %28 ], [ %21, %32 ], [ %21, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
+40:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %26, %28, %32, %38
+  %.sroa.0.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.78, %38 ], [ %21, %32 ], [ %21, %28 ], [ %21, %26 ], [ %21, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %._crit_edge
 
@@ -6375,7 +6375,7 @@ _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret ptr %.sroa.0.0
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %32, %28, %26
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %26, %28, %32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h82d89cac2f7f553aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %.thread._crit_edge unwind label %13
 
@@ -6489,8 +6489,8 @@ default.unreachable:                              ; preds = %24
   %39 = icmp eq ptr %21, null
   br i1 %39, label %40, label %41
 
-40:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %32, %28, %26, %38
-  %.sroa.0.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.78, %38 ], [ %21, %26 ], [ %21, %28 ], [ %21, %32 ], [ %21, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
+40:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %26, %28, %32, %38
+  %.sroa.0.1 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.78, %38 ], [ %21, %32 ], [ %21, %28 ], [ %21, %26 ], [ %21, %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %._crit_edge
 
@@ -6511,7 +6511,7 @@ _ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret ptr %.sroa.0.0
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %32, %28, %26
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17ha36831798d2aa586E.exit, %26, %28, %32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h82d89cac2f7f553aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %.thread._crit_edge unwind label %13
 
@@ -6598,7 +6598,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN90_$LT$tracing_subscriber..filter..directive..ParseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd777ec49b4a1d768E.exit"
 
 "_ZN90_$LT$tracing_subscriber..filter..directive..ParseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd777ec49b4a1d768E.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -7220,8 +7220,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN88_$LT$tracing_subscriber..filter..directive..ParseError$u20$as$u20$core..error..Error$GT$6source17h3dd18c68589517f8E.exit"
 
 "_ZN88_$LT$tracing_subscriber..filter..directive..ParseError$u20$as$u20$core..error..Error$GT$6source17h3dd18c68589517f8E.exit": ; preds = %1, %3, %8
-  %.sroa.4.0.i = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.122, %8 ], [ %7, %3 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ %5, %3 ], [ null, %1 ]
+  %.sroa.4.0.i = phi ptr [ %7, %3 ], [ @anon.84b70c236844196fa386e99d92f84621.122, %8 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %3 ], [ %9, %8 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %11
@@ -8081,8 +8081,8 @@ default.unreachable1:                             ; preds = %1
   br label %10
 
 10:                                               ; preds = %1, %8, %3
-  %.sroa.4.0 = phi ptr [ @anon.84b70c236844196fa386e99d92f84621.122, %8 ], [ %7, %3 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %5, %3 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ %7, %3 ], [ @anon.84b70c236844196fa386e99d92f84621.122, %8 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %5, %3 ], [ %9, %8 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %12

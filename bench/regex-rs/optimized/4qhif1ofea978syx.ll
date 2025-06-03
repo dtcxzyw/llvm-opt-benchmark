@@ -134,7 +134,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h06261b3d79208a54E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h06261b3d79208a54E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc7437926cc6dc203E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc7437926cc6dc203E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1335,8 +1335,8 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit: ; preds = %12
   br i1 %14, label %.thread, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43
 
 15:                                               ; preds = %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43, %.thread61, %64, %2, %62
-  %.sroa.7.sroa.0.0 = phi i64 [ %.sroa.7.sroa.0.2, %62 ], [ 0, %2 ], [ %.sroa.418.1.insert.ext, %64 ], [ %.sroa.420.4.insert.shift, %.thread61 ], [ %.sroa.4.1.insert.ext, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %62 ], [ 2, %2 ], [ 1, %64 ], [ 0, %.thread61 ], [ 1, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ]
+  %.sroa.7.sroa.0.0 = phi i64 [ %.sroa.7.sroa.0.2, %62 ], [ 0, %2 ], [ %.sroa.4.1.insert.ext, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ %.sroa.418.1.insert.ext, %64 ], [ %.sroa.420.4.insert.shift, %.thread61 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %62 ], [ 2, %2 ], [ 1, %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43 ], [ 1, %64 ], [ 0, %.thread61 ]
   %.sroa.7.0.insert.ext = shl nuw nsw i64 %.sroa.7.sroa.0.0, 8
   %.sroa.0.0.insert.insert = add nuw nsw i64 %.sroa.7.0.insert.ext, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
@@ -1438,8 +1438,8 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43: ; pr
   br label %62
 
 62:                                               ; preds = %63, %.thread56
-  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.425.1.insert.ext, %63 ], [ %.sroa.422.4.insert.shift, %.thread56 ]
-  %.sroa.0.2 = phi i64 [ 1, %63 ], [ 0, %.thread56 ]
+  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.422.4.insert.shift, %.thread56 ], [ %.sroa.425.1.insert.ext, %63 ]
+  %.sroa.0.2 = phi i64 [ 0, %.thread56 ], [ 1, %63 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %15
 
@@ -2091,7 +2091,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   br i1 %21, label %23, label %24
 
 22:                                               ; preds = %1, %23, %._crit_edge
-  %.0 = phi i1 [ true, %23 ], [ false, %._crit_edge ], [ false, %1 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %23 ], [ false, %1 ]
   ret i1 %.0
 
 23:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h73e85a2f198c0801E.llvm.14842887858627331974.exit"
@@ -2154,7 +2154,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3hir8interval20IntervalSet$L
   br i1 %21, label %23, label %24
 
 22:                                               ; preds = %1, %23, %._crit_edge
-  %.0 = phi i1 [ true, %23 ], [ false, %._crit_edge ], [ false, %1 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %23 ], [ false, %1 ]
   ret i1 %.0
 
 23:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit"

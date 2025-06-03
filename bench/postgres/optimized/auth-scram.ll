@@ -927,8 +927,8 @@ build_server_final_message.exit:                  ; preds = %365
   br label %389
 
 389:                                              ; preds = %build_server_first_message.exit, %build_server_final_message.exit, %388, %383
-  %.050 = phi i32 [ 2, %388 ], [ 2, %383 ], [ 1, %build_server_final_message.exit ], [ 0, %build_server_first_message.exit ]
-  %390 = phi i1 [ false, %388 ], [ false, %383 ], [ true, %build_server_final_message.exit ], [ false, %build_server_first_message.exit ]
+  %.050 = phi i32 [ 2, %388 ], [ 2, %383 ], [ 0, %build_server_first_message.exit ], [ 1, %build_server_final_message.exit ]
+  %390 = phi i1 [ false, %388 ], [ false, %383 ], [ false, %build_server_first_message.exit ], [ true, %build_server_final_message.exit ]
   %391 = load ptr, ptr %3, align 8
   %.not42 = icmp eq ptr %391, null
   br i1 %.not42, label %395, label %392

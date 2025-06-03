@@ -1663,7 +1663,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68: 
   br label %104
 
 104:                                              ; preds = %103, %102, %101, %98, %96
-  %.0 = phi i32 [ 9, %96 ], [ 4, %103 ], [ 8, %102 ], [ 2, %101 ], [ %97, %98 ]
+  %.0 = phi i32 [ 9, %96 ], [ %97, %98 ], [ 2, %101 ], [ 8, %102 ], [ 4, %103 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
   store i32 %.0, ptr %9, align 4
   %105 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 4)

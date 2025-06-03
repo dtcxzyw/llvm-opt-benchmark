@@ -18234,9 +18234,9 @@ lean_alloc_ctor.exit869:                          ; preds = %lean_dec.exit
   unreachable
 
 1228:                                             ; preds = %lean_dec.exit539, %lean_inc.exit498, %lean_alloc_ctor.exit736, %lean_alloc_ctor.exit, %lean_dec.exit534, %lean_alloc_ctor.exit770, %lean_alloc_ctor.exit777, %1041
-  %.10428 = phi ptr [ %97, %lean_inc.exit498 ], [ %78, %lean_dec.exit539 ], [ %336, %lean_alloc_ctor.exit736 ], [ %182, %lean_alloc_ctor.exit ], [ %182, %lean_dec.exit534 ], [ %725, %lean_alloc_ctor.exit777 ], [ %725, %lean_alloc_ctor.exit770 ], [ %858, %1041 ]
-  %.10415 = phi ptr [ %.04051097, %lean_inc.exit498 ], [ %.04051097, %lean_dec.exit539 ], [ %.0441, %lean_alloc_ctor.exit736 ], [ %308, %lean_alloc_ctor.exit ], [ %170, %lean_dec.exit534 ], [ %.04051097, %lean_alloc_ctor.exit777 ], [ %.04051097, %lean_alloc_ctor.exit770 ], [ %.0443, %1041 ]
-  %.10404 = phi ptr [ %.03941098, %lean_inc.exit498 ], [ %.03941098, %lean_dec.exit539 ], [ %512, %lean_alloc_ctor.exit736 ], [ %157, %lean_alloc_ctor.exit ], [ %157, %lean_dec.exit534 ], [ %771, %lean_alloc_ctor.exit777 ], [ %743, %lean_alloc_ctor.exit770 ], [ %.0442, %1041 ]
+  %.10428 = phi ptr [ %78, %lean_dec.exit539 ], [ %97, %lean_inc.exit498 ], [ %336, %lean_alloc_ctor.exit736 ], [ %182, %lean_alloc_ctor.exit ], [ %182, %lean_dec.exit534 ], [ %725, %lean_alloc_ctor.exit770 ], [ %725, %lean_alloc_ctor.exit777 ], [ %858, %1041 ]
+  %.10415 = phi ptr [ %.04051097, %lean_dec.exit539 ], [ %.04051097, %lean_inc.exit498 ], [ %.0441, %lean_alloc_ctor.exit736 ], [ %308, %lean_alloc_ctor.exit ], [ %170, %lean_dec.exit534 ], [ %.04051097, %lean_alloc_ctor.exit770 ], [ %.04051097, %lean_alloc_ctor.exit777 ], [ %.0443, %1041 ]
+  %.10404 = phi ptr [ %.03941098, %lean_dec.exit539 ], [ %.03941098, %lean_inc.exit498 ], [ %512, %lean_alloc_ctor.exit736 ], [ %157, %lean_alloc_ctor.exit ], [ %157, %lean_dec.exit534 ], [ %743, %lean_alloc_ctor.exit770 ], [ %771, %lean_alloc_ctor.exit777 ], [ %.0442, %1041 ]
   %.10391 = add i64 %.03811099, 1
   %.not = icmp eq i64 %.10391, %2
   br i1 %.not, label %._crit_edge, label %11

@@ -747,6 +747,13 @@ if.then41:                                        ; preds = %sw.bb39
   store ptr null, ptr %ref.tmp42.sroa.29.0.arrayidx48.sroa_idx, align 8
   br label %Loop.outer.backedge
 
+Loop.outer.backedge:                              ; preds = %if.end120, %if.end65, %_ZN3re23NFA11AllocThreadEv.exit, %sw.bb39, %if.then41
+  %nstk.1.ph.be = phi i32 [ %nstk.1.ph, %sw.bb39 ], [ %inc46, %if.then41 ], [ %inc72, %_ZN3re23NFA11AllocThreadEv.exit ], [ %nstk.4, %if.end65 ], [ %nstk.6, %if.end120 ]
+  %t0.addr.1.ph.be = phi ptr [ %t0.addr.2, %sw.bb39 ], [ %t0.addr.2, %if.then41 ], [ %retval.0.i79, %_ZN3re23NFA11AllocThreadEv.exit ], [ %t0.addr.2, %if.end65 ], [ %t0.addr.2, %if.end120 ]
+  %a.sroa.0.0.ph.be.in = load i32, ptr %arrayidx.i.i.i70, align 4
+  %a.sroa.0.0.ph.be = lshr i32 %a.sroa.0.0.ph.be.in, 4
+  br label %Loop.outer
+
 sw.bb54:                                          ; preds = %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit
   %26 = and i32 %20, 8
   %tobool56.not = icmp eq i32 %26, 0
@@ -919,13 +926,6 @@ if.end120:                                        ; preds = %if.then112, %sw.bb1
   %and = and i32 %62, %not
   %tobool123.not = icmp eq i32 %and, 0
   br i1 %tobool123.not, label %Loop.outer.backedge, label %while.cond.backedge
-
-Loop.outer.backedge:                              ; preds = %if.end120, %if.end65, %_ZN3re23NFA11AllocThreadEv.exit, %sw.bb39, %if.then41
-  %nstk.1.ph.be = phi i32 [ %nstk.1.ph, %sw.bb39 ], [ %inc46, %if.then41 ], [ %inc72, %_ZN3re23NFA11AllocThreadEv.exit ], [ %nstk.4, %if.end65 ], [ %nstk.6, %if.end120 ]
-  %t0.addr.1.ph.be = phi ptr [ %t0.addr.2, %sw.bb39 ], [ %t0.addr.2, %if.then41 ], [ %retval.0.i79, %_ZN3re23NFA11AllocThreadEv.exit ], [ %t0.addr.2, %if.end65 ], [ %t0.addr.2, %if.end120 ]
-  %a.sroa.0.0.ph.be.in = load i32, ptr %arrayidx.i.i.i70, align 4
-  %a.sroa.0.0.ph.be = lshr i32 %a.sroa.0.0.ph.be.in, 4
-  br label %Loop.outer
 
 while.cond.backedge:                              ; preds = %if.end120, %if.end88, %Next, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit, %if.end9, %invoke.cont32
   %nstk.0.be = phi i32 [ %nstk.1.ph, %invoke.cont32 ], [ %nstk.1.ph, %if.end9 ], [ %nstk.1.ph, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit ], [ %nstk.1.ph, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit ], [ %nstk.1.ph, %Next ], [ %nstk.1.ph, %if.end88 ], [ %nstk.6, %if.end120 ]
@@ -1413,7 +1413,7 @@ for.end121:                                       ; preds = %for.inc119, %entry
   br label %return
 
 return:                                           ; preds = %for.end, %_ZN3re24Prog4Inst6greedyEPS0_.exit83, %for.end121, %for.end117, %if.then50
-  %retval.0 = phi i32 [ 0, %for.end117 ], [ %39, %if.then50 ], [ 0, %for.end121 ], [ %shr.i.i71, %_ZN3re24Prog4Inst6greedyEPS0_.exit83 ], [ %shr.i.i71, %for.end ]
+  %retval.0 = phi i32 [ %39, %if.then50 ], [ 0, %for.end117 ], [ 0, %for.end121 ], [ %shr.i.i71, %_ZN3re24Prog4Inst6greedyEPS0_.exit83 ], [ %shr.i.i71, %for.end ]
   ret i32 %retval.0
 }
 

@@ -4378,7 +4378,7 @@ _ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit14: ; preds
   br label %184
 
 184:                                              ; preds = %46, %50, %2, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit, %183, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit14, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit12
-  %.0 = phi i1 [ false, %183 ], [ %182, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit14 ], [ %139, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit12 ], [ false, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit ], [ %96, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit ], [ true, %2 ], [ false, %50 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %183 ], [ %139, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit12 ], [ %182, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit14 ], [ false, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11above_boundERKS1_S4_.exit ], [ %96, %_ZNK2lp19lp_core_solver_baseI8rationalS1_E11below_boundERKS1_S4_.exit ], [ true, %2 ], [ false, %50 ], [ false, %46 ]
   ret i1 %.0
 }
 
@@ -4472,7 +4472,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK2lp19lp_core_solver_baseI8rationa
   br label %41
 
 41:                                               ; preds = %2, %13, %19, %40, %33, %26
-  %.0 = phi i1 [ false, %40 ], [ %39, %33 ], [ %32, %26 ], [ false, %13 ], [ %25, %19 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %40 ], [ %32, %26 ], [ %39, %33 ], [ false, %13 ], [ %25, %19 ], [ true, %2 ]
   ret i1 %.0
 }
 

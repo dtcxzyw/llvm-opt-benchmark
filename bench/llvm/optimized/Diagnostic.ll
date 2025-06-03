@@ -1018,7 +1018,7 @@ define dso_local noundef ptr @_ZN5clang7tooling14selectFirstFixERKNS0_10Diagnost
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %30 = getelementptr i8, ptr %.1.i.i.i.i, i64 84
   %.1.val.i.i.i.i = load i32, ptr %30, align 4, !tbaa !46
   %.not33.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i, 0
@@ -1029,7 +1029,7 @@ define dso_local noundef ptr @_ZN5clang7tooling14selectFirstFixERKNS0_10Diagnost
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %32, %31 ]
+  %.2.i.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %34 = getelementptr i8, ptr %.2.i.i.i.i, i64 84
   %.2.val.i.i.i.i = load i32, ptr %34, align 4, !tbaa !46
   %.not34.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i, 0

@@ -1742,7 +1742,7 @@ default.unreachable23:                            ; preds = %6
   unreachable
 
 _ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %85, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %90, %75, %54, %95, %92
-  %.015 = phi i32 [ 1, %92 ], [ %96, %95 ], [ %57, %54 ], [ %80, %75 ], [ 2, %90 ], [ 0, %51 ], [ 2, %37 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 1, %85 ]
+  %.015 = phi i32 [ 1, %92 ], [ %57, %54 ], [ %96, %95 ], [ %80, %75 ], [ 2, %90 ], [ 0, %51 ], [ 2, %37 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 1, %85 ]
   ret i32 %.015
 }
 
@@ -1798,7 +1798,7 @@ default.unreachable22:                            ; preds = %5
   unreachable
 
 33:                                               ; preds = %31, %13, %11, %9
-  %.018 = phi ptr [ %32, %31 ], [ %30, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.018 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %30, %13 ], [ %32, %31 ]
   %34 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.018, ptr %2, ptr %1) #19, !srcloc !12
   %35 = icmp eq ptr %34, %2
   %36 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8

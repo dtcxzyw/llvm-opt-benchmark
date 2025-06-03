@@ -208,7 +208,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN82_$LT$uv_pep508..marker..tree..MarkerValueVersion$u20$as$u20$core..fmt..Display$GT$3fmt17hcdfaaa48483c3f3bE.exit"
 
 "_ZN82_$LT$uv_pep508..marker..tree..MarkerValueVersion$u20$as$u20$core..fmt..Display$GT$3fmt17hcdfaaa48483c3f3bE.exit": ; preds = %5, %7, %9
-  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in.i = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -382,7 +382,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN9uv_pep5086marker4tree16MarkerExpression4kind17hfea937a0977afe08E.exit
 
 _ZN9uv_pep5086marker4tree16MarkerExpression4kind17hfea937a0977afe08E.exit: ; preds = %2, %4, %7, %10
-  %.sroa.5.0.i = phi i8 [ %12, %10 ], [ %9, %7 ], [ %6, %4 ], [ undef, %2 ]
+  %.sroa.5.0.i = phi i8 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ undef, %2 ]
   %13 = insertvalue { i8, i8 } poison, i8 %3, 0
   %14 = insertvalue { i8, i8 } %13, i8 %.sroa.5.0.i, 1
   ret { i8, i8 } %14
@@ -417,7 +417,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13172722887856092680.exit
 
 _ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13172722887856092680.exit: ; preds = %2, %4, %7, %10
-  %.sroa.5.0.i.i = phi i8 [ %12, %10 ], [ %9, %7 ], [ %6, %4 ], [ undef, %2 ]
+  %.sroa.5.0.i.i = phi i8 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ undef, %2 ]
   %13 = insertvalue { i8, i8 } poison, i8 %3, 0
   %14 = insertvalue { i8, i8 } %13, i8 %.sroa.5.0.i.i, 1
   ret { i8, i8 } %14
@@ -969,7 +969,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i32 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i32 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i32 %.sroa.01.0
 }
 
@@ -4265,7 +4265,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree22evaluat
   br i1 %132, label %"_ZN14version_ranges15Ranges$LT$V$GT$12as_singleton17hce7383de4e5c5745E.exit", label %133
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.llvm.13172722887856092680.exit.thread": ; preds = %162, %88, %34, %28, %52, %62, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", %99, %164, %5
-  %.sroa.0.1 = phi i1 [ %87, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit" ], [ %68, %62 ], [ %61, %52 ], [ %166, %164 ], [ %101, %99 ], [ false, %28 ], [ true, %5 ], [ false, %34 ], [ false, %88 ], [ false, %162 ]
+  %.sroa.0.1 = phi i1 [ false, %28 ], [ %101, %99 ], [ %166, %164 ], [ %61, %52 ], [ %68, %62 ], [ %87, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit" ], [ true, %5 ], [ false, %34 ], [ false, %88 ], [ false, %162 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   ret i1 %.sroa.0.1
 
@@ -4652,8 +4652,8 @@ define { ptr, i64 } @_ZN9uv_pep5086origin17RequirementOrigin4path17he177409c3013
   br label %22
 
 22:                                               ; preds = %1, %17, %12, %7
-  %.sroa.5.0 = phi i64 [ %21, %17 ], [ %16, %12 ], [ %11, %7 ], [ 11, %1 ]
-  %.sroa.0.0 = phi ptr [ %19, %17 ], [ %14, %12 ], [ %9, %7 ], [ @anon.e74b25d9c20e73c85ef23afb4685516b.94, %1 ]
+  %.sroa.5.0 = phi i64 [ %11, %7 ], [ %16, %12 ], [ %21, %17 ], [ 11, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %7 ], [ %14, %12 ], [ %19, %17 ], [ @anon.e74b25d9c20e73c85ef23afb4685516b.94, %1 ]
   %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %24

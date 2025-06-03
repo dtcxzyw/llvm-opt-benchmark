@@ -1252,7 +1252,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   br label %71
 
 71:                                               ; preds = %64, %70, %69, %66, %65
-  %.046 = phi nsz float [ 4.000000e+00, %70 ], [ 8.000000e+00, %69 ], [ %68, %66 ], [ 3.000000e+00, %65 ], [ 2.000000e+00, %64 ]
+  %.046 = phi nsz float [ 4.000000e+00, %70 ], [ 3.000000e+00, %65 ], [ %68, %66 ], [ 8.000000e+00, %69 ], [ 2.000000e+00, %64 ]
   %72 = fdiv nsz float %22, %.047
   %73 = fdiv nsz float %.046, %72
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 226

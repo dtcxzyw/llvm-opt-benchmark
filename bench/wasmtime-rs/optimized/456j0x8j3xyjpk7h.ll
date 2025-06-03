@@ -59,7 +59,7 @@ define hidden i8 @_ZN22cranelift_codegen_meta4cdsl8settings7Setting12default_byt
   br label %19
 
 19:                                               ; preds = %7, %1, %14, %11
-  %.0 = phi i8 [ %13, %11 ], [ %18, %14 ], [ 0, %1 ], [ 0, %7 ]
+  %.0 = phi i8 [ %18, %14 ], [ %13, %11 ], [ 0, %1 ], [ 0, %7 ]
   ret i8 %.0
 }
 
@@ -997,8 +997,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   br label %128
 
 128:                                              ; preds = %127, %124
-  %.sroa.011.0 = phi i64 [ -9223372036854775806, %124 ], [ %.sroa.011.0.copyload, %127 ]
-  %.sroa.313.0 = phi i8 [ %126, %124 ], [ %.sroa.313.0.copyload, %127 ]
+  %.sroa.011.0 = phi i64 [ %.sroa.011.0.copyload, %127 ], [ -9223372036854775806, %124 ]
+  %.sroa.313.0 = phi i8 [ %.sroa.313.0.copyload, %127 ], [ %126, %124 ]
   %129 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %130 = load ptr, ptr %129, align 8, !nonnull !4, !align !7, !noundef !4
   %131 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -1113,7 +1113,7 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   switch i64 %36, label %43 [
     i64 0, label %44
     i64 1, label %50
-    i64 2, label %52
+    i64 2, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit"
   ]
 
 43:                                               ; preds = %42
@@ -1125,37 +1125,37 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i8, ptr %47, align 8, !range !5, !noundef !4
   %49 = icmp eq i8 %46, %48
-  br i1 %49, label %58, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
+  br i1 %49, label %52, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 50:                                               ; preds = %42
   %51 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he3d8e0326570c68bE"(ptr nonnull align 8 %0, ptr nonnull align 8 %1)
   br i1 %51, label %69, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
-52:                                               ; preds = %42
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i8, ptr %53, align 8, !noundef !4
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = load i8, ptr %55, align 8, !noundef !4
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %54 = load i8, ptr %53, align 1, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %56 = load i8, ptr %55, align 1, !noundef !4
   %57 = icmp eq i8 %54, %56
-  br i1 %57, label %69, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
+  br i1 %57, label %58, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
-58:                                               ; preds = %44
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %60 = load i8, ptr %59, align 1, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %62 = load i8, ptr %61, align 1, !noundef !4
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %60 = load i8, ptr %59, align 2, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %62 = load i8, ptr %61, align 2, !noundef !4
   %63 = icmp eq i8 %60, %62
-  br i1 %63, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit", label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
+  br i1 %63, label %69, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
-"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit": ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %65 = load i8, ptr %64, align 2, !noundef !4
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %67 = load i8, ptr %66, align 2, !noundef !4
+"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit": ; preds = %42
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = load i8, ptr %64, align 8, !noundef !4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %67 = load i8, ptr %66, align 8, !noundef !4
   %68 = icmp eq i8 %65, %67
   br i1 %68, label %69, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
-69:                                               ; preds = %50, %52, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit"
+69:                                               ; preds = %50, %58, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit"
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = load i8, ptr %70, align 8, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1163,8 +1163,8 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   %74 = icmp eq i8 %71, %73
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
-"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread": ; preds = %44, %58, %32, %50, %52, %2, %12, %22, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit", %69
-  %.0 = phi i1 [ %74, %69 ], [ false, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit" ], [ false, %22 ], [ false, %12 ], [ false, %2 ], [ false, %52 ], [ false, %50 ], [ false, %32 ], [ false, %58 ], [ false, %44 ]
+"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread": ; preds = %44, %52, %32, %50, %58, %2, %12, %22, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit", %69
+  %.0 = phi i1 [ %74, %69 ], [ false, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit" ], [ false, %22 ], [ false, %12 ], [ false, %2 ], [ false, %58 ], [ false, %50 ], [ false, %32 ], [ false, %52 ], [ false, %44 ]
   ret i1 %.0
 }
 

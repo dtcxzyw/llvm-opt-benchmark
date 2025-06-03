@@ -143,7 +143,7 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
   br label %18
 
 18:                                               ; preds = %12, %9, %6
-  %.0.in = phi ptr [ %17, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.0.in = phi ptr [ %17, %12 ], [ %8, %6 ], [ %11, %9 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !33
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %27, label %19
@@ -263,7 +263,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   br label %58
 
 58:                                               ; preds = %51, %32, %53, %27
-  %.1 = phi ptr [ %.0, %27 ], [ %52, %51 ], [ %57, %53 ], [ %38, %32 ]
+  %.1 = phi ptr [ %.0, %27 ], [ %57, %53 ], [ %52, %51 ], [ %38, %32 ]
   ret ptr %.1
 }
 
@@ -367,7 +367,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 
 _Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit: ; preds = %27, %32, %51, %53
-  %.1.i = phi ptr [ %.0.i, %27 ], [ %52, %51 ], [ %57, %53 ], [ %38, %32 ]
+  %.1.i = phi ptr [ %.0.i, %27 ], [ %57, %53 ], [ %52, %51 ], [ %38, %32 ]
   %58 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   ret ptr %58
 }

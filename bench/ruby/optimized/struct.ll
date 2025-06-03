@@ -1198,7 +1198,7 @@ RSTRING_PTR.exit:                                 ; preds = %80, %88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   br label %122
 
-.critedge:                                        ; preds = %57, %rb_struct_s_keyword_init.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit, %rb_struct_s_keyword_init.exit, %67
+.critedge:                                        ; preds = %57, %rb_struct_s_keyword_init.exit, %rb_struct_s_keyword_init.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit, %67
   %90 = sext i32 %0 to i64
   %91 = icmp slt i64 %18, %90
   br i1 %91, label %95, label %.preheader

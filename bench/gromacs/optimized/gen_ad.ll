@@ -3714,8 +3714,8 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553: ; preds = %1447, %_ZS
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527.thread
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527.thread: ; preds = %._crit_edge.i.i.i532, %._crit_edge.i.i.i506, %.preheader, %1492, %1488, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527, %1432, %1436
-  %.01159 = phi i32 [ %indvars1665, %.preheader ], [ %1172, %1488 ], [ %1494, %1492 ], [ %1172, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553 ], [ %1438, %1436 ], [ %1173, %1432 ], [ %1173, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527 ], [ %1173, %._crit_edge.i.i.i506 ], [ %1172, %._crit_edge.i.i.i532 ]
-  %.0247 = phi ptr [ %1381, %.preheader ], [ %1440, %1488 ], [ %1440, %1492 ], [ %1440, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553 ], [ %1384, %1436 ], [ %1384, %1432 ], [ %1384, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527 ], [ %1384, %._crit_edge.i.i.i506 ], [ %1440, %._crit_edge.i.i.i532 ]
+  %.01159 = phi i32 [ %indvars1665, %.preheader ], [ %1438, %1436 ], [ %1173, %1432 ], [ %1173, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527 ], [ %1172, %1488 ], [ %1494, %1492 ], [ %1172, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553 ], [ %1173, %._crit_edge.i.i.i506 ], [ %1172, %._crit_edge.i.i.i532 ]
+  %.0247 = phi ptr [ %1381, %.preheader ], [ %1384, %1436 ], [ %1384, %1432 ], [ %1384, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit527 ], [ %1440, %1488 ], [ %1440, %1492 ], [ %1440, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit553 ], [ %1384, %._crit_edge.i.i.i506 ], [ %1440, %._crit_edge.i.i.i532 ]
   %1495 = invoke i64 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef nonnull %.0247, i32 noundef %.01159, ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i1 noundef zeroext true)
           to label %1496 unwind label %.loopexit1194
 
@@ -6601,7 +6601,7 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i.i.i.i
-  %.sroa.034.1.i.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %106, %105 ]
+  %.sroa.034.1.i.i.i.i.i.i = phi ptr [ %106, %105 ], [ %.sroa.034.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %108 = invoke fastcc noundef zeroext i1 @_ZL24is_dihedral_on_same_bondRK17InteractionOfTypeS1_(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0107.0128, ptr noundef nonnull align 8 dereferenceable(105) %.sroa.034.1.i.i.i.i.i.i)
           to label %.noexc30 unwind label %.loopexit.split-lp122
 
@@ -6613,7 +6613,7 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i.i.i.i
-  %.sroa.034.2.i.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %110, %109 ]
+  %.sroa.034.2.i.i.i.i.i.i = phi ptr [ %110, %109 ], [ %.sroa.034.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %112 = invoke fastcc noundef zeroext i1 @_ZL24is_dihedral_on_same_bondRK17InteractionOfTypeS1_(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0107.0128, ptr noundef nonnull align 8 dereferenceable(105) %.sroa.034.2.i.i.i.i.i.i)
           to label %.noexc31 unwind label %.loopexit.split-lp122
 
@@ -6758,7 +6758,7 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i
-  %.sroa.040.1.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %164, %163 ]
+  %.sroa.040.1.i.i.i = phi ptr [ %164, %163 ], [ %.sroa.040.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %166 = invoke fastcc noundef zeroext i1 @_ZL24is_dihedral_on_same_bondRK17InteractionOfTypeS1_(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0107.0128, ptr noundef nonnull align 8 dereferenceable(105) %.sroa.040.1.i.i.i)
           to label %.noexc43 unwind label %.loopexit.split-lp
 
@@ -6774,7 +6774,7 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   br label %172
 
 172:                                              ; preds = %170, %._crit_edge.i.i.i
-  %.sroa.040.2.i.i.i = phi ptr [ %.sroa.040.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %171, %170 ]
+  %.sroa.040.2.i.i.i = phi ptr [ %171, %170 ], [ %.sroa.040.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %173 = invoke fastcc noundef zeroext i1 @_ZL24is_dihedral_on_same_bondRK17InteractionOfTypeS1_(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0107.0128, ptr noundef nonnull align 8 dereferenceable(105) %.sroa.040.2.i.i.i)
           to label %.noexc44 unwind label %.loopexit.split-lp
 

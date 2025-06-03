@@ -317,7 +317,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %22
 
 22:                                               ; preds = %19, %13
-  %.1 = phi i32 [ %9, %13 ], [ %20, %19 ]
+  %.1 = phi i32 [ %20, %19 ], [ %9, %13 ]
   br i1 %3, label %23, label %24
 
 23:                                               ; preds = %22
@@ -342,7 +342,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %34
 
 34:                                               ; preds = %31, %13
-  %.2 = phi i32 [ %9, %13 ], [ %32, %31 ]
+  %.2 = phi i32 [ %32, %31 ], [ %9, %13 ]
   br i1 %3, label %35, label %36
 
 35:                                               ; preds = %34
@@ -366,7 +366,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %45
 
 45:                                               ; preds = %42, %13
-  %.3 = phi i32 [ %9, %13 ], [ %43, %42 ]
+  %.3 = phi i32 [ %43, %42 ], [ %9, %13 ]
   br i1 %3, label %46, label %47
 
 46:                                               ; preds = %45
@@ -433,7 +433,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %77
 
 77:                                               ; preds = %74, %65
-  %.5 = phi i32 [ %.0, %65 ], [ %75, %74 ]
+  %.5 = phi i32 [ %75, %74 ], [ %.0, %65 ]
   br i1 %3, label %78, label %79
 
 78:                                               ; preds = %77
@@ -501,7 +501,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %110
 
 110:                                              ; preds = %107, %97
-  %.6 = phi i32 [ %.4, %97 ], [ %108, %107 ]
+  %.6 = phi i32 [ %108, %107 ], [ %.4, %97 ]
   br i1 %3, label %111, label %112
 
 111:                                              ; preds = %110

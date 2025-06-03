@@ -2586,7 +2586,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   br label %.thread
 
 .thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %23, %16 ], [ %25, %24 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 

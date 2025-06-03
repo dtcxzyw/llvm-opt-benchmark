@@ -1205,7 +1205,7 @@ define internal fastcc noundef zeroext i1 @_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16H
   br label %25
 
 25:                                               ; preds = %._crit_edge48, %._crit_edge48.thread
-  %.1 = phi i1 [ true, %._crit_edge48 ], [ false, %._crit_edge48.thread ]
+  %.1 = phi i1 [ false, %._crit_edge48.thread ], [ true, %._crit_edge48 ]
   ret i1 %.1
 }
 

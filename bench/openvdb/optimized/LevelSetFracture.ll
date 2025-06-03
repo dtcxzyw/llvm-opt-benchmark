@@ -9412,7 +9412,7 @@ if.end22:                                         ; preds = %if.then.i.i.i15, %_
   br label %return
 
 return:                                           ; preds = %if.then, %if.then.i.i.i15.thread, %if.then.i.i.i15, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIfLj3EEESaIS6_EED2Ev.exit16, %if.end22
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIfLj3EEESaIS6_EED2Ev.exit16 ], [ true, %if.end22 ], [ false, %if.then.i.i.i15 ], [ false, %if.then.i.i.i15.thread ], [ false, %if.then ]
+  %retval.1 = phi i1 [ true, %if.end22 ], [ false, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIfLj3EEESaIS6_EED2Ev.exit16 ], [ false, %if.then.i.i.i15 ], [ false, %if.then.i.i.i15.thread ], [ false, %if.then ]
   ret i1 %retval.1
 }
 
@@ -13566,7 +13566,7 @@ if.end22:                                         ; preds = %if.then.i.i.i15, %_
   br label %return
 
 return:                                           ; preds = %if.then, %if.then.i.i.i15.thread, %if.then.i.i.i15, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIdLj3EEESaIS6_EED2Ev.exit16, %if.end22
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIdLj3EEESaIS6_EED2Ev.exit16 ], [ true, %if.end22 ], [ false, %if.then.i.i.i15 ], [ false, %if.then.i.i.i15.thread ], [ false, %if.then ]
+  %retval.1 = phi i1 [ true, %if.end22 ], [ false, %_ZNSt6vectorIPKN7openvdb5v11_04tree8LeafNodeIdLj3EEESaIS6_EED2Ev.exit16 ], [ false, %if.then.i.i.i15 ], [ false, %if.then.i.i.i15.thread ], [ false, %if.then ]
   ret i1 %retval.1
 }
 
@@ -88773,9 +88773,9 @@ sw.bb83:                                          ; preds = %for.body71
   br label %for.inc87
 
 for.inc87:                                        ; preds = %for.body71, %sw.bb75, %sw.bb79, %sw.bb83
-  %xpos.1 = phi i32 [ %xpos.0196, %for.body71 ], [ %xpos.0196, %sw.bb83 ], [ %xpos.0196, %sw.bb79 ], [ %54, %sw.bb75 ]
-  %ypos.1 = phi i32 [ %ypos.0197, %for.body71 ], [ %ypos.0197, %sw.bb83 ], [ %89, %sw.bb79 ], [ %ypos.0197, %sw.bb75 ]
-  %zpos.1 = phi i32 [ %zpos.0198, %for.body71 ], [ %124, %sw.bb83 ], [ %zpos.0198, %sw.bb79 ], [ %zpos.0198, %sw.bb75 ]
+  %xpos.1 = phi i32 [ %xpos.0196, %for.body71 ], [ %54, %sw.bb75 ], [ %xpos.0196, %sw.bb79 ], [ %xpos.0196, %sw.bb83 ]
+  %ypos.1 = phi i32 [ %ypos.0197, %for.body71 ], [ %ypos.0197, %sw.bb75 ], [ %89, %sw.bb79 ], [ %ypos.0197, %sw.bb83 ]
+  %zpos.1 = phi i32 [ %zpos.0198, %for.body71 ], [ %zpos.0198, %sw.bb75 ], [ %zpos.0198, %sw.bb79 ], [ %124, %sw.bb83 ]
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, -1
   %cmp70.not = icmp eq i64 %indvars.iv206, 0
   br i1 %cmp70.not, label %for.end88, label %for.body71, !llvm.loop !1122
@@ -89028,10 +89028,10 @@ sw.bb131:                                         ; preds = %for.body64
   br label %for.inc134
 
 for.inc134:                                       ; preds = %for.body64, %if.end120, %sw.bb124, %sw.bb131
-  %remainder.1 = phi ptr [ %remainder.0200, %for.body64 ], [ %remainder.0200, %sw.bb131 ], [ %mPreScaleTransform, %sw.bb124 ], [ %remainder.0200, %if.end120 ]
-  %rpos.1 = phi i32 [ %rpos.0201, %for.body64 ], [ %rpos.0201, %sw.bb131 ], [ %rpos.0201, %sw.bb124 ], [ %137, %if.end120 ]
-  %spos.1 = phi i32 [ %spos.0202, %for.body64 ], [ %spos.0202, %sw.bb131 ], [ %184, %sw.bb124 ], [ %spos.0202, %if.end120 ]
-  %tpos.1 = phi i32 [ %tpos.0203, %for.body64 ], [ %185, %sw.bb131 ], [ %tpos.0203, %sw.bb124 ], [ %tpos.0203, %if.end120 ]
+  %remainder.1 = phi ptr [ %remainder.0200, %for.body64 ], [ %remainder.0200, %if.end120 ], [ %mPreScaleTransform, %sw.bb124 ], [ %remainder.0200, %sw.bb131 ]
+  %rpos.1 = phi i32 [ %rpos.0201, %for.body64 ], [ %137, %if.end120 ], [ %rpos.0201, %sw.bb124 ], [ %rpos.0201, %sw.bb131 ]
+  %spos.1 = phi i32 [ %spos.0202, %for.body64 ], [ %spos.0202, %if.end120 ], [ %184, %sw.bb124 ], [ %spos.0202, %sw.bb131 ]
+  %tpos.1 = phi i32 [ %tpos.0203, %for.body64 ], [ %tpos.0203, %if.end120 ], [ %tpos.0203, %sw.bb124 ], [ %185, %sw.bb131 ]
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, -1
   %cmp63.not = icmp eq i64 %indvars.iv209, 0
   br i1 %cmp63.not, label %for.end136, label %for.body64, !llvm.loop !1135

@@ -4698,7 +4698,7 @@ bytearray_decode_impl.exit:                       ; preds = %33, %48, %.thread66
   br label %52
 
 52:                                               ; preds = %.thread62, %24, %39, %46, %bytearray_decode_impl.exit, %13, %40
-  %.038 = phi ptr [ %51, %bytearray_decode_impl.exit ], [ null, %40 ], [ null, %46 ], [ null, %39 ], [ null, %24 ], [ null, %13 ], [ null, %.thread62 ]
+  %.038 = phi ptr [ null, %40 ], [ null, %46 ], [ %51, %bytearray_decode_impl.exit ], [ null, %39 ], [ null, %24 ], [ null, %13 ], [ null, %.thread62 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   ret ptr %.038
 }

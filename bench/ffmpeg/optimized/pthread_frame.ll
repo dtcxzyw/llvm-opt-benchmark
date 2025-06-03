@@ -1801,7 +1801,7 @@ define range(i32 0, 2) i32 @ff_thread_can_start_frame(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %10, %17
-  %.1 = phi i32 [ 0, %10 ], [ 1, %17 ]
+  %.1 = phi i32 [ 1, %17 ], [ 0, %10 ]
   ret i32 %.1
 }
 

@@ -2585,7 +2585,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit39:  ; preds = %1
   br label %40
 
 40:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit44", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit"
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit44" ], [ %.sroa.0.0.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit" ], [ %.sroa.0.0.i40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h57c2d000ac61953eE.exit44" ]
   ret i64 %.sroa.0.0
 
 41:                                               ; preds = %44, %31
@@ -2595,7 +2595,7 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.exit39:  ; preds = %1
   unreachable
 
 43:                                               ; preds = %44, %31
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %45, %44 ]
   resume { ptr, i32 } %.pn
 
 44:                                               ; preds = %29, %27

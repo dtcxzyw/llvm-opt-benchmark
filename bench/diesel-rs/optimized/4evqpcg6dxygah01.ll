@@ -169,7 +169,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -430,7 +430,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -692,7 +692,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -954,7 +954,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1518,7 +1518,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1780,7 +1780,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2194,7 +2194,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %64
 
 64:                                               ; preds = %74, %57
-  %.2 = phi i8 [ 0, %74 ], [ 1, %57 ]
+  %.2 = phi i8 [ 1, %57 ], [ 0, %74 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -12034,7 +12034,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$uv_client..error..ErrorKind$
   unreachable
 
 common.resume:                                    ; preds = %831, %725, %853, %848, %780, %.body, %743, %766
-  %common.resume.op = phi { ptr, i32 } [ %767, %766 ], [ %832, %831 ], [ %781, %780 ], [ %193, %.body ], [ %744, %743 ], [ %726, %725 ], [ %849, %853 ], [ %849, %848 ]
+  %common.resume.op = phi { ptr, i32 } [ %767, %766 ], [ %726, %725 ], [ %744, %743 ], [ %193, %.body ], [ %781, %780 ], [ %832, %831 ], [ %849, %853 ], [ %849, %848 ]
   resume { ptr, i32 } %common.resume.op
 
 725:                                              ; preds = %165
@@ -30648,7 +30648,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i64 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i64 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i64 %.sroa.01.0
 }
 

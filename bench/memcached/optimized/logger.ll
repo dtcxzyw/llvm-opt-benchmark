@@ -1008,7 +1008,7 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   br label %104
 
 104:                                              ; preds = %97, %92
-  %.0.in = phi i64 [ %103, %97 ], [ %96, %92 ]
+  %.0.in = phi i64 [ %96, %92 ], [ %103, %97 ]
   %.0 = trunc i64 %.0.in to i32
   switch i32 %.0, label %109 [
     i32 -1, label %105
@@ -1867,7 +1867,7 @@ define internal noundef i32 @_logger_parse_cne(ptr noundef %0, ptr noundef write
   br label %_logger_util_addr_endpoint.exit
 
 _logger_util_addr_endpoint.exit:                  ; preds = %2, %6, %11, %16
-  %.0 = phi i16 [ 0, %2 ], [ 0, %16 ], [ %rev.i14.i, %11 ], [ %rev.i.i, %6 ]
+  %.0 = phi i16 [ 0, %2 ], [ %rev.i.i, %6 ], [ %rev.i14.i, %11 ], [ 0, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !91
@@ -1923,7 +1923,7 @@ define internal noundef i32 @_logger_parse_cce(ptr noundef %0, ptr noundef write
   br label %_logger_util_addr_endpoint.exit
 
 _logger_util_addr_endpoint.exit:                  ; preds = %2, %6, %11, %16
-  %.0 = phi i16 [ 0, %2 ], [ 0, %16 ], [ %rev.i14.i, %11 ], [ %rev.i.i, %6 ]
+  %.0 = phi i16 [ 0, %2 ], [ %rev.i.i, %6 ], [ %rev.i14.i, %11 ], [ 0, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !91

@@ -359,7 +359,7 @@ define internal range(i32 -1, 2) i32 @IDASptfqmrSolve(ptr noundef %0, ptr nounde
   br label %59
 
 59:                                               ; preds = %49, %49, %49, %49, %58, %57, %56, %55
-  %.0 = phi i32 [ 0, %58 ], [ -1, %57 ], [ -1, %56 ], [ -1, %55 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ]
+  %.0 = phi i32 [ 0, %58 ], [ -1, %55 ], [ -1, %56 ], [ -1, %57 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8

@@ -581,7 +581,7 @@ define internal noundef zeroext i1 @"_ZN55_$LT$hyper..error..Kind$u20$as$u20$cor
   br label %18
 
 18:                                               ; preds = %16, %14, %12
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0.in = phi i1 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 

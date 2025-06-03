@@ -580,8 +580,8 @@ heap_getattr.exit:                                ; preds = %16
   %68 = trunc nuw i8 %.pre to i1
   br i1 %68, label %heap_getattr.exit.thread14, label %heap_getattr.exit.thread
 
-heap_getattr.exit.thread:                         ; preds = %58, %43, %46, %49, %52, %60, %65, %heap_getattr.exit
-  %.0.i13 = phi i64 [ %67, %heap_getattr.exit ], [ %59, %58 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %61, %60 ], [ %66, %65 ]
+heap_getattr.exit.thread:                         ; preds = %58, %52, %49, %46, %43, %60, %65, %heap_getattr.exit
+  %.0.i13 = phi i64 [ %67, %heap_getattr.exit ], [ %59, %58 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %61, %60 ], [ %66, %65 ]
   %69 = inttoptr i64 %.0.i13 to ptr
   %70 = call ptr @text_to_cstring(ptr noundef %69) #6
   br label %heap_getattr.exit.thread14

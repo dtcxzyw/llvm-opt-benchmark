@@ -1284,7 +1284,7 @@ ehcleanup195:                                     ; preds = %lpad103, %lpad.i, %
   br label %ehcleanup196
 
 ehcleanup196:                                     ; preds = %ehcleanup195, %lpad87, %lpad69, %lpad53, %lpad33, %lpad21, %lpad5
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup195 ], [ %3, %lpad5 ], [ %88, %lpad87 ], [ %28, %lpad69 ], [ %17, %lpad53 ], [ %15, %lpad33 ], [ %14, %lpad21 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup195 ], [ %3, %lpad5 ], [ %88, %lpad87 ], [ %28, %lpad69 ], [ %15, %lpad33 ], [ %14, %lpad21 ], [ %17, %lpad53 ]
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #25
   call void @_ZN6google8protobuf8compiler3cpp7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(206) %options_) #25
   br label %ehcleanup198
@@ -4850,7 +4850,7 @@ _ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7
   ret void
 
 ehcleanup272:                                     ; preds = %ehcleanup28, %ehcleanup266, %lpad
-  %.pn33 = phi { ptr, i32 } [ %8, %lpad ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup266 ], [ %.pn29.pn.pn, %ehcleanup28 ]
+  %.pn33 = phi { ptr, i32 } [ %8, %lpad ], [ %.pn29.pn.pn, %ehcleanup28 ], [ %.pn16.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup266 ]
   call void @_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf2io7Printer8WithVarsIRNS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS0_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEEvvEEDaOT_EUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %vars) #25
   resume { ptr, i32 } %.pn33
 }

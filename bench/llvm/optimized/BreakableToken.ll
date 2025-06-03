@@ -388,7 +388,7 @@ _ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit27: ;
   br i1 %.not46, label %_ZNK4llvm9StringRef4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !117
 
 61:                                               ; preds = %50, %47
-  %.1.i = phi i32 [ %48, %47 ], [ %51, %50 ]
+  %.1.i = phi i32 [ %51, %50 ], [ %48, %47 ]
   %62 = add i32 %.1.i, %.020.lcssa
   ret i32 %62
 }
@@ -3713,7 +3713,7 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i: ; preds 
   br label %_ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit.i
 
 _ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit.i: ; preds = %256, %247
-  %.1.i.i = phi i32 [ %254, %247 ], [ %257, %256 ]
+  %.1.i.i = phi i32 [ %257, %256 ], [ %254, %247 ]
   %.not.i132 = icmp eq i32 %.1.i.i, 1
   br i1 %.not.i132, label %258, label %"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit.thread"
 
@@ -3846,7 +3846,7 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.i142: ; pre
   br label %_ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit.i146
 
 _ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit.i146: ; preds = %315, %310
-  %.1.i.i147 = phi i32 [ %313, %310 ], [ %316, %315 ]
+  %.1.i.i147 = phi i32 [ %316, %315 ], [ %313, %310 ]
   %.not.i148 = icmp eq i32 %.1.i.i147, 1
   br i1 %.not.i148, label %317, label %"_ZZN5clang6format27BreakableLineCommentSectionC1ERKNS0_11FormatTokenEjbNS0_8encoding8EncodingERKNS0_11FormatStyleEENK3$_0clEv.exit163.thread"
 

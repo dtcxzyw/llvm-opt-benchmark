@@ -1622,7 +1622,7 @@ After_End_Of_Data.exit:                           ; preds = %20, %22
   br label %45
 
 45:                                               ; preds = %31, %40, %34
-  %.0 = phi i32 [ 0, %31 ], [ %39, %34 ], [ %44, %40 ]
+  %.0 = phi i32 [ 0, %31 ], [ %44, %40 ], [ %39, %34 ]
   %46 = tail call i32 @wmove(ptr noundef %1, i32 noundef 0, i32 noundef %.0) #13
   %47 = tail call i32 @waddnstr(ptr noundef %1, ptr noundef %19, i32 noundef %29) #13
   br label %48

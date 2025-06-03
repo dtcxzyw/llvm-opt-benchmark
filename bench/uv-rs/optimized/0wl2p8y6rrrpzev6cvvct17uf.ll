@@ -42903,10 +42903,10 @@ default.unreachable:                              ; preds = %34
   br label %_ZN4core5clone5Clone5clone17h704d57fc9a6d17e0E.exit
 
 _ZN4core5clone5Clone5clone17h704d57fc9a6d17e0E.exit: ; preds = %.noexc, %50, %48, %34
-  %.sroa.3.0 = phi i64 [ %58, %.noexc ], [ -9223372036854775806, %50 ], [ -9223372036854775807, %48 ], [ -9223372036854775808, %34 ]
-  %.sroa.1020.1 = phi i64 [ %56, %.noexc ], [ %.sroa.1020.032, %50 ], [ %.sroa.1020.032, %48 ], [ %.sroa.1020.032, %34 ]
-  %.sroa.7.sroa.0.1 = phi i32 [ %.sroa.7.sroa.0.0.extract.trunc, %.noexc ], [ %.sroa.7.sroa.0.0.extract.trunc21, %50 ], [ %.val.i.i, %48 ], [ %.sroa.7.sroa.0.035, %34 ]
-  %.sroa.7.sroa.4.1 = phi i32 [ %.sroa.7.sroa.4.0.extract.trunc, %.noexc ], [ %.sroa.7.sroa.4.0.extract.trunc23, %50 ], [ %.sroa.7.sroa.4.038, %48 ], [ %.sroa.7.sroa.4.038, %34 ]
+  %.sroa.3.0 = phi i64 [ -9223372036854775807, %48 ], [ -9223372036854775806, %50 ], [ %58, %.noexc ], [ -9223372036854775808, %34 ]
+  %.sroa.1020.1 = phi i64 [ %.sroa.1020.032, %48 ], [ %.sroa.1020.032, %50 ], [ %56, %.noexc ], [ %.sroa.1020.032, %34 ]
+  %.sroa.7.sroa.0.1 = phi i32 [ %.val.i.i, %48 ], [ %.sroa.7.sroa.0.0.extract.trunc21, %50 ], [ %.sroa.7.sroa.0.0.extract.trunc, %.noexc ], [ %.sroa.7.sroa.0.035, %34 ]
+  %.sroa.7.sroa.4.1 = phi i32 [ %.sroa.7.sroa.4.038, %48 ], [ %.sroa.7.sroa.4.0.extract.trunc23, %50 ], [ %.sroa.7.sroa.4.0.extract.trunc, %.noexc ], [ %.sroa.7.sroa.4.038, %34 ]
   %63 = ptrtoint ptr %40 to i64
   %64 = sub i64 %16, %63
   %65 = ashr exact i64 %64, 5

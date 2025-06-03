@@ -1809,7 +1809,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i8 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i8 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i8 %.sroa.01.0
 }
 
@@ -3877,7 +3877,7 @@ default.unreachable1:                             ; preds = %1
   br label %16
 
 16:                                               ; preds = %13, %10, %6, %3
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ %12, %10 ], [ %9, %6 ], [ %5, %3 ]
+  %.sroa.0.0 = phi ptr [ %5, %3 ], [ %9, %6 ], [ %12, %10 ], [ %15, %13 ]
   ret ptr %.sroa.0.0
 }
 
@@ -4047,7 +4047,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   br label %31
 
 31:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit30, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit25, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit20, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit
-  %.sroa.0.0.in = phi i1 [ %30, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit30 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit25 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit20 ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit ]
+  %.sroa.0.0.in = phi i1 [ %21, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit20 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit25 ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit30 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5191,7 +5191,7 @@ default.unreachable134:                           ; preds = %36, %30, %4
   unreachable
 
 65:                                               ; preds = %88, %75, %60
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %76, %75 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %76, %75 ], [ %89, %88 ]
   resume { ptr, i32 } %.pn
 
 66:                                               ; preds = %.thread, %56
@@ -5846,7 +5846,7 @@ _ZN21uv_distribution_types14known_platform13KnownPlatform11from_marker17hecffc8a
   resume { ptr, i32 } %170
 
 175:                                              ; preds = %194, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit80, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit54, %188, %192, %190, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit49, %163, %171, %99, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit44, %89, %91, %93, %95, %97, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit, %63, %87, %85, %46
-  %.sroa.0.0.in = phi i1 [ %47, %46 ], [ %189, %188 ], [ %244, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit80 ], [ %195, %194 ], [ %184, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit54 ], [ %193, %192 ], [ %191, %190 ], [ %168, %163 ], [ %162, %171 ], [ %154, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit49 ], [ %64, %63 ], [ %149, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit44 ], [ %100, %99 ], [ %59, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
+  %.sroa.0.0.in = phi i1 [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %59, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit ], [ %100, %99 ], [ %149, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit44 ], [ %64, %63 ], [ %168, %163 ], [ %162, %171 ], [ %154, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit49 ], [ %191, %190 ], [ %193, %192 ], [ %184, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit54 ], [ %195, %194 ], [ %244, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit80 ], [ %189, %188 ], [ %47, %46 ]
   ret i1 %.sroa.0.0.in
 
 176:                                              ; preds = %43
@@ -7368,7 +7368,7 @@ default.unreachable1:                             ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %1, %6, %3
-  %.sroa.0.0 = phi ptr [ %8, %6 ], [ %5, %3 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %5, %3 ], [ %8, %6 ], [ null, %1 ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -7498,7 +7498,7 @@ default.unreachable:                              ; preds = %21, %17, %9
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 _ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit: ; preds = %85, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", %72, %70, %68, %61, %60, %59, %45, %41, %40, %34, %28, %25, %23, %21, %21, %21, %19, %17, %13, %9, %8, %7
-  %.sroa.0.0.shrunk = phi i1 [ false, %7 ], [ true, %8 ], [ true, %45 ], [ %44, %41 ], [ true, %40 ], [ %39, %34 ], [ %33, %28 ], [ %switch3.i, %19 ], [ false, %9 ], [ true, %13 ], [ false, %25 ], [ false, %17 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ %switch9.i, %23 ], [ %86, %85 ], [ %84, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %60 ], [ %83, %72 ], [ %67, %61 ], [ true, %70 ], [ false, %59 ], [ false, %68 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %7 ], [ true, %8 ], [ %33, %28 ], [ %39, %34 ], [ true, %40 ], [ %44, %41 ], [ true, %45 ], [ %switch3.i, %19 ], [ false, %9 ], [ true, %13 ], [ false, %25 ], [ false, %17 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ %switch9.i, %23 ], [ %86, %85 ], [ %84, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %60 ], [ %83, %72 ], [ %67, %61 ], [ true, %70 ], [ false, %59 ], [ false, %68 ]
   ret i1 %.sroa.0.0.shrunk
 
 46:                                               ; preds = %8
@@ -7686,7 +7686,7 @@ default.unreachable13.i:                          ; preds = %12, %9
   br label %_ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit
 
 _ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit: ; preds = %9, %10, %11, %12, %12, %18, %19, %20, %27, %30
-  %.sroa.0.0.i = phi i8 [ 1, %30 ], [ %29, %27 ], [ %..i, %11 ], [ 0, %9 ], [ 1, %10 ], [ %26, %20 ], [ %trunc3.i, %18 ], [ 0, %19 ], [ 0, %12 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi i8 [ %29, %27 ], [ 1, %30 ], [ %..i, %11 ], [ 0, %9 ], [ 1, %10 ], [ %26, %20 ], [ %trunc3.i, %18 ], [ 0, %19 ], [ 0, %12 ], [ 0, %12 ]
   %31 = trunc nuw i8 %.sroa.0.0.i to i1
   br label %32
 

@@ -1906,7 +1906,7 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb9, %sw.bb7, %sw.bb
-  %retval.0 = phi i1 [ %cmp10, %sw.bb9 ], [ %cmp8, %sw.bb7 ], [ %6, %sw.bb ], [ false, %entry ]
+  %retval.0 = phi i1 [ %6, %sw.bb ], [ %cmp8, %sw.bb7 ], [ %cmp10, %sw.bb9 ], [ false, %entry ]
   ret i1 %retval.0
 }
 

@@ -851,7 +851,7 @@ validate_codec_tag.exit254.i:                     ; preds = %247, %validate_code
   br label %339
 
 .thread275.i:                                     ; preds = %307, %301, %267, %.thread266.i, %148, %125, %93, %70, %41, %31, %25, %12
-  %.0151.i = phi i32 [ %13, %12 ], [ %26, %25 ], [ %309, %307 ], [ -22, %41 ], [ -12, %31 ], [ -12, %301 ], [ -22, %70 ], [ -22, %93 ], [ -22, %125 ], [ -1094995529, %267 ], [ -22, %148 ], [ -22, %.thread266.i ]
+  %.0151.i = phi i32 [ %13, %12 ], [ %26, %25 ], [ %309, %307 ], [ -22, %41 ], [ -12, %31 ], [ -12, %301 ], [ -22, %93 ], [ -22, %125 ], [ -22, %70 ], [ -1094995529, %267 ], [ -22, %148 ], [ -22, %.thread266.i ]
   call void @av_dict_free(ptr noundef nonnull %3) #13
   br label %init_muxer.exit.thread
 
@@ -913,7 +913,7 @@ init_muxer.exit.thread:                           ; preds = %.thread275.i, %335,
   br label %361
 
 361:                                              ; preds = %359, %357
-  %.sink42.in.i = phi ptr [ %360, %359 ], [ %358, %357 ]
+  %.sink42.in.i = phi ptr [ %358, %357 ], [ %360, %359 ]
   %.sink41.in.in.i = getelementptr inbounds nuw i8, ptr %353, i64 32
   %.sink41.in.i = load i32, ptr %.sink41.in.in.i, align 8, !tbaa !47
   %.sink41.i = sext i32 %.sink41.in.i to i64
@@ -1130,7 +1130,7 @@ flush_if_needed.exit:                             ; preds = %27, %53, %48, %47, 
   br label %79
 
 79:                                               ; preds = %77, %75
-  %.sink42.in.i = phi ptr [ %78, %77 ], [ %76, %75 ]
+  %.sink42.in.i = phi ptr [ %76, %75 ], [ %78, %77 ]
   %.sink41.in.in.i = getelementptr inbounds nuw i8, ptr %71, i64 32
   %.sink41.in.i = load i32, ptr %.sink41.in.in.i, align 8, !tbaa !47
   %.sink41.i = sext i32 %.sink41.in.i to i64

@@ -3768,7 +3768,7 @@ _ZN12_GLOBAL__N_135CollationInformationBmiInstallationEPK17cmGeneratorTargetRKNS
   br label %1229
 
 1229:                                             ; preds = %1227, %._crit_edge.i.i.i.i
-  %.sroa.044.1.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1228, %1227 ]
+  %.sroa.044.1.i.i.i.i = phi ptr [ %1228, %1227 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i30.i.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i.i, align 8, !tbaa !340
   %1230 = getelementptr i8, ptr %.val1.i30.i.i.i.i, i64 32
   %.val1.val.i31.i.i.i.i = load ptr, ptr %1230, align 8, !tbaa !342
@@ -3780,7 +3780,7 @@ _ZN12_GLOBAL__N_135CollationInformationBmiInstallationEPK17cmGeneratorTargetRKNS
   br label %1234
 
 1234:                                             ; preds = %1232, %._crit_edge.i.i.i.i
-  %.sroa.044.2.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1233, %1232 ]
+  %.sroa.044.2.i.i.i.i = phi ptr [ %1233, %1232 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i32.i.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i.i, align 8, !tbaa !340
   %1235 = getelementptr i8, ptr %.val1.i32.i.i.i.i, i64 32
   %.val1.val.i33.i.i.i.i = load ptr, ptr %1235, align 8, !tbaa !342
@@ -4757,7 +4757,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1559
 
 1559:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit44.thread16.i.i.i.i.i.i", %._crit_edge.i.i.i4.i.i.i
-  %.sroa.03.1.i.i.i.i.i.i = phi ptr [ %.sroa.03.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i ], [ %1558, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit44.thread16.i.i.i.i.i.i" ]
+  %.sroa.03.1.i.i.i.i.i.i = phi ptr [ %1558, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit44.thread16.i.i.i.i.i.i" ], [ %.sroa.03.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i ]
   %.val2.i45.i.i.i.i.i.i = load ptr, ptr %.sroa.03.1.i.i.i.i.i.i, align 8
   %1560 = getelementptr i8, ptr %.sroa.03.1.i.i.i.i.i.i, i64 8
   %.val3.i46.i.i.i.i.i.i = load i64, ptr %1560, align 8, !tbaa !177
@@ -4778,7 +4778,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1566
 
 1566:                                             ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread17.i.i.i.i.i.i", %._crit_edge.i.i.i4.i.i.i
-  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %.sroa.03.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i ], [ %1565, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread17.i.i.i.i.i.i" ]
+  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %1565, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_127CollationInformationExportsEPK17cmGeneratorTargetE3$_1EclINS_17__normal_iteratorIPN26cmExportBuildFileGenerator12TargetExportESt6vectorISB_SaISB_EEEEEEbT_.exit48.thread17.i.i.i.i.i.i" ], [ %.sroa.03.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i4.i.i.i ]
   %.val2.i49.i.i.i.i.i.i = load ptr, ptr %.sroa.03.2.i.i.i.i.i.i, align 8
   %1567 = getelementptr i8, ptr %.sroa.03.2.i.i.i.i.i.i, i64 8
   %.val3.i50.i.i.i.i.i.i = load i64, ptr %1567, align 8, !tbaa !177

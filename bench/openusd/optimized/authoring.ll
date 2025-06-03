@@ -642,7 +642,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   br label %104
 
 104:                                              ; preds = %102, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %103, %102 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %103, %102 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %105 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__25UsdUtilsCopyLayerMetadataERKNS2_9TfWeakPtrINS2_8SdfLayerEEES7_bbE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISC_SaISC_EEEEEEbT_"(ptr %.sroa.025.1.i.i.i.i)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -654,7 +654,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %107, %106 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %107, %106 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %109 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__25UsdUtilsCopyLayerMetadataERKNS2_9TfWeakPtrINS2_8SdfLayerEEES7_bbE3$_0EclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorISC_SaISC_EEEEEEbT_"(ptr %.sroa.025.2.i.i.i.i)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7659,7 +7659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i
-  %.sroa.066.1.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %69, %68 ]
+  %.sroa.066.1.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i48.i.i.i.i = load ptr, ptr %.sroa.066.1.i.i.i.i, align 8
   %71 = getelementptr i8, ptr %.sroa.066.1.i.i.i.i, i64 8
   %.val1.i49.i.i.i.i = load ptr, ptr %71, align 8
@@ -7688,7 +7688,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge.i.i.i.i
-  %.sroa.066.2.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %77, %76 ]
+  %.sroa.066.2.i.i.i.i = phi ptr [ %77, %76 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val.i56.i.i.i.i = load ptr, ptr %.sroa.066.2.i.i.i.i, align 8
   %79 = getelementptr i8, ptr %.sroa.066.2.i.i.i.i, i64 8
   %.val1.i57.i.i.i.i = load ptr, ptr %79, align 8

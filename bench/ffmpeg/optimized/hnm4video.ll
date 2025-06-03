@@ -842,8 +842,8 @@ bytestream2_get_byte.exit94.i:                    ; preds = %360, %bytestream2_g
   br label %bytestream2_get_byte.exit90.i
 
 bytestream2_get_byte.exit90.i:                    ; preds = %368, %bytestream2_get_byte.exit94.i, %337, %bytestream2_get_byte.exit.thread.i
-  %.sroa.0.1.i96 = phi ptr [ %333, %368 ], [ %.sroa.0.6.i, %bytestream2_get_byte.exit94.i ], [ %338, %337 ], [ %318, %bytestream2_get_byte.exit.thread.i ]
-  %.pn.i = phi i32 [ %369, %368 ], [ 1, %bytestream2_get_byte.exit94.i ], [ %340, %337 ], [ 0, %bytestream2_get_byte.exit.thread.i ]
+  %.sroa.0.1.i96 = phi ptr [ %.sroa.0.6.i, %bytestream2_get_byte.exit94.i ], [ %333, %368 ], [ %338, %337 ], [ %318, %bytestream2_get_byte.exit.thread.i ]
+  %.pn.i = phi i32 [ 1, %bytestream2_get_byte.exit94.i ], [ %369, %368 ], [ %340, %337 ], [ 0, %bytestream2_get_byte.exit.thread.i ]
   %.1.i = add i32 %.pn.i, %.0145.i
   %370 = load i32, ptr %321, align 4, !tbaa !35
   %371 = load i32, ptr %322, align 8, !tbaa !36
@@ -1198,8 +1198,8 @@ bytestream2_peek_byte.exit162.i:                  ; preds = %bytestream2_peek_by
   br label %547
 
 547:                                              ; preds = %._crit_edge.i, %bytestream2_get_le16.exit.i117, %bytestream2_get_byte.exit154.i, %bytestream2_get_byte.exit152.i
-  %.sroa.0.1.i115 = phi ptr [ %.sroa.0.5.i122, %bytestream2_get_byte.exit152.i ], [ %546, %._crit_edge.i ], [ %.sroa.0.8.i, %bytestream2_get_le16.exit.i117 ], [ %.sroa.0.6.i118, %bytestream2_get_byte.exit154.i ]
-  %.1.i116 = phi i32 [ %469, %bytestream2_get_byte.exit152.i ], [ %.2.lcssa.i, %._crit_edge.i ], [ %514, %bytestream2_get_le16.exit.i117 ], [ %504, %bytestream2_get_byte.exit154.i ]
+  %.sroa.0.1.i115 = phi ptr [ %.sroa.0.5.i122, %bytestream2_get_byte.exit152.i ], [ %.sroa.0.6.i118, %bytestream2_get_byte.exit154.i ], [ %.sroa.0.8.i, %bytestream2_get_le16.exit.i117 ], [ %546, %._crit_edge.i ]
+  %.1.i116 = phi i32 [ %469, %bytestream2_get_byte.exit152.i ], [ %504, %bytestream2_get_byte.exit154.i ], [ %514, %bytestream2_get_le16.exit.i117 ], [ %.2.lcssa.i, %._crit_edge.i ]
   %548 = load i32, ptr %455, align 4, !tbaa !35
   %549 = load i32, ptr %456, align 8, !tbaa !36
   %550 = mul nsw i32 %549, %548

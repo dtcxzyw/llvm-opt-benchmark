@@ -1246,8 +1246,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE9push_backEOS2_.exit177.us: ; preds = %
   br label %368
 
 362:                                              ; preds = %192, %351
-  %.sroa.30.0 = phi ptr [ %.us-phi, %351 ], [ %.us-phi427, %192 ]
-  %.sroa.0270.0 = phi ptr [ %.us-phi401, %351 ], [ %.us-phi429, %192 ]
+  %.sroa.30.0 = phi ptr [ %.us-phi427, %192 ], [ %.us-phi, %351 ]
+  %.sroa.0270.0 = phi ptr [ %.us-phi429, %192 ], [ %.us-phi401, %351 ]
   %.not.i.i.i = icmp eq ptr %.sroa.0270.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit, label %363
 
@@ -1265,9 +1265,9 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %37, %362, %363
   ret void
 
 368:                                              ; preds = %361, %202
-  %.sroa.30.9 = phi ptr [ %.sroa.30.10, %361 ], [ %.sroa.30.1, %202 ]
-  %.sroa.0270.9 = phi ptr [ %.sroa.0270.10, %361 ], [ %.sroa.0270.1, %202 ]
-  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn85.pn.pn.pn, %361 ], [ %.pn97.pn.pn.pn, %202 ]
+  %.sroa.30.9 = phi ptr [ %.sroa.30.1, %202 ], [ %.sroa.30.10, %361 ]
+  %.sroa.0270.9 = phi ptr [ %.sroa.0270.1, %202 ], [ %.sroa.0270.10, %361 ]
+  %.pn97.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn97.pn.pn.pn, %202 ], [ %.pn85.pn.pn.pn, %361 ]
   %.not.i.i.i180 = icmp eq ptr %.sroa.0270.9, null
   br i1 %.not.i.i.i180, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit181, label %369
 
@@ -1279,11 +1279,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %37, %362, %363
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit181
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit181: ; preds = %369, %368, %42
-  %.pn85.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %.pn85.pn.pn.pn.pn, %368 ], [ %.pn85.pn.pn.pn.pn, %369 ]
+  %.pn97.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %.pn97.pn.pn.pn.pn, %368 ], [ %.pn97.pn.pn.pn.pn, %369 ]
   %373 = load ptr, ptr %10, align 8, !tbaa !54
   call void @free(ptr noundef %373) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
-  resume { ptr, i32 } %.pn85.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn97.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

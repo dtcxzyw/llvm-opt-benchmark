@@ -118,7 +118,7 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
   br label %54
 
 54:                                               ; preds = %45, %51, %49
-  %.0 = phi ptr [ null, %51 ], [ null, %49 ], [ %.1, %45 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %51 ], [ %.1, %45 ]
   ret ptr %.0
 }
 

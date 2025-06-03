@@ -880,8 +880,8 @@ create_full_session_id_subtree.exit.i:            ; preds = %.sink.split.i.i, %1
   br label %188
 
 188:                                              ; preds = %183, %182, %180, %179
-  %189 = phi i32 [ %178, %179 ], [ %.pre.i, %183 ], [ 4, %182 ], [ %178, %180 ]
-  %.1.i = phi i16 [ 0, %179 ], [ %187, %183 ], [ 0, %182 ], [ 0, %180 ]
+  %189 = phi i32 [ %178, %179 ], [ 4, %182 ], [ %178, %180 ], [ %.pre.i, %183 ]
+  %.1.i = phi i16 [ 0, %179 ], [ 0, %182 ], [ 0, %180 ], [ %187, %183 ]
   %190 = trunc i32 %189 to i8
   %191 = load i32, ptr %6, align 4
   %192 = load i32, ptr %7, align 4
@@ -1543,7 +1543,7 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %54
 
 54:                                               ; preds = %.sink.split.i, %50, %48, %44, %42, %38, %36, %32, %30, %26, %24, %23, %21
-  %.0.i = phi ptr [ null, %23 ], [ %52, %50 ], [ null, %48 ], [ %46, %44 ], [ null, %42 ], [ %40, %38 ], [ null, %36 ], [ %34, %32 ], [ null, %30 ], [ %28, %26 ], [ null, %24 ], [ null, %21 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %23 ], [ %28, %26 ], [ null, %24 ], [ %34, %32 ], [ null, %30 ], [ %40, %38 ], [ null, %36 ], [ %46, %44 ], [ null, %42 ], [ %52, %50 ], [ null, %48 ], [ null, %21 ], [ %.0.ph.i, %.sink.split.i ]
   %55 = load ptr, ptr @rtp_dissector_handle, align 8
   %56 = tail call i32 @call_dissector(ptr noundef %55, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not96.i = icmp eq ptr %2, null

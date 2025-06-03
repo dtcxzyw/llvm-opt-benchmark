@@ -559,7 +559,7 @@ define internal fastcc noundef zeroext i1 @RLEColorkeySurface(ptr noundef captur
   br label %43
 
 43:                                               ; preds = %32, %20, %10
-  %.0169 = phi i32 [ %42, %32 ], [ %31, %20 ], [ %19, %10 ]
+  %.0169 = phi i32 [ %19, %10 ], [ %31, %20 ], [ %42, %32 ]
   %44 = add i32 %.0169, 4
   %45 = sext i32 %44 to i64
   %46 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %45) #11
@@ -4455,9 +4455,9 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   br label %50
 
 50:                                               ; preds = %41, %31
-  %.1253 = phi ptr [ @copy_32, %41 ], [ @copy_opaque_16, %31 ]
-  %.1251 = phi ptr [ @copy_32, %41 ], [ %.0250, %31 ]
-  %.0244 = phi i32 [ %49, %41 ], [ %39, %31 ]
+  %.1253 = phi ptr [ @copy_opaque_16, %31 ], [ @copy_32, %41 ]
+  %.1251 = phi ptr [ %.0250, %31 ], [ @copy_32, %41 ]
+  %.0244 = phi i32 [ %39, %31 ], [ %49, %41 ]
   %51 = add i32 %.0244, 4
   %52 = sext i32 %51 to i64
   %53 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %52) #11

@@ -691,9 +691,9 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %67 = load ptr, ptr %43, align 8
   br label %69
 
-.thread:                                          ; preds = %64, %63, %62, %61, %60, %55
-  %.1533.ph = phi ptr [ @option_code_section_header_vals, %55 ], [ @option_code_interface_description_vals, %60 ], [ @option_code_enhanced_packet_vals, %61 ], [ @option_code_packet_vals, %62 ], [ @option_code_name_resolution_vals, %63 ], [ @option_code_interface_statistics_vals, %64 ]
-  %.0531.in.ph = phi ptr [ @hf_pcapng_option_code_section_header, %55 ], [ @hf_pcapng_option_code_interface_description, %60 ], [ @hf_pcapng_option_code_enhanced_packet, %61 ], [ @hf_pcapng_option_code_packet, %62 ], [ @hf_pcapng_option_code_name_resolution, %63 ], [ @hf_pcapng_option_code_interface_statistics, %64 ]
+.thread:                                          ; preds = %60, %61, %62, %63, %64, %55
+  %.1533.ph = phi ptr [ @option_code_section_header_vals, %55 ], [ @option_code_interface_statistics_vals, %64 ], [ @option_code_name_resolution_vals, %63 ], [ @option_code_packet_vals, %62 ], [ @option_code_enhanced_packet_vals, %61 ], [ @option_code_interface_description_vals, %60 ]
+  %.0531.in.ph = phi ptr [ @hf_pcapng_option_code_section_header, %55 ], [ @hf_pcapng_option_code_interface_statistics, %64 ], [ @hf_pcapng_option_code_name_resolution, %63 ], [ @hf_pcapng_option_code_packet, %62 ], [ @hf_pcapng_option_code_enhanced_packet, %61 ], [ @hf_pcapng_option_code_interface_description, %60 ]
   %.0531581 = load i32, ptr %.0531.in.ph, align 4
   %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531581, ptr noundef %3, i32 noundef %.0529592, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8)
   br label %71
@@ -1808,7 +1808,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   br label %657
 
 657:                                              ; preds = %136, %144, %154, %158, %173, %177, %190, %194, %201, %205, %214, %227, %270, %274, %282, %303, %306, %316, %320, %327, %338, %346, %336, %331, %266, %231, %87, %654, %130, %123, %116, %109, %363, %369, %385, %375, %355, %426, %419, %415, %406, %402, %392, %508, %503, %499, %492, %488, %481, %477, %470, %466, %459, %455, %449, %445, %439, %435, %525, %531, %639, %632, %626, %619, %611, %604, %601, %583, %575, %571, %564, %560, %553, %549, %537, %517, %dissect_custom_options.exit
-  %.4 = phi i32 [ %94, %87 ], [ %105, %dissect_custom_options.exit ], [ %656, %654 ], [ %644, %639 ], [ %637, %632 ], [ %631, %626 ], [ %624, %619 ], [ %616, %611 ], [ %609, %604 ], [ %78, %583 ], [ %603, %601 ], [ %574, %571 ], [ %579, %575 ], [ %563, %560 ], [ %568, %564 ], [ %552, %549 ], [ %557, %553 ], [ %546, %537 ], [ %520, %517 ], [ %524, %525 ], [ %524, %531 ], [ %513, %508 ], [ %502, %499 ], [ %507, %503 ], [ %491, %488 ], [ %496, %492 ], [ %480, %477 ], [ %485, %481 ], [ %469, %466 ], [ %474, %470 ], [ %458, %455 ], [ %463, %459 ], [ %448, %445 ], [ %452, %449 ], [ %438, %435 ], [ %442, %439 ], [ %431, %426 ], [ %418, %415 ], [ %423, %419 ], [ %405, %402 ], [ %410, %406 ], [ %399, %392 ], [ %390, %385 ], [ %384, %375 ], [ %358, %355 ], [ %362, %363 ], [ %362, %369 ], [ %134, %130 ], [ %129, %123 ], [ %122, %116 ], [ %115, %109 ], [ %351, %346 ], [ %345, %338 ], [ %330, %327 ], [ %334, %336 ], [ %334, %331 ], [ %319, %316 ], [ %323, %320 ], [ %313, %306 ], [ %78, %282 ], [ %305, %303 ], [ %273, %270 ], [ %277, %274 ], [ %217, %214 ], [ %228, %227 ], [ %204, %201 ], [ %209, %205 ], [ %193, %190 ], [ %198, %194 ], [ %176, %173 ], [ %184, %177 ], [ %157, %154 ], [ %166, %158 ], [ %151, %144 ], [ %143, %136 ], [ %234, %231 ], [ %240, %266 ]
+  %.4 = phi i32 [ %94, %87 ], [ %105, %dissect_custom_options.exit ], [ %656, %654 ], [ %134, %130 ], [ %115, %109 ], [ %122, %116 ], [ %129, %123 ], [ %390, %385 ], [ %358, %355 ], [ %362, %363 ], [ %362, %369 ], [ %384, %375 ], [ %431, %426 ], [ %399, %392 ], [ %405, %402 ], [ %410, %406 ], [ %418, %415 ], [ %423, %419 ], [ %513, %508 ], [ %438, %435 ], [ %442, %439 ], [ %448, %445 ], [ %452, %449 ], [ %458, %455 ], [ %463, %459 ], [ %469, %466 ], [ %474, %470 ], [ %480, %477 ], [ %485, %481 ], [ %491, %488 ], [ %496, %492 ], [ %502, %499 ], [ %507, %503 ], [ %644, %639 ], [ %520, %517 ], [ %524, %525 ], [ %524, %531 ], [ %546, %537 ], [ %552, %549 ], [ %557, %553 ], [ %563, %560 ], [ %568, %564 ], [ %574, %571 ], [ %579, %575 ], [ %78, %583 ], [ %603, %601 ], [ %609, %604 ], [ %616, %611 ], [ %624, %619 ], [ %631, %626 ], [ %637, %632 ], [ %351, %346 ], [ %143, %136 ], [ %151, %144 ], [ %157, %154 ], [ %166, %158 ], [ %176, %173 ], [ %184, %177 ], [ %193, %190 ], [ %198, %194 ], [ %204, %201 ], [ %209, %205 ], [ %217, %214 ], [ %228, %227 ], [ %273, %270 ], [ %277, %274 ], [ %78, %282 ], [ %305, %303 ], [ %313, %306 ], [ %319, %316 ], [ %323, %320 ], [ %330, %327 ], [ %334, %336 ], [ %334, %331 ], [ %345, %338 ], [ %234, %231 ], [ %240, %266 ]
   %658 = load i32, ptr %9, align 4
   %659 = and i32 %658, 3
   %.not577 = icmp eq i32 %659, 0
@@ -3212,8 +3212,8 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
   br label %140
 
 140:                                              ; preds = %49, %._crit_edge134, %93, %._crit_edge, %134
-  %.6 = phi i32 [ %139, %134 ], [ %96, %93 ], [ %.4.lcssa, %._crit_edge ], [ %52, %49 ], [ %.2.lcssa, %._crit_edge134 ]
-  %.1 = phi ptr [ %.0137, %134 ], [ %.0137, %93 ], [ %133, %._crit_edge ], [ %.0137, %49 ], [ %89, %._crit_edge134 ]
+  %.6 = phi i32 [ %139, %134 ], [ %52, %49 ], [ %.2.lcssa, %._crit_edge134 ], [ %96, %93 ], [ %.4.lcssa, %._crit_edge ]
+  %.1 = phi ptr [ %.0137, %134 ], [ %.0137, %49 ], [ %89, %._crit_edge134 ], [ %.0137, %93 ], [ %133, %._crit_edge ]
   %141 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %141, 0
   %.pre150 = load i32, ptr %6, align 4

@@ -286,9 +286,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %257
 
 102:                                              ; preds = %88, %87, %86, %85, %76
-  %.0102.i = phi ptr [ @_ZN2cvL11weightHuberEPfiS0_f, %88 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %87 ], [ @_ZN2cvL10weightFairEPfiS0_f, %86 ], [ null, %85 ], [ null, %76 ]
-  %.not132.i = phi i1 [ true, %88 ], [ true, %87 ], [ true, %86 ], [ false, %85 ], [ false, %76 ]
-  %.0.i = phi ptr [ null, %88 ], [ null, %87 ], [ null, %86 ], [ @_ZN2cvL9weightL12EPfiS0_, %85 ], [ @_ZN2cvL8weightL1EPfiS0_, %76 ]
+  %.0102.i = phi ptr [ null, %85 ], [ @_ZN2cvL10weightFairEPfiS0_f, %86 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %87 ], [ @_ZN2cvL11weightHuberEPfiS0_f, %88 ], [ null, %76 ]
+  %.not132.i = phi i1 [ false, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ false, %76 ]
+  %.0.i = phi ptr [ @_ZN2cvL9weightL12EPfiS0_, %85 ], [ null, %86 ], [ null, %87 ], [ null, %88 ], [ @_ZN2cvL8weightL1EPfiS0_, %76 ]
   call void @llvm.lifetime.start.p0(i64 1072, ptr nonnull %16) #18
   %103 = shl nuw nsw i32 %31, 1
   %104 = zext nneg i32 %103 to i64
@@ -762,9 +762,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i64: ; preds = %_
   br label %432
 
 284:                                              ; preds = %270, %269, %268, %267, %258
-  %.0122.i = phi ptr [ @_ZN2cvL11weightHuberEPfiS0_f, %270 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %269 ], [ @_ZN2cvL10weightFairEPfiS0_f, %268 ], [ null, %267 ], [ null, %258 ]
-  %.not154.i = phi i1 [ true, %270 ], [ true, %269 ], [ true, %268 ], [ false, %267 ], [ false, %258 ]
-  %.0.i40 = phi ptr [ null, %270 ], [ null, %269 ], [ null, %268 ], [ @_ZN2cvL9weightL12EPfiS0_, %267 ], [ @_ZN2cvL8weightL1EPfiS0_, %258 ]
+  %.0122.i = phi ptr [ null, %267 ], [ @_ZN2cvL10weightFairEPfiS0_f, %268 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %269 ], [ @_ZN2cvL11weightHuberEPfiS0_f, %270 ], [ null, %258 ]
+  %.not154.i = phi i1 [ false, %267 ], [ true, %268 ], [ true, %269 ], [ true, %270 ], [ false, %258 ]
+  %.0.i40 = phi ptr [ @_ZN2cvL9weightL12EPfiS0_, %267 ], [ null, %268 ], [ null, %269 ], [ null, %270 ], [ @_ZN2cvL8weightL1EPfiS0_, %258 ]
   call void @llvm.lifetime.start.p0(i64 1072, ptr nonnull %10) #18
   %285 = shl nsw i32 %33, 1
   %286 = sext i32 %285 to i64

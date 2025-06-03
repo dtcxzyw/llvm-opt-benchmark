@@ -1730,7 +1730,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit190:                 ; preds = %_ZNSt6vectorIiSaIiE
   resume { ptr, i32 } %.pn99289
 
 529:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit186, %25, %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %.059 = phi i1 [ false, %25 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit186 ], [ false, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
+  %.059 = phi i1 [ false, %25 ], [ false, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit186 ]
   ret i1 %.059
 }
 

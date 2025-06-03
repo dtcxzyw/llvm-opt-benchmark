@@ -1605,7 +1605,7 @@ default.unreachable:                              ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10, %8, %6
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 
@@ -8058,7 +8058,7 @@ define hidden noundef align 8 ptr @_ZN16wasmtime_runtime3sys4unix7signals20lazy_
   ]
 
 3:                                                ; preds = %1, %4, %5
-  %.0 = phi ptr [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %5 ], [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %4 ], [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %5 ], [ null, %1 ]
   ret ptr %.0
 
 4:                                                ; preds = %1

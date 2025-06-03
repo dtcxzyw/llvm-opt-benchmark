@@ -7398,8 +7398,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds 
   br i1 %or.cond, label %.critedge, label %10, !llvm.loop !351
 
 .critedge:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit, %95
-  %.121 = phi i32 [ %.020, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %100, %95 ]
-  %.4 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.1, %95 ]
+  %.121 = phi i32 [ %100, %95 ], [ %.020, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
+  %.4 = phi ptr [ %.1, %95 ], [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
   store i32 %.121, ptr %1, align 4, !tbaa !107
   ret ptr %.4
 }

@@ -234,8 +234,8 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %72 = zext i8 %71 to i64
   br label %73
 
-73:                                               ; preds = %70, %67, %64, %61, %59
-  %.0.ph = phi i64 [ %60, %59 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ]
+73:                                               ; preds = %59, %61, %64, %67, %70
+  %.0.ph = phi i64 [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %59 ]
   %74 = load i32, ptr @hf_manolito_integer, align 4
   %75 = add nuw nsw i32 %58, 4
   %76 = zext i16 %31 to i32

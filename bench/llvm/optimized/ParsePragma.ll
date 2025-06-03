@@ -4125,7 +4125,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaFPContractEv(ptr noundef no
   br label %17
 
 17:                                               ; preds = %7, %6, %1
-  %.0 = phi i32 [ %16, %7 ], [ 0, %6 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ %16, %7 ], [ 1, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !479
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4251,7 +4251,7 @@ define dso_local void @_ZN5clang6Parser26HandlePragmaCXLimitedRangeEv(ptr nounde
   br label %17
 
 17:                                               ; preds = %7, %6, %1
-  %.0 = phi i32 [ %16, %7 ], [ 0, %6 ], [ 3, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ %16, %7 ], [ 3, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !479
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -10675,8 +10675,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 35:                                               ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   br label %36
 
-36:                                               ; preds = %35, %34, %33, %32, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.0.i.ph = phi ptr [ @.str.90, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ @.str.91, %32 ], [ @.str.92, %33 ], [ @.str.93, %34 ], [ @.str.94, %35 ]
+36:                                               ; preds = %32, %33, %34, %35, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %.0.i.ph = phi ptr [ @.str.90, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ @.str.94, %35 ], [ @.str.93, %34 ], [ @.str.92, %33 ], [ @.str.91, %32 ]
   %37 = load ptr, ptr %6, align 8, !tbaa !1115
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %38, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
@@ -11065,8 +11065,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 37:                                               ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   br label %38
 
-38:                                               ; preds = %37, %36, %35, %34, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.0.i.ph = phi ptr [ @.str.90, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ @.str.91, %34 ], [ @.str.92, %35 ], [ @.str.93, %36 ], [ @.str.94, %37 ]
+38:                                               ; preds = %34, %35, %36, %37, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %.0.i.ph = phi ptr [ @.str.90, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ @.str.94, %37 ], [ @.str.93, %36 ], [ @.str.92, %35 ], [ @.str.91, %34 ]
   %39 = load ptr, ptr %8, align 8, !tbaa !1115
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %40, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
@@ -18526,14 +18526,14 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit72:     ; preds = %161
   br label %193
 
 193:                                              ; preds = %187, %125, %142, %158, %180, %_ZNK5clang5Token17getIdentifierInfoEv.exit72, %163, %151, %133, %117, %100, %107
-  %.sroa.19.sroa.0.0 = phi i16 [ 0, %187 ], [ %182, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %165, %163 ], [ 0, %158 ], [ 0, %151 ], [ %143, %142 ], [ %126, %125 ], [ 0, %117 ], [ %134, %133 ], [ %101, %107 ], [ %101, %100 ]
-  %.0 = phi i32 [ %spec.select, %187 ], [ %181, %180 ], [ %storemerge, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %164, %163 ], [ %storemerge, %158 ], [ 4, %151 ], [ 3, %142 ], [ 3, %125 ], [ 8, %117 ], [ 3, %133 ], [ %109, %107 ], [ 3, %100 ]
-  %.sroa.0.0 = phi i32 [ 0, %187 ], [ %.sroa.0.0.copyload140, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %.sroa.0.0.copyload139, %163 ], [ 0, %158 ], [ 0, %151 ], [ %.sroa.0.0.copyload142, %142 ], [ %.sroa.0.0.copyload144, %125 ], [ 0, %117 ], [ %.sroa.0.0.copyload143, %133 ], [ %.sroa.0.0.copyload, %107 ], [ %.sroa.0.0.copyload, %100 ]
-  %.sroa.10.0 = phi i32 [ 0, %187 ], [ %.sroa.10.0.copyload148, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %.sroa.10.0.copyload146, %163 ], [ 0, %158 ], [ 0, %151 ], [ 1, %142 ], [ 1, %125 ], [ 0, %117 ], [ 1, %133 ], [ %.sroa.10.0.copyload, %107 ], [ %.sroa.10.0.copyload, %100 ]
-  %.sroa.13.0 = phi ptr [ null, %187 ], [ %.sroa.13.0.copyload160, %180 ], [ null, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %.sroa.13.0.copyload158, %163 ], [ null, %158 ], [ null, %151 ], [ @.str.114, %142 ], [ @.str.111, %125 ], [ null, %117 ], [ @.str.112, %133 ], [ %.sroa.13.0.copyload, %107 ], [ %.sroa.13.0.copyload, %100 ]
-  %.sroa.16.0 = phi i16 [ 0, %187 ], [ 7, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 7, %163 ], [ 0, %158 ], [ 0, %151 ], [ 7, %142 ], [ 7, %125 ], [ 0, %117 ], [ 7, %133 ], [ 7, %107 ], [ 7, %100 ]
-  %.sroa.5.0 = phi i64 [ 0, %187 ], [ %171, %180 ], [ %171, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %163 ], [ 0, %158 ], [ 0, %151 ], [ 0, %142 ], [ 0, %125 ], [ 0, %117 ], [ 0, %133 ], [ 0, %107 ], [ 0, %100 ]
-  %.sroa.0138.0 = phi ptr [ null, %187 ], [ %169, %180 ], [ %169, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ null, %163 ], [ null, %158 ], [ null, %151 ], [ null, %142 ], [ null, %125 ], [ null, %117 ], [ null, %133 ], [ null, %107 ], [ null, %100 ]
+  %.sroa.19.sroa.0.0 = phi i16 [ 0, %187 ], [ %101, %107 ], [ %101, %100 ], [ 0, %117 ], [ %165, %163 ], [ %182, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %158 ], [ %134, %133 ], [ %126, %125 ], [ %143, %142 ], [ 0, %151 ]
+  %.0 = phi i32 [ %spec.select, %187 ], [ %109, %107 ], [ 3, %100 ], [ 8, %117 ], [ %164, %163 ], [ %181, %180 ], [ %storemerge, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ %storemerge, %158 ], [ 3, %133 ], [ 3, %125 ], [ 3, %142 ], [ 4, %151 ]
+  %.sroa.0.0 = phi i32 [ 0, %187 ], [ %.sroa.0.0.copyload, %107 ], [ %.sroa.0.0.copyload, %100 ], [ 0, %117 ], [ %.sroa.0.0.copyload139, %163 ], [ %.sroa.0.0.copyload140, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %158 ], [ %.sroa.0.0.copyload143, %133 ], [ %.sroa.0.0.copyload144, %125 ], [ %.sroa.0.0.copyload142, %142 ], [ 0, %151 ]
+  %.sroa.10.0 = phi i32 [ 0, %187 ], [ %.sroa.10.0.copyload, %107 ], [ %.sroa.10.0.copyload, %100 ], [ 0, %117 ], [ %.sroa.10.0.copyload146, %163 ], [ %.sroa.10.0.copyload148, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %158 ], [ 1, %133 ], [ 1, %125 ], [ 1, %142 ], [ 0, %151 ]
+  %.sroa.13.0 = phi ptr [ null, %187 ], [ %.sroa.13.0.copyload, %107 ], [ %.sroa.13.0.copyload, %100 ], [ null, %117 ], [ %.sroa.13.0.copyload158, %163 ], [ %.sroa.13.0.copyload160, %180 ], [ null, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ null, %158 ], [ @.str.112, %133 ], [ @.str.111, %125 ], [ @.str.114, %142 ], [ null, %151 ]
+  %.sroa.16.0 = phi i16 [ 0, %187 ], [ 7, %107 ], [ 7, %100 ], [ 0, %117 ], [ 7, %163 ], [ 7, %180 ], [ 0, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %158 ], [ 7, %133 ], [ 7, %125 ], [ 7, %142 ], [ 0, %151 ]
+  %.sroa.5.0 = phi i64 [ 0, %187 ], [ 0, %107 ], [ 0, %100 ], [ 0, %117 ], [ 0, %163 ], [ %171, %180 ], [ %171, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ 0, %158 ], [ 0, %133 ], [ 0, %125 ], [ 0, %142 ], [ 0, %151 ]
+  %.sroa.0138.0 = phi ptr [ null, %187 ], [ null, %107 ], [ null, %100 ], [ null, %117 ], [ null, %163 ], [ %169, %180 ], [ %169, %_ZNK5clang5Token17getIdentifierInfoEv.exit72 ], [ null, %158 ], [ null, %133 ], [ null, %125 ], [ null, %142 ], [ null, %151 ]
   %194 = load i16, ptr %13, align 8, !tbaa !1105
   %.not = icmp eq i16 %194, 23
   br i1 %.not, label %278, label %195

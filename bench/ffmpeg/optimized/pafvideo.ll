@@ -973,7 +973,7 @@ bytestream2_get_le16.exit171:                     ; preds = %192
   br label %250
 
 250:                                              ; preds = %249, %.lr.ph
-  %.1119 = phi i32 [ %248, %.lr.ph ], [ 0, %249 ]
+  %.1119 = phi i32 [ 0, %249 ], [ %248, %.lr.ph ]
   %251 = load ptr, ptr %5, align 8, !tbaa !46
   %252 = load ptr, ptr %4, align 8, !tbaa !56
   %253 = ptrtoint ptr %251 to i64
@@ -1053,7 +1053,7 @@ bytestream2_get_byte.exit162:                     ; preds = %265, %266
   br label %287
 
 287:                                              ; preds = %286, %.lr.ph
-  %.3121 = phi i32 [ %248, %.lr.ph ], [ 0, %286 ]
+  %.3121 = phi i32 [ 0, %286 ], [ %248, %.lr.ph ]
   %288 = load ptr, ptr %5, align 8, !tbaa !46
   %289 = load ptr, ptr %4, align 8, !tbaa !56
   %290 = ptrtoint ptr %288 to i64
@@ -1095,9 +1095,9 @@ set_src_position.exit175:                         ; preds = %294, %295
   br label %316
 
 316:                                              ; preds = %set_src_position.exit175, %.lr.ph
-  %.5192 = phi ptr [ %.3190230, %.lr.ph ], [ %312, %set_src_position.exit175 ]
-  %.5 = phi ptr [ %.3186231, %.lr.ph ], [ %315, %set_src_position.exit175 ]
-  %.4122 = phi i32 [ %248, %.lr.ph ], [ %.3121, %set_src_position.exit175 ]
+  %.5192 = phi ptr [ %312, %set_src_position.exit175 ], [ %.3190230, %.lr.ph ]
+  %.5 = phi ptr [ %315, %set_src_position.exit175 ], [ %.3186231, %.lr.ph ]
+  %.4122 = phi i32 [ %.3121, %set_src_position.exit175 ], [ %248, %.lr.ph ]
   %317 = zext i32 %.4122 to i64
   %318 = getelementptr inbounds nuw i8, ptr %.5192, i64 %317
   %319 = sext i32 %247 to i64

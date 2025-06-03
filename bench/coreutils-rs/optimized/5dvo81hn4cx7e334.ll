@@ -2135,8 +2135,8 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %.sroa.235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.336.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 9
   %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %58 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %62 = load i8, ptr %61, align 1, !range !31
@@ -2159,8 +2159,8 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %75 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.5.0..sroa_idx.i67.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %76 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.01.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.040.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -2328,7 +2328,7 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i: ; preds = %"_ZN
   br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i
 
 _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i: ; preds = %125, %124, %123, %122, %121, %120, %112
-  %.sroa.14.0.ph.i = phi ptr [ inttoptr (i64 4 to ptr), %112 ], [ inttoptr (i64 5 to ptr), %120 ], [ inttoptr (i64 6 to ptr), %121 ], [ inttoptr (i64 7 to ptr), %122 ], [ null, %123 ], [ inttoptr (i64 1 to ptr), %124 ], [ inttoptr (i64 3 to ptr), %125 ]
+  %.sroa.14.0.ph.i = phi ptr [ inttoptr (i64 4 to ptr), %112 ], [ inttoptr (i64 3 to ptr), %125 ], [ inttoptr (i64 1 to ptr), %124 ], [ null, %123 ], [ inttoptr (i64 7 to ptr), %122 ], [ inttoptr (i64 6 to ptr), %121 ], [ inttoptr (i64 5 to ptr), %120 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18), !noalias !660
   br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i
 
@@ -2398,8 +2398,8 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !699
   %133 = load i32, ptr %21, align 8, !range !634, !noalias !698, !noundef !5
   %trunc50.i = trunc nuw i32 %133 to i1
-  %134 = load ptr, ptr %76, align 8, !noalias !698, !nonnull !5
-  %135 = load i32, ptr %77, align 4, !range !703, !noalias !698
+  %134 = load i32, ptr %76, align 4, !range !703, !noalias !698
+  %135 = load ptr, ptr %77, align 8, !noalias !698, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !698
   br i1 %trunc50.i, label %169, label %168
 
@@ -2448,19 +2448,19 @@ _ZN6uu_cat10cat_handle17h5a6be45cae77f556E.exit.i: ; preds = %143, %_ZN6uu_cat13
 .noexc48:                                         ; preds = %144
   %145 = load i32, ptr %23, align 8, !range !634, !noalias !698, !noundef !5
   %trunc.i38 = trunc nuw i32 %145 to i1
-  %146 = load ptr, ptr %58, align 8, !noalias !698, !nonnull !5
-  %147 = load i32, ptr %59, align 4, !range !703, !noalias !698
+  %146 = load i32, ptr %58, align 4, !range !703, !noalias !698
+  %147 = load ptr, ptr %59, align 8, !noalias !698, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !698
   br i1 %trunc.i38, label %150, label %148
 
 148:                                              ; preds = %.noexc48
-  store i32 %147, ptr %24, align 4, !noalias !698
+  store i32 %146, ptr %24, align 4, !noalias !698
   %149 = invoke noundef ptr @_ZN3std2os4unix3net6stream10UnixStream8shutdown17h9e862b4586d175d4E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, i8 noundef 1)
           to label %151 unwind label %165, !noalias !704
 
 150:                                              ; preds = %.noexc48
   store i64 -9223372036854775808, ptr %38, align 8, !alias.scope !646, !noalias !697
-  store ptr %146, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
+  store ptr %147, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   br label %.noexc50
 
 151:                                              ; preds = %148
@@ -2469,7 +2469,7 @@ _ZN6uu_cat10cat_handle17h5a6be45cae77f556E.exit.i: ; preds = %143, %_ZN6uu_cat13
 
 153:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22), !noalias !698
-  store i32 %147, ptr %22, align 4, !noalias !698
+  store i32 %146, ptr %22, align 4, !noalias !698
   store i8 0, ptr %60, align 4, !noalias !698
   br i1 %or.cond.not.i71.i, label %_ZN6uu_cat13OutputOptions14can_write_fast17h487f7cbf7a4417aeE.exit.thread.i72.i, label %154
 
@@ -2507,7 +2507,7 @@ _ZN6uu_cat10cat_handle17hdddd8702d6253adbE.exit.i: ; preds = %154, %_ZN6uu_cat13
 163:                                              ; preds = %151
   store i64 -9223372036854775808, ptr %38, align 8, !alias.scope !646, !noalias !697
   store ptr %149, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
-  %164 = invoke noundef i32 @close(i32 noundef %147)
+  %164 = invoke noundef i32 @close(i32 noundef %146)
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %163, %150
@@ -2517,7 +2517,7 @@ _ZN6uu_cat10cat_handle17hdddd8702d6253adbE.exit.i: ; preds = %154, %_ZN6uu_cat13
 165:                                              ; preds = %148
   %166 = landingpad { ptr, i32 }
           cleanup
-  %167 = invoke noundef i32 @close(i32 noundef %147)
+  %167 = invoke noundef i32 @close(i32 noundef %146)
           to label %.body unwind label %161, !noalias !704
 
 168:                                              ; preds = %.noexc42
@@ -2525,7 +2525,7 @@ _ZN6uu_cat10cat_handle17hdddd8702d6253adbE.exit.i: ; preds = %154, %_ZN6uu_cat13
 
 169:                                              ; preds = %.noexc42
   store i64 -9223372036854775808, ptr %38, align 8, !alias.scope !646, !noalias !697
-  store ptr %134, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
+  store ptr %135, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   br label %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread
 
 170:                                              ; preds = %168
@@ -2534,7 +2534,7 @@ _ZN6uu_cat10cat_handle17hdddd8702d6253adbE.exit.i: ; preds = %154, %_ZN6uu_cat13
 
 172:                                              ; preds = %.critedge.i, %174, %168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !698
-  store i32 %135, ptr %19, align 4, !noalias !698
+  store i32 %134, ptr %19, align 4, !noalias !698
   store i8 0, ptr %82, align 4, !noalias !698
   br i1 %or.cond.not.i71.i, label %_ZN6uu_cat13OutputOptions14can_write_fast17h487f7cbf7a4417aeE.exit.thread.i82.i, label %173
 
@@ -2553,7 +2553,7 @@ _ZN6uu_cat13OutputOptions14can_write_fast17h487f7cbf7a4417aeE.exit.thread.i82.i:
 176:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %20), !noalias !698
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11), !noalias !736
-  invoke void @_ZN3nix3sys4stat5fstat17hdfb1d0de2803e090E(ptr noalias noundef nonnull sret({ i32, [37 x i32] }) align 8 captures(none) dereferenceable(152) %11, i32 noundef %135)
+  invoke void @_ZN3nix3sys4stat5fstat17hdfb1d0de2803e090E(ptr noalias noundef nonnull sret({ i32, [37 x i32] }) align 8 captures(none) dereferenceable(152) %11, i32 noundef %134)
           to label %.noexc85.i unwind label %197, !noalias !734
 
 .noexc85.i:                                       ; preds = %176
@@ -2605,7 +2605,7 @@ _ZN6uu_cat13OutputOptions14can_write_fast17h487f7cbf7a4417aeE.exit.thread.i82.i:
 189:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %20), !noalias !698
   store i64 -9223372036854775804, ptr %38, align 8, !alias.scope !646, !noalias !697
-  %190 = invoke noundef i32 @close(i32 noundef %135)
+  %190 = invoke noundef i32 @close(i32 noundef %134)
           to label %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread unwind label %.loopexit
 
 191:                                              ; preds = %173, %_ZN6uu_cat13OutputOptions14can_write_fast17h487f7cbf7a4417aeE.exit.thread.i82.i
@@ -2627,7 +2627,7 @@ _ZN6uu_cat10cat_handle17h816f1852f8c538a7E.exit.i: ; preds = %173, %_ZN6uu_cat13
 197:                                              ; preds = %185, %178, %186, %176, %170
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  %198 = invoke noundef i32 @close(i32 noundef %135)
+  %198 = invoke noundef i32 @close(i32 noundef %134)
           to label %.body unwind label %161, !noalias !734
 
 199:                                              ; preds = %206, %._crit_edge
@@ -2958,8 +2958,8 @@ define { ptr, ptr } @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..error..Error$G
   br label %11
 
 11:                                               ; preds = %1, %1, %1, %1, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.f218b7438c08e3648fd2764e2960e505.174, %9 ], [ @anon.f218b7438c08e3648fd2764e2960e505.172, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.f218b7438c08e3648fd2764e2960e505.172, %7 ], [ @anon.f218b7438c08e3648fd2764e2960e505.174, %9 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %13
@@ -3112,7 +3112,7 @@ define noundef zeroext i1 @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..fmt..Dis
   br label %61
 
 61:                                               ; preds = %55, %49, %43, %36, %28, %20
-  %.0.in = phi i1 [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %36 ], [ %35, %28 ], [ %27, %20 ]
+  %.0.in = phi i1 [ %27, %20 ], [ %35, %28 ], [ %42, %36 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ]
   ret i1 %.0.in
 }
 

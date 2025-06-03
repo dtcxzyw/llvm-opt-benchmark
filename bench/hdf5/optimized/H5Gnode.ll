@@ -2091,7 +2091,7 @@ define range(i32 -1, 1) i32 @H5G__node_build_table(ptr noundef %0, ptr noundef r
   br label %71
 
 .loopexit:                                        ; preds = %41, %37, %57, %33
-  %.140.ph = phi i32 [ -1, %57 ], [ -1, %33 ], [ 0, %37 ], [ 0, %41 ]
+  %.140.ph = phi i32 [ -1, %33 ], [ -1, %57 ], [ 0, %37 ], [ 0, %41 ]
   %65 = tail call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %13, i32 noundef 0) #9
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %71

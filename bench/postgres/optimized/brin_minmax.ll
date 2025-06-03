@@ -340,7 +340,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   unreachable
 
 51:                                               ; preds = %27, %39, %33, %21
-  %.0 = phi i64 [ %45, %39 ], [ %38, %33 ], [ 0, %27 ], [ %26, %21 ]
+  %.0 = phi i64 [ %26, %21 ], [ %38, %33 ], [ 0, %27 ], [ %45, %39 ]
   ret i64 %.0
 }
 

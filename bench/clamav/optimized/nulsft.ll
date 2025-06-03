@@ -1289,7 +1289,7 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0)
   br label %63
 
 63:                                               ; preds = %45, %22, %4, %1
-  %.0 = phi i32 [ 26, %1 ], [ %switch.select61, %45 ], [ %switch.select57, %22 ], [ %switch.select53, %4 ]
+  %.0 = phi i32 [ 26, %1 ], [ %switch.select53, %4 ], [ %switch.select57, %22 ], [ %switch.select61, %45 ]
   ret i32 %.0
 }
 

@@ -3359,7 +3359,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit: 
   br label %38
 
 38:                                               ; preds = %6, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %6 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %6 ]
   ret ptr %.1
 }
 
@@ -20383,8 +20383,8 @@ define dso_local { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunc
   br label %2862
 
 2862:                                             ; preds = %2857, %2847, %2840, %2833, %2828, %2818, %2808, %2803, %2793, %2786, %2781, %2771, %2761, %2754, %2745, %2740, %2713, %2694, %2685, %2675, %2665, %2660, %2653, %2636, %2619, %2602, %2585, %2570, %2555, %2540, %2525, %2509, %2493, %2477, %2461, %2438, %2431, %2426, %2416, %2405, %2391, %2384, %2355, %2332, %2303, %2280, %2270, %2244, %2215, %2192, %2170, %2152, %2122, %2096, %2068, %2044, %2033, %2023, %2013, %1994, %1975, %1955, %1944, %1932, %1921, %1911, %1898, %1885, %1871, %1852, %1835, %1815, %1804, %1791, %1779, %1766, %1757, %1740, %1724, %1717, %1706, %1697, %1688, %1677, %1668, %1655, %1634, %1608, %1583, %1568, %1555, %1542, %1532, %1522, %1511, %1493, %1483, %1475, %1451, %1427, %1407, %1387, %1365, %1343, %1325, %1307, %1297, %1287, %1277, %1267, %1257, %1241, %1225, %1211, %1197, %1180, %1163, %1148, %1133, %1113, %1093, %1075, %1057, %1047, %1024, %1001, %982, %963, %953, %930, %907, %888, %869, %859, %849, %836, %823, %802, %781, %774, %764, %751, %737, %724, %714, %705, %695, %687, %680, %672, %665, %658, %651, %646, %639, %634, %629, %619, %614, %609, %604, %599, %594, %589, %584, %579, %574, %569, %564, %556, %551, %546, %541, %536, %531, %526, %521, %516, %511, %506, %493, %482, %471, %462, %454, %437, %424, %419, %412, %405, %392, %384, %375, %365
-  %.0927 = phi ptr [ %2861, %2857 ], [ %2856, %2847 ], [ %2846, %2840 ], [ %2839, %2833 ], [ %2832, %2828 ], [ %2827, %2818 ], [ %2817, %2808 ], [ %2807, %2803 ], [ %2802, %2793 ], [ %2792, %2786 ], [ %2785, %2781 ], [ %2780, %2771 ], [ %2770, %2761 ], [ %2760, %2754 ], [ %2753, %2745 ], [ %2744, %2740 ], [ %2739, %2713 ], [ %2712, %2694 ], [ %2693, %2685 ], [ %2684, %2675 ], [ %2674, %2665 ], [ %2664, %2660 ], [ %2659, %2653 ], [ %2652, %2636 ], [ %2635, %2619 ], [ %2618, %2602 ], [ %2601, %2585 ], [ %2584, %2570 ], [ %2569, %2555 ], [ %2554, %2540 ], [ %2539, %2525 ], [ %2524, %2509 ], [ %2508, %2493 ], [ %2492, %2477 ], [ %2476, %2461 ], [ %2460, %2438 ], [ %2437, %2431 ], [ %2430, %2426 ], [ %2425, %2416 ], [ %2415, %2405 ], [ %2404, %2391 ], [ %2390, %2384 ], [ %2383, %2355 ], [ %2354, %2332 ], [ %2331, %2303 ], [ %2302, %2280 ], [ %2279, %2270 ], [ %2269, %2244 ], [ %2243, %2215 ], [ %2214, %2192 ], [ %2191, %2170 ], [ %2169, %2152 ], [ %2151, %2122 ], [ %2121, %2096 ], [ %2095, %2068 ], [ %2067, %2044 ], [ %2043, %2033 ], [ %2032, %2023 ], [ %2022, %2013 ], [ %2012, %1994 ], [ %1993, %1975 ], [ %1974, %1955 ], [ %1954, %1944 ], [ %1943, %1932 ], [ %1931, %1921 ], [ %1920, %1911 ], [ %1910, %1898 ], [ %1897, %1885 ], [ %1884, %1871 ], [ %1870, %1852 ], [ %1851, %1835 ], [ %1834, %1815 ], [ %1814, %1804 ], [ %1803, %1791 ], [ %1790, %1779 ], [ %1778, %1766 ], [ %1765, %1757 ], [ %1756, %1740 ], [ %1739, %1724 ], [ %1723, %1717 ], [ %1716, %1706 ], [ %1705, %1697 ], [ %1696, %1688 ], [ %1687, %1677 ], [ %1676, %1668 ], [ %1667, %1655 ], [ %1654, %1634 ], [ %1633, %1608 ], [ %1607, %1583 ], [ %1582, %1568 ], [ %1567, %1555 ], [ %1554, %1542 ], [ %1541, %1532 ], [ %1531, %1522 ], [ %1521, %1511 ], [ %1510, %1493 ], [ %1492, %1483 ], [ %1482, %1475 ], [ %1474, %1451 ], [ %1450, %1427 ], [ %1426, %1407 ], [ %1406, %1387 ], [ %1386, %1365 ], [ %1364, %1343 ], [ %1342, %1325 ], [ %1324, %1307 ], [ %1306, %1297 ], [ %1296, %1287 ], [ %1286, %1277 ], [ %1276, %1267 ], [ %1266, %1257 ], [ %1256, %1241 ], [ %1240, %1225 ], [ %1224, %1211 ], [ %1210, %1197 ], [ %1196, %1180 ], [ %1179, %1163 ], [ %1162, %1148 ], [ %1147, %1133 ], [ %1132, %1113 ], [ %1112, %1093 ], [ %1092, %1075 ], [ %1074, %1057 ], [ %1056, %1047 ], [ %1046, %1024 ], [ %1023, %1001 ], [ %1000, %982 ], [ %981, %963 ], [ %962, %953 ], [ %952, %930 ], [ %929, %907 ], [ %906, %888 ], [ %887, %869 ], [ %868, %859 ], [ %858, %849 ], [ %848, %836 ], [ %835, %823 ], [ %822, %802 ], [ %801, %781 ], [ %780, %774 ], [ %773, %764 ], [ %763, %751 ], [ %750, %737 ], [ %736, %724 ], [ %723, %714 ], [ %713, %705 ], [ %704, %695 ], [ %694, %687 ], [ %686, %680 ], [ %679, %672 ], [ %671, %665 ], [ %664, %658 ], [ %657, %651 ], [ %650, %646 ], [ %645, %639 ], [ %638, %634 ], [ %633, %629 ], [ %628, %619 ], [ %618, %614 ], [ %613, %609 ], [ %608, %604 ], [ %603, %599 ], [ %598, %594 ], [ %593, %589 ], [ %588, %584 ], [ %583, %579 ], [ %578, %574 ], [ %573, %569 ], [ %568, %564 ], [ %563, %556 ], [ %555, %551 ], [ %550, %546 ], [ %545, %541 ], [ %540, %536 ], [ %535, %531 ], [ %530, %526 ], [ %525, %521 ], [ %520, %516 ], [ %515, %511 ], [ %510, %506 ], [ %505, %493 ], [ %492, %482 ], [ %481, %471 ], [ %470, %462 ], [ %461, %454 ], [ %453, %437 ], [ %436, %424 ], [ %423, %419 ], [ %418, %412 ], [ %411, %405 ], [ %404, %392 ], [ %391, %384 ], [ %383, %375 ], [ %374, %365 ]
-  %.0 = phi ptr [ %2860, %2857 ], [ %2855, %2847 ], [ %2845, %2840 ], [ %2838, %2833 ], [ %2831, %2828 ], [ %2826, %2818 ], [ %2816, %2808 ], [ %2806, %2803 ], [ %2801, %2793 ], [ %2791, %2786 ], [ %2784, %2781 ], [ %2779, %2771 ], [ %2769, %2761 ], [ %2759, %2754 ], [ %2752, %2745 ], [ %2743, %2740 ], [ %2738, %2713 ], [ %2711, %2694 ], [ %2692, %2685 ], [ %2683, %2675 ], [ %2673, %2665 ], [ %2663, %2660 ], [ %2658, %2653 ], [ %2651, %2636 ], [ %2634, %2619 ], [ %2617, %2602 ], [ %2600, %2585 ], [ %2583, %2570 ], [ %2568, %2555 ], [ %2553, %2540 ], [ %2538, %2525 ], [ %2523, %2509 ], [ %2507, %2493 ], [ %2491, %2477 ], [ %2475, %2461 ], [ %2459, %2438 ], [ %2436, %2431 ], [ %2429, %2426 ], [ %2424, %2416 ], [ %2414, %2405 ], [ %2403, %2391 ], [ %2389, %2384 ], [ %2382, %2355 ], [ %2353, %2332 ], [ %2330, %2303 ], [ %2301, %2280 ], [ %2278, %2270 ], [ %2268, %2244 ], [ %2242, %2215 ], [ %2213, %2192 ], [ %2190, %2170 ], [ %2168, %2152 ], [ %2150, %2122 ], [ %2120, %2096 ], [ %2094, %2068 ], [ %2066, %2044 ], [ %2042, %2033 ], [ %2031, %2023 ], [ %2021, %2013 ], [ %2011, %1994 ], [ %1992, %1975 ], [ %1973, %1955 ], [ %1953, %1944 ], [ %1942, %1932 ], [ %1930, %1921 ], [ %1919, %1911 ], [ %1909, %1898 ], [ %1896, %1885 ], [ %1883, %1871 ], [ %1869, %1852 ], [ %1850, %1835 ], [ %1833, %1815 ], [ %1813, %1804 ], [ %1802, %1791 ], [ %1789, %1779 ], [ %1777, %1766 ], [ %1764, %1757 ], [ %1755, %1740 ], [ %1738, %1724 ], [ %1722, %1717 ], [ %1715, %1706 ], [ %1704, %1697 ], [ %1695, %1688 ], [ %1686, %1677 ], [ %1675, %1668 ], [ %1666, %1655 ], [ %1653, %1634 ], [ %1632, %1608 ], [ %1606, %1583 ], [ %1581, %1568 ], [ %1566, %1555 ], [ %1553, %1542 ], [ %1540, %1532 ], [ %1530, %1522 ], [ %1520, %1511 ], [ %1509, %1493 ], [ %1491, %1483 ], [ %1481, %1475 ], [ %1473, %1451 ], [ %1449, %1427 ], [ %1425, %1407 ], [ %1405, %1387 ], [ %1385, %1365 ], [ %1363, %1343 ], [ %1341, %1325 ], [ %1323, %1307 ], [ %1305, %1297 ], [ %1295, %1287 ], [ %1285, %1277 ], [ %1275, %1267 ], [ %1265, %1257 ], [ %1255, %1241 ], [ %1239, %1225 ], [ %1223, %1211 ], [ %1209, %1197 ], [ %1195, %1180 ], [ %1178, %1163 ], [ %1161, %1148 ], [ %1146, %1133 ], [ %1131, %1113 ], [ %1111, %1093 ], [ %1091, %1075 ], [ %1073, %1057 ], [ %1055, %1047 ], [ %1045, %1024 ], [ %1022, %1001 ], [ %999, %982 ], [ %980, %963 ], [ %961, %953 ], [ %951, %930 ], [ %928, %907 ], [ %905, %888 ], [ %886, %869 ], [ %867, %859 ], [ %857, %849 ], [ %847, %836 ], [ %834, %823 ], [ %821, %802 ], [ %800, %781 ], [ %779, %774 ], [ %772, %764 ], [ %762, %751 ], [ %749, %737 ], [ %735, %724 ], [ %722, %714 ], [ %712, %705 ], [ %703, %695 ], [ %693, %687 ], [ %685, %680 ], [ %678, %672 ], [ %670, %665 ], [ %663, %658 ], [ %656, %651 ], [ %649, %646 ], [ %644, %639 ], [ %637, %634 ], [ %632, %629 ], [ %627, %619 ], [ %617, %614 ], [ %612, %609 ], [ %607, %604 ], [ %602, %599 ], [ %597, %594 ], [ %592, %589 ], [ %587, %584 ], [ %582, %579 ], [ %577, %574 ], [ %572, %569 ], [ %567, %564 ], [ %562, %556 ], [ %554, %551 ], [ %549, %546 ], [ %544, %541 ], [ %539, %536 ], [ %534, %531 ], [ %529, %526 ], [ %524, %521 ], [ %519, %516 ], [ %514, %511 ], [ %509, %506 ], [ %504, %493 ], [ %491, %482 ], [ %480, %471 ], [ %469, %462 ], [ %460, %454 ], [ %452, %437 ], [ %435, %424 ], [ %422, %419 ], [ %417, %412 ], [ %410, %405 ], [ %403, %392 ], [ %390, %384 ], [ %382, %375 ], [ %373, %365 ]
+  %.0927 = phi ptr [ %374, %365 ], [ %383, %375 ], [ %391, %384 ], [ %404, %392 ], [ %411, %405 ], [ %418, %412 ], [ %423, %419 ], [ %436, %424 ], [ %453, %437 ], [ %461, %454 ], [ %470, %462 ], [ %481, %471 ], [ %492, %482 ], [ %505, %493 ], [ %510, %506 ], [ %515, %511 ], [ %520, %516 ], [ %525, %521 ], [ %530, %526 ], [ %535, %531 ], [ %540, %536 ], [ %545, %541 ], [ %550, %546 ], [ %555, %551 ], [ %563, %556 ], [ %568, %564 ], [ %573, %569 ], [ %578, %574 ], [ %583, %579 ], [ %588, %584 ], [ %593, %589 ], [ %598, %594 ], [ %603, %599 ], [ %608, %604 ], [ %613, %609 ], [ %618, %614 ], [ %628, %619 ], [ %633, %629 ], [ %638, %634 ], [ %645, %639 ], [ %650, %646 ], [ %657, %651 ], [ %664, %658 ], [ %671, %665 ], [ %679, %672 ], [ %686, %680 ], [ %694, %687 ], [ %704, %695 ], [ %713, %705 ], [ %723, %714 ], [ %736, %724 ], [ %750, %737 ], [ %763, %751 ], [ %773, %764 ], [ %780, %774 ], [ %801, %781 ], [ %822, %802 ], [ %835, %823 ], [ %848, %836 ], [ %858, %849 ], [ %868, %859 ], [ %887, %869 ], [ %906, %888 ], [ %929, %907 ], [ %952, %930 ], [ %962, %953 ], [ %981, %963 ], [ %1000, %982 ], [ %1023, %1001 ], [ %1046, %1024 ], [ %1056, %1047 ], [ %1074, %1057 ], [ %1092, %1075 ], [ %1112, %1093 ], [ %1132, %1113 ], [ %1147, %1133 ], [ %1162, %1148 ], [ %1179, %1163 ], [ %1196, %1180 ], [ %1210, %1197 ], [ %1224, %1211 ], [ %1240, %1225 ], [ %1256, %1241 ], [ %1266, %1257 ], [ %1276, %1267 ], [ %1286, %1277 ], [ %1296, %1287 ], [ %1306, %1297 ], [ %1324, %1307 ], [ %1342, %1325 ], [ %1364, %1343 ], [ %1386, %1365 ], [ %1406, %1387 ], [ %1426, %1407 ], [ %1450, %1427 ], [ %1474, %1451 ], [ %1482, %1475 ], [ %1492, %1483 ], [ %1510, %1493 ], [ %1521, %1511 ], [ %1531, %1522 ], [ %1541, %1532 ], [ %1554, %1542 ], [ %1567, %1555 ], [ %1582, %1568 ], [ %1607, %1583 ], [ %1633, %1608 ], [ %1654, %1634 ], [ %1667, %1655 ], [ %1676, %1668 ], [ %1687, %1677 ], [ %1696, %1688 ], [ %1705, %1697 ], [ %1716, %1706 ], [ %1723, %1717 ], [ %1739, %1724 ], [ %1756, %1740 ], [ %1765, %1757 ], [ %1778, %1766 ], [ %1790, %1779 ], [ %1803, %1791 ], [ %1814, %1804 ], [ %1834, %1815 ], [ %1851, %1835 ], [ %1870, %1852 ], [ %1884, %1871 ], [ %1897, %1885 ], [ %1910, %1898 ], [ %1920, %1911 ], [ %1931, %1921 ], [ %1943, %1932 ], [ %1954, %1944 ], [ %1974, %1955 ], [ %1993, %1975 ], [ %2012, %1994 ], [ %2022, %2013 ], [ %2032, %2023 ], [ %2043, %2033 ], [ %2067, %2044 ], [ %2095, %2068 ], [ %2121, %2096 ], [ %2151, %2122 ], [ %2169, %2152 ], [ %2191, %2170 ], [ %2214, %2192 ], [ %2243, %2215 ], [ %2269, %2244 ], [ %2279, %2270 ], [ %2302, %2280 ], [ %2331, %2303 ], [ %2354, %2332 ], [ %2383, %2355 ], [ %2390, %2384 ], [ %2404, %2391 ], [ %2415, %2405 ], [ %2425, %2416 ], [ %2430, %2426 ], [ %2437, %2431 ], [ %2460, %2438 ], [ %2476, %2461 ], [ %2492, %2477 ], [ %2508, %2493 ], [ %2524, %2509 ], [ %2539, %2525 ], [ %2554, %2540 ], [ %2569, %2555 ], [ %2584, %2570 ], [ %2601, %2585 ], [ %2618, %2602 ], [ %2635, %2619 ], [ %2652, %2636 ], [ %2659, %2653 ], [ %2664, %2660 ], [ %2674, %2665 ], [ %2684, %2675 ], [ %2693, %2685 ], [ %2712, %2694 ], [ %2739, %2713 ], [ %2744, %2740 ], [ %2753, %2745 ], [ %2760, %2754 ], [ %2770, %2761 ], [ %2780, %2771 ], [ %2785, %2781 ], [ %2792, %2786 ], [ %2802, %2793 ], [ %2807, %2803 ], [ %2817, %2808 ], [ %2827, %2818 ], [ %2832, %2828 ], [ %2839, %2833 ], [ %2846, %2840 ], [ %2856, %2847 ], [ %2861, %2857 ]
+  %.0 = phi ptr [ %373, %365 ], [ %382, %375 ], [ %390, %384 ], [ %403, %392 ], [ %410, %405 ], [ %417, %412 ], [ %422, %419 ], [ %435, %424 ], [ %452, %437 ], [ %460, %454 ], [ %469, %462 ], [ %480, %471 ], [ %491, %482 ], [ %504, %493 ], [ %509, %506 ], [ %514, %511 ], [ %519, %516 ], [ %524, %521 ], [ %529, %526 ], [ %534, %531 ], [ %539, %536 ], [ %544, %541 ], [ %549, %546 ], [ %554, %551 ], [ %562, %556 ], [ %567, %564 ], [ %572, %569 ], [ %577, %574 ], [ %582, %579 ], [ %587, %584 ], [ %592, %589 ], [ %597, %594 ], [ %602, %599 ], [ %607, %604 ], [ %612, %609 ], [ %617, %614 ], [ %627, %619 ], [ %632, %629 ], [ %637, %634 ], [ %644, %639 ], [ %649, %646 ], [ %656, %651 ], [ %663, %658 ], [ %670, %665 ], [ %678, %672 ], [ %685, %680 ], [ %693, %687 ], [ %703, %695 ], [ %712, %705 ], [ %722, %714 ], [ %735, %724 ], [ %749, %737 ], [ %762, %751 ], [ %772, %764 ], [ %779, %774 ], [ %800, %781 ], [ %821, %802 ], [ %834, %823 ], [ %847, %836 ], [ %857, %849 ], [ %867, %859 ], [ %886, %869 ], [ %905, %888 ], [ %928, %907 ], [ %951, %930 ], [ %961, %953 ], [ %980, %963 ], [ %999, %982 ], [ %1022, %1001 ], [ %1045, %1024 ], [ %1055, %1047 ], [ %1073, %1057 ], [ %1091, %1075 ], [ %1111, %1093 ], [ %1131, %1113 ], [ %1146, %1133 ], [ %1161, %1148 ], [ %1178, %1163 ], [ %1195, %1180 ], [ %1209, %1197 ], [ %1223, %1211 ], [ %1239, %1225 ], [ %1255, %1241 ], [ %1265, %1257 ], [ %1275, %1267 ], [ %1285, %1277 ], [ %1295, %1287 ], [ %1305, %1297 ], [ %1323, %1307 ], [ %1341, %1325 ], [ %1363, %1343 ], [ %1385, %1365 ], [ %1405, %1387 ], [ %1425, %1407 ], [ %1449, %1427 ], [ %1473, %1451 ], [ %1481, %1475 ], [ %1491, %1483 ], [ %1509, %1493 ], [ %1520, %1511 ], [ %1530, %1522 ], [ %1540, %1532 ], [ %1553, %1542 ], [ %1566, %1555 ], [ %1581, %1568 ], [ %1606, %1583 ], [ %1632, %1608 ], [ %1653, %1634 ], [ %1666, %1655 ], [ %1675, %1668 ], [ %1686, %1677 ], [ %1695, %1688 ], [ %1704, %1697 ], [ %1715, %1706 ], [ %1722, %1717 ], [ %1738, %1724 ], [ %1755, %1740 ], [ %1764, %1757 ], [ %1777, %1766 ], [ %1789, %1779 ], [ %1802, %1791 ], [ %1813, %1804 ], [ %1833, %1815 ], [ %1850, %1835 ], [ %1869, %1852 ], [ %1883, %1871 ], [ %1896, %1885 ], [ %1909, %1898 ], [ %1919, %1911 ], [ %1930, %1921 ], [ %1942, %1932 ], [ %1953, %1944 ], [ %1973, %1955 ], [ %1992, %1975 ], [ %2011, %1994 ], [ %2021, %2013 ], [ %2031, %2023 ], [ %2042, %2033 ], [ %2066, %2044 ], [ %2094, %2068 ], [ %2120, %2096 ], [ %2150, %2122 ], [ %2168, %2152 ], [ %2190, %2170 ], [ %2213, %2192 ], [ %2242, %2215 ], [ %2268, %2244 ], [ %2278, %2270 ], [ %2301, %2280 ], [ %2330, %2303 ], [ %2353, %2332 ], [ %2382, %2355 ], [ %2389, %2384 ], [ %2403, %2391 ], [ %2414, %2405 ], [ %2424, %2416 ], [ %2429, %2426 ], [ %2436, %2431 ], [ %2459, %2438 ], [ %2475, %2461 ], [ %2491, %2477 ], [ %2507, %2493 ], [ %2523, %2509 ], [ %2538, %2525 ], [ %2553, %2540 ], [ %2568, %2555 ], [ %2583, %2570 ], [ %2600, %2585 ], [ %2617, %2602 ], [ %2634, %2619 ], [ %2651, %2636 ], [ %2658, %2653 ], [ %2663, %2660 ], [ %2673, %2665 ], [ %2683, %2675 ], [ %2692, %2685 ], [ %2711, %2694 ], [ %2738, %2713 ], [ %2743, %2740 ], [ %2752, %2745 ], [ %2759, %2754 ], [ %2769, %2761 ], [ %2779, %2771 ], [ %2784, %2781 ], [ %2791, %2786 ], [ %2801, %2793 ], [ %2806, %2803 ], [ %2816, %2808 ], [ %2826, %2818 ], [ %2831, %2828 ], [ %2838, %2833 ], [ %2845, %2840 ], [ %2855, %2847 ], [ %2860, %2857 ]
   %.not = icmp eq ptr %.0927, null
   br i1 %.not, label %.thread, label %3647
 
@@ -22722,7 +22722,7 @@ define dso_local { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunc
   br label %.thread1772
 
 .thread1777:                                      ; preds = %2891, %3335
-  %.11780 = phi ptr [ %2894, %2891 ], [ %3338, %3335 ]
+  %.11780 = phi ptr [ %3338, %3335 ], [ %2894, %2891 ]
   %3639 = getelementptr inbounds nuw i8, ptr %.11780, i64 4
   %3640 = load i32, ptr %3639, align 4
   %3641 = and i32 %3640, 536870912
@@ -22756,7 +22756,7 @@ unreachable:                                      ; preds = %.thread
   unreachable
 
 .thread1772:                                      ; preds = %2863, %2867, %2871, %2875, %2879, %2883, %2887, %2895, %2899, %2903, %2907, %2911, %2915, %2919, %2923, %2927, %2931, %2935, %2939, %2943, %2947, %2951, %2955, %2959, %2963, %2967, %2971, %2975, %2979, %2983, %2987, %2991, %2995, %2999, %3003, %3007, %3011, %3015, %3019, %3023, %3027, %3031, %3035, %3039, %3043, %3047, %3051, %3055, %3059, %3063, %3067, %3071, %3075, %3079, %3083, %3087, %3091, %3095, %3099, %3103, %3107, %3111, %3115, %3119, %3123, %3127, %3131, %3135, %3139, %3143, %3147, %3151, %3155, %3159, %3163, %3167, %3171, %3175, %3179, %3183, %3187, %3191, %3195, %3199, %3203, %3207, %3211, %3215, %3219, %3223, %3227, %3231, %3235, %3239, %3243, %3247, %3251, %3255, %3259, %3263, %3267, %3271, %3275, %3279, %3283, %3287, %3291, %3295, %3299, %3303, %3307, %3311, %3315, %3319, %3323, %3327, %3331, %3339, %3343, %3347, %3351, %3355, %3359, %3363, %3367, %3371, %3375, %3379, %3383, %3387, %3391, %3395, %3399, %3403, %3407, %3411, %3415, %3419, %3423, %3427, %3431, %3435, %3439, %3443, %3447, %3451, %3455, %3459, %3463, %3467, %3471, %3475, %3479, %3483, %3487, %3491, %3495, %3499, %3503, %3507, %3511, %3515, %3519, %3523, %3527, %3531, %3535, %3539, %3543, %3547, %3551, %3555, %3559, %3563, %3567, %3571, %3575, %3579, %3583, %3587, %3591, %3595, %3599, %3603, %3607, %3611, %3615, %3619, %3623, %3627, %3631, %3635, %_ZNK4llvm5Value11hasMetadataEj.exit.thread, %_ZNK4llvm5Value11hasMetadataEj.exit
-  %.11774 = phi ptr [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit.thread ], [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit ], [ %2866, %2863 ], [ %2870, %2867 ], [ %2874, %2871 ], [ %2878, %2875 ], [ %2882, %2879 ], [ %2886, %2883 ], [ %2890, %2887 ], [ %2898, %2895 ], [ %2902, %2899 ], [ %2906, %2903 ], [ %2910, %2907 ], [ %2914, %2911 ], [ %2918, %2915 ], [ %2922, %2919 ], [ %2926, %2923 ], [ %2930, %2927 ], [ %2934, %2931 ], [ %2938, %2935 ], [ %2942, %2939 ], [ %2946, %2943 ], [ %2950, %2947 ], [ %2954, %2951 ], [ %2958, %2955 ], [ %2962, %2959 ], [ %2966, %2963 ], [ %2970, %2967 ], [ %2974, %2971 ], [ %2978, %2975 ], [ %2982, %2979 ], [ %2986, %2983 ], [ %2990, %2987 ], [ %2994, %2991 ], [ %2998, %2995 ], [ %3002, %2999 ], [ %3006, %3003 ], [ %3010, %3007 ], [ %3014, %3011 ], [ %3018, %3015 ], [ %3022, %3019 ], [ %3026, %3023 ], [ %3030, %3027 ], [ %3034, %3031 ], [ %3038, %3035 ], [ %3042, %3039 ], [ %3046, %3043 ], [ %3050, %3047 ], [ %3054, %3051 ], [ %3058, %3055 ], [ %3062, %3059 ], [ %3066, %3063 ], [ %3070, %3067 ], [ %3074, %3071 ], [ %3078, %3075 ], [ %3082, %3079 ], [ %3086, %3083 ], [ %3090, %3087 ], [ %3094, %3091 ], [ %3098, %3095 ], [ %3102, %3099 ], [ %3106, %3103 ], [ %3110, %3107 ], [ %3114, %3111 ], [ %3118, %3115 ], [ %3122, %3119 ], [ %3126, %3123 ], [ %3130, %3127 ], [ %3134, %3131 ], [ %3138, %3135 ], [ %3142, %3139 ], [ %3146, %3143 ], [ %3150, %3147 ], [ %3154, %3151 ], [ %3158, %3155 ], [ %3162, %3159 ], [ %3166, %3163 ], [ %3170, %3167 ], [ %3174, %3171 ], [ %3178, %3175 ], [ %3182, %3179 ], [ %3186, %3183 ], [ %3190, %3187 ], [ %3194, %3191 ], [ %3198, %3195 ], [ %3202, %3199 ], [ %3206, %3203 ], [ %3210, %3207 ], [ %3214, %3211 ], [ %3218, %3215 ], [ %3222, %3219 ], [ %3226, %3223 ], [ %3230, %3227 ], [ %3234, %3231 ], [ %3238, %3235 ], [ %3242, %3239 ], [ %3246, %3243 ], [ %3250, %3247 ], [ %3254, %3251 ], [ %3258, %3255 ], [ %3262, %3259 ], [ %3266, %3263 ], [ %3270, %3267 ], [ %3274, %3271 ], [ %3278, %3275 ], [ %3282, %3279 ], [ %3286, %3283 ], [ %3290, %3287 ], [ %3294, %3291 ], [ %3298, %3295 ], [ %3302, %3299 ], [ %3306, %3303 ], [ %3310, %3307 ], [ %3314, %3311 ], [ %3318, %3315 ], [ %3322, %3319 ], [ %3326, %3323 ], [ %3330, %3327 ], [ %3334, %3331 ], [ %3342, %3339 ], [ %3346, %3343 ], [ %3350, %3347 ], [ %3354, %3351 ], [ %3358, %3355 ], [ %3362, %3359 ], [ %3366, %3363 ], [ %3370, %3367 ], [ %3374, %3371 ], [ %3378, %3375 ], [ %3382, %3379 ], [ %3386, %3383 ], [ %3390, %3387 ], [ %3394, %3391 ], [ %3398, %3395 ], [ %3402, %3399 ], [ %3406, %3403 ], [ %3410, %3407 ], [ %3414, %3411 ], [ %3418, %3415 ], [ %3422, %3419 ], [ %3426, %3423 ], [ %3430, %3427 ], [ %3434, %3431 ], [ %3438, %3435 ], [ %3442, %3439 ], [ %3446, %3443 ], [ %3450, %3447 ], [ %3454, %3451 ], [ %3458, %3455 ], [ %3462, %3459 ], [ %3466, %3463 ], [ %3470, %3467 ], [ %3474, %3471 ], [ %3478, %3475 ], [ %3482, %3479 ], [ %3486, %3483 ], [ %3490, %3487 ], [ %3494, %3491 ], [ %3498, %3495 ], [ %3502, %3499 ], [ %3506, %3503 ], [ %3510, %3507 ], [ %3514, %3511 ], [ %3518, %3515 ], [ %3522, %3519 ], [ %3526, %3523 ], [ %3530, %3527 ], [ %3534, %3531 ], [ %3538, %3535 ], [ %3542, %3539 ], [ %3546, %3543 ], [ %3550, %3547 ], [ %3554, %3551 ], [ %3558, %3555 ], [ %3562, %3559 ], [ %3566, %3563 ], [ %3570, %3567 ], [ %3574, %3571 ], [ %3578, %3575 ], [ %3582, %3579 ], [ %3586, %3583 ], [ %3590, %3587 ], [ %3594, %3591 ], [ %3598, %3595 ], [ %3602, %3599 ], [ %3606, %3603 ], [ %3610, %3607 ], [ %3614, %3611 ], [ %3618, %3615 ], [ %3622, %3619 ], [ %3626, %3623 ], [ %3630, %3627 ], [ %3634, %3631 ], [ %3638, %3635 ]
+  %.11774 = phi ptr [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit.thread ], [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit ], [ %3638, %3635 ], [ %3634, %3631 ], [ %3630, %3627 ], [ %3626, %3623 ], [ %3622, %3619 ], [ %3618, %3615 ], [ %3614, %3611 ], [ %3610, %3607 ], [ %3606, %3603 ], [ %3602, %3599 ], [ %3598, %3595 ], [ %3594, %3591 ], [ %3590, %3587 ], [ %3586, %3583 ], [ %3582, %3579 ], [ %3578, %3575 ], [ %3574, %3571 ], [ %3570, %3567 ], [ %3566, %3563 ], [ %3562, %3559 ], [ %3558, %3555 ], [ %3554, %3551 ], [ %3550, %3547 ], [ %3546, %3543 ], [ %3542, %3539 ], [ %3538, %3535 ], [ %3534, %3531 ], [ %3530, %3527 ], [ %3526, %3523 ], [ %3522, %3519 ], [ %3518, %3515 ], [ %3514, %3511 ], [ %3510, %3507 ], [ %3506, %3503 ], [ %3502, %3499 ], [ %3498, %3495 ], [ %3494, %3491 ], [ %3490, %3487 ], [ %3486, %3483 ], [ %3482, %3479 ], [ %3478, %3475 ], [ %3474, %3471 ], [ %3470, %3467 ], [ %3466, %3463 ], [ %3462, %3459 ], [ %3458, %3455 ], [ %3454, %3451 ], [ %3450, %3447 ], [ %3446, %3443 ], [ %3442, %3439 ], [ %3438, %3435 ], [ %3434, %3431 ], [ %3430, %3427 ], [ %3426, %3423 ], [ %3422, %3419 ], [ %3418, %3415 ], [ %3414, %3411 ], [ %3410, %3407 ], [ %3406, %3403 ], [ %3402, %3399 ], [ %3398, %3395 ], [ %3394, %3391 ], [ %3390, %3387 ], [ %3386, %3383 ], [ %3382, %3379 ], [ %3378, %3375 ], [ %3374, %3371 ], [ %3370, %3367 ], [ %3366, %3363 ], [ %3362, %3359 ], [ %3358, %3355 ], [ %3354, %3351 ], [ %3350, %3347 ], [ %3346, %3343 ], [ %3342, %3339 ], [ %3334, %3331 ], [ %3330, %3327 ], [ %3326, %3323 ], [ %3322, %3319 ], [ %3318, %3315 ], [ %3314, %3311 ], [ %3310, %3307 ], [ %3306, %3303 ], [ %3302, %3299 ], [ %3298, %3295 ], [ %3294, %3291 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3279 ], [ %3278, %3275 ], [ %3274, %3271 ], [ %3270, %3267 ], [ %3266, %3263 ], [ %3262, %3259 ], [ %3258, %3255 ], [ %3254, %3251 ], [ %3250, %3247 ], [ %3246, %3243 ], [ %3242, %3239 ], [ %3238, %3235 ], [ %3234, %3231 ], [ %3230, %3227 ], [ %3226, %3223 ], [ %3222, %3219 ], [ %3218, %3215 ], [ %3214, %3211 ], [ %3210, %3207 ], [ %3206, %3203 ], [ %3202, %3199 ], [ %3198, %3195 ], [ %3194, %3191 ], [ %3190, %3187 ], [ %3186, %3183 ], [ %3182, %3179 ], [ %3178, %3175 ], [ %3174, %3171 ], [ %3170, %3167 ], [ %3166, %3163 ], [ %3162, %3159 ], [ %3158, %3155 ], [ %3154, %3151 ], [ %3150, %3147 ], [ %3146, %3143 ], [ %3142, %3139 ], [ %3138, %3135 ], [ %3134, %3131 ], [ %3130, %3127 ], [ %3126, %3123 ], [ %3122, %3119 ], [ %3118, %3115 ], [ %3114, %3111 ], [ %3110, %3107 ], [ %3106, %3103 ], [ %3102, %3099 ], [ %3098, %3095 ], [ %3094, %3091 ], [ %3090, %3087 ], [ %3086, %3083 ], [ %3082, %3079 ], [ %3078, %3075 ], [ %3074, %3071 ], [ %3070, %3067 ], [ %3066, %3063 ], [ %3062, %3059 ], [ %3058, %3055 ], [ %3054, %3051 ], [ %3050, %3047 ], [ %3046, %3043 ], [ %3042, %3039 ], [ %3038, %3035 ], [ %3034, %3031 ], [ %3030, %3027 ], [ %3026, %3023 ], [ %3022, %3019 ], [ %3018, %3015 ], [ %3014, %3011 ], [ %3010, %3007 ], [ %3006, %3003 ], [ %3002, %2999 ], [ %2998, %2995 ], [ %2994, %2991 ], [ %2990, %2987 ], [ %2986, %2983 ], [ %2982, %2979 ], [ %2978, %2975 ], [ %2974, %2971 ], [ %2970, %2967 ], [ %2966, %2963 ], [ %2962, %2959 ], [ %2958, %2955 ], [ %2954, %2951 ], [ %2950, %2947 ], [ %2946, %2943 ], [ %2942, %2939 ], [ %2938, %2935 ], [ %2934, %2931 ], [ %2930, %2927 ], [ %2926, %2923 ], [ %2922, %2919 ], [ %2918, %2915 ], [ %2914, %2911 ], [ %2910, %2907 ], [ %2906, %2903 ], [ %2902, %2899 ], [ %2898, %2895 ], [ %2890, %2887 ], [ %2886, %2883 ], [ %2882, %2879 ], [ %2878, %2875 ], [ %2874, %2871 ], [ %2870, %2867 ], [ %2866, %2863 ]
   call void @_ZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %.11774)
   br label %3647
 
@@ -27098,7 +27098,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder13createBarrierERKNS0_19Location
   br label %24
 
 24:                                               ; preds = %20, %23, %22, %21
-  %.014 = phi i32 [ 64, %23 ], [ 32, %22 ], [ 320, %21 ], [ 192, %20 ]
+  %.014 = phi i32 [ 64, %23 ], [ 320, %21 ], [ 32, %22 ], [ 192, %20 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30380,7 +30380,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12De
   br label %731
 
 731:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit86.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %730, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit86.i.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %730, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit86.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !232
   %.not.i.i.i.i87.i.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i87.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit96.i.i.i.i.i.i.i", label %732
@@ -30447,7 +30447,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12De
   br label %767
 
 767:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit96.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %766, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit96.i.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %766, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit96.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !232
   %.not.i.i.i.i97.i.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i97.i.i.i.i.i.i.i, label %"_ZZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE9remove_ifIZNS_15OpenMPIRBuilder14createParallelERKNSB_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorESG_SG_EEENSH_IFNS_8ExpectedISG_EESG_SG_RS1_SN_RS2_EEESt8functionIFSI_SG_EES2_S2_NS_3omp12ProcBindKindEbE3$_3EEbT_ENKUlvE_clEv.exit.i", label %768
@@ -33347,7 +33347,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %111, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %117, %111 ], [ %120, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %120, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %117, %111 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #29
   %136 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i16 257, ptr %136, align 8
@@ -33506,7 +33506,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i7
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit76
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit76: ; preds = %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75
-  %.1.i67 = phi ptr [ %192, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75 ]
+  %.1.i67 = phi ptr [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75 ], [ %192, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #29
   %211 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %211, align 8
@@ -34991,7 +34991,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %1, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %26, %1 ], [ %29, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %29, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %26, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
   ret ptr %.1.i
 }
@@ -35074,7 +35074,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %1, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %27, %1 ], [ %30, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %30, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %27, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
   ret ptr %.1.i
 }
@@ -36370,7 +36370,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %34
 
 34:                                               ; preds = %7, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %15, %7 ], [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ], [ %15, %7 ]
   ret ptr %.1
 }
 
@@ -37912,7 +37912,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i: ; pred
   br label %_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit: ; preds = %_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %517, %_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE.exit ], [ %519, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %519, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i ], [ %517, %_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   %547 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #29
@@ -38187,7 +38187,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i429: ; p
   br label %_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit430
 
 _ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit430: ; preds = %617, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i429
-  %.1.i413 = phi ptr [ %627, %617 ], [ %629, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i429 ]
+  %.1.i413 = phi ptr [ %629, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit.i429 ], [ %627, %617 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %73) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
   %656 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #29
@@ -38374,7 +38374,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit
 
 _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit247, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i442 = phi ptr [ %728, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit247 ], [ %730, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i442 = phi ptr [ %730, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i ], [ %728, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit247 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %75) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #29
   %743 = load ptr, ptr %103, align 8, !tbaa !143
@@ -38485,7 +38485,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit468
 
 _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit468: ; preds = %765, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i467
-  %.1.i459 = phi ptr [ %773, %765 ], [ %775, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i467 ]
+  %.1.i459 = phi ptr [ %775, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i467 ], [ %773, %765 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %79) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %80) #29
@@ -39824,7 +39824,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZNK4llvm8Function6getArgEj.exit129, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %238, %_ZNK4llvm8Function6getArgEj.exit129 ], [ %241, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %241, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %238, %_ZNK4llvm8Function6getArgEj.exit129 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44) #29
   %256 = load ptr, ptr %72, align 8, !tbaa !143
   %257 = call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %256) #29
@@ -39884,7 +39884,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit141
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit141: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i140
-  %.1.i132 = phi ptr [ %269, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %272, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i140 ]
+  %.1.i132 = phi ptr [ %272, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i140 ], [ %269, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #29
   %287 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -39941,7 +39941,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit152
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit152: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit141, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i151
-  %.1.i143 = phi ptr [ %297, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit141 ], [ %300, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i151 ]
+  %.1.i143 = phi ptr [ %300, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i151 ], [ %297, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit141 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #29
   %315 = load ptr, ptr %72, align 8, !tbaa !143
   %316 = call noundef ptr @_ZN4llvm4Type10getInt16TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %315) #29
@@ -39998,7 +39998,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit163
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit163: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit152, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i162
-  %.1.i154 = phi ptr [ %325, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit152 ], [ %328, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i162 ]
+  %.1.i154 = phi ptr [ %328, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i162 ], [ %325, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit152 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51) #29
   %343 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -40047,7 +40047,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit163, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173
-  %.1.i165 = phi ptr [ %348, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit163 ], [ %351, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173 ]
+  %.1.i165 = phi ptr [ %351, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173 ], [ %348, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit163 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52) #29
   %366 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -40096,7 +40096,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit184
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit184: ; preds = %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i183
-  %.1.i175 = phi ptr [ %371, %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %374, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i183 ]
+  %.1.i175 = phi ptr [ %374, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i183 ], [ %371, %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53) #29
   %389 = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -40454,7 +40454,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i2
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit227
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit227: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit216, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i226
-  %.1.i218 = phi ptr [ %535, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit216 ], [ %538, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i226 ]
+  %.1.i218 = phi ptr [ %538, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i226 ], [ %535, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit216 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63) #29
   %551 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -45089,7 +45089,7 @@ _ZN4llvm15OpenMPIRBuilder20getOrCreateSrcLocStrERKNS0_19LocationDescriptionERj.e
   br label %199
 
 199:                                              ; preds = %196, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %198, %196 ]
+  %.1.i.i.i.i.i = phi ptr [ %198, %196 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1378)
   %200 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 112
@@ -45122,7 +45122,7 @@ _ZN4llvm15OpenMPIRBuilder20getOrCreateSrcLocStrERKNS0_19LocationDescriptionERj.e
   br label %212
 
 212:                                              ; preds = %209, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %211, %209 ]
+  %.2.i.i.i.i.i = phi ptr [ %211, %209 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1381)
   %213 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i, i64 112
@@ -45712,7 +45712,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   br label %451
 
 451:                                              ; preds = %449, %._crit_edge.i.i.i.i.i244
-  %.1.i.i.i.i.i248 = phi ptr [ %.029.lcssa.i.i.i.i.i245, %._crit_edge.i.i.i.i.i244 ], [ %450, %449 ]
+  %.1.i.i.i.i.i248 = phi ptr [ %450, %449 ], [ %.029.lcssa.i.i.i.i.i245, %._crit_edge.i.i.i.i.i244 ]
   %.1.val.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i248, align 1, !tbaa !51, !range !52, !noundef !53
   %452 = trunc nuw i8 %.1.val.i.i.i.i.i to i1
   br i1 %452, label %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit", label %453
@@ -45722,7 +45722,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   br label %455
 
 455:                                              ; preds = %453, %._crit_edge.i.i.i.i.i244
-  %.2.i.i.i.i.i246 = phi ptr [ %.029.lcssa.i.i.i.i.i245, %._crit_edge.i.i.i.i.i244 ], [ %454, %453 ]
+  %.2.i.i.i.i.i246 = phi ptr [ %454, %453 ], [ %.029.lcssa.i.i.i.i.i245, %._crit_edge.i.i.i.i.i244 ]
   %.2.val.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i246, align 1, !tbaa !51, !range !52, !noundef !53
   %456 = trunc nuw i8 %.2.val.i.i.i.i.i to i1
   br i1 %456, label %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit", label %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.thread"
@@ -48345,7 +48345,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -48441,7 +48441,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -51699,7 +51699,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %23, %25
   unreachable
 
 _ZL25getOpenMPBaseScheduleTypeN4llvm3omp12ScheduleKindEbb.exit.i: ; preds = %38, %37, %35, %33, %32
-  %.0.i.i = phi i32 [ %39, %38 ], [ 6, %37 ], [ %36, %35 ], [ %34, %33 ], [ %6, %32 ]
+  %.0.i.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ 6, %37 ], [ %39, %38 ], [ %6, %32 ]
   %41 = select i1 %11, i32 64, i32 32
   %42 = or disjoint i32 %.0.i.i, %41
   %43 = icmp eq i32 %42, 78
@@ -53377,7 +53377,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZNK4llvm17CanonicalLoopInfo12getTripCountEv.exit129, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i130 = phi ptr [ %254, %_ZNK4llvm17CanonicalLoopInfo12getTripCountEv.exit129 ], [ %256, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i130 = phi ptr [ %256, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %254, %_ZNK4llvm17CanonicalLoopInfo12getTripCountEv.exit129 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #29
   %269 = load ptr, ptr %16, align 8, !tbaa !25
   %270 = getelementptr inbounds nuw ptr, ptr %269, i64 %indvars.iv
@@ -53425,7 +53425,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i145
-  %.1.i137 = phi ptr [ %275, %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %277, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i145 ]
+  %.1.i137 = phi ptr [ %277, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i145 ], [ %275, %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #29
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %290 = icmp sgt i64 %indvars.iv, 1
@@ -55111,7 +55111,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %311, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i133 = phi ptr [ %323, %311 ], [ %325, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i133 = phi ptr [ %325, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %323, %311 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #29
   store i16 257, ptr %201, align 8
@@ -55156,7 +55156,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvmplERKNS_5TwineES2_.exit164
 
 _ZN4llvmplERKNS_5TwineES2_.exit164:               ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i148, %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
-  %.1.i140 = phi ptr [ %342, %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit ], [ %344, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i148 ]
+  %.1.i140 = phi ptr [ %344, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i148 ], [ %342, %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #29
   %357 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %318, i64 noundef 0, i1 noundef zeroext false) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #29
@@ -67182,7 +67182,7 @@ _ZNK4llvm14SmallBitVector3allEv.exit.thread385:   ; preds = %147, %134, %_ZNK4ll
   br label %291
 
 291:                                              ; preds = %289, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %290, %289 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %290, %289 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %292 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %292, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %293, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -67192,7 +67192,7 @@ _ZNK4llvm14SmallBitVector3allEv.exit.thread385:   ; preds = %147, %134, %_ZNK4ll
   br label %295
 
 295:                                              ; preds = %293, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %294, %293 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %294, %293 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %296 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %296, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %_ZNK4llvm14SmallBitVector3anyEv.exit.thread, label %_ZNK4llvm14SmallBitVector3anyEv.exit
@@ -69800,7 +69800,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit
 
 _ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE.exit: ; preds = %145, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %159, %145 ], [ %161, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %161, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit.i ], [ %159, %145 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #29
@@ -70430,7 +70430,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %96, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %96, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #29
   br i1 %10, label %112, label %220
 
@@ -70492,7 +70492,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i4
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit49
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit49: ; preds = %112, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i48
-  %.1.i40 = phi ptr [ %123, %112 ], [ %126, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i48 ]
+  %.1.i40 = phi ptr [ %126, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i48 ], [ %123, %112 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #29
   %142 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -70551,7 +70551,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i5
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit60
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit60: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit49, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i59
-  %.1.i51 = phi ptr [ %152, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit49 ], [ %155, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i59 ]
+  %.1.i51 = phi ptr [ %155, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i59 ], [ %152, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit49 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #29
   %171 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -70602,7 +70602,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i7
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit60, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i70
-  %.1.i62 = phi ptr [ %176, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit60 ], [ %179, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i70 ]
+  %.1.i62 = phi ptr [ %179, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i70 ], [ %176, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit60 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #29
@@ -70795,7 +70795,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit111
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit111: ; preds = %246, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i110
-  %.1.i102 = phi ptr [ %252, %246 ], [ %255, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i110 ]
+  %.1.i102 = phi ptr [ %255, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i110 ], [ %252, %246 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %271 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #29
@@ -70941,7 +70941,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit129
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit129: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i128
-  %.1.i120 = phi ptr [ %324, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit ], [ %327, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i128 ]
+  %.1.i120 = phi ptr [ %327, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i128 ], [ %324, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #29
   %340 = load ptr, ptr %77, align 8, !tbaa !143
   %341 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %340) #29
@@ -70991,7 +70991,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit140
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit140: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit129, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i139
-  %.1.i131 = phi ptr [ %348, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit129 ], [ %351, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i139 ]
+  %.1.i131 = phi ptr [ %351, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i139 ], [ %348, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit129 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44) #29
   store ptr %2, ptr %44, align 16, !tbaa !232
@@ -72212,7 +72212,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %570, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i213 = phi ptr [ %586, %570 ], [ %588, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i213 = phi ptr [ %588, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %586, %570 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55) #29
   %601 = load ptr, ptr %164, align 8, !tbaa !278
   %602 = load ptr, ptr %601, align 8, !tbaa !510
@@ -72399,7 +72399,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i2
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit244
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit244: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit233, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i243
-  %.1.i235 = phi ptr [ %661, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit233 ], [ %663, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i243 ]
+  %.1.i235 = phi ptr [ %663, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i243 ], [ %661, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit233 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #29
   %676 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #29
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %676, ptr noundef nonnull %618, i32 1, ptr null, i64 0) #29
@@ -72607,7 +72607,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i2
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit280
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit280: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit269, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i279
-  %.1.i271 = phi ptr [ %749, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit269 ], [ %751, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i279 ]
+  %.1.i271 = phi ptr [ %751, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i279 ], [ %749, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit269 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65) #29
   %764 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #29
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %764, ptr noundef nonnull %618, i32 1, ptr null, i64 0) #29
@@ -72815,7 +72815,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i3
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit317
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit317: ; preds = %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit306, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i316
-  %.1.i308 = phi ptr [ %837, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit306 ], [ %839, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i316 ]
+  %.1.i308 = phi ptr [ %839, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i316 ], [ %837, %_ZN4llvm15OpenMPIRBuilder9emitBlockEPNS_10BasicBlockEPNS_8FunctionEb.exit306 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67) #29
   %852 = load ptr, ptr %172, align 8, !tbaa !78
   call void @_ZN4llvm15OpenMPIRBuilder10emitBranchEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(3104) %0, ptr noundef nonnull %618)
@@ -74428,7 +74428,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder16emitAtomicUpdateENS_13IRBuilde
   br label %51
 
 51:                                               ; preds = %48, %46
-  %.0.shrunk = phi i1 [ %50, %48 ], [ %47, %46 ]
+  %.0.shrunk = phi i1 [ %47, %46 ], [ %50, %48 ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 255
@@ -75792,7 +75792,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %75, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i25 = phi ptr [ %82, %75 ], [ %86, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i25 = phi ptr [ %86, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %82, %75 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #29
   br label %212
 
@@ -75848,7 +75848,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i3
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit36
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit36: ; preds = %102, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i35
-  %.1.i27 = phi ptr [ %110, %102 ], [ %113, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i35 ]
+  %.1.i27 = phi ptr [ %113, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i35 ], [ %110, %102 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #29
   %129 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %.1.i27, i64 8
@@ -75960,7 +75960,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i4
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %157, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i46
-  %.1.i38 = phi ptr [ %164, %157 ], [ %168, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i46 ]
+  %.1.i38 = phi ptr [ %168, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i46 ], [ %164, %157 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #29
   br label %212
 
@@ -76016,7 +76016,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i5
   br label %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %184, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i56
-  %.1.i48 = phi ptr [ %191, %184 ], [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i56 ]
+  %.1.i48 = phi ptr [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i56 ], [ %191, %184 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #29
   br label %212
 
@@ -76024,7 +76024,7 @@ _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %18
   unreachable
 
 212:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit67, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit
-  %.0 = phi ptr [ %.1.i48, %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %.1.i38, %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %.1.i58, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit67 ], [ %.1.i25, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %.1.i15, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %.1.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit ]
+  %.0 = phi ptr [ %.1.i, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %.1.i15, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %.1.i25, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %.1.i58, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit67 ], [ %.1.i38, %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %.1.i48, %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit ]
   ret ptr %.0
 }
 
@@ -76277,7 +76277,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit:
   br label %54
 
 54:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %12, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %12, %5 ]
   ret ptr %.1
 }
 
@@ -76828,8 +76828,8 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %242 = call noundef ptr @_ZN4llvm13IRBuilderBase16CreateFCmpHelperENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineEPNS_6MDNodeENS_9FMFSourceEb(ptr noundef nonnull align 8 dereferenceable(128) %229, i32 noundef %.0105, ptr noundef %231, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef null, i64 0, i1 noundef zeroext false) #29
   br label %_ZN4llvm13IRBuilderBase9CreateCmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineEPNS_6MDNodeE.exit
 
-243:                                              ; preds = %237, %236, %235, %234
-  %.0105.ph = phi i32 [ 38, %234 ], [ 34, %235 ], [ 40, %236 ], [ 36, %237 ]
+243:                                              ; preds = %235, %236, %237, %234
+  %.0105.ph = phi i32 [ 38, %234 ], [ 36, %237 ], [ 40, %236 ], [ 34, %235 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #29
   %244 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i16 257, ptr %244, align 8
@@ -79164,8 +79164,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -80709,7 +80709,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !167
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -80719,7 +80719,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !167
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -93372,7 +93372,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -93665,7 +93665,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit.i.i.i
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit.i.i.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i.i, %122
-  %.1.i.i.i.i = phi ptr [ %137, %122 ], [ %140, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %140, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i.i ], [ %137, %122 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #29
   br label %155
 
@@ -93728,7 +93728,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit174.i.i.i
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit174.i.i.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173.i.i.i, %159
-  %.1.i165.i.i.i = phi ptr [ %169, %159 ], [ %172, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173.i.i.i ]
+  %.1.i165.i.i.i = phi ptr [ %172, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i173.i.i.i ], [ %169, %159 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #29
   br label %187
 
@@ -93791,7 +93791,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit185.i.i.i
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit185.i.i.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i184.i.i.i, %190
-  %.1.i176.i.i.i = phi ptr [ %200, %190 ], [ %203, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i184.i.i.i ]
+  %.1.i176.i.i.i = phi ptr [ %203, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i184.i.i.i ], [ %200, %190 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #29
   br label %218
 

@@ -1566,7 +1566,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h3df
   br i1 %switch.not.not, label %10, label %12
 
 9:                                                ; preds = %10, %12, %2
-  %.016 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
+  %.016 = phi i1 [ false, %2 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.016
 
 10:                                               ; preds = %5
@@ -2017,7 +2017,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -4303,7 +4303,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3ma
   br label %108
 
 108:                                              ; preds = %90, %86
-  %.0 = phi ptr [ null, %90 ], [ %89, %86 ]
+  %.0 = phi ptr [ %89, %86 ], [ null, %90 ]
   ret ptr %.0
 }
 
@@ -6650,7 +6650,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h044667f5e979ee94E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h044667f5e979ee94E.exit: ; preds = %18, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i
-  %.merged.i = phi { i64, i64 } [ %167, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i ], [ %19, %18 ]
+  %.merged.i = phi { i64, i64 } [ %19, %18 ], [ %167, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   ret { i64, i64 } %.merged.i
 }
@@ -7050,7 +7050,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h044667f5e979ee94E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h044667f5e979ee94E.exit: ; preds = %18, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i
-  %.merged.i = phi { i64, i64 } [ %173, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i ], [ %19, %18 ]
+  %.merged.i = phi { i64, i64 } [ %19, %18 ], [ %173, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hebe337eae3385fefE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   ret { i64, i64 } %.merged.i
 }

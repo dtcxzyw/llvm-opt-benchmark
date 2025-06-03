@@ -3802,7 +3802,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h0edecb0cfa6b34feE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -3879,7 +3879,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -19964,8 +19964,8 @@ define void @_ZN2ui6styles9elevation14ElevationIndex6shadow17hf1587c30f0e3bc72E(
   unreachable
 
 16:                                               ; preds = %43, %18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %19, %18 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn21 = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %43 ]
+  resume { ptr, i32 } %.pn21
 
 17:                                               ; preds = %10, %"_ZN4core3ptr90drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..style..BoxShadow$u3b$$u20$2$u5d$$GT$$GT$17hc2527569040e825cE.exit", %38, %11
   ret void
@@ -20024,14 +20024,14 @@ define void @_ZN2ui6styles9elevation14ElevationIndex6shadow17hf1587c30f0e3bc72E(
   %.sroa.0.0.i = phi ptr [ %37, %.noexc ], [ %.sink10.i.i, %29 ]
   %40 = getelementptr inbounds { { float, float, float, float }, { float, float }, float, float }, ptr %.sroa.0.0.i, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store float %22, ptr %.sroa.4.0..sroa_idx22, align 4
-  %.sroa.5.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  store float %24, ptr %.sroa.5.0..sroa_idx23, align 4
-  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store float %26, ptr %.sroa.6.0..sroa_idx24, align 4
-  %.sroa.7.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  store float %28, ptr %.sroa.7.0..sroa_idx25, align 4
+  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store float %22, ptr %.sroa.4.0..sroa_idx23, align 4
+  %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  store float %24, ptr %.sroa.5.0..sroa_idx24, align 4
+  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store float %26, ptr %.sroa.6.0..sroa_idx25, align 4
+  %.sroa.7.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  store float %28, ptr %.sroa.7.0..sroa_idx26, align 4
   %41 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !3142, !noalias !3143, !noundef !4
   %42 = add i64 %41, 1
   store i64 %42, ptr %.sroa.01.0.i, align 8, !alias.scope !3142, !noalias !3143

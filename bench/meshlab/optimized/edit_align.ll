@@ -2919,9 +2919,9 @@ define linkonce_odr i32 @_ZN3vcg6Color4IhE7ScatterEiiff(i32 noundef %0, i32 noun
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %42, %41, %23
-  %.042.i = phi float [ 0.000000e+00, %46 ], [ %37, %45 ], [ %3, %44 ], [ %3, %43 ], [ %40, %42 ], [ %34, %41 ], [ %34, %23 ]
-  %.041.i = phi float [ 0.000000e+00, %46 ], [ %34, %45 ], [ %34, %44 ], [ %37, %43 ], [ %3, %42 ], [ %3, %41 ], [ %40, %23 ]
-  %.040.i = phi float [ 0.000000e+00, %46 ], [ %3, %45 ], [ %40, %44 ], [ %34, %43 ], [ %34, %42 ], [ %37, %41 ], [ %3, %23 ]
+  %.042.i = phi float [ 0.000000e+00, %46 ], [ %34, %41 ], [ %40, %42 ], [ %3, %43 ], [ %3, %44 ], [ %37, %45 ], [ %34, %23 ]
+  %.041.i = phi float [ 0.000000e+00, %46 ], [ %3, %41 ], [ %3, %42 ], [ %37, %43 ], [ %34, %44 ], [ %34, %45 ], [ %40, %23 ]
+  %.040.i = phi float [ 0.000000e+00, %46 ], [ %37, %41 ], [ %34, %42 ], [ %34, %43 ], [ %40, %44 ], [ %3, %45 ], [ %3, %23 ]
   %48 = fmul float %.040.i, 2.550000e+02
   %49 = fptoui float %48 to i8
   %50 = fmul float %.041.i, 2.550000e+02
@@ -33311,7 +33311,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #25
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %66 = icmp eq i64 %64, %65
@@ -33334,7 +33334,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #25
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %77 = icmp eq i64 %75, %76
@@ -45057,7 +45057,7 @@ _ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241: ; preds = %490, %505, 
   br label %566
 
 566:                                              ; preds = %104, %101, %560, %533, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit236, %429, %402, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit228, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit223, %298, %271, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit218, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit, %_ZNK3vcg6Point3IdEeqERKS1_.exit.thread, %564, %563, %537, %525, %480, %432, %406, %394, %349, %301, %275, %263, %218
-  %.1 = phi i1 [ true, %564 ], [ true, %480 ], [ true, %525 ], [ true, %537 ], [ true, %563 ], [ true, %349 ], [ true, %394 ], [ true, %406 ], [ true, %432 ], [ true, %218 ], [ true, %263 ], [ true, %275 ], [ true, %301 ], [ false, %_ZNK3vcg6Point3IdEeqERKS1_.exit.thread ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit218 ], [ false, %271 ], [ false, %298 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit223 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit228 ], [ false, %402 ], [ false, %429 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit236 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %533 ], [ false, %560 ], [ false, %101 ], [ true, %104 ]
+  %.1 = phi i1 [ true, %564 ], [ true, %218 ], [ true, %263 ], [ true, %275 ], [ true, %301 ], [ true, %349 ], [ true, %394 ], [ true, %406 ], [ true, %432 ], [ true, %480 ], [ true, %525 ], [ true, %537 ], [ true, %563 ], [ false, %_ZNK3vcg6Point3IdEeqERKS1_.exit.thread ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit218 ], [ false, %271 ], [ false, %298 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit223 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit228 ], [ false, %402 ], [ false, %429 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit236 ], [ false, %_ZN3vcg6PSDistIdEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %533 ], [ false, %560 ], [ false, %101 ], [ true, %104 ]
   ret i1 %.1
 }
 

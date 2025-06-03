@@ -514,8 +514,8 @@ write_bin_error.exit63:                           ; preds = %91, %95
   br label %119
 
 119:                                              ; preds = %103, %116, %109, %101
-  %cond = phi i1 [ false, %103 ], [ false, %101 ], [ true, %109 ], [ true, %116 ]
-  %.0.ph = phi i32 [ 1, %103 ], [ 1, %101 ], [ -1, %109 ], [ -1, %116 ]
+  %cond = phi i1 [ false, %103 ], [ true, %109 ], [ false, %101 ], [ true, %116 ]
+  %.0.ph = phi i32 [ 1, %103 ], [ -1, %109 ], [ 1, %101 ], [ -1, %116 ]
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
   %.not59 = icmp eq i32 %.pr, 0
   br i1 %.not59, label %123, label %120
@@ -1166,7 +1166,7 @@ define dso_local void @write_bin_error(ptr noundef %0, i32 noundef %1, ptr nound
   br label %19
 
 19:                                               ; preds = %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %4
-  %.0 = phi ptr [ %2, %4 ], [ @.str.15, %14 ], [ @.str.14, %13 ], [ @.str.13, %12 ], [ @.str.12, %11 ], [ @.str.11, %10 ], [ @.str.10, %9 ], [ @.str.9, %8 ], [ @.str.8, %7 ], [ @.str.7, %6 ], [ @.str.6, %5 ]
+  %.0 = phi ptr [ %2, %4 ], [ @.str.15, %14 ], [ @.str.7, %6 ], [ @.str.8, %7 ], [ @.str.9, %8 ], [ @.str.10, %9 ], [ @.str.11, %10 ], [ @.str.12, %11 ], [ @.str.13, %12 ], [ @.str.14, %13 ], [ @.str.6, %5 ]
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %27

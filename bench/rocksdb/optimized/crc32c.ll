@@ -452,11 +452,11 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   ]
 
 41:                                               ; preds = %1332, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.130 = phi i64 [ %1330, %1332 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
-  %.1281189 = phi i64 [ %1331, %1332 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
-  %.127929 = phi ptr [ %1333, %1332 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
-  %.127800 = phi ptr [ %1334, %1332 ], [ %39, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
-  %.128 = phi ptr [ %1335, %1332 ], [ %40, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.130 = phi i64 [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1330, %1332 ]
+  %.1281189 = phi i64 [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1331, %1332 ]
+  %.127929 = phi ptr [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1333, %1332 ]
+  %.127800 = phi ptr [ %39, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1334, %1332 ]
+  %.128 = phi ptr [ %40, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1335, %1332 ]
   %42 = getelementptr inbounds i8, ptr %.127929, i64 -1024
   %43 = load i64, ptr %42, align 8, !tbaa !19
   %44 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.130, i64 %43)
@@ -2989,14 +2989,14 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1311
 
 1311:                                             ; preds = %1301, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1291783 = phi i64 [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1304, %1301 ]
-  %.1261446 = phi i64 [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1310, %1301 ]
-  %.1261317 = phi i64 [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1307, %1301 ]
-  %.1271188 = phi i64 [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.1261187, %1301 ]
-  %.1271058 = phi i64 [ 1, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.1261057, %1301 ]
-  %.126928 = phi ptr [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.125927, %1301 ]
-  %.126799 = phi ptr [ %39, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.125798, %1301 ]
-  %.127 = phi ptr [ %40, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.126, %1301 ]
+  %.1291783 = phi i64 [ %1304, %1301 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1261446 = phi i64 [ %1310, %1301 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1261317 = phi i64 [ %1307, %1301 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1271188 = phi i64 [ %.1261187, %1301 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1271058 = phi i64 [ %.1261057, %1301 ], [ 1, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.126928 = phi ptr [ %.125927, %1301 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.126799 = phi ptr [ %.125798, %1301 ], [ %39, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.127 = phi ptr [ %.126, %1301 ], [ %40, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1312 = getelementptr inbounds i8, ptr %.126928, i64 -8
   %1313 = load i64, ptr %1312, align 8, !tbaa !19
   %1314 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1291783, i64 %1313)
@@ -3071,182 +3071,182 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1344
 
 1344:                                             ; preds = %1340, %.thread
-  %.131 = phi i64 [ %.11655, %.thread ], [ %1343, %1340 ]
+  %.131 = phi i64 [ %1343, %1340 ], [ %.11655, %.thread ]
   %1345 = getelementptr inbounds i8, ptr %1339, i64 -208
   %1346 = load i64, ptr %1345, align 8, !tbaa !19
   %1347 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131, i64 %1346)
   br label %1348
 
 1348:                                             ; preds = %1344, %.thread
-  %.132 = phi i64 [ %.11655, %.thread ], [ %1347, %1344 ]
+  %.132 = phi i64 [ %1347, %1344 ], [ %.11655, %.thread ]
   %1349 = getelementptr inbounds i8, ptr %1339, i64 -200
   %1350 = load i64, ptr %1349, align 8, !tbaa !19
   %1351 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.132, i64 %1350)
   br label %1352
 
 1352:                                             ; preds = %1348, %.thread
-  %.133 = phi i64 [ %.11655, %.thread ], [ %1351, %1348 ]
+  %.133 = phi i64 [ %1351, %1348 ], [ %.11655, %.thread ]
   %1353 = getelementptr inbounds i8, ptr %1339, i64 -192
   %1354 = load i64, ptr %1353, align 8, !tbaa !19
   %1355 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.133, i64 %1354)
   br label %1356
 
 1356:                                             ; preds = %1352, %.thread
-  %.134 = phi i64 [ %.11655, %.thread ], [ %1355, %1352 ]
+  %.134 = phi i64 [ %1355, %1352 ], [ %.11655, %.thread ]
   %1357 = getelementptr inbounds i8, ptr %1339, i64 -184
   %1358 = load i64, ptr %1357, align 8, !tbaa !19
   %1359 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.134, i64 %1358)
   br label %1360
 
 1360:                                             ; preds = %1356, %.thread
-  %.135 = phi i64 [ %.11655, %.thread ], [ %1359, %1356 ]
+  %.135 = phi i64 [ %1359, %1356 ], [ %.11655, %.thread ]
   %1361 = getelementptr inbounds i8, ptr %1339, i64 -176
   %1362 = load i64, ptr %1361, align 8, !tbaa !19
   %1363 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.135, i64 %1362)
   br label %1364
 
 1364:                                             ; preds = %1360, %.thread
-  %.136 = phi i64 [ %.11655, %.thread ], [ %1363, %1360 ]
+  %.136 = phi i64 [ %1363, %1360 ], [ %.11655, %.thread ]
   %1365 = getelementptr inbounds i8, ptr %1339, i64 -168
   %1366 = load i64, ptr %1365, align 8, !tbaa !19
   %1367 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.136, i64 %1366)
   br label %1368
 
 1368:                                             ; preds = %1364, %.thread
-  %.137 = phi i64 [ %.11655, %.thread ], [ %1367, %1364 ]
+  %.137 = phi i64 [ %1367, %1364 ], [ %.11655, %.thread ]
   %1369 = getelementptr inbounds i8, ptr %1339, i64 -160
   %1370 = load i64, ptr %1369, align 8, !tbaa !19
   %1371 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.137, i64 %1370)
   br label %1372
 
 1372:                                             ; preds = %1368, %.thread
-  %.138 = phi i64 [ %.11655, %.thread ], [ %1371, %1368 ]
+  %.138 = phi i64 [ %1371, %1368 ], [ %.11655, %.thread ]
   %1373 = getelementptr inbounds i8, ptr %1339, i64 -152
   %1374 = load i64, ptr %1373, align 8, !tbaa !19
   %1375 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.138, i64 %1374)
   br label %1376
 
 1376:                                             ; preds = %1372, %.thread
-  %.139 = phi i64 [ %.11655, %.thread ], [ %1375, %1372 ]
+  %.139 = phi i64 [ %1375, %1372 ], [ %.11655, %.thread ]
   %1377 = getelementptr inbounds i8, ptr %1339, i64 -144
   %1378 = load i64, ptr %1377, align 8, !tbaa !19
   %1379 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.139, i64 %1378)
   br label %1380
 
 1380:                                             ; preds = %1376, %.thread
-  %.140 = phi i64 [ %.11655, %.thread ], [ %1379, %1376 ]
+  %.140 = phi i64 [ %1379, %1376 ], [ %.11655, %.thread ]
   %1381 = getelementptr inbounds i8, ptr %1339, i64 -136
   %1382 = load i64, ptr %1381, align 8, !tbaa !19
   %1383 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.140, i64 %1382)
   br label %1384
 
 1384:                                             ; preds = %1380, %.thread
-  %.141 = phi i64 [ %.11655, %.thread ], [ %1383, %1380 ]
+  %.141 = phi i64 [ %1383, %1380 ], [ %.11655, %.thread ]
   %1385 = getelementptr inbounds i8, ptr %1339, i64 -128
   %1386 = load i64, ptr %1385, align 8, !tbaa !19
   %1387 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141, i64 %1386)
   br label %1388
 
 1388:                                             ; preds = %1384, %.thread
-  %.142 = phi i64 [ %.11655, %.thread ], [ %1387, %1384 ]
+  %.142 = phi i64 [ %1387, %1384 ], [ %.11655, %.thread ]
   %1389 = getelementptr inbounds i8, ptr %1339, i64 -120
   %1390 = load i64, ptr %1389, align 8, !tbaa !19
   %1391 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.142, i64 %1390)
   br label %1392
 
 1392:                                             ; preds = %1388, %.thread
-  %.143 = phi i64 [ %.11655, %.thread ], [ %1391, %1388 ]
+  %.143 = phi i64 [ %1391, %1388 ], [ %.11655, %.thread ]
   %1393 = getelementptr inbounds i8, ptr %1339, i64 -112
   %1394 = load i64, ptr %1393, align 8, !tbaa !19
   %1395 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.143, i64 %1394)
   br label %1396
 
 1396:                                             ; preds = %1392, %.thread
-  %.144 = phi i64 [ %.11655, %.thread ], [ %1395, %1392 ]
+  %.144 = phi i64 [ %1395, %1392 ], [ %.11655, %.thread ]
   %1397 = getelementptr inbounds i8, ptr %1339, i64 -104
   %1398 = load i64, ptr %1397, align 8, !tbaa !19
   %1399 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.144, i64 %1398)
   br label %1400
 
 1400:                                             ; preds = %1396, %.thread
-  %.145 = phi i64 [ %.11655, %.thread ], [ %1399, %1396 ]
+  %.145 = phi i64 [ %1399, %1396 ], [ %.11655, %.thread ]
   %1401 = getelementptr inbounds i8, ptr %1339, i64 -96
   %1402 = load i64, ptr %1401, align 8, !tbaa !19
   %1403 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.145, i64 %1402)
   br label %1404
 
 1404:                                             ; preds = %1400, %.thread
-  %.146 = phi i64 [ %.11655, %.thread ], [ %1403, %1400 ]
+  %.146 = phi i64 [ %1403, %1400 ], [ %.11655, %.thread ]
   %1405 = getelementptr inbounds i8, ptr %1339, i64 -88
   %1406 = load i64, ptr %1405, align 8, !tbaa !19
   %1407 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.146, i64 %1406)
   br label %1408
 
 1408:                                             ; preds = %1404, %.thread
-  %.147 = phi i64 [ %.11655, %.thread ], [ %1407, %1404 ]
+  %.147 = phi i64 [ %1407, %1404 ], [ %.11655, %.thread ]
   %1409 = getelementptr inbounds i8, ptr %1339, i64 -80
   %1410 = load i64, ptr %1409, align 8, !tbaa !19
   %1411 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.147, i64 %1410)
   br label %1412
 
 1412:                                             ; preds = %1408, %.thread
-  %.148 = phi i64 [ %.11655, %.thread ], [ %1411, %1408 ]
+  %.148 = phi i64 [ %1411, %1408 ], [ %.11655, %.thread ]
   %1413 = getelementptr inbounds i8, ptr %1339, i64 -72
   %1414 = load i64, ptr %1413, align 8, !tbaa !19
   %1415 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.148, i64 %1414)
   br label %1416
 
 1416:                                             ; preds = %1412, %.thread
-  %.149 = phi i64 [ %.11655, %.thread ], [ %1415, %1412 ]
+  %.149 = phi i64 [ %1415, %1412 ], [ %.11655, %.thread ]
   %1417 = getelementptr inbounds i8, ptr %1339, i64 -64
   %1418 = load i64, ptr %1417, align 8, !tbaa !19
   %1419 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.149, i64 %1418)
   br label %1420
 
 1420:                                             ; preds = %1416, %.thread
-  %.150 = phi i64 [ %.11655, %.thread ], [ %1419, %1416 ]
+  %.150 = phi i64 [ %1419, %1416 ], [ %.11655, %.thread ]
   %1421 = getelementptr inbounds i8, ptr %1339, i64 -56
   %1422 = load i64, ptr %1421, align 8, !tbaa !19
   %1423 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.150, i64 %1422)
   br label %1424
 
 1424:                                             ; preds = %1420, %.thread
-  %.151 = phi i64 [ %.11655, %.thread ], [ %1423, %1420 ]
+  %.151 = phi i64 [ %1423, %1420 ], [ %.11655, %.thread ]
   %1425 = getelementptr inbounds i8, ptr %1339, i64 -48
   %1426 = load i64, ptr %1425, align 8, !tbaa !19
   %1427 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151, i64 %1426)
   br label %1428
 
 1428:                                             ; preds = %1424, %.thread
-  %.152 = phi i64 [ %.11655, %.thread ], [ %1427, %1424 ]
+  %.152 = phi i64 [ %1427, %1424 ], [ %.11655, %.thread ]
   %1429 = getelementptr inbounds i8, ptr %1339, i64 -40
   %1430 = load i64, ptr %1429, align 8, !tbaa !19
   %1431 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.152, i64 %1430)
   br label %1432
 
 1432:                                             ; preds = %1428, %.thread
-  %.153 = phi i64 [ %.11655, %.thread ], [ %1431, %1428 ]
+  %.153 = phi i64 [ %1431, %1428 ], [ %.11655, %.thread ]
   %1433 = getelementptr inbounds i8, ptr %1339, i64 -32
   %1434 = load i64, ptr %1433, align 8, !tbaa !19
   %1435 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.153, i64 %1434)
   br label %1436
 
 1436:                                             ; preds = %1432, %.thread
-  %.154 = phi i64 [ %.11655, %.thread ], [ %1435, %1432 ]
+  %.154 = phi i64 [ %1435, %1432 ], [ %.11655, %.thread ]
   %1437 = getelementptr inbounds i8, ptr %1339, i64 -24
   %1438 = load i64, ptr %1437, align 8, !tbaa !19
   %1439 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.154, i64 %1438)
   br label %1440
 
 1440:                                             ; preds = %1436, %.thread
-  %.155 = phi i64 [ %.11655, %.thread ], [ %1439, %1436 ]
+  %.155 = phi i64 [ %1439, %1436 ], [ %.11655, %.thread ]
   %1441 = getelementptr inbounds i8, ptr %1339, i64 -16
   %1442 = load i64, ptr %1441, align 8, !tbaa !19
   %1443 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.155, i64 %1442)
   br label %1444
 
 1444:                                             ; preds = %1440, %.thread
-  %.156 = phi i64 [ %.11655, %.thread ], [ %1443, %1440 ]
+  %.156 = phi i64 [ %1443, %1440 ], [ %.11655, %.thread ]
   %1445 = getelementptr inbounds i8, ptr %1339, i64 -8
   %1446 = load i64, ptr %1445, align 8, !tbaa !19
   %1447 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.156, i64 %1446)

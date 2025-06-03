@@ -10522,8 +10522,8 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau19LintUnreachableCode7analyze
   br label %_ZN4Luau19LintUnreachableCode9getReasonENS0_6StatusE.exit
 
 _ZN4Luau19LintUnreachableCode9getReasonENS0_6StatusE.exit: ; preds = %.thread, %46, %49, %50, %51
-  %52 = phi ptr [ %48, %51 ], [ %48, %50 ], [ %48, %49 ], [ %48, %46 ], [ %45, %.thread ]
-  %.0.i = phi ptr [ @.str.85, %51 ], [ @.str.83, %50 ], [ @.str.82, %49 ], [ @.str.81, %46 ], [ @.str.84, %.thread ]
+  %52 = phi ptr [ %48, %51 ], [ %48, %49 ], [ %48, %50 ], [ %48, %46 ], [ %45, %.thread ]
+  %.0.i = phi ptr [ @.str.85, %51 ], [ @.str.82, %49 ], [ @.str.83, %50 ], [ @.str.81, %46 ], [ @.str.84, %.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 12
   tail call void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %52, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0.i)
   br label %.thread92
@@ -12493,11 +12493,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %102, %20, %.preheader, %66, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %106, %.lr.ph220, %29, %35, %38, %39, %129
-  %.sroa.11.1 = phi ptr [ %.sroa.11.0215, %.lr.ph220 ], [ %130, %129 ], [ %.sroa.11.0215, %38 ], [ %.sroa.11.0215, %35 ], [ %.sroa.11.0215, %29 ], [ %.sroa.11.0215, %39 ], [ %124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %107, %106 ], [ %.sroa.11.0215, %66 ], [ %.sroa.11.0215, %.preheader ], [ %.sroa.11.0215, %20 ], [ %.sroa.11.0215, %102 ]
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0216, %.lr.ph220 ], [ %.sroa.19.0216, %129 ], [ %.sroa.19.0216, %38 ], [ %.sroa.19.0216, %35 ], [ %.sroa.19.0216, %29 ], [ %.sroa.19.0216, %39 ], [ %126, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.19.0216, %106 ], [ %.sroa.19.0216, %66 ], [ %.sroa.19.0216, %.preheader ], [ %.sroa.19.0216, %20 ], [ %.sroa.19.0216, %102 ]
-  %.1157 = phi i32 [ %.0156217, %.lr.ph220 ], [ %.0156217, %129 ], [ %.0156217, %38 ], [ %.0156217, %35 ], [ %.0156217, %29 ], [ %.0156217, %39 ], [ %105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %105, %106 ], [ %.0156217, %66 ], [ %.0156217, %.preheader ], [ %.0156217, %20 ], [ %.0156217, %102 ]
-  %.sroa.0144.1 = phi ptr [ %.sroa.0144.0218, %.lr.ph220 ], [ %.sroa.0144.0218, %129 ], [ %.sroa.0144.0218, %38 ], [ %.sroa.0144.0218, %35 ], [ %.sroa.0144.0218, %29 ], [ %.sroa.0144.0218, %39 ], [ %120, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0144.0218, %106 ], [ %.sroa.0144.0218, %66 ], [ %.sroa.0144.0218, %.preheader ], [ %.sroa.0144.0218, %20 ], [ %.sroa.0144.0218, %102 ]
-  %.298 = phi i64 [ %.096219, %.lr.ph220 ], [ %.096219, %129 ], [ %8, %38 ], [ %8, %35 ], [ %30, %29 ], [ %8, %39 ], [ %.096219, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.096219, %106 ], [ %.294.lcssa, %66 ], [ %8, %.preheader ], [ %8, %20 ], [ %.294.lcssa, %102 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0215, %.lr.ph220 ], [ %.sroa.11.0215, %38 ], [ %.sroa.11.0215, %29 ], [ %.sroa.11.0215, %35 ], [ %.sroa.11.0215, %39 ], [ %130, %129 ], [ %124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %107, %106 ], [ %.sroa.11.0215, %66 ], [ %.sroa.11.0215, %.preheader ], [ %.sroa.11.0215, %20 ], [ %.sroa.11.0215, %102 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0216, %.lr.ph220 ], [ %.sroa.19.0216, %38 ], [ %.sroa.19.0216, %29 ], [ %.sroa.19.0216, %35 ], [ %.sroa.19.0216, %39 ], [ %.sroa.19.0216, %129 ], [ %126, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.19.0216, %106 ], [ %.sroa.19.0216, %66 ], [ %.sroa.19.0216, %.preheader ], [ %.sroa.19.0216, %20 ], [ %.sroa.19.0216, %102 ]
+  %.1157 = phi i32 [ %.0156217, %.lr.ph220 ], [ %.0156217, %38 ], [ %.0156217, %29 ], [ %.0156217, %35 ], [ %.0156217, %39 ], [ %.0156217, %129 ], [ %105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %105, %106 ], [ %.0156217, %66 ], [ %.0156217, %.preheader ], [ %.0156217, %20 ], [ %.0156217, %102 ]
+  %.sroa.0144.1 = phi ptr [ %.sroa.0144.0218, %.lr.ph220 ], [ %.sroa.0144.0218, %38 ], [ %.sroa.0144.0218, %29 ], [ %.sroa.0144.0218, %35 ], [ %.sroa.0144.0218, %39 ], [ %.sroa.0144.0218, %129 ], [ %120, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0144.0218, %106 ], [ %.sroa.0144.0218, %66 ], [ %.sroa.0144.0218, %.preheader ], [ %.sroa.0144.0218, %20 ], [ %.sroa.0144.0218, %102 ]
+  %.298 = phi i64 [ %.096219, %.lr.ph220 ], [ %8, %38 ], [ %30, %29 ], [ %8, %35 ], [ %8, %39 ], [ %.096219, %129 ], [ %.096219, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.096219, %106 ], [ %.294.lcssa, %66 ], [ %8, %.preheader ], [ %8, %20 ], [ %.294.lcssa, %102 ]
   %131 = add i64 %.298, 1
   %.not127 = icmp ult i64 %131, %2
   br i1 %.not127, label %.lr.ph220, label %.thread174, !llvm.loop !520

@@ -1918,7 +1918,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   br label %151
 
 151:                                              ; preds = %._crit_edge136, %._crit_edge, %.thread100, %.thread
-  %.082 = phi ptr [ %29, %.thread ], [ %150, %.thread100 ], [ %97, %._crit_edge ], [ %149, %._crit_edge136 ]
+  %.082 = phi ptr [ %29, %.thread ], [ %150, %.thread100 ], [ %149, %._crit_edge136 ], [ %97, %._crit_edge ]
   ret ptr %.082
 }
 
@@ -2255,7 +2255,7 @@ switch.lookup277:                                 ; preds = %117
   br label %.critedge131
 
 .critedge131:                                     ; preds = %tailrecurse.backedge, %.lr.ph178, %105, %101, %.critedge131.sink.split, %.lr.ph182, %5, %2, %78, %83, %51, %60, %55, %74, %90, %97, %._crit_edge183
-  %.0 = phi i32 [ 0, %105 ], [ 0, %101 ], [ 0, %97 ], [ 2, %90 ], [ 0, %74 ], [ %58, %60 ], [ 2, %55 ], [ 0, %51 ], [ 0, %._crit_edge183 ], [ 0, %83 ], [ 0, %78 ], [ 0, %2 ], [ 0, %5 ], [ 0, %.lr.ph182 ], [ %.0.ph, %.critedge131.sink.split ], [ 0, %.lr.ph178 ], [ 0, %tailrecurse.backedge ]
+  %.0 = phi i32 [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %74 ], [ 2, %90 ], [ 0, %97 ], [ 0, %101 ], [ 0, %105 ], [ 0, %._crit_edge183 ], [ 0, %83 ], [ 0, %78 ], [ 0, %2 ], [ 0, %5 ], [ 0, %.lr.ph182 ], [ %.0.ph, %.critedge131.sink.split ], [ 0, %.lr.ph178 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 

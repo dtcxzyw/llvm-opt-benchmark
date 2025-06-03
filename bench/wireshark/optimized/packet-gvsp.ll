@@ -2529,7 +2529,7 @@ dissect_multi_part_trailer.exit:                  ; preds = %.loopexit.i, %42
   br label %71
 
 71:                                               ; preds = %4, %dissect_multi_part_trailer.exit, %37, %23, %15, %7
-  %.0 = phi i32 [ %2, %4 ], [ %70, %dissect_multi_part_trailer.exit ], [ %41, %37 ], [ %36, %23 ], [ %22, %15 ], [ %14, %7 ]
+  %.0 = phi i32 [ %2, %4 ], [ %14, %7 ], [ %22, %15 ], [ %36, %23 ], [ %41, %37 ], [ %70, %dissect_multi_part_trailer.exit ]
   %72 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %72, 0
   br i1 %.not, label %79, label %73

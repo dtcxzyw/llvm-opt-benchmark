@@ -5313,7 +5313,7 @@ align_get_bits.exit145:                           ; preds = %2413, %2416
   br label %2447
 
 2447:                                             ; preds = %2433, %mp_decode_layer2.exit, %mp_decode_layer1.exit
-  %.097 = phi i32 [ %.0.i131, %2433 ], [ %.0.i118, %mp_decode_layer2.exit ], [ %.0.i117, %mp_decode_layer1.exit ]
+  %.097 = phi i32 [ %.0.i131, %2433 ], [ %.0.i117, %mp_decode_layer1.exit ], [ %.0.i118, %mp_decode_layer2.exit ]
   %2448 = icmp slt i32 %.097, 0
   br i1 %2448, label %2503, label %2449
 

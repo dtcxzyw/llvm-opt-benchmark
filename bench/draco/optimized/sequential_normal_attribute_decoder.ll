@@ -5608,8 +5608,8 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.unreachabledefault: ; preds = %
   unreachable
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge, %51, %53, %56
-  %.sroa.750.0 = phi i32 [ %41, %56 ], [ %55, %53 ], [ %52, %51 ], [ %.fr96, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
-  %.sroa.049.0 = phi i32 [ %57, %56 ], [ %54, %53 ], [ %.fr96, %51 ], [ %41, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
+  %.sroa.750.0 = phi i32 [ %52, %51 ], [ %55, %53 ], [ %41, %56 ], [ %.fr96, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
+  %.sroa.049.0 = phi i32 [ %.fr96, %51 ], [ %54, %53 ], [ %57, %56 ], [ %41, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
   %.sroa.750.0.insert.ext = zext i32 %.sroa.750.0 to i64
   %.sroa.750.0.insert.shift = shl nuw i64 %.sroa.750.0.insert.ext, 32
   %.sroa.049.0.insert.ext = zext i32 %.sroa.049.0 to i64
@@ -5699,8 +5699,8 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge: ; preds = %_ZNK5draco45Predict
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17: ; preds = %99, %96, %94, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
-  %101 = phi i32 [ %91, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %75, %99 ], [ %98, %96 ], [ %95, %94 ], [ %91, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
-  %102 = phi i32 [ %75, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %100, %99 ], [ %97, %96 ], [ %91, %94 ], [ %75, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  %101 = phi i32 [ %91, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %95, %94 ], [ %98, %96 ], [ %75, %99 ], [ %91, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  %102 = phi i32 [ %75, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %91, %94 ], [ %97, %96 ], [ %100, %99 ], [ %75, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
   br i1 %.not, label %103, label %_ZNK5draco7VectorDIiLi2EEplERKS1_.exit.critedge
 
 103:                                              ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17

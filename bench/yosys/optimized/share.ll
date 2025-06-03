@@ -21696,7 +21696,7 @@ _ZN5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEED2Ev.exit: ; preds = 
   br label %5556
 
 .body834:                                         ; preds = %4992, %_ZN5Yosys9CellTypesD2Ev.exit228.i, %.loopexit.split-lp, %4977, %2981, %2979, %2977, %2956, %2889
-  %.pn285.pn.pn = phi { ptr, i32 } [ %4978, %4977 ], [ %2978, %2977 ], [ %.pn288.pn.pn.pn, %.loopexit.split-lp ], [ %2982, %2981 ], [ %2980, %2979 ], [ %.pn279.pn, %2889 ], [ %.pn276.pn, %2956 ], [ %.pn106.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN5Yosys9CellTypesD2Ev.exit228.i ], [ %4993, %4992 ]
+  %.pn288.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn288.pn.pn.pn, %.loopexit.split-lp ], [ %4978, %4977 ], [ %2978, %2977 ], [ %2982, %2981 ], [ %2980, %2979 ], [ %.pn279.pn, %2889 ], [ %.pn276.pn, %2956 ], [ %.pn106.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN5Yosys9CellTypesD2Ev.exit228.i ], [ %4993, %4992 ]
   call void @_ZN5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %119) #30
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %119) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #30
@@ -21739,7 +21739,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1186:                ; preds = %_ZNSt13_Bvector_bas
   br label %5587
 
 .body656:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i674, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i675, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %2690, %2786, %2760, %.body834, %2740
-  %.pn295 = phi { ptr, i32 } [ %2741, %2740 ], [ %.pn285.pn.pn, %.body834 ], [ %2647, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %2761, %2760 ], [ %2691, %2690 ], [ %2787, %2786 ], [ %2693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i675 ], [ %2693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i674 ]
+  %.pn295 = phi { ptr, i32 } [ %2741, %2740 ], [ %.pn288.pn.pn.pn.pn, %.body834 ], [ %2647, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %2761, %2760 ], [ %2691, %2690 ], [ %2787, %2786 ], [ %2693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i675 ], [ %2693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i674 ]
   %5572 = load ptr, ptr %111, align 8, !tbaa !598
   %.not.i.i1187 = icmp eq ptr %5572, null
   br i1 %.not.i.i1187, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit1191, label %5573

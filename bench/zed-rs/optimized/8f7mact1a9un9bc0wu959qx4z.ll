@@ -4409,7 +4409,7 @@ default.unreachable:                              ; preds = %2
   br label %30
 
 30:                                               ; preds = %27, %24, %21, %18, %15, %12
-  %.sroa.0.0.in = phi i1 [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5151,7 +5151,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit"
 
 "_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit": ; preds = %17, %21
-  %.sroa.0.0.i.i = phi i8 [ %23, %21 ], [ %20, %17 ]
+  %.sroa.0.0.i.i = phi i8 [ %20, %17 ], [ %23, %21 ]
   %24 = trunc nuw i8 %.sroa.0.0.i.i to i1
   br i1 %24, label %27, label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.thread"
 
@@ -7957,11 +7957,11 @@ default.unreachable:                              ; preds = %36
   br label %.body
 
 "_ZN62_$LT$gpui..window..ElementId$u20$as$u20$core..clone..Clone$GT$5clone17h0a0873dafa4b869aE.exit": ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i", %64, %62, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i", %47, %42
-  %.sroa.7.sroa.7.0 = phi i32 [ %.sroa.7.sroa.7.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ], [ %68, %64 ], [ %.sroa.7.sroa.7.0.extract.trunc27, %62 ], [ 0, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ %.sroa.7.sroa.7.0.extract.trunc25, %47 ], [ %46, %42 ]
-  %.sroa.7.sroa.0.0 = phi i32 [ %.sroa.7.sroa.0.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ], [ %66, %64 ], [ %.sroa.7.sroa.0.0.extract.trunc21, %62 ], [ %storemerge.i.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ %.sroa.7.sroa.0.0.extract.trunc20, %47 ], [ %44, %42 ]
-  %.sroa.17.0 = phi i64 [ %79, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ], [ undef, %64 ], [ undef, %62 ], [ %56, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ undef, %47 ], [ undef, %42 ]
-  %.sroa.15.0 = phi i64 [ %73, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ], [ undef, %64 ], [ %.sroa.15.8.copyload, %62 ], [ %61, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ undef, %47 ], [ undef, %42 ]
-  %.sroa.0.030 = phi i64 [ %storemerge.i2.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ], [ 6, %64 ], [ 5, %62 ], [ 4, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ 3, %47 ], [ 2, %42 ]
+  %.sroa.7.sroa.7.0 = phi i32 [ %46, %42 ], [ %.sroa.7.sroa.7.0.extract.trunc25, %47 ], [ 0, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ %.sroa.7.sroa.7.0.extract.trunc27, %62 ], [ %68, %64 ], [ %.sroa.7.sroa.7.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ]
+  %.sroa.7.sroa.0.0 = phi i32 [ %44, %42 ], [ %.sroa.7.sroa.0.0.extract.trunc20, %47 ], [ %storemerge.i.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ %.sroa.7.sroa.0.0.extract.trunc21, %62 ], [ %66, %64 ], [ %.sroa.7.sroa.0.0.extract.trunc, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ]
+  %.sroa.17.0 = phi i64 [ undef, %42 ], [ undef, %47 ], [ %56, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ undef, %62 ], [ undef, %64 ], [ %79, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ]
+  %.sroa.15.0 = phi i64 [ undef, %42 ], [ undef, %47 ], [ %61, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ %.sroa.15.8.copyload, %62 ], [ undef, %64 ], [ %73, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ]
+  %.sroa.0.030 = phi i64 [ 2, %42 ], [ 3, %47 ], [ 4, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit.i" ], [ 5, %62 ], [ 6, %64 ], [ %storemerge.i2.i, %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07596f41b6d465adE.exit3.i" ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %84 = load i8, ptr %83, align 8, !range !642, !noundef !7
   store i64 %.sroa.0.030, ptr %16, align 8
@@ -9519,7 +9519,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12select_first1
   br label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.i"
 
 "_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.i": ; preds = %21, %17
-  %.sroa.0.0.i.i.i = phi i8 [ %23, %21 ], [ %20, %17 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %20, %17 ], [ %23, %21 ]
   %24 = trunc nuw i8 %.sroa.0.0.i.i.i to i1
   br i1 %24, label %27, label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.thread.i"
 
@@ -9591,7 +9591,7 @@ define { i64, i64 } @_ZN2ui10components12context_menu11ContextMenu11select_last1
   br label %_ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit
 
 _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit: ; preds = %9, %9, %9, %16, %20
-  %.sroa.0.0.i8 = phi i8 [ %22, %20 ], [ %19, %16 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ]
+  %.sroa.0.0.i8 = phi i8 [ %19, %16 ], [ %22, %20 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ]
   %23 = trunc nuw i8 %.sroa.0.0.i8 to i1
   br i1 %23, label %26, label %7
 
@@ -9657,7 +9657,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu18handle_select
   br label %_ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit.i
 
 _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit.i: ; preds = %22, %18, %11, %11, %11
-  %.sroa.0.0.i8.i = phi i8 [ %24, %22 ], [ %21, %18 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ]
+  %.sroa.0.0.i8.i = phi i8 [ %21, %18 ], [ %24, %22 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ]
   %25 = trunc nuw i8 %.sroa.0.0.i8.i to i1
   br i1 %25, label %26, label %9
 
@@ -9738,7 +9738,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu11select_next17
   br label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.i.i"
 
 "_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.i.i": ; preds = %31, %27
-  %.sroa.0.0.i.i.i.i = phi i8 [ %33, %31 ], [ %30, %27 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %30, %27 ], [ %33, %31 ]
   %34 = trunc nuw i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %34, label %37, label %"_ZN2ui10components12context_menu11ContextMenu12select_first28_$u7b$$u7b$closure$u7d$$u7d$17h8e6f15b5478546ddE.exit.thread.i.i"
 
@@ -9812,7 +9812,7 @@ _ZN2ui10components12context_menu11ContextMenu12select_first17h3e355f4c0e5cb705E.
   br label %_ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit
 
 _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28", %53, %57
-  %.sroa.0.0.i9 = phi i8 [ %59, %57 ], [ %56, %53 ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ]
+  %.sroa.0.0.i9 = phi i8 [ %56, %53 ], [ %59, %57 ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28" ]
   %60 = trunc nuw i8 %.sroa.0.0.i9 to i1
   br i1 %60, label %61, label %40
 
@@ -9893,7 +9893,7 @@ define void @_ZN2ui10components12context_menu11ContextMenu11select_prev17hf5d2af
   br label %_ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit.i.i
 
 _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit.i.i: ; preds = %31, %27, %20, %20, %20
-  %.sroa.0.0.i8.i.i = phi i8 [ %33, %31 ], [ %30, %27 ], [ 0, %20 ], [ 0, %20 ], [ 0, %20 ]
+  %.sroa.0.0.i8.i.i = phi i8 [ %30, %27 ], [ %33, %31 ], [ 0, %20 ], [ 0, %20 ], [ 0, %20 ]
   %34 = trunc nuw i8 %.sroa.0.0.i8.i.i to i1
   br i1 %34, label %35, label %18
 
@@ -9953,7 +9953,7 @@ _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755
   br label %_ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit
 
 _ZN2ui10components12context_menu15ContextMenuItem13is_selectable17hf65dd38ca8755dd4E.llvm.1407927494119257398.exit: ; preds = %52, %52, %52, %58, %62
-  %.sroa.0.0.i10 = phi i8 [ %64, %62 ], [ %61, %58 ], [ 0, %52 ], [ 0, %52 ], [ 0, %52 ]
+  %.sroa.0.0.i10 = phi i8 [ %61, %58 ], [ %64, %62 ], [ 0, %52 ], [ 0, %52 ], [ 0, %52 ]
   %65 = trunc nuw i8 %.sroa.0.0.i10 to i1
   br i1 %65, label %66, label %41
 
@@ -10253,7 +10253,7 @@ define hidden noundef zeroext i1 @_ZN2ui10components12context_menu15ContextMenuI
   br label %14
 
 14:                                               ; preds = %1, %1, %1, %11, %7
-  %.sroa.0.0 = phi i8 [ %13, %11 ], [ %10, %7 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i8 [ %10, %7 ], [ %13, %11 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   %15 = trunc nuw i8 %.sroa.0.0 to i1
   ret i1 %15
 }

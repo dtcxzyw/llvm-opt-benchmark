@@ -561,7 +561,7 @@ define ptr @ucnv_getAvailableName_77(i32 noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.1 = phi ptr [ %5, %3 ], [ null, %8 ]
+  %.1 = phi ptr [ null, %8 ], [ %5, %3 ]
   ret ptr %.1
 }
 
@@ -1303,7 +1303,7 @@ define ptr @ucnv_getName_77(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %19
 
 19:                                               ; preds = %12, %2, %14
-  %.08 = phi ptr [ %13, %12 ], [ %18, %14 ], [ null, %2 ]
+  %.08 = phi ptr [ %18, %14 ], [ %13, %12 ], [ null, %2 ]
   ret ptr %.08
 }
 
@@ -1348,7 +1348,7 @@ define i32 @ucnv_getCCSID_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %ucnv_getName_77.exit
 
 ucnv_getName_77.exit:                             ; preds = %18, %20
-  %.08.i = phi ptr [ %19, %18 ], [ %22, %20 ]
+  %.08.i = phi ptr [ %22, %20 ], [ %19, %18 ]
   %23 = tail call ptr @ucnv_getStandardName_77(ptr noundef nonnull %.08.i, ptr noundef nonnull @.str, ptr noundef nonnull %1)
   %24 = load i32, ptr %1, align 4, !tbaa !3
   %25 = icmp slt i32 %24, 1
@@ -4031,7 +4031,7 @@ define void @ucnv_fixFileSeparator_77(ptr noundef %0, ptr noundef captures(addre
   br label %ucnv_getName_77.exit.i
 
 ucnv_getName_77.exit.i:                           ; preds = %16, %14
-  %.08.i.i = phi ptr [ %15, %14 ], [ %20, %16 ]
+  %.08.i.i = phi ptr [ %20, %16 ], [ %15, %14 ]
   br label %22
 
 21:                                               ; preds = %22
@@ -4109,7 +4109,7 @@ define signext range(i8 0, 2) i8 @ucnv_isAmbiguous_77(ptr noundef %0) local_unna
   br label %ucnv_getName_77.exit.i
 
 ucnv_getName_77.exit.i:                           ; preds = %12, %10
-  %.08.i.i = phi ptr [ %11, %10 ], [ %16, %12 ]
+  %.08.i.i = phi ptr [ %16, %12 ], [ %11, %10 ]
   br label %18
 
 17:                                               ; preds = %18

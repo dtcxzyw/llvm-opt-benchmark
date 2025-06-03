@@ -1176,7 +1176,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   br label %butc_dissect_tciStatusS_info.exit
 
 butc_dissect_tciStatusS_info.exit:                ; preds = %37, %40, %48, %56, %64, %72, %80, %88, %96, %104, %112
-  %.1.i.i = phi i32 [ %38, %37 ], [ %119, %112 ], [ %111, %104 ], [ %103, %96 ], [ %95, %88 ], [ %87, %80 ], [ %79, %72 ], [ %71, %64 ], [ %63, %56 ], [ %55, %48 ], [ %47, %40 ]
+  %.1.i.i = phi i32 [ %38, %37 ], [ %47, %40 ], [ %55, %48 ], [ %63, %56 ], [ %71, %64 ], [ %79, %72 ], [ %87, %80 ], [ %95, %88 ], [ %103, %96 ], [ %111, %104 ], [ %119, %112 ]
   %120 = load ptr, ptr %9, align 8
   %121 = sub i32 %.1.i.i, %.0.i.i
   call void @proto_item_set_len(ptr noundef %120, i32 noundef %121)

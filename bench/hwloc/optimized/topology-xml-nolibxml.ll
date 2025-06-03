@@ -1595,7 +1595,7 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr noundef captures(none)
   br label %23
 
 23:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %14
-  %.0.i = phi i64 [ 5, %22 ], [ 4, %21 ], [ 4, %20 ], [ 6, %19 ], [ 4, %18 ], [ 5, %17 ], [ 5, %16 ], [ 0, %14 ]
+  %.0.i = phi i64 [ 5, %16 ], [ 5, %17 ], [ 4, %18 ], [ 6, %19 ], [ 4, %20 ], [ 4, %21 ], [ 5, %22 ], [ 0, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.0.i
   %25 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
   %26 = tail call i64 @strcspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.31) #24

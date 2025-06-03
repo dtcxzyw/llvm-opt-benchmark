@@ -2025,7 +2025,7 @@ _ZL13is_bench_filePcbbb.exit.thread10.i:          ; preds = %.lr.ph.i
   br label %_ZL13is_bench_filePcbbb.exit.thread.i
 
 _ZL13is_bench_filePcbbb.exit.thread.i:            ; preds = %.tail.thread.i, %_ZL13is_bench_filePcbbb.exit.thread10.i, %_ZL13is_bench_filePcbbb.exit.i, %545, %.tail.i.i
-  %.2472 = phi ptr [ %555, %.tail.thread.i ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.i ], [ %.1471, %545 ], [ %.1471, %.tail.i.i ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.thread10.i ]
+  %.2472 = phi ptr [ %555, %.tail.thread.i ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.i ], [ %.1471, %.tail.i.i ], [ %.1471, %545 ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.thread10.i ]
   %557 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull %536, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   %558 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %536, ptr noundef nonnull dereferenceable(6) @.str.110, i64 noundef 5) #29
   %559 = icmp eq i32 %558, 0
@@ -6237,7 +6237,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.us.i:   ; preds = %_ZNKSt7__cxx1112bas
   br label %2336
 
 2336:                                             ; preds = %2335, %2334, %2319, %2303, %2301, %2291, %2289, %2278
-  %.159.i.us.i = phi i32 [ 3, %2278 ], [ 3, %2291 ], [ 2, %2289 ], [ 1, %2303 ], [ 0, %2319 ], [ 1, %2334 ], [ 1, %2335 ], [ %spec.select.i202.us.i, %2301 ]
+  %.159.i.us.i = phi i32 [ 0, %2319 ], [ 1, %2303 ], [ 3, %2291 ], [ 2, %2289 ], [ 3, %2278 ], [ 1, %2334 ], [ 1, %2335 ], [ %spec.select.i202.us.i, %2301 ]
   %2337 = call ptr @fgets(ptr noundef nonnull %43, i32 noundef 4096, ptr noundef %2251)
   %.not.i199.us.i = icmp eq ptr %2337, null
   br i1 %.not.i199.us.i, label %._crit_edge.i200.us.i, label %.lr.ph.i198.us.i, !llvm.loop !264
@@ -6388,7 +6388,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit74.i.us.i: ; preds = %_ZNKSt7__cxx1112bas
   br label %2395
 
 2395:                                             ; preds = %2386, %2376, %2327, %2325, %2323, %2321, %2309, %2307, %2280, %2256, %2241
-  %.057.i.us.i = phi i32 [ 1, %2241 ], [ 3, %2256 ], [ 9, %2309 ], [ 10, %2307 ], [ 5, %2327 ], [ 8, %2325 ], [ 6, %2323 ], [ 7, %2321 ], [ 11, %2376 ], [ 2, %2386 ], [ %..i201.us.i, %2280 ]
+  %.057.i.us.i = phi i32 [ 1, %2241 ], [ 3, %2256 ], [ 5, %2327 ], [ 8, %2325 ], [ 6, %2323 ], [ 7, %2321 ], [ 9, %2309 ], [ 10, %2307 ], [ 11, %2376 ], [ 2, %2386 ], [ %..i201.us.i, %2280 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #27

@@ -911,8 +911,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %.loopexit114.loopexit, %.loopexit, %169, %163, %160, %156, %153, %.thread.i.i, %132, %128, %strbuf_setlen.exit.i.i, %122
-  %177 = phi ptr [ %133, %132 ], [ %120, %strbuf_setlen.exit.i.i ], [ %120, %128 ], [ %154, %153 ], [ %157, %156 ], [ %161, %163 ], [ %166, %169 ], [ %171, %.loopexit ], [ %120, %122 ], [ %161, %160 ], [ %145, %.thread.i.i ], [ %176, %.loopexit114.loopexit ]
-  %.055.i.i = phi i32 [ -3, %132 ], [ -3, %strbuf_setlen.exit.i.i ], [ -3, %128 ], [ -3, %153 ], [ -3, %156 ], [ -3, %163 ], [ -3, %169 ], [ -3, %.loopexit ], [ -1, %122 ], [ -1, %160 ], [ -3, %.thread.i.i ], [ -1, %.loopexit114.loopexit ]
+  %177 = phi ptr [ %133, %132 ], [ %154, %153 ], [ %157, %156 ], [ %161, %163 ], [ %166, %169 ], [ %171, %.loopexit ], [ %120, %strbuf_setlen.exit.i.i ], [ %120, %128 ], [ %120, %122 ], [ %161, %160 ], [ %145, %.thread.i.i ], [ %176, %.loopexit114.loopexit ]
+  %.055.i.i = phi i32 [ -3, %132 ], [ -3, %153 ], [ -3, %156 ], [ -3, %163 ], [ -3, %169 ], [ -3, %.loopexit ], [ -3, %strbuf_setlen.exit.i.i ], [ -3, %128 ], [ -1, %122 ], [ -1, %160 ], [ -3, %.thread.i.i ], [ -1, %.loopexit114.loopexit ]
   %178 = load i32, ptr %177, align 4, !tbaa !50
   %179 = add i32 %178, -1
   store i32 %179, ptr %177, align 4, !tbaa !50

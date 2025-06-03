@@ -148,7 +148,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %37
 
 37:                                               ; preds = %35, %29, %.lr.ph.i
-  %.1.i = phi i32 [ %28, %.lr.ph.i ], [ %36, %35 ], [ %33, %29 ]
+  %.1.i = phi i32 [ %28, %.lr.ph.i ], [ %33, %29 ], [ %36, %35 ]
   %38 = add i32 %.1.i, %.02633
   %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38)
   %40 = icmp sgt i32 %39, 0
@@ -279,7 +279,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   br label %116
 
 116:                                              ; preds = %112, %99, %85, %.lr.ph.i28
-  %.1.i29 = phi i32 [ %84, %.lr.ph.i28 ], [ %115, %112 ], [ %111, %99 ], [ %98, %85 ]
+  %.1.i29 = phi i32 [ %84, %.lr.ph.i28 ], [ %98, %85 ], [ %111, %99 ], [ %115, %112 ]
   %117 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %.1.i29)
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph.i28, label %dissect_bzr_pdu.exit, !llvm.loop !9

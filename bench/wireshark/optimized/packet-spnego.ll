@@ -492,7 +492,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   br label %83
 
 83:                                               ; preds = %47, %49, %51, %55, %57, %59, %75, %77, %46, %35
-  %.088 = phi i32 [ %23, %35 ], [ %.1, %46 ], [ %76, %75 ], [ %74, %59 ], [ %82, %77 ], [ %58, %57 ], [ %56, %55 ], [ %54, %51 ], [ %50, %49 ], [ %48, %47 ]
+  %.088 = phi i32 [ %23, %35 ], [ %.1, %46 ], [ %48, %47 ], [ %50, %49 ], [ %54, %51 ], [ %56, %55 ], [ %58, %57 ], [ %82, %77 ], [ %74, %59 ], [ %76, %75 ]
   call void @proto_item_set_len(ptr noundef %13, i32 noundef %.088)
   br label %84
 
@@ -553,7 +553,7 @@ define internal noundef i32 @dissect_spnego_krb5_wrap(ptr noundef %0, ptr nounde
   br label %32
 
 32:                                               ; preds = %4, %30, %17, %15, %13
-  %.0 = phi i32 [ 2, %4 ], [ %31, %30 ], [ %29, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.0 = phi i32 [ 2, %4 ], [ %14, %13 ], [ %16, %15 ], [ %29, %17 ], [ %31, %30 ]
   tail call void @proto_item_set_len(ptr noundef %6, i32 noundef %.0)
   ret i32 %.0
 }

@@ -91667,7 +91667,7 @@ lean_alloc_ctor.exit15:                           ; preds = %lean_alloc_ctor.exi
   br label %33
 
 33:                                               ; preds = %31, %29, %lean_alloc_ctor.exit15
-  %.0 = phi ptr [ %32, %31 ], [ %30, %29 ], [ %23, %lean_alloc_ctor.exit15 ]
+  %.0 = phi ptr [ %32, %31 ], [ %23, %lean_alloc_ctor.exit15 ], [ %30, %29 ]
   ret ptr %.0
 }
 

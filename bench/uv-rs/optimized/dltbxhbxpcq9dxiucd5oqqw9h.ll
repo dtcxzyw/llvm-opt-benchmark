@@ -342,7 +342,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN84_$LT$uv_requirements_txt..RequirementsTxtParserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h899732a65baa3304E.exit"
 
 "_ZN84_$LT$uv_requirements_txt..RequirementsTxtParserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h899732a65baa3304E.exit": ; preds = %28, %31, %37, %42, %48, %51, %54, %57, %62, %68, %74, %78, %83, %88, %93, %98, %103, %106, %109
-  %.sroa.0.0.in.i = phi i1 [ %112, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %98 ], [ %97, %93 ], [ %92, %88 ], [ %87, %83 ], [ %82, %78 ], [ %77, %74 ], [ %73, %68 ], [ %67, %62 ], [ %61, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %42 ], [ %41, %37 ], [ %36, %31 ], [ %30, %28 ]
+  %.sroa.0.0.in.i = phi i1 [ %30, %28 ], [ %36, %31 ], [ %41, %37 ], [ %47, %42 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %61, %57 ], [ %67, %62 ], [ %73, %68 ], [ %77, %74 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %97, %93 ], [ %102, %98 ], [ %105, %103 ], [ %108, %106 ], [ %112, %109 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -848,7 +848,7 @@ default.unreachable9:                             ; preds = %1
   unreachable
 
 57:                                               ; preds = %70, %58, %43
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %59, %58 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %59, %58 ], [ %71, %70 ]
   resume { ptr, i32 } %.pn
 
 58:                                               ; preds = %22
@@ -1064,7 +1064,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1163,7 +1163,7 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10
-  %.sroa.0.0.in = phi i1 [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1274,7 +1274,7 @@ define internal fastcc { i64, i64 } @"_ZN8unscanny68_$LT$impl$u20$unscanny..seal
   br label %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h65a417b64f7515a6E.exit.i"
 
 "_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17h65a417b64f7515a6E.exit.i": ; preds = %55, %50, %47, %44
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %49, %47 ], [ %60, %55 ], [ %46, %44 ], [ %54, %50 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %54, %50 ], [ %46, %44 ], [ %60, %55 ], [ %49, %47 ]
   %61 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %61, label %"_ZN4core6option15Option$LT$T$GT$6filter17h2fe82ecf22f51778E.exit", label %"_ZN4core6option15Option$LT$T$GT$6filter17h2fe82ecf22f51778E.exit.thread"
 
@@ -1418,7 +1418,7 @@ define internal fastcc { ptr, i64 } @_ZN8unscanny7Scanner9eat_while17h9efb639c2e
   br label %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17hf398fb479f161bf4E.exit.i.i"
 
 "_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17hf398fb479f161bf4E.exit.i.i": ; preds = %61, %56, %53, %50
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %55, %53 ], [ %66, %61 ], [ %52, %50 ], [ %60, %56 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %60, %56 ], [ %52, %50 ], [ %66, %61 ], [ %55, %53 ]
   %67 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   %68 = icmp eq i32 %.sroa.4.0.i.ph.i, 1114112
   %or.cond.i = or i1 %68, %67
@@ -1592,7 +1592,7 @@ define internal fastcc { ptr, i64 } @_ZN8unscanny7Scanner9eat_while17ha3bd377f33
   br label %"_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17hdd9aaa53fb8d7941E.exit.i.i"
 
 "_ZN8unscanny68_$LT$impl$u20$unscanny..sealed..Sealed$LT$char$GT$$u20$for$u20$F$GT$7matches28_$u7b$$u7b$closure$u7d$$u7d$17hdd9aaa53fb8d7941E.exit.i.i": ; preds = %61, %56, %53, %50
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %55, %53 ], [ %66, %61 ], [ %52, %50 ], [ %60, %56 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %60, %56 ], [ %52, %50 ], [ %66, %61 ], [ %55, %53 ]
   %67 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   %68 = icmp eq i32 %.sroa.4.0.i.ph.i, 1114112
   %or.cond.i = or i1 %68, %67
@@ -5972,7 +5972,7 @@ default.unreachable1:                             ; preds = %2
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %26, %22, %18, %15, %12
-  %.sroa.0.0.in = phi i1 [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
   ret i1 %.sroa.0.0.in
 }
 

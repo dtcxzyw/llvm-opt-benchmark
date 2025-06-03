@@ -47154,7 +47154,7 @@ _ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit19: ; preds = %91, %_ZNS
   br label %158
 
 158:                                              ; preds = %124, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit, %46, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit
-  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %129, %124 ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ]
+  %.0 = phi i64 [ %39, %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE15assure_at_leastES1_.exit ], [ %39, %_ZNSt6vectorIN4entt6entityESaIS1_EE9push_backERKS1_.exit ], [ %44, %46 ], [ %129, %124 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %32, 0
   %159 = add nsw i64 %.0, 1
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %159, 1
@@ -48553,7 +48553,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -50861,7 +50861,7 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   br label %12
 
 12:                                               ; preds = %3, %8, %6, %9, %5
-  %.0 = phi ptr [ %11, %9 ], [ %2, %5 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %11, %9 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -52606,7 +52606,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -54650,7 +54650,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setINS0_6entityESaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -57696,7 +57696,7 @@ _ZN4entt9basic_anyILm0ELm8EE10initializeIdJRKdEEEvDpOT0_.exit: ; preds = %17, %2
   br label %29
 
 29:                                               ; preds = %3, %_ZN4entt9basic_anyILm0ELm8EE10initializeIdJRKdEEEvDpOT0_.exit, %11, %9, %12, %7, %5
-  %.0 = phi ptr [ %16, %12 ], [ %2, %7 ], [ %2, %5 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeIdJRKdEEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %7 ], [ %16, %12 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeIdJRKdEEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -59376,7 +59376,7 @@ define linkonce_odr hidden void @_ZNK4entt10basic_flowISaIjEE11setup_graphERNS_1
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %62 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %63, %62 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i, i64 8
   %66 = load i8, ptr %65, align 8, !tbaa !596, !range !43, !noundef !44
   %67 = trunc nuw i8 %66 to i1
@@ -59387,7 +59387,7 @@ define linkonce_odr hidden void @_ZNK4entt10basic_flowISaIjEE11setup_graphERNS_1
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %69, %68 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i, i64 8
   %72 = load i8, ptr %71, align 8, !tbaa !596, !range !43, !noundef !44
   %73 = trunc nuw i8 %72 to i1
@@ -59521,7 +59521,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEE
   br label %129
 
 129:                                              ; preds = %127, %._crit_edge.i.i.i51
-  %.sroa.025.1.i.i.i57 = phi ptr [ %.sroa.025.0.lcssa.i.i.i53, %._crit_edge.i.i.i51 ], [ %128, %127 ]
+  %.sroa.025.1.i.i.i57 = phi ptr [ %128, %127 ], [ %.sroa.025.0.lcssa.i.i.i53, %._crit_edge.i.i.i51 ]
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i57, i64 8
   %131 = load i8, ptr %130, align 8, !tbaa !596, !range !43, !noundef !44
   %132 = trunc nuw i8 %131 to i1
@@ -59532,7 +59532,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEE
   br label %135
 
 135:                                              ; preds = %133, %._crit_edge.i.i.i51
-  %.sroa.025.2.i.i.i54 = phi ptr [ %.sroa.025.0.lcssa.i.i.i53, %._crit_edge.i.i.i51 ], [ %134, %133 ]
+  %.sroa.025.2.i.i.i54 = phi ptr [ %134, %133 ], [ %.sroa.025.0.lcssa.i.i.i53, %._crit_edge.i.i.i51 ]
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i54, i64 8
   %137 = load i8, ptr %136, align 8, !tbaa !596, !range !43, !noundef !44
   %138 = trunc nuw i8 %137 to i1
@@ -66339,7 +66339,7 @@ _ZN4entt9basic_anyILm0ELm8EE10initializeImJRKmEEEvDpOT0_.exit: ; preds = %17, %2
   br label %29
 
 29:                                               ; preds = %3, %_ZN4entt9basic_anyILm0ELm8EE10initializeImJRKmEEEvDpOT0_.exit, %11, %9, %12, %7, %5
-  %.0 = phi ptr [ %16, %12 ], [ %2, %7 ], [ %2, %5 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeImJRKmEEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %7 ], [ %16, %12 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeImJRKmEEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 

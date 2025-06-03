@@ -900,8 +900,8 @@ define { ptr, ptr } @"_ZN67_$LT$uv_trampoline_builder..Error$u20$as$u20$core..er
   br label %18
 
 18:                                               ; preds = %1, %1, %1, %16, %14, %12, %7
-  %.sroa.8.0 = phi ptr [ @anon.54d59368cdae977b20e80dba8df63b21.17, %16 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %14 ], [ @anon.54d59368cdae977b20e80dba8df63b21.19, %12 ], [ %11, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %10, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.8.0 = phi ptr [ %11, %7 ], [ @anon.54d59368cdae977b20e80dba8df63b21.19, %12 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %14 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %16 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.8.0, 1
   ret { ptr, ptr } %20
@@ -1077,7 +1077,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit41: ; preds = %2
   br label %49
 
 49:                                               ; preds = %47, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit41, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit36, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31, %28, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %21
-  %.sroa.0.0.in = phi i1 [ %48, %47 ], [ %46, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit41 ], [ %38, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit36 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31 ], [ %29, %28 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %29, %28 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit31 ], [ %38, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit36 ], [ %46, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit41 ], [ %48, %47 ]
   ret i1 %.sroa.0.0.in
 }
 

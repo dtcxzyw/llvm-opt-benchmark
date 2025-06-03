@@ -932,8 +932,8 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
   unreachable
 
 63:                                               ; preds = %.thread77, %52, %.thread81
-  %.080 = phi i32 [ %58, %52 ], [ 1, %.thread81 ], [ 1, %.thread77 ]
-  %.055 = phi i64 [ %55, %52 ], [ %47, %.thread81 ], [ 0, %.thread77 ]
+  %.080 = phi i32 [ 1, %.thread81 ], [ %58, %52 ], [ 1, %.thread77 ]
+  %.055 = phi i64 [ %47, %.thread81 ], [ %55, %52 ], [ 0, %.thread77 ]
   %64 = getelementptr inbounds nuw i8, ptr %.05898, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.055
   %spec.select74 = add i32 %.080, %.06096

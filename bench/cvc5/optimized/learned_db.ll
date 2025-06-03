@@ -623,7 +623,7 @@ define hidden void @_ZN4cvc58internal4prop9LearnedDb17addLearnedLiteralERKNS0_12
   br label %_ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit
 
 _ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit: ; preds = %3, %5, %7, %9, %11, %13
-  %.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %0, %3 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %0, %3 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #25
   store i8 1, ptr %4, align 1, !tbaa !26
   %15 = call noundef zeroext i1 @_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE11insert_safeERKS4_RKb(ptr noundef nonnull align 8 dereferenceable(56) %.0.i, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -665,7 +665,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal
   br label %13
 
 13:                                               ; preds = %2, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %0, %2 ]
+  %.0 = phi ptr [ %12, %11 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -704,7 +704,7 @@ define hidden void @_ZNK4cvc58internal4prop9LearnedDb18getLearnedLiteralsENS_5mo
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5, %3
-  %.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %1, %3 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %1, %3 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !18, !noalias !28
@@ -879,7 +879,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58interna
   br label %13
 
 13:                                               ; preds = %2, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %0, %2 ]
+  %.0 = phi ptr [ %12, %11 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -1009,7 +1009,7 @@ define hidden noundef i64 @_ZNK4cvc58internal4prop9LearnedDb21getNumLearnedLiter
   br label %_ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit
 
 _ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit: ; preds = %2, %3, %5, %7, %9, %11
-  %.0.i = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %0, %2 ]
+  %.0.i = phi ptr [ %12, %11 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %0, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !25
   ret i64 %14
@@ -1537,7 +1537,7 @@ define hidden void @_ZNK4cvc58internal4prop9LearnedDb17toStringDebugTypeB5cxx11E
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5, %3
-  %.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %1, %3 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %1, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !25
   %18 = icmp eq i64 %17, 0

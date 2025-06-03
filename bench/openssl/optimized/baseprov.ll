@@ -345,7 +345,7 @@ define range(i32 0, 2) i32 @ossl_base_provider_init(ptr noundef %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %.preheader, %7, %9, %11
-  %.1 = phi ptr [ %.021.val26, %11 ], [ %.020, %9 ], [ %.020, %7 ], [ %.020, %.preheader ]
+  %.1 = phi ptr [ %.020, %7 ], [ %.020, %9 ], [ %.021.val26, %11 ], [ %.020, %.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   br label %.preheader, !llvm.loop !11
 
@@ -491,7 +491,7 @@ define internal noundef ptr @base_query(ptr readnone captures(none) %0, i32 noun
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.0 = phi ptr [ null, %7 ], [ @base_rands, %6 ], [ @base_store, %5 ], [ @base_decoder, %4 ], [ @base_encoder, %3 ]
+  %.0 = phi ptr [ null, %7 ], [ @base_decoder, %4 ], [ @base_store, %5 ], [ @base_rands, %6 ], [ @base_encoder, %3 ]
   ret ptr %.0
 }
 

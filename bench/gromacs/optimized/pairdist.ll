@@ -3239,7 +3239,7 @@ define internal fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119init
   resume { ptr, i32 } %.pn.pn16
 
 27:                                               ; preds = %10, %11, %12, %13, %14, %3
-  %.011 = phi i32 [ 0, %10 ], [ 1, %14 ], [ 3, %13 ], [ 2, %12 ], [ 4, %11 ], [ 0, %3 ]
+  %.011 = phi i32 [ 0, %10 ], [ 4, %11 ], [ 2, %12 ], [ 3, %13 ], [ 1, %14 ], [ 0, %3 ]
   %28 = tail call noundef i32 @_ZN3gmx9Selection22initOriginalIdsToGroupEPK10gmx_mtop_t9e_index_t(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %.011)
   ret i32 %28
 

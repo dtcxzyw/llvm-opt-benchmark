@@ -2264,7 +2264,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Nu
   ]
 
 "_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit": ; preds = %19, %16, %8, %26, %2, %31, %21
-  %.sroa.0.0.shrunk = phi i1 [ %36, %31 ], [ %25, %21 ], [ false, %2 ], [ false, %26 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %25, %21 ], [ %36, %31 ], [ false, %2 ], [ false, %26 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable5:                             ; preds = %6
@@ -2366,7 +2366,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated
   ]
 
 7:                                                ; preds = %206, %212, %134, %116, %110, %182, %104, %174, %96, %166, %88, %158, %80, %2, %214, %200, %194, %188, %180, %172, %164, %154, %150, %146, %142, %130, %126, %122, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.sroa.0.0.shrunk = phi i1 [ %157, %154 ], [ %153, %150 ], [ %149, %146 ], [ %145, %142 ], [ %219, %214 ], [ %133, %130 ], [ %129, %126 ], [ %125, %122 ], [ %205, %200 ], [ %199, %194 ], [ %193, %188 ], [ %181, %180 ], [ %173, %172 ], [ %165, %164 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ false, %2 ], [ false, %80 ], [ false, %158 ], [ false, %88 ], [ false, %166 ], [ false, %96 ], [ false, %174 ], [ false, %104 ], [ false, %182 ], [ false, %110 ], [ false, %116 ], [ false, %134 ], [ false, %212 ], [ false, %206 ]
+  %.sroa.0.0.shrunk = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %165, %164 ], [ %173, %172 ], [ %181, %180 ], [ %193, %188 ], [ %199, %194 ], [ %205, %200 ], [ %125, %122 ], [ %129, %126 ], [ %133, %130 ], [ %219, %214 ], [ %145, %142 ], [ %149, %146 ], [ %153, %150 ], [ %157, %154 ], [ false, %2 ], [ false, %80 ], [ false, %158 ], [ false, %88 ], [ false, %166 ], [ false, %96 ], [ false, %174 ], [ false, %104 ], [ false, %182 ], [ false, %110 ], [ false, %116 ], [ false, %134 ], [ false, %212 ], [ false, %206 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6
@@ -2836,7 +2836,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   ]
 
 "_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit": ; preds = %236, %230, %224, %218, %214, %210, %206, %202, %195, %194, %182, %176, %196, %170, %166, %162, %158, %154, %144, %138, %132, %126, %120, %114, %108, %102, %96, %90, %86, %82, %78, %74, %64, %58, %52, %46, %40, %34, %28, %252, %22, %242, %14, %2, %258, %248
-  %.sroa.0.0.shrunk = phi i1 [ %263, %258 ], [ %251, %248 ], [ false, %2 ], [ false, %14 ], [ false, %242 ], [ false, %22 ], [ false, %252 ], [ %45, %40 ], [ false, %28 ], [ false, %34 ], [ %95, %90 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %52 ], [ false, %74 ], [ false, %82 ], [ false, %86 ], [ false, %96 ], [ false, %108 ], [ false, %102 ], [ %137, %132 ], [ false, %126 ], [ false, %114 ], [ false, %120 ], [ %175, %170 ], [ %161, %158 ], [ false, %138 ], [ false, %144 ], [ false, %154 ], [ false, %162 ], [ false, %166 ], [ %223, %218 ], [ %209, %206 ], [ false, %194 ], [ false, %176 ], [ false, %195 ], [ false, %182 ], [ false, %202 ], [ false, %210 ], [ false, %214 ], [ false, %196 ], [ %241, %236 ], [ false, %224 ], [ false, %230 ]
+  %.sroa.0.0.shrunk = phi i1 [ %251, %248 ], [ %263, %258 ], [ false, %2 ], [ false, %14 ], [ false, %242 ], [ false, %22 ], [ false, %252 ], [ %45, %40 ], [ false, %28 ], [ false, %34 ], [ %95, %90 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %52 ], [ false, %74 ], [ false, %82 ], [ false, %86 ], [ false, %96 ], [ false, %108 ], [ false, %102 ], [ %137, %132 ], [ false, %126 ], [ false, %114 ], [ false, %120 ], [ %175, %170 ], [ %161, %158 ], [ false, %138 ], [ false, %144 ], [ false, %154 ], [ false, %162 ], [ false, %166 ], [ %223, %218 ], [ %209, %206 ], [ false, %194 ], [ false, %176 ], [ false, %195 ], [ false, %182 ], [ false, %202 ], [ false, %210 ], [ false, %214 ], [ false, %196 ], [ %241, %236 ], [ false, %224 ], [ false, %230 ]
   ret i1 %.sroa.0.0.shrunk
 
 13:                                               ; preds = %12
@@ -8673,7 +8673,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
           to label %65 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %174, %144, %113
-  %.pn = phi { ptr, i32 } [ %lpad.phi61, %174 ], [ %lpad.phi66, %144 ], [ %114, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi61, %174 ], [ %114, %113 ], [ %lpad.phi66, %144 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_formatter..comments..Comments$GT$17h4052dcd453660b23E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %33) #18
           to label %216 unwind label %125
 

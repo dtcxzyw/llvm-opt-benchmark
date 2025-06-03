@@ -3554,9 +3554,9 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
   br label %19
 
 19:                                               ; preds = %14, %15, %16, %17, %18, %10, %8
-  %20 = phi i1 [ false, %8 ], [ false, %10 ], [ false, %18 ], [ false, %17 ], [ true, %16 ], [ false, %15 ], [ false, %14 ]
-  %.not = phi i1 [ true, %8 ], [ true, %10 ], [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ]
-  %.024 = phi i64 [ 6, %8 ], [ 6, %10 ], [ 4, %18 ], [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 0, %14 ]
+  %20 = phi i1 [ false, %8 ], [ false, %10 ], [ false, %14 ], [ false, %15 ], [ true, %16 ], [ false, %17 ], [ false, %18 ]
+  %.not = phi i1 [ true, %8 ], [ true, %10 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %18 ]
+  %.024 = phi i64 [ 6, %8 ], [ 6, %10 ], [ 0, %14 ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 4, %18 ]
   switch i32 %2, label %.thread [
     i32 0, label %35
     i32 1, label %21
@@ -3618,7 +3618,7 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
   br label %35
 
 35:                                               ; preds = %19, %34, %33, %32, %31, %30, %29, %28, %27, %26, %24, %23, %22, %21
-  %.0 = phi i64 [ 14, %34 ], [ 13, %33 ], [ 6, %32 ], [ 5, %31 ], [ 4, %30 ], [ 3, %29 ], [ 2, %28 ], [ 1, %27 ], [ 0, %26 ], [ 7, %24 ], [ 8, %23 ], [ 9, %22 ], [ 12, %21 ], [ 10, %19 ]
+  %.0 = phi i64 [ 12, %21 ], [ 9, %22 ], [ 8, %23 ], [ 7, %24 ], [ 0, %26 ], [ 1, %27 ], [ 2, %28 ], [ 3, %29 ], [ 4, %30 ], [ 5, %31 ], [ 6, %32 ], [ 13, %33 ], [ 14, %34 ], [ 10, %19 ]
   br i1 %.not, label %.thread, label %.thread34
 
 .thread34:                                        ; preds = %25, %35

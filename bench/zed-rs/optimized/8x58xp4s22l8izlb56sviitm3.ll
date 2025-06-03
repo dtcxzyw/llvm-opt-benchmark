@@ -2511,7 +2511,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$project..task_inventory..Tas
   unreachable
 
 59:                                               ; preds = %60, %40
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ]
   resume { ptr, i32 } %.pn
 
 60:                                               ; preds = %30
@@ -13467,16 +13467,16 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$gpui..window..WindowContext$u20$as$
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4), !noalias !2374
   store i64 %56, ptr %7, align 8, !noalias !2374
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d2f6b5fa0632c41E.llvm.7158062694720984747"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit27.i" unwind label %60, !noalias !2374
+          to label %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit26.i" unwind label %60, !noalias !2374
 
-60:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit27.i", %59
-  %.sroa.05.0.i = phi i1 [ false, %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit27.i" ], [ true, %59 ]
+60:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit26.i", %59
+  %.sroa.05.0.i = phi i1 [ false, %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit26.i" ], [ true, %59 ]
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$task..task_template..TaskTemplate$GT$17h734b40e7239a14ebE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7) #44
           to label %65 unwind label %66, !noalias !2371
 
-"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit27.i": ; preds = %59
+"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit26.i": ; preds = %59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2374
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !2374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !noalias !2374
@@ -13485,7 +13485,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$gpui..window..WindowContext$u20$as$
   invoke void @_ZN9workspace5tasks13schedule_task17h25fb70cf69bc4677E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1576) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(208) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %63, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %64 unwind label %60, !noalias !2371
 
-64:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit27.i"
+64:                                               ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17hbfa5aad4f3518dc2E.exit26.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !2374
   invoke void @"_ZN4core3ptr54drop_in_place$LT$task..task_template..TaskTemplate$GT$17h734b40e7239a14ebE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7)
           to label %.noexc12 unwind label %.body
@@ -15937,7 +15937,7 @@ define hidden void @"_ZN78_$LT$project..task_inventory..TaskSourceKind$u20$as$u2
   unreachable
 
 87:                                               ; preds = %88, %81
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %82, %81 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %89, %88 ]
   resume { ptr, i32 } %.pn
 
 88:                                               ; preds = %71, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d86172ca16bf8b2E.exit8"
@@ -16685,7 +16685,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %42
 
 42:                                               ; preds = %18, %15
-  %.sroa.3.0 = phi i64 [ %21, %18 ], [ %17, %15 ]
+  %.sroa.3.0 = phi i64 [ %17, %15 ], [ %21, %18 ]
   %43 = insertvalue { i64, i64 } poison, i64 %13, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44
@@ -17381,8 +17381,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %67
 
 67:                                               ; preds = %62, %70
-  %.sroa.3.0 = phi ptr [ undef, %70 ], [ %66, %62 ]
-  %.sroa.0.0 = phi ptr [ null, %70 ], [ %64, %62 ]
+  %.sroa.3.0 = phi ptr [ %66, %62 ], [ undef, %70 ]
+  %.sroa.0.0 = phi ptr [ %64, %62 ], [ null, %70 ]
   %68 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %69 = insertvalue { ptr, ptr } %68, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %69
@@ -17842,7 +17842,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %106
 
 106:                                              ; preds = %107, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h48731d5b0b1c61dfE.exit"
-  %.sroa.0.0 = phi i1 [ false, %107 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h48731d5b0b1c61dfE.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h48731d5b0b1c61dfE.exit" ], [ false, %107 ]
   ret i1 %.sroa.0.0
 
 107:                                              ; preds = %85, %89
@@ -21594,10 +21594,10 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %185, %182
   br label %298
 
 298:                                              ; preds = %344, %301, %300, %297
-  %.sroa.9.sroa.7.0 = phi i32 [ 0, %344 ], [ %.sroa.9.sroa.7.0.copyload147, %301 ], [ %.sroa.9.sroa.7.0.copyload146, %300 ], [ %.sroa.9.sroa.7.0.copyload, %297 ]
-  %.sroa.9.sroa.9.0 = phi float [ %.sroa.9.sroa.9.1, %344 ], [ %.sroa.9.sroa.9.0.copyload150, %301 ], [ %.sroa.9.sroa.9.0.copyload149, %300 ], [ %.sroa.9.sroa.9.0.copyload, %297 ]
-  %.sroa.9.sroa.11.0 = phi i32 [ undef, %344 ], [ %.sroa.9.sroa.11.0.copyload153, %301 ], [ %.sroa.9.sroa.11.0.copyload152, %300 ], [ %.sroa.9.sroa.11.0.copyload, %297 ]
-  %.sroa.012.0 = phi i64 [ %318, %344 ], [ %.sroa.012.0.copyload14, %301 ], [ %.sroa.012.0.copyload13, %300 ], [ %.sroa.012.0.copyload, %297 ]
+  %.sroa.9.sroa.7.0 = phi i32 [ %.sroa.9.sroa.7.0.copyload, %297 ], [ %.sroa.9.sroa.7.0.copyload146, %300 ], [ %.sroa.9.sroa.7.0.copyload147, %301 ], [ 0, %344 ]
+  %.sroa.9.sroa.9.0 = phi float [ %.sroa.9.sroa.9.0.copyload, %297 ], [ %.sroa.9.sroa.9.0.copyload149, %300 ], [ %.sroa.9.sroa.9.0.copyload150, %301 ], [ %.sroa.9.sroa.9.1, %344 ]
+  %.sroa.9.sroa.11.0 = phi i32 [ %.sroa.9.sroa.11.0.copyload, %297 ], [ %.sroa.9.sroa.11.0.copyload152, %300 ], [ %.sroa.9.sroa.11.0.copyload153, %301 ], [ undef, %344 ]
+  %.sroa.012.0 = phi i64 [ %.sroa.012.0.copyload, %297 ], [ %.sroa.012.0.copyload13, %300 ], [ %.sroa.012.0.copyload14, %301 ], [ %318, %344 ]
   %299 = icmp eq i64 %.sroa.012.0, 2
   br i1 %299, label %345, label %346
 

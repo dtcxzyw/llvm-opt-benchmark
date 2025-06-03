@@ -14017,8 +14017,8 @@ do.body245:                                       ; preds = %do.body237
   tail call void @abort() #25
   unreachable
 
-do.end250:                                        ; preds = %lor.rhs, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit356, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit401, %do.body237
-  %value.sroa.0.0658 = phi ptr [ %value.sroa.0.0, %do.body237 ], [ %call154, %lor.rhs ], [ %retval.sroa.0.0.i, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit356 ], [ %call142, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit401 ]
+do.end250:                                        ; preds = %lor.rhs, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit401, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit356, %do.body237
+  %value.sroa.0.0658 = phi ptr [ %value.sroa.0.0, %do.body237 ], [ %call154, %lor.rhs ], [ %call142, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit401 ], [ %retval.sroa.0.0.i, %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit356 ]
   %call255 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #22
   %176 = extractvalue { i64, ptr } %call255, 0
   %call3.i458 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22

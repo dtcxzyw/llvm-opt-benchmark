@@ -5374,7 +5374,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv9fromBinOpERSt10sh
   unreachable
 
 156:                                              ; preds = %100, %104, %89, %93, %78, %82, %67, %71, %56, %60, %27, %31, %16, %20, %149, %143, %137, %131, %125, %114, %108, %47, %41, %35, %7
-  %.0 = phi ptr [ %154, %149 ], [ %148, %143 ], [ %142, %137 ], [ %136, %131 ], [ %130, %125 ], [ %124, %114 ], [ %113, %108 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %12, %7 ], [ %19, %16 ], [ %23, %20 ], [ %30, %27 ], [ %34, %31 ], [ %59, %56 ], [ %63, %60 ], [ %70, %67 ], [ %74, %71 ], [ %81, %78 ], [ %85, %82 ], [ %92, %89 ], [ %96, %93 ], [ %103, %100 ], [ %107, %104 ]
+  %.0 = phi ptr [ %12, %7 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %113, %108 ], [ %124, %114 ], [ %130, %125 ], [ %136, %131 ], [ %142, %137 ], [ %148, %143 ], [ %154, %149 ], [ %19, %16 ], [ %23, %20 ], [ %30, %27 ], [ %34, %31 ], [ %59, %56 ], [ %63, %60 ], [ %70, %67 ], [ %74, %71 ], [ %81, %78 ], [ %85, %82 ], [ %92, %89 ], [ %96, %93 ], [ %103, %100 ], [ %107, %104 ]
   ret ptr %.0
 }
 
@@ -6230,7 +6230,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !72
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #21
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !96
@@ -8371,8 +8371,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %39
   tail call void @llvm.assume(i1 %spec.select.i.i.i.i.i.i.i.i.i)
   br label %71
 
-71:                                               ; preds = %64, %64, %64, %58, %50, %69, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %72 = phi ptr [ %65, %64 ], [ %65, %64 ], [ %65, %64 ], [ %40, %58 ], [ %.pre41, %50 ], [ %65, %69 ], [ %40, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
+71:                                               ; preds = %64, %64, %64, %50, %58, %69, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %72 = phi ptr [ %65, %64 ], [ %65, %64 ], [ %65, %64 ], [ %.pre41, %50 ], [ %40, %58 ], [ %65, %69 ], [ %40, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
   %73 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #21
   %74 = load ptr, ptr %12, align 16, !tbaa !96
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -8587,13 +8587,13 @@ _ZN4llvm12ImmutableSetISt4pairIPKN5clang4ento7SymExprEPKNS_7SMTExprEENS_17ImutCo
   br i1 %79, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit, label %.lr.ph.i.i, !prof !589, !llvm.loop !696
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit: ; preds = %73, %64
-  %.lcssa.i.i.pn = phi i64 [ %67, %64 ], [ %76, %73 ]
+  %.pn = phi i64 [ %67, %64 ], [ %76, %73 ]
   %80 = zext i32 %62 to i64
-  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %80
+  %.not = icmp samesign eq i64 %.pn, %80
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit.thread, label %81
 
 81:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %.lcssa.i.i.pn, i32 0, i32 1
+  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %.pn, i32 0, i32 1
   %.sroa.02.0.copyload = load i16, ptr %82, align 4
   br label %103
 
@@ -8881,7 +8881,7 @@ switch.lookup:                                    ; preds = %60
   br label %127
 
 127:                                              ; preds = %116, %36, %21, %121, %117
-  %.1 = phi ptr [ %22, %21 ], [ %51, %36 ], [ %.3, %116 ], [ %120, %121 ], [ %120, %117 ]
+  %.1 = phi ptr [ %.3, %116 ], [ %51, %36 ], [ %22, %21 ], [ %120, %121 ], [ %120, %117 ]
   ret ptr %.1
 }
 
@@ -9181,7 +9181,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6
   %spec.select.i = icmp ult i32 %38, 20
   br i1 %spec.select.i, label %39, label %66
 
-39:                                               ; preds = %33, %25, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+39:                                               ; preds = %25, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %40 = and i64 %2, -16
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 16, !tbaa !96
@@ -9226,7 +9226,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53: ; preds = %39
   %spec.select.i48 = icmp ult i32 %65, 20
   br i1 %spec.select.i48, label %94, label %66
 
-66:                                               ; preds = %60, %52, %33, %25, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+66:                                               ; preds = %52, %60, %25, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %67 = load ptr, ptr %14, align 16, !tbaa !96
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %68, align 8, !tbaa !44
@@ -9266,7 +9266,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53: ; preds = %39
   %93 = xor i1 %spec.select.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i67
   br i1 %93, label %94, label %163
 
-94:                                               ; preds = %60, %52, %90, %86, %66, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53
+94:                                               ; preds = %52, %60, %90, %86, %66, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53
   %95 = load ptr, ptr %14, align 16, !tbaa !96
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %.sroa.0.0.copyload.i.i.i.i69 = load i64, ptr %96, align 8, !tbaa !44
@@ -9457,7 +9457,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   %spec.select.i79 = icmp ult i32 %203, 20
   br i1 %spec.select.i79, label %204, label %218
 
-204:                                              ; preds = %198, %190, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
+204:                                              ; preds = %190, %198, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
   %205 = load ptr, ptr %76, align 16, !tbaa !96
   %206 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %205) #21
   br i1 %206, label %207, label %218
@@ -9479,7 +9479,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
   br label %259
 
-218:                                              ; preds = %198, %190, %204, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
+218:                                              ; preds = %190, %198, %204, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
   %219 = load ptr, ptr %14, align 16, !tbaa !96
   %220 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %219) #21
   tail call void @llvm.assume(i1 %220)
@@ -9527,8 +9527,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97: ; preds = %229, %236, %244
-  %246 = phi ptr [ %.pre, %236 ], [ %221, %244 ], [ %221, %229 ]
-  %.1.i93 = phi i1 [ %243, %236 ], [ %245, %244 ], [ %spec.select.i92, %229 ]
+  %246 = phi ptr [ %221, %244 ], [ %.pre, %236 ], [ %221, %229 ]
+  %.1.i93 = phi i1 [ %245, %244 ], [ %243, %236 ], [ %spec.select.i92, %229 ]
   tail call void @llvm.assume(i1 %.1.i93)
   %247 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %246) #21
   %248 = load ptr, ptr %0, align 8, !tbaa !28
@@ -9697,7 +9697,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6
   %spec.select.i = icmp ult i32 %32, 20
   br i1 %spec.select.i, label %33, label %71
 
-33:                                               ; preds = %27, %19, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+33:                                               ; preds = %19, %27, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.0.copyload.i.i.i.i.i77 = load i64, ptr %5, align 8
   %34 = and i64 %.0.copyload.i.i.i.i.i77, -16
   %35 = inttoptr i64 %34 to ptr
@@ -9743,7 +9743,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86: ; preds = %33
   %spec.select.i81 = icmp ult i32 %59, 20
   br i1 %spec.select.i81, label %60, label %71
 
-60:                                               ; preds = %54, %46, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86
+60:                                               ; preds = %46, %54, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86
   %.0.copyload.i.i.i.i.i87 = load i64, ptr %4, align 8
   %61 = and i64 %.0.copyload.i.i.i.i.i87, -16
   %62 = inttoptr i64 %61 to ptr
@@ -9763,7 +9763,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86: ; preds = %33
   tail call void @_ZN5clang4ento7SMTConv19doIntTypeConversionIPKN4llvm7SMTExprETnPFT_RSt10shared_ptrINS3_9SMTSolverEERKS7_NS_8QualTypeEmSE_mEXadL_ZNS1_8fromCastESB_RKS6_SE_mSE_mEEEEvSB_RNS_10ASTContextERS7_RSE_SL_SM_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.critedge2
 
-71:                                               ; preds = %54, %46, %27, %19, %65, %60, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+71:                                               ; preds = %46, %54, %19, %27, %65, %60, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.0.copyload.i.i.i.i.i89 = load i64, ptr %4, align 8
   %72 = and i64 %.0.copyload.i.i.i.i.i89, -16
   %73 = inttoptr i64 %72 to ptr
@@ -10126,7 +10126,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv14fromFloatBinOpER
   unreachable
 
 80:                                               ; preds = %77, %66, %60, %54, %48, %42, %36, %30, %24, %18, %12, %6
-  %.0 = phi ptr [ %78, %77 ], [ %76, %66 ], [ %65, %60 ], [ %59, %54 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ %35, %30 ], [ %29, %24 ], [ %23, %18 ], [ %17, %12 ], [ %11, %6 ]
+  %.0 = phi ptr [ %11, %6 ], [ %17, %12 ], [ %23, %18 ], [ %29, %24 ], [ %35, %30 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %76, %66 ], [ %78, %77 ]
   ret ptr %.0
 }
 

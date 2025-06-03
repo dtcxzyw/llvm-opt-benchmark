@@ -414,7 +414,7 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr noundef writeonly 
   br label %94
 
 94:                                               ; preds = %.thread, %58, %15, %92, %90, %84, %78, %69, %57, %51
-  %.1 = phi i32 [ %45, %51 ], [ %56, %57 ], [ 0, %90 ], [ 67, %84 ], [ 0, %92 ], [ 7, %69 ], [ %77, %78 ], [ 0, %15 ], [ 0, %58 ], [ %14, %.thread ]
+  %.1 = phi i32 [ %45, %51 ], [ %56, %57 ], [ 0, %90 ], [ 7, %69 ], [ %77, %78 ], [ 0, %92 ], [ 67, %84 ], [ 0, %15 ], [ 0, %58 ], [ %14, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret i32 %.1
 }
@@ -1205,8 +1205,8 @@ smb_send_tree_disconnect.exit:                    ; preds = %375, %408
   br label %413
 
 413:                                              ; preds = %410, %smb_send_tree_disconnect.exit, %smb_send_close.exit, %smb_send_write.exit, %smb_send_read.exit, %smb_send_open.exit
-  %.091138 = phi i32 [ 7, %410 ], [ 6, %smb_send_tree_disconnect.exit ], [ 5, %smb_send_close.exit ], [ 4, %smb_send_write.exit ], [ 3, %smb_send_read.exit ], [ 2, %smb_send_open.exit ]
-  %.3 = phi i32 [ %411, %410 ], [ %402, %smb_send_tree_disconnect.exit ], [ %367, %smb_send_close.exit ], [ %329, %smb_send_write.exit ], [ %275, %smb_send_read.exit ], [ %.0.i113, %smb_send_open.exit ]
+  %.091138 = phi i32 [ 2, %smb_send_open.exit ], [ 3, %smb_send_read.exit ], [ 4, %smb_send_write.exit ], [ 5, %smb_send_close.exit ], [ 6, %smb_send_tree_disconnect.exit ], [ 7, %410 ]
+  %.3 = phi i32 [ %.0.i113, %smb_send_open.exit ], [ %275, %smb_send_read.exit ], [ %329, %smb_send_write.exit ], [ %367, %smb_send_close.exit ], [ %402, %smb_send_tree_disconnect.exit ], [ %411, %410 ]
   %.not107 = icmp eq i32 %.3, 0
   br i1 %.not107, label %415, label %414
 

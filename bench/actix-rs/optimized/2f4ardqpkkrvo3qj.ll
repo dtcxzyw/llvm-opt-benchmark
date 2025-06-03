@@ -509,7 +509,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit": ; preds = %59, %62, %65, %70
-  %.0.i.i.i = phi i8 [ %64, %62 ], [ %75, %70 ], [ %61, %59 ], [ %69, %65 ]
+  %.0.i.i.i = phi i8 [ %69, %65 ], [ %61, %59 ], [ %75, %70 ], [ %64, %62 ]
   %76 = trunc i8 %.0.i.i.i to i1
   br i1 %76, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.thread", label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.llvm.18353199392063854698.exit.thread.sink.split"
 
@@ -687,7 +687,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i": ; preds = %64, %59, %56, %53
-  %.0.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.0.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.0.i.i.i.i to i1
   br i1 %70, label %71, label %73
 
@@ -2109,7 +2109,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a4d16b217bd8339E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a4d16b217bd8339E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -2993,7 +2993,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i.i": ; preds = %62, %57, %54, %51
-  %.0.i.i.i.i.i = phi i8 [ %56, %54 ], [ %67, %62 ], [ %53, %51 ], [ %61, %57 ]
+  %.0.i.i.i.i.i = phi i8 [ %61, %57 ], [ %53, %51 ], [ %67, %62 ], [ %56, %54 ]
   %68 = trunc i8 %.0.i.i.i.i.i to i1
   br i1 %68, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h617f665d54e8eac6E.llvm.18353199392063854698.exit.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h49f9767a9e2a3af7E.llvm.18353199392063854698.exit"
 
@@ -3124,7 +3124,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i.i11"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i.i11": ; preds = %126, %121, %118, %115
-  %.0.i.i.i.i.i12 = phi i8 [ %120, %118 ], [ %131, %126 ], [ %117, %115 ], [ %125, %121 ]
+  %.0.i.i.i.i.i12 = phi i8 [ %125, %121 ], [ %117, %115 ], [ %131, %126 ], [ %120, %118 ]
   %132 = trunc i8 %.0.i.i.i.i.i12 to i1
   br i1 %132, label %133, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h2c9869c5e522b805E.llvm.18353199392063854698.exit"
 
@@ -3204,7 +3204,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.18353199392063854698.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.18353199392063854698.exit: ; preds = %6, %8, %11, %14, %19
-  %.0.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ], [ 0, %6 ]
+  %.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ], [ 0, %6 ]
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
@@ -3430,7 +3430,7 @@ define hidden noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lo
   br label %14
 
 14:                                               ; preds = %1, %16, %9, %6, %3
-  %.0 = phi i8 [ %8, %6 ], [ %21, %16 ], [ %5, %3 ], [ %13, %9 ], [ 0, %1 ]
+  %.0 = phi i8 [ %13, %9 ], [ %5, %3 ], [ %21, %16 ], [ %8, %6 ], [ 0, %1 ]
   %15 = trunc i8 %.0 to i1
   ret i1 %15
 
@@ -3491,7 +3491,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.18353199392063854698.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.18353199392063854698.exit.i: ; preds = %19, %14, %11, %8, %6
-  %.0.i.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ], [ 0, %6 ]
+  %.0.i.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ], [ 0, %6 ]
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17hffc268f445c358aeE.llvm.18353199392063854698.exit"
 
@@ -4764,7 +4764,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit": ; preds = %56, %59, %62, %67
-  %.0.i.i.i = phi i8 [ %61, %59 ], [ %72, %67 ], [ %58, %56 ], [ %66, %62 ]
+  %.0.i.i.i = phi i8 [ %66, %62 ], [ %58, %56 ], [ %72, %67 ], [ %61, %59 ]
   %73 = trunc i8 %.0.i.i.i to i1
   br i1 %73, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.thread", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.18353199392063854698.exit.thread.sink.split"
 
@@ -4913,7 +4913,7 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h681d74ebd57c4c31E.llvm.18353199392063854698.exit.i": ; preds = %67, %62, %59, %56
-  %.0.i.i.i.i = phi i8 [ %61, %59 ], [ %72, %67 ], [ %58, %56 ], [ %66, %62 ]
+  %.0.i.i.i.i = phi i8 [ %66, %62 ], [ %58, %56 ], [ %72, %67 ], [ %61, %59 ]
   %73 = trunc i8 %.0.i.i.i.i to i1
   br i1 %73, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h617f665d54e8eac6E.llvm.18353199392063854698.exit", label %75
 
@@ -5152,7 +5152,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %15, %11, %7
-  %.0.in = phi i1 [ %17, %15 ], [ %14, %11 ], [ %10, %7 ]
+  %.0.in = phi i1 [ %10, %7 ], [ %14, %11 ], [ %17, %15 ]
   ret i1 %.0.in
 }
 
@@ -5816,8 +5816,8 @@ define { ptr, ptr } @"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core.
   br label %13
 
 13:                                               ; preds = %1, %1, %1, %6, %11, %10
-  %.sroa.8.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %11 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %10 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ %0, %10 ], [ %., %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.8.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %10 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %11 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %0, %10 ], [ %12, %11 ], [ %., %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.8.0, 1
   ret { ptr, ptr } %15
@@ -5934,8 +5934,8 @@ define { ptr, ptr } @"_ZN71_$LT$actix_http..error..DispatchError$u20$as$u20$core
   br label %18
 
 18:                                               ; preds = %1, %16, %14, %12, %7
-  %.sroa.7.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %16 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.111, %14 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %12 ], [ %11, %7 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %9, %7 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %11, %7 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %12 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.111, %14 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %16 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %7 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %1 ]
   %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %20
@@ -9258,8 +9258,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %45
 
 45:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he93078bf9327c48eE.exit.i", %48, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha5d880bb3032c467E.exit.i"
-  %.059.i = phi i64 [ 2, %48 ], [ 10, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he93078bf9327c48eE.exit.i" ], [ 4, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha5d880bb3032c467E.exit.i" ]
-  %.058.i = phi i64 [ %49, %48 ], [ %51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he93078bf9327c48eE.exit.i" ], [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha5d880bb3032c467E.exit.i" ]
+  %.059.i = phi i64 [ 2, %48 ], [ 4, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha5d880bb3032c467E.exit.i" ], [ 10, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he93078bf9327c48eE.exit.i" ]
+  %.058.i = phi i64 [ %49, %48 ], [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha5d880bb3032c467E.exit.i" ], [ %51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he93078bf9327c48eE.exit.i" ]
   br i1 %2, label %52, label %_ZN10actix_http2ws5frame6Parser14parse_metadata17h16736d0ba8ff7318E.exit
 
 46:                                               ; preds = %switch.lookup
@@ -10332,7 +10332,7 @@ default.unreachable:                              ; preds = %2
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9
-  %.0.in = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   ret i1 %.0.in
 }
 
@@ -10549,7 +10549,7 @@ default.unreachable:                              ; preds = %2
   br label %85
 
 85:                                               ; preds = %78, %71, %65, %59, %53, %47, %41, %35, %28, %22
-  %.0.in = phi i1 [ %84, %78 ], [ %77, %71 ], [ %70, %65 ], [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %28 ], [ %27, %22 ]
+  %.0.in = phi i1 [ %27, %22 ], [ %34, %28 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ], [ %70, %65 ], [ %77, %71 ], [ %84, %78 ]
   ret i1 %.0.in
 }
 
@@ -10575,8 +10575,8 @@ define { ptr, ptr } @"_ZN68_$LT$actix_http..error..ParseError$u20$as$u20$core..e
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5
-  %.sroa.5.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.238.llvm.18353199392063854698, %7 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.236.llvm.18353199392063854698, %5 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %0, %7 ], [ %0, %6 ], [ %0, %5 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.236.llvm.18353199392063854698, %5 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.238.llvm.18353199392063854698, %7 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %0, %5 ], [ %0, %6 ], [ %0, %7 ], [ null, %1 ]
   %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %10

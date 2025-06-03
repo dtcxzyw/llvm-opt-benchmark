@@ -962,7 +962,7 @@ sw.bb10:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.default, %invoke.cont8, %sw.bb10
-  %flags.0 = phi i32 [ 4, %invoke.cont8 ], [ 4, %sw.default ], [ 36, %sw.bb10 ], [ 4, %entry ]
+  %flags.0 = phi i32 [ 4, %invoke.cont8 ], [ 4, %sw.default ], [ 4, %entry ], [ 36, %sw.bb10 ]
   %posix_syntax_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i8, ptr %posix_syntax_.i, align 4
   %tobool.i13 = trunc i8 %5 to i1
@@ -2314,7 +2314,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad17, %lpad121, %lpad143, %lpad195, %lpad254, %lpad295, %lpad336, %lpad404, %lpad428, %lpad447, %lpad.i81, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad.i81 ], [ %6, %lpad17 ], [ %22, %lpad121 ], [ %61, %lpad404 ], [ %64, %lpad428 ], [ %66, %lpad447 ], [ %58, %lpad336 ], [ %30, %lpad143 ], [ %47, %lpad254 ], [ %48, %lpad295 ], [ %40, %lpad195 ], [ %3, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad.i81 ], [ %6, %lpad17 ], [ %22, %lpad121 ], [ %61, %lpad404 ], [ %64, %lpad428 ], [ %66, %lpad447 ], [ %30, %lpad143 ], [ %47, %lpad254 ], [ %48, %lpad295 ], [ %40, %lpad195 ], [ %58, %lpad336 ], [ %3, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.then3

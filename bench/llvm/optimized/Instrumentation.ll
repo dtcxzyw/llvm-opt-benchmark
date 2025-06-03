@@ -549,7 +549,7 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread: ; preds = %5, %14, %14, %
   br label %19
 
 19:                                               ; preds = %2, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread
-  %.1 = phi ptr [ %4, %2 ], [ %11, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread ]
+  %.1 = phi ptr [ %11, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.thread ], [ %4, %2 ]
   ret ptr %.1
 }
 

@@ -5423,7 +5423,7 @@ define internal fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef 
   br label %67
 
 67:                                               ; preds = %41, %43, %54, %55, %57, %61, %63, %34, %36, %39, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %63 ], [ %62, %61 ], [ true, %57 ], [ true, %55 ], [ %50, %54 ], [ true, %43 ], [ true, %41 ], [ true, %34 ], [ false, %36 ], [ false, %39 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %41 ], [ true, %43 ], [ %50, %54 ], [ true, %55 ], [ true, %57 ], [ %62, %61 ], [ true, %63 ], [ true, %34 ], [ false, %36 ], [ false, %39 ]
   ret i1 %.0
 }
 

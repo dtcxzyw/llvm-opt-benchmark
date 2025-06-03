@@ -170,7 +170,7 @@ get_qual_for_hash.exit:                           ; preds = %58, %list_head.exit
   br label %69
 
 69:                                               ; preds = %67, %65, %get_qual_for_hash.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %68, %67 ], [ %66, %65 ], [ %64, %get_qual_for_hash.exit ]
+  %.0 = phi ptr [ null, %2 ], [ %64, %get_qual_for_hash.exit ], [ %66, %65 ], [ %68, %67 ]
   ret ptr %.0
 }
 
@@ -2090,7 +2090,7 @@ create_range_bounds.exit:                         ; preds = %._crit_edge189.i, %
   br label %create_list_bounds.exit
 
 create_list_bounds.exit:                          ; preds = %242, %thread-pre-split.i, %213, %._crit_edge, %create_range_bounds.exit, %create_hash_bounds.exit
-  %.020 = phi ptr [ %246, %create_range_bounds.exit ], [ %13, %create_hash_bounds.exit ], [ null, %._crit_edge ], [ %86, %213 ], [ %86, %thread-pre-split.i ], [ %86, %242 ]
+  %.020 = phi ptr [ %13, %create_hash_bounds.exit ], [ %246, %create_range_bounds.exit ], [ null, %._crit_edge ], [ %86, %213 ], [ %86, %thread-pre-split.i ], [ %86, %242 ]
   ret ptr %.020
 }
 
@@ -4307,9 +4307,9 @@ merge_matching_partitions.exit.i38:               ; preds = %778, %776, %775, %7
   unreachable
 
 get_merged_range_bounds.exit.i:                   ; preds = %782, %779, %merge_matching_partitions.exit.i38, %merge_matching_partitions.exit.i38
-  %.sroa.9.3.i = phi ptr [ %.sroa.9.0.copyload325.sroa.speculated.i, %782 ], [ %.sroa.9.0.copyload328.sroa.speculated.i, %779 ], [ %.sroa.19.0763.i, %merge_matching_partitions.exit.i38 ], [ %.sroa.19.0763.i, %merge_matching_partitions.exit.i38 ]
-  %.sroa.8314.3.i = phi ptr [ %.sroa.8314.0.copyload318.sroa.speculated.i, %782 ], [ %.sroa.8314.0.copyload321.sroa.speculated.i, %779 ], [ %.sroa.9397.0762.i, %merge_matching_partitions.exit.i38 ], [ %.sroa.9397.0762.i, %merge_matching_partitions.exit.i38 ]
-  %.sink2.i.i = phi ptr [ %spec.select4.i.i, %782 ], [ %spec.select.i.i, %779 ], [ %11, %merge_matching_partitions.exit.i38 ], [ %11, %merge_matching_partitions.exit.i38 ]
+  %.sroa.9.3.i = phi ptr [ %.sroa.9.0.copyload328.sroa.speculated.i, %779 ], [ %.sroa.9.0.copyload325.sroa.speculated.i, %782 ], [ %.sroa.19.0763.i, %merge_matching_partitions.exit.i38 ], [ %.sroa.19.0763.i, %merge_matching_partitions.exit.i38 ]
+  %.sroa.8314.3.i = phi ptr [ %.sroa.8314.0.copyload321.sroa.speculated.i, %779 ], [ %.sroa.8314.0.copyload318.sroa.speculated.i, %782 ], [ %.sroa.9397.0762.i, %merge_matching_partitions.exit.i38 ], [ %.sroa.9397.0762.i, %merge_matching_partitions.exit.i38 ]
+  %.sink2.i.i = phi ptr [ %spec.select.i.i, %779 ], [ %spec.select4.i.i, %782 ], [ %11, %merge_matching_partitions.exit.i38 ], [ %11, %merge_matching_partitions.exit.i38 ]
   %.sroa.6295.0..sink2.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink2.i.i, i64 8
   %.sroa.6295.0.copyload299.i = load ptr, ptr %.sroa.6295.0..sink2.i.sroa_idx.i, align 8
   %.sroa.7.0..sink2.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink2.i.i, i64 16
@@ -5334,7 +5334,7 @@ merge_range_bounds.exit:                          ; preds = %partition_rbound_cm
   br label %1176
 
 1176:                                             ; preds = %8, %merge_range_bounds.exit, %merge_list_bounds.exit
-  %.0 = phi ptr [ %.099.i, %merge_range_bounds.exit ], [ %.0134.i, %merge_list_bounds.exit ], [ null, %8 ]
+  %.0 = phi ptr [ %.0134.i, %merge_list_bounds.exit ], [ %.099.i, %merge_range_bounds.exit ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -6071,7 +6071,7 @@ partition_range_bsearch.exit:                     ; preds = %._crit_edge.i.us.i,
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3239, ptr noundef nonnull @__func__.check_new_partition_bound) #12
   unreachable
 
-.thread218:                                       ; preds = %.thread199, %142, %148, %.lr.ph, %350, %347, %partition_rbound_cmp.exit.thread, %33, %145, %31, %12, %14
+.thread218:                                       ; preds = %.thread199, %142, %148, %.lr.ph, %350, %347, %partition_rbound_cmp.exit.thread, %145, %33, %31, %12, %14
   ret void
 }
 

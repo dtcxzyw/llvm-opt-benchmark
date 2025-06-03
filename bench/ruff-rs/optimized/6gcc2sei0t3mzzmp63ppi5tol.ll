@@ -2150,7 +2150,7 @@ common.resume.sink.split:                         ; preds = %9, %16, %35
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %29, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ], [ %30, %29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ], [ %45, %44 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6
@@ -4303,7 +4303,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$matchit..error..InsertError$u20$a
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.sroa.0.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 

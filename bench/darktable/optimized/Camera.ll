@@ -2377,8 +2377,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
           cleanup
   br label %83
 
-78:                                               ; preds = %72, %71, %70, %69, %68, %67, %60
-  %.sroa.0.0.i.ph = phi i8 [ 1, %60 ], [ 0, %67 ], [ 2, %68 ], [ 7, %69 ], [ 3, %70 ], [ 4, %71 ], [ 5, %72 ]
+78:                                               ; preds = %67, %68, %69, %70, %71, %72, %60
+  %.sroa.0.0.i.ph = phi i8 [ 1, %60 ], [ 5, %72 ], [ 4, %71 ], [ 3, %70 ], [ 7, %69 ], [ 2, %68 ], [ 0, %67 ]
   %.sroa.0.0.insert.ext = and i64 %.01944, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.2.0.insert.shift
   invoke void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 %.sroa.0.0.insert.insert, i8 noundef zeroext %.sroa.0.0.i.ph)

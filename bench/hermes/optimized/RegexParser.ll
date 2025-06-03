@@ -2284,7 +2284,7 @@ _ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106: ; preds = %i
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106, %if.else24, %if.then17, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit, %sw.bb29, %sw.bb26, %sw.bb3, %sw.bb
-  %quantifierAllowed.0 = phi i1 [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit ], [ true, %sw.bb29 ], [ true, %sw.bb26 ], [ false, %if.then17 ], [ true, %if.else24 ], [ false, %sw.bb3 ], [ false, %sw.bb ]
+  %quantifierAllowed.0 = phi i1 [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106 ], [ false, %sw.bb ], [ false, %sw.bb3 ], [ false, %if.then17 ], [ true, %if.else24 ], [ true, %sw.bb26 ], [ true, %sw.bb29 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit ]
   %call.i107 = call noundef zeroext i1 @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE26tryConsumeQuantifierPrefixEPNS7_10QuantifierE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %quant)
   br i1 %call.i107, label %if.end.i108, label %if.end67
 
@@ -7762,7 +7762,7 @@ if.end36:                                         ; preds = %sw.bb11, %land.lhs.
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE10tryConsumeEDs.exit44, %if.end, %entry, %if.end36, %sw.bb7, %sw.bb3, %sw.bb
-  %retval.0 = phi i1 [ false, %if.end36 ], [ true, %sw.bb7 ], [ true, %sw.bb3 ], [ true, %sw.bb ], [ false, %entry ], [ true, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE10tryConsumeEDs.exit44 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ true, %sw.bb ], [ true, %sw.bb3 ], [ true, %sw.bb7 ], [ false, %if.end36 ], [ false, %entry ], [ true, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE10tryConsumeEDs.exit44 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -10893,7 +10893,7 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscap
   br label %return
 
 return:                                           ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit, %sw.bb37, %25, %if.then.i.i, %if.then.i22, %if.then.i, %if.then, %sw.bb19, %lor.lhs.false, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread, %if.else43, %if.else32, %if.else, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb
-  %retval.0 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %call55, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread ], [ %call45, %if.else43 ], [ %call34, %if.else32 ], [ %call18, %if.else ], [ 11, %sw.bb9 ], [ 9, %sw.bb7 ], [ 13, %sw.bb5 ], [ 10, %sw.bb3 ], [ 12, %sw.bb ], [ 0, %lor.lhs.false ], [ 0, %sw.bb19 ], [ 0, %if.then ], [ 0, %if.then.i ], [ %conv24.i, %25 ], [ 0, %if.then.i22 ], [ 0, %if.then.i.i ], [ %ret.sroa.0.0.extract.trunc, %sw.bb37 ], [ %9, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %retval.0 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ 12, %sw.bb ], [ 10, %sw.bb3 ], [ 13, %sw.bb5 ], [ 9, %sw.bb7 ], [ 11, %sw.bb9 ], [ %call18, %if.else ], [ %call34, %if.else32 ], [ %call45, %if.else43 ], [ %call55, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread ], [ 0, %lor.lhs.false ], [ 0, %sw.bb19 ], [ 0, %if.then ], [ 0, %if.then.i ], [ %conv24.i, %25 ], [ 0, %if.then.i22 ], [ 0, %if.then.i.i ], [ %ret.sroa.0.0.extract.trunc, %sw.bb37 ], [ %9, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
   ret i32 %retval.0
 }
 
@@ -13115,8 +13115,8 @@ if.else:                                          ; preds = %_ZN6hermes5regex6Pa
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE23tryConsumeSurrogatePairEv.exit, %if.then.i, %if.then7, %if.end, %entry, %if.else, %sw.default, %if.then30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb11
-  %retval.sroa.0.0 = phi i64 [ %ref.tmp41.sroa.0.0.insert.ext, %if.else ], [ %ref.tmp33.sroa.0.0.insert.ext, %sw.default ], [ 45, %if.then30 ], [ 8, %sw.bb25 ], [ %ref.tmp22.sroa.0.0.insert.insert, %sw.bb20 ], [ %ref.tmp17.sroa.0.0.insert.insert, %sw.bb15 ], [ %ref.tmp.sroa.0.0.insert.insert, %sw.bb11 ], [ undef, %entry ], [ undef, %if.end ], [ undef, %if.then7 ], [ undef, %if.then.i ], [ %17, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE23tryConsumeSurrogatePairEv.exit ]
-  %retval.sroa.9.0 = phi i8 [ 1, %if.else ], [ 1, %sw.default ], [ 1, %if.then30 ], [ 1, %sw.bb25 ], [ 1, %sw.bb20 ], [ 1, %sw.bb15 ], [ 1, %sw.bb11 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %if.then.i ], [ 1, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE23tryConsumeSurrogatePairEv.exit ]
+  %retval.sroa.0.0 = phi i64 [ %ref.tmp41.sroa.0.0.insert.ext, %if.else ], [ %ref.tmp33.sroa.0.0.insert.ext, %sw.default ], [ %ref.tmp.sroa.0.0.insert.insert, %sw.bb11 ], [ %ref.tmp17.sroa.0.0.insert.insert, %sw.bb15 ], [ %ref.tmp22.sroa.0.0.insert.insert, %sw.bb20 ], [ 8, %sw.bb25 ], [ 45, %if.then30 ], [ undef, %entry ], [ undef, %if.end ], [ undef, %if.then7 ], [ undef, %if.then.i ], [ %17, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE23tryConsumeSurrogatePairEv.exit ]
+  %retval.sroa.9.0 = phi i8 [ 1, %if.else ], [ 1, %sw.default ], [ 1, %sw.bb11 ], [ 1, %sw.bb15 ], [ 1, %sw.bb20 ], [ 1, %sw.bb25 ], [ 1, %if.then30 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %if.then.i ], [ 1, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE23tryConsumeSurrogatePairEv.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.9.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14131,7 +14131,7 @@ if.end19.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb21.i.i.i.i
 
 sw.bb21.i.i.i.i:                                  ; preds = %if.end19.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ]
+  %__first.addr.1.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i, %if.end19.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %8 = load i32, ptr %__first.addr.1.i.i.i.i, align 4
   %cmp.i3 = icmp ult i32 %8, 128
   br i1 %cmp.i3, label %if.end24.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
@@ -14141,7 +14141,7 @@ if.end24.i.i.i.i:                                 ; preds = %sw.bb21.i.i.i.i
   br label %sw.bb26.i.i.i.i
 
 sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %for.end.i.i.i.i
-  %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ]
+  %__first.addr.2.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i, %if.end24.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %9 = load i32, ptr %__first.addr.2.i.i.i.i, align 4
   %cmp.i2 = icmp ult i32 %9, 128
   br i1 %cmp.i2, label %sw.default.i.i.i.i, label %_ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit
@@ -14282,7 +14282,7 @@ if.end19.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
   br label %sw.bb21.i.i.i.i.i
 
 sw.bb21.i.i.i.i.i:                                ; preds = %if.end19.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ]
+  %__first.addr.1.i.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %9 = load i32, ptr %__first.addr.1.i.i.i.i.i, align 4
   %cmp.i55 = icmp ult i32 %9, 128
   br i1 %cmp.i55, label %if.end24.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
@@ -14292,7 +14292,7 @@ if.end24.i.i.i.i.i:                               ; preds = %sw.bb21.i.i.i.i.i
   br label %sw.bb26.i.i.i.i.i
 
 sw.bb26.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.2.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ]
+  %__first.addr.2.i.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %10 = load i32, ptr %__first.addr.2.i.i.i.i.i, align 4
   %cmp.i54 = icmp ult i32 %10, 128
   br i1 %cmp.i54, label %sw.default.i.i.i.i.i, label %_ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit
@@ -14383,7 +14383,7 @@ if.end19.i.i.i.i.i27:                             ; preds = %sw.bb.i.i.i.i.i26
   br label %sw.bb21.i.i.i.i.i21
 
 sw.bb21.i.i.i.i.i21:                              ; preds = %if.end19.i.i.i.i.i27, %for.end.i.i.i.i.i8
-  %__first.addr.1.i.i.i.i.i22 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ], [ %incdec.ptr20.i.i.i.i.i28, %if.end19.i.i.i.i.i27 ]
+  %__first.addr.1.i.i.i.i.i22 = phi ptr [ %incdec.ptr20.i.i.i.i.i28, %if.end19.i.i.i.i.i27 ], [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ]
   %17 = load i32, ptr %__first.addr.1.i.i.i.i.i22, align 4
   %cmp.i62 = icmp ult i32 %17, 128
   br i1 %cmp.i62, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %if.end24.i.i.i.i.i24
@@ -14393,7 +14393,7 @@ if.end24.i.i.i.i.i24:                             ; preds = %sw.bb21.i.i.i.i.i21
   br label %sw.bb26.i.i.i.i.i11
 
 sw.bb26.i.i.i.i.i11:                              ; preds = %if.end24.i.i.i.i.i24, %for.end.i.i.i.i.i8
-  %__first.addr.2.i.i.i.i.i12 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ], [ %incdec.ptr25.i.i.i.i.i25, %if.end24.i.i.i.i.i24 ]
+  %__first.addr.2.i.i.i.i.i12 = phi ptr [ %incdec.ptr25.i.i.i.i.i25, %if.end24.i.i.i.i.i24 ], [ %__first.addr.0.lcssa.i.i.i.i.i10, %for.end.i.i.i.i.i8 ]
   %18 = load i32, ptr %__first.addr.2.i.i.i.i.i12, align 4
   %cmp.i61 = icmp ult i32 %18, 128
   br i1 %cmp.i61, label %_ZNK4llvh8ArrayRefIjE10take_untilIPFbjEEES1_T_.exit, label %sw.default.i.i.i.i.i13

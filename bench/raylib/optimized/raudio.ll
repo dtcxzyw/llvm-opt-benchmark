@@ -41623,7 +41623,7 @@ ma_data_converter_process_pcm_frames__channels_first.exit: ; preds = %.thread.i6
   br label %ma_data_converter_process_pcm_frames__passthrough.exit
 
 ma_data_converter_process_pcm_frames__passthrough.exit: ; preds = %331, %330, %206, %202, %198, %194, %185, %184, %105, %89, %88, %56, %55, %25, %5, %ma_data_converter_process_pcm_frames__channels_first.exit, %ma_data_converter_process_pcm_frames__resample_first.exit
-  %.0 = phi i32 [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ %.2.i48, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %55 ], [ 0, %56 ], [ 0, %88 ], [ 0, %89 ], [ %107, %105 ], [ 0, %185 ], [ 0, %184 ], [ %210, %206 ], [ -2, %194 ], [ -29, %202 ], [ -29, %198 ], [ %.171.i.i, %330 ], [ %.171.i.i, %331 ]
+  %.0 = phi i32 [ %.2.i48, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %55 ], [ 0, %56 ], [ 0, %88 ], [ 0, %89 ], [ %107, %105 ], [ 0, %185 ], [ 0, %184 ], [ %210, %206 ], [ -2, %194 ], [ -29, %202 ], [ -29, %198 ], [ %.171.i.i, %330 ], [ %.171.i.i, %331 ]
   ret i32 %.0
 }
 
@@ -45153,7 +45153,7 @@ define hidden noundef nonnull ptr @ma_result_description(i32 noundef %0) local_u
   br label %67
 
 67:                                               ; preds = %1, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.162, %65 ], [ @.str.161, %64 ], [ @.str.160, %63 ], [ @.str.159, %62 ], [ @.str.158, %61 ], [ @.str.157, %60 ], [ @.str.156, %59 ], [ @.str.155, %58 ], [ @.str.154, %57 ], [ @.str.153, %56 ], [ @.str.152, %55 ], [ @.str.151, %54 ], [ @.str.150, %53 ], [ @.str.149, %52 ], [ @.str.148, %51 ], [ @.str.147, %50 ], [ @.str.146, %49 ], [ @.str.145, %48 ], [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.142, %45 ], [ @.str.141, %44 ], [ @.str.140, %43 ], [ @.str.139, %42 ], [ @.str.138, %41 ], [ @.str.137, %40 ], [ @.str.136, %39 ], [ @.str.135, %38 ], [ @.str.134, %37 ], [ @.str.133, %36 ], [ @.str.132, %35 ], [ @.str.131, %34 ], [ @.str.130, %33 ], [ @.str.129, %32 ], [ @.str.128, %31 ], [ @.str.127, %30 ], [ @.str.126, %29 ], [ @.str.125, %28 ], [ @.str.124, %27 ], [ @.str.123, %26 ], [ @.str.122, %25 ], [ @.str.121, %24 ], [ @.str.120, %23 ], [ @.str.119, %22 ], [ @.str.118, %21 ], [ @.str.117, %20 ], [ @.str.116, %19 ], [ @.str.115, %18 ], [ @.str.114, %17 ], [ @.str.113, %16 ], [ @.str.112, %15 ], [ @.str.111, %14 ], [ @.str.110, %13 ], [ @.str.109, %12 ], [ @.str.108, %11 ], [ @.str.107, %10 ], [ @.str.106, %9 ], [ @.str.105, %8 ], [ @.str.104, %7 ], [ @.str.103, %6 ], [ @.str.102, %5 ], [ @.str.101, %4 ], [ @.str.100, %3 ], [ @.str.99, %2 ], [ @.str.97, %1 ]
+  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.99, %2 ], [ @.str.100, %3 ], [ @.str.101, %4 ], [ @.str.102, %5 ], [ @.str.103, %6 ], [ @.str.104, %7 ], [ @.str.105, %8 ], [ @.str.106, %9 ], [ @.str.107, %10 ], [ @.str.108, %11 ], [ @.str.109, %12 ], [ @.str.110, %13 ], [ @.str.111, %14 ], [ @.str.112, %15 ], [ @.str.113, %16 ], [ @.str.114, %17 ], [ @.str.115, %18 ], [ @.str.116, %19 ], [ @.str.117, %20 ], [ @.str.118, %21 ], [ @.str.119, %22 ], [ @.str.120, %23 ], [ @.str.121, %24 ], [ @.str.122, %25 ], [ @.str.123, %26 ], [ @.str.124, %27 ], [ @.str.125, %28 ], [ @.str.126, %29 ], [ @.str.127, %30 ], [ @.str.128, %31 ], [ @.str.129, %32 ], [ @.str.130, %33 ], [ @.str.131, %34 ], [ @.str.132, %35 ], [ @.str.133, %36 ], [ @.str.134, %37 ], [ @.str.135, %38 ], [ @.str.136, %39 ], [ @.str.137, %40 ], [ @.str.138, %41 ], [ @.str.139, %42 ], [ @.str.140, %43 ], [ @.str.141, %44 ], [ @.str.142, %45 ], [ @.str.143, %46 ], [ @.str.144, %47 ], [ @.str.145, %48 ], [ @.str.146, %49 ], [ @.str.147, %50 ], [ @.str.148, %51 ], [ @.str.149, %52 ], [ @.str.150, %53 ], [ @.str.151, %54 ], [ @.str.152, %55 ], [ @.str.153, %56 ], [ @.str.154, %57 ], [ @.str.155, %58 ], [ @.str.156, %59 ], [ @.str.157, %60 ], [ @.str.158, %61 ], [ @.str.159, %62 ], [ @.str.160, %63 ], [ @.str.161, %64 ], [ @.str.162, %65 ], [ @.str.97, %1 ]
   ret ptr %.0
 }
 
@@ -89068,7 +89068,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   br label %jar_xm_waveform.exit.i
 
 jar_xm_waveform.exit.i:                           ; preds = %244, %235, %232, %227, %221, %203
-  %.0.i.i = phi float [ %248, %244 ], [ %243, %235 ], [ %234, %232 ], [ %231, %227 ], [ %226, %221 ], [ 0.000000e+00, %203 ]
+  %.0.i.i = phi float [ %226, %221 ], [ %231, %227 ], [ %234, %232 ], [ %243, %235 ], [ %248, %244 ], [ 0.000000e+00, %203 ]
   %249 = fmul float %.0.i.i, 2.500000e-01
   %250 = load i8, ptr %200, align 1
   %251 = uitofp i8 %250 to float
@@ -89306,7 +89306,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
   br label %jar_xm_vibrato.exit
 
 jar_xm_vibrato.exit:                              ; preds = %339, %351, %357, %362, %365, %374
-  %.0.i.i239 = phi float [ %378, %374 ], [ %373, %365 ], [ %364, %362 ], [ %361, %357 ], [ %356, %351 ], [ 0.000000e+00, %339 ]
+  %.0.i.i239 = phi float [ %356, %351 ], [ %361, %357 ], [ %364, %362 ], [ %373, %365 ], [ %378, %374 ], [ 0.000000e+00, %339 ]
   %379 = fmul float %.0.i.i239, 2.000000e+00
   %380 = and i8 %341, 15
   %381 = uitofp nneg i8 %380 to float
@@ -89703,7 +89703,7 @@ jar_xm_arpeggio.exit:                             ; preds = %472, %473, %475
   br label %jar_xm_vibrato.exit252
 
 jar_xm_vibrato.exit252:                           ; preds = %545, %557, %563, %568, %571, %580
-  %.0.i.i251 = phi float [ %584, %580 ], [ %579, %571 ], [ %570, %568 ], [ %567, %563 ], [ %562, %557 ], [ 0.000000e+00, %545 ]
+  %.0.i.i251 = phi float [ %562, %557 ], [ %567, %563 ], [ %570, %568 ], [ %579, %571 ], [ %584, %580 ], [ 0.000000e+00, %545 ]
   %585 = fmul float %.0.i.i251, 2.000000e+00
   %586 = and i8 %547, 15
   %587 = uitofp nneg i8 %586 to float
@@ -89869,7 +89869,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %594, %598, %624
   br label %jar_xm_vibrato.exit260
 
 jar_xm_vibrato.exit260:                           ; preds = %646, %658, %664, %669, %672, %681
-  %.0.i.i259 = phi float [ %685, %681 ], [ %680, %672 ], [ %671, %669 ], [ %668, %664 ], [ %663, %658 ], [ 0.000000e+00, %646 ]
+  %.0.i.i259 = phi float [ %663, %658 ], [ %668, %664 ], [ %671, %669 ], [ %680, %672 ], [ %685, %681 ], [ 0.000000e+00, %646 ]
   %686 = fmul float %.0.i.i259, 2.000000e+00
   %687 = and i8 %648, 15
   %688 = uitofp nneg i8 %687 to float
@@ -89973,7 +89973,7 @@ jar_xm_vibrato.exit260:                           ; preds = %646, %658, %664, %6
   br label %jar_xm_tremolo.exit
 
 jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %735, %738, %747
-  %.0.i.i265 = phi float [ %751, %747 ], [ %746, %738 ], [ %737, %735 ], [ %734, %730 ], [ %729, %724 ], [ 0.000000e+00, %713 ]
+  %.0.i.i265 = phi float [ %729, %724 ], [ %734, %730 ], [ %737, %735 ], [ %746, %738 ], [ %751, %747 ], [ 0.000000e+00, %713 ]
   %752 = fneg float %.0.i.i265
   %753 = and i8 %715, 15
   %754 = uitofp nneg i8 %753 to float
@@ -97739,7 +97739,7 @@ define void @SeekMusicStream(ptr noundef readonly byval(%struct.Music) align 8 c
   br label %qoaplay_seek_frame.exit
 
 qoaplay_seek_frame.exit:                          ; preds = %51, %48, %6, %21, %17, %12
-  %.0 = phi i32 [ %11, %6 ], [ %11, %21 ], [ %11, %17 ], [ %11, %12 ], [ %.pre, %48 ], [ %33, %51 ]
+  %.0 = phi i32 [ %11, %6 ], [ %11, %12 ], [ %11, %17 ], [ %11, %21 ], [ %.pre, %48 ], [ %33, %51 ]
   %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 360
@@ -99057,8 +99057,8 @@ ma_context_get_log.exit39:                        ; preds = %14
 36:                                               ; preds = %33
   br label %ma_context_get_log.exit42
 
-ma_context_get_log.exit42:                        ; preds = %33, %36, %35, %34, %27
-  %.0.i40.ph = phi i32 [ -1, %27 ], [ -2, %34 ], [ -204, %35 ], [ -1, %36 ], [ -6, %33 ]
+ma_context_get_log.exit42:                        ; preds = %33, %36, %34, %35, %27
+  %.0.i40.ph = phi i32 [ -1, %27 ], [ -204, %35 ], [ -2, %34 ], [ -1, %36 ], [ -6, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %38, i32 noundef 1, ptr noundef nonnull @.str.382)
@@ -102982,7 +102982,7 @@ thread-pre-split:                                 ; preds = %7
   br label %14
 
 14:                                               ; preds = %11, %7, %4, %13
-  %.0 = phi i32 [ %8, %7 ], [ %12, %11 ], [ 0, %13 ], [ -201, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ %12, %11 ], [ %8, %7 ], [ -201, %4 ]
   ret i32 %.0
 }
 
@@ -104725,8 +104725,8 @@ ma_device_get_log.exit404:                        ; preds = %ma_device_get_conte
   %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.517)
   br label %ma_log_post.exit
 
-260:                                              ; preds = %239, %242, %241, %240, %239
-  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 3, %240 ], [ 4, %241 ], [ 5, %242 ], [ %.0305, %239 ]
+260:                                              ; preds = %239, %240, %241, %242, %239
+  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 5, %242 ], [ 4, %241 ], [ 3, %240 ], [ %.0305, %239 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #71
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %262 = load i32, ptr %261, align 8
@@ -111660,10 +111660,10 @@ drwav__write_or_count.exit749:                    ; preds = %drwav__write_or_cou
   br label %.loopexit1058
 
 .loopexit1058:                                    ; preds = %drwav__write_or_count_u32ne_to_le.exit610, %drwav__write_or_count_u32ne_to_le.exit586.thread, %.lr.ph.split.us, %drwav__write_or_count_u32ne_to_le.exit586, %._crit_edge, %drwav__write_or_count.exit538, %drwav__write_or_count.exit749, %419
-  %.1425903 = phi i32 [ %.1425902, %drwav__write_or_count.exit749 ], [ %.1425, %419 ], [ %.1425, %drwav__write_or_count.exit538 ], [ %.1425, %._crit_edge ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1425, %.lr.ph.split.us ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.1427891901 = phi i32 [ %.1427891900, %drwav__write_or_count.exit749 ], [ %.1427, %419 ], [ %.1427, %drwav__write_or_count.exit538 ], [ %.1427, %._crit_edge ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1427, %.lr.ph.split.us ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.0438 = phi i32 [ %424, %drwav__write_or_count.exit749 ], [ %311, %419 ], [ %100, %drwav__write_or_count.exit538 ], [ %100, %._crit_edge ], [ %223, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %223, %.lr.ph.split.us ], [ %223, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %223, %drwav__write_or_count_u32ne_to_le.exit610 ]
-  %.3 = phi i64 [ %439, %drwav__write_or_count.exit749 ], [ %.5, %419 ], [ %189, %drwav__write_or_count.exit538 ], [ %.1417.lcssa, %._crit_edge ], [ %.reass, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %235, %.lr.ph.split.us ], [ %230, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %264, %drwav__write_or_count_u32ne_to_le.exit610 ]
+  %.1425903 = phi i32 [ %.1425, %419 ], [ %.1425902, %drwav__write_or_count.exit749 ], [ %.1425, %drwav__write_or_count.exit538 ], [ %.1425, %._crit_edge ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1425, %.lr.ph.split.us ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1425, %drwav__write_or_count_u32ne_to_le.exit610 ]
+  %.1427891901 = phi i32 [ %.1427, %419 ], [ %.1427891900, %drwav__write_or_count.exit749 ], [ %.1427, %drwav__write_or_count.exit538 ], [ %.1427, %._crit_edge ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %.1427, %.lr.ph.split.us ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1427, %drwav__write_or_count_u32ne_to_le.exit610 ]
+  %.0438 = phi i32 [ %311, %419 ], [ %424, %drwav__write_or_count.exit749 ], [ %100, %drwav__write_or_count.exit538 ], [ %100, %._crit_edge ], [ %223, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %223, %.lr.ph.split.us ], [ %223, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %223, %drwav__write_or_count_u32ne_to_le.exit610 ]
+  %.3 = phi i64 [ %.5, %419 ], [ %439, %drwav__write_or_count.exit749 ], [ %189, %drwav__write_or_count.exit538 ], [ %.1417.lcssa, %._crit_edge ], [ %.reass, %drwav__write_or_count_u32ne_to_le.exit586 ], [ %235, %.lr.ph.split.us ], [ %230, %drwav__write_or_count_u32ne_to_le.exit586.thread ], [ %264, %drwav__write_or_count_u32ne_to_le.exit610 ]
   %440 = and i32 %.0438, 1
   %.not468 = icmp eq i32 %440, 0
   br i1 %.not468, label %.thread962, label %441
@@ -111688,10 +111688,10 @@ drwav__write_or_count_byte.exit:                  ; preds = %441, %442
   %444 = add i64 %.0.i752, %.3978
   br label %.thread962
 
-.thread962:                                       ; preds = %drwav__write_or_count_f32ne_to_le.exit648, %.thread897, %92, %drwav__write_or_count_byte.exit, %.loopexit1058
-  %.1427891901969 = phi i32 [ %.1427891901977, %drwav__write_or_count_byte.exit ], [ %.1427891901, %.loopexit1058 ], [ %.1427, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1427891900, %.thread897 ], [ %.1427, %92 ]
-  %.1425903968 = phi i32 [ %.1425903976, %drwav__write_or_count_byte.exit ], [ %.1425903, %.loopexit1058 ], [ %.1425, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1425902, %.thread897 ], [ %.1425, %92 ]
-  %.6 = phi i64 [ %444, %drwav__write_or_count_byte.exit ], [ %.3, %.loopexit1058 ], [ %307, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.04161073, %.thread897 ], [ %.04161073, %92 ]
+.thread962:                                       ; preds = %.thread897, %drwav__write_or_count_f32ne_to_le.exit648, %92, %drwav__write_or_count_byte.exit, %.loopexit1058
+  %.1427891901969 = phi i32 [ %.1427891901977, %drwav__write_or_count_byte.exit ], [ %.1427891901, %.loopexit1058 ], [ %.1427891900, %.thread897 ], [ %.1427, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1427, %92 ]
+  %.1425903968 = phi i32 [ %.1425903976, %drwav__write_or_count_byte.exit ], [ %.1425903, %.loopexit1058 ], [ %.1425902, %.thread897 ], [ %.1425, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.1425, %92 ]
+  %.6 = phi i64 [ %444, %drwav__write_or_count_byte.exit ], [ %.3, %.loopexit1058 ], [ %.04161073, %.thread897 ], [ %307, %drwav__write_or_count_f32ne_to_le.exit648 ], [ %.04161073, %92 ]
   %indvars.iv.next1110 = add nuw nsw i64 %indvars.iv1109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1110, %wide.trip.count
   br i1 %exitcond.not, label %445, label %76
@@ -111821,7 +111821,7 @@ drwav__write_or_count_u32ne_to_le.exit760.thread: ; preds = %._crit_edge1077
   br label %490
 
 490:                                              ; preds = %480, %489, %488, %487, %486, %485, %484, %483, %482, %481
-  %.0421 = phi ptr [ null, %480 ], [ @.str.615, %489 ], [ @.str.614, %488 ], [ @.str.613, %487 ], [ @.str.612, %486 ], [ @.str.611, %485 ], [ @.str.610, %484 ], [ @.str.609, %483 ], [ @.str.608, %482 ], [ @.str.607, %481 ]
+  %.0421 = phi ptr [ null, %480 ], [ @.str.607, %481 ], [ @.str.608, %482 ], [ @.str.609, %483 ], [ @.str.610, %484 ], [ @.str.611, %485 ], [ @.str.612, %486 ], [ @.str.613, %487 ], [ @.str.614, %488 ], [ @.str.615, %489 ]
   %491 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %492 = load i32, ptr %491, align 8
   %.not460 = icmp eq i32 %492, 0
@@ -112008,7 +112008,7 @@ drwav__write_or_count_byte.exit796:               ; preds = %539, %540
   br label %566
 
 566:                                              ; preds = %.lr.ph1087, %557, %561, %551, %555, %545, %549
-  %.1419 = phi i32 [ %.04181086, %.lr.ph1087 ], [ %565, %561 ], [ %.04181086, %557 ], [ %556, %555 ], [ %552, %551 ], [ %550, %549 ], [ %546, %545 ]
+  %.1419 = phi i32 [ %.04181086, %.lr.ph1087 ], [ %550, %549 ], [ %546, %545 ], [ %556, %555 ], [ %552, %551 ], [ %565, %561 ], [ %.04181086, %557 ]
   %567 = and i32 %.1419, 1
   %spec.select469 = add i32 %567, %.1419
   %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
@@ -112286,8 +112286,8 @@ drwav__write_or_count.exit884:                    ; preds = %drwav__write_or_cou
   br label %681
 
 681:                                              ; preds = %drwav__write_or_count.exit884, %drwav__write_or_count_byte.exit872, %drwav__write_or_count_byte.exit828
-  %.14 = phi i64 [ %680, %drwav__write_or_count.exit884 ], [ %659, %drwav__write_or_count_byte.exit872 ], [ %608, %drwav__write_or_count_byte.exit828 ]
-  %.0414 = phi i32 [ %666, %drwav__write_or_count.exit884 ], [ %spec.select47010001003100610091012101510181021102510291032, %drwav__write_or_count_byte.exit872 ], [ %607, %drwav__write_or_count_byte.exit828 ]
+  %.14 = phi i64 [ %608, %drwav__write_or_count_byte.exit828 ], [ %659, %drwav__write_or_count_byte.exit872 ], [ %680, %drwav__write_or_count.exit884 ]
+  %.0414 = phi i32 [ %607, %drwav__write_or_count_byte.exit828 ], [ %spec.select47010001003100610091012101510181021102510291032, %drwav__write_or_count_byte.exit872 ], [ %666, %drwav__write_or_count.exit884 ]
   %682 = and i32 %.0414, 1
   %.not454 = icmp eq i32 %682, 0
   br i1 %.not454, label %.thread1036, label %684
@@ -112316,8 +112316,8 @@ drwav__write_or_count_byte.exit888:               ; preds = %684, %.thread1045
   %686 = add i64 %.0.i887, %.1410441048
   br label %.thread1036
 
-.thread1036:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit864, %580, %660, %577, %.thread1040, %drwav__write_or_count_byte.exit888, %681
-  %.15 = phi i64 [ %686, %drwav__write_or_count_byte.exit888 ], [ %.14, %681 ], [ %646, %.thread1040 ], [ %.131091, %577 ], [ %.131091, %660 ], [ %.131091, %580 ], [ %612, %drwav__write_or_count_u16ne_to_le.exit864 ]
+.thread1036:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit864, %660, %580, %577, %.thread1040, %drwav__write_or_count_byte.exit888, %681
+  %.15 = phi i64 [ %686, %drwav__write_or_count_byte.exit888 ], [ %.14, %681 ], [ %646, %.thread1040 ], [ %.131091, %577 ], [ %.131091, %580 ], [ %.131091, %660 ], [ %612, %drwav__write_or_count_u16ne_to_le.exit864 ]
   %indvars.iv.next1128 = add nuw nsw i64 %indvars.iv1127, 1
   %exitcond1131.not = icmp eq i64 %indvars.iv.next1128, %wide.trip.count
   br i1 %exitcond1131.not, label %.loopexit, label %577
@@ -120473,10 +120473,10 @@ define internal fastcc void @jar_xm_next_of_sample(ptr noundef readonly captures
   br label %212
 
 212:                                              ; preds = %.sink.split, %74, %166, %208, %126, %.thread254
-  %.0221 = phi float [ %66, %166 ], [ %.1222, %208 ], [ %66, %126 ], [ %66, %.thread254 ], [ %66, %74 ], [ %.0221.ph, %.sink.split ]
-  %.1219 = phi float [ %.0218, %166 ], [ %.2220, %208 ], [ %.0218, %126 ], [ %.0218, %.thread254 ], [ %.0218, %74 ], [ %.1219.ph, %.sink.split ]
-  %.1214 = phi float [ %.3216, %166 ], [ %.4217, %208 ], [ %.2215, %126 ], [ %.0213, %.thread254 ], [ 0.000000e+00, %74 ], [ %.1214.ph, %.sink.split ]
-  %.1 = phi float [ %.3, %166 ], [ %.4, %208 ], [ %.2, %126 ], [ %.0212, %.thread254 ], [ 0.000000e+00, %74 ], [ %.1.ph, %.sink.split ]
+  %.0221 = phi float [ %66, %.thread254 ], [ %66, %126 ], [ %66, %166 ], [ %.1222, %208 ], [ %66, %74 ], [ %.0221.ph, %.sink.split ]
+  %.1219 = phi float [ %.0218, %.thread254 ], [ %.0218, %126 ], [ %.0218, %166 ], [ %.2220, %208 ], [ %.0218, %74 ], [ %.1219.ph, %.sink.split ]
+  %.1214 = phi float [ %.0213, %.thread254 ], [ %.2215, %126 ], [ %.3216, %166 ], [ %.4217, %208 ], [ 0.000000e+00, %74 ], [ %.1214.ph, %.sink.split ]
+  %.1 = phi float [ %.0212, %.thread254 ], [ %.2, %126 ], [ %.3, %166 ], [ %.4, %208 ], [ 0.000000e+00, %74 ], [ %.1.ph, %.sink.split ]
   %213 = load i16, ptr %53, align 4
   %.not250 = icmp eq i16 %213, 0
   %214 = fsub float %.1214, %.0221
@@ -120797,7 +120797,7 @@ jar_xm_amiga_period.exit.i:                       ; preds = %120, %118, %111
   br label %jar_xm_frequency.exit
 
 jar_xm_frequency.exit:                            ; preds = %15, %18, %25, %jar_xm_amiga_period.exit.i
-  %.047.i = phi float [ %.0.i.i, %25 ], [ %.0.i60.i, %jar_xm_amiga_period.exit.i ], [ %22, %18 ], [ 0.000000e+00, %15 ]
+  %.047.i = phi float [ %22, %18 ], [ %.0.i.i, %25 ], [ %.0.i60.i, %jar_xm_amiga_period.exit.i ], [ 0.000000e+00, %15 ]
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store float %.047.i, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -120991,7 +120991,7 @@ jar_xm_amiga_period.exit.i:                       ; preds = %72, %70, %63
   br label %jar_xm_period.exit
 
 jar_xm_period.exit:                               ; preds = %42, %45, %jar_xm_amiga_period.exit.i
-  %.0.i = phi float [ %87, %jar_xm_amiga_period.exit.i ], [ %47, %45 ], [ 0.000000e+00, %42 ]
+  %.0.i = phi float [ %47, %45 ], [ %87, %jar_xm_amiga_period.exit.i ], [ 0.000000e+00, %42 ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store float %.0.i, ptr %88, align 4
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -121285,7 +121285,7 @@ jar_xm_amiga_period.exit.i:                       ; preds = %138, %136, %129
   br label %jar_xm_period.exit
 
 jar_xm_period.exit:                               ; preds = %97, %111, %jar_xm_amiga_period.exit.i
-  %.0.i = phi float [ %153, %jar_xm_amiga_period.exit.i ], [ %113, %111 ], [ 0.000000e+00, %97 ]
+  %.0.i = phi float [ %113, %111 ], [ %153, %jar_xm_amiga_period.exit.i ], [ 0.000000e+00, %97 ]
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float %.0.i, ptr %154, align 4
   br label %jar_xm_key_off.exit
@@ -122418,7 +122418,7 @@ jar_xm_amiga_period.exit:                         ; preds = %20, %27, %29
   br label %45
 
 45:                                               ; preds = %1, %jar_xm_amiga_period.exit, %2
-  %.0 = phi float [ %44, %jar_xm_amiga_period.exit ], [ %4, %2 ], [ 0.000000e+00, %1 ]
+  %.0 = phi float [ %4, %2 ], [ %44, %jar_xm_amiga_period.exit ], [ 0.000000e+00, %1 ]
   ret float %.0
 }
 

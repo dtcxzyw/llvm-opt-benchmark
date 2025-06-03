@@ -3649,7 +3649,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 
@@ -4317,7 +4317,7 @@ ExecQual.exit:                                    ; preds = %65
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %ExecQual.exit, %14, %14, %13, %13, %77
-  %.0 = phi i1 [ false, %ExecQual.exit ], [ true, %77 ], [ false, %13 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ false, %22 ]
+  %.0 = phi i1 [ true, %77 ], [ false, %ExecQual.exit ], [ false, %13 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -4881,7 +4881,7 @@ default.unreachable217:                           ; preds = %.critedge, %133
   br label %226
 
 226:                                              ; preds = %200, %191, %176, %161, %.critedge.thread197
-  %.0152 = phi i32 [ 32, %.critedge.thread197 ], [ 16, %200 ], [ 16, %191 ], [ 8, %176 ], [ 4, %161 ]
+  %.0152 = phi i32 [ 4, %161 ], [ 8, %176 ], [ 16, %200 ], [ 16, %191 ], [ 32, %.critedge.thread197 ]
   %227 = icmp eq i8 %22, 102
   %or.cond3 = and i1 %5, %227
   br i1 %or.cond3, label %232, label %228
@@ -6947,10 +6947,10 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly ca
   unreachable
 
 29:                                               ; preds = %17, %14, %9, %6
-  %.050 = phi i8 [ %23, %17 ], [ %16, %14 ], [ 0, %9 ], [ 0, %6 ]
-  %.049 = phi i8 [ %25, %17 ], [ 0, %14 ], [ 0, %9 ], [ %8, %6 ]
-  %.048 = phi i8 [ %21, %17 ], [ 0, %14 ], [ %13, %9 ], [ 0, %6 ]
-  %.047 = phi i8 [ %19, %17 ], [ 0, %14 ], [ %11, %9 ], [ 0, %6 ]
+  %.050 = phi i8 [ 0, %6 ], [ 0, %9 ], [ %16, %14 ], [ %23, %17 ]
+  %.049 = phi i8 [ %8, %6 ], [ 0, %9 ], [ 0, %14 ], [ %25, %17 ]
+  %.048 = phi i8 [ 0, %6 ], [ %13, %9 ], [ 0, %14 ], [ %21, %17 ]
+  %.047 = phi i8 [ 0, %6 ], [ %11, %9 ], [ 0, %14 ], [ %19, %17 ]
   %30 = trunc nuw i8 %.047 to i1
   %31 = trunc nuw i8 %.048 to i1
   %32 = or i8 %.047, %.048

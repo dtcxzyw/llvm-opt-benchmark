@@ -570,7 +570,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 164:                                              ; preds = %155, %149, %120
-  %.1 = phi i32 [ %158, %155 ], [ %.0229290, %149 ], [ %.0229290, %120 ]
+  %.1 = phi i32 [ %.0229290, %120 ], [ %.0229290, %149 ], [ %158, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv289, 1
   %165 = load i32, ptr %85, align 4
   %166 = sext i32 %165 to i64

@@ -1948,7 +1948,7 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %75, %_ZN17QArrayDat
   ret void
 
 84:                                               ; preds = %_ZN7QStringD2Ev.exit38, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit22, %_ZN7QStringD2Ev.exit14
-  %.pn = phi { ptr, i32 } [ %64, %_ZN7QStringD2Ev.exit30 ], [ %76, %_ZN7QStringD2Ev.exit38 ], [ %36, %_ZN7QStringD2Ev.exit14 ], [ %48, %_ZN7QStringD2Ev.exit22 ]
+  %.pn = phi { ptr, i32 } [ %36, %_ZN7QStringD2Ev.exit14 ], [ %48, %_ZN7QStringD2Ev.exit22 ], [ %64, %_ZN7QStringD2Ev.exit30 ], [ %76, %_ZN7QStringD2Ev.exit38 ]
   resume { ptr, i32 } %.pn
 }
 

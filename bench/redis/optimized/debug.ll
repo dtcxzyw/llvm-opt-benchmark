@@ -491,7 +491,7 @@ define dso_local void @xorStringObjectDigest(ptr noundef captures(none) %0, ptr 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #26
   call void @SHA1Init(ptr noundef nonnull %3) #26
@@ -564,7 +564,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -655,7 +655,7 @@ define dso_local void @mixStringObjectDigest(ptr noundef %0, ptr noundef %1) loc
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #26
@@ -873,7 +873,7 @@ mixDigest.exit:                                   ; preds = %72
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph184, %95, %98, %102, %106, %110
-  %.0.i = phi i64 [ %112, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %95 ], [ 0, %.lr.ph184 ]
+  %.0.i = phi i64 [ %97, %95 ], [ %101, %98 ], [ %105, %102 ], [ %109, %106 ], [ %112, %110 ], [ 0, %.lr.ph184 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %47) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %48) #26
   call void @SHA1Init(ptr noundef nonnull %47) #26
@@ -1143,7 +1143,7 @@ xorDigest.exit111:                                ; preds = %167
   br label %sdslen.exit113
 
 sdslen.exit113:                                   ; preds = %.lr.ph177, %191, %194, %198, %202, %206
-  %.0.i112 = phi i64 [ %208, %206 ], [ %205, %202 ], [ %201, %198 ], [ %197, %194 ], [ %193, %191 ], [ 0, %.lr.ph177 ]
+  %.0.i112 = phi i64 [ %193, %191 ], [ %197, %194 ], [ %201, %198 ], [ %205, %202 ], [ %208, %206 ], [ 0, %.lr.ph177 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %35) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %33) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %34) #26
@@ -1294,7 +1294,7 @@ xorDigest.exit125:                                ; preds = %224
   br label %sdslen.exit127
 
 sdslen.exit127:                                   ; preds = %237, %243, %246, %250, %254, %258
-  %.0.i126 = phi i64 [ %260, %258 ], [ %257, %254 ], [ %253, %250 ], [ %249, %246 ], [ %245, %243 ], [ 0, %237 ]
+  %.0.i126 = phi i64 [ %245, %243 ], [ %249, %246 ], [ %253, %250 ], [ %257, %254 ], [ %260, %258 ], [ 0, %237 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %27) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %25) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26) #26
@@ -1366,7 +1366,7 @@ mixDigest.exit131:                                ; preds = %262
   br label %sdslen.exit133
 
 sdslen.exit133:                                   ; preds = %mixDigest.exit131, %273, %276, %280, %284, %288
-  %.0.i132 = phi i64 [ %290, %288 ], [ %287, %284 ], [ %283, %280 ], [ %279, %276 ], [ %275, %273 ], [ 0, %mixDigest.exit131 ]
+  %.0.i132 = phi i64 [ %275, %273 ], [ %279, %276 ], [ %283, %280 ], [ %287, %284 ], [ %290, %288 ], [ 0, %mixDigest.exit131 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %24) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %22) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23) #26
@@ -1523,7 +1523,7 @@ xorDigest.exit145:                                ; preds = %307
   br label %sdslen.exit147
 
 sdslen.exit147:                                   ; preds = %320, %329, %332, %336, %340, %344
-  %.0.i146 = phi i64 [ %346, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %329 ], [ 0, %320 ]
+  %.0.i146 = phi i64 [ %331, %329 ], [ %335, %332 ], [ %339, %336 ], [ %343, %340 ], [ %346, %344 ], [ 0, %320 ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %17) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %15) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #26
@@ -2098,7 +2098,7 @@ mixDigest.exit:                                   ; preds = %24
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %37, %40, %44, %48, %52
-  %.0.i = phi i64 [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %.lr.ph ]
   %55 = call ptr @createStringObject(ptr noundef nonnull %32, i64 noundef %.0.i) #26
   %56 = load i8, ptr %33, align 1, !tbaa !5
   %57 = zext i8 %56 to i32
@@ -2140,7 +2140,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %37, %40, %
   br label %sdslen.exit22
 
 sdslen.exit22:                                    ; preds = %sdslen.exit, %59, %62, %66, %70, %74
-  %.0.i21 = phi i64 [ %76, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %59 ], [ 0, %sdslen.exit ]
+  %.0.i21 = phi i64 [ %61, %59 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %76, %74 ], [ 0, %sdslen.exit ]
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %6) #26
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #26
@@ -3843,7 +3843,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %668
 
 668:                                              ; preds = %666, %663
-  %.0501.in = phi ptr [ %667, %666 ], [ %665, %663 ]
+  %.0501.in = phi ptr [ %665, %663 ], [ %667, %666 ]
   %.0501 = load ptr, ptr %.0501.in, align 8, !tbaa !145
   %669 = icmp eq ptr %.0501, null
   br i1 %669, label %.thread666, label %670
@@ -4483,7 +4483,7 @@ define internal fastcc i64 @sdsavail(ptr noundef readonly captures(none) %0) unn
   br label %34
 
 34:                                               ; preds = %1, %28, %21, %13, %5
-  %.0 = phi i64 [ %33, %28 ], [ %27, %21 ], [ %20, %13 ], [ %12, %5 ], [ 0, %1 ]
+  %.0 = phi i64 [ %12, %5 ], [ %20, %13 ], [ %27, %21 ], [ %33, %28 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -5870,7 +5870,7 @@ cmdTokenCheck.exit:                               ; preds = %63, %48, %42
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %83, %87, %91
-  %.0.i = phi i64 [ %93, %91 ], [ %90, %87 ], [ %86, %83 ]
+  %.0.i = phi i64 [ %86, %83 ], [ %90, %87 ], [ %93, %91 ]
   %94 = icmp ult i64 %.0.i, 1024
   br i1 %94, label %sdslen.exit.thread, label %sdslen.exit58
 
@@ -5913,7 +5913,7 @@ default.unreachable:                              ; preds = %sdslen.exit.thread
   unreachable
 
 sdslen.exit58:                                    ; preds = %cmdTokenCheck.exit, %110, %106, %102, %98, %95, %sdslen.exit
-  %113 = phi i64 [ 1024, %sdslen.exit ], [ %112, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %95 ], [ 0, %cmdTokenCheck.exit ]
+  %113 = phi i64 [ 1024, %sdslen.exit ], [ %97, %95 ], [ %101, %98 ], [ %105, %102 ], [ %109, %106 ], [ %112, %110 ], [ 0, %cmdTokenCheck.exit ]
   %114 = tail call ptr @sdscatrepr(ptr noundef %76, ptr noundef nonnull %78, i64 noundef %113) #26
   %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !59
   %116 = icmp sgt i32 %115, 3

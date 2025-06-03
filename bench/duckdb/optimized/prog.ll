@@ -2171,7 +2171,7 @@ define hidden noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i
-  %.sroa.050.1.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %45 ]
+  %.sroa.050.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i30.i.i.i = load i32, ptr %.sroa.050.1.i.i.i, align 4, !tbaa !102
   %48 = getelementptr i8, ptr %.sroa.050.1.i.i.i, i64 4
   %.val2.i31.i.i.i = load i32, ptr %48, align 4
@@ -2185,7 +2185,7 @@ define hidden noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i
-  %.sroa.050.2.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %53, %52 ]
+  %.sroa.050.2.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i32.i.i.i = load i32, ptr %.sroa.050.2.i.i.i, align 4, !tbaa !102
   %55 = getelementptr i8, ptr %.sroa.050.2.i.i.i, i64 4
   %.val2.i33.i.i.i = load i32, ptr %55, align 4

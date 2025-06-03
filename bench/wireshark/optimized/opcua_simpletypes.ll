@@ -2129,7 +2129,7 @@ define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr nou
   br label %getExtensionObjectType.exit
 
 getExtensionObjectType.exit:                      ; preds = %21, %28, %32, %36
-  %.0.i = phi i32 [ 0, %21 ], [ %38, %36 ], [ %35, %32 ], [ %31, %28 ]
+  %.0.i = phi i32 [ 0, %21 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ]
   call void @parseNodeId(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.215)
   %39 = load i32, ptr %6, align 4
   %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %39)
@@ -2253,7 +2253,7 @@ define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr noundef readonly c
   br label %16
 
 16:                                               ; preds = %13, %9, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %15, %13 ], [ %12, %9 ], [ %8, %5 ]
+  %.0 = phi i32 [ 0, %2 ], [ %8, %5 ], [ %12, %9 ], [ %15, %13 ]
   ret i32 %.0
 }
 

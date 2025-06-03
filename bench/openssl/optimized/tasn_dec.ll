@@ -835,14 +835,14 @@ asn1_check_eoc.exit282:                           ; preds = %236
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %273, ptr noundef nonnull @.str.2, ptr noundef %275) #6
   br label %278
 
-.thread304:                                       ; preds = %.lr.ph353, %.lr.ph363, %.thread.thread, %202, %42, %52, %67, %56, %48, %102, %126, %80, %137, %154, %160, %.thread420, %247, %33, %.thread
+.thread304:                                       ; preds = %.lr.ph353, %.lr.ph363, %.thread.thread, %202, %137, %154, %160, %.thread420, %247, %102, %126, %80, %52, %67, %56, %48, %42, %33, %.thread
   %276 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %277 = load ptr, ptr %276, align 8, !tbaa !38
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %277) #6
   br label %278
 
 278:                                              ; preds = %.thread.thread310, %.thread304, %34, %133, %66, %55, %270, %131, %125, %75, %73, %68, %45, %43, %22, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 1, %270 ], [ -1, %125 ], [ 1, %131 ], [ %74, %73 ], [ %78, %75 ], [ %69, %68 ], [ %44, %43 ], [ %46, %45 ], [ -1, %55 ], [ -1, %66 ], [ %136, %133 ], [ 0, %34 ], [ 0, %.thread304 ], [ 0, %.thread.thread310 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %22 ], [ %44, %43 ], [ %46, %45 ], [ %69, %68 ], [ %74, %73 ], [ %78, %75 ], [ -1, %125 ], [ 1, %131 ], [ 1, %270 ], [ -1, %55 ], [ -1, %66 ], [ %136, %133 ], [ 0, %34 ], [ 0, %.thread304 ], [ 0, %.thread.thread310 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
@@ -964,7 +964,7 @@ asn1_check_eoc.exit:                              ; preds = %42
   br label %53
 
 53:                                               ; preds = %.thread, %9, %52, %50, %48
-  %.031 = phi i32 [ 0, %52 ], [ 1, %50 ], [ %49, %48 ], [ 0, %9 ], [ %.1.ph, %.thread ]
+  %.031 = phi i32 [ 1, %50 ], [ 0, %52 ], [ %49, %48 ], [ 0, %9 ], [ %.1.ph, %.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6

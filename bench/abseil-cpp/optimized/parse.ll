@@ -688,7 +688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEPvNS1_6FlagOpEPKvSC_SC_E12AlignedSpaceEE8allocateERSH_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEPvNS1_6FlagOpEPKvSC_SC_E12AlignedSpaceEE8allocateERSH_m.exit: ; preds = %7, %4, %167, %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit44, %59, %58, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit, %30, %29
-  %.0 = phi ptr [ null, %167 ], [ inttoptr (i64 88 to ptr), %166 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit44 ], [ @_ZTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %59 ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %58 ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit ], [ null, %30 ], [ null, %29 ], [ inttoptr (i64 24 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %167 ], [ null, %29 ], [ null, %30 ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %58 ], [ @_ZTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %59 ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit44 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %166 ], [ inttoptr (i64 24 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -2571,7 +2571,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i.i: ; preds = %.noexc42.
   br label %444
 
 444:                                              ; preds = %442, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %443, %442 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %443, %442 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %445 = load i8, ptr %.1.i.i.i.i.i.i, align 1, !tbaa !17
   %446 = zext i8 %445 to i64
   %447 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %446
@@ -2585,7 +2585,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i.i: ; preds = %.noexc42.
   br label %452
 
 452:                                              ; preds = %450, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %451, %450 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %451, %450 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %453 = load i8, ptr %.2.i.i.i.i.i.i, align 1, !tbaa !17
   %454 = zext i8 %453 to i64
   %455 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %454
@@ -9677,9 +9677,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i40: ; preds = %55
   br label %60
 
 60:                                               ; preds = %._crit_edge._crit_edge, %58
-  %.sroa.2.0.copyload.i46 = phi ptr [ %.sroa.2.0.copyload.i46.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i39, %58 ]
-  %.sroa.0.0.copyload.i44 = phi i64 [ %.sroa.0.0.copyload.i44.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i37, %58 ]
-  %.sroa.067.1 = phi ptr [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge ], [ %59, %58 ]
+  %.sroa.2.0.copyload.i46 = phi ptr [ %.sroa.2.0.copyload.i39, %58 ], [ %.sroa.2.0.copyload.i46.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i44 = phi i64 [ %.sroa.0.0.copyload.i37, %58 ], [ %.sroa.0.0.copyload.i44.pre, %._crit_edge._crit_edge ]
+  %.sroa.067.1 = phi ptr [ %59, %58 ], [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge ]
   %61 = load ptr, ptr %.sroa.067.1, align 8, !tbaa !11
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.067.1, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !16
@@ -9700,9 +9700,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i47: ; preds = %65
   br label %70
 
 70:                                               ; preds = %._crit_edge._crit_edge108, %68
-  %.sroa.2.0.copyload.i53 = phi ptr [ %.sroa.2.0.copyload.i53.pre, %._crit_edge._crit_edge108 ], [ %.sroa.2.0.copyload.i46, %68 ]
-  %.sroa.0.0.copyload.i51 = phi i64 [ %.sroa.0.0.copyload.i51.pre, %._crit_edge._crit_edge108 ], [ %.sroa.0.0.copyload.i44, %68 ]
-  %.sroa.067.2 = phi ptr [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge108 ], [ %69, %68 ]
+  %.sroa.2.0.copyload.i53 = phi ptr [ %.sroa.2.0.copyload.i46, %68 ], [ %.sroa.2.0.copyload.i53.pre, %._crit_edge._crit_edge108 ]
+  %.sroa.0.0.copyload.i51 = phi i64 [ %.sroa.0.0.copyload.i44, %68 ], [ %.sroa.0.0.copyload.i51.pre, %._crit_edge._crit_edge108 ]
+  %.sroa.067.2 = phi ptr [ %69, %68 ], [ %.sroa.067.0.lcssa, %._crit_edge._crit_edge108 ]
   %71 = load ptr, ptr %.sroa.067.2, align 8, !tbaa !11
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.067.2, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !16

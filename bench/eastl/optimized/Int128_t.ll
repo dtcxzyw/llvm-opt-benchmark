@@ -726,7 +726,7 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %entry
-  %value.0 = phi i64 [ 0, %entry ], [ %1, %sw.bb2 ], [ %0, %sw.bb ]
+  %value.0 = phi i64 [ 0, %entry ], [ %0, %sw.bb ], [ %1, %sw.bb2 ]
   %mul = shl nsw i32 %rem, 3
   %sh_prom = zext i32 %mul to i64
   %shl = shl i64 255, %sh_prom
@@ -756,7 +756,7 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %entry
-  %value.0 = phi i64 [ 0, %entry ], [ %1, %sw.bb2 ], [ %0, %sw.bb ]
+  %value.0 = phi i64 [ 0, %entry ], [ %0, %sw.bb ], [ %1, %sw.bb2 ]
   %mul = shl nsw i32 %rem, 4
   %sh_prom = zext i32 %mul to i64
   %shl = shl i64 65535, %sh_prom
@@ -801,7 +801,7 @@ sw.bb7:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb7, %sw.bb5, %sw.bb2, %sw.bb
-  %retval.0 = phi i32 [ %conv10, %sw.bb7 ], [ %conv6, %sw.bb5 ], [ %conv4, %sw.bb2 ], [ %conv, %sw.bb ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %conv, %sw.bb ], [ %conv4, %sw.bb2 ], [ %conv6, %sw.bb5 ], [ %conv10, %sw.bb7 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

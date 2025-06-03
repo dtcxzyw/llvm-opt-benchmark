@@ -1717,7 +1717,7 @@ define internal i32 @cf_socket_query(ptr noundef readonly captures(none) %0, ptr
   br label %53
 
 53:                                               ; preds = %48, %45, %35, %37, %39, %27, %8
-  %.0 = phi i32 [ 0, %39 ], [ 0, %27 ], [ 0, %8 ], [ 0, %37 ], [ 0, %35 ], [ %52, %48 ], [ 48, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %27 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ %52, %48 ], [ 48, %45 ]
   ret i32 %.0
 }
 

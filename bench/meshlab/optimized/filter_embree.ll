@@ -3576,9 +3576,9 @@ _ZN7QStringD2Ev.exit119:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 385:                                              ; preds = %384, %373, %312, %301, %238, %227, %166, %130, %119, %57
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %384 ], [ %58, %57 ], [ %.pn.pn.pn, %373 ], [ %.pn48.pn.pn, %312 ], [ %.pn44.pn.pn, %301 ], [ %.pn56.pn.pn, %238 ], [ %.pn52.pn.pn, %227 ], [ %.pn60.pn.pn, %166 ], [ %.pn68.pn.pn, %130 ], [ %.pn64.pn.pn, %119 ]
+  %.pn68.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %130 ], [ %58, %57 ], [ %.pn64.pn.pn, %119 ], [ %.pn60.pn.pn, %166 ], [ %.pn56.pn.pn, %238 ], [ %.pn52.pn.pn, %227 ], [ %.pn48.pn.pn, %312 ], [ %.pn44.pn.pn, %301 ], [ %.pn40.pn.pn, %384 ], [ %.pn.pn.pn, %373 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
-  resume { ptr, i32 } %.pn40.pn.pn.pn
+  resume { ptr, i32 } %.pn68.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -4371,9 +4371,9 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit: ; preds = %
 
 282:                                              ; preds = %273, %275, %252, %254, %231, %233, %103, %105, %170
   %.sink = phi ptr [ %14, %170 ], [ %12, %105 ], [ %12, %103 ], [ %15, %233 ], [ %15, %231 ], [ %17, %254 ], [ %17, %252 ], [ %19, %275 ], [ %19, %273 ]
-  %.pn.pn = phi { ptr, i32 } [ %171, %170 ], [ %106, %105 ], [ %104, %103 ], [ %234, %233 ], [ %232, %231 ], [ %255, %254 ], [ %253, %252 ], [ %276, %275 ], [ %274, %273 ]
+  %.pn45.pn = phi { ptr, i32 } [ %171, %170 ], [ %106, %105 ], [ %104, %103 ], [ %234, %233 ], [ %232, %231 ], [ %255, %254 ], [ %253, %252 ], [ %276, %275 ], [ %274, %273 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #22
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn45.pn
 }
 
 declare noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0

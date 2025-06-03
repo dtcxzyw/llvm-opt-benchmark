@@ -407,51 +407,51 @@ proto_item_set_hidden.exit:                       ; preds = %20, %17, %13, %.con
 
 29:                                               ; preds = %25
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %27)
-  br i1 %.not, label %.cont, label %.else
+  br i1 %.not, label %.cont49, label %.else51
 
-.else:                                            ; preds = %29
+.else51:                                          ; preds = %29
   %31 = zext i8 %30 to i32
   store i32 %31, ptr %5, align 4
-  br label %.cont
+  br label %.cont49
 
-.cont:                                            ; preds = %29, %.else
+.cont49:                                          ; preds = %29, %.else51
   %32 = add i32 %1, 2
   br label %49
 
 33:                                               ; preds = %25
   %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %27)
-  br i1 %.not, label %.cont43, label %.else45
+  br i1 %.not, label %.cont46, label %.else48
 
-.else45:                                          ; preds = %33
+.else48:                                          ; preds = %33
   %35 = zext i16 %34 to i32
   store i32 %35, ptr %5, align 4
-  br label %.cont43
+  br label %.cont46
 
-.cont43:                                          ; preds = %33, %.else45
+.cont46:                                          ; preds = %33, %.else48
   %36 = add i32 %1, 3
   br label %49
 
 37:                                               ; preds = %25
   %38 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %27)
-  br i1 %.not, label %.cont46, label %.else48
+  br i1 %.not, label %.cont43, label %.else45
 
-.else48:                                          ; preds = %37
+.else45:                                          ; preds = %37
   store i32 %38, ptr %5, align 4
-  br label %.cont46
+  br label %.cont43
 
-.cont46:                                          ; preds = %37, %.else48
+.cont43:                                          ; preds = %37, %.else45
   %39 = add i32 %1, 4
   br label %49
 
 40:                                               ; preds = %25
   %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %27)
-  br i1 %.not, label %.cont49, label %.else51
+  br i1 %.not, label %.cont, label %.else
 
-.else51:                                          ; preds = %40
+.else:                                            ; preds = %40
   store i32 %41, ptr %5, align 4
-  br label %.cont49
+  br label %.cont
 
-.cont49:                                          ; preds = %40, %.else51
+.cont:                                            ; preds = %40, %.else
   %42 = add i32 %1, 5
   br label %49
 
@@ -463,8 +463,8 @@ proto_item_set_hidden.exit:                       ; preds = %20, %17, %13, %.con
   %48 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %49
 
-49:                                               ; preds = %.cont, %.cont43, %.cont46, %.cont49, %43, %proto_item_set_hidden.exit
-  %.0 = phi i32 [ %24, %proto_item_set_hidden.exit ], [ %48, %43 ], [ %42, %.cont49 ], [ %39, %.cont46 ], [ %36, %.cont43 ], [ %32, %.cont ]
+49:                                               ; preds = %.cont49, %.cont46, %.cont43, %.cont, %43, %proto_item_set_hidden.exit
+  %.0 = phi i32 [ %24, %proto_item_set_hidden.exit ], [ %48, %43 ], [ %32, %.cont49 ], [ %36, %.cont46 ], [ %39, %.cont43 ], [ %42, %.cont ]
   ret i32 %.0
 }
 
@@ -1245,7 +1245,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %232, %229, %225, %.
   br label %dissect_oer_length_determinant.exit
 
 dissect_oer_length_determinant.exit:              ; preds = %proto_item_set_hidden.exit.i, %240, %243, %246, %249, %252
-  %.0.i176 = phi i32 [ %236, %proto_item_set_hidden.exit.i ], [ %256, %252 ], [ %251, %249 ], [ %248, %246 ], [ %245, %243 ], [ %242, %240 ]
+  %.0.i176 = phi i32 [ %236, %proto_item_set_hidden.exit.i ], [ %256, %252 ], [ %242, %240 ], [ %245, %243 ], [ %248, %246 ], [ %251, %249 ]
   %257 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %258 = load ptr, ptr %257, align 8
   %.not156 = icmp eq ptr %258, null
@@ -1351,8 +1351,8 @@ proto_item_set_hidden.exit.i184:                  ; preds = %284, %281, %277, %.
   br label %dissect_oer_length_determinant.exit188
 
 dissect_oer_length_determinant.exit188:           ; preds = %proto_item_set_hidden.exit.i184, %292, %296, %300, %303, %306
-  %.0190 = phi i32 [ %275, %proto_item_set_hidden.exit.i184 ], [ 0, %306 ], [ %304, %303 ], [ %301, %300 ], [ %298, %296 ], [ %294, %292 ]
-  %.0.i182 = phi i32 [ %288, %proto_item_set_hidden.exit.i184 ], [ %310, %306 ], [ %305, %303 ], [ %302, %300 ], [ %299, %296 ], [ %295, %292 ]
+  %.0190 = phi i32 [ %275, %proto_item_set_hidden.exit.i184 ], [ 0, %306 ], [ %294, %292 ], [ %298, %296 ], [ %301, %300 ], [ %304, %303 ]
+  %.0.i182 = phi i32 [ %288, %proto_item_set_hidden.exit.i184 ], [ %310, %306 ], [ %295, %292 ], [ %299, %296 ], [ %302, %300 ], [ %305, %303 ]
   %311 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %4, ptr noundef %0, i32 noundef %.0.i182, i32 noundef %.0190, i32 noundef 0)
   store ptr %311, ptr %208, align 8
   %312 = add i32 %.0.i182, %.0190
@@ -1431,7 +1431,7 @@ define i32 @dissect_oer_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %52
 
 28:                                               ; preds = %21, %19, %16, %13
-  %.054 = phi i32 [ %22, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.054 = phi i32 [ %15, %13 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ]
   %29 = add i32 %12, %11
   %30 = call ptr @proto_registrar_get_nth(i32 noundef %4)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16

@@ -593,7 +593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10second_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10second_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10second_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -793,7 +793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10minute_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_10minute_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -987,7 +987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8hour_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8hour_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1181,7 +1181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_7day_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_7day_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_7day_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_7day_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1375,7 +1375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_9month_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_9month_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1569,7 +1569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8year_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_13time_internal4cctz6detail10civil_timeINS3_8year_tagEEEEEPvNS1_6FlagOpEPKvS9_S9_E12AlignedSpaceEE8allocateERSE_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8year_tagEEE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, %12 ], [ @_ZTIN4absl13time_internal4cctz6detail10civil_timeINS0_8year_tagEEE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 16 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1763,7 +1763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_8DurationEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_8DurationEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl8DurationE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, %12 ], [ @_ZTIN4absl8DurationE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -1957,7 +1957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_4TimeEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit
 
 _ZNSt16allocator_traitsISaIZN4absl14flags_internal7FlagOpsINS0_4TimeEEEPvNS1_6FlagOpEPKvS4_S4_E12AlignedSpaceEE8allocateERS9_m.exit: ; preds = %7, %4, %65, %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %13, %12, %11, %10, %9
-  %.0 = phi ptr [ null, %65 ], [ inttoptr (i64 88 to ptr), %64 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %17 ], [ @_ZTIN4absl4TimeE, %13 ], [ @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, %12 ], [ null, %11 ], [ null, %10 ], [ null, %9 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %65 ], [ null, %9 ], [ null, %10 ], [ null, %11 ], [ @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, %12 ], [ @_ZTIN4absl4TimeE, %13 ], [ %.1, %17 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 88 to ptr), %64 ], [ inttoptr (i64 12 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 

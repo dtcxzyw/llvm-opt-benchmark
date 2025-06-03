@@ -243,8 +243,8 @@ add_metadata.exit:                                ; preds = %77
   br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %56, %62, %67, %add_metadata.exit
-  %.291 = phi i32 [ %.089, %add_metadata.exit ], [ %.089, %67 ], [ %.089, %62 ], [ %57, %56 ]
-  %.286 = phi i32 [ %.084, %add_metadata.exit ], [ %.084, %67 ], [ %.084, %62 ], [ %58, %56 ]
+  %.291 = phi i32 [ %.089, %add_metadata.exit ], [ %57, %56 ], [ %.089, %62 ], [ %.089, %67 ]
+  %.286 = phi i32 [ %.084, %add_metadata.exit ], [ %58, %56 ], [ %.084, %62 ], [ %.084, %67 ]
   %87 = sub nsw i32 %34, %29
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %89, label %.critedge
@@ -256,9 +256,9 @@ add_metadata.exit:                                ; preds = %77
   br i1 %.not99, label %23, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %23, %86, %89
-  %.185116 = phi i32 [ %.286, %86 ], [ %.286, %89 ], [ %.084, %23 ]
-  %.190113 = phi i32 [ %.291, %86 ], [ %.291, %89 ], [ %.089, %23 ]
-  switch i32 %.190113, label %95 [
+  %.185117 = phi i32 [ %.286, %86 ], [ %.286, %89 ], [ %.084, %23 ]
+  %.190114 = phi i32 [ %.291, %86 ], [ %.291, %89 ], [ %.089, %23 ]
+  switch i32 %.190114, label %95 [
     i32 -1, label %92
     i32 44, label %100
     i32 22, label %93
@@ -276,16 +276,16 @@ add_metadata.exit:                                ; preds = %77
   br label %100
 
 95:                                               ; preds = %.critedge
-  %96 = add i32 %.190113, -45
+  %96 = add i32 %.190114, -45
   %or.cond3 = icmp ult i32 %96, -37
   br i1 %or.cond3, label %97, label %98
 
 97:                                               ; preds = %95
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %.190113) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %.190114) #8
   br label %.thread
 
 98:                                               ; preds = %95
-  %99 = mul nuw nsw i32 %.190113, 1000
+  %99 = mul nuw nsw i32 %.190114, 1000
   br label %100
 
 100:                                              ; preds = %.critedge, %98, %94, %93
@@ -295,7 +295,7 @@ add_metadata.exit:                                ; preds = %77
   store i32 %.sink, ptr %102, align 8, !tbaa !44
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 132
   %104 = load i32, ptr %103, align 4, !tbaa !40
-  %105 = sdiv i32 %.185116, %104
+  %105 = sdiv i32 %.185117, %104
   %106 = add i32 %105, -49
   %or.cond100 = icmp ult i32 %106, -41
   br i1 %or.cond100, label %107, label %108
@@ -335,7 +335,7 @@ add_metadata.exit:                                ; preds = %77
   br label %.thread
 
 118:                                              ; preds = %108, %108, %108, %108, %114, %113
-  %.083 = phi i32 [ 2048, %114 ], [ 1024, %113 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ]
+  %.083 = phi i32 [ 1024, %113 ], [ 2048, %114 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ]
   %119 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %120 = load i64, ptr %119, align 8, !tbaa !41
   %121 = zext nneg i32 %.083 to i64

@@ -1359,7 +1359,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %33
 
 33:                                               ; preds = %5, %_ZN10LogMessageD2Ev.exit, %32, %1
-  %.0 = phi i32 [ 4, %_ZN10LogMessageD2Ev.exit ], [ 4, %5 ], [ 36, %32 ], [ 4, %1 ]
+  %.0 = phi i32 [ 4, %_ZN10LogMessageD2Ev.exit ], [ 4, %5 ], [ 4, %1 ], [ 36, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i8, ptr %34, align 4, !tbaa !13, !range !52, !noundef !53
   %36 = trunc nuw i8 %35 to i1
@@ -3659,10 +3659,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit222: ; preds = %_ZSt
   br label %432
 
 .thread249:                                       ; preds = %268, %327, %223
-  %367 = phi i64 [ %323, %327 ], [ %173, %223 ], [ %173, %268 ]
-  %368 = phi i1 [ %322, %327 ], [ %171, %223 ], [ %171, %268 ]
-  %369 = phi i1 [ %321, %327 ], [ %168, %223 ], [ %168, %268 ]
-  %.0139233 = phi i64 [ %123, %327 ], [ 0, %223 ], [ 0, %268 ]
+  %367 = phi i64 [ %173, %223 ], [ %323, %327 ], [ %173, %268 ]
+  %368 = phi i1 [ %171, %223 ], [ %322, %327 ], [ %171, %268 ]
+  %369 = phi i1 [ %168, %223 ], [ %321, %327 ], [ %168, %268 ]
+  %.0139233 = phi i64 [ 0, %223 ], [ %123, %327 ], [ 0, %268 ]
   %370 = icmp sgt i32 %spec.select, 1
   br i1 %370, label %.thread272, label %371
 
@@ -3846,7 +3846,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit225: ; preds = %411
   br label %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit
 
 432:                                              ; preds = %303, %309, %417, %365, %262, %221, %180
-  %.pn162 = phi { ptr, i32 } [ %181, %180 ], [ %.pn160, %417 ], [ %366, %365 ], [ %222, %221 ], [ %263, %262 ], [ %304, %303 ], [ %310, %309 ]
+  %.pn162 = phi { ptr, i32 } [ %181, %180 ], [ %.pn160, %417 ], [ %222, %221 ], [ %263, %262 ], [ %366, %365 ], [ %304, %303 ], [ %310, %309 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #31
@@ -4425,7 +4425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78: ; pred
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78, %92
-  %.056.be = phi ptr [ %93, %92 ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78 ]
+  %.056.be = phi ptr [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78 ], [ %93, %92 ]
   %.not = icmp ugt ptr %.056.be, %31
   br i1 %.not, label %.outer._crit_edge, label %38, !llvm.loop !192
 

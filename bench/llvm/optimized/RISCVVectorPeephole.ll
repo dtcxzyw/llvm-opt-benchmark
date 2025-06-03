@@ -786,7 +786,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.e
   br label %264
 
 264:                                              ; preds = %263, %262, %261, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit
-  %.038.i47 = phi i64 [ 2, %263 ], [ 3, %262 ], [ 2, %261 ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ]
+  %.038.i47 = phi i64 [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit ], [ 2, %261 ], [ 3, %262 ], [ 2, %263 ]
   %265 = load ptr, ptr %157, align 8, !tbaa !373
   %266 = getelementptr i8, ptr %265, i64 2
   %.val.i48 = load i16, ptr %266, align 2, !tbaa !389
@@ -1304,7 +1304,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole17convertToUnmaskedERN4llvm12MachineInstr
   br label %542
 
 542:                                              ; preds = %541, %540, %539, %538, %537, %536, %535, %534, %533, %532, %531, %530, %529, %528, %527, %526, %525, %524, %523, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole17convertToUnmaskedERN4llvm12MachineInstrE.exit
-  %.017.neg.i = phi i64 [ -13245, %541 ], [ -13244, %540 ], [ -13243, %539 ], [ -13545, %538 ], [ -13246, %537 ], [ -13241, %536 ], [ -13240, %535 ], [ -13239, %534 ], [ -13544, %533 ], [ -13242, %532 ], [ -13237, %531 ], [ -13236, %530 ], [ -13235, %529 ], [ -13543, %528 ], [ -13238, %527 ], [ -13233, %526 ], [ -13232, %525 ], [ -13231, %524 ], [ -13542, %523 ], [ -13234, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole17convertToUnmaskedERN4llvm12MachineInstrE.exit ]
+  %.017.neg.i = phi i64 [ -13542, %523 ], [ -13231, %524 ], [ -13232, %525 ], [ -13233, %526 ], [ -13238, %527 ], [ -13543, %528 ], [ -13235, %529 ], [ -13236, %530 ], [ -13237, %531 ], [ -13242, %532 ], [ -13544, %533 ], [ -13239, %534 ], [ -13240, %535 ], [ -13241, %536 ], [ -13246, %537 ], [ -13545, %538 ], [ -13243, %539 ], [ -13244, %540 ], [ -13245, %541 ], [ -13234, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole17convertToUnmaskedERN4llvm12MachineInstrE.exit ]
   %543 = load ptr, ptr %157, align 8, !tbaa !373
   %544 = getelementptr i8, ptr %543, i64 2
   %.val19.i = load i16, ptr %544, align 2, !tbaa !389

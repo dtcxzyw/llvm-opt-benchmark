@@ -1003,7 +1003,7 @@ define dso_local ptr @PyCMethod_New(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread
 
 17:                                               ; preds = %4, %4, %12, %11, %10, %9, %8
-  %.025 = phi ptr [ @cfunction_vectorcall_FASTCALL_KEYWORDS_METHOD, %12 ], [ @cfunction_vectorcall_O, %11 ], [ @cfunction_vectorcall_NOARGS, %10 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS, %9 ], [ @cfunction_vectorcall_FASTCALL, %8 ], [ null, %4 ], [ null, %4 ]
+  %.025 = phi ptr [ @cfunction_vectorcall_FASTCALL, %8 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS, %9 ], [ @cfunction_vectorcall_NOARGS, %10 ], [ @cfunction_vectorcall_O, %11 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS_METHOD, %12 ], [ null, %4 ], [ null, %4 ]
   %18 = and i32 %6, 512
   %.not = icmp eq i32 %18, 0
   %.not29 = icmp eq ptr %3, null

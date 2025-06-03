@@ -11460,7 +11460,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt
   br label %46
 
 46:                                               ; preds = %13, %27, %25, %23, %21, %19, %17, %15, %9, %45, %3
-  %.0 = phi i1 [ %12, %9 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ false, %3 ], [ %spec.select, %45 ], [ true, %13 ]
+  %.0 = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %12, %9 ], [ false, %3 ], [ %spec.select, %45 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -18252,7 +18252,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunc
   br label %400
 
 400:                                              ; preds = %43, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS5_SE_EEERSA_DpOT_.exit
-  %.1 = phi ptr [ %45, %43 ], [ %399, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS5_SE_EEERSA_DpOT_.exit ]
+  %.1 = phi ptr [ %399, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS5_SE_EEERSA_DpOT_.exit ], [ %45, %43 ]
   ret ptr %.1
 }
 
@@ -20805,7 +20805,7 @@ _ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunc
   br label %150
 
 150:                                              ; preds = %34, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS8_SE_EEERSA_DpOT_.exit
-  %.1 = phi ptr [ %36, %34 ], [ %149, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS8_SE_EEERSA_DpOT_.exit ]
+  %.1 = phi ptr [ %149, %_ZNSt6vectorISt5tupleIJN4Luau7VariantIJPKNS1_16TypeFunctionTypeEPKNS1_23TypeFunctionTypePackVarEEEES9_EESaISA_EE12emplace_backIJRS8_SE_EEERSA_DpOT_.exit ], [ %36, %34 ]
   ret ptr %.1
 }
 

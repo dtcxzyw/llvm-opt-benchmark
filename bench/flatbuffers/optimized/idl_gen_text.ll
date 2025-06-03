@@ -9241,7 +9241,7 @@ tailrecurse:                                      ; preds = %19, %6
   br label %115
 
 115:                                              ; preds = %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102, %105, %108, %111, %114
-  %.3 = phi ptr [ null, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ]
+  %.3 = phi ptr [ null, %114 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   br label %.loopexit
 
@@ -9380,12 +9380,12 @@ tailrecurse:                                      ; preds = %19, %6
   br label %166
 
 166:                                              ; preds = %129, %131, %133, %135, %137, %139, %141, %143, %145, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165
-  %.23 = phi ptr [ null, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ]
+  %.23 = phi ptr [ null, %165 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %19, %166, %115, %29, %25
-  %.1 = phi ptr [ %.23, %166 ], [ %.3, %115 ], [ %43, %29 ], [ %28, %25 ], [ @.str.12, %tailrecurse ], [ @.str.10, %19 ]
+  %.1 = phi ptr [ %28, %25 ], [ %43, %29 ], [ %.3, %115 ], [ %.23, %166 ], [ @.str.12, %tailrecurse ], [ @.str.10, %19 ]
   ret ptr %.1
 }
 
@@ -10064,7 +10064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   resume { ptr, i32 } %.pn72
 
 256:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit74, %251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.461.ph = phi i32 [ %254, %251 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit74 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit75 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit76 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit77 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit78 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit79 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit80 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
+  %.461.ph = phi i32 [ %254, %251 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit80 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit79 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit78 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit77 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit76 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit75 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit74 ], [ %.057185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %257 = add i32 %.461.ph, 1
   %258 = zext i32 %257 to i64
   %.not.not = icmp ugt i64 %1, %258
@@ -18987,7 +18987,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %2
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit
 
 _ZN11flexbuffers9ReadInt64EPKhh.exit:             ; preds = %286, %283, %278, %275, %266, %263, %258, %255, %223, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %125, %122, %117, %114, %84, %81, %76, %73, %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6, %_ZN11flexbuffers10ReadDoubleEPKhh.exit
-  %.0 = phi i64 [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
+  %.0 = phi i64 [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
   ret i64 %.0
 }
 
@@ -19502,7 +19502,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %2
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit:           ; preds = %286, %283, %278, %275, %266, %263, %258, %255, %223, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread, %125, %122, %117, %114, %84, %81, %76, %73, %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6, %_ZN11flexbuffers10ReadDoubleEPKhh.exit
-  %.0 = phi i64 [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
+  %.0 = phi i64 [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
   ret i64 %.0
 }
 
@@ -20036,7 +20036,7 @@ _ZN11flexbuffers10ReadUInt64EPKhh.exit10:         ; preds = %278, %281, %286, %2
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10, %_ZNK11flexbuffers9Reference8AsVectorEv.exit, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7, %_ZN11flexbuffers9ReadInt64EPKhh.exit5, %_ZN11flexbuffers10ReadUInt64EPKhh.exit, %_ZN11flexbuffers9ReadInt64EPKhh.exit
-  %.0 = phi double [ %292, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10 ], [ %270, %_ZNK11flexbuffers9Reference8AsVectorEv.exit ], [ %.015, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit ], [ %195, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7 ], [ %152, %_ZN11flexbuffers9ReadInt64EPKhh.exit5 ], [ %109, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %87, %_ZN11flexbuffers9ReadInt64EPKhh.exit ], [ 0.000000e+00, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ]
+  %.0 = phi double [ %87, %_ZN11flexbuffers9ReadInt64EPKhh.exit ], [ %109, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %152, %_ZN11flexbuffers9ReadInt64EPKhh.exit5 ], [ %195, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7 ], [ %.015, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit ], [ %270, %_ZNK11flexbuffers9Reference8AsVectorEv.exit ], [ %292, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10 ], [ 0.000000e+00, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ]
   ret double %.0
 }
 

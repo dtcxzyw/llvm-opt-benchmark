@@ -6175,8 +6175,8 @@ define linkonce_odr dso_local ptr @_ZN5vcpkg4Util8find_nthIN9__gnu_cxx17__normal
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge._crit_edge.i.i.i
-  %39 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %34, %36 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %37, %36 ]
+  %39 = phi i32 [ %34, %36 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %40 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !39
   %41 = icmp eq i32 %40, %39
   br i1 %41, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit, label %42
@@ -6186,8 +6186,8 @@ define linkonce_odr dso_local ptr @_ZN5vcpkg4Util8find_nthIN9__gnu_cxx17__normal
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge57.i.i.i
-  %45 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %39, %42 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %43, %42 ]
+  %45 = phi i32 [ %39, %42 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %46 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !39
   %47 = icmp eq i32 %46, %45
   %spec.select.i.i.i = select i1 %47, ptr %.sroa.032.2.i.i.i, ptr %1

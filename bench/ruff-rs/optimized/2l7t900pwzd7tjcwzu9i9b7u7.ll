@@ -11948,7 +11948,7 @@ common.resume.sink.split:                         ; preds = %9, %16, %35
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %29, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ], [ %30, %29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ], [ %45, %44 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6
@@ -26597,7 +26597,7 @@ default.unreachable3:                             ; preds = %1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17, %12, %1, %9, %6, %3
-  %.sroa.7.0 = phi ptr [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ undef, %1 ], [ %14, %12 ], [ %19, %17 ]
+  %.sroa.7.0 = phi ptr [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ undef, %1 ], [ %14, %12 ], [ %19, %17 ]
   %23 = insertvalue { i64, ptr } poison, i64 %2, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.7.0, 1
   ret { i64, ptr } %24
@@ -30482,9 +30482,9 @@ default.unreachable:                              ; preds = %76
   br label %125
 
 125:                                              ; preds = %144, %124
-  %.sroa.9.0 = phi i32 [ %142, %144 ], [ %122, %124 ]
-  %.sroa.828.0 = phi ptr [ %140, %144 ], [ %120, %124 ]
-  %.sroa.025.0 = phi i64 [ %137, %144 ], [ %117, %124 ]
+  %.sroa.9.0 = phi i32 [ %122, %124 ], [ %142, %144 ]
+  %.sroa.828.0 = phi ptr [ %120, %124 ], [ %140, %144 ]
+  %.sroa.025.0 = phi i64 [ %117, %124 ], [ %137, %144 ]
   %126 = load i64, ptr %3, align 8, !range !210, !alias.scope !1455, !noundef !3
   %127 = icmp eq i64 %126, 3
   br i1 %127, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEdit$GT$$GT$17hbf707c23b99ecad0E.exit", label %128
@@ -40228,9 +40228,9 @@ define void @"_ZN145_$LT$ruff_server..session..index..ruff_settings..EditorConfi
 316:                                              ; preds = %.thread462
   br i1 %.sroa.0150.4, label %.thread444, label %.body
 
-.thread:                                          ; preds = %660, %659, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404"
-  %.sroa.0145.2.ph = phi i8 [ 0, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404" ], [ %.sroa.0145.3, %659 ], [ %.sroa.0145.3, %660 ]
-  %.sroa.0147.4.ph = phi i8 [ 1, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404" ], [ 0, %659 ], [ 0, %660 ]
+.thread:                                          ; preds = %659, %660, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404"
+  %.sroa.0145.2.ph = phi i8 [ 0, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404" ], [ %.sroa.0145.3, %660 ], [ %.sroa.0145.3, %659 ]
+  %.sroa.0147.4.ph = phi i8 [ 1, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$ruff_workspace..configuration..Configuration$C$anyhow..Error$GT$$GT$17h79509bd6a46d4aa8E.exit404" ], [ 0, %660 ], [ 0, %659 ]
   %lpad.thr_comm539 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge390
@@ -41347,7 +41347,7 @@ _ZN11ruff_server7session5index13ruff_settings23open_configuration_file17hf1e5697
           to label %666 unwind label %.thread
 
 661:                                              ; preds = %666, %665, %657
-  %.sroa.0147.5 = phi i8 [ 1, %657 ], [ 0, %666 ], [ 0, %665 ]
+  %.sroa.0147.5 = phi i8 [ 0, %665 ], [ 0, %666 ], [ 1, %657 ]
   call void @llvm.lifetime.end.p0(i64 2472, ptr nonnull %79)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83)
@@ -51045,7 +51045,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -53092,8 +53092,8 @@ define { ptr, ptr } @"_ZN97_$LT$ruff_server..session..settings..ResolvedConfigur
   br label %11
 
 11:                                               ; preds = %1, %1, %9, %7
-  %.sroa.5.0 = phi ptr [ @anon.c9527c8f415781a9497f81edd331d862.995, %9 ], [ @anon.c9527c8f415781a9497f81edd331d862.690, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.c9527c8f415781a9497f81edd331d862.690, %7 ], [ @anon.c9527c8f415781a9497f81edd331d862.995, %9 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ null, %1 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %13
@@ -53159,7 +53159,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %17, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %11
-  %.sroa.0.0.in = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -986,7 +986,7 @@ define internal i32 @witness_dissect_notifyResponse_message_(ptr noundef %0, i32
   br label %witness_dissect_notifyResponse_message.exit
 
 witness_dissect_notifyResponse_message.exit:      ; preds = %17, %20, %23, %26, %29
-  %.0.i = phi i32 [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %31, %29 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   %32 = load ptr, ptr %8, align 8
   %33 = sub i32 %.0.i, %1
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %33)

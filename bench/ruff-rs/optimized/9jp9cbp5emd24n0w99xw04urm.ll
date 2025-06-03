@@ -2843,7 +2843,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe2fa47ce857d150E.exit"
 
 "_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe2fa47ce857d150E.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -29969,7 +29969,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit162: ; preds = %2
   br label %292
 
 292:                                              ; preds = %486, %484, %266, %.loopexit, %430, %434, %440, %._crit_edge, %397, %404, %314, %302, %418, %420, %422, %424, %327, %._crit_edge220, %293, %._crit_edge224, %489, %237, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit173, %switch.lookup, %385, %378, %371, %357, %343, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit162, %270, %252, %250, %242, %233, %231, %229, %200, %192, %190, %183, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit157, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %133, %131, %129, %88, %84
-  %.sroa.0.0.shrunk = phi i1 [ %291, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit162 ], [ %281, %270 ], [ %490, %489 ], [ %265, %252 ], [ %251, %250 ], [ %249, %242 ], [ %241, %237 ], [ %236, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %200 ], [ %199, %192 ], [ %191, %190 ], [ %189, %183 ], [ %423, %422 ], [ %429, %424 ], [ %421, %420 ], [ %419, %418 ], [ %166, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit157 ], [ %158, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %396, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit173 ], [ %140, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %switch.lookup ], [ %391, %385 ], [ %384, %378 ], [ %377, %371 ], [ %370, %357 ], [ %356, %343 ], [ %326, %327 ], [ %336, %._crit_edge220 ], [ %301, %293 ], [ %311, %._crit_edge224 ], [ %89, %88 ], [ %87, %84 ], [ true, %302 ], [ true, %314 ], [ %403, %397 ], [ %415, %404 ], [ %468, %._crit_edge ], [ %439, %434 ], [ %449, %440 ], [ true, %430 ], [ true, %.loopexit ], [ true, %266 ], [ true, %484 ], [ true, %486 ]
+  %.sroa.0.0.shrunk = phi i1 [ %87, %84 ], [ %89, %88 ], [ %301, %293 ], [ %311, %._crit_edge224 ], [ %326, %327 ], [ %336, %._crit_edge220 ], [ %356, %343 ], [ %370, %357 ], [ %377, %371 ], [ %384, %378 ], [ %391, %385 ], [ %128, %switch.lookup ], [ %130, %129 ], [ %132, %131 ], [ %140, %133 ], [ %396, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit173 ], [ %158, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %166, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit157 ], [ %423, %422 ], [ %429, %424 ], [ %419, %418 ], [ %421, %420 ], [ %189, %183 ], [ %191, %190 ], [ %199, %192 ], [ %228, %200 ], [ %230, %229 ], [ %232, %231 ], [ %236, %233 ], [ %241, %237 ], [ %249, %242 ], [ %251, %250 ], [ %265, %252 ], [ %490, %489 ], [ %281, %270 ], [ %291, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit162 ], [ true, %302 ], [ true, %314 ], [ %403, %397 ], [ %415, %404 ], [ %468, %._crit_edge ], [ %439, %434 ], [ %449, %440 ], [ true, %430 ], [ true, %.loopexit ], [ true, %266 ], [ true, %484 ], [ true, %486 ]
   ret i1 %.sroa.0.0.shrunk
 
 293:                                              ; preds = %90
@@ -30105,7 +30105,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit162: ; preds = %2
   unreachable
 
 330:                                              ; preds = %392, %337, %316
-  %.pn = phi { ptr, i32 } [ %393, %392 ], [ %317, %316 ], [ %338, %337 ]
+  %.pn = phi { ptr, i32 } [ %317, %316 ], [ %338, %337 ], [ %393, %392 ]
   resume { ptr, i32 } %.pn
 
 331:                                              ; preds = %314
@@ -32107,7 +32107,7 @@ define noundef zeroext i1 @"_ZN104_$LT$ty_python_semantic..types..display..Displ
   br i1 %30, label %11, label %32
 
 31:                                               ; preds = %32, %15, %11
-  %.sroa.0.0.in = phi i1 [ %14, %11 ], [ %36, %32 ], [ %23, %15 ]
+  %.sroa.0.0.in = phi i1 [ %14, %11 ], [ %23, %15 ], [ %36, %32 ]
   ret i1 %.sroa.0.0.in
 
 32:                                               ; preds = %24
@@ -32544,8 +32544,8 @@ define hidden i64 @_ZN18ty_python_semantic5types11subclass_of15SubclassOfInner13
   br label %15
 
 15:                                               ; preds = %16, %8, %3, %12, %5
-  %.sroa.5.0 = phi i32 [ %14, %12 ], [ %.sroa.4.4.insert.ext, %5 ], [ undef, %3 ], [ %19, %16 ], [ 0, %8 ]
-  %.sroa.0.0 = phi i64 [ 1, %12 ], [ 2, %5 ], [ 3, %3 ], [ %20, %16 ], [ 2, %8 ]
+  %.sroa.5.0 = phi i32 [ %.sroa.4.4.insert.ext, %5 ], [ %14, %12 ], [ undef, %3 ], [ %19, %16 ], [ 0, %8 ]
+  %.sroa.0.0 = phi i64 [ 2, %5 ], [ 1, %12 ], [ 3, %3 ], [ %20, %16 ], [ 2, %8 ]
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0
@@ -33732,7 +33732,7 @@ thread-pre-split265:                              ; preds = %.noexc107, %352
           to label %419 unwind label %.loopexit.split-lp169
 
 .loopexit168:                                     ; preds = %.loopexit.split-lp169, %.loopexit168.split.us, %.loopexit168.split, %425, %379
-  %.pn = phi { ptr, i32 } [ %426, %425 ], [ %380, %379 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp169 ], [ %lpad.loopexit170, %.loopexit168.split ], [ %lpad.loopexit170.us, %.loopexit168.split.us ]
+  %.pn = phi { ptr, i32 } [ %380, %379 ], [ %426, %425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp169 ], [ %lpad.loopexit170, %.loopexit168.split ], [ %lpad.loopexit170.us, %.loopexit168.split.us ]
   %370 = load i64, ptr %59, align 8, !range !770, !alias.scope !5671, !noundef !7
   %371 = icmp eq i64 %370, -9223372036854775808
   br i1 %371, label %.body, label %372
@@ -36060,8 +36060,8 @@ default.unreachable:                              ; preds = %11
   br label %"_ZN91_$LT$ty_python_semantic..types..signatures..ParameterKind$u20$as$u20$core..clone..Clone$GT$5clone17ha1dc727bec5819f0E.exit"
 
 "_ZN91_$LT$ty_python_semantic..types..signatures..ParameterKind$u20$as$u20$core..clone..Clone$GT$5clone17ha1dc727bec5819f0E.exit": ; preds = %27, %33, %40, %43, %50, %53
-  %.sroa.14.0 = phi i8 [ undef, %53 ], [ %48, %50 ], [ undef, %43 ], [ %38, %40 ], [ %29, %33 ], [ %29, %27 ]
-  %.sroa.13.0 = phi i8 [ %.sroa.13.8.copyload, %53 ], [ %.sroa.13.8.copyload5, %50 ], [ %.sroa.13.8.copyload7, %43 ], [ %.sroa.13.8.copyload9, %40 ], [ %.sroa.4.0.i, %33 ], [ %.sroa.4.0.i, %27 ]
+  %.sroa.14.0 = phi i8 [ %38, %40 ], [ undef, %43 ], [ %48, %50 ], [ undef, %53 ], [ %29, %33 ], [ %29, %27 ]
+  %.sroa.13.0 = phi i8 [ %.sroa.13.8.copyload9, %40 ], [ %.sroa.13.8.copyload7, %43 ], [ %.sroa.13.8.copyload5, %50 ], [ %.sroa.13.8.copyload, %53 ], [ %.sroa.4.0.i, %33 ], [ %.sroa.4.0.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)

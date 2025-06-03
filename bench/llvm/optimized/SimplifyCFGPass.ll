@@ -2524,7 +2524,7 @@ _ZN4llvm4User8operandsEv.exit.i.i:                ; preds = %108, %105
   br label %151
 
 151:                                              ; preds = %149, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %150, %149 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %150, %149 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !149
   %152 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i, i64 8
   %.1.val.val.i.i.i.i.i.i.i.i = load ptr, ptr %152, align 8, !tbaa !178
@@ -2539,7 +2539,7 @@ _ZN4llvm4User8operandsEv.exit.i.i:                ; preds = %108, %105
   br label %158
 
 158:                                              ; preds = %156, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %157, %156 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %157, %156 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !149
   %159 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i, i64 8
   %.2.val.val.i.i.i.i.i.i.i.i = load ptr, ptr %159, align 8, !tbaa !178

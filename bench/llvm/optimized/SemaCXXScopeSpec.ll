@@ -319,7 +319,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v(ptr n
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -628,7 +628,7 @@ _ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit: ; preds = %tailrecurse.i
   br label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit:   ; preds = %139, %145
-  %.1.i = phi ptr [ %141, %139 ], [ %153, %145 ]
+  %.1.i = phi ptr [ %153, %145 ], [ %141, %139 ]
   %154 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %.1.i) #16
   %155 = icmp eq ptr %154, null
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 64
@@ -660,7 +660,7 @@ _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit:   ; preds = %139, %145
   unreachable
 
 .thread126:                                       ; preds = %34, %30, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit, %.thread123, %120, %107, %40, %112, %.thread, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit.thread, %.thread120, %126, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit, %157, %168, %3
-  %.0 = phi ptr [ null, %3 ], [ %.mux, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit ], [ %spec.select12, %157 ], [ %spec.select11, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit ], [ %spec.select10, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit ], [ %spec.select9, %126 ], [ %spec.select13, %168 ], [ null, %.thread120 ], [ null, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit.thread ], [ null, %.thread ], [ null, %112 ], [ %92, %.thread123 ], [ %spec.select8, %120 ], [ %spec.select7, %107 ], [ null, %40 ], [ %32, %30 ], [ %.mux139, %34 ]
+  %.0 = phi ptr [ null, %3 ], [ %.mux, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit ], [ %spec.select13, %168 ], [ %spec.select9, %126 ], [ %spec.select10, %_ZN5clang18NamespaceAliasDecl12getNamespaceEv.exit ], [ %spec.select11, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit ], [ %spec.select12, %157 ], [ null, %.thread120 ], [ null, %_ZN5clang4Sema25getCurrentInstantiationOfEPNS_19NestedNameSpecifierE.exit.thread ], [ null, %.thread ], [ null, %112 ], [ %92, %.thread123 ], [ %spec.select8, %120 ], [ %spec.select7, %107 ], [ null, %40 ], [ %32, %30 ], [ %.mux139, %34 ]
   ret ptr %.0
 }
 
@@ -803,7 +803,7 @@ define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21Te
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.1.val.i.i.i = load ptr, ptr %.1.i.i.i, align 8, !tbaa !701
   %30 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.val.i.i.i) #16
   %31 = icmp eq i32 %30, %0
@@ -814,7 +814,7 @@ define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21Te
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %33, %32 ]
+  %.2.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.val.i.i.i = load ptr, ptr %.2.i.i.i, align 8, !tbaa !701
   %35 = tail call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(24) %.2.val.i.i.i) #16
   %36 = icmp eq i32 %35, %0

@@ -1324,8 +1324,8 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
   br label %320
 
 320:                                              ; preds = %316, %310, %190, %293
-  %.0273 = phi i32 [ 0, %190 ], [ 2, %310 ], [ 2, %316 ], [ 0, %293 ]
-  %.2271 = phi i32 [ -1, %190 ], [ 0, %310 ], [ 0, %316 ], [ -1, %293 ]
+  %.0273 = phi i32 [ 2, %310 ], [ 2, %316 ], [ 0, %190 ], [ 0, %293 ]
+  %.2271 = phi i32 [ 0, %310 ], [ 0, %316 ], [ -1, %190 ], [ -1, %293 ]
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %322 = load ptr, ptr %321, align 8, !tbaa !51
   %323 = tail call i32 @H5AC_unprotect(ptr noundef %322, ptr noundef nonnull %.1, i64 noundef %.2, ptr noundef nonnull %.2253, i32 noundef %.0273) #5
@@ -3120,9 +3120,9 @@ H5B2__update_child_flush_depends.exit.thread:     ; preds = %217, %202, %._crit_
   br label %363
 
 363:                                              ; preds = %293, %360, %352, %222
-  %.0279 = phi i32 [ 0, %222 ], [ 2, %293 ], [ 2, %360 ], [ 2, %352 ]
-  %.0277 = phi i32 [ 0, %222 ], [ 0, %293 ], [ %spec.select, %360 ], [ %spec.select, %352 ]
-  %.2273 = phi i32 [ -1, %222 ], [ -1, %293 ], [ 0, %360 ], [ 0, %352 ]
+  %.0279 = phi i32 [ 2, %293 ], [ 2, %360 ], [ 2, %352 ], [ 0, %222 ]
+  %.0277 = phi i32 [ 0, %293 ], [ %spec.select, %360 ], [ %spec.select, %352 ], [ 0, %222 ]
+  %.2273 = phi i32 [ -1, %293 ], [ 0, %360 ], [ 0, %352 ], [ -1, %222 ]
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %365 = load ptr, ptr %364, align 8, !tbaa !51
   %366 = tail call i32 @H5AC_unprotect(ptr noundef %365, ptr noundef nonnull %.1, i64 noundef %.2, ptr noundef nonnull %.2261, i32 noundef %.0279) #5
@@ -3755,7 +3755,7 @@ define range(i32 -1, 1) i32 @H5B2__node_size(ptr noundef %0, i16 noundef zeroext
   br label %58
 
 48:                                               ; preds = %28, %.thread
-  %.1.ph = phi i32 [ 0, %.thread ], [ -1, %28 ]
+  %.1.ph = phi i32 [ -1, %28 ], [ 0, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   %51 = load i64, ptr %2, align 8, !tbaa !44

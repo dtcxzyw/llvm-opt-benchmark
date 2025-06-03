@@ -470,18 +470,18 @@ xioctl.exit88:                                    ; preds = %93
 
 176:                                              ; preds = %168
   switch i32 %.2.ph, label %default.unreachable106 [
-    i32 1, label %182
-    i32 2, label %177
-    i32 3, label %179
+    i32 1, label %177
+    i32 2, label %180
+    i32 3, label %182
   ]
 
 177:                                              ; preds = %176
-  %178 = call fastcc zeroext i1 @AllocBufferMmap(ptr noundef nonnull %0)
-  br i1 %178, label %185, label %192
+  %178 = load i64, ptr %10, align 8
+  %179 = call fastcc zeroext i1 @AllocBufferRead(ptr noundef nonnull %0, i64 noundef %178)
+  br i1 %179, label %.thread100, label %192
 
-179:                                              ; preds = %176
-  %180 = load i64, ptr %10, align 8
-  %181 = call fastcc zeroext i1 @AllocBufferUserPtr(ptr noundef nonnull %0, i64 noundef %180)
+180:                                              ; preds = %176
+  %181 = call fastcc zeroext i1 @AllocBufferMmap(ptr noundef nonnull %0)
   br i1 %181, label %185, label %192
 
 default.unreachable106:                           ; preds = %176
@@ -489,14 +489,14 @@ default.unreachable106:                           ; preds = %176
 
 182:                                              ; preds = %176
   %183 = load i64, ptr %10, align 8
-  %184 = call fastcc zeroext i1 @AllocBufferRead(ptr noundef nonnull %0, i64 noundef %183)
-  br i1 %184, label %.thread100, label %192
+  %184 = call fastcc zeroext i1 @AllocBufferUserPtr(ptr noundef nonnull %0, i64 noundef %183)
+  br i1 %184, label %185, label %192
 
-185:                                              ; preds = %177, %179
+185:                                              ; preds = %180, %182
   %186 = call fastcc zeroext i1 @EnqueueBuffers(ptr noundef nonnull %0)
   br i1 %186, label %188, label %192
 
-.thread100:                                       ; preds = %182
+.thread100:                                       ; preds = %177
   %187 = call fastcc zeroext i1 @EnqueueBuffers(ptr noundef nonnull %0)
   br i1 %187, label %.thread101, label %192
 
@@ -520,8 +520,8 @@ default.unreachable106:                           ; preds = %176
   call void @SDL_CameraPermissionOutcome(ptr noundef nonnull %0, i1 noundef zeroext true) #11
   br label %192
 
-192:                                              ; preds = %.thread103, %.thread100, %177, %179, %.thread101, %182, %185, %168
-  %.6 = phi i1 [ false, %168 ], [ true, %.thread101 ], [ false, %182 ], [ false, %185 ], [ false, %179 ], [ false, %177 ], [ false, %.thread100 ], [ %190, %.thread103 ]
+192:                                              ; preds = %.thread103, %.thread100, %180, %177, %.thread101, %182, %185, %168
+  %.6 = phi i1 [ false, %168 ], [ true, %.thread101 ], [ false, %182 ], [ false, %185 ], [ false, %177 ], [ false, %180 ], [ false, %.thread100 ], [ %190, %.thread103 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   br label %193
@@ -973,7 +973,7 @@ xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %99, %44, %3, %57, %109, %35, %33, %18, %xioctl.exit58._crit_edge, %102, %55, %47, %21
-  %.044 = phi i32 [ 0, %102 ], [ 0, %xioctl.exit58._crit_edge ], [ 0, %47 ], [ 0, %55 ], [ 0, %21 ], [ 1, %18 ], [ 2, %33 ], [ 2, %35 ], [ 2, %109 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %99 ]
+  %.044 = phi i32 [ 0, %21 ], [ 0, %47 ], [ 0, %55 ], [ 0, %102 ], [ 0, %xioctl.exit58._crit_edge ], [ 1, %18 ], [ 2, %33 ], [ 2, %35 ], [ 2, %109 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %99 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #11
   ret i32 %.044
 }
@@ -1886,7 +1886,7 @@ xioctl.exit37:                                    ; preds = %61
   br label %.thread
 
 .thread:                                          ; preds = %37, %68, %.preheader45, %.preheader, %1, %73, %42
-  %.4 = phi i1 [ %43, %42 ], [ %74, %73 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %68 ], [ true, %37 ]
+  %.4 = phi i1 [ %74, %73 ], [ %43, %42 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %68 ], [ true, %37 ]
   ret i1 %.4
 }
 

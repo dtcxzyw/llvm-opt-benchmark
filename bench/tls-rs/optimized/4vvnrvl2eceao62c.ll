@@ -932,8 +932,8 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.6030771845222660662.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71ea778f50f82195E.llvm.6030771845222660662.exit.thread": ; preds = %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %6, %1
-  %.sroa.3.0 = phi i16 [ undef, %1 ], [ %28, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 38, %1 ], [ %26, %24 ], [ 22, %23 ], [ 36, %22 ], [ 32, %21 ], [ 5, %20 ], [ 19, %19 ], [ 24, %18 ], [ 21, %17 ], [ 25, %16 ], [ 31, %15 ], [ 23, %14 ], [ 16, %13 ], [ 20, %12 ], [ 0, %11 ], [ 13, %10 ], [ 10, %9 ], [ 11, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %1 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ %28, %24 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 38, %1 ], [ 10, %9 ], [ 13, %10 ], [ 0, %11 ], [ 20, %12 ], [ 16, %13 ], [ 23, %14 ], [ 31, %15 ], [ 25, %16 ], [ 21, %17 ], [ 24, %18 ], [ 19, %19 ], [ 5, %20 ], [ 32, %21 ], [ 36, %22 ], [ 22, %23 ], [ %26, %24 ], [ 11, %6 ]
   %29 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %30 = insertvalue { i16, i16 } %29, i16 %.sroa.3.0, 1
   ret { i16, i16 } %30
@@ -1015,8 +1015,8 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.6030771845222660662.exit.thread": ; preds = %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %6, %1
-  %.sroa.3.0 = phi i16 [ undef, %1 ], [ %25, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 38, %1 ], [ %23, %21 ], [ 22, %20 ], [ 36, %19 ], [ 32, %18 ], [ 23, %17 ], [ 5, %16 ], [ 19, %15 ], [ 21, %14 ], [ 31, %13 ], [ 16, %12 ], [ 35, %11 ], [ 20, %10 ], [ 0, %9 ], [ 11, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %1 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ %25, %21 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 38, %1 ], [ 0, %9 ], [ 20, %10 ], [ 35, %11 ], [ 16, %12 ], [ 31, %13 ], [ 21, %14 ], [ 19, %15 ], [ 5, %16 ], [ 23, %17 ], [ 32, %18 ], [ 36, %19 ], [ 22, %20 ], [ %23, %21 ], [ 11, %6 ]
   %26 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %27 = insertvalue { i16, i16 } %26, i16 %.sroa.3.0, 1
   ret { i16, i16 } %27
@@ -1060,8 +1060,8 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.6030771845222660662.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h517271da40a775c0E.llvm.6030771845222660662.exit.thread": ; preds = %13, %12, %11, %6, %1
-  %.sroa.3.0 = phi i16 [ undef, %1 ], [ %17, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %6 ]
-  %.sroa.0.0 = phi i16 [ 38, %1 ], [ %15, %13 ], [ 23, %12 ], [ 24, %11 ], [ 31, %6 ]
+  %.sroa.3.0 = phi i16 [ undef, %1 ], [ undef, %11 ], [ undef, %12 ], [ %17, %13 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 38, %1 ], [ 24, %11 ], [ 23, %12 ], [ %15, %13 ], [ 31, %6 ]
   %18 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %19 = insertvalue { i16, i16 } %18, i16 %.sroa.3.0, 1
   ret { i16, i16 } %19
@@ -1313,7 +1313,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN63_$LT$rustls..enums..ContentType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0815321f3b93b249E.exit"
 
 "_ZN63_$LT$rustls..enums..ContentType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0815321f3b93b249E.exit": ; preds = %6, %8, %10, %12, %14, %16
-  %.0.in.i = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.0.in.i
 }
 
@@ -1525,7 +1525,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN78_$LT$rustls..msgs..handshake..CertReqExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h45d3bafc94e9bbd5E.exit"
 
 "_ZN78_$LT$rustls..msgs..handshake..CertReqExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h45d3bafc94e9bbd5E.exit": ; preds = %10, %13, %16
-  %.0.in.i = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0.in.i = phi i1 [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in.i
 }
 
@@ -1708,7 +1708,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$rustls..msgs..handshake..ServerExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h1aca2654df55f359E.exit"
 
 "_ZN77_$LT$rustls..msgs..handshake..ServerExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h1aca2654df55f359E.exit": ; preds = %14, %17, %19, %21, %24, %27, %30, %33, %35, %37, %40, %43, %46, %48
-  %.0.in.i = phi i1 [ %50, %48 ], [ %47, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %14 ]
+  %.0.in.i = phi i1 [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %36, %35 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %50, %48 ]
   ret i1 %.0.in.i
 }
 
@@ -1829,7 +1829,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$rustls..enums..HandshakeType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a43ff2338c3003eE.exit"
 
 "_ZN65_$LT$rustls..enums..HandshakeType$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a43ff2338c3003eE.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44
-  %.0.in.i = phi i1 [ %46, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %46, %44 ]
   ret i1 %.0.in.i
 }
 
@@ -1870,7 +1870,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN71_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h832d476e9414cd25E.exit"
 
 "_ZN71_$LT$rustls..msgs..enums..ECPointFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h832d476e9414cd25E.exit": ; preds = %6, %8, %10, %12
-  %.0.in.i = phi i1 [ %14, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -1982,7 +1982,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN79_$LT$rustls..msgs..enums..ClientCertificateType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf0856df64c0d7617E.exit"
 
 "_ZN79_$LT$rustls..msgs..enums..ClientCertificateType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf0856df64c0d7617E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26
-  %.0.in.i = phi i1 [ %28, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ]
   ret i1 %.0.in.i
 }
 
@@ -2224,7 +2224,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN78_$LT$rustls..msgs..handshake..HandshakePayload$u20$as$u20$core..fmt..Debug$GT$3fmt17h43091c48744b6bf5E.exit"
 
 "_ZN78_$LT$rustls..msgs..handshake..HandshakePayload$u20$as$u20$core..fmt..Debug$GT$3fmt17h43091c48744b6bf5E.exit": ; preds = %27, %29, %31, %34, %37, %40, %43, %46, %49, %52, %55, %57, %59, %62, %65, %68, %71, %74, %77, %80, %83
-  %.0.in.i = phi i1 [ %85, %83 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.0.in.i = phi i1 [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %56, %55 ], [ %58, %57 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ]
   ret i1 %.0.in.i
 }
 
@@ -2431,7 +2431,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$rustls..enums..AlertDescription$u20$as$u20$core..fmt..Debug$GT$3fmt17hef269196c071c0f1E.exit"
 
 "_ZN68_$LT$rustls..enums..AlertDescription$u20$as$u20$core..fmt..Debug$GT$3fmt17hef269196c071c0f1E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74
-  %.0.in.i = phi i1 [ %76, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %76, %74 ]
   ret i1 %.0.in.i
 }
 
@@ -2538,7 +2538,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..fmt..Debug$GT$3fmt17h60402ca1ead545f5E.exit"
 
 "_ZN69_$LT$rustls..msgs..enums..Compression$u20$as$u20$core..fmt..Debug$GT$3fmt17h60402ca1ead545f5E.exit": ; preds = %6, %8, %10, %12
-  %.0.in.i = phi i1 [ %14, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -2598,7 +2598,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN79_$LT$rustls..msgs..handshake..ServerNamePayload$u20$as$u20$core..fmt..Debug$GT$3fmt17he5a18ce5c3c0575cE.exit"
 
 "_ZN79_$LT$rustls..msgs..handshake..ServerNamePayload$u20$as$u20$core..fmt..Debug$GT$3fmt17he5a18ce5c3c0575cE.exit": ; preds = %8, %10
-  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -2686,7 +2686,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN76_$LT$rustls..msgs..enums..PSKKeyExchangeMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h7db8bffafed9c286E.exit"
 
 "_ZN76_$LT$rustls..msgs..enums..PSKKeyExchangeMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h7db8bffafed9c286E.exit": ; preds = %6, %8, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -2889,7 +2889,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$rustls..msgs..handshake..ClientExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h697878ae939d427cE.exit"
 
 "_ZN77_$LT$rustls..msgs..handshake..ClientExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h697878ae939d427cE.exit": ; preds = %20, %23, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %55, %58, %61, %64, %66
-  %.0.in.i = phi i1 [ %68, %66 ], [ %65, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ]
+  %.0.in.i = phi i1 [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %65, %64 ], [ %68, %66 ]
   ret i1 %.0.in.i
 }
 
@@ -2974,7 +2974,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$rustls..msgs..enums..KeyUpdateRequest$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e235b13780a8f8bE.exit"
 
 "_ZN74_$LT$rustls..msgs..enums..KeyUpdateRequest$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e235b13780a8f8bE.exit": ; preds = %6, %8, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -3065,7 +3065,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN81_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h9dd2885975c50069E.exit"
 
 "_ZN81_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h9dd2885975c50069E.exit": ; preds = %11, %14, %17, %20
-  %.0.in.i = phi i1 [ %21, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0.in.i = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %21, %20 ]
   ret i1 %.0.in.i
 }
 
@@ -3145,7 +3145,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN79_$LT$rustls..msgs..enums..CertificateStatusType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5f17061b444f0df5E.exit"
 
 "_ZN79_$LT$rustls..msgs..enums..CertificateStatusType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5f17061b444f0df5E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -4672,8 +4672,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17h9cf0cba0bf051babE.llvm.6030771845222660662.exit"
 
 "_ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17h9cf0cba0bf051babE.llvm.6030771845222660662.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.sroa.15.0.i.i = phi i16 [ %20, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %4 ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i16 [ %18, %16 ], [ 22, %15 ], [ 36, %14 ], [ 32, %13 ], [ 23, %12 ], [ 5, %11 ], [ 19, %10 ], [ 21, %9 ], [ 31, %8 ], [ 16, %7 ], [ 35, %6 ], [ 20, %5 ], [ 0, %4 ], [ 11, %2 ]
+  %.sroa.15.0.i.i = phi i16 [ undef, %4 ], [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ %20, %16 ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i16 [ 0, %4 ], [ 20, %5 ], [ 35, %6 ], [ 16, %7 ], [ 31, %8 ], [ 21, %9 ], [ 19, %10 ], [ 5, %11 ], [ 23, %12 ], [ 32, %13 ], [ 36, %14 ], [ 22, %15 ], [ %18, %16 ], [ 11, %2 ]
   %21 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i.i, 0
   %22 = insertvalue { i16, i16 } %21, i16 %.sroa.15.0.i.i, 1
   ret { i16, i16 } %22
@@ -4708,8 +4708,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17h45280a645a483524E.llvm.6030771845222660662.exit"
 
 "_ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17h45280a645a483524E.llvm.6030771845222660662.exit": ; preds = %2, %6, %7, %8
-  %.sroa.5.0.i.i = phi i16 [ %12, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i16 [ %10, %8 ], [ 23, %7 ], [ 24, %6 ], [ 31, %2 ]
+  %.sroa.5.0.i.i = phi i16 [ undef, %6 ], [ undef, %7 ], [ %12, %8 ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i16 [ 24, %6 ], [ 23, %7 ], [ %10, %8 ], [ 31, %2 ]
   %13 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i.i, 0
   %14 = insertvalue { i16, i16 } %13, i16 %.sroa.5.0.i.i, 1
   ret { i16, i16 } %14
@@ -4794,8 +4794,8 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls4msgs9handshake18ClientHelloPayload23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha8df7e25aa650e14E.llvm.6030771845222660662.exit"
 
 "_ZN6rustls4msgs9handshake18ClientHelloPayload23has_duplicate_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha8df7e25aa650e14E.llvm.6030771845222660662.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19
-  %.sroa.18.0.i.i = phi i16 [ %23, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %4 ], [ undef, %2 ]
-  %.sroa.0.0.i.i = phi i16 [ %21, %19 ], [ 22, %18 ], [ 36, %17 ], [ 32, %16 ], [ 5, %15 ], [ 19, %14 ], [ 24, %13 ], [ 21, %12 ], [ 25, %11 ], [ 31, %10 ], [ 23, %9 ], [ 16, %8 ], [ 20, %7 ], [ 0, %6 ], [ 13, %5 ], [ 10, %4 ], [ 11, %2 ]
+  %.sroa.18.0.i.i = phi i16 [ undef, %4 ], [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ %23, %19 ], [ undef, %2 ]
+  %.sroa.0.0.i.i = phi i16 [ 10, %4 ], [ 13, %5 ], [ 0, %6 ], [ 20, %7 ], [ 16, %8 ], [ 23, %9 ], [ 31, %10 ], [ 25, %11 ], [ 21, %12 ], [ 24, %13 ], [ 19, %14 ], [ 5, %15 ], [ 32, %16 ], [ 36, %17 ], [ 22, %18 ], [ %21, %19 ], [ 11, %2 ]
   %24 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i.i, 0
   %25 = insertvalue { i16, i16 } %24, i16 %.sroa.18.0.i.i, 1
   ret { i16, i16 } %25
@@ -5760,7 +5760,7 @@ define hidden noundef i16 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$
   br label %"_ZN6rustls4msgs5enums95_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ExtensionType$GT$$u20$for$u20$u16$GT$4from17h302f5b3706e03197E.exit"
 
 "_ZN6rustls4msgs5enums95_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..ExtensionType$GT$$u20$for$u20$u16$GT$4from17h302f5b3706e03197E.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24
-  %.0.i = phi i16 [ %1, %24 ], [ -91, %23 ], [ -255, %22 ], [ 30031, %21 ], [ 13172, %20 ], [ 57, %19 ], [ 51, %18 ], [ 50, %17 ], [ 49, %16 ], [ 48, %15 ], [ 47, %14 ], [ 46, %13 ], [ 45, %12 ], [ 44, %11 ], [ 43, %10 ], [ 42, %9 ], [ 41, %8 ], [ 35, %7 ], [ 23, %6 ], [ 21, %5 ], [ 18, %4 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
+  %.0.i = phi i16 [ 18, %4 ], [ 21, %5 ], [ 23, %6 ], [ 35, %7 ], [ 41, %8 ], [ 42, %9 ], [ 43, %10 ], [ 44, %11 ], [ 45, %12 ], [ 46, %13 ], [ 47, %14 ], [ 48, %15 ], [ 49, %16 ], [ 50, %17 ], [ 51, %18 ], [ 57, %19 ], [ 13172, %20 ], [ 30031, %21 ], [ -255, %22 ], [ -91, %23 ], [ %1, %24 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i16 %.0.i
 }
 
@@ -7295,8 +7295,8 @@ default.unreachable:                              ; preds = %10
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %10
-  %.sroa.15.0.i.i = phi i16 [ %30, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %10 ]
-  %.sroa.0.0.i.i = phi i16 [ %28, %26 ], [ 22, %25 ], [ 36, %24 ], [ 32, %23 ], [ 23, %22 ], [ 5, %21 ], [ 19, %20 ], [ 21, %19 ], [ 31, %18 ], [ 16, %17 ], [ 35, %16 ], [ 20, %15 ], [ 0, %14 ], [ 11, %10 ]
+  %.sroa.15.0.i.i = phi i16 [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ %30, %26 ], [ undef, %10 ]
+  %.sroa.0.0.i.i = phi i16 [ 0, %14 ], [ 20, %15 ], [ 35, %16 ], [ 16, %17 ], [ 31, %18 ], [ 21, %19 ], [ 19, %20 ], [ 5, %21 ], [ 23, %22 ], [ 32, %23 ], [ 36, %24 ], [ 22, %25 ], [ %28, %26 ], [ 11, %10 ]
   %31 = icmp eq i16 %.sroa.0.0.i.i, %6
   %32 = icmp eq i16 %.sroa.15.0.i.i, %8
   %or.cond = select i1 %9, i1 true, i1 %32
@@ -7897,7 +7897,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN78_$LT$rustls..msgs..enums..AlertLevel$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h37b8a9a9c961b83dE.exit"
 
 "_ZN78_$LT$rustls..msgs..enums..AlertLevel$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h37b8a9a9c961b83dE.exit": ; preds = %2, %4, %5
-  %.0.i.i = phi i8 [ %7, %5 ], [ 2, %4 ], [ 1, %2 ]
+  %.0.i.i = phi i8 [ 2, %4 ], [ %7, %5 ], [ 1, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8f7e363601c96fb9E.llvm.12014582817787848890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef %.0.i.i), !noalias !911
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !914)
@@ -8227,8 +8227,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit
 
 _ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit: ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19
-  %.sroa.18.0.i = phi i16 [ %23, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %4 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i16 [ %21, %19 ], [ 22, %18 ], [ 36, %17 ], [ 32, %16 ], [ 5, %15 ], [ 19, %14 ], [ 24, %13 ], [ 21, %12 ], [ 25, %11 ], [ 31, %10 ], [ 23, %9 ], [ 16, %8 ], [ 20, %7 ], [ 0, %6 ], [ 13, %5 ], [ 10, %4 ], [ 11, %2 ]
+  %.sroa.18.0.i = phi i16 [ undef, %4 ], [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ %23, %19 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i16 [ 10, %4 ], [ 13, %5 ], [ 0, %6 ], [ 20, %7 ], [ 16, %8 ], [ 23, %9 ], [ 31, %10 ], [ 25, %11 ], [ 21, %12 ], [ 24, %13 ], [ 19, %14 ], [ 5, %15 ], [ 32, %16 ], [ 36, %17 ], [ 22, %18 ], [ %21, %19 ], [ 11, %2 ]
   %24 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
   %25 = insertvalue { i16, i16 } %24, i16 %.sroa.18.0.i, 1
   ret { i16, i16 } %25
@@ -8359,8 +8359,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit
 
 _ZN6rustls4msgs9handshake19HelloRetryExtension8ext_type17hf33d2846287d81f7E.exit: ; preds = %2, %6, %7, %8
-  %.sroa.5.0.i = phi i16 [ %12, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i16 [ %10, %8 ], [ 23, %7 ], [ 24, %6 ], [ 31, %2 ]
+  %.sroa.5.0.i = phi i16 [ undef, %6 ], [ undef, %7 ], [ %12, %8 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i16 [ 24, %6 ], [ 23, %7 ], [ %10, %8 ], [ 31, %2 ]
   %13 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
   %14 = insertvalue { i16, i16 } %13, i16 %.sroa.5.0.i, 1
   ret { i16, i16 } %14
@@ -8459,8 +8459,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit: ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.sroa.15.0.i = phi i16 [ %20, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %4 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i16 [ %18, %16 ], [ 22, %15 ], [ 36, %14 ], [ 32, %13 ], [ 23, %12 ], [ 5, %11 ], [ 19, %10 ], [ 21, %9 ], [ 31, %8 ], [ 16, %7 ], [ 35, %6 ], [ 20, %5 ], [ 0, %4 ], [ 11, %2 ]
+  %.sroa.15.0.i = phi i16 [ undef, %4 ], [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ %20, %16 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i16 [ 0, %4 ], [ 20, %5 ], [ 35, %6 ], [ 16, %7 ], [ 31, %8 ], [ 21, %9 ], [ 19, %10 ], [ 5, %11 ], [ 23, %12 ], [ 32, %13 ], [ 36, %14 ], [ 22, %15 ], [ %18, %16 ], [ 11, %2 ]
   %21 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
   %22 = insertvalue { i16, i16 } %21, i16 %.sroa.15.0.i, 1
   ret { i16, i16 } %22
@@ -8548,8 +8548,8 @@ default.unreachable:                              ; preds = %11
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i: ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %11
-  %.sroa.15.0.i.i.i = phi i16 [ %31, %27 ], [ undef, %26 ], [ undef, %25 ], [ undef, %24 ], [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %20 ], [ undef, %19 ], [ undef, %18 ], [ undef, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %11 ]
-  %.sroa.0.0.i.i.i = phi i16 [ %29, %27 ], [ 22, %26 ], [ 36, %25 ], [ 32, %24 ], [ 23, %23 ], [ 5, %22 ], [ 19, %21 ], [ 21, %20 ], [ 31, %19 ], [ 16, %18 ], [ 35, %17 ], [ 20, %16 ], [ 0, %15 ], [ 11, %11 ]
+  %.sroa.15.0.i.i.i = phi i16 [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ undef, %26 ], [ %31, %27 ], [ undef, %11 ]
+  %.sroa.0.0.i.i.i = phi i16 [ 0, %15 ], [ 20, %16 ], [ 35, %17 ], [ 16, %18 ], [ 31, %19 ], [ 21, %20 ], [ 19, %21 ], [ 5, %22 ], [ 23, %23 ], [ 32, %24 ], [ 36, %25 ], [ 22, %26 ], [ %29, %27 ], [ 11, %11 ]
   %32 = icmp eq i16 %.sroa.0.0.i.i.i, %1
   %33 = icmp eq i16 %.sroa.15.0.i.i.i, %2
   %or.cond.i = select i1 %10, i1 true, i1 %33
@@ -8633,8 +8633,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit: ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.sroa.15.0.i = phi i16 [ %21, %17 ], [ undef, %16 ], [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %10 ], [ undef, %9 ], [ undef, %8 ], [ undef, %7 ], [ undef, %6 ], [ undef, %5 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i16 [ %19, %17 ], [ 22, %16 ], [ 36, %15 ], [ 32, %14 ], [ 23, %13 ], [ 5, %12 ], [ 19, %11 ], [ 21, %10 ], [ 31, %9 ], [ 16, %8 ], [ 35, %7 ], [ 20, %6 ], [ 0, %5 ], [ 11, %2 ]
+  %.sroa.15.0.i = phi i16 [ undef, %5 ], [ undef, %6 ], [ undef, %7 ], [ undef, %8 ], [ undef, %9 ], [ undef, %10 ], [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ %21, %17 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i16 [ 0, %5 ], [ 20, %6 ], [ 35, %7 ], [ 16, %8 ], [ 31, %9 ], [ 21, %10 ], [ 19, %11 ], [ 5, %12 ], [ 23, %13 ], [ 32, %14 ], [ 36, %15 ], [ 22, %16 ], [ %19, %17 ], [ 11, %2 ]
   %22 = load ptr, ptr %0, align 8, !nonnull !7, !align !95, !noundef !7
   %23 = load i16, ptr %22, align 2, !range !16, !noundef !7
   %24 = icmp eq i16 %.sroa.0.0.i, %23
@@ -8935,7 +8935,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   ret i1 %32
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %28, %.thread59, %27, %26, %25, %.thread56, %.thread53, %24, %23, %22, %21, %20, %.thread50, %.thread47, %.thread44, %.thread41, %.thread38, %.thread35, %.thread32, %19, %18, %.thread29, %.thread26, %.thread23, %.thread20, %.thread17, %15
-  %.0.i.i = phi i16 [ %30, %28 ], [ -91, %.thread59 ], [ -255, %27 ], [ 30031, %26 ], [ 13172, %25 ], [ 57, %.thread56 ], [ 51, %.thread53 ], [ 50, %24 ], [ 49, %23 ], [ 48, %22 ], [ 47, %21 ], [ 46, %20 ], [ 45, %.thread50 ], [ 44, %.thread47 ], [ 43, %.thread44 ], [ 42, %.thread41 ], [ 41, %.thread38 ], [ 35, %.thread35 ], [ 23, %.thread32 ], [ 21, %19 ], [ 18, %18 ], [ 16, %.thread29 ], [ 13, %.thread26 ], [ 11, %.thread23 ], [ 10, %.thread20 ], [ 5, %.thread17 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
+  %.0.i.i = phi i16 [ 5, %.thread17 ], [ 10, %.thread20 ], [ 11, %.thread23 ], [ 13, %.thread26 ], [ 16, %.thread29 ], [ 18, %18 ], [ 21, %19 ], [ 23, %.thread32 ], [ 35, %.thread35 ], [ 41, %.thread38 ], [ 42, %.thread41 ], [ 43, %.thread44 ], [ 44, %.thread47 ], [ 45, %.thread50 ], [ 46, %20 ], [ 47, %21 ], [ 48, %22 ], [ 49, %23 ], [ 50, %24 ], [ 51, %.thread53 ], [ 57, %.thread56 ], [ 13172, %25 ], [ 30031, %26 ], [ -255, %27 ], [ -91, %.thread59 ], [ %30, %28 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1090
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1093
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -9161,7 +9161,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   ret i1 %33
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %29, %.thread50, %.thread47, %28, %27, %.thread44, %.thread41, %26, %25, %24, %23, %22, %21, %20, %.thread38, %.thread35, %.thread32, %.thread29, %.thread26, %19, %18, %.thread23, %.thread20, %.thread17, %15
-  %.0.i.i = phi i16 [ %31, %29 ], [ -91, %.thread50 ], [ -255, %.thread47 ], [ 30031, %28 ], [ 13172, %27 ], [ 57, %.thread44 ], [ 51, %.thread41 ], [ 50, %26 ], [ 49, %25 ], [ 48, %24 ], [ 47, %23 ], [ 46, %22 ], [ 45, %21 ], [ 44, %20 ], [ 43, %.thread38 ], [ 42, %.thread35 ], [ 41, %.thread32 ], [ 35, %.thread29 ], [ 23, %.thread26 ], [ 21, %19 ], [ 18, %18 ], [ 16, %.thread23 ], [ 11, %.thread20 ], [ 5, %.thread17 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
+  %.0.i.i = phi i16 [ 5, %.thread17 ], [ 11, %.thread20 ], [ 16, %.thread23 ], [ 18, %18 ], [ 21, %19 ], [ 23, %.thread26 ], [ 35, %.thread29 ], [ 41, %.thread32 ], [ 42, %.thread35 ], [ 43, %.thread38 ], [ 44, %20 ], [ 45, %21 ], [ 46, %22 ], [ 47, %23 ], [ 48, %24 ], [ 49, %25 ], [ 50, %26 ], [ 51, %.thread41 ], [ 57, %.thread44 ], [ 13172, %27 ], [ 30031, %28 ], [ -255, %.thread47 ], [ -91, %.thread50 ], [ %31, %29 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1123
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -9454,7 +9454,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret i1 %42
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %.lr.ph
-  %.0.i.i = phi i16 [ %.sroa.3.0.i.i.i.i, %38 ], [ -91, %37 ], [ -255, %36 ], [ 30031, %35 ], [ 13172, %34 ], [ 57, %33 ], [ 51, %32 ], [ 50, %31 ], [ 49, %30 ], [ 48, %29 ], [ 47, %28 ], [ 46, %27 ], [ 45, %26 ], [ 44, %25 ], [ 43, %24 ], [ 42, %23 ], [ 41, %22 ], [ 35, %21 ], [ 23, %20 ], [ 21, %19 ], [ 18, %18 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ]
+  %.0.i.i = phi i16 [ 18, %18 ], [ 21, %19 ], [ 23, %20 ], [ 35, %21 ], [ 41, %22 ], [ 42, %23 ], [ 43, %24 ], [ 44, %25 ], [ 45, %26 ], [ 46, %27 ], [ 47, %28 ], [ 48, %29 ], [ 49, %30 ], [ 50, %31 ], [ 51, %32 ], [ 57, %33 ], [ 13172, %34 ], [ 30031, %35 ], [ -255, %36 ], [ -91, %37 ], [ %.sroa.3.0.i.i.i.i, %38 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1178
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1181
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -9680,7 +9680,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   ret i1 %33
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %29, %.thread50, %.thread47, %28, %27, %.thread44, %.thread41, %26, %25, %24, %23, %22, %21, %20, %.thread38, %.thread35, %.thread32, %.thread29, %.thread26, %19, %18, %.thread23, %.thread20, %.thread17, %15
-  %.0.i.i = phi i16 [ %31, %29 ], [ -91, %.thread50 ], [ -255, %.thread47 ], [ 30031, %28 ], [ 13172, %27 ], [ 57, %.thread44 ], [ 51, %.thread41 ], [ 50, %26 ], [ 49, %25 ], [ 48, %24 ], [ 47, %23 ], [ 46, %22 ], [ 45, %21 ], [ 44, %20 ], [ 43, %.thread38 ], [ 42, %.thread35 ], [ 41, %.thread32 ], [ 35, %.thread29 ], [ 23, %.thread26 ], [ 21, %19 ], [ 18, %18 ], [ 16, %.thread23 ], [ 11, %.thread20 ], [ 5, %.thread17 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
+  %.0.i.i = phi i16 [ 5, %.thread17 ], [ 11, %.thread20 ], [ 16, %.thread23 ], [ 18, %18 ], [ 21, %19 ], [ 23, %.thread26 ], [ 35, %.thread29 ], [ 41, %.thread32 ], [ 42, %.thread35 ], [ 43, %.thread38 ], [ 44, %20 ], [ 45, %21 ], [ 46, %22 ], [ 47, %23 ], [ 48, %24 ], [ 49, %25 ], [ 50, %26 ], [ 51, %.thread41 ], [ 57, %.thread44 ], [ 13172, %27 ], [ 30031, %28 ], [ -255, %.thread47 ], [ -91, %.thread50 ], [ %31, %29 ], [ %17, %15 ], [ 0, %.lr.ph ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1208
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1211
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -9882,7 +9882,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret i1 %42
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %.lr.ph
-  %.0.i.i = phi i16 [ %.sroa.3.0.i.i.i.i, %38 ], [ -91, %37 ], [ -255, %36 ], [ 30031, %35 ], [ 13172, %34 ], [ 57, %33 ], [ 51, %32 ], [ 50, %31 ], [ 49, %30 ], [ 48, %29 ], [ 47, %28 ], [ 46, %27 ], [ 45, %26 ], [ 44, %25 ], [ 43, %24 ], [ 42, %23 ], [ 41, %22 ], [ 35, %21 ], [ 23, %20 ], [ 21, %19 ], [ 18, %18 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ]
+  %.0.i.i = phi i16 [ 18, %18 ], [ 21, %19 ], [ 23, %20 ], [ 35, %21 ], [ 41, %22 ], [ 42, %23 ], [ 43, %24 ], [ 44, %25 ], [ 45, %26 ], [ 46, %27 ], [ 47, %28 ], [ 48, %29 ], [ 49, %30 ], [ 50, %31 ], [ 51, %32 ], [ 57, %33 ], [ 13172, %34 ], [ 30031, %35 ], [ -255, %36 ], [ -91, %37 ], [ %.sroa.3.0.i.i.i.i, %38 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1238
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1241
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -10091,7 +10091,7 @@ default.unreachable:                              ; preds = %17, %.lr.ph
   ret i1 %41
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %37, %36, %35, %34, %33, %32, %.thread20, %31, %30, %29, %28, %27, %26, %.thread17, %.thread14, %25, %24, %23, %22, %21, %20, %17
-  %.0.i.i = phi i16 [ %39, %37 ], [ -91, %36 ], [ -255, %35 ], [ 30031, %34 ], [ 13172, %33 ], [ 57, %32 ], [ 51, %.thread20 ], [ 50, %31 ], [ 49, %30 ], [ 48, %29 ], [ 47, %28 ], [ 46, %27 ], [ 45, %26 ], [ 44, %.thread17 ], [ 43, %.thread14 ], [ 42, %25 ], [ 41, %24 ], [ 35, %23 ], [ 23, %22 ], [ 21, %21 ], [ 18, %20 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ]
+  %.0.i.i = phi i16 [ 18, %20 ], [ 21, %21 ], [ 23, %22 ], [ 35, %23 ], [ 41, %24 ], [ 42, %25 ], [ 43, %.thread14 ], [ 44, %.thread17 ], [ 45, %26 ], [ 46, %27 ], [ 47, %28 ], [ 48, %29 ], [ 49, %30 ], [ 50, %31 ], [ 51, %.thread20 ], [ 57, %32 ], [ 13172, %33 ], [ 30031, %34 ], [ -255, %35 ], [ -91, %36 ], [ %39, %37 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ], [ %19, %17 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1268
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1271
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h479acec3a504a9d4E.llvm.5361720058829915877"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i16 noundef %.0.i.i)
@@ -12198,7 +12198,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %102
-  %.0.i.i = phi i16 [ %115, %114 ], [ 260, %113 ], [ 259, %112 ], [ 258, %111 ], [ 257, %110 ], [ 256, %109 ], [ 30, %108 ], [ 29, %107 ], [ 25, %106 ], [ 24, %105 ], [ 23, %102 ]
+  %.0.i.i = phi i16 [ 24, %105 ], [ 25, %106 ], [ 29, %107 ], [ 30, %108 ], [ 256, %109 ], [ 257, %110 ], [ 258, %111 ], [ 259, %112 ], [ 260, %113 ], [ %115, %114 ], [ 23, %102 ]
   store i16 %.0.i.i, ptr %8, align 2
   %116 = invoke noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h4d99898edf8a0f98E.llvm.17726792709170085280(ptr noalias noundef readonly align 2 dereferenceable(4) @anon.a568c7da4921ec2ed34cb4ede4839d57.41.llvm.17726792709170085280, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %8)
           to label %117 unwind label %.loopexit138
@@ -12270,8 +12270,8 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   ]
 
 141:                                              ; preds = %144, %143, %.lr.ph.i
-  %.sroa.3.1.i = phi ptr [ %.sroa.3.011.i, %.lr.ph.i ], [ %139, %144 ], [ %.sroa.3.011.i, %143 ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.012.i, %.lr.ph.i ], [ %.sroa.0.012.i, %144 ], [ %139, %143 ]
+  %.sroa.3.1.i = phi ptr [ %.sroa.3.011.i, %.lr.ph.i ], [ %.sroa.3.011.i, %143 ], [ %139, %144 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.012.i, %.lr.ph.i ], [ %139, %143 ], [ %.sroa.0.012.i, %144 ]
   %142 = icmp eq ptr %138, %20
   br i1 %142, label %.loopexit, label %.lr.ph.i
 
@@ -12789,7 +12789,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   br label %"_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i"
 
 "_ZN6rustls4msgs5enums92_$LT$impl$u20$core..convert..From$LT$rustls..msgs..enums..NamedGroup$GT$$u20$for$u20$u16$GT$4from17h4cb0612d2458757fE.exit.i": ; preds = %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %102
-  %.0.i.i = phi i16 [ %115, %114 ], [ 260, %113 ], [ 259, %112 ], [ 258, %111 ], [ 257, %110 ], [ 256, %109 ], [ 30, %108 ], [ 29, %107 ], [ 25, %106 ], [ 24, %105 ], [ 23, %102 ]
+  %.0.i.i = phi i16 [ 24, %105 ], [ 25, %106 ], [ 29, %107 ], [ 30, %108 ], [ 256, %109 ], [ 257, %110 ], [ 258, %111 ], [ 259, %112 ], [ 260, %113 ], [ %115, %114 ], [ 23, %102 ]
   store i16 %.0.i.i, ptr %8, align 2
   %116 = invoke noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h4d99898edf8a0f98E.llvm.17726792709170085280(ptr noalias noundef readonly align 2 dereferenceable(4) @anon.a568c7da4921ec2ed34cb4ede4839d57.41.llvm.17726792709170085280, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %8)
           to label %117 unwind label %.loopexit138
@@ -12861,8 +12861,8 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   ]
 
 141:                                              ; preds = %144, %143, %.lr.ph.i
-  %.sroa.3.1.i = phi ptr [ %.sroa.3.011.i, %.lr.ph.i ], [ %139, %144 ], [ %.sroa.3.011.i, %143 ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.012.i, %.lr.ph.i ], [ %.sroa.0.012.i, %144 ], [ %139, %143 ]
+  %.sroa.3.1.i = phi ptr [ %.sroa.3.011.i, %.lr.ph.i ], [ %.sroa.3.011.i, %143 ], [ %139, %144 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.012.i, %.lr.ph.i ], [ %139, %143 ], [ %.sroa.0.012.i, %144 ]
   %142 = icmp eq ptr %138, %20
   br i1 %142, label %.loopexit, label %.lr.ph.i
 
@@ -14498,7 +14498,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %11, %9, %7, %5
-  %.0.in = phi i1 [ %13, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ]
   ret i1 %.0.in
 }
 
@@ -14731,7 +14731,7 @@ default.unreachable1:                             ; preds = %2
   br label %82
 
 82:                                               ; preds = %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0.in = phi i1 [ %81, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %81, %79 ]
   ret i1 %.0.in
 }
 
@@ -14779,7 +14779,7 @@ define internal noundef zeroext i1 @"_ZN72_$LT$rustls..msgs..enums..ServerNameTy
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -14853,7 +14853,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 28:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0.in = phi i1 [ %27, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %27, %25 ]
   ret i1 %.0.in
 }
 
@@ -14916,7 +14916,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %11, %9, %7, %5
-  %.0.in = phi i1 [ %13, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ]
   ret i1 %.0.in
 }
 
@@ -15048,7 +15048,7 @@ default.unreachable1:                             ; preds = %2
   br label %26
 
 26:                                               ; preds = %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0.in = phi i1 [ %25, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ]
   ret i1 %.0.in
 }
 
@@ -16976,7 +16976,7 @@ default.unreachable1:                             ; preds = %2
   br label %760
 
 760:                                              ; preds = %757, %755, %753, %751, %749, %747, %745, %743, %741, %739, %737, %735, %733, %731, %729, %727, %725, %723, %721, %719, %717, %715, %713, %711, %709, %707, %705, %703, %701, %699, %697, %695, %693, %691, %689, %687, %685, %683, %681, %679, %677, %675, %673, %671, %669, %667, %665, %663, %661, %659, %657, %655, %653, %651, %649, %647, %645, %643, %641, %639, %637, %635, %633, %631, %629, %627, %625, %623, %621, %619, %617, %615, %613, %611, %609, %607, %605, %603, %601, %599, %597, %595, %593, %591, %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %527, %525, %523, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0.in = phi i1 [ %759, %757 ], [ %756, %755 ], [ %754, %753 ], [ %752, %751 ], [ %750, %749 ], [ %748, %747 ], [ %746, %745 ], [ %744, %743 ], [ %742, %741 ], [ %740, %739 ], [ %738, %737 ], [ %736, %735 ], [ %734, %733 ], [ %732, %731 ], [ %730, %729 ], [ %728, %727 ], [ %726, %725 ], [ %724, %723 ], [ %722, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %712, %711 ], [ %710, %709 ], [ %708, %707 ], [ %706, %705 ], [ %704, %703 ], [ %702, %701 ], [ %700, %699 ], [ %698, %697 ], [ %696, %695 ], [ %694, %693 ], [ %692, %691 ], [ %690, %689 ], [ %688, %687 ], [ %686, %685 ], [ %684, %683 ], [ %682, %681 ], [ %680, %679 ], [ %678, %677 ], [ %676, %675 ], [ %674, %673 ], [ %672, %671 ], [ %670, %669 ], [ %668, %667 ], [ %666, %665 ], [ %664, %663 ], [ %662, %661 ], [ %660, %659 ], [ %658, %657 ], [ %656, %655 ], [ %654, %653 ], [ %652, %651 ], [ %650, %649 ], [ %648, %647 ], [ %646, %645 ], [ %644, %643 ], [ %642, %641 ], [ %640, %639 ], [ %638, %637 ], [ %636, %635 ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ %628, %627 ], [ %626, %625 ], [ %624, %623 ], [ %622, %621 ], [ %620, %619 ], [ %618, %617 ], [ %616, %615 ], [ %614, %613 ], [ %612, %611 ], [ %610, %609 ], [ %608, %607 ], [ %606, %605 ], [ %604, %603 ], [ %602, %601 ], [ %600, %599 ], [ %598, %597 ], [ %596, %595 ], [ %594, %593 ], [ %592, %591 ], [ %590, %589 ], [ %588, %587 ], [ %586, %585 ], [ %584, %583 ], [ %582, %581 ], [ %580, %579 ], [ %578, %577 ], [ %576, %575 ], [ %574, %573 ], [ %572, %571 ], [ %570, %569 ], [ %568, %567 ], [ %566, %565 ], [ %564, %563 ], [ %562, %561 ], [ %560, %559 ], [ %558, %557 ], [ %556, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %548, %547 ], [ %546, %545 ], [ %544, %543 ], [ %542, %541 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %534, %533 ], [ %532, %531 ], [ %530, %529 ], [ %528, %527 ], [ %526, %525 ], [ %524, %523 ], [ %522, %521 ], [ %520, %519 ], [ %518, %517 ], [ %516, %515 ], [ %514, %513 ], [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %500, %499 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %490, %489 ], [ %488, %487 ], [ %486, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %438, %437 ], [ %436, %435 ], [ %434, %433 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %486, %485 ], [ %488, %487 ], [ %490, %489 ], [ %492, %491 ], [ %494, %493 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %512, %511 ], [ %514, %513 ], [ %516, %515 ], [ %518, %517 ], [ %520, %519 ], [ %522, %521 ], [ %524, %523 ], [ %526, %525 ], [ %528, %527 ], [ %530, %529 ], [ %532, %531 ], [ %534, %533 ], [ %536, %535 ], [ %538, %537 ], [ %540, %539 ], [ %542, %541 ], [ %544, %543 ], [ %546, %545 ], [ %548, %547 ], [ %550, %549 ], [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %558, %557 ], [ %560, %559 ], [ %562, %561 ], [ %564, %563 ], [ %566, %565 ], [ %568, %567 ], [ %570, %569 ], [ %572, %571 ], [ %574, %573 ], [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %582, %581 ], [ %584, %583 ], [ %586, %585 ], [ %588, %587 ], [ %590, %589 ], [ %592, %591 ], [ %594, %593 ], [ %596, %595 ], [ %598, %597 ], [ %600, %599 ], [ %602, %601 ], [ %604, %603 ], [ %606, %605 ], [ %608, %607 ], [ %610, %609 ], [ %612, %611 ], [ %614, %613 ], [ %616, %615 ], [ %618, %617 ], [ %620, %619 ], [ %622, %621 ], [ %624, %623 ], [ %626, %625 ], [ %628, %627 ], [ %630, %629 ], [ %632, %631 ], [ %634, %633 ], [ %636, %635 ], [ %638, %637 ], [ %640, %639 ], [ %642, %641 ], [ %644, %643 ], [ %646, %645 ], [ %648, %647 ], [ %650, %649 ], [ %652, %651 ], [ %654, %653 ], [ %656, %655 ], [ %658, %657 ], [ %660, %659 ], [ %662, %661 ], [ %664, %663 ], [ %666, %665 ], [ %668, %667 ], [ %670, %669 ], [ %672, %671 ], [ %674, %673 ], [ %676, %675 ], [ %678, %677 ], [ %680, %679 ], [ %682, %681 ], [ %684, %683 ], [ %686, %685 ], [ %688, %687 ], [ %690, %689 ], [ %692, %691 ], [ %694, %693 ], [ %696, %695 ], [ %698, %697 ], [ %700, %699 ], [ %702, %701 ], [ %704, %703 ], [ %706, %705 ], [ %708, %707 ], [ %710, %709 ], [ %712, %711 ], [ %714, %713 ], [ %716, %715 ], [ %718, %717 ], [ %720, %719 ], [ %722, %721 ], [ %724, %723 ], [ %726, %725 ], [ %728, %727 ], [ %730, %729 ], [ %732, %731 ], [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %740, %739 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %748, %747 ], [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %756, %755 ], [ %759, %757 ]
   ret i1 %.0.in
 }
 
@@ -17089,7 +17089,7 @@ default.unreachable1:                             ; preds = %2
   br label %34
 
 34:                                               ; preds = %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0.in = phi i1 [ %33, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ]
   ret i1 %.0.in
 }
 

@@ -2424,8 +2424,8 @@ _ZN2rc3GenIN3nix17DerivedPathOpaqueEED2Ev.exit:   ; preds = %_ZNKSt7__cxx1112bas
   ret void
 
 232:                                              ; preds = %230, %133, %86, %38
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %230 ], [ %.pn8, %133 ], [ %.pn10, %86 ], [ %39, %38 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %86 ], [ %.pn8, %133 ], [ %.pn.pn, %230 ], [ %39, %38 ]
+  resume { ptr, i32 } %.pn10.pn
 }
 
 ; Function Attrs: mustprogress uwtable

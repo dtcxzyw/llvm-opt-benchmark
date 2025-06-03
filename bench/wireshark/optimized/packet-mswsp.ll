@@ -4060,7 +4060,7 @@ vType_get_type.exit:                              ; preds = %15
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge, %58, %54
-  %.0117 = phi i32 [ %44, %99 ], [ %98, %._crit_edge ], [ %69, %58 ], [ %57, %54 ]
+  %.0117 = phi i32 [ %44, %99 ], [ %57, %54 ], [ %69, %58 ], [ %98, %._crit_edge ]
   %102 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %102, ptr noundef %0, i32 noundef %.0117)
   call void @proto_item_set_end(ptr noundef %48, ptr noundef %0, i32 noundef %.0117)
@@ -4974,7 +4974,7 @@ parse_rType.exit:                                 ; preds = %7, %7, %7, %7, %7, 
   br label %68
 
 68:                                               ; preds = %66, %61, %56, %51, %46, %41, %36, %31, %parse_rType.exit
-  %.0 = phi i32 [ %29, %66 ], [ %65, %61 ], [ %60, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %29, %parse_rType.exit ]
+  %.0 = phi i32 [ %29, %66 ], [ %29, %parse_rType.exit ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %65, %61 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   %69 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %69, ptr noundef %0, i32 noundef %.0)

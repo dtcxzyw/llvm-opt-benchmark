@@ -456,7 +456,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN90_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..fmt..Debug$GT$3fmt17he145d1c8a4b5209bE.exit"
 
 "_ZN90_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..fmt..Debug$GT$3fmt17he145d1c8a4b5209bE.exit": ; preds = %14, %18, %22, %25, %28
-  %.sroa.0.0.in.i = phi i1 [ %31, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ %27, %25 ], [ %31, %28 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -522,7 +522,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd70c91bfe0cc495aE.exit"
 
 "_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd70c91bfe0cc495aE.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -693,7 +693,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN77_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7be010c5372d694fE.exit"
 
 "_ZN77_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7be010c5372d694fE.exit": ; preds = %18, %20, %23, %27, %32, %36, %40, %44
-  %.sroa.0.0.in.i = phi i1 [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %27 ], [ %26, %23 ], [ %22, %20 ], [ %19, %18 ]
+  %.sroa.0.0.in.i = phi i1 [ %19, %18 ], [ %22, %20 ], [ %26, %23 ], [ %31, %27 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -826,7 +826,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$rmp_serde..decode..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695874425a4f120E.exit"
 
 "_ZN61_$LT$rmp_serde..decode..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h0695874425a4f120E.exit": ; preds = %12, %15, %18, %21, %23, %26, %29, %32, %35
-  %.sroa.0.0.in.i = phi i1 [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -986,7 +986,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN73_$LT$uv_pep508..origin..RequirementOrigin$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0876d0b9e4ea840E.exit"
 
 "_ZN73_$LT$uv_pep508..origin..RequirementOrigin$u20$as$u20$core..fmt..Debug$GT$3fmt17ha0876d0b9e4ea840E.exit": ; preds = %12, %15, %19, %23
-  %.sroa.0.0.in.i = phi i1 [ %24, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1016,7 +1016,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN74_$LT$rmp..encode..ValueWriteError$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd92f398b088995aE.exit"
 
 "_ZN74_$LT$rmp..encode..ValueWriteError$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd92f398b088995aE.exit": ; preds = %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1136,7 +1136,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN89_$LT$uv_distribution_types..installed..InstalledDistError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a62cae97d2e3453E.exit"
 
 "_ZN89_$LT$uv_distribution_types..installed..InstalledDistError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a62cae97d2e3453E.exit": ; preds = %19, %22, %25, %28, %30, %33, %36, %39, %42, %46
-  %.sroa.0.0.in.i = phi i1 [ %49, %46 ], [ %45, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
+  %.sroa.0.0.in.i = phi i1 [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %29, %28 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %45, %42 ], [ %49, %46 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1373,7 +1373,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN75_$LT$uv_pypi_types..metadata..MetadataError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc5a296df3559d15E.exit"
 
 "_ZN75_$LT$uv_pypi_types..metadata..MetadataError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc5a296df3559d15E.exit": ; preds = %18, %21, %24, %27, %29, %32, %35, %38, %41, %44, %47, %50, %53, %55, %58
-  %.sroa.0.0.in.i = phi i1 [ %60, %58 ], [ %57, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
+  %.sroa.0.0.in.i = phi i1 [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %28, %27 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %54, %53 ], [ %57, %55 ], [ %60, %58 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1433,7 +1433,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN88_$LT$uv_distribution_filename..egg..EggInfoFilenameError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2646292ef368b1aaE.exit"
 
 "_ZN88_$LT$uv_distribution_filename..egg..EggInfoFilenameError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2646292ef368b1aaE.exit": ; preds = %13, %16, %19, %22
-  %.sroa.0.0.in.i = phi i1 [ %25, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %25, %22 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1482,7 +1482,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$uv_client..flat_index..FlatIndexError$u20$as$u20$core..fmt..Debug$GT$3fmt17h68abef19ce88ff30E.exit"
 
 "_ZN74_$LT$uv_client..flat_index..FlatIndexError$u20$as$u20$core..fmt..Debug$GT$3fmt17h68abef19ce88ff30E.exit": ; preds = %10, %13, %17
-  %.sroa.0.0.in.i = phi i1 [ %19, %17 ], [ %16, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %16, %13 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2308,7 +2308,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 

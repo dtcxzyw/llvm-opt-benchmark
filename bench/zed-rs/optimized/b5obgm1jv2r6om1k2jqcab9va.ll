@@ -2333,7 +2333,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %38 = trunc i64 %31 to i32
   %39 = icmp ult i32 %38, 8
-  br i1 %39, label %42, label %59
+  br i1 %39, label %42, label %58
 
 40:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !527
@@ -2382,43 +2382,43 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6
   br label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit"
 
 52:                                               ; preds = %17, %56, %46
-  %.sroa.023.0 = phi i64 [ 4, %46 ], [ %57, %56 ], [ 8, %17 ]
+  %.sroa.023.0 = phi i64 [ %57, %56 ], [ 4, %46 ], [ 8, %17 ]
   %.val41 = load ptr, ptr %2, align 8, !nonnull !7, !align !19, !noundef !7
   %53 = getelementptr inbounds nuw i8, ptr %.val41, i64 16
   %54 = load i64, ptr %53, align 8, !noundef !7
   %55 = icmp ugt i64 %.sroa.023.0, %54
   br i1 %55, label %74, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit"
 
-.loopexit96:                                      ; preds = %63, %.loopexit, %14, %22, %74, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit", %66, %47, %44
-  %.sroa.01.0 = phi ptr [ %75, %74 ], [ null, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %45, %44 ], [ %67, %66 ], [ %48, %47 ], [ %15, %14 ], [ %25, %22 ], [ %.sroa.10.1, %.loopexit ], [ %64, %63 ]
+.loopexit96:                                      ; preds = %63, %14, %22, %74, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit", %66, %.loopexit, %47, %44
+  %.sroa.01.0 = phi ptr [ %75, %74 ], [ null, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %48, %47 ], [ %67, %66 ], [ %.sroa.10.1, %.loopexit ], [ %45, %44 ], [ %15, %14 ], [ %25, %22 ], [ %64, %63 ]
   ret ptr %.sroa.01.0
 
 56:                                               ; preds = %22
   %57 = ptrtoint ptr %25 to i64
   br label %52
 
-.loopexit:                                        ; preds = %26, %35, %40, %42
+58:                                               ; preds = %37
+  %59 = lshr i32 %38, 3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !522
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  %60 = icmp eq i64 %34, 4
+  br i1 %60, label %62, label %63
+
+.loopexit:                                        ; preds = %26, %42, %40, %35
   %.sroa.10.1 = phi ptr [ %36, %35 ], [ %43, %42 ], [ %41, %40 ], [ %29, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !522
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %58 = icmp ne ptr %.sroa.10.1, null
-  call void @llvm.assume(i1 %58)
+  %61 = icmp ne ptr %.sroa.10.1, null
+  call void @llvm.assume(i1 %61)
   br label %.loopexit96
 
-59:                                               ; preds = %37
-  %60 = lshr i32 %38, 3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !522
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %61 = icmp eq i64 %34, 4
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %59
-  %.not = icmp eq i32 %60, %1
+62:                                               ; preds = %58
+  %.not = icmp eq i32 %59, %1
   br i1 %.not, label %.thread76, label %66
 
-63:                                               ; preds = %59
+63:                                               ; preds = %58
   %.sroa.8.8.extract.trunc = trunc nuw nsw i64 %34 to i8
-  %64 = tail call noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6f67dE(i8 noundef %.sroa.8.8.extract.trunc, i32 noundef %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %18)
+  %64 = tail call noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6f67dE(i8 noundef %.sroa.8.8.extract.trunc, i32 noundef %59, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %18)
   %65 = icmp eq ptr %64, null
   br i1 %65, label %26, label %.loopexit96
 
@@ -2464,8 +2464,8 @@ define hidden { i64, ptr } @_ZN5prost8encoding13decode_varint17h31a04c105479178c
   br label %12
 
 12:                                               ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit", %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit11", %139, %153, %9
-  %.sroa.6.0 = phi i64 [ %11, %9 ], [ %23, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %155, %153 ], [ %.sroa.5.0.ph, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit11" ], [ %143, %139 ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ 1, %153 ], [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit11" ], [ %141, %139 ]
+  %.sroa.6.0 = phi i64 [ %11, %9 ], [ %23, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %.sroa.5.0.ph, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit11" ], [ %155, %153 ], [ %143, %139 ]
+  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ 0, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit11" ], [ 1, %153 ], [ %141, %139 ]
   %13 = inttoptr i64 %.sroa.6.0 to ptr
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %13, 1
@@ -5014,7 +5014,7 @@ default.unreachable:                              ; preds = %2
   br label %23
 
 23:                                               ; preds = %20, %16, %12
-  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.sroa.0.0.in = phi i1 [ %15, %12 ], [ %19, %16 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5052,7 +5052,7 @@ define noundef zeroext i1 @"_ZN99_$LT$live_kit_server..proto..room_composite_egr
   br label %15
 
 15:                                               ; preds = %12, %9
-  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5158,7 +5158,7 @@ default.unreachable:                              ; preds = %2
   br label %23
 
 23:                                               ; preds = %20, %16, %12
-  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.sroa.0.0.in = phi i1 [ %15, %12 ], [ %19, %16 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5196,7 +5196,7 @@ define noundef zeroext i1 @"_ZN100_$LT$live_kit_server..proto..track_composite_e
   br label %15
 
 15:                                               ; preds = %12, %9
-  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5336,7 +5336,7 @@ define noundef zeroext i1 @"_ZN87_$LT$live_kit_server..proto..direct_file_output
   br label %25
 
 25:                                               ; preds = %21, %17, %14
-  %.sroa.0.0.in = phi i1 [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in = phi i1 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5397,7 +5397,7 @@ define noundef zeroext i1 @"_ZN81_$LT$live_kit_server..proto..egress_info..Reque
   br label %25
 
 25:                                               ; preds = %21, %17, %14
-  %.sroa.0.0.in = phi i1 [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in = phi i1 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5457,7 +5457,7 @@ default.unreachable:                              ; preds = %2
   br label %23
 
 23:                                               ; preds = %20, %16, %12
-  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.sroa.0.0.in = phi i1 [ %15, %12 ], [ %19, %16 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in
 }
 

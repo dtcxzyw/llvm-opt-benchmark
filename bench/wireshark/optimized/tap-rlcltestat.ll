@@ -365,7 +365,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef captures(ad
   br label %.thread92
 
 .thread92:                                        ; preds = %50, %51, %.thread96, %126, %144, %5, %22, %12
-  %.066 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %5 ], [ 1, %144 ], [ 1, %126 ], [ 0, %.thread96 ], [ 0, %51 ], [ 0, %50 ]
+  %.066 = phi i32 [ 1, %12 ], [ 1, %22 ], [ 0, %5 ], [ 1, %144 ], [ 1, %126 ], [ 0, %.thread96 ], [ 0, %51 ], [ 0, %50 ]
   ret i32 %.066
 }
 

@@ -1972,7 +1972,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..fmt..Debug$GT$3fmt17h509908a1c9415931E.exit"
 
 "_ZN67_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..fmt..Debug$GT$3fmt17h509908a1c9415931E.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2991,9 +2991,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   br label %24
 
 24:                                               ; preds = %22, %21, %20, %19, %11
-  %.sroa.09.0.i.i.i.i = phi i8 [ 9, %22 ], [ 8, %21 ], [ 7, %20 ], [ %12, %19 ], [ 6, %11 ]
-  %.sroa.812.0.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i, %22 ], [ undef, %21 ], [ undef, %20 ], [ %.sroa.33.0.copyload.i.i.i.i, %19 ], [ undef, %11 ]
-  %.sroa.9.0.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i, %22 ], [ undef, %21 ], [ undef, %20 ], [ %.sroa.4.0.copyload.i.i.i.i, %19 ], [ undef, %11 ]
+  %.sroa.09.0.i.i.i.i = phi i8 [ %12, %19 ], [ 7, %20 ], [ 8, %21 ], [ 9, %22 ], [ 6, %11 ]
+  %.sroa.812.0.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i, %19 ], [ undef, %20 ], [ undef, %21 ], [ %.sroa.33.0.copyload.i.i.i.i, %22 ], [ undef, %11 ]
+  %.sroa.9.0.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i, %19 ], [ undef, %20 ], [ undef, %21 ], [ %.sroa.4.0.copyload.i.i.i.i, %22 ], [ undef, %11 ]
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.49.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.49.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i.i, i64 7, i1 false), !noalias !362
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i.i.i)
@@ -3045,9 +3045,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   br label %38
 
 38:                                               ; preds = %36, %35, %34, %33, %26
-  %.sroa.09.0.i.i.i.i.i.i = phi i8 [ 9, %36 ], [ 8, %35 ], [ 7, %34 ], [ %25, %33 ], [ 6, %26 ]
-  %.sroa.812.0.i.i.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i.i.i, %36 ], [ undef, %35 ], [ undef, %34 ], [ %.sroa.33.0.copyload.i.i.i.i.i.i, %33 ], [ undef, %26 ]
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i.i.i, %36 ], [ undef, %35 ], [ undef, %34 ], [ %.sroa.4.0.copyload.i.i.i.i.i.i, %33 ], [ undef, %26 ]
+  %.sroa.09.0.i.i.i.i.i.i = phi i8 [ %25, %33 ], [ 7, %34 ], [ 8, %35 ], [ 9, %36 ], [ 6, %26 ]
+  %.sroa.812.0.i.i.i.i.i.i = phi ptr [ %.sroa.33.0.copyload.i.i.i.i.i.i, %33 ], [ undef, %34 ], [ undef, %35 ], [ %.sroa.33.0.copyload.i.i.i.i.i.i, %36 ], [ undef, %26 ]
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %.sroa.4.0.copyload.i.i.i.i.i.i, %33 ], [ undef, %34 ], [ undef, %35 ], [ %.sroa.4.0.copyload.i.i.i.i.i.i, %36 ], [ undef, %26 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !363
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !373
   store i8 %.sroa.09.0.i.i.i.i, ptr %4, align 8, !noalias !377
@@ -3079,14 +3079,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 49:                                               ; preds = %38
   switch i64 %43, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.thread.i.i.i.i.i" [
     i64 0, label %50
-    i64 4, label %51
+    i64 4, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.i.i.i.i.i"
   ]
 
 50:                                               ; preds = %49
-  br i1 %44, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.thread.i.i.i.i.i"
+  br i1 %44, label %51, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.thread.i.i.i.i.i"
 
-51:                                               ; preds = %49
-  %52 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7b8418eadd1f2b39E"(ptr noalias noundef nonnull readonly align 1 %.sroa.812.0.i.i.i.i, i64 noundef %.sroa.9.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.812.0.i.i.i.i.i.i, i64 noundef %.sroa.9.0.i.i.i.i.i.i), !noalias !379
+51:                                               ; preds = %50
+  %52 = call fastcc noundef zeroext i1 @"_ZN58_$LT$std..path..Prefix$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4bd99f38eff07cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10), !noalias !379
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !373
   br i1 %52, label %55, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i
 
@@ -3094,8 +3094,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !373
   br label %55
 
-"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.i.i.i.i.i": ; preds = %50
-  %53 = call fastcc noundef zeroext i1 @"_ZN58_$LT$std..path..Prefix$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4bd99f38eff07cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10), !noalias !386
+"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E.exit.i.i.i.i.i": ; preds = %49
+  %53 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7b8418eadd1f2b39E"(ptr noalias noundef nonnull readonly align 1 %.sroa.812.0.i.i.i.i, i64 noundef %.sroa.9.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.812.0.i.i.i.i.i.i, i64 noundef %.sroa.9.0.i.i.i.i.i.i), !noalias !380
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !373
   br i1 %53, label %55, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5cf30bd7bdd9283E.exit.i
 
@@ -3215,18 +3215,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
 30:                                               ; preds = %17
   switch i64 %23, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.thread.i.i.i.i.i.i" [
     i64 0, label %31
-    i64 4, label %32
+    i64 4, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.i.i.i.i.i.i"
   ]
 
 31:                                               ; preds = %30
-  br i1 %25, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.thread.i.i.i.i.i.i"
+  br i1 %25, label %32, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.thread.i.i.i.i.i.i"
 
-32:                                               ; preds = %30
-  %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8, !alias.scope !433, !noalias !434, !nonnull !3, !align !115, !noundef !3
-  %.val6.i.i.i.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !433, !noalias !434, !noundef !3
-  %.val7.i.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !435, !noalias !436, !nonnull !3, !align !115, !noundef !3
-  %.val8.i.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !435, !noalias !436, !noundef !3
-  %33 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7b8418eadd1f2b39E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i.i.i.i.i.i, i64 noundef %.val6.i.i.i.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i.i.i.i.i.i.i, i64 noundef %.val8.i.i.i.i.i.i.i.i.i), !noalias !437
+32:                                               ; preds = %31
+  %33 = call fastcc noundef zeroext i1 @"_ZN58_$LT$std..path..Prefix$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4bd99f38eff07cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10), !noalias !437
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3), !noalias !418
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !412
   br i1 %33, label %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h41064afd38937863E.exit.thread.i
@@ -3236,8 +3232,12 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !412
   br label %35
 
-"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.i.i.i.i.i.i": ; preds = %31
-  %34 = call fastcc noundef zeroext i1 @"_ZN58_$LT$std..path..Prefix$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4bd99f38eff07cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10), !noalias !438
+"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h7125b9177f024e94E.exit.i.i.i.i.i.i": ; preds = %30
+  %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8, !alias.scope !433, !noalias !434, !nonnull !3, !align !115, !noundef !3
+  %.val6.i.i.i.i.i.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !433, !noalias !434, !noundef !3
+  %.val7.i.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !435, !noalias !436, !nonnull !3, !align !115, !noundef !3
+  %.val8.i.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !435, !noalias !436, !noundef !3
+  %34 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7b8418eadd1f2b39E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i.i.i.i.i.i, i64 noundef %.val6.i.i.i.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i.i.i.i.i.i.i, i64 noundef %.val8.i.i.i.i.i.i.i.i.i), !noalias !438
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3), !noalias !418
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !412
   br i1 %34, label %35, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h41064afd38937863E.exit.thread.i
@@ -3365,12 +3365,12 @@ define internal fastcc void @"_ZN56_$LT$camino..Utf8PathBuf$u20$as$u20$core..has
   br label %18
 
 18:                                               ; preds = %16, %15, %14, %13, %5
-  %.sroa.10.sroa.0.1.i = phi ptr [ %.sroa.10.sroa.0.055.i, %16 ], [ %.sroa.10.sroa.0.055.i, %15 ], [ %.sroa.10.sroa.0.055.i, %14 ], [ %.sroa.10.sroa.0.055.i, %5 ], [ %.sroa.8.sroa.0.0.copyload.i, %13 ]
-  %.sroa.10.sroa.4.1.i = phi i64 [ %.sroa.10.sroa.4.056.i, %16 ], [ %.sroa.10.sroa.4.056.i, %15 ], [ %.sroa.10.sroa.4.056.i, %14 ], [ %.sroa.10.sroa.4.056.i, %5 ], [ %.sroa.8.sroa.5.0.copyload.i, %13 ]
-  %.sroa.811.sroa.0.1.i = phi i8 [ %.sroa.811.sroa.0.057.i, %16 ], [ %.sroa.811.sroa.0.057.i, %15 ], [ %.sroa.811.sroa.0.057.i, %14 ], [ %.sroa.811.sroa.0.057.i, %5 ], [ %.sroa.6.sroa.0.0.copyload.i, %13 ]
-  %.sroa.09.0.i = phi i8 [ 9, %16 ], [ 8, %15 ], [ 7, %14 ], [ 6, %5 ], [ %6, %13 ]
-  %.sroa.813.1.i = phi ptr [ %.sroa.63.0.copyload.i, %16 ], [ %.sroa.813.058.i, %15 ], [ %.sroa.813.058.i, %14 ], [ %.sroa.813.058.i, %5 ], [ %.sroa.63.0.copyload.i, %13 ]
-  %.sroa.9.1.i = phi i64 [ %.sroa.7.0.copyload.i, %16 ], [ %.sroa.9.059.i, %15 ], [ %.sroa.9.059.i, %14 ], [ %.sroa.9.059.i, %5 ], [ %.sroa.7.0.copyload.i, %13 ]
+  %.sroa.10.sroa.0.1.i = phi ptr [ %.sroa.8.sroa.0.0.copyload.i, %13 ], [ %.sroa.10.sroa.0.055.i, %5 ], [ %.sroa.10.sroa.0.055.i, %14 ], [ %.sroa.10.sroa.0.055.i, %15 ], [ %.sroa.10.sroa.0.055.i, %16 ]
+  %.sroa.10.sroa.4.1.i = phi i64 [ %.sroa.8.sroa.5.0.copyload.i, %13 ], [ %.sroa.10.sroa.4.056.i, %5 ], [ %.sroa.10.sroa.4.056.i, %14 ], [ %.sroa.10.sroa.4.056.i, %15 ], [ %.sroa.10.sroa.4.056.i, %16 ]
+  %.sroa.811.sroa.0.1.i = phi i8 [ %.sroa.6.sroa.0.0.copyload.i, %13 ], [ %.sroa.811.sroa.0.057.i, %5 ], [ %.sroa.811.sroa.0.057.i, %14 ], [ %.sroa.811.sroa.0.057.i, %15 ], [ %.sroa.811.sroa.0.057.i, %16 ]
+  %.sroa.09.0.i = phi i8 [ %6, %13 ], [ 6, %5 ], [ 7, %14 ], [ 8, %15 ], [ 9, %16 ]
+  %.sroa.813.1.i = phi ptr [ %.sroa.63.0.copyload.i, %13 ], [ %.sroa.813.058.i, %5 ], [ %.sroa.813.058.i, %14 ], [ %.sroa.813.058.i, %15 ], [ %.sroa.63.0.copyload.i, %16 ]
+  %.sroa.9.1.i = phi i64 [ %.sroa.7.0.copyload.i, %13 ], [ %.sroa.9.059.i, %5 ], [ %.sroa.9.059.i, %14 ], [ %.sroa.9.059.i, %15 ], [ %.sroa.7.0.copyload.i, %16 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !443
   call void @llvm.experimental.noalias.scope.decl(metadata !446)
   %19 = add nsw i8 %.sroa.09.0.i, -6
@@ -4170,7 +4170,7 @@ define internal fastcc noundef zeroext i1 @"_ZN58_$LT$std..path..Prefix$u20$as$u
   ]
 
 7:                                                ; preds = %32, %14, %2, %50, %44, %38, %26, %20, %8
-  %.sroa.0.0.shrunk = phi i1 [ %43, %38 ], [ %55, %50 ], [ %31, %26 ], [ %25, %20 ], [ %49, %44 ], [ %13, %8 ], [ false, %2 ], [ false, %14 ], [ false, %32 ]
+  %.sroa.0.0.shrunk = phi i1 [ %13, %8 ], [ %49, %44 ], [ %25, %20 ], [ %31, %26 ], [ %55, %50 ], [ %43, %38 ], [ false, %2 ], [ false, %14 ], [ false, %32 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable41:                            ; preds = %6
@@ -10798,9 +10798,9 @@ define void @_ZN7ruff_db6system4path10SystemPath8absolute8absolute17h0771030120a
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h356b9aecfddac608E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h356b9aecfddac608E.exit": ; preds = %5, %16, %23, %24, %25, %26
-  %.sroa.7.0.i = phi i64 [ undef, %5 ], [ %.sroa.4.0.copyload.i.i.i, %26 ], [ undef, %25 ], [ undef, %24 ], [ %.sroa.4.0.copyload.i.i.i, %23 ], [ undef, %16 ]
-  %.sroa.6.0.i = phi ptr [ undef, %5 ], [ %.sroa.33.0.copyload.i.i.i, %26 ], [ undef, %25 ], [ undef, %24 ], [ %.sroa.33.0.copyload.i.i.i, %23 ], [ undef, %16 ]
-  %.sroa.0.0.i = phi i8 [ 10, %5 ], [ 9, %26 ], [ 8, %25 ], [ 7, %24 ], [ %15, %23 ], [ 6, %16 ]
+  %.sroa.7.0.i = phi i64 [ undef, %5 ], [ %.sroa.4.0.copyload.i.i.i, %23 ], [ undef, %24 ], [ undef, %25 ], [ %.sroa.4.0.copyload.i.i.i, %26 ], [ undef, %16 ]
+  %.sroa.6.0.i = phi ptr [ undef, %5 ], [ %.sroa.33.0.copyload.i.i.i, %23 ], [ undef, %24 ], [ undef, %25 ], [ %.sroa.33.0.copyload.i.i.i, %26 ], [ undef, %16 ]
+  %.sroa.0.0.i = phi i8 [ 10, %5 ], [ %15, %23 ], [ 7, %24 ], [ 8, %25 ], [ 9, %26 ], [ 6, %16 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !1192
   store i8 %.sroa.0.0.i, ptr %13, align 8, !alias.scope !1189, !noalias !1202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.i.i.i, i64 7, i1 false), !noalias !1202
@@ -11498,7 +11498,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -11590,12 +11590,12 @@ define internal fastcc void @"_ZN73_$LT$ruff_db..system..path..SystemPathBuf$u20
   br label %29
 
 29:                                               ; preds = %27, %26, %25, %24, %16
-  %.sroa.10.sroa.0.1.i.i = phi ptr [ %.sroa.10.sroa.0.046.i.i, %27 ], [ %.sroa.10.sroa.0.046.i.i, %26 ], [ %.sroa.10.sroa.0.046.i.i, %25 ], [ %.sroa.10.sroa.0.046.i.i, %16 ], [ %.sroa.8.sroa.0.0.copyload.i.i, %24 ]
-  %.sroa.10.sroa.4.1.i.i = phi i64 [ %.sroa.10.sroa.4.047.i.i, %27 ], [ %.sroa.10.sroa.4.047.i.i, %26 ], [ %.sroa.10.sroa.4.047.i.i, %25 ], [ %.sroa.10.sroa.4.047.i.i, %16 ], [ %.sroa.8.sroa.5.0.copyload.i.i, %24 ]
-  %.sroa.811.sroa.0.1.i.i = phi i8 [ %.sroa.811.sroa.0.048.i.i, %27 ], [ %.sroa.811.sroa.0.048.i.i, %26 ], [ %.sroa.811.sroa.0.048.i.i, %25 ], [ %.sroa.811.sroa.0.048.i.i, %16 ], [ %.sroa.6.sroa.0.0.copyload.i.i, %24 ]
-  %.sroa.09.0.i.i = phi i8 [ 9, %27 ], [ 8, %26 ], [ 7, %25 ], [ 6, %16 ], [ %17, %24 ]
-  %.sroa.813.1.i.i = phi ptr [ %.sroa.63.0.copyload.i.i, %27 ], [ %.sroa.813.049.i.i, %26 ], [ %.sroa.813.049.i.i, %25 ], [ %.sroa.813.049.i.i, %16 ], [ %.sroa.63.0.copyload.i.i, %24 ]
-  %.sroa.9.1.i.i = phi i64 [ %.sroa.7.0.copyload.i.i, %27 ], [ %.sroa.9.050.i.i, %26 ], [ %.sroa.9.050.i.i, %25 ], [ %.sroa.9.050.i.i, %16 ], [ %.sroa.7.0.copyload.i.i, %24 ]
+  %.sroa.10.sroa.0.1.i.i = phi ptr [ %.sroa.8.sroa.0.0.copyload.i.i, %24 ], [ %.sroa.10.sroa.0.046.i.i, %16 ], [ %.sroa.10.sroa.0.046.i.i, %25 ], [ %.sroa.10.sroa.0.046.i.i, %26 ], [ %.sroa.10.sroa.0.046.i.i, %27 ]
+  %.sroa.10.sroa.4.1.i.i = phi i64 [ %.sroa.8.sroa.5.0.copyload.i.i, %24 ], [ %.sroa.10.sroa.4.047.i.i, %16 ], [ %.sroa.10.sroa.4.047.i.i, %25 ], [ %.sroa.10.sroa.4.047.i.i, %26 ], [ %.sroa.10.sroa.4.047.i.i, %27 ]
+  %.sroa.811.sroa.0.1.i.i = phi i8 [ %.sroa.6.sroa.0.0.copyload.i.i, %24 ], [ %.sroa.811.sroa.0.048.i.i, %16 ], [ %.sroa.811.sroa.0.048.i.i, %25 ], [ %.sroa.811.sroa.0.048.i.i, %26 ], [ %.sroa.811.sroa.0.048.i.i, %27 ]
+  %.sroa.09.0.i.i = phi i8 [ %17, %24 ], [ 6, %16 ], [ 7, %25 ], [ 8, %26 ], [ 9, %27 ]
+  %.sroa.813.1.i.i = phi ptr [ %.sroa.63.0.copyload.i.i, %24 ], [ %.sroa.813.049.i.i, %16 ], [ %.sroa.813.049.i.i, %25 ], [ %.sroa.813.049.i.i, %26 ], [ %.sroa.63.0.copyload.i.i, %27 ]
+  %.sroa.9.1.i.i = phi i64 [ %.sroa.7.0.copyload.i.i, %24 ], [ %.sroa.9.050.i.i, %16 ], [ %.sroa.9.050.i.i, %25 ], [ %.sroa.9.050.i.i, %26 ], [ %.sroa.7.0.copyload.i.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13), !noalias !1245
   %30 = add nsw i8 %.sroa.09.0.i.i, -6
   %31 = icmp ult i8 %30, 4
@@ -12826,14 +12826,14 @@ attributes #31 = { nounwind }
 !376 = distinct !{!376, !375, !"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17hcae76c946a1cc877E: argument 1"}
 !377 = !{!376, !351, !353, !354, !356, !357, !359}
 !378 = !{!374, !367, !369, !351, !353, !354, !356, !357, !359}
-!379 = !{!380, !382, !383, !385, !374, !376, !367, !369}
-!380 = distinct !{!380, !381, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE: argument 0"}
-!381 = distinct !{!381, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE"}
-!382 = distinct !{!382, !381, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE: argument 1"}
-!383 = distinct !{!383, !384, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E: argument 0"}
-!384 = distinct !{!384, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E"}
-!385 = distinct !{!385, !384, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E: argument 1"}
-!386 = !{!374, !376, !367, !369}
+!379 = !{!374, !376, !367, !369}
+!380 = !{!381, !383, !384, !386, !374, !376, !367, !369}
+!381 = distinct !{!381, !382, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE: argument 0"}
+!382 = distinct !{!382, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE"}
+!383 = distinct !{!383, !382, !"_ZN62_$LT$camino..Utf8Component$u20$as$u20$core..cmp..PartialEq$GT$2eq17h17511abe5a5ca02eE: argument 1"}
+!384 = distinct !{!384, !385, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E: argument 0"}
+!385 = distinct !{!385, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E"}
+!386 = distinct !{!386, !385, !"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h261dc9aee35f0a15E: argument 1"}
 !387 = !{!348}
 !388 = !{!389, !391, !357, !359}
 !389 = distinct !{!389, !390, !"_ZN81_$LT$camino..Utf8Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6e620dc607a2fefE: argument 0"}
@@ -12884,8 +12884,8 @@ attributes #31 = { nounwind }
 !434 = !{!431, !426, !419, !421, !413, !415, !411, !408, !398, !400, !401, !403, !404, !406}
 !435 = !{!431, !426}
 !436 = !{!428, !423, !419, !421, !413, !415, !411, !408, !398, !400, !401, !403, !404, !406}
-!437 = !{!428, !431, !423, !426, !419, !421, !413, !415}
-!438 = !{!419, !421, !413, !415}
+!437 = !{!419, !421, !413, !415}
+!438 = !{!428, !431, !423, !426, !419, !421, !413, !415}
 !439 = !{!404, !406}
 !440 = !{!441}
 !441 = distinct !{!441, !442, !"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4hash17h2580f9716ee25495E: argument 1"}

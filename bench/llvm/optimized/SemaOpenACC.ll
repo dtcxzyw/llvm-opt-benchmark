@@ -663,7 +663,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   br label %172
 
 172:                                              ; preds = %170, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %171, %170 ]
+  %.1.i.i.i.i.i = phi ptr [ %171, %170 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %173 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !70
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load i8, ptr %174, align 8, !tbaa !72
@@ -675,7 +675,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   br label %179
 
 179:                                              ; preds = %177, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %178, %177 ]
+  %.2.i.i.i.i.i = phi ptr [ %178, %177 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %180 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !70
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i8, ptr %181, align 8, !tbaa !72
@@ -820,7 +820,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   br label %242
 
 242:                                              ; preds = %240, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %241, %240 ]
+  %.1.i.i.i.i = phi ptr [ %241, %240 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %243 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !70
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i8, ptr %244, align 8, !tbaa !72
@@ -832,7 +832,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   br label %249
 
 249:                                              ; preds = %247, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %248, %247 ]
+  %.2.i.i.i.i = phi ptr [ %248, %247 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %250 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !70
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i8, ptr %251, align 8, !tbaa !72
@@ -953,7 +953,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %304
 
 304:                                              ; preds = %302, %._crit_edge.i.i.i.i94
-  %.1.i.i.i.i99 = phi ptr [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ], [ %303, %302 ]
+  %.1.i.i.i.i99 = phi ptr [ %303, %302 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
   %305 = load ptr, ptr %.1.i.i.i.i99, align 8, !tbaa !70
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load i8, ptr %306, align 8, !tbaa !72
@@ -965,7 +965,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %311
 
 311:                                              ; preds = %309, %._crit_edge.i.i.i.i94
-  %.2.i.i.i.i98 = phi ptr [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ], [ %310, %309 ]
+  %.2.i.i.i.i98 = phi ptr [ %310, %309 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
   %312 = load ptr, ptr %.2.i.i.i.i98, align 8, !tbaa !70
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load i8, ptr %313, align 8, !tbaa !72
@@ -1083,7 +1083,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %363
 
 363:                                              ; preds = %361, %._crit_edge.i.i.i.i109
-  %.1.i.i.i.i114 = phi ptr [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ], [ %362, %361 ]
+  %.1.i.i.i.i114 = phi ptr [ %362, %361 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
   %364 = load ptr, ptr %.1.i.i.i.i114, align 8, !tbaa !70
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i8, ptr %365, align 8, !tbaa !72
@@ -1095,7 +1095,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %370
 
 370:                                              ; preds = %368, %._crit_edge.i.i.i.i109
-  %.2.i.i.i.i113 = phi ptr [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ], [ %369, %368 ]
+  %.2.i.i.i.i113 = phi ptr [ %369, %368 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
   %371 = load ptr, ptr %.2.i.i.i.i113, align 8, !tbaa !70
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load i8, ptr %372, align 8, !tbaa !72
@@ -1208,7 +1208,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %421
 
 421:                                              ; preds = %419, %._crit_edge.i.i.i.i125
-  %.1.i.i.i.i130 = phi ptr [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ], [ %420, %419 ]
+  %.1.i.i.i.i130 = phi ptr [ %420, %419 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
   %422 = load ptr, ptr %.1.i.i.i.i130, align 8, !tbaa !70
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load i8, ptr %423, align 8, !tbaa !72
@@ -1220,7 +1220,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %428
 
 428:                                              ; preds = %426, %._crit_edge.i.i.i.i125
-  %.2.i.i.i.i129 = phi ptr [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ], [ %427, %426 ]
+  %.2.i.i.i.i129 = phi ptr [ %427, %426 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
   %429 = load ptr, ptr %.2.i.i.i.i129, align 8, !tbaa !70
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load i8, ptr %430, align 8, !tbaa !72
@@ -1405,7 +1405,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   br label %505
 
 505:                                              ; preds = %503, %._crit_edge.i.i.i.i.i155
-  %.1.i.i.i.i.i165 = phi ptr [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ], [ %504, %503 ]
+  %.1.i.i.i.i.i165 = phi ptr [ %504, %503 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
   %506 = load ptr, ptr %.1.i.i.i.i.i165, align 8, !tbaa !70
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %508 = load i8, ptr %507, align 8, !tbaa !72
@@ -1417,7 +1417,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   br label %512
 
 512:                                              ; preds = %510, %._crit_edge.i.i.i.i.i155
-  %.2.i.i.i.i.i164 = phi ptr [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ], [ %511, %510 ]
+  %.2.i.i.i.i.i164 = phi ptr [ %511, %510 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
   %513 = load ptr, ptr %.2.i.i.i.i.i164, align 8, !tbaa !70
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
   %515 = load i8, ptr %514, align 8, !tbaa !72
@@ -1554,7 +1554,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   br label %572
 
 572:                                              ; preds = %570, %._crit_edge.i.i.i.i179
-  %.1.i.i.i.i184 = phi ptr [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ], [ %571, %570 ]
+  %.1.i.i.i.i184 = phi ptr [ %571, %570 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
   %573 = load ptr, ptr %.1.i.i.i.i184, align 8, !tbaa !70
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = load i8, ptr %574, align 8, !tbaa !72
@@ -1566,7 +1566,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   br label %579
 
 579:                                              ; preds = %577, %._crit_edge.i.i.i.i179
-  %.2.i.i.i.i183 = phi ptr [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ], [ %578, %577 ]
+  %.2.i.i.i.i183 = phi ptr [ %578, %577 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
   %580 = load ptr, ptr %.2.i.i.i.i183, align 8, !tbaa !70
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = load i8, ptr %581, align 8, !tbaa !72
@@ -1689,7 +1689,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %636
 
 636:                                              ; preds = %634, %._crit_edge.i.i.i.i198
-  %.1.i.i.i.i203 = phi ptr [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ], [ %635, %634 ]
+  %.1.i.i.i.i203 = phi ptr [ %635, %634 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
   %637 = load ptr, ptr %.1.i.i.i.i203, align 8, !tbaa !70
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
   %639 = load i8, ptr %638, align 8, !tbaa !72
@@ -1701,7 +1701,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %643
 
 643:                                              ; preds = %641, %._crit_edge.i.i.i.i198
-  %.2.i.i.i.i202 = phi ptr [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ], [ %642, %641 ]
+  %.2.i.i.i.i202 = phi ptr [ %642, %641 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
   %644 = load ptr, ptr %.2.i.i.i.i202, align 8, !tbaa !70
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
   %646 = load i8, ptr %645, align 8, !tbaa !72
@@ -1818,7 +1818,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %694
 
 694:                                              ; preds = %692, %._crit_edge.i.i.i.i218
-  %.1.i.i.i.i223 = phi ptr [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ], [ %693, %692 ]
+  %.1.i.i.i.i223 = phi ptr [ %693, %692 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
   %695 = load ptr, ptr %.1.i.i.i.i223, align 8, !tbaa !70
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
   %697 = load i8, ptr %696, align 8, !tbaa !72
@@ -1830,7 +1830,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %701
 
 701:                                              ; preds = %699, %._crit_edge.i.i.i.i218
-  %.2.i.i.i.i222 = phi ptr [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ], [ %700, %699 ]
+  %.2.i.i.i.i222 = phi ptr [ %700, %699 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
   %702 = load ptr, ptr %.2.i.i.i.i222, align 8, !tbaa !70
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 8
   %704 = load i8, ptr %703, align 8, !tbaa !72
@@ -1942,7 +1942,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %751
 
 751:                                              ; preds = %749, %._crit_edge.i.i.i.i238
-  %.1.i.i.i.i243 = phi ptr [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ], [ %750, %749 ]
+  %.1.i.i.i.i243 = phi ptr [ %750, %749 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
   %752 = load ptr, ptr %.1.i.i.i.i243, align 8, !tbaa !70
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %754 = load i8, ptr %753, align 8, !tbaa !72
@@ -1954,7 +1954,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %758
 
 758:                                              ; preds = %756, %._crit_edge.i.i.i.i238
-  %.2.i.i.i.i242 = phi ptr [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ], [ %757, %756 ]
+  %.2.i.i.i.i242 = phi ptr [ %757, %756 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
   %759 = load ptr, ptr %.2.i.i.i.i242, align 8, !tbaa !70
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 8
   %761 = load i8, ptr %760, align 8, !tbaa !72
@@ -2097,7 +2097,7 @@ define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAII35SetCollapseIn
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %52 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !70
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !72
@@ -2109,7 +2109,7 @@ define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAII35SetCollapseIn
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %.2.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %59 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !70
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8, !tbaa !72
@@ -2212,7 +2212,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %104
 
 104:                                              ; preds = %102, %._crit_edge.i.i.i.i21
-  %.1.i.i.i.i26 = phi ptr [ %.029.lcssa.i.i.i.i23, %._crit_edge.i.i.i.i21 ], [ %103, %102 ]
+  %.1.i.i.i.i26 = phi ptr [ %103, %102 ], [ %.029.lcssa.i.i.i.i23, %._crit_edge.i.i.i.i21 ]
   %105 = load ptr, ptr %.1.i.i.i.i26, align 8, !tbaa !70
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i8, ptr %106, align 8, !tbaa !72
@@ -2224,7 +2224,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i.i21
-  %.2.i.i.i.i25 = phi ptr [ %.029.lcssa.i.i.i.i23, %._crit_edge.i.i.i.i21 ], [ %110, %109 ]
+  %.2.i.i.i.i25 = phi ptr [ %110, %109 ], [ %.029.lcssa.i.i.i.i23, %._crit_edge.i.i.i.i21 ]
   %112 = load ptr, ptr %.2.i.i.i.i25, align 8, !tbaa !70
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i8, ptr %113, align 8, !tbaa !72
@@ -2442,7 +2442,7 @@ define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBe
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %43, %42 ]
+  %.1.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %45 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !70
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8, !tbaa !72
@@ -2454,7 +2454,7 @@ define dso_local void @_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBe
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %50, %49 ]
+  %.2.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %52 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !70
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !72
@@ -3517,7 +3517,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %133, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %129, %.lr.ph.i.i ], [ %134, %133 ]
+  %.1.i.i.i = phi ptr [ %134, %133 ], [ %129, %.lr.ph.i.i ]
   %135 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %136 = load i24, ptr %135, align 16
   %137 = and i24 %136, 1048576
@@ -4206,7 +4206,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread: ; preds 
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %170, %174
-  %.1.i = phi ptr [ %158, %170 ], [ %175, %174 ]
+  %.1.i = phi ptr [ %175, %174 ], [ %158, %170 ]
   %176 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i150 = load i64, ptr %176, align 16, !tbaa !66
   br label %206
@@ -9475,7 +9475,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %55, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %51, %.lr.ph.i.i ], [ %56, %55 ]
+  %.1.i.i.i = phi ptr [ %56, %55 ], [ %51, %.lr.ph.i.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %58 = load i24, ptr %57, align 16
   %59 = and i24 %58, 1048576
@@ -10249,7 +10249,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %232, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %228, %.lr.ph.i.i ], [ %233, %232 ]
+  %.1.i.i.i = phi ptr [ %233, %232 ], [ %228, %.lr.ph.i.i ]
   %234 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %235 = load i24, ptr %234, align 16
   %236 = and i24 %235, 1048576
@@ -12433,7 +12433,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %386
 
 386:                                              ; preds = %384, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %385, %384 ]
+  %.1.i.i.i.i = phi ptr [ %385, %384 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %387 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !70
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load i8, ptr %388, align 8, !tbaa !72
@@ -12462,7 +12462,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %392
 
 392:                                              ; preds = %390, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %391, %390 ]
+  %.2.i.i.i.i = phi ptr [ %391, %390 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %393 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !70
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load i8, ptr %394, align 8, !tbaa !72
@@ -12822,7 +12822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   br label %537
 
 537:                                              ; preds = %535, %._crit_edge.i.i.i.i62
-  %.1.i.i.i.i65 = phi ptr [ %.029.lcssa.i.i.i.i63, %._crit_edge.i.i.i.i62 ], [ %536, %535 ]
+  %.1.i.i.i.i65 = phi ptr [ %536, %535 ], [ %.029.lcssa.i.i.i.i63, %._crit_edge.i.i.i.i62 ]
   %538 = load ptr, ptr %.1.i.i.i.i65, align 8, !tbaa !70
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %540 = load i8, ptr %539, align 8, !tbaa !72
@@ -12839,7 +12839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   br label %543
 
 543:                                              ; preds = %541, %._crit_edge.i.i.i.i62
-  %.2.i.i.i.i64 = phi ptr [ %.029.lcssa.i.i.i.i63, %._crit_edge.i.i.i.i62 ], [ %542, %541 ]
+  %.2.i.i.i.i64 = phi ptr [ %542, %541 ], [ %.029.lcssa.i.i.i.i63, %._crit_edge.i.i.i.i62 ]
   %544 = load ptr, ptr %.2.i.i.i.i64, align 8, !tbaa !70
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %546 = load i8, ptr %545, align 8, !tbaa !72
@@ -13042,7 +13042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   br label %636
 
 636:                                              ; preds = %634, %._crit_edge.i.i.i.i79
-  %.1.i.i.i.i83 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge.i.i.i.i79 ], [ %635, %634 ]
+  %.1.i.i.i.i83 = phi ptr [ %635, %634 ], [ %.029.lcssa.i.i.i.i80, %._crit_edge.i.i.i.i79 ]
   %637 = load ptr, ptr %.1.i.i.i.i83, align 8, !tbaa !70
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
   %639 = load i8, ptr %638, align 8, !tbaa !72
@@ -13054,7 +13054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   br label %643
 
 643:                                              ; preds = %641, %._crit_edge.i.i.i.i79
-  %.2.i.i.i.i82 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge.i.i.i.i79 ], [ %642, %641 ]
+  %.2.i.i.i.i82 = phi ptr [ %642, %641 ], [ %.029.lcssa.i.i.i.i80, %._crit_edge.i.i.i.i79 ]
   %644 = load ptr, ptr %.2.i.i.i.i82, align 8, !tbaa !70
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
   %646 = load i8, ptr %645, align 8, !tbaa !72
@@ -13374,7 +13374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   br label %785
 
 785:                                              ; preds = %783, %._crit_edge.i.i.i.i104
-  %.1.i.i.i.i107 = phi ptr [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ], [ %784, %783 ]
+  %.1.i.i.i.i107 = phi ptr [ %784, %783 ], [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ]
   %786 = load ptr, ptr %.1.i.i.i.i107, align 8, !tbaa !70
   %787 = getelementptr inbounds nuw i8, ptr %786, i64 8
   %788 = load i8, ptr %787, align 8, !tbaa !72
@@ -13389,7 +13389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   br label %791
 
 791:                                              ; preds = %789, %._crit_edge.i.i.i.i104
-  %.2.i.i.i.i106 = phi ptr [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ], [ %790, %789 ]
+  %.2.i.i.i.i106 = phi ptr [ %790, %789 ], [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ]
   %792 = load ptr, ptr %.2.i.i.i.i106, align 8, !tbaa !70
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 8
   %794 = load i8, ptr %793, align 8, !tbaa !72
@@ -13947,7 +13947,7 @@ define dso_local noundef i64 @_ZN5clang11SemaOpenACC21ActOnEndStmtDirectiveENS_2
   br label %144
 
 144:                                              ; preds = %12, %136, %129, %122, %115, %108, %93, %82, %75, %68, %57, %43, %31, %19, %18
-  %.sroa.0113.0 = phi i64 [ %143, %136 ], [ %135, %129 ], [ %128, %122 ], [ %121, %115 ], [ %114, %108 ], [ %107, %93 ], [ %92, %82 ], [ %81, %75 ], [ %74, %68 ], [ %67, %57 ], [ %56, %43 ], [ %42, %31 ], [ %30, %19 ], [ 1, %18 ], [ 0, %12 ]
+  %.sroa.0113.0 = phi i64 [ 1, %18 ], [ %30, %19 ], [ %42, %31 ], [ %56, %43 ], [ %67, %57 ], [ %74, %68 ], [ %81, %75 ], [ %92, %82 ], [ %107, %93 ], [ %114, %108 ], [ %121, %115 ], [ %128, %122 ], [ %135, %129 ], [ %143, %136 ], [ 0, %12 ]
   ret i64 %.sroa.0113.0
 }
 
@@ -14285,7 +14285,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %164
 
 164:                                              ; preds = %37, %103, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24, %26, %7, %7, %7, %7, %7, %33, %24
-  %.sroa.030.0 = phi i64 [ %25, %24 ], [ 1, %33 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ 1, %26 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24 ], [ 1, %103 ], [ %29, %37 ]
+  %.sroa.030.0 = phi i64 [ 1, %33 ], [ %25, %24 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ 1, %26 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24 ], [ 1, %103 ], [ %29, %37 ]
   ret i64 %.sroa.030.0
 }
 
@@ -17274,7 +17274,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenA
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.1 = phi ptr [ %37, %36 ], [ %.029.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.1, align 8, !tbaa !70
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !72
@@ -17295,7 +17295,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenA
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.2 = phi ptr [ %43, %42 ], [ %.029.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.2, align 8, !tbaa !70
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8, !tbaa !72
@@ -17463,7 +17463,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenA
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %42, %41 ]
+  %.1 = phi ptr [ %42, %41 ], [ %.029.lcssa, %._crit_edge ]
   %44 = load ptr, ptr %.1, align 8, !tbaa !70
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8, !tbaa !72
@@ -17483,7 +17483,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenA
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %49, %48 ]
+  %.2 = phi ptr [ %49, %48 ], [ %.029.lcssa, %._crit_edge ]
   %51 = load ptr, ptr %.2, align 8, !tbaa !70
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i8, ptr %52, align 8, !tbaa !72

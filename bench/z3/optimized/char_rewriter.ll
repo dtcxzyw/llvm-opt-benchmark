@@ -118,7 +118,7 @@ _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %5
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 
 _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %5, %22, %19, %16, %11, %_ZNK4decl13get_decl_kindEv.exit
-  %.0 = phi i32 [ %21, %19 ], [ %18, %16 ], [ %15, %11 ], [ %24, %22 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %5 ]
+  %.0 = phi i32 [ %24, %22 ], [ %15, %11 ], [ %18, %16 ], [ %21, %19 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %5 ]
   ret i32 %.0
 }
 

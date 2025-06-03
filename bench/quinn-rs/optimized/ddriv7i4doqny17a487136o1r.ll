@@ -13004,7 +13004,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15: ; preds = %2
   br label %27
 
 27:                                               ; preds = %25, %23, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %16, %14
-  %.sroa.0.0.in = phi i1 [ %26, %25 ], [ %24, %23 ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %17, %16 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15 ], [ %24, %23 ], [ %26, %25 ]
   ret i1 %.sroa.0.0.in
 }
 

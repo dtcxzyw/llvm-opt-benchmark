@@ -29776,7 +29776,7 @@ define dso_local void @_ZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEP
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %111, %110 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %111, %110 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %113 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_2EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull readonly %76, ptr %.sroa.032.1.i.i.i)
           to label %.noexc95 unwind label %.loopexit.split-lp246.loopexit
 
@@ -29788,7 +29788,7 @@ define dso_local void @_ZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEP
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %115, %114 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %115, %114 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %117 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4pbrt10BasicScene12CreateLightsERKNS2_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS2_5LightENS8_3pmr21polymorphic_allocatorISA_EEEESt4lessIiESaISt4pairIKiSF_EEEE3$_2EclINS_17__normal_iteratorIPSI_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_11SceneEntityEESt6vectorISZ_SaISZ_EEEEEEbT_"(ptr nonnull readonly %76, ptr %.sroa.032.2.i.i.i)
           to label %.noexc96 unwind label %.loopexit.split-lp246.loopexit
 

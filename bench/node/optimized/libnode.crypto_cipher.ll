@@ -4872,8 +4872,8 @@ sw.bb90:                                          ; preds = %if.end76
   br label %lor.lhs.false.i554
 
 lor.lhs.false.i554:                               ; preds = %if.end76, %sw.bb, %sw.bb81, %sw.bb82, %sw.bb83, %sw.bb84, %sw.bb85, %sw.bb86, %sw.bb87, %sw.bb88, %sw.bb89, %sw.bb90
-  %cmp177.not = phi i1 [ true, %if.end76 ], [ false, %sw.bb90 ], [ false, %sw.bb89 ], [ false, %sw.bb88 ], [ false, %sw.bb87 ], [ false, %sw.bb86 ], [ false, %sw.bb85 ], [ false, %sw.bb84 ], [ false, %sw.bb83 ], [ false, %sw.bb82 ], [ false, %sw.bb81 ], [ false, %sw.bb ]
-  %mode_label.0 = phi ptr [ null, %if.end76 ], [ @.str.115, %sw.bb90 ], [ @.str.114, %sw.bb89 ], [ @.str.113, %sw.bb88 ], [ @.str.112, %sw.bb87 ], [ @.str.111, %sw.bb86 ], [ @.str.110, %sw.bb85 ], [ @.str.109, %sw.bb84 ], [ @.str.108, %sw.bb83 ], [ @.str.107, %sw.bb82 ], [ @.str.106, %sw.bb81 ], [ @.str.105, %sw.bb ]
+  %cmp177.not = phi i1 [ true, %if.end76 ], [ false, %sw.bb ], [ false, %sw.bb81 ], [ false, %sw.bb82 ], [ false, %sw.bb83 ], [ false, %sw.bb84 ], [ false, %sw.bb85 ], [ false, %sw.bb86 ], [ false, %sw.bb87 ], [ false, %sw.bb88 ], [ false, %sw.bb89 ], [ false, %sw.bb90 ]
+  %mode_label.0 = phi ptr [ null, %if.end76 ], [ @.str.105, %sw.bb ], [ @.str.106, %sw.bb81 ], [ @.str.107, %sw.bb82 ], [ @.str.108, %sw.bb83 ], [ @.str.109, %sw.bb84 ], [ @.str.110, %sw.bb85 ], [ @.str.111, %sw.bb86 ], [ @.str.112, %sw.bb87 ], [ @.str.113, %sw.bb88 ], [ @.str.114, %sw.bb89 ], [ @.str.115, %sw.bb90 ]
   %59 = load i32, ptr %length_.i681, align 8
   %cmp2.i556 = icmp slt i32 %59, 3
   br i1 %cmp2.i556, label %if.then.i562, label %if.end.i557

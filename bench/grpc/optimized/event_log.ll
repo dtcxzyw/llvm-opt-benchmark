@@ -1282,9 +1282,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66: ; preds = %40
   br label %45
 
 45:                                               ; preds = %._crit_edge._crit_edge, %43
-  %.sroa.2.0.copyload.i75 = phi ptr [ %.sroa.2.0.copyload.i75.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i65, %43 ]
-  %.sroa.0.0.copyload.i73 = phi i64 [ %.sroa.0.0.copyload.i73.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i63, %43 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %44, %43 ]
+  %.sroa.2.0.copyload.i75 = phi ptr [ %.sroa.2.0.copyload.i65, %43 ], [ %.sroa.2.0.copyload.i75.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i73 = phi i64 [ %.sroa.0.0.copyload.i63, %43 ], [ %.sroa.0.0.copyload.i73.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %44, %43 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i70 = load i64, ptr %.1, align 8, !tbaa !32
   %.sroa.22.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i72 = load ptr, ptr %.sroa.22.0..sroa_idx.i71, align 8, !tbaa !33
@@ -1305,9 +1305,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i76: ; preds = %47
   br label %52
 
 52:                                               ; preds = %._crit_edge._crit_edge128, %50
-  %.sroa.2.0.copyload.i85 = phi ptr [ %.sroa.2.0.copyload.i85.pre, %._crit_edge._crit_edge128 ], [ %.sroa.2.0.copyload.i75, %50 ]
-  %.sroa.0.0.copyload.i83 = phi i64 [ %.sroa.0.0.copyload.i83.pre, %._crit_edge._crit_edge128 ], [ %.sroa.0.0.copyload.i73, %50 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge128 ], [ %51, %50 ]
+  %.sroa.2.0.copyload.i85 = phi ptr [ %.sroa.2.0.copyload.i75, %50 ], [ %.sroa.2.0.copyload.i85.pre, %._crit_edge._crit_edge128 ]
+  %.sroa.0.0.copyload.i83 = phi i64 [ %.sroa.0.0.copyload.i73, %50 ], [ %.sroa.0.0.copyload.i83.pre, %._crit_edge._crit_edge128 ]
+  %.2 = phi ptr [ %51, %50 ], [ %.029.lcssa, %._crit_edge._crit_edge128 ]
   %.sroa.01.0.copyload.i80 = load i64, ptr %.2, align 8, !tbaa !32
   %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i82 = load ptr, ptr %.sroa.22.0..sroa_idx.i81, align 8, !tbaa !33

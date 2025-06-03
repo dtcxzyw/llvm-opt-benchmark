@@ -2016,7 +2016,7 @@ lean_uint64_of_nat.exit44:                        ; preds = %64, %66
   br label %71
 
 71:                                               ; preds = %lean_obj_tag.exit, %lean_uint64_of_nat.exit44, %46, %45, %40, %lean_uint64_of_nat.exit40, %lean_uint64_of_nat.exit
-  %.0 = phi i64 [ %70, %lean_uint64_of_nat.exit44 ], [ 17, %46 ], [ 2411, %45 ], [ %44, %40 ], [ %39, %lean_uint64_of_nat.exit40 ], [ %24, %lean_uint64_of_nat.exit ], [ 7883, %lean_obj_tag.exit ]
+  %.0 = phi i64 [ %70, %lean_uint64_of_nat.exit44 ], [ %24, %lean_uint64_of_nat.exit ], [ %39, %lean_uint64_of_nat.exit40 ], [ %44, %40 ], [ 2411, %45 ], [ 17, %46 ], [ 7883, %lean_obj_tag.exit ]
   ret i64 %.0
 }
 
@@ -2465,7 +2465,7 @@ lean_dec.exit:                                    ; preds = %155, %154, %152, %l
   br label %161
 
 161:                                              ; preds = %102, %107, %lean_dec.exit, %116, %114, %112, %lean_dec.exit61, %lean_dec.exit62
-  %.0 = phi ptr [ %160, %lean_dec.exit ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %75, %lean_dec.exit61 ], [ %41, %lean_dec.exit62 ], [ %106, %102 ], [ %111, %107 ]
+  %.0 = phi ptr [ %160, %lean_dec.exit ], [ %41, %lean_dec.exit62 ], [ %75, %lean_dec.exit61 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %106, %102 ], [ %111, %107 ]
   ret ptr %.0
 }
 

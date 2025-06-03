@@ -721,7 +721,7 @@ define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u2
   br label %"_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17h9dae2b90b6296ee7E.exit"
 
 "_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17h9dae2b90b6296ee7E.exit": ; preds = %5, %9
-  %.0.i = phi ptr [ %11, %9 ], [ %8, %5 ]
+  %.0.i = phi ptr [ %8, %5 ], [ %11, %9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret ptr %.0.i
 }
@@ -747,7 +747,7 @@ define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u2
   br label %11
 
 11:                                               ; preds = %8, %4
-  %.0 = phi ptr [ %10, %8 ], [ %7, %4 ]
+  %.0 = phi ptr [ %7, %4 ], [ %10, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret ptr %.0
 }

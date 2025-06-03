@@ -195,9 +195,9 @@ define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %33, %40, %37, %28, %.preheader.i, %.lr.ph40.split.split.i
-  %.166 = phi i32 [ %.065, %.lr.ph40.split.split.i ], [ %.065, %40 ], [ %.065, %37 ], [ %32, %28 ], [ %.065, %.preheader.i ], [ %.065, %33 ]
-  %.163 = phi i32 [ %.062, %.lr.ph40.split.split.i ], [ 2, %40 ], [ %38, %37 ], [ %.062, %28 ], [ %.062, %.preheader.i ], [ %.062, %33 ]
-  %.1 = phi i32 [ %.061, %.lr.ph40.split.split.i ], [ %44, %40 ], [ %.061, %37 ], [ %.061, %28 ], [ %.061, %.preheader.i ], [ %.061, %33 ]
+  %.166 = phi i32 [ %.065, %.lr.ph40.split.split.i ], [ %32, %28 ], [ %.065, %.preheader.i ], [ %.065, %40 ], [ %.065, %37 ], [ %.065, %33 ]
+  %.163 = phi i32 [ %.062, %.lr.ph40.split.split.i ], [ %.062, %28 ], [ %.062, %.preheader.i ], [ 2, %40 ], [ %38, %37 ], [ %.062, %33 ]
+  %.1 = phi i32 [ %.061, %.lr.ph40.split.split.i ], [ %.061, %28 ], [ %.061, %.preheader.i ], [ %44, %40 ], [ %.061, %37 ], [ %.061, %33 ]
   %45 = icmp ult ptr %17, %14
   br i1 %45, label %.lr.ph40.split.split.i, label %scan_buffer.exit, !llvm.loop !25
 

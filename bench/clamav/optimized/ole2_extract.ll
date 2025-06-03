@@ -1112,7 +1112,7 @@ key_length_valid_aes_bits.exit:                   ; preds = %35
   br label %77
 
 77:                                               ; preds = %69, %76, %75, %68, %60, %56, %51, %49, %48, %47, %45, %43, %42, %39, %38, %34, %31, %29, %26, %21, %16, %13, %10
-  %.030 = phi i1 [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %21 ], [ false, %29 ], [ false, %31 ], [ false, %47 ], [ false, %45 ], [ false, %42 ], [ false, %43 ], [ false, %38 ], [ false, %39 ], [ false, %34 ], [ false, %48 ], [ false, %49 ], [ false, %51 ], [ false, %56 ], [ false, %60 ], [ false, %68 ], [ false, %69 ], [ true, %76 ], [ false, %75 ], [ false, %26 ]
+  %.030 = phi i1 [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %21 ], [ false, %29 ], [ false, %31 ], [ false, %47 ], [ false, %34 ], [ false, %48 ], [ false, %49 ], [ false, %51 ], [ false, %56 ], [ false, %60 ], [ false, %68 ], [ false, %69 ], [ true, %76 ], [ false, %75 ], [ false, %38 ], [ false, %39 ], [ false, %42 ], [ false, %43 ], [ false, %45 ], [ false, %26 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !89
   %.not49 = icmp eq ptr %79, null
@@ -5786,7 +5786,7 @@ fmap_readn.exit84.thread:                         ; preds = %45, %43
   br label %79
 
 79:                                               ; preds = %fmap_readn.exit84.thread, %75, %69, %62, %fmap_readn.exit.thread, %29
-  %.054 = phi i32 [ 7, %29 ], [ 12, %fmap_readn.exit.thread ], [ 7, %fmap_readn.exit84.thread ], [ 7, %69 ], [ %78, %75 ], [ 14, %62 ]
+  %.054 = phi i32 [ 7, %29 ], [ 12, %fmap_readn.exit.thread ], [ 7, %69 ], [ %78, %75 ], [ 14, %62 ], [ 7, %fmap_readn.exit84.thread ]
   %80 = call i32 @inflateEnd(ptr noundef nonnull %4) #22
   %.not76 = icmp eq i32 %80, 0
   %spec.select = select i1 %.not76, i32 %.054, i32 7

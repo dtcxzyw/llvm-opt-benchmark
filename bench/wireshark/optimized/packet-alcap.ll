@@ -1242,8 +1242,8 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.not193 = icmp eq ptr %97, null
   br i1 %.not193, label %.thread190, label %.thread
 
-.thread:                                          ; preds = %90, %146, %158, %161, %175, %167, %179
-  %.0155185 = phi ptr [ %97, %179 ], [ %94, %90 ], [ %145, %146 ], [ %.1, %158 ], [ %.1, %161 ], [ %174, %175 ], [ %166, %167 ]
+.thread:                                          ; preds = %175, %167, %158, %161, %146, %90, %179
+  %.0155185 = phi ptr [ %97, %179 ], [ %174, %175 ], [ %166, %167 ], [ %.1, %158 ], [ %.1, %161 ], [ %145, %146 ], [ %94, %90 ]
   %184 = getelementptr inbounds nuw i8, ptr %.0155185, i64 40
   %185 = load ptr, ptr %184, align 8
   %.not180 = icmp eq ptr %185, null
@@ -1299,7 +1299,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef %1, ptr noundef %.0155185)
   br label %.thread190
 
-.thread190:                                       ; preds = %142, %154, %171, %88, %179, %211, %212, %._crit_edge
+.thread190:                                       ; preds = %171, %154, %142, %88, %179, %211, %212, %._crit_edge
   %213 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %213
 }

@@ -633,7 +633,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   br label %279
 
 279:                                              ; preds = %268, %proc_groupfd.exit, %proc_groupstatus.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
-  %.0 = phi i64 [ %278, %268 ], [ %.044.i, %proc_groupfd.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i, %proc_status.exit ]
+  %.0 = phi i64 [ %.0.i, %proc_status.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.044.i, %proc_groupfd.exit ], [ %278, %268 ]
   %280 = icmp sgt i64 %.0, 0
   br i1 %280, label %281, label %.thread
 
@@ -854,7 +854,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0
   br label %23
 
 23:                                               ; preds = %20, %17
-  %.018.in = phi ptr [ %22, %20 ], [ %19, %17 ]
+  %.018.in = phi ptr [ %19, %17 ], [ %22, %20 ]
   %.018 = load ptr, ptr %.018.in, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.018, i64 17
   %25 = load i8, ptr %24, align 1

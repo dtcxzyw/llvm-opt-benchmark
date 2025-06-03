@@ -87,7 +87,7 @@ thread-pre-split:                                 ; preds = %14, %4
   br label %27
 
 27:                                               ; preds = %26, %24
-  %.030 = phi i32 [ 16, %24 ], [ 28, %26 ]
+  %.030 = phi i32 [ 28, %26 ], [ 16, %24 ]
   %28 = tail call noalias ptr @_emalloc_1280() #6
   store i32 1, ptr %28, align 4, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -120,7 +120,7 @@ thread-pre-split:                                 ; preds = %14, %4
   br label %39
 
 39:                                               ; preds = %24, %38, %.thread41, %22, %12, %1
-  %.0 = phi ptr [ %15, %22 ], [ %5, %12 ], [ null, %1 ], [ %28, %.thread41 ], [ null, %38 ], [ null, %24 ]
+  %.0 = phi ptr [ %5, %12 ], [ %15, %22 ], [ null, %1 ], [ %28, %.thread41 ], [ null, %38 ], [ null, %24 ]
   ret ptr %.0
 }
 

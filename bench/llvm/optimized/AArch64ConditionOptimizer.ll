@@ -1403,7 +1403,7 @@ switch.early.test:                                ; preds = %21
   unreachable
 
 _ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.test, %switch.early.test, %24, %23, %21, %12
-  %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1494, %24 ], [ 1491, %23 ], [ %spec.select, %22 ]
+  %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1491, %23 ], [ 1494, %24 ], [ %spec.select, %22 ]
   %switch.tableidx = add nsw i32 %2, -10
   %26 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 0, i64 %26
@@ -1640,7 +1640,7 @@ switch.early.test.i:                              ; preds = %24
   unreachable
 
 _ZL16getComplementOpci.exit.i:                    ; preds = %27, %26, %25, %switch.early.test.i, %switch.early.test.i, %24, %15
-  %.04.shrunk.i = phi i16 [ %8, %24 ], [ %8, %switch.early.test.i ], [ %8, %switch.early.test.i ], [ %8, %15 ], [ 1494, %27 ], [ 1491, %26 ], [ %spec.select.i, %25 ]
+  %.04.shrunk.i = phi i16 [ %8, %24 ], [ %8, %switch.early.test.i ], [ %8, %switch.early.test.i ], [ %8, %15 ], [ 1491, %26 ], [ 1494, %27 ], [ %spec.select.i, %25 ]
   %switch.tableidx = add nsw i32 %2, -10
   %29 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 0, i64 %29

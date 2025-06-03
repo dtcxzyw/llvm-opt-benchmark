@@ -289,7 +289,7 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %31 = load i32, ptr %.sroa.025.1.i.i.i.i, align 4, !tbaa !8
   %.not34.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not34.i.i.i.i, label %32, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
@@ -299,7 +299,7 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %35 = load i32, ptr %.sroa.025.2.i.i.i.i, align 4, !tbaa !8
   %.not35.i.i.i.i = icmp eq i32 %35, 0
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %.val4, ptr %.sroa.025.2.i.i.i.i
@@ -1392,7 +1392,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us86:       ; preds = %.lr.ph80.split.spli
   br label %202
 
 202:                                              ; preds = %200, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %201, %200 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %201, %200 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %203 = load i32, ptr %.sroa.025.1.i.i.i, align 4, !tbaa !8
   %.not34.i.i.i = icmp eq i32 %203, 0
   br i1 %.not34.i.i.i, label %204, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5ZXing13GenericGFPoly6divideERKS8_RS8_E3$_0ET_SD_SD_T0_.exit"
@@ -1402,7 +1402,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us86:       ; preds = %.lr.ph80.split.spli
   br label %206
 
 206:                                              ; preds = %204, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %205, %204 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %205, %204 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %207 = load i32, ptr %.sroa.025.2.i.i.i, align 4, !tbaa !8
   %.not35.i.i.i = icmp eq i32 %207, 0
   %spec.select.i.i.i = select i1 %.not35.i.i.i, ptr %109, ptr %.sroa.025.2.i.i.i

@@ -422,7 +422,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.
   br label %57
 
 57:                                               ; preds = %56, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52
-  %.027.i = phi i1 [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ false, %56 ]
+  %.027.i = phi i1 [ false, %56 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ]
   switch i16 %53, label %62 [
     i16 7617, label %58
     i16 7599, label %58
@@ -444,7 +444,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.
   br label %66
 
 66:                                               ; preds = %65, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52
-  %.128.i = phi i1 [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ false, %65 ]
+  %.128.i = phi i1 [ false, %65 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ]
   switch i16 %53, label %71 [
     i16 7618, label %67
     i16 7600, label %67
@@ -638,7 +638,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineIns
   br label %145
 
 145:                                              ; preds = %144, %143, %142, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit
-  %.0.i27 = phi i64 [ 4, %144 ], [ 5, %143 ], [ 1, %142 ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ]
+  %.0.i27 = phi i64 [ 1, %142 ], [ 5, %143 ], [ 4, %144 ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ]
   %146 = load ptr, ptr %75, align 8, !tbaa !177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.038.069, i64 56

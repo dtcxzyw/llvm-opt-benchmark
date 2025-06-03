@@ -1251,7 +1251,7 @@ lean_inc.exit40:                                  ; preds = %78, %77, %75, %72
   br label %lean_dec.exit45
 
 common.ret85:                                     ; preds = %lean_obj_tag.exit, %lean_dec.exit47, %lean_dec.exit46, %lean_dec.exit, %lean_dec.exit45
-  %common.ret85.op = phi ptr [ %87, %lean_dec.exit45 ], [ %115, %lean_dec.exit ], [ %65, %lean_dec.exit46 ], [ %46, %lean_dec.exit47 ], [ %1, %lean_obj_tag.exit ]
+  %common.ret85.op = phi ptr [ %87, %lean_dec.exit45 ], [ %115, %lean_dec.exit ], [ %46, %lean_dec.exit47 ], [ %65, %lean_dec.exit46 ], [ %1, %lean_obj_tag.exit ]
   ret ptr %common.ret85.op
 
 lean_dec.exit45:                                  ; preds = %85, %84, %82, %lean_inc.exit40

@@ -282,7 +282,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   br label %101
 
 101:                                              ; preds = %.thread180, %92, %93, %99, %97, %95, %94
-  %.0117 = phi i32 [ %75, %94 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ 16, %93 ], [ %75, %92 ], [ 16, %.thread180 ]
+  %.0117 = phi i32 [ %75, %94 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ 16, %93 ], [ %75, %92 ], [ 16, %.thread180 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i64 noundef %62) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i64 noundef %66) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %75, i32 noundef %.0117) #7

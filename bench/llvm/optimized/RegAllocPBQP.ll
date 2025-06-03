@@ -12733,13 +12733,13 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
   br i1 %92, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i, label %.lr.ph.i.i.i.i, !prof !523, !llvm.loop !898
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i: ; preds = %86, %77
-  %.lcssa.i.i.i.pn.i = phi i64 [ %80, %77 ], [ %89, %86 ]
+  %.pn.i = phi i64 [ %80, %77 ], [ %89, %86 ]
   %93 = zext i32 %75 to i64
-  %94 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %93
+  %94 = icmp samesign eq i64 %.pn.i, %93
   br i1 %94, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, label %95
 
 95:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i
-  %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %74, i64 %.lcssa.i.i.i.pn.i, i32 0, i32 1
+  %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %74, i64 %.pn.i, i32 0, i32 1
   %97 = load i32, ptr %96, align 4, !tbaa !899
   br label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit
 
@@ -12845,13 +12845,13 @@ _ZN4llvm4PBQP6VectorD2Ev.exit72:                  ; preds = %_ZNKSt14default_del
   br i1 %144, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i78, label %.lr.ph.i.i.i.i74, !prof !523, !llvm.loop !898
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i78: ; preds = %138, %129
-  %.lcssa.i.i.i.pn.i79 = phi i64 [ %132, %129 ], [ %141, %138 ]
+  %.pn.i79 = phi i64 [ %132, %129 ], [ %141, %138 ]
   %145 = zext i32 %127 to i64
-  %146 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i79, %145
+  %146 = icmp samesign eq i64 %.pn.i79, %145
   br i1 %146, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81, label %147
 
 147:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i78
-  %148 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %126, i64 %.lcssa.i.i.i.pn.i79, i32 0, i32 1
+  %148 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %126, i64 %.pn.i79, i32 0, i32 1
   %149 = load i32, ptr %148, align 4, !tbaa !899
   br label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81
 
@@ -12883,13 +12883,13 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81: ;
   br i1 %163, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i87, label %.lr.ph.i.i.i.i83, !prof !523, !llvm.loop !898
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i87: ; preds = %157, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81
-  %.lcssa.i.i.i.pn.i88 = phi i64 [ %151, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81 ], [ %160, %157 ]
+  %.pn.i88 = phi i64 [ %151, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81 ], [ %160, %157 ]
   %164 = zext i32 %127 to i64
-  %165 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i88, %164
+  %165 = icmp samesign eq i64 %.pn.i88, %164
   br i1 %165, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit90, label %166
 
 166:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i87
-  %167 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %126, i64 %.lcssa.i.i.i.pn.i88, i32 0, i32 1
+  %167 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.622", ptr %126, i64 %.pn.i88, i32 0, i32 1
   %168 = load i32, ptr %167, align 4, !tbaa !899
   br label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit90
 

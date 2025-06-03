@@ -163,7 +163,7 @@ define range(i64 -1, -9223372036854775808) i64 @redisNetWrite(ptr noundef %0) lo
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %1, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %1 ]
   %28 = tail call i64 @send(i32 noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, i32 noundef 0) #10
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %30, label %38
@@ -392,7 +392,7 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   br label %31
 
 31:                                               ; preds = %27, %29, %30, %28, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %30 ], [ 0, %29 ], [ 0, %27 ], [ -1, %28 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %29 ], [ 0, %30 ], [ 0, %27 ], [ -1, %28 ]
   ret i32 %.0
 }
 

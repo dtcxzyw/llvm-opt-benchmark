@@ -1268,15 +1268,15 @@ define internal fastcc void @_ZN10serde_yaml2de22DeserializerFromEvents13visit_m
   br label %221
 
 218:                                              ; preds = %613, %459, %443, %407, %357, %342, %327, %311, %295, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i
-  %.sroa.0313.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ true, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0313.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0314.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not378.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0314.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0315.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not375.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0315.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0316.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not373.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0316.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0317.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not372.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0317.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0318.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not371.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0318.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0319.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not370.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0319.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0320.2.i.i.i = phi i1 [ true, %459 ], [ true, %443 ], [ true, %407 ], [ true, %357 ], [ true, %342 ], [ true, %327 ], [ true, %311 ], [ true, %295 ], [ %.not369.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0320.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.pn409.i.i.i = phi { ptr, i32 } [ %460, %459 ], [ %444, %443 ], [ %408, %407 ], [ %358, %357 ], [ %343, %342 ], [ %328, %327 ], [ %312, %311 ], [ %296, %295 ], [ %.pn392.i.i.i, %613 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0313.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ true, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0313.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0314.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not378.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0314.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0315.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not375.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0315.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0316.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not373.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0316.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0317.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not372.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0317.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0318.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not371.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0318.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0319.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not370.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0319.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0320.2.i.i.i = phi i1 [ true, %295 ], [ true, %311 ], [ true, %327 ], [ true, %342 ], [ true, %357 ], [ true, %407 ], [ true, %443 ], [ true, %459 ], [ %.not369.not.i.i.i, %613 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0320.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn409.i.i.i = phi { ptr, i32 } [ %296, %295 ], [ %312, %311 ], [ %328, %327 ], [ %343, %342 ], [ %358, %357 ], [ %408, %407 ], [ %444, %443 ], [ %460, %459 ], [ %.pn392.i.i.i, %613 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   %219 = load i64, ptr %43, align 8, !range !5, !noalias !15, !noundef !4
   %220 = icmp ne i64 %219, -9223372036854775808
   %or.cond.i.i.i = and i1 %.sroa.0313.2.i.i.i, %220
@@ -6213,8 +6213,8 @@ _ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit: ; preds = %"_ZN73_$LT
   br label %465
 
 465:                                              ; preds = %_ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit, %457, %51, %44, %456, %468, %462
-  %.sroa.8.0.in = phi ptr [ %43, %44 ], [ %53, %51 ], [ %470, %468 ], [ %60, %456 ], [ %464, %462 ], [ %460, %457 ], [ %454, %_ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit ]
-  %.sroa.0.0 = phi i64 [ 1, %44 ], [ 1, %51 ], [ 1, %468 ], [ 1, %456 ], [ 1, %462 ], [ 0, %457 ], [ 0, %_ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit ]
+  %.sroa.8.0.in = phi ptr [ %43, %44 ], [ %53, %51 ], [ %60, %456 ], [ %464, %462 ], [ %470, %468 ], [ %460, %457 ], [ %454, %_ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %44 ], [ 1, %51 ], [ 1, %456 ], [ 1, %462 ], [ 1, %468 ], [ 0, %457 ], [ 0, %_ZN10serde_yaml2de12visit_scalar17h901f001412d74e9cE.exit ]
   %466 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %467 = insertvalue { i64, ptr } %466, ptr %.sroa.8.0.in, 1
   ret { i64, ptr } %467
@@ -8637,8 +8637,8 @@ _ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit: ; preds = %"_ZN73_$LT
   br label %465
 
 465:                                              ; preds = %_ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit, %457, %51, %44, %456, %468, %462
-  %.sroa.8.0.in = phi ptr [ %43, %44 ], [ %53, %51 ], [ %470, %468 ], [ %60, %456 ], [ %464, %462 ], [ %460, %457 ], [ %454, %_ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit ]
-  %.sroa.0.0 = phi i64 [ 1, %44 ], [ 1, %51 ], [ 1, %468 ], [ 1, %456 ], [ 1, %462 ], [ 0, %457 ], [ 0, %_ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit ]
+  %.sroa.8.0.in = phi ptr [ %43, %44 ], [ %53, %51 ], [ %60, %456 ], [ %464, %462 ], [ %470, %468 ], [ %460, %457 ], [ %454, %_ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %44 ], [ 1, %51 ], [ 1, %456 ], [ 1, %462 ], [ 1, %468 ], [ 0, %457 ], [ 0, %_ZN10serde_yaml2de12visit_scalar17hdb1f56c40b2f7f1cE.exit ]
   %466 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %467 = insertvalue { i64, ptr } %466, ptr %.sroa.8.0.in, 1
   ret { i64, ptr } %467
@@ -8889,7 +8889,7 @@ define internal noundef range(i32 1, 42) i32 @_ZN3nix3sys6socket4addr12SockaddrL
   br label %9
 
 9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi i32 [ 40, %8 ], [ 17, %7 ], [ 16, %6 ], [ 10, %5 ], [ 2, %4 ], [ 1, %3 ], [ 41, %1 ]
+  %.sroa.0.0 = phi i32 [ 1, %3 ], [ 2, %4 ], [ 10, %5 ], [ 16, %6 ], [ 17, %7 ], [ 40, %8 ], [ 41, %1 ]
   ret i32 %.sroa.0.0
 }
 
@@ -8987,7 +8987,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17ha607a54a2ce752c9E.exit"
 
 "_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17ha607a54a2ce752c9E.exit": ; preds = %11, %13, %15
-  %.sroa.0.0.in.i = phi i1 [ %17, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %14, %13 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9125,7 +9125,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$protobuf..error..ProtobufError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb15c58cb4e96a5e8E.exit"
 
 "_ZN67_$LT$protobuf..error..ProtobufError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb15c58cb4e96a5e8E.exit": ; preds = %9, %12, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9341,7 +9341,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN64_$LT$daemonize..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hec9a55ce01a83271E.exit"
 
 "_ZN64_$LT$daemonize..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hec9a55ce01a83271E.exit": ; preds = %22, %25, %28, %31, %33, %35, %38, %40, %42, %45, %48, %50, %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %82
-  %.sroa.0.0.in.i = phi i1 [ %84, %82 ], [ %81, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.sroa.0.0.in.i = phi i1 [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %39, %38 ], [ %41, %40 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %81, %80 ], [ %84, %82 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9429,7 +9429,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ebf0237b4112ac3E.exit"
 
 "_ZN52_$LT$h2..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ebf0237b4112ac3E.exit": ; preds = %10, %15, %20, %23, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %10 ], [ %19, %15 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9641,7 +9641,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9386524a85be5901E.exit"
 
 "_ZN62_$LT$h2..frame..Frame$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9386524a85be5901E.exit": ; preds = %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a33739d0da4e37eE.exit.i", %26, %29, %33, %36, %39, %43, %46, %50
-  %.sroa.0.0.in.i = phi i1 [ %53, %50 ], [ %49, %46 ], [ %45, %43 ], [ %42, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %29 ], [ %28, %26 ], [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a33739d0da4e37eE.exit.i" ]
+  %.sroa.0.0.in.i = phi i1 [ %25, %"_ZN67_$LT$h2..frame..data..Data$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a33739d0da4e37eE.exit.i" ], [ %28, %26 ], [ %32, %29 ], [ %35, %33 ], [ %38, %36 ], [ %42, %39 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9752,7 +9752,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN63_$LT$protobuf..error..WireError$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8f7c5d501159125E.exit"
 
 "_ZN63_$LT$protobuf..error..WireError$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8f7c5d501159125E.exit": ; preds = %8, %10, %13, %16, %18, %20, %22, %25, %27, %29
-  %.sroa.0.0.in.i = phi i1 [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %24, %22 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9968,7 +9968,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN60_$LT$h2..proto..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h98aa55b127493fc1E.exit"
 
 "_ZN60_$LT$h2..proto..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h98aa55b127493fc1E.exit": ; preds = %8, %13, %18
-  %.sroa.0.0.in.i = phi i1 [ %21, %18 ], [ %17, %13 ], [ %12, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %8 ], [ %17, %13 ], [ %21, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -10046,7 +10046,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$h2..proto..streams..state..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17h450b7a59e05b9191E.exit"
 
 "_ZN69_$LT$h2..proto..streams..state..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17h450b7a59e05b9191E.exit": ; preds = %10, %12, %14, %16, %20, %23, %26
-  %.sroa.0.0.in.i = phi i1 [ %27, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ %22, %20 ], [ %25, %23 ], [ %27, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12808,7 +12808,7 @@ default.unreachable1:                             ; preds = %2
   br label %75
 
 75:                                               ; preds = %71, %68, %66, %64, %62, %60, %58, %56, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %74, %71 ], [ %70, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %55, %53 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %70, %68 ], [ %74, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -13230,7 +13230,7 @@ default.unreachable1:                             ; preds = %2
   br label %54
 
 54:                                               ; preds = %51, %47, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16
-  %.sroa.0.0.in = phi i1 [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -16216,8 +16216,8 @@ define hidden void @_ZN12pingora_core6server11transfer_fd3Fds12send_to_sock17he0
   br label %101
 
 106:                                              ; preds = %124, %101
-  %.sroa.018.1.i = phi i64 [ %.sroa.018.0.i, %124 ], [ %90, %101 ]
-  %.sroa.020.2.i = phi i64 [ %95, %124 ], [ %.sroa.020.0.i, %101 ]
+  %.sroa.018.1.i = phi i64 [ %90, %101 ], [ %.sroa.018.0.i, %124 ]
+  %.sroa.020.2.i = phi i64 [ %.sroa.020.0.i, %101 ], [ %95, %124 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30), !noalias !1474
   br label %83
 

@@ -1263,8 +1263,8 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   br label %61
 
 61:                                               ; preds = %1, %58, %56, %54
-  %.089 = phi ptr [ %59, %58 ], [ null, %56 ], [ null, %54 ], [ null, %1 ]
-  %.088 = phi ptr [ %60, %58 ], [ %57, %56 ], [ %55, %54 ], [ %2, %1 ]
+  %.089 = phi ptr [ %59, %58 ], [ null, %54 ], [ null, %56 ], [ null, %1 ]
+  %.088 = phi ptr [ %60, %58 ], [ %55, %54 ], [ %57, %56 ], [ %2, %1 ]
   %62 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.82) #5
   %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 648, ptr noundef nonnull @.str.81, ptr noundef %62) #5
   %.not = icmp eq i32 %63, 0
@@ -2066,7 +2066,7 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_null(ptr noundef non
   br label %25
 
 25:                                               ; preds = %17, %21, %19, %10, %12, %23, %1
-  %.0 = phi i32 [ 0, %1 ], [ %24, %23 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %11, %10 ], [ %13, %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ %11, %10 ], [ %13, %12 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
   %26 = icmp eq i32 %.0, 0
   %27 = zext i1 %26 to i32
   br label %28

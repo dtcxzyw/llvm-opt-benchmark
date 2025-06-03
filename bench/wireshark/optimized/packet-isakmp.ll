@@ -8723,8 +8723,8 @@ define internal fastcc zeroext i1 @prepare_decrypt(ptr noundef captures(address_
   br label %ikev1_find_gcry_cipher_algo.exit.i
 
 ikev1_find_gcry_cipher_algo.exit.i:               ; preds = %16, %15, %14, %13, %10, %9, %6
-  %17 = phi i1 [ true, %16 ], [ true, %15 ], [ false, %14 ], [ false, %13 ], [ false, %9 ], [ false, %6 ], [ false, %10 ]
-  %.0.i.i = phi i32 [ 0, %16 ], [ 0, %15 ], [ 9, %14 ], [ 8, %13 ], [ 302, %9 ], [ 2, %6 ], [ 7, %10 ]
+  %17 = phi i1 [ true, %16 ], [ false, %9 ], [ true, %15 ], [ false, %13 ], [ false, %14 ], [ false, %6 ], [ false, %10 ]
+  %.0.i.i = phi i32 [ 0, %16 ], [ 302, %9 ], [ 0, %15 ], [ 8, %13 ], [ 9, %14 ], [ 2, %6 ], [ 7, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.0.i.i, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40

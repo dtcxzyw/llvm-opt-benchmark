@@ -6275,7 +6275,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %47, %57
   br i1 %65, label %.loopexit, label %29, !llvm.loop !11
 
 .loopexit:                                        ; preds = %62, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZNK5Klass11java_mirrorEv.exit, %42, %34
-  %.0 = phi ptr [ %61, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %42 ], [ null, %34 ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ null, %62 ]
+  %.0 = phi ptr [ %61, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %34 ], [ null, %42 ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ null, %62 ]
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16

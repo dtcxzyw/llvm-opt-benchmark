@@ -6829,7 +6829,7 @@ read_key.exit:                                    ; preds = %54
   br label %108
 
 108:                                              ; preds = %read_key.exit.thread, %71, %97, %101, %91, %95
-  %.047 = phi i32 [ %84, %71 ], [ %.2, %91 ], [ 0, %95 ], [ %105, %101 ], [ 0, %97 ], [ %.021.i.ph, %read_key.exit.thread ]
+  %.047 = phi i32 [ %.2, %91 ], [ 0, %95 ], [ %84, %71 ], [ %105, %101 ], [ 0, %97 ], [ %.021.i.ph, %read_key.exit.thread ]
   call void @av_dict_free(ptr noundef nonnull %8) #16
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 4560
   store i64 0, ptr %109, align 8, !tbaa !106

@@ -60,9 +60,9 @@ define i32 @Tls13DeriveKey(ptr noundef readonly captures(none) %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %18, %12
-  %.028 = phi i32 [ %22, %18 ], [ %16, %12 ]
-  %.027 = phi i32 [ 48, %18 ], [ 32, %12 ]
-  %.0 = phi i32 [ 7, %18 ], [ 6, %12 ]
+  %.028 = phi i32 [ %16, %12 ], [ %22, %18 ]
+  %.027 = phi i32 [ 32, %12 ], [ 48, %18 ]
+  %.0 = phi i32 [ 6, %12 ], [ 7, %18 ]
   %.not31 = icmp eq i32 %.028, 0
   br i1 %.not31, label %24, label %.thread40
 
@@ -71,9 +71,9 @@ define i32 @Tls13DeriveKey(ptr noundef readonly captures(none) %0, ptr noundef %
   %spec.select = select i1 %25, i32 %.027, i32 %2
   br label %28
 
-26:                                               ; preds = %17, %11
-  %.027.ph = phi i32 [ 32, %11 ], [ 48, %17 ]
-  %.0.ph = phi i32 [ 6, %11 ], [ 7, %17 ]
+26:                                               ; preds = %11, %17
+  %.027.ph = phi i32 [ 48, %17 ], [ 32, %11 ]
+  %.0.ph = phi i32 [ 7, %17 ], [ 6, %11 ]
   %27 = icmp eq i32 %2, -1
   %spec.select48 = select i1 %27, i32 %.027.ph, i32 %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
@@ -401,9 +401,9 @@ define i32 @DeriveTls13Keys(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %50
 
 50:                                               ; preds = %45, %40
-  %.028.i.i = phi i32 [ %49, %45 ], [ %44, %40 ]
-  %.027.i.i = phi i32 [ 48, %45 ], [ 32, %40 ]
-  %.0.i.i = phi i32 [ 7, %45 ], [ 6, %40 ]
+  %.028.i.i = phi i32 [ %44, %40 ], [ %49, %45 ]
+  %.027.i.i = phi i32 [ 32, %40 ], [ 48, %45 ]
+  %.0.i.i = phi i32 [ 6, %40 ], [ 7, %45 ]
   %.not31.i.i = icmp eq i32 %.028.i.i, 0
   br i1 %.not31.i.i, label %DeriveClientHandshakeSecret.exit, label %DeriveClientHandshakeSecret.exit.thread169
 
@@ -464,9 +464,9 @@ DeriveClientHandshakeSecret.exit:                 ; preds = %50
   br label %77
 
 77:                                               ; preds = %72, %67
-  %.028.i.i110 = phi i32 [ %76, %72 ], [ %71, %67 ]
-  %.027.i.i111 = phi i32 [ 48, %72 ], [ 32, %67 ]
-  %.0.i.i112 = phi i32 [ 7, %72 ], [ 6, %67 ]
+  %.028.i.i110 = phi i32 [ %71, %67 ], [ %76, %72 ]
+  %.027.i.i111 = phi i32 [ 32, %67 ], [ 48, %72 ]
+  %.0.i.i112 = phi i32 [ 6, %67 ], [ 7, %72 ]
   %.not31.i.i113 = icmp eq i32 %.028.i.i110, 0
   br i1 %.not31.i.i113, label %DeriveServerHandshakeSecret.exit, label %DeriveServerHandshakeSecret.exit.thread175
 
@@ -526,9 +526,9 @@ DeriveServerHandshakeSecret.exit:                 ; preds = %77
   br label %104
 
 104:                                              ; preds = %99, %94
-  %.028.i.i119 = phi i32 [ %103, %99 ], [ %98, %94 ]
-  %.027.i.i120 = phi i32 [ 48, %99 ], [ 32, %94 ]
-  %.0.i.i121 = phi i32 [ 7, %99 ], [ 6, %94 ]
+  %.028.i.i119 = phi i32 [ %98, %94 ], [ %103, %99 ]
+  %.027.i.i120 = phi i32 [ 32, %94 ], [ 48, %99 ]
+  %.0.i.i121 = phi i32 [ 6, %94 ], [ 7, %99 ]
   %.not31.i.i122 = icmp eq i32 %.028.i.i119, 0
   br i1 %.not31.i.i122, label %DeriveClientTrafficSecret.exit, label %DeriveClientTrafficSecret.exit.thread181
 
@@ -588,9 +588,9 @@ DeriveClientTrafficSecret.exit:                   ; preds = %104
   br label %130
 
 130:                                              ; preds = %125, %120
-  %.028.i.i128 = phi i32 [ %129, %125 ], [ %124, %120 ]
-  %.027.i.i129 = phi i32 [ 48, %125 ], [ 32, %120 ]
-  %.0.i.i130 = phi i32 [ 7, %125 ], [ 6, %120 ]
+  %.028.i.i128 = phi i32 [ %124, %120 ], [ %129, %125 ]
+  %.027.i.i129 = phi i32 [ 32, %120 ], [ 48, %125 ]
+  %.0.i.i130 = phi i32 [ 6, %120 ], [ 7, %125 ]
   %.not31.i.i131 = icmp eq i32 %.028.i.i128, 0
   br i1 %.not31.i.i131, label %DeriveServerTrafficSecret.exit, label %DeriveServerTrafficSecret.exit.thread187
 
@@ -680,7 +680,7 @@ DeriveTrafficSecret.exit147:                      ; preds = %145, %149
   br i1 %.not94, label %153, label %ForceZero.exit
 
 153:                                              ; preds = %25, %144, %DeriveTrafficSecret.exit147, %108, %DeriveServerTrafficSecret.exit, %54, %DeriveServerHandshakeSecret.exit
-  %.272 = phi i32 [ 0, %DeriveTrafficSecret.exit147 ], [ %.474, %144 ], [ 0, %DeriveServerTrafficSecret.exit ], [ %.373, %108 ], [ 0, %DeriveServerHandshakeSecret.exit ], [ %.070, %54 ], [ -173, %25 ]
+  %.272 = phi i32 [ 0, %DeriveServerHandshakeSecret.exit ], [ %.070, %54 ], [ 0, %DeriveServerTrafficSecret.exit ], [ %.373, %108 ], [ 0, %DeriveTrafficSecret.exit147 ], [ %.474, %144 ], [ -173, %25 ]
   %.not103 = icmp eq i32 %3, 0
   br i1 %.not103, label %ForceZero.exit, label %154
 
@@ -898,8 +898,8 @@ Tls13DeriveKey.exit165:                           ; preds = %216, %207
   %.not22.i = icmp eq i32 %230, 0
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !58
 
-ForceZero.exit:                                   ; preds = %.lr.ph35.i, %Tls13DeriveKey.exit, %153, %DeriveTrafficSecret.exit, %DeriveTrafficSecret.exit147, %DeriveClientTrafficSecret.exit, %DeriveServerTrafficSecret.exit, %DeriveClientHandshakeSecret.exit, %DeriveServerHandshakeSecret.exit, %DeriveClientHandshakeSecret.exit.thread169, %DeriveServerHandshakeSecret.exit.thread175, %DeriveClientTrafficSecret.exit.thread181, %DeriveServerTrafficSecret.exit.thread187, %DeriveTrafficSecret.exit.thread, %DeriveTrafficSecret.exit147.thread, %Tls13DeriveKey.exit.thread, %31, %28, %58, %55, %86, %83, %112, %109, %.preheader.i
-  %.171206211 = phi i32 [ %.171, %.preheader.i ], [ -173, %109 ], [ -173, %112 ], [ -173, %83 ], [ -173, %86 ], [ -173, %55 ], [ -173, %58 ], [ -173, %28 ], [ -173, %31 ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit147.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %.024.i.i133.ph, %DeriveServerTrafficSecret.exit.thread187 ], [ %.024.i.i124.ph, %DeriveClientTrafficSecret.exit.thread181 ], [ %.024.i.i115.ph, %DeriveServerHandshakeSecret.exit.thread175 ], [ %.024.i.i.ph, %DeriveClientHandshakeSecret.exit.thread169 ], [ %80, %DeriveServerHandshakeSecret.exit ], [ %53, %DeriveClientHandshakeSecret.exit ], [ %133, %DeriveServerTrafficSecret.exit ], [ %107, %DeriveClientTrafficSecret.exit ], [ %152, %DeriveTrafficSecret.exit147 ], [ %143, %DeriveTrafficSecret.exit ], [ %.272, %153 ], [ %166, %Tls13DeriveKey.exit ], [ %.171, %.lr.ph35.i ]
+ForceZero.exit:                                   ; preds = %.lr.ph35.i, %Tls13DeriveKey.exit, %153, %DeriveClientHandshakeSecret.exit, %DeriveServerHandshakeSecret.exit, %DeriveClientTrafficSecret.exit, %DeriveServerTrafficSecret.exit, %DeriveTrafficSecret.exit, %DeriveTrafficSecret.exit147, %DeriveClientHandshakeSecret.exit.thread169, %DeriveServerHandshakeSecret.exit.thread175, %DeriveClientTrafficSecret.exit.thread181, %DeriveServerTrafficSecret.exit.thread187, %DeriveTrafficSecret.exit.thread, %DeriveTrafficSecret.exit147.thread, %Tls13DeriveKey.exit.thread, %31, %28, %58, %55, %86, %83, %112, %109, %.preheader.i
+  %.171206211 = phi i32 [ %.171, %.preheader.i ], [ -173, %109 ], [ -173, %112 ], [ -173, %83 ], [ -173, %86 ], [ -173, %55 ], [ -173, %58 ], [ -173, %28 ], [ -173, %31 ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit147.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %.024.i.i133.ph, %DeriveServerTrafficSecret.exit.thread187 ], [ %.024.i.i124.ph, %DeriveClientTrafficSecret.exit.thread181 ], [ %.024.i.i115.ph, %DeriveServerHandshakeSecret.exit.thread175 ], [ %.024.i.i.ph, %DeriveClientHandshakeSecret.exit.thread169 ], [ %152, %DeriveTrafficSecret.exit147 ], [ %143, %DeriveTrafficSecret.exit ], [ %133, %DeriveServerTrafficSecret.exit ], [ %107, %DeriveClientTrafficSecret.exit ], [ %80, %DeriveServerHandshakeSecret.exit ], [ %53, %DeriveClientHandshakeSecret.exit ], [ %.272, %153 ], [ %166, %Tls13DeriveKey.exit ], [ %.171, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %15) #11
   ret i32 %.171206211
 }
@@ -1195,7 +1195,7 @@ ChaCha20Poly1305_Decrypt.exit:                    ; preds = %.lr.ph29.i.i, %87, 
   br label %122
 
 122:                                              ; preds = %ChaCha20Poly1305_Decrypt.exit, %79
-  %.1 = phi i32 [ %.0.i, %ChaCha20Poly1305_Decrypt.exit ], [ %86, %79 ]
+  %.1 = phi i32 [ %86, %79 ], [ %.0.i, %ChaCha20Poly1305_Decrypt.exit ]
   store i8 2, ptr %14, align 16, !tbaa !61
   %123 = load ptr, ptr %15, align 16, !tbaa !62
   %124 = ptrtoint ptr %123 to i64
@@ -1569,7 +1569,7 @@ ChaCha20Poly1305_Encrypt.exit.i:                  ; preds = %.lr.ph29.i.i.i, %16
   br label %169
 
 169:                                              ; preds = %ChaCha20Poly1305_Encrypt.exit.i, %135, %129, %54
-  %.040.i = phi i32 [ 0, %54 ], [ %.0.i.i, %ChaCha20Poly1305_Encrypt.exit.i ], [ %141, %135 ], [ %133, %129 ]
+  %.040.i = phi i32 [ 0, %54 ], [ %141, %135 ], [ %133, %129 ], [ %.0.i.i, %ChaCha20Poly1305_Encrypt.exit.i ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %171 = load ptr, ptr %170, align 8, !tbaa !78
   %172 = ptrtoint ptr %171 to i64
@@ -3320,13 +3320,13 @@ define range(i32 -2147483648, 1) i32 @CreateSigData(ptr noundef readonly capture
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %GetMsgHash.exit.thread, label %GetMsgHash.exit
 
-GetMsgHash.exit:                                  ; preds = %22, %28
-  %.0.i = phi i32 [ %32, %28 ], [ %26, %22 ]
+GetMsgHash.exit:                                  ; preds = %28, %22
+  %.0.i = phi i32 [ %26, %22 ], [ %32, %28 ]
   %34 = icmp slt i32 %.0.i, 0
   br i1 %34, label %37, label %GetMsgHash.exit.thread
 
-GetMsgHash.exit.thread:                           ; preds = %22, %28, %18, %GetMsgHash.exit
-  %.0.i36 = phi i32 [ %.0.i, %GetMsgHash.exit ], [ 0, %18 ], [ 48, %28 ], [ 32, %22 ]
+GetMsgHash.exit.thread:                           ; preds = %28, %22, %18, %GetMsgHash.exit
+  %.0.i36 = phi i32 [ %.0.i, %GetMsgHash.exit ], [ 0, %18 ], [ 32, %22 ], [ 48, %28 ]
   %35 = trunc i32 %.0.i36 to i16
   %36 = add i16 %35, 98
   store i16 %36, ptr %2, align 2, !tbaa !119
@@ -3705,9 +3705,9 @@ define internal fastcc i32 @BuildTls13HandshakeHmac(ptr noundef readonly capture
   br label %22
 
 22:                                               ; preds = %17, %12
-  %.029 = phi i32 [ 7, %17 ], [ 6, %12 ]
-  %.028 = phi i32 [ 48, %17 ], [ 32, %12 ]
-  %.0 = phi i32 [ %21, %17 ], [ %16, %12 ]
+  %.029 = phi i32 [ 6, %12 ], [ 7, %17 ]
+  %.028 = phi i32 [ 32, %12 ], [ 48, %17 ]
+  %.0 = phi i32 [ %16, %12 ], [ %21, %17 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %23, label %.thread
 
@@ -4289,7 +4289,7 @@ switch.early.test:                                ; preds = %SanityCheckTls13Msg
   br label %DoTls13Certificate.exit
 
 DoTls13Certificate.exit:                          ; preds = %213, %226, %224, %222, %211, %204, %202, %200
-  %.0126 = phi i32 [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %212, %211 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %214, %213 ]
+  %.0126 = phi i32 [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %212, %211 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %214, %213 ]
   switch i32 %.0126, label %DoTls13Certificate.exit..thread165_crit_edge [
     i32 -108, label %228
     i32 -408, label %228
@@ -4900,12 +4900,12 @@ thread-pre-split:                                 ; preds = %88, %73
   br i1 %164, label %166, label %GetMsgHash.exit.i.i
 
 GetMsgHash.exit.i.i:                              ; preds = %159, %153
-  %.0.i.i.i = phi i32 [ %163, %159 ], [ %157, %153 ]
+  %.0.i.i.i = phi i32 [ %157, %153 ], [ %163, %159 ]
   %165 = icmp slt i32 %.0.i.i.i, 0
   br i1 %165, label %.thread148.sink.split, label %166
 
 166:                                              ; preds = %GetMsgHash.exit.i.i, %159, %153, %149
-  %.0.i36.i.i = phi i32 [ %.0.i.i.i, %GetMsgHash.exit.i.i ], [ 0, %149 ], [ 48, %159 ], [ 32, %153 ]
+  %.0.i36.i.i = phi i32 [ %.0.i.i.i, %GetMsgHash.exit.i.i ], [ 0, %149 ], [ 32, %153 ], [ 48, %159 ]
   %167 = add nuw i32 %.0.i36.i.i, 98
   %168 = icmp eq i8 %135, 8
   br i1 %168, label %169, label %CheckRSASignature.exit.thread
@@ -6459,7 +6459,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   br label %.thread
 
 .thread:                                          ; preds = %54, %116, %136, %86, %72, %68, %61, %37, %35, %30, %32, %27, %13, %197, %192, %.thread130, %148, %10
-  %.9 = phi i32 [ %190, %.thread130 ], [ 0, %192 ], [ %198, %197 ], [ %161, %148 ], [ %12, %10 ], [ %96, %86 ], [ %78, %72 ], [ -125, %68 ], [ %64, %61 ], [ -133, %37 ], [ -317, %35 ], [ -132, %30 ], [ -132, %32 ], [ %29, %27 ], [ -317, %13 ], [ %.6, %136 ], [ %129, %116 ], [ -125, %54 ]
+  %.9 = phi i32 [ %12, %10 ], [ %161, %148 ], [ %190, %.thread130 ], [ 0, %192 ], [ %198, %197 ], [ %96, %86 ], [ %78, %72 ], [ -125, %68 ], [ %64, %61 ], [ -133, %37 ], [ -317, %35 ], [ -132, %30 ], [ -132, %32 ], [ %29, %27 ], [ -317, %13 ], [ %.6, %136 ], [ %129, %116 ], [ -125, %54 ]
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %200 = load ptr, ptr %199, align 16, !tbaa !174
   %.not.i = icmp eq ptr %200, null

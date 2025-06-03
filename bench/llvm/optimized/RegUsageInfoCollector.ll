@@ -522,7 +522,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %22, %27
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %72, %71 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %74 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !11
   %.not30.i.i.i.i.i.i.i.i.i = icmp eq i64 %74, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i, label %75, label %_ZNK4llvm9BitVector4noneEv.exit.i
@@ -532,7 +532,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %22, %27
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %76, %75 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %76, %75 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %78 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !11
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %78, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit, label %_ZNK4llvm9BitVector4noneEv.exit.i

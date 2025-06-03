@@ -99,7 +99,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %17, %322, %setOne.exit115.i, %readOne.exit.i, %setTwoTwoOpt.exit.i, %setTwoTwoOpt.exit.thread20.i, %211, %setOne.exit101.i, %189, %setOne.exit97.i, %openFile.exit.i, %159, %157, %setOne.exit93.i, %137, %setOne.exit89.i, %117, %113, %setOne.exit85.i, %setOne.exit81.i, %setTwo.exit.i, %43, %39, %35, %setOne.exit.i
-  %.0.i.be = phi i32 [ %.0.i, %322 ], [ 16, %setOne.exit115.i ], [ %.0.i, %readOne.exit.i ], [ 7, %setTwoTwoOpt.exit.i ], [ 6, %211 ], [ 15, %setOne.exit101.i ], [ 13, %189 ], [ 5, %setOne.exit97.i ], [ %.0.i, %openFile.exit.i ], [ %.0.i, %159 ], [ %.0.i, %157 ], [ 11, %setOne.exit93.i ], [ 10, %137 ], [ 17, %setOne.exit89.i ], [ 12, %117 ], [ 4, %113 ], [ 3, %setOne.exit85.i ], [ 14, %setOne.exit81.i ], [ 1, %setTwo.exit.i ], [ %.0.i, %43 ], [ 9, %39 ], [ 8, %35 ], [ 2, %setOne.exit.i ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %17 ]
+  %.0.i.be = phi i32 [ 2, %setOne.exit.i ], [ 8, %35 ], [ 9, %39 ], [ %.0.i, %43 ], [ 1, %setTwo.exit.i ], [ 14, %setOne.exit81.i ], [ 3, %setOne.exit85.i ], [ 4, %113 ], [ 12, %117 ], [ 17, %setOne.exit89.i ], [ 10, %137 ], [ 11, %setOne.exit93.i ], [ %.0.i, %157 ], [ %.0.i, %159 ], [ %.0.i, %openFile.exit.i ], [ 5, %setOne.exit97.i ], [ 13, %189 ], [ 15, %setOne.exit101.i ], [ 6, %211 ], [ 7, %setTwoTwoOpt.exit.i ], [ %.0.i, %readOne.exit.i ], [ 16, %setOne.exit115.i ], [ %.0.i, %322 ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %17 ]
   br label %17, !llvm.loop !16
 
 19:                                               ; preds = %17

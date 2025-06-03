@@ -5659,7 +5659,7 @@ default.unreachable:                              ; preds = %189
   unreachable
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE16hasMeshAttributeENS_20GLMeshAttributesInfo13INT_ATT_NAMESE.exit.thread: ; preds = %210, %206, %201, %196, %191
-  %.0.i.ph = phi i1 [ %213, %210 ], [ false, %206 ], [ %195, %191 ], [ %200, %196 ], [ %205, %201 ]
+  %.0.i.ph = phi i1 [ %213, %210 ], [ false, %206 ], [ %205, %201 ], [ %200, %196 ], [ %195, %191 ]
   %214 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %215 = load i8, ptr %214, align 8
   %216 = trunc i8 %215 to i1
@@ -7027,7 +7027,7 @@ define linkonce_odr noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiVie
   br label %65
 
 65:                                               ; preds = %14, %48, %42, %53, %49, %43, %38, %33, %29
-  %.0 = phi i64 [ %64, %53 ], [ %52, %49 ], [ %47, %43 ], [ %37, %33 ], [ %41, %38 ], [ 0, %29 ], [ 0, %42 ], [ 0, %48 ], [ 0, %14 ]
+  %.0 = phi i64 [ %37, %33 ], [ %41, %38 ], [ %47, %43 ], [ %52, %49 ], [ %64, %53 ], [ 0, %29 ], [ 0, %42 ], [ 0, %48 ], [ 0, %14 ]
   ret i64 %.0
 
 66:                                               ; preds = %24

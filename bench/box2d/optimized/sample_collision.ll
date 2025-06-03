@@ -1126,8 +1126,8 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance4StepER8Settings(ptr nound
   br label %_ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit
 
 _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; preds = %50, %53, %57, %76
-  %.sroa.044.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.05.4.vec.insert.i.i, %57 ], [ %54, %53 ], [ %.sroa.08.4.vec.insert.i.i, %76 ]
-  %.sroa.0.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.05.4.vec.insert.i38.i, %57 ], [ %56, %53 ], [ %.sroa.08.4.vec.insert.i.i, %76 ]
+  %.sroa.044.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %54, %53 ], [ %.sroa.05.4.vec.insert.i.i, %57 ]
+  %.sroa.0.0 = phi <2 x float> [ undef, %50 ], [ %.sroa.08.4.vec.insert.i.i, %76 ], [ %56, %53 ], [ %.sroa.05.4.vec.insert.i38.i, %57 ]
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.044.0, <2 x float> %.sroa.0.0, i32 noundef 16777215)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.044.0, float noundef 5.000000e+00, i32 noundef 16777215)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0, float noundef 5.000000e+00, i32 noundef 16777215)
@@ -1409,10 +1409,10 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %30, %25, %22
-  %.sroa.015.0 = phi i64 [ %32, %30 ], [ %27, %25 ], [ %24, %22 ]
-  %.sink7.i = phi i64 [ 272, %30 ], [ 408, %25 ], [ 552, %22 ]
-  %.sink6.i.sroa.phi = phi ptr [ %.sroa.1218, %30 ], [ %.sroa.1017, %25 ], [ %.sroa.716, %22 ]
-  %.sink.ph.i = phi i32 [ 4, %30 ], [ 3, %25 ], [ 2, %22 ]
+  %.sroa.015.0 = phi i64 [ %24, %22 ], [ %27, %25 ], [ %32, %30 ]
+  %.sink7.i = phi i64 [ 552, %22 ], [ 408, %25 ], [ 272, %30 ]
+  %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218, %30 ]
+  %.sink.ph.i = phi i32 [ 2, %22 ], [ 3, %25 ], [ 4, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
   %38 = load i64, ptr %37, align 8, !noalias !127
   store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !127
@@ -1511,10 +1511,10 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   br label %.sink.split.sink.split.i3
 
 .sink.split.sink.split.i3:                        ; preds = %62, %57, %54
-  %.sroa.0.0 = phi i64 [ %64, %62 ], [ %59, %57 ], [ %56, %54 ]
-  %.sink7.i4 = phi i64 [ 272, %62 ], [ 408, %57 ], [ 552, %54 ]
-  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.12, %62 ], [ %.sroa.10, %57 ], [ %.sroa.7, %54 ]
-  %.sink.ph.i6 = phi i32 [ 4, %62 ], [ 3, %57 ], [ 2, %54 ]
+  %.sroa.0.0 = phi i64 [ %56, %54 ], [ %59, %57 ], [ %64, %62 ]
+  %.sink7.i4 = phi i64 [ 552, %54 ], [ 408, %57 ], [ 272, %62 ]
+  %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12, %62 ]
+  %.sink.ph.i6 = phi i32 [ 2, %54 ], [ 3, %57 ], [ 4, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i4
   %70 = load i64, ptr %69, align 8, !noalias !131
   store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !131

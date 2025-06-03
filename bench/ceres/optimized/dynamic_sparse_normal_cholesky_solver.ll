@@ -907,7 +907,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
   ret void
 
 228:                                              ; preds = %225, %215, %.body54, %158, %112
-  %.pn27 = phi { ptr, i32 } [ %216, %215 ], [ %226, %225 ], [ %168, %.body54 ], [ %159, %158 ], [ %113, %112 ]
+  %.pn27 = phi { ptr, i32 } [ %216, %215 ], [ %226, %225 ], [ %113, %112 ], [ %159, %158 ], [ %168, %.body54 ]
   %229 = load ptr, ptr %63, align 8, !tbaa !85
   %230 = icmp eq ptr %229, %64
   br i1 %230, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i70

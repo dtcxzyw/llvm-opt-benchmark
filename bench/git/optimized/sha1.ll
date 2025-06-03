@@ -3198,11 +3198,11 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   unreachable
 
 sha1_recompression_step.exit:                     ; preds = %134, %931
-  %.sroa.11.0 = phi i32 [ %1723, %931 ], [ %929, %134 ]
-  %.sroa.8.0 = phi i32 [ %1722, %931 ], [ %928, %134 ]
-  %.sroa.5.0 = phi i32 [ %1721, %931 ], [ %927, %134 ]
-  %.sroa.0.0 = phi i32 [ %1720, %931 ], [ %926, %134 ]
-  %.sink.i = phi i32 [ %1724, %931 ], [ %930, %134 ]
+  %.sroa.11.0 = phi i32 [ %929, %134 ], [ %1723, %931 ]
+  %.sroa.8.0 = phi i32 [ %928, %134 ], [ %1722, %931 ]
+  %.sroa.5.0 = phi i32 [ %927, %134 ], [ %1721, %931 ]
+  %.sroa.0.0 = phi i32 [ %926, %134 ], [ %1720, %931 ]
+  %.sink.i = phi i32 [ %930, %134 ], [ %1724, %931 ]
   %1726 = load i32, ptr %4, align 8, !tbaa !4
   %1727 = load i32, ptr %7, align 4, !tbaa !4
   %1728 = load i32, ptr %10, align 8, !tbaa !4

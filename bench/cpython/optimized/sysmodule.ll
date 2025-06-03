@@ -2722,7 +2722,7 @@ define dso_local range(i32 -2, 1) i32 @PyUnstable_WritePerfMapEntry(ptr noundef 
   br label %17
 
 17:                                               ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 

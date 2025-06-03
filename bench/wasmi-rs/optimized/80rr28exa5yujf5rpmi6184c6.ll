@@ -800,7 +800,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15: ; preds = %2, %16, 
   br label %23
 
 23:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
-  %.sroa.0.0.in = phi i1 [ %19, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15 ]
+  %.sroa.0.0.in = phi i1 [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit15 ], [ %19, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -823,8 +823,8 @@ default.unreachable2:                             ; preds = %2
   br label %5
 
 5:                                                ; preds = %2, %2, %4, %3
-  %.sroa.01.0 = phi i64 [ 8, %4 ], [ 5, %3 ], [ %0, %2 ], [ %0, %2 ]
-  %.sroa.5.0 = phi i64 [ %1, %4 ], [ undef, %3 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.01.0 = phi i64 [ 5, %3 ], [ 8, %4 ], [ %0, %2 ], [ %0, %2 ]
+  %.sroa.5.0 = phi i64 [ undef, %3 ], [ %1, %4 ], [ undef, %2 ], [ undef, %2 ]
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.01.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %.sroa.5.0, 1
   ret { i64, i64 } %7

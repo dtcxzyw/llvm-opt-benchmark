@@ -553,8 +553,8 @@ parse_size_field.exit252:                         ; preds = %.thread275, %117, %
   br i1 %exitcond343.not, label %.loopexit294, label %164, !llvm.loop !10
 
 .loopexit294:                                     ; preds = %164, %148, %55, %29, %20
-  %.0221 = phi i32 [ %71, %148 ], [ 2, %55 ], [ 2, %29 ], [ 1, %20 ], [ %71, %164 ]
-  %.0217 = phi i32 [ %.1218, %148 ], [ 0, %55 ], [ 0, %29 ], [ 0, %20 ], [ %.1218, %164 ]
+  %.0221 = phi i32 [ 1, %20 ], [ 2, %29 ], [ 2, %55 ], [ %71, %148 ], [ %71, %164 ]
+  %.0217 = phi i32 [ 0, %20 ], [ 0, %29 ], [ 0, %55 ], [ %.1218, %148 ], [ %.1218, %164 ]
   %umax347 = tail call i32 @llvm.umax.i32(i32 %.0221, i32 1)
   %wide.trip.count348 = zext nneg i32 %umax347 to i64
   br label %171

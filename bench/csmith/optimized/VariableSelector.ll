@@ -247,7 +247,7 @@ define dso_local noundef zeroext i1 @_ZNK20VariableSelectFilter6filterEi(ptr nou
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.sroa.038.1.i.i.i.i, align 8, !tbaa !19
   %45 = load i32, ptr %44, align 4, !tbaa !21
   %46 = icmp ugt i32 %45, %1
@@ -258,7 +258,7 @@ define dso_local noundef zeroext i1 @_ZNK20VariableSelectFilter6filterEi(ptr nou
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %48, %47 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %50 = load ptr, ptr %.sroa.038.2.i.i.i.i, align 8, !tbaa !19
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = icmp ugt i32 %51, %1
@@ -6309,7 +6309,7 @@ _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
   br label %60
 
 60:                                               ; preds = %54, %23
-  %.020.ph = phi ptr [ %24, %23 ], [ %59, %54 ]
+  %.020.ph = phi ptr [ %59, %54 ], [ %24, %23 ]
   %.pr = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !68
   %.not28 = icmp eq i32 %.pr, 0
   br i1 %.not28, label %.thread31, label %.thread
@@ -6693,7 +6693,7 @@ define dso_local noundef ptr @_ZN16VariableSelector6selectEN6Effect6AccessERK9CG
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %55 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %56, %55 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = load ptr, ptr %.sroa.038.1.i.i.i.i.i, align 8, !tbaa !19
   %59 = load i32, ptr %58, align 4, !tbaa !21
   %60 = icmp ugt i32 %59, %14
@@ -6704,7 +6704,7 @@ define dso_local noundef ptr @_ZN16VariableSelector6selectEN6Effect6AccessERK9CG
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %62, %61 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %64 = load ptr, ptr %.sroa.038.2.i.i.i.i.i, align 8, !tbaa !19
   %65 = load i32, ptr %64, align 4, !tbaa !21
   %66 = icmp ugt i32 %65, %14

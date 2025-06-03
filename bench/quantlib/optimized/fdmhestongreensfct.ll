@@ -846,7 +846,7 @@ ehcleanup191:                                     ; preds = %ehcleanup190, %lpad
   br label %ehcleanup251
 
 sw.epilog:                                        ; preds = %invoke.cont112, %sw.bb116, %invoke.cont103
-  %retVal.0 = phi double [ %mul157, %sw.bb116 ], [ %mul105, %invoke.cont103 ], [ %call115, %invoke.cont112 ]
+  %retVal.0 = phi double [ %mul105, %invoke.cont103 ], [ %mul157, %sw.bb116 ], [ %call115, %invoke.cont112 ]
   %101 = load i32, ptr %trafoType_, align 8, !tbaa !16
   switch i32 %101, label %do.body204 [
     i32 2, label %sw.bb193
@@ -1032,7 +1032,7 @@ ehcleanup241:                                     ; preds = %ehcleanup240, %lpad
   br label %ehcleanup251
 
 sw.epilog244:                                     ; preds = %sw.bb195, %sw.bb193, %sw.epilog
-  %retVal.1 = phi double [ %mul202, %sw.bb195 ], [ %retVal.0, %sw.epilog ], [ %mul194, %sw.bb193 ]
+  %retVal.1 = phi double [ %mul194, %sw.bb193 ], [ %retVal.0, %sw.epilog ], [ %mul202, %sw.bb195 ]
   %124 = load i64, ptr %__begin1, align 8, !tbaa !81
   %arrayidx.i = getelementptr inbounds nuw double, ptr %47, i64 %124
   store double %retVal.1, ptr %arrayidx.i, align 8, !tbaa !90
@@ -1079,7 +1079,7 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLi
   br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
 
 ehcleanup251:                                     ; preds = %lpad72, %ehcleanup241, %ehcleanup191, %lpad111, %ehcleanup, %lpad64
-  %.pn55.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad64 ], [ %71, %lpad72 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup191 ], [ %.pn49.pn.pn.pn.pn, %ehcleanup241 ], [ %77, %lpad111 ], [ %.pn, %ehcleanup ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad64 ], [ %71, %lpad72 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup191 ], [ %.pn49.pn.pn.pn.pn, %ehcleanup241 ], [ %.pn, %ehcleanup ], [ %77, %lpad111 ]
   call void @_ZN8QuantLib19FdmLinearOpIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__end1) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end1) #24
   call void @_ZN8QuantLib19FdmLinearOpIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__begin1) #24

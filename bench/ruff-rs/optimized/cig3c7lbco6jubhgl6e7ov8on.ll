@@ -2359,8 +2359,8 @@ define hidden noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility1
   br label %_ZN3std4path9Component9as_os_str17hbe069277e228e303E.exit
 
 _ZN3std4path9Component9as_os_str17hbe069277e228e303E.exit: ; preds = %32, %39, %40, %41, %42
-  %.sroa.8.0.i = phi i64 [ %.sroa.6.0.copyload, %42 ], [ 2, %41 ], [ 1, %40 ], [ %.sroa.8.0.copyload, %39 ], [ %37, %32 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.517.0.copyload, %42 ], [ @anon.197829fd7742c65e648072fd6cc75692.24, %41 ], [ @anon.197829fd7742c65e648072fd6cc75692.23, %40 ], [ %.sroa.718.0.copyload, %39 ], [ @anon.197829fd7742c65e648072fd6cc75692.22, %32 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.8.0.copyload, %39 ], [ 1, %40 ], [ 2, %41 ], [ %.sroa.6.0.copyload, %42 ], [ %37, %32 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.718.0.copyload, %39 ], [ @anon.197829fd7742c65e648072fd6cc75692.23, %40 ], [ @anon.197829fd7742c65e648072fd6cc75692.24, %41 ], [ %.sroa.517.0.copyload, %42 ], [ @anon.197829fd7742c65e648072fd6cc75692.22, %32 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN5alloc6string6String15from_utf8_lossy17hcd8a1874e3c8f919E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.8.0.i)

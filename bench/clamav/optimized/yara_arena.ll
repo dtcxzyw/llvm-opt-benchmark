@@ -838,7 +838,7 @@ define range(i32 0, 2) i32 @yr_arena_allocate_memory(ptr noundef captures(none) 
   br label %17
 
 17:                                               ; preds = %3, %5
-  %.1 = phi i32 [ 1, %3 ], [ 0, %5 ]
+  %.1 = phi i32 [ 0, %5 ], [ 1, %3 ]
   ret i32 %.1
 }
 

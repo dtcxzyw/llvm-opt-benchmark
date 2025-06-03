@@ -77,7 +77,7 @@ define noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr noundef rea
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.0.i = phi i8 [ -32, %17 ], [ -48, %16 ], [ -64, %15 ], [ -80, %14 ], [ -96, %13 ], [ -112, %12 ], [ -128, %11 ], [ 112, %10 ], [ 96, %9 ], [ 80, %8 ], [ 64, %7 ], [ 48, %6 ], [ 32, %5 ], [ 16, %4 ], [ 0, %3 ], [ -16, %1 ]
+  %.0.i = phi i8 [ 0, %3 ], [ 16, %4 ], [ 32, %5 ], [ 48, %6 ], [ 64, %7 ], [ 80, %8 ], [ 96, %9 ], [ 112, %10 ], [ -128, %11 ], [ -112, %12 ], [ -96, %13 ], [ -80, %14 ], [ -64, %15 ], [ -48, %16 ], [ -32, %17 ], [ -16, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %switch.tableidx = add i8 %19, -48

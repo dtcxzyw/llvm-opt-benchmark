@@ -1167,7 +1167,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   unreachable
 
 fetch_att.exit:                                   ; preds = %278, %280, %282, %284
-  %.0.i = phi i64 [ %.0..0..0.326, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ]
+  %.0.i = phi i64 [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %.0..0..0.326, %284 ]
   %288 = load ptr, ptr %273, align 8
   %289 = getelementptr inbounds nuw i64, ptr %288, i64 %indvars.iv419
   store i64 %.0.i, ptr %289, align 8
@@ -2823,7 +2823,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   br label %267
 
 267:                                              ; preds = %261, %256, %252
-  %.0241 = phi i8 [ 0, %252 ], [ %266, %261 ], [ %260, %256 ]
+  %.0241 = phi i8 [ 0, %252 ], [ %260, %256 ], [ %266, %261 ]
   %268 = getelementptr inbounds i8, ptr %25, i64 %253
   %269 = load i8, ptr %268, align 1, !range !9, !noundef !10
   %270 = or i8 %269, %.0241

@@ -5103,7 +5103,7 @@ _ZL21isIntOrIntVectorValueRKSt4pairIPKN4llvm5ValueEjE.exit37: ; preds = %95, %10
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %109, %108 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %109, %108 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %111 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !396
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !320
@@ -5133,7 +5133,7 @@ _ZL21isIntOrIntVectorValueRKSt4pairIPKN4llvm5ValueEjE.exit31: ; preds = %110, %1
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %124, %123 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %124, %123 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %126 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !396
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !320
@@ -8436,7 +8436,7 @@ _ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt
   br label %576
 
 576:                                              ; preds = %574, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %575, %574 ]
+  %.1.i.i.i = phi ptr [ %575, %574 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.1.val.i.i.i = load ptr, ptr %.1.i.i.i, align 8, !tbaa !348
   %577 = call noundef ptr @_ZN4llvm15ValueEnumerator21enumerateMetadataImplEjPKNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(492) %0, i32 noundef %1, ptr noundef %.1.val.i.i.i)
   %.not47.i.i.i = icmp eq ptr %577, null
@@ -8447,7 +8447,7 @@ _ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt
   br label %580
 
 580:                                              ; preds = %578, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %579, %578 ]
+  %.2.i.i.i = phi ptr [ %579, %578 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.val.i.i.i = load ptr, ptr %.2.i.i.i, align 8, !tbaa !348
   %581 = call noundef ptr @_ZN4llvm15ValueEnumerator21enumerateMetadataImplEjPKNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(492) %0, i32 noundef %1, ptr noundef %.2.val.i.i.i)
   %.not48.i.i.i = icmp eq ptr %581, null

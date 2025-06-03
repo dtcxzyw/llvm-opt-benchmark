@@ -5170,7 +5170,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr158dro
   unreachable
 
 common.resume.i:                                  ; preds = %192, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit72.i", %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit56.i", %85, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %86, %85 ], [ %.pn9.i, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit72.i" ], [ %93, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit56.i" ], [ %.pn21.i, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit.i" ], [ %193, %192 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %86, %85 ], [ %.pn21.i, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit.i" ], [ %.pn9.i, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit72.i" ], [ %93, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit56.i" ], [ %193, %192 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %201, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit72.i", %180, %173, %143, %133, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit56.i", %125, %120, %115, %111, %106, %97, %"_ZN4core3ptr158drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$async_process..Child$GT$$GT$$GT$$GT$17h46e71eef65f8678fE.exit.i", %73, %61, %50, %39, %27, %18
@@ -11525,7 +11525,7 @@ common.ret:                                       ; preds = %138, %131, %"_ZN4co
           to label %131 unwind label %129
 
 "_ZN4core3ptr224drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_input$LT$async_process..ChildStdout$C$lsp..LanguageServer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158a15b61271d8fE.exit34": ; preds = %82, %71, %72, %119, %112, %.body
-  %.pn2.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn, %112 ], [ %.pn, %.body ], [ %83, %82 ], [ %73, %71 ], [ %73, %72 ]
+  %.pn6.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn, %112 ], [ %.pn, %.body ], [ %83, %82 ], [ %73, %71 ], [ %73, %72 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 307
   store i8 0, ptr %86, align 1
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11618,7 +11618,7 @@ common.ret:                                       ; preds = %138, %131, %"_ZN4co
   br label %"_ZN4core3ptr224drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_input$LT$async_process..ChildStdout$C$lsp..LanguageServer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158a15b61271d8fE.exit34"
 
 121:                                              ; preds = %129, %"_ZN4core3ptr224drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_input$LT$async_process..ChildStdout$C$lsp..LanguageServer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158a15b61271d8fE.exit34"
-  %.pn9 = phi { ptr, i32 } [ %130, %129 ], [ %.pn2.pn, %"_ZN4core3ptr224drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_input$LT$async_process..ChildStdout$C$lsp..LanguageServer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158a15b61271d8fE.exit34" ]
+  %.pn9 = phi { ptr, i32 } [ %130, %129 ], [ %.pn6.pn, %"_ZN4core3ptr224drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_input$LT$async_process..ChildStdout$C$lsp..LanguageServer..new..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158a15b61271d8fE.exit34" ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i8 0, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 309
@@ -28666,7 +28666,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h201e2af6e8a4dc6cE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -32757,7 +32757,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$9is_closed17h8b70d688081e147fE.llvm.15942697686886759531.exit.i"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$9is_closed17h8b70d688081e147fE.llvm.15942697686886759531.exit.i": ; preds = %23, %15, %10
-  %.sroa.0.0.i.i = phi i8 [ %26, %23 ], [ %22, %15 ], [ %14, %10 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %10 ], [ %22, %15 ], [ %26, %23 ]
   %27 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %27, label %"_ZN13async_channel19WeakSender$LT$T$GT$7upgrade17h2d9c1aa185cb39e9E.exit.thread", label %28
 
@@ -32970,7 +32970,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$9is_closed17h8b70d688081e147fE.llvm.15942697686886759531.exit.i"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$9is_closed17h8b70d688081e147fE.llvm.15942697686886759531.exit.i": ; preds = %23, %15, %10
-  %.sroa.0.0.i.i = phi i8 [ %26, %23 ], [ %22, %15 ], [ %14, %10 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %10 ], [ %22, %15 ], [ %26, %23 ]
   %27 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %27, label %"_ZN13async_channel19WeakSender$LT$T$GT$7upgrade17h2d9c1aa185cb39e9E.exit.thread", label %28
 

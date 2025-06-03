@@ -1147,7 +1147,7 @@ ehcleanup89:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup332
 
 _ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit214: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit174, %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit194
-  %Si.0 = phi double [ %10, %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit194 ], [ %6, %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit174 ]
+  %Si.0 = phi double [ %6, %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit174 ], [ %10, %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit194 ]
   %mul91 = fmul double %dividendDiscount, %Si.0
   %div92 = fdiv double %mul91, %riskFreeDiscount
   %strike_.i215 = getelementptr inbounds nuw i8, ptr %1, i64 16

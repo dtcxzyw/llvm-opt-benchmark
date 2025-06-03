@@ -4015,10 +4015,10 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
 
 237:                                              ; preds = %215
   %238 = icmp eq i8 %.0200, 1
-  switch i8 %124, label %299 [
+  switch i8 %124, label %298 [
     i8 63, label %239
     i8 6, label %250
-    i8 4, label %272
+    i8 4, label %275
   ]
 
 239:                                              ; preds = %237
@@ -4046,14 +4046,14 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   %247 = zext i8 %193 to i32
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %249 = load i8, ptr %248, align 8, !range !11, !noundef !12
-  br label %307
+  br label %306
 
 250:                                              ; preds = %237
   %251 = add nsw i8 %122, -1
   %or.cond.i180.i = icmp ult i8 %251, 2
   %252 = icmp ugt i16 %231, 7
   %or.cond204.i = and i1 %or.cond.i180.i, %252
-  br i1 %or.cond204.i, label %253, label %303
+  br i1 %or.cond204.i, label %253, label %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
 
 253:                                              ; preds = %250
   %254 = load i32, ptr @hf_s7comm_item_varspec, align 4
@@ -4075,224 +4075,224 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.2348, i32 noundef %268)
   %270 = add nuw nsw i32 %213, 12
   %271 = add i16 %231, -8
-  br label %303
+  br label %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
 
-272:                                              ; preds = %237
-  %273 = icmp eq i8 %138, 16
-  br i1 %273, label %274, label %295
-
-274:                                              ; preds = %272
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %275 = icmp ugt i16 %231, 7
-  br i1 %275, label %276, label %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i
-
-276:                                              ; preds = %274
-  %277 = load i32, ptr @hf_s7comm_item_varspec, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %277, ptr noundef %0, i32 noundef range(i32 14, 65552) %235, i32 noundef 1, i32 noundef 0)
-  %279 = add nuw nsw i32 %213, 5
-  %280 = load i32, ptr @hf_s7comm_item_varspec_length, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0)
-  %282 = add nuw nsw i32 %213, 6
-  %283 = load i32, ptr @hf_s7comm_item_syntax_id, align 4
-  %284 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 1, i32 noundef 0)
-  %285 = add nuw nsw i32 %213, 7
-  %286 = load i32, ptr @hf_s7comm_pbc_arsend_unknown, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %286, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef 0)
-  %288 = add nuw nsw i32 %213, 8
-  %289 = load i32, ptr @hf_s7comm_pbc_arsend_ar_id, align 4
-  %290 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %220, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
-  %291 = load ptr, ptr %130, align 8
-  %292 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.2358, i32 noundef %292)
-  %293 = add nuw nsw i32 %213, 12
-  %294 = add i16 %231, -8
-  br label %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i
-
-s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %276, %274
-  %.4.i = phi i16 [ %294, %276 ], [ %231, %274 ]
-  %.0.i182.i = phi i32 [ %293, %276 ], [ %235, %274 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  br label %295
-
-295:                                              ; preds = %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i, %272
-  %.1194.i = phi i16 [ %.4.i, %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i ], [ %231, %272 ]
-  %.2.i = phi i32 [ %.0.i182.i, %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i ], [ %235, %272 ]
-  %296 = zext i8 %.0201 to i32
-  %.not205.i = icmp eq i8 %.0201, 0
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %298 = load i8, ptr %297, align 8, !range !11, !noundef !12
-  br i1 %.not205.i, label %320, label %307
-
-299:                                              ; preds = %237
-  %300 = zext i8 %.0201 to i32
-  %.not207.i = icmp eq i8 %.0201, 0
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %302 = load i8, ptr %301, align 8, !range !11, !noundef !12
-  br i1 %.not207.i, label %320, label %307
-
-303:                                              ; preds = %253, %250
+s7comm_decode_ud_pbc_bsend_pre_reass.exit.i:      ; preds = %253, %250
   %.3196.i = phi i16 [ %271, %253 ], [ %231, %250 ]
   %.1192.i = phi i32 [ %268, %253 ], [ 0, %250 ]
   %.0.i181.i = phi i32 [ %270, %253 ], [ %235, %250 ]
-  %304 = or i8 %.0201, %193
-  %.not206.i = icmp eq i8 %304, 0
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %306 = load i8, ptr %305, align 8, !range !11, !noundef !12
-  br i1 %.not206.i, label %320, label %307
+  %272 = or i8 %.0201, %193
+  %.not206.i = icmp eq i8 %272, 0
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %274 = load i8, ptr %273, align 8, !range !11, !noundef !12
+  br i1 %.not206.i, label %319, label %306
 
-307:                                              ; preds = %303, %299, %295, %.thread.i
-  %308 = phi i8 [ %249, %.thread.i ], [ %306, %303 ], [ %302, %299 ], [ %298, %295 ]
-  %309 = phi ptr [ %248, %.thread.i ], [ %305, %303 ], [ %301, %299 ], [ %297, %295 ]
-  %.1203.i = phi i32 [ %.0.i.i, %.thread.i ], [ %.0.i181.i, %303 ], [ %235, %299 ], [ %.2.i, %295 ]
-  %.0191202.i = phi i32 [ %247, %.thread.i ], [ %.1192.i, %303 ], [ %300, %299 ], [ %296, %295 ]
-  %.0193201.i = phi i16 [ %.2195.i, %.thread.i ], [ %.3196.i, %303 ], [ %231, %299 ], [ %.1194.i, %295 ]
-  store i8 1, ptr %309, align 8
-  %310 = zext i16 %.0193201.i to i32
-  %311 = call ptr @fragment_add_seq_next(ptr noundef nonnull @s7comm_reassembly_table, ptr noundef %0, i32 noundef %.1203.i, ptr noundef %1, i32 noundef %.0191202.i, ptr noundef null, i32 noundef %310, i1 noundef zeroext %238)
-  %312 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.2354, i32 noundef %.0191202.i)
-  %313 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1203.i, ptr noundef %1, ptr noundef nonnull @.str.2355, ptr noundef %311, ptr noundef nonnull @s7comm_frag_items, ptr noundef null, ptr noundef %2)
-  %.not.i204 = icmp eq ptr %313, null
-  br i1 %.not.i204, label %317, label %314
+275:                                              ; preds = %237
+  %276 = icmp eq i8 %138, 16
+  br i1 %276, label %277, label %302
 
-314:                                              ; preds = %307
-  %.not178.i = icmp eq ptr %311, null
-  br i1 %.not178.i, label %320, label %315
+277:                                              ; preds = %275
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  %278 = icmp ugt i16 %231, 7
+  br i1 %278, label %279, label %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i
 
-315:                                              ; preds = %314
-  %316 = load ptr, ptr %311, align 8
-  %.not179.i = icmp eq ptr %316, null
-  br i1 %.not179.i, label %320, label %.sink.split.i
+279:                                              ; preds = %277
+  %280 = load i32, ptr @hf_s7comm_item_varspec, align 4
+  %281 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %280, ptr noundef %0, i32 noundef range(i32 14, 65552) %235, i32 noundef 1, i32 noundef 0)
+  %282 = add nuw nsw i32 %213, 5
+  %283 = load i32, ptr @hf_s7comm_item_varspec_length, align 4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 1, i32 noundef 0)
+  %285 = add nuw nsw i32 %213, 6
+  %286 = load i32, ptr @hf_s7comm_item_syntax_id, align 4
+  %287 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %286, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef 0)
+  %288 = add nuw nsw i32 %213, 7
+  %289 = load i32, ptr @hf_s7comm_pbc_arsend_unknown, align 4
+  %290 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 1, i32 noundef 0)
+  %291 = add nuw nsw i32 %213, 8
+  %292 = load i32, ptr @hf_s7comm_pbc_arsend_ar_id, align 4
+  %293 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %220, i32 noundef %292, ptr noundef %0, i32 noundef %291, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
+  %294 = load ptr, ptr %130, align 8
+  %295 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %294, i32 noundef 25, ptr noundef nonnull @.str.2358, i32 noundef %295)
+  %296 = add nuw nsw i32 %213, 12
+  %297 = add i16 %231, -8
+  br label %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i
 
-317:                                              ; preds = %307
-  %318 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1203.i, i32 noundef -1)
+s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
+  %.4.i = phi i16 [ %297, %279 ], [ %231, %277 ]
+  %.0.i182.i = phi i32 [ %296, %279 ], [ %235, %277 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  br label %302
+
+298:                                              ; preds = %237
+  %299 = zext i8 %.0201 to i32
+  %.not207.i = icmp eq i8 %.0201, 0
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %301 = load i8, ptr %300, align 8, !range !11, !noundef !12
+  br i1 %.not207.i, label %319, label %306
+
+302:                                              ; preds = %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i, %275
+  %.1194.i = phi i16 [ %.4.i, %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i ], [ %231, %275 ]
+  %.2.i = phi i32 [ %.0.i182.i, %s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i ], [ %235, %275 ]
+  %303 = zext i8 %.0201 to i32
+  %.not205.i = icmp eq i8 %.0201, 0
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %305 = load i8, ptr %304, align 8, !range !11, !noundef !12
+  br i1 %.not205.i, label %319, label %306
+
+306:                                              ; preds = %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i, %.thread.i
+  %307 = phi i8 [ %249, %.thread.i ], [ %305, %302 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ]
+  %308 = phi ptr [ %248, %.thread.i ], [ %304, %302 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ]
+  %.1203.i = phi i32 [ %.0.i.i, %.thread.i ], [ %.2.i, %302 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ]
+  %.0191202.i = phi i32 [ %247, %.thread.i ], [ %303, %302 ], [ %299, %298 ], [ %.1192.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ]
+  %.0193201.i = phi i16 [ %.2195.i, %.thread.i ], [ %.1194.i, %302 ], [ %231, %298 ], [ %.3196.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ]
+  store i8 1, ptr %308, align 8
+  %309 = zext i16 %.0193201.i to i32
+  %310 = call ptr @fragment_add_seq_next(ptr noundef nonnull @s7comm_reassembly_table, ptr noundef %0, i32 noundef %.1203.i, ptr noundef %1, i32 noundef %.0191202.i, ptr noundef null, i32 noundef %309, i1 noundef zeroext %238)
+  %311 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.2354, i32 noundef %.0191202.i)
+  %312 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1203.i, ptr noundef %1, ptr noundef nonnull @.str.2355, ptr noundef %310, ptr noundef nonnull @s7comm_frag_items, ptr noundef null, ptr noundef %2)
+  %.not.i204 = icmp eq ptr %312, null
+  br i1 %.not.i204, label %316, label %313
+
+313:                                              ; preds = %306
+  %.not178.i = icmp eq ptr %310, null
+  br i1 %.not178.i, label %319, label %314
+
+314:                                              ; preds = %313
+  %315 = load ptr, ptr %310, align 8
+  %.not179.i = icmp eq ptr %315, null
+  br i1 %.not179.i, label %319, label %.sink.split.i
+
+316:                                              ; preds = %306
+  %317 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1203.i, i32 noundef -1)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %317, %315
-  %.str.2356.sink208.i = phi ptr [ @.str.2357, %317 ], [ @.str.2356, %315 ]
-  %.0172.ph.i = phi ptr [ %318, %317 ], [ %313, %315 ]
-  %319 = load ptr, ptr %130, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %319, i32 noundef 25, ptr noundef nonnull %.str.2356.sink208.i, ptr noundef nonnull %9)
+.sink.split.i:                                    ; preds = %316, %314
+  %.str.2356.sink208.i = phi ptr [ @.str.2357, %316 ], [ @.str.2356, %314 ]
+  %.0172.ph.i = phi ptr [ %317, %316 ], [ %312, %314 ]
+  %318 = load ptr, ptr %130, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %318, i32 noundef 25, ptr noundef nonnull %.str.2356.sink208.i, ptr noundef nonnull %9)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull %.str.2356.sink208.i, ptr noundef nonnull %9)
-  br label %320
+  br label %319
 
-320:                                              ; preds = %.sink.split.i, %315, %314, %303, %299, %295
-  %321 = phi i8 [ %308, %315 ], [ %308, %314 ], [ %306, %303 ], [ %302, %299 ], [ %298, %295 ], [ %308, %.sink.split.i ]
-  %322 = phi ptr [ %309, %315 ], [ %309, %314 ], [ %305, %303 ], [ %301, %299 ], [ %297, %295 ], [ %309, %.sink.split.i ]
-  %.0172.i = phi ptr [ %313, %315 ], [ %313, %314 ], [ %0, %303 ], [ %0, %299 ], [ %0, %295 ], [ %.0172.ph.i, %.sink.split.i ]
-  %.3.i = phi i32 [ 0, %315 ], [ 0, %314 ], [ %.0.i181.i, %303 ], [ %235, %299 ], [ %.2.i, %295 ], [ 0, %.sink.split.i ]
-  store i8 %321, ptr %322, align 8
-  %323 = call i32 @tvb_reported_length_remaining(ptr noundef %.0172.i, i32 noundef %.3.i)
-  %324 = icmp eq i8 %.0200, 0
-  %325 = icmp ne i32 %323, 0
-  %or.cond.i = select i1 %324, i1 %325, i1 false
-  br i1 %or.cond.i, label %326, label %s7comm_decode_ud_data.exit
+319:                                              ; preds = %.sink.split.i, %314, %313, %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
+  %320 = phi i8 [ %307, %314 ], [ %307, %313 ], [ %305, %302 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %307, %.sink.split.i ]
+  %321 = phi ptr [ %308, %314 ], [ %308, %313 ], [ %304, %302 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %308, %.sink.split.i ]
+  %.0172.i = phi ptr [ %312, %314 ], [ %312, %313 ], [ %0, %302 ], [ %0, %298 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %.0172.ph.i, %.sink.split.i ]
+  %.3.i = phi i32 [ 0, %314 ], [ 0, %313 ], [ %.2.i, %302 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ 0, %.sink.split.i ]
+  store i8 %320, ptr %321, align 8
+  %322 = call i32 @tvb_reported_length_remaining(ptr noundef %.0172.i, i32 noundef %.3.i)
+  %323 = icmp eq i8 %.0200, 0
+  %324 = icmp ne i32 %322, 0
+  %or.cond.i = select i1 %323, i1 %324, i1 false
+  br i1 %or.cond.i, label %325, label %s7comm_decode_ud_data.exit
 
-326:                                              ; preds = %320
+325:                                              ; preds = %319
   switch i8 %124, label %s7comm_decode_ud_data.exit [
-    i8 1, label %327
-    i8 2, label %329
-    i8 3, label %331
-    i8 4, label %333
-    i8 5, label %353
-    i8 6, label %356
-    i8 7, label %358
-    i8 63, label %360
-    i8 32, label %362
+    i8 1, label %326
+    i8 2, label %328
+    i8 3, label %330
+    i8 4, label %332
+    i8 5, label %352
+    i8 6, label %355
+    i8 7, label %357
+    i8 63, label %359
+    i8 32, label %361
   ]
 
-327:                                              ; preds = %326
-  %328 = call fastcc i32 @s7comm_decode_ud_tis_subfunc(ptr noundef %.0172.i, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %.3.i)
+326:                                              ; preds = %325
+  %327 = call fastcc i32 @s7comm_decode_ud_tis_subfunc(ptr noundef %.0172.i, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-329:                                              ; preds = %326
-  %330 = call fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %.0172.i, ptr noundef %1, i8 noundef zeroext %193, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %323, i32 noundef %.3.i)
+328:                                              ; preds = %325
+  %329 = call fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %.0172.i, ptr noundef %1, i8 noundef zeroext %193, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-331:                                              ; preds = %326
-  %332 = call fastcc i32 @s7comm_decode_ud_block_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i8 noundef zeroext %221, i8 noundef zeroext %226, i32 noundef %323, i32 noundef %.3.i)
+330:                                              ; preds = %325
+  %331 = call fastcc i32 @s7comm_decode_ud_block_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i8 noundef zeroext %221, i8 noundef zeroext %226, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-333:                                              ; preds = %326
-  switch i8 %138, label %350 [
-    i8 1, label %334
-    i8 6, label %336
-    i8 22, label %336
-    i8 17, label %336
-    i8 18, label %336
-    i8 9, label %336
-    i8 11, label %336
-    i8 12, label %336
-    i8 5, label %336
-    i8 7, label %336
-    i8 13, label %336
-    i8 8, label %336
-    i8 14, label %336
-    i8 19, label %338
-    i8 3, label %344
-    i8 2, label %346
-    i8 16, label %348
+332:                                              ; preds = %325
+  switch i8 %138, label %349 [
+    i8 1, label %333
+    i8 6, label %335
+    i8 22, label %335
+    i8 17, label %335
+    i8 18, label %335
+    i8 9, label %335
+    i8 11, label %335
+    i8 12, label %335
+    i8 5, label %335
+    i8 7, label %335
+    i8 13, label %335
+    i8 8, label %335
+    i8 14, label %335
+    i8 19, label %337
+    i8 3, label %343
+    i8 2, label %345
+    i8 16, label %347
   ]
 
-334:                                              ; preds = %333
-  %335 = call i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %221, i32 noundef %323, i32 noundef %.3.i)
+333:                                              ; preds = %332
+  %334 = call i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %221, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-336:                                              ; preds = %333, %333, %333, %333, %333, %333, %333, %333, %333, %333, %333, %333
-  %337 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %.3.i)
+335:                                              ; preds = %332, %332, %332, %332, %332, %332, %332, %332, %332, %332, %332, %332
+  %336 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-338:                                              ; preds = %333
-  %339 = icmp eq i8 %122, 2
-  br i1 %339, label %340, label %342
+337:                                              ; preds = %332
+  %338 = icmp eq i8 %122, 2
+  br i1 %338, label %339, label %341
 
-340:                                              ; preds = %338
-  %341 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %.3.i)
+339:                                              ; preds = %337
+  %340 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-342:                                              ; preds = %338
-  %343 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext 19, i32 noundef %.3.i)
+341:                                              ; preds = %337
+  %342 = call fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext 19, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-344:                                              ; preds = %333
-  %345 = call i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %.0172.i, ptr noundef %1, i1 noundef zeroext true, ptr noundef %220, i32 noundef %.3.i)
+343:                                              ; preds = %332
+  %344 = call i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %.0172.i, ptr noundef %1, i1 noundef zeroext true, ptr noundef %220, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-346:                                              ; preds = %333
-  %347 = call fastcc i32 @s7comm_decode_message_service(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i32 noundef %323, i32 noundef %.3.i)
+345:                                              ; preds = %332
+  %346 = call fastcc i32 @s7comm_decode_message_service(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-348:                                              ; preds = %333
-  %349 = call fastcc i32 @s7comm_decode_ud_cpu_ar_send(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %.3.i)
+347:                                              ; preds = %332
+  %348 = call fastcc i32 @s7comm_decode_ud_cpu_ar_send(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-350:                                              ; preds = %333
-  %351 = load i32, ptr @hf_s7comm_userdata_data, align 4
-  %352 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %351, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef %323, i32 noundef 0)
+349:                                              ; preds = %332
+  %350 = load i32, ptr @hf_s7comm_userdata_data, align 4
+  %351 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %350, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef %322, i32 noundef 0)
   br label %s7comm_decode_ud_data.exit
 
-353:                                              ; preds = %326
-  %354 = load i32, ptr @hf_s7comm_userdata_data, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %354, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %323, i32 noundef 0)
+352:                                              ; preds = %325
+  %353 = load i32, ptr @hf_s7comm_userdata_data, align 4
+  %354 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %353, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
   br label %s7comm_decode_ud_data.exit
 
-356:                                              ; preds = %326
-  %357 = call fastcc i32 @s7comm_decode_ud_pbc_bsend_subfunc(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %323, i32 noundef %.3.i, ptr noundef %1, ptr noundef %6)
+355:                                              ; preds = %325
+  %356 = call fastcc i32 @s7comm_decode_ud_pbc_bsend_subfunc(ptr noundef %.0172.i, ptr noundef %220, i32 noundef %322, i32 noundef %.3.i, ptr noundef %1, ptr noundef %6)
   br label %s7comm_decode_ud_data.exit
 
-358:                                              ; preds = %326
-  %359 = call fastcc i32 @s7comm_decode_ud_time_subfunc(ptr noundef %.0172.i, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i8 noundef zeroext %221, i32 noundef %323, i32 noundef %.3.i)
+357:                                              ; preds = %325
+  %358 = call fastcc i32 @s7comm_decode_ud_time_subfunc(ptr noundef %.0172.i, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i8 noundef zeroext %221, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-360:                                              ; preds = %326
-  %361 = call fastcc i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %323, i32 noundef %.3.i)
+359:                                              ; preds = %325
+  %360 = call fastcc i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %.0172.i, ptr noundef %1, ptr noundef %220, i8 noundef zeroext range(i8 0, 4) %122, i8 noundef zeroext %138, i32 noundef %322, i32 noundef %.3.i)
   br label %s7comm_decode_ud_data.exit
 
-362:                                              ; preds = %326
-  %363 = load i32, ptr @hf_s7comm_data_drr_data, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %363, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %323, i32 noundef 0)
+361:                                              ; preds = %325
+  %362 = load i32, ptr @hf_s7comm_data_drr_data, align 4
+  %363 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %362, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
   br label %s7comm_decode_ud_data.exit
 
-s7comm_decode_ud_data.exit:                       ; preds = %212, %215, %320, %326, %327, %329, %331, %334, %336, %340, %342, %344, %346, %348, %350, %353, %356, %358, %360, %362
+s7comm_decode_ud_data.exit:                       ; preds = %212, %215, %319, %325, %326, %328, %330, %333, %335, %339, %341, %343, %345, %347, %349, %352, %355, %357, %359, %361
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
   br label %s7comm_decode_ud_usend.exit
 
@@ -6353,8 +6353,8 @@ s7comm_decode_ud_readrec.exit:                    ; preds = %64, %65, %74, %76, 
   %123 = add i32 %7, %6
   br label %.thread
 
-.thread:                                          ; preds = %34, %26, %41, %43, %49, %s7comm_decode_ud_readrec.exit, %120
-  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %59, %49 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %32, %26 ], [ %.2, %34 ]
+.thread:                                          ; preds = %34, %26, %41, %43, %s7comm_decode_ud_readrec.exit, %49, %120
+  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %59, %49 ], [ %32, %26 ], [ %.2, %34 ]
   ret i32 %.4
 }
 
@@ -6685,7 +6685,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   br label %29
 
 29:                                               ; preds = %23, %11, %6
-  %.0 = phi i32 [ %5, %6 ], [ %28, %23 ], [ %22, %11 ]
+  %.0 = phi i32 [ %5, %6 ], [ %22, %11 ], [ %28, %23 ]
   %30 = load i32, ptr @hf_s7comm_cpu_alarm_message_function, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %32 = add i32 %.0, 1
@@ -6909,7 +6909,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   br label %156
 
 156:                                              ; preds = %154, %147, %145, %79
-  %.5.us = phi i32 [ %155, %154 ], [ %80, %79 ], [ %152, %147 ], [ %.4.us, %145 ]
+  %.5.us = phi i32 [ %155, %154 ], [ %152, %147 ], [ %.4.us, %145 ], [ %80, %79 ]
   %157 = sub i32 %.5.us, %.1231.us
   tail call void @proto_item_set_len(ptr noundef %42, i32 noundef %157)
   %exitcond254.not = icmp eq i32 %43, %35
@@ -7259,7 +7259,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   br label %105
 
 105:                                              ; preds = %78, %98, %96, %56, %74, %72, %6
-  %.0 = phi i32 [ %5, %6 ], [ %97, %96 ], [ %104, %98 ], [ %84, %78 ], [ %73, %72 ], [ %77, %74 ], [ %61, %56 ]
+  %.0 = phi i32 [ %5, %6 ], [ %73, %72 ], [ %77, %74 ], [ %61, %56 ], [ %97, %96 ], [ %104, %98 ], [ %84, %78 ]
   call void @llvm.lifetime.end.p0(i64 42, ptr nonnull %7) #8
   ret i32 %.0
 }
@@ -8842,7 +8842,7 @@ default.unreachable:                              ; preds = %624
   unreachable
 
 s7comm_decode_ud_tis_istack.exit:                 ; preds = %663, %tailrecurse, %.lr.ph68.i94, %.lr.ph68.i, %.lr.ph, %.lr.ph.i70, %.lr.ph36.i, %422, %.preheader, %762, %._crit_edge.i86, %744, %734, %733, %729, %._crit_edge.i, %711, %701, %700, %691, %690, %664, %635, %.loopexit, %614, %606, %605, %512, %511, %.sink.split.i, %461, %433, %426, %417, %364, %360, %358, %343, %15, %14, %s7comm_decode_ud_tis_blockstat.exit, %766
-  %.0 = phi i32 [ %769, %766 ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %14 ], [ %357, %343 ], [ %18, %15 ], [ %.tr102, %358 ], [ %421, %417 ], [ %363, %360 ], [ %.tr102, %364 ], [ %432, %426 ], [ %460, %433 ], [ %.tr102, %461 ], [ %510, %.sink.split.i ], [ %518, %512 ], [ %.tr102, %511 ], [ %.tr102, %605 ], [ %611, %606 ], [ %619, %614 ], [ %641, %635 ], [ %634, %.loopexit ], [ %.tr102, %664 ], [ %699, %691 ], [ %.4.i, %690 ], [ %.tr102, %700 ], [ %732, %729 ], [ %727, %._crit_edge.i ], [ %706, %701 ], [ %716, %711 ], [ %.tr102, %733 ], [ %765, %762 ], [ %760, %._crit_edge.i86 ], [ %739, %734 ], [ %749, %744 ], [ %.tr102, %.preheader ], [ %.2.i, %422 ], [ %612, %.lr.ph36.i ], [ %620, %.lr.ph.i70 ], [ %678, %.lr.ph ], [ %709, %.lr.ph68.i ], [ %742, %.lr.ph68.i94 ], [ %.1.i75, %663 ], [ %.tr102, %tailrecurse ]
+  %.0 = phi i32 [ %769, %766 ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %14 ], [ %18, %15 ], [ %357, %343 ], [ %.tr102, %358 ], [ %363, %360 ], [ %421, %417 ], [ %.tr102, %364 ], [ %432, %426 ], [ %460, %433 ], [ %.tr102, %461 ], [ %510, %.sink.split.i ], [ %518, %512 ], [ %.tr102, %511 ], [ %.tr102, %605 ], [ %611, %606 ], [ %619, %614 ], [ %634, %.loopexit ], [ %641, %635 ], [ %.tr102, %664 ], [ %699, %691 ], [ %.4.i, %690 ], [ %.tr102, %700 ], [ %732, %729 ], [ %727, %._crit_edge.i ], [ %706, %701 ], [ %716, %711 ], [ %.tr102, %733 ], [ %765, %762 ], [ %760, %._crit_edge.i86 ], [ %739, %734 ], [ %749, %744 ], [ %.tr102, %.preheader ], [ %.2.i, %422 ], [ %612, %.lr.ph36.i ], [ %620, %.lr.ph.i70 ], [ %678, %.lr.ph ], [ %709, %.lr.ph68.i ], [ %742, %.lr.ph68.i94 ], [ %.1.i75, %663 ], [ %.tr102, %tailrecurse ]
   ret i32 %.0
 }
 

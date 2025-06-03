@@ -1069,7 +1069,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %21, %6, %3, %.thread, %7
-  %.021 = phi i32 [ 12, %7 ], [ %22, %21 ], [ -1, %.thread ], [ -1, %3 ], [ %1, %6 ], [ %27, %.loopexit.loopexit ]
+  %.021 = phi i32 [ 12, %7 ], [ -1, %.thread ], [ %22, %21 ], [ -1, %3 ], [ %1, %6 ], [ %27, %.loopexit.loopexit ]
   ret i32 %.021
 }
 

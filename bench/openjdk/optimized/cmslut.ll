@@ -3584,7 +3584,7 @@ define hidden void @cmsPipelineUnlinkStage(ptr noundef captures(none) %0, i32 no
   br label %18
 
 18:                                               ; preds = %8, %15, %17, %9
-  %.022 = phi ptr [ null, %8 ], [ %.02431, %15 ], [ %.02431, %17 ], [ %4, %9 ]
+  %.022 = phi ptr [ null, %8 ], [ %4, %9 ], [ %.02431, %15 ], [ %.02431, %17 ]
   %.not28 = icmp eq ptr %2, null
   br i1 %.not28, label %20, label %19
 

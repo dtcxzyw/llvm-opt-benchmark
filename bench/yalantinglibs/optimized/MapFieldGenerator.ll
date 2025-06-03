@@ -2513,7 +2513,7 @@ lpad98:                                           ; preds = %invoke.cont97
   br label %ehcleanup102
 
 ehcleanup102:                                     ; preds = %ehcleanup24.thread154, %arraydestroy.body25.preheader, %lpad.i, %lpad2.i, %lpad.i.i.i.i, %lpad, %lpad.i121, %lpad.i100, %lpad43, %ehcleanup72, %lpad98, %lpad91, %lpad85, %lpad33
-  %.pn22 = phi { ptr, i32 } [ %89, %lpad98 ], [ %88, %lpad91 ], [ %70, %lpad85 ], [ %36, %lpad33 ], [ %.pn.pn, %ehcleanup72 ], [ %68, %lpad43 ], [ %5, %lpad.i.i.i.i ], [ %67, %lpad.i100 ], [ %8, %lpad ], [ %84, %lpad.i121 ], [ %9, %lpad.i ], [ %10, %lpad2.i ], [ %.pn18.pn.pn153, %arraydestroy.body25.preheader ], [ %.pn18, %ehcleanup24.thread154 ]
+  %.pn22 = phi { ptr, i32 } [ %89, %lpad98 ], [ %88, %lpad91 ], [ %36, %lpad33 ], [ %70, %lpad85 ], [ %.pn.pn, %ehcleanup72 ], [ %68, %lpad43 ], [ %5, %lpad.i.i.i.i ], [ %67, %lpad.i100 ], [ %8, %lpad ], [ %84, %lpad.i121 ], [ %9, %lpad.i ], [ %10, %lpad2.i ], [ %.pn18.pn.pn153, %arraydestroy.body25.preheader ], [ %.pn18, %ehcleanup24.thread154 ]
   call void @_ZN9struct_pb8compiler9FormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %format) #21
   resume { ptr, i32 } %.pn22
 }
@@ -4058,7 +4058,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup22.thread111, %arraydestroy.body23.preheader, %lpad30, %lpad37, %lpad89, %ehcleanup75, %lpad2.i, %lpad.i, %lpad.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i ], [ %63, %lpad89 ], [ %38, %lpad37 ], [ %34, %lpad30 ], [ %.pn17.pn, %ehcleanup75 ], [ %7, %lpad.i ], [ %8, %lpad2.i ], [ %.pn.pn.pn110, %arraydestroy.body23.preheader ], [ %.pn, %ehcleanup22.thread111 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i ], [ %63, %lpad89 ], [ %34, %lpad30 ], [ %38, %lpad37 ], [ %.pn17.pn, %ehcleanup75 ], [ %7, %lpad.i ], [ %8, %lpad2.i ], [ %.pn.pn.pn110, %arraydestroy.body23.preheader ], [ %.pn, %ehcleanup22.thread111 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -5644,7 +5644,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %arraydestroy.body25, %ehcleanup24, %ehcleanup39, %lpad45, %ehcleanup58, %lpad2.i, %lpad.i, %lpad.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i ], [ %.pn18, %ehcleanup58 ], [ %44, %lpad45 ], [ %.pn, %ehcleanup39 ], [ %.pn14, %ehcleanup24 ], [ %7, %lpad.i ], [ %8, %lpad2.i ], [ %.pn14.pn.pn79, %arraydestroy.body25 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i.i ], [ %.pn18, %ehcleanup58 ], [ %.pn14, %ehcleanup24 ], [ %.pn, %ehcleanup39 ], [ %44, %lpad45 ], [ %7, %lpad.i ], [ %8, %lpad2.i ], [ %.pn14.pn.pn79, %arraydestroy.body25 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then.i.i

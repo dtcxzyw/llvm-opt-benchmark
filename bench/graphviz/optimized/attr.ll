@@ -216,7 +216,7 @@ define internal fastcc ptr @agattr_(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %agdictof.exit.i
 
 agdictof.exit.i:                                  ; preds = %32, %29, %26, %23, %18
-  %.0.i.i = phi ptr [ null, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ null, %18 ]
+  %.0.i.i = phi ptr [ null, %32 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ null, %18 ]
   %33 = tail call ptr @dtview(ptr noundef %.0.i.i, ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #12
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -449,7 +449,7 @@ agnewsym.exit.i:                                  ; preds = %124, %122
   br label %agdictof.exit93.i
 
 agdictof.exit93.i:                                ; preds = %143, %140, %137, %134, %131
-  %.0.i92.i = phi ptr [ null, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ null, %131 ]
+  %.0.i92.i = phi ptr [ null, %143 ], [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ null, %131 ]
   %144 = call i32 @dtsize(ptr noundef %.0.i92.i) #12
   %145 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %146 = icmp eq ptr %145, null

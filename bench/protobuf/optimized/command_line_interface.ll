@@ -12150,7 +12150,7 @@ cleanup88:                                        ; preds = %cleanup88.sink.spli
   br label %cleanup91
 
 ehcleanup:                                        ; preds = %lpad74, %lpad58, %cleanup.done57, %lpad23
-  %.pn = phi { ptr, i32 } [ %16, %lpad74 ], [ %13, %lpad58 ], [ %eh.lpad-body23, %cleanup.done57 ], [ %8, %lpad23 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad23 ], [ %13, %lpad58 ], [ %eh.lpad-body23, %cleanup.done57 ], [ %16, %lpad74 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shadowing_disk_file) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %virtual_file) #31
   br label %ehcleanup92

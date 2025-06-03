@@ -1519,7 +1519,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15RISCVAsmBackend28fixupNeedsRelax
   br label %23
 
 23:                                               ; preds = %14, %17, %20, %10, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ true, %10 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %7 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ true, %10 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -1572,7 +1572,7 @@ define dso_local void @_ZNK4llvm15RISCVAsmBackend16relaxInstructionERNS_6MCInstE
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit23
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit23: ; preds = %3, %17, %16, %15, %14, %13
-  %.0.i = phi i32 [ 410, %17 ], [ 412, %16 ], [ 409, %15 ], [ 411, %14 ], [ 413, %13 ], [ 408, %3 ]
+  %.0.i = phi i32 [ 413, %13 ], [ 411, %14 ], [ 409, %15 ], [ 412, %16 ], [ 410, %17 ], [ 408, %3 ]
   store i32 %.0.i, ptr %4, align 8, !tbaa !80
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !25
@@ -1767,7 +1767,7 @@ define dso_local noundef i32 @_ZNK4llvm15RISCVAsmBackend16getRelaxedOpcodeEj(ptr
   br label %12
 
 12:                                               ; preds = %2, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ 410, %11 ], [ 412, %10 ], [ 409, %9 ], [ 411, %8 ], [ 413, %7 ], [ 408, %6 ], [ 12659, %5 ], [ 11952, %4 ], [ 11943, %3 ], [ %1, %2 ]
+  %.0 = phi i32 [ 11943, %3 ], [ 11952, %4 ], [ 12659, %5 ], [ 408, %6 ], [ 413, %7 ], [ 411, %8 ], [ 409, %9 ], [ 412, %10 ], [ 410, %11 ], [ %1, %2 ]
   ret i32 %.0
 }
 
@@ -2604,7 +2604,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15RISCVAsmBackend17mayNeedRelaxati
   br label %_ZNK4llvm15RISCVAsmBackend16getRelaxedOpcodeEj.exit
 
 _ZNK4llvm15RISCVAsmBackend16getRelaxedOpcodeEj.exit: ; preds = %3, %5, %6, %7, %8, %9, %10, %11, %12, %13
-  %.0.i = phi i32 [ 410, %13 ], [ 412, %12 ], [ 409, %11 ], [ 411, %10 ], [ 413, %9 ], [ 408, %8 ], [ 12659, %7 ], [ 11952, %6 ], [ 11943, %5 ], [ %4, %3 ]
+  %.0.i = phi i32 [ 11943, %5 ], [ 11952, %6 ], [ 12659, %7 ], [ 408, %8 ], [ 413, %9 ], [ 411, %10 ], [ 409, %11 ], [ 412, %12 ], [ 410, %13 ], [ %4, %3 ]
   %14 = icmp ne i32 %.0.i, %4
   ret i1 %14
 }
@@ -2711,7 +2711,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15RISCVAsmBackend19evaluateTargetFi
   br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %24, %14
-  %.032 = phi ptr [ %18, %24 ], [ %2, %14 ]
+  %.032 = phi ptr [ %2, %14 ], [ %18, %24 ]
   %28 = load ptr, ptr %10, align 8, !tbaa !77
   %.not35 = icmp ne ptr %28, null
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3171,7 +3171,7 @@ define dso_local void @_ZNK4llvm15RISCVAsmBackend10applyFixupERKNS_11MCAssembler
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
 _ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit: ; preds = %26, %26, %26, %26, %26, %29, %38, %40, %46, %63, %88, %100, %112, %137
-  %.0.i = phi i64 [ %99, %88 ], [ %74, %63 ], [ %49, %46 ], [ %45, %40 ], [ %39, %38 ], [ %30, %29 ], [ %104, %100 ], [ %129, %112 ], [ %151, %137 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ]
+  %.0.i = phi i64 [ %151, %137 ], [ %129, %112 ], [ %104, %100 ], [ %30, %29 ], [ %39, %38 ], [ %45, %40 ], [ %49, %46 ], [ %74, %63 ], [ %99, %88 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ]
   %152 = zext nneg i32 %.sroa.3.0.copyload to i64
   %153 = shl i64 %.0.i, %152
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3356,7 +3356,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm21createRISCVAsmBackendERKNS_6Targ
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %4, %7, %8, %9, %10
-  %.0.i = phi i8 [ 0, %10 ], [ 12, %9 ], [ 6, %8 ], [ 9, %7 ], [ -1, %4 ]
+  %.0.i = phi i8 [ 0, %10 ], [ 9, %7 ], [ 6, %8 ], [ 12, %9 ], [ -1, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %13 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %11) #20

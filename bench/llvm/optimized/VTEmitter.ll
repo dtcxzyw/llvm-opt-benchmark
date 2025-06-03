@@ -1551,8 +1551,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i: ; preds = %_ZN4llvmeqENS_9Str
   br label %766
 
 766:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i, %761, %760, %_ZN4llvmeqENS_9StringRefES0_.exit.thread122.i.i, %749
-  %.sroa.9.0.i.i = phi i64 [ %765, %_ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i ], [ 10, %761 ], [ 8, %760 ], [ %759, %_ZN4llvmeqENS_9StringRefES0_.exit.thread122.i.i ], [ 7, %749 ]
-  %.sroa.0103.0.i.i = phi ptr [ %764, %_ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i ], [ @.str.55, %761 ], [ @.str.54, %760 ], [ %758, %_ZN4llvmeqENS_9StringRefES0_.exit.thread122.i.i ], [ @.str.53, %749 ]
+  %.sroa.9.0.i.i = phi i64 [ %759, %_ZN4llvmeqENS_9StringRefES0_.exit.thread122.i.i ], [ 8, %760 ], [ 10, %761 ], [ %765, %_ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i ], [ 7, %749 ]
+  %.sroa.0103.0.i.i = phi ptr [ %758, %_ZN4llvmeqENS_9StringRefES0_.exit.thread122.i.i ], [ @.str.54, %760 ], [ @.str.55, %761 ], [ %764, %_ZN4llvmeqENS_9StringRefES0_.exit58.thread128.i.i ], [ @.str.53, %749 ]
   %767 = load ptr, ptr %14, align 8, !tbaa !16
   %768 = load ptr, ptr %16, align 8, !tbaa !22
   %769 = ptrtoint ptr %767 to i64
@@ -2189,7 +2189,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %89
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i: ; preds = %94, %.thread.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ %96, %94 ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i.i = phi i32 [ %96, %94 ], [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
   %97 = icmp slt i32 %.1.i.i.i.i.i.i.i.i, 0
   br label %98
 

@@ -1149,12 +1149,12 @@ if.end98.i:                                       ; preds = %while.end.i33, %sw.
   br i1 %cmp100106.i, label %while.body101.preheader.i, label %while.end107.i
 
 while.body101.preheader.i:                        ; preds = %if.end98.i, %sw.bb92.i, %sw.bb88.i, %sw.bb.i, %if.then85.i
-  %byteCount.addr.0142.i = phi i64 [ %byteCount.addr.0.i, %if.end98.i ], [ %sub.i39, %sw.bb.i ], [ %sub91.i, %sw.bb88.i ], [ %sub96.i, %sw.bb92.i ], [ %byteCount.addr.1.lcssa.i35, %if.then85.i ]
-  %pDestination.0141.i = phi ptr [ %pDestination.0.i, %if.end98.i ], [ %add.ptr87.i, %sw.bb.i ], [ %add.ptr90.i, %sw.bb88.i ], [ %add.ptr95.i, %sw.bb92.i ], [ %pDestination.1.lcssa.i34, %if.then85.i ]
-  %v4.1139.i = phi i32 [ %v4.1.i, %if.end98.i ], [ %v1.2.lcssa.i, %sw.bb.i ], [ %v2.2.lcssa.i, %sw.bb88.i ], [ %v3.2.lcssa.i, %sw.bb92.i ], [ %v4.2.lcssa.i, %if.then85.i ]
-  %v3.1137.i = phi i32 [ %v3.1.i, %if.end98.i ], [ %v4.2.lcssa.i, %sw.bb.i ], [ %v1.2.lcssa.i, %sw.bb88.i ], [ %v2.2.lcssa.i, %sw.bb92.i ], [ %v3.2.lcssa.i, %if.then85.i ]
-  %v2.1135.i = phi i32 [ %v2.1.i, %if.end98.i ], [ %v3.2.lcssa.i, %sw.bb.i ], [ %v4.2.lcssa.i, %sw.bb88.i ], [ %v1.2.lcssa.i, %sw.bb92.i ], [ %v2.2.lcssa.i, %if.then85.i ]
-  %v1.1133.i = phi i32 [ %v1.1.i, %if.end98.i ], [ %v2.2.lcssa.i, %sw.bb.i ], [ %v3.2.lcssa.i, %sw.bb88.i ], [ %v4.2.lcssa.i, %sw.bb92.i ], [ %v1.2.lcssa.i, %if.then85.i ]
+  %byteCount.addr.0142.i = phi i64 [ %byteCount.addr.0.i, %if.end98.i ], [ %byteCount.addr.1.lcssa.i35, %if.then85.i ], [ %sub96.i, %sw.bb92.i ], [ %sub91.i, %sw.bb88.i ], [ %sub.i39, %sw.bb.i ]
+  %pDestination.0141.i = phi ptr [ %pDestination.0.i, %if.end98.i ], [ %pDestination.1.lcssa.i34, %if.then85.i ], [ %add.ptr95.i, %sw.bb92.i ], [ %add.ptr90.i, %sw.bb88.i ], [ %add.ptr87.i, %sw.bb.i ]
+  %v4.1139.i = phi i32 [ %v4.1.i, %if.end98.i ], [ %v4.2.lcssa.i, %if.then85.i ], [ %v3.2.lcssa.i, %sw.bb92.i ], [ %v2.2.lcssa.i, %sw.bb88.i ], [ %v1.2.lcssa.i, %sw.bb.i ]
+  %v3.1137.i = phi i32 [ %v3.1.i, %if.end98.i ], [ %v3.2.lcssa.i, %if.then85.i ], [ %v2.2.lcssa.i, %sw.bb92.i ], [ %v1.2.lcssa.i, %sw.bb88.i ], [ %v4.2.lcssa.i, %sw.bb.i ]
+  %v2.1135.i = phi i32 [ %v2.1.i, %if.end98.i ], [ %v2.2.lcssa.i, %if.then85.i ], [ %v1.2.lcssa.i, %sw.bb92.i ], [ %v4.2.lcssa.i, %sw.bb88.i ], [ %v3.2.lcssa.i, %sw.bb.i ]
+  %v1.1133.i = phi i32 [ %v1.1.i, %if.end98.i ], [ %v1.2.lcssa.i, %if.then85.i ], [ %v4.2.lcssa.i, %sw.bb92.i ], [ %v3.2.lcssa.i, %sw.bb88.i ], [ %v2.2.lcssa.i, %sw.bb.i ]
   br label %while.body101.i
 
 while.body101.i:                                  ; preds = %while.body101.i, %while.body101.preheader.i

@@ -283,7 +283,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %72
 
 46:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h14272c2db7143e2bE.exit39", %30
-  %47 = phi i64 [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h14272c2db7143e2bE.exit39" ], [ -9223372036854775803, %30 ]
+  %47 = phi i64 [ -9223372036854775803, %30 ], [ %.sroa.06.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h14272c2db7143e2bE.exit39" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -890,7 +890,7 @@ define hidden void @_ZN11shellexpand16env_with_context17h44ccff6d17552992E.llvm.
   br i1 %switch260.not, label %39, label %34
 
 33:                                               ; preds = %.thread470
-  resume { ptr, i32 } %.pn233
+  resume { ptr, i32 } %.pn234
 
 34:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
@@ -981,7 +981,7 @@ define hidden void @_ZN11shellexpand16env_with_context17h44ccff6d17552992E.llvm.
   br i1 %.not, label %select.unfold.thread, label %.invoke1366
 
 .thread470:                                       ; preds = %.thread1078, %.loopexit515, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.thread490, %705, %706, %735, %667, %339, %305
-  %.pn233 = phi { ptr, i32 } [ %.pn228.pn, %667 ], [ %.pn228.pn, %735 ], [ %340, %339 ], [ %lpad.phi534, %305 ], [ %.pn228497, %705 ], [ %690, %706 ], [ %682, %.thread490 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit518, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp519, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp528, %.thread1078 ]
+  %.pn234 = phi { ptr, i32 } [ %.pn232, %667 ], [ %.pn232, %735 ], [ %lpad.phi534, %305 ], [ %340, %339 ], [ %.pn228497, %705 ], [ %690, %706 ], [ %682, %.thread490 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit518, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp519, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp528, %.thread1078 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hac90b818a05c3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #28
           to label %33 unwind label %337
 
@@ -2249,7 +2249,7 @@ select.unfold441:                                 ; preds = %393, %389, %358
 
 667:                                              ; preds = %.loopexit525, %632
   %.sroa.0152.0 = phi i1 [ false, %632 ], [ %.ph, %.loopexit525 ]
-  %.pn228.pn = phi { ptr, i32 } [ %lpad.phi524, %632 ], [ %lpad.loopexit527, %.loopexit525 ]
+  %.pn232 = phi { ptr, i32 } [ %lpad.phi524, %632 ], [ %lpad.loopexit527, %.loopexit525 ]
   %668 = load i64, ptr %22, align 8, !range !182
   %669 = icmp eq i64 %668, 0
   %or.cond8 = select i1 %.sroa.0152.0, i1 true, i1 %669

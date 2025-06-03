@@ -779,7 +779,7 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   br label %dissect_vuze_dht_reply_ping.exit
 
 dissect_vuze_dht_reply_ping.exit:                 ; preds = %.lr.ph.i.i58, %.lr.ph.i29.i, %261, %259, %252, %250, %226, %.thread40.i, %161, %151, %142, %140, %dissect_vuze_dht_keys.exit.i, %93, %91, %dissect_vuze_dht_request_header.exit, %278, %197
-  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %219, %197 ], [ %297, %278 ], [ %94, %93 ], [ %.0, %91 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %.0, %140 ], [ %167, %161 ], [ %159, %151 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %230, %226 ], [ %258, %252 ], [ %277, %261 ], [ %260, %259 ], [ %138, %.lr.ph.i29.i ], [ %195, %.lr.ph.i.i58 ]
+  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %297, %278 ], [ %219, %197 ], [ %94, %93 ], [ %.0, %91 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %.0, %140 ], [ %167, %161 ], [ %159, %151 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %230, %226 ], [ %258, %252 ], [ %260, %259 ], [ %277, %261 ], [ %138, %.lr.ph.i29.i ], [ %195, %.lr.ph.i.i58 ]
   ret i32 %.1
 }
 

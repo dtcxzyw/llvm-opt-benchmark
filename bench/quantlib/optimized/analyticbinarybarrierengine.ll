@@ -5755,7 +5755,7 @@ ehcleanup394:                                     ; preds = %ehcleanup393, %lpad
   br label %ehcleanup417
 
 sw.epilog:                                        ; preds = %if.then339, %if.else328, %if.then301, %if.else291, %if.else342, %if.else352, %if.then349, %if.else324, %if.then322, %if.then330, %if.else304, %if.else314, %if.then311, %if.else287, %if.then285, %if.then293
-  %alpha.0 = phi double [ %154, %if.else342 ], [ %155, %if.then349 ], [ %156, %if.else352 ], [ %151, %if.then322 ], [ %152, %if.else324 ], [ %153, %if.then330 ], [ %149, %if.else304 ], [ %150, %if.then311 ], [ %mul315, %if.else314 ], [ %mul286, %if.then285 ], [ %147, %if.else287 ], [ %148, %if.then293 ], [ %cum_x1.0, %if.else291 ], [ %cum_x1.0, %if.then301 ], [ 0.000000e+00, %if.else328 ], [ 0.000000e+00, %if.then339 ]
+  %alpha.0 = phi double [ %mul286, %if.then285 ], [ %147, %if.else287 ], [ %148, %if.then293 ], [ %149, %if.else304 ], [ %150, %if.then311 ], [ %mul315, %if.else314 ], [ %151, %if.then322 ], [ %152, %if.else324 ], [ %153, %if.then330 ], [ %154, %if.else342 ], [ %155, %if.then349 ], [ %156, %if.else352 ], [ %cum_x1.0, %if.else291 ], [ %cum_x1.0, %if.then301 ], [ 0.000000e+00, %if.else328 ], [ 0.000000e+00, %if.then339 ]
   %cmp.not.i.i = icmp eq ptr %138, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %if.then.i.i296
 

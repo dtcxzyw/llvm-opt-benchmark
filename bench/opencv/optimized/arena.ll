@@ -1484,8 +1484,8 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   br label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit: ; preds = %58, %53, %36, %41
-  %.pn.i.pn = phi { ptr, ptr } [ %40, %36 ], [ %.fca.1.insert.i.i.i, %41 ], [ %57, %53 ], [ %.fca.1.insert.i.i.i8, %58 ]
-  ret { ptr, ptr } %.pn.i.pn
+  %.pn.i9.pn = phi { ptr, ptr } [ %40, %36 ], [ %.fca.1.insert.i.i.i, %41 ], [ %57, %53 ], [ %.fca.1.insert.i.i.i8, %58 ]
+  ret { ptr, ptr } %.pn.i9.pn
 }
 
 ; Function Attrs: mustprogress uwtable

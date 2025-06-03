@@ -132,10 +132,6 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   %8 = or disjoint i64 %7, %spec.select
   br label %.preheader
 
-.preheader:                                       ; preds = %19, %18, %16, %14, %11, %9, %6
-  %.016.i.ph = phi i64 [ %.0.copyload, %19 ], [ %.0.copyload1, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %6 ]
-  br label %22
-
 9:                                                ; preds = %4
   %.0.copyload15 = load i16, ptr %1, align 1
   %10 = zext i16 %.0.copyload15 to i64
@@ -171,6 +167,10 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 19:                                               ; preds = %4
   %.0.copyload = load i64, ptr %1, align 1
   br label %.preheader
+
+.preheader:                                       ; preds = %6, %9, %11, %14, %16, %18, %19
+  %.016.i.ph = phi i64 [ %8, %6 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %.0.copyload1, %18 ], [ %.0.copyload, %19 ]
+  br label %22
 
 20:                                               ; preds = %4
   %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
@@ -363,8 +363,8 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #6
   br label %.thread69
 
-.thread69:                                        ; preds = %47, %51, %53, %57, %59, %62, %63, %64, %44, %7
-  %.0 = phi i32 [ -27, %7 ], [ -20, %44 ], [ -27, %64 ], [ 0, %63 ], [ 0, %62 ], [ 0, %59 ], [ 0, %57 ], [ 0, %53 ], [ 0, %51 ], [ 0, %47 ]
+.thread69:                                        ; preds = %63, %62, %59, %57, %53, %51, %47, %64, %44, %7
+  %.0 = phi i32 [ -27, %7 ], [ -20, %44 ], [ -27, %64 ], [ 0, %47 ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %59 ], [ 0, %62 ], [ 0, %63 ]
   ret i32 %.0
 }
 

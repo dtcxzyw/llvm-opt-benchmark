@@ -1098,7 +1098,7 @@ define dso_local noundef zeroext i1 @check_default_text_search_config(ptr nounde
   br label %41
 
 41:                                               ; preds = %.thread30, %26, %40
-  %.1 = phi i1 [ false, %26 ], [ true, %40 ], [ %13, %.thread30 ]
+  %.1 = phi i1 [ true, %40 ], [ false, %26 ], [ %13, %.thread30 ]
   ret i1 %.1
 }
 

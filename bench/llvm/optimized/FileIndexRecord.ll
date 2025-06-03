@@ -408,7 +408,7 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   br label %52
 
 52:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.054.1.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i" ]
+  %.sroa.054.1.i.i.i.i.i.i = phi ptr [ %51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i" ], [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %53 = getelementptr i8, ptr %.sroa.054.1.i.i.i.i.i.i, i64 8
   %.val.i40.i.i.i.i.i.i = load i64, ptr %53, align 8
   %54 = and i64 %.val.i40.i.i.i.i.i.i, 4
@@ -431,7 +431,7 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   br label %61
 
 61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.054.2.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i" ]
+  %.sroa.054.2.i.i.i.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i" ], [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %62 = getelementptr i8, ptr %.sroa.054.2.i.i.i.i.i.i, i64 8
   %.val.i46.i.i.i.i.i.i = load i64, ptr %62, align 8
   %63 = and i64 %.val.i46.i.i.i.i.i.i, 4

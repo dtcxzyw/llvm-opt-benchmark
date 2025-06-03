@@ -179,7 +179,7 @@ define internal range(i32 -1, 65) i32 @archive_read_format_cab_bid(ptr noundef %
   br label %find_cab_magic.exit
 
 find_cab_magic.exit:                              ; preds = %31, %.lr.ph, %33, %34, %35, %36
-  %.0.i = phi i64 [ 5, %36 ], [ 4, %35 ], [ 3, %34 ], [ 2, %33 ], [ 5, %31 ], [ 1, %.lr.ph ]
+  %.0.i = phi i64 [ 5, %36 ], [ 2, %33 ], [ 3, %34 ], [ 4, %35 ], [ 5, %31 ], [ 1, %.lr.ph ]
   %37 = getelementptr inbounds nuw i8, ptr %.02347, i64 %.0.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = icmp ult ptr %38, %26
@@ -350,7 +350,7 @@ cab_skip_sfx.exit.thread.i:                       ; preds = %38
   br label %53
 
 53:                                               ; preds = %52, %51, %50, %49, %47, %.lr.ph.i.i
-  %.0.i.ph.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ 5, %47 ], [ 2, %49 ], [ 3, %50 ], [ 4, %51 ], [ 5, %52 ]
+  %.0.i.ph.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ 5, %47 ], [ 4, %51 ], [ 3, %50 ], [ 2, %49 ], [ 5, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %.02548.i.i, i64 %.0.i.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = icmp ult ptr %55, %43
@@ -2509,8 +2509,8 @@ cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %112
   br label %130
 
 130:                                              ; preds = %125, %cab_checksum_cfdata_4.exit.i.i
-  %.015.i.i = phi ptr [ %123, %cab_checksum_cfdata_4.exit.i.i ], [ %126, %125 ]
-  %.0.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %129, %125 ]
+  %.015.i.i = phi ptr [ %126, %125 ], [ %123, %cab_checksum_cfdata_4.exit.i.i ]
+  %.0.i.i = phi i32 [ %129, %125 ], [ 0, %cab_checksum_cfdata_4.exit.i.i ]
   %131 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 1
   %132 = load i8, ptr %.015.i.i, align 1, !tbaa !4
   %133 = zext i8 %132 to i32
@@ -2519,8 +2519,8 @@ cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %112
   br label %136
 
 136:                                              ; preds = %130, %cab_checksum_cfdata_4.exit.i.i
-  %.116.i.i = phi ptr [ %123, %cab_checksum_cfdata_4.exit.i.i ], [ %131, %130 ]
-  %.1.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %135, %130 ]
+  %.116.i.i = phi ptr [ %131, %130 ], [ %123, %cab_checksum_cfdata_4.exit.i.i ]
+  %.1.i.i = phi i32 [ %135, %130 ], [ 0, %cab_checksum_cfdata_4.exit.i.i ]
   %137 = load i8, ptr %.116.i.i, align 1, !tbaa !4
   %138 = zext i8 %137 to i32
   %139 = or i32 %.1.i.i, %138
@@ -2530,7 +2530,7 @@ default.unreachable:                              ; preds = %cab_checksum_cfdata
   unreachable
 
 cab_checksum_cfdata.exit.i:                       ; preds = %136, %cab_checksum_cfdata_4.exit.i.i
-  %.2.i.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i.i ], [ %139, %136 ]
+  %.2.i.i = phi i32 [ %139, %136 ], [ 0, %cab_checksum_cfdata_4.exit.i.i ]
   %140 = xor i32 %.2.i.i, %.0.lcssa.i.i.i
   store i32 %140, ptr %115, align 8, !tbaa !134
   store i32 0, ptr %110, align 8, !tbaa !135
@@ -2591,8 +2591,8 @@ cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
   br label %170
 
 170:                                              ; preds = %165, %cab_checksum_cfdata_4.exit.i36.i
-  %.015.i41.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %166, %165 ]
-  %.0.i42.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %169, %165 ]
+  %.015.i41.i = phi ptr [ %166, %165 ], [ %163, %cab_checksum_cfdata_4.exit.i36.i ]
+  %.0.i42.i = phi i32 [ %169, %165 ], [ 0, %cab_checksum_cfdata_4.exit.i36.i ]
   %171 = getelementptr inbounds nuw i8, ptr %.015.i41.i, i64 1
   %172 = load i8, ptr %.015.i41.i, align 1, !tbaa !4
   %173 = zext i8 %172 to i32
@@ -2601,15 +2601,15 @@ cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
   br label %176
 
 176:                                              ; preds = %170, %cab_checksum_cfdata_4.exit.i36.i
-  %.116.i39.i = phi ptr [ %163, %cab_checksum_cfdata_4.exit.i36.i ], [ %171, %170 ]
-  %.1.i40.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %175, %170 ]
+  %.116.i39.i = phi ptr [ %171, %170 ], [ %163, %cab_checksum_cfdata_4.exit.i36.i ]
+  %.1.i40.i = phi i32 [ %175, %170 ], [ 0, %cab_checksum_cfdata_4.exit.i36.i ]
   %177 = load i8, ptr %.116.i39.i, align 1, !tbaa !4
   %178 = zext i8 %177 to i32
   %179 = or i32 %.1.i40.i, %178
   br label %cab_checksum_cfdata.exit44.i
 
 cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_cfdata_4.exit.i36.i
-  %.2.i38.i = phi i32 [ 0, %cab_checksum_cfdata_4.exit.i36.i ], [ %179, %176 ]
+  %.2.i38.i = phi i32 [ %179, %176 ], [ 0, %cab_checksum_cfdata_4.exit.i36.i ]
   %180 = xor i32 %.2.i38.i, %159
   store i32 %180, ptr %154, align 8, !tbaa !134
   %.not28.i = icmp eq i32 %180, %107
@@ -2944,7 +2944,7 @@ thread-pre-split.i:                               ; preds = %124, %120
   br label %162
 
 162:                                              ; preds = %161, %159
-  %.2.i = phi i8 [ 1, %161 ], [ 0, %159 ]
+  %.2.i = phi i8 [ 0, %159 ], [ 1, %161 ]
   %163 = load i64, ptr %103, align 8, !tbaa !156
   store i64 %163, ptr %104, align 8, !tbaa !106
   store ptr %116, ptr %105, align 8, !tbaa !136
@@ -4784,11 +4784,11 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %1039
 
 1039:                                             ; preds = %.split.us.i.i.i, %947
-  %.2329.i.i.i = phi i32 [ %.0327.i.i.i, %947 ], [ %.us-phi679.i.i.i, %.split.us.i.i.i ]
-  %.2305.i.i.i = phi i32 [ %.0303.i.i.i, %947 ], [ %1037, %.split.us.i.i.i ]
-  %.2292.i.i.i = phi i32 [ %.0290.i.i.i, %947 ], [ %1038, %.split.us.i.i.i ]
-  %.2254.i.i.i = phi i64 [ %.0252.i.i.i, %947 ], [ %.us-phi680.i.i.i, %.split.us.i.i.i ]
-  %.2.i31.i.i = phi ptr [ %.0250.i.i.i, %947 ], [ %.us-phi681.i.i.i, %.split.us.i.i.i ]
+  %.2329.i.i.i = phi i32 [ %.us-phi679.i.i.i, %.split.us.i.i.i ], [ %.0327.i.i.i, %947 ]
+  %.2305.i.i.i = phi i32 [ %1037, %.split.us.i.i.i ], [ %.0303.i.i.i, %947 ]
+  %.2292.i.i.i = phi i32 [ %1038, %.split.us.i.i.i ], [ %.0290.i.i.i, %947 ]
+  %.2254.i.i.i = phi i64 [ %.us-phi680.i.i.i, %.split.us.i.i.i ], [ %.0252.i.i.i, %947 ]
+  %.2.i31.i.i = phi ptr [ %.us-phi681.i.i.i, %.split.us.i.i.i ], [ %.0250.i.i.i, %947 ]
   %1040 = icmp eq i32 %.2305.i.i.i, 7
   br i1 %1040, label %1041, label %1086
 
@@ -5191,7 +5191,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %lzx_decode_blocks.exit.i.i
 
 lzx_decode_blocks.exit.i.i:                       ; preds = %.loopexit.i26.i.i, %.thread395.i.i.i, %.thread.i30.i.i, %.preheader._crit_edge.i.i.i
-  %.0248.i.i.i = phi i32 [ 0, %.thread395.i.i.i ], [ -25, %.thread.i30.i.i ], [ 1, %.preheader._crit_edge.i.i.i ], [ undef, %.loopexit.i26.i.i ]
+  %.0248.i.i.i = phi i32 [ 1, %.preheader._crit_edge.i.i.i ], [ 0, %.thread395.i.i.i ], [ -25, %.thread.i30.i.i ], [ undef, %.loopexit.i26.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   %1224 = load i64, ptr %398, align 8, !tbaa !198
   %1225 = sub nsw i64 %887, %1224
@@ -5607,7 +5607,7 @@ define internal fastcc range(i32 0, 2) i32 @lzx_br_fillup(ptr noundef captures(n
   br label %7
 
 .loopexit:                                        ; preds = %7, %91, %93, %53, %13
-  %.040 = phi i32 [ 1, %53 ], [ 1, %13 ], [ 0, %93 ], [ 0, %91 ], [ 1, %7 ]
+  %.040 = phi i32 [ 1, %13 ], [ 1, %53 ], [ 0, %93 ], [ 0, %91 ], [ 1, %7 ]
   ret i32 %.040
 }
 
@@ -6096,7 +6096,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzx_read_bitlen(ptr noundef capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %191, %171, %104
-  %.2 = phi i32 [ %197, %191 ], [ %172, %171 ], [ %102, %104 ], [ %198, %.loopexit.loopexit ]
+  %.2 = phi i32 [ %197, %191 ], [ %102, %104 ], [ %172, %171 ], [ %198, %.loopexit.loopexit ]
   %199 = icmp slt i32 %.2, %.0128
   br i1 %199, label %25, label %._crit_edge, !llvm.loop !229
 

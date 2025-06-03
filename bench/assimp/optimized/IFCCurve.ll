@@ -2073,7 +2073,7 @@ _ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveC2ERKNS0_10Schema_2x317IfcCompositeC
   br label %629
 
 _ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveC2ERKNS0_10Schema_2x317IfcCompositeCurveERNS0_14ConversionDataE.exit: ; preds = %46, %.thread208, %.noexc89, %._crit_edge247, %293, %90, %594, %555
-  %.2 = phi ptr [ %32, %90 ], [ %92, %293 ], [ %541, %555 ], [ %580, %594 ], [ %299, %._crit_edge247 ], [ null, %.thread208 ], [ %618, %.noexc89 ], [ %32, %46 ]
+  %.2 = phi ptr [ %580, %594 ], [ %541, %555 ], [ %92, %293 ], [ %32, %90 ], [ %299, %._crit_edge247 ], [ null, %.thread208 ], [ %618, %.noexc89 ], [ %32, %46 ]
   ret ptr %.2
 
 629:                                              ; preds = %627, %592, %553, %.body74, %.body68, %.body

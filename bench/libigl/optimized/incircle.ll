@@ -1215,7 +1215,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 79:                                               ; preds = %67, %71
-  %.3 = phi i32 [ %.1, %67 ], [ %72, %71 ]
+  %.3 = phi i32 [ %72, %71 ], [ %.1, %67 ]
   ret i32 %.3
 }
 

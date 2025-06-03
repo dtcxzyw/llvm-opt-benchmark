@@ -3849,15 +3849,15 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %8, align 8
   %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef nonnull @.str.1568, ptr noundef %26, i64 noundef %31)
-  br i1 %.not, label %.cont53, label %.else55
+  br i1 %.not, label %.cont61, label %.else63
 
-.else55:                                          ; preds = %23
+.else63:                                          ; preds = %23
   store ptr %32, ptr %3, align 8
-  br label %.cont53
+  br label %.cont61
 
-.cont53:                                          ; preds = %23, %.else55
+.cont61:                                          ; preds = %23, %.else63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  br label %.cont56
+  br label %.cont58
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @ett_gtpv2_uli_field, align 4
@@ -3871,11 +3871,11 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
   %40 = load i32, ptr %6, align 4
   %41 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.13, ptr noundef %36, i32 noundef %40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  br i1 %.not, label %.cont56, label %.else58
+  br i1 %.not, label %.cont58, label %.else60
 
-.else58:                                          ; preds = %33
+.else60:                                          ; preds = %33
   store ptr %41, ptr %3, align 8
-  br label %.cont56
+  br label %.cont58
 
 42:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
@@ -3890,54 +3890,54 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
   %49 = load i32, ptr %5, align 4
   %50 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef nonnull @.str.13, ptr noundef %45, i32 noundef %49)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  br i1 %.not, label %.cont64, label %.else66
+  br i1 %.not, label %.cont55, label %.else57
 
-.else66:                                          ; preds = %42
+.else57:                                          ; preds = %42
   store ptr %50, ptr %3, align 8
-  br label %.cont64
+  br label %.cont55
 
-.cont64:                                          ; preds = %42, %.else66
-  %.0 = phi ptr [ null, %.else66 ], [ %50, %42 ]
+.cont55:                                          ; preds = %42, %.else57
+  %.0 = phi ptr [ null, %.else57 ], [ %50, %42 ]
   %51 = load i32, ptr @ett_gtpv2_uli_field, align 4
   %52 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 7, i32 noundef 8, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.1567)
   %53 = call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef 7, i32 noundef 7, i1 noundef zeroext true)
   %54 = load i32, ptr @hf_gtpv2_ncgi_nrci, align 4
   %55 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %52, i32 noundef %54, ptr noundef %0, i32 noundef 10, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %9)
   %56 = load ptr, ptr %47, align 8
-  br i1 %.not, label %.then60, label %.else61
+  br i1 %.not, label %.then, label %.else
 
-.then60:                                          ; preds = %.cont64
+.then:                                            ; preds = %.cont55
   %57 = load i64, ptr %9, align 8
   %58 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %56, ptr noundef nonnull @.str.1569, ptr noundef %.0, ptr noundef %53, i64 noundef %57)
-  br label %.cont59
+  br label %.cont
 
-.else61:                                          ; preds = %.cont64
+.else:                                            ; preds = %.cont55
   %.else.val = load ptr, ptr %3, align 8
   %59 = load i64, ptr %9, align 8
   %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %56, ptr noundef nonnull @.str.1569, ptr noundef %.else.val, ptr noundef %53, i64 noundef %59)
   store ptr %60, ptr %3, align 8
-  br label %.cont59
+  br label %.cont
 
-.cont59:                                          ; preds = %.else61, %.then60
+.cont:                                            ; preds = %.else, %.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  br label %.cont56
+  br label %.cont58
 
 61:                                               ; preds = %4
   %62 = load i32, ptr @hf_gtpv2_geographic_location, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0)
-  br label %.cont56
+  br label %.cont58
 
 64:                                               ; preds = %4, %22, %21, %20, %19, %18, %17, %16, %15, %14
-  %.050 = phi i32 [ 136, %22 ], [ 128, %21 ], [ 72, %20 ], [ 64, %19 ], [ 24, %18 ], [ 16, %17 ], [ 8, %16 ], [ 4, %15 ], [ 2, %14 ], [ 1, %4 ]
+  %.050 = phi i32 [ 2, %14 ], [ 4, %15 ], [ 8, %16 ], [ 16, %17 ], [ 24, %18 ], [ 64, %19 ], [ 72, %20 ], [ 128, %21 ], [ 136, %22 ], [ 1, %4 ]
   %65 = trunc i32 %10 to i16
   %66 = call fastcc ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i16 noundef zeroext %65, i32 noundef %.050)
-  br i1 %.not, label %.cont56, label %.else
+  br i1 %.not, label %.cont58, label %.else66
 
-.else:                                            ; preds = %64
+.else66:                                          ; preds = %64
   store ptr %66, ptr %3, align 8
-  br label %.cont56
+  br label %.cont58
 
-.cont56:                                          ; preds = %.else, %64, %.else58, %33, %61, %.cont59, %.cont53
+.cont58:                                          ; preds = %.else66, %64, %.else60, %33, %61, %.cont, %.cont61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   ret i32 %10
 }
@@ -4337,7 +4337,7 @@ define hidden void @dissect_gtpv2_twan_identifier(ptr noundef %0, ptr noundef %1
   br label %87
 
 87:                                               ; preds = %62, %81, %73, %77
-  %.5 = phi i32 [ %68, %62 ], [ %86, %81 ], [ %76, %73 ], [ %80, %77 ]
+  %.5 = phi i32 [ %68, %62 ], [ %76, %73 ], [ %80, %77 ], [ %86, %81 ]
   %88 = load i32, ptr @hf_gtpv2_twan_circuit_id_len, align 4
   %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   %90 = add i32 %.5, 1

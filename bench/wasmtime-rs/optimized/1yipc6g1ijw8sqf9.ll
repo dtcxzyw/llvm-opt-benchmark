@@ -11498,8 +11498,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   ]
 
 .loopexit:                                        ; preds = %12, %21, %24
-  %.sroa.4.0 = phi i64 [ %26, %24 ], [ %23, %21 ], [ %9, %12 ]
-  %.sroa.0.0 = phi i64 [ 0, %24 ], [ 1, %21 ], [ 1, %12 ]
+  %.sroa.4.0 = phi i64 [ %23, %21 ], [ %26, %24 ], [ %9, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 0, %24 ], [ 1, %12 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
@@ -11551,8 +11551,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   ]
 
 .loopexit:                                        ; preds = %12, %21, %24
-  %.sroa.4.0 = phi i64 [ %26, %24 ], [ %23, %21 ], [ %9, %12 ]
-  %.sroa.0.0 = phi i64 [ 0, %24 ], [ 1, %21 ], [ 1, %12 ]
+  %.sroa.4.0 = phi i64 [ %23, %21 ], [ %26, %24 ], [ %9, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 0, %24 ], [ 1, %12 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
@@ -11604,8 +11604,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   ]
 
 .loopexit:                                        ; preds = %12, %21, %24
-  %.sroa.4.0 = phi i64 [ %26, %24 ], [ %23, %21 ], [ %9, %12 ]
-  %.sroa.0.0 = phi i64 [ 0, %24 ], [ 1, %21 ], [ 1, %12 ]
+  %.sroa.4.0 = phi i64 [ %23, %21 ], [ %26, %24 ], [ %9, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 0, %24 ], [ 1, %12 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
@@ -11657,8 +11657,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   ]
 
 .loopexit:                                        ; preds = %12, %21, %24
-  %.sroa.4.0 = phi i64 [ %26, %24 ], [ %23, %21 ], [ %9, %12 ]
-  %.sroa.0.0 = phi i64 [ 0, %24 ], [ 1, %21 ], [ 1, %12 ]
+  %.sroa.4.0 = phi i64 [ %23, %21 ], [ %26, %24 ], [ %9, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %21 ], [ 0, %24 ], [ 1, %12 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
@@ -11709,8 +11709,8 @@ define { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..
   ]
 
 .loopexit:                                        ; preds = %11, %20, %23
-  %.sroa.4.0 = phi i64 [ %25, %23 ], [ %22, %20 ], [ %8, %11 ]
-  %.sroa.0.0 = phi i64 [ 0, %23 ], [ 1, %20 ], [ 1, %11 ]
+  %.sroa.4.0 = phi i64 [ %22, %20 ], [ %25, %23 ], [ %8, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %23 ], [ 1, %11 ]
   %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.4.0, 1
   ret { i64, i64 } %19

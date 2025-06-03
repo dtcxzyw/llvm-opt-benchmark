@@ -2447,9 +2447,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing
   br label %62
 
 62:                                               ; preds = %._crit_edge._crit_edge, %60
-  %63 = phi double [ %.pre57, %._crit_edge._crit_edge ], [ %57, %60 ]
-  %64 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %52, %60 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %61, %60 ]
+  %63 = phi double [ %57, %60 ], [ %.pre57, %._crit_edge._crit_edge ]
+  %64 = phi double [ %52, %60 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %61, %60 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %65 = load double, ptr %.sroa.032.1, align 8, !tbaa !95
   %66 = fcmp oeq double %65, %64
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 8
@@ -2463,9 +2463,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5ZXing
   br label %73
 
 73:                                               ; preds = %._crit_edge._crit_edge58, %71
-  %74 = phi double [ %.pre61, %._crit_edge._crit_edge58 ], [ %63, %71 ]
-  %75 = phi double [ %.pre59, %._crit_edge._crit_edge58 ], [ %64, %71 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ], [ %72, %71 ]
+  %74 = phi double [ %63, %71 ], [ %.pre61, %._crit_edge._crit_edge58 ]
+  %75 = phi double [ %64, %71 ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.sroa.032.2 = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ]
   %76 = load double, ptr %.sroa.032.2, align 8, !tbaa !95
   %77 = fcmp oeq double %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.032.2, i64 8

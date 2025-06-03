@@ -1520,7 +1520,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   br label %45
 
 45:                                               ; preds = %43, %13
-  %.1 = phi ptr [ null, %13 ], [ %44, %43 ]
+  %.1 = phi ptr [ %44, %43 ], [ null, %13 ]
   %46 = getelementptr i8, ptr %.sroa.2.0.i, i64 3
   %47 = load i8, ptr %46, align 1, !tbaa !54
   %.not65 = icmp eq i8 %47, 58
@@ -1641,7 +1641,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   br label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %rb_enc_str_asciicompat_p.exit, %28, %40, %45, %13, %55, %50, %73, %68, %.thread88, %93, %87, %113
-  %.154 = phi i64 [ %114, %113 ], [ %112, %109 ], [ %34, %32 ], [ 36, %16 ], [ 36, %35 ], [ 36, %105 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %40 ], [ 4, %45 ], [ 4, %13 ], [ 4, %55 ], [ 4, %50 ], [ 4, %73 ], [ 4, %68 ], [ 4, %.thread88 ], [ 4, %93 ], [ 4, %87 ], [ 4, %RSTRING_PTR.exit ]
+  %.154 = phi i64 [ %114, %113 ], [ %34, %32 ], [ %112, %109 ], [ 36, %16 ], [ 36, %35 ], [ 36, %105 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %40 ], [ 4, %45 ], [ 4, %13 ], [ 4, %55 ], [ 4, %50 ], [ 4, %73 ], [ 4, %68 ], [ 4, %.thread88 ], [ 4, %93 ], [ 4, %87 ], [ 4, %RSTRING_PTR.exit ]
   ret i64 %.154
 }
 

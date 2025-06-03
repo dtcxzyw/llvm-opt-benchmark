@@ -714,10 +714,10 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   br label %119
 
 119:                                              ; preds = %.thread, %103, %84, %52, %25, %3
-  %.0187 = phi i1 [ false, %3 ], [ %114, %103 ], [ %102, %84 ], [ %67, %52 ], [ %39, %25 ], [ %78, %.thread ]
-  %.0185 = phi i1 [ false, %3 ], [ %113, %103 ], [ %101, %84 ], [ %66, %52 ], [ %38, %25 ], [ %77, %.thread ]
-  %.0183 = phi double [ 0.000000e+00, %3 ], [ %116, %103 ], [ %100, %84 ], [ %65, %52 ], [ %37, %25 ], [ %81, %.thread ]
-  %.0 = phi double [ 0.000000e+00, %3 ], [ %118, %103 ], [ %96, %84 ], [ %60, %52 ], [ %33, %25 ], [ %80, %.thread ]
+  %.0187 = phi i1 [ false, %3 ], [ %39, %25 ], [ %67, %52 ], [ %102, %84 ], [ %114, %103 ], [ %78, %.thread ]
+  %.0185 = phi i1 [ false, %3 ], [ %38, %25 ], [ %66, %52 ], [ %101, %84 ], [ %113, %103 ], [ %77, %.thread ]
+  %.0183 = phi double [ 0.000000e+00, %3 ], [ %37, %25 ], [ %65, %52 ], [ %100, %84 ], [ %116, %103 ], [ %81, %.thread ]
+  %.0 = phi double [ 0.000000e+00, %3 ], [ %33, %25 ], [ %60, %52 ], [ %96, %84 ], [ %118, %103 ], [ %80, %.thread ]
   %120 = load ptr, ptr %2, align 8, !tbaa !46
   %121 = fadd double %.0183, %.0
   %122 = tail call double @cos(double noundef %121) #10, !tbaa !52
@@ -914,8 +914,8 @@ _ZL9ell_int_5d.exit207:                           ; preds = %151
   br label %.thread234
 
 .thread234:                                       ; preds = %188, %.thread223, %203, %205, %201, %_ZL9ell_int_5d.exit207, %207, %217, %221, %219, %82, %223, %50, %45, %22, %15
-  %.sroa.0173.0 = phi double [ %.sroa.0173.0.copyload176, %82 ], [ %.sroa.0173.0.copyload174, %45 ], [ %.sroa.0173.0.copyload175, %50 ], [ %.sroa.0173.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %225, %223 ], [ %.sroa.0.4, %207 ], [ %.sroa.0.4, %219 ], [ %.sroa.0.4, %221 ], [ %.sroa.0.4, %217 ], [ %159, %_ZL9ell_int_5d.exit207 ], [ %195, %.thread223 ], [ %199, %203 ], [ %206, %205 ], [ %202, %201 ], [ %.sroa.0.4, %188 ]
-  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload182, %82 ], [ %.sroa.7.0.copyload178, %45 ], [ %.sroa.7.0.copyload180, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %227, %223 ], [ %210, %207 ], [ %215, %219 ], [ %222, %221 ], [ %218, %217 ], [ %163, %_ZL9ell_int_5d.exit207 ], [ %.sroa.28.4, %.thread223 ], [ %.sroa.28.4, %203 ], [ %.sroa.28.4, %205 ], [ %.sroa.28.4, %201 ], [ %.sroa.28.4, %188 ]
+  %.sroa.0173.0 = phi double [ %.sroa.0173.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %.sroa.0173.0.copyload174, %45 ], [ %.sroa.0173.0.copyload175, %50 ], [ %.sroa.0173.0.copyload176, %82 ], [ %225, %223 ], [ %.sroa.0.4, %207 ], [ %.sroa.0.4, %219 ], [ %.sroa.0.4, %221 ], [ %.sroa.0.4, %217 ], [ %159, %_ZL9ell_int_5d.exit207 ], [ %195, %.thread223 ], [ %199, %203 ], [ %206, %205 ], [ %202, %201 ], [ %.sroa.0.4, %188 ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %.sroa.7.0.copyload178, %45 ], [ %.sroa.7.0.copyload180, %50 ], [ %.sroa.7.0.copyload182, %82 ], [ %227, %223 ], [ %210, %207 ], [ %215, %219 ], [ %222, %221 ], [ %218, %217 ], [ %163, %_ZL9ell_int_5d.exit207 ], [ %.sroa.28.4, %.thread223 ], [ %.sroa.28.4, %203 ], [ %.sroa.28.4, %205 ], [ %.sroa.28.4, %201 ], [ %.sroa.28.4, %188 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0173.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert

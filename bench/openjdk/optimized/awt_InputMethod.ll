@@ -272,7 +272,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit.thread:                ; preds = %30, %22, %.thread, %70, %79, %85, %82, %94, %93, %36, %getX11InputMethodData.exit, %65, %48, %.loopexit
-  %.0 = phi i8 [ 1, %48 ], [ 1, %65 ], [ 0, %.loopexit ], [ 0, %getX11InputMethodData.exit ], [ 0, %36 ], [ 1, %70 ], [ 1, %93 ], [ 0, %94 ], [ 1, %85 ], [ 1, %82 ], [ 0, %79 ], [ 1, %.thread ], [ 0, %22 ], [ 0, %30 ]
+  %.0 = phi i8 [ 1, %48 ], [ 1, %65 ], [ 0, %.loopexit ], [ 0, %getX11InputMethodData.exit ], [ 0, %36 ], [ 1, %70 ], [ 1, %85 ], [ 1, %82 ], [ 0, %79 ], [ 1, %93 ], [ 0, %94 ], [ 1, %.thread ], [ 0, %22 ], [ 0, %30 ]
   ret i8 %.0
 }
 

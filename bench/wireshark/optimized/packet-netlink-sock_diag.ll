@@ -861,7 +861,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br label %dissect_sock_diag_meminfo.exit
 
 dissect_sock_diag_meminfo.exit:                   ; preds = %54, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
-  %.044 = phi i32 [ 1, %37 ], [ 1, %29 ], [ 1, %24 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
+  %.044 = phi i32 [ 1, %24 ], [ 1, %29 ], [ 1, %37 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
   ret i32 %.044
 }
 

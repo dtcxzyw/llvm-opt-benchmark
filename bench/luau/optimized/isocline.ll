@@ -1471,8 +1471,8 @@ bbcode_restrict_width.exit.i:                     ; preds = %._crit_edge140.i.i,
   br label %bbcode_process_tag.exit
 
 bbcode_process_tag.exit:                          ; preds = %bbcode_open.exit.i, %144, %bbcode_restrict_width.exit.i
-  %.sroa.0.3 = phi i64 [ %.sroa.013.5.i.i.i, %bbcode_open.exit.i ], [ %.sroa.0.2, %bbcode_restrict_width.exit.i ], [ %.sroa.0.078, %144 ]
-  %.2.i = phi ptr [ %70, %bbcode_open.exit.i ], [ %146, %bbcode_restrict_width.exit.i ], [ %.0.i, %144 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.013.5.i.i.i, %bbcode_open.exit.i ], [ %.sroa.0.078, %144 ], [ %.sroa.0.2, %bbcode_restrict_width.exit.i ]
+  %.2.i = phi ptr [ %70, %bbcode_open.exit.i ], [ %.0.i, %144 ], [ %146, %bbcode_restrict_width.exit.i ]
   %323 = ptrtoint ptr %.2.i to i64
   %324 = ptrtoint ptr %40 to i64
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #32
@@ -1500,8 +1500,8 @@ bbcode_process_tag.exit:                          ; preds = %bbcode_open.exit.i,
   br label %335
 
 335:                                              ; preds = %52, %334, %331, %bbcode_process_tag.exit
-  %.sroa.0.1 = phi i64 [ %.sroa.0.078, %52 ], [ %.sroa.0.078, %331 ], [ %.sroa.0.078, %334 ], [ %.sroa.0.3, %bbcode_process_tag.exit ]
-  %.1 = phi i64 [ %39, %52 ], [ %333, %331 ], [ %328, %334 ], [ %326, %bbcode_process_tag.exit ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.078, %52 ], [ %.sroa.0.3, %bbcode_process_tag.exit ], [ %.sroa.0.078, %331 ], [ %.sroa.0.078, %334 ]
+  %.1 = phi i64 [ %39, %52 ], [ %326, %bbcode_process_tag.exit ], [ %333, %331 ], [ %328, %334 ]
   %336 = getelementptr inbounds i8, ptr %1, i64 %.1
   %337 = load i8, ptr %336, align 1, !tbaa !4
   %.not = icmp eq i8 %337, 0
@@ -7862,7 +7862,7 @@ switch.lookup:                                    ; preds = %ic_contains.exit131
   br label %term_get_color_bits.exit.i
 
 term_get_color_bits.exit.i:                       ; preds = %.thread179.sink.split.i, %ic_contains.exit131.thread.i, %switch.lookup, %.thread176.sink.split.i, %.thread188.sink.split.i, %.thread185.sink.split.i, %221, %201
-  %.0.i132.i = phi i32 [ 24, %.thread176.sink.split.i ], [ 8, %.thread188.sink.split.i ], [ 3, %.thread185.sink.split.i ], [ 1, %221 ], [ 1, %201 ], [ %switch.load, %switch.lookup ], [ 4, %ic_contains.exit131.thread.i ], [ 4, %.thread179.sink.split.i ]
+  %.0.i132.i = phi i32 [ 3, %.thread185.sink.split.i ], [ 8, %.thread188.sink.split.i ], [ 24, %.thread176.sink.split.i ], [ 1, %221 ], [ 1, %201 ], [ %switch.load, %switch.lookup ], [ 4, %ic_contains.exit131.thread.i ], [ 4, %.thread179.sink.split.i ]
   call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.475, i32 noundef %.0.i132.i, ptr noundef %186, ptr noundef %187)
   br label %224
 
@@ -9428,8 +9428,8 @@ color_from_ansi256.exit:                          ; preds = %100, %105, %108
   br label %.thread
 
 .thread:                                          ; preds = %20, %25, %26, %29, %32, %35, %38, %40, %42, %44, %46, %49, %59, %72, %157, %.thread48, %67, %54, %sgr_next_par.exit
-  %158 = phi i64 [ %14, %sgr_next_par.exit ], [ %14, %54 ], [ %14, %59 ], [ %14, %67 ], [ %14, %72 ], [ %.pre, %.thread48 ], [ %14, %157 ], [ %14, %49 ], [ %14, %46 ], [ %14, %44 ], [ %14, %42 ], [ %14, %40 ], [ %14, %38 ], [ %14, %35 ], [ %14, %32 ], [ %14, %29 ], [ %14, %26 ], [ %14, %25 ], [ %storemerge49, %20 ]
-  %.sroa.025.1 = phi i64 [ %.sroa.025.050, %sgr_next_par.exit ], [ %56, %54 ], [ %64, %59 ], [ %69, %67 ], [ %77, %72 ], [ %.sroa.025.3, %.thread48 ], [ %.sroa.025.050, %157 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ -1152921333076590553, %25 ], [ -1152921333076590553, %20 ]
+  %158 = phi i64 [ %14, %sgr_next_par.exit ], [ %14, %54 ], [ %14, %59 ], [ %14, %67 ], [ %14, %72 ], [ %.pre, %.thread48 ], [ %14, %157 ], [ %14, %26 ], [ %14, %29 ], [ %14, %32 ], [ %14, %35 ], [ %14, %38 ], [ %14, %40 ], [ %14, %42 ], [ %14, %44 ], [ %14, %46 ], [ %14, %49 ], [ %14, %25 ], [ %storemerge49, %20 ]
+  %.sroa.025.1 = phi i64 [ %.sroa.025.050, %sgr_next_par.exit ], [ %56, %54 ], [ %64, %59 ], [ %69, %67 ], [ %77, %72 ], [ %.sroa.025.3, %.thread48 ], [ %.sroa.025.050, %157 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ -1152921333076590553, %25 ], [ -1152921333076590553, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   %159 = add nsw i64 %158, 1
   store i64 %159, ptr %3, align 8, !tbaa !57
@@ -11268,7 +11268,7 @@ sbuf_string.exit49:                               ; preds = %ic_istarts_with.exi
   br label %os_get_filetype.exit
 
 os_get_filetype.exit:                             ; preds = %sbuf_string.exit49, %87, %88, %89, %90, %91, %93, %95, %97, %100
-  %.0.i51 = phi i32 [ 5, %90 ], [ 6, %89 ], [ 4, %88 ], [ 2, %87 ], [ 3, %sbuf_string.exit49 ], [ 7, %91 ], [ 8, %93 ], [ 9, %95 ], [ %.7.i, %100 ], [ %spec.select.i, %97 ]
+  %.0.i51 = phi i32 [ 2, %87 ], [ 4, %88 ], [ 6, %89 ], [ 5, %90 ], [ 3, %sbuf_string.exit49 ], [ 7, %91 ], [ 8, %93 ], [ 9, %95 ], [ %.7.i, %100 ], [ %spec.select.i, %97 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #32
   %102 = load i64, ptr %13, align 8, !tbaa !40
   %103 = icmp slt i64 %102, 0

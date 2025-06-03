@@ -265,8 +265,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi ptr [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !27
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, label %44
@@ -276,8 +276,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !27
   %49 = icmp eq ptr %48, %47
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -420,8 +420,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi ptr [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !27
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, label %44
@@ -431,8 +431,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !27
   %49 = icmp eq ptr %48, %47
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -847,8 +847,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi ptr [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !61
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit, label %44
@@ -858,8 +858,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !61
   %49 = icmp eq ptr %48, %47
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -1002,8 +1002,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi ptr [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !61
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit, label %44
@@ -1013,8 +1013,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !61
   %49 = icmp eq ptr %48, %47
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.032.2.i.i.i, ptr %6

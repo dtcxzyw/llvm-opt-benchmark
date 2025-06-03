@@ -260,7 +260,7 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
   %exitcond.not = icmp eq i64 %91, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-92:                                               ; preds = %67, %70, %57, %50, %43, %36, %29, %22, %15, %8
+92:                                               ; preds = %67, %70, %8, %15, %22, %29, %36, %43, %50, %57
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 3580
   store i8 46, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 3581

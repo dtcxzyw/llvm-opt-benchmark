@@ -337,7 +337,7 @@ sw.epilog:                                        ; preds = %entry
   unreachable
 
 cleanup:                                          ; preds = %sw.bb14, %sw.bb12, %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit, %sw.bb3, %sw.bb
-  %retval.0 = phi ptr [ %call15, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %spec.select1, %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit ], [ %spec.select, %sw.bb3 ], [ %call2, %sw.bb ]
+  %retval.0 = phi ptr [ %call2, %sw.bb ], [ %spec.select, %sw.bb3 ], [ %spec.select1, %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit ], [ %call13, %sw.bb12 ], [ %call15, %sw.bb14 ]
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %Location.i.i, align 8
   ret ptr %retval.0
 }

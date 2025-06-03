@@ -716,7 +716,7 @@ switch.lookup103:                                 ; preds = %60
   br label %76
 
 76:                                               ; preds = %switch.lookup103, %60, %switch.lookup99, %58, %switch.lookup95, %55, %switch.lookup91, %52, %switch.lookup, %50, %57, %54, %62, %63, %64, %65, %66, %67, %68, %69, %70
-  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.58, %70 ], [ @.str.57, %69 ], [ @.str.56, %68 ], [ @.str.55, %67 ], [ @.str.54, %66 ], [ @.str.53, %65 ], [ @.str.52, %64 ], [ @.str.51, %63 ], [ @.str.14, %60 ], [ @.str.14, %58 ], [ @.str.14, %55 ], [ @.str.14, %52 ], [ @.str.14, %50 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load94, %switch.lookup91 ], [ %switch.load98, %switch.lookup95 ], [ %switch.load102, %switch.lookup99 ], [ %switch.load106, %switch.lookup103 ]
+  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.51, %63 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.14, %50 ], [ @.str.14, %52 ], [ @.str.14, %55 ], [ @.str.14, %58 ], [ @.str.14, %60 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load94, %switch.lookup91 ], [ %switch.load98, %switch.lookup95 ], [ %switch.load102, %switch.lookup99 ], [ %switch.load106, %switch.lookup103 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !32
   %.not81 = icmp eq i32 %78, 0
@@ -801,7 +801,7 @@ switch.lookup103:                                 ; preds = %60
   br label %136
 
 136:                                              ; preds = %90, %100, %108, %120, %130
-  %.1 = phi i32 [ %97, %90 ], [ %129, %120 ], [ %119, %108 ], [ %107, %100 ], [ %135, %130 ]
+  %.1 = phi i32 [ %97, %90 ], [ %107, %100 ], [ %119, %108 ], [ %129, %120 ], [ %135, %130 ]
   %137 = load i32, ptr @prte_stacktrace_output_fileno, align 4, !tbaa !3
   %138 = sext i32 %.1 to i64
   %139 = sub nsw i64 1024, %138

@@ -17477,7 +17477,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h196
   br label %82
 
 82:                                               ; preds = %23, %42, %64, %2, %12, %109
-  %.sroa.0.1 = phi float [ %119, %109 ], [ %81, %64 ], [ %53, %42 ], [ %25, %23 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+  %.sroa.0.1 = phi float [ %119, %109 ], [ %25, %23 ], [ %53, %42 ], [ %81, %64 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret float %.sroa.0.1
 
@@ -17780,7 +17780,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17ha89
   br label %82
 
 82:                                               ; preds = %23, %42, %64, %2, %12, %109
-  %.sroa.0.1 = phi float [ %119, %109 ], [ %81, %64 ], [ %53, %42 ], [ %25, %23 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+  %.sroa.0.1 = phi float [ %119, %109 ], [ %25, %23 ], [ %53, %42 ], [ %81, %64 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret float %.sroa.0.1
 
@@ -18083,7 +18083,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17he3b
   br label %82
 
 82:                                               ; preds = %23, %42, %64, %2, %12, %109
-  %.sroa.0.1 = phi float [ %119, %109 ], [ %81, %64 ], [ %53, %42 ], [ %25, %23 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+  %.sroa.0.1 = phi float [ %119, %109 ], [ %25, %23 ], [ %53, %42 ], [ %81, %64 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret float %.sroa.0.1
 
@@ -19179,7 +19179,7 @@ default.unreachable:                              ; preds = %310
   br label %_ZN6brotli3enc9histogram7Context17h112a5bfea0d851c4E.exit.i
 
 _ZN6brotli3enc9histogram7Context17h112a5bfea0d851c4E.exit.i: ; preds = %325, %318, %316, %314
-  %.sroa.0.0.i.i = phi i8 [ %333, %325 ], [ %324, %318 ], [ %317, %316 ], [ %315, %314 ]
+  %.sroa.0.0.i.i = phi i8 [ %315, %314 ], [ %317, %316 ], [ %324, %318 ], [ %333, %325 ]
   %334 = zext i8 %.sroa.0.0.i.i to i64
   %335 = add nuw nsw i64 %311, %334
   %336 = icmp ult i64 %335, %113
@@ -24442,7 +24442,7 @@ default.unreachable:                              ; preds = %371
   br label %_ZN6brotli3enc9histogram7Context17h112a5bfea0d851c4E.exit
 
 _ZN6brotli3enc9histogram7Context17h112a5bfea0d851c4E.exit: ; preds = %372, %374, %376, %383
-  %.sroa.0.0.i = phi i8 [ %391, %383 ], [ %382, %376 ], [ %375, %374 ], [ %373, %372 ]
+  %.sroa.0.0.i = phi i8 [ %373, %372 ], [ %375, %374 ], [ %382, %376 ], [ %391, %383 ]
   %392 = zext i8 %.sroa.0.0.i to i64
   %.val34 = load ptr, ptr %245, align 8, !nonnull !3, !align !5, !noundef !3
   %.val35 = load i64, ptr %246, align 8, !noundef !3
@@ -24676,8 +24676,8 @@ default.unreachable:                              ; preds = %17
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %63, %"_ZN19brotli_decompressor6reader83DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$13copy_to_front17h284c587d0665ceafE.exit.i", %74, %56, %53, %52, %44, %19
-  %.sroa.12.1.i = phi i64 [ %47, %44 ], [ %77, %74 ], [ %59, %56 ], [ 0, %53 ], [ 0, %52 ], [ %20, %19 ], [ %69, %63 ], [ %42, %"_ZN19brotli_decompressor6reader83DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$13copy_to_front17h284c587d0665ceafE.exit.i" ]
-  %.sroa.0.1.shrunk.i = phi i1 [ %.not.i, %44 ], [ %.not29.i, %74 ], [ %.not31.i, %56 ], [ false, %53 ], [ false, %52 ], [ false, %19 ], [ %43, %"_ZN19brotli_decompressor6reader83DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$13copy_to_front17h284c587d0665ceafE.exit.i" ], [ %43, %63 ]
+  %.sroa.12.1.i = phi i64 [ %59, %56 ], [ %77, %74 ], [ %47, %44 ], [ 0, %53 ], [ 0, %52 ], [ %20, %19 ], [ %69, %63 ], [ %42, %"_ZN19brotli_decompressor6reader83DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$13copy_to_front17h284c587d0665ceafE.exit.i" ]
+  %.sroa.0.1.shrunk.i = phi i1 [ %.not31.i, %56 ], [ %.not29.i, %74 ], [ %.not.i, %44 ], [ false, %53 ], [ false, %52 ], [ false, %19 ], [ %43, %"_ZN19brotli_decompressor6reader83DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$13copy_to_front17h284c587d0665ceafE.exit.i" ], [ %43, %63 ]
   %.sroa.0.1.i = zext i1 %.sroa.0.1.shrunk.i to i64
   br label %"_ZN192_$LT$brotli_decompressor..reader..DecompressorCustomIo$LT$ErrType$C$R$C$BufferType$C$AllocU8$C$AllocU32$C$AllocHC$GT$$u20$as$u20$brotli_decompressor..io_wrappers..CustomRead$LT$ErrType$GT$$GT$4read17h1fb2d1a9b78052a2E.exit"
 
@@ -29617,7 +29617,7 @@ define internal noundef zeroext i1 @"_ZN81_$LT$polars_parquet..parquet..error..P
   br label %27
 
 27:                                               ; preds = %25, %22, %19, %16, %13
-  %.sroa.0.0.in = phi i1 [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %26, %25 ]
   ret i1 %.sroa.0.0.in
 }
 

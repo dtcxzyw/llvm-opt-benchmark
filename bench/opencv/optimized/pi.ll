@@ -2609,7 +2609,7 @@ opj_pi_check_next_level.exit446:                  ; preds = %484, %539
   br label %opj_pi_check_next_level.exit
 
 opj_pi_check_next_level.exit:                     ; preds = %tailrecurse.backedge.i442, %tailrecurse.backedge.i431, %tailrecurse.backedge.i420, %tailrecurse.backedge.i409, %tailrecurse.backedge.i, %536, %473, %411, %350, %289, %232, %476, %479, %opj_pi_check_next_level.exit446, %550, %417, %414, %356, %353, %295, %292, %234
-  %.2378 = phi i32 [ 1, %234 ], [ %.1377, %opj_pi_check_next_level.exit446 ], [ 0, %550 ], [ 1, %476 ], [ 0, %479 ], [ 1, %414 ], [ 0, %417 ], [ 1, %353 ], [ 0, %356 ], [ 1, %292 ], [ 0, %295 ], [ 0, %232 ], [ 0, %289 ], [ 0, %350 ], [ 0, %411 ], [ 0, %473 ], [ 0, %536 ], [ 0, %tailrecurse.backedge.i ], [ 0, %tailrecurse.backedge.i409 ], [ 0, %tailrecurse.backedge.i420 ], [ 0, %tailrecurse.backedge.i431 ], [ 0, %tailrecurse.backedge.i442 ]
+  %.2378 = phi i32 [ 1, %234 ], [ 1, %292 ], [ 0, %295 ], [ 1, %353 ], [ 0, %356 ], [ 1, %414 ], [ 0, %417 ], [ %.1377, %opj_pi_check_next_level.exit446 ], [ 0, %550 ], [ 1, %476 ], [ 0, %479 ], [ 0, %232 ], [ 0, %289 ], [ 0, %350 ], [ 0, %411 ], [ 0, %473 ], [ 0, %536 ], [ 0, %tailrecurse.backedge.i ], [ 0, %tailrecurse.backedge.i409 ], [ 0, %tailrecurse.backedge.i420 ], [ 0, %tailrecurse.backedge.i431 ], [ 0, %tailrecurse.backedge.i442 ]
   %indvars.iv.next550 = add nsw i64 %indvars.iv549, -1
   %555 = icmp sgt i64 %indvars.iv549, 0
   br i1 %555, label %205, label %.loopexit, !llvm.loop !145

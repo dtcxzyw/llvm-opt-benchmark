@@ -6167,7 +6167,7 @@ define range(i32 0, 1001) i32 @Z3_get_ast_kind(ptr noundef %0, ptr noundef %1) l
   br label %35
 
 35:                                               ; preds = %31, %32, %33, %34, %27, %30, %15, %14
-  %.0 = phi i32 [ 1000, %14 ], [ 1000, %34 ], [ 5, %33 ], [ 4, %32 ], [ 3, %31 ], [ 1, %30 ], [ 0, %27 ], [ 2, %15 ]
+  %.0 = phi i32 [ 1000, %14 ], [ 1000, %34 ], [ 3, %31 ], [ 4, %32 ], [ 5, %33 ], [ 1, %30 ], [ 0, %27 ], [ 2, %15 ]
   br i1 %4, label %36, label %_ZN10z3_log_ctxD2Ev.exit, !prof !159
 
 36:                                               ; preds = %35
@@ -12964,7 +12964,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %125
 
 125:                                              ; preds = %.body, %55, %41, %37, %19
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %.body ], [ %20, %19 ], [ %.pn, %55 ], [ %42, %41 ], [ %.pn27.pn, %37 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %.body ], [ %20, %19 ], [ %.pn27.pn, %37 ], [ %42, %41 ], [ %.pn, %55 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #23
   br label %126
 

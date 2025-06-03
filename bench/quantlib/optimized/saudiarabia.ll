@@ -1023,7 +1023,7 @@ if.end31.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
   br label %sw.bb33.i.i.i.i.i.i
 
 sw.bb33.i.i.i.i.i.i:                              ; preds = %if.end31.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i58.i.i.i.i.i.i, %if.end31.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i58.i.i.i.i.i.i, %if.end31.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i)
   %sub.i.i.i62.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i, -1
@@ -1047,7 +1047,7 @@ if.end38.i.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
   br label %sw.bb40.i.i.i.i.i.i
 
 sw.bb40.i.i.i.i.i.i:                              ; preds = %if.end38.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i68.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i68.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i)
   %sub.i.i.i72.i.i.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i, -1
@@ -1412,7 +1412,7 @@ if.end31.i.i.i.i.i.i68:                           ; preds = %"_ZN9__gnu_cxx5__op
   br label %sw.bb33.i.i.i.i.i.i53
 
 sw.bb33.i.i.i.i.i.i53:                            ; preds = %if.end31.i.i.i.i.i.i68, %for.end.i.i.i.i.i.i39
-  %__first.sroa.0.1.i.i.i.i.i.i54 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i58.i.i.i.i.i.i69, %if.end31.i.i.i.i.i.i68 ]
+  %__first.sroa.0.1.i.i.i.i.i.i54 = phi ptr [ %incdec.ptr.i58.i.i.i.i.i.i69, %if.end31.i.i.i.i.i.i68 ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ]
   %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i55 = load i64, ptr %__first.sroa.0.1.i.i.i.i.i.i54, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i60.i.i.i.i.i.i20)
   %sub.i.i.i62.i.i.i.i.i.i56 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i61.i.i.i.i.i.i55, -1
@@ -1436,7 +1436,7 @@ if.end38.i.i.i.i.i.i60:                           ; preds = %"_ZN9__gnu_cxx5__op
   br label %sw.bb40.i.i.i.i.i.i43
 
 sw.bb40.i.i.i.i.i.i43:                            ; preds = %if.end38.i.i.i.i.i.i60, %for.end.i.i.i.i.i.i39
-  %__first.sroa.0.2.i.i.i.i.i.i44 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ], [ %incdec.ptr.i68.i.i.i.i.i.i61, %if.end38.i.i.i.i.i.i60 ]
+  %__first.sroa.0.2.i.i.i.i.i.i44 = phi ptr [ %incdec.ptr.i68.i.i.i.i.i.i61, %if.end38.i.i.i.i.i.i60 ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i41, %for.end.i.i.i.i.i.i39 ]
   %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i45 = load i64, ptr %__first.sroa.0.2.i.i.i.i.i.i44, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i70.i.i.i.i.i.i18)
   %sub.i.i.i72.i.i.i.i.i.i46 = add nsw i64 %agg.tmp.sroa.0.0.copyload.i71.i.i.i.i.i.i45, -1

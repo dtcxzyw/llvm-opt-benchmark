@@ -774,7 +774,7 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   %193 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 582, i64 noundef %191, i64 noundef %192, ptr noundef nonnull @.str.23) #19
   br label %195
 
-.thread140:                                       ; preds = %98, %83
+.thread140:                                       ; preds = %83, %98
   %194 = call i32 @close(i32 noundef %61) #19
   br label %.thread136
 
@@ -1243,7 +1243,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_close(ptr noundef %0) #0 {
   br label %263
 
 263:                                              ; preds = %1, %261, %23
-  %.0133 = phi i32 [ -1, %23 ], [ 0, %261 ], [ 0, %1 ]
+  %.0133 = phi i32 [ 0, %261 ], [ -1, %23 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #19
   ret i32 %.0133
 }

@@ -485,7 +485,7 @@ define dso_local range(i32 0, 256) i32 @setTypeAdd(ptr noundef %0, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = tail call i32 @setTypeAddAux(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.i, i64 noundef 0, i32 noundef 1)
   ret i32 %25
 }
@@ -927,7 +927,7 @@ define dso_local i32 @setTypeRemove(ptr noundef captures(none) %0, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = tail call i32 @setTypeRemoveAux(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.i, i64 noundef 0, i32 noundef 1)
   ret i32 %25
 }
@@ -1102,7 +1102,7 @@ define dso_local range(i32 0, 256) i32 @setTypeIsMember(ptr noundef readonly cap
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = tail call i32 @setTypeIsMemberAux(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.i, i64 noundef 0, i32 noundef 1)
   ret i32 %25
 }
@@ -1352,7 +1352,7 @@ define dso_local i32 @setTypeNext(ptr noundef captures(none) %0, ptr noundef wri
   br label %.thread
 
 .thread:                                          ; preds = %34, %30, %26, %22, %19, %13
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ 0, %13 ]
+  %.0.i = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %13 ]
   store i64 %.0.i, ptr %2, align 8, !tbaa !50
   store i64 -123456789, ptr %3, align 8, !tbaa !50
   br label %63
@@ -1526,7 +1526,7 @@ define dso_local range(i32 0, 16) i32 @setTypeRandomElement(ptr noundef readonly
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %9, %18, %21, %25, %29, %33
-  %.0.i = phi i64 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ], [ 0, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %9 ]
   store i64 %.0.i, ptr %2, align 8, !tbaa !50
   store i64 -123456789, ptr %3, align 8, !tbaa !50
   br label %53
@@ -1922,7 +1922,7 @@ setTypeInitIterator.exit:                         ; preds = %47, %51, %53
   br label %setTypeAdd.exit
 
 setTypeAdd.exit:                                  ; preds = %.lr.ph, %62, %65, %69, %73, %77
-  %.0.i.i = phi i64 [ %79, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %62 ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i64 [ %64, %62 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ], [ %79, %77 ], [ 0, %.lr.ph ]
   %80 = call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %31, ptr noundef nonnull %57, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %81 = call i32 @setTypeNext(ptr noundef nonnull %42, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %.not = icmp eq i32 %81, -1
@@ -2108,7 +2108,7 @@ setTypeMaybeConvert.exit:                         ; preds = %55, %51, %setTypeCr
   br label %setTypeAdd.exit
 
 setTypeAdd.exit:                                  ; preds = %.lr.ph, %69, %72, %76, %80, %84
-  %.0.i.i = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %69 ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i64 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ %86, %84 ], [ 0, %.lr.ph ]
   %87 = tail call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %.0, ptr noundef nonnull %64, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %.not37 = icmp ne i32 %87, 0
   %88 = zext i1 %.not37 to i32
@@ -2329,7 +2329,7 @@ setTypeSize.exit:                                 ; preds = %15, %23, %28
   br label %setTypeRemove.exit
 
 setTypeRemove.exit:                               ; preds = %36, %46, %49, %53, %57, %61
-  %.0.i.i = phi i64 [ %63, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %46 ], [ 0, %36 ]
+  %.0.i.i = phi i64 [ %48, %46 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %63, %61 ], [ 0, %36 ]
   %64 = tail call i32 @setTypeRemoveAux(ptr noundef nonnull %7, ptr noundef nonnull %41, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %.not34 = icmp eq i32 %64, 0
   br i1 %.not34, label %93, label %65
@@ -2535,7 +2535,7 @@ define dso_local void @smoveCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %setTypeIsMember.exit
 
 setTypeIsMember.exit:                             ; preds = %32, %33, %36, %40, %44, %48
-  %.0.i.i = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ], [ 0, %32 ]
+  %.0.i.i = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ], [ 0, %32 ]
   %51 = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %8, ptr noundef nonnull %27, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %.not57 = icmp eq i32 %51, 0
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
@@ -2581,7 +2581,7 @@ setTypeIsMember.exit:                             ; preds = %32, %33, %36, %40, 
   br label %setTypeRemove.exit
 
 setTypeRemove.exit:                               ; preds = %55, %56, %59, %63, %67, %71
-  %.0.i.i58 = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %56 ], [ 0, %55 ]
+  %.0.i.i58 = phi i64 [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ], [ 0, %55 ]
   %74 = tail call i32 @setTypeRemoveAux(ptr noundef nonnull %8, ptr noundef nonnull %27, i64 noundef %.0.i.i58, i64 noundef 0, i32 noundef 1)
   %.not54 = icmp eq i32 %74, 0
   br i1 %.not54, label %75, label %77
@@ -2730,7 +2730,7 @@ setTypeSize.exit:                                 ; preds = %87, %95, %100
   br label %setTypeAdd.exit
 
 setTypeAdd.exit:                                  ; preds = %135, %147, %150, %154, %158, %162
-  %.0.i.i59 = phi i64 [ %164, %162 ], [ %161, %158 ], [ %157, %154 ], [ %153, %150 ], [ %149, %147 ], [ 0, %135 ]
+  %.0.i.i59 = phi i64 [ %149, %147 ], [ %153, %150 ], [ %157, %154 ], [ %161, %158 ], [ %164, %162 ], [ 0, %135 ]
   %165 = tail call range(i32 0, 256) i32 @setTypeAddAux(ptr noundef %.0, ptr noundef nonnull %142, i64 noundef %.0.i.i59, i64 noundef 0, i32 noundef 1)
   %.not56 = icmp eq i32 %165, 0
   br i1 %.not56, label %208, label %166
@@ -2879,7 +2879,7 @@ define dso_local void @sismemberCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %setTypeIsMember.exit
 
 setTypeIsMember.exit:                             ; preds = %11, %21, %24, %28, %32, %36
-  %.0.i.i = phi i64 [ %38, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %21 ], [ 0, %11 ]
+  %.0.i.i = phi i64 [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ], [ 0, %11 ]
   %39 = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %7, ptr noundef nonnull %16, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %.not8 = icmp eq i32 %39, 0
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
@@ -2981,7 +2981,7 @@ define dso_local void @smismemberCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %setTypeIsMember.exit
 
 setTypeIsMember.exit:                             ; preds = %.lr.ph.split, %31, %34, %38, %42, %46
-  %.0.i.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %.lr.ph.split ]
+  %.0.i.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %.lr.ph.split ]
   %49 = tail call range(i32 0, 256) i32 @setTypeIsMemberAux(ptr noundef nonnull readonly %8, ptr noundef nonnull %26, i64 noundef %.0.i.i, i64 noundef 0, i32 noundef 1)
   %.not17 = icmp eq i32 %49, 0
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
@@ -3910,7 +3910,7 @@ setTypeInitIterator.exit:                         ; preds = %118, %123, %125
   br label %.thread.i
 
 .thread.i:                                        ; preds = %159, %155, %151, %147, %144, %138
-  %.0.i.i = phi i64 [ %161, %159 ], [ %158, %155 ], [ %154, %151 ], [ %150, %147 ], [ %146, %144 ], [ 0, %138 ]
+  %.0.i.i = phi i64 [ %146, %144 ], [ %150, %147 ], [ %154, %151 ], [ %158, %155 ], [ %161, %159 ], [ 0, %138 ]
   store i64 -123456789, ptr %9, align 8, !tbaa !50
   br label %setTypeNext.exit
 

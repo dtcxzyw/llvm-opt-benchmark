@@ -1624,7 +1624,7 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   br label %.thread
 
 .thread:                                          ; preds = %34, %39, %29, %41
-  %.058 = phi i32 [ %43, %41 ], [ %36, %39 ], [ %31, %29 ], [ %36, %34 ]
+  %.058 = phi i32 [ %31, %29 ], [ %36, %39 ], [ %43, %41 ], [ %36, %34 ]
   %44 = icmp eq i32 %.058, -108
   br i1 %44, label %75, label %.thread67
 
@@ -1915,7 +1915,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   br label %.thread102
 
 .thread:                                          ; preds = %39, %48, %105
-  %.089 = phi i32 [ %.1, %105 ], [ %45, %48 ], [ %45, %39 ]
+  %.089 = phi i32 [ %45, %48 ], [ %.1, %105 ], [ %45, %39 ]
   %107 = icmp eq i32 %.089, -108
   br i1 %107, label %138, label %.thread102
 

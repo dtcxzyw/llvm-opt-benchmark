@@ -5702,7 +5702,7 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
   br label %.loopexit100
 
 .loopexit100:                                     ; preds = %.loopexit, %193, %.loopexit100.loopexit113, %.preheader99, %92, %176, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit
-  %.184 = phi i32 [ %.083111, %92 ], [ %.083111, %176 ], [ %.083111, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit ], [ %.083111, %.preheader99 ], [ %251, %.loopexit100.loopexit113 ], [ %.083111, %193 ], [ %.3, %.loopexit ]
+  %.184 = phi i32 [ %.083111, %92 ], [ %.083111, %_ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit ], [ %.083111, %176 ], [ %.083111, %.preheader99 ], [ %251, %.loopexit100.loopexit113 ], [ %.083111, %193 ], [ %.3, %.loopexit ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 3
   br i1 %exitcond155.not, label %252, label %92, !llvm.loop !359
@@ -7279,7 +7279,7 @@ _ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit: ; preds = %._crit_edge.us.i
   unreachable
 
 183:                                              ; preds = %63, %177, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit, %8
-  %.0 = phi float [ 0.000000e+00, %8 ], [ %181, %177 ], [ %176, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit ], [ %77, %63 ]
+  %.0 = phi float [ 0.000000e+00, %8 ], [ %77, %63 ], [ %176, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit ], [ %181, %177 ]
   switch i32 %1, label %274 [
     i32 0, label %275
     i32 6, label %184
@@ -7464,7 +7464,7 @@ _ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmas
   unreachable
 
 275:                                              ; preds = %183, %183, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit, %_ZL14energyVrescalePK7t_state.exit, %183
-  %.5 = phi float [ %273, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit ], [ %191, %_ZL14energyVrescalePK7t_state.exit ], [ %.0, %183 ], [ %.0, %183 ], [ %.0, %183 ]
+  %.5 = phi float [ %191, %_ZL14energyVrescalePK7t_state.exit ], [ %273, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit ], [ %.0, %183 ], [ %.0, %183 ], [ %.0, %183 ]
   ret float %.5
 }
 

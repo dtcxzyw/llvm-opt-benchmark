@@ -1333,7 +1333,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   br i1 %.not223, label %.critedge229, label %166
 
 166:                                              ; preds = %._crit_edge262, %162
-  %.7 = phi i32 [ -1, %._crit_edge262 ], [ %.4, %162 ]
+  %.7 = phi i32 [ %.4, %162 ], [ -1, %._crit_edge262 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %168 = load ptr, ptr %167, align 8, !tbaa !37
   %.not224 = icmp eq ptr %168, null
@@ -2921,7 +2921,7 @@ _php_stream_flush.exit:                           ; preds = %67, %60, %57
   br label %104
 
 104:                                              ; preds = %90, %.thread81, %.loopexit, %47, %30
-  %.0 = phi i32 [ %81, %90 ], [ %.2, %.loopexit ], [ -1, %.thread81 ], [ 0, %47 ], [ 0, %30 ]
+  %.0 = phi i32 [ %.2, %.loopexit ], [ -1, %.thread81 ], [ %81, %90 ], [ 0, %30 ], [ 0, %47 ]
   ret i32 %.0
 }
 

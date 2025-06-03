@@ -601,7 +601,7 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit9:  ; preds = %._ZNK2cv17MotionJpe
   br label %267
 
 267:                                              ; preds = %2, %236, %235, %232, %228, %224, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit
-  %.0 = phi double [ %266, %236 ], [ 0x41D1D41293400000, %235 ], [ %234, %232 ], [ %231, %228 ], [ %227, %224 ], [ %223, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9 ], [ %138, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5 ], [ %68, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ %68, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit ], [ %138, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5 ], [ %223, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9 ], [ %227, %224 ], [ %231, %228 ], [ %234, %232 ], [ 0x41D1D41293400000, %235 ], [ %266, %236 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 

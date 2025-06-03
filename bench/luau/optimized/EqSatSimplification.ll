@@ -3035,7 +3035,7 @@ _ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt
   br label %58
 
 58:                                               ; preds = %8, %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit
-  %.1 = phi i32 [ %10, %8 ], [ %24, %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit ]
+  %.1 = phi i32 [ %24, %_ZN4Luau12DenseHashMapISt17basic_string_viewIcSt11char_traitsIcEEjSt4hashIS4_ESt8equal_toIS4_EEixERKS4_.exit ], [ %10, %8 ]
   ret i32 %.1
 }
 
@@ -3369,7 +3369,7 @@ _ZNK4Luau5EqSat6EGraphINS0_8LanguageIJNS_19EqSatSimplification4TNilENS3_8TBoolea
   br label %16
 
 16:                                               ; preds = %_ZNK4Luau5EqSat6EGraphINS0_8LanguageIJNS_19EqSatSimplification4TNilENS3_8TBooleanENS3_7TNumberENS3_7TStringENS3_7TThreadENS3_12TTopFunctionENS3_9TTopTableENS3_9TTopClassENS3_7TBufferENS3_7TOpaqueENS3_8SBooleanENS3_7SStringENS3_9TFunctionENS3_6TTableENS3_14TImportedTableENS3_6TClassENS3_4TAnyENS3_6TErrorENS3_8TUnknownENS3_6TNeverENS3_5UnionENS3_12IntersectionENS3_8NegationENS3_8TTypeFunENS3_7InvalidENS3_9TNoRefineENS3_6TBoundEEEENS3_8SimplifyEE6lookupERKSV_.exit, %14
-  %.sroa.0.1 = phi i32 [ %13, %_ZNK4Luau5EqSat6EGraphINS0_8LanguageIJNS_19EqSatSimplification4TNilENS3_8TBooleanENS3_7TNumberENS3_7TStringENS3_7TThreadENS3_12TTopFunctionENS3_9TTopTableENS3_9TTopClassENS3_7TBufferENS3_7TOpaqueENS3_8SBooleanENS3_7SStringENS3_9TFunctionENS3_6TTableENS3_14TImportedTableENS3_6TClassENS3_4TAnyENS3_6TErrorENS3_8TUnknownENS3_6TNeverENS3_5UnionENS3_12IntersectionENS3_8NegationENS3_8TTypeFunENS3_7InvalidENS3_9TNoRefineENS3_6TBoundEEEENS3_8SimplifyEE6lookupERKSV_.exit ], [ %15, %14 ]
+  %.sroa.0.1 = phi i32 [ %15, %14 ], [ %13, %_ZNK4Luau5EqSat6EGraphINS0_8LanguageIJNS_19EqSatSimplification4TNilENS3_8TBooleanENS3_7TNumberENS3_7TStringENS3_7TThreadENS3_12TTopFunctionENS3_9TTopTableENS3_9TTopClassENS3_7TBufferENS3_7TOpaqueENS3_8SBooleanENS3_7SStringENS3_9TFunctionENS3_6TTableENS3_14TImportedTableENS3_6TClassENS3_4TAnyENS3_6TErrorENS3_8TUnknownENS3_6TNeverENS3_5UnionENS3_12IntersectionENS3_8NegationENS3_8TTypeFunENS3_7InvalidENS3_9TNoRefineENS3_6TBoundEEEENS3_8SimplifyEE6lookupERKSV_.exit ]
   ret i32 %.sroa.0.1
 }
 
@@ -35348,7 +35348,7 @@ _ZN4Luau19EqSatSimplificationL6occursERNS_5EqSat6EGraphINS1_8LanguageIJNS0_4TNil
   br label %146
 
 146:                                              ; preds = %144, %._crit_edge.i.i.i.i.i.i
-  %.sroa.042.1.i.i.i.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %145, %144 ]
+  %.sroa.042.1.i.i.i.i.i.i = phi ptr [ %145, %144 ], [ %.sroa.042.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i32.i.i.i.i.i.i = load i32, ptr %.sroa.042.1.i.i.i.i.i.i, align 8, !tbaa !68
   switch i32 %.val.i32.i.i.i.i.i.i, label %147 [
     i32 0, label %_ZN4Luau19EqSatSimplificationL10isTerminalERKNS_5EqSat6EGraphINS1_8LanguageIJNS0_4TNilENS0_8TBooleanENS0_7TNumberENS0_7TStringENS0_7TThreadENS0_12TTopFunctionENS0_9TTopTableENS0_9TTopClassENS0_7TBufferENS0_7TOpaqueENS0_8SBooleanENS0_7SStringENS0_9TFunctionENS0_6TTableENS0_14TImportedTableENS0_6TClassENS0_4TAnyENS0_6TErrorENS0_8TUnknownENS0_6TNeverENS0_5UnionENS0_12IntersectionENS0_8NegationENS0_8TTypeFunENS0_7InvalidENS0_9TNoRefineENS0_6TBoundEEEENS0_8SimplifyEEENS1_2IdE.exit
@@ -35376,7 +35376,7 @@ _ZN4Luau19EqSatSimplificationL6occursERNS_5EqSat6EGraphINS1_8LanguageIJNS0_4TNil
   br label %149
 
 149:                                              ; preds = %147, %._crit_edge.i.i.i.i.i.i
-  %.sroa.042.2.i.i.i.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %148, %147 ]
+  %.sroa.042.2.i.i.i.i.i.i = phi ptr [ %148, %147 ], [ %.sroa.042.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i36.i.i.i.i.i.i = load i32, ptr %.sroa.042.2.i.i.i.i.i.i, align 8, !tbaa !68
   switch i32 %.val.i36.i.i.i.i.i.i, label %_ZN4Luau19EqSatSimplificationL10isTerminalERKNS_5EqSat6EGraphINS1_8LanguageIJNS0_4TNilENS0_8TBooleanENS0_7TNumberENS0_7TStringENS0_7TThreadENS0_12TTopFunctionENS0_9TTopTableENS0_9TTopClassENS0_7TBufferENS0_7TOpaqueENS0_8SBooleanENS0_7SStringENS0_9TFunctionENS0_6TTableENS0_14TImportedTableENS0_6TClassENS0_4TAnyENS0_6TErrorENS0_8TUnknownENS0_6TNeverENS0_5UnionENS0_12IntersectionENS0_8NegationENS0_8TTypeFunENS0_7InvalidENS0_9TNoRefineENS0_6TBoundEEEENS0_8SimplifyEEENS1_2IdE.exit.thread [
     i32 0, label %_ZN4Luau19EqSatSimplificationL10isTerminalERKNS_5EqSat6EGraphINS1_8LanguageIJNS0_4TNilENS0_8TBooleanENS0_7TNumberENS0_7TStringENS0_7TThreadENS0_12TTopFunctionENS0_9TTopTableENS0_9TTopClassENS0_7TBufferENS0_7TOpaqueENS0_8SBooleanENS0_7SStringENS0_9TFunctionENS0_6TTableENS0_14TImportedTableENS0_6TClassENS0_4TAnyENS0_6TErrorENS0_8TUnknownENS0_6TNeverENS0_5UnionENS0_12IntersectionENS0_8NegationENS0_8TTypeFunENS0_7InvalidENS0_9TNoRefineENS0_6TBoundEEEENS0_8SimplifyEEENS1_2IdE.exit
@@ -38980,7 +38980,7 @@ _ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i: ; preds 
   br label %_ZN4Luau19EqSatSimplification11StringCache3addESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4Luau19EqSatSimplification11StringCache3addESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.noexc161, %.noexc155
-  %.1.i = phi i32 [ %586, %.noexc155 ], [ %594, %.noexc161 ]
+  %.1.i = phi i32 [ %594, %.noexc161 ], [ %586, %.noexc155 ]
   %734 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #34
           to label %_ZNSt12_Vector_baseIN4Luau5EqSat2IdESaIS2_EE11_M_allocateEm.exit.i.i unwind label %996
 
@@ -69354,7 +69354,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.038.1 = phi ptr [ %.sroa.038.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.038.1 = phi ptr [ %27, %26 ], [ %.sroa.038.0.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i20 = load i32, ptr %2, align 4, !tbaa !4
   %29 = tail call noundef zeroext i1 @_ZNK4Luau5EqSat2IdeqES1_(ptr noundef nonnull align 4 dereferenceable(4) %.sroa.038.1, i32 %.sroa.0.0.copyload.i20)
   br i1 %29, label %.loopexit, label %30
@@ -69364,7 +69364,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.038.2 = phi ptr [ %.sroa.038.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.038.2 = phi ptr [ %31, %30 ], [ %.sroa.038.0.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload.i21 = load i32, ptr %2, align 4, !tbaa !4
   %33 = tail call noundef zeroext i1 @_ZNK4Luau5EqSat2IdeqES1_(ptr noundef nonnull align 4 dereferenceable(4) %.sroa.038.2, i32 %.sroa.0.0.copyload.i21)
   %spec.select = select i1 %33, ptr %.sroa.038.2, ptr %1

@@ -922,7 +922,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br label %process_sample_double.exit
 
 process_sample_double.exit:                       ; preds = %._crit_edge176.i, %170, %171, %172, %173
-  %.0141.i = phi nsz double [ %116, %._crit_edge176.i ], [ %174, %173 ], [ %119, %172 ], [ %55, %171 ], [ %53, %170 ]
+  %.0141.i = phi nsz double [ %116, %._crit_edge176.i ], [ %53, %170 ], [ %55, %171 ], [ %119, %172 ], [ %174, %173 ]
   %175 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv
   store double %.0141.i, ptr %175, align 8, !tbaa !76
   %176 = load i32, ptr %32, align 8, !tbaa !96
@@ -1248,7 +1248,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br label %process_sample_float.exit
 
 process_sample_float.exit:                        ; preds = %._crit_edge176.i, %168, %169, %170, %171
-  %.0141.i = phi nsz float [ %114, %._crit_edge176.i ], [ %172, %171 ], [ %117, %170 ], [ %55, %169 ], [ %53, %168 ]
+  %.0141.i = phi nsz float [ %114, %._crit_edge176.i ], [ %53, %168 ], [ %55, %169 ], [ %117, %170 ], [ %172, %171 ]
   %173 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   store float %.0141.i, ptr %173, align 4, !tbaa !73
   %174 = load i32, ptr %32, align 8, !tbaa !96

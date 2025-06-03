@@ -233,8 +233,8 @@ default.unreachable:                              ; preds = %39
   br label %"_ZN8uv_shell8runnable15WindowsRunnable16from_script_path28_$u7b$$u7b$closure$u7d$$u7d$17h4570027e06f59af4E.exit.i.i"
 
 "_ZN8uv_shell8runnable15WindowsRunnable16from_script_path28_$u7b$$u7b$closure$u7d$$u7d$17h4570027e06f59af4E.exit.i.i": ; preds = %44, %43, %42, %39
-  %.sroa.5.0.i.i.i.i = phi i64 [ 3, %44 ], [ 3, %43 ], [ 3, %42 ], [ 0, %39 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.4, %44 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.3, %43 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.2, %42 ], [ inttoptr (i64 1 to ptr), %39 ]
+  %.sroa.5.0.i.i.i.i = phi i64 [ 3, %42 ], [ 3, %43 ], [ 3, %44 ], [ 0, %39 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.2, %42 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.3, %43 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.4, %44 ], [ inttoptr (i64 1 to ptr), %39 ]
   invoke void @_ZN3std4path4Path15_with_extension17hf040240903236796E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %41, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i)
           to label %.noexc29 unwind label %.loopexit
 

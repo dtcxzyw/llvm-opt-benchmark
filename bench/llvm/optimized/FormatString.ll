@@ -1935,7 +1935,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -2085,7 +2085,7 @@ define dso_local i64 @_ZNK5clang21analyze_format_string7ArgType21getRepresentati
   br label %21
 
 21:                                               ; preds = %19, %17, %15, %12, %9, %6, %4, %2
-  %.sroa.023.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.copyload.i20, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %.sroa.0.0.copyload.i, %4 ], [ %.sroa.0.0.copyload.i21, %17 ], [ %.sroa.0.0.copyload.i.i22, %19 ]
+  %.sroa.023.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.copyload.i.i22, %19 ], [ %.sroa.0.0.copyload.i21, %17 ], [ %.sroa.0.0.copyload.i, %4 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %.sroa.0.0.copyload.i20, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i8, ptr %22, align 8, !tbaa !61, !range !65, !noundef !66
   %24 = trunc nuw i8 %23 to i1
@@ -2164,7 +2164,7 @@ define dso_local void @_ZNK5clang21analyze_format_string7ArgType25getRepresentat
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %22, %19, %16, %14, %3
-  %.sroa.023.0.i = phi i64 [ 0, %3 ], [ %.sroa.0.0.copyload.i20.i, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %.sroa.0.0.copyload.i.i, %14 ], [ %.sroa.0.0.copyload.i21.i, %27 ], [ %.sroa.0.0.copyload.i.i22.i, %29 ]
+  %.sroa.023.0.i = phi i64 [ 0, %3 ], [ %.sroa.0.0.copyload.i.i22.i, %29 ], [ %.sroa.0.0.copyload.i21.i, %27 ], [ %.sroa.0.0.copyload.i.i, %14 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %.sroa.0.0.copyload.i20.i, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i8, ptr %32, align 8, !tbaa !61, !range !65, !noundef !66
   %34 = trunc nuw i8 %33 to i1
@@ -2762,7 +2762,7 @@ define dso_local void @_ZNK5clang21analyze_format_string19ConversionSpecifier20g
   br label %7
 
 7:                                                ; preds = %2, %6, %5
-  %.0 = phi i32 [ 7, %6 ], [ 9, %5 ], [ 2, %2 ]
+  %.0 = phi i32 [ 9, %5 ], [ 7, %6 ], [ 2, %2 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -3232,7 +3232,7 @@ switch.lookup41:                                  ; preds = %92
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %92, %switch.lookup41, %88, %switch.lookup36, %85, %switch.lookup35, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
-  %.0 = phi i1 [ false, %87 ], [ false, %77 ], [ false, %42 ], [ %14, %11 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup35 ], [ true, %85 ], [ %switch.masked40, %switch.lookup36 ], [ false, %88 ], [ %switch.masked45, %switch.lookup41 ], [ false, %92 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
+  %.0 = phi i1 [ %14, %11 ], [ false, %42 ], [ false, %77 ], [ false, %87 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup35 ], [ true, %85 ], [ %switch.masked40, %switch.lookup36 ], [ false, %88 ], [ %switch.masked45, %switch.lookup41 ], [ false, %92 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -3314,7 +3314,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   unreachable
 
 16:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %10, %9, %5
-  %.0 = phi i1 [ %14, %10 ], [ false, %9 ], [ %8, %5 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  %.0 = phi i1 [ %8, %5 ], [ false, %9 ], [ %14, %10 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0
 }
 

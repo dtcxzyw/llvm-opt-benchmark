@@ -1816,7 +1816,7 @@ default.unreachable24:                            ; preds = %12, %3
   br i1 %11, label %17, label %15
 
 12:                                               ; preds = %3, %15, %5
-  %.sroa.0.0 = phi i64 [ %16, %15 ], [ %7, %5 ], [ 0, %3 ]
+  %.sroa.0.0 = phi i64 [ %7, %5 ], [ %16, %15 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val22 = load i64, ptr %13, align 8, !range !42, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1857,7 +1857,7 @@ default.unreachable24:                            ; preds = %12, %3
   unreachable
 
 28:                                               ; preds = %12, %25, %22
-  %.sroa.07.0 = phi i64 [ %24, %22 ], [ %26, %25 ], [ %1, %12 ]
+  %.sroa.07.0 = phi i64 [ %26, %25 ], [ %24, %22 ], [ %1, %12 ]
   %29 = icmp ugt i64 %.sroa.0.0, %.sroa.07.0
   br i1 %29, label %32, label %30
 
@@ -11067,8 +11067,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h229b6dc3c9de797eE.exit.i.i: ; preds = %_Z
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17ha4c8785d7d13db00E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %70) #35
           to label %.thread103 unwind label %419
 
-.thread103:                                       ; preds = %429, %.body50, %607, %407, %403, %398, %.thread106
-  %.pn102 = phi { ptr, i32 } [ %328, %.thread106 ], [ %399, %398 ], [ %399, %403 ], [ %399, %407 ], [ %eh.lpad-body51, %.body50 ], [ %430, %429 ], [ %608, %607 ]
+.thread103:                                       ; preds = %429, %607, %.body50, %407, %403, %398, %.thread106
+  %.pn102 = phi { ptr, i32 } [ %328, %.thread106 ], [ %399, %398 ], [ %399, %403 ], [ %399, %407 ], [ %430, %429 ], [ %608, %607 ], [ %eh.lpad-body51, %.body50 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17ha4c8785d7d13db00E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %98) #35
           to label %common.resume unwind label %419
 

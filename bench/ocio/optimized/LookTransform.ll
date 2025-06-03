@@ -4101,7 +4101,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED
   br label %577
 
 577:                                              ; preds = %576, %394, %388, %335, %329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %233, %227, %174, %168, %166
-  %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %576 ], [ %.pn77, %335 ], [ %.pn75, %394 ], [ %389, %388 ], [ %330, %329 ], [ %.pn72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn81, %174 ], [ %.pn79, %233 ], [ %228, %227 ], [ %169, %168 ], [ %167, %166 ]
+  %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %576 ], [ %.pn81, %174 ], [ %.pn79, %233 ], [ %228, %227 ], [ %169, %168 ], [ %167, %166 ], [ %.pn77, %335 ], [ %.pn75, %394 ], [ %389, %388 ], [ %330, %329 ], [ %.pn72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ]
   call void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #23
   br label %578
 

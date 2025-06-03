@@ -163,7 +163,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN12typst_syntax4node10SyntaxNode6errors28_$u7b$$u7b$closure$u7d$$u7d$17hc06879414176e74cE.llvm.5444024693429055459.exit"
 
 "_ZN12typst_syntax4node10SyntaxNode6errors28_$u7b$$u7b$closure$u7d$$u7d$17hc06879414176e74cE.llvm.5444024693429055459.exit": ; preds = %2, %10, %15
-  %.0.i.i = phi i1 [ true, %15 ], [ %14, %10 ], [ false, %2 ]
+  %.0.i.i = phi i1 [ %14, %10 ], [ true, %15 ], [ false, %2 ]
   ret i1 %.0.i.i
 }
 
@@ -528,13 +528,13 @@ define hidden { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8d
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %3 = load i8, ptr %2, align 1, !noundef !4
   %4 = icmp slt i8 %3, 0
-  %5 = load ptr, ptr %0, align 8, !nonnull !4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = and i8 %3, 127
-  %9 = zext nneg i8 %8 to i64
-  %.sroa.3.0 = select i1 %4, i64 %9, i64 %7
-  %.sroa.0.0 = select i1 %4, ptr %0, ptr %5
+  %5 = and i8 %3, 127
+  %6 = zext nneg i8 %5 to i64
+  %7 = load ptr, ptr %0, align 8, !nonnull !4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %.sroa.3.0 = select i1 %4, i64 %6, i64 %9
+  %.sroa.0.0 = select i1 %4, ptr %0, ptr %7
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %11
@@ -2953,7 +2953,7 @@ define hidden noundef zeroext i1 @"_ZN12typst_syntax4node10SyntaxNode6errors28_$
   br label %_ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit
 
 _ZN12typst_syntax4node10SyntaxNode9erroneous17h0b18f09075a7e163E.exit: ; preds = %2, %10, %15
-  %.0.i = phi i1 [ true, %15 ], [ %14, %10 ], [ false, %2 ]
+  %.0.i = phi i1 [ %14, %10 ], [ true, %15 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -3631,7 +3631,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h16b1a9d16db94455E(ptr noal
   br i1 %.not, label %.thread, label %25
 
 22:                                               ; preds = %.backedge, %25, %19
-  %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
+  %.1 = phi i64 [ %20, %19 ], [ %26, %25 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !578, !noundef !4
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
@@ -3776,7 +3776,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h4b5dd6a70ddecc82E(ptr noal
   br i1 %.not, label %.thread, label %25
 
 22:                                               ; preds = %.backedge, %25, %19
-  %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
+  %.1 = phi i64 [ %20, %19 ], [ %26, %25 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !617, !noundef !4
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
@@ -3921,7 +3921,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17h646625ff28a70e1dE(ptr noal
   br i1 %.not, label %.thread, label %25
 
 22:                                               ; preds = %.backedge, %25, %19
-  %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
+  %.1 = phi i64 [ %20, %19 ], [ %26, %25 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !654, !noundef !4
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
@@ -4070,7 +4070,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17ha168f1988de96cecE(ptr noal
   br i1 %.not, label %19, label %27
 
 24:                                               ; preds = %19, %27, %21
-  %.1 = phi i64 [ %28, %27 ], [ %22, %21 ], [ %.0, %19 ]
+  %.1 = phi i64 [ %22, %21 ], [ %28, %27 ], [ %.0, %19 ]
   %25 = load i8, ptr %10, align 8, !range !37, !alias.scope !691, !noundef !4
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %36, label %29
@@ -4353,7 +4353,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd0d7b7a47f8a619fE(ptr noal
   br i1 %.not, label %19, label %31
 
 28:                                               ; preds = %19, %31, %25
-  %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
+  %.1 = phi i64 [ %26, %25 ], [ %32, %31 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !768, !noundef !4
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
@@ -4507,7 +4507,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hd1ab4c609d964494E(ptr noal
   br i1 %.not, label %19, label %31
 
 28:                                               ; preds = %19, %31, %25
-  %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
+  %.1 = phi i64 [ %26, %25 ], [ %32, %31 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !805, !noundef !4
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
@@ -4652,7 +4652,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17hdde1bc05e4fdf4f7E(ptr noal
   br i1 %.not, label %.thread, label %25
 
 22:                                               ; preds = %.backedge, %25, %19
-  %.1 = phi i64 [ %26, %25 ], [ %20, %19 ], [ %.0, %.backedge ]
+  %.1 = phi i64 [ %20, %19 ], [ %26, %25 ], [ %.0, %.backedge ]
   %23 = load i8, ptr %10, align 8, !range !37, !alias.scope !842, !noundef !4
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %33, label %27
@@ -4806,7 +4806,7 @@ define hidden void @_ZN12typst_syntax6parser6markup17he5edf4753af34dc7E(ptr noal
   br i1 %.not, label %19, label %31
 
 28:                                               ; preds = %19, %31, %25
-  %.1 = phi i64 [ %32, %31 ], [ %26, %25 ], [ %.0, %19 ]
+  %.1 = phi i64 [ %26, %25 ], [ %32, %31 ], [ %.0, %19 ]
   %29 = load i8, ptr %10, align 8, !range !37, !alias.scope !879, !noundef !4
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %39, label %33
@@ -6287,13 +6287,13 @@ _ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.e
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 71
   %60 = load i8, ptr %59, align 1, !alias.scope !1161, !noalias !1164, !noundef !4
   %61 = icmp slt i8 %60, 0
-  %62 = load ptr, ptr %58, align 8, !alias.scope !1161, !noalias !1164, !nonnull !4
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %64 = load i64, ptr %63, align 8, !alias.scope !1161, !noalias !1164
-  %65 = and i8 %60, 127
-  %66 = zext nneg i8 %65 to i64
-  %.sroa.3.0.i = select i1 %61, i64 %66, i64 %64
-  %.sroa.0.0.i = select i1 %61, ptr %58, ptr %62
+  %62 = and i8 %60, 127
+  %63 = zext nneg i8 %62 to i64
+  %64 = load ptr, ptr %58, align 8, !alias.scope !1161, !noalias !1164, !nonnull !4
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %66 = load i64, ptr %65, align 8, !alias.scope !1161, !noalias !1164
+  %.sroa.3.0.i = select i1 %61, i64 %63, i64 %66
+  %.sroa.0.0.i = select i1 %61, ptr %58, ptr %64
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h9e8c3306594556b1E.llvm.5444024693429055459"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i), !noalias !1146
   %67 = load i64, ptr %10, align 8, !alias.scope !1165, !noalias !1172, !noundef !4
   %68 = add i64 %67, 1
@@ -6450,13 +6450,13 @@ _ZN4core4hash6Hasher11write_isize17hf20bee463a49a1ccE.llvm.5444024693429055459.e
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 71
   %60 = load i8, ptr %59, align 1, !alias.scope !1187, !noundef !4
   %61 = icmp slt i8 %60, 0
-  %62 = load ptr, ptr %58, align 8, !alias.scope !1187, !nonnull !4
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %64 = load i64, ptr %63, align 8, !alias.scope !1187
-  %65 = and i8 %60, 127
-  %66 = zext nneg i8 %65 to i64
-  %.sroa.3.0.i = select i1 %61, i64 %66, i64 %64
-  %.sroa.0.0.i = select i1 %61, ptr %58, ptr %62
+  %62 = and i8 %60, 127
+  %63 = zext nneg i8 %62 to i64
+  %64 = load ptr, ptr %58, align 8, !alias.scope !1187, !nonnull !4
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %66 = load i64, ptr %65, align 8, !alias.scope !1187
+  %.sroa.3.0.i = select i1 %61, i64 %63, i64 %66
+  %.sroa.0.0.i = select i1 %61, ptr %58, ptr %64
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h9e8c3306594556b1E.llvm.5444024693429055459"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
   %67 = load i64, ptr %10, align 8, !alias.scope !1190, !noalias !1197, !noundef !4
   %68 = add i64 %67, 1
@@ -6587,13 +6587,13 @@ define hidden void @"_ZN65_$LT$typst_syntax..node..LeafNode$u20$as$u20$core..has
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %50 = load i8, ptr %49, align 1, !alias.scope !1210, !noundef !4
   %51 = icmp slt i8 %50, 0
-  %52 = load ptr, ptr %48, align 8, !alias.scope !1210, !nonnull !4
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load i64, ptr %53, align 8, !alias.scope !1210
-  %55 = and i8 %50, 127
-  %56 = zext nneg i8 %55 to i64
-  %.sroa.3.0.i = select i1 %51, i64 %56, i64 %54
-  %.sroa.0.0.i = select i1 %51, ptr %48, ptr %52
+  %52 = and i8 %50, 127
+  %53 = zext nneg i8 %52 to i64
+  %54 = load ptr, ptr %48, align 8, !alias.scope !1210, !nonnull !4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load i64, ptr %55, align 8, !alias.scope !1210
+  %.sroa.3.0.i = select i1 %51, i64 %53, i64 %56
+  %.sroa.0.0.i = select i1 %51, ptr %48, ptr %54
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h9e8c3306594556b1E.llvm.5444024693429055459"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
   %57 = load i64, ptr %6, align 8, !alias.scope !1213, !noalias !1220, !noundef !4
   %58 = load i64, ptr %9, align 8, !alias.scope !1213, !noalias !1220, !noundef !4
@@ -7163,13 +7163,13 @@ define hidden void @"_ZN68_$LT$typst_syntax..node..SyntaxError$u20$as$u20$core..
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %46 = load i8, ptr %45, align 1, !alias.scope !1299, !noundef !4
   %47 = icmp slt i8 %46, 0
-  %48 = load ptr, ptr %44, align 8, !alias.scope !1299, !nonnull !4
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load i64, ptr %49, align 8, !alias.scope !1299
-  %51 = and i8 %46, 127
-  %52 = zext nneg i8 %51 to i64
-  %.sroa.3.0.i = select i1 %47, i64 %52, i64 %50
-  %.sroa.0.0.i = select i1 %47, ptr %44, ptr %48
+  %48 = and i8 %46, 127
+  %49 = zext nneg i8 %48 to i64
+  %50 = load ptr, ptr %44, align 8, !alias.scope !1299, !nonnull !4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %52 = load i64, ptr %51, align 8, !alias.scope !1299
+  %.sroa.3.0.i = select i1 %47, i64 %49, i64 %52
+  %.sroa.0.0.i = select i1 %47, ptr %44, ptr %50
   tail call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h9e8c3306594556b1E.llvm.5444024693429055459"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
   %53 = load i64, ptr %4, align 8, !alias.scope !1302, !noalias !1309, !noundef !4
   %54 = load i64, ptr %7, align 8, !alias.scope !1302, !noalias !1309, !noundef !4

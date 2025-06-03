@@ -130,7 +130,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN86_$LT$ruff_formatter..diagnostics..InvalidDocumentError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbfd782844b40d22E.exit"
 
 "_ZN86_$LT$ruff_formatter..diagnostics..InvalidDocumentError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbfd782844b40d22E.exit": ; preds = %9, %13, %16, %20
-  %.sroa.0.0.in.i = phi i1 [ %22, %20 ], [ %19, %16 ], [ %15, %13 ], [ %12, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %9 ], [ %15, %13 ], [ %19, %16 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -176,7 +176,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$ruff_formatter..diagnostics..ActualStart$u20$as$u20$core..fmt..Debug$GT$3fmt17h286dee2c7c0561fbE.exit"
 
 "_ZN77_$LT$ruff_formatter..diagnostics..ActualStart$u20$as$u20$core..fmt..Debug$GT$3fmt17h286dee2c7c0561fbE.exit": ; preds = %7, %9, %12, %15
-  %.sroa.0.0.in.i = phi i1 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -334,7 +334,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN86_$LT$ruff_formatter..format_element..tag..VerbatimKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4020092b6c0cf674E.exit"
 
 "_ZN86_$LT$ruff_formatter..format_element..tag..VerbatimKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h4020092b6c0cf674E.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 

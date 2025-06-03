@@ -5456,7 +5456,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit38: ; preds = %33, %31
   br label %73
 
 73:                                               ; preds = %67, %7, %47, %9, %2, %68, %60, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
-  %.032 = phi i1 [ true, %68 ], [ true, %60 ], [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ false, %2 ], [ false, %9 ], [ false, %47 ], [ false, %7 ], [ false, %67 ]
+  %.032 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %60 ], [ true, %68 ], [ false, %2 ], [ false, %9 ], [ false, %47 ], [ false, %7 ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret i1 %.032
 }
@@ -5613,7 +5613,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit40: ; preds = %52, %37
   br label %81
 
 81:                                               ; preds = %75, %7, %55, %9, %2, %76, %68, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
-  %.034 = phi i1 [ true, %76 ], [ true, %68 ], [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ false, %2 ], [ false, %9 ], [ false, %55 ], [ false, %7 ], [ false, %75 ]
+  %.034 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %68 ], [ true, %76 ], [ false, %2 ], [ false, %9 ], [ false, %55 ], [ false, %7 ], [ false, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret i1 %.034
 }

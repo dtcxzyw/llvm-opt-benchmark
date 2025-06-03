@@ -338,7 +338,7 @@ define noundef ptr @ustrcase_getTitleBreakIterator_77(ptr noundef %0, ptr nounde
   br label %45
 
 45:                                               ; preds = %31, %33, %44, %41, %24
-  %.1 = phi ptr [ null, %44 ], [ %40, %41 ], [ null, %33 ], [ %28, %31 ], [ %23, %24 ]
+  %.1 = phi ptr [ null, %44 ], [ %23, %24 ], [ null, %33 ], [ %28, %31 ], [ %40, %41 ]
   %46 = load ptr, ptr %4, align 8, !tbaa !17
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit, label %48
@@ -359,7 +359,7 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit: ; preds =
   ret ptr %.0
 
 53:                                               ; preds = %34, %42, %25
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %35, %34 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn
 }
 

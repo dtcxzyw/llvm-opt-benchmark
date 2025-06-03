@@ -1137,7 +1137,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %19
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body14, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %eh.lpad-body15, %.body14 ], [ %27, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %27, %.body ], [ %eh.lpad-body15, %.body14 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %28

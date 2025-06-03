@@ -423,7 +423,7 @@ rb_type.exit.thread17:                            ; preds = %7, %rb_type.exit
   br label %50
 
 50:                                               ; preds = %20, %23, %rb_type.exit.thread17, %rb_type.exit.thread21, %36, %34, %rb_type.exit.thread
-  %.0 = phi i64 [ %49, %rb_type.exit.thread17 ], [ %48, %rb_type.exit.thread21 ], [ %38, %36 ], [ %35, %34 ], [ %33, %rb_type.exit.thread ], [ %22, %20 ], [ %26, %23 ]
+  %.0 = phi i64 [ %49, %rb_type.exit.thread17 ], [ %22, %20 ], [ %26, %23 ], [ %33, %rb_type.exit.thread ], [ %35, %34 ], [ %38, %36 ], [ %48, %rb_type.exit.thread21 ]
   %51 = icmp sgt i64 %.0, 0
   %52 = and i64 %.0, 4611686018427387903
   %masksel = select i1 %51, i64 0, i64 -4611686018427387904
@@ -5208,7 +5208,7 @@ RARRAY_AREF.exit53:                               ; preds = %84, %86
   br label %91
 
 91:                                               ; preds = %RARRAY_AREF.exit53, %rb_array_len.exit50
-  %.0 = phi i64 [ 4, %rb_array_len.exit50 ], [ %90, %RARRAY_AREF.exit53 ]
+  %.0 = phi i64 [ %90, %RARRAY_AREF.exit53 ], [ 4, %rb_array_len.exit50 ]
   br i1 %.not.i48, label %94, label %92
 
 92:                                               ; preds = %91

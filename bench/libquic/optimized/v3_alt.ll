@@ -913,7 +913,7 @@ do_othername.exit.thread:                         ; preds = %50, %43, %40, %38, 
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.25, i32 noundef 507) #7
   br label %74
 
-.critedge:                                        ; preds = %do_dirname.exit, %.thread, %do_othername.exit, %23, %69
+.critedge:                                        ; preds = %do_dirname.exit, %.thread, %23, %do_othername.exit, %69
   store i32 %3, ptr %.034, align 8, !tbaa !28
   br label %76
 

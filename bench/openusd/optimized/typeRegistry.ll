@@ -8297,7 +8297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %53
-  %.0.i22 = phi float [ %52, %43 ], [ %61, %53 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi float [ %61, %53 ], [ %52, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.0.i22, ptr %62, align 4
   %63 = load i32, ptr %7, align 8
@@ -12403,13 +12403,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit: ; pr
 
 .noexc:                                           ; preds = %33
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC1Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %34)
-          to label %.noexc19 unwind label %49
+          to label %.noexc20 unwind label %49
 
-.noexc19:                                         ; preds = %.noexc
+.noexc20:                                         ; preds = %.noexc
   %35 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5beginEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %36 unwind label %45
 
-36:                                               ; preds = %.noexc19
+36:                                               ; preds = %.noexc20
   %37 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %38 unwind label %45
 
@@ -12418,27 +12418,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit: ; pr
           to label %40 unwind label %45
 
 40:                                               ; preds = %38
-  %.not8.i.i14 = icmp eq ptr %35, %37
-  br i1 %.not8.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit20, label %.lr.ph.i.i15
+  %.not8.i.i15 = icmp eq ptr %35, %37
+  br i1 %.not8.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit21, label %.lr.ph.i.i16
 
-.lr.ph.i.i15:                                     ; preds = %40, %.lr.ph.i.i15
-  %.010.i.i16 = phi ptr [ %44, %.lr.ph.i.i15 ], [ %39, %40 ]
-  %.079.i.i17 = phi ptr [ %43, %.lr.ph.i.i15 ], [ %35, %40 ]
-  %41 = load double, ptr %.079.i.i17, align 8
+.lr.ph.i.i16:                                     ; preds = %40, %.lr.ph.i.i16
+  %.010.i.i17 = phi ptr [ %44, %.lr.ph.i.i16 ], [ %39, %40 ]
+  %.079.i.i18 = phi ptr [ %43, %.lr.ph.i.i16 ], [ %35, %40 ]
+  %41 = load double, ptr %.079.i.i18, align 8
   %42 = fmul double %41, 0x3FD5555555555555
-  store double %42, ptr %.010.i.i16, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.079.i.i17, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.010.i.i16, i64 8
-  %.not.i.i18 = icmp eq ptr %43, %37
-  br i1 %.not.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit20, label %.lr.ph.i.i15, !llvm.loop !59
+  store double %42, ptr %.010.i.i17, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %.079.i.i18, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.010.i.i17, i64 8
+  %.not.i.i19 = icmp eq ptr %43, %37
+  br i1 %.not.i.i19, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit21, label %.lr.ph.i.i16, !llvm.loop !59
 
-45:                                               ; preds = %38, %36, %.noexc19
+45:                                               ; preds = %38, %36, %.noexc20
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   br label %.body
 
-_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit20: ; preds = %.lr.ph.i.i15, %40
+_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit21: ; preds = %.lr.ph.i.i16, %40
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   br label %71
@@ -12475,40 +12475,40 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit20: ; 
           to label %60 unwind label %66
 
 60:                                               ; preds = %58
-  %.not8.i.i21 = icmp eq ptr %55, %57
-  br i1 %.not8.i.i21, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit26, label %.lr.ph.i.i22
+  %.not8.i.i22 = icmp eq ptr %55, %57
+  br i1 %.not8.i.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit27, label %.lr.ph.i.i23
 
-.lr.ph.i.i22:                                     ; preds = %60, %.lr.ph.i.i22
-  %.010.i.i23 = phi ptr [ %65, %.lr.ph.i.i22 ], [ %59, %60 ]
-  %.079.i.i24 = phi ptr [ %64, %.lr.ph.i.i22 ], [ %55, %60 ]
+.lr.ph.i.i23:                                     ; preds = %60, %.lr.ph.i.i23
+  %.010.i.i24 = phi ptr [ %65, %.lr.ph.i.i23 ], [ %59, %60 ]
+  %.079.i.i25 = phi ptr [ %64, %.lr.ph.i.i23 ], [ %55, %60 ]
   %61 = load double, ptr %52, align 8, !noalias !78
-  %62 = load double, ptr %.079.i.i24, align 8
+  %62 = load double, ptr %.079.i.i25, align 8
   %63 = fmul double %61, %62
-  store double %63, ptr %.010.i.i23, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.079.i.i24, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %.010.i.i23, i64 8
-  %.not.i.i25 = icmp eq ptr %64, %57
-  br i1 %.not.i.i25, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit26, label %.lr.ph.i.i22, !llvm.loop !59
+  store double %63, ptr %.010.i.i24, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.079.i.i25, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.010.i.i24, i64 8
+  %.not.i.i26 = icmp eq ptr %64, %57
+  br i1 %.not.i.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit27, label %.lr.ph.i.i23, !llvm.loop !59
 
 66:                                               ; preds = %58, %56, %51
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit26: ; preds = %.lr.ph.i.i22, %60
+_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit27: ; preds = %.lr.ph.i.i23, %60
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__plIdEENS_7VtArrayIT_EERKS3_S5_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %68 unwind label %69
 
-68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit26
+68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit27
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
   br label %71
 
-69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit26
+69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit27
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-71:                                               ; preds = %68, %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit20, %12
+71:                                               ; preds = %68, %_ZN32pxrInternal_v0_24__pxrReserved__mlIdEENS_7VtArrayIT_EERKS2_RKS3_.exit21, %12
   ret void
 }
 
@@ -17112,13 +17112,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE
 
 .noexc:                                           ; preds = %33
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC1Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %34)
-          to label %.noexc19 unwind label %51
+          to label %.noexc20 unwind label %51
 
-.noexc19:                                         ; preds = %.noexc
+.noexc20:                                         ; preds = %.noexc
   %35 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5beginEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %36 unwind label %47
 
-36:                                               ; preds = %.noexc19
+36:                                               ; preds = %.noexc20
   %37 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %38 unwind label %47
 
@@ -17127,29 +17127,29 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE
           to label %40 unwind label %47
 
 40:                                               ; preds = %38
-  %.not8.i.i14 = icmp eq ptr %35, %37
-  br i1 %.not8.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit20, label %.lr.ph.i.i15
+  %.not8.i.i15 = icmp eq ptr %35, %37
+  br i1 %.not8.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit21, label %.lr.ph.i.i16
 
-.lr.ph.i.i15:                                     ; preds = %40, %.lr.ph.i.i15
-  %.010.i.i16 = phi ptr [ %46, %.lr.ph.i.i15 ], [ %39, %40 ]
-  %.079.i.i17 = phi ptr [ %45, %.lr.ph.i.i15 ], [ %35, %40 ]
-  %41 = load float, ptr %.079.i.i17, align 4
+.lr.ph.i.i16:                                     ; preds = %40, %.lr.ph.i.i16
+  %.010.i.i17 = phi ptr [ %46, %.lr.ph.i.i16 ], [ %39, %40 ]
+  %.079.i.i18 = phi ptr [ %45, %.lr.ph.i.i16 ], [ %35, %40 ]
+  %41 = load float, ptr %.079.i.i18, align 4
   %42 = fpext float %41 to double
   %43 = fmul double %42, 0x3FD5555555555555
   %44 = fptrunc double %43 to float
-  store float %44, ptr %.010.i.i16, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %.079.i.i17, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %.010.i.i16, i64 4
-  %.not.i.i18 = icmp eq ptr %45, %37
-  br i1 %.not.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit20, label %.lr.ph.i.i15, !llvm.loop !125
+  store float %44, ptr %.010.i.i17, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %.079.i.i18, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.010.i.i17, i64 4
+  %.not.i.i19 = icmp eq ptr %45, %37
+  br i1 %.not.i.i19, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit21, label %.lr.ph.i.i16, !llvm.loop !125
 
-47:                                               ; preds = %38, %36, %.noexc19
+47:                                               ; preds = %38, %36, %.noexc20
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   br label %.body
 
-_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit20: ; preds = %.lr.ph.i.i15, %40
+_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit21: ; preds = %.lr.ph.i.i16, %40
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   br label %75
@@ -17186,42 +17186,42 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE
           to label %62 unwind label %70
 
 62:                                               ; preds = %60
-  %.not8.i.i21 = icmp eq ptr %57, %59
-  br i1 %.not8.i.i21, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit26, label %.lr.ph.i.i22
+  %.not8.i.i22 = icmp eq ptr %57, %59
+  br i1 %.not8.i.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit27, label %.lr.ph.i.i23
 
-.lr.ph.i.i22:                                     ; preds = %62, %.lr.ph.i.i22
-  %.010.i.i23 = phi ptr [ %69, %.lr.ph.i.i22 ], [ %61, %62 ]
-  %.079.i.i24 = phi ptr [ %68, %.lr.ph.i.i22 ], [ %57, %62 ]
+.lr.ph.i.i23:                                     ; preds = %62, %.lr.ph.i.i23
+  %.010.i.i24 = phi ptr [ %69, %.lr.ph.i.i23 ], [ %61, %62 ]
+  %.079.i.i25 = phi ptr [ %68, %.lr.ph.i.i23 ], [ %57, %62 ]
   %63 = load double, ptr %54, align 8, !noalias !144
-  %64 = load float, ptr %.079.i.i24, align 4
+  %64 = load float, ptr %.079.i.i25, align 4
   %65 = fpext float %64 to double
   %66 = fmul double %63, %65
   %67 = fptrunc double %66 to float
-  store float %67, ptr %.010.i.i23, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %.079.i.i24, i64 4
-  %69 = getelementptr inbounds nuw i8, ptr %.010.i.i23, i64 4
-  %.not.i.i25 = icmp eq ptr %68, %59
-  br i1 %.not.i.i25, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit26, label %.lr.ph.i.i22, !llvm.loop !125
+  store float %67, ptr %.010.i.i24, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %.079.i.i25, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.010.i.i24, i64 4
+  %.not.i.i26 = icmp eq ptr %68, %59
+  br i1 %.not.i.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit27, label %.lr.ph.i.i23, !llvm.loop !125
 
 70:                                               ; preds = %60, %58, %53
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit26: ; preds = %.lr.ph.i.i22, %62
+_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit27: ; preds = %.lr.ph.i.i23, %62
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__plIfEENS_7VtArrayIT_EERKS3_S5_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.88") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %72 unwind label %73
 
-72:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit26
+72:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit27
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
   br label %75
 
-73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit26
+73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit27
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-75:                                               ; preds = %72, %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit20, %12
+75:                                               ; preds = %72, %_ZN32pxrInternal_v0_24__pxrReserved__mlIfEENSt9enable_ifIXntsr3std7is_sameIT_dEE5valueENS_7VtArrayIS2_EEE4typeERKdRKS4_.exit21, %12
   ret void
 }
 
@@ -20745,8 +20745,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %46, %47, %63
-  %.sroa.0.0.copyload.pn.i = phi double [ %.sroa.0.0.copyload.i, %46 ], [ %61, %47 ], [ %69, %63 ]
-  %.sroa.4.0.copyload.pn.i = phi double [ %.sroa.4.0.copyload.i, %46 ], [ %62, %47 ], [ %70, %63 ]
+  %.sroa.0.0.copyload.pn.i = phi double [ %.sroa.0.0.copyload.i, %46 ], [ %69, %63 ], [ %61, %47 ]
+  %.sroa.4.0.copyload.pn.i = phi double [ %.sroa.4.0.copyload.i, %46 ], [ %70, %63 ], [ %62, %47 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %.sroa.0.0.copyload.pn.i, ptr %71, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23520,7 +23520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec2fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %43, %44, %63
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %43 ], [ %.sroa.0.4.vec.insert.i.i12.i, %44 ], [ %.sroa.0.4.vec.insert.i20.i, %63 ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %43 ], [ %.sroa.0.4.vec.insert.i20.i, %63 ], [ %.sroa.0.4.vec.insert.i.i12.i, %44 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store <2 x float> %.sroa.0.0.i, ptr %77, align 4
   %78 = load i32, ptr %7, align 8
@@ -26209,9 +26209,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec3dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec3dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %46, %47, %68
-  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload45, %46 ], [ %67, %47 ], [ %77, %68 ]
-  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload43, %46 ], [ %66, %47 ], [ %76, %68 ]
-  %.sroa.040.0 = phi double [ %.sroa.040.0.copyload41, %46 ], [ %65, %47 ], [ %75, %68 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload45, %46 ], [ %77, %68 ], [ %67, %47 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload43, %46 ], [ %76, %68 ], [ %66, %47 ]
+  %.sroa.040.0 = phi double [ %.sroa.040.0.copyload41, %46 ], [ %75, %68 ], [ %65, %47 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %.sroa.040.0, ptr %78, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -28980,8 +28980,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec3fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec3fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %46, %47, %74
-  %.sroa.027.0.copyload.pn.i = phi <2 x float> [ %.sroa.027.0.copyload.i, %46 ], [ %.sroa.0.4.vec.insert.i.i34.i, %47 ], [ %.sroa.0.4.vec.insert.i52.i, %74 ]
-  %.sroa.4.0.copyload.pn.i = phi float [ %.sroa.4.0.copyload.i, %46 ], [ %73, %47 ], [ %89, %74 ]
+  %.sroa.027.0.copyload.pn.i = phi <2 x float> [ %.sroa.027.0.copyload.i, %46 ], [ %.sroa.0.4.vec.insert.i52.i, %74 ], [ %.sroa.0.4.vec.insert.i.i34.i, %47 ]
+  %.sroa.4.0.copyload.pn.i = phi float [ %.sroa.4.0.copyload.i, %46 ], [ %89, %74 ], [ %73, %47 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store <2 x float> %.sroa.027.0.copyload.pn.i, ptr %90, align 4
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -32218,10 +32218,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec4dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec4dEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %47, %48, %74
-  %.sroa.8.0 = phi double [ %.sroa.8.0.copyload30, %47 ], [ %73, %48 ], [ %85, %74 ]
-  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload28, %47 ], [ %72, %48 ], [ %84, %74 ]
-  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload26, %47 ], [ %71, %48 ], [ %83, %74 ]
-  %.sroa.023.0 = phi double [ %.sroa.023.0.copyload24, %47 ], [ %70, %48 ], [ %82, %74 ]
+  %.sroa.8.0 = phi double [ %.sroa.8.0.copyload30, %47 ], [ %85, %74 ], [ %73, %48 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload28, %47 ], [ %84, %74 ], [ %72, %48 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload26, %47 ], [ %83, %74 ], [ %71, %48 ]
+  %.sroa.023.0 = phi double [ %.sroa.023.0.copyload24, %47 ], [ %82, %74 ], [ %70, %48 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store double %.sroa.023.0, ptr %86, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -35439,8 +35439,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec4fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueINS_7GfVec4fEEET_PKNS_12Ts_TypedDataIS3_EES7_.exit: ; preds = %46, %47, %81
-  %.sroa.0.0.copyload.pn.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %46 ], [ %.sroa.0.4.vec.insert.i.i15.i, %47 ], [ %.sroa.0.4.vec.insert.i41.i, %81 ]
-  %.sroa.4.0.copyload.pn.i = phi <2 x float> [ %.sroa.4.0.copyload.i, %46 ], [ %.sroa.6.12.vec.insert.i.i19.i, %47 ], [ %.sroa.6.12.vec.insert.i45.i, %81 ]
+  %.sroa.0.0.copyload.pn.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %46 ], [ %.sroa.0.4.vec.insert.i41.i, %81 ], [ %.sroa.0.4.vec.insert.i.i15.i, %47 ]
+  %.sroa.4.0.copyload.pn.i = phi <2 x float> [ %.sroa.4.0.copyload.i, %46 ], [ %.sroa.6.12.vec.insert.i45.i, %81 ], [ %.sroa.6.12.vec.insert.i.i19.i, %47 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store <2 x float> %.sroa.0.0.copyload.pn.i, ptr %101, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -58854,7 +58854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %50
-  %.0.i22 = phi double [ %49, %43 ], [ %55, %50 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi double [ %55, %50 ], [ %49, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.0.i22, ptr %56, align 8
   %57 = load i32, ptr %7, align 8

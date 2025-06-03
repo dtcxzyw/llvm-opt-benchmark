@@ -4097,7 +4097,7 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
   unreachable
 
 .body.i:                                          ; preds = %144, %122, %100, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %40
-  %.pn.ph.i = phi { ptr, i32 } [ %101, %100 ], [ %123, %122 ], [ %145, %144 ], [ %.pn.i.i.i, %40 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit315.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp316.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn.ph.i = phi { ptr, i32 } [ %145, %144 ], [ %123, %122 ], [ %101, %100 ], [ %.pn.i.i.i, %40 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit315.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp316.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %.pr.i = load i32, ptr %25, align 8, !noalias !315
   %.not205.i = icmp eq i32 %.pr.i, 4
   br i1 %.not205.i, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ty_project..metadata..options..TerminalOptions$GT$$GT$17h07362218b2025ba1E.exit245.i", label %215
@@ -4246,7 +4246,7 @@ _ZN5serde2de9MapAccess10next_value17hbe09fd0506150836E.exit.i: ; preds = %"_ZN77
   br label %102
 
 102:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..TerminalOptions$GT$$GT$$GT$17h4db5d74aba65bc5aE.exit.i", %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$$GT$17h92b0b5a89040e05bE.exit.i", %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..SrcOptions$GT$$GT$$GT$17h35b21518a0a943d4E.exit.i", %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..EnvironmentOptions$GT$$GT$$GT$17hc5eaca7dfedbccf9E.exit.i"
-  %.sroa.087.1.i = phi i8 [ %.sroa.087.0408.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..TerminalOptions$GT$$GT$$GT$17h4db5d74aba65bc5aE.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$$GT$17h92b0b5a89040e05bE.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..SrcOptions$GT$$GT$$GT$17h35b21518a0a943d4E.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..EnvironmentOptions$GT$$GT$$GT$17hc5eaca7dfedbccf9E.exit.i" ], [ %.sroa.4192.0.extract.trunc.i, %_ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i ]
+  %.sroa.087.1.i = phi i8 [ %.sroa.087.0408.i, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..EnvironmentOptions$GT$$GT$$GT$17hc5eaca7dfedbccf9E.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..SrcOptions$GT$$GT$$GT$17h35b21518a0a943d4E.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$$GT$17h92b0b5a89040e05bE.exit.i" ], [ %.sroa.087.0408.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..options..TerminalOptions$GT$$GT$$GT$17h4db5d74aba65bc5aE.exit.i" ], [ %.sroa.4192.0.extract.trunc.i, %_ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i ]
   %103 = load ptr, ptr %23, align 8, !alias.scope !341, !noalias !310, !nonnull !6, !noundef !6
   %104 = load ptr, ptr %24, align 8, !alias.scope !341, !noalias !310, !nonnull !6, !noundef !6
   %105 = icmp eq ptr %103, %104
@@ -5273,7 +5273,7 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
   unreachable
 
 .body.i:                                          ; preds = %159, %141, %123, %101, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %40
-  %.pn.ph.i = phi { ptr, i32 } [ %102, %101 ], [ %124, %123 ], [ %142, %141 ], [ %160, %159 ], [ %.pn.i.i.i, %40 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit381.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp382.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn.ph.i = phi { ptr, i32 } [ %160, %159 ], [ %142, %141 ], [ %124, %123 ], [ %102, %101 ], [ %.pn.i.i.i, %40 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit381.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp382.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %.pr.i = load i64, ptr %14, align 8, !noalias !428
   %.not251.i = icmp eq i64 %.pr.i, -9223372036854775807
   br i1 %.not251.i, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$ty_project..metadata..value..RelativePathBuf$GT$$GT$17hb791c49af654992dE.exit301.i", label %219

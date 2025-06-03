@@ -6043,14 +6043,14 @@ woff_open_font.exit.i:                            ; preds = %.thread265.i.i
   br i1 %.not89.i, label %.backedge.i, label %sfnt_open_font.exit.thread
 
 .backedge.sink.split.i:                           ; preds = %woff2_open_font.exit.thread114.i, %woff_open_font.exit.thread109.i
-  %.3220 = phi i32 [ %.1218, %woff2_open_font.exit.thread114.i ], [ %.0217, %woff_open_font.exit.thread109.i ]
-  %.3215 = phi i64 [ %.1214, %woff2_open_font.exit.thread114.i ], [ %.0213, %woff_open_font.exit.thread109.i ]
+  %.3220 = phi i32 [ %.0217, %woff_open_font.exit.thread109.i ], [ %.1218, %woff2_open_font.exit.thread114.i ]
+  %.3215 = phi i64 [ %.0213, %woff_open_font.exit.thread109.i ], [ %.1214, %woff2_open_font.exit.thread114.i ]
   store i32 0, ptr %18, align 4, !tbaa !16
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %woff2_open_font.exit.i, %.backedge.sink.split.i, %woff_open_font.exit.i
-  %.2219 = phi i32 [ %.3220, %.backedge.sink.split.i ], [ %.1218, %woff2_open_font.exit.i ], [ %.0217, %woff_open_font.exit.i ]
-  %.2 = phi i64 [ %.3215, %.backedge.sink.split.i ], [ %.1214, %woff2_open_font.exit.i ], [ %.0213, %woff_open_font.exit.i ]
+  %.2219 = phi i32 [ %.3220, %.backedge.sink.split.i ], [ %.0217, %woff_open_font.exit.i ], [ %.1218, %woff2_open_font.exit.i ]
+  %.2 = phi i64 [ %.3215, %.backedge.sink.split.i ], [ %.0213, %woff_open_font.exit.i ], [ %.1214, %woff2_open_font.exit.i ]
   %.069.be.i = load ptr, ptr %77, align 8, !tbaa !196
   %395 = call i64 @FT_Stream_Pos(ptr noundef %.069.be.i) #27
   %396 = call i32 @FT_Stream_ReadULong(ptr noundef %.069.be.i, ptr noundef nonnull %18) #27
@@ -8729,7 +8729,7 @@ define internal i32 @tt_face_load_hhea(ptr noundef %0, ptr noundef %1, i8 nounde
   br label %17
 
 17:                                               ; preds = %6, %15, %9, %13
-  %.018 = phi i32 [ %7, %6 ], [ %14, %13 ], [ 0, %15 ], [ %10, %9 ]
+  %.018 = phi i32 [ %14, %13 ], [ 0, %15 ], [ %7, %6 ], [ %10, %9 ]
   ret i32 %.018
 }
 
@@ -9811,7 +9811,7 @@ tt_face_load_sbix_image.exit.thread41:            ; preds = %51, %95, %28, %14, 
   br label %183
 
 183:                                              ; preds = %181, %177
-  %.1128.i = phi i8 [ %.0127171.i, %177 ], [ %182, %181 ]
+  %.1128.i = phi i8 [ %182, %181 ], [ %.0127171.i, %177 ]
   %exitcond.not.i = icmp eq i32 %.0125172.i, 4
   br i1 %exitcond.not.i, label %.thread.i.loopexit, label %184
 
@@ -15779,11 +15779,11 @@ define internal i32 @tt_face_get_name(ptr noundef readonly captures(none) %0, i1
   br label %44
 
 44:                                               ; preds = %24, %20, %.lr.ph, %14, %17, %30, %35, %38, %19
-  %.170 = phi i32 [ %.06992, %17 ], [ %.06992, %35 ], [ %.06992, %38 ], [ %.06992, %30 ], [ %.06992, %19 ], [ %.06992, %14 ], [ %.06992, %.lr.ph ], [ %.06992, %20 ], [ %spec.select, %24 ]
-  %.168 = phi i32 [ %.06793, %17 ], [ %.06793, %35 ], [ %.06793, %38 ], [ %.06793, %30 ], [ %.06793, %19 ], [ %.06793, %14 ], [ %.06793, %.lr.ph ], [ %indvars.iv, %20 ], [ %.06793, %24 ]
-  %.166 = phi i32 [ %.06594, %17 ], [ %.06594, %35 ], [ %indvars.iv, %38 ], [ %.06594, %30 ], [ %.06594, %19 ], [ %.06594, %14 ], [ %.06594, %.lr.ph ], [ %.06594, %20 ], [ %.06594, %24 ]
-  %.164 = phi i32 [ %.06395, %17 ], [ %.06395, %35 ], [ %.06395, %38 ], [ %.06395, %30 ], [ %indvars.iv, %19 ], [ %.06395, %14 ], [ %.06395, %.lr.ph ], [ %.06395, %20 ], [ %.06395, %24 ]
-  %.1 = phi i8 [ %.06296, %17 ], [ %.06296, %35 ], [ %43, %38 ], [ %.06296, %30 ], [ %.06296, %19 ], [ %.06296, %14 ], [ %.06296, %.lr.ph ], [ %.06296, %20 ], [ %.06296, %24 ]
+  %.170 = phi i32 [ %.06992, %17 ], [ %.06992, %19 ], [ %.06992, %35 ], [ %.06992, %38 ], [ %.06992, %30 ], [ %.06992, %14 ], [ %.06992, %.lr.ph ], [ %.06992, %20 ], [ %spec.select, %24 ]
+  %.168 = phi i32 [ %.06793, %17 ], [ %.06793, %19 ], [ %.06793, %35 ], [ %.06793, %38 ], [ %.06793, %30 ], [ %.06793, %14 ], [ %.06793, %.lr.ph ], [ %indvars.iv, %20 ], [ %.06793, %24 ]
+  %.166 = phi i32 [ %.06594, %17 ], [ %.06594, %19 ], [ %.06594, %35 ], [ %indvars.iv, %38 ], [ %.06594, %30 ], [ %.06594, %14 ], [ %.06594, %.lr.ph ], [ %.06594, %20 ], [ %.06594, %24 ]
+  %.164 = phi i32 [ %.06395, %17 ], [ %indvars.iv, %19 ], [ %.06395, %35 ], [ %.06395, %38 ], [ %.06395, %30 ], [ %.06395, %14 ], [ %.06395, %.lr.ph ], [ %.06395, %20 ], [ %.06395, %24 ]
+  %.1 = phi i8 [ %.06296, %17 ], [ %.06296, %19 ], [ %.06296, %35 ], [ %43, %38 ], [ %.06296, %30 ], [ %.06296, %14 ], [ %.06296, %.lr.ph ], [ %.06296, %20 ], [ %.06296, %24 ]
   %.168.fr = freeze i32 %.168
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %45 = getelementptr inbounds nuw i8, ptr %.07291, i64 32
@@ -18136,12 +18136,12 @@ reconstruct_hmtx.exit:                            ; preds = %653
   br i1 %.not139, label %658, label %.thread313thread-pre-split
 
 658:                                              ; preds = %reconstruct_glyf.exit, %reconstruct_hmtx.exit, %502, %write_buf.exit
-  %.2252290 = phi i16 [ %.2252289294, %write_buf.exit ], [ %.0250438, %reconstruct_hmtx.exit ], [ %.0250438, %502 ], [ %.0250438, %reconstruct_glyf.exit ]
-  %.3267 = phi ptr [ %.0.i158, %write_buf.exit ], [ %656, %reconstruct_hmtx.exit ], [ %.1265436, %502 ], [ %.5269, %reconstruct_glyf.exit ]
-  %.2259 = phi i64 [ %141, %write_buf.exit ], [ %657, %reconstruct_hmtx.exit ], [ %.0257437, %502 ], [ %.4261, %reconstruct_glyf.exit ]
-  %.0253 = phi i64 [ %.121.lcssa.i, %write_buf.exit ], [ %654, %reconstruct_hmtx.exit ], [ %503, %502 ], [ %.5, %reconstruct_glyf.exit ]
-  %.sroa.27.0 = phi i64 [ %.0257437, %write_buf.exit ], [ %.0257437, %reconstruct_hmtx.exit ], [ %.sroa.27.0.copyload, %502 ], [ %.0257437, %reconstruct_glyf.exit ]
-  %.2 = phi i8 [ %.0126440, %write_buf.exit ], [ %.0126440, %reconstruct_hmtx.exit ], [ %.0126440, %502 ], [ 1, %reconstruct_glyf.exit ]
+  %.2252290 = phi i16 [ %.2252289294, %write_buf.exit ], [ %.0250438, %reconstruct_glyf.exit ], [ %.0250438, %502 ], [ %.0250438, %reconstruct_hmtx.exit ]
+  %.3267 = phi ptr [ %.0.i158, %write_buf.exit ], [ %.5269, %reconstruct_glyf.exit ], [ %.1265436, %502 ], [ %656, %reconstruct_hmtx.exit ]
+  %.2259 = phi i64 [ %141, %write_buf.exit ], [ %.4261, %reconstruct_glyf.exit ], [ %.0257437, %502 ], [ %657, %reconstruct_hmtx.exit ]
+  %.0253 = phi i64 [ %.121.lcssa.i, %write_buf.exit ], [ %.5, %reconstruct_glyf.exit ], [ %503, %502 ], [ %654, %reconstruct_hmtx.exit ]
+  %.sroa.27.0 = phi i64 [ %.0257437, %write_buf.exit ], [ %.0257437, %reconstruct_glyf.exit ], [ %.sroa.27.0.copyload, %502 ], [ %.0257437, %reconstruct_hmtx.exit ]
+  %.2 = phi i8 [ %.0126440, %write_buf.exit ], [ 1, %reconstruct_glyf.exit ], [ %.0126440, %502 ], [ %.0126440, %reconstruct_hmtx.exit ]
   %659 = add i64 %.0253, %.0125441
   %660 = lshr i32 %.sroa.3.0.copyload, 24
   %661 = trunc nuw i32 %660 to i8
@@ -18360,7 +18360,7 @@ find_table.exit219.thread:                        ; preds = %739, %68
   br label %.sink.split
 
 .thread313thread-pre-split:                       ; preds = %106, %write_buf.exit, %reconstruct_glyf.exit, %reconstruct_hmtx.exit, %151, %.thread286, %736, %746, %find_table.exit219.thread, %read_num_hmetrics.exit.thread, %write_buf.exit.thread, %get_x_mins.exit.thread, %.loopexit.i, %pad4.exit.thread
-  %.0264.ph.ph = phi ptr [ %.1265436, %read_num_hmetrics.exit.thread ], [ %.1265436, %write_buf.exit.thread ], [ %.1265436, %get_x_mins.exit.thread ], [ %.1265436, %.loopexit.i ], [ %.7271, %pad4.exit.thread ], [ %.8, %746 ], [ %.1265.lcssa538, %find_table.exit219.thread ], [ %.5269, %reconstruct_glyf.exit ], [ %656, %reconstruct_hmtx.exit ], [ %.1265436, %151 ], [ %.0.i158, %write_buf.exit ], [ %.1265436, %106 ], [ %.1265436, %.thread286 ], [ %.8, %736 ]
+  %.0264.ph.ph = phi ptr [ %.1265436, %read_num_hmetrics.exit.thread ], [ %.1265436, %write_buf.exit.thread ], [ %.1265436, %get_x_mins.exit.thread ], [ %.1265436, %.loopexit.i ], [ %.7271, %pad4.exit.thread ], [ %.8, %746 ], [ %.1265.lcssa538, %find_table.exit219.thread ], [ %656, %reconstruct_hmtx.exit ], [ %.5269, %reconstruct_glyf.exit ], [ %.1265436, %151 ], [ %.0.i158, %write_buf.exit ], [ %.1265436, %106 ], [ %.1265436, %.thread286 ], [ %.8, %736 ]
   %.pr.pr = load i32, ptr %29, align 4, !tbaa !16
   br label %.thread313
 
@@ -20016,14 +20016,14 @@ define internal fastcc i32 @tt_sbit_decoder_load_image(ptr noundef %0, i32 nound
   br label %.thread141
 
 316:                                              ; preds = %.thread146, %177, %105
-  %.086 = phi i64 [ %192, %177 ], [ %140, %105 ], [ %250, %.thread146 ]
-  %.085 = phi i64 [ %185, %177 ], [ %123, %105 ], [ %242, %.thread146 ]
+  %.086 = phi i64 [ %140, %105 ], [ %192, %177 ], [ %250, %.thread146 ]
+  %.085 = phi i64 [ %123, %105 ], [ %185, %177 ], [ %242, %.thread146 ]
   %317 = icmp samesign ugt i64 %.085, %.086
   br i1 %317, label %.thread, label %.thread141
 
-.thread141:                                       ; preds = %155, %313, %316
-  %.085145 = phi i64 [ %.085, %316 ], [ %168, %155 ], [ %314, %313 ]
-  %.086144 = phi i64 [ %.086, %316 ], [ %169, %155 ], [ %315, %313 ]
+.thread141:                                       ; preds = %313, %155, %316
+  %.085145 = phi i64 [ %.085, %316 ], [ %314, %313 ], [ %168, %155 ]
+  %.086144 = phi i64 [ %.086, %316 ], [ %315, %313 ], [ %169, %155 ]
   %318 = sub nuw i64 %.086144, %.085145
   %319 = add i64 %.085145, %97
   %320 = tail call fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noundef %80, i64 noundef %319, i64 noundef %318, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5)
@@ -20284,7 +20284,7 @@ tt_sbit_decoder_load_metrics.exit.thread:         ; preds = %30, %tt_sbit_decode
   br label %88
 
 88:                                               ; preds = %79, %72, %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread, %87, %86, %80
-  %.045 = phi ptr [ @tt_sbit_decoder_load_png, %87 ], [ @tt_sbit_decoder_load_compound, %86 ], [ @tt_sbit_decoder_load_bit_aligned, %80 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_bit_aligned, %79 ], [ @tt_sbit_decoder_load_byte_aligned, %72 ]
+  %.045 = phi ptr [ @tt_sbit_decoder_load_bit_aligned, %80 ], [ @tt_sbit_decoder_load_compound, %86 ], [ @tt_sbit_decoder_load_png, %87 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_bit_aligned, %79 ], [ @tt_sbit_decoder_load_byte_aligned, %72 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %90 = load i8, ptr %89, align 1, !tbaa !436
   %.not58 = icmp eq i8 %90, 0
@@ -22474,7 +22474,7 @@ define internal ptr @get_sfnt_table(ptr noundef readonly captures(ret: address, 
   br label %25
 
 25:                                               ; preds = %2, %21, %19, %17, %12, %7, %5, %3
-  %.0 = phi ptr [ %24, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %12 ], [ %11, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %2 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %11, %7 ], [ %16, %12 ], [ %18, %17 ], [ %20, %19 ], [ %24, %21 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -23462,7 +23462,7 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %446
 
 446:                                              ; preds = %441, %._crit_edge.i245.i
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %445, %441 ]
+  %.0.i.i = phi i32 [ %445, %441 ], [ 0, %._crit_edge.i245.i ]
   %447 = getelementptr inbounds nuw i8, ptr %388, i64 13
   %448 = load i8, ptr %447, align 1, !tbaa !15
   %449 = zext i8 %448 to i32
@@ -23471,7 +23471,7 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %452
 
 452:                                              ; preds = %446, %._crit_edge.i245.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %451, %446 ]
+  %.1.i.i = phi i32 [ %451, %446 ], [ 0, %._crit_edge.i245.i ]
   %453 = getelementptr inbounds nuw i8, ptr %388, i64 12
   %454 = load i8, ptr %453, align 1, !tbaa !15
   %455 = zext i8 %454 to i32
@@ -23485,7 +23485,7 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %463
 
 463:                                              ; preds = %452, %._crit_edge.i245.i
-  %.2184.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %462, %452 ]
+  %.2184.i.i = phi i32 [ %462, %452 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
   %464 = getelementptr inbounds nuw i8, ptr %388, i64 11
   %465 = load i8, ptr %464, align 1, !tbaa !15
   %466 = zext i8 %465 to i32
@@ -23493,8 +23493,8 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %468
 
 468:                                              ; preds = %463, %._crit_edge.i245.i
-  %.3185.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.2184.i.i, %463 ]
-  %.0163.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %467, %463 ]
+  %.3185.i.i = phi i32 [ %.2184.i.i, %463 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.0163.i.i = phi i32 [ %467, %463 ], [ 0, %._crit_edge.i245.i ]
   %469 = getelementptr inbounds nuw i8, ptr %388, i64 10
   %470 = load i8, ptr %469, align 1, !tbaa !15
   %471 = zext i8 %470 to i32
@@ -23503,8 +23503,8 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %474
 
 474:                                              ; preds = %468, %._crit_edge.i245.i
-  %.4186.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.3185.i.i, %468 ]
-  %.1164.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %473, %468 ]
+  %.4186.i.i = phi i32 [ %.3185.i.i, %468 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1164.i.i = phi i32 [ %473, %468 ], [ 0, %._crit_edge.i245.i ]
   %475 = getelementptr inbounds nuw i8, ptr %388, i64 9
   %476 = load i8, ptr %475, align 1, !tbaa !15
   %477 = zext i8 %476 to i32
@@ -23513,8 +23513,8 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %480
 
 480:                                              ; preds = %474, %._crit_edge.i245.i
-  %.5187.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.4186.i.i, %474 ]
-  %.2.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %479, %474 ]
+  %.5187.i.i = phi i32 [ %.4186.i.i, %474 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.2.i.i = phi i32 [ %479, %474 ], [ 0, %._crit_edge.i245.i ]
   %481 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %482 = load i8, ptr %481, align 1, !tbaa !15
   %483 = zext i8 %482 to i32
@@ -23528,8 +23528,8 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %491
 
 491:                                              ; preds = %480, %._crit_edge.i245.i
-  %.6188.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.5187.i.i, %480 ]
-  %.2178.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %490, %480 ]
+  %.6188.i.i = phi i32 [ %.5187.i.i, %480 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.2178.i.i = phi i32 [ %490, %480 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
   %492 = getelementptr inbounds nuw i8, ptr %388, i64 7
   %493 = load i8, ptr %492, align 1, !tbaa !15
   %494 = zext i8 %493 to i32
@@ -23537,9 +23537,9 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %496
 
 496:                                              ; preds = %491, %._crit_edge.i245.i
-  %.7189.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.6188.i.i, %491 ]
-  %.3179.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.2178.i.i, %491 ]
-  %.0165.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %495, %491 ]
+  %.7189.i.i = phi i32 [ %.6188.i.i, %491 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.3179.i.i = phi i32 [ %.2178.i.i, %491 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.0165.i.i = phi i32 [ %495, %491 ], [ 0, %._crit_edge.i245.i ]
   %497 = getelementptr inbounds nuw i8, ptr %388, i64 6
   %498 = load i8, ptr %497, align 1, !tbaa !15
   %499 = zext i8 %498 to i32
@@ -23548,9 +23548,9 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %502
 
 502:                                              ; preds = %496, %._crit_edge.i245.i
-  %.8190.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.7189.i.i, %496 ]
-  %.4180.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.3179.i.i, %496 ]
-  %.1166.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %501, %496 ]
+  %.8190.i.i = phi i32 [ %.7189.i.i, %496 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.4180.i.i = phi i32 [ %.3179.i.i, %496 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1166.i.i = phi i32 [ %501, %496 ], [ 0, %._crit_edge.i245.i ]
   %503 = getelementptr inbounds nuw i8, ptr %388, i64 5
   %504 = load i8, ptr %503, align 1, !tbaa !15
   %505 = zext i8 %504 to i32
@@ -23559,9 +23559,9 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %508
 
 508:                                              ; preds = %502, %._crit_edge.i245.i
-  %.9191.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.8190.i.i, %502 ]
-  %.5181.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.4180.i.i, %502 ]
-  %.2167.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %507, %502 ]
+  %.9191.i.i = phi i32 [ %.8190.i.i, %502 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.5181.i.i = phi i32 [ %.4180.i.i, %502 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.2167.i.i = phi i32 [ %507, %502 ], [ 0, %._crit_edge.i245.i ]
   %509 = getelementptr inbounds nuw i8, ptr %388, i64 4
   %510 = load i8, ptr %509, align 1, !tbaa !15
   %511 = zext i8 %510 to i32
@@ -23575,9 +23575,9 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %519
 
 519:                                              ; preds = %508, %._crit_edge.i245.i
-  %.10.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.9191.i.i, %508 ]
-  %.6.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.5181.i.i, %508 ]
-  %.2175.i.i = phi i32 [ %.0173.lcssa.i.i, %._crit_edge.i245.i ], [ %518, %508 ]
+  %.10.i.i = phi i32 [ %.9191.i.i, %508 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.6.i.i = phi i32 [ %.5181.i.i, %508 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.2175.i.i = phi i32 [ %518, %508 ], [ %.0173.lcssa.i.i, %._crit_edge.i245.i ]
   %520 = getelementptr inbounds nuw i8, ptr %388, i64 3
   %521 = load i8, ptr %520, align 1, !tbaa !15
   %522 = zext i8 %521 to i32
@@ -23585,10 +23585,10 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %524
 
 524:                                              ; preds = %519, %._crit_edge.i245.i
-  %.11.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.10.i.i, %519 ]
-  %.7.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.6.i.i, %519 ]
-  %.3.i.i = phi i32 [ %.0173.lcssa.i.i, %._crit_edge.i245.i ], [ %.2175.i.i, %519 ]
-  %.0168.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %523, %519 ]
+  %.11.i.i = phi i32 [ %.10.i.i, %519 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.7.i.i = phi i32 [ %.6.i.i, %519 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.3.i.i = phi i32 [ %.2175.i.i, %519 ], [ %.0173.lcssa.i.i, %._crit_edge.i245.i ]
+  %.0168.i.i = phi i32 [ %523, %519 ], [ 0, %._crit_edge.i245.i ]
   %525 = getelementptr inbounds nuw i8, ptr %388, i64 2
   %526 = load i8, ptr %525, align 1, !tbaa !15
   %527 = zext i8 %526 to i32
@@ -23597,10 +23597,10 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %530
 
 530:                                              ; preds = %524, %._crit_edge.i245.i
-  %.12.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.11.i.i, %524 ]
-  %.8.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.7.i.i, %524 ]
-  %.4.i.i = phi i32 [ %.0173.lcssa.i.i, %._crit_edge.i245.i ], [ %.3.i.i, %524 ]
-  %.1169.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %529, %524 ]
+  %.12.i.i = phi i32 [ %.11.i.i, %524 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.8.i.i = phi i32 [ %.7.i.i, %524 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.4.i.i = phi i32 [ %.3.i.i, %524 ], [ %.0173.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1169.i.i = phi i32 [ %529, %524 ], [ 0, %._crit_edge.i245.i ]
   %531 = getelementptr inbounds nuw i8, ptr %388, i64 1
   %532 = load i8, ptr %531, align 1, !tbaa !15
   %533 = zext i8 %532 to i32
@@ -23609,10 +23609,10 @@ fixed2float.exit.i:                               ; preds = %._crit_edge88.i.i, 
   br label %536
 
 536:                                              ; preds = %530, %._crit_edge.i245.i
-  %.13.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.12.i.i, %530 ]
-  %.9.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.8.i.i, %530 ]
-  %.5.i.i = phi i32 [ %.0173.lcssa.i.i, %._crit_edge.i245.i ], [ %.4.i.i, %530 ]
-  %.2170.i.i = phi i32 [ 0, %._crit_edge.i245.i ], [ %535, %530 ]
+  %.13.i.i = phi i32 [ %.12.i.i, %530 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.9.i.i = phi i32 [ %.8.i.i, %530 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.5.i.i = phi i32 [ %.4.i.i, %530 ], [ %.0173.lcssa.i.i, %._crit_edge.i245.i ]
+  %.2170.i.i = phi i32 [ %535, %530 ], [ 0, %._crit_edge.i245.i ]
   %537 = load i8, ptr %388, align 1, !tbaa !15
   %538 = zext i8 %537 to i32
   %539 = xor i32 %.2170.i.i, %538
@@ -23628,10 +23628,10 @@ default.unreachable:                              ; preds = %._crit_edge.i245.i
   unreachable
 
 murmur_hash_3_128.exit.i:                         ; preds = %536, %._crit_edge.i245.i
-  %.1183.i.i = phi i32 [ %.0182.lcssa.i.i, %._crit_edge.i245.i ], [ %.13.i.i, %536 ]
-  %.1177.i.i = phi i32 [ %.0176.lcssa.i.i, %._crit_edge.i245.i ], [ %.9.i.i, %536 ]
-  %.1174.i.i = phi i32 [ %.0173.lcssa.i.i, %._crit_edge.i245.i ], [ %.5.i.i, %536 ]
-  %.1172.i.i = phi i32 [ %.0171.lcssa.i.i, %._crit_edge.i245.i ], [ %545, %536 ]
+  %.1183.i.i = phi i32 [ %.13.i.i, %536 ], [ %.0182.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1177.i.i = phi i32 [ %.9.i.i, %536 ], [ %.0176.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1174.i.i = phi i32 [ %.5.i.i, %536 ], [ %.0173.lcssa.i.i, %._crit_edge.i245.i ]
+  %.1172.i.i = phi i32 [ %545, %536 ], [ %.0171.lcssa.i.i, %._crit_edge.i245.i ]
   %546 = xor i32 %.1172.i.i, %384
   %547 = xor i32 %.1174.i.i, %384
   %548 = xor i32 %.1177.i.i, %384
@@ -24542,8 +24542,8 @@ tt_face_load_bdf_props.exit:                      ; preds = %._crit_edge.i
   %.not100 = icmp eq i32 %207, 0
   br i1 %.not100, label %tt_face_load_bdf_props.exit.thread, label %141, !llvm.loop !770
 
-tt_face_load_bdf_props.exit.thread:               ; preds = %22, %135, %.thread, %.preheader, %200, %202, %204, %10, %tt_face_goto_table.exit.i, %30, %select.unfold.i, %99, %102
-  %.0 = phi i32 [ 6, %102 ], [ 6, %99 ], [ 8, %select.unfold.i ], [ 8, %30 ], [ 8, %tt_face_goto_table.exit.i ], [ 8, %10 ], [ 0, %204 ], [ 0, %202 ], [ 0, %200 ], [ 6, %.preheader ], [ 6, %.thread ], [ 6, %135 ], [ 8, %22 ]
+tt_face_load_bdf_props.exit.thread:               ; preds = %22, %135, %.thread, %.preheader, %204, %202, %200, %10, %tt_face_goto_table.exit.i, %30, %select.unfold.i, %99, %102
+  %.0 = phi i32 [ 6, %102 ], [ 6, %99 ], [ 8, %select.unfold.i ], [ 8, %30 ], [ 8, %tt_face_goto_table.exit.i ], [ 8, %10 ], [ 0, %200 ], [ 0, %202 ], [ 0, %204 ], [ 6, %.preheader ], [ 6, %.thread ], [ 6, %135 ], [ 8, %22 ]
   ret i32 %.0
 }
 

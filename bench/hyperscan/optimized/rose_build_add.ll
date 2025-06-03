@@ -2887,7 +2887,7 @@ define internal fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS
   br label %104
 
 104:                                              ; preds = %102, %._crit_edge.i.i.i.i.i
-  %.sroa.044.1.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %103, %102 ]
+  %.sroa.044.1.i.i.i.i.i = phi ptr [ %103, %102 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.copyload.i28.i.i.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i.i.i, align 8
   %105 = getelementptr i8, ptr %.sroa.0.0.copyload.i28.i.i.i.i.i, i64 16
   %.sroa.0.0.copyload.val.i29.i.i.i.i.i = load i32, ptr %105, align 8
@@ -2900,7 +2900,7 @@ define internal fastcc void @_ZN3ue2L17populateRoseGraphEPNS_13RoseBuildImplERNS
   br label %109
 
 109:                                              ; preds = %107, %._crit_edge.i.i.i.i.i
-  %.sroa.044.2.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %108, %107 ]
+  %.sroa.044.2.i.i.i.i.i = phi ptr [ %108, %107 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.copyload.i31.i.i.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i.i.i, align 8
   %110 = getelementptr i8, ptr %.sroa.0.0.copyload.i31.i.i.i.i.i, i64 16
   %.sroa.0.0.copyload.val.i32.i.i.i.i.i = load i32, ptr %110, align 8

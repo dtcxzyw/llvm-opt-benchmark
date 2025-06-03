@@ -1223,7 +1223,7 @@ _codecs_encode_impl.exit:                         ; preds = %36, %51, %.thread68
   br label %55
 
 55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_encode_impl.exit, %14, %43
-  %.039 = phi ptr [ %54, %_codecs_encode_impl.exit ], [ null, %43 ], [ null, %49 ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
+  %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_encode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   ret ptr %.039
 }
@@ -1356,7 +1356,7 @@ _codecs_decode_impl.exit:                         ; preds = %36, %51, %.thread68
   br label %55
 
 55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_decode_impl.exit, %14, %43
-  %.039 = phi ptr [ %54, %_codecs_decode_impl.exit ], [ null, %43 ], [ null, %49 ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
+  %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_decode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   ret ptr %.039
 }

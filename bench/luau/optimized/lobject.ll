@@ -117,7 +117,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_
   br label %_Z10luai_veceqPKfS0_.exit
 
 _Z10luai_veceqPKfS0_.exit:                        ; preds = %22, %16, %12, %32, %36, %7, %2, %42, %28, %8
-  %.0.shrunk = phi i1 [ %45, %42 ], [ %31, %28 ], [ %11, %8 ], [ false, %2 ], [ true, %7 ], [ false, %32 ], [ %41, %36 ], [ false, %16 ], [ false, %12 ], [ %27, %22 ]
+  %.0.shrunk = phi i1 [ %45, %42 ], [ %11, %8 ], [ %31, %28 ], [ false, %2 ], [ true, %7 ], [ false, %32 ], [ %41, %36 ], [ false, %16 ], [ false, %12 ], [ %27, %22 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -196,7 +196,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TV
   br label %_Z10luai_veceqPKfS0_.exit
 
 _Z10luai_veceqPKfS0_.exit:                        ; preds = %23, %17, %13, %33, %37, %8, %2, %43, %29, %9
-  %.0.shrunk = phi i1 [ %46, %43 ], [ %32, %29 ], [ %12, %9 ], [ false, %2 ], [ true, %8 ], [ false, %33 ], [ %42, %37 ], [ false, %17 ], [ false, %13 ], [ %28, %23 ]
+  %.0.shrunk = phi i1 [ %46, %43 ], [ %12, %9 ], [ %32, %29 ], [ false, %2 ], [ true, %8 ], [ false, %33 ], [ %42, %37 ], [ false, %17 ], [ false, %13 ], [ %28, %23 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

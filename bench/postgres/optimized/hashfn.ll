@@ -90,7 +90,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %43, %._crit_edge224
-  %.2 = phi i32 [ %.0181.lcssa, %._crit_edge224 ], [ %48, %43 ]
+  %.2 = phi i32 [ %48, %43 ], [ %.0181.lcssa, %._crit_edge224 ]
   %50 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 9
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
@@ -99,7 +99,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %49, %._crit_edge224
-  %.3 = phi i32 [ %.0181.lcssa, %._crit_edge224 ], [ %54, %49 ]
+  %.3 = phi i32 [ %54, %49 ], [ %.0181.lcssa, %._crit_edge224 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
@@ -108,7 +108,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %61
 
 61:                                               ; preds = %55, %._crit_edge224
-  %.4 = phi i32 [ %.0181.lcssa, %._crit_edge224 ], [ %60, %55 ]
+  %.4 = phi i32 [ %60, %55 ], [ %.0181.lcssa, %._crit_edge224 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, %.0183.lcssa
@@ -125,7 +125,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge224
-  %.2185 = phi i32 [ %.0183.lcssa, %._crit_edge224 ], [ %72, %67 ]
+  %.2185 = phi i32 [ %72, %67 ], [ %.0183.lcssa, %._crit_edge224 ]
   %74 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 5
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
@@ -134,7 +134,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge224
-  %.3186 = phi i32 [ %.0183.lcssa, %._crit_edge224 ], [ %78, %73 ]
+  %.3186 = phi i32 [ %78, %73 ], [ %.0183.lcssa, %._crit_edge224 ]
   %80 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
@@ -142,7 +142,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %84
 
 84:                                               ; preds = %79, %._crit_edge224
-  %.4187 = phi i32 [ %.0183.lcssa, %._crit_edge224 ], [ %83, %79 ]
+  %.4187 = phi i32 [ %83, %79 ], [ %.0183.lcssa, %._crit_edge224 ]
   %85 = load i32, ptr %.0.lcssa, align 4
   %86 = add i32 %85, %.0197.lcssa
   br label %201
@@ -156,7 +156,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %93
 
 93:                                               ; preds = %87, %._crit_edge224
-  %.2199 = phi i32 [ %.0197.lcssa, %._crit_edge224 ], [ %92, %87 ]
+  %.2199 = phi i32 [ %92, %87 ], [ %.0197.lcssa, %._crit_edge224 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
@@ -165,7 +165,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %99
 
 99:                                               ; preds = %93, %._crit_edge224
-  %.3200 = phi i32 [ %.0197.lcssa, %._crit_edge224 ], [ %98, %93 ]
+  %.3200 = phi i32 [ %98, %93 ], [ %.0197.lcssa, %._crit_edge224 ]
   %100 = load i8, ptr %.0.lcssa, align 1
   %101 = zext i8 %100 to i32
   %102 = add i32 %.3200, %101
@@ -243,7 +243,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %144
 
 144:                                              ; preds = %138, %._crit_edge
-  %.7 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %143, %138 ]
+  %.7 = phi i32 [ %143, %138 ], [ %.6.lcssa, %._crit_edge ]
   %145 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 9
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
@@ -252,7 +252,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %150
 
 150:                                              ; preds = %144, %._crit_edge
-  %.8 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %149, %144 ]
+  %.8 = phi i32 [ %149, %144 ], [ %.6.lcssa, %._crit_edge ]
   %151 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 8
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
@@ -261,7 +261,7 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %156
 
 156:                                              ; preds = %150, %._crit_edge
-  %.9 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %155, %150 ]
+  %.9 = phi i32 [ %155, %150 ], [ %.6.lcssa, %._crit_edge ]
   %157 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 7
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
@@ -270,8 +270,8 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %162
 
 162:                                              ; preds = %156, %._crit_edge
-  %.7190 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %161, %156 ]
-  %.10 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.9, %156 ]
+  %.7190 = phi i32 [ %161, %156 ], [ %.6189.lcssa, %._crit_edge ]
+  %.10 = phi i32 [ %.9, %156 ], [ %.6.lcssa, %._crit_edge ]
   %163 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 6
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
@@ -280,8 +280,8 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %168
 
 168:                                              ; preds = %162, %._crit_edge
-  %.8191 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %167, %162 ]
-  %.11 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.10, %162 ]
+  %.8191 = phi i32 [ %167, %162 ], [ %.6189.lcssa, %._crit_edge ]
+  %.11 = phi i32 [ %.10, %162 ], [ %.6.lcssa, %._crit_edge ]
   %169 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 5
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
@@ -290,8 +290,8 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %174
 
 174:                                              ; preds = %168, %._crit_edge
-  %.9192 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %173, %168 ]
-  %.12 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.11, %168 ]
+  %.9192 = phi i32 [ %173, %168 ], [ %.6189.lcssa, %._crit_edge ]
+  %.12 = phi i32 [ %.11, %168 ], [ %.6.lcssa, %._crit_edge ]
   %175 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 4
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
@@ -299,8 +299,8 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %179
 
 179:                                              ; preds = %174, %._crit_edge
-  %.10193 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %178, %174 ]
-  %.13 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.12, %174 ]
+  %.10193 = phi i32 [ %178, %174 ], [ %.6189.lcssa, %._crit_edge ]
+  %.13 = phi i32 [ %.12, %174 ], [ %.6.lcssa, %._crit_edge ]
   %180 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 3
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
@@ -309,9 +309,9 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %185
 
 185:                                              ; preds = %179, %._crit_edge
-  %.6203 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %184, %179 ]
-  %.11194 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.10193, %179 ]
-  %.14 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.13, %179 ]
+  %.6203 = phi i32 [ %184, %179 ], [ %.5202.lcssa, %._crit_edge ]
+  %.11194 = phi i32 [ %.10193, %179 ], [ %.6189.lcssa, %._crit_edge ]
+  %.14 = phi i32 [ %.13, %179 ], [ %.6.lcssa, %._crit_edge ]
   %186 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 2
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
@@ -320,9 +320,9 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %191
 
 191:                                              ; preds = %185, %._crit_edge
-  %.7204 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %190, %185 ]
-  %.12195 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.11194, %185 ]
-  %.15 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.14, %185 ]
+  %.7204 = phi i32 [ %190, %185 ], [ %.5202.lcssa, %._crit_edge ]
+  %.12195 = phi i32 [ %.11194, %185 ], [ %.6189.lcssa, %._crit_edge ]
+  %.15 = phi i32 [ %.14, %185 ], [ %.6.lcssa, %._crit_edge ]
   %192 = getelementptr inbounds nuw i8, ptr %.0206.lcssa, i64 1
   %193 = load i8, ptr %192, align 1
   %194 = zext i8 %193 to i32
@@ -331,18 +331,18 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %197
 
 197:                                              ; preds = %191, %._crit_edge
-  %.8205 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %196, %191 ]
-  %.13196 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.12195, %191 ]
-  %.16 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.15, %191 ]
+  %.8205 = phi i32 [ %196, %191 ], [ %.5202.lcssa, %._crit_edge ]
+  %.13196 = phi i32 [ %.12195, %191 ], [ %.6189.lcssa, %._crit_edge ]
+  %.16 = phi i32 [ %.15, %191 ], [ %.6.lcssa, %._crit_edge ]
   %198 = load i8, ptr %.0206.lcssa, align 1
   %199 = zext i8 %198 to i32
   %200 = add i32 %.8205, %199
   br label %201
 
 201:                                              ; preds = %._crit_edge224, %61, %84, %99, %._crit_edge, %197
-  %.4201 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %200, %197 ], [ %.0197.lcssa, %._crit_edge224 ], [ %102, %99 ], [ %86, %84 ], [ %66, %61 ]
-  %.5188 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.13196, %197 ], [ %.0183.lcssa, %._crit_edge224 ], [ %.0183.lcssa, %99 ], [ %.4187, %84 ], [ %64, %61 ]
-  %.5 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.16, %197 ], [ %.0181.lcssa, %._crit_edge224 ], [ %.0181.lcssa, %99 ], [ %.0181.lcssa, %84 ], [ %.4, %61 ]
+  %.4201 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %200, %197 ], [ %.0197.lcssa, %._crit_edge224 ], [ %66, %61 ], [ %86, %84 ], [ %102, %99 ]
+  %.5188 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.13196, %197 ], [ %.0183.lcssa, %._crit_edge224 ], [ %64, %61 ], [ %.4187, %84 ], [ %.0183.lcssa, %99 ]
+  %.5 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.16, %197 ], [ %.0181.lcssa, %._crit_edge224 ], [ %.4, %61 ], [ %.0181.lcssa, %84 ], [ %.0181.lcssa, %99 ]
   %202 = xor i32 %.5, %.5188
   %203 = tail call noundef i32 @llvm.fshl.i32(i32 %.5188, i32 %.5188, i32 14)
   %204 = sub i32 %202, %203
@@ -491,7 +491,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge269
-  %.3 = phi i32 [ %.1224.lcssa, %._crit_edge269 ], [ %78, %73 ]
+  %.3 = phi i32 [ %78, %73 ], [ %.1224.lcssa, %._crit_edge269 ]
   %80 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 9
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
@@ -500,7 +500,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge269
-  %.4 = phi i32 [ %.1224.lcssa, %._crit_edge269 ], [ %84, %79 ]
+  %.4 = phi i32 [ %84, %79 ], [ %.1224.lcssa, %._crit_edge269 ]
   %86 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
@@ -509,7 +509,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %91
 
 91:                                               ; preds = %85, %._crit_edge269
-  %.5 = phi i32 [ %.1224.lcssa, %._crit_edge269 ], [ %90, %85 ]
+  %.5 = phi i32 [ %90, %85 ], [ %.1224.lcssa, %._crit_edge269 ]
   %92 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, %.1226.lcssa
@@ -526,7 +526,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %103
 
 103:                                              ; preds = %97, %._crit_edge269
-  %.3228 = phi i32 [ %.1226.lcssa, %._crit_edge269 ], [ %102, %97 ]
+  %.3228 = phi i32 [ %102, %97 ], [ %.1226.lcssa, %._crit_edge269 ]
   %104 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 5
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
@@ -535,7 +535,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %109
 
 109:                                              ; preds = %103, %._crit_edge269
-  %.4229 = phi i32 [ %.1226.lcssa, %._crit_edge269 ], [ %108, %103 ]
+  %.4229 = phi i32 [ %108, %103 ], [ %.1226.lcssa, %._crit_edge269 ]
   %110 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
@@ -543,7 +543,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %114
 
 114:                                              ; preds = %109, %._crit_edge269
-  %.5230 = phi i32 [ %.1226.lcssa, %._crit_edge269 ], [ %113, %109 ]
+  %.5230 = phi i32 [ %113, %109 ], [ %.1226.lcssa, %._crit_edge269 ]
   %115 = load i32, ptr %.0.lcssa, align 4
   %116 = add i32 %115, %.1241.lcssa
   br label %231
@@ -557,7 +557,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %123
 
 123:                                              ; preds = %117, %._crit_edge269
-  %.3243 = phi i32 [ %.1241.lcssa, %._crit_edge269 ], [ %122, %117 ]
+  %.3243 = phi i32 [ %122, %117 ], [ %.1241.lcssa, %._crit_edge269 ]
   %124 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
@@ -566,7 +566,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %129
 
 129:                                              ; preds = %123, %._crit_edge269
-  %.4244 = phi i32 [ %.1241.lcssa, %._crit_edge269 ], [ %128, %123 ]
+  %.4244 = phi i32 [ %128, %123 ], [ %.1241.lcssa, %._crit_edge269 ]
   %130 = load i8, ptr %.0.lcssa, align 1
   %131 = zext i8 %130 to i32
   %132 = add i32 %.4244, %131
@@ -644,7 +644,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %174
 
 174:                                              ; preds = %168, %._crit_edge
-  %.8 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %173, %168 ]
+  %.8 = phi i32 [ %173, %168 ], [ %.7.lcssa, %._crit_edge ]
   %175 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 9
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
@@ -653,7 +653,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %180
 
 180:                                              ; preds = %174, %._crit_edge
-  %.9 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %179, %174 ]
+  %.9 = phi i32 [ %179, %174 ], [ %.7.lcssa, %._crit_edge ]
   %181 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 8
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
@@ -662,7 +662,7 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %186
 
 186:                                              ; preds = %180, %._crit_edge
-  %.10 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %185, %180 ]
+  %.10 = phi i32 [ %185, %180 ], [ %.7.lcssa, %._crit_edge ]
   %187 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 7
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
@@ -671,8 +671,8 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %192
 
 192:                                              ; preds = %186, %._crit_edge
-  %.8233 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %191, %186 ]
-  %.11 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.10, %186 ]
+  %.8233 = phi i32 [ %191, %186 ], [ %.7232.lcssa, %._crit_edge ]
+  %.11 = phi i32 [ %.10, %186 ], [ %.7.lcssa, %._crit_edge ]
   %193 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 6
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
@@ -681,8 +681,8 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %198
 
 198:                                              ; preds = %192, %._crit_edge
-  %.9234 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %197, %192 ]
-  %.12 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.11, %192 ]
+  %.9234 = phi i32 [ %197, %192 ], [ %.7232.lcssa, %._crit_edge ]
+  %.12 = phi i32 [ %.11, %192 ], [ %.7.lcssa, %._crit_edge ]
   %199 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 5
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
@@ -691,8 +691,8 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %204
 
 204:                                              ; preds = %198, %._crit_edge
-  %.10235 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %203, %198 ]
-  %.13 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.12, %198 ]
+  %.10235 = phi i32 [ %203, %198 ], [ %.7232.lcssa, %._crit_edge ]
+  %.13 = phi i32 [ %.12, %198 ], [ %.7.lcssa, %._crit_edge ]
   %205 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 4
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
@@ -700,8 +700,8 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %209
 
 209:                                              ; preds = %204, %._crit_edge
-  %.11236 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %208, %204 ]
-  %.14 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.13, %204 ]
+  %.11236 = phi i32 [ %208, %204 ], [ %.7232.lcssa, %._crit_edge ]
+  %.14 = phi i32 [ %.13, %204 ], [ %.7.lcssa, %._crit_edge ]
   %210 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 3
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
@@ -710,9 +710,9 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %215
 
 215:                                              ; preds = %209, %._crit_edge
-  %.7247 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %214, %209 ]
-  %.12237 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.11236, %209 ]
-  %.15 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.14, %209 ]
+  %.7247 = phi i32 [ %214, %209 ], [ %.6246.lcssa, %._crit_edge ]
+  %.12237 = phi i32 [ %.11236, %209 ], [ %.7232.lcssa, %._crit_edge ]
+  %.15 = phi i32 [ %.14, %209 ], [ %.7.lcssa, %._crit_edge ]
   %216 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
@@ -721,9 +721,9 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %221
 
 221:                                              ; preds = %215, %._crit_edge
-  %.8248 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %220, %215 ]
-  %.13238 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.12237, %215 ]
-  %.16 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.15, %215 ]
+  %.8248 = phi i32 [ %220, %215 ], [ %.6246.lcssa, %._crit_edge ]
+  %.13238 = phi i32 [ %.12237, %215 ], [ %.7232.lcssa, %._crit_edge ]
+  %.16 = phi i32 [ %.15, %215 ], [ %.7.lcssa, %._crit_edge ]
   %222 = getelementptr inbounds nuw i8, ptr %.0250.lcssa, i64 1
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
@@ -732,18 +732,18 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %227
 
 227:                                              ; preds = %221, %._crit_edge
-  %.9249 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %226, %221 ]
-  %.14239 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.13238, %221 ]
-  %.17 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.16, %221 ]
+  %.9249 = phi i32 [ %226, %221 ], [ %.6246.lcssa, %._crit_edge ]
+  %.14239 = phi i32 [ %.13238, %221 ], [ %.7232.lcssa, %._crit_edge ]
+  %.17 = phi i32 [ %.16, %221 ], [ %.7.lcssa, %._crit_edge ]
   %228 = load i8, ptr %.0250.lcssa, align 1
   %229 = zext i8 %228 to i32
   %230 = add i32 %.9249, %229
   br label %231
 
 231:                                              ; preds = %._crit_edge269, %91, %114, %129, %._crit_edge, %227
-  %.5245 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %230, %227 ], [ %.1241.lcssa, %._crit_edge269 ], [ %132, %129 ], [ %116, %114 ], [ %96, %91 ]
-  %.6231 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.14239, %227 ], [ %.1226.lcssa, %._crit_edge269 ], [ %.1226.lcssa, %129 ], [ %.5230, %114 ], [ %94, %91 ]
-  %.6 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.17, %227 ], [ %.1224.lcssa, %._crit_edge269 ], [ %.1224.lcssa, %129 ], [ %.1224.lcssa, %114 ], [ %.5, %91 ]
+  %.5245 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %230, %227 ], [ %.1241.lcssa, %._crit_edge269 ], [ %96, %91 ], [ %116, %114 ], [ %132, %129 ]
+  %.6231 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.14239, %227 ], [ %.1226.lcssa, %._crit_edge269 ], [ %94, %91 ], [ %.5230, %114 ], [ %.1226.lcssa, %129 ]
+  %.6 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.17, %227 ], [ %.1224.lcssa, %._crit_edge269 ], [ %.5, %91 ], [ %.1224.lcssa, %114 ], [ %.1224.lcssa, %129 ]
   %232 = xor i32 %.6, %.6231
   %233 = tail call noundef i32 @llvm.fshl.i32(i32 %.6231, i32 %.6231, i32 14)
   %234 = sub i32 %232, %233

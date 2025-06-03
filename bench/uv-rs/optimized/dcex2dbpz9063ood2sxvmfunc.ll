@@ -201,7 +201,7 @@ switch.lookup:                                    ; preds = %1
   br label %18
 
 18:                                               ; preds = %switch.lookup, %13, %10, %6
-  %.sroa.0.0 = phi i8 [ %17, %13 ], [ %12, %10 ], [ %9, %6 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %17, %13 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -354,7 +354,7 @@ define hidden noundef range(i8 0, 42) i8 @_ZN3std3sys3pal4unix17decode_error_kin
   br label %37
 
 37:                                               ; preds = %1, %39, %38, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 13, %39 ], [ 1, %36 ], [ 39, %35 ], [ 31, %34 ], [ 29, %33 ], [ 22, %32 ], [ 19, %31 ], [ 25, %30 ], [ 17, %29 ], [ 11, %28 ], [ 16, %27 ], [ 14, %26 ], [ 7, %25 ], [ 5, %24 ], [ 10, %23 ], [ 33, %22 ], [ 32, %21 ], [ 36, %20 ], [ 24, %19 ], [ 38, %18 ], [ 0, %17 ], [ 18, %16 ], [ 15, %15 ], [ 20, %14 ], [ 35, %13 ], [ 4, %12 ], [ 27, %11 ], [ 12, %10 ], [ 26, %9 ], [ 30, %8 ], [ 3, %7 ], [ 2, %6 ], [ 6, %5 ], [ 28, %4 ], [ 9, %3 ], [ 8, %2 ], [ 34, %1 ]
+  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 39, %35 ], [ 1, %36 ], [ 13, %39 ], [ 34, %1 ]
   ret i8 %.sroa.0.0
 
 38:                                               ; preds = %1
@@ -412,7 +412,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN58_$LT$uv_git..git..GitError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b085ba6a8cfe787E.llvm.8523920468416357378.exit"
 
 "_ZN58_$LT$uv_git..git..GitError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b085ba6a8cfe787E.llvm.8523920468416357378.exit": ; preds = %9, %11, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -528,7 +528,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..fmt..Display$GT$3fmt17h2443cb6ce8c09aa0E.exit"
 
 "_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..fmt..Display$GT$3fmt17h2443cb6ce8c09aa0E.exit": ; preds = %8, %10, %12
-  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -607,7 +607,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br label %"_ZN66_$LT$uv_git..git..ReferenceOrOid$u20$as$u20$core..fmt..Display$GT$3fmt17h2a42c21f106d722cE.exit"
 
 "_ZN66_$LT$uv_git..git..ReferenceOrOid$u20$as$u20$core..fmt..Display$GT$3fmt17h2a42c21f106d722cE.exit": ; preds = %12, %18
-  %.sroa.0.0.in.i = phi i1 [ %23, %18 ], [ %17, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %12 ], [ %23, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1976,7 +1976,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$reqwest_middleware..error..Error$u2
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -3152,7 +3152,7 @@ switch.lookup:                                    ; preds = %4
   br label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.8523920468416357378.exit
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.8523920468416357378.exit: ; preds = %switch.lookup, %18, %15, %11
-  %.sroa.0.0.i = phi i8 [ %22, %18 ], [ %17, %15 ], [ %14, %11 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0.i = phi i8 [ %14, %11 ], [ %17, %15 ], [ %22, %18 ], [ %switch.idx.cast, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
@@ -4171,7 +4171,7 @@ common.resume:                                    ; preds = %.body, %124, %100
   ret i1 %.sroa.0.2
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit.thread": ; preds = %32, %18, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit", %.critedge38, %.critedge37
-  %.sroa.0.0 = phi i1 [ false, %.critedge37 ], [ false, %.critedge38 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit" ], [ true, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit" ], [ false, %18 ], [ true, %32 ]
+  %.sroa.0.0 = phi i1 [ false, %.critedge38 ], [ false, %.critedge37 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit" ], [ true, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit" ], [ false, %18 ], [ true, %32 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !376
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17he1fc73fa8dd266d6E.llvm.9957446542690546543"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %20, i64 noundef 1, i64 noundef 1)
           to label %.noexc.i21 unwind label %112
@@ -4329,7 +4329,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$uv_git..git..GitError$u20$as$u20$co
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4383,8 +4383,8 @@ default.unreachable1:                             ; preds = %1
   br label %"_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.llvm.8523920468416357378.exit"
 
 "_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.llvm.8523920468416357378.exit": ; preds = %19, %13, %1, %22, %8, %3
-  %.sroa.6.0 = phi ptr [ %26, %22 ], [ %12, %8 ], [ %7, %3 ], [ undef, %1 ], [ %21, %19 ], [ undef, %13 ]
-  %.sroa.0.0 = phi ptr [ %25, %22 ], [ %11, %8 ], [ %6, %3 ], [ null, %1 ], [ %17, %19 ], [ null, %13 ]
+  %.sroa.6.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ %26, %22 ], [ undef, %1 ], [ %21, %19 ], [ undef, %13 ]
+  %.sroa.0.0 = phi ptr [ %6, %3 ], [ %11, %8 ], [ %25, %22 ], [ null, %1 ], [ %17, %19 ], [ null, %13 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.6.0, 1
   ret { ptr, ptr } %28
@@ -4429,7 +4429,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %15, %12, %10, %7, %4
-  %.sroa.0.0.in = phi i1 [ %17, %15 ], [ %14, %12 ], [ %11, %10 ], [ %9, %7 ], [ %6, %4 ]
+  %.sroa.0.0.in = phi i1 [ %6, %4 ], [ %9, %7 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in
 }
 

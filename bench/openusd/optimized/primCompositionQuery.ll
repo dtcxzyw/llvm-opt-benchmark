@@ -5870,7 +5870,7 @@ _ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryA
   br label %203
 
 203:                                              ; preds = %201, %._crit_edge.i.i.i.i
-  %.sroa.037.1.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %202, %201 ]
+  %.sroa.037.1.i.i.i.i = phi ptr [ %202, %201 ], [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.037.1.i.i.i.i, i64 16
   %205 = load ptr, ptr %204, align 8
   %.not.i.i.i.i30.i.i.i.i = icmp eq ptr %205, null
@@ -5890,7 +5890,7 @@ _ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryA
   br label %211
 
 211:                                              ; preds = %209, %._crit_edge.i.i.i.i
-  %.sroa.037.2.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %210, %209 ]
+  %.sroa.037.2.i.i.i.i = phi ptr [ %210, %209 ], [ %.sroa.037.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.037.2.i.i.i.i, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not.i.i.i.i32.i.i.i.i = icmp eq ptr %213, null
@@ -6201,7 +6201,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_Tes
   br label %14
 
 14:                                               ; preds = %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ -5, %13 ], [ -67, %12 ], [ -49, %11 ], [ 66, %10 ], [ 48, %9 ], [ 4, %8 ], [ 64, %7 ], [ 2, %6 ], [ 32, %5 ], [ 16, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ 16, %4 ], [ 32, %5 ], [ 2, %6 ], [ 64, %7 ], [ 4, %8 ], [ 48, %9 ], [ 66, %10 ], [ -49, %11 ], [ -67, %12 ], [ -5, %13 ]
   %15 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %16 = shl nuw i32 1, %15
   %17 = and i32 %16, %.0
@@ -6232,7 +6232,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L19_Tes
   br label %10
 
 10:                                               ; preds = %2, %8, %5
-  %.0 = phi i1 [ %9, %8 ], [ %7, %5 ], [ true, %2 ]
+  %.0 = phi i1 [ %7, %5 ], [ %9, %8 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -6255,7 +6255,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L18_Tes
   br label %10
 
 10:                                               ; preds = %2, %7, %5
-  %.0 = phi i1 [ %9, %7 ], [ %6, %5 ], [ true, %2 ]
+  %.0 = phi i1 [ %6, %5 ], [ %9, %7 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -6278,7 +6278,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_Tes
   br label %10
 
 10:                                               ; preds = %2, %7, %5
-  %.0 = phi i1 [ %9, %7 ], [ %6, %5 ], [ true, %2 ]
+  %.0 = phi i1 [ %6, %5 ], [ %9, %7 ], [ true, %2 ]
   ret i1 %.0
 }
 

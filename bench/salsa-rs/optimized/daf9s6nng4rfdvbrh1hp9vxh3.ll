@@ -315,7 +315,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fd074c202933f80E.exit"
 
 "_ZN60_$LT$salsa..event..EventKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fd074c202933f80E.exit": ; preds = %14, %17, %21, %24, %29, %31, %33, %37, %40, %44, %48
-  %.sroa.0.0.in.i = phi i1 [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %24 ], [ %23, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %20, %17 ], [ %23, %21 ], [ %28, %24 ], [ %30, %29 ], [ %32, %31 ], [ %36, %33 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1615,7 +1615,7 @@ define noundef zeroext i1 @"_ZN66_$LT$salsa..durability..Durability$u20$as$u20$c
   ]
 
 16:                                               ; preds = %21, %19, %17, %9
-  %.sroa.0.0.in = phi i1 [ %13, %9 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.sroa.0.0.in = phi i1 [ %13, %9 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   ret i1 %.sroa.0.0.in
 
 default.unreachable1:                             ; preds = %14

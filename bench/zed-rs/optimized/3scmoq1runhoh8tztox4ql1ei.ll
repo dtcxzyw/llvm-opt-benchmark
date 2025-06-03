@@ -6179,7 +6179,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h054
           to label %"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h6f531d13fe65296fE.llvm.14159560665286966565.exit" unwind label %9
 
 8:                                                ; preds = %18, %24, %9
-  %.pn4 = phi { ptr, i32 } [ %10, %9 ], [ %25, %24 ], [ %19, %18 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %10, %9 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hd985977f0f96fd32E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #29
           to label %28 unwind label %26
 
@@ -6249,7 +6249,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h054
   unreachable
 
 28:                                               ; preds = %8
-  resume { ptr, i32 } %.pn4
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

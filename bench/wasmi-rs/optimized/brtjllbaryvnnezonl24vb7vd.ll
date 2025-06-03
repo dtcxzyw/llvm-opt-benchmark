@@ -199,7 +199,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN95_$LT$wasmi..engine..translator..stack..provider..TaggedProvider$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3caf8153c55add2E.exit"
 
 "_ZN95_$LT$wasmi..engine..translator..stack..provider..TaggedProvider$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3caf8153c55add2E.exit": ; preds = %12, %14, %16, %18, %20
-  %.sroa.0.0.in.i = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -235,7 +235,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN78_$LT$wasmi..engine..block_type..BlockTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17h681ec111aa2b4ce1E.exit"
 
 "_ZN78_$LT$wasmi..engine..block_type..BlockTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17h681ec111aa2b4ce1E.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 

@@ -4436,7 +4436,7 @@ select.unfold:                                    ; preds = %"_ZN94_$LT$tokenize
   br label %"_ZN10tokenizers14pre_tokenizers10byte_level15process_offsets28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8f38171148150b19E.exit.i.i.i.i.i.i.i"
 
 "_ZN10tokenizers14pre_tokenizers10byte_level15process_offsets28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8f38171148150b19E.exit.i.i.i.i.i.i.i": ; preds = %159, %154, %151, %148
-  %.0.i.i.i.i.i.i.i.i.i = phi i8 [ %153, %151 ], [ %164, %159 ], [ %150, %148 ], [ %158, %154 ]
+  %.0.i.i.i.i.i.i.i.i.i = phi i8 [ %158, %154 ], [ %150, %148 ], [ %164, %159 ], [ %153, %151 ]
   %165 = trunc i8 %.0.i.i.i.i.i.i.i.i.i to i1
   br i1 %165, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h01c2cefea4331602E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.preheader.i.i.i
 
@@ -4706,7 +4706,7 @@ select.unfold40:                                  ; preds = %"_ZN94_$LT$tokenize
   br label %"_ZN10tokenizers14pre_tokenizers10byte_level15process_offsets28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84ebeb75f3d3651eE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN10tokenizers14pre_tokenizers10byte_level15process_offsets28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84ebeb75f3d3651eE.exit.i.i.i.i.i.i.i.i": ; preds = %288, %283, %280, %277
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %282, %280 ], [ %293, %288 ], [ %279, %277 ], [ %287, %283 ]
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %287, %283 ], [ %279, %277 ], [ %293, %288 ], [ %282, %280 ]
   %294 = trunc i8 %.0.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %294, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5d3240e2334c5693E.exit.i.i.i.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h247453782dc2e405E.exit.i.i.i"
 
@@ -7818,7 +7818,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br label %"_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hef72f9f164f1435fE.exit.i"
 
 "_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hef72f9f164f1435fE.exit.i": ; preds = %64, %59, %56, %53
-  %.0.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.0.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.0.i.i.i to i1
   br i1 %70, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h475e594103819140E.exit", label %73
 
@@ -9674,7 +9674,7 @@ define hidden noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lo
   br label %14
 
 14:                                               ; preds = %1, %16, %9, %6, %3
-  %.0 = phi i8 [ %8, %6 ], [ %21, %16 ], [ %5, %3 ], [ %13, %9 ], [ 0, %1 ]
+  %.0 = phi i8 [ %13, %9 ], [ %5, %3 ], [ %21, %16 ], [ %8, %6 ], [ 0, %1 ]
   %15 = trunc i8 %.0 to i1
   ret i1 %15
 
@@ -12897,7 +12897,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   ]
 
 38:                                               ; preds = %46, %45, %44, %42, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1879d39a9c6c6fe0E.exit.i"
-  %.0155.i.i = phi i64 [ %37, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1879d39a9c6c6fe0E.exit.i" ], [ 12, %46 ], [ 11, %45 ], [ 10, %44 ], [ 8, %42 ]
+  %.0155.i.i = phi i64 [ %37, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1879d39a9c6c6fe0E.exit.i" ], [ 8, %42 ], [ 10, %44 ], [ 11, %45 ], [ 12, %46 ]
   %39 = call i64 @llvm.usub.sat.i64(i64 %2, i64 %.0155.i.i)
   %40 = add i64 %39, -32
   %41 = icmp ult i64 %39, 32
@@ -13946,11 +13946,11 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.thread.i.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.thread.i.i": ; preds = %697, %696, %695, %694, %693, %692, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i"
-  %.0141.ph.lcssa4962435.i.i = phi i8 [ %.0141.ph.lcssa496.i.i, %697 ], [ %.0141.ph.lcssa496.i.i, %696 ], [ %.0141.ph.lcssa496.i.i, %695 ], [ %.0141.ph.lcssa496.i.i, %694 ], [ %.0141.ph.lcssa496.i.i, %693 ], [ %.0141.ph.lcssa496.i.i, %692 ], [ %.0141.ph.lcssa496.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
-  %.0142.ph.lcssa4992434.i.i = phi i64 [ %.0142.ph.lcssa499.i.i, %697 ], [ %.0142.ph.lcssa499.i.i, %696 ], [ %.0142.ph.lcssa499.i.i, %695 ], [ %.0142.ph.lcssa499.i.i, %694 ], [ %.0142.ph.lcssa499.i.i, %693 ], [ %.0142.ph.lcssa499.i.i, %692 ], [ %.0142.ph.lcssa499.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
-  %.0154.ph.lcssa5022433.i.i = phi i64 [ %.0154.ph.lcssa502.i.i, %697 ], [ %.0154.ph.lcssa502.i.i, %696 ], [ %.0154.ph.lcssa502.i.i, %695 ], [ %.0154.ph.lcssa502.i.i, %694 ], [ %.0154.ph.lcssa502.i.i, %693 ], [ %.0154.ph.lcssa502.i.i, %692 ], [ %.0154.ph.lcssa502.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
-  %698 = phi i1 [ true, %697 ], [ true, %696 ], [ true, %695 ], [ true, %694 ], [ true, %693 ], [ true, %692 ], [ false, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
-  %.0143.i.i = phi i64 [ 48, %697 ], [ 40, %696 ], [ 32, %695 ], [ 24, %694 ], [ 16, %693 ], [ 8, %692 ], [ %.0142.ph.lcssa499.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
+  %.0141.ph.lcssa4962435.i.i = phi i8 [ %.0141.ph.lcssa496.i.i, %692 ], [ %.0141.ph.lcssa496.i.i, %693 ], [ %.0141.ph.lcssa496.i.i, %694 ], [ %.0141.ph.lcssa496.i.i, %695 ], [ %.0141.ph.lcssa496.i.i, %696 ], [ %.0141.ph.lcssa496.i.i, %697 ], [ %.0141.ph.lcssa496.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
+  %.0142.ph.lcssa4992434.i.i = phi i64 [ %.0142.ph.lcssa499.i.i, %692 ], [ %.0142.ph.lcssa499.i.i, %693 ], [ %.0142.ph.lcssa499.i.i, %694 ], [ %.0142.ph.lcssa499.i.i, %695 ], [ %.0142.ph.lcssa499.i.i, %696 ], [ %.0142.ph.lcssa499.i.i, %697 ], [ %.0142.ph.lcssa499.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
+  %.0154.ph.lcssa5022433.i.i = phi i64 [ %.0154.ph.lcssa502.i.i, %692 ], [ %.0154.ph.lcssa502.i.i, %693 ], [ %.0154.ph.lcssa502.i.i, %694 ], [ %.0154.ph.lcssa502.i.i, %695 ], [ %.0154.ph.lcssa502.i.i, %696 ], [ %.0154.ph.lcssa502.i.i, %697 ], [ %.0154.ph.lcssa502.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
+  %698 = phi i1 [ true, %692 ], [ true, %693 ], [ true, %694 ], [ true, %695 ], [ true, %696 ], [ true, %697 ], [ false, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ false, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
+  %.0143.i.i = phi i64 [ 8, %692 ], [ 16, %693 ], [ 24, %694 ], [ 32, %695 ], [ 40, %696 ], [ 48, %697 ], [ %.0142.ph.lcssa499.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i" ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf192f9c9f1a5e826E.exit339.i.i" ]
   %699 = and i24 %3, 256
   %.not165.i.i = icmp eq i24 %699, 0
   br i1 %.not165.i.i, label %700, label %704
@@ -16995,7 +16995,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br label %"_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hef72f9f164f1435fE.exit.i.i"
 
 "_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hef72f9f164f1435fE.exit.i.i": ; preds = %64, %59, %56, %53
-  %.0.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.0.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.0.i.i.i.i to i1
   br i1 %70, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h475e594103819140E.exit.i", label %73
 
@@ -18108,7 +18108,7 @@ define hidden void @_ZN10tokenizers6models3bpe4word4Word9merge_all17hac6ce551d9e
           to label %34 unwind label %32
 
 31:                                               ; preds = %.body, %32
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr108drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$tokenizers..models..bpe..word..Merge$GT$$GT$17h6bc47122edeb7f44E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #58
           to label %240 unwind label %238
 
@@ -18862,7 +18862,7 @@ switch.lookup:                                    ; preds = %1, %4, %_ZN4core7un
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h8fbddb6b7d903119E.llvm.14140520316429159617.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h8fbddb6b7d903119E.llvm.14140520316429159617.exit: ; preds = %6, %8, %11, %14, %19
-  %.0.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ], [ 0, %6 ]
+  %.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ], [ 0, %6 ]
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 }
@@ -20402,7 +20402,7 @@ define internal fastcc noundef i64 @"_ZN99_$LT$tokenizers..processors..sequence.
   br label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
 
 "_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit": ; preds = %2, %13, %14, %15, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit"
-  %.0.i = phi i64 [ %.016.i.i, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit" ], [ %.0.i1, %15 ], [ %..i, %14 ], [ %..i2, %13 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %..i2, %13 ], [ %..i, %14 ], [ %.0.i1, %15 ], [ %.016.i.i, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit" ], [ 0, %2 ]
   ret i64 %.0.i
 }
 
@@ -22168,7 +22168,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$tokenizers..pre_tokenizers..whites
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17hfe58c686d7aa534dE.exit"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17hfe58c686d7aa534dE.exit": ; preds = %4, %6, %12
-  %.0.i = phi ptr [ %5, %4 ], [ %17, %12 ], [ %11, %6 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %11, %6 ], [ %17, %12 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   ret ptr %.0.i
 }
@@ -22477,7 +22477,7 @@ define hidden noundef align 8 ptr @"_ZN98_$LT$tokenizers..pre_tokenizers..whites
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h633b3972804dfc29E.exit"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h633b3972804dfc29E.exit": ; preds = %4, %6, %12
-  %.0.i = phi ptr [ %5, %4 ], [ %17, %12 ], [ %11, %6 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %11, %6 ], [ %17, %12 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   ret ptr %.0.i
 }

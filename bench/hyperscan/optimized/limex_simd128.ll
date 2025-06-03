@@ -869,7 +869,7 @@ moNfaReportCurrent128.exit:                       ; preds = %8, %18
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %162, %169, %171, %173, %175, %177, %179
-  %.0.i94 = phi i64 [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ 0, %162 ]
+  %.0.i94 = phi i64 [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ 0, %162 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %137, i64 16) ]
   %181 = load <2 x i64>, ptr %137, align 16
   %182 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %155, <2 x i64> %181)
@@ -1085,7 +1085,7 @@ lshift64_m128.exit:                               ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit13
 
 lshift64_m128.exit13:                             ; preds = %lshift64_m128.exit, %lshift64_m128.exit25
-  %.6331 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %90, %lshift64_m128.exit ]
+  %.6331 = phi <2 x i64> [ %90, %lshift64_m128.exit ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 16) ]
   %91 = load <2 x i64>, ptr %54, align 16
   %92 = and <2 x i64> %91, %.058.i5676
@@ -1098,7 +1098,7 @@ lshift64_m128.exit13:                             ; preds = %lshift64_m128.exit,
   br label %lshift64_m128.exit15
 
 lshift64_m128.exit15:                             ; preds = %lshift64_m128.exit13, %lshift64_m128.exit25
-  %.5330 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %98, %lshift64_m128.exit13 ]
+  %.5330 = phi <2 x i64> [ %98, %lshift64_m128.exit13 ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ]
   %99 = load <2 x i64>, ptr %56, align 16
   %100 = and <2 x i64> %99, %.058.i5676
@@ -1111,7 +1111,7 @@ lshift64_m128.exit15:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit17
 
 lshift64_m128.exit17:                             ; preds = %lshift64_m128.exit15, %lshift64_m128.exit25
-  %.4329 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %106, %lshift64_m128.exit15 ]
+  %.4329 = phi <2 x i64> [ %106, %lshift64_m128.exit15 ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ]
   %107 = load <2 x i64>, ptr %58, align 16
   %108 = and <2 x i64> %107, %.058.i5676
@@ -1124,7 +1124,7 @@ lshift64_m128.exit17:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit19
 
 lshift64_m128.exit19:                             ; preds = %lshift64_m128.exit17, %lshift64_m128.exit25
-  %.3328 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %114, %lshift64_m128.exit17 ]
+  %.3328 = phi <2 x i64> [ %114, %lshift64_m128.exit17 ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ]
   %115 = load <2 x i64>, ptr %60, align 16
   %116 = and <2 x i64> %115, %.058.i5676
@@ -1137,7 +1137,7 @@ lshift64_m128.exit19:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit21
 
 lshift64_m128.exit21:                             ; preds = %lshift64_m128.exit19, %lshift64_m128.exit25
-  %.2327 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %122, %lshift64_m128.exit19 ]
+  %.2327 = phi <2 x i64> [ %122, %lshift64_m128.exit19 ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 16) ]
   %123 = load <2 x i64>, ptr %62, align 16
   %124 = and <2 x i64> %123, %.058.i5676
@@ -1150,7 +1150,7 @@ lshift64_m128.exit21:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit23
 
 lshift64_m128.exit23:                             ; preds = %lshift64_m128.exit21, %lshift64_m128.exit25
-  %.0325 = phi <2 x i64> [ %81, %lshift64_m128.exit25 ], [ %130, %lshift64_m128.exit21 ]
+  %.0325 = phi <2 x i64> [ %130, %lshift64_m128.exit21 ], [ %81, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ]
   %131 = load <2 x i64>, ptr %64, align 16
   %132 = and <2 x i64> %131, %.058.i5676
@@ -1410,7 +1410,7 @@ lshift64_m128.exit23:                             ; preds = %lshift64_m128.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %239, %260, %262, %264, %266
-  %.0.i176 = phi i32 [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %240, %239 ]
+  %.0.i176 = phi i32 [ %240, %239 ], [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ]
   switch i32 %.0.i176, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread379
     i32 2, label %repeatHasMatch.exit.thread381
@@ -1639,7 +1639,7 @@ lshift64_m128.exit27:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit29
 
 lshift64_m128.exit29:                             ; preds = %lshift64_m128.exit27, %lshift64_m128.exit41
-  %.6316 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %363, %lshift64_m128.exit27 ]
+  %.6316 = phi <2 x i64> [ %363, %lshift64_m128.exit27 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %327, i64 16) ]
   %364 = load <2 x i64>, ptr %327, align 16
   %365 = and <2 x i64> %364, %.058.i689
@@ -1652,7 +1652,7 @@ lshift64_m128.exit29:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit31
 
 lshift64_m128.exit31:                             ; preds = %lshift64_m128.exit29, %lshift64_m128.exit41
-  %.5315 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %371, %lshift64_m128.exit29 ]
+  %.5315 = phi <2 x i64> [ %371, %lshift64_m128.exit29 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %329, i64 16) ]
   %372 = load <2 x i64>, ptr %329, align 16
   %373 = and <2 x i64> %372, %.058.i689
@@ -1665,7 +1665,7 @@ lshift64_m128.exit31:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit33
 
 lshift64_m128.exit33:                             ; preds = %lshift64_m128.exit31, %lshift64_m128.exit41
-  %.4314 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %379, %lshift64_m128.exit31 ]
+  %.4314 = phi <2 x i64> [ %379, %lshift64_m128.exit31 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %331, i64 16) ]
   %380 = load <2 x i64>, ptr %331, align 16
   %381 = and <2 x i64> %380, %.058.i689
@@ -1678,7 +1678,7 @@ lshift64_m128.exit33:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit35
 
 lshift64_m128.exit35:                             ; preds = %lshift64_m128.exit33, %lshift64_m128.exit41
-  %.3313 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %387, %lshift64_m128.exit33 ]
+  %.3313 = phi <2 x i64> [ %387, %lshift64_m128.exit33 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %333, i64 16) ]
   %388 = load <2 x i64>, ptr %333, align 16
   %389 = and <2 x i64> %388, %.058.i689
@@ -1691,7 +1691,7 @@ lshift64_m128.exit35:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit35, %lshift64_m128.exit41
-  %.2312 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %395, %lshift64_m128.exit35 ]
+  %.2312 = phi <2 x i64> [ %395, %lshift64_m128.exit35 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %335, i64 16) ]
   %396 = load <2 x i64>, ptr %335, align 16
   %397 = and <2 x i64> %396, %.058.i689
@@ -1704,7 +1704,7 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit39
 
 lshift64_m128.exit39:                             ; preds = %lshift64_m128.exit37, %lshift64_m128.exit41
-  %.0310 = phi <2 x i64> [ %354, %lshift64_m128.exit41 ], [ %403, %lshift64_m128.exit37 ]
+  %.0310 = phi <2 x i64> [ %403, %lshift64_m128.exit37 ], [ %354, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %337, i64 16) ]
   %404 = load <2 x i64>, ptr %337, align 16
   %405 = and <2 x i64> %404, %.058.i689
@@ -1964,7 +1964,7 @@ lshift64_m128.exit39:                             ; preds = %lshift64_m128.exit3
   br label %repeatHasMatch.exit178
 
 repeatHasMatch.exit178:                           ; preds = %512, %533, %535, %537, %539
-  %.0.i177 = phi i32 [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %534, %533 ], [ %513, %512 ]
+  %.0.i177 = phi i32 [ %513, %512 ], [ %534, %533 ], [ %536, %535 ], [ %538, %537 ], [ %540, %539 ]
   switch i32 %.0.i177, label %repeatHasMatch.exit178.thread [
     i32 1, label %repeatHasMatch.exit178.thread463
     i32 2, label %repeatHasMatch.exit178.thread465
@@ -2231,7 +2231,7 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit45
 
 lshift64_m128.exit45:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit57
-  %.6 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %650, %lshift64_m128.exit43 ]
+  %.6 = phi <2 x i64> [ %650, %lshift64_m128.exit43 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %600, i64 16) ]
   %651 = load <2 x i64>, ptr %600, align 16
   %652 = and <2 x i64> %651, %.1304701
@@ -2244,7 +2244,7 @@ lshift64_m128.exit45:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit47
 
 lshift64_m128.exit47:                             ; preds = %lshift64_m128.exit45, %lshift64_m128.exit57
-  %.5 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %658, %lshift64_m128.exit45 ]
+  %.5 = phi <2 x i64> [ %658, %lshift64_m128.exit45 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %602, i64 16) ]
   %659 = load <2 x i64>, ptr %602, align 16
   %660 = and <2 x i64> %659, %.1304701
@@ -2257,7 +2257,7 @@ lshift64_m128.exit47:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit47, %lshift64_m128.exit57
-  %.4 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %666, %lshift64_m128.exit47 ]
+  %.4 = phi <2 x i64> [ %666, %lshift64_m128.exit47 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %604, i64 16) ]
   %667 = load <2 x i64>, ptr %604, align 16
   %668 = and <2 x i64> %667, %.1304701
@@ -2270,7 +2270,7 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit51
 
 lshift64_m128.exit51:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit57
-  %.3 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %674, %lshift64_m128.exit49 ]
+  %.3 = phi <2 x i64> [ %674, %lshift64_m128.exit49 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %606, i64 16) ]
   %675 = load <2 x i64>, ptr %606, align 16
   %676 = and <2 x i64> %675, %.1304701
@@ -2283,7 +2283,7 @@ lshift64_m128.exit51:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit53
 
 lshift64_m128.exit53:                             ; preds = %lshift64_m128.exit51, %lshift64_m128.exit57
-  %.2 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %682, %lshift64_m128.exit51 ]
+  %.2 = phi <2 x i64> [ %682, %lshift64_m128.exit51 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %608, i64 16) ]
   %683 = load <2 x i64>, ptr %608, align 16
   %684 = and <2 x i64> %683, %.1304701
@@ -2296,7 +2296,7 @@ lshift64_m128.exit53:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit53, %lshift64_m128.exit57
-  %.0297 = phi <2 x i64> [ %641, %lshift64_m128.exit57 ], [ %690, %lshift64_m128.exit53 ]
+  %.0297 = phi <2 x i64> [ %690, %lshift64_m128.exit53 ], [ %641, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %610, i64 16) ]
   %691 = load <2 x i64>, ptr %610, align 16
   %692 = and <2 x i64> %691, %.1304701
@@ -2556,7 +2556,7 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit5
   br label %repeatHasMatch.exit180
 
 repeatHasMatch.exit180:                           ; preds = %799, %820, %822, %824, %826
-  %.0.i179 = phi i32 [ %827, %826 ], [ %825, %824 ], [ %823, %822 ], [ %821, %820 ], [ %800, %799 ]
+  %.0.i179 = phi i32 [ %800, %799 ], [ %821, %820 ], [ %823, %822 ], [ %825, %824 ], [ %827, %826 ]
   switch i32 %.0.i179, label %repeatHasMatch.exit180.thread [
     i32 1, label %repeatHasMatch.exit180.thread549
     i32 2, label %repeatHasMatch.exit180.thread551
@@ -3131,7 +3131,7 @@ moNfaReportCurrent128.exit:                       ; preds = %10, %20
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %201, %208, %210, %212, %214, %216, %218
-  %.0.i133 = phi i64 [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ 0, %201 ]
+  %.0.i133 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ 0, %201 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %176, i64 16) ]
   %220 = load <2 x i64>, ptr %176, align 16
   %221 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %194, <2 x i64> %220)
@@ -3346,7 +3346,7 @@ lshift64_m128.exit:                               ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit14
 
 lshift64_m128.exit14:                             ; preds = %lshift64_m128.exit, %lshift64_m128.exit26
-  %.6292 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %90, %lshift64_m128.exit ]
+  %.6292 = phi <2 x i64> [ %90, %lshift64_m128.exit ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ]
   %91 = load <2 x i64>, ptr %55, align 16
   %92 = and <2 x i64> %91, %.058.i6473
@@ -3359,7 +3359,7 @@ lshift64_m128.exit14:                             ; preds = %lshift64_m128.exit,
   br label %lshift64_m128.exit16
 
 lshift64_m128.exit16:                             ; preds = %lshift64_m128.exit14, %lshift64_m128.exit26
-  %.5291 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %98, %lshift64_m128.exit14 ]
+  %.5291 = phi <2 x i64> [ %98, %lshift64_m128.exit14 ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 16) ]
   %99 = load <2 x i64>, ptr %57, align 16
   %100 = and <2 x i64> %99, %.058.i6473
@@ -3372,7 +3372,7 @@ lshift64_m128.exit16:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit18
 
 lshift64_m128.exit18:                             ; preds = %lshift64_m128.exit16, %lshift64_m128.exit26
-  %.4290 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %106, %lshift64_m128.exit16 ]
+  %.4290 = phi <2 x i64> [ %106, %lshift64_m128.exit16 ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ]
   %107 = load <2 x i64>, ptr %59, align 16
   %108 = and <2 x i64> %107, %.058.i6473
@@ -3385,7 +3385,7 @@ lshift64_m128.exit18:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit20
 
 lshift64_m128.exit20:                             ; preds = %lshift64_m128.exit18, %lshift64_m128.exit26
-  %.3289 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %114, %lshift64_m128.exit18 ]
+  %.3289 = phi <2 x i64> [ %114, %lshift64_m128.exit18 ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 16) ]
   %115 = load <2 x i64>, ptr %61, align 16
   %116 = and <2 x i64> %115, %.058.i6473
@@ -3398,7 +3398,7 @@ lshift64_m128.exit20:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit22
 
 lshift64_m128.exit22:                             ; preds = %lshift64_m128.exit20, %lshift64_m128.exit26
-  %.2288 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %122, %lshift64_m128.exit20 ]
+  %.2288 = phi <2 x i64> [ %122, %lshift64_m128.exit20 ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ]
   %123 = load <2 x i64>, ptr %63, align 16
   %124 = and <2 x i64> %123, %.058.i6473
@@ -3411,7 +3411,7 @@ lshift64_m128.exit22:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit24
 
 lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit22, %lshift64_m128.exit26
-  %.0286 = phi <2 x i64> [ %81, %lshift64_m128.exit26 ], [ %130, %lshift64_m128.exit22 ]
+  %.0286 = phi <2 x i64> [ %130, %lshift64_m128.exit22 ], [ %81, %lshift64_m128.exit26 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 16) ]
   %131 = load <2 x i64>, ptr %65, align 16
   %132 = and <2 x i64> %131, %.058.i6473
@@ -3653,7 +3653,7 @@ lshift64_m128.exit24:                             ; preds = %lshift64_m128.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %232, %253, %255, %257, %259
-  %.0.i144 = phi i32 [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %233, %232 ]
+  %.0.i144 = phi i32 [ %233, %232 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ]
   switch i32 %.0.i144, label %runException128.exit [
     i32 1, label %repeatHasMatch.exit.thread336
     i32 2, label %repeatHasMatch.exit.thread338
@@ -3835,7 +3835,7 @@ lshift64_m128.exit28:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit30
 
 lshift64_m128.exit30:                             ; preds = %lshift64_m128.exit28, %lshift64_m128.exit42
-  %.6277 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %342, %lshift64_m128.exit28 ]
+  %.6277 = phi <2 x i64> [ %342, %lshift64_m128.exit28 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %307, i64 16) ]
   %343 = load <2 x i64>, ptr %307, align 16
   %344 = and <2 x i64> %343, %.058.i479
@@ -3848,7 +3848,7 @@ lshift64_m128.exit30:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit32
 
 lshift64_m128.exit32:                             ; preds = %lshift64_m128.exit30, %lshift64_m128.exit42
-  %.5276 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %350, %lshift64_m128.exit30 ]
+  %.5276 = phi <2 x i64> [ %350, %lshift64_m128.exit30 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 16) ]
   %351 = load <2 x i64>, ptr %309, align 16
   %352 = and <2 x i64> %351, %.058.i479
@@ -3861,7 +3861,7 @@ lshift64_m128.exit32:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit34
 
 lshift64_m128.exit34:                             ; preds = %lshift64_m128.exit32, %lshift64_m128.exit42
-  %.4275 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %358, %lshift64_m128.exit32 ]
+  %.4275 = phi <2 x i64> [ %358, %lshift64_m128.exit32 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %311, i64 16) ]
   %359 = load <2 x i64>, ptr %311, align 16
   %360 = and <2 x i64> %359, %.058.i479
@@ -3874,7 +3874,7 @@ lshift64_m128.exit34:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit36
 
 lshift64_m128.exit36:                             ; preds = %lshift64_m128.exit34, %lshift64_m128.exit42
-  %.3274 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %366, %lshift64_m128.exit34 ]
+  %.3274 = phi <2 x i64> [ %366, %lshift64_m128.exit34 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %313, i64 16) ]
   %367 = load <2 x i64>, ptr %313, align 16
   %368 = and <2 x i64> %367, %.058.i479
@@ -3887,7 +3887,7 @@ lshift64_m128.exit36:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit38
 
 lshift64_m128.exit38:                             ; preds = %lshift64_m128.exit36, %lshift64_m128.exit42
-  %.2273 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %374, %lshift64_m128.exit36 ]
+  %.2273 = phi <2 x i64> [ %374, %lshift64_m128.exit36 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %315, i64 16) ]
   %375 = load <2 x i64>, ptr %315, align 16
   %376 = and <2 x i64> %375, %.058.i479
@@ -3900,7 +3900,7 @@ lshift64_m128.exit38:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit40
 
 lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit38, %lshift64_m128.exit42
-  %.0271 = phi <2 x i64> [ %333, %lshift64_m128.exit42 ], [ %382, %lshift64_m128.exit38 ]
+  %.0271 = phi <2 x i64> [ %382, %lshift64_m128.exit38 ], [ %333, %lshift64_m128.exit42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %317, i64 16) ]
   %383 = load <2 x i64>, ptr %317, align 16
   %384 = and <2 x i64> %383, %.058.i479
@@ -4142,7 +4142,7 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit3
   br label %repeatHasMatch.exit146
 
 repeatHasMatch.exit146:                           ; preds = %484, %505, %507, %509, %511
-  %.0.i145 = phi i32 [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %485, %484 ]
+  %.0.i145 = phi i32 [ %485, %484 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %512, %511 ]
   switch i32 %.0.i145, label %runException128.exit118 [
     i32 1, label %repeatHasMatch.exit146.thread374
     i32 2, label %repeatHasMatch.exit146.thread376
@@ -4362,7 +4362,7 @@ lshift64_m128.exit44:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit46
 
 lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit44, %lshift64_m128.exit58
-  %.6 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %608, %lshift64_m128.exit44 ]
+  %.6 = phi <2 x i64> [ %608, %lshift64_m128.exit44 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %559, i64 16) ]
   %609 = load <2 x i64>, ptr %559, align 16
   %610 = and <2 x i64> %609, %.1265485
@@ -4375,7 +4375,7 @@ lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit48
 
 lshift64_m128.exit48:                             ; preds = %lshift64_m128.exit46, %lshift64_m128.exit58
-  %.5 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %616, %lshift64_m128.exit46 ]
+  %.5 = phi <2 x i64> [ %616, %lshift64_m128.exit46 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %561, i64 16) ]
   %617 = load <2 x i64>, ptr %561, align 16
   %618 = and <2 x i64> %617, %.1265485
@@ -4388,7 +4388,7 @@ lshift64_m128.exit48:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit50
 
 lshift64_m128.exit50:                             ; preds = %lshift64_m128.exit48, %lshift64_m128.exit58
-  %.4 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %624, %lshift64_m128.exit48 ]
+  %.4 = phi <2 x i64> [ %624, %lshift64_m128.exit48 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %563, i64 16) ]
   %625 = load <2 x i64>, ptr %563, align 16
   %626 = and <2 x i64> %625, %.1265485
@@ -4401,7 +4401,7 @@ lshift64_m128.exit50:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit52
 
 lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit50, %lshift64_m128.exit58
-  %.3 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %632, %lshift64_m128.exit50 ]
+  %.3 = phi <2 x i64> [ %632, %lshift64_m128.exit50 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %565, i64 16) ]
   %633 = load <2 x i64>, ptr %565, align 16
   %634 = and <2 x i64> %633, %.1265485
@@ -4414,7 +4414,7 @@ lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit54
 
 lshift64_m128.exit54:                             ; preds = %lshift64_m128.exit52, %lshift64_m128.exit58
-  %.2 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %640, %lshift64_m128.exit52 ]
+  %.2 = phi <2 x i64> [ %640, %lshift64_m128.exit52 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %567, i64 16) ]
   %641 = load <2 x i64>, ptr %567, align 16
   %642 = and <2 x i64> %641, %.1265485
@@ -4427,7 +4427,7 @@ lshift64_m128.exit54:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit56
 
 lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit54, %lshift64_m128.exit58
-  %.0258 = phi <2 x i64> [ %599, %lshift64_m128.exit58 ], [ %648, %lshift64_m128.exit54 ]
+  %.0258 = phi <2 x i64> [ %648, %lshift64_m128.exit54 ], [ %599, %lshift64_m128.exit58 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %569, i64 16) ]
   %649 = load <2 x i64>, ptr %569, align 16
   %650 = and <2 x i64> %649, %.1265485
@@ -4669,7 +4669,7 @@ lshift64_m128.exit56:                             ; preds = %lshift64_m128.exit5
   br label %repeatHasMatch.exit148
 
 repeatHasMatch.exit148:                           ; preds = %750, %771, %773, %775, %777
-  %.0.i147 = phi i32 [ %778, %777 ], [ %776, %775 ], [ %774, %773 ], [ %772, %771 ], [ %751, %750 ]
+  %.0.i147 = phi i32 [ %751, %750 ], [ %772, %771 ], [ %774, %773 ], [ %776, %775 ], [ %778, %777 ]
   switch i32 %.0.i147, label %runException128.exit128 [
     i32 1, label %repeatHasMatch.exit148.thread413
     i32 2, label %repeatHasMatch.exit148.thread415
@@ -5075,7 +5075,7 @@ nfaExecLimEx128_HandleEvent.exit:                 ; preds = %nfaExecLimEx128_Han
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %130, %137, %139, %141, %143, %145, %147
-  %.0.i86 = phi i64 [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ 0, %130 ]
+  %.0.i86 = phi i64 [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ 0, %130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %105, i64 16) ]
   %149 = load <2 x i64>, ptr %105, align 16
   %150 = tail call i32 @llvm.x86.sse41.ptestz(<2 x i64> %123, <2 x i64> %149)
@@ -5241,7 +5241,7 @@ limexExpireExtendedState128.exit:                 ; preds = %172, %._crit_edge, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %216, %237, %239, %241, %243
-  %.0.i82 = phi i32 [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %217, %216 ]
+  %.0.i82 = phi i32 [ %217, %216 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ]
   %.not20.i = icmp eq i32 %.0.i82, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread100, label %repeatHasMatch.exit.thread
 
@@ -5485,7 +5485,7 @@ lshift64_m128.exit:                               ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit13
 
 lshift64_m128.exit13:                             ; preds = %lshift64_m128.exit, %lshift64_m128.exit25
-  %.6286 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %88, %lshift64_m128.exit ]
+  %.6286 = phi <2 x i64> [ %88, %lshift64_m128.exit ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 16) ]
   %89 = load <2 x i64>, ptr %54, align 16
   %90 = and <2 x i64> %89, %.058.i5412
@@ -5498,7 +5498,7 @@ lshift64_m128.exit13:                             ; preds = %lshift64_m128.exit,
   br label %lshift64_m128.exit15
 
 lshift64_m128.exit15:                             ; preds = %lshift64_m128.exit13, %lshift64_m128.exit25
-  %.5285 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %96, %lshift64_m128.exit13 ]
+  %.5285 = phi <2 x i64> [ %96, %lshift64_m128.exit13 ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ]
   %97 = load <2 x i64>, ptr %56, align 16
   %98 = and <2 x i64> %97, %.058.i5412
@@ -5511,7 +5511,7 @@ lshift64_m128.exit15:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit17
 
 lshift64_m128.exit17:                             ; preds = %lshift64_m128.exit15, %lshift64_m128.exit25
-  %.4284 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %104, %lshift64_m128.exit15 ]
+  %.4284 = phi <2 x i64> [ %104, %lshift64_m128.exit15 ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ]
   %105 = load <2 x i64>, ptr %58, align 16
   %106 = and <2 x i64> %105, %.058.i5412
@@ -5524,7 +5524,7 @@ lshift64_m128.exit17:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit19
 
 lshift64_m128.exit19:                             ; preds = %lshift64_m128.exit17, %lshift64_m128.exit25
-  %.3283 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %112, %lshift64_m128.exit17 ]
+  %.3283 = phi <2 x i64> [ %112, %lshift64_m128.exit17 ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ]
   %113 = load <2 x i64>, ptr %60, align 16
   %114 = and <2 x i64> %113, %.058.i5412
@@ -5537,7 +5537,7 @@ lshift64_m128.exit19:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit21
 
 lshift64_m128.exit21:                             ; preds = %lshift64_m128.exit19, %lshift64_m128.exit25
-  %.2282 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %120, %lshift64_m128.exit19 ]
+  %.2282 = phi <2 x i64> [ %120, %lshift64_m128.exit19 ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 16) ]
   %121 = load <2 x i64>, ptr %62, align 16
   %122 = and <2 x i64> %121, %.058.i5412
@@ -5550,7 +5550,7 @@ lshift64_m128.exit21:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit23
 
 lshift64_m128.exit23:                             ; preds = %lshift64_m128.exit21, %lshift64_m128.exit25
-  %.0280 = phi <2 x i64> [ %79, %lshift64_m128.exit25 ], [ %128, %lshift64_m128.exit21 ]
+  %.0280 = phi <2 x i64> [ %128, %lshift64_m128.exit21 ], [ %79, %lshift64_m128.exit25 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ]
   %129 = load <2 x i64>, ptr %64, align 16
   %130 = and <2 x i64> %129, %.058.i5412
@@ -5779,7 +5779,7 @@ lshift64_m128.exit23:                             ; preds = %lshift64_m128.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %224, %245, %247, %249, %251
-  %.0.i141 = phi i32 [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %225, %224 ]
+  %.0.i141 = phi i32 [ %225, %224 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ]
   switch i32 %.0.i141, label %runException128.exit [
     i32 1, label %repeatHasMatch.exit.thread331
     i32 2, label %repeatHasMatch.exit.thread333
@@ -5956,7 +5956,7 @@ lshift64_m128.exit27:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit29
 
 lshift64_m128.exit29:                             ; preds = %lshift64_m128.exit27, %lshift64_m128.exit41
-  %.6271 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %333, %lshift64_m128.exit27 ]
+  %.6271 = phi <2 x i64> [ %333, %lshift64_m128.exit27 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %299, i64 16) ]
   %334 = load <2 x i64>, ptr %299, align 16
   %335 = and <2 x i64> %334, %.058.i418
@@ -5969,7 +5969,7 @@ lshift64_m128.exit29:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit31
 
 lshift64_m128.exit31:                             ; preds = %lshift64_m128.exit29, %lshift64_m128.exit41
-  %.5270 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %341, %lshift64_m128.exit29 ]
+  %.5270 = phi <2 x i64> [ %341, %lshift64_m128.exit29 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %301, i64 16) ]
   %342 = load <2 x i64>, ptr %301, align 16
   %343 = and <2 x i64> %342, %.058.i418
@@ -5982,7 +5982,7 @@ lshift64_m128.exit31:                             ; preds = %lshift64_m128.exit2
   br label %lshift64_m128.exit33
 
 lshift64_m128.exit33:                             ; preds = %lshift64_m128.exit31, %lshift64_m128.exit41
-  %.4269 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %349, %lshift64_m128.exit31 ]
+  %.4269 = phi <2 x i64> [ %349, %lshift64_m128.exit31 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %303, i64 16) ]
   %350 = load <2 x i64>, ptr %303, align 16
   %351 = and <2 x i64> %350, %.058.i418
@@ -5995,7 +5995,7 @@ lshift64_m128.exit33:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit35
 
 lshift64_m128.exit35:                             ; preds = %lshift64_m128.exit33, %lshift64_m128.exit41
-  %.3268 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %357, %lshift64_m128.exit33 ]
+  %.3268 = phi <2 x i64> [ %357, %lshift64_m128.exit33 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %305, i64 16) ]
   %358 = load <2 x i64>, ptr %305, align 16
   %359 = and <2 x i64> %358, %.058.i418
@@ -6008,7 +6008,7 @@ lshift64_m128.exit35:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit35, %lshift64_m128.exit41
-  %.2267 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %365, %lshift64_m128.exit35 ]
+  %.2267 = phi <2 x i64> [ %365, %lshift64_m128.exit35 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %307, i64 16) ]
   %366 = load <2 x i64>, ptr %307, align 16
   %367 = and <2 x i64> %366, %.058.i418
@@ -6021,7 +6021,7 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit39
 
 lshift64_m128.exit39:                             ; preds = %lshift64_m128.exit37, %lshift64_m128.exit41
-  %.0265 = phi <2 x i64> [ %324, %lshift64_m128.exit41 ], [ %373, %lshift64_m128.exit37 ]
+  %.0265 = phi <2 x i64> [ %373, %lshift64_m128.exit37 ], [ %324, %lshift64_m128.exit41 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %309, i64 16) ]
   %374 = load <2 x i64>, ptr %309, align 16
   %375 = and <2 x i64> %374, %.058.i418
@@ -6250,7 +6250,7 @@ lshift64_m128.exit39:                             ; preds = %lshift64_m128.exit3
   br label %repeatHasMatch.exit143
 
 repeatHasMatch.exit143:                           ; preds = %469, %490, %492, %494, %496
-  %.0.i142 = phi i32 [ %497, %496 ], [ %495, %494 ], [ %493, %492 ], [ %491, %490 ], [ %470, %469 ]
+  %.0.i142 = phi i32 [ %470, %469 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ]
   switch i32 %.0.i142, label %runException128.exit115 [
     i32 1, label %repeatHasMatch.exit143.thread350
     i32 2, label %repeatHasMatch.exit143.thread352
@@ -6465,7 +6465,7 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit45
 
 lshift64_m128.exit45:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit57
-  %.6 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %592, %lshift64_m128.exit43 ]
+  %.6 = phi <2 x i64> [ %592, %lshift64_m128.exit43 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %544, i64 16) ]
   %593 = load <2 x i64>, ptr %544, align 16
   %594 = and <2 x i64> %593, %.1259424
@@ -6478,7 +6478,7 @@ lshift64_m128.exit45:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit47
 
 lshift64_m128.exit47:                             ; preds = %lshift64_m128.exit45, %lshift64_m128.exit57
-  %.5 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %600, %lshift64_m128.exit45 ]
+  %.5 = phi <2 x i64> [ %600, %lshift64_m128.exit45 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %546, i64 16) ]
   %601 = load <2 x i64>, ptr %546, align 16
   %602 = and <2 x i64> %601, %.1259424
@@ -6491,7 +6491,7 @@ lshift64_m128.exit47:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit47, %lshift64_m128.exit57
-  %.4 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %608, %lshift64_m128.exit47 ]
+  %.4 = phi <2 x i64> [ %608, %lshift64_m128.exit47 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %548, i64 16) ]
   %609 = load <2 x i64>, ptr %548, align 16
   %610 = and <2 x i64> %609, %.1259424
@@ -6504,7 +6504,7 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit51
 
 lshift64_m128.exit51:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit57
-  %.3 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %616, %lshift64_m128.exit49 ]
+  %.3 = phi <2 x i64> [ %616, %lshift64_m128.exit49 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %550, i64 16) ]
   %617 = load <2 x i64>, ptr %550, align 16
   %618 = and <2 x i64> %617, %.1259424
@@ -6517,7 +6517,7 @@ lshift64_m128.exit51:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit53
 
 lshift64_m128.exit53:                             ; preds = %lshift64_m128.exit51, %lshift64_m128.exit57
-  %.2 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %624, %lshift64_m128.exit51 ]
+  %.2 = phi <2 x i64> [ %624, %lshift64_m128.exit51 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %552, i64 16) ]
   %625 = load <2 x i64>, ptr %552, align 16
   %626 = and <2 x i64> %625, %.1259424
@@ -6530,7 +6530,7 @@ lshift64_m128.exit53:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit53, %lshift64_m128.exit57
-  %.0 = phi <2 x i64> [ %583, %lshift64_m128.exit57 ], [ %632, %lshift64_m128.exit53 ]
+  %.0 = phi <2 x i64> [ %632, %lshift64_m128.exit53 ], [ %583, %lshift64_m128.exit57 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %554, i64 16) ]
   %633 = load <2 x i64>, ptr %554, align 16
   %634 = and <2 x i64> %633, %.1259424
@@ -6759,7 +6759,7 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit5
   br label %repeatHasMatch.exit145
 
 repeatHasMatch.exit145:                           ; preds = %728, %749, %751, %753, %755
-  %.0.i144 = phi i32 [ %756, %755 ], [ %754, %753 ], [ %752, %751 ], [ %750, %749 ], [ %729, %728 ]
+  %.0.i144 = phi i32 [ %729, %728 ], [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %756, %755 ]
   switch i32 %.0.i144, label %runException128.exit125 [
     i32 1, label %repeatHasMatch.exit145.thread369
     i32 2, label %repeatHasMatch.exit145.thread371
@@ -6990,7 +6990,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_testEOD(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %49, %70, %72, %74, %76
-  %.0.i13 = phi i32 [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %50, %49 ]
+  %.0.i13 = phi i32 [ %50, %49 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %.not20.i = icmp eq i32 %.0.i13, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread26, label %repeatHasMatch.exit.thread
 
@@ -7205,7 +7205,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_B_Reverse(ptr noundef %0, i64 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %65, %67, %69, %71, %73
-  %.0.i32 = phi i32 [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+  %.0.i32 = phi i32 [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ]
   %.not20.i = icmp eq i32 %.0.i32, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread47, label %repeatHasMatch.exit.thread
 
@@ -7330,7 +7330,7 @@ lshift64_m128.exit82:                             ; preds = %lshift64_m128.exit
   br label %lshift64_m128.exit84
 
 lshift64_m128.exit84:                             ; preds = %lshift64_m128.exit82, %lshift64_m128.exit
-  %.0125 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %60, %lshift64_m128.exit82 ]
+  %.0125 = phi <2 x i64> [ %60, %lshift64_m128.exit82 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 16) ]
   %61 = load <2 x i64>, ptr %22, align 16
   %62 = and <2 x i64> %61, %.069209
@@ -7343,7 +7343,7 @@ lshift64_m128.exit84:                             ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit86
 
 lshift64_m128.exit86:                             ; preds = %lshift64_m128.exit84, %lshift64_m128.exit
-  %.1126 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %68, %lshift64_m128.exit84 ]
+  %.1126 = phi <2 x i64> [ %68, %lshift64_m128.exit84 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 16) ]
   %69 = load <2 x i64>, ptr %24, align 16
   %70 = and <2 x i64> %69, %.069209
@@ -7356,7 +7356,7 @@ lshift64_m128.exit86:                             ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit88
 
 lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit86, %lshift64_m128.exit
-  %.2 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %76, %lshift64_m128.exit86 ]
+  %.2 = phi <2 x i64> [ %76, %lshift64_m128.exit86 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ]
   %77 = load <2 x i64>, ptr %26, align 16
   %78 = and <2 x i64> %77, %.069209
@@ -7369,7 +7369,7 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit90
 
 lshift64_m128.exit90:                             ; preds = %lshift64_m128.exit88, %lshift64_m128.exit
-  %.3127 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %84, %lshift64_m128.exit88 ]
+  %.3127 = phi <2 x i64> [ %84, %lshift64_m128.exit88 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 16) ]
   %85 = load <2 x i64>, ptr %28, align 16
   %86 = and <2 x i64> %85, %.069209
@@ -7382,7 +7382,7 @@ lshift64_m128.exit90:                             ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit92
 
 lshift64_m128.exit92:                             ; preds = %lshift64_m128.exit90, %lshift64_m128.exit
-  %.4128 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %92, %lshift64_m128.exit90 ]
+  %.4128 = phi <2 x i64> [ %92, %lshift64_m128.exit90 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %30, i64 16) ]
   %93 = load <2 x i64>, ptr %30, align 16
   %94 = and <2 x i64> %93, %.069209
@@ -7395,7 +7395,7 @@ lshift64_m128.exit92:                             ; preds = %lshift64_m128.exit9
   br label %lshift64_m128.exit94
 
 lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit92, %lshift64_m128.exit
-  %.5129 = phi <2 x i64> [ %51, %lshift64_m128.exit ], [ %100, %lshift64_m128.exit92 ]
+  %.5129 = phi <2 x i64> [ %100, %lshift64_m128.exit92 ], [ %51, %lshift64_m128.exit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 16) ]
   %101 = load <2 x i64>, ptr %32, align 16
   %102 = and <2 x i64> %101, %.069209
@@ -7786,7 +7786,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAccept(ptr noundef %0
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %61, %82, %84, %86, %88
-  %.0.i15 = phi i32 [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %62, %61 ]
+  %.0.i15 = phi i32 [ %62, %61 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread29, label %repeatHasMatch.exit.thread
 
@@ -8025,7 +8025,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAnyAccept(ptr noundef
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %60, %81, %83, %85, %87
-  %.0.i14 = phi i32 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %61, %60 ]
+  %.0.i14 = phi i32 [ %61, %60 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread24, label %repeatHasMatch.exit.thread
 
@@ -8174,7 +8174,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx128_zombie_status(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %49, %70, %72, %74, %76
-  %.0.i16 = phi i32 [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %50, %49 ]
+  %.0.i16 = phi i32 [ %50, %49 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %.not20.i = icmp eq i32 %.0.i16, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread26, label %repeatHasMatch.exit.thread
 

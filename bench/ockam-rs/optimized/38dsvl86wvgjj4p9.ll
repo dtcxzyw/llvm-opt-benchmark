@@ -1213,7 +1213,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   br label %281
 
 common.resume:                                    ; preds = %495, %434, %152, %199, %269, %.body255, %467
-  %common.resume.op = phi { ptr, i32 } [ %.pn172, %.body255 ], [ %.pn175, %467 ], [ %.pn170, %269 ], [ %200, %199 ], [ %153, %152 ], [ %435, %434 ], [ %496, %495 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn175, %467 ], [ %.pn172, %.body255 ], [ %.pn170, %269 ], [ %200, %199 ], [ %153, %152 ], [ %435, %434 ], [ %496, %495 ]
   resume { ptr, i32 } %common.resume.op
 
 394:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha3cbb8d694aae3efE.exit265", %254
@@ -1710,8 +1710,8 @@ default.unreachable:                              ; preds = %14
   %30 = icmp ugt i64 %12, %.sroa.4.028
   br i1 %30, label %32, label %33
 
-31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %23, %19, %17, %11
-  %.1 = phi ptr [ @anon.8b5e6c7bb52f9bb2ce1992037cc2af06.21, %11 ], [ %.val, %17 ], [ %.val, %19 ], [ %.val, %23 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
+31:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %17, %19, %23, %11
+  %.1 = phi ptr [ @anon.8b5e6c7bb52f9bb2ce1992037cc2af06.21, %11 ], [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -1736,7 +1736,7 @@ _ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit: ; preds = %14
   %37 = icmp eq i64 %.sroa.4.121, 0
   br i1 %37, label %.loopexit, label %9
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %23, %19, %17
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17hc8b496a89271ce58E.exit, %17, %19, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !227
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hab3203f1d2175c3cE.llvm.1799741712541865863(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !227
   %38 = load i8, ptr %4, align 8, !range !234, !alias.scope !235, !noalias !227, !noundef !5

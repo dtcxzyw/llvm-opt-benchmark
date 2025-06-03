@@ -1128,7 +1128,7 @@ _ZNK8rawspeed9TiffEntry12getSRationalEj.exit:     ; preds = %2
   br label %82
 
 82:                                               ; preds = %78, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit, %70, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit, %63, %60, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit
-  %.0 = phi float [ %65, %63 ], [ %62, %60 ], [ %59, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit ], [ %34, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit ], [ %73, %70 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit ], [ %81, %78 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit ]
+  %.0 = phi float [ %34, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit ], [ %59, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit ], [ %62, %60 ], [ %65, %63 ], [ %73, %70 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit ], [ %81, %78 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit ]
   ret float %.0
 }
 

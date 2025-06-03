@@ -1055,7 +1055,7 @@ scriptVerifyWriteCommandAllow.exit:               ; preds = %66, %79, %85, %89
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %114, %120, %123, %127, %131, %135
-  %.0.i56 = phi i64 [ %137, %135 ], [ %134, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %120 ], [ 0, %114 ]
+  %.0.i56 = phi i64 [ %122, %120 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ %137, %135 ], [ 0, %114 ]
   call void @afterErrorReply(ptr noundef nonnull %5, ptr noundef nonnull %115, i64 noundef %.0.i56, i32 noundef 0) #11
   %138 = call i32 @incrCommandStatsOnError(ptr noundef %15, i32 noundef 1) #11
   br label %139

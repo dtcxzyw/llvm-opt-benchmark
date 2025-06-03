@@ -1225,8 +1225,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb47, %sw.bb41, %sw.bb35, %sw.bb30, %sw.bb26, %9, %if.then, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ undef, %sw.default ], [ ptrtoint (ptr @_ZN6hermes6parser8JSONNull9instance_E to i64), %sw.bb47 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean6false_E to i64), %sw.bb41 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean5true_E to i64), %sw.bb35 ], [ %15, %sw.bb30 ], [ %13, %sw.bb26 ], [ %12, %9 ], [ undef, %if.then ], [ %3, %sw.bb ]
-  %retval.sroa.8.0 = phi i8 [ 0, %sw.default ], [ 1, %sw.bb47 ], [ 1, %sw.bb41 ], [ 1, %sw.bb35 ], [ %16, %sw.bb30 ], [ %14, %sw.bb26 ], [ 1, %9 ], [ 0, %if.then ], [ 1, %sw.bb ]
+  %retval.sroa.0.0 = phi i64 [ undef, %sw.default ], [ %3, %sw.bb ], [ %12, %9 ], [ undef, %if.then ], [ %13, %sw.bb26 ], [ %15, %sw.bb30 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean5true_E to i64), %sw.bb35 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean6false_E to i64), %sw.bb41 ], [ ptrtoint (ptr @_ZN6hermes6parser8JSONNull9instance_E to i64), %sw.bb47 ]
+  %retval.sroa.8.0 = phi i8 [ 0, %sw.default ], [ 1, %sw.bb ], [ 1, %9 ], [ 0, %if.then ], [ %14, %sw.bb26 ], [ %16, %sw.bb30 ], [ 1, %sw.bb35 ], [ 1, %sw.bb41 ], [ 1, %sw.bb47 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.8.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -223,7 +223,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   br label %34
 
 34:                                               ; preds = %29, %._crit_edge
-  %.sroa.12.1 = phi i64 [ 0, %._crit_edge ], [ %33, %29 ]
+  %.sroa.12.1 = phi i64 [ %33, %29 ], [ 0, %._crit_edge ]
   %35 = getelementptr i8, ptr %.0163.lcssa, i64 5
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = zext i8 %36 to i64
@@ -231,8 +231,8 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   br label %39
 
 39:                                               ; preds = %34, %._crit_edge
-  %.sroa.12.2 = phi i64 [ 0, %._crit_edge ], [ %.sroa.12.1, %34 ]
-  %.sroa.11.1 = phi i64 [ 0, %._crit_edge ], [ %38, %34 ]
+  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %34 ], [ 0, %._crit_edge ]
+  %.sroa.11.1 = phi i64 [ %38, %34 ], [ 0, %._crit_edge ]
   %40 = getelementptr i8, ptr %.0163.lcssa, i64 4
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = zext i8 %41 to i64
@@ -240,9 +240,9 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   br label %44
 
 44:                                               ; preds = %39, %._crit_edge
-  %.sroa.12.3 = phi i64 [ 0, %._crit_edge ], [ %.sroa.12.2, %39 ]
-  %.sroa.11.2 = phi i64 [ 0, %._crit_edge ], [ %.sroa.11.1, %39 ]
-  %.sroa.10183.1 = phi i64 [ 0, %._crit_edge ], [ %43, %39 ]
+  %.sroa.12.3 = phi i64 [ %.sroa.12.2, %39 ], [ 0, %._crit_edge ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %39 ], [ 0, %._crit_edge ]
+  %.sroa.10183.1 = phi i64 [ %43, %39 ], [ 0, %._crit_edge ]
   %.sroa.0.0.copyload = load i8, ptr %.0163.lcssa, align 1
   %.sroa.8.0..0163.sroa_idx = getelementptr inbounds nuw i8, ptr %.0163.lcssa, i64 1
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..0163.sroa_idx, align 1
@@ -260,25 +260,25 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   br label %50
 
 50:                                               ; preds = %47, %._crit_edge
-  %.sroa.9.1 = phi i8 [ 0, %._crit_edge ], [ %49, %47 ]
+  %.sroa.9.1 = phi i8 [ %49, %47 ], [ 0, %._crit_edge ]
   %51 = getelementptr i8, ptr %.0163.lcssa, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !14
   br label %53
 
 53:                                               ; preds = %50, %._crit_edge
-  %.sroa.9.2 = phi i8 [ 0, %._crit_edge ], [ %.sroa.9.1, %50 ]
-  %.sroa.8.1 = phi i8 [ 0, %._crit_edge ], [ %52, %50 ]
+  %.sroa.9.2 = phi i8 [ %.sroa.9.1, %50 ], [ 0, %._crit_edge ]
+  %.sroa.8.1 = phi i8 [ %52, %50 ], [ 0, %._crit_edge ]
   %54 = load i8, ptr %.0163.lcssa, align 1, !tbaa !14
   br label %55
 
 55:                                               ; preds = %53, %44, %._crit_edge
-  %.sroa.12.0 = phi i64 [ 0, %._crit_edge ], [ 0, %53 ], [ %.sroa.12.3, %44 ]
-  %.sroa.11.0 = phi i64 [ 0, %._crit_edge ], [ 0, %53 ], [ %.sroa.11.2, %44 ]
-  %.sroa.10183.0 = phi i64 [ 0, %._crit_edge ], [ 0, %53 ], [ %.sroa.10183.1, %44 ]
-  %.sroa.10.0 = phi i64 [ 0, %._crit_edge ], [ 0, %53 ], [ %46, %44 ]
-  %.sroa.9.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.9.2, %53 ], [ %.sroa.9.0.copyload, %44 ]
-  %.sroa.8.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.8.1, %53 ], [ %.sroa.8.0.copyload, %44 ]
-  %.sroa.0.0 = phi i8 [ 0, %._crit_edge ], [ %54, %53 ], [ %.sroa.0.0.copyload, %44 ]
+  %.sroa.12.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.12.3, %44 ], [ 0, %53 ]
+  %.sroa.11.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.11.2, %44 ], [ 0, %53 ]
+  %.sroa.10183.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.10183.1, %44 ], [ 0, %53 ]
+  %.sroa.10.0 = phi i64 [ 0, %._crit_edge ], [ %46, %44 ], [ 0, %53 ]
+  %.sroa.9.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.9.0.copyload, %44 ], [ %.sroa.9.2, %53 ]
+  %.sroa.8.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.8.0.copyload, %44 ], [ %.sroa.8.1, %53 ]
+  %.sroa.0.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.0.0.copyload, %44 ], [ %54, %53 ]
   %56 = shl i64 %3, 56
   %.sroa.11.0.insert.insert = or i64 %.sroa.11.0, %.sroa.12.0
   %.sroa.10183.0.insert.insert = or i64 %.sroa.11.0.insert.insert, %.sroa.10183.0

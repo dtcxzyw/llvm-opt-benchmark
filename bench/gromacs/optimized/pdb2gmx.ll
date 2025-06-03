@@ -5290,7 +5290,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit95.i:             ; preds = %_ZNKSt7__cxx1112bas
   br i1 %968, label %889, label %.loopexit2537, !llvm.loop !246
 
 969:                                              ; preds = %963, %955, %_ZN3gmx14LogEntryWriterD2Ev.exit95.i
-  %.pn.i1059 = phi { ptr, i32 } [ %964, %963 ], [ %956, %955 ], [ %942, %_ZN3gmx14LogEntryWriterD2Ev.exit95.i ]
+  %.pn.i1059 = phi { ptr, i32 } [ %956, %955 ], [ %942, %_ZN3gmx14LogEntryWriterD2Ev.exit95.i ], [ %964, %963 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %90) #32
   br label %.body1041
 
@@ -8600,7 +8600,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1244:             ; preds = %_ZNKSt7__cxx1112bas
   br label %2457
 
 2457:                                             ; preds = %2455, %._crit_edge.i.i.i.i189.i
-  %.sroa.034.1.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i189.i ], [ %2456, %2455 ]
+  %.sroa.034.1.i.i.i.i.i = phi ptr [ %2456, %2455 ], [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i189.i ]
   %2458 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i.i)
           to label %.noexc195.i unwind label %.loopexit.split-lp34.i
 
@@ -8612,7 +8612,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1244:             ; preds = %_ZNKSt7__cxx1112bas
   br label %2461
 
 2461:                                             ; preds = %2459, %._crit_edge.i.i.i.i189.i
-  %.sroa.034.2.i.i.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i189.i ], [ %2460, %2459 ]
+  %.sroa.034.2.i.i.i.i.i = phi ptr [ %2460, %2459 ], [ %.sroa.034.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i189.i ]
   %2462 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i.i)
           to label %.noexc196.i unwind label %.loopexit.split-lp34.i
 
@@ -8912,7 +8912,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2560
 
 2560:                                             ; preds = %2558, %._crit_edge.i.i.i.i197.i
-  %.sroa.034.1.i.i.i.i207.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i199.i, %._crit_edge.i.i.i.i197.i ], [ %2559, %2558 ]
+  %.sroa.034.1.i.i.i.i207.i = phi ptr [ %2559, %2558 ], [ %.sroa.034.0.lcssa.i.i.i.i199.i, %._crit_edge.i.i.i.i197.i ]
   %2561 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i207.i)
           to label %.noexc219.i unwind label %.loopexit.split-lp29.i
 
@@ -8924,7 +8924,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2564
 
 2564:                                             ; preds = %2562, %._crit_edge.i.i.i.i197.i
-  %.sroa.034.2.i.i.i.i200.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i199.i, %._crit_edge.i.i.i.i197.i ], [ %2563, %2562 ]
+  %.sroa.034.2.i.i.i.i200.i = phi ptr [ %2563, %2562 ], [ %.sroa.034.0.lcssa.i.i.i.i199.i, %._crit_edge.i.i.i.i197.i ]
   %2565 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i200.i)
           to label %.noexc220.i unwind label %.loopexit.split-lp29.i
 
@@ -9224,7 +9224,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2663
 
 2663:                                             ; preds = %2661, %._crit_edge.i.i.i.i222.i
-  %.sroa.034.1.i.i.i.i232.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i224.i, %._crit_edge.i.i.i.i222.i ], [ %2662, %2661 ]
+  %.sroa.034.1.i.i.i.i232.i = phi ptr [ %2662, %2661 ], [ %.sroa.034.0.lcssa.i.i.i.i224.i, %._crit_edge.i.i.i.i222.i ]
   %2664 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i232.i)
           to label %.noexc244.i unwind label %.loopexit.split-lp24.i
 
@@ -9236,7 +9236,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2667
 
 2667:                                             ; preds = %2665, %._crit_edge.i.i.i.i222.i
-  %.sroa.034.2.i.i.i.i225.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i224.i, %._crit_edge.i.i.i.i222.i ], [ %2666, %2665 ]
+  %.sroa.034.2.i.i.i.i225.i = phi ptr [ %2666, %2665 ], [ %.sroa.034.0.lcssa.i.i.i.i224.i, %._crit_edge.i.i.i.i222.i ]
   %2668 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i225.i)
           to label %.noexc245.i unwind label %.loopexit.split-lp24.i
 
@@ -9536,7 +9536,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2766
 
 2766:                                             ; preds = %2764, %._crit_edge.i.i.i.i247.i
-  %.sroa.034.1.i.i.i.i257.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i249.i, %._crit_edge.i.i.i.i247.i ], [ %2765, %2764 ]
+  %.sroa.034.1.i.i.i.i257.i = phi ptr [ %2765, %2764 ], [ %.sroa.034.0.lcssa.i.i.i.i249.i, %._crit_edge.i.i.i.i247.i ]
   %2767 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i257.i)
           to label %.noexc269.i unwind label %.loopexit.split-lp19.i
 
@@ -9548,7 +9548,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2770
 
 2770:                                             ; preds = %2768, %._crit_edge.i.i.i.i247.i
-  %.sroa.034.2.i.i.i.i250.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i249.i, %._crit_edge.i.i.i.i247.i ], [ %2769, %2768 ]
+  %.sroa.034.2.i.i.i.i250.i = phi ptr [ %2769, %2768 ], [ %.sroa.034.0.lcssa.i.i.i.i249.i, %._crit_edge.i.i.i.i247.i ]
   %2771 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i250.i)
           to label %.noexc270.i unwind label %.loopexit.split-lp19.i
 
@@ -9852,7 +9852,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2870
 
 2870:                                             ; preds = %2868, %._crit_edge.i.i.i.i272.i
-  %.sroa.034.1.i.i.i.i282.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i274.i, %._crit_edge.i.i.i.i272.i ], [ %2869, %2868 ]
+  %.sroa.034.1.i.i.i.i282.i = phi ptr [ %2869, %2868 ], [ %.sroa.034.0.lcssa.i.i.i.i274.i, %._crit_edge.i.i.i.i272.i ]
   %2871 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i282.i)
           to label %.noexc294.i unwind label %.loopexit.split-lp14.i
 
@@ -9864,7 +9864,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2874
 
 2874:                                             ; preds = %2872, %._crit_edge.i.i.i.i272.i
-  %.sroa.034.2.i.i.i.i275.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i274.i, %._crit_edge.i.i.i.i272.i ], [ %2873, %2872 ]
+  %.sroa.034.2.i.i.i.i275.i = phi ptr [ %2873, %2872 ], [ %.sroa.034.0.lcssa.i.i.i.i274.i, %._crit_edge.i.i.i.i272.i ]
   %2875 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i275.i)
           to label %.noexc295.i unwind label %.loopexit.split-lp14.i
 
@@ -10180,7 +10180,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2976
 
 2976:                                             ; preds = %2974, %._crit_edge.i.i.i.i297.i
-  %.sroa.034.1.i.i.i.i307.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i299.i, %._crit_edge.i.i.i.i297.i ], [ %2975, %2974 ]
+  %.sroa.034.1.i.i.i.i307.i = phi ptr [ %2975, %2974 ], [ %.sroa.034.0.lcssa.i.i.i.i299.i, %._crit_edge.i.i.i.i297.i ]
   %2977 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.1.i.i.i.i307.i)
           to label %.noexc319.i unwind label %.loopexit.split-lp.i
 
@@ -10192,7 +10192,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   br label %2980
 
 2980:                                             ; preds = %2978, %._crit_edge.i.i.i.i297.i
-  %.sroa.034.2.i.i.i.i300.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i.i299.i, %._crit_edge.i.i.i.i297.i ], [ %2979, %2978 ]
+  %.sroa.034.2.i.i.i.i300.i = phi ptr [ %2979, %2978 ], [ %.sroa.034.0.lcssa.i.i.i.i299.i, %._crit_edge.i.i.i.i297.i ]
   %2981 = invoke noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.034.2.i.i.i.i300.i)
           to label %.noexc320.i unwind label %.loopexit.split-lp.i
 
@@ -16034,7 +16034,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
   br label %5245
 
 5245:                                             ; preds = %5243, %._crit_edge.i.i.i.i1509
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ], [ %5244, %5243 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %5244, %5243 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ]
   %5246 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc104.i unwind label %.loopexit.split-lp169.i, !noalias !395
 
@@ -16046,7 +16046,7 @@ _ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops14
   br label %5249
 
 5249:                                             ; preds = %5247, %._crit_edge.i.i.i.i1509
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ], [ %5248, %5247 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %5248, %5247 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i1509 ]
   %5250 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_113sort_pdbatomsEN3gmx8ArrayRefIK17PreprocessResidueEEiPP7t_atomsSA_PSt6vectorINS3_11BasicVectorIfEESaISD_EEE3$_0EclINS_17__normal_iteratorIPKPPcSB_ISM_SaISM_EEEEEEbT_"(ptr readonly %5212, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc105.i unwind label %.loopexit.split-lp169.i, !noalias !395
 
@@ -28006,7 +28006,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8Ar
   br label %56
 
 56:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit42.thread63.i.i.i", %._crit_edge.i.i.i
-  %.sroa.052.1.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit42.thread63.i.i.i" ]
+  %.sroa.052.1.i.i.i = phi ptr [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit42.thread63.i.i.i" ], [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br i1 %6, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit45.i.i.i", label %57
 
 57:                                               ; preds = %56
@@ -28025,7 +28025,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8Ar
   br label %64
 
 64:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit45.thread64.i.i.i", %._crit_edge.i.i.i
-  %.sroa.052.2.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit45.thread64.i.i.i" ]
+  %.sroa.052.2.i.i.i = phi ptr [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit45.thread64.i.i.i" ], [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br i1 %6, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_116search_resrenameB5cxx11EN3gmx8ArrayRefIK9RtpRenameEEPKcbbbE3$_0EclINS3_12ArrayRefIterIS6_EEEEbT_.exit48.i.i.i", label %65
 
 65:                                               ; preds = %64

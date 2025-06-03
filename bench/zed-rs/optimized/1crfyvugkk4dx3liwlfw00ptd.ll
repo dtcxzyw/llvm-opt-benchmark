@@ -16559,8 +16559,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-123:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+123:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr135drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..SignInStatus$C$anyhow..Error$GT$$GT$$GT$17h769bb67bafc795d7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %124) #29
           to label %122 unwind label %74
@@ -16925,7 +16925,7 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %53
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit38", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit33"
-  %.sroa.03.1 = phi ptr [ %82, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit38" ], [ %.sroa.03.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit33" ]
+  %.sroa.03.1 = phi ptr [ %.sroa.03.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit33" ], [ %82, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit38" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
@@ -17070,8 +17070,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %53
   store i8 2, ptr %15, align 8
   resume { ptr, i32 } %.pn22.pn56
 
-100:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn22.pn.ph = phi { ptr, i32 } [ %.pn17.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn8, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+100:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn22.pn.ph = phi { ptr, i32 } [ %.pn8, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn17.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr136drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..SignOutResult$C$anyhow..Error$GT$$GT$$GT$17h601dd054388e988cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %101) #29
           to label %99 unwind label %68
@@ -17504,8 +17504,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-123:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+123:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr135drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..SignInStatus$C$anyhow..Error$GT$$GT$$GT$17h769bb67bafc795d7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %124) #29
           to label %122 unwind label %74
@@ -18012,8 +18012,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-110:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+110:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr126drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$GT$$GT$17ha8173b1c4bd01b59E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #29
           to label %109 unwind label %74
@@ -18400,8 +18400,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-104:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+104:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr143drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..GetCompletionsResult$C$anyhow..Error$GT$$GT$$GT$17hf4b2b8eb7bf803a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %105) #29
           to label %103 unwind label %74
@@ -18788,8 +18788,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-104:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+104:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr143drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..GetCompletionsResult$C$anyhow..Error$GT$$GT$$GT$17hf4b2b8eb7bf803a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %105) #29
           to label %103 unwind label %74
@@ -19158,8 +19158,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-110:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+110:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr126drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$GT$$GT$17ha8173b1c4bd01b59E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #29
           to label %109 unwind label %74
@@ -19573,8 +19573,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn58
 
-120:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+120:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr143drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$copilot..request..SignInInitiateResult$C$anyhow..Error$GT$$GT$$GT$17h0cf2ce3d9e6c927dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %121) #29
           to label %119 unwind label %74
@@ -19943,8 +19943,8 @@ _ZN3log13__private_api3log17h252a755b3b033818E.exit: ; preds = %58
   store i8 2, ptr %17, align 8
   resume { ptr, i32 } %.pn18.pn57
 
-110:                                              ; preds = %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit"
-  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ], [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ]
+110:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit", %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit"
+  %.pn18.pn.ph = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr31drop_in_place$LT$lsp..Error$GT$17hdca15535a35b0930E.exit" ], [ %.pn13.pn, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h801c7cad3b90acfeE.exit" ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr126drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$GT$$GT$17ha8173b1c4bd01b59E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #29
           to label %109 unwind label %74

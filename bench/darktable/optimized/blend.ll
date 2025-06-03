@@ -95,7 +95,7 @@ define range(i32 0, 5) i32 @dt_develop_blend_default_module_blend_colorspace(ptr
   br label %_blend_default_module_blend_colorspace.exit
 
 _blend_default_module_blend_colorspace.exit:      ; preds = %1, %7, %11, %12, %14, %15, %16
-  %.0.i = phi i32 [ 0, %16 ], [ 4, %15 ], [ 3, %14 ], [ %13, %12 ], [ 2, %11 ], [ 1, %7 ], [ 0, %1 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 2, %11 ], [ %13, %12 ], [ 3, %14 ], [ 4, %15 ], [ 1, %7 ], [ 0, %1 ]
   ret i32 %.0.i
 }
 
@@ -1912,8 +1912,8 @@ dt_develop_blend_params_is_all_zero.exit:         ; preds = %.lr.ph.i
   br label %_blend_legacy_blend_mode.exit
 
 _blend_legacy_blend_mode.exit:                    ; preds = %26, %31, %32, %33, %34
-  %.04.i = phi i32 [ %30, %26 ], [ 4, %34 ], [ 24, %33 ], [ 25, %32 ], [ 25, %31 ]
-  %.not.i365 = phi i32 [ 0, %26 ], [ -2147483648, %34 ], [ 0, %33 ], [ -2147483648, %32 ], [ 0, %31 ]
+  %.04.i = phi i32 [ %30, %26 ], [ 25, %31 ], [ 25, %32 ], [ 24, %33 ], [ 4, %34 ]
+  %.not.i365 = phi i32 [ 0, %26 ], [ 0, %31 ], [ -2147483648, %32 ], [ 0, %33 ], [ -2147483648, %34 ]
   %35 = or disjoint i32 %.not.i365, %.04.i
   store i32 %35, ptr %.sroa.15.0..sroa_idx431, align 4, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1988,8 +1988,8 @@ _blend_legacy_blend_mode.exit:                    ; preds = %26, %31, %32, %33, 
   br label %_blend_legacy_blend_mode.exit369
 
 _blend_legacy_blend_mode.exit369:                 ; preds = %46, %55, %56, %57, %58
-  %.04.i367 = phi i32 [ %54, %46 ], [ 4, %58 ], [ 24, %57 ], [ 25, %56 ], [ 25, %55 ]
-  %.not.i368 = phi i32 [ 0, %46 ], [ -2147483648, %58 ], [ 0, %57 ], [ -2147483648, %56 ], [ 0, %55 ]
+  %.04.i367 = phi i32 [ %54, %46 ], [ 25, %55 ], [ 25, %56 ], [ 24, %57 ], [ 4, %58 ]
+  %.not.i368 = phi i32 [ 0, %46 ], [ 0, %55 ], [ -2147483648, %56 ], [ 0, %57 ], [ -2147483648, %58 ]
   %59 = or disjoint i32 %.not.i368, %.04.i367
   store i32 %59, ptr %.sroa.15.0..sroa_idx432, align 4, !tbaa !32
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2082,8 +2082,8 @@ _blend_legacy_blend_mode.exit369:                 ; preds = %46, %55, %56, %57, 
   br label %_blend_legacy_blend_mode.exit373
 
 _blend_legacy_blend_mode.exit373:                 ; preds = %79, %88, %89, %90, %91
-  %.04.i371 = phi i32 [ %87, %79 ], [ 4, %91 ], [ 24, %90 ], [ 25, %89 ], [ 25, %88 ]
-  %.not.i372 = phi i32 [ 0, %79 ], [ -2147483648, %91 ], [ 0, %90 ], [ -2147483648, %89 ], [ 0, %88 ]
+  %.04.i371 = phi i32 [ %87, %79 ], [ 25, %88 ], [ 25, %89 ], [ 24, %90 ], [ 4, %91 ]
+  %.not.i372 = phi i32 [ 0, %79 ], [ 0, %88 ], [ -2147483648, %89 ], [ 0, %90 ], [ -2147483648, %91 ]
   %92 = or disjoint i32 %.not.i372, %.04.i371
   store i32 %92, ptr %.sroa.15.0..sroa_idx433, align 4, !tbaa !32
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2896,8 +2896,8 @@ define internal fastcc range(i32 0, -2147483392) i32 @_blend_legacy_blend_mode(i
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3
-  %.04 = phi i32 [ %2, %1 ], [ 4, %6 ], [ 24, %5 ], [ 25, %4 ], [ 25, %3 ]
-  %.not = phi i32 [ 0, %1 ], [ -2147483648, %6 ], [ 0, %5 ], [ -2147483648, %4 ], [ 0, %3 ]
+  %.04 = phi i32 [ %2, %1 ], [ 25, %3 ], [ 25, %4 ], [ 24, %5 ], [ 4, %6 ]
+  %.not = phi i32 [ 0, %1 ], [ 0, %3 ], [ -2147483648, %4 ], [ 0, %5 ], [ -2147483648, %6 ]
   %8 = or disjoint i32 %.not, %.04
   ret i32 %8
 }

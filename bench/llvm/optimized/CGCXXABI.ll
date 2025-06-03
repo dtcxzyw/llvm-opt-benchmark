@@ -412,7 +412,7 @@ define dso_local void @_ZN5clang7CodeGen8CGCXXABI31EmitLoadOfMemberFunctionPoint
   br label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %8, %30, %38
-  %.1.i = phi ptr [ %27, %8 ], [ %39, %38 ], [ null, %30 ]
+  %.1.i = phi ptr [ %39, %38 ], [ %27, %8 ], [ null, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !633
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 232
@@ -1198,7 +1198,7 @@ define dso_local i64 @_ZN5clang7CodeGen8CGCXXABI18GetArrayCookieSizeEPKNS_10CXXN
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %7, %14
-  %.1.i.i = phi ptr [ %11, %7 ], [ %15, %14 ]
+  %.1.i.i = phi ptr [ %15, %14 ], [ %11, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %16, align 16, !tbaa !285
   %17 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1270,7 +1270,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen8CGCXXABI19requiresArrayCo
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %5, %12
-  %.1.i.i = phi ptr [ %9, %5 ], [ %13, %12 ]
+  %.1.i.i = phi ptr [ %13, %12 ], [ %9, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %14, align 16, !tbaa !285
   %15 = tail call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i1.i) #19
@@ -1429,7 +1429,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen8CGCXXABI26getMemberPointerAdjust
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %9, %15
-  %.1.i = phi ptr [ %12, %9 ], [ %16, %15 ]
+  %.1.i = phi ptr [ %16, %15 ], [ %12, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !643
   %19 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %18) #19
@@ -2423,7 +2423,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
   br label %34
 
 34:                                               ; preds = %7, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %15, %7 ], [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %18, %_ZNK4llvm13IRBuilderBase6InsertINS_17GetElementPtrInstEEEPT_S4_RKNS_5TwineE.exit ], [ %15, %7 ]
   ret ptr %.1
 }
 

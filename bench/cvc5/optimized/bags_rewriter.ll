@@ -2402,7 +2402,7 @@ _ZN4cvc58internal6theory4bags19BagsRewriteResponseD2Ev.exit205: ; preds = %_ZN4c
   ret void
 
 658:                                              ; preds = %375, %384, %393, %402, %411, %420, %429, %438, %447, %456, %465, %474, %483, %492, %501, %514, %643, %599, %360, %348, %245, %197, %143, %134
-  %.pn83 = phi { ptr, i32 } [ %600, %599 ], [ %135, %134 ], [ %644, %643 ], [ %.pn78.pn, %143 ], [ %.pn76, %197 ], [ %.pn74, %245 ], [ %.pn70.pn.pn, %360 ], [ %349, %348 ], [ %.pn66.pn, %514 ], [ %.pn, %501 ], [ %.pn38, %492 ], [ %.pn40, %483 ], [ %.pn42, %474 ], [ %.pn44, %465 ], [ %.pn46, %456 ], [ %.pn48, %447 ], [ %.pn50, %438 ], [ %.pn52, %429 ], [ %.pn54, %420 ], [ %.pn56, %411 ], [ %.pn58, %402 ], [ %.pn60, %393 ], [ %.pn62, %384 ], [ %.pn64, %375 ]
+  %.pn83 = phi { ptr, i32 } [ %600, %599 ], [ %135, %134 ], [ %644, %643 ], [ %.pn78.pn, %143 ], [ %.pn76, %197 ], [ %.pn74, %245 ], [ %.pn70.pn.pn, %360 ], [ %349, %348 ], [ %.pn66.pn, %514 ], [ %.pn64, %375 ], [ %.pn62, %384 ], [ %.pn60, %393 ], [ %.pn58, %402 ], [ %.pn56, %411 ], [ %.pn54, %420 ], [ %.pn52, %429 ], [ %.pn50, %438 ], [ %.pn48, %447 ], [ %.pn46, %456 ], [ %.pn44, %465 ], [ %.pn42, %474 ], [ %.pn40, %483 ], [ %.pn38, %492 ], [ %.pn, %501 ]
   call void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   resume { ptr, i32 } %.pn83
@@ -12617,7 +12617,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit179: ; preds = %791, %785, %781, %
   ret void
 
 797:                                              ; preds = %.body109, %.body142, %795, %327
-  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %.pn72.pn.pn, %327 ], [ %796, %795 ], [ %.pn47.pn.pn.pn, %.body142 ], [ %.pn58.pn.pn, %.body109 ]
+  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %.pn72.pn.pn, %327 ], [ %796, %795 ], [ %.pn58.pn.pn, %.body109 ], [ %.pn47.pn.pn.pn, %.body142 ]
   resume { ptr, i32 } %.pn72.pn.pn.pn
 }
 
@@ -14077,7 +14077,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit146: ; preds = %_ZN4cvc58internal1
   ret void
 
 670:                                              ; preds = %175, %356, %.body102, %630, %168, %159
-  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %168 ], [ %160, %159 ], [ %631, %630 ], [ %176, %175 ], [ %.pn40.pn.pn.pn, %.body102 ], [ %.pn49.pn.pn.pn, %356 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %168 ], [ %160, %159 ], [ %631, %630 ], [ %176, %175 ], [ %.pn49.pn.pn.pn, %356 ], [ %.pn40.pn.pn.pn, %.body102 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #21
   br label %671
 
@@ -16017,7 +16017,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit191: ; preds = %_ZN4cvc58internal1
   ret void
 
 908:                                              ; preds = %201, %356, %364, %778, %823, %869, %194, %185
-  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %194 ], [ %186, %185 ], [ %824, %823 ], [ %202, %201 ], [ %.pn55.pn.pn.pn.pn, %778 ], [ %.pn67.pn, %364 ], [ %870, %869 ], [ %.pn61.pn.pn.pn.pn, %356 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %194 ], [ %186, %185 ], [ %824, %823 ], [ %202, %201 ], [ %.pn67.pn, %364 ], [ %870, %869 ], [ %.pn61.pn.pn.pn.pn, %356 ], [ %.pn55.pn.pn.pn.pn, %778 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
   br label %909
 
@@ -17940,7 +17940,7 @@ _ZN4cvc58internal6theory4bags19BagsRewriteResponseD2Ev.exit137: ; preds = %_ZN4c
   ret void
 
 413:                                              ; preds = %398, %354, %308, %179, %131, %83, %34
-  %.pn23 = phi { ptr, i32 } [ %355, %354 ], [ %35, %34 ], [ %399, %398 ], [ %.pn18.pn, %308 ], [ %.pn, %179 ], [ %.pn14, %131 ], [ %.pn16, %83 ]
+  %.pn23 = phi { ptr, i32 } [ %355, %354 ], [ %35, %34 ], [ %399, %398 ], [ %.pn18.pn, %308 ], [ %.pn16, %83 ], [ %.pn14, %131 ], [ %.pn, %179 ]
   call void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   resume { ptr, i32 } %.pn23

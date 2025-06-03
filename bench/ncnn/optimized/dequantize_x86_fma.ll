@@ -657,8 +657,8 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %87, %82, %73
   br label %104
 
 104:                                              ; preds = %101, %99, %98, %_ZN4ncnn3Mat6addrefEv.exit
-  %.013.i = phi nsz <8 x float> [ %96, %98 ], [ %103, %101 ], [ %100, %99 ], [ %96, %_ZN4ncnn3Mat6addrefEv.exit ]
-  %.012.i = phi nsz <4 x float> [ %94, %98 ], [ %102, %101 ], [ %94, %99 ], [ %94, %_ZN4ncnn3Mat6addrefEv.exit ]
+  %.013.i = phi nsz <8 x float> [ %96, %98 ], [ %100, %99 ], [ %103, %101 ], [ %96, %_ZN4ncnn3Mat6addrefEv.exit ]
+  %.012.i = phi nsz <4 x float> [ %94, %98 ], [ %94, %99 ], [ %102, %101 ], [ %94, %_ZN4ncnn3Mat6addrefEv.exit ]
   %105 = icmp eq i32 %.sroa.25.0, 0
   br i1 %105, label %.preheader17.i, label %133
 
@@ -754,8 +754,8 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %87, %82, %73
   br label %146
 
 146:                                              ; preds = %143, %141, %140, %133
-  %.015.i = phi nsz <4 x float> [ %136, %140 ], [ %144, %143 ], [ %136, %141 ], [ %136, %133 ]
-  %.014.i = phi nsz <8 x float> [ %138, %140 ], [ %145, %143 ], [ %142, %141 ], [ %138, %133 ]
+  %.015.i = phi nsz <4 x float> [ %136, %140 ], [ %136, %141 ], [ %144, %143 ], [ %136, %133 ]
+  %.014.i = phi nsz <8 x float> [ %138, %140 ], [ %142, %141 ], [ %145, %143 ], [ %138, %133 ]
   %147 = icmp sgt i32 %91, 7
   br i1 %147, label %.lr.ph.i, label %.preheader20.i
 
@@ -1064,8 +1064,8 @@ _ZN4ncnn3Mat6addrefEv.exit29:                     ; preds = %85, %80, %71
   br label %104
 
 104:                                              ; preds = %101, %99, %98, %_ZN4ncnn3Mat6addrefEv.exit29
-  %.013.i = phi nsz <8 x float> [ %96, %98 ], [ %103, %101 ], [ %100, %99 ], [ %96, %_ZN4ncnn3Mat6addrefEv.exit29 ]
-  %.012.i = phi nsz <4 x float> [ %94, %98 ], [ %102, %101 ], [ %94, %99 ], [ %94, %_ZN4ncnn3Mat6addrefEv.exit29 ]
+  %.013.i = phi nsz <8 x float> [ %96, %98 ], [ %100, %99 ], [ %103, %101 ], [ %96, %_ZN4ncnn3Mat6addrefEv.exit29 ]
+  %.012.i = phi nsz <4 x float> [ %94, %98 ], [ %94, %99 ], [ %102, %101 ], [ %94, %_ZN4ncnn3Mat6addrefEv.exit29 ]
   %105 = icmp eq i32 %.sroa.25.0, 0
   br i1 %105, label %.preheader17.i, label %133
 
@@ -1161,8 +1161,8 @@ _ZN4ncnn3Mat6addrefEv.exit29:                     ; preds = %85, %80, %71
   br label %146
 
 146:                                              ; preds = %143, %141, %140, %133
-  %.015.i = phi nsz <4 x float> [ %136, %140 ], [ %144, %143 ], [ %136, %141 ], [ %136, %133 ]
-  %.014.i = phi nsz <8 x float> [ %138, %140 ], [ %145, %143 ], [ %142, %141 ], [ %138, %133 ]
+  %.015.i = phi nsz <4 x float> [ %136, %140 ], [ %136, %141 ], [ %144, %143 ], [ %136, %133 ]
+  %.014.i = phi nsz <8 x float> [ %138, %140 ], [ %142, %141 ], [ %145, %143 ], [ %138, %133 ]
   %147 = icmp sgt i32 %91, 7
   br i1 %147, label %.lr.ph.i, label %.preheader20.i
 

@@ -452,7 +452,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h43d91955b588136dE.exit: ;
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h504e008671bb3579E.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h84ca0de8e5d8dedfE.exit.thread: ; preds = %60, %67, %66, %65, %64, %63, %62
-  %.0.i = phi ptr [ @anon.6d440324aa0d31fec9489b428205da9e.27, %67 ], [ @anon.6d440324aa0d31fec9489b428205da9e.26, %66 ], [ @anon.6d440324aa0d31fec9489b428205da9e.25, %65 ], [ @anon.6d440324aa0d31fec9489b428205da9e.24, %64 ], [ @anon.6d440324aa0d31fec9489b428205da9e.23, %63 ], [ @anon.6d440324aa0d31fec9489b428205da9e.21, %62 ], [ @anon.6d440324aa0d31fec9489b428205da9e.20, %60 ]
+  %.0.i = phi ptr [ @anon.6d440324aa0d31fec9489b428205da9e.21, %62 ], [ @anon.6d440324aa0d31fec9489b428205da9e.23, %63 ], [ @anon.6d440324aa0d31fec9489b428205da9e.24, %64 ], [ @anon.6d440324aa0d31fec9489b428205da9e.25, %65 ], [ @anon.6d440324aa0d31fec9489b428205da9e.26, %66 ], [ @anon.6d440324aa0d31fec9489b428205da9e.27, %67 ], [ @anon.6d440324aa0d31fec9489b428205da9e.20, %60 ]
   %88 = load i64, ptr %6, align 8, !alias.scope !116, !noalias !125, !noundef !9
   %89 = load i64, ptr %.val26, align 8, !alias.scope !116, !noalias !125, !noundef !9
   %90 = sub i64 %89, %88
@@ -1136,7 +1136,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a5eb393b20b6416E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a5eb393b20b6416E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1162,7 +1162,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d1a6e281bac5a4aE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d1a6e281bac5a4aE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 

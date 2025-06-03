@@ -76548,7 +76548,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %36, %34
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %50, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %50 ], [ %51, %.thread.i ]
+  %.1.i = phi ptr [ %51, %.thread.i ], [ %.0.i.i.i, %50 ]
   tail call void @lean_inc_heartbeat() #8
   %52 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #8
   %53 = icmp eq ptr %52, null
@@ -77123,7 +77123,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %198, %196
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %212, %.thread.i
-  %.1.i371 = phi ptr [ %.0.i.i.i, %212 ], [ %213, %.thread.i ]
+  %.1.i371 = phi ptr [ %213, %.thread.i ], [ %.0.i.i.i, %212 ]
   %214 = lshr i64 %155, 1
   %215 = trunc i64 %214 to i8
   br i1 %.not542, label %216, label %lean_dec.exit273
@@ -78002,7 +78002,7 @@ lean_ensure_exclusive_array.exit.i.i442:          ; preds = %559, %557
   br label %lean_array_set.exit446
 
 lean_array_set.exit446:                           ; preds = %573, %.thread.i439
-  %.1.i440 = phi ptr [ %.0.i.i.i443, %573 ], [ %574, %.thread.i439 ]
+  %.1.i440 = phi ptr [ %574, %.thread.i439 ], [ %.0.i.i.i443, %573 ]
   %575 = lshr i64 %518, 1
   %576 = trunc i64 %575 to i8
   br i1 %.not526, label %577, label %lean_dec.exit258
@@ -94218,14 +94218,14 @@ select.unfold.sink.split:                         ; preds = %lean_obj_tag.exit, 
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %47, %17, %24, %31
-  %.148 = phi ptr [ %35, %31 ], [ %28, %24 ], [ %21, %17 ], [ %44, %47 ], [ %52, %select.unfold.sink.split ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %47, %31, %24, %17
+  %.148 = phi ptr [ %21, %17 ], [ %28, %24 ], [ %35, %31 ], [ %44, %47 ], [ %52, %select.unfold.sink.split ]
   %53 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.148) #8
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %select.unfold, %38, %lean_obj_tag.exit, %31, %24, %17, %47, %2, %13
-  %.174 = phi i8 [ %16, %13 ], [ 0, %2 ], [ 1, %47 ], [ 1, %17 ], [ 1, %24 ], [ 1, %31 ], [ 0, %lean_obj_tag.exit ], [ 1, %38 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %38, %lean_obj_tag.exit, %17, %24, %31, %47, %2, %13
+  %.174 = phi i8 [ %16, %13 ], [ 0, %2 ], [ 1, %47 ], [ 1, %31 ], [ 1, %24 ], [ 1, %17 ], [ 0, %lean_obj_tag.exit ], [ 1, %38 ], [ 0, %select.unfold ]
   ret i8 %.174
 }
 
@@ -94327,14 +94327,14 @@ select.unfold.sink.split:                         ; preds = %lean_obj_tag.exit, 
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %48, %18, %25, %32
-  %.150 = phi ptr [ %36, %32 ], [ %29, %25 ], [ %22, %18 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %48, %32, %25, %18
+  %.150 = phi ptr [ %22, %18 ], [ %29, %25 ], [ %36, %32 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
   %54 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.150) #8
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %32, %25, %18, %48, %2, %13
-  %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %18 ], [ 1, %25 ], [ 1, %32 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %18, %25, %32, %48, %2, %13
+  %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %32 ], [ 1, %25 ], [ 1, %18 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
   ret i8 %.178
 }
 
@@ -94434,14 +94434,14 @@ select.unfold.sink.split:                         ; preds = %lean_obj_tag.exit, 
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %48, %18, %25, %32
-  %.150 = phi ptr [ %36, %32 ], [ %29, %25 ], [ %22, %18 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %48, %32, %25, %18
+  %.150 = phi ptr [ %22, %18 ], [ %29, %25 ], [ %36, %32 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
   %54 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.150) #8
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %32, %25, %18, %48, %2, %13
-  %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %18 ], [ 1, %25 ], [ 1, %32 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %18, %25, %32, %48, %2, %13
+  %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %32 ], [ 1, %25 ], [ 1, %18 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
   ret i8 %.178
 }
 
@@ -115734,7 +115734,7 @@ define noundef nonnull ptr @l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx(i8 nou
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -115782,7 +115782,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -116215,7 +116215,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Elab_WF_GuessLex_instDecidableEqGuessLe
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit: ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -116232,7 +116232,7 @@ l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit: ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -116308,7 +116308,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i: ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lean_Elab_WF_GuessLex_instDecidableEqGuessLexRel.exit
     i8 1, label %28
@@ -116325,7 +116325,7 @@ l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i: ; preds = %27, %26, %25, %
   br label %l_Lean_Elab_WF_GuessLex_instDecidableEqGuessLexRel.exit
 
 l_Lean_Elab_WF_GuessLex_instDecidableEqGuessLexRel.exit: ; preds = %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Elab_WF_GuessLex_GuessLexRel_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -116477,7 +116477,7 @@ define ptr @l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel(i8 noundef zeroext %0) 
   br label %11
 
 11:                                               ; preds = %8, %6, %4, %2
-  %.0 = phi ptr [ %10, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %10, %8 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -116535,7 +116535,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit: ; preds = %13, %15, %17, %19
-  %.0.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   ret ptr %.0.i
 }
 
@@ -124949,7 +124949,7 @@ lean_dec.exit846:                                 ; preds = %136, %135, %133, %1
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit: ; preds = %146, %148, %150, %152
-  %.0.i1145 = phi ptr [ %154, %152 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ]
+  %.0.i1145 = phi ptr [ %154, %152 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ]
   br i1 %.not1504, label %155, label %lean_inc.exit723
 
 155:                                              ; preds = %l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit
@@ -127823,7 +127823,7 @@ lean_dec.exit780:                                 ; preds = %1148, %1147, %1145,
   br label %l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit1307
 
 l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit1307: ; preds = %1151, %1153, %1155, %1157
-  %.0.i1306 = phi ptr [ %1159, %1157 ], [ %1156, %1155 ], [ %1154, %1153 ], [ %1152, %1151 ]
+  %.0.i1306 = phi ptr [ %1159, %1157 ], [ %1152, %1151 ], [ %1154, %1153 ], [ %1156, %1155 ]
   br i1 %.not1504, label %1160, label %lean_inc.exit679
 
 1160:                                             ; preds = %l_Lean_Elab_WF_GuessLex_GuessLexRel_toNatRel.exit1307
@@ -135999,7 +135999,7 @@ lean_ensure_exclusive_array.exit.i.i518:          ; preds = %340, %338
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %354, %.thread.i
-  %.1.i516 = phi ptr [ %.0.i.i.i519, %354 ], [ %355, %.thread.i ]
+  %.1.i516 = phi ptr [ %355, %.thread.i ], [ %.0.i.i.i519, %354 ]
   %.val.i.i.i522 = load i32, ptr %.0.i.i.i, align 4, !tbaa !8
   %356 = icmp eq i32 %.val.i.i.i522, 1
   br i1 %356, label %lean_ensure_exclusive_array.exit.i.i523, label %357
@@ -137365,7 +137365,7 @@ lean_ensure_exclusive_array.exit.i.i626:          ; preds = %857, %855
   br label %lean_array_set.exit630
 
 lean_array_set.exit630:                           ; preds = %871, %.thread.i623
-  %.1.i624 = phi ptr [ %.0.i.i.i627, %871 ], [ %872, %.thread.i623 ]
+  %.1.i624 = phi ptr [ %872, %.thread.i623 ], [ %.0.i.i.i627, %871 ]
   %.val.i.i.i631 = load i32, ptr %.0.i.i.i613, align 4, !tbaa !8
   %873 = icmp eq i32 %.val.i.i.i631, 1
   br i1 %873, label %lean_ensure_exclusive_array.exit.i.i632, label %874
@@ -138745,7 +138745,7 @@ lean_alloc_ctor.exit158:                          ; preds = %288
   br label %296
 
 296:                                              ; preds = %lean_alloc_ctor.exit, %lean_alloc_ctor.exit158, %lean_alloc_ctor.exit157, %lean_alloc_ctor.exit156, %lean_alloc_ctor.exit155, %91, %126, %124, %122, %120
-  %.2 = phi ptr [ %11, %120 ], [ %11, %122 ], [ %11, %124 ], [ %11, %126 ], [ %11, %91 ], [ %231, %lean_alloc_ctor.exit ], [ %290, %lean_alloc_ctor.exit158 ], [ %282, %lean_alloc_ctor.exit157 ], [ %274, %lean_alloc_ctor.exit156 ], [ %266, %lean_alloc_ctor.exit155 ]
+  %.2 = phi ptr [ %11, %120 ], [ %11, %122 ], [ %11, %124 ], [ %11, %126 ], [ %11, %91 ], [ %231, %lean_alloc_ctor.exit ], [ %290, %lean_alloc_ctor.exit158 ], [ %266, %lean_alloc_ctor.exit155 ], [ %274, %lean_alloc_ctor.exit156 ], [ %282, %lean_alloc_ctor.exit157 ]
   ret ptr %.2
 }
 
@@ -149663,7 +149663,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %117, %115
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %131, %.thread.i
-  %.1.i71 = phi ptr [ %.0.i.i.i, %131 ], [ %132, %.thread.i ]
+  %.1.i71 = phi ptr [ %132, %.thread.i ], [ %.0.i.i.i, %131 ]
   %133 = load ptr, ptr %12, align 8, !tbaa !4
   br i1 %.not, label %148, label %134, !prof !15
 

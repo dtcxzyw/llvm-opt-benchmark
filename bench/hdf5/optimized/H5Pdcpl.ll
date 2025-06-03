@@ -1423,9 +1423,9 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %216 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_virtual, i32 noundef 2137, i64 noundef %214, i64 noundef %215, ptr noundef nonnull @.str.30) #12
   br label %217
 
-217:                                              ; preds = %116, %128, %136, %144, %152, %163, %174, %205, %213, %93
-  %.0118.ph = phi ptr [ null, %93 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ], [ %122, %128 ], [ %108, %116 ]
-  %.0117.ph = phi ptr [ null, %93 ], [ %125, %213 ], [ %125, %205 ], [ %125, %174 ], [ %125, %163 ], [ %125, %152 ], [ %125, %144 ], [ %125, %136 ], [ %125, %128 ], [ null, %116 ]
+217:                                              ; preds = %128, %136, %144, %152, %163, %174, %205, %213, %116, %93
+  %.0118.ph = phi ptr [ null, %93 ], [ %108, %116 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ], [ %122, %128 ]
+  %.0117.ph = phi ptr [ null, %93 ], [ null, %116 ], [ %125, %213 ], [ %125, %205 ], [ %125, %174 ], [ %125, %163 ], [ %125, %152 ], [ %125, %144 ], [ %125, %136 ], [ %125, %128 ]
   %218 = call i32 @H5P_poke(ptr noundef nonnull %74, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #12
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %.thread159, label %.thread159.thread
@@ -2917,7 +2917,7 @@ define range(i32 -1, 1) i32 @H5Pset_external(i64 noundef %0, ptr noundef %1, i64
   %124 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_external, i32 noundef 2641, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.47) #12
   br label %.thread81
 
-.thread81:                                        ; preds = %43, %121, %103, %91, %78, %64, %57, %49
+.thread81:                                        ; preds = %43, %103, %121, %91, %78, %64, %57, %49
   %125 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %.thread75
 

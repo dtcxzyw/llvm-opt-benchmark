@@ -136,7 +136,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
   br label %19
 
 19:                                               ; preds = %13, %10, %7
-  %.0.in = phi ptr [ %18, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi ptr [ %18, %13 ], [ %9, %7 ], [ %12, %10 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !32
   %.not = icmp eq ptr %.0, null
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -419,7 +419,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
   br label %21
 
 21:                                               ; preds = %15, %12, %9
-  %.0.in.i = phi ptr [ %20, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.0.in.i = phi ptr [ %20, %15 ], [ %11, %9 ], [ %14, %12 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.0.i, null
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -473,7 +473,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
   br label %52
 
 52:                                               ; preds = %47, %44, %41
-  %.0.in.i14 = phi ptr [ %51, %47 ], [ %46, %44 ], [ %43, %41 ]
+  %.0.in.i14 = phi ptr [ %51, %47 ], [ %43, %41 ], [ %46, %44 ]
   %.0.i15 = load ptr, ptr %.0.in.i14, align 8, !tbaa !32
   %.not.i16 = icmp eq ptr %.0.i15, null
   %53 = load ptr, ptr %22, align 8, !tbaa !9

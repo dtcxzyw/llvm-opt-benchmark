@@ -28707,7 +28707,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i70.i.i.i.i: ; preds
   br label %91
 
 91:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %90, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i" ]
+  %.1.i.i.i.i = phi ptr [ %90, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit73.thread97.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8
   %92 = getelementptr i8, ptr %.1.i.i.i.i, i64 4
   %.1.val50.i.i.i.i = load i32, ptr %92, align 4
@@ -28743,7 +28743,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i75.i.i.i.i: ; preds
   br label %109
 
 109:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %108, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i" ]
+  %.2.i.i.i.i = phi ptr [ %108, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineVerifier31verifyPreISelGenericInstructionEPKN4llvm12MachineInstrEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit78.thread100.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8
   %110 = getelementptr i8, ptr %.2.i.i.i.i, i64 4
   %.2.val53.i.i.i.i = load i32, ptr %110, align 4
@@ -29422,7 +29422,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOps
   br label %98
 
 98:                                               ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread78.i.i.i.i.i"
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread78.i.i.i.i.i" ]
+  %.1.i.i.i.i.i = phi ptr [ %97, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit58.thread78.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %99 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i = load i32, ptr %99, align 4
@@ -29455,7 +29455,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOps
   br label %115
 
 115:                                              ; preds = %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit61.thread81.i.i.i.i.i"
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %114, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit61.thread81.i.i.i.i.i" ]
+  %.2.i.i.i.i.i = phi ptr [ %114, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineVerifier21verifyAllRegOpsScalarERKN4llvm12MachineInstrERKNS4_19MachineRegisterInfoEE3$_0EclIPKNS4_14MachineOperandEEEbT_.exit61.thread81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %116 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i = load i32, ptr %116, align 4
@@ -33612,7 +33612,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i: ; preds = %_
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i, %110
-  %.1.in.i.i.i = phi ptr [ %111, %110 ], [ %141, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i ]
+  %.1.in.i.i.i = phi ptr [ %141, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i ], [ %111, %110 ]
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !252
   %.not70.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not70.i, label %142, label %144
@@ -34127,7 +34127,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i72: ; preds = 
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i29
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit.i29: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i72, %333
-  %.1.in.i.i.i30 = phi ptr [ %334, %333 ], [ %364, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i72 ]
+  %.1.in.i.i.i30 = phi ptr [ %364, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i.i72 ], [ %334, %333 ]
   %.1.i.i.i31 = load ptr, ptr %.1.in.i.i.i30, align 8, !tbaa !252
   %.not199.i = icmp eq ptr %.1.i.i.i31, null
   br i1 %.not199.i, label %365, label %389
@@ -34328,7 +34328,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i247.i: ; preds =
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit249.i
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit249.i: ; preds = %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i247.i, %443
-  %.1.in.i.i235.i = phi ptr [ %444, %443 ], [ %474, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i247.i ]
+  %.1.in.i.i235.i = phi ptr [ %474, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i247.i ], [ %444, %443 ]
   %.1.i.i236.i = load ptr, ptr %.1.in.i.i235.i, align 8, !tbaa !252
   %.not200.i = icmp eq ptr %.1.i.i236.i, null
   br i1 %.not200.i, label %475, label %499

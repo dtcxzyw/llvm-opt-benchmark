@@ -66,7 +66,7 @@ define internal i32 @test_set_min_max_version(i32 noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   %11 = icmp eq ptr %.0, null
   br i1 %11, label %.thread, label %13
 

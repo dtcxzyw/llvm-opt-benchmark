@@ -7439,7 +7439,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2ltI11mpq_managerILb0EEEbRT_RKN
   br label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %44, %41, %37, %5, %8, %48, %47, %46, %6
-  %.0 = phi i1 [ false, %48 ], [ false, %47 ], [ true, %46 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ], [ %45, %44 ], [ %40, %37 ], [ %43, %41 ]
+  %.0 = phi i1 [ false, %48 ], [ %7, %6 ], [ false, %47 ], [ true, %46 ], [ false, %8 ], [ false, %5 ], [ %45, %44 ], [ %40, %37 ], [ %43, %41 ]
   ret i1 %.0
 }
 

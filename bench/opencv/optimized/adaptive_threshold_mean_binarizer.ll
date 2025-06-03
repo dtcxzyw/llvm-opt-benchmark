@@ -820,7 +820,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit53:         ; preds = %_ZN5zxing3RefINS_9B
   br label %217
 
 217:                                              ; preds = %170, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit53, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit, %216
-  %.2 = phi i32 [ -1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit ], [ 0, %216 ], [ 1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit53 ], [ -1, %170 ]
+  %.2 = phi i32 [ 0, %216 ], [ -1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit ], [ 1, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit53 ], [ -1, %170 ]
   ret i32 %.2
 }
 

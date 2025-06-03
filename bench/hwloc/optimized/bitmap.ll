@@ -764,7 +764,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
   unreachable
 
 hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %79, %53, %hwloc_bitmap_zero.exit, %85, %hwloc_bitmap_fill.exit
-  %.0 = phi i32 [ -1, %hwloc_bitmap_zero.exit ], [ 0, %85 ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %53 ], [ undef, %79 ]
+  %.0 = phi i32 [ 0, %85 ], [ -1, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %53 ], [ undef, %79 ]
   ret i32 %.0
 }
 

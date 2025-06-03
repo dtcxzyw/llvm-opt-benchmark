@@ -33027,7 +33027,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %109
 
 109:                                              ; preds = %81, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22
-  %.3 = phi i1 [ %82, %81 ], [ %108, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ]
+  %.3 = phi i1 [ %108, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ], [ %82, %81 ]
   ret i1 %.3
 }
 
@@ -35472,7 +35472,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 94:                                               ; preds = %47, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit28
-  %.3 = phi i1 [ %.2, %47 ], [ %87, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit28 ]
+  %.3 = phi i1 [ %87, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit28 ], [ %.2, %47 ]
   ret i1 %.3
 }
 
@@ -38076,7 +38076,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   resume { ptr, i32 } %.merged
 
 84:                                               ; preds = %72, %76
-  %.3 = phi i1 [ %.1, %72 ], [ %77, %76 ]
+  %.3 = phi i1 [ %77, %76 ], [ %.1, %72 ]
   ret i1 %.3
 }
 
@@ -42599,8 +42599,8 @@ _ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44: ; preds
   unreachable
 
 132:                                              ; preds = %128, %126, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44
-  %.123 = phi i64 [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %129, %128 ], [ %.02252, %126 ]
-  %.1 = phi i64 [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %.02153, %128 ], [ %127, %126 ]
+  %.123 = phi i64 [ %.02252, %126 ], [ %129, %128 ], [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
+  %.1 = phi i64 [ %127, %126 ], [ %.02153, %128 ], [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.045.051, i64 8
   %.not = icmp eq ptr %133, %12
   br i1 %.not, label %._crit_edge.loopexit, label %75
@@ -48614,7 +48614,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %139
 
 139:                                              ; preds = %107, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit
-  %.3 = phi i32 [ %.sroa.5.0.i.i.i.i.i.i.i, %107 ], [ %138, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit ]
+  %.3 = phi i32 [ %138, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit ], [ %.sroa.5.0.i.i.i.i.i.i.i, %107 ]
   ret i32 %.3
 }
 
@@ -48777,7 +48777,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   br label %128
 
 128:                                              ; preds = %122, %126
-  %.3 = phi i32 [ %.sroa.5.0.i.i.i.i.i.i.i, %122 ], [ %127, %126 ]
+  %.3 = phi i32 [ %127, %126 ], [ %.sroa.5.0.i.i.i.i.i.i.i, %122 ]
   ret i32 %.3
 }
 
@@ -51777,7 +51777,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 192:                                              ; preds = %134, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit35
-  %.3 = phi i32 [ %.2, %134 ], [ %185, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit35 ]
+  %.3 = phi i32 [ %185, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit35 ], [ %.2, %134 ]
   ret i32 %.3
 }
 
@@ -53604,7 +53604,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 143:                                              ; preds = %131, %135
-  %.3 = phi i32 [ %.1, %131 ], [ %136, %135 ]
+  %.3 = phi i32 [ %136, %135 ], [ %.1, %131 ]
   ret i32 %.3
 }
 
@@ -55979,8 +55979,8 @@ _ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44: ; preds
   unreachable
 
 132:                                              ; preds = %128, %126, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44
-  %.123 = phi i64 [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %129, %128 ], [ %.02252, %126 ]
-  %.1 = phi i64 [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %.02153, %128 ], [ %127, %126 ]
+  %.123 = phi i64 [ %.02252, %126 ], [ %129, %128 ], [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
+  %.1 = phi i64 [ %127, %126 ], [ %.02153, %128 ], [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.045.051, i64 8
   %.not = icmp eq ptr %133, %12
   br i1 %.not, label %._crit_edge.loopexit, label %75
@@ -57239,8 +57239,8 @@ _ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44: ; preds
   unreachable
 
 132:                                              ; preds = %128, %126, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44
-  %.123 = phi i64 [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %129, %128 ], [ %.02252, %126 ]
-  %.1 = phi i64 [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %.02153, %128 ], [ %127, %126 ]
+  %.123 = phi i64 [ %.02252, %126 ], [ %129, %128 ], [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
+  %.1 = phi i64 [ %127, %126 ], [ %.02153, %128 ], [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.045.051, i64 8
   %.not = icmp eq ptr %133, %12
   br i1 %.not, label %._crit_edge.loopexit, label %75
@@ -58555,8 +58555,8 @@ _ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44: ; preds
   unreachable
 
 132:                                              ; preds = %128, %126, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44
-  %.123 = phi i64 [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %129, %128 ], [ %.02252, %126 ]
-  %.1 = phi i64 [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ], [ %.02153, %128 ], [ %127, %126 ]
+  %.123 = phi i64 [ %.02252, %126 ], [ %129, %128 ], [ %.02252, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
+  %.1 = phi i64 [ %127, %126 ], [ %.02153, %128 ], [ %.02153, %_ZNK4CGAL7Plane_3INS_5EpeckEE13oriented_sideERKNS_7Point_3IS1_EE.exit44 ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.045.051, i64 8
   %.not = icmp eq ptr %133, %12
   br i1 %.not, label %._crit_edge.loopexit, label %75
@@ -75099,7 +75099,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 88:                                               ; preds = %41, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit29
-  %.3 = phi i32 [ %.2, %41 ], [ %81, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit29 ]
+  %.3 = phi i32 [ %81, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit29 ], [ %.2, %41 ]
   ret i32 %.3
 }
 
@@ -76088,7 +76088,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 84:                                               ; preds = %72, %76
-  %.3 = phi i32 [ %.1, %72 ], [ %77, %76 ]
+  %.3 = phi i32 [ %77, %76 ], [ %.1, %72 ]
   ret i32 %.3
 }
 
@@ -78037,7 +78037,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %63
 
 63:                                               ; preds = %35, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22
-  %.3 = phi i1 [ %36, %35 ], [ %62, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ]
+  %.3 = phi i1 [ %62, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ], [ %36, %35 ]
   ret i1 %.3
 }
 
@@ -78785,7 +78785,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %65
 
 65:                                               ; preds = %35, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22
-  %.3 = phi i1 [ %36, %35 ], [ %64, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ]
+  %.3 = phi i1 [ %64, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ], [ %36, %35 ]
   ret i1 %.3
 }
 
@@ -79533,7 +79533,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %65
 
 65:                                               ; preds = %35, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22
-  %.3 = phi i1 [ %36, %35 ], [ %64, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ]
+  %.3 = phi i1 [ %64, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_3IS1_EEEEDcRKT_.exit22 ], [ %36, %35 ]
   ret i1 %.3
 }
 
@@ -80888,7 +80888,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 76:                                               ; preds = %46, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_8Sphere_3IS1_EEEEDcRKT_.exit
-  %.3 = phi i1 [ %.2, %46 ], [ %69, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_8Sphere_3IS1_EEEEDcRKT_.exit ]
+  %.3 = phi i1 [ %69, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_8Sphere_3IS1_EEEEDcRKT_.exit ], [ %.2, %46 ]
   ret i1 %.3
 }
 
@@ -84681,7 +84681,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   resume { ptr, i32 } %.merged
 
 74:                                               ; preds = %62, %66
-  %.3 = phi i1 [ %.1, %62 ], [ %67, %66 ]
+  %.3 = phi i1 [ %67, %66 ], [ %.1, %62 ]
   ret i1 %.3
 }
 
@@ -126616,7 +126616,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 74:                                               ; preds = %40, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit
-  %.3 = phi i1 [ %.2, %40 ], [ %67, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit ]
+  %.3 = phi i1 [ %67, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit ], [ %.2, %40 ]
   ret i1 %.3
 }
 
@@ -128746,7 +128746,7 @@ _ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Int
   br label %1407
 
 1407:                                             ; preds = %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit114, %1041, %678, %315, %1404, %1402, %1221, %1039, %858, %676, %495
-  %.sroa.0249.0 = phi i16 [ %1406, %1404 ], [ %1403, %1402 ], [ %1222, %1221 ], [ %1040, %1039 ], [ %859, %858 ], [ %677, %676 ], [ %496, %495 ], [ 0, %315 ], [ 0, %678 ], [ 0, %1041 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit114 ]
+  %.sroa.0249.0 = phi i16 [ %496, %495 ], [ %677, %676 ], [ %859, %858 ], [ %1040, %1039 ], [ %1222, %1221 ], [ %1403, %1402 ], [ %1406, %1404 ], [ 0, %315 ], [ 0, %678 ], [ 0, %1041 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit114 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %134) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %133) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %132) #23
@@ -129675,7 +129675,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13Intersections8intern
   br label %511
 
 511:                                              ; preds = %6, %348, %211, %266, %74, %75, %509, %483, %455, %429, %401, %375, %346, %320, %292, %264, %238, %209, %183, %155, %129, %101
-  %.0 = phi i1 [ %484, %483 ], [ %510, %509 ], [ %430, %429 ], [ %456, %455 ], [ %376, %375 ], [ %402, %401 ], [ %321, %320 ], [ %347, %346 ], [ %293, %292 ], [ %239, %238 ], [ %265, %264 ], [ %184, %183 ], [ %210, %209 ], [ %130, %129 ], [ %156, %155 ], [ %102, %101 ], [ false, %75 ], [ false, %74 ], [ false, %266 ], [ false, %211 ], [ false, %348 ], [ false, %6 ]
+  %.0 = phi i1 [ %102, %101 ], [ %130, %129 ], [ %156, %155 ], [ %184, %183 ], [ %210, %209 ], [ %239, %238 ], [ %265, %264 ], [ %293, %292 ], [ %321, %320 ], [ %347, %346 ], [ %376, %375 ], [ %402, %401 ], [ %430, %429 ], [ %456, %455 ], [ %484, %483 ], [ %510, %509 ], [ false, %75 ], [ false, %74 ], [ false, %266 ], [ false, %211 ], [ false, %348 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -133545,7 +133545,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %71, %75
-  %.3 = phi i32 [ %.1, %71 ], [ %76, %75 ]
+  %.3 = phi i32 [ %76, %75 ], [ %.1, %71 ]
   ret i32 %.3
 }
 
@@ -134314,7 +134314,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 94:                                               ; preds = %59, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_9Segment_3IS1_EEEEDcRKT_.exit
-  %.3 = phi i1 [ %.2, %59 ], [ %87, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_9Segment_3IS1_EEEEDcRKT_.exit ]
+  %.3 = phi i1 [ %87, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_9Segment_3IS1_EEEEDcRKT_.exit ], [ %.2, %59 ]
   ret i1 %.3
 }
 
@@ -141564,7 +141564,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %71, %75
-  %.3 = phi i1 [ %.1, %71 ], [ %76, %75 ]
+  %.3 = phi i1 [ %76, %75 ], [ %.1, %71 ]
   ret i1 %.3
 }
 

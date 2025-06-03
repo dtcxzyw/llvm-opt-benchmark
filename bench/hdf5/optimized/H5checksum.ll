@@ -314,7 +314,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %104
 
 104:                                              ; preds = %98, %._crit_edge
-  %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %103, %98 ]
+  %.2 = phi i32 [ %103, %98 ], [ %.1.lcssa, %._crit_edge ]
   %105 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 10
   %106 = load i8, ptr %105, align 1, !tbaa !10
   %107 = zext i8 %106 to i32
@@ -323,7 +323,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %110
 
 110:                                              ; preds = %104, %._crit_edge
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %109, %104 ]
+  %.3 = phi i32 [ %109, %104 ], [ %.1.lcssa, %._crit_edge ]
   %111 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 9
   %112 = load i8, ptr %111, align 1, !tbaa !10
   %113 = zext i8 %112 to i32
@@ -332,7 +332,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %116
 
 116:                                              ; preds = %110, %._crit_edge
-  %.4 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %115, %110 ]
+  %.4 = phi i32 [ %115, %110 ], [ %.1.lcssa, %._crit_edge ]
   %117 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 8
   %118 = load i8, ptr %117, align 1, !tbaa !10
   %119 = zext i8 %118 to i32
@@ -340,7 +340,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %121
 
 121:                                              ; preds = %116, %._crit_edge
-  %.5 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %120, %116 ]
+  %.5 = phi i32 [ %120, %116 ], [ %.1.lcssa, %._crit_edge ]
   %122 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 7
   %123 = load i8, ptr %122, align 1, !tbaa !10
   %124 = zext i8 %123 to i32
@@ -349,8 +349,8 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %127
 
 127:                                              ; preds = %121, %._crit_edge
-  %.1133 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %126, %121 ]
-  %.6 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.5, %121 ]
+  %.1133 = phi i32 [ %126, %121 ], [ %.0132.lcssa, %._crit_edge ]
+  %.6 = phi i32 [ %.5, %121 ], [ %.1.lcssa, %._crit_edge ]
   %128 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 6
   %129 = load i8, ptr %128, align 1, !tbaa !10
   %130 = zext i8 %129 to i32
@@ -359,8 +359,8 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %133
 
 133:                                              ; preds = %127, %._crit_edge
-  %.2134 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %132, %127 ]
-  %.7 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.6, %127 ]
+  %.2134 = phi i32 [ %132, %127 ], [ %.0132.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %.6, %127 ], [ %.1.lcssa, %._crit_edge ]
   %134 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 5
   %135 = load i8, ptr %134, align 1, !tbaa !10
   %136 = zext i8 %135 to i32
@@ -369,8 +369,8 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %139
 
 139:                                              ; preds = %133, %._crit_edge
-  %.3135 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %138, %133 ]
-  %.8 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.7, %133 ]
+  %.3135 = phi i32 [ %138, %133 ], [ %.0132.lcssa, %._crit_edge ]
+  %.8 = phi i32 [ %.7, %133 ], [ %.1.lcssa, %._crit_edge ]
   %140 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 4
   %141 = load i8, ptr %140, align 1, !tbaa !10
   %142 = zext i8 %141 to i32
@@ -378,8 +378,8 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %144
 
 144:                                              ; preds = %139, %._crit_edge
-  %.4136 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %143, %139 ]
-  %.9 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.8, %139 ]
+  %.4136 = phi i32 [ %143, %139 ], [ %.0132.lcssa, %._crit_edge ]
+  %.9 = phi i32 [ %.8, %139 ], [ %.1.lcssa, %._crit_edge ]
   %145 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 3
   %146 = load i8, ptr %145, align 1, !tbaa !10
   %147 = zext i8 %146 to i32
@@ -388,9 +388,9 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %150
 
 150:                                              ; preds = %144, %._crit_edge
-  %.1142 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %149, %144 ]
-  %.5137 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.4136, %144 ]
-  %.10 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.9, %144 ]
+  %.1142 = phi i32 [ %149, %144 ], [ %.0141.lcssa, %._crit_edge ]
+  %.5137 = phi i32 [ %.4136, %144 ], [ %.0132.lcssa, %._crit_edge ]
+  %.10 = phi i32 [ %.9, %144 ], [ %.1.lcssa, %._crit_edge ]
   %151 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 2
   %152 = load i8, ptr %151, align 1, !tbaa !10
   %153 = zext i8 %152 to i32
@@ -399,9 +399,9 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   br label %156
 
 156:                                              ; preds = %150, %._crit_edge
-  %.2143 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %155, %150 ]
-  %.6138 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.5137, %150 ]
-  %.11 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.10, %150 ]
+  %.2143 = phi i32 [ %155, %150 ], [ %.0141.lcssa, %._crit_edge ]
+  %.6138 = phi i32 [ %.5137, %150 ], [ %.0132.lcssa, %._crit_edge ]
+  %.11 = phi i32 [ %.10, %150 ], [ %.1.lcssa, %._crit_edge ]
   %157 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 1
   %158 = load i8, ptr %157, align 1, !tbaa !10
   %159 = zext i8 %158 to i32
@@ -413,9 +413,9 @@ default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
 162:                                              ; preds = %._crit_edge, %156
-  %.3144 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %161, %156 ]
-  %.7139 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.6138, %156 ]
-  %.12 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.11, %156 ]
+  %.3144 = phi i32 [ %161, %156 ], [ %.0141.lcssa, %._crit_edge ]
+  %.7139 = phi i32 [ %.6138, %156 ], [ %.0132.lcssa, %._crit_edge ]
+  %.12 = phi i32 [ %.11, %156 ], [ %.1.lcssa, %._crit_edge ]
   %163 = load i8, ptr %.0146.lcssa, align 1, !tbaa !10
   %164 = zext i8 %163 to i32
   %165 = add i32 %.3144, %164

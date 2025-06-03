@@ -243,7 +243,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %115, %114, %109, %107, %101, %98, %95, %92, %70
-  %.0.i.i = phi i64 [ %71, %70 ], [ 0, %114 ], [ %116, %115 ], [ %110, %109 ], [ %102, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %108, %107 ]
+  %.0.i.i = phi i64 [ %71, %70 ], [ 0, %114 ], [ %116, %115 ], [ %110, %109 ], [ %94, %92 ], [ %97, %95 ], [ %100, %98 ], [ %102, %101 ], [ %108, %107 ]
   %117 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %148, label %119

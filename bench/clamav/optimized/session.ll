@@ -663,10 +663,10 @@ define dso_local i32 @command(ptr noundef %0, ptr noundef writeonly captures(non
   br label %243
 
 .thread147:                                       ; preds = %73, %55, %153, %46, %45
-  %.0113 = phi i32 [ 12, %153 ], [ 12, %46 ], [ 12, %45 ], [ 8, %73 ], [ 12, %55 ]
-  %.0111 = phi ptr [ null, %153 ], [ null, %46 ], [ null, %45 ], [ %75, %73 ], [ null, %55 ]
-  %159 = phi i1 [ false, %153 ], [ false, %46 ], [ false, %45 ], [ true, %73 ], [ false, %55 ]
-  %.0108 = phi i32 [ 0, %153 ], [ 1, %46 ], [ 0, %45 ], [ 2, %73 ], [ 1, %55 ]
+  %.0113 = phi i32 [ 12, %45 ], [ 12, %46 ], [ 12, %153 ], [ 8, %73 ], [ 12, %55 ]
+  %.0111 = phi ptr [ null, %45 ], [ null, %46 ], [ null, %153 ], [ %75, %73 ], [ null, %55 ]
+  %159 = phi i1 [ false, %45 ], [ false, %46 ], [ false, %153 ], [ true, %73 ], [ false, %55 ]
+  %.0108 = phi i32 [ 0, %45 ], [ 1, %46 ], [ 0, %153 ], [ 2, %73 ], [ 1, %55 ]
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.0108, ptr %160, align 8, !tbaa !62
   %161 = call ptr @optget(ptr noundef %15, ptr noundef nonnull @.str.35) #14
@@ -827,7 +827,7 @@ select.unfold:                                    ; preds = %conn_reply_single.e
   br label %243
 
 243:                                              ; preds = %select.unfold, %241, %66, %76, %188, %21, %25, %157, %149, %140, %118, %108, %97, %89, %87
-  %.0107 = phi i32 [ 1, %157 ], [ 1, %149 ], [ %.2117, %140 ], [ 0, %118 ], [ 1, %97 ], [ %.1116, %108 ], [ 1, %87 ], [ %92, %89 ], [ 1, %25 ], [ 1, %21 ], [ %.143, %188 ], [ 1, %66 ], [ %., %76 ], [ %.pre164, %241 ], [ %237, %select.unfold ]
+  %.0107 = phi i32 [ 1, %157 ], [ 1, %87 ], [ %92, %89 ], [ 1, %97 ], [ %.1116, %108 ], [ 0, %118 ], [ %.2117, %140 ], [ 1, %149 ], [ 1, %25 ], [ 1, %21 ], [ %.143, %188 ], [ 1, %66 ], [ %., %76 ], [ %.pre164, %241 ], [ %237, %select.unfold ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
@@ -1147,7 +1147,7 @@ print_commands.exit:                              ; preds = %62, %71
   br label %.thread48.i
 
 .thread.i:                                        ; preds = %113, %108, %102
-  %.031.ph.i = phi i32 [ 0, %102 ], [ 1, %108 ], [ 1, %113 ]
+  %.031.ph.i = phi i32 [ 0, %102 ], [ 1, %113 ], [ 1, %108 ]
   %118 = getelementptr inbounds nuw i8, ptr %93, i64 88
   %119 = load ptr, ptr %118, align 8, !tbaa !31
   %.not3743.i = icmp eq ptr %119, null
@@ -1214,7 +1214,7 @@ print_commands.exit:                              ; preds = %62, %71
   br label %dispatch_command.exit
 
 dispatch_command.exit:                            ; preds = %143, %141, %.thread48.i, %123, %100, %94, %134, %132, %85, %76, %22, %22, %135, %print_commands.exit, %48, %40, %26, %23, %conn_reply_error.exit
-  %.0 = phi i32 [ 1, %conn_reply_error.exit ], [ 1, %135 ], [ %75, %print_commands.exit ], [ %51, %48 ], [ %42, %40 ], [ 1, %26 ], [ 1, %23 ], [ 1, %22 ], [ 1, %22 ], [ 0, %85 ], [ 1, %76 ], [ %., %132 ], [ 1, %134 ], [ -1, %100 ], [ -1, %94 ], [ %.2.ph.i, %.thread48.i ], [ 0, %123 ], [ 1, %141 ], [ 1, %143 ]
+  %.0 = phi i32 [ 1, %conn_reply_error.exit ], [ 1, %23 ], [ 1, %26 ], [ %42, %40 ], [ %51, %48 ], [ %75, %print_commands.exit ], [ 1, %135 ], [ 1, %22 ], [ 1, %22 ], [ 0, %85 ], [ 1, %76 ], [ %., %132 ], [ 1, %134 ], [ -1, %100 ], [ -1, %94 ], [ %.2.ph.i, %.thread48.i ], [ 0, %123 ], [ 1, %141 ], [ 1, %143 ]
   ret i32 %.0
 }
 

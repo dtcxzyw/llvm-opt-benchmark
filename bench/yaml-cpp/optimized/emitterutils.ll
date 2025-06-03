@@ -1031,7 +1031,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 13:                                               ; preds = %8, %7, %.lr.ph, %.lr.ph
-  %.0.i.ph.ph.i = phi i32 [ 4, %8 ], [ 3, %7 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
+  %.0.i.ph.ph.i = phi i32 [ 3, %7 ], [ 4, %8 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
   %14 = zext i8 %5 to i32
   %15 = xor i32 %.0.i.ph.ph.i, 7
   %16 = shl nuw nsw i32 255, %15
@@ -1272,7 +1272,7 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream
   br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 17:                                               ; preds = %13, %12, %9, %9
-  %.0.i.ph.ph.i = phi i32 [ 4, %13 ], [ 3, %12 ], [ 2, %9 ], [ 2, %9 ]
+  %.0.i.ph.ph.i = phi i32 [ 3, %12 ], [ 4, %13 ], [ 2, %9 ], [ 2, %9 ]
   %18 = zext i8 %10 to i32
   %19 = xor i32 %.0.i.ph.ph.i, 7
   %20 = shl nuw nsw i32 255, %19
@@ -1551,7 +1551,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 17:                                               ; preds = %12, %11, %8, %8
-  %.0.i.ph.ph.i = phi i32 [ 4, %12 ], [ 3, %11 ], [ 2, %8 ], [ 2, %8 ]
+  %.0.i.ph.ph.i = phi i32 [ 3, %11 ], [ 4, %12 ], [ 2, %8 ], [ 2, %8 ]
   %18 = zext i8 %9 to i32
   %19 = xor i32 %.0.i.ph.ph.i, 7
   %20 = shl nuw nsw i32 255, %19
@@ -1779,7 +1779,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 21:                                               ; preds = %16, %15, %.lr.ph, %.lr.ph
-  %.0.i.ph.ph.i = phi i32 [ 4, %16 ], [ 3, %15 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
+  %.0.i.ph.ph.i = phi i32 [ 3, %15 ], [ 4, %16 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
   %22 = zext i8 %13 to i32
   %23 = xor i32 %.0.i.ph.ph.i, 7
   %24 = shl nuw nsw i32 255, %23
@@ -1928,7 +1928,7 @@ define internal fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAl
   br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 13:                                               ; preds = %8, %7, %.lr.ph, %.lr.ph
-  %.0.i.ph.ph.i = phi i32 [ 4, %8 ], [ 3, %7 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
+  %.0.i.ph.ph.i = phi i32 [ 3, %7 ], [ 4, %8 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ]
   %14 = zext i8 %5 to i32
   %15 = xor i32 %.0.i.ph.ph.i, 7
   %16 = shl nuw nsw i32 255, %15
@@ -2738,7 +2738,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEi
   br label %_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_.exit
 
 _ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_.exit: ; preds = %36, %34, %32, %30, %19, %13, %11, %10, %2
-  %38 = phi i32 [ -1, %2 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %.0.i4, %19 ], [ %..i, %13 ], [ %12, %11 ], [ -1, %10 ]
+  %38 = phi i32 [ -1, %2 ], [ %12, %11 ], [ %..i, %13 ], [ %.0.i4, %19 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ -1, %10 ]
   ret i32 %38
 }
 
@@ -3845,7 +3845,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4YAML5RegEx7MatchesINS_16StringCharS
   br label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %47, %.lr.ph.i, %.lr.ph.i2, %35, %62, %56, %39, %30, %2, %10, %11, %13, %19, %65
-  %67 = phi i32 [ -1, %2 ], [ %66, %65 ], [ %.0.i4.i, %19 ], [ %..i.i, %13 ], [ %12, %11 ], [ -1, %10 ], [ -1, %30 ], [ -1, %39 ], [ -1, %56 ], [ %..i, %62 ], [ %37, %.lr.ph.i2 ], [ -1, %35 ], [ -1, %.lr.ph.i ], [ %spec.select.i, %47 ]
+  %67 = phi i32 [ -1, %2 ], [ %12, %11 ], [ %..i.i, %13 ], [ %.0.i4.i, %19 ], [ %66, %65 ], [ -1, %10 ], [ -1, %30 ], [ -1, %39 ], [ -1, %56 ], [ %..i, %62 ], [ %37, %.lr.ph.i2 ], [ -1, %35 ], [ -1, %.lr.ph.i ], [ %spec.select.i, %47 ]
   %68 = icmp sgt i32 %67, -1
   ret i1 %68
 }
@@ -5572,7 +5572,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   br i1 %62, label %common.ret65, label %63
 
 common.ret65:                                     ; preds = %57, %2, %23, %15, %9, %36, %.preheader, %66, %41, %.lr.ph45, %48, %.lr.ph39, %80, %72, %63
-  %common.ret65.op = phi i32 [ %..i12, %63 ], [ %.0.i, %23 ], [ %..i, %15 ], [ %14, %9 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph45 ], [ -1, %41 ], [ -1, %.lr.ph39 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
+  %common.ret65.op = phi i32 [ %..i12, %63 ], [ %14, %9 ], [ %..i, %15 ], [ %.0.i, %23 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph45 ], [ -1, %41 ], [ -1, %.lr.ph39 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
   ret i32 %common.ret65.op
 
 63:                                               ; preds = %57
@@ -5797,7 +5797,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33: ; preds = %30
   br label %50
 
 _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %22, %41, %43, %45, %47
-  %49 = phi i32 [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %23, %22 ]
+  %49 = phi i32 [ %23, %22 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   %.not = icmp eq i32 %49, -1
   br i1 %.not, label %._crit_edge, label %50

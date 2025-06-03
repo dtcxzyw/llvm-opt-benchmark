@@ -2697,7 +2697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %67, %66 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %67, %66 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %69 = load i8, ptr %.sroa.032.1.i.i.i.i, align 1, !tbaa !13
   %70 = icmp eq i8 %36, %69
   br i1 %70, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit, label %71
@@ -2707,7 +2707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %72, %71 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %74 = load i8, ptr %.sroa.032.2.i.i.i.i, align 1, !tbaa !13
   %75 = icmp eq i8 %36, %74
   %spec.select.i.i.i.i = select i1 %75, ptr %.sroa.032.2.i.i.i.i, ptr %39
@@ -2799,7 +2799,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.thread: 
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i.i18
-  %.sroa.032.1.i.i.i.i24 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i19, %._crit_edge.i.i.i.i18 ], [ %110, %109 ]
+  %.sroa.032.1.i.i.i.i24 = phi ptr [ %110, %109 ], [ %.sroa.032.0.lcssa.i.i.i.i19, %._crit_edge.i.i.i.i18 ]
   %112 = load i8, ptr %.sroa.032.1.i.i.i.i24, align 1, !tbaa !13
   %113 = icmp eq i8 %36, %112
   br i1 %113, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit, label %114
@@ -2809,7 +2809,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.thread: 
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge.i.i.i.i18
-  %.sroa.032.2.i.i.i.i21 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i19, %._crit_edge.i.i.i.i18 ], [ %115, %114 ]
+  %.sroa.032.2.i.i.i.i21 = phi ptr [ %115, %114 ], [ %.sroa.032.0.lcssa.i.i.i.i19, %._crit_edge.i.i.i.i18 ]
   %117 = load i8, ptr %.sroa.032.2.i.i.i.i21, align 1, !tbaa !13
   %118 = icmp eq i8 %36, %117
   %spec.select.i.i.i.i22 = select i1 %118, ptr %.sroa.032.2.i.i.i.i21, ptr %82
@@ -2938,7 +2938,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread: ; pre
   br label %171
 
 171:                                              ; preds = %169, %._crit_edge.i.i.i.i33
-  %.sroa.032.1.i.i.i.i39 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i34, %._crit_edge.i.i.i.i33 ], [ %170, %169 ]
+  %.sroa.032.1.i.i.i.i39 = phi ptr [ %170, %169 ], [ %.sroa.032.0.lcssa.i.i.i.i34, %._crit_edge.i.i.i.i33 ]
   %172 = load i8, ptr %.sroa.032.1.i.i.i.i39, align 1, !tbaa !13
   %173 = icmp eq i8 %36, %172
   br i1 %173, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit, label %174
@@ -2948,7 +2948,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread: ; pre
   br label %176
 
 176:                                              ; preds = %174, %._crit_edge.i.i.i.i33
-  %.sroa.032.2.i.i.i.i36 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i34, %._crit_edge.i.i.i.i33 ], [ %175, %174 ]
+  %.sroa.032.2.i.i.i.i36 = phi ptr [ %175, %174 ], [ %.sroa.032.0.lcssa.i.i.i.i34, %._crit_edge.i.i.i.i33 ]
   %177 = load i8, ptr %.sroa.032.2.i.i.i.i36, align 1, !tbaa !13
   %178 = icmp eq i8 %36, %177
   %spec.select.i.i.i.i37 = select i1 %178, ptr %.sroa.032.2.i.i.i.i36, ptr %142
@@ -3217,7 +3217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %90
 
 90:                                               ; preds = %88, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %89, %88 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %89, %88 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %91 = load i8, ptr %.sroa.032.1.i.i.i.i, align 1, !tbaa !13
   %92 = icmp eq i8 %39, %91
   br i1 %92, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit, label %93
@@ -3227,7 +3227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %94, %93 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %94, %93 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %96 = load i8, ptr %.sroa.032.2.i.i.i.i, align 1, !tbaa !13
   %97 = icmp eq i8 %39, %96
   %spec.select.i.i.i.i = select i1 %97, ptr %.sroa.032.2.i.i.i.i, ptr %61
@@ -3349,7 +3349,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.thread: ;
   br label %149
 
 149:                                              ; preds = %147, %._crit_edge.i.i.i.i28
-  %.sroa.032.1.i.i.i.i34 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i28 ], [ %148, %147 ]
+  %.sroa.032.1.i.i.i.i34 = phi ptr [ %148, %147 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i28 ]
   %150 = load i8, ptr %.sroa.032.1.i.i.i.i34, align 1, !tbaa !13
   %151 = icmp eq i8 %39, %150
   br i1 %151, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit, label %152
@@ -3359,7 +3359,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.thread: ;
   br label %154
 
 154:                                              ; preds = %152, %._crit_edge.i.i.i.i28
-  %.sroa.032.2.i.i.i.i31 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i28 ], [ %153, %152 ]
+  %.sroa.032.2.i.i.i.i31 = phi ptr [ %153, %152 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i28 ]
   %155 = load i8, ptr %.sroa.032.2.i.i.i.i31, align 1, !tbaa !13
   %156 = icmp eq i8 %39, %155
   %spec.select.i.i.i.i32 = select i1 %156, ptr %.sroa.032.2.i.i.i.i31, ptr %120
@@ -3480,7 +3480,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread: ; pre
   br label %207
 
 207:                                              ; preds = %205, %._crit_edge.i.i.i.i46
-  %.sroa.032.1.i.i.i.i52 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i47, %._crit_edge.i.i.i.i46 ], [ %206, %205 ]
+  %.sroa.032.1.i.i.i.i52 = phi ptr [ %206, %205 ], [ %.sroa.032.0.lcssa.i.i.i.i47, %._crit_edge.i.i.i.i46 ]
   %208 = load i8, ptr %.sroa.032.1.i.i.i.i52, align 1, !tbaa !13
   %209 = icmp eq i8 %39, %208
   br i1 %209, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit, label %210
@@ -3490,7 +3490,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread: ; pre
   br label %212
 
 212:                                              ; preds = %210, %._crit_edge.i.i.i.i46
-  %.sroa.032.2.i.i.i.i49 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i47, %._crit_edge.i.i.i.i46 ], [ %211, %210 ]
+  %.sroa.032.2.i.i.i.i49 = phi ptr [ %211, %210 ], [ %.sroa.032.0.lcssa.i.i.i.i47, %._crit_edge.i.i.i.i46 ]
   %213 = load i8, ptr %.sroa.032.2.i.i.i.i49, align 1, !tbaa !13
   %214 = icmp eq i8 %39, %213
   %spec.select.i.i.i.i50 = select i1 %214, ptr %.sroa.032.2.i.i.i.i49, ptr %178
@@ -5539,7 +5539,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %56 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !30
   %57 = icmp eq i32 %25, %56
   br i1 %57, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit, label %58
@@ -5549,7 +5549,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %59, %58 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %61 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !30
   %62 = icmp eq i32 %25, %61
   %spec.select.i.i.i.i = select i1 %62, ptr %.sroa.032.2.i.i.i.i, ptr %28
@@ -5648,7 +5648,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.thread: 
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i.i.i.i27
-  %.sroa.032.1.i.i.i.i33 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i27 ], [ %95, %94 ]
+  %.sroa.032.1.i.i.i.i33 = phi ptr [ %95, %94 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i27 ]
   %97 = load i32, ptr %.sroa.032.1.i.i.i.i33, align 4, !tbaa !30
   %98 = icmp eq i32 %25, %97
   br i1 %98, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit, label %99
@@ -5658,7 +5658,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.thread: 
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge.i.i.i.i27
-  %.sroa.032.2.i.i.i.i31 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i27 ], [ %100, %99 ]
+  %.sroa.032.2.i.i.i.i31 = phi ptr [ %100, %99 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %._crit_edge.i.i.i.i27 ]
   %102 = load i32, ptr %.sroa.032.2.i.i.i.i31, align 4, !tbaa !30
   %103 = icmp eq i32 %25, %102
   %spec.select.i.i.i.i32 = select i1 %103, ptr %.sroa.032.2.i.i.i.i31, ptr %69
@@ -5793,7 +5793,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread: ; pre
   br label %153
 
 153:                                              ; preds = %151, %._crit_edge.i.i.i.i46
-  %.sroa.032.1.i.i.i.i52 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ], [ %152, %151 ]
+  %.sroa.032.1.i.i.i.i52 = phi ptr [ %152, %151 ], [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ]
   %154 = load i32, ptr %.sroa.032.1.i.i.i.i52, align 4, !tbaa !30
   %155 = icmp eq i32 %25, %154
   br i1 %155, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit, label %156
@@ -5803,7 +5803,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread: ; pre
   br label %158
 
 158:                                              ; preds = %156, %._crit_edge.i.i.i.i46
-  %.sroa.032.2.i.i.i.i50 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ], [ %157, %156 ]
+  %.sroa.032.2.i.i.i.i50 = phi ptr [ %157, %156 ], [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ]
   %159 = load i32, ptr %.sroa.032.2.i.i.i.i50, align 4, !tbaa !30
   %160 = icmp eq i32 %25, %159
   %spec.select.i.i.i.i51 = select i1 %160, ptr %.sroa.032.2.i.i.i.i50, ptr %126
@@ -6080,7 +6080,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKS
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %88, %87 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %88, %87 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %90 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !30
   %91 = icmp eq i32 %39, %90
   br i1 %91, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit, label %92
@@ -6090,7 +6090,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKS
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %93, %92 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %93, %92 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %95 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !30
   %96 = icmp eq i32 %39, %95
   %spec.select.i.i.i.i = select i1 %96, ptr %.sroa.032.2.i.i.i.i, ptr %62
@@ -6221,7 +6221,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.thread: ;
   br label %147
 
 147:                                              ; preds = %145, %._crit_edge.i.i.i.i36
-  %.sroa.032.1.i.i.i.i42 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ], [ %146, %145 ]
+  %.sroa.032.1.i.i.i.i42 = phi ptr [ %146, %145 ], [ %.sroa.032.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ]
   %148 = load i32, ptr %.sroa.032.1.i.i.i.i42, align 4, !tbaa !30
   %149 = icmp eq i32 %39, %148
   br i1 %149, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit, label %150
@@ -6231,7 +6231,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.thread: ;
   br label %152
 
 152:                                              ; preds = %150, %._crit_edge.i.i.i.i36
-  %.sroa.032.2.i.i.i.i40 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ], [ %151, %150 ]
+  %.sroa.032.2.i.i.i.i40 = phi ptr [ %151, %150 ], [ %.sroa.032.0.lcssa.i.i.i.i38, %._crit_edge.i.i.i.i36 ]
   %153 = load i32, ptr %.sroa.032.2.i.i.i.i40, align 4, !tbaa !30
   %154 = icmp eq i32 %39, %153
   %spec.select.i.i.i.i41 = select i1 %154, ptr %.sroa.032.2.i.i.i.i40, ptr %120
@@ -6361,7 +6361,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread: ; pre
   br label %204
 
 204:                                              ; preds = %202, %._crit_edge.i.i.i.i58
-  %.sroa.032.1.i.i.i.i64 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i60, %._crit_edge.i.i.i.i58 ], [ %203, %202 ]
+  %.sroa.032.1.i.i.i.i64 = phi ptr [ %203, %202 ], [ %.sroa.032.0.lcssa.i.i.i.i60, %._crit_edge.i.i.i.i58 ]
   %205 = load i32, ptr %.sroa.032.1.i.i.i.i64, align 4, !tbaa !30
   %206 = icmp eq i32 %39, %205
   br i1 %206, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit, label %207
@@ -6371,7 +6371,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread: ; pre
   br label %209
 
 209:                                              ; preds = %207, %._crit_edge.i.i.i.i58
-  %.sroa.032.2.i.i.i.i62 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i60, %._crit_edge.i.i.i.i58 ], [ %208, %207 ]
+  %.sroa.032.2.i.i.i.i62 = phi ptr [ %208, %207 ], [ %.sroa.032.0.lcssa.i.i.i.i60, %._crit_edge.i.i.i.i58 ]
   %210 = load i32, ptr %.sroa.032.2.i.i.i.i62, align 4, !tbaa !30
   %211 = icmp eq i32 %39, %210
   %spec.select.i.i.i.i63 = select i1 %211, ptr %.sroa.032.2.i.i.i.i62, ptr %177

@@ -6602,7 +6602,7 @@ define noundef zeroext i1 @"_ZN71_$LT$quinn_proto..transport_error..Code$u20$as$
   br label %45
 
 45:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit18, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.sroa.0.0.in = phi i1 [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit18 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit18 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ]
   ret i1 %.sroa.0.0.in
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %9
@@ -6758,7 +6758,7 @@ define noundef zeroext i1 @"_ZN73_$LT$quinn_proto..transport_error..Code$u20$as$
   br label %43
 
 43:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %44, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9
-  %.sroa.0.0.in = phi i1 [ %48, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %45, %44 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in = phi i1 [ %48, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %45, %44 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ]
   ret i1 %.sroa.0.0.in
 
 44:                                               ; preds = %7

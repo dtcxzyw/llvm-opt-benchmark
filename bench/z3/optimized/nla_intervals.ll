@@ -7898,7 +7898,7 @@ _ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39: ; preds = %.lr.ph.i, %9, %_Z
   br label %94
 
 94:                                               ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37, %4, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39
-  %.020 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37 ], [ true, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39 ], [ false, %4 ]
+  %.020 = phi i1 [ true, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39 ], [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37 ], [ false, %4 ]
   ret i1 %.020
 }
 
@@ -9326,7 +9326,7 @@ _ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39: ; preds = %.lr.ph.i, %9, %_Z
   br label %139
 
 139:                                              ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37, %4, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39
-  %.022 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37 ], [ true, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39 ], [ false, %4 ]
+  %.022 = phi i1 [ true, %_ZNK3nla7nex_sum16is_a_linear_termEv.exit.thread39 ], [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit37 ], [ false, %4 ]
   ret i1 %.022
 }
 
@@ -14430,7 +14430,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2ltI11mpq_managerILb0EEEbRT_RKN
   br label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %44, %41, %37, %5, %8, %48, %47, %46, %6
-  %.0 = phi i1 [ false, %48 ], [ false, %47 ], [ true, %46 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ], [ %45, %44 ], [ %40, %37 ], [ %43, %41 ]
+  %.0 = phi i1 [ false, %48 ], [ %7, %6 ], [ false, %47 ], [ true, %46 ], [ false, %8 ], [ false, %5 ], [ %45, %44 ], [ %40, %37 ], [ %43, %41 ]
   ret i1 %.0
 }
 

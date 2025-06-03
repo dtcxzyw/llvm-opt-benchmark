@@ -3294,8 +3294,8 @@ fdt_num_mem_rsv.exit.preheader:                   ; preds = %63
   br label %fdt_num_mem_rsv.exit.thread
 
 fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.exit_crit_edge, %100, %105, %.lr.ph
-  %111 = phi i32 [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ], [ %96, %105 ], [ %96, %100 ], [ %96, %.lr.ph ]
-  %.1 = phi i32 [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ], [ %106, %105 ], [ %101, %100 ], [ %.01830, %.lr.ph ]
+  %111 = phi i32 [ %96, %.lr.ph ], [ %96, %100 ], [ %96, %105 ], [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ]
+  %.1 = phi i32 [ %.01830, %.lr.ph ], [ %101, %100 ], [ %106, %105 ], [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ]
   %112 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %4) #9
   %113 = load i32, ptr %4, align 4, !tbaa !6
   %114 = icmp slt i32 %113, 0

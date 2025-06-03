@@ -4735,7 +4735,7 @@ lean_ensure_exclusive_array.exit.i.i291:          ; preds = %324, %322
   br label %lean_array_set.exit295
 
 lean_array_set.exit295:                           ; preds = %338, %.thread.i288
-  %.1.i289 = phi ptr [ %.0.i.i.i292, %338 ], [ %339, %.thread.i288 ]
+  %.1.i289 = phi ptr [ %339, %.thread.i288 ], [ %.0.i.i.i292, %338 ]
   tail call void @lean_inc_heartbeat() #5
   %340 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %341 = icmp eq ptr %340, null

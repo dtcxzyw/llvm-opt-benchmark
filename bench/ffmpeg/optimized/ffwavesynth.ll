@@ -261,9 +261,9 @@ phi_at.exit.i:                                    ; preds = %121, %117
   br label %150
 
 150:                                              ; preds = %145, %137, %phi_at.exit.i
-  %.087.i = phi i32 [ %148, %145 ], [ %68, %phi_at.exit.i ], [ %68, %137 ]
-  %.086.i = phi i32 [ %146, %145 ], [ %66, %phi_at.exit.i ], [ %66, %137 ]
-  %.1.i = phi ptr [ %149, %145 ], [ %71, %phi_at.exit.i ], [ %71, %137 ]
+  %.087.i = phi i32 [ %68, %phi_at.exit.i ], [ %68, %137 ], [ %148, %145 ]
+  %.086.i = phi i32 [ %66, %phi_at.exit.i ], [ %66, %137 ], [ %146, %145 ]
+  %.1.i = phi ptr [ %71, %phi_at.exit.i ], [ %71, %137 ], [ %149, %145 ]
   %151 = sext i32 %.086.i to i64
   %152 = shl nsw i64 %151, 32
   %153 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -689,7 +689,7 @@ pink_fill.exit.i:                                 ; preds = %116, %92
   br label %168
 
 168:                                              ; preds = %166, %152, %141
-  %.051.i = phi i32 [ %167, %166 ], [ %159, %152 ], [ 0, %141 ]
+  %.051.i = phi i32 [ %159, %152 ], [ %167, %166 ], [ 0, %141 ]
   %169 = getelementptr inbounds nuw i8, ptr %134, i64 80
   %170 = load i32, ptr %169, align 8, !tbaa !39
   %171 = or i32 %170, %.0.ph69.i

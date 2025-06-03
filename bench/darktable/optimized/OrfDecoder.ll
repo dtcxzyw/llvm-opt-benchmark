@@ -2824,7 +2824,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit61: ; preds = %_ZNKSt8_Rb_treeIN
   br label %198
 
 157:                                              ; preds = %147, %153, %150
-  %.0 = phi i32 [ 3, %153 ], [ %152, %150 ], [ 0, %147 ]
+  %.0 = phi i32 [ %152, %150 ], [ 3, %153 ], [ 0, %147 ]
   %158 = invoke noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %120, i32 noundef %.0)
           to label %159 unwind label %.loopexit
 

@@ -541,7 +541,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK23Functio
   br label %16
 
 16:                                               ; preds = %14, %12, %4
-  %.0 = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %4 ]
+  %.0 = phi ptr [ %15, %14 ], [ %11, %4 ], [ %13, %12 ]
   ret ptr %.0
 }
 

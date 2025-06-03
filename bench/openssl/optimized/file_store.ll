@@ -573,7 +573,7 @@ file_setup_decoders.exit.i:                       ; preds = %.file_setup_decoder
   br label %file_load_file.exit
 
 file_load_file.exit:                              ; preds = %42, %19, %24, %31, %35, %.thread.i.i, %49, %54, %61, %78, %80
-  %.0.i = phi i32 [ %71, %80 ], [ %71, %78 ], [ 0, %19 ], [ 0, %61 ], [ 0, %54 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %49 ], [ 0, %.thread.i.i ], [ 0, %42 ]
+  %.0.i = phi i32 [ %71, %80 ], [ %71, %78 ], [ 0, %19 ], [ 0, %61 ], [ 0, %54 ], [ 0, %31 ], [ 0, %35 ], [ 0, %24 ], [ 0, %49 ], [ 0, %.thread.i.i ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   br label %171
 
@@ -762,7 +762,7 @@ file_load_dir_entry.exit:                         ; preds = %ossl_ends_with_dirs
   br label %171
 
 171:                                              ; preds = %5, %file_load_dir_entry.exit, %file_load_file.exit
-  %.0 = phi i32 [ %.0.i13, %file_load_dir_entry.exit ], [ %.0.i, %file_load_file.exit ], [ 0, %5 ]
+  %.0 = phi i32 [ %.0.i, %file_load_file.exit ], [ %.0.i13, %file_load_dir_entry.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 

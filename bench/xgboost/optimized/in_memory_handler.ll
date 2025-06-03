@@ -6490,7 +6490,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
   br label %15
 
 15:                                               ; preds = %1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %14, %13, %12, %11, %10
-  %.0 = phi i64 [ 2, %14 ], [ 1, %13 ], [ 16, %12 ], [ 8, %11 ], [ 4, %10 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %1 ]
+  %.0 = phi i64 [ 4, %10 ], [ 8, %11 ], [ 16, %12 ], [ 1, %13 ], [ 2, %14 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %1 ]
   ret i64 %.0
 
 16:                                               ; preds = %7

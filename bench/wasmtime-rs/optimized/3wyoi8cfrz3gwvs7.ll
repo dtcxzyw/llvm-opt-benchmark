@@ -247,7 +247,7 @@ default.unreachable:                              ; preds = %2
   br label %50
 
 50:                                               ; preds = %43, %37, %31, %25, %19, %13
-  %.0.in = phi i1 [ %49, %43 ], [ %42, %37 ], [ %36, %31 ], [ %30, %25 ], [ %24, %19 ], [ %18, %13 ]
+  %.0.in = phi i1 [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ %49, %43 ]
   ret i1 %.0.in
 }
 
@@ -362,7 +362,7 @@ define noundef zeroext i1 @"_ZN66_$LT$wasmtime_types..WasmRefType$u20$as$u20$cor
   br label %26
 
 26:                                               ; preds = %27, %.thread, %20, %14
-  %.0.in = phi i1 [ %39, %.thread ], [ %33, %27 ], [ %25, %20 ], [ %19, %14 ]
+  %.0.in = phi i1 [ %39, %.thread ], [ %33, %27 ], [ %19, %14 ], [ %25, %20 ]
   ret i1 %.0.in
 
 27:                                               ; preds = %2
@@ -507,7 +507,7 @@ default.unreachable5:                             ; preds = %2
   br label %38
 
 38:                                               ; preds = %30, %22, %14
-  %.0.in = phi i1 [ %37, %30 ], [ %29, %22 ], [ %21, %14 ]
+  %.0.in = phi i1 [ %21, %14 ], [ %29, %22 ], [ %37, %30 ]
   ret i1 %.0.in
 }
 
@@ -797,7 +797,7 @@ define noundef zeroext i1 @"_ZN67_$LT$wasmtime_types..WasmHeapType$u20$as$u20$co
   br label %59
 
 59:                                               ; preds = %53, %47, %41, %35, %28, %22, %16
-  %.0.in = phi i1 [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %28 ], [ %27, %22 ], [ %21, %16 ]
+  %.0.in = phi i1 [ %21, %16 ], [ %27, %22 ], [ %34, %28 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ]
   ret i1 %.0.in
 }
 
@@ -1065,7 +1065,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 

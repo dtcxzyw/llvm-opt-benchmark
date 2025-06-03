@@ -1726,7 +1726,7 @@ exprstat.exit:                                    ; preds = %670, %680
   br label %statement.exit
 
 statement.exit:                                   ; preds = %ifstat.exit, %whilestat.exit, %232, %forstat.exit, %repeatstat.exit, %funcstat.exit, %checknext.exit, %localstat.exit, %retstat.exit, %breakstat.exit, %exprstat.exit
-  %.not = phi i1 [ true, %exprstat.exit ], [ false, %breakstat.exit ], [ false, %retstat.exit ], [ true, %funcstat.exit ], [ true, %repeatstat.exit ], [ true, %forstat.exit ], [ true, %232 ], [ true, %whilestat.exit ], [ true, %ifstat.exit ], [ true, %localstat.exit ], [ true, %checknext.exit ]
+  %.not = phi i1 [ true, %exprstat.exit ], [ true, %ifstat.exit ], [ true, %whilestat.exit ], [ true, %232 ], [ true, %forstat.exit ], [ true, %repeatstat.exit ], [ true, %funcstat.exit ], [ false, %retstat.exit ], [ false, %breakstat.exit ], [ true, %localstat.exit ], [ true, %checknext.exit ]
   %681 = load i32, ptr %32, align 8, !tbaa !54
   %682 = icmp eq i32 %681, 59
   br i1 %682, label %683, label %testnext.exit
@@ -2164,8 +2164,8 @@ enterlevel.exit:                                  ; preds = %3, %11
 15:                                               ; preds = %enterlevel.exit
   br label %16
 
-16:                                               ; preds = %enterlevel.exit, %15, %14
-  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 0, %14 ], [ 2, %15 ]
+16:                                               ; preds = %enterlevel.exit, %14, %15
+  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 2, %15 ], [ 0, %14 ]
   tail call void @luaX_next(ptr noundef nonnull %0) #6
   %17 = tail call fastcc i32 @subexpr(ptr noundef %0, ptr noundef %1, i32 noundef 8)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2344,8 +2344,8 @@ simpleexp.exit:                                   ; preds = %67, %66, %63, %62, 
 82:                                               ; preds = %simpleexp.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %simpleexp.exit
-  %.0.i28.ph = phi i32 [ 0, %simpleexp.exit ], [ 1, %69 ], [ 2, %70 ], [ 3, %71 ], [ 4, %72 ], [ 5, %73 ], [ 6, %74 ], [ 7, %75 ], [ 8, %76 ], [ 9, %77 ], [ 10, %78 ], [ 11, %79 ], [ 12, %80 ], [ 13, %81 ], [ 14, %82 ]
+.lr.ph:                                           ; preds = %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %simpleexp.exit
+  %.0.i28.ph = phi i32 [ 0, %simpleexp.exit ], [ 14, %82 ], [ 13, %81 ], [ 12, %80 ], [ 11, %79 ], [ 10, %78 ], [ 9, %77 ], [ 8, %76 ], [ 7, %75 ], [ 6, %74 ], [ 5, %73 ], [ 4, %72 ], [ 3, %71 ], [ 2, %70 ], [ 1, %69 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = trunc nuw i32 %2 to i8
   br label %85

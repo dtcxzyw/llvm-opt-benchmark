@@ -1723,7 +1723,7 @@ rb_long2num_inline.exit:                          ; preds = %151, %154
   br label %157
 
 157:                                              ; preds = %rb_long2num_inline.exit, %143, %142
-  %.sroa.0145.1 = phi i8 [ undef, %142 ], [ %146, %rb_long2num_inline.exit ], [ undef, %143 ]
+  %.sroa.0145.1 = phi i8 [ undef, %142 ], [ undef, %143 ], [ %146, %rb_long2num_inline.exit ]
   store volatile i32 1, ptr %9, align 4, !tbaa !38
   br label %158
 

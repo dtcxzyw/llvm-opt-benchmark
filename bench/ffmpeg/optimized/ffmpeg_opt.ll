@@ -947,7 +947,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @opt_match_per_st
   unreachable
 
 73:                                               ; preds = %68, %63, %59, %55, %52
-  %.042 = phi ptr [ %7, %68 ], [ %7, %63 ], [ %7, %59 ], [ %7, %55 ], [ %54, %52 ]
+  %.042 = phi ptr [ %54, %52 ], [ %7, %55 ], [ %7, %59 ], [ %7, %63 ], [ %7, %68 ]
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !29
   %76 = load ptr, ptr %26, align 8, !tbaa !24

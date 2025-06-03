@@ -12641,9 +12641,9 @@ if.then225:                                       ; preds = %land.lhs.true223
   %call226 = call noundef x86_fp80 @_ZN5boost4math6detail24regularised_gamma_prefixIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_SD_RKT0_RKT1_(x86_fp80 noundef %a, x86_fp80 noundef %x, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   store x86_fp80 %call226, ptr %p_derivative, align 16, !tbaa !135
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #31
-  %cmp366254 = fcmp ogt x86_fp80 %result.2, 0xK3FFF8000000000000000
-  %or.cond7255 = and i1 %normalised, %cmp366254
-  %spec.store.select256 = select i1 %or.cond7255, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %result.2
+  %cmp366241 = fcmp ogt x86_fp80 %result.2, 0xK3FFF8000000000000000
+  %or.cond7242 = and i1 %normalised, %cmp366241
+  %spec.store.select243 = select i1 %or.cond7242, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %result.2
   br i1 %invert, label %if.then381, label %if.then370
 
 sw.bb228:                                         ; preds = %if.then161, %if.then152, %if.else190
@@ -12770,9 +12770,9 @@ if.then306:                                       ; preds = %if.end304
   %26 = load x86_fp80, ptr %x.addr, align 16, !tbaa !135
   %call308 = call noundef x86_fp80 @_ZN5boost4math6detail20upper_gamma_fractionIeEET_S3_S3_S3_(x86_fp80 noundef %25, x86_fp80 noundef %26, x86_fp80 noundef 0xK3FC08000000000000000)
   %mul309 = fmul x86_fp80 %cond301, %call308
-  %cmp366251 = fcmp ogt x86_fp80 %mul309, 0xK3FFF8000000000000000
-  %or.cond7252 = and i1 %normalised, %cmp366251
-  %spec.store.select253 = select i1 %or.cond7252, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul309
+  %cmp366245 = fcmp ogt x86_fp80 %mul309, 0xK3FFF8000000000000000
+  %or.cond7246 = and i1 %normalised, %cmp366245
+  %spec.store.select247 = select i1 %or.cond7246, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul309
   br i1 %invert, label %if.end379, label %if.then370
 
 sw.bb311:                                         ; preds = %if.then176, %if.else182
@@ -12839,9 +12839,9 @@ if.then342:                                       ; preds = %if.end335
   %call344 = call noundef x86_fp80 @_ZN5boost4math6detail24regularised_gamma_prefixIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_SD_RKT0_RKT1_(x86_fp80 noundef %32, x86_fp80 noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp343)
   store x86_fp80 %call344, ptr %p_derivative, align 16, !tbaa !135
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp343) #31
-  %cmp366245 = fcmp ogt x86_fp80 %mul340, 0xK3FFF8000000000000000
-  %or.cond7246 = select i1 %normalised, i1 %cmp366245, i1 false
-  %spec.store.select247 = select i1 %or.cond7246, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul340
+  %cmp366251 = fcmp ogt x86_fp80 %mul340, 0xK3FFF8000000000000000
+  %or.cond7252 = select i1 %normalised, i1 %cmp366251, i1 false
+  %spec.store.select253 = select i1 %or.cond7252, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul340
   br i1 %invert, label %if.then370, label %if.then381
 
 sw.bb346:                                         ; preds = %lor.lhs.false, %land.lhs.true140
@@ -12875,9 +12875,9 @@ if.end357:                                        ; preds = %if.then356, %cond.e
 if.then360:                                       ; preds = %if.end357
   %call361 = call noundef x86_fp80 @_ZN5boost4math6detail25incomplete_tgamma_large_xIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_RKSB_SD_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %a.addr, ptr noundef nonnull align 16 dereferenceable(16) %x.addr, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   %mul362 = fmul x86_fp80 %div358, %call361
-  %cmp366241 = fcmp ogt x86_fp80 %mul362, 0xK3FFF8000000000000000
-  %or.cond7242 = and i1 %normalised, %cmp366241
-  %spec.store.select243 = select i1 %or.cond7242, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul362
+  %cmp366254 = fcmp ogt x86_fp80 %mul362, 0xK3FFF8000000000000000
+  %or.cond7255 = and i1 %normalised, %cmp366254
+  %spec.store.select256 = select i1 %or.cond7255, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul362
   br i1 %invert, label %if.end379, label %if.then370
 
 sw.epilog.thread:                                 ; preds = %if.end292, %if.end274
@@ -12888,8 +12888,8 @@ sw.epilog.thread:                                 ; preds = %if.end292, %if.end2
   br label %if.end379
 
 sw.epilog:                                        ; preds = %if.end274, %if.end357, %if.end335, %sw.bb311, %if.end304, %if.end239, %if.end221, %land.lhs.true223
-  %result.1 = phi x86_fp80 [ %div358, %if.end357 ], [ %mul340, %if.end335 ], [ %call312, %sw.bb311 ], [ %cond301, %if.end304 ], [ %cond236, %if.end239 ], [ %result.2, %land.lhs.true223 ], [ %result.2, %if.end221 ], [ %mul277, %if.end274 ]
-  %invert.addr.2.in = phi i1 [ %lnot148, %if.end357 ], [ %invert, %if.end335 ], [ %invert.addr.4237, %sw.bb311 ], [ %lnot198, %if.end304 ], [ %invert, %if.end239 ], [ %lnot130, %land.lhs.true223 ], [ %lnot130, %if.end221 ], [ %invert, %if.end274 ]
+  %result.1 = phi x86_fp80 [ %result.2, %land.lhs.true223 ], [ %result.2, %if.end221 ], [ %cond236, %if.end239 ], [ %cond301, %if.end304 ], [ %call312, %sw.bb311 ], [ %mul340, %if.end335 ], [ %div358, %if.end357 ], [ %mul277, %if.end274 ]
+  %invert.addr.2.in = phi i1 [ %lnot130, %land.lhs.true223 ], [ %lnot130, %if.end221 ], [ %invert, %if.end239 ], [ %lnot198, %if.end304 ], [ %invert.addr.4237, %sw.bb311 ], [ %invert, %if.end335 ], [ %lnot148, %if.end357 ], [ %invert, %if.end274 ]
   %cmp366 = fcmp ogt x86_fp80 %result.1, 0xK3FFF8000000000000000
   %or.cond7 = select i1 %normalised, i1 %cmp366, i1 false
   %spec.store.select = select i1 %or.cond7, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %result.1
@@ -12905,8 +12905,8 @@ sw.epilog.thread214:                              ; preds = %sw.bb
   %mul212 = fmul x86_fp80 %call208, %call211
   br i1 %invert, label %if.end379, label %cond.false373
 
-if.then370:                                       ; preds = %if.then225, %if.then306, %if.then320, %if.then342, %if.then360, %sw.epilog
-  %spec.store.select244 = phi x86_fp80 [ %spec.store.select243, %if.then360 ], [ %spec.store.select, %sw.epilog ], [ %spec.store.select247, %if.then342 ], [ %spec.store.select250, %if.then320 ], [ %spec.store.select253, %if.then306 ], [ %spec.store.select256, %if.then225 ]
+if.then370:                                       ; preds = %if.then360, %if.then342, %if.then320, %if.then306, %if.then225, %sw.epilog
+  %spec.store.select244 = phi x86_fp80 [ %spec.store.select243, %if.then225 ], [ %spec.store.select, %sw.epilog ], [ %spec.store.select247, %if.then306 ], [ %spec.store.select250, %if.then320 ], [ %spec.store.select253, %if.then342 ], [ %spec.store.select256, %if.then360 ]
   br i1 %normalised, label %cond.end376, label %if.then370.cond.false373_crit_edge
 
 if.then370.cond.false373_crit_edge:               ; preds = %if.then370
@@ -12938,12 +12938,12 @@ cond.end376:                                      ; preds = %sw.epilog.thread225
   %sub378 = fsub x86_fp80 %cond377, %spec.store.select221224
   br label %if.end379
 
-if.end379:                                        ; preds = %if.then306, %if.then360, %sw.epilog.thread225, %sw.epilog.thread214, %sw.epilog.thread, %cond.end376, %sw.epilog
-  %result.6 = phi x86_fp80 [ %sub378, %cond.end376 ], [ %spec.store.select, %sw.epilog ], [ %spec.store.select212, %sw.epilog.thread ], [ %mul212, %sw.epilog.thread214 ], [ %spec.store.select230, %sw.epilog.thread225 ], [ %spec.store.select243, %if.then360 ], [ %spec.store.select253, %if.then306 ]
+if.end379:                                        ; preds = %if.then360, %if.then306, %sw.epilog.thread225, %sw.epilog.thread214, %sw.epilog.thread, %cond.end376, %sw.epilog
+  %result.6 = phi x86_fp80 [ %sub378, %cond.end376 ], [ %spec.store.select, %sw.epilog ], [ %spec.store.select212, %sw.epilog.thread ], [ %mul212, %sw.epilog.thread214 ], [ %spec.store.select230, %sw.epilog.thread225 ], [ %spec.store.select247, %if.then306 ], [ %spec.store.select256, %if.then360 ]
   br i1 %cmp91, label %return, label %if.then381
 
-if.then381:                                       ; preds = %if.then342, %if.then320, %if.then225, %if.end379
-  %result.6258 = phi x86_fp80 [ %result.6, %if.end379 ], [ %spec.store.select256, %if.then225 ], [ %spec.store.select250, %if.then320 ], [ %spec.store.select247, %if.then342 ]
+if.then381:                                       ; preds = %if.then225, %if.then320, %if.then342, %if.end379
+  %result.6258 = phi x86_fp80 [ %result.6, %if.end379 ], [ %spec.store.select253, %if.then342 ], [ %spec.store.select250, %if.then320 ], [ %spec.store.select243, %if.then225 ]
   %37 = load x86_fp80, ptr %x.addr, align 16, !tbaa !135
   %cmp382 = fcmp olt x86_fp80 %37, 0xK3FFF8000000000000000
   %.pre240 = load x86_fp80, ptr %p_derivative, align 16, !tbaa !135

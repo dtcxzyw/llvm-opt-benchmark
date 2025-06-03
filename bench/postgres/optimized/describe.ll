@@ -1607,7 +1607,7 @@ map_typename_pattern.exit:                        ; preds = %112, %.tail.thread,
   br label %131
 
 131:                                              ; preds = %119, %.loopexit, %122, %30, %26
-  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ false, %.loopexit ], [ true, %122 ], [ false, %119 ]
+  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ true, %122 ], [ false, %.loopexit ], [ false, %119 ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
   ret i1 %.091
@@ -1899,7 +1899,7 @@ map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, 
   br label %65
 
 65:                                               ; preds = %.thread, %.loopexit, %58
-  %.029 = phi i1 [ false, %.loopexit ], [ true, %58 ], [ false, %.thread ]
+  %.029 = phi i1 [ true, %58 ], [ false, %.loopexit ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
   ret i1 %.029

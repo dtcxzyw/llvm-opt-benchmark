@@ -1832,7 +1832,7 @@ define dso_local noundef nonnull ptr @_ZN5clang8DeclSpec16getSpecifierNameENS_17
   unreachable
 
 77:                                               ; preds = %2, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %5, %4, %3
-  %.0 = phi ptr [ @.str.89, %75 ], [ @.str.88, %74 ], [ @.str.87, %73 ], [ @.str.86, %72 ], [ @.str.85, %71 ], [ @.str.84, %70 ], [ @.str.83, %69 ], [ @.str.82, %68 ], [ @.str.81, %67 ], [ @.str.80, %66 ], [ @.str.79, %65 ], [ @.str.78, %64 ], [ @.str.77, %63 ], [ @.str.76, %62 ], [ @.str.75, %61 ], [ @.str.74, %60 ], [ @.str.73, %59 ], [ @.str.72, %58 ], [ @.str.71, %57 ], [ @.str.70, %56 ], [ @.str.69, %55 ], [ @.str.68, %54 ], [ @.str.67, %53 ], [ @.str.66, %52 ], [ @.str.65, %51 ], [ @.str.64, %50 ], [ @.str.63, %49 ], [ @.str.62, %48 ], [ @.str.61, %47 ], [ @.str.60, %46 ], [ @.str.59, %45 ], [ @.str.58, %44 ], [ @.str.57, %43 ], [ @.str.56, %42 ], [ @.str.55, %41 ], [ @.str.54, %40 ], [ @.str.8, %39 ], [ @.str.53, %38 ], [ @.str.52, %37 ], [ @.str.51, %36 ], [ @.str.50, %35 ], [ @.str.49, %34 ], [ @.str.48, %33 ], [ @.str.47, %32 ], [ @.str.46, %31 ], [ @.str.45, %30 ], [ @.str.44, %29 ], [ @.str.43, %28 ], [ @.str.42, %27 ], [ %26, %23 ], [ @.str.39, %22 ], [ @.str.38, %21 ], [ @.str.37, %20 ], [ @.str.36, %19 ], [ @.str.35, %18 ], [ @.str.34, %17 ], [ @.str.33, %16 ], [ @.str.32, %15 ], [ @.str.31, %14 ], [ @.str.30, %13 ], [ @.str.29, %12 ], [ @.str.28, %11 ], [ @.str.27, %10 ], [ @.str.26, %9 ], [ %8, %5 ], [ @.str.23, %4 ], [ @.str.22, %3 ], [ @.str.4, %2 ]
+  %.0 = phi ptr [ @.str.22, %3 ], [ @.str.23, %4 ], [ %8, %5 ], [ @.str.26, %9 ], [ @.str.27, %10 ], [ @.str.28, %11 ], [ @.str.29, %12 ], [ @.str.30, %13 ], [ @.str.31, %14 ], [ @.str.32, %15 ], [ @.str.33, %16 ], [ @.str.34, %17 ], [ @.str.35, %18 ], [ @.str.36, %19 ], [ @.str.37, %20 ], [ @.str.38, %21 ], [ @.str.39, %22 ], [ %26, %23 ], [ @.str.42, %27 ], [ @.str.43, %28 ], [ @.str.44, %29 ], [ @.str.45, %30 ], [ @.str.46, %31 ], [ @.str.47, %32 ], [ @.str.48, %33 ], [ @.str.49, %34 ], [ @.str.50, %35 ], [ @.str.51, %36 ], [ @.str.52, %37 ], [ @.str.53, %38 ], [ @.str.8, %39 ], [ @.str.54, %40 ], [ @.str.55, %41 ], [ @.str.56, %42 ], [ @.str.57, %43 ], [ @.str.58, %44 ], [ @.str.59, %45 ], [ @.str.60, %46 ], [ @.str.61, %47 ], [ @.str.62, %48 ], [ @.str.63, %49 ], [ @.str.64, %50 ], [ @.str.65, %51 ], [ @.str.66, %52 ], [ @.str.67, %53 ], [ @.str.68, %54 ], [ @.str.69, %55 ], [ @.str.70, %56 ], [ @.str.71, %57 ], [ @.str.72, %58 ], [ @.str.73, %59 ], [ @.str.74, %60 ], [ @.str.75, %61 ], [ @.str.76, %62 ], [ @.str.77, %63 ], [ @.str.78, %64 ], [ @.str.79, %65 ], [ @.str.80, %66 ], [ @.str.81, %67 ], [ @.str.82, %68 ], [ @.str.83, %69 ], [ @.str.84, %70 ], [ @.str.85, %71 ], [ @.str.86, %72 ], [ @.str.87, %73 ], [ @.str.88, %74 ], [ @.str.89, %75 ], [ @.str.4, %2 ]
   ret ptr %.0
 }
 
@@ -1875,7 +1875,7 @@ define dso_local noundef nonnull ptr @_ZN5clang8DeclSpec16getSpecifierNameENS0_2
   unreachable
 
 8:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.93, %6 ], [ @.str.74, %5 ], [ @.str.1, %4 ], [ @.str.2, %3 ], [ @.str, %2 ], [ @.str.4, %1 ]
+  %.0 = phi ptr [ @.str, %2 ], [ @.str.2, %3 ], [ @.str.1, %4 ], [ @.str.74, %5 ], [ @.str.93, %6 ], [ @.str.4, %1 ]
   ret ptr %.0
 }
 
@@ -2007,7 +2007,7 @@ _ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationER
   br label %_ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationERPKcRjRKNS_14PrintingPolicyE.exit.thread
 
 _ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationERPKcRjRKNS_14PrintingPolicyE.exit.thread: ; preds = %34, %switch.lookup44, %_ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationERPKcRjRKNS_14PrintingPolicyE.exit, %_ZN5clang8DeclSpec16getSpecifierNameENS0_3SCSE.exit36, %switch.lookup
-  %.0 = phi i1 [ false, %_ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationERPKcRjRKNS_14PrintingPolicyE.exit ], [ true, %_ZN5clang8DeclSpec16getSpecifierNameENS0_3SCSE.exit36 ], [ true, %switch.lookup ], [ false, %34 ], [ true, %switch.lookup44 ]
+  %.0 = phi i1 [ false, %_ZN5clang8DeclSpec15SetTypeSpecTypeENS_17TypeSpecifierTypeENS_14SourceLocationERPKcRjRKNS_14PrintingPolicyE.exit ], [ true, %switch.lookup ], [ true, %_ZN5clang8DeclSpec16getSpecifierNameENS0_3SCSE.exit36 ], [ false, %34 ], [ true, %switch.lookup44 ]
   ret i1 %.0
 }
 
@@ -2765,7 +2765,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8DeclSpec11SetTypeQualENS0_2TQENS_
   unreachable
 
 _ZL12BadSpecifierIN5clang8DeclSpec2TQEEbT_S3_RPKcRjb.exit: ; preds = %12, %15, %16, %17, %18, %19
-  %.0.i.i = phi ptr [ @.str.93, %19 ], [ @.str.74, %18 ], [ @.str.1, %17 ], [ @.str.2, %16 ], [ @.str, %15 ], [ @.str.4, %12 ]
+  %.0.i.i = phi ptr [ @.str, %15 ], [ @.str.2, %16 ], [ @.str.1, %17 ], [ @.str.74, %18 ], [ @.str.93, %19 ], [ @.str.4, %12 ]
   store ptr %.0.i.i, ptr %3, align 8, !tbaa !771
   %21 = select i1 %.not10, i32 97, i32 137
   store i32 %21, ptr %4, align 4, !tbaa !11
@@ -3179,7 +3179,7 @@ define dso_local void @_ZN5clang8DeclSpec23SaveWrittenBuiltinSpecsEv(ptr noundef
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %63, %62 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %63, %62 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %65 = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !777
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 28
   %67 = load i32, ptr %66, align 4
@@ -3192,7 +3192,7 @@ define dso_local void @_ZN5clang8DeclSpec23SaveWrittenBuiltinSpecsEv(ptr noundef
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %71, %70 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %71, %70 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %73 = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !777
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 28
   %75 = load i32, ptr %74, align 4
@@ -7264,7 +7264,7 @@ _ZN5clanglsIA9_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = 
   unreachable
 
 _ZN5clang8DeclSpec16getSpecifierNameENS0_3SCSE.exit336: ; preds = %2004, %2019, %2020, %2021, %2022, %2023, %2024
-  %.0.i335 = phi ptr [ @.str.11, %2024 ], [ @.str.10, %2023 ], [ @.str.9, %2022 ], [ @.str.8, %2021 ], [ @.str.7, %2020 ], [ @.str.6, %2019 ], [ @.str.5, %2004 ]
+  %.0.i335 = phi ptr [ @.str.6, %2019 ], [ @.str.7, %2020 ], [ @.str.8, %2021 ], [ @.str.9, %2022 ], [ @.str.10, %2023 ], [ @.str.11, %2024 ], [ @.str.5, %2004 ]
   %2026 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i335) #22
   store i64 0, ptr %2007, align 8, !tbaa !1179
   %2027 = icmp ugt i64 %2026, 32
@@ -8219,7 +8219,7 @@ define dso_local noundef zeroext i1 @_ZN5clang14VirtSpecifiers12SetSpecifierENS0
   br label %_ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit
 
 _ZN5clang14VirtSpecifiers16getSpecifierNameENS0_9SpecifierE.exit: ; preds = %13, %15, %16, %17, %18
-  %.0.i = phi ptr [ @.str.114, %18 ], [ @.str.113, %17 ], [ @.str.112, %16 ], [ @.str.111, %15 ], [ @.str.110, %13 ]
+  %.0.i = phi ptr [ @.str.111, %15 ], [ @.str.112, %16 ], [ @.str.113, %17 ], [ @.str.114, %18 ], [ @.str.110, %13 ]
   store ptr %.0.i, ptr %3, align 8, !tbaa !771
   br label %28
 
@@ -8282,7 +8282,7 @@ define dso_local noundef nonnull ptr @_ZN5clang14VirtSpecifiers16getSpecifierNam
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.114, %6 ], [ @.str.113, %5 ], [ @.str.112, %4 ], [ @.str.111, %3 ], [ @.str.110, %1 ]
+  %.0 = phi ptr [ @.str.111, %3 ], [ @.str.112, %4 ], [ @.str.113, %5 ], [ @.str.114, %6 ], [ @.str.110, %1 ]
   ret ptr %.0
 }
 

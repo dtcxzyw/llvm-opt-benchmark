@@ -576,7 +576,7 @@ dtls1_get_hello_verify.exit._crit_edge:           ; preds = %dtls1_get_hello_ver
   br label %.loopexit
 
 230:                                              ; preds = %166, %54, %57, %217, %208, %204, %195, %191, %187, %158, %150, %146, %138, %134, %130, %126, %122, %108, %99, %41
-  %.1 = phi i1 [ false, %217 ], [ false, %208 ], [ false, %204 ], [ false, %195 ], [ false, %191 ], [ false, %187 ], [ false, %166 ], [ false, %158 ], [ false, %150 ], [ false, %146 ], [ false, %138 ], [ false, %134 ], [ false, %130 ], [ false, %126 ], [ %.not205, %122 ], [ false, %108 ], [ false, %99 ], [ false, %57 ], [ false, %54 ], [ false, %41 ]
+  %.1 = phi i1 [ false, %41 ], [ false, %57 ], [ false, %54 ], [ false, %99 ], [ false, %108 ], [ %.not205, %122 ], [ false, %126 ], [ false, %130 ], [ false, %134 ], [ false, %138 ], [ false, %146 ], [ false, %150 ], [ false, %158 ], [ false, %166 ], [ false, %187 ], [ false, %191 ], [ false, %195 ], [ false, %204 ], [ false, %208 ], [ false, %217 ]
   %231 = load ptr, ptr %16, align 8, !tbaa !53
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 452
   %233 = load i32, ptr %232, align 4, !tbaa !75
@@ -600,8 +600,8 @@ dtls1_get_hello_verify.exit._crit_edge:           ; preds = %dtls1_get_hello_ver
   br label %.backedge
 
 .loopexit:                                        ; preds = %202, %166, %39, %33, %36, %205, %196, %192, %188, %172, %163, %155, %147, %143, %135, %131, %127, %123, %114, %100, %dtls1_get_hello_verify.exit, %45, %dtls1_get_hello_verify.exit.thread221, %229, %225, %215
-  %.0170 = phi i32 [ -1, %229 ], [ 1, %225 ], [ -1, %215 ], [ -1, %dtls1_get_hello_verify.exit.thread221 ], [ -1, %202 ], [ -1, %166 ], [ -1, %39 ], [ -1, %33 ], [ -1, %36 ], [ %46, %45 ], [ %93, %dtls1_get_hello_verify.exit ], [ %101, %100 ], [ %115, %114 ], [ %124, %123 ], [ %128, %127 ], [ %132, %131 ], [ %136, %135 ], [ %144, %143 ], [ %148, %147 ], [ %156, %155 ], [ %164, %163 ], [ %173, %172 ], [ %189, %188 ], [ %193, %192 ], [ %200, %196 ], [ %206, %205 ]
-  %.2168 = phi ptr [ null, %229 ], [ null, %225 ], [ null, %215 ], [ null, %dtls1_get_hello_verify.exit.thread221 ], [ null, %202 ], [ null, %166 ], [ null, %39 ], [ null, %33 ], [ %34, %36 ], [ null, %45 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %100 ], [ null, %114 ], [ null, %123 ], [ null, %127 ], [ null, %131 ], [ null, %135 ], [ null, %143 ], [ null, %147 ], [ null, %155 ], [ null, %163 ], [ null, %172 ], [ null, %188 ], [ null, %192 ], [ null, %196 ], [ null, %205 ]
+  %.0170 = phi i32 [ -1, %229 ], [ -1, %215 ], [ 1, %225 ], [ -1, %dtls1_get_hello_verify.exit.thread221 ], [ -1, %202 ], [ -1, %166 ], [ -1, %39 ], [ -1, %33 ], [ -1, %36 ], [ %206, %205 ], [ %200, %196 ], [ %193, %192 ], [ %189, %188 ], [ %173, %172 ], [ %164, %163 ], [ %156, %155 ], [ %148, %147 ], [ %144, %143 ], [ %136, %135 ], [ %132, %131 ], [ %128, %127 ], [ %124, %123 ], [ %115, %114 ], [ %101, %100 ], [ %93, %dtls1_get_hello_verify.exit ], [ %46, %45 ]
+  %.2168 = phi ptr [ null, %229 ], [ null, %215 ], [ null, %225 ], [ null, %dtls1_get_hello_verify.exit.thread221 ], [ null, %202 ], [ null, %166 ], [ null, %39 ], [ null, %33 ], [ %34, %36 ], [ null, %205 ], [ null, %196 ], [ null, %192 ], [ null, %188 ], [ null, %172 ], [ null, %163 ], [ null, %155 ], [ null, %147 ], [ null, %143 ], [ null, %135 ], [ null, %131 ], [ null, %127 ], [ null, %123 ], [ null, %114 ], [ null, %100 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %45 ]
   call void @BUF_MEM_free(ptr noundef %.2168) #4
   br i1 %.not213, label %239, label %238
 

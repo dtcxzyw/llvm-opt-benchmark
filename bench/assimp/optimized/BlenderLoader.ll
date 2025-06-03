@@ -7008,7 +7008,7 @@ default.unreachable.i:                            ; preds = %275
   unreachable
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %275, %279, %280, %281
-  %.0.i = phi ptr [ %269, %281 ], [ %270, %280 ], [ %271, %279 ], [ %268, %275 ]
+  %.0.i = phi ptr [ %271, %279 ], [ %270, %280 ], [ %269, %281 ], [ %268, %275 ]
   %282 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv196
   store float %277, ptr %282, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
@@ -7462,7 +7462,7 @@ _ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EED2Ev.exit: ; preds = %_ZNSt10uniqu
   br label %580
 
 580:                                              ; preds = %579, %235, %169, %167, %124
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %579 ], [ %168, %167 ], [ %236, %235 ], [ %170, %169 ], [ %125, %124 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %579 ], [ %168, %167 ], [ %125, %124 ], [ %170, %169 ], [ %236, %235 ]
   call void @_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
   br label %581
 

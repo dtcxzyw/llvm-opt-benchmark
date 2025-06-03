@@ -954,8 +954,8 @@ define void @_ZN4raft7tracker9inflights9Inflights7set_cap17h90abdbce6779c8f6E(pt
 40:                                               ; preds = %11
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8, !range !125, !noundef !3
-  %.not15 = icmp eq i64 %42, 0
-  br i1 %.not15, label %63, label %70
+  %.not14 = icmp eq i64 %42, 0
+  br i1 %.not14, label %63, label %70
 
 43:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit"
   %44 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
@@ -1019,8 +1019,8 @@ define void @_ZN4raft7tracker9inflights9Inflights7set_cap17h90abdbce6779c8f6E(pt
   unreachable
 
 65:                                               ; preds = %48, %92, %66
-  %.pn13 = phi { ptr, i32 } [ %93, %92 ], [ %67, %66 ], [ %49, %48 ]
-  resume { ptr, i32 } %.pn13
+  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %49, %48 ], [ %93, %92 ]
+  resume { ptr, i32 } %.pn.pn
 
 66:                                               ; preds = %57, %58, %47, %43
   %67 = landingpad { ptr, i32 }
@@ -1070,14 +1070,14 @@ define void @_ZN4raft7tracker9inflights9Inflights7set_cap17h90abdbce6779c8f6E(pt
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = load i64, ptr %85, align 8, !range !73, !noalias !126, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %84, label %88, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit16", !prof !37
+  br i1 %84, label %88, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit15", !prof !37
 
 88:                                               ; preds = %82
   %89 = load i64, ptr %87, align 8, !noalias !126
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %86, i64 %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.248a150cfb6d17530aed19b80d6c6424.40) #12
   unreachable
 
-"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit16": ; preds = %82
+"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit15": ; preds = %82
   %90 = load ptr, ptr %87, align 8, !noalias !126, !nonnull !3, !noundef !3
   %91 = icmp ule i64 %1, %86
   tail call void @llvm.assume(i1 %91)
@@ -1085,7 +1085,7 @@ define void @_ZN4raft7tracker9inflights9Inflights7set_cap17h90abdbce6779c8f6E(pt
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h9b503152dfee646fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78)
           to label %94 unwind label %92
 
-92:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit16"
+92:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit15"
   %93 = landingpad { ptr, i32 }
           cleanup
   store i64 %86, ptr %78, align 8
@@ -1095,7 +1095,7 @@ define void @_ZN4raft7tracker9inflights9Inflights7set_cap17h90abdbce6779c8f6E(pt
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %65
 
-94:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit16"
+94:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h727eaa583e506ee6E.exit15"
   store i64 %86, ptr %78, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %90, ptr %.sroa.5.0..sroa_idx2, align 8

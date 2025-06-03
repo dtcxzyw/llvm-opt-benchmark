@@ -219,7 +219,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(addres
   br label %73
 
 73:                                               ; preds = %26, %42, %62, %5
-  %.0 = phi ptr [ %67, %62 ], [ %33, %26 ], [ %56, %42 ], [ %12, %5 ]
+  %.0 = phi ptr [ %67, %62 ], [ %12, %5 ], [ %33, %26 ], [ %56, %42 ]
   %74 = load ptr, ptr %.02228, align 8
   %75 = tail call ptr @mm_alloc(i64 noundef 24) #7
   %76 = tail call ptr @mm_strdup(ptr noundef %74) #7

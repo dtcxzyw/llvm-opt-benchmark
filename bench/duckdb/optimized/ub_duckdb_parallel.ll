@@ -32466,14 +32466,14 @@ define void @_ZN6duckdb13TaskScheduler14ExecuteForeverEPSt6atomicIbE(ptr noundef
 
 14:                                               ; preds = %.lr.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit
   %15 = invoke noundef zeroext i1 @_ZN6duckdb9Allocator13SupportsFlushEv()
-          to label %16 unwind label %.loopexit.split-lp65.loopexit
+          to label %16 unwind label %.loopexit.split-lp64.loopexit
 
 16:                                               ; preds = %14
   br i1 %15, label %48, label %17
 
 17:                                               ; preds = %16
   %18 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %19 unwind label %.loopexit.split-lp65.loopexit
+          to label %19 unwind label %.loopexit.split-lp64.loopexit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 616
@@ -32525,7 +32525,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
 
 41:                                               ; preds = %44, %39
   %42 = invoke i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %40)
-          to label %.noexc unwind label %.loopexit64
+          to label %.noexc unwind label %.loopexit63
 
 .noexc:                                           ; preds = %41
   %43 = icmp eq i32 %42, -1
@@ -32537,48 +32537,48 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
   %47 = icmp eq i32 %46, 4
   br i1 %47, label %41, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, !llvm.loop !1311
 
-.loopexit64:                                      ; preds = %41
-  %lpad.loopexit66 = landingpad { ptr, i32 }
+.loopexit63:                                      ; preds = %41
+  %lpad.loopexit65 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
-.loopexit.split-lp65.loopexit:                    ; preds = %60, %.loopexit.i14, %149, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, %_ZN6duckdb11NumericCastImivEET_T0_.exit, %48, %17, %14
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+.loopexit.split-lp64.loopexit:                    ; preds = %60, %.loopexit.i13, %149, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, %_ZN6duckdb11NumericCastImivEET_T0_.exit, %48, %17, %14
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
-.loopexit.split-lp65.loopexit.split-lp:           ; preds = %232, %239, %_ZN6duckdb11NumericCastImivEET_T0_.exit50, %._crit_edge
-  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
+.loopexit.split-lp64.loopexit.split-lp:           ; preds = %232, %239, %_ZN6duckdb11NumericCastImivEET_T0_.exit49, %._crit_edge
+  %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
 48:                                               ; preds = %16
   %49 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %50 unwind label %.loopexit.split-lp65.loopexit
+          to label %50 unwind label %.loopexit.split-lp64.loopexit
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 616
   %52 = load atomic i64, ptr %51 monotonic, align 8
   %53 = icmp sgt i64 %52, 0
-  br i1 %53, label %.lr.ph.i.i15, label %.loopexit.i14
+  br i1 %53, label %.lr.ph.i.i14, label %.loopexit.i13
 
-.lr.ph.i.i15:                                     ; preds = %50, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i17
-  %.05.i.i16 = phi i64 [ %57, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i17 ], [ %52, %50 ]
-  %54 = add nsw i64 %.05.i.i16, -1
-  %55 = cmpxchg weak ptr %51, i64 %.05.i.i16, i64 %54 acquire monotonic, align 8
+.lr.ph.i.i14:                                     ; preds = %50, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i16
+  %.05.i.i15 = phi i64 [ %57, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i16 ], [ %52, %50 ]
+  %54 = add nsw i64 %.05.i.i15, -1
+  %55 = cmpxchg weak ptr %51, i64 %.05.i.i15, i64 %54 acquire monotonic, align 8
   %56 = extractvalue { i64, i1 } %55, 1
-  br i1 %56, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i17
+  br i1 %56, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i16
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i17: ; preds = %.lr.ph.i.i15
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i16: ; preds = %.lr.ph.i.i14
   %57 = extractvalue { i64, i1 } %55, 0
   %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %.lr.ph.i.i15, label %.loopexit.i14
+  br i1 %58, label %.lr.ph.i.i14, label %.loopexit.i13
 
-.loopexit.i14:                                    ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i17, %50
+.loopexit.i13:                                    ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i16, %50
   %59 = invoke noundef zeroext i1 @_ZN17duckdb_moodycamel20LightweightSemaphore23waitWithPartialSpinningEl(ptr noundef nonnull align 8 dereferenceable(40) %51, i64 noundef 500000)
-          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit unwind label %.loopexit.split-lp65.loopexit
+          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit unwind label %.loopexit.split-lp64.loopexit
 
-_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit: ; preds = %.loopexit.i14
+_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit: ; preds = %.loopexit.i13
   br i1 %59, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit, label %60
 
 60:                                               ; preds = %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit
@@ -32586,12 +32586,12 @@ _ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit: ; preds = %.loopexit.i
   %62 = load atomic i64, ptr %11 seq_cst, align 8
   %63 = load atomic i32, ptr %12 seq_cst, align 4
   %64 = invoke noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %63)
-          to label %_ZN6duckdb11NumericCastImivEET_T0_.exit unwind label %.loopexit.split-lp65.loopexit
+          to label %_ZN6duckdb11NumericCastImivEET_T0_.exit unwind label %.loopexit.split-lp64.loopexit
 
 _ZN6duckdb11NumericCastImivEET_T0_.exit:          ; preds = %60
   %65 = trunc i8 %61 to i1
   invoke void @_ZN6duckdb9Allocator11ThreadFlushEbmm(i1 noundef zeroext %65, i64 noundef %62, i64 noundef %64)
-          to label %66 unwind label %.loopexit.split-lp65.loopexit
+          to label %66 unwind label %.loopexit.split-lp64.loopexit
 
 66:                                               ; preds = %_ZN6duckdb11NumericCastImivEET_T0_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
@@ -32611,45 +32611,45 @@ _ZN6duckdb11NumericCastImivEET_T0_.exit:          ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 616
   %73 = load atomic i64, ptr %72 monotonic, align 8
   %74 = icmp sgt i64 %73, 0
-  br i1 %74, label %.lr.ph.i.i24, label %.loopexit.i20.preheader
+  br i1 %74, label %.lr.ph.i.i23, label %.loopexit.i19.preheader
 
-.lr.ph.i.i24:                                     ; preds = %71, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i26
-  %.05.i.i25 = phi i64 [ %78, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i26 ], [ %73, %71 ]
-  %75 = add nsw i64 %.05.i.i25, -1
-  %76 = cmpxchg weak ptr %72, i64 %.05.i.i25, i64 %75 acquire monotonic, align 8
+.lr.ph.i.i23:                                     ; preds = %71, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i25
+  %.05.i.i24 = phi i64 [ %78, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i25 ], [ %73, %71 ]
+  %75 = add nsw i64 %.05.i.i24, -1
+  %76 = cmpxchg weak ptr %72, i64 %.05.i.i24, i64 %75 acquire monotonic, align 8
   %77 = extractvalue { i64, i1 } %76, 1
-  br i1 %77, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i26
+  br i1 %77, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i25
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i26: ; preds = %.lr.ph.i.i24
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i25: ; preds = %.lr.ph.i.i23
   %78 = extractvalue { i64, i1 } %76, 0
   %79 = icmp sgt i64 %78, 0
-  br i1 %79, label %.lr.ph.i.i24, label %.loopexit.i20.preheader
+  br i1 %79, label %.lr.ph.i.i23, label %.loopexit.i19.preheader
 
-.loopexit.i20.preheader:                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i26, %71
-  br label %.loopexit.i20
+.loopexit.i19.preheader:                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i25, %71
+  br label %.loopexit.i19
 
-.loopexit.i20:                                    ; preds = %.loopexit.i20.preheader, %86
-  %80 = phi i32 [ %87, %86 ], [ 9999, %.loopexit.i20.preheader ]
+.loopexit.i19:                                    ; preds = %.loopexit.i19.preheader, %86
+  %80 = phi i32 [ %87, %86 ], [ 9999, %.loopexit.i19.preheader ]
   %81 = load atomic i64, ptr %72 monotonic, align 8
   %82 = icmp sgt i64 %81, 0
-  br i1 %82, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i23, label %86
+  br i1 %82, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i22, label %86
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i23: ; preds = %.loopexit.i20
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i22: ; preds = %.loopexit.i19
   %83 = add nsw i64 %81, -1
   %84 = cmpxchg ptr %72, i64 %81, i64 %83 acquire monotonic, align 8
   %85 = extractvalue { i64, i1 } %84, 1
-  br i1 %85, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %86
+  br i1 %85, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %86
 
-86:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i23, %.loopexit.i20
+86:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i22, %.loopexit.i19
   fence syncscope("singlethread") acquire
   %87 = add nsw i32 %80, -1
-  %.not.i.i21 = icmp eq i32 %80, 0
-  br i1 %.not.i.i21, label %88, label %.loopexit.i20, !llvm.loop !1310
+  %.not.i.i20 = icmp eq i32 %80, 0
+  br i1 %.not.i.i20, label %88, label %.loopexit.i19, !llvm.loop !1310
 
 88:                                               ; preds = %86
   %89 = atomicrmw sub ptr %72, i64 1 acquire, align 8
   %90 = icmp sgt i64 %89, 0
-  br i1 %90, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %91
+  br i1 %90, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %70, i64 624
@@ -32657,17 +32657,17 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
 
 93:                                               ; preds = %96, %91
   %94 = invoke i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %92)
-          to label %.noexc27 unwind label %.loopexit
+          to label %.noexc26 unwind label %.loopexit
 
-.noexc27:                                         ; preds = %93
+.noexc26:                                         ; preds = %93
   %95 = icmp eq i32 %94, -1
-  br i1 %95, label %96, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28
+  br i1 %95, label %96, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27
 
-96:                                               ; preds = %.noexc27
+96:                                               ; preds = %.noexc26
   %97 = tail call ptr @__errno_location() #41
   %98 = load i32, ptr %97, align 4, !tbaa !69
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %93, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, !llvm.loop !1311
+  br i1 %99, label %93, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, !llvm.loop !1311
 
 .loopexit:                                        ; preds = %93
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -32675,19 +32675,19 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %141
-  %lpad.loopexit57 = landingpad { ptr, i32 }
+  %lpad.loopexit56 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit.i29, %117, %116, %102, %100, %69, %66
-  %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.loopexit.i28, %117, %116, %102, %100, %69, %66
+  %lpad.loopexit.split-lp57 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit57, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit56, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
 100:                                              ; preds = %68
   %101 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -32703,28 +32703,28 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
   %107 = add nsw i64 %106, -500000
   %108 = load atomic i64, ptr %105 monotonic, align 8
   %109 = icmp sgt i64 %108, 0
-  br i1 %109, label %.lr.ph.i.i30, label %.loopexit.i29
+  br i1 %109, label %.lr.ph.i.i29, label %.loopexit.i28
 
-.lr.ph.i.i30:                                     ; preds = %104, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i32
-  %.05.i.i31 = phi i64 [ %113, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i32 ], [ %108, %104 ]
-  %110 = add nsw i64 %.05.i.i31, -1
-  %111 = cmpxchg weak ptr %105, i64 %.05.i.i31, i64 %110 acquire monotonic, align 8
+.lr.ph.i.i29:                                     ; preds = %104, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i31
+  %.05.i.i30 = phi i64 [ %113, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i31 ], [ %108, %104 ]
+  %110 = add nsw i64 %.05.i.i30, -1
+  %111 = cmpxchg weak ptr %105, i64 %.05.i.i30, i64 %110 acquire monotonic, align 8
   %112 = extractvalue { i64, i1 } %111, 1
-  br i1 %112, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i32
+  br i1 %112, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i31
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i32: ; preds = %.lr.ph.i.i30
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i31: ; preds = %.lr.ph.i.i29
   %113 = extractvalue { i64, i1 } %111, 0
   %114 = icmp sgt i64 %113, 0
-  br i1 %114, label %.lr.ph.i.i30, label %.loopexit.i29
+  br i1 %114, label %.lr.ph.i.i29, label %.loopexit.i28
 
-.loopexit.i29:                                    ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i32, %104
+.loopexit.i28:                                    ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i31, %104
   %115 = invoke noundef zeroext i1 @_ZN17duckdb_moodycamel20LightweightSemaphore23waitWithPartialSpinningEl(ptr noundef nonnull align 8 dereferenceable(40) %105, i64 noundef %107)
-          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit34 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit33 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit34: ; preds = %.loopexit.i29
-  br i1 %115, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %116
+_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit33: ; preds = %.loopexit.i28
+  br i1 %115, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %116
 
-116:                                              ; preds = %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit34
+116:                                              ; preds = %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit33
   invoke void @_ZN6duckdb9Allocator10ThreadIdleEv()
           to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -32736,45 +32736,45 @@ _ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit34: ; preds = %.loopexit
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 616
   %121 = load atomic i64, ptr %120 monotonic, align 8
   %122 = icmp sgt i64 %121, 0
-  br i1 %122, label %.lr.ph.i.i39, label %.loopexit.i35.preheader
+  br i1 %122, label %.lr.ph.i.i38, label %.loopexit.i34.preheader
 
-.lr.ph.i.i39:                                     ; preds = %119, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i41
-  %.05.i.i40 = phi i64 [ %126, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i41 ], [ %121, %119 ]
-  %123 = add nsw i64 %.05.i.i40, -1
-  %124 = cmpxchg weak ptr %120, i64 %.05.i.i40, i64 %123 acquire monotonic, align 8
+.lr.ph.i.i38:                                     ; preds = %119, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i40
+  %.05.i.i39 = phi i64 [ %126, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i40 ], [ %121, %119 ]
+  %123 = add nsw i64 %.05.i.i39, -1
+  %124 = cmpxchg weak ptr %120, i64 %.05.i.i39, i64 %123 acquire monotonic, align 8
   %125 = extractvalue { i64, i1 } %124, 1
-  br i1 %125, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i41
+  br i1 %125, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i40
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i41: ; preds = %.lr.ph.i.i39
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i40: ; preds = %.lr.ph.i.i38
   %126 = extractvalue { i64, i1 } %124, 0
   %127 = icmp sgt i64 %126, 0
-  br i1 %127, label %.lr.ph.i.i39, label %.loopexit.i35.preheader
+  br i1 %127, label %.lr.ph.i.i38, label %.loopexit.i34.preheader
 
-.loopexit.i35.preheader:                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i41, %119
-  br label %.loopexit.i35
+.loopexit.i34.preheader:                          ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i40, %119
+  br label %.loopexit.i34
 
-.loopexit.i35:                                    ; preds = %.loopexit.i35.preheader, %134
-  %128 = phi i32 [ %135, %134 ], [ 9999, %.loopexit.i35.preheader ]
+.loopexit.i34:                                    ; preds = %.loopexit.i34.preheader, %134
+  %128 = phi i32 [ %135, %134 ], [ 9999, %.loopexit.i34.preheader ]
   %129 = load atomic i64, ptr %120 monotonic, align 8
   %130 = icmp sgt i64 %129, 0
-  br i1 %130, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i38, label %134
+  br i1 %130, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i37, label %134
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i38: ; preds = %.loopexit.i35
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i37: ; preds = %.loopexit.i34
   %131 = add nsw i64 %129, -1
   %132 = cmpxchg ptr %120, i64 %129, i64 %131 acquire monotonic, align 8
   %133 = extractvalue { i64, i1 } %132, 1
-  br i1 %133, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %134
+  br i1 %133, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %134
 
-134:                                              ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i38, %.loopexit.i35
+134:                                              ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i37, %.loopexit.i34
   fence syncscope("singlethread") acquire
   %135 = add nsw i32 %128, -1
-  %.not.i.i36 = icmp eq i32 %128, 0
-  br i1 %.not.i.i36, label %136, label %.loopexit.i35, !llvm.loop !1310
+  %.not.i.i35 = icmp eq i32 %128, 0
+  br i1 %.not.i.i35, label %136, label %.loopexit.i34, !llvm.loop !1310
 
 136:                                              ; preds = %134
   %137 = atomicrmw sub ptr %120, i64 1 acquire, align 8
   %138 = icmp sgt i64 %137, 0
-  br i1 %138, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, label %139
+  br i1 %138, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %118, i64 624
@@ -32782,29 +32782,29 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
 
 141:                                              ; preds = %144, %139
   %142 = invoke i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %140)
-          to label %.noexc42 unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc41 unwind label %.loopexit.split-lp.loopexit
 
-.noexc42:                                         ; preds = %141
+.noexc41:                                         ; preds = %141
   %143 = icmp eq i32 %142, -1
-  br i1 %143, label %144, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28
+  br i1 %143, label %144, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27
 
-144:                                              ; preds = %.noexc42
+144:                                              ; preds = %.noexc41
   %145 = tail call ptr @__errno_location() #41
   %146 = load i32, ptr %145, align 4, !tbaa !69
   %147 = icmp eq i32 %146, 4
-  br i1 %147, label %141, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28, !llvm.loop !1311
+  br i1 %147, label %141, label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27, !llvm.loop !1311
 
-_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28: ; preds = %.lr.ph.i.i30, %.lr.ph.i.i39, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i38, %144, %.noexc42, %.lr.ph.i.i24, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i23, %96, %.noexc27, %136, %88, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit34
+_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27: ; preds = %.lr.ph.i.i29, %.lr.ph.i.i38, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i37, %144, %.noexc41, %.lr.ph.i.i23, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i22, %96, %.noexc26, %136, %88, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
   br label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit
 
-_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i, %44, %.noexc, %.lr.ph.i.i15, %36, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit28
+_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i, %44, %.noexc, %.lr.ph.i.i14, %36, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit27
   %148 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %149 unwind label %.loopexit.split-lp65.loopexit
+          to label %149 unwind label %.loopexit.split-lp64.loopexit
 
 149:                                              ; preds = %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit
   %150 = invoke noundef zeroext i1 @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE11try_dequeueIS4_EEbRT_(ptr noundef nonnull align 8 dereferenceable(612) %148, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %151 unwind label %.loopexit.split-lp65.loopexit
+          to label %151 unwind label %.loopexit.split-lp64.loopexit
 
 151:                                              ; preds = %149
   br i1 %150, label %152, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit
@@ -32831,7 +32831,7 @@ _ZN17duckdb_moodycamel20LightweightSemaphore4waitEv.exit: ; preds = %.lr.ph.i.i,
 160:                                              ; preds = %201, %199, %154, %152
   %161 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
 162:                                              ; preds = %159, %159
   store ptr null, ptr %3, align 8, !tbaa !318
@@ -32922,18 +32922,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.assume(i1 %197)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #35
-  br i1 %.0, label %198, label %.loopexit.split-lp65
+  br i1 %.0, label %198, label %.loopexit.split-lp64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %190
   call void @_ZdlPv(ptr noundef %192) #37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #35
-  br i1 %.0, label %198, label %.loopexit.split-lp65
+  br i1 %.0, label %198, label %.loopexit.split-lp64
 
 198:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn54 = phi { ptr, i32 } [ %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn53 = phi { ptr, i32 } [ %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %186) #35
-  br label %.loopexit.split-lp65
+  br label %.loopexit.split-lp64
 
 199:                                              ; preds = %159
   %200 = invoke noundef ptr @_ZNK6duckdb10shared_ptrINS_4TaskELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -32950,8 +32950,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %190
   store ptr null, ptr %3, align 8, !tbaa !318
   %206 = load ptr, ptr %13, align 8, !tbaa !59
   store ptr null, ptr %13, align 8, !tbaa !59
-  %.not.i.i.i.i44 = icmp eq ptr %206, null
-  br i1 %.not.i.i.i.i44, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, label %207
+  %.not.i.i.i.i43 = icmp eq ptr %206, null
+  br i1 %.not.i.i.i.i43, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, label %207
 
 207:                                              ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -32976,35 +32976,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %190
 
 220:                                              ; preds = %207
   %221 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i45 = icmp eq i8 %221, 0
-  br i1 %.not.i.i.i.i.i45, label %224, label %222
+  %.not.i.i.i.i.i44 = icmp eq i8 %221, 0
+  br i1 %.not.i.i.i.i.i44, label %224, label %222
 
 222:                                              ; preds = %220
   %223 = add nsw i32 %211, -1
   store i32 %223, ptr %208, align 4, !tbaa !69
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i46
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
 
 224:                                              ; preds = %220
   %225 = atomicrmw volatile add ptr %208, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i46
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i46: ; preds = %224, %222
-  %.0.i.i.i.i.i.i47 = phi i32 [ %211, %222 ], [ %225, %224 ]
-  %226 = icmp eq i32 %.0.i.i.i.i.i.i47, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45: ; preds = %224, %222
+  %.0.i.i.i.i.i.i46 = phi i32 [ %211, %222 ], [ %225, %224 ]
+  %226 = icmp eq i32 %.0.i.i.i.i.i.i46, 1
   br i1 %226, label %227, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, !prof !60
 
-227:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i46
+227:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %206) #35
   br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit
 
-_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %227, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i46, %212, %205, %184, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %169, %162, %159, %151
+_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %227, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45, %212, %205, %184, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %169, %162, %159, %151
   %228 = load atomic i8, ptr %1 seq_cst, align 1
   %229 = trunc i8 %228 to i1
   br i1 %229, label %14, label %._crit_edge, !llvm.loop !1312
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, %2
   %230 = invoke noundef zeroext i1 @_ZN6duckdb9Allocator13SupportsFlushEv()
-          to label %231 unwind label %.loopexit.split-lp65.loopexit.split-lp
+          to label %231 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
 231:                                              ; preds = %._crit_edge
   br i1 %230, label %232, label %240
@@ -33015,16 +33015,16 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %227, %_ZN9__gnu_c
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %236 = load atomic i32, ptr %235 seq_cst, align 4
   %237 = invoke noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %236)
-          to label %_ZN6duckdb11NumericCastImivEET_T0_.exit50 unwind label %.loopexit.split-lp65.loopexit.split-lp
+          to label %_ZN6duckdb11NumericCastImivEET_T0_.exit49 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
-_ZN6duckdb11NumericCastImivEET_T0_.exit50:        ; preds = %232
+_ZN6duckdb11NumericCastImivEET_T0_.exit49:        ; preds = %232
   %238 = trunc i8 %234 to i1
   invoke void @_ZN6duckdb9Allocator11ThreadFlushEbmm(i1 noundef zeroext %238, i64 noundef 0, i64 noundef %237)
-          to label %239 unwind label %.loopexit.split-lp65.loopexit.split-lp
+          to label %239 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
-239:                                              ; preds = %_ZN6duckdb11NumericCastImivEET_T0_.exit50
+239:                                              ; preds = %_ZN6duckdb11NumericCastImivEET_T0_.exit49
   invoke void @_ZN6duckdb9Allocator10ThreadIdleEv()
-          to label %240 unwind label %.loopexit.split-lp65.loopexit.split-lp
+          to label %240 unwind label %.loopexit.split-lp64.loopexit.split-lp
 
 240:                                              ; preds = %239, %231
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -33055,8 +33055,8 @@ _ZN6duckdb11NumericCastImivEET_T0_.exit50:        ; preds = %232
 
 256:                                              ; preds = %243
   %257 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i51 = icmp eq i8 %257, 0
-  br i1 %.not.i.i.i.i51, label %260, label %258
+  %.not.i.i.i.i50 = icmp eq i8 %257, 0
+  br i1 %.not.i.i.i.i50, label %260, label %258
 
 258:                                              ; preds = %256
   %259 = add nsw i32 %247, -1
@@ -33080,11 +33080,11 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit:   ; preds = %240, %248, %_ZN9__g
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
   ret void
 
-.loopexit.split-lp65:                             ; preds = %.loopexit64, %.loopexit.split-lp65.loopexit.split-lp, %.loopexit.split-lp65.loopexit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %160, %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.loopexit.split-lp
-  %.pn11.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %161, %160 ], [ %.pn54, %198 ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %lpad.loopexit66, %.loopexit64 ], [ %lpad.loopexit71, %.loopexit.split-lp65.loopexit ], [ %lpad.loopexit.split-lp72, %.loopexit.split-lp65.loopexit.split-lp ]
+.loopexit.split-lp64:                             ; preds = %.loopexit63, %.loopexit.split-lp64.loopexit.split-lp, %.loopexit.split-lp64.loopexit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %160, %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.loopexit.split-lp
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %.pn53, %198 ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %161, %160 ], [ %191, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %lpad.loopexit65, %.loopexit63 ], [ %lpad.loopexit70, %.loopexit.split-lp64.loopexit ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp64.loopexit.split-lp ]
   call void @_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
-  resume { ptr, i32 } %.pn11.pn
+  resume { ptr, i32 } %.pn.pn.pn
 
 264:                                              ; preds = %188
   unreachable
@@ -33206,8 +33206,8 @@ define noundef i64 @_ZN6duckdb13TaskScheduler12ExecuteTasksEPSt6atomicIbEm(ptr n
   br label %9
 
 9:                                                ; preds = %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, %3
-  %.021 = phi i64 [ 0, %3 ], [ %.12240, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ]
-  %.012 = phi i64 [ undef, %3 ], [ %.11341, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ]
+  %.021 = phi i64 [ 0, %3 ], [ %.12239, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ]
+  %.012 = phi i64 [ undef, %3 ], [ %.11340, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ]
   %10 = load atomic i8, ptr %1 seq_cst, align 1
   %11 = trunc i8 %10 to i1
   %12 = icmp ult i64 %.021, %2
@@ -33225,7 +33225,7 @@ define noundef i64 @_ZN6duckdb13TaskScheduler12ExecuteTasksEPSt6atomicIbEm(ptr n
           to label %18 unwind label %19
 
 18:                                               ; preds = %16
-  br i1 %17, label %21, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32
+  br i1 %17, label %21, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31
 
 19:                                               ; preds = %16, %14
   %20 = landingpad { ptr, i32 }
@@ -33244,7 +33244,7 @@ define noundef i64 @_ZN6duckdb13TaskScheduler12ExecuteTasksEPSt6atomicIbEm(ptr n
           to label %28 unwind label %29
 
 28:                                               ; preds = %23
-  switch i8 %27, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32 [
+  switch i8 %27, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31 [
     i8 0, label %31
     i8 2, label %31
     i8 1, label %55
@@ -33309,7 +33309,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %50, %4
 
 _ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %31, %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %53
   %54 = add nuw i64 %.021, 1
-  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32
+  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31
 
 55:                                               ; preds = %28
   %56 = call ptr @__cxa_allocate_exception(i64 16) #35
@@ -33358,7 +33358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60
   br i1 %.0, label %68, label %119
 
 68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn36 = phi { ptr, i32 } [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn35 = phi { ptr, i32 } [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %56) #35
   br label %119
 
@@ -33377,8 +33377,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60
   store ptr null, ptr %4, align 8, !tbaa !318
   %76 = load ptr, ptr %8, align 8, !tbaa !59
   store ptr null, ptr %8, align 8, !tbaa !59
-  %.not.i.i.i.i28 = icmp eq ptr %76, null
-  br i1 %.not.i.i.i.i28, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, label %77
+  %.not.i.i.i.i27 = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i27, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, label %77
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -33399,39 +33399,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef nonnull align 8 dereferenceable(16) %76) #35
-  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32
+  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31
 
 90:                                               ; preds = %77
   %91 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i29 = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i.i.i29, label %94, label %92
+  %.not.i.i.i.i.i28 = icmp eq i8 %91, 0
+  br i1 %.not.i.i.i.i.i28, label %94, label %92
 
 92:                                               ; preds = %90
   %93 = add nsw i32 %81, -1
   store i32 %93, ptr %78, align 4, !tbaa !69
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
 
 94:                                               ; preds = %90
   %95 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30: ; preds = %94, %92
-  %.0.i.i.i.i.i.i31 = phi i32 [ %81, %92 ], [ %95, %94 ]
-  %96 = icmp eq i32 %.0.i.i.i.i.i.i31, 1
-  br i1 %96, label %97, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32, !prof !60
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29: ; preds = %94, %92
+  %.0.i.i.i.i.i.i30 = phi i32 [ %81, %92 ], [ %95, %94 ]
+  %96 = icmp eq i32 %.0.i.i.i.i.i.i30, 1
+  br i1 %96, label %97, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31, !prof !60
 
-97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30
+97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #35
-  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32
+  br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31
 
-_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32: ; preds = %97, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30, %82, %28, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, %18
-  %.122.ph = phi i64 [ %.021, %97 ], [ %.021, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30 ], [ %.021, %82 ], [ %54, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ], [ %.021, %28 ], [ %.021, %18 ]
-  %.113.ph = phi i64 [ %.012, %97 ], [ %.012, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30 ], [ %.012, %82 ], [ %.012, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ], [ %.012, %28 ], [ %.021, %18 ]
+_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31: ; preds = %97, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29, %82, %28, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, %18
+  %.122.ph = phi i64 [ %.021, %97 ], [ %.021, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29 ], [ %.021, %82 ], [ %54, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ], [ %.021, %28 ], [ %.021, %18 ]
+  %.113.ph = phi i64 [ %.012, %97 ], [ %.012, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29 ], [ %.012, %82 ], [ %.012, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ], [ %.012, %28 ], [ %.021, %18 ]
   %.pr = load ptr, ptr %8, align 8, !tbaa !59
   %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, label %98
 
-98:                                               ; preds = %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32
+98:                                               ; preds = %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31
   %99 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %100 = load atomic i64, ptr %99 acquire, align 8
   %101 = icmp eq i64 %100, 4294967297
@@ -33454,8 +33454,8 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32: ; preds = %97, %_ZN9__gnu_
 
 111:                                              ; preds = %98
   %112 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i33 = icmp eq i8 %112, 0
-  br i1 %.not.i.i.i.i33, label %115, label %113
+  %.not.i.i.i.i32 = icmp eq i8 %112, 0
+  br i1 %.not.i.i.i.i32, label %115, label %113
 
 113:                                              ; preds = %111
   %114 = add nsw i32 %102, -1
@@ -33475,20 +33475,20 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %115, %11
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #35
   br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit
 
-_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit:   ; preds = %75, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32, %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %118
-  %.11341 = phi i64 [ %.113.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32 ], [ %.113.ph, %103 ], [ %.113.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.113.ph, %118 ], [ %.012, %75 ]
-  %.12240 = phi i64 [ %.122.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit32 ], [ %.122.ph, %103 ], [ %.122.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.122.ph, %118 ], [ %.021, %75 ]
+_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit:   ; preds = %75, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31, %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %118
+  %.11340 = phi i64 [ %.113.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31 ], [ %.113.ph, %103 ], [ %.113.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.113.ph, %118 ], [ %.012, %75 ]
+  %.12239 = phi i64 [ %.122.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit31 ], [ %.122.ph, %103 ], [ %.122.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %.122.ph, %118 ], [ %.021, %75 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
   br i1 %17, label %9, label %120, !llvm.loop !1318
 
 119:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %29, %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %19
-  %.pn25.pn = phi { ptr, i32 } [ %20, %19 ], [ %30, %29 ], [ %.pn36, %68 ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %.pn35, %68 ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %29 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
-  resume { ptr, i32 } %.pn25.pn
+  resume { ptr, i32 } %.pn.pn.pn
 
 120:                                              ; preds = %9, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit
-  %.2 = phi i64 [ %.11341, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ %.021, %9 ]
+  %.2 = phi i64 [ %.11340, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ %.021, %9 ]
   ret i64 %.2
 
 121:                                              ; preds = %58
@@ -33511,9 +33511,9 @@ define void @_ZN6duckdb13TaskScheduler12ExecuteTasksEm(ptr noundef nonnull align
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit
-  %.0924 = phi i64 [ 0, %.lr.ph ], [ %101, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ]
+  %.0923 = phi i64 [ 0, %.lr.ph ], [ %101, %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit ]
   %9 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %10 unwind label %.loopexit23
+          to label %10 unwind label %.loopexit22
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 616
@@ -33535,20 +33535,20 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i: 
 
 .loopexit.i:                                      ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i, %10
   %19 = invoke noundef zeroext i1 @_ZN17duckdb_moodycamel20LightweightSemaphore23waitWithPartialSpinningEl(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef 5000)
-          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit unwind label %.loopexit23
+          to label %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit unwind label %.loopexit22
 
 _ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit: ; preds = %.lr.ph.i.i, %.loopexit.i
   %20 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %21 unwind label %.loopexit23
+          to label %21 unwind label %.loopexit22
 
 21:                                               ; preds = %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit
   %22 = invoke noundef zeroext i1 @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE11try_dequeueIS4_EEbRT_(ptr noundef nonnull align 8 dereferenceable(612) %20, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %23 unwind label %.loopexit23
+          to label %23 unwind label %.loopexit22
 
 23:                                               ; preds = %21
   br i1 %22, label %25, label %.loopexit
 
-.loopexit23:                                      ; preds = %8, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit, %21, %.loopexit.i
+.loopexit22:                                      ; preds = %8, %_ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit, %21, %.loopexit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %24
@@ -33558,8 +33558,8 @@ _ZN17duckdb_moodycamel20LightweightSemaphore4waitEl.exit: ; preds = %.lr.ph.i.i,
           cleanup
   br label %24
 
-24:                                               ; preds = %.loopexit.split-lp, %.loopexit23
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit23 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+24:                                               ; preds = %.loopexit.split-lp, %.loopexit22
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
   resume { ptr, i32 } %lpad.phi
@@ -33686,7 +33686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %63
   br i1 %.0, label %71, label %102
 
 71:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn22 = phi { ptr, i32 } [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn21 = phi { ptr, i32 } [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %59) #35
   br label %102
 
@@ -33705,8 +33705,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %63
   store ptr null, ptr %3, align 8, !tbaa !318
   %79 = load ptr, ptr %7, align 8, !tbaa !59
   store ptr null, ptr %7, align 8, !tbaa !59
-  %.not.i.i.i.i14 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i14, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, label %80
+  %.not.i.i.i.i13 = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i13, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -33731,35 +33731,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %63
 
 93:                                               ; preds = %80
   %94 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i15 = icmp eq i8 %94, 0
-  br i1 %.not.i.i.i.i.i15, label %97, label %95
+  %.not.i.i.i.i.i14 = icmp eq i8 %94, 0
+  br i1 %.not.i.i.i.i.i14, label %97, label %95
 
 95:                                               ; preds = %93
   %96 = add nsw i32 %84, -1
   store i32 %96, ptr %81, align 4, !tbaa !69
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
 
 97:                                               ; preds = %93
   %98 = atomicrmw volatile add ptr %81, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16: ; preds = %97, %95
-  %.0.i.i.i.i.i.i17 = phi i32 [ %84, %95 ], [ %98, %97 ]
-  %99 = icmp eq i32 %.0.i.i.i.i.i.i17, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15: ; preds = %97, %95
+  %.0.i.i.i.i.i.i16 = phi i32 [ %84, %95 ], [ %98, %97 ]
+  %99 = icmp eq i32 %.0.i.i.i.i.i.i16, 1
   br i1 %99, label %100, label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit, !prof !60
 
-100:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16
+100:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #35
   br label %_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit
 
-_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16, %85, %78, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %42, %35, %32
-  %101 = add nuw i64 %.0924, 1
+_ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i15, %85, %78, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %42, %35, %32
+  %101 = add nuw i64 %.0923, 1
   %exitcond.not = icmp eq i64 %101, %1
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !1319
 
 102:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %71, %33
-  %.pn13 = phi { ptr, i32 } [ %34, %33 ], [ %.pn22, %71 ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %.010 = extractvalue { ptr, i32 } %.pn13, 0
+  %.pn.pn = phi { ptr, i32 } [ %.pn21, %71 ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %34, %33 ], [ %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.010 = extractvalue { ptr, i32 } %.pn.pn, 0
   %103 = call ptr @__cxa_begin_catch(ptr %.010) #35
   invoke void @__cxa_end_catch()
           to label %.loopexit unwind label %.loopexit.split-lp
@@ -33793,8 +33793,8 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EE5resetEv.exit: ; preds = %100, %_ZN9__gnu_c
 
 119:                                              ; preds = %106
   %120 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i19 = icmp eq i8 %120, 0
-  br i1 %.not.i.i.i.i19, label %123, label %121
+  %.not.i.i.i.i18 = icmp eq i8 %120, 0
+  br i1 %.not.i.i.i.i18, label %123, label %121
 
 121:                                              ; preds = %119
   %122 = add nsw i32 %110, -1

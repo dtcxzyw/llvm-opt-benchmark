@@ -21423,7 +21423,7 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %99, %95
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_59clES1_NS_8ArgsViewE.exit": ; preds = %3, %17, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %_ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
-  %.0.i = phi ptr [ %.0.i34.i, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %38, %_ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i ], [ %.0.i24.i, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %19, %17 ], [ inttoptr (i64 2 to ptr), %3 ]
+  %.0.i = phi ptr [ %.0.i34.i, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %.0.i24.i, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ %38, %_ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i ], [ %19, %17 ], [ inttoptr (i64 2 to ptr), %3 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -22410,7 +22410,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit30.i:        ; preds = %.noexc28.i
   unreachable
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_72clES1_NS_8ArgsViewE.exit": ; preds = %21, %30, %38, %43, %56, %63, %84
-  %.0.i = phi ptr [ %23, %21 ], [ %58, %56 ], [ %65, %63 ], [ %86, %84 ], [ %49, %43 ], [ %42, %38 ], [ %32, %30 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %58, %56 ], [ %65, %63 ], [ %86, %84 ], [ %42, %38 ], [ %49, %43 ], [ %32, %30 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)

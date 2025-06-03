@@ -69,7 +69,7 @@ writecap_file_open.exit.thread28:                 ; preds = %17
   br label %29
 
 writecap_file_open.exit:                          ; preds = %13, %15
-  %.014.i = phi ptr [ %16, %15 ], [ %14, %13 ]
+  %.014.i = phi ptr [ %14, %13 ], [ %16, %15 ]
   %27 = icmp eq ptr %.014.i, null
   br i1 %27, label %writecap_file_open.exit.thread, label %29
 
@@ -157,7 +157,7 @@ writecap_file_fdopen.exit.thread28:               ; preds = %17
   br label %29
 
 writecap_file_fdopen.exit:                        ; preds = %13, %15
-  %.014.i = phi ptr [ %16, %15 ], [ %14, %13 ]
+  %.014.i = phi ptr [ %14, %13 ], [ %16, %15 ]
   %27 = icmp eq ptr %.014.i, null
   br i1 %27, label %writecap_file_fdopen.exit.thread, label %29
 
@@ -316,7 +316,7 @@ define hidden zeroext i1 @writecap_close(ptr noundef %0, ptr noundef writeonly c
   br label %16
 
 16:                                               ; preds = %11, %14, %9, %7
-  %.0 = phi i32 [ %15, %14 ], [ 0, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %11 ], [ %8, %7 ], [ %10, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @g_free(ptr noundef %18)
@@ -426,7 +426,7 @@ define internal fastcc noundef zeroext i1 @write_to_file(ptr noundef readonly ca
   br label %34
 
 34:                                               ; preds = %31, %30, %19, %13
-  %.0 = phi i1 [ false, %30 ], [ true, %31 ], [ false, %19 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %30 ], [ true, %31 ], [ false, %13 ], [ false, %19 ]
   ret i1 %.0
 }
 

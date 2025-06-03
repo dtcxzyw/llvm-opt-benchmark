@@ -8618,7 +8618,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit: ; preds = %21, %
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -12191,7 +12191,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit: ; preds = %21, %
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 

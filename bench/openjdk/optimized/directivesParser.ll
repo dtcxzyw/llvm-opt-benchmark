@@ -1403,7 +1403,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit.thread:   ; preds = %_ZN25ControlIntrins
   br label %171
 
 171:                                              ; preds = %33, %52, %119, %169, %81, %95, %68, %5, %_ZN25ControlIntrinsicValidatorD2Ev.exit.thread, %125, %104, %97, %38, %19
-  %.086 = phi i1 [ false, %125 ], [ false, %_ZN25ControlIntrinsicValidatorD2Ev.exit.thread ], [ false, %104 ], [ false, %97 ], [ false, %38 ], [ false, %19 ], [ true, %5 ], [ true, %68 ], [ true, %95 ], [ true, %81 ], [ true, %169 ], [ true, %119 ], [ true, %52 ], [ true, %33 ]
+  %.086 = phi i1 [ false, %19 ], [ false, %38 ], [ false, %97 ], [ false, %104 ], [ false, %125 ], [ false, %_ZN25ControlIntrinsicValidatorD2Ev.exit.thread ], [ true, %5 ], [ true, %68 ], [ true, %95 ], [ true, %81 ], [ true, %169 ], [ true, %119 ], [ true, %52 ], [ true, %33 ]
   ret i1 %.086
 }
 
@@ -1764,7 +1764,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br label %159
 
 159:                                              ; preds = %88, %83, %77, %158, %155, %146, %111, %96, %91
-  %.0 = phi i1 [ true, %158 ], [ false, %155 ], [ false, %146 ], [ false, %111 ], [ false, %91 ], [ false, %96 ], [ false, %77 ], [ false, %83 ], [ false, %88 ]
+  %.0 = phi i1 [ true, %158 ], [ false, %91 ], [ false, %96 ], [ false, %111 ], [ false, %146 ], [ false, %155 ], [ false, %77 ], [ false, %83 ], [ false, %88 ]
   ret i1 %.0
 }
 
@@ -2052,7 +2052,7 @@ _ZN16DirectivesParser11current_keyEv.exit34:      ; preds = %51
   unreachable
 
 _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28: ; preds = %118, %.thread.i26, %37, %23, %17, %113, %114, %80, %89, %_ZN16DirectivesParser7pop_keyEv.exit, %125, %120, %116, %88, %73, %71, %65, %59, %50, %49, %10, %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
-  %.0 = phi i1 [ false, %10 ], [ false, %50 ], [ false, %49 ], [ %126, %125 ], [ %124, %120 ], [ %117, %116 ], [ false, %88 ], [ false, %73 ], [ %72, %71 ], [ true, %65 ], [ true, %59 ], [ true, %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit ], [ true, %_ZN16DirectivesParser7pop_keyEv.exit ], [ true, %89 ], [ true, %80 ], [ false, %114 ], [ false, %113 ], [ false, %17 ], [ true, %.thread.i26 ], [ false, %37 ], [ false, %23 ], [ true, %118 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit ], [ false, %50 ], [ false, %49 ], [ false, %73 ], [ true, %59 ], [ true, %65 ], [ %72, %71 ], [ false, %88 ], [ %117, %116 ], [ %124, %120 ], [ %126, %125 ], [ true, %_ZN16DirectivesParser7pop_keyEv.exit ], [ true, %89 ], [ true, %80 ], [ false, %114 ], [ false, %113 ], [ false, %17 ], [ true, %.thread.i26 ], [ false, %37 ], [ false, %23 ], [ true, %118 ]
   ret i1 %.0
 }
 

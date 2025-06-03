@@ -928,7 +928,7 @@ define void @_ZN6icu_7710UnicodeSet12applyPatternERNS_21RuleCharacterIteratorEPK
   br label %274
 
 .loopexit405.loopexit:                            ; preds = %224, %190, %187, %95, %67, %55, %229, %227, %226, %223, %221, %193, %192, %189, %185, %168, %167, %165, %124, %122, %120, %113, %109, %108, %106, %93, %91, %77, %70, %69, %58, %57, %54, %43, %42, %39
-  %.sroa.0313.3.ph.ph = phi ptr [ %.sroa.0313.1490, %226 ], [ %.sroa.0313.1490, %224 ], [ %.sroa.0313.1490, %223 ], [ %.sroa.0313.1490, %221 ], [ %.sroa.0313.1490, %229 ], [ %.sroa.0313.1490, %227 ], [ %.sroa.0313.1490, %193 ], [ %.sroa.0313.1490, %192 ], [ %.sroa.0313.1490, %190 ], [ %.sroa.0313.1490, %189 ], [ %.sroa.0313.1490, %187 ], [ %.sroa.0313.1490, %185 ], [ %.sroa.0313.1490, %168 ], [ %.sroa.0313.1490, %167 ], [ %.sroa.0313.1490, %165 ], [ %.sroa.0313.7, %124 ], [ %.sroa.0313.7, %122 ], [ %.sroa.0313.7, %120 ], [ %.sroa.0313.7, %113 ], [ %.sroa.0313.7, %109 ], [ %.sroa.0313.7, %108 ], [ %.sroa.0313.7, %106 ], [ %.sroa.0313.1490, %95 ], [ %.sroa.0313.1490, %93 ], [ %.sroa.0313.1490, %91 ], [ %.sroa.0313.1490, %54 ], [ %.sroa.0313.1490, %77 ], [ %.sroa.0313.1490, %70 ], [ %.sroa.0313.1490, %69 ], [ %.sroa.0313.1490, %67 ], [ %.sroa.0313.1490, %58 ], [ %.sroa.0313.1490, %57 ], [ %.sroa.0313.1490, %55 ], [ %.sroa.0313.1490, %43 ], [ %.sroa.0313.1490, %42 ], [ %.sroa.0313.1490, %39 ]
+  %.sroa.0313.3.ph.ph = phi ptr [ %.sroa.0313.1490, %226 ], [ %.sroa.0313.1490, %224 ], [ %.sroa.0313.1490, %223 ], [ %.sroa.0313.1490, %221 ], [ %.sroa.0313.1490, %229 ], [ %.sroa.0313.1490, %227 ], [ %.sroa.0313.1490, %190 ], [ %.sroa.0313.1490, %189 ], [ %.sroa.0313.1490, %187 ], [ %.sroa.0313.1490, %185 ], [ %.sroa.0313.1490, %168 ], [ %.sroa.0313.1490, %167 ], [ %.sroa.0313.1490, %165 ], [ %.sroa.0313.1490, %193 ], [ %.sroa.0313.1490, %192 ], [ %.sroa.0313.7, %120 ], [ %.sroa.0313.7, %122 ], [ %.sroa.0313.7, %124 ], [ %.sroa.0313.7, %106 ], [ %.sroa.0313.7, %109 ], [ %.sroa.0313.7, %108 ], [ %.sroa.0313.7, %113 ], [ %.sroa.0313.1490, %95 ], [ %.sroa.0313.1490, %93 ], [ %.sroa.0313.1490, %91 ], [ %.sroa.0313.1490, %54 ], [ %.sroa.0313.1490, %77 ], [ %.sroa.0313.1490, %70 ], [ %.sroa.0313.1490, %69 ], [ %.sroa.0313.1490, %67 ], [ %.sroa.0313.1490, %58 ], [ %.sroa.0313.1490, %57 ], [ %.sroa.0313.1490, %55 ], [ %.sroa.0313.1490, %43 ], [ %.sroa.0313.1490, %42 ], [ %.sroa.0313.1490, %39 ]
   %lpad.loopexit564 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1513,26 +1513,26 @@ _ZN6icu_7713UnicodeString6appendEDs.exit309:      ; preds = %214
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #17
   br label %270
 
-.critedge298.thread552:                           ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit, %_ZN6icu_7713UnicodeString6appendEDs.exit305, %_ZN6icu_7713UnicodeString6appendEDs.exit309
-  %.2244.ph = phi i8 [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit309 ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendEDs.exit305 ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ]
+.critedge298.thread552:                           ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit305, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit, %_ZN6icu_7713UnicodeString6appendEDs.exit309
+  %.2244.ph = phi i8 [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit309 ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendEDs.exit305 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #17
   br label %.critedge.thread.loopexit
 
 .critedge298:                                     ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit307, %216, %217, %226, %229, %230, %159, %143, %119, %120, %122, %124, %77
-  %.sroa.0313.6 = phi ptr [ %.sroa.0313.1490, %216 ], [ %.sroa.0313.1490, %230 ], [ %.sroa.0313.1490, %226 ], [ %.sroa.0313.1490, %229 ], [ %.sroa.0313.1490, %217 ], [ %.sroa.0313.1490, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.sroa.0313.1490, %159 ], [ %.sroa.0313.1490, %143 ], [ %.sroa.0313.7, %119 ], [ %.sroa.0313.7, %124 ], [ %.sroa.0313.7, %122 ], [ %.sroa.0313.7, %120 ], [ %.sroa.0313.1490, %77 ]
-  %.2244 = phi i8 [ %.0242491, %216 ], [ %.0242491, %230 ], [ %.0242491, %226 ], [ %.0242491, %229 ], [ %.0242491, %217 ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0242491, %159 ], [ %.0242491, %143 ], [ 1, %119 ], [ 1, %124 ], [ 1, %122 ], [ 1, %120 ], [ %.0242491, %77 ]
-  %.1239 = phi i8 [ %.0238492, %216 ], [ 1, %230 ], [ 0, %226 ], [ 1, %229 ], [ 1, %217 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ 2, %159 ], [ %.0238492, %143 ], [ 2, %119 ], [ 2, %124 ], [ 2, %122 ], [ 2, %120 ], [ %.0238492, %77 ]
-  %.3236 = phi i8 [ %.4237, %216 ], [ %.4237, %230 ], [ %.4237, %226 ], [ %.4237, %229 ], [ %.4237, %217 ], [ %.0233493, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0233493, %159 ], [ %.0233493, %143 ], [ %.0233493, %119 ], [ %.0233493, %124 ], [ %.0233493, %122 ], [ %.0233493, %120 ], [ 1, %77 ]
-  %.1231 = phi i32 [ %.0230494, %216 ], [ %.2219, %230 ], [ %.0230494, %226 ], [ %.2219, %229 ], [ %.2219, %217 ], [ %.0230494, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0230494, %159 ], [ %.0230494, %143 ], [ %.0230494, %119 ], [ %.0230494, %124 ], [ %.0230494, %122 ], [ %.0230494, %120 ], [ %.0230494, %77 ]
-  %.1227 = phi i16 [ %.0226495, %216 ], [ 0, %230 ], [ 0, %226 ], [ %.0226495, %229 ], [ %.0226495, %217 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ 38, %159 ], [ 45, %143 ], [ 0, %119 ], [ 0, %124 ], [ 0, %122 ], [ 0, %120 ], [ %.0226495, %77 ]
-  %.3224 = phi i8 [ %.2223.ph346353, %216 ], [ %.2223.ph346353, %230 ], [ %.2223.ph346353, %226 ], [ %.2223.ph346353, %229 ], [ %.2223.ph346353, %217 ], [ %.0221496, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0221496, %159 ], [ %.0221496, %143 ], [ %.0221496, %119 ], [ %.0221496, %124 ], [ %.0221496, %122 ], [ %.0221496, %120 ], [ %.4225, %77 ]
+  %.sroa.0313.6 = phi ptr [ %.sroa.0313.1490, %216 ], [ %.sroa.0313.1490, %217 ], [ %.sroa.0313.1490, %226 ], [ %.sroa.0313.1490, %229 ], [ %.sroa.0313.1490, %230 ], [ %.sroa.0313.1490, %143 ], [ %.sroa.0313.1490, %159 ], [ %.sroa.0313.1490, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.sroa.0313.7, %119 ], [ %.sroa.0313.7, %120 ], [ %.sroa.0313.7, %122 ], [ %.sroa.0313.7, %124 ], [ %.sroa.0313.1490, %77 ]
+  %.2244 = phi i8 [ %.0242491, %216 ], [ %.0242491, %217 ], [ %.0242491, %226 ], [ %.0242491, %229 ], [ %.0242491, %230 ], [ %.0242491, %143 ], [ %.0242491, %159 ], [ %.0242491, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ 1, %119 ], [ 1, %120 ], [ 1, %122 ], [ 1, %124 ], [ %.0242491, %77 ]
+  %.1239 = phi i8 [ %.0238492, %216 ], [ 1, %217 ], [ 0, %226 ], [ 1, %229 ], [ 1, %230 ], [ %.0238492, %143 ], [ 2, %159 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ 2, %119 ], [ 2, %120 ], [ 2, %122 ], [ 2, %124 ], [ %.0238492, %77 ]
+  %.3236 = phi i8 [ %.4237, %216 ], [ %.4237, %217 ], [ %.4237, %226 ], [ %.4237, %229 ], [ %.4237, %230 ], [ %.0233493, %143 ], [ %.0233493, %159 ], [ %.0233493, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0233493, %119 ], [ %.0233493, %120 ], [ %.0233493, %122 ], [ %.0233493, %124 ], [ 1, %77 ]
+  %.1231 = phi i32 [ %.0230494, %216 ], [ %.2219, %217 ], [ %.0230494, %226 ], [ %.2219, %229 ], [ %.2219, %230 ], [ %.0230494, %143 ], [ %.0230494, %159 ], [ %.0230494, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0230494, %119 ], [ %.0230494, %120 ], [ %.0230494, %122 ], [ %.0230494, %124 ], [ %.0230494, %77 ]
+  %.1227 = phi i16 [ %.0226495, %216 ], [ %.0226495, %217 ], [ 0, %226 ], [ %.0226495, %229 ], [ 0, %230 ], [ 45, %143 ], [ 38, %159 ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ 0, %119 ], [ 0, %120 ], [ 0, %122 ], [ 0, %124 ], [ %.0226495, %77 ]
+  %.3224 = phi i8 [ %.2223.ph346353, %216 ], [ %.2223.ph346353, %217 ], [ %.2223.ph346353, %226 ], [ %.2223.ph346353, %229 ], [ %.2223.ph346353, %230 ], [ %.0221496, %143 ], [ %.0221496, %159 ], [ %.0221496, %_ZN6icu_7713UnicodeString6appendEDs.exit307 ], [ %.0221496, %119 ], [ %.0221496, %120 ], [ %.0221496, %122 ], [ %.0221496, %124 ], [ %.4225, %77 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #17
   %.not260 = icmp eq i8 %.3236, 2
   br i1 %.not260, label %.critedge.thread.loopexit, label %36
 
 .body:                                            ; preds = %.loopexit567, %.loopexit.split-lp568, %.loopexit405.loopexit, %.loopexit405.loopexit.split-lp, %.loopexit.split-lp406, %104, %177, %157, %87
-  %.sroa.0313.5 = phi ptr [ %.sroa.0313.1490, %177 ], [ %.sroa.0313.1490, %157 ], [ %.sroa.0313.1490, %87 ], [ null, %104 ], [ %.sroa.0313.7, %.loopexit.split-lp406 ], [ %.sroa.0313.3.ph.ph, %.loopexit405.loopexit ], [ %.sroa.0313.1490, %.loopexit405.loopexit.split-lp ], [ %.sroa.0313.1490, %.loopexit567 ], [ %.sroa.0313.1490, %.loopexit.split-lp568 ]
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %158, %157 ], [ %88, %87 ], [ %105, %104 ], [ %lpad.loopexit.split-lp408, %.loopexit.split-lp406 ], [ %lpad.loopexit564, %.loopexit405.loopexit ], [ %lpad.loopexit.split-lp565, %.loopexit405.loopexit.split-lp ], [ %lpad.loopexit569, %.loopexit567 ], [ %lpad.loopexit.split-lp570, %.loopexit.split-lp568 ]
+  %.sroa.0313.5 = phi ptr [ %.sroa.0313.1490, %157 ], [ %.sroa.0313.1490, %177 ], [ %.sroa.0313.1490, %87 ], [ null, %104 ], [ %.sroa.0313.7, %.loopexit.split-lp406 ], [ %.sroa.0313.3.ph.ph, %.loopexit405.loopexit ], [ %.sroa.0313.1490, %.loopexit405.loopexit.split-lp ], [ %.sroa.0313.1490, %.loopexit567 ], [ %.sroa.0313.1490, %.loopexit.split-lp568 ]
+  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %178, %177 ], [ %88, %87 ], [ %105, %104 ], [ %lpad.loopexit.split-lp408, %.loopexit.split-lp406 ], [ %lpad.loopexit564, %.loopexit405.loopexit ], [ %lpad.loopexit.split-lp565, %.loopexit405.loopexit.split-lp ], [ %lpad.loopexit569, %.loopexit567 ], [ %lpad.loopexit.split-lp570, %.loopexit.split-lp568 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #17
   br label %274
 
@@ -2939,9 +2939,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit128:   ; preds = %39, %45, %47
   br label %213
 
 199:                                              ; preds = %.thread, %196, %180, %170, %175, %96, %164, %158
-  %.094 = phi i32 [ %spec.store.select, %96 ], [ 28673, %164 ], [ 28672, %158 ], [ 4106, %175 ], [ 8192, %170 ], [ %179, %180 ], [ 8192, %196 ], [ %84, %.thread ]
-  %.293 = phi i32 [ %95, %96 ], [ %163, %164 ], [ %157, %158 ], [ %174, %175 ], [ %169, %170 ], [ 1, %180 ], [ 1, %196 ], [ %109, %.thread ]
-  %.not116 = phi i1 [ true, %96 ], [ true, %164 ], [ true, %158 ], [ true, %175 ], [ true, %170 ], [ true, %180 ], [ false, %196 ], [ true, %.thread ]
+  %.094 = phi i32 [ %spec.store.select, %96 ], [ 28672, %158 ], [ 28673, %164 ], [ 4106, %175 ], [ 8192, %170 ], [ %179, %180 ], [ 8192, %196 ], [ %84, %.thread ]
+  %.293 = phi i32 [ %95, %96 ], [ %157, %158 ], [ %163, %164 ], [ %174, %175 ], [ %169, %170 ], [ 1, %180 ], [ 1, %196 ], [ %109, %.thread ]
+  %.not116 = phi i1 [ true, %96 ], [ true, %158 ], [ true, %164 ], [ true, %175 ], [ true, %170 ], [ true, %180 ], [ false, %196 ], [ true, %.thread ]
   %200 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet21applyIntPropertyValueE9UPropertyiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %.094, i32 noundef %.293, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %201 unwind label %88
 
@@ -2978,7 +2978,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit128:   ; preds = %39, %45, %47
   br label %216
 
 214:                                              ; preds = %88, %121, %139, %152, %72
-  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %89, %88 ], [ %153, %152 ], [ %140, %139 ], [ %122, %121 ]
+  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %89, %88 ], [ %122, %121 ], [ %140, %139 ], [ %153, %152 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #17
   br label %215
 

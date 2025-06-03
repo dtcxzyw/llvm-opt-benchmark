@@ -3478,7 +3478,7 @@ is_literal_char.exit36.thread:                    ; preds = %switch.early.test49
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %50, %47, %42, %38, %is_literal_char.exit36.thread, %79, %68, %is_literal_char.exit.thread, %59, %26, %21, %16, %10, %4
-  %.0 = phi ptr [ %81, %79 ], [ %84, %is_literal_char.exit36.thread ], [ %72, %68 ], [ %62, %59 ], [ %67, %is_literal_char.exit.thread ], [ %30, %26 ], [ %25, %21 ], [ %20, %16 ], [ %15, %10 ], [ %9, %4 ], [ null, %38 ], [ %45, %42 ], [ %45, %47 ], [ %45, %50 ]
+  %.0 = phi ptr [ %81, %79 ], [ %84, %is_literal_char.exit36.thread ], [ %9, %4 ], [ %15, %10 ], [ %20, %16 ], [ %25, %21 ], [ %30, %26 ], [ %62, %59 ], [ %67, %is_literal_char.exit.thread ], [ %72, %68 ], [ null, %38 ], [ %45, %42 ], [ %45, %47 ], [ %45, %50 ]
   ret ptr %.0
 }
 

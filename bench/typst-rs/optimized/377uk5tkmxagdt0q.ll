@@ -570,8 +570,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i
 
 _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %9, %10, %11, %12, %2
-  %.sroa.8.0 = phi i64 [ %.sroa.5.0.copyload, %12 ], [ 7, %11 ], [ 10, %10 ], [ 9, %9 ], [ 10, %2 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.4.0.copyload, %12 ], [ @anon.b76ca3962959521c709fa61f4185cda9.23, %11 ], [ @anon.b76ca3962959521c709fa61f4185cda9.22, %10 ], [ @anon.b76ca3962959521c709fa61f4185cda9.21, %9 ], [ @anon.b76ca3962959521c709fa61f4185cda9.20, %2 ]
+  %.sroa.8.0 = phi i64 [ 9, %9 ], [ 10, %10 ], [ 7, %11 ], [ %.sroa.5.0.copyload, %12 ], [ 10, %2 ]
+  %.sroa.0.0 = phi ptr [ @anon.b76ca3962959521c709fa61f4185cda9.21, %9 ], [ @anon.b76ca3962959521c709fa61f4185cda9.22, %10 ], [ @anon.b76ca3962959521c709fa61f4185cda9.23, %11 ], [ %.sroa.4.0.copyload, %12 ], [ @anon.b76ca3962959521c709fa61f4185cda9.20, %2 ]
   store i8 0, ptr %6, align 8, !alias.scope !86, !noalias !89
   invoke void @"_ZN74_$LT$pdf_writer..object..Name$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h1698ad72a0cd1c8eE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %13 unwind label %7
@@ -690,8 +690,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i
 
 _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %9, %10, %11, %12, %2
-  %.sroa.8.0 = phi i64 [ %.sroa.5.0.copyload, %12 ], [ 7, %11 ], [ 10, %10 ], [ 9, %9 ], [ 10, %2 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.4.0.copyload, %12 ], [ @anon.b76ca3962959521c709fa61f4185cda9.23, %11 ], [ @anon.b76ca3962959521c709fa61f4185cda9.22, %10 ], [ @anon.b76ca3962959521c709fa61f4185cda9.21, %9 ], [ @anon.b76ca3962959521c709fa61f4185cda9.20, %2 ]
+  %.sroa.8.0 = phi i64 [ 9, %9 ], [ 10, %10 ], [ 7, %11 ], [ %.sroa.5.0.copyload, %12 ], [ 10, %2 ]
+  %.sroa.0.0 = phi ptr [ @anon.b76ca3962959521c709fa61f4185cda9.21, %9 ], [ @anon.b76ca3962959521c709fa61f4185cda9.22, %10 ], [ @anon.b76ca3962959521c709fa61f4185cda9.23, %11 ], [ %.sroa.4.0.copyload, %12 ], [ @anon.b76ca3962959521c709fa61f4185cda9.20, %2 ]
   store i8 0, ptr %6, align 8, !alias.scope !115, !noalias !118
   invoke void @"_ZN74_$LT$pdf_writer..object..Name$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h1698ad72a0cd1c8eE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %13 unwind label %7
@@ -1621,13 +1621,13 @@ define hidden { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8d
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %3 = load i8, ptr %2, align 1, !noundef !16
   %4 = icmp slt i8 %3, 0
-  %5 = load ptr, ptr %0, align 8, !nonnull !16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = and i8 %3, 127
-  %9 = zext nneg i8 %8 to i64
-  %.sroa.3.0 = select i1 %4, i64 %9, i64 %7
-  %.sroa.0.0 = select i1 %4, ptr %0, ptr %5
+  %5 = and i8 %3, 127
+  %6 = zext nneg i8 %5 to i64
+  %7 = load ptr, ptr %0, align 8, !nonnull !16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %.sroa.3.0 = select i1 %4, i64 %6, i64 %9
+  %.sroa.0.0 = select i1 %4, ptr %0, ptr %7
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %11
@@ -1789,16 +1789,16 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %71 = landingpad { ptr, i32 }
           cleanup
   store ptr %94, ptr %0, align 8, !alias.scope !349
-  store i64 %93, ptr %86, align 8, !alias.scope !349
+  store i64 %93, ptr %87, align 8, !alias.scope !349
   br label %common.resume.i.i
 
 72:                                               ; preds = %82
   %73 = load ptr, ptr %4, align 8, !noalias !349, !nonnull !16, !noundef !16
   %74 = load i64, ptr %85, align 8, !noalias !349, !noundef !16
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 8 dereferenceable(16) %0, i64 %86, i1 false)
   %76 = load i64, ptr %85, align 8, !noalias !349, !noundef !16
-  %77 = add i64 %76, %87
+  %77 = add i64 %76, %86
   store i64 %77, ptr %85, align 8, !noalias !349
   %.val.i19.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !357, !noalias !349
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
@@ -1824,9 +1824,9 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   store ptr %83, ptr %4, align 8, !noalias !349
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %84, ptr %85, align 8, !noalias !349
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = zext nneg i8 %45 to i64
-  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h5d13bebfcf099899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %87)
+  %86 = zext nneg i8 %45 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h5d13bebfcf099899E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %86)
           to label %72 unwind label %98, !noalias !349
 
 88:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h0c45cc14115dc747E.exit.i.i.i"
@@ -1848,7 +1848,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
 
 "_ZN4core3ptr46drop_in_place$LT$ecow..dynamic..DynamicVec$GT$17h6dee1d35489e501eE.exit.i.i": ; preds = %97, %88
   store ptr %94, ptr %0, align 8, !alias.scope !349
-  store i64 %93, ptr %86, align 8, !alias.scope !349
+  store i64 %93, ptr %87, align 8, !alias.scope !349
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !349
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
@@ -2828,12 +2828,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !391
   %251 = load i8, ptr %231, align 1, !alias.scope !521, !noalias !391, !noundef !16
   %252 = icmp slt i8 %251, 0
-  %253 = load ptr, ptr %51, align 8, !alias.scope !521, !noalias !391, !nonnull !16
-  %254 = load i64, ptr %232, align 8, !alias.scope !521, !noalias !391
-  %255 = and i8 %251, 127
-  %256 = zext nneg i8 %255 to i64
-  %.sroa.3.0.i157.i = select i1 %252, i64 %256, i64 %254
-  %.sroa.0.0.i158.i = select i1 %252, ptr %51, ptr %253
+  %253 = and i8 %251, 127
+  %254 = zext nneg i8 %253 to i64
+  %255 = load ptr, ptr %51, align 8, !alias.scope !521, !noalias !391, !nonnull !16
+  %256 = load i64, ptr %232, align 8, !alias.scope !521, !noalias !391
+  %.sroa.3.0.i157.i = select i1 %252, i64 %254, i64 %256
+  %.sroa.0.0.i158.i = select i1 %252, ptr %51, ptr %255
   %257 = invoke fastcc noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object4Dict4pair17h904097f1d7a31730E(ptr noalias noundef align 8 dereferenceable(16) %53, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i158.i, i64 noundef %.sroa.3.0.i157.i, i32 noundef %240)
           to label %258 unwind label %245
 
@@ -2937,12 +2937,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !391
   %282 = load i8, ptr %207, align 1, !alias.scope !556, !noalias !391, !noundef !16
   %283 = icmp slt i8 %282, 0
-  %284 = load ptr, ptr %57, align 8, !alias.scope !556, !noalias !391, !nonnull !16
-  %285 = load i64, ptr %208, align 8, !alias.scope !556, !noalias !391
-  %286 = and i8 %282, 127
-  %287 = zext nneg i8 %286 to i64
-  %.sroa.3.0.i165.i = select i1 %283, i64 %287, i64 %285
-  %.sroa.0.0.i166.i = select i1 %283, ptr %57, ptr %284
+  %284 = and i8 %282, 127
+  %285 = zext nneg i8 %284 to i64
+  %286 = load ptr, ptr %57, align 8, !alias.scope !556, !noalias !391, !nonnull !16
+  %287 = load i64, ptr %208, align 8, !alias.scope !556, !noalias !391
+  %.sroa.3.0.i165.i = select i1 %283, i64 %285, i64 %287
+  %.sroa.0.0.i166.i = select i1 %283, ptr %57, ptr %286
   %288 = invoke fastcc noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object4Dict4pair17h904097f1d7a31730E(ptr noalias noundef align 8 dereferenceable(16) %64, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i166.i, i64 noundef %.sroa.3.0.i165.i, i32 noundef %271)
           to label %289 unwind label %276
 
@@ -3035,12 +3035,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !391
   %311 = load i8, ptr %185, align 1, !alias.scope !591, !noalias !391, !noundef !16
   %312 = icmp slt i8 %311, 0
-  %313 = load ptr, ptr %62, align 8, !alias.scope !591, !noalias !391, !nonnull !16
-  %314 = load i64, ptr %186, align 8, !alias.scope !591, !noalias !391
-  %315 = and i8 %311, 127
-  %316 = zext nneg i8 %315 to i64
-  %.sroa.3.0.i173.i = select i1 %312, i64 %316, i64 %314
-  %.sroa.0.0.i174.i = select i1 %312, ptr %62, ptr %313
+  %313 = and i8 %311, 127
+  %314 = zext nneg i8 %313 to i64
+  %315 = load ptr, ptr %62, align 8, !alias.scope !591, !noalias !391, !nonnull !16
+  %316 = load i64, ptr %186, align 8, !alias.scope !591, !noalias !391
+  %.sroa.3.0.i173.i = select i1 %312, i64 %314, i64 %316
+  %.sroa.0.0.i174.i = select i1 %312, ptr %62, ptr %315
   %317 = invoke fastcc noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object4Dict4pair17h904097f1d7a31730E(ptr noalias noundef align 8 dereferenceable(16) %64, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i174.i, i64 noundef %.sroa.3.0.i173.i, i32 noundef %300)
           to label %318 unwind label %305
 
@@ -3138,12 +3138,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !391
   %340 = load i8, ptr %160, align 1, !alias.scope !626, !noalias !391, !noundef !16
   %341 = icmp slt i8 %340, 0
-  %342 = load ptr, ptr %68, align 8, !alias.scope !626, !noalias !391, !nonnull !16
-  %343 = load i64, ptr %161, align 8, !alias.scope !626, !noalias !391
-  %344 = and i8 %340, 127
-  %345 = zext nneg i8 %344 to i64
-  %.sroa.3.0.i181.i = select i1 %341, i64 %345, i64 %343
-  %.sroa.0.0.i182.i = select i1 %341, ptr %68, ptr %342
+  %342 = and i8 %340, 127
+  %343 = zext nneg i8 %342 to i64
+  %344 = load ptr, ptr %68, align 8, !alias.scope !626, !noalias !391, !nonnull !16
+  %345 = load i64, ptr %161, align 8, !alias.scope !626, !noalias !391
+  %.sroa.3.0.i181.i = select i1 %341, i64 %343, i64 %345
+  %.sroa.0.0.i182.i = select i1 %341, ptr %68, ptr %344
   %346 = invoke fastcc noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object4Dict4pair17h904097f1d7a31730E(ptr noalias noundef align 8 dereferenceable(16) %70, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i182.i, i64 noundef %.sroa.3.0.i181.i, i32 noundef %329)
           to label %347 unwind label %334
 
@@ -3241,12 +3241,12 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73), !noalias !391
   %369 = load i8, ptr %135, align 1, !alias.scope !661, !noalias !391, !noundef !16
   %370 = icmp slt i8 %369, 0
-  %371 = load ptr, ptr %74, align 8, !alias.scope !661, !noalias !391, !nonnull !16
-  %372 = load i64, ptr %136, align 8, !alias.scope !661, !noalias !391
-  %373 = and i8 %369, 127
-  %374 = zext nneg i8 %373 to i64
-  %.sroa.3.0.i189.i = select i1 %370, i64 %374, i64 %372
-  %.sroa.0.0.i190.i = select i1 %370, ptr %74, ptr %371
+  %371 = and i8 %369, 127
+  %372 = zext nneg i8 %371 to i64
+  %373 = load ptr, ptr %74, align 8, !alias.scope !661, !noalias !391, !nonnull !16
+  %374 = load i64, ptr %136, align 8, !alias.scope !661, !noalias !391
+  %.sroa.3.0.i189.i = select i1 %370, i64 %372, i64 %374
+  %.sroa.0.0.i190.i = select i1 %370, ptr %74, ptr %373
   %375 = invoke fastcc noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object4Dict4pair17h904097f1d7a31730E(ptr noalias noundef align 8 dereferenceable(16) %76, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i190.i, i64 noundef %.sroa.3.0.i189.i, i32 noundef %358)
           to label %376 unwind label %363
 
@@ -4018,13 +4018,13 @@ _ZN10pdf_writer6object4Dict4pair17h0650e90793458ca2E.exit: ; preds = %_ZN10pdf_w
   %659 = getelementptr inbounds nuw i8, ptr %.sroa.0.0135.i, i64 23
   %660 = load i8, ptr %659, align 1, !alias.scope !809, !noundef !16
   %661 = icmp slt i8 %660, 0
-  %662 = load ptr, ptr %658, align 8, !alias.scope !809, !nonnull !16
-  %663 = getelementptr inbounds nuw i8, ptr %.sroa.0.0135.i, i64 16
-  %664 = load i64, ptr %663, align 8, !alias.scope !809
-  %665 = and i8 %660, 127
-  %666 = zext nneg i8 %665 to i64
-  %.sroa.3.0.i.i = select i1 %661, i64 %666, i64 %664
-  %.sroa.0.0.i.i = select i1 %661, ptr %658, ptr %662
+  %662 = and i8 %660, 127
+  %663 = zext nneg i8 %662 to i64
+  %664 = load ptr, ptr %658, align 8, !alias.scope !809, !nonnull !16
+  %665 = getelementptr inbounds nuw i8, ptr %.sroa.0.0135.i, i64 16
+  %666 = load i64, ptr %665, align 8, !alias.scope !809
+  %.sroa.3.0.i.i = select i1 %661, i64 %663, i64 %666
+  %.sroa.0.0.i.i = select i1 %661, ptr %658, ptr %664
   %667 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer11annotations6Action3uri17h6ddf3d6fd69533b8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %654, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
           to label %668 unwind label %655
 
@@ -4461,19 +4461,19 @@ define hidden void @_ZN9typst_pdf4page17write_page_labels17h8a5b0c6c306819d6E(pt
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 23
   %50 = load i8, ptr %49, align 1, !alias.scope !845, !noalias !848, !noundef !16
   %51 = icmp slt i8 %50, 0
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 16
-  %53 = load i64, ptr %52, align 8, !alias.scope !845, !noalias !848
-  %54 = and i8 %50, 127
-  %55 = zext nneg i8 %54 to i64
-  %.sroa.3.0.i.i = select i1 %51, i64 %55, i64 %53
+  %52 = and i8 %50, 127
+  %53 = zext nneg i8 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 16
+  %55 = load i64, ptr %54, align 8, !alias.scope !845, !noalias !848
+  %.sroa.3.0.i.i = select i1 %51, i64 %53, i64 %55
   %56 = getelementptr inbounds nuw i8, ptr %.059, i64 23
   %57 = load i8, ptr %56, align 1, !alias.scope !838, !noalias !843, !noundef !16
   %58 = icmp slt i8 %57, 0
-  %59 = getelementptr inbounds nuw i8, ptr %.059, i64 16
-  %60 = load i64, ptr %59, align 8, !alias.scope !838, !noalias !843
-  %61 = and i8 %57, 127
-  %62 = zext nneg i8 %61 to i64
-  %.sroa.3.0.i3.i = select i1 %58, i64 %62, i64 %60
+  %59 = and i8 %57, 127
+  %60 = zext nneg i8 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %.059, i64 16
+  %62 = load i64, ptr %61, align 8, !alias.scope !838, !noalias !843
+  %.sroa.3.0.i3.i = select i1 %58, i64 %60, i64 %62
   %.not.i.i = icmp eq i64 %.sroa.3.0.i.i, %.sroa.3.0.i3.i
   br i1 %.not.i.i, label %42, label %.critedge
 
@@ -4672,13 +4672,13 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %.n
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 23
   %137 = load i8, ptr %136, align 1, !alias.scope !883, !noundef !16
   %138 = icmp slt i8 %137, 0
-  %139 = load ptr, ptr %135, align 8, !alias.scope !883, !nonnull !16
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 16
-  %141 = load i64, ptr %140, align 8, !alias.scope !883
-  %142 = and i8 %137, 127
-  %143 = zext nneg i8 %142 to i64
-  %.sroa.3.0.i = select i1 %138, i64 %143, i64 %141
-  %.sroa.0.0.i42 = select i1 %138, ptr %135, ptr %139
+  %139 = and i8 %137, 127
+  %140 = zext nneg i8 %139 to i64
+  %141 = load ptr, ptr %135, align 8, !alias.scope !883, !nonnull !16
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 16
+  %143 = load i64, ptr %142, align 8, !alias.scope !883
+  %.sroa.3.0.i = select i1 %138, i64 %140, i64 %143
+  %.sroa.0.0.i42 = select i1 %138, ptr %135, ptr %141
   %144 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure9PageLabel6prefix17h698d8c769a24fb67E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i42, i64 noundef %.sroa.3.0.i)
           to label %129 unwind label %132
 
@@ -4756,13 +4756,13 @@ define hidden { ptr, i64 } @_ZN9typst_pdf4page12PageResource4name17h9e7bd1922097
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %3 = load i8, ptr %2, align 1, !alias.scope !889, !noundef !16
   %4 = icmp slt i8 %3, 0
-  %5 = load ptr, ptr %0, align 8, !alias.scope !889, !nonnull !16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !alias.scope !889
-  %8 = and i8 %3, 127
-  %9 = zext nneg i8 %8 to i64
-  %.sroa.3.0.i = select i1 %4, i64 %9, i64 %7
-  %.sroa.0.0.i = select i1 %4, ptr %0, ptr %5
+  %5 = and i8 %3, 127
+  %6 = zext nneg i8 %5 to i64
+  %7 = load ptr, ptr %0, align 8, !alias.scope !889, !nonnull !16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !alias.scope !889
+  %.sroa.3.0.i = select i1 %4, i64 %6, i64 %9
+  %.sroa.0.0.i = select i1 %4, ptr %0, ptr %7
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %11
@@ -4970,13 +4970,13 @@ define internal fastcc void @_ZN9typst_pdf4page11PageContext13set_opacities17hc7
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 15
   %67 = load i8, ptr %66, align 1, !alias.scope !912, !noalias !893, !noundef !16
   %68 = icmp slt i8 %67, 0
-  %69 = load ptr, ptr %13, align 8, !alias.scope !912, !noalias !893, !nonnull !16
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %71 = load i64, ptr %70, align 8, !alias.scope !912, !noalias !893
-  %72 = and i8 %67, 127
-  %73 = zext nneg i8 %72 to i64
-  %.sroa.3.0.i.i = select i1 %68, i64 %73, i64 %71
-  %.sroa.0.0.i.i = select i1 %68, ptr %13, ptr %69
+  %69 = and i8 %67, 127
+  %70 = zext nneg i8 %69 to i64
+  %71 = load ptr, ptr %13, align 8, !alias.scope !912, !noalias !893, !nonnull !16
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %73 = load i64, ptr %72, align 8, !alias.scope !912, !noalias !893
+  %.sroa.3.0.i.i = select i1 %68, i64 %70, i64 %73
+  %.sroa.0.0.i.i = select i1 %68, ptr %13, ptr %71
   call void @llvm.experimental.noalias.scope.decl(metadata !915)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !918
   store ptr %0, ptr %5, align 8, !noalias !918
@@ -5286,9 +5286,9 @@ default.unreachable:                              ; preds = %16, %.critedge
   br label %"_ZN69_$LT$typst..visualize..paint..Paint$u20$as$u20$core..clone..Clone$GT$5clone17hc609c7f0d3a7e024E.exit"
 
 "_ZN69_$LT$typst..visualize..paint..Paint$u20$as$u20$core..clone..Clone$GT$5clone17hc609c7f0d3a7e024E.exit": ; preds = %21, %23, %25, %14, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i"
-  %.sroa.9.0 = phi ptr [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ %.sroa.9.4.copyload, %14 ], [ %.val1.i, %25 ], [ %.val1.i, %23 ], [ %.val1.i, %21 ]
-  %.sroa.7.0 = phi i64 [ %32, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ %.sroa.7.4.copyload, %14 ], [ 2, %25 ], [ 1, %23 ], [ 0, %21 ]
-  %.sroa.6.0 = phi i32 [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ %.sroa.6.4.copyload, %14 ], [ undef, %25 ], [ undef, %23 ], [ undef, %21 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.4.copyload, %14 ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ %.val1.i, %25 ], [ %.val1.i, %23 ], [ %.val1.i, %21 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.4.copyload, %14 ], [ %32, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ 2, %25 ], [ 1, %23 ], [ 0, %21 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.4.copyload, %14 ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i" ], [ undef, %25 ], [ undef, %23 ], [ undef, %21 ]
   %33 = load i32, ptr %5, align 8, !range !956, !alias.scope !969, !noundef !16
   %34 = icmp eq i32 %33, 3
   br i1 %34, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$typst..visualize..paint..Paint$GT$$GT$17h5771cc8cff5a5683E.exit", label %35
@@ -7064,9 +7064,9 @@ default.unreachable3.i.i.i:                       ; preds = %173
           to label %common.resume unwind label %233, !noalias !1297
 
 "_ZN69_$LT$typst..visualize..paint..Paint$u20$as$u20$core..clone..Clone$GT$5clone17hc609c7f0d3a7e024E.exit.i.i": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i", %182, %180, %178, %174
-  %.sroa.9.0.i.i = phi ptr [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ %.sroa.9.4.copyload.i.i, %174 ], [ %.val1.i.i.i, %182 ], [ %.val1.i.i.i, %180 ], [ %.val1.i.i.i, %178 ]
-  %.sroa.7.0.i.i = phi i64 [ %188, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ %.sroa.7.4.copyload.i.i, %174 ], [ 2, %182 ], [ 1, %180 ], [ 0, %178 ]
-  %.sroa.6.021.i.i = phi i32 [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ %.sroa.6.4.copyload.i.i, %174 ], [ undef, %182 ], [ undef, %180 ], [ undef, %178 ]
+  %.sroa.9.0.i.i = phi ptr [ %.sroa.9.4.copyload.i.i, %174 ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ %.val1.i.i.i, %182 ], [ %.val1.i.i.i, %180 ], [ %.val1.i.i.i, %178 ]
+  %.sroa.7.0.i.i = phi i64 [ %.sroa.7.4.copyload.i.i, %174 ], [ %188, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ 2, %182 ], [ 1, %180 ], [ 0, %178 ]
+  %.sroa.6.021.i.i = phi i32 [ %.sroa.6.4.copyload.i.i, %174 ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3c27560a54b41220E.exit.i.i.i" ], [ undef, %182 ], [ undef, %180 ], [ undef, %178 ]
   store i32 %170, ptr %5, align 8, !noalias !1297
   store i32 %.sroa.6.021.i.i, ptr %.sroa.6.0..sroa_idx15.i.i, align 4, !noalias !1297
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !1297
@@ -8405,12 +8405,12 @@ _ZN10pdf_writer6object4Dict4pair17hcbfbbf2f57883d71E.exit.i: ; preds = %_ZN10pdf
 650:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.llvm.17057414408856058071.exit.i.i"
   %651 = load i8, ptr %82, align 1, !alias.scope !1638, !noalias !1528, !noundef !16
   %652 = icmp slt i8 %651, 0
-  %653 = load ptr, ptr %30, align 8, !alias.scope !1638, !noalias !1528, !nonnull !16
-  %654 = load i64, ptr %83, align 8, !alias.scope !1638, !noalias !1528
-  %655 = and i8 %651, 127
-  %656 = zext nneg i8 %655 to i64
-  %.sroa.3.0.i54.i = select i1 %652, i64 %656, i64 %654
-  %.sroa.0.0.i55.i = select i1 %652, ptr %30, ptr %653
+  %653 = and i8 %651, 127
+  %654 = zext nneg i8 %653 to i64
+  %655 = load ptr, ptr %30, align 8, !alias.scope !1638, !noalias !1528, !nonnull !16
+  %656 = load i64, ptr %83, align 8, !alias.scope !1638, !noalias !1528
+  %.sroa.3.0.i54.i = select i1 %652, i64 %654, i64 %656
+  %.sroa.0.0.i55.i = select i1 %652, ptr %30, ptr %655
   %657 = invoke fastcc noundef align 8 dereferenceable(24) ptr @_ZN10pdf_writer7content7Content8x_object17h4ac75badcf9f0a64E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i55.i, i64 noundef %.sroa.3.0.i54.i)
           to label %._crit_edge.i.i60.i unwind label %"_ZN4core3ptr54drop_in_place$LT$pdf_writer..content..PropertyList$GT$17hb94926e8297fb23eE.exit72.thread134.i"
 
@@ -8517,12 +8517,12 @@ _ZN10pdf_writer6object4Dict4pair17hcbfbbf2f57883d71E.exit.i: ; preds = %_ZN10pdf
 688:                                              ; preds = %577
   %689 = load i8, ptr %82, align 1, !alias.scope !1663, !noalias !1528, !noundef !16
   %690 = icmp slt i8 %689, 0
-  %691 = load ptr, ptr %30, align 8, !alias.scope !1663, !noalias !1528, !nonnull !16
-  %692 = load i64, ptr %83, align 8, !alias.scope !1663, !noalias !1528
-  %693 = and i8 %689, 127
-  %694 = zext nneg i8 %693 to i64
-  %.sroa.3.0.i.i = select i1 %690, i64 %694, i64 %692
-  %.sroa.0.0.i.i = select i1 %690, ptr %30, ptr %691
+  %691 = and i8 %689, 127
+  %692 = zext nneg i8 %691 to i64
+  %693 = load ptr, ptr %30, align 8, !alias.scope !1663, !noalias !1528, !nonnull !16
+  %694 = load i64, ptr %83, align 8, !alias.scope !1663, !noalias !1528
+  %.sroa.3.0.i.i = select i1 %690, i64 %692, i64 %694
+  %.sroa.0.0.i.i = select i1 %690, ptr %30, ptr %693
   %695 = invoke fastcc noundef align 8 dereferenceable(24) ptr @_ZN10pdf_writer7content7Content8x_object17h4ac75badcf9f0a64E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
           to label %676 unwind label %.loopexit68
 
@@ -8726,9 +8726,9 @@ default.unreachable.i22:                          ; preds = %753
   br label %"_ZN70_$LT$typst..model..link..Destination$u20$as$u20$core..clone..Clone$GT$5clone17h92aac11e747aaabaE.exit.i"
 
 "_ZN70_$LT$typst..model..link..Destination$u20$as$u20$core..clone..Clone$GT$5clone17h92aac11e747aaabaE.exit.i": ; preds = %780, %777, %772, %771, %766
-  %.sroa.10.sroa.0.0.i = phi i64 [ %.sroa.10.sroa.0.0.copyload22.i, %780 ], [ %779, %777 ], [ undef, %766 ], [ undef, %771 ], [ undef, %772 ]
-  %.sroa.6.0.i = phi ptr [ undef, %780 ], [ %.sroa.6.8.copyload.i, %777 ], [ %.sroa.01.0.copyload2.i.i, %766 ], [ inttoptr (i64 16 to ptr), %771 ], [ %.sroa.01.0.copyload2.i.i, %772 ]
-  %.sroa.8.0.i = phi i64 [ %.sroa.8.16.copyload.i, %780 ], [ %.sroa.8.8.copyload.i, %777 ], [ %.sroa.5.0.copyload3.i.i, %766 ], [ %.sroa.5.0.copyload3.i.i, %771 ], [ %.sroa.5.0.copyload3.i.i, %772 ]
+  %.sroa.10.sroa.0.0.i = phi i64 [ undef, %766 ], [ undef, %771 ], [ undef, %772 ], [ %779, %777 ], [ %.sroa.10.sroa.0.0.copyload22.i, %780 ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.01.0.copyload2.i.i, %766 ], [ inttoptr (i64 16 to ptr), %771 ], [ %.sroa.01.0.copyload2.i.i, %772 ], [ %.sroa.6.8.copyload.i, %777 ], [ undef, %780 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.5.0.copyload3.i.i, %766 ], [ %.sroa.5.0.copyload3.i.i, %771 ], [ %.sroa.5.0.copyload3.i.i, %772 ], [ %.sroa.8.8.copyload.i, %777 ], [ %.sroa.8.16.copyload.i, %780 ]
   store i64 %721, ptr %10, align 16, !noalias !1700
   store ptr %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !1700
   store i64 %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 16, !noalias !1700
@@ -8994,7 +8994,7 @@ common.resume:                                    ; preds = %361, %557, %327, %1
   resume { ptr, i32 } %common.resume.op
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17hfc5133ae210e6fa5E.exit": ; preds = %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h330b9595c206bcd9E.exit.i", %81
-  %.pn.i = phi ptr [ %96, %81 ], [ %.sroa.0143.0.copyload, %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h330b9595c206bcd9E.exit.i" ]
+  %.pn.i = phi ptr [ %.sroa.0143.0.copyload, %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h330b9595c206bcd9E.exit.i" ], [ %96, %81 ]
   %.0.i58 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val56 = load ptr, ptr %106, align 8, !nonnull !16, !noundef !16
@@ -9007,13 +9007,13 @@ common.resume:                                    ; preds = %361, %557, %327, %1
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 159
   %111 = load i8, ptr %110, align 1, !alias.scope !1760, !noundef !16
   %112 = icmp slt i8 %111, 0
-  %113 = load ptr, ptr %109, align 8, !alias.scope !1760, !nonnull !16
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %115 = load i64, ptr %114, align 8, !alias.scope !1760
-  %116 = and i8 %111, 127
-  %117 = zext nneg i8 %116 to i64
-  %.sroa.3.0.i = select i1 %112, i64 %117, i64 %115
-  %.sroa.0.0.i = select i1 %112, ptr %109, ptr %113
+  %113 = and i8 %111, 127
+  %114 = zext nneg i8 %113 to i64
+  %115 = load ptr, ptr %109, align 8, !alias.scope !1760, !nonnull !16
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %117 = load i64, ptr %116, align 8, !alias.scope !1760
+  %.sroa.3.0.i = select i1 %112, i64 %114, i64 %117
+  %.sroa.0.0.i = select i1 %112, ptr %109, ptr %115
   br label %136
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$14or_insert_with17hedfad02e4bb6c009E.exit", %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_default17hfc5133ae210e6fa5E.exit"
@@ -10578,11 +10578,11 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.055, i64 79
   %47 = load i8, ptr %46, align 1, !alias.scope !2069, !noalias !2067, !noundef !16
   %48 = icmp slt i8 %47, 0
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.055, i64 72
-  %50 = load i64, ptr %49, align 8, !alias.scope !2069, !noalias !2067
-  %51 = and i8 %47, 127
-  %52 = zext nneg i8 %51 to i64
-  %.0.i.i = select i1 %48, i64 %52, i64 %50
+  %49 = and i8 %47, 127
+  %50 = zext nneg i8 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.055, i64 72
+  %52 = load i64, ptr %51, align 8, !alias.scope !2069, !noalias !2067
+  %.0.i.i = select i1 %48, i64 %50, i64 %52
   %53 = icmp eq i64 %.0.i.i, 0
   br i1 %53, label %54, label %.thread.i
 
@@ -10611,11 +10611,11 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 15
   %63 = load i8, ptr %62, align 1, !alias.scope !2074, !noalias !2073, !noundef !16
   %64 = icmp slt i8 %63, 0
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %66 = load i64, ptr %65, align 8, !alias.scope !2074, !noalias !2073
-  %67 = and i8 %63, 127
-  %68 = zext nneg i8 %67 to i64
-  %.0.i28.i = select i1 %64, i64 %68, i64 %66
+  %65 = and i8 %63, 127
+  %66 = zext nneg i8 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %68 = load i64, ptr %67, align 8, !alias.scope !2074, !noalias !2073
+  %.0.i28.i = select i1 %64, i64 %66, i64 %68
   %.not21.i = icmp eq i64 %.0.i28.i, 0
   br i1 %.not21.i, label %_ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit, label %69
 
@@ -10650,7 +10650,7 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
   br i1 %74, label %75, label %_ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit
 
 75:                                               ; preds = %71
-  invoke void @_ZN4ecow3vec18ref_count_overflow17hb5e417e6ac47ebc0E(ptr noundef nonnull %.sroa.0.0.copyload29.i, i64 noundef %66) #23
+  invoke void @_ZN4ecow3vec18ref_count_overflow17hb5e417e6ac47ebc0E(ptr noundef nonnull %.sroa.0.0.copyload29.i, i64 noundef %68) #23
           to label %.noexc18 unwind label %.thread42.loopexit.split-lp
 
 .noexc18:                                         ; preds = %75
@@ -10658,7 +10658,7 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
 
 _ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit: ; preds = %37, %40, %71, %70, %69, %.noexc17, %.thread37.i, %31
   %.sroa.10.1 = phi i64 [ %.sroa.10.051, %31 ], [ %.sroa.10.051, %37 ], [ %.sroa.10.051, %40 ], [ 0, %.noexc17 ], [ %39, %.thread37.i ], [ %39, %70 ], [ %39, %71 ], [ %39, %69 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.052, %31 ], [ %.sroa.9.052, %37 ], [ %.sroa.9.052, %40 ], [ %.sroa.48.sroa.3.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ %66, %70 ], [ %66, %71 ], [ %66, %69 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.052, %31 ], [ %.sroa.9.052, %37 ], [ %.sroa.9.052, %40 ], [ %.sroa.48.sroa.3.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ %68, %70 ], [ %68, %71 ], [ %68, %69 ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.053, %31 ], [ %.sroa.8.053, %37 ], [ %.sroa.8.053, %40 ], [ %.sroa.48.sroa.0.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ inttoptr (i64 16 to ptr), %70 ], [ %.sroa.0.0.copyload29.i, %71 ], [ %.sroa.0.0.copyload29.i, %69 ]
   %.sroa.025.0 = phi i64 [ 2, %31 ], [ 2, %37 ], [ 2, %40 ], [ 1, %.noexc17 ], [ 0, %.thread37.i ], [ 1, %70 ], [ 1, %71 ], [ 1, %69 ]
   %.sroa.11.1 = phi i8 [ %.sroa.11.054, %31 ], [ %.sroa.11.054, %37 ], [ %.sroa.11.054, %40 ], [ 5, %.noexc17 ], [ %.01639.i, %.thread37.i ], [ %.01639.i, %70 ], [ %.01639.i, %71 ], [ %.01639.i, %69 ]

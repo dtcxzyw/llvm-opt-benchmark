@@ -2934,7 +2934,7 @@ _ZN2cv12GIOProtoArgsINS_6In_TagEED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %756
 
 756:                                              ; preds = %754, %._crit_edge.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %755, %754 ]
+  %.sroa.031.1.i.i.i.i.i = phi ptr [ %755, %754 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %757 = load i8, ptr %.sroa.031.1.i.i.i.i.i, align 1, !tbaa !16
   %758 = add i8 %757, -58
   %isdigit.i.i20.i.i.i.i.i = icmp ult i8 %758, -10
@@ -2945,7 +2945,7 @@ _ZN2cv12GIOProtoArgsINS_6In_TagEED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %761
 
 761:                                              ; preds = %759, %._crit_edge.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %760, %759 ]
+  %.sroa.031.2.i.i.i.i.i = phi ptr [ %760, %759 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %762 = load i8, ptr %.sroa.031.2.i.i.i.i.i, align 1, !tbaa !16
   %763 = add i8 %762, -58
   %isdigit.i.i21.i.i.i.i.i = icmp ult i8 %763, -10
@@ -19593,7 +19593,7 @@ _ZN2cv4util3anyD2Ev.exit60:                       ; preds = %_ZNKSt7__cxx1112bas
   br label %135
 
 134:                                              ; preds = %68, %44, %_ZN2cv4util3anyD2Ev.exit48
-  %.016 = phi i1 [ false, %68 ], [ true, %_ZN2cv4util3anyD2Ev.exit48 ], [ false, %44 ]
+  %.016 = phi i1 [ true, %_ZN2cv4util3anyD2Ev.exit48 ], [ false, %68 ], [ false, %44 ]
   ret i1 %.016
 
 135:                                              ; preds = %_ZN2cv4util3anyD2Ev.exit54, %_ZN2cv4util3anyD2Ev.exit60, %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

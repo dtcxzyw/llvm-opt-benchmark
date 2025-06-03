@@ -2059,7 +2059,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %168, %164, %152, %145, %144, %139, %134, %132, %129, %158
-  %.1 = phi nsz float [ %131, %129 ], [ %131, %164 ], [ %171, %168 ], [ %157, %152 ], [ %151, %145 ], [ %141, %144 ], [ %.0139, %139 ], [ %138, %134 ], [ %133, %132 ], [ 0.000000e+00, %158 ]
+  %.1 = phi nsz float [ %131, %129 ], [ %133, %132 ], [ %138, %134 ], [ %141, %144 ], [ %.0139, %139 ], [ %151, %145 ], [ %157, %152 ], [ %131, %164 ], [ %171, %168 ], [ 0.000000e+00, %158 ]
   store float %.1, ptr %130, align 4, !tbaa !83
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -2429,7 +2429,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %195, %191, %179, %172, %171, %166, %161, %159, %156, %185
-  %.1 = phi nsz float [ %158, %156 ], [ %158, %191 ], [ %198, %195 ], [ %184, %179 ], [ %178, %172 ], [ %168, %171 ], [ %.0184, %166 ], [ %165, %161 ], [ %160, %159 ], [ 0.000000e+00, %185 ]
+  %.1 = phi nsz float [ %158, %156 ], [ %160, %159 ], [ %165, %161 ], [ %168, %171 ], [ %.0184, %166 ], [ %178, %172 ], [ %184, %179 ], [ %158, %191 ], [ %198, %195 ], [ 0.000000e+00, %185 ]
   store float %.1, ptr %157, align 4, !tbaa !83
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count255

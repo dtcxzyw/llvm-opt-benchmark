@@ -600,7 +600,7 @@ default.unreachable108:                           ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %123, %125, %129
-  %.2 = phi i32 [ %130, %129 ], [ %.033, %125 ], [ %.033, %123 ], [ %spec.select, %136 ]
+  %.2 = phi i32 [ %.033, %125 ], [ %.033, %123 ], [ %130, %129 ], [ %spec.select, %136 ]
   %140 = load ptr, ptr %7, align 8
   %.not39 = icmp eq ptr %140, null
   br i1 %.not39, label %148, label %141

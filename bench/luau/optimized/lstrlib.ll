@@ -1888,8 +1888,8 @@ default.unreachable144:                           ; preds = %._crit_edge
   unreachable
 
 199:                                              ; preds = %._crit_edge, %._crit_edge, %196, %184, %_ZL7packintP11luaL_Strbufyiii.exit111, %._crit_edge122, %_ZL14copywithendianPVcPVKcii.exit, %_ZL7packintP11luaL_Strbufyiii.exit83, %_ZL7packintP11luaL_Strbufyiii.exit
-  %.148 = phi i64 [ %189, %184 ], [ %171, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %26, %._crit_edge122 ], [ %26, %_ZL14copywithendianPVcPVKcii.exit ], [ %26, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %26, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %26, %196 ], [ %26, %._crit_edge ], [ %26, %._crit_edge ]
-  %.1 = phi i32 [ %38, %184 ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %38, %._crit_edge122 ], [ %38, %_ZL14copywithendianPVcPVKcii.exit ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %.0125, %196 ], [ %.0125, %._crit_edge ], [ %.0125, %._crit_edge ]
+  %.148 = phi i64 [ %26, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %26, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %26, %_ZL14copywithendianPVcPVKcii.exit ], [ %26, %._crit_edge122 ], [ %171, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %189, %184 ], [ %26, %196 ], [ %26, %._crit_edge ], [ %26, %._crit_edge ]
+  %.1 = phi i32 [ %38, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %38, %_ZL14copywithendianPVcPVKcii.exit ], [ %38, %._crit_edge122 ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %38, %184 ], [ %.0125, %196 ], [ %.0125, %._crit_edge ], [ %.0125, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   %200 = load ptr, ptr %7, align 8, !tbaa !49
@@ -2463,8 +2463,8 @@ default.unreachable214:                           ; preds = %33
   unreachable
 
 204:                                              ; preds = %33, %33, %33, %200, %_ZL9unpackintP9lua_StatePKciii.exit128.thread, %145, %144, %_ZL9unpackintP9lua_StatePKciii.exit95, %_ZL9unpackintP9lua_StatePKciii.exit
-  %.159 = phi i32 [ %35, %200 ], [ %35, %_ZL9unpackintP9lua_StatePKciii.exit128.thread ], [ %35, %145 ], [ %35, %144 ], [ %35, %_ZL9unpackintP9lua_StatePKciii.exit95 ], [ %35, %_ZL9unpackintP9lua_StatePKciii.exit ], [ %.058182, %33 ], [ %.058182, %33 ], [ %.058182, %33 ]
-  %.1 = phi i32 [ %203, %200 ], [ %191, %_ZL9unpackintP9lua_StatePKciii.exit128.thread ], [ %34, %145 ], [ %34, %144 ], [ %34, %_ZL9unpackintP9lua_StatePKciii.exit95 ], [ %34, %_ZL9unpackintP9lua_StatePKciii.exit ], [ %34, %33 ], [ %34, %33 ], [ %34, %33 ]
+  %.159 = phi i32 [ %35, %_ZL9unpackintP9lua_StatePKciii.exit ], [ %35, %_ZL9unpackintP9lua_StatePKciii.exit95 ], [ %35, %144 ], [ %35, %145 ], [ %35, %_ZL9unpackintP9lua_StatePKciii.exit128.thread ], [ %35, %200 ], [ %.058182, %33 ], [ %.058182, %33 ], [ %.058182, %33 ]
+  %.1 = phi i32 [ %34, %_ZL9unpackintP9lua_StatePKciii.exit ], [ %34, %_ZL9unpackintP9lua_StatePKciii.exit95 ], [ %34, %144 ], [ %34, %145 ], [ %191, %_ZL9unpackintP9lua_StatePKciii.exit128.thread ], [ %203, %200 ], [ %34, %33 ], [ %34, %33 ], [ %34, %33 ]
   %205 = add nsw i32 %.1, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
@@ -3026,11 +3026,6 @@ _ZL16capture_to_closeP10MatchState.exit:          ; preds = %73
   %125 = getelementptr inbounds nuw i8, ptr %.084, i64 4
   br label %.outer.outer.backedge
 
-.outer.outer.backedge:                            ; preds = %123, %227, %388
-  %.084.ph.ph.be = phi ptr [ %.018.i139, %388 ], [ %229, %227 ], [ %125, %123 ]
-  %.0.ph.ph.be = phi ptr [ %389, %388 ], [ %228, %227 ], [ %124, %123 ]
-  br label %.outer.outer
-
 126:                                              ; preds = %95
   %127 = getelementptr inbounds nuw i8, ptr %.084, i64 2
   %128 = load i8, ptr %127, align 1, !tbaa !8
@@ -3243,6 +3238,11 @@ _ZL13check_captureP10MatchStatei.exit.i:          ; preds = %211
   %229 = getelementptr inbounds nuw i8, ptr %.084, i64 2
   br label %.outer.outer.backedge
 
+.outer.outer.backedge:                            ; preds = %227, %123, %388
+  %.084.ph.ph.be = phi ptr [ %.018.i139, %388 ], [ %125, %123 ], [ %229, %227 ]
+  %.0.ph.ph.be = phi ptr [ %389, %388 ], [ %124, %123 ], [ %228, %227 ]
+  br label %.outer.outer
+
 230:                                              ; preds = %.thread193
   %231 = load ptr, ptr %7, align 8, !tbaa !28
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %231, ptr noundef nonnull @.str.27) #15
@@ -3286,9 +3286,9 @@ _ZL13check_captureP10MatchStatei.exit.i:          ; preds = %211
   br label %_ZL8classendP10MatchStatePKc.exit140
 
 _ZL8classendP10MatchStatePKc.exit140:             ; preds = %32, %90, %232, %249
-  %251 = phi i8 [ 91, %249 ], [ 37, %232 ], [ 36, %90 ], [ %33, %32 ]
-  %252 = phi ptr [ %34, %249 ], [ %97, %232 ], [ %34, %90 ], [ %34, %32 ]
-  %.018.i139 = phi ptr [ %250, %249 ], [ %233, %232 ], [ %34, %90 ], [ %34, %32 ]
+  %251 = phi i8 [ 37, %232 ], [ 91, %249 ], [ 36, %90 ], [ %33, %32 ]
+  %252 = phi ptr [ %97, %232 ], [ %34, %249 ], [ %34, %90 ], [ %34, %32 ]
+  %.018.i139 = phi ptr [ %233, %232 ], [ %250, %249 ], [ %34, %90 ], [ %34, %32 ]
   %.val = load ptr, ptr %26, align 8, !tbaa !33
   %.not.i141 = icmp ult ptr %.0.ph.ph, %.val
   br i1 %.not.i141, label %253, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
@@ -3805,7 +3805,7 @@ tolower.exit:
   br label %95
 
 87:                                               ; preds = %81, %73, %65, %57, %49, %41, %33, %25, %23, %15, %7
-  %.0 = phi i32 [ %83, %81 ], [ %80, %73 ], [ %72, %65 ], [ %64, %57 ], [ %56, %49 ], [ %48, %41 ], [ %40, %33 ], [ %32, %25 ], [ %24, %23 ], [ %22, %15 ], [ %14, %7 ]
+  %.0 = phi i32 [ %14, %7 ], [ %22, %15 ], [ %24, %23 ], [ %32, %25 ], [ %40, %33 ], [ %48, %41 ], [ %56, %49 ], [ %64, %57 ], [ %72, %65 ], [ %80, %73 ], [ %83, %81 ]
   %88 = tail call ptr @__ctype_b_loc() #17
   %89 = load ptr, ptr %88, align 8, !tbaa !97
   %90 = getelementptr inbounds nuw i16, ptr %89, i64 %4
@@ -4515,7 +4515,7 @@ _ZL11getnumlimitP6HeaderPPKci.exit58:             ; preds = %127, %_ZL6getnumP6H
   br label %157
 
 157:                                              ; preds = %3, %_ZL6getnumP6HeaderPPKci.exit, %156, %120, %119, %_ZL11getnumlimitP6HeaderPPKci.exit51, %_ZL11getnumlimitP6HeaderPPKci.exit44, %_ZL11getnumlimitP6HeaderPPKci.exit, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 8, %156 ], [ 7, %120 ], [ 6, %119 ], [ 4, %_ZL11getnumlimitP6HeaderPPKci.exit51 ], [ 1, %_ZL11getnumlimitP6HeaderPPKci.exit44 ], [ 0, %_ZL11getnumlimitP6HeaderPPKci.exit ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 1, %15 ], [ 1, %14 ], [ 0, %13 ], [ 1, %12 ], [ 0, %11 ], [ 1, %10 ], [ 0, %9 ], [ 1, %8 ], [ 0, %7 ], [ 3, %_ZL6getnumP6HeaderPPKci.exit ], [ 5, %3 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %8 ], [ 0, %9 ], [ 1, %10 ], [ 0, %11 ], [ 1, %12 ], [ 0, %13 ], [ 1, %14 ], [ 1, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 0, %_ZL11getnumlimitP6HeaderPPKci.exit ], [ 1, %_ZL11getnumlimitP6HeaderPPKci.exit44 ], [ 4, %_ZL11getnumlimitP6HeaderPPKci.exit51 ], [ 6, %119 ], [ 7, %120 ], [ 8, %156 ], [ 3, %_ZL6getnumP6HeaderPPKci.exit ], [ 5, %3 ]
   ret i32 %.0
 }
 

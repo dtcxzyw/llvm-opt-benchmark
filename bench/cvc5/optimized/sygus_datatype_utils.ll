@@ -7629,8 +7629,8 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   br label %139
 
 139:                                              ; preds = %137, %._crit_edge._crit_edge.i.i.i
-  %140 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %135, %137 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %138, %137 ]
+  %140 = phi ptr [ %135, %137 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %138, %137 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %141 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !3
   %142 = icmp eq ptr %141, %140
   br i1 %142, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %143
@@ -7640,8 +7640,8 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   br label %145
 
 145:                                              ; preds = %143, %._crit_edge._crit_edge57.i.i.i
-  %146 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %140, %143 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %144, %143 ]
+  %146 = phi ptr [ %140, %143 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %144, %143 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %147 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !3
   %148 = icmp eq ptr %147, %146
   %spec.select.i.i.i = select i1 %148, ptr %.sroa.032.2.i.i.i, ptr %105

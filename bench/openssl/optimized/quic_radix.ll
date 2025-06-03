@@ -5562,8 +5562,8 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %80, %74, %74, %91, %88
-  %.037 = phi i64 [ 1, %91 ], [ 1, %88 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
-  %.036 = phi ptr [ %6, %91 ], [ %7, %88 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
+  %.037 = phi i64 [ 1, %88 ], [ 1, %91 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
+  %.036 = phi ptr [ %7, %88 ], [ %6, %91 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
   store i64 -1, ptr %5, align 8, !tbaa !82
   %94 = tail call i64 @ossl_time_now() #12
   %95 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12

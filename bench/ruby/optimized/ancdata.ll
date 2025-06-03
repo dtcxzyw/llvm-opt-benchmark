@@ -2309,7 +2309,7 @@ RSTRING_PTR.exit.i139:                            ; preds = %225, %221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   br label %inspect_timeval_as_abstime.exit
 
-242:                                              ; preds = %118, %178, %215, %179, %119, %120, %133, %148, %166, %180, %216
+242:                                              ; preds = %118, %119, %178, %179, %215, %120, %133, %148, %166, %180, %216
   %243 = call i64 @rb_str_cat(i64 noundef %43, ptr noundef nonnull @.str.42, i64 noundef 1) #11
   %244 = call i64 @rb_str_dump(i64 noundef %41) #11
   %245 = call i64 @rb_str_append(i64 noundef %43, i64 noundef %244) #11

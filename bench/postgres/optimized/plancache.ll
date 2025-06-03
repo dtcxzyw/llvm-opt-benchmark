@@ -969,7 +969,7 @@ QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i, %.lr.ph.i
   br label %PlanCacheComputeResultDesc.exit
 
 PlanCacheComputeResultDesc.exit:                  ; preds = %50, %58, %QueryListGetPrimaryStmt.exit.i, %81
-  %.0.i = phi ptr [ %86, %81 ], [ %80, %QueryListGetPrimaryStmt.exit.i ], [ %63, %58 ], [ null, %50 ]
+  %.0.i = phi ptr [ %63, %58 ], [ %80, %QueryListGetPrimaryStmt.exit.i ], [ %86, %81 ], [ null, %50 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %87, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
@@ -1888,7 +1888,7 @@ QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i104, %.lr.p
   br label %PlanCacheComputeResultDesc.exit
 
 PlanCacheComputeResultDesc.exit:                  ; preds = %130, %QueryListGetPrimaryStmt.exit.i, %153
-  %.0.i = phi ptr [ %158, %153 ], [ %152, %QueryListGetPrimaryStmt.exit.i ], [ %135, %130 ]
+  %.0.i = phi ptr [ %135, %130 ], [ %152, %QueryListGetPrimaryStmt.exit.i ], [ %158, %153 ]
   %159 = icmp eq ptr %.0.i, null
   br i1 %159, label %PlanCacheComputeResultDesc.exit.thread, label %.critedge
 

@@ -801,7 +801,7 @@ define hidden noundef signext i8 @_ZN7LIR_Opr9type_charE9BasicType(i8 noundef ze
   br label %_Z9type2char9BasicType.exit
 
 _Z9type2char9BasicType.exit:                      ; preds = %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %.0 = phi i8 [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ 12, %2 ]
+  %.0 = phi i8 [ 12, %2 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   %3 = zext nneg i8 %.0 to i64
   %4 = getelementptr inbounds nuw [20 x i8], ptr @type2char_tab, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
@@ -817,7 +817,7 @@ _Z9type2char9BasicType.exit:                      ; preds = %2, %1, %1, %1, %1, 
   unreachable
 
 9:                                                ; preds = %1, %6, %_Z9type2char9BasicType.exit
-  %.03 = phi i8 [ 63, %6 ], [ %5, %_Z9type2char9BasicType.exit ], [ 77, %1 ]
+  %.03 = phi i8 [ %5, %_Z9type2char9BasicType.exit ], [ 63, %6 ], [ 77, %1 ]
   ret i8 %.03
 }
 

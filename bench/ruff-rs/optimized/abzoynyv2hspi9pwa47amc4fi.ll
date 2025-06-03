@@ -2102,7 +2102,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb42eaf6b76a21411E.exit"
 
 "_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb42eaf6b76a21411E.exit": ; preds = %13, %15, %17, %19, %21, %23
-  %.sroa.0.0.in.i.i = phi i1 [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -28028,7 +28028,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %14, %11, %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -32120,10 +32120,10 @@ _ZN18ty_python_semantic14semantic_index22visibility_constraints28VisibilityConst
   br label %94
 
 94:                                               ; preds = %128, %110, %79, %141, %126, %92
-  %.sroa.034.0 = phi i32 [ %138, %141 ], [ %123, %126 ], [ %89, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.033.0 = phi i32 [ %142, %141 ], [ %127, %126 ], [ %93, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.026.0 = phi i32 [ %137, %141 ], [ %122, %126 ], [ %88, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.038.0 = phi i32 [ %130, %141 ], [ %104, %126 ], [ %81, %92 ], [ %81, %79 ], [ %104, %110 ], [ %130, %128 ]
+  %.sroa.034.0 = phi i32 [ %89, %92 ], [ %123, %126 ], [ %138, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.033.0 = phi i32 [ %93, %92 ], [ %127, %126 ], [ %142, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.026.0 = phi i32 [ %88, %92 ], [ %122, %126 ], [ %137, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.038.0 = phi i32 [ %81, %92 ], [ %104, %126 ], [ %130, %141 ], [ %81, %79 ], [ %104, %110 ], [ %130, %128 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 %.sroa.038.0, ptr %4, align 4
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -32386,10 +32386,10 @@ _ZN18ty_python_semantic14semantic_index22visibility_constraints28VisibilityConst
   br label %94
 
 94:                                               ; preds = %128, %110, %79, %141, %126, %92
-  %.sroa.034.0 = phi i32 [ %138, %141 ], [ %123, %126 ], [ %89, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.033.0 = phi i32 [ %142, %141 ], [ %127, %126 ], [ %93, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.026.0 = phi i32 [ %137, %141 ], [ %122, %126 ], [ %88, %92 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
-  %.sroa.038.0 = phi i32 [ %130, %141 ], [ %104, %126 ], [ %81, %92 ], [ %81, %79 ], [ %104, %110 ], [ %130, %128 ]
+  %.sroa.034.0 = phi i32 [ %89, %92 ], [ %123, %126 ], [ %138, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.033.0 = phi i32 [ %93, %92 ], [ %127, %126 ], [ %142, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.026.0 = phi i32 [ %88, %92 ], [ %122, %126 ], [ %137, %141 ], [ %88, %79 ], [ %122, %110 ], [ %137, %128 ]
+  %.sroa.038.0 = phi i32 [ %81, %92 ], [ %104, %126 ], [ %130, %141 ], [ %81, %79 ], [ %104, %110 ], [ %130, %128 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 %.sroa.038.0, ptr %4, align 4
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -32768,11 +32768,11 @@ _ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConst
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread11, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread9, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit
-  %.sroa.0.0.be = phi i32 [ %46, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread11 ], [ %53, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit ], [ %44, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread9 ], [ %53, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread ]
+  %.sroa.0.0.be = phi i32 [ %44, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread9 ], [ %53, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit ], [ %46, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread11 ], [ %53, %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread ]
   br label %35
 
 _ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit: ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i", %58, %65
-  %.sroa.0.0.i = phi i8 [ %..i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i" ], [ %64, %58 ], [ %68, %65 ]
+  %.sroa.0.0.i = phi i8 [ %64, %58 ], [ %..i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7d54fa858dd05f3bE.exit.i" ], [ %68, %65 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   switch i8 %.sroa.0.0.i, label %default.unreachable39 [
     i8 0, label %_ZN18ty_python_semantic14semantic_index22visibility_constraints21VisibilityConstraints14analyze_single17hc84c87495ebbceb1E.exit.thread9
@@ -32946,7 +32946,7 @@ default.unreachable15:                            ; preds = %24
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h325cc10b62116b03E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h325cc10b62116b03E.exit: ; preds = %39, %37, %57, %27, %59, %4, %61, %"_ZN4core6option15Option$LT$T$GT$6map_or17h972aad7111577625E.exit"
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h972aad7111577625E.exit" ], [ %63, %61 ], [ 2, %4 ], [ %., %59 ], [ 2, %27 ], [ 0, %57 ], [ %.sroa.01.0.i, %37 ], [ 0, %39 ]
+  %.sroa.0.0 = phi i8 [ %63, %61 ], [ %.sroa.0.0.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h972aad7111577625E.exit" ], [ 2, %4 ], [ %., %59 ], [ 2, %27 ], [ 0, %57 ], [ %.sroa.01.0.i, %37 ], [ 0, %39 ]
   ret i8 %.sroa.0.0
 
 61:                                               ; preds = %27
@@ -36925,7 +36925,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types10diagnostic38report_i
   unreachable
 
 44:                                               ; preds = %70, %64, %45, %36
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %lpad.thr_comm6, %70 ], [ %37, %36 ], [ %lpad.thr_comm, %45 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm, %45 ], [ %65, %64 ], [ %lpad.thr_comm6, %70 ]
   resume { ptr, i32 } %.pn
 
 45:                                               ; preds = %26, %22
@@ -41241,8 +41241,8 @@ define hidden void @_ZN18ty_python_semantic5types5class12ClassLiteral21class_mem
           to label %51 unwind label %.loopexit29
 
 .loopexit30:                                      ; preds = %27, %27, %65, %49
-  %44 = phi i64 [ %.pre, %65 ], [ %22, %49 ], [ %22, %27 ], [ %22, %27 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0.ph, %65 ], [ %.sroa.0.3, %49 ], [ %.sroa.0.0.ph, %27 ], [ %.sroa.0.0.ph, %27 ]
+  %44 = phi i64 [ %22, %49 ], [ %.pre, %65 ], [ %22, %27 ], [ %22, %27 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.3, %49 ], [ %.sroa.0.0.ph, %65 ], [ %.sroa.0.0.ph, %27 ], [ %.sroa.0.0.ph, %27 ]
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.outer
 
@@ -41456,8 +41456,8 @@ define hidden void @_ZN18ty_python_semantic5types5class12ClassLiteral21class_mem
   br i1 %33, label %38, label %36
 
 .loopexit28:                                      ; preds = %.lr.ph, %.lr.ph, %46, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h11375e4da2374460E.exit"
-  %34 = phi i64 [ %.pre, %46 ], [ %22, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h11375e4da2374460E.exit" ], [ %22, %.lr.ph ], [ %22, %.lr.ph ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0.ph, %46 ], [ %.sroa.0.3, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h11375e4da2374460E.exit" ], [ %.sroa.0.0.ph, %.lr.ph ], [ %.sroa.0.0.ph, %.lr.ph ]
+  %34 = phi i64 [ %22, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h11375e4da2374460E.exit" ], [ %.pre, %46 ], [ %22, %.lr.ph ], [ %22, %.lr.ph ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.3, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h11375e4da2374460E.exit" ], [ %.sroa.0.0.ph, %46 ], [ %.sroa.0.0.ph, %.lr.ph ], [ %.sroa.0.0.ph, %.lr.ph ]
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.loopexit, label %.outer
 

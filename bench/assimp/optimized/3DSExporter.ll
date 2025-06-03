@@ -5322,7 +5322,7 @@ default.unreachable.i:                            ; preds = %740
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %740, %742, %743, %744
-  %.0.i = phi ptr [ %730, %744 ], [ %731, %743 ], [ %732, %742 ], [ %39, %740 ]
+  %.0.i = phi ptr [ %732, %742 ], [ %731, %743 ], [ %730, %744 ], [ %39, %740 ]
   %745 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv1196
   %746 = load float, ptr %745, align 4
   %747 = add i64 %741, 4
@@ -5596,7 +5596,7 @@ default.unreachable.i253:                         ; preds = %.preheader435
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit254:                ; preds = %.preheader435, %846, %847
-  %.0.i252 = phi ptr [ %731, %847 ], [ %732, %846 ], [ %39, %.preheader435 ]
+  %.0.i252 = phi ptr [ %732, %846 ], [ %731, %847 ], [ %39, %.preheader435 ]
   %848 = getelementptr inbounds nuw i8, ptr %.0.i252, i64 12
   %849 = load float, ptr %848, align 4
   %850 = add i64 %845, 4

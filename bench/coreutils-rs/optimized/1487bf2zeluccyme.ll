@@ -485,7 +485,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$uu_sort..SortError$GT$17h8
   unreachable
 
 79:                                               ; preds = %98, %89, %80, %65
-  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %90, %89 ], [ %81, %80 ], [ %66, %65 ]
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %81, %80 ], [ %90, %89 ], [ %99, %98 ]
   resume { ptr, i32 } %.pn
 
 80:                                               ; preds = %27, %23
@@ -863,8 +863,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %55, %
   br label %81
 
 81:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit", %77, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %80, %77 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %79, %77 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit" ], [ %80, %77 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit" ], [ %79, %77 ]
   %82 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %83 = insertvalue { ptr, i64 } %82, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %83
@@ -1501,7 +1501,7 @@ default.unreachable65:                            ; preds = %2
   br label %109
 
 109:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit64", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit62", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit", %108, %84, %78, %66, %58, %43
-  %.0 = phi i1 [ %91, %84 ], [ %83, %78 ], [ %77, %66 ], [ %65, %58 ], [ %172, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit64" ], [ %57, %43 ], [ %154, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit62" ], [ %126, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit" ], [ %.1, %108 ]
+  %.0 = phi i1 [ %.1, %108 ], [ %126, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit" ], [ %154, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit62" ], [ %57, %43 ], [ %172, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit64" ], [ %65, %58 ], [ %77, %66 ], [ %83, %78 ], [ %91, %84 ]
   ret i1 %.0
 
 110:                                              ; preds = %112
@@ -1578,7 +1578,7 @@ default.unreachable65:                            ; preds = %2
   unreachable
 
 137:                                              ; preds = %163, %138, %110
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %139, %138 ], [ %111, %110 ]
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %139, %138 ], [ %164, %163 ]
   resume { ptr, i32 } %.pn
 
 138:                                              ; preds = %140
@@ -2876,7 +2876,7 @@ define hidden void @_ZN7uu_sort16tokenize_default17h773330137410664dE.llvm.10701
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; preds = %69, %71, %74, %77, %82
-  %.0.i = phi i8 [ %76, %74 ], [ %87, %82 ], [ %73, %71 ], [ %81, %77 ], [ 0, %69 ]
+  %.0.i = phi i8 [ %81, %77 ], [ %73, %71 ], [ %87, %82 ], [ %76, %74 ], [ 0, %69 ]
   %88 = trunc i8 %.0.i to i1
   br label %89
 
@@ -4345,7 +4345,7 @@ switch.lookup:                                    ; preds = %74
   br label %69
 
 103:                                              ; preds = %66, %117, %115, %113, %111, %109, %107, %105, %101, %97, %78
-  %.1 = phi i8 [ %.0160, %117 ], [ %.0160, %97 ], [ %.0160, %115 ], [ %.0160, %113 ], [ %.0160, %111 ], [ %.0160, %109 ], [ %.0160, %107 ], [ %.0160, %78 ], [ %.0160, %105 ], [ %.0160, %101 ], [ 1, %66 ]
+  %.1 = phi i8 [ %.0160, %101 ], [ %.0160, %105 ], [ %.0160, %78 ], [ %.0160, %107 ], [ %.0160, %109 ], [ %.0160, %111 ], [ %.0160, %113 ], [ %.0160, %115 ], [ %.0160, %97 ], [ %.0160, %117 ], [ 1, %66 ]
   %104 = icmp eq ptr %.sroa.0.1.ph, %20
   br i1 %104, label %.thread.loopexit, label %30
 
@@ -4908,8 +4908,8 @@ default.unreachable:                              ; preds = %5
   br label %.thread
 
 .thread:                                          ; preds = %13, %22, %22, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit", %36, %35
-  %.sroa.8.1 = phi i64 [ 0, %36 ], [ %25, %35 ], [ %82, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit" ], [ %2, %22 ], [ %2, %22 ], [ %2, %13 ]
-  %.sroa.03.1 = phi i64 [ 0, %36 ], [ %11, %35 ], [ %11, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit" ], [ %11, %22 ], [ %11, %22 ], [ %11, %13 ]
+  %.sroa.8.1 = phi i64 [ %82, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit" ], [ %25, %35 ], [ 0, %36 ], [ %2, %22 ], [ %2, %22 ], [ %2, %13 ]
+  %.sroa.03.1 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$6map_or17h6b513b0ea80d69a0E.exit" ], [ %11, %35 ], [ 0, %36 ], [ %11, %22 ], [ %11, %22 ], [ %11, %13 ]
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.sroa.03.1, i64 %.sroa.8.1)
   br label %83
 
@@ -5158,7 +5158,7 @@ define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resol
   br label %"_ZN7uu_sort13FieldSelector9get_range13resolve_index28_$u7b$$u7b$closure$u7d$$u7d$17hb32ad1000fc8f29eE.exit.i.i"
 
 "_ZN7uu_sort13FieldSelector9get_range13resolve_index28_$u7b$$u7b$closure$u7d$$u7d$17hb32ad1000fc8f29eE.exit.i.i": ; preds = %122, %117, %114, %111
-  %.0.i.i.i.i = phi i8 [ %116, %114 ], [ %127, %122 ], [ %113, %111 ], [ %121, %117 ]
+  %.0.i.i.i.i = phi i8 [ %121, %117 ], [ %113, %111 ], [ %127, %122 ], [ %116, %114 ]
   %128 = trunc i8 %.0.i.i.i.i to i1
   %129 = icmp eq i32 %.sroa.4.0.i.ph10.i.i, 1114112
   %or.cond112 = or i1 %129, %128
@@ -11238,9 +11238,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h600167b6e8807ba6E.exit: ; pred
   unreachable
 
 _ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit: ; preds = %343, %372, %365, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit, %.thread, %120, %349, %132, %118, %115
-  %.090 = phi i8 [ %142, %132 ], [ %..i151, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %119, %118 ], [ %.0.i122, %115 ], [ %353, %349 ], [ 0, %120 ], [ %.1.i, %.thread ], [ %.8.i.i, %372 ], [ %.05.i.i, %365 ], [ %.1.i, %343 ]
-  %.189 = phi i64 [ %.088, %132 ], [ %.088, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %.088, %118 ], [ %.088, %115 ], [ %.088, %349 ], [ %.088, %120 ], [ %.088, %.thread ], [ %362, %372 ], [ %362, %365 ], [ %.088, %343 ]
-  %.187 = phi i64 [ %.086, %132 ], [ %.086, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %.086, %118 ], [ %.086, %115 ], [ %352, %349 ], [ %.086, %120 ], [ %150, %.thread ], [ %.086, %372 ], [ %.086, %365 ], [ %150, %343 ]
+  %.090 = phi i8 [ %353, %349 ], [ %.0.i122, %115 ], [ %119, %118 ], [ %..i151, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %142, %132 ], [ 0, %120 ], [ %.1.i, %.thread ], [ %.8.i.i, %372 ], [ %.05.i.i, %365 ], [ %.1.i, %343 ]
+  %.189 = phi i64 [ %.088, %349 ], [ %.088, %115 ], [ %.088, %118 ], [ %.088, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %.088, %132 ], [ %.088, %120 ], [ %.088, %.thread ], [ %362, %372 ], [ %362, %365 ], [ %.088, %343 ]
+  %.187 = phi i64 [ %352, %349 ], [ %.086, %115 ], [ %.086, %118 ], [ %.086, %_ZN7uu_sort14random_shuffle17h9931a0a43ad5bcd0E.exit ], [ %.086, %132 ], [ %.086, %120 ], [ %150, %.thread ], [ %.086, %372 ], [ %.086, %365 ], [ %150, %343 ]
   %.not = icmp eq i8 %.090, 0
   br i1 %.not, label %59, label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit.thread
 
@@ -12302,7 +12302,7 @@ default.unreachable1:                             ; preds = %2
   br label %44
 
 44:                                               ; preds = %41, %39, %36, %33, %30, %26, %22, %18, %12
-  %.0.in = phi i1 [ %43, %41 ], [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %12 ]
+  %.0.in = phi i1 [ %17, %12 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %40, %39 ], [ %43, %41 ]
   ret i1 %.0.in
 }
 

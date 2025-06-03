@@ -132,7 +132,7 @@ define internal i32 @qcelp_decode_frame(ptr noundef %0, ptr noundef initializes(
   br label %41
 
 32:                                               ; preds = %29, %28, %27, %25
-  %.0.i.ph.i = phi i32 [ 4, %25 ], [ 3, %27 ], [ 2, %28 ], [ 1, %29 ]
+  %.0.i.ph.i = phi i32 [ 4, %25 ], [ 1, %29 ], [ 2, %28 ], [ 3, %27 ]
   %33 = load i8, ptr %17, align 1, !tbaa !28
   %34 = zext i8 %33 to i32
   %35 = icmp samesign ugt i32 %.0.i.ph.i, %34
@@ -180,13 +180,13 @@ define internal i32 @qcelp_decode_frame(ptr noundef %0, ptr noundef initializes(
   br label %51
 
 51:                                               ; preds = %50, %49, %48, %47, %25
-  %.0.i21.ph.i = phi i32 [ 3, %47 ], [ 2, %48 ], [ 1, %49 ], [ 0, %50 ], [ 4, %25 ]
+  %.0.i21.ph.i = phi i32 [ 0, %50 ], [ 1, %49 ], [ 2, %48 ], [ 3, %47 ], [ 4, %25 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.10) #9
   br label %52
 
 52:                                               ; preds = %51, %45
-  %.099 = phi ptr [ %17, %51 ], [ %46, %45 ]
-  %53 = phi i32 [ %.0.i21.ph.i, %51 ], [ %.017.i, %45 ]
+  %.099 = phi ptr [ %46, %45 ], [ %17, %51 ]
+  %53 = phi i32 [ %.017.i, %45 ], [ %.0.i21.ph.i, %51 ]
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %67, label %determine_bitrate.exit
 

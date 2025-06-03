@@ -4808,10 +4808,10 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.5.0..sroa_idx69.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.670.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.5.0..sroa_idx68.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.669.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sroa.871.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.870.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4825,10 +4825,10 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.579.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.680.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.781.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.882.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.578.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.679.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.780.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.881.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.449.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4841,16 +4841,16 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %.pre.i = load i64, ptr %19, align 8, !alias.scope !1638
-  %.pre149.i = load i32, ptr %20, align 8, !range !1541, !alias.scope !1638
+  %.pre148.i = load i32, ptr %20, align 8, !range !1541, !alias.scope !1638
   br label %38
 
 38:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$meilisearch_types..tasks..Task$C$index_scheduler..error..Error$GT$$GT$17h76f372a3d52e6b68E.llvm.5336188084572713014.exit.i", %1
-  invoke void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %.pre.i, i32 noundef %.pre149.i)
+  invoke void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %.pre.i, i32 noundef %.pre148.i)
           to label %45 unwind label %43, !noalias !1638
 
 .body.i:                                          ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i", %134, %127, %43
-  %39 = phi ptr [ %46, %127 ], [ %46, %134 ], [ %.pre150.i, %43 ], [ %46, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i" ]
-  %.pn54.i = phi { ptr, i32 } [ %.pn.i, %127 ], [ %.pn.i, %134 ], [ %44, %43 ], [ %.pn.i.i.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i" ]
+  %39 = phi ptr [ %46, %127 ], [ %46, %134 ], [ %.pre149.i, %43 ], [ %46, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i" ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %127 ], [ %.pn.i, %134 ], [ %44, %43 ], [ %.pn.i.i.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1641)
   call void @llvm.experimental.noalias.scope.decl(metadata !1644)
   call void @llvm.experimental.noalias.scope.decl(metadata !1647)
@@ -4866,7 +4866,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 43:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$meilisearch_types..tasks..Task$GT$17hb8faac676c9f0403E.exit.i.i", %45, %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  %.pre150.i = load ptr, ptr %0, align 8, !alias.scope !1650
+  %.pre149.i = load ptr, ptr %0, align 8, !alias.scope !1650
   br label %.body.i
 
 45:                                               ; preds = %38
@@ -4882,15 +4882,15 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17), !noalias !1638
   %49 = load i64, ptr %18, align 8, !range !1651, !noalias !1638, !noundef !4
   %.not52.i = icmp eq i64 %49, 11
-  br i1 %.not52.i, label %54, label %.thread97.i
+  br i1 %.not52.i, label %54, label %.thread96.i
 
 50:                                               ; preds = %107
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %16), !noalias !1638
   %51 = load i64, ptr %18, align 8, !range !1651, !noalias !1638, !noundef !4
   %52 = icmp eq i64 %51, 11
-  br i1 %52, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$meilisearch_types..tasks..Task$C$index_scheduler..error..Error$GT$$GT$17h76f372a3d52e6b68E.llvm.5336188084572713014.exit.i", label %.thread97.i
+  br i1 %52, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$meilisearch_types..tasks..Task$C$index_scheduler..error..Error$GT$$GT$17h76f372a3d52e6b68E.llvm.5336188084572713014.exit.i", label %.thread96.i
 
-.loopexit.i:                                      ; preds = %125, %.noexc63.i, %113, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit61.i", %88, %81, %.thread.i, %59
+.loopexit.i:                                      ; preds = %125, %.noexc62.i, %113, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit60.i", %88, %81, %.thread.i, %59
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %53
@@ -4910,14 +4910,14 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %16, ptr noundef nonnull align 8 dereferenceable(216) %21, i64 216, i1 false), !noalias !1638
   %55 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h16b4f9b8520f965bE monotonic, align 8, !noalias !1638
   %.not.i = icmp eq i64 %55, 5
-  br i1 %.not.i, label %.thread85.i, label %56
+  br i1 %.not.i, label %.thread84.i, label %56
 
 56:                                               ; preds = %54
   %57 = icmp samesign ult i64 %55, 5
   call void @llvm.assume(i1 %57)
   %58 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", i64 16) monotonic, align 8, !noalias !1638
   switch i8 %58, label %59 [
-    i8 0, label %.thread85.i
+    i8 0, label %.thread84.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ]
@@ -4928,16 +4928,16 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 61:                                               ; preds = %59
   %62 = icmp eq i8 %60, 0
-  br i1 %62, label %.thread85.i, label %.thread.i
+  br i1 %62, label %.thread84.i, label %.thread.i
 
 .thread.i:                                        ; preds = %56, %61, %56
-  %.sroa.02.084.i = phi i8 [ %60, %61 ], [ %58, %56 ], [ %58, %56 ]
+  %.sroa.02.083.i = phi i8 [ %60, %61 ], [ %58, %56 ], [ %58, %56 ]
   %63 = load ptr, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", align 8, !noalias !1638, !nonnull !4, !align !86, !noundef !4
-  %64 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hfc2817be532fe9b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63, i8 noundef %.sroa.02.084.i)
+  %64 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hfc2817be532fe9b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63, i8 noundef %.sroa.02.083.i)
           to label %65 unwind label %.loopexit.i, !noalias !1638
 
 65:                                               ; preds = %.thread.i
-  br i1 %64, label %66, label %.thread85.i
+  br i1 %64, label %66, label %.thread84.i
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !1638
@@ -4952,15 +4952,15 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %75 = load ptr, ptr %74, align 8, !noalias !1638, !nonnull !4, !align !86, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !1638
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !1638
-  %.not147.i = icmp eq i64 %71, 0
-  br i1 %.not147.i, label %.invoke, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i"
+  %.not146.i = icmp eq i64 %71, 0
+  br i1 %.not146.i, label %.invoke, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i"
 
-.thread85.i:                                      ; preds = %65, %61, %56, %54
+.thread84.i:                                      ; preds = %65, %61, %56, %54
   %76 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h708e825f79ee033fE monotonic, align 1, !noalias !1638
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %107
 
-78:                                               ; preds = %.thread85.i
+78:                                               ; preds = %.thread84.i
   %79 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8, !noalias !1638
   %80 = icmp ult i64 %79, 6
   call void @llvm.assume(i1 %80)
@@ -5006,19 +5006,19 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %104 = load ptr, ptr %103, align 8, !noalias !1638, !nonnull !4, !align !86, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1638
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !1638
-  %.not148.i = icmp eq i64 %100, 0
-  br i1 %.not148.i, label %.invoke, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit61.i"
+  %.not147.i = icmp eq i64 %100, 0
+  br i1 %.not147.i, label %.invoke, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit60.i"
 
 105:                                              ; preds = %106, %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1638
   br label %107
 
-"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit61.i": ; preds = %95
+"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit60.i": ; preds = %95
   store ptr %98, ptr %6, align 8, !noalias !1638
-  store i64 %100, ptr %.sroa.579.0..sroa_idx.i, align 8, !noalias !1638
-  store ptr %102, ptr %.sroa.680.0..sroa_idx.i, align 8, !noalias !1638
-  store ptr %104, ptr %.sroa.781.0..sroa_idx.i, align 8, !noalias !1638
-  store i64 0, ptr %.sroa.882.0..sroa_idx.i, align 8, !noalias !1638
+  store i64 %100, ptr %.sroa.578.0..sroa_idx.i, align 8, !noalias !1638
+  store ptr %102, ptr %.sroa.679.0..sroa_idx.i, align 8, !noalias !1638
+  store ptr %104, ptr %.sroa.780.0..sroa_idx.i, align 8, !noalias !1638
+  store i64 0, ptr %.sroa.881.0..sroa_idx.i, align 8, !noalias !1638
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1638
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1638
   store ptr %16, ptr %4, align 8, !noalias !1638
@@ -5037,7 +5037,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   invoke void @_ZN7tracing15__macro_support13__tracing_log17h657b18ad919eca65E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %82, ptr noundef nonnull align 1 %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %106 unwind label %.loopexit.i, !noalias !1638
 
-106:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit61.i"
+106:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit60.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1638
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1638
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1638
@@ -5046,7 +5046,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1638
   br label %105
 
-107:                                              ; preds = %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i", %105, %78, %.thread85.i
+107:                                              ; preds = %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i", %105, %78, %.thread84.i
   invoke void @"_ZN4core3ptr50drop_in_place$LT$index_scheduler..error..Error$GT$17h47cf5cbe501874d1E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(216) %16)
           to label %50 unwind label %130, !noalias !1638
 
@@ -5059,10 +5059,10 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i": ; preds = %66
   store ptr %69, ptr %13, align 8, !noalias !1638
-  store i64 %71, ptr %.sroa.5.0..sroa_idx69.i, align 8, !noalias !1638
-  store ptr %73, ptr %.sroa.670.0..sroa_idx.i, align 8, !noalias !1638
+  store i64 %71, ptr %.sroa.5.0..sroa_idx68.i, align 8, !noalias !1638
+  store ptr %73, ptr %.sroa.669.0..sroa_idx.i, align 8, !noalias !1638
   store ptr %75, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !1638
-  store i64 0, ptr %.sroa.871.0..sroa_idx.i, align 8, !noalias !1638
+  store i64 0, ptr %.sroa.870.0..sroa_idx.i, align 8, !noalias !1638
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1638
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1638
   store ptr %16, ptr %11, align 8, !noalias !1638
@@ -5079,14 +5079,14 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1638
   store ptr %68, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1638
   invoke void @_ZN12tracing_core5event5Event8dispatch17h2ebd7a90fbe9329cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-          to label %.noexc62.i unwind label %.loopexit.i, !noalias !1638
+          to label %.noexc61.i unwind label %.loopexit.i, !noalias !1638
 
-.noexc62.i:                                       ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i"
+.noexc61.i:                                       ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i"
   %108 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h708e825f79ee033fE monotonic, align 1, !noalias !1652
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %110, label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i"
 
-110:                                              ; preds = %.noexc62.i
+110:                                              ; preds = %.noexc61.i
   %111 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8, !noalias !1652
   %112 = icmp ult i64 %111, 6
   call void @llvm.assume(i1 %112)
@@ -5104,34 +5104,34 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   store ptr %116, ptr %26, align 8, !noalias !1652
   store i64 %118, ptr %27, align 8, !noalias !1652
   %119 = invoke { ptr, ptr } @_ZN3log6logger17had2cd1a62c77a822E()
-          to label %.noexc63.i unwind label %.loopexit.i, !noalias !1638
+          to label %.noexc62.i unwind label %.loopexit.i, !noalias !1638
 
-.noexc63.i:                                       ; preds = %113
+.noexc62.i:                                       ; preds = %113
   %120 = extractvalue { ptr, ptr } %119, 0
   %121 = extractvalue { ptr, ptr } %119, 1
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8, !invariant.load !4, !noalias !1638, !nonnull !4
   %124 = invoke noundef zeroext i1 %123(ptr noundef align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-          to label %.noexc64.i unwind label %.loopexit.i, !noalias !1638
+          to label %.noexc63.i unwind label %.loopexit.i, !noalias !1638
 
-.noexc64.i:                                       ; preds = %.noexc63.i
+.noexc63.i:                                       ; preds = %.noexc62.i
   br i1 %124, label %125, label %126
 
-125:                                              ; preds = %.noexc64.i
+125:                                              ; preds = %.noexc63.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1652
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !1652
   invoke void @_ZN7tracing15__macro_support13__tracing_log17h657b18ad919eca65E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %114, ptr noundef nonnull align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %121, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-          to label %.noexc65.i unwind label %.loopexit.i, !noalias !1638
+          to label %.noexc64.i unwind label %.loopexit.i, !noalias !1638
 
-.noexc65.i:                                       ; preds = %125
+.noexc64.i:                                       ; preds = %125
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1652
   br label %126
 
-126:                                              ; preds = %.noexc65.i, %.noexc64.i
+126:                                              ; preds = %.noexc64.i, %.noexc63.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1652
   br label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i"
 
-"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i": ; preds = %126, %110, %.noexc62.i
+"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i": ; preds = %126, %110, %.noexc61.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1638
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1638
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !1638
@@ -5140,7 +5140,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   br label %107
 
 127:                                              ; preds = %130, %53
-  %.pn.i = phi { ptr, i32 } [ %131, %130 ], [ %lpad.phi.i, %53 ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.phi.i, %53 ], [ %131, %130 ]
   %128 = load i64, ptr %18, align 8, !range !1651, !noalias !1638, !noundef !4
   %129 = icmp eq i64 %128, 11
   br i1 %129, label %.body.i, label %134
@@ -5160,13 +5160,13 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   invoke void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$meilisearch_types..tasks..Task$C$index_scheduler..error..Error$GT$$GT$17h76f372a3d52e6b68E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(320) %18) #46
           to label %.body.i unwind label %132, !noalias !1638
 
-.thread97.i:                                      ; preds = %50, %48
+.thread96.i:                                      ; preds = %50, %48
   %135 = phi i64 [ %51, %50 ], [ %49, %48 ]
   %136 = load i64, ptr %36, align 8, !range !625, !alias.scope !1655, !noalias !1638, !noundef !4
   %137 = icmp eq i64 %136, -9223372036854775808
   br i1 %137, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i.i.i", label %138
 
-138:                                              ; preds = %.thread97.i
+138:                                              ; preds = %.thread96.i
   invoke void @"_ZN4core3ptr60drop_in_place$LT$meilisearch_types..error..ResponseError$GT$17hb43ecfad255252c7E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %36)
           to label %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i_crit_edge.i.i" unwind label %139, !noalias !1638
 
@@ -5185,8 +5185,8 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$meilisearch_types..tasks..Details$GT$17ha543694781e3e1b2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(320) %18)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$meilisearch_types..tasks..Details$GT$$GT$17h1df3870b8d9f4bfaE.llvm.4616129397091597767.exit.i.i.i" unwind label %149, !noalias !1638
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i.i.i": ; preds = %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i_crit_edge.i.i", %.thread97.i
-  %144 = phi i64 [ %.pre.i.i, %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i_crit_edge.i.i" ], [ %135, %.thread97.i ]
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i.i.i": ; preds = %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i_crit_edge.i.i", %.thread96.i
+  %144 = phi i64 [ %.pre.i.i, %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767.exit.i_crit_edge.i.i" ], [ %135, %.thread96.i ]
   %145 = icmp eq i64 %144, 10
   br i1 %145, label %"_ZN4core3ptr51drop_in_place$LT$meilisearch_types..tasks..Task$GT$17hb8faac676c9f0403E.exit.i.i", label %146
 
@@ -5219,7 +5219,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   br label %38
 
 "_ZN4core3ptr80drop_in_place$LT$meilisearch..setup_meilisearch..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0be55536041bf8c9E.exit.i": ; preds = %42, %.body.i
-  resume { ptr, i32 } %.pn54.i
+  resume { ptr, i32 } %.pn.pn.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -26956,7 +26956,7 @@ default.unreachable:                              ; preds = %56
   unreachable
 
 common.resume:                                    ; preds = %386, %393, %398, %403, %408, %426, %440, %413, %418, %423, %290, %110, %117, %127, %130, %135, %286
-  %common.resume.op = phi { ptr, i32 } [ %287, %286 ], [ %136, %135 ], [ %131, %130 ], [ %.pn.i, %127 ], [ %118, %117 ], [ %111, %110 ], [ %291, %290 ], [ %441, %440 ], [ %427, %426 ], [ %409, %408 ], [ %404, %403 ], [ %399, %398 ], [ %394, %393 ], [ %387, %386 ], [ %414, %413 ], [ %419, %418 ], [ %424, %423 ]
+  %common.resume.op = phi { ptr, i32 } [ %287, %286 ], [ %111, %110 ], [ %118, %117 ], [ %.pn.i, %127 ], [ %131, %130 ], [ %136, %135 ], [ %291, %290 ], [ %441, %440 ], [ %387, %386 ], [ %394, %393 ], [ %399, %398 ], [ %404, %403 ], [ %409, %408 ], [ %427, %426 ], [ %414, %413 ], [ %419, %418 ], [ %424, %423 ]
   resume { ptr, i32 } %common.resume.op
 
 117:                                              ; preds = %107
@@ -31749,7 +31749,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$meilisearch_types..tasks..Ki
   unreachable
 
 common.resume:                                    ; preds = %235, %213, %134, %153, %158, %170, %187, %204, %226, %163, %168
-  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %227, %226 ], [ %205, %204 ], [ %188, %187 ], [ %171, %170 ], [ %164, %163 ], [ %159, %158 ], [ %154, %153 ], [ %135, %134 ], [ %214, %213 ], [ %236, %235 ]
+  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %135, %134 ], [ %154, %153 ], [ %159, %158 ], [ %164, %163 ], [ %171, %170 ], [ %188, %187 ], [ %205, %204 ], [ %227, %226 ], [ %214, %213 ], [ %236, %235 ]
   resume { ptr, i32 } %common.resume.op
 
 153:                                              ; preds = %32
@@ -32472,7 +32472,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$milli..update..index_documen
   unreachable
 
 common.resume:                                    ; preds = %.body39, %.body50, %204, %164, %152, %140, %128, %116, %.body.i, %102, %76, %64, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %65, %64 ], [ %77, %76 ], [ %103, %102 ], [ %eh.lpad-body.i, %.body.i ], [ %117, %116 ], [ %129, %128 ], [ %141, %140 ], [ %153, %152 ], [ %165, %164 ], [ %205, %204 ], [ %.pn2, %.body50 ], [ %.pn4, %.body39 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %65, %64 ], [ %77, %76 ], [ %103, %102 ], [ %eh.lpad-body.i, %.body.i ], [ %117, %116 ], [ %129, %128 ], [ %141, %140 ], [ %153, %152 ], [ %165, %164 ], [ %205, %204 ], [ %.pn4, %.body39 ], [ %.pn2, %.body50 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr111drop_in_place$LT$grenad..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h2c86901c74d9153cE.exit": ; preds = %38
@@ -34084,7 +34084,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h78776174dc637d5aE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -34144,7 +34144,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h9f998dd826e354a5E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -34221,7 +34221,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hcdfe
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -40076,8 +40076,8 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hb1
           to label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h7c92cc35a7014186E.exit" unwind label %72
 
 68:                                               ; preds = %65, %63, %54, %51, %42, %.noexc22, %35
-  %.sroa.7.0.i = phi ptr [ undef, %42 ], [ undef, %.noexc22 ], [ undef, %35 ], [ undef, %54 ], [ %44, %51 ], [ undef, %65 ], [ %56, %63 ]
-  %.sroa.0.0.i19 = phi i64 [ 0, %42 ], [ 2, %.noexc22 ], [ 2, %35 ], [ 0, %54 ], [ 1, %51 ], [ 0, %65 ], [ 1, %63 ]
+  %.sroa.7.0.i = phi ptr [ undef, %42 ], [ undef, %.noexc22 ], [ undef, %35 ], [ %44, %51 ], [ undef, %54 ], [ %56, %63 ], [ undef, %65 ]
+  %.sroa.0.0.i19 = phi i64 [ 0, %42 ], [ 2, %.noexc22 ], [ 2, %35 ], [ 1, %51 ], [ 0, %54 ], [ 1, %63 ], [ 0, %65 ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96948cf3dca85ca0E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6)
   br label %69
 
@@ -53317,12 +53317,12 @@ _ZN3std9panicking3try17h2c952e8379878044E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -53503,12 +53503,12 @@ _ZN3std9panicking3try17hc6b935b33f368dd8E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -53689,12 +53689,12 @@ _ZN3std9panicking3try17ha02708916802f6b8E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -53875,12 +53875,12 @@ _ZN3std9panicking3try17hb18e4d0922b56f5aE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54061,12 +54061,12 @@ _ZN3std9panicking3try17h382d9799ea0444acE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54247,12 +54247,12 @@ _ZN3std9panicking3try17h1fe41359de085197E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54433,12 +54433,12 @@ _ZN3std9panicking3try17h97498de86d424b4bE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54613,12 +54613,12 @@ _ZN3std9panicking3try17ha04f1b7fc5df069bE.exit.i: ; preds = %7
   br label %48
 
 48:                                               ; preds = %42, %47, %46, %45
-  %.sroa.0.2 = phi i8 [ 3, %47 ], [ 1, %46 ], [ 0, %45 ], [ 2, %42 ]
+  %.sroa.0.2 = phi i8 [ 0, %45 ], [ 1, %46 ], [ 3, %47 ], [ 2, %42 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %49
 
 49:                                               ; preds = %1, %40, %48, %1, %44
-  %.sroa.0.1 = phi i8 [ 0, %44 ], [ 0, %40 ], [ %.sroa.0.2, %48 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %44 ], [ %.sroa.0.2, %48 ], [ 0, %40 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54799,12 +54799,12 @@ _ZN3std9panicking3try17h1866a8076fa126a5E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -54985,12 +54985,12 @@ _ZN3std9panicking3try17h6c1cc17821aca577E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -55171,12 +55171,12 @@ _ZN3std9panicking3try17h8083b49c61ee8281E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -55357,12 +55357,12 @@ _ZN3std9panicking3try17hc041d4860d099586E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -55543,12 +55543,12 @@ _ZN3std9panicking3try17h0d66e4b78baafc85E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -55729,12 +55729,12 @@ _ZN3std9panicking3try17h4c2446ad7ada5843E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -55915,12 +55915,12 @@ _ZN3std9panicking3try17h4dc141300db0a02dE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -56101,12 +56101,12 @@ _ZN3std9panicking3try17h7dea2c31544e2a64E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -56287,12 +56287,12 @@ _ZN3std9panicking3try17h470568e479f3b7a6E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -56473,12 +56473,12 @@ _ZN3std9panicking3try17hdbee371ed83cfc77E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -56704,12 +56704,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.53361880845
   br label %78
 
 78:                                               ; preds = %60, %77, %76, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit13
-  %.sroa.0.2 = phi i8 [ 3, %77 ], [ 1, %76 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit13 ], [ 2, %60 ]
+  %.sroa.0.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit13 ], [ 1, %76 ], [ 3, %77 ], [ 2, %60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %79
 
 79:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit, %78, %1, %62
-  %.sroa.0.1 = phi i8 [ 0, %62 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit ], [ %.sroa.0.2, %78 ], [ %10, %1 ], [ %10, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %62 ], [ %.sroa.0.2, %78 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -56890,12 +56890,12 @@ _ZN3std9panicking3try17h9d71a4c2ab93b536E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -57076,12 +57076,12 @@ _ZN3std9panicking3try17h99c14a81db317553E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -57262,12 +57262,12 @@ _ZN3std9panicking3try17h5069f077429734fbE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -57448,12 +57448,12 @@ _ZN3std9panicking3try17hc842071ba3c35bc1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -57634,12 +57634,12 @@ _ZN3std9panicking3try17h3b9cbec141dfc3b1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -57820,12 +57820,12 @@ _ZN3std9panicking3try17h9eadc09df73fca32E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58006,12 +58006,12 @@ _ZN3std9panicking3try17h2f48d7d23348a695E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58192,12 +58192,12 @@ _ZN3std9panicking3try17h2f90b70e81e065d1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58378,12 +58378,12 @@ _ZN3std9panicking3try17h0a4b332068533f9eE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58564,12 +58564,12 @@ _ZN3std9panicking3try17h6327547b65202834E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58750,12 +58750,12 @@ _ZN3std9panicking3try17h575f0750b4a99b86E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -58936,12 +58936,12 @@ _ZN3std9panicking3try17h89229bd15630e010E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -59122,12 +59122,12 @@ _ZN3std9panicking3try17hc2c85c541c1548b1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -59308,12 +59308,12 @@ _ZN3std9panicking3try17hc92d64ff599c4029E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -59494,12 +59494,12 @@ _ZN3std9panicking3try17h9065555a62f7a6aaE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -59680,12 +59680,12 @@ _ZN3std9panicking3try17h4be273acc0840216E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -59879,12 +59879,12 @@ _ZN3std9panicking3try17h4e59730a34316385E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60065,12 +60065,12 @@ _ZN3std9panicking3try17h39ec7f5147c24e63E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60251,12 +60251,12 @@ _ZN3std9panicking3try17h9242a93fef3d4b3aE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60437,12 +60437,12 @@ _ZN3std9panicking3try17h5a18e90976750432E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60623,12 +60623,12 @@ _ZN3std9panicking3try17hbc3c7d81f9491b37E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60809,12 +60809,12 @@ _ZN3std9panicking3try17h03aab7c78461fc1aE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -60995,12 +60995,12 @@ _ZN3std9panicking3try17hc45f4d5b3e8473bdE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -61181,12 +61181,12 @@ _ZN3std9panicking3try17h6308a367eebe36d4E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -61367,12 +61367,12 @@ _ZN3std9panicking3try17he81e62fd16a534dfE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -61566,12 +61566,12 @@ _ZN3std9panicking3try17hf91784016dcd7b58E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -61752,12 +61752,12 @@ _ZN3std9panicking3try17h9862b904b9eaaef4E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -61938,12 +61938,12 @@ _ZN3std9panicking3try17h4957f6649e054187E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -62124,12 +62124,12 @@ _ZN3std9panicking3try17h7e3b0add9673d7dfE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -62310,12 +62310,12 @@ _ZN3std9panicking3try17hcfea2626d52c7fb6E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -62496,12 +62496,12 @@ _ZN3std9panicking3try17h46106c1a28000e17E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -62682,12 +62682,12 @@ _ZN3std9panicking3try17h0aeade4215a883c4E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -62868,12 +62868,12 @@ _ZN3std9panicking3try17ha0c477b04f85bbc3E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63054,12 +63054,12 @@ _ZN3std9panicking3try17h0219ac73e3bca571E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63240,12 +63240,12 @@ _ZN3std9panicking3try17hf77d4490c1d064b1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63426,12 +63426,12 @@ _ZN3std9panicking3try17h210fccc5846e04faE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63625,12 +63625,12 @@ _ZN3std9panicking3try17h0afead1cda3c0bd3E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63811,12 +63811,12 @@ _ZN3std9panicking3try17hff594784987cd476E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -63997,12 +63997,12 @@ _ZN3std9panicking3try17hd4ac189ee422a626E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -64183,12 +64183,12 @@ _ZN3std9panicking3try17hdbb76dc38eddcb9aE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -64369,12 +64369,12 @@ _ZN3std9panicking3try17h93dfe72c07496a7cE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -64555,12 +64555,12 @@ _ZN3std9panicking3try17h1227f2eabae084baE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -64754,12 +64754,12 @@ _ZN3std9panicking3try17h01d1d2f686f912cdE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -64940,12 +64940,12 @@ _ZN3std9panicking3try17h5671425cb9cfd08fE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -65139,12 +65139,12 @@ _ZN3std9panicking3try17hf7266875872d9e83E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -65325,12 +65325,12 @@ _ZN3std9panicking3try17h303d968be3846d77E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -65511,12 +65511,12 @@ _ZN3std9panicking3try17h0c1c511af0fb9aceE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -65697,12 +65697,12 @@ _ZN3std9panicking3try17h8a32a3d7c717d0c0E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -65883,12 +65883,12 @@ _ZN3std9panicking3try17h27572361395faa7cE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66069,12 +66069,12 @@ _ZN3std9panicking3try17hcee7ac9386fc9edcE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66255,12 +66255,12 @@ _ZN3std9panicking3try17h3d2024e4c21dfbd5E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66441,12 +66441,12 @@ _ZN3std9panicking3try17he40ac86a09a41167E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66627,12 +66627,12 @@ _ZN3std9panicking3try17hbf8a47f89f048f04E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66813,12 +66813,12 @@ _ZN3std9panicking3try17h156b848d98eb6ad1E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -66999,12 +66999,12 @@ _ZN3std9panicking3try17hf6122247617f2d90E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -67185,12 +67185,12 @@ _ZN3std9panicking3try17h75d205f242924638E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -67371,12 +67371,12 @@ _ZN3std9panicking3try17hbc1a64c7bb15a6d7E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -67557,12 +67557,12 @@ _ZN3std9panicking3try17h520e934a87791c82E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -67727,12 +67727,12 @@ _ZN3std9panicking3try17he3feba9baf051087E.exit.i: ; preds = %7
   br label %48
 
 48:                                               ; preds = %42, %47, %46, %45
-  %.sroa.0.2 = phi i8 [ 3, %47 ], [ 1, %46 ], [ 0, %45 ], [ 2, %42 ]
+  %.sroa.0.2 = phi i8 [ 0, %45 ], [ 1, %46 ], [ 3, %47 ], [ 2, %42 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %49
 
 49:                                               ; preds = %1, %40, %48, %1, %44
-  %.sroa.0.1 = phi i8 [ 0, %44 ], [ 0, %40 ], [ %.sroa.0.2, %48 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %44 ], [ %.sroa.0.2, %48 ], [ 0, %40 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -67913,12 +67913,12 @@ _ZN3std9panicking3try17he4bf322d08db78abE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -68144,12 +68144,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.53361880845
   br label %78
 
 78:                                               ; preds = %60, %77, %76, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit13
-  %.sroa.0.2 = phi i8 [ 3, %77 ], [ 1, %76 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit13 ], [ 2, %60 ]
+  %.sroa.0.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit13 ], [ 1, %76 ], [ 3, %77 ], [ 2, %60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %79
 
 79:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit, %78, %1, %62
-  %.sroa.0.1 = phi i8 [ 0, %62 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit ], [ %.sroa.0.2, %78 ], [ %10, %1 ], [ %10, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %62 ], [ %.sroa.0.2, %78 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -68330,12 +68330,12 @@ _ZN3std9panicking3try17h3d514a4431dccd02E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -68516,12 +68516,12 @@ _ZN3std9panicking3try17h17156f9d6bb6446eE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -68702,12 +68702,12 @@ _ZN3std9panicking3try17h9d5d3053aff347ddE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -68888,12 +68888,12 @@ _ZN3std9panicking3try17h514d46e1968bb6ddE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -69074,12 +69074,12 @@ _ZN3std9panicking3try17h6e15a034affe8f73E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -69260,12 +69260,12 @@ _ZN3std9panicking3try17h5ceacd4696c55d41E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -69446,12 +69446,12 @@ _ZN3std9panicking3try17hfe729e3606927ecbE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -69632,12 +69632,12 @@ _ZN3std9panicking3try17hf86eb0105f8117fbE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -69818,12 +69818,12 @@ _ZN3std9panicking3try17h69e1a3dbbbb3384dE.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -70004,12 +70004,12 @@ _ZN3std9panicking3try17hda6e2454f2ebc592E.exit.i: ; preds = %7
   br label %49
 
 49:                                               ; preds = %43, %48, %47, %46
-  %.sroa.0.2 = phi i8 [ 3, %48 ], [ 1, %47 ], [ 0, %46 ], [ 2, %43 ]
+  %.sroa.0.2 = phi i8 [ 0, %46 ], [ 1, %47 ], [ 3, %48 ], [ 2, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %1, %41, %49, %1, %45
-  %.sroa.0.1 = phi i8 [ 0, %45 ], [ 0, %41 ], [ %.sroa.0.2, %49 ], [ %6, %1 ], [ %6, %1 ]
+  %.sroa.0.1 = phi i8 [ 0, %45 ], [ %.sroa.0.2, %49 ], [ 0, %41 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.sroa.0.1
 }
 
@@ -143687,8 +143687,8 @@ common.resume:                                    ; preds = %53, %51, %28
   br i1 %or.cond, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread", label %42
 
 38:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29", %31
-  %.sroa.5.0 = phi i64 [ undef, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread" ], [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29" ], [ %32, %31 ]
-  %.sroa.0.0 = phi i64 [ %., %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread" ], [ %..i, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29" ], [ 0, %31 ]
+  %.sroa.5.0 = phi i64 [ %32, %31 ], [ undef, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread" ], [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29" ]
+  %.sroa.0.0 = phi i64 [ 0, %31 ], [ %., %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread" ], [ %..i, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29" ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.5.0, 1
   ret { i64, i64 } %40

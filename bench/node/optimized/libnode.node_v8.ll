@@ -2418,7 +2418,7 @@ sw.default.i:                                     ; preds = %_ZN4node10JSONWrite
   br label %_ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit
 
 _ZN4node8v8_utilsL13GetGCTypeNameEN2v86GCTypeE.exit: ; preds = %_ZN4node10JSONWriter10json_startEv.exit, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.76, %sw.default.i ], [ @.str.75, %sw.bb3.i ], [ @.str.74, %sw.bb2.i ], [ @.str.73, %sw.bb1.i ], [ @.str.72, %_ZN4node10JSONWriter10json_startEv.exit ]
+  %retval.0.i = phi ptr [ @.str.76, %sw.default.i ], [ @.str.73, %sw.bb1.i ], [ @.str.74, %sw.bb2.i ], [ @.str.75, %sw.bb3.i ], [ @.str.72, %_ZN4node10JSONWriter10json_startEv.exit ]
   store ptr %retval.0.i, ptr %ref.tmp, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA7_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.70, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer_.i, ptr noundef nonnull @.str.71)

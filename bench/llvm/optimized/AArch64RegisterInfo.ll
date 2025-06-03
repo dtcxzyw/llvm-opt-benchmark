@@ -5067,7 +5067,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo19isAnyArgReg
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %95, %94 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %95, %94 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i16, ptr %.1.i.i.i.i.i.i, align 2, !tbaa !6
   %97 = zext i16 %.1.val.i.i.i.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #19
@@ -5099,7 +5099,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo19isAnyArgReg
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %111, %110 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %111, %110 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i16, ptr %.2.i.i.i.i.i.i, align 2, !tbaa !6
   %113 = zext i16 %.2.val.i.i.i.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #19
@@ -5974,7 +5974,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
   br label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread"
 
 "_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread": ; preds = %157, %151, %.lr.ph.i.i.i.i.i176, %197, %194, %.lr.ph.i.i.i.i.i236, %._crit_edge.i.i.i.i.i201, %._crit_edge.i.i.i.i.i121, %204, %._crit_edge._crit_edge52.i.i.i.i.i265, %._crit_edge._crit_edge52.i.i.i.i.i245, %._crit_edge._crit_edge52.i.i.i.i.i245, %._crit_edge._crit_edge52.i.i.i.i.i245, %._crit_edge._crit_edge.i.i.i.i.i187, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit253", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit193", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit153", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit413", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit393", %._crit_edge._crit_edge52.i.i.i.i.i365, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit353", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit233", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit173", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit113", %._crit_edge._crit_edge52.i.i.i.i.i85, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit73", %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit"
-  %.0 = phi i1 [ %258, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit393" ], [ %282, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit413" ], [ %231, %._crit_edge._crit_edge52.i.i.i.i.i365 ], [ %230, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit353" ], [ %74, %._crit_edge._crit_edge52.i.i.i.i.i85 ], [ %98, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit113" ], [ %188, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit233" ], [ %148, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit173" ], [ %68, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit73" ], [ %46, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit" ], [ %121, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit153" ], [ true, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit193" ], [ true, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit253" ], [ true, %._crit_edge._crit_edge.i.i.i.i.i187 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ true, %._crit_edge.i.i.i.i.i121 ], [ %203, %._crit_edge._crit_edge52.i.i.i.i.i265 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ %207, %204 ], [ %switch502, %._crit_edge.i.i.i.i.i201 ], [ true, %.lr.ph.i.i.i.i.i236 ], [ true, %194 ], [ true, %197 ], [ true, %.lr.ph.i.i.i.i.i176 ], [ true, %151 ], [ true, %157 ]
+  %.0 = phi i1 [ %46, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit" ], [ %74, %._crit_edge._crit_edge52.i.i.i.i.i85 ], [ %98, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit113" ], [ %188, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit233" ], [ %148, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit173" ], [ %68, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit73" ], [ %230, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit353" ], [ %231, %._crit_edge._crit_edge52.i.i.i.i.i365 ], [ %258, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit393" ], [ %282, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit413" ], [ %121, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit153" ], [ true, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit193" ], [ true, %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit253" ], [ true, %._crit_edge._crit_edge.i.i.i.i.i187 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ true, %._crit_edge.i.i.i.i.i121 ], [ %203, %._crit_edge._crit_edge52.i.i.i.i.i265 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ true, %._crit_edge._crit_edge52.i.i.i.i.i245 ], [ %207, %204 ], [ %switch502, %._crit_edge.i.i.i.i.i201 ], [ true, %.lr.ph.i.i.i.i.i236 ], [ true, %194 ], [ true, %197 ], [ true, %.lr.ph.i.i.i.i.i176 ], [ true, %151 ], [ true, %157 ]
   ret i1 %.0
 }
 
@@ -7263,7 +7263,7 @@ _ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit: ; p
   br label %74
 
 74:                                               ; preds = %3, %73, %72, %71, %70, %69, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit
-  %.0 = phi i32 [ 8, %73 ], [ 16, %72 ], [ 32, %71 ], [ 4, %70 ], [ 32, %69 ], [ %68, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit ], [ 0, %3 ]
+  %.0 = phi i32 [ %68, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit ], [ 32, %69 ], [ 4, %70 ], [ 32, %71 ], [ 16, %72 ], [ 8, %73 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -7577,8 +7577,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge._crit_edge.i.i.i.i
-  %.val38.val.val.i.i.i.i = phi ptr [ %.val38.val.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.val36.val.val.i.i.i.i, %123 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %124, %123 ]
+  %.val38.val.val.i.i.i.i = phi ptr [ %.val36.val.val.i.i.i.i, %123 ], [ %.val38.val.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %124, %123 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %126 = getelementptr i8, ptr %.1.i.i.i.i, i64 4
   %.1.val.i.i.i.i = load i32, ptr %126, align 4, !tbaa !3
   %127 = and i32 %.1.val.i.i.i.i, 2147483647
@@ -7593,8 +7593,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge._crit_edge70.i.i.i.i
-  %.val39.val.val.i.i.i.i = phi ptr [ %.val39.val.val.pre.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ], [ %.val38.val.val.i.i.i.i, %130 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ], [ %131, %130 ]
+  %.val39.val.val.i.i.i.i = phi ptr [ %.val38.val.val.i.i.i.i, %130 ], [ %.val39.val.val.pre.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %131, %130 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i ]
   %133 = getelementptr i8, ptr %.2.i.i.i.i, i64 4
   %.2.val.i.i.i.i = load i32, ptr %133, align 4, !tbaa !3
   %134 = and i32 %.2.val.i.i.i.i, 2147483647

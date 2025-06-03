@@ -34,7 +34,7 @@ define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captur
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = phi i1 [ true, %2 ], [ false, %7 ]
+  %9 = phi i1 [ false, %7 ], [ true, %2 ]
   %10 = getelementptr i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   br label %12
@@ -193,7 +193,7 @@ define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captur
   br label %73
 
 73:                                               ; preds = %72, %69
-  %74 = phi i1 [ true, %69 ], [ false, %72 ]
+  %74 = phi i1 [ false, %72 ], [ true, %69 ]
   %75 = getelementptr i8, ptr %.3434, i64 2
   %76 = load i8, ptr %75, align 1, !tbaa !4
   br label %77
@@ -4573,7 +4573,7 @@ select.unfold:                                    ; preds = %250
   br label %271
 
 271:                                              ; preds = %270, %267
-  %.1468 = phi i32 [ 1, %267 ], [ 0, %270 ]
+  %.1468 = phi i32 [ 0, %270 ], [ 1, %267 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   br label %276
 
@@ -4581,7 +4581,7 @@ select.unfold:                                    ; preds = %250
   br label %273
 
 273:                                              ; preds = %272, %267
-  %.2469 = phi i32 [ 1, %267 ], [ 0, %272 ]
+  %.2469 = phi i32 [ 0, %272 ], [ 1, %267 ]
   %274 = add i32 %.1473, %2
   %275 = add i32 %274, 1
   %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %275, i32 1)
@@ -4591,11 +4591,11 @@ default.unreachable:                              ; preds = %267
   unreachable
 
 276:                                              ; preds = %273, %271
-  %.1504 = phi i32 [ %spec.store.select4, %273 ], [ %spec.store.select, %271 ]
-  %.0490 = phi i32 [ %275, %273 ], [ %spec.store.select, %271 ]
-  %.0486 = phi i32 [ %274, %273 ], [ %spec.store.select, %271 ]
-  %.0467 = phi i32 [ %.2469, %273 ], [ %.1468, %271 ]
-  %.0451 = phi i32 [ %2, %273 ], [ %spec.store.select, %271 ]
+  %.1504 = phi i32 [ %spec.store.select, %271 ], [ %spec.store.select4, %273 ]
+  %.0490 = phi i32 [ %spec.store.select, %271 ], [ %275, %273 ]
+  %.0486 = phi i32 [ %spec.store.select, %271 ], [ %274, %273 ]
+  %.0467 = phi i32 [ %.1468, %271 ], [ %.2469, %273 ]
+  %.0451 = phi i32 [ %spec.store.select, %271 ], [ %2, %273 ]
   %277 = zext nneg i32 %.1504 to i64
   %.not13.i = icmp samesign ult i32 %.1504, 28
   br i1 %.not13.i, label %._crit_edge.thread.i, label %.lr.ph.i667

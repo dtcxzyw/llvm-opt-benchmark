@@ -2020,7 +2020,7 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   br label %41
 
 41:                                               ; preds = %39, %22
-  %.0134 = phi nsz float [ %3, %22 ], [ %40, %39 ]
+  %.0134 = phi nsz float [ %40, %39 ], [ %3, %22 ]
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %43 = sext i32 %15 to i64
   %44 = sext i32 %13 to i64
@@ -2091,7 +2091,7 @@ get_params.exit:                                  ; preds = %59
   br label %94
 
 94:                                               ; preds = %92, %22
-  %.1 = phi nsz float [ %3, %22 ], [ %93, %92 ]
+  %.1 = phi nsz float [ %93, %92 ], [ %3, %22 ]
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %96 = sext i32 %19 to i64
   %97 = sext i32 %13 to i64
@@ -2158,7 +2158,7 @@ get_params.exit149:                               ; preds = %112
   br label %144
 
 144:                                              ; preds = %142, %22
-  %.2 = phi nsz float [ %3, %22 ], [ %143, %142 ]
+  %.2 = phi nsz float [ %143, %142 ], [ %3, %22 ]
   %145 = add i32 %1, -2
   %or.cond = icmp ult i32 %145, 4
   br i1 %or.cond, label %146, label %._crit_edge
@@ -2213,7 +2213,7 @@ get_params.exit149:                               ; preds = %112
   br label %179
 
 179:                                              ; preds = %178, %168, %get_params.exit149, %get_params.exit, %23
-  %.0135 = phi ptr [ null, %178 ], [ %177, %168 ], [ %141, %get_params.exit149 ], [ %91, %get_params.exit ], [ %38, %23 ]
+  %.0135 = phi ptr [ null, %178 ], [ %38, %23 ], [ %91, %get_params.exit ], [ %141, %get_params.exit149 ], [ %177, %168 ]
   %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !181
   %181 = sext i32 %15 to i64
   %182 = getelementptr inbounds i8, ptr %0, i64 %181
@@ -2246,7 +2246,7 @@ get_params.exit149:                               ; preds = %112
   br label %190
 
 190:                                              ; preds = %188, %183
-  %.4 = phi nsz float [ %3, %183 ], [ %189, %188 ]
+  %.4 = phi nsz float [ %189, %188 ], [ %3, %183 ]
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %192 = load float, ptr %191, align 8, !tbaa !180
   %193 = fpext reassoc nsz arcp contract afn float %192 to double
@@ -3157,7 +3157,7 @@ dt_draw_grid.exit:                                ; preds = %230
   br label %343
 
 343:                                              ; preds = %341, %339, %337
-  %.0409 = phi i32 [ -1, %341 ], [ 4, %339 ], [ 3, %337 ]
+  %.0409 = phi i32 [ -1, %341 ], [ 3, %337 ], [ 4, %339 ]
   %344 = load ptr, ptr %11, align 8, !tbaa !165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(248) %4, ptr noundef nonnull align 4 dereferenceable(248) %344, i64 248, i1 false), !tbaa.struct !166
   %345 = load i32, ptr %17, align 4, !tbaa !183

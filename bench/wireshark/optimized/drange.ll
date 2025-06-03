@@ -309,7 +309,7 @@ default.unreachable:                              ; preds = %.critedge2.thread
   unreachable
 
 drange_str_to_int32.exit.thread:                  ; preds = %19, %13, %94, %109, %112, %107, %104, %92, %.thread
-  %.044 = phi ptr [ null, %.thread ], [ null, %104 ], [ null, %107 ], [ null, %92 ], [ %113, %112 ], [ %88, %109 ], [ %95, %94 ], [ null, %13 ], [ null, %19 ]
+  %.044 = phi ptr [ null, %.thread ], [ null, %92 ], [ null, %104 ], [ null, %107 ], [ %113, %112 ], [ %88, %109 ], [ %95, %94 ], [ null, %13 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret ptr %.044
 }

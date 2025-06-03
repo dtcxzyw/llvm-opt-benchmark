@@ -1039,7 +1039,7 @@ common.resume:                                    ; preds = %.thread255, %180, %
   br label %201
 
 201:                                              ; preds = %224, %200
-  %.pn = phi ptr [ %227, %224 ], [ %168, %200 ]
+  %.pn = phi ptr [ %168, %200 ], [ %227, %224 ]
   %.071 = getelementptr inbounds i8, ptr %.pn, i64 -40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.617)
   store i64 -9223372036854775808, ptr %0, align 8

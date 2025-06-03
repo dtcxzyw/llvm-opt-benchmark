@@ -6906,7 +6906,7 @@ __itt_get_groups.exit:                            ; preds = %151, %130, %141
   br label %167
 
 167:                                              ; preds = %166, %164
-  %.064 = phi i32 [ %.0.i, %164 ], [ 1, %166 ]
+  %.064 = phi i32 [ 1, %166 ], [ %.0.i, %164 ]
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
   %169 = load ptr, ptr %168, align 8, !tbaa !98
   %.not82121 = icmp eq ptr %169, null

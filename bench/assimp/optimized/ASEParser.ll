@@ -8894,7 +8894,7 @@ define hidden void @_ZN6Assimp3ASE6Parser17ParseLV2MeshBlockERNS0_4MeshE(ptr nou
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %21, %28, %35, %42, %49, %56, %63, %71, %79, %87, %95, %103, %111, %128, %131, %_ZN6Assimp9IsLineEndIcEEbT_.exit, %125
-  %.012.be = phi i32 [ %.012, %21 ], [ %.012, %28 ], [ %.012, %35 ], [ %.012, %42 ], [ %.012, %49 ], [ %.012, %56 ], [ %.012, %63 ], [ %.012, %71 ], [ %.012, %79 ], [ %.012, %87 ], [ %.012, %95 ], [ %.012, %103 ], [ %.012, %111 ], [ %.012, %125 ], [ %.012, %128 ], [ %.012, %131 ], [ %.19699, %_ZN6Assimp9IsLineEndIcEEbT_.exit ]
+  %.012.be = phi i32 [ %.012, %21 ], [ %.012, %28 ], [ %.012, %35 ], [ %.012, %42 ], [ %.012, %49 ], [ %.012, %56 ], [ %.012, %63 ], [ %.012, %71 ], [ %.012, %79 ], [ %.012, %87 ], [ %.012, %95 ], [ %.012, %103 ], [ %.012, %111 ], [ %.012, %128 ], [ %.012, %131 ], [ %.19699, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.012, %125 ]
   br label %.backedge, !llvm.loop !82
 
 23:                                               ; preds = %15, %18
@@ -14295,7 +14295,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit.i57:             ; preds = %116, %114, %109
   br label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
 
 126:                                              ; preds = %.critedge.i.i50, %.critedge.i.i50, %123, %122
-  %.019 = phi i64 [ 2, %123 ], [ 1, %122 ], [ 0, %.critedge.i.i50 ], [ 0, %.critedge.i.i50 ]
+  %.019 = phi i64 [ 1, %122 ], [ 2, %123 ], [ 0, %.critedge.i.i50 ], [ 0, %.critedge.i.i50 ]
   %127 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i51, i64 1
   store ptr %127, ptr %0, align 8
   %128 = ptrtoint ptr %127 to i64

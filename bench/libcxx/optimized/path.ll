@@ -488,8 +488,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %1
   br label %42
 
 42:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit, %24, %1, %27, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit
-  %.sroa.0.0 = phi ptr [ %.str.5..str.3.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %31, %27 ], [ null, %1 ], [ %17, %24 ], [ %17, %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit ]
-  %.sroa.5.0 = phi i64 [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ %38, %27 ], [ 0, %1 ], [ %19, %24 ], [ %19, %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit ]
+  %.sroa.0.0 = phi ptr [ %31, %27 ], [ %.str.5..str.3.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ null, %1 ], [ %17, %24 ], [ %17, %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit ]
+  %.sroa.5.0 = phi i64 [ %38, %27 ], [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit ], [ 0, %1 ], [ %19, %24 ], [ %19, %_ZNKSt3__14__fs10filesystem6parser10PathParser4peekB8ne210000Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #19
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
@@ -2998,7 +2998,7 @@ define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9d
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit: ; preds = %6, %9
-  %.0.i = phi ptr [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi ptr [ %8, %6 ], [ %12, %9 ]
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %15 = icmp eq ptr %.0.i, %2
   br i1 %15, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread, label %17

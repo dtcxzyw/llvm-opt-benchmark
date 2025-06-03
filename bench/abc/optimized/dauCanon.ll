@@ -7647,7 +7647,7 @@ Abc_TgRecordPhase1.exit.i:                        ; preds = %.lr.ph.i98.i.i, %Ab
   br label %Abc_SccEnumCost.exit.i
 
 Abc_SccEnumCost.exit.i:                           ; preds = %439, %433, %427, %Abc_TgRecordPhase1.exit.i
-  %.0.i14.i = phi double [ %446, %439 ], [ %438, %433 ], [ %432, %427 ], [ 0.000000e+00, %Abc_TgRecordPhase1.exit.i ]
+  %.0.i14.i = phi double [ %432, %427 ], [ %438, %433 ], [ %446, %439 ], [ 0.000000e+00, %Abc_TgRecordPhase1.exit.i ]
   %447 = fadd double %.0.i14.i, 5.000000e-01
   %448 = fptosi double %447 to i32
   br label %Abc_TgEnumerationCost.exit
@@ -12008,7 +12008,7 @@ define internal fastcc double @Abc_SccEnumCost(ptr noundef nonnull readonly capt
   br label %32
 
 32:                                               ; preds = %3, %22, %14, %6
-  %.0 = phi double [ %31, %22 ], [ %21, %14 ], [ %13, %6 ], [ 0.000000e+00, %3 ]
+  %.0 = phi double [ %13, %6 ], [ %21, %14 ], [ %31, %22 ], [ 0.000000e+00, %3 ]
   ret double %.0
 }
 

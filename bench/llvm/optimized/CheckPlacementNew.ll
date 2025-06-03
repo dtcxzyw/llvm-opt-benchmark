@@ -1118,8 +1118,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ;
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i.i
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i.i: ; preds = %47, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
-  %49 = phi ptr [ %38, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i ], [ %.pre.i.i.i, %47 ]
-  %.1.i.i.i.i.i = phi ptr [ %44, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i ], [ %48, %47 ]
+  %49 = phi ptr [ %.pre.i.i.i, %47 ], [ %38, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %48, %47 ], [ %44, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 32
   %.sroa.0.0.copyload.i1.i.i.i.i = load i64, ptr %50, align 16, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -1952,7 +1952,7 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker30checkPlaceCapacityIsSufficientEPKN5clan
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i: ; preds = %381, %368
-  %.1.i.i.i.i = phi ptr [ %378, %368 ], [ %382, %381 ]
+  %.1.i.i.i.i = phi ptr [ %382, %381 ], [ %378, %368 ]
   %383 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %383, align 16, !tbaa !17
   %384 = load ptr, ptr %2, align 8, !tbaa !83

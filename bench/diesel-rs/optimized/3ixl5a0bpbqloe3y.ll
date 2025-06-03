@@ -48,13 +48,13 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   %.fr = freeze ptr %4
   %27 = load i64, ptr %2, align 8, !range !3, !noundef !4
   %28 = xor i64 %27, -9223372036854775808
-  switch i64 %28, label %.thread70 [
+  switch i64 %28, label %.thread69 [
     i64 1, label %29
     i64 12, label %33
     i64 14, label %34
   ]
 
-.thread70:                                        ; preds = %149, %.split75.us, %61, %5
+.thread69:                                        ; preds = %149, %.split74.us, %61, %5
   store i64 -9223372036854775808, ptr %0, align 8
   br label %130
 
@@ -163,17 +163,17 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdb721dc99183711dE"(ptr nonnull sret({ i64, [31 x i64] }) align 8 %24, ptr nonnull align 8 %62, ptr nonnull align 8 %31, ptr nonnull align 8 %23)
   call void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$dsl_auto_type..auto_type..local_variables_map..LetStatementInferredType$GT$$GT$17hc4eaa34e0de67d1bE"(ptr nonnull align 8 %24)
-  br label %.thread70
+  br label %.thread69
 
-63:                                               ; preds = %.split73.us, %71, %67, %54, %50, %43
+63:                                               ; preds = %.split72.us, %71, %67, %54, %50, %43
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #7
   unreachable
 
-65:                                               ; preds = %67, %.split73.us, %71, %50, %43
-  %.pn62 = phi { ptr, i32 } [ %.us-phi, %.split73.us ], [ %.pn60, %50 ], [ %44, %43 ], [ %72, %71 ], [ %68, %67 ]
-  resume { ptr, i32 } %.pn62
+65:                                               ; preds = %67, %.split72.us, %71, %50, %43
+  %.pn60.pn = phi { ptr, i32 } [ %.pn60, %50 ], [ %44, %43 ], [ %72, %71 ], [ %.us-phi, %.split72.us ], [ %68, %67 ]
+  resume { ptr, i32 } %.pn60.pn
 
 66:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
@@ -223,36 +223,36 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 .split.us.split.us:                               ; preds = %.split.us, %87
   %83 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4048ee3413348342E"(ptr nonnull align 8 %10)
-          to label %84 unwind label %.split73.us.split.us
+          to label %84 unwind label %.split72.us.split.us
 
 84:                                               ; preds = %.split.us.split.us
   %.fca.1.extract.us.us = extractvalue { i64, ptr } %83, 1
   %85 = icmp eq ptr %.fca.1.extract.us.us, null
-  br i1 %85, label %.split75.us, label %86
+  br i1 %85, label %.split74.us, label %86
 
 86:                                               ; preds = %84
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us.us, ptr align 8 null, ptr align 8 null)
-          to label %87 unwind label %.split73.us.split.us
+          to label %87 unwind label %.split72.us.split.us
 
 87:                                               ; preds = %86
   %88 = load i64, ptr %9, align 8, !range !6, !noundef !4
   %89 = icmp eq i64 %88, -9223372036854775808
-  br i1 %89, label %.split.us.split.us, label %.split77.us
+  br i1 %89, label %.split.us.split.us, label %.split76.us
 
-.split73.us.split.us:                             ; preds = %86, %.split.us.split.us
+.split72.us.split.us:                             ; preds = %86, %.split.us.split.us
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %.split73.us
+  br label %.split72.us
 
 .split.us.split:                                  ; preds = %.split.us, %100
   %91 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4048ee3413348342E"(ptr nonnull align 8 %10)
-          to label %92 unwind label %.split73.us.split
+          to label %92 unwind label %.split72.us.split
 
 92:                                               ; preds = %.split.us.split
   %.fca.0.extract.us = extractvalue { i64, ptr } %91, 0
   %.fca.1.extract.us = extractvalue { i64, ptr } %91, 1
   %93 = icmp eq ptr %.fca.1.extract.us, null
-  br i1 %93, label %.split75.us, label %94
+  br i1 %93, label %.split74.us, label %94
 
 94:                                               ; preds = %92
   %95 = load i64, ptr %.fr, align 8, !range !7, !noundef !4
@@ -261,35 +261,35 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 97:                                               ; preds = %94
   %98 = invoke align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h910721a55b617a10E"(ptr nonnull align 8 %82, i64 %.fca.0.extract.us, ptr nonnull align 8 @anon.ca550b58961d0f3ed09df787a5593294.4)
-          to label %99 unwind label %.split73.us.split
+          to label %99 unwind label %.split72.us.split
 
 99:                                               ; preds = %97, %94
   %.051.us = phi ptr [ null, %94 ], [ %98, %97 ]
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us, ptr align 8 null, ptr align 8 %.051.us)
-          to label %100 unwind label %.split73.us.split
+          to label %100 unwind label %.split72.us.split
 
 100:                                              ; preds = %99
   %101 = load i64, ptr %9, align 8, !range !6, !noundef !4
   %102 = icmp eq i64 %101, -9223372036854775808
-  br i1 %102, label %.split.us.split, label %.split77.us
+  br i1 %102, label %.split.us.split, label %.split76.us
 
-.split73.us.split:                                ; preds = %99, %97, %.split.us.split
+.split72.us.split:                                ; preds = %99, %97, %.split.us.split
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %.split73.us
+  br label %.split72.us
 
 .split:                                           ; preds = %76
   br i1 %.not58, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %113
   %104 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4048ee3413348342E"(ptr nonnull align 8 %10)
-          to label %105 unwind label %.split73.split.us
+          to label %105 unwind label %.split72.split.us
 
 105:                                              ; preds = %.split.split.us
-  %.fca.0.extract.us79 = extractvalue { i64, ptr } %104, 0
-  %.fca.1.extract.us80 = extractvalue { i64, ptr } %104, 1
-  %106 = icmp eq ptr %.fca.1.extract.us80, null
-  br i1 %106, label %.split75.us, label %107
+  %.fca.0.extract.us78 = extractvalue { i64, ptr } %104, 0
+  %.fca.1.extract.us79 = extractvalue { i64, ptr } %104, 1
+  %106 = icmp eq ptr %.fca.1.extract.us79, null
+  br i1 %106, label %.split74.us, label %107
 
 107:                                              ; preds = %105
   %108 = load i64, ptr %3, align 8, !range !5, !noundef !4
@@ -297,23 +297,23 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %107
-  %111 = invoke align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h61405b421c69b9aaE"(ptr nonnull align 8 %81, i64 %.fca.0.extract.us79, ptr nonnull align 8 @anon.ca550b58961d0f3ed09df787a5593294.3)
-          to label %112 unwind label %.split73.split.us
+  %111 = invoke align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h61405b421c69b9aaE"(ptr nonnull align 8 %81, i64 %.fca.0.extract.us78, ptr nonnull align 8 @anon.ca550b58961d0f3ed09df787a5593294.3)
+          to label %112 unwind label %.split72.split.us
 
 112:                                              ; preds = %110, %107
-  %.052.us81 = phi ptr [ null, %107 ], [ %111, %110 ]
-  invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us80, ptr align 8 %.052.us81, ptr align 8 null)
-          to label %113 unwind label %.split73.split.us
+  %.052.us80 = phi ptr [ null, %107 ], [ %111, %110 ]
+  invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us79, ptr align 8 %.052.us80, ptr align 8 null)
+          to label %113 unwind label %.split72.split.us
 
 113:                                              ; preds = %112
   %114 = load i64, ptr %9, align 8, !range !6, !noundef !4
   %115 = icmp eq i64 %114, -9223372036854775808
-  br i1 %115, label %.split.split.us, label %.split77.us
+  br i1 %115, label %.split.split.us, label %.split76.us
 
-.split73.split.us:                                ; preds = %112, %110, %.split.split.us
+.split72.split.us:                                ; preds = %112, %110, %.split.split.us
   %116 = landingpad { ptr, i32 }
           cleanup
-  br label %.split73.us
+  br label %.split72.us
 
 117:                                              ; preds = %73
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -340,20 +340,20 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %130
 
-130:                                              ; preds = %158, %156, %.split77.us, %128, %.thread70
+130:                                              ; preds = %158, %156, %.split76.us, %128, %.thread69
   ret void
 
 .split.split:                                     ; preds = %.split, %146
   %131 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4048ee3413348342E"(ptr nonnull align 8 %10)
-          to label %133 unwind label %.split73.split
+          to label %133 unwind label %.split72.split
 
-.split73.split:                                   ; preds = %145, %143, %138, %.split.split
+.split72.split:                                   ; preds = %145, %143, %138, %.split.split
   %132 = landingpad { ptr, i32 }
           cleanup
-  br label %.split73.us
+  br label %.split72.us
 
-.split73.us:                                      ; preds = %.split73.split, %.split73.split.us, %.split73.us.split, %.split73.us.split.us
-  %.us-phi = phi { ptr, i32 } [ %103, %.split73.us.split ], [ %90, %.split73.us.split.us ], [ %132, %.split73.split ], [ %116, %.split73.split.us ]
+.split72.us:                                      ; preds = %.split72.split, %.split72.split.us, %.split72.us.split, %.split72.us.split.us
+  %.us-phi = phi { ptr, i32 } [ %103, %.split72.us.split ], [ %90, %.split72.us.split.us ], [ %132, %.split72.split ], [ %116, %.split72.split.us ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$syn..punctuated..Iter$LT$syn..pat..Pat$GT$$GT$$GT$17h441ed21324aec38eE"(ptr nonnull align 8 %10) #6
           to label %65 unwind label %63
 
@@ -361,11 +361,11 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   %.fca.0.extract = extractvalue { i64, ptr } %131, 0
   %.fca.1.extract = extractvalue { i64, ptr } %131, 1
   %134 = icmp eq ptr %.fca.1.extract, null
-  br i1 %134, label %.split75.us, label %135
+  br i1 %134, label %.split74.us, label %135
 
-.split75.us:                                      ; preds = %133, %105, %92, %84
+.split74.us:                                      ; preds = %133, %105, %92, %84
   call void @"_ZN4core3ptr113drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$syn..punctuated..Iter$LT$syn..pat..Pat$GT$$GT$$GT$17h441ed21324aec38eE"(ptr nonnull align 8 %10)
-  br label %.thread70
+  br label %.thread69
 
 135:                                              ; preds = %133
   %136 = load i64, ptr %3, align 8, !range !5, !noundef !4
@@ -374,7 +374,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 138:                                              ; preds = %135
   %139 = invoke align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h61405b421c69b9aaE"(ptr nonnull align 8 %81, i64 %.fca.0.extract, ptr nonnull align 8 @anon.ca550b58961d0f3ed09df787a5593294.3)
-          to label %140 unwind label %.split73.split
+          to label %140 unwind label %.split72.split
 
 140:                                              ; preds = %138, %135
   %.052 = phi ptr [ null, %135 ], [ %139, %138 ]
@@ -384,22 +384,22 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 143:                                              ; preds = %140
   %144 = invoke align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h910721a55b617a10E"(ptr nonnull align 8 %82, i64 %.fca.0.extract, ptr nonnull align 8 @anon.ca550b58961d0f3ed09df787a5593294.4)
-          to label %145 unwind label %.split73.split
+          to label %145 unwind label %.split72.split
 
 145:                                              ; preds = %143, %140
   %.051 = phi ptr [ null, %140 ], [ %144, %143 ]
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract, ptr align 8 %.052, ptr align 8 %.051)
-          to label %146 unwind label %.split73.split
+          to label %146 unwind label %.split72.split
 
 146:                                              ; preds = %145
   %147 = load i64, ptr %9, align 8, !range !6, !noundef !4
   %148 = icmp eq i64 %147, -9223372036854775808
-  br i1 %148, label %.split.split, label %.split77.us
+  br i1 %148, label %.split.split, label %.split76.us
 
-.split77.us:                                      ; preds = %146, %113, %100, %87
-  %.us-phi78 = phi i64 [ %88, %87 ], [ %101, %100 ], [ %114, %113 ], [ %147, %146 ]
+.split76.us:                                      ; preds = %146, %113, %100, %87
+  %.us-phi77 = phi i64 [ %88, %87 ], [ %101, %100 ], [ %114, %113 ], [ %147, %146 ]
   %.sroa.043.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.us-phi78, ptr %0, align 8
+  store i64 %.us-phi77, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.247.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.043.sroa.2.0..sroa_idx, i64 16, i1 false)
   call void @"_ZN4core3ptr113drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$syn..punctuated..Iter$LT$syn..pat..Pat$GT$$GT$$GT$17h441ed21324aec38eE"(ptr nonnull align 8 %10)
@@ -413,7 +413,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   call void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %26, ptr align 8 %1, ptr nonnull align 8 %151, ptr nonnull align 8 %153, ptr align 8 %.fr)
   %154 = load i64, ptr %26, align 8, !range !6, !noundef !4
   %155 = icmp eq i64 %154, -9223372036854775808
-  br i1 %155, label %.thread70, label %158
+  br i1 %155, label %.thread69, label %158
 
 156:                                              ; preds = %34
   call void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hb06d6f3eb0b0d9f3E(ptr nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 %8, ptr nonnull align 8 %3)

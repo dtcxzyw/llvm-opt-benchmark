@@ -1330,7 +1330,7 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   br label %.backedge.i67
 
 .backedge.i67:                                    ; preds = %.preheader3.i, %.lr.ph.i68, %.preheader.i, %.backedge.sink.split.i65, %120, %108, %.preheader1.i, %102, %.lr.ph10.i
-  %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %120 ], [ %106, %102 ], [ %106, %108 ], [ %106, %.preheader1.i ], [ %129, %.backedge.sink.split.i65 ], [ %112, %.preheader.i ], [ %118, %.lr.ph.i68 ], [ %124, %.preheader3.i ]
+  %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %108 ], [ %106, %102 ], [ %106, %120 ], [ %106, %.preheader1.i ], [ %129, %.backedge.sink.split.i65 ], [ %112, %.preheader.i ], [ %118, %.lr.ph.i68 ], [ %124, %.preheader3.i ]
   %130 = call i32 @tvb_captured_length(ptr noundef %0)
   %131 = icmp ugt i32 %130, %.079.be.i
   br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !30
@@ -2023,7 +2023,7 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !43
 
 .backedge.i120:                                   ; preds = %.preheader1.i118, %.preheader.i123, %548, %542, %.lr.ph.i116
-  %.057.be.i121 = phi i32 [ %533, %.lr.ph.i116 ], [ %540, %548 ], [ %540, %542 ], [ %546, %.preheader.i123 ], [ %552, %.preheader1.i118 ]
+  %.057.be.i121 = phi i32 [ %533, %.lr.ph.i116 ], [ %540, %542 ], [ %540, %548 ], [ %546, %.preheader.i123 ], [ %552, %.preheader1.i118 ]
   %554 = call i32 @tvb_captured_length(ptr noundef %0)
   %555 = icmp ugt i32 %554, %.057.be.i121
   br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44

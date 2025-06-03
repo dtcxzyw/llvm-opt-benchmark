@@ -6228,7 +6228,7 @@ define dso_local noundef float @_ZNK21btConeTwistConstraint8getParamEii(ptr noun
   br label %22
 
 22:                                               ; preds = %3, %14, %17, %19, %5, %8, %10
-  %.0 = phi float [ 0.000000e+00, %3 ], [ %16, %14 ], [ %21, %19 ], [ 0.000000e+00, %17 ], [ %7, %5 ], [ %12, %10 ], [ 0.000000e+00, %8 ]
+  %.0 = phi float [ 0.000000e+00, %3 ], [ %7, %5 ], [ %12, %10 ], [ 0.000000e+00, %8 ], [ %16, %14 ], [ %21, %19 ], [ 0.000000e+00, %17 ]
   ret float %.0
 }
 

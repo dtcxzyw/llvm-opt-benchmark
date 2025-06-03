@@ -1174,8 +1174,8 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %93
 
 93:                                               ; preds = %92, %88, %86, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %.126.i = phi i32 [ 1, %86 ], [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ 1, %88 ], [ 1, %92 ]
-  %.1.i = phi i32 [ %.043.i, %86 ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %88 ], [ %spec.select.i34, %92 ]
+  %.126.i = phi i32 [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ %.02542.i, %.lr.ph.i ], [ 1, %86 ], [ 1, %88 ], [ 1, %92 ]
+  %.1.i = phi i32 [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %.lr.ph.i ], [ %.043.i, %86 ], [ %.043.i, %88 ], [ %spec.select.i34, %92 ]
   %94 = add i32 %.1.i, 1
   %.not.i = icmp eq i32 %94, %.sroa.437.0.extract.trunc.i
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !432

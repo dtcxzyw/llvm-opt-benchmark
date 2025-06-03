@@ -796,8 +796,8 @@ JsonbIteratorInit.exit29:                         ; preds = %44, %54
   %130 = select i1 %129, i32 1, i32 -1
   br label %compareJsonbScalarValue.exit.thread
 
-compareJsonbScalarValue.exit.thread:              ; preds = %73, %114, %108, %123, %126, %99
-  %.1.ph = phi i32 [ %..i, %99 ], [ %130, %126 ], [ %125, %123 ], [ %110, %108 ], [ %116, %114 ], [ 0, %73 ]
+compareJsonbScalarValue.exit.thread:              ; preds = %73, %108, %114, %123, %126, %99
+  %.1.ph = phi i32 [ %..i, %99 ], [ %130, %126 ], [ %125, %123 ], [ %116, %114 ], [ %110, %108 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   br label %thread-pre-split
@@ -1284,7 +1284,7 @@ switch.early.test99:                              ; preds = %182
   unreachable
 
 .loopexit:                                        ; preds = %switch.early.test99, %switch.early.test99, %switch.early.test99, %switch.early.test99, %switch.early.test99, %182, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %55, %3, %137, %124, %getJsonbOffset.exit, %33, %11
-  %.0 = phi i32 [ 7, %124 ], [ 1, %137 ], [ 6, %getJsonbOffset.exit ], [ 5, %33 ], [ 4, %11 ], [ 0, %3 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %182 ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %55 ], [ 2, %switch.early.test99 ], [ 3, %switch.early.test ]
+  %.0 = phi i32 [ 4, %11 ], [ 5, %33 ], [ 6, %getJsonbOffset.exit ], [ 7, %124 ], [ 1, %137 ], [ 0, %3 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %182 ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %55 ], [ 2, %switch.early.test99 ], [ 3, %switch.early.test ]
   ret i32 %.0
 }
 
@@ -1576,7 +1576,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr noundef readonly c
   unreachable
 
 lengthCompareJsonbStringValue.exit:               ; preds = %11, %7, %6, %25, %16
-  %.0 = phi i1 [ %30, %25 ], [ %24, %16 ], [ true, %6 ], [ %15, %11 ], [ false, %7 ]
+  %.0 = phi i1 [ %24, %16 ], [ %30, %25 ], [ true, %6 ], [ %15, %11 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -2190,7 +2190,7 @@ uniqueifyJsonbObject.exit:                        ; preds = %118, %.thread.i, %.
   unreachable
 
 194:                                              ; preds = %173, %180, %179, %87, %78, %appendKey.exit, %33, %23
-  %.0 = phi ptr [ %174, %180 ], [ %174, %179 ], [ %174, %173 ], [ null, %87 ], [ null, %78 ], [ null, %appendKey.exit ], [ %34, %33 ], [ %6, %23 ]
+  %.0 = phi ptr [ %6, %23 ], [ %34, %33 ], [ null, %appendKey.exit ], [ null, %78 ], [ null, %87 ], [ %174, %179 ], [ %174, %180 ], [ %174, %173 ]
   ret ptr %.0
 }
 
@@ -2692,7 +2692,7 @@ define dso_local void @JsonbHashScalarValue(ptr noundef readonly captures(none) 
   unreachable
 
 24:                                               ; preds = %2, %16, %10, %4
-  %.0 = phi i32 [ %20, %16 ], [ %15, %10 ], [ %9, %4 ], [ 1, %2 ]
+  %.0 = phi i32 [ %9, %4 ], [ %15, %10 ], [ %20, %16 ], [ 1, %2 ]
   %25 = load i32, ptr %1, align 4
   %26 = tail call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 1)
   %27 = xor i32 %26, %.0
@@ -2757,7 +2757,7 @@ define dso_local void @JsonbHashScalarValueExtended(ptr noundef readonly capture
   unreachable
 
 30:                                               ; preds = %21, %24, %13, %7, %5
-  %.0 = phi i64 [ %23, %21 ], [ %26, %24 ], [ %17, %13 ], [ %12, %7 ], [ %6, %5 ]
+  %.0 = phi i64 [ %6, %5 ], [ %12, %7 ], [ %17, %13 ], [ %23, %21 ], [ %26, %24 ]
   %31 = load i64, ptr %1, align 8
   %32 = shl i64 %31, 1
   %33 = and i64 %32, -4294967298

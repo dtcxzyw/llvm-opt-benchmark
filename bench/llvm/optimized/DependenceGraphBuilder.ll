@@ -2090,7 +2090,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_7DDGNodeEE5eraseES2_.exit: ; preds = %153, %144
   br label %210
 
 210:                                              ; preds = %208, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %209, %208 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %209, %208 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %211 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !104
   %212 = load ptr, ptr %211, align 8, !tbaa !113
   %213 = icmp eq ptr %212, %133
@@ -2101,7 +2101,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_7DDGNodeEE5eraseES2_.exit: ; preds = %153, %144
   br label %216
 
 216:                                              ; preds = %214, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %215, %214 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %215, %214 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %217 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !104
   %218 = load ptr, ptr %217, align 8, !tbaa !113
   %219 = icmp eq ptr %218, %133
@@ -3882,7 +3882,7 @@ define linkonce_odr hidden void @_ZZN4llvm30AbstractDependenceGraphBuilderINS_19
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %47, %46 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %49 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !104
   %50 = load ptr, ptr %49, align 8, !tbaa !113
   %51 = icmp eq ptr %50, %2
@@ -3893,7 +3893,7 @@ define linkonce_odr hidden void @_ZZN4llvm30AbstractDependenceGraphBuilderINS_19
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %53, %52 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %53, %52 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %55 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !104
   %56 = load ptr, ptr %55, align 8, !tbaa !113
   %57 = icmp eq ptr %56, %2
@@ -5338,8 +5338,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeEN
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge._crit_edge.i.i.i.i
-  %71 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %66, %68 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %69, %68 ]
+  %71 = phi ptr [ %66, %68 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %72 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !104
   %73 = icmp eq ptr %72, %71
   br i1 %73, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_7DDGEdgeELj0EEES3_EEDaOT_RKT0_.exit, label %74
@@ -5349,8 +5349,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_7DDGEdgeEN
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge._crit_edge52.i.i.i.i
-  %77 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %71, %74 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %75, %74 ]
+  %77 = phi ptr [ %71, %74 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %75, %74 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %78 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !104
   %79 = icmp eq ptr %78, %77
   br i1 %79, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_7DDGEdgeELj0EEES3_EEDaOT_RKT0_.exit, label %80

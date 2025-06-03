@@ -1009,8 +1009,8 @@ define dso_local void @_ZN11cmJSONState15AddErrorAtValueERKNSt7__cxx1112basic_st
   br label %29
 
 29:                                               ; preds = %27, %25, %22
-  %.115.i.i = phi i32 [ %28, %27 ], [ 1, %25 ], [ %.01420.i.i, %22 ]
-  %.1.i.i = phi i32 [ %.022.i.i, %27 ], [ %26, %25 ], [ %.022.i.i, %22 ]
+  %.115.i.i = phi i32 [ %28, %27 ], [ %.01420.i.i, %22 ], [ 1, %25 ]
+  %.1.i.i = phi i32 [ %.022.i.i, %27 ], [ %.022.i.i, %22 ], [ %26, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %.01321.i.i, i64 1
   %.not.i.i = icmp eq ptr %30, %18
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !91
@@ -1091,8 +1091,8 @@ define dso_local void @_ZN11cmJSONState16AddErrorAtOffsetERKNSt7__cxx1112basic_s
   br label %25
 
 25:                                               ; preds = %23, %21, %18
-  %.115.i = phi i32 [ %24, %23 ], [ 1, %21 ], [ %.01420.i, %18 ]
-  %.1.i = phi i32 [ %.022.i, %23 ], [ %22, %21 ], [ %.022.i, %18 ]
+  %.115.i = phi i32 [ %24, %23 ], [ %.01420.i, %18 ], [ 1, %21 ]
+  %.1.i = phi i32 [ %.022.i, %23 ], [ %.022.i, %18 ], [ %22, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %.01321.i, i64 1
   %.not.i = icmp eq ptr %26, %14
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !91
@@ -1155,8 +1155,8 @@ define dso_local i64 @_ZN11cmJSONState16LocateInDocumentEl(ptr noundef nonnull r
   br label %16
 
 16:                                               ; preds = %12, %14, %9
-  %.115 = phi i32 [ %15, %14 ], [ 1, %12 ], [ %.01420, %9 ]
-  %.1 = phi i32 [ %.022, %14 ], [ %13, %12 ], [ %.022, %9 ]
+  %.115 = phi i32 [ %15, %14 ], [ %.01420, %9 ], [ 1, %12 ]
+  %.1 = phi i32 [ %.022, %14 ], [ %.022, %9 ], [ %13, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %.01321, i64 1
   %.not = icmp eq ptr %17, %5
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !91

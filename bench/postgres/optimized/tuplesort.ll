@@ -2974,7 +2974,7 @@ tuplesort_heap_replace_top.exit:                  ; preds = %225, %219, %205
   unreachable
 
 234:                                              ; preds = %141, %98, %93, %87, %69, %40, %33, %22, %27, %230, %121, %83, %78, %43, %16
-  %.0 = phi i1 [ true, %230 ], [ true, %78 ], [ false, %83 ], [ true, %121 ], [ true, %16 ], [ true, %43 ], [ false, %27 ], [ false, %22 ], [ false, %33 ], [ false, %40 ], [ false, %69 ], [ false, %87 ], [ false, %93 ], [ false, %98 ], [ false, %141 ]
+  %.0 = phi i1 [ true, %16 ], [ true, %43 ], [ true, %78 ], [ false, %83 ], [ true, %121 ], [ true, %230 ], [ false, %27 ], [ false, %22 ], [ false, %33 ], [ false, %40 ], [ false, %69 ], [ false, %87 ], [ false, %93 ], [ false, %98 ], [ false, %141 ]
   ret i1 %.0
 }
 
@@ -3112,7 +3112,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   unreachable
 
 43:                                               ; preds = %.thread, %17, %22, %._crit_edge, %14
-  %.019 = phi i1 [ true, %._crit_edge ], [ true, %14 ], [ false, %22 ], [ false, %17 ], [ false, %.thread ]
+  %.019 = phi i1 [ true, %14 ], [ true, %._crit_edge ], [ false, %22 ], [ false, %17 ], [ false, %.thread ]
   ret i1 %.019
 }
 

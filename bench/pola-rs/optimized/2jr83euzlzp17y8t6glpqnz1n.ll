@@ -12940,7 +12940,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -17013,7 +17013,7 @@ define internal fastcc noundef i64 @_ZN10polars_row6decode34dtype_and_data_to_en
   ], !prof !1096
 
 .loopexit:                                        ; preds = %93, %58, %80, %45, %67, %40, %38, %36, %9
-  %.sroa.017.0 = phi i64 [ %10, %9 ], [ %37, %36 ], [ %41, %40 ], [ %39, %38 ], [ %68, %67 ], [ 1, %45 ], [ 1, %80 ], [ %61, %58 ], [ %96, %93 ]
+  %.sroa.017.0 = phi i64 [ %10, %9 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %68, %67 ], [ 1, %45 ], [ 1, %80 ], [ %61, %58 ], [ %96, %93 ]
   ret i64 %.sroa.017.0
 
 13:                                               ; preds = %11
@@ -17652,8 +17652,8 @@ define hidden { ptr, ptr } @_ZN10polars_row6decode6decode17hb1db99d36133511cE(pt
   br label %159
 
 159:                                              ; preds = %730, %716, %707, %888, %879, %870, %861, %852, %843, %834, %825, %816, %807, %798, %778, %646, %627, %610, %449, %331, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d928a17e5c15ec9E.exit78", %177, %158
-  %.sroa.25.0 = phi ptr [ @anon.a385a004023ebd50105f662f212925ff.14, %730 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %716 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %707 ], [ @anon.a385a004023ebd50105f662f212925ff.11, %778 ], [ @anon.a385a004023ebd50105f662f212925ff.15, %888 ], [ @anon.a385a004023ebd50105f662f212925ff.19, %879 ], [ @anon.a385a004023ebd50105f662f212925ff.18, %870 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %861 ], [ @anon.a385a004023ebd50105f662f212925ff.13, %852 ], [ @anon.a385a004023ebd50105f662f212925ff.12, %843 ], [ @anon.a385a004023ebd50105f662f212925ff.11, %834 ], [ @anon.a385a004023ebd50105f662f212925ff.16, %825 ], [ @anon.a385a004023ebd50105f662f212925ff.21, %816 ], [ @anon.a385a004023ebd50105f662f212925ff.17, %807 ], [ @anon.a385a004023ebd50105f662f212925ff.20, %798 ], [ %.sroa.25.1, %646 ], [ @anon.a385a004023ebd50105f662f212925ff.152, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d928a17e5c15ec9E.exit78" ], [ @anon.a385a004023ebd50105f662f212925ff.151, %627 ], [ @anon.a385a004023ebd50105f662f212925ff.94, %610 ], [ @anon.a385a004023ebd50105f662f212925ff.98, %449 ], [ @anon.a385a004023ebd50105f662f212925ff.26, %331 ], [ @anon.a385a004023ebd50105f662f212925ff.96, %177 ], [ @anon.a385a004023ebd50105f662f212925ff.92, %158 ]
-  %.sroa.010.0 = phi ptr [ %723, %730 ], [ %711, %716 ], [ %702, %707 ], [ %771, %778 ], [ %883, %888 ], [ %874, %879 ], [ %865, %870 ], [ %856, %861 ], [ %847, %852 ], [ %838, %843 ], [ %829, %834 ], [ %820, %825 ], [ %811, %816 ], [ %802, %807 ], [ %793, %798 ], [ %.sroa.010.1, %646 ], [ %181, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d928a17e5c15ec9E.exit78" ], [ %620, %627 ], [ %603, %610 ], [ %434, %449 ], [ %323, %331 ], [ %170, %177 ], [ %151, %158 ]
+  %.sroa.25.0 = phi ptr [ @anon.a385a004023ebd50105f662f212925ff.14, %730 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %716 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %707 ], [ @anon.a385a004023ebd50105f662f212925ff.11, %778 ], [ @anon.a385a004023ebd50105f662f212925ff.20, %798 ], [ @anon.a385a004023ebd50105f662f212925ff.17, %807 ], [ @anon.a385a004023ebd50105f662f212925ff.21, %816 ], [ @anon.a385a004023ebd50105f662f212925ff.16, %825 ], [ @anon.a385a004023ebd50105f662f212925ff.11, %834 ], [ @anon.a385a004023ebd50105f662f212925ff.12, %843 ], [ @anon.a385a004023ebd50105f662f212925ff.13, %852 ], [ @anon.a385a004023ebd50105f662f212925ff.14, %861 ], [ @anon.a385a004023ebd50105f662f212925ff.18, %870 ], [ @anon.a385a004023ebd50105f662f212925ff.19, %879 ], [ @anon.a385a004023ebd50105f662f212925ff.15, %888 ], [ @anon.a385a004023ebd50105f662f212925ff.92, %158 ], [ @anon.a385a004023ebd50105f662f212925ff.96, %177 ], [ %.sroa.25.1, %646 ], [ @anon.a385a004023ebd50105f662f212925ff.151, %627 ], [ @anon.a385a004023ebd50105f662f212925ff.152, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d928a17e5c15ec9E.exit78" ], [ @anon.a385a004023ebd50105f662f212925ff.98, %449 ], [ @anon.a385a004023ebd50105f662f212925ff.26, %331 ], [ @anon.a385a004023ebd50105f662f212925ff.94, %610 ]
+  %.sroa.010.0 = phi ptr [ %723, %730 ], [ %711, %716 ], [ %702, %707 ], [ %771, %778 ], [ %793, %798 ], [ %802, %807 ], [ %811, %816 ], [ %820, %825 ], [ %829, %834 ], [ %838, %843 ], [ %847, %852 ], [ %856, %861 ], [ %865, %870 ], [ %874, %879 ], [ %883, %888 ], [ %151, %158 ], [ %170, %177 ], [ %.sroa.010.1, %646 ], [ %620, %627 ], [ %181, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d928a17e5c15ec9E.exit78" ], [ %434, %449 ], [ %323, %331 ], [ %603, %610 ]
   %160 = insertvalue { ptr, ptr } poison, ptr %.sroa.010.0, 0
   %161 = insertvalue { ptr, ptr } %160, ptr %.sroa.25.0, 1
   ret { ptr, ptr } %161
@@ -17665,7 +17665,7 @@ define hidden { ptr, ptr } @_ZN10polars_row6decode6decode17hb1db99d36133511cE(pt
   unreachable
 
 common.resume:                                    ; preds = %184, %.body83, %.body96, %332, %443, %552, %.body104, %.body102, %.body117, %.body114, %.body111, %.body91, %.body70, %.body81, %.body68, %.body94, %.body89, %.body79, %.body87, %.body109, %.body85, %.body107, %.body72, %337, %.body74, %615, %612
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body112, %.body111 ], [ %eh.lpad-body115, %.body114 ], [ %eh.lpad-body118, %.body117 ], [ %eh.lpad-body92, %.body91 ], [ %eh.lpad-body73, %.body72 ], [ %eh.lpad-body108, %.body107 ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body110, %.body109 ], [ %eh.lpad-body88, %.body87 ], [ %eh.lpad-body80, %.body79 ], [ %eh.lpad-body90, %.body89 ], [ %eh.lpad-body95, %.body94 ], [ %eh.lpad-body69, %.body68 ], [ %eh.lpad-body82, %.body81 ], [ %eh.lpad-body71, %.body70 ], [ %.pn61, %.body102 ], [ %eh.lpad-body105, %.body104 ], [ %.pn53.pn.pn, %552 ], [ %.pn53.pn.pn, %443 ], [ %.pn41.pn, %332 ], [ %eh.lpad-body97, %.body96 ], [ %eh.lpad-body84, %.body83 ], [ %.pn41.pn, %337 ], [ %eh.lpad-body75, %.body74 ], [ %.pn.pn.ph, %615 ], [ %.pn.pn.ph, %612 ], [ %185, %184 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body112, %.body111 ], [ %eh.lpad-body115, %.body114 ], [ %eh.lpad-body118, %.body117 ], [ %eh.lpad-body92, %.body91 ], [ %eh.lpad-body71, %.body70 ], [ %eh.lpad-body82, %.body81 ], [ %eh.lpad-body69, %.body68 ], [ %eh.lpad-body95, %.body94 ], [ %eh.lpad-body90, %.body89 ], [ %eh.lpad-body80, %.body79 ], [ %eh.lpad-body88, %.body87 ], [ %eh.lpad-body110, %.body109 ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body108, %.body107 ], [ %eh.lpad-body73, %.body72 ], [ %eh.lpad-body84, %.body83 ], [ %eh.lpad-body97, %.body96 ], [ %.pn61, %.body102 ], [ %eh.lpad-body105, %.body104 ], [ %.pn53.pn.pn, %552 ], [ %.pn53.pn.pn, %443 ], [ %.pn41.pn, %332 ], [ %.pn41.pn, %337 ], [ %eh.lpad-body75, %.body74 ], [ %.pn.pn.ph, %615 ], [ %.pn.pn.ph, %612 ], [ %185, %184 ]
   resume { ptr, i32 } %common.resume.op
 
 164:                                              ; preds = %109

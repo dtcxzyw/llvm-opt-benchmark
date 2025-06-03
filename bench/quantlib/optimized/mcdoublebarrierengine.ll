@@ -1394,7 +1394,7 @@ ehcleanup148:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup164
 
 cleanup:                                          ; preds = %sw.bb108, %sw.bb104, %if.then100
-  %retval.0 = phi double [ %mul, %if.then100 ], [ %mul112, %sw.bb108 ], [ %mul107, %sw.bb104 ]
+  %retval.0 = phi double [ %mul, %if.then100 ], [ %mul107, %sw.bb104 ], [ %mul112, %sw.bb108 ]
   ret double %retval.0
 
 ehcleanup164:                                     ; preds = %ehcleanup96, %ehcleanup148, %ehcleanup28

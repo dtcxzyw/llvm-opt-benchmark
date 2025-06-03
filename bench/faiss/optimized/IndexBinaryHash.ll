@@ -4514,9 +4514,9 @@ default.unreachable92:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
-  %.790 = phi i32 [ %5, %2 ], [ %.689, %87 ]
-  %.782 = phi i32 [ %6, %2 ], [ %97, %87 ]
-  %.7 = phi i32 [ %6, %2 ], [ %96, %87 ]
+  %.790 = phi i32 [ %.689, %87 ], [ %5, %2 ]
+  %.782 = phi i32 [ %97, %87 ], [ %6, %2 ]
+  %.7 = phi i32 [ %96, %87 ], [ %6, %2 ]
   %8 = icmp sgt i32 %.790, 7
   br i1 %8, label %9, label %98
 
@@ -4535,9 +4535,9 @@ default.unreachable92:                            ; preds = %2
   br label %21
 
 21:                                               ; preds = %2, %9
-  %.083 = phi i32 [ %10, %9 ], [ %5, %2 ]
-  %.075 = phi i32 [ %20, %9 ], [ 0, %2 ]
-  %.0 = phi i32 [ %19, %9 ], [ 0, %2 ]
+  %.083 = phi i32 [ %5, %2 ], [ %10, %9 ]
+  %.075 = phi i32 [ 0, %2 ], [ %20, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ %19, %9 ]
   %22 = sext i32 %.075 to i64
   %23 = getelementptr inbounds i64, ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !24
@@ -4681,7 +4681,7 @@ default.unreachable92:                            ; preds = %2
   br label %117
 
 117:                                              ; preds = %106, %101
-  %.9 = phi i32 [ %.7, %101 ], [ %116, %106 ]
+  %.9 = phi i32 [ %116, %106 ], [ %.7, %101 ]
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 5
   %119 = load i8, ptr %118, align 1, !tbaa !59
   %120 = getelementptr inbounds nuw i8, ptr %105, i64 5
@@ -4695,7 +4695,7 @@ default.unreachable92:                            ; preds = %2
   br label %128
 
 128:                                              ; preds = %117, %101
-  %.10 = phi i32 [ %.7, %101 ], [ %127, %117 ]
+  %.10 = phi i32 [ %127, %117 ], [ %.7, %101 ]
   %129 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %130 = load i8, ptr %129, align 1, !tbaa !59
   %131 = getelementptr inbounds nuw i8, ptr %105, i64 4
@@ -4709,7 +4709,7 @@ default.unreachable92:                            ; preds = %2
   br label %139
 
 139:                                              ; preds = %128, %101
-  %.11 = phi i32 [ %.7, %101 ], [ %138, %128 ]
+  %.11 = phi i32 [ %138, %128 ], [ %.7, %101 ]
   %140 = getelementptr inbounds nuw i8, ptr %104, i64 3
   %141 = load i8, ptr %140, align 1, !tbaa !59
   %142 = getelementptr inbounds nuw i8, ptr %105, i64 3
@@ -4723,7 +4723,7 @@ default.unreachable92:                            ; preds = %2
   br label %150
 
 150:                                              ; preds = %139, %101
-  %.12 = phi i32 [ %.7, %101 ], [ %149, %139 ]
+  %.12 = phi i32 [ %149, %139 ], [ %.7, %101 ]
   %151 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %152 = load i8, ptr %151, align 1, !tbaa !59
   %153 = getelementptr inbounds nuw i8, ptr %105, i64 2
@@ -4737,7 +4737,7 @@ default.unreachable92:                            ; preds = %2
   br label %161
 
 161:                                              ; preds = %150, %101
-  %.13 = phi i32 [ %.7, %101 ], [ %160, %150 ]
+  %.13 = phi i32 [ %160, %150 ], [ %.7, %101 ]
   %162 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %163 = load i8, ptr %162, align 1, !tbaa !59
   %164 = getelementptr inbounds nuw i8, ptr %105, i64 1
@@ -4751,7 +4751,7 @@ default.unreachable92:                            ; preds = %2
   br label %172
 
 172:                                              ; preds = %161, %101
-  %.14 = phi i32 [ %.7, %101 ], [ %171, %161 ]
+  %.14 = phi i32 [ %171, %161 ], [ %.7, %101 ]
   %173 = load i8, ptr %104, align 1, !tbaa !59
   %174 = load i8, ptr %105, align 1, !tbaa !59
   %175 = xor i8 %174, %173

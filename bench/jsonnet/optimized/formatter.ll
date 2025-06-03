@@ -1431,16 +1431,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_Z
   br label %222
 
 222:                                              ; preds = %219, %123, %109, %40
-  %.144 = phi i32 [ %.043167, %40 ], [ %221, %219 ], [ %.043167, %123 ], [ %111, %109 ]
-  %.1 = phi i8 [ %.0168, %40 ], [ 0, %219 ], [ 1, %123 ], [ 0, %109 ]
+  %.144 = phi i32 [ %.043167, %40 ], [ %111, %109 ], [ %.043167, %123 ], [ %221, %219 ]
+  %.1 = phi i8 [ %.0168, %40 ], [ 0, %109 ], [ 1, %123 ], [ 0, %219 ]
   %223 = add i64 %.055166, 1
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0165, i64 40
   %.not124 = icmp eq ptr %224, %17
   br i1 %.not124, label %._crit_edge171.loopexit, label %30
 
 225:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75
-  %.pn59.pn.pn = phi { ptr, i32 } [ %.pn65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %.pn63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %.pn59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %.pn57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ]
-  resume { ptr, i32 } %.pn59.pn.pn
+  %.pn65.pn = phi { ptr, i32 } [ %.pn65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %.pn63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %.pn59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %.pn57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ]
+  resume { ptr, i32 } %.pn65.pn
 
 226:                                              ; preds = %._crit_edge171
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -19717,7 +19717,7 @@ _ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit: ; pr
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %22, %21, %.lr.ph.i
-  %.0.i.i = phi i32 [ %34, %22 ], [ 1, %21 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %21 ], [ %34, %22 ], [ 0, %.lr.ph.i ]
   %38 = add nsw i32 %.0.i.i, %.07.i
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i14 = icmp eq ptr %39, %.val13
@@ -19910,7 +19910,7 @@ _ZN7jsonnet8internal11FixNewlines18argParamOpenFodderERNS0_8ArgParamE.exit: ; pr
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %24, %23, %.lr.ph.i
-  %.0.i.i = phi i32 [ %36, %24 ], [ 1, %23 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ %36, %24 ], [ 0, %.lr.ph.i ]
   %40 = add nsw i32 %.0.i.i, %.07.i
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i9 = icmp eq ptr %41, %.val6
@@ -19962,7 +19962,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i14: ; preds = %46, %45, %.lr.ph.i11
-  %.0.i.i15 = phi i32 [ %58, %46 ], [ 1, %45 ], [ 0, %.lr.ph.i11 ]
+  %.0.i.i15 = phi i32 [ 1, %45 ], [ %58, %46 ], [ 0, %.lr.ph.i11 ]
   %62 = add nsw i32 %.0.i.i15, %.07.i12
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i13, i64 40
   %.not.i16 = icmp eq ptr %63, %.val8
@@ -20130,7 +20130,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %16, %_ZN7jsonnet8
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %24, %23, %.lr.ph.i
-  %.0.i.i = phi i32 [ %36, %24 ], [ 1, %23 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %23 ], [ %36, %24 ], [ 0, %.lr.ph.i ]
   %40 = add nsw i32 %.0.i.i, %.07.i
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %41, %.val11
@@ -20188,7 +20188,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i16: ; preds = %48, %47, %.lr.ph.i13
-  %.0.i.i17 = phi i32 [ %60, %48 ], [ 1, %47 ], [ 0, %.lr.ph.i13 ]
+  %.0.i.i17 = phi i32 [ 1, %47 ], [ %60, %48 ], [ 0, %.lr.ph.i13 ]
   %64 = add nsw i32 %.0.i.i17, %.07.i14
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i15, i64 40
   %.not.i18 = icmp eq ptr %65, %.val9
@@ -20371,7 +20371,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i, %2
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %11, %10, %.lr.ph.i
-  %.0.i.i = phi i32 [ %23, %11 ], [ 1, %10 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %10 ], [ %23, %11 ], [ 0, %.lr.ph.i ]
   %27 = add nsw i32 %.0.i.i, %.07.i
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %28, %.val14
@@ -20433,7 +20433,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i19: ; preds = %38, %37, %.lr.ph.i16
-  %.0.i.i20 = phi i32 [ %50, %38 ], [ 1, %37 ], [ 0, %.lr.ph.i16 ]
+  %.0.i.i20 = phi i32 [ 1, %37 ], [ %50, %38 ], [ 0, %.lr.ph.i16 ]
   %54 = add nsw i32 %.0.i.i20, %.07.i17
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i18, i64 40
   %.not.i21 = icmp eq ptr %55, %.val12
@@ -20491,7 +20491,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i28: ; preds = %62, %61, %.lr.ph.i25
-  %.0.i.i29 = phi i32 [ %74, %62 ], [ 1, %61 ], [ 0, %.lr.ph.i25 ]
+  %.0.i.i29 = phi i32 [ 1, %61 ], [ %74, %62 ], [ 0, %.lr.ph.i25 ]
   %78 = add nsw i32 %.0.i.i29, %.07.i26
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i27, i64 40
   %.not.i30 = icmp eq ptr %79, %.val10
@@ -20558,7 +20558,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11FixNewlines20simpleExpandingVisi
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i.i: ; preds = %10, %9, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ %22, %10 ], [ 1, %9 ], [ 0, %.lr.ph.i.i ]
+  %.0.i.i.i = phi i32 [ 1, %9 ], [ %22, %10 ], [ 0, %.lr.ph.i.i ]
   %26 = add nsw i32 %.0.i.i.i, %.07.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i, i64 40
   %.not.i.i = icmp eq ptr %27, %.val8.i
@@ -20651,7 +20651,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %16, %15, %.lr.ph.i
-  %.0.i.i = phi i32 [ %28, %16 ], [ 1, %15 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ %28, %16 ], [ 0, %.lr.ph.i ]
   %32 = add nsw i32 %.0.i.i, %.07.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %33, %.val12
@@ -20709,7 +20709,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i17: ; preds = %40, %39, %.lr.ph.i14
-  %.0.i.i18 = phi i32 [ %52, %40 ], [ 1, %39 ], [ 0, %.lr.ph.i14 ]
+  %.0.i.i18 = phi i32 [ 1, %39 ], [ %52, %40 ], [ 0, %.lr.ph.i14 ]
   %56 = add nsw i32 %.0.i.i18, %.07.i15
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i16, i64 40
   %.not.i19 = icmp eq ptr %57, %.val10
@@ -20783,7 +20783,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal11FixNewlines12shoul
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %16, %15, %.lr.ph.i
-  %.0.i.i = phi i32 [ %28, %16 ], [ 1, %15 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %15 ], [ %28, %16 ], [ 0, %.lr.ph.i ]
   %32 = add nsw i32 %.0.i.i, %.07.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %33, %.val25
@@ -20850,7 +20850,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i30: ; preds = %44, %43, %.lr.ph.i27
-  %.0.i.i31 = phi i32 [ %56, %44 ], [ 1, %43 ], [ 0, %.lr.ph.i27 ]
+  %.0.i.i31 = phi i32 [ 1, %43 ], [ %56, %44 ], [ 0, %.lr.ph.i27 ]
   %60 = add nsw i32 %.0.i.i31, %.07.i28
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i29, i64 40
   %.not.i32 = icmp eq ptr %61, %.val23
@@ -20908,7 +20908,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i39: ; preds = %68, %67, %.lr.ph.i36
-  %.0.i.i40 = phi i32 [ %80, %68 ], [ 1, %67 ], [ 0, %.lr.ph.i36 ]
+  %.0.i.i40 = phi i32 [ 1, %67 ], [ %80, %68 ], [ 0, %.lr.ph.i36 ]
   %84 = add nsw i32 %.0.i.i40, %.07.i37
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i38, i64 40
   %.not.i41 = icmp eq ptr %85, %.val21
@@ -20981,7 +20981,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i, %2
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i: ; preds = %11, %10, %.lr.ph.i
-  %.0.i.i = phi i32 [ %23, %11 ], [ 1, %10 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i32 [ 1, %10 ], [ %23, %11 ], [ 0, %.lr.ph.i ]
   %27 = add nsw i32 %.0.i.i, %.07.i
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 40
   %.not.i = icmp eq ptr %28, %.val4
@@ -21034,7 +21034,7 @@ _ZN7jsonnet8internalL13countNewlinesERKSt6vectorINS0_13FodderElementESaIS2_EE.ex
   unreachable
 
 _ZN7jsonnet8internalL13countNewlinesERKNS0_13FodderElementE.exit.i9: ; preds = %34, %33, %.lr.ph.i6
-  %.0.i.i10 = phi i32 [ %46, %34 ], [ 1, %33 ], [ 0, %.lr.ph.i6 ]
+  %.0.i.i10 = phi i32 [ 1, %33 ], [ %46, %34 ], [ 0, %.lr.ph.i6 ]
   %50 = add nsw i32 %.0.i.i10, %.07.i7
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i8, i64 40
   %.not.i11 = icmp eq ptr %51, %.val2
@@ -32149,7 +32149,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i60 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i62 ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i60 ], [ %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i62 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7jsonnet8internalL10unparse_idB5cxx11EPKNS0_10IdentifierE.exit.loopexit: ; preds = %.noexc.i.i

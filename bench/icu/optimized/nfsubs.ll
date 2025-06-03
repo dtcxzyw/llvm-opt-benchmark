@@ -554,7 +554,7 @@ _ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER1
   br label %82
 
 82:                                               ; preds = %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %75, %78, %69, %72, %59, %62, %53, %45, %48, %35, %38, %26, %7, %81, %68, %25
-  %.0 = phi ptr [ null, %81 ], [ null, %68 ], [ null, %25 ], [ null, %7 ], [ null, %26 ], [ %27, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %35 ], [ %36, %38 ], [ null, %45 ], [ %46, %48 ], [ null, %53 ], [ %54, %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %59 ], [ %60, %62 ], [ null, %69 ], [ %70, %72 ], [ null, %75 ], [ %76, %78 ]
+  %.0 = phi ptr [ null, %81 ], [ null, %25 ], [ null, %68 ], [ null, %7 ], [ null, %26 ], [ %27, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %35 ], [ %36, %38 ], [ null, %45 ], [ %46, %48 ], [ null, %53 ], [ %54, %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %59 ], [ %60, %62 ], [ null, %69 ], [ %70, %72 ], [ null, %75 ], [ %76, %78 ]
   ret ptr %.0
 
 83:                                               ; preds = %79, %73, %63, %57, %49, %43, %30

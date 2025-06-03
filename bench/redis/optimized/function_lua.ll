@@ -485,7 +485,7 @@ define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr noundef readonly captu
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %5, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %5 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %5 ]
   %32 = tail call i32 @luaL_loadbuffer(ptr noundef %8, ptr noundef nonnull %2, i64 noundef %.0.i, ptr noundef nonnull @.str.29) #9
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %37, label %33

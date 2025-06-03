@@ -2976,8 +2976,8 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %218
 
 218:                                              ; preds = %216, %214, %213, %204
-  %.090.i = phi i32 [ %209, %213 ], [ 5, %216 ], [ 4, %214 ], [ %209, %204 ]
-  %.0.i = phi ptr [ %211, %213 ], [ %217, %216 ], [ %215, %214 ], [ %211, %204 ]
+  %.090.i = phi i32 [ %209, %213 ], [ 4, %214 ], [ 5, %216 ], [ %209, %204 ]
+  %.0.i = phi ptr [ %211, %213 ], [ %215, %214 ], [ %217, %216 ], [ %211, %204 ]
   call fastcc void @SetDrawState(ptr noundef nonnull %8, ptr noundef nonnull readonly %.0201314, i32 noundef %.090.i, ptr noundef %.0.i)
   %219 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %173, %219
@@ -4103,7 +4103,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br label %67
 
 67:                                               ; preds = %66, %65, %64, %63, %62, %61, %60, %59
-  %.0.i = phi ptr [ @.str.51, %66 ], [ @.str.50, %65 ], [ @.str.49, %64 ], [ @.str.48, %63 ], [ @.str.46, %62 ], [ @.str.45, %61 ], [ @.str.44, %60 ], [ @.str.43, %59 ]
+  %.0.i = phi ptr [ @.str.51, %66 ], [ @.str.44, %60 ], [ @.str.45, %61 ], [ @.str.46, %62 ], [ @.str.48, %63 ], [ @.str.49, %64 ], [ @.str.50, %65 ], [ @.str.43, %59 ]
   %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42, ptr noundef nonnull %.130, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %.0.i, i32 noundef %53) #7
   %69 = load ptr, ptr %14, align 8
   %70 = tail call i32 %69() #7

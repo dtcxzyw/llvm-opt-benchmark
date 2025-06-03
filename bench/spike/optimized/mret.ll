@@ -192,7 +192,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -411,7 +411,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -604,7 +604,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -797,7 +797,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -990,7 +990,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -1183,7 +1183,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -1376,7 +1376,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 
@@ -1569,7 +1569,7 @@ default.unreachable:                              ; preds = %46
   unreachable
 
 88:                                               ; preds = %84, %80, %73
-  %.164 = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %73 ]
+  %.164 = phi i64 [ %79, %73 ], [ %83, %80 ], [ %86, %84 ]
   %89 = icmp eq i64 %.164, 0
   br i1 %89, label %.critedge, label %90
 

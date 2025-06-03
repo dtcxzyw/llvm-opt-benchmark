@@ -11958,7 +11958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 193:                                              ; preds = %168, %158, %147, %136, %125, %114, %103
-  %.pn209 = phi float [ %178, %168 ], [ %167, %158 ], [ %157, %147 ], [ %146, %136 ], [ %135, %125 ], [ %124, %114 ], [ %113, %103 ]
+  %.pn209 = phi float [ %113, %103 ], [ %124, %114 ], [ %135, %125 ], [ %146, %136 ], [ %157, %147 ], [ %167, %158 ], [ %178, %168 ]
   %.pn132 = fdiv float %.pn209, %94
   %.071 = fmul float %34, %.pn132
   %194 = tail call noundef float @cosf(float noundef %.071) #26, !tbaa !59
@@ -15492,7 +15492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %237
 
 242:                                              ; preds = %218, %208, %197, %186, %175, %164, %153
-  %.pn142 = phi float [ %228, %218 ], [ %217, %208 ], [ %207, %197 ], [ %196, %186 ], [ %185, %175 ], [ %174, %164 ], [ %163, %153 ]
+  %.pn142 = phi float [ %163, %153 ], [ %174, %164 ], [ %185, %175 ], [ %196, %186 ], [ %207, %197 ], [ %217, %208 ], [ %228, %218 ]
   %.pn = fdiv float %.pn142, %136
   %.0110 = fmul float %108, %.pn
   %243 = tail call noundef float @cosf(float noundef %.0110) #26, !tbaa !59

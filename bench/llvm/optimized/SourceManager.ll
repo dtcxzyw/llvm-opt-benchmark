@@ -12181,7 +12181,7 @@ _ZSt7advanceIPKN5clang6FileIDElEvRT_T0_.exit.i.i.i.i19: ; preds = %_ZSt7advanceI
   br label %28
 
 28:                                               ; preds = %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27", %3, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27.thread"
-  %.013 = phi i1 [ false, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27" ], [ true, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27.thread" ], [ false, %3 ]
+  %.013 = phi i1 [ true, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27.thread" ], [ false, %"_ZZNK5clang13SourceManager30isInTheSameTranslationUnitImplERKSt4pairINS_6FileIDEjES5_ENK3$_0clES2_.exit27" ], [ false, %3 ]
   ret i1 %.013
 }
 
@@ -14926,8 +14926,8 @@ _ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit: ; preds = %_ZNK5cla
   br label %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit.thread
 
 _ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit, %28, %30, %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit
-  %.113 = phi i64 [ %.01220, %_ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit ], [ %.01220, %30 ], [ %29, %28 ], [ %.01220, %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit ], [ %.01220, %.lr.ph ]
-  %.1 = phi i64 [ %.021, %_ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit ], [ %31, %30 ], [ %.021, %28 ], [ %.021, %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit ], [ %.021, %.lr.ph ]
+  %.113 = phi i64 [ %.01220, %_ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit ], [ %29, %28 ], [ %.01220, %30 ], [ %.01220, %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit ], [ %.01220, %.lr.ph ]
+  %.1 = phi i64 [ %.021, %_ZNK5clang6SrcMgr12ContentCache19getMemoryBufferKindEv.exit ], [ %.021, %28 ], [ %31, %30 ], [ %.021, %_ZNK5clang6SrcMgr12ContentCache18getSizeBytesMappedEv.exit ], [ %.021, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !521

@@ -355,7 +355,7 @@ if.end24:                                         ; preds = %_ZN8QuantLib9Single
   br label %return
 
 return:                                           ; preds = %if.then, %cleanup, %if.end24
-  %retval.1 = phi i1 [ true, %cleanup ], [ %call26, %if.end24 ], [ false, %if.then ]
+  %retval.1 = phi i1 [ %call26, %if.end24 ], [ true, %cleanup ], [ false, %if.then ]
   ret i1 %retval.1
 }
 

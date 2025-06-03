@@ -178,7 +178,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -279,7 +279,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -396,7 +396,7 @@ switch.lookup:                                    ; preds = %19
   br label %36
 
 36:                                               ; preds = %19, %switch.lookup, %1, %1, %1, %1, %31, %29, %29, %29, %25, %23, %23, %23, %23, %23, %17, %17, %5, %7, %34, %28, %22, %14, %10
-  %.0 = phi i1 [ false, %34 ], [ false, %28 ], [ false, %22 ], [ %16, %14 ], [ %13, %10 ], [ false, %7 ], [ false, %5 ], [ true, %17 ], [ true, %17 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ %switch.selectcmp, %25 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ %switch.selectcmp11, %31 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %19 ]
+  %.0 = phi i1 [ %13, %10 ], [ %16, %14 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %7 ], [ false, %5 ], [ true, %17 ], [ true, %17 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ %switch.selectcmp, %25 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ %switch.selectcmp11, %31 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -456,7 +456,7 @@ define dso_local zeroext i1 @type_homogenous_aggregate_small_enough(ptr noundef 
   unreachable
 
 24:                                               ; preds = %2, %2, %2, %2, %21, %15, %13, %9
-  %.0 = phi i1 [ %22, %21 ], [ %10, %9 ], [ %14, %13 ], [ %20, %15 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.0 = phi i1 [ %10, %9 ], [ %14, %13 ], [ %20, %15 ], [ %22, %21 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -634,7 +634,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   br label %77
 
 77:                                               ; preds = %75, %69, %67, %3
-  %.063 = phi ptr [ %0, %3 ], [ %76, %75 ], [ %74, %69 ], [ %68, %67 ]
+  %.063 = phi ptr [ %0, %3 ], [ %68, %67 ], [ %74, %69 ], [ %76, %75 ]
   store i32 1, ptr %2, align 4
   %78 = tail call zeroext i1 @type_is_homogenous_base_type(ptr noundef %.063)
   br i1 %78, label %79, label %type_homogenous_aggregate_small_enough.exit
@@ -739,7 +739,7 @@ thread-pre-split:                                 ; preds = %49, %98
   unreachable
 
 type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %123, %117, %115, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
-  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %124, %123 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
+  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ %124, %123 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
   ret i1 %.062
 }
 

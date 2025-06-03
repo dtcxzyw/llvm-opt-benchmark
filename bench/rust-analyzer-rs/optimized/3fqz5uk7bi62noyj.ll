@@ -1185,7 +1185,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hda8e5a9632500883E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hda8e5a9632500883E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1297,7 +1297,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h23e8f9769a3c154cE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h23e8f9769a3c154cE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1855,7 +1855,7 @@ default.unreachable11:                            ; preds = %1
   unreachable
 
 61:                                               ; preds = %62, %44
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %45, %44 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn
 
 62:                                               ; preds = %35
@@ -2444,9 +2444,9 @@ default.unreachable:                              ; preds = %17
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i": ; preds = %32, %27, %21
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %32 ], [ %31, %27 ], [ %.val1.i.i.i, %21 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %32 ], [ %29, %27 ], [ %.val.i.i.i, %21 ]
-  %.sroa.02.0.i.i = phi i8 [ %19, %32 ], [ 25, %27 ], [ 24, %21 ]
+  %.sroa.9.0.i.i = phi i64 [ %31, %27 ], [ %.sroa.9.1.copyload.i.i, %32 ], [ %.val1.i.i.i, %21 ]
+  %.sroa.7.0.i.i = phi ptr [ %29, %27 ], [ %.sroa.7.1.copyload.i.i, %32 ], [ %.val.i.i.i, %21 ]
+  %.sroa.02.0.i.i = phi i8 [ 25, %27 ], [ %19, %32 ], [ 24, %21 ]
   store i8 %.sroa.02.0.i.i, ptr %4, align 8, !noalias !845
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, i64 7, i1 false), !noalias !845
@@ -4405,9 +4405,9 @@ default.unreachable:                              ; preds = %17
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i": ; preds = %32, %27, %21
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.1.copyload.i, %32 ], [ %31, %27 ], [ %.val1.i.i, %21 ]
-  %.sroa.7.0.i = phi ptr [ %.sroa.7.1.copyload.i, %32 ], [ %29, %27 ], [ %.val.i.i, %21 ]
-  %.sroa.02.0.i = phi i8 [ %19, %32 ], [ 25, %27 ], [ 24, %21 ]
+  %.sroa.9.0.i = phi i64 [ %31, %27 ], [ %.sroa.9.1.copyload.i, %32 ], [ %.val1.i.i, %21 ]
+  %.sroa.7.0.i = phi ptr [ %29, %27 ], [ %.sroa.7.1.copyload.i, %32 ], [ %.val.i.i, %21 ]
+  %.sroa.02.0.i = phi i8 [ 25, %27 ], [ %19, %32 ], [ 24, %21 ]
   store i8 %.sroa.02.0.i, ptr %5, align 8, !noalias !1287
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false), !noalias !1287
@@ -4643,7 +4643,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %15, %11, %8
-  %.0.in = phi i1 [ %21, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.0.in = phi i1 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %21, %19 ]
   ret i1 %.0.in
 }
 
@@ -4698,9 +4698,9 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit": ; preds = %8, %14, %19
-  %.sroa.9.0 = phi i64 [ %.sroa.9.1.copyload, %19 ], [ %18, %14 ], [ %.val1.i, %8 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.7.1.copyload, %19 ], [ %16, %14 ], [ %.val.i, %8 ]
-  %.sroa.02.0 = phi i8 [ %6, %19 ], [ 25, %14 ], [ 24, %8 ]
+  %.sroa.9.0 = phi i64 [ %18, %14 ], [ %.sroa.9.1.copyload, %19 ], [ %.val1.i, %8 ]
+  %.sroa.7.0 = phi ptr [ %16, %14 ], [ %.sroa.7.1.copyload, %19 ], [ %.val.i, %8 ]
+  %.sroa.02.0 = phi i8 [ 25, %14 ], [ %6, %19 ], [ 24, %8 ]
   store i8 %.sroa.02.0, ptr %4, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, i64 7, i1 false)

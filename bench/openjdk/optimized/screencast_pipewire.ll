@@ -4685,7 +4685,7 @@ spa_pod_builder_prop.exit.i:                      ; preds = %.lr.ph.i.i126.i, %.
   br label %spa_choice_from_id.exit.i
 
 spa_choice_from_id.exit.i:                        ; preds = %176, %175, %174, %173, %170
-  %.0.i.i = phi i32 [ 0, %176 ], [ 4, %175 ], [ 3, %174 ], [ 2, %173 ], [ 1, %170 ]
+  %.0.i.i = phi i32 [ 0, %176 ], [ 2, %173 ], [ 3, %174 ], [ 4, %175 ], [ 1, %170 ]
   %.not118.i = icmp eq i8 %172, 0
   %177 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %spec.select.i = select i1 %.not118.i, ptr %171, ptr %177

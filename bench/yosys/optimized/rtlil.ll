@@ -12047,7 +12047,7 @@ _ZNK5Yosys5RTLIL5ConstixEm.exit:                  ; preds = %_ZNK5Yosys5RTLIL5Co
   br label %_ZNK5Yosys5RTLIL5ConstixEm.exit32
 
 _ZNK5Yosys5RTLIL5ConstixEm.exit32:                ; preds = %110, %113
-  %.1.i.i30 = phi i8 [ %112, %110 ], [ %125, %113 ]
+  %.1.i.i30 = phi i8 [ %125, %113 ], [ %112, %110 ]
   br i1 %24, label %129, label %126
 
 126:                                              ; preds = %_ZNK5Yosys5RTLIL5ConstixEm.exit32
@@ -12072,7 +12072,7 @@ _ZNK5Yosys5RTLIL5ConstixEm.exit32:                ; preds = %110, %113
   br label %_ZNK5Yosys5RTLIL5ConstixEm.exit35
 
 _ZNK5Yosys5RTLIL5ConstixEm.exit35:                ; preds = %126, %129
-  %.1.i.i33 = phi i8 [ %128, %126 ], [ %141, %129 ]
+  %.1.i.i33 = phi i8 [ %141, %129 ], [ %128, %126 ]
   %142 = icmp ult i8 %.1.i.i30, %.1.i.i33
   br label %.loopexit
 
@@ -12564,7 +12564,7 @@ define void @_ZNK5Yosys5RTLIL5Const7to_bitsEv(ptr dead_on_unwind noalias writabl
   br label %_ZNK5Yosys5RTLIL5Const14const_iteratordeEv.exit
 
 _ZNK5Yosys5RTLIL5Const14const_iteratordeEv.exit:  ; preds = %35, %31
-  %.1.i = phi i8 [ %34, %31 ], [ %49, %35 ]
+  %.1.i = phi i8 [ %49, %35 ], [ %34, %31 ]
   %.not.i = icmp eq ptr %27, %26
   br i1 %.not.i, label %52, label %50
 
@@ -12699,7 +12699,7 @@ define noundef zeroext i8 @_ZNK5Yosys5RTLIL5Const14const_iteratordeEv(ptr nounde
   br label %31
 
 31:                                               ; preds = %7, %13
-  %.1 = phi i8 [ %12, %7 ], [ %30, %13 ]
+  %.1 = phi i8 [ %30, %13 ], [ %12, %7 ]
   ret i8 %.1
 }
 
@@ -13106,7 +13106,7 @@ _ZNK5Yosys5RTLIL5ConstixEm.exit:                  ; preds = %_ZNK5Yosys5RTLIL5Co
   br label %_ZNK5Yosys5RTLIL5ConstixEm.exit20
 
 _ZNK5Yosys5RTLIL5ConstixEm.exit20:                ; preds = %42, %46
-  %.1.i.i18 = phi i8 [ %45, %42 ], [ %61, %46 ]
+  %.1.i.i18 = phi i8 [ %61, %46 ], [ %45, %42 ]
   %62 = icmp eq i8 %.1.i.i18, 1
   %63 = icmp slt i32 %3, 32
   %or.cond31 = and i1 %62, %63
@@ -14461,7 +14461,7 @@ _ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.thread: ; preds = %38
   br label %_ZNK5Yosys5RTLIL5ConstixEm.exit
 
 _ZNK5Yosys5RTLIL5ConstixEm.exit:                  ; preds = %55, %52, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.thread, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit
-  %69 = phi i8 [ %4, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit ], [ %4, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.thread ], [ %54, %52 ], [ %68, %55 ]
+  %69 = phi i8 [ %4, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit ], [ %4, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.thread ], [ %68, %55 ], [ %54, %52 ]
   %.not.i.i = icmp eq ptr %.sroa.12.043, %.sroa.19.144
   br i1 %.not.i.i, label %71, label %70
 
@@ -137141,7 +137141,7 @@ _ZNK5Yosys5RTLIL8SigChunkneERKS1_.exit:           ; preds = %75, %72
   br label %83
 
 83:                                               ; preds = %.loopexit, %26, %11, %9, %6, %2, %._crit_edge
-  %.014 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge ], [ true, %2 ], [ false, %6 ], [ true, %9 ], [ false, %11 ], [ false, %26 ]
+  %.014 = phi i1 [ true, %._crit_edge ], [ false, %.loopexit ], [ true, %2 ], [ false, %6 ], [ true, %9 ], [ false, %11 ], [ false, %26 ]
   ret i1 %.014
 }
 

@@ -186,7 +186,7 @@ define void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr
           to label %52 unwind label %56, !noalias !5
 
 common.resume:                                    ; preds = %167, %182, %188, %137, %90, %32
-  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %32 ], [ %.pn3.i, %90 ], [ %.pn2.i9, %137 ], [ %189, %188 ], [ %183, %182 ], [ %.pn4, %167 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %32 ], [ %.pn3.i, %90 ], [ %.pn2.i8, %137 ], [ %.pn4, %167 ], [ %183, %182 ], [ %189, %188 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit: ; preds = %52
@@ -202,7 +202,7 @@ _ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit: ; preds = %52
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i8, ptr %72, align 8, !range !8, !noundef !4
-  switch i8 %73, label %default.unreachable14 [
+  switch i8 %73, label %default.unreachable13 [
     i8 0, label %75
     i8 1, label %83
     i8 2, label %84
@@ -215,7 +215,7 @@ _ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit: ; preds = %52
 74:                                               ; preds = %192, %186, %179, %160, %156, %155, %_ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit, %_ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit, %84, %_ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit
   ret void
 
-default.unreachable14:                            ; preds = %69
+default.unreachable13:                            ; preds = %69
   unreachable
 
 75:                                               ; preds = %69
@@ -225,9 +225,9 @@ default.unreachable14:                            ; preds = %69
   %79 = add nsw i8 %78, -4
   %80 = icmp ult i8 %79, 3
   %81 = icmp ne i8 %79, 1
-  %.not13 = and i1 %80, %81
+  %.not12 = and i1 %80, %81
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not13, label %155, label %156
+  br i1 %.not12, label %155, label %156
 
 83:                                               ; preds = %69
   %.not = icmp eq ptr %2, null
@@ -283,7 +283,7 @@ default.unreachable14:                            ; preds = %69
           to label %101 unwind label %99, !noalias !9
 
 98:                                               ; preds = %102, %99
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i8, %102 ], [ %100, %99 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i7, %102 ], [ %100, %99 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %12) #4
           to label %90 unwind label %125, !noalias !9
 
@@ -297,7 +297,7 @@ default.unreachable14:                            ; preds = %69
           to label %105 unwind label %103, !noalias !9
 
 102:                                              ; preds = %119, %103
-  %.pn.i8 = phi { ptr, i32 } [ %104, %103 ], [ %120, %119 ]
+  %.pn.i7 = phi { ptr, i32 } [ %104, %103 ], [ %120, %119 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %9) #4
           to label %98 unwind label %125, !noalias !9
 
@@ -429,7 +429,7 @@ _ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit: ; preds =
           to label %140 unwind label %138, !noalias !13
 
 137:                                              ; preds = %141, %138
-  %.pn2.i9 = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i10, %141 ]
+  %.pn2.i8 = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i9, %141 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %6) #4
           to label %common.resume unwind label %153, !noalias !13
 
@@ -443,7 +443,7 @@ _ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit: ; preds =
           to label %144 unwind label %142, !noalias !13
 
 141:                                              ; preds = %145, %142
-  %.pn.i10 = phi { ptr, i32 } [ %146, %145 ], [ %143, %142 ]
+  %.pn.i9 = phi { ptr, i32 } [ %146, %145 ], [ %143, %142 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #4
           to label %137 unwind label %153, !noalias !13
 
@@ -823,7 +823,7 @@ define hidden void @_ZN15wiggle_generate5types15int_repr_tokens17h6c427b1b03a191
   unreachable
 
 17:                                               ; preds = %22, %20, %18, %12
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn
 
 18:                                               ; preds = %9

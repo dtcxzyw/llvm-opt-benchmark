@@ -157,7 +157,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %57, %47, %.thread.sink.split.i, %64, %38, %33, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %28, %24, %17, %2, %13, %9, %5
-  %.0.shrunk = phi i1 [ %16, %13 ], [ %12, %9 ], [ %8, %5 ], [ false, %2 ], [ true, %33 ], [ false, %17 ], [ false, %28 ], [ false, %24 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %64 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
+  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ true, %33 ], [ false, %17 ], [ false, %28 ], [ false, %24 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %64 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
   ret i1 %.0.shrunk
 }
 
@@ -304,7 +304,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %57, %47, %.thread.sink.split.i, %64, %38, %33, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %28, %24, %17, %2, %13, %9, %5
-  %.0.shrunk = phi i1 [ %16, %13 ], [ %12, %9 ], [ %8, %5 ], [ false, %2 ], [ true, %33 ], [ false, %17 ], [ false, %28 ], [ false, %24 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %64 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
+  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ true, %33 ], [ false, %17 ], [ false, %28 ], [ false, %24 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %64 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
   ret i1 %.0.shrunk
 }
 
@@ -887,7 +887,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %67, %57, %.thread.sink.split.i, %74, %48, %43, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %38, %34, %27, %3, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit, %10, %6
-  %.0.shrunk = phi i1 [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ %13, %10 ], [ %9, %6 ], [ false, %3 ], [ true, %43 ], [ false, %27 ], [ false, %38 ], [ false, %34 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %74 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
+  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ true, %43 ], [ false, %27 ], [ false, %38 ], [ false, %34 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %74 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
   ret i1 %.0.shrunk
 }
 
@@ -1070,7 +1070,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %67, %57, %.thread.sink.split.i, %74, %48, %43, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %38, %34, %27, %3, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit, %10, %6
-  %.0.shrunk = phi i1 [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ %13, %10 ], [ %9, %6 ], [ false, %3 ], [ true, %43 ], [ false, %27 ], [ false, %38 ], [ false, %34 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %74 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
+  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ true, %43 ], [ false, %27 ], [ false, %38 ], [ false, %34 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %74 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
   ret i1 %.0.shrunk
 }
 
@@ -1193,8 +1193,8 @@ default.unreachable1:                             ; preds = %1
   br label %16
 
 16:                                               ; preds = %3, %1, %1, %1, %1, %19, %9
-  %.sroa.3.0 = phi i32 [ %15, %9 ], [ %23, %19 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
-  %.sroa.0.0 = phi i64 [ %14, %9 ], [ %21, %19 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
+  %.sroa.3.0 = phi i32 [ %23, %19 ], [ %15, %9 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
+  %.sroa.0.0 = phi i64 [ %21, %19 ], [ %14, %9 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
   %17 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i32 } %17, i32 %.sroa.3.0, 1
   ret { i64, i32 } %18
@@ -1240,8 +1240,8 @@ default.unreachable1:                             ; preds = %1
   br label %16
 
 16:                                               ; preds = %3, %1, %1, %1, %1, %19, %9
-  %.sroa.3.0 = phi i32 [ %15, %9 ], [ %23, %19 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
-  %.sroa.0.0 = phi i64 [ %14, %9 ], [ %21, %19 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
+  %.sroa.3.0 = phi i32 [ %23, %19 ], [ %15, %9 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
+  %.sroa.0.0 = phi i64 [ %21, %19 ], [ %14, %9 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
   %17 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i32 } %17, i32 %.sroa.3.0, 1
   ret { i64, i32 } %18
@@ -1959,7 +1959,7 @@ default.unreachable7:                             ; preds = %1
   br label %28
 
 28:                                               ; preds = %26, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit", %6
-  %.0 = phi i8 [ %27, %26 ], [ %spec.select.i.i, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit" ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %spec.select.i.i, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit" ], [ %27, %26 ]
   %29 = icmp ne i8 %.0, 2
   %.not.i = xor i1 %29, true
   %30 = trunc i8 %.0 to i1
@@ -2090,7 +2090,7 @@ default.unreachable12:                            ; preds = %2
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h29b21b7ed60a86a4E.exit"
 
 "_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h29b21b7ed60a86a4E.exit": ; preds = %32, %.sink.split.i, %14, %10, %5, %2, %48, %40, %36
-  %.0.shrunk = phi i1 [ %55, %48 ], [ %47, %40 ], [ %39, %36 ], [ true, %2 ], [ true, %5 ], [ false, %10 ], [ true, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
+  %.0.shrunk = phi i1 [ %39, %36 ], [ %47, %40 ], [ %55, %48 ], [ true, %2 ], [ true, %5 ], [ false, %10 ], [ true, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
   ret i1 %.0.shrunk
 }
 
@@ -2206,8 +2206,8 @@ default.unreachable33:                            ; preds = %2
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17ha34f1744265b9882E.exit"
 
 "_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17ha34f1744265b9882E.exit": ; preds = %40, %.sink.split.i, %18, %10, %5, %2, %54, %48, %44
-  %.sroa.6.0 = phi i32 [ %56, %54 ], [ %50, %48 ], [ %.fca.1.extract7, %44 ], [ 1000000000, %2 ], [ %13, %10 ], [ 1000000000, %5 ], [ 1000000000, %18 ], [ %37, %40 ], [ %37, %.sink.split.i ]
-  %.sroa.0.0 = phi i64 [ %.sroa.029.0, %54 ], [ %.sroa.0.032, %48 ], [ %.fca.0.extract5, %44 ], [ undef, %2 ], [ %11, %10 ], [ undef, %5 ], [ undef, %18 ], [ %35, %40 ], [ %35, %.sink.split.i ]
+  %.sroa.6.0 = phi i32 [ %.fca.1.extract7, %44 ], [ %50, %48 ], [ %56, %54 ], [ 1000000000, %2 ], [ %13, %10 ], [ 1000000000, %5 ], [ 1000000000, %18 ], [ %37, %40 ], [ %37, %.sink.split.i ]
+  %.sroa.0.0 = phi i64 [ %.fca.0.extract5, %44 ], [ %.sroa.0.032, %48 ], [ %.sroa.029.0, %54 ], [ undef, %2 ], [ %11, %10 ], [ undef, %5 ], [ undef, %18 ], [ %35, %40 ], [ %35, %.sink.split.i ]
   %60 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %61 = insertvalue { i64, i32 } %60, i32 %.sroa.6.0, 1
   ret { i64, i32 } %61

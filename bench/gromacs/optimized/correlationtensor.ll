@@ -93,7 +93,7 @@ define noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %0, ptr
   br label %44
 
 44:                                               ; preds = %18, %9, %7
-  %.0 = phi double [ %43, %18 ], [ %17, %9 ], [ %8, %7 ]
+  %.0 = phi double [ %8, %7 ], [ %17, %9 ], [ %43, %18 ]
   %45 = fcmp ogt double %.0, 0.000000e+00
   br i1 %45, label %46, label %.thread
 
@@ -245,7 +245,7 @@ _ZNK3gmx17CorrelationTensor15getTimeIntegralEid.exit.us: ; preds = %_ZNK3gmx17Co
   br label %64
 
 64:                                               ; preds = %38, %29, %27
-  %.0.i = phi double [ %63, %38 ], [ %37, %29 ], [ %28, %27 ]
+  %.0.i = phi double [ %28, %27 ], [ %37, %29 ], [ %63, %38 ]
   %65 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %65, label %66, label %_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE.exit
 

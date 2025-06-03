@@ -2889,7 +2889,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %60, %62, %65, %68, %71, %74, %77
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ]
   %80 = load ptr, ptr %9, align 8
   %81 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81)
@@ -4723,7 +4723,7 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
   br label %80
 
 80:                                               ; preds = %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ]
   %81 = load ptr, ptr %8, align 8
   %82 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %81, i32 noundef %82)

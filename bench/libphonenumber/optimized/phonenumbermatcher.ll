@@ -1300,7 +1300,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_
   br label %156
 
 156:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, %4, %15, %155
-  %.0 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit ], [ %.7, %155 ], [ false, %15 ], [ false, %4 ]
+  %.0 = phi i1 [ %.7, %155 ], [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit ], [ false, %15 ], [ false, %4 ]
   ret i1 %.0
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit55: ; preds = %114, %112, %124
@@ -1567,7 +1567,7 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %_ZN4i18n12phonenumb
   resume { ptr, i32 } %.pn
 
 116:                                              ; preds = %52, %40, %44, %47, %50, %33, %21, %25, %28, %31, %12, %16, %_ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit, %19, %8
-  %.033 = phi i1 [ false, %_ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit ], [ %20, %19 ], [ %11, %8 ], [ false, %16 ], [ false, %12 ], [ false, %31 ], [ false, %28 ], [ false, %25 ], [ false, %21 ], [ %36, %33 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %40 ], [ %56, %52 ]
+  %.033 = phi i1 [ false, %_ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit ], [ %11, %8 ], [ %20, %19 ], [ false, %16 ], [ false, %12 ], [ false, %31 ], [ false, %28 ], [ false, %25 ], [ false, %21 ], [ %36, %33 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %40 ], [ %56, %52 ]
   ret i1 %.033
 }
 
@@ -4401,7 +4401,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %7
   br label %92
 
 92:                                               ; preds = %88, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit21, %4, %90
-  %.016 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit21 ], [ %91, %90 ], [ false, %4 ], [ true, %88 ]
+  %.016 = phi i1 [ %91, %90 ], [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit21 ], [ false, %4 ], [ true, %88 ]
   ret i1 %.016
 }
 

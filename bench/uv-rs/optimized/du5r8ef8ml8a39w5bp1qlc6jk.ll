@@ -2611,7 +2611,7 @@ define hidden noundef ptr @_ZN6fs_err5write17hf6d2f1dec749416bE(ptr noalias noun
   br label %50
 
 50:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit15", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit"
-  %.sroa.0.1 = phi ptr [ %21, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit15" ], [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit" ], [ %21, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h6e855f5ddf7b881aE.exit15" ]
   ret ptr %.sroa.0.1
 
 51:                                               ; preds = %.body
@@ -3622,7 +3622,7 @@ common.resume.i:                                  ; preds = %279, %105, %.body.i
   br label %_ZN17pretty_assertions7printer11write_lines17h319b214bb0ce95c6E.exit
 
 _ZN17pretty_assertions7printer11write_lines17h319b214bb0ce95c6E.exit: ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit.i", %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit177.i"
-  %.sroa.0.1.i = phi i1 [ true, %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit.i" ], [ false, %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit177.i" ]
+  %.sroa.0.1.i = phi i1 [ false, %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit177.i" ], [ true, %"_ZN4core3ptr135drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$diff..Result$LT$$RF$str$GT$$GT$$GT$$GT$17h1eacfb27e6e4bedcE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %37), !noalias !595
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)

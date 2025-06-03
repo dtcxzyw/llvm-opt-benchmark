@@ -2047,7 +2047,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8daaf30e74e267f0E.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8daaf30e74e267f0E.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ null, %5 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -2284,7 +2284,7 @@ define internal fastcc void @"_ZN4core3ptr145drop_in_place$LT$gpui..element..Ele
   unreachable
 
 42:                                               ; preds = %58, %43, %25
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %26, %25 ], [ %59, %58 ]
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %26, %25 ], [ %44, %43 ]
   resume { ptr, i32 } %.pn
 
 43:                                               ; preds = %19
@@ -2859,7 +2859,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$gpui..element..Elem
   unreachable
 
 36:                                               ; preds = %50, %37, %21
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %22, %21 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %22, %21 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %13
@@ -8148,7 +8148,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.018.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.018.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !758, !noalias !1679, !noundef !4
   %.off.i = add nsw i64 %52, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -8454,7 +8454,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.018.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.018.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !758, !noalias !1703, !noundef !4
   %.off.i = add nsw i64 %52, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -8762,7 +8762,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.021.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.021.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !484, !noalias !1726, !noundef !4
   %.off.i = add nsw i64 %52, -3
   %switch.i = icmp ult i64 %.off.i, 2
@@ -9073,7 +9073,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.018.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.018.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !758, !noalias !1749, !noundef !4
   %.off.i = add nsw i64 %52, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -9379,7 +9379,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.018.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.018.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !758, !noalias !1772, !noundef !4
   %.off.i = add nsw i64 %52, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -9685,7 +9685,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.018.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.018.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !758, !noalias !1795, !noundef !4
   %.off.i = add nsw i64 %52, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -9990,7 +9990,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %50
 
 50:                                               ; preds = %77, %49
-  %.sroa.018.0.i = phi i64 [ %34, %77 ], [ %26, %49 ]
+  %.sroa.018.0.i = phi i64 [ %26, %49 ], [ %34, %77 ]
   %51 = load i64, ptr %12, align 8, !range !758, !noalias !1818, !noundef !4
   %.off.i = add nsw i64 %51, -1
   %switch.i = icmp ult i64 %.off.i, 2
@@ -10298,7 +10298,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %51
 
 51:                                               ; preds = %78, %50
-  %.sroa.021.0.i = phi i64 [ %35, %78 ], [ %27, %50 ]
+  %.sroa.021.0.i = phi i64 [ %27, %50 ], [ %35, %78 ]
   %52 = load i64, ptr %12, align 8, !range !484, !noalias !1841, !noundef !4
   %.off.i = add nsw i64 %52, -3
   %switch.i = icmp ult i64 %.off.i, 2
@@ -10586,7 +10586,7 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %47
 
 47:                                               ; preds = %73, %46
-  %.sroa.021.0.i = phi i64 [ %34, %73 ], [ %27, %46 ]
+  %.sroa.021.0.i = phi i64 [ %27, %46 ], [ %34, %73 ]
   %48 = load i64, ptr %18, align 8, !range !484, !noalias !1864, !noundef !4
   %.off.i = add nsw i64 %48, -3
   %switch.i = icmp ult i64 %.off.i, 2
@@ -10604,9 +10604,9 @@ define hidden { float, float } @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h81a5c39e841fa7c4E.exit.i"
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h81a5c39e841fa7c4E.exit.i": ; preds = %83, %81, %77, %75, %56, %52, %49
-  %.sroa.031.0.not.i = phi i1 [ false, %83 ], [ true, %75 ], [ false, %49 ], [ false, %56 ], [ false, %52 ], [ true, %81 ], [ true, %77 ]
-  %.sroa.033.0.not.i = phi i1 [ false, %83 ], [ false, %75 ], [ true, %49 ], [ true, %56 ], [ true, %52 ], [ false, %81 ], [ false, %77 ]
-  %.pn44.i = phi { ptr, i32 } [ %84, %83 ], [ %76, %75 ], [ %50, %49 ], [ %53, %56 ], [ %53, %52 ], [ %78, %81 ], [ %78, %77 ]
+  %.sroa.031.0.not.i = phi i1 [ false, %83 ], [ false, %49 ], [ true, %75 ], [ false, %56 ], [ false, %52 ], [ true, %81 ], [ true, %77 ]
+  %.sroa.033.0.not.i = phi i1 [ false, %83 ], [ true, %49 ], [ false, %75 ], [ true, %56 ], [ true, %52 ], [ false, %81 ], [ false, %77 ]
+  %.pn44.i = phi { ptr, i32 } [ %84, %83 ], [ %50, %49 ], [ %76, %75 ], [ %53, %56 ], [ %53, %52 ], [ %78, %81 ], [ %78, %77 ]
   %51 = load i64, ptr %18, align 8, !range !484, !noalias !1864, !noundef !4
   switch i64 %51, label %86 [
     i64 3, label %87

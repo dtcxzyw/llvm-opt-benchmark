@@ -767,10 +767,10 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter10new_writer17he05dbc19a3145e49E(p
   call void @_ZN3std2fs4File6create17h9dad318acc8f96d3E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   %8 = load i32, ptr %2, align 8, !range !205, !noundef !5
   %trunc = trunc nuw i32 %8 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !5
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load i32, ptr %11, align 4, !range !206
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %10 = load i32, ptr %9, align 4, !range !206
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br i1 %trunc, label %31, label %13
 
@@ -781,7 +781,7 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter10new_writer17he05dbc19a3145e49E(p
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = invoke noundef i32 @close(i32 noundef %12)
+  %17 = invoke noundef i32 @close(i32 noundef %10)
           to label %common.resume unwind label %18, !noalias !207
 
 18:                                               ; preds = %15
@@ -820,7 +820,7 @@ common.resume:                                    ; preds = %15, %25
   %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %.sroa.716.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %12, ptr %.sroa.9.0..sroa_idx, align 4
+  store i32 %10, ptr %.sroa.9.0..sroa_idx, align 4
   br label %common.resume
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h413e2eb5d082123bE.exit": ; preds = %"._ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h413e2eb5d082123bE.exit_crit_edge", %"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h00111e74878c46cdE.exit"
@@ -833,7 +833,7 @@ common.resume:                                    ; preds = %15, %25
   %.sroa.716.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %.sroa.716.0..sroa_idx17, align 8
   %.sroa.9.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %12, ptr %.sroa.9.0..sroa_idx20, align 4
+  store i32 %10, ptr %.sroa.9.0..sroa_idx20, align 4
   %28 = add i64 %27, 1
   store i64 %28, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -843,7 +843,7 @@ common.resume:                                    ; preds = %15, %25
   br label %31
 
 31:                                               ; preds = %1, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h413e2eb5d082123bE.exit"
-  %.0 = phi ptr [ null, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h413e2eb5d082123bE.exit" ], [ %10, %1 ]
+  %.0 = phi ptr [ null, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h413e2eb5d082123bE.exit" ], [ %12, %1 ]
   ret ptr %.0
 }
 

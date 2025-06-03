@@ -33663,7 +33663,7 @@ common.resume.sink.split:                         ; preds = %41, %92, %97, %102
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body7, %.body15, %.body, %57, %47, %52, %79, %69, %74
-  %common.resume.op = phi { ptr, i32 } [ %6, %.body ], [ %45, %.body15 ], [ %37, %.body7 ], [ %48, %57 ], [ %48, %47 ], [ %48, %52 ], [ %70, %79 ], [ %70, %69 ], [ %70, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %.body ], [ %37, %.body7 ], [ %45, %.body15 ], [ %48, %57 ], [ %48, %47 ], [ %48, %52 ], [ %70, %79 ], [ %70, %69 ], [ %70, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 41:                                               ; preds = %39
@@ -34026,38 +34026,38 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$async_channel..Sender$LT$all
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = load i64, ptr %7, align 128, !range !845, !noalias !9871, !noundef !4
   switch i64 %8, label %default.unreachable [
-    i64 0, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i"
-    i64 1, label %9
-    i64 2, label %17
+    i64 0, label %9
+    i64 1, label %14
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i"
   ]
 
 default.unreachable:                              ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %11 = load i64, ptr %10, align 8, !noalias !9871, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %13 = atomicrmw or ptr %12, i64 %11 seq_cst, align 8, !noalias !9871
-  %14 = load i64, ptr %10, align 8, !noalias !9871, !noundef !4
-  %15 = and i64 %14, %13
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %25, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit"
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %11 = atomicrmw or ptr %10, i64 4 seq_cst, align 8, !noalias !9871
+  %12 = and i64 %11, 4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %25, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit"
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %19 = atomicrmw or ptr %18, i64 1 seq_cst, align 8, !noalias !9871
-  %20 = trunc i64 %19 to i1
-  br i1 %20, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit", label %25
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %16 = load i64, ptr %15, align 8, !noalias !9871, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %18 = atomicrmw or ptr %17, i64 %16 seq_cst, align 8, !noalias !9871
+  %19 = load i64, ptr %15, align 8, !noalias !9871, !noundef !4
+  %20 = and i64 %19, %18
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %25, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i": ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %22 = atomicrmw or ptr %21, i64 4 seq_cst, align 8, !noalias !9871
-  %23 = and i64 %22, 4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %23 = atomicrmw or ptr %22, i64 1 seq_cst, align 8, !noalias !9871
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit", label %25
 
-25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %17, %9
+25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %14, %9
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 640
   invoke void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %26, i64 noundef -1)
           to label %.noexc unwind label %29
@@ -34087,7 +34087,7 @@ default.unreachable:                              ; preds = %6
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha4bf594349f4e2f7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$async_channel..Channel$LT$alloc..string..String$GT$$GT$$GT$17hd90593c060c18ba9E.llvm.15652623448996909339.exit" unwind label %39
 
-"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %17, %9, %1, %.noexc1
+"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd359952b02ac0257E.llvm.15652623448996909339.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %14, %9, %1, %.noexc1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9881)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9884)
   %35 = load ptr, ptr %0, align 8, !alias.scope !9887, !nonnull !4, !noundef !4
@@ -34481,38 +34481,38 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$async_channel..Receiver$LT$a
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = load i64, ptr %7, align 128, !range !845, !noalias !10016, !noundef !4
   switch i64 %8, label %default.unreachable [
-    i64 0, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i"
-    i64 1, label %9
-    i64 2, label %17
+    i64 0, label %9
+    i64 1, label %14
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i"
   ]
 
 default.unreachable:                              ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %11 = load i64, ptr %10, align 8, !noalias !10016, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %13 = atomicrmw or ptr %12, i64 %11 seq_cst, align 8, !noalias !10016
-  %14 = load i64, ptr %10, align 8, !noalias !10016, !noundef !4
-  %15 = and i64 %14, %13
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %25, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit"
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %11 = atomicrmw or ptr %10, i64 4 seq_cst, align 8, !noalias !10016
+  %12 = and i64 %11, 4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %25, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit"
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %19 = atomicrmw or ptr %18, i64 1 seq_cst, align 8, !noalias !10016
-  %20 = trunc i64 %19 to i1
-  br i1 %20, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit", label %25
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %16 = load i64, ptr %15, align 8, !noalias !10016, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %18 = atomicrmw or ptr %17, i64 %16 seq_cst, align 8, !noalias !10016
+  %19 = load i64, ptr %15, align 8, !noalias !10016, !noundef !4
+  %20 = and i64 %19, %18
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %25, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i": ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %22 = atomicrmw or ptr %21, i64 4 seq_cst, align 8, !noalias !10016
-  %23 = and i64 %22, 4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %23 = atomicrmw or ptr %22, i64 1 seq_cst, align 8, !noalias !10016
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit", label %25
 
-25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %17, %9
+25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %14, %9
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 640
   invoke void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %26, i64 noundef -1)
           to label %.noexc unwind label %29
@@ -34542,7 +34542,7 @@ default.unreachable:                              ; preds = %6
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha4bf594349f4e2f7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$async_channel..Channel$LT$alloc..string..String$GT$$GT$$GT$17hd90593c060c18ba9E.llvm.15652623448996909339.exit" unwind label %59
 
-"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %17, %9, %1, %.noexc2
+"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcbf20e9f6f3d22ccE.llvm.15652623448996909339.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i.i", %14, %9, %1, %.noexc2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10026)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10029)
   %35 = load ptr, ptr %0, align 8, !alias.scope !10032, !nonnull !4, !noundef !4
@@ -42482,7 +42482,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h4981b5ebe36b011cE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -47075,38 +47075,38 @@ define hidden void @"_ZN72_$LT$async_channel..Sender$LT$T$GT$$u20$as$u20$core..o
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = load i64, ptr %7, align 128, !range !845, !noundef !4
   switch i64 %8, label %default.unreachable [
-    i64 0, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i"
-    i64 1, label %9
-    i64 2, label %17
+    i64 0, label %9
+    i64 1, label %14
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i"
   ]
 
 default.unreachable:                              ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %13 = atomicrmw or ptr %12, i64 %11 seq_cst, align 8
-  %14 = load i64, ptr %10, align 8, !noundef !4
-  %15 = and i64 %14, %13
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %11 = atomicrmw or ptr %10, i64 4 seq_cst, align 8
+  %12 = and i64 %11, 4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %19 = atomicrmw or ptr %18, i64 1 seq_cst, align 8
-  %20 = trunc i64 %19 to i1
-  br i1 %20, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit", label %25
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %18 = atomicrmw or ptr %17, i64 %16 seq_cst, align 8
+  %19 = load i64, ptr %15, align 8, !noundef !4
+  %20 = and i64 %19, %18
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i": ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %22 = atomicrmw or ptr %21, i64 4 seq_cst, align 8
-  %23 = and i64 %22, 4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %23 = atomicrmw or ptr %22, i64 1 seq_cst, align 8
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit", label %25
 
-25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %17, %9
+25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %14, %9
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 640
   tail call void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %26, i64 noundef -1)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 648
@@ -47115,7 +47115,7 @@ default.unreachable:                              ; preds = %6
   tail call void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %28, i64 noundef -1)
   br label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
-"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit": ; preds = %25, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %17, %9, %1
+"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit": ; preds = %25, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %14, %9, %1
   ret void
 }
 
@@ -47131,38 +47131,38 @@ define hidden void @"_ZN74_$LT$async_channel..Receiver$LT$T$GT$$u20$as$u20$core.
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %8 = load i64, ptr %7, align 128, !range !845, !noundef !4
   switch i64 %8, label %default.unreachable [
-    i64 0, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i"
-    i64 1, label %9
-    i64 2, label %17
+    i64 0, label %9
+    i64 1, label %14
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i"
   ]
 
 default.unreachable:                              ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %13 = atomicrmw or ptr %12, i64 %11 seq_cst, align 8
-  %14 = load i64, ptr %10, align 8, !noundef !4
-  %15 = and i64 %14, %13
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %11 = atomicrmw or ptr %10, i64 4 seq_cst, align 8
+  %12 = and i64 %11, 4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %19 = atomicrmw or ptr %18, i64 1 seq_cst, align 8
-  %20 = trunc i64 %19 to i1
-  br i1 %20, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit", label %25
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %18 = atomicrmw or ptr %17, i64 %16 seq_cst, align 8
+  %19 = load i64, ptr %15, align 8, !noundef !4
+  %20 = and i64 %19, %18
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i": ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %22 = atomicrmw or ptr %21, i64 4 seq_cst, align 8
-  %23 = and i64 %22, 4
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %23 = atomicrmw or ptr %22, i64 1 seq_cst, align 8
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit", label %25
 
-25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %17, %9
+25:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %14, %9
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 640
   tail call void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %26, i64 noundef -1)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 648
@@ -47171,7 +47171,7 @@ default.unreachable:                              ; preds = %6
   tail call void @_ZN14event_listener5Event6notify17h028b172948508f9eE.llvm.6018374997465442611(ptr noundef nonnull align 8 %28, i64 noundef -1)
   br label %"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit"
 
-"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit": ; preds = %25, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %17, %9, %1
+"_ZN13async_channel16Channel$LT$T$GT$5close17h0ed26f869ecc9afbE.exit": ; preds = %25, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h2a733da137f57d6aE.exit.i", %14, %9, %1
   ret void
 }
 

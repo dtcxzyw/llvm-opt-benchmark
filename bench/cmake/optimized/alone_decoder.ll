@@ -377,7 +377,7 @@ define dso_local i32 @lzma_alone_decoder(ptr noundef %0, i64 noundef %1) local_u
   br label %36
 
 36:                                               ; preds = %22, %2, %23
-  %.1 = phi i32 [ %3, %2 ], [ 5, %22 ], [ 0, %23 ]
+  %.1 = phi i32 [ 0, %23 ], [ 5, %22 ], [ %3, %2 ]
   ret i32 %.1
 }
 

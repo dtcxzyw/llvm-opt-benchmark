@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   br label %31
 
 31:                                               ; preds = %29, %14
-  %.140.i = phi i32 [ %.03961.i, %14 ], [ %30, %29 ]
+  %.140.i = phi i32 [ %30, %29 ], [ %.03961.i, %14 ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %33 = load i8, ptr %32, align 1, !tbaa !11
   %.not47.i = icmp eq i8 %33, 0
@@ -221,7 +221,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   br label %38
 
 38:                                               ; preds = %36, %14
-  %.2.i = phi i32 [ %.03961.i, %14 ], [ %37, %36 ]
+  %.2.i = phi i32 [ %37, %36 ], [ %.03961.i, %14 ]
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = icmp eq i8 %40, 0
@@ -241,8 +241,8 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   br i1 %50, label %collectargs.exit, label %51
 
 51:                                               ; preds = %48, %38, %34, %26, %24
-  %.3.i = phi i32 [ %.2.i, %48 ], [ %.2.i, %38 ], [ %35, %34 ], [ %.03961.i, %26 ], [ %25, %24 ]
-  %.1.i = phi i32 [ %43, %48 ], [ %.062.i, %38 ], [ %.062.i, %34 ], [ %.062.i, %26 ], [ %.062.i, %24 ]
+  %.3.i = phi i32 [ %25, %24 ], [ %.03961.i, %26 ], [ %35, %34 ], [ %.2.i, %48 ], [ %.2.i, %38 ]
+  %.1.i = phi i32 [ %.062.i, %24 ], [ %.062.i, %26 ], [ %.062.i, %34 ], [ %43, %48 ], [ %.062.i, %38 ]
   %52 = add nsw i32 %.1.i, 1
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %4, i64 %53
@@ -254,8 +254,8 @@ collectargs.exit.loopexit:                        ; preds = %14
   br label %collectargs.exit
 
 collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21, %26, %31, %42, %48, %14, %collectargs.exit.loopexit, %17, %9, %1
-  %.062 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %21 ], [ %.062.i, %26 ], [ %.062.i, %31 ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %collectargs.exit.loopexit ]
-  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select92, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %21 ], [ 1, %26 ], [ 1, %31 ], [ 1, %48 ], [ 1, %42 ], [ 1, %collectargs.exit.loopexit ]
+  %.062 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %collectargs.exit.loopexit ]
+  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select92, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
   %56 = icmp sgt i32 %.062, 0
   %57 = select i1 %56, i32 %.062, i32 %3
   tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #10

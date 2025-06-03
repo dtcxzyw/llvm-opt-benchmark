@@ -232,7 +232,7 @@ sw.bb52:                                          ; preds = %sw.bb30, %if.then, 
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %sw.bb, %sw.bb14, %sw.bb52, %if.then, %sw.bb39
-  %i.1 = phi i32 [ %i.019, %for.body ], [ %inc65, %sw.bb52 ], [ %i.019, %sw.bb39 ], [ %i.019, %if.then ], [ %inc27, %sw.bb14 ], [ %inc, %sw.bb ]
+  %i.1 = phi i32 [ %i.019, %for.body ], [ %inc, %sw.bb ], [ %inc27, %sw.bb14 ], [ %inc65, %sw.bb52 ], [ %i.019, %if.then ], [ %i.019, %sw.bb39 ]
   %inc67 = add i32 %i.1, 1
   %conv = zext i32 %inc67 to i64
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16

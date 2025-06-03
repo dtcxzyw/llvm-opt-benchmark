@@ -1367,7 +1367,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread52: ; preds = %48, %_ZNK5clan
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit30:   ; preds = %.lr.ph, %80
-  %.1.i27 = phi ptr [ %76, %.lr.ph ], [ %81, %80 ]
+  %.1.i27 = phi ptr [ %81, %80 ], [ %76, %.lr.ph ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i27, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %82, align 16, !tbaa !25
   %83 = and i64 %.sroa.0.0.copyload.i, -16

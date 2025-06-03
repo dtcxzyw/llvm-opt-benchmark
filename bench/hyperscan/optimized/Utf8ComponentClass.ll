@@ -208,7 +208,7 @@ define hidden noundef range(i32 2, 0) i32 @_ZN3ue219translateForUcpModeENS_15Pre
   br label %18
 
 18:                                               ; preds = %13, %7, %2, %17, %16, %12, %11, %10, %6, %5, %4, %3
-  %.0 = phi i32 [ %0, %17 ], [ 61, %16 ], [ 59, %12 ], [ 19, %11 ], [ 18, %10 ], [ 17, %6 ], [ 38, %5 ], [ 8, %4 ], [ 26, %3 ], [ 58, %2 ], [ %., %7 ], [ %.4, %13 ]
+  %.0 = phi i32 [ %0, %17 ], [ 26, %3 ], [ 8, %4 ], [ 38, %5 ], [ 17, %6 ], [ 18, %10 ], [ 19, %11 ], [ 59, %12 ], [ 61, %16 ], [ 58, %2 ], [ %., %7 ], [ %.4, %13 ]
   ret i32 %.0
 }
 
@@ -1769,7 +1769,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %439, %446
   ret void
 
 451:                                              ; preds = %426, %272, %213, %192, %148, %137, %125, %85
-  %.pn39 = phi { ptr, i32 } [ %427, %426 ], [ %273, %272 ], [ %214, %213 ], [ %193, %192 ], [ %.pn, %148 ], [ %.pn30, %137 ], [ %.pn36.pn, %125 ], [ %86, %85 ]
+  %.pn39 = phi { ptr, i32 } [ %427, %426 ], [ %86, %85 ], [ %.pn36.pn, %125 ], [ %.pn30, %137 ], [ %.pn, %148 ], [ %193, %192 ], [ %214, %213 ], [ %273, %272 ]
   resume { ptr, i32 } %.pn39
 }
 
@@ -3071,7 +3071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   br label %_ZN3ue219translateForUcpModeENS_15PredefinedClassERKNS_9ParseModeE.exit
 
 _ZN3ue219translateForUcpModeENS_15PredefinedClassERKNS_9ParseModeE.exit: ; preds = %44, %43, %40, %39, %38, %37, %34, %33, %32, %31, %30, %29, %24
-  %.010 = phi i32 [ %1, %24 ], [ %1, %44 ], [ 61, %43 ], [ 59, %39 ], [ 19, %38 ], [ 18, %37 ], [ 17, %33 ], [ 38, %32 ], [ 8, %31 ], [ 26, %30 ], [ 58, %29 ], [ %..i, %34 ], [ %.4.i, %40 ]
+  %.010 = phi i32 [ %1, %24 ], [ %1, %44 ], [ 26, %30 ], [ 8, %31 ], [ 38, %32 ], [ 17, %33 ], [ 18, %37 ], [ 19, %38 ], [ 59, %39 ], [ 61, %43 ], [ 58, %29 ], [ %..i, %34 ], [ %.4.i, %40 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #23
   call void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9ParseModeE(ptr dead_on_unwind nonnull writable sret(%"class.ue2::CodePointSet") align 8 %6, i32 noundef %.010, ptr noundef nonnull align 1 dereferenceable(6) %25)
   br i1 %2, label %45, label %47

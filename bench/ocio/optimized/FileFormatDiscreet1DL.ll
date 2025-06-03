@@ -785,7 +785,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.
   br label %224
 
 212:                                              ; preds = %202, %201, %200, %197
-  %.0.i.ph.i = phi i32 [ 8, %197 ], [ 10, %200 ], [ 12, %201 ], [ %206, %202 ]
+  %.0.i.ph.i = phi i32 [ 8, %197 ], [ %206, %202 ], [ 12, %201 ], [ 10, %200 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #31
   br label %213
@@ -1936,7 +1936,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBits
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBitsPerChannelE.exit77
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBitsPerChannelE.exit77: ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBitsPerChannelE.exit, %585, %586, %587, %588, %589, %590
-  %.0.i76 = phi i32 [ 0, %590 ], [ 8, %589 ], [ 7, %588 ], [ 5, %587 ], [ 3, %586 ], [ 2, %585 ], [ 1, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBitsPerChannelE.exit ]
+  %.0.i76 = phi i32 [ 0, %590 ], [ 2, %585 ], [ 3, %586 ], [ 5, %587 ], [ 7, %588 ], [ 8, %589 ], [ 1, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110Lut1dUtils11GetBitDepthENS1_20IM_LutBitsPerChannelE.exit ]
   %591 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %592 = load i32, ptr %591, align 4, !tbaa !80
   %593 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30

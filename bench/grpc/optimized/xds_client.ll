@@ -21873,8 +21873,8 @@ define { i64, ptr } @_ZNK9grpc_core9XdsClient13ResourceState16CacheStateStringEv
   unreachable
 
 22:                                               ; preds = %1, %20, %15, %10, %9, %4
-  %.sroa.03.0 = phi i64 [ 7, %20 ], [ %19, %15 ], [ %14, %10 ], [ 5, %9 ], [ %8, %4 ], [ 9, %1 ]
-  %.sroa.7.0 = phi ptr [ @.str.79, %20 ], [ %18, %15 ], [ %13, %10 ], [ @.str.74, %9 ], [ %7, %4 ], [ @.str.71, %1 ]
+  %.sroa.03.0 = phi i64 [ %8, %4 ], [ 5, %9 ], [ %14, %10 ], [ %19, %15 ], [ 7, %20 ], [ 9, %1 ]
+  %.sroa.7.0 = phi ptr [ %7, %4 ], [ @.str.74, %9 ], [ %13, %10 ], [ %18, %15 ], [ @.str.79, %20 ], [ @.str.71, %1 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.7.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -28605,8 +28605,8 @@ define void @_ZN9grpc_core9XdsClient20ReportResourceCountsEN4absl12lts_202407221
   unreachable
 
 59:                                               ; preds = %57, %52, %47, %46, %41, %38
-  %.sroa.03.0.i = phi i64 [ 7, %57 ], [ %56, %52 ], [ %51, %47 ], [ 5, %46 ], [ %45, %41 ], [ 9, %38 ]
-  %.sroa.7.0.i = phi ptr [ @.str.79, %57 ], [ %55, %52 ], [ %50, %47 ], [ @.str.74, %46 ], [ %44, %41 ], [ @.str.71, %38 ]
+  %.sroa.03.0.i = phi i64 [ %45, %41 ], [ 5, %46 ], [ %51, %47 ], [ %56, %52 ], [ 7, %57 ], [ 9, %38 ]
+  %.sroa.7.0.i = phi ptr [ %44, %41 ], [ @.str.74, %46 ], [ %50, %47 ], [ %55, %52 ], [ @.str.79, %57 ], [ @.str.71, %38 ]
   %60 = load ptr, ptr %11, align 8, !tbaa !24
   %.not10.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i

@@ -6000,8 +6000,8 @@ define internal fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %0, ptr
   br label %164
 
 164:                                              ; preds = %152, %145, %143
-  %.0125.in.i = phi i32 [ %144, %143 ], [ %151, %145 ], [ %163, %152 ]
-  %.0124.i = phi i64 [ 1, %143 ], [ 2, %145 ], [ 3, %152 ]
+  %.0125.in.i = phi i32 [ %144, %143 ], [ %163, %152 ], [ %151, %145 ]
+  %.0124.i = phi i64 [ 1, %143 ], [ 3, %152 ], [ 2, %145 ]
   %.0125.i = zext nneg i32 %.0125.in.i to i64
   %165 = add nuw nsw i64 %.0124.i, %.0125.i
   %166 = add nuw nsw i64 %165, 8
@@ -6355,7 +6355,7 @@ ZSTDv06_buildSeqTable.exit.i.i:                   ; preds = %324
   br label %ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i
 
 ZSTDv06_buildSeqTable.exit.thread149.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit.i.i, %FSEv06_buildDTable.exit.i.i, %272
-  %.0.i.ph.pn.ph.i.i = phi i64 [ %322, %ZSTDv06_buildSeqTable.exit.i.i ], [ 1, %272 ], [ 0, %FSEv06_buildDTable.exit.i.i ]
+  %.0.i.ph.pn.ph.i.i = phi i64 [ %322, %ZSTDv06_buildSeqTable.exit.i.i ], [ 0, %FSEv06_buildDTable.exit.i.i ], [ 1, %272 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %ZSTDv06_buildSeqTable.exit.thread149.i.i
 
@@ -6548,7 +6548,7 @@ ZSTDv06_buildSeqTable.exit91.i.i:                 ; preds = %385
   br label %ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i
 
 ZSTDv06_buildSeqTable.exit91.thread156.sink.split.i.i: ; preds = %ZSTDv06_buildSeqTable.exit91.i.i, %FSEv06_buildDTable.exit.i, %333
-  %.0.i86.ph.pn.ph.i.i = phi i64 [ %383, %ZSTDv06_buildSeqTable.exit91.i.i ], [ 1, %333 ], [ 0, %FSEv06_buildDTable.exit.i ]
+  %.0.i86.ph.pn.ph.i.i = phi i64 [ %383, %ZSTDv06_buildSeqTable.exit91.i.i ], [ 0, %FSEv06_buildDTable.exit.i ], [ 1, %333 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %ZSTDv06_buildSeqTable.exit91.thread156.i.i
 
@@ -6626,7 +6626,7 @@ ZSTDv06_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv06_buildSeqTab
   br label %.thread163.sink.split.i.i
 
 .thread163.sink.split.i.i:                        ; preds = %410, %399, %394
-  %.0.i93.ph.pn.ph.i.i = phi i64 [ %405, %410 ], [ 1, %394 ], [ 0, %399 ]
+  %.0.i93.ph.pn.ph.i.i = phi i64 [ %405, %410 ], [ 0, %399 ], [ 1, %394 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %ZSTDv06_decodeSeqHeaders.exit.i
 
@@ -7708,9 +7708,9 @@ default.unreachable:                              ; preds = %66, %29
   br label %ZSTDv06_copyRawBlock.exit
 
 ZSTDv06_copyRawBlock.exit:                        ; preds = %76, %.thread91, %67
-  %77 = phi i64 [ 0, %.thread91 ], [ %64, %67 ], [ %64, %76 ]
-  %.0.i.ph90 = phi i64 [ 0, %.thread91 ], [ %.0.i.ph, %67 ], [ %.0.i.ph, %76 ]
-  %.055 = phi i64 [ 0, %.thread91 ], [ %70, %67 ], [ %.0.i.ph, %76 ]
+  %77 = phi i64 [ %64, %67 ], [ 0, %.thread91 ], [ %64, %76 ]
+  %.0.i.ph90 = phi i64 [ %.0.i.ph, %67 ], [ 0, %.thread91 ], [ %.0.i.ph, %76 ]
+  %.055 = phi i64 [ %70, %67 ], [ 0, %.thread91 ], [ %.0.i.ph, %76 ]
   %78 = icmp eq i64 %.0.i.ph90, 0
   br i1 %78, label %.loopexit, label %80
 
@@ -8381,7 +8381,7 @@ ZSTDv06_copyRawBlock.exit:                        ; preds = %95, %90
   br label %ZSTDv06_decodeFrameHeader.exit.thread69
 
 ZSTDv06_decodeFrameHeader.exit.thread69:          ; preds = %53, %44, %ZSTDv06_copyRawBlock.exit.thread79, %23, %ZSTDv06_checkContinuity.exit, %97, %87, %ZSTDv06_copyRawBlock.exit, %ZSTDv06_decodeFrameHeader.exit.thread, %ZSTDv06_decodeFrameHeader.exit, %22, %5, %86, %36
-  %.055 = phi i64 [ 0, %86 ], [ 0, %36 ], [ -72, %5 ], [ -72, %22 ], [ 0, %ZSTDv06_decodeFrameHeader.exit.thread ], [ %52, %ZSTDv06_decodeFrameHeader.exit ], [ %.078, %97 ], [ -1, %87 ], [ %.0, %ZSTDv06_copyRawBlock.exit ], [ -1, %ZSTDv06_checkContinuity.exit ], [ %30, %23 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread79 ], [ -14, %53 ], [ -10, %44 ]
+  %.055 = phi i64 [ 0, %36 ], [ 0, %86 ], [ -72, %5 ], [ -72, %22 ], [ 0, %ZSTDv06_decodeFrameHeader.exit.thread ], [ %52, %ZSTDv06_decodeFrameHeader.exit ], [ %.078, %97 ], [ -1, %87 ], [ %.0, %ZSTDv06_copyRawBlock.exit ], [ -1, %ZSTDv06_checkContinuity.exit ], [ %30, %23 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread79 ], [ -14, %53 ], [ -10, %44 ]
   ret i64 %.055
 }
 
@@ -8810,9 +8810,9 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
   br label %165
 
 165:                                              ; preds = %._crit_edge324, %162
-  %166 = phi i64 [ %.pre326, %._crit_edge324 ], [ %163, %162 ]
-  %167 = phi i64 [ %.pre325, %._crit_edge324 ], [ %164, %162 ]
-  %.3187 = phi ptr [ %.0184311, %._crit_edge324 ], [ %147, %162 ]
+  %166 = phi i64 [ %163, %162 ], [ %.pre326, %._crit_edge324 ]
+  %167 = phi i64 [ %164, %162 ], [ %.pre325, %._crit_edge324 ]
+  %.3187 = phi ptr [ %147, %162 ], [ %.0184311, %._crit_edge324 ]
   %168 = sub i64 %167, %166
   %169 = ptrtoint ptr %.0194310.ph to i64
   %170 = sub i64 %26, %169

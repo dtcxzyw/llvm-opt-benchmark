@@ -448,9 +448,9 @@ default.unreachable65:                            ; preds = %16
   br label %31
 
 31:                                               ; preds = %38, %30
-  %.sroa.019.0 = phi i64 [ %34, %38 ], [ -9223372036854775804, %30 ]
-  %.sroa.031.0 = phi i64 [ %.sroa.031.1, %38 ], [ 1, %30 ]
-  %.sroa.934.0 = phi ptr [ %.sroa.934.1, %38 ], [ undef, %30 ]
+  %.sroa.019.0 = phi i64 [ -9223372036854775804, %30 ], [ %34, %38 ]
+  %.sroa.031.0 = phi i64 [ 1, %30 ], [ %.sroa.031.1, %38 ]
+  %.sroa.934.0 = phi ptr [ undef, %30 ], [ %.sroa.934.1, %38 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store i64 %.sroa.019.0, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.0..sroa_idx23, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9, i64 40, i1 false)
@@ -4515,8 +4515,8 @@ define hidden noundef ptr @"_ZN80_$LT$tokio_quiche..metrics..labels..H3Error$u20
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %6, %7, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13
-  %.sroa.24.0 = phi i64 [ 26, %33 ], [ 26, %32 ], [ 26, %31 ], [ 19, %30 ], [ 16, %29 ], [ 16, %28 ], [ 21, %27 ], [ 20, %26 ], [ 19, %25 ], [ 19, %24 ], [ 17, %23 ], [ 11, %22 ], [ 17, %21 ], [ 14, %20 ], [ 19, %19 ], [ 25, %18 ], [ 24, %17 ], [ 17, %16 ], [ 25, %15 ], [ 11, %14 ], [ 17, %13 ], [ 9, %7 ], [ 10, %6 ]
-  %.sroa.0.0 = phi ptr [ @anon.b6fca53bb9b23298a37822d813339071.97, %33 ], [ @anon.b6fca53bb9b23298a37822d813339071.96, %32 ], [ @anon.b6fca53bb9b23298a37822d813339071.95, %31 ], [ @anon.b6fca53bb9b23298a37822d813339071.94, %30 ], [ @anon.b6fca53bb9b23298a37822d813339071.93, %29 ], [ @anon.b6fca53bb9b23298a37822d813339071.92, %28 ], [ @anon.b6fca53bb9b23298a37822d813339071.91, %27 ], [ @anon.b6fca53bb9b23298a37822d813339071.90, %26 ], [ @anon.b6fca53bb9b23298a37822d813339071.89, %25 ], [ @anon.b6fca53bb9b23298a37822d813339071.88, %24 ], [ @anon.b6fca53bb9b23298a37822d813339071.87, %23 ], [ @anon.b6fca53bb9b23298a37822d813339071.86, %22 ], [ @anon.b6fca53bb9b23298a37822d813339071.85, %21 ], [ @anon.b6fca53bb9b23298a37822d813339071.84, %20 ], [ @anon.b6fca53bb9b23298a37822d813339071.83, %19 ], [ @anon.b6fca53bb9b23298a37822d813339071.82, %18 ], [ @anon.b6fca53bb9b23298a37822d813339071.81, %17 ], [ @anon.b6fca53bb9b23298a37822d813339071.80, %16 ], [ @anon.b6fca53bb9b23298a37822d813339071.79, %15 ], [ @anon.b6fca53bb9b23298a37822d813339071.78, %14 ], [ @anon.b6fca53bb9b23298a37822d813339071.77, %13 ], [ @anon.b6fca53bb9b23298a37822d813339071.76, %7 ], [ @anon.b6fca53bb9b23298a37822d813339071.98, %6 ]
+  %.sroa.24.0 = phi i64 [ 17, %13 ], [ 11, %14 ], [ 25, %15 ], [ 17, %16 ], [ 24, %17 ], [ 25, %18 ], [ 19, %19 ], [ 14, %20 ], [ 17, %21 ], [ 11, %22 ], [ 17, %23 ], [ 19, %24 ], [ 19, %25 ], [ 20, %26 ], [ 21, %27 ], [ 16, %28 ], [ 16, %29 ], [ 19, %30 ], [ 26, %31 ], [ 26, %32 ], [ 26, %33 ], [ 9, %7 ], [ 10, %6 ]
+  %.sroa.0.0 = phi ptr [ @anon.b6fca53bb9b23298a37822d813339071.77, %13 ], [ @anon.b6fca53bb9b23298a37822d813339071.78, %14 ], [ @anon.b6fca53bb9b23298a37822d813339071.79, %15 ], [ @anon.b6fca53bb9b23298a37822d813339071.80, %16 ], [ @anon.b6fca53bb9b23298a37822d813339071.81, %17 ], [ @anon.b6fca53bb9b23298a37822d813339071.82, %18 ], [ @anon.b6fca53bb9b23298a37822d813339071.83, %19 ], [ @anon.b6fca53bb9b23298a37822d813339071.84, %20 ], [ @anon.b6fca53bb9b23298a37822d813339071.85, %21 ], [ @anon.b6fca53bb9b23298a37822d813339071.86, %22 ], [ @anon.b6fca53bb9b23298a37822d813339071.87, %23 ], [ @anon.b6fca53bb9b23298a37822d813339071.88, %24 ], [ @anon.b6fca53bb9b23298a37822d813339071.89, %25 ], [ @anon.b6fca53bb9b23298a37822d813339071.90, %26 ], [ @anon.b6fca53bb9b23298a37822d813339071.91, %27 ], [ @anon.b6fca53bb9b23298a37822d813339071.92, %28 ], [ @anon.b6fca53bb9b23298a37822d813339071.93, %29 ], [ @anon.b6fca53bb9b23298a37822d813339071.94, %30 ], [ @anon.b6fca53bb9b23298a37822d813339071.95, %31 ], [ @anon.b6fca53bb9b23298a37822d813339071.96, %32 ], [ @anon.b6fca53bb9b23298a37822d813339071.97, %33 ], [ @anon.b6fca53bb9b23298a37822d813339071.76, %7 ], [ @anon.b6fca53bb9b23298a37822d813339071.98, %6 ]
   %12 = tail call noundef ptr @"_ZN84_$LT$prometools..serde..value..ValueSerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hd407fed70cb2436eE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.24.0)
   ret ptr %12
 
@@ -5210,7 +5210,7 @@ default.unreachable1:                             ; preds = %3
   br label %11
 
 11:                                               ; preds = %9, %7, %5
-  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret ptr %.sroa.0.0
 }
 
@@ -5268,7 +5268,7 @@ default.unreachable1:                             ; preds = %3
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret ptr %.sroa.0.0
 }
 
@@ -5316,7 +5316,7 @@ define internal noundef zeroext i1 @"_ZN97_$LT$tokio_quiche..metrics..labels..Qu
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %11, %9
-  %.sroa.0.0.in = phi i1 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   ret i1 %.sroa.0.0.in
 }
 

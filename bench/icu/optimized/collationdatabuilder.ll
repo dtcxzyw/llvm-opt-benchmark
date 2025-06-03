@@ -2400,7 +2400,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %174, %166, %134, %_
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %156, %153, %.split.us, %.split53.us, %.split55.us, %.split57.us, %.split65.us, %161, %.split63.us, %._crit_edge, %146, %3
-  %.0 = phi i64 [ 0, %3 ], [ %190, %.split63.us ], [ 0, %161 ], [ 0, %.split65.us ], [ %126, %.split57.us ], [ %124, %.split55.us ], [ 0, %.split53.us ], [ 0, %.split.us ], [ %202, %._crit_edge ], [ %152, %146 ], [ %160, %156 ], [ 0, %153 ]
+  %.0 = phi i64 [ 0, %3 ], [ 0, %.split.us ], [ 0, %.split53.us ], [ %124, %.split55.us ], [ %126, %.split57.us ], [ 0, %.split65.us ], [ 0, %161 ], [ %190, %.split63.us ], [ %202, %._crit_edge ], [ %152, %146 ], [ %160, %156 ], [ 0, %153 ]
   ret i64 %.0
 }
 
@@ -3654,12 +3654,12 @@ _ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit106: ; preds = %135,
   unreachable
 
 .loopexit112:                                     ; preds = %tailrecurse.us, %.lr.ph165, %.lr.ph165, %.lr.ph165, %tailrecurse, %.lr.ph, %145, %.split142.us, %.split145.us, %161, %.split152.us, %.split155.us, %.split158.us
-  %.0 = phi i32 [ %180, %.split158.us ], [ %175, %.split155.us ], [ %.tr108129.us164, %.split152.us ], [ %163, %161 ], [ %49, %.split145.us ], [ %41, %.split142.us ], [ %.182, %145 ], [ 0, %tailrecurse ], [ %.tr248, %.lr.ph ], [ %32, %tailrecurse.us ], [ %.tr108129.us164, %.lr.ph165 ], [ %.tr108129.us164, %.lr.ph165 ], [ %.tr108129.us164, %.lr.ph165 ]
+  %.0 = phi i32 [ %41, %.split142.us ], [ %49, %.split145.us ], [ %163, %161 ], [ %.tr108129.us164, %.split152.us ], [ %175, %.split155.us ], [ %180, %.split158.us ], [ %.182, %145 ], [ 0, %tailrecurse ], [ %.tr248, %.lr.ph ], [ %32, %tailrecurse.us ], [ %.tr108129.us164, %.lr.ph165 ], [ %.tr108129.us164, %.lr.ph165 ], [ %.tr108129.us164, %.lr.ph165 ]
   ret i32 %.0
 
 181:                                              ; preds = %168, %147
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %168 ], [ %.pn99.pn.pn.pn, %147 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn99.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn99.pn.pn.pn, %147 ], [ %.pn, %168 ]
+  resume { ptr, i32 } %.pn99.pn.pn.pn.pn
 }
 
 declare void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext) unnamed_addr #7
@@ -5098,8 +5098,8 @@ _ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit: ; preds = %53
   br label %62
 
 62:                                               ; preds = %42, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit, %47, %44, %46
-  %.249 = phi i8 [ %.04771, %44 ], [ %.04771, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ 1, %47 ], [ %.04771, %42 ], [ %spec.select, %46 ]
-  %.140 = phi i32 [ %.039, %44 ], [ %61, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ 192, %47 ], [ %.039, %42 ], [ %20, %46 ]
+  %.249 = phi i8 [ %.04771, %44 ], [ 1, %47 ], [ %.04771, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %.04771, %42 ], [ %spec.select, %46 ]
+  %.140 = phi i32 [ %.039, %44 ], [ 192, %47 ], [ %61, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %.039, %42 ], [ %20, %46 ]
   %63 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %.140, ptr %63, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

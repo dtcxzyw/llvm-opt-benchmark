@@ -327,7 +327,7 @@ make_algor.exit:                                  ; preds = %6
   br label %24
 
 24:                                               ; preds = %18, %14, %22
-  %.05 = phi i32 [ %23, %22 ], [ 0, %18 ], [ 0, %14 ]
+  %.05 = phi i32 [ %23, %22 ], [ 0, %14 ], [ 0, %18 ]
   call void @X509_ALGOR_free(ptr noundef nonnull %4) #7
   br label %25
 
@@ -458,7 +458,7 @@ make_algor.exit:                                  ; preds = %6
   br label %24
 
 24:                                               ; preds = %18, %14, %22
-  %.05 = phi i32 [ %23, %22 ], [ 0, %18 ], [ 0, %14 ]
+  %.05 = phi i32 [ %23, %22 ], [ 0, %14 ], [ 0, %18 ]
   call void @X509_ALGOR_free(ptr noundef nonnull %4) #7
   br label %25
 

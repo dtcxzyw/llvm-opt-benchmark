@@ -1640,7 +1640,7 @@ define hidden i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %1, ptr
   br label %55
 
 55:                                               ; preds = %16, %42, %47, %48, %17, %26, %43
-  %.2 = phi i32 [ %15, %47 ], [ %54, %48 ], [ %25, %17 ], [ %34, %26 ], [ %46, %43 ], [ %.1, %42 ], [ %15, %16 ]
+  %.2 = phi i32 [ %15, %47 ], [ %54, %48 ], [ %46, %43 ], [ %.1, %42 ], [ %25, %17 ], [ %34, %26 ], [ %15, %16 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #14
   ret i32 %.2
 }
@@ -2334,7 +2334,7 @@ dissect_rdpNegFailure.exit.i:                     ; preds = %66, %64
   br label %dissect_rdp_cc.exit
 
 dissect_rdp_cc.exit:                              ; preds = %4, %10, %dissect_rdpNegRsp.exit.i, %dissect_rdpNegFailure.exit.i
-  %72 = phi i1 [ false, %10 ], [ true, %dissect_rdpNegFailure.exit.i ], [ true, %dissect_rdpNegRsp.exit.i ], [ false, %4 ]
+  %72 = phi i1 [ false, %10 ], [ true, %dissect_rdpNegRsp.exit.i ], [ true, %dissect_rdpNegFailure.exit.i ], [ false, %4 ]
   ret i1 %72
 }
 
@@ -2594,9 +2594,9 @@ rdp_get_conversation_data.exit.thread:            ; preds = %17, %rdp_get_conver
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %115, %121, %99
-  %.067.i = phi ptr [ null, %121 ], [ null, %99 ], [ %.168.i, %115 ]
-  %.066.i = phi i32 [ %122, %121 ], [ %100, %99 ], [ %102, %115 ]
-  %.061.i = phi i32 [ 10, %121 ], [ 8, %99 ], [ %118, %115 ]
+  %.067.i = phi ptr [ null, %99 ], [ null, %121 ], [ %.168.i, %115 ]
+  %.066.i = phi i32 [ %100, %99 ], [ %122, %121 ], [ %102, %115 ]
+  %.061.i = phi i32 [ 8, %99 ], [ 10, %121 ], [ %118, %115 ]
   %123 = load i32, ptr @proto_rdp, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %123, ptr noundef %0, i32 noundef 0, i32 noundef %.061.i, i32 noundef 0)
   %125 = load i32, ptr @ett_rdp, align 4
@@ -2835,9 +2835,9 @@ default.unreachable:                              ; preds = %.lr.ph20.i
   unreachable
 
 234:                                              ; preds = %233, %232, %231, %230, %229, %228, %.lr.ph20.i
-  %.0152.ph.i = phi i32 [ 2, %.lr.ph20.i ], [ 7, %228 ], [ 7, %229 ], [ 1, %230 ], [ 3, %231 ], [ 7, %232 ], [ 5, %233 ]
-  %.0151.ph.i = phi ptr [ @.str.877, %.lr.ph20.i ], [ @.str.878, %228 ], [ @.str.879, %229 ], [ @.str.880, %230 ], [ @.str.881, %231 ], [ @.str.882, %232 ], [ @.str.1021, %233 ]
-  %.0150.ph.i = phi ptr [ @fastpath_scancode_flags, %.lr.ph20.i ], [ @fastpath_inputHeader_flags, %228 ], [ @fastpath_inputHeader_flags, %229 ], [ @fastpath_inputsync_flags, %230 ], [ @fastpath_inputunicode_flags, %231 ], [ @fastpath_inputHeader_flags, %232 ], [ @fastpath_inputHeader_flags, %233 ]
+  %.0152.ph.i = phi i32 [ 2, %.lr.ph20.i ], [ 5, %233 ], [ 7, %232 ], [ 3, %231 ], [ 1, %230 ], [ 7, %229 ], [ 7, %228 ]
+  %.0151.ph.i = phi ptr [ @.str.877, %.lr.ph20.i ], [ @.str.1021, %233 ], [ @.str.882, %232 ], [ @.str.881, %231 ], [ @.str.880, %230 ], [ @.str.879, %229 ], [ @.str.878, %228 ]
+  %.0150.ph.i = phi ptr [ @fastpath_scancode_flags, %.lr.ph20.i ], [ @fastpath_inputHeader_flags, %233 ], [ @fastpath_inputHeader_flags, %232 ], [ @fastpath_inputunicode_flags, %231 ], [ @fastpath_inputsync_flags, %230 ], [ @fastpath_inputHeader_flags, %229 ], [ @fastpath_inputHeader_flags, %228 ]
   %235 = load ptr, ptr %202, align 8
   call void @col_append_sep_str(ptr noundef %235, i32 noundef 25, ptr noundef nonnull @.str.1022, ptr noundef nonnull %.0151.ph.i)
   %236 = load i32, ptr @ett_rdp_fastpath, align 4
@@ -6035,8 +6035,8 @@ define internal fastcc void @dissect_rdp_shareDataHeader(ptr noundef %0, i32 nou
 95:                                               ; preds = %4
   br label %96
 
-96:                                               ; preds = %4, %92, %93, %94, %95
-  %.0.ph = phi ptr [ @__const.dissect_rdp_shareDataHeader.serverStatusInfo_fields, %95 ], [ @__const.dissect_rdp_shareDataHeader.persistent_fields, %94 ], [ %12, %93 ], [ @__const.dissect_rdp_shareDataHeader.sync_fields, %92 ], [ %10, %4 ]
+96:                                               ; preds = %4, %95, %94, %93, %92
+  %.0.ph = phi ptr [ @__const.dissect_rdp_shareDataHeader.sync_fields, %92 ], [ %12, %93 ], [ @__const.dissect_rdp_shareDataHeader.persistent_fields, %94 ], [ @__const.dissect_rdp_shareDataHeader.serverStatusInfo_fields, %95 ], [ %10, %4 ]
   %97 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %.0.ph, i32 noundef 0)
   %.pr = load i32, ptr %5, align 4
   br label %98

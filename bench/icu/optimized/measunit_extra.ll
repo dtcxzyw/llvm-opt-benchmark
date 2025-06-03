@@ -3371,8 +3371,8 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   br i1 %44, label %.critedge.sink.split, label %45
 
 45:                                               ; preds = %42, %39, %38, %36
-  %.0 = phi i1 [ false, %36 ], [ false, %39 ], [ false, %38 ], [ true, %42 ]
-  %.sroa.7.1.i = phi i32 [ 1, %36 ], [ %spec.select.i, %39 ], [ -1, %38 ], [ 1, %42 ]
+  %.0 = phi i1 [ false, %36 ], [ false, %38 ], [ false, %39 ], [ true, %42 ]
+  %.sroa.7.1.i = phi i32 [ 1, %36 ], [ -1, %38 ], [ %spec.select.i, %39 ], [ 1, %42 ]
   %46 = invoke fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc34 unwind label %.loopexit.split-lp
 
@@ -3429,9 +3429,9 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   br label %63
 
 63:                                               ; preds = %61, %55
-  %.sroa.069.1.ph.i = phi i64 [ %.sroa.069.0.i, %55 ], [ %.sroa.069.4.insert.ext.i, %61 ]
-  %.sroa.7.3.ph.i = phi i32 [ %58, %55 ], [ %.sroa.7.2.i, %61 ]
-  %.1.ph.i = phi i32 [ 1, %55 ], [ 2, %61 ]
+  %.sroa.069.1.ph.i = phi i64 [ %.sroa.069.4.insert.ext.i, %61 ], [ %.sroa.069.0.i, %55 ]
+  %.sroa.7.3.ph.i = phi i32 [ %.sroa.7.2.i, %61 ], [ %58, %55 ]
+  %.1.ph.i = phi i32 [ 2, %61 ], [ 1, %55 ]
   %.val.i = load i32, ptr %1, align 8, !tbaa !93, !noalias !98
   %.val50.i = load i32, ptr %18, align 8, !tbaa !103, !noalias !98
   %64 = icmp slt i32 %.val.i, %.val50.i

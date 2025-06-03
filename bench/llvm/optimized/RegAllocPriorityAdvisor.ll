@@ -446,8 +446,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm15callDefaultCtorINS_31RegAllocPri
   store i8 1, ptr %22, align 8, !tbaa !76
   br label %.thread
 
-.thread:                                          ; preds = %2, %9, %15, %.thread6
-  %.03 = phi ptr [ %17, %.thread6 ], [ %16, %15 ], [ %3, %2 ], [ %10, %9 ]
+.thread:                                          ; preds = %9, %2, %15, %.thread6
+  %.03 = phi ptr [ %17, %.thread6 ], [ %16, %15 ], [ %10, %9 ], [ %3, %2 ]
   ret ptr %.03
 }
 

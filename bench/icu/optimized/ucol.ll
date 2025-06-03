@@ -501,7 +501,7 @@ define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_77(ptr noundef rea
   br label %44
 
 38:                                               ; preds = %31, %28, %27
-  %.1 = phi i32 [ %33, %31 ], [ %29, %28 ], [ %25, %27 ]
+  %.1 = phi i32 [ %25, %27 ], [ %29, %28 ], [ %33, %31 ]
   %39 = add nsw i32 %.1, 1
   %40 = sext i32 %.1 to i64
   %41 = getelementptr inbounds i8, ptr %4, i64 %40

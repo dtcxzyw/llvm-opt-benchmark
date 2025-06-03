@@ -355,8 +355,8 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   br label %85
 
 85:                                               ; preds = %81, %68
-  %.161 = phi ptr [ %69, %68 ], [ %82, %81 ]
-  %.055 = phi i32 [ %71, %68 ], [ %84, %81 ]
+  %.161 = phi ptr [ %82, %81 ], [ %69, %68 ]
+  %.055 = phi i32 [ %84, %81 ], [ %71, %68 ]
   %.not87115 = icmp eq i32 %.055, 0
   br i1 %.not87115, label %._crit_edge, label %.lr.ph118
 

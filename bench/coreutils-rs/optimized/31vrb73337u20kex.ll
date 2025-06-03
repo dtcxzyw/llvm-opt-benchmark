@@ -2954,17 +2954,17 @@ define void @_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle9open_file17h09e2640
   call void @_ZN3std2fs11OpenOptions5_open17h39a0a458f2fc0f07E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %9 = load i32, ptr %8, align 8, !range !353, !noundef !4
   %trunc = trunc nuw i32 %9 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %13 = load i32, ptr %12, align 4, !range !354
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load i32, ptr %10, align 4, !range !354
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc, label %34, label %14
 
 14:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %13, ptr %7, align 4, !noalias !355
+  store i32 %11, ptr %7, align 4, !noalias !355
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !355
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !355
   %15 = invoke noundef i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
@@ -2985,21 +2985,21 @@ define void @_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle9open_file17h09e2640
 20:                                               ; preds = %"_ZN58_$LT$std..fs..File$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h75fe95e57ef3f2b3E.llvm.3950917620001345818.exit.i"
   %21 = load i32, ptr %6, align 8, !range !353, !noalias !355, !noundef !4
   %trunc.i = trunc nuw i32 %21 to i1
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load ptr, ptr %22, align 8, !noalias !355, !nonnull !4
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %25 = load i32, ptr %24, align 4, !range !354, !noalias !355
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %23 = load i32, ptr %22, align 4, !range !354, !noalias !355
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %25 = load ptr, ptr %24, align 8, !noalias !355, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !355
   br i1 %trunc.i, label %28, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %27, align 4, !alias.scope !355
+  store i32 %23, ptr %27, align 4, !alias.scope !355
   br label %_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h9c4c4e72a5551ac0E.exit
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %29, align 8, !alias.scope !355
+  store ptr %25, ptr %29, align 8, !alias.scope !355
   br label %_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h9c4c4e72a5551ac0E.exit
 
 30:                                               ; preds = %16
@@ -3022,7 +3022,7 @@ _ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h9c4c4e72a5551ac0E.exit: ;
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %35, align 8
+  store ptr %13, ptr %35, align 8
   store i32 1, ptr %0, align 8
   br label %36
 

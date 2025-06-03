@@ -7085,7 +7085,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance13ParseInstanc
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %22, %27, %30, %33
-  %.0.i = phi i32 [ %.sroa.0.sroa.0.0.extract.trunc.i, %33 ], [ %32, %30 ], [ %29, %27 ], [ 0, %22 ]
+  %.0.i = phi i32 [ %29, %27 ], [ %32, %30 ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %33 ], [ 0, %22 ]
   %34 = zext i32 %.0.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -7274,7 +7274,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit: ; preds = %100, %102
   br label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit
 
 _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %.critedge.i.i, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit
-  %.025 = phi i1 [ false, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32 ], [ true, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit ], [ false, %.critedge.i.i ]
+  %.025 = phi i1 [ true, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit ], [ false, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32 ], [ false, %.critedge.i.i ]
   ret i1 %.025
 }
 
@@ -7347,7 +7347,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance19ParseInstanc
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %13, %18, %21, %24
-  %.0.i = phi i32 [ %.sroa.0.sroa.0.0.extract.trunc.i, %24 ], [ %23, %21 ], [ %20, %18 ], [ 0, %13 ]
+  %.0.i = phi i32 [ %20, %18 ], [ %23, %21 ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %24 ], [ 0, %13 ]
   %25 = zext i32 %.0.i to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -7596,7 +7596,7 @@ _ZN6Assimp8strtol10EPKcPS1_.exit:                 ; preds = %._crit_edge.i.i, %3
   br label %49
 
 49:                                               ; preds = %3, %45, %41, %_ZN6Assimp8strtol10EPKcPS1_.exit, %_ZN6Assimp9strtoul10EPKcPS1_.exit
-  %.0 = phi i1 [ true, %45 ], [ true, %41 ], [ true, %_ZN6Assimp8strtol10EPKcPS1_.exit ], [ true, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ false, %3 ]
+  %.0 = phi i1 [ true, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ true, %_ZN6Assimp8strtol10EPKcPS1_.exit ], [ true, %41 ], [ true, %45 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -7912,7 +7912,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit67:                  ; preds = %.body, %70
   br label %118
 
 118:                                              ; preds = %.thread, %114, %110, %106, %100, %99, %89, %83, %82
-  %.057 = phi i1 [ true, %114 ], [ true, %110 ], [ true, %106 ], [ true, %100 ], [ true, %99 ], [ true, %89 ], [ true, %83 ], [ true, %82 ], [ false, %.thread ]
+  %.057 = phi i1 [ true, %82 ], [ true, %83 ], [ true, %89 ], [ true, %99 ], [ true, %100 ], [ true, %106 ], [ true, %110 ], [ true, %114 ], [ false, %.thread ]
   %119 = load i32, ptr %3, align 4
   %120 = sub i32 %119, %.0126
   store i32 %120, ptr %3, align 4

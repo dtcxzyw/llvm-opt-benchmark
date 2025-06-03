@@ -4124,8 +4124,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit179.i:               ; preds = %.lr.ph.i1378, %.pre
   br label %716
 
 716:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit179.i, %.noexc171.i, %672
-  %.sroa.57.1.i = phi ptr [ %699, %_ZNSt6vectorIjSaIjEED2Ev.exit179.i ], [ %688, %.noexc171.i ], [ %673, %672 ]
-  %.sroa.0266.2.i = phi ptr [ %695, %_ZNSt6vectorIjSaIjEED2Ev.exit179.i ], [ %684, %.noexc171.i ], [ %664, %672 ]
+  %.sroa.57.1.i = phi ptr [ %699, %_ZNSt6vectorIjSaIjEED2Ev.exit179.i ], [ %673, %672 ], [ %688, %.noexc171.i ]
+  %.sroa.0266.2.i = phi ptr [ %695, %_ZNSt6vectorIjSaIjEED2Ev.exit179.i ], [ %664, %672 ], [ %684, %.noexc171.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #24
   %717 = call i64 @fread(ptr noundef nonnull %40, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %609)

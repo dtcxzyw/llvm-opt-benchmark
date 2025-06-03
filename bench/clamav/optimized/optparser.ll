@@ -1898,8 +1898,8 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %276
   %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %427, ptr noundef nonnull @.str.733, ptr noundef %429, i64 noundef 9223372036854775807) #20
   br label %.thread405
 
-.thread402:                                       ; preds = %399, %403, %407, %394
-  %.1263 = phi i64 [ %392, %394 ], [ %408, %407 ], [ %404, %403 ], [ %400, %399 ]
+.thread402:                                       ; preds = %407, %403, %399, %394
+  %.1263 = phi i64 [ %392, %394 ], [ %400, %399 ], [ %404, %403 ], [ %408, %407 ]
   %.1263.fr = freeze i64 %.1263
   %.not358 = icmp eq i64 %.1263.fr, 0
   %spec.select428 = select i1 %.not358, i64 9223372036854775807, i64 %.1263.fr
@@ -2781,8 +2781,8 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %101
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.742, ptr noundef nonnull %0) #20
   br label %177
 
-.thread144:                                       ; preds = %155, %159, %163, %150
-  %.1 = phi i64 [ %148, %150 ], [ %164, %163 ], [ %160, %159 ], [ %156, %155 ]
+.thread144:                                       ; preds = %163, %159, %155, %150
+  %.1 = phi i64 [ %148, %150 ], [ %156, %155 ], [ %160, %159 ], [ %164, %163 ]
   %.1.fr = freeze i64 %.1
   %.not124 = icmp eq i64 %.1.fr, 0
   %spec.select157 = select i1 %.not124, i64 4294967295, i64 %.1.fr

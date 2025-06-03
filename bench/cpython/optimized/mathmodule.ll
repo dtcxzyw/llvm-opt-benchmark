@@ -8370,7 +8370,7 @@ define internal fastcc double @m_sinpi(double noundef %0) unnamed_addr #12 {
   unreachable
 
 28:                                               ; preds = %23, %18, %14, %10, %7
-  %.0 = phi double [ %26, %23 ], [ %22, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ]
+  %.0 = phi double [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %22, %18 ], [ %26, %23 ]
   %29 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
   %30 = fmul double %29, %.0
   ret double %30
@@ -8588,7 +8588,7 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
   unreachable
 
 m_sinpi.exit:                                     ; preds = %50, %53, %57, %61, %66
-  %.0.i = phi double [ %69, %66 ], [ %65, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ]
+  %.0.i = phi double [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %65, %61 ], [ %69, %66 ]
   %71 = tail call double @llvm.fabs.f64(double %.0.i)
   %72 = tail call double @log(double noundef %71) #16, !tbaa !14
   %73 = fsub double 0x3FF250D048E7A1BD, %72

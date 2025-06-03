@@ -759,7 +759,7 @@ h2_client_new.exit.i:                             ; preds = %36
   br label %167
 
 167:                                              ; preds = %163, %158, %154, %147, %145, %140, %123, %53, %35
-  %.069.i = phi i32 [ 27, %35 ], [ 27, %53 ], [ %.170.i, %123 ], [ 16, %145 ], [ 0, %163 ], [ 0, %158 ], [ 0, %154 ], [ 0, %147 ], [ 16, %140 ]
+  %.069.i = phi i32 [ 27, %35 ], [ 27, %53 ], [ 16, %145 ], [ 0, %163 ], [ 0, %158 ], [ 0, %154 ], [ 0, %147 ], [ %.170.i, %123 ], [ 16, %140 ]
   %168 = load ptr, ptr %9, align 8, !tbaa !122
   %.not98.i = icmp eq ptr %168, null
   br i1 %.not98.i, label %cf_h2_ctx_open.exit, label %169
@@ -2338,7 +2338,7 @@ cf_h2_flush.exit:                                 ; preds = %.thread82.i, %.thre
   br label %http2_data_pause.exit
 
 http2_data_pause.exit:                            ; preds = %40, %35, %31, %24, %19, %11, %9, %cf_h2_flush.exit, %113, %114, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %113 ], [ %.177.i, %cf_h2_flush.exit ], [ 0, %114 ], [ %20, %19 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %11 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %114 ], [ %.177.i, %cf_h2_flush.exit ], [ 0, %113 ], [ %20, %19 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %11 ], [ 0, %9 ]
   %115 = load ptr, ptr %6, align 8, !tbaa !107
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %.sroa.0.0.copyload, ptr %116, align 8, !tbaa !115
@@ -2641,7 +2641,7 @@ define internal i32 @cf_h2_query(ptr noundef readonly captures(none) %0, ptr nou
   br label %58
 
 58:                                               ; preds = %53, %.thread46, %.critedge, %.thread, %22
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %22 ], [ 0, %.critedge ], [ %57, %53 ], [ 48, %.thread46 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %.thread ], [ 0, %.critedge ], [ %57, %53 ], [ 48, %.thread46 ]
   ret i32 %.0
 }
 
@@ -6287,7 +6287,7 @@ define internal fastcc i32 @fr_print(ptr noundef readonly captures(none) %0, ptr
   br label %93
 
 93:                                               ; preds = %85, %81, %74, %60, %52, %48, %46, %33, %26, %17, %6
-  %.0 = phi i32 [ %92, %85 ], [ %84, %81 ], [ %80, %74 ], [ %67, %60 ], [ %59, %52 ], [ %47, %46 ], [ %51, %48 ], [ %41, %33 ], [ %32, %26 ], [ %25, %17 ], [ %16, %6 ]
+  %.0 = phi i32 [ %92, %85 ], [ %16, %6 ], [ %25, %17 ], [ %32, %26 ], [ %41, %33 ], [ %47, %46 ], [ %51, %48 ], [ %59, %52 ], [ %67, %60 ], [ %80, %74 ], [ %84, %81 ]
   ret i32 %.0
 }
 

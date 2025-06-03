@@ -7335,7 +7335,7 @@ get_union_config.exit.i:                          ; preds = %82
   br label %dissect_someip_payload_peek_length_of_length.exit
 
 dissect_someip_payload_peek_length_of_length.exit: ; preds = %50, %71, %80, %89
-  %.0.i.in = phi ptr [ %90, %89 ], [ %81, %80 ], [ %72, %71 ], [ %51, %50 ]
+  %.0.i.in = phi ptr [ %51, %50 ], [ %72, %71 ], [ %81, %80 ], [ %90, %89 ]
   %.0.i = load i32, ptr %.0.i.in, align 4
   switch i32 %.0.i, label %.thread [
     i32 8, label %91
@@ -7390,7 +7390,7 @@ default.unreachable124:                           ; preds = %.lr.ph111
   unreachable
 
 118:                                              ; preds = %91, %95, %99, %115, %111, %107, %24
-  %.089 = phi i32 [ %117, %115 ], [ %114, %111 ], [ %110, %107 ], [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %26, %24 ]
+  %.089 = phi i32 [ %26, %24 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ %110, %107 ], [ %114, %111 ], [ %117, %115 ]
   %119 = add i32 %.089, 2
   %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.086110, i32 noundef %119)
   %.not = icmp eq ptr %.090, null

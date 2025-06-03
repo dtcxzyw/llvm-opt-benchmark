@@ -159,9 +159,9 @@ define internal range(i32 0, 2) i32 @Cba_CommandRead(ptr noundef captures(none) 
   br label %15
 
 15:                                               ; preds = %13, %11, %9
-  %.136 = phi i32 [ %.03570, %13 ], [ %.03570, %11 ], [ %10, %9 ]
-  %.134 = phi i32 [ %.03371, %13 ], [ %12, %11 ], [ %.03371, %9 ]
-  %.1 = phi i32 [ %14, %13 ], [ %.03272, %11 ], [ %.03272, %9 ]
+  %.136 = phi i32 [ %10, %9 ], [ %.03570, %11 ], [ %.03570, %13 ]
+  %.134 = phi i32 [ %.03371, %9 ], [ %12, %11 ], [ %.03371, %13 ]
+  %.1 = phi i32 [ %.03272, %9 ], [ %.03272, %11 ], [ %14, %13 ]
   %16 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.10) #19
   %.not = icmp eq i32 %16, -1
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !3

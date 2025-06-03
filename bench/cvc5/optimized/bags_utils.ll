@@ -1735,7 +1735,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4bags9BagsUtils20areCh
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.sroa.027.1.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.sroa.027.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %.sroa.027.1.i.i.i.i)
   br i1 %43, label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit", label %44
 
@@ -1744,7 +1744,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4bags9BagsUtils20areCh
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.027.2.i.i.i.i = phi ptr [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.027.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.027.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4cvc58internal6theory4bags9BagsUtils20areChildrenConstantsENS3_12NodeTemplateILb0EEEE3$_0EclINS3_4expr9NodeValue8iteratorIS8_EEEEbT_"(ptr nonnull %.sroa.027.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %47, ptr %.sroa.027.2.i.i.i.i, ptr %17
   br label %"_ZSt6all_ofIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEZNS1_6theory4bags9BagsUtils20areChildrenConstantsES6_E3$_0EbT_SC_T0_.exit"
@@ -1955,7 +1955,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZN4cvc58internalls
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %36, %34, %29
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %36, %34, %29
   ret void
 }
 

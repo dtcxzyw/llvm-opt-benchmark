@@ -1393,9 +1393,9 @@ If_LogCounterAddAig.exit124:                      ; preds = %.preheader.split.i1
   br label %255
 
 255:                                              ; preds = %.lr.ph, %If_LogCounterAddAig.exit124, %If_LogCounterAddAig.exit103, %If_LogCounterAddAig.exit92, %If_LogCounterAddAig.exit
-  %.1204 = phi i32 [ %.0203208, %.lr.ph ], [ %.0.i94, %If_LogCounterAddAig.exit103 ], [ %.0.i107, %If_LogCounterAddAig.exit124 ], [ %.0.i, %If_LogCounterAddAig.exit ], [ %.0.i83, %If_LogCounterAddAig.exit92 ]
-  %.155 = phi i32 [ %.054210, %.lr.ph ], [ %141, %If_LogCounterAddAig.exit103 ], [ %141, %If_LogCounterAddAig.exit124 ], [ %25, %If_LogCounterAddAig.exit ], [ %25, %If_LogCounterAddAig.exit92 ]
-  %.2 = phi i32 [ %.153211, %.lr.ph ], [ %171, %If_LogCounterAddAig.exit103 ], [ %254, %If_LogCounterAddAig.exit124 ], [ %55, %If_LogCounterAddAig.exit ], [ %139, %If_LogCounterAddAig.exit92 ]
+  %.1204 = phi i32 [ %.0203208, %.lr.ph ], [ %.0.i, %If_LogCounterAddAig.exit ], [ %.0.i83, %If_LogCounterAddAig.exit92 ], [ %.0.i94, %If_LogCounterAddAig.exit103 ], [ %.0.i107, %If_LogCounterAddAig.exit124 ]
+  %.155 = phi i32 [ %.054210, %.lr.ph ], [ %25, %If_LogCounterAddAig.exit ], [ %25, %If_LogCounterAddAig.exit92 ], [ %141, %If_LogCounterAddAig.exit103 ], [ %141, %If_LogCounterAddAig.exit124 ]
+  %.2 = phi i32 [ %.153211, %.lr.ph ], [ %55, %If_LogCounterAddAig.exit ], [ %139, %If_LogCounterAddAig.exit92 ], [ %171, %If_LogCounterAddAig.exit103 ], [ %254, %If_LogCounterAddAig.exit124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66

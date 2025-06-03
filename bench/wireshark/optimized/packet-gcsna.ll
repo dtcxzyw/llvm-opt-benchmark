@@ -379,7 +379,7 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   br label %gcsna_message_GCSNAServiceReject.exit.i
 
 gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145, %135, %130, %125, %120, %._crit_edge.i.i
-  %.1.i.i = phi i16 [ %104, %145 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %138, %135 ], [ %143, %.lr.ph.i19.i ]
+  %.1.i.i = phi i16 [ %104, %145 ], [ %124, %120 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %129, %125 ], [ %134, %130 ], [ %138, %135 ], [ %143, %.lr.ph.i19.i ]
   %149 = zext i16 %.1.i.i to i32
   %150 = and i32 %149, 7
   %151 = icmp ne i32 %150, 0
@@ -389,7 +389,7 @@ gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145,
   br label %gcsna_message_decode.exit
 
 gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA1xCircuitService.exit.i, %80, %gcsna_message_GCSNAServiceReject.exit.i
-  %.129 = phi i32 [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ], [ %88, %80 ], [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ]
+  %.129 = phi i32 [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ], [ %88, %80 ], [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ]
   %154 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129)
   %.not42 = icmp eq i32 %154, 0
   br i1 %.not42, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10

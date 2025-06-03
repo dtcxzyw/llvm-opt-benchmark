@@ -1456,7 +1456,7 @@ _ZN4lean4exprC2ERKS0_.exit14:                     ; preds = %36, %41, %43, %44
   unreachable
 
 common.resume:                                    ; preds = %34, %59, %77
-  %common.resume.op = phi { ptr, i32 } [ %78, %77 ], [ %60, %59 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %78, %77 ], [ %35, %34 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 77:                                               ; preds = %61

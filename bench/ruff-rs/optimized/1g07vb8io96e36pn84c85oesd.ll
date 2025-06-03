@@ -2629,7 +2629,7 @@ define internal noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h8750cd22b3
   br label %"_ZN13tracing_flame11THREAD_NAME29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf8cab3e0e0b1d0bE.exit"
 
 "_ZN13tracing_flame11THREAD_NAME29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcf8cab3e0e0b1d0bE.exit": ; preds = %1, %7, %9
-  %.sroa.0.0.i.i = phi ptr [ null, %9 ], [ %8, %7 ], [ @"_ZN13tracing_flame11THREAD_NAME29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17ha046bd274e322fb8E", %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %8, %7 ], [ null, %9 ], [ @"_ZN13tracing_flame11THREAD_NAME29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17ha046bd274e322fb8E", %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 

@@ -4411,7 +4411,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50: ; pre
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.preheader: ; preds = %115, %107
-  %.pn.i.i.i.ph = phi ptr [ %116, %115 ], [ %111, %107 ]
+  %.pn.i.i.i.ph = phi ptr [ %111, %107 ], [ %116, %115 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i.i
@@ -7359,7 +7359,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_117InvariantViolatedEEENS0_17Pro
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %78, %70
-  %.1.i.i.i = phi ptr [ %74, %70 ], [ %79, %78 ]
+  %.1.i.i.i = phi ptr [ %79, %78 ], [ %74, %70 ]
   %80 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 

@@ -261,7 +261,7 @@ define internal noundef zeroext i1 @redbackli_dissect_heur(ptr noundef %0, ptr n
   br i1 %or.cond, label %.loopexit, label %.thread
 
 18:                                               ; preds = %.preheader, %.preheader, %.preheader, %12
-  %.1 = phi i32 [ %.041, %.preheader ], [ %.041, %.preheader ], [ %.041, %.preheader ], [ %14, %12 ]
+  %.1 = phi i32 [ %14, %12 ], [ %.041, %.preheader ], [ %.041, %.preheader ], [ %.041, %.preheader ]
   %19 = zext i8 %9 to i32
   %20 = add nuw nsw i32 %19, 2
   %21 = add i32 %20, %.03039

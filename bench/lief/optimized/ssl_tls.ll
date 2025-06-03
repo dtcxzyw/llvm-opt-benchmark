@@ -1459,8 +1459,8 @@ mbedtls_ssl_hash_from_md_alg.exit:                ; preds = %.preheader155, %113
 129:                                              ; preds = %.preheader
   br label %130
 
-130:                                              ; preds = %.preheader, %129, %128, %127, %126, %125
-  %.0.i135.ph = phi i16 [ 512, %125 ], [ 768, %126 ], [ 1024, %127 ], [ 1280, %128 ], [ 1536, %129 ], [ 256, %.preheader ]
+130:                                              ; preds = %.preheader, %125, %126, %127, %128, %129
+  %.0.i135.ph = phi i16 [ 1536, %129 ], [ 1280, %128 ], [ 1024, %127 ], [ 768, %126 ], [ 512, %125 ], [ 256, %.preheader ]
   %131 = or disjoint i16 %.0.i135.ph, 3
   store i16 %131, ptr %.0100, align 2, !tbaa !101
   %132 = getelementptr inbounds nuw i8, ptr %.0100, i64 2
@@ -4403,7 +4403,7 @@ ssl_prepare_handshake_step.exit:                  ; preds = %26, %21, %16
   br label %49
 
 49:                                               ; preds = %38, %39, %47, %45, %29
-  %.1 = phi i32 [ %46, %45 ], [ %48, %47 ], [ %40, %39 ], [ 0, %38 ], [ -28928, %29 ]
+  %.1 = phi i32 [ %46, %45 ], [ %48, %47 ], [ 0, %38 ], [ %40, %39 ], [ -28928, %29 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i8, ptr %51, align 8, !tbaa !94
@@ -6412,7 +6412,7 @@ ssl_get_handshake_transcript_sha256.exit:         ; preds = %23, %37
   br label %38
 
 38:                                               ; preds = %5, %ssl_get_handshake_transcript_sha256.exit, %ssl_get_handshake_transcript_sha384.exit
-  %.0 = phi i32 [ %.09.i11, %ssl_get_handshake_transcript_sha256.exit ], [ %.09.i, %ssl_get_handshake_transcript_sha384.exit ], [ -27648, %5 ]
+  %.0 = phi i32 [ %.09.i, %ssl_get_handshake_transcript_sha384.exit ], [ %.09.i11, %ssl_get_handshake_transcript_sha256.exit ], [ -27648, %5 ]
   ret i32 %.0
 }
 

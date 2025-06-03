@@ -1507,7 +1507,7 @@ filter_lzwdecode.exit.i:                          ; preds = %.thread161.i.i, %.t
   br label %filter_ascii85decode.exitthread-pre-split.i
 
 filter_ascii85decode.exitthread-pre-split.i:      ; preds = %556, %555, %filter_lzwdecode.exit.i, %filter_decrypt.exit169.i, %386, %362, %filter_flatedecode.exit.i, %.thread.thread.thread.i.i, %171, %164, %87
-  %.0111.ph.i = phi i32 [ 26, %386 ], [ 20, %362 ], [ %.618.i.i, %.thread.thread.thread.i.i ], [ 20, %171 ], [ 26, %164 ], [ 20, %87 ], [ %.0.i147.i, %filter_flatedecode.exit.i ], [ %.030.i167.i, %filter_decrypt.exit169.i ], [ %.0.i174.i, %filter_lzwdecode.exit.i ], [ 22, %555 ], [ 22, %556 ]
+  %.0111.ph.i = phi i32 [ 26, %386 ], [ 20, %362 ], [ %.618.i.i, %.thread.thread.thread.i.i ], [ 20, %171 ], [ 26, %164 ], [ 20, %87 ], [ 22, %555 ], [ %.0.i174.i, %filter_lzwdecode.exit.i ], [ %.030.i167.i, %filter_decrypt.exit169.i ], [ %.0.i147.i, %filter_flatedecode.exit.i ], [ 22, %556 ]
   %.pr.i = load ptr, ptr %35, align 8, !tbaa !17
   br label %filter_ascii85decode.exit.i
 

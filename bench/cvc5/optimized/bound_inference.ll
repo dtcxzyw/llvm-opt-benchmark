@@ -1937,7 +1937,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit127:            ; preds = %_ZN4cvc58internal8R
   br label %282
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %273, %_ZN4cvc58internal7IntegerD2Ev.exit124, %_ZN4cvc58internal8RationalD2Ev.exit114, %_ZN4cvc58internal8RationalD2Ev.exit100, %_ZN4cvc58internal7IntegerD2Ev.exit
-  %.1247 = phi i32 [ %67, %273 ], [ 78, %_ZN4cvc58internal7IntegerD2Ev.exit124 ], [ 78, %_ZN4cvc58internal8RationalD2Ev.exit114 ], [ 76, %_ZN4cvc58internal8RationalD2Ev.exit100 ], [ 76, %_ZN4cvc58internal7IntegerD2Ev.exit ]
+  %.1247 = phi i32 [ %67, %273 ], [ 76, %_ZN4cvc58internal7IntegerD2Ev.exit ], [ 76, %_ZN4cvc58internal8RationalD2Ev.exit100 ], [ 78, %_ZN4cvc58internal8RationalD2Ev.exit114 ], [ 78, %_ZN4cvc58internal7IntegerD2Ev.exit124 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZN4cvc58internal8RationalD2Ev.exit211 unwind label %279
 
@@ -1953,7 +1953,7 @@ _ZN4cvc58internal8RationalD2Ev.exit211:           ; preds = %_ZN4cvc58internal11
   br label %286
 
 282:                                              ; preds = %278, %_ZN4cvc58internal7IntegerD2Ev.exit127, %_ZN4cvc58internal8RationalD2Ev.exit121, %_ZN4cvc58internal8RationalD2Ev.exit107, %_ZN4cvc58internal7IntegerD2Ev.exit93, %124
-  %.pn73.pn = phi { ptr, i32 } [ %.pn71, %278 ], [ %.pn51.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit127 ], [ %.pn55.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit121 ], [ %.pn61.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit107 ], [ %.pn67.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit93 ], [ %125, %124 ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn71, %278 ], [ %.pn67.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit93 ], [ %.pn61.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit107 ], [ %.pn55.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit121 ], [ %.pn51.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit127 ], [ %125, %124 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.body unwind label %283
 

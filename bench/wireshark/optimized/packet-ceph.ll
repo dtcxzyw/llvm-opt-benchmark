@@ -3093,7 +3093,7 @@ c_unknowntagnext.exit.thread.i.i:                 ; preds = %273, %c_unknowntagn
   br label %c_dissect_new.exit.i
 
 c_dissect_new.exit.i:                             ; preds = %c_unknowntagnext.exit.thread.i.i, %261, %256, %246, %244, %237, %230, %228, %210, %207, %152, %150
-  %.0.i = phi i32 [ %219, %210 ], [ %.1.i.i, %207 ], [ 0, %150 ], [ 0, %152 ], [ %.1.lcssa.i.i, %c_unknowntagnext.exit.thread.i.i ], [ %268, %261 ], [ %226, %256 ], [ %255, %246 ], [ %245, %244 ], [ %226, %237 ], [ %234, %230 ], [ %229, %228 ]
+  %.0.i = phi i32 [ %219, %210 ], [ %.1.i.i, %207 ], [ 0, %150 ], [ 0, %152 ], [ %.1.lcssa.i.i, %c_unknowntagnext.exit.thread.i.i ], [ %229, %228 ], [ %234, %230 ], [ %226, %237 ], [ %245, %244 ], [ %255, %246 ], [ %226, %256 ], [ %268, %261 ]
   %.not.i44 = icmp eq ptr %146, null
   br i1 %.not.i44, label %c_dissect_pdu.exit, label %285
 
@@ -3589,7 +3589,7 @@ c_unknowntagnext.exit:                            ; preds = %.preheader, %162
   br i1 %164, label %c_unknowntagnext.exit, label %c_unknowntagnext.exit.thread, !llvm.loop !9
 
 c_unknowntagnext.exit.thread:                     ; preds = %c_unknowntagnext.exit, %162, %.preheader, %144, %141, %123, %123, %134, %127, %112, %10, %156, %154, %137, %130, %121, %119, %115
-  %.0 = phi i32 [ %157, %156 ], [ %155, %154 ], [ %140, %137 ], [ %133, %130 ], [ %122, %121 ], [ %118, %115 ], [ %120, %119 ], [ -1, %10 ], [ -1, %112 ], [ -1, %127 ], [ -1, %134 ], [ %124, %123 ], [ %124, %123 ], [ %153, %144 ], [ -1, %141 ], [ %124, %.preheader ], [ %.07379, %c_unknowntagnext.exit ], [ %163, %162 ]
+  %.0 = phi i32 [ %133, %130 ], [ %140, %137 ], [ %155, %154 ], [ %157, %156 ], [ %118, %115 ], [ %120, %119 ], [ %122, %121 ], [ -1, %10 ], [ -1, %112 ], [ -1, %127 ], [ -1, %134 ], [ %124, %123 ], [ %124, %123 ], [ %153, %144 ], [ -1, %141 ], [ %124, %.preheader ], [ %.07379, %c_unknowntagnext.exit ], [ %163, %162 ]
   ret i32 %.0
 }
 
@@ -4308,7 +4308,7 @@ c_warn_ver.exit.i:                                ; preds = %290, %287, %280
   br label %344
 
 344:                                              ; preds = %341, %329, %._crit_edge.i
-  %.1.i = phi i32 [ 26, %341 ], [ 28, %329 ], [ %328, %._crit_edge.i ]
+  %.1.i = phi i32 [ 26, %341 ], [ %328, %._crit_edge.i ], [ 28, %329 ]
   %345 = icmp ult i32 %.1.i, %279
   br i1 %345, label %c_warn_unused.exit.i.i, label %351
 
@@ -7281,7 +7281,7 @@ c_dissect_msg_client_caps.exit:                   ; preds = %c_warn_unused.exit.
   br label %c_dissect_msg_mon_sub.exit
 
 c_dissect_msg_mon_sub.exit:                       ; preds = %2319, %.lr.ph.i480, %c_dissect_pg_create.exit.i, %.lr.ph.i452, %.lr.ph.i422, %.lr.ph.i413, %.lr.ph126.i, %.lr.ph122.i, %.lr.ph.i, %2361, %2360, %._crit_edge.i485, %2224, %2074, %1747, %.thread41.i, %1739, %1735, %c_dissect_osd_superblock.exit.i, %1302, %1181, %c_warn_size.exit.i402, %955, %c_warn_size.exit.i392, %851, %787, %._crit_edge90.i, %191, %c_dissect_msg_client_caps.exit, %c_dissect_msg_pgstats.exit, %c_dissect_msg_osd_ping.exit, %c_dissect_msg_mon_probe.exit, %c_dissect_msg_mon_paxos.exit, %c_dissect_msg_mon_election.exit, %1415, %c_dissect_msg_poolstatsreply.exit, %c_dissect_msg_mon_cmd_ack.exit, %c_dissect_msg_poolop.exit, %c_dissect_msg_poolopreply.exit, %623, %601, %c_dissect_msg_client_req.exit, %485, %466, %445, %417, %c_dissect_msg_auth_reply.exit, %c_dissect_msg_auth.exit, %238, %168, %145, %133, %126
-  %.0 = phi i32 [ %123, %c_dissect_msg_client_caps.exit ], [ %2073, %c_dissect_msg_pgstats.exit ], [ %.0.i446, %c_dissect_msg_osd_ping.exit ], [ %.1.i444, %c_dissect_msg_mon_probe.exit ], [ %.1.lcssa.i, %c_dissect_msg_mon_paxos.exit ], [ %1469, %c_dissect_msg_mon_election.exit ], [ 26, %1415 ], [ %.052.lcssa.i, %c_dissect_msg_poolstatsreply.exit ], [ %1245, %c_dissect_msg_mon_cmd_ack.exit ], [ %.2.i411, %c_dissect_msg_poolop.exit ], [ %.0.i409, %c_dissect_msg_poolopreply.exit ], [ %658, %623 ], [ 9, %601 ], [ %.1.i381, %c_dissect_msg_client_req.exit ], [ 28, %485 ], [ %484, %466 ], [ 24, %445 ], [ %443, %417 ], [ %413, %c_dissect_msg_auth_reply.exit ], [ %.2.i, %c_dissect_msg_auth.exit ], [ 20, %238 ], [ 56, %168 ], [ 34, %145 ], [ %144, %133 ], [ 0, %126 ], [ 4, %191 ], [ %793, %787 ], [ %.180.lcssa.i, %._crit_edge90.i ], [ %846, %851 ], [ %.2109.i, %c_warn_size.exit.i392 ], [ %951, %955 ], [ %22, %c_warn_size.exit.i402 ], [ 38, %1181 ], [ 38, %1302 ], [ %1745, %.thread41.i ], [ %1742, %1739 ], [ %1732, %c_dissect_osd_superblock.exit.i ], [ %1737, %1735 ], [ %1749, %1747 ], [ 12, %2074 ], [ %123, %2224 ], [ %2317, %._crit_edge.i485 ], [ %2364, %2361 ], [ %.1.i489, %2360 ], [ %237, %.lr.ph.i ], [ %901, %.lr.ph122.i ], [ %1060, %.lr.ph126.i ], [ %1225, %.lr.ph.i413 ], [ %1341, %.lr.ph.i422 ], [ %1754, %.lr.ph.i452 ], [ %2110, %c_dissect_pg_create.exit.i ], [ %123, %.lr.ph.i480 ], [ %2338, %2319 ]
+  %.0 = phi i32 [ 0, %126 ], [ %144, %133 ], [ 34, %145 ], [ 56, %168 ], [ 20, %238 ], [ %.2.i, %c_dissect_msg_auth.exit ], [ %413, %c_dissect_msg_auth_reply.exit ], [ %443, %417 ], [ 24, %445 ], [ %484, %466 ], [ 28, %485 ], [ %.1.i381, %c_dissect_msg_client_req.exit ], [ 9, %601 ], [ %658, %623 ], [ %.0.i409, %c_dissect_msg_poolopreply.exit ], [ %.2.i411, %c_dissect_msg_poolop.exit ], [ %1245, %c_dissect_msg_mon_cmd_ack.exit ], [ %.052.lcssa.i, %c_dissect_msg_poolstatsreply.exit ], [ 26, %1415 ], [ %1469, %c_dissect_msg_mon_election.exit ], [ %.1.lcssa.i, %c_dissect_msg_mon_paxos.exit ], [ %.1.i444, %c_dissect_msg_mon_probe.exit ], [ %.0.i446, %c_dissect_msg_osd_ping.exit ], [ %2073, %c_dissect_msg_pgstats.exit ], [ %123, %c_dissect_msg_client_caps.exit ], [ 4, %191 ], [ %793, %787 ], [ %.180.lcssa.i, %._crit_edge90.i ], [ %846, %851 ], [ %.2109.i, %c_warn_size.exit.i392 ], [ %951, %955 ], [ %22, %c_warn_size.exit.i402 ], [ 38, %1181 ], [ 38, %1302 ], [ %1745, %.thread41.i ], [ %1742, %1739 ], [ %1732, %c_dissect_osd_superblock.exit.i ], [ %1737, %1735 ], [ %1749, %1747 ], [ 12, %2074 ], [ %123, %2224 ], [ %2317, %._crit_edge.i485 ], [ %2364, %2361 ], [ %.1.i489, %2360 ], [ %237, %.lr.ph.i ], [ %901, %.lr.ph122.i ], [ %1060, %.lr.ph126.i ], [ %1225, %.lr.ph.i413 ], [ %1341, %.lr.ph.i422 ], [ %1754, %.lr.ph.i452 ], [ %2110, %c_dissect_pg_create.exit.i ], [ %123, %.lr.ph.i480 ], [ %2338, %2319 ]
   %2365 = add i32 %.0, %114
   %2366 = add i32 %114, %124
   %2367 = icmp ult i32 %2365, %2366

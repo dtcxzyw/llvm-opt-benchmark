@@ -9002,7 +9002,7 @@ _ZN7datalog3tab3imp7cleanupEv.exit14:             ; preds = %79, %_ZN6vectorI3re
   br label %_ZN7datalog3tab3imp7cleanupEv.exit
 
 _ZN7datalog3tab3imp7cleanupEv.exit:               ; preds = %_ZN6vectorI3refIN2tb6clauseEELb1EjE16destroy_elementsEv.exit.i.i, %24, %71, %77, %75, %_ZN7datalog3tab3imp7cleanupEv.exit14, %70
-  %.0 = phi i32 [ 0, %_ZN7datalog3tab3imp7cleanupEv.exit14 ], [ -1, %70 ], [ 1, %75 ], [ 1, %77 ], [ 1, %71 ], [ 0, %24 ], [ 0, %_ZN6vectorI3refIN2tb6clauseEELb1EjE16destroy_elementsEv.exit.i.i ]
+  %.0 = phi i32 [ -1, %70 ], [ 0, %_ZN7datalog3tab3imp7cleanupEv.exit14 ], [ 1, %75 ], [ 1, %77 ], [ 1, %71 ], [ 0, %24 ], [ 0, %_ZN6vectorI3refIN2tb6clauseEELb1EjE16destroy_elementsEv.exit.i.i ]
   ret i32 %.0
 }
 
@@ -14340,7 +14340,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %263, %266
   ret void
 
 271:                                              ; preds = %.loopexit216, %.loopexit.split-lp217, %.loopexit, %.loopexit.split-lp, %216, %253, %114, %150, %54, %214
-  %.pn53.pn = phi { ptr, i32 } [ %55, %54 ], [ %215, %214 ], [ %151, %150 ], [ %115, %114 ], [ %254, %253 ], [ %217, %216 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit218, %.loopexit216 ], [ %lpad.loopexit.split-lp219, %.loopexit.split-lp217 ]
+  %.pn53.pn = phi { ptr, i32 } [ %55, %54 ], [ %215, %214 ], [ %115, %114 ], [ %151, %150 ], [ %254, %253 ], [ %217, %216 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit218, %.loopexit216 ], [ %lpad.loopexit.split-lp219, %.loopexit.split-lp217 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #25
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #25
   resume { ptr, i32 } %.pn53.pn
@@ -15188,7 +15188,7 @@ _ZNK2tb6clause18get_num_predicatesEv.exit.thread: ; preds = %_ZN3refIN2tb6clause
   br label %_ZN2tb9selection6selectERKNS_6clauseE.exit
 
 _ZN2tb9selection6selectERKNS_6clauseE.exit:       ; preds = %37, %42, %44, %46, %48
-  %.0.i = phi i32 [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ 0, %37 ]
+  %.0.i = phi i32 [ %49, %48 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ 0, %37 ]
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 %.0.i, ptr %50, align 4, !tbaa !342
   %51 = tail call noundef i32 @_Z19get_verbosity_levelv()

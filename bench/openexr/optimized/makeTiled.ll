@@ -4295,8 +4295,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188: ; preds = %_Z
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !140
 
 563:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
-  %.pn37.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ], [ %.pn41.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %.pn45.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ]
-  resume { ptr, i32 } %.pn37.pn.pn.pn
+  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %.pn41.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %.pn37.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ]
+  resume { ptr, i32 } %.pn45.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5688,8 +5688,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !153
 
 575:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183 ], [ %.pn44.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %.pn48.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ]
-  resume { ptr, i32 } %.pn40.pn.pn.pn
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.pn44.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %.pn40.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183 ]
+  resume { ptr, i32 } %.pn48.pn.pn.pn
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
@@ -6722,8 +6722,8 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %136, %138, %142, %1
   br label %169
 
 169:                                              ; preds = %30, %26, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %_ZN9Imath_3_24modpEii.exit55, %38, %_ZN9Imath_3_25floorIdEEiT_.exit
-  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %164, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %100, %_ZN9Imath_3_24modpEii.exit55 ], [ %52, %38 ], [ %27, %26 ], [ %27, %30 ]
-  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %104, %_ZN9Imath_3_24modpEii.exit55 ], [ %56, %38 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
+  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %52, %38 ], [ %100, %_ZN9Imath_3_24modpEii.exit55 ], [ %164, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %27, %26 ], [ %27, %30 ]
+  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %56, %38 ], [ %104, %_ZN9Imath_3_24modpEii.exit55 ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
   %170 = sitofp i32 %14 to double
   %171 = fsub double %170, %1
   %172 = fsub double 1.000000e+00, %171
@@ -6999,8 +6999,8 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %136, %138, %142, %1
   br label %169
 
 169:                                              ; preds = %30, %26, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %_ZN9Imath_3_24modpEii.exit55, %38, %_ZN9Imath_3_25floorIdEEiT_.exit
-  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %164, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %100, %_ZN9Imath_3_24modpEii.exit55 ], [ %52, %38 ], [ %27, %26 ], [ %27, %30 ]
-  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %104, %_ZN9Imath_3_24modpEii.exit55 ], [ %56, %38 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
+  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %52, %38 ], [ %100, %_ZN9Imath_3_24modpEii.exit55 ], [ %164, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %27, %26 ], [ %27, %30 ]
+  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %56, %38 ], [ %104, %_ZN9Imath_3_24modpEii.exit55 ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
   %170 = sitofp i32 %14 to double
   %171 = fsub double %170, %1
   %172 = fsub double 1.000000e+00, %171
@@ -7585,8 +7585,8 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %140, %142, %146, %1
   br label %175
 
 175:                                              ; preds = %30, %26, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %_ZN9Imath_3_24modpEii.exit55, %38, %_ZN9Imath_3_25floorIdEEiT_.exit
-  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %102, %_ZN9Imath_3_24modpEii.exit55 ], [ %52, %38 ], [ %27, %26 ], [ %27, %30 ]
-  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %174, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %108, %_ZN9Imath_3_24modpEii.exit55 ], [ %58, %38 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
+  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %52, %38 ], [ %102, %_ZN9Imath_3_24modpEii.exit55 ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %27, %26 ], [ %27, %30 ]
+  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %58, %38 ], [ %108, %_ZN9Imath_3_24modpEii.exit55 ], [ %174, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
   %176 = sitofp i32 %14 to double
   %177 = fsub double %176, %2
   %178 = fsub double 1.000000e+00, %177
@@ -7868,8 +7868,8 @@ _ZN12_GLOBAL__N_16mirrorEii.exit57:               ; preds = %140, %142, %146, %1
   br label %175
 
 175:                                              ; preds = %30, %26, %_ZN12_GLOBAL__N_16mirrorEii.exit57, %_ZN9Imath_3_24modpEii.exit55, %38, %_ZN9Imath_3_25floorIdEEiT_.exit
-  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %102, %_ZN9Imath_3_24modpEii.exit55 ], [ %52, %38 ], [ %27, %26 ], [ %27, %30 ]
-  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %174, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %108, %_ZN9Imath_3_24modpEii.exit55 ], [ %58, %38 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
+  %.051 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %52, %38 ], [ %102, %_ZN9Imath_3_24modpEii.exit55 ], [ %168, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ %27, %26 ], [ %27, %30 ]
+  %.0 = phi double [ 0.000000e+00, %_ZN9Imath_3_25floorIdEEiT_.exit ], [ %58, %38 ], [ %108, %_ZN9Imath_3_24modpEii.exit55 ], [ %174, %_ZN12_GLOBAL__N_16mirrorEii.exit57 ], [ 0.000000e+00, %26 ], [ %37, %30 ]
   %176 = sitofp i32 %14 to double
   %177 = fsub double %176, %2
   %178 = fsub double 1.000000e+00, %177

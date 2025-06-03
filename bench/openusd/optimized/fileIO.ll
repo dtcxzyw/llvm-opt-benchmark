@@ -810,12 +810,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_11SdfSpecTypeEEENSt7__cxx1
   br label %61
 
 60:                                               ; preds = %57, %48, %41, %34, %27, %20
-  %.015 = phi i1 [ false, %57 ], [ true, %48 ], [ true, %41 ], [ true, %34 ], [ true, %27 ], [ true, %20 ]
+  %.015 = phi i1 [ false, %57 ], [ true, %20 ], [ true, %27 ], [ true, %34 ], [ true, %41 ], [ true, %48 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   ret i1 %.015
 
 61:                                               ; preds = %58, %49, %42, %35, %28, %21, %14
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %15, %14 ], [ %50, %49 ], [ %43, %42 ], [ %36, %35 ], [ %29, %28 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %15, %14 ], [ %22, %21 ], [ %29, %28 ], [ %36, %35 ], [ %43, %42 ], [ %50, %49 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   resume { ptr, i32 } %.pn
 }

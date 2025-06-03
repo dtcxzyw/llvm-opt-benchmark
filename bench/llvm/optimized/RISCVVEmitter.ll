@@ -6555,7 +6555,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5.i.i:            ; preds = %182, %180
   br label %_ZL14ParseBasicTypec.exit.i
 
 _ZL14ParseBasicTypec.exit.i:                      ; preds = %215, %214, %213, %212, %211, %210, %209, %208, %.preheader.i
-  %.0.i.i = phi i8 [ 0, %215 ], [ 16, %214 ], [ -128, %213 ], [ 64, %212 ], [ 32, %211 ], [ 8, %210 ], [ 4, %209 ], [ 2, %208 ], [ 1, %.preheader.i ]
+  %.0.i.i = phi i8 [ 0, %215 ], [ 2, %208 ], [ 4, %209 ], [ 8, %210 ], [ 32, %211 ], [ 64, %212 ], [ -128, %213 ], [ 16, %214 ], [ 1, %.preheader.i ]
   br label %217
 
 216:                                              ; preds = %314
@@ -10010,7 +10010,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %._crit_edge1500
   br label %_ZL14ParseBasicTypec.exit
 
 _ZL14ParseBasicTypec.exit:                        ; preds = %.lr.ph1495, %231, %232, %233, %234, %235, %236, %237, %238
-  %.0.i141 = phi i8 [ 0, %238 ], [ 16, %237 ], [ -128, %236 ], [ 64, %235 ], [ 32, %234 ], [ 8, %233 ], [ 4, %232 ], [ 2, %231 ], [ 1, %.lr.ph1495 ]
+  %.0.i141 = phi i8 [ 0, %238 ], [ 2, %231 ], [ 4, %232 ], [ 8, %233 ], [ 32, %234 ], [ 64, %235 ], [ -128, %236 ], [ 16, %237 ], [ 1, %.lr.ph1495 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #21
   %239 = load ptr, ptr %22, align 8, !tbaa !139
   store ptr %239, ptr %26, align 8, !tbaa !189
@@ -10934,7 +10934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %_Z
   br label %_ZL14ParseBasicTypec.exit206
 
 _ZL14ParseBasicTypec.exit206:                     ; preds = %.lr.ph1504, %550, %551, %552, %553, %554, %555, %556, %557
-  %.0.i205 = phi i8 [ 0, %557 ], [ 16, %556 ], [ -128, %555 ], [ 64, %554 ], [ 32, %553 ], [ 8, %552 ], [ 4, %551 ], [ 2, %550 ], [ 1, %.lr.ph1504 ]
+  %.0.i205 = phi i8 [ 0, %557 ], [ 2, %550 ], [ 4, %551 ], [ 8, %552 ], [ 32, %553 ], [ 64, %554 ], [ -128, %555 ], [ 16, %556 ], [ 1, %.lr.ph1504 ]
   %558 = or i8 %.0.i205, %.08531502
   %559 = getelementptr inbounds nuw i8, ptr %.01321503, i64 1
   %.not137 = icmp eq ptr %559, %219

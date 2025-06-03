@@ -5999,7 +5999,7 @@ _ZNSt10unique_ptrIN4llvm8DenseMapIPKN5clang4ento12ExplodedNodeESt6vectorISt10sha
   br label %.thread.i
 
 .thread.i:                                        ; preds = %508, %506
-  %.1.ph.i = phi i32 [ 2, %506 ], [ 1, %508 ]
+  %.1.ph.i = phi i32 [ 1, %508 ], [ 2, %506 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %43) #29, !noalias !1006
   br label %515
 
@@ -16795,10 +16795,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46.i.i:           ; preds = %650, %648
   br label %_ZNSt12__shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i104.i
 
 _ZNSt12__shared_ptrIN5clang4ento30PathDiagnosticControlFlowPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i104.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
-  %.sroa.049.0.i.i = phi i32 [ %.sroa.049.0.copyload51.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ]
-  %.sroa.10.0.i.i = phi i32 [ %.sroa.10.0.copyload61.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ]
-  %.sroa.1062.0.i.i = phi ptr [ %.sroa.1062.0.copyload66.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ]
-  %.sroa.7.0.i.i = phi i32 [ %.sroa.7.0.copyload57.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ]
+  %.sroa.049.0.i.i = phi i32 [ %.sroa.049.0.copyload51.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ], [ %.sroa.049.0.copyload50.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ]
+  %.sroa.10.0.i.i = phi i32 [ %.sroa.10.0.copyload61.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ], [ %.sroa.10.0.copyload59.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ]
+  %.sroa.1062.0.i.i = phi ptr [ %.sroa.1062.0.copyload66.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ], [ %.sroa.1062.0.copyload64.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ]
+  %.sroa.7.0.i.i = phi i32 [ %.sroa.7.0.copyload57.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i ], [ %.sroa.7.0.copyload55.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit38.i.i ]
   %653 = call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #32, !noalias !1452
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
   store i32 1, ptr %654, align 8, !tbaa !922, !noalias !1457
@@ -18891,7 +18891,7 @@ _ZL17isContainedByStmtRKN5clang9ParentMapEPKNS_4StmtES5_.exit43.i: ; preds = %.l
   br label %1546
 
 1546:                                             ; preds = %1540, %1538, %1536, %1528
-  %.124.in.i = phi ptr [ %1545, %1540 ], [ %1539, %1538 ], [ %1537, %1536 ], [ %1529, %1528 ]
+  %.124.in.i = phi ptr [ %1529, %1528 ], [ %1537, %1536 ], [ %1539, %1538 ], [ %1545, %1540 ]
   %.124.i = load ptr, ptr %.124.in.i, align 8, !tbaa !35
   %.not8.i44.i = icmp ne ptr %.4.i, null
   %1547 = icmp ne ptr %.4.i, %.124.i
@@ -19384,7 +19384,7 @@ _ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.e
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit, %92, %89, %_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit
-  %.1 = phi i8 [ %.038, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ %99, %92 ], [ 1, %89 ], [ 1, %_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit ]
+  %.1 = phi i8 [ %.038, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ 1, %_ZNK5clang4ento22PathSensitiveBugReport13isInterestingEPKNS_15LocationContextE.exit ], [ 1, %89 ], [ %99, %92 ]
   %100 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %18, ptr %101, align 8, !tbaa !914
@@ -21818,8 +21818,8 @@ _ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9po
   br label %_ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.thread.i, %._crit_edge.i, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit, %52, %54, %56, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit27, %58
-  %161 = phi ptr [ %49, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ %49, %56 ], [ %49, %54 ], [ %49, %52 ], [ %49, %58 ], [ %.pre, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit27 ], [ %49, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i ], [ %49, %._crit_edge.i ], [ %49, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.thread.i ]
-  %.1 = phi i32 [ %.031, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ %10, %56 ], [ %.031, %54 ], [ %.031, %52 ], [ %.031, %58 ], [ %160, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit27 ], [ %.031, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i ], [ %.031, %._crit_edge.i ], [ %.031, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.thread.i ]
+  %161 = phi ptr [ %49, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ %49, %52 ], [ %49, %54 ], [ %49, %56 ], [ %49, %58 ], [ %.pre, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit27 ], [ %49, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i ], [ %49, %._crit_edge.i ], [ %49, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.thread.i ]
+  %.1 = phi i32 [ %.031, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit ], [ %.031, %52 ], [ %.031, %54 ], [ %10, %56 ], [ %.031, %58 ], [ %160, %_ZNSt7__cxx114listISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEESaIS5_EE9pop_frontEv.exit27 ], [ %.031, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.i ], [ %.031, %._crit_edge.i ], [ %.031, %_ZNK5clang4ento22PathDiagnosticLocationneERKS1_.exit.thread.i ]
   %162 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store ptr %161, ptr %163, align 8, !tbaa !914
@@ -25544,7 +25544,7 @@ _ZL18getEnclosingParentPKN5clang4StmtERKNS_9ParentMapE.exit.thread: ; preds = %2
   store i8 %.fca.1.extract.i122, ptr %.sroa.2.0..sroa_idx.i123, align 8
   br label %.thread145
 
-.thread145:                                       ; preds = %.thread, %54, %91, %75, %127, %111, %147, %163, %183, %206, %226, %248, %_ZL18getEnclosingParentPKN5clang4StmtERKNS_9ParentMapE.exit.thread, %5
+.thread145:                                       ; preds = %.thread, %248, %226, %206, %183, %163, %147, %127, %111, %91, %75, %54, %_ZL18getEnclosingParentPKN5clang4StmtERKNS_9ParentMapE.exit.thread, %5
   ret void
 }
 
@@ -25974,7 +25974,7 @@ define internal fastcc noundef zeroext i1 @_ZL24isConditionForTerminatorPKN5clan
   br label %85
 
 85:                                               ; preds = %2, %78, %82, %62, %66, %70, %5, %15, %11, %74, %58, %50, %46, %42, %38, %31, %27, %19
-  %.1 = phi i1 [ %77, %74 ], [ %61, %58 ], [ %57, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %31 ], [ %30, %27 ], [ %26, %19 ], [ false, %5 ], [ true, %11 ], [ %18, %15 ], [ true, %66 ], [ true, %62 ], [ %73, %70 ], [ true, %78 ], [ %84, %82 ], [ false, %2 ]
+  %.1 = phi i1 [ %26, %19 ], [ %30, %27 ], [ %37, %31 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %57, %50 ], [ %61, %58 ], [ %77, %74 ], [ false, %5 ], [ true, %11 ], [ %18, %15 ], [ true, %66 ], [ true, %62 ], [ %73, %70 ], [ true, %78 ], [ %84, %82 ], [ false, %2 ]
   ret i1 %.1
 }
 
@@ -26879,8 +26879,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclI
   br label %135
 
 135:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit33.thread
-  %136 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %109, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit33.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %134, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit33.thread ]
+  %136 = phi i32 [ %109, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit33.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %134, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit33.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %137 = load i32, ptr %.1, align 8, !tbaa !698
   %138 = icmp eq i32 %137, %136
   br i1 %138, label %139, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread
@@ -26918,8 +26918,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclI
   br label %163
 
 163:                                              ; preds = %._crit_edge._crit_edge58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread
-  %164 = phi i32 [ %.pre59, %._crit_edge._crit_edge58 ], [ %136, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge58 ], [ %162, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread ]
+  %164 = phi i32 [ %136, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.2 = phi ptr [ %162, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit34.thread ], [ %.029.lcssa, %._crit_edge._crit_edge58 ]
   %165 = load i32, ptr %.2, align 8, !tbaa !698
   %166 = icmp eq i32 %165, %164
   br i1 %166, label %167, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento22PathDiagnosticLocationEEclIPS4_EEbT_.exit35.thread

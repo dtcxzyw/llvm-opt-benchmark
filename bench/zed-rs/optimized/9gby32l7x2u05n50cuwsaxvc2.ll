@@ -325,7 +325,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h8
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.pn15 = phi ptr [ %14, %13 ], [ %12, %10 ]
+  %.pn15 = phi ptr [ %12, %10 ], [ %14, %13 ]
   %16 = icmp eq ptr %.pn15, null
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16

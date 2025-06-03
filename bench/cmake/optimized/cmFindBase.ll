@@ -2929,7 +2929,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i
-  %.sroa.038.1.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ], [ %32, %31 ]
+  %.sroa.038.1.i.i = phi ptr [ %32, %31 ], [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ]
   %.val20.val.i.i = load ptr, ptr %2, align 8, !tbaa !12
   %.val1.i26.i.i = load ptr, ptr %.sroa.038.1.i.i, align 8, !tbaa !12
   %34 = tail call noundef i32 @_ZN5cmsys11SystemTools7StrucmpEPKcS2_(ptr noundef %.val20.val.i.i, ptr noundef %.val1.i26.i.i)
@@ -2941,7 +2941,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i
-  %.sroa.038.2.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ], [ %37, %36 ]
+  %.sroa.038.2.i.i = phi ptr [ %37, %36 ], [ %.sroa.038.0.lcssa.i.i, %._crit_edge.i.i ]
   %.val21.val.i.i = load ptr, ptr %2, align 8, !tbaa !12
   %.val1.i27.i.i = load ptr, ptr %.sroa.038.2.i.i, align 8, !tbaa !12
   %39 = tail call noundef i32 @_ZN5cmsys11SystemTools7StrucmpEPKcS2_(ptr noundef %.val21.val.i.i, ptr noundef %.val1.i27.i.i)

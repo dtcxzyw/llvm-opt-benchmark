@@ -6855,11 +6855,11 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   br label %.body.i
 
 55:                                               ; preds = %14, %17, %29, %32, %37, %44
-  %.sroa.07.0.i = phi i64 [ 5, %17 ], [ 4, %44 ], [ 3, %37 ], [ 2, %32 ], [ 1, %29 ], [ 0, %14 ]
-  %.sroa.7.0.i = phi i64 [ %23, %17 ], [ %46, %44 ], [ %39, %37 ], [ %34, %32 ], [ %31, %29 ], [ undef, %14 ]
-  %.sroa.12.0.i = phi i64 [ %22, %17 ], [ %48, %44 ], [ %41, %37 ], [ %36, %32 ], [ undef, %29 ], [ undef, %14 ]
-  %.sroa.16.0.i = phi i64 [ undef, %17 ], [ %50, %44 ], [ %43, %37 ], [ undef, %32 ], [ undef, %29 ], [ undef, %14 ]
-  %.sroa.18.0.i = phi i64 [ undef, %17 ], [ %52, %44 ], [ undef, %37 ], [ undef, %32 ], [ undef, %29 ], [ undef, %14 ]
+  %.sroa.07.0.i = phi i64 [ 5, %17 ], [ 1, %29 ], [ 2, %32 ], [ 3, %37 ], [ 4, %44 ], [ 0, %14 ]
+  %.sroa.7.0.i = phi i64 [ %23, %17 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %46, %44 ], [ undef, %14 ]
+  %.sroa.12.0.i = phi i64 [ %22, %17 ], [ undef, %29 ], [ %36, %32 ], [ %41, %37 ], [ %48, %44 ], [ undef, %14 ]
+  %.sroa.16.0.i = phi i64 [ undef, %17 ], [ undef, %29 ], [ undef, %32 ], [ %43, %37 ], [ %50, %44 ], [ undef, %14 ]
+  %.sroa.18.0.i = phi i64 [ undef, %17 ], [ undef, %29 ], [ undef, %32 ], [ undef, %37 ], [ %52, %44 ], [ undef, %14 ]
   store i64 %.sroa.07.0.i, ptr %10, align 8, !alias.scope !1670, !noalias !1673
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1670, !noalias !1673
@@ -6978,11 +6978,11 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   br label %98
 
 98:                                               ; preds = %89, %82, %77, %74, %65, %63
-  %.sroa.07.0.i.i = phi i64 [ 5, %65 ], [ 4, %89 ], [ 3, %82 ], [ 2, %77 ], [ 1, %74 ], [ 0, %63 ]
-  %.sroa.7.0.i.i = phi i64 [ %71, %65 ], [ %91, %89 ], [ %84, %82 ], [ %79, %77 ], [ %76, %74 ], [ undef, %63 ]
-  %.sroa.12.0.i.i = phi i64 [ %70, %65 ], [ %93, %89 ], [ %86, %82 ], [ %81, %77 ], [ undef, %74 ], [ undef, %63 ]
-  %.sroa.16.0.i.i = phi i64 [ undef, %65 ], [ %95, %89 ], [ %88, %82 ], [ undef, %77 ], [ undef, %74 ], [ undef, %63 ]
-  %.sroa.18.0.i.i = phi i64 [ undef, %65 ], [ %97, %89 ], [ undef, %82 ], [ undef, %77 ], [ undef, %74 ], [ undef, %63 ]
+  %.sroa.07.0.i.i = phi i64 [ 5, %65 ], [ 1, %74 ], [ 2, %77 ], [ 3, %82 ], [ 4, %89 ], [ 0, %63 ]
+  %.sroa.7.0.i.i = phi i64 [ %71, %65 ], [ %76, %74 ], [ %79, %77 ], [ %84, %82 ], [ %91, %89 ], [ undef, %63 ]
+  %.sroa.12.0.i.i = phi i64 [ %70, %65 ], [ undef, %74 ], [ %81, %77 ], [ %86, %82 ], [ %93, %89 ], [ undef, %63 ]
+  %.sroa.16.0.i.i = phi i64 [ undef, %65 ], [ undef, %74 ], [ undef, %77 ], [ %88, %82 ], [ %95, %89 ], [ undef, %63 ]
+  %.sroa.18.0.i.i = phi i64 [ undef, %65 ], [ undef, %74 ], [ undef, %77 ], [ undef, %82 ], [ %97, %89 ], [ undef, %63 ]
   store i64 %.sroa.07.0.i.i, ptr %6, align 8, !alias.scope !1687, !noalias !1691
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !1687, !noalias !1691

@@ -265,7 +265,7 @@ define dso_local void @_Z26btGenerateInternalEdgeInfoP22btBvhTriangleMeshShapeP1
   br label %82
 
 82:                                               ; preds = %79, %75, %71, %.split.us
-  %.3.us = phi i32 [ %.278.us, %.split.us ], [ %74, %71 ], [ %78, %75 ], [ %81, %79 ]
+  %.3.us = phi i32 [ %.278.us, %.split.us ], [ %81, %79 ], [ %78, %75 ], [ %74, %71 ]
   %83 = mul nsw i32 %70, %.3.us
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %69, i64 %84
@@ -561,7 +561,7 @@ _ZN9btVector36setMaxERKS_.exit61:                 ; preds = %_Z8btSetMaxIfEvRT_R
   br label %188
 
 188:                                              ; preds = %.split, %184, %180, %177
-  %.3 = phi i32 [ %.278, %.split ], [ %187, %184 ], [ %183, %180 ], [ %179, %177 ]
+  %.3 = phi i32 [ %.278, %.split ], [ %179, %177 ], [ %183, %180 ], [ %187, %184 ]
   %189 = mul nsw i32 %70, %.3
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i8, ptr %69, i64 %190
@@ -3466,19 +3466,19 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   br label %.thread421
 
 622:                                              ; preds = %516, %564, %613
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %516 ], [ %565, %564 ], [ %614, %613 ]
+  %.pn104.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %516 ], [ %565, %564 ], [ %614, %613 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %10) #19
   br label %623
 
 623:                                              ; preds = %622, %382
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %622 ], [ %383, %382 ]
+  %.pn104.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn104.pn.pn.pn.pn.pn.pn.pn, %622 ], [ %383, %382 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #19
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #19
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #19
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn104.pn.pn.pn.pn.pn.pn.pn.pn
 
 .thread421:                                       ; preds = %131, %123, %133, %62, %621, %21
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #19

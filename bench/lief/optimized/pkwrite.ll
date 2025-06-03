@@ -368,7 +368,7 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
   br label %pk_write_ec_private.exit.i
 
 pk_write_ec_private.exit.i:                       ; preds = %49, %40
-  %.09.i.i = phi i32 [ %48, %40 ], [ %51, %49 ]
+  %.09.i.i = phi i32 [ %51, %49 ], [ %48, %40 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 66) #6
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
@@ -773,7 +773,7 @@ define internal fastcc i32 @pk_write_ec_private(ptr noundef nonnull %0, ptr noun
   br label %17
 
 17:                                               ; preds = %2, %14
-  %.09 = phi i32 [ %13, %2 ], [ %16, %14 ]
+  %.09 = phi i32 [ %16, %14 ], [ %13, %2 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 66) #6
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6

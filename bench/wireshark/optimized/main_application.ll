@@ -11782,7 +11782,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %57, %_ZN17QArrayDat
   ret void
 
 64:                                               ; preds = %_ZN7QStringD2Ev.exit52, %_ZN7QStringD2Ev.exit44, %_ZN7QStringD2Ev.exit36, %_ZN7QStringD2Ev.exit28
-  %.pn = phi { ptr, i32 } [ %58, %_ZN7QStringD2Ev.exit52 ], [ %45, %_ZN7QStringD2Ev.exit44 ], [ %32, %_ZN7QStringD2Ev.exit36 ], [ %20, %_ZN7QStringD2Ev.exit28 ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZN7QStringD2Ev.exit28 ], [ %32, %_ZN7QStringD2Ev.exit36 ], [ %45, %_ZN7QStringD2Ev.exit44 ], [ %58, %_ZN7QStringD2Ev.exit52 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -15803,8 +15803,8 @@ define linkonce_odr noundef i64 @_ZN9QtPrivate19sequential_erase_ifI5QListIP7QAc
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi ptr [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.034.1.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load ptr, ptr %.sroa.034.1.i.i.i, align 8
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %_ZSt7find_ifIN5QListIP7QActionE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit, label %43
@@ -15814,8 +15814,8 @@ define linkonce_odr noundef i64 @_ZN9QtPrivate19sequential_erase_ifI5QListIP7QAc
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge57.i.i.i
-  %46 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %40, %43 ]
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %43 ]
+  %46 = phi ptr [ %40, %43 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.034.2.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %47 = load ptr, ptr %.sroa.034.2.i.i.i, align 8
   %48 = icmp eq ptr %47, %46
   %spec.select.i.i.i = select i1 %48, ptr %.sroa.034.2.i.i.i, ptr %7

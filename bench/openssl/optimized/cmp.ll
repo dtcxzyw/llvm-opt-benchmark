@@ -1436,9 +1436,9 @@ conf_get_string.exit.i:                           ; preds = %216, %204
   br label %279
 
 279:                                              ; preds = %275, %267, %262, %255, %218, %198, %137
-  %.1.ph.i = phi i64 [ %.2117.i, %255 ], [ %.0116164.i, %198 ], [ %.2117.i, %262 ], [ %.2117.i, %267 ], [ %.2117.i, %275 ], [ %.0116164.i, %218 ], [ %.0116164.i, %137 ]
-  %.175.ph.i = phi ptr [ %.276.i, %255 ], [ %.074166.i, %198 ], [ %.276.i, %262 ], [ %.276.i, %267 ], [ %.478.i, %275 ], [ null, %218 ], [ %.074166.i, %137 ]
-  %.272.ph.i = phi i32 [ %spec.select100.i, %255 ], [ %spec.select100.i, %198 ], [ %spec.select100.i, %262 ], [ %spec.select100.i, %267 ], [ %spec.select100.i, %275 ], [ %spec.select100.i, %218 ], [ %138, %137 ]
+  %.1.ph.i = phi i64 [ %.2117.i, %255 ], [ %.0116164.i, %218 ], [ %.2117.i, %267 ], [ %.2117.i, %262 ], [ %.2117.i, %275 ], [ %.0116164.i, %198 ], [ %.0116164.i, %137 ]
+  %.175.ph.i = phi ptr [ %.276.i, %255 ], [ null, %218 ], [ %.276.i, %267 ], [ %.276.i, %262 ], [ %.478.i, %275 ], [ %.074166.i, %198 ], [ %.074166.i, %137 ]
+  %.272.ph.i = phi i32 [ %spec.select100.i, %255 ], [ %spec.select100.i, %218 ], [ %spec.select100.i, %267 ], [ %spec.select100.i, %262 ], [ %spec.select100.i, %275 ], [ %spec.select100.i, %198 ], [ %138, %137 ]
   %280 = add i32 %.272.ph.i, 1
   %281 = getelementptr inbounds nuw i8, ptr %.182165.i, i64 24
   %282 = load ptr, ptr %281, align 8, !tbaa !21
@@ -1446,8 +1446,8 @@ conf_get_string.exit.i:                           ; preds = %216, %204
   br i1 %.not92.i, label %read_config.exit, label %123, !llvm.loop !35
 
 read_config.exit:                                 ; preds = %279, %202, %207, %222, %254, %259
-  %283 = phi i1 [ true, %254 ], [ true, %222 ], [ true, %207 ], [ true, %202 ], [ true, %259 ], [ false, %279 ]
-  %284 = phi i1 [ false, %254 ], [ false, %222 ], [ true, %207 ], [ true, %202 ], [ false, %259 ], [ false, %279 ]
+  %283 = phi i1 [ true, %254 ], [ true, %222 ], [ true, %259 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
+  %284 = phi i1 [ false, %254 ], [ false, %222 ], [ false, %259 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
   %.pr = load i32, ptr @opt_verbosity, align 4, !tbaa !10
   %or.cond.i217 = icmp ugt i32 %.pr, 8
   br i1 %or.cond.i217, label %285, label %set_verbosity.exit
@@ -2792,8 +2792,8 @@ get_opts.exit:                                    ; preds = %._crit_edge.i220
   br label %820
 
 820:                                              ; preds = %811, %808, %805, %802, %.lr.ph, %817, %814
-  %.4 = phi i32 [ 0, %.lr.ph ], [ %819, %817 ], [ %816, %814 ], [ %spec.select201, %802 ], [ %spec.select203, %805 ], [ %spec.select205, %808 ], [ %spec.select207, %811 ]
-  %.1 = phi ptr [ %.0122270, %.lr.ph ], [ %.0122270, %817 ], [ %.0122270, %814 ], [ %804, %802 ], [ %807, %805 ], [ %810, %808 ], [ %813, %811 ]
+  %.4 = phi i32 [ 0, %.lr.ph ], [ %816, %814 ], [ %819, %817 ], [ %spec.select201, %802 ], [ %spec.select203, %805 ], [ %spec.select205, %808 ], [ %spec.select207, %811 ]
+  %.1 = phi ptr [ %.0122270, %.lr.ph ], [ %.0122270, %814 ], [ %.0122270, %817 ], [ %804, %802 ], [ %807, %805 ], [ %810, %808 ], [ %813, %811 ]
   %821 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
   %822 = call i32 @OSSL_CMP_CTX_get_status(ptr noundef %821) #12
   %823 = icmp slt i32 %822, 0
@@ -5096,8 +5096,8 @@ set_name.exit167:                                 ; preds = %634, %set_name.exit
   %659 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %655, ptr noundef nonnull @.str.464, ptr noundef nonnull @__func__.setup_client_ctx, ptr noundef nonnull @.str.351, i32 noundef 2337, ptr noundef nonnull @.str.355, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %658) #12
   br label %transform_opts.exit.thread
 
-transform_opts.exit.thread:                       ; preds = %639, %636, %631, %627, %624, %619, %setup_certs.exit.thread.critedge.i, %606, %609, %597, %594, %586, %583, %568, %.thread120.i, %490, %setup_certs.exit.i158, %507, %484, %481, %476, %473, %463, %460, %.thread116.i, %521, %444, %434, %431, %428, %425, %420, %417, %308, %277, %327, %335, %setup_cert.exit.i, %setup_certs.exit.i, %321, %172, %169, %162, %159, %152, %149, %142, %139, %136, %133, %.thread171, %649, %654, %666, %663, %647, %643, %setup_protection_ctx.exit, %363, %360, %69, %53, %50, %26, %23
-  %.099 = phi i32 [ 0, %23 ], [ 0, %26 ], [ 0, %360 ], [ 0, %363 ], [ 0, %647 ], [ 0, %643 ], [ 0, %setup_protection_ctx.exit ], [ 0, %663 ], [ 0, %666 ], [ 0, %69 ], [ 0, %50 ], [ 0, %53 ], [ 1, %654 ], [ 1, %649 ], [ 0, %.thread171 ], [ 0, %133 ], [ 0, %136 ], [ 0, %139 ], [ 0, %142 ], [ 0, %149 ], [ 0, %152 ], [ 0, %159 ], [ 0, %162 ], [ 0, %169 ], [ 0, %172 ], [ 0, %321 ], [ 0, %setup_certs.exit.i ], [ 0, %setup_cert.exit.i ], [ 0, %335 ], [ 0, %327 ], [ 0, %277 ], [ 0, %308 ], [ 0, %417 ], [ 0, %420 ], [ 0, %425 ], [ 0, %428 ], [ 0, %431 ], [ 0, %434 ], [ 0, %444 ], [ 0, %521 ], [ 0, %.thread116.i ], [ 0, %460 ], [ 0, %463 ], [ 0, %473 ], [ 0, %476 ], [ 0, %481 ], [ 0, %484 ], [ 0, %507 ], [ 0, %setup_certs.exit.i158 ], [ 0, %490 ], [ 0, %.thread120.i ], [ 0, %568 ], [ 0, %583 ], [ 0, %586 ], [ 0, %594 ], [ 0, %597 ], [ 0, %609 ], [ 0, %606 ], [ 0, %setup_certs.exit.thread.critedge.i ], [ 0, %619 ], [ 0, %624 ], [ 0, %627 ], [ 0, %631 ], [ 0, %636 ], [ 0, %639 ]
+transform_opts.exit.thread:                       ; preds = %639, %636, %631, %627, %624, %619, %setup_certs.exit.thread.critedge.i, %606, %609, %597, %594, %586, %583, %568, %.thread120.i, %490, %setup_certs.exit.i158, %507, %484, %481, %476, %473, %463, %460, %521, %.thread116.i, %444, %434, %431, %428, %425, %420, %417, %308, %277, %327, %335, %setup_cert.exit.i, %setup_certs.exit.i, %321, %172, %169, %162, %159, %152, %149, %142, %139, %136, %133, %.thread171, %649, %654, %666, %663, %647, %643, %setup_protection_ctx.exit, %363, %360, %69, %53, %50, %26, %23
+  %.099 = phi i32 [ 0, %23 ], [ 0, %26 ], [ 0, %360 ], [ 0, %363 ], [ 0, %647 ], [ 0, %643 ], [ 0, %setup_protection_ctx.exit ], [ 0, %663 ], [ 0, %666 ], [ 0, %69 ], [ 0, %50 ], [ 0, %53 ], [ 1, %654 ], [ 1, %649 ], [ 0, %.thread171 ], [ 0, %133 ], [ 0, %136 ], [ 0, %139 ], [ 0, %142 ], [ 0, %149 ], [ 0, %152 ], [ 0, %159 ], [ 0, %162 ], [ 0, %169 ], [ 0, %172 ], [ 0, %321 ], [ 0, %setup_certs.exit.i ], [ 0, %setup_cert.exit.i ], [ 0, %335 ], [ 0, %327 ], [ 0, %277 ], [ 0, %308 ], [ 0, %417 ], [ 0, %420 ], [ 0, %425 ], [ 0, %428 ], [ 0, %431 ], [ 0, %434 ], [ 0, %444 ], [ 0, %.thread116.i ], [ 0, %521 ], [ 0, %460 ], [ 0, %463 ], [ 0, %473 ], [ 0, %476 ], [ 0, %481 ], [ 0, %484 ], [ 0, %507 ], [ 0, %setup_certs.exit.i158 ], [ 0, %490 ], [ 0, %.thread120.i ], [ 0, %568 ], [ 0, %583 ], [ 0, %586 ], [ 0, %594 ], [ 0, %597 ], [ 0, %609 ], [ 0, %606 ], [ 0, %setup_certs.exit.thread.critedge.i ], [ 0, %619 ], [ 0, %624 ], [ 0, %627 ], [ 0, %631 ], [ 0, %636 ], [ 0, %639 ]
   %660 = load ptr, ptr %5, align 8, !tbaa !4
   call void @CRYPTO_free(ptr noundef %660, ptr noundef nonnull @.str.351, i32 noundef 2342) #12
   %661 = load ptr, ptr %6, align 8, !tbaa !4
@@ -6683,8 +6683,8 @@ thread-pre-split:                                 ; preds = %32
   br label %.thread
 
 .thread:                                          ; preds = %55, %52, %79, %.thread67, %81, %83, %67, %32, %30, %25, %18
-  %.038 = phi ptr [ null, %25 ], [ null, %67 ], [ null, %79 ], [ %.139, %81 ], [ null, %83 ], [ %.139, %.thread67 ], [ null, %32 ], [ null, %30 ], [ null, %18 ], [ null, %52 ], [ null, %55 ]
-  %.037 = phi ptr [ null, %25 ], [ %.1, %67 ], [ %.1, %79 ], [ %.1, %81 ], [ %.1, %83 ], [ %.1, %.thread67 ], [ %26, %32 ], [ %26, %30 ], [ null, %18 ], [ %.1, %52 ], [ %.1, %55 ]
+  %.038 = phi ptr [ null, %25 ], [ null, %67 ], [ %.139, %81 ], [ null, %83 ], [ %.139, %.thread67 ], [ null, %79 ], [ null, %32 ], [ null, %30 ], [ null, %18 ], [ null, %52 ], [ null, %55 ]
+  %.037 = phi ptr [ null, %25 ], [ %.1, %67 ], [ %.1, %81 ], [ %.1, %83 ], [ %.1, %.thread67 ], [ %.1, %79 ], [ %26, %32 ], [ %26, %30 ], [ null, %18 ], [ %.1, %52 ], [ %.1, %55 ]
   tail call void @OSSL_CMP_MSG_free(ptr noundef %.037) #12
   br label %84
 

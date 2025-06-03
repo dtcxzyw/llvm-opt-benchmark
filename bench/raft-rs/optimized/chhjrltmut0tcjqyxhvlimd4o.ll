@@ -4307,7 +4307,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -4438,7 +4438,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -4569,7 +4569,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -4700,7 +4700,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -4831,7 +4831,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -4962,7 +4962,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -5093,7 +5093,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -5224,7 +5224,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -5355,7 +5355,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   br label %60
 
 60:                                               ; preds = %73, %61, %51
-  %.sroa.0.0 = phi ptr [ %75, %73 ], [ %63, %61 ], [ %59, %51 ]
+  %.sroa.0.0 = phi ptr [ %59, %51 ], [ %63, %61 ], [ %75, %73 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %21
@@ -5746,7 +5746,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5814,7 +5814,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5882,7 +5882,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5950,7 +5950,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6018,7 +6018,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6086,7 +6086,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6154,7 +6154,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6222,7 +6222,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6290,7 +6290,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$protobuf..reflect..acc..v1..Fiel
   unreachable
 
 46:                                               ; preds = %29, %15, %10
-  %.sroa.0.0.in = phi i1 [ %44, %29 ], [ %28, %15 ], [ %14, %10 ]
+  %.sroa.0.0.in = phi i1 [ %14, %10 ], [ %28, %15 ], [ %44, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6594,7 +6594,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6605,38 +6605,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -6698,7 +6706,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6709,38 +6717,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -6802,7 +6818,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6813,38 +6829,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -6906,7 +6930,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6917,38 +6941,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -7010,7 +7042,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7021,38 +7053,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -7114,7 +7154,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7125,38 +7165,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -7218,7 +7266,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7229,38 +7277,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -7322,7 +7378,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7333,38 +7389,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }
@@ -7426,7 +7490,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %33 = tail call { ptr, ptr } %32(ptr noundef align 1 %29)
   %34 = extractvalue { ptr, ptr } %33, 0
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %52, label %45, !prof !67
+  br i1 %.not, label %56, label %49, !prof !67
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7437,38 +7501,46 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = tail call { ptr, ptr } %42(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 8 %40)
-  br label %44
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %44, null
+  %47 = icmp ne ptr %45, null
+  br label %48
 
-44:                                               ; preds = %53, %35
-  %.merged = phi { ptr, ptr } [ %59, %53 ], [ %43, %35 ]
+48:                                               ; preds = %57, %35
+  %.sroa.3.0 = phi i1 [ %47, %35 ], [ true, %57 ]
+  %.sroa.0.0 = phi i1 [ %46, %35 ], [ true, %57 ]
+  %.merged = phi { ptr, ptr } [ %43, %35 ], [ %63, %57 ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
   ret { ptr, ptr } %.merged
 
-45:                                               ; preds = %20
-  %46 = extractvalue { ptr, ptr } %33, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %49 = load ptr, ptr %48, align 8, !invariant.load !3, !nonnull !3
-  call void %49(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
-  %50 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %51 = icmp eq i8 %50, 10
-  br i1 %51, label %53, label %60, !prof !65
+49:                                               ; preds = %20
+  %50 = extractvalue { ptr, ptr } %33, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %34)
+  %54 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %55 = icmp eq i8 %54, 10
+  br i1 %55, label %57, label %64, !prof !65
 
-52:                                               ; preds = %20
+56:                                               ; preds = %20
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #13
   unreachable
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load ptr, ptr %54, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !6, !noundef !3
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !5, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %58 = insertvalue { ptr, ptr } poison, ptr %55, 0
-  %59 = insertvalue { ptr, ptr } %58, ptr %57, 1
-  br label %44
+  %62 = insertvalue { ptr, ptr } poison, ptr %59, 0
+  %63 = insertvalue { ptr, ptr } %62, ptr %61, 1
+  br label %48
 
-60:                                               ; preds = %45
+64:                                               ; preds = %49
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #13
   unreachable
 }

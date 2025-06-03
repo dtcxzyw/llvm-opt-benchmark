@@ -3625,8 +3625,8 @@ _ZL11appendToBufDsPiPDsi.exit263:                 ; preds = %148, %150
   br label %.thread289
 
 .thread289:                                       ; preds = %_ZL11appendToBufDsPiPDsi.exit262, %_ZL11appendToBufDsPiPDsi.exit260, %.thread293.thread, %_ZL11appendToBufDsPiPDsi.exit263, %_ZL11appendToBufDsPiPDsi.exit259
-  %.4280 = phi i32 [ %114, %_ZL11appendToBufDsPiPDsi.exit259 ], [ %.7, %.thread293.thread ], [ %153, %_ZL11appendToBufDsPiPDsi.exit263 ], [ %147, %_ZL11appendToBufDsPiPDsi.exit262 ], [ %131, %_ZL11appendToBufDsPiPDsi.exit260 ]
-  %.0193 = phi i1 [ true, %_ZL11appendToBufDsPiPDsi.exit259 ], [ %.inv, %.thread293.thread ], [ true, %_ZL11appendToBufDsPiPDsi.exit263 ], [ true, %_ZL11appendToBufDsPiPDsi.exit262 ], [ true, %_ZL11appendToBufDsPiPDsi.exit260 ]
+  %.4280 = phi i32 [ %114, %_ZL11appendToBufDsPiPDsi.exit259 ], [ %153, %_ZL11appendToBufDsPiPDsi.exit263 ], [ %.7, %.thread293.thread ], [ %147, %_ZL11appendToBufDsPiPDsi.exit262 ], [ %131, %_ZL11appendToBufDsPiPDsi.exit260 ]
+  %.0193 = phi i1 [ true, %_ZL11appendToBufDsPiPDsi.exit259 ], [ true, %_ZL11appendToBufDsPiPDsi.exit263 ], [ %.inv, %.thread293.thread ], [ true, %_ZL11appendToBufDsPiPDsi.exit262 ], [ true, %_ZL11appendToBufDsPiPDsi.exit260 ]
   %327 = load i32, ptr %9, align 4
   %328 = icmp slt i32 %327, %.0191
   %or.cond257 = select i1 %.0193, i1 %328, i1 false

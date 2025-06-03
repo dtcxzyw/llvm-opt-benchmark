@@ -2152,7 +2152,7 @@ _ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i: ; preds = 
   br label %_ZL17DiagnoseBadAccessRN5clang4SemaENS_14SourceLocationERKN12_GLOBAL__N_116EffectiveContextERNS3_12AccessTargetE.exit
 
 .thread.i.i:                                      ; preds = %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i, %520, %513, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit30.i
-  %.0.i.i21 = phi i32 [ 0, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit30.i ], [ 0, %520 ], [ %518, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i ], [ %518, %513 ]
+  %.0.i.i21 = phi i32 [ 0, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit30.i ], [ %518, %_ZNK12_GLOBAL__N_112AccessTarget23getEffectiveNamingClassEv.exit.i.i ], [ 0, %520 ], [ %518, %513 ]
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %10) #15
   store ptr null, ptr %10, align 8, !tbaa !824
   %548 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3129,7 +3129,7 @@ _ZN12_GLOBAL__N_116EffectiveContextD2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
   br label %66
 
 66:                                               ; preds = %46, %3, %_ZN12_GLOBAL__N_116EffectiveContextD2Ev.exit
-  %.0 = phi i32 [ 3, %46 ], [ %55, %_ZN12_GLOBAL__N_116EffectiveContextD2Ev.exit ], [ 0, %3 ]
+  %.0 = phi i32 [ %55, %_ZN12_GLOBAL__N_116EffectiveContextD2Ev.exit ], [ 3, %46 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3334,7 +3334,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang4Sema27CheckUnresolvedMem
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %17, %23
-  %.1.i = phi ptr [ %20, %17 ], [ %24, %23 ]
+  %.1.i = phi ptr [ %24, %23 ], [ %20, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i9 = load i64, ptr %25, align 16, !tbaa !39
   br label %26
@@ -6169,7 +6169,7 @@ _ZN5clang12OverloadExpr4findEPNS_4ExprE.exit:     ; preds = %14, %19
   br label %31
 
 31:                                               ; preds = %29, %26
-  %.1.i = phi ptr [ %28, %26 ], [ %30, %29 ]
+  %.1.i = phi ptr [ %30, %29 ], [ %28, %26 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %33 = load ptr, ptr %32, align 8, !tbaa !158

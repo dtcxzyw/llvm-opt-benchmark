@@ -144,7 +144,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN59_$LT$thread_priority..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h76ce31f37ba4e845E.exit"
 
 "_ZN59_$LT$thread_priority..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h76ce31f37ba4e845E.exit": ; preds = %9, %12, %15, %18
-  %.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.0.in.i
 }
 

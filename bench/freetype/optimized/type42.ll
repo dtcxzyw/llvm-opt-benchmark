@@ -949,7 +949,7 @@ T42_Open_Face.exit:                               ; preds = %t42_loader_done.exi
   br label %385
 
 385:                                              ; preds = %384, %382, %380, %379
-  %.0108.in = phi ptr [ %372, %384 ], [ %383, %382 ], [ %381, %380 ], [ %368, %379 ]
+  %.0108.in = phi ptr [ %368, %379 ], [ %381, %380 ], [ %383, %382 ], [ %372, %384 ]
   %.0108 = load ptr, ptr %.0108.in, align 8, !tbaa !189
   %.not144 = icmp eq ptr %.0108, null
   br i1 %.not144, label %.thread, label %386
@@ -2599,8 +2599,8 @@ select.unfold:                                    ; preds = %81, %79
   br i1 %.not207, label %110, label %.thread..thread250.loopexit412_crit_edge
 
 110:                                              ; preds = %107, %.lr.ph405
-  %.3150 = phi i64 [ %.2149400, %.lr.ph405 ], [ %105, %107 ]
-  %.3 = phi i32 [ %.2404, %.lr.ph405 ], [ %102, %107 ]
+  %.3150 = phi i64 [ %105, %107 ], [ %.2149400, %.lr.ph405 ]
+  %.3 = phi i32 [ %102, %107 ], [ %.2404, %.lr.ph405 ]
   %111 = icmp slt i64 %.2145401, %.3150
   br i1 %111, label %148, label %.preheader
 

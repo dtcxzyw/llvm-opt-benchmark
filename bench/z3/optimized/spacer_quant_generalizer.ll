@@ -7038,7 +7038,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i: ; preds = %375, %372
   br label %_Z19quick_for_each_exprIN12_GLOBAL__N_117has_nlira_functorEEvRT_R13ast_fast_markILj1EEP4expr.exit.i
 
 379:                                              ; preds = %364, %327, %213, %165, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i, %125, %103
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %104, %103 ], [ %126, %125 ], [ %214, %213 ], [ %166, %165 ], [ %365, %364 ], [ %328, %327 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %104, %103 ], [ %126, %125 ], [ %166, %165 ], [ %214, %213 ], [ %365, %364 ], [ %328, %327 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5) #23
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5) #23
   br label %.body.i

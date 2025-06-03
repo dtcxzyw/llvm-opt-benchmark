@@ -1703,7 +1703,7 @@ luaK_exp2val.exit:                                ; preds = %11, %13
   br label %48
 
 48:                                               ; preds = %46, %44, %36
-  %.0 = phi i32 [ %47, %46 ], [ %45, %44 ], [ %39, %36 ]
+  %.0 = phi i32 [ %47, %46 ], [ %39, %36 ], [ %45, %44 ]
   ret i32 %.0
 }
 
@@ -2209,7 +2209,7 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
   br label %55
 
 55:                                               ; preds = %16, %freeexp.exit
-  %.1 = phi i32 [ %22, %16 ], [ %54, %freeexp.exit ]
+  %.1 = phi i32 [ %54, %freeexp.exit ], [ %22, %16 ]
   ret i32 %.1
 }
 
@@ -2621,7 +2621,7 @@ isnumeral.exit29.i:                               ; preds = %16
   br label %48
 
 48:                                               ; preds = %46, %44, %39, %35, %31, %29, %27
-  %.0.i = phi double [ %47, %46 ], [ %45, %44 ], [ %43, %39 ], [ %36, %35 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.0.i = phi double [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %36, %35 ], [ %43, %39 ], [ %45, %44 ], [ %47, %46 ]
   %49 = fcmp ord double %.0.i, 0.000000e+00
   br i1 %49, label %constfolding.exit, label %50
 

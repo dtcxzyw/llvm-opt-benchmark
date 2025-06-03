@@ -200,7 +200,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1caef845f1d49c6E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1caef845f1d49c6E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9730a773efbb578bE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9730a773efbb578bE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -277,7 +277,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h496caf583aca97a5E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h496caf583aca97a5E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3138,8 +3138,8 @@ define void @_ZN8markdown6parser14parse_markdown17hd6d2baca50f17fd8E(ptr dead_on
   unreachable
 
 129:                                              ; preds = %392, %220, %424, %420, %416, %412, %408, %404, %400, %396, %214, %210, %93, %93
-  %.sroa.04.1 = phi i1 [ false, %424 ], [ false, %420 ], [ false, %416 ], [ false, %412 ], [ false, %408 ], [ false, %404 ], [ false, %400 ], [ false, %93 ], [ false, %93 ], [ false, %396 ], [ false, %392 ], [ false, %220 ], [ false, %214 ], [ %.sroa.04.3, %210 ]
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.ph, %424 ], [ %.sroa.0.0.ph, %420 ], [ %.sroa.0.0.ph, %416 ], [ %.sroa.0.0.ph, %412 ], [ %.sroa.0.0.ph, %408 ], [ %.sroa.0.0.ph, %404 ], [ %.sroa.0.0.ph, %400 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %396 ], [ %.sroa.0.0.ph, %392 ], [ %.sroa.0.0.ph, %220 ], [ %spec.select62, %214 ], [ %.sroa.0.2, %210 ]
+  %.sroa.04.1 = phi i1 [ %.sroa.04.3, %210 ], [ false, %214 ], [ false, %392 ], [ false, %220 ], [ false, %396 ], [ false, %93 ], [ false, %93 ], [ false, %400 ], [ false, %404 ], [ false, %408 ], [ false, %412 ], [ false, %416 ], [ false, %420 ], [ false, %424 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.2, %210 ], [ %spec.select62, %214 ], [ %.sroa.0.0.ph, %392 ], [ %.sroa.0.0.ph, %220 ], [ %.sroa.0.0.ph, %396 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %93 ], [ %.sroa.0.0.ph, %400 ], [ %.sroa.0.0.ph, %404 ], [ %.sroa.0.0.ph, %408 ], [ %.sroa.0.0.ph, %412 ], [ %.sroa.0.0.ph, %416 ], [ %.sroa.0.0.ph, %420 ], [ %.sroa.0.0.ph, %424 ]
   %130 = load i8, ptr %30, align 8, !range !183, !noundef !9
   %131 = icmp samesign ult i8 %130, 21
   br i1 %131, label %428, label %429
@@ -3329,8 +3329,8 @@ define void @_ZN8markdown6parser14parse_markdown17hd6d2baca50f17fd8E(ptr dead_on
   unreachable
 
 196:                                              ; preds = %198, %197, %104
-  %.sroa.04.3 = phi i1 [ false, %104 ], [ true, %198 ], [ false, %197 ]
-  %.sroa.0.2 = phi i1 [ %.sroa.0.0.ph, %104 ], [ %.sroa.0.0.ph, %198 ], [ true, %197 ]
+  %.sroa.04.3 = phi i1 [ false, %104 ], [ false, %197 ], [ true, %198 ]
+  %.sroa.0.2 = phi i1 [ %.sroa.0.0.ph, %104 ], [ true, %197 ], [ %.sroa.0.0.ph, %198 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28)
   invoke void @"_ZN96_$LT$markdown..parser..MarkdownTag$u20$as$u20$core..convert..From$LT$pulldown_cmark..Tag$GT$$GT$4from17h92bc5b6b28fa75bbE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %31)
@@ -4901,8 +4901,8 @@ default.unreachable144:                           ; preds = %2
           to label %131 unwind label %129
 
 "_ZN4core3ptr52drop_in_place$LT$pulldown_cmark..strings..CowStr$GT$17h88bc770da1d3badbE.exit": ; preds = %.noexc44, %.noexc, %112, %234, %232, %194, %192, %145, %142, %.body, %227, %187, %133, %131
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn137, %227 ], [ %.pn16.pn126, %187 ], [ %.pn19.pn115, %133 ], [ %.pn19.pn115, %131 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %142 ], [ %eh.lpad-body, %145 ], [ %.pn16.pn126, %192 ], [ %.pn16.pn126, %194 ], [ %.pn.pn137, %232 ], [ %.pn.pn137, %234 ], [ %.pn19, %112 ], [ %.pn16, %.noexc ], [ %.pn, %.noexc44 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn115, %133 ], [ %.pn19.pn115, %131 ], [ %.pn16.pn126, %187 ], [ %.pn.pn137, %227 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %142 ], [ %eh.lpad-body, %145 ], [ %.pn16.pn126, %192 ], [ %.pn16.pn126, %194 ], [ %.pn.pn137, %232 ], [ %.pn.pn137, %234 ], [ %.pn19, %112 ], [ %.pn16, %.noexc ], [ %.pn, %.noexc44 ]
+  resume { ptr, i32 } %.pn19.pn.pn
 
 133:                                              ; preds = %131
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$pulldown_cmark..strings..CowStr$GT$$GT$17h147a2b803ddbf125E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #20

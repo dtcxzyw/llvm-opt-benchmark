@@ -1329,7 +1329,7 @@ proto_item_set_generated.exit402:                 ; preds = %216, %213, %209, %1
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %377, %371, %369, %363, %358, %352, %345, %342, %333, %331, %329, %323
-  %.1.i = phi i32 [ %.0173.i, %377 ], [ %.0173.i, %371 ], [ %.0173.i, %363 ], [ %.0173.i, %369 ], [ %.0173.i, %352 ], [ %.0173.i, %358 ], [ %.0173.i, %331 ], [ %.0173.i, %329 ], [ %.0173.i, %323 ], [ %339, %333 ], [ %339, %342 ], [ %339, %345 ]
+  %.1.i = phi i32 [ %.0173.i, %377 ], [ %.0173.i, %323 ], [ %.0173.i, %329 ], [ %.0173.i, %331 ], [ %.0173.i, %352 ], [ %.0173.i, %358 ], [ %.0173.i, %363 ], [ %.0173.i, %369 ], [ %.0173.i, %371 ], [ %339, %333 ], [ %339, %342 ], [ %339, %345 ]
   %381 = zext nneg i8 %317 to i32
   %382 = xor i8 %317, -1
   %383 = sext i8 %382 to i16
@@ -1694,8 +1694,8 @@ proto_item_set_generated.exit.i409:               ; preds = %429, %426, %422, %4
   br label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i
 
 590:                                              ; preds = %574, %552
-  %.0166.i.i = phi i8 [ %578, %574 ], [ %558, %552 ]
-  %.0160.i.i = phi i32 [ %587, %574 ], [ %569, %552 ]
+  %.0166.i.i = phi i8 [ %558, %552 ], [ %578, %574 ]
+  %.0160.i.i = phi i32 [ %569, %552 ], [ %587, %574 ]
   %591 = icmp eq i8 %.0166.i.i, 17
   br i1 %591, label %592, label %626
 
@@ -1779,7 +1779,7 @@ dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i: ; preds = %633, %631, %628, %6
   br label %637
 
 636:                                              ; preds = %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, %532, %520
-  %.2.i = phi i32 [ %.0.i.i, %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i ], [ %.1.i411, %532 ], [ %458, %520 ]
+  %.2.i = phi i32 [ %.1.i411, %532 ], [ %458, %520 ], [ %.0.i.i, %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i ]
   %.not133.i = icmp eq i32 %.2.i, -1
   br i1 %.not133.i, label %637, label %638
 
@@ -2246,7 +2246,7 @@ proto_item_set_generated.exit.i416:               ; preds = %655, %652, %648, %6
   br label %dissect_rohc_pkt_type_0.exit
 
 dissect_rohc_pkt_type_0.exit:                     ; preds = %._crit_edge57.i, %._crit_edge56.i, %._crit_edge.i420, %903
-  %.0.i421 = phi i32 [ %.3, %903 ], [ %900, %._crit_edge.i420 ], [ %847, %._crit_edge57.i ], [ %875, %._crit_edge56.i ]
+  %.0.i421 = phi i32 [ %.3, %903 ], [ %847, %._crit_edge57.i ], [ %875, %._crit_edge56.i ], [ %900, %._crit_edge.i420 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
   br label %921
@@ -3461,7 +3461,7 @@ default.unreachable1:                             ; preds = %3
   unreachable
 
 119:                                              ; preds = %18, %24, %78, %81, %52, %55, %98
-  %.0 = phi i32 [ %118, %98 ], [ %80, %78 ], [ %83, %81 ], [ %54, %52 ], [ %57, %55 ], [ %27, %24 ], [ %23, %18 ]
+  %.0 = phi i32 [ %54, %52 ], [ %57, %55 ], [ %80, %78 ], [ %83, %81 ], [ %118, %98 ], [ %27, %24 ], [ %23, %18 ]
   %120 = sub i32 %.0, %2
   tail call void @proto_item_set_len(ptr noundef %6, i32 noundef %120)
   ret i32 %.0

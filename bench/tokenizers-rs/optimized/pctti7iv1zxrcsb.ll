@@ -39649,7 +39649,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hc7ebbedcfc00a16eE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -51726,7 +51726,7 @@ define { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$a
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
 "_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit": ; preds = %81, %77, %24, %.critedge.thread.i, %.critedge.i, %21, %70, %68, %65, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit", %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit", %34, %32, %30, %28, %26, %10
-  %.pn = phi { ptr, ptr } [ %76, %70 ], [ %69, %68 ], [ { ptr null, ptr undef }, %65 ], [ { ptr null, ptr undef }, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" ], [ %53, %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit" ], [ { ptr null, ptr undef }, %34 ], [ { ptr null, ptr undef }, %32 ], [ { ptr null, ptr undef }, %30 ], [ { ptr null, ptr undef }, %28 ], [ { ptr null, ptr undef }, %26 ], [ %12, %10 ], [ { ptr null, ptr undef }, %21 ], [ { ptr null, ptr undef }, %.critedge.i ], [ { ptr null, ptr undef }, %.critedge.thread.i ], [ { ptr null, ptr undef }, %24 ], [ { ptr null, ptr undef }, %77 ], [ { ptr null, ptr undef }, %81 ]
+  %.pn = phi { ptr, ptr } [ %12, %10 ], [ { ptr null, ptr undef }, %26 ], [ { ptr null, ptr undef }, %28 ], [ { ptr null, ptr undef }, %30 ], [ { ptr null, ptr undef }, %32 ], [ { ptr null, ptr undef }, %34 ], [ %53, %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit" ], [ { ptr null, ptr undef }, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" ], [ { ptr null, ptr undef }, %65 ], [ %69, %68 ], [ %76, %70 ], [ { ptr null, ptr undef }, %21 ], [ { ptr null, ptr undef }, %.critedge.i ], [ { ptr null, ptr undef }, %.critedge.thread.i ], [ { ptr null, ptr undef }, %24 ], [ { ptr null, ptr undef }, %77 ], [ { ptr null, ptr undef }, %81 ]
   ret { ptr, ptr } %.pn
 }
 

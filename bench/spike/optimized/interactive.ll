@@ -13351,7 +13351,7 @@ _ZN5mmu_t4loadImEET_m13xlate_flags_t.exit:        ; preds = %.noexc53, %91, %.no
   br label %176
 
 176:                                              ; preds = %_ZN5mmu_t4loadImEET_m13xlate_flags_t.exit, %174, %149, %124
-  %.0 = phi i64 [ %175, %174 ], [ %150, %149 ], [ %125, %124 ], [ %.sroa.0.0.copyload.i, %_ZN5mmu_t4loadImEET_m13xlate_flags_t.exit ]
+  %.0 = phi i64 [ %175, %174 ], [ %125, %124 ], [ %150, %149 ], [ %.sroa.0.0.copyload.i, %_ZN5mmu_t4loadImEET_m13xlate_flags_t.exit ]
   %177 = load ptr, ptr %12, align 8, !tbaa !10
   %178 = icmp eq ptr %177, %24
   br i1 %178, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -16440,8 +16440,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %49
 
 49:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit57.thread
-  %50 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit57.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %48, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit57.thread ]
+  %50 = phi i64 [ %43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit57.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %48, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit57.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %51 = load ptr, ptr %.1, align 8, !tbaa !20
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #30
   %.sroa.speculated.i.i.i58 = tail call i64 @llvm.umin.i64(i64 %52, i64 %50)
@@ -16465,8 +16465,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %57
 
 57:                                               ; preds = %._crit_edge._crit_edge127, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit64.thread
-  %58 = phi i64 [ %.pre129, %._crit_edge._crit_edge127 ], [ %50, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit64.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge127 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit64.thread ]
+  %58 = phi i64 [ %50, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit64.thread ], [ %.pre129, %._crit_edge._crit_edge127 ]
+  %.2 = phi ptr [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPKcEEbT_.exit64.thread ], [ %.029.lcssa, %._crit_edge._crit_edge127 ]
   %59 = load ptr, ptr %.2, align 8, !tbaa !20
   %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #30
   %.sroa.speculated.i.i.i65 = tail call i64 @llvm.umin.i64(i64 %60, i64 %58)

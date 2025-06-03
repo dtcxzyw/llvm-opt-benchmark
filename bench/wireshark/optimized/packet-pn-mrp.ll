@@ -532,8 +532,8 @@ dissect_PNMRP_Link.exit.i:                        ; preds = %159, %158, %157, %1
   br label %180
 
 180:                                              ; preds = %176, %172, %167
-  %.036.i.i = phi i8 [ %170, %167 ], [ %179, %176 ], [ %175, %172 ]
-  %.0.i.i = phi i32 [ %169, %167 ], [ %178, %176 ], [ %174, %172 ]
+  %.036.i.i = phi i8 [ %170, %167 ], [ %175, %172 ], [ %179, %176 ]
+  %.0.i.i = phi i32 [ %169, %167 ], [ %174, %172 ], [ %178, %176 ]
   %.not.i69.i = icmp eq i8 %.036.i.i, 0
   br i1 %.not.i69.i, label %247, label %181
 
@@ -708,7 +708,7 @@ dissect_PNMRP_Option.exit.i:                      ; preds = %249, %247
   br label %258
 
 258:                                              ; preds = %254, %dissect_PNMRP_Option.exit.i, %dissect_PNMRP_Link.exit.i, %dissect_PNMRP_TopologyChange.exit.i, %dissect_PNMRP_Test.exit.i, %70
-  %.1.i = phi i32 [ %257, %254 ], [ %253, %dissect_PNMRP_Option.exit.i ], [ %161, %dissect_PNMRP_Link.exit.i ], [ %133, %dissect_PNMRP_TopologyChange.exit.i ], [ %107, %dissect_PNMRP_Test.exit.i ], [ %74, %70 ]
+  %.1.i = phi i32 [ %257, %254 ], [ %74, %70 ], [ %107, %dissect_PNMRP_Test.exit.i ], [ %133, %dissect_PNMRP_TopologyChange.exit.i ], [ %161, %dissect_PNMRP_Link.exit.i ], [ %253, %dissect_PNMRP_Option.exit.i ]
   %259 = add i32 %.05972.i, 1
   %260 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %261 = icmp sgt i32 %260, 0

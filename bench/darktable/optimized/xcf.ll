@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %.thread248
 
 .thread248:                                       ; preds = %._crit_edge, %113, %.critedge, %192, %92, %62, %45
-  %.0169 = phi i32 [ 1, %92 ], [ 1, %192 ], [ 1, %62 ], [ 1, %45 ], [ 0, %.critedge ], [ 0, %113 ], [ 0, %._crit_edge ]
+  %.0169 = phi i32 [ 1, %192 ], [ 1, %92 ], [ 1, %62 ], [ 1, %45 ], [ 0, %.critedge ], [ 0, %113 ], [ 0, %._crit_edge ]
   %193 = call i32 @xcf_close(ptr noundef %44) #17
   call void @free(ptr noundef %.0172) #17
   br label %194

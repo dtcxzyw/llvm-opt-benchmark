@@ -220,7 +220,7 @@ define noundef nonnull ptr @exopname(i64 noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %1, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @exopname.buf, %26 ], [ @.str.24, %25 ], [ @.str.23, %24 ], [ @.str.22, %23 ], [ @.str.21, %22 ], [ @.str.20, %21 ], [ @.str.19, %20 ], [ @.str.18, %19 ], [ @.str.17, %18 ], [ @.str.16, %17 ], [ @.str.15, %16 ], [ @.str.14, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ], [ @.str.9, %10 ], [ @.str.8, %9 ], [ @.str.7, %8 ], [ @.str.6, %7 ], [ @.str.5, %6 ], [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @exopname.buf, %26 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -1715,7 +1715,7 @@ agxbput.exit437:                                  ; preds = %487, %492
   br label %575
 
 575:                                              ; preds = %551, %574, %573, %572, %571
-  %.0319 = phi ptr [ @.str.97, %574 ], [ @.str.96, %573 ], [ @.str.95, %572 ], [ @.str.94, %571 ], [ @.str.93, %551 ]
+  %.0319 = phi ptr [ @.str.97, %574 ], [ @.str.94, %571 ], [ @.str.95, %572 ], [ @.str.96, %573 ], [ @.str.93, %551 ]
   %576 = load ptr, ptr %3, align 8, !tbaa !26
   tail call fastcc void @agxbput(ptr noundef %576, ptr noundef nonnull @.str.98)
   tail call fastcc void @gen(ptr noundef %0, ptr noundef nonnull %41)

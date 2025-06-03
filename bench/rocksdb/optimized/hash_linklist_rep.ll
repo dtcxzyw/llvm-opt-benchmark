@@ -1642,8 +1642,8 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep6InsertEPv(ptr n
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %15, %.thread.i.i
-  %20 = phi i32 [ %16, %15 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %17, %15 ], [ %19, %.thread.i.i ]
+  %20 = phi i32 [ %.pre.i, %.thread.i.i ], [ %16, %15 ]
+  %.1.i.i = phi ptr [ %19, %.thread.i.i ], [ %17, %15 ]
   %21 = zext i32 %20 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #30
   store ptr %.1.i.i, ptr %6, align 8
@@ -1787,8 +1787,8 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %15, %.thread.i.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit82
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit82:   ; preds = %108, %.thread.i.i77
-  %113 = phi i32 [ %109, %108 ], [ %.pre.i78, %.thread.i.i77 ]
-  %.1.i.i79 = phi ptr [ %110, %108 ], [ %112, %.thread.i.i77 ]
+  %113 = phi i32 [ %.pre.i78, %.thread.i.i77 ], [ %109, %108 ]
+  %.1.i.i79 = phi ptr [ %112, %.thread.i.i77 ], [ %110, %108 ]
   %114 = zext i32 %113 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #30
   store ptr %.1.i.i79, ptr %9, align 8
@@ -2104,8 +2104,8 @@ define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep8
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %8, %.thread.i.i
-  %13 = phi i32 [ %9, %8 ], [ %.pre.i, %.thread.i.i ]
-  %.1.i.i = phi ptr [ %10, %8 ], [ %12, %.thread.i.i ]
+  %13 = phi i32 [ %.pre.i, %.thread.i.i ], [ %9, %8 ]
+  %.1.i.i = phi ptr [ %12, %.thread.i.i ], [ %10, %8 ]
   %14 = zext i32 %13 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
   store ptr %.1.i.i, ptr %5, align 8

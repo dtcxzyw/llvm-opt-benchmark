@@ -756,7 +756,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
   br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
 
 _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit: ; preds = %33, %35, %36, %37, %38, %39
-  %.0.i62 = phi i64 [ 4294967296, %39 ], [ 4294967302, %38 ], [ 4294967300, %37 ], [ 4294967299, %36 ], [ 4294967301, %35 ], [ 4294967298, %33 ]
+  %.0.i62 = phi i64 [ 4294967296, %39 ], [ 4294967301, %35 ], [ 4294967299, %36 ], [ 4294967300, %37 ], [ 4294967302, %38 ], [ 4294967298, %33 ]
   %.val36 = load ptr, ptr %8, align 8, !tbaa !22
   %.val37 = load i32, ptr %9, align 8, !tbaa !24
   %40 = zext i32 %.val37 to i64

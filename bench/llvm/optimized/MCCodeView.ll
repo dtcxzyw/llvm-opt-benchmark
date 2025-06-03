@@ -1927,7 +1927,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %57, %56 ]
+  %.sroa.031.1.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %59 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i.i.i, i64 20
   %.val.i20.i.i.i.i.i.i = load i16, ptr %59, align 4, !tbaa !148
   %.not40.i.i.i.i.i.i = icmp eq i16 %.val.i20.i.i.i.i.i.i, 0
@@ -1938,7 +1938,7 @@ define dso_local void @_ZN4llvm15CodeViewContext24emitLineTableForFunctionERNS_1
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %61, %60 ]
+  %.sroa.031.2.i.i.i.i.i.i = phi ptr [ %61, %60 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %63 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i.i.i, i64 20
   %.val.i21.i.i.i.i.i.i = load i16, ptr %63, align 4, !tbaa !148
   %.not41.i.i.i.i.i.i = icmp eq i16 %.val.i21.i.i.i.i.i.i, 0
@@ -2078,7 +2078,7 @@ _ZNSt6vectorIN4llvm7MCCVLocESaIS1_EED2Ev.exit:    ; preds = %._crit_edge99, %86
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge.i.i.i
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %115, %114 ]
+  %.sroa.044.1.i.i.i = phi ptr [ %115, %114 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %117 = getelementptr i8, ptr %.sroa.044.1.i.i.i, i64 12
   %.val1.i26.i.i.i = load i32, ptr %117, align 4, !tbaa !146
   %.not53.i.i.i = icmp eq i32 %.val1.i26.i.i.i, %93
@@ -2089,7 +2089,7 @@ _ZNSt6vectorIN4llvm7MCCVLocESaIS1_EED2Ev.exit:    ; preds = %._crit_edge99, %86
   br label %120
 
 120:                                              ; preds = %118, %._crit_edge.i.i.i
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %119, %118 ]
+  %.sroa.044.2.i.i.i = phi ptr [ %119, %118 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %121 = getelementptr i8, ptr %.sroa.044.2.i.i.i, i64 12
   %.val1.i27.i.i.i = load i32, ptr %121, align 4, !tbaa !146
   %.not54.i.i.i = icmp eq i32 %.val1.i27.i.i.i, %93

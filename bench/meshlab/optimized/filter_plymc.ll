@@ -6943,7 +6943,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN4QDir7currentEv.exit
 
 common.resume:                                    ; preds = %639, %658, %674, %656, %672, %680, %684, %70
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %681, %684 ], [ %681, %680 ], [ %.pn116380, %658 ], [ %657, %656 ], [ %.pn386, %674 ], [ %673, %672 ], [ %.pn138.pn.pn.pn.pn, %639 ]
+  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %681, %684 ], [ %681, %680 ], [ %.pn138.pn.pn.pn.pn, %639 ], [ %.pn116380, %658 ], [ %657, %656 ], [ %.pn386, %674 ], [ %673, %672 ]
   resume { ptr, i32 } %common.resume.op
 
 70:                                               ; preds = %62
@@ -19412,7 +19412,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #40
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #40
   %66 = icmp eq i64 %64, %65
@@ -19435,7 +19435,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #40
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #40
   %77 = icmp eq i64 %75, %76
@@ -85355,10 +85355,10 @@ define linkonce_odr void @_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18S
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit: ; preds = %98, %102, %110, %119, %128, %136, %144
-  %.09.i = phi float [ undef, %98 ], [ %146, %144 ], [ %137, %136 ], [ %130, %128 ], [ %121, %119 ], [ %112, %110 ], [ %103, %102 ]
-  %.08.i = phi float [ undef, %98 ], [ %148, %144 ], [ %139, %136 ], [ %132, %128 ], [ %123, %119 ], [ %114, %110 ], [ %105, %102 ]
-  %.07.i = phi float [ undef, %98 ], [ %150, %144 ], [ %141, %136 ], [ %134, %128 ], [ %125, %119 ], [ %116, %110 ], [ %107, %102 ]
-  %.0.i = phi float [ undef, %98 ], [ %152, %144 ], [ %143, %136 ], [ %135, %128 ], [ %127, %119 ], [ %118, %110 ], [ %109, %102 ]
+  %.09.i = phi float [ undef, %98 ], [ %103, %102 ], [ %112, %110 ], [ %121, %119 ], [ %130, %128 ], [ %137, %136 ], [ %146, %144 ]
+  %.08.i = phi float [ undef, %98 ], [ %105, %102 ], [ %114, %110 ], [ %123, %119 ], [ %132, %128 ], [ %139, %136 ], [ %148, %144 ]
+  %.07.i = phi float [ undef, %98 ], [ %107, %102 ], [ %116, %110 ], [ %125, %119 ], [ %134, %128 ], [ %141, %136 ], [ %150, %144 ]
+  %.0.i = phi float [ undef, %98 ], [ %109, %102 ], [ %118, %110 ], [ %127, %119 ], [ %135, %128 ], [ %143, %136 ], [ %152, %144 ]
   %153 = sitofp i8 %101 to float
   %154 = fmul float %.09.i, %153
   %155 = fneg float %.0.i
@@ -85486,10 +85486,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit43
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit43: ; preds = %178, %182, %190, %199, %208, %216, %224
-  %.09.i39 = phi float [ undef, %178 ], [ %226, %224 ], [ %217, %216 ], [ %210, %208 ], [ %201, %199 ], [ %192, %190 ], [ %183, %182 ]
-  %.08.i40 = phi float [ undef, %178 ], [ %228, %224 ], [ %219, %216 ], [ %212, %208 ], [ %203, %199 ], [ %194, %190 ], [ %185, %182 ]
-  %.07.i41 = phi float [ undef, %178 ], [ %230, %224 ], [ %221, %216 ], [ %214, %208 ], [ %205, %199 ], [ %196, %190 ], [ %187, %182 ]
-  %.0.i42 = phi float [ undef, %178 ], [ %232, %224 ], [ %223, %216 ], [ %215, %208 ], [ %207, %199 ], [ %198, %190 ], [ %189, %182 ]
+  %.09.i39 = phi float [ undef, %178 ], [ %183, %182 ], [ %192, %190 ], [ %201, %199 ], [ %210, %208 ], [ %217, %216 ], [ %226, %224 ]
+  %.08.i40 = phi float [ undef, %178 ], [ %185, %182 ], [ %194, %190 ], [ %203, %199 ], [ %212, %208 ], [ %219, %216 ], [ %228, %224 ]
+  %.07.i41 = phi float [ undef, %178 ], [ %187, %182 ], [ %196, %190 ], [ %205, %199 ], [ %214, %208 ], [ %221, %216 ], [ %230, %224 ]
+  %.0.i42 = phi float [ undef, %178 ], [ %189, %182 ], [ %198, %190 ], [ %207, %199 ], [ %215, %208 ], [ %223, %216 ], [ %232, %224 ]
   %233 = sitofp i8 %181 to float
   %234 = fmul float %.09.i39, %233
   %235 = fneg float %.0.i42
@@ -85605,10 +85605,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit48
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit48: ; preds = %252, %256, %264, %273, %282, %290, %298
-  %.09.i44 = phi float [ undef, %252 ], [ %300, %298 ], [ %291, %290 ], [ %284, %282 ], [ %275, %273 ], [ %266, %264 ], [ %257, %256 ]
-  %.08.i45 = phi float [ undef, %252 ], [ %302, %298 ], [ %293, %290 ], [ %286, %282 ], [ %277, %273 ], [ %268, %264 ], [ %259, %256 ]
-  %.07.i46 = phi float [ undef, %252 ], [ %304, %298 ], [ %295, %290 ], [ %288, %282 ], [ %279, %273 ], [ %270, %264 ], [ %261, %256 ]
-  %.0.i47 = phi float [ undef, %252 ], [ %306, %298 ], [ %297, %290 ], [ %289, %282 ], [ %281, %273 ], [ %272, %264 ], [ %263, %256 ]
+  %.09.i44 = phi float [ undef, %252 ], [ %257, %256 ], [ %266, %264 ], [ %275, %273 ], [ %284, %282 ], [ %291, %290 ], [ %300, %298 ]
+  %.08.i45 = phi float [ undef, %252 ], [ %259, %256 ], [ %268, %264 ], [ %277, %273 ], [ %286, %282 ], [ %293, %290 ], [ %302, %298 ]
+  %.07.i46 = phi float [ undef, %252 ], [ %261, %256 ], [ %270, %264 ], [ %279, %273 ], [ %288, %282 ], [ %295, %290 ], [ %304, %298 ]
+  %.0.i47 = phi float [ undef, %252 ], [ %263, %256 ], [ %272, %264 ], [ %281, %273 ], [ %289, %282 ], [ %297, %290 ], [ %306, %298 ]
   %307 = sitofp i8 %255 to float
   %308 = fmul float %.09.i44, %307
   %309 = fneg float %.0.i47
@@ -85705,10 +85705,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit53
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit53: ; preds = %315, %319, %327, %336, %345, %353, %361
-  %.09.i49 = phi float [ undef, %315 ], [ %363, %361 ], [ %354, %353 ], [ %347, %345 ], [ %338, %336 ], [ %329, %327 ], [ %320, %319 ]
-  %.08.i50 = phi float [ undef, %315 ], [ %365, %361 ], [ %356, %353 ], [ %349, %345 ], [ %340, %336 ], [ %331, %327 ], [ %322, %319 ]
-  %.07.i51 = phi float [ undef, %315 ], [ %367, %361 ], [ %358, %353 ], [ %351, %345 ], [ %342, %336 ], [ %333, %327 ], [ %324, %319 ]
-  %.0.i52 = phi float [ undef, %315 ], [ %369, %361 ], [ %360, %353 ], [ %352, %345 ], [ %344, %336 ], [ %335, %327 ], [ %326, %319 ]
+  %.09.i49 = phi float [ undef, %315 ], [ %320, %319 ], [ %329, %327 ], [ %338, %336 ], [ %347, %345 ], [ %354, %353 ], [ %363, %361 ]
+  %.08.i50 = phi float [ undef, %315 ], [ %322, %319 ], [ %331, %327 ], [ %340, %336 ], [ %349, %345 ], [ %356, %353 ], [ %365, %361 ]
+  %.07.i51 = phi float [ undef, %315 ], [ %324, %319 ], [ %333, %327 ], [ %342, %336 ], [ %351, %345 ], [ %358, %353 ], [ %367, %361 ]
+  %.0.i52 = phi float [ undef, %315 ], [ %326, %319 ], [ %335, %327 ], [ %344, %336 ], [ %352, %345 ], [ %360, %353 ], [ %369, %361 ]
   %370 = sitofp i8 %318 to float
   %371 = fmul float %.09.i49, %370
   %372 = fneg float %.0.i52
@@ -85806,10 +85806,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit58
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit58: ; preds = %379, %382, %390, %399, %408, %416, %424
-  %.09.i54 = phi float [ undef, %379 ], [ %426, %424 ], [ %417, %416 ], [ %410, %408 ], [ %401, %399 ], [ %392, %390 ], [ %383, %382 ]
-  %.08.i55 = phi float [ undef, %379 ], [ %428, %424 ], [ %419, %416 ], [ %412, %408 ], [ %403, %399 ], [ %394, %390 ], [ %385, %382 ]
-  %.07.i56 = phi float [ undef, %379 ], [ %430, %424 ], [ %421, %416 ], [ %414, %408 ], [ %405, %399 ], [ %396, %390 ], [ %387, %382 ]
-  %.0.i57 = phi float [ undef, %379 ], [ %432, %424 ], [ %423, %416 ], [ %415, %408 ], [ %407, %399 ], [ %398, %390 ], [ %389, %382 ]
+  %.09.i54 = phi float [ undef, %379 ], [ %383, %382 ], [ %392, %390 ], [ %401, %399 ], [ %410, %408 ], [ %417, %416 ], [ %426, %424 ]
+  %.08.i55 = phi float [ undef, %379 ], [ %385, %382 ], [ %394, %390 ], [ %403, %399 ], [ %412, %408 ], [ %419, %416 ], [ %428, %424 ]
+  %.07.i56 = phi float [ undef, %379 ], [ %387, %382 ], [ %396, %390 ], [ %405, %399 ], [ %414, %408 ], [ %421, %416 ], [ %430, %424 ]
+  %.0.i57 = phi float [ undef, %379 ], [ %389, %382 ], [ %398, %390 ], [ %407, %399 ], [ %415, %408 ], [ %423, %416 ], [ %432, %424 ]
   %433 = sitofp i8 %381 to float
   %434 = fmul float %.09.i54, %433
   %435 = fneg float %.0.i57
@@ -85997,10 +85997,10 @@ thread-pre-split:                                 ; preds = %_ZN3vcg3tri13Marchi
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit63
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit63: ; preds = %482, %486, %494, %503, %512, %520, %528
-  %.09.i59 = phi float [ undef, %482 ], [ %530, %528 ], [ %521, %520 ], [ %514, %512 ], [ %505, %503 ], [ %496, %494 ], [ %487, %486 ]
-  %.08.i60 = phi float [ undef, %482 ], [ %532, %528 ], [ %523, %520 ], [ %516, %512 ], [ %507, %503 ], [ %498, %494 ], [ %489, %486 ]
-  %.07.i61 = phi float [ undef, %482 ], [ %534, %528 ], [ %525, %520 ], [ %518, %512 ], [ %509, %503 ], [ %500, %494 ], [ %491, %486 ]
-  %.0.i62 = phi float [ undef, %482 ], [ %536, %528 ], [ %527, %520 ], [ %519, %512 ], [ %511, %503 ], [ %502, %494 ], [ %493, %486 ]
+  %.09.i59 = phi float [ undef, %482 ], [ %487, %486 ], [ %496, %494 ], [ %505, %503 ], [ %514, %512 ], [ %521, %520 ], [ %530, %528 ]
+  %.08.i60 = phi float [ undef, %482 ], [ %489, %486 ], [ %498, %494 ], [ %507, %503 ], [ %516, %512 ], [ %523, %520 ], [ %532, %528 ]
+  %.07.i61 = phi float [ undef, %482 ], [ %491, %486 ], [ %500, %494 ], [ %509, %503 ], [ %518, %512 ], [ %525, %520 ], [ %534, %528 ]
+  %.0.i62 = phi float [ undef, %482 ], [ %493, %486 ], [ %502, %494 ], [ %511, %503 ], [ %519, %512 ], [ %527, %520 ], [ %536, %528 ]
   %537 = sitofp i8 %485 to float
   %538 = fmul float %.09.i59, %537
   %539 = fneg float %.0.i62
@@ -86092,10 +86092,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit68
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit68: ; preds = %546, %547, %555, %564, %573, %581, %589
-  %.09.i64 = phi float [ undef, %546 ], [ %591, %589 ], [ %582, %581 ], [ %575, %573 ], [ %566, %564 ], [ %557, %555 ], [ %548, %547 ]
-  %.08.i65 = phi float [ undef, %546 ], [ %593, %589 ], [ %584, %581 ], [ %577, %573 ], [ %568, %564 ], [ %559, %555 ], [ %550, %547 ]
-  %.07.i66 = phi float [ undef, %546 ], [ %595, %589 ], [ %586, %581 ], [ %579, %573 ], [ %570, %564 ], [ %561, %555 ], [ %552, %547 ]
-  %.0.i67 = phi float [ undef, %546 ], [ %597, %589 ], [ %588, %581 ], [ %580, %573 ], [ %572, %564 ], [ %563, %555 ], [ %554, %547 ]
+  %.09.i64 = phi float [ undef, %546 ], [ %548, %547 ], [ %557, %555 ], [ %566, %564 ], [ %575, %573 ], [ %582, %581 ], [ %591, %589 ]
+  %.08.i65 = phi float [ undef, %546 ], [ %550, %547 ], [ %559, %555 ], [ %568, %564 ], [ %577, %573 ], [ %584, %581 ], [ %593, %589 ]
+  %.07.i66 = phi float [ undef, %546 ], [ %552, %547 ], [ %561, %555 ], [ %570, %564 ], [ %579, %573 ], [ %586, %581 ], [ %595, %589 ]
+  %.0.i67 = phi float [ undef, %546 ], [ %554, %547 ], [ %563, %555 ], [ %572, %564 ], [ %580, %573 ], [ %588, %581 ], [ %597, %589 ]
   %598 = sitofp i8 %545 to float
   %599 = fmul float %.09.i64, %598
   %600 = fneg float %.0.i67
@@ -86199,10 +86199,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit73
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit73: ; preds = %612, %613, %621, %630, %639, %647, %655
-  %.09.i69 = phi float [ undef, %612 ], [ %657, %655 ], [ %648, %647 ], [ %641, %639 ], [ %632, %630 ], [ %623, %621 ], [ %614, %613 ]
-  %.08.i70 = phi float [ undef, %612 ], [ %659, %655 ], [ %650, %647 ], [ %643, %639 ], [ %634, %630 ], [ %625, %621 ], [ %616, %613 ]
-  %.07.i71 = phi float [ undef, %612 ], [ %661, %655 ], [ %652, %647 ], [ %645, %639 ], [ %636, %630 ], [ %627, %621 ], [ %618, %613 ]
-  %.0.i72 = phi float [ undef, %612 ], [ %663, %655 ], [ %654, %647 ], [ %646, %639 ], [ %638, %630 ], [ %629, %621 ], [ %620, %613 ]
+  %.09.i69 = phi float [ undef, %612 ], [ %614, %613 ], [ %623, %621 ], [ %632, %630 ], [ %641, %639 ], [ %648, %647 ], [ %657, %655 ]
+  %.08.i70 = phi float [ undef, %612 ], [ %616, %613 ], [ %625, %621 ], [ %634, %630 ], [ %643, %639 ], [ %650, %647 ], [ %659, %655 ]
+  %.07.i71 = phi float [ undef, %612 ], [ %618, %613 ], [ %627, %621 ], [ %636, %630 ], [ %645, %639 ], [ %652, %647 ], [ %661, %655 ]
+  %.0.i72 = phi float [ undef, %612 ], [ %620, %613 ], [ %629, %621 ], [ %638, %630 ], [ %646, %639 ], [ %654, %647 ], [ %663, %655 ]
   %664 = sitofp i8 %545 to float
   %665 = fmul float %.09.i69, %664
   %666 = fneg float %.0.i72
@@ -86326,10 +86326,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit78
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit78: ; preds = %687, %691, %699, %708, %717, %725, %733
-  %.09.i74 = phi float [ undef, %687 ], [ %735, %733 ], [ %726, %725 ], [ %719, %717 ], [ %710, %708 ], [ %701, %699 ], [ %692, %691 ]
-  %.08.i75 = phi float [ undef, %687 ], [ %737, %733 ], [ %728, %725 ], [ %721, %717 ], [ %712, %708 ], [ %703, %699 ], [ %694, %691 ]
-  %.07.i76 = phi float [ undef, %687 ], [ %739, %733 ], [ %730, %725 ], [ %723, %717 ], [ %714, %708 ], [ %705, %699 ], [ %696, %691 ]
-  %.0.i77 = phi float [ undef, %687 ], [ %741, %733 ], [ %732, %725 ], [ %724, %717 ], [ %716, %708 ], [ %707, %699 ], [ %698, %691 ]
+  %.09.i74 = phi float [ undef, %687 ], [ %692, %691 ], [ %701, %699 ], [ %710, %708 ], [ %719, %717 ], [ %726, %725 ], [ %735, %733 ]
+  %.08.i75 = phi float [ undef, %687 ], [ %694, %691 ], [ %703, %699 ], [ %712, %708 ], [ %721, %717 ], [ %728, %725 ], [ %737, %733 ]
+  %.07.i76 = phi float [ undef, %687 ], [ %696, %691 ], [ %705, %699 ], [ %714, %708 ], [ %723, %717 ], [ %730, %725 ], [ %739, %733 ]
+  %.0.i77 = phi float [ undef, %687 ], [ %698, %691 ], [ %707, %699 ], [ %716, %708 ], [ %724, %717 ], [ %732, %725 ], [ %741, %733 ]
   %742 = sitofp i8 %690 to float
   %743 = fmul float %.09.i74, %742
   %744 = fneg float %.0.i77
@@ -86421,10 +86421,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit83
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit83: ; preds = %751, %752, %760, %769, %778, %786, %794
-  %.09.i79 = phi float [ undef, %751 ], [ %796, %794 ], [ %787, %786 ], [ %780, %778 ], [ %771, %769 ], [ %762, %760 ], [ %753, %752 ]
-  %.08.i80 = phi float [ undef, %751 ], [ %798, %794 ], [ %789, %786 ], [ %782, %778 ], [ %773, %769 ], [ %764, %760 ], [ %755, %752 ]
-  %.07.i81 = phi float [ undef, %751 ], [ %800, %794 ], [ %791, %786 ], [ %784, %778 ], [ %775, %769 ], [ %766, %760 ], [ %757, %752 ]
-  %.0.i82 = phi float [ undef, %751 ], [ %802, %794 ], [ %793, %786 ], [ %785, %778 ], [ %777, %769 ], [ %768, %760 ], [ %759, %752 ]
+  %.09.i79 = phi float [ undef, %751 ], [ %753, %752 ], [ %762, %760 ], [ %771, %769 ], [ %780, %778 ], [ %787, %786 ], [ %796, %794 ]
+  %.08.i80 = phi float [ undef, %751 ], [ %755, %752 ], [ %764, %760 ], [ %773, %769 ], [ %782, %778 ], [ %789, %786 ], [ %798, %794 ]
+  %.07.i81 = phi float [ undef, %751 ], [ %757, %752 ], [ %766, %760 ], [ %775, %769 ], [ %784, %778 ], [ %791, %786 ], [ %800, %794 ]
+  %.0.i82 = phi float [ undef, %751 ], [ %759, %752 ], [ %768, %760 ], [ %777, %769 ], [ %785, %778 ], [ %793, %786 ], [ %802, %794 ]
   %803 = sitofp i8 %750 to float
   %804 = fmul float %.09.i79, %803
   %805 = fneg float %.0.i82
@@ -86528,10 +86528,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit88
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit88: ; preds = %817, %818, %826, %835, %844, %852, %860
-  %.09.i84 = phi float [ undef, %817 ], [ %862, %860 ], [ %853, %852 ], [ %846, %844 ], [ %837, %835 ], [ %828, %826 ], [ %819, %818 ]
-  %.08.i85 = phi float [ undef, %817 ], [ %864, %860 ], [ %855, %852 ], [ %848, %844 ], [ %839, %835 ], [ %830, %826 ], [ %821, %818 ]
-  %.07.i86 = phi float [ undef, %817 ], [ %866, %860 ], [ %857, %852 ], [ %850, %844 ], [ %841, %835 ], [ %832, %826 ], [ %823, %818 ]
-  %.0.i87 = phi float [ undef, %817 ], [ %868, %860 ], [ %859, %852 ], [ %851, %844 ], [ %843, %835 ], [ %834, %826 ], [ %825, %818 ]
+  %.09.i84 = phi float [ undef, %817 ], [ %819, %818 ], [ %828, %826 ], [ %837, %835 ], [ %846, %844 ], [ %853, %852 ], [ %862, %860 ]
+  %.08.i85 = phi float [ undef, %817 ], [ %821, %818 ], [ %830, %826 ], [ %839, %835 ], [ %848, %844 ], [ %855, %852 ], [ %864, %860 ]
+  %.07.i86 = phi float [ undef, %817 ], [ %823, %818 ], [ %832, %826 ], [ %841, %835 ], [ %850, %844 ], [ %857, %852 ], [ %866, %860 ]
+  %.0.i87 = phi float [ undef, %817 ], [ %825, %818 ], [ %834, %826 ], [ %843, %835 ], [ %851, %844 ], [ %859, %852 ], [ %868, %860 ]
   %869 = sitofp i8 %750 to float
   %870 = fmul float %.09.i84, %869
   %871 = fneg float %.0.i87
@@ -86649,10 +86649,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit93
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit93: ; preds = %889, %893, %901, %910, %919, %927, %935
-  %.09.i89 = phi float [ undef, %889 ], [ %937, %935 ], [ %928, %927 ], [ %921, %919 ], [ %912, %910 ], [ %903, %901 ], [ %894, %893 ]
-  %.08.i90 = phi float [ undef, %889 ], [ %939, %935 ], [ %930, %927 ], [ %923, %919 ], [ %914, %910 ], [ %905, %901 ], [ %896, %893 ]
-  %.07.i91 = phi float [ undef, %889 ], [ %941, %935 ], [ %932, %927 ], [ %925, %919 ], [ %916, %910 ], [ %907, %901 ], [ %898, %893 ]
-  %.0.i92 = phi float [ undef, %889 ], [ %943, %935 ], [ %934, %927 ], [ %926, %919 ], [ %918, %910 ], [ %909, %901 ], [ %900, %893 ]
+  %.09.i89 = phi float [ undef, %889 ], [ %894, %893 ], [ %903, %901 ], [ %912, %910 ], [ %921, %919 ], [ %928, %927 ], [ %937, %935 ]
+  %.08.i90 = phi float [ undef, %889 ], [ %896, %893 ], [ %905, %901 ], [ %914, %910 ], [ %923, %919 ], [ %930, %927 ], [ %939, %935 ]
+  %.07.i91 = phi float [ undef, %889 ], [ %898, %893 ], [ %907, %901 ], [ %916, %910 ], [ %925, %919 ], [ %932, %927 ], [ %941, %935 ]
+  %.0.i92 = phi float [ undef, %889 ], [ %900, %893 ], [ %909, %901 ], [ %918, %910 ], [ %926, %919 ], [ %934, %927 ], [ %943, %935 ]
   %944 = sitofp i8 %892 to float
   %945 = fmul float %.09.i89, %944
   %946 = fneg float %.0.i92
@@ -86749,10 +86749,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit98
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit98: ; preds = %952, %956, %964, %973, %982, %990, %998
-  %.09.i94 = phi float [ undef, %952 ], [ %1000, %998 ], [ %991, %990 ], [ %984, %982 ], [ %975, %973 ], [ %966, %964 ], [ %957, %956 ]
-  %.08.i95 = phi float [ undef, %952 ], [ %1002, %998 ], [ %993, %990 ], [ %986, %982 ], [ %977, %973 ], [ %968, %964 ], [ %959, %956 ]
-  %.07.i96 = phi float [ undef, %952 ], [ %1004, %998 ], [ %995, %990 ], [ %988, %982 ], [ %979, %973 ], [ %970, %964 ], [ %961, %956 ]
-  %.0.i97 = phi float [ undef, %952 ], [ %1006, %998 ], [ %997, %990 ], [ %989, %982 ], [ %981, %973 ], [ %972, %964 ], [ %963, %956 ]
+  %.09.i94 = phi float [ undef, %952 ], [ %957, %956 ], [ %966, %964 ], [ %975, %973 ], [ %984, %982 ], [ %991, %990 ], [ %1000, %998 ]
+  %.08.i95 = phi float [ undef, %952 ], [ %959, %956 ], [ %968, %964 ], [ %977, %973 ], [ %986, %982 ], [ %993, %990 ], [ %1002, %998 ]
+  %.07.i96 = phi float [ undef, %952 ], [ %961, %956 ], [ %970, %964 ], [ %979, %973 ], [ %988, %982 ], [ %995, %990 ], [ %1004, %998 ]
+  %.0.i97 = phi float [ undef, %952 ], [ %963, %956 ], [ %972, %964 ], [ %981, %973 ], [ %989, %982 ], [ %997, %990 ], [ %1006, %998 ]
   %1007 = sitofp i8 %955 to float
   %1008 = fmul float %.09.i94, %1007
   %1009 = fneg float %.0.i97
@@ -86850,10 +86850,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit103
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit103: ; preds = %1016, %1020, %1028, %1037, %1046, %1054, %1062
-  %.09.i99 = phi float [ undef, %1016 ], [ %1064, %1062 ], [ %1055, %1054 ], [ %1048, %1046 ], [ %1039, %1037 ], [ %1030, %1028 ], [ %1021, %1020 ]
-  %.08.i100 = phi float [ undef, %1016 ], [ %1066, %1062 ], [ %1057, %1054 ], [ %1050, %1046 ], [ %1041, %1037 ], [ %1032, %1028 ], [ %1023, %1020 ]
-  %.07.i101 = phi float [ undef, %1016 ], [ %1068, %1062 ], [ %1059, %1054 ], [ %1052, %1046 ], [ %1043, %1037 ], [ %1034, %1028 ], [ %1025, %1020 ]
-  %.0.i102 = phi float [ undef, %1016 ], [ %1070, %1062 ], [ %1061, %1054 ], [ %1053, %1046 ], [ %1045, %1037 ], [ %1036, %1028 ], [ %1027, %1020 ]
+  %.09.i99 = phi float [ undef, %1016 ], [ %1021, %1020 ], [ %1030, %1028 ], [ %1039, %1037 ], [ %1048, %1046 ], [ %1055, %1054 ], [ %1064, %1062 ]
+  %.08.i100 = phi float [ undef, %1016 ], [ %1023, %1020 ], [ %1032, %1028 ], [ %1041, %1037 ], [ %1050, %1046 ], [ %1057, %1054 ], [ %1066, %1062 ]
+  %.07.i101 = phi float [ undef, %1016 ], [ %1025, %1020 ], [ %1034, %1028 ], [ %1043, %1037 ], [ %1052, %1046 ], [ %1059, %1054 ], [ %1068, %1062 ]
+  %.0.i102 = phi float [ undef, %1016 ], [ %1027, %1020 ], [ %1036, %1028 ], [ %1045, %1037 ], [ %1053, %1046 ], [ %1061, %1054 ], [ %1070, %1062 ]
   %1071 = sitofp i8 %1019 to float
   %1072 = fmul float %.09.i99, %1071
   %1073 = fneg float %.0.i102
@@ -86951,10 +86951,10 @@ _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
   br label %_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit108
 
 _ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS0_13TrivialWalkerIS7_NS_6VolumeINS_7VoxelfcEfEEEEE8TestFaceEa.exit108: ; preds = %1080, %1084, %1092, %1101, %1110, %1118, %1126
-  %.09.i104 = phi float [ undef, %1080 ], [ %1128, %1126 ], [ %1119, %1118 ], [ %1112, %1110 ], [ %1103, %1101 ], [ %1094, %1092 ], [ %1085, %1084 ]
-  %.08.i105 = phi float [ undef, %1080 ], [ %1130, %1126 ], [ %1121, %1118 ], [ %1114, %1110 ], [ %1105, %1101 ], [ %1096, %1092 ], [ %1087, %1084 ]
-  %.07.i106 = phi float [ undef, %1080 ], [ %1132, %1126 ], [ %1123, %1118 ], [ %1116, %1110 ], [ %1107, %1101 ], [ %1098, %1092 ], [ %1089, %1084 ]
-  %.0.i107 = phi float [ undef, %1080 ], [ %1134, %1126 ], [ %1125, %1118 ], [ %1117, %1110 ], [ %1109, %1101 ], [ %1100, %1092 ], [ %1091, %1084 ]
+  %.09.i104 = phi float [ undef, %1080 ], [ %1085, %1084 ], [ %1094, %1092 ], [ %1103, %1101 ], [ %1112, %1110 ], [ %1119, %1118 ], [ %1128, %1126 ]
+  %.08.i105 = phi float [ undef, %1080 ], [ %1087, %1084 ], [ %1096, %1092 ], [ %1105, %1101 ], [ %1114, %1110 ], [ %1121, %1118 ], [ %1130, %1126 ]
+  %.07.i106 = phi float [ undef, %1080 ], [ %1089, %1084 ], [ %1098, %1092 ], [ %1107, %1101 ], [ %1116, %1110 ], [ %1123, %1118 ], [ %1132, %1126 ]
+  %.0.i107 = phi float [ undef, %1080 ], [ %1091, %1084 ], [ %1100, %1092 ], [ %1109, %1101 ], [ %1117, %1110 ], [ %1125, %1118 ], [ %1134, %1126 ]
   %1135 = sitofp i8 %1083 to float
   %1136 = fmul float %.09.i104, %1135
   %1137 = fneg float %.0.i107
@@ -88155,7 +88155,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS
   br label %70
 
 70:                                               ; preds = %62, %57, %52, %47
-  %.0.in = phi ptr [ %69, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ]
+  %.0.in = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %69, %62 ]
   %.0 = load i8, ptr %.0.in, align 1
   switch i8 %.0, label %.thread [
     i8 0, label %71
@@ -88497,10 +88497,10 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri13MarchingCubesINS0_5PlyMCINS
   br label %.thread
 
 .thread:                                          ; preds = %2, %71, %96, %121, %146, %171, %196, %221, %246, %271, %296, %321, %346, %70, %42
-  %.087 = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %346 ], [ 0.000000e+00, %321 ], [ 0.000000e+00, %296 ], [ 0.000000e+00, %271 ], [ 0.000000e+00, %246 ], [ 0.000000e+00, %221 ], [ 0.000000e+00, %196 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %146 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %71 ], [ %43, %42 ]
-  %.086 = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %70 ], [ %359, %346 ], [ %334, %321 ], [ %308, %296 ], [ %283, %271 ], [ %259, %246 ], [ %234, %221 ], [ %209, %196 ], [ %184, %171 ], [ %158, %146 ], [ %133, %121 ], [ %108, %96 ], [ %83, %71 ], [ %44, %42 ]
-  %.085 = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %70 ], [ %365, %346 ], [ %339, %321 ], [ %314, %296 ], [ %289, %271 ], [ %265, %246 ], [ %239, %221 ], [ %214, %196 ], [ %190, %171 ], [ %164, %146 ], [ %139, %121 ], [ %114, %96 ], [ %89, %71 ], [ %45, %42 ]
-  %.084 = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %70 ], [ %370, %346 ], [ %345, %321 ], [ %320, %296 ], [ %295, %271 ], [ %270, %246 ], [ %245, %221 ], [ %220, %196 ], [ %195, %171 ], [ %170, %146 ], [ %145, %121 ], [ %120, %96 ], [ %95, %71 ], [ %46, %42 ]
+  %.087 = phi float [ 0.000000e+00, %2 ], [ %43, %42 ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %71 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %146 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %196 ], [ 0.000000e+00, %221 ], [ 0.000000e+00, %246 ], [ 0.000000e+00, %271 ], [ 0.000000e+00, %296 ], [ 0.000000e+00, %321 ], [ 0.000000e+00, %346 ]
+  %.086 = phi float [ 0.000000e+00, %2 ], [ %44, %42 ], [ 0.000000e+00, %70 ], [ %83, %71 ], [ %108, %96 ], [ %133, %121 ], [ %158, %146 ], [ %184, %171 ], [ %209, %196 ], [ %234, %221 ], [ %259, %246 ], [ %283, %271 ], [ %308, %296 ], [ %334, %321 ], [ %359, %346 ]
+  %.085 = phi float [ 0.000000e+00, %2 ], [ %45, %42 ], [ 0.000000e+00, %70 ], [ %89, %71 ], [ %114, %96 ], [ %139, %121 ], [ %164, %146 ], [ %190, %171 ], [ %214, %196 ], [ %239, %221 ], [ %265, %246 ], [ %289, %271 ], [ %314, %296 ], [ %339, %321 ], [ %365, %346 ]
+  %.084 = phi float [ 0.000000e+00, %2 ], [ %46, %42 ], [ 0.000000e+00, %70 ], [ %95, %71 ], [ %120, %96 ], [ %145, %121 ], [ %170, %146 ], [ %195, %171 ], [ %220, %196 ], [ %245, %221 ], [ %270, %246 ], [ %295, %271 ], [ %320, %296 ], [ %345, %321 ], [ %370, %346 ]
   %371 = fcmp oge float %.087, 0.000000e+00
   %.082 = zext i1 %371 to i8
   %372 = fcmp ult float %.086, 0.000000e+00
@@ -88615,7 +88615,7 @@ default.unreachable90:                            ; preds = %.thread
   br label %420
 
 420:                                              ; preds = %418, %416, %414, %412, %410, %408, %406, %400, %398, %396, %394, %392, %386, %384, %382, %380, %378, %40
-  %.083 = phi i1 [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %407, %406 ], [ %401, %400 ], [ %399, %398 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %387, %386 ], [ %385, %384 ], [ %383, %382 ], [ %381, %380 ], [ %379, %378 ], [ %41, %40 ]
+  %.083 = phi i1 [ %419, %418 ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %41, %40 ]
   ret i1 %.083
 }
 
@@ -95207,8 +95207,8 @@ _ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6
   br label %935
 
 935:                                              ; preds = %716, %753, %715, %633, %647, %661, %675, %689, %702, %632, %790, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit
-  %.21889 = phi i8 [ %.118882363, %790 ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit ], [ %.51892, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit ], [ %.118882363, %715 ], [ %.118882363, %753 ], [ %.118882363, %716 ], [ %.118882363, %632 ], [ %.118882363, %702 ], [ %701, %689 ], [ %.118882363, %675 ], [ %.118882363, %661 ], [ %.118882363, %647 ], [ %.118882363, %633 ]
-  %.21884 = phi i8 [ %.118832364, %790 ], [ %.5, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit ], [ %.118832364, %715 ], [ %.118832364, %753 ], [ %.118832364, %716 ], [ %.118832364, %632 ], [ %714, %702 ], [ %.118832364, %689 ], [ %.118832364, %675 ], [ %.118832364, %661 ], [ %.118832364, %647 ], [ %.118832364, %633 ]
+  %.21889 = phi i8 [ %.118882363, %790 ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit ], [ %.51892, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit ], [ %.118882363, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit ], [ %.118882363, %715 ], [ %.118882363, %716 ], [ %.118882363, %753 ], [ %.118882363, %632 ], [ %.118882363, %633 ], [ %.118882363, %647 ], [ %.118882363, %661 ], [ %.118882363, %675 ], [ %701, %689 ], [ %.118882363, %702 ]
+  %.21884 = phi i8 [ %.118832364, %790 ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit ], [ %.118832364, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit ], [ %.5, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit ], [ %.118832364, %715 ], [ %.118832364, %716 ], [ %.118832364, %753 ], [ %.118832364, %632 ], [ %.118832364, %633 ], [ %.118832364, %647 ], [ %.118832364, %661 ], [ %.118832364, %675 ], [ %.118832364, %689 ], [ %714, %702 ]
   %936 = add nuw i64 %.09502365, 1
   %937 = load ptr, ptr %94, align 8
   %938 = load ptr, ptr %93, align 8
@@ -96196,8 +96196,8 @@ _ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6
   br label %1553
 
 1553:                                             ; preds = %1338, %1373, %1337, %1255, %1269, %1283, %1297, %1311, %1324, %1254, %1408, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit1323, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit1320, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit1317, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit1314, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit1311, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit1308
-  %.21879 = phi i8 [ %.118782385, %1408 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit1323 ], [ %.41881, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit1320 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit1317 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit1314 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit1311 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit1308 ], [ %.118782385, %1337 ], [ %.118782385, %1373 ], [ %.118782385, %1338 ], [ %.118782385, %1254 ], [ %.118782385, %1324 ], [ %1323, %1311 ], [ %.118782385, %1297 ], [ %.118782385, %1283 ], [ %.118782385, %1269 ], [ %.118782385, %1255 ]
-  %.2 = phi i8 [ %.118762386, %1408 ], [ %.4, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit1323 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit1320 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit1317 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit1314 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit1311 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit1308 ], [ %.118762386, %1337 ], [ %.118762386, %1373 ], [ %.118762386, %1338 ], [ %.118762386, %1254 ], [ %1336, %1324 ], [ %.118762386, %1311 ], [ %.118762386, %1297 ], [ %.118762386, %1283 ], [ %.118762386, %1269 ], [ %.118762386, %1255 ]
+  %.21879 = phi i8 [ %.118782385, %1408 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit1308 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit1311 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit1314 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit1317 ], [ %.41881, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit1320 ], [ %.118782385, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit1323 ], [ %.118782385, %1337 ], [ %.118782385, %1338 ], [ %.118782385, %1373 ], [ %.118782385, %1254 ], [ %.118782385, %1255 ], [ %.118782385, %1269 ], [ %.118782385, %1283 ], [ %.118782385, %1297 ], [ %1323, %1311 ], [ %.118782385, %1324 ]
+  %.2 = phi i8 [ %.118762386, %1408 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIfEEviPvRT_.exit1308 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIdEEviPvRT_.exit1311 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIiEEviPvRT_.exit1314 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIsEEviPvRT_.exit1317 ], [ %.118762386, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIcEEviPvRT_.exit1320 ], [ %.4, %_ZN3vcg3tri2io11ExporterPLYINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCMeshEE7PlyConvIhEEviPvRT_.exit1323 ], [ %.118762386, %1337 ], [ %.118762386, %1338 ], [ %.118762386, %1373 ], [ %.118762386, %1254 ], [ %.118762386, %1255 ], [ %.118762386, %1269 ], [ %.118762386, %1283 ], [ %.118762386, %1297 ], [ %.118762386, %1311 ], [ %1336, %1324 ]
   %1554 = add nuw i64 %.09262387, 1
   %1555 = load ptr, ptr %135, align 8
   %1556 = load ptr, ptr %134, align 8

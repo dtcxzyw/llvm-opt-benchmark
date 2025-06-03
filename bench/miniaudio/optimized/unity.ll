@@ -41880,7 +41880,7 @@ ma_data_converter_process_pcm_frames__channels_first.exit: ; preds = %.thread.i6
   br label %ma_data_converter_process_pcm_frames__passthrough.exit
 
 ma_data_converter_process_pcm_frames__passthrough.exit: ; preds = %331, %330, %206, %202, %198, %194, %185, %184, %105, %89, %88, %56, %55, %25, %5, %ma_data_converter_process_pcm_frames__channels_first.exit, %ma_data_converter_process_pcm_frames__resample_first.exit
-  %.0 = phi i32 [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ %.2.i48, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %55 ], [ 0, %56 ], [ 0, %88 ], [ 0, %89 ], [ %107, %105 ], [ 0, %185 ], [ 0, %184 ], [ %210, %206 ], [ -2, %194 ], [ -29, %202 ], [ -29, %198 ], [ %.171.i.i, %330 ], [ %.171.i.i, %331 ]
+  %.0 = phi i32 [ %.2.i48, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %55 ], [ 0, %56 ], [ 0, %88 ], [ 0, %89 ], [ %107, %105 ], [ 0, %185 ], [ 0, %184 ], [ %210, %206 ], [ -2, %194 ], [ -29, %202 ], [ -29, %198 ], [ %.171.i.i, %330 ], [ %.171.i.i, %331 ]
   ret i32 %.0
 }
 
@@ -45398,7 +45398,7 @@ define noundef nonnull ptr @ma_result_description(i32 noundef %0) local_unnamed_
   br label %67
 
 67:                                               ; preds = %1, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.162, %65 ], [ @.str.161, %64 ], [ @.str.160, %63 ], [ @.str.159, %62 ], [ @.str.158, %61 ], [ @.str.157, %60 ], [ @.str.156, %59 ], [ @.str.155, %58 ], [ @.str.154, %57 ], [ @.str.153, %56 ], [ @.str.152, %55 ], [ @.str.151, %54 ], [ @.str.150, %53 ], [ @.str.149, %52 ], [ @.str.148, %51 ], [ @.str.147, %50 ], [ @.str.146, %49 ], [ @.str.145, %48 ], [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.142, %45 ], [ @.str.141, %44 ], [ @.str.140, %43 ], [ @.str.139, %42 ], [ @.str.138, %41 ], [ @.str.137, %40 ], [ @.str.136, %39 ], [ @.str.135, %38 ], [ @.str.134, %37 ], [ @.str.133, %36 ], [ @.str.132, %35 ], [ @.str.131, %34 ], [ @.str.130, %33 ], [ @.str.129, %32 ], [ @.str.128, %31 ], [ @.str.127, %30 ], [ @.str.126, %29 ], [ @.str.125, %28 ], [ @.str.124, %27 ], [ @.str.123, %26 ], [ @.str.122, %25 ], [ @.str.121, %24 ], [ @.str.120, %23 ], [ @.str.119, %22 ], [ @.str.118, %21 ], [ @.str.117, %20 ], [ @.str.116, %19 ], [ @.str.115, %18 ], [ @.str.114, %17 ], [ @.str.113, %16 ], [ @.str.112, %15 ], [ @.str.111, %14 ], [ @.str.110, %13 ], [ @.str.109, %12 ], [ @.str.108, %11 ], [ @.str.107, %10 ], [ @.str.106, %9 ], [ @.str.105, %8 ], [ @.str.104, %7 ], [ @.str.103, %6 ], [ @.str.102, %5 ], [ @.str.101, %4 ], [ @.str.100, %3 ], [ @.str.99, %2 ], [ @.str.97, %1 ]
+  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.99, %2 ], [ @.str.100, %3 ], [ @.str.101, %4 ], [ @.str.102, %5 ], [ @.str.103, %6 ], [ @.str.104, %7 ], [ @.str.105, %8 ], [ @.str.106, %9 ], [ @.str.107, %10 ], [ @.str.108, %11 ], [ @.str.109, %12 ], [ @.str.110, %13 ], [ @.str.111, %14 ], [ @.str.112, %15 ], [ @.str.113, %16 ], [ @.str.114, %17 ], [ @.str.115, %18 ], [ @.str.116, %19 ], [ @.str.117, %20 ], [ @.str.118, %21 ], [ @.str.119, %22 ], [ @.str.120, %23 ], [ @.str.121, %24 ], [ @.str.122, %25 ], [ @.str.123, %26 ], [ @.str.124, %27 ], [ @.str.125, %28 ], [ @.str.126, %29 ], [ @.str.127, %30 ], [ @.str.128, %31 ], [ @.str.129, %32 ], [ @.str.130, %33 ], [ @.str.131, %34 ], [ @.str.132, %35 ], [ @.str.133, %36 ], [ @.str.134, %37 ], [ @.str.135, %38 ], [ @.str.136, %39 ], [ @.str.137, %40 ], [ @.str.138, %41 ], [ @.str.139, %42 ], [ @.str.140, %43 ], [ @.str.141, %44 ], [ @.str.142, %45 ], [ @.str.143, %46 ], [ @.str.144, %47 ], [ @.str.145, %48 ], [ @.str.146, %49 ], [ @.str.147, %50 ], [ @.str.148, %51 ], [ @.str.149, %52 ], [ @.str.150, %53 ], [ @.str.151, %54 ], [ @.str.152, %55 ], [ @.str.153, %56 ], [ @.str.154, %57 ], [ @.str.155, %58 ], [ @.str.156, %59 ], [ @.str.157, %60 ], [ @.str.158, %61 ], [ @.str.159, %62 ], [ @.str.160, %63 ], [ @.str.161, %64 ], [ @.str.162, %65 ], [ @.str.97, %1 ]
   ret ptr %.0
 }
 
@@ -51275,7 +51275,7 @@ ma_wav_get_data_format.exit:                      ; preds = %6
   br label %23
 
 23:                                               ; preds = %20, %17, %14, %11
-  %.0 = phi i64 [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0 = phi i64 [ %22, %20 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   %24 = icmp eq i64 %.0, 0
   %spec.select = select i1 %24, i32 -17, i32 0
   br i1 %.not, label %26, label %25
@@ -54382,7 +54382,7 @@ ma_flac_get_data_format.exit:                     ; preds = %6
   br label %23
 
 23:                                               ; preds = %19, %15, %11
-  %.0 = phi i64 [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.0 = phi i64 [ %14, %11 ], [ %18, %15 ], [ %22, %19 ]
   %24 = icmp eq i64 %.0, 0
   %spec.select = select i1 %24, i32 -17, i32 0
   br i1 %.not, label %26, label %25
@@ -57991,7 +57991,7 @@ tailrecurse:                                      ; preds = %.critedge84.thread,
   br label %ma_dr_flac__seek_to_first_frame.exit
 
 ma_dr_flac__seek_to_first_frame.exit:             ; preds = %41, %36, %43, %46, %49
-  %.1.i.i = phi i32 [ 0, %43 ], [ 1, %49 ], [ 0, %46 ], [ 0, %36 ], [ 0, %41 ]
+  %.1.i.i = phi i32 [ 1, %49 ], [ 0, %43 ], [ 0, %46 ], [ 0, %36 ], [ 0, %41 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %22, i8 0, i64 168, i1 false)
   br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
@@ -68921,9 +68921,9 @@ ma_zero_memory_default.exit49:                    ; preds = %3
   br label %21
 
 21:                                               ; preds = %18, %.thread.i
-  %.sroa.9.0 = phi i64 [ 0, %18 ], [ %16, %.thread.i ]
-  %.sroa.7.0 = phi i64 [ 0, %18 ], [ %15, %.thread.i ]
-  %22 = phi i64 [ %20, %18 ], [ %17, %.thread.i ]
+  %.sroa.9.0 = phi i64 [ %16, %.thread.i ], [ 0, %18 ]
+  %.sroa.7.0 = phi i64 [ %15, %.thread.i ], [ 0, %18 ]
+  %22 = phi i64 [ %17, %.thread.i ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %1, ptr %23, align 8, !tbaa !1509
   %.not = icmp eq ptr %1, null
@@ -72269,7 +72269,7 @@ ma_resource_manager_get_log.exit.i50:             ; preds = %89, %85
   br label %ma_resource_manager_data_buffer_get_connector.exit52
 
 ma_resource_manager_data_buffer_get_connector.exit52: ; preds = %.thread, %79, %81, %83, %ma_resource_manager_get_log.exit.i50
-  %.0.i49 = phi ptr [ null, %ma_resource_manager_get_log.exit.i50 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ null, %.thread ]
+  %.0.i49 = phi ptr [ null, %ma_resource_manager_get_log.exit.i50 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ null, %.thread ]
   %93 = call i32 @ma_data_source_read_pcm_frames(ptr noundef %.0.i49, ptr noundef %1, i64 noundef %.03362, ptr noundef nonnull %5)
   br label %94
 
@@ -72464,7 +72464,7 @@ ma_audio_buffer_get_available_frames.exit:        ; preds = %21
   br label %ma_decoder_get_available_frames.exit
 
 ma_decoder_get_available_frames.exit:             ; preds = %57, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i, %24, %21, %17, %8, %2, %64, %ma_audio_buffer_get_available_frames.exit
-  %.0 = phi i32 [ 0, %64 ], [ 0, %ma_audio_buffer_get_available_frames.exit ], [ -2, %2 ], [ -2, %8 ], [ %., %17 ], [ -2, %21 ], [ 0, %57 ], [ %.1.i.ph.i, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i ], [ -203, %24 ]
+  %.0 = phi i32 [ 0, %ma_audio_buffer_get_available_frames.exit ], [ 0, %64 ], [ -2, %2 ], [ -2, %8 ], [ %., %17 ], [ -2, %21 ], [ 0, %57 ], [ %.1.i.ph.i, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i ], [ -203, %24 ]
   ret i32 %.0
 }
 
@@ -72759,7 +72759,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit: ; preds = %5
   br label %17
 
 17:                                               ; preds = %5, %2, %16, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit, %ma_audio_buffer_get_cursor_in_pcm_frames.exit, %ma_decoder_get_cursor_in_pcm_frames.exit
-  %.0 = phi i32 [ -2, %16 ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit ], [ -2, %2 ], [ -19, %5 ]
+  %.0 = phi i32 [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit ], [ -2, %2 ], [ -19, %5 ]
   ret i32 %.0
 }
 
@@ -72984,7 +72984,7 @@ define internal fastcc i32 @ma_resource_manager_data_buffer_node_acquire(ptr nou
   br label %54
 
 54:                                               ; preds = %49, %._crit_edge.i.i
-  %.038.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %53, %49 ]
+  %.038.i.i = phi i32 [ %53, %49 ], [ 0, %._crit_edge.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !7
   %57 = zext i8 %56 to i32
@@ -72993,7 +72993,7 @@ define internal fastcc i32 @ma_resource_manager_data_buffer_node_acquire(ptr nou
   br label %60
 
 60:                                               ; preds = %54, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %59, %54 ]
+  %.1.i.i = phi i32 [ %59, %54 ], [ 0, %._crit_edge.i.i ]
   %61 = load i8, ptr %35, align 1, !tbaa !7
   %62 = zext i8 %61 to i32
   %63 = xor i32 %.1.i.i, %62
@@ -73007,7 +73007,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 ma_hash_string_32.exit:                           ; preds = %._crit_edge.i.i, %60
-  %.140.i.i = phi i32 [ %.039.lcssa.i.i, %._crit_edge.i.i ], [ %67, %60 ]
+  %.140.i.i = phi i32 [ %67, %60 ], [ %.039.lcssa.i.i, %._crit_edge.i.i ]
   %68 = xor i32 %.140.i.i, %31
   %69 = lshr i32 %68, 16
   %70 = xor i32 %69, %68
@@ -73827,7 +73827,7 @@ define internal fastcc range(i32 -50, -51) i32 @ma_resource_manager_data_buffer_
   br label %39
 
 39:                                               ; preds = %34, %._crit_edge.i.i
-  %.038.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %38, %34 ]
+  %.038.i.i = phi i32 [ %38, %34 ], [ 0, %._crit_edge.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !7
   %42 = zext i8 %41 to i32
@@ -73836,7 +73836,7 @@ define internal fastcc range(i32 -50, -51) i32 @ma_resource_manager_data_buffer_
   br label %45
 
 45:                                               ; preds = %39, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %44, %39 ]
+  %.1.i.i = phi i32 [ %44, %39 ], [ 0, %._crit_edge.i.i ]
   %46 = load i8, ptr %20, align 1, !tbaa !7
   %47 = zext i8 %46 to i32
   %48 = xor i32 %.1.i.i, %47
@@ -73850,7 +73850,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 ma_hash_string_32.exit:                           ; preds = %._crit_edge.i.i, %45
-  %.140.i.i = phi i32 [ %.039.lcssa.i.i, %._crit_edge.i.i ], [ %52, %45 ]
+  %.140.i.i = phi i32 [ %52, %45 ], [ %.039.lcssa.i.i, %._crit_edge.i.i ]
   %53 = xor i32 %.140.i.i, %16
   %54 = lshr i32 %53, 16
   %55 = xor i32 %54, %53
@@ -76405,7 +76405,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i: ; preds = %16
   br label %ma_resource_manager_data_stream_get_cursor_in_pcm_frames.exit
 
 ma_resource_manager_data_stream_get_cursor_in_pcm_frames.exit: ; preds = %27, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_decoder_get_cursor_in_pcm_frames.exit.i, %16, %15, %12, %ma_resource_manager_data_stream_result.exit.i, %9, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %12 ], [ -2, %9 ], [ -3, %ma_resource_manager_data_stream_result.exit.i ], [ -2, %27 ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ -2, %15 ], [ -19, %16 ]
+  %.0 = phi i32 [ -2, %2 ], [ 0, %12 ], [ -2, %9 ], [ -3, %ma_resource_manager_data_stream_result.exit.i ], [ -2, %27 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -2, %15 ], [ -19, %16 ]
   ret i32 %.0
 }
 
@@ -82765,7 +82765,7 @@ ma_engine_start.exit:                             ; preds = %205
   br i1 %.not117, label %ma_free.exit148, label %208
 
 208:                                              ; preds = %200, %ma_engine_start.exit
-  %.4 = phi i32 [ %198, %200 ], [ %207, %ma_engine_start.exit ]
+  %.4 = phi i32 [ %207, %ma_engine_start.exit ], [ %198, %200 ]
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 1240
   %210 = load i8, ptr %209, align 8, !tbaa !1802
   %.not118 = icmp eq i8 %210, 0
@@ -98421,8 +98421,8 @@ ma_dr_flac__free_from_callbacks.exit357.i.sink.split: ; preds = %290, %267, %.lo
   br label %ma_dr_flac__free_from_callbacks.exit357.i
 
 ma_dr_flac__free_from_callbacks.exit357.i:        ; preds = %ma_dr_flac__free_from_callbacks.exit357.i.sink.split, %547, %544, %540, %361, %295, %214, %190, %173
-  %.2272.i = phi i32 [ %.0270633.i, %547 ], [ %.0270633.i, %544 ], [ %.0270633.i, %540 ], [ %.0270633.i, %361 ], [ %.0270633.i, %295 ], [ %.0270633.i, %214 ], [ %168, %190 ], [ %.0270633.i, %173 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit357.i.sink.split ]
-  %.2269.i = phi i64 [ %.0267634.i, %547 ], [ %.0267634.i, %544 ], [ %.0267634.i, %540 ], [ %.0267634.i, %361 ], [ %.0267634.i, %295 ], [ %.0267634.i, %214 ], [ %169, %190 ], [ %.0267634.i, %173 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit357.i.sink.split ]
+  %.2272.i = phi i32 [ %.0270633.i, %547 ], [ %.0270633.i, %173 ], [ %168, %190 ], [ %.0270633.i, %214 ], [ %.0270633.i, %295 ], [ %.0270633.i, %361 ], [ %.0270633.i, %540 ], [ %.0270633.i, %544 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit357.i.sink.split ]
+  %.2269.i = phi i64 [ %.0267634.i, %547 ], [ %.0267634.i, %173 ], [ %169, %190 ], [ %.0267634.i, %214 ], [ %.0267634.i, %295 ], [ %.0267634.i, %361 ], [ %.0267634.i, %540 ], [ %.0267634.i, %544 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit357.i.sink.split ]
   %560 = icmp ne i32 %168, 0
   %or.cond.i = and i1 %.not.i131, %560
   br i1 %or.cond.i, label %561, label %ma_dr_flac__free_from_callbacks.exit357.thread.i
@@ -108709,7 +108709,7 @@ ma_resource_manager_data_buffer_result.exit:      ; preds = %1
   br label %ma_resource_manager_post_job.exit
 
 65:                                               ; preds = %48, %58, %ma_resource_manager_data_buffer_result.exit
-  %.052 = phi i32 [ %17, %ma_resource_manager_data_buffer_result.exit ], [ %42, %48 ], [ %56, %58 ]
+  %.052 = phi i32 [ %17, %ma_resource_manager_data_buffer_result.exit ], [ %56, %58 ], [ %42, %48 ]
   %66 = cmpxchg volatile ptr %16, i32 -19, i32 %.052 seq_cst seq_cst, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load ptr, ptr %67, align 8, !tbaa !7
@@ -110875,8 +110875,8 @@ ma_context_get_log.exit39:                        ; preds = %14
 36:                                               ; preds = %33
   br label %ma_context_get_log.exit42
 
-ma_context_get_log.exit42:                        ; preds = %33, %36, %35, %34, %27
-  %.0.i40.ph = phi i32 [ -1, %27 ], [ -2, %34 ], [ -204, %35 ], [ -1, %36 ], [ -6, %33 ]
+ma_context_get_log.exit42:                        ; preds = %33, %36, %34, %35, %27
+  %.0.i40.ph = phi i32 [ -1, %27 ], [ -204, %35 ], [ -2, %34 ], [ -1, %36 ], [ -6, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8, !tbaa !205
   %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %38, i32 noundef 1, ptr noundef nonnull @.str.268)
@@ -114790,7 +114790,7 @@ thread-pre-split:                                 ; preds = %7
   br label %14
 
 14:                                               ; preds = %11, %7, %4, %13
-  %.0 = phi i32 [ %8, %7 ], [ %12, %11 ], [ 0, %13 ], [ -201, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ %12, %11 ], [ %8, %7 ], [ -201, %4 ]
   ret i32 %.0
 }
 
@@ -116536,8 +116536,8 @@ ma_device_get_log.exit404:                        ; preds = %ma_device_get_conte
   %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.404)
   br label %ma_log_post.exit
 
-260:                                              ; preds = %239, %242, %241, %240, %239
-  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 3, %240 ], [ 4, %241 ], [ 5, %242 ], [ %.0305, %239 ]
+260:                                              ; preds = %239, %240, %241, %242, %239
+  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 5, %242 ], [ 4, %241 ], [ 3, %240 ], [ %.0305, %239 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #66
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %262 = load i32, ptr %261, align 8, !tbaa !100
@@ -122581,7 +122581,7 @@ ma_wav_get_data_format.exit.i:                    ; preds = %6
   br label %23
 
 23:                                               ; preds = %20, %17, %14, %11
-  %.0.i = phi i64 [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   %24 = icmp eq i64 %.0.i, 0
   %spec.select.i = select i1 %24, i32 -17, i32 0
   br i1 %.not.i, label %ma_wav_read_pcm_frames.exit, label %25
@@ -122794,7 +122794,7 @@ ma_flac_get_data_format.exit.i:                   ; preds = %6
   br label %23
 
 23:                                               ; preds = %19, %15, %11
-  %.0.i = phi i64 [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.0.i = phi i64 [ %14, %11 ], [ %18, %15 ], [ %22, %19 ]
   %24 = icmp eq i64 %.0.i, 0
   %spec.select.i = select i1 %24, i32 -17, i32 0
   br i1 %.not.i, label %ma_flac_read_pcm_frames.exit, label %25
@@ -124946,7 +124946,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i: ; preds = %5
   br label %ma_resource_manager_data_buffer_get_cursor_in_pcm_frames.exit
 
 ma_resource_manager_data_buffer_get_cursor_in_pcm_frames.exit: ; preds = %2, %5, %ma_decoder_get_cursor_in_pcm_frames.exit.i, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i, %16
-  %.0.i = phi i32 [ -2, %16 ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ -2, %2 ], [ -19, %5 ]
+  %.0.i = phi i32 [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -2, %2 ], [ -19, %5 ]
   ret i32 %.0.i
 }
 
@@ -129923,10 +129923,10 @@ ma_dr_wav__write_or_count.exit749:                ; preds = %ma_dr_wav__write_or
   br label %.loopexit1058
 
 .loopexit1058:                                    ; preds = %ma_dr_wav__write_or_count_u32ne_to_le.exit610, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread, %.lr.ph.split.us, %ma_dr_wav__write_or_count_u32ne_to_le.exit586, %._crit_edge, %ma_dr_wav__write_or_count.exit538, %ma_dr_wav__write_or_count.exit749, %419
-  %.1425903 = phi i32 [ %.1425902, %ma_dr_wav__write_or_count.exit749 ], [ %.1425, %419 ], [ %.1425, %ma_dr_wav__write_or_count.exit538 ], [ %.1425, %._crit_edge ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %.1425, %.lr.ph.split.us ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
-  %.1427891901 = phi i32 [ %.1427891900, %ma_dr_wav__write_or_count.exit749 ], [ %.1427, %419 ], [ %.1427, %ma_dr_wav__write_or_count.exit538 ], [ %.1427, %._crit_edge ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %.1427, %.lr.ph.split.us ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
-  %.0438 = phi i32 [ %424, %ma_dr_wav__write_or_count.exit749 ], [ %311, %419 ], [ %100, %ma_dr_wav__write_or_count.exit538 ], [ %100, %._crit_edge ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %223, %.lr.ph.split.us ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
-  %.3 = phi i64 [ %439, %ma_dr_wav__write_or_count.exit749 ], [ %.5, %419 ], [ %189, %ma_dr_wav__write_or_count.exit538 ], [ %.1417.lcssa, %._crit_edge ], [ %.reass, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %235, %.lr.ph.split.us ], [ %230, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %264, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
+  %.1425903 = phi i32 [ %.1425, %419 ], [ %.1425902, %ma_dr_wav__write_or_count.exit749 ], [ %.1425, %ma_dr_wav__write_or_count.exit538 ], [ %.1425, %._crit_edge ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %.1425, %.lr.ph.split.us ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1425, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
+  %.1427891901 = phi i32 [ %.1427, %419 ], [ %.1427891900, %ma_dr_wav__write_or_count.exit749 ], [ %.1427, %ma_dr_wav__write_or_count.exit538 ], [ %.1427, %._crit_edge ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %.1427, %.lr.ph.split.us ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %.1427, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
+  %.0438 = phi i32 [ %311, %419 ], [ %424, %ma_dr_wav__write_or_count.exit749 ], [ %100, %ma_dr_wav__write_or_count.exit538 ], [ %100, %._crit_edge ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %223, %.lr.ph.split.us ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %223, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
+  %.3 = phi i64 [ %.5, %419 ], [ %439, %ma_dr_wav__write_or_count.exit749 ], [ %189, %ma_dr_wav__write_or_count.exit538 ], [ %.1417.lcssa, %._crit_edge ], [ %.reass, %ma_dr_wav__write_or_count_u32ne_to_le.exit586 ], [ %235, %.lr.ph.split.us ], [ %230, %ma_dr_wav__write_or_count_u32ne_to_le.exit586.thread ], [ %264, %ma_dr_wav__write_or_count_u32ne_to_le.exit610 ]
   %440 = and i32 %.0438, 1
   %.not468 = icmp eq i32 %440, 0
   br i1 %.not468, label %.thread962, label %441
@@ -129951,10 +129951,10 @@ ma_dr_wav__write_or_count_byte.exit:              ; preds = %441, %442
   %444 = add i64 %.0.i752, %.3978
   br label %.thread962
 
-.thread962:                                       ; preds = %ma_dr_wav__write_or_count_f32ne_to_le.exit648, %.thread897, %92, %ma_dr_wav__write_or_count_byte.exit, %.loopexit1058
-  %.1427891901969 = phi i32 [ %.1427891901977, %ma_dr_wav__write_or_count_byte.exit ], [ %.1427891901, %.loopexit1058 ], [ %.1427, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.1427891900, %.thread897 ], [ %.1427, %92 ]
-  %.1425903968 = phi i32 [ %.1425903976, %ma_dr_wav__write_or_count_byte.exit ], [ %.1425903, %.loopexit1058 ], [ %.1425, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.1425902, %.thread897 ], [ %.1425, %92 ]
-  %.6 = phi i64 [ %444, %ma_dr_wav__write_or_count_byte.exit ], [ %.3, %.loopexit1058 ], [ %307, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.04161073, %.thread897 ], [ %.04161073, %92 ]
+.thread962:                                       ; preds = %.thread897, %ma_dr_wav__write_or_count_f32ne_to_le.exit648, %92, %ma_dr_wav__write_or_count_byte.exit, %.loopexit1058
+  %.1427891901969 = phi i32 [ %.1427891901977, %ma_dr_wav__write_or_count_byte.exit ], [ %.1427891901, %.loopexit1058 ], [ %.1427891900, %.thread897 ], [ %.1427, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.1427, %92 ]
+  %.1425903968 = phi i32 [ %.1425903976, %ma_dr_wav__write_or_count_byte.exit ], [ %.1425903, %.loopexit1058 ], [ %.1425902, %.thread897 ], [ %.1425, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.1425, %92 ]
+  %.6 = phi i64 [ %444, %ma_dr_wav__write_or_count_byte.exit ], [ %.3, %.loopexit1058 ], [ %.04161073, %.thread897 ], [ %307, %ma_dr_wav__write_or_count_f32ne_to_le.exit648 ], [ %.04161073, %92 ]
   %indvars.iv.next1110 = add nuw nsw i64 %indvars.iv1109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1110, %wide.trip.count
   br i1 %exitcond.not, label %445, label %76, !llvm.loop !2210
@@ -130084,7 +130084,7 @@ ma_dr_wav__write_or_count_u32ne_to_le.exit760.thread: ; preds = %._crit_edge1077
   br label %490
 
 490:                                              ; preds = %480, %489, %488, %487, %486, %485, %484, %483, %482, %481
-  %.0421 = phi ptr [ null, %480 ], [ @.str.565, %489 ], [ @.str.564, %488 ], [ @.str.563, %487 ], [ @.str.562, %486 ], [ @.str.561, %485 ], [ @.str.560, %484 ], [ @.str.559, %483 ], [ @.str.558, %482 ], [ @.str.557, %481 ]
+  %.0421 = phi ptr [ null, %480 ], [ @.str.557, %481 ], [ @.str.558, %482 ], [ @.str.559, %483 ], [ @.str.560, %484 ], [ @.str.561, %485 ], [ @.str.562, %486 ], [ @.str.563, %487 ], [ @.str.564, %488 ], [ @.str.565, %489 ]
   %491 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %492 = load i32, ptr %491, align 8, !tbaa !7
   %.not460 = icmp eq i32 %492, 0
@@ -130271,7 +130271,7 @@ ma_dr_wav__write_or_count_byte.exit796:           ; preds = %539, %540
   br label %566
 
 566:                                              ; preds = %.lr.ph1087, %557, %561, %551, %555, %545, %549
-  %.1419 = phi i32 [ %.04181086, %.lr.ph1087 ], [ %565, %561 ], [ %.04181086, %557 ], [ %556, %555 ], [ %552, %551 ], [ %550, %549 ], [ %546, %545 ]
+  %.1419 = phi i32 [ %.04181086, %.lr.ph1087 ], [ %550, %549 ], [ %546, %545 ], [ %556, %555 ], [ %552, %551 ], [ %565, %561 ], [ %.04181086, %557 ]
   %567 = and i32 %.1419, 1
   %spec.select469 = add i32 %567, %.1419
   %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
@@ -130549,8 +130549,8 @@ ma_dr_wav__write_or_count.exit884:                ; preds = %ma_dr_wav__write_or
   br label %681
 
 681:                                              ; preds = %ma_dr_wav__write_or_count.exit884, %ma_dr_wav__write_or_count_byte.exit872, %ma_dr_wav__write_or_count_byte.exit828
-  %.14 = phi i64 [ %680, %ma_dr_wav__write_or_count.exit884 ], [ %659, %ma_dr_wav__write_or_count_byte.exit872 ], [ %608, %ma_dr_wav__write_or_count_byte.exit828 ]
-  %.0414 = phi i32 [ %666, %ma_dr_wav__write_or_count.exit884 ], [ %spec.select47010001003100610091012101510181021102510291032, %ma_dr_wav__write_or_count_byte.exit872 ], [ %607, %ma_dr_wav__write_or_count_byte.exit828 ]
+  %.14 = phi i64 [ %608, %ma_dr_wav__write_or_count_byte.exit828 ], [ %659, %ma_dr_wav__write_or_count_byte.exit872 ], [ %680, %ma_dr_wav__write_or_count.exit884 ]
+  %.0414 = phi i32 [ %607, %ma_dr_wav__write_or_count_byte.exit828 ], [ %spec.select47010001003100610091012101510181021102510291032, %ma_dr_wav__write_or_count_byte.exit872 ], [ %666, %ma_dr_wav__write_or_count.exit884 ]
   %682 = and i32 %.0414, 1
   %.not454 = icmp eq i32 %682, 0
   br i1 %.not454, label %.thread1036, label %684
@@ -130579,8 +130579,8 @@ ma_dr_wav__write_or_count_byte.exit888:           ; preds = %684, %.thread1045
   %686 = add i64 %.0.i887, %.1410441048
   br label %.thread1036
 
-.thread1036:                                      ; preds = %ma_dr_wav__write_or_count_u16ne_to_le.exit864, %580, %660, %577, %.thread1040, %ma_dr_wav__write_or_count_byte.exit888, %681
-  %.15 = phi i64 [ %686, %ma_dr_wav__write_or_count_byte.exit888 ], [ %.14, %681 ], [ %646, %.thread1040 ], [ %.131091, %577 ], [ %.131091, %660 ], [ %.131091, %580 ], [ %612, %ma_dr_wav__write_or_count_u16ne_to_le.exit864 ]
+.thread1036:                                      ; preds = %ma_dr_wav__write_or_count_u16ne_to_le.exit864, %660, %580, %577, %.thread1040, %ma_dr_wav__write_or_count_byte.exit888, %681
+  %.15 = phi i64 [ %686, %ma_dr_wav__write_or_count_byte.exit888 ], [ %.14, %681 ], [ %646, %.thread1040 ], [ %.131091, %577 ], [ %.131091, %580 ], [ %.131091, %660 ], [ %612, %ma_dr_wav__write_or_count_u16ne_to_le.exit864 ]
   %indvars.iv.next1128 = add nuw nsw i64 %indvars.iv1127, 1
   %exitcond1131.not = icmp eq i64 %indvars.iv.next1128, %wide.trip.count
   br i1 %exitcond1131.not, label %.loopexit, label %577, !llvm.loop !2214
@@ -131765,7 +131765,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %360
 
 360:                                              ; preds = %350, %342
-  %.1.i41 = phi i16 [ %187, %342 ], [ %359, %350 ]
+  %.1.i41 = phi i16 [ %359, %350 ], [ %187, %342 ]
   %361 = lshr i64 %345, 48
   %362 = trunc nuw i64 %361 to i16
   %363 = shl i16 %.1.i41, 8
@@ -131779,7 +131779,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %371
 
 371:                                              ; preds = %360, %342
-  %.2.i40 = phi i16 [ %187, %342 ], [ %370, %360 ]
+  %.2.i40 = phi i16 [ %370, %360 ], [ %187, %342 ]
   %372 = lshr i64 %345, 40
   %373 = trunc i64 %372 to i16
   %374 = shl i16 %.2.i40, 8
@@ -131793,7 +131793,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %382
 
 382:                                              ; preds = %371, %342
-  %.3.i39 = phi i16 [ %187, %342 ], [ %381, %371 ]
+  %.3.i39 = phi i16 [ %381, %371 ], [ %187, %342 ]
   %383 = lshr i64 %345, 32
   %384 = trunc i64 %383 to i16
   %385 = shl i16 %.3.i39, 8
@@ -131807,7 +131807,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %393
 
 393:                                              ; preds = %382, %342
-  %.4.i38 = phi i16 [ %187, %342 ], [ %392, %382 ]
+  %.4.i38 = phi i16 [ %392, %382 ], [ %187, %342 ]
   %394 = lshr i64 %345, 24
   %395 = trunc i64 %394 to i16
   %396 = shl i16 %.4.i38, 8
@@ -131821,7 +131821,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %404
 
 404:                                              ; preds = %393, %342
-  %.5.i37 = phi i16 [ %187, %342 ], [ %403, %393 ]
+  %.5.i37 = phi i16 [ %403, %393 ], [ %187, %342 ]
   %405 = lshr i64 %345, 16
   %406 = trunc i64 %405 to i16
   %407 = shl i16 %.5.i37, 8
@@ -131835,7 +131835,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
   br label %415
 
 415:                                              ; preds = %404, %342
-  %.6.i36 = phi i16 [ %187, %342 ], [ %414, %404 ]
+  %.6.i36 = phi i16 [ %414, %404 ], [ %187, %342 ]
   %416 = trunc i64 %345 to i16
   %417 = shl i16 %.6.i36, 8
   %418 = xor i16 %.6.i36, %416
@@ -135260,8 +135260,8 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   br i1 %242, label %.thread, label %243
 
 243:                                              ; preds = %239, %194
-  %244 = phi i32 [ %240, %239 ], [ %195, %194 ]
-  %.0104 = phi i8 [ %241, %239 ], [ %196, %194 ]
+  %244 = phi i32 [ %195, %194 ], [ %240, %239 ]
+  %.0104 = phi i8 [ %196, %194 ], [ %241, %239 ]
   %.not53 = icmp eq i8 %.0104, -1
   br i1 %.not53, label %.thread, label %.thread124
 
@@ -135414,7 +135414,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %304
 
 304:                                              ; preds = %297, %296
-  %.1.i.i = phi i64 [ 0, %296 ], [ %303, %297 ]
+  %.1.i.i = phi i64 [ %303, %297 ], [ 0, %296 ]
   %305 = load i32, ptr %115, align 4, !tbaa !3
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %292, i64 -124
@@ -135425,7 +135425,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %312
 
 312:                                              ; preds = %304, %296
-  %.2.i.i = phi i64 [ 0, %296 ], [ %311, %304 ]
+  %.2.i.i = phi i64 [ %311, %304 ], [ 0, %296 ]
   %313 = load i32, ptr %116, align 4, !tbaa !3
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds i8, ptr %292, i64 -120
@@ -135436,7 +135436,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %320
 
 320:                                              ; preds = %312, %296
-  %.3.i.i = phi i64 [ 0, %296 ], [ %319, %312 ]
+  %.3.i.i = phi i64 [ %319, %312 ], [ 0, %296 ]
   %321 = load i32, ptr %117, align 4, !tbaa !3
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds i8, ptr %292, i64 -116
@@ -135447,7 +135447,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %328
 
 328:                                              ; preds = %320, %296
-  %.4.i.i = phi i64 [ 0, %296 ], [ %327, %320 ]
+  %.4.i.i = phi i64 [ %327, %320 ], [ 0, %296 ]
   %329 = load i32, ptr %118, align 4, !tbaa !3
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds i8, ptr %292, i64 -112
@@ -135458,7 +135458,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %336
 
 336:                                              ; preds = %328, %296
-  %.5.i.i = phi i64 [ 0, %296 ], [ %335, %328 ]
+  %.5.i.i = phi i64 [ %335, %328 ], [ 0, %296 ]
   %337 = load i32, ptr %119, align 4, !tbaa !3
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds i8, ptr %292, i64 -108
@@ -135469,7 +135469,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %344
 
 344:                                              ; preds = %336, %296
-  %.6.i.i = phi i64 [ 0, %296 ], [ %343, %336 ]
+  %.6.i.i = phi i64 [ %343, %336 ], [ 0, %296 ]
   %345 = load i32, ptr %120, align 4, !tbaa !3
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds i8, ptr %292, i64 -104
@@ -135480,7 +135480,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %352
 
 352:                                              ; preds = %344, %296
-  %.7.i.i = phi i64 [ 0, %296 ], [ %351, %344 ]
+  %.7.i.i = phi i64 [ %351, %344 ], [ 0, %296 ]
   %353 = load i32, ptr %121, align 4, !tbaa !3
   %354 = sext i32 %353 to i64
   %355 = getelementptr inbounds i8, ptr %292, i64 -100
@@ -135491,7 +135491,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %360
 
 360:                                              ; preds = %352, %296
-  %.8.i.i = phi i64 [ 0, %296 ], [ %359, %352 ]
+  %.8.i.i = phi i64 [ %359, %352 ], [ 0, %296 ]
   %361 = load i32, ptr %122, align 4, !tbaa !3
   %362 = sext i32 %361 to i64
   %363 = getelementptr inbounds i8, ptr %292, i64 -96
@@ -135502,7 +135502,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %368
 
 368:                                              ; preds = %360, %296
-  %.9.i.i = phi i64 [ 0, %296 ], [ %367, %360 ]
+  %.9.i.i = phi i64 [ %367, %360 ], [ 0, %296 ]
   %369 = load i32, ptr %123, align 4, !tbaa !3
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds i8, ptr %292, i64 -92
@@ -135513,7 +135513,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %376
 
 376:                                              ; preds = %368, %296
-  %.10.i.i = phi i64 [ 0, %296 ], [ %375, %368 ]
+  %.10.i.i = phi i64 [ %375, %368 ], [ 0, %296 ]
   %377 = load i32, ptr %124, align 4, !tbaa !3
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i8, ptr %292, i64 -88
@@ -135524,7 +135524,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %384
 
 384:                                              ; preds = %376, %296
-  %.11.i.i = phi i64 [ 0, %296 ], [ %383, %376 ]
+  %.11.i.i = phi i64 [ %383, %376 ], [ 0, %296 ]
   %385 = load i32, ptr %125, align 4, !tbaa !3
   %386 = sext i32 %385 to i64
   %387 = getelementptr inbounds i8, ptr %292, i64 -84
@@ -135535,7 +135535,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %392
 
 392:                                              ; preds = %384, %296
-  %.12.i.i = phi i64 [ 0, %296 ], [ %391, %384 ]
+  %.12.i.i = phi i64 [ %391, %384 ], [ 0, %296 ]
   %393 = load i32, ptr %126, align 4, !tbaa !3
   %394 = sext i32 %393 to i64
   %395 = getelementptr inbounds i8, ptr %292, i64 -80
@@ -135546,7 +135546,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %400
 
 400:                                              ; preds = %392, %296
-  %.13.i.i = phi i64 [ 0, %296 ], [ %399, %392 ]
+  %.13.i.i = phi i64 [ %399, %392 ], [ 0, %296 ]
   %401 = load i32, ptr %127, align 4, !tbaa !3
   %402 = sext i32 %401 to i64
   %403 = getelementptr inbounds i8, ptr %292, i64 -76
@@ -135557,7 +135557,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %408
 
 408:                                              ; preds = %400, %296
-  %.14.i.i = phi i64 [ 0, %296 ], [ %407, %400 ]
+  %.14.i.i = phi i64 [ %407, %400 ], [ 0, %296 ]
   %409 = load i32, ptr %128, align 4, !tbaa !3
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds i8, ptr %292, i64 -72
@@ -135568,7 +135568,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %416
 
 416:                                              ; preds = %408, %296
-  %.15.i.i = phi i64 [ 0, %296 ], [ %415, %408 ]
+  %.15.i.i = phi i64 [ %415, %408 ], [ 0, %296 ]
   %417 = load i32, ptr %129, align 4, !tbaa !3
   %418 = sext i32 %417 to i64
   %419 = getelementptr inbounds i8, ptr %292, i64 -68
@@ -135579,7 +135579,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %424
 
 424:                                              ; preds = %416, %296
-  %.16.i.i = phi i64 [ 0, %296 ], [ %423, %416 ]
+  %.16.i.i = phi i64 [ %423, %416 ], [ 0, %296 ]
   %425 = load i32, ptr %130, align 4, !tbaa !3
   %426 = sext i32 %425 to i64
   %427 = getelementptr inbounds i8, ptr %292, i64 -64
@@ -135590,7 +135590,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %432
 
 432:                                              ; preds = %424, %296
-  %.17.i.i = phi i64 [ 0, %296 ], [ %431, %424 ]
+  %.17.i.i = phi i64 [ %431, %424 ], [ 0, %296 ]
   %433 = load i32, ptr %131, align 4, !tbaa !3
   %434 = sext i32 %433 to i64
   %435 = getelementptr inbounds i8, ptr %292, i64 -60
@@ -135601,7 +135601,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %440
 
 440:                                              ; preds = %432, %296
-  %.18.i.i = phi i64 [ 0, %296 ], [ %439, %432 ]
+  %.18.i.i = phi i64 [ %439, %432 ], [ 0, %296 ]
   %441 = load i32, ptr %132, align 4, !tbaa !3
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds i8, ptr %292, i64 -56
@@ -135612,7 +135612,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %448
 
 448:                                              ; preds = %440, %296
-  %.19.i.i = phi i64 [ 0, %296 ], [ %447, %440 ]
+  %.19.i.i = phi i64 [ %447, %440 ], [ 0, %296 ]
   %449 = load i32, ptr %133, align 4, !tbaa !3
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i8, ptr %292, i64 -52
@@ -135623,7 +135623,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %456
 
 456:                                              ; preds = %448, %296
-  %.20.i.i = phi i64 [ 0, %296 ], [ %455, %448 ]
+  %.20.i.i = phi i64 [ %455, %448 ], [ 0, %296 ]
   %457 = load i32, ptr %134, align 4, !tbaa !3
   %458 = sext i32 %457 to i64
   %459 = getelementptr inbounds i8, ptr %292, i64 -48
@@ -135634,7 +135634,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %464
 
 464:                                              ; preds = %456, %296
-  %.21.i.i = phi i64 [ 0, %296 ], [ %463, %456 ]
+  %.21.i.i = phi i64 [ %463, %456 ], [ 0, %296 ]
   %465 = load i32, ptr %135, align 4, !tbaa !3
   %466 = sext i32 %465 to i64
   %467 = getelementptr inbounds i8, ptr %292, i64 -44
@@ -135645,7 +135645,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %472
 
 472:                                              ; preds = %464, %296
-  %.22.i.i = phi i64 [ 0, %296 ], [ %471, %464 ]
+  %.22.i.i = phi i64 [ %471, %464 ], [ 0, %296 ]
   %473 = load i32, ptr %136, align 4, !tbaa !3
   %474 = sext i32 %473 to i64
   %475 = getelementptr inbounds i8, ptr %292, i64 -40
@@ -135656,7 +135656,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %480
 
 480:                                              ; preds = %472, %296
-  %.23.i.i = phi i64 [ 0, %296 ], [ %479, %472 ]
+  %.23.i.i = phi i64 [ %479, %472 ], [ 0, %296 ]
   %481 = load i32, ptr %137, align 4, !tbaa !3
   %482 = sext i32 %481 to i64
   %483 = getelementptr inbounds i8, ptr %292, i64 -36
@@ -135667,7 +135667,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %488
 
 488:                                              ; preds = %480, %296
-  %.24.i.i = phi i64 [ 0, %296 ], [ %487, %480 ]
+  %.24.i.i = phi i64 [ %487, %480 ], [ 0, %296 ]
   %489 = load i32, ptr %138, align 4, !tbaa !3
   %490 = sext i32 %489 to i64
   %491 = getelementptr inbounds i8, ptr %292, i64 -32
@@ -135678,7 +135678,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %496
 
 496:                                              ; preds = %488, %296
-  %.25.i.i = phi i64 [ 0, %296 ], [ %495, %488 ]
+  %.25.i.i = phi i64 [ %495, %488 ], [ 0, %296 ]
   %497 = load i32, ptr %139, align 4, !tbaa !3
   %498 = sext i32 %497 to i64
   %499 = getelementptr inbounds i8, ptr %292, i64 -28
@@ -135689,7 +135689,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %504
 
 504:                                              ; preds = %496, %296
-  %.26.i.i = phi i64 [ 0, %296 ], [ %503, %496 ]
+  %.26.i.i = phi i64 [ %503, %496 ], [ 0, %296 ]
   %505 = load i32, ptr %140, align 4, !tbaa !3
   %506 = sext i32 %505 to i64
   %507 = getelementptr inbounds i8, ptr %292, i64 -24
@@ -135700,7 +135700,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %512
 
 512:                                              ; preds = %504, %296
-  %.27.i.i = phi i64 [ 0, %296 ], [ %511, %504 ]
+  %.27.i.i = phi i64 [ %511, %504 ], [ 0, %296 ]
   %513 = load i32, ptr %141, align 4, !tbaa !3
   %514 = sext i32 %513 to i64
   %515 = getelementptr inbounds i8, ptr %292, i64 -20
@@ -135711,7 +135711,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %520
 
 520:                                              ; preds = %512, %296
-  %.28.i.i = phi i64 [ 0, %296 ], [ %519, %512 ]
+  %.28.i.i = phi i64 [ %519, %512 ], [ 0, %296 ]
   %521 = load i32, ptr %142, align 4, !tbaa !3
   %522 = sext i32 %521 to i64
   %523 = getelementptr inbounds i8, ptr %292, i64 -16
@@ -135722,7 +135722,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %528
 
 528:                                              ; preds = %520, %296
-  %.29.i.i = phi i64 [ 0, %296 ], [ %527, %520 ]
+  %.29.i.i = phi i64 [ %527, %520 ], [ 0, %296 ]
   %529 = load i32, ptr %143, align 4, !tbaa !3
   %530 = sext i32 %529 to i64
   %531 = getelementptr inbounds i8, ptr %292, i64 -12
@@ -135733,7 +135733,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %536
 
 536:                                              ; preds = %528, %296
-  %.30.i.i = phi i64 [ 0, %296 ], [ %535, %528 ]
+  %.30.i.i = phi i64 [ %535, %528 ], [ 0, %296 ]
   %537 = load i32, ptr %144, align 4, !tbaa !3
   %538 = sext i32 %537 to i64
   %539 = getelementptr inbounds i8, ptr %292, i64 -8
@@ -135744,7 +135744,7 @@ ma_dr_flac__ilog2_u32.exit.i:                     ; preds = %295, %293
   br label %544
 
 544:                                              ; preds = %536, %296
-  %.31.i.i = phi i64 [ 0, %296 ], [ %543, %536 ]
+  %.31.i.i = phi i64 [ %543, %536 ], [ 0, %296 ]
   %545 = load i32, ptr %6, align 4, !tbaa !3
   %546 = sext i32 %545 to i64
   %547 = getelementptr inbounds i8, ptr %292, i64 -4
@@ -135804,7 +135804,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %560
 
 560:                                              ; preds = %555, %554
-  %.1.i63.i = phi i32 [ 0, %554 ], [ %559, %555 ]
+  %.1.i63.i = phi i32 [ %559, %555 ], [ 0, %554 ]
   %561 = load i32, ptr %115, align 4, !tbaa !3
   %562 = getelementptr inbounds i8, ptr %292, i64 -124
   %563 = load i32, ptr %562, align 4, !tbaa !3
@@ -135813,7 +135813,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %566
 
 566:                                              ; preds = %560, %554
-  %.2.i62.i = phi i32 [ 0, %554 ], [ %565, %560 ]
+  %.2.i62.i = phi i32 [ %565, %560 ], [ 0, %554 ]
   %567 = load i32, ptr %116, align 4, !tbaa !3
   %568 = getelementptr inbounds i8, ptr %292, i64 -120
   %569 = load i32, ptr %568, align 4, !tbaa !3
@@ -135822,7 +135822,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %572
 
 572:                                              ; preds = %566, %554
-  %.3.i61.i = phi i32 [ 0, %554 ], [ %571, %566 ]
+  %.3.i61.i = phi i32 [ %571, %566 ], [ 0, %554 ]
   %573 = load i32, ptr %117, align 4, !tbaa !3
   %574 = getelementptr inbounds i8, ptr %292, i64 -116
   %575 = load i32, ptr %574, align 4, !tbaa !3
@@ -135831,7 +135831,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %578
 
 578:                                              ; preds = %572, %554
-  %.4.i60.i = phi i32 [ 0, %554 ], [ %577, %572 ]
+  %.4.i60.i = phi i32 [ %577, %572 ], [ 0, %554 ]
   %579 = load i32, ptr %118, align 4, !tbaa !3
   %580 = getelementptr inbounds i8, ptr %292, i64 -112
   %581 = load i32, ptr %580, align 4, !tbaa !3
@@ -135840,7 +135840,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %584
 
 584:                                              ; preds = %578, %554
-  %.5.i59.i = phi i32 [ 0, %554 ], [ %583, %578 ]
+  %.5.i59.i = phi i32 [ %583, %578 ], [ 0, %554 ]
   %585 = load i32, ptr %119, align 4, !tbaa !3
   %586 = getelementptr inbounds i8, ptr %292, i64 -108
   %587 = load i32, ptr %586, align 4, !tbaa !3
@@ -135849,7 +135849,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %590
 
 590:                                              ; preds = %584, %554
-  %.6.i58.i = phi i32 [ 0, %554 ], [ %589, %584 ]
+  %.6.i58.i = phi i32 [ %589, %584 ], [ 0, %554 ]
   %591 = load i32, ptr %120, align 4, !tbaa !3
   %592 = getelementptr inbounds i8, ptr %292, i64 -104
   %593 = load i32, ptr %592, align 4, !tbaa !3
@@ -135858,7 +135858,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %596
 
 596:                                              ; preds = %590, %554
-  %.7.i57.i = phi i32 [ 0, %554 ], [ %595, %590 ]
+  %.7.i57.i = phi i32 [ %595, %590 ], [ 0, %554 ]
   %597 = load i32, ptr %121, align 4, !tbaa !3
   %598 = getelementptr inbounds i8, ptr %292, i64 -100
   %599 = load i32, ptr %598, align 4, !tbaa !3
@@ -135867,7 +135867,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %602
 
 602:                                              ; preds = %596, %554
-  %.8.i56.i = phi i32 [ 0, %554 ], [ %601, %596 ]
+  %.8.i56.i = phi i32 [ %601, %596 ], [ 0, %554 ]
   %603 = load i32, ptr %122, align 4, !tbaa !3
   %604 = getelementptr inbounds i8, ptr %292, i64 -96
   %605 = load i32, ptr %604, align 4, !tbaa !3
@@ -135876,7 +135876,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %608
 
 608:                                              ; preds = %602, %554
-  %.9.i55.i = phi i32 [ 0, %554 ], [ %607, %602 ]
+  %.9.i55.i = phi i32 [ %607, %602 ], [ 0, %554 ]
   %609 = load i32, ptr %123, align 4, !tbaa !3
   %610 = getelementptr inbounds i8, ptr %292, i64 -92
   %611 = load i32, ptr %610, align 4, !tbaa !3
@@ -135885,7 +135885,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %614
 
 614:                                              ; preds = %608, %554
-  %.10.i54.i = phi i32 [ 0, %554 ], [ %613, %608 ]
+  %.10.i54.i = phi i32 [ %613, %608 ], [ 0, %554 ]
   %615 = load i32, ptr %124, align 4, !tbaa !3
   %616 = getelementptr inbounds i8, ptr %292, i64 -88
   %617 = load i32, ptr %616, align 4, !tbaa !3
@@ -135894,7 +135894,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %620
 
 620:                                              ; preds = %614, %554
-  %.11.i53.i = phi i32 [ 0, %554 ], [ %619, %614 ]
+  %.11.i53.i = phi i32 [ %619, %614 ], [ 0, %554 ]
   %621 = load i32, ptr %125, align 4, !tbaa !3
   %622 = getelementptr inbounds i8, ptr %292, i64 -84
   %623 = load i32, ptr %622, align 4, !tbaa !3
@@ -135903,7 +135903,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %626
 
 626:                                              ; preds = %620, %554
-  %.12.i52.i = phi i32 [ 0, %554 ], [ %625, %620 ]
+  %.12.i52.i = phi i32 [ %625, %620 ], [ 0, %554 ]
   %627 = load i32, ptr %126, align 4, !tbaa !3
   %628 = getelementptr inbounds i8, ptr %292, i64 -80
   %629 = load i32, ptr %628, align 4, !tbaa !3
@@ -135912,7 +135912,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %632
 
 632:                                              ; preds = %626, %554
-  %.13.i51.i = phi i32 [ 0, %554 ], [ %631, %626 ]
+  %.13.i51.i = phi i32 [ %631, %626 ], [ 0, %554 ]
   %633 = load i32, ptr %127, align 4, !tbaa !3
   %634 = getelementptr inbounds i8, ptr %292, i64 -76
   %635 = load i32, ptr %634, align 4, !tbaa !3
@@ -135921,7 +135921,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %638
 
 638:                                              ; preds = %632, %554
-  %.14.i50.i = phi i32 [ 0, %554 ], [ %637, %632 ]
+  %.14.i50.i = phi i32 [ %637, %632 ], [ 0, %554 ]
   %639 = load i32, ptr %128, align 4, !tbaa !3
   %640 = getelementptr inbounds i8, ptr %292, i64 -72
   %641 = load i32, ptr %640, align 4, !tbaa !3
@@ -135930,7 +135930,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %644
 
 644:                                              ; preds = %638, %554
-  %.15.i49.i = phi i32 [ 0, %554 ], [ %643, %638 ]
+  %.15.i49.i = phi i32 [ %643, %638 ], [ 0, %554 ]
   %645 = load i32, ptr %129, align 4, !tbaa !3
   %646 = getelementptr inbounds i8, ptr %292, i64 -68
   %647 = load i32, ptr %646, align 4, !tbaa !3
@@ -135939,7 +135939,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %650
 
 650:                                              ; preds = %644, %554
-  %.16.i48.i = phi i32 [ 0, %554 ], [ %649, %644 ]
+  %.16.i48.i = phi i32 [ %649, %644 ], [ 0, %554 ]
   %651 = load i32, ptr %130, align 4, !tbaa !3
   %652 = getelementptr inbounds i8, ptr %292, i64 -64
   %653 = load i32, ptr %652, align 4, !tbaa !3
@@ -135948,7 +135948,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %656
 
 656:                                              ; preds = %650, %554
-  %.17.i47.i = phi i32 [ 0, %554 ], [ %655, %650 ]
+  %.17.i47.i = phi i32 [ %655, %650 ], [ 0, %554 ]
   %657 = load i32, ptr %131, align 4, !tbaa !3
   %658 = getelementptr inbounds i8, ptr %292, i64 -60
   %659 = load i32, ptr %658, align 4, !tbaa !3
@@ -135957,7 +135957,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %662
 
 662:                                              ; preds = %656, %554
-  %.18.i46.i = phi i32 [ 0, %554 ], [ %661, %656 ]
+  %.18.i46.i = phi i32 [ %661, %656 ], [ 0, %554 ]
   %663 = load i32, ptr %132, align 4, !tbaa !3
   %664 = getelementptr inbounds i8, ptr %292, i64 -56
   %665 = load i32, ptr %664, align 4, !tbaa !3
@@ -135966,7 +135966,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %668
 
 668:                                              ; preds = %662, %554
-  %.19.i45.i = phi i32 [ 0, %554 ], [ %667, %662 ]
+  %.19.i45.i = phi i32 [ %667, %662 ], [ 0, %554 ]
   %669 = load i32, ptr %133, align 4, !tbaa !3
   %670 = getelementptr inbounds i8, ptr %292, i64 -52
   %671 = load i32, ptr %670, align 4, !tbaa !3
@@ -135975,7 +135975,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %674
 
 674:                                              ; preds = %668, %554
-  %.20.i44.i = phi i32 [ 0, %554 ], [ %673, %668 ]
+  %.20.i44.i = phi i32 [ %673, %668 ], [ 0, %554 ]
   %675 = load i32, ptr %134, align 4, !tbaa !3
   %676 = getelementptr inbounds i8, ptr %292, i64 -48
   %677 = load i32, ptr %676, align 4, !tbaa !3
@@ -135984,7 +135984,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %680
 
 680:                                              ; preds = %674, %554
-  %.21.i43.i = phi i32 [ 0, %554 ], [ %679, %674 ]
+  %.21.i43.i = phi i32 [ %679, %674 ], [ 0, %554 ]
   %681 = load i32, ptr %135, align 4, !tbaa !3
   %682 = getelementptr inbounds i8, ptr %292, i64 -44
   %683 = load i32, ptr %682, align 4, !tbaa !3
@@ -135993,7 +135993,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %686
 
 686:                                              ; preds = %680, %554
-  %.22.i42.i = phi i32 [ 0, %554 ], [ %685, %680 ]
+  %.22.i42.i = phi i32 [ %685, %680 ], [ 0, %554 ]
   %687 = load i32, ptr %136, align 4, !tbaa !3
   %688 = getelementptr inbounds i8, ptr %292, i64 -40
   %689 = load i32, ptr %688, align 4, !tbaa !3
@@ -136002,7 +136002,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %692
 
 692:                                              ; preds = %686, %554
-  %.23.i41.i = phi i32 [ 0, %554 ], [ %691, %686 ]
+  %.23.i41.i = phi i32 [ %691, %686 ], [ 0, %554 ]
   %693 = load i32, ptr %137, align 4, !tbaa !3
   %694 = getelementptr inbounds i8, ptr %292, i64 -36
   %695 = load i32, ptr %694, align 4, !tbaa !3
@@ -136011,7 +136011,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %698
 
 698:                                              ; preds = %692, %554
-  %.24.i40.i = phi i32 [ 0, %554 ], [ %697, %692 ]
+  %.24.i40.i = phi i32 [ %697, %692 ], [ 0, %554 ]
   %699 = load i32, ptr %138, align 4, !tbaa !3
   %700 = getelementptr inbounds i8, ptr %292, i64 -32
   %701 = load i32, ptr %700, align 4, !tbaa !3
@@ -136020,7 +136020,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %704
 
 704:                                              ; preds = %698, %554
-  %.25.i39.i = phi i32 [ 0, %554 ], [ %703, %698 ]
+  %.25.i39.i = phi i32 [ %703, %698 ], [ 0, %554 ]
   %705 = load i32, ptr %139, align 4, !tbaa !3
   %706 = getelementptr inbounds i8, ptr %292, i64 -28
   %707 = load i32, ptr %706, align 4, !tbaa !3
@@ -136029,7 +136029,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %710
 
 710:                                              ; preds = %704, %554
-  %.26.i38.i = phi i32 [ 0, %554 ], [ %709, %704 ]
+  %.26.i38.i = phi i32 [ %709, %704 ], [ 0, %554 ]
   %711 = load i32, ptr %140, align 4, !tbaa !3
   %712 = getelementptr inbounds i8, ptr %292, i64 -24
   %713 = load i32, ptr %712, align 4, !tbaa !3
@@ -136038,7 +136038,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %716
 
 716:                                              ; preds = %710, %554
-  %.27.i37.i = phi i32 [ 0, %554 ], [ %715, %710 ]
+  %.27.i37.i = phi i32 [ %715, %710 ], [ 0, %554 ]
   %717 = load i32, ptr %141, align 4, !tbaa !3
   %718 = getelementptr inbounds i8, ptr %292, i64 -20
   %719 = load i32, ptr %718, align 4, !tbaa !3
@@ -136047,7 +136047,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %722
 
 722:                                              ; preds = %716, %554
-  %.28.i36.i = phi i32 [ 0, %554 ], [ %721, %716 ]
+  %.28.i36.i = phi i32 [ %721, %716 ], [ 0, %554 ]
   %723 = load i32, ptr %142, align 4, !tbaa !3
   %724 = getelementptr inbounds i8, ptr %292, i64 -16
   %725 = load i32, ptr %724, align 4, !tbaa !3
@@ -136056,7 +136056,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %728
 
 728:                                              ; preds = %722, %554
-  %.29.i35.i = phi i32 [ 0, %554 ], [ %727, %722 ]
+  %.29.i35.i = phi i32 [ %727, %722 ], [ 0, %554 ]
   %729 = load i32, ptr %143, align 4, !tbaa !3
   %730 = getelementptr inbounds i8, ptr %292, i64 -12
   %731 = load i32, ptr %730, align 4, !tbaa !3
@@ -136065,7 +136065,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %734
 
 734:                                              ; preds = %728, %554
-  %.30.i34.i = phi i32 [ 0, %554 ], [ %733, %728 ]
+  %.30.i34.i = phi i32 [ %733, %728 ], [ 0, %554 ]
   %735 = load i32, ptr %144, align 4, !tbaa !3
   %736 = getelementptr inbounds i8, ptr %292, i64 -8
   %737 = load i32, ptr %736, align 4, !tbaa !3
@@ -136074,7 +136074,7 @@ ma_dr_flac__calculate_prediction_64.exit.i:       ; preds = %544, %296
   br label %740
 
 740:                                              ; preds = %734, %554
-  %.31.i32.i = phi i32 [ 0, %554 ], [ %739, %734 ]
+  %.31.i32.i = phi i32 [ %739, %734 ], [ 0, %554 ]
   %741 = load i32, ptr %6, align 4, !tbaa !3
   %742 = getelementptr inbounds i8, ptr %292, i64 -4
   %743 = load i32, ptr %742, align 4, !tbaa !3
@@ -139418,7 +139418,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2259
 
 2259:                                             ; preds = %2252, %2215
-  %.1.i = phi i64 [ 0, %2215 ], [ %2258, %2252 ]
+  %.1.i = phi i64 [ %2258, %2252 ], [ 0, %2215 ]
   %2260 = load i32, ptr %480, align 4, !tbaa !3
   %2261 = sext i32 %2260 to i64
   %2262 = getelementptr inbounds i8, ptr %.01161340, i64 -124
@@ -139429,7 +139429,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2267
 
 2267:                                             ; preds = %2259, %2215
-  %.2.i717 = phi i64 [ 0, %2215 ], [ %2266, %2259 ]
+  %.2.i717 = phi i64 [ %2266, %2259 ], [ 0, %2215 ]
   %2268 = load i32, ptr %481, align 4, !tbaa !3
   %2269 = sext i32 %2268 to i64
   %2270 = getelementptr inbounds i8, ptr %.01161340, i64 -120
@@ -139440,7 +139440,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2275
 
 2275:                                             ; preds = %2267, %2215
-  %.3.i = phi i64 [ 0, %2215 ], [ %2274, %2267 ]
+  %.3.i = phi i64 [ %2274, %2267 ], [ 0, %2215 ]
   %2276 = load i32, ptr %482, align 4, !tbaa !3
   %2277 = sext i32 %2276 to i64
   %2278 = getelementptr inbounds i8, ptr %.01161340, i64 -116
@@ -139451,7 +139451,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2283
 
 2283:                                             ; preds = %2275, %2215
-  %.4.i716 = phi i64 [ 0, %2215 ], [ %2282, %2275 ]
+  %.4.i716 = phi i64 [ %2282, %2275 ], [ 0, %2215 ]
   %2284 = load i32, ptr %483, align 4, !tbaa !3
   %2285 = sext i32 %2284 to i64
   %2286 = getelementptr inbounds i8, ptr %.01161340, i64 -112
@@ -139462,7 +139462,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2291
 
 2291:                                             ; preds = %2283, %2215
-  %.5.i715 = phi i64 [ 0, %2215 ], [ %2290, %2283 ]
+  %.5.i715 = phi i64 [ %2290, %2283 ], [ 0, %2215 ]
   %2292 = load i32, ptr %484, align 4, !tbaa !3
   %2293 = sext i32 %2292 to i64
   %2294 = getelementptr inbounds i8, ptr %.01161340, i64 -108
@@ -139473,7 +139473,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2299
 
 2299:                                             ; preds = %2291, %2215
-  %.6.i714 = phi i64 [ 0, %2215 ], [ %2298, %2291 ]
+  %.6.i714 = phi i64 [ %2298, %2291 ], [ 0, %2215 ]
   %2300 = load i32, ptr %485, align 4, !tbaa !3
   %2301 = sext i32 %2300 to i64
   %2302 = getelementptr inbounds i8, ptr %.01161340, i64 -104
@@ -139484,7 +139484,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2307
 
 2307:                                             ; preds = %2299, %2215
-  %.7.i = phi i64 [ 0, %2215 ], [ %2306, %2299 ]
+  %.7.i = phi i64 [ %2306, %2299 ], [ 0, %2215 ]
   %2308 = load i32, ptr %486, align 4, !tbaa !3
   %2309 = sext i32 %2308 to i64
   %2310 = getelementptr inbounds i8, ptr %.01161340, i64 -100
@@ -139495,7 +139495,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2315
 
 2315:                                             ; preds = %2307, %2215
-  %.8.i = phi i64 [ 0, %2215 ], [ %2314, %2307 ]
+  %.8.i = phi i64 [ %2314, %2307 ], [ 0, %2215 ]
   %2316 = load i32, ptr %487, align 4, !tbaa !3
   %2317 = sext i32 %2316 to i64
   %2318 = getelementptr inbounds i8, ptr %.01161340, i64 -96
@@ -139506,7 +139506,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2323
 
 2323:                                             ; preds = %2315, %2215
-  %.9.i = phi i64 [ 0, %2215 ], [ %2322, %2315 ]
+  %.9.i = phi i64 [ %2322, %2315 ], [ 0, %2215 ]
   %2324 = load i32, ptr %488, align 4, !tbaa !3
   %2325 = sext i32 %2324 to i64
   %2326 = getelementptr inbounds i8, ptr %.01161340, i64 -92
@@ -139517,7 +139517,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2331
 
 2331:                                             ; preds = %2323, %2215
-  %.10.i = phi i64 [ 0, %2215 ], [ %2330, %2323 ]
+  %.10.i = phi i64 [ %2330, %2323 ], [ 0, %2215 ]
   %2332 = load i32, ptr %489, align 4, !tbaa !3
   %2333 = sext i32 %2332 to i64
   %2334 = getelementptr inbounds i8, ptr %.01161340, i64 -88
@@ -139528,7 +139528,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2339
 
 2339:                                             ; preds = %2331, %2215
-  %.11.i = phi i64 [ 0, %2215 ], [ %2338, %2331 ]
+  %.11.i = phi i64 [ %2338, %2331 ], [ 0, %2215 ]
   %2340 = load i32, ptr %490, align 4, !tbaa !3
   %2341 = sext i32 %2340 to i64
   %2342 = getelementptr inbounds i8, ptr %.01161340, i64 -84
@@ -139539,7 +139539,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2347
 
 2347:                                             ; preds = %2339, %2215
-  %.12.i = phi i64 [ 0, %2215 ], [ %2346, %2339 ]
+  %.12.i = phi i64 [ %2346, %2339 ], [ 0, %2215 ]
   %2348 = load i32, ptr %491, align 4, !tbaa !3
   %2349 = sext i32 %2348 to i64
   %2350 = getelementptr inbounds i8, ptr %.01161340, i64 -80
@@ -139550,7 +139550,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2355
 
 2355:                                             ; preds = %2347, %2215
-  %.13.i = phi i64 [ 0, %2215 ], [ %2354, %2347 ]
+  %.13.i = phi i64 [ %2354, %2347 ], [ 0, %2215 ]
   %2356 = load i32, ptr %492, align 4, !tbaa !3
   %2357 = sext i32 %2356 to i64
   %2358 = getelementptr inbounds i8, ptr %.01161340, i64 -76
@@ -139561,7 +139561,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2363
 
 2363:                                             ; preds = %2355, %2215
-  %.14.i = phi i64 [ 0, %2215 ], [ %2362, %2355 ]
+  %.14.i = phi i64 [ %2362, %2355 ], [ 0, %2215 ]
   %2364 = load i32, ptr %493, align 4, !tbaa !3
   %2365 = sext i32 %2364 to i64
   %2366 = getelementptr inbounds i8, ptr %.01161340, i64 -72
@@ -139572,7 +139572,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2371
 
 2371:                                             ; preds = %2363, %2215
-  %.15.i = phi i64 [ 0, %2215 ], [ %2370, %2363 ]
+  %.15.i = phi i64 [ %2370, %2363 ], [ 0, %2215 ]
   %2372 = load i32, ptr %494, align 4, !tbaa !3
   %2373 = sext i32 %2372 to i64
   %2374 = getelementptr inbounds i8, ptr %.01161340, i64 -68
@@ -139583,7 +139583,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2379
 
 2379:                                             ; preds = %2371, %2215
-  %.16.i = phi i64 [ 0, %2215 ], [ %2378, %2371 ]
+  %.16.i = phi i64 [ %2378, %2371 ], [ 0, %2215 ]
   %2380 = load i32, ptr %495, align 4, !tbaa !3
   %2381 = sext i32 %2380 to i64
   %2382 = getelementptr inbounds i8, ptr %.01161340, i64 -64
@@ -139594,7 +139594,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2387
 
 2387:                                             ; preds = %2379, %2215
-  %.17.i = phi i64 [ 0, %2215 ], [ %2386, %2379 ]
+  %.17.i = phi i64 [ %2386, %2379 ], [ 0, %2215 ]
   %2388 = load i32, ptr %496, align 4, !tbaa !3
   %2389 = sext i32 %2388 to i64
   %2390 = getelementptr inbounds i8, ptr %.01161340, i64 -60
@@ -139605,7 +139605,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2395
 
 2395:                                             ; preds = %2387, %2215
-  %.18.i = phi i64 [ 0, %2215 ], [ %2394, %2387 ]
+  %.18.i = phi i64 [ %2394, %2387 ], [ 0, %2215 ]
   %2396 = load i32, ptr %497, align 4, !tbaa !3
   %2397 = sext i32 %2396 to i64
   %2398 = getelementptr inbounds i8, ptr %.01161340, i64 -56
@@ -139616,7 +139616,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2403
 
 2403:                                             ; preds = %2395, %2215
-  %.19.i = phi i64 [ 0, %2215 ], [ %2402, %2395 ]
+  %.19.i = phi i64 [ %2402, %2395 ], [ 0, %2215 ]
   %2404 = load i32, ptr %498, align 4, !tbaa !3
   %2405 = sext i32 %2404 to i64
   %2406 = getelementptr inbounds i8, ptr %.01161340, i64 -52
@@ -139627,7 +139627,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2411
 
 2411:                                             ; preds = %2403, %2215
-  %.20.i = phi i64 [ 0, %2215 ], [ %2410, %2403 ]
+  %.20.i = phi i64 [ %2410, %2403 ], [ 0, %2215 ]
   %2412 = load i32, ptr %499, align 4, !tbaa !3
   %2413 = sext i32 %2412 to i64
   %2414 = getelementptr inbounds i8, ptr %.01161340, i64 -48
@@ -139638,7 +139638,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2419
 
 2419:                                             ; preds = %2411, %2215
-  %.21.i = phi i64 [ 0, %2215 ], [ %2418, %2411 ]
+  %.21.i = phi i64 [ %2418, %2411 ], [ 0, %2215 ]
   %2420 = load i32, ptr %500, align 4, !tbaa !3
   %2421 = sext i32 %2420 to i64
   %2422 = getelementptr inbounds i8, ptr %.01161340, i64 -44
@@ -139649,7 +139649,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2427
 
 2427:                                             ; preds = %2419, %2215
-  %.22.i = phi i64 [ 0, %2215 ], [ %2426, %2419 ]
+  %.22.i = phi i64 [ %2426, %2419 ], [ 0, %2215 ]
   %2428 = load i32, ptr %501, align 4, !tbaa !3
   %2429 = sext i32 %2428 to i64
   %2430 = getelementptr inbounds i8, ptr %.01161340, i64 -40
@@ -139660,7 +139660,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2435
 
 2435:                                             ; preds = %2427, %2215
-  %.23.i = phi i64 [ 0, %2215 ], [ %2434, %2427 ]
+  %.23.i = phi i64 [ %2434, %2427 ], [ 0, %2215 ]
   %2436 = load i32, ptr %502, align 4, !tbaa !3
   %2437 = sext i32 %2436 to i64
   %2438 = getelementptr inbounds i8, ptr %.01161340, i64 -36
@@ -139671,7 +139671,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2443
 
 2443:                                             ; preds = %2435, %2215
-  %.24.i = phi i64 [ 0, %2215 ], [ %2442, %2435 ]
+  %.24.i = phi i64 [ %2442, %2435 ], [ 0, %2215 ]
   %2444 = load i32, ptr %503, align 4, !tbaa !3
   %2445 = sext i32 %2444 to i64
   %2446 = getelementptr inbounds i8, ptr %.01161340, i64 -32
@@ -139682,7 +139682,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2451
 
 2451:                                             ; preds = %2443, %2215
-  %.25.i = phi i64 [ 0, %2215 ], [ %2450, %2443 ]
+  %.25.i = phi i64 [ %2450, %2443 ], [ 0, %2215 ]
   %2452 = load i32, ptr %504, align 4, !tbaa !3
   %2453 = sext i32 %2452 to i64
   %2454 = getelementptr inbounds i8, ptr %.01161340, i64 -28
@@ -139693,7 +139693,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2459
 
 2459:                                             ; preds = %2451, %2215
-  %.26.i = phi i64 [ 0, %2215 ], [ %2458, %2451 ]
+  %.26.i = phi i64 [ %2458, %2451 ], [ 0, %2215 ]
   %2460 = load i32, ptr %505, align 4, !tbaa !3
   %2461 = sext i32 %2460 to i64
   %2462 = getelementptr inbounds i8, ptr %.01161340, i64 -24
@@ -139704,7 +139704,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2467
 
 2467:                                             ; preds = %2459, %2215
-  %.27.i = phi i64 [ 0, %2215 ], [ %2466, %2459 ]
+  %.27.i = phi i64 [ %2466, %2459 ], [ 0, %2215 ]
   %2468 = load i32, ptr %506, align 4, !tbaa !3
   %2469 = sext i32 %2468 to i64
   %2470 = getelementptr inbounds i8, ptr %.01161340, i64 -20
@@ -139715,7 +139715,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2475
 
 2475:                                             ; preds = %2467, %2215
-  %.28.i = phi i64 [ 0, %2215 ], [ %2474, %2467 ]
+  %.28.i = phi i64 [ %2474, %2467 ], [ 0, %2215 ]
   %2476 = load i32, ptr %507, align 4, !tbaa !3
   %2477 = sext i32 %2476 to i64
   %2478 = getelementptr inbounds i8, ptr %.01161340, i64 -16
@@ -139726,7 +139726,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2483
 
 2483:                                             ; preds = %2475, %2215
-  %.29.i = phi i64 [ 0, %2215 ], [ %2482, %2475 ]
+  %.29.i = phi i64 [ %2482, %2475 ], [ 0, %2215 ]
   %2484 = load i32, ptr %508, align 4, !tbaa !3
   %2485 = sext i32 %2484 to i64
   %2486 = getelementptr inbounds i8, ptr %.01161340, i64 -12
@@ -139737,7 +139737,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2491
 
 2491:                                             ; preds = %2483, %2215
-  %.30.i = phi i64 [ 0, %2215 ], [ %2490, %2483 ]
+  %.30.i = phi i64 [ %2490, %2483 ], [ 0, %2215 ]
   %2492 = load i32, ptr %509, align 4, !tbaa !3
   %2493 = sext i32 %2492 to i64
   %2494 = getelementptr inbounds i8, ptr %.01161340, i64 -8
@@ -139748,7 +139748,7 @@ ma_dr_flac__clz.exit.i286:                        ; preds = %2188, %2211, %2185
   br label %2499
 
 2499:                                             ; preds = %2491, %2215
-  %.31.i = phi i64 [ 0, %2215 ], [ %2498, %2491 ]
+  %.31.i = phi i64 [ %2498, %2491 ], [ 0, %2215 ]
   %2500 = load i32, ptr %7, align 4, !tbaa !3
   %2501 = sext i32 %2500 to i64
   %2502 = getelementptr inbounds i8, ptr %.01161340, i64 -4
@@ -139810,7 +139810,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2518
 
 2518:                                             ; preds = %2511, %ma_dr_flac__calculate_prediction_64.exit
-  %.1.i750 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2517, %2511 ]
+  %.1.i750 = phi i64 [ %2517, %2511 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2519 = load i32, ptr %480, align 4, !tbaa !3
   %2520 = sext i32 %2519 to i64
   %2521 = getelementptr inbounds i8, ptr %.01161340, i64 -120
@@ -139821,7 +139821,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2526
 
 2526:                                             ; preds = %2518, %ma_dr_flac__calculate_prediction_64.exit
-  %.2.i749 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2525, %2518 ]
+  %.2.i749 = phi i64 [ %2525, %2518 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2527 = load i32, ptr %481, align 4, !tbaa !3
   %2528 = sext i32 %2527 to i64
   %2529 = getelementptr inbounds i8, ptr %.01161340, i64 -116
@@ -139832,7 +139832,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2534
 
 2534:                                             ; preds = %2526, %ma_dr_flac__calculate_prediction_64.exit
-  %.3.i748 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2533, %2526 ]
+  %.3.i748 = phi i64 [ %2533, %2526 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2535 = load i32, ptr %482, align 4, !tbaa !3
   %2536 = sext i32 %2535 to i64
   %2537 = getelementptr inbounds i8, ptr %.01161340, i64 -112
@@ -139843,7 +139843,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2542
 
 2542:                                             ; preds = %2534, %ma_dr_flac__calculate_prediction_64.exit
-  %.4.i747 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2541, %2534 ]
+  %.4.i747 = phi i64 [ %2541, %2534 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2543 = load i32, ptr %483, align 4, !tbaa !3
   %2544 = sext i32 %2543 to i64
   %2545 = getelementptr inbounds i8, ptr %.01161340, i64 -108
@@ -139854,7 +139854,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2550
 
 2550:                                             ; preds = %2542, %ma_dr_flac__calculate_prediction_64.exit
-  %.5.i746 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2549, %2542 ]
+  %.5.i746 = phi i64 [ %2549, %2542 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2551 = load i32, ptr %484, align 4, !tbaa !3
   %2552 = sext i32 %2551 to i64
   %2553 = getelementptr inbounds i8, ptr %.01161340, i64 -104
@@ -139865,7 +139865,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2558
 
 2558:                                             ; preds = %2550, %ma_dr_flac__calculate_prediction_64.exit
-  %.6.i745 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2557, %2550 ]
+  %.6.i745 = phi i64 [ %2557, %2550 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2559 = load i32, ptr %485, align 4, !tbaa !3
   %2560 = sext i32 %2559 to i64
   %2561 = getelementptr inbounds i8, ptr %.01161340, i64 -100
@@ -139876,7 +139876,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2566
 
 2566:                                             ; preds = %2558, %ma_dr_flac__calculate_prediction_64.exit
-  %.7.i744 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2565, %2558 ]
+  %.7.i744 = phi i64 [ %2565, %2558 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2567 = load i32, ptr %486, align 4, !tbaa !3
   %2568 = sext i32 %2567 to i64
   %2569 = getelementptr inbounds i8, ptr %.01161340, i64 -96
@@ -139887,7 +139887,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2574
 
 2574:                                             ; preds = %2566, %ma_dr_flac__calculate_prediction_64.exit
-  %.8.i743 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2573, %2566 ]
+  %.8.i743 = phi i64 [ %2573, %2566 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2575 = load i32, ptr %487, align 4, !tbaa !3
   %2576 = sext i32 %2575 to i64
   %2577 = getelementptr inbounds i8, ptr %.01161340, i64 -92
@@ -139898,7 +139898,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2582
 
 2582:                                             ; preds = %2574, %ma_dr_flac__calculate_prediction_64.exit
-  %.9.i742 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2581, %2574 ]
+  %.9.i742 = phi i64 [ %2581, %2574 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2583 = load i32, ptr %488, align 4, !tbaa !3
   %2584 = sext i32 %2583 to i64
   %2585 = getelementptr inbounds i8, ptr %.01161340, i64 -88
@@ -139909,7 +139909,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2590
 
 2590:                                             ; preds = %2582, %ma_dr_flac__calculate_prediction_64.exit
-  %.10.i741 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2589, %2582 ]
+  %.10.i741 = phi i64 [ %2589, %2582 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2591 = load i32, ptr %489, align 4, !tbaa !3
   %2592 = sext i32 %2591 to i64
   %2593 = getelementptr inbounds i8, ptr %.01161340, i64 -84
@@ -139920,7 +139920,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2598
 
 2598:                                             ; preds = %2590, %ma_dr_flac__calculate_prediction_64.exit
-  %.11.i740 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2597, %2590 ]
+  %.11.i740 = phi i64 [ %2597, %2590 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2599 = load i32, ptr %490, align 4, !tbaa !3
   %2600 = sext i32 %2599 to i64
   %2601 = getelementptr inbounds i8, ptr %.01161340, i64 -80
@@ -139931,7 +139931,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2606
 
 2606:                                             ; preds = %2598, %ma_dr_flac__calculate_prediction_64.exit
-  %.12.i739 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2605, %2598 ]
+  %.12.i739 = phi i64 [ %2605, %2598 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2607 = load i32, ptr %491, align 4, !tbaa !3
   %2608 = sext i32 %2607 to i64
   %2609 = getelementptr inbounds i8, ptr %.01161340, i64 -76
@@ -139942,7 +139942,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2614
 
 2614:                                             ; preds = %2606, %ma_dr_flac__calculate_prediction_64.exit
-  %.13.i738 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2613, %2606 ]
+  %.13.i738 = phi i64 [ %2613, %2606 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2615 = load i32, ptr %492, align 4, !tbaa !3
   %2616 = sext i32 %2615 to i64
   %2617 = getelementptr inbounds i8, ptr %.01161340, i64 -72
@@ -139953,7 +139953,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2622
 
 2622:                                             ; preds = %2614, %ma_dr_flac__calculate_prediction_64.exit
-  %.14.i737 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2621, %2614 ]
+  %.14.i737 = phi i64 [ %2621, %2614 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2623 = load i32, ptr %493, align 4, !tbaa !3
   %2624 = sext i32 %2623 to i64
   %2625 = getelementptr inbounds i8, ptr %.01161340, i64 -68
@@ -139964,7 +139964,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2630
 
 2630:                                             ; preds = %2622, %ma_dr_flac__calculate_prediction_64.exit
-  %.15.i736 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2629, %2622 ]
+  %.15.i736 = phi i64 [ %2629, %2622 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2631 = load i32, ptr %494, align 4, !tbaa !3
   %2632 = sext i32 %2631 to i64
   %2633 = getelementptr inbounds i8, ptr %.01161340, i64 -64
@@ -139975,7 +139975,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2638
 
 2638:                                             ; preds = %2630, %ma_dr_flac__calculate_prediction_64.exit
-  %.16.i735 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2637, %2630 ]
+  %.16.i735 = phi i64 [ %2637, %2630 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2639 = load i32, ptr %495, align 4, !tbaa !3
   %2640 = sext i32 %2639 to i64
   %2641 = getelementptr inbounds i8, ptr %.01161340, i64 -60
@@ -139986,7 +139986,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2646
 
 2646:                                             ; preds = %2638, %ma_dr_flac__calculate_prediction_64.exit
-  %.17.i734 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2645, %2638 ]
+  %.17.i734 = phi i64 [ %2645, %2638 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2647 = load i32, ptr %496, align 4, !tbaa !3
   %2648 = sext i32 %2647 to i64
   %2649 = getelementptr inbounds i8, ptr %.01161340, i64 -56
@@ -139997,7 +139997,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2654
 
 2654:                                             ; preds = %2646, %ma_dr_flac__calculate_prediction_64.exit
-  %.18.i733 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2653, %2646 ]
+  %.18.i733 = phi i64 [ %2653, %2646 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2655 = load i32, ptr %497, align 4, !tbaa !3
   %2656 = sext i32 %2655 to i64
   %2657 = getelementptr inbounds i8, ptr %.01161340, i64 -52
@@ -140008,7 +140008,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2662
 
 2662:                                             ; preds = %2654, %ma_dr_flac__calculate_prediction_64.exit
-  %.19.i732 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2661, %2654 ]
+  %.19.i732 = phi i64 [ %2661, %2654 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2663 = load i32, ptr %498, align 4, !tbaa !3
   %2664 = sext i32 %2663 to i64
   %2665 = getelementptr inbounds i8, ptr %.01161340, i64 -48
@@ -140019,7 +140019,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2670
 
 2670:                                             ; preds = %2662, %ma_dr_flac__calculate_prediction_64.exit
-  %.20.i731 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2669, %2662 ]
+  %.20.i731 = phi i64 [ %2669, %2662 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2671 = load i32, ptr %499, align 4, !tbaa !3
   %2672 = sext i32 %2671 to i64
   %2673 = getelementptr inbounds i8, ptr %.01161340, i64 -44
@@ -140030,7 +140030,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2678
 
 2678:                                             ; preds = %2670, %ma_dr_flac__calculate_prediction_64.exit
-  %.21.i730 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2677, %2670 ]
+  %.21.i730 = phi i64 [ %2677, %2670 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2679 = load i32, ptr %500, align 4, !tbaa !3
   %2680 = sext i32 %2679 to i64
   %2681 = getelementptr inbounds i8, ptr %.01161340, i64 -40
@@ -140041,7 +140041,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2686
 
 2686:                                             ; preds = %2678, %ma_dr_flac__calculate_prediction_64.exit
-  %.22.i729 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2685, %2678 ]
+  %.22.i729 = phi i64 [ %2685, %2678 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2687 = load i32, ptr %501, align 4, !tbaa !3
   %2688 = sext i32 %2687 to i64
   %2689 = getelementptr inbounds i8, ptr %.01161340, i64 -36
@@ -140052,7 +140052,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2694
 
 2694:                                             ; preds = %2686, %ma_dr_flac__calculate_prediction_64.exit
-  %.23.i728 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2693, %2686 ]
+  %.23.i728 = phi i64 [ %2693, %2686 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2695 = load i32, ptr %502, align 4, !tbaa !3
   %2696 = sext i32 %2695 to i64
   %2697 = getelementptr inbounds i8, ptr %.01161340, i64 -32
@@ -140063,7 +140063,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2702
 
 2702:                                             ; preds = %2694, %ma_dr_flac__calculate_prediction_64.exit
-  %.24.i727 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2701, %2694 ]
+  %.24.i727 = phi i64 [ %2701, %2694 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2703 = load i32, ptr %503, align 4, !tbaa !3
   %2704 = sext i32 %2703 to i64
   %2705 = getelementptr inbounds i8, ptr %.01161340, i64 -28
@@ -140074,7 +140074,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2710
 
 2710:                                             ; preds = %2702, %ma_dr_flac__calculate_prediction_64.exit
-  %.25.i726 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2709, %2702 ]
+  %.25.i726 = phi i64 [ %2709, %2702 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2711 = load i32, ptr %504, align 4, !tbaa !3
   %2712 = sext i32 %2711 to i64
   %2713 = getelementptr inbounds i8, ptr %.01161340, i64 -24
@@ -140085,7 +140085,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2718
 
 2718:                                             ; preds = %2710, %ma_dr_flac__calculate_prediction_64.exit
-  %.26.i725 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2717, %2710 ]
+  %.26.i725 = phi i64 [ %2717, %2710 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2719 = load i32, ptr %505, align 4, !tbaa !3
   %2720 = sext i32 %2719 to i64
   %2721 = getelementptr inbounds i8, ptr %.01161340, i64 -20
@@ -140096,7 +140096,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2726
 
 2726:                                             ; preds = %2718, %ma_dr_flac__calculate_prediction_64.exit
-  %.27.i724 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2725, %2718 ]
+  %.27.i724 = phi i64 [ %2725, %2718 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2727 = load i32, ptr %506, align 4, !tbaa !3
   %2728 = sext i32 %2727 to i64
   %2729 = getelementptr inbounds i8, ptr %.01161340, i64 -16
@@ -140107,7 +140107,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2734
 
 2734:                                             ; preds = %2726, %ma_dr_flac__calculate_prediction_64.exit
-  %.28.i723 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2733, %2726 ]
+  %.28.i723 = phi i64 [ %2733, %2726 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2735 = load i32, ptr %507, align 4, !tbaa !3
   %2736 = sext i32 %2735 to i64
   %2737 = getelementptr inbounds i8, ptr %.01161340, i64 -12
@@ -140118,7 +140118,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2742
 
 2742:                                             ; preds = %2734, %ma_dr_flac__calculate_prediction_64.exit
-  %.29.i722 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2741, %2734 ]
+  %.29.i722 = phi i64 [ %2741, %2734 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2743 = load i32, ptr %508, align 4, !tbaa !3
   %2744 = sext i32 %2743 to i64
   %2745 = getelementptr inbounds i8, ptr %.01161340, i64 -8
@@ -140129,7 +140129,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2750
 
 2750:                                             ; preds = %2742, %ma_dr_flac__calculate_prediction_64.exit
-  %.30.i721 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2749, %2742 ]
+  %.30.i721 = phi i64 [ %2749, %2742 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2751 = load i32, ptr %509, align 4, !tbaa !3
   %2752 = sext i32 %2751 to i64
   %2753 = getelementptr inbounds i8, ptr %.01161340, i64 -4
@@ -140140,7 +140140,7 @@ ma_dr_flac__calculate_prediction_64.exit:         ; preds = %2215, %2499
   br label %2758
 
 2758:                                             ; preds = %2750, %ma_dr_flac__calculate_prediction_64.exit
-  %.31.i719 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit ], [ %2757, %2750 ]
+  %.31.i719 = phi i64 [ %2757, %2750 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit ]
   %2759 = load i32, ptr %7, align 4, !tbaa !3
   %2760 = sext i32 %2759 to i64
   %2761 = sext i32 %2509 to i64
@@ -140200,7 +140200,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2775
 
 2775:                                             ; preds = %2768, %ma_dr_flac__calculate_prediction_64.exit751
-  %.1.i784 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2774, %2768 ]
+  %.1.i784 = phi i64 [ %2774, %2768 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2776 = load i32, ptr %480, align 4, !tbaa !3
   %2777 = sext i32 %2776 to i64
   %2778 = getelementptr inbounds i8, ptr %.01161340, i64 -116
@@ -140211,7 +140211,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2783
 
 2783:                                             ; preds = %2775, %ma_dr_flac__calculate_prediction_64.exit751
-  %.2.i783 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2782, %2775 ]
+  %.2.i783 = phi i64 [ %2782, %2775 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2784 = load i32, ptr %481, align 4, !tbaa !3
   %2785 = sext i32 %2784 to i64
   %2786 = getelementptr inbounds i8, ptr %.01161340, i64 -112
@@ -140222,7 +140222,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2791
 
 2791:                                             ; preds = %2783, %ma_dr_flac__calculate_prediction_64.exit751
-  %.3.i782 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2790, %2783 ]
+  %.3.i782 = phi i64 [ %2790, %2783 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2792 = load i32, ptr %482, align 4, !tbaa !3
   %2793 = sext i32 %2792 to i64
   %2794 = getelementptr inbounds i8, ptr %.01161340, i64 -108
@@ -140233,7 +140233,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2799
 
 2799:                                             ; preds = %2791, %ma_dr_flac__calculate_prediction_64.exit751
-  %.4.i781 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2798, %2791 ]
+  %.4.i781 = phi i64 [ %2798, %2791 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2800 = load i32, ptr %483, align 4, !tbaa !3
   %2801 = sext i32 %2800 to i64
   %2802 = getelementptr inbounds i8, ptr %.01161340, i64 -104
@@ -140244,7 +140244,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2807
 
 2807:                                             ; preds = %2799, %ma_dr_flac__calculate_prediction_64.exit751
-  %.5.i780 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2806, %2799 ]
+  %.5.i780 = phi i64 [ %2806, %2799 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2808 = load i32, ptr %484, align 4, !tbaa !3
   %2809 = sext i32 %2808 to i64
   %2810 = getelementptr inbounds i8, ptr %.01161340, i64 -100
@@ -140255,7 +140255,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2815
 
 2815:                                             ; preds = %2807, %ma_dr_flac__calculate_prediction_64.exit751
-  %.6.i779 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2814, %2807 ]
+  %.6.i779 = phi i64 [ %2814, %2807 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2816 = load i32, ptr %485, align 4, !tbaa !3
   %2817 = sext i32 %2816 to i64
   %2818 = getelementptr inbounds i8, ptr %.01161340, i64 -96
@@ -140266,7 +140266,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2823
 
 2823:                                             ; preds = %2815, %ma_dr_flac__calculate_prediction_64.exit751
-  %.7.i778 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2822, %2815 ]
+  %.7.i778 = phi i64 [ %2822, %2815 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2824 = load i32, ptr %486, align 4, !tbaa !3
   %2825 = sext i32 %2824 to i64
   %2826 = getelementptr inbounds i8, ptr %.01161340, i64 -92
@@ -140277,7 +140277,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2831
 
 2831:                                             ; preds = %2823, %ma_dr_flac__calculate_prediction_64.exit751
-  %.8.i777 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2830, %2823 ]
+  %.8.i777 = phi i64 [ %2830, %2823 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2832 = load i32, ptr %487, align 4, !tbaa !3
   %2833 = sext i32 %2832 to i64
   %2834 = getelementptr inbounds i8, ptr %.01161340, i64 -88
@@ -140288,7 +140288,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2839
 
 2839:                                             ; preds = %2831, %ma_dr_flac__calculate_prediction_64.exit751
-  %.9.i776 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2838, %2831 ]
+  %.9.i776 = phi i64 [ %2838, %2831 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2840 = load i32, ptr %488, align 4, !tbaa !3
   %2841 = sext i32 %2840 to i64
   %2842 = getelementptr inbounds i8, ptr %.01161340, i64 -84
@@ -140299,7 +140299,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2847
 
 2847:                                             ; preds = %2839, %ma_dr_flac__calculate_prediction_64.exit751
-  %.10.i775 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2846, %2839 ]
+  %.10.i775 = phi i64 [ %2846, %2839 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2848 = load i32, ptr %489, align 4, !tbaa !3
   %2849 = sext i32 %2848 to i64
   %2850 = getelementptr inbounds i8, ptr %.01161340, i64 -80
@@ -140310,7 +140310,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2855
 
 2855:                                             ; preds = %2847, %ma_dr_flac__calculate_prediction_64.exit751
-  %.11.i774 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2854, %2847 ]
+  %.11.i774 = phi i64 [ %2854, %2847 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2856 = load i32, ptr %490, align 4, !tbaa !3
   %2857 = sext i32 %2856 to i64
   %2858 = getelementptr inbounds i8, ptr %.01161340, i64 -76
@@ -140321,7 +140321,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2863
 
 2863:                                             ; preds = %2855, %ma_dr_flac__calculate_prediction_64.exit751
-  %.12.i773 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2862, %2855 ]
+  %.12.i773 = phi i64 [ %2862, %2855 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2864 = load i32, ptr %491, align 4, !tbaa !3
   %2865 = sext i32 %2864 to i64
   %2866 = getelementptr inbounds i8, ptr %.01161340, i64 -72
@@ -140332,7 +140332,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2871
 
 2871:                                             ; preds = %2863, %ma_dr_flac__calculate_prediction_64.exit751
-  %.13.i772 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2870, %2863 ]
+  %.13.i772 = phi i64 [ %2870, %2863 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2872 = load i32, ptr %492, align 4, !tbaa !3
   %2873 = sext i32 %2872 to i64
   %2874 = getelementptr inbounds i8, ptr %.01161340, i64 -68
@@ -140343,7 +140343,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2879
 
 2879:                                             ; preds = %2871, %ma_dr_flac__calculate_prediction_64.exit751
-  %.14.i771 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2878, %2871 ]
+  %.14.i771 = phi i64 [ %2878, %2871 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2880 = load i32, ptr %493, align 4, !tbaa !3
   %2881 = sext i32 %2880 to i64
   %2882 = getelementptr inbounds i8, ptr %.01161340, i64 -64
@@ -140354,7 +140354,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2887
 
 2887:                                             ; preds = %2879, %ma_dr_flac__calculate_prediction_64.exit751
-  %.15.i770 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2886, %2879 ]
+  %.15.i770 = phi i64 [ %2886, %2879 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2888 = load i32, ptr %494, align 4, !tbaa !3
   %2889 = sext i32 %2888 to i64
   %2890 = getelementptr inbounds i8, ptr %.01161340, i64 -60
@@ -140365,7 +140365,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2895
 
 2895:                                             ; preds = %2887, %ma_dr_flac__calculate_prediction_64.exit751
-  %.16.i769 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2894, %2887 ]
+  %.16.i769 = phi i64 [ %2894, %2887 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2896 = load i32, ptr %495, align 4, !tbaa !3
   %2897 = sext i32 %2896 to i64
   %2898 = getelementptr inbounds i8, ptr %.01161340, i64 -56
@@ -140376,7 +140376,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2903
 
 2903:                                             ; preds = %2895, %ma_dr_flac__calculate_prediction_64.exit751
-  %.17.i768 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2902, %2895 ]
+  %.17.i768 = phi i64 [ %2902, %2895 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2904 = load i32, ptr %496, align 4, !tbaa !3
   %2905 = sext i32 %2904 to i64
   %2906 = getelementptr inbounds i8, ptr %.01161340, i64 -52
@@ -140387,7 +140387,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2911
 
 2911:                                             ; preds = %2903, %ma_dr_flac__calculate_prediction_64.exit751
-  %.18.i767 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2910, %2903 ]
+  %.18.i767 = phi i64 [ %2910, %2903 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2912 = load i32, ptr %497, align 4, !tbaa !3
   %2913 = sext i32 %2912 to i64
   %2914 = getelementptr inbounds i8, ptr %.01161340, i64 -48
@@ -140398,7 +140398,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2919
 
 2919:                                             ; preds = %2911, %ma_dr_flac__calculate_prediction_64.exit751
-  %.19.i766 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2918, %2911 ]
+  %.19.i766 = phi i64 [ %2918, %2911 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2920 = load i32, ptr %498, align 4, !tbaa !3
   %2921 = sext i32 %2920 to i64
   %2922 = getelementptr inbounds i8, ptr %.01161340, i64 -44
@@ -140409,7 +140409,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2927
 
 2927:                                             ; preds = %2919, %ma_dr_flac__calculate_prediction_64.exit751
-  %.20.i765 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2926, %2919 ]
+  %.20.i765 = phi i64 [ %2926, %2919 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2928 = load i32, ptr %499, align 4, !tbaa !3
   %2929 = sext i32 %2928 to i64
   %2930 = getelementptr inbounds i8, ptr %.01161340, i64 -40
@@ -140420,7 +140420,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2935
 
 2935:                                             ; preds = %2927, %ma_dr_flac__calculate_prediction_64.exit751
-  %.21.i764 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2934, %2927 ]
+  %.21.i764 = phi i64 [ %2934, %2927 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2936 = load i32, ptr %500, align 4, !tbaa !3
   %2937 = sext i32 %2936 to i64
   %2938 = getelementptr inbounds i8, ptr %.01161340, i64 -36
@@ -140431,7 +140431,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2943
 
 2943:                                             ; preds = %2935, %ma_dr_flac__calculate_prediction_64.exit751
-  %.22.i763 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2942, %2935 ]
+  %.22.i763 = phi i64 [ %2942, %2935 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2944 = load i32, ptr %501, align 4, !tbaa !3
   %2945 = sext i32 %2944 to i64
   %2946 = getelementptr inbounds i8, ptr %.01161340, i64 -32
@@ -140442,7 +140442,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2951
 
 2951:                                             ; preds = %2943, %ma_dr_flac__calculate_prediction_64.exit751
-  %.23.i762 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2950, %2943 ]
+  %.23.i762 = phi i64 [ %2950, %2943 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2952 = load i32, ptr %502, align 4, !tbaa !3
   %2953 = sext i32 %2952 to i64
   %2954 = getelementptr inbounds i8, ptr %.01161340, i64 -28
@@ -140453,7 +140453,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2959
 
 2959:                                             ; preds = %2951, %ma_dr_flac__calculate_prediction_64.exit751
-  %.24.i761 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2958, %2951 ]
+  %.24.i761 = phi i64 [ %2958, %2951 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2960 = load i32, ptr %503, align 4, !tbaa !3
   %2961 = sext i32 %2960 to i64
   %2962 = getelementptr inbounds i8, ptr %.01161340, i64 -24
@@ -140464,7 +140464,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2967
 
 2967:                                             ; preds = %2959, %ma_dr_flac__calculate_prediction_64.exit751
-  %.25.i760 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2966, %2959 ]
+  %.25.i760 = phi i64 [ %2966, %2959 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2968 = load i32, ptr %504, align 4, !tbaa !3
   %2969 = sext i32 %2968 to i64
   %2970 = getelementptr inbounds i8, ptr %.01161340, i64 -20
@@ -140475,7 +140475,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2975
 
 2975:                                             ; preds = %2967, %ma_dr_flac__calculate_prediction_64.exit751
-  %.26.i759 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2974, %2967 ]
+  %.26.i759 = phi i64 [ %2974, %2967 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2976 = load i32, ptr %505, align 4, !tbaa !3
   %2977 = sext i32 %2976 to i64
   %2978 = getelementptr inbounds i8, ptr %.01161340, i64 -16
@@ -140486,7 +140486,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2983
 
 2983:                                             ; preds = %2975, %ma_dr_flac__calculate_prediction_64.exit751
-  %.27.i758 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2982, %2975 ]
+  %.27.i758 = phi i64 [ %2982, %2975 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2984 = load i32, ptr %506, align 4, !tbaa !3
   %2985 = sext i32 %2984 to i64
   %2986 = getelementptr inbounds i8, ptr %.01161340, i64 -12
@@ -140497,7 +140497,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2991
 
 2991:                                             ; preds = %2983, %ma_dr_flac__calculate_prediction_64.exit751
-  %.28.i757 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2990, %2983 ]
+  %.28.i757 = phi i64 [ %2990, %2983 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %2992 = load i32, ptr %507, align 4, !tbaa !3
   %2993 = sext i32 %2992 to i64
   %2994 = getelementptr inbounds i8, ptr %.01161340, i64 -8
@@ -140508,7 +140508,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %2999
 
 2999:                                             ; preds = %2991, %ma_dr_flac__calculate_prediction_64.exit751
-  %.29.i756 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %2998, %2991 ]
+  %.29.i756 = phi i64 [ %2998, %2991 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %3000 = load i32, ptr %508, align 4, !tbaa !3
   %3001 = sext i32 %3000 to i64
   %3002 = getelementptr inbounds i8, ptr %.01161340, i64 -4
@@ -140519,7 +140519,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %3007
 
 3007:                                             ; preds = %2999, %ma_dr_flac__calculate_prediction_64.exit751
-  %.30.i755 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %3006, %2999 ]
+  %.30.i755 = phi i64 [ %3006, %2999 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %3008 = load i32, ptr %509, align 4, !tbaa !3
   %3009 = sext i32 %3008 to i64
   %3010 = sext i32 %2509 to i64
@@ -140528,7 +140528,7 @@ ma_dr_flac__calculate_prediction_64.exit751:      ; preds = %ma_dr_flac__calcula
   br label %3013
 
 3013:                                             ; preds = %3007, %ma_dr_flac__calculate_prediction_64.exit751
-  %.31.i753 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ], [ %3012, %3007 ]
+  %.31.i753 = phi i64 [ %3012, %3007 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit751 ]
   %3014 = load i32, ptr %7, align 4, !tbaa !3
   %3015 = sext i32 %3014 to i64
   %3016 = sext i32 %2766 to i64
@@ -140588,7 +140588,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3030
 
 3030:                                             ; preds = %3023, %ma_dr_flac__calculate_prediction_64.exit785
-  %.1.i818 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3029, %3023 ]
+  %.1.i818 = phi i64 [ %3029, %3023 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3031 = load i32, ptr %480, align 4, !tbaa !3
   %3032 = sext i32 %3031 to i64
   %3033 = getelementptr inbounds i8, ptr %.01161340, i64 -112
@@ -140599,7 +140599,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3038
 
 3038:                                             ; preds = %3030, %ma_dr_flac__calculate_prediction_64.exit785
-  %.2.i817 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3037, %3030 ]
+  %.2.i817 = phi i64 [ %3037, %3030 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3039 = load i32, ptr %481, align 4, !tbaa !3
   %3040 = sext i32 %3039 to i64
   %3041 = getelementptr inbounds i8, ptr %.01161340, i64 -108
@@ -140610,7 +140610,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3046
 
 3046:                                             ; preds = %3038, %ma_dr_flac__calculate_prediction_64.exit785
-  %.3.i816 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3045, %3038 ]
+  %.3.i816 = phi i64 [ %3045, %3038 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3047 = load i32, ptr %482, align 4, !tbaa !3
   %3048 = sext i32 %3047 to i64
   %3049 = getelementptr inbounds i8, ptr %.01161340, i64 -104
@@ -140621,7 +140621,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3054
 
 3054:                                             ; preds = %3046, %ma_dr_flac__calculate_prediction_64.exit785
-  %.4.i815 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3053, %3046 ]
+  %.4.i815 = phi i64 [ %3053, %3046 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3055 = load i32, ptr %483, align 4, !tbaa !3
   %3056 = sext i32 %3055 to i64
   %3057 = getelementptr inbounds i8, ptr %.01161340, i64 -100
@@ -140632,7 +140632,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3062
 
 3062:                                             ; preds = %3054, %ma_dr_flac__calculate_prediction_64.exit785
-  %.5.i814 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3061, %3054 ]
+  %.5.i814 = phi i64 [ %3061, %3054 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3063 = load i32, ptr %484, align 4, !tbaa !3
   %3064 = sext i32 %3063 to i64
   %3065 = getelementptr inbounds i8, ptr %.01161340, i64 -96
@@ -140643,7 +140643,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3070
 
 3070:                                             ; preds = %3062, %ma_dr_flac__calculate_prediction_64.exit785
-  %.6.i813 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3069, %3062 ]
+  %.6.i813 = phi i64 [ %3069, %3062 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3071 = load i32, ptr %485, align 4, !tbaa !3
   %3072 = sext i32 %3071 to i64
   %3073 = getelementptr inbounds i8, ptr %.01161340, i64 -92
@@ -140654,7 +140654,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3078
 
 3078:                                             ; preds = %3070, %ma_dr_flac__calculate_prediction_64.exit785
-  %.7.i812 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3077, %3070 ]
+  %.7.i812 = phi i64 [ %3077, %3070 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3079 = load i32, ptr %486, align 4, !tbaa !3
   %3080 = sext i32 %3079 to i64
   %3081 = getelementptr inbounds i8, ptr %.01161340, i64 -88
@@ -140665,7 +140665,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3086
 
 3086:                                             ; preds = %3078, %ma_dr_flac__calculate_prediction_64.exit785
-  %.8.i811 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3085, %3078 ]
+  %.8.i811 = phi i64 [ %3085, %3078 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3087 = load i32, ptr %487, align 4, !tbaa !3
   %3088 = sext i32 %3087 to i64
   %3089 = getelementptr inbounds i8, ptr %.01161340, i64 -84
@@ -140676,7 +140676,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3094
 
 3094:                                             ; preds = %3086, %ma_dr_flac__calculate_prediction_64.exit785
-  %.9.i810 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3093, %3086 ]
+  %.9.i810 = phi i64 [ %3093, %3086 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3095 = load i32, ptr %488, align 4, !tbaa !3
   %3096 = sext i32 %3095 to i64
   %3097 = getelementptr inbounds i8, ptr %.01161340, i64 -80
@@ -140687,7 +140687,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3102
 
 3102:                                             ; preds = %3094, %ma_dr_flac__calculate_prediction_64.exit785
-  %.10.i809 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3101, %3094 ]
+  %.10.i809 = phi i64 [ %3101, %3094 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3103 = load i32, ptr %489, align 4, !tbaa !3
   %3104 = sext i32 %3103 to i64
   %3105 = getelementptr inbounds i8, ptr %.01161340, i64 -76
@@ -140698,7 +140698,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3110
 
 3110:                                             ; preds = %3102, %ma_dr_flac__calculate_prediction_64.exit785
-  %.11.i808 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3109, %3102 ]
+  %.11.i808 = phi i64 [ %3109, %3102 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3111 = load i32, ptr %490, align 4, !tbaa !3
   %3112 = sext i32 %3111 to i64
   %3113 = getelementptr inbounds i8, ptr %.01161340, i64 -72
@@ -140709,7 +140709,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3118
 
 3118:                                             ; preds = %3110, %ma_dr_flac__calculate_prediction_64.exit785
-  %.12.i807 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3117, %3110 ]
+  %.12.i807 = phi i64 [ %3117, %3110 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3119 = load i32, ptr %491, align 4, !tbaa !3
   %3120 = sext i32 %3119 to i64
   %3121 = getelementptr inbounds i8, ptr %.01161340, i64 -68
@@ -140720,7 +140720,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3126
 
 3126:                                             ; preds = %3118, %ma_dr_flac__calculate_prediction_64.exit785
-  %.13.i806 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3125, %3118 ]
+  %.13.i806 = phi i64 [ %3125, %3118 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3127 = load i32, ptr %492, align 4, !tbaa !3
   %3128 = sext i32 %3127 to i64
   %3129 = getelementptr inbounds i8, ptr %.01161340, i64 -64
@@ -140731,7 +140731,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3134
 
 3134:                                             ; preds = %3126, %ma_dr_flac__calculate_prediction_64.exit785
-  %.14.i805 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3133, %3126 ]
+  %.14.i805 = phi i64 [ %3133, %3126 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3135 = load i32, ptr %493, align 4, !tbaa !3
   %3136 = sext i32 %3135 to i64
   %3137 = getelementptr inbounds i8, ptr %.01161340, i64 -60
@@ -140742,7 +140742,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3142
 
 3142:                                             ; preds = %3134, %ma_dr_flac__calculate_prediction_64.exit785
-  %.15.i804 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3141, %3134 ]
+  %.15.i804 = phi i64 [ %3141, %3134 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3143 = load i32, ptr %494, align 4, !tbaa !3
   %3144 = sext i32 %3143 to i64
   %3145 = getelementptr inbounds i8, ptr %.01161340, i64 -56
@@ -140753,7 +140753,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3150
 
 3150:                                             ; preds = %3142, %ma_dr_flac__calculate_prediction_64.exit785
-  %.16.i803 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3149, %3142 ]
+  %.16.i803 = phi i64 [ %3149, %3142 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3151 = load i32, ptr %495, align 4, !tbaa !3
   %3152 = sext i32 %3151 to i64
   %3153 = getelementptr inbounds i8, ptr %.01161340, i64 -52
@@ -140764,7 +140764,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3158
 
 3158:                                             ; preds = %3150, %ma_dr_flac__calculate_prediction_64.exit785
-  %.17.i802 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3157, %3150 ]
+  %.17.i802 = phi i64 [ %3157, %3150 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3159 = load i32, ptr %496, align 4, !tbaa !3
   %3160 = sext i32 %3159 to i64
   %3161 = getelementptr inbounds i8, ptr %.01161340, i64 -48
@@ -140775,7 +140775,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3166
 
 3166:                                             ; preds = %3158, %ma_dr_flac__calculate_prediction_64.exit785
-  %.18.i801 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3165, %3158 ]
+  %.18.i801 = phi i64 [ %3165, %3158 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3167 = load i32, ptr %497, align 4, !tbaa !3
   %3168 = sext i32 %3167 to i64
   %3169 = getelementptr inbounds i8, ptr %.01161340, i64 -44
@@ -140786,7 +140786,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3174
 
 3174:                                             ; preds = %3166, %ma_dr_flac__calculate_prediction_64.exit785
-  %.19.i800 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3173, %3166 ]
+  %.19.i800 = phi i64 [ %3173, %3166 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3175 = load i32, ptr %498, align 4, !tbaa !3
   %3176 = sext i32 %3175 to i64
   %3177 = getelementptr inbounds i8, ptr %.01161340, i64 -40
@@ -140797,7 +140797,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3182
 
 3182:                                             ; preds = %3174, %ma_dr_flac__calculate_prediction_64.exit785
-  %.20.i799 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3181, %3174 ]
+  %.20.i799 = phi i64 [ %3181, %3174 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3183 = load i32, ptr %499, align 4, !tbaa !3
   %3184 = sext i32 %3183 to i64
   %3185 = getelementptr inbounds i8, ptr %.01161340, i64 -36
@@ -140808,7 +140808,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3190
 
 3190:                                             ; preds = %3182, %ma_dr_flac__calculate_prediction_64.exit785
-  %.21.i798 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3189, %3182 ]
+  %.21.i798 = phi i64 [ %3189, %3182 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3191 = load i32, ptr %500, align 4, !tbaa !3
   %3192 = sext i32 %3191 to i64
   %3193 = getelementptr inbounds i8, ptr %.01161340, i64 -32
@@ -140819,7 +140819,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3198
 
 3198:                                             ; preds = %3190, %ma_dr_flac__calculate_prediction_64.exit785
-  %.22.i797 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3197, %3190 ]
+  %.22.i797 = phi i64 [ %3197, %3190 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3199 = load i32, ptr %501, align 4, !tbaa !3
   %3200 = sext i32 %3199 to i64
   %3201 = getelementptr inbounds i8, ptr %.01161340, i64 -28
@@ -140830,7 +140830,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3206
 
 3206:                                             ; preds = %3198, %ma_dr_flac__calculate_prediction_64.exit785
-  %.23.i796 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3205, %3198 ]
+  %.23.i796 = phi i64 [ %3205, %3198 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3207 = load i32, ptr %502, align 4, !tbaa !3
   %3208 = sext i32 %3207 to i64
   %3209 = getelementptr inbounds i8, ptr %.01161340, i64 -24
@@ -140841,7 +140841,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3214
 
 3214:                                             ; preds = %3206, %ma_dr_flac__calculate_prediction_64.exit785
-  %.24.i795 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3213, %3206 ]
+  %.24.i795 = phi i64 [ %3213, %3206 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3215 = load i32, ptr %503, align 4, !tbaa !3
   %3216 = sext i32 %3215 to i64
   %3217 = getelementptr inbounds i8, ptr %.01161340, i64 -20
@@ -140852,7 +140852,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3222
 
 3222:                                             ; preds = %3214, %ma_dr_flac__calculate_prediction_64.exit785
-  %.25.i794 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3221, %3214 ]
+  %.25.i794 = phi i64 [ %3221, %3214 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3223 = load i32, ptr %504, align 4, !tbaa !3
   %3224 = sext i32 %3223 to i64
   %3225 = getelementptr inbounds i8, ptr %.01161340, i64 -16
@@ -140863,7 +140863,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3230
 
 3230:                                             ; preds = %3222, %ma_dr_flac__calculate_prediction_64.exit785
-  %.26.i793 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3229, %3222 ]
+  %.26.i793 = phi i64 [ %3229, %3222 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3231 = load i32, ptr %505, align 4, !tbaa !3
   %3232 = sext i32 %3231 to i64
   %3233 = getelementptr inbounds i8, ptr %.01161340, i64 -12
@@ -140874,7 +140874,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3238
 
 3238:                                             ; preds = %3230, %ma_dr_flac__calculate_prediction_64.exit785
-  %.27.i792 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3237, %3230 ]
+  %.27.i792 = phi i64 [ %3237, %3230 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3239 = load i32, ptr %506, align 4, !tbaa !3
   %3240 = sext i32 %3239 to i64
   %3241 = getelementptr inbounds i8, ptr %.01161340, i64 -8
@@ -140885,7 +140885,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3246
 
 3246:                                             ; preds = %3238, %ma_dr_flac__calculate_prediction_64.exit785
-  %.28.i791 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3245, %3238 ]
+  %.28.i791 = phi i64 [ %3245, %3238 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3247 = load i32, ptr %507, align 4, !tbaa !3
   %3248 = sext i32 %3247 to i64
   %3249 = getelementptr inbounds i8, ptr %.01161340, i64 -4
@@ -140896,7 +140896,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3254
 
 3254:                                             ; preds = %3246, %ma_dr_flac__calculate_prediction_64.exit785
-  %.29.i790 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3253, %3246 ]
+  %.29.i790 = phi i64 [ %3253, %3246 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3255 = load i32, ptr %508, align 4, !tbaa !3
   %3256 = sext i32 %3255 to i64
   %3257 = sext i32 %2509 to i64
@@ -140905,7 +140905,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3260
 
 3260:                                             ; preds = %3254, %ma_dr_flac__calculate_prediction_64.exit785
-  %.30.i789 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3259, %3254 ]
+  %.30.i789 = phi i64 [ %3259, %3254 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3261 = load i32, ptr %509, align 4, !tbaa !3
   %3262 = sext i32 %3261 to i64
   %3263 = sext i32 %2766 to i64
@@ -140914,7 +140914,7 @@ ma_dr_flac__calculate_prediction_64.exit785:      ; preds = %ma_dr_flac__calcula
   br label %3266
 
 3266:                                             ; preds = %3260, %ma_dr_flac__calculate_prediction_64.exit785
-  %.31.i787 = phi i64 [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ], [ %3265, %3260 ]
+  %.31.i787 = phi i64 [ %3265, %3260 ], [ 0, %ma_dr_flac__calculate_prediction_64.exit785 ]
   %3267 = load i32, ptr %7, align 4, !tbaa !3
   %3268 = sext i32 %3267 to i64
   %3269 = sext i32 %3021 to i64
@@ -143459,7 +143459,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %4981
 
 4981:                                             ; preds = %4976, %4939
-  %.1.i886 = phi i32 [ 0, %4939 ], [ %4980, %4976 ]
+  %.1.i886 = phi i32 [ %4980, %4976 ], [ 0, %4939 ]
   %4982 = load i32, ptr %523, align 4, !tbaa !3
   %4983 = getelementptr inbounds i8, ptr %.21341, i64 -124
   %4984 = load i32, ptr %4983, align 4, !tbaa !3
@@ -143468,7 +143468,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %4987
 
 4987:                                             ; preds = %4981, %4939
-  %.2.i885 = phi i32 [ 0, %4939 ], [ %4986, %4981 ]
+  %.2.i885 = phi i32 [ %4986, %4981 ], [ 0, %4939 ]
   %4988 = load i32, ptr %524, align 4, !tbaa !3
   %4989 = getelementptr inbounds i8, ptr %.21341, i64 -120
   %4990 = load i32, ptr %4989, align 4, !tbaa !3
@@ -143477,7 +143477,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %4993
 
 4993:                                             ; preds = %4987, %4939
-  %.3.i884 = phi i32 [ 0, %4939 ], [ %4992, %4987 ]
+  %.3.i884 = phi i32 [ %4992, %4987 ], [ 0, %4939 ]
   %4994 = load i32, ptr %525, align 4, !tbaa !3
   %4995 = getelementptr inbounds i8, ptr %.21341, i64 -116
   %4996 = load i32, ptr %4995, align 4, !tbaa !3
@@ -143486,7 +143486,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %4999
 
 4999:                                             ; preds = %4993, %4939
-  %.4.i883 = phi i32 [ 0, %4939 ], [ %4998, %4993 ]
+  %.4.i883 = phi i32 [ %4998, %4993 ], [ 0, %4939 ]
   %5000 = load i32, ptr %526, align 4, !tbaa !3
   %5001 = getelementptr inbounds i8, ptr %.21341, i64 -112
   %5002 = load i32, ptr %5001, align 4, !tbaa !3
@@ -143495,7 +143495,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5005
 
 5005:                                             ; preds = %4999, %4939
-  %.5.i882 = phi i32 [ 0, %4939 ], [ %5004, %4999 ]
+  %.5.i882 = phi i32 [ %5004, %4999 ], [ 0, %4939 ]
   %5006 = load i32, ptr %527, align 4, !tbaa !3
   %5007 = getelementptr inbounds i8, ptr %.21341, i64 -108
   %5008 = load i32, ptr %5007, align 4, !tbaa !3
@@ -143504,7 +143504,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5011
 
 5011:                                             ; preds = %5005, %4939
-  %.6.i881 = phi i32 [ 0, %4939 ], [ %5010, %5005 ]
+  %.6.i881 = phi i32 [ %5010, %5005 ], [ 0, %4939 ]
   %5012 = load i32, ptr %528, align 4, !tbaa !3
   %5013 = getelementptr inbounds i8, ptr %.21341, i64 -104
   %5014 = load i32, ptr %5013, align 4, !tbaa !3
@@ -143513,7 +143513,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5017
 
 5017:                                             ; preds = %5011, %4939
-  %.7.i880 = phi i32 [ 0, %4939 ], [ %5016, %5011 ]
+  %.7.i880 = phi i32 [ %5016, %5011 ], [ 0, %4939 ]
   %5018 = load i32, ptr %529, align 4, !tbaa !3
   %5019 = getelementptr inbounds i8, ptr %.21341, i64 -100
   %5020 = load i32, ptr %5019, align 4, !tbaa !3
@@ -143522,7 +143522,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5023
 
 5023:                                             ; preds = %5017, %4939
-  %.8.i879 = phi i32 [ 0, %4939 ], [ %5022, %5017 ]
+  %.8.i879 = phi i32 [ %5022, %5017 ], [ 0, %4939 ]
   %5024 = load i32, ptr %530, align 4, !tbaa !3
   %5025 = getelementptr inbounds i8, ptr %.21341, i64 -96
   %5026 = load i32, ptr %5025, align 4, !tbaa !3
@@ -143531,7 +143531,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5029
 
 5029:                                             ; preds = %5023, %4939
-  %.9.i878 = phi i32 [ 0, %4939 ], [ %5028, %5023 ]
+  %.9.i878 = phi i32 [ %5028, %5023 ], [ 0, %4939 ]
   %5030 = load i32, ptr %531, align 4, !tbaa !3
   %5031 = getelementptr inbounds i8, ptr %.21341, i64 -92
   %5032 = load i32, ptr %5031, align 4, !tbaa !3
@@ -143540,7 +143540,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5035
 
 5035:                                             ; preds = %5029, %4939
-  %.10.i877 = phi i32 [ 0, %4939 ], [ %5034, %5029 ]
+  %.10.i877 = phi i32 [ %5034, %5029 ], [ 0, %4939 ]
   %5036 = load i32, ptr %532, align 4, !tbaa !3
   %5037 = getelementptr inbounds i8, ptr %.21341, i64 -88
   %5038 = load i32, ptr %5037, align 4, !tbaa !3
@@ -143549,7 +143549,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5041
 
 5041:                                             ; preds = %5035, %4939
-  %.11.i876 = phi i32 [ 0, %4939 ], [ %5040, %5035 ]
+  %.11.i876 = phi i32 [ %5040, %5035 ], [ 0, %4939 ]
   %5042 = load i32, ptr %533, align 4, !tbaa !3
   %5043 = getelementptr inbounds i8, ptr %.21341, i64 -84
   %5044 = load i32, ptr %5043, align 4, !tbaa !3
@@ -143558,7 +143558,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5047
 
 5047:                                             ; preds = %5041, %4939
-  %.12.i875 = phi i32 [ 0, %4939 ], [ %5046, %5041 ]
+  %.12.i875 = phi i32 [ %5046, %5041 ], [ 0, %4939 ]
   %5048 = load i32, ptr %534, align 4, !tbaa !3
   %5049 = getelementptr inbounds i8, ptr %.21341, i64 -80
   %5050 = load i32, ptr %5049, align 4, !tbaa !3
@@ -143567,7 +143567,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5053
 
 5053:                                             ; preds = %5047, %4939
-  %.13.i874 = phi i32 [ 0, %4939 ], [ %5052, %5047 ]
+  %.13.i874 = phi i32 [ %5052, %5047 ], [ 0, %4939 ]
   %5054 = load i32, ptr %535, align 4, !tbaa !3
   %5055 = getelementptr inbounds i8, ptr %.21341, i64 -76
   %5056 = load i32, ptr %5055, align 4, !tbaa !3
@@ -143576,7 +143576,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5059
 
 5059:                                             ; preds = %5053, %4939
-  %.14.i873 = phi i32 [ 0, %4939 ], [ %5058, %5053 ]
+  %.14.i873 = phi i32 [ %5058, %5053 ], [ 0, %4939 ]
   %5060 = load i32, ptr %536, align 4, !tbaa !3
   %5061 = getelementptr inbounds i8, ptr %.21341, i64 -72
   %5062 = load i32, ptr %5061, align 4, !tbaa !3
@@ -143585,7 +143585,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5065
 
 5065:                                             ; preds = %5059, %4939
-  %.15.i872 = phi i32 [ 0, %4939 ], [ %5064, %5059 ]
+  %.15.i872 = phi i32 [ %5064, %5059 ], [ 0, %4939 ]
   %5066 = load i32, ptr %537, align 4, !tbaa !3
   %5067 = getelementptr inbounds i8, ptr %.21341, i64 -68
   %5068 = load i32, ptr %5067, align 4, !tbaa !3
@@ -143594,7 +143594,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5071
 
 5071:                                             ; preds = %5065, %4939
-  %.16.i871 = phi i32 [ 0, %4939 ], [ %5070, %5065 ]
+  %.16.i871 = phi i32 [ %5070, %5065 ], [ 0, %4939 ]
   %5072 = load i32, ptr %538, align 4, !tbaa !3
   %5073 = getelementptr inbounds i8, ptr %.21341, i64 -64
   %5074 = load i32, ptr %5073, align 4, !tbaa !3
@@ -143603,7 +143603,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5077
 
 5077:                                             ; preds = %5071, %4939
-  %.17.i870 = phi i32 [ 0, %4939 ], [ %5076, %5071 ]
+  %.17.i870 = phi i32 [ %5076, %5071 ], [ 0, %4939 ]
   %5078 = load i32, ptr %539, align 4, !tbaa !3
   %5079 = getelementptr inbounds i8, ptr %.21341, i64 -60
   %5080 = load i32, ptr %5079, align 4, !tbaa !3
@@ -143612,7 +143612,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5083
 
 5083:                                             ; preds = %5077, %4939
-  %.18.i869 = phi i32 [ 0, %4939 ], [ %5082, %5077 ]
+  %.18.i869 = phi i32 [ %5082, %5077 ], [ 0, %4939 ]
   %5084 = load i32, ptr %540, align 4, !tbaa !3
   %5085 = getelementptr inbounds i8, ptr %.21341, i64 -56
   %5086 = load i32, ptr %5085, align 4, !tbaa !3
@@ -143621,7 +143621,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5089
 
 5089:                                             ; preds = %5083, %4939
-  %.19.i868 = phi i32 [ 0, %4939 ], [ %5088, %5083 ]
+  %.19.i868 = phi i32 [ %5088, %5083 ], [ 0, %4939 ]
   %5090 = load i32, ptr %541, align 4, !tbaa !3
   %5091 = getelementptr inbounds i8, ptr %.21341, i64 -52
   %5092 = load i32, ptr %5091, align 4, !tbaa !3
@@ -143630,7 +143630,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5095
 
 5095:                                             ; preds = %5089, %4939
-  %.20.i867 = phi i32 [ 0, %4939 ], [ %5094, %5089 ]
+  %.20.i867 = phi i32 [ %5094, %5089 ], [ 0, %4939 ]
   %5096 = load i32, ptr %542, align 4, !tbaa !3
   %5097 = getelementptr inbounds i8, ptr %.21341, i64 -48
   %5098 = load i32, ptr %5097, align 4, !tbaa !3
@@ -143639,7 +143639,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5101
 
 5101:                                             ; preds = %5095, %4939
-  %.21.i866 = phi i32 [ 0, %4939 ], [ %5100, %5095 ]
+  %.21.i866 = phi i32 [ %5100, %5095 ], [ 0, %4939 ]
   %5102 = load i32, ptr %543, align 4, !tbaa !3
   %5103 = getelementptr inbounds i8, ptr %.21341, i64 -44
   %5104 = load i32, ptr %5103, align 4, !tbaa !3
@@ -143648,7 +143648,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5107
 
 5107:                                             ; preds = %5101, %4939
-  %.22.i865 = phi i32 [ 0, %4939 ], [ %5106, %5101 ]
+  %.22.i865 = phi i32 [ %5106, %5101 ], [ 0, %4939 ]
   %5108 = load i32, ptr %544, align 4, !tbaa !3
   %5109 = getelementptr inbounds i8, ptr %.21341, i64 -40
   %5110 = load i32, ptr %5109, align 4, !tbaa !3
@@ -143657,7 +143657,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5113
 
 5113:                                             ; preds = %5107, %4939
-  %.23.i864 = phi i32 [ 0, %4939 ], [ %5112, %5107 ]
+  %.23.i864 = phi i32 [ %5112, %5107 ], [ 0, %4939 ]
   %5114 = load i32, ptr %545, align 4, !tbaa !3
   %5115 = getelementptr inbounds i8, ptr %.21341, i64 -36
   %5116 = load i32, ptr %5115, align 4, !tbaa !3
@@ -143666,7 +143666,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5119
 
 5119:                                             ; preds = %5113, %4939
-  %.24.i863 = phi i32 [ 0, %4939 ], [ %5118, %5113 ]
+  %.24.i863 = phi i32 [ %5118, %5113 ], [ 0, %4939 ]
   %5120 = load i32, ptr %546, align 4, !tbaa !3
   %5121 = getelementptr inbounds i8, ptr %.21341, i64 -32
   %5122 = load i32, ptr %5121, align 4, !tbaa !3
@@ -143675,7 +143675,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5125
 
 5125:                                             ; preds = %5119, %4939
-  %.25.i862 = phi i32 [ 0, %4939 ], [ %5124, %5119 ]
+  %.25.i862 = phi i32 [ %5124, %5119 ], [ 0, %4939 ]
   %5126 = load i32, ptr %547, align 4, !tbaa !3
   %5127 = getelementptr inbounds i8, ptr %.21341, i64 -28
   %5128 = load i32, ptr %5127, align 4, !tbaa !3
@@ -143684,7 +143684,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5131
 
 5131:                                             ; preds = %5125, %4939
-  %.26.i861 = phi i32 [ 0, %4939 ], [ %5130, %5125 ]
+  %.26.i861 = phi i32 [ %5130, %5125 ], [ 0, %4939 ]
   %5132 = load i32, ptr %548, align 4, !tbaa !3
   %5133 = getelementptr inbounds i8, ptr %.21341, i64 -24
   %5134 = load i32, ptr %5133, align 4, !tbaa !3
@@ -143693,7 +143693,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5137
 
 5137:                                             ; preds = %5131, %4939
-  %.27.i860 = phi i32 [ 0, %4939 ], [ %5136, %5131 ]
+  %.27.i860 = phi i32 [ %5136, %5131 ], [ 0, %4939 ]
   %5138 = load i32, ptr %549, align 4, !tbaa !3
   %5139 = getelementptr inbounds i8, ptr %.21341, i64 -20
   %5140 = load i32, ptr %5139, align 4, !tbaa !3
@@ -143702,7 +143702,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5143
 
 5143:                                             ; preds = %5137, %4939
-  %.28.i859 = phi i32 [ 0, %4939 ], [ %5142, %5137 ]
+  %.28.i859 = phi i32 [ %5142, %5137 ], [ 0, %4939 ]
   %5144 = load i32, ptr %550, align 4, !tbaa !3
   %5145 = getelementptr inbounds i8, ptr %.21341, i64 -16
   %5146 = load i32, ptr %5145, align 4, !tbaa !3
@@ -143711,7 +143711,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5149
 
 5149:                                             ; preds = %5143, %4939
-  %.29.i858 = phi i32 [ 0, %4939 ], [ %5148, %5143 ]
+  %.29.i858 = phi i32 [ %5148, %5143 ], [ 0, %4939 ]
   %5150 = load i32, ptr %551, align 4, !tbaa !3
   %5151 = getelementptr inbounds i8, ptr %.21341, i64 -12
   %5152 = load i32, ptr %5151, align 4, !tbaa !3
@@ -143720,7 +143720,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5155
 
 5155:                                             ; preds = %5149, %4939
-  %.30.i857 = phi i32 [ 0, %4939 ], [ %5154, %5149 ]
+  %.30.i857 = phi i32 [ %5154, %5149 ], [ 0, %4939 ]
   %5156 = load i32, ptr %552, align 4, !tbaa !3
   %5157 = getelementptr inbounds i8, ptr %.21341, i64 -8
   %5158 = load i32, ptr %5157, align 4, !tbaa !3
@@ -143729,7 +143729,7 @@ ma_dr_flac__clz.exit.i578:                        ; preds = %4912, %4935, %4909
   br label %5161
 
 5161:                                             ; preds = %5155, %4939
-  %.31.i855 = phi i32 [ 0, %4939 ], [ %5160, %5155 ]
+  %.31.i855 = phi i32 [ %5160, %5155 ], [ 0, %4939 ]
   %5162 = load i32, ptr %7, align 4, !tbaa !3
   %5163 = getelementptr inbounds i8, ptr %.21341, i64 -4
   %5164 = load i32, ptr %5163, align 4, !tbaa !3
@@ -143786,7 +143786,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5175
 
 5175:                                             ; preds = %5170, %ma_dr_flac__calculate_prediction_32.exit
-  %.1.i919 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5174, %5170 ]
+  %.1.i919 = phi i32 [ %5174, %5170 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5176 = load i32, ptr %523, align 4, !tbaa !3
   %5177 = getelementptr inbounds i8, ptr %.21341, i64 -120
   %5178 = load i32, ptr %5177, align 4, !tbaa !3
@@ -143795,7 +143795,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5181
 
 5181:                                             ; preds = %5175, %ma_dr_flac__calculate_prediction_32.exit
-  %.2.i918 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5180, %5175 ]
+  %.2.i918 = phi i32 [ %5180, %5175 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5182 = load i32, ptr %524, align 4, !tbaa !3
   %5183 = getelementptr inbounds i8, ptr %.21341, i64 -116
   %5184 = load i32, ptr %5183, align 4, !tbaa !3
@@ -143804,7 +143804,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5187
 
 5187:                                             ; preds = %5181, %ma_dr_flac__calculate_prediction_32.exit
-  %.3.i917 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5186, %5181 ]
+  %.3.i917 = phi i32 [ %5186, %5181 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5188 = load i32, ptr %525, align 4, !tbaa !3
   %5189 = getelementptr inbounds i8, ptr %.21341, i64 -112
   %5190 = load i32, ptr %5189, align 4, !tbaa !3
@@ -143813,7 +143813,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5193
 
 5193:                                             ; preds = %5187, %ma_dr_flac__calculate_prediction_32.exit
-  %.4.i916 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5192, %5187 ]
+  %.4.i916 = phi i32 [ %5192, %5187 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5194 = load i32, ptr %526, align 4, !tbaa !3
   %5195 = getelementptr inbounds i8, ptr %.21341, i64 -108
   %5196 = load i32, ptr %5195, align 4, !tbaa !3
@@ -143822,7 +143822,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5199
 
 5199:                                             ; preds = %5193, %ma_dr_flac__calculate_prediction_32.exit
-  %.5.i915 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5198, %5193 ]
+  %.5.i915 = phi i32 [ %5198, %5193 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5200 = load i32, ptr %527, align 4, !tbaa !3
   %5201 = getelementptr inbounds i8, ptr %.21341, i64 -104
   %5202 = load i32, ptr %5201, align 4, !tbaa !3
@@ -143831,7 +143831,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5205
 
 5205:                                             ; preds = %5199, %ma_dr_flac__calculate_prediction_32.exit
-  %.6.i914 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5204, %5199 ]
+  %.6.i914 = phi i32 [ %5204, %5199 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5206 = load i32, ptr %528, align 4, !tbaa !3
   %5207 = getelementptr inbounds i8, ptr %.21341, i64 -100
   %5208 = load i32, ptr %5207, align 4, !tbaa !3
@@ -143840,7 +143840,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5211
 
 5211:                                             ; preds = %5205, %ma_dr_flac__calculate_prediction_32.exit
-  %.7.i913 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5210, %5205 ]
+  %.7.i913 = phi i32 [ %5210, %5205 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5212 = load i32, ptr %529, align 4, !tbaa !3
   %5213 = getelementptr inbounds i8, ptr %.21341, i64 -96
   %5214 = load i32, ptr %5213, align 4, !tbaa !3
@@ -143849,7 +143849,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5217
 
 5217:                                             ; preds = %5211, %ma_dr_flac__calculate_prediction_32.exit
-  %.8.i912 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5216, %5211 ]
+  %.8.i912 = phi i32 [ %5216, %5211 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5218 = load i32, ptr %530, align 4, !tbaa !3
   %5219 = getelementptr inbounds i8, ptr %.21341, i64 -92
   %5220 = load i32, ptr %5219, align 4, !tbaa !3
@@ -143858,7 +143858,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5223
 
 5223:                                             ; preds = %5217, %ma_dr_flac__calculate_prediction_32.exit
-  %.9.i911 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5222, %5217 ]
+  %.9.i911 = phi i32 [ %5222, %5217 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5224 = load i32, ptr %531, align 4, !tbaa !3
   %5225 = getelementptr inbounds i8, ptr %.21341, i64 -88
   %5226 = load i32, ptr %5225, align 4, !tbaa !3
@@ -143867,7 +143867,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5229
 
 5229:                                             ; preds = %5223, %ma_dr_flac__calculate_prediction_32.exit
-  %.10.i910 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5228, %5223 ]
+  %.10.i910 = phi i32 [ %5228, %5223 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5230 = load i32, ptr %532, align 4, !tbaa !3
   %5231 = getelementptr inbounds i8, ptr %.21341, i64 -84
   %5232 = load i32, ptr %5231, align 4, !tbaa !3
@@ -143876,7 +143876,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5235
 
 5235:                                             ; preds = %5229, %ma_dr_flac__calculate_prediction_32.exit
-  %.11.i909 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5234, %5229 ]
+  %.11.i909 = phi i32 [ %5234, %5229 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5236 = load i32, ptr %533, align 4, !tbaa !3
   %5237 = getelementptr inbounds i8, ptr %.21341, i64 -80
   %5238 = load i32, ptr %5237, align 4, !tbaa !3
@@ -143885,7 +143885,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5241
 
 5241:                                             ; preds = %5235, %ma_dr_flac__calculate_prediction_32.exit
-  %.12.i908 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5240, %5235 ]
+  %.12.i908 = phi i32 [ %5240, %5235 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5242 = load i32, ptr %534, align 4, !tbaa !3
   %5243 = getelementptr inbounds i8, ptr %.21341, i64 -76
   %5244 = load i32, ptr %5243, align 4, !tbaa !3
@@ -143894,7 +143894,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5247
 
 5247:                                             ; preds = %5241, %ma_dr_flac__calculate_prediction_32.exit
-  %.13.i907 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5246, %5241 ]
+  %.13.i907 = phi i32 [ %5246, %5241 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5248 = load i32, ptr %535, align 4, !tbaa !3
   %5249 = getelementptr inbounds i8, ptr %.21341, i64 -72
   %5250 = load i32, ptr %5249, align 4, !tbaa !3
@@ -143903,7 +143903,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5253
 
 5253:                                             ; preds = %5247, %ma_dr_flac__calculate_prediction_32.exit
-  %.14.i906 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5252, %5247 ]
+  %.14.i906 = phi i32 [ %5252, %5247 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5254 = load i32, ptr %536, align 4, !tbaa !3
   %5255 = getelementptr inbounds i8, ptr %.21341, i64 -68
   %5256 = load i32, ptr %5255, align 4, !tbaa !3
@@ -143912,7 +143912,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5259
 
 5259:                                             ; preds = %5253, %ma_dr_flac__calculate_prediction_32.exit
-  %.15.i905 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5258, %5253 ]
+  %.15.i905 = phi i32 [ %5258, %5253 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5260 = load i32, ptr %537, align 4, !tbaa !3
   %5261 = getelementptr inbounds i8, ptr %.21341, i64 -64
   %5262 = load i32, ptr %5261, align 4, !tbaa !3
@@ -143921,7 +143921,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5265
 
 5265:                                             ; preds = %5259, %ma_dr_flac__calculate_prediction_32.exit
-  %.16.i904 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5264, %5259 ]
+  %.16.i904 = phi i32 [ %5264, %5259 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5266 = load i32, ptr %538, align 4, !tbaa !3
   %5267 = getelementptr inbounds i8, ptr %.21341, i64 -60
   %5268 = load i32, ptr %5267, align 4, !tbaa !3
@@ -143930,7 +143930,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5271
 
 5271:                                             ; preds = %5265, %ma_dr_flac__calculate_prediction_32.exit
-  %.17.i903 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5270, %5265 ]
+  %.17.i903 = phi i32 [ %5270, %5265 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5272 = load i32, ptr %539, align 4, !tbaa !3
   %5273 = getelementptr inbounds i8, ptr %.21341, i64 -56
   %5274 = load i32, ptr %5273, align 4, !tbaa !3
@@ -143939,7 +143939,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5277
 
 5277:                                             ; preds = %5271, %ma_dr_flac__calculate_prediction_32.exit
-  %.18.i902 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5276, %5271 ]
+  %.18.i902 = phi i32 [ %5276, %5271 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5278 = load i32, ptr %540, align 4, !tbaa !3
   %5279 = getelementptr inbounds i8, ptr %.21341, i64 -52
   %5280 = load i32, ptr %5279, align 4, !tbaa !3
@@ -143948,7 +143948,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5283
 
 5283:                                             ; preds = %5277, %ma_dr_flac__calculate_prediction_32.exit
-  %.19.i901 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5282, %5277 ]
+  %.19.i901 = phi i32 [ %5282, %5277 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5284 = load i32, ptr %541, align 4, !tbaa !3
   %5285 = getelementptr inbounds i8, ptr %.21341, i64 -48
   %5286 = load i32, ptr %5285, align 4, !tbaa !3
@@ -143957,7 +143957,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5289
 
 5289:                                             ; preds = %5283, %ma_dr_flac__calculate_prediction_32.exit
-  %.20.i900 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5288, %5283 ]
+  %.20.i900 = phi i32 [ %5288, %5283 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5290 = load i32, ptr %542, align 4, !tbaa !3
   %5291 = getelementptr inbounds i8, ptr %.21341, i64 -44
   %5292 = load i32, ptr %5291, align 4, !tbaa !3
@@ -143966,7 +143966,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5295
 
 5295:                                             ; preds = %5289, %ma_dr_flac__calculate_prediction_32.exit
-  %.21.i899 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5294, %5289 ]
+  %.21.i899 = phi i32 [ %5294, %5289 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5296 = load i32, ptr %543, align 4, !tbaa !3
   %5297 = getelementptr inbounds i8, ptr %.21341, i64 -40
   %5298 = load i32, ptr %5297, align 4, !tbaa !3
@@ -143975,7 +143975,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5301
 
 5301:                                             ; preds = %5295, %ma_dr_flac__calculate_prediction_32.exit
-  %.22.i898 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5300, %5295 ]
+  %.22.i898 = phi i32 [ %5300, %5295 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5302 = load i32, ptr %544, align 4, !tbaa !3
   %5303 = getelementptr inbounds i8, ptr %.21341, i64 -36
   %5304 = load i32, ptr %5303, align 4, !tbaa !3
@@ -143984,7 +143984,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5307
 
 5307:                                             ; preds = %5301, %ma_dr_flac__calculate_prediction_32.exit
-  %.23.i897 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5306, %5301 ]
+  %.23.i897 = phi i32 [ %5306, %5301 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5308 = load i32, ptr %545, align 4, !tbaa !3
   %5309 = getelementptr inbounds i8, ptr %.21341, i64 -32
   %5310 = load i32, ptr %5309, align 4, !tbaa !3
@@ -143993,7 +143993,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5313
 
 5313:                                             ; preds = %5307, %ma_dr_flac__calculate_prediction_32.exit
-  %.24.i896 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5312, %5307 ]
+  %.24.i896 = phi i32 [ %5312, %5307 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5314 = load i32, ptr %546, align 4, !tbaa !3
   %5315 = getelementptr inbounds i8, ptr %.21341, i64 -28
   %5316 = load i32, ptr %5315, align 4, !tbaa !3
@@ -144002,7 +144002,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5319
 
 5319:                                             ; preds = %5313, %ma_dr_flac__calculate_prediction_32.exit
-  %.25.i895 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5318, %5313 ]
+  %.25.i895 = phi i32 [ %5318, %5313 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5320 = load i32, ptr %547, align 4, !tbaa !3
   %5321 = getelementptr inbounds i8, ptr %.21341, i64 -24
   %5322 = load i32, ptr %5321, align 4, !tbaa !3
@@ -144011,7 +144011,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5325
 
 5325:                                             ; preds = %5319, %ma_dr_flac__calculate_prediction_32.exit
-  %.26.i894 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5324, %5319 ]
+  %.26.i894 = phi i32 [ %5324, %5319 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5326 = load i32, ptr %548, align 4, !tbaa !3
   %5327 = getelementptr inbounds i8, ptr %.21341, i64 -20
   %5328 = load i32, ptr %5327, align 4, !tbaa !3
@@ -144020,7 +144020,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5331
 
 5331:                                             ; preds = %5325, %ma_dr_flac__calculate_prediction_32.exit
-  %.27.i893 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5330, %5325 ]
+  %.27.i893 = phi i32 [ %5330, %5325 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5332 = load i32, ptr %549, align 4, !tbaa !3
   %5333 = getelementptr inbounds i8, ptr %.21341, i64 -16
   %5334 = load i32, ptr %5333, align 4, !tbaa !3
@@ -144029,7 +144029,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5337
 
 5337:                                             ; preds = %5331, %ma_dr_flac__calculate_prediction_32.exit
-  %.28.i892 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5336, %5331 ]
+  %.28.i892 = phi i32 [ %5336, %5331 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5338 = load i32, ptr %550, align 4, !tbaa !3
   %5339 = getelementptr inbounds i8, ptr %.21341, i64 -12
   %5340 = load i32, ptr %5339, align 4, !tbaa !3
@@ -144038,7 +144038,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5343
 
 5343:                                             ; preds = %5337, %ma_dr_flac__calculate_prediction_32.exit
-  %.29.i891 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5342, %5337 ]
+  %.29.i891 = phi i32 [ %5342, %5337 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5344 = load i32, ptr %551, align 4, !tbaa !3
   %5345 = getelementptr inbounds i8, ptr %.21341, i64 -8
   %5346 = load i32, ptr %5345, align 4, !tbaa !3
@@ -144047,7 +144047,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5349
 
 5349:                                             ; preds = %5343, %ma_dr_flac__calculate_prediction_32.exit
-  %.30.i890 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5348, %5343 ]
+  %.30.i890 = phi i32 [ %5348, %5343 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5350 = load i32, ptr %552, align 4, !tbaa !3
   %5351 = getelementptr inbounds i8, ptr %.21341, i64 -4
   %5352 = load i32, ptr %5351, align 4, !tbaa !3
@@ -144056,7 +144056,7 @@ ma_dr_flac__calculate_prediction_32.exit:         ; preds = %4939, %5161
   br label %5355
 
 5355:                                             ; preds = %5349, %ma_dr_flac__calculate_prediction_32.exit
-  %.31.i888 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit ], [ %5354, %5349 ]
+  %.31.i888 = phi i32 [ %5354, %5349 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit ]
   %5356 = load i32, ptr %7, align 4, !tbaa !3
   %5357 = mul nsw i32 %5168, %5356
   %5358 = add nsw i32 %5357, %.31.i888
@@ -144111,7 +144111,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5367
 
 5367:                                             ; preds = %5362, %ma_dr_flac__calculate_prediction_32.exit920
-  %.1.i953 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5366, %5362 ]
+  %.1.i953 = phi i32 [ %5366, %5362 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5368 = load i32, ptr %523, align 4, !tbaa !3
   %5369 = getelementptr inbounds i8, ptr %.21341, i64 -116
   %5370 = load i32, ptr %5369, align 4, !tbaa !3
@@ -144120,7 +144120,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5373
 
 5373:                                             ; preds = %5367, %ma_dr_flac__calculate_prediction_32.exit920
-  %.2.i952 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5372, %5367 ]
+  %.2.i952 = phi i32 [ %5372, %5367 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5374 = load i32, ptr %524, align 4, !tbaa !3
   %5375 = getelementptr inbounds i8, ptr %.21341, i64 -112
   %5376 = load i32, ptr %5375, align 4, !tbaa !3
@@ -144129,7 +144129,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5379
 
 5379:                                             ; preds = %5373, %ma_dr_flac__calculate_prediction_32.exit920
-  %.3.i951 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5378, %5373 ]
+  %.3.i951 = phi i32 [ %5378, %5373 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5380 = load i32, ptr %525, align 4, !tbaa !3
   %5381 = getelementptr inbounds i8, ptr %.21341, i64 -108
   %5382 = load i32, ptr %5381, align 4, !tbaa !3
@@ -144138,7 +144138,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5385
 
 5385:                                             ; preds = %5379, %ma_dr_flac__calculate_prediction_32.exit920
-  %.4.i950 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5384, %5379 ]
+  %.4.i950 = phi i32 [ %5384, %5379 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5386 = load i32, ptr %526, align 4, !tbaa !3
   %5387 = getelementptr inbounds i8, ptr %.21341, i64 -104
   %5388 = load i32, ptr %5387, align 4, !tbaa !3
@@ -144147,7 +144147,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5391
 
 5391:                                             ; preds = %5385, %ma_dr_flac__calculate_prediction_32.exit920
-  %.5.i949 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5390, %5385 ]
+  %.5.i949 = phi i32 [ %5390, %5385 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5392 = load i32, ptr %527, align 4, !tbaa !3
   %5393 = getelementptr inbounds i8, ptr %.21341, i64 -100
   %5394 = load i32, ptr %5393, align 4, !tbaa !3
@@ -144156,7 +144156,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5397
 
 5397:                                             ; preds = %5391, %ma_dr_flac__calculate_prediction_32.exit920
-  %.6.i948 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5396, %5391 ]
+  %.6.i948 = phi i32 [ %5396, %5391 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5398 = load i32, ptr %528, align 4, !tbaa !3
   %5399 = getelementptr inbounds i8, ptr %.21341, i64 -96
   %5400 = load i32, ptr %5399, align 4, !tbaa !3
@@ -144165,7 +144165,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5403
 
 5403:                                             ; preds = %5397, %ma_dr_flac__calculate_prediction_32.exit920
-  %.7.i947 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5402, %5397 ]
+  %.7.i947 = phi i32 [ %5402, %5397 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5404 = load i32, ptr %529, align 4, !tbaa !3
   %5405 = getelementptr inbounds i8, ptr %.21341, i64 -92
   %5406 = load i32, ptr %5405, align 4, !tbaa !3
@@ -144174,7 +144174,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5409
 
 5409:                                             ; preds = %5403, %ma_dr_flac__calculate_prediction_32.exit920
-  %.8.i946 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5408, %5403 ]
+  %.8.i946 = phi i32 [ %5408, %5403 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5410 = load i32, ptr %530, align 4, !tbaa !3
   %5411 = getelementptr inbounds i8, ptr %.21341, i64 -88
   %5412 = load i32, ptr %5411, align 4, !tbaa !3
@@ -144183,7 +144183,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5415
 
 5415:                                             ; preds = %5409, %ma_dr_flac__calculate_prediction_32.exit920
-  %.9.i945 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5414, %5409 ]
+  %.9.i945 = phi i32 [ %5414, %5409 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5416 = load i32, ptr %531, align 4, !tbaa !3
   %5417 = getelementptr inbounds i8, ptr %.21341, i64 -84
   %5418 = load i32, ptr %5417, align 4, !tbaa !3
@@ -144192,7 +144192,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5421
 
 5421:                                             ; preds = %5415, %ma_dr_flac__calculate_prediction_32.exit920
-  %.10.i944 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5420, %5415 ]
+  %.10.i944 = phi i32 [ %5420, %5415 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5422 = load i32, ptr %532, align 4, !tbaa !3
   %5423 = getelementptr inbounds i8, ptr %.21341, i64 -80
   %5424 = load i32, ptr %5423, align 4, !tbaa !3
@@ -144201,7 +144201,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5427
 
 5427:                                             ; preds = %5421, %ma_dr_flac__calculate_prediction_32.exit920
-  %.11.i943 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5426, %5421 ]
+  %.11.i943 = phi i32 [ %5426, %5421 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5428 = load i32, ptr %533, align 4, !tbaa !3
   %5429 = getelementptr inbounds i8, ptr %.21341, i64 -76
   %5430 = load i32, ptr %5429, align 4, !tbaa !3
@@ -144210,7 +144210,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5433
 
 5433:                                             ; preds = %5427, %ma_dr_flac__calculate_prediction_32.exit920
-  %.12.i942 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5432, %5427 ]
+  %.12.i942 = phi i32 [ %5432, %5427 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5434 = load i32, ptr %534, align 4, !tbaa !3
   %5435 = getelementptr inbounds i8, ptr %.21341, i64 -72
   %5436 = load i32, ptr %5435, align 4, !tbaa !3
@@ -144219,7 +144219,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5439
 
 5439:                                             ; preds = %5433, %ma_dr_flac__calculate_prediction_32.exit920
-  %.13.i941 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5438, %5433 ]
+  %.13.i941 = phi i32 [ %5438, %5433 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5440 = load i32, ptr %535, align 4, !tbaa !3
   %5441 = getelementptr inbounds i8, ptr %.21341, i64 -68
   %5442 = load i32, ptr %5441, align 4, !tbaa !3
@@ -144228,7 +144228,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5445
 
 5445:                                             ; preds = %5439, %ma_dr_flac__calculate_prediction_32.exit920
-  %.14.i940 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5444, %5439 ]
+  %.14.i940 = phi i32 [ %5444, %5439 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5446 = load i32, ptr %536, align 4, !tbaa !3
   %5447 = getelementptr inbounds i8, ptr %.21341, i64 -64
   %5448 = load i32, ptr %5447, align 4, !tbaa !3
@@ -144237,7 +144237,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5451
 
 5451:                                             ; preds = %5445, %ma_dr_flac__calculate_prediction_32.exit920
-  %.15.i939 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5450, %5445 ]
+  %.15.i939 = phi i32 [ %5450, %5445 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5452 = load i32, ptr %537, align 4, !tbaa !3
   %5453 = getelementptr inbounds i8, ptr %.21341, i64 -60
   %5454 = load i32, ptr %5453, align 4, !tbaa !3
@@ -144246,7 +144246,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5457
 
 5457:                                             ; preds = %5451, %ma_dr_flac__calculate_prediction_32.exit920
-  %.16.i938 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5456, %5451 ]
+  %.16.i938 = phi i32 [ %5456, %5451 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5458 = load i32, ptr %538, align 4, !tbaa !3
   %5459 = getelementptr inbounds i8, ptr %.21341, i64 -56
   %5460 = load i32, ptr %5459, align 4, !tbaa !3
@@ -144255,7 +144255,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5463
 
 5463:                                             ; preds = %5457, %ma_dr_flac__calculate_prediction_32.exit920
-  %.17.i937 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5462, %5457 ]
+  %.17.i937 = phi i32 [ %5462, %5457 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5464 = load i32, ptr %539, align 4, !tbaa !3
   %5465 = getelementptr inbounds i8, ptr %.21341, i64 -52
   %5466 = load i32, ptr %5465, align 4, !tbaa !3
@@ -144264,7 +144264,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5469
 
 5469:                                             ; preds = %5463, %ma_dr_flac__calculate_prediction_32.exit920
-  %.18.i936 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5468, %5463 ]
+  %.18.i936 = phi i32 [ %5468, %5463 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5470 = load i32, ptr %540, align 4, !tbaa !3
   %5471 = getelementptr inbounds i8, ptr %.21341, i64 -48
   %5472 = load i32, ptr %5471, align 4, !tbaa !3
@@ -144273,7 +144273,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5475
 
 5475:                                             ; preds = %5469, %ma_dr_flac__calculate_prediction_32.exit920
-  %.19.i935 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5474, %5469 ]
+  %.19.i935 = phi i32 [ %5474, %5469 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5476 = load i32, ptr %541, align 4, !tbaa !3
   %5477 = getelementptr inbounds i8, ptr %.21341, i64 -44
   %5478 = load i32, ptr %5477, align 4, !tbaa !3
@@ -144282,7 +144282,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5481
 
 5481:                                             ; preds = %5475, %ma_dr_flac__calculate_prediction_32.exit920
-  %.20.i934 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5480, %5475 ]
+  %.20.i934 = phi i32 [ %5480, %5475 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5482 = load i32, ptr %542, align 4, !tbaa !3
   %5483 = getelementptr inbounds i8, ptr %.21341, i64 -40
   %5484 = load i32, ptr %5483, align 4, !tbaa !3
@@ -144291,7 +144291,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5487
 
 5487:                                             ; preds = %5481, %ma_dr_flac__calculate_prediction_32.exit920
-  %.21.i933 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5486, %5481 ]
+  %.21.i933 = phi i32 [ %5486, %5481 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5488 = load i32, ptr %543, align 4, !tbaa !3
   %5489 = getelementptr inbounds i8, ptr %.21341, i64 -36
   %5490 = load i32, ptr %5489, align 4, !tbaa !3
@@ -144300,7 +144300,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5493
 
 5493:                                             ; preds = %5487, %ma_dr_flac__calculate_prediction_32.exit920
-  %.22.i932 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5492, %5487 ]
+  %.22.i932 = phi i32 [ %5492, %5487 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5494 = load i32, ptr %544, align 4, !tbaa !3
   %5495 = getelementptr inbounds i8, ptr %.21341, i64 -32
   %5496 = load i32, ptr %5495, align 4, !tbaa !3
@@ -144309,7 +144309,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5499
 
 5499:                                             ; preds = %5493, %ma_dr_flac__calculate_prediction_32.exit920
-  %.23.i931 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5498, %5493 ]
+  %.23.i931 = phi i32 [ %5498, %5493 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5500 = load i32, ptr %545, align 4, !tbaa !3
   %5501 = getelementptr inbounds i8, ptr %.21341, i64 -28
   %5502 = load i32, ptr %5501, align 4, !tbaa !3
@@ -144318,7 +144318,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5505
 
 5505:                                             ; preds = %5499, %ma_dr_flac__calculate_prediction_32.exit920
-  %.24.i930 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5504, %5499 ]
+  %.24.i930 = phi i32 [ %5504, %5499 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5506 = load i32, ptr %546, align 4, !tbaa !3
   %5507 = getelementptr inbounds i8, ptr %.21341, i64 -24
   %5508 = load i32, ptr %5507, align 4, !tbaa !3
@@ -144327,7 +144327,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5511
 
 5511:                                             ; preds = %5505, %ma_dr_flac__calculate_prediction_32.exit920
-  %.25.i929 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5510, %5505 ]
+  %.25.i929 = phi i32 [ %5510, %5505 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5512 = load i32, ptr %547, align 4, !tbaa !3
   %5513 = getelementptr inbounds i8, ptr %.21341, i64 -20
   %5514 = load i32, ptr %5513, align 4, !tbaa !3
@@ -144336,7 +144336,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5517
 
 5517:                                             ; preds = %5511, %ma_dr_flac__calculate_prediction_32.exit920
-  %.26.i928 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5516, %5511 ]
+  %.26.i928 = phi i32 [ %5516, %5511 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5518 = load i32, ptr %548, align 4, !tbaa !3
   %5519 = getelementptr inbounds i8, ptr %.21341, i64 -16
   %5520 = load i32, ptr %5519, align 4, !tbaa !3
@@ -144345,7 +144345,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5523
 
 5523:                                             ; preds = %5517, %ma_dr_flac__calculate_prediction_32.exit920
-  %.27.i927 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5522, %5517 ]
+  %.27.i927 = phi i32 [ %5522, %5517 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5524 = load i32, ptr %549, align 4, !tbaa !3
   %5525 = getelementptr inbounds i8, ptr %.21341, i64 -12
   %5526 = load i32, ptr %5525, align 4, !tbaa !3
@@ -144354,7 +144354,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5529
 
 5529:                                             ; preds = %5523, %ma_dr_flac__calculate_prediction_32.exit920
-  %.28.i926 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5528, %5523 ]
+  %.28.i926 = phi i32 [ %5528, %5523 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5530 = load i32, ptr %550, align 4, !tbaa !3
   %5531 = getelementptr inbounds i8, ptr %.21341, i64 -8
   %5532 = load i32, ptr %5531, align 4, !tbaa !3
@@ -144363,7 +144363,7 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5535
 
 5535:                                             ; preds = %5529, %ma_dr_flac__calculate_prediction_32.exit920
-  %.29.i925 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5534, %5529 ]
+  %.29.i925 = phi i32 [ %5534, %5529 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5536 = load i32, ptr %551, align 4, !tbaa !3
   %5537 = getelementptr inbounds i8, ptr %.21341, i64 -4
   %5538 = load i32, ptr %5537, align 4, !tbaa !3
@@ -144372,14 +144372,14 @@ ma_dr_flac__calculate_prediction_32.exit920:      ; preds = %ma_dr_flac__calcula
   br label %5541
 
 5541:                                             ; preds = %5535, %ma_dr_flac__calculate_prediction_32.exit920
-  %.30.i924 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5540, %5535 ]
+  %.30.i924 = phi i32 [ %5540, %5535 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5542 = load i32, ptr %552, align 4, !tbaa !3
   %5543 = mul nsw i32 %5168, %5542
   %5544 = add nsw i32 %5543, %.30.i924
   br label %5545
 
 5545:                                             ; preds = %5541, %ma_dr_flac__calculate_prediction_32.exit920
-  %.31.i922 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ], [ %5544, %5541 ]
+  %.31.i922 = phi i32 [ %5544, %5541 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit920 ]
   %5546 = load i32, ptr %7, align 4, !tbaa !3
   %5547 = mul nsw i32 %5360, %5546
   %5548 = add nsw i32 %5547, %.31.i922
@@ -144434,7 +144434,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5557
 
 5557:                                             ; preds = %5552, %ma_dr_flac__calculate_prediction_32.exit954
-  %.1.i987 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5556, %5552 ]
+  %.1.i987 = phi i32 [ %5556, %5552 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5558 = load i32, ptr %523, align 4, !tbaa !3
   %5559 = getelementptr inbounds i8, ptr %.21341, i64 -112
   %5560 = load i32, ptr %5559, align 4, !tbaa !3
@@ -144443,7 +144443,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5563
 
 5563:                                             ; preds = %5557, %ma_dr_flac__calculate_prediction_32.exit954
-  %.2.i986 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5562, %5557 ]
+  %.2.i986 = phi i32 [ %5562, %5557 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5564 = load i32, ptr %524, align 4, !tbaa !3
   %5565 = getelementptr inbounds i8, ptr %.21341, i64 -108
   %5566 = load i32, ptr %5565, align 4, !tbaa !3
@@ -144452,7 +144452,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5569
 
 5569:                                             ; preds = %5563, %ma_dr_flac__calculate_prediction_32.exit954
-  %.3.i985 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5568, %5563 ]
+  %.3.i985 = phi i32 [ %5568, %5563 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5570 = load i32, ptr %525, align 4, !tbaa !3
   %5571 = getelementptr inbounds i8, ptr %.21341, i64 -104
   %5572 = load i32, ptr %5571, align 4, !tbaa !3
@@ -144461,7 +144461,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5575
 
 5575:                                             ; preds = %5569, %ma_dr_flac__calculate_prediction_32.exit954
-  %.4.i984 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5574, %5569 ]
+  %.4.i984 = phi i32 [ %5574, %5569 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5576 = load i32, ptr %526, align 4, !tbaa !3
   %5577 = getelementptr inbounds i8, ptr %.21341, i64 -100
   %5578 = load i32, ptr %5577, align 4, !tbaa !3
@@ -144470,7 +144470,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5581
 
 5581:                                             ; preds = %5575, %ma_dr_flac__calculate_prediction_32.exit954
-  %.5.i983 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5580, %5575 ]
+  %.5.i983 = phi i32 [ %5580, %5575 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5582 = load i32, ptr %527, align 4, !tbaa !3
   %5583 = getelementptr inbounds i8, ptr %.21341, i64 -96
   %5584 = load i32, ptr %5583, align 4, !tbaa !3
@@ -144479,7 +144479,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5587
 
 5587:                                             ; preds = %5581, %ma_dr_flac__calculate_prediction_32.exit954
-  %.6.i982 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5586, %5581 ]
+  %.6.i982 = phi i32 [ %5586, %5581 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5588 = load i32, ptr %528, align 4, !tbaa !3
   %5589 = getelementptr inbounds i8, ptr %.21341, i64 -92
   %5590 = load i32, ptr %5589, align 4, !tbaa !3
@@ -144488,7 +144488,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5593
 
 5593:                                             ; preds = %5587, %ma_dr_flac__calculate_prediction_32.exit954
-  %.7.i981 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5592, %5587 ]
+  %.7.i981 = phi i32 [ %5592, %5587 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5594 = load i32, ptr %529, align 4, !tbaa !3
   %5595 = getelementptr inbounds i8, ptr %.21341, i64 -88
   %5596 = load i32, ptr %5595, align 4, !tbaa !3
@@ -144497,7 +144497,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5599
 
 5599:                                             ; preds = %5593, %ma_dr_flac__calculate_prediction_32.exit954
-  %.8.i980 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5598, %5593 ]
+  %.8.i980 = phi i32 [ %5598, %5593 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5600 = load i32, ptr %530, align 4, !tbaa !3
   %5601 = getelementptr inbounds i8, ptr %.21341, i64 -84
   %5602 = load i32, ptr %5601, align 4, !tbaa !3
@@ -144506,7 +144506,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5605
 
 5605:                                             ; preds = %5599, %ma_dr_flac__calculate_prediction_32.exit954
-  %.9.i979 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5604, %5599 ]
+  %.9.i979 = phi i32 [ %5604, %5599 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5606 = load i32, ptr %531, align 4, !tbaa !3
   %5607 = getelementptr inbounds i8, ptr %.21341, i64 -80
   %5608 = load i32, ptr %5607, align 4, !tbaa !3
@@ -144515,7 +144515,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5611
 
 5611:                                             ; preds = %5605, %ma_dr_flac__calculate_prediction_32.exit954
-  %.10.i978 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5610, %5605 ]
+  %.10.i978 = phi i32 [ %5610, %5605 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5612 = load i32, ptr %532, align 4, !tbaa !3
   %5613 = getelementptr inbounds i8, ptr %.21341, i64 -76
   %5614 = load i32, ptr %5613, align 4, !tbaa !3
@@ -144524,7 +144524,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5617
 
 5617:                                             ; preds = %5611, %ma_dr_flac__calculate_prediction_32.exit954
-  %.11.i977 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5616, %5611 ]
+  %.11.i977 = phi i32 [ %5616, %5611 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5618 = load i32, ptr %533, align 4, !tbaa !3
   %5619 = getelementptr inbounds i8, ptr %.21341, i64 -72
   %5620 = load i32, ptr %5619, align 4, !tbaa !3
@@ -144533,7 +144533,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5623
 
 5623:                                             ; preds = %5617, %ma_dr_flac__calculate_prediction_32.exit954
-  %.12.i976 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5622, %5617 ]
+  %.12.i976 = phi i32 [ %5622, %5617 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5624 = load i32, ptr %534, align 4, !tbaa !3
   %5625 = getelementptr inbounds i8, ptr %.21341, i64 -68
   %5626 = load i32, ptr %5625, align 4, !tbaa !3
@@ -144542,7 +144542,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5629
 
 5629:                                             ; preds = %5623, %ma_dr_flac__calculate_prediction_32.exit954
-  %.13.i975 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5628, %5623 ]
+  %.13.i975 = phi i32 [ %5628, %5623 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5630 = load i32, ptr %535, align 4, !tbaa !3
   %5631 = getelementptr inbounds i8, ptr %.21341, i64 -64
   %5632 = load i32, ptr %5631, align 4, !tbaa !3
@@ -144551,7 +144551,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5635
 
 5635:                                             ; preds = %5629, %ma_dr_flac__calculate_prediction_32.exit954
-  %.14.i974 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5634, %5629 ]
+  %.14.i974 = phi i32 [ %5634, %5629 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5636 = load i32, ptr %536, align 4, !tbaa !3
   %5637 = getelementptr inbounds i8, ptr %.21341, i64 -60
   %5638 = load i32, ptr %5637, align 4, !tbaa !3
@@ -144560,7 +144560,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5641
 
 5641:                                             ; preds = %5635, %ma_dr_flac__calculate_prediction_32.exit954
-  %.15.i973 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5640, %5635 ]
+  %.15.i973 = phi i32 [ %5640, %5635 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5642 = load i32, ptr %537, align 4, !tbaa !3
   %5643 = getelementptr inbounds i8, ptr %.21341, i64 -56
   %5644 = load i32, ptr %5643, align 4, !tbaa !3
@@ -144569,7 +144569,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5647
 
 5647:                                             ; preds = %5641, %ma_dr_flac__calculate_prediction_32.exit954
-  %.16.i972 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5646, %5641 ]
+  %.16.i972 = phi i32 [ %5646, %5641 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5648 = load i32, ptr %538, align 4, !tbaa !3
   %5649 = getelementptr inbounds i8, ptr %.21341, i64 -52
   %5650 = load i32, ptr %5649, align 4, !tbaa !3
@@ -144578,7 +144578,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5653
 
 5653:                                             ; preds = %5647, %ma_dr_flac__calculate_prediction_32.exit954
-  %.17.i971 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5652, %5647 ]
+  %.17.i971 = phi i32 [ %5652, %5647 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5654 = load i32, ptr %539, align 4, !tbaa !3
   %5655 = getelementptr inbounds i8, ptr %.21341, i64 -48
   %5656 = load i32, ptr %5655, align 4, !tbaa !3
@@ -144587,7 +144587,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5659
 
 5659:                                             ; preds = %5653, %ma_dr_flac__calculate_prediction_32.exit954
-  %.18.i970 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5658, %5653 ]
+  %.18.i970 = phi i32 [ %5658, %5653 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5660 = load i32, ptr %540, align 4, !tbaa !3
   %5661 = getelementptr inbounds i8, ptr %.21341, i64 -44
   %5662 = load i32, ptr %5661, align 4, !tbaa !3
@@ -144596,7 +144596,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5665
 
 5665:                                             ; preds = %5659, %ma_dr_flac__calculate_prediction_32.exit954
-  %.19.i969 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5664, %5659 ]
+  %.19.i969 = phi i32 [ %5664, %5659 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5666 = load i32, ptr %541, align 4, !tbaa !3
   %5667 = getelementptr inbounds i8, ptr %.21341, i64 -40
   %5668 = load i32, ptr %5667, align 4, !tbaa !3
@@ -144605,7 +144605,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5671
 
 5671:                                             ; preds = %5665, %ma_dr_flac__calculate_prediction_32.exit954
-  %.20.i968 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5670, %5665 ]
+  %.20.i968 = phi i32 [ %5670, %5665 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5672 = load i32, ptr %542, align 4, !tbaa !3
   %5673 = getelementptr inbounds i8, ptr %.21341, i64 -36
   %5674 = load i32, ptr %5673, align 4, !tbaa !3
@@ -144614,7 +144614,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5677
 
 5677:                                             ; preds = %5671, %ma_dr_flac__calculate_prediction_32.exit954
-  %.21.i967 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5676, %5671 ]
+  %.21.i967 = phi i32 [ %5676, %5671 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5678 = load i32, ptr %543, align 4, !tbaa !3
   %5679 = getelementptr inbounds i8, ptr %.21341, i64 -32
   %5680 = load i32, ptr %5679, align 4, !tbaa !3
@@ -144623,7 +144623,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5683
 
 5683:                                             ; preds = %5677, %ma_dr_flac__calculate_prediction_32.exit954
-  %.22.i966 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5682, %5677 ]
+  %.22.i966 = phi i32 [ %5682, %5677 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5684 = load i32, ptr %544, align 4, !tbaa !3
   %5685 = getelementptr inbounds i8, ptr %.21341, i64 -28
   %5686 = load i32, ptr %5685, align 4, !tbaa !3
@@ -144632,7 +144632,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5689
 
 5689:                                             ; preds = %5683, %ma_dr_flac__calculate_prediction_32.exit954
-  %.23.i965 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5688, %5683 ]
+  %.23.i965 = phi i32 [ %5688, %5683 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5690 = load i32, ptr %545, align 4, !tbaa !3
   %5691 = getelementptr inbounds i8, ptr %.21341, i64 -24
   %5692 = load i32, ptr %5691, align 4, !tbaa !3
@@ -144641,7 +144641,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5695
 
 5695:                                             ; preds = %5689, %ma_dr_flac__calculate_prediction_32.exit954
-  %.24.i964 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5694, %5689 ]
+  %.24.i964 = phi i32 [ %5694, %5689 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5696 = load i32, ptr %546, align 4, !tbaa !3
   %5697 = getelementptr inbounds i8, ptr %.21341, i64 -20
   %5698 = load i32, ptr %5697, align 4, !tbaa !3
@@ -144650,7 +144650,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5701
 
 5701:                                             ; preds = %5695, %ma_dr_flac__calculate_prediction_32.exit954
-  %.25.i963 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5700, %5695 ]
+  %.25.i963 = phi i32 [ %5700, %5695 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5702 = load i32, ptr %547, align 4, !tbaa !3
   %5703 = getelementptr inbounds i8, ptr %.21341, i64 -16
   %5704 = load i32, ptr %5703, align 4, !tbaa !3
@@ -144659,7 +144659,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5707
 
 5707:                                             ; preds = %5701, %ma_dr_flac__calculate_prediction_32.exit954
-  %.26.i962 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5706, %5701 ]
+  %.26.i962 = phi i32 [ %5706, %5701 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5708 = load i32, ptr %548, align 4, !tbaa !3
   %5709 = getelementptr inbounds i8, ptr %.21341, i64 -12
   %5710 = load i32, ptr %5709, align 4, !tbaa !3
@@ -144668,7 +144668,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5713
 
 5713:                                             ; preds = %5707, %ma_dr_flac__calculate_prediction_32.exit954
-  %.27.i961 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5712, %5707 ]
+  %.27.i961 = phi i32 [ %5712, %5707 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5714 = load i32, ptr %549, align 4, !tbaa !3
   %5715 = getelementptr inbounds i8, ptr %.21341, i64 -8
   %5716 = load i32, ptr %5715, align 4, !tbaa !3
@@ -144677,7 +144677,7 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5719
 
 5719:                                             ; preds = %5713, %ma_dr_flac__calculate_prediction_32.exit954
-  %.28.i960 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5718, %5713 ]
+  %.28.i960 = phi i32 [ %5718, %5713 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5720 = load i32, ptr %550, align 4, !tbaa !3
   %5721 = getelementptr inbounds i8, ptr %.21341, i64 -4
   %5722 = load i32, ptr %5721, align 4, !tbaa !3
@@ -144686,21 +144686,21 @@ ma_dr_flac__calculate_prediction_32.exit954:      ; preds = %ma_dr_flac__calcula
   br label %5725
 
 5725:                                             ; preds = %5719, %ma_dr_flac__calculate_prediction_32.exit954
-  %.29.i959 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5724, %5719 ]
+  %.29.i959 = phi i32 [ %5724, %5719 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5726 = load i32, ptr %551, align 4, !tbaa !3
   %5727 = mul nsw i32 %5168, %5726
   %5728 = add nsw i32 %5727, %.29.i959
   br label %5729
 
 5729:                                             ; preds = %5725, %ma_dr_flac__calculate_prediction_32.exit954
-  %.30.i958 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5728, %5725 ]
+  %.30.i958 = phi i32 [ %5728, %5725 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5730 = load i32, ptr %552, align 4, !tbaa !3
   %5731 = mul nsw i32 %5360, %5730
   %5732 = add nsw i32 %5731, %.30.i958
   br label %5733
 
 5733:                                             ; preds = %5729, %ma_dr_flac__calculate_prediction_32.exit954
-  %.31.i956 = phi i32 [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ], [ %5732, %5729 ]
+  %.31.i956 = phi i32 [ %5732, %5729 ], [ 0, %ma_dr_flac__calculate_prediction_32.exit954 ]
   %5734 = load i32, ptr %7, align 4, !tbaa !3
   %5735 = mul nsw i32 %5550, %5734
   %5736 = add nsw i32 %5735, %.31.i956
@@ -145454,7 +145454,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6224
 
 6224:                                             ; preds = %6217, %6216
-  %.1.i852 = phi i64 [ 0, %6216 ], [ %6223, %6217 ]
+  %.1.i852 = phi i64 [ %6223, %6217 ], [ 0, %6216 ]
   %6225 = load i32, ptr %5753, align 4, !tbaa !3
   %6226 = sext i32 %6225 to i64
   %6227 = getelementptr inbounds i8, ptr %.31346, i64 -124
@@ -145465,7 +145465,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6232
 
 6232:                                             ; preds = %6224, %6216
-  %.2.i851 = phi i64 [ 0, %6216 ], [ %6231, %6224 ]
+  %.2.i851 = phi i64 [ %6231, %6224 ], [ 0, %6216 ]
   %6233 = load i32, ptr %5754, align 4, !tbaa !3
   %6234 = sext i32 %6233 to i64
   %6235 = getelementptr inbounds i8, ptr %.31346, i64 -120
@@ -145476,7 +145476,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6240
 
 6240:                                             ; preds = %6232, %6216
-  %.3.i850 = phi i64 [ 0, %6216 ], [ %6239, %6232 ]
+  %.3.i850 = phi i64 [ %6239, %6232 ], [ 0, %6216 ]
   %6241 = load i32, ptr %5755, align 4, !tbaa !3
   %6242 = sext i32 %6241 to i64
   %6243 = getelementptr inbounds i8, ptr %.31346, i64 -116
@@ -145487,7 +145487,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6248
 
 6248:                                             ; preds = %6240, %6216
-  %.4.i849 = phi i64 [ 0, %6216 ], [ %6247, %6240 ]
+  %.4.i849 = phi i64 [ %6247, %6240 ], [ 0, %6216 ]
   %6249 = load i32, ptr %5756, align 4, !tbaa !3
   %6250 = sext i32 %6249 to i64
   %6251 = getelementptr inbounds i8, ptr %.31346, i64 -112
@@ -145498,7 +145498,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6256
 
 6256:                                             ; preds = %6248, %6216
-  %.5.i848 = phi i64 [ 0, %6216 ], [ %6255, %6248 ]
+  %.5.i848 = phi i64 [ %6255, %6248 ], [ 0, %6216 ]
   %6257 = load i32, ptr %5757, align 4, !tbaa !3
   %6258 = sext i32 %6257 to i64
   %6259 = getelementptr inbounds i8, ptr %.31346, i64 -108
@@ -145509,7 +145509,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6264
 
 6264:                                             ; preds = %6256, %6216
-  %.6.i847 = phi i64 [ 0, %6216 ], [ %6263, %6256 ]
+  %.6.i847 = phi i64 [ %6263, %6256 ], [ 0, %6216 ]
   %6265 = load i32, ptr %5758, align 4, !tbaa !3
   %6266 = sext i32 %6265 to i64
   %6267 = getelementptr inbounds i8, ptr %.31346, i64 -104
@@ -145520,7 +145520,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6272
 
 6272:                                             ; preds = %6264, %6216
-  %.7.i846 = phi i64 [ 0, %6216 ], [ %6271, %6264 ]
+  %.7.i846 = phi i64 [ %6271, %6264 ], [ 0, %6216 ]
   %6273 = load i32, ptr %5759, align 4, !tbaa !3
   %6274 = sext i32 %6273 to i64
   %6275 = getelementptr inbounds i8, ptr %.31346, i64 -100
@@ -145531,7 +145531,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6280
 
 6280:                                             ; preds = %6272, %6216
-  %.8.i845 = phi i64 [ 0, %6216 ], [ %6279, %6272 ]
+  %.8.i845 = phi i64 [ %6279, %6272 ], [ 0, %6216 ]
   %6281 = load i32, ptr %5760, align 4, !tbaa !3
   %6282 = sext i32 %6281 to i64
   %6283 = getelementptr inbounds i8, ptr %.31346, i64 -96
@@ -145542,7 +145542,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6288
 
 6288:                                             ; preds = %6280, %6216
-  %.9.i844 = phi i64 [ 0, %6216 ], [ %6287, %6280 ]
+  %.9.i844 = phi i64 [ %6287, %6280 ], [ 0, %6216 ]
   %6289 = load i32, ptr %5761, align 4, !tbaa !3
   %6290 = sext i32 %6289 to i64
   %6291 = getelementptr inbounds i8, ptr %.31346, i64 -92
@@ -145553,7 +145553,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6296
 
 6296:                                             ; preds = %6288, %6216
-  %.10.i843 = phi i64 [ 0, %6216 ], [ %6295, %6288 ]
+  %.10.i843 = phi i64 [ %6295, %6288 ], [ 0, %6216 ]
   %6297 = load i32, ptr %5762, align 4, !tbaa !3
   %6298 = sext i32 %6297 to i64
   %6299 = getelementptr inbounds i8, ptr %.31346, i64 -88
@@ -145564,7 +145564,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6304
 
 6304:                                             ; preds = %6296, %6216
-  %.11.i842 = phi i64 [ 0, %6216 ], [ %6303, %6296 ]
+  %.11.i842 = phi i64 [ %6303, %6296 ], [ 0, %6216 ]
   %6305 = load i32, ptr %5763, align 4, !tbaa !3
   %6306 = sext i32 %6305 to i64
   %6307 = getelementptr inbounds i8, ptr %.31346, i64 -84
@@ -145575,7 +145575,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6312
 
 6312:                                             ; preds = %6304, %6216
-  %.12.i841 = phi i64 [ 0, %6216 ], [ %6311, %6304 ]
+  %.12.i841 = phi i64 [ %6311, %6304 ], [ 0, %6216 ]
   %6313 = load i32, ptr %5764, align 4, !tbaa !3
   %6314 = sext i32 %6313 to i64
   %6315 = getelementptr inbounds i8, ptr %.31346, i64 -80
@@ -145586,7 +145586,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6320
 
 6320:                                             ; preds = %6312, %6216
-  %.13.i840 = phi i64 [ 0, %6216 ], [ %6319, %6312 ]
+  %.13.i840 = phi i64 [ %6319, %6312 ], [ 0, %6216 ]
   %6321 = load i32, ptr %5765, align 4, !tbaa !3
   %6322 = sext i32 %6321 to i64
   %6323 = getelementptr inbounds i8, ptr %.31346, i64 -76
@@ -145597,7 +145597,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6328
 
 6328:                                             ; preds = %6320, %6216
-  %.14.i839 = phi i64 [ 0, %6216 ], [ %6327, %6320 ]
+  %.14.i839 = phi i64 [ %6327, %6320 ], [ 0, %6216 ]
   %6329 = load i32, ptr %5766, align 4, !tbaa !3
   %6330 = sext i32 %6329 to i64
   %6331 = getelementptr inbounds i8, ptr %.31346, i64 -72
@@ -145608,7 +145608,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6336
 
 6336:                                             ; preds = %6328, %6216
-  %.15.i838 = phi i64 [ 0, %6216 ], [ %6335, %6328 ]
+  %.15.i838 = phi i64 [ %6335, %6328 ], [ 0, %6216 ]
   %6337 = load i32, ptr %5767, align 4, !tbaa !3
   %6338 = sext i32 %6337 to i64
   %6339 = getelementptr inbounds i8, ptr %.31346, i64 -68
@@ -145619,7 +145619,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6344
 
 6344:                                             ; preds = %6336, %6216
-  %.16.i837 = phi i64 [ 0, %6216 ], [ %6343, %6336 ]
+  %.16.i837 = phi i64 [ %6343, %6336 ], [ 0, %6216 ]
   %6345 = load i32, ptr %5768, align 4, !tbaa !3
   %6346 = sext i32 %6345 to i64
   %6347 = getelementptr inbounds i8, ptr %.31346, i64 -64
@@ -145630,7 +145630,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6352
 
 6352:                                             ; preds = %6344, %6216
-  %.17.i836 = phi i64 [ 0, %6216 ], [ %6351, %6344 ]
+  %.17.i836 = phi i64 [ %6351, %6344 ], [ 0, %6216 ]
   %6353 = load i32, ptr %5769, align 4, !tbaa !3
   %6354 = sext i32 %6353 to i64
   %6355 = getelementptr inbounds i8, ptr %.31346, i64 -60
@@ -145641,7 +145641,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6360
 
 6360:                                             ; preds = %6352, %6216
-  %.18.i835 = phi i64 [ 0, %6216 ], [ %6359, %6352 ]
+  %.18.i835 = phi i64 [ %6359, %6352 ], [ 0, %6216 ]
   %6361 = load i32, ptr %5770, align 4, !tbaa !3
   %6362 = sext i32 %6361 to i64
   %6363 = getelementptr inbounds i8, ptr %.31346, i64 -56
@@ -145652,7 +145652,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6368
 
 6368:                                             ; preds = %6360, %6216
-  %.19.i834 = phi i64 [ 0, %6216 ], [ %6367, %6360 ]
+  %.19.i834 = phi i64 [ %6367, %6360 ], [ 0, %6216 ]
   %6369 = load i32, ptr %5771, align 4, !tbaa !3
   %6370 = sext i32 %6369 to i64
   %6371 = getelementptr inbounds i8, ptr %.31346, i64 -52
@@ -145663,7 +145663,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6376
 
 6376:                                             ; preds = %6368, %6216
-  %.20.i833 = phi i64 [ 0, %6216 ], [ %6375, %6368 ]
+  %.20.i833 = phi i64 [ %6375, %6368 ], [ 0, %6216 ]
   %6377 = load i32, ptr %5772, align 4, !tbaa !3
   %6378 = sext i32 %6377 to i64
   %6379 = getelementptr inbounds i8, ptr %.31346, i64 -48
@@ -145674,7 +145674,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6384
 
 6384:                                             ; preds = %6376, %6216
-  %.21.i832 = phi i64 [ 0, %6216 ], [ %6383, %6376 ]
+  %.21.i832 = phi i64 [ %6383, %6376 ], [ 0, %6216 ]
   %6385 = load i32, ptr %5773, align 4, !tbaa !3
   %6386 = sext i32 %6385 to i64
   %6387 = getelementptr inbounds i8, ptr %.31346, i64 -44
@@ -145685,7 +145685,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6392
 
 6392:                                             ; preds = %6384, %6216
-  %.22.i831 = phi i64 [ 0, %6216 ], [ %6391, %6384 ]
+  %.22.i831 = phi i64 [ %6391, %6384 ], [ 0, %6216 ]
   %6393 = load i32, ptr %5774, align 4, !tbaa !3
   %6394 = sext i32 %6393 to i64
   %6395 = getelementptr inbounds i8, ptr %.31346, i64 -40
@@ -145696,7 +145696,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6400
 
 6400:                                             ; preds = %6392, %6216
-  %.23.i830 = phi i64 [ 0, %6216 ], [ %6399, %6392 ]
+  %.23.i830 = phi i64 [ %6399, %6392 ], [ 0, %6216 ]
   %6401 = load i32, ptr %5775, align 4, !tbaa !3
   %6402 = sext i32 %6401 to i64
   %6403 = getelementptr inbounds i8, ptr %.31346, i64 -36
@@ -145707,7 +145707,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6408
 
 6408:                                             ; preds = %6400, %6216
-  %.24.i829 = phi i64 [ 0, %6216 ], [ %6407, %6400 ]
+  %.24.i829 = phi i64 [ %6407, %6400 ], [ 0, %6216 ]
   %6409 = load i32, ptr %5776, align 4, !tbaa !3
   %6410 = sext i32 %6409 to i64
   %6411 = getelementptr inbounds i8, ptr %.31346, i64 -32
@@ -145718,7 +145718,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6416
 
 6416:                                             ; preds = %6408, %6216
-  %.25.i828 = phi i64 [ 0, %6216 ], [ %6415, %6408 ]
+  %.25.i828 = phi i64 [ %6415, %6408 ], [ 0, %6216 ]
   %6417 = load i32, ptr %5777, align 4, !tbaa !3
   %6418 = sext i32 %6417 to i64
   %6419 = getelementptr inbounds i8, ptr %.31346, i64 -28
@@ -145729,7 +145729,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6424
 
 6424:                                             ; preds = %6416, %6216
-  %.26.i827 = phi i64 [ 0, %6216 ], [ %6423, %6416 ]
+  %.26.i827 = phi i64 [ %6423, %6416 ], [ 0, %6216 ]
   %6425 = load i32, ptr %5778, align 4, !tbaa !3
   %6426 = sext i32 %6425 to i64
   %6427 = getelementptr inbounds i8, ptr %.31346, i64 -24
@@ -145740,7 +145740,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6432
 
 6432:                                             ; preds = %6424, %6216
-  %.27.i826 = phi i64 [ 0, %6216 ], [ %6431, %6424 ]
+  %.27.i826 = phi i64 [ %6431, %6424 ], [ 0, %6216 ]
   %6433 = load i32, ptr %5779, align 4, !tbaa !3
   %6434 = sext i32 %6433 to i64
   %6435 = getelementptr inbounds i8, ptr %.31346, i64 -20
@@ -145751,7 +145751,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6440
 
 6440:                                             ; preds = %6432, %6216
-  %.28.i825 = phi i64 [ 0, %6216 ], [ %6439, %6432 ]
+  %.28.i825 = phi i64 [ %6439, %6432 ], [ 0, %6216 ]
   %6441 = load i32, ptr %5780, align 4, !tbaa !3
   %6442 = sext i32 %6441 to i64
   %6443 = getelementptr inbounds i8, ptr %.31346, i64 -16
@@ -145762,7 +145762,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6448
 
 6448:                                             ; preds = %6440, %6216
-  %.29.i824 = phi i64 [ 0, %6216 ], [ %6447, %6440 ]
+  %.29.i824 = phi i64 [ %6447, %6440 ], [ 0, %6216 ]
   %6449 = load i32, ptr %5781, align 4, !tbaa !3
   %6450 = sext i32 %6449 to i64
   %6451 = getelementptr inbounds i8, ptr %.31346, i64 -12
@@ -145773,7 +145773,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6456
 
 6456:                                             ; preds = %6448, %6216
-  %.30.i823 = phi i64 [ 0, %6216 ], [ %6455, %6448 ]
+  %.30.i823 = phi i64 [ %6455, %6448 ], [ 0, %6216 ]
   %6457 = load i32, ptr %5782, align 4, !tbaa !3
   %6458 = sext i32 %6457 to i64
   %6459 = getelementptr inbounds i8, ptr %.31346, i64 -8
@@ -145784,7 +145784,7 @@ ma_dr_flac__ilog2_u32.exit:                       ; preds = %6209
   br label %6464
 
 6464:                                             ; preds = %6456, %6216
-  %.31.i821 = phi i64 [ 0, %6216 ], [ %6463, %6456 ]
+  %.31.i821 = phi i64 [ %6463, %6456 ], [ 0, %6216 ]
   %6465 = load i32, ptr %7, align 4, !tbaa !3
   %6466 = sext i32 %6465 to i64
   %6467 = getelementptr inbounds i8, ptr %.31346, i64 -4
@@ -145844,7 +145844,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6480
 
 6480:                                             ; preds = %6475, %6474
-  %.1.i1021 = phi i32 [ 0, %6474 ], [ %6479, %6475 ]
+  %.1.i1021 = phi i32 [ %6479, %6475 ], [ 0, %6474 ]
   %6481 = load i32, ptr %5753, align 4, !tbaa !3
   %6482 = getelementptr inbounds i8, ptr %.31346, i64 -124
   %6483 = load i32, ptr %6482, align 4, !tbaa !3
@@ -145853,7 +145853,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6486
 
 6486:                                             ; preds = %6480, %6474
-  %.2.i1020 = phi i32 [ 0, %6474 ], [ %6485, %6480 ]
+  %.2.i1020 = phi i32 [ %6485, %6480 ], [ 0, %6474 ]
   %6487 = load i32, ptr %5754, align 4, !tbaa !3
   %6488 = getelementptr inbounds i8, ptr %.31346, i64 -120
   %6489 = load i32, ptr %6488, align 4, !tbaa !3
@@ -145862,7 +145862,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6492
 
 6492:                                             ; preds = %6486, %6474
-  %.3.i1019 = phi i32 [ 0, %6474 ], [ %6491, %6486 ]
+  %.3.i1019 = phi i32 [ %6491, %6486 ], [ 0, %6474 ]
   %6493 = load i32, ptr %5755, align 4, !tbaa !3
   %6494 = getelementptr inbounds i8, ptr %.31346, i64 -116
   %6495 = load i32, ptr %6494, align 4, !tbaa !3
@@ -145871,7 +145871,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6498
 
 6498:                                             ; preds = %6492, %6474
-  %.4.i1018 = phi i32 [ 0, %6474 ], [ %6497, %6492 ]
+  %.4.i1018 = phi i32 [ %6497, %6492 ], [ 0, %6474 ]
   %6499 = load i32, ptr %5756, align 4, !tbaa !3
   %6500 = getelementptr inbounds i8, ptr %.31346, i64 -112
   %6501 = load i32, ptr %6500, align 4, !tbaa !3
@@ -145880,7 +145880,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6504
 
 6504:                                             ; preds = %6498, %6474
-  %.5.i1017 = phi i32 [ 0, %6474 ], [ %6503, %6498 ]
+  %.5.i1017 = phi i32 [ %6503, %6498 ], [ 0, %6474 ]
   %6505 = load i32, ptr %5757, align 4, !tbaa !3
   %6506 = getelementptr inbounds i8, ptr %.31346, i64 -108
   %6507 = load i32, ptr %6506, align 4, !tbaa !3
@@ -145889,7 +145889,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6510
 
 6510:                                             ; preds = %6504, %6474
-  %.6.i1016 = phi i32 [ 0, %6474 ], [ %6509, %6504 ]
+  %.6.i1016 = phi i32 [ %6509, %6504 ], [ 0, %6474 ]
   %6511 = load i32, ptr %5758, align 4, !tbaa !3
   %6512 = getelementptr inbounds i8, ptr %.31346, i64 -104
   %6513 = load i32, ptr %6512, align 4, !tbaa !3
@@ -145898,7 +145898,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6516
 
 6516:                                             ; preds = %6510, %6474
-  %.7.i1015 = phi i32 [ 0, %6474 ], [ %6515, %6510 ]
+  %.7.i1015 = phi i32 [ %6515, %6510 ], [ 0, %6474 ]
   %6517 = load i32, ptr %5759, align 4, !tbaa !3
   %6518 = getelementptr inbounds i8, ptr %.31346, i64 -100
   %6519 = load i32, ptr %6518, align 4, !tbaa !3
@@ -145907,7 +145907,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6522
 
 6522:                                             ; preds = %6516, %6474
-  %.8.i1014 = phi i32 [ 0, %6474 ], [ %6521, %6516 ]
+  %.8.i1014 = phi i32 [ %6521, %6516 ], [ 0, %6474 ]
   %6523 = load i32, ptr %5760, align 4, !tbaa !3
   %6524 = getelementptr inbounds i8, ptr %.31346, i64 -96
   %6525 = load i32, ptr %6524, align 4, !tbaa !3
@@ -145916,7 +145916,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6528
 
 6528:                                             ; preds = %6522, %6474
-  %.9.i1013 = phi i32 [ 0, %6474 ], [ %6527, %6522 ]
+  %.9.i1013 = phi i32 [ %6527, %6522 ], [ 0, %6474 ]
   %6529 = load i32, ptr %5761, align 4, !tbaa !3
   %6530 = getelementptr inbounds i8, ptr %.31346, i64 -92
   %6531 = load i32, ptr %6530, align 4, !tbaa !3
@@ -145925,7 +145925,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6534
 
 6534:                                             ; preds = %6528, %6474
-  %.10.i1012 = phi i32 [ 0, %6474 ], [ %6533, %6528 ]
+  %.10.i1012 = phi i32 [ %6533, %6528 ], [ 0, %6474 ]
   %6535 = load i32, ptr %5762, align 4, !tbaa !3
   %6536 = getelementptr inbounds i8, ptr %.31346, i64 -88
   %6537 = load i32, ptr %6536, align 4, !tbaa !3
@@ -145934,7 +145934,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6540
 
 6540:                                             ; preds = %6534, %6474
-  %.11.i1011 = phi i32 [ 0, %6474 ], [ %6539, %6534 ]
+  %.11.i1011 = phi i32 [ %6539, %6534 ], [ 0, %6474 ]
   %6541 = load i32, ptr %5763, align 4, !tbaa !3
   %6542 = getelementptr inbounds i8, ptr %.31346, i64 -84
   %6543 = load i32, ptr %6542, align 4, !tbaa !3
@@ -145943,7 +145943,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6546
 
 6546:                                             ; preds = %6540, %6474
-  %.12.i1010 = phi i32 [ 0, %6474 ], [ %6545, %6540 ]
+  %.12.i1010 = phi i32 [ %6545, %6540 ], [ 0, %6474 ]
   %6547 = load i32, ptr %5764, align 4, !tbaa !3
   %6548 = getelementptr inbounds i8, ptr %.31346, i64 -80
   %6549 = load i32, ptr %6548, align 4, !tbaa !3
@@ -145952,7 +145952,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6552
 
 6552:                                             ; preds = %6546, %6474
-  %.13.i1009 = phi i32 [ 0, %6474 ], [ %6551, %6546 ]
+  %.13.i1009 = phi i32 [ %6551, %6546 ], [ 0, %6474 ]
   %6553 = load i32, ptr %5765, align 4, !tbaa !3
   %6554 = getelementptr inbounds i8, ptr %.31346, i64 -76
   %6555 = load i32, ptr %6554, align 4, !tbaa !3
@@ -145961,7 +145961,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6558
 
 6558:                                             ; preds = %6552, %6474
-  %.14.i1008 = phi i32 [ 0, %6474 ], [ %6557, %6552 ]
+  %.14.i1008 = phi i32 [ %6557, %6552 ], [ 0, %6474 ]
   %6559 = load i32, ptr %5766, align 4, !tbaa !3
   %6560 = getelementptr inbounds i8, ptr %.31346, i64 -72
   %6561 = load i32, ptr %6560, align 4, !tbaa !3
@@ -145970,7 +145970,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6564
 
 6564:                                             ; preds = %6558, %6474
-  %.15.i1007 = phi i32 [ 0, %6474 ], [ %6563, %6558 ]
+  %.15.i1007 = phi i32 [ %6563, %6558 ], [ 0, %6474 ]
   %6565 = load i32, ptr %5767, align 4, !tbaa !3
   %6566 = getelementptr inbounds i8, ptr %.31346, i64 -68
   %6567 = load i32, ptr %6566, align 4, !tbaa !3
@@ -145979,7 +145979,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6570
 
 6570:                                             ; preds = %6564, %6474
-  %.16.i1006 = phi i32 [ 0, %6474 ], [ %6569, %6564 ]
+  %.16.i1006 = phi i32 [ %6569, %6564 ], [ 0, %6474 ]
   %6571 = load i32, ptr %5768, align 4, !tbaa !3
   %6572 = getelementptr inbounds i8, ptr %.31346, i64 -64
   %6573 = load i32, ptr %6572, align 4, !tbaa !3
@@ -145988,7 +145988,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6576
 
 6576:                                             ; preds = %6570, %6474
-  %.17.i1005 = phi i32 [ 0, %6474 ], [ %6575, %6570 ]
+  %.17.i1005 = phi i32 [ %6575, %6570 ], [ 0, %6474 ]
   %6577 = load i32, ptr %5769, align 4, !tbaa !3
   %6578 = getelementptr inbounds i8, ptr %.31346, i64 -60
   %6579 = load i32, ptr %6578, align 4, !tbaa !3
@@ -145997,7 +145997,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6582
 
 6582:                                             ; preds = %6576, %6474
-  %.18.i1004 = phi i32 [ 0, %6474 ], [ %6581, %6576 ]
+  %.18.i1004 = phi i32 [ %6581, %6576 ], [ 0, %6474 ]
   %6583 = load i32, ptr %5770, align 4, !tbaa !3
   %6584 = getelementptr inbounds i8, ptr %.31346, i64 -56
   %6585 = load i32, ptr %6584, align 4, !tbaa !3
@@ -146006,7 +146006,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6588
 
 6588:                                             ; preds = %6582, %6474
-  %.19.i1003 = phi i32 [ 0, %6474 ], [ %6587, %6582 ]
+  %.19.i1003 = phi i32 [ %6587, %6582 ], [ 0, %6474 ]
   %6589 = load i32, ptr %5771, align 4, !tbaa !3
   %6590 = getelementptr inbounds i8, ptr %.31346, i64 -52
   %6591 = load i32, ptr %6590, align 4, !tbaa !3
@@ -146015,7 +146015,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6594
 
 6594:                                             ; preds = %6588, %6474
-  %.20.i1002 = phi i32 [ 0, %6474 ], [ %6593, %6588 ]
+  %.20.i1002 = phi i32 [ %6593, %6588 ], [ 0, %6474 ]
   %6595 = load i32, ptr %5772, align 4, !tbaa !3
   %6596 = getelementptr inbounds i8, ptr %.31346, i64 -48
   %6597 = load i32, ptr %6596, align 4, !tbaa !3
@@ -146024,7 +146024,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6600
 
 6600:                                             ; preds = %6594, %6474
-  %.21.i1001 = phi i32 [ 0, %6474 ], [ %6599, %6594 ]
+  %.21.i1001 = phi i32 [ %6599, %6594 ], [ 0, %6474 ]
   %6601 = load i32, ptr %5773, align 4, !tbaa !3
   %6602 = getelementptr inbounds i8, ptr %.31346, i64 -44
   %6603 = load i32, ptr %6602, align 4, !tbaa !3
@@ -146033,7 +146033,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6606
 
 6606:                                             ; preds = %6600, %6474
-  %.22.i1000 = phi i32 [ 0, %6474 ], [ %6605, %6600 ]
+  %.22.i1000 = phi i32 [ %6605, %6600 ], [ 0, %6474 ]
   %6607 = load i32, ptr %5774, align 4, !tbaa !3
   %6608 = getelementptr inbounds i8, ptr %.31346, i64 -40
   %6609 = load i32, ptr %6608, align 4, !tbaa !3
@@ -146042,7 +146042,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6612
 
 6612:                                             ; preds = %6606, %6474
-  %.23.i999 = phi i32 [ 0, %6474 ], [ %6611, %6606 ]
+  %.23.i999 = phi i32 [ %6611, %6606 ], [ 0, %6474 ]
   %6613 = load i32, ptr %5775, align 4, !tbaa !3
   %6614 = getelementptr inbounds i8, ptr %.31346, i64 -36
   %6615 = load i32, ptr %6614, align 4, !tbaa !3
@@ -146051,7 +146051,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6618
 
 6618:                                             ; preds = %6612, %6474
-  %.24.i998 = phi i32 [ 0, %6474 ], [ %6617, %6612 ]
+  %.24.i998 = phi i32 [ %6617, %6612 ], [ 0, %6474 ]
   %6619 = load i32, ptr %5776, align 4, !tbaa !3
   %6620 = getelementptr inbounds i8, ptr %.31346, i64 -32
   %6621 = load i32, ptr %6620, align 4, !tbaa !3
@@ -146060,7 +146060,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6624
 
 6624:                                             ; preds = %6618, %6474
-  %.25.i997 = phi i32 [ 0, %6474 ], [ %6623, %6618 ]
+  %.25.i997 = phi i32 [ %6623, %6618 ], [ 0, %6474 ]
   %6625 = load i32, ptr %5777, align 4, !tbaa !3
   %6626 = getelementptr inbounds i8, ptr %.31346, i64 -28
   %6627 = load i32, ptr %6626, align 4, !tbaa !3
@@ -146069,7 +146069,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6630
 
 6630:                                             ; preds = %6624, %6474
-  %.26.i996 = phi i32 [ 0, %6474 ], [ %6629, %6624 ]
+  %.26.i996 = phi i32 [ %6629, %6624 ], [ 0, %6474 ]
   %6631 = load i32, ptr %5778, align 4, !tbaa !3
   %6632 = getelementptr inbounds i8, ptr %.31346, i64 -24
   %6633 = load i32, ptr %6632, align 4, !tbaa !3
@@ -146078,7 +146078,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6636
 
 6636:                                             ; preds = %6630, %6474
-  %.27.i995 = phi i32 [ 0, %6474 ], [ %6635, %6630 ]
+  %.27.i995 = phi i32 [ %6635, %6630 ], [ 0, %6474 ]
   %6637 = load i32, ptr %5779, align 4, !tbaa !3
   %6638 = getelementptr inbounds i8, ptr %.31346, i64 -20
   %6639 = load i32, ptr %6638, align 4, !tbaa !3
@@ -146087,7 +146087,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6642
 
 6642:                                             ; preds = %6636, %6474
-  %.28.i994 = phi i32 [ 0, %6474 ], [ %6641, %6636 ]
+  %.28.i994 = phi i32 [ %6641, %6636 ], [ 0, %6474 ]
   %6643 = load i32, ptr %5780, align 4, !tbaa !3
   %6644 = getelementptr inbounds i8, ptr %.31346, i64 -16
   %6645 = load i32, ptr %6644, align 4, !tbaa !3
@@ -146096,7 +146096,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6648
 
 6648:                                             ; preds = %6642, %6474
-  %.29.i993 = phi i32 [ 0, %6474 ], [ %6647, %6642 ]
+  %.29.i993 = phi i32 [ %6647, %6642 ], [ 0, %6474 ]
   %6649 = load i32, ptr %5781, align 4, !tbaa !3
   %6650 = getelementptr inbounds i8, ptr %.31346, i64 -12
   %6651 = load i32, ptr %6650, align 4, !tbaa !3
@@ -146105,7 +146105,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6654
 
 6654:                                             ; preds = %6648, %6474
-  %.30.i992 = phi i32 [ 0, %6474 ], [ %6653, %6648 ]
+  %.30.i992 = phi i32 [ %6653, %6648 ], [ 0, %6474 ]
   %6655 = load i32, ptr %5782, align 4, !tbaa !3
   %6656 = getelementptr inbounds i8, ptr %.31346, i64 -8
   %6657 = load i32, ptr %6656, align 4, !tbaa !3
@@ -146114,7 +146114,7 @@ ma_dr_flac__calculate_prediction_64.exit853:      ; preds = %6216, %6464
   br label %6660
 
 6660:                                             ; preds = %6654, %6474
-  %.31.i990 = phi i32 [ 0, %6474 ], [ %6659, %6654 ]
+  %.31.i990 = phi i32 [ %6659, %6654 ], [ 0, %6474 ]
   %6661 = load i32, ptr %7, align 4, !tbaa !3
   %6662 = getelementptr inbounds i8, ptr %.31346, i64 -4
   %6663 = load i32, ptr %6662, align 4, !tbaa !3
@@ -146703,7 +146703,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__seek_to_byte(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %13, %8, %18, %15, %21
-  %.1 = phi i32 [ 0, %15 ], [ 1, %21 ], [ 0, %18 ], [ 0, %8 ], [ 0, %13 ]
+  %.1 = phi i32 [ 1, %21 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 0, %13 ]
   ret i32 %.1
 }
 
@@ -147177,7 +147177,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %312
 
 312:                                              ; preds = %302, %294
-  %.1.i23 = phi i16 [ %139, %294 ], [ %311, %302 ]
+  %.1.i23 = phi i16 [ %311, %302 ], [ %139, %294 ]
   %313 = lshr i64 %297, 48
   %314 = trunc nuw i64 %313 to i16
   %315 = shl i16 %.1.i23, 8
@@ -147191,7 +147191,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %323
 
 323:                                              ; preds = %312, %294
-  %.2.i22 = phi i16 [ %139, %294 ], [ %322, %312 ]
+  %.2.i22 = phi i16 [ %322, %312 ], [ %139, %294 ]
   %324 = lshr i64 %297, 40
   %325 = trunc i64 %324 to i16
   %326 = shl i16 %.2.i22, 8
@@ -147205,7 +147205,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %334
 
 334:                                              ; preds = %323, %294
-  %.3.i21 = phi i16 [ %139, %294 ], [ %333, %323 ]
+  %.3.i21 = phi i16 [ %333, %323 ], [ %139, %294 ]
   %335 = lshr i64 %297, 32
   %336 = trunc i64 %335 to i16
   %337 = shl i16 %.3.i21, 8
@@ -147219,7 +147219,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %345
 
 345:                                              ; preds = %334, %294
-  %.4.i20 = phi i16 [ %139, %294 ], [ %344, %334 ]
+  %.4.i20 = phi i16 [ %344, %334 ], [ %139, %294 ]
   %346 = lshr i64 %297, 24
   %347 = trunc i64 %346 to i16
   %348 = shl i16 %.4.i20, 8
@@ -147233,7 +147233,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %356
 
 356:                                              ; preds = %345, %294
-  %.5.i19 = phi i16 [ %139, %294 ], [ %355, %345 ]
+  %.5.i19 = phi i16 [ %355, %345 ], [ %139, %294 ]
   %357 = lshr i64 %297, 16
   %358 = trunc i64 %357 to i16
   %359 = shl i16 %.5.i19, 8
@@ -147247,7 +147247,7 @@ ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
   br label %367
 
 367:                                              ; preds = %356, %294
-  %.6.i18 = phi i16 [ %139, %294 ], [ %366, %356 ]
+  %.6.i18 = phi i16 [ %366, %356 ], [ %139, %294 ]
   %368 = trunc i64 %297 to i16
   %369 = shl i16 %.6.i18, 8
   %370 = xor i16 %.6.i18, %368
@@ -147353,8 +147353,8 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %376, %294
   %. = select i1 %.not14, i32 0, i32 -100
   br label %ma_dr_flac__seek_subframe.exit.thread
 
-ma_dr_flac__seek_subframe.exit.thread:            ; preds = %93, %83, %71, %61, %111, %114, %48, %35, %39, %31, %13, %42, %55, %122, %409, %398, %385, %427, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %385 ], [ -17, %398 ], [ -17, %409 ], [ -1, %122 ], [ -1, %55 ], [ -1, %42 ], [ -1, %13 ], [ -1, %31 ], [ -1, %39 ], [ -1, %35 ], [ -1, %48 ], [ -1, %114 ], [ -1, %111 ], [ -1, %61 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
+ma_dr_flac__seek_subframe.exit.thread:            ; preds = %93, %83, %71, %61, %111, %114, %48, %35, %39, %31, %13, %122, %55, %42, %409, %398, %385, %427, %._crit_edge
+  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %385 ], [ -17, %398 ], [ -17, %409 ], [ -1, %42 ], [ -1, %55 ], [ -1, %122 ], [ -1, %13 ], [ -1, %31 ], [ -1, %39 ], [ -1, %35 ], [ -1, %48 ], [ -1, %114 ], [ -1, %111 ], [ -1, %61 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
   ret i32 %.0
 }
 
@@ -147603,7 +147603,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
 
 154:                                              ; preds = %142, %120
   %storemerge = phi i64 [ %125, %120 ], [ %153, %142 ]
-  %.pre18.i130 = phi i32 [ %124, %120 ], [ %152, %142 ]
+  %.pre18.i131 = phi i32 [ %124, %120 ], [ %152, %142 ]
   %.03.i50 = phi i32 [ %123, %120 ], [ %151, %142 ]
   store i64 %storemerge, ptr %104, align 8, !tbaa !1307
   %155 = trunc i32 %.03.i50 to i8
@@ -147676,7 +147676,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
 
 198:                                              ; preds = %186, %164
   %storemerge132 = phi i64 [ %169, %164 ], [ %197, %186 ]
-  %.pre18.i131 = phi i32 [ %168, %164 ], [ %196, %186 ]
+  %.pre18.i130 = phi i32 [ %168, %164 ], [ %196, %186 ]
   %.03.i59 = phi i32 [ %167, %164 ], [ %195, %186 ]
   store i64 %storemerge132, ptr %104, align 8, !tbaa !1307
   %199 = trunc i32 %.03.i59 to i8
@@ -147684,9 +147684,9 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   br i1 %200, label %.thread, label %201
 
 201:                                              ; preds = %198, %154
-  %.pre18.i = phi i32 [ %.pre18.i131, %198 ], [ %.pre18.i130, %154 ]
-  %.pre.i66 = phi i64 [ %storemerge132, %198 ], [ %storemerge, %154 ]
-  %.086 = phi i8 [ %199, %198 ], [ %155, %154 ]
+  %.pre18.i = phi i32 [ %.pre18.i131, %154 ], [ %.pre18.i130, %198 ]
+  %.pre.i66 = phi i64 [ %storemerge, %154 ], [ %storemerge132, %198 ]
+  %.086 = phi i8 [ %155, %154 ], [ %199, %198 ]
   %.not34 = icmp eq i8 %.086, -1
   br i1 %.not34, label %.thread, label %.lr.ph.i
 
@@ -148307,7 +148307,7 @@ ma_dr_flac__clz.exit.i.i:                         ; preds = %613, %590, %587
   br i1 %exitcond.not.i, label %ma_dr_flac__read_and_seek_residual__rice.exit, label %206, !llvm.loop !2274
 
 .thread:                                          ; preds = %198, %154, %201
-  %618 = phi i32 [ %.pre18.i131, %198 ], [ %.pre18.i130, %154 ], [ %.pre18.i, %201 ]
+  %618 = phi i32 [ %.pre18.i130, %198 ], [ %.pre18.i131, %154 ], [ %.pre18.i, %201 ]
   %619 = icmp eq i32 %618, 64
   br i1 %619, label %620, label %622
 

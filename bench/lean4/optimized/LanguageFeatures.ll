@@ -3553,7 +3553,7 @@ define noundef nonnull ptr @l_Lean_Lsp_CompletionItemKind_toCtorIdx(i8 noundef z
   br label %26
 
 26:                                               ; preds = %1, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 49 to ptr), %25 ], [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 49 to ptr), %25 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -3685,7 +3685,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit
 
 l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit:     ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36
-  %.0.i = phi ptr [ inttoptr (i64 49 to ptr), %36 ], [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 49 to ptr), %36 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -4235,7 +4235,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Lsp_instDecidableEqCompletionItemKind(i
   br label %l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit
 
 l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit:     ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26
-  %.0.i9 = phi ptr [ inttoptr (i64 49 to ptr), %26 ], [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 49 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %50 [
     i8 0, label %lean_dec.exit
     i8 1, label %27
@@ -4336,7 +4336,7 @@ l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit:     ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 49 to ptr), %50 ], [ inttoptr (i64 47 to ptr), %49 ], [ inttoptr (i64 45 to ptr), %48 ], [ inttoptr (i64 43 to ptr), %47 ], [ inttoptr (i64 41 to ptr), %46 ], [ inttoptr (i64 39 to ptr), %45 ], [ inttoptr (i64 37 to ptr), %44 ], [ inttoptr (i64 35 to ptr), %43 ], [ inttoptr (i64 33 to ptr), %42 ], [ inttoptr (i64 31 to ptr), %41 ], [ inttoptr (i64 29 to ptr), %40 ], [ inttoptr (i64 27 to ptr), %39 ], [ inttoptr (i64 25 to ptr), %38 ], [ inttoptr (i64 23 to ptr), %37 ], [ inttoptr (i64 21 to ptr), %36 ], [ inttoptr (i64 19 to ptr), %35 ], [ inttoptr (i64 17 to ptr), %34 ], [ inttoptr (i64 15 to ptr), %33 ], [ inttoptr (i64 13 to ptr), %32 ], [ inttoptr (i64 11 to ptr), %31 ], [ inttoptr (i64 9 to ptr), %30 ], [ inttoptr (i64 7 to ptr), %29 ], [ inttoptr (i64 5 to ptr), %28 ], [ inttoptr (i64 3 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 49 to ptr), %50 ], [ inttoptr (i64 3 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %31 ], [ inttoptr (i64 13 to ptr), %32 ], [ inttoptr (i64 15 to ptr), %33 ], [ inttoptr (i64 17 to ptr), %34 ], [ inttoptr (i64 19 to ptr), %35 ], [ inttoptr (i64 21 to ptr), %36 ], [ inttoptr (i64 23 to ptr), %37 ], [ inttoptr (i64 25 to ptr), %38 ], [ inttoptr (i64 27 to ptr), %39 ], [ inttoptr (i64 29 to ptr), %40 ], [ inttoptr (i64 31 to ptr), %41 ], [ inttoptr (i64 33 to ptr), %42 ], [ inttoptr (i64 35 to ptr), %43 ], [ inttoptr (i64 37 to ptr), %44 ], [ inttoptr (i64 39 to ptr), %45 ], [ inttoptr (i64 41 to ptr), %46 ], [ inttoptr (i64 43 to ptr), %47 ], [ inttoptr (i64 45 to ptr), %48 ], [ inttoptr (i64 47 to ptr), %49 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_CompletionItemKind_toCtorIdx.exit ]
   %51 = icmp eq ptr %.0.i9, %.0.i10
   %52 = zext i1 %51 to i8
   ret i8 %52
@@ -10409,7 +10409,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -20635,7 +20635,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -28927,7 +28927,7 @@ lean_alloc_ctor.exit38:                           ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %12, %18, %20, %21, %lean_alloc_ctor.exit34, %lean_alloc_ctor.exit36, %lean_alloc_ctor.exit38
-  %.0 = phi ptr [ %64, %lean_alloc_ctor.exit38 ], [ %50, %lean_alloc_ctor.exit36 ], [ %36, %lean_alloc_ctor.exit34 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %64, %lean_alloc_ctor.exit38 ], [ %36, %lean_alloc_ctor.exit34 ], [ %50, %lean_alloc_ctor.exit36 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -29526,7 +29526,7 @@ define noundef nonnull ptr @l_Lean_Lsp_SymbolKind_toCtorIdx(i8 noundef zeroext %
   br label %27
 
 27:                                               ; preds = %1, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 51 to ptr), %26 ], [ inttoptr (i64 49 to ptr), %25 ], [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 51 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 49 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -29662,7 +29662,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_SymbolKind_toCtorIdx.exit
 
 l_Lean_Lsp_SymbolKind_toCtorIdx.exit:             ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37
-  %.0.i = phi ptr [ inttoptr (i64 51 to ptr), %37 ], [ inttoptr (i64 49 to ptr), %36 ], [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 51 to ptr), %37 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 49 to ptr), %36 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -29856,7 +29856,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Lsp_beqSymbolKind____x40_Lean_Data_Lsp_
   br label %l_Lean_Lsp_SymbolKind_toCtorIdx.exit
 
 l_Lean_Lsp_SymbolKind_toCtorIdx.exit:             ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27
-  %.0.i9 = phi ptr [ inttoptr (i64 51 to ptr), %27 ], [ inttoptr (i64 49 to ptr), %26 ], [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 51 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 49 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %52 [
     i8 0, label %lean_dec.exit
     i8 1, label %28
@@ -29961,7 +29961,7 @@ l_Lean_Lsp_SymbolKind_toCtorIdx.exit:             ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %l_Lean_Lsp_SymbolKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 51 to ptr), %52 ], [ inttoptr (i64 49 to ptr), %51 ], [ inttoptr (i64 47 to ptr), %50 ], [ inttoptr (i64 45 to ptr), %49 ], [ inttoptr (i64 43 to ptr), %48 ], [ inttoptr (i64 41 to ptr), %47 ], [ inttoptr (i64 39 to ptr), %46 ], [ inttoptr (i64 37 to ptr), %45 ], [ inttoptr (i64 35 to ptr), %44 ], [ inttoptr (i64 33 to ptr), %43 ], [ inttoptr (i64 31 to ptr), %42 ], [ inttoptr (i64 29 to ptr), %41 ], [ inttoptr (i64 27 to ptr), %40 ], [ inttoptr (i64 25 to ptr), %39 ], [ inttoptr (i64 23 to ptr), %38 ], [ inttoptr (i64 21 to ptr), %37 ], [ inttoptr (i64 19 to ptr), %36 ], [ inttoptr (i64 17 to ptr), %35 ], [ inttoptr (i64 15 to ptr), %34 ], [ inttoptr (i64 13 to ptr), %33 ], [ inttoptr (i64 11 to ptr), %32 ], [ inttoptr (i64 9 to ptr), %31 ], [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_SymbolKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 51 to ptr), %52 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 9 to ptr), %31 ], [ inttoptr (i64 11 to ptr), %32 ], [ inttoptr (i64 13 to ptr), %33 ], [ inttoptr (i64 15 to ptr), %34 ], [ inttoptr (i64 17 to ptr), %35 ], [ inttoptr (i64 19 to ptr), %36 ], [ inttoptr (i64 21 to ptr), %37 ], [ inttoptr (i64 23 to ptr), %38 ], [ inttoptr (i64 25 to ptr), %39 ], [ inttoptr (i64 27 to ptr), %40 ], [ inttoptr (i64 29 to ptr), %41 ], [ inttoptr (i64 31 to ptr), %42 ], [ inttoptr (i64 33 to ptr), %43 ], [ inttoptr (i64 35 to ptr), %44 ], [ inttoptr (i64 37 to ptr), %45 ], [ inttoptr (i64 39 to ptr), %46 ], [ inttoptr (i64 41 to ptr), %47 ], [ inttoptr (i64 43 to ptr), %48 ], [ inttoptr (i64 45 to ptr), %49 ], [ inttoptr (i64 47 to ptr), %50 ], [ inttoptr (i64 49 to ptr), %51 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_SymbolKind_toCtorIdx.exit ]
   %53 = icmp eq ptr %.0.i9, %.0.i10
   %54 = zext i1 %53 to i8
   ret i8 %54
@@ -60242,7 +60242,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -69031,7 +69031,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -71174,7 +71174,7 @@ define noundef nonnull ptr @l_Lean_Lsp_SemanticTokenType_toCtorIdx(i8 noundef ze
   br label %25
 
 25:                                               ; preds = %1, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -71302,7 +71302,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit
 
 l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit:      ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %.0.i = phi ptr [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -76222,7 +76222,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Lsp_beqSemanticTokenType____x40_Lean_Da
   br label %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit
 
 l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit:      ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25
-  %.0.i9 = phi ptr [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 47 to ptr), %25 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 17 to ptr), %10 ], [ inttoptr (i64 19 to ptr), %11 ], [ inttoptr (i64 21 to ptr), %12 ], [ inttoptr (i64 23 to ptr), %13 ], [ inttoptr (i64 25 to ptr), %14 ], [ inttoptr (i64 27 to ptr), %15 ], [ inttoptr (i64 29 to ptr), %16 ], [ inttoptr (i64 31 to ptr), %17 ], [ inttoptr (i64 33 to ptr), %18 ], [ inttoptr (i64 35 to ptr), %19 ], [ inttoptr (i64 37 to ptr), %20 ], [ inttoptr (i64 39 to ptr), %21 ], [ inttoptr (i64 41 to ptr), %22 ], [ inttoptr (i64 43 to ptr), %23 ], [ inttoptr (i64 45 to ptr), %24 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %48 [
     i8 0, label %lean_dec.exit
     i8 1, label %26
@@ -76319,7 +76319,7 @@ l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit:      ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 47 to ptr), %48 ], [ inttoptr (i64 45 to ptr), %47 ], [ inttoptr (i64 43 to ptr), %46 ], [ inttoptr (i64 41 to ptr), %45 ], [ inttoptr (i64 39 to ptr), %44 ], [ inttoptr (i64 37 to ptr), %43 ], [ inttoptr (i64 35 to ptr), %42 ], [ inttoptr (i64 33 to ptr), %41 ], [ inttoptr (i64 31 to ptr), %40 ], [ inttoptr (i64 29 to ptr), %39 ], [ inttoptr (i64 27 to ptr), %38 ], [ inttoptr (i64 25 to ptr), %37 ], [ inttoptr (i64 23 to ptr), %36 ], [ inttoptr (i64 21 to ptr), %35 ], [ inttoptr (i64 19 to ptr), %34 ], [ inttoptr (i64 17 to ptr), %33 ], [ inttoptr (i64 15 to ptr), %32 ], [ inttoptr (i64 13 to ptr), %31 ], [ inttoptr (i64 11 to ptr), %30 ], [ inttoptr (i64 9 to ptr), %29 ], [ inttoptr (i64 7 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 47 to ptr), %48 ], [ inttoptr (i64 3 to ptr), %26 ], [ inttoptr (i64 5 to ptr), %27 ], [ inttoptr (i64 7 to ptr), %28 ], [ inttoptr (i64 9 to ptr), %29 ], [ inttoptr (i64 11 to ptr), %30 ], [ inttoptr (i64 13 to ptr), %31 ], [ inttoptr (i64 15 to ptr), %32 ], [ inttoptr (i64 17 to ptr), %33 ], [ inttoptr (i64 19 to ptr), %34 ], [ inttoptr (i64 21 to ptr), %35 ], [ inttoptr (i64 23 to ptr), %36 ], [ inttoptr (i64 25 to ptr), %37 ], [ inttoptr (i64 27 to ptr), %38 ], [ inttoptr (i64 29 to ptr), %39 ], [ inttoptr (i64 31 to ptr), %40 ], [ inttoptr (i64 33 to ptr), %41 ], [ inttoptr (i64 35 to ptr), %42 ], [ inttoptr (i64 37 to ptr), %43 ], [ inttoptr (i64 39 to ptr), %44 ], [ inttoptr (i64 41 to ptr), %45 ], [ inttoptr (i64 43 to ptr), %46 ], [ inttoptr (i64 45 to ptr), %47 ], [ inttoptr (i64 1 to ptr), %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit ]
   %49 = icmp eq ptr %.0.i9, %.0.i10
   %50 = zext i1 %49 to i8
   ret i8 %50
@@ -76541,7 +76541,7 @@ define noundef nonnull ptr @l_Lean_Lsp_SemanticTokenType_toNat(i8 noundef zeroex
   br label %l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit
 
 l_Lean_Lsp_SemanticTokenType_toCtorIdx.exit:      ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24
-  %.0.i = phi ptr [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0.i = phi ptr [ inttoptr (i64 47 to ptr), %24 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 21 to ptr), %11 ], [ inttoptr (i64 23 to ptr), %12 ], [ inttoptr (i64 25 to ptr), %13 ], [ inttoptr (i64 27 to ptr), %14 ], [ inttoptr (i64 29 to ptr), %15 ], [ inttoptr (i64 31 to ptr), %16 ], [ inttoptr (i64 33 to ptr), %17 ], [ inttoptr (i64 35 to ptr), %18 ], [ inttoptr (i64 37 to ptr), %19 ], [ inttoptr (i64 39 to ptr), %20 ], [ inttoptr (i64 41 to ptr), %21 ], [ inttoptr (i64 43 to ptr), %22 ], [ inttoptr (i64 45 to ptr), %23 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0.i
 }
 
@@ -76669,7 +76669,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_SemanticTokenType_toNat.exit
 
 l_Lean_Lsp_SemanticTokenType_toNat.exit:          ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %.0.i.i = phi ptr [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i.i = phi ptr [ inttoptr (i64 47 to ptr), %35 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 21 to ptr), %22 ], [ inttoptr (i64 23 to ptr), %23 ], [ inttoptr (i64 25 to ptr), %24 ], [ inttoptr (i64 27 to ptr), %25 ], [ inttoptr (i64 29 to ptr), %26 ], [ inttoptr (i64 31 to ptr), %27 ], [ inttoptr (i64 33 to ptr), %28 ], [ inttoptr (i64 35 to ptr), %29 ], [ inttoptr (i64 37 to ptr), %30 ], [ inttoptr (i64 39 to ptr), %31 ], [ inttoptr (i64 41 to ptr), %32 ], [ inttoptr (i64 43 to ptr), %33 ], [ inttoptr (i64 45 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i.i
 }
 
@@ -76715,7 +76715,7 @@ define noundef nonnull ptr @l_Lean_Lsp_SemanticTokenModifier_toCtorIdx(i8 nounde
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -76787,7 +76787,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_SemanticTokenModifier_toCtorIdx.exit
 
 l_Lean_Lsp_SemanticTokenModifier_toCtorIdx.exit:  ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21
-  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -78881,7 +78881,7 @@ define noundef nonnull ptr @l_Lean_Lsp_SemanticTokenModifier_toNat(i8 noundef ze
   br label %l_Lean_Lsp_SemanticTokenModifier_toCtorIdx.exit
 
 l_Lean_Lsp_SemanticTokenModifier_toCtorIdx.exit:  ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10
-  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0.i = phi ptr [ inttoptr (i64 19 to ptr), %10 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 17 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0.i
 }
 
@@ -78953,7 +78953,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Lsp_SemanticTokenModifier_toNat.exit
 
 l_Lean_Lsp_SemanticTokenModifier_toNat.exit:      ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19, %20, %21
-  %.0.i.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i.i = phi ptr [ inttoptr (i64 19 to ptr), %21 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 17 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i.i
 }
 
@@ -82485,7 +82485,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -84148,7 +84148,7 @@ lean_alloc_ctor.exit38:                           ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %12, %18, %20, %21, %lean_alloc_ctor.exit34, %lean_alloc_ctor.exit36, %lean_alloc_ctor.exit38
-  %.0 = phi ptr [ %64, %lean_alloc_ctor.exit38 ], [ %50, %lean_alloc_ctor.exit36 ], [ %36, %lean_alloc_ctor.exit34 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %64, %lean_alloc_ctor.exit38 ], [ %36, %lean_alloc_ctor.exit34 ], [ %50, %lean_alloc_ctor.exit36 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -89719,7 +89719,7 @@ lean_alloc_ctor.exit210:                          ; preds = %lean_dec.exit
   br label %330
 
 330:                                              ; preds = %lean_dec.exit133, %lean_alloc_ctor.exit210, %219, %263, %lean_alloc_ctor.exit187, %lean_alloc_ctor.exit192, %lean_dec.exit137, %114, %lean_alloc_ctor.exit171, %lean_alloc_ctor.exit176, %lean_alloc_ctor.exit, %10
-  %.0 = phi ptr [ %27, %lean_alloc_ctor.exit ], [ %11, %10 ], [ %43, %lean_alloc_ctor.exit171 ], [ %76, %lean_alloc_ctor.exit176 ], [ %.0123, %219 ], [ %.0125, %263 ], [ %134, %lean_dec.exit137 ], [ %93, %114 ], [ %93, %lean_alloc_ctor.exit187 ], [ %175, %lean_alloc_ctor.exit192 ], [ %0, %lean_dec.exit133 ], [ %325, %lean_alloc_ctor.exit210 ]
+  %.0 = phi ptr [ %11, %10 ], [ %27, %lean_alloc_ctor.exit ], [ %43, %lean_alloc_ctor.exit171 ], [ %76, %lean_alloc_ctor.exit176 ], [ %.0123, %219 ], [ %.0125, %263 ], [ %134, %lean_dec.exit137 ], [ %93, %114 ], [ %93, %lean_alloc_ctor.exit187 ], [ %175, %lean_alloc_ctor.exit192 ], [ %0, %lean_dec.exit133 ], [ %325, %lean_alloc_ctor.exit210 ]
   ret ptr %.0
 }
 
@@ -93946,7 +93946,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit56, %lean_alloc_ctor.exit81, %lean_dec.exit58, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %69, %lean_dec.exit58 ], [ %45, %lean_alloc_ctor.exit75 ], [ %25, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit58 ], [ %0, %lean_dec.exit56 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 

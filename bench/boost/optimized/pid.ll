@@ -5328,8 +5328,8 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v213basic_processINS_4
   br label %13
 
 13:                                               ; preds = %11, %.noexc5.i, %.noexc.i
-  %.0.i = phi i32 [ %12, %11 ], [ %9, %.noexc.i ], [ 0, %.noexc5.i ]
-  %.1.i.i = phi i1 [ false, %11 ], [ true, %.noexc.i ], [ false, %.noexc5.i ]
+  %.0.i = phi i32 [ %12, %11 ], [ 0, %.noexc5.i ], [ %9, %.noexc.i ]
+  %.1.i.i = phi i1 [ false, %11 ], [ false, %.noexc5.i ], [ true, %.noexc.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #35
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
 

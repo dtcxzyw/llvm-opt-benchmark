@@ -1940,7 +1940,7 @@ define internal i32 @placeholder_traverse(ptr noundef readonly captures(none) %0
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -5491,7 +5491,7 @@ define internal i32 @keyobject_traverse(ptr noundef readonly captures(none) %0, 
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

@@ -444,7 +444,7 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %frag_cnt_next.exit.i
 
 frag_cnt_next.exit.i:                             ; preds = %160, %159, %158, %155
-  %.0.i.i = phi i8 [ -26, %160 ], [ -77, %159 ], [ 127, %158 ], [ 76, %155 ]
+  %.0.i.i = phi i8 [ -26, %160 ], [ 127, %158 ], [ -77, %159 ], [ 76, %155 ]
   %161 = icmp eq i8 %.0.i.i, %67
   br i1 %161, label %162, label %165
 
@@ -848,7 +848,7 @@ drop_fragments.exit372.i:                         ; preds = %287, %284
   br label %frag_cnt_next.exit383.i
 
 frag_cnt_next.exit383.i:                          ; preds = %358, %357, %356, %353
-  %.0.i382.i = phi i8 [ -26, %358 ], [ -77, %357 ], [ 127, %356 ], [ 76, %353 ]
+  %.0.i382.i = phi i8 [ -26, %358 ], [ 127, %356 ], [ -77, %357 ], [ 76, %353 ]
   %359 = icmp eq i8 %.0.i382.i, %67
   br i1 %359, label %360, label %373
 
@@ -1083,7 +1083,7 @@ define internal fastcc noundef i32 @get_preamble_length(ptr noundef %0) unnamed_
   br label %18
 
 18:                                               ; preds = %.critedge, %16, %14
-  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ 8, %.critedge ]
+  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 8, %.critedge ]
   ret i32 %.0
 }
 
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
   br label %22
 
 22:                                               ; preds = %19, %19, %19, %19, %.critedge, %.critedge, %.critedge, %.critedge, %21, %20, %18, %17, %16
-  %.0 = phi i32 [ 5, %21 ], [ 5, %20 ], [ 0, %18 ], [ 2, %17 ], [ 1, %16 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
+  %.0 = phi i32 [ 5, %21 ], [ 1, %16 ], [ 2, %17 ], [ 0, %18 ], [ 5, %20 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
   ret i32 %.0
 }
 

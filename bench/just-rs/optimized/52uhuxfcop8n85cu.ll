@@ -14104,7 +14104,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$just..summary..Expression$GT
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %.body27, %.body38, %.body42, %59, %91, %87, %70
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %88, %87 ], [ %92, %91 ], [ %51, %59 ], [ %51, %.body42 ], [ %31, %.body38 ], [ %.pn2, %.body27 ], [ %21, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %88, %87 ], [ %92, %91 ], [ %51, %59 ], [ %51, %.body42 ], [ %21, %.body ], [ %.pn2, %.body27 ], [ %31, %.body38 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$just..summary..Expression$GT$$GT$17h509847fd356cffa4E.exit": ; preds = %43
@@ -15512,7 +15512,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$just..expression..Expression
           to label %22 unwind label %27
 
 common.resume:                                    ; preds = %22, %.body, %.body14, %.body23, %.critedge.i.i, %.body28, %98, %55, %59, %37, %160, %156, %137, %119, %45, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %46, %45 ], [ %120, %119 ], [ %138, %137 ], [ %157, %156 ], [ %161, %160 ], [ %38, %37 ], [ %56, %59 ], [ %56, %55 ], [ %90, %98 ], [ %90, %.body28 ], [ %69, %.critedge.i.i ], [ %126, %.body23 ], [ %.pn2, %.body14 ], [ %109, %.body ], [ %20, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %46, %45 ], [ %120, %119 ], [ %138, %137 ], [ %157, %156 ], [ %161, %160 ], [ %38, %37 ], [ %56, %59 ], [ %56, %55 ], [ %90, %98 ], [ %90, %.body28 ], [ %69, %.critedge.i.i ], [ %109, %.body ], [ %.pn2, %.body14 ], [ %126, %.body23 ], [ %20, %22 ]
   resume { ptr, i32 } %common.resume.op
 
 27:                                               ; preds = %24
@@ -29894,7 +29894,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5cb75e716010d06eE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

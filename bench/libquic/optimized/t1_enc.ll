@@ -413,7 +413,7 @@ define hidden range(i32 0, 49) i32 @tls1_generate_master_secret(ptr noundef %0, 
   br label %28
 
 28:                                               ; preds = %.thread, %20, %13, %27
-  %.1 = phi i32 [ 0, %13 ], [ 48, %27 ], [ 0, %20 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 48, %27 ], [ 0, %13 ], [ 0, %20 ], [ 0, %.thread ]
   ret i32 %.1
 }
 

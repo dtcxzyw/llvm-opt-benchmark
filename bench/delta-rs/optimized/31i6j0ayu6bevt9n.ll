@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit"
 
 "_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit": ; preds = %12, %15, %17
-  %.0.in.i = phi i1 [ %19, %17 ], [ %16, %15 ], [ %14, %12 ]
+  %.0.in.i = phi i1 [ %14, %12 ], [ %16, %15 ], [ %19, %17 ]
   ret i1 %.0.in.i
 }
 
@@ -175,7 +175,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN85_$LT$deltalake_core..kernel..models..schema..DataType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha6ed17ee6f84ef11E.exit"
 
 "_ZN85_$LT$deltalake_core..kernel..models..schema..DataType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha6ed17ee6f84ef11E.exit": ; preds = %9, %12, %15, %18
-  %.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.0.in.i
 }
 
@@ -262,7 +262,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN90_$LT$deltalake_core..kernel..models..schema..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h73723ce0a5973a6bE.exit"
 
 "_ZN90_$LT$deltalake_core..kernel..models..schema..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h73723ce0a5973a6bE.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30
-  %.0.in.i = phi i1 [ %33, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %33, %30 ]
   ret i1 %.0.in.i
 }
 
@@ -654,7 +654,7 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %8
-  %.0.in = phi i1 [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ]
   ret i1 %.0.in
 }
 

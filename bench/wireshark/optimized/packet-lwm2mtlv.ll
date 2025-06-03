@@ -1452,7 +1452,7 @@ default.unreachable:                              ; preds = %98
   unreachable
 
 addElementTree.exit:                              ; preds = %99, %104, %109, %115
-  %.037.i = phi ptr [ %120, %115 ], [ %114, %109 ], [ %108, %104 ], [ %103, %99 ]
+  %.037.i = phi ptr [ %103, %99 ], [ %108, %104 ], [ %114, %109 ], [ %120, %115 ]
   %121 = load i32, ptr @hf_lwm2mtlv_header, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %121, ptr noundef %16, i32 noundef 0, i32 noundef %32, i32 noundef 0)
   %123 = load i32, ptr @ett_lwm2mtlv_header, align 4
@@ -1810,7 +1810,7 @@ define internal fastcc i64 @decodeVariableUInt(ptr noundef %0, i32 noundef %1, i
   br label %24
 
 24:                                               ; preds = %3, %22, %20, %18, %16, %13, %10, %7, %4
-  %.0 = phi i64 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %6, %4 ], [ 0, %3 ]
+  %.0 = phi i64 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1894,7 +1894,7 @@ define internal fastcc i64 @decodeVariableInt(ptr noundef %0, i32 noundef %1, i3
   br label %24
 
 24:                                               ; preds = %3, %22, %20, %18, %16, %13, %10, %7, %4
-  %.0 = phi i64 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ %6, %4 ], [ 0, %3 ]
+  %.0 = phi i64 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
   ret i64 %.0
 }
 

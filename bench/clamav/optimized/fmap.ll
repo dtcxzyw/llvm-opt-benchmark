@@ -1443,7 +1443,7 @@ define range(i32 0, 4) i32 @fmap_set_hash(ptr noundef writeonly captures(address
   br label %20
 
 20:                                               ; preds = %10, %13, %16, %19, %8, %5
-  %.0 = phi i32 [ 3, %5 ], [ 3, %8 ], [ 3, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ 3, %5 ], [ 3, %8 ], [ 3, %19 ], [ 0, %10 ], [ 0, %13 ], [ 0, %16 ]
   ret i32 %.0
 }
 

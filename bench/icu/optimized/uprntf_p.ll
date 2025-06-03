@@ -640,7 +640,7 @@ _ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread: ; preds = %19,
   br label %.backedge
 
 .backedge:                                        ; preds = %251, %250, %249, %248, %247, %246, %.critedge6
-  %.6.be = phi ptr [ %245, %.critedge6 ], [ %273, %251 ], [ %245, %250 ], [ %245, %249 ], [ %245, %248 ], [ %245, %247 ], [ %245, %246 ]
+  %.6.be = phi ptr [ %245, %.critedge6 ], [ %245, %246 ], [ %245, %247 ], [ %245, %248 ], [ %245, %249 ], [ %245, %250 ], [ %273, %251 ]
   br label %243, !llvm.loop !51
 
 274:                                              ; preds = %243
@@ -877,7 +877,7 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
   br label %350
 
 350:                                              ; preds = %338, %340, %342, %349, %348, %346
-  %.15 = phi ptr [ %341, %340 ], [ %341, %349 ], [ %347, %346 ], [ %341, %348 ], [ %341, %342 ], [ %.12, %338 ]
+  %.15 = phi ptr [ %341, %340 ], [ %341, %342 ], [ %347, %346 ], [ %341, %348 ], [ %341, %349 ], [ %.12, %338 ]
   %351 = getelementptr inbounds nuw i8, ptr %.15, i64 2
   %352 = load i16, ptr %.15, align 2, !tbaa !12
   store i16 %352, ptr %197, align 2, !tbaa !60

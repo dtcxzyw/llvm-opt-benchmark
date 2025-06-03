@@ -88,7 +88,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit.i.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit.i.i.i.i": ; preds = %21, %18
-  %.0.i.i.i.i.i = phi ptr [ %24, %21 ], [ %20, %18 ]
+  %.0.i.i.i.i.i = phi ptr [ %20, %18 ], [ %24, %21 ]
   %.val.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !40, !noalias !41, !nonnull !9, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 32
@@ -304,7 +304,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN99_$LT$regex_au
           to label %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..MatchError$GT$17h56e80ece3f9d1014E.exit.i.i" unwind label %117, !noalias !93
 
 110:                                              ; preds = %.thread101.i.i.i, %.thread.i.i.i
-  %.sroa.9.0.in.i.i = phi ptr [ %102, %.thread101.i.i.i ], [ %.sroa.4.0.copyload.i.i.i, %.thread.i.i.i ]
+  %.sroa.9.0.in.i.i = phi ptr [ %.sroa.4.0.copyload.i.i.i, %.thread.i.i.i ], [ %102, %.thread101.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !92
   store ptr %.sroa.9.0.in.i.i, ptr %12, align 8, !noalias !92
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !92
@@ -434,7 +434,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit.i.i.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit.i.i.i.i.i": ; preds = %34, %31
-  %.0.i.i.i.i.i.i = phi ptr [ %37, %34 ], [ %33, %31 ]
+  %.0.i.i.i.i.i.i = phi ptr [ %33, %31 ], [ %37, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 0, ptr %40, align 8, !alias.scope !132, !noalias !123
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -3296,7 +3296,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %46)
   br label %.critedge220
 
-.critedge220:                                     ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9db8dfb7e7f48bdE.exit.i.i316", %786, %784, %"_ZN4core3ptr42drop_in_place$LT$tree_sitter_tags..Tag$GT$17ha3646faeca33ea2aE.exit314"
+.critedge220:                                     ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he9db8dfb7e7f48bdE.exit.i.i316", %786, %"_ZN4core3ptr42drop_in_place$LT$tree_sitter_tags..Tag$GT$17ha3646faeca33ea2aE.exit314", %784
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h679aee031eb17ed2E.exit.thread.thread"

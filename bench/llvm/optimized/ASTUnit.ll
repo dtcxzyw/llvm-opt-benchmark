@@ -3274,8 +3274,8 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.thread.i: ; preds = %_ZNK5cl
   br label %_ZL19getDeclShowContextsPKN5clang9NamedDeclERKNS_11LangOptionsERb.exit
 
 _ZL19getDeclShowContextsPKN5clang9NamedDeclERKNS_11LangOptionsERb.exit: ; preds = %326, %319, %312, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i, %328, %332, %333, %.fold.split.i, %.fold.split66.i
-  %.0148 = phi i1 [ false, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ false, %328 ], [ false, %.fold.split66.i ], [ true, %333 ], [ false, %.fold.split.i ], [ false, %332 ], [ %316, %312 ], [ %325, %319 ], [ %327, %326 ]
-  %.0.i = phi i64 [ 0, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ 536871808, %328 ], [ 0, %.fold.split66.i ], [ 131072, %333 ], [ 8589934592, %.fold.split.i ], [ 65536, %332 ], [ %313, %312 ], [ %.5.i, %319 ], [ %.3.i, %326 ]
+  %.0148 = phi i1 [ false, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ false, %328 ], [ false, %.fold.split66.i ], [ false, %332 ], [ false, %.fold.split.i ], [ true, %333 ], [ %316, %312 ], [ %325, %319 ], [ %327, %326 ]
+  %.0.i = phi i64 [ 0, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ 536871808, %328 ], [ 0, %.fold.split66.i ], [ 65536, %332 ], [ 8589934592, %.fold.split.i ], [ 131072, %333 ], [ %313, %312 ], [ %.5.i, %319 ], [ %.3.i, %326 ]
   %334 = getelementptr inbounds nuw i8, ptr %.0158, i64 16
   %335 = load i32, ptr %334, align 8, !tbaa !718
   %336 = getelementptr inbounds nuw i8, ptr %.0158, i64 28
@@ -7042,7 +7042,7 @@ define internal fastcc void @_ZL28checkAndRemoveNonDriverDiagsRN4llvm15SmallVect
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %29, %28 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %29, %28 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !1836
   %.not5 = icmp eq i32 %32, 0
@@ -7053,7 +7053,7 @@ define internal fastcc void @_ZL28checkAndRemoveNonDriverDiagsRN4llvm15SmallVect
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %34, %33 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !1836
   %.not6 = icmp eq i32 %37, 0

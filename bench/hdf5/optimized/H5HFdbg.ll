@@ -942,8 +942,8 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   %109 = call i32 @H5_buffer_dump(ptr noundef %2, i32 noundef %3, ptr noundef %107, ptr noundef nonnull %50, i64 noundef 0, i64 noundef %108) #9
   br label %110
 
-110:                                              ; preds = %52, %59, %96, %97
-  %.1.ph = phi i32 [ 0, %97 ], [ -1, %96 ], [ -1, %59 ], [ -1, %52 ]
+110:                                              ; preds = %52, %59, %97, %96
+  %.1.ph = phi i32 [ -1, %96 ], [ 0, %97 ], [ -1, %59 ], [ -1, %52 ]
   %111 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %1, ptr noundef nonnull %21, i32 noundef 0) #9
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %121

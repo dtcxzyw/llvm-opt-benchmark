@@ -895,7 +895,7 @@ rb_iseq_min_max_arity.exit:                       ; preds = %26, %34
   br label %72
 
 72:                                               ; preds = %55, %65, %71, %70, %rb_iseq_min_max_arity.exit
-  %.0 = phi i32 [ 0, %71 ], [ 1, %70 ], [ %43, %rb_iseq_min_max_arity.exit ], [ %64, %55 ], [ %69, %65 ]
+  %.0 = phi i32 [ 0, %71 ], [ %43, %rb_iseq_min_max_arity.exit ], [ 1, %70 ], [ %64, %55 ], [ %69, %65 ]
   ret i32 %.0
 }
 
@@ -1738,7 +1738,7 @@ define hidden i64 @rb_hash_proc(i64 noundef %0, i64 noundef %1) local_unnamed_ad
   unreachable
 
 34:                                               ; preds = %29, %25, %14, %7
-  %.0 = phi i64 [ %32, %29 ], [ %28, %25 ], [ %24, %14 ], [ %13, %7 ]
+  %.0 = phi i64 [ %13, %7 ], [ %24, %14 ], [ %28, %25 ], [ %32, %29 ]
   %.val = load i32, ptr %6, align 8, !tbaa !14
   %.not = icmp eq i32 %.val, 1
   br i1 %.not, label %40, label %35
@@ -6033,7 +6033,7 @@ vm_proc_method_def.exit.thread.i:                 ; preds = %vm_proc_method_def.
   br label %method_def_parameters.exit
 
 method_def_parameters.exit:                       ; preds = %method_def_iseq.exit.i, %80, %rbimpl_intern_const.exit41.i, %vm_proc_method_def.exit.thread.i
-  %.0.i = phi i64 [ %121, %vm_proc_method_def.exit.thread.i ], [ %115, %rbimpl_intern_const.exit41.i ], [ %81, %80 ], [ %46, %method_def_iseq.exit.i ]
+  %.0.i = phi i64 [ %121, %vm_proc_method_def.exit.thread.i ], [ %46, %method_def_iseq.exit.i ], [ %81, %80 ], [ %115, %rbimpl_intern_const.exit41.i ]
   ret i64 %.0.i
 }
 
@@ -7297,7 +7297,7 @@ rb_iseq_min_max_arity.exit:                       ; preds = %47, %55
   unreachable
 
 76:                                               ; preds = %75, %74, %73, %72, %71, %70, %66, %65, %rb_iseq_min_max_arity.exit, %19, %13, %12, %11, %check_argc.exit, %10, %._crit_edge
-  %.0 = phi i32 [ 0, %75 ], [ 1, %74 ], [ 0, %73 ], [ 0, %72 ], [ 0, %71 ], [ 0, %70 ], [ 0, %66 ], [ 0, %65 ], [ %64, %rb_iseq_min_max_arity.exit ], [ %25, %19 ], [ 0, %13 ], [ 1, %12 ], [ 0, %11 ], [ 0, %10 ], [ %8, %check_argc.exit ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %10 ], [ %8, %check_argc.exit ], [ 0, %11 ], [ 1, %12 ], [ 0, %13 ], [ %25, %19 ], [ %64, %rb_iseq_min_max_arity.exit ], [ 0, %65 ], [ 0, %66 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 1, %74 ], [ 0, %75 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

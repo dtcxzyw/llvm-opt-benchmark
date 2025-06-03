@@ -4687,7 +4687,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %290
 
 290:                                              ; preds = %288, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %289, %288 ]
+  %.1.i.i.i.i = phi ptr [ %289, %288 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %291 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !50
   %292 = add i8 %291, -48
   %293 = icmp ult i8 %292, 10
@@ -4698,7 +4698,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %296
 
 296:                                              ; preds = %294, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %295, %294 ]
+  %.2.i.i.i.i = phi ptr [ %295, %294 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %297 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !50
   %298 = add i8 %297, -48
   %299 = icmp ult i8 %298, 10
@@ -5225,7 +5225,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   br label %506
 
 506:                                              ; preds = %504, %._crit_edge.i.i.i.i104
-  %.1.i.i.i.i114 = phi ptr [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ], [ %505, %504 ]
+  %.1.i.i.i.i114 = phi ptr [ %505, %504 ], [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ]
   %507 = load i8, ptr %.1.i.i.i.i114, align 1, !tbaa !50
   %508 = add i8 %507, -48
   %509 = icmp ult i8 %508, 10
@@ -5236,7 +5236,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   br label %512
 
 512:                                              ; preds = %510, %._crit_edge.i.i.i.i104
-  %.2.i.i.i.i107 = phi ptr [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ], [ %511, %510 ]
+  %.2.i.i.i.i107 = phi ptr [ %511, %510 ], [ %.029.lcssa.i.i.i.i105, %._crit_edge.i.i.i.i104 ]
   %513 = load i8, ptr %.2.i.i.i.i107, align 1, !tbaa !50
   %514 = add i8 %513, -48
   %515 = icmp ult i8 %514, 10

@@ -157,6 +157,11 @@ bytestream2_get_be32.exit24:                      ; preds = %bytestream2_get_be3
   %48 = add nsw i32 %.014.ph, 1
   br label %.preheader.outer.backedge
 
+.preheader.outer.backedge:                        ; preds = %44, %55
+  %.sroa.0.0.ph.be = phi ptr [ %59, %55 ], [ %47, %44 ]
+  %.014.ph.be = phi i32 [ 2, %55 ], [ %48, %44 ]
+  br label %.preheader.outer
+
 49:                                               ; preds = %29
   %50 = icmp ne i32 %.014.ph, 1
   %51 = icmp ne i32 %.0.i2063, 8
@@ -177,11 +182,6 @@ bytestream2_get_be32.exit26:                      ; preds = %49
   %..i28 = tail call i64 @llvm.smin.i64(i64 %58, i64 8)
   %59 = getelementptr inbounds i8, ptr %56, i64 %..i28
   br label %.preheader.outer.backedge
-
-.preheader.outer.backedge:                        ; preds = %55, %44
-  %.sroa.0.0.ph.be = phi ptr [ %47, %44 ], [ %59, %55 ]
-  %.014.ph.be = phi i32 [ %48, %44 ], [ 2, %55 ]
-  br label %.preheader.outer
 
 60:                                               ; preds = %bytestream2_get_le32.exit
   %.not17 = icmp eq i32 %.014.ph, 2
@@ -790,7 +790,7 @@ define internal i32 @apng_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %decode_fctl_chunk.exit.thread
 
 decode_fctl_chunk.exit.thread:                    ; preds = %137, %124, %129, %.split.loop.exit92.loopexit, %79, %81, %84, %168, %118, %103, %97, %102, %19, %14, %11, %179, %166, %150, %142, %113
-  %.075 = phi i32 [ -1163346256, %179 ], [ -541478725, %166 ], [ %114, %113 ], [ %143, %142 ], [ %156, %150 ], [ %12, %11 ], [ -541478725, %14 ], [ -1094995529, %19 ], [ -1094995529, %102 ], [ -1094995529, %97 ], [ -22, %103 ], [ %119, %118 ], [ %spec.select, %168 ], [ -1094995529, %84 ], [ -1094995529, %81 ], [ -1094995529, %79 ], [ %133, %.split.loop.exit92.loopexit ], [ %138, %137 ], [ -1094995529, %124 ], [ %131, %129 ]
+  %.075 = phi i32 [ -1163346256, %179 ], [ %114, %113 ], [ %143, %142 ], [ %156, %150 ], [ -541478725, %166 ], [ %12, %11 ], [ -541478725, %14 ], [ -1094995529, %19 ], [ -1094995529, %102 ], [ -1094995529, %97 ], [ -22, %103 ], [ %119, %118 ], [ %spec.select, %168 ], [ -1094995529, %84 ], [ -1094995529, %81 ], [ -1094995529, %79 ], [ %133, %.split.loop.exit92.loopexit ], [ %138, %137 ], [ -1094995529, %124 ], [ %131, %129 ]
   ret i32 %.075
 }
 

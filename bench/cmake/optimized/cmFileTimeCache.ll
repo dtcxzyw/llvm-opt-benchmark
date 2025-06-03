@@ -128,7 +128,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112ba
   br label %13
 
 13:                                               ; preds = %5, %8, %10
-  %.1 = phi i1 [ true, %5 ], [ true, %10 ], [ false, %8 ]
+  %.1 = phi i1 [ true, %10 ], [ true, %5 ], [ false, %8 ]
   ret i1 %.1
 }
 
@@ -178,7 +178,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx111
   store i64 %15, ptr %14, align 8, !tbaa !27
   br label %16
 
-16:                                               ; preds = %8, %13
+16:                                               ; preds = %13, %8
   %17 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not.i6 = icmp eq ptr %17, null
   br i1 %.not.i6, label %21, label %18
@@ -198,8 +198,8 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx111
   store i64 %25, ptr %24, align 8, !tbaa !27
   br label %26
 
-26:                                               ; preds = %18, %23
-  %27 = phi i64 [ %20, %18 ], [ %25, %23 ]
+26:                                               ; preds = %23, %18
+  %27 = phi i64 [ %25, %23 ], [ %20, %18 ]
   %28 = load i64, ptr %5, align 8, !tbaa !29
   %.0.i = call noundef i32 @llvm.scmp.i32.i64(i64 %28, i64 %27)
   br label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
@@ -241,7 +241,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7DifferSERKNSt7__cxx111
   store i64 %14, ptr %13, align 8, !tbaa !27
   br label %15
 
-15:                                               ; preds = %7, %12
+15:                                               ; preds = %12, %7
   %16 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_10cmFileTimeESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not.i4 = icmp eq ptr %16, null
   br i1 %.not.i4, label %20, label %17
@@ -261,8 +261,8 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7DifferSERKNSt7__cxx111
   store i64 %24, ptr %23, align 8, !tbaa !27
   br label %25
 
-25:                                               ; preds = %17, %22
-  %26 = phi i64 [ %19, %17 ], [ %24, %22 ]
+25:                                               ; preds = %22, %17
+  %26 = phi i64 [ %24, %22 ], [ %19, %17 ]
   %27 = load i64, ptr %4, align 8, !tbaa !29
   %28 = sub nsw i64 %27, %26
   %spec.select.i = call i64 @llvm.abs.i64(i64 %28, i1 true)

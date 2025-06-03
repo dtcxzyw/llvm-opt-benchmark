@@ -1070,7 +1070,7 @@ _ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit:  ; preds = %4, %7
   br label %300
 
 300:                                              ; preds = %288, %._crit_edge
-  %.2 = phi i32 [ %282, %._crit_edge ], [ %299, %288 ]
+  %.2 = phi i32 [ %299, %288 ], [ %282, %._crit_edge ]
   %301 = load ptr, ptr %0, align 8, !tbaa !3
   %302 = load i32, ptr %301, align 4, !tbaa !11
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 8
@@ -1126,7 +1126,7 @@ _ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit:  ; preds = %4, %7
   br label %348
 
 348:                                              ; preds = %_ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit, %311, %111, %54, %11
-  %.0 = phi i32 [ %347, %311 ], [ %213, %111 ], [ %110, %54 ], [ %53, %11 ], [ 11, %_ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit ]
+  %.0 = phi i32 [ %347, %311 ], [ %53, %11 ], [ %110, %54 ], [ %213, %111 ], [ 11, %_ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit ]
   ret i32 %.0
 }
 
@@ -23673,13 +23673,13 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   ret void
 
 233:                                              ; preds = %189, %208, %62, %115, %177
-  %.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %177 ], [ %63, %62 ], [ %.pn41, %115 ], [ %209, %208 ], [ %190, %189 ]
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %177 ], [ %63, %62 ], [ %.pn41, %115 ], [ %209, %208 ], [ %190, %189 ]
   call void @_ZN6vectorI8rationalLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn41.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -26018,7 +26018,7 @@ _ZNK3smt7context11is_relevantEN3sat7literalE.exit.preheader.split: ; preds = %_Z
   br label %41
 
 41:                                               ; preds = %39, %34
-  %.1 = phi i32 [ %.031, %34 ], [ %40, %39 ]
+  %.1 = phi i32 [ %40, %39 ], [ %.031, %34 ]
   %42 = add i32 %.02130, 1
   br label %_ZNK3smt7context11is_relevantEN3sat7literalE.exit
 
@@ -40774,7 +40774,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit35:       ; preds = %_ZN6vectorIN3sat7li
   resume { ptr, i32 } %.pn.pn
 
 89:                                               ; preds = %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit35, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE15mk_unit_circuitEjN3sat7literalER7svectorIS5_jE.exit, %._crit_edge
-  %.sroa.026.0 = phi i32 [ %68, %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit35 ], [ %.sroa.0.0.copyload.i33, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE15mk_unit_circuitEjN3sat7literalER7svectorIS5_jE.exit ], [ %.sroa.0.0.copyload.i, %._crit_edge ]
+  %.sroa.026.0 = phi i32 [ %68, %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit35 ], [ %.sroa.0.0.copyload.i, %._crit_edge ], [ %.sroa.0.0.copyload.i33, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE15mk_unit_circuitEjN3sat7literalER7svectorIS5_jE.exit ]
   ret i32 %.sroa.026.0
 }
 

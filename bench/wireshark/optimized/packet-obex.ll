@@ -1945,7 +1945,7 @@ proto_item_set_generated.exit347:                 ; preds = %330, %344, %341, %3
   br label %.thread362
 
 .thread362:                                       ; preds = %381, %390, %406, %394, %389, %proto_item_set_generated.exit347, %proto_item_set_generated.exit347, %384, %376, %355, %348
-  %.0302 = phi i32 [ %388, %384 ], [ 7, %394 ], [ 7, %406 ], [ 3, %390 ], [ 3, %389 ], [ 3, %proto_item_set_generated.exit347 ], [ 3, %proto_item_set_generated.exit347 ], [ 5, %376 ], [ 3, %355 ], [ 7, %348 ], [ 3, %381 ]
+  %.0302 = phi i32 [ %388, %384 ], [ 7, %394 ], [ 7, %406 ], [ 3, %390 ], [ 3, %389 ], [ 7, %348 ], [ 3, %355 ], [ 5, %376 ], [ 3, %proto_item_set_generated.exit347 ], [ 3, %proto_item_set_generated.exit347 ], [ 3, %381 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   %407 = call i32 @tvb_reported_length_remaining(ptr noundef %.0301356, i32 noundef %.0302)
   %408 = icmp sgt i32 %407, 0
@@ -2012,8 +2012,8 @@ default.unreachable:                              ; preds = %447, %432
   unreachable
 
 447:                                              ; preds = %446, %441, %436, %432
-  %.0502.i = phi i32 [ 4, %446 ], [ %445, %441 ], [ %440, %436 ], [ 1, %432 ]
-  %.0501.i = phi i32 [ 5, %446 ], [ %444, %441 ], [ %439, %436 ], [ %435, %432 ]
+  %.0502.i = phi i32 [ %440, %436 ], [ %445, %441 ], [ 4, %446 ], [ 1, %432 ]
+  %.0501.i = phi i32 [ %439, %436 ], [ %444, %441 ], [ 5, %446 ], [ %435, %432 ]
   %448 = load i32, ptr @hf_header, align 4
   %449 = call ptr @val_to_str_ext_const(i32 noundef %434, ptr noundef nonnull @header_id_vals_ext, ptr noundef nonnull @.str.702)
   %450 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %414, i32 noundef %448, ptr noundef %.0301356, i32 noundef %.0499563.i, i32 noundef %.0501.i, ptr noundef nonnull @.str.747, ptr noundef %449)
@@ -2190,7 +2190,7 @@ default.unreachable:                              ; preds = %447, %432
   br label %539
 
 539:                                              ; preds = %535, %527, %519, %515
-  %.3.i = phi i32 [ %538, %535 ], [ %534, %527 ], [ %526, %519 ], [ %518, %515 ]
+  %.3.i = phi i32 [ %538, %535 ], [ %518, %515 ], [ %526, %519 ], [ %534, %527 ]
   %540 = sub i32 %.1503559.i, %503
   %.not529.i = icmp eq i32 %540, 0
   br i1 %.not529.i, label %.loopexit.i, label %.lr.ph561.i, !llvm.loop !10
@@ -2249,7 +2249,7 @@ default.unreachable:                              ; preds = %447, %432
   br label %577
 
 577:                                              ; preds = %572, %568, %563, %559
-  %.5.i = phi i32 [ %576, %572 ], [ %571, %568 ], [ %567, %563 ], [ %562, %559 ]
+  %.5.i = phi i32 [ %576, %572 ], [ %562, %559 ], [ %567, %563 ], [ %571, %568 ]
   %578 = zext i8 %557 to i32
   %.neg539.i = add i32 %.2504554.i, -2
   %579 = sub i32 %.neg539.i, %578
@@ -2669,7 +2669,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   br label %811
 
 811:                                              ; preds = %806, %801, %797, %790, %786, %779, %775, %768, %764, %759, %756, %747, %742
-  %.7.i = phi i32 [ %810, %806 ], [ %800, %797 ], [ %805, %801 ], [ %789, %786 ], [ %794, %790 ], [ %778, %775 ], [ %783, %779 ], [ %767, %764 ], [ %772, %768 ], [ %755, %756 ], [ %755, %759 ], [ %746, %742 ], [ %751, %747 ]
+  %.7.i = phi i32 [ %810, %806 ], [ %746, %742 ], [ %751, %747 ], [ %755, %756 ], [ %755, %759 ], [ %767, %764 ], [ %772, %768 ], [ %778, %775 ], [ %783, %779 ], [ %789, %786 ], [ %794, %790 ], [ %800, %797 ], [ %805, %801 ]
   %812 = zext i8 %738 to i32
   %.neg537.i = add i32 %.3505550.i, -2
   %813 = sub i32 %.neg537.i, %812
@@ -2748,7 +2748,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %811, %577, %539, %843, %836, %814, %716, %712, %708, %702, %.loopexit543.i, %is_ascii_str.exit.thread.i, %640, %608, %606, %496, %.preheader.i, %.preheader540.i, %.preheader544.i, %480
-  %.1.i = phi i32 [ %846, %843 ], [ %837, %836 ], [ %817, %814 ], [ %721, %716 ], [ %711, %708 ], [ %715, %712 ], [ %488, %702 ], [ %701, %.loopexit543.i ], [ %641, %640 ], [ %664, %is_ascii_str.exit.thread.i ], [ %613, %608 ], [ %607, %606 ], [ %497, %496 ], [ %484, %480 ], [ %488, %.preheader.i ], [ %488, %.preheader540.i ], [ %488, %.preheader544.i ], [ %.3.i, %539 ], [ %.5.i, %577 ], [ %.7.i, %811 ]
+  %.1.i = phi i32 [ %484, %480 ], [ %817, %814 ], [ %497, %496 ], [ %607, %606 ], [ %613, %608 ], [ %641, %640 ], [ %664, %is_ascii_str.exit.thread.i ], [ %701, %.loopexit543.i ], [ %488, %702 ], [ %711, %708 ], [ %715, %712 ], [ %721, %716 ], [ %837, %836 ], [ %846, %843 ], [ %488, %.preheader.i ], [ %488, %.preheader540.i ], [ %488, %.preheader544.i ], [ %.3.i, %539 ], [ %.5.i, %577 ], [ %.7.i, %811 ]
   %847 = call i32 @tvb_reported_length_remaining(ptr noundef %.0301356, i32 noundef %.1.i)
   %848 = icmp sgt i32 %847, 0
   br i1 %848, label %432, label %dissect_headers.exit, !llvm.loop !15

@@ -3608,7 +3608,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %4
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.sroa.044.1.i.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.sroa.044.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.044.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val1.i30.i.i.i.i.i.i = load ptr, ptr %.sroa.044.1.i.i.i.i.i.i, align 8, !tbaa !11
   %39 = getelementptr i8, ptr %.sroa.044.1.i.i.i.i.i.i, i64 8
   %.val2.i31.i.i.i.i.i.i = load i64, ptr %39, align 8, !tbaa !14
@@ -3620,7 +3620,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %4
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.sroa.044.2.i.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.sroa.044.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.044.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val1.i32.i.i.i.i.i.i = load ptr, ptr %.sroa.044.2.i.i.i.i.i.i, align 8, !tbaa !11
   %44 = getelementptr i8, ptr %.sroa.044.2.i.i.i.i.i.i, i64 8
   %.val2.i33.i.i.i.i.i.i = load i64, ptr %44, align 8, !tbaa !14

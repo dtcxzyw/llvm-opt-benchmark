@@ -3726,7 +3726,7 @@ xfree_struct_passwd.exit:                         ; preds = %.thread, %710
   br label %715
 
 715:                                              ; preds = %xfree_struct_passwd.exit, %707, %170
-  %.0 = phi ptr [ null, %xfree_struct_passwd.exit ], [ %708, %707 ], [ null, %170 ]
+  %.0 = phi ptr [ %708, %707 ], [ null, %xfree_struct_passwd.exit ], [ null, %170 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12

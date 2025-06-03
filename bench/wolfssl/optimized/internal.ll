@@ -3692,7 +3692,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   br label %11
 
 11:                                               ; preds = %8, %10, %9
-  %.025 = phi i64 [ 3136, %10 ], [ 4208, %9 ], [ 8368, %8 ]
+  %.025 = phi i64 [ 4208, %9 ], [ 3136, %10 ], [ 8368, %8 ]
   %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %.025) #27
   store ptr %12, ptr %2, align 8, !tbaa !196
   %13 = icmp eq ptr %12, null
@@ -3730,7 +3730,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   br label %33
 
 33:                                               ; preds = %27, %21, %15
-  %.026 = phi i32 [ %32, %27 ], [ %26, %21 ], [ %20, %15 ]
+  %.026 = phi i32 [ %20, %15 ], [ %26, %21 ], [ %32, %27 ]
   %.not30 = icmp eq i32 %.026, 0
   br i1 %.not30, label %FreeKey.exit, label %34
 
@@ -8497,7 +8497,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   br label %599
 
 599:                                              ; preds = %.thread442, %598, %522, %.thread431
-  %.23 = phi i32 [ %.27, %522 ], [ %.31, %598 ], [ %.29, %.thread442 ], [ %.22434.ph, %.thread431 ]
+  %.23 = phi i32 [ %.27, %522 ], [ %.29, %.thread442 ], [ %.31, %598 ], [ %.22434.ph, %.thread431 ]
   %600 = getelementptr inbounds nuw i8, ptr %5, i64 49
   %601 = load i8, ptr %600, align 1
   %602 = and i8 %601, 1
@@ -8646,7 +8646,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br label %.thread384
 
 .thread384:                                       ; preds = %113, %118, %120, %149, %152, %79, %77, %73, %98, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %.loopexit487, %354, %32, %24, %18, %16, %.thread382, %49, %45, %478, %.loopexit, %430, %599, %IsEncryptionOn.exit.thread
-  %.34.ph = phi i32 [ -328, %16 ], [ -328, %18 ], [ -420, %24 ], [ -420, %32 ], [ -328, %45 ], [ -328, %49 ], [ -125, %.thread382 ], [ %.7, %.loopexit487 ], [ %.13, %.loopexit ], [ %317, %354 ], [ %.22, %430 ], [ %.23, %599 ], [ %.26, %478 ], [ %.33453, %IsEncryptionOn.exit.thread ], [ %260, %ProcessPeerCertParse.exit ], [ %260, %ProcessPeerCertParse.exit ], [ %260, %ProcessPeerCertParse.exit ], [ -328, %98 ], [ -368, %73 ], [ -328, %77 ], [ -328, %79 ], [ -328, %120 ], [ -328, %118 ], [ -368, %113 ], [ -328, %149 ], [ -328, %152 ]
+  %.34.ph = phi i32 [ -328, %16 ], [ -328, %18 ], [ -420, %24 ], [ -420, %32 ], [ -328, %45 ], [ -328, %49 ], [ -125, %.thread382 ], [ %.7, %.loopexit487 ], [ %317, %354 ], [ %.33453, %IsEncryptionOn.exit.thread ], [ %.23, %599 ], [ %.26, %478 ], [ %.22, %430 ], [ %.13, %.loopexit ], [ %260, %ProcessPeerCertParse.exit ], [ %260, %ProcessPeerCertParse.exit ], [ %260, %ProcessPeerCertParse.exit ], [ -328, %98 ], [ -368, %73 ], [ -328, %77 ], [ -328, %79 ], [ -328, %120 ], [ -328, %118 ], [ -368, %113 ], [ -328, %149 ], [ -328, %152 ]
   %.pr = load ptr, ptr %5, align 16, !tbaa !267
   %.not.i352 = icmp eq ptr %.pr, null
   br i1 %.not.i352, label %.thread384.thread, label %650
@@ -8753,7 +8753,7 @@ define internal fastcc i32 @ReuseKey(ptr noundef readonly captures(none) %0, i32
   br label %25
 
 25:                                               ; preds = %4, %11, %18, %3
-  %.014 = phi i32 [ -173, %3 ], [ %24, %18 ], [ %17, %11 ], [ %10, %4 ]
+  %.014 = phi i32 [ -173, %3 ], [ %10, %4 ], [ %17, %11 ], [ %24, %18 ]
   ret i32 %.014
 }
 
@@ -9146,7 +9146,7 @@ IsEncryptionOn.exit165:                           ; preds = %124
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %124, %94, %IsEncryptionOn.exit165, %134, %IsEncryptionOn.exit, %103, %137, %135, %122, %110, %108, %106, %104, %.thread176
-  %.1 = phi i32 [ %138, %137 ], [ %136, %135 ], [ %125, %134 ], [ %125, %IsEncryptionOn.exit165 ], [ %123, %122 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %95, %103 ], [ %95, %IsEncryptionOn.exit ], [ %93, %.thread176 ], [ %95, %94 ], [ %125, %124 ]
+  %.1 = phi i32 [ %93, %.thread176 ], [ %95, %103 ], [ %95, %IsEncryptionOn.exit ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %123, %122 ], [ %125, %134 ], [ %125, %IsEncryptionOn.exit165 ], [ %136, %135 ], [ %138, %137 ], [ %95, %94 ], [ %125, %124 ]
   %139 = icmp eq i32 %.1, 0
   br i1 %139, label %.thread181, label %SendAlert.exit
 
@@ -10930,9 +10930,9 @@ DecodeSigAlg.exit..thread235_crit_edge:           ; preds = %DecodeSigAlg.exit
   %spec.store.select = select i1 %302, i32 9, i32 4
   br label %HashAlgoToType.exit.thread
 
-HashAlgoToType.exit.thread:                       ; preds = %293, %296, %297, %298, %299, %300
-  %303 = phi i32 [ %251, %300 ], [ %295, %293 ], [ %295, %296 ], [ %295, %297 ], [ %295, %298 ], [ %295, %299 ]
-  %.0144 = phi i32 [ %spec.store.select, %300 ], [ 8, %293 ], [ 7, %296 ], [ 6, %297 ], [ 5, %298 ], [ 4, %299 ]
+HashAlgoToType.exit.thread:                       ; preds = %293, %299, %298, %297, %296, %300
+  %303 = phi i32 [ %251, %300 ], [ %295, %293 ], [ %295, %299 ], [ %295, %298 ], [ %295, %297 ], [ %295, %296 ]
+  %.0144 = phi i32 [ %spec.store.select, %300 ], [ 8, %293 ], [ 4, %299 ], [ 5, %298 ], [ 6, %297 ], [ 7, %296 ]
   %reass.sub = sub i32 %303, %8
   %304 = add i32 %reass.sub, 2
   %305 = icmp ugt i32 %304, %3
@@ -10992,9 +10992,9 @@ HashAlgoToType.exit.thread:                       ; preds = %293, %296, %297, %2
   %.not180 = icmp eq i8 %335, 0
   br i1 %.not180, label %GetDhPublicKey.exit.thread, label %.thread250thread-pre-split
 
-.thread250thread-pre-split:                       ; preds = %253, %333, %330
-  %.ph = phi i32 [ %251, %253 ], [ %315, %333 ], [ %315, %330 ]
-  %.ph283 = phi i16 [ 0, %253 ], [ %314, %333 ], [ %314, %330 ]
+.thread250thread-pre-split:                       ; preds = %253, %330, %333
+  %.ph = phi i32 [ %251, %253 ], [ %315, %330 ], [ %315, %333 ]
+  %.ph283 = phi i16 [ 0, %253 ], [ %314, %330 ], [ %314, %333 ]
   %.pr = load i8, ptr %15, align 1, !tbaa !293
   br label %.thread250
 
@@ -11102,7 +11102,7 @@ EccVerify.exit:                                   ; preds = %369, %379
   br label %391
 
 391:                                              ; preds = %367, %EccVerify.exit
-  %.12 = phi i32 [ %.0.i202, %EccVerify.exit ], [ %.13, %367 ]
+  %.12 = phi i32 [ %.13, %367 ], [ %.0.i202, %EccVerify.exit ]
   %.not184 = icmp eq i32 %.12, 0
   br i1 %.not184, label %..thread261_crit_edge, label %GetDhPublicKey.exit.thread
 
@@ -11110,8 +11110,8 @@ EccVerify.exit:                                   ; preds = %369, %379
   %.pre279 = load i8, ptr %15, align 1, !tbaa !293
   br label %.thread261
 
-.thread261:                                       ; preds = %..thread261_crit_edge, %.thread250, %.thread250, %.thread250, %339
-  %392 = phi i8 [ %.pre279, %..thread261_crit_edge ], [ %336, %.thread250 ], [ %336, %.thread250 ], [ %336, %.thread250 ], [ %336, %339 ]
+.thread261:                                       ; preds = %..thread261_crit_edge, %339, %.thread250, %.thread250, %.thread250
+  %392 = phi i8 [ %.pre279, %..thread261_crit_edge ], [ %336, %339 ], [ %336, %.thread250 ], [ %336, %.thread250 ], [ %336, %.thread250 ]
   store i8 3, ptr %7, align 2, !tbaa !277
   switch i8 %392, label %GetDhPublicKey.exit.thread [
     i8 4, label %456
@@ -11249,7 +11249,7 @@ TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.ex
   store i64 %455, ptr %394, align 8
   br label %456
 
-456:                                              ; preds = %.sink.split286, %.thread261, %.thread261, %.thread261, %397, %393
+456:                                              ; preds = %.sink.split286, %397, %393, %.thread261, %.thread261, %.thread261
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 1012
   %458 = load i8, ptr %457, align 4, !tbaa !44
   %.not.i208 = icmp eq i8 %458, 0
@@ -11282,7 +11282,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br label %GetDhPublicKey.exit.thread
 
 GetDhPublicKey.exit.thread:                       ; preds = %214, %324, %.thread261, %397, %.thread250, %348, %250, %293, %333, %326, %330, %320, %306, %HashAlgoToType.exit.thread, %.thread235, %270, %IsAtLeastTLSv1_2.exit, %257, %242, %240, %235, %switch.lookup, %209, %207, %71, %56, %74, %73, %59, %58, %76, %35, %32, %131, %183, %167, %156, %138, %115, %107, %92, %442, %4, %443, %449, %343, %IsEncryptionOn.exit.thread, %HashAlgoToType.exit204, %391
-  %.18 = phi i32 [ 0, %IsEncryptionOn.exit.thread ], [ -330, %442 ], [ %416, %HashAlgoToType.exit204 ], [ %.12, %391 ], [ -125, %343 ], [ -330, %449 ], [ -330, %443 ], [ -374, %4 ], [ -401, %71 ], [ -401, %56 ], [ -401, %74 ], [ -401, %73 ], [ -401, %59 ], [ -401, %58 ], [ -303, %76 ], [ -328, %35 ], [ -328, %32 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -351, %214 ], [ -352, %242 ], [ %241, %240 ], [ %236, %235 ], [ -328, %switch.lookup ], [ -350, %209 ], [ -328, %207 ], [ -133, %293 ], [ -316, %333 ], [ -316, %326 ], [ -316, %330 ], [ %323, %320 ], [ -328, %306 ], [ -328, %HashAlgoToType.exit.thread ], [ -133, %.thread235 ], [ -501, %270 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %257 ], [ -374, %250 ], [ -133, %348 ], [ -374, %.thread250 ], [ -133, %397 ], [ -374, %.thread261 ], [ -133, %324 ]
+  %.18 = phi i32 [ %.12, %391 ], [ 0, %IsEncryptionOn.exit.thread ], [ %416, %HashAlgoToType.exit204 ], [ -330, %442 ], [ -125, %343 ], [ -330, %449 ], [ -330, %443 ], [ -374, %4 ], [ -401, %71 ], [ -401, %56 ], [ -401, %74 ], [ -401, %73 ], [ -401, %59 ], [ -401, %58 ], [ -303, %76 ], [ -328, %35 ], [ -328, %32 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -351, %214 ], [ -352, %242 ], [ %241, %240 ], [ %236, %235 ], [ -328, %switch.lookup ], [ -350, %209 ], [ -328, %207 ], [ -133, %293 ], [ -316, %333 ], [ -316, %326 ], [ -316, %330 ], [ %323, %320 ], [ -328, %306 ], [ -328, %HashAlgoToType.exit.thread ], [ -133, %.thread235 ], [ -501, %270 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %257 ], [ -374, %250 ], [ -133, %348 ], [ -374, %.thread250 ], [ -133, %397 ], [ -374, %.thread261 ], [ -133, %324 ]
   %465 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %466 = load ptr, ptr %465, align 8, !tbaa !324
   %.not.i209 = icmp eq ptr %466, null
@@ -12581,7 +12581,7 @@ ctMaskCopy.exit:                                  ; preds = %276
   store i32 %300, ptr %12, align 4, !tbaa !332
   br label %301
 
-301:                                              ; preds = %.loopexit, %292, %297
+301:                                              ; preds = %297, %292, %.loopexit
   store i8 4, ptr %10, align 2, !tbaa !277
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 1012
   %303 = load i8, ptr %302, align 4, !tbaa !44
@@ -12625,7 +12625,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %301, %304, %IsEncry
   br label %SendAlert.exit
 
 SendAlert.exit:                                   ; preds = %23, %32, %86, %250, %.thread256, %156, %145, %143, %127, %125, %120, %112, %103, %101, %100, %52, %253, %RsaDec.exit, %.thread238, %49, %26, %25, %42, %314, %310, %IsEncryptionOn.exit.thread, %DhAgree.exit, %160
-  %.14 = phi i32 [ %318, %314 ], [ 0, %310 ], [ %309, %IsEncryptionOn.exit.thread ], [ %.12, %DhAgree.exit ], [ %170, %160 ], [ -318, %86 ], [ -125, %42 ], [ -373, %25 ], [ -373, %26 ], [ -374, %49 ], [ %.4.ph, %.thread238 ], [ -173, %RsaDec.exit ], [ -374, %253 ], [ -374, %52 ], [ -352, %127 ], [ %126, %125 ], [ %121, %120 ], [ -353, %112 ], [ -328, %103 ], [ -328, %101 ], [ %97, %100 ], [ %159, %156 ], [ -328, %145 ], [ -328, %143 ], [ -342, %250 ], [ -374, %.thread256 ], [ -373, %23 ], [ -345, %32 ]
+  %.14 = phi i32 [ %170, %160 ], [ %.12, %DhAgree.exit ], [ %309, %IsEncryptionOn.exit.thread ], [ %318, %314 ], [ 0, %310 ], [ -318, %86 ], [ -125, %42 ], [ -373, %25 ], [ -373, %26 ], [ -374, %49 ], [ %.4.ph, %.thread238 ], [ -173, %RsaDec.exit ], [ -374, %253 ], [ -374, %52 ], [ -352, %127 ], [ %126, %125 ], [ %121, %120 ], [ -353, %112 ], [ -328, %103 ], [ -328, %101 ], [ %97, %100 ], [ %159, %156 ], [ -328, %145 ], [ -328, %143 ], [ -342, %250 ], [ -374, %.thread256 ], [ -373, %23 ], [ -345, %32 ]
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %320 = load ptr, ptr %319, align 8, !tbaa !163
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
@@ -14799,7 +14799,7 @@ define noundef ptr @AlertTypeToString(i32 noundef %0) local_unnamed_addr #1 {
   br label %27
 
 27:                                               ; preds = %1, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %26 ], [ @AlertTypeToString.no_application_protocol_str, %25 ], [ @AlertTypeToString.bad_certificate_status_response_str, %24 ], [ @AlertTypeToString.unrecognized_name_str, %23 ], [ @AlertTypeToString.no_renegotiation_str, %22 ], [ @AlertTypeToString.user_canceled_str, %21 ], [ @AlertTypeToString.internal_error_str, %20 ], [ @AlertTypeToString.insufficient_security_str, %19 ], [ @AlertTypeToString.protocol_version_str, %18 ], [ @AlertTypeToString.decrypt_error_str, %17 ], [ @AlertTypeToString.decode_error_str, %16 ], [ @AlertTypeToString.access_denied_str, %15 ], [ @AlertTypeToString.unknown_ca_str, %14 ], [ @AlertTypeToString.illegal_parameter_str, %13 ], [ @AlertTypeToString.certificate_unknown_str, %12 ], [ @AlertTypeToString.certificate_expired_str, %11 ], [ @AlertTypeToString.certificate_revoked_str, %10 ], [ @AlertTypeToString.unsupported_certificate_str, %9 ], [ @AlertTypeToString.bad_certificate_str, %8 ], [ @AlertTypeToString.no_certificate_str, %7 ], [ @AlertTypeToString.handshake_failure_str, %6 ], [ @AlertTypeToString.decompression_failure_str, %5 ], [ @AlertTypeToString.record_overflow_str, %4 ], [ @AlertTypeToString.bad_record_mac_str, %3 ], [ @AlertTypeToString.unexpected_message_str, %2 ], [ @AlertTypeToString.close_notify_str, %1 ]
+  %.0 = phi ptr [ null, %26 ], [ @AlertTypeToString.unexpected_message_str, %2 ], [ @AlertTypeToString.bad_record_mac_str, %3 ], [ @AlertTypeToString.record_overflow_str, %4 ], [ @AlertTypeToString.decompression_failure_str, %5 ], [ @AlertTypeToString.handshake_failure_str, %6 ], [ @AlertTypeToString.no_certificate_str, %7 ], [ @AlertTypeToString.bad_certificate_str, %8 ], [ @AlertTypeToString.unsupported_certificate_str, %9 ], [ @AlertTypeToString.certificate_revoked_str, %10 ], [ @AlertTypeToString.certificate_expired_str, %11 ], [ @AlertTypeToString.certificate_unknown_str, %12 ], [ @AlertTypeToString.illegal_parameter_str, %13 ], [ @AlertTypeToString.unknown_ca_str, %14 ], [ @AlertTypeToString.access_denied_str, %15 ], [ @AlertTypeToString.decode_error_str, %16 ], [ @AlertTypeToString.decrypt_error_str, %17 ], [ @AlertTypeToString.protocol_version_str, %18 ], [ @AlertTypeToString.insufficient_security_str, %19 ], [ @AlertTypeToString.internal_error_str, %20 ], [ @AlertTypeToString.user_canceled_str, %21 ], [ @AlertTypeToString.no_renegotiation_str, %22 ], [ @AlertTypeToString.unrecognized_name_str, %23 ], [ @AlertTypeToString.bad_certificate_status_response_str, %24 ], [ @AlertTypeToString.no_application_protocol_str, %25 ], [ @AlertTypeToString.close_notify_str, %1 ]
   ret ptr %.0
 }
 
@@ -15094,8 +15094,8 @@ IsEncryptionOn.exit.thread.i:                     ; preds = %147, %147, %IsEncry
   br label %150
 
 150:                                              ; preds = %IsEncryptionOn.exit.thread.i, %._crit_edge671.i
-  %151 = phi i64 [ %.pre.i, %._crit_edge671.i ], [ %63, %IsEncryptionOn.exit.thread.i ]
-  %.1274.i = phi i32 [ %.0273.i, %._crit_edge671.i ], [ 0, %IsEncryptionOn.exit.thread.i ]
+  %151 = phi i64 [ %63, %IsEncryptionOn.exit.thread.i ], [ %.pre.i, %._crit_edge671.i ]
+  %.1274.i = phi i32 [ 0, %IsEncryptionOn.exit.thread.i ], [ %.0273.i, %._crit_edge671.i ]
   %152 = and i64 %151, 131072
   %.not339.i = icmp eq i64 %152, 0
   br i1 %.not339.i, label %153, label %158
@@ -15171,8 +15171,8 @@ SendAlert.exit.i:                                 ; preds = %165, %160, %IsEncry
   br label %183
 
 183:                                              ; preds = %SendAlert.exit.i, %._crit_edge672.i
-  %184 = phi i8 [ %.pre673.i, %._crit_edge672.i ], [ %159, %SendAlert.exit.i ]
-  %.2275.i = phi i32 [ %.0273.i, %._crit_edge672.i ], [ %.7280.i, %SendAlert.exit.i ]
+  %184 = phi i8 [ %159, %SendAlert.exit.i ], [ %.pre673.i, %._crit_edge672.i ]
+  %.2275.i = phi i32 [ %.7280.i, %SendAlert.exit.i ], [ %.0273.i, %._crit_edge672.i ]
   %.not.i403.i = icmp eq i8 %184, 0
   br i1 %.not.i403.i, label %IsEncryptionOn.exit406.thread.i, label %IsEncryptionOn.exit406.i
 
@@ -15256,7 +15256,7 @@ IsEncryptionOn.exit406.thread.i:                  ; preds = %219, %187, %185, %I
   br label %222
 
 222:                                              ; preds = %IsEncryptionOn.exit406.thread.i, %ShrinkInputBuffer.exit.i
-  %.3276.i = phi i32 [ %.0273.i, %ShrinkInputBuffer.exit.i ], [ %.8281.i, %IsEncryptionOn.exit406.thread.i ]
+  %.3276.i = phi i32 [ %.8281.i, %IsEncryptionOn.exit406.thread.i ], [ %.0273.i, %ShrinkInputBuffer.exit.i ]
   %223 = load i8, ptr %30, align 4, !tbaa !44
   %.not.i409.i = icmp eq i8 %223, 0
   br i1 %.not.i409.i, label %SendAlert.exit423.i, label %IsEncryptionOn.exit412.i
@@ -15534,7 +15534,7 @@ SendAlert.exit423.i:                              ; preds = %340, %CipherHasExpI
   br label %354
 
 354:                                              ; preds = %SendAlert.exit423.i, %ShrinkInputBuffer.exit.i
-  %.4277.i = phi i32 [ %.0273.i, %ShrinkInputBuffer.exit.i ], [ %.9282.i, %SendAlert.exit423.i ]
+  %.4277.i = phi i32 [ %.9282.i, %SendAlert.exit423.i ], [ %.0273.i, %ShrinkInputBuffer.exit.i ]
   %355 = load i8, ptr %30, align 4, !tbaa !44
   %.not.i424.i = icmp eq i8 %355, 0
   br i1 %.not.i424.i, label %IsEncryptionOn.exit438.thread.i, label %IsEncryptionOn.exit427.i
@@ -15817,12 +15817,12 @@ IsEncryptionOn.exit438.thread.i:                  ; preds = %356, %363, %IsEncry
   br label %477
 
 477:                                              ; preds = %IsEncryptionOn.exit438.thread.i, %ShrinkInputBuffer.exit.i
-  %.5278.i = phi i32 [ %.0273.i, %ShrinkInputBuffer.exit.i ], [ %.16.i, %IsEncryptionOn.exit438.thread.i ]
+  %.5278.i = phi i32 [ %.16.i, %IsEncryptionOn.exit438.thread.i ], [ %.0273.i, %ShrinkInputBuffer.exit.i ]
   store i8 8, ptr %16, align 4, !tbaa !178
   br label %478
 
 478:                                              ; preds = %477, %ShrinkInputBuffer.exit.i
-  %.6279.i = phi i32 [ %.0273.i, %ShrinkInputBuffer.exit.i ], [ %.5278.i, %477 ]
+  %.6279.i = phi i32 [ %.5278.i, %477 ], [ %.0273.i, %ShrinkInputBuffer.exit.i ]
   %479 = load i32, ptr %20, align 4, !tbaa !216
   %480 = load i32, ptr %39, align 16, !tbaa !215
   %.not366.i = icmp ult i32 %479, %480
@@ -16492,7 +16492,7 @@ DoAlert.exit.i:                                   ; preds = %802, %IsEncryptionO
   br label %DoProcessReplyEx.exit
 
 .thread542.i:                                     ; preds = %805, %767, %754, %SendAlert.exit459.i, %658, %DoHandShakeMsg.exit.i, %621, %603
-  %.20.i = phi i32 [ 0, %767 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %658 ], [ 0, %805 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %603 ], [ 0, %621 ]
+  %.20.i = phi i32 [ 0, %658 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %767 ], [ 0, %805 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %603 ], [ 0, %621 ]
   store i8 0, ptr %16, align 4, !tbaa !178
   %807 = load i32, ptr %20, align 4, !tbaa !216
   %808 = load i32, ptr %39, align 16, !tbaa !215
@@ -16661,7 +16661,7 @@ ShrinkInputBuffer.exit.i.backedge:                ; preds = %866, %837, %834, %8
   br label %ShrinkInputBuffer.exit.i
 
 DoProcessReplyEx.exit:                            ; preds = %ShrinkInputBuffer.exit.i, %59, %118, %130, %135, %136, %153, %243, %248, %262, %459, %478, %486, %512, %537, %558, %567, %590, %594, %.thread546.i, %705, %708, %thread-pre-split553.i, %._crit_edge685.i, %SanityCheckMsgReceived.exit.i, %754, %765, %767, %IsEncryptionOn.exit.thread.i.i, %792, %DoAlert.exit.i, %805, %.thread565.i, %826, %507, %510, %509, %8, %RetrySendAlert.exit.i, %138, %148, %178, %180, %181, %VerifyMacEnc.exit.thread.i, %349, %351, %352, %VerifyMac.exit.thread.i, %676, %678, %679, %693, %695, %696, %702, %806, %811, %813, %815
-  %.0.i = phi i32 [ -343, %806 ], [ -306, %148 ], [ %15, %RetrySendAlert.exit.i ], [ -326, %138 ], [ 0, %815 ], [ 0, %813 ], [ %.20.i, %811 ], [ %7, %8 ], [ -312, %VerifyMacEnc.exit.thread.i ], [ -312, %VerifyMac.exit.thread.i ], [ -328, %180 ], [ -328, %181 ], [ %.11284514.i, %352 ], [ %.11284514.i, %351 ], [ -311, %702 ], [ -311, %678 ], [ -311, %679 ], [ -311, %695 ], [ -311, %696 ], [ -328, %178 ], [ %.11284514.i, %349 ], [ -311, %676 ], [ -311, %693 ], [ -328, %509 ], [ -328, %510 ], [ -328, %507 ], [ -326, %118 ], [ %60, %59 ], [ %156, %153 ], [ -328, %478 ], [ -328, %486 ], [ %.19549.i, %.thread546.i ], [ -341, %705 ], [ -341, %708 ], [ -341, %thread-pre-split553.i ], [ %.076.i.ph.i, %._crit_edge685.i ], [ %753, %SanityCheckMsgReceived.exit.i ], [ %764, %754 ], [ -394, %765 ], [ %769, %767 ], [ -313, %DoAlert.exit.i ], [ -313, %805 ], [ -311, %512 ], [ -313, %826 ], [ -301, %ShrinkInputBuffer.exit.i ], [ -328, %459 ], [ -311, %136 ], [ -341, %135 ], [ -341, %130 ], [ -375, %243 ], [ -375, %248 ], [ -375, %262 ], [ -427, %792 ], [ -132, %IsEncryptionOn.exit.thread.i.i ], [ -327, %.thread565.i ], [ -404, %558 ], [ -306, %537 ], [ -306, %567 ], [ -125, %594 ], [ -404, %590 ]
+  %.0.i = phi i32 [ -306, %148 ], [ -343, %806 ], [ %15, %RetrySendAlert.exit.i ], [ -326, %138 ], [ 0, %815 ], [ 0, %813 ], [ %.20.i, %811 ], [ %7, %8 ], [ -312, %VerifyMacEnc.exit.thread.i ], [ -312, %VerifyMac.exit.thread.i ], [ -328, %180 ], [ -328, %181 ], [ %.11284514.i, %352 ], [ %.11284514.i, %351 ], [ -311, %702 ], [ -311, %678 ], [ -311, %679 ], [ -311, %695 ], [ -311, %696 ], [ -328, %178 ], [ %.11284514.i, %349 ], [ -311, %676 ], [ -311, %693 ], [ -328, %509 ], [ -328, %510 ], [ -328, %507 ], [ -326, %118 ], [ %60, %59 ], [ %156, %153 ], [ -328, %478 ], [ -328, %486 ], [ %.19549.i, %.thread546.i ], [ -341, %705 ], [ -341, %708 ], [ -341, %thread-pre-split553.i ], [ %.076.i.ph.i, %._crit_edge685.i ], [ %753, %SanityCheckMsgReceived.exit.i ], [ %764, %754 ], [ -394, %765 ], [ %769, %767 ], [ -313, %DoAlert.exit.i ], [ -313, %805 ], [ -311, %512 ], [ -313, %826 ], [ -301, %ShrinkInputBuffer.exit.i ], [ -328, %459 ], [ -311, %136 ], [ -341, %135 ], [ -341, %130 ], [ -375, %243 ], [ -375, %248 ], [ -375, %262 ], [ -427, %792 ], [ -132, %IsEncryptionOn.exit.thread.i.i ], [ -327, %.thread565.i ], [ -404, %558 ], [ -306, %537 ], [ -306, %567 ], [ -125, %594 ], [ -404, %590 ]
   ret i32 %.0.i
 }
 
@@ -17283,8 +17283,8 @@ HashOutput.exit:                                  ; preds = %118
   %spec.select = select i1 %211, i32 %212, i32 %.10.fr
   br label %214
 
-.thread234:                                       ; preds = %.thread234.sink.split, %151, %HashOutput.exit, %88, %74, %80, %39, %46, %118
-  %.10.ph = phi i32 [ -125, %80 ], [ -132, %74 ], [ %92, %88 ], [ %127, %HashOutput.exit ], [ %165, %151 ], [ -132, %46 ], [ -192, %39 ], [ -173, %118 ], [ %176, %.thread234.sink.split ]
+.thread234:                                       ; preds = %.thread234.sink.split, %88, %HashOutput.exit, %151, %74, %80, %39, %46, %118
+  %.10.ph = phi i32 [ -125, %80 ], [ -132, %74 ], [ %165, %151 ], [ %127, %HashOutput.exit ], [ %92, %88 ], [ -132, %46 ], [ -192, %39 ], [ -173, %118 ], [ %176, %.thread234.sink.split ]
   store i8 0, ptr %26, align 1, !tbaa !389
   br label %214
 
@@ -17757,7 +17757,7 @@ writeAeadAuthData.exit.i:                         ; preds = %60, %53, %41
   br label %EncryptDo.exit
 
 EncryptDo.exit:                                   ; preds = %111, %writeAeadAuthData.exit.i, %36, %33, %31, %5
-  %.0 = phi i32 [ 0, %5 ], [ -173, %31 ], [ %112, %111 ], [ %107, %writeAeadAuthData.exit.i ], [ %40, %36 ], [ -314, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ -173, %31 ], [ %40, %36 ], [ %107, %writeAeadAuthData.exit.i ], [ %112, %111 ], [ -314, %33 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 722
   %114 = load i8, ptr %113, align 2, !tbaa !372
   switch i8 %114, label %ForceZero.exit [
@@ -20956,7 +20956,7 @@ define ptr @wolfSSL_ERR_reason_error_string(i64 noundef %0) local_unnamed_addr #
   br label %187
 
 187:                                              ; preds = %10, %8, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %6
-  %.013 = phi ptr [ %7, %6 ], [ @.str, %186 ], [ @.str.176, %185 ], [ @.str.175, %184 ], [ @.str.174, %183 ], [ @.str.173, %182 ], [ @.str.172, %181 ], [ @.str.171, %180 ], [ @.str.170, %179 ], [ @.str.169, %178 ], [ @.str.168, %177 ], [ @.str.167, %176 ], [ @.str.166, %175 ], [ @.str.165, %174 ], [ @.str.164, %173 ], [ @.str.163, %172 ], [ @.str.162, %171 ], [ @.str.161, %170 ], [ @.str.160, %169 ], [ @.str.159, %168 ], [ @.str.158, %167 ], [ @.str.157, %166 ], [ @.str.156, %165 ], [ @.str.155, %164 ], [ @.str.154, %163 ], [ @.str.153, %162 ], [ @.str.152, %161 ], [ @.str.151, %160 ], [ @.str.150, %159 ], [ @.str.149, %158 ], [ @.str.148, %157 ], [ @.str.147, %156 ], [ @.str.146, %155 ], [ @.str.145, %154 ], [ @.str.144, %153 ], [ @.str.143, %152 ], [ @.str.142, %151 ], [ @.str.141, %150 ], [ @.str.140, %149 ], [ @.str.139, %148 ], [ @.str.138, %147 ], [ @.str.137, %146 ], [ @.str.136, %145 ], [ @.str.135, %144 ], [ @.str.134, %143 ], [ @.str.133, %142 ], [ @.str.132, %141 ], [ @.str.131, %140 ], [ @.str.130, %139 ], [ @.str.129, %138 ], [ @.str.128, %137 ], [ @.str.127, %136 ], [ @.str.126, %135 ], [ @.str.125, %134 ], [ @.str.124, %133 ], [ @.str.123, %132 ], [ @.str.122, %131 ], [ @.str.121, %130 ], [ @.str.120, %129 ], [ @.str.119, %128 ], [ @.str.118, %127 ], [ @.str.117, %126 ], [ @.str.116, %125 ], [ @.str.115, %124 ], [ @.str.114, %123 ], [ @.str.113, %122 ], [ @.str.112, %121 ], [ @.str.111, %120 ], [ @.str.110, %119 ], [ @.str.109, %118 ], [ @.str.108, %117 ], [ @.str.107, %116 ], [ @.str.106, %115 ], [ @.str.105, %114 ], [ @.str.104, %113 ], [ @.str.103, %112 ], [ @.str.102, %111 ], [ @.str.101, %110 ], [ @.str.100, %109 ], [ @.str.99, %108 ], [ @.str.98, %107 ], [ @.str.97, %106 ], [ @.str.96, %105 ], [ @.str.95, %104 ], [ @.str.94, %103 ], [ @.str.93, %102 ], [ @.str.92, %101 ], [ @.str.91, %100 ], [ @.str.90, %99 ], [ @.str.89, %98 ], [ @.str.88, %97 ], [ @.str.87, %96 ], [ @.str.86, %95 ], [ @.str.85, %94 ], [ @.str.84, %93 ], [ @.str.83, %92 ], [ @.str.82, %91 ], [ @.str.81, %90 ], [ @.str.80, %89 ], [ @.str.79, %88 ], [ @.str.78, %87 ], [ @.str.77, %86 ], [ @.str.76, %85 ], [ @.str.75, %84 ], [ @.str.74, %83 ], [ @.str.73, %82 ], [ @.str.72, %81 ], [ @.str.71, %80 ], [ @.str.70, %79 ], [ @.str.69, %78 ], [ @.str.68, %77 ], [ @.str.67, %76 ], [ @.str.66, %75 ], [ @.str.65, %74 ], [ @.str.64, %73 ], [ @.str.63, %72 ], [ @.str.62, %71 ], [ @.str.61, %70 ], [ @.str.60, %69 ], [ @.str.59, %68 ], [ @.str.58, %67 ], [ @.str.57, %66 ], [ @.str.56, %65 ], [ @.str.55, %64 ], [ @.str.54, %63 ], [ @.str.53, %62 ], [ @.str.52, %61 ], [ @.str.51, %60 ], [ @.str.50, %59 ], [ @.str.49, %58 ], [ @.str.48, %57 ], [ @.str.47, %56 ], [ @.str.46, %55 ], [ @.str.45, %54 ], [ @.str.44, %53 ], [ @.str.43, %52 ], [ @.str.42, %51 ], [ @.str.41, %50 ], [ @.str.40, %49 ], [ @.str.39, %48 ], [ @.str.38, %47 ], [ @.str.37, %46 ], [ @.str.36, %45 ], [ @.str.35, %44 ], [ @.str.34, %43 ], [ @.str.33, %42 ], [ @.str.32, %41 ], [ @.str.31, %40 ], [ @.str.30, %39 ], [ @.str.29, %38 ], [ @.str.28, %37 ], [ @.str.27, %36 ], [ @.str.26, %35 ], [ @.str.25, %34 ], [ @.str.24, %33 ], [ @.str.23, %32 ], [ @.str.22, %31 ], [ @.str.21, %30 ], [ @.str.20, %29 ], [ @.str.19, %28 ], [ @.str.18, %27 ], [ @.str.17, %26 ], [ @.str.16, %25 ], [ @.str.15, %24 ], [ @.str.14, %23 ], [ @.str.13, %22 ], [ @.str.12, %21 ], [ @.str.11, %20 ], [ @.str.10, %19 ], [ @.str.9, %18 ], [ @.str.8, %17 ], [ @.str.7, %16 ], [ @.str.6, %15 ], [ @.str.5, %14 ], [ @.str.4, %13 ], [ @.str.3, %12 ], [ @.str.2, %11 ], [ @.str, %8 ], [ @.str.1, %10 ]
+  %.013 = phi ptr [ %7, %6 ], [ @.str, %186 ], [ @.str.2, %11 ], [ @.str.3, %12 ], [ @.str.4, %13 ], [ @.str.5, %14 ], [ @.str.6, %15 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.17, %26 ], [ @.str.18, %27 ], [ @.str.19, %28 ], [ @.str.20, %29 ], [ @.str.21, %30 ], [ @.str.22, %31 ], [ @.str.23, %32 ], [ @.str.24, %33 ], [ @.str.25, %34 ], [ @.str.26, %35 ], [ @.str.27, %36 ], [ @.str.28, %37 ], [ @.str.29, %38 ], [ @.str.30, %39 ], [ @.str.31, %40 ], [ @.str.32, %41 ], [ @.str.33, %42 ], [ @.str.34, %43 ], [ @.str.35, %44 ], [ @.str.36, %45 ], [ @.str.37, %46 ], [ @.str.38, %47 ], [ @.str.39, %48 ], [ @.str.40, %49 ], [ @.str.41, %50 ], [ @.str.42, %51 ], [ @.str.43, %52 ], [ @.str.44, %53 ], [ @.str.45, %54 ], [ @.str.46, %55 ], [ @.str.47, %56 ], [ @.str.48, %57 ], [ @.str.49, %58 ], [ @.str.50, %59 ], [ @.str.51, %60 ], [ @.str.52, %61 ], [ @.str.53, %62 ], [ @.str.54, %63 ], [ @.str.55, %64 ], [ @.str.56, %65 ], [ @.str.57, %66 ], [ @.str.58, %67 ], [ @.str.59, %68 ], [ @.str.60, %69 ], [ @.str.61, %70 ], [ @.str.62, %71 ], [ @.str.63, %72 ], [ @.str.64, %73 ], [ @.str.65, %74 ], [ @.str.66, %75 ], [ @.str.67, %76 ], [ @.str.68, %77 ], [ @.str.69, %78 ], [ @.str.70, %79 ], [ @.str.71, %80 ], [ @.str.72, %81 ], [ @.str.73, %82 ], [ @.str.74, %83 ], [ @.str.75, %84 ], [ @.str.76, %85 ], [ @.str.77, %86 ], [ @.str.78, %87 ], [ @.str.79, %88 ], [ @.str.80, %89 ], [ @.str.81, %90 ], [ @.str.82, %91 ], [ @.str.83, %92 ], [ @.str.84, %93 ], [ @.str.85, %94 ], [ @.str.86, %95 ], [ @.str.87, %96 ], [ @.str.88, %97 ], [ @.str.89, %98 ], [ @.str.90, %99 ], [ @.str.91, %100 ], [ @.str.92, %101 ], [ @.str.93, %102 ], [ @.str.94, %103 ], [ @.str.95, %104 ], [ @.str.96, %105 ], [ @.str.97, %106 ], [ @.str.98, %107 ], [ @.str.99, %108 ], [ @.str.100, %109 ], [ @.str.101, %110 ], [ @.str.102, %111 ], [ @.str.103, %112 ], [ @.str.104, %113 ], [ @.str.105, %114 ], [ @.str.106, %115 ], [ @.str.107, %116 ], [ @.str.108, %117 ], [ @.str.109, %118 ], [ @.str.110, %119 ], [ @.str.111, %120 ], [ @.str.112, %121 ], [ @.str.113, %122 ], [ @.str.114, %123 ], [ @.str.115, %124 ], [ @.str.116, %125 ], [ @.str.117, %126 ], [ @.str.118, %127 ], [ @.str.119, %128 ], [ @.str.120, %129 ], [ @.str.121, %130 ], [ @.str.122, %131 ], [ @.str.123, %132 ], [ @.str.124, %133 ], [ @.str.125, %134 ], [ @.str.126, %135 ], [ @.str.127, %136 ], [ @.str.128, %137 ], [ @.str.129, %138 ], [ @.str.130, %139 ], [ @.str.131, %140 ], [ @.str.132, %141 ], [ @.str.133, %142 ], [ @.str.134, %143 ], [ @.str.135, %144 ], [ @.str.136, %145 ], [ @.str.137, %146 ], [ @.str.138, %147 ], [ @.str.139, %148 ], [ @.str.140, %149 ], [ @.str.141, %150 ], [ @.str.142, %151 ], [ @.str.143, %152 ], [ @.str.144, %153 ], [ @.str.145, %154 ], [ @.str.146, %155 ], [ @.str.147, %156 ], [ @.str.148, %157 ], [ @.str.149, %158 ], [ @.str.150, %159 ], [ @.str.151, %160 ], [ @.str.152, %161 ], [ @.str.153, %162 ], [ @.str.154, %163 ], [ @.str.155, %164 ], [ @.str.156, %165 ], [ @.str.157, %166 ], [ @.str.158, %167 ], [ @.str.159, %168 ], [ @.str.160, %169 ], [ @.str.161, %170 ], [ @.str.162, %171 ], [ @.str.163, %172 ], [ @.str.164, %173 ], [ @.str.165, %174 ], [ @.str.166, %175 ], [ @.str.167, %176 ], [ @.str.168, %177 ], [ @.str.169, %178 ], [ @.str.170, %179 ], [ @.str.171, %180 ], [ @.str.172, %181 ], [ @.str.173, %182 ], [ @.str.174, %183 ], [ @.str.175, %184 ], [ @.str.176, %185 ], [ @.str, %8 ], [ @.str.1, %10 ]
   ret ptr %.013
 }
 
@@ -21442,14 +21442,14 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread126.i, %98
-  %.178137.i = phi i32 [ %.077.i, %98 ], [ %.178.ph.i, %.thread126.i ]
-  %.185135.i = phi i32 [ %.084.i, %98 ], [ %.185.ph.i, %.thread126.i ]
+  %.178138.i = phi i32 [ %.077.i, %98 ], [ %.178.ph.i, %.thread126.i ]
+  %.185136.i = phi i32 [ %.084.i, %98 ], [ %.185.ph.i, %.thread126.i ]
   %.196133.i = phi i32 [ %.095.i, %98 ], [ %.196.ph.i, %.thread126.i ]
-  %.not112.i = icmp eq i32 %.178137.i, 0
+  %.not112.i = icmp eq i32 %.178138.i, 0
   br i1 %.not112.i, label %ParseCipherList.exit, label %99
 
 99:                                               ; preds = %.loopexit.i
-  %100 = trunc i32 %.185135.i to i16
+  %100 = trunc i32 %.185136.i to i16
   store i16 %100, ptr %2, align 2, !tbaa !100
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -21540,7 +21540,7 @@ InitSuitesHashSigAlgo.exit.i:                     ; preds = %113, %AddSuiteHashS
   br label %ParseCipherList.exit
 
 ParseCipherList.exit:                             ; preds = %InitSuitesHashSigAlgo.exit.i, %.loopexit.i, %.thread139.i, %34, %18, %10
-  %.014 = phi i32 [ 0, %10 ], [ 1, %34 ], [ 0, %18 ], [ %.178137.i, %InitSuitesHashSigAlgo.exit.i ], [ 0, %.loopexit.i ], [ 0, %.thread139.i ]
+  %.014 = phi i32 [ 0, %10 ], [ 1, %34 ], [ 0, %18 ], [ %.178138.i, %InitSuitesHashSigAlgo.exit.i ], [ 0, %.loopexit.i ], [ 0, %.thread139.i ]
   ret i32 %.014
 }
 
@@ -22864,7 +22864,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #5 
   %.not254 = icmp eq i32 %64, 0
   br i1 %.not254, label %.thread304, label %.thread
 
-.thread304:                                       ; preds = %27, %39, %62
+.thread304:                                       ; preds = %39, %27, %62
   store i8 1, ptr %18, align 2, !tbaa !277
   br label %65
 
@@ -23012,7 +23012,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #5 
   %.not262 = icmp eq i32 %152, 0
   br i1 %.not262, label %.thread311, label %.thread
 
-.thread311:                                       ; preds = %94, %138, %146
+.thread311:                                       ; preds = %138, %94, %146
   store i8 2, ptr %18, align 2, !tbaa !277
   br label %155
 
@@ -23170,7 +23170,7 @@ RsaEnc.exit:                                      ; preds = %201, %158, %EccShar
   store i32 %242, ptr %238, align 8, !tbaa !424
   br label %243
 
-243:                                              ; preds = %237, %230, %230
+243:                                              ; preds = %230, %230, %237
   store i8 4, ptr %18, align 2, !tbaa !277
   br label %._crit_edge
 
@@ -23508,7 +23508,7 @@ HashOutput.exit._crit_edge:                       ; preds = %HashOutput.exit
   br label %.thread
 
 .thread:                                          ; preds = %.thread343, %388, %58, %407, %HashOutput.exit, %RsaEnc.exit, %146, %136, %129, %113, %86, %62
-  %.13 = phi i32 [ %398, %HashOutput.exit ], [ %408, %407 ], [ %.5, %RsaEnc.exit ], [ %152, %146 ], [ %115, %113 ], [ %137, %136 ], [ %132, %129 ], [ %93, %86 ], [ %64, %62 ], [ %61, %58 ], [ %385, %388 ], [ %spec.select377, %.thread343 ]
+  %.13 = phi i32 [ %64, %62 ], [ %152, %146 ], [ %.5, %RsaEnc.exit ], [ %398, %HashOutput.exit ], [ %408, %407 ], [ %93, %86 ], [ %115, %113 ], [ %137, %136 ], [ %132, %129 ], [ %61, %58 ], [ %385, %388 ], [ %spec.select377, %.thread343 ]
   switch i32 %.13, label %.thread347 [
     i32 -108, label %411
     i32 -327, label %411
@@ -24289,7 +24289,7 @@ AddHeaders.exit:                                  ; preds = %294, %314
   br label %338
 
 338:                                              ; preds = %.thread247, %290, %RsaSign.exit, %44, %35
-  %.7 = phi i32 [ %337, %.thread247 ], [ %286, %290 ], [ %.4, %RsaSign.exit ], [ %39, %35 ], [ %46, %44 ]
+  %.7 = phi i32 [ %39, %35 ], [ %46, %44 ], [ %.4, %RsaSign.exit ], [ %286, %290 ], [ %337, %.thread247 ]
   %339 = icmp eq i32 %.7, -327
   br i1 %339, label %358, label %.thread239
 
@@ -24666,7 +24666,7 @@ define zeroext range(i16 0, 26) i16 @GetCurveByOID(i32 noundef %0) local_unnamed
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i16 [ 0, %5 ], [ 25, %4 ], [ 24, %3 ], [ 23, %2 ], [ 21, %1 ]
+  %.0 = phi i16 [ 0, %5 ], [ 23, %2 ], [ 24, %3 ], [ 25, %4 ], [ 21, %1 ]
   ret i16 %.0
 }
 
@@ -24704,7 +24704,7 @@ define range(i32 -1, 110) i32 @TranslateErrorToAlert(i32 noundef %0) local_unnam
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %6 ], [ 70, %5 ], [ 40, %4 ], [ 109, %3 ], [ 47, %2 ], [ 50, %1 ]
+  %.0 = phi i32 [ -1, %6 ], [ 47, %2 ], [ 109, %3 ], [ 40, %4 ], [ 70, %5 ], [ 50, %1 ]
   ret i32 %.0
 }
 
@@ -25369,7 +25369,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #5 {
   br label %110
 
 110:                                              ; preds = %109, %88
-  %.4 = phi i32 [ %108, %109 ], [ %96, %88 ]
+  %.4 = phi i32 [ %96, %88 ], [ %108, %109 ]
   %.not450 = icmp eq i32 %.4, 0
   br i1 %.not450, label %.thread510, label %.thread513
 
@@ -25998,9 +25998,9 @@ EncodeSigAlg.exit502:                             ; preds = %IsAtLeastTLSv1_2.ex
   %spec.store.select9 = select i1 %434, i32 9, i32 4
   br label %HashAlgoToType.exit504.thread
 
-HashAlgoToType.exit504.thread:                    ; preds = %EncodeSigAlg.exit502, %427, %428, %429, %430, %431
-  %435 = phi i32 [ %404, %431 ], [ %426, %EncodeSigAlg.exit502 ], [ %426, %427 ], [ %426, %428 ], [ %426, %429 ], [ %426, %430 ]
-  %.0408 = phi i32 [ %spec.store.select9, %431 ], [ 8, %EncodeSigAlg.exit502 ], [ 7, %427 ], [ 6, %428 ], [ 5, %429 ], [ 4, %430 ]
+HashAlgoToType.exit504.thread:                    ; preds = %EncodeSigAlg.exit502, %430, %429, %428, %427, %431
+  %435 = phi i32 [ %404, %431 ], [ %426, %EncodeSigAlg.exit502 ], [ %426, %430 ], [ %426, %429 ], [ %426, %428 ], [ %426, %427 ]
+  %.0408 = phi i32 [ %spec.store.select9, %431 ], [ 8, %EncodeSigAlg.exit502 ], [ 4, %430 ], [ 5, %429 ], [ 6, %428 ], [ 7, %427 ]
   %436 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %437 = load i32, ptr %436, align 4, !tbaa !450
   %438 = load ptr, ptr %14, align 8, !tbaa !453
@@ -26089,7 +26089,7 @@ TypeHash.exit508:                                 ; preds = %463, %switch.lookup
   store ptr %462, ptr %464, align 16, !tbaa !202
   br label %HashAlgoToType.exit.thread557
 
-HashAlgoToType.exit.thread557:                    ; preds = %345, %450, %455, %458, %478, %IsAtLeastTLSv1_2.exit489.thread, %275, %233, %111
+HashAlgoToType.exit.thread557:                    ; preds = %345, %450, %455, %458, %478, %275, %IsAtLeastTLSv1_2.exit489.thread, %233, %111
   store i8 2, ptr %22, align 2, !tbaa !277
   br label %481
 
@@ -26185,7 +26185,7 @@ HashAlgoToType.exit.thread557:                    ; preds = %345, %450, %455, %4
   br label %547
 
 547:                                              ; preds = %529, %487, %505
-  %.16 = phi i32 [ %521, %505 ], [ %504, %487 ], [ %546, %529 ]
+  %.16 = phi i32 [ %504, %487 ], [ %521, %505 ], [ %546, %529 ]
   %.not475 = icmp eq i32 %.16, 0
   br i1 %.not475, label %.thread561, label %.thread513
 
@@ -26356,7 +26356,7 @@ HashAlgoToType.exit.thread557:                    ; preds = %345, %450, %455, %4
   %.not479 = icmp eq i32 %.19, 0
   br i1 %.not479, label %.thread573, label %.thread513
 
-.thread573:                                       ; preds = %614, %589, %611, %548, %.thread569
+.thread573:                                       ; preds = %614, %611, %589, %548, %.thread569
   store i8 4, ptr %22, align 2, !tbaa !277
   br label %653
 
@@ -26440,8 +26440,8 @@ AddHeaders.exit:                                  ; preds = %659, %675
   store i8 7, ptr %697, align 1, !tbaa !230
   br label %.thread582
 
-.thread513:                                       ; preds = %.thread537, %HashAlgoToType.exit504.thread, %HashAlgoToType.exit.thread, %141, %147, %106, %.thread626, %.thread569, %547, %110, %100, %86, %79, %._crit_edge
-  %.21 = phi i32 [ %695, %.thread626 ], [ %.19, %.thread569 ], [ %.16, %547 ], [ %101, %100 ], [ %.4, %110 ], [ %67, %._crit_edge ], [ %87, %86 ], [ %82, %79 ], [ %108, %106 ], [ %232, %HashAlgoToType.exit.thread ], [ %138, %141 ], [ %144, %147 ], [ %.12.ph, %.thread537 ], [ %449, %HashAlgoToType.exit504.thread ]
+.thread513:                                       ; preds = %.thread537, %HashAlgoToType.exit504.thread, %HashAlgoToType.exit.thread, %147, %141, %106, %.thread626, %.thread569, %547, %110, %100, %86, %79, %._crit_edge
+  %.21 = phi i32 [ %67, %._crit_edge ], [ %87, %86 ], [ %.4, %110 ], [ %.16, %547 ], [ %.19, %.thread569 ], [ %695, %.thread626 ], [ %82, %79 ], [ %101, %100 ], [ %108, %106 ], [ %232, %HashAlgoToType.exit.thread ], [ %144, %147 ], [ %138, %141 ], [ %.12.ph, %.thread537 ], [ %449, %HashAlgoToType.exit504.thread ]
   %698 = icmp eq i32 %.21, -327
   br i1 %698, label %708, label %.thread582
 
@@ -26545,7 +26545,7 @@ define internal fastcc zeroext range(i8 0, 26) i8 @SetCurveId(ptr noundef readon
   br label %GetCurveByOID.exit
 
 GetCurveByOID.exit:                               ; preds = %13, %12, %11, %10, %7, %1, %3
-  %.0 = phi i8 [ 0, %3 ], [ 0, %1 ], [ 0, %13 ], [ 25, %12 ], [ 24, %11 ], [ 23, %10 ], [ 21, %7 ]
+  %.0 = phi i8 [ 0, %3 ], [ 0, %1 ], [ 0, %13 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 21, %7 ]
   ret i8 %.0
 }
 
@@ -27685,8 +27685,8 @@ define internal fastcc range(i32 -376, 1) i32 @GetInputData(ptr noundef %0, i32 
 .thread61.loopexit:                               ; preds = %.lr.ph.i
   br label %.thread61
 
-.thread61:                                        ; preds = %38, %.loopexit, %73, %63, %61, %56, %55, %.lr.ph.i, %.thread61.loopexit, %69, %66, %21, %17, %6, %2
-  %.0 = phi i32 [ -323, %2 ], [ -328, %6 ], [ 0, %17 ], [ -125, %21 ], [ -308, %66 ], [ -308, %69 ], [ -308, %.thread61.loopexit ], [ -323, %.lr.ph.i ], [ -323, %55 ], [ -323, %56 ], [ -323, %61 ], [ -323, %63 ], [ -308, %38 ], [ -376, %.loopexit ], [ 0, %73 ]
+.thread61:                                        ; preds = %38, %.loopexit, %73, %63, %61, %56, %55, %.lr.ph.i, %.thread61.loopexit, %66, %69, %21, %17, %6, %2
+  %.0 = phi i32 [ -323, %2 ], [ -328, %6 ], [ 0, %17 ], [ -125, %21 ], [ -308, %69 ], [ -308, %66 ], [ -308, %.thread61.loopexit ], [ -323, %.lr.ph.i ], [ -323, %55 ], [ -323, %56 ], [ -323, %61 ], [ -323, %63 ], [ -308, %38 ], [ -376, %.loopexit ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -27872,7 +27872,7 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   br label %DecryptDo.exit
 
 DecryptDo.exit:                                   ; preds = %28, %30, %writeAeadAuthData.exit.i, %110
-  %.0.i = phi i32 [ %111, %110 ], [ %109, %writeAeadAuthData.exit.i ], [ %34, %30 ], [ -312, %28 ]
+  %.0.i = phi i32 [ %34, %30 ], [ %109, %writeAeadAuthData.exit.i ], [ %111, %110 ], [ -312, %28 ]
   %112 = load i8, ptr %10, align 2, !tbaa !372
   %.off = add i8 %112, -7
   %switch = icmp ult i8 %.off, 2

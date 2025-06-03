@@ -3352,7 +3352,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %23
 
 23:                                               ; preds = %.loopexit, %18
-  %.031 = phi i64 [ 0, %.loopexit ], [ %22, %18 ]
+  %.031 = phi i64 [ %22, %18 ], [ 0, %.loopexit ]
   %24 = getelementptr i8, ptr %.033, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !43
   %26 = zext i8 %25 to i64
@@ -3361,7 +3361,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %29
 
 29:                                               ; preds = %.loopexit, %23
-  %.132 = phi i64 [ 0, %.loopexit ], [ %28, %23 ]
+  %.132 = phi i64 [ %28, %23 ], [ 0, %.loopexit ]
   %30 = getelementptr i8, ptr %.033, i64 4
   %31 = load i8, ptr %30, align 1, !tbaa !43
   %32 = zext i8 %31 to i64
@@ -3370,7 +3370,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %35
 
 35:                                               ; preds = %.loopexit, %29
-  %.2 = phi i64 [ 0, %.loopexit ], [ %34, %29 ]
+  %.2 = phi i64 [ %34, %29 ], [ 0, %.loopexit ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.033, i64 8) ]
   %36 = load i32, ptr %.033, align 8, !tbaa !46
   %37 = zext i32 %36 to i64
@@ -3385,7 +3385,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %44
 
 44:                                               ; preds = %.loopexit, %39
-  %.3 = phi i64 [ 0, %.loopexit ], [ %43, %39 ]
+  %.3 = phi i64 [ %43, %39 ], [ 0, %.loopexit ]
   %45 = getelementptr i8, ptr %.033, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !43
   %47 = zext i8 %46 to i64
@@ -3394,14 +3394,14 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   br label %50
 
 50:                                               ; preds = %.loopexit, %44
-  %.4 = phi i64 [ 0, %.loopexit ], [ %49, %44 ]
+  %.4 = phi i64 [ %49, %44 ], [ 0, %.loopexit ]
   %51 = load i8, ptr %.033, align 1, !tbaa !43
   %52 = zext i8 %51 to i64
   %53 = or i64 %.4, %52
   br label %54
 
 54:                                               ; preds = %50, %35
-  %.5 = phi i64 [ %53, %50 ], [ %38, %35 ]
+  %.5 = phi i64 [ %38, %35 ], [ %53, %50 ]
   %55 = xor i64 %.5, %.035
   %56 = shl nuw nsw i64 %.5, 7
   %57 = sub i64 %55, %56
@@ -4509,7 +4509,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br label %23
 
 23:                                               ; preds = %18, %.loopexit.i
-  %.031.i = phi i64 [ 0, %.loopexit.i ], [ %22, %18 ]
+  %.031.i = phi i64 [ %22, %18 ], [ 0, %.loopexit.i ]
   %24 = getelementptr i8, ptr %.033.i, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !43
   %26 = zext i8 %25 to i64
@@ -4518,7 +4518,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br label %29
 
 29:                                               ; preds = %23, %.loopexit.i
-  %.132.i = phi i64 [ 0, %.loopexit.i ], [ %28, %23 ]
+  %.132.i = phi i64 [ %28, %23 ], [ 0, %.loopexit.i ]
   %30 = getelementptr i8, ptr %.033.i, i64 4
   %31 = load i8, ptr %30, align 1, !tbaa !43
   %32 = zext i8 %31 to i64
@@ -4527,7 +4527,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br label %35
 
 35:                                               ; preds = %29, %.loopexit.i
-  %.2.i = phi i64 [ 0, %.loopexit.i ], [ %34, %29 ]
+  %.2.i = phi i64 [ %34, %29 ], [ 0, %.loopexit.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.033.i, i64 8) ]
   %36 = load i32, ptr %.033.i, align 8, !tbaa !46
   %37 = zext i32 %36 to i64
@@ -4542,7 +4542,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br label %44
 
 44:                                               ; preds = %39, %.loopexit.i
-  %.3.i = phi i64 [ 0, %.loopexit.i ], [ %43, %39 ]
+  %.3.i = phi i64 [ %43, %39 ], [ 0, %.loopexit.i ]
   %45 = getelementptr i8, ptr %.033.i, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !43
   %47 = zext i8 %46 to i64
@@ -4551,14 +4551,14 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br label %50
 
 50:                                               ; preds = %44, %.loopexit.i
-  %.4.i = phi i64 [ 0, %.loopexit.i ], [ %49, %44 ]
+  %.4.i = phi i64 [ %49, %44 ], [ 0, %.loopexit.i ]
   %51 = load i8, ptr %.033.i, align 1, !tbaa !43
   %52 = zext i8 %51 to i64
   %53 = or i64 %.4.i, %52
   br label %54
 
 54:                                               ; preds = %50, %35
-  %.5.i = phi i64 [ %53, %50 ], [ %38, %35 ]
+  %.5.i = phi i64 [ %38, %35 ], [ %53, %50 ]
   %55 = xor i64 %.5.i, %.035.i
   %56 = shl nuw nsw i64 %.5.i, 7
   %57 = sub i64 %55, %56

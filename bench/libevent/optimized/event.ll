@@ -5523,7 +5523,7 @@ event_priority_set.exit:                          ; preds = %event_debug_assert_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %59, %event_priority_set.exit, %66, %43
-  %.2 = phi ptr [ null, %43 ], [ null, %59 ], [ %70, %event_priority_set.exit ], [ null, %66 ], [ %130, %.loopexit.loopexit ]
+  %.2 = phi ptr [ null, %43 ], [ %70, %event_priority_set.exit ], [ null, %66 ], [ null, %59 ], [ %130, %.loopexit.loopexit ]
   %131 = load ptr, ptr %3, align 8
   %.not79 = icmp eq ptr %131, null
   br i1 %.not79, label %135, label %132

@@ -39451,7 +39451,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %asterix_field_exists.exit.thread, %.lr.ph77, %.preheader67, %._crit_edge.loopexit, %70, %.preheader68, %._crit_edge89, %12, %3
-  %.053 = phi i32 [ 0, %3 ], [ %27, %._crit_edge89 ], [ %14, %12 ], [ 0, %.preheader68 ], [ %69, %70 ], [ 0, %.preheader67 ], [ %55, %._crit_edge.loopexit ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
+  %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ 0, %.preheader68 ], [ %69, %70 ], [ 0, %.preheader67 ], [ %55, %._crit_edge.loopexit ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
   ret i32 %.053
 }
 
@@ -39694,7 +39694,7 @@ twos_complement.exit:                             ; preds = %69, %64, %25
   br label %165
 
 165:                                              ; preds = %25, %56, %84, %133, %155, %82, %80, %15
-  %.1 = phi i8 [ %.093119, %25 ], [ %.093119, %155 ], [ %.093119, %133 ], [ %.093119, %84 ], [ %.093119, %80 ], [ %.093119, %82 ], [ %.2, %56 ], [ %.093119, %15 ]
+  %.1 = phi i8 [ %.093119, %25 ], [ %.2, %56 ], [ %.093119, %80 ], [ %.093119, %82 ], [ %.093119, %84 ], [ %.093119, %133 ], [ %.093119, %155 ], [ %.093119, %15 ]
   %166 = load ptr, ptr %6, align 8
   %167 = getelementptr ptr, ptr %166, i64 %12
   %168 = load ptr, ptr %167, align 8

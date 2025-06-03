@@ -32929,7 +32929,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN4lean4exprEN9__gnu_cxx5
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %57, %56 ]
+  %.1 = phi ptr [ %57, %56 ], [ %.029.lcssa, %._crit_edge ]
   %59 = load ptr, ptr %2, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %.1, align 8, !tbaa !3
@@ -32945,7 +32945,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN4lean4exprEN9__gnu_cxx5
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %67, %66 ]
+  %.2 = phi ptr [ %67, %66 ], [ %.029.lcssa, %._crit_edge ]
   %69 = load ptr, ptr %2, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %.2, align 8, !tbaa !3
@@ -36189,7 +36189,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN4lean4exprEN9__gnu_cxx5
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.1 = phi ptr [ %27, %26 ], [ %.029.lcssa, %._crit_edge ]
   %29 = tail call noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %.1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %29, label %.loopexit, label %30
 
@@ -36198,7 +36198,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPN4lean4exprEN9__gnu_cxx5
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.2 = phi ptr [ %31, %30 ], [ %.029.lcssa, %._crit_edge ]
   %33 = tail call noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %.2, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %33, label %.loopexit, label %34
 

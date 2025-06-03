@@ -5703,7 +5703,7 @@ define noundef ptr @_ZNK6icu_779TZDBNames7getNameE17UTimeZoneNameType(ptr nounde
   br label %12
 
 12:                                               ; preds = %7, %9, %6, %2
-  %.03 = phi ptr [ null, %2 ], [ %11, %9 ], [ %8, %7 ], [ null, %6 ]
+  %.03 = phi ptr [ null, %2 ], [ %8, %7 ], [ %11, %9 ], [ null, %6 ]
   ret ptr %.03
 }
 
@@ -7150,7 +7150,7 @@ define linkonce_odr noundef i32 @_ZN6icu_776ZNames18getTZNameTypeIndexE17UTimeZo
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ %0, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ -1, %7 ], [ %0, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 0, %1 ]
   ret i32 %.0
 }
 

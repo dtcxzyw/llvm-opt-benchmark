@@ -735,7 +735,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN62_$LT$quinn_proto..frame..Frame$u20$as$u20$core..fmt..Debug$GT$3fmt17h1cf2890eea37944dE.exit"
 
 "_ZN62_$LT$quinn_proto..frame..Frame$u20$as$u20$core..fmt..Debug$GT$3fmt17h1cf2890eea37944dE.exit": ; preds = %29, %31, %33, %35, %38, %41, %44, %47, %50, %53, %57, %61, %64, %68, %72, %75, %78, %81, %84, %87, %90, %93, %95
-  %.sroa.0.0.in.i = phi i1 [ %96, %95 ], [ %94, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ]
+  %.sroa.0.0.in.i = phi i1 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %63, %61 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %94, %93 ], [ %96, %95 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9713,7 +9713,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN77_$LT$quinn_proto..connection..assembler
   br label %16
 
 16:                                               ; preds = %2, %15, %9
-  %.sroa.0.0 = phi i8 [ -1, %15 ], [ %14, %9 ], [ 1, %2 ]
+  %.sroa.0.0 = phi i8 [ %14, %9 ], [ -1, %15 ], [ 1, %2 ]
   ret i8 %.sroa.0.0
 }
 
@@ -9745,7 +9745,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN84_$LT$quinn_proto..connection..assembler
   br label %"_ZN77_$LT$quinn_proto..connection..assembler..Buffer$u20$as$u20$core..cmp..Ord$GT$3cmp17h65bbef30e5df2f2fE.exit"
 
 "_ZN77_$LT$quinn_proto..connection..assembler..Buffer$u20$as$u20$core..cmp..Ord$GT$3cmp17h65bbef30e5df2f2fE.exit": ; preds = %2, %9, %15
-  %.sroa.0.0.i = phi i8 [ -1, %15 ], [ %14, %9 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi i8 [ %14, %9 ], [ -1, %15 ], [ 1, %2 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10788,15 +10788,15 @@ default.unreachable:                              ; preds = %81
   br label %137
 
 120:                                              ; preds = %88, %106, %113, %40, %55
-  %.sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.641.sroa.0.0.copyload110 = phi i64 [ 0, %40 ], [ 0, %55 ], [ 0, %113 ], [ 0, %88 ], [ %111, %106 ]
-  %.sroa.26.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %88 ], [ undef, %106 ]
-  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %113 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %88 ], [ undef, %106 ]
-  %.sroa.89.sroa.0.1 = phi i64 [ 0, %40 ], [ 0, %55 ], [ 0, %113 ], [ 0, %88 ], [ %109, %106 ]
-  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %113 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %88 ], [ undef, %106 ]
-  %.sroa.91.1 = phi i48 [ undef, %40 ], [ undef, %55 ], [ undef, %113 ], [ undef, %88 ], [ %.sroa.5180.0.copyload.i, %106 ]
-  %.sroa.90.1 = phi ptr [ undef, %40 ], [ undef, %55 ], [ undef, %113 ], [ undef, %88 ], [ %.sroa.4179.0.copyload.i, %106 ]
-  %.sroa.21.1 = phi i8 [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %56, %55 ], [ %.sroa.0150.i.sroa.0.0.copyload, %113 ], [ %.sroa.0150.i.sroa.0.0.copyload, %88 ], [ undef, %106 ]
-  %.sroa.0.2 = phi i8 [ 3, %40 ], [ 4, %55 ], [ 1, %113 ], [ 2, %88 ], [ 0, %106 ]
+  %.sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.61.32..sroa.641.sroa.0.0.copyload110 = phi i64 [ 0, %40 ], [ 0, %55 ], [ %111, %106 ], [ 0, %88 ], [ 0, %113 ]
+  %.sroa.26.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ], [ undef, %106 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %88 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ]
+  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ], [ undef, %106 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %88 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %113 ]
+  %.sroa.89.sroa.0.1 = phi i64 [ 0, %40 ], [ 0, %55 ], [ %109, %106 ], [ 0, %88 ], [ 0, %113 ]
+  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ], [ undef, %106 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %88 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %113 ]
+  %.sroa.91.1 = phi i48 [ undef, %40 ], [ undef, %55 ], [ %.sroa.5180.0.copyload.i, %106 ], [ undef, %88 ], [ undef, %113 ]
+  %.sroa.90.1 = phi ptr [ undef, %40 ], [ undef, %55 ], [ %.sroa.4179.0.copyload.i, %106 ], [ undef, %88 ], [ undef, %113 ]
+  %.sroa.21.1 = phi i8 [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %56, %55 ], [ undef, %106 ], [ %.sroa.0150.i.sroa.0.0.copyload, %88 ], [ %.sroa.0150.i.sroa.0.0.copyload, %113 ]
+  %.sroa.0.2 = phi i8 [ 3, %40 ], [ 4, %55 ], [ 0, %106 ], [ 2, %88 ], [ 1, %113 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.0150.i.sroa.8.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.27, i64 16, i1 false)
   %.sroa.6.sroa.6.23.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -11076,10 +11076,10 @@ _ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit: ; preds = %"_ZN78_
   br label %45
 
 45:                                               ; preds = %52, %49, %43, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit
-  %.sroa.010.0 = phi i8 [ 3, %52 ], [ 2, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ 1, %49 ], [ 0, %43 ]
-  %.sroa.511.0 = phi i8 [ undef, %52 ], [ undef, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ undef, %49 ], [ %44, %43 ]
-  %.sroa.6.0 = phi i16 [ undef, %52 ], [ undef, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ %50, %49 ], [ undef, %43 ]
-  %.sroa.7.0 = phi i32 [ %53, %52 ], [ %37, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ undef, %49 ], [ undef, %43 ]
+  %.sroa.010.0 = phi i8 [ 0, %43 ], [ 1, %49 ], [ 2, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ 3, %52 ]
+  %.sroa.511.0 = phi i8 [ %44, %43 ], [ undef, %49 ], [ undef, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ undef, %52 ]
+  %.sroa.6.0 = phi i16 [ undef, %43 ], [ %50, %49 ], [ undef, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ undef, %52 ]
+  %.sroa.7.0 = phi i32 [ undef, %43 ], [ undef, %49 ], [ %37, %_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit ], [ %53, %52 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %.sroa.010.0, ptr %46, align 4
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5

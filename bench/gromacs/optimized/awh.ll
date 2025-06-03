@@ -1453,7 +1453,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br label %76
 
 76:                                               ; preds = %74, %._crit_edge
-  %.sroa.054.1 = phi ptr [ %.sroa.054.0.lcssa, %._crit_edge ], [ %75, %74 ]
+  %.sroa.054.1 = phi ptr [ %75, %74 ], [ %.sroa.054.0.lcssa, %._crit_edge ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.054.1, i64 24
   %78 = load i8, ptr %77, align 8, !tbaa !144
   br label %79
@@ -1486,7 +1486,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   br label %90
 
 90:                                               ; preds = %88, %._crit_edge
-  %.sroa.054.2 = phi ptr [ %.sroa.054.0.lcssa, %._crit_edge ], [ %89, %88 ]
+  %.sroa.054.2 = phi ptr [ %89, %88 ], [ %.sroa.054.0.lcssa, %._crit_edge ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.054.2, i64 24
   %92 = load i8, ptr %91, align 8, !tbaa !144
   br label %93
@@ -1837,7 +1837,7 @@ define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i.i.i
-  %.sroa.033.1.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %87, %86 ]
+  %.sroa.033.1.i.i.i.i.i.i = phi ptr [ %87, %86 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %89 = getelementptr i8, ptr %.sroa.033.1.i.i.i.i.i.i, i64 65
   %.val.i22.i.i.i.i.i.i = load i8, ptr %89, align 1, !tbaa !202, !range !108, !noundef !109
   %90 = trunc nuw i8 %.val.i22.i.i.i.i.i.i to i1
@@ -1848,7 +1848,7 @@ define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge.i.i.i.i.i.i
-  %.sroa.033.2.i.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %92, %91 ]
+  %.sroa.033.2.i.i.i.i.i.i = phi ptr [ %92, %91 ], [ %.sroa.033.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %94 = getelementptr i8, ptr %.sroa.033.2.i.i.i.i.i.i, i64 65
   %.val.i23.i.i.i.i.i.i = load i8, ptr %94, align 1, !tbaa !202, !range !108, !noundef !109
   %95 = trunc nuw i8 %.val.i23.i.i.i.i.i.i to i1
@@ -6196,7 +6196,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr noundef non
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
-  %.sroa.037.1.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %34, %33 ]
+  %.sroa.037.1.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i24.i.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i.i, align 8, !tbaa !19
   %36 = getelementptr i8, ptr %.sroa.037.1.i.i.i.i.i, i64 8
   %.val1.i25.i.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !19
@@ -6209,7 +6209,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh21hasFepLambdaDimensionEv(ptr noundef non
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
-  %.sroa.037.2.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
+  %.sroa.037.2.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i26.i.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i.i, align 8, !tbaa !19
   %41 = getelementptr i8, ptr %.sroa.037.2.i.i.i.i.i, i64 8
   %.val1.i27.i.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !19
@@ -6348,7 +6348,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noun
   br label %50
 
 50:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.043.1.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i" ]
+  %.sroa.043.1.i.i.i.i.i = phi ptr [ %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load ptr, ptr %.sroa.043.1.i.i.i.i.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.043.1.i.i.i.i.i, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !19
@@ -6365,7 +6365,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noun
   br label %57
 
 57:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.043.2.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i" ]
+  %.sroa.043.2.i.i.i.i.i = phi ptr [ %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = load ptr, ptr %.sroa.043.2.i.i.i.i.i, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.043.2.i.i.i.i.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !19

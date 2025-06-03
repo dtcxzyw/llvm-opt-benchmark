@@ -546,7 +546,7 @@ sort_pseudo_merge_matches.exit:                   ; preds = %sane_qsort.exit.i, 
 
 .lr.ph.i:                                         ; preds = %52, %119
   %.0137.i = phi i32 [ %120, %119 ], [ 0, %52 ]
-  %.086136.i = phi i32 [ %.2127.i, %119 ], [ 0, %52 ]
+  %.086136.i = phi i32 [ %.2128.i, %119 ], [ 0, %52 ]
   %60 = load i64, ptr %30, align 8, !tbaa !65
   %61 = add i64 %60, 1
   %62 = load i64, ptr %31, align 8, !tbaa !66
@@ -653,7 +653,7 @@ st_mult.exit.i:                                   ; preds = %98
   br i1 %.not111.i, label %114, label %81, !llvm.loop !76
 
 114:                                              ; preds = %106, %81
-  %.2127.i = phi i32 [ %86, %106 ], [ %.187.i, %81 ]
+  %.2128.i = phi i32 [ %86, %106 ], [ %.187.i, %81 ]
   %115 = load ptr, ptr %80, align 8, !tbaa !77
   %.not112.i = icmp eq ptr %115, null
   br i1 %.not112.i, label %119, label %116

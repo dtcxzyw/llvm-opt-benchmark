@@ -108,8 +108,8 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly %
   br i1 %59, label %PACKET_buf_init.exit.backedge, label %60
 
 PACKET_buf_init.exit.backedge.sink.split:         ; preds = %237, %189, %108, %60
-  %.sroa.23.0.be.ph = phi i64 [ %99, %60 ], [ %184, %108 ], [ %228, %189 ], [ %276, %237 ]
-  %.sroa.0.0.be.ph = phi ptr [ %98, %60 ], [ %183, %108 ], [ %227, %189 ], [ %275, %237 ]
+  %.sroa.23.0.be.ph = phi i64 [ %276, %237 ], [ %228, %189 ], [ %184, %108 ], [ %99, %60 ]
+  %.sroa.0.0.be.ph = phi ptr [ %275, %237 ], [ %227, %189 ], [ %183, %108 ], [ %98, %60 ]
   call void @ossl_quic_srtm_check(ptr noundef nonnull %4) #4
   br label %PACKET_buf_init.exit.backedge
 

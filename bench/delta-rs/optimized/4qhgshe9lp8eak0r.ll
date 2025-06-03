@@ -297,7 +297,7 @@ default.unreachable:                              ; preds = %2
   br label %41
 
 41:                                               ; preds = %35, %29, %23, %17, %11
-  %.0.in = phi i1 [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
+  %.0.in = phi i1 [ %16, %11 ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ]
   ret i1 %.0.in
 }
 
@@ -1071,8 +1071,8 @@ _ZN22aws_smithy_runtime_api6client12orchestrator22convert_dispatch_error17h6fe53
 147:                                              ; preds = %.thread106, %98, %105, %109, %_ZN22aws_smithy_runtime_api6client12orchestrator22convert_dispatch_error17h6fe531526d5967fdE.exit, %145, %150, %148
   ret void
 
-148:                                              ; preds = %113, %30, %23, %83, %59
-  %.sink = phi i64 [ 3, %113 ], [ 5, %30 ], [ 4, %23 ], [ 5, %83 ], [ 3, %59 ]
+148:                                              ; preds = %59, %83, %23, %30, %113
+  %.sink = phi i64 [ 3, %59 ], [ 5, %83 ], [ 4, %23 ], [ 5, %30 ], [ 3, %113 ]
   store i64 %.sink, ptr %0, align 8
   %149 = load i64, ptr %3, align 8, !range !55, !noundef !5
   %.not = icmp eq i64 %149, 3
@@ -1088,8 +1088,8 @@ _ZN22aws_smithy_runtime_api6client12orchestrator22convert_dispatch_error17h6fe53
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #22
           to label %.body.thread.i unwind label %102
 
-.body.thread.i:                                   ; preds = %.body.i, %106, %.body.i63, %100, %111, %151, %.body.i74, %138, %154, %.thread92
-  %.pn85 = phi { ptr, i32 } [ %eh.lpad-body91, %154 ], [ %eh.lpad-body91, %.thread92 ], [ %121, %138 ], [ %121, %.body.i74 ], [ %101, %100 ], [ %112, %111 ], [ %152, %151 ], [ %92, %.body.i63 ], [ %107, %106 ], [ %77, %.body.i ]
+.body.thread.i:                                   ; preds = %.body.i, %106, %.body.i63, %151, %111, %100, %.body.i74, %138, %154, %.thread92
+  %.pn85 = phi { ptr, i32 } [ %eh.lpad-body91, %154 ], [ %eh.lpad-body91, %.thread92 ], [ %121, %138 ], [ %121, %.body.i74 ], [ %152, %151 ], [ %112, %111 ], [ %101, %100 ], [ %92, %.body.i63 ], [ %107, %106 ], [ %77, %.body.i ]
   resume { ptr, i32 } %.pn85
 
 .thread92:                                        ; preds = %50, %67
@@ -1619,7 +1619,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN100_$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b72dc459a147436E.exit"
 
 "_ZN100_$LT$aws_smithy_runtime_api..client..orchestrator..LoadedRequestBody$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b72dc459a147436E.exit": ; preds = %6, %8, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -1697,7 +1697,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN101_$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbee08a8b9d32e88fE.exit"
 
 "_ZN101_$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbee08a8b9d32e88fE.exit": ; preds = %14, %17, %20, %23, %25, %28
-  %.0.in.i = phi i1 [ %30, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.0.in.i = phi i1 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ %30, %28 ]
   ret i1 %.0.in.i
 }
 
@@ -1809,7 +1809,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN93_$LT$aws_smithy_runtime_api..client..result..ConnectionStatus$u20$as$u20$core..fmt..Debug$GT$3fmt17h62486ed667530fd1E.exit"
 
 "_ZN93_$LT$aws_smithy_runtime_api..client..result..ConnectionStatus$u20$as$u20$core..fmt..Debug$GT$3fmt17h62486ed667530fd1E.exit": ; preds = %7, %9, %11
-  %.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -2840,8 +2840,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..error..Error$GT$6source17h0cb2e5beca96072eE.exit"
 
 "_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..error..Error$GT$6source17h0cb2e5beca96072eE.exit": ; preds = %5, %10, %15, %17, %22
-  %.sroa.6.0.i = phi ptr [ @anon.e53765a79c4dcac279ee891210511140.7, %22 ], [ %21, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.5.llvm.7732229130619922905, %15 ], [ %14, %10 ], [ %9, %5 ]
-  %.sroa.0.0.i = phi ptr [ %23, %22 ], [ %19, %17 ], [ %16, %15 ], [ %12, %10 ], [ %7, %5 ]
+  %.sroa.6.0.i = phi ptr [ %9, %5 ], [ %14, %10 ], [ @anon.e53765a79c4dcac279ee891210511140.5.llvm.7732229130619922905, %15 ], [ %21, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.7, %22 ]
+  %.sroa.0.0.i = phi ptr [ %7, %5 ], [ %12, %10 ], [ %16, %15 ], [ %19, %17 ], [ %23, %22 ]
   %24 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %25 = insertvalue { ptr, ptr } %24, ptr %.sroa.6.0.i, 1
   ret { ptr, ptr } %25
@@ -3441,7 +3441,7 @@ define internal noundef zeroext i1 @"_ZN86_$LT$aws_sdk_glue..operation..get_tabl
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %31, %28, %25, %22, %20, %17
-  %.0.in = phi i1 [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ]
+  %.0.in = phi i1 [ %19, %17 ], [ %21, %20 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ]
   ret i1 %.0.in
 }
 
@@ -3648,8 +3648,8 @@ define internal { ptr, ptr } @"_ZN88_$LT$aws_sdk_glue..operation..get_table..Get
   br label %26
 
 26:                                               ; preds = %1, %21, %19, %17, %15, %13, %11, %9, %7
-  %.sroa.10.0 = phi ptr [ %25, %21 ], [ @anon.e53765a79c4dcac279ee891210511140.141, %19 ], [ @anon.e53765a79c4dcac279ee891210511140.139, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.137, %15 ], [ @anon.e53765a79c4dcac279ee891210511140.135, %13 ], [ @anon.e53765a79c4dcac279ee891210511140.133, %11 ], [ @anon.e53765a79c4dcac279ee891210511140.131, %9 ], [ @anon.e53765a79c4dcac279ee891210511140.127, %7 ], [ @anon.e53765a79c4dcac279ee891210511140.129, %1 ]
-  %.sroa.0.0 = phi ptr [ %23, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %0, %1 ]
+  %.sroa.10.0 = phi ptr [ @anon.e53765a79c4dcac279ee891210511140.127, %7 ], [ @anon.e53765a79c4dcac279ee891210511140.131, %9 ], [ @anon.e53765a79c4dcac279ee891210511140.133, %11 ], [ @anon.e53765a79c4dcac279ee891210511140.135, %13 ], [ @anon.e53765a79c4dcac279ee891210511140.137, %15 ], [ @anon.e53765a79c4dcac279ee891210511140.139, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.141, %19 ], [ %25, %21 ], [ @anon.e53765a79c4dcac279ee891210511140.129, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %0, %1 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %28
@@ -3722,7 +3722,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6
-  %.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.0.in
 }
 

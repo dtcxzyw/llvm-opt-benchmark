@@ -630,7 +630,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchFromU_77(ptr noundef %0, p
   br label %47
 
 47:                                               ; preds = %43, %41
-  %.036.i = phi ptr [ %42, %41 ], [ %46, %43 ]
+  %.036.i = phi ptr [ %46, %43 ], [ %42, %41 ]
   %48 = lshr i32 %25, 8
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %.036.i, i64 1
@@ -638,7 +638,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchFromU_77(ptr noundef %0, p
   br label %51
 
 51:                                               ; preds = %47, %41
-  %.1.i = phi ptr [ %42, %41 ], [ %50, %47 ]
+  %.1.i = phi ptr [ %50, %47 ], [ %42, %41 ]
   %52 = trunc i32 %25 to i8
   store i8 %52, ptr %.1.i, align 1, !tbaa !24
   br label %61
@@ -1131,7 +1131,7 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
   br label %61
 
 61:                                               ; preds = %57, %55
-  %.036.i = phi ptr [ %56, %55 ], [ %60, %57 ]
+  %.036.i = phi ptr [ %60, %57 ], [ %56, %55 ]
   %62 = lshr i32 %47, 8
   %63 = trunc i32 %62 to i8
   %64 = getelementptr inbounds nuw i8, ptr %.036.i, i64 1
@@ -1139,7 +1139,7 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
   br label %65
 
 65:                                               ; preds = %61, %55
-  %.1.i = phi ptr [ %56, %55 ], [ %64, %61 ]
+  %.1.i = phi ptr [ %64, %61 ], [ %56, %55 ]
   %66 = trunc i32 %47 to i8
   store i8 %66, ptr %.1.i, align 1, !tbaa !24
   br label %75

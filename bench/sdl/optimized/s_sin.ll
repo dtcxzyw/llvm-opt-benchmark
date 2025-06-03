@@ -61,7 +61,7 @@ default.unreachable11:                            ; preds = %12
   br label %28
 
 28:                                               ; preds = %25, %22, %20, %18, %10, %6
-  %.0 = phi double [ %7, %6 ], [ %11, %10 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %18 ]
+  %.0 = phi double [ %7, %6 ], [ %11, %10 ], [ %19, %18 ], [ %21, %20 ], [ %24, %22 ], [ %27, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
   ret double %.0
 }

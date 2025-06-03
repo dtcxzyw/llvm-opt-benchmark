@@ -37727,8 +37727,8 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %139, %139, %139, %.
   ret void
 
 222:                                              ; preds = %221, %83
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %221 ], [ %.pn30.pn.pn.pn, %83 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn30.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn30.pn.pn.pn, %83 ], [ %.pn, %221 ]
+  resume { ptr, i32 } %.pn30.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -38310,7 +38310,7 @@ _ZNK17btCollisionObject8isActiveEv.exit31:        ; preds = %_ZNK17btCollisionOb
   ret void
 
 157:                                              ; preds = %154, %119, %81, %49
-  %.pn = phi { ptr, i32 } [ %120, %119 ], [ %155, %154 ], [ %82, %81 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %82, %81 ], [ %120, %119 ], [ %155, %154 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #45
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #45
   resume { ptr, i32 } %.pn

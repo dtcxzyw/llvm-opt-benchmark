@@ -93,9 +93,9 @@ define internal range(i32 -2147483648, 1) i32 @bmp_encode_frame(ptr noundef %0, 
   br label %18
 
 18:                                               ; preds = %17, %14, %12, %11, %10, %4
-  %.056 = phi ptr [ null, %4 ], [ @monoblack_pal, %17 ], [ %16, %14 ], [ %5, %12 ], [ @rgb565_masks, %11 ], [ @rgb444_masks, %10 ]
-  %19 = phi i1 [ false, %4 ], [ false, %17 ], [ false, %14 ], [ false, %12 ], [ true, %11 ], [ true, %10 ]
-  %.052 = phi i32 [ 0, %4 ], [ 0, %17 ], [ 0, %14 ], [ 0, %12 ], [ 3, %11 ], [ 3, %10 ]
+  %.056 = phi ptr [ null, %4 ], [ @rgb444_masks, %10 ], [ @rgb565_masks, %11 ], [ %5, %12 ], [ %16, %14 ], [ @monoblack_pal, %17 ]
+  %19 = phi i1 [ false, %4 ], [ true, %10 ], [ true, %11 ], [ false, %12 ], [ false, %14 ], [ false, %17 ]
+  %.052 = phi i32 [ 0, %4 ], [ 3, %10 ], [ 3, %11 ], [ 0, %12 ], [ 0, %14 ], [ 0, %17 ]
   %20 = icmp eq ptr %.056, null
   %or.cond = or i1 %20, %19
   %21 = shl nuw i32 1, %7

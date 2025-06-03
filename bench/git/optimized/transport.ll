@@ -2713,7 +2713,7 @@ define dso_local ptr @transport_anonymize_url(ptr noundef %0) local_unnamed_addr
   br label %34
 
 34:                                               ; preds = %.thread, %30
-  %.028 = phi ptr [ %33, %.thread ], [ %32, %30 ]
+  %.028 = phi ptr [ %32, %30 ], [ %33, %.thread ]
   ret ptr %.028
 }
 
@@ -3774,7 +3774,7 @@ define internal fastcc ptr @handshake(ptr noundef captures(none) %0, i32 noundef
   br label %25
 
 25:                                               ; preds = %23, %21, %18
-  %.0.i = phi i32 [ %15, %18 ], [ %22, %21 ], [ %24, %23 ]
+  %.0.i = phi i32 [ %15, %18 ], [ %24, %23 ], [ %22, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !82

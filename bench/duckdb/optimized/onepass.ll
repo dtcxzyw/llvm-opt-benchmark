@@ -734,10 +734,10 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i: ; preds = %_ZN10du
   store i32 0, ptr %87, align 4, !tbaa !103
   br label %126
 
-.loopexit:                                        ; preds = %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261, %357, %.thread369, %_ZN10LogMessageD2Ev.exit
-  %.3204.ph = phi i8 [ %.1202, %_ZN10LogMessageD2Ev.exit ], [ %.1202, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ 1, %357 ], [ %.1202, %.thread369 ]
-  %.3184.ph = phi ptr [ %.1182, %_ZN10LogMessageD2Ev.exit ], [ %.1182, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.1182, %357 ], [ %.4185, %.thread369 ]
-  %.5174.ph = phi i32 [ %.3172, %_ZN10LogMessageD2Ev.exit ], [ %.3172, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.3172, %357 ], [ %.6175, %.thread369 ]
+.loopexit:                                        ; preds = %357, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261, %.thread369, %_ZN10LogMessageD2Ev.exit
+  %.3204.ph = phi i8 [ %.1202, %_ZN10LogMessageD2Ev.exit ], [ 1, %357 ], [ %.1202, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.1202, %.thread369 ]
+  %.3184.ph = phi ptr [ %.1182, %_ZN10LogMessageD2Ev.exit ], [ %.1182, %357 ], [ %.1182, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.4185, %.thread369 ]
+  %.5174.ph = phi i32 [ %.3172, %_ZN10LogMessageD2Ev.exit ], [ %.3172, %357 ], [ %.3172, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.6175, %.thread369 ]
   %125 = icmp sgt i32 %.1198, 0
   br i1 %125, label %126, label %378
 

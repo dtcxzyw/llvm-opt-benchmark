@@ -1929,7 +1929,7 @@ _is_plugin_disabled.exit:                         ; preds = %95, %98
   br label %103
 
 103:                                              ; preds = %.thread, %_is_plugin_disabled.exit
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %_is_plugin_disabled.exit ]
+  %.0 = phi i32 [ 0, %_is_plugin_disabled.exit ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret i32 %.0
 }

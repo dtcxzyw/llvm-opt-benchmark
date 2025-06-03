@@ -584,7 +584,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15
-  %.1 = phi i32 [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %.1 = phi i32 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   %.not106 = icmp eq i32 %.1, 0
   br i1 %.not106, label %.thread, label %151
 
@@ -915,7 +915,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef nonnull %0, ptr
   br label %11
 
 11:                                               ; preds = %8, %3, %4, %.thread
-  %.1 = phi i32 [ %9, %8 ], [ %10, %.thread ], [ 0, %4 ], [ 0, %3 ]
+  %.1 = phi i32 [ %10, %.thread ], [ %9, %8 ], [ 0, %4 ], [ 0, %3 ]
   ret i32 %.1
 }
 

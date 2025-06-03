@@ -7138,11 +7138,11 @@ zend_string_equals.exit.thread:                   ; preds = %24, %zend_string_eq
   %104 = load i32, ptr %99, align 4, !tbaa !30
   %105 = add i32 %104, 1
   store i32 %105, ptr %99, align 4, !tbaa !30
-  %.pre476 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre478 = load ptr, ptr %11, align 8, !tbaa !28
   br label %106
 
 106:                                              ; preds = %40, %103
-  %107 = phi ptr [ %.pre476, %103 ], [ %99, %40 ]
+  %107 = phi ptr [ %.pre478, %103 ], [ %99, %40 ]
   %storemerge = phi i32 [ 262, %103 ], [ 6, %40 ]
   store i32 %storemerge, ptr %42, align 8, !tbaa !28
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -7190,17 +7190,17 @@ zend_string_equals.exit.thread:                   ; preds = %24, %zend_string_eq
 
 135:                                              ; preds = %134, %15
   %.not367 = icmp eq i32 %1, 0
-  br i1 %.not367, label %.lr.ph470, label %136
+  br i1 %.not367, label %.lr.ph472, label %136
 
 136:                                              ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %138 = load ptr, ptr %137, align 8, !tbaa !86
   %.not368462 = icmp eq ptr %138, null
-  br i1 %.not368462, label %.critedge, label %.lr.ph470
+  br i1 %.not368462, label %.critedge, label %.lr.ph472
 
-.lr.ph470:                                        ; preds = %135, %136
-  %.0490 = phi ptr [ %138, %136 ], [ %14, %135 ]
-  %.0312489 = phi ptr [ %14, %136 ], [ null, %135 ]
+.lr.ph472:                                        ; preds = %135, %136
+  %.0492 = phi ptr [ %138, %136 ], [ %14, %135 ]
+  %.0312491 = phi ptr [ %14, %136 ], [ null, %135 ]
   %139 = icmp eq i32 %3, 0
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %141 = and i32 %2, 2
@@ -7215,32 +7215,32 @@ zend_string_equals.exit.thread:                   ; preds = %24, %zend_string_eq
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %150
 
-150:                                              ; preds = %.lr.ph470, %1173
-  %.1469 = phi ptr [ %.0490, %.lr.ph470 ], [ %.3, %1173 ]
-  %.1313468 = phi ptr [ %.0312489, %.lr.ph470 ], [ %.2314, %1173 ]
-  %.0316467 = phi i1 [ false, %.lr.ph470 ], [ %.1317, %1173 ]
-  %.0321466 = phi i32 [ 0, %.lr.ph470 ], [ %.2323, %1173 ]
-  %.0325465 = phi ptr [ null, %.lr.ph470 ], [ %.1326, %1173 ]
-  %.0331463 = phi ptr [ null, %.lr.ph470 ], [ %.2333, %1173 ]
+150:                                              ; preds = %.lr.ph472, %1173
+  %.1471 = phi ptr [ %.0492, %.lr.ph472 ], [ %.3, %1173 ]
+  %.1313470 = phi ptr [ %.0312491, %.lr.ph472 ], [ %.2314, %1173 ]
+  %.0316469 = phi i1 [ false, %.lr.ph472 ], [ %.1317, %1173 ]
+  %.0321466 = phi i32 [ 0, %.lr.ph472 ], [ %.2323, %1173 ]
+  %.0325465 = phi ptr [ null, %.lr.ph472 ], [ %.1326, %1173 ]
+  %.0331463 = phi ptr [ null, %.lr.ph472 ], [ %.2333, %1173 ]
   %151 = icmp slt i32 %.0321466, %3
   %152 = select i1 %139, i1 true, i1 %151
   br i1 %152, label %153, label %.critedge
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.1469, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %.1471, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !89
   %.not369 = icmp eq ptr %155, null
   br i1 %.not369, label %156, label %160, !prof !62
 
 156:                                              ; preds = %153
-  %157 = call ptr @zend_generator_check_placeholder_frame(ptr noundef nonnull %.1469) #14
+  %157 = call ptr @zend_generator_check_placeholder_frame(ptr noundef nonnull %.1471) #14
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8, !tbaa !89, !nonnull !74, !noundef !74
   br label %160
 
 160:                                              ; preds = %156, %153
   %161 = phi ptr [ %159, %156 ], [ %155, %153 ]
-  %.2 = phi ptr [ %157, %156 ], [ %.1469, %153 ]
+  %.2 = phi ptr [ %157, %156 ], [ %.1471, %153 ]
   %162 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %163 = load ptr, ptr %162, align 8, !tbaa !86
   %.not370 = icmp eq ptr %163, null
@@ -7261,11 +7261,11 @@ zend_string_equals.exit.thread:                   ; preds = %24, %zend_string_eq
 171:                                              ; preds = %169
   %172 = call ptr @zend_generator_check_placeholder_frame(ptr noundef nonnull %163) #14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %.pre477 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !89
+  %.pre479 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !89
   br label %173
 
 173:                                              ; preds = %169, %171, %166
-  %174 = phi ptr [ %.pre477, %171 ], [ %161, %169 ], [ %161, %166 ]
+  %174 = phi ptr [ %.pre479, %171 ], [ %161, %169 ], [ %161, %166 ]
   %.0339 = phi ptr [ %172, %171 ], [ %163, %169 ], [ null, %166 ]
   %175 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %176 = load i8, ptr %174, align 8, !tbaa !28
@@ -7335,11 +7335,11 @@ zend_string_equals.exit.thread:                   ; preds = %24, %zend_string_eq
   %217 = zext i32 %216 to i64
   %218 = getelementptr inbounds nuw ptr, ptr %214, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !151
-  %.not377 = icmp eq ptr %.1313468, null
+  %.not377 = icmp eq ptr %.1313470, null
   br i1 %.not377, label %zend_string_alloc.exit, label %220
 
 220:                                              ; preds = %.thread424
-  %221 = getelementptr inbounds nuw i8, ptr %.1313468, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.1313470, i64 24
   %222 = load ptr, ptr %221, align 8, !tbaa !89
   %223 = icmp eq ptr %222, %219
   br i1 %223, label %.thread426, label %zend_string_alloc.exit
@@ -7454,11 +7454,11 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %290 = load i32, ptr %272, align 4, !tbaa !30
   %291 = add i32 %290, 1
   store i32 %291, ptr %272, align 4, !tbaa !30
-  %.pre478 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre480 = load ptr, ptr %11, align 8, !tbaa !28
   br label %292
 
 292:                                              ; preds = %285, %289
-  %293 = phi ptr [ %.pre478, %289 ], [ %272, %285 ]
+  %293 = phi ptr [ %.pre480, %289 ], [ %272, %285 ]
   %storemerge382 = phi i32 [ 262, %289 ], [ 6, %285 ]
   store i32 %storemerge382, ptr %140, align 8, !tbaa !28
   %294 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
@@ -7734,12 +7734,12 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %459 = add i32 %458, 1
   store i32 %459, ptr %439, align 4, !tbaa !30
   store i32 262, ptr %140, align 8, !tbaa !28
-  %.pre479 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre481 = load ptr, ptr %11, align 8, !tbaa !28
   br label %460
 
 460:                                              ; preds = %457, %456
   %461 = phi i32 [ 262, %457 ], [ 6, %456 ]
-  %462 = phi ptr [ %.pre479, %457 ], [ %439, %456 ]
+  %462 = phi ptr [ %.pre481, %457 ], [ %439, %456 ]
   %463 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   %464 = load ptr, ptr %463, align 8, !tbaa !60
   %465 = getelementptr inbounds nuw i8, ptr %430, i64 24
@@ -7873,12 +7873,12 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %543 = add i32 %542, 1
   store i32 %543, ptr %536, align 4, !tbaa !30
   store i32 262, ptr %140, align 8, !tbaa !28
-  %.pre480 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre482 = load ptr, ptr %11, align 8, !tbaa !28
   br label %544
 
 544:                                              ; preds = %541, %540
   %545 = phi i32 [ 262, %541 ], [ 6, %540 ]
-  %546 = phi ptr [ %.pre480, %541 ], [ %536, %540 ]
+  %546 = phi ptr [ %.pre482, %541 ], [ %536, %540 ]
   %547 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   %548 = load ptr, ptr %547, align 8, !tbaa !60
   %549 = getelementptr inbounds nuw i8, ptr %430, i64 24
@@ -7960,7 +7960,7 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
 .thread429:                                       ; preds = %526, %522, %.thread426, %544, %460
   %.0324 = phi ptr [ %439, %460 ], [ null, %544 ], [ null, %.thread426 ], [ null, %522 ], [ null, %526 ]
   %605 = load ptr, ptr %175, align 8, !tbaa !89
-  br i1 %.0316467, label %1061, label %606
+  br i1 %.0316469, label %1061, label %606
 
 606:                                              ; preds = %.thread429
   %607 = getelementptr inbounds nuw i8, ptr %605, i64 8
@@ -7985,12 +7985,12 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %616 = add i32 %615, 1
   store i32 %616, ptr %608, align 4, !tbaa !30
   store i32 262, ptr %140, align 8, !tbaa !28
-  %.pre481 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre483 = load ptr, ptr %11, align 8, !tbaa !28
   br label %617
 
 617:                                              ; preds = %614, %613
   %618 = phi i32 [ 262, %614 ], [ 6, %613 ]
-  %619 = phi ptr [ %.pre481, %614 ], [ %608, %613 ]
+  %619 = phi ptr [ %.pre483, %614 ], [ %608, %613 ]
   %620 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 16
   %622 = load ptr, ptr %621, align 8, !tbaa !60
@@ -8094,8 +8094,8 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   br label %689
 
 689:                                              ; preds = %672, %657, %680, %663, %683
-  %.sink498 = phi i32 [ 262, %680 ], [ 262, %663 ], [ %688, %683 ], [ 6, %657 ], [ 6, %672 ]
-  store i32 %.sink498, ptr %140, align 8, !tbaa !28
+  %.sink500 = phi i32 [ 262, %680 ], [ 262, %663 ], [ %688, %683 ], [ 6, %657 ], [ 6, %672 ]
+  store i32 %.sink500, ptr %140, align 8, !tbaa !28
   %690 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 24
   %692 = load ptr, ptr %691, align 8, !tbaa !60
@@ -8108,7 +8108,7 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %698 = load ptr, ptr %11, align 8, !tbaa !28
   store ptr %698, ptr %697, align 8, !tbaa !28
   %699 = getelementptr inbounds nuw i8, ptr %697, i64 8
-  store i32 %.sink498, ptr %699, align 8, !tbaa !28
+  store i32 %.sink500, ptr %699, align 8, !tbaa !28
   %700 = getelementptr inbounds nuw i8, ptr %697, i64 24
   store ptr %692, ptr %700, align 8, !tbaa !116
   %701 = getelementptr inbounds nuw i8, ptr %692, i64 8
@@ -8159,17 +8159,17 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %729 = load i32, ptr %724, align 4, !tbaa !30
   %730 = add i32 %729, 1
   store i32 %730, ptr %724, align 4, !tbaa !30
-  %.pre482 = load ptr, ptr %11, align 8, !tbaa !28
+  %.pre484 = load ptr, ptr %11, align 8, !tbaa !28
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %728, %722, %716
-  %.sink579 = phi i32 [ 776, %716 ], [ 262, %728 ], [ 6, %722 ]
-  %.sink578 = phi i64 [ 32, %716 ], [ 24, %728 ], [ 24, %722 ]
-  %.sink569 = phi ptr [ %654, %716 ], [ %.pre482, %728 ], [ %724, %722 ]
-  %.sink537.ph = phi i64 [ 48, %716 ], [ 56, %728 ], [ 56, %722 ]
-  store i32 %.sink579, ptr %140, align 8, !tbaa !28
+  %.sink581 = phi i32 [ 776, %716 ], [ 262, %728 ], [ 6, %722 ]
+  %.sink580 = phi i64 [ 32, %716 ], [ 24, %728 ], [ 24, %722 ]
+  %.sink571 = phi ptr [ %654, %716 ], [ %.pre484, %728 ], [ %724, %722 ]
+  %.sink539.ph = phi i64 [ 48, %716 ], [ 56, %728 ], [ 56, %722 ]
+  store i32 %.sink581, ptr %140, align 8, !tbaa !28
   %731 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
-  %732 = getelementptr inbounds nuw i8, ptr %731, i64 %.sink578
+  %732 = getelementptr inbounds nuw i8, ptr %731, i64 %.sink580
   %733 = load ptr, ptr %732, align 8, !tbaa !60
   %734 = load i32, ptr %623, align 8, !tbaa !90
   %735 = add i32 %734, 1
@@ -8177,9 +8177,9 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   %736 = load ptr, ptr %626, align 8, !tbaa !28
   %737 = zext i32 %734 to i64
   %738 = getelementptr inbounds nuw %struct._Bucket, ptr %736, i64 %737
-  store ptr %.sink569, ptr %738, align 8, !tbaa !28
+  store ptr %.sink571, ptr %738, align 8, !tbaa !28
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 8
-  store i32 %.sink579, ptr %739, align 8, !tbaa !28
+  store i32 %.sink581, ptr %739, align 8, !tbaa !28
   %740 = getelementptr inbounds nuw i8, ptr %738, i64 24
   store ptr %733, ptr %740, align 8, !tbaa !116
   %741 = getelementptr inbounds nuw i8, ptr %733, i64 8
@@ -8204,9 +8204,9 @@ zend_string_alloc.exit:                           ; preds = %220, %.thread424
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %689
-  %.sink537 = phi i64 [ 48, %689 ], [ %.sink537.ph, %.sink.split.sink.split ]
+  %.sink539 = phi i64 [ 48, %689 ], [ %.sink539.ph, %.sink.split.sink.split ]
   %756 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 %.sink537
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 %.sink539
   %758 = load ptr, ptr %757, align 8, !tbaa !60
   store ptr %758, ptr %11, align 8, !tbaa !28
   store i32 6, ptr %140, align 8, !tbaa !28
@@ -8853,16 +8853,16 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
   br i1 %.not411, label %1151, label %.thread437
 
 .thread437:                                       ; preds = %.thread434, %1072
-  %.sink539 = phi i64 [ 96, %1072 ], [ 72, %.thread434 ]
+  %.sink541 = phi i64 [ 96, %1072 ], [ 72, %.thread434 ]
   %1078 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
-  %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 %.sink539
+  %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 %.sink541
   %.0329440 = load ptr, ptr %1079, align 8, !tbaa !60
   br label %.thread443
 
 1080:                                             ; preds = %1072, %1077, %1076, %1075
-  %.sink541 = phi i64 [ 128, %1077 ], [ 120, %1076 ], [ 112, %1075 ], [ 104, %1072 ]
+  %.sink543 = phi i64 [ 128, %1077 ], [ 120, %1076 ], [ 112, %1075 ], [ 104, %1072 ]
   %1081 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
-  %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 %.sink541
+  %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 %.sink543
   %.0329 = load ptr, ptr %1082, align 8, !tbaa !60
   %.not455 = icmp eq ptr %.0325465, null
   br i1 %.not455, label %.thread443, label %1083
@@ -8883,8 +8883,8 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
   br label %1091
 
 1091:                                             ; preds = %1083, %1088
-  %storemerge485 = phi i32 [ 262, %1088 ], [ 6, %1083 ]
-  store i32 %storemerge485, ptr %140, align 8, !tbaa !28
+  %storemerge487 = phi i32 [ 262, %1088 ], [ 6, %1083 ]
+  store i32 %storemerge487, ptr %140, align 8, !tbaa !28
   %1092 = call ptr @zend_hash_next_index_insert_new(ptr noundef %1084, ptr noundef nonnull %11) #14
   %1093 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 64
@@ -8923,11 +8923,11 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
   %1120 = load i32, ptr %1119, align 4, !tbaa !91
   %1121 = add i32 %1120, 1
   store i32 %1121, ptr %1119, align 4, !tbaa !91
-  %.pre484 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
+  %.pre486 = load ptr, ptr @zend_known_strings, align 8, !tbaa !100
   br label %.thread443
 
 .thread443:                                       ; preds = %1091, %1080, %.thread437
-  %1122 = phi ptr [ %1078, %.thread437 ], [ %1081, %1080 ], [ %.pre484, %1091 ]
+  %1122 = phi ptr [ %1078, %.thread437 ], [ %1081, %1080 ], [ %.pre486, %1091 ]
   %.0329442 = phi ptr [ %.0329440, %.thread437 ], [ %.0329, %1080 ], [ %.0329, %1091 ]
   store ptr %.0329442, ptr %11, align 8, !tbaa !28
   store i32 6, ptr %140, align 8, !tbaa !28
@@ -8982,8 +8982,8 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
   br label %1156
 
 1156:                                             ; preds = %1151, %1152
-  %.2333 = phi ptr [ %.0331463, %1151 ], [ %430, %1152 ]
-  %.2323 = phi i32 [ %.0321466, %1151 ], [ %1155, %1152 ]
+  %.2333 = phi ptr [ %430, %1152 ], [ %.0331463, %1151 ]
+  %.2323 = phi i32 [ %1155, %1152 ], [ %.0321466, %1151 ]
   %1157 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %1158 = load i32, ptr %1157, align 8, !tbaa !28
   %1159 = and i32 %1158, 196608
@@ -8991,7 +8991,7 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
   br i1 %1160, label %1161, label %1172, !prof !62
 
 1161:                                             ; preds = %1156
-  %or.cond5.not = or i1 %.0316467, %431
+  %or.cond5.not = or i1 %.0316469, %431
   br i1 %or.cond5.not, label %1172, label %1162
 
 1162:                                             ; preds = %1161
@@ -9018,7 +9018,7 @@ debug_backtrace_get_args.exit:                    ; preds = %1032, %986, %zend_g
 1173:                                             ; preds = %1172, %1167
   %.1326 = phi ptr [ %.0324, %1172 ], [ %.0325465, %1167 ]
   %.1317 = phi i1 [ false, %1172 ], [ true, %1167 ]
-  %.2314 = phi ptr [ %.2, %1172 ], [ %.1313468, %1167 ]
+  %.2314 = phi ptr [ %.2, %1172 ], [ %.1313470, %1167 ]
   %.3 = phi ptr [ %.0339, %1172 ], [ %.2, %1167 ]
   %.not368 = icmp eq ptr %.3, null
   br i1 %.not368, label %.critedge, label %150

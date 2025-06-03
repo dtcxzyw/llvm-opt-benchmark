@@ -744,7 +744,7 @@ dissect_quake2_client_commands_move.exit.i.i:     ; preds = %323, %178
   br label %332
 
 332:                                              ; preds = %328, %324, %dissect_quake2_client_commands_move.exit.i.i, %95
-  %.028.i.i = phi i32 [ 0, %95 ], [ %177, %dissect_quake2_client_commands_move.exit.i.i ], [ %325, %324 ], [ %329, %328 ]
+  %.028.i.i = phi i32 [ 0, %95 ], [ %329, %328 ], [ %325, %324 ], [ %177, %dissect_quake2_client_commands_move.exit.i.i ]
   %333 = add i32 %.028.i.i, %93
   %334 = tail call i32 @tvb_reported_length(ptr noundef %80)
   %.not29.i.i = icmp eq i32 %334, %333

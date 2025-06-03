@@ -1639,7 +1639,7 @@ XLogBeginRead.exit47:                             ; preds = %79, %70
   br label %86
 
 86:                                               ; preds = %.thread52, %XLogBeginRead.exit47
-  %.035 = phi i64 [ 0, %.thread52 ], [ %69, %XLogBeginRead.exit47 ]
+  %.035 = phi i64 [ %69, %XLogBeginRead.exit47 ], [ 0, %.thread52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   ret i64 %.035
 }

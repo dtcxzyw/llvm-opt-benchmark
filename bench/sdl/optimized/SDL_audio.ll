@@ -4478,7 +4478,7 @@ define hidden noundef nonnull ptr @SDL_GetAudioFormatName_REAL(i32 noundef %0) l
   br label %10
 
 10:                                               ; preds = %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.34, %9 ], [ @.str.33, %8 ], [ @.str.32, %7 ], [ @.str.31, %6 ], [ @.str.30, %5 ], [ @.str.29, %4 ], [ @.str.28, %3 ], [ @.str.27, %2 ], [ @.str.26, %1 ]
+  %.0 = phi ptr [ @.str.34, %9 ], [ @.str.27, %2 ], [ @.str.28, %3 ], [ @.str.29, %4 ], [ @.str.30, %5 ], [ @.str.31, %6 ], [ @.str.32, %7 ], [ @.str.33, %8 ], [ @.str.26, %1 ]
   ret ptr %.0
 }
 

@@ -149,7 +149,7 @@ switch.lookup53:                                  ; preds = %42
   br label %68
 
 68:                                               ; preds = %switch.lookup53, %switch.lookup, %57, %31, %31, %63, %60, %58, %44, %37, %33, %32, %22, %16
-  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %45, %44 ], [ %65, %63 ], [ %62, %60 ], [ %59, %58 ], [ 0xC00921FB54442D18, %33 ], [ 0x400921FB54442D18, %32 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load55, %switch.lookup53 ]
+  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %45, %44 ], [ %65, %63 ], [ %59, %58 ], [ %62, %60 ], [ 0x400921FB54442D18, %32 ], [ 0xC00921FB54442D18, %33 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load55, %switch.lookup53 ]
   ret double %.0
 }
 

@@ -533,7 +533,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %24, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %2, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %2 ], [ %30, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %30, %._crit_edge.i.i.i ], [ %0, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 18200
@@ -603,7 +603,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i:      ; preds = %23, %.lr.ph.i.i
   br label %_ZNK5clang4Decl22getTranslationUnitDeclEv.exit
 
 _ZNK5clang4Decl22getTranslationUnitDeclEv.exit:   ; preds = %1, %._crit_edge.i.i
-  %.1.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i ]
+  %.1.i.i = phi ptr [ %29, %._crit_edge.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   ret ptr %31
@@ -776,7 +776,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %67, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %47
-  %.1.i.i.i.i.i.i = phi ptr [ %40, %47 ], [ %73, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %73, %._crit_edge.i.i.i.i.i.i ], [ %40, %47 ]
   %74 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %75 = load ptr, ptr %74, align 8, !tbaa !11
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 18200
@@ -960,7 +960,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -1049,7 +1049,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i12: ; preds = %75, %.lr.ph.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i16
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i16: ; preds = %._crit_edge.i.i.i.i.i.i14, %55
-  %.1.i.i.i.i.i.i17 = phi ptr [ %0, %55 ], [ %81, %._crit_edge.i.i.i.i.i.i14 ]
+  %.1.i.i.i.i.i.i17 = phi ptr [ %81, %._crit_edge.i.i.i.i.i.i14 ], [ %0, %55 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i17, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18200
@@ -1147,7 +1147,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i29: ; preds = %125, %.lr.ph.i
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i33
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i33: ; preds = %._crit_edge.i.i.i.i.i.i31, %105
-  %.1.i.i.i.i.i.i34 = phi ptr [ %0, %105 ], [ %131, %._crit_edge.i.i.i.i.i.i31 ]
+  %.1.i.i.i.i.i.i34 = phi ptr [ %131, %._crit_edge.i.i.i.i.i.i31 ], [ %0, %105 ]
   %132 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i34, i64 88
   %133 = load ptr, ptr %132, align 8, !tbaa !11
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 18200
@@ -1239,7 +1239,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 18200
@@ -1322,7 +1322,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2160
@@ -11207,7 +11207,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Decl23isTemplateParameterPackEv(
   br label %16
 
 16:                                               ; preds = %1, %11, %7, %5
-  %.1 = phi i1 [ %6, %5 ], [ %10, %7 ], [ %15, %11 ], [ false, %1 ]
+  %.1 = phi i1 [ %10, %7 ], [ %6, %5 ], [ %15, %11 ], [ false, %1 ]
   ret i1 %.1
 }
 
@@ -11251,7 +11251,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Decl15isParameterPackEv(ptr noun
   br label %_ZNK5clang4Decl23isTemplateParameterPackEv.exit
 
 _ZNK5clang4Decl23isTemplateParameterPackEv.exit:  ; preds = %16, %12, %10, %9, %7
-  %.1 = phi i1 [ %8, %7 ], [ %11, %10 ], [ %15, %12 ], [ %20, %16 ], [ false, %9 ]
+  %.1 = phi i1 [ %8, %7 ], [ %15, %12 ], [ %11, %10 ], [ %20, %16 ], [ false, %9 ]
   ret i1 %.1
 }
 
@@ -11333,7 +11333,7 @@ define dso_local noundef ptr @_ZNK5clang4Decl20getDescribedTemplateEv(ptr nounde
   br label %24
 
 24:                                               ; preds = %21, %20, %18, %13, %7
-  %.1 = phi ptr [ %8, %7 ], [ %14, %13 ], [ %19, %18 ], [ %23, %21 ], [ null, %20 ]
+  %.1 = phi ptr [ %19, %18 ], [ %14, %13 ], [ %8, %7 ], [ %23, %21 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -11385,7 +11385,7 @@ define dso_local noundef ptr @_ZNK5clang4Decl26getDescribedTemplateParamsEv(ptr 
   br label %_ZNK5clang4Decl20getDescribedTemplateEv.exit
 
 _ZNK5clang4Decl20getDescribedTemplateEv.exit:     ; preds = %7, %13, %18, %21
-  %.1.i = phi ptr [ %8, %7 ], [ %14, %13 ], [ %19, %18 ], [ %23, %21 ]
+  %.1.i = phi ptr [ %19, %18 ], [ %14, %13 ], [ %8, %7 ], [ %23, %21 ]
   %.not.not = icmp eq ptr %.1.i, null
   br i1 %.not.not, label %_ZNK5clang4Decl20getDescribedTemplateEv.exit._ZNK5clang4Decl20getDescribedTemplateEv.exit.thread_crit_edge, label %24
 
@@ -11417,7 +11417,7 @@ _ZNK5clang4Decl20getDescribedTemplateEv.exit.thread: ; preds = %_ZNK5clang4Decl2
   br label %35
 
 35:                                               ; preds = %32, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread, %29, %24
-  %.1 = phi ptr [ %26, %24 ], [ %31, %29 ], [ %34, %32 ], [ null, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread ]
+  %.1 = phi ptr [ %31, %29 ], [ %26, %24 ], [ %34, %32 ], [ null, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread ]
   ret ptr %.1
 }
 
@@ -11540,7 +11540,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit:    ; preds = %19, %18, %15, %14
   br label %_ZNK5clang4Decl20getDescribedTemplateEv.exit.i
 
 _ZNK5clang4Decl20getDescribedTemplateEv.exit.i:   ; preds = %45, %42, %37, %32
-  %.1.i.i = phi ptr [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %47, %45 ]
+  %.1.i.i = phi ptr [ %43, %42 ], [ %38, %37 ], [ %33, %32 ], [ %47, %45 ]
   %.not.not.i = icmp eq ptr %.1.i.i, null
   br i1 %.not.not.i, label %_ZNK5clang4Decl20getDescribedTemplateEv.exit._ZNK5clang4Decl20getDescribedTemplateEv.exit.thread_crit_edge.i, label %48
 
@@ -11572,7 +11572,7 @@ _ZNK5clang4Decl20getDescribedTemplateEv.exit.thread.i: ; preds = %_ZNK5clang4Dec
   br label %_ZNK5clang4Decl26getDescribedTemplateParamsEv.exit
 
 _ZNK5clang4Decl26getDescribedTemplateParamsEv.exit: ; preds = %48, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread.i, %53, %56
-  %.1.i = phi ptr [ %50, %48 ], [ %55, %53 ], [ %58, %56 ], [ null, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread.i ]
+  %.1.i = phi ptr [ %55, %53 ], [ %50, %48 ], [ %58, %56 ], [ null, %_ZNK5clang4Decl20getDescribedTemplateEv.exit.thread.i ]
   %59 = icmp ne ptr %.1.i, null
   br label %60
 
@@ -11790,7 +11790,7 @@ _ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit.thread: ; preds 
   br label %_ZNK5clang4Decl20getDescribedTemplateEv.exit.i
 
 _ZNK5clang4Decl20getDescribedTemplateEv.exit.i:   ; preds = %26, %23, %18, %13
-  %.1.i.i = phi ptr [ %14, %13 ], [ %19, %18 ], [ %24, %23 ], [ %28, %26 ]
+  %.1.i.i = phi ptr [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %28, %26 ]
   %.not.not.i = icmp eq ptr %.1.i.i, null
   br i1 %.not.not.i, label %_ZNK5clang4Decl20getDescribedTemplateEv.exit._ZNK5clang4Decl20getDescribedTemplateEv.exit.thread_crit_edge.i, label %29
 
@@ -11819,7 +11819,7 @@ _ZNK5clang4Decl20getDescribedTemplateEv.exit.thread.i: ; preds = %_ZNK5clang4Dec
   br label %_ZNK5clang4Decl26getDescribedTemplateParamsEv.exit
 
 _ZNK5clang4Decl26getDescribedTemplateParamsEv.exit: ; preds = %29, %33, %35
-  %.1.i.in = phi ptr [ %30, %29 ], [ %34, %33 ], [ %36, %35 ]
+  %.1.i.in = phi ptr [ %34, %33 ], [ %30, %29 ], [ %36, %35 ]
   %.1.i = load ptr, ptr %.1.i.in, align 8, !tbaa !617
   %.not20.not = icmp eq ptr %.1.i, null
   br i1 %.not20.not, label %_ZNK5clang4Decl26getDescribedTemplateParamsEv.exit._ZNK5clang4Decl26getDescribedTemplateParamsEv.exit.thread_crit_edge, label %37
@@ -12243,7 +12243,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %25, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %._crit_edge.i.i.i, %_ZN5clang4Decl14getDeclContextEv.exit
-  %.1.i.i.i = phi ptr [ %0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %31, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i ], [ %0, %_ZN5clang4Decl14getDeclContextEv.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2192
@@ -12377,7 +12377,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %95, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %75
-  %.1.i.i.i.i.i.i = phi ptr [ %68, %75 ], [ %101, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %101, %._crit_edge.i.i.i.i.i.i ], [ %68, %75 ]
   %102 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %103 = load ptr, ptr %102, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 18200
@@ -12542,7 +12542,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %31, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl27hasLocalOwningModuleStorageEv.exit
 
 _ZNK5clang4Decl27hasLocalOwningModuleStorageEv.exit: ; preds = %11, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %3, %11 ], [ %37, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %37, %._crit_edge.i.i.i.i ], [ %3, %11 ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %39 = load ptr, ptr %38, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2160
@@ -13601,7 +13601,7 @@ _ZN5clang11DeclContext9getParentEv.exit:          ; preds = %.lr.ph, %23
   br label %30
 
 30:                                               ; preds = %1, %._crit_edge
-  %.1 = phi ptr [ %0, %1 ], [ %29, %._crit_edge ]
+  %.1 = phi ptr [ %29, %._crit_edge ], [ %0, %1 ]
   ret ptr %.1
 }
 
@@ -13663,7 +13663,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2160
@@ -13729,7 +13729,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 18208
@@ -13800,7 +13800,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %25, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit
 
 _ZNK5clang4Decl8getAttrsEv.exit:                  ; preds = %5, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -13859,7 +13859,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %55, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %_ZNK5clang4Decl8getAttrsEv.exit, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %_ZNK5clang4Decl8getAttrsEv.exit ], [ %61, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %61, %._crit_edge.i.i.i ], [ %0, %_ZNK5clang4Decl8getAttrsEv.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %63 = load ptr, ptr %62, align 8, !tbaa !11
   %64 = load ptr, ptr %34, align 8, !tbaa !671
@@ -14025,7 +14025,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %31, ptr noundef nonnull %0) #31
@@ -14117,7 +14117,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i: ; preds = %39, %.lr.ph.i.i.i.
   br label %_ZNK5clang4Decl8getAttrsEv.exit.i
 
 _ZNK5clang4Decl8getAttrsEv.exit.i:                ; preds = %._crit_edge.i.i.i.i.i, %19
-  %.1.i.i.i.i.i = phi ptr [ %15, %19 ], [ %45, %._crit_edge.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %45, %._crit_edge.i.i.i.i.i ], [ %15, %19 ]
   %46 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 88
   %47 = load ptr, ptr %46, align 8, !tbaa !11
   %48 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %47, ptr noundef nonnull align 8 dereferenceable(33) %15) #31
@@ -14418,7 +14418,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %25, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit
 
 _ZNK5clang4Decl8getAttrsEv.exit:                  ; preds = %5, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -14531,7 +14531,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i: ; preds = %25, %.lr.ph.i.i.i.
   br label %_ZNK5clang4Decl8getAttrsEv.exit.i
 
 _ZNK5clang4Decl8getAttrsEv.exit.i:                ; preds = %._crit_edge.i.i.i.i.i, %5
-  %.1.i.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -14621,7 +14621,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i9: ; preds = %68, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit.i13
 
 _ZNK5clang4Decl8getAttrsEv.exit.i13:              ; preds = %._crit_edge.i.i.i.i.i11, %48
-  %.1.i.i.i.i.i14 = phi ptr [ %0, %48 ], [ %74, %._crit_edge.i.i.i.i.i11 ]
+  %.1.i.i.i.i.i14 = phi ptr [ %74, %._crit_edge.i.i.i.i.i11 ], [ %0, %48 ]
   %75 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i14, i64 88
   %76 = load ptr, ptr %75, align 8, !tbaa !11
   %77 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %76, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -14711,7 +14711,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i29: ; preds = %111, %.lr.ph.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit.i33
 
 _ZNK5clang4Decl8getAttrsEv.exit.i33:              ; preds = %._crit_edge.i.i.i.i.i31, %91
-  %.1.i.i.i.i.i34 = phi ptr [ %0, %91 ], [ %117, %._crit_edge.i.i.i.i.i31 ]
+  %.1.i.i.i.i.i34 = phi ptr [ %117, %._crit_edge.i.i.i.i.i31 ], [ %0, %91 ]
   %118 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i34, i64 88
   %119 = load ptr, ptr %118, align 8, !tbaa !11
   %120 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %119, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -14763,7 +14763,7 @@ define dso_local noundef ptr @_ZNK5clang4Decl15getDefiningAttrEv(ptr noundef non
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.1 = phi ptr [ %2, %1 ], [ %4, %3 ], [ %6, %5 ]
+  %.1 = phi ptr [ %4, %3 ], [ %2, %1 ], [ %6, %5 ]
   ret ptr %.1
 }
 
@@ -14830,7 +14830,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %25, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit
 
 _ZNK5clang4Decl8getAttrsEv.exit:                  ; preds = %5, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -14943,7 +14943,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %25, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit
 
 _ZNK5clang4Decl8getAttrsEv.exit:                  ; preds = %5, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -15056,7 +15056,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %25, %.lr.ph.i.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit
 
 _ZNK5clang4Decl8getAttrsEv.exit:                  ; preds = %5, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -15544,7 +15544,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %175, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %155, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.tr.lcssa150, %155 ], [ %181, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %181, %._crit_edge.i.i.i ], [ %.tr.lcssa150, %155 ]
   %182 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %183 = load ptr, ptr %182, align 8, !tbaa !11
   %184 = call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23216) %183, ptr noundef %31, ptr noundef %1, i64 %2, i64 %3)
@@ -15679,7 +15679,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i: ; preds = %25, %.lr.ph.i.i.i.
   br label %_ZNK5clang4Decl10attr_beginEv.exit
 
 _ZNK5clang4Decl10attr_beginEv.exit:               ; preds = %5, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %0, %5 ], [ %31, %._crit_edge.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %31, %._crit_edge.i.i.i.i.i ], [ %0, %5 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %33, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -15744,7 +15744,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i9: ; preds = %57, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl8getAttrsEv.exit.i13
 
 _ZNK5clang4Decl8getAttrsEv.exit.i13:              ; preds = %._crit_edge.i.i.i.i.i11, %37
-  %.1.i.i.i.i.i14 = phi ptr [ %0, %37 ], [ %63, %._crit_edge.i.i.i.i.i11 ]
+  %.1.i.i.i.i.i14 = phi ptr [ %63, %._crit_edge.i.i.i.i.i11 ], [ %0, %37 ]
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i14, i64 88
   %65 = load ptr, ptr %64, align 8, !tbaa !11
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %65, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -16474,7 +16474,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %24, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %30, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %30, %._crit_edge.i.i.i ], [ %0, %1 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 17288
@@ -16816,7 +16816,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %38, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %18, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %18 ], [ %44, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %44, %._crit_edge.i.i.i ], [ %0, %18 ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %47 = tail call fastcc noundef i32 @_ZL17CheckAvailabilityRN5clang10ASTContextEPKNS_16AvailabilityAttrEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(23216) %46, ptr noundef %15, ptr noundef null, i64 0, i64 0)
@@ -16990,7 +16990,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %26, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %5, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %5 ], [ %32, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %32, %._crit_edge.i.i.i ], [ %0, %5 ]
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !11
   tail call void @_ZN5clang10ASTContext14eraseDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %34, ptr noundef nonnull %0) #31
@@ -17088,7 +17088,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i: ; preds = %32, %.lr.ph.i.i.i.
   br label %_ZN5clang4Decl8getAttrsEv.exit
 
 _ZN5clang4Decl8getAttrsEv.exit:                   ; preds = %12, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %0, %12 ], [ %38, %._crit_edge.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %38, %._crit_edge.i.i.i.i.i ], [ %0, %12 ]
   %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !11
   %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %40, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -17285,7 +17285,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %24, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %2, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %2 ], [ %30, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %30, %._crit_edge.i.i.i ], [ %0, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %32, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
@@ -17573,7 +17573,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -17669,7 +17669,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %77, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %56, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %56 ], [ %83, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %83, %._crit_edge.i.i.i ], [ %0, %56 ]
   %84 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1720
@@ -17752,7 +17752,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -17847,7 +17847,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %76, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %55, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %55 ], [ %82, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %82, %._crit_edge.i.i.i ], [ %0, %55 ]
   %83 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1720
@@ -17918,7 +17918,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 18200
@@ -18009,7 +18009,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -18098,7 +18098,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i11: ; preds = %75, %.lr.ph.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15: ; preds = %._crit_edge.i.i.i.i.i.i13, %55
-  %.1.i.i.i.i.i.i16 = phi ptr [ %0, %55 ], [ %81, %._crit_edge.i.i.i.i.i.i13 ]
+  %.1.i.i.i.i.i.i16 = phi ptr [ %81, %._crit_edge.i.i.i.i.i.i13 ], [ %0, %55 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i16, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18200
@@ -18204,7 +18204,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -18293,7 +18293,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i11: ; preds = %75, %.lr.ph.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15: ; preds = %._crit_edge.i.i.i.i.i.i13, %55
-  %.1.i.i.i.i.i.i16 = phi ptr [ %0, %55 ], [ %81, %._crit_edge.i.i.i.i.i.i13 ]
+  %.1.i.i.i.i.i.i16 = phi ptr [ %81, %._crit_edge.i.i.i.i.i.i13 ], [ %0, %55 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i16, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18200
@@ -18401,7 +18401,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -18490,7 +18490,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i11: ; preds = %75, %.lr.ph.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15: ; preds = %._crit_edge.i.i.i.i.i.i13, %55
-  %.1.i.i.i.i.i.i16 = phi ptr [ %0, %55 ], [ %81, %._crit_edge.i.i.i.i.i.i13 ]
+  %.1.i.i.i.i.i.i16 = phi ptr [ %81, %._crit_edge.i.i.i.i.i.i13 ], [ %0, %55 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i16, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18200
@@ -18602,7 +18602,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i:  ; preds = %._crit_edge.i.i.i.i.i.i, %8
-  %.1.i.i.i.i.i.i = phi ptr [ %0, %8 ], [ %34, %._crit_edge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i.i.i ], [ %0, %8 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 18200
@@ -18691,7 +18691,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i.i.i11: ; preds = %75, %.lr.ph.i.
   br label %_ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15
 
 _ZNK5clang4Decl19getOwningModuleSlowEv.exit.i.i15: ; preds = %._crit_edge.i.i.i.i.i.i13, %55
-  %.1.i.i.i.i.i.i16 = phi ptr [ %0, %55 ], [ %81, %._crit_edge.i.i.i.i.i.i13 ]
+  %.1.i.i.i.i.i.i16 = phi ptr [ %81, %._crit_edge.i.i.i.i.i.i13 ], [ %0, %55 ]
   %82 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i16, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18200
@@ -18785,7 +18785,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %23, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %1, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %0, %1 ], [ %29, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %29, %._crit_edge.i.i.i ], [ %0, %1 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2216
@@ -19072,7 +19072,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread8.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %100, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %101, %100 ]
+  %.1.i.i.i = phi ptr [ %101, %100 ], [ %96, %.lr.ph.i.i ]
   %102 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %103 = load i24, ptr %102, align 16
   %104 = and i24 %103, 1048576
@@ -19110,7 +19110,7 @@ _ZNK5clang4Type23isFunctionReferenceTypeEv.exit:  ; preds = %_ZNK5clang4Type6cas
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit: ; preds = %116, %121
-  %.1.i45 = phi ptr [ %117, %116 ], [ %122, %121 ]
+  %.1.i45 = phi ptr [ %122, %121 ], [ %117, %116 ]
   %123 = getelementptr inbounds nuw i8, ptr %.1.i45, i64 16
   %124 = load i24, ptr %123, align 16
   %125 = and i24 %124, 1048576
@@ -19135,7 +19135,7 @@ _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit: ; preds = %116, %121
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %133, %.lr.ph.i
-  %.1.i.i = phi ptr [ %129, %.lr.ph.i ], [ %134, %133 ]
+  %.1.i.i = phi ptr [ %134, %133 ], [ %129, %.lr.ph.i ]
   %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %136 = load i24, ptr %135, align 16
   %137 = and i24 %136, 1048576
@@ -19202,7 +19202,7 @@ _ZNK5clang4Type23isFunctionReferenceTypeEv.exit.thread: ; preds = %81, %_ZNK5cla
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %159, %152, %.critedge18, %10
-  %.3 = phi ptr [ null, %10 ], [ null, %.critedge18 ], [ %155, %152 ], [ %168, %167 ], [ null, %159 ]
+  %.3 = phi ptr [ null, %10 ], [ null, %.critedge18 ], [ %168, %167 ], [ %155, %152 ], [ null, %159 ]
   ret ptr %.3
 }
 
@@ -19909,7 +19909,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %29, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %6, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %7, %6 ], [ %35, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %35, %._crit_edge.i.i.i.i ], [ %7, %6 ]
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2160
@@ -20409,7 +20409,7 @@ select.unfold71:                                  ; preds = %_ZNK5clang16ObjCPro
   br label %.thread78
 
 .thread78:                                        ; preds = %45, %51, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit, %select.unfold71, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, %select.unfold, %39, %41, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %10, %5
-  %.0 = phi ptr [ %spec.select5, %10 ], [ %spec.select, %5 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %44, %41 ], [ %0, %39 ], [ %26, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit ], [ %0, %select.unfold ], [ %38, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit ], [ %0, %select.unfold71 ], [ %spec.select86, %51 ], [ %0, %45 ]
+  %.0 = phi ptr [ %spec.select, %5 ], [ %spec.select5, %10 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %44, %41 ], [ %0, %39 ], [ %26, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit ], [ %0, %select.unfold ], [ %38, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit ], [ %0, %select.unfold71 ], [ %spec.select86, %51 ], [ %0, %45 ]
   ret ptr %.0
 }
 
@@ -20825,7 +20825,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %26, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %1, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %4, %1 ], [ %32, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %32, %._crit_edge.i.i.i.i ], [ %4, %1 ]
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 18200
@@ -21042,7 +21042,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %26, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %2, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %4, %2 ], [ %32, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %32, %._crit_edge.i.i.i.i ], [ %4, %2 ]
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !11
   %35 = load ptr, ptr %0, align 8, !tbaa !755
@@ -21444,7 +21444,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %28, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %4, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %6, %4 ], [ %34, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %34, %._crit_edge.i.i.i.i ], [ %6, %4 ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %36 = load ptr, ptr %35, align 8, !tbaa !11
   %37 = load ptr, ptr %0, align 8, !tbaa !755
@@ -21669,7 +21669,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %30, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %7, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %8, %7 ], [ %36, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i ], [ %8, %7 ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = getelementptr ptr, ptr %1, i64 %2
@@ -21756,7 +21756,7 @@ _ZnwmRKN5clang10ASTContextEm.exit.i:              ; preds = %71, %68
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit
 
 _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %51, %_ZnwmRKN5clang10ASTContextEm.exit.i
-  %.1.i = phi ptr [ %50, %51 ], [ %.0.i.i.i.i.i14, %_ZnwmRKN5clang10ASTContextEm.exit.i ]
+  %.1.i = phi ptr [ %.0.i.i.i.i.i14, %_ZnwmRKN5clang10ASTContextEm.exit.i ], [ %50, %51 ]
   %74 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store i64 %.sroa.025.035, ptr %74, align 8
   %75 = ptrtoint ptr %.1.i to i64
@@ -21830,7 +21830,7 @@ _ZnwmRKN5clang10ASTContextEm.exit.i22:            ; preds = %108, %105
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit24
 
 _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit24: ; preds = %85, %_ZnwmRKN5clang10ASTContextEm.exit.i22
-  %.1.i20 = phi ptr [ %84, %85 ], [ %.0.i.i.i.i.i23, %_ZnwmRKN5clang10ASTContextEm.exit.i22 ]
+  %.1.i20 = phi ptr [ %.0.i.i.i.i.i23, %_ZnwmRKN5clang10ASTContextEm.exit.i22 ], [ %84, %85 ]
   %111 = getelementptr inbounds nuw i8, ptr %.1.i20, i64 8
   store i64 %.sroa.025.0.lcssa, ptr %111, align 8
   %112 = ptrtoint ptr %.1.i20 to i64
@@ -22668,7 +22668,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %87, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %64, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %65, %64 ], [ %93, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %93, %._crit_edge.i.i.i.i ], [ %65, %64 ]
   %94 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2160
@@ -22805,7 +22805,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i34: ; preds = %152, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl22getASTMutationListenerEv.exit
 
 _ZNK5clang4Decl22getASTMutationListenerEv.exit:   ; preds = %134, %._crit_edge.i.i.i.i36
-  %.1.i.i.i.i38 = phi ptr [ %124, %134 ], [ %158, %._crit_edge.i.i.i.i36 ]
+  %.1.i.i.i.i38 = phi ptr [ %158, %._crit_edge.i.i.i.i36 ], [ %124, %134 ]
   %159 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i38, i64 88
   %160 = load ptr, ptr %159, align 8, !tbaa !11
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 18208
@@ -23156,7 +23156,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %74, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %51, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %52, %51 ], [ %80, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %80, %._crit_edge.i.i.i.i ], [ %52, %51 ]
   %81 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %82 = load ptr, ptr %81, align 8, !tbaa !11
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 2160
@@ -23310,7 +23310,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %29, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %6, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %7, %6 ], [ %35, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %35, %._crit_edge.i.i.i.i ], [ %7, %6 ]
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %38 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -23443,7 +23443,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i28: ; preds = %79, %.lr.ph.i.i.i.
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit33
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit33: ; preds = %56, %._crit_edge.i.i.i.i30
-  %.1.i.i.i.i32 = phi ptr [ %57, %56 ], [ %85, %._crit_edge.i.i.i.i30 ]
+  %.1.i.i.i.i32 = phi ptr [ %85, %._crit_edge.i.i.i.i30 ], [ %57, %56 ]
   %86 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i32, i64 88
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 18200
@@ -23650,7 +23650,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i:  ; preds = %29, %.lr.ph.i.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit: ; preds = %3, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %7, %3 ], [ %35, %._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %35, %._crit_edge.i.i.i.i ], [ %7, %3 ]
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 18200
@@ -23836,7 +23836,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i.i33: ; preds = %109, %.lr.ph.i.i.i
   br label %_ZNK5clang11DeclContext19getParentASTContextEv.exit38
 
 _ZNK5clang11DeclContext19getParentASTContextEv.exit38: ; preds = %86, %._crit_edge.i.i.i.i35
-  %.1.i.i.i.i37 = phi ptr [ %87, %86 ], [ %115, %._crit_edge.i.i.i.i35 ]
+  %.1.i.i.i.i37 = phi ptr [ %115, %._crit_edge.i.i.i.i35 ], [ %87, %86 ]
   %116 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i37, i64 88
   %117 = load ptr, ptr %116, align 8, !tbaa !11
   %118 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -25251,7 +25251,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %30, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %8, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %1, %8 ], [ %36, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i ], [ %1, %8 ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 17336
@@ -25309,7 +25309,7 @@ _ZnwmRKN5clang10ASTContextEm.exit.i:              ; preds = %64, %61
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit
 
 _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %41, %_ZnwmRKN5clang10ASTContextEm.exit.i
-  %.1.i = phi ptr [ %40, %41 ], [ %.0.i.i.i.i.i8, %_ZnwmRKN5clang10ASTContextEm.exit.i ]
+  %.1.i = phi ptr [ %.0.i.i.i.i.i8, %_ZnwmRKN5clang10ASTContextEm.exit.i ], [ %40, %41 ]
   %.0.copyload.i.i.i9 = load i64, ptr %0, align 8
   %67 = and i64 %.0.copyload.i.i.i9, -4
   %68 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
@@ -25418,7 +25418,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i:    ; preds = %41, %.lr.ph.i.i.i
   br label %_ZNK5clang4Decl13getASTContextEv.exit
 
 _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %19, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %1, %19 ], [ %47, %._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %47, %._crit_edge.i.i.i ], [ %1, %19 ]
   %48 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 88
   %49 = load ptr, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 17336
@@ -25476,7 +25476,7 @@ _ZnwmRKN5clang10ASTContextEm.exit.i:              ; preds = %75, %72
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit
 
 _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %52, %_ZnwmRKN5clang10ASTContextEm.exit.i
-  %.1.i = phi ptr [ %51, %52 ], [ %.0.i.i.i.i.i41, %_ZnwmRKN5clang10ASTContextEm.exit.i ]
+  %.1.i = phi ptr [ %.0.i.i.i.i.i41, %_ZnwmRKN5clang10ASTContextEm.exit.i ], [ %51, %52 ]
   %78 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %79 = ptrtoint ptr %1 to i64
   %80 = and i64 %79, -5
@@ -25579,7 +25579,7 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i55:  ; preds = %120, %.lr.ph.i.i.i5
   br label %_ZNK5clang4Decl13getASTContextEv.exit60
 
 _ZNK5clang4Decl13getASTContextEv.exit60:          ; preds = %98, %._crit_edge.i.i.i57
-  %.1.i.i.i59 = phi ptr [ %1, %98 ], [ %126, %._crit_edge.i.i.i57 ]
+  %.1.i.i.i59 = phi ptr [ %126, %._crit_edge.i.i.i57 ], [ %1, %98 ]
   %127 = getelementptr inbounds nuw i8, ptr %.1.i.i.i59, i64 88
   %128 = load ptr, ptr %127, align 8, !tbaa !11
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 17336
@@ -25637,7 +25637,7 @@ _ZnwmRKN5clang10ASTContextEm.exit.i67:            ; preds = %154, %151
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69
 
 _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69: ; preds = %131, %_ZnwmRKN5clang10ASTContextEm.exit.i67
-  %.1.i65 = phi ptr [ %130, %131 ], [ %.0.i.i.i.i.i68, %_ZnwmRKN5clang10ASTContextEm.exit.i67 ]
+  %.1.i65 = phi ptr [ %.0.i.i.i.i.i68, %_ZnwmRKN5clang10ASTContextEm.exit.i67 ], [ %130, %131 ]
   %157 = ptrtoint ptr %.1.i65 to i64
   %158 = or i64 %157, 4
   store i64 %158, ptr %93, align 8, !tbaa !625
@@ -26899,12 +26899,12 @@ _ZN5clang11DeclContext9getParentEv.exit.i.i.i16:  ; preds = %60, %.lr.ph.i.i.i13
   br label %_ZNK5clang4Decl13getASTContextEv.exit21
 
 _ZNK5clang4Decl13getASTContextEv.exit21:          ; preds = %.thread, %._crit_edge.i.i.i18
-  %.1.i.i.i20 = phi ptr [ %38, %.thread ], [ %66, %._crit_edge.i.i.i18 ]
+  %.1.i.i.i20 = phi ptr [ %66, %._crit_edge.i.i.i18 ], [ %38, %.thread ]
   %67 = getelementptr inbounds nuw i8, ptr %.1.i.i.i20, i64 88
   br label %68
 
 68:                                               ; preds = %36, %.thread27, %.thread24, %_ZNK5clang4Decl13getASTContextEv.exit21
-  %.1.in = phi ptr [ %37, %36 ], [ %67, %_ZNK5clang4Decl13getASTContextEv.exit21 ], [ %10, %.thread24 ], [ %23, %.thread27 ]
+  %.1.in = phi ptr [ %67, %_ZNK5clang4Decl13getASTContextEv.exit21 ], [ %37, %36 ], [ %10, %.thread24 ], [ %23, %.thread27 ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !11
   ret ptr %.1
 }

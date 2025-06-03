@@ -467,7 +467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit35: ; preds = %_ZN
   ret void
 
 151:                                              ; preds = %23, %17, %11
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %18, %17 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 }
 

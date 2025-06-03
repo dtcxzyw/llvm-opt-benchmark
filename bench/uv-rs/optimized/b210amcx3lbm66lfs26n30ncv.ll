@@ -2127,10 +2127,10 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %71
 
 39:                                               ; preds = %51, %37
-  %.sroa.4.1 = phi i64 [ %.sroa.4.084, %51 ], [ %38, %37 ]
-  %.sroa.03.1 = phi i64 [ %.sroa.03.085, %51 ], [ 1, %37 ]
-  %.sroa.05.1 = phi i32 [ 1, %51 ], [ %.sroa.05.086, %37 ]
-  %.sroa.47.1 = phi i32 [ %52, %51 ], [ %.sroa.47.087, %37 ]
+  %.sroa.4.1 = phi i64 [ %38, %37 ], [ %.sroa.4.084, %51 ]
+  %.sroa.03.1 = phi i64 [ 1, %37 ], [ %.sroa.03.085, %51 ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.086, %37 ], [ 1, %51 ]
+  %.sroa.47.1 = phi i32 [ %.sroa.47.087, %37 ], [ %52, %51 ]
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %._crit_edge, label %15
 
@@ -4626,7 +4626,7 @@ default.unreachable11:                            ; preds = %3
   br label %20
 
 20:                                               ; preds = %3, %3, %16, %13
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ null, %16 ], [ null, %3 ], [ null, %3 ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %15, %13 ], [ null, %3 ], [ null, %3 ]
   ret ptr %.sroa.0.0
 }
 
@@ -4779,7 +4779,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   br label %52
 
 52:                                               ; preds = %31, %50, %6
-  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %51, %50 ], [ null, %31 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ null, %31 ], [ %51, %50 ]
   ret ptr %.sroa.0.0
 }
 
@@ -4898,7 +4898,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   br label %58
 
 58:                                               ; preds = %36, %56, %7
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %57, %56 ], [ null, %36 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ null, %36 ], [ %57, %56 ]
   ret ptr %.sroa.0.0
 }
 
@@ -7222,7 +7222,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls81_$LT$impl$u20$serde..se
   br label %10
 
 10:                                               ; preds = %6, %4
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
+  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %9, %6 ]
   ret ptr %.sroa.0.0
 }
 
@@ -7941,7 +7941,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit"
 
 "_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit": ; preds = %8, %37, %57
-  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ %58, %57 ], [ null, %37 ]
+  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ null, %37 ], [ %58, %57 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -8142,7 +8142,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit"
 
 "_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit": ; preds = %50, %79, %99
-  %.sroa.0.0.i = phi ptr [ %51, %50 ], [ %100, %99 ], [ null, %79 ]
+  %.sroa.0.0.i = phi ptr [ %51, %50 ], [ null, %79 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret ptr %.sroa.0.0.i
 }
@@ -8258,7 +8258,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h35807741cd0168a0E.llvm.12734007390182477403.exit"
 
 "_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h35807741cd0168a0E.llvm.12734007390182477403.exit": ; preds = %6, %31, %50
-  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %51, %50 ], [ null, %31 ]
+  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ null, %31 ], [ %51, %50 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -9034,7 +9034,7 @@ define hidden noundef align 8 ptr @"_ZN94_$LT$$RF$mut$u20$csv..serializer..SeRec
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h4b02eeea7ad6d8d3E.llvm.12734007390182477403.exit"
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h4b02eeea7ad6d8d3E.llvm.12734007390182477403.exit": ; preds = %7, %9
-  %.sroa.0.0.i = phi ptr [ %12, %9 ], [ %8, %7 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %12, %9 ]
   ret ptr %.sroa.0.0.i
 }
 

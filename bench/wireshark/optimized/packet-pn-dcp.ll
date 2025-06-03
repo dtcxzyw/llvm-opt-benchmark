@@ -1089,7 +1089,7 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   br label %dissect_PNDCP_Suboption_IP.exit
 
 dissect_PNDCP_Suboption_IP.exit:                  ; preds = %98, %136, %174, %207
-  %.2.i = phi i32 [ %210, %207 ], [ %204, %174 ], [ %150, %136 ], [ %100, %98 ]
+  %.2.i = phi i32 [ %210, %207 ], [ %100, %98 ], [ %150, %136 ], [ %204, %174 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #4
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %60) #4
@@ -1733,7 +1733,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %98, %136, %174, %20
   br label %dissect_PNDCP_Suboption_Device.exit
 
 dissect_PNDCP_Suboption_Device.exit:              ; preds = %.lr.ph.i, %280, %337, %388, %419, %422, %439, %466, %485, %504, %547, %548, %552
-  %.2245.i = phi i32 [ %555, %552 ], [ %517, %548 ], [ %517, %547 ], [ %494, %504 ], [ %475, %485 ], [ %470, %466 ], [ %397, %422 ], [ %397, %419 ], [ %345, %388 ], [ %340, %337 ], [ %283, %280 ], [ %.1244.i, %439 ], [ %444, %.lr.ph.i ]
+  %.2245.i = phi i32 [ %555, %552 ], [ %283, %280 ], [ %340, %337 ], [ %345, %388 ], [ %397, %422 ], [ %397, %419 ], [ %470, %466 ], [ %475, %485 ], [ %494, %504 ], [ %517, %548 ], [ %517, %547 ], [ %.1244.i, %439 ], [ %444, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %55) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %54) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53) #4
@@ -1912,7 +1912,7 @@ dissect_PNDCP_Suboption_Device.exit:              ; preds = %.lr.ph.i, %280, %33
   br label %637
 
 637:                                              ; preds = %634, %627, %607, %606, %605, %591
-  %.2.i101 = phi i32 [ %636, %634 ], [ %633, %627 ], [ %599, %605 ], [ %599, %606 ], [ %616, %607 ], [ %595, %591 ]
+  %.2.i101 = phi i32 [ %636, %634 ], [ %599, %605 ], [ %599, %606 ], [ %616, %607 ], [ %595, %591 ], [ %633, %627 ]
   %638 = icmp sgt i32 %563, %.2.i101
   br i1 %638, label %639, label %dissect_PNDCP_Suboption_DHCP.exit
 
@@ -2062,7 +2062,7 @@ dissect_PNDCP_Suboption_DHCP.exit:                ; preds = %637, %639
   br label %dissect_PNDCP_Suboption_Control.exit
 
 dissect_PNDCP_Suboption_Control.exit:             ; preds = %651, %654, %657, %660, %680, %686, %694, %700
-  %.084.i = phi i32 [ %646, %651 ], [ %701, %700 ], [ %696, %694 ], [ %690, %686 ], [ %676, %680 ], [ %666, %660 ], [ %659, %657 ], [ %656, %654 ]
+  %.084.i = phi i32 [ %646, %651 ], [ %701, %700 ], [ %656, %654 ], [ %659, %657 ], [ %666, %660 ], [ %676, %680 ], [ %690, %686 ], [ %696, %694 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31) #4
@@ -2544,7 +2544,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   br label %dissect_PNDCP_Suboption_TSN.exit
 
 dissect_PNDCP_Suboption_TSN.exit:                 ; preds = %789, %790, %796, %805, %808, %811, %814, %815, %816, %844, %845, %851, %871, %872, %878, %921, %933
-  %.2202.i = phi i32 [ %.1201.i, %933 ], [ %891, %921 ], [ %.1201.i, %878 ], [ %854, %871 ], [ %854, %872 ], [ %.1201.i, %851 ], [ %820, %844 ], [ %820, %845 ], [ %.1201.i, %816 ], [ %799, %805 ], [ %799, %808 ], [ %799, %811 ], [ %799, %814 ], [ %799, %815 ], [ %.1201.i, %796 ], [ %780, %789 ], [ %780, %790 ]
+  %.2202.i = phi i32 [ %.1201.i, %933 ], [ %780, %789 ], [ %780, %790 ], [ %799, %805 ], [ %799, %808 ], [ %799, %811 ], [ %799, %814 ], [ %799, %815 ], [ %.1201.i, %796 ], [ %820, %844 ], [ %820, %845 ], [ %.1201.i, %816 ], [ %854, %871 ], [ %854, %872 ], [ %.1201.i, %851 ], [ %891, %921 ], [ %.1201.i, %878 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21) #4

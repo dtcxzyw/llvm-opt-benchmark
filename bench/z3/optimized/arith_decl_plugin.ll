@@ -7686,7 +7686,7 @@ define hidden noundef ptr @_ZN17arith_decl_plugin7mk_sortEijPK9parameter(ptr nou
   br label %11
 
 11:                                               ; preds = %4, %8, %5
-  %.0 = phi ptr [ %10, %8 ], [ %7, %5 ], [ null, %4 ]
+  %.0 = phi ptr [ %7, %5 ], [ %10, %8 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -8883,11 +8883,11 @@ _ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_RK14func_decl_info.exit.i65:
   br label %240
 
 240:                                              ; preds = %3, %237, %234, %231, %226, %221, %218, %215, %212, %209, %206, %203, %200, %197, %194, %191, %188, %185, %183, %181, %178, %175, %172, %169, %151, %_ZN9decl_infoD2Ev.exit58, %_ZN9decl_infoD2Ev.exit42, %_ZN9decl_infoD2Ev.exit, %45, %42, %38, %35, %33, %31, %29, %27, %25, %23, %21, %19
-  %.016 = phi ptr [ %239, %237 ], [ %236, %234 ], [ %233, %231 ], [ %230, %226 ], [ %225, %221 ], [ %220, %218 ], [ %217, %215 ], [ %214, %212 ], [ %211, %209 ], [ %208, %206 ], [ %205, %203 ], [ %202, %200 ], [ %199, %197 ], [ %196, %194 ], [ %193, %191 ], [ %190, %188 ], [ %187, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %150, %151 ], [ %168, %169 ], [ %120, %_ZN9decl_infoD2Ev.exit58 ], [ %91, %_ZN9decl_infoD2Ev.exit42 ], [ %62, %_ZN9decl_infoD2Ev.exit ], [ %47, %45 ], [ %44, %42 ], [ %40, %38 ], [ %37, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ null, %3 ]
+  %.016 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %47, %45 ], [ %62, %_ZN9decl_infoD2Ev.exit ], [ %91, %_ZN9decl_infoD2Ev.exit42 ], [ %120, %_ZN9decl_infoD2Ev.exit58 ], [ %150, %151 ], [ %168, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %182, %181 ], [ %184, %183 ], [ %187, %185 ], [ %190, %188 ], [ %193, %191 ], [ %196, %194 ], [ %199, %197 ], [ %202, %200 ], [ %205, %203 ], [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %217, %215 ], [ %220, %218 ], [ %225, %221 ], [ %230, %226 ], [ %233, %231 ], [ %236, %234 ], [ %239, %237 ], [ null, %3 ]
   ret ptr %.016
 
 241:                                              ; preds = %170, %152, %133, %104, %75
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %171, %170 ], [ %134, %133 ], [ %105, %104 ], [ %76, %75 ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %105, %104 ], [ %134, %133 ], [ %153, %152 ], [ %171, %170 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -12079,7 +12079,7 @@ _ZNK9parameter7get_intEv.exit:                    ; preds = %_ZN8rationalaSERKS_
   br label %_Z9is_app_ofPK4exprii.exit.thread
 
 _Z9is_app_ofPK4exprii.exit.thread:                ; preds = %93, %_ZNK17arith_recognizers31is_irrational_algebraic_numeralEPK4expr.exit.thread, %_Z9is_app_ofPK4exprii.exit, %_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit, %_ZNK9parameter7get_intEv.exit
-  %.1 = phi i1 [ true, %_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit ], [ true, %_ZNK9parameter7get_intEv.exit ], [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %_ZNK17arith_recognizers31is_irrational_algebraic_numeralEPK4expr.exit.thread ], [ false, %93 ]
+  %.1 = phi i1 [ true, %_ZNK9parameter7get_intEv.exit ], [ true, %_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit ], [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %_ZNK17arith_recognizers31is_irrational_algebraic_numeralEPK4expr.exit.thread ], [ false, %93 ]
   ret i1 %.1
 }
 

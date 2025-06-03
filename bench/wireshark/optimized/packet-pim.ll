@@ -1870,7 +1870,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge263, %112, %64, %107, %176, %187, %59, %69, %103, %105, %95, %97, %80, %90, %85, %52, %22
-  %.0 = phi i32 [ %29, %22 ], [ 8, %52 ], [ 8, %59 ], [ 24, %187 ], [ 24, %176 ], [ 16, %107 ], [ 12, %64 ], [ 8, %69 ], [ 8, %103 ], [ 8, %105 ], [ 8, %95 ], [ 8, %97 ], [ 8, %80 ], [ 8, %90 ], [ 8, %85 ], [ 20, %112 ], [ %.1251.lcssa, %._crit_edge263 ]
+  %.0 = phi i32 [ %29, %22 ], [ 8, %52 ], [ 8, %59 ], [ 12, %64 ], [ 16, %107 ], [ 24, %176 ], [ 24, %187 ], [ 8, %69 ], [ 8, %103 ], [ 8, %105 ], [ 8, %95 ], [ 8, %97 ], [ 8, %80 ], [ 8, %90 ], [ 8, %85 ], [ 20, %112 ], [ %.1251.lcssa, %._crit_edge263 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
   ret i32 %.0
 }
@@ -2031,10 +2031,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %38
 
 38:                                               ; preds = %31, %36, %23, %28
-  %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6 = phi ptr [ @hf_pim_unicast_addr_ipv6, %31 ], [ @hf_pim_unicast_addr_ipv6, %36 ], [ @hf_pim_unicast_addr_ipv4, %23 ], [ @hf_pim_unicast_addr_ipv4, %28 ]
-  %.0377 = phi i32 [ 0, %31 ], [ 0, %36 ], [ %22, %23 ], [ %22, %28 ]
-  %.0374 = phi ptr [ %35, %31 ], [ %37, %36 ], [ %27, %23 ], [ %29, %28 ]
-  %.0371 = phi i32 [ 16, %31 ], [ 16, %36 ], [ 4, %23 ], [ 4, %28 ]
+  %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6 = phi ptr [ @hf_pim_unicast_addr_ipv4, %23 ], [ @hf_pim_unicast_addr_ipv4, %28 ], [ @hf_pim_unicast_addr_ipv6, %31 ], [ @hf_pim_unicast_addr_ipv6, %36 ]
+  %.0377 = phi i32 [ %22, %23 ], [ %22, %28 ], [ 0, %31 ], [ 0, %36 ]
+  %.0374 = phi ptr [ %27, %23 ], [ %29, %28 ], [ %35, %31 ], [ %37, %36 ]
+  %.0371 = phi i32 [ 4, %23 ], [ 4, %28 ], [ 16, %31 ], [ 16, %36 ]
   %39 = load i32, ptr @ett_pim, align 4
   %40 = call ptr @proto_item_add_subtree(ptr noundef %.0374, i32 noundef %39)
   %41 = load i32, ptr @hf_pim_addr_af, align 4
@@ -2197,10 +2197,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %136
 
 136:                                              ; preds = %134, %124
-  %.427 = phi i32 [ 16, %134 ], [ 4, %124 ]
-  %hf_pim_group_ip4.hf_pim_group_ip6 = phi ptr [ @hf_pim_group_ip6, %134 ], [ @hf_pim_group_ip4, %124 ]
-  %.3 = phi ptr [ %.5, %134 ], [ %.4, %124 ]
-  %.1372 = phi i32 [ 20, %134 ], [ 8, %124 ]
+  %.427 = phi i32 [ 4, %124 ], [ 16, %134 ]
+  %hf_pim_group_ip4.hf_pim_group_ip6 = phi ptr [ @hf_pim_group_ip4, %124 ], [ @hf_pim_group_ip6, %134 ]
+  %.3 = phi ptr [ %.4, %124 ], [ %.5, %134 ]
+  %.1372 = phi i32 [ 8, %124 ], [ 20, %134 ]
   %137 = load i32, ptr @ett_pim, align 4
   %138 = call ptr @proto_item_add_subtree(ptr noundef %.3, i32 noundef %137)
   %139 = load i32, ptr @hf_pim_addr_af, align 4
@@ -2270,9 +2270,9 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %178
 
 178:                                              ; preds = %176, %167
-  %.1378 = phi i32 [ 0, %176 ], [ %160, %167 ]
-  %.6 = phi ptr [ %.8, %176 ], [ %.7, %167 ]
-  %.2373 = phi i32 [ 16, %176 ], [ 4, %167 ]
+  %.1378 = phi i32 [ %160, %167 ], [ 0, %176 ]
+  %.6 = phi ptr [ %.7, %167 ], [ %.8, %176 ]
+  %.2373 = phi i32 [ 4, %167 ], [ 16, %176 ]
   %.not390 = icmp eq i8 %154, 0
   br i1 %.not390, label %187, label %179
 

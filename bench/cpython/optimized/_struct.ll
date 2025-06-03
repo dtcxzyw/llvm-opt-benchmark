@@ -1782,7 +1782,7 @@ define internal i32 @s_traverse(ptr noundef readonly captures(none) %0, ptr noun
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -2077,8 +2077,8 @@ getentry.exit.i.i:                                ; preds = %.lr.ph.i.i.i
   br label %109
 
 109:                                              ; preds = %106, %103, %getentry.exit.i.i
-  %.1112.i.i = phi i64 [ %.0111.ph.i.i, %getentry.exit.i.i ], [ %104, %103 ], [ %107, %106 ]
-  %.1.i.i = phi i64 [ %.0108.ph.i.i, %getentry.exit.i.i ], [ %105, %103 ], [ %spec.select.i.i, %106 ]
+  %.1112.i.i = phi i64 [ %104, %103 ], [ %.0111.ph.i.i, %getentry.exit.i.i ], [ %107, %106 ]
+  %.1.i.i = phi i64 [ %105, %103 ], [ %.0108.ph.i.i, %getentry.exit.i.i ], [ %spec.select.i.i, %106 ]
   %110 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !67
   %112 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 16
@@ -3699,7 +3699,7 @@ define internal i32 @unpackiter_traverse(ptr noundef readonly captures(none) %0,
   br label %18
 
 18:                                               ; preds = %15, %10, %5, %17
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %17 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

@@ -421,7 +421,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$image..color..ExtendedColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc7fc96d01d6df958E.exit"
 
 "_ZN68_$LT$image..color..ExtendedColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc7fc96d01d6df958E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58
-  %.0.in.i = phi i1 [ %60, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %60, %58 ]
   ret i1 %.0.in.i
 }
 
@@ -30369,8 +30369,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -31801,8 +31801,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -33484,8 +33484,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -34988,8 +34988,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -36346,8 +36346,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -37337,8 +37337,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %41 ], [ %35, %40 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 12, %41 ], [ 8, %40 ], [ 6, %39 ], [ 4, %38 ], [ 3, %37 ], [ 2, %36 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0

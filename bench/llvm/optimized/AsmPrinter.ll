@@ -4260,8 +4260,8 @@ _ZNSt10unique_ptrIN4llvm18PseudoProbeHandlerESt14default_deleteIS1_EED2Ev.exit: 
   call void @_ZN4llvm12AIXExceptionC1EPNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(24) %392, ptr noundef nonnull %0) #34
   br label %393
 
-393:                                              ; preds = %391, %389, %387, %382, %380
-  %.067.ph = phi ptr [ %381, %380 ], [ %383, %382 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ]
+393:                                              ; preds = %380, %382, %387, %389, %391
+  %.067.ph = phi ptr [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %383, %382 ], [ %381, %380 ]
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #34
   store ptr %.067.ph, ptr %18, align 8, !tbaa !705
@@ -4979,7 +4979,7 @@ define dso_local noundef ptr @_ZNK4llvm10AsmPrinter20getSymbolPreferLocalERKNS_1
   br label %32
 
 32:                                               ; preds = %22, %.thread
-  %.1 = phi ptr [ %29, %22 ], [ %31, %.thread ]
+  %.1 = phi ptr [ %31, %.thread ], [ %29, %22 ]
   ret ptr %.1
 }
 
@@ -5158,7 +5158,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %79, %77, %55, %.cri
   br label %99
 
 99:                                               ; preds = %95, %93, %91
-  %.0.in.i = phi ptr [ %98, %95 ], [ %92, %91 ], [ %94, %93 ]
+  %.0.in.i = phi ptr [ %92, %91 ], [ %94, %93 ], [ %98, %95 ]
   %.0.i108 = load i32, ptr %.0.in.i, align 4, !tbaa !766
   %.not.i109 = icmp eq i32 %.0.i108, 0
   br i1 %.not.i109, label %_ZNK4llvm10AsmPrinter14emitVisibilityEPNS_8MCSymbolEjb.exit, label %100
@@ -6207,7 +6207,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter14emitVisibilityEPNS_8MCSymbolEjb(pt
   br label %16
 
 16:                                               ; preds = %8, %10, %12
-  %.0.in = phi ptr [ %15, %12 ], [ %9, %8 ], [ %11, %10 ]
+  %.0.in = phi ptr [ %9, %8 ], [ %11, %10 ], [ %15, %12 ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !766
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %.thread, label %17
@@ -12974,7 +12974,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit126.i:            ; preds = %1336, %1334, %_ZN4l
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit123.i:            ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit126.i, %1250, %1248, %1204, %1200, %_ZN4llvm7APFloatD2Ev.exit.i
-  %.sroa.0143.1.i = phi i64 [ %.sroa.0143.3.i, %_ZN4llvm11raw_ostreamlsEPKc.exit126.i ], [ %.sroa.0143.0205.i, %1204 ], [ %.sroa.0143.0205.i, %1200 ], [ %.sroa.0143.0205.i, %_ZN4llvm7APFloatD2Ev.exit.i ], [ %.sroa.0143.0205.i, %1248 ], [ %.sroa.0143.0205.i, %1250 ]
+  %.sroa.0143.1.i = phi i64 [ %.sroa.0143.0205.i, %_ZN4llvm7APFloatD2Ev.exit.i ], [ %.sroa.0143.0205.i, %1200 ], [ %.sroa.0143.0205.i, %1204 ], [ %.sroa.0143.3.i, %_ZN4llvm11raw_ostreamlsEPKc.exit126.i ], [ %.sroa.0143.0205.i, %1248 ], [ %.sroa.0143.0205.i, %1250 ]
   %1339 = getelementptr inbounds nuw i8, ptr %.059206.i, i64 32
   %.not63.i = icmp eq ptr %1339, %.pn4.i.i
   br i1 %.not63.i, label %._crit_edge209.i, label %.lr.ph208.i
@@ -14009,7 +14009,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6d
   br i1 %.not529, label %.critedge, label %.lr.ph596, !llvm.loop !1209
 
 .critedge:                                        ; preds = %.lr.ph596, %"_ZZN4llvm10AsmPrinter16emitFunctionBodyEvENK3$_0clERKNS_12MachineInstrE.exit282", %.preheader.i.i.i272.preheader, %903, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.i, %1638, %1644, %_ZL13getMIMnemonicRKN4llvm12MachineInstrERNS_10MCStreamerE.exit.i, %1603, %1601, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit, %_ZN4llvm10AsmPrinter8emitNopsEj.exit, %.preheader.i.i.i, %1617, %1620, %1538, %_ZL11emitFakeUsePKN4llvm12MachineInstrERNS_10AsmPrinterE.exit, %1464, %_ZL8emitKillPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit, %1457, %1460, %1343, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit, %933, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit, %1625, %932, %874, %860, %859, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit
-  %.2487 = phi i32 [ %.1486604, %1625 ], [ %.1486604, %1620 ], [ %.1486604, %1617 ], [ %.1486604, %_ZL11emitFakeUsePKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1538 ], [ %.1486604, %_ZL8emitKillPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1464 ], [ %.1486604, %1460 ], [ %.1486604, %1457 ], [ %.1486604, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1343 ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %933 ], [ %.1486604, %932 ], [ %.1486604, %874 ], [ %.1486604, %860 ], [ %.1486604, %859 ], [ %.1486604, %.preheader.i.i.i ], [ %.1486604, %_ZN4llvm10AsmPrinter8emitNopsEj.exit ], [ %.1486604, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit ], [ %.1486604, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread ], [ %.1486604, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread ], [ %.1486604, %1601 ], [ %.1486604, %1603 ], [ %1645, %_ZL13getMIMnemonicRKN4llvm12MachineInstrERNS_10MCStreamerE.exit.i ], [ %1645, %1644 ], [ %.1486604, %1638 ], [ %.1486604, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.i ], [ %.1486604, %903 ], [ %.1486604, %.preheader.i.i.i272.preheader ], [ %.4594, %.lr.ph596 ], [ %.6, %"_ZZN4llvm10AsmPrinter16emitFunctionBodyEvENK3$_0clERKNS_12MachineInstrE.exit282" ]
+  %.2487 = phi i32 [ %.1486604, %859 ], [ %.1486604, %860 ], [ %.1486604, %874 ], [ %.1486604, %932 ], [ %.1486604, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %933 ], [ %.1486604, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1343 ], [ %.1486604, %1460 ], [ %.1486604, %1457 ], [ %.1486604, %_ZL8emitKillPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1464 ], [ %.1486604, %_ZL11emitFakeUsePKN4llvm12MachineInstrERNS_10AsmPrinterE.exit ], [ %.1486604, %1538 ], [ %.1486604, %1620 ], [ %.1486604, %1617 ], [ %.1486604, %1625 ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %_ZL12emitCommentsRKN4llvm12MachineInstrEPKNS_15MCSubtargetInfoERNS_11raw_ostreamE.exit ], [ %.1486604, %.preheader.i.i.i ], [ %.1486604, %_ZN4llvm10AsmPrinter8emitNopsEj.exit ], [ %.1486604, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit ], [ %.1486604, %_ZL21emitDebugValueCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread ], [ %.1486604, %_ZL21emitDebugLabelCommentPKN4llvm12MachineInstrERNS_10AsmPrinterE.exit.thread ], [ %.1486604, %1601 ], [ %.1486604, %1603 ], [ %1645, %_ZL13getMIMnemonicRKN4llvm12MachineInstrERNS_10MCStreamerE.exit.i ], [ %1645, %1644 ], [ %.1486604, %1638 ], [ %.1486604, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.i ], [ %.1486604, %903 ], [ %.1486604, %.preheader.i.i.i272.preheader ], [ %.4594, %.lr.ph596 ], [ %.6, %"_ZZN4llvm10AsmPrinter16emitFunctionBodyEvENK3$_0clERKNS_12MachineInstrE.exit282" ]
   %1802 = load i64, ptr %389, align 8, !tbaa !140
   %1803 = icmp ugt i64 %1802, 7
   br i1 %1803, label %1804, label %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread
@@ -21548,7 +21548,7 @@ switch.lookup:                                    ; preds = %51
   br label %115
 
 115:                                              ; preds = %4, %94, %switch.lookup, %26, %11
-  %.0 = phi ptr [ null, %4 ], [ %30, %26 ], [ %25, %11 ], [ %93, %switch.lookup ], [ %114, %94 ]
+  %.0 = phi ptr [ null, %4 ], [ %25, %11 ], [ %30, %26 ], [ %93, %switch.lookup ], [ %114, %94 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %117 = load ptr, ptr %116, align 8, !tbaa !478
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2448
@@ -23243,7 +23243,7 @@ _ZN4llvm5APIntD2Ev.exit154:                       ; preds = %353, %356, %359
   unreachable
 
 414:                                              ; preds = %192, %.thread187, %58, %46, %41, %35, %29, %22, %_ZN4llvm5APIntD2Ev.exit, %163, %_ZN4llvm5APIntD2Ev.exit154, %360, %390, %197, %19
-  %.0 = phi ptr [ %20, %19 ], [ %64, %58 ], [ %57, %46 ], [ %45, %41 ], [ %39, %35 ], [ %33, %29 ], [ %28, %22 ], [ %394, %390 ], [ %383, %360 ], [ %.13, %_ZN4llvm5APIntD2Ev.exit154 ], [ %215, %197 ], [ %196, %192 ], [ %174, %163 ], [ %.9192, %_ZN4llvm5APIntD2Ev.exit ], [ %110, %.thread187 ]
+  %.0 = phi ptr [ %20, %19 ], [ %64, %58 ], [ %57, %46 ], [ %45, %41 ], [ %39, %35 ], [ %33, %29 ], [ %28, %22 ], [ %394, %390 ], [ %.9192, %_ZN4llvm5APIntD2Ev.exit ], [ %174, %163 ], [ %196, %192 ], [ %215, %197 ], [ %.13, %_ZN4llvm5APIntD2Ev.exit154 ], [ %383, %360 ], [ %110, %.thread187 ]
   ret ptr %.0
 }
 
@@ -24139,7 +24139,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread78:  ; preds = %51, %_ZNK4llvm8MCSy
   br label %97
 
 97:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread78, %.thread
-  %.5 = phi ptr [ %50, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread78 ], [ %96, %.thread ]
+  %.5 = phi ptr [ %96, %.thread ], [ %50, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread78 ]
   ret ptr %.5
 }
 
@@ -27035,8 +27035,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

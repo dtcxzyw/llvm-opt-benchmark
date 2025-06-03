@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr noundef captures(none)
   br label %32
 
 32:                                               ; preds = %6, %27, %14, %3, %29, %25, %23, %20, %17, %15, %12, %10, %8, %7
-  %.0 = phi i32 [ 1, %29 ], [ 1, %25 ], [ 1, %23 ], [ 1, %20 ], [ 1, %17 ], [ 1, %15 ], [ 1, %12 ], [ 1, %10 ], [ 1, %8 ], [ 1, %7 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 1, %29 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5842,9 +5842,9 @@ HashMemAllocInBytesH65.exit:                      ; preds = %87
   br label %HasherSize.exit
 
 HasherSize.exit:                                  ; preds = %87, %107, %108, %109, %119, %129, %130, %131, %132, %144, %HashMemAllocInBytesH35.exit, %HashMemAllocInBytesH55.exit, %HashMemAllocInBytesH65.exit, %165
-  %.sroa.0.0 = phi i64 [ 0, %87 ], [ 524288, %165 ], [ %162, %HashMemAllocInBytesH65.exit ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ 262144, %HashMemAllocInBytesH35.exit ], [ %152, %144 ], [ %140, %132 ], [ 4194304, %131 ], [ 262144, %130 ], [ 262144, %129 ], [ %126, %119 ], [ %116, %109 ], [ 524288, %108 ], [ 262144, %107 ]
-  %.sroa.19.0 = phi i64 [ 0, %87 ], [ %168, %165 ], [ %164, %HashMemAllocInBytesH65.exit ], [ 0, %HashMemAllocInBytesH55.exit ], [ 0, %HashMemAllocInBytesH35.exit ], [ %153, %144 ], [ %141, %132 ], [ 0, %131 ], [ 1048576, %130 ], [ 262144, %129 ], [ %128, %119 ], [ %118, %109 ], [ 0, %108 ], [ 0, %107 ]
-  %.sroa.31.0 = phi i64 [ 0, %87 ], [ 0, %165 ], [ 67108864, %HashMemAllocInBytesH65.exit ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ %155, %144 ], [ %143, %132 ], [ 0, %131 ], [ 0, %130 ], [ 0, %129 ], [ 0, %119 ], [ 0, %109 ], [ 0, %108 ], [ 0, %107 ]
+  %.sroa.0.0 = phi i64 [ 0, %87 ], [ 262144, %107 ], [ 524288, %108 ], [ %116, %109 ], [ %126, %119 ], [ 262144, %129 ], [ 262144, %130 ], [ 4194304, %131 ], [ %140, %132 ], [ %152, %144 ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ %162, %HashMemAllocInBytesH65.exit ], [ 524288, %165 ]
+  %.sroa.19.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ 0, %108 ], [ %118, %109 ], [ %128, %119 ], [ 262144, %129 ], [ 1048576, %130 ], [ 0, %131 ], [ %141, %132 ], [ %153, %144 ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %HashMemAllocInBytesH55.exit ], [ %164, %HashMemAllocInBytesH65.exit ], [ %168, %165 ]
+  %.sroa.31.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ 0, %108 ], [ 0, %109 ], [ 0, %119 ], [ 0, %129 ], [ 0, %130 ], [ 0, %131 ], [ %143, %132 ], [ %155, %144 ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH65.exit ], [ 0, %165 ]
   %169 = icmp samesign ult i32 %0, 4
   br i1 %169, label %170, label %174
 

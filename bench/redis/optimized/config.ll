@@ -736,7 +736,7 @@ define dso_local void @queueLoadModule(ptr noundef %0, ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %21, %24, %28, %32, %36
-  %.0.i = phi i64 [ %38, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %21 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ], [ 0, %.lr.ph ]
   %39 = tail call ptr @createRawStringObject(ptr noundef nonnull %16, i64 noundef %.0.i) #26
   %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !61
@@ -891,7 +891,7 @@ lookupConfig.exit:                                ; preds = %24
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %50, %53, %57, %61, %65
-  %.0.i = phi i64 [ %67, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ]
+  %.0.i = phi i64 [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %67, %65 ]
   %.not151 = icmp eq i64 %.0.i, 0
   br i1 %.not151, label %sdslen.exit.thread, label %68
 
@@ -1049,7 +1049,7 @@ sdslen.exit.thread:                               ; preds = %43, %sdslen.exit, %
   br label %sdslen.exit157
 
 sdslen.exit157:                                   ; preds = %127, %130, %134, %138, %142
-  %.0.i156 = phi i64 [ %144, %142 ], [ %141, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %127 ]
+  %.0.i156 = phi i64 [ %129, %127 ], [ %133, %130 ], [ %137, %134 ], [ %141, %138 ], [ %144, %142 ]
   %.not149 = icmp eq i64 %.0.i156, 0
   br i1 %.not149, label %.thread169, label %145
 
@@ -1637,7 +1637,7 @@ lookupConfig.exit.thread:                         ; preds = %3, %9, %lookupConfi
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %35, %31, %27, %23, %20, %15
-  %.0.i.i = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %15 ]
+  %.0.i.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %15 ]
   %38 = call ptr @sdssplitlen(ptr noundef nonnull %1, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %5) #26
   %.pre.i = load i32, ptr %5, align 4, !tbaa !59
   br label %40
@@ -1748,7 +1748,7 @@ lookupConfig.exit.thread:                         ; preds = %2, %lookupConfig.ex
   unreachable
 
 39:                                               ; preds = %32, %26, %20, %14, %10
-  %.0 = phi i32 [ %37, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ], [ 0, %10 ]
+  %.0 = phi i32 [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -2058,7 +2058,7 @@ allowProtectedAction.exit.thread189:              ; preds = %59, %allowProtected
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %137, %133, %129, %125, %122, %117
-  %.0.i.i = phi i64 [ %139, %137 ], [ %136, %133 ], [ %132, %129 ], [ %128, %125 ], [ %124, %122 ], [ 0, %117 ]
+  %.0.i.i = phi i64 [ %124, %122 ], [ %128, %125 ], [ %132, %129 ], [ %136, %133 ], [ %139, %137 ], [ 0, %117 ]
   %140 = call ptr @sdssplitlen(ptr noundef nonnull %113, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %3) #26
   %.pre.i = load i32, ptr %3, align 4, !tbaa !59
   br label %142
@@ -2396,7 +2396,7 @@ define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(n
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %37, %33, %29, %25, %22, %17
-  %.0.i.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ], [ 0, %17 ]
+  %.0.i.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %17 ]
   %40 = call ptr @sdssplitlen(ptr noundef nonnull %13, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %7) #26
   %.pre.i = load i32, ptr %7, align 4, !tbaa !59
   br label %42
@@ -2887,7 +2887,7 @@ define dso_local noundef ptr @rewriteConfigReadOldFile(ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %38, %43, %46, %50, %54, %58
-  %.0.i = phi i64 [ %60, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %43 ], [ 0, %38 ]
+  %.0.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %60, %58 ], [ 0, %38 ]
   %61 = call ptr @sdssplitlen(ptr noundef nonnull %33, i64 noundef %.0.i, ptr noundef nonnull @.str.56, i32 noundef 1, ptr noundef nonnull %3) #26
   %62 = load i32, ptr %3, align 4, !tbaa !59
   %63 = icmp sgt i32 %62, 0
@@ -3514,7 +3514,7 @@ define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %23, %26, %30, %34, %38
-  %.0.i = phi i64 [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %16 ]
   %41 = tail call ptr @sdscatrepr(ptr noundef %18, ptr noundef nonnull %2, i64 noundef %.0.i) #26
   %42 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0)
   br label %rewriteConfigMarkAsProcessed.exit
@@ -3915,7 +3915,7 @@ define dso_local void @rewriteConfigNotifyKeyspaceEventsOption(ptr readnone capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %3 ]
   %30 = icmp ne i32 %4, 0
   %31 = zext i1 %30 to i32
   %32 = tail call ptr @sdscatrepr(ptr noundef %7, ptr noundef nonnull %5, i64 noundef %.0.i) #26
@@ -4274,7 +4274,7 @@ define dso_local ptr @rewriteConfigGetContentFromState(ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %16 ]
+  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ]
   %34 = icmp eq i64 %.0.i, 0
   br i1 %34, label %sdslen.exit.thread, label %35
 
@@ -4469,7 +4469,7 @@ define dso_local ptr @getConfigDebugInfo() local_unnamed_addr #3 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %49, %45, %41, %37, %34
-  %.0.i.i = phi i64 [ %51, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %34 ]
+  %.0.i.i = phi i64 [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %51, %49 ]
   %52 = icmp eq i64 %.0.i.i, 0
   br i1 %52, label %sdslen.exit.thread.i, label %53
 
@@ -4591,7 +4591,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteConfigOverwriteFile(ptr noundef %0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %27, %31, %34, %37, %40, %43
-  %.0.i = phi i64 [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ 0, %27 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ], [ 0, %27 ]
   %45 = icmp ult i64 %.029.ph, %.0.i
   br i1 %45, label %46, label %76
 
@@ -4629,7 +4629,7 @@ sdslen.exit:                                      ; preds = %27, %31, %34, %37, 
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %46, %47, %50, %53, %56, %59
-  %.0.i34 = phi i64 [ %60, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ 0, %46 ]
+  %.0.i34 = phi i64 [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %60, %59 ], [ 0, %46 ]
   %61 = sub i64 %.0.i34, %.029.ph
   %62 = call i64 @write(i32 noundef %13, ptr noundef nonnull %75, i64 noundef %61) #26
   %63 = icmp slt i64 %62, 1
@@ -4901,7 +4901,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteConfig(ptr noundef readonly captur
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %56, %52, %48, %44, %41
-  %.0.i.i = phi i64 [ %58, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %41 ]
+  %.0.i.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ]
   %59 = icmp eq i64 %.0.i.i, 0
   br i1 %59, label %sdslen.exit.thread.i, label %60
 
@@ -5576,7 +5576,7 @@ define internal range(i32 0, 2) i32 @isValidAnnouncedNodename(ptr noundef %0, pt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = trunc i64 %.0.i to i32
   %26 = tail call i32 @isValidAuxString(ptr noundef nonnull %0, i32 noundef %25) #26
   %.not = icmp eq i32 %26, 0
@@ -5799,7 +5799,7 @@ define internal i32 @sdsConfigSet(ptr noundef readonly captures(none) %0, ptr no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %31, %34, %38, %42, %46
-  %.0.i = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
   %49 = icmp eq i64 %.0.i, 0
   br i1 %49, label %sdslen.exit.thread, label %50
 
@@ -6405,7 +6405,7 @@ define internal i32 @numericConfigSet(ptr noundef readonly captures(none) %0, pt
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %38, %34, %30, %26, %23
-  %.0.i.i = phi i64 [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ]
+  %.0.i.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ]
   %41 = icmp ugt i64 %.0.i.i, 1
   br i1 %41, label %42, label %sdslen.exit.thread.i
 
@@ -6450,7 +6450,7 @@ default.unreachable.i:                            ; preds = %42
   unreachable
 
 sdslen.exit45.i:                                  ; preds = %58, %54, %50, %46, %43
-  %.0.i44.i = phi i64 [ %60, %58 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %43 ]
+  %.0.i44.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %60, %58 ]
   %61 = getelementptr i8, ptr %8, i64 %.0.i44.i
   %62 = getelementptr i8, ptr %61, i64 -1
   %63 = load i8, ptr %62, align 1, !tbaa !56
@@ -6498,7 +6498,7 @@ default.unreachable53.i:                          ; preds = %65
   unreachable
 
 sdslen.exit47.i:                                  ; preds = %81, %77, %73, %69, %66
-  %.0.i46.i = phi i64 [ %83, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %66 ]
+  %.0.i46.i = phi i64 [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %83, %81 ]
   %84 = add i64 %.0.i46.i, -1
   %85 = call i32 @string2ll(ptr noundef nonnull %8, i64 noundef %84, ptr noundef nonnull %7) #26
   %.not35.i = icmp eq i32 %85, 0
@@ -6592,7 +6592,7 @@ sdslen.exit.thread.i:                             ; preds = %86, %sdslen.exit47.
   br label %sdslen.exit49.i
 
 sdslen.exit49.i:                                  ; preds = %125, %121, %117, %113, %110, %105
-  %.0.i48.i = phi i64 [ %127, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %113 ], [ %112, %110 ], [ 0, %105 ]
+  %.0.i48.i = phi i64 [ %112, %110 ], [ %116, %113 ], [ %120, %117 ], [ %124, %121 ], [ %127, %125 ], [ 0, %105 ]
   %128 = call i32 @string2ll(ptr noundef nonnull %8, i64 noundef %.0.i48.i, ptr noundef nonnull %7) #26
   %.not38.i = icmp eq i32 %128, 0
   br i1 %.not38.i, label %sdslen.exit49._crit_edge.i, label %sdslen.exit49.i.numericParseString.exit_crit_edge
@@ -8067,7 +8067,7 @@ define internal range(i32 0, 2) i32 @setConfigBindOption(ptr readnone captures(n
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
   %.0.i.fr = freeze i64 %.0.i
   %33 = icmp eq i64 %.0.i.fr, 0
   br i1 %33, label %sdslen.exit.thread, label %34
@@ -8340,7 +8340,7 @@ define internal range(i32 0, 2) i32 @setConfigLatencyTrackingInfoPercentilesOutp
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
   %32 = icmp eq i64 %.0.i, 0
   br i1 %32, label %.thread24.sink.split, label %33
 
@@ -8399,7 +8399,7 @@ sdslen.exit:                                      ; preds = %14, %17, %21, %25, 
   br label %sdslen.exit20
 
 sdslen.exit20:                                    ; preds = %.lr.ph, %44, %47, %51, %55, %59
-  %.0.i19 = phi i64 [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %44 ], [ 0, %.lr.ph ]
+  %.0.i19 = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
   %62 = call i32 @string2d(ptr noundef nonnull %39, i64 noundef %.0.i19, ptr noundef nonnull %5) #26
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %73, label %63

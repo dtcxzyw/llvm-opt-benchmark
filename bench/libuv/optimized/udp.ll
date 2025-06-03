@@ -2353,7 +2353,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   store ptr null, ptr %14, align 16
   br label %32
 
-32:                                               ; preds = %31, %30, %29, %28, %13
+32:                                               ; preds = %28, %29, %30, %31, %13
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp samesign ult i64 %indvars.iv.next110, %8

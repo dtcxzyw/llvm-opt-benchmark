@@ -15060,7 +15060,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit2009: ; preds = %_ZN5Ipopt8Smar
   br label %5385
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1546:    ; preds = %3754, %3748, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1548, %5338, %5343, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1119, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1117, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1115, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1113, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1080, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1078, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1076, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1074, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1041, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1039, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1037, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1035, %2237, %2235, %2233, %2231, %1594
-  %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1595, %1594 ], [ %.pn336, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1119 ], [ %.pn334, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1117 ], [ %.pn332, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1115 ], [ %.pn330, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1113 ], [ %.pn344, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1080 ], [ %.pn342, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1078 ], [ %.pn340, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1076 ], [ %.pn338, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1074 ], [ %.pn352, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1041 ], [ %.pn350, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1039 ], [ %.pn348, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1037 ], [ %.pn346, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1035 ], [ %2238, %2237 ], [ %2236, %2235 ], [ %2234, %2233 ], [ %2232, %2231 ], [ %3749, %3748 ], [ %3749, %3754 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1548 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5338 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5343 ]
+  %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1595, %1594 ], [ %.pn352, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1041 ], [ %.pn350, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1039 ], [ %.pn348, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1037 ], [ %.pn346, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1035 ], [ %.pn344, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1080 ], [ %.pn342, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1078 ], [ %.pn340, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1076 ], [ %.pn338, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1074 ], [ %.pn336, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1119 ], [ %.pn334, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1117 ], [ %.pn332, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1115 ], [ %.pn330, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1113 ], [ %2238, %2237 ], [ %2236, %2235 ], [ %2234, %2233 ], [ %2232, %2231 ], [ %3749, %3748 ], [ %3749, %3754 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1548 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5338 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5343 ]
   %5367 = load ptr, ptr %34, align 8, !tbaa !65
   %.not.i.i2010 = icmp eq ptr %5367, null
   br i1 %.not.i.i2010, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit766, label %5368
@@ -16290,9 +16290,9 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit165:                 ; preds = %._crit_edge.i162, %
   br label %670
 
 670:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit91, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165, %_ZNK5Ipopt6Vector4AmaxEv.exit145, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125, %_ZNK5Ipopt6Vector4AsumEv.exit106
-  %.080 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %659, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %519, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %502, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %419, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
-  %.179 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %.3, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %526, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %.2, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %.078, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
-  %.077 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %669, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %584, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %511, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %428, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
+  %.080 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %419, %_ZNK5Ipopt6Vector4AsumEv.exit106 ], [ %502, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %519, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %659, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ]
+  %.179 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %.078, %_ZNK5Ipopt6Vector4AsumEv.exit106 ], [ %.2, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %526, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %.3, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ]
+  %.077 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %428, %_ZNK5Ipopt6Vector4AsumEv.exit106 ], [ %511, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %584, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %669, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ]
   %671 = load ptr, ptr %26, align 8, !tbaa !22
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 1736
   %673 = load i8, ptr %672, align 8, !tbaa !146, !range !148, !noundef !149
@@ -16431,8 +16431,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit168:                ; preds = %727, %_ZN5Ipopt9Tim
   br label %_ZN5Ipopt9TimedTask3EndEv.exit168.thread
 
 _ZN5Ipopt9TimedTask3EndEv.exit168.thread:         ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit166, %_ZN5Ipopt9TimedTask3EndEv.exit168, %758, %755, %751
-  %.081172 = phi double [ %722, %_ZN5Ipopt9TimedTask3EndEv.exit168 ], [ %722, %755 ], [ %722, %751 ], [ %722, %758 ], [ 0.000000e+00, %_ZN5Ipopt9TimedTask3EndEv.exit166 ]
-  %.0 = phi double [ %700, %_ZN5Ipopt9TimedTask3EndEv.exit168 ], [ %757, %755 ], [ %754, %751 ], [ %761, %758 ], [ %700, %_ZN5Ipopt9TimedTask3EndEv.exit166 ]
+  %.081172 = phi double [ %722, %_ZN5Ipopt9TimedTask3EndEv.exit168 ], [ %722, %758 ], [ %722, %751 ], [ %722, %755 ], [ 0.000000e+00, %_ZN5Ipopt9TimedTask3EndEv.exit166 ]
+  %.0 = phi double [ %700, %_ZN5Ipopt9TimedTask3EndEv.exit168 ], [ %761, %758 ], [ %754, %751 ], [ %757, %755 ], [ %700, %_ZN5Ipopt9TimedTask3EndEv.exit166 ]
   %762 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %763 = load i32, ptr %762, align 8, !tbaa !54
   %cond = icmp eq i32 %763, 1

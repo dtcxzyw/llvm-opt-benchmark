@@ -500,7 +500,7 @@ define hidden i32 @VP8EncFinishAlpha(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %8, %14
-  %.1 = phi i32 [ 0, %8 ], [ %20, %14 ]
+  %.1 = phi i32 [ %20, %14 ], [ 0, %8 ]
   ret i32 %.1
 }
 

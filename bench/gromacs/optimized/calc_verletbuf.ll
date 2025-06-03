@@ -300,8 +300,8 @@ _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %1, %1, %1, %2, 
   br label %_ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit
 
 _ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %1, %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit, %4, %5, %6
-  %.0.i6 = phi i32 [ %.0.i, %6 ], [ %.0.i, %4 ], [ %.0.i, %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit ], [ %.0.i, %5 ], [ 1, %1 ]
-  %.0.i3 = phi i64 [ 0, %6 ], [ 34359738368, %4 ], [ 17179869184, %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit ], [ 4294967296, %5 ], [ 4294967296, %1 ]
+  %.0.i6 = phi i32 [ %.0.i, %4 ], [ %.0.i, %6 ], [ %.0.i, %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit ], [ %.0.i, %5 ], [ 1, %1 ]
+  %.0.i3 = phi i64 [ 34359738368, %4 ], [ 0, %6 ], [ 17179869184, %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit ], [ 4294967296, %5 ], [ 4294967296, %1 ]
   %7 = zext nneg i32 %.0.i6 to i64
   %8 = or disjoint i64 %.0.i3, %7
   br label %9
@@ -2784,7 +2784,7 @@ _ZL7getMassRK7t_atomsib.exit.thread.i175:         ; preds = %506, %_ZL7getMassRK
   br i1 %exitcond215.not.i, label %._crit_edge181.i, label %565, !llvm.loop !256
 
 .thread.i:                                        ; preds = %563, %526, %511
-  %.2159.i = phi i32 [ %.1189.i, %511 ], [ %.1189.i, %526 ], [ %564, %563 ]
+  %.2159.i = phi i32 [ %.1189.i, %526 ], [ %.1189.i, %511 ], [ %564, %563 ]
   %571 = ptrtoint ptr %.sroa.0117.3226.i to i64
   %572 = sub i64 %.sroa.25.3228.i, %571
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0117.3226.i, i64 noundef %572) #28
@@ -3634,12 +3634,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %154
 
 152:                                              ; preds = %13, %33, %81, %118
-  %.sroa.754.0 = phi float [ 0.000000e+00, %81 ], [ 0.000000e+00, %33 ], [ %21, %13 ], [ 0.000000e+00, %118 ]
-  %.sroa.855.0 = phi float [ %95, %81 ], [ %58, %33 ], [ %23, %13 ], [ 0.000000e+00, %118 ]
-  %.sroa.553.0 = phi float [ 0.000000e+00, %81 ], [ 0.000000e+00, %33 ], [ %19, %13 ], [ %143, %118 ]
-  %.sroa.5.0 = phi float [ 0.000000e+00, %81 ], [ 0.000000e+00, %33 ], [ %27, %13 ], [ %147, %118 ]
-  %.sroa.7.0 = phi float [ 0.000000e+00, %81 ], [ 0.000000e+00, %33 ], [ %29, %13 ], [ 0.000000e+00, %118 ]
-  %.sroa.8.0 = phi float [ %98, %81 ], [ %80, %33 ], [ %32, %13 ], [ 0.000000e+00, %118 ]
+  %.sroa.754.0 = phi float [ %21, %13 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %118 ]
+  %.sroa.855.0 = phi float [ %23, %13 ], [ %58, %33 ], [ %95, %81 ], [ 0.000000e+00, %118 ]
+  %.sroa.553.0 = phi float [ %19, %13 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %81 ], [ %143, %118 ]
+  %.sroa.5.0 = phi float [ %27, %13 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %81 ], [ %147, %118 ]
+  %.sroa.7.0 = phi float [ %29, %13 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %118 ]
+  %.sroa.8.0 = phi float [ %32, %13 ], [ %80, %33 ], [ %98, %81 ], [ 0.000000e+00, %118 ]
   store float 0.000000e+00, ptr %0, align 4, !tbaa !25
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.sroa.553.0, ptr %.sroa.553.0..sroa_idx, align 4, !tbaa !25
@@ -4120,7 +4120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 
 52:                                               ; preds = %11, %16, %14
-  %.027 = phi float [ %35, %16 ], [ %15, %14 ], [ 1.000000e+00, %11 ]
+  %.027 = phi float [ %15, %14 ], [ %35, %16 ], [ 1.000000e+00, %11 ]
   %53 = uitofp nneg i32 %0 to float
   %54 = fdiv float %.027, %53
   br label %55
@@ -5213,7 +5213,7 @@ define noundef float @_Z30minCellSizeForAtomDisplacementRK10gmx_mtop_tRK10t_inpu
   unreachable
 
 32:                                               ; preds = %26, %25
-  %.051 = phi float [ %30, %26 ], [ %4, %25 ]
+  %.051 = phi float [ %4, %25 ], [ %30, %26 ]
   %33 = tail call noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(880) %1)
   %34 = load i32, ptr %9, align 4, !tbaa !30
   %35 = icmp eq i32 %34, 3

@@ -2643,7 +2643,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %15, %21
   %or.cond69 = select i1 %or.cond.i, i1 %79, i1 false
   br i1 %or.cond69, label %_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.preheader, label %_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.thread
 
-_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.preheader: ; preds = %72, %70, %76, %66
+_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.preheader: ; preds = %70, %72, %76, %66
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %81 = trunc i32 %storemerge.i to i8
   br label %_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit
@@ -2666,7 +2666,7 @@ _ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit: ; preds = %_ZN2cvL
           cleanup
   br label %137
 
-_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.thread: ; preds = %66, %76, %53, %70, %72
+_ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.thread: ; preds = %66, %76, %53, %72, %70
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %91 = load i64, ptr %90, align 8, !tbaa !114
   %.not = icmp eq i64 %91, 0

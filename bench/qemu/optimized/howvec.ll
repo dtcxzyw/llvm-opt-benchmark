@@ -438,7 +438,7 @@ find_counter.exit.thread:                         ; preds = %.thread.i
   unreachable
 
 find_counter.exit:                                ; preds = %25, %46
-  %.0.i.in = phi ptr [ %47, %46 ], [ %26, %25 ]
+  %.0.i.in = phi ptr [ %26, %25 ], [ %47, %46 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   %.not = icmp eq ptr %.0.i, null

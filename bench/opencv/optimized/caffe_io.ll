@@ -5036,7 +5036,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
           to label %1214 unwind label %1240, !llvm.loop !223
 
 1247:                                             ; preds = %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit374, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit378, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit382, %_ZN2cv3dnn11GLogWrapperD2Ev.exit385, %_ZN2cv3dnn11GLogWrapperD2Ev.exit389, %1091
-  %.9 = phi i1 [ false, %_ZN2cv3dnn11GLogWrapperD2Ev.exit389 ], [ %.8, %1091 ], [ false, %_ZN2cv3dnn11GLogWrapperD2Ev.exit385 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit382 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit378 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit374 ]
+  %.9 = phi i1 [ false, %_ZN2cv3dnn11GLogWrapperD2Ev.exit389 ], [ %.8, %1091 ], [ false, %_ZN2cv3dnn11GLogWrapperD2Ev.exit385 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit374 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit378 ], [ %.8, %_ZN12opencv_caffe16V1LayerParameter21mutable_pooling_paramEv.exit382 ]
   %1248 = load i32, ptr %134, align 4, !tbaa !17
   %1249 = and i32 %1248, 67108864
   %.not611 = icmp eq i32 %1249, 0

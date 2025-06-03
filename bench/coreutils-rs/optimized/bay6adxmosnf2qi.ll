@@ -2117,7 +2117,7 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
   br label %142
 
 142:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit58.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i"
-  %.047.i = phi ptr [ %.08.i.i56.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit58.i" ], [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i" ]
+  %.047.i = phi ptr [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i" ], [ %.08.i.i56.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit58.i" ]
   %143 = icmp eq ptr %.047.i, null
   br i1 %143, label %.thread.i, label %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit.thread"
 
@@ -2455,7 +2455,7 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
   br label %247
 
 247:                                              ; preds = %257, %256, %246
-  %.1.i = phi ptr [ %.08.i.i79.i, %257 ], [ %.08.i.i69.i, %256 ], [ %.08.i.i62.i, %246 ]
+  %.1.i = phi ptr [ %.08.i.i62.i, %246 ], [ %.08.i.i69.i, %256 ], [ %.08.i.i79.i, %257 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !410
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
           to label %.noexc114 unwind label %83

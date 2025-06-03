@@ -1067,8 +1067,8 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr nounde
   br label %.thread
 
 35:                                               ; preds = %23, %15, %18, %21
-  %.1285 = phi i64 [ %.0284414, %18 ], [ %.0284414, %21 ], [ %.0284414, %15 ], [ %spec.select, %23 ]
-  %.1279 = phi i8 [ %.0278416, %18 ], [ 1, %21 ], [ 1, %15 ], [ %spec.select355, %23 ]
+  %.1285 = phi i64 [ %.0284414, %21 ], [ %.0284414, %18 ], [ %.0284414, %15 ], [ %spec.select, %23 ]
+  %.1279 = phi i8 [ 1, %21 ], [ %.0278416, %18 ], [ 1, %15 ], [ %spec.select355, %23 ]
   %36 = trunc nuw i8 %.1279 to i1
   %37 = icmp eq i64 %.1285, 0
   %or.cond = select i1 %36, i1 %37, i1 false

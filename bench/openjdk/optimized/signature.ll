@@ -1277,8 +1277,8 @@ define hidden void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 capt
   %77 = add nsw i32 %58, 1
   br label %_ZN15SignatureStream9scan_typeE9BasicType.exit
 
-78:                                               ; preds = %36, %35, %34, %33, %32, %31, %30, %29, %28, %26
-  %.0.i.ph = phi i8 [ 4, %26 ], [ 5, %28 ], [ 6, %29 ], [ 7, %30 ], [ 8, %31 ], [ 9, %32 ], [ 10, %33 ], [ 11, %34 ], [ 14, %35 ], [ 0, %36 ]
+78:                                               ; preds = %36, %28, %29, %30, %31, %32, %33, %34, %35, %26
+  %.0.i.ph = phi i8 [ 4, %26 ], [ 14, %35 ], [ 11, %34 ], [ 10, %33 ], [ 9, %32 ], [ 8, %31 ], [ 7, %30 ], [ 6, %29 ], [ 5, %28 ], [ 0, %36 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.0.i.ph, ptr %79, align 8
   %80 = add nsw i32 %27, 1
@@ -1424,7 +1424,7 @@ define hidden noundef zeroext i1 @_ZN9Signature24is_valid_array_signatureEPK6Sym
   br label %24
 
 24:                                               ; preds = %.critedge, %19, %16
-  %.0 = phi i1 [ %23, %19 ], [ %18, %16 ], [ false, %.critedge ]
+  %.0 = phi i1 [ %18, %16 ], [ %23, %19 ], [ false, %.critedge ]
   ret i1 %.0
 }
 

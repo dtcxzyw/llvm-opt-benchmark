@@ -310,8 +310,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -406,7 +406,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %14, %16
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %26, %27, %28, %29, %30, %31, %32, %33
-  %.sroa.0.0.i = phi i16 [ 0, %33 ], [ 9, %32 ], [ 8, %31 ], [ 7, %30 ], [ 6, %29 ], [ 5, %28 ], [ 4, %27 ], [ 3, %26 ], [ 2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i = phi i16 [ 0, %33 ], [ 3, %26 ], [ 4, %27 ], [ 5, %28 ], [ 6, %29 ], [ 7, %30 ], [ 8, %31 ], [ 9, %32 ], [ 2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
   br label %56
 
@@ -469,7 +469,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %1
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit28
 
 _ZN4llvm3MVT12getIntegerVTEj.exit28:              ; preds = %_ZNK4llvm3LLT14getElementTypeEv.exit, %41, %42, %43, %44, %45, %46, %47, %48
-  %.sroa.0.0.i27 = phi i16 [ 0, %48 ], [ 9, %47 ], [ 8, %46 ], [ 7, %45 ], [ 6, %44 ], [ 5, %43 ], [ 4, %42 ], [ 3, %41 ], [ 2, %_ZNK4llvm3LLT14getElementTypeEv.exit ]
+  %.sroa.0.0.i27 = phi i16 [ 0, %48 ], [ 3, %41 ], [ 4, %42 ], [ 5, %43 ], [ 6, %44 ], [ 7, %45 ], [ 8, %46 ], [ 9, %47 ], [ 2, %_ZNK4llvm3LLT14getElementTypeEv.exit ]
   %49 = trunc i64 %0 to i32
   %50 = lshr i32 %49, 8
   %.sroa.0.0.extract.trunc.i = and i32 %50, 65535
@@ -622,8 +622,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3LLT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %40, %41, %42, %43, %44, %45, %46, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i20 = phi ptr [ %49, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %46 ], [ null, %45 ], [ null, %44 ], [ null, %43 ], [ null, %42 ], [ null, %41 ], [ null, %40 ], [ null, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
-  %.sroa.0.0.i21 = phi i16 [ %48, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %46 ], [ 8, %45 ], [ 7, %44 ], [ 6, %43 ], [ 5, %42 ], [ 4, %41 ], [ 3, %40 ], [ 2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
+  %.sroa.3.0.i20 = phi ptr [ %49, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %40 ], [ null, %41 ], [ null, %42 ], [ null, %43 ], [ null, %44 ], [ null, %45 ], [ null, %46 ], [ null, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
+  %.sroa.0.0.i21 = phi i16 [ %48, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %40 ], [ 4, %41 ], [ 5, %42 ], [ 6, %43 ], [ 7, %44 ], [ 8, %45 ], [ 9, %46 ], [ 2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
   br label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit
 
@@ -779,7 +779,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %9, %11
   unreachable
 
 31:                                               ; preds = %28, %26, %24, %22
-  %.0 = phi ptr [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ]
+  %.0 = phi ptr [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
   ret ptr %.0
 }
 

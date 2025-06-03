@@ -498,13 +498,13 @@ retransmission_indicator.exit:                    ; preds = %46, %49
   br label %._crit_edge412
 
 ._crit_edge412:                                   ; preds = %73, %78, %retransmission_indicator.exit, %96, %95, %91, %90, %56
-  %.0380 = phi i32 [ 3, %retransmission_indicator.exit ], [ 3, %96 ], [ 3, %95 ], [ 3, %91 ], [ 3, %90 ], [ %69, %56 ], [ 3, %78 ], [ 3, %73 ]
-  %.0379 = phi i32 [ 0, %retransmission_indicator.exit ], [ %98, %96 ], [ 0, %95 ], [ 0, %91 ], [ 0, %90 ], [ 0, %56 ], [ 0, %78 ], [ 0, %73 ]
-  %.0376 = phi i32 [ 0, %retransmission_indicator.exit ], [ 0, %96 ], [ 0, %95 ], [ 0, %91 ], [ 0, %90 ], [ 0, %56 ], [ %79, %78 ], [ 0, %73 ]
-  %.0375 = phi i16 [ 0, %retransmission_indicator.exit ], [ 0, %96 ], [ 0, %95 ], [ %94, %91 ], [ 0, %90 ], [ %59, %56 ], [ %76, %78 ], [ %76, %73 ]
-  %.0368 = phi i32 [ 0, %retransmission_indicator.exit ], [ %99, %96 ], [ 3, %95 ], [ 3, %91 ], [ 4, %90 ], [ 4, %56 ], [ 4, %78 ], [ 4, %73 ]
-  %.0367 = phi i8 [ 0, %retransmission_indicator.exit ], [ 0, %96 ], [ 0, %95 ], [ %93, %91 ], [ 0, %90 ], [ %58, %56 ], [ %75, %78 ], [ %75, %73 ]
-  %.0366 = phi i32 [ %55, %retransmission_indicator.exit ], [ %55, %96 ], [ %55, %95 ], [ %55, %91 ], [ %55, %90 ], [ %72, %56 ], [ %89, %78 ], [ %55, %73 ]
+  %.0380 = phi i32 [ 3, %retransmission_indicator.exit ], [ %69, %56 ], [ 3, %90 ], [ 3, %91 ], [ 3, %95 ], [ 3, %96 ], [ 3, %78 ], [ 3, %73 ]
+  %.0379 = phi i32 [ 0, %retransmission_indicator.exit ], [ 0, %56 ], [ 0, %90 ], [ 0, %91 ], [ 0, %95 ], [ %98, %96 ], [ 0, %78 ], [ 0, %73 ]
+  %.0376 = phi i32 [ 0, %retransmission_indicator.exit ], [ 0, %56 ], [ 0, %90 ], [ 0, %91 ], [ 0, %95 ], [ 0, %96 ], [ %79, %78 ], [ 0, %73 ]
+  %.0375 = phi i16 [ 0, %retransmission_indicator.exit ], [ %59, %56 ], [ 0, %90 ], [ %94, %91 ], [ 0, %95 ], [ 0, %96 ], [ %76, %78 ], [ %76, %73 ]
+  %.0368 = phi i32 [ 0, %retransmission_indicator.exit ], [ 4, %56 ], [ 4, %90 ], [ 3, %91 ], [ 3, %95 ], [ %99, %96 ], [ 4, %78 ], [ 4, %73 ]
+  %.0367 = phi i8 [ 0, %retransmission_indicator.exit ], [ %58, %56 ], [ 0, %90 ], [ %93, %91 ], [ 0, %95 ], [ 0, %96 ], [ %75, %78 ], [ %75, %73 ]
+  %.0366 = phi i32 [ %55, %retransmission_indicator.exit ], [ %72, %56 ], [ %55, %90 ], [ %55, %91 ], [ %55, %95 ], [ %55, %96 ], [ %89, %78 ], [ %55, %73 ]
   br i1 %.0.i, label %110, label %100
 
 100:                                              ; preds = %._crit_edge412

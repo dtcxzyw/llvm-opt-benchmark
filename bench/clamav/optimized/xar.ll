@@ -885,8 +885,8 @@ xar_hash_update.exit392:                          ; preds = %302, %301, %301, %3
   br label %.thread532
 
 308:                                              ; preds = %287, %.critedge
-  %.4226 = phi i32 [ %.10232, %287 ], [ %.6228, %.critedge ]
-  %.4 = phi i32 [ %.10, %287 ], [ %.6, %.critedge ]
+  %.4226 = phi i32 [ %.6228, %.critedge ], [ %.10232, %287 ]
+  %.4 = phi i32 [ %.6, %.critedge ], [ %.10, %287 ]
   %.not360 = icmp eq ptr %.0.i377, null
   br i1 %.not360, label %316, label %._crit_edge
 

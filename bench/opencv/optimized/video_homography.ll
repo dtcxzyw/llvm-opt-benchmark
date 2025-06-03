@@ -2228,6 +2228,10 @@ _ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit160:      ; preds = %.noexc157
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4) #22
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit160, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit164
+  %.010.ph.be = phi i1 [ false, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit164 ], [ true, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit160 ]
+  br label %.outer, !llvm.loop !149
+
 774:                                              ; preds = %765
   %775 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv8KeyPointESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %776 unwind label %.loopexit.split-lp491
@@ -2267,10 +2271,6 @@ _ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit164:      ; preds = %.noexc161
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %329) #22
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3) #22
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit164, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit160
-  %.010.ph.be = phi i1 [ true, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit160 ], [ false, %_ZN12_GLOBAL__N_16resetHERN2cv3MatE.exit164 ]
-  br label %.outer, !llvm.loop !149
 
 784:                                              ; preds = %776
   %785 = landingpad { ptr, i32 }

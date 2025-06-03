@@ -763,7 +763,7 @@ define dso_local range(i32 0, 16384) i32 @calculateKeySlot(ptr noundef %0) local
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = trunc i64 %.0.i to i32
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -894,7 +894,7 @@ define internal i64 @sdslen(ptr noundef readonly captures(none) %0) #4 {
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1395,7 +1395,7 @@ define dso_local ptr @dbRandomKey(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %34, %30, %26, %22, %19, %.lr.ph.split.us
-  %.0.i.us = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %.lr.ph.split.us ]
+  %.0.i.us = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ 0, %.lr.ph.split.us ]
   %37 = tail call ptr @createStringObject(ptr noundef nonnull %14, i64 noundef %.0.i.us) #20
   %38 = tail call i32 @expireIfNeeded(ptr noundef nonnull %0, ptr noundef %37, i32 noundef 0)
   %.not.us = icmp eq i32 %38, 0
@@ -1455,7 +1455,7 @@ sdslen.exit.us:                                   ; preds = %34, %30, %26, %22, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph.split, %51, %54, %58, %62, %66
-  %.0.i = phi i64 [ %68, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ %53, %51 ], [ 0, %.lr.ph.split ]
+  %.0.i = phi i64 [ %53, %51 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %68, %66 ], [ 0, %.lr.ph.split ]
   %69 = tail call ptr @createStringObject(ptr noundef nonnull %46, i64 noundef %.0.i) #20
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
   %.not34 = icmp eq ptr %70, null
@@ -1727,7 +1727,7 @@ define dso_local ptr @dbUnshareStringValueWithDictEntry(ptr noundef %0, ptr noun
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %13, %21, %24, %28, %32, %36
-  %.0.i = phi i64 [ %38, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %21 ], [ 0, %13 ]
+  %.0.i = phi i64 [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ], [ 0, %13 ]
   %39 = tail call ptr @createRawStringObject(ptr noundef nonnull %16, i64 noundef %.0.i) #20
   tail call void @decrRefCount(ptr noundef nonnull %14) #20
   tail call fastcc void @dbSetValue(ptr noundef %0, ptr noundef %1, ptr noundef %39, i32 noundef 0, ptr noundef %3)
@@ -2897,7 +2897,7 @@ define dso_local void @keysCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %1 ]
   %30 = trunc i64 %.0.i to i32
   %31 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #20
   %32 = load i8, ptr %7, align 1, !tbaa !76
@@ -3006,7 +3006,7 @@ sdslen.exit:                                      ; preds = %1, %12, %15, %19, %
   br label %sdslen.exit53
 
 sdslen.exit53:                                    ; preds = %65, %70, %73, %77, %81, %85
-  %.0.i52 = phi i64 [ %87, %85 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %70 ], [ 0, %65 ]
+  %.0.i52 = phi i64 [ %72, %70 ], [ %76, %73 ], [ %80, %77 ], [ %84, %81 ], [ %87, %85 ], [ 0, %65 ]
   %88 = trunc i64 %.0.i52 to i32
   %89 = tail call i32 @stringmatchlen(ptr noundef nonnull %7, i32 noundef %30, ptr noundef nonnull %64, i32 noundef %88, i32 noundef 0) #20
   %.not48 = icmp eq i32 %89, 0
@@ -3100,7 +3100,7 @@ keyIsExpired.exit.thread:                         ; preds = %dbFindExpires.exit.
   br label %sdslen.exit56
 
 sdslen.exit56:                                    ; preds = %keyIsExpired.exit.thread, %116, %119, %123, %127, %131
-  %.0.i55 = phi i64 [ %133, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %118, %116 ], [ 0, %keyIsExpired.exit.thread ]
+  %.0.i55 = phi i64 [ %118, %116 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %133, %131 ], [ 0, %keyIsExpired.exit.thread ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %.0.i55) #20
   %134 = add i64 %.043, 1
   br label %135
@@ -3310,7 +3310,7 @@ define dso_local void @scanCallback(ptr noundef captures(none) %0, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %24, %27, %31, %35, %39
-  %.0.i = phi i64 [ %41, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %24 ], [ 0, %19 ]
+  %.0.i = phi i64 [ %26, %24 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %41, %39 ], [ 0, %19 ]
   %42 = trunc i64 %.0.i to i32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !133
@@ -3622,7 +3622,7 @@ define dso_local void @scanGenericCommand(ptr noundef %0, ptr noundef %1, i64 no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %60, %63, %67, %71, %75
-  %.0.i = phi i64 [ %77, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %60 ]
+  %.0.i = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ]
   %78 = trunc i64 %.0.i to i32
   %79 = icmp eq i32 %78, 1
   br i1 %79, label %80, label %sdslen.exit.thread
@@ -5545,7 +5545,7 @@ getExpire.exit:                                   ; preds = %dbFindExpires.exit.
   br label %186
 
 162:                                              ; preds = %157, %155, %151, %149, %147, %145, %143
-  %.081 = phi ptr [ %160, %157 ], [ %156, %155 ], [ %154, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ]
+  %.081 = phi ptr [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %154, %151 ], [ %156, %155 ], [ %160, %157 ]
   br i1 %.not94, label %163, label %166
 
 163:                                              ; preds = %162
@@ -6056,7 +6056,7 @@ define internal fastcc void @deleteKeyAndPropagate(ptr noundef %0, ptr noundef %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %23, %26, %30, %34, %38
-  %.0.i = phi i64 [ %40, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %23 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %16 ]
   %41 = tail call ptr @createStringObject(ptr noundef nonnull %18, i64 noundef %.0.i) #20
   br label %42
 
@@ -6625,7 +6625,7 @@ define dso_local i32 @getKeysUsingKeySpecs(ptr noundef readonly captures(none) %
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %94, %105, %108, %112, %116, %120
-  %.0.i = phi i64 [ %122, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %105 ], [ 0, %94 ]
+  %.0.i = phi i64 [ %107, %105 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ 0, %94 ]
   %123 = call i32 @string2ll(ptr noundef nonnull %100, i64 noundef %.0.i, ptr noundef nonnull %6) #20
   %124 = icmp eq i32 %123, 0
   %125 = load i64, ptr %6, align 8
@@ -7760,7 +7760,7 @@ define dso_local range(i32 -2147483640, -2147483648) i32 @migrateGetKeys(ptr nou
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ]
   %.not35 = icmp eq i64 %.0.i, 0
   br i1 %.not35, label %sdslen.exit.thread, label %.loopexit41
 

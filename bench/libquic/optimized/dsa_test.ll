@@ -351,7 +351,7 @@ define internal range(i32 0, 2) i32 @dsa_cb(i32 noundef %0, i32 %1, ptr noundef 
   br label %12
 
 12:                                               ; preds = %11, %8, %7, %4, %3
-  %.0 = phi i32 [ 42, %3 ], [ 10, %11 ], [ 42, %8 ], [ 43, %7 ], [ 46, %4 ]
+  %.0 = phi i32 [ 42, %3 ], [ 46, %4 ], [ 43, %7 ], [ 42, %8 ], [ 10, %11 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !28
   %14 = tail call i32 @fputc(i32 noundef %.0, ptr noundef %13)
   %15 = load ptr, ptr %2, align 8, !tbaa !28

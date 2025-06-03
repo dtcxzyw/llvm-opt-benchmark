@@ -657,7 +657,7 @@ default.unreachable6:                             ; preds = %2
   br label %17
 
 17:                                               ; preds = %5, %7, %9, %24, %18, %11
-  %.0.shrunk = phi i1 [ %29, %24 ], [ %23, %18 ], [ %16, %11 ], [ false, %9 ], [ false, %7 ], [ false, %5 ]
+  %.0.shrunk = phi i1 [ %16, %11 ], [ %23, %18 ], [ %29, %24 ], [ false, %9 ], [ false, %7 ], [ false, %5 ]
   ret i1 %.0.shrunk
 
 18:                                               ; preds = %7
@@ -706,7 +706,7 @@ default.unreachable1:                             ; preds = %1
   br label %13
 
 13:                                               ; preds = %10, %7, %4
-  %.sroa.4.0 = phi float [ %12, %10 ], [ %9, %7 ], [ %6, %4 ]
+  %.sroa.4.0 = phi float [ %6, %4 ], [ %9, %7 ], [ %12, %10 ]
   %14 = insertvalue { i32, float } { i32 1, float poison }, float %.sroa.4.0, 1
   ret { i32, float } %14
 }
@@ -932,7 +932,7 @@ default.unreachable22:                            ; preds = %2
   br label %105
 
 105:                                              ; preds = %101, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
-  %.0.in = phi i1 [ %104, %101 ], [ %100, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit" ], [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit" ]
+  %.0.in = phi i1 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit" ], [ %100, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit" ], [ %104, %101 ]
   ret i1 %.0.in
 }
 

@@ -1029,8 +1029,8 @@ _ZN4jiff6shared4util5itime5IDate20nth_weekday_of_month17h5992c741a8dcdd20E.exit.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39), !noalias !12
   br label %"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread"
 
-"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit13.i", %"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread95"
-  %.sroa.5.0.i94 = phi i32 [ %.sroa.06.0.copyload.i, %"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread95" ], [ %.sroa.5.8.extract.trunc.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit.i" ], [ %.sroa.9.8.extract.trunc.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit13.i" ]
+"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit13.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit.i", %"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread95"
+  %.sroa.5.0.i94 = phi i32 [ %.sroa.06.0.copyload.i, %"_ZN4jiff6shared5posix40_$LT$impl$u20$jiff..shared..PosixDay$GT$7to_date17h011ebb7589d90573E.exit.thread95" ], [ %.sroa.9.8.extract.trunc.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit13.i" ], [ %.sroa.5.8.extract.trunc.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h2012b425456bbb26E.exit.i" ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %261 = load i32, ptr %260, align 4, !noundef !3
   %262 = sub i32 %261, %3
@@ -1638,7 +1638,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit34: ; preds = %2
   br label %33
 
 33:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit34, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit29, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
-  %.sroa.0.0.in = phi i1 [ %32, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit34 ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit29 ], [ %18, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
+  %.sroa.0.0.in = phi i1 [ %18, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit29 ], [ %32, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit34 ]
   ret i1 %.sroa.0.0.in
 }
 

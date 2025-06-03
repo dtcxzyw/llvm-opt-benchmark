@@ -425,7 +425,7 @@ isempty_RL.exit.thread.loopexit:                  ; preds = %.preheader.split.us
   br label %isempty_RL.exit.thread
 
 isempty_RL.exit.thread:                           ; preds = %.preheader.split.us77, %.preheader.split.us69, %.split65.us.thread, %.split62.us.thread, %.preheader.split.us, %.preheader.split, %isempty_RL.exit.thread.loopexit, %53, %31, %47, %isempty_RL.exit52, %45, %41, %.split65.us, %24, %isempty_RL.exit, %20, %.split62.us, %8, %4, %2, %62, %40, %.split68.us
-  %.0 = phi i32 [ 4, %62 ], [ 1, %40 ], [ %19, %.split68.us ], [ -2, %2 ], [ -2, %4 ], [ -2, %8 ], [ -1, %.split62.us ], [ -1, %20 ], [ 2, %isempty_RL.exit ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %41 ], [ -1, %45 ], [ 3, %isempty_RL.exit52 ], [ 3, %47 ], [ 2, %31 ], [ 3, %53 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ -1, %.split62.us.thread ], [ -1, %.split65.us.thread ], [ 0, %.preheader.split.us69 ], [ 0, %.preheader.split.us77 ]
+  %.0 = phi i32 [ %19, %.split68.us ], [ 1, %40 ], [ 4, %62 ], [ -2, %2 ], [ -2, %4 ], [ -2, %8 ], [ -1, %.split62.us ], [ -1, %20 ], [ 2, %isempty_RL.exit ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %41 ], [ -1, %45 ], [ 3, %isempty_RL.exit52 ], [ 3, %47 ], [ 2, %31 ], [ 3, %53 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ -1, %.split62.us.thread ], [ -1, %.split65.us.thread ], [ 0, %.preheader.split.us69 ], [ 0, %.preheader.split.us77 ]
   ret i32 %.0
 }
 
@@ -4320,9 +4320,9 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
   br label %19
 
 19:                                               ; preds = %.preheader, %10, %9, %8
-  %.138 = phi i32 [ %.037, %9 ], [ 1, %8 ], [ %.037, %10 ], [ 0, %.preheader ]
-  %.134 = phi i32 [ %.033, %9 ], [ %.033, %8 ], [ %spec.select, %10 ], [ %.033, %.preheader ]
-  %.1 = phi i32 [ 1, %9 ], [ %.031, %8 ], [ %.031, %10 ], [ %.031, %.preheader ]
+  %.138 = phi i32 [ 1, %8 ], [ %.037, %9 ], [ %.037, %10 ], [ 0, %.preheader ]
+  %.134 = phi i32 [ %.033, %8 ], [ %.033, %9 ], [ %spec.select, %10 ], [ %.033, %.preheader ]
+  %.1 = phi i32 [ %.031, %8 ], [ 1, %9 ], [ %.031, %10 ], [ %.031, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   br label %.preheader, !llvm.loop !98
 

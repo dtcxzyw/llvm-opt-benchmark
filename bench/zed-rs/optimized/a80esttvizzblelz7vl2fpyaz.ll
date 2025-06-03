@@ -1720,7 +1720,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$project..lsp_store..Languag
     i8 3, label %7
   ]
 
-common.ret:                                       ; preds = %6, %48, %1
+common.ret:                                       ; preds = %48, %6, %1
   ret void
 
 6:                                                ; preds = %1
@@ -2884,7 +2884,7 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$workspace..tasks..
   br label %.body
 
 .body:                                            ; preds = %41, %60, %73
-  %eh.lpad-body = phi { ptr, i32 } [ %74, %73 ], [ %61, %60 ], [ %42, %41 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %74, %73 ], [ %42, %41 ], [ %61, %60 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$task..ResolvedTask$GT$17haf07ad2a7b049433E"(ptr noalias noundef nonnull align 8 dereferenceable(544) %0) #32
           to label %77 unwind label %75
 
@@ -50665,7 +50665,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha5c1ac9d415f1de6E.exit.i: ; preds = %.
   br i1 %63, label %65, label %72
 
 65:                                               ; preds = %.noexc18, %.noexc17
-  %.sroa.07.0.i = phi i8 [ %64, %.noexc18 ], [ 0, %.noexc17 ]
+  %.sroa.07.0.i = phi i8 [ 0, %.noexc17 ], [ %64, %.noexc18 ]
   %66 = invoke noundef align 8 dereferenceable(24) ptr @_ZN4call4room4Room19remote_participants17h98d8c30ed834dfcaE(ptr noundef nonnull align 8 %45)
           to label %.noexc19 unwind label %79
 
@@ -79616,8 +79616,8 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %148
 
 148:                                              ; preds = %147, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h217015b2fbd6756fE.exit.i.i.i"
-  %.pn.i.i.i = phi ptr [ %137, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h217015b2fbd6756fE.exit.i.i.i" ], [ %.sroa.095.0.copyload.i.i, %147 ]
-  %.sroa.0.0.i28.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -24
+  %.sroa.013.0.copyload.pn.i.i.i = phi ptr [ %137, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h217015b2fbd6756fE.exit.i.i.i" ], [ %.sroa.095.0.copyload.i.i, %147 ]
+  %.sroa.0.0.i28.i.i = getelementptr inbounds i8, ptr %.sroa.013.0.copyload.pn.i.i.i, i64 -24
   %149 = getelementptr inbounds nuw i8, ptr %97, i64 192
   %150 = load ptr, ptr %149, align 8, !invariant.load !4, !noalias !17316, !nonnull !4
   %151 = invoke { i32, i32 } %150(ptr noundef nonnull align 1 %91)
@@ -79630,7 +79630,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
           to label %156 unwind label %113, !noalias !17316
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -8
+  %157 = getelementptr inbounds i8, ptr %.sroa.013.0.copyload.pn.i.i.i, i64 -8
   %158 = load i64, ptr %157, align 8, !alias.scope !17327, !noalias !17316, !noundef !4
   %159 = load i64, ptr %.sroa.0.0.i28.i.i, align 8, !alias.scope !17327, !noalias !17316, !noundef !4
   %160 = icmp eq i64 %158, %159
@@ -79641,7 +79641,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
           to label %162 unwind label %113, !noalias !17316
 
 162:                                              ; preds = %161, %156
-  %163 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -16
+  %163 = getelementptr inbounds i8, ptr %.sroa.013.0.copyload.pn.i.i.i, i64 -16
   %164 = load ptr, ptr %163, align 8, !alias.scope !17327, !noalias !17316, !nonnull !4, !noundef !4
   %165 = getelementptr inbounds i64, ptr %164, i64 %158
   store i64 %155, ptr %165, align 8, !noalias !17316

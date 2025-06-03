@@ -39267,8 +39267,8 @@ _ZN2cv3MatC2INS_3VecIfLi6EEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %1007, %99
   br label %1050
 
 1018:                                             ; preds = %._crit_edge563, %990, %1015, %788
-  %.sroa.0456.2 = phi ptr [ %.sroa.0456.3.lcssa, %._crit_edge563 ], [ %.sroa.0456.3.lcssa, %1015 ], [ %.sroa.0456.3.lcssa, %990 ], [ null, %788 ]
-  %.sroa.0449.2 = phi ptr [ %.sroa.0449.3.lcssa, %._crit_edge563 ], [ %.sroa.0449.3.lcssa, %1015 ], [ %.sroa.0449.3.lcssa, %990 ], [ null, %788 ]
+  %.sroa.0456.2 = phi ptr [ %.sroa.0456.3.lcssa, %._crit_edge563 ], [ %.sroa.0456.3.lcssa, %990 ], [ %.sroa.0456.3.lcssa, %1015 ], [ null, %788 ]
+  %.sroa.0449.2 = phi ptr [ %.sroa.0449.3.lcssa, %._crit_edge563 ], [ %.sroa.0449.3.lcssa, %990 ], [ %.sroa.0449.3.lcssa, %1015 ], [ null, %788 ]
   %1019 = load ptr, ptr %107, align 8, !tbaa !308
   %1020 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %1021 = load ptr, ptr %1020, align 8, !tbaa !361
@@ -39404,9 +39404,9 @@ _ZNSt6vectorIN2cv3VecIfLi6EEESaIS2_EED2Ev.exit420.thread596: ; preds = %784, %78
   br label %_ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit422
 
 1050:                                             ; preds = %1016, %991, %855
-  %.sroa.0456.1 = phi ptr [ %.sroa.0456.4544, %855 ], [ %.sroa.0456.3.lcssa, %1016 ], [ %.sroa.0456.3.lcssa, %991 ]
-  %.sroa.0449.1 = phi ptr [ %.sroa.0449.4547, %855 ], [ %.sroa.0449.3.lcssa, %1016 ], [ %.sroa.0449.3.lcssa, %991 ]
-  %.pn282.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %855 ], [ %1017, %1016 ], [ %992, %991 ]
+  %.sroa.0456.1 = phi ptr [ %.sroa.0456.4544, %855 ], [ %.sroa.0456.3.lcssa, %991 ], [ %.sroa.0456.3.lcssa, %1016 ]
+  %.sroa.0449.1 = phi ptr [ %.sroa.0449.4547, %855 ], [ %.sroa.0449.3.lcssa, %991 ], [ %.sroa.0449.3.lcssa, %1016 ]
+  %.pn282.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %855 ], [ %992, %991 ], [ %1017, %1016 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %107) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107) #24
   %.not.i.i.i419 = icmp eq ptr %.sroa.0449.1, null

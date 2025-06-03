@@ -96,8 +96,8 @@ define hidden void @"_ZN127_$LT$diesel..query_builder..limit_clause..LimitClause
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread10", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread", %14
-  %.sroa.13.0.i = phi ptr [ %18, %14 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread10" ]
-  %.sroa.11.0.i = phi ptr [ %16, %14 ], [ %10, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread10" ]
+  %.sroa.13.0.i = phi ptr [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread" ], [ %18, %14 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread10" ]
+  %.sroa.11.0.i = phi ptr [ %10, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread" ], [ %16, %14 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread10" ]
   %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !19, !noalias !22, !nonnull !10, !align !12, !noundef !10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1182,20 +1182,20 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
 
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.thread.i": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !236
-  br label %39
+  br label %40
 
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i": ; preds = %2
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %11, 1
   store i64 %.fca.1.extract.i.i, ptr %4, align 8, !noalias !236
   %12 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hf7bf13d67743fd75E.llvm.768955472827859366(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !236
-  br i1 %12, label %13, label %39
+  br i1 %12, label %13, label %40
 
 13:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i"
   %14 = call { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hf04f0fa525faa18aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef %.fca.1.extract.i.i), !noalias !240
   %.fca.0.extract.i2.i = extractvalue { i64, i64 } %14, 0
   %switch.i3.i = icmp eq i64 %.fca.0.extract.i2.i, 0
-  br i1 %switch.i3.i, label %39, label %15
+  br i1 %switch.i3.i, label %40, label %15
 
 15:                                               ; preds = %13
   %.fca.1.extract.i4.i = extractvalue { i64, i64 } %14, 1
@@ -1234,27 +1234,31 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8, !noalias !253
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %30 = load ptr, ptr %29, align 8, !noalias !253
+  %30 = load i64, ptr %29, align 8, !noalias !253
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !253
-  %31 = ptrtoint ptr %30 to i64
-  br i1 %trunc.i, label %"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit", label %32
+  br i1 %trunc.i, label %36, label %31
 
-32:                                               ; preds = %25
-  %33 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb3d33828d4e4f39aE"(i64 noundef %31, i1 noundef zeroext false), !noalias !257
-  %34 = extractvalue { i64, ptr } %33, 0
-  %35 = extractvalue { i64, ptr } %33, 1
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36), !noalias !248
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %28, i64 %31, i1 false), !noalias !261
+31:                                               ; preds = %25
+  %32 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb3d33828d4e4f39aE"(i64 noundef %30, i1 noundef zeroext false), !noalias !257
+  %33 = extractvalue { i64, ptr } %32, 0
+  %34 = extractvalue { i64, ptr } %32, 1
+  %35 = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %35), !noalias !248
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %28, i64 %30, i1 false), !noalias !261
   br label %"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit"
 
-"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit": ; preds = %25, %32
-  %.sink7.i = phi ptr [ %35, %32 ], [ %28, %25 ]
-  %.sink.i = phi i64 [ %34, %32 ], [ -9223372036854775808, %25 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink7.i, ptr %37, align 8, !alias.scope !250, !noalias !262
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %31, ptr %38, align 8, !alias.scope !250, !noalias !262
+36:                                               ; preds = %25
+  %37 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %37), !noalias !248
+  br label %"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit"
+
+"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit": ; preds = %31, %36
+  %.sink8.i = phi ptr [ %28, %36 ], [ %34, %31 ]
+  %.sink.i = phi i64 [ -9223372036854775808, %36 ], [ %33, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink8.i, ptr %38, align 8, !alias.scope !250, !noalias !262
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %30, ptr %39, align 8, !alias.scope !250, !noalias !262
   br label %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit
 
 _ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit: ; preds = %22, %"_ZN6diesel10type_impls10primitives95_$LT$impl$u20$diesel..deserialize..FromSql$LT$ST$C$DB$GT$$u20$for$u20$alloc..string..String$GT$8from_sql17hdaaf4522ee3478d0E.exit"
@@ -1262,17 +1266,17 @@ _ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit: ; p
   store i64 %storemerge, ptr %0, align 8, !noalias !248
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %42
+  br label %43
 
-39:                                               ; preds = %13, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.thread.i", %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i"
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @anon.f2b0736b5e0c916a2cbec32f1def498a.15, ptr %41, align 8
+40:                                               ; preds = %13, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.thread.i", %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i"
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @anon.f2b0736b5e0c916a2cbec32f1def498a.15, ptr %42, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %42
+  br label %43
 
-42:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit, %39
+43:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit, %40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 }

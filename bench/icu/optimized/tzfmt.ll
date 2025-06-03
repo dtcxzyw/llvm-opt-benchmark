@@ -740,7 +740,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7714GMTOffsetField7isValidENS0
   unreachable
 
 9:                                                ; preds = %6, %3
-  %.0.in = phi i1 [ %7, %6 ], [ %5, %3 ]
+  %.0.in = phi i1 [ %5, %3 ], [ %7, %6 ]
   %.0 = zext i1 %.0.in to i8
   ret i8 %.0
 }
@@ -3048,24 +3048,24 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %40
   br label %.body
 
 44:                                               ; preds = %39
-  switch i32 %.0134230, label %47 [
+  switch i32 %.0134230, label %48 [
     i32 0, label %69
-    i32 1, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
-    i32 2, label %45
-    i32 4, label %45
+    i32 1, label %45
+    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
+    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
   ]
 
-45:                                               ; preds = %44, %44
-  %46 = icmp eq i32 %.0128231, 2
-  br i1 %46, label %50, label %._crit_edge.thread.sink.split
+45:                                               ; preds = %44
+  %46 = add i32 %.0128231, -1
+  %47 = icmp ult i32 %46, 2
+  br i1 %47, label %50, label %._crit_edge.thread.sink.split
 
-47:                                               ; preds = %44
+48:                                               ; preds = %44
   call void @abort() #24
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit: ; preds = %44
-  %48 = add i32 %.0128231, -1
-  %49 = icmp ult i32 %48, 2
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit: ; preds = %44, %44
+  %49 = icmp eq i32 %.0128231, 2
   br i1 %49, label %50, label %._crit_edge.thread.sink.split
 
 50:                                               ; preds = %45, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
@@ -3159,11 +3159,11 @@ _ZN6icu_7713UnicodeString6appendEDs.exit171:      ; preds = %71
   br label %.thread202
 
 80:                                               ; preds = %76
-  switch i32 %.0134230, label %104 [
+  switch i32 %.0134230, label %105 [
     i32 0, label %81
-    i32 1, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
-    i32 2, label %102
-    i32 4, label %102
+    i32 1, label %102
+    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
+    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
   ]
 
 81:                                               ; preds = %80
@@ -3208,17 +3208,17 @@ _ZN6icu_7713UnicodeString6appendEDs.exit171:      ; preds = %71
   store i16 %storemerge.i, ptr %30, align 8, !tbaa !23
   br label %126
 
-102:                                              ; preds = %80, %80
-  %103 = icmp eq i32 %.0128231, 2
-  br i1 %103, label %107, label %._crit_edge.thread.sink.split
+102:                                              ; preds = %80
+  %103 = add i32 %.0128231, -1
+  %104 = icmp ult i32 %103, 2
+  br i1 %104, label %107, label %._crit_edge.thread.sink.split
 
-104:                                              ; preds = %80
+105:                                              ; preds = %80
   call void @abort() #24
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175: ; preds = %80
-  %105 = add i32 %.0128231, -1
-  %106 = icmp ult i32 %105, 2
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175: ; preds = %80, %80
+  %106 = icmp eq i32 %.0128231, 2
   br i1 %106, label %107, label %._crit_edge.thread.sink.split
 
 107:                                              ; preds = %102, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit175
@@ -3273,24 +3273,24 @@ _ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit17
   br label %.thread202
 
 _ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit: ; preds = %73
-  switch i32 %.0134230, label %130 [
+  switch i32 %.0134230, label %131 [
     i32 0, label %152
-    i32 1, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
-    i32 2, label %128
-    i32 4, label %128
+    i32 1, label %128
+    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
+    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
   ]
 
-128:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit, %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
-  %129 = icmp eq i32 %.0128231, 2
-  br i1 %129, label %133, label %._crit_edge.thread.sink.split
+128:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
+  %129 = add i32 %.0128231, -1
+  %130 = icmp ult i32 %129, 2
+  br i1 %130, label %133, label %._crit_edge.thread.sink.split
 
-130:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
+131:                                              ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
   call void @abort() #24
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182: ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
-  %131 = add i32 %.0128231, -1
-  %132 = icmp ult i32 %131, 2
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182: ; preds = %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit, %_ZN6icu_7714GMTOffsetField15getTypeByLetterEDs.exit
+  %132 = icmp eq i32 %.0128231, 2
   br i1 %132, label %133, label %._crit_edge.thread.sink.split
 
 133:                                              ; preds = %128, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
@@ -3376,11 +3376,11 @@ _ZN6icu_7713UnicodeString6appendEDs.exit187:      ; preds = %152
   br i1 %162, label %._crit_edge.thread, label %163
 
 163:                                              ; preds = %._crit_edge
-  switch i32 %.1135.ph.ph, label %181 [
+  switch i32 %.1135.ph.ph, label %182 [
     i32 0, label %164
-    i32 1, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
-    i32 2, label %179
-    i32 4, label %179
+    i32 1, label %179
+    i32 2, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
+    i32 4, label %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
   ]
 
 164:                                              ; preds = %163
@@ -3408,17 +3408,17 @@ _ZN6icu_7713UnicodeString6appendEDs.exit187:      ; preds = %152
           cleanup
   br label %.body
 
-179:                                              ; preds = %163, %163
-  %180 = icmp eq i32 %.1129.ph.ph, 2
-  br i1 %180, label %184, label %._crit_edge.thread.sink.split
+179:                                              ; preds = %163
+  %180 = add i32 %.1129.ph.ph, -1
+  %181 = icmp ult i32 %180, 2
+  br i1 %181, label %184, label %._crit_edge.thread.sink.split
 
-181:                                              ; preds = %163
+182:                                              ; preds = %163
   call void @abort() #24
   unreachable
 
-_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190: ; preds = %163
-  %182 = add i32 %.1129.ph.ph, -1
-  %183 = icmp ult i32 %182, 2
+_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190: ; preds = %163, %163
+  %183 = icmp eq i32 %.1129.ph.ph, 2
   br i1 %183, label %184, label %._crit_edge.thread.sink.split
 
 184:                                              ; preds = %179, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
@@ -3962,7 +3962,7 @@ _ZNK6icu_7714TimeZoneFormat13formatGenericERKNS_8TimeZoneEidRNS_13UnicodeStringE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #22
   br label %.thread
 
-.thread:                                          ; preds = %46, %49, %61, %105, %63
+.thread:                                          ; preds = %61, %49, %46, %105, %63
   ret ptr %4
 }
 
@@ -5159,7 +5159,7 @@ _ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507: 
   br label %256
 
 256:                                              ; preds = %85, %255, %254
-  %.0310 = phi i32 [ 5, %255 ], [ 3, %254 ], [ 1, %85 ]
+  %.0310 = phi i32 [ 3, %254 ], [ 5, %255 ], [ 1, %85 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #22
   store i32 0, ptr %21, align 4, !tbaa !61
   %257 = load i32, ptr %17, align 4, !tbaa !13
@@ -5282,9 +5282,9 @@ _ZNK6icu_7714TimeZoneFormat23getTimeZoneGenericNamesER10UErrorCode.exit: ; preds
           to label %580 unwind label %94
 
 303:                                              ; preds = %.thread597, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread, %.thread561, %85, %298, %293, %288, %107, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507, %105, %96
-  %.3348 = phi i32 [ %.0345, %85 ], [ %.0345, %298 ], [ %.0345, %293 ], [ %.0345, %288 ], [ %.4349, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.0345, %107 ], [ %.0345, %105 ], [ %.0345, %96 ], [ %.0345, %.thread561 ], [ %.4349, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %.0345, %.thread597 ]
-  %.2308 = phi i32 [ %.0306, %85 ], [ %.0306, %298 ], [ %.0306, %293 ], [ %.0306, %288 ], [ %.0306, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.0306, %107 ], [ %106, %105 ], [ %97, %96 ], [ %.0306, %.thread561 ], [ %.0306, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %.0306, %.thread597 ]
-  %.3 = phi ptr [ undef, %85 ], [ undef, %298 ], [ undef, %293 ], [ undef, %288 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ undef, %107 ], [ undef, %105 ], [ undef, %96 ], [ undef, %.thread561 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ undef, %.thread597 ]
+  %.3348 = phi i32 [ %.0345, %85 ], [ %.0345, %96 ], [ %.0345, %105 ], [ %.0345, %107 ], [ %.4349, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.0345, %288 ], [ %.0345, %293 ], [ %.0345, %298 ], [ %.0345, %.thread561 ], [ %.4349, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %.0345, %.thread597 ]
+  %.2308 = phi i32 [ %.0306, %85 ], [ %97, %96 ], [ %106, %105 ], [ %.0306, %107 ], [ %.0306, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.0306, %288 ], [ %.0306, %293 ], [ %.0306, %298 ], [ %.0306, %.thread561 ], [ %.0306, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %.0306, %.thread597 ]
+  %.3 = phi ptr [ undef, %85 ], [ undef, %96 ], [ undef, %105 ], [ undef, %107 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ undef, %288 ], [ undef, %293 ], [ undef, %298 ], [ undef, %.thread561 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ undef, %.thread597 ]
   %304 = zext i32 %1 to i64
   %305 = getelementptr inbounds nuw [20 x i16], ptr @_ZN6icu_77L17STYLE_PARSE_FLAGSE, i64 0, i64 %304
   %306 = load i16, ptr %305, align 2, !tbaa !72
@@ -6004,7 +6004,7 @@ _ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit520.t
   br label %.body496
 
 580:                                              ; preds = %.invoke725, %.invoke, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread.thread, %285, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread, %151, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit517, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit499, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit520.thread701
-  %.4 = phi ptr [ %.18, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit520.thread701 ], [ %.15, %285 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.05.i500, %151 ], [ %.05.i494, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit499 ], [ %.05.i512, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit517 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %191, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread.thread ], [ %302, %.invoke ], [ %104, %.invoke725 ]
+  %.4 = phi ptr [ %.18, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit520.thread701 ], [ %.05.i500, %151 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit507 ], [ %.15, %285 ], [ %.05.i494, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit499 ], [ %.05.i512, %_ZNK6icu_7714TimeZoneFormat23createTimeZoneForOffsetEi.exit517 ], [ %.6, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread ], [ %191, %_ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit506.thread.thread ], [ %302, %.invoke ], [ %104, %.invoke725 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #22
@@ -6012,7 +6012,7 @@ _ZN6icu_7712LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit520.t
   br label %582
 
 .body496:                                         ; preds = %165, %250, %.thread586, %123, %321, %94, %579, %271, %.body502
-  %.pn469 = phi { ptr, i32 } [ %.pn466.pn, %579 ], [ %272, %271 ], [ %eh.lpad-body503, %.body502 ], [ %.pn.i495, %123 ], [ %95, %94 ], [ %.pn.i513, %321 ], [ %166, %165 ], [ %.pn443.pn.pn.pn, %250 ], [ %.pn443.pn.pn.pn588, %.thread586 ]
+  %.pn469 = phi { ptr, i32 } [ %.pn466.pn, %579 ], [ %eh.lpad-body503, %.body502 ], [ %272, %271 ], [ %.pn.i495, %123 ], [ %95, %94 ], [ %.pn.i513, %321 ], [ %166, %165 ], [ %.pn443.pn.pn.pn, %250 ], [ %.pn443.pn.pn.pn588, %.thread586 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #22
   br label %581
 
@@ -7928,9 +7928,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %30
   br label %78
 
 78:                                               ; preds = %77, %76, %75, %74, %73, %72, %71
-  %.256 = phi i32 [ 0, %71 ], [ %52, %77 ], [ %48, %76 ], [ %52, %75 ], [ %48, %74 ], [ %52, %73 ], [ %48, %72 ]
-  %.253 = phi i32 [ 0, %71 ], [ %58, %77 ], [ %66, %76 ], [ %58, %75 ], [ %66, %74 ], [ 0, %73 ], [ 0, %72 ]
-  %.2 = phi i32 [ 0, %71 ], [ %64, %77 ], [ %68, %76 ], [ 0, %75 ], [ 0, %74 ], [ 0, %73 ], [ 0, %72 ]
+  %.256 = phi i32 [ 0, %71 ], [ %48, %72 ], [ %52, %73 ], [ %48, %74 ], [ %52, %75 ], [ %48, %76 ], [ %52, %77 ]
+  %.253 = phi i32 [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ %66, %74 ], [ %58, %75 ], [ %66, %76 ], [ %58, %77 ]
+  %.2 = phi i32 [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ %68, %76 ], [ %64, %77 ]
   %79 = icmp slt i32 %.256, 24
   %80 = icmp slt i32 %.253, 60
   %or.cond4 = select i1 %79, i1 %80, i1 false
@@ -8896,9 +8896,9 @@ _ZNK6icu_7714TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %64
 
 64:                                               ; preds = %63, %62, %61, %60, %59, %58, %57
-  %.032 = phi i32 [ 0, %57 ], [ %40, %63 ], [ %36, %62 ], [ %40, %61 ], [ %36, %60 ], [ %40, %59 ], [ %36, %58 ]
-  %.031 = phi i32 [ 0, %57 ], [ %46, %63 ], [ %54, %62 ], [ %46, %61 ], [ %54, %60 ], [ 0, %59 ], [ 0, %58 ]
-  %.0 = phi i32 [ 0, %57 ], [ %52, %63 ], [ %56, %62 ], [ 0, %61 ], [ 0, %60 ], [ 0, %59 ], [ 0, %58 ]
+  %.032 = phi i32 [ 0, %57 ], [ %36, %58 ], [ %40, %59 ], [ %36, %60 ], [ %40, %61 ], [ %36, %62 ], [ %40, %63 ]
+  %.031 = phi i32 [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ %54, %60 ], [ %46, %61 ], [ %54, %62 ], [ %46, %63 ]
+  %.0 = phi i32 [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %60 ], [ 0, %61 ], [ %56, %62 ], [ %52, %63 ]
   %65 = icmp slt i32 %.032, 24
   %66 = icmp slt i32 %.031, 60
   %or.cond = select i1 %65, i1 %66, i1 false

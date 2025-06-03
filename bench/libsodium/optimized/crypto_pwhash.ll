@@ -128,7 +128,7 @@ define dso_local i32 @crypto_pwhash(ptr noundef nonnull %0, i64 noundef %1, ptr 
   br label %15
 
 15:                                               ; preds = %13, %11, %9
-  %.0 = phi i32 [ -1, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0 = phi i32 [ -1, %13 ], [ %10, %9 ], [ %12, %11 ]
   ret i32 %.0
 }
 
@@ -167,7 +167,7 @@ define dso_local i32 @crypto_pwhash_str_alg(ptr noundef nonnull %0, ptr noundef 
   unreachable
 
 12:                                               ; preds = %9, %7
-  %.0 = phi i32 [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi i32 [ %8, %7 ], [ %10, %9 ]
   ret i32 %.0
 }
 

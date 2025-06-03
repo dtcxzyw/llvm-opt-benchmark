@@ -4571,7 +4571,7 @@ define dso_local noundef float @_ZNK17btHingeConstraint8getParamEii(ptr noundef 
   br label %17
 
 17:                                               ; preds = %3, %5, %8, %11, %14, %4
-  %.0 = phi float [ 0.000000e+00, %4 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 0.000000e+00, %3 ]
+  %.0 = phi float [ 0.000000e+00, %4 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ 0.000000e+00, %3 ]
   ret float %.0
 }
 

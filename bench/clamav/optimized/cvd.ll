@@ -1504,7 +1504,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 cli_tgzload_cleanup.exit:                         ; preds = %221, %219, %64, %61, %39, %43, %27, %31, %16, %14, %6, %272, %236, %232, %227, %204, %.loopexit, %115, %104, %98, %97, %94, %87, %22
-  %.0128 = phi i32 [ 15, %22 ], [ 4, %87 ], [ 0, %272 ], [ 4, %94 ], [ 4, %98 ], [ 4, %97 ], [ 4, %104 ], [ 4, %.loopexit ], [ 4, %227 ], [ 4, %236 ], [ 4, %232 ], [ 0, %204 ], [ 4, %115 ], [ 13, %6 ], [ 26, %14 ], [ 13, %16 ], [ 8, %31 ], [ 8, %27 ], [ 8, %43 ], [ 8, %39 ], [ 4, %61 ], [ 4, %64 ], [ 4, %219 ], [ 4, %221 ]
+  %.0128 = phi i32 [ 15, %22 ], [ 4, %87 ], [ 0, %272 ], [ 4, %94 ], [ 4, %98 ], [ 4, %104 ], [ 4, %.loopexit ], [ 4, %227 ], [ 4, %236 ], [ 4, %232 ], [ 0, %204 ], [ 4, %115 ], [ 4, %97 ], [ 13, %6 ], [ 26, %14 ], [ 13, %16 ], [ 8, %31 ], [ 8, %27 ], [ 8, %43 ], [ 8, %39 ], [ 4, %61 ], [ 4, %64 ], [ 4, %219 ], [ 4, %221 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #19
@@ -1769,7 +1769,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   %108 = call i32 @fclose(ptr noundef nonnull %.0.lcssa.i.i)
   br label %cli_cvdunpack.exit
 
-cli_cvdunpack.exit.thread23:                      ; preds = %33, %68, %73, %72, %78, %86, %81, %52, %42, %37, %57, %59, %95, %97
+cli_cvdunpack.exit.thread23:                      ; preds = %33, %68, %73, %78, %86, %81, %72, %52, %42, %37, %57, %59, %95, %97
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #19

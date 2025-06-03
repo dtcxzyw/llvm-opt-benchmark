@@ -510,7 +510,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -557,7 +557,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops20float_sorted_arg
   br label %18
 
 18:                                               ; preds = %16, %14
-  %.sroa.0.0 = phi i64 [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
   ret i64 %.sroa.0.0
 }
 
@@ -15503,7 +15503,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
           to label %77 unwind label %75
 
 74:                                               ; preds = %448, %422, %396, %370, %344, %317, %290, %263, %237, %210, %184, %158, %132, %103, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %449, %448 ], [ %423, %422 ], [ %397, %396 ], [ %371, %370 ], [ %345, %344 ], [ %318, %317 ], [ %291, %290 ], [ %264, %263 ], [ %238, %237 ], [ %211, %210 ], [ %185, %184 ], [ %159, %158 ], [ %133, %132 ], [ %104, %103 ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %104, %103 ], [ %133, %132 ], [ %159, %158 ], [ %185, %184 ], [ %211, %210 ], [ %238, %237 ], [ %264, %263 ], [ %291, %290 ], [ %318, %317 ], [ %345, %344 ], [ %371, %370 ], [ %397, %396 ], [ %423, %422 ], [ %449, %448 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17hc54571383ff99d0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #26
           to label %489 unwind label %129
 
@@ -15727,7 +15727,7 @@ default.unreachable1220:                          ; preds = %82
   br label %127
 
 127:                                              ; preds = %470, %444, %418, %392, %366, %340, %313, %286, %259, %233, %206, %180, %154, %125
-  %.sroa.0446.0 = phi i64 [ %471, %470 ], [ %445, %444 ], [ %419, %418 ], [ %393, %392 ], [ %367, %366 ], [ %341, %340 ], [ %314, %313 ], [ %287, %286 ], [ %260, %259 ], [ %234, %233 ], [ %207, %206 ], [ %181, %180 ], [ %155, %154 ], [ %126, %125 ]
+  %.sroa.0446.0 = phi i64 [ %126, %125 ], [ %155, %154 ], [ %181, %180 ], [ %207, %206 ], [ %234, %233 ], [ %260, %259 ], [ %287, %286 ], [ %314, %313 ], [ %341, %340 ], [ %367, %366 ], [ %393, %392 ], [ %419, %418 ], [ %445, %444 ], [ %471, %470 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17hbfc278c9e9a53eedE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
           to label %472 unwind label %75
@@ -33431,7 +33431,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8TimeUnit
           to label %43 unwind label %41
 
 .body:                                            ; preds = %191, %132, %72, %41, %170, %113, %53
-  %.pn = phi { ptr, i32 } [ %171, %170 ], [ %114, %113 ], [ %54, %53 ], [ %42, %41 ], [ %73, %72 ], [ %133, %132 ], [ %192, %191 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %114, %113 ], [ %171, %170 ], [ %42, %41 ], [ %73, %72 ], [ %133, %132 ], [ %192, %191 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17hc54571383ff99d0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #26
           to label %244 unwind label %110
 
@@ -33674,7 +33674,7 @@ default.unreachable:                              ; preds = %48
   br label %108
 
 108:                                              ; preds = %225, %166, %106
-  %.sroa.0114.0 = phi i64 [ %226, %225 ], [ %167, %166 ], [ %107, %106 ]
+  %.sroa.0114.0 = phi i64 [ %107, %106 ], [ %167, %166 ], [ %226, %225 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17hbfc278c9e9a53eedE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %20, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
           to label %227 unwind label %41

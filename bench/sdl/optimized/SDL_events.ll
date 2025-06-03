@@ -3769,7 +3769,7 @@ SDL_DestroyMainThreadCallback.exit22:             ; preds = %46, %48
   br label %SDL_CreateMainThreadCallback.exit.thread
 
 SDL_CreateMainThreadCallback.exit.thread:         ; preds = %8, %17, %SDL_DestroyMainThreadCallback.exit, %SDL_DestroyMainThreadCallback.exit22, %50, %SDL_SendWakeupEvent.exit, %7
-  %.0 = phi i1 [ true, %7 ], [ %51, %50 ], [ %49, %SDL_DestroyMainThreadCallback.exit22 ], [ true, %SDL_DestroyMainThreadCallback.exit ], [ true, %SDL_SendWakeupEvent.exit ], [ false, %17 ], [ false, %8 ]
+  %.0 = phi i1 [ true, %7 ], [ %51, %50 ], [ true, %SDL_DestroyMainThreadCallback.exit ], [ %49, %SDL_DestroyMainThreadCallback.exit22 ], [ true, %SDL_SendWakeupEvent.exit ], [ false, %17 ], [ false, %8 ]
   ret i1 %.0
 }
 

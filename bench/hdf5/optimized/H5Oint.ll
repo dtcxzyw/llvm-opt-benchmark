@@ -2644,7 +2644,7 @@ define range(i32 -1, 1) i32 @H5O_unprotect(ptr noundef readonly captures(none) %
   br label %76
 
 76:                                               ; preds = %62, %39, %9, %.thread44, %72
-  %.034 = phi i32 [ -1, %39 ], [ -1, %62 ], [ -1, %72 ], [ 0, %.thread44 ], [ 0, %9 ]
+  %.034 = phi i32 [ -1, %72 ], [ 0, %.thread44 ], [ -1, %62 ], [ -1, %39 ], [ 0, %9 ]
   ret i32 %.034
 }
 
@@ -3163,7 +3163,7 @@ define ptr @H5O_get_loc(i64 noundef %0) local_unnamed_addr #3 {
   br label %42
 
 42:                                               ; preds = %14, %22, %30, %34, %38, %26, %18, %10, %1
-  %.0 = phi ptr [ null, %38 ], [ null, %34 ], [ null, %30 ], [ %28, %26 ], [ null, %22 ], [ %20, %18 ], [ null, %14 ], [ %12, %10 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %38 ], [ null, %14 ], [ %12, %10 ], [ null, %22 ], [ %20, %18 ], [ null, %30 ], [ %28, %26 ], [ null, %34 ], [ null, %1 ]
   ret ptr %.0
 }
 

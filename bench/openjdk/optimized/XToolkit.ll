@@ -608,7 +608,7 @@ define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr noundef
   br label %get_poll_timeout.exit.i.i
 
 get_poll_timeout.exit.i.i:                        ; preds = %47, %43, %3
-  %.0.i.i.i = phi i32 [ 0, %3 ], [ %53, %47 ], [ %spec.store.select.i.i.i, %43 ]
+  %.0.i.i.i = phi i32 [ 0, %3 ], [ %spec.store.select.i.i.i, %43 ], [ %53, %47 ]
   %.b.i.i = load i1, ptr @performPoll.pollFdsInited, align 4
   br i1 %.b.i.i, label %59, label %54
 

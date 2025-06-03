@@ -6503,7 +6503,7 @@ _ZNSt6vectorImSaImEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorImSaIm
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %53, %52 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %55 = load i64, ptr %.sroa.032.1.i.i.i.i, align 8
   %.not14.i = icmp eq i64 %55, 0
   br i1 %.not14.i, label %56, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i
@@ -6513,7 +6513,7 @@ _ZNSt6vectorImSaImEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorImSaIm
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %59 = load i64, ptr %.sroa.032.2.i.i.i.i, align 8
   %.not15.i = icmp eq i64 %59, 0
   %spec.select.i.i.i.i = select i1 %.not15.i, ptr %.sroa.13.0, ptr %.sroa.032.2.i.i.i.i
@@ -6800,7 +6800,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %160
 
 160:                                              ; preds = %158, %._crit_edge.i.i.i.i46
-  %.sroa.032.1.i.i.i.i69 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ], [ %159, %158 ]
+  %.sroa.032.1.i.i.i.i69 = phi ptr [ %159, %158 ], [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ]
   %161 = load i64, ptr %.sroa.032.1.i.i.i.i69, align 8
   %.not14.i70 = icmp eq i64 %161, 0
   br i1 %.not14.i70, label %162, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i52
@@ -6810,7 +6810,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %164
 
 164:                                              ; preds = %162, %._crit_edge.i.i.i.i46
-  %.sroa.032.2.i.i.i.i49 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ], [ %163, %162 ]
+  %.sroa.032.2.i.i.i.i49 = phi ptr [ %163, %162 ], [ %.sroa.032.0.lcssa.i.i.i.i48, %._crit_edge.i.i.i.i46 ]
   %165 = load i64, ptr %.sroa.032.2.i.i.i.i49, align 8
   %.not15.i50 = icmp eq i64 %165, 0
   %spec.select.i.i.i.i51 = select i1 %.not15.i50, ptr %.sroa.13.0, ptr %.sroa.032.2.i.i.i.i49

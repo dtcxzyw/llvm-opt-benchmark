@@ -715,8 +715,8 @@ _ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i: ; preds = %370
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i:    ; preds = %395, %394, %_ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i
-  %399 = phi i32 [ %.pre, %395 ], [ %388, %394 ], [ %388, %_ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i ]
-  %.0.i.i.i = phi i64 [ %397, %395 ], [ 2, %394 ], [ 0, %_ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i ]
+  %399 = phi i32 [ %388, %394 ], [ %.pre, %395 ], [ %388, %_ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i ]
+  %.0.i.i.i = phi i64 [ 2, %394 ], [ %397, %395 ], [ 0, %_ZL21allocateFrameInCallerPN4llvm8FunctionEmNS_5AlignE.exit.i ]
   %400 = icmp slt i32 %399, 0
   br i1 %400, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i
 

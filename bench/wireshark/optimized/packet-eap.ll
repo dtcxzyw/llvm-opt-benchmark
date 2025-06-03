@@ -3234,7 +3234,7 @@ define internal fastcc void @dissect_eap_msauth_tlv(ptr noundef %0, ptr noundef 
   br label %59
 
 59:                                               ; preds = %57, %31, %27
-  %.1 = phi i32 [ %58, %57 ], [ %49, %31 ], [ %30, %27 ]
+  %.1 = phi i32 [ %58, %57 ], [ %30, %27 ], [ %49, %31 ]
   %60 = icmp slt i32 %.1, %3
   br i1 %60, label %7, label %61
 

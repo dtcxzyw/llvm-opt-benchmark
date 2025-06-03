@@ -2986,7 +2986,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit213:      ; preds = %_ZN7obj_refI4expr11
   br i1 %926, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorI11expr_offsetLb0EjE5emptyEv.exit
 
 .body:                                            ; preds = %178, %237, %271, %923, %451, %421, %398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %348, %363
-  %.pn111.pn = phi { ptr, i32 } [ %179, %178 ], [ %.pn100.pn.pn.pn, %923 ], [ %238, %237 ], [ %272, %271 ], [ %399, %398 ], [ %452, %451 ], [ %422, %421 ], [ %364, %363 ], [ %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %349, %348 ]
+  %.pn111.pn = phi { ptr, i32 } [ %179, %178 ], [ %238, %237 ], [ %272, %271 ], [ %.pn100.pn.pn.pn, %923 ], [ %399, %398 ], [ %452, %451 ], [ %422, %421 ], [ %364, %363 ], [ %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %349, %348 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #20
   br label %1046
 

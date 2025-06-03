@@ -5816,7 +5816,7 @@ define void @_ZN9uv_client13cached_client19DataWithCachePolicy14from_path_sync17
           to label %84 unwind label %82, !noalias !1183
 
 "_ZN4core3ptr63drop_in_place$LT$rkyv..util..alloc..aligned_vec..AlignedVec$GT$17hb545a58eb301d681E.exit22.i": ; preds = %113, %.body.thread.i, %.body.i, %82
-  %.pn.i = phi { ptr, i32 } [ %83, %82 ], [ %87, %.body.i ], [ %eh.lpad-body25.i, %.body.thread.i ], [ %eh.lpad-body25.i, %113 ]
+  %.pn.i = phi { ptr, i32 } [ %87, %.body.i ], [ %83, %82 ], [ %eh.lpad-body25.i, %.body.thread.i ], [ %eh.lpad-body25.i, %113 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$fs_err..file..File$GT$17hd481c731dfe10680E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #30
           to label %.body unwind label %115, !noalias !1180
 
@@ -6779,7 +6779,7 @@ define { ptr, ptr } @"_ZN71_$LT$uv_client..tls..CertificateError$u20$as$u20$core
   br label %16
 
 16:                                               ; preds = %"_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.exit", %4
-  %.pn = phi { ptr, ptr } [ %15, %"_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.exit" ], [ %5, %4 ]
+  %.pn = phi { ptr, ptr } [ %5, %4 ], [ %15, %"_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.exit" ]
   ret { ptr, ptr } %.pn
 }
 
@@ -6799,7 +6799,7 @@ define noundef zeroext i1 @"_ZN71_$LT$uv_client..tls..CertificateError$u20$as$u2
   br label %9
 
 9:                                                ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ]
   ret i1 %.sroa.0.0.in
 }
 

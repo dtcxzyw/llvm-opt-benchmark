@@ -5683,7 +5683,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit._crit_edge.i: ; preds = %_ZNSt
   br label %_ZN9benchmark7Barrier13createBarrierERNS_9MutexLockE.exit
 
 _ZN9benchmark7Barrier13createBarrierERNS_9MutexLockE.exit: ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit._crit_edge.i, %_ZNSt18condition_variable4waitIZN9benchmark7Barrier13createBarrierERNS1_9MutexLockEEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.i
-  %.1.i = phi i1 [ false, %_ZNSt18condition_variable4waitIZN9benchmark7Barrier13createBarrierERNS1_9MutexLockEEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.i ], [ true, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit._crit_edge.i ]
+  %.1.i = phi i1 [ true, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit._crit_edge.i ], [ false, %_ZNSt18condition_variable4waitIZN9benchmark7Barrier13createBarrierERNS1_9MutexLockEEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.i ]
   %27 = load i8, ptr %3, align 8, !tbaa !281, !range !86, !noundef !87
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %_ZN9benchmark9MutexLockD2Ev.exit

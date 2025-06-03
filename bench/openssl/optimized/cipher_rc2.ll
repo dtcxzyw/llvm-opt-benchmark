@@ -240,7 +240,7 @@ define internal range(i32 0, 2) i32 @rc2_get_ctx_params(ptr noundef %0, ptr noun
   br label %rc2_keybits_to_magic.exit
 
 rc2_keybits_to_magic.exit:                        ; preds = %46, %50, %51, %52
-  %.0.i = phi i64 [ 0, %52 ], [ 160, %51 ], [ 120, %50 ], [ 58, %46 ]
+  %.0.i = phi i64 [ 0, %52 ], [ 120, %50 ], [ 160, %51 ], [ 58, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load i64, ptr %54, align 8, !tbaa !25
@@ -674,7 +674,7 @@ define internal fastcc range(i32 0, 129) i32 @rc2_magic_to_keybits(i32 noundef %
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi i32 [ 0, %4 ], [ 40, %3 ], [ 64, %2 ], [ 128, %1 ]
+  %.0 = phi i32 [ 0, %4 ], [ 64, %2 ], [ 40, %3 ], [ 128, %1 ]
   ret i32 %.0
 }
 

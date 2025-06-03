@@ -4496,8 +4496,8 @@ define internal fastcc void @dissect_ndps(ptr noundef %0, ptr noundef %1, ptr no
   br label %65
 
 65:                                               ; preds = %62, %59, %56, %53, %50, %47
-  %.099 = phi i32 [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %53 ], [ %51, %50 ], [ %48, %47 ]
-  %.0 = phi ptr [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ]
+  %.099 = phi i32 [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ]
+  %.0 = phi ptr [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ]
   %.not103 = icmp eq i32 %.099, 0
   br i1 %.not103, label %.thread, label %66
 
@@ -10533,7 +10533,7 @@ define internal fastcc i32 @ndps_error(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %161, %136, %4, %141, %50, %64, %179, %134, %116, %99, %82, %30
-  %.1 = phi i32 [ %14, %4 ], [ %180, %179 ], [ %.7237, %141 ], [ %135, %134 ], [ %118, %116 ], [ %100, %99 ], [ %83, %82 ], [ %66, %64 ], [ %61, %50 ], [ %33, %30 ], [ %140, %136 ], [ %162, %161 ]
+  %.1 = phi i32 [ %14, %4 ], [ %33, %30 ], [ %66, %64 ], [ %61, %50 ], [ %83, %82 ], [ %100, %99 ], [ %118, %116 ], [ %135, %134 ], [ %.7237, %141 ], [ %180, %179 ], [ %140, %136 ], [ %162, %161 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   ret i32 %.1
@@ -11435,8 +11435,8 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %exitcond1933.not, label %.loopexit1670, label %.lr.ph1779, !llvm.loop !96
 
 .loopexit1670:                                    ; preds = %399, %392, %397, %390, %.loopexit1669, %359
-  %.13 = phi i32 [ %378, %359 ], [ %.151778, %397 ], [ %391, %390 ], [ %389, %.loopexit1669 ], [ %396, %392 ], [ %403, %399 ]
-  %.1 = phi ptr [ %.01787, %359 ], [ %395, %397 ], [ %.01787, %390 ], [ %382, %.loopexit1669 ], [ %395, %392 ], [ %395, %399 ]
+  %.13 = phi i32 [ %378, %359 ], [ %389, %.loopexit1669 ], [ %391, %390 ], [ %.151778, %397 ], [ %396, %392 ], [ %403, %399 ]
+  %.1 = phi ptr [ %.01787, %359 ], [ %382, %.loopexit1669 ], [ %.01787, %390 ], [ %395, %397 ], [ %395, %392 ], [ %395, %399 ]
   %405 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %405, ptr noundef %0, i32 noundef %.13)
   %exitcond1937.not = icmp eq i32 %361, %353
@@ -12588,7 +12588,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   br label %1098
 
 1098:                                             ; preds = %1066, %1095, %1091, %1087, %1078
-  %.40 = phi i32 [ %1077, %1066 ], [ %1097, %1095 ], [ %1094, %1091 ], [ %1090, %1087 ], [ %1080, %1078 ]
+  %.40 = phi i32 [ %1077, %1066 ], [ %1080, %1078 ], [ %1090, %1087 ], [ %1094, %1091 ], [ %1097, %1095 ]
   %1099 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.40)
   %1100 = load i32, ptr @hf_ndps_num_events, align 4
   %1101 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %1100, ptr noundef %0, i32 noundef %.40, i32 noundef 4, i32 noundef %1099)
@@ -12668,7 +12668,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1008, %956, %qualifiedname.exit, %812, %751, %.thread1661, %.thread1656, %545, %503, %473, %.loopexit1670, %259, %151, %138, %102, %54, %37, %993, %1001, %948, %919, %.loopexit1680, %744, %597, %547, %524, %479, %455, %.loopexit1672, %252, %144, %131, %95, %47, %30, %18, %1006, %946, %954, %924, %871, %873, %880, %823, %827, %829, %818, %800, %749, %691, %707, %652, %654, %638, %642, %595, %604, %552, %529, %511, %513, %488, %461, %421, %424, %428, %416, %357, %315, %317, %303, %307, %286, %290, %257, %149, %136, %100, %67, %71, %52, %35, %.loopexit1685, %1043, %1033, %990, %983, %.loopexit1683, %917, %895, %887, %864, %846, %842, %836, %766, %762, %741, %665, %661, %519, %516, %450, %441, %433, %431, %406, %292, %276, %239, %.loopexit1667, %203, %181, %162, %158, %129, %125, %121, %117, %110, %91, %84, %82, %43, %28, %25, %20
-  %.01601 = phi i32 [ %19, %18 ], [ %1140, %.loopexit1685 ], [ %1052, %1043 ], [ %1036, %1033 ], [ %.391726, %1006 ], [ %992, %990 ], [ %989, %983 ], [ %982, %.loopexit1683 ], [ %947, %946 ], [ %.371734, %954 ], [ %.361738, %924 ], [ %918, %917 ], [ %916, %895 ], [ %894, %887 ], [ %886, %880 ], [ %879, %873 ], [ %872, %871 ], [ %865, %864 ], [ %854, %846 ], [ %845, %842 ], [ %841, %836 ], [ %822, %818 ], [ %835, %829 ], [ %828, %827 ], [ %826, %823 ], [ %.351746, %800 ], [ %773, %766 ], [ %765, %762 ], [ %.331750, %749 ], [ %743, %741 ], [ %706, %691 ], [ %740, %707 ], [ %668, %665 ], [ %664, %661 ], [ %653, %652 ], [ %660, %654 ], [ %641, %638 ], [ %645, %642 ], [ %596, %595 ], [ %.281754, %604 ], [ %.211758, %552 ], [ %.191762, %529 ], [ %523, %519 ], [ %518, %516 ], [ %512, %511 ], [ %515, %513 ], [ %.171766, %488 ], [ %.161770, %461 ], [ %454, %450 ], [ %449, %441 ], [ %440, %433 ], [ %432, %431 ], [ %420, %416 ], [ %430, %428 ], [ %427, %424 ], [ %423, %421 ], [ %415, %406 ], [ %.121786, %357 ], [ %316, %315 ], [ %320, %317 ], [ %306, %303 ], [ %308, %307 ], [ %296, %292 ], [ %289, %286 ], [ %291, %290 ], [ %279, %276 ], [ %.101791, %257 ], [ %251, %239 ], [ %238, %.loopexit1667 ], [ %209, %203 ], [ %187, %181 ], [ %168, %162 ], [ %161, %158 ], [ %.51799, %149 ], [ %.41803, %136 ], [ %130, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %110 ], [ %.31807, %100 ], [ %94, %91 ], [ %90, %84 ], [ %83, %82 ], [ %70, %67 ], [ %74, %71 ], [ %.21811, %52 ], [ %46, %43 ], [ %.116021815, %35 ], [ %29, %28 ], [ %27, %25 ], [ %19, %20 ], [ %34, %30 ], [ %51, %47 ], [ %99, %95 ], [ %135, %131 ], [ %148, %144 ], [ %256, %252 ], [ %356, %.loopexit1672 ], [ %460, %455 ], [ %487, %479 ], [ %528, %524 ], [ %551, %547 ], [ %603, %597 ], [ %748, %744 ], [ %799, %.loopexit1680 ], [ %923, %919 ], [ %953, %948 ], [ %1005, %1001 ], [ %1000, %993 ], [ %41, %37 ], [ %60, %54 ], [ %108, %102 ], [ %142, %138 ], [ %156, %151 ], [ %274, %259 ], [ %.13, %.loopexit1670 ], [ %477, %473 ], [ %.18, %503 ], [ %.20, %545 ], [ %.27, %.thread1656 ], [ %.31, %.thread1661 ], [ %760, %751 ], [ %816, %812 ], [ %.0.i1649, %qualifiedname.exit ], [ %960, %956 ], [ %1016, %1008 ]
+  %.01601 = phi i32 [ %19, %18 ], [ %19, %20 ], [ %27, %25 ], [ %29, %28 ], [ %.116021815, %35 ], [ %46, %43 ], [ %.21811, %52 ], [ %70, %67 ], [ %74, %71 ], [ %83, %82 ], [ %90, %84 ], [ %94, %91 ], [ %.31807, %100 ], [ %116, %110 ], [ %120, %117 ], [ %124, %121 ], [ %128, %125 ], [ %130, %129 ], [ %.41803, %136 ], [ %.51799, %149 ], [ %161, %158 ], [ %168, %162 ], [ %187, %181 ], [ %209, %203 ], [ %238, %.loopexit1667 ], [ %251, %239 ], [ %.101791, %257 ], [ %279, %276 ], [ %289, %286 ], [ %291, %290 ], [ %296, %292 ], [ %306, %303 ], [ %308, %307 ], [ %316, %315 ], [ %320, %317 ], [ %.121786, %357 ], [ %415, %406 ], [ %420, %416 ], [ %423, %421 ], [ %427, %424 ], [ %430, %428 ], [ %432, %431 ], [ %440, %433 ], [ %449, %441 ], [ %454, %450 ], [ %.161770, %461 ], [ %.171766, %488 ], [ %512, %511 ], [ %515, %513 ], [ %518, %516 ], [ %523, %519 ], [ %.191762, %529 ], [ %.211758, %552 ], [ %596, %595 ], [ %.281754, %604 ], [ %641, %638 ], [ %645, %642 ], [ %653, %652 ], [ %660, %654 ], [ %664, %661 ], [ %668, %665 ], [ %706, %691 ], [ %740, %707 ], [ %743, %741 ], [ %.331750, %749 ], [ %765, %762 ], [ %773, %766 ], [ %.351746, %800 ], [ %822, %818 ], [ %826, %823 ], [ %828, %827 ], [ %835, %829 ], [ %841, %836 ], [ %845, %842 ], [ %854, %846 ], [ %865, %864 ], [ %886, %880 ], [ %872, %871 ], [ %879, %873 ], [ %894, %887 ], [ %916, %895 ], [ %918, %917 ], [ %.361738, %924 ], [ %947, %946 ], [ %.371734, %954 ], [ %982, %.loopexit1683 ], [ %989, %983 ], [ %992, %990 ], [ %.391726, %1006 ], [ %1036, %1033 ], [ %1052, %1043 ], [ %1140, %.loopexit1685 ], [ %34, %30 ], [ %51, %47 ], [ %99, %95 ], [ %135, %131 ], [ %148, %144 ], [ %256, %252 ], [ %356, %.loopexit1672 ], [ %460, %455 ], [ %487, %479 ], [ %528, %524 ], [ %551, %547 ], [ %603, %597 ], [ %748, %744 ], [ %799, %.loopexit1680 ], [ %923, %919 ], [ %953, %948 ], [ %1005, %1001 ], [ %1000, %993 ], [ %41, %37 ], [ %60, %54 ], [ %108, %102 ], [ %142, %138 ], [ %156, %151 ], [ %274, %259 ], [ %.13, %.loopexit1670 ], [ %477, %473 ], [ %.18, %503 ], [ %.20, %545 ], [ %.27, %.thread1656 ], [ %.31, %.thread1661 ], [ %760, %751 ], [ %816, %812 ], [ %.0.i1649, %qualifiedname.exit ], [ %960, %956 ], [ %1016, %1008 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   ret i32 %.01601
@@ -12771,7 +12771,7 @@ define internal fastcc i32 @objectidentification(ptr noundef %0, ptr noundef %1,
   br label %qualifiedname.exit
 
 qualifiedname.exit:                               ; preds = %.sink.split.i, %39, %10, %16, %22, %29, %31, %33, %36, %49, %3, %24
-  %.0 = phi i32 [ %26, %24 ], [ %9, %3 ], [ %55, %49 ], [ %38, %36 ], [ %35, %33 ], [ %32, %31 ], [ %30, %29 ], [ %23, %22 ], [ %21, %16 ], [ %15, %10 ], [ %43, %39 ], [ %48, %.sink.split.i ]
+  %.0 = phi i32 [ %26, %24 ], [ %9, %3 ], [ %15, %10 ], [ %21, %16 ], [ %23, %22 ], [ %30, %29 ], [ %32, %31 ], [ %35, %33 ], [ %38, %36 ], [ %55, %49 ], [ %43, %39 ], [ %48, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -12795,15 +12795,15 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %13 = add i32 %2, 4
   switch i32 %4, label %.thread [
     i32 9, label %14
-    i32 10, label %20
-    i32 11, label %31
-    i32 12, label %42
-    i32 13, label %53
-    i32 14, label %64
-    i32 15, label %75
-    i32 16, label %86
-    i32 17, label %97
-    i32 18, label %108
+    i32 10, label %25
+    i32 11, label %36
+    i32 12, label %47
+    i32 13, label %58
+    i32 14, label %69
+    i32 15, label %80
+    i32 16, label %91
+    i32 17, label %102
+    i32 18, label %113
   ]
 
 14:                                               ; preds = %12
@@ -12811,205 +12811,205 @@ define internal fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %1, i32
   %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
   %17 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @object_ids_7)
   %.not209 = icmp eq ptr %17, null
-  br i1 %.not209, label %121, label %.thread181
+  br i1 %.not209, label %20, label %.thread183
 
-.thread181:                                       ; preds = %14
+.thread183:                                       ; preds = %14
   %18 = load i32, ptr @hf_ndps_object_ids_7, align 4
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %13, i32 noundef 9, i32 noundef %16, ptr noundef nonnull @.str.1856, ptr noundef nonnull %17)
   br label %126
 
-20:                                               ; preds = %12
-  %21 = add i32 %2, 10
-  %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %21)
-  %23 = tail call ptr @try_val_to_str(i32 noundef %22, ptr noundef nonnull @object_ids_8)
-  %.not208 = icmp eq ptr %23, null
-  br i1 %.not208, label %26, label %.thread183
+20:                                               ; preds = %14
+  %21 = tail call ptr @wmem_packet_scope()
+  %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull @.str.1410)
+  %23 = load i32, ptr @hf_ndps_object_ids_7, align 4
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %13, i32 noundef 9, i32 noundef %16, ptr noundef nonnull @.str.1856, ptr noundef %22)
+  br label %.thread210
 
-.thread183:                                       ; preds = %20
-  %24 = load i32, ptr @hf_ndps_object_ids_8, align 4
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef %13, i32 noundef 10, i32 noundef %22, ptr noundef nonnull @.str.1856, ptr noundef nonnull %23)
-  br label %126
+25:                                               ; preds = %12
+  %26 = add i32 %2, 10
+  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %26)
+  %28 = tail call ptr @try_val_to_str(i32 noundef %27, ptr noundef nonnull @object_ids_8)
+  %.not208 = icmp eq ptr %28, null
+  br i1 %.not208, label %31, label %.thread185
 
-26:                                               ; preds = %20
-  %27 = tail call ptr @wmem_packet_scope()
-  %28 = tail call noalias ptr @wmem_strdup(ptr noundef %27, ptr noundef nonnull @.str.1410)
+.thread185:                                       ; preds = %25
   %29 = load i32, ptr @hf_ndps_object_ids_8, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %29, ptr noundef %0, i32 noundef %13, i32 noundef 10, i32 noundef %22, ptr noundef nonnull @.str.1856, ptr noundef %28)
-  br label %.thread210
-
-31:                                               ; preds = %12
-  %32 = add i32 %2, 11
-  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %32)
-  %34 = tail call ptr @try_val_to_str(i32 noundef %33, ptr noundef nonnull @object_ids_9)
-  %.not207 = icmp eq ptr %34, null
-  br i1 %.not207, label %37, label %.thread185
-
-.thread185:                                       ; preds = %31
-  %35 = load i32, ptr @hf_ndps_object_ids_9, align 4
-  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %35, ptr noundef %0, i32 noundef %13, i32 noundef 11, i32 noundef %33, ptr noundef nonnull @.str.1856, ptr noundef nonnull %34)
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %29, ptr noundef %0, i32 noundef %13, i32 noundef 10, i32 noundef %27, ptr noundef nonnull @.str.1856, ptr noundef nonnull %28)
   br label %126
 
-37:                                               ; preds = %31
-  %38 = tail call ptr @wmem_packet_scope()
-  %39 = tail call noalias ptr @wmem_strdup(ptr noundef %38, ptr noundef nonnull @.str.1410)
+31:                                               ; preds = %25
+  %32 = tail call ptr @wmem_packet_scope()
+  %33 = tail call noalias ptr @wmem_strdup(ptr noundef %32, ptr noundef nonnull @.str.1410)
+  %34 = load i32, ptr @hf_ndps_object_ids_8, align 4
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %13, i32 noundef 10, i32 noundef %27, ptr noundef nonnull @.str.1856, ptr noundef %33)
+  br label %.thread210
+
+36:                                               ; preds = %12
+  %37 = add i32 %2, 11
+  %38 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %37)
+  %39 = tail call ptr @try_val_to_str(i32 noundef %38, ptr noundef nonnull @object_ids_9)
+  %.not207 = icmp eq ptr %39, null
+  br i1 %.not207, label %42, label %.thread187
+
+.thread187:                                       ; preds = %36
   %40 = load i32, ptr @hf_ndps_object_ids_9, align 4
-  %41 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %40, ptr noundef %0, i32 noundef %13, i32 noundef 11, i32 noundef %33, ptr noundef nonnull @.str.1856, ptr noundef %39)
-  br label %.thread210
-
-42:                                               ; preds = %12
-  %43 = add i32 %2, 12
-  %44 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %43)
-  %45 = tail call ptr @try_val_to_str(i32 noundef %44, ptr noundef nonnull @object_ids_10)
-  %.not206 = icmp eq ptr %45, null
-  br i1 %.not206, label %48, label %.thread187
-
-.thread187:                                       ; preds = %42
-  %46 = load i32, ptr @hf_ndps_object_ids_10, align 4
-  %47 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %13, i32 noundef 12, i32 noundef %44, ptr noundef nonnull @.str.1856, ptr noundef nonnull %45)
+  %41 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %40, ptr noundef %0, i32 noundef %13, i32 noundef 11, i32 noundef %38, ptr noundef nonnull @.str.1856, ptr noundef nonnull %39)
   br label %126
 
-48:                                               ; preds = %42
-  %49 = tail call ptr @wmem_packet_scope()
-  %50 = tail call noalias ptr @wmem_strdup(ptr noundef %49, ptr noundef nonnull @.str.1410)
+42:                                               ; preds = %36
+  %43 = tail call ptr @wmem_packet_scope()
+  %44 = tail call noalias ptr @wmem_strdup(ptr noundef %43, ptr noundef nonnull @.str.1410)
+  %45 = load i32, ptr @hf_ndps_object_ids_9, align 4
+  %46 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %13, i32 noundef 11, i32 noundef %38, ptr noundef nonnull @.str.1856, ptr noundef %44)
+  br label %.thread210
+
+47:                                               ; preds = %12
+  %48 = add i32 %2, 12
+  %49 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %48)
+  %50 = tail call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @object_ids_10)
+  %.not206 = icmp eq ptr %50, null
+  br i1 %.not206, label %53, label %.thread189
+
+.thread189:                                       ; preds = %47
   %51 = load i32, ptr @hf_ndps_object_ids_10, align 4
-  %52 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %51, ptr noundef %0, i32 noundef %13, i32 noundef 12, i32 noundef %44, ptr noundef nonnull @.str.1856, ptr noundef %50)
-  br label %.thread210
-
-53:                                               ; preds = %12
-  %54 = add i32 %2, 13
-  %55 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %54)
-  %56 = tail call ptr @try_val_to_str(i32 noundef %55, ptr noundef nonnull @object_ids_11)
-  %.not205 = icmp eq ptr %56, null
-  br i1 %.not205, label %59, label %.thread189
-
-.thread189:                                       ; preds = %53
-  %57 = load i32, ptr @hf_ndps_object_ids_11, align 4
-  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %57, ptr noundef %0, i32 noundef %13, i32 noundef 13, i32 noundef %55, ptr noundef nonnull @.str.1856, ptr noundef nonnull %56)
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %51, ptr noundef %0, i32 noundef %13, i32 noundef 12, i32 noundef %49, ptr noundef nonnull @.str.1856, ptr noundef nonnull %50)
   br label %126
 
-59:                                               ; preds = %53
-  %60 = tail call ptr @wmem_packet_scope()
-  %61 = tail call noalias ptr @wmem_strdup(ptr noundef %60, ptr noundef nonnull @.str.1410)
+53:                                               ; preds = %47
+  %54 = tail call ptr @wmem_packet_scope()
+  %55 = tail call noalias ptr @wmem_strdup(ptr noundef %54, ptr noundef nonnull @.str.1410)
+  %56 = load i32, ptr @hf_ndps_object_ids_10, align 4
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %13, i32 noundef 12, i32 noundef %49, ptr noundef nonnull @.str.1856, ptr noundef %55)
+  br label %.thread210
+
+58:                                               ; preds = %12
+  %59 = add i32 %2, 13
+  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %59)
+  %61 = tail call ptr @try_val_to_str(i32 noundef %60, ptr noundef nonnull @object_ids_11)
+  %.not205 = icmp eq ptr %61, null
+  br i1 %.not205, label %64, label %.thread191
+
+.thread191:                                       ; preds = %58
   %62 = load i32, ptr @hf_ndps_object_ids_11, align 4
-  %63 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %62, ptr noundef %0, i32 noundef %13, i32 noundef 13, i32 noundef %55, ptr noundef nonnull @.str.1856, ptr noundef %61)
-  br label %.thread210
-
-64:                                               ; preds = %12
-  %65 = add i32 %2, 14
-  %66 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %65)
-  %67 = tail call ptr @try_val_to_str(i32 noundef %66, ptr noundef nonnull @object_ids_12)
-  %.not204 = icmp eq ptr %67, null
-  br i1 %.not204, label %70, label %.thread191
-
-.thread191:                                       ; preds = %64
-  %68 = load i32, ptr @hf_ndps_object_ids_12, align 4
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %68, ptr noundef %0, i32 noundef %13, i32 noundef 14, i32 noundef %66, ptr noundef nonnull @.str.1856, ptr noundef nonnull %67)
+  %63 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %62, ptr noundef %0, i32 noundef %13, i32 noundef 13, i32 noundef %60, ptr noundef nonnull @.str.1856, ptr noundef nonnull %61)
   br label %126
 
-70:                                               ; preds = %64
-  %71 = tail call ptr @wmem_packet_scope()
-  %72 = tail call noalias ptr @wmem_strdup(ptr noundef %71, ptr noundef nonnull @.str.1410)
+64:                                               ; preds = %58
+  %65 = tail call ptr @wmem_packet_scope()
+  %66 = tail call noalias ptr @wmem_strdup(ptr noundef %65, ptr noundef nonnull @.str.1410)
+  %67 = load i32, ptr @hf_ndps_object_ids_11, align 4
+  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %13, i32 noundef 13, i32 noundef %60, ptr noundef nonnull @.str.1856, ptr noundef %66)
+  br label %.thread210
+
+69:                                               ; preds = %12
+  %70 = add i32 %2, 14
+  %71 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %70)
+  %72 = tail call ptr @try_val_to_str(i32 noundef %71, ptr noundef nonnull @object_ids_12)
+  %.not204 = icmp eq ptr %72, null
+  br i1 %.not204, label %75, label %.thread193
+
+.thread193:                                       ; preds = %69
   %73 = load i32, ptr @hf_ndps_object_ids_12, align 4
-  %74 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %73, ptr noundef %0, i32 noundef %13, i32 noundef 14, i32 noundef %66, ptr noundef nonnull @.str.1856, ptr noundef %72)
-  br label %.thread210
-
-75:                                               ; preds = %12
-  %76 = add i32 %2, 15
-  %77 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %76)
-  %78 = tail call ptr @try_val_to_str(i32 noundef %77, ptr noundef nonnull @object_ids_13)
-  %.not203 = icmp eq ptr %78, null
-  br i1 %.not203, label %81, label %.thread193
-
-.thread193:                                       ; preds = %75
-  %79 = load i32, ptr @hf_ndps_object_ids_13, align 4
-  %80 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %79, ptr noundef %0, i32 noundef %13, i32 noundef 15, i32 noundef %77, ptr noundef nonnull @.str.1856, ptr noundef nonnull %78)
+  %74 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %73, ptr noundef %0, i32 noundef %13, i32 noundef 14, i32 noundef %71, ptr noundef nonnull @.str.1856, ptr noundef nonnull %72)
   br label %126
 
-81:                                               ; preds = %75
-  %82 = tail call ptr @wmem_packet_scope()
-  %83 = tail call noalias ptr @wmem_strdup(ptr noundef %82, ptr noundef nonnull @.str.1410)
+75:                                               ; preds = %69
+  %76 = tail call ptr @wmem_packet_scope()
+  %77 = tail call noalias ptr @wmem_strdup(ptr noundef %76, ptr noundef nonnull @.str.1410)
+  %78 = load i32, ptr @hf_ndps_object_ids_12, align 4
+  %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %78, ptr noundef %0, i32 noundef %13, i32 noundef 14, i32 noundef %71, ptr noundef nonnull @.str.1856, ptr noundef %77)
+  br label %.thread210
+
+80:                                               ; preds = %12
+  %81 = add i32 %2, 15
+  %82 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %81)
+  %83 = tail call ptr @try_val_to_str(i32 noundef %82, ptr noundef nonnull @object_ids_13)
+  %.not203 = icmp eq ptr %83, null
+  br i1 %.not203, label %86, label %.thread195
+
+.thread195:                                       ; preds = %80
   %84 = load i32, ptr @hf_ndps_object_ids_13, align 4
-  %85 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %13, i32 noundef 15, i32 noundef %77, ptr noundef nonnull @.str.1856, ptr noundef %83)
-  br label %.thread210
-
-86:                                               ; preds = %12
-  %87 = add i32 %2, 16
-  %88 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %87)
-  %89 = tail call ptr @try_val_to_str(i32 noundef %88, ptr noundef nonnull @object_ids_14)
-  %.not202 = icmp eq ptr %89, null
-  br i1 %.not202, label %92, label %.thread195
-
-.thread195:                                       ; preds = %86
-  %90 = load i32, ptr @hf_ndps_object_ids_14, align 4
-  %91 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %90, ptr noundef %0, i32 noundef %13, i32 noundef 16, i32 noundef %88, ptr noundef nonnull @.str.1856, ptr noundef nonnull %89)
+  %85 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %13, i32 noundef 15, i32 noundef %82, ptr noundef nonnull @.str.1856, ptr noundef nonnull %83)
   br label %126
 
-92:                                               ; preds = %86
-  %93 = tail call ptr @wmem_packet_scope()
-  %94 = tail call noalias ptr @wmem_strdup(ptr noundef %93, ptr noundef nonnull @.str.1410)
+86:                                               ; preds = %80
+  %87 = tail call ptr @wmem_packet_scope()
+  %88 = tail call noalias ptr @wmem_strdup(ptr noundef %87, ptr noundef nonnull @.str.1410)
+  %89 = load i32, ptr @hf_ndps_object_ids_13, align 4
+  %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %89, ptr noundef %0, i32 noundef %13, i32 noundef 15, i32 noundef %82, ptr noundef nonnull @.str.1856, ptr noundef %88)
+  br label %.thread210
+
+91:                                               ; preds = %12
+  %92 = add i32 %2, 16
+  %93 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %92)
+  %94 = tail call ptr @try_val_to_str(i32 noundef %93, ptr noundef nonnull @object_ids_14)
+  %.not202 = icmp eq ptr %94, null
+  br i1 %.not202, label %97, label %.thread197
+
+.thread197:                                       ; preds = %91
   %95 = load i32, ptr @hf_ndps_object_ids_14, align 4
-  %96 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %95, ptr noundef %0, i32 noundef %13, i32 noundef 16, i32 noundef %88, ptr noundef nonnull @.str.1856, ptr noundef %94)
-  br label %.thread210
-
-97:                                               ; preds = %12
-  %98 = add i32 %2, 17
-  %99 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %98)
-  %100 = tail call ptr @try_val_to_str(i32 noundef %99, ptr noundef nonnull @object_ids_15)
-  %.not201 = icmp eq ptr %100, null
-  br i1 %.not201, label %103, label %.thread197
-
-.thread197:                                       ; preds = %97
-  %101 = load i32, ptr @hf_ndps_object_ids_15, align 4
-  %102 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %101, ptr noundef %0, i32 noundef %13, i32 noundef 17, i32 noundef %99, ptr noundef nonnull @.str.1856, ptr noundef nonnull %100)
+  %96 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %95, ptr noundef %0, i32 noundef %13, i32 noundef 16, i32 noundef %93, ptr noundef nonnull @.str.1856, ptr noundef nonnull %94)
   br label %126
 
-103:                                              ; preds = %97
-  %104 = tail call ptr @wmem_packet_scope()
-  %105 = tail call noalias ptr @wmem_strdup(ptr noundef %104, ptr noundef nonnull @.str.1410)
+97:                                               ; preds = %91
+  %98 = tail call ptr @wmem_packet_scope()
+  %99 = tail call noalias ptr @wmem_strdup(ptr noundef %98, ptr noundef nonnull @.str.1410)
+  %100 = load i32, ptr @hf_ndps_object_ids_14, align 4
+  %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %13, i32 noundef 16, i32 noundef %93, ptr noundef nonnull @.str.1856, ptr noundef %99)
+  br label %.thread210
+
+102:                                              ; preds = %12
+  %103 = add i32 %2, 17
+  %104 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %103)
+  %105 = tail call ptr @try_val_to_str(i32 noundef %104, ptr noundef nonnull @object_ids_15)
+  %.not201 = icmp eq ptr %105, null
+  br i1 %.not201, label %108, label %.thread199
+
+.thread199:                                       ; preds = %102
   %106 = load i32, ptr @hf_ndps_object_ids_15, align 4
-  %107 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %13, i32 noundef 17, i32 noundef %99, ptr noundef nonnull @.str.1856, ptr noundef %105)
-  br label %.thread210
-
-108:                                              ; preds = %12
-  %109 = add i32 %2, 18
-  %110 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %109)
-  %111 = tail call ptr @try_val_to_str(i32 noundef %110, ptr noundef nonnull @object_ids_16)
-  %.not = icmp eq ptr %111, null
-  br i1 %.not, label %114, label %.thread199
-
-.thread199:                                       ; preds = %108
-  %112 = load i32, ptr @hf_ndps_object_ids_16, align 4
-  %113 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %112, ptr noundef %0, i32 noundef %13, i32 noundef 18, i32 noundef %110, ptr noundef nonnull @.str.1856, ptr noundef nonnull %111)
+  %107 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %13, i32 noundef 17, i32 noundef %104, ptr noundef nonnull @.str.1856, ptr noundef nonnull %105)
   br label %126
 
-114:                                              ; preds = %108
-  %115 = tail call ptr @wmem_packet_scope()
-  %116 = tail call noalias ptr @wmem_strdup(ptr noundef %115, ptr noundef nonnull @.str.1410)
-  %117 = load i32, ptr @hf_ndps_object_ids_16, align 4
-  %118 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %117, ptr noundef %0, i32 noundef %13, i32 noundef 18, i32 noundef %110, ptr noundef nonnull @.str.1856, ptr noundef %116)
+108:                                              ; preds = %102
+  %109 = tail call ptr @wmem_packet_scope()
+  %110 = tail call noalias ptr @wmem_strdup(ptr noundef %109, ptr noundef nonnull @.str.1410)
+  %111 = load i32, ptr @hf_ndps_object_ids_15, align 4
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %111, ptr noundef %0, i32 noundef %13, i32 noundef 17, i32 noundef %104, ptr noundef nonnull @.str.1856, ptr noundef %110)
   br label %.thread210
+
+113:                                              ; preds = %12
+  %114 = add i32 %2, 18
+  %115 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %114)
+  %116 = tail call ptr @try_val_to_str(i32 noundef %115, ptr noundef nonnull @object_ids_16)
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %121, label %.thread181
+
+.thread181:                                       ; preds = %113
+  %117 = load i32, ptr @hf_ndps_object_ids_16, align 4
+  %118 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %117, ptr noundef %0, i32 noundef %13, i32 noundef 18, i32 noundef %115, ptr noundef nonnull @.str.1856, ptr noundef nonnull %116)
+  br label %126
 
 .thread:                                          ; preds = %12
   %119 = load i32, ptr @hf_ndps_object_ids_7, align 4
   %120 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %119, ptr noundef %0, i32 noundef %13, i32 noundef %4, i32 noundef 1, ptr noundef nonnull @.str.1410)
   br label %.thread210
 
-121:                                              ; preds = %14
+121:                                              ; preds = %113
   %122 = tail call ptr @wmem_packet_scope()
   %123 = tail call noalias ptr @wmem_strdup(ptr noundef %122, ptr noundef nonnull @.str.1410)
-  %124 = load i32, ptr @hf_ndps_object_ids_7, align 4
-  %125 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %124, ptr noundef %0, i32 noundef %13, i32 noundef 9, i32 noundef %16, ptr noundef nonnull @.str.1856, ptr noundef %123)
+  %124 = load i32, ptr @hf_ndps_object_ids_16, align 4
+  %125 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %124, ptr noundef %0, i32 noundef %13, i32 noundef 18, i32 noundef %115, ptr noundef nonnull @.str.1856, ptr noundef %123)
   br label %.thread210
 
 126:                                              ; preds = %.thread199, %.thread197, %.thread195, %.thread193, %.thread191, %.thread189, %.thread187, %.thread185, %.thread183, %.thread181
-  %.0148178 = phi ptr [ %19, %.thread181 ], [ %25, %.thread183 ], [ %36, %.thread185 ], [ %47, %.thread187 ], [ %58, %.thread189 ], [ %69, %.thread191 ], [ %80, %.thread193 ], [ %91, %.thread195 ], [ %102, %.thread197 ], [ %113, %.thread199 ]
-  %.11 = phi ptr [ %17, %.thread181 ], [ %23, %.thread183 ], [ %34, %.thread185 ], [ %45, %.thread187 ], [ %56, %.thread189 ], [ %67, %.thread191 ], [ %78, %.thread193 ], [ %89, %.thread195 ], [ %100, %.thread197 ], [ %111, %.thread199 ]
+  %.0148178 = phi ptr [ %118, %.thread181 ], [ %19, %.thread183 ], [ %30, %.thread185 ], [ %41, %.thread187 ], [ %52, %.thread189 ], [ %63, %.thread191 ], [ %74, %.thread193 ], [ %85, %.thread195 ], [ %96, %.thread197 ], [ %107, %.thread199 ]
+  %.11 = phi ptr [ %116, %.thread181 ], [ %17, %.thread183 ], [ %28, %.thread185 ], [ %39, %.thread187 ], [ %50, %.thread189 ], [ %61, %.thread191 ], [ %72, %.thread193 ], [ %83, %.thread195 ], [ %94, %.thread197 ], [ %105, %.thread199 ]
   %127 = load i8, ptr @ndps_show_oids, align 1, !range !6, !noundef !7
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %132, label %146
 
-.thread210:                                       ; preds = %.thread, %121, %26, %37, %48, %59, %70, %81, %92, %103, %114
-  %.0148177 = phi ptr [ %120, %.thread ], [ %125, %121 ], [ %118, %114 ], [ %107, %103 ], [ %96, %92 ], [ %85, %81 ], [ %74, %70 ], [ %63, %59 ], [ %52, %48 ], [ %41, %37 ], [ %30, %26 ]
+.thread210:                                       ; preds = %.thread, %121, %20, %31, %42, %53, %64, %75, %86, %97, %108
+  %.0148177 = phi ptr [ %120, %.thread ], [ %125, %121 ], [ %24, %20 ], [ %35, %31 ], [ %46, %42 ], [ %57, %53 ], [ %68, %64 ], [ %79, %75 ], [ %90, %86 ], [ %101, %97 ], [ %112, %108 ]
   %129 = tail call ptr @try_val_to_str(i32 noundef 1, ptr noundef nonnull @object_ids_7)
   %130 = load i8, ptr @ndps_show_oids, align 1, !range !6, !noundef !7
   %131 = trunc nuw i8 %130 to i1
@@ -13080,7 +13080,7 @@ define internal fastcc i32 @name_or_id(ptr noundef %0, ptr noundef %1, i32 nound
   br label %13
 
 13:                                               ; preds = %10, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ %12, %10 ], [ %9, %8 ]
+  %.0 = phi i32 [ %7, %3 ], [ %9, %8 ], [ %12, %10 ]
   %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0)
   %15 = icmp sgt i32 %14, 4
   %16 = srem i32 %.0, 4
@@ -13163,7 +13163,7 @@ define internal fastcc i32 @address_item(ptr noundef %0, ptr noundef %1, i32 nou
   br label %qualifiedname.exit
 
 qualifiedname.exit:                               ; preds = %.sink.split.i, %8, %31, %29, %25, %21, %18
-  %.0 = phi i32 [ %33, %31 ], [ %30, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ], [ %12, %8 ], [ %17, %.sink.split.i ]
+  %.0 = phi i32 [ %33, %31 ], [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %30, %29 ], [ %12, %8 ], [ %17, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -13269,8 +13269,8 @@ define internal fastcc noundef i32 @event_object_set(ptr noundef %0, ptr noundef
   br i1 %exitcond106.not, label %.loopexit, label %.lr.ph, !llvm.loop !112
 
 .loopexit:                                        ; preds = %53, %46, %51, %40, %16
-  %.184 = phi i32 [ %39, %16 ], [ %.296, %51 ], [ %45, %40 ], [ %50, %46 ], [ %61, %53 ]
-  %.1 = phi ptr [ %.099, %16 ], [ %49, %51 ], [ %.099, %40 ], [ %49, %46 ], [ %49, %53 ]
+  %.184 = phi i32 [ %39, %16 ], [ %45, %40 ], [ %.296, %51 ], [ %50, %46 ], [ %61, %53 ]
+  %.1 = phi ptr [ %.099, %16 ], [ %.099, %40 ], [ %49, %51 ], [ %49, %46 ], [ %49, %53 ]
   %63 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %63, ptr noundef %0, i32 noundef %.184)
   %exitcond108.not = icmp eq i32 %18, %10
@@ -13414,7 +13414,7 @@ define internal fastcc noundef i32 @server_entry(ptr noundef %0, ptr noundef %1,
   br label %55
 
 55:                                               ; preds = %28, %52, %48, %44, %40, %36
-  %.1 = phi i32 [ %35, %28 ], [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ]
+  %.1 = phi i32 [ %35, %28 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ]
   %56 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %56, ptr noundef %0, i32 noundef %.1)
   %exitcond67.not = icmp eq i32 %30, %22
@@ -13635,7 +13635,7 @@ define internal fastcc i32 @credentials(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %8, %3, %15, %62, %56, %36, %34
-  %.1 = phi i32 [ 48, %3 ], [ %78, %62 ], [ %61, %56 ], [ %42, %36 ], [ %35, %34 ], [ %.0106, %15 ], [ %14, %8 ], [ %28, %26 ]
+  %.1 = phi i32 [ 48, %3 ], [ %.0106, %15 ], [ %35, %34 ], [ %42, %36 ], [ %61, %56 ], [ %78, %62 ], [ %14, %8 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i32 %.1
 }
@@ -13802,7 +13802,7 @@ define internal fastcc i32 @res_add_input_data(ptr noundef %0, ptr noundef %1, i
   br label %42
 
 42:                                               ; preds = %3, %33, %24, %21, %16, %8
-  %.0 = phi i32 [ %7, %3 ], [ %41, %33 ], [ %32, %24 ], [ %23, %21 ], [ %20, %16 ], [ %15, %8 ]
+  %.0 = phi i32 [ %7, %3 ], [ %15, %8 ], [ %20, %16 ], [ %23, %21 ], [ %32, %24 ], [ %41, %33 ]
   ret i32 %.0
 }
 

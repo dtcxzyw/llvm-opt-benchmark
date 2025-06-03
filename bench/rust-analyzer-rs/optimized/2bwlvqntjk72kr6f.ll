@@ -6335,9 +6335,9 @@ default.unreachable:                              ; preds = %11
   br label %31
 
 31:                                               ; preds = %29, %24, %18
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.1.copyload.i, %29 ], [ %28, %24 ], [ %.val1.i.i, %18 ]
-  %.sroa.7.0.i = phi ptr [ %.sroa.7.1.copyload.i, %29 ], [ %26, %24 ], [ %.val.i.i, %18 ]
-  %.sroa.02.0.i = phi i8 [ %16, %29 ], [ 25, %24 ], [ 24, %18 ]
+  %.sroa.9.0.i = phi i64 [ %28, %24 ], [ %.sroa.9.1.copyload.i, %29 ], [ %.val1.i.i, %18 ]
+  %.sroa.7.0.i = phi ptr [ %26, %24 ], [ %.sroa.7.1.copyload.i, %29 ], [ %.val.i.i, %18 ]
+  %.sroa.02.0.i = phi i8 [ 25, %24 ], [ %16, %29 ], [ 24, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 28
   %33 = load i8, ptr %32, align 4, !range !887, !alias.scope !1987, !noalias !1990, !noundef !11
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.06.sroa.4)
@@ -6449,9 +6449,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i": ; preds = %31, %26, %20
-  %.sroa.919.0.i = phi i64 [ %.sroa.919.1.copyload.i, %31 ], [ %30, %26 ], [ %.val1.i.i, %20 ]
-  %.sroa.718.0.i = phi ptr [ %.sroa.718.1.copyload.i, %31 ], [ %28, %26 ], [ %.val.i.i, %20 ]
-  %.sroa.016.0.i = phi i8 [ %18, %31 ], [ 25, %26 ], [ 24, %20 ]
+  %.sroa.919.0.i = phi i64 [ %30, %26 ], [ %.sroa.919.1.copyload.i, %31 ], [ %.val1.i.i, %20 ]
+  %.sroa.718.0.i = phi ptr [ %28, %26 ], [ %.sroa.718.1.copyload.i, %31 ], [ %.val.i.i, %20 ]
+  %.sroa.016.0.i = phi i8 [ 25, %26 ], [ %18, %31 ], [ 24, %20 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.516, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.617.i, i64 7, i1 false)
   br label %63
 
@@ -6497,9 +6497,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit8.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit8.i": ; preds = %47, %42, %36
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.1.copyload.i, %47 ], [ %46, %42 ], [ %.val1.i5.i, %36 ]
-  %.sroa.7.0.i = phi ptr [ %.sroa.7.1.copyload.i, %47 ], [ %44, %42 ], [ %.val.i4.i, %36 ]
-  %.sroa.015.0.i = phi i8 [ %34, %47 ], [ 25, %42 ], [ 24, %36 ]
+  %.sroa.9.0.i = phi i64 [ %46, %42 ], [ %.sroa.9.1.copyload.i, %47 ], [ %.val1.i5.i, %36 ]
+  %.sroa.7.0.i = phi ptr [ %44, %42 ], [ %.sroa.7.1.copyload.i, %47 ], [ %.val.i4.i, %36 ]
+  %.sroa.015.0.i = phi i8 [ 25, %42 ], [ %34, %47 ], [ 24, %36 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2026)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2029)
   %49 = add nsw i8 %15, -24
@@ -6540,9 +6540,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit14.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit14.i": ; preds = %61, %56, %50
-  %.sroa.0.0.i13 = phi i8 [ %15, %61 ], [ 25, %56 ], [ 24, %50 ]
-  %.sroa.721.0.i = phi ptr [ %.sroa.721.1.copyload.i, %61 ], [ %58, %56 ], [ %.val.i10.i, %50 ]
-  %.sroa.922.0.i = phi i64 [ %.sroa.922.1.copyload.i, %61 ], [ %60, %56 ], [ %.val1.i11.i, %50 ]
+  %.sroa.0.0.i13 = phi i8 [ 25, %56 ], [ %15, %61 ], [ 24, %50 ]
+  %.sroa.721.0.i = phi ptr [ %58, %56 ], [ %.sroa.721.1.copyload.i, %61 ], [ %.val.i10.i, %50 ]
+  %.sroa.922.0.i = phi i64 [ %60, %56 ], [ %.sroa.922.1.copyload.i, %61 ], [ %.val1.i11.i, %50 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.516, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.620.i, i64 7, i1 false)
   br label %63
@@ -9073,9 +9073,9 @@ default.unreachable:                              ; preds = %14
   br label %34
 
 34:                                               ; preds = %32, %27, %21
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %32 ], [ %31, %27 ], [ %.val1.i.i.i, %21 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %32 ], [ %29, %27 ], [ %.val.i.i.i, %21 ]
-  %.sroa.02.0.i.i = phi i8 [ %19, %32 ], [ 25, %27 ], [ 24, %21 ]
+  %.sroa.9.0.i.i = phi i64 [ %31, %27 ], [ %.sroa.9.1.copyload.i.i, %32 ], [ %.val1.i.i.i, %21 ]
+  %.sroa.7.0.i.i = phi ptr [ %29, %27 ], [ %.sroa.7.1.copyload.i.i, %32 ], [ %.val.i.i.i, %21 ]
+  %.sroa.02.0.i.i = phi i8 [ 25, %27 ], [ %19, %32 ], [ 24, %21 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 28
   %36 = load i8, ptr %35, align 4, !range !887, !alias.scope !2559, !noalias !2560, !noundef !11
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.06.sroa.4.i)

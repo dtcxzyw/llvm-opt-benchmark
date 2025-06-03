@@ -733,7 +733,7 @@ parse_filter_spec_bcj.exit:                       ; preds = %41, %46, %48
   br label %55
 
 55:                                               ; preds = %Py_DECREF.exit, %10, %52, %parse_filter_spec_bcj.exit, %33, %29, %16, %8
-  %.0.shrunk = phi i1 [ false, %16 ], [ false, %52 ], [ %51, %parse_filter_spec_bcj.exit ], [ %37, %33 ], [ %32, %29 ], [ false, %8 ], [ false, %10 ], [ false, %Py_DECREF.exit ]
+  %.0.shrunk = phi i1 [ false, %16 ], [ false, %52 ], [ %32, %29 ], [ %37, %33 ], [ %51, %parse_filter_spec_bcj.exit ], [ false, %8 ], [ false, %10 ], [ false, %Py_DECREF.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   ret i32 %.0
@@ -1058,7 +1058,7 @@ define internal fastcc range(i32 0, 2) i32 @catch_lzma_error(ptr noundef readonl
   br label %30
 
 30:                                               ; preds = %2, %2, %2, %2, %26, %23, %20, %17, %14, %11, %8, %6, %3
-  %.0 = phi i32 [ 1, %26 ], [ 1, %23 ], [ 1, %20 ], [ 1, %17 ], [ 1, %14 ], [ 1, %11 ], [ 1, %8 ], [ 1, %6 ], [ 1, %3 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %3 ], [ 1, %6 ], [ 1, %8 ], [ 1, %11 ], [ 1, %14 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1608,7 +1608,7 @@ define internal i32 @Compressor_traverse(ptr noundef readonly captures(none) %0,
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -2923,7 +2923,7 @@ define internal i32 @Decompressor_traverse(ptr noundef readonly captures(none) %
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

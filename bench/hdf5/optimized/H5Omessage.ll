@@ -1095,7 +1095,7 @@ define ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br label %112
 
 112:                                              ; preds = %96, %4, %100, %108, %._crit_edge.thread
-  %.060 = phi ptr [ null, %._crit_edge.thread ], [ null, %96 ], [ null, %108 ], [ %106, %100 ], [ null, %4 ]
+  %.060 = phi ptr [ null, %._crit_edge.thread ], [ null, %108 ], [ %106, %100 ], [ null, %96 ], [ null, %4 ]
   ret ptr %.060
 }
 
@@ -3197,7 +3197,7 @@ define range(i32 -1, 1) i32 @H5O__delete_mesg(ptr noundef %0, ptr noundef %1, pt
   br label %75
 
 75:                                               ; preds = %62, %3, %12, %66, %71
-  %.036 = phi i32 [ -1, %62 ], [ -1, %71 ], [ 0, %66 ], [ 0, %12 ], [ 0, %3 ]
+  %.036 = phi i32 [ -1, %71 ], [ 0, %66 ], [ -1, %62 ], [ 0, %12 ], [ 0, %3 ]
   ret i32 %.036
 }
 

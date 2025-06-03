@@ -529,7 +529,7 @@ _ZNSt6vectorIN2cv7GRunArgESaIS1_EE12emplace_backIJNS0_3MatEEEEvDpOT_.exit: ; pre
   unreachable
 
 common.resume:                                    ; preds = %49, %.body, %.body38, %211, %63, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %64, %63 ], [ %212, %211 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body, %.body ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %64, %63 ], [ %212, %211 ], [ %50, %49 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body39, %.body38 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %38

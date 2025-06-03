@@ -706,7 +706,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %21
 
 21:                                               ; preds = %15, %._crit_edge.i
-  %.1.i = phi i64 [ %13, %._crit_edge.i ], [ %20, %15 ]
+  %.1.i = phi i64 [ %20, %15 ], [ %13, %._crit_edge.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.039.lcssa.i, i64 5
   %23 = load i8, ptr %22, align 1, !tbaa !36
   %24 = zext i8 %23 to i64
@@ -715,7 +715,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %27
 
 27:                                               ; preds = %21, %._crit_edge.i
-  %.2.i = phi i64 [ %13, %._crit_edge.i ], [ %26, %21 ]
+  %.2.i = phi i64 [ %26, %21 ], [ %13, %._crit_edge.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.039.lcssa.i, i64 4
   %29 = load i8, ptr %28, align 1, !tbaa !36
   %30 = zext i8 %29 to i64
@@ -724,7 +724,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %33
 
 33:                                               ; preds = %27, %._crit_edge.i
-  %.3.i = phi i64 [ %13, %._crit_edge.i ], [ %32, %27 ]
+  %.3.i = phi i64 [ %32, %27 ], [ %13, %._crit_edge.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.039.lcssa.i, i64 3
   %35 = load i8, ptr %34, align 1, !tbaa !36
   %36 = zext i8 %35 to i64
@@ -733,7 +733,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %39
 
 39:                                               ; preds = %33, %._crit_edge.i
-  %.4.i = phi i64 [ %13, %._crit_edge.i ], [ %38, %33 ]
+  %.4.i = phi i64 [ %38, %33 ], [ %13, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.039.lcssa.i, i64 2
   %41 = load i8, ptr %40, align 1, !tbaa !36
   %42 = zext i8 %41 to i64
@@ -742,7 +742,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %45
 
 45:                                               ; preds = %39, %._crit_edge.i
-  %.5.i = phi i64 [ %13, %._crit_edge.i ], [ %44, %39 ]
+  %.5.i = phi i64 [ %44, %39 ], [ %13, %._crit_edge.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.039.lcssa.i, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !36
   %48 = zext i8 %47 to i64
@@ -751,7 +751,7 @@ define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) 
   br label %51
 
 51:                                               ; preds = %45, %._crit_edge.i
-  %.6.i = phi i64 [ %13, %._crit_edge.i ], [ %50, %45 ]
+  %.6.i = phi i64 [ %50, %45 ], [ %13, %._crit_edge.i ]
   %52 = load i8, ptr %.039.lcssa.i, align 1, !tbaa !36
   %53 = zext i8 %52 to i64
   %54 = xor i64 %.6.i, %53
@@ -761,7 +761,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 hash.exit:                                        ; preds = %._crit_edge.i, %51
-  %.7.i = phi i64 [ %13, %._crit_edge.i ], [ %54, %51 ]
+  %.7.i = phi i64 [ %54, %51 ], [ %13, %._crit_edge.i ]
   %55 = mul i64 %.7.i, -4132994306676758123
   %56 = lshr i64 %55, 47
   %57 = xor i64 %56, %55

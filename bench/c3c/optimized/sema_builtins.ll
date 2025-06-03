@@ -320,12 +320,12 @@ define dso_local noundef zeroext i1 @sema_expr_analyse_builtin_call(ptr noundef 
   unreachable
 
 69:                                               ; preds = %58, %57, %56
-  %.0.i.neg = phi i32 [ 3, %58 ], [ 2, %57 ], [ 1, %56 ]
+  %.0.i.neg = phi i32 [ 2, %57 ], [ 3, %58 ], [ 1, %56 ]
   br label %builtin_expected_args.exit.thread
 
-builtin_expected_args.exit.thread:                ; preds = %56, %56, %56, %56, %59, %60, %61, %62, %63, %64, %65, %66, %69
-  %70 = phi i1 [ true, %69 ], [ false, %66 ], [ false, %65 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %61 ], [ false, %60 ], [ false, %59 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %56 ]
-  %71 = phi i32 [ %.0.i.neg, %69 ], [ 8, %66 ], [ 5, %65 ], [ 6, %64 ], [ 5, %63 ], [ 4, %62 ], [ 3, %61 ], [ 2, %60 ], [ 1, %59 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ]
+builtin_expected_args.exit.thread:                ; preds = %56, %56, %56, %56, %66, %65, %64, %63, %62, %61, %60, %59, %69
+  %70 = phi i1 [ true, %69 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %63 ], [ false, %64 ], [ false, %65 ], [ false, %66 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %56 ]
+  %71 = phi i32 [ %.0.i.neg, %69 ], [ 1, %59 ], [ 2, %60 ], [ 3, %61 ], [ 4, %62 ], [ 5, %63 ], [ 6, %64 ], [ 5, %65 ], [ 8, %66 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 0, %56 ]
   %72 = icmp uge i32 %.0420, %71
   %73 = icmp ule i32 %.0420, %71
   %or.cond = or i1 %70, %73
@@ -434,7 +434,7 @@ builtin_expected_args.exit.thread:                ; preds = %56, %56, %56, %56, 
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %115, %109
-  %.0.i.in.i.be = phi ptr [ %116, %115 ], [ %114, %109 ]
+  %.0.i.in.i.be = phi ptr [ %114, %109 ], [ %116, %115 ]
   br label %.preheader.i
 
 117:                                              ; preds = %.preheader.i
@@ -559,7 +559,7 @@ sema_check_builtin_args_match.exit.thread.i:      ; preds = %sema_check_builtin_
   br label %sema_check_builtin_args_match.exit.thread.i.backedge
 
 sema_check_builtin_args_match.exit.thread.i.backedge: ; preds = %172, %166
-  %.0.i73.in.i.be = phi ptr [ %173, %172 ], [ %171, %166 ]
+  %.0.i73.in.i.be = phi ptr [ %171, %166 ], [ %173, %172 ]
   br label %sema_check_builtin_args_match.exit.thread.i
 
 174:                                              ; preds = %sema_check_builtin_args_match.exit.thread.i
@@ -835,7 +835,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   unreachable
 
 296:                                              ; preds = %293, %287
-  %.1.in.i.i493 = phi ptr [ %294, %293 ], [ %292, %287 ]
+  %.1.in.i.i493 = phi ptr [ %292, %287 ], [ %294, %293 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i493, align 8
   br label %283
 
@@ -924,7 +924,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   br label %.backedge
 
 .backedge:                                        ; preds = %331, %325
-  %.0.i103.in.i.be = phi ptr [ %332, %331 ], [ %330, %325 ]
+  %.0.i103.in.i.be = phi ptr [ %330, %325 ], [ %332, %331 ]
   br label %321
 
 333:                                              ; preds = %321
@@ -2831,7 +2831,7 @@ is_valid_atomicity.exit.i:                        ; preds = %390, %387, %382, %3
   unreachable
 
 1368:                                             ; preds = %478, %1363, %1314, %1264, %1201, %1151, %1083, %1067, %1052, %1005, %996, %987, %978, %971, %925, %881, %826, %772, %766, %760, %754, %738, %727, %720, %681, %670, %664, %641, %633, %598, %590, %585, %577, %573, %566, %559, %552, %542, %538, %530, %523, %463, %455, %._crit_edge
-  %.0426 = phi ptr [ null, %._crit_edge ], [ %1366, %1363 ], [ %1317, %1314 ], [ %1266, %1264 ], [ %1204, %1201 ], [ %1153, %1151 ], [ %1086, %1083 ], [ %1069, %1067 ], [ %1054, %1052 ], [ %1007, %1005 ], [ %998, %996 ], [ %989, %987 ], [ %980, %978 ], [ %972, %971 ], [ %926, %925 ], [ %882, %881 ], [ %828, %826 ], [ %774, %772 ], [ %769, %766 ], [ %763, %760 ], [ %757, %754 ], [ %740, %738 ], [ %729, %727 ], [ %721, %720 ], [ %682, %681 ], [ %671, %670 ], [ %665, %664 ], [ %643, %641 ], [ %635, %633 ], [ %600, %598 ], [ %592, %590 ], [ %587, %585 ], [ %579, %577 ], [ %574, %573 ], [ %567, %566 ], [ %560, %559 ], [ %553, %552 ], [ %546, %542 ], [ %539, %538 ], [ %534, %530 ], [ %524, %523 ], [ %480, %478 ], [ %470, %463 ], [ %456, %455 ]
+  %.0426 = phi ptr [ null, %._crit_edge ], [ %456, %455 ], [ %470, %463 ], [ %480, %478 ], [ %524, %523 ], [ %534, %530 ], [ %539, %538 ], [ %546, %542 ], [ %553, %552 ], [ %560, %559 ], [ %567, %566 ], [ %574, %573 ], [ %579, %577 ], [ %587, %585 ], [ %592, %590 ], [ %600, %598 ], [ %635, %633 ], [ %643, %641 ], [ %665, %664 ], [ %671, %670 ], [ %682, %681 ], [ %721, %720 ], [ %729, %727 ], [ %740, %738 ], [ %757, %754 ], [ %763, %760 ], [ %769, %766 ], [ %774, %772 ], [ %828, %826 ], [ %882, %881 ], [ %926, %925 ], [ %972, %971 ], [ %980, %978 ], [ %989, %987 ], [ %998, %996 ], [ %1007, %1005 ], [ %1054, %1052 ], [ %1069, %1067 ], [ %1086, %1083 ], [ %1153, %1151 ], [ %1204, %1201 ], [ %1266, %1264 ], [ %1317, %1314 ], [ %1366, %1363 ]
   br i1 %.0424.lcssa, label %1369, label %1374
 
 1369:                                             ; preds = %1368
@@ -2849,7 +2849,7 @@ is_valid_atomicity.exit.i:                        ; preds = %390, %387, %382, %3
   br label %sema_expr_analyse_swizzle.exit
 
 sema_expr_analyse_swizzle.exit:                   ; preds = %303, %.preheader110.i, %.preheader.i490, %.lr.ph.i479, %102, %181, %.lr.ph, %697, %434, %421, %418, %413, %408, %is_valid_atomicity.exit.i, %368, %.critedge.i492, %297, %268, %259, %249, %225, %219, %206, %204, %.critedge.i, %sema_check_builtin_args_match.exit.i, %118, %1354, %1329, %1320, %1318, %1310, %1301, %1275, %1267, %1260, %1251, %1212, %1205, %1197, %1188, %1162, %1154, %1147, %1138, %1114, %1087, %1077, %1070, %1055, %1042, %1008, %1003, %999, %994, %990, %985, %981, %976, %973, %966, %962, %927, %920, %916, %883, %876, %872, %829, %821, %817, %775, %770, %764, %758, %744, %741, %733, %730, %725, %722, %716, %683, %676, %672, %666, %647, %644, %636, %631, %601, %596, %593, %588, %583, %580, %575, %570, %568, %563, %561, %556, %554, %549, %547, %540, %535, %528, %525, %487, %483, %478, %475, %471, %461, %458, %453, %1374, %1360, %1351, %1341, %1307, %1298, %1288, %1257, %1248, %1238, %.critedge470, %1194, %1185, %1175, %1144, %1135, %1125, %.critedge10, %.critedge8, %1063, %1049, %1039, %1029, %1018, %956, %943, %912, %899, %862, %852, %808, %800, %712, %704, %694, %.critedge, %628, %620, %610, %515, %266, %264, %260, %88, %81, %76
-  %.0421 = phi i1 [ false, %76 ], [ false, %81 ], [ false, %88 ], [ true, %1374 ], [ false, %1360 ], [ false, %1351 ], [ false, %1341 ], [ false, %1307 ], [ false, %1298 ], [ false, %1288 ], [ false, %1257 ], [ false, %1248 ], [ false, %1238 ], [ false, %.critedge470 ], [ false, %1194 ], [ false, %1185 ], [ false, %1175 ], [ false, %1144 ], [ false, %1135 ], [ false, %1125 ], [ false, %.critedge10 ], [ false, %.critedge8 ], [ false, %1063 ], [ false, %1018 ], [ false, %1049 ], [ false, %1039 ], [ false, %1029 ], [ false, %956 ], [ false, %943 ], [ false, %912 ], [ false, %899 ], [ false, %852 ], [ false, %862 ], [ false, %800 ], [ false, %808 ], [ false, %694 ], [ false, %712 ], [ false, %704 ], [ false, %.critedge ], [ false, %628 ], [ false, %620 ], [ false, %610 ], [ false, %515 ], [ true, %266 ], [ true, %264 ], [ true, %260 ], [ false, %453 ], [ false, %458 ], [ false, %461 ], [ false, %471 ], [ false, %475 ], [ false, %478 ], [ false, %483 ], [ false, %487 ], [ false, %525 ], [ false, %528 ], [ false, %535 ], [ false, %540 ], [ false, %547 ], [ false, %549 ], [ false, %554 ], [ false, %556 ], [ false, %561 ], [ false, %563 ], [ false, %568 ], [ false, %570 ], [ false, %575 ], [ false, %580 ], [ false, %583 ], [ false, %588 ], [ false, %593 ], [ false, %596 ], [ false, %601 ], [ false, %631 ], [ false, %636 ], [ false, %644 ], [ false, %647 ], [ false, %666 ], [ false, %672 ], [ false, %676 ], [ false, %683 ], [ false, %716 ], [ false, %722 ], [ false, %725 ], [ false, %730 ], [ false, %733 ], [ false, %741 ], [ false, %744 ], [ false, %758 ], [ false, %764 ], [ false, %770 ], [ false, %775 ], [ false, %817 ], [ false, %821 ], [ false, %829 ], [ false, %872 ], [ false, %876 ], [ false, %883 ], [ false, %916 ], [ false, %920 ], [ false, %927 ], [ false, %962 ], [ false, %966 ], [ false, %973 ], [ false, %976 ], [ false, %981 ], [ false, %985 ], [ false, %990 ], [ false, %994 ], [ false, %999 ], [ false, %1003 ], [ false, %1008 ], [ false, %1042 ], [ false, %1055 ], [ false, %1070 ], [ false, %1077 ], [ false, %1087 ], [ false, %1114 ], [ false, %1138 ], [ false, %1147 ], [ false, %1154 ], [ false, %1162 ], [ false, %1188 ], [ false, %1197 ], [ false, %1205 ], [ false, %1212 ], [ false, %1251 ], [ false, %1260 ], [ false, %1267 ], [ false, %1275 ], [ false, %1301 ], [ false, %1310 ], [ false, %1318 ], [ false, %1320 ], [ false, %1329 ], [ false, %1354 ], [ false, %118 ], [ false, %204 ], [ false, %206 ], [ false, %.critedge.i ], [ true, %219 ], [ false, %sema_check_builtin_args_match.exit.i ], [ false, %225 ], [ false, %249 ], [ true, %259 ], [ false, %.critedge.i492 ], [ false, %368 ], [ false, %408 ], [ false, %413 ], [ false, %418 ], [ true, %434 ], [ false, %297 ], [ false, %268 ], [ false, %is_valid_atomicity.exit.i ], [ false, %421 ], [ false, %697 ], [ false, %.lr.ph ], [ false, %181 ], [ false, %102 ], [ false, %.lr.ph.i479 ], [ false, %.preheader.i490 ], [ false, %.preheader110.i ], [ false, %303 ]
+  %.0421 = phi i1 [ false, %76 ], [ false, %81 ], [ false, %88 ], [ true, %1374 ], [ false, %515 ], [ false, %628 ], [ false, %620 ], [ false, %610 ], [ false, %.critedge ], [ false, %694 ], [ false, %712 ], [ false, %704 ], [ false, %800 ], [ false, %808 ], [ false, %852 ], [ false, %862 ], [ false, %912 ], [ false, %899 ], [ false, %956 ], [ false, %943 ], [ false, %1018 ], [ false, %1049 ], [ false, %1039 ], [ false, %1029 ], [ false, %1063 ], [ false, %1144 ], [ false, %1135 ], [ false, %1125 ], [ false, %.critedge10 ], [ false, %.critedge8 ], [ false, %1194 ], [ false, %1185 ], [ false, %1175 ], [ false, %1257 ], [ false, %1248 ], [ false, %1238 ], [ false, %.critedge470 ], [ false, %1307 ], [ false, %1298 ], [ false, %1288 ], [ false, %1360 ], [ false, %1351 ], [ false, %1341 ], [ true, %260 ], [ true, %264 ], [ true, %266 ], [ false, %453 ], [ false, %458 ], [ false, %461 ], [ false, %471 ], [ false, %475 ], [ false, %478 ], [ false, %483 ], [ false, %487 ], [ false, %525 ], [ false, %528 ], [ false, %535 ], [ false, %540 ], [ false, %547 ], [ false, %549 ], [ false, %554 ], [ false, %556 ], [ false, %561 ], [ false, %563 ], [ false, %568 ], [ false, %570 ], [ false, %575 ], [ false, %580 ], [ false, %583 ], [ false, %588 ], [ false, %593 ], [ false, %596 ], [ false, %601 ], [ false, %631 ], [ false, %636 ], [ false, %644 ], [ false, %647 ], [ false, %666 ], [ false, %672 ], [ false, %676 ], [ false, %683 ], [ false, %716 ], [ false, %722 ], [ false, %725 ], [ false, %730 ], [ false, %733 ], [ false, %741 ], [ false, %744 ], [ false, %758 ], [ false, %764 ], [ false, %770 ], [ false, %775 ], [ false, %817 ], [ false, %821 ], [ false, %829 ], [ false, %872 ], [ false, %876 ], [ false, %883 ], [ false, %916 ], [ false, %920 ], [ false, %927 ], [ false, %962 ], [ false, %966 ], [ false, %973 ], [ false, %976 ], [ false, %981 ], [ false, %985 ], [ false, %990 ], [ false, %994 ], [ false, %999 ], [ false, %1003 ], [ false, %1008 ], [ false, %1042 ], [ false, %1055 ], [ false, %1070 ], [ false, %1077 ], [ false, %1087 ], [ false, %1114 ], [ false, %1138 ], [ false, %1147 ], [ false, %1154 ], [ false, %1162 ], [ false, %1188 ], [ false, %1197 ], [ false, %1205 ], [ false, %1212 ], [ false, %1251 ], [ false, %1260 ], [ false, %1267 ], [ false, %1275 ], [ false, %1301 ], [ false, %1310 ], [ false, %1318 ], [ false, %1320 ], [ false, %1329 ], [ false, %1354 ], [ false, %118 ], [ false, %204 ], [ false, %206 ], [ false, %.critedge.i ], [ true, %219 ], [ false, %sema_check_builtin_args_match.exit.i ], [ false, %225 ], [ false, %249 ], [ true, %259 ], [ false, %.critedge.i492 ], [ false, %368 ], [ false, %408 ], [ false, %413 ], [ false, %418 ], [ true, %434 ], [ false, %297 ], [ false, %268 ], [ false, %is_valid_atomicity.exit.i ], [ false, %421 ], [ false, %697 ], [ false, %.lr.ph ], [ false, %181 ], [ false, %102 ], [ false, %.lr.ph.i479 ], [ false, %.preheader.i490 ], [ false, %.preheader110.i ], [ false, %303 ]
   ret i1 %.0421
 }
 
@@ -2897,7 +2897,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef r
   br label %.backedge371
 
 .backedge371:                                     ; preds = %19, %13
-  %.0.i.in.be = phi ptr [ %20, %19 ], [ %18, %13 ]
+  %.0.i.in.be = phi ptr [ %18, %13 ], [ %20, %19 ]
   br label %9
 
 21:                                               ; preds = %9
@@ -3139,7 +3139,7 @@ type_flatten.exit:                                ; preds = %9
   unreachable
 
 137:                                              ; preds = %134, %128
-  %.1.in.i112 = phi ptr [ %135, %134 ], [ %133, %128 ]
+  %.1.in.i112 = phi ptr [ %133, %128 ], [ %135, %134 ]
   %.1.i113 = load ptr, ptr %.1.in.i112, align 8
   br label %.preheader
 
@@ -3172,7 +3172,7 @@ type_flatten.exit:                                ; preds = %9
   br label %.backedge
 
 .backedge:                                        ; preds = %150, %144
-  %.0.i115.in.be = phi ptr [ %151, %150 ], [ %149, %144 ]
+  %.0.i115.in.be = phi ptr [ %149, %144 ], [ %151, %150 ]
   br label %140
 
 152:                                              ; preds = %140
@@ -3370,7 +3370,7 @@ define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(n
   ret ptr %4
 
 16:                                               ; preds = %12, %6
-  %.1.in = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1 = load ptr, ptr %.1.in, align 8
   br label %2
 }
@@ -3409,7 +3409,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_is_valid_mask_for_value(ptr
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -3443,7 +3443,7 @@ type_flatten.exit:                                ; preds = %2
   br label %.backedge
 
 .backedge:                                        ; preds = %28, %22
-  %.0.i4.in.be = phi ptr [ %29, %28 ], [ %27, %22 ]
+  %.0.i4.in.be = phi ptr [ %27, %22 ], [ %29, %28 ]
   br label %18
 
 30:                                               ; preds = %18

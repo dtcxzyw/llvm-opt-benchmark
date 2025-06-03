@@ -519,7 +519,7 @@ define dso_local range(i32 -1, 1) i32 @auxHumanNodenameSetter(ptr noundef captur
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %19, %22, %26, %30, %34
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ]
+  %.0.i = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ]
   %.not16 = icmp eq i64 %.0.i, 0
   br i1 %.not16, label %sdslen.exit.thread, label %37
 
@@ -585,7 +585,7 @@ define dso_local i32 @auxHumanNodenamePresent(ptr noundef readonly captures(none
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %1 ]
   %26 = trunc i64 %.0.i to i32
   ret i32 %26
 }
@@ -878,7 +878,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1090,7 +1090,7 @@ define dso_local range(i32 -1, 1) i32 @clusterLoadConfig(ptr noundef %0) local_u
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %81, %86, %89, %93, %97, %101
-  %.0.i = phi i64 [ %103, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %89 ], [ %88, %86 ], [ 0, %81 ]
+  %.0.i = phi i64 [ %88, %86 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %103, %101 ], [ 0, %81 ]
   %104 = trunc i64 %.0.i to i32
   %105 = call i32 @verifyClusterNodeId(ptr noundef nonnull %44, i32 noundef %104) #33
   %106 = icmp eq i32 %105, -1
@@ -1144,7 +1144,7 @@ sdslen.exit:                                      ; preds = %81, %86, %89, %93, 
   br label %sdslen.exit337
 
 sdslen.exit337:                                   ; preds = %109, %115, %118, %122, %126, %130
-  %.0.i336 = phi i64 [ %132, %130 ], [ %129, %126 ], [ %125, %122 ], [ %121, %118 ], [ %117, %115 ], [ 0, %109 ]
+  %.0.i336 = phi i64 [ %117, %115 ], [ %121, %118 ], [ %125, %122 ], [ %129, %126 ], [ %132, %130 ], [ 0, %109 ]
   %133 = trunc i64 %.0.i336 to i32
   %134 = call i32 @verifyClusterNodeId(ptr noundef nonnull %110, i32 noundef %133) #33
   %.not.i = icmp eq i32 %134, 0
@@ -1229,7 +1229,7 @@ clusterAddNode.exit:                              ; preds = %clusterLookupNode.e
   br label %sdslen.exit340
 
 sdslen.exit340:                                   ; preds = %clusterAddNode.exit, %160, %163, %167, %171, %175
-  %.0.i339 = phi i64 [ %177, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %160 ], [ 0, %clusterAddNode.exit ]
+  %.0.i339 = phi i64 [ %162, %160 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %177, %175 ], [ 0, %clusterAddNode.exit ]
   %178 = call ptr @sdssplitlen(ptr noundef nonnull %155, i64 noundef %.0.i339, ptr noundef nonnull @.str.14, i32 noundef 1, ptr noundef nonnull %4) #33
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %182
@@ -1288,7 +1288,7 @@ sdslen.exit340:                                   ; preds = %clusterAddNode.exit
   br label %sdslen.exit342
 
 sdslen.exit342:                                   ; preds = %192, %195, %199, %203, %207
-  %.0.i341 = phi i64 [ %209, %207 ], [ %206, %203 ], [ %202, %199 ], [ %198, %195 ], [ %194, %192 ]
+  %.0.i341 = phi i64 [ %194, %192 ], [ %198, %195 ], [ %202, %199 ], [ %206, %203 ], [ %209, %207 ]
   %.not304 = icmp eq i64 %.0.i341, 0
   br i1 %.not304, label %sdslen.exit342.thread, label %210
 
@@ -1343,7 +1343,7 @@ sdslen.exit342.thread:                            ; preds = %185, %sdslen.exit34
   br label %sdslen.exit344
 
 sdslen.exit344:                                   ; preds = %220, %223, %227, %231, %235
-  %.0.i343 = phi i64 [ %237, %235 ], [ %234, %231 ], [ %230, %227 ], [ %226, %223 ], [ %222, %220 ]
+  %.0.i343 = phi i64 [ %222, %220 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %237, %235 ]
   %.not305 = icmp eq i64 %.0.i343, 0
   br i1 %.not305, label %sdslen.exit344.thread, label %238
 
@@ -1404,7 +1404,7 @@ sdslen.exit344.thread:                            ; preds = %sdslen.exit342.thre
   br label %sdslen.exit346
 
 sdslen.exit346:                                   ; preds = %.lr.ph, %247, %250, %254, %258, %262
-  %.0.i345 = phi i64 [ %264, %262 ], [ %261, %258 ], [ %257, %254 ], [ %253, %250 ], [ %249, %247 ], [ 0, %.lr.ph ]
+  %.0.i345 = phi i64 [ %249, %247 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %264, %262 ], [ 0, %.lr.ph ]
   %265 = call ptr @sdssplitlen(ptr noundef nonnull %242, i64 noundef %.0.i345, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef nonnull %5) #33
   %266 = icmp eq ptr %265, null
   %267 = load i32, ptr %5, align 4
@@ -1492,7 +1492,7 @@ sdslen.exit346:                                   ; preds = %.lr.ph, %247, %250,
   br label %sdslen.exit348
 
 sdslen.exit348:                                   ; preds = %.preheader421, %296, %299, %303, %307, %311
-  %.0.i347 = phi i64 [ %313, %311 ], [ %310, %307 ], [ %306, %303 ], [ %302, %299 ], [ %298, %296 ], [ 0, %.preheader421 ]
+  %.0.i347 = phi i64 [ %298, %296 ], [ %302, %299 ], [ %306, %303 ], [ %310, %307 ], [ %313, %311 ], [ 0, %.preheader421 ]
   %314 = trunc i64 %.0.i347 to i32
   %315 = call i32 @isValidAuxString(ptr noundef nonnull %291, i32 noundef %314) #33
   %.not306 = icmp eq i32 %315, 0
@@ -1535,7 +1535,7 @@ sdslen.exit348:                                   ; preds = %.preheader421, %296
   br label %sdslen.exit350
 
 sdslen.exit350:                                   ; preds = %317, %318, %319, %322, %325, %328
-  %.0.i349 = phi i64 [ %329, %328 ], [ %327, %325 ], [ %324, %322 ], [ %321, %319 ], [ %283, %318 ], [ 0, %317 ]
+  %.0.i349 = phi i64 [ %283, %318 ], [ %321, %319 ], [ %324, %322 ], [ %327, %325 ], [ %329, %328 ], [ 0, %317 ]
   %330 = getelementptr inbounds nuw [4 x %struct.auxFieldHandler], ptr @auxFieldHandlers, i64 0, i64 %indvars.iv601
   %331 = load ptr, ptr %330, align 16, !tbaa !75
   %332 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %331) #34
@@ -1574,7 +1574,7 @@ sdslen.exit350:                                   ; preds = %317, %318, %319, %3
   br label %sdslen.exit352
 
 sdslen.exit352:                                   ; preds = %333, %334, %335, %338, %341, %344
-  %.0.i351 = phi i64 [ %345, %344 ], [ %343, %341 ], [ %340, %338 ], [ %337, %335 ], [ %289, %334 ], [ 0, %333 ]
+  %.0.i351 = phi i64 [ %289, %334 ], [ %337, %335 ], [ %340, %338 ], [ %343, %341 ], [ %345, %344 ], [ 0, %333 ]
   %bcmp = call i32 @bcmp(ptr nonnull %273, ptr nonnull %331, i64 %.0.i351)
   %.not308 = icmp eq i32 %bcmp, 0
   br i1 %.not308, label %346, label %380
@@ -1630,7 +1630,7 @@ sdslen.exit352:                                   ; preds = %333, %334, %335, %3
   br label %sdslen.exit354
 
 sdslen.exit354:                                   ; preds = %346, %360, %363, %367, %371, %375
-  %.0.i353 = phi i64 [ %377, %375 ], [ %374, %371 ], [ %370, %367 ], [ %366, %363 ], [ %362, %360 ], [ 0, %346 ]
+  %.0.i353 = phi i64 [ %362, %360 ], [ %366, %363 ], [ %370, %367 ], [ %374, %371 ], [ %377, %375 ], [ 0, %346 ]
   %378 = trunc i64 %.0.i353 to i32
   %379 = call i32 %354(ptr noundef %.0252, ptr noundef nonnull %355, i32 noundef %378) #33
   %.not309 = icmp eq i32 %379, 0
@@ -1971,7 +1971,7 @@ sdslen.exit354:                                   ; preds = %346, %360, %363, %3
   br label %sdslen.exit357
 
 sdslen.exit357:                                   ; preds = %502, %507, %510, %514, %518, %522
-  %.0.i356 = phi i64 [ %524, %522 ], [ %521, %518 ], [ %517, %514 ], [ %513, %510 ], [ %509, %507 ], [ 0, %502 ]
+  %.0.i356 = phi i64 [ %509, %507 ], [ %513, %510 ], [ %517, %514 ], [ %521, %518 ], [ %524, %522 ], [ 0, %502 ]
   %525 = trunc i64 %.0.i356 to i32
   %526 = call i32 @verifyClusterNodeId(ptr noundef nonnull %500, i32 noundef %525) #33
   %527 = icmp eq i32 %526, -1
@@ -2025,7 +2025,7 @@ sdslen.exit357:                                   ; preds = %502, %507, %510, %5
   br label %sdslen.exit359
 
 sdslen.exit359:                                   ; preds = %530, %536, %539, %543, %547, %551
-  %.0.i358 = phi i64 [ %553, %551 ], [ %550, %547 ], [ %546, %543 ], [ %542, %539 ], [ %538, %536 ], [ 0, %530 ]
+  %.0.i358 = phi i64 [ %538, %536 ], [ %542, %539 ], [ %546, %543 ], [ %550, %547 ], [ %553, %551 ], [ 0, %530 ]
   %554 = trunc i64 %.0.i358 to i32
   %555 = call i32 @verifyClusterNodeId(ptr noundef nonnull %531, i32 noundef %554) #33
   %.not.i360 = icmp eq i32 %555, 0
@@ -2829,7 +2829,7 @@ define dso_local range(i32 -1, 1) i32 @clusterSaveConfig(i32 noundef %0) local_u
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %17, %20, %24, %28, %32
-  %.0.i = phi i64 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %1 ]
   %35 = tail call ptr @sdsempty() #33
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7912), align 8, !tbaa !99
   %37 = tail call i32 @getpid() #33
@@ -3386,7 +3386,7 @@ define internal fastcc void @updateAnnouncedHostname(ptr noundef captures(none) 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %11, %14, %18, %22, %26
-  %.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ]
   %29 = icmp eq i64 %.0.i, 0
   br i1 %29, label %sdslen.exit.thread, label %31
 
@@ -3433,7 +3433,7 @@ sdslen.exit:                                      ; preds = %11, %14, %18, %22, 
   br label %sdslen.exit16
 
 sdslen.exit16:                                    ; preds = %32, %35, %39, %43, %47
-  %.0.i15 = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ]
+  %.0.i15 = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
   %.not12 = icmp eq i64 %.0.i15, 0
   br i1 %.not12, label %sdslen.exit16.thread, label %50
 
@@ -3525,7 +3525,7 @@ define internal fastcc void @updateAnnouncedHumanNodename(ptr noundef captures(n
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %11, %14, %18, %22, %26
-  %.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ]
   %29 = icmp eq i64 %.0.i, 0
   br i1 %29, label %sdslen.exit.thread, label %31
 
@@ -3572,7 +3572,7 @@ sdslen.exit:                                      ; preds = %11, %14, %18, %22, 
   br label %sdslen.exit16
 
 sdslen.exit16:                                    ; preds = %32, %35, %39, %43, %47
-  %.0.i15 = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ]
+  %.0.i15 = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
   %.not12 = icmp eq i64 %.0.i15, 0
   br i1 %.not12, label %sdslen.exit16.thread, label %50
 
@@ -6788,7 +6788,7 @@ define dso_local noundef ptr @representClusterNodeFlags(ptr noundef %0, i16 noun
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   br label %25
 
 25:                                               ; preds = %sdslen.exit, %33
@@ -6854,7 +6854,7 @@ sdslen.exit:                                      ; preds = %2, %7, %10, %14, %1
   br label %sdslen.exit15
 
 sdslen.exit15:                                    ; preds = %34, %39, %42, %46, %50, %54
-  %.0.i14 = phi i64 [ %56, %54 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %39 ], [ 0, %34 ]
+  %.0.i14 = phi i64 [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %56, %54 ], [ 0, %34 ]
   %57 = icmp eq i64 %.0.i14, %.0.i
   br i1 %57, label %58, label %60
 
@@ -7702,7 +7702,7 @@ define dso_local i32 @delKeysInSlot(i32 noundef %0) local_unnamed_addr #3 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %16 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ], [ 0, %.lr.ph ]
   %34 = tail call ptr @createStringObject(ptr noundef nonnull %11, i64 noundef %.0.i) #33
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !214
   %36 = tail call i32 @dbDelete(ptr noundef %35, ptr noundef %34) #33
@@ -7790,7 +7790,7 @@ define dso_local range(i32 8, 1) i32 @getHostnamePingExtSize() local_unnamed_add
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = icmp eq i64 %.0.i, 0
   br i1 %26, label %sdslen.exit.thread, label %27
 
@@ -7835,7 +7835,7 @@ default.unreachable:                              ; preds = %27
   unreachable
 
 sdslen.exit2:                                     ; preds = %28, %31, %35, %39, %43
-  %.0.i1 = phi i64 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %28 ]
+  %.0.i1 = phi i64 [ %30, %28 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ]
   %46 = trunc i64 %.0.i1 to i32
   %47 = and i32 %46, -8
   %48 = add i32 %47, 16
@@ -7892,7 +7892,7 @@ define dso_local range(i32 8, 1) i32 @getHumanNodenamePingExtSize() local_unname
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = icmp eq i64 %.0.i, 0
   br i1 %26, label %sdslen.exit.thread, label %27
 
@@ -7937,7 +7937,7 @@ default.unreachable:                              ; preds = %27
   unreachable
 
 sdslen.exit2:                                     ; preds = %28, %31, %35, %39, %43
-  %.0.i1 = phi i64 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %28 ]
+  %.0.i1 = phi i64 [ %30, %28 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ]
   %46 = trunc i64 %.0.i1 to i32
   %47 = and i32 %46, -8
   %48 = add i32 %47, 16
@@ -8034,7 +8034,7 @@ define dso_local i32 @writePingExt(ptr noundef captures(address) %0, i32 noundef
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ]
   %.not58 = icmp eq i64 %.0.i, 0
   br i1 %.not58, label %getHostnamePingExtSize.exit76, label %31
 
@@ -8079,7 +8079,7 @@ sdslen.exit:                                      ; preds = %13, %16, %20, %24, 
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %48, %44, %40, %36, %33
-  %.0.i.i = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ]
+  %.0.i.i = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ]
   %51 = icmp eq i64 %.0.i.i, 0
   br i1 %51, label %getHostnamePingExtSize.exit, label %52
 
@@ -8124,7 +8124,7 @@ default.unreachable.i:                            ; preds = %52
   unreachable
 
 sdslen.exit2.i:                                   ; preds = %68, %64, %60, %56, %53
-  %.0.i1.i = phi i64 [ %70, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %53 ]
+  %.0.i1.i = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
   %71 = trunc i64 %.0.i1.i to i32
   %72 = and i32 %71, -8
   %73 = add i32 %72, 16
@@ -8180,7 +8180,7 @@ getHostnamePingExtSize.exit:                      ; preds = %sdslen.exit.i, %sds
   br label %sdslen.exit69
 
 sdslen.exit69:                                    ; preds = %getHostnamePingExtSize.exit, %80, %83, %87, %91, %95
-  %.0.i68 = phi i64 [ %97, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %83 ], [ %82, %80 ], [ 0, %getHostnamePingExtSize.exit ]
+  %.0.i68 = phi i64 [ %82, %80 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %97, %95 ], [ 0, %getHostnamePingExtSize.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %8, i64 %.0.i68, i1 false)
   %98 = zext i32 %.0.i67 to i64
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 %98
@@ -8232,7 +8232,7 @@ sdslen.exit69:                                    ; preds = %getHostnamePingExtS
   br label %sdslen.exit.i70
 
 sdslen.exit.i70:                                  ; preds = %118, %114, %110, %106, %103
-  %.0.i.i71 = phi i64 [ %120, %118 ], [ %117, %114 ], [ %113, %110 ], [ %109, %106 ], [ %105, %103 ]
+  %.0.i.i71 = phi i64 [ %105, %103 ], [ %109, %106 ], [ %113, %110 ], [ %117, %114 ], [ %120, %118 ]
   %121 = icmp eq i64 %.0.i.i71, 0
   br i1 %121, label %getHostnamePingExtSize.exit76, label %122
 
@@ -8277,7 +8277,7 @@ default.unreachable.i75:                          ; preds = %122
   unreachable
 
 sdslen.exit2.i72:                                 ; preds = %138, %134, %130, %126, %123
-  %.0.i1.i73 = phi i64 [ %140, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %126 ], [ %125, %123 ]
+  %.0.i1.i73 = phi i64 [ %125, %123 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ %140, %138 ]
   %141 = trunc i64 %.0.i1.i73 to i32
   %142 = and i32 %141, -8
   %143 = add i32 %142, 16
@@ -8330,7 +8330,7 @@ getHostnamePingExtSize.exit76:                    ; preds = %2, %sdslen.exit2.i7
   br label %sdslen.exit78
 
 sdslen.exit78:                                    ; preds = %150, %153, %157, %161, %165
-  %.0.i77 = phi i64 [ %167, %165 ], [ %164, %161 ], [ %160, %157 ], [ %156, %153 ], [ %152, %150 ]
+  %.0.i77 = phi i64 [ %152, %150 ], [ %156, %153 ], [ %160, %157 ], [ %164, %161 ], [ %167, %165 ]
   %.not60 = icmp eq i64 %.0.i77, 0
   br i1 %.not60, label %sdslen.exit78.thread, label %168
 
@@ -8376,7 +8376,7 @@ sdslen.exit78:                                    ; preds = %150, %153, %157, %1
   br label %sdslen.exit.i79
 
 sdslen.exit.i79:                                  ; preds = %185, %181, %177, %173, %170
-  %.0.i.i80 = phi i64 [ %187, %185 ], [ %184, %181 ], [ %180, %177 ], [ %176, %173 ], [ %172, %170 ]
+  %.0.i.i80 = phi i64 [ %172, %170 ], [ %176, %173 ], [ %180, %177 ], [ %184, %181 ], [ %187, %185 ]
   %188 = icmp eq i64 %.0.i.i80, 0
   br i1 %188, label %getHumanNodenamePingExtSize.exit, label %189
 
@@ -8421,7 +8421,7 @@ default.unreachable.i84:                          ; preds = %189
   unreachable
 
 sdslen.exit2.i81:                                 ; preds = %205, %201, %197, %193, %190
-  %.0.i1.i82 = phi i64 [ %207, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %193 ], [ %192, %190 ]
+  %.0.i1.i82 = phi i64 [ %192, %190 ], [ %196, %193 ], [ %200, %197 ], [ %204, %201 ], [ %207, %205 ]
   %208 = trunc i64 %.0.i1.i82 to i32
   %209 = and i32 %208, -8
   %210 = add i32 %209, 16
@@ -8477,7 +8477,7 @@ getHumanNodenamePingExtSize.exit:                 ; preds = %sdslen.exit.i79, %s
   br label %sdslen.exit86
 
 sdslen.exit86:                                    ; preds = %getHumanNodenamePingExtSize.exit, %217, %220, %224, %228, %232
-  %.0.i85 = phi i64 [ %234, %232 ], [ %231, %228 ], [ %227, %224 ], [ %223, %220 ], [ %219, %217 ], [ 0, %getHumanNodenamePingExtSize.exit ]
+  %.0.i85 = phi i64 [ %219, %217 ], [ %223, %220 ], [ %227, %224 ], [ %231, %228 ], [ %234, %232 ], [ 0, %getHumanNodenamePingExtSize.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %213, ptr nonnull align 1 %145, i64 %.0.i85, i1 false)
   %235 = zext i32 %.0.i83 to i64
   %236 = getelementptr inbounds nuw i8, ptr %.150, i64 %235
@@ -8529,7 +8529,7 @@ sdslen.exit86:                                    ; preds = %getHumanNodenamePin
   br label %sdslen.exit.i87
 
 sdslen.exit.i87:                                  ; preds = %255, %251, %247, %243, %240
-  %.0.i.i88 = phi i64 [ %257, %255 ], [ %254, %251 ], [ %250, %247 ], [ %246, %243 ], [ %242, %240 ]
+  %.0.i.i88 = phi i64 [ %242, %240 ], [ %246, %243 ], [ %250, %247 ], [ %254, %251 ], [ %257, %255 ]
   %258 = icmp eq i64 %.0.i.i88, 0
   br i1 %258, label %getHumanNodenamePingExtSize.exit93, label %259
 
@@ -8574,7 +8574,7 @@ default.unreachable.i92:                          ; preds = %259
   unreachable
 
 sdslen.exit2.i89:                                 ; preds = %275, %271, %267, %263, %260
-  %.0.i1.i90 = phi i64 [ %277, %275 ], [ %274, %271 ], [ %270, %267 ], [ %266, %263 ], [ %262, %260 ]
+  %.0.i1.i90 = phi i64 [ %262, %260 ], [ %266, %263 ], [ %270, %267 ], [ %274, %271 ], [ %277, %275 ]
   %278 = trunc i64 %.0.i1.i90 to i32
   %279 = and i32 %278, -8
   %280 = add i32 %279, 16
@@ -11978,7 +11978,7 @@ define dso_local noundef ptr @clusterCreatePublishMsgBlock(ptr noundef %0, ptr n
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %3 ]
   %30 = trunc i64 %.0.i to i32
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !266
@@ -12023,7 +12023,7 @@ sdslen.exit:                                      ; preds = %3, %12, %15, %19, %
   br label %sdslen.exit24
 
 sdslen.exit24:                                    ; preds = %sdslen.exit, %37, %40, %44, %48, %52
-  %.0.i23 = phi i64 [ %54, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ], [ 0, %sdslen.exit ]
+  %.0.i23 = phi i64 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %54, %52 ], [ 0, %sdslen.exit ]
   %55 = trunc i64 %.0.i23 to i32
   %56 = add i64 %.0.i, 8
   %57 = add i64 %56, %.0.i23
@@ -12080,7 +12080,7 @@ sdslen.exit24:                                    ; preds = %sdslen.exit, %37, %
   br label %sdslen.exit26
 
 sdslen.exit26:                                    ; preds = %sdslen.exit24, %72, %75, %79, %83, %87
-  %.0.i25 = phi i64 [ %89, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %72 ], [ 0, %sdslen.exit24 ]
+  %.0.i25 = phi i64 [ %74, %72 ], [ %78, %75 ], [ %82, %79 ], [ %86, %83 ], [ %89, %87 ], [ 0, %sdslen.exit24 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 1 %67, i64 %.0.i25, i1 false)
   %90 = load ptr, ptr %6, align 8, !tbaa !266
   %91 = getelementptr inbounds i8, ptr %90, i64 -1
@@ -12124,7 +12124,7 @@ sdslen.exit26:                                    ; preds = %sdslen.exit24, %72,
   br label %sdslen.exit28
 
 sdslen.exit28:                                    ; preds = %sdslen.exit26, %95, %98, %102, %106, %110
-  %.0.i27 = phi i64 [ %112, %110 ], [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %95 ], [ 0, %sdslen.exit26 ]
+  %.0.i27 = phi i64 [ %97, %95 ], [ %101, %98 ], [ %105, %102 ], [ %109, %106 ], [ %112, %110 ], [ 0, %sdslen.exit26 ]
   %113 = load ptr, ptr %31, align 8, !tbaa !266
   %114 = getelementptr inbounds i8, ptr %113, i64 -1
   %115 = load i8, ptr %114, align 1, !tbaa !50
@@ -12167,7 +12167,7 @@ sdslen.exit28:                                    ; preds = %sdslen.exit26, %95,
   br label %sdslen.exit30
 
 sdslen.exit30:                                    ; preds = %sdslen.exit28, %118, %121, %125, %129, %133
-  %.0.i29 = phi i64 [ %135, %133 ], [ %132, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %118 ], [ 0, %sdslen.exit28 ]
+  %.0.i29 = phi i64 [ %120, %118 ], [ %124, %121 ], [ %128, %125 ], [ %132, %129 ], [ %135, %133 ], [ 0, %sdslen.exit28 ]
   %136 = getelementptr inbounds nuw i8, ptr %66, i64 %.0.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull align 1 %113, i64 %.0.i29, i1 false)
   tail call void @decrRefCount(ptr noundef nonnull %4) #33
@@ -15162,7 +15162,7 @@ define dso_local ptr @clusterGenNodeDescription(ptr noundef readnone captures(ad
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %18, %21, %25, %29, %33
-  %.0.i = phi i64 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %18 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %35, %33 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %sdslen.exit.thread, label %36
 
@@ -15218,7 +15218,7 @@ sdslen.exit.thread:                               ; preds = %3, %36, %sdslen.exi
   br label %sdslen.exit116
 
 sdslen.exit116:                                   ; preds = %45, %48, %52, %56, %60
-  %.0.i115 = phi i64 [ %62, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %45 ]
+  %.0.i115 = phi i64 [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %62, %60 ]
   %63 = icmp eq i64 %.0.i115, 0
   br i1 %63, label %sdslen.exit116.thread, label %65
 
@@ -16439,7 +16439,7 @@ define dso_local range(i32 0, 2) i32 @handleDebugClusterCommand(ptr noundef %0) 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %21, %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ], [ 0, %21 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ], [ 0, %21 ]
   %48 = trunc i64 %.0.i to i32
   %49 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %25, i32 noundef %48) #33
   %.not.i = icmp eq i32 %49, 0
@@ -17618,7 +17618,7 @@ clusterAddSlot.exit:                              ; preds = %403, %414
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %500, %509, %512, %516, %520, %524
-  %.0.i401 = phi i64 [ %526, %524 ], [ %523, %520 ], [ %519, %516 ], [ %515, %512 ], [ %511, %509 ], [ 0, %500 ]
+  %.0.i401 = phi i64 [ %511, %509 ], [ %515, %512 ], [ %519, %516 ], [ %523, %520 ], [ %526, %524 ], [ 0, %500 ]
   %527 = trunc i64 %.0.i401 to i32
   %528 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %504, i32 noundef %527) #33
   %.not.i402 = icmp eq i32 %528, 0
@@ -17760,7 +17760,7 @@ clusterLookupNode.exit.thread:                    ; preds = %529, %sdslen.exit, 
   br label %sdslen.exit405
 
 sdslen.exit405:                                   ; preds = %577, %586, %589, %593, %597, %601
-  %.0.i404 = phi i64 [ %603, %601 ], [ %600, %597 ], [ %596, %593 ], [ %592, %589 ], [ %588, %586 ], [ 0, %577 ]
+  %.0.i404 = phi i64 [ %588, %586 ], [ %592, %589 ], [ %596, %593 ], [ %600, %597 ], [ %603, %601 ], [ 0, %577 ]
   %604 = trunc i64 %.0.i404 to i32
   %605 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %581, i32 noundef %604) #33
   %.not.i406 = icmp eq i32 %605, 0
@@ -17904,7 +17904,7 @@ clusterLookupNode.exit408.thread:                 ; preds = %606, %sdslen.exit40
   br label %sdslen.exit410
 
 sdslen.exit410:                                   ; preds = %653, %662, %665, %669, %673, %677
-  %.0.i409 = phi i64 [ %679, %677 ], [ %676, %673 ], [ %672, %669 ], [ %668, %665 ], [ %664, %662 ], [ 0, %653 ]
+  %.0.i409 = phi i64 [ %664, %662 ], [ %668, %665 ], [ %672, %669 ], [ %676, %673 ], [ %679, %677 ], [ 0, %653 ]
   %680 = trunc i64 %.0.i409 to i32
   %681 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %657, i32 noundef %680) #33
   %.not.i411 = icmp eq i32 %681, 0

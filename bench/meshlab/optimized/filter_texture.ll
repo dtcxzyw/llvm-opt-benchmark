@@ -10310,14 +10310,14 @@ _ZN7QStringD2Ev.exit1279:                         ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 1566:                                             ; preds = %1561, %1550, %1539, %1410, %1399, %1388, %1377, %1366, %1355, %1344, %1321, %1310, %984, %973, %962, %951, %940, %795, %784, %649, %632, %621, %610, %464, %453, %442, %306, %295, %233
-  %.pn166.pn.pn.pn = phi { ptr, i32 } [ %.pn166.pn.pn, %1410 ], [ %234, %233 ], [ %.pn162.pn.pn, %1399 ], [ %.pn158.pn.pn, %1388 ], [ %.pn154.pn.pn, %1377 ], [ %.pn150.pn.pn, %1366 ], [ %.pn146.pn.pn, %1355 ], [ %.pn137.pn.pn.pn.pn.pn.pn.pn, %1344 ], [ %.pn133.pn.pn, %1321 ], [ %.pn.pn.pn, %1310 ], [ %.pn187.pn.pn, %984 ], [ %.pn183.pn.pn, %973 ], [ %.pn179.pn.pn, %962 ], [ %.pn175.pn.pn, %951 ], [ %.pn170.pn.pn.pn, %940 ], [ %.pn198.pn.pn, %795 ], [ %.pn191.pn.pn.pn.pn.pn, %784 ], [ %.pn214.pn.pn.pn.pn.pn, %649 ], [ %.pn210.pn.pn, %632 ], [ %.pn206.pn.pn, %621 ], [ %.pn202.pn.pn, %610 ], [ %.pn233.pn.pn, %464 ], [ %.pn229.pn.pn, %453 ], [ %.pn221.pn.pn.pn.pn.pn.pn, %442 ], [ %.pn245.pn.pn, %1561 ], [ %.pn241.pn.pn, %1550 ], [ %.pn237.pn.pn, %1539 ], [ %.pn253.pn.pn, %306 ], [ %.pn249.pn.pn, %295 ]
+  %.pn253.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn, %306 ], [ %234, %233 ], [ %.pn249.pn.pn, %295 ], [ %.pn245.pn.pn, %1561 ], [ %.pn241.pn.pn, %1550 ], [ %.pn237.pn.pn, %1539 ], [ %.pn233.pn.pn, %464 ], [ %.pn229.pn.pn, %453 ], [ %.pn221.pn.pn.pn.pn.pn.pn, %442 ], [ %.pn214.pn.pn.pn.pn.pn, %649 ], [ %.pn210.pn.pn, %632 ], [ %.pn206.pn.pn, %621 ], [ %.pn202.pn.pn, %610 ], [ %.pn198.pn.pn, %795 ], [ %.pn191.pn.pn.pn.pn.pn, %784 ], [ %.pn187.pn.pn, %984 ], [ %.pn183.pn.pn, %973 ], [ %.pn179.pn.pn, %962 ], [ %.pn175.pn.pn, %951 ], [ %.pn170.pn.pn.pn, %940 ], [ %.pn166.pn.pn, %1410 ], [ %.pn162.pn.pn, %1399 ], [ %.pn158.pn.pn, %1388 ], [ %.pn154.pn.pn, %1377 ], [ %.pn150.pn.pn, %1366 ], [ %.pn146.pn.pn, %1355 ], [ %.pn137.pn.pn.pn.pn.pn.pn.pn, %1344 ], [ %.pn133.pn.pn, %1321 ], [ %.pn.pn.pn, %1310 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #35
   br label %.body
 
 .body:                                            ; preds = %219, %225, %173, %1566
-  %.pn166.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn166.pn.pn.pn, %1566 ], [ %174, %173 ], [ %.pn.i, %225 ], [ %220, %219 ]
+  %.pn253.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn, %1566 ], [ %174, %173 ], [ %.pn.i, %225 ], [ %220, %219 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #35
-  resume { ptr, i32 } %.pn166.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn253.pn.pn.pn.pn
 }
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
@@ -16045,8 +16045,8 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit693: ; preds = %312, %179, %_ZN
   ret void
 
 _ZNSt6vectorIdSaIdEED2Ev.exit797:                 ; preds = %1804, %1788, %1776, %960, %902, %901, %383, %371, %359, %127, %1806, %1790, %1778, %962, %940, %941, %385, %373, %361, %129, %.body1103, %1773, %1771, %1769, %1732, %1242, %1195, %1183, %1148, %1146, %350, %348, %346, %344, %293, %291, %289, %175, %173, %172
-  %.pn591.pn = phi { ptr, i32 } [ %.pn5911346, %1778 ], [ %1777, %1776 ], [ %.pn5891358, %1806 ], [ %1805, %1804 ], [ %.pn587, %.body1103 ], [ %.pn1352, %1790 ], [ %1789, %1788 ], [ %1774, %1773 ], [ %1772, %1771 ], [ %1770, %1769 ], [ %.pn615.pn, %1732 ], [ %1243, %1242 ], [ %.pn625.pn, %1195 ], [ %.pn622.pn, %1183 ], [ %1149, %1148 ], [ %1147, %1146 ], [ %.pn6521239, %361 ], [ %360, %359 ], [ %.pn6501245, %373 ], [ %372, %371 ], [ %.pn6481251, %385 ], [ %384, %383 ], [ %.pn6321277, %962 ], [ %961, %960 ], [ %.pn628.pn.pn1270, %941 ], [ %.pn628, %940 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %.pn6571233, %129 ], [ %128, %127 ], [ %176, %175 ], [ %174, %173 ], [ %.pn655, %172 ], [ %.pn646, %901 ], [ %.pn646, %902 ]
-  resume { ptr, i32 } %.pn591.pn
+  %.pn657.pn = phi { ptr, i32 } [ %.pn6571233, %129 ], [ %128, %127 ], [ %176, %175 ], [ %174, %173 ], [ %.pn655, %172 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %.pn6521239, %361 ], [ %360, %359 ], [ %.pn6501245, %373 ], [ %372, %371 ], [ %.pn6481251, %385 ], [ %384, %383 ], [ %.pn6321277, %962 ], [ %961, %960 ], [ %.pn628.pn.pn1270, %941 ], [ %.pn628, %940 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %.pn625.pn, %1195 ], [ %.pn622.pn, %1183 ], [ %1149, %1148 ], [ %1147, %1146 ], [ %.pn615.pn, %1732 ], [ %1243, %1242 ], [ %.pn5911346, %1778 ], [ %1777, %1776 ], [ %.pn5891358, %1806 ], [ %1805, %1804 ], [ %.pn587, %.body1103 ], [ %.pn1352, %1790 ], [ %1789, %1788 ], [ %1774, %1773 ], [ %1772, %1771 ], [ %1770, %1769 ], [ %.pn646, %901 ], [ %.pn646, %902 ]
+  resume { ptr, i32 } %.pn657.pn
 
 1958:                                             ; preds = %1802, %1786, %1768, %1297, %1282, %1265, %1241, %1145, %958, %933, %628, %612, %381, %369, %357, %125
   unreachable
@@ -23738,12 +23738,12 @@ _ZN7QStringD2Ev.exit283:                          ; preds = %78, %_ZN9QtPrivate8
   br label %93
 
 93:                                               ; preds = %_ZN7QStringD2Ev.exit283, %92, %91, %90, %89
-  %94 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ true, %89 ]
-  %95 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %92 ], [ false, %91 ], [ true, %90 ], [ false, %89 ]
-  %96 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %92 ], [ true, %91 ], [ false, %90 ], [ false, %89 ]
-  %.0225 = phi i32 [ -1, %_ZN7QStringD2Ev.exit283 ], [ -1, %92 ], [ %77, %91 ], [ %77, %90 ], [ %77, %89 ]
-  %.0200 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ true, %92 ], [ false, %91 ], [ false, %90 ], [ false, %89 ]
-  %.0197 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ]
+  %94 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ true, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ]
+  %95 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %89 ], [ true, %90 ], [ false, %91 ], [ false, %92 ]
+  %96 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %89 ], [ false, %90 ], [ true, %91 ], [ false, %92 ]
+  %.0225 = phi i32 [ -1, %_ZN7QStringD2Ev.exit283 ], [ %77, %89 ], [ %77, %90 ], [ %77, %91 ], [ -1, %92 ]
+  %.0200 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ false, %89 ], [ false, %90 ], [ false, %91 ], [ true, %92 ]
+  %.0197 = phi i1 [ false, %_ZN7QStringD2Ev.exit283 ], [ true, %89 ], [ true, %90 ], [ true, %91 ], [ false, %92 ]
   %97 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.108, i32 noundef 10)
   store ptr %97, ptr %13, align 8
   %98 = invoke noundef float @_ZNK17RichParameterList10getAbsPercERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -36368,7 +36368,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #35
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   %66 = icmp eq i64 %64, %65
@@ -36391,7 +36391,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #35
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   %77 = icmp eq i64 %75, %76
@@ -84158,7 +84158,7 @@ _ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256: ; preds = %474, %489, 
   br label %539
 
 539:                                              ; preds = %104, %101, %528, %517, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250, %408, %397, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235, %288, %277, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit, %537, %536, %521, %509, %464, %416, %401, %389, %344, %296, %281, %269, %224
-  %.1 = phi i1 [ true, %537 ], [ true, %464 ], [ true, %509 ], [ true, %521 ], [ true, %536 ], [ true, %344 ], [ true, %389 ], [ true, %401 ], [ true, %416 ], [ true, %224 ], [ true, %269 ], [ true, %281 ], [ true, %296 ], [ false, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229 ], [ false, %277 ], [ false, %288 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %397 ], [ false, %408 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256 ], [ false, %517 ], [ false, %528 ], [ false, %101 ], [ true, %104 ]
+  %.1 = phi i1 [ true, %537 ], [ true, %224 ], [ true, %269 ], [ true, %281 ], [ true, %296 ], [ true, %344 ], [ true, %389 ], [ true, %401 ], [ true, %416 ], [ true, %464 ], [ true, %509 ], [ true, %521 ], [ true, %536 ], [ false, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229 ], [ false, %277 ], [ false, %288 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %397 ], [ false, %408 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256 ], [ false, %517 ], [ false, %528 ], [ false, %101 ], [ true, %104 ]
   ret i1 %.1
 }
 
@@ -86570,9 +86570,9 @@ _ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit:    ; preds = %68
   br label %128
 
 128:                                              ; preds = %116, %100, %90, %87
-  %.0131 = phi i32 [ 0, %87 ], [ %127, %116 ], [ %115, %100 ], [ %99, %90 ]
-  %.0130 = phi i32 [ 0, %87 ], [ %127, %116 ], [ %110, %100 ], [ %96, %90 ]
-  %.0 = phi i32 [ 0, %87 ], [ %127, %116 ], [ %105, %100 ], [ %93, %90 ]
+  %.0131 = phi i32 [ 0, %87 ], [ %99, %90 ], [ %115, %100 ], [ %127, %116 ]
+  %.0130 = phi i32 [ 0, %87 ], [ %96, %90 ], [ %110, %100 ], [ %127, %116 ]
+  %.0 = phi i32 [ 0, %87 ], [ %93, %90 ], [ %105, %100 ], [ %127, %116 ]
   %129 = load i32, ptr %3, align 4
   %130 = load ptr, ptr %0, align 8
   %131 = load ptr, ptr %1, align 8

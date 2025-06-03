@@ -3603,7 +3603,7 @@ default.unreachable:                              ; preds = %167
   unreachable
 
 209:                                              ; preds = %_.exit85.i, %_.exit82.i, %190, %188
-  %.050.i = phi i32 [ -1, %_.exit85.i ], [ -1, %_.exit82.i ], [ %.151.i, %188 ], [ -1, %190 ]
+  %.050.i = phi i32 [ %.151.i, %188 ], [ -1, %_.exit82.i ], [ -1, %_.exit85.i ], [ -1, %190 ]
   %.not73.i = icmp eq i32 %.050.i, 0
   %or.cond76.i = or i1 %.not74.i, %.not73.i
   br i1 %or.cond76.i, label %213, label %210
@@ -4719,7 +4719,7 @@ freshen_packed_object.exit:                       ; preds = %111, %116
   br label %163
 
 163:                                              ; preds = %151, %format_object_header.exit, %154, %160, %123
-  %.037 = phi i32 [ 0, %123 ], [ -1, %151 ], [ %162, %160 ], [ %157, %154 ], [ -1, %format_object_header.exit ]
+  %.037 = phi i32 [ 0, %123 ], [ %162, %160 ], [ %157, %154 ], [ -1, %151 ], [ -1, %format_object_header.exit ]
   call void @strbuf_release(ptr noundef nonnull %10) #27
   call void @strbuf_release(ptr noundef nonnull %11) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #27
@@ -6041,7 +6041,7 @@ _.exit31:                                         ; preds = %67, %69
   br label %72
 
 72:                                               ; preds = %63, %17, %_.exit31, %64, %29, %_.exit, %15
-  %.022 = phi i32 [ -1, %_.exit31 ], [ %66, %64 ], [ -1, %29 ], [ -1, %15 ], [ -1, %_.exit ], [ %.1, %63 ], [ 0, %17 ]
+  %.022 = phi i32 [ -1, %_.exit31 ], [ -1, %15 ], [ -1, %_.exit ], [ -1, %29 ], [ %66, %64 ], [ 0, %17 ], [ %.1, %63 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #27
   ret i32 %.022
 }

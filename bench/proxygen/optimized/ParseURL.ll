@@ -279,7 +279,7 @@ if.end19.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
   br label %sw.bb21.i.i.i.i.i
 
 sw.bb21.i.i.i.i.i:                                ; preds = %if.end19.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ]
+  %__first.addr.1.i.i.i.i.i = phi ptr [ %incdec.ptr20.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %__first.addr.1.val.i.i.i.i.i = load i8, ptr %__first.addr.1.i.i.i.i.i, align 1
   %conv.i.i39.i.i.i.i.i = sext i8 %__first.addr.1.val.i.i.i.i.i to i32
   %call.i.i40.i.i.i.i.i = tail call noundef i32 @isalpha(i32 noundef %conv.i.i39.i.i.i.i.i) #19
@@ -291,7 +291,7 @@ if.end24.i.i.i.i.i:                               ; preds = %sw.bb21.i.i.i.i.i
   br label %sw.bb26.i.i.i.i.i
 
 sw.bb26.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.addr.2.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ]
+  %__first.addr.2.i.i.i.i.i = phi ptr [ %incdec.ptr25.i.i.i.i.i, %if.end24.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %__first.addr.2.val.i.i.i.i.i = load i8, ptr %__first.addr.2.i.i.i.i.i, align 1
   %conv.i.i42.i.i.i.i.i = sext i8 %__first.addr.2.val.i.i.i.i.i to i32
   %call.i.i43.i.i.i.i.i = tail call noundef i32 @isalpha(i32 noundef %conv.i.i42.i.i.i.i.i) #19

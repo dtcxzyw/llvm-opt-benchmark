@@ -237,9 +237,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend(ptr noundef captures(none
   br label %76
 
 76:                                               ; preds = %60, %44, %40, %39, %.lr.ph
-  %.079 = phi i32 [ %38, %.lr.ph ], [ %75, %60 ], [ %59, %44 ], [ %spec.store.select1, %40 ], [ %32, %39 ]
-  %.078 = phi i32 [ %37, %.lr.ph ], [ %70, %60 ], [ %54, %44 ], [ %spec.store.select2, %40 ], [ %31, %39 ]
-  %.0 = phi i32 [ %35, %.lr.ph ], [ %65, %60 ], [ %49, %44 ], [ %spec.store.select, %40 ], [ %29, %39 ]
+  %.079 = phi i32 [ %38, %.lr.ph ], [ %32, %39 ], [ %spec.store.select1, %40 ], [ %59, %44 ], [ %75, %60 ]
+  %.078 = phi i32 [ %37, %.lr.ph ], [ %31, %39 ], [ %spec.store.select2, %40 ], [ %54, %44 ], [ %70, %60 ]
+  %.0 = phi i32 [ %35, %.lr.ph ], [ %29, %39 ], [ %spec.store.select, %40 ], [ %49, %44 ], [ %65, %60 ]
   %77 = shl nuw nsw i32 %.0, 16
   %78 = shl nuw nsw i32 %.078, 8
   %79 = add nuw nsw i32 %77, %78
@@ -420,9 +420,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %95
 
 95:                                               ; preds = %79, %63, %59, %58, %.lr.ph
-  %.091 = phi i32 [ %57, %.lr.ph ], [ %94, %79 ], [ %78, %63 ], [ %spec.store.select1, %59 ], [ %51, %58 ]
-  %.090 = phi i32 [ %56, %.lr.ph ], [ %89, %79 ], [ %73, %63 ], [ %spec.store.select2, %59 ], [ %50, %58 ]
-  %.0 = phi i32 [ %54, %.lr.ph ], [ %84, %79 ], [ %68, %63 ], [ %spec.store.select, %59 ], [ %48, %58 ]
+  %.091 = phi i32 [ %57, %.lr.ph ], [ %51, %58 ], [ %spec.store.select1, %59 ], [ %78, %63 ], [ %94, %79 ]
+  %.090 = phi i32 [ %56, %.lr.ph ], [ %50, %58 ], [ %spec.store.select2, %59 ], [ %73, %63 ], [ %89, %79 ]
+  %.0 = phi i32 [ %54, %.lr.ph ], [ %48, %58 ], [ %spec.store.select, %59 ], [ %68, %63 ], [ %84, %79 ]
   %96 = shl nuw nsw i32 %.0, 16
   %97 = shl nuw nsw i32 %.090, 8
   %98 = add nuw nsw i32 %96, %97
@@ -1041,9 +1041,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %129, %174, %158, %154, %104, %103
-  %.0208 = phi i32 [ %57, %103 ], [ %spec.store.select7, %174 ], [ %173, %158 ], [ %spec.store.select1, %154 ], [ %spec.store.select4, %129 ], [ %128, %104 ]
-  %.0207 = phi i32 [ %56, %103 ], [ %spec.store.select9, %174 ], [ %168, %158 ], [ %spec.store.select5, %154 ], [ %spec.store.select8, %129 ], [ %120, %104 ]
-  %.0206 = phi i32 [ %54, %103 ], [ %spec.store.select6, %174 ], [ %163, %158 ], [ %spec.store.select, %154 ], [ %spec.store.select3, %129 ], [ %112, %104 ]
+  %.0208 = phi i32 [ %57, %103 ], [ %128, %104 ], [ %spec.store.select4, %129 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
+  %.0207 = phi i32 [ %56, %103 ], [ %120, %104 ], [ %spec.store.select8, %129 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
+  %.0206 = phi i32 [ %54, %103 ], [ %112, %104 ], [ %spec.store.select3, %129 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
   %215 = shl nuw nsw i32 %.0206, 16
   %216 = shl nuw nsw i32 %.0207, 8
   %217 = or i32 %216, %.0208
@@ -1387,9 +1387,9 @@ define internal void @SDL_Blit_XRGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %148, %193, %177, %173, %123, %122
-  %.0220 = phi i32 [ %76, %122 ], [ %spec.store.select7, %193 ], [ %192, %177 ], [ %spec.store.select1, %173 ], [ %spec.store.select4, %148 ], [ %147, %123 ]
-  %.0219 = phi i32 [ %75, %122 ], [ %spec.store.select9, %193 ], [ %187, %177 ], [ %spec.store.select5, %173 ], [ %spec.store.select8, %148 ], [ %139, %123 ]
-  %.0218 = phi i32 [ %73, %122 ], [ %spec.store.select6, %193 ], [ %182, %177 ], [ %spec.store.select, %173 ], [ %spec.store.select3, %148 ], [ %131, %123 ]
+  %.0220 = phi i32 [ %76, %122 ], [ %147, %123 ], [ %spec.store.select4, %148 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
+  %.0219 = phi i32 [ %75, %122 ], [ %139, %123 ], [ %spec.store.select8, %148 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
+  %.0218 = phi i32 [ %73, %122 ], [ %131, %123 ], [ %spec.store.select3, %148 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
   %234 = shl nuw nsw i32 %.0218, 16
   %235 = shl nuw nsw i32 %.0219, 8
   %236 = or i32 %235, %.0220
@@ -1659,9 +1659,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend(ptr noundef captures(none
   br label %76
 
 76:                                               ; preds = %60, %44, %40, %39, %.lr.ph
-  %.079 = phi i32 [ %35, %.lr.ph ], [ %75, %60 ], [ %59, %44 ], [ %spec.store.select1, %40 ], [ %32, %39 ]
-  %.078 = phi i32 [ %37, %.lr.ph ], [ %70, %60 ], [ %54, %44 ], [ %spec.store.select2, %40 ], [ %31, %39 ]
-  %.0 = phi i32 [ %38, %.lr.ph ], [ %65, %60 ], [ %49, %44 ], [ %spec.store.select, %40 ], [ %29, %39 ]
+  %.079 = phi i32 [ %35, %.lr.ph ], [ %32, %39 ], [ %spec.store.select1, %40 ], [ %59, %44 ], [ %75, %60 ]
+  %.078 = phi i32 [ %37, %.lr.ph ], [ %31, %39 ], [ %spec.store.select2, %40 ], [ %54, %44 ], [ %70, %60 ]
+  %.0 = phi i32 [ %38, %.lr.ph ], [ %29, %39 ], [ %spec.store.select, %40 ], [ %49, %44 ], [ %65, %60 ]
   %77 = shl nuw nsw i32 %.079, 16
   %78 = shl nuw nsw i32 %.078, 8
   %79 = add nuw nsw i32 %78, %77
@@ -1842,9 +1842,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %95
 
 95:                                               ; preds = %79, %63, %59, %58, %.lr.ph
-  %.091 = phi i32 [ %54, %.lr.ph ], [ %94, %79 ], [ %78, %63 ], [ %spec.store.select1, %59 ], [ %51, %58 ]
-  %.090 = phi i32 [ %56, %.lr.ph ], [ %89, %79 ], [ %73, %63 ], [ %spec.store.select2, %59 ], [ %50, %58 ]
-  %.0 = phi i32 [ %57, %.lr.ph ], [ %84, %79 ], [ %68, %63 ], [ %spec.store.select, %59 ], [ %48, %58 ]
+  %.091 = phi i32 [ %54, %.lr.ph ], [ %51, %58 ], [ %spec.store.select1, %59 ], [ %78, %63 ], [ %94, %79 ]
+  %.090 = phi i32 [ %56, %.lr.ph ], [ %50, %58 ], [ %spec.store.select2, %59 ], [ %73, %63 ], [ %89, %79 ]
+  %.0 = phi i32 [ %57, %.lr.ph ], [ %48, %58 ], [ %spec.store.select, %59 ], [ %68, %63 ], [ %84, %79 ]
   %96 = shl nuw nsw i32 %.091, 16
   %97 = shl nuw nsw i32 %.090, 8
   %98 = add nuw nsw i32 %97, %96
@@ -2475,9 +2475,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %129, %174, %158, %154, %104, %103
-  %.0208 = phi i32 [ %54, %103 ], [ %spec.store.select7, %174 ], [ %173, %158 ], [ %spec.store.select1, %154 ], [ %spec.store.select4, %129 ], [ %128, %104 ]
-  %.0207 = phi i32 [ %56, %103 ], [ %spec.store.select9, %174 ], [ %168, %158 ], [ %spec.store.select5, %154 ], [ %spec.store.select8, %129 ], [ %120, %104 ]
-  %.0206 = phi i32 [ %57, %103 ], [ %spec.store.select6, %174 ], [ %163, %158 ], [ %spec.store.select, %154 ], [ %spec.store.select3, %129 ], [ %112, %104 ]
+  %.0208 = phi i32 [ %54, %103 ], [ %128, %104 ], [ %spec.store.select4, %129 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
+  %.0207 = phi i32 [ %56, %103 ], [ %120, %104 ], [ %spec.store.select8, %129 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
+  %.0206 = phi i32 [ %57, %103 ], [ %112, %104 ], [ %spec.store.select3, %129 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
   %215 = shl nuw nsw i32 %.0208, 16
   %216 = shl nuw nsw i32 %.0207, 8
   %217 = or i32 %216, %215
@@ -2821,9 +2821,9 @@ define internal void @SDL_Blit_XRGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %148, %193, %177, %173, %123, %122
-  %.0220 = phi i32 [ %73, %122 ], [ %spec.store.select7, %193 ], [ %192, %177 ], [ %spec.store.select1, %173 ], [ %spec.store.select4, %148 ], [ %147, %123 ]
-  %.0219 = phi i32 [ %75, %122 ], [ %spec.store.select9, %193 ], [ %187, %177 ], [ %spec.store.select5, %173 ], [ %spec.store.select8, %148 ], [ %139, %123 ]
-  %.0218 = phi i32 [ %76, %122 ], [ %spec.store.select6, %193 ], [ %182, %177 ], [ %spec.store.select, %173 ], [ %spec.store.select3, %148 ], [ %131, %123 ]
+  %.0220 = phi i32 [ %73, %122 ], [ %147, %123 ], [ %spec.store.select4, %148 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
+  %.0219 = phi i32 [ %75, %122 ], [ %139, %123 ], [ %spec.store.select8, %148 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
+  %.0218 = phi i32 [ %76, %122 ], [ %131, %123 ], [ %spec.store.select3, %148 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
   %234 = shl nuw nsw i32 %.0220, 16
   %235 = shl nuw nsw i32 %.0219, 8
   %236 = or i32 %235, %234
@@ -3088,10 +3088,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend(ptr noundef captures(none
   br label %77
 
 77:                                               ; preds = %61, %45, %41, %40, %.lr.ph
-  %.082 = phi i32 [ %39, %.lr.ph ], [ %39, %61 ], [ %39, %45 ], [ %39, %41 ], [ 255, %40 ]
-  %.081 = phi i32 [ %38, %.lr.ph ], [ %76, %61 ], [ %60, %45 ], [ %spec.store.select1, %41 ], [ %32, %40 ]
-  %.080 = phi i32 [ %37, %.lr.ph ], [ %71, %61 ], [ %55, %45 ], [ %spec.store.select2, %41 ], [ %31, %40 ]
-  %.0 = phi i32 [ %35, %.lr.ph ], [ %66, %61 ], [ %50, %45 ], [ %spec.store.select, %41 ], [ %29, %40 ]
+  %.082 = phi i32 [ %39, %.lr.ph ], [ 255, %40 ], [ %39, %41 ], [ %39, %45 ], [ %39, %61 ]
+  %.081 = phi i32 [ %38, %.lr.ph ], [ %32, %40 ], [ %spec.store.select1, %41 ], [ %60, %45 ], [ %76, %61 ]
+  %.080 = phi i32 [ %37, %.lr.ph ], [ %31, %40 ], [ %spec.store.select2, %41 ], [ %55, %45 ], [ %71, %61 ]
+  %.0 = phi i32 [ %35, %.lr.ph ], [ %29, %40 ], [ %spec.store.select, %41 ], [ %50, %45 ], [ %66, %61 ]
   %78 = shl nuw i32 %.082, 24
   %79 = shl nuw nsw i32 %.0, 16
   %80 = add nuw nsw i32 %79, %78
@@ -3275,10 +3275,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %96
 
 96:                                               ; preds = %80, %64, %60, %59, %.lr.ph
-  %.094 = phi i32 [ %58, %.lr.ph ], [ %58, %80 ], [ %58, %64 ], [ %58, %60 ], [ 255, %59 ]
-  %.093 = phi i32 [ %57, %.lr.ph ], [ %95, %80 ], [ %79, %64 ], [ %spec.store.select1, %60 ], [ %51, %59 ]
-  %.092 = phi i32 [ %56, %.lr.ph ], [ %90, %80 ], [ %74, %64 ], [ %spec.store.select2, %60 ], [ %50, %59 ]
-  %.0 = phi i32 [ %54, %.lr.ph ], [ %85, %80 ], [ %69, %64 ], [ %spec.store.select, %60 ], [ %48, %59 ]
+  %.094 = phi i32 [ %58, %.lr.ph ], [ 255, %59 ], [ %58, %60 ], [ %58, %64 ], [ %58, %80 ]
+  %.093 = phi i32 [ %57, %.lr.ph ], [ %51, %59 ], [ %spec.store.select1, %60 ], [ %79, %64 ], [ %95, %80 ]
+  %.092 = phi i32 [ %56, %.lr.ph ], [ %50, %59 ], [ %spec.store.select2, %60 ], [ %74, %64 ], [ %90, %80 ]
+  %.0 = phi i32 [ %54, %.lr.ph ], [ %48, %59 ], [ %spec.store.select, %60 ], [ %69, %64 ], [ %85, %80 ]
   %97 = shl nuw i32 %.094, 24
   %98 = shl nuw nsw i32 %.0, 16
   %99 = add nuw nsw i32 %98, %97
@@ -3934,10 +3934,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %230
 
 230:                                              ; preds = %137, %190, %174, %170, %105, %104
-  %.0229 = phi i32 [ %58, %104 ], [ %58, %190 ], [ %58, %174 ], [ %58, %170 ], [ %spec.store.select10, %137 ], [ %136, %105 ]
-  %.0228 = phi i32 [ %57, %104 ], [ %spec.store.select7, %190 ], [ %189, %174 ], [ %spec.store.select1, %170 ], [ %spec.store.select4, %137 ], [ %129, %105 ]
-  %.0227 = phi i32 [ %56, %104 ], [ %spec.store.select9, %190 ], [ %184, %174 ], [ %spec.store.select5, %170 ], [ %spec.store.select8, %137 ], [ %121, %105 ]
-  %.0226 = phi i32 [ %54, %104 ], [ %spec.store.select6, %190 ], [ %179, %174 ], [ %spec.store.select, %170 ], [ %spec.store.select3, %137 ], [ %113, %105 ]
+  %.0229 = phi i32 [ %58, %104 ], [ %136, %105 ], [ %spec.store.select10, %137 ], [ %58, %170 ], [ %58, %174 ], [ %58, %190 ]
+  %.0228 = phi i32 [ %57, %104 ], [ %129, %105 ], [ %spec.store.select4, %137 ], [ %spec.store.select1, %170 ], [ %189, %174 ], [ %spec.store.select7, %190 ]
+  %.0227 = phi i32 [ %56, %104 ], [ %121, %105 ], [ %spec.store.select8, %137 ], [ %spec.store.select5, %170 ], [ %184, %174 ], [ %spec.store.select9, %190 ]
+  %.0226 = phi i32 [ %54, %104 ], [ %113, %105 ], [ %spec.store.select3, %137 ], [ %spec.store.select, %170 ], [ %179, %174 ], [ %spec.store.select6, %190 ]
   %231 = shl i32 %.0229, 24
   %232 = shl nuw nsw i32 %.0226, 16
   %233 = shl nuw nsw i32 %.0227, 8
@@ -4300,10 +4300,10 @@ define internal void @SDL_Blit_XRGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %249
 
 249:                                              ; preds = %156, %209, %193, %189, %124, %123
-  %.0241 = phi i32 [ %77, %123 ], [ %77, %209 ], [ %77, %193 ], [ %77, %189 ], [ %spec.store.select10, %156 ], [ %155, %124 ]
-  %.0240 = phi i32 [ %76, %123 ], [ %spec.store.select7, %209 ], [ %208, %193 ], [ %spec.store.select1, %189 ], [ %spec.store.select4, %156 ], [ %148, %124 ]
-  %.0239 = phi i32 [ %75, %123 ], [ %spec.store.select9, %209 ], [ %203, %193 ], [ %spec.store.select5, %189 ], [ %spec.store.select8, %156 ], [ %140, %124 ]
-  %.0238 = phi i32 [ %73, %123 ], [ %spec.store.select6, %209 ], [ %198, %193 ], [ %spec.store.select, %189 ], [ %spec.store.select3, %156 ], [ %132, %124 ]
+  %.0241 = phi i32 [ %77, %123 ], [ %155, %124 ], [ %spec.store.select10, %156 ], [ %77, %189 ], [ %77, %193 ], [ %77, %209 ]
+  %.0240 = phi i32 [ %76, %123 ], [ %148, %124 ], [ %spec.store.select4, %156 ], [ %spec.store.select1, %189 ], [ %208, %193 ], [ %spec.store.select7, %209 ]
+  %.0239 = phi i32 [ %75, %123 ], [ %140, %124 ], [ %spec.store.select8, %156 ], [ %spec.store.select5, %189 ], [ %203, %193 ], [ %spec.store.select9, %209 ]
+  %.0238 = phi i32 [ %73, %123 ], [ %132, %124 ], [ %spec.store.select3, %156 ], [ %spec.store.select, %189 ], [ %198, %193 ], [ %spec.store.select6, %209 ]
   %250 = shl i32 %.0241, 24
   %251 = shl nuw nsw i32 %.0238, 16
   %252 = shl nuw nsw i32 %.0239, 8
@@ -4576,10 +4576,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend(ptr noundef captures(none
   br label %77
 
 77:                                               ; preds = %61, %45, %41, %40, %.lr.ph
-  %.082 = phi i32 [ %39, %.lr.ph ], [ %39, %61 ], [ %39, %45 ], [ %39, %41 ], [ 255, %40 ]
-  %.081 = phi i32 [ %35, %.lr.ph ], [ %76, %61 ], [ %60, %45 ], [ %spec.store.select1, %41 ], [ %32, %40 ]
-  %.080 = phi i32 [ %37, %.lr.ph ], [ %71, %61 ], [ %55, %45 ], [ %spec.store.select2, %41 ], [ %31, %40 ]
-  %.0 = phi i32 [ %38, %.lr.ph ], [ %66, %61 ], [ %50, %45 ], [ %spec.store.select, %41 ], [ %29, %40 ]
+  %.082 = phi i32 [ %39, %.lr.ph ], [ 255, %40 ], [ %39, %41 ], [ %39, %45 ], [ %39, %61 ]
+  %.081 = phi i32 [ %35, %.lr.ph ], [ %32, %40 ], [ %spec.store.select1, %41 ], [ %60, %45 ], [ %76, %61 ]
+  %.080 = phi i32 [ %37, %.lr.ph ], [ %31, %40 ], [ %spec.store.select2, %41 ], [ %55, %45 ], [ %71, %61 ]
+  %.0 = phi i32 [ %38, %.lr.ph ], [ %29, %40 ], [ %spec.store.select, %41 ], [ %50, %45 ], [ %66, %61 ]
   %78 = shl nuw i32 %.082, 24
   %79 = shl nuw nsw i32 %.081, 16
   %80 = add nuw nsw i32 %79, %78
@@ -4763,10 +4763,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %96
 
 96:                                               ; preds = %80, %64, %60, %59, %.lr.ph
-  %.094 = phi i32 [ %58, %.lr.ph ], [ %58, %80 ], [ %58, %64 ], [ %58, %60 ], [ 255, %59 ]
-  %.093 = phi i32 [ %54, %.lr.ph ], [ %95, %80 ], [ %79, %64 ], [ %spec.store.select1, %60 ], [ %51, %59 ]
-  %.092 = phi i32 [ %56, %.lr.ph ], [ %90, %80 ], [ %74, %64 ], [ %spec.store.select2, %60 ], [ %50, %59 ]
-  %.0 = phi i32 [ %57, %.lr.ph ], [ %85, %80 ], [ %69, %64 ], [ %spec.store.select, %60 ], [ %48, %59 ]
+  %.094 = phi i32 [ %58, %.lr.ph ], [ 255, %59 ], [ %58, %60 ], [ %58, %64 ], [ %58, %80 ]
+  %.093 = phi i32 [ %54, %.lr.ph ], [ %51, %59 ], [ %spec.store.select1, %60 ], [ %79, %64 ], [ %95, %80 ]
+  %.092 = phi i32 [ %56, %.lr.ph ], [ %50, %59 ], [ %spec.store.select2, %60 ], [ %74, %64 ], [ %90, %80 ]
+  %.0 = phi i32 [ %57, %.lr.ph ], [ %48, %59 ], [ %spec.store.select, %60 ], [ %69, %64 ], [ %85, %80 ]
   %97 = shl nuw i32 %.094, 24
   %98 = shl nuw nsw i32 %.093, 16
   %99 = add nuw nsw i32 %98, %97
@@ -5434,10 +5434,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %230
 
 230:                                              ; preds = %137, %190, %174, %170, %105, %104
-  %.0229 = phi i32 [ %58, %104 ], [ %58, %190 ], [ %58, %174 ], [ %58, %170 ], [ %spec.store.select10, %137 ], [ %136, %105 ]
-  %.0228 = phi i32 [ %54, %104 ], [ %spec.store.select7, %190 ], [ %189, %174 ], [ %spec.store.select1, %170 ], [ %spec.store.select4, %137 ], [ %129, %105 ]
-  %.0227 = phi i32 [ %56, %104 ], [ %spec.store.select9, %190 ], [ %184, %174 ], [ %spec.store.select5, %170 ], [ %spec.store.select8, %137 ], [ %121, %105 ]
-  %.0226 = phi i32 [ %57, %104 ], [ %spec.store.select6, %190 ], [ %179, %174 ], [ %spec.store.select, %170 ], [ %spec.store.select3, %137 ], [ %113, %105 ]
+  %.0229 = phi i32 [ %58, %104 ], [ %136, %105 ], [ %spec.store.select10, %137 ], [ %58, %170 ], [ %58, %174 ], [ %58, %190 ]
+  %.0228 = phi i32 [ %54, %104 ], [ %129, %105 ], [ %spec.store.select4, %137 ], [ %spec.store.select1, %170 ], [ %189, %174 ], [ %spec.store.select7, %190 ]
+  %.0227 = phi i32 [ %56, %104 ], [ %121, %105 ], [ %spec.store.select8, %137 ], [ %spec.store.select5, %170 ], [ %184, %174 ], [ %spec.store.select9, %190 ]
+  %.0226 = phi i32 [ %57, %104 ], [ %113, %105 ], [ %spec.store.select3, %137 ], [ %spec.store.select, %170 ], [ %179, %174 ], [ %spec.store.select6, %190 ]
   %231 = shl i32 %.0229, 24
   %232 = shl nuw nsw i32 %.0228, 16
   %233 = or i32 %232, %231
@@ -5800,10 +5800,10 @@ define internal void @SDL_Blit_XRGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %249
 
 249:                                              ; preds = %156, %209, %193, %189, %124, %123
-  %.0241 = phi i32 [ %77, %123 ], [ %77, %209 ], [ %77, %193 ], [ %77, %189 ], [ %spec.store.select10, %156 ], [ %155, %124 ]
-  %.0240 = phi i32 [ %73, %123 ], [ %spec.store.select7, %209 ], [ %208, %193 ], [ %spec.store.select1, %189 ], [ %spec.store.select4, %156 ], [ %148, %124 ]
-  %.0239 = phi i32 [ %75, %123 ], [ %spec.store.select9, %209 ], [ %203, %193 ], [ %spec.store.select5, %189 ], [ %spec.store.select8, %156 ], [ %140, %124 ]
-  %.0238 = phi i32 [ %76, %123 ], [ %spec.store.select6, %209 ], [ %198, %193 ], [ %spec.store.select, %189 ], [ %spec.store.select3, %156 ], [ %132, %124 ]
+  %.0241 = phi i32 [ %77, %123 ], [ %155, %124 ], [ %spec.store.select10, %156 ], [ %77, %189 ], [ %77, %193 ], [ %77, %209 ]
+  %.0240 = phi i32 [ %73, %123 ], [ %148, %124 ], [ %spec.store.select4, %156 ], [ %spec.store.select1, %189 ], [ %208, %193 ], [ %spec.store.select7, %209 ]
+  %.0239 = phi i32 [ %75, %123 ], [ %140, %124 ], [ %spec.store.select8, %156 ], [ %spec.store.select5, %189 ], [ %203, %193 ], [ %spec.store.select9, %209 ]
+  %.0238 = phi i32 [ %76, %123 ], [ %132, %124 ], [ %spec.store.select3, %156 ], [ %spec.store.select, %189 ], [ %198, %193 ], [ %spec.store.select6, %209 ]
   %250 = shl i32 %.0241, 24
   %251 = shl nuw nsw i32 %.0240, 16
   %252 = or i32 %251, %250
@@ -6075,9 +6075,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend(ptr noundef captures(none
   br label %76
 
 76:                                               ; preds = %60, %44, %40, %39, %.lr.ph
-  %.079 = phi i32 [ %38, %.lr.ph ], [ %75, %60 ], [ %59, %44 ], [ %spec.store.select1, %40 ], [ %29, %39 ]
-  %.078 = phi i32 [ %37, %.lr.ph ], [ %70, %60 ], [ %54, %44 ], [ %spec.store.select2, %40 ], [ %31, %39 ]
-  %.0 = phi i32 [ %35, %.lr.ph ], [ %65, %60 ], [ %49, %44 ], [ %spec.store.select, %40 ], [ %32, %39 ]
+  %.079 = phi i32 [ %38, %.lr.ph ], [ %29, %39 ], [ %spec.store.select1, %40 ], [ %59, %44 ], [ %75, %60 ]
+  %.078 = phi i32 [ %37, %.lr.ph ], [ %31, %39 ], [ %spec.store.select2, %40 ], [ %54, %44 ], [ %70, %60 ]
+  %.0 = phi i32 [ %35, %.lr.ph ], [ %32, %39 ], [ %spec.store.select, %40 ], [ %49, %44 ], [ %65, %60 ]
   %77 = shl nuw nsw i32 %.0, 16
   %78 = shl nuw nsw i32 %.078, 8
   %79 = add nuw nsw i32 %77, %78
@@ -6258,9 +6258,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %95
 
 95:                                               ; preds = %79, %63, %59, %58, %.lr.ph
-  %.091 = phi i32 [ %57, %.lr.ph ], [ %94, %79 ], [ %78, %63 ], [ %spec.store.select1, %59 ], [ %48, %58 ]
-  %.090 = phi i32 [ %56, %.lr.ph ], [ %89, %79 ], [ %73, %63 ], [ %spec.store.select2, %59 ], [ %50, %58 ]
-  %.0 = phi i32 [ %54, %.lr.ph ], [ %84, %79 ], [ %68, %63 ], [ %spec.store.select, %59 ], [ %51, %58 ]
+  %.091 = phi i32 [ %57, %.lr.ph ], [ %48, %58 ], [ %spec.store.select1, %59 ], [ %78, %63 ], [ %94, %79 ]
+  %.090 = phi i32 [ %56, %.lr.ph ], [ %50, %58 ], [ %spec.store.select2, %59 ], [ %73, %63 ], [ %89, %79 ]
+  %.0 = phi i32 [ %54, %.lr.ph ], [ %51, %58 ], [ %spec.store.select, %59 ], [ %68, %63 ], [ %84, %79 ]
   %96 = shl nuw nsw i32 %.0, 16
   %97 = shl nuw nsw i32 %.090, 8
   %98 = add nuw nsw i32 %96, %97
@@ -6891,9 +6891,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %129, %174, %158, %154, %104, %103
-  %.0208 = phi i32 [ %57, %103 ], [ %spec.store.select7, %174 ], [ %173, %158 ], [ %spec.store.select1, %154 ], [ %spec.store.select4, %129 ], [ %128, %104 ]
-  %.0207 = phi i32 [ %56, %103 ], [ %spec.store.select9, %174 ], [ %168, %158 ], [ %spec.store.select5, %154 ], [ %spec.store.select8, %129 ], [ %120, %104 ]
-  %.0206 = phi i32 [ %54, %103 ], [ %spec.store.select6, %174 ], [ %163, %158 ], [ %spec.store.select, %154 ], [ %spec.store.select3, %129 ], [ %112, %104 ]
+  %.0208 = phi i32 [ %57, %103 ], [ %128, %104 ], [ %spec.store.select4, %129 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
+  %.0207 = phi i32 [ %56, %103 ], [ %120, %104 ], [ %spec.store.select8, %129 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
+  %.0206 = phi i32 [ %54, %103 ], [ %112, %104 ], [ %spec.store.select3, %129 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
   %215 = shl nuw nsw i32 %.0206, 16
   %216 = shl nuw nsw i32 %.0207, 8
   %217 = or i32 %216, %.0208
@@ -7237,9 +7237,9 @@ define internal void @SDL_Blit_XBGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %148, %193, %177, %173, %123, %122
-  %.0220 = phi i32 [ %76, %122 ], [ %spec.store.select7, %193 ], [ %192, %177 ], [ %spec.store.select1, %173 ], [ %spec.store.select4, %148 ], [ %147, %123 ]
-  %.0219 = phi i32 [ %75, %122 ], [ %spec.store.select9, %193 ], [ %187, %177 ], [ %spec.store.select5, %173 ], [ %spec.store.select8, %148 ], [ %139, %123 ]
-  %.0218 = phi i32 [ %73, %122 ], [ %spec.store.select6, %193 ], [ %182, %177 ], [ %spec.store.select, %173 ], [ %spec.store.select3, %148 ], [ %131, %123 ]
+  %.0220 = phi i32 [ %76, %122 ], [ %147, %123 ], [ %spec.store.select4, %148 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
+  %.0219 = phi i32 [ %75, %122 ], [ %139, %123 ], [ %spec.store.select8, %148 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
+  %.0218 = phi i32 [ %73, %122 ], [ %131, %123 ], [ %spec.store.select3, %148 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
   %234 = shl nuw nsw i32 %.0218, 16
   %235 = shl nuw nsw i32 %.0219, 8
   %236 = or i32 %235, %.0220
@@ -7502,9 +7502,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend(ptr noundef captures(none
   br label %76
 
 76:                                               ; preds = %60, %44, %40, %39, %.lr.ph
-  %.079 = phi i32 [ %35, %.lr.ph ], [ %75, %60 ], [ %59, %44 ], [ %spec.store.select1, %40 ], [ %29, %39 ]
-  %.078 = phi i32 [ %37, %.lr.ph ], [ %70, %60 ], [ %54, %44 ], [ %spec.store.select2, %40 ], [ %31, %39 ]
-  %.0 = phi i32 [ %38, %.lr.ph ], [ %65, %60 ], [ %49, %44 ], [ %spec.store.select, %40 ], [ %32, %39 ]
+  %.079 = phi i32 [ %35, %.lr.ph ], [ %29, %39 ], [ %spec.store.select1, %40 ], [ %59, %44 ], [ %75, %60 ]
+  %.078 = phi i32 [ %37, %.lr.ph ], [ %31, %39 ], [ %spec.store.select2, %40 ], [ %54, %44 ], [ %70, %60 ]
+  %.0 = phi i32 [ %38, %.lr.ph ], [ %32, %39 ], [ %spec.store.select, %40 ], [ %49, %44 ], [ %65, %60 ]
   %77 = shl nuw nsw i32 %.079, 16
   %78 = shl nuw nsw i32 %.078, 8
   %79 = add nuw nsw i32 %78, %77
@@ -7685,9 +7685,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %95
 
 95:                                               ; preds = %79, %63, %59, %58, %.lr.ph
-  %.091 = phi i32 [ %54, %.lr.ph ], [ %94, %79 ], [ %78, %63 ], [ %spec.store.select1, %59 ], [ %48, %58 ]
-  %.090 = phi i32 [ %56, %.lr.ph ], [ %89, %79 ], [ %73, %63 ], [ %spec.store.select2, %59 ], [ %50, %58 ]
-  %.0 = phi i32 [ %57, %.lr.ph ], [ %84, %79 ], [ %68, %63 ], [ %spec.store.select, %59 ], [ %51, %58 ]
+  %.091 = phi i32 [ %54, %.lr.ph ], [ %48, %58 ], [ %spec.store.select1, %59 ], [ %78, %63 ], [ %94, %79 ]
+  %.090 = phi i32 [ %56, %.lr.ph ], [ %50, %58 ], [ %spec.store.select2, %59 ], [ %73, %63 ], [ %89, %79 ]
+  %.0 = phi i32 [ %57, %.lr.ph ], [ %51, %58 ], [ %spec.store.select, %59 ], [ %68, %63 ], [ %84, %79 ]
   %96 = shl nuw nsw i32 %.091, 16
   %97 = shl nuw nsw i32 %.090, 8
   %98 = add nuw nsw i32 %97, %96
@@ -8306,9 +8306,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %129, %174, %158, %154, %104, %103
-  %.0208 = phi i32 [ %54, %103 ], [ %spec.store.select7, %174 ], [ %173, %158 ], [ %spec.store.select1, %154 ], [ %spec.store.select4, %129 ], [ %128, %104 ]
-  %.0207 = phi i32 [ %56, %103 ], [ %spec.store.select9, %174 ], [ %168, %158 ], [ %spec.store.select5, %154 ], [ %spec.store.select8, %129 ], [ %120, %104 ]
-  %.0206 = phi i32 [ %57, %103 ], [ %spec.store.select6, %174 ], [ %163, %158 ], [ %spec.store.select, %154 ], [ %spec.store.select3, %129 ], [ %112, %104 ]
+  %.0208 = phi i32 [ %54, %103 ], [ %128, %104 ], [ %spec.store.select4, %129 ], [ %spec.store.select1, %154 ], [ %173, %158 ], [ %spec.store.select7, %174 ]
+  %.0207 = phi i32 [ %56, %103 ], [ %120, %104 ], [ %spec.store.select8, %129 ], [ %spec.store.select5, %154 ], [ %168, %158 ], [ %spec.store.select9, %174 ]
+  %.0206 = phi i32 [ %57, %103 ], [ %112, %104 ], [ %spec.store.select3, %129 ], [ %spec.store.select, %154 ], [ %163, %158 ], [ %spec.store.select6, %174 ]
   %215 = shl nuw nsw i32 %.0208, 16
   %216 = shl nuw nsw i32 %.0207, 8
   %217 = or i32 %216, %215
@@ -8652,9 +8652,9 @@ define internal void @SDL_Blit_XBGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %148, %193, %177, %173, %123, %122
-  %.0220 = phi i32 [ %73, %122 ], [ %spec.store.select7, %193 ], [ %192, %177 ], [ %spec.store.select1, %173 ], [ %spec.store.select4, %148 ], [ %147, %123 ]
-  %.0219 = phi i32 [ %75, %122 ], [ %spec.store.select9, %193 ], [ %187, %177 ], [ %spec.store.select5, %173 ], [ %spec.store.select8, %148 ], [ %139, %123 ]
-  %.0218 = phi i32 [ %76, %122 ], [ %spec.store.select6, %193 ], [ %182, %177 ], [ %spec.store.select, %173 ], [ %spec.store.select3, %148 ], [ %131, %123 ]
+  %.0220 = phi i32 [ %73, %122 ], [ %147, %123 ], [ %spec.store.select4, %148 ], [ %spec.store.select1, %173 ], [ %192, %177 ], [ %spec.store.select7, %193 ]
+  %.0219 = phi i32 [ %75, %122 ], [ %139, %123 ], [ %spec.store.select8, %148 ], [ %spec.store.select5, %173 ], [ %187, %177 ], [ %spec.store.select9, %193 ]
+  %.0218 = phi i32 [ %76, %122 ], [ %131, %123 ], [ %spec.store.select3, %148 ], [ %spec.store.select, %173 ], [ %182, %177 ], [ %spec.store.select6, %193 ]
   %234 = shl nuw nsw i32 %.0220, 16
   %235 = shl nuw nsw i32 %.0219, 8
   %236 = or i32 %235, %234
@@ -8925,10 +8925,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend(ptr noundef captures(none
   br label %77
 
 77:                                               ; preds = %61, %45, %41, %40, %.lr.ph
-  %.082 = phi i32 [ %39, %.lr.ph ], [ %39, %61 ], [ %39, %45 ], [ %39, %41 ], [ 255, %40 ]
-  %.081 = phi i32 [ %38, %.lr.ph ], [ %76, %61 ], [ %60, %45 ], [ %spec.store.select1, %41 ], [ %29, %40 ]
-  %.080 = phi i32 [ %37, %.lr.ph ], [ %71, %61 ], [ %55, %45 ], [ %spec.store.select2, %41 ], [ %31, %40 ]
-  %.0 = phi i32 [ %35, %.lr.ph ], [ %66, %61 ], [ %50, %45 ], [ %spec.store.select, %41 ], [ %32, %40 ]
+  %.082 = phi i32 [ %39, %.lr.ph ], [ 255, %40 ], [ %39, %41 ], [ %39, %45 ], [ %39, %61 ]
+  %.081 = phi i32 [ %38, %.lr.ph ], [ %29, %40 ], [ %spec.store.select1, %41 ], [ %60, %45 ], [ %76, %61 ]
+  %.080 = phi i32 [ %37, %.lr.ph ], [ %31, %40 ], [ %spec.store.select2, %41 ], [ %55, %45 ], [ %71, %61 ]
+  %.0 = phi i32 [ %35, %.lr.ph ], [ %32, %40 ], [ %spec.store.select, %41 ], [ %50, %45 ], [ %66, %61 ]
   %78 = shl nuw i32 %.082, 24
   %79 = shl nuw nsw i32 %.0, 16
   %80 = add nuw nsw i32 %79, %78
@@ -9112,10 +9112,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %96
 
 96:                                               ; preds = %80, %64, %60, %59, %.lr.ph
-  %.094 = phi i32 [ %58, %.lr.ph ], [ %58, %80 ], [ %58, %64 ], [ %58, %60 ], [ 255, %59 ]
-  %.093 = phi i32 [ %57, %.lr.ph ], [ %95, %80 ], [ %79, %64 ], [ %spec.store.select1, %60 ], [ %48, %59 ]
-  %.092 = phi i32 [ %56, %.lr.ph ], [ %90, %80 ], [ %74, %64 ], [ %spec.store.select2, %60 ], [ %50, %59 ]
-  %.0 = phi i32 [ %54, %.lr.ph ], [ %85, %80 ], [ %69, %64 ], [ %spec.store.select, %60 ], [ %51, %59 ]
+  %.094 = phi i32 [ %58, %.lr.ph ], [ 255, %59 ], [ %58, %60 ], [ %58, %64 ], [ %58, %80 ]
+  %.093 = phi i32 [ %57, %.lr.ph ], [ %48, %59 ], [ %spec.store.select1, %60 ], [ %79, %64 ], [ %95, %80 ]
+  %.092 = phi i32 [ %56, %.lr.ph ], [ %50, %59 ], [ %spec.store.select2, %60 ], [ %74, %64 ], [ %90, %80 ]
+  %.0 = phi i32 [ %54, %.lr.ph ], [ %51, %59 ], [ %spec.store.select, %60 ], [ %69, %64 ], [ %85, %80 ]
   %97 = shl nuw i32 %.094, 24
   %98 = shl nuw nsw i32 %.0, 16
   %99 = add nuw nsw i32 %98, %97
@@ -9783,10 +9783,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %230
 
 230:                                              ; preds = %137, %190, %174, %170, %105, %104
-  %.0229 = phi i32 [ %58, %104 ], [ %58, %190 ], [ %58, %174 ], [ %58, %170 ], [ %spec.store.select10, %137 ], [ %136, %105 ]
-  %.0228 = phi i32 [ %57, %104 ], [ %spec.store.select7, %190 ], [ %189, %174 ], [ %spec.store.select1, %170 ], [ %spec.store.select4, %137 ], [ %129, %105 ]
-  %.0227 = phi i32 [ %56, %104 ], [ %spec.store.select9, %190 ], [ %184, %174 ], [ %spec.store.select5, %170 ], [ %spec.store.select8, %137 ], [ %121, %105 ]
-  %.0226 = phi i32 [ %54, %104 ], [ %spec.store.select6, %190 ], [ %179, %174 ], [ %spec.store.select, %170 ], [ %spec.store.select3, %137 ], [ %113, %105 ]
+  %.0229 = phi i32 [ %58, %104 ], [ %136, %105 ], [ %spec.store.select10, %137 ], [ %58, %170 ], [ %58, %174 ], [ %58, %190 ]
+  %.0228 = phi i32 [ %57, %104 ], [ %129, %105 ], [ %spec.store.select4, %137 ], [ %spec.store.select1, %170 ], [ %189, %174 ], [ %spec.store.select7, %190 ]
+  %.0227 = phi i32 [ %56, %104 ], [ %121, %105 ], [ %spec.store.select8, %137 ], [ %spec.store.select5, %170 ], [ %184, %174 ], [ %spec.store.select9, %190 ]
+  %.0226 = phi i32 [ %54, %104 ], [ %113, %105 ], [ %spec.store.select3, %137 ], [ %spec.store.select, %170 ], [ %179, %174 ], [ %spec.store.select6, %190 ]
   %231 = shl i32 %.0229, 24
   %232 = shl nuw nsw i32 %.0226, 16
   %233 = shl nuw nsw i32 %.0227, 8
@@ -10149,10 +10149,10 @@ define internal void @SDL_Blit_XBGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %249
 
 249:                                              ; preds = %156, %209, %193, %189, %124, %123
-  %.0241 = phi i32 [ %77, %123 ], [ %77, %209 ], [ %77, %193 ], [ %77, %189 ], [ %spec.store.select10, %156 ], [ %155, %124 ]
-  %.0240 = phi i32 [ %76, %123 ], [ %spec.store.select7, %209 ], [ %208, %193 ], [ %spec.store.select1, %189 ], [ %spec.store.select4, %156 ], [ %148, %124 ]
-  %.0239 = phi i32 [ %75, %123 ], [ %spec.store.select9, %209 ], [ %203, %193 ], [ %spec.store.select5, %189 ], [ %spec.store.select8, %156 ], [ %140, %124 ]
-  %.0238 = phi i32 [ %73, %123 ], [ %spec.store.select6, %209 ], [ %198, %193 ], [ %spec.store.select, %189 ], [ %spec.store.select3, %156 ], [ %132, %124 ]
+  %.0241 = phi i32 [ %77, %123 ], [ %155, %124 ], [ %spec.store.select10, %156 ], [ %77, %189 ], [ %77, %193 ], [ %77, %209 ]
+  %.0240 = phi i32 [ %76, %123 ], [ %148, %124 ], [ %spec.store.select4, %156 ], [ %spec.store.select1, %189 ], [ %208, %193 ], [ %spec.store.select7, %209 ]
+  %.0239 = phi i32 [ %75, %123 ], [ %140, %124 ], [ %spec.store.select8, %156 ], [ %spec.store.select5, %189 ], [ %203, %193 ], [ %spec.store.select9, %209 ]
+  %.0238 = phi i32 [ %73, %123 ], [ %132, %124 ], [ %spec.store.select3, %156 ], [ %spec.store.select, %189 ], [ %198, %193 ], [ %spec.store.select6, %209 ]
   %250 = shl i32 %.0241, 24
   %251 = shl nuw nsw i32 %.0238, 16
   %252 = shl nuw nsw i32 %.0239, 8
@@ -10419,10 +10419,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend(ptr noundef captures(none
   br label %77
 
 77:                                               ; preds = %61, %45, %41, %40, %.lr.ph
-  %.082 = phi i32 [ %39, %.lr.ph ], [ %39, %61 ], [ %39, %45 ], [ %39, %41 ], [ 255, %40 ]
-  %.081 = phi i32 [ %35, %.lr.ph ], [ %76, %61 ], [ %60, %45 ], [ %spec.store.select1, %41 ], [ %29, %40 ]
-  %.080 = phi i32 [ %37, %.lr.ph ], [ %71, %61 ], [ %55, %45 ], [ %spec.store.select2, %41 ], [ %31, %40 ]
-  %.0 = phi i32 [ %38, %.lr.ph ], [ %66, %61 ], [ %50, %45 ], [ %spec.store.select, %41 ], [ %32, %40 ]
+  %.082 = phi i32 [ %39, %.lr.ph ], [ 255, %40 ], [ %39, %41 ], [ %39, %45 ], [ %39, %61 ]
+  %.081 = phi i32 [ %35, %.lr.ph ], [ %29, %40 ], [ %spec.store.select1, %41 ], [ %60, %45 ], [ %76, %61 ]
+  %.080 = phi i32 [ %37, %.lr.ph ], [ %31, %40 ], [ %spec.store.select2, %41 ], [ %55, %45 ], [ %71, %61 ]
+  %.0 = phi i32 [ %38, %.lr.ph ], [ %32, %40 ], [ %spec.store.select, %41 ], [ %50, %45 ], [ %66, %61 ]
   %78 = shl nuw i32 %.082, 24
   %79 = shl nuw nsw i32 %.081, 16
   %80 = add nuw nsw i32 %79, %78
@@ -10606,10 +10606,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %96
 
 96:                                               ; preds = %80, %64, %60, %59, %.lr.ph
-  %.094 = phi i32 [ %58, %.lr.ph ], [ %58, %80 ], [ %58, %64 ], [ %58, %60 ], [ 255, %59 ]
-  %.093 = phi i32 [ %54, %.lr.ph ], [ %95, %80 ], [ %79, %64 ], [ %spec.store.select1, %60 ], [ %48, %59 ]
-  %.092 = phi i32 [ %56, %.lr.ph ], [ %90, %80 ], [ %74, %64 ], [ %spec.store.select2, %60 ], [ %50, %59 ]
-  %.0 = phi i32 [ %57, %.lr.ph ], [ %85, %80 ], [ %69, %64 ], [ %spec.store.select, %60 ], [ %51, %59 ]
+  %.094 = phi i32 [ %58, %.lr.ph ], [ 255, %59 ], [ %58, %60 ], [ %58, %64 ], [ %58, %80 ]
+  %.093 = phi i32 [ %54, %.lr.ph ], [ %48, %59 ], [ %spec.store.select1, %60 ], [ %79, %64 ], [ %95, %80 ]
+  %.092 = phi i32 [ %56, %.lr.ph ], [ %50, %59 ], [ %spec.store.select2, %60 ], [ %74, %64 ], [ %90, %80 ]
+  %.0 = phi i32 [ %57, %.lr.ph ], [ %51, %59 ], [ %spec.store.select, %60 ], [ %69, %64 ], [ %85, %80 ]
   %97 = shl nuw i32 %.094, 24
   %98 = shl nuw nsw i32 %.093, 16
   %99 = add nuw nsw i32 %98, %97
@@ -11265,10 +11265,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %230
 
 230:                                              ; preds = %137, %190, %174, %170, %105, %104
-  %.0229 = phi i32 [ %58, %104 ], [ %58, %190 ], [ %58, %174 ], [ %58, %170 ], [ %spec.store.select10, %137 ], [ %136, %105 ]
-  %.0228 = phi i32 [ %54, %104 ], [ %spec.store.select7, %190 ], [ %189, %174 ], [ %spec.store.select1, %170 ], [ %spec.store.select4, %137 ], [ %129, %105 ]
-  %.0227 = phi i32 [ %56, %104 ], [ %spec.store.select9, %190 ], [ %184, %174 ], [ %spec.store.select5, %170 ], [ %spec.store.select8, %137 ], [ %121, %105 ]
-  %.0226 = phi i32 [ %57, %104 ], [ %spec.store.select6, %190 ], [ %179, %174 ], [ %spec.store.select, %170 ], [ %spec.store.select3, %137 ], [ %113, %105 ]
+  %.0229 = phi i32 [ %58, %104 ], [ %136, %105 ], [ %spec.store.select10, %137 ], [ %58, %170 ], [ %58, %174 ], [ %58, %190 ]
+  %.0228 = phi i32 [ %54, %104 ], [ %129, %105 ], [ %spec.store.select4, %137 ], [ %spec.store.select1, %170 ], [ %189, %174 ], [ %spec.store.select7, %190 ]
+  %.0227 = phi i32 [ %56, %104 ], [ %121, %105 ], [ %spec.store.select8, %137 ], [ %spec.store.select5, %170 ], [ %184, %174 ], [ %spec.store.select9, %190 ]
+  %.0226 = phi i32 [ %57, %104 ], [ %113, %105 ], [ %spec.store.select3, %137 ], [ %spec.store.select, %170 ], [ %179, %174 ], [ %spec.store.select6, %190 ]
   %231 = shl i32 %.0229, 24
   %232 = shl nuw nsw i32 %.0228, 16
   %233 = or i32 %232, %231
@@ -11631,10 +11631,10 @@ define internal void @SDL_Blit_XBGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %249
 
 249:                                              ; preds = %156, %209, %193, %189, %124, %123
-  %.0241 = phi i32 [ %77, %123 ], [ %77, %209 ], [ %77, %193 ], [ %77, %189 ], [ %spec.store.select10, %156 ], [ %155, %124 ]
-  %.0240 = phi i32 [ %73, %123 ], [ %spec.store.select7, %209 ], [ %208, %193 ], [ %spec.store.select1, %189 ], [ %spec.store.select4, %156 ], [ %148, %124 ]
-  %.0239 = phi i32 [ %75, %123 ], [ %spec.store.select9, %209 ], [ %203, %193 ], [ %spec.store.select5, %189 ], [ %spec.store.select8, %156 ], [ %140, %124 ]
-  %.0238 = phi i32 [ %76, %123 ], [ %spec.store.select6, %209 ], [ %198, %193 ], [ %spec.store.select, %189 ], [ %spec.store.select3, %156 ], [ %132, %124 ]
+  %.0241 = phi i32 [ %77, %123 ], [ %155, %124 ], [ %spec.store.select10, %156 ], [ %77, %189 ], [ %77, %193 ], [ %77, %209 ]
+  %.0240 = phi i32 [ %73, %123 ], [ %148, %124 ], [ %spec.store.select4, %156 ], [ %spec.store.select1, %189 ], [ %208, %193 ], [ %spec.store.select7, %209 ]
+  %.0239 = phi i32 [ %75, %123 ], [ %140, %124 ], [ %spec.store.select8, %156 ], [ %spec.store.select5, %189 ], [ %203, %193 ], [ %spec.store.select9, %209 ]
+  %.0238 = phi i32 [ %76, %123 ], [ %132, %124 ], [ %spec.store.select3, %156 ], [ %spec.store.select, %189 ], [ %198, %193 ], [ %spec.store.select6, %209 ]
   %250 = shl i32 %.0241, 24
   %251 = shl nuw nsw i32 %.0240, 16
   %252 = or i32 %251, %250
@@ -11995,9 +11995,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %41, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %38, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %41, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %38, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0180, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %.0182
@@ -12273,9 +12273,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %60, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %57, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %60, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %57, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0192, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %.0194
@@ -12886,9 +12886,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %55, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %52, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %55, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %52, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0213, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %.0215
@@ -13224,9 +13224,9 @@ define internal void @SDL_Blit_ARGB8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %74, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %71, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %74, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %71, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0225, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %.0227
@@ -13591,9 +13591,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %38, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %41, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %38, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %41, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0182, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %156
@@ -13869,9 +13869,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %57, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %60, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %57, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %60, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0194, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %175
@@ -14494,9 +14494,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %52, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %55, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %52, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %55, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0215, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %202
@@ -14832,9 +14832,9 @@ define internal void @SDL_Blit_ARGB8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %71, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %74, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %71, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %74, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0227, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %221
@@ -15206,10 +15206,10 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %41, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %38, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %41, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %38, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0200, 16
   %171 = shl nuw nsw i32 %.0201, 8
@@ -15501,10 +15501,10 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %60, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %57, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %60, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %57, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0212, 16
   %190 = shl nuw nsw i32 %.0213, 8
@@ -16221,10 +16221,10 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %55, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %52, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %55, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %52, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0233, 16
   %217 = shl nuw nsw i32 %.0234, 8
@@ -16576,10 +16576,10 @@ define internal void @SDL_Blit_ARGB8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %74, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %71, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %74, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %71, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0245, 16
   %236 = shl nuw nsw i32 %.0246, 8
@@ -16960,10 +16960,10 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %38, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %41, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %38, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %41, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0202, 16
   %171 = or i32 %170, %169
@@ -17255,10 +17255,10 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %57, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %60, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %57, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %60, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0214, 16
   %190 = or i32 %189, %188
@@ -17994,10 +17994,10 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %52, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %55, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %52, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %55, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0235, 16
   %217 = or i32 %216, %215
@@ -18349,10 +18349,10 @@ define internal void @SDL_Blit_ARGB8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %71, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %74, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %71, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %74, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0247, 16
   %236 = or i32 %235, %234
@@ -18713,9 +18713,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %41, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %38, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %41, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %38, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0180, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %.0182
@@ -18991,9 +18991,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %60, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %57, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %60, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %57, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0192, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %.0194
@@ -19604,9 +19604,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %55, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %52, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %55, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %52, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0213, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %.0215
@@ -19942,9 +19942,9 @@ define internal void @SDL_Blit_RGBA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %74, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %71, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %74, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %71, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0225, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %.0227
@@ -20309,9 +20309,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %38, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %41, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %38, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %41, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0182, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %156
@@ -20587,9 +20587,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %57, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %60, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %57, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %60, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0194, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %175
@@ -21212,9 +21212,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %52, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %55, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %52, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %55, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0215, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %202
@@ -21550,9 +21550,9 @@ define internal void @SDL_Blit_RGBA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %71, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %74, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %71, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %74, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0227, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %221
@@ -21925,10 +21925,10 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %41, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %38, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %41, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %38, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0200, 16
   %171 = shl nuw nsw i32 %.0201, 8
@@ -22220,10 +22220,10 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %60, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %57, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %60, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %57, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0212, 16
   %190 = shl nuw nsw i32 %.0213, 8
@@ -22939,10 +22939,10 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %55, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %52, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %55, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %52, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0233, 16
   %217 = shl nuw nsw i32 %.0234, 8
@@ -23294,10 +23294,10 @@ define internal void @SDL_Blit_RGBA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %74, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %71, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %74, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %71, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0245, 16
   %236 = shl nuw nsw i32 %.0246, 8
@@ -23672,10 +23672,10 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %38, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %41, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %38, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %41, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0202, 16
   %171 = or i32 %170, %169
@@ -23967,10 +23967,10 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %57, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %60, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %57, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %60, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0214, 16
   %190 = or i32 %189, %188
@@ -24700,10 +24700,10 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %52, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %55, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %52, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %55, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0235, 16
   %217 = or i32 %216, %215
@@ -25055,10 +25055,10 @@ define internal void @SDL_Blit_RGBA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %71, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %74, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %71, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %74, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0247, 16
   %236 = or i32 %235, %234
@@ -25425,9 +25425,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %41, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %38, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %41, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %38, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0180, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %.0182
@@ -25703,9 +25703,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %60, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %57, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %60, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %57, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0192, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %.0194
@@ -26328,9 +26328,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %55, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %52, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %55, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %52, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0213, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %.0215
@@ -26666,9 +26666,9 @@ define internal void @SDL_Blit_ABGR8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %74, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %71, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %74, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %71, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0225, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %.0227
@@ -27027,9 +27027,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %38, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %41, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %38, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %41, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0182, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %156
@@ -27305,9 +27305,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %57, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %60, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %57, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %60, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0194, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %175
@@ -27918,9 +27918,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %52, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %55, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %52, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %55, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0215, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %202
@@ -28256,9 +28256,9 @@ define internal void @SDL_Blit_ABGR8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %71, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %74, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %71, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %74, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0227, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %221
@@ -28637,10 +28637,10 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %41, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %38, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %41, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %38, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0200, 16
   %171 = shl nuw nsw i32 %.0201, 8
@@ -28932,10 +28932,10 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %60, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %57, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %60, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %57, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0212, 16
   %190 = shl nuw nsw i32 %.0213, 8
@@ -29671,10 +29671,10 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %55, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %52, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %55, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %52, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0233, 16
   %217 = shl nuw nsw i32 %.0234, 8
@@ -30026,10 +30026,10 @@ define internal void @SDL_Blit_ABGR8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %74, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %71, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %74, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %71, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0245, 16
   %236 = shl nuw nsw i32 %.0246, 8
@@ -30403,10 +30403,10 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %38, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %41, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %38, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %41, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0202, 16
   %171 = or i32 %170, %169
@@ -30698,10 +30698,10 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %57, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %60, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %57, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %60, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0214, 16
   %190 = or i32 %189, %188
@@ -31418,10 +31418,10 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %52, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %55, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %52, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %55, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0235, 16
   %217 = or i32 %216, %215
@@ -31773,10 +31773,10 @@ define internal void @SDL_Blit_ABGR8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %71, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %74, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %71, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %74, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0247, 16
   %236 = or i32 %235, %234
@@ -32143,9 +32143,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %41, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %38, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %41, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %38, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0180, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %.0182
@@ -32421,9 +32421,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %60, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %57, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %60, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %57, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0192, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %.0194
@@ -33046,9 +33046,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %55, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %52, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %55, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %52, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0213, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %.0215
@@ -33384,9 +33384,9 @@ define internal void @SDL_Blit_BGRA8888_XRGB8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %74, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %71, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %74, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %71, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0225, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %.0227
@@ -33745,9 +33745,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend(ptr noundef captures(none
   br label %155
 
 155:                                              ; preds = %80, %120, %104, %100, %60, %59
-  %.0182 = phi i32 [ %38, %59 ], [ %spec.store.select7, %120 ], [ %119, %104 ], [ %spec.store.select1, %100 ], [ %spec.store.select4, %80 ], [ %79, %60 ]
-  %.0181 = phi i32 [ %40, %59 ], [ %spec.store.select9, %120 ], [ %114, %104 ], [ %spec.store.select5, %100 ], [ %spec.store.select8, %80 ], [ %73, %60 ]
-  %.0180 = phi i32 [ %41, %59 ], [ %spec.store.select6, %120 ], [ %109, %104 ], [ %spec.store.select, %100 ], [ %spec.store.select3, %80 ], [ %67, %60 ]
+  %.0182 = phi i32 [ %38, %59 ], [ %79, %60 ], [ %spec.store.select4, %80 ], [ %spec.store.select1, %100 ], [ %119, %104 ], [ %spec.store.select7, %120 ]
+  %.0181 = phi i32 [ %40, %59 ], [ %73, %60 ], [ %spec.store.select8, %80 ], [ %spec.store.select5, %100 ], [ %114, %104 ], [ %spec.store.select9, %120 ]
+  %.0180 = phi i32 [ %41, %59 ], [ %67, %60 ], [ %spec.store.select3, %80 ], [ %spec.store.select, %100 ], [ %109, %104 ], [ %spec.store.select6, %120 ]
   %156 = shl nuw nsw i32 %.0182, 16
   %157 = shl nuw nsw i32 %.0181, 8
   %158 = or i32 %157, %156
@@ -34023,9 +34023,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Blend_Scale(ptr noundef capture
   br label %174
 
 174:                                              ; preds = %99, %139, %123, %119, %79, %78
-  %.0194 = phi i32 [ %57, %78 ], [ %spec.store.select7, %139 ], [ %138, %123 ], [ %spec.store.select1, %119 ], [ %spec.store.select4, %99 ], [ %98, %79 ]
-  %.0193 = phi i32 [ %59, %78 ], [ %spec.store.select9, %139 ], [ %133, %123 ], [ %spec.store.select5, %119 ], [ %spec.store.select8, %99 ], [ %92, %79 ]
-  %.0192 = phi i32 [ %60, %78 ], [ %spec.store.select6, %139 ], [ %128, %123 ], [ %spec.store.select, %119 ], [ %spec.store.select3, %99 ], [ %86, %79 ]
+  %.0194 = phi i32 [ %57, %78 ], [ %98, %79 ], [ %spec.store.select4, %99 ], [ %spec.store.select1, %119 ], [ %138, %123 ], [ %spec.store.select7, %139 ]
+  %.0193 = phi i32 [ %59, %78 ], [ %92, %79 ], [ %spec.store.select8, %99 ], [ %spec.store.select5, %119 ], [ %133, %123 ], [ %spec.store.select9, %139 ]
+  %.0192 = phi i32 [ %60, %78 ], [ %86, %79 ], [ %spec.store.select3, %99 ], [ %spec.store.select, %119 ], [ %128, %123 ], [ %spec.store.select6, %139 ]
   %175 = shl nuw nsw i32 %.0194, 16
   %176 = shl nuw nsw i32 %.0193, 8
   %177 = or i32 %176, %175
@@ -34636,9 +34636,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend(ptr noundef capt
   br label %201
 
 201:                                              ; preds = %126, %166, %150, %146, %106, %105
-  %.0215 = phi i32 [ %52, %105 ], [ %spec.store.select7, %166 ], [ %165, %150 ], [ %spec.store.select1, %146 ], [ %spec.store.select4, %126 ], [ %125, %106 ]
-  %.0214 = phi i32 [ %54, %105 ], [ %spec.store.select9, %166 ], [ %160, %150 ], [ %spec.store.select5, %146 ], [ %spec.store.select8, %126 ], [ %119, %106 ]
-  %.0213 = phi i32 [ %55, %105 ], [ %spec.store.select6, %166 ], [ %155, %150 ], [ %spec.store.select, %146 ], [ %spec.store.select3, %126 ], [ %113, %106 ]
+  %.0215 = phi i32 [ %52, %105 ], [ %125, %106 ], [ %spec.store.select4, %126 ], [ %spec.store.select1, %146 ], [ %165, %150 ], [ %spec.store.select7, %166 ]
+  %.0214 = phi i32 [ %54, %105 ], [ %119, %106 ], [ %spec.store.select8, %126 ], [ %spec.store.select5, %146 ], [ %160, %150 ], [ %spec.store.select9, %166 ]
+  %.0213 = phi i32 [ %55, %105 ], [ %113, %106 ], [ %spec.store.select3, %126 ], [ %spec.store.select, %146 ], [ %155, %150 ], [ %spec.store.select6, %166 ]
   %202 = shl nuw nsw i32 %.0215, 16
   %203 = shl nuw nsw i32 %.0214, 8
   %204 = or i32 %203, %202
@@ -34974,9 +34974,9 @@ define internal void @SDL_Blit_BGRA8888_XBGR8888_Modulate_Blend_Scale(ptr nounde
   br label %220
 
 220:                                              ; preds = %145, %185, %169, %165, %125, %124
-  %.0227 = phi i32 [ %71, %124 ], [ %spec.store.select7, %185 ], [ %184, %169 ], [ %spec.store.select1, %165 ], [ %spec.store.select4, %145 ], [ %144, %125 ]
-  %.0226 = phi i32 [ %73, %124 ], [ %spec.store.select9, %185 ], [ %179, %169 ], [ %spec.store.select5, %165 ], [ %spec.store.select8, %145 ], [ %138, %125 ]
-  %.0225 = phi i32 [ %74, %124 ], [ %spec.store.select6, %185 ], [ %174, %169 ], [ %spec.store.select, %165 ], [ %spec.store.select3, %145 ], [ %132, %125 ]
+  %.0227 = phi i32 [ %71, %124 ], [ %144, %125 ], [ %spec.store.select4, %145 ], [ %spec.store.select1, %165 ], [ %184, %169 ], [ %spec.store.select7, %185 ]
+  %.0226 = phi i32 [ %73, %124 ], [ %138, %125 ], [ %spec.store.select8, %145 ], [ %spec.store.select5, %165 ], [ %179, %169 ], [ %spec.store.select9, %185 ]
+  %.0225 = phi i32 [ %74, %124 ], [ %132, %125 ], [ %spec.store.select3, %145 ], [ %spec.store.select, %165 ], [ %174, %169 ], [ %spec.store.select6, %185 ]
   %221 = shl nuw nsw i32 %.0227, 16
   %222 = shl nuw nsw i32 %.0226, 8
   %223 = or i32 %222, %221
@@ -35349,10 +35349,10 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %41, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %38, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %41, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %38, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0200, 16
   %171 = shl nuw nsw i32 %.0201, 8
@@ -35644,10 +35644,10 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %60, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %57, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %60, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %57, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0212, 16
   %190 = shl nuw nsw i32 %.0213, 8
@@ -36377,10 +36377,10 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %55, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %52, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %55, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %52, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0233, 16
   %217 = shl nuw nsw i32 %.0234, 8
@@ -36732,10 +36732,10 @@ define internal void @SDL_Blit_BGRA8888_ARGB8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %74, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %71, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %74, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %71, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0245, 16
   %236 = shl nuw nsw i32 %.0246, 8
@@ -37110,10 +37110,10 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend(ptr noundef captures(none
   br label %168
 
 168:                                              ; preds = %87, %133, %117, %113, %61, %60
-  %.0203 = phi i32 [ %42, %60 ], [ %42, %133 ], [ %42, %117 ], [ %42, %113 ], [ %spec.store.select10, %87 ], [ %86, %61 ]
-  %.0202 = phi i32 [ %38, %60 ], [ %spec.store.select7, %133 ], [ %132, %117 ], [ %spec.store.select1, %113 ], [ %spec.store.select4, %87 ], [ %80, %61 ]
-  %.0201 = phi i32 [ %40, %60 ], [ %spec.store.select9, %133 ], [ %127, %117 ], [ %spec.store.select5, %113 ], [ %spec.store.select8, %87 ], [ %74, %61 ]
-  %.0200 = phi i32 [ %41, %60 ], [ %spec.store.select6, %133 ], [ %122, %117 ], [ %spec.store.select, %113 ], [ %spec.store.select3, %87 ], [ %68, %61 ]
+  %.0203 = phi i32 [ %42, %60 ], [ %86, %61 ], [ %spec.store.select10, %87 ], [ %42, %113 ], [ %42, %117 ], [ %42, %133 ]
+  %.0202 = phi i32 [ %38, %60 ], [ %80, %61 ], [ %spec.store.select4, %87 ], [ %spec.store.select1, %113 ], [ %132, %117 ], [ %spec.store.select7, %133 ]
+  %.0201 = phi i32 [ %40, %60 ], [ %74, %61 ], [ %spec.store.select8, %87 ], [ %spec.store.select5, %113 ], [ %127, %117 ], [ %spec.store.select9, %133 ]
+  %.0200 = phi i32 [ %41, %60 ], [ %68, %61 ], [ %spec.store.select3, %87 ], [ %spec.store.select, %113 ], [ %122, %117 ], [ %spec.store.select6, %133 ]
   %169 = shl i32 %.0203, 24
   %170 = shl nuw nsw i32 %.0202, 16
   %171 = or i32 %170, %169
@@ -37405,10 +37405,10 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Blend_Scale(ptr noundef capture
   br label %187
 
 187:                                              ; preds = %106, %152, %136, %132, %80, %79
-  %.0215 = phi i32 [ %61, %79 ], [ %61, %152 ], [ %61, %136 ], [ %61, %132 ], [ %spec.store.select10, %106 ], [ %105, %80 ]
-  %.0214 = phi i32 [ %57, %79 ], [ %spec.store.select7, %152 ], [ %151, %136 ], [ %spec.store.select1, %132 ], [ %spec.store.select4, %106 ], [ %99, %80 ]
-  %.0213 = phi i32 [ %59, %79 ], [ %spec.store.select9, %152 ], [ %146, %136 ], [ %spec.store.select5, %132 ], [ %spec.store.select8, %106 ], [ %93, %80 ]
-  %.0212 = phi i32 [ %60, %79 ], [ %spec.store.select6, %152 ], [ %141, %136 ], [ %spec.store.select, %132 ], [ %spec.store.select3, %106 ], [ %87, %80 ]
+  %.0215 = phi i32 [ %61, %79 ], [ %105, %80 ], [ %spec.store.select10, %106 ], [ %61, %132 ], [ %61, %136 ], [ %61, %152 ]
+  %.0214 = phi i32 [ %57, %79 ], [ %99, %80 ], [ %spec.store.select4, %106 ], [ %spec.store.select1, %132 ], [ %151, %136 ], [ %spec.store.select7, %152 ]
+  %.0213 = phi i32 [ %59, %79 ], [ %93, %80 ], [ %spec.store.select8, %106 ], [ %spec.store.select5, %132 ], [ %146, %136 ], [ %spec.store.select9, %152 ]
+  %.0212 = phi i32 [ %60, %79 ], [ %87, %80 ], [ %spec.store.select3, %106 ], [ %spec.store.select, %132 ], [ %141, %136 ], [ %spec.store.select6, %152 ]
   %188 = shl i32 %.0215, 24
   %189 = shl nuw nsw i32 %.0214, 16
   %190 = or i32 %189, %188
@@ -38124,10 +38124,10 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend(ptr noundef capt
   br label %214
 
 214:                                              ; preds = %133, %179, %163, %159, %107, %106
-  %.0236 = phi i32 [ %56, %106 ], [ %56, %179 ], [ %56, %163 ], [ %56, %159 ], [ %spec.store.select10, %133 ], [ %132, %107 ]
-  %.0235 = phi i32 [ %52, %106 ], [ %spec.store.select7, %179 ], [ %178, %163 ], [ %spec.store.select1, %159 ], [ %spec.store.select4, %133 ], [ %126, %107 ]
-  %.0234 = phi i32 [ %54, %106 ], [ %spec.store.select9, %179 ], [ %173, %163 ], [ %spec.store.select5, %159 ], [ %spec.store.select8, %133 ], [ %120, %107 ]
-  %.0233 = phi i32 [ %55, %106 ], [ %spec.store.select6, %179 ], [ %168, %163 ], [ %spec.store.select, %159 ], [ %spec.store.select3, %133 ], [ %114, %107 ]
+  %.0236 = phi i32 [ %56, %106 ], [ %132, %107 ], [ %spec.store.select10, %133 ], [ %56, %159 ], [ %56, %163 ], [ %56, %179 ]
+  %.0235 = phi i32 [ %52, %106 ], [ %126, %107 ], [ %spec.store.select4, %133 ], [ %spec.store.select1, %159 ], [ %178, %163 ], [ %spec.store.select7, %179 ]
+  %.0234 = phi i32 [ %54, %106 ], [ %120, %107 ], [ %spec.store.select8, %133 ], [ %spec.store.select5, %159 ], [ %173, %163 ], [ %spec.store.select9, %179 ]
+  %.0233 = phi i32 [ %55, %106 ], [ %114, %107 ], [ %spec.store.select3, %133 ], [ %spec.store.select, %159 ], [ %168, %163 ], [ %spec.store.select6, %179 ]
   %215 = shl i32 %.0236, 24
   %216 = shl nuw nsw i32 %.0235, 16
   %217 = or i32 %216, %215
@@ -38479,10 +38479,10 @@ define internal void @SDL_Blit_BGRA8888_ABGR8888_Modulate_Blend_Scale(ptr nounde
   br label %233
 
 233:                                              ; preds = %152, %198, %182, %178, %126, %125
-  %.0248 = phi i32 [ %75, %125 ], [ %75, %198 ], [ %75, %182 ], [ %75, %178 ], [ %spec.store.select10, %152 ], [ %151, %126 ]
-  %.0247 = phi i32 [ %71, %125 ], [ %spec.store.select7, %198 ], [ %197, %182 ], [ %spec.store.select1, %178 ], [ %spec.store.select4, %152 ], [ %145, %126 ]
-  %.0246 = phi i32 [ %73, %125 ], [ %spec.store.select9, %198 ], [ %192, %182 ], [ %spec.store.select5, %178 ], [ %spec.store.select8, %152 ], [ %139, %126 ]
-  %.0245 = phi i32 [ %74, %125 ], [ %spec.store.select6, %198 ], [ %187, %182 ], [ %spec.store.select, %178 ], [ %spec.store.select3, %152 ], [ %133, %126 ]
+  %.0248 = phi i32 [ %75, %125 ], [ %151, %126 ], [ %spec.store.select10, %152 ], [ %75, %178 ], [ %75, %182 ], [ %75, %198 ]
+  %.0247 = phi i32 [ %71, %125 ], [ %145, %126 ], [ %spec.store.select4, %152 ], [ %spec.store.select1, %178 ], [ %197, %182 ], [ %spec.store.select7, %198 ]
+  %.0246 = phi i32 [ %73, %125 ], [ %139, %126 ], [ %spec.store.select8, %152 ], [ %spec.store.select5, %178 ], [ %192, %182 ], [ %spec.store.select9, %198 ]
+  %.0245 = phi i32 [ %74, %125 ], [ %133, %126 ], [ %spec.store.select3, %152 ], [ %spec.store.select, %178 ], [ %187, %182 ], [ %spec.store.select6, %198 ]
   %234 = shl i32 %.0248, 24
   %235 = shl nuw nsw i32 %.0247, 16
   %236 = or i32 %235, %234

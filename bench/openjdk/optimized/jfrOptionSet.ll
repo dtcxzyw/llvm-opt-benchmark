@@ -1084,7 +1084,7 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; p
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %261, %259, %257, %256, %254
-  %.0.i.i = phi i64 [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %255, %256 ], [ %255, %254 ]
+  %.0.i.i = phi i64 [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %255, %256 ], [ %255, %254 ]
   %263 = load i64, ptr %45, align 8
   %.sroa.010.0.copyload.i41.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i42.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
@@ -1115,7 +1115,7 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; 
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: ; preds = %269, %267, %265, %264, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
-  %.0.i45.i = phi i64 [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %263, %264 ], [ %263, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
+  %.0.i45.i = phi i64 [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %263, %264 ], [ %263, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
   %271 = load i64, ptr %49, align 8
   %.sroa.010.0.copyload.i47.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i48.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
@@ -1146,7 +1146,7 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: 
   br label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
 
 _ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %272, %273, %275, %277
-  %.0.i51.i = phi i64 [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %271, %272 ], [ %271, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
+  %.0.i51.i = phi i64 [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %271, %272 ], [ %271, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
   store i64 %255, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
@@ -1803,7 +1803,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %31, %29, %27, %26
-  %.0.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %1, %26 ]
+  %.0.i.i = phi i64 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %1, %26 ]
   %33 = sext i8 %.sroa.1.0.copyload.i.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.81, ptr noundef nonnull @_ZL14lower_than_msg, i64 noundef %.0.i.i, i32 noundef %33)
   br label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb1EEvRT_m.exit
@@ -1898,7 +1898,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %31, %29, %27, %26
-  %.0.i.i = phi i64 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %1, %26 ]
+  %.0.i.i = phi i64 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %1, %26 ]
   %33 = sext i8 %.sroa.1.0.copyload.i.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.81, ptr noundef nonnull @_ZL15higher_than_msg, i64 noundef %.0.i.i, i32 noundef %33)
   br label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb0EEvRT_m.exit

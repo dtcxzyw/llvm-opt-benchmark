@@ -418,7 +418,7 @@ define i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   br label %53
 
 53:                                               ; preds = %49, %26, %16, %41, %46, %21, %17, %25, %23
-  %.1 = phi i64 [ 0, %25 ], [ 1, %23 ], [ %19, %17 ], [ -70, %21 ], [ %44, %41 ], [ %47, %46 ], [ -1, %16 ], [ %spec.select, %26 ], [ %spec.select78, %49 ]
+  %.1 = phi i64 [ 1, %23 ], [ %19, %17 ], [ 0, %25 ], [ -70, %21 ], [ %44, %41 ], [ %47, %46 ], [ -1, %16 ], [ %spec.select, %26 ], [ %spec.select78, %49 ]
   ret i64 %.1
 }
 

@@ -405,7 +405,7 @@ define i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr noundef capture
   br i1 %16, label %check_num_oid.exit, label %17
 
 17:                                               ; preds = %14, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i, %.preheader.split.us.i
-  %.1.us.i = phi i32 [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %15, %14 ]
+  %.1.us.i = phi i32 [ %15, %14 ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ], [ %.0.us.i, %.preheader.split.us.i ]
   %18 = getelementptr i8, ptr %.011.us.i, i64 1
   %.not15.us.i = icmp eq i8 %13, 0
   br i1 %.not15.us.i, label %check_num_oid.exit, label %.preheader.split.us.i, !llvm.loop !9
@@ -452,7 +452,7 @@ define i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr noundef capture
   br i1 %33, label %check_num_oid.exit, label %34
 
 34:                                               ; preds = %31, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
-  %.1.i = phi i32 [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %32, %31 ]
+  %.1.i = phi i32 [ %32, %31 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ], [ %.0.i, %28 ]
   %35 = getelementptr i8, ptr %.011.i, i64 1
   %.not15.i = icmp eq i8 %30, 0
   br i1 %.not15.i, label %check_num_oid.exit, label %.preheader.split.i, !llvm.loop !10

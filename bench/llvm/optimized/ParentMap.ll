@@ -1098,7 +1098,7 @@ _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27: ; preds = %56, %.critedge2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %70, %73, %.critedge, %.critedge, %112, %104, %100, %92, %88, %81, %77, %68
-  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %68 ], [ %115, %112 ], [ %111, %104 ], [ %103, %100 ], [ %99, %92 ], [ %91, %88 ], [ %87, %81 ], [ %80, %77 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %70 ], [ %76, %73 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
+  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %68 ], [ %80, %77 ], [ %87, %81 ], [ %91, %88 ], [ %99, %92 ], [ %103, %100 ], [ %111, %104 ], [ %115, %112 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %70 ], [ %76, %73 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

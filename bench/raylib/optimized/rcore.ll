@@ -23635,7 +23635,7 @@ define noundef i32 @rlCompileShader(ptr noundef %0, i32 noundef %1) local_unname
   br label %30
 
 30:                                               ; preds = %27, %28, %29, %26, %25
-  %.0 = phi i32 [ 0, %25 ], [ %8, %26 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ]
+  %.0 = phi i32 [ 0, %25 ], [ %8, %26 ], [ %8, %27 ], [ %8, %28 ], [ %8, %29 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #60
   ret i32 %.0
 }
@@ -28501,8 +28501,8 @@ default.unreachable61:                            ; preds = %1
   unreachable
 
 102:                                              ; preds = %83, %62, %42, %22
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert40, %83 ], [ %.sroa.0.0.vec.insert32, %62 ], [ %.sroa.0.4.vec.insert36, %42 ], [ %.sroa.0.4.vec.insert, %22 ]
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.12.vec.insert53, %83 ], [ %.sroa.10.8.vec.insert45, %62 ], [ %.sroa.10.8.vec.insert43, %42 ], [ %.sroa.10.8.vec.insert, %22 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %22 ], [ %.sroa.0.4.vec.insert36, %42 ], [ %.sroa.0.0.vec.insert32, %62 ], [ %.sroa.0.4.vec.insert40, %83 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.8.vec.insert, %22 ], [ %.sroa.10.8.vec.insert43, %42 ], [ %.sroa.10.8.vec.insert45, %62 ], [ %.sroa.10.12.vec.insert53, %83 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.10.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -29093,8 +29093,8 @@ default.unreachable:                              ; preds = %61
   unreachable
 
 QuaternionFromMatrix.exit:                        ; preds = %56, %111, %102, %94, %86
-  %.sink123 = phi <2 x float> [ %.sroa.0.4.vec.insert40.i, %111 ], [ %.sroa.0.0.vec.insert32.i, %102 ], [ %.sroa.0.4.vec.insert36.i, %94 ], [ %.sroa.0.4.vec.insert.i, %86 ], [ zeroinitializer, %56 ]
-  %.sink = phi <2 x float> [ %.sroa.10.12.vec.insert53.i, %111 ], [ %.sroa.10.8.vec.insert45.i, %102 ], [ %.sroa.10.8.vec.insert43.i, %94 ], [ %.sroa.10.8.vec.insert.i, %86 ], [ <float 0.000000e+00, float 1.000000e+00>, %56 ]
+  %.sink123 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %86 ], [ %.sroa.0.4.vec.insert36.i, %94 ], [ %.sroa.0.0.vec.insert32.i, %102 ], [ %.sroa.0.4.vec.insert40.i, %111 ], [ zeroinitializer, %56 ]
+  %.sink = phi <2 x float> [ %.sroa.10.8.vec.insert.i, %86 ], [ %.sroa.10.8.vec.insert43.i, %94 ], [ %.sroa.10.8.vec.insert45.i, %102 ], [ %.sroa.10.12.vec.insert53.i, %111 ], [ <float 0.000000e+00, float 1.000000e+00>, %56 ]
   store <2 x float> %.sink123, ptr %2, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store <2 x float> %.sink, ptr %.sroa.4.0..sroa_idx, align 4
@@ -37513,9 +37513,9 @@ sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr
   br i1 %601, label %.lr.ph.i196.i, label %sdefl_put.exit186.i
 
 sdefl_put.exit186.i:                              ; preds = %.lr.ph.i190.i, %.lr.ph.i184.i, %.lr.ph.i196.i, %591, %580, %569, %sdefl_put.exit180.i
-  %602 = phi i32 [ %561, %sdefl_put.exit180.i ], [ %568, %591 ], [ %568, %580 ], [ %568, %569 ], [ %597, %.lr.ph.i196.i ], [ %575, %.lr.ph.i184.i ], [ %586, %.lr.ph.i190.i ]
-  %.31 = phi ptr [ %.30, %sdefl_put.exit180.i ], [ %.30, %591 ], [ %.30, %580 ], [ %.30, %569 ], [ %600, %.lr.ph.i196.i ], [ %578, %.lr.ph.i184.i ], [ %589, %.lr.ph.i190.i ]
-  %603 = phi i32 [ %562, %sdefl_put.exit180.i ], [ %592, %591 ], [ %581, %580 ], [ %570, %569 ], [ %599, %.lr.ph.i196.i ], [ %577, %.lr.ph.i184.i ], [ %588, %.lr.ph.i190.i ]
+  %602 = phi i32 [ %561, %sdefl_put.exit180.i ], [ %568, %591 ], [ %568, %569 ], [ %568, %580 ], [ %597, %.lr.ph.i196.i ], [ %575, %.lr.ph.i184.i ], [ %586, %.lr.ph.i190.i ]
+  %.31 = phi ptr [ %.30, %sdefl_put.exit180.i ], [ %.30, %591 ], [ %.30, %569 ], [ %.30, %580 ], [ %600, %.lr.ph.i196.i ], [ %578, %.lr.ph.i184.i ], [ %589, %.lr.ph.i190.i ]
+  %603 = phi i32 [ %562, %sdefl_put.exit180.i ], [ %592, %591 ], [ %570, %569 ], [ %581, %580 ], [ %599, %.lr.ph.i196.i ], [ %577, %.lr.ph.i184.i ], [ %588, %.lr.ph.i190.i ]
   %indvars.iv.next262.i = add nuw nsw i64 %indvars.iv261.i, 1
   %exitcond265.not.i = icmp eq i64 %indvars.iv.next262.i, %wide.trip.count264.i
   br i1 %exitcond265.not.i, label %.preheader214.i, label %.lr.ph234.i
@@ -45362,14 +45362,14 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef rea
   br label %58
 
 58:                                               ; preds = %5, %35, %8
-  %.sroa.067.0 = phi float [ 1.000000e+00, %5 ], [ %48, %35 ], [ %27, %8 ]
-  %.sroa.44.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %35 ], [ -1.000000e+00, %8 ]
-  %.sroa.47.0 = phi float [ 1.000000e+00, %5 ], [ 1.000000e+00, %35 ], [ 0.000000e+00, %8 ]
-  %.sroa.25.0 = phi float [ 0.000000e+00, %5 ], [ %57, %35 ], [ 0.000000e+00, %8 ]
-  %.sroa.2273.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %35 ], [ %34, %8 ]
-  %.sroa.1872.0 = phi float [ 1.000000e+00, %5 ], [ %49, %35 ], [ %28, %8 ]
-  %.sroa.1370.0 = phi float [ 0.000000e+00, %5 ], [ %53, %35 ], [ 0.000000e+00, %8 ]
-  %.sroa.1069.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %35 ], [ %31, %8 ]
+  %.sroa.067.0 = phi float [ 1.000000e+00, %5 ], [ %27, %8 ], [ %48, %35 ]
+  %.sroa.44.0 = phi float [ 0.000000e+00, %5 ], [ -1.000000e+00, %8 ], [ 0.000000e+00, %35 ]
+  %.sroa.47.0 = phi float [ 1.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ 1.000000e+00, %35 ]
+  %.sroa.25.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %57, %35 ]
+  %.sroa.2273.0 = phi float [ 0.000000e+00, %5 ], [ %34, %8 ], [ 0.000000e+00, %35 ]
+  %.sroa.1872.0 = phi float [ 1.000000e+00, %5 ], [ %28, %8 ], [ %49, %35 ]
+  %.sroa.1370.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %53, %35 ]
+  %.sroa.1069.0 = phi float [ 0.000000e+00, %5 ], [ %31, %8 ], [ 0.000000e+00, %35 ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.021.0.copyload = load <2 x float>, ptr %2, align 8
@@ -47563,7 +47563,7 @@ define { i64, ptr } @LoadAutomationEventList(ptr noundef readonly captures(addre
   br label %29
 
 29:                                               ; preds = %.lr.ph, %18, %16
-  %.1 = phi i32 [ %.022, %.lr.ph ], [ %28, %18 ], [ %.022, %16 ]
+  %.1 = phi i32 [ %.022, %.lr.ph ], [ %.022, %16 ], [ %28, %18 ]
   %30 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 256, ptr noundef nonnull %10)
   %31 = call i32 @feof(ptr noundef nonnull %10) #60
   %.not19 = icmp eq i32 %31, 0

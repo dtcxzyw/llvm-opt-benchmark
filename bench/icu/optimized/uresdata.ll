@@ -1136,9 +1136,9 @@ define void @_ZNK6icu_7717ResourceDataValue8getArrayER10UErrorCode(ptr dead_on_u
   br label %36
 
 33:                                               ; preds = %12, %13, %22
-  %.011 = phi ptr [ null, %22 ], [ %20, %13 ], [ null, %12 ]
-  %.010 = phi ptr [ %29, %22 ], [ null, %13 ], [ null, %12 ]
-  %.0 = phi i32 [ %31, %22 ], [ %21, %13 ], [ 0, %12 ]
+  %.011 = phi ptr [ %20, %13 ], [ null, %12 ], [ null, %22 ]
+  %.010 = phi ptr [ null, %13 ], [ null, %12 ], [ %29, %22 ]
+  %.0 = phi i32 [ %21, %13 ], [ 0, %12 ], [ %31, %22 ]
   store ptr %.010, ptr %0, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.011, ptr %34, align 8, !tbaa !47
@@ -1230,11 +1230,11 @@ define void @_ZNK6icu_7717ResourceDataValue8getTableER10UErrorCode(ptr dead_on_u
   br label %59
 
 54:                                               ; preds = %41, %42, %12, %13, %29
-  %.025 = phi ptr [ %49, %42 ], [ null, %41 ], [ null, %29 ], [ null, %13 ], [ null, %12 ]
-  %.024 = phi ptr [ null, %42 ], [ null, %41 ], [ %40, %29 ], [ null, %13 ], [ null, %12 ]
-  %.023 = phi ptr [ %52, %42 ], [ null, %41 ], [ null, %29 ], [ %28, %13 ], [ null, %12 ]
-  %.022 = phi ptr [ null, %42 ], [ null, %41 ], [ %36, %29 ], [ %20, %13 ], [ null, %12 ]
-  %.0 = phi i32 [ %50, %42 ], [ 0, %41 ], [ %38, %29 ], [ %22, %13 ], [ 0, %12 ]
+  %.025 = phi ptr [ null, %13 ], [ null, %12 ], [ null, %29 ], [ %49, %42 ], [ null, %41 ]
+  %.024 = phi ptr [ null, %13 ], [ null, %12 ], [ %40, %29 ], [ null, %42 ], [ null, %41 ]
+  %.023 = phi ptr [ %28, %13 ], [ null, %12 ], [ null, %29 ], [ %52, %42 ], [ null, %41 ]
+  %.022 = phi ptr [ %20, %13 ], [ null, %12 ], [ %36, %29 ], [ null, %42 ], [ null, %41 ]
+  %.0 = phi i32 [ %22, %13 ], [ 0, %12 ], [ %38, %29 ], [ %50, %42 ], [ 0, %41 ]
   store ptr %.022, ptr %0, align 8, !tbaa !49
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.025, ptr %55, align 8, !tbaa !51
@@ -2332,7 +2332,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   br label %146
 
 146:                                              ; preds = %12, %114, %10, %.thread, %.thread77, %.thread80, %141, %112, %50, %4, %7
-  %.0 = phi i32 [ %145, %141 ], [ %113, %112 ], [ %58, %50 ], [ -1, %7 ], [ -1, %4 ], [ -1, %.thread80 ], [ -1, %.thread77 ], [ -1, %.thread ], [ -1, %10 ], [ -1, %114 ], [ -1, %12 ]
+  %.0 = phi i32 [ %58, %50 ], [ %113, %112 ], [ %145, %141 ], [ -1, %7 ], [ -1, %4 ], [ -1, %.thread80 ], [ -1, %.thread77 ], [ -1, %.thread ], [ -1, %10 ], [ -1, %114 ], [ -1, %12 ]
   ret i32 %.0
 }
 

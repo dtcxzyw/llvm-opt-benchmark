@@ -289,7 +289,7 @@ define hidden void @_ZN2os16check_dump_limitEPcm(ptr noundef %0, i64 noundef %1)
   br label %34
 
 34:                                               ; preds = %19, %27, %29, %31, %23, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %19 ], [ true, %23 ], [ true, %31 ], [ false, %29 ], [ true, %27 ]
+  %.0 = phi i1 [ true, %13 ], [ true, %19 ], [ true, %23 ], [ true, %31 ], [ true, %27 ], [ false, %29 ]
   call void @_ZN7VMError22record_coredump_statusEPKcb(ptr noundef %0, i1 noundef zeroext %.0) #28
   br label %35
 

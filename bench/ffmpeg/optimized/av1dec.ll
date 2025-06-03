@@ -2136,8 +2136,8 @@ get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i: ; preds = %1037
   br label %get_tiles_info.exit.thread252.i
 
 get_tiles_info.exit.thread252.i:                  ; preds = %81, %947, %941, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i, %1036, %1033, %1031, %1028, %.thread.i, %981, %900, %895, %.loopexit, %183, %182, %125, %99, %78, %39
-  %.8.i = phi i32 [ %.4177.ph.i, %.thread.i ], [ %97, %99 ], [ -1094995529, %125 ], [ %893, %895 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ -1094995529, %900 ], [ %979, %981 ], [ -1163346256, %78 ], [ 0, %1031 ], [ 0, %1033 ], [ %1034, %1036 ], [ %1026, %1028 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ -1094995529, %941 ], [ -1094995529, %947 ], [ %84, %81 ]
-  %.4172.i = phi i32 [ %75, %.thread.i ], [ %75, %99 ], [ %75, %125 ], [ %75, %895 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %900 ], [ %75, %981 ], [ %75, %78 ], [ %1019, %1031 ], [ %1019, %1033 ], [ %75, %1036 ], [ %75, %1028 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ %75, %941 ], [ %75, %947 ], [ %75, %81 ]
+  %.8.i = phi i32 [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %900 ], [ %979, %981 ], [ %893, %895 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ -1163346256, %78 ], [ 0, %1031 ], [ 0, %1033 ], [ %1034, %1036 ], [ %1026, %1028 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ -1094995529, %941 ], [ -1094995529, %947 ], [ %84, %81 ]
+  %.4172.i = phi i32 [ %75, %.thread.i ], [ %75, %125 ], [ %75, %900 ], [ %75, %981 ], [ %75, %895 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %78 ], [ %1019, %1031 ], [ %1019, %1033 ], [ %75, %1036 ], [ %75, %1028 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit526.split.loop.exit632.i ], [ %75, %941 ], [ %75, %947 ], [ %75, %81 ]
   %1041 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %1042 = load i32, ptr %43, align 8, !tbaa !78
   %.not221.i = icmp sgt i32 %.4172.i, %1042
@@ -3042,7 +3042,7 @@ bytestream2_get_be16.exit.thread.i.i:             ; preds = %166, %165, %bytestr
   br label %export_itut_t35.exit.i
 
 export_itut_t35.exit.i:                           ; preds = %bytestream2_get_be16.exit.thread.i.i, %166, %147, %145, %131, %99
-  %.341.i = phi i32 [ %.24063.i, %99 ], [ 0, %bytestream2_get_be16.exit.thread.i.i ], [ %167, %166 ], [ %151, %147 ], [ %.0.i.i, %131 ], [ -12, %145 ]
+  %.341.i = phi i32 [ %.24063.i, %99 ], [ 0, %bytestream2_get_be16.exit.thread.i.i ], [ %.0.i.i, %131 ], [ %151, %147 ], [ %167, %166 ], [ -12, %145 ]
   call void @av_buffer_unref(ptr noundef nonnull %98) #9
   %169 = load ptr, ptr %90, align 8, !tbaa !64
   %170 = call i32 @av_fifo_read(ptr noundef %169, ptr noundef nonnull %4, i64 noundef 1) #9

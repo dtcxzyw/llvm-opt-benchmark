@@ -182,7 +182,7 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %51, %.critedge2.i
-  %.3.i.be = phi ptr [ %50, %.critedge2.i ], [ %74, %52 ], [ %50, %51 ]
+  %.3.i.be = phi ptr [ %50, %.critedge2.i ], [ %50, %51 ], [ %74, %52 ]
   br label %48, !llvm.loop !20
 
 75:                                               ; preds = %48, %48, %48, %48, %48, %48, %48, %48, %48, %48
@@ -255,7 +255,7 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   br label %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
 
 _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86, %88, %92, %94, %95
-  %.7.i = phi ptr [ %87, %86 ], [ %87, %95 ], [ %93, %92 ], [ %87, %94 ], [ %87, %88 ], [ %.5.i, %.loopexit125.i ]
+  %.7.i = phi ptr [ %87, %86 ], [ %87, %88 ], [ %93, %92 ], [ %87, %94 ], [ %87, %95 ], [ %.5.i, %.loopexit125.i ]
   %96 = getelementptr inbounds nuw i8, ptr %.7.i, i64 2
   %97 = load i16, ptr %.7.i, align 2, !tbaa !7
   store i16 %97, ptr %9, align 4, !tbaa !15

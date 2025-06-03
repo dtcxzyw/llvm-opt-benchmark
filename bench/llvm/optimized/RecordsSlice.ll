@@ -325,7 +325,7 @@ _ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread: ; pred
   unreachable
 
 67:                                               ; preds = %20, %25, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread, %16, %14
-  %.0 = phi ptr [ %65, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread ], [ %19, %16 ], [ %15, %14 ], [ %23, %25 ], [ %23, %20 ]
+  %.0 = phi ptr [ %15, %14 ], [ %19, %16 ], [ %65, %_ZNK4llvm5MachO12RecordsSlice13findContainerEbNS_9StringRefE.exit.thread ], [ %23, %25 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #20
   ret ptr %.0
 }
@@ -360,7 +360,7 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addGlobalENS_9StringR
   br label %18
 
 18:                                               ; preds = %7, %16, %14
-  %.0 = phi i8 [ %5, %7 ], [ %17, %16 ], [ %15, %14 ]
+  %.0 = phi i8 [ %5, %7 ], [ %15, %14 ], [ %17, %16 ]
   %19 = icmp eq i64 %2, 0
   br i1 %19, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %20
 
@@ -549,7 +549,7 @@ _ZNKSt14default_deleteIN4llvm5MachO12GlobalRecordEEclEPS2_.exit.i.i: ; preds = %
   br label %_ZSt11make_uniqueIN4llvm5MachO12GlobalRecordEJRNS0_9StringRefERNS1_13RecordLinkageERNS1_11SymbolFlagsERNS2_4KindERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN4llvm5MachO12GlobalRecordEJRNS0_9StringRefERNS1_13RecordLinkageERNS1_11SymbolFlagsERNS2_4KindERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %92, %94, %96
-  %.0.i.i.i.i = phi i8 [ %97, %96 ], [ %95, %94 ], [ %.0, %92 ]
+  %.0.i.i.i.i = phi i8 [ %95, %94 ], [ %97, %96 ], [ %.0, %92 ]
   store ptr %.sroa.08.0.i, ptr %93, align 8, !tbaa !4, !noalias !81
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !9, !noalias !81
@@ -2787,7 +2787,7 @@ define dso_local noundef zeroext i8 @_ZN4llvm5MachO6Record10mergeFlagsENS0_11Sym
   br label %8
 
 8:                                                ; preds = %3, %6, %4
-  %.0 = phi i8 [ %7, %6 ], [ %5, %4 ], [ %1, %3 ]
+  %.0 = phi i8 [ %5, %4 ], [ %7, %6 ], [ %1, %3 ]
   ret i8 %.0
 }
 

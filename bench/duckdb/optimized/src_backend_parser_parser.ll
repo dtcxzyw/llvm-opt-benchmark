@@ -834,7 +834,7 @@ define hidden void @_ZN17duckdb_libpgquery8tokenizeEPKc(ptr dead_on_unwind noali
   br label %31
 
 31:                                               ; preds = %28, %22, %27, %26, %25
-  %.sroa.0.0 = phi i64 [ 3, %27 ], [ 2, %26 ], [ 1, %25 ], [ 0, %22 ], [ %30, %28 ]
+  %.sroa.0.0 = phi i64 [ 1, %25 ], [ 2, %26 ], [ 3, %27 ], [ 0, %22 ], [ %30, %28 ]
   %32 = load i32, ptr %5, align 4, !tbaa !37
   %33 = load ptr, ptr %10, align 8, !tbaa !38
   %.not.i = icmp eq ptr %12, %33
@@ -1002,7 +1002,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(
   br label %24
 
 24:                                               ; preds = %21, %23, %22
-  %.038 = phi i64 [ 4, %23 ], [ 5, %22 ], [ 3, %21 ]
+  %.038 = phi i64 [ 5, %22 ], [ 4, %23 ], [ 3, %21 ]
   %25 = load ptr, ptr %4, align 8, !tbaa !50
   %26 = load i32, ptr %1, align 4, !tbaa !37
   %27 = sext i32 %26 to i64

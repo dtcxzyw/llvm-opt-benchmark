@@ -502,7 +502,7 @@ define dso_local void @_ZN4Luau7CodeGen11getAssemblyB5cxx11EP9lua_StateiNS0_15As
   ret void
 
 57:                                               ; preds = %51, %43, %35, %27, %19
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %44, %43 ], [ %36, %35 ], [ %28, %27 ], [ %20, %19 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -623,7 +623,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %59, %58 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %61 = load ptr, ptr %.sroa.025.1.i.i.i.i, align 8, !tbaa !54
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP5ProtoSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN4Luau7CodeGenL15getAssemblyImplINSC_3X6418AssemblyBuilderX64EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_PK10lua_TValueNSC_15AssemblyOptionsEPNSC_13LoweringStatsEEUlS3_E_EEESM_SM_SM_T0_.exit.i.i, label %63
@@ -633,7 +633,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %64, %63 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %66 = load ptr, ptr %.sroa.025.2.i.i.i.i, align 8, !tbaa !54
   %67 = icmp eq ptr %66, null
   %spec.select.i.i.i.i = select i1 %67, ptr %.sroa.025.2.i.i.i.i, ptr %29
@@ -2227,7 +2227,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %59, %58 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %61 = load ptr, ptr %.sroa.025.1.i.i.i.i, align 8, !tbaa !54
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP5ProtoSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN4Luau7CodeGenL15getAssemblyImplINSC_3A6418AssemblyBuilderA64EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_PK10lua_TValueNSC_15AssemblyOptionsEPNSC_13LoweringStatsEEUlS3_E_EEESM_SM_SM_T0_.exit.i.i, label %63
@@ -2237,7 +2237,7 @@ _ZN4Luau7CodeGen15gatherFunctionsERSt6vectorIP5ProtoSaIS3_EES3_jb.exit: ; preds 
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %64, %63 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %66 = load ptr, ptr %.sroa.025.2.i.i.i.i, align 8, !tbaa !54
   %67 = icmp eq ptr %66, null
   %spec.select.i.i.i.i = select i1 %67, ptr %.sroa.025.2.i.i.i.i, ptr %29

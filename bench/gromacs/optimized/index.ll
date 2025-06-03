@@ -4643,7 +4643,7 @@ _ZN10IndexGroupD2Ev.exit379:                      ; preds = %_ZNKSt7__cxx1112bas
   br label %1520
 
 1520:                                             ; preds = %1518, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1519, %1518 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %1519, %1518 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i.i, align 8, !tbaa !104
   %1521 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i26.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1471) #29
   %1522 = icmp eq i32 %1521, 0
@@ -4654,7 +4654,7 @@ _ZN10IndexGroupD2Ev.exit379:                      ; preds = %_ZNKSt7__cxx1112bas
   br label %1525
 
 1525:                                             ; preds = %1523, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %1524, %1523 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %1524, %1523 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i27.i.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i.i, align 8, !tbaa !104
   %1526 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val1.i27.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %1471) #29
   %1527 = icmp eq i32 %1526, 0
@@ -5258,7 +5258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i386: ; preds = %
   br label %1740
 
 1740:                                             ; preds = %1738, %._crit_edge.i.i.i117.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i117.i ], [ %1739, %1738 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %1739, %1738 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i117.i ]
   %1741 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !4
   %1742 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1704, ptr noundef nonnull readonly dereferenceable(1) %1741) #29
   %1743 = icmp eq i32 %1742, 0
@@ -5269,7 +5269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i386: ; preds = %
   br label %1746
 
 1746:                                             ; preds = %1744, %._crit_edge.i.i.i117.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i117.i ], [ %1745, %1744 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %1745, %1744 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i117.i ]
   %1747 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !4
   %1748 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1704, ptr noundef nonnull readonly dereferenceable(1) %1747) #29
   %1749 = icmp eq i32 %1748, 0

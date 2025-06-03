@@ -3123,8 +3123,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 35:                                               ; preds = %25
   %36 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr24.i.i = freeze i1 %36
-  br i1 %cond.fr24.i.i, label %60, label %62
+  %cond.fr23.i.i = freeze i1 %36
+  br i1 %cond.fr23.i.i, label %60, label %62
 
 37:                                               ; preds = %25
   %.not.i7.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload, %.sroa.56.0.copyload.i.i
@@ -3157,8 +3157,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 
 46:                                               ; preds = %25
   %47 = icmp eq i8 %.sroa.2.0.copyload, %.sroa.2.0.copyload.i.i
-  %cond.fr23.i.i = freeze i1 %47
-  br i1 %cond.fr23.i.i, label %60, label %62
+  %cond.fr24.i.i = freeze i1 %47
+  br i1 %cond.fr24.i.i, label %60, label %62
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit6.i.i.i.i.i.i"
   %49 = icmp ne ptr %.sroa.67.0.copyload.i.i, null
@@ -3203,8 +3203,8 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
   %.not = icmp eq i8 %61, 10
   br i1 %.not, label %._crit_edge, label %6
 
-62:                                               ; preds = %6, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h28e43b9b55f40d39E.exit.i.i", %46, %35, %27, %38, %48, %52, %10, %23, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit6.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit14.i.i.i.i.i.i", %26, %37, %31, %42, %56
-  %.0.i.i.ph = phi i8 [ 2, %56 ], [ 2, %42 ], [ 2, %31 ], [ 2, %37 ], [ 2, %26 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit14.i.i.i.i.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit6.i.i.i.i.i.i" ], [ 2, %23 ], [ 2, %10 ], [ 2, %52 ], [ 2, %48 ], [ 2, %38 ], [ 2, %27 ], [ 2, %35 ], [ 2, %46 ], [ 2, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h28e43b9b55f40d39E.exit.i.i" ], [ 1, %6 ]
+62:                                               ; preds = %6, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h28e43b9b55f40d39E.exit.i.i", %35, %46, %27, %38, %48, %52, %10, %23, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit6.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit14.i.i.i.i.i.i", %26, %37, %31, %42, %56
+  %.0.i.i.ph = phi i8 [ 2, %56 ], [ 2, %42 ], [ 2, %31 ], [ 2, %37 ], [ 2, %26 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit14.i.i.i.i.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit6.i.i.i.i.i.i" ], [ 2, %23 ], [ 2, %10 ], [ 2, %52 ], [ 2, %48 ], [ 2, %38 ], [ 2, %27 ], [ 2, %46 ], [ 2, %35 ], [ 2, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h28e43b9b55f40d39E.exit.i.i" ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1003
   br label %._crit_edge
 
@@ -3514,8 +3514,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hf55d8b7f881e6efbE(ptr n
   br label %"_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$core..error..Error$GT$6source17hc20c0e806c582d44E.llvm.15402389115345992855.exit"
 
 "_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$core..error..Error$GT$6source17hc20c0e806c582d44E.llvm.15402389115345992855.exit": ; preds = %1, %1, %7, %9, %11, %12
-  %.sroa.7.0.i = phi ptr [ @anon.9160dbde5baf315d892bcbd2a362aeca.91, %12 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.89.llvm.15402389115345992855, %11 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.87, %9 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.85.llvm.15402389115345992855, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ %0, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0.i = phi ptr [ @anon.9160dbde5baf315d892bcbd2a362aeca.85.llvm.15402389115345992855, %7 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.87, %9 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.89.llvm.15402389115345992855, %11 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.91, %12 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ], [ null, %1 ]
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %15
@@ -4164,8 +4164,8 @@ default.unreachable:                              ; preds = %_ZN4core4hash6Hashe
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit: ; preds = %15, %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i"
-  %.pn5.i = phi ptr [ %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i" ], [ %23, %21 ], [ %20, %15 ]
-  %.pn3.i = phi i64 [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i" ], [ %25, %21 ], [ %19, %15 ]
+  %.pn5.i = phi ptr [ %20, %15 ], [ %23, %21 ], [ %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i" ]
+  %.pn3.i = phi i64 [ %19, %15 ], [ %25, %21 ], [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i" ]
   %29 = icmp ugt i64 %.pn3.i, 7
   br i1 %29, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -4266,8 +4266,8 @@ _ZN4core4hash6Hasher9write_str17h06d5f81d054709f6E.llvm.15402389115345992855.exi
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit8
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit8: ; preds = %60, %66, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i2"
-  %.pn5.i3 = phi ptr [ %73, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i2" ], [ %68, %66 ], [ %65, %60 ]
-  %.pn3.i4 = phi i64 [ %72, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i2" ], [ %70, %66 ], [ %64, %60 ]
+  %.pn5.i3 = phi ptr [ %65, %60 ], [ %68, %66 ], [ %73, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i2" ]
+  %.pn3.i4 = phi i64 [ %64, %60 ], [ %70, %66 ], [ %72, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i2" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1273)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1276)
   %74 = icmp ugt i64 %.pn3.i4, 7
@@ -4372,8 +4372,8 @@ _ZN4core4hash6Hasher9write_str17h06d5f81d054709f6E.llvm.15402389115345992855.exi
   br label %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit38
 
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.15402389115345992855.exit38: ; preds = %107, %113, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i32"
-  %.pn5.i33 = phi ptr [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i32" ], [ %115, %113 ], [ %112, %107 ]
-  %.pn3.i34 = phi i64 [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i32" ], [ %117, %113 ], [ %111, %107 ]
+  %.pn5.i33 = phi ptr [ %112, %107 ], [ %115, %113 ], [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i32" ]
+  %.pn3.i34 = phi i64 [ %111, %107 ], [ %117, %113 ], [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit.i32" ]
   %121 = icmp ugt i64 %.pn3.i34, 7
   br i1 %121, label %.lr.ph.i.i55, label %._crit_edge.i.i39
 
@@ -5498,7 +5498,7 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$cargo_metadata..errors..Error$u20$a
   br label %29
 
 29:                                               ; preds = %27, %24, %22, %19, %16, %13
-  %.0.in = phi i1 [ %28, %27 ], [ %26, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.0.in = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %26, %24 ], [ %28, %27 ]
   ret i1 %.0.in
 }
 
@@ -5650,8 +5650,8 @@ define hidden { ptr, ptr } @"_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$
   br label %14
 
 14:                                               ; preds = %1, %1, %12, %11, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.9160dbde5baf315d892bcbd2a362aeca.91, %12 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.89.llvm.15402389115345992855, %11 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.87, %9 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.85.llvm.15402389115345992855, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %13, %12 ], [ %0, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.9160dbde5baf315d892bcbd2a362aeca.85.llvm.15402389115345992855, %7 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.87, %9 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.89.llvm.15402389115345992855, %11 ], [ @anon.9160dbde5baf315d892bcbd2a362aeca.91, %12 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %16
@@ -7344,8 +7344,8 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit", %10, %4
-  %.pn5 = phi ptr [ %17, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit" ], [ %12, %10 ], [ %9, %4 ]
-  %.pn3 = phi i64 [ %16, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit" ], [ %14, %10 ], [ %8, %4 ]
+  %.pn5 = phi ptr [ %9, %4 ], [ %12, %10 ], [ %17, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit" ]
+  %.pn3 = phi i64 [ %8, %4 ], [ %14, %10 ], [ %16, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf51c5c59ab48aa28E.llvm.15402389115345992855.exit" ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.pn5, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn3, 1
   ret { ptr, i64 } %.merged

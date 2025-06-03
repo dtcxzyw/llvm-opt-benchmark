@@ -1347,7 +1347,7 @@ dl.exit805:                                       ; preds = %548, %._crit_edge.l
   br label %ll_expand_gaussian.exit.us.i
 
 ll_expand_gaussian.exit.us.i:                     ; preds = %650, %624, %598, %582
-  %.0.i.us.i = phi nsz float [ %597, %582 ], [ %623, %598 ], [ %649, %624 ], [ %686, %650 ]
+  %.0.i.us.i = phi nsz float [ %686, %650 ], [ %649, %624 ], [ %623, %598 ], [ %597, %582 ]
   %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
   store float %.0.i.us.i, ptr %gep.i, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3187,7 +3187,7 @@ default.unreachable:                              ; preds = %19
   br label %ll_expand_gaussian.exit
 
 ll_expand_gaussian.exit:                          ; preds = %32, %69, %98, %127
-  %.0.i = phi nsz float [ %142, %127 ], [ %126, %98 ], [ %97, %69 ], [ %68, %32 ]
+  %.0.i = phi nsz float [ %68, %32 ], [ %97, %69 ], [ %126, %98 ], [ %142, %127 ]
   %143 = mul nsw i32 %4, %3
   %144 = add nsw i32 %143, %2
   %145 = sext i32 %144 to i64

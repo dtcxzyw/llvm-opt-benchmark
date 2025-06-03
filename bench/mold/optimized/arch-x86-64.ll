@@ -486,8 +486,8 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %45, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %63 = phi i64 [ %44, %45 ], [ %59, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
-  %.1.i = phi i64 [ %53, %45 ], [ %62, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %63 = phi i64 [ %59, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %44, %45 ]
+  %.1.i = phi i64 [ %62, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %53, %45 ]
   %64 = sub i64 %63, %.1.i
   br label %122
 
@@ -576,8 +576,8 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25: ; pre
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit29
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit29: ; preds = %102, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25
-  %120 = phi i64 [ %101, %102 ], [ %116, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25 ]
-  %.1.i24 = phi i64 [ %110, %102 ], [ %119, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25 ]
+  %120 = phi i64 [ %116, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25 ], [ %101, %102 ]
+  %.1.i24 = phi i64 [ %119, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i25 ], [ %110, %102 ]
   %121 = sub i64 %120, %.1.i24
   br label %122
 
@@ -727,7 +727,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %65, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i64 [ %73, %65 ], [ %81, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i64 [ %81, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %73, %65 ]
   %82 = sub i64 %.0.i, %.1.i
   %83 = trunc i64 %82 to i32
   %84 = add i32 %83, -6
@@ -1720,8 +1720,8 @@ _ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit23
 412:                                              ; preds = %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread
   br label %413
 
-413:                                              ; preds = %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread
-  %.0.i.ph = phi i32 [ 4754693, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread ], [ 4754701, %398 ], [ 4754709, %399 ], [ 4754717, %400 ], [ 4754725, %401 ], [ 4754733, %402 ], [ 4754741, %403 ], [ 4754749, %404 ], [ 5016837, %405 ], [ 5016845, %406 ], [ 5016853, %407 ], [ 5016861, %408 ], [ 5016869, %409 ], [ 5016877, %410 ], [ 5016885, %411 ], [ 5016893, %412 ]
+413:                                              ; preds = %398, %399, %400, %401, %402, %403, %404, %405, %406, %407, %408, %409, %410, %411, %412, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread
+  %.0.i.ph = phi i32 [ 4754693, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread ], [ 5016893, %412 ], [ 5016885, %411 ], [ 5016877, %410 ], [ 5016869, %409 ], [ 5016861, %408 ], [ 5016853, %407 ], [ 5016845, %406 ], [ 5016837, %405 ], [ 4754749, %404 ], [ 4754741, %403 ], [ 4754733, %402 ], [ 4754725, %401 ], [ 4754717, %400 ], [ 4754709, %399 ], [ 4754701, %398 ]
   %414 = add i64 %48, %46
   %415 = sub i64 %414, %55
   %416 = add i64 %415, 2147483648
@@ -2220,7 +2220,7 @@ _ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit248.thread: ; pre
   br label %_ZN4moldL14relax_gottpoffEPh.exit
 
 _ZN4moldL14relax_gottpoffEPh.exit:                ; preds = %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit248.thread, %663, %664, %665, %666, %667, %668, %669, %670, %671, %672, %673, %674, %675, %676, %677, %678
-  %.0.i250 = phi i32 [ 0, %678 ], [ 4835271, %677 ], [ 4835270, %676 ], [ 4835269, %675 ], [ 4835268, %674 ], [ 4835267, %673 ], [ 4835266, %672 ], [ 4835265, %671 ], [ 4835264, %670 ], [ 4769735, %669 ], [ 4769734, %668 ], [ 4769733, %667 ], [ 4769732, %666 ], [ 4769731, %665 ], [ 4769730, %664 ], [ 4769729, %663 ], [ 4769728, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit248.thread ]
+  %.0.i250 = phi i32 [ 0, %678 ], [ 4769729, %663 ], [ 4769730, %664 ], [ 4769731, %665 ], [ 4769732, %666 ], [ 4769733, %667 ], [ 4769734, %668 ], [ 4769735, %669 ], [ 4835264, %670 ], [ 4835265, %671 ], [ 4835266, %672 ], [ 4835267, %673 ], [ 4835268, %674 ], [ 4835269, %675 ], [ 4835270, %676 ], [ 4835271, %677 ], [ 4769728, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit248.thread ]
   %679 = lshr i32 %.0.i250, 16
   %680 = trunc nuw nsw i32 %679 to i8
   store i8 %680, ptr %650, align 1, !tbaa !261
@@ -2374,8 +2374,8 @@ _ZN4moldL19relax_tlsdesc_to_ieEPh.exit:           ; preds = %718
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %5) #24
   unreachable
 
-749:                                              ; preds = %746, %745, %744, %743, %742, %741, %740, %739, %738, %737, %736, %735, %734, %733, %732, %718
-  %.0.i252.ph = phi i32 [ 4754181, %718 ], [ 4754189, %732 ], [ 4754197, %733 ], [ 4754205, %734 ], [ 4754213, %735 ], [ 4754221, %736 ], [ 4754229, %737 ], [ 4754237, %738 ], [ 5016325, %739 ], [ 5016333, %740 ], [ 5016341, %741 ], [ 5016349, %742 ], [ 5016357, %743 ], [ 5016365, %744 ], [ 5016373, %745 ], [ 5016381, %746 ]
+749:                                              ; preds = %732, %733, %734, %735, %736, %737, %738, %739, %740, %741, %742, %743, %744, %745, %746, %718
+  %.0.i252.ph = phi i32 [ 4754181, %718 ], [ 5016381, %746 ], [ 5016373, %745 ], [ 5016365, %744 ], [ 5016357, %743 ], [ 5016349, %742 ], [ 5016341, %741 ], [ 5016333, %740 ], [ 5016325, %739 ], [ 4754237, %738 ], [ 4754229, %737 ], [ 4754221, %736 ], [ 4754213, %735 ], [ 4754205, %734 ], [ 4754197, %733 ], [ 4754189, %732 ]
   %750 = lshr i32 %.0.i252.ph, 16
   %751 = trunc nuw nsw i32 %750 to i8
   store i8 %751, ptr %719, align 1, !tbaa !261
@@ -2506,8 +2506,8 @@ _ZN4moldL19relax_tlsdesc_to_leEPh.exit:           ; preds = %_ZNK4mold6SymbolINS
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %6) #24
   unreachable
 
-809:                                              ; preds = %806, %805, %804, %803, %802, %801, %800, %799, %798, %797, %796, %795, %794, %793, %792, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit251.thread
-  %.0.i254.ph = phi i32 [ 4769728, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit251.thread ], [ 4769729, %792 ], [ 4769730, %793 ], [ 4769731, %794 ], [ 4769732, %795 ], [ 4769733, %796 ], [ 4769734, %797 ], [ 4769735, %798 ], [ 4835264, %799 ], [ 4835265, %800 ], [ 4835266, %801 ], [ 4835267, %802 ], [ 4835268, %803 ], [ 4835269, %804 ], [ 4835270, %805 ], [ 4835271, %806 ]
+809:                                              ; preds = %792, %793, %794, %795, %796, %797, %798, %799, %800, %801, %802, %803, %804, %805, %806, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit251.thread
+  %.0.i254.ph = phi i32 [ 4769728, %_ZNK4mold6SymbolINS_6X86_64EE9has_gottpERNS_7ContextIS1_EE.exit251.thread ], [ 4835271, %806 ], [ 4835270, %805 ], [ 4835269, %804 ], [ 4835268, %803 ], [ 4835267, %802 ], [ 4835266, %801 ], [ 4835265, %800 ], [ 4835264, %799 ], [ 4769735, %798 ], [ 4769734, %797 ], [ 4769733, %796 ], [ 4769732, %795 ], [ 4769731, %794 ], [ 4769730, %793 ], [ 4769729, %792 ]
   %810 = lshr i32 %.0.i254.ph, 16
   %811 = trunc nuw nsw i32 %810 to i8
   store i8 %811, ptr %779, align 1, !tbaa !261
@@ -2623,7 +2623,7 @@ _ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255.thread: ; 
   unreachable
 
 884:                                              ; preds = %_ZN4moldL19relax_rex_gotpcrelxEPh.exit, %332, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255.thread, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255, %_ZNK4mold6SymbolINS_6X86_64EE16get_tlsdesc_addrERNS_7ContextIS1_EE.exit, %809, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit253, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit249, %_ZN4moldL14relax_gottpoffEPh.exit, %513, %_ZN4moldL14relax_ld_to_leEPhNS_6ElfRelINS_6X86_64EEEl.exit, %_ZNK4mold6SymbolINS_6X86_64EE14get_tlsgd_addrERNS_7ContextIS1_EE.exit, %_ZN4moldL14relax_gd_to_leEPhNS_6ElfRelINS_6X86_64EEEm.exit, %_ZN4moldL14relax_gd_to_ieEPhNS_6ElfRelINS_6X86_64EEEm.exit, %851, %831, %604, %590, %564, %550, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread329, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread325, %270, %257, %232, %219, %194, %170, %158, %133, %120, %113, %109, %97, %85, %79, %76, %_ZNK4mold6SymbolINS_6X86_64EE12get_got_addrERNS_7ContextIS1_EE.exit
-  %.2 = phi i64 [ %.0363, %851 ], [ %.0363, %831 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255.thread ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE16get_tlsdesc_addrERNS_7ContextIS1_EE.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit253 ], [ %.0363, %809 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit249 ], [ %.0363, %_ZN4moldL14relax_gottpoffEPh.exit ], [ %.0363, %604 ], [ %.0363, %590 ], [ %.0363, %564 ], [ %.0363, %550 ], [ %.0363, %513 ], [ %528, %_ZN4moldL14relax_ld_to_leEPhNS_6ElfRelINS_6X86_64EEEl.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_tlsgd_addrERNS_7ContextIS1_EE.exit ], [ %465, %_ZN4moldL14relax_gd_to_ieEPhNS_6ElfRelINS_6X86_64EEEm.exit ], [ %490, %_ZN4moldL14relax_gd_to_leEPhNS_6ElfRelINS_6X86_64EEEm.exit ], [ %.0363, %_ZN4moldL19relax_rex_gotpcrelxEPh.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread329 ], [ %.0363, %332 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread325 ], [ %.0363, %270 ], [ %.0363, %257 ], [ %.0363, %232 ], [ %.0363, %219 ], [ %.0363, %194 ], [ %.0363, %170 ], [ %.0363, %158 ], [ %.0363, %133 ], [ %.0363, %120 ], [ %.0363, %113 ], [ %.0363, %109 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE12get_got_addrERNS_7ContextIS1_EE.exit ], [ %.0363, %97 ], [ %.0363, %85 ], [ %.0363, %79 ], [ %.0363, %76 ]
+  %.2 = phi i64 [ %.0363, %76 ], [ %.0363, %79 ], [ %.0363, %85 ], [ %.0363, %97 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE12get_got_addrERNS_7ContextIS1_EE.exit ], [ %.0363, %109 ], [ %.0363, %113 ], [ %.0363, %120 ], [ %.0363, %133 ], [ %.0363, %158 ], [ %.0363, %170 ], [ %.0363, %194 ], [ %.0363, %219 ], [ %.0363, %232 ], [ %.0363, %257 ], [ %.0363, %270 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread325 ], [ %.0363, %332 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit239.thread329 ], [ %.0363, %_ZN4moldL19relax_rex_gotpcrelxEPh.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_tlsgd_addrERNS_7ContextIS1_EE.exit ], [ %465, %_ZN4moldL14relax_gd_to_ieEPhNS_6ElfRelINS_6X86_64EEEm.exit ], [ %490, %_ZN4moldL14relax_gd_to_leEPhNS_6ElfRelINS_6X86_64EEEm.exit ], [ %.0363, %513 ], [ %528, %_ZN4moldL14relax_ld_to_leEPhNS_6ElfRelINS_6X86_64EEEl.exit ], [ %.0363, %550 ], [ %.0363, %564 ], [ %.0363, %590 ], [ %.0363, %604 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit249 ], [ %.0363, %_ZN4moldL14relax_gottpoffEPh.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE16get_tlsdesc_addrERNS_7ContextIS1_EE.exit ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE14get_gottp_addrERNS_7ContextIS1_EE.exit253 ], [ %.0363, %809 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255 ], [ %.0363, %_ZNK4mold6SymbolINS_6X86_64EE11has_tlsdescERNS_7ContextIS1_EE.exit255.thread ], [ %.0363, %831 ], [ %.0363, %851 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %885
 
@@ -2972,7 +2972,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51: ; preds = %175
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %102, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit, %21, %17, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %80, %91, %150, %167, %.critedge4, %194, %40, %46
-  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %204, %194 ], [ %101, %91 ], [ %154, %150 ], [ %174, %167 ], [ %187, %.critedge4 ], [ %82, %80 ], [ %72, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %78, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %102 ]
+  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %204, %194 ], [ %101, %91 ], [ %154, %150 ], [ %174, %167 ], [ %187, %.critedge4 ], [ %82, %80 ], [ %78, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %72, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %102 ]
   ret i64 %.1
 }
 
@@ -4384,7 +4384,7 @@ _ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   br label %194
 
 194:                                              ; preds = %96, %97, %98, %169, %170, %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit, %105, %101, %126, %130, %120, %143, %141, %161, %_ZN4moldL14relax_gottpoffEPh.exit, %95, %95, %95, %95, %95, %95, %95, %42, %47
-  %.1 = phi i64 [ %.085, %47 ], [ %.085, %42 ], [ %.085, %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %170 ], [ %.085, %169 ], [ %.085, %161 ], [ %.085, %_ZN4moldL14relax_gottpoffEPh.exit ], [ %142, %141 ], [ %.085, %143 ], [ %121, %120 ], [ %129, %126 ], [ %.085, %130 ], [ %.085, %105 ], [ %.085, %101 ], [ %.085, %98 ], [ %.085, %97 ], [ %.085, %96 ]
+  %.1 = phi i64 [ %.085, %47 ], [ %.085, %42 ], [ %.085, %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit ], [ %.085, %96 ], [ %.085, %97 ], [ %.085, %98 ], [ %.085, %105 ], [ %.085, %101 ], [ %121, %120 ], [ %129, %126 ], [ %.085, %130 ], [ %142, %141 ], [ %.085, %143 ], [ %.085, %161 ], [ %.085, %_ZN4moldL14relax_gottpoffEPh.exit ], [ %.085, %169 ], [ %.085, %170 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ], [ %.085, %95 ]
   %195 = add nsw i64 %.1, 1
   %196 = icmp ult i64 %195, %17
   br i1 %196, label %42, label %._crit_edge, !llvm.loop !414

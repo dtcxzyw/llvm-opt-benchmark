@@ -1943,7 +1943,7 @@ switch.lookup540:                                 ; preds = %165
   br label %553
 
 553:                                              ; preds = %522, %502, %546, %535, %323, %327, %282, %285, %230, %236, %220, %226, %217, %260, %262, %259, %259, %259, %259, %259, %198, %266, %263, %460, %430, %406, %400, %384, %376, %353, %345, %337, %309
-  %.0440 = phi ptr [ null, %535 ], [ null, %546 ], [ %.1, %522 ], [ null, %502 ], [ null, %460 ], [ null, %430 ], [ null, %406 ], [ null, %400 ], [ null, %384 ], [ null, %376 ], [ null, %353 ], [ null, %345 ], [ null, %337 ], [ null, %327 ], [ null, %323 ], [ null, %309 ], [ null, %285 ], [ null, %282 ], [ null, %198 ], [ null, %217 ], [ null, %230 ], [ null, %236 ], [ null, %220 ], [ null, %226 ], [ null, %262 ], [ null, %260 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %266 ], [ null, %263 ]
+  %.0440 = phi ptr [ null, %535 ], [ null, %546 ], [ %.1, %522 ], [ null, %502 ], [ null, %198 ], [ null, %217 ], [ null, %220 ], [ null, %226 ], [ null, %230 ], [ null, %236 ], [ null, %262 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %259 ], [ null, %260 ], [ null, %266 ], [ null, %263 ], [ null, %285 ], [ null, %282 ], [ null, %309 ], [ null, %327 ], [ null, %323 ], [ null, %337 ], [ null, %345 ], [ null, %353 ], [ null, %376 ], [ null, %384 ], [ null, %400 ], [ null, %406 ], [ null, %430 ], [ null, %460 ]
   %554 = load i32, ptr %7, align 4
   %555 = call i32 @tvb_reported_length(ptr noundef %0)
   %.not492 = icmp ult i32 %554, %555
@@ -3284,8 +3284,8 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 509:                                              ; preds = %.loopexit, %162, %143, %94
-  %510 = phi i32 [ %507, %.loopexit ], [ %164, %162 ], [ %145, %143 ], [ %96, %94 ]
-  %.1 = phi i32 [ %508, %.loopexit ], [ %165, %162 ], [ %146, %143 ], [ %97, %94 ]
+  %510 = phi i32 [ %96, %94 ], [ %145, %143 ], [ %164, %162 ], [ %507, %.loopexit ]
+  %.1 = phi i32 [ %97, %94 ], [ %146, %143 ], [ %165, %162 ], [ %508, %.loopexit ]
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.loopexit454, label %23, !llvm.loop !15
 

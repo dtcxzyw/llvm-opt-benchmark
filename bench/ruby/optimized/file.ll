@@ -1906,12 +1906,12 @@ rb_enc_path_last_separator.exit.thread:           ; preds = %225, %rb_enc_path_l
   br label %.backedge
 
 .backedge:                                        ; preds = %rb_enc_path_last_separator.exit.thread, %rb_enc_path_last_separator.exit, %222, %216, %219, %238, %221, %265, %263
-  %.10282.be = phi i64 [ %.10282, %265 ], [ %.12284, %263 ], [ %.10282, %219 ], [ %.10282, %238 ], [ %.10282, %221 ], [ %.10282, %216 ], [ %.10282, %222 ], [ %.10282, %rb_enc_path_last_separator.exit ], [ %.10282, %rb_enc_path_last_separator.exit.thread ]
-  %.0268.be = phi ptr [ %.0268, %265 ], [ %.2270, %263 ], [ %.0268, %219 ], [ %.0268, %238 ], [ %.0268, %221 ], [ %.0268, %216 ], [ %.0268, %222 ], [ %.0268, %rb_enc_path_last_separator.exit ], [ %.0268, %rb_enc_path_last_separator.exit.thread ]
-  %.7263.be = phi ptr [ %.7263, %265 ], [ %.10266, %263 ], [ %.7263, %219 ], [ %.7263, %238 ], [ %.7263, %221 ], [ %.7263, %216 ], [ %.7263, %222 ], [ %.01725.i, %rb_enc_path_last_separator.exit ], [ %.7263, %rb_enc_path_last_separator.exit.thread ]
-  %.6.be = phi ptr [ %.6, %265 ], [ %.8, %263 ], [ %.6, %219 ], [ %.6, %238 ], [ %.6, %221 ], [ %.6, %216 ], [ %.6, %222 ], [ %.6, %rb_enc_path_last_separator.exit ], [ %.6, %rb_enc_path_last_separator.exit.thread ]
-  %.1248.be = phi ptr [ %.1248, %265 ], [ %264, %263 ], [ %.1248, %219 ], [ %239, %238 ], [ %217, %221 ], [ %.1248, %216 ], [ %.1248, %222 ], [ %223, %rb_enc_path_last_separator.exit ], [ %223, %rb_enc_path_last_separator.exit.thread ]
-  %.4.be = phi ptr [ %268, %265 ], [ %264, %263 ], [ %217, %219 ], [ %239, %238 ], [ %217, %221 ], [ %217, %216 ], [ %217, %222 ], [ %223, %rb_enc_path_last_separator.exit ], [ %223, %rb_enc_path_last_separator.exit.thread ]
+  %.10282.be = phi i64 [ %.10282, %265 ], [ %.10282, %219 ], [ %.10282, %221 ], [ %.10282, %238 ], [ %.10282, %216 ], [ %.12284, %263 ], [ %.10282, %222 ], [ %.10282, %rb_enc_path_last_separator.exit ], [ %.10282, %rb_enc_path_last_separator.exit.thread ]
+  %.0268.be = phi ptr [ %.0268, %265 ], [ %.0268, %219 ], [ %.0268, %221 ], [ %.0268, %238 ], [ %.0268, %216 ], [ %.2270, %263 ], [ %.0268, %222 ], [ %.0268, %rb_enc_path_last_separator.exit ], [ %.0268, %rb_enc_path_last_separator.exit.thread ]
+  %.7263.be = phi ptr [ %.7263, %265 ], [ %.7263, %219 ], [ %.7263, %221 ], [ %.7263, %238 ], [ %.7263, %216 ], [ %.10266, %263 ], [ %.7263, %222 ], [ %.01725.i, %rb_enc_path_last_separator.exit ], [ %.7263, %rb_enc_path_last_separator.exit.thread ]
+  %.6.be = phi ptr [ %.6, %265 ], [ %.6, %219 ], [ %.6, %221 ], [ %.6, %238 ], [ %.6, %216 ], [ %.8, %263 ], [ %.6, %222 ], [ %.6, %rb_enc_path_last_separator.exit ], [ %.6, %rb_enc_path_last_separator.exit.thread ]
+  %.1248.be = phi ptr [ %.1248, %265 ], [ %.1248, %219 ], [ %217, %221 ], [ %239, %238 ], [ %.1248, %216 ], [ %264, %263 ], [ %.1248, %222 ], [ %223, %rb_enc_path_last_separator.exit ], [ %223, %rb_enc_path_last_separator.exit.thread ]
+  %.4.be = phi ptr [ %268, %265 ], [ %217, %219 ], [ %217, %221 ], [ %239, %238 ], [ %217, %216 ], [ %264, %263 ], [ %217, %222 ], [ %223, %rb_enc_path_last_separator.exit ], [ %223, %rb_enc_path_last_separator.exit.thread ]
   br label %214, !llvm.loop !147
 
 238:                                              ; preds = %219
@@ -5917,7 +5917,7 @@ define internal range(i64 1, 8589934592) i64 @rb_file_s_umask(i32 noundef %0, pt
   unreachable
 
 13:                                               ; preds = %7, %4
-  %.0 = phi i32 [ %11, %7 ], [ %5, %4 ]
+  %.0 = phi i32 [ %5, %4 ], [ %11, %7 ]
   %14 = zext i32 %.0 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = or disjoint i64 %15, 1
@@ -7552,11 +7552,11 @@ define internal i64 @rb_f_test(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %24 = alloca %struct.stat, align 8
   %25 = alloca %struct.stat, align 8
   %26 = icmp eq i32 %0, 0
-  %.sink135.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 112
-  %.sink135.sroa.gep137 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sink135.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sink135.sroa.gep137 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %.sink135.sroa.gep138 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %.sink136.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %.sink136.sroa.gep139 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %.sink136.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %.sink136.sroa.gep139 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %.sink136.sroa.gep140 = getelementptr inbounds nuw i8, ptr %21, i64 72
   br i1 %26, label %27, label %28
 
@@ -8008,12 +8008,12 @@ rb_file_size_p.exit:                              ; preds = %173, %178, %184, %1
 254:                                              ; preds = %252
   br label %.thread
 
-.thread:                                          ; preds = %252, %254, %253
-  %.sink136.sroa.phi = phi ptr [ %.sink136.sroa.gep, %254 ], [ %.sink136.sroa.gep139, %253 ], [ %.sink136.sroa.gep140, %252 ]
-  %.sink135.sroa.phi = phi ptr [ %.sink135.sroa.gep, %254 ], [ %.sink135.sroa.gep137, %253 ], [ %.sink135.sroa.gep138, %252 ]
-  %.val = load i64, ptr %.sink136.sroa.phi, align 8, !tbaa !12
-  %.val91 = load i64, ptr %.sink135.sroa.phi, align 8, !tbaa !12
-  %255 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val91) #22
+.thread:                                          ; preds = %252, %253, %254
+  %.sink136.sroa.phi = phi ptr [ %.sink136.sroa.gep, %253 ], [ %.sink136.sroa.gep139, %254 ], [ %.sink136.sroa.gep140, %252 ]
+  %.sink135.sroa.phi = phi ptr [ %.sink135.sroa.gep, %253 ], [ %.sink135.sroa.gep137, %254 ], [ %.sink135.sroa.gep138, %252 ]
+  %.val98 = load i64, ptr %.sink136.sroa.phi, align 8, !tbaa !12
+  %.val99 = load i64, ptr %.sink135.sroa.phi, align 8, !tbaa !12
+  %255 = call i64 @rb_time_nano_new(i64 noundef %.val98, i64 noundef %.val99) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #22
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %21) #22
   br label %321
@@ -8167,7 +8167,7 @@ rb_file_identical_p.exit:                         ; preds = %259, %266, %269, %2
   unreachable
 
 321:                                              ; preds = %.thread130, %.thread, %rb_file_identical_p.exit, %231, %225, %219, %213, %207, %198, %189, %rb_file_size_p.exit, %167, %161, %152, %rb_file_rowned_p.exit, %rb_file_owned_p.exit, %126, %117, %rb_file_grpowned_p.exit, %99, %89, %84, %75, %66, %57
-  %.0 = phi i64 [ %.0.i123, %rb_file_identical_p.exit ], [ %.0.i121, %231 ], [ %230, %225 ], [ %224, %219 ], [ %218, %213 ], [ %212, %207 ], [ %.0.i.i120, %198 ], [ %.0.i118, %189 ], [ %.0.i116, %rb_file_size_p.exit ], [ %172, %167 ], [ %166, %161 ], [ %.0.i115, %152 ], [ %.0.i113, %rb_file_rowned_p.exit ], [ %.0.i112, %rb_file_owned_p.exit ], [ %129, %126 ], [ %.0.i.i111, %117 ], [ %.0.i109, %rb_file_grpowned_p.exit ], [ %.0.i.i, %99 ], [ %.0.i106, %89 ], [ %..i105, %84 ], [ %.0.i104, %75 ], [ %.0.i102, %66 ], [ %.0.i100, %57 ], [ %255, %.thread ], [ %.3.ph, %.thread130 ]
+  %.0 = phi i64 [ %.0.i123, %rb_file_identical_p.exit ], [ %.0.i100, %57 ], [ %.0.i102, %66 ], [ %.0.i104, %75 ], [ %..i105, %84 ], [ %.0.i106, %89 ], [ %.0.i.i, %99 ], [ %.0.i109, %rb_file_grpowned_p.exit ], [ %.0.i.i111, %117 ], [ %129, %126 ], [ %.0.i112, %rb_file_owned_p.exit ], [ %.0.i113, %rb_file_rowned_p.exit ], [ %.0.i115, %152 ], [ %166, %161 ], [ %172, %167 ], [ %.0.i116, %rb_file_size_p.exit ], [ %.0.i118, %189 ], [ %.0.i.i120, %198 ], [ %212, %207 ], [ %218, %213 ], [ %224, %219 ], [ %230, %225 ], [ %.0.i121, %231 ], [ %255, %.thread ], [ %.3.ph, %.thread130 ]
   ret i64 %.0
 }
 
@@ -10533,7 +10533,7 @@ rb_get_path.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   br label %96
 
 96:                                               ; preds = %rb_get_path.exit, %87, %check_path_encoding.exit68
-  %.145 = phi i32 [ 0, %rb_get_path.exit ], [ %.044, %87 ], [ %.044, %check_path_encoding.exit68 ]
+  %.145 = phi i32 [ 0, %rb_get_path.exit ], [ %.044, %check_path_encoding.exit68 ], [ %.044, %87 ]
   %97 = load i64, ptr %51, align 8, !tbaa !7, !noalias !304
   %98 = and i64 %97, 8192
   %.not.i70 = icmp eq i64 %98, 0

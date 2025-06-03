@@ -328,7 +328,7 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   call void @free(ptr noundef nonnull %21) #8
   br label %.loopexit
 
-139:                                              ; preds = %136, %134, %132, %130, %128, %126, %124, %117, %107, %100, %97, %73, %60, %44, %24
+139:                                              ; preds = %24, %44, %60, %73, %97, %100, %107, %117, %124, %126, %128, %130, %132, %134, %136
   %140 = call i64 @getMidiTimestamp(ptr noundef nonnull %0) #8
   store i64 %140, ptr %21, align 8
   br label %.loopexit

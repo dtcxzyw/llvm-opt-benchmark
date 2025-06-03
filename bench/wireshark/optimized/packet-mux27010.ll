@@ -513,7 +513,7 @@ define internal i32 @dissect_mux27010(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %120
 
 120:                                              ; preds = %118, %116, %85, %83, %52, %50, %.lr.ph.i
-  %.1.i = phi i32 [ %.0156.i, %.lr.ph.i ], [ %110, %116 ], [ %110, %118 ], [ %77, %83 ], [ %77, %85 ], [ %44, %50 ], [ %44, %52 ]
+  %.1.i = phi i32 [ %.0156.i, %.lr.ph.i ], [ %44, %50 ], [ %44, %52 ], [ %77, %83 ], [ %77, %85 ], [ %110, %116 ], [ %110, %118 ]
   %121 = add nuw nsw i32 %.0151155.i, 1
   %exitcond.not = icmp eq i32 %121, %21
   br i1 %exitcond.not, label %getExtendedHeader.exit, label %.lr.ph.i, !llvm.loop !6

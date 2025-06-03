@@ -3825,8 +3825,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT
   br label %231
 
 231:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread.i, %._crit_edge._crit_edge.i
-  %232 = phi ptr [ %.pre.i, %._crit_edge._crit_edge.i ], [ %219, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread.i ]
-  %.1.i = phi ptr [ %.029.lcssa.i, %._crit_edge._crit_edge.i ], [ %230, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread.i ]
+  %232 = phi ptr [ %219, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread.i ], [ %.pre.i, %._crit_edge._crit_edge.i ]
+  %.1.i = phi ptr [ %230, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread.i ], [ %.029.lcssa.i, %._crit_edge._crit_edge.i ]
   %233 = load ptr, ptr %.1.i, align 8, !tbaa !241
   %234 = icmp eq ptr %233, %232
   br i1 %234, label %235, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i
@@ -3850,8 +3850,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT
   br label %245
 
 245:                                              ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i, %._crit_edge._crit_edge58.i
-  %246 = phi ptr [ %.pre59.i, %._crit_edge._crit_edge58.i ], [ %232, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i ]
-  %.2.i = phi ptr [ %.029.lcssa.i, %._crit_edge._crit_edge58.i ], [ %244, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i ]
+  %246 = phi ptr [ %232, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i ], [ %.pre59.i, %._crit_edge._crit_edge58.i ]
+  %.2.i = phi ptr [ %244, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread.i ], [ %.029.lcssa.i, %._crit_edge._crit_edge58.i ]
   %247 = load ptr, ptr %.2.i, align 8, !tbaa !241
   %248 = icmp eq ptr %247, %246
   br i1 %248, label %249, label %_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag.exit.thread
@@ -4563,7 +4563,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i: ; preds = %244, %23
   br label %251
 
 251:                                              ; preds = %.loopexit117.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %250, %.loopexit117.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %250, %.loopexit117.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %252 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !244
   %.not.i.i84.i.i.i.i.i.i = icmp eq ptr %253, null
@@ -4615,7 +4615,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i: ; preds = %268, %25
   br label %275
 
 275:                                              ; preds = %.loopexit.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %274, %.loopexit.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %274, %.loopexit.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %276 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 16
   %277 = load ptr, ptr %276, align 8, !tbaa !244
   %.not.i.i96.i.i.i.i.i.i = icmp eq ptr %277, null
@@ -8917,8 +8917,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT
   br label %82
 
 82:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread
-  %83 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread ]
+  %83 = phi ptr [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit33.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %84 = load ptr, ptr %.1, align 8, !tbaa !241
   %85 = icmp eq ptr %84, %83
   br i1 %85, label %86, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread
@@ -8944,8 +8944,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT
   br label %98
 
 98:                                               ; preds = %._crit_edge._crit_edge58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread
-  %99 = phi ptr [ %.pre59, %._crit_edge._crit_edge58 ], [ %83, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge58 ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread ]
+  %99 = phi ptr [ %83, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.2 = phi ptr [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit34.thread ], [ %.029.lcssa, %._crit_edge._crit_edge58 ]
   %100 = load ptr, ptr %.2, align 8, !tbaa !241
   %101 = icmp eq ptr %100, %99
   br i1 %101, label %102, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang19UniqueVirtualMethodEEclIPS3_EEbT_.exit35.thread

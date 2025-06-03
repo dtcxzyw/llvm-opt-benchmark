@@ -629,12 +629,12 @@ define noundef range(i64 0, -4095) i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr n
   unreachable
 
 _Z14decode_vm_infoibmm.exit:                      ; preds = %35, %28, %2, %30, %37, %40, %43, %46
-  %51 = phi i1 [ false, %30 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ true, %2 ], [ true, %28 ], [ true, %35 ]
-  %.sroa.0.1 = phi i32 [ 2, %30 ], [ 6, %46 ], [ 5, %43 ], [ 4, %40 ], [ 3, %37 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
-  %.sroa.16.0 = phi i32 [ 10, %30 ], [ 9, %46 ], [ 9, %43 ], [ 9, %40 ], [ 9, %37 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
-  %52 = phi i1 [ true, %30 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %2 ], [ false, %28 ], [ false, %35 ]
-  %.sroa.28.0 = phi i64 [ 4, %30 ], [ 8, %46 ], [ 8, %43 ], [ 8, %40 ], [ 8, %37 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
-  %.sroa.37.0 = phi i64 [ %32, %30 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
+  %51 = phi i1 [ false, %30 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ true, %2 ], [ true, %28 ], [ true, %35 ]
+  %.sroa.0.1 = phi i32 [ 2, %30 ], [ 3, %37 ], [ 4, %40 ], [ 5, %43 ], [ 6, %46 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
+  %.sroa.16.0 = phi i32 [ 10, %30 ], [ 9, %37 ], [ 9, %40 ], [ 9, %43 ], [ 9, %46 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
+  %52 = phi i1 [ true, %30 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %2 ], [ false, %28 ], [ false, %35 ]
+  %.sroa.28.0 = phi i64 [ 4, %30 ], [ 8, %37 ], [ 8, %40 ], [ 8, %43 ], [ 8, %46 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
+  %.sroa.37.0 = phi i64 [ %32, %30 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
   %53 = and i8 %11, 8
   %54 = icmp ne i8 %53, 0
   br i1 %54, label %55, label %62
@@ -1719,7 +1719,7 @@ define noundef i64 @_Z14reg_from_bytesmPKh(i64 noundef %0, ptr noundef readonly 
   unreachable
 
 15:                                               ; preds = %12, %9, %6, %3
-  %.0 = phi i64 [ %13, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ]
+  %.0 = phi i64 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %13, %12 ]
   ret i64 %.0
 }
 
@@ -2536,7 +2536,7 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %17, %_ZN5mmu_t21is_
   unreachable
 
 _Z14reg_from_bytesmPKh.exit:                      ; preds = %52, %55, %58, %61
-  %.0.i = phi i64 [ %62, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ]
+  %.0.i = phi i64 [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %62, %61 ]
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 2, i64 noundef %9, i1 noundef zeroext %12, i64 %.0.i, i8 1)
   ret void
 }
@@ -2814,7 +2814,7 @@ define void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnu
   unreachable
 
 _Z14reg_from_bytesmPKh.exit:                      ; preds = %20, %23, %26, %29
-  %.0.i = phi i64 [ %30, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %30, %29 ]
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %11, i1 noundef zeroext %15, i64 %.0.i, i8 1)
   br label %32
 
@@ -3004,12 +3004,12 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   tail call void @abort() #26, !noalias !255
   unreachable
 
-28:                                               ; preds = %22, %20, %25, %24
-  %.sink202 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
-  %.sroa.0.0.ph = phi i32 [ 5, %25 ], [ 4, %24 ], [ 2, %20 ], [ 3, %22 ]
-  %.sroa.12.0.ph = phi i32 [ 9, %25 ], [ 9, %24 ], [ 10, %20 ], [ 9, %22 ]
-  %29 = phi i1 [ false, %25 ], [ false, %24 ], [ true, %20 ], [ false, %22 ]
-  %.sroa.24.0.ph = phi i64 [ 8, %25 ], [ 8, %24 ], [ 4, %20 ], [ %23, %22 ]
+28:                                               ; preds = %22, %20, %24, %25
+  %.sink202 = phi i64 [ 72057594037923840, %24 ], [ 72057594037923840, %25 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sroa.0.0.ph = phi i32 [ 4, %24 ], [ 5, %25 ], [ 2, %20 ], [ 3, %22 ]
+  %.sroa.12.0.ph = phi i32 [ 9, %24 ], [ 9, %25 ], [ 10, %20 ], [ 9, %22 ]
+  %29 = phi i1 [ false, %24 ], [ false, %25 ], [ true, %20 ], [ false, %22 ]
+  %.sroa.24.0.ph = phi i64 [ 8, %24 ], [ 8, %25 ], [ 4, %20 ], [ %23, %22 ]
   %30 = shl i64 %19, 12
   %31 = and i64 %30, %.sink202
   %32 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.0.ph

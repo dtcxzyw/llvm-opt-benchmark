@@ -13629,8 +13629,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i
-  %48 = phi i8 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %45 ]
+  %48 = phi i8 [ %43, %45 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %49 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !12
   %50 = icmp eq i8 %49, %48
   br i1 %50, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %51
@@ -13640,8 +13640,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i
-  %54 = phi i8 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %52, %51 ]
+  %54 = phi i8 [ %48, %51 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %55 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !12
   %56 = icmp eq i8 %55, %54
   %spec.select.i.i.i = select i1 %56, ptr %.sroa.032.2.i.i.i, ptr %12

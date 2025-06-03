@@ -5824,7 +5824,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit404: ; preds = %559
   br label %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit423
 
 570:                                              ; preds = %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit400, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit
-  %.sroa.0447.3 = phi ptr [ %542, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit400 ], [ %527, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit ]
+  %.sroa.0447.3 = phi ptr [ %527, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %542, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit400 ]
   %571 = load ptr, ptr %446, align 8, !tbaa !226
   %572 = load ptr, ptr %447, align 8, !tbaa !226
   %.not533573 = icmp eq ptr %571, %572
@@ -5941,7 +5941,7 @@ _ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i416: ; preds = %583, %.
   call void %604(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0447.3) #25
   br label %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit417
 
-_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit417: ; preds = %.critedge279, %.critedge282, %.critedge285, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i416
+_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit417: ; preds = %.critedge282, %.critedge279, %.critedge285, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i416
   %605 = load ptr, ptr %32, align 8, !tbaa !66
   %606 = icmp eq ptr %605, %441
   br i1 %606, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i419, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i418
@@ -5975,8 +5975,8 @@ _ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i422: ; preds = %.loopex
   call void %613(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0447.3) #25
   br label %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit423
 
-_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit423: ; preds = %.loopexit540, %.loopexit.split-lp541, %.loopexit535, %.loopexit.split-lp536, %539, %609, %554, %569, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i422, %504, %522
-  %.pn209 = phi { ptr, i32 } [ %.pn207, %522 ], [ %505, %504 ], [ %.pn205, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i422 ], [ %.pn196, %539 ], [ %.pn193, %554 ], [ %610, %609 ], [ %.pn203, %569 ], [ %lpad.loopexit537, %.loopexit535 ], [ %lpad.loopexit.split-lp538, %.loopexit.split-lp536 ], [ %lpad.loopexit542, %.loopexit540 ], [ %lpad.loopexit.split-lp543, %.loopexit.split-lp541 ]
+_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit423: ; preds = %.loopexit540, %.loopexit.split-lp541, %.loopexit535, %.loopexit.split-lp536, %554, %609, %539, %569, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i422, %504, %522
+  %.pn209 = phi { ptr, i32 } [ %.pn207, %522 ], [ %505, %504 ], [ %.pn205, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i422 ], [ %.pn193, %554 ], [ %.pn196, %539 ], [ %610, %609 ], [ %.pn203, %569 ], [ %lpad.loopexit537, %.loopexit535 ], [ %lpad.loopexit.split-lp538, %.loopexit.split-lp536 ], [ %lpad.loopexit542, %.loopexit540 ], [ %lpad.loopexit.split-lp543, %.loopexit.split-lp541 ]
   %614 = load ptr, ptr %32, align 8, !tbaa !66
   %615 = icmp eq ptr %614, %441
   br i1 %615, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i425, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424

@@ -461,8 +461,8 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335: ; preds = %286,
   br label %304
 
 304:                                              ; preds = %._crit_edge._crit_edge, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335
-  %305 = phi ptr [ %.pre437, %._crit_edge._crit_edge ], [ %292, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335 ]
-  %.2 = phi i32 [ %280, %._crit_edge._crit_edge ], [ %303, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335 ]
+  %305 = phi ptr [ %292, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335 ], [ %.pre437, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %303, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit335 ], [ %280, %._crit_edge._crit_edge ]
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %307 = load ptr, ptr %306, align 8, !tbaa !33
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
@@ -533,7 +533,7 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337: ; preds = %304,
   br label %358
 
 358:                                              ; preds = %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit321, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit327, %._crit_edge.thread, %_ZNK3smt5enode12get_num_argsEv.exit
-  %.0316 = phi i32 [ %15, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %357, %._crit_edge.thread ], [ %204, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit327 ], [ %90, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit321 ]
+  %.0316 = phi i32 [ %15, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %357, %._crit_edge.thread ], [ %90, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit321 ], [ %204, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit327 ]
   ret i32 %.0316
 }
 

@@ -736,7 +736,7 @@ define internal i32 @dissect_llap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %46
 
 46:                                               ; preds = %43, %39, %32
-  %.0 = phi i32 [ %45, %43 ], [ %42, %39 ], [ %35, %32 ]
+  %.0 = phi i32 [ %45, %43 ], [ %35, %32 ], [ %42, %39 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
   ret i32 %.0
 }
@@ -1697,7 +1697,7 @@ is_ddp_address.exit162:                           ; preds = %14
   br label %is_ddp_address.exit.thread
 
 is_ddp_address.exit.thread:                       ; preds = %14, %6, %86, %79, %71, %66, %61, %56, %51, %123, %112, %106, %99, %92, %21, %is_ddp_address.exit, %is_ddp_address.exit162, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %is_ddp_address.exit162 ], [ 0, %is_ddp_address.exit ], [ 0, %21 ], [ 4, %86 ], [ 6, %79 ], [ 4, %71 ], [ 4, %66 ], [ 4, %61 ], [ 4, %56 ], [ 4, %51 ], [ 4, %123 ], [ 4, %112 ], [ 4, %106 ], [ 4, %99 ], [ 4, %92 ], [ 0, %6 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %is_ddp_address.exit162 ], [ 0, %is_ddp_address.exit ], [ 0, %21 ], [ 4, %86 ], [ 4, %51 ], [ 4, %56 ], [ 4, %61 ], [ 4, %66 ], [ 4, %71 ], [ 6, %79 ], [ 4, %123 ], [ 4, %112 ], [ 4, %106 ], [ 4, %99 ], [ 4, %92 ], [ 0, %6 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1807,7 +1807,7 @@ define internal range(i32 2, 265) i32 @dissect_pap(ptr noundef %0, ptr noundef %
   br label %73
 
 73:                                               ; preds = %13, %63, %60, %57, %50, %47, %33, %24
-  %.0 = phi i32 [ 2, %13 ], [ %72, %63 ], [ 4, %60 ], [ 4, %57 ], [ 4, %50 ], [ 4, %47 ], [ %46, %33 ], [ 8, %24 ]
+  %.0 = phi i32 [ 2, %13 ], [ 8, %24 ], [ %46, %33 ], [ 4, %47 ], [ 4, %50 ], [ 4, %57 ], [ 4, %60 ], [ %72, %63 ]
   ret i32 %.0
 }
 

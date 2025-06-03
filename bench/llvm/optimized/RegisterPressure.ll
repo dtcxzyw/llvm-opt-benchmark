@@ -1705,7 +1705,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i: ; preds
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %122, %121 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %122, %121 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !236
   %124 = icmp eq i32 %.1.val.i.i.i.i.i.i, %.sroa.0.0.copyload.i
   br i1 %124, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i.i", label %125
@@ -1715,7 +1715,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i: ; preds
   br label %127
 
 127:                                              ; preds = %125, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %126, %125 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %126, %125 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !236
   %128 = icmp eq i32 %.2.val.i.i.i.i.i.i, %.sroa.0.0.copyload.i
   br i1 %128, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i.i", label %129
@@ -2310,7 +2310,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i17: ; pre
   br label %421
 
 421:                                              ; preds = %419, %._crit_edge.i.i.i.i.i.i40
-  %.1.i.i.i.i.i.i53 = phi ptr [ %.029.lcssa.i.i.i.i.i.i42, %._crit_edge.i.i.i.i.i.i40 ], [ %420, %419 ]
+  %.1.i.i.i.i.i.i53 = phi ptr [ %420, %419 ], [ %.029.lcssa.i.i.i.i.i.i42, %._crit_edge.i.i.i.i.i.i40 ]
   %.1.val.i.i.i.i.i.i54 = load i32, ptr %.1.i.i.i.i.i.i53, align 8, !tbaa !236
   %422 = icmp eq i32 %.1.val.i.i.i.i.i.i54, %.sroa.0.0.copyload.i23
   br i1 %422, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i.i43", label %423
@@ -2320,7 +2320,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.i17: ; pre
   br label %425
 
 425:                                              ; preds = %423, %._crit_edge.i.i.i.i.i.i40
-  %.2.i.i.i.i.i.i51 = phi ptr [ %.029.lcssa.i.i.i.i.i.i42, %._crit_edge.i.i.i.i.i.i40 ], [ %424, %423 ]
+  %.2.i.i.i.i.i.i51 = phi ptr [ %424, %423 ], [ %.029.lcssa.i.i.i.i.i.i42, %._crit_edge.i.i.i.i.i.i40 ]
   %.2.val.i.i.i.i.i.i52 = load i32, ptr %.2.i.i.i.i.i.i51, align 8, !tbaa !236
   %426 = icmp eq i32 %.2.val.i.i.i.i.i.i52, %.sroa.0.0.copyload.i23
   br i1 %426, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i.i43", label %427
@@ -3645,7 +3645,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker19discoverLiveInOrOutENS_14VR
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 4, !tbaa !483
   %30 = icmp eq i32 %.1.val.i.i.i.i, %1
   br i1 %30, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZNS_18RegPressureTracker19discoverLiveInOrOutES2_S4_E3$_0EEDaOT_T0_.exit", label %31
@@ -3655,7 +3655,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker19discoverLiveInOrOutENS_14VR
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %32, %31 ]
+  %.2.i.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !483
   %34 = icmp eq i32 %.2.val.i.i.i.i, %1
   br i1 %34, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZNS_18RegPressureTracker19discoverLiveInOrOutES2_S4_E3$_0EEDaOT_T0_.exit", label %35
@@ -4377,7 +4377,7 @@ _ZL19increaseSetPressureRSt6vectorIjSaIjEERKN4llvm19MachineRegisterInfoEjNS3_11L
   br label %136
 
 136:                                              ; preds = %134, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %135, %134 ]
+  %.1.i.i.i.i.i = phi ptr [ %135, %134 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8, !tbaa !236
   %137 = icmp eq i32 %.1.val.i.i.i.i.i, %32
   br i1 %137, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL10setRegZeroS4_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %138
@@ -4387,7 +4387,7 @@ _ZL19increaseSetPressureRSt6vectorIjSaIjEERKN4llvm19MachineRegisterInfoEjNS3_11L
   br label %140
 
 140:                                              ; preds = %138, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %139, %138 ]
+  %.2.i.i.i.i.i = phi ptr [ %139, %138 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8, !tbaa !236
   %141 = icmp eq i32 %.2.val.i.i.i.i.i, %32
   br i1 %141, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL10setRegZeroS4_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %142
@@ -4847,7 +4847,7 @@ _ZN4llvm10LiveRegSet6insertENS_14VRegMaskOrUnitE.exit.thread: ; preds = %303, %3
   br label %351
 
 351:                                              ; preds = %349, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %350, %349 ]
+  %.1.i.i.i.i = phi ptr [ %350, %349 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !236
   %352 = icmp eq i32 %.1.val.i.i.i.i, %.sroa.030.0.copyload
   br i1 %352, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZNS_18RegPressureTracker6recedeERKNS_16RegisterOperandsEPS3_E3$_0EEDaOT_T0_.exit", label %353
@@ -4857,7 +4857,7 @@ _ZN4llvm10LiveRegSet6insertENS_14VRegMaskOrUnitE.exit.thread: ; preds = %303, %3
   br label %355
 
 355:                                              ; preds = %353, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %354, %353 ]
+  %.2.i.i.i.i = phi ptr [ %354, %353 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !236
   %356 = icmp eq i32 %.2.val.i.i.i.i, %.sroa.030.0.copyload
   br i1 %356, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZNS_18RegPressureTracker6recedeERKNS_16RegisterOperandsEPS3_E3$_0EEDaOT_T0_.exit", label %357
@@ -4950,7 +4950,7 @@ _ZN4llvm10LiveRegSet6insertENS_14VRegMaskOrUnitE.exit.thread: ; preds = %303, %3
   br label %384
 
 384:                                              ; preds = %382, %._crit_edge.i.i.i.i.i119
-  %.1.i.i.i.i.i127 = phi ptr [ %.029.lcssa.i.i.i.i.i121, %._crit_edge.i.i.i.i.i119 ], [ %383, %382 ]
+  %.1.i.i.i.i.i127 = phi ptr [ %383, %382 ], [ %.029.lcssa.i.i.i.i.i121, %._crit_edge.i.i.i.i.i119 ]
   %.1.val.i.i.i.i.i128 = load i32, ptr %.1.i.i.i.i.i127, align 8, !tbaa !236
   %385 = icmp eq i32 %.1.val.i.i.i.i.i128, %.sroa.030.0.copyload
   br i1 %385, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i", label %386
@@ -4960,7 +4960,7 @@ _ZN4llvm10LiveRegSet6insertENS_14VRegMaskOrUnitE.exit.thread: ; preds = %303, %3
   br label %388
 
 388:                                              ; preds = %386, %._crit_edge.i.i.i.i.i119
-  %.2.i.i.i.i.i125 = phi ptr [ %.029.lcssa.i.i.i.i.i121, %._crit_edge.i.i.i.i.i119 ], [ %387, %386 ]
+  %.2.i.i.i.i.i125 = phi ptr [ %387, %386 ], [ %.029.lcssa.i.i.i.i.i121, %._crit_edge.i.i.i.i.i119 ]
   %.2.val.i.i.i.i.i126 = load i32, ptr %.2.i.i.i.i.i125, align 8, !tbaa !236
   %389 = icmp eq i32 %.2.val.i.i.i.i.i126, %.sroa.030.0.copyload
   br i1 %389, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL14removeRegLanesS4_S2_E3$_0EEDaOT_T0_.exit.i", label %390
@@ -5338,7 +5338,7 @@ define internal fastcc void @_ZL11addRegLanesRN4llvm15SmallVectorImplINS_14VRegM
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %26 ]
+  %.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8, !tbaa !236
   %29 = icmp eq i32 %.1.val.i.i.i.i, %1
   br i1 %29, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL11addRegLanesS4_S2_E3$_0EEDaOT_T0_.exit", label %30
@@ -5348,7 +5348,7 @@ define internal fastcc void @_ZL11addRegLanesRN4llvm15SmallVectorImplINS_14VRegM
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %31, %30 ]
+  %.2.i.i.i.i = phi ptr [ %31, %30 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8, !tbaa !236
   %33 = icmp eq i32 %.2.val.i.i.i.i, %1
   br i1 %33, label %"_ZN4llvm7find_ifIRNS_15SmallVectorImplINS_14VRegMaskOrUnitEEEZL11addRegLanesS4_S2_E3$_0EEDaOT_T0_.exit", label %34
@@ -7867,7 +7867,7 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
   br label %196
 
 196:                                              ; preds = %194, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %195, %194 ]
+  %.1.i.i.i.i.i = phi ptr [ %195, %194 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8, !tbaa !236
   %197 = icmp eq i32 %.1.val.i.i.i.i.i, %.sroa.025.0.copyload
   br i1 %197, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_14VRegMaskOrUnitEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %198
@@ -7877,7 +7877,7 @@ _ZNK4llvm10LiveRegSet8containsENS_8RegisterE.exit: ; preds = %_ZNK4llvm9SparseSe
   br label %200
 
 200:                                              ; preds = %198, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %199, %198 ]
+  %.2.i.i.i.i.i = phi ptr [ %199, %198 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8, !tbaa !236
   %201 = icmp eq i32 %.2.val.i.i.i.i.i, %.sroa.025.0.copyload
   br i1 %201, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_14VRegMaskOrUnitEEEZL11getRegLanesS3_NS_8RegisterEE3$_0EEDaOT_T0_.exit.i", label %202

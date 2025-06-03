@@ -337,8 +337,8 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %58
 
 58:                                               ; preds = %53, %._crit_edge.thread
-  %59 = phi i64 [ 8, %._crit_edge.thread ], [ 7, %53 ]
-  %.2 = phi i32 [ 0, %._crit_edge.thread ], [ %57, %53 ]
+  %59 = phi i64 [ 7, %53 ], [ 8, %._crit_edge.thread ]
+  %.2 = phi i32 [ %57, %53 ], [ 0, %._crit_edge.thread ]
   %60 = getelementptr i8, ptr %51, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -1
   %62 = load i8, ptr %61, align 1, !tbaa !16
@@ -348,8 +348,8 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %66
 
 66:                                               ; preds = %58, %._crit_edge.thread
-  %.3242 = phi ptr [ %52, %._crit_edge.thread ], [ %61, %58 ]
-  %.3 = phi i32 [ 0, %._crit_edge.thread ], [ %65, %58 ]
+  %.3242 = phi ptr [ %61, %58 ], [ %52, %._crit_edge.thread ]
+  %.3 = phi i32 [ %65, %58 ], [ 0, %._crit_edge.thread ]
   %67 = getelementptr inbounds i8, ptr %.3242, i64 -1
   %68 = load i8, ptr %67, align 1, !tbaa !16
   %69 = zext i8 %68 to i32
@@ -357,8 +357,8 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %71
 
 71:                                               ; preds = %66, %._crit_edge.thread
-  %.4243 = phi ptr [ %52, %._crit_edge.thread ], [ %67, %66 ]
-  %.4 = phi i32 [ 0, %._crit_edge.thread ], [ %70, %66 ]
+  %.4243 = phi ptr [ %67, %66 ], [ %52, %._crit_edge.thread ]
+  %.4 = phi i32 [ %70, %66 ], [ 0, %._crit_edge.thread ]
   %72 = getelementptr inbounds i8, ptr %.4243, i64 -1
   %73 = load i8, ptr %72, align 1, !tbaa !16
   %74 = zext i8 %73 to i32
@@ -366,9 +366,9 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %76
 
 76:                                               ; preds = %71, %._crit_edge.thread
-  %.5244 = phi ptr [ %52, %._crit_edge.thread ], [ %72, %71 ]
-  %.1236 = phi i32 [ 0, %._crit_edge.thread ], [ %75, %71 ]
-  %.5 = phi i32 [ 0, %._crit_edge.thread ], [ %.4, %71 ]
+  %.5244 = phi ptr [ %72, %71 ], [ %52, %._crit_edge.thread ]
+  %.1236 = phi i32 [ %75, %71 ], [ 0, %._crit_edge.thread ]
+  %.5 = phi i32 [ %.4, %71 ], [ 0, %._crit_edge.thread ]
   %77 = getelementptr inbounds i8, ptr %.5244, i64 -1
   %78 = load i8, ptr %77, align 1, !tbaa !16
   %79 = zext i8 %78 to i32
@@ -377,9 +377,9 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   br label %82
 
 82:                                               ; preds = %76, %._crit_edge.thread
-  %.6245 = phi ptr [ %52, %._crit_edge.thread ], [ %77, %76 ]
-  %.2237 = phi i32 [ 0, %._crit_edge.thread ], [ %81, %76 ]
-  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ %.5, %76 ]
+  %.6245 = phi ptr [ %77, %76 ], [ %52, %._crit_edge.thread ]
+  %.2237 = phi i32 [ %81, %76 ], [ 0, %._crit_edge.thread ]
+  %.6 = phi i32 [ %.5, %76 ], [ 0, %._crit_edge.thread ]
   %83 = getelementptr inbounds i8, ptr %.6245, i64 -1
   %84 = load i8, ptr %83, align 1, !tbaa !16
   %85 = zext i8 %84 to i32
@@ -391,9 +391,9 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   unreachable
 
 88:                                               ; preds = %82, %._crit_edge.thread
-  %.7246 = phi ptr [ %52, %._crit_edge.thread ], [ %83, %82 ]
-  %.3238 = phi i32 [ 0, %._crit_edge.thread ], [ %87, %82 ]
-  %.7 = phi i32 [ 0, %._crit_edge.thread ], [ %.6, %82 ]
+  %.7246 = phi ptr [ %83, %82 ], [ %52, %._crit_edge.thread ]
+  %.3238 = phi i32 [ %87, %82 ], [ 0, %._crit_edge.thread ]
+  %.7 = phi i32 [ %.6, %82 ], [ 0, %._crit_edge.thread ]
   %89 = getelementptr inbounds i8, ptr %.7246, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !16
   %91 = zext i8 %90 to i32
@@ -599,7 +599,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br label %212
 
 212:                                              ; preds = %208, %._crit_edge277.thread
-  %213 = phi i64 [ 8, %._crit_edge277.thread ], [ 7, %208 ]
+  %213 = phi i64 [ 7, %208 ], [ 8, %._crit_edge277.thread ]
   %214 = getelementptr i8, ptr %206, i64 %213
   %215 = lshr i32 %205, 8
   %216 = trunc i32 %215 to i8
@@ -608,14 +608,14 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br label %218
 
 218:                                              ; preds = %212, %._crit_edge277.thread
-  %.4251 = phi ptr [ %207, %._crit_edge277.thread ], [ %217, %212 ]
+  %.4251 = phi ptr [ %217, %212 ], [ %207, %._crit_edge277.thread ]
   %219 = trunc i32 %205 to i8
   %220 = getelementptr inbounds i8, ptr %.4251, i64 -1
   store i8 %219, ptr %220, align 1, !tbaa !16
   br label %221
 
 221:                                              ; preds = %218, %._crit_edge277.thread
-  %.5252 = phi ptr [ %207, %._crit_edge277.thread ], [ %220, %218 ]
+  %.5252 = phi ptr [ %220, %218 ], [ %207, %._crit_edge277.thread ]
   %222 = lshr i32 %203, 24
   %223 = trunc nuw i32 %222 to i8
   %224 = getelementptr inbounds i8, ptr %.5252, i64 -1
@@ -623,7 +623,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br label %225
 
 225:                                              ; preds = %221, %._crit_edge277.thread
-  %.6253 = phi ptr [ %207, %._crit_edge277.thread ], [ %224, %221 ]
+  %.6253 = phi ptr [ %224, %221 ], [ %207, %._crit_edge277.thread ]
   %226 = lshr i32 %203, 16
   %227 = trunc i32 %226 to i8
   %228 = getelementptr inbounds i8, ptr %.6253, i64 -1
@@ -631,7 +631,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br label %229
 
 229:                                              ; preds = %225, %._crit_edge277.thread
-  %.7254 = phi ptr [ %207, %._crit_edge277.thread ], [ %228, %225 ]
+  %.7254 = phi ptr [ %228, %225 ], [ %207, %._crit_edge277.thread ]
   %230 = lshr i32 %203, 8
   %231 = trunc i32 %230 to i8
   %232 = getelementptr inbounds i8, ptr %.7254, i64 -1
@@ -639,7 +639,7 @@ default.unreachable:                              ; preds = %._crit_edge277.thre
   br label %233
 
 233:                                              ; preds = %._crit_edge277.thread, %229
-  %.8255 = phi ptr [ %207, %._crit_edge277.thread ], [ %232, %229 ]
+  %.8255 = phi ptr [ %232, %229 ], [ %207, %._crit_edge277.thread ]
   %234 = trunc i32 %203 to i8
   %235 = getelementptr inbounds i8, ptr %.8255, i64 -1
   store i8 %234, ptr %235, align 1, !tbaa !16

@@ -2694,7 +2694,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %39
 
 39:                                               ; preds = %34, %._crit_edge.i
-  %.0.i = phi i64 [ 0, %._crit_edge.i ], [ %38, %34 ]
+  %.0.i = phi i64 [ %38, %34 ], [ 0, %._crit_edge.i ]
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 13
   %41 = load i8, ptr %40, align 1, !tbaa !19
   %42 = zext i8 %41 to i64
@@ -2703,7 +2703,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %45
 
 45:                                               ; preds = %39, %._crit_edge.i
-  %.1.i = phi i64 [ 0, %._crit_edge.i ], [ %44, %39 ]
+  %.1.i = phi i64 [ %44, %39 ], [ 0, %._crit_edge.i ]
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %47 = load i8, ptr %46, align 1, !tbaa !19
   %48 = zext i8 %47 to i64
@@ -2712,7 +2712,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %51
 
 51:                                               ; preds = %45, %._crit_edge.i
-  %.2.i = phi i64 [ 0, %._crit_edge.i ], [ %50, %45 ]
+  %.2.i = phi i64 [ %50, %45 ], [ 0, %._crit_edge.i ]
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 11
   %53 = load i8, ptr %52, align 1, !tbaa !19
   %54 = zext i8 %53 to i64
@@ -2721,7 +2721,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %57
 
 57:                                               ; preds = %51, %._crit_edge.i
-  %.3.i = phi i64 [ 0, %._crit_edge.i ], [ %56, %51 ]
+  %.3.i = phi i64 [ %56, %51 ], [ 0, %._crit_edge.i ]
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 10
   %59 = load i8, ptr %58, align 1, !tbaa !19
   %60 = zext i8 %59 to i64
@@ -2730,7 +2730,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %63
 
 63:                                               ; preds = %57, %._crit_edge.i
-  %.4.i = phi i64 [ 0, %._crit_edge.i ], [ %62, %57 ]
+  %.4.i = phi i64 [ %62, %57 ], [ 0, %._crit_edge.i ]
   %64 = getelementptr inbounds nuw i8, ptr %32, i64 9
   %65 = load i8, ptr %64, align 1, !tbaa !19
   %66 = zext i8 %65 to i64
@@ -2739,7 +2739,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %69
 
 69:                                               ; preds = %63, %._crit_edge.i
-  %.5.i = phi i64 [ 0, %._crit_edge.i ], [ %68, %63 ]
+  %.5.i = phi i64 [ %68, %63 ], [ 0, %._crit_edge.i ]
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %71 = load i8, ptr %70, align 1, !tbaa !19
   %72 = zext i8 %71 to i64
@@ -2753,7 +2753,7 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %80
 
 80:                                               ; preds = %69, %._crit_edge.i
-  %.2100.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %79, %69 ]
+  %.2100.i = phi i64 [ %79, %69 ], [ %.098.lcssa.i, %._crit_edge.i ]
   %81 = getelementptr inbounds nuw i8, ptr %32, i64 7
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = zext i8 %82 to i64
@@ -2761,8 +2761,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %85
 
 85:                                               ; preds = %80, %._crit_edge.i
-  %.3101.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.2100.i, %80 ]
-  %.090.i = phi i64 [ 0, %._crit_edge.i ], [ %84, %80 ]
+  %.3101.i = phi i64 [ %.2100.i, %80 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.090.i = phi i64 [ %84, %80 ], [ 0, %._crit_edge.i ]
   %86 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %87 = load i8, ptr %86, align 1, !tbaa !19
   %88 = zext i8 %87 to i64
@@ -2771,8 +2771,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %91
 
 91:                                               ; preds = %85, %._crit_edge.i
-  %.4102.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.3101.i, %85 ]
-  %.191.i = phi i64 [ 0, %._crit_edge.i ], [ %90, %85 ]
+  %.4102.i = phi i64 [ %.3101.i, %85 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.191.i = phi i64 [ %90, %85 ], [ 0, %._crit_edge.i ]
   %92 = getelementptr inbounds nuw i8, ptr %32, i64 5
   %93 = load i8, ptr %92, align 1, !tbaa !19
   %94 = zext i8 %93 to i64
@@ -2781,8 +2781,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %97
 
 97:                                               ; preds = %91, %._crit_edge.i
-  %.5103.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.4102.i, %91 ]
-  %.292.i = phi i64 [ 0, %._crit_edge.i ], [ %96, %91 ]
+  %.5103.i = phi i64 [ %.4102.i, %91 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.292.i = phi i64 [ %96, %91 ], [ 0, %._crit_edge.i ]
   %98 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %99 = load i8, ptr %98, align 1, !tbaa !19
   %100 = zext i8 %99 to i64
@@ -2791,8 +2791,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %103
 
 103:                                              ; preds = %97, %._crit_edge.i
-  %.6104.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.5103.i, %97 ]
-  %.393.i = phi i64 [ 0, %._crit_edge.i ], [ %102, %97 ]
+  %.6104.i = phi i64 [ %.5103.i, %97 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.393.i = phi i64 [ %102, %97 ], [ 0, %._crit_edge.i ]
   %104 = getelementptr inbounds nuw i8, ptr %32, i64 3
   %105 = load i8, ptr %104, align 1, !tbaa !19
   %106 = zext i8 %105 to i64
@@ -2801,8 +2801,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %109
 
 109:                                              ; preds = %103, %._crit_edge.i
-  %.7.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.6104.i, %103 ]
-  %.494.i = phi i64 [ 0, %._crit_edge.i ], [ %108, %103 ]
+  %.7.i = phi i64 [ %.6104.i, %103 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.494.i = phi i64 [ %108, %103 ], [ 0, %._crit_edge.i ]
   %110 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %111 = load i8, ptr %110, align 1, !tbaa !19
   %112 = zext i8 %111 to i64
@@ -2811,8 +2811,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %115
 
 115:                                              ; preds = %109, %._crit_edge.i
-  %.8.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.7.i, %109 ]
-  %.595.i = phi i64 [ 0, %._crit_edge.i ], [ %114, %109 ]
+  %.8.i = phi i64 [ %.7.i, %109 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.595.i = phi i64 [ %114, %109 ], [ 0, %._crit_edge.i ]
   %116 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %117 = load i8, ptr %116, align 1, !tbaa !19
   %118 = zext i8 %117 to i64
@@ -2821,8 +2821,8 @@ define internal fastcc void @hash(ptr noundef readonly captures(none) %0, i64 no
   br label %121
 
 121:                                              ; preds = %115, %._crit_edge.i
-  %.9.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.8.i, %115 ]
-  %.6.i = phi i64 [ 0, %._crit_edge.i ], [ %120, %115 ]
+  %.9.i = phi i64 [ %.8.i, %115 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.6.i = phi i64 [ %120, %115 ], [ 0, %._crit_edge.i ]
   %122 = load i8, ptr %32, align 1, !tbaa !19
   %123 = zext i8 %122 to i64
   %124 = xor i64 %.6.i, %123
@@ -2838,8 +2838,8 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 hash_x64_128.exit:                                ; preds = %._crit_edge.i, %121
-  %.199.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.9.i, %121 ]
-  %.197.i = phi i64 [ %.096.lcssa.i, %._crit_edge.i ], [ %130, %121 ]
+  %.199.i = phi i64 [ %.9.i, %121 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.197.i = phi i64 [ %130, %121 ], [ %.096.lcssa.i, %._crit_edge.i ]
   %sext = shl i64 %1, 32
   %131 = ashr exact i64 %sext, 32
   %132 = xor i64 %.197.i, %131

@@ -2289,7 +2289,7 @@ define internal fastcc i32 @segment_end(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %187, label %145, label %.loopexit, !llvm.loop !166
 
 .loopexit:                                        ; preds = %184, %.loopexit128, %85, %91
-  %.3 = phi i32 [ %.2, %85 ], [ %.1, %91 ], [ %.1, %.loopexit128 ], [ %.1, %184 ]
+  %.3 = phi i32 [ %.1, %91 ], [ %.2, %85 ], [ %.1, %.loopexit128 ], [ %.1, %184 ]
   %188 = call i32 @ff_format_io_close(ptr noundef nonnull %12, ptr noundef nonnull %14) #13
   br label %189
 

@@ -2098,8 +2098,8 @@ have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %1
   unreachable
 
 .thread.i:                                        ; preds = %._crit_edge.i23, %.lr.ph97.i, %275, %271, %268, %265
-  %.071.i = phi ptr [ %274, %271 ], [ %270, %268 ], [ %267, %265 ], [ %278, %275 ], [ %278, %.lr.ph97.i ], [ %.2.lcssa.i, %._crit_edge.i23 ]
-  %.070.i = phi ptr [ %272, %271 ], [ %269, %268 ], [ %266, %265 ], [ null, %275 ], [ null, %.lr.ph97.i ], [ null, %._crit_edge.i23 ]
+  %.071.i = phi ptr [ %267, %265 ], [ %270, %268 ], [ %274, %271 ], [ %278, %275 ], [ %278, %.lr.ph97.i ], [ %.2.lcssa.i, %._crit_edge.i23 ]
+  %.070.i = phi ptr [ %266, %265 ], [ %269, %268 ], [ %272, %271 ], [ null, %275 ], [ null, %.lr.ph97.i ], [ null, %._crit_edge.i23 ]
   %313 = load ptr, ptr %244, align 8
   %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv109.i
   store ptr %.070.i, ptr %314, align 8

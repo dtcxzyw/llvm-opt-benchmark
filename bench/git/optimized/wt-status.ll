@@ -3852,9 +3852,9 @@ _.exit.i.i179.i:                                  ; preds = %843, %839
   br label %855
 
 855:                                              ; preds = %854, %853, %852, %847
-  %.137.i.i.i = phi i32 [ 1, %854 ], [ %.03666.i.i.i, %853 ], [ %.03666.i.i.i, %852 ], [ %.03666.i.i.i, %847 ]
-  %.135.i.i.i = phi i32 [ %.03467.i.i.i, %854 ], [ %.03467.i.i.i, %853 ], [ 1, %852 ], [ %.03467.i.i.i, %847 ]
-  %.1.i.i.i = phi i32 [ %.03368.i.i.i, %854 ], [ 1, %853 ], [ %.03368.i.i.i, %852 ], [ %.03368.i.i.i, %847 ]
+  %.137.i.i.i = phi i32 [ 1, %854 ], [ %.03666.i.i.i, %847 ], [ %.03666.i.i.i, %852 ], [ %.03666.i.i.i, %853 ]
+  %.135.i.i.i = phi i32 [ %.03467.i.i.i, %854 ], [ %.03467.i.i.i, %847 ], [ 1, %852 ], [ %.03467.i.i.i, %853 ]
+  %.1.i.i.i = phi i32 [ %.03368.i.i.i, %854 ], [ %.03368.i.i.i, %847 ], [ %.03368.i.i.i, %852 ], [ 1, %853 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %845
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %847, !llvm.loop !229
@@ -5232,7 +5232,7 @@ wt_shortstatus_print_tracking.exit:               ; preds = %9, %149
   br label %181
 
 181:                                              ; preds = %.lr.ph57, %180, %179, %178, %177, %176, %175, %174
-  %.0.i38 = phi ptr [ @.str.68, %180 ], [ @.str.67, %179 ], [ @.str.66, %178 ], [ @.str.65, %177 ], [ @.str.64, %176 ], [ @.str.63, %175 ], [ @.str.62, %174 ], [ @.str.48, %.lr.ph57 ]
+  %.0.i38 = phi ptr [ @.str.62, %174 ], [ @.str.63, %175 ], [ @.str.64, %176 ], [ @.str.65, %177 ], [ @.str.66, %178 ], [ @.str.67, %179 ], [ @.str.68, %180 ], [ @.str.48, %.lr.ph57 ]
   %182 = load ptr, ptr %159, align 8, !tbaa !23
   %183 = load i32, ptr %160, align 8, !tbaa !31
   %184 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %183) #20

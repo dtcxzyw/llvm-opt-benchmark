@@ -620,10 +620,10 @@ pred_gpm_blk.exit.i:                              ; preds = %.critedge118.i.i, %
   br label %derive_weight_uni.exit.i.i.i
 
 derive_weight_uni.exit.i.i.i:                     ; preds = %.thread2.i.i.i.i, %391, %388, %355
-  %.086.i.i.i = phi i32 [ undef, %391 ], [ %401, %.thread2.i.i.i.i ], [ undef, %388 ], [ undef, %355 ]
-  %.085.i.i.i = phi i32 [ undef, %391 ], [ %408, %.thread2.i.i.i.i ], [ undef, %388 ], [ undef, %355 ]
-  %.0.i.i.i = phi i32 [ undef, %391 ], [ %412, %.thread2.i.i.i.i ], [ undef, %388 ], [ undef, %355 ]
-  %.not75.i.i.i = phi i1 [ true, %391 ], [ false, %.thread2.i.i.i.i ], [ true, %388 ], [ true, %355 ]
+  %.086.i.i.i = phi i32 [ undef, %388 ], [ %401, %.thread2.i.i.i.i ], [ undef, %391 ], [ undef, %355 ]
+  %.085.i.i.i = phi i32 [ undef, %388 ], [ %408, %.thread2.i.i.i.i ], [ undef, %391 ], [ undef, %355 ]
+  %.0.i.i.i = phi i32 [ undef, %388 ], [ %412, %.thread2.i.i.i.i ], [ undef, %391 ], [ undef, %355 ]
+  %.not75.i.i.i = phi i1 [ true, %388 ], [ false, %.thread2.i.i.i.i ], [ true, %391 ], [ true, %355 ]
   %413 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 1992099
   %414 = load i8, ptr %413, align 1, !tbaa !119
   %415 = zext i8 %414 to i32

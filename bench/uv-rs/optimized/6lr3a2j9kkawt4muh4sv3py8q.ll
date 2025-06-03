@@ -576,31 +576,31 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 27:                                               ; preds = %10
   %trunc.i = trunc i8 %3 to i1
   %trunc4.i = trunc i8 %6 to i1
-  br i1 %trunc.i, label %28, label %29
+  br i1 %trunc.i, label %29, label %28
 
 28:                                               ; preds = %27
-  br i1 %trunc4.i, label %30, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
-
-29:                                               ; preds = %27
   br i1 %trunc4.i, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit", label %40
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %32 = load i8, ptr %31, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %34 = load i8, ptr %33, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %35 = icmp eq i8 %32, %34
-  br i1 %35, label %36, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
+29:                                               ; preds = %27
+  br i1 %trunc4.i, label %34, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val14.i = load i8, ptr %37, align 1, !alias.scope !148, !noalias !151, !noundef !3
-  %.val15.i = load i8, ptr %38, align 1, !alias.scope !151, !noalias !148, !noundef !3
-  %39 = icmp eq i8 %.val14.i, %.val15.i
-  br i1 %39, label %40, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
+30:                                               ; preds = %34
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.val14.i = load i8, ptr %31, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %.val15.i = load i8, ptr %32, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %33 = icmp eq i8 %.val14.i, %.val15.i
+  br i1 %33, label %40, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
-40:                                               ; preds = %36, %29
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %36 = load i8, ptr %35, align 1, !alias.scope !148, !noalias !151, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %38 = load i8, ptr %37, align 1, !alias.scope !151, !noalias !148, !noundef !3
+  %39 = icmp eq i8 %36, %38
+  br i1 %39, label %30, label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
+
+40:                                               ; preds = %30, %28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %42 = load i8, ptr %41, align 1, !alias.scope !148, !noalias !151, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -664,8 +664,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %79 = icmp eq i8 %.val.i, %.val7.i
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
-"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit": ; preds = %2, %10, %11, %17, %23, %28, %29, %30, %36, %40, %46, %50, %56, %60, %66, %70, %76
-  %.sroa.0.0.i = phi i1 [ %79, %76 ], [ %69, %66 ], [ %26, %23 ], [ false, %2 ], [ true, %10 ], [ false, %11 ], [ false, %17 ], [ %49, %46 ], [ false, %28 ], [ false, %30 ], [ false, %29 ], [ false, %40 ], [ false, %50 ], [ false, %56 ], [ false, %60 ], [ false, %70 ], [ false, %36 ]
+"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit": ; preds = %2, %10, %11, %17, %23, %28, %29, %30, %34, %40, %46, %50, %56, %60, %66, %70, %76
+  %.sroa.0.0.i = phi i1 [ %26, %23 ], [ %69, %66 ], [ %79, %76 ], [ false, %2 ], [ true, %10 ], [ false, %11 ], [ false, %17 ], [ %49, %46 ], [ false, %29 ], [ false, %34 ], [ false, %30 ], [ false, %40 ], [ false, %50 ], [ false, %56 ], [ false, %60 ], [ false, %70 ], [ false, %28 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -753,8 +753,8 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
     i8 5, label %71
   ]
 
-11:                                               ; preds = %37, %71, %61, %57, %51, %41, %47, %29, %31, %30, %18, %12, %10, %2, %77, %67, %24
-  %.sroa.0.0 = phi i1 [ %80, %77 ], [ %70, %67 ], [ %27, %24 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %18 ], [ %50, %47 ], [ false, %29 ], [ false, %31 ], [ false, %30 ], [ false, %41 ], [ false, %51 ], [ false, %57 ], [ false, %61 ], [ false, %71 ], [ false, %37 ]
+11:                                               ; preds = %29, %71, %61, %57, %51, %41, %47, %30, %35, %31, %18, %12, %10, %2, %77, %67, %24
+  %.sroa.0.0 = phi i1 [ %27, %24 ], [ %70, %67 ], [ %80, %77 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %18 ], [ %50, %47 ], [ false, %30 ], [ false, %35 ], [ false, %31 ], [ false, %41 ], [ false, %51 ], [ false, %57 ], [ false, %61 ], [ false, %71 ], [ false, %29 ]
   ret i1 %.sroa.0.0
 
 12:                                               ; preds = %10
@@ -784,31 +784,31 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
 28:                                               ; preds = %10
   %trunc = trunc i8 %3 to i1
   %trunc4 = trunc i8 %6 to i1
-  br i1 %trunc, label %29, label %30
+  br i1 %trunc, label %30, label %29
 
 29:                                               ; preds = %28
-  br i1 %trunc4, label %31, label %11
-
-30:                                               ; preds = %28
   br i1 %trunc4, label %11, label %41
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %33 = load i8, ptr %32, align 1, !noundef !3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %35 = load i8, ptr %34, align 1, !noundef !3
-  %36 = icmp eq i8 %33, %35
-  br i1 %36, label %37, label %11
+30:                                               ; preds = %28
+  br i1 %trunc4, label %35, label %11
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val14 = load i8, ptr %38, align 1, !noundef !3
-  %.val15 = load i8, ptr %39, align 1, !noundef !3
-  %40 = icmp eq i8 %.val14, %.val15
-  br i1 %40, label %41, label %11
+31:                                               ; preds = %35
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.val14 = load i8, ptr %32, align 1, !noundef !3
+  %.val15 = load i8, ptr %33, align 1, !noundef !3
+  %34 = icmp eq i8 %.val14, %.val15
+  br i1 %34, label %41, label %11
 
-41:                                               ; preds = %37, %30
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %37 = load i8, ptr %36, align 1, !noundef !3
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %39 = load i8, ptr %38, align 1, !noundef !3
+  %40 = icmp eq i8 %37, %39
+  br i1 %40, label %31, label %11
+
+41:                                               ; preds = %29, %31
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 3

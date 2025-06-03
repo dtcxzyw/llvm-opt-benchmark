@@ -1847,7 +1847,7 @@ default.unreachable:                              ; preds = %2
   br label %23
 
 23:                                               ; preds = %12, %20, %16
-  %.0 = phi i32 [ %18, %16 ], [ %22, %20 ], [ 0, %12 ]
+  %.0 = phi i32 [ %22, %20 ], [ %18, %16 ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.0d5d5001281b8245a926393d947a7215.25, ptr %4, align 8, !noalias !267
@@ -3706,7 +3706,7 @@ default.unreachable31:                            ; preds = %26
   br label %31
 
 31:                                               ; preds = %26, %32, %30
-  %.sroa.04.0 = phi i32 [ 2, %32 ], [ 0, %30 ], [ 1, %26 ]
+  %.sroa.04.0 = phi i32 [ 0, %30 ], [ 2, %32 ], [ 1, %26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.45, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.03.sroa.5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -7111,7 +7111,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %12, %8
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %47, %43, %32, %29, %28
-  %.0.i.i = phi i64 [ %..i.i, %47 ], [ %31, %29 ], [ 1, %28 ], [ 1, %43 ], [ 1, %32 ]
+  %.0.i.i = phi i64 [ %31, %29 ], [ %..i.i, %47 ], [ 1, %28 ], [ 1, %43 ], [ 1, %32 ]
   %37 = getelementptr inbounds { i32, [9 x i32] }, ptr %.0.i.i.i, i64 %.0.i.i
   br label %38
 
@@ -7163,7 +7163,7 @@ _ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i: ; preds = %12, %8
   br i1 %61, label %69, label %62
 
 62:                                               ; preds = %73, %69, %58, %55, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i5.i = phi i64 [ %..i9.i, %73 ], [ %57, %55 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %69 ], [ 1, %58 ]
+  %.0.i5.i = phi i64 [ %57, %55 ], [ %..i9.i, %73 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %69 ], [ 1, %58 ]
   %63 = getelementptr inbounds { i32, [9 x i32] }, ptr %52, i64 %.0.i5.i
   br label %64
 

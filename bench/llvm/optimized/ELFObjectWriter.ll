@@ -5741,8 +5741,8 @@ _ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i: ; preds = %1791, %1786
   br label %1810
 
 1810:                                             ; preds = %1808, %1806, %1803, %_ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i, %thread-pre-split.i
-  %.019.shrunk.i.i = phi i32 [ 0, %thread-pre-split.i ], [ 0, %1806 ], [ %1805, %1803 ], [ %1802, %_ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i ], [ %.042.i, %1808 ]
-  %.0.shrunk.i.i = phi i32 [ 0, %thread-pre-split.i ], [ %1807, %1806 ], [ %1804, %1803 ], [ %1787, %_ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i ], [ %1809, %1808 ]
+  %.019.shrunk.i.i = phi i32 [ 0, %thread-pre-split.i ], [ %.042.i, %1808 ], [ %1802, %_ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i ], [ %1805, %1803 ], [ 0, %1806 ]
+  %.0.shrunk.i.i = phi i32 [ 0, %thread-pre-split.i ], [ %1809, %1808 ], [ %1787, %_ZNK4llvm12MCSectionELF18getLinkedToSectionEv.exit.i.i ], [ %1804, %1803 ], [ %1807, %1806 ]
   %1811 = getelementptr inbounds nuw i8, ptr %1763, i64 152
   %1812 = load i32, ptr %1811, align 8, !tbaa !186
   %1813 = and i32 %1812, 128
@@ -7190,7 +7190,7 @@ _ZL7isIFuncPKN4llvm11MCSymbolELFE.exit:           ; preds = %32, %27, %.lr.ph.i,
   br label %_ZL15mergeTypeForSethh.exit
 
 _ZL15mergeTypeForSethh.exit:                      ; preds = %52, %51, %48, %46, %43, %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit
-  %.1 = phi i8 [ %42, %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit ], [ %45, %43 ], [ %spec.store.select26.i, %52 ], [ %spec.store.select.i, %51 ], [ %spec.store.select25.i, %48 ], [ %spec.store.select24.i, %46 ]
+  %.1 = phi i8 [ %42, %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit ], [ %45, %43 ], [ %spec.store.select24.i, %46 ], [ %spec.store.select25.i, %48 ], [ %spec.store.select.i, %51 ], [ %spec.store.select26.i, %52 ]
   %55 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF13getVisibilityEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %56 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF8getOtherEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %57 = load ptr, ptr %3, align 8, !tbaa !501

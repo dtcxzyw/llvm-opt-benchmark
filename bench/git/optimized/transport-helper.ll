@@ -2111,7 +2111,7 @@ define internal fastcc ptr @get_helper(ptr noundef readonly captures(none) %0) u
   br label %remove_ext_force.exit
 
 remove_ext_force.exit:                            ; preds = %24, %.thread.i
-  %.1.i = phi ptr [ %27, %24 ], [ %21, %.thread.i ]
+  %.1.i = phi ptr [ %21, %.thread.i ], [ %27, %24 ]
   %28 = tail call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %.1.i) #19
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %30 = load i16, ptr %29, align 8

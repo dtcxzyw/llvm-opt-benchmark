@@ -16120,7 +16120,7 @@ if.end29:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i60, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i60, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i61 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1) #28
   %call1.i.i62 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #28
   %cmp.i.i63 = icmp eq i64 %call.i.i61, %call1.i.i62
@@ -16143,7 +16143,7 @@ if.end36:                                         ; preds = %sw.bb31, %_ZN9__gnu
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i72, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i72, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2) #28
   %call1.i.i74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #28
   %cmp.i.i75 = icmp eq i64 %call.i.i73, %call1.i.i74
@@ -16300,7 +16300,7 @@ if.end29:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i60, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i60, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i61 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1) #28
   %call1.i.i62 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #28
   %cmp.i.i63 = icmp eq i64 %call.i.i61, %call1.i.i62
@@ -16323,7 +16323,7 @@ if.end36:                                         ; preds = %sw.bb31, %_ZN9__gnu
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i72, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i72, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2) #28
   %call1.i.i74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__pred.coerce) #28
   %cmp.i.i75 = icmp eq i64 %call.i.i73, %call1.i.i74

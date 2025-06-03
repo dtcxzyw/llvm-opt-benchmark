@@ -138,7 +138,7 @@ define internal fastcc range(i32 -1, 1) i32 @install_branch_config_multiple_remo
   br label %should_setup_rebase.exit
 
 should_setup_rebase.exit:                         ; preds = %4, %9, %11, %13
-  %.0.shrunk.i = phi i1 [ false, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %4 ]
+  %.0.shrunk.i = phi i1 [ false, %13 ], [ %10, %9 ], [ %12, %11 ], [ true, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !8
   %.not = icmp eq i64 %15, 0

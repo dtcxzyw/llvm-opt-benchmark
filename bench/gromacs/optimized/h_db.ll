@@ -5316,7 +5316,7 @@ define ptr @_Z11search_h_dbN3gmx8ArrayRefIK21MoleculePatchDatabaseEEPKc(ptr %0, 
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i
-  %.sroa.034.1.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %28, %27 ]
+  %.sroa.034.1.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ11search_h_dbN3gmx8ArrayRefIK21MoleculePatchDatabaseEEPKcE3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_"(ptr readonly %2, ptr %.sroa.034.1.i.i.i)
   br i1 %30, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK21MoleculePatchDatabaseEEZ11search_h_dbNS0_8ArrayRefIS3_EEPKcE3$_0ET_SA_SA_T0_.exit", label %31
 
@@ -5325,7 +5325,7 @@ define ptr @_Z11search_h_dbN3gmx8ArrayRefIK21MoleculePatchDatabaseEEPKc(ptr %0, 
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.034.2.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.034.2.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.034.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ11search_h_dbN3gmx8ArrayRefIK21MoleculePatchDatabaseEEPKcE3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_"(ptr readonly %2, ptr %.sroa.034.2.i.i.i)
   %spec.select.i.i.i = select i1 %34, ptr %.sroa.034.2.i.i.i, ptr %1
   br label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK21MoleculePatchDatabaseEEZ11search_h_dbNS0_8ArrayRefIS3_EEPKcE3$_0ET_SA_SA_T0_.exit"

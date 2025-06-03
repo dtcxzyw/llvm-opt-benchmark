@@ -542,9 +542,9 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit: ; pr
   br label %324
 
 184:                                              ; preds = %182, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133
-  %.sroa.0163.5 = phi ptr [ %.sroa.0163.6, %182 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
-  %.246 = phi ptr [ null, %182 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
-  %.6 = phi i32 [ %.7, %182 ], [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ]
+  %.sroa.0163.5 = phi ptr [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.sroa.0163.6, %182 ]
+  %.246 = phi ptr [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ null, %182 ]
+  %.6 = phi i32 [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.7, %182 ]
   %.not.i134 = icmp eq ptr %.sroa.0163.5, null
   br i1 %.not.i134, label %.thread, label %185
 
@@ -907,8 +907,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   br label %324
 
 310:                                              ; preds = %115, %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %182, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133
-  %.sroa.0163.0 = phi ptr [ null, %.thread ], [ %.sroa.0163.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %.sroa.0163.6, %182 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ null, %115 ]
-  %.3 = phi i32 [ -1, %.thread ], [ %.9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %.7, %182 ], [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ -1, %115 ]
+  %.sroa.0163.0 = phi ptr [ null, %.thread ], [ %.sroa.0163.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %.044, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.sroa.0163.6, %182 ], [ null, %115 ]
+  %.3 = phi i32 [ -1, %.thread ], [ %.9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %.4, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit133 ], [ %.7, %182 ], [ -1, %115 ]
   %311 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %312 = load ptr, ptr %311, align 8, !tbaa !23
   %313 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -948,8 +948,8 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %340
 
 324:                                              ; preds = %144, %157, %183, %199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
-  %.sroa.0163.2 = phi ptr [ %.sroa.0163.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146 ], [ %.sroa.0163.5, %199 ], [ %.sroa.0163.7, %183 ], [ null, %144 ], [ null, %157 ]
-  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn107.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146 ], [ %200, %199 ], [ %.pn, %183 ], [ %145, %144 ], [ %.pn87.pn, %157 ]
+  %.sroa.0163.2 = phi ptr [ %.sroa.0163.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146 ], [ %.sroa.0163.5, %199 ], [ null, %157 ], [ null, %144 ], [ %.sroa.0163.7, %183 ]
+  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn107.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146 ], [ %200, %199 ], [ %.pn87.pn, %157 ], [ %145, %144 ], [ %.pn, %183 ]
   %325 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %326 = load ptr, ptr %325, align 8, !tbaa !23
   %327 = getelementptr inbounds nuw i8, ptr %7, i64 24

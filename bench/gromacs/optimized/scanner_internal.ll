@@ -618,7 +618,7 @@ switch.lookup:                                    ; preds = %108
   br label %124
 
 124:                                              ; preds = %switch.lookup, %101, %60, %65, %63, %16
-  %.051 = phi i32 [ 272, %65 ], [ 269, %63 ], [ 277, %16 ], [ 270, %60 ], [ 276, %101 ], [ %switch.load, %switch.lookup ]
+  %.051 = phi i32 [ 269, %63 ], [ 272, %65 ], [ 277, %16 ], [ 270, %60 ], [ 276, %101 ], [ %switch.load, %switch.lookup ]
   ret i32 %.051
 
 .sink.split87:                                    ; preds = %121, %.sink.split86, %74, %.sink.split
@@ -1818,7 +1818,7 @@ switch.lookup:                                    ; preds = %_ZNSt10shared_ptrIN
   br label %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit170
 
 _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit170: ; preds = %switch.lookup, %85, %124, %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i169, %183, %181, %176, %167, %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit178, %292, %296, %339, %214
-  %.1111 = phi i32 [ %218, %214 ], [ 271, %339 ], [ 260, %296 ], [ 259, %292 ], [ 258, %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit178 ], [ 262, %167 ], [ 262, %176 ], [ 262, %181 ], [ 262, %183 ], [ 262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i169 ], [ 278, %137 ], [ 278, %124 ], [ 279, %85 ], [ %switch.load, %switch.lookup ]
+  %.1111 = phi i32 [ %218, %214 ], [ 271, %339 ], [ 259, %292 ], [ 260, %296 ], [ 258, %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit178 ], [ 262, %167 ], [ 262, %176 ], [ 262, %181 ], [ 262, %183 ], [ 262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i169 ], [ 278, %137 ], [ 278, %124 ], [ 279, %85 ], [ %switch.load, %switch.lookup ]
   ret i32 %.1111
 
 347:                                              ; preds = %333, %305, %259

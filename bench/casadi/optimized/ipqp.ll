@@ -2331,7 +2331,7 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit68:  ; preds = %.loopexit.i63, %_ZN
   br label %_ZN6casadi25casadi_ipqp_return_statusENS_18casadi_ipqp_flag_tE.exit.thread
 
 _ZN6casadi25casadi_ipqp_return_statusENS_18casadi_ipqp_flag_tE.exit.thread: ; preds = %._crit_edge, %313, %314, %315, %316, %317, %318
-  %.0.i71.ph = phi ptr [ @.str.62, %._crit_edge ], [ @.str.64, %313 ], [ @.str.65, %314 ], [ @.str.66, %315 ], [ @.str.67, %316 ], [ @.str.68, %317 ], [ null, %318 ]
+  %.0.i71.ph = phi ptr [ @.str.62, %._crit_edge ], [ @.str.68, %317 ], [ @.str.67, %316 ], [ @.str.66, %315 ], [ @.str.65, %314 ], [ @.str.64, %313 ], [ null, %318 ]
   %319 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %.0.i71.ph, ptr %319, align 8, !tbaa !140
   br label %323

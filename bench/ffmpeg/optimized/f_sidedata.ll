@@ -172,7 +172,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %38
 
 38:                                               ; preds = %37, %.loopexit, %20
-  %.012 = phi i32 [ %35, %.loopexit ], [ %21, %20 ], [ 0, %37 ]
+  %.012 = phi i32 [ %21, %20 ], [ 0, %37 ], [ %35, %.loopexit ]
   ret i32 %.012
 }
 

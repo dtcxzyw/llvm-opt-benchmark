@@ -193,8 +193,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %103
-  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.1, %103 ], [ %_ZL7inverse.1, %56 ], [ %_ZL7inverse.1, %59 ], [ %_ZL7inverse.1, %51 ], [ %_ZL7inverse.1, %49 ], [ %_ZL7inverse.1, %45 ], [ 1, %.backedge ]
-  %.063.be = phi ptr [ %35, %103 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
+  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.1, %45 ], [ %_ZL7inverse.1, %51 ], [ %_ZL7inverse.1, %49 ], [ %_ZL7inverse.1, %56 ], [ %_ZL7inverse.1, %59 ], [ %_ZL7inverse.1, %103 ], [ 1, %.backedge ]
+  %.063.be = phi ptr [ %35, %45 ], [ %35, %51 ], [ %47, %49 ], [ %53, %56 ], [ %35, %59 ], [ %35, %103 ], [ %35, %.backedge ]
   br label %.backedge, !llvm.loop !16
 
 59:                                               ; preds = %52
@@ -207,7 +207,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %62, label %63, label %.outer.backedge
 
 63:                                               ; preds = %67, %60
-  %.3 = phi i32 [ %68, %67 ], [ %61, %60 ]
+  %.3 = phi i32 [ %61, %60 ], [ %68, %67 ]
   %64 = zext nneg i8 %36 to i32
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %64)
   br label %.outer.backedge
@@ -338,9 +338,9 @@ sub_1:                                            ; preds = %sub_0
   br label %120
 
 120:                                              ; preds = %115, %114, %109, %37, %40, %104
-  %_ZL7inverse.2 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.1, %104 ], [ %_ZL7inverse.1, %40 ], [ %_ZL7inverse.1, %37 ]
-  %.268 = phi ptr [ %32, %115 ], [ %32, %109 ], [ %32, %114 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
-  %.4 = phi i32 [ %31, %115 ], [ %31, %109 ], [ %31, %114 ], [ %.1.ph, %104 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ]
+  %_ZL7inverse.2 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.1, %104 ], [ %_ZL7inverse.1, %40 ], [ %_ZL7inverse.1, %37 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ]
+  %.268 = phi ptr [ %32, %115 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ], [ %32, %109 ], [ %32, %114 ]
+  %.4 = phi i32 [ %31, %115 ], [ %.1.ph, %104 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ], [ %31, %109 ], [ %31, %114 ]
   %121 = icmp sgt i32 %.4, 1
   br i1 %121, label %.preheader108, label %122, !llvm.loop !30
 

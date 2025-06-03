@@ -3258,8 +3258,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMa
   br label %_ZNK4llvm2gi10MatchTable13getLabelIndexEj.exit
 
 _ZNK4llvm2gi10MatchTable13getLabelIndexEj.exit:   ; preds = %117, %108, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i
-  %.lcssa.i.i.i.pn.i = phi i64 [ %124, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i ], [ %111, %108 ], [ %120, %117 ]
-  %125 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.606", ptr %104, i64 %.lcssa.i.i.i.pn.i, i32 0, i32 1
+  %.pn.i = phi i64 [ %124, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i ], [ %111, %108 ], [ %120, %117 ]
+  %125 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.606", ptr %104, i64 %.pn.i, i32 0, i32 1
   %126 = load i32, ptr %125, align 4, !tbaa !183
   %127 = zext i32 %126 to i64
   %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i26, i64 noundef %127) #32
@@ -3369,8 +3369,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMa
   br label %_ZNK4llvm2gi10MatchTable13getLabelIndexEj.exit41
 
 _ZNK4llvm2gi10MatchTable13getLabelIndexEj.exit41: ; preds = %178, %169, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i40
-  %.lcssa.i.i.i.pn.i39 = phi i64 [ %185, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i40 ], [ %172, %169 ], [ %181, %178 ]
-  %186 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.606", ptr %165, i64 %.lcssa.i.i.i.pn.i39, i32 0, i32 1
+  %.pn.i39 = phi i64 [ %185, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPKS6_RKT_.exit.thread.i.i40 ], [ %172, %169 ], [ %181, %178 ]
+  %186 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.606", ptr %165, i64 %.pn.i39, i32 0, i32 1
   %187 = load i32, ptr %186, align 4, !tbaa !183
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %188 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -21292,7 +21292,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %11
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %27
-  %.1.i.i = phi i32 [ %spec.select.i.i16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %29, %27 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %29, %27 ], [ %spec.select.i.i16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
   %30 = icmp slt i32 %.1.i.i, 0
   br label %31
 

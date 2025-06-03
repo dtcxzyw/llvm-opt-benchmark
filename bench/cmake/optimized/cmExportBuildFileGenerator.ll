@@ -1784,7 +1784,7 @@ _ZNK26cmExportBuildFileGenerator10GetTargetsERSt6vectorINS_12TargetExportESaIS1_
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i
-  %.sroa.039.1.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %55, %54 ]
+  %.sroa.039.1.i.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %57 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN26cmExportBuildFileGenerator14CollectExportsESt8functionIFvPK17cmGeneratorTargetEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISD_SaISD_EEEEEEbT_"(ptr nonnull %0, ptr %1, ptr %.sroa.039.1.i.i.i.i)
           to label %.noexc12 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1796,7 +1796,7 @@ _ZNK26cmExportBuildFileGenerator10GetTargetsERSt6vectorINS_12TargetExportESaIS1_
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i
-  %.sroa.039.2.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %59, %58 ]
+  %.sroa.039.2.i.i.i.i = phi ptr [ %59, %58 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %61 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN26cmExportBuildFileGenerator14CollectExportsESt8functionIFvPK17cmGeneratorTargetEEE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISD_SaISD_EEEEEEbT_"(ptr nonnull %0, ptr %1, ptr %.sroa.039.2.i.i.i.i)
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3706,8 +3706,8 @@ _ZNK26cmExportBuildFileGenerator10GetTargetsERSt6vectorINS_12TargetExportESaIS1_
   br label %210
 
 210:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit37.thread62.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i
-  %211 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %203, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit37.thread62.i.i.i.i.i" ]
-  %.sroa.049.1.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %209, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit37.thread62.i.i.i.i.i" ]
+  %211 = phi i64 [ %203, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit37.thread62.i.i.i.i.i" ], [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.049.1.i.i.i.i.i = phi ptr [ %209, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit37.thread62.i.i.i.i.i" ], [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %.val1.i38.i.i.i.i.i = load ptr, ptr %.sroa.049.1.i.i.i.i.i, align 8
   %212 = getelementptr i8, ptr %.sroa.049.1.i.i.i.i.i, i64 8
   %.val2.i39.i.i.i.i.i = load i64, ptr %212, align 8, !tbaa !12
@@ -3729,8 +3729,8 @@ _ZNK26cmExportBuildFileGenerator10GetTargetsERSt6vectorINS_12TargetExportESaIS1_
   br label %219
 
 219:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit41.thread63.i.i.i.i.i", %._crit_edge._crit_edge95.i.i.i.i.i
-  %220 = phi i64 [ %.pre97.i.i.i.i.i, %._crit_edge._crit_edge95.i.i.i.i.i ], [ %211, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit41.thread63.i.i.i.i.i" ]
-  %.sroa.049.2.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge95.i.i.i.i.i ], [ %218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit41.thread63.i.i.i.i.i" ]
+  %220 = phi i64 [ %211, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit41.thread63.i.i.i.i.i" ], [ %.pre97.i.i.i.i.i, %._crit_edge._crit_edge95.i.i.i.i.i ]
+  %.sroa.049.2.i.i.i.i.i = phi ptr [ %218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK26cmExportBuildFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPNS2_12TargetExportESt6vectorISA_SaISA_EEEEEEbT_.exit41.thread63.i.i.i.i.i" ], [ %.sroa.049.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge95.i.i.i.i.i ]
   %.val1.i42.i.i.i.i.i = load ptr, ptr %.sroa.049.2.i.i.i.i.i, align 8
   %221 = getelementptr i8, ptr %.sroa.049.2.i.i.i.i.i, i64 8
   %.val2.i43.i.i.i.i.i = load i64, ptr %221, align 8, !tbaa !12

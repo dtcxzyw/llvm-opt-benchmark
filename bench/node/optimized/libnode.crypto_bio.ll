@@ -1250,7 +1250,7 @@ sw.default:                                       ; preds = %_ZN4node6crypto7Nod
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.end.i, %sw.bb, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %sw.bb5, %if.then, %sw.default, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb3, %sw.bb1
-  %ret.0 = phi i64 [ 0, %sw.default ], [ %14, %sw.bb18 ], [ 1, %sw.bb15 ], [ %conv14, %sw.bb12 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ 1, %sw.bb3 ], [ %conv, %sw.bb1 ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
+  %ret.0 = phi i64 [ 0, %sw.default ], [ %conv, %sw.bb1 ], [ 1, %sw.bb3 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ %conv14, %sw.bb12 ], [ 1, %sw.bb15 ], [ %14, %sw.bb18 ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
   ret i64 %ret.0
 }
 

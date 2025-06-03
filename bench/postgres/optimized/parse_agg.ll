@@ -870,8 +870,8 @@ define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captu
 37:                                               ; preds = %18
   br label %38
 
-38:                                               ; preds = %18, %18, %33, %32, %31, %30, %29, %28, %27, %26, %25, %35, %36, %24, %37, %23, %22, %21, %34
-  %.0.ph = phi ptr [ @.str.19, %34 ], [ @.str.6, %21 ], [ @.str.7, %22 ], [ @.str.8, %23 ], [ @.str.22, %37 ], [ @.str.9, %24 ], [ @.str.21, %36 ], [ @.str.20, %35 ], [ @.str.10, %25 ], [ @.str.11, %26 ], [ @.str.12, %27 ], [ @.str.13, %28 ], [ @.str.14, %29 ], [ @.str.15, %30 ], [ @.str.16, %31 ], [ @.str.17, %32 ], [ @.str.18, %33 ], [ @.str.5, %18 ], [ @.str.5, %18 ]
+38:                                               ; preds = %18, %18, %34, %21, %22, %23, %37, %24, %36, %35, %25, %26, %27, %28, %29, %30, %31, %32, %33
+  %.0.ph = phi ptr [ @.str.18, %33 ], [ @.str.17, %32 ], [ @.str.16, %31 ], [ @.str.15, %30 ], [ @.str.14, %29 ], [ @.str.13, %28 ], [ @.str.12, %27 ], [ @.str.11, %26 ], [ @.str.10, %25 ], [ @.str.20, %35 ], [ @.str.21, %36 ], [ @.str.9, %24 ], [ @.str.22, %37 ], [ @.str.8, %23 ], [ @.str.7, %22 ], [ @.str.6, %21 ], [ @.str.19, %34 ], [ @.str.5, %18 ], [ @.str.5, %18 ]
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 @errcode(i32 noundef 655492) #11
@@ -1924,7 +1924,7 @@ list_length.exit:                                 ; preds = %10
   br i1 %76, label %.lr.ph98, label %.thread86
 
 .thread86:                                        ; preds = %.lr.ph98, %._crit_edge.split, %.preheader89.us, %62, %.lr.ph, %._crit_edge, %6, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %34, %._crit_edge ], [ %9, %6 ], [ %5, %4 ], [ null, %62 ], [ null, %.lr.ph ], [ %42, %.preheader89.us ], [ %45, %._crit_edge.split ], [ %73, %.lr.ph98 ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %4 ], [ %9, %6 ], [ %34, %._crit_edge ], [ null, %62 ], [ null, %.lr.ph ], [ %42, %.preheader89.us ], [ %45, %._crit_edge.split ], [ %73, %.lr.ph98 ]
   ret ptr %.0
 }
 

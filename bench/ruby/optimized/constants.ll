@@ -3624,7 +3624,7 @@ rb_num2int_inline.exit16:                         ; preds = %28, %30
   br label %33
 
 33:                                               ; preds = %rb_num2int_inline.exit16, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
-  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
+  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
   ret i32 %.0
 }
 
@@ -3708,7 +3708,7 @@ rb_num2int_inline.exit16:                         ; preds = %28, %30
   br label %33
 
 33:                                               ; preds = %rb_num2int_inline.exit16, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
-  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
+  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
   ret i32 %.0
 }
 

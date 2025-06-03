@@ -457,7 +457,7 @@ _ZN9decl_infoD2Ev.exit:                           ; preds = %_ZN11ast_manager12m
   ret ptr %135
 
 147:                                              ; preds = %111, %77, %37
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %112, %111 ], [ %78, %77 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %78, %77 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
   call void @_ZN9decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %8) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18

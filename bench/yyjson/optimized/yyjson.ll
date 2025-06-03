@@ -3112,31 +3112,31 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
   br i1 %12, label %.lr.ph, label %.critedge.i267
 
 .lr.ph:                                           ; preds = %11, %14
-  %.039.i266733 = phi ptr [ %15, %14 ], [ %.ptr, %11 ]
-  %13 = load i8, ptr %.039.i266733, align 1, !tbaa !75
+  %.039.i266736 = phi ptr [ %15, %14 ], [ %.ptr, %11 ]
+  %13 = load i8, ptr %.039.i266736, align 1, !tbaa !75
   switch i8 %13, label %14 [
     i8 47, label %.critedge.i267
     i8 126, label %.critedge.i267
   ]
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.039.i266733, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.039.i266736, i64 1
   %16 = icmp ult ptr %15, %10
   br i1 %16, label %.lr.ph, label %.critedge.i267, !llvm.loop !100
 
 .critedge.i267:                                   ; preds = %14, %.lr.ph, %.lr.ph, %11
-  %.039.i266.lcssa = phi ptr [ %.ptr, %11 ], [ %.039.i266733, %.lr.ph ], [ %.039.i266733, %.lr.ph ], [ %15, %14 ]
+  %.039.i266.lcssa = phi ptr [ %.ptr, %11 ], [ %.039.i266736, %.lr.ph ], [ %.039.i266736, %.lr.ph ], [ %15, %14 ]
   %17 = icmp eq ptr %.039.i266.lcssa, %10
   br i1 %17, label %.critedge53.i276, label %18
 
 18:                                               ; preds = %.critedge.i267
   %19 = load i8, ptr %.039.i266.lcssa, align 1, !tbaa !75
   %.not = icmp eq i8 %19, 126
-  br i1 %.not, label %.preheader629, label %.critedge53.i276, !prof !4
+  br i1 %.not, label %.preheader632, label %.critedge53.i276, !prof !4
 
-.preheader629:                                    ; preds = %18
+.preheader632:                                    ; preds = %18
   %20 = icmp ult ptr %.039.i266.lcssa, %10
-  br i1 %20, label %.lr.ph740.preheader, label %.critedge2.i270
+  br i1 %20, label %.lr.ph743.preheader, label %.critedge2.i270
 
 .critedge53.i276:                                 ; preds = %18, %.critedge.i267
   %21 = ptrtoint ptr %.039.i266.lcssa to i64
@@ -3144,20 +3144,20 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
   %23 = sub i64 %21, %22
   br label %ptr_next_token.exit277
 
-.lr.ph740thread-pre-split:                        ; preds = %34
-  %.pr940 = load i8, ptr %25, align 1, !tbaa !75
-  %.not49.i272 = icmp eq i8 %.pr940, 47
-  br i1 %.not49.i272, label %.critedge2.i270, label %.lr.ph740.preheader
+.lr.ph743thread-pre-split:                        ; preds = %34
+  %.pr943 = load i8, ptr %25, align 1, !tbaa !75
+  %.not49.i272 = icmp eq i8 %.pr943, 47
+  br i1 %.not49.i272, label %.critedge2.i270, label %.lr.ph743.preheader
 
-.lr.ph740.preheader:                              ; preds = %.preheader629, %.lr.ph740thread-pre-split
-  %.140.i2687381134 = phi ptr [ %25, %.lr.ph740thread-pre-split ], [ %.039.i266.lcssa, %.preheader629 ]
-  %.0.i2697391133 = phi i64 [ %.1.i273, %.lr.ph740thread-pre-split ], [ 0, %.preheader629 ]
-  %24 = phi i8 [ %.pr940, %.lr.ph740thread-pre-split ], [ 126, %.preheader629 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.140.i2687381134, i64 1
+.lr.ph743.preheader:                              ; preds = %.preheader632, %.lr.ph743thread-pre-split
+  %.140.i2687411137 = phi ptr [ %25, %.lr.ph743thread-pre-split ], [ %.039.i266.lcssa, %.preheader632 ]
+  %.0.i2697421136 = phi i64 [ %.1.i273, %.lr.ph743thread-pre-split ], [ 0, %.preheader632 ]
+  %24 = phi i8 [ %.pr943, %.lr.ph743thread-pre-split ], [ 126, %.preheader632 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.140.i2687411137, i64 1
   %26 = icmp eq i8 %24, 126
   br i1 %26, label %27, label %34
 
-27:                                               ; preds = %.lr.ph740.preheader
+27:                                               ; preds = %.lr.ph743.preheader
   %28 = icmp eq ptr %25, %10
   br i1 %28, label %40, label %29
 
@@ -3168,17 +3168,17 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
   br i1 %switch.i275, label %32, label %40
 
 32:                                               ; preds = %29
-  %33 = add i64 %.0.i2697391133, 1
+  %33 = add i64 %.0.i2697421136, 1
   br label %34
 
-34:                                               ; preds = %32, %.lr.ph740.preheader
-  %.1.i273 = phi i64 [ %33, %32 ], [ %.0.i2697391133, %.lr.ph740.preheader ]
+34:                                               ; preds = %32, %.lr.ph743.preheader
+  %.1.i273 = phi i64 [ %33, %32 ], [ %.0.i2697421136, %.lr.ph743.preheader ]
   %35 = icmp ult ptr %25, %10
-  br i1 %35, label %.lr.ph740thread-pre-split, label %.critedge2.i270, !llvm.loop !101
+  br i1 %35, label %.lr.ph743thread-pre-split, label %.critedge2.i270, !llvm.loop !101
 
-.critedge2.i270:                                  ; preds = %34, %.lr.ph740thread-pre-split, %.preheader629
-  %.140.i268.lcssa = phi ptr [ %.039.i266.lcssa, %.preheader629 ], [ %25, %.lr.ph740thread-pre-split ], [ %25, %34 ]
-  %.0.i269.lcssa = phi i64 [ 0, %.preheader629 ], [ %.1.i273, %.lr.ph740thread-pre-split ], [ %.1.i273, %34 ]
+.critedge2.i270:                                  ; preds = %34, %.lr.ph743thread-pre-split, %.preheader632
+  %.140.i268.lcssa = phi ptr [ %.039.i266.lcssa, %.preheader632 ], [ %25, %.lr.ph743thread-pre-split ], [ %25, %34 ]
+  %.0.i269.lcssa = phi i64 [ 0, %.preheader632 ], [ %.1.i273, %.lr.ph743thread-pre-split ], [ %.1.i273, %34 ]
   %36 = ptrtoint ptr %.140.i268.lcssa to i64
   %37 = ptrtoint ptr %.ptr to i64
   %38 = add i64 %.0.i269.lcssa, %37
@@ -3193,7 +3193,7 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
   store i32 2, ptr %8, align 8, !tbaa !108
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %42, align 8, !tbaa !111
-  %43 = ptrtoint ptr %.140.i2687381134 to i64
+  %43 = ptrtoint ptr %.140.i2687411137 to i64
   %44 = ptrtoint ptr %1 to i64
   %45 = sub i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3214,20 +3214,20 @@ ptr_next_token.exit277:                           ; preds = %.critedge2.i270, %.
 
 50:                                               ; preds = %ptr_next_token.exit277
   %51 = icmp ult i64 %47, 256
-  br i1 %51, label %ptr_mut_obj_get.exit.thread, label %.lr.ph767, !prof !95
+  br i1 %51, label %ptr_mut_obj_get.exit.thread, label %.lr.ph770, !prof !95
 
-.lr.ph767:                                        ; preds = %50
+.lr.ph770:                                        ; preds = %50
   %52 = lshr i64 %47, 8
   %53 = getelementptr inbounds nuw i8, ptr %.0197, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !75
   %.not22.i = icmp eq i64 %.6, 0
-  %.not23.i755 = icmp eq i64 %.6437, 0
+  %.not23.i758 = icmp eq i64 %.6437, 0
   br label %55
 
-55:                                               ; preds = %.lr.ph767, %ptr_token_eq.exit.thread
-  %.0.i278766 = phi i64 [ %52, %.lr.ph767 ], [ %83, %ptr_token_eq.exit.thread ]
-  %.017.i765 = phi ptr [ %54, %.lr.ph767 ], [ %59, %ptr_token_eq.exit.thread ]
-  %56 = getelementptr inbounds nuw i8, ptr %.017.i765, i64 16
+55:                                               ; preds = %.lr.ph770, %ptr_token_eq.exit.thread
+  %.0.i278769 = phi i64 [ %52, %.lr.ph770 ], [ %83, %ptr_token_eq.exit.thread ]
+  %.017.i768 = phi ptr [ %54, %.lr.ph770 ], [ %59, %ptr_token_eq.exit.thread ]
+  %56 = getelementptr inbounds nuw i8, ptr %.017.i768, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !79
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !79
@@ -3240,42 +3240,42 @@ ptr_next_token.exit277:                           ; preds = %.critedge2.i270, %.
   br i1 %.not22.i, label %ptr_token_eq.exit, label %63, !prof !23
 
 63:                                               ; preds = %62
-  br i1 %.not23.i755, label %ptr_mut_obj_get.exit, label %.lr.ph758.preheader
+  br i1 %.not23.i758, label %ptr_mut_obj_get.exit, label %.lr.ph761.preheader
 
-.lr.ph758.preheader:                              ; preds = %63
+.lr.ph761.preheader:                              ; preds = %63
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !75
-  br label %.lr.ph758
+  br label %.lr.ph761
 
-.lr.ph758:                                        ; preds = %.lr.ph758.preheader, %77
-  %.in = phi i64 [ %66, %77 ], [ %.6437, %.lr.ph758.preheader ]
-  %.0.i335757 = phi ptr [ %79, %77 ], [ %65, %.lr.ph758.preheader ]
-  %.017.i334756 = phi ptr [ %78, %77 ], [ %.ptr, %.lr.ph758.preheader ]
+.lr.ph761:                                        ; preds = %.lr.ph761.preheader, %77
+  %.in = phi i64 [ %66, %77 ], [ %.6437, %.lr.ph761.preheader ]
+  %.0.i335760 = phi ptr [ %79, %77 ], [ %65, %.lr.ph761.preheader ]
+  %.017.i334759 = phi ptr [ %78, %77 ], [ %.ptr, %.lr.ph761.preheader ]
   %66 = add i64 %.in, -1
-  %67 = load i8, ptr %.017.i334756, align 1, !tbaa !75
+  %67 = load i8, ptr %.017.i334759, align 1, !tbaa !75
   %68 = icmp eq i8 %67, 126
-  %69 = load i8, ptr %.0.i335757, align 1, !tbaa !75
+  %69 = load i8, ptr %.0.i335760, align 1, !tbaa !75
   br i1 %68, label %70, label %76
 
-70:                                               ; preds = %.lr.ph758
+70:                                               ; preds = %.lr.ph761
   %71 = sext i8 %69 to i32
-  %72 = getelementptr inbounds nuw i8, ptr %.017.i334756, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.017.i334759, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !75
   %74 = icmp eq i8 %73, 48
   %75 = select i1 %74, i32 126, i32 47
   %.not25.i = icmp eq i32 %75, %71
   br i1 %.not25.i, label %77, label %ptr_token_eq.exit.thread
 
-76:                                               ; preds = %.lr.ph758
+76:                                               ; preds = %.lr.ph761
   %.not24.i = icmp eq i8 %69, %67
   br i1 %.not24.i, label %77, label %ptr_token_eq.exit.thread
 
 77:                                               ; preds = %76, %70
-  %.118.i = phi ptr [ %72, %70 ], [ %.017.i334756, %76 ]
+  %.118.i = phi ptr [ %72, %70 ], [ %.017.i334759, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %.118.i, i64 1
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i335757, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i335760, i64 1
   %.not23.i = icmp eq i64 %66, 0
-  br i1 %.not23.i, label %ptr_mut_obj_get.exit, label %.lr.ph758, !llvm.loop !102
+  br i1 %.not23.i, label %ptr_mut_obj_get.exit, label %.lr.ph761, !llvm.loop !102
 
 ptr_token_eq.exit:                                ; preds = %62
   %80 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -3285,7 +3285,7 @@ ptr_token_eq.exit:                                ; preds = %62
   br i1 %82, label %ptr_mut_obj_get.exit, label %ptr_token_eq.exit.thread
 
 ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_token_eq.exit
-  %83 = add nsw i64 %.0.i278766, -1
+  %83 = add nsw i64 %.0.i278769, -1
   %.not.i = icmp eq i64 %83, 0
   br i1 %.not.i, label %ptr_mut_obj_get.exit.thread, label %55, !llvm.loop !113
 
@@ -3316,7 +3316,7 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
 
 98:                                               ; preds = %94
   %99 = load i8, ptr %.ptr, align 1, !tbaa !75
-  switch i8 %99, label %.lr.ph748 [
+  switch i8 %99, label %.lr.ph751 [
     i8 48, label %100
     i8 45, label %102
   ]
@@ -3329,21 +3329,21 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
   %103 = icmp samesign ugt i64 %.6437, 1
   br i1 %103, label %ptr_token_to_idx.exit.thread, label %ptr_mut_obj_get.exit.thread, !prof !4
 
-.lr.ph748:                                        ; preds = %98, %108
-  %.021.i747 = phi i64 [ %110, %108 ], [ 0, %98 ]
-  %.022.i338746 = phi ptr [ %111, %108 ], [ %.ptr, %98 ]
-  %104 = load i8, ptr %.022.i338746, align 1, !tbaa !75
+.lr.ph751:                                        ; preds = %98, %108
+  %.021.i750 = phi i64 [ %110, %108 ], [ 0, %98 ]
+  %.022.i338749 = phi ptr [ %111, %108 ], [ %.ptr, %98 ]
+  %104 = load i8, ptr %.022.i338749, align 1, !tbaa !75
   %105 = zext i8 %104 to i64
   %106 = add nsw i64 %105, -48
   %107 = icmp ult i64 %106, 10
   br i1 %107, label %108, label %ptr_mut_obj_get.exit.thread, !prof !114
 
-108:                                              ; preds = %.lr.ph748
-  %109 = mul i64 %.021.i747, 10
+108:                                              ; preds = %.lr.ph751
+  %109 = mul i64 %.021.i750, 10
   %110 = add i64 %106, %109
-  %111 = getelementptr inbounds nuw i8, ptr %.022.i338746, i64 1
-  %112 = icmp ult ptr %.022.i338746, %95
-  br i1 %112, label %.lr.ph748, label %.critedge.i339, !llvm.loop !104
+  %111 = getelementptr inbounds nuw i8, ptr %.022.i338749, i64 1
+  %112 = icmp ult ptr %.022.i338749, %95
+  br i1 %112, label %.lr.ph751, label %.critedge.i339, !llvm.loop !104
 
 .critedge.i339:                                   ; preds = %108
   %113 = icmp eq i64 %110, 0
@@ -3358,16 +3358,16 @@ ptr_token_to_idx.exit:                            ; preds = %.critedge.i339
   %116 = or i1 %114, %115
   %117 = zext i1 %116 to i8
   %.not.i280 = icmp ult i64 %110, %87
-  br i1 %.not.i280, label %.lr.ph753, label %ptr_mut_obj_get.exit.thread, !prof !115
+  br i1 %.not.i280, label %.lr.ph756, label %ptr_mut_obj_get.exit.thread, !prof !115
 
-.lr.ph753:                                        ; preds = %ptr_token_to_idx.exit, %.lr.ph753
-  %.023.i752 = phi ptr [ %120, %.lr.ph753 ], [ %86, %ptr_token_to_idx.exit ]
-  %.2446751 = phi i64 [ %118, %.lr.ph753 ], [ %110, %ptr_token_to_idx.exit ]
-  %118 = add i64 %.2446751, -1
-  %119 = getelementptr inbounds nuw i8, ptr %.023.i752, i64 16
+.lr.ph756:                                        ; preds = %ptr_token_to_idx.exit, %.lr.ph756
+  %.023.i755 = phi ptr [ %120, %.lr.ph756 ], [ %86, %ptr_token_to_idx.exit ]
+  %.2446754 = phi i64 [ %118, %.lr.ph756 ], [ %110, %ptr_token_to_idx.exit ]
+  %118 = add i64 %.2446754, -1
+  %119 = getelementptr inbounds nuw i8, ptr %.023.i755, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !79
   %.not28.i = icmp eq i64 %118, 0
-  br i1 %.not28.i, label %ptr_mut_obj_get.exit, label %.lr.ph753, !llvm.loop !116
+  br i1 %.not28.i, label %ptr_mut_obj_get.exit, label %.lr.ph756, !llvm.loop !116
 
 121:                                              ; preds = %ptr_next_token.exit277
   %.not220 = icmp eq ptr %8, null
@@ -3384,17 +3384,17 @@ ptr_token_to_idx.exit:                            ; preds = %.critedge.i339
   store i64 %126, ptr %127, align 8, !tbaa !112
   br label %yyjson_mut_obj_add.exit303
 
-ptr_mut_obj_get.exit.thread:                      ; preds = %50, %ptr_token_to_idx.exit, %.critedge.i339, %100, %94, %.lr.ph748, %ptr_token_eq.exit.thread, %91, %89, %ptr_token_to_idx.exit.thread, %102
-  %.6437918 = phi i64 [ %.6437, %89 ], [ 1, %102 ], [ 1, %91 ], [ %.6437, %ptr_token_to_idx.exit.thread ], [ %.6437, %ptr_token_eq.exit.thread ], [ %.6437, %.lr.ph748 ], [ %.6437, %94 ], [ %.6437, %100 ], [ %.6437, %.critedge.i339 ], [ %.6437, %ptr_token_to_idx.exit ], [ %.6437, %50 ]
-  %128 = phi i8 [ 6, %89 ], [ 6, %102 ], [ 6, %91 ], [ 6, %ptr_token_to_idx.exit.thread ], [ 7, %ptr_token_eq.exit.thread ], [ 6, %.lr.ph748 ], [ 7, %50 ], [ %49, %ptr_token_to_idx.exit ], [ %49, %.critedge.i339 ], [ 6, %100 ], [ 6, %94 ]
-  %.1420.ph = phi i8 [ 0, %89 ], [ 1, %102 ], [ %93, %91 ], [ 0, %ptr_token_to_idx.exit.thread ], [ %.0419, %ptr_token_eq.exit.thread ], [ 0, %.lr.ph748 ], [ %.0419, %50 ], [ %117, %ptr_token_to_idx.exit ], [ 0, %.critedge.i339 ], [ 0, %100 ], [ 0, %94 ]
+ptr_mut_obj_get.exit.thread:                      ; preds = %50, %ptr_token_to_idx.exit, %.critedge.i339, %100, %94, %.lr.ph751, %ptr_token_eq.exit.thread, %91, %89, %ptr_token_to_idx.exit.thread, %102
+  %.6437921 = phi i64 [ %.6437, %89 ], [ 1, %102 ], [ 1, %91 ], [ %.6437, %ptr_token_to_idx.exit.thread ], [ %.6437, %ptr_token_eq.exit.thread ], [ %.6437, %.lr.ph751 ], [ %.6437, %94 ], [ %.6437, %100 ], [ %.6437, %.critedge.i339 ], [ %.6437, %ptr_token_to_idx.exit ], [ %.6437, %50 ]
+  %128 = phi i8 [ 6, %89 ], [ 6, %102 ], [ 6, %91 ], [ 6, %ptr_token_to_idx.exit.thread ], [ 7, %ptr_token_eq.exit.thread ], [ 6, %.lr.ph751 ], [ 7, %50 ], [ %49, %ptr_token_to_idx.exit ], [ %49, %.critedge.i339 ], [ 6, %100 ], [ 6, %94 ]
+  %.1420.ph = phi i8 [ 0, %89 ], [ 1, %102 ], [ %93, %91 ], [ 0, %ptr_token_to_idx.exit.thread ], [ %.0419, %ptr_token_eq.exit.thread ], [ 0, %.lr.ph751 ], [ %.0419, %50 ], [ %117, %ptr_token_to_idx.exit ], [ 0, %.critedge.i339 ], [ 0, %100 ], [ 0, %94 ]
   %129 = icmp eq ptr %.5443, %10
   br i1 %129, label %.loopexit, label %132, !prof !23
 
-ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_token_eq.exit, %63, %77, %100
-  %.0422 = phi ptr [ %86, %100 ], [ %.017.i765, %77 ], [ %.017.i765, %63 ], [ %.017.i765, %ptr_token_eq.exit ], [ %120, %.lr.ph753 ]
-  %.1420 = phi i8 [ 0, %100 ], [ %.0419, %77 ], [ %.0419, %63 ], [ %.0419, %ptr_token_eq.exit ], [ %117, %.lr.ph753 ]
-  %.pn = phi ptr [ %86, %100 ], [ %59, %77 ], [ %59, %63 ], [ %59, %ptr_token_eq.exit ], [ %120, %.lr.ph753 ]
+ptr_mut_obj_get.exit:                             ; preds = %.lr.ph756, %ptr_token_eq.exit, %63, %77, %100
+  %.0422 = phi ptr [ %86, %100 ], [ %.017.i768, %77 ], [ %.017.i768, %63 ], [ %.017.i768, %ptr_token_eq.exit ], [ %120, %.lr.ph756 ]
+  %.1420 = phi i8 [ 0, %100 ], [ %.0419, %77 ], [ %.0419, %63 ], [ %.0419, %ptr_token_eq.exit ], [ %117, %.lr.ph756 ]
+  %.pn = phi ptr [ %86, %100 ], [ %59, %77 ], [ %59, %63 ], [ %59, %ptr_token_eq.exit ], [ %120, %.lr.ph756 ]
   %.1198.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %.1198 = load ptr, ptr %.1198.in, align 8, !tbaa !79
   %.not221 = icmp eq ptr %.1198, null
@@ -3406,11 +3406,11 @@ ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_tok
   br i1 %130, label %.loopexit, label %132, !prof !23
 
 132:                                              ; preds = %ptr_mut_obj_get.exit.thread, %131
-  %.6437917 = phi i64 [ %.6437918, %ptr_mut_obj_get.exit.thread ], [ %.6437, %131 ]
+  %.6437920 = phi i64 [ %.6437921, %ptr_mut_obj_get.exit.thread ], [ %.6437, %131 ]
   %133 = phi i8 [ %128, %ptr_mut_obj_get.exit.thread ], [ %49, %131 ]
-  %.0422473479 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422, %131 ]
-  %.1420474477 = phi i8 [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420, %131 ]
-  %.1198475476 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.1198, %131 ]
+  %.0422475481 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422, %131 ]
+  %.1420476479 = phi i8 [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420, %131 ]
+  %.1198477478 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.1198, %131 ]
   br i1 %5, label %141, label %134
 
 134:                                              ; preds = %132
@@ -3433,7 +3433,7 @@ ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_tok
   br i1 %142, label %143, label %ptr_next_token.exit265
 
 143:                                              ; preds = %141
-  %144 = trunc nuw i8 %.1420474477 to i1
+  %144 = trunc nuw i8 %.1420476479 to i1
   %or.cond = and i1 %6, %144
   br i1 %or.cond, label %152, label %145
 
@@ -3496,34 +3496,34 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   store i64 7, ptr %162, align 8, !tbaa !76
   %168 = getelementptr inbounds nuw i8, ptr %.5443, i64 1
   %169 = icmp ult ptr %168, %10
-  br i1 %169, label %.lr.ph783, label %.critedge.i255
+  br i1 %169, label %.lr.ph786, label %.critedge.i255
 
-.lr.ph783:                                        ; preds = %167, %171
-  %.039.i254782 = phi ptr [ %172, %171 ], [ %168, %167 ]
-  %170 = load i8, ptr %.039.i254782, align 1, !tbaa !75
+.lr.ph786:                                        ; preds = %167, %171
+  %.039.i254785 = phi ptr [ %172, %171 ], [ %168, %167 ]
+  %170 = load i8, ptr %.039.i254785, align 1, !tbaa !75
   switch i8 %170, label %171 [
     i8 47, label %.critedge.i255
     i8 126, label %.critedge.i255
   ]
 
-171:                                              ; preds = %.lr.ph783
-  %172 = getelementptr inbounds nuw i8, ptr %.039.i254782, i64 1
+171:                                              ; preds = %.lr.ph786
+  %172 = getelementptr inbounds nuw i8, ptr %.039.i254785, i64 1
   %173 = icmp ult ptr %172, %10
-  br i1 %173, label %.lr.ph783, label %.critedge.i255, !llvm.loop !100
+  br i1 %173, label %.lr.ph786, label %.critedge.i255, !llvm.loop !100
 
-.critedge.i255:                                   ; preds = %171, %.lr.ph783, %.lr.ph783, %167
-  %.039.i254.lcssa = phi ptr [ %168, %167 ], [ %.039.i254782, %.lr.ph783 ], [ %.039.i254782, %.lr.ph783 ], [ %172, %171 ]
+.critedge.i255:                                   ; preds = %171, %.lr.ph786, %.lr.ph786, %167
+  %.039.i254.lcssa = phi ptr [ %168, %167 ], [ %.039.i254785, %.lr.ph786 ], [ %.039.i254785, %.lr.ph786 ], [ %172, %171 ]
   %174 = icmp eq ptr %.039.i254.lcssa, %10
   br i1 %174, label %.critedge53.i264, label %175
 
 175:                                              ; preds = %.critedge.i255
   %176 = load i8, ptr %.039.i254.lcssa, align 1, !tbaa !75
-  %.not608 = icmp eq i8 %176, 126
-  br i1 %.not608, label %.preheader623, label %.critedge53.i264, !prof !4
+  %.not611 = icmp eq i8 %176, 126
+  br i1 %.not611, label %.preheader626, label %.critedge53.i264, !prof !4
 
-.preheader623:                                    ; preds = %175
+.preheader626:                                    ; preds = %175
   %177 = icmp ult ptr %.039.i254.lcssa, %10
-  br i1 %177, label %.lr.ph791.preheader, label %.critedge2.i258
+  br i1 %177, label %.lr.ph794.preheader, label %.critedge2.i258
 
 .critedge53.i264:                                 ; preds = %175, %.critedge.i255
   %178 = ptrtoint ptr %.039.i254.lcssa to i64
@@ -3531,20 +3531,20 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   %180 = sub i64 %178, %179
   br label %ptr_next_token.exit265
 
-.lr.ph791thread-pre-split:                        ; preds = %191
-  %.pr947 = load i8, ptr %182, align 1, !tbaa !75
-  %.not49.i260 = icmp eq i8 %.pr947, 47
-  br i1 %.not49.i260, label %.critedge2.i258, label %.lr.ph791.preheader
+.lr.ph794thread-pre-split:                        ; preds = %191
+  %.pr950 = load i8, ptr %182, align 1, !tbaa !75
+  %.not49.i260 = icmp eq i8 %.pr950, 47
+  br i1 %.not49.i260, label %.critedge2.i258, label %.lr.ph794.preheader
 
-.lr.ph791.preheader:                              ; preds = %.preheader623, %.lr.ph791thread-pre-split
-  %.140.i2567891136 = phi ptr [ %182, %.lr.ph791thread-pre-split ], [ %.039.i254.lcssa, %.preheader623 ]
-  %.0.i2577901135 = phi i64 [ %.1.i261, %.lr.ph791thread-pre-split ], [ 0, %.preheader623 ]
-  %181 = phi i8 [ %.pr947, %.lr.ph791thread-pre-split ], [ 126, %.preheader623 ]
-  %182 = getelementptr inbounds nuw i8, ptr %.140.i2567891136, i64 1
+.lr.ph794.preheader:                              ; preds = %.preheader626, %.lr.ph794thread-pre-split
+  %.140.i2567921139 = phi ptr [ %182, %.lr.ph794thread-pre-split ], [ %.039.i254.lcssa, %.preheader626 ]
+  %.0.i2577931138 = phi i64 [ %.1.i261, %.lr.ph794thread-pre-split ], [ 0, %.preheader626 ]
+  %181 = phi i8 [ %.pr950, %.lr.ph794thread-pre-split ], [ 126, %.preheader626 ]
+  %182 = getelementptr inbounds nuw i8, ptr %.140.i2567921139, i64 1
   %183 = icmp eq i8 %181, 126
   br i1 %183, label %184, label %191
 
-184:                                              ; preds = %.lr.ph791.preheader
+184:                                              ; preds = %.lr.ph794.preheader
   %185 = icmp eq ptr %182, %10
   br i1 %185, label %197, label %186
 
@@ -3555,17 +3555,17 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   br i1 %switch.i263, label %189, label %197
 
 189:                                              ; preds = %186
-  %190 = add i64 %.0.i2577901135, 1
+  %190 = add i64 %.0.i2577931138, 1
   br label %191
 
-191:                                              ; preds = %189, %.lr.ph791.preheader
-  %.1.i261 = phi i64 [ %190, %189 ], [ %.0.i2577901135, %.lr.ph791.preheader ]
+191:                                              ; preds = %189, %.lr.ph794.preheader
+  %.1.i261 = phi i64 [ %190, %189 ], [ %.0.i2577931138, %.lr.ph794.preheader ]
   %192 = icmp ult ptr %182, %10
-  br i1 %192, label %.lr.ph791thread-pre-split, label %.critedge2.i258, !llvm.loop !101
+  br i1 %192, label %.lr.ph794thread-pre-split, label %.critedge2.i258, !llvm.loop !101
 
-.critedge2.i258:                                  ; preds = %191, %.lr.ph791thread-pre-split, %.preheader623
-  %.140.i256.lcssa = phi ptr [ %.039.i254.lcssa, %.preheader623 ], [ %182, %.lr.ph791thread-pre-split ], [ %182, %191 ]
-  %.0.i257.lcssa = phi i64 [ 0, %.preheader623 ], [ %.1.i261, %.lr.ph791thread-pre-split ], [ %.1.i261, %191 ]
+.critedge2.i258:                                  ; preds = %191, %.lr.ph794thread-pre-split, %.preheader626
+  %.140.i256.lcssa = phi ptr [ %.039.i254.lcssa, %.preheader626 ], [ %182, %.lr.ph794thread-pre-split ], [ %182, %191 ]
+  %.0.i257.lcssa = phi i64 [ 0, %.preheader626 ], [ %.1.i261, %.lr.ph794thread-pre-split ], [ %.1.i261, %191 ]
   %193 = ptrtoint ptr %.140.i256.lcssa to i64
   %194 = ptrtoint ptr %168 to i64
   %195 = add i64 %.0.i257.lcssa, %194
@@ -3589,40 +3589,40 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
 ptr_next_token.exit265:                           ; preds = %.critedge2.i258, %.critedge53.i264, %141
   %203 = phi i64 [ %47, %141 ], [ 7, %.critedge53.i264 ], [ 7, %.critedge2.i258 ]
   %.1439 = phi ptr [ %.5443, %141 ], [ %.039.i254.lcssa, %.critedge53.i264 ], [ %.140.i256.lcssa, %.critedge2.i258 ]
-  %.2433 = phi i64 [ %.6437917, %141 ], [ %180, %.critedge53.i264 ], [ %196, %.critedge2.i258 ]
+  %.2433 = phi i64 [ %.6437920, %141 ], [ %180, %.critedge53.i264 ], [ %196, %.critedge2.i258 ]
   %.2428 = phi i64 [ %.6, %141 ], [ 0, %.critedge53.i264 ], [ %.0.i257.lcssa, %.critedge2.i258 ]
-  %.3200 = phi ptr [ %.1198475476, %141 ], [ null, %.critedge53.i264 ], [ null, %.critedge2.i258 ]
+  %.3200 = phi ptr [ %.1198477478, %141 ], [ null, %.critedge53.i264 ], [ null, %.critedge2.i258 ]
   %.1195 = phi ptr [ %.ptr, %141 ], [ %168, %.critedge53.i264 ], [ %168, %.critedge2.i258 ]
   %.1191 = phi ptr [ %.0197, %141 ], [ %162, %.critedge53.i264 ], [ %162, %.critedge2.i258 ]
   %.1187 = phi ptr [ null, %141 ], [ %.0197, %.critedge53.i264 ], [ %.0197, %.critedge2.i258 ]
   %.1181 = phi ptr [ null, %141 ], [ %162, %.critedge53.i264 ], [ %162, %.critedge2.i258 ]
   %.1 = phi i8 [ %133, %141 ], [ 7, %.critedge53.i264 ], [ 7, %.critedge2.i258 ]
-  %.not228816 = icmp eq ptr %.1439, %10
-  br i1 %.not228816, label %.loopexit, label %.lr.ph825
+  %.not228819 = icmp eq ptr %.1439, %10
+  br i1 %.not228819, label %.loopexit, label %.lr.ph828
 
-.lr.ph825:                                        ; preds = %ptr_next_token.exit265
+.lr.ph828:                                        ; preds = %ptr_next_token.exit265
   %204 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not609 = icmp eq ptr %4, null
+  %.not612 = icmp eq ptr %4, null
   %207 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %209
 
-209:                                              ; preds = %.lr.ph825, %ptr_next_token.exit
-  %.2824 = phi ptr [ %.1181, %.lr.ph825 ], [ %.3, %ptr_next_token.exit ]
-  %.2184823 = phi ptr [ null, %.lr.ph825 ], [ %.3185, %ptr_next_token.exit ]
-  %.2188822 = phi ptr [ %.1187, %.lr.ph825 ], [ %.3189, %ptr_next_token.exit ]
-  %.2192821 = phi ptr [ %.1191, %.lr.ph825 ], [ %276, %ptr_next_token.exit ]
-  %.2196820 = phi ptr [ %.1195, %.lr.ph825 ], [ %304, %ptr_next_token.exit ]
-  %.3429819 = phi i64 [ %.2428, %.lr.ph825 ], [ %.4430, %ptr_next_token.exit ]
-  %.3434818 = phi i64 [ %.2433, %.lr.ph825 ], [ %.4435, %ptr_next_token.exit ]
-  %.2440817 = phi ptr [ %.1439, %.lr.ph825 ], [ %.3441, %ptr_next_token.exit ]
-  %.not.i291 = icmp eq i64 %.3429819, 0
+209:                                              ; preds = %.lr.ph828, %ptr_next_token.exit
+  %.2827 = phi ptr [ %.1181, %.lr.ph828 ], [ %.3, %ptr_next_token.exit ]
+  %.2184826 = phi ptr [ null, %.lr.ph828 ], [ %.3185, %ptr_next_token.exit ]
+  %.2188825 = phi ptr [ %.1187, %.lr.ph828 ], [ %.3189, %ptr_next_token.exit ]
+  %.2192824 = phi ptr [ %.1191, %.lr.ph828 ], [ %276, %ptr_next_token.exit ]
+  %.2196823 = phi ptr [ %.1195, %.lr.ph828 ], [ %304, %ptr_next_token.exit ]
+  %.3429822 = phi i64 [ %.2428, %.lr.ph828 ], [ %.4430, %ptr_next_token.exit ]
+  %.3434821 = phi i64 [ %.2433, %.lr.ph828 ], [ %.4435, %ptr_next_token.exit ]
+  %.2440820 = phi ptr [ %.1439, %.lr.ph828 ], [ %.3441, %ptr_next_token.exit ]
+  %.not.i291 = icmp eq i64 %.3429822, 0
   br i1 %.not.i291, label %210, label %231, !prof !23
 
 210:                                              ; preds = %209
-  br i1 %.not609, label %ptr_new_key.exit.thread, label %211, !prof !4
+  br i1 %.not612, label %ptr_new_key.exit.thread, label %211, !prof !4
 
 211:                                              ; preds = %210
   %212 = load ptr, ptr %208, align 8, !tbaa !60
@@ -3635,11 +3635,11 @@ ptr_next_token.exit265:                           ; preds = %.critedge2.i258, %.
   br i1 %216, label %.unsafe_yyjson_mut_val.exit.i347_crit_edge, label %ptr_new_key.exit.thread, !prof !23
 
 .unsafe_yyjson_mut_val.exit.i347_crit_edge:       ; preds = %215
-  %.pre934 = load ptr, ptr %207, align 8, !tbaa !59
+  %.pre937 = load ptr, ptr %207, align 8, !tbaa !59
   br label %unsafe_yyjson_mut_val.exit.i347
 
 unsafe_yyjson_mut_val.exit.i347:                  ; preds = %.unsafe_yyjson_mut_val.exit.i347_crit_edge, %211
-  %217 = phi ptr [ %.pre934, %.unsafe_yyjson_mut_val.exit.i347_crit_edge ], [ %213, %211 ]
+  %217 = phi ptr [ %.pre937, %.unsafe_yyjson_mut_val.exit.i347_crit_edge ], [ %213, %211 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %218, ptr %207, align 8, !tbaa !59
   %.not.i349.not = icmp eq ptr %217, null
@@ -3651,11 +3651,11 @@ unsafe_yyjson_mut_val.exit.i347:                  ; preds = %.unsafe_yyjson_mut_
   %222 = ptrtoint ptr %220 to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
-  %.not.i21.i352 = icmp ugt i64 %224, %.3434818
+  %.not.i21.i352 = icmp ugt i64 %224, %.3434821
   br i1 %.not.i21.i352, label %unsafe_yyjson_mut_str_alc.exit.i353, label %225, !prof !23
 
 225:                                              ; preds = %219
-  %226 = add i64 %.3434818, 1
+  %226 = add i64 %.3434821, 1
   %227 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %204, ptr noundef nonnull %206, i64 noundef %226)
   br i1 %227, label %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
 
@@ -3665,16 +3665,16 @@ unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split: ; preds = %225
 
 unsafe_yyjson_mut_str_alc.exit.i353:              ; preds = %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split, %219
   %228 = phi ptr [ %.pr, %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split ], [ %221, %219 ]
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.3434818
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.3434821
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 1
   store ptr %230, ptr %204, align 8, !tbaa !48
   %.not.i.i355 = icmp eq ptr %228, null
   br i1 %.not.i.i355, label %ptr_new_key.exit.thread, label %ptr_new_key.exit, !prof !78
 
 231:                                              ; preds = %209
-  %232 = getelementptr inbounds nuw i8, ptr %.2196820, i64 %.3434818
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.3429819
-  %234 = add i64 %.3429819, %.3434818
+  %232 = getelementptr inbounds nuw i8, ptr %.2196823, i64 %.3434821
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.3429822
+  %234 = add i64 %.3429822, %.3434821
   %235 = load ptr, ptr %205, align 8, !tbaa !49
   %236 = load ptr, ptr %204, align 8, !tbaa !48
   %237 = ptrtoint ptr %235 to i64
@@ -3689,51 +3689,51 @@ unsafe_yyjson_mut_str_alc.exit.i353:              ; preds = %unsafe_yyjson_mut_s
   br i1 %242, label %unsafe_yyjson_mut_str_alc.exit331thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
 
 unsafe_yyjson_mut_str_alc.exit331thread-pre-split: ; preds = %240
-  %.pr514 = load ptr, ptr %204, align 8, !tbaa !48
+  %.pr517 = load ptr, ptr %204, align 8, !tbaa !48
   br label %unsafe_yyjson_mut_str_alc.exit331
 
 unsafe_yyjson_mut_str_alc.exit331:                ; preds = %unsafe_yyjson_mut_str_alc.exit331thread-pre-split, %231
-  %243 = phi ptr [ %.pr514, %unsafe_yyjson_mut_str_alc.exit331thread-pre-split ], [ %236, %231 ]
+  %243 = phi ptr [ %.pr517, %unsafe_yyjson_mut_str_alc.exit331thread-pre-split ], [ %236, %231 ]
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 %234
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
   store ptr %245, ptr %204, align 8, !tbaa !48
   %.not29.i = icmp eq ptr %243, null
-  br i1 %.not29.i, label %ptr_new_key.exit.thread, label %.preheader622, !prof !120
+  br i1 %.not29.i, label %ptr_new_key.exit.thread, label %.preheader625, !prof !120
 
-.preheader622:                                    ; preds = %unsafe_yyjson_mut_str_alc.exit331
-  %246 = icmp ult ptr %.2196820, %233
-  br i1 %246, label %.lr.ph799, label %._crit_edge.thread
+.preheader625:                                    ; preds = %unsafe_yyjson_mut_str_alc.exit331
+  %246 = icmp ult ptr %.2196823, %233
+  br i1 %246, label %.lr.ph802, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader622
+._crit_edge.thread:                               ; preds = %.preheader625
   store i8 0, ptr %243, align 1, !tbaa !75
   br label %257
 
-.lr.ph799:                                        ; preds = %.preheader622, %253
-  %.026.i798 = phi ptr [ %255, %253 ], [ %243, %.preheader622 ]
-  %.027.i797 = phi ptr [ %254, %253 ], [ %.2196820, %.preheader622 ]
-  %247 = load i8, ptr %.027.i797, align 1, !tbaa !75
+.lr.ph802:                                        ; preds = %.preheader625, %253
+  %.026.i801 = phi ptr [ %255, %253 ], [ %243, %.preheader625 ]
+  %.027.i800 = phi ptr [ %254, %253 ], [ %.2196823, %.preheader625 ]
+  %247 = load i8, ptr %.027.i800, align 1, !tbaa !75
   %.not30.i = icmp eq i8 %247, 126
   br i1 %.not30.i, label %248, label %253
 
-248:                                              ; preds = %.lr.ph799
-  %249 = getelementptr inbounds nuw i8, ptr %.027.i797, i64 1
+248:                                              ; preds = %.lr.ph802
+  %249 = getelementptr inbounds nuw i8, ptr %.027.i800, i64 1
   %250 = load i8, ptr %249, align 1, !tbaa !75
   %251 = icmp eq i8 %250, 48
   %252 = select i1 %251, i8 126, i8 47
   br label %253
 
-253:                                              ; preds = %248, %.lr.ph799
-  %storemerge.i = phi i8 [ %252, %248 ], [ %247, %.lr.ph799 ]
-  %.128.i = phi ptr [ %249, %248 ], [ %.027.i797, %.lr.ph799 ]
-  store i8 %storemerge.i, ptr %.026.i798, align 1, !tbaa !75
+253:                                              ; preds = %248, %.lr.ph802
+  %storemerge.i = phi i8 [ %252, %248 ], [ %247, %.lr.ph802 ]
+  %.128.i = phi ptr [ %249, %248 ], [ %.027.i800, %.lr.ph802 ]
+  store i8 %storemerge.i, ptr %.026.i801, align 1, !tbaa !75
   %254 = getelementptr inbounds nuw i8, ptr %.128.i, i64 1
-  %255 = getelementptr inbounds nuw i8, ptr %.026.i798, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %.026.i801, i64 1
   %256 = icmp ult ptr %254, %233
-  br i1 %256, label %.lr.ph799, label %._crit_edge, !llvm.loop !121
+  br i1 %256, label %.lr.ph802, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %253
   store i8 0, ptr %255, align 1, !tbaa !75
-  br i1 %.not609, label %ptr_new_key.exit.thread, label %257, !prof !122
+  br i1 %.not612, label %ptr_new_key.exit.thread, label %257, !prof !122
 
 257:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %258 = load ptr, ptr %208, align 8, !tbaa !60
@@ -3746,20 +3746,20 @@ unsafe_yyjson_mut_str_alc.exit331:                ; preds = %unsafe_yyjson_mut_s
   br i1 %262, label %.unsafe_yyjson_mut_val.exit.i367_crit_edge, label %ptr_new_key.exit.thread, !prof !23
 
 .unsafe_yyjson_mut_val.exit.i367_crit_edge:       ; preds = %261
-  %.pre933 = load ptr, ptr %207, align 8, !tbaa !59
+  %.pre936 = load ptr, ptr %207, align 8, !tbaa !59
   br label %unsafe_yyjson_mut_val.exit.i367
 
 unsafe_yyjson_mut_val.exit.i367:                  ; preds = %.unsafe_yyjson_mut_val.exit.i367_crit_edge, %257
-  %263 = phi ptr [ %.pre933, %.unsafe_yyjson_mut_val.exit.i367_crit_edge ], [ %259, %257 ]
+  %263 = phi ptr [ %.pre936, %.unsafe_yyjson_mut_val.exit.i367_crit_edge ], [ %259, %257 ]
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store ptr %264, ptr %207, align 8, !tbaa !59
   %.not.i369.not = icmp eq ptr %263, null
-  br i1 %.not.i369.not, label %ptr_new_key.exit.thread, label %ptr_new_key.exit.thread526, !prof !123
+  br i1 %.not.i369.not, label %ptr_new_key.exit.thread, label %ptr_new_key.exit.thread529, !prof !123
 
 ptr_new_key.exit:                                 ; preds = %unsafe_yyjson_mut_str_alc.exit.i353
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr nonnull align 1 %.2196820, i64 %.3434818, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr nonnull align 1 %.2196823, i64 %.3434821, i1 false)
   store i8 0, ptr %229, align 1, !tbaa !75
-  br label %ptr_new_key.exit.thread526
+  br label %ptr_new_key.exit.thread529
 
 ptr_new_key.exit.thread:                          ; preds = %225, %unsafe_yyjson_mut_str_alc.exit.i353, %261, %unsafe_yyjson_mut_val.exit.i367, %240, %215, %._crit_edge, %210, %unsafe_yyjson_mut_val.exit.i347, %unsafe_yyjson_mut_str_alc.exit331
   %.not242 = icmp eq ptr %8, null
@@ -3773,29 +3773,29 @@ ptr_new_key.exit.thread:                          ; preds = %225, %unsafe_yyjson
   store i64 0, ptr %267, align 8, !tbaa !112
   br label %yyjson_mut_obj_add.exit303
 
-ptr_new_key.exit.thread526:                       ; preds = %unsafe_yyjson_mut_val.exit.i367, %ptr_new_key.exit
-  %.sink1042 = phi ptr [ %217, %ptr_new_key.exit ], [ %263, %unsafe_yyjson_mut_val.exit.i367 ]
-  %.sink1038 = phi ptr [ %228, %ptr_new_key.exit ], [ %243, %unsafe_yyjson_mut_val.exit.i367 ]
-  %268 = shl i64 %.3434818, 8
+ptr_new_key.exit.thread529:                       ; preds = %unsafe_yyjson_mut_val.exit.i367, %ptr_new_key.exit
+  %.sink1045 = phi ptr [ %217, %ptr_new_key.exit ], [ %263, %unsafe_yyjson_mut_val.exit.i367 ]
+  %.sink1041 = phi ptr [ %228, %ptr_new_key.exit ], [ %243, %unsafe_yyjson_mut_val.exit.i367 ]
+  %268 = shl i64 %.3434821, 8
   %269 = or disjoint i64 %268, 5
-  store i64 %269, ptr %.sink1042, align 8, !tbaa !73
-  %270 = getelementptr inbounds nuw i8, ptr %.sink1042, i64 8
-  store ptr %.sink1038, ptr %270, align 8, !tbaa !75
+  store i64 %269, ptr %.sink1045, align 8, !tbaa !73
+  %270 = getelementptr inbounds nuw i8, ptr %.sink1045, i64 8
+  store ptr %.sink1041, ptr %270, align 8, !tbaa !75
   %271 = load ptr, ptr %208, align 8, !tbaa !60
   %272 = load ptr, ptr %207, align 8, !tbaa !59
   %273 = icmp eq ptr %271, %272
   br i1 %273, label %274, label %unsafe_yyjson_mut_val.exit.i285, !prof !4
 
-274:                                              ; preds = %ptr_new_key.exit.thread526
+274:                                              ; preds = %ptr_new_key.exit.thread529
   %275 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
   br i1 %275, label %.unsafe_yyjson_mut_val.exit.i285_crit_edge, label %unsafe_yyjson_mut_val.exit.i285.thread, !prof !23
 
 .unsafe_yyjson_mut_val.exit.i285_crit_edge:       ; preds = %274
-  %.pre935 = load ptr, ptr %207, align 8, !tbaa !59
+  %.pre938 = load ptr, ptr %207, align 8, !tbaa !59
   br label %unsafe_yyjson_mut_val.exit.i285
 
-unsafe_yyjson_mut_val.exit.i285:                  ; preds = %.unsafe_yyjson_mut_val.exit.i285_crit_edge, %ptr_new_key.exit.thread526
-  %276 = phi ptr [ %.pre935, %.unsafe_yyjson_mut_val.exit.i285_crit_edge ], [ %272, %ptr_new_key.exit.thread526 ]
+unsafe_yyjson_mut_val.exit.i285:                  ; preds = %.unsafe_yyjson_mut_val.exit.i285_crit_edge, %ptr_new_key.exit.thread529
+  %276 = phi ptr [ %.pre938, %.unsafe_yyjson_mut_val.exit.i285_crit_edge ], [ %272, %ptr_new_key.exit.thread529 ]
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   store ptr %277, ptr %207, align 8, !tbaa !59
   %.not9.i287.not = icmp eq ptr %276, null
@@ -3815,17 +3815,17 @@ unsafe_yyjson_mut_val.exit.i285.thread:           ; preds = %274, %unsafe_yyjson
 
 281:                                              ; preds = %unsafe_yyjson_mut_val.exit.i285
   store i64 7, ptr %276, align 8, !tbaa !76
-  %.not245 = icmp eq ptr %.2188822, null
+  %.not245 = icmp eq ptr %.2188825, null
   br i1 %.not245, label %yyjson_mut_obj_add.exit, label %yyjson_mut_is_obj.exit318
 
 yyjson_mut_is_obj.exit318:                        ; preds = %281
-  %282 = load i64, ptr %.2192821, align 8, !tbaa !73
+  %282 = load i64, ptr %.2192824, align 8, !tbaa !73
   %283 = and i64 %282, 7
   %284 = icmp eq i64 %283, 7
   br i1 %284, label %285, label %yyjson_mut_obj_add.exit, !prof !23
 
 285:                                              ; preds = %yyjson_mut_is_obj.exit318
-  %286 = load i64, ptr %.sink1042, align 8, !tbaa !73
+  %286 = load i64, ptr %.sink1045, align 8, !tbaa !73
   %287 = and i64 %286, 7
   %288 = icmp eq i64 %287, 5
   br i1 %288, label %289, label %yyjson_mut_obj_add.exit, !prof !115
@@ -3836,63 +3836,63 @@ yyjson_mut_is_obj.exit318:                        ; preds = %281
   br i1 %.not.i305, label %unsafe_yyjson_mut_obj_add.exit306, label %291, !prof !4
 
 291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %.2192821, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %.2192824, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !75
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8, !tbaa !79
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8, !tbaa !79
-  store ptr %.sink1042, ptr %296, align 8, !tbaa !79
+  store ptr %.sink1045, ptr %296, align 8, !tbaa !79
   br label %unsafe_yyjson_mut_obj_add.exit306
 
 unsafe_yyjson_mut_obj_add.exit306:                ; preds = %289, %291
-  %.sink = phi ptr [ %297, %291 ], [ %.sink1042, %289 ]
+  %.sink = phi ptr [ %297, %291 ], [ %.sink1045, %289 ]
   %298 = getelementptr inbounds nuw i8, ptr %276, i64 16
   store ptr %.sink, ptr %298, align 8, !tbaa !79
-  %299 = getelementptr inbounds nuw i8, ptr %.sink1042, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %.sink1045, i64 16
   store ptr %276, ptr %299, align 8, !tbaa !79
-  %300 = getelementptr inbounds nuw i8, ptr %.2192821, i64 8
-  store ptr %.sink1042, ptr %300, align 8, !tbaa !75
+  %300 = getelementptr inbounds nuw i8, ptr %.2192824, i64 8
+  store ptr %.sink1045, ptr %300, align 8, !tbaa !75
   %301 = and i64 %282, 255
   %302 = add i64 %290, 256
   %303 = or disjoint i64 %302, %301
-  store i64 %303, ptr %.2192821, align 8, !tbaa !73
+  store i64 %303, ptr %.2192824, align 8, !tbaa !73
   br label %yyjson_mut_obj_add.exit
 
 yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.exit318, %unsafe_yyjson_mut_obj_add.exit306, %285, %281
-  %.3189 = phi ptr [ %.2192821, %281 ], [ %.2188822, %285 ], [ %.2188822, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2188822, %yyjson_mut_is_obj.exit318 ]
-  %.3185 = phi ptr [ %.sink1042, %281 ], [ %.2184823, %285 ], [ %.2184823, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2184823, %yyjson_mut_is_obj.exit318 ]
-  %.3 = phi ptr [ %276, %281 ], [ %.2824, %285 ], [ %.2824, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2824, %yyjson_mut_is_obj.exit318 ]
-  %304 = getelementptr inbounds nuw i8, ptr %.2440817, i64 1
+  %.3189 = phi ptr [ %.2192824, %281 ], [ %.2188825, %285 ], [ %.2188825, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2188825, %yyjson_mut_is_obj.exit318 ]
+  %.3185 = phi ptr [ %.sink1045, %281 ], [ %.2184826, %285 ], [ %.2184826, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2184826, %yyjson_mut_is_obj.exit318 ]
+  %.3 = phi ptr [ %276, %281 ], [ %.2827, %285 ], [ %.2827, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2827, %yyjson_mut_is_obj.exit318 ]
+  %304 = getelementptr inbounds nuw i8, ptr %.2440820, i64 1
   %305 = icmp ult ptr %304, %10
-  br i1 %305, label %.lr.ph802, label %.critedge.i
+  br i1 %305, label %.lr.ph805, label %.critedge.i
 
-.lr.ph802:                                        ; preds = %yyjson_mut_obj_add.exit, %307
-  %.039.i801 = phi ptr [ %308, %307 ], [ %304, %yyjson_mut_obj_add.exit ]
-  %306 = load i8, ptr %.039.i801, align 1, !tbaa !75
+.lr.ph805:                                        ; preds = %yyjson_mut_obj_add.exit, %307
+  %.039.i804 = phi ptr [ %308, %307 ], [ %304, %yyjson_mut_obj_add.exit ]
+  %306 = load i8, ptr %.039.i804, align 1, !tbaa !75
   switch i8 %306, label %307 [
     i8 47, label %.critedge.i
     i8 126, label %.critedge.i
   ]
 
-307:                                              ; preds = %.lr.ph802
-  %308 = getelementptr inbounds nuw i8, ptr %.039.i801, i64 1
+307:                                              ; preds = %.lr.ph805
+  %308 = getelementptr inbounds nuw i8, ptr %.039.i804, i64 1
   %309 = icmp ult ptr %308, %10
-  br i1 %309, label %.lr.ph802, label %.critedge.i, !llvm.loop !100
+  br i1 %309, label %.lr.ph805, label %.critedge.i, !llvm.loop !100
 
-.critedge.i:                                      ; preds = %307, %.lr.ph802, %.lr.ph802, %yyjson_mut_obj_add.exit
-  %.039.i.lcssa = phi ptr [ %304, %yyjson_mut_obj_add.exit ], [ %.039.i801, %.lr.ph802 ], [ %.039.i801, %.lr.ph802 ], [ %308, %307 ]
+.critedge.i:                                      ; preds = %307, %.lr.ph805, %.lr.ph805, %yyjson_mut_obj_add.exit
+  %.039.i.lcssa = phi ptr [ %304, %yyjson_mut_obj_add.exit ], [ %.039.i804, %.lr.ph805 ], [ %.039.i804, %.lr.ph805 ], [ %308, %307 ]
   %310 = icmp eq ptr %.039.i.lcssa, %10
   br i1 %310, label %.critedge53.i, label %311
 
 311:                                              ; preds = %.critedge.i
   %312 = load i8, ptr %.039.i.lcssa, align 1, !tbaa !75
-  %.not611 = icmp eq i8 %312, 126
-  br i1 %.not611, label %.preheader621, label %.critedge53.i, !prof !4
+  %.not614 = icmp eq i8 %312, 126
+  br i1 %.not614, label %.preheader624, label %.critedge53.i, !prof !4
 
-.preheader621:                                    ; preds = %311
+.preheader624:                                    ; preds = %311
   %313 = icmp ult ptr %.039.i.lcssa, %10
-  br i1 %313, label %.lr.ph810.preheader, label %.critedge2.i
+  br i1 %313, label %.lr.ph813.preheader, label %.critedge2.i
 
 .critedge53.i:                                    ; preds = %311, %.critedge.i
   %314 = ptrtoint ptr %.039.i.lcssa to i64
@@ -3900,20 +3900,20 @@ yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.e
   %316 = sub i64 %314, %315
   br label %ptr_next_token.exit
 
-.lr.ph810thread-pre-split:                        ; preds = %327
-  %.pr949 = load i8, ptr %318, align 1, !tbaa !75
-  %.not49.i = icmp eq i8 %.pr949, 47
-  br i1 %.not49.i, label %.critedge2.i, label %.lr.ph810.preheader
+.lr.ph813thread-pre-split:                        ; preds = %327
+  %.pr952 = load i8, ptr %318, align 1, !tbaa !75
+  %.not49.i = icmp eq i8 %.pr952, 47
+  br i1 %.not49.i, label %.critedge2.i, label %.lr.ph813.preheader
 
-.lr.ph810.preheader:                              ; preds = %.preheader621, %.lr.ph810thread-pre-split
-  %.140.i8081138 = phi ptr [ %318, %.lr.ph810thread-pre-split ], [ %.039.i.lcssa, %.preheader621 ]
-  %.0.i8091137 = phi i64 [ %.1.i, %.lr.ph810thread-pre-split ], [ 0, %.preheader621 ]
-  %317 = phi i8 [ %.pr949, %.lr.ph810thread-pre-split ], [ 126, %.preheader621 ]
-  %318 = getelementptr inbounds nuw i8, ptr %.140.i8081138, i64 1
+.lr.ph813.preheader:                              ; preds = %.preheader624, %.lr.ph813thread-pre-split
+  %.140.i8111141 = phi ptr [ %318, %.lr.ph813thread-pre-split ], [ %.039.i.lcssa, %.preheader624 ]
+  %.0.i8121140 = phi i64 [ %.1.i, %.lr.ph813thread-pre-split ], [ 0, %.preheader624 ]
+  %317 = phi i8 [ %.pr952, %.lr.ph813thread-pre-split ], [ 126, %.preheader624 ]
+  %318 = getelementptr inbounds nuw i8, ptr %.140.i8111141, i64 1
   %319 = icmp eq i8 %317, 126
   br i1 %319, label %320, label %327
 
-320:                                              ; preds = %.lr.ph810.preheader
+320:                                              ; preds = %.lr.ph813.preheader
   %321 = icmp eq ptr %318, %10
   br i1 %321, label %333, label %322
 
@@ -3924,17 +3924,17 @@ yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.e
   br i1 %switch.i, label %325, label %333
 
 325:                                              ; preds = %322
-  %326 = add i64 %.0.i8091137, 1
+  %326 = add i64 %.0.i8121140, 1
   br label %327
 
-327:                                              ; preds = %325, %.lr.ph810.preheader
-  %.1.i = phi i64 [ %326, %325 ], [ %.0.i8091137, %.lr.ph810.preheader ]
+327:                                              ; preds = %325, %.lr.ph813.preheader
+  %.1.i = phi i64 [ %326, %325 ], [ %.0.i8121140, %.lr.ph813.preheader ]
   %328 = icmp ult ptr %318, %10
-  br i1 %328, label %.lr.ph810thread-pre-split, label %.critedge2.i, !llvm.loop !101
+  br i1 %328, label %.lr.ph813thread-pre-split, label %.critedge2.i, !llvm.loop !101
 
-.critedge2.i:                                     ; preds = %327, %.lr.ph810thread-pre-split, %.preheader621
-  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader621 ], [ %318, %.lr.ph810thread-pre-split ], [ %318, %327 ]
-  %.0.i.lcssa = phi i64 [ 0, %.preheader621 ], [ %.1.i, %.lr.ph810thread-pre-split ], [ %.1.i, %327 ]
+.critedge2.i:                                     ; preds = %327, %.lr.ph813thread-pre-split, %.preheader624
+  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader624 ], [ %318, %.lr.ph813thread-pre-split ], [ %318, %327 ]
+  %.0.i.lcssa = phi i64 [ 0, %.preheader624 ], [ %.1.i, %.lr.ph813thread-pre-split ], [ %.1.i, %327 ]
   %329 = ptrtoint ptr %.140.i.lcssa to i64
   %330 = ptrtoint ptr %304 to i64
   %331 = add i64 %.0.i.lcssa, %330
@@ -3956,7 +3956,7 @@ ptr_next_token.exit:                              ; preds = %.critedge53.i, %.cr
   store i32 2, ptr %8, align 8, !tbaa !108
   %335 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %335, align 8, !tbaa !111
-  %336 = ptrtoint ptr %.140.i8081138 to i64
+  %336 = ptrtoint ptr %.140.i8111141 to i64
   %337 = ptrtoint ptr %1 to i64
   %338 = sub i64 %336, %337
   %339 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3964,14 +3964,14 @@ ptr_next_token.exit:                              ; preds = %.critedge53.i, %.cr
   br label %yyjson_mut_obj_add.exit303
 
 .loopexit.loopexit:                               ; preds = %ptr_next_token.exit
-  %.pre936 = load i64, ptr %276, align 8, !tbaa !73
+  %.pre939 = load i64, ptr %276, align 8, !tbaa !73
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %ptr_next_token.exit265, %ptr_mut_obj_get.exit.thread, %131
-  %340 = phi i64 [ %47, %131 ], [ %47, %ptr_mut_obj_get.exit.thread ], [ %203, %ptr_next_token.exit265 ], [ %.pre936, %.loopexit.loopexit ]
-  %.0422473480 = phi ptr [ %.0422, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422473479, %ptr_next_token.exit265 ], [ %.0422473479, %.loopexit.loopexit ]
-  %.1420474478 = phi i8 [ %.1420, %131 ], [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420474477, %ptr_next_token.exit265 ], [ %.1420474477, %.loopexit.loopexit ]
-  %.1432 = phi i64 [ %.6437, %131 ], [ %.6437918, %ptr_mut_obj_get.exit.thread ], [ %.2433, %ptr_next_token.exit265 ], [ %.4435, %.loopexit.loopexit ]
+  %340 = phi i64 [ %47, %131 ], [ %47, %ptr_mut_obj_get.exit.thread ], [ %203, %ptr_next_token.exit265 ], [ %.pre939, %.loopexit.loopexit ]
+  %.0422475482 = phi ptr [ %.0422, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422475481, %ptr_next_token.exit265 ], [ %.0422475481, %.loopexit.loopexit ]
+  %.1420476480 = phi i8 [ %.1420, %131 ], [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420476479, %ptr_next_token.exit265 ], [ %.1420476479, %.loopexit.loopexit ]
+  %.1432 = phi i64 [ %.6437, %131 ], [ %.6437921, %ptr_mut_obj_get.exit.thread ], [ %.2433, %ptr_next_token.exit265 ], [ %.4435, %.loopexit.loopexit ]
   %.1427 = phi i64 [ %.6, %131 ], [ %.6, %ptr_mut_obj_get.exit.thread ], [ %.2428, %ptr_next_token.exit265 ], [ %.4430, %.loopexit.loopexit ]
   %.2199 = phi ptr [ %.1198, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.3200, %ptr_next_token.exit265 ], [ null, %.loopexit.loopexit ]
   %.0194 = phi ptr [ %.ptr, %131 ], [ %.ptr, %ptr_mut_obj_get.exit.thread ], [ %.1195, %ptr_next_token.exit265 ], [ %304, %.loopexit.loopexit ]
@@ -3986,26 +3986,26 @@ ptr_next_token.exit:                              ; preds = %.critedge53.i, %.cr
   br i1 %342, label %343, label %521
 
 343:                                              ; preds = %.loopexit
-  br i1 %.not235, label %344, label %.thread590
+  br i1 %.not235, label %344, label %.thread593
 
 344:                                              ; preds = %343
   %345 = icmp eq ptr %.2199, null
   %or.cond3 = or i1 %6, %345
   br i1 %or.cond3, label %347, label %444
 
-.thread590:                                       ; preds = %343
+.thread593:                                       ; preds = %343
   store ptr %.0190, ptr %7, align 8, !tbaa !117
   %346 = icmp eq ptr %.2199, null
-  %or.cond3591 = or i1 %6, %346
-  br i1 %or.cond3591, label %347, label %449
+  %or.cond3594 = or i1 %6, %346
+  br i1 %or.cond3594, label %347, label %449
 
-347:                                              ; preds = %.thread590, %344
+347:                                              ; preds = %.thread593, %344
   %.not.i293 = icmp eq i64 %.1427, 0
   br i1 %.not.i293, label %348, label %375, !prof !23
 
 348:                                              ; preds = %347
-  %.not615 = icmp eq ptr %4, null
-  br i1 %.not615, label %ptr_new_key.exit301.thread, label %349, !prof !4
+  %.not618 = icmp eq ptr %4, null
+  br i1 %.not618, label %ptr_new_key.exit301.thread, label %349, !prof !4
 
 349:                                              ; preds = %348
   %350 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -4021,11 +4021,11 @@ ptr_next_token.exit:                              ; preds = %.critedge53.i, %.cr
   br i1 %357, label %.unsafe_yyjson_mut_val.exit.i340_crit_edge, label %ptr_new_key.exit301.thread, !prof !23
 
 .unsafe_yyjson_mut_val.exit.i340_crit_edge:       ; preds = %355
-  %.pre939 = load ptr, ptr %350, align 8, !tbaa !59
+  %.pre942 = load ptr, ptr %350, align 8, !tbaa !59
   br label %unsafe_yyjson_mut_val.exit.i340
 
 unsafe_yyjson_mut_val.exit.i340:                  ; preds = %.unsafe_yyjson_mut_val.exit.i340_crit_edge, %349
-  %358 = phi ptr [ %.pre939, %.unsafe_yyjson_mut_val.exit.i340_crit_edge ], [ %353, %349 ]
+  %358 = phi ptr [ %.pre942, %.unsafe_yyjson_mut_val.exit.i340_crit_edge ], [ %353, %349 ]
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
   store ptr %359, ptr %350, align 8, !tbaa !59
   %.not.i342.not = icmp eq ptr %358, null
@@ -4049,11 +4049,11 @@ unsafe_yyjson_mut_val.exit.i340:                  ; preds = %.unsafe_yyjson_mut_
   br i1 %371, label %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, label %ptr_new_key.exit301.thread, !prof !23
 
 unsafe_yyjson_mut_str_alc.exit.ithread-pre-split: ; preds = %368
-  %.pr557 = load ptr, ptr %361, align 8, !tbaa !48
+  %.pr560 = load ptr, ptr %361, align 8, !tbaa !48
   br label %unsafe_yyjson_mut_str_alc.exit.i
 
 unsafe_yyjson_mut_str_alc.exit.i:                 ; preds = %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, %360
-  %372 = phi ptr [ %.pr557, %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split ], [ %364, %360 ]
+  %372 = phi ptr [ %.pr560, %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split ], [ %364, %360 ]
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 %.1432
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 1
   store ptr %374, ptr %361, align 8, !tbaa !48
@@ -4081,11 +4081,11 @@ unsafe_yyjson_mut_str_alc.exit.i:                 ; preds = %unsafe_yyjson_mut_s
   br i1 %389, label %unsafe_yyjson_mut_str_alc.exitthread-pre-split, label %ptr_new_key.exit301.thread, !prof !23
 
 unsafe_yyjson_mut_str_alc.exitthread-pre-split:   ; preds = %386
-  %.pr570 = load ptr, ptr %379, align 8, !tbaa !48
+  %.pr573 = load ptr, ptr %379, align 8, !tbaa !48
   br label %unsafe_yyjson_mut_str_alc.exit
 
 unsafe_yyjson_mut_str_alc.exit:                   ; preds = %unsafe_yyjson_mut_str_alc.exitthread-pre-split, %375
-  %390 = phi ptr [ %.pr570, %unsafe_yyjson_mut_str_alc.exitthread-pre-split ], [ %382, %375 ]
+  %390 = phi ptr [ %.pr573, %unsafe_yyjson_mut_str_alc.exitthread-pre-split ], [ %382, %375 ]
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 %378
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 1
   store ptr %392, ptr %379, align 8, !tbaa !48
@@ -4094,41 +4094,41 @@ unsafe_yyjson_mut_str_alc.exit:                   ; preds = %unsafe_yyjson_mut_s
 
 .preheader:                                       ; preds = %unsafe_yyjson_mut_str_alc.exit
   %393 = icmp ult ptr %.0194, %377
-  br i1 %393, label %.lr.ph844, label %._crit_edge845.thread
+  br i1 %393, label %.lr.ph847, label %._crit_edge848.thread
 
-._crit_edge845.thread:                            ; preds = %.preheader
+._crit_edge848.thread:                            ; preds = %.preheader
   store i8 0, ptr %390, align 1, !tbaa !75
   br label %404
 
-.lr.ph844:                                        ; preds = %.preheader, %400
-  %.026.i296843 = phi ptr [ %402, %400 ], [ %390, %.preheader ]
-  %.027.i295842 = phi ptr [ %401, %400 ], [ %.0194, %.preheader ]
-  %394 = load i8, ptr %.027.i295842, align 1, !tbaa !75
+.lr.ph847:                                        ; preds = %.preheader, %400
+  %.026.i296846 = phi ptr [ %402, %400 ], [ %390, %.preheader ]
+  %.027.i295845 = phi ptr [ %401, %400 ], [ %.0194, %.preheader ]
+  %394 = load i8, ptr %.027.i295845, align 1, !tbaa !75
   %.not30.i298 = icmp eq i8 %394, 126
   br i1 %.not30.i298, label %395, label %400
 
-395:                                              ; preds = %.lr.ph844
-  %396 = getelementptr inbounds nuw i8, ptr %.027.i295842, i64 1
+395:                                              ; preds = %.lr.ph847
+  %396 = getelementptr inbounds nuw i8, ptr %.027.i295845, i64 1
   %397 = load i8, ptr %396, align 1, !tbaa !75
   %398 = icmp eq i8 %397, 48
   %399 = select i1 %398, i8 126, i8 47
   br label %400
 
-400:                                              ; preds = %395, %.lr.ph844
-  %storemerge.i299 = phi i8 [ %399, %395 ], [ %394, %.lr.ph844 ]
-  %.128.i300 = phi ptr [ %396, %395 ], [ %.027.i295842, %.lr.ph844 ]
-  store i8 %storemerge.i299, ptr %.026.i296843, align 1, !tbaa !75
+400:                                              ; preds = %395, %.lr.ph847
+  %storemerge.i299 = phi i8 [ %399, %395 ], [ %394, %.lr.ph847 ]
+  %.128.i300 = phi ptr [ %396, %395 ], [ %.027.i295845, %.lr.ph847 ]
+  store i8 %storemerge.i299, ptr %.026.i296846, align 1, !tbaa !75
   %401 = getelementptr inbounds nuw i8, ptr %.128.i300, i64 1
-  %402 = getelementptr inbounds nuw i8, ptr %.026.i296843, i64 1
+  %402 = getelementptr inbounds nuw i8, ptr %.026.i296846, i64 1
   %403 = icmp ult ptr %401, %377
-  br i1 %403, label %.lr.ph844, label %._crit_edge845, !llvm.loop !121
+  br i1 %403, label %.lr.ph847, label %._crit_edge848, !llvm.loop !121
 
-._crit_edge845:                                   ; preds = %400
+._crit_edge848:                                   ; preds = %400
   store i8 0, ptr %402, align 1, !tbaa !75
-  %.not614 = icmp eq ptr %4, null
-  br i1 %.not614, label %ptr_new_key.exit301.thread, label %404, !prof !125
+  %.not617 = icmp eq ptr %4, null
+  br i1 %.not617, label %ptr_new_key.exit301.thread, label %404, !prof !125
 
-404:                                              ; preds = %._crit_edge845.thread, %._crit_edge845
+404:                                              ; preds = %._crit_edge848.thread, %._crit_edge848
   %405 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %406 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %407 = load ptr, ptr %406, align 8, !tbaa !60
@@ -4142,22 +4142,22 @@ unsafe_yyjson_mut_str_alc.exit:                   ; preds = %unsafe_yyjson_mut_s
   br i1 %412, label %.unsafe_yyjson_mut_val.exit.i362_crit_edge, label %ptr_new_key.exit301.thread, !prof !23
 
 .unsafe_yyjson_mut_val.exit.i362_crit_edge:       ; preds = %410
-  %.pre938 = load ptr, ptr %405, align 8, !tbaa !59
+  %.pre941 = load ptr, ptr %405, align 8, !tbaa !59
   br label %unsafe_yyjson_mut_val.exit.i362
 
 unsafe_yyjson_mut_val.exit.i362:                  ; preds = %.unsafe_yyjson_mut_val.exit.i362_crit_edge, %404
-  %413 = phi ptr [ %.pre938, %.unsafe_yyjson_mut_val.exit.i362_crit_edge ], [ %408, %404 ]
+  %413 = phi ptr [ %.pre941, %.unsafe_yyjson_mut_val.exit.i362_crit_edge ], [ %408, %404 ]
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
   store ptr %414, ptr %405, align 8, !tbaa !59
   %.not.i364.not = icmp eq ptr %413, null
-  br i1 %.not.i364.not, label %ptr_new_key.exit301.thread, label %ptr_new_key.exit301.thread582, !prof !78
+  br i1 %.not.i364.not, label %ptr_new_key.exit301.thread, label %ptr_new_key.exit301.thread585, !prof !78
 
 ptr_new_key.exit301:                              ; preds = %unsafe_yyjson_mut_str_alc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %372, ptr nonnull align 1 %.0194, i64 %.1432, i1 false)
   store i8 0, ptr %373, align 1, !tbaa !75
-  br label %ptr_new_key.exit301.thread582
+  br label %ptr_new_key.exit301.thread585
 
-ptr_new_key.exit301.thread:                       ; preds = %368, %unsafe_yyjson_mut_str_alc.exit.i, %410, %unsafe_yyjson_mut_val.exit.i362, %386, %355, %._crit_edge845, %348, %unsafe_yyjson_mut_val.exit.i340, %unsafe_yyjson_mut_str_alc.exit
+ptr_new_key.exit301.thread:                       ; preds = %368, %unsafe_yyjson_mut_str_alc.exit.i, %410, %unsafe_yyjson_mut_val.exit.i362, %386, %355, %._crit_edge848, %348, %unsafe_yyjson_mut_val.exit.i340, %unsafe_yyjson_mut_str_alc.exit
   %.not240 = icmp eq ptr %8, null
   br i1 %.not240, label %yyjson_mut_obj_add.exit303, label %415
 
@@ -4169,17 +4169,17 @@ ptr_new_key.exit301.thread:                       ; preds = %368, %unsafe_yyjson
   store i64 0, ptr %417, align 8, !tbaa !112
   br label %yyjson_mut_obj_add.exit303
 
-ptr_new_key.exit301.thread582:                    ; preds = %unsafe_yyjson_mut_val.exit.i362, %ptr_new_key.exit301
-  %.sink1048 = phi ptr [ %358, %ptr_new_key.exit301 ], [ %413, %unsafe_yyjson_mut_val.exit.i362 ]
-  %.sink1044 = phi ptr [ %372, %ptr_new_key.exit301 ], [ %390, %unsafe_yyjson_mut_val.exit.i362 ]
+ptr_new_key.exit301.thread585:                    ; preds = %unsafe_yyjson_mut_val.exit.i362, %ptr_new_key.exit301
+  %.sink1051 = phi ptr [ %358, %ptr_new_key.exit301 ], [ %413, %unsafe_yyjson_mut_val.exit.i362 ]
+  %.sink1047 = phi ptr [ %372, %ptr_new_key.exit301 ], [ %390, %unsafe_yyjson_mut_val.exit.i362 ]
   %418 = shl i64 %.1432, 8
   %419 = or disjoint i64 %418, 5
-  store i64 %419, ptr %.sink1048, align 8, !tbaa !73
-  %420 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 8
-  store ptr %.sink1044, ptr %420, align 8, !tbaa !75
+  store i64 %419, ptr %.sink1051, align 8, !tbaa !73
+  %420 = getelementptr inbounds nuw i8, ptr %.sink1051, i64 8
+  store ptr %.sink1047, ptr %420, align 8, !tbaa !75
   br i1 %.not235, label %428, label %421
 
-421:                                              ; preds = %ptr_new_key.exit301.thread582
+421:                                              ; preds = %ptr_new_key.exit301.thread585
   %.not237 = icmp ult i64 %340, 256
   br i1 %.not237, label %425, label %422
 
@@ -4189,12 +4189,12 @@ ptr_new_key.exit301.thread582:                    ; preds = %unsafe_yyjson_mut_v
   br label %425
 
 425:                                              ; preds = %421, %422
-  %426 = phi ptr [ %424, %422 ], [ %.sink1048, %421 ]
+  %426 = phi ptr [ %424, %422 ], [ %.sink1051, %421 ]
   %427 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %426, ptr %427, align 8, !tbaa !119
   br label %428
 
-428:                                              ; preds = %425, %ptr_new_key.exit301.thread582
+428:                                              ; preds = %425, %ptr_new_key.exit301.thread585
   %.not.i307 = icmp ult i64 %340, 256
   br i1 %.not.i307, label %unsafe_yyjson_mut_obj_add.exit308, label %429, !prof !4
 
@@ -4205,17 +4205,17 @@ ptr_new_key.exit301.thread582:                    ; preds = %unsafe_yyjson_mut_v
   %433 = load ptr, ptr %432, align 8, !tbaa !79
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
   %435 = load ptr, ptr %434, align 8, !tbaa !79
-  store ptr %.sink1048, ptr %434, align 8, !tbaa !79
+  store ptr %.sink1051, ptr %434, align 8, !tbaa !79
   br label %unsafe_yyjson_mut_obj_add.exit308
 
 unsafe_yyjson_mut_obj_add.exit308:                ; preds = %428, %429
-  %.sink928 = phi ptr [ %435, %429 ], [ %.sink1048, %428 ]
+  %.sink931 = phi ptr [ %435, %429 ], [ %.sink1051, %428 ]
   %436 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink928, ptr %436, align 8, !tbaa !79
-  %437 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 16
+  store ptr %.sink931, ptr %436, align 8, !tbaa !79
+  %437 = getelementptr inbounds nuw i8, ptr %.sink1051, i64 16
   store ptr %3, ptr %437, align 8, !tbaa !79
   %438 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  store ptr %.sink1048, ptr %438, align 8, !tbaa !75
+  store ptr %.sink1051, ptr %438, align 8, !tbaa !75
   %439 = load i64, ptr %.0190, align 8, !tbaa !73
   %440 = and i64 %439, 255
   %441 = and i64 %340, -256
@@ -4225,19 +4225,19 @@ unsafe_yyjson_mut_obj_add.exit308:                ; preds = %428, %429
   br label %.critedge253
 
 444:                                              ; preds = %344
-  %445 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+  %445 = getelementptr inbounds nuw i8, ptr %.0422475482, i64 16
   %446 = load ptr, ptr %445, align 8, !tbaa !79
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %448 = load ptr, ptr %447, align 8, !tbaa !79
   br label %yyjson_mut_is_obj.exit314
 
-449:                                              ; preds = %.thread590
-  %450 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+449:                                              ; preds = %.thread593
+  %450 = getelementptr inbounds nuw i8, ptr %.0422475482, i64 16
   %451 = load ptr, ptr %450, align 8, !tbaa !79
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %453 = load ptr, ptr %452, align 8, !tbaa !79
   %454 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0422473480, ptr %454, align 8, !tbaa !119
+  store ptr %.0422475482, ptr %454, align 8, !tbaa !119
   %455 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.2199, ptr %455, align 8, !tbaa !126
   br label %yyjson_mut_is_obj.exit314
@@ -4247,14 +4247,14 @@ yyjson_mut_is_obj.exit314:                        ; preds = %444, %449
   %457 = and i64 %340, 7
   %458 = icmp ne i64 %457, 7
   %.not.i322 = icmp eq ptr %456, null
-  %or.cond607 = select i1 %458, i1 true, i1 %.not.i322
-  br i1 %or.cond607, label %.critedge253, label %459, !prof !95
+  %or.cond610 = select i1 %458, i1 true, i1 %.not.i322
+  br i1 %or.cond610, label %.critedge253, label %459, !prof !95
 
 459:                                              ; preds = %yyjson_mut_is_obj.exit314
   %460 = load i64, ptr %456, align 8, !tbaa !73
   %461 = and i64 %460, 7
-  %.not612 = icmp eq i64 %461, 5
-  br i1 %.not612, label %yyjson_mut_is_obj.exit, label %.critedge253, !prof !115
+  %.not615 = icmp eq i64 %461, 5
+  br i1 %.not615, label %yyjson_mut_is_obj.exit, label %.critedge253, !prof !115
 
 yyjson_mut_is_obj.exit:                           ; preds = %459
   %462 = lshr i64 %460, 8
@@ -4272,15 +4272,15 @@ yyjson_mut_obj_iter_next.exit.lr.ph:              ; preds = %yyjson_mut_is_obj.e
 
 yyjson_mut_obj_iter_next.exit:                    ; preds = %yyjson_mut_obj_iter_next.exit.lr.ph, %yyjson_mut_obj_iter_remove.exit
   %469 = phi i64 [ %340, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %500, %yyjson_mut_obj_iter_remove.exit ]
-  %.022.i837 = phi i8 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
-  %.sroa.18.1836 = phi ptr [ %464, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.18.2, %yyjson_mut_obj_iter_remove.exit ]
-  %.sroa.11.1835 = phi i64 [ %341, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
-  %.sroa.0.1834 = phi i64 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.0.2, %yyjson_mut_obj_iter_remove.exit ]
-  %470 = getelementptr inbounds nuw i8, ptr %.sroa.18.1836, i64 16
+  %.022.i840 = phi i8 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
+  %.sroa.18.1839 = phi ptr [ %464, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.18.2, %yyjson_mut_obj_iter_remove.exit ]
+  %.sroa.11.1838 = phi i64 [ %341, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
+  %.sroa.0.1837 = phi i64 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.0.2, %yyjson_mut_obj_iter_remove.exit ]
+  %470 = getelementptr inbounds nuw i8, ptr %.sroa.18.1839, i64 16
   %471 = load ptr, ptr %470, align 8, !tbaa !79
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
   %473 = load ptr, ptr %472, align 8, !tbaa !79
-  %474 = add nuw i64 %.sroa.0.1834, 1
+  %474 = add nuw i64 %.sroa.0.1837, 1
   %.not26.i = icmp eq ptr %473, null
   br i1 %.not26.i, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, label %475
 
@@ -4299,7 +4299,7 @@ unsafe_yyjson_equals_strn.exit:                   ; preds = %475
   br i1 %482, label %483, label %yyjson_mut_obj_iter_remove.exit
 
 483:                                              ; preds = %unsafe_yyjson_equals_strn.exit
-  %484 = trunc nuw i8 %.022.i837 to i1
+  %484 = trunc nuw i8 %.022.i840 to i1
   %or.cond.not.i = or i1 %466, %484
   %485 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %486 = load ptr, ptr %485, align 8, !tbaa !79
@@ -4313,17 +4313,17 @@ unsafe_yyjson_equals_strn.exit:                   ; preds = %475
   br label %yyjson_mut_obj_iter_remove.exit
 
 490:                                              ; preds = %483
-  %491 = icmp eq i64 %474, %.sroa.11.1835
+  %491 = icmp eq i64 %474, %.sroa.11.1838
   br i1 %491, label %492, label %493, !prof !4
 
 492:                                              ; preds = %490
-  store ptr %.sroa.18.1836, ptr %468, align 8, !tbaa !75
-  %.pre937 = load ptr, ptr %470, align 8, !tbaa !79
+  store ptr %.sroa.18.1839, ptr %468, align 8, !tbaa !75
+  %.pre940 = load ptr, ptr %470, align 8, !tbaa !79
   br label %493
 
 493:                                              ; preds = %492, %490
-  %494 = phi ptr [ %.pre937, %492 ], [ %471, %490 ]
-  %495 = add i64 %.sroa.11.1835, -1
+  %494 = phi ptr [ %.pre940, %492 ], [ %471, %490 ]
+  %495 = add i64 %.sroa.11.1838, -1
   %496 = and i64 %469, 255
   %497 = shl i64 %495, 8
   %498 = or disjoint i64 %496, %497
@@ -4334,17 +4334,17 @@ unsafe_yyjson_equals_strn.exit:                   ; preds = %475
 
 yyjson_mut_obj_iter_remove.exit:                  ; preds = %475, %493, %489, %unsafe_yyjson_equals_strn.exit
   %500 = phi i64 [ %469, %489 ], [ %469, %unsafe_yyjson_equals_strn.exit ], [ %498, %493 ], [ %469, %475 ]
-  %.sroa.0.2 = phi i64 [ %474, %489 ], [ %474, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.0.1834, %493 ], [ %474, %475 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1835, %489 ], [ %.sroa.11.1835, %unsafe_yyjson_equals_strn.exit ], [ %495, %493 ], [ %.sroa.11.1835, %475 ]
-  %.sroa.18.2 = phi ptr [ %473, %489 ], [ %473, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.18.1836, %493 ], [ %473, %475 ]
-  %.1.i309 = phi i8 [ 1, %489 ], [ %.022.i837, %unsafe_yyjson_equals_strn.exit ], [ %.022.i837, %493 ], [ %.022.i837, %475 ]
+  %.sroa.0.2 = phi i64 [ %474, %489 ], [ %474, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.0.1837, %493 ], [ %474, %475 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1838, %489 ], [ %.sroa.11.1838, %unsafe_yyjson_equals_strn.exit ], [ %495, %493 ], [ %.sroa.11.1838, %475 ]
+  %.sroa.18.2 = phi ptr [ %473, %489 ], [ %473, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.18.1839, %493 ], [ %473, %475 ]
+  %.1.i309 = phi i8 [ 1, %489 ], [ %.022.i840, %unsafe_yyjson_equals_strn.exit ], [ %.022.i840, %493 ], [ %.022.i840, %475 ]
   %501 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
   br i1 %501, label %yyjson_mut_obj_iter_next.exit, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, !llvm.loop !127
 
 yyjson_mut_obj_iter_next.exit.thread.loopexit:    ; preds = %yyjson_mut_obj_iter_remove.exit, %yyjson_mut_obj_iter_next.exit
   %502 = phi i64 [ %469, %yyjson_mut_obj_iter_next.exit ], [ %500, %yyjson_mut_obj_iter_remove.exit ]
-  %.sroa.11.1.lcssa.ph = phi i64 [ %.sroa.11.1835, %yyjson_mut_obj_iter_next.exit ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
-  %.022.i.lcssa.ph = phi i8 [ %.022.i837, %yyjson_mut_obj_iter_next.exit ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
+  %.sroa.11.1.lcssa.ph = phi i64 [ %.sroa.11.1838, %yyjson_mut_obj_iter_next.exit ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
+  %.022.i.lcssa.ph = phi i8 [ %.022.i840, %yyjson_mut_obj_iter_next.exit ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
   %503 = trunc nuw i8 %.022.i.lcssa.ph to i1
   br label %yyjson_mut_obj_iter_next.exit.thread
 
@@ -4371,9 +4371,9 @@ yyjson_mut_obj_iter_next.exit.thread:             ; preds = %yyjson_mut_is_obj.e
   br label %unsafe_yyjson_mut_obj_add.exit.i
 
 unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
-  %.sink929 = phi ptr [ %513, %507 ], [ %456, %506 ]
+  %.sink932 = phi ptr [ %513, %507 ], [ %456, %506 ]
   %514 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink929, ptr %514, align 8, !tbaa !79
+  store ptr %.sink932, ptr %514, align 8, !tbaa !79
   %515 = getelementptr inbounds nuw i8, ptr %456, i64 16
   store ptr %3, ptr %515, align 8, !tbaa !79
   %516 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
@@ -4390,9 +4390,9 @@ unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
 
 522:                                              ; preds = %521
   %523 = icmp ne ptr %.2199, null
-  %524 = trunc nuw i8 %.1420474478 to i1
+  %524 = trunc nuw i8 %.1420476480 to i1
   %or.cond5 = select i1 %523, i1 true, i1 %524
-  br i1 %or.cond5, label %525, label %.thread600
+  br i1 %or.cond5, label %525, label %.thread603
 
 525:                                              ; preds = %522
   store ptr %.0190, ptr %7, align 8, !tbaa !117
@@ -4402,14 +4402,14 @@ unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
   %.not232 = icmp eq ptr %.2199, null
   br i1 %6, label %527, label %572
 
-.thread600:                                       ; preds = %522
-  br i1 %6, label %.thread603, label %.thread604
+.thread603:                                       ; preds = %522
+  br i1 %6, label %.thread606, label %.thread607
 
 527:                                              ; preds = %526
   br i1 %.not232, label %538, label %528
 
 528:                                              ; preds = %527
-  %529 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+  %529 = getelementptr inbounds nuw i8, ptr %.0422475482, i64 16
   store ptr %3, ptr %529, align 8, !tbaa !79
   %530 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.2199, ptr %530, align 8, !tbaa !79
@@ -4417,7 +4417,7 @@ unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
 
 531:                                              ; preds = %528
   %532 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0422473480, ptr %532, align 8, !tbaa !119
+  store ptr %.0422475482, ptr %532, align 8, !tbaa !119
   br label %533
 
 533:                                              ; preds = %531, %528
@@ -4429,8 +4429,8 @@ unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
   br label %.critedge253
 
 538:                                              ; preds = %527
-  %539 = trunc nuw i8 %.1420474478 to i1
-  br i1 %539, label %540, label %.thread603
+  %539 = trunc nuw i8 %.1420476480 to i1
+  br i1 %539, label %540, label %.thread606
 
 540:                                              ; preds = %538
   br i1 %.not235, label %yyjson_mut_is_arr.exit321, label %541
@@ -4475,18 +4475,18 @@ yyjson_mut_is_arr.exit321:                        ; preds = %545, %540
   br label %563
 
 563:                                              ; preds = %552, %558
-  %.sink930 = phi ptr [ %562, %558 ], [ %3, %552 ]
+  %.sink933 = phi ptr [ %562, %558 ], [ %3, %552 ]
   %564 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink930, ptr %564, align 8, !tbaa !79
+  store ptr %.sink933, ptr %564, align 8, !tbaa !79
   %565 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
   store ptr %3, ptr %565, align 8, !tbaa !75
   br label %.critedge253
 
-.thread603:                                       ; preds = %.thread600, %538
+.thread606:                                       ; preds = %.thread603, %538
   %.not233 = icmp eq ptr %8, null
   br i1 %.not233, label %yyjson_mut_obj_add.exit303, label %566
 
-566:                                              ; preds = %.thread603
+566:                                              ; preds = %.thread606
   store i32 3, ptr %8, align 8, !tbaa !108
   %567 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.1, ptr %567, align 8, !tbaa !111
@@ -4498,13 +4498,13 @@ yyjson_mut_is_arr.exit321:                        ; preds = %545, %540
   br label %yyjson_mut_obj_add.exit303
 
 572:                                              ; preds = %526
-  br i1 %.not232, label %.thread604, label %579
+  br i1 %.not232, label %.thread607, label %579
 
-.thread604:                                       ; preds = %.thread600, %572
+.thread607:                                       ; preds = %.thread603, %572
   %.not231 = icmp eq ptr %8, null
   br i1 %.not231, label %yyjson_mut_obj_add.exit303, label %573
 
-573:                                              ; preds = %.thread604
+573:                                              ; preds = %.thread607
   store i32 3, ptr %8, align 8, !tbaa !108
   %574 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.1, ptr %574, align 8, !tbaa !111
@@ -4524,7 +4524,7 @@ yyjson_mut_is_arr.exit321:                        ; preds = %545, %540
   %583 = load ptr, ptr %582, align 8, !tbaa !79
   %584 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %583, ptr %584, align 8, !tbaa !79
-  %585 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %.0422475482, i64 16
   store ptr %3, ptr %585, align 8, !tbaa !79
   %586 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
   %587 = load ptr, ptr %586, align 8, !tbaa !75
@@ -4543,7 +4543,7 @@ yyjson_mut_is_arr.exit321:                        ; preds = %545, %540
   br label %593
 
 593:                                              ; preds = %581, %589, %590
-  %.1423 = phi ptr [ %.0422473480, %589 ], [ %.0422473480, %581 ], [ %3, %590 ]
+  %.1423 = phi ptr [ %.0422475482, %589 ], [ %.0422475482, %581 ], [ %3, %590 ]
   br i1 %.not235, label %.critedge253, label %594
 
 594:                                              ; preds = %593
@@ -4591,9 +4591,9 @@ yyjson_mut_is_obj.exit316:                        ; preds = %597
   br label %unsafe_yyjson_mut_obj_add.exit
 
 unsafe_yyjson_mut_obj_add.exit:                   ; preds = %606, %608
-  %.sink931 = phi ptr [ %614, %608 ], [ %.0182, %606 ]
+  %.sink934 = phi ptr [ %614, %608 ], [ %.0182, %606 ]
   %615 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
-  store ptr %.sink931, ptr %615, align 8, !tbaa !79
+  store ptr %.sink934, ptr %615, align 8, !tbaa !79
   %616 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
   store ptr %.0180, ptr %616, align 8, !tbaa !79
   %617 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
@@ -4628,15 +4628,15 @@ yyjson_mut_is_arr.exit:                           ; preds = %597
   br label %635
 
 635:                                              ; preds = %624, %630
-  %.sink932 = phi ptr [ %634, %630 ], [ %.0180, %624 ]
+  %.sink935 = phi ptr [ %634, %630 ], [ %.0180, %624 ]
   %636 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
-  store ptr %.sink932, ptr %636, align 8, !tbaa !79
+  store ptr %.sink935, ptr %636, align 8, !tbaa !79
   %637 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
   store ptr %.0180, ptr %637, align 8, !tbaa !75
   br label %yyjson_mut_obj_add.exit303
 
-yyjson_mut_obj_add.exit303:                       ; preds = %yyjson_mut_is_obj.exit316, %635, %yyjson_mut_is_arr.exit, %unsafe_yyjson_mut_obj_add.exit, %601, %.critedge253, %.thread604, %573, %.thread603, %566, %ptr_new_key.exit301.thread, %415, %333, %334, %unsafe_yyjson_mut_val.exit.i285.thread, %278, %ptr_new_key.exit.thread, %265, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
-  %.0193 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %265 ], [ false, %ptr_new_key.exit.thread ], [ false, %278 ], [ false, %unsafe_yyjson_mut_val.exit.i285.thread ], [ false, %334 ], [ false, %333 ], [ false, %415 ], [ false, %ptr_new_key.exit301.thread ], [ false, %566 ], [ false, %.thread603 ], [ false, %573 ], [ false, %.thread604 ], [ true, %.critedge253 ], [ true, %601 ], [ true, %unsafe_yyjson_mut_obj_add.exit ], [ true, %yyjson_mut_is_arr.exit ], [ true, %635 ], [ true, %yyjson_mut_is_obj.exit316 ]
+yyjson_mut_obj_add.exit303:                       ; preds = %yyjson_mut_is_obj.exit316, %635, %yyjson_mut_is_arr.exit, %unsafe_yyjson_mut_obj_add.exit, %601, %.critedge253, %.thread607, %573, %.thread606, %566, %ptr_new_key.exit301.thread, %415, %333, %334, %unsafe_yyjson_mut_val.exit.i285.thread, %278, %ptr_new_key.exit.thread, %265, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
+  %.0193 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %265 ], [ false, %ptr_new_key.exit.thread ], [ false, %278 ], [ false, %unsafe_yyjson_mut_val.exit.i285.thread ], [ false, %334 ], [ false, %333 ], [ false, %415 ], [ false, %ptr_new_key.exit301.thread ], [ false, %566 ], [ false, %.thread606 ], [ false, %573 ], [ false, %.thread607 ], [ true, %.critedge253 ], [ true, %601 ], [ true, %unsafe_yyjson_mut_obj_add.exit ], [ true, %yyjson_mut_is_arr.exit ], [ true, %635 ], [ true, %yyjson_mut_is_obj.exit316 ]
   ret i1 %.0193
 }
 
@@ -5525,9 +5525,9 @@ yyjson_is_str.exit812:                            ; preds = %unsafe_yyjson_equal
   br label %169
 
 169:                                              ; preds = %112, %132, %167
-  %.0257 = phi ptr [ null, %112 ], [ %158, %167 ], [ null, %132 ]
-  %.0253 = phi ptr [ null, %112 ], [ null, %167 ], [ %134, %132 ]
-  %.0 = phi i64 [ 0, %112 ], [ %168, %167 ], [ 0, %132 ]
+  %.0257 = phi ptr [ null, %112 ], [ null, %132 ], [ %158, %167 ]
+  %.0253 = phi ptr [ null, %112 ], [ %134, %132 ], [ null, %167 ]
+  %.0 = phi i64 [ 0, %112 ], [ 0, %132 ], [ %168, %167 ]
   switch i32 %84, label %272 [
     i32 0, label %170
     i32 1, label %183
@@ -5998,7 +5998,7 @@ yyjson_mut_equals.exit.thread:                    ; preds = %yyjson_mut_ptr_getx
   br label %yyjson_arr_iter_next.exit.thread
 
 277:                                              ; preds = %yyjson_mut_ptr_addx.exit, %yyjson_mut_ptr_removex.exit, %yyjson_mut_ptr_replacex.exit, %207, %yyjson_mut_ptr_addx.exit821, %yyjson_mut_ptr_addx.exit828, %yyjson_mut_equals.exit, %170, %194, %220, %yyjson_mut_ptr_getx.exit.thread969
-  %.1255 = phi ptr [ %.02541169, %yyjson_mut_equals.exit ], [ %.02541169, %yyjson_mut_ptr_addx.exit828 ], [ %.02541169, %207 ], [ %.02541169, %yyjson_mut_ptr_addx.exit821 ], [ %.02541169, %yyjson_mut_ptr_replacex.exit ], [ %.02541169, %yyjson_mut_ptr_removex.exit ], [ %.02541169, %yyjson_mut_ptr_addx.exit ], [ %.0253, %170 ], [ %.0253, %194 ], [ %217, %220 ], [ %.0.i840972, %yyjson_mut_ptr_getx.exit.thread969 ]
+  %.1255 = phi ptr [ %.02541169, %yyjson_mut_ptr_addx.exit ], [ %.02541169, %yyjson_mut_ptr_removex.exit ], [ %.02541169, %yyjson_mut_ptr_replacex.exit ], [ %.02541169, %207 ], [ %.02541169, %yyjson_mut_ptr_addx.exit821 ], [ %.02541169, %yyjson_mut_ptr_addx.exit828 ], [ %.02541169, %yyjson_mut_equals.exit ], [ %.0253, %170 ], [ %.0253, %194 ], [ %217, %220 ], [ %.0.i840972, %yyjson_mut_ptr_getx.exit.thread969 ]
   %exitcond.not = icmp eq i64 %45, %34
   br i1 %exitcond.not, label %yyjson_arr_iter_next.exit.thread, label %yyjson_arr_iter_next.exit, !llvm.loop !137
 
@@ -6509,9 +6509,9 @@ yyjson_mut_is_str.exit841:                        ; preds = %yyjson_mut_obj_getn
   br label %139
 
 139:                                              ; preds = %96, %yyjson_mut_val_mut_copy.exit892, %137
-  %.0257 = phi ptr [ null, %96 ], [ %124, %137 ], [ null, %yyjson_mut_val_mut_copy.exit892 ]
-  %.0253 = phi ptr [ null, %96 ], [ null, %137 ], [ %111, %yyjson_mut_val_mut_copy.exit892 ]
-  %.0 = phi i64 [ 0, %96 ], [ %138, %137 ], [ 0, %yyjson_mut_val_mut_copy.exit892 ]
+  %.0257 = phi ptr [ null, %96 ], [ null, %yyjson_mut_val_mut_copy.exit892 ], [ %124, %137 ]
+  %.0253 = phi ptr [ null, %96 ], [ %111, %yyjson_mut_val_mut_copy.exit892 ], [ null, %137 ]
+  %.0 = phi i64 [ 0, %96 ], [ 0, %yyjson_mut_val_mut_copy.exit892 ], [ %138, %137 ]
   switch i32 %74, label %242 [
     i32 0, label %140
     i32 1, label %153
@@ -6982,7 +6982,7 @@ yyjson_mut_equals.exit.thread:                    ; preds = %yyjson_mut_ptr_getx
   br label %yyjson_mut_arr_iter_next.exit.thread
 
 247:                                              ; preds = %yyjson_mut_ptr_addx.exit819, %yyjson_mut_ptr_removex.exit825, %yyjson_mut_ptr_replacex.exit, %177, %yyjson_mut_ptr_addx.exit813, %yyjson_mut_ptr_addx.exit, %yyjson_mut_equals.exit, %140, %164, %190, %yyjson_mut_ptr_getx.exit832.thread982
-  %.1255 = phi ptr [ %.02541208, %yyjson_mut_equals.exit ], [ %.02541208, %yyjson_mut_ptr_addx.exit ], [ %.02541208, %177 ], [ %.02541208, %yyjson_mut_ptr_addx.exit813 ], [ %.02541208, %yyjson_mut_ptr_replacex.exit ], [ %.02541208, %yyjson_mut_ptr_removex.exit825 ], [ %.02541208, %yyjson_mut_ptr_addx.exit819 ], [ %.0253, %140 ], [ %.0253, %164 ], [ %187, %190 ], [ %.0.i831985, %yyjson_mut_ptr_getx.exit832.thread982 ]
+  %.1255 = phi ptr [ %.02541208, %yyjson_mut_ptr_addx.exit819 ], [ %.02541208, %yyjson_mut_ptr_removex.exit825 ], [ %.02541208, %yyjson_mut_ptr_replacex.exit ], [ %.02541208, %177 ], [ %.02541208, %yyjson_mut_ptr_addx.exit813 ], [ %.02541208, %yyjson_mut_ptr_addx.exit ], [ %.02541208, %yyjson_mut_equals.exit ], [ %.0253, %140 ], [ %.0253, %164 ], [ %187, %190 ], [ %.0.i831985, %yyjson_mut_ptr_getx.exit832.thread982 ]
   %exitcond.not = icmp eq i64 %39, %32
   br i1 %exitcond.not, label %yyjson_mut_arr_iter_next.exit.thread, label %yyjson_mut_arr_iter_next.exit, !llvm.loop !139
 
@@ -10821,12 +10821,12 @@ bigint_cmp.exit1272.thread:                       ; preds = %1520, %1514, %bigin
   br label %.preheader4312
 
 .preheader4312:                                   ; preds = %2266, %2273, %2289, %2287, %2197, %2195, %2341, %5074, %251, %read_number.exit433, %read_string.exit732, %read_true.exit818, %read_false.exit821, %read_null.exit824, %read_inf_or_nan.exit845, %308, %1063, %1071, %1078, %1088, %1098, %1106, %1543
-  %.8633.i.ph = phi ptr [ %.7632.i, %1543 ], [ %.7632.i, %1106 ], [ %.7632.i, %1098 ], [ %.7632.i, %1088 ], [ %.7632.i, %1078 ], [ %.7632.i, %1071 ], [ %.7632.i, %1063 ], [ %.7632.i, %308 ], [ %.7632.i, %read_inf_or_nan.exit845 ], [ %.7632.i, %251 ], [ %.10635.i, %read_string.exit732 ], [ %.12637.i, %read_true.exit818 ], [ %.14639.i, %read_false.exit821 ], [ %.16641.i, %read_null.exit824 ], [ %2327, %2341 ], [ %.7632.i, %read_number.exit433 ], [ %5060, %5074 ], [ %.16641.i, %2195 ], [ %.16641.i, %2197 ], [ %.19644.i, %2287 ], [ %.19644.i, %2289 ], [ %.19644.i, %2273 ], [ %.19644.i, %2266 ]
-  %.8606.i.ph = phi ptr [ %.7605.i, %1543 ], [ %.7605.i, %1106 ], [ %.7605.i, %1098 ], [ %.7605.i, %1088 ], [ %.7605.i, %1078 ], [ %.7605.i, %1071 ], [ %.7605.i, %1063 ], [ %.7605.i, %308 ], [ %.7605.i, %read_inf_or_nan.exit845 ], [ %.7605.i, %251 ], [ %.10608.i, %read_string.exit732 ], [ %.12610.i, %read_true.exit818 ], [ %.14612.i, %read_false.exit821 ], [ %.16614.i, %read_null.exit824 ], [ %.17615.i, %2341 ], [ %.7605.i, %read_number.exit433 ], [ %.26624.i, %5074 ], [ %.16614.i, %2195 ], [ %.16614.i, %2197 ], [ %.19617.i, %2287 ], [ %.19617.i, %2289 ], [ %.19617.i, %2273 ], [ %.19617.i, %2266 ]
-  %.8580.i.ph = phi ptr [ %.7579.i, %1543 ], [ %.7579.i, %1106 ], [ %.7579.i, %1098 ], [ %.7579.i, %1088 ], [ %.7579.i, %1078 ], [ %.7579.i, %1071 ], [ %.7579.i, %1063 ], [ %.7579.i, %308 ], [ %.7579.i, %read_inf_or_nan.exit845 ], [ %.7579.i, %251 ], [ %.10582.i, %read_string.exit732 ], [ %.12584.i, %read_true.exit818 ], [ %.14586.i, %read_false.exit821 ], [ %.16588.i, %read_null.exit824 ], [ %.17589.i, %2341 ], [ %.7579.i, %read_number.exit433 ], [ %.25597.i, %5074 ], [ %.16588.i, %2195 ], [ %.16588.i, %2197 ], [ %.19591.i, %2287 ], [ %.19591.i, %2289 ], [ %.19591.i, %2273 ], [ %.19591.i, %2266 ]
-  %.8563.i.ph = phi ptr [ %.7562.i, %1543 ], [ %.7562.i, %1106 ], [ %.7562.i, %1098 ], [ %.7562.i, %1088 ], [ %.7562.i, %1078 ], [ %.7562.i, %1071 ], [ %.7562.i, %1063 ], [ %.7562.i, %308 ], [ %.7562.i, %read_inf_or_nan.exit845 ], [ %.7562.i, %251 ], [ %.10565.i, %read_string.exit732 ], [ %.12567.i, %read_true.exit818 ], [ %.14569.i, %read_false.exit821 ], [ %.16571.i, %read_null.exit824 ], [ %.17.i, %2341 ], [ %.7562.i, %read_number.exit433 ], [ %.26.i, %5074 ], [ %.16571.i, %2195 ], [ %.16571.i, %2197 ], [ %.19.i, %2287 ], [ %.19.i, %2289 ], [ %.19.i, %2273 ], [ %.19.i, %2266 ]
-  %.4551.i.ph = phi i64 [ %250, %1543 ], [ %250, %1106 ], [ %250, %1098 ], [ %250, %1088 ], [ %250, %1078 ], [ %250, %1071 ], [ %250, %1063 ], [ %250, %308 ], [ %250, %read_inf_or_nan.exit845 ], [ %250, %251 ], [ %1566, %read_string.exit732 ], [ %2136, %read_true.exit818 ], [ %2158, %read_false.exit821 ], [ %2178, %read_null.exit824 ], [ %2336, %2341 ], [ %250, %read_number.exit433 ], [ %5069, %5074 ], [ %2178, %2195 ], [ %2178, %2197 ], [ %2238, %2287 ], [ %2238, %2289 ], [ %2238, %2273 ], [ %2238, %2266 ]
-  %.6.i.ph = phi i64 [ %.5.i, %1543 ], [ %.5.i, %1106 ], [ %.5.i, %1098 ], [ %.5.i, %1088 ], [ %.5.i, %1078 ], [ %.5.i, %1071 ], [ %.5.i, %1063 ], [ %.5.i, %308 ], [ %.5.i, %read_inf_or_nan.exit845 ], [ %.5.i, %251 ], [ %.7.i, %read_string.exit732 ], [ %.8.i, %read_true.exit818 ], [ %.9.i, %read_false.exit821 ], [ %.10.i, %read_null.exit824 ], [ %.11.i, %2341 ], [ %.5.i, %read_number.exit433 ], [ %.16.i, %5074 ], [ %.10.i, %2195 ], [ %.10.i, %2197 ], [ %.12.i, %2287 ], [ %.12.i, %2289 ], [ %.12.i, %2273 ], [ %.12.i, %2266 ]
+  %.8633.i.ph = phi ptr [ %.7632.i, %1543 ], [ %.7632.i, %1106 ], [ %.7632.i, %1098 ], [ %.7632.i, %1088 ], [ %.7632.i, %1078 ], [ %.7632.i, %1071 ], [ %.7632.i, %1063 ], [ %.7632.i, %308 ], [ %.7632.i, %read_inf_or_nan.exit845 ], [ %.7632.i, %251 ], [ %2327, %2341 ], [ %.16641.i, %read_null.exit824 ], [ %.14639.i, %read_false.exit821 ], [ %.12637.i, %read_true.exit818 ], [ %.10635.i, %read_string.exit732 ], [ %.7632.i, %read_number.exit433 ], [ %5060, %5074 ], [ %.16641.i, %2195 ], [ %.16641.i, %2197 ], [ %.19644.i, %2287 ], [ %.19644.i, %2289 ], [ %.19644.i, %2273 ], [ %.19644.i, %2266 ]
+  %.8606.i.ph = phi ptr [ %.7605.i, %1543 ], [ %.7605.i, %1106 ], [ %.7605.i, %1098 ], [ %.7605.i, %1088 ], [ %.7605.i, %1078 ], [ %.7605.i, %1071 ], [ %.7605.i, %1063 ], [ %.7605.i, %308 ], [ %.7605.i, %read_inf_or_nan.exit845 ], [ %.7605.i, %251 ], [ %.17615.i, %2341 ], [ %.16614.i, %read_null.exit824 ], [ %.14612.i, %read_false.exit821 ], [ %.12610.i, %read_true.exit818 ], [ %.10608.i, %read_string.exit732 ], [ %.7605.i, %read_number.exit433 ], [ %.26624.i, %5074 ], [ %.16614.i, %2195 ], [ %.16614.i, %2197 ], [ %.19617.i, %2287 ], [ %.19617.i, %2289 ], [ %.19617.i, %2273 ], [ %.19617.i, %2266 ]
+  %.8580.i.ph = phi ptr [ %.7579.i, %1543 ], [ %.7579.i, %1106 ], [ %.7579.i, %1098 ], [ %.7579.i, %1088 ], [ %.7579.i, %1078 ], [ %.7579.i, %1071 ], [ %.7579.i, %1063 ], [ %.7579.i, %308 ], [ %.7579.i, %read_inf_or_nan.exit845 ], [ %.7579.i, %251 ], [ %.17589.i, %2341 ], [ %.16588.i, %read_null.exit824 ], [ %.14586.i, %read_false.exit821 ], [ %.12584.i, %read_true.exit818 ], [ %.10582.i, %read_string.exit732 ], [ %.7579.i, %read_number.exit433 ], [ %.25597.i, %5074 ], [ %.16588.i, %2195 ], [ %.16588.i, %2197 ], [ %.19591.i, %2287 ], [ %.19591.i, %2289 ], [ %.19591.i, %2273 ], [ %.19591.i, %2266 ]
+  %.8563.i.ph = phi ptr [ %.7562.i, %1543 ], [ %.7562.i, %1106 ], [ %.7562.i, %1098 ], [ %.7562.i, %1088 ], [ %.7562.i, %1078 ], [ %.7562.i, %1071 ], [ %.7562.i, %1063 ], [ %.7562.i, %308 ], [ %.7562.i, %read_inf_or_nan.exit845 ], [ %.7562.i, %251 ], [ %.17.i, %2341 ], [ %.16571.i, %read_null.exit824 ], [ %.14569.i, %read_false.exit821 ], [ %.12567.i, %read_true.exit818 ], [ %.10565.i, %read_string.exit732 ], [ %.7562.i, %read_number.exit433 ], [ %.26.i, %5074 ], [ %.16571.i, %2195 ], [ %.16571.i, %2197 ], [ %.19.i, %2287 ], [ %.19.i, %2289 ], [ %.19.i, %2273 ], [ %.19.i, %2266 ]
+  %.4551.i.ph = phi i64 [ %250, %1543 ], [ %250, %1106 ], [ %250, %1098 ], [ %250, %1088 ], [ %250, %1078 ], [ %250, %1071 ], [ %250, %1063 ], [ %250, %308 ], [ %250, %read_inf_or_nan.exit845 ], [ %250, %251 ], [ %2336, %2341 ], [ %2178, %read_null.exit824 ], [ %2158, %read_false.exit821 ], [ %2136, %read_true.exit818 ], [ %1566, %read_string.exit732 ], [ %250, %read_number.exit433 ], [ %5069, %5074 ], [ %2178, %2195 ], [ %2178, %2197 ], [ %2238, %2287 ], [ %2238, %2289 ], [ %2238, %2273 ], [ %2238, %2266 ]
+  %.6.i.ph = phi i64 [ %.5.i, %1543 ], [ %.5.i, %1106 ], [ %.5.i, %1098 ], [ %.5.i, %1088 ], [ %.5.i, %1078 ], [ %.5.i, %1071 ], [ %.5.i, %1063 ], [ %.5.i, %308 ], [ %.5.i, %read_inf_or_nan.exit845 ], [ %.5.i, %251 ], [ %.11.i, %2341 ], [ %.10.i, %read_null.exit824 ], [ %.9.i, %read_false.exit821 ], [ %.8.i, %read_true.exit818 ], [ %.7.i, %read_string.exit732 ], [ %.5.i, %read_number.exit433 ], [ %.16.i, %5074 ], [ %.10.i, %2195 ], [ %.10.i, %2197 ], [ %.12.i, %2287 ], [ %.12.i, %2289 ], [ %.12.i, %2273 ], [ %.12.i, %2266 ]
   %1544 = load ptr, ptr %21, align 8, !tbaa !86
   %.sroa.01.0.copyload.i5855083 = load i16, ptr %1544, align 1
   %1545 = icmp eq i16 %.sroa.01.0.copyload.i5855083, 2604
@@ -11489,8 +11489,8 @@ read_number.exit433:                              ; preds = %1173, %.loopexit429
   br label %.backedge4282.preheader
 
 .backedge4282.preheader:                          ; preds = %1904, %1875, %1832, %1823, %1807, %1764, %1761, %1758, %1755, %1752, %1749, %1746, %1743
-  %.9.i710.ph = phi ptr [ %1905, %1904 ], [ %1745, %1743 ], [ %1748, %1746 ], [ %1751, %1749 ], [ %1754, %1752 ], [ %1757, %1755 ], [ %1760, %1758 ], [ %1763, %1761 ], [ %1766, %1764 ], [ %1899, %1875 ], [ %1803, %1832 ], [ %1803, %1823 ], [ %1803, %1807 ]
-  %.2.i711.ph = phi ptr [ %1906, %1904 ], [ %1744, %1743 ], [ %1747, %1746 ], [ %1750, %1749 ], [ %1753, %1752 ], [ %1756, %1755 ], [ %1759, %1758 ], [ %1762, %1761 ], [ %1765, %1764 ], [ %1898, %1875 ], [ %1834, %1832 ], [ %1831, %1823 ], [ %1820, %1807 ]
+  %.9.i710.ph = phi ptr [ %1905, %1904 ], [ %1899, %1875 ], [ %1803, %1832 ], [ %1803, %1823 ], [ %1803, %1807 ], [ %1766, %1764 ], [ %1763, %1761 ], [ %1760, %1758 ], [ %1757, %1755 ], [ %1754, %1752 ], [ %1751, %1749 ], [ %1748, %1746 ], [ %1745, %1743 ]
+  %.2.i711.ph = phi ptr [ %1906, %1904 ], [ %1898, %1875 ], [ %1834, %1832 ], [ %1831, %1823 ], [ %1820, %1807 ], [ %1765, %1764 ], [ %1762, %1761 ], [ %1759, %1758 ], [ %1756, %1755 ], [ %1753, %1752 ], [ %1750, %1749 ], [ %1747, %1746 ], [ %1744, %1743 ]
   br label %.backedge4282
 
 .backedge4282:                                    ; preds = %.backedge4282.backedge, %.backedge4282.preheader
@@ -13386,8 +13386,8 @@ read_null.exit824:                                ; preds = %2177
   br label %.backedge4359.preheader
 
 .backedge4359.preheader:                          ; preds = %2796, %2767, %2724, %2715, %2699, %2656, %2653, %2650, %2647, %2644, %2641, %2638, %2635
-  %.9.i794.ph = phi ptr [ %2797, %2796 ], [ %2637, %2635 ], [ %2640, %2638 ], [ %2643, %2641 ], [ %2646, %2644 ], [ %2649, %2647 ], [ %2652, %2650 ], [ %2655, %2653 ], [ %2658, %2656 ], [ %2791, %2767 ], [ %2695, %2724 ], [ %2695, %2715 ], [ %2695, %2699 ]
-  %.2.i795.ph = phi ptr [ %2798, %2796 ], [ %2636, %2635 ], [ %2639, %2638 ], [ %2642, %2641 ], [ %2645, %2644 ], [ %2648, %2647 ], [ %2651, %2650 ], [ %2654, %2653 ], [ %2657, %2656 ], [ %2790, %2767 ], [ %2726, %2724 ], [ %2723, %2715 ], [ %2712, %2699 ]
+  %.9.i794.ph = phi ptr [ %2797, %2796 ], [ %2791, %2767 ], [ %2695, %2724 ], [ %2695, %2715 ], [ %2695, %2699 ], [ %2658, %2656 ], [ %2655, %2653 ], [ %2652, %2650 ], [ %2649, %2647 ], [ %2646, %2644 ], [ %2643, %2641 ], [ %2640, %2638 ], [ %2637, %2635 ]
+  %.2.i795.ph = phi ptr [ %2798, %2796 ], [ %2790, %2767 ], [ %2726, %2724 ], [ %2723, %2715 ], [ %2712, %2699 ], [ %2657, %2656 ], [ %2654, %2653 ], [ %2651, %2650 ], [ %2648, %2647 ], [ %2645, %2644 ], [ %2642, %2641 ], [ %2639, %2638 ], [ %2636, %2635 ]
   br label %.backedge4359
 
 .backedge4359:                                    ; preds = %.backedge4359.backedge, %.backedge4359.preheader
@@ -14577,8 +14577,8 @@ read_string.exit816:                              ; preds = %.split.loop.exit476
   br label %.backedge4324.preheader
 
 .backedge4324.preheader:                          ; preds = %3402, %3373, %3330, %3321, %3305, %3262, %3259, %3256, %3253, %3250, %3247, %3244, %3241
-  %.9.i752.ph = phi ptr [ %3403, %3402 ], [ %3243, %3241 ], [ %3246, %3244 ], [ %3249, %3247 ], [ %3252, %3250 ], [ %3255, %3253 ], [ %3258, %3256 ], [ %3261, %3259 ], [ %3264, %3262 ], [ %3397, %3373 ], [ %3301, %3330 ], [ %3301, %3321 ], [ %3301, %3305 ]
-  %.2.i753.ph = phi ptr [ %3404, %3402 ], [ %3242, %3241 ], [ %3245, %3244 ], [ %3248, %3247 ], [ %3251, %3250 ], [ %3254, %3253 ], [ %3257, %3256 ], [ %3260, %3259 ], [ %3263, %3262 ], [ %3396, %3373 ], [ %3332, %3330 ], [ %3329, %3321 ], [ %3318, %3305 ]
+  %.9.i752.ph = phi ptr [ %3403, %3402 ], [ %3397, %3373 ], [ %3301, %3330 ], [ %3301, %3321 ], [ %3301, %3305 ], [ %3264, %3262 ], [ %3261, %3259 ], [ %3258, %3256 ], [ %3255, %3253 ], [ %3252, %3250 ], [ %3249, %3247 ], [ %3246, %3244 ], [ %3243, %3241 ]
+  %.2.i753.ph = phi ptr [ %3404, %3402 ], [ %3396, %3373 ], [ %3332, %3330 ], [ %3329, %3321 ], [ %3318, %3305 ], [ %3263, %3262 ], [ %3260, %3259 ], [ %3257, %3256 ], [ %3254, %3253 ], [ %3251, %3250 ], [ %3248, %3247 ], [ %3245, %3244 ], [ %3242, %3241 ]
   br label %.backedge4324
 
 .backedge4324:                                    ; preds = %.backedge4324.backedge, %.backedge4324.preheader
@@ -17562,12 +17562,12 @@ bigint_cmp.exit.thread:                           ; preds = %4893, %4887, %bigin
   br label %.preheader4317
 
 .preheader4317:                                   ; preds = %4996, %5003, %5019, %5017, %4953, %4951, %2341, %5074, %read_string.exit774, %3625, %read_number.exit539, %read_true.exit819, %read_false.exit822, %read_null.exit825, %read_inf_or_nan.exit, %3681, %4436, %4444, %4451, %4461, %4471, %4479, %4916
-  %.20645.i.ph = phi ptr [ %.24649.i, %4916 ], [ %.24649.i, %4479 ], [ %.24649.i, %4471 ], [ %.24649.i, %4461 ], [ %.24649.i, %4451 ], [ %.24649.i, %4444 ], [ %.24649.i, %4436 ], [ %.24649.i, %3681 ], [ %.24649.i, %read_inf_or_nan.exit ], [ %.24649.i, %3625 ], [ %.24649.i, %read_true.exit819 ], [ %.24649.i, %read_false.exit822 ], [ %.24649.i, %read_null.exit825 ], [ %.24649.i, %read_number.exit539 ], [ %.24649.i, %read_string.exit774 ], [ %2327, %2341 ], [ %5060, %5074 ], [ %.24649.i, %4951 ], [ %.24649.i, %4953 ], [ %.24649.i, %5017 ], [ %.24649.i, %5019 ], [ %.24649.i, %5003 ], [ %.24649.i, %4996 ]
-  %.21619.i.ph = phi ptr [ %3623, %4916 ], [ %3623, %4479 ], [ %3623, %4471 ], [ %3623, %4461 ], [ %3623, %4451 ], [ %3623, %4444 ], [ %3623, %4436 ], [ %3623, %3681 ], [ %3623, %read_inf_or_nan.exit ], [ %3623, %3625 ], [ %4924, %read_true.exit819 ], [ %4930, %read_false.exit822 ], [ %4933, %read_null.exit825 ], [ %3623, %read_number.exit539 ], [ %3063, %read_string.exit774 ], [ %.17615.i, %2341 ], [ %.26624.i, %5074 ], [ %4933, %4951 ], [ %4933, %4953 ], [ %4967, %5017 ], [ %4967, %5019 ], [ %4967, %5003 ], [ %4967, %4996 ]
-  %.20592.i.ph = phi ptr [ %.24596.i, %4916 ], [ %.24596.i, %4479 ], [ %.24596.i, %4471 ], [ %.24596.i, %4461 ], [ %.24596.i, %4451 ], [ %.24596.i, %4444 ], [ %.24596.i, %4436 ], [ %.24596.i, %3681 ], [ %.24596.i, %read_inf_or_nan.exit ], [ %.24596.i, %3625 ], [ %.24596.i, %read_true.exit819 ], [ %.24596.i, %read_false.exit822 ], [ %.24596.i, %read_null.exit825 ], [ %.24596.i, %read_number.exit539 ], [ %.24596.i, %read_string.exit774 ], [ %.17589.i, %2341 ], [ %.25597.i, %5074 ], [ %.24596.i, %4951 ], [ %.24596.i, %4953 ], [ %.24596.i, %5017 ], [ %.24596.i, %5019 ], [ %.24596.i, %5003 ], [ %.24596.i, %4996 ]
-  %.21.i.ph = phi ptr [ %.25.i, %4916 ], [ %.25.i, %4479 ], [ %.25.i, %4471 ], [ %.25.i, %4461 ], [ %.25.i, %4451 ], [ %.25.i, %4444 ], [ %.25.i, %4436 ], [ %.25.i, %3681 ], [ %.25.i, %read_inf_or_nan.exit ], [ %.25.i, %3625 ], [ %.25.i, %read_true.exit819 ], [ %.25.i, %read_false.exit822 ], [ %.25.i, %read_null.exit825 ], [ %.25.i, %read_number.exit539 ], [ %.25.i, %read_string.exit774 ], [ %.17.i, %2341 ], [ %.26.i, %5074 ], [ %.25.i, %4951 ], [ %.25.i, %4953 ], [ %.25.i, %5017 ], [ %.25.i, %5019 ], [ %.25.i, %5003 ], [ %.25.i, %4996 ]
-  %.6553.i.ph = phi i64 [ %3624, %4916 ], [ %3624, %4479 ], [ %3624, %4471 ], [ %3624, %4461 ], [ %3624, %4451 ], [ %3624, %4444 ], [ %3624, %4436 ], [ %3624, %3681 ], [ %3624, %read_inf_or_nan.exit ], [ %3624, %3625 ], [ %4923, %read_true.exit819 ], [ %4929, %read_false.exit822 ], [ %4934, %read_null.exit825 ], [ %3624, %read_number.exit539 ], [ %3064, %read_string.exit774 ], [ %2336, %2341 ], [ %5069, %5074 ], [ %4934, %4951 ], [ %4934, %4953 ], [ %4968, %5017 ], [ %4968, %5019 ], [ %4968, %5003 ], [ %4968, %4996 ]
-  %.13.i.ph = phi i64 [ %.15.i, %4916 ], [ %.15.i, %4479 ], [ %.15.i, %4471 ], [ %.15.i, %4461 ], [ %.15.i, %4451 ], [ %.15.i, %4444 ], [ %.15.i, %4436 ], [ %.15.i, %3681 ], [ %.15.i, %read_inf_or_nan.exit ], [ %.15.i, %3625 ], [ %.15.i, %read_true.exit819 ], [ %.15.i, %read_false.exit822 ], [ %.15.i, %read_null.exit825 ], [ %.15.i, %read_number.exit539 ], [ %.15.i, %read_string.exit774 ], [ %.11.i, %2341 ], [ %.16.i, %5074 ], [ %.15.i, %4951 ], [ %.15.i, %4953 ], [ %.15.i, %5017 ], [ %.15.i, %5019 ], [ %.15.i, %5003 ], [ %.15.i, %4996 ]
+  %.20645.i.ph = phi ptr [ %.24649.i, %4916 ], [ %.24649.i, %4479 ], [ %.24649.i, %4471 ], [ %.24649.i, %4461 ], [ %.24649.i, %4451 ], [ %.24649.i, %4444 ], [ %.24649.i, %4436 ], [ %.24649.i, %3681 ], [ %.24649.i, %read_inf_or_nan.exit ], [ %.24649.i, %3625 ], [ %.24649.i, %read_null.exit825 ], [ %.24649.i, %read_false.exit822 ], [ %.24649.i, %read_true.exit819 ], [ %.24649.i, %read_number.exit539 ], [ %2327, %2341 ], [ %5060, %5074 ], [ %.24649.i, %read_string.exit774 ], [ %.24649.i, %4951 ], [ %.24649.i, %4953 ], [ %.24649.i, %5017 ], [ %.24649.i, %5019 ], [ %.24649.i, %5003 ], [ %.24649.i, %4996 ]
+  %.21619.i.ph = phi ptr [ %3623, %4916 ], [ %3623, %4479 ], [ %3623, %4471 ], [ %3623, %4461 ], [ %3623, %4451 ], [ %3623, %4444 ], [ %3623, %4436 ], [ %3623, %3681 ], [ %3623, %read_inf_or_nan.exit ], [ %3623, %3625 ], [ %4933, %read_null.exit825 ], [ %4930, %read_false.exit822 ], [ %4924, %read_true.exit819 ], [ %3623, %read_number.exit539 ], [ %.17615.i, %2341 ], [ %.26624.i, %5074 ], [ %3063, %read_string.exit774 ], [ %4933, %4951 ], [ %4933, %4953 ], [ %4967, %5017 ], [ %4967, %5019 ], [ %4967, %5003 ], [ %4967, %4996 ]
+  %.20592.i.ph = phi ptr [ %.24596.i, %4916 ], [ %.24596.i, %4479 ], [ %.24596.i, %4471 ], [ %.24596.i, %4461 ], [ %.24596.i, %4451 ], [ %.24596.i, %4444 ], [ %.24596.i, %4436 ], [ %.24596.i, %3681 ], [ %.24596.i, %read_inf_or_nan.exit ], [ %.24596.i, %3625 ], [ %.24596.i, %read_null.exit825 ], [ %.24596.i, %read_false.exit822 ], [ %.24596.i, %read_true.exit819 ], [ %.24596.i, %read_number.exit539 ], [ %.17589.i, %2341 ], [ %.25597.i, %5074 ], [ %.24596.i, %read_string.exit774 ], [ %.24596.i, %4951 ], [ %.24596.i, %4953 ], [ %.24596.i, %5017 ], [ %.24596.i, %5019 ], [ %.24596.i, %5003 ], [ %.24596.i, %4996 ]
+  %.21.i.ph = phi ptr [ %.25.i, %4916 ], [ %.25.i, %4479 ], [ %.25.i, %4471 ], [ %.25.i, %4461 ], [ %.25.i, %4451 ], [ %.25.i, %4444 ], [ %.25.i, %4436 ], [ %.25.i, %3681 ], [ %.25.i, %read_inf_or_nan.exit ], [ %.25.i, %3625 ], [ %.25.i, %read_null.exit825 ], [ %.25.i, %read_false.exit822 ], [ %.25.i, %read_true.exit819 ], [ %.25.i, %read_number.exit539 ], [ %.17.i, %2341 ], [ %.26.i, %5074 ], [ %.25.i, %read_string.exit774 ], [ %.25.i, %4951 ], [ %.25.i, %4953 ], [ %.25.i, %5017 ], [ %.25.i, %5019 ], [ %.25.i, %5003 ], [ %.25.i, %4996 ]
+  %.6553.i.ph = phi i64 [ %3624, %4916 ], [ %3624, %4479 ], [ %3624, %4471 ], [ %3624, %4461 ], [ %3624, %4451 ], [ %3624, %4444 ], [ %3624, %4436 ], [ %3624, %3681 ], [ %3624, %read_inf_or_nan.exit ], [ %3624, %3625 ], [ %4934, %read_null.exit825 ], [ %4929, %read_false.exit822 ], [ %4923, %read_true.exit819 ], [ %3624, %read_number.exit539 ], [ %2336, %2341 ], [ %5069, %5074 ], [ %3064, %read_string.exit774 ], [ %4934, %4951 ], [ %4934, %4953 ], [ %4968, %5017 ], [ %4968, %5019 ], [ %4968, %5003 ], [ %4968, %4996 ]
+  %.13.i.ph = phi i64 [ %.15.i, %4916 ], [ %.15.i, %4479 ], [ %.15.i, %4471 ], [ %.15.i, %4461 ], [ %.15.i, %4451 ], [ %.15.i, %4444 ], [ %.15.i, %4436 ], [ %.15.i, %3681 ], [ %.15.i, %read_inf_or_nan.exit ], [ %.15.i, %3625 ], [ %.15.i, %read_null.exit825 ], [ %.15.i, %read_false.exit822 ], [ %.15.i, %read_true.exit819 ], [ %.15.i, %read_number.exit539 ], [ %.11.i, %2341 ], [ %.16.i, %5074 ], [ %.15.i, %read_string.exit774 ], [ %.15.i, %4951 ], [ %.15.i, %4953 ], [ %.15.i, %5017 ], [ %.15.i, %5019 ], [ %.15.i, %5003 ], [ %.15.i, %4996 ]
   %4917 = load ptr, ptr %21, align 8, !tbaa !86
   %.sroa.01.0.copyload.i5845078 = load i16, ptr %4917, align 1
   %4918 = icmp eq i16 %.sroa.01.0.copyload.i5845078, 2604
@@ -17952,13 +17952,13 @@ read_null.exit825:                                ; preds = %4932
   br i1 %5054, label %5200, label %.loopexit4318
 
 5055:                                             ; preds = %5034, %3013, %3010
-  %5056 = phi ptr [ %3011, %3010 ], [ %5035, %5034 ], [ %3011, %3013 ]
-  %.25650.i = phi ptr [ %.0625.i.ph, %3010 ], [ %.20645.i.ph, %5034 ], [ %.0625.i.ph, %3013 ]
-  %.26624.i = phi ptr [ %.0598.i.ph, %3010 ], [ %.21619.i.ph, %5034 ], [ %.0598.i.ph, %3013 ]
-  %.25597.i = phi ptr [ %.0572.i.ph, %3010 ], [ %.20592.i.ph, %5034 ], [ %.0572.i.ph, %3013 ]
-  %.26.i = phi ptr [ %.0555.i.ph, %3010 ], [ %.21.i.ph, %5034 ], [ %.0555.i.ph, %3013 ]
-  %.7554.i = phi i64 [ 0, %3010 ], [ %.6553.i.ph, %5034 ], [ %.0547.i.ph, %3013 ]
-  %.16.i = phi i64 [ %.0546.i.ph, %3010 ], [ %.13.i.ph, %5034 ], [ %.0546.i.ph, %3013 ]
+  %5056 = phi ptr [ %5035, %5034 ], [ %3011, %3010 ], [ %3011, %3013 ]
+  %.25650.i = phi ptr [ %.20645.i.ph, %5034 ], [ %.0625.i.ph, %3010 ], [ %.0625.i.ph, %3013 ]
+  %.26624.i = phi ptr [ %.21619.i.ph, %5034 ], [ %.0598.i.ph, %3010 ], [ %.0598.i.ph, %3013 ]
+  %.25597.i = phi ptr [ %.20592.i.ph, %5034 ], [ %.0572.i.ph, %3010 ], [ %.0572.i.ph, %3013 ]
+  %.26.i = phi ptr [ %.21.i.ph, %5034 ], [ %.0555.i.ph, %3010 ], [ %.0555.i.ph, %3013 ]
+  %.7554.i = phi i64 [ %.6553.i.ph, %5034 ], [ 0, %3010 ], [ %.0547.i.ph, %3013 ]
+  %.16.i = phi i64 [ %.13.i.ph, %5034 ], [ %.0546.i.ph, %3010 ], [ %.0546.i.ph, %3013 ]
   %5057 = getelementptr inbounds nuw i8, ptr %.25650.i, i64 8
   %5058 = load i64, ptr %5057, align 8, !tbaa !75
   %5059 = sub i64 0, %5058
@@ -21125,12 +21125,12 @@ bigint_cmp.exit1290.thread:                       ; preds = %6561, %6555, %bigin
   br label %.preheader4217
 
 .preheader4217:                                   ; preds = %7305, %7312, %7328, %7326, %7236, %7234, %7369, %10024, %5292, %read_number.exit, %read_string.exit, %read_true.exit, %read_false.exit, %read_null.exit, %read_inf_or_nan.exit859, %5349, %6104, %6112, %6119, %6129, %6139, %6147, %6584
-  %.8632.i.ph = phi ptr [ %.7631.i, %6584 ], [ %.7631.i, %6147 ], [ %.7631.i, %6139 ], [ %.7631.i, %6129 ], [ %.7631.i, %6119 ], [ %.7631.i, %6112 ], [ %.7631.i, %6104 ], [ %.7631.i, %5349 ], [ %.7631.i, %read_inf_or_nan.exit859 ], [ %.7631.i, %5292 ], [ %.10634.i, %read_string.exit ], [ %.12636.i, %read_true.exit ], [ %.14638.i, %read_false.exit ], [ %.16640.i, %read_null.exit ], [ %.7631.i, %read_number.exit ], [ %7371, %7369 ], [ %10026, %10024 ], [ %.16640.i, %7234 ], [ %.16640.i, %7236 ], [ %.19643.i, %7326 ], [ %.19643.i, %7328 ], [ %.19643.i, %7312 ], [ %.19643.i, %7305 ]
-  %.8605.i.ph = phi ptr [ %.7604.i, %6584 ], [ %.7604.i, %6147 ], [ %.7604.i, %6139 ], [ %.7604.i, %6129 ], [ %.7604.i, %6119 ], [ %.7604.i, %6112 ], [ %.7604.i, %6104 ], [ %.7604.i, %5349 ], [ %.7604.i, %read_inf_or_nan.exit859 ], [ %.7604.i, %5292 ], [ %.10607.i, %read_string.exit ], [ %.12609.i, %read_true.exit ], [ %.14611.i, %read_false.exit ], [ %.16613.i, %read_null.exit ], [ %.7604.i, %read_number.exit ], [ %.17614.i, %7369 ], [ %.26623.i, %10024 ], [ %.16613.i, %7234 ], [ %.16613.i, %7236 ], [ %.19616.i, %7326 ], [ %.19616.i, %7328 ], [ %.19616.i, %7312 ], [ %.19616.i, %7305 ]
-  %.8579.i.ph = phi ptr [ %.7578.i, %6584 ], [ %.7578.i, %6147 ], [ %.7578.i, %6139 ], [ %.7578.i, %6129 ], [ %.7578.i, %6119 ], [ %.7578.i, %6112 ], [ %.7578.i, %6104 ], [ %.7578.i, %5349 ], [ %.7578.i, %read_inf_or_nan.exit859 ], [ %.7578.i, %5292 ], [ %.10581.i, %read_string.exit ], [ %.12583.i, %read_true.exit ], [ %.14585.i, %read_false.exit ], [ %.16587.i, %read_null.exit ], [ %.7578.i, %read_number.exit ], [ %.17588.i, %7369 ], [ %.25596.i, %10024 ], [ %.16587.i, %7234 ], [ %.16587.i, %7236 ], [ %.19590.i, %7326 ], [ %.19590.i, %7328 ], [ %.19590.i, %7312 ], [ %.19590.i, %7305 ]
-  %.8562.i.ph = phi ptr [ %.7561.i, %6584 ], [ %.7561.i, %6147 ], [ %.7561.i, %6139 ], [ %.7561.i, %6129 ], [ %.7561.i, %6119 ], [ %.7561.i, %6112 ], [ %.7561.i, %6104 ], [ %.7561.i, %5349 ], [ %.7561.i, %read_inf_or_nan.exit859 ], [ %.7561.i, %5292 ], [ %.10564.i, %read_string.exit ], [ %.12566.i, %read_true.exit ], [ %.14568.i, %read_false.exit ], [ %.16570.i, %read_null.exit ], [ %.7561.i, %read_number.exit ], [ %.17.i146, %7369 ], [ %.26.i143, %10024 ], [ %.16570.i, %7234 ], [ %.16570.i, %7236 ], [ %.19.i190, %7326 ], [ %.19.i190, %7328 ], [ %.19.i190, %7312 ], [ %.19.i190, %7305 ]
-  %.4550.i.ph = phi i64 [ %5291, %6584 ], [ %5291, %6147 ], [ %5291, %6139 ], [ %5291, %6129 ], [ %5291, %6119 ], [ %5291, %6112 ], [ %5291, %6104 ], [ %5291, %5349 ], [ %5291, %read_inf_or_nan.exit859 ], [ %5291, %5292 ], [ %6605, %read_string.exit ], [ %7175, %read_true.exit ], [ %7197, %read_false.exit ], [ %7217, %read_null.exit ], [ %5291, %read_number.exit ], [ %7373, %7369 ], [ %10028, %10024 ], [ %7217, %7234 ], [ %7217, %7236 ], [ %7277, %7326 ], [ %7277, %7328 ], [ %7277, %7312 ], [ %7277, %7305 ]
-  %.6.i145.ph = phi i64 [ %.5.i194, %6584 ], [ %.5.i194, %6147 ], [ %.5.i194, %6139 ], [ %.5.i194, %6129 ], [ %.5.i194, %6119 ], [ %.5.i194, %6112 ], [ %.5.i194, %6104 ], [ %.5.i194, %5349 ], [ %.5.i194, %read_inf_or_nan.exit859 ], [ %.5.i194, %5292 ], [ %.7.i186, %read_string.exit ], [ %.8.i183, %read_true.exit ], [ %.9.i180, %read_false.exit ], [ %.10.i177, %read_null.exit ], [ %.5.i194, %read_number.exit ], [ %.11.i147, %7369 ], [ %.16.i144, %10024 ], [ %.10.i177, %7234 ], [ %.10.i177, %7236 ], [ %.12.i191, %7326 ], [ %.12.i191, %7328 ], [ %.12.i191, %7312 ], [ %.12.i191, %7305 ]
+  %.8632.i.ph = phi ptr [ %.7631.i, %6584 ], [ %.7631.i, %6147 ], [ %.7631.i, %6139 ], [ %.7631.i, %6129 ], [ %.7631.i, %6119 ], [ %.7631.i, %6112 ], [ %.7631.i, %6104 ], [ %.7631.i, %5349 ], [ %.7631.i, %read_inf_or_nan.exit859 ], [ %.7631.i, %5292 ], [ %7371, %7369 ], [ %.16640.i, %read_null.exit ], [ %.14638.i, %read_false.exit ], [ %.12636.i, %read_true.exit ], [ %.10634.i, %read_string.exit ], [ %.7631.i, %read_number.exit ], [ %10026, %10024 ], [ %.16640.i, %7234 ], [ %.16640.i, %7236 ], [ %.19643.i, %7326 ], [ %.19643.i, %7328 ], [ %.19643.i, %7312 ], [ %.19643.i, %7305 ]
+  %.8605.i.ph = phi ptr [ %.7604.i, %6584 ], [ %.7604.i, %6147 ], [ %.7604.i, %6139 ], [ %.7604.i, %6129 ], [ %.7604.i, %6119 ], [ %.7604.i, %6112 ], [ %.7604.i, %6104 ], [ %.7604.i, %5349 ], [ %.7604.i, %read_inf_or_nan.exit859 ], [ %.7604.i, %5292 ], [ %.17614.i, %7369 ], [ %.16613.i, %read_null.exit ], [ %.14611.i, %read_false.exit ], [ %.12609.i, %read_true.exit ], [ %.10607.i, %read_string.exit ], [ %.7604.i, %read_number.exit ], [ %.26623.i, %10024 ], [ %.16613.i, %7234 ], [ %.16613.i, %7236 ], [ %.19616.i, %7326 ], [ %.19616.i, %7328 ], [ %.19616.i, %7312 ], [ %.19616.i, %7305 ]
+  %.8579.i.ph = phi ptr [ %.7578.i, %6584 ], [ %.7578.i, %6147 ], [ %.7578.i, %6139 ], [ %.7578.i, %6129 ], [ %.7578.i, %6119 ], [ %.7578.i, %6112 ], [ %.7578.i, %6104 ], [ %.7578.i, %5349 ], [ %.7578.i, %read_inf_or_nan.exit859 ], [ %.7578.i, %5292 ], [ %.17588.i, %7369 ], [ %.16587.i, %read_null.exit ], [ %.14585.i, %read_false.exit ], [ %.12583.i, %read_true.exit ], [ %.10581.i, %read_string.exit ], [ %.7578.i, %read_number.exit ], [ %.25596.i, %10024 ], [ %.16587.i, %7234 ], [ %.16587.i, %7236 ], [ %.19590.i, %7326 ], [ %.19590.i, %7328 ], [ %.19590.i, %7312 ], [ %.19590.i, %7305 ]
+  %.8562.i.ph = phi ptr [ %.7561.i, %6584 ], [ %.7561.i, %6147 ], [ %.7561.i, %6139 ], [ %.7561.i, %6129 ], [ %.7561.i, %6119 ], [ %.7561.i, %6112 ], [ %.7561.i, %6104 ], [ %.7561.i, %5349 ], [ %.7561.i, %read_inf_or_nan.exit859 ], [ %.7561.i, %5292 ], [ %.17.i146, %7369 ], [ %.16570.i, %read_null.exit ], [ %.14568.i, %read_false.exit ], [ %.12566.i, %read_true.exit ], [ %.10564.i, %read_string.exit ], [ %.7561.i, %read_number.exit ], [ %.26.i143, %10024 ], [ %.16570.i, %7234 ], [ %.16570.i, %7236 ], [ %.19.i190, %7326 ], [ %.19.i190, %7328 ], [ %.19.i190, %7312 ], [ %.19.i190, %7305 ]
+  %.4550.i.ph = phi i64 [ %5291, %6584 ], [ %5291, %6147 ], [ %5291, %6139 ], [ %5291, %6129 ], [ %5291, %6119 ], [ %5291, %6112 ], [ %5291, %6104 ], [ %5291, %5349 ], [ %5291, %read_inf_or_nan.exit859 ], [ %5291, %5292 ], [ %7373, %7369 ], [ %7217, %read_null.exit ], [ %7197, %read_false.exit ], [ %7175, %read_true.exit ], [ %6605, %read_string.exit ], [ %5291, %read_number.exit ], [ %10028, %10024 ], [ %7217, %7234 ], [ %7217, %7236 ], [ %7277, %7326 ], [ %7277, %7328 ], [ %7277, %7312 ], [ %7277, %7305 ]
+  %.6.i145.ph = phi i64 [ %.5.i194, %6584 ], [ %.5.i194, %6147 ], [ %.5.i194, %6139 ], [ %.5.i194, %6129 ], [ %.5.i194, %6119 ], [ %.5.i194, %6112 ], [ %.5.i194, %6104 ], [ %.5.i194, %5349 ], [ %.5.i194, %read_inf_or_nan.exit859 ], [ %.5.i194, %5292 ], [ %.11.i147, %7369 ], [ %.10.i177, %read_null.exit ], [ %.9.i180, %read_false.exit ], [ %.8.i183, %read_true.exit ], [ %.7.i186, %read_string.exit ], [ %.5.i194, %read_number.exit ], [ %.16.i144, %10024 ], [ %.10.i177, %7234 ], [ %.10.i177, %7236 ], [ %.12.i191, %7326 ], [ %.12.i191, %7328 ], [ %.12.i191, %7312 ], [ %.12.i191, %7305 ]
   %6585 = and i32 %2, 8
   %.not3917 = icmp eq i32 %6585, 0
   br label %.backedge4219
@@ -21787,8 +21787,8 @@ read_number.exit:                                 ; preds = %6214, %.loopexit419
   br label %.backedge.preheader
 
 .backedge.preheader:                              ; preds = %6943, %6914, %6871, %6862, %6846, %6803, %6800, %6797, %6794, %6791, %6788, %6785, %6782
-  %.9.i594.ph = phi ptr [ %6944, %6943 ], [ %6784, %6782 ], [ %6787, %6785 ], [ %6790, %6788 ], [ %6793, %6791 ], [ %6796, %6794 ], [ %6799, %6797 ], [ %6802, %6800 ], [ %6805, %6803 ], [ %6938, %6914 ], [ %6842, %6871 ], [ %6842, %6862 ], [ %6842, %6846 ]
-  %.2.i595.ph = phi ptr [ %6945, %6943 ], [ %6783, %6782 ], [ %6786, %6785 ], [ %6789, %6788 ], [ %6792, %6791 ], [ %6795, %6794 ], [ %6798, %6797 ], [ %6801, %6800 ], [ %6804, %6803 ], [ %6937, %6914 ], [ %6873, %6871 ], [ %6870, %6862 ], [ %6859, %6846 ]
+  %.9.i594.ph = phi ptr [ %6944, %6943 ], [ %6938, %6914 ], [ %6842, %6871 ], [ %6842, %6862 ], [ %6842, %6846 ], [ %6805, %6803 ], [ %6802, %6800 ], [ %6799, %6797 ], [ %6796, %6794 ], [ %6793, %6791 ], [ %6790, %6788 ], [ %6787, %6785 ], [ %6784, %6782 ]
+  %.2.i595.ph = phi ptr [ %6945, %6943 ], [ %6937, %6914 ], [ %6873, %6871 ], [ %6870, %6862 ], [ %6859, %6846 ], [ %6804, %6803 ], [ %6801, %6800 ], [ %6798, %6797 ], [ %6795, %6794 ], [ %6792, %6791 ], [ %6789, %6788 ], [ %6786, %6785 ], [ %6783, %6782 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
@@ -22734,13 +22734,13 @@ read_null.exit:                                   ; preds = %7216
   br i1 %7358, label %10154, label %.loopexit4218
 
 7359:                                             ; preds = %7339, %7241, %7238
-  %7360 = phi ptr [ %7340, %7339 ], [ %7239, %7238 ], [ %7239, %7241 ]
-  %.17641.i = phi ptr [ %.8632.i.ph, %7339 ], [ %.1625.i.ph, %7238 ], [ %.1625.i.ph, %7241 ]
-  %.17614.i = phi ptr [ %.8605.i.ph, %7339 ], [ %.1598.i.ph, %7238 ], [ %.1598.i.ph, %7241 ]
-  %.17588.i = phi ptr [ %.8579.i.ph, %7339 ], [ %.1572.i.ph, %7238 ], [ %.1572.i.ph, %7241 ]
-  %.17.i146 = phi ptr [ %.8562.i.ph, %7339 ], [ %.1555.i.ph, %7238 ], [ %.1555.i.ph, %7241 ]
-  %.5551.i = phi i64 [ %.4550.i.ph, %7339 ], [ 0, %7238 ], [ %.1547.i.ph, %7241 ]
-  %.11.i147 = phi i64 [ %.6.i145.ph, %7339 ], [ %.1.i123.ph, %7238 ], [ %.1.i123.ph, %7241 ]
+  %7360 = phi ptr [ %7239, %7238 ], [ %7239, %7241 ], [ %7340, %7339 ]
+  %.17641.i = phi ptr [ %.1625.i.ph, %7238 ], [ %.1625.i.ph, %7241 ], [ %.8632.i.ph, %7339 ]
+  %.17614.i = phi ptr [ %.1598.i.ph, %7238 ], [ %.1598.i.ph, %7241 ], [ %.8605.i.ph, %7339 ]
+  %.17588.i = phi ptr [ %.1572.i.ph, %7238 ], [ %.1572.i.ph, %7241 ], [ %.8579.i.ph, %7339 ]
+  %.17.i146 = phi ptr [ %.1555.i.ph, %7238 ], [ %.1555.i.ph, %7241 ], [ %.8562.i.ph, %7339 ]
+  %.5551.i = phi i64 [ 0, %7238 ], [ %.1547.i.ph, %7241 ], [ %.4550.i.ph, %7339 ]
+  %.11.i147 = phi i64 [ %.1.i123.ph, %7238 ], [ %.1.i123.ph, %7241 ], [ %.6.i145.ph, %7339 ]
   %7361 = getelementptr inbounds nuw i8, ptr %.17641.i, i64 8
   %7362 = load i64, ptr %7361, align 8, !tbaa !75
   %7363 = ptrtoint ptr %.17614.i to i64
@@ -23471,8 +23471,8 @@ read_null.exit:                                   ; preds = %7216
   br label %.backedge4263.preheader
 
 .backedge4263.preheader:                          ; preds = %7761, %7732, %7689, %7680, %7664, %7621, %7618, %7615, %7612, %7609, %7606, %7603, %7600
-  %.9.i668.ph = phi ptr [ %7762, %7761 ], [ %7602, %7600 ], [ %7605, %7603 ], [ %7608, %7606 ], [ %7611, %7609 ], [ %7614, %7612 ], [ %7617, %7615 ], [ %7620, %7618 ], [ %7623, %7621 ], [ %7756, %7732 ], [ %7660, %7689 ], [ %7660, %7680 ], [ %7660, %7664 ]
-  %.2.i669.ph = phi ptr [ %7763, %7761 ], [ %7601, %7600 ], [ %7604, %7603 ], [ %7607, %7606 ], [ %7610, %7609 ], [ %7613, %7612 ], [ %7616, %7615 ], [ %7619, %7618 ], [ %7622, %7621 ], [ %7755, %7732 ], [ %7691, %7689 ], [ %7688, %7680 ], [ %7677, %7664 ]
+  %.9.i668.ph = phi ptr [ %7762, %7761 ], [ %7756, %7732 ], [ %7660, %7689 ], [ %7660, %7680 ], [ %7660, %7664 ], [ %7623, %7621 ], [ %7620, %7618 ], [ %7617, %7615 ], [ %7614, %7612 ], [ %7611, %7609 ], [ %7608, %7606 ], [ %7605, %7603 ], [ %7602, %7600 ]
+  %.2.i669.ph = phi ptr [ %7763, %7761 ], [ %7755, %7732 ], [ %7691, %7689 ], [ %7688, %7680 ], [ %7677, %7664 ], [ %7622, %7621 ], [ %7619, %7618 ], [ %7616, %7615 ], [ %7613, %7612 ], [ %7610, %7609 ], [ %7607, %7606 ], [ %7604, %7603 ], [ %7601, %7600 ]
   br label %.backedge4263
 
 .backedge4263:                                    ; preds = %.backedge4263.backedge, %.backedge4263.preheader
@@ -24651,8 +24651,8 @@ read_string.exit690:                              ; preds = %.split.loop.exit537
   br label %.backedge4229.preheader
 
 .backedge4229.preheader:                          ; preds = %8365, %8336, %8293, %8284, %8268, %8225, %8222, %8219, %8216, %8213, %8210, %8207, %8204
-  %.9.i626.ph = phi ptr [ %8366, %8365 ], [ %8206, %8204 ], [ %8209, %8207 ], [ %8212, %8210 ], [ %8215, %8213 ], [ %8218, %8216 ], [ %8221, %8219 ], [ %8224, %8222 ], [ %8227, %8225 ], [ %8360, %8336 ], [ %8264, %8293 ], [ %8264, %8284 ], [ %8264, %8268 ]
-  %.2.i627.ph = phi ptr [ %8367, %8365 ], [ %8205, %8204 ], [ %8208, %8207 ], [ %8211, %8210 ], [ %8214, %8213 ], [ %8217, %8216 ], [ %8220, %8219 ], [ %8223, %8222 ], [ %8226, %8225 ], [ %8359, %8336 ], [ %8295, %8293 ], [ %8292, %8284 ], [ %8281, %8268 ]
+  %.9.i626.ph = phi ptr [ %8366, %8365 ], [ %8360, %8336 ], [ %8264, %8293 ], [ %8264, %8284 ], [ %8264, %8268 ], [ %8227, %8225 ], [ %8224, %8222 ], [ %8221, %8219 ], [ %8218, %8216 ], [ %8215, %8213 ], [ %8212, %8210 ], [ %8209, %8207 ], [ %8206, %8204 ]
+  %.2.i627.ph = phi ptr [ %8367, %8365 ], [ %8359, %8336 ], [ %8295, %8293 ], [ %8292, %8284 ], [ %8281, %8268 ], [ %8226, %8225 ], [ %8223, %8222 ], [ %8220, %8219 ], [ %8217, %8216 ], [ %8214, %8213 ], [ %8211, %8210 ], [ %8208, %8207 ], [ %8205, %8204 ]
   br label %.backedge4229
 
 .backedge4229:                                    ; preds = %.backedge4229.backedge, %.backedge4229.preheader
@@ -27636,12 +27636,12 @@ bigint_cmp.exit1281.thread:                       ; preds = %9856, %9850, %bigin
   br label %.preheader4222
 
 .preheader4222:                                   ; preds = %9957, %9964, %9980, %9978, %9914, %9912, %7369, %10024, %read_string.exit648, %8588, %read_number.exit327, %read_true.exit817, %read_false.exit820, %read_null.exit823, %read_inf_or_nan.exit852, %8644, %9399, %9407, %9414, %9424, %9434, %9442, %9879
-  %.20644.i.ph = phi ptr [ %.24648.i, %9879 ], [ %.24648.i, %9442 ], [ %.24648.i, %9434 ], [ %.24648.i, %9424 ], [ %.24648.i, %9414 ], [ %.24648.i, %9407 ], [ %.24648.i, %9399 ], [ %.24648.i, %8644 ], [ %.24648.i, %read_inf_or_nan.exit852 ], [ %.24648.i, %8588 ], [ %.24648.i, %read_true.exit817 ], [ %.24648.i, %read_false.exit820 ], [ %.24648.i, %read_null.exit823 ], [ %.24648.i, %read_number.exit327 ], [ %.24648.i, %read_string.exit648 ], [ %7371, %7369 ], [ %10026, %10024 ], [ %.24648.i, %9912 ], [ %.24648.i, %9914 ], [ %.24648.i, %9978 ], [ %.24648.i, %9980 ], [ %.24648.i, %9964 ], [ %.24648.i, %9957 ]
-  %.21618.i.ph = phi ptr [ %8586, %9879 ], [ %8586, %9442 ], [ %8586, %9434 ], [ %8586, %9424 ], [ %8586, %9414 ], [ %8586, %9407 ], [ %8586, %9399 ], [ %8586, %8644 ], [ %8586, %read_inf_or_nan.exit852 ], [ %8586, %8588 ], [ %9885, %read_true.exit817 ], [ %9891, %read_false.exit820 ], [ %9894, %read_null.exit823 ], [ %8586, %read_number.exit327 ], [ %8026, %read_string.exit648 ], [ %.17614.i, %7369 ], [ %.26623.i, %10024 ], [ %9894, %9912 ], [ %9894, %9914 ], [ %9928, %9978 ], [ %9928, %9980 ], [ %9928, %9964 ], [ %9928, %9957 ]
-  %.20591.i.ph = phi ptr [ %.24595.i, %9879 ], [ %.24595.i, %9442 ], [ %.24595.i, %9434 ], [ %.24595.i, %9424 ], [ %.24595.i, %9414 ], [ %.24595.i, %9407 ], [ %.24595.i, %9399 ], [ %.24595.i, %8644 ], [ %.24595.i, %read_inf_or_nan.exit852 ], [ %.24595.i, %8588 ], [ %.24595.i, %read_true.exit817 ], [ %.24595.i, %read_false.exit820 ], [ %.24595.i, %read_null.exit823 ], [ %.24595.i, %read_number.exit327 ], [ %.24595.i, %read_string.exit648 ], [ %.17588.i, %7369 ], [ %.25596.i, %10024 ], [ %.24595.i, %9912 ], [ %.24595.i, %9914 ], [ %.24595.i, %9978 ], [ %.24595.i, %9980 ], [ %.24595.i, %9964 ], [ %.24595.i, %9957 ]
-  %.21.i148.ph = phi ptr [ %.25.i159, %9879 ], [ %.25.i159, %9442 ], [ %.25.i159, %9434 ], [ %.25.i159, %9424 ], [ %.25.i159, %9414 ], [ %.25.i159, %9407 ], [ %.25.i159, %9399 ], [ %.25.i159, %8644 ], [ %.25.i159, %read_inf_or_nan.exit852 ], [ %.25.i159, %8588 ], [ %.25.i159, %read_true.exit817 ], [ %.25.i159, %read_false.exit820 ], [ %.25.i159, %read_null.exit823 ], [ %.25.i159, %read_number.exit327 ], [ %.25.i159, %read_string.exit648 ], [ %.17.i146, %7369 ], [ %.26.i143, %10024 ], [ %.25.i159, %9912 ], [ %.25.i159, %9914 ], [ %.25.i159, %9978 ], [ %.25.i159, %9980 ], [ %.25.i159, %9964 ], [ %.25.i159, %9957 ]
-  %.6552.i.ph = phi i64 [ %8587, %9879 ], [ %8587, %9442 ], [ %8587, %9434 ], [ %8587, %9424 ], [ %8587, %9414 ], [ %8587, %9407 ], [ %8587, %9399 ], [ %8587, %8644 ], [ %8587, %read_inf_or_nan.exit852 ], [ %8587, %8588 ], [ %9884, %read_true.exit817 ], [ %9890, %read_false.exit820 ], [ %9895, %read_null.exit823 ], [ %8587, %read_number.exit327 ], [ %8027, %read_string.exit648 ], [ %7373, %7369 ], [ %10028, %10024 ], [ %9895, %9912 ], [ %9895, %9914 ], [ %9929, %9978 ], [ %9929, %9980 ], [ %9929, %9964 ], [ %9929, %9957 ]
-  %.13.i149.ph = phi i64 [ %.15.i160, %9879 ], [ %.15.i160, %9442 ], [ %.15.i160, %9434 ], [ %.15.i160, %9424 ], [ %.15.i160, %9414 ], [ %.15.i160, %9407 ], [ %.15.i160, %9399 ], [ %.15.i160, %8644 ], [ %.15.i160, %read_inf_or_nan.exit852 ], [ %.15.i160, %8588 ], [ %.15.i160, %read_true.exit817 ], [ %.15.i160, %read_false.exit820 ], [ %.15.i160, %read_null.exit823 ], [ %.15.i160, %read_number.exit327 ], [ %.15.i160, %read_string.exit648 ], [ %.11.i147, %7369 ], [ %.16.i144, %10024 ], [ %.15.i160, %9912 ], [ %.15.i160, %9914 ], [ %.15.i160, %9978 ], [ %.15.i160, %9980 ], [ %.15.i160, %9964 ], [ %.15.i160, %9957 ]
+  %.20644.i.ph = phi ptr [ %.24648.i, %9879 ], [ %.24648.i, %9442 ], [ %.24648.i, %9434 ], [ %.24648.i, %9424 ], [ %.24648.i, %9414 ], [ %.24648.i, %9407 ], [ %.24648.i, %9399 ], [ %.24648.i, %8644 ], [ %.24648.i, %read_inf_or_nan.exit852 ], [ %.24648.i, %8588 ], [ %.24648.i, %read_null.exit823 ], [ %.24648.i, %read_false.exit820 ], [ %.24648.i, %read_true.exit817 ], [ %.24648.i, %read_number.exit327 ], [ %7371, %7369 ], [ %10026, %10024 ], [ %.24648.i, %read_string.exit648 ], [ %.24648.i, %9912 ], [ %.24648.i, %9914 ], [ %.24648.i, %9978 ], [ %.24648.i, %9980 ], [ %.24648.i, %9964 ], [ %.24648.i, %9957 ]
+  %.21618.i.ph = phi ptr [ %8586, %9879 ], [ %8586, %9442 ], [ %8586, %9434 ], [ %8586, %9424 ], [ %8586, %9414 ], [ %8586, %9407 ], [ %8586, %9399 ], [ %8586, %8644 ], [ %8586, %read_inf_or_nan.exit852 ], [ %8586, %8588 ], [ %9894, %read_null.exit823 ], [ %9891, %read_false.exit820 ], [ %9885, %read_true.exit817 ], [ %8586, %read_number.exit327 ], [ %.17614.i, %7369 ], [ %.26623.i, %10024 ], [ %8026, %read_string.exit648 ], [ %9894, %9912 ], [ %9894, %9914 ], [ %9928, %9978 ], [ %9928, %9980 ], [ %9928, %9964 ], [ %9928, %9957 ]
+  %.20591.i.ph = phi ptr [ %.24595.i, %9879 ], [ %.24595.i, %9442 ], [ %.24595.i, %9434 ], [ %.24595.i, %9424 ], [ %.24595.i, %9414 ], [ %.24595.i, %9407 ], [ %.24595.i, %9399 ], [ %.24595.i, %8644 ], [ %.24595.i, %read_inf_or_nan.exit852 ], [ %.24595.i, %8588 ], [ %.24595.i, %read_null.exit823 ], [ %.24595.i, %read_false.exit820 ], [ %.24595.i, %read_true.exit817 ], [ %.24595.i, %read_number.exit327 ], [ %.17588.i, %7369 ], [ %.25596.i, %10024 ], [ %.24595.i, %read_string.exit648 ], [ %.24595.i, %9912 ], [ %.24595.i, %9914 ], [ %.24595.i, %9978 ], [ %.24595.i, %9980 ], [ %.24595.i, %9964 ], [ %.24595.i, %9957 ]
+  %.21.i148.ph = phi ptr [ %.25.i159, %9879 ], [ %.25.i159, %9442 ], [ %.25.i159, %9434 ], [ %.25.i159, %9424 ], [ %.25.i159, %9414 ], [ %.25.i159, %9407 ], [ %.25.i159, %9399 ], [ %.25.i159, %8644 ], [ %.25.i159, %read_inf_or_nan.exit852 ], [ %.25.i159, %8588 ], [ %.25.i159, %read_null.exit823 ], [ %.25.i159, %read_false.exit820 ], [ %.25.i159, %read_true.exit817 ], [ %.25.i159, %read_number.exit327 ], [ %.17.i146, %7369 ], [ %.26.i143, %10024 ], [ %.25.i159, %read_string.exit648 ], [ %.25.i159, %9912 ], [ %.25.i159, %9914 ], [ %.25.i159, %9978 ], [ %.25.i159, %9980 ], [ %.25.i159, %9964 ], [ %.25.i159, %9957 ]
+  %.6552.i.ph = phi i64 [ %8587, %9879 ], [ %8587, %9442 ], [ %8587, %9434 ], [ %8587, %9424 ], [ %8587, %9414 ], [ %8587, %9407 ], [ %8587, %9399 ], [ %8587, %8644 ], [ %8587, %read_inf_or_nan.exit852 ], [ %8587, %8588 ], [ %9895, %read_null.exit823 ], [ %9890, %read_false.exit820 ], [ %9884, %read_true.exit817 ], [ %8587, %read_number.exit327 ], [ %7373, %7369 ], [ %10028, %10024 ], [ %8027, %read_string.exit648 ], [ %9895, %9912 ], [ %9895, %9914 ], [ %9929, %9978 ], [ %9929, %9980 ], [ %9929, %9964 ], [ %9929, %9957 ]
+  %.13.i149.ph = phi i64 [ %.15.i160, %9879 ], [ %.15.i160, %9442 ], [ %.15.i160, %9434 ], [ %.15.i160, %9424 ], [ %.15.i160, %9414 ], [ %.15.i160, %9407 ], [ %.15.i160, %9399 ], [ %.15.i160, %8644 ], [ %.15.i160, %read_inf_or_nan.exit852 ], [ %.15.i160, %8588 ], [ %.15.i160, %read_null.exit823 ], [ %.15.i160, %read_false.exit820 ], [ %.15.i160, %read_true.exit817 ], [ %.15.i160, %read_number.exit327 ], [ %.11.i147, %7369 ], [ %.16.i144, %10024 ], [ %.15.i160, %read_string.exit648 ], [ %.15.i160, %9912 ], [ %.15.i160, %9914 ], [ %.15.i160, %9978 ], [ %.15.i160, %9980 ], [ %.15.i160, %9964 ], [ %.15.i160, %9957 ]
   %9880 = and i32 %2, 8
   %.not3922 = icmp eq i32 %9880, 0
   br label %.backedge4224
@@ -28014,13 +28014,13 @@ read_null.exit823:                                ; preds = %9893
   br i1 %10013, label %10154, label %.loopexit4223
 
 10014:                                            ; preds = %9994, %7979, %7976
-  %10015 = phi ptr [ %7977, %7976 ], [ %9995, %9994 ], [ %7977, %7979 ]
-  %.25649.i = phi ptr [ %.0624.i.ph, %7976 ], [ %.20644.i.ph, %9994 ], [ %.0624.i.ph, %7979 ]
-  %.26623.i = phi ptr [ %.0597.i.ph, %7976 ], [ %.21618.i.ph, %9994 ], [ %.0597.i.ph, %7979 ]
-  %.25596.i = phi ptr [ %.0571.i.ph, %7976 ], [ %.20591.i.ph, %9994 ], [ %.0571.i.ph, %7979 ]
-  %.26.i143 = phi ptr [ %.0554.i.ph, %7976 ], [ %.21.i148.ph, %9994 ], [ %.0554.i.ph, %7979 ]
-  %.7553.i = phi i64 [ 0, %7976 ], [ %.6552.i.ph, %9994 ], [ %.0546.i139.ph, %7979 ]
-  %.16.i144 = phi i64 [ %.0545.i.ph, %7976 ], [ %.13.i149.ph, %9994 ], [ %.0545.i.ph, %7979 ]
+  %10015 = phi ptr [ %9995, %9994 ], [ %7977, %7976 ], [ %7977, %7979 ]
+  %.25649.i = phi ptr [ %.20644.i.ph, %9994 ], [ %.0624.i.ph, %7976 ], [ %.0624.i.ph, %7979 ]
+  %.26623.i = phi ptr [ %.21618.i.ph, %9994 ], [ %.0597.i.ph, %7976 ], [ %.0597.i.ph, %7979 ]
+  %.25596.i = phi ptr [ %.20591.i.ph, %9994 ], [ %.0571.i.ph, %7976 ], [ %.0571.i.ph, %7979 ]
+  %.26.i143 = phi ptr [ %.21.i148.ph, %9994 ], [ %.0554.i.ph, %7976 ], [ %.0554.i.ph, %7979 ]
+  %.7553.i = phi i64 [ %.6552.i.ph, %9994 ], [ 0, %7976 ], [ %.0546.i139.ph, %7979 ]
+  %.16.i144 = phi i64 [ %.13.i149.ph, %9994 ], [ %.0545.i.ph, %7976 ], [ %.0545.i.ph, %7979 ]
   %10016 = getelementptr inbounds nuw i8, ptr %.25649.i, i64 8
   %10017 = load i64, ptr %10016, align 8, !tbaa !75
   %10018 = ptrtoint ptr %.26623.i to i64
@@ -31854,8 +31854,8 @@ read_number.exit:                                 ; preds = %1293, %1032
   br label %.backedge.preheader
 
 .backedge.preheader:                              ; preds = %1660, %1623, %1580, %1571, %1555, %1512, %1509, %1506, %1503, %1500, %1497, %1494, %1491
-  %.9.i183.ph = phi ptr [ %1661, %1660 ], [ %1493, %1491 ], [ %1496, %1494 ], [ %1499, %1497 ], [ %1502, %1500 ], [ %1505, %1503 ], [ %1508, %1506 ], [ %1511, %1509 ], [ %1514, %1512 ], [ %1647, %1623 ], [ %1551, %1580 ], [ %1551, %1571 ], [ %1551, %1555 ]
-  %.2.i.ph = phi ptr [ %1662, %1660 ], [ %1492, %1491 ], [ %1495, %1494 ], [ %1498, %1497 ], [ %1501, %1500 ], [ %1504, %1503 ], [ %1507, %1506 ], [ %1510, %1509 ], [ %1513, %1512 ], [ %1646, %1623 ], [ %1582, %1580 ], [ %1579, %1571 ], [ %1568, %1555 ]
+  %.9.i183.ph = phi ptr [ %1661, %1660 ], [ %1647, %1623 ], [ %1551, %1580 ], [ %1551, %1571 ], [ %1551, %1555 ], [ %1514, %1512 ], [ %1511, %1509 ], [ %1508, %1506 ], [ %1505, %1503 ], [ %1502, %1500 ], [ %1499, %1497 ], [ %1496, %1494 ], [ %1493, %1491 ]
+  %.2.i.ph = phi ptr [ %1662, %1660 ], [ %1646, %1623 ], [ %1582, %1580 ], [ %1579, %1571 ], [ %1568, %1555 ], [ %1513, %1512 ], [ %1510, %1509 ], [ %1507, %1506 ], [ %1504, %1503 ], [ %1501, %1500 ], [ %1498, %1497 ], [ %1495, %1494 ], [ %1492, %1491 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
@@ -36193,8 +36193,8 @@ get_enc_table_with_flag.exit68:                   ; preds = %20, %21
   br label %.preheader1409.backedge
 
 .preheader1409.backedge:                          ; preds = %291, %297, %409, %412, %260, %.critedge.i545, %.critedge324.i537, %312, %.critedge330.i519, %.critedge333.i515
-  %.8252.i503.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %234, %.critedge333.i515 ], [ %354, %.critedge330.i519 ], [ %329, %312 ], [ %305, %297 ], [ %296, %291 ], [ %234, %.critedge324.i537 ], [ %279, %.critedge.i545 ], [ %262, %260 ]
-  %.8.i504.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %403, %.critedge333.i515 ], [ %353, %.critedge330.i519 ], [ %328, %312 ], [ %304, %297 ], [ %295, %291 ], [ %290, %.critedge324.i537 ], [ %278, %.critedge.i545 ], [ %261, %260 ]
+  %.8252.i503.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %262, %260 ], [ %279, %.critedge.i545 ], [ %234, %.critedge324.i537 ], [ %296, %291 ], [ %305, %297 ], [ %329, %312 ], [ %354, %.critedge330.i519 ], [ %234, %.critedge333.i515 ]
+  %.8.i504.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %261, %260 ], [ %278, %.critedge.i545 ], [ %290, %.critedge324.i537 ], [ %295, %291 ], [ %304, %297 ], [ %328, %312 ], [ %353, %.critedge330.i519 ], [ %403, %.critedge333.i515 ]
   br label %.preheader1409
 
 297:                                              ; preds = %248
@@ -36897,8 +36897,8 @@ get_enc_table_with_flag.exit68:                   ; preds = %20, %21
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %668, %674, %786, %789, %637, %.critedge.i451, %.critedge324.i443, %689, %.critedge330.i425, %.critedge333.i421
-  %.8252.i409.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %611, %.critedge333.i421 ], [ %731, %.critedge330.i425 ], [ %706, %689 ], [ %682, %674 ], [ %673, %668 ], [ %611, %.critedge324.i443 ], [ %656, %.critedge.i451 ], [ %639, %637 ]
-  %.8.i410.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %780, %.critedge333.i421 ], [ %730, %.critedge330.i425 ], [ %705, %689 ], [ %681, %674 ], [ %672, %668 ], [ %667, %.critedge324.i443 ], [ %655, %.critedge.i451 ], [ %638, %637 ]
+  %.8252.i409.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %639, %637 ], [ %656, %.critedge.i451 ], [ %611, %.critedge324.i443 ], [ %673, %668 ], [ %682, %674 ], [ %706, %689 ], [ %731, %.critedge330.i425 ], [ %611, %.critedge333.i421 ]
+  %.8.i410.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %638, %637 ], [ %655, %.critedge.i451 ], [ %667, %.critedge324.i443 ], [ %672, %668 ], [ %681, %674 ], [ %705, %689 ], [ %730, %.critedge330.i425 ], [ %780, %.critedge333.i421 ]
   br label %.preheader
 
 674:                                              ; preds = %625
@@ -37717,8 +37717,8 @@ write_bool.exit609:                               ; preds = %1177
   br label %write_string.exit583
 
 write_string.exit583:                             ; preds = %885, %859, %839, %828, %write_u32_len_5_to_8.exit786, %write_u32_len_1_to_8.exit750, %.preheader1412._crit_edge, %404, %.preheader1396._crit_edge, %781, %1194, %1190, %1186, %write_bool.exit609, %write_number.exit605, %write_string_noesc.exit94, %32
-  %.081.i = phi ptr [ %1195, %1194 ], [ %1191, %1190 ], [ %1187, %1186 ], [ %1183, %write_bool.exit609 ], [ %.0.i601, %write_number.exit605 ], [ %810, %write_string_noesc.exit94 ], [ %33, %32 ], [ %405, %404 ], [ %187, %.preheader1412._crit_edge ], [ %782, %781 ], [ %564, %.preheader1396._crit_edge ], [ %919, %885 ], [ %884, %859 ], [ %856, %839 ], [ %836, %828 ], [ %1161, %write_u32_len_5_to_8.exit786 ], [ %1050, %write_u32_len_1_to_8.exit750 ]
-  %.080.i = phi ptr [ %1193, %1194 ], [ %1189, %1190 ], [ %1185, %1186 ], [ %1178, %write_bool.exit609 ], [ %812, %write_number.exit605 ], [ %40, %write_string_noesc.exit94 ], [ %31, %32 ], [ %40, %404 ], [ %40, %.preheader1412._crit_edge ], [ %40, %781 ], [ %40, %.preheader1396._crit_edge ], [ %812, %885 ], [ %812, %859 ], [ %812, %839 ], [ %812, %828 ], [ %812, %write_u32_len_5_to_8.exit786 ], [ %812, %write_u32_len_1_to_8.exit750 ]
+  %.081.i = phi ptr [ %33, %32 ], [ %810, %write_string_noesc.exit94 ], [ %.0.i601, %write_number.exit605 ], [ %1183, %write_bool.exit609 ], [ %1187, %1186 ], [ %1191, %1190 ], [ %1195, %1194 ], [ %405, %404 ], [ %187, %.preheader1412._crit_edge ], [ %782, %781 ], [ %564, %.preheader1396._crit_edge ], [ %919, %885 ], [ %884, %859 ], [ %856, %839 ], [ %836, %828 ], [ %1161, %write_u32_len_5_to_8.exit786 ], [ %1050, %write_u32_len_1_to_8.exit750 ]
+  %.080.i = phi ptr [ %31, %32 ], [ %40, %write_string_noesc.exit94 ], [ %812, %write_number.exit605 ], [ %1178, %write_bool.exit609 ], [ %1185, %1186 ], [ %1189, %1190 ], [ %1193, %1194 ], [ %40, %404 ], [ %40, %.preheader1412._crit_edge ], [ %40, %781 ], [ %40, %.preheader1396._crit_edge ], [ %812, %885 ], [ %812, %859 ], [ %812, %839 ], [ %812, %828 ], [ %812, %write_u32_len_5_to_8.exit786 ], [ %812, %write_u32_len_1_to_8.exit750 ]
   br i1 %.not1390, label %1198, label %1196
 
 1196:                                             ; preds = %write_string.exit583
@@ -38473,8 +38473,8 @@ write_indent.exit811:                             ; preds = %select.unfold, %127
   br label %.preheader1470.backedge
 
 .preheader1470.backedge:                          ; preds = %1526, %1532, %1642, %1645, %1495, %.critedge.i357, %.critedge324.i349, %1547, %.critedge330.i331, %.critedge333.i327
-  %.8252.i315.be = phi ptr [ %1648, %1645 ], [ %1643, %1642 ], [ %1469, %.critedge333.i327 ], [ %1589, %.critedge330.i331 ], [ %1564, %1547 ], [ %1540, %1532 ], [ %1531, %1526 ], [ %1469, %.critedge324.i349 ], [ %1514, %.critedge.i357 ], [ %1497, %1495 ]
-  %.8.i316.be = phi ptr [ %1647, %1645 ], [ %1644, %1642 ], [ %1638, %.critedge333.i327 ], [ %1588, %.critedge330.i331 ], [ %1563, %1547 ], [ %1539, %1532 ], [ %1530, %1526 ], [ %1525, %.critedge324.i349 ], [ %1513, %.critedge.i357 ], [ %1496, %1495 ]
+  %.8252.i315.be = phi ptr [ %1648, %1645 ], [ %1643, %1642 ], [ %1497, %1495 ], [ %1514, %.critedge.i357 ], [ %1469, %.critedge324.i349 ], [ %1531, %1526 ], [ %1540, %1532 ], [ %1564, %1547 ], [ %1589, %.critedge330.i331 ], [ %1469, %.critedge333.i327 ]
+  %.8.i316.be = phi ptr [ %1647, %1645 ], [ %1644, %1642 ], [ %1496, %1495 ], [ %1513, %.critedge.i357 ], [ %1525, %.critedge324.i349 ], [ %1530, %1526 ], [ %1539, %1532 ], [ %1563, %1547 ], [ %1588, %.critedge330.i331 ], [ %1638, %.critedge333.i327 ]
   br label %.preheader1470
 
 1532:                                             ; preds = %1483
@@ -39166,8 +39166,8 @@ write_indent.exit811:                             ; preds = %select.unfold, %127
   br label %.preheader1456.backedge
 
 .preheader1456.backedge:                          ; preds = %1900, %1906, %2016, %2019, %1869, %.critedge.i263, %.critedge324.i255, %1921, %.critedge330.i237, %.critedge333.i233
-  %.8252.i221.be = phi ptr [ %2022, %2019 ], [ %2017, %2016 ], [ %1843, %.critedge333.i233 ], [ %1963, %.critedge330.i237 ], [ %1938, %1921 ], [ %1914, %1906 ], [ %1905, %1900 ], [ %1843, %.critedge324.i255 ], [ %1888, %.critedge.i263 ], [ %1871, %1869 ]
-  %.8.i222.be = phi ptr [ %2021, %2019 ], [ %2018, %2016 ], [ %2012, %.critedge333.i233 ], [ %1962, %.critedge330.i237 ], [ %1937, %1921 ], [ %1913, %1906 ], [ %1904, %1900 ], [ %1899, %.critedge324.i255 ], [ %1887, %.critedge.i263 ], [ %1870, %1869 ]
+  %.8252.i221.be = phi ptr [ %2022, %2019 ], [ %2017, %2016 ], [ %1871, %1869 ], [ %1888, %.critedge.i263 ], [ %1843, %.critedge324.i255 ], [ %1905, %1900 ], [ %1914, %1906 ], [ %1938, %1921 ], [ %1963, %.critedge330.i237 ], [ %1843, %.critedge333.i233 ]
+  %.8.i222.be = phi ptr [ %2021, %2019 ], [ %2018, %2016 ], [ %1870, %1869 ], [ %1887, %.critedge.i263 ], [ %1899, %.critedge324.i255 ], [ %1904, %1900 ], [ %1913, %1906 ], [ %1937, %1921 ], [ %1962, %.critedge330.i237 ], [ %2012, %.critedge333.i233 ]
   br label %.preheader1456
 
 1906:                                             ; preds = %1857
@@ -41195,8 +41195,8 @@ size_align_up.exit480.i:                          ; preds = %2703
   br label %.preheader1437.backedge
 
 .preheader1437.backedge:                          ; preds = %2980, %2986, %3096, %3099, %2949, %.critedge.i169, %.critedge324.i161, %3001, %.critedge330.i143, %.critedge333.i139
-  %.8252.i127.be = phi ptr [ %3102, %3099 ], [ %3097, %3096 ], [ %2923, %.critedge333.i139 ], [ %3043, %.critedge330.i143 ], [ %3018, %3001 ], [ %2994, %2986 ], [ %2985, %2980 ], [ %2923, %.critedge324.i161 ], [ %2968, %.critedge.i169 ], [ %2951, %2949 ]
-  %.8.i128.be = phi ptr [ %3101, %3099 ], [ %3098, %3096 ], [ %3092, %.critedge333.i139 ], [ %3042, %.critedge330.i143 ], [ %3017, %3001 ], [ %2993, %2986 ], [ %2984, %2980 ], [ %2979, %.critedge324.i161 ], [ %2967, %.critedge.i169 ], [ %2950, %2949 ]
+  %.8252.i127.be = phi ptr [ %3102, %3099 ], [ %3097, %3096 ], [ %2951, %2949 ], [ %2968, %.critedge.i169 ], [ %2923, %.critedge324.i161 ], [ %2985, %2980 ], [ %2994, %2986 ], [ %3018, %3001 ], [ %3043, %.critedge330.i143 ], [ %2923, %.critedge333.i139 ]
+  %.8.i128.be = phi ptr [ %3101, %3099 ], [ %3098, %3096 ], [ %2950, %2949 ], [ %2967, %.critedge.i169 ], [ %2979, %.critedge324.i161 ], [ %2984, %2980 ], [ %2993, %2986 ], [ %3017, %3001 ], [ %3042, %.critedge330.i143 ], [ %3092, %.critedge333.i139 ]
   br label %.preheader1437
 
 2986:                                             ; preds = %2937
@@ -41888,8 +41888,8 @@ size_align_up.exit480.i:                          ; preds = %2703
   br label %.preheader1423.backedge
 
 .preheader1423.backedge:                          ; preds = %3354, %3360, %3470, %3473, %3323, %.critedge.i, %.critedge324.i, %3375, %.critedge330.i, %.critedge333.i
-  %.8252.i.be = phi ptr [ %3476, %3473 ], [ %3471, %3470 ], [ %3297, %.critedge333.i ], [ %3417, %.critedge330.i ], [ %3392, %3375 ], [ %3368, %3360 ], [ %3359, %3354 ], [ %3297, %.critedge324.i ], [ %3342, %.critedge.i ], [ %3325, %3323 ]
-  %.8.i101.be = phi ptr [ %3475, %3473 ], [ %3472, %3470 ], [ %3466, %.critedge333.i ], [ %3416, %.critedge330.i ], [ %3391, %3375 ], [ %3367, %3360 ], [ %3358, %3354 ], [ %3353, %.critedge324.i ], [ %3341, %.critedge.i ], [ %3324, %3323 ]
+  %.8252.i.be = phi ptr [ %3476, %3473 ], [ %3471, %3470 ], [ %3325, %3323 ], [ %3342, %.critedge.i ], [ %3297, %.critedge324.i ], [ %3359, %3354 ], [ %3368, %3360 ], [ %3392, %3375 ], [ %3417, %.critedge330.i ], [ %3297, %.critedge333.i ]
+  %.8.i101.be = phi ptr [ %3475, %3473 ], [ %3472, %3470 ], [ %3324, %3323 ], [ %3341, %.critedge.i ], [ %3353, %.critedge324.i ], [ %3358, %3354 ], [ %3367, %3360 ], [ %3391, %3375 ], [ %3416, %.critedge330.i ], [ %3466, %.critedge333.i ]
   br label %.preheader1423
 
 3360:                                             ; preds = %3311
@@ -43076,7 +43076,7 @@ size_align_up.exit.i42:                           ; preds = %4012
   br label %yyjson_write_single.exit
 
 yyjson_write_single.exit:                         ; preds = %4043, %.cont820, %4042, %.cont823, %4040, %.cont, %4038, %.cont829, %.cont826, %2674, %.cont835, %2673, %.cont838, %2671, %.cont832, %2669, %.cont844, %.cont841, %.cont847, %.cont850, %.cont859, %.cont853, %.cont856, %.cont862
-  %.0 = phi ptr [ null, %.cont862 ], [ null, %.cont859 ], [ %.080.i, %.cont856 ], [ null, %.cont853 ], [ null, %.cont850 ], [ null, %.cont847 ], [ %.19.i, %.cont841 ], [ null, %2669 ], [ null, %.cont844 ], [ null, %2671 ], [ null, %.cont832 ], [ null, %2673 ], [ null, %.cont838 ], [ null, %2674 ], [ null, %.cont835 ], [ %.14.i41, %.cont826 ], [ null, %4038 ], [ null, %.cont829 ], [ null, %4040 ], [ null, %.cont ], [ null, %4042 ], [ null, %.cont823 ], [ null, %4043 ], [ null, %.cont820 ]
+  %.0 = phi ptr [ null, %.cont862 ], [ null, %.cont859 ], [ %.080.i, %.cont856 ], [ null, %.cont853 ], [ null, %.cont847 ], [ null, %.cont850 ], [ %.19.i, %.cont841 ], [ null, %2669 ], [ null, %.cont844 ], [ null, %2671 ], [ null, %.cont832 ], [ null, %2673 ], [ null, %.cont838 ], [ null, %2674 ], [ null, %.cont835 ], [ %.14.i41, %.cont826 ], [ null, %4038 ], [ null, %.cont829 ], [ null, %4040 ], [ null, %.cont ], [ null, %4042 ], [ null, %.cont823 ], [ null, %4043 ], [ null, %.cont820 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
   ret ptr %.0
 }
@@ -43934,8 +43934,8 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   br label %.preheader948.backedge
 
 .preheader948.backedge:                           ; preds = %292, %298, %410, %413, %261, %.critedge.i65.i, %.critedge324.i57.i, %313, %.critedge330.i39.i, %.critedge333.i35.i
-  %.8252.i23.i.be = phi ptr [ %416, %413 ], [ %411, %410 ], [ %235, %.critedge333.i35.i ], [ %355, %.critedge330.i39.i ], [ %330, %313 ], [ %306, %298 ], [ %297, %292 ], [ %235, %.critedge324.i57.i ], [ %280, %.critedge.i65.i ], [ %263, %261 ]
-  %.8.i24.i.be = phi ptr [ %415, %413 ], [ %412, %410 ], [ %404, %.critedge333.i35.i ], [ %354, %.critedge330.i39.i ], [ %329, %313 ], [ %305, %298 ], [ %296, %292 ], [ %291, %.critedge324.i57.i ], [ %279, %.critedge.i65.i ], [ %262, %261 ]
+  %.8252.i23.i.be = phi ptr [ %416, %413 ], [ %411, %410 ], [ %263, %261 ], [ %280, %.critedge.i65.i ], [ %235, %.critedge324.i57.i ], [ %297, %292 ], [ %306, %298 ], [ %330, %313 ], [ %355, %.critedge330.i39.i ], [ %235, %.critedge333.i35.i ]
+  %.8.i24.i.be = phi ptr [ %415, %413 ], [ %412, %410 ], [ %262, %261 ], [ %279, %.critedge.i65.i ], [ %291, %.critedge324.i57.i ], [ %296, %292 ], [ %305, %298 ], [ %329, %313 ], [ %354, %.critedge330.i39.i ], [ %404, %.critedge333.i35.i ]
   br label %.preheader948
 
 298:                                              ; preds = %249
@@ -44638,8 +44638,8 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %669, %675, %787, %790, %638, %.critedge.i.i, %.critedge324.i.i, %690, %.critedge330.i.i, %.critedge333.i.i
-  %.8252.i.i.be = phi ptr [ %793, %790 ], [ %788, %787 ], [ %612, %.critedge333.i.i ], [ %732, %.critedge330.i.i ], [ %707, %690 ], [ %683, %675 ], [ %674, %669 ], [ %612, %.critedge324.i.i ], [ %657, %.critedge.i.i ], [ %640, %638 ]
-  %.8.i.i.be = phi ptr [ %792, %790 ], [ %789, %787 ], [ %781, %.critedge333.i.i ], [ %731, %.critedge330.i.i ], [ %706, %690 ], [ %682, %675 ], [ %673, %669 ], [ %668, %.critedge324.i.i ], [ %656, %.critedge.i.i ], [ %639, %638 ]
+  %.8252.i.i.be = phi ptr [ %793, %790 ], [ %788, %787 ], [ %640, %638 ], [ %657, %.critedge.i.i ], [ %612, %.critedge324.i.i ], [ %674, %669 ], [ %683, %675 ], [ %707, %690 ], [ %732, %.critedge330.i.i ], [ %612, %.critedge333.i.i ]
+  %.8.i.i.be = phi ptr [ %792, %790 ], [ %789, %787 ], [ %639, %638 ], [ %656, %.critedge.i.i ], [ %668, %.critedge324.i.i ], [ %673, %669 ], [ %682, %675 ], [ %706, %690 ], [ %731, %.critedge330.i.i ], [ %781, %.critedge333.i.i ]
   br label %.preheader
 
 675:                                              ; preds = %626
@@ -45458,8 +45458,8 @@ write_bool.exit.i:                                ; preds = %1178
   br label %write_string.exit103.i
 
 write_string.exit103.i:                           ; preds = %886, %860, %840, %829, %write_u32_len_5_to_8.exit.i, %write_u32_len_1_to_8.exit140.i, %405, %.preheader951._crit_edge, %782, %.preheader935._crit_edge, %1195, %1191, %1187, %write_bool.exit.i, %write_number.exit.i, %write_string_noesc.exit.i, %33
-  %.081.i.i = phi ptr [ %1196, %1195 ], [ %1192, %1191 ], [ %1188, %1187 ], [ %1184, %write_bool.exit.i ], [ %.0.i105.i, %write_number.exit.i ], [ %811, %write_string_noesc.exit.i ], [ %34, %33 ], [ %406, %405 ], [ %188, %.preheader951._crit_edge ], [ %783, %782 ], [ %565, %.preheader935._crit_edge ], [ %920, %886 ], [ %885, %860 ], [ %857, %840 ], [ %837, %829 ], [ %1162, %write_u32_len_5_to_8.exit.i ], [ %1051, %write_u32_len_1_to_8.exit140.i ]
-  %.080.i.i = phi ptr [ %1194, %1195 ], [ %1190, %1191 ], [ %1186, %1187 ], [ %1179, %write_bool.exit.i ], [ %813, %write_number.exit.i ], [ %41, %write_string_noesc.exit.i ], [ %32, %33 ], [ %41, %405 ], [ %41, %.preheader951._crit_edge ], [ %41, %782 ], [ %41, %.preheader935._crit_edge ], [ %813, %886 ], [ %813, %860 ], [ %813, %840 ], [ %813, %829 ], [ %813, %write_u32_len_5_to_8.exit.i ], [ %813, %write_u32_len_1_to_8.exit140.i ]
+  %.081.i.i = phi ptr [ %34, %33 ], [ %811, %write_string_noesc.exit.i ], [ %.0.i105.i, %write_number.exit.i ], [ %1184, %write_bool.exit.i ], [ %1188, %1187 ], [ %1192, %1191 ], [ %1196, %1195 ], [ %406, %405 ], [ %188, %.preheader951._crit_edge ], [ %783, %782 ], [ %565, %.preheader935._crit_edge ], [ %920, %886 ], [ %885, %860 ], [ %857, %840 ], [ %837, %829 ], [ %1162, %write_u32_len_5_to_8.exit.i ], [ %1051, %write_u32_len_1_to_8.exit140.i ]
+  %.080.i.i = phi ptr [ %32, %33 ], [ %41, %write_string_noesc.exit.i ], [ %813, %write_number.exit.i ], [ %1179, %write_bool.exit.i ], [ %1186, %1187 ], [ %1190, %1191 ], [ %1194, %1195 ], [ %41, %405 ], [ %41, %.preheader951._crit_edge ], [ %41, %782 ], [ %41, %.preheader935._crit_edge ], [ %813, %886 ], [ %813, %860 ], [ %813, %840 ], [ %813, %829 ], [ %813, %write_u32_len_5_to_8.exit.i ], [ %813, %write_u32_len_1_to_8.exit140.i ]
   br i1 %.not929, label %1199, label %1197
 
 1197:                                             ; preds = %write_string.exit103.i
@@ -46244,8 +46244,8 @@ write_indent.exit830.i:                           ; preds = %select.unfold, %127
   br label %.preheader1009.backedge
 
 .preheader1009.backedge:                          ; preds = %1530, %1536, %1646, %1649, %1499, %.critedge.i718.i, %.critedge324.i710.i, %1551, %.critedge330.i692.i, %.critedge333.i688.i
-  %.8252.i676.i.be = phi ptr [ %1652, %1649 ], [ %1647, %1646 ], [ %1473, %.critedge333.i688.i ], [ %1593, %.critedge330.i692.i ], [ %1568, %1551 ], [ %1544, %1536 ], [ %1535, %1530 ], [ %1473, %.critedge324.i710.i ], [ %1518, %.critedge.i718.i ], [ %1501, %1499 ]
-  %.8.i677.i.be = phi ptr [ %1651, %1649 ], [ %1648, %1646 ], [ %1642, %.critedge333.i688.i ], [ %1592, %.critedge330.i692.i ], [ %1567, %1551 ], [ %1543, %1536 ], [ %1534, %1530 ], [ %1529, %.critedge324.i710.i ], [ %1517, %.critedge.i718.i ], [ %1500, %1499 ]
+  %.8252.i676.i.be = phi ptr [ %1652, %1649 ], [ %1647, %1646 ], [ %1501, %1499 ], [ %1518, %.critedge.i718.i ], [ %1473, %.critedge324.i710.i ], [ %1535, %1530 ], [ %1544, %1536 ], [ %1568, %1551 ], [ %1593, %.critedge330.i692.i ], [ %1473, %.critedge333.i688.i ]
+  %.8.i677.i.be = phi ptr [ %1651, %1649 ], [ %1648, %1646 ], [ %1500, %1499 ], [ %1517, %.critedge.i718.i ], [ %1529, %.critedge324.i710.i ], [ %1534, %1530 ], [ %1543, %1536 ], [ %1567, %1551 ], [ %1592, %.critedge330.i692.i ], [ %1642, %.critedge333.i688.i ]
   br label %.preheader1009
 
 1536:                                             ; preds = %1487
@@ -46937,8 +46937,8 @@ write_indent.exit830.i:                           ; preds = %select.unfold, %127
   br label %.preheader995.backedge
 
 .preheader995.backedge:                           ; preds = %1904, %1910, %2020, %2023, %1873, %.critedge.i.i133, %.critedge324.i.i125, %1925, %.critedge330.i.i107, %.critedge333.i.i103
-  %.8252.i.i91.be = phi ptr [ %2026, %2023 ], [ %2021, %2020 ], [ %1847, %.critedge333.i.i103 ], [ %1967, %.critedge330.i.i107 ], [ %1942, %1925 ], [ %1918, %1910 ], [ %1909, %1904 ], [ %1847, %.critedge324.i.i125 ], [ %1892, %.critedge.i.i133 ], [ %1875, %1873 ]
-  %.8.i.i92.be = phi ptr [ %2025, %2023 ], [ %2022, %2020 ], [ %2016, %.critedge333.i.i103 ], [ %1966, %.critedge330.i.i107 ], [ %1941, %1925 ], [ %1917, %1910 ], [ %1908, %1904 ], [ %1903, %.critedge324.i.i125 ], [ %1891, %.critedge.i.i133 ], [ %1874, %1873 ]
+  %.8252.i.i91.be = phi ptr [ %2026, %2023 ], [ %2021, %2020 ], [ %1875, %1873 ], [ %1892, %.critedge.i.i133 ], [ %1847, %.critedge324.i.i125 ], [ %1909, %1904 ], [ %1918, %1910 ], [ %1942, %1925 ], [ %1967, %.critedge330.i.i107 ], [ %1847, %.critedge333.i.i103 ]
+  %.8.i.i92.be = phi ptr [ %2025, %2023 ], [ %2022, %2020 ], [ %1874, %1873 ], [ %1891, %.critedge.i.i133 ], [ %1903, %.critedge324.i.i125 ], [ %1908, %1904 ], [ %1917, %1910 ], [ %1941, %1925 ], [ %1966, %.critedge330.i.i107 ], [ %2016, %.critedge333.i.i103 ]
   br label %.preheader995
 
 1910:                                             ; preds = %1861
@@ -49004,8 +49004,8 @@ get_enc_table_with_flag.exit.i175:                ; preds = %2702, %2701
   br label %.preheader976.backedge
 
 .preheader976.backedge:                           ; preds = %3008, %3014, %3124, %3127, %2977, %.critedge.i551.i, %.critedge324.i543.i, %3029, %.critedge330.i525.i, %.critedge333.i521.i
-  %.8252.i509.i.be = phi ptr [ %3130, %3127 ], [ %3125, %3124 ], [ %2951, %.critedge333.i521.i ], [ %3071, %.critedge330.i525.i ], [ %3046, %3029 ], [ %3022, %3014 ], [ %3013, %3008 ], [ %2951, %.critedge324.i543.i ], [ %2996, %.critedge.i551.i ], [ %2979, %2977 ]
-  %.8.i510.i.be = phi ptr [ %3129, %3127 ], [ %3126, %3124 ], [ %3120, %.critedge333.i521.i ], [ %3070, %.critedge330.i525.i ], [ %3045, %3029 ], [ %3021, %3014 ], [ %3012, %3008 ], [ %3007, %.critedge324.i543.i ], [ %2995, %.critedge.i551.i ], [ %2978, %2977 ]
+  %.8252.i509.i.be = phi ptr [ %3130, %3127 ], [ %3125, %3124 ], [ %2979, %2977 ], [ %2996, %.critedge.i551.i ], [ %2951, %.critedge324.i543.i ], [ %3013, %3008 ], [ %3022, %3014 ], [ %3046, %3029 ], [ %3071, %.critedge330.i525.i ], [ %2951, %.critedge333.i521.i ]
+  %.8.i510.i.be = phi ptr [ %3129, %3127 ], [ %3126, %3124 ], [ %2978, %2977 ], [ %2995, %.critedge.i551.i ], [ %3007, %.critedge324.i543.i ], [ %3012, %3008 ], [ %3021, %3014 ], [ %3045, %3029 ], [ %3070, %.critedge330.i525.i ], [ %3120, %.critedge333.i521.i ]
   br label %.preheader976
 
 3014:                                             ; preds = %2965
@@ -49697,8 +49697,8 @@ get_enc_table_with_flag.exit.i175:                ; preds = %2702, %2701
   br label %.preheader962.backedge
 
 .preheader962.backedge:                           ; preds = %3382, %3388, %3498, %3501, %3351, %.critedge.i.i291, %.critedge324.i.i283, %3403, %.critedge330.i.i265, %.critedge333.i.i261
-  %.8252.i.i249.be = phi ptr [ %3504, %3501 ], [ %3499, %3498 ], [ %3325, %.critedge333.i.i261 ], [ %3445, %.critedge330.i.i265 ], [ %3420, %3403 ], [ %3396, %3388 ], [ %3387, %3382 ], [ %3325, %.critedge324.i.i283 ], [ %3370, %.critedge.i.i291 ], [ %3353, %3351 ]
-  %.8.i.i250.be = phi ptr [ %3503, %3501 ], [ %3500, %3498 ], [ %3494, %.critedge333.i.i261 ], [ %3444, %.critedge330.i.i265 ], [ %3419, %3403 ], [ %3395, %3388 ], [ %3386, %3382 ], [ %3381, %.critedge324.i.i283 ], [ %3369, %.critedge.i.i291 ], [ %3352, %3351 ]
+  %.8252.i.i249.be = phi ptr [ %3504, %3501 ], [ %3499, %3498 ], [ %3353, %3351 ], [ %3370, %.critedge.i.i291 ], [ %3325, %.critedge324.i.i283 ], [ %3387, %3382 ], [ %3396, %3388 ], [ %3420, %3403 ], [ %3445, %.critedge330.i.i265 ], [ %3325, %.critedge333.i.i261 ]
+  %.8.i.i250.be = phi ptr [ %3503, %3501 ], [ %3500, %3498 ], [ %3352, %3351 ], [ %3369, %.critedge.i.i291 ], [ %3381, %.critedge324.i.i283 ], [ %3386, %3382 ], [ %3395, %3388 ], [ %3419, %3403 ], [ %3444, %.critedge330.i.i265 ], [ %3494, %.critedge333.i.i261 ]
   br label %.preheader962
 
 3388:                                             ; preds = %3339
@@ -50912,7 +50912,7 @@ write_bool.exit.i335:                             ; preds = %.thread876, %3959
   br label %yyjson_mut_write_single.exit
 
 yyjson_mut_write_single.exit:                     ; preds = %4086, %.cont340, %4085, %.cont343, %4083, %.cont, %4081, %.cont349, %.cont346, %2699, %.cont355, %2698, %.cont358, %2696, %.cont352, %2694, %.cont364, %.cont361, %.cont367, %.cont370, %.cont379, %.cont373, %.cont376, %.cont382
-  %.0 = phi ptr [ null, %.cont382 ], [ null, %.cont379 ], [ %.080.i.i, %.cont376 ], [ null, %.cont373 ], [ null, %.cont370 ], [ null, %.cont367 ], [ %.19.i, %.cont361 ], [ null, %2694 ], [ null, %.cont364 ], [ null, %2696 ], [ null, %.cont352 ], [ null, %2698 ], [ null, %.cont358 ], [ null, %2699 ], [ null, %.cont355 ], [ %.14.i189, %.cont346 ], [ null, %4081 ], [ null, %.cont349 ], [ null, %4083 ], [ null, %.cont ], [ null, %4085 ], [ null, %.cont343 ], [ null, %4086 ], [ null, %.cont340 ]
+  %.0 = phi ptr [ null, %.cont382 ], [ null, %.cont379 ], [ %.080.i.i, %.cont376 ], [ null, %.cont373 ], [ null, %.cont367 ], [ null, %.cont370 ], [ %.19.i, %.cont361 ], [ null, %2694 ], [ null, %.cont364 ], [ null, %2696 ], [ null, %.cont352 ], [ null, %2698 ], [ null, %.cont358 ], [ null, %2699 ], [ null, %.cont355 ], [ %.14.i189, %.cont346 ], [ null, %4081 ], [ null, %.cont349 ], [ null, %4083 ], [ null, %.cont ], [ null, %4085 ], [ null, %.cont343 ], [ null, %4086 ], [ null, %.cont340 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
   ret ptr %.0
 }

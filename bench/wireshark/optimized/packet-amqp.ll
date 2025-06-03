@@ -6589,14 +6589,14 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
   %128 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_amqp_array_type_unknown)
   br label %136
 
-.thread:                                          ; preds = %117, %8, %54
-  %.0122.ph = phi i32 [ %56, %54 ], [ %14, %8 ], [ %119, %117 ]
+.thread:                                          ; preds = %54, %8, %117
+  %.0122.ph = phi i32 [ %119, %117 ], [ %14, %8 ], [ %56, %54 ]
   tail call void @proto_item_set_end(ptr noundef %11, ptr noundef %0, i32 noundef %.0122.ph)
   br label %134
 
 129:                                              ; preds = %122, %107, %101, %95, %89, %83, %77, %71, %65, %59, %44, %37, %24, %18
-  %.0123 = phi ptr [ %124, %122 ], [ %109, %107 ], [ %103, %101 ], [ %97, %95 ], [ %91, %89 ], [ %85, %83 ], [ %79, %77 ], [ %73, %71 ], [ %67, %65 ], [ %61, %59 ], [ %46, %44 ], [ %39, %37 ], [ %33, %24 ], [ %20, %18 ]
-  %.0122 = phi i32 [ %126, %122 ], [ %110, %107 ], [ %104, %101 ], [ %98, %95 ], [ %92, %89 ], [ %86, %83 ], [ %80, %77 ], [ %74, %71 ], [ %68, %65 ], [ %62, %59 ], [ %47, %44 ], [ %41, %37 ], [ %34, %24 ], [ %21, %18 ]
+  %.0123 = phi ptr [ %20, %18 ], [ %33, %24 ], [ %39, %37 ], [ %46, %44 ], [ %61, %59 ], [ %67, %65 ], [ %73, %71 ], [ %79, %77 ], [ %85, %83 ], [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ], [ %124, %122 ]
+  %.0122 = phi i32 [ %21, %18 ], [ %34, %24 ], [ %41, %37 ], [ %47, %44 ], [ %62, %59 ], [ %68, %65 ], [ %74, %71 ], [ %80, %77 ], [ %86, %83 ], [ %92, %89 ], [ %98, %95 ], [ %104, %101 ], [ %110, %107 ], [ %126, %122 ]
   call void @proto_item_set_end(ptr noundef %11, ptr noundef %0, i32 noundef %.0122)
   %.not = icmp eq ptr %.0123, null
   br i1 %.not, label %134, label %130
@@ -11691,9 +11691,9 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   br label %67
 
 67:                                               ; preds = %57, %54, %50, %58, %61, %64
-  %.3 = phi ptr [ @.str.1494, %50 ], [ @.str.1494, %54 ], [ @.str.1494, %64 ], [ @.str.1494, %61 ], [ @.str.1494, %58 ], [ @.str.1495, %57 ]
-  %.176 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
-  %.1 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
+  %.3 = phi ptr [ @.str.1494, %50 ], [ @.str.1494, %54 ], [ @.str.1494, %58 ], [ @.str.1494, %61 ], [ @.str.1494, %64 ], [ @.str.1495, %57 ]
+  %.176 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ 1, %57 ]
+  %.1 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 1, %58 ], [ 2, %61 ], [ 4, %64 ], [ %53, %57 ]
   %68 = load i32, ptr @hf_amqp_field, align 4
   %69 = add nuw nsw i32 %13, 2
   %70 = add nuw nsw i32 %69, %.176
@@ -11811,7 +11811,7 @@ amqp_0_10_get_32bit_size_new.exit:                ; preds = %31, %36
   br label %.critedge
 
 52:                                               ; preds = %24, %48
-  %.1 = phi i32 [ %49, %48 ], [ %30, %24 ]
+  %.1 = phi i32 [ %30, %24 ], [ %49, %48 ]
   %53 = add nuw i32 %.04850, 1
   %54 = load i32, ptr %7, align 4
   %55 = icmp ult i32 %53, %54
@@ -12491,9 +12491,9 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
   br label %77
 
 32:                                               ; preds = %8, %23, %17
-  %.076 = phi i32 [ 4, %23 ], [ 1, %17 ], [ 0, %8 ]
-  %.074 = phi i32 [ %26, %23 ], [ %22, %17 ], [ 0, %8 ]
-  %.073 = phi i32 [ %24, %23 ], [ %19, %17 ], [ 0, %8 ]
+  %.076 = phi i32 [ 1, %17 ], [ 4, %23 ], [ 0, %8 ]
+  %.074 = phi i32 [ %22, %17 ], [ %26, %23 ], [ 0, %8 ]
+  %.073 = phi i32 [ %19, %17 ], [ %24, %23 ], [ 0, %8 ]
   %33 = add nuw nsw i32 %.076, 1
   %34 = add i32 %33, %.073
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef %34, i32 noundef 0)
@@ -12746,8 +12746,8 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %42
 
 42:                                               ; preds = %36, %29, %28, %25, %23, %20, %17, %11
-  %.146 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ 0, %11 ]
-  %.043 = phi i32 [ %41, %36 ], [ %35, %29 ], [ 16, %28 ], [ 8, %25 ], [ 4, %23 ], [ 2, %20 ], [ 1, %17 ], [ 0, %11 ]
+  %.146 = phi i32 [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ 0, %28 ], [ 0, %29 ], [ 0, %36 ], [ 0, %11 ]
+  %.043 = phi i32 [ 1, %17 ], [ 2, %20 ], [ 4, %23 ], [ 8, %25 ], [ 16, %28 ], [ %35, %29 ], [ %41, %36 ], [ 0, %11 ]
   %43 = add i32 %.043, %spec.select
   %44 = icmp eq i32 %.146, 29
   br i1 %44, label %._crit_edge, label %.lr.ph
@@ -13039,9 +13039,9 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph, %decode_fix
   br label %dissect_amqp_1_0_map.exit
 
 114:                                              ; preds = %104, %98
-  %.095.i = phi i32 [ 4, %104 ], [ 1, %98 ]
-  %.093.i = phi i32 [ %107, %104 ], [ %103, %98 ]
-  %.092.i = phi i32 [ %105, %104 ], [ %100, %98 ]
+  %.095.i = phi i32 [ 1, %98 ], [ 4, %104 ]
+  %.093.i = phi i32 [ %103, %98 ], [ %107, %104 ]
+  %.092.i = phi i32 [ %100, %98 ], [ %105, %104 ]
   %115 = tail call i32 @proto_registrar_get_ftype(i32 noundef %4)
   %.not.i = icmp eq i32 %115, 0
   %116 = add nuw nsw i32 %.095.i, 1
@@ -13222,9 +13222,9 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br label %dissect_amqp_1_0_array.exit
 
 197:                                              ; preds = %187, %181
-  %.083.i = phi i32 [ 4, %187 ], [ 1, %181 ]
-  %.081.i = phi i32 [ %190, %187 ], [ %186, %181 ]
-  %.080.i = phi i32 [ %188, %187 ], [ %183, %181 ]
+  %.083.i = phi i32 [ 1, %181 ], [ 4, %187 ]
+  %.081.i = phi i32 [ %186, %181 ], [ %190, %187 ]
+  %.080.i = phi i32 [ %183, %181 ], [ %188, %187 ]
   %198 = shl nuw nsw i32 %.083.i, 1
   %199 = add i32 %198, %3
   %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %12)

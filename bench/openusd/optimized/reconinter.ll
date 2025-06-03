@@ -2846,7 +2846,7 @@ define hidden noundef ptr @av1_get_obmc_mask(i32 noundef %0) local_unnamed_addr 
   br label %9
 
 9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %8 ], [ @obmc_mask_64, %7 ], [ @obmc_mask_32, %6 ], [ @obmc_mask_16, %5 ], [ @obmc_mask_8, %4 ], [ @obmc_mask_4, %3 ], [ @obmc_mask_2, %2 ], [ @obmc_mask_1, %1 ]
+  %.0 = phi ptr [ null, %8 ], [ @obmc_mask_2, %2 ], [ @obmc_mask_4, %3 ], [ @obmc_mask_8, %4 ], [ @obmc_mask_16, %5 ], [ @obmc_mask_32, %6 ], [ @obmc_mask_64, %7 ], [ @obmc_mask_1, %1 ]
   ret ptr %.0
 }
 
@@ -3261,7 +3261,7 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
   br label %av1_get_obmc_mask.exit
 
 av1_get_obmc_mask.exit:                           ; preds = %98, %111, %112, %113, %114, %115, %116, %117
-  %.0.i31 = phi ptr [ null, %117 ], [ @obmc_mask_64, %116 ], [ @obmc_mask_32, %115 ], [ @obmc_mask_16, %114 ], [ @obmc_mask_8, %113 ], [ @obmc_mask_4, %112 ], [ @obmc_mask_2, %111 ], [ @obmc_mask_1, %98 ]
+  %.0.i31 = phi ptr [ null, %117 ], [ @obmc_mask_2, %111 ], [ @obmc_mask_4, %112 ], [ @obmc_mask_8, %113 ], [ @obmc_mask_16, %114 ], [ @obmc_mask_32, %115 ], [ @obmc_mask_64, %116 ], [ @obmc_mask_1, %98 ]
   %.val.i22 = load ptr, ptr %44, align 8
   %118 = getelementptr i8, ptr %.val.i22, i64 192
   %.val.val.i = load i32, ptr %118, align 8
@@ -3468,7 +3468,7 @@ is_neighbor_overlappable.exit.thread.i18:         ; preds = %is_neighbor_overlap
   br label %av1_get_obmc_mask.exit33
 
 av1_get_obmc_mask.exit33:                         ; preds = %206, %229, %230, %231, %232, %233, %234, %235
-  %.0.i32 = phi ptr [ null, %235 ], [ @obmc_mask_64, %234 ], [ @obmc_mask_32, %233 ], [ @obmc_mask_16, %232 ], [ @obmc_mask_8, %231 ], [ @obmc_mask_4, %230 ], [ @obmc_mask_2, %229 ], [ @obmc_mask_1, %206 ]
+  %.0.i32 = phi ptr [ null, %235 ], [ @obmc_mask_2, %229 ], [ @obmc_mask_4, %230 ], [ @obmc_mask_8, %231 ], [ @obmc_mask_16, %232 ], [ @obmc_mask_32, %233 ], [ @obmc_mask_64, %234 ], [ @obmc_mask_1, %206 ]
   %.val.i27 = load ptr, ptr %160, align 8
   %236 = getelementptr i8, ptr %.val.i27, i64 192
   %.val.val.i28 = load i32, ptr %236, align 8

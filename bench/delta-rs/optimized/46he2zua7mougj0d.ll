@@ -18347,31 +18347,31 @@ common.resume:                                    ; preds = %2, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Kind$GT$17h11778236f0eb3a7aE.llvm.6150823513714300492"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !273, !noundef !5
-  switch i64 %2, label %default.unreachable6 [
+  switch i64 %2, label %default.unreachable5 [
     i64 0, label %22
     i64 1, label %34
     i64 2, label %49
     i64 3, label %3
   ]
 
-default.unreachable6:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val4 = load ptr, ptr %5, align 8, !nonnull !5, !align !71, !noundef !5
-  %6 = load ptr, ptr %.val4, align 8, !invariant.load !5, !nonnull !5
+  %.val3 = load ptr, ptr %5, align 8, !nonnull !5, !align !71, !noundef !5
+  %6 = load ptr, ptr %.val3, align 8, !invariant.load !5, !nonnull !5
   invoke void %6(ptr noundef nonnull align 1 %.val)
           to label %15 unwind label %7
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  %9 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
   %10 = load i64, ptr %9, align 8, !range !183, !invariant.load !5
-  %11 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
   %12 = load i64, ptr %11, align 8, !range !184, !invariant.load !5
   %13 = icmp ult i64 %12, -9223372036854775807
   tail call void @llvm.assume(i1 %13)
@@ -18383,9 +18383,9 @@ default.unreachable6:                             ; preds = %1
   br label %common.resume
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
   %17 = load i64, ptr %16, align 8, !range !183, !invariant.load !5
-  %18 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
   %19 = load i64, ptr %18, align 8, !range !184, !invariant.load !5
   %20 = icmp ult i64 %19, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
@@ -18397,7 +18397,7 @@ default.unreachable6:                             ; preds = %1
   br label %"_ZN4core3ptr346drop_in_place$LT$hyper..common..sync_wrapper..SyncWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h267df69c764b08cdE.exit"
 
 common.resume:                                    ; preds = %61, %80, %68, %72, %7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.6150823513714300492.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.6150823513714300492.exit.i.i.i.i" ], [ %8, %7 ], [ %69, %72 ], [ %69, %68 ], [ %81, %80 ], [ %.pn, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.6150823513714300492.exit.i.i.i.i" ], [ %8, %7 ], [ %69, %72 ], [ %69, %68 ], [ %.pn, %61 ], [ %81, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %1
@@ -32030,7 +32030,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h5c58e2997001ae15E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -32091,7 +32091,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -32151,7 +32151,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h9925ef038ea5f259E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }

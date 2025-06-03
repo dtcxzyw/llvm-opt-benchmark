@@ -3684,8 +3684,8 @@ _ZL31patch_barrier_relocation_offseti.exit.thread.fold.split: ; preds = %3
   br label %_ZL31patch_barrier_relocation_offseti.exit.thread
 
 _ZL31patch_barrier_relocation_offseti.exit.thread: ; preds = %3, %_ZL31patch_barrier_relocation_offseti.exit.thread.fold.split, %4, %7, %8, %9
-  %.0.i11.ph = phi i64 [ -4, %8 ], [ -4, %7 ], [ -4, %9 ], [ -3, %4 ], [ -2, %3 ], [ -4, %_ZL31patch_barrier_relocation_offseti.exit.thread.fold.split ]
-  %.0.in.in.i.ph = phi ptr [ @ZPointerStoreGoodMask, %8 ], [ @ZPointerLoadBadMask, %7 ], [ @ZPointerStoreBadMask, %9 ], [ @ZPointerStoreGoodMask, %4 ], [ @ZPointerStoreGoodMask, %3 ], [ @ZPointerMarkBadMask, %_ZL31patch_barrier_relocation_offseti.exit.thread.fold.split ]
+  %.0.i11.ph = phi i64 [ -4, %8 ], [ -4, %9 ], [ -4, %7 ], [ -3, %4 ], [ -2, %3 ], [ -4, %_ZL31patch_barrier_relocation_offseti.exit.thread.fold.split ]
+  %.0.in.in.i.ph = phi ptr [ @ZPointerStoreGoodMask, %8 ], [ @ZPointerStoreBadMask, %9 ], [ @ZPointerLoadBadMask, %7 ], [ @ZPointerStoreGoodMask, %4 ], [ @ZPointerStoreGoodMask, %3 ], [ @ZPointerMarkBadMask, %_ZL31patch_barrier_relocation_offseti.exit.thread.fold.split ]
   %.0.in.i16 = load i64, ptr %.0.in.in.i.ph, align 8
   %.0.i817 = trunc i64 %.0.in.i16 to i16
   %12 = getelementptr inbounds i8, ptr %1, i64 %.0.i11.ph

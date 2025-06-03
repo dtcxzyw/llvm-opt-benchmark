@@ -1962,7 +1962,7 @@ define internal i32 @odictiter_traverse(ptr noundef readonly captures(none) %0, 
   br label %19
 
 19:                                               ; preds = %16, %11, %6, %18
-  %.1 = phi i32 [ %7, %6 ], [ %12, %11 ], [ %17, %16 ], [ 0, %18 ]
+  %.1 = phi i32 [ 0, %18 ], [ %17, %16 ], [ %12, %11 ], [ %7, %6 ]
   ret i32 %.1
 }
 

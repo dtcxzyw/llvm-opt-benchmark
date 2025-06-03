@@ -3414,7 +3414,7 @@ xas_load.exit:                                    ; preds = %.split6.us.i, %.spl
   br label %.backedge
 
 .backedge:                                        ; preds = %113, %xas_load.exit
-  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %113 ], [ %.sroa.134.4, %xas_load.exit ]
+  %.sroa.134.0.be = phi ptr [ %.sroa.134.4, %xas_load.exit ], [ inttoptr (i64 3 to ptr), %113 ]
   br label %5
 
 114:                                              ; preds = %xas_load.exit

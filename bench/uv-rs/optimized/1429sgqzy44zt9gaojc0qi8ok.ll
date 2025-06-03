@@ -525,7 +525,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$reqwest_middleware..error..Error$
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -3720,7 +3720,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$uv_git..git..GitError$u20$as$u20$
   br label %14
 
 14:                                               ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

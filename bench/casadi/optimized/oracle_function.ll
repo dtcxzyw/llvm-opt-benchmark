@@ -13459,7 +13459,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %897
 
 897:                                              ; preds = %895, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %896, %895 ]
+  %.1.i.i.i.i = phi ptr [ %896, %895 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load double, ptr %.1.i.i.i.i, align 8, !tbaa !306
   %898 = call double @llvm.fabs.f64(double %.1.val.i.i.i.i)
   %899 = fcmp ueq double %898, 0x7FF0000000000000
@@ -13470,7 +13470,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %902
 
 902:                                              ; preds = %900, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %901, %900 ]
+  %.2.i.i.i.i = phi ptr [ %901, %900 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load double, ptr %.2.i.i.i.i, align 8, !tbaa !306
   %903 = call double @llvm.fabs.f64(double %.2.val.i.i.i.i)
   %904 = fcmp ueq double %903, 0x7FF0000000000000
@@ -13576,7 +13576,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %944
 
 944:                                              ; preds = %942, %._crit_edge.i.i.i510
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i510 ], [ %943, %942 ]
+  %.1.i.i.i = phi ptr [ %943, %942 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i510 ]
   %.1.val.i.i.i = load double, ptr %.1.i.i.i, align 8, !tbaa !306
   %945 = call double @llvm.fabs.f64(double %.1.val.i.i.i)
   %946 = fcmp ueq double %945, 0x7FF0000000000000
@@ -13587,7 +13587,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %949
 
 949:                                              ; preds = %947, %._crit_edge.i.i.i510
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i510 ], [ %948, %947 ]
+  %.2.i.i.i = phi ptr [ %948, %947 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i510 ]
   %.2.val.i.i.i = load double, ptr %.2.i.i.i, align 8, !tbaa !306
   %950 = call double @llvm.fabs.f64(double %.2.val.i.i.i)
   %951 = fcmp ueq double %950, 0x7FF0000000000000

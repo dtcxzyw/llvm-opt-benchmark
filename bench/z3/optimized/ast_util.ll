@@ -2650,7 +2650,7 @@ define hidden noundef ptr @_Z11mk_distinctR11ast_managerjPKP4expr(ptr noundef no
   br label %15
 
 15:                                               ; preds = %13, %7, %4
-  %.0 = phi ptr [ %14, %13 ], [ %12, %7 ], [ %6, %4 ]
+  %.0 = phi ptr [ %14, %13 ], [ %6, %4 ], [ %12, %7 ]
   ret ptr %.0
 }
 
@@ -2691,7 +2691,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   br label %_Z11mk_distinctR11ast_managerjPKP4expr.exit
 
 _Z11mk_distinctR11ast_managerjPKP4expr.exit:      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread, %11, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %16, %11 ], [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread ]
+  %.0.i = phi ptr [ %18, %17 ], [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread ], [ %16, %11 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %19, align 8, !tbaa !126

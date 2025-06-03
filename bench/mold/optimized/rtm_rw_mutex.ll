@@ -448,7 +448,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r19downgradeERNS0_2d112rtm_rw_mutex11s
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit: ; preds = %1, %4, %9
-  %.0.i = phi i1 [ true, %9 ], [ true, %4 ], [ false, %1 ]
+  %.0.i = phi i1 [ true, %4 ], [ true, %9 ], [ false, %1 ]
   ret i1 %.0.i
 }
 

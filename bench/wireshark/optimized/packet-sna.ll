@@ -2095,8 +2095,8 @@ default.unreachable:                              ; preds = %115
   unreachable
 
 118:                                              ; preds = %117, %116, %115
-  %.028.ph.i.i = phi i32 [ 1, %116 ], [ 2, %117 ], [ 0, %115 ]
-  %.027.ph.i.i = phi i1 [ true, %116 ], [ false, %117 ], [ true, %115 ]
+  %.028.ph.i.i = phi i32 [ 2, %117 ], [ 1, %116 ], [ 0, %115 ]
+  %.027.ph.i.i = phi i1 [ false, %117 ], [ true, %116 ], [ true, %115 ]
   %119 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6)
   %120 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 6, i32 noundef %119)
   br i1 %120, label %121, label %.thread

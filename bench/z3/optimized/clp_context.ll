@@ -5869,7 +5869,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   br label %299
 
 299:                                              ; preds = %298, %297
-  %.361 = phi i32 [ %.058, %297 ], [ 0, %298 ]
+  %.361 = phi i32 [ 0, %298 ], [ %.058, %297 ]
   %300 = load ptr, ptr %12, align 8, !tbaa !259
   %301 = icmp eq ptr %300, null
   br i1 %301, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit.i
@@ -6087,7 +6087,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit129:      ; preds = %360, %362, %368
   br i1 %cond1, label %100, label %372, !llvm.loop !601
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %251, %358, %209, %206, %171, %156, %150
-  %.pn81 = phi { ptr, i32 } [ %207, %206 ], [ %210, %209 ], [ %151, %150 ], [ %.pn73, %156 ], [ %.pn, %171 ], [ %252, %251 ], [ %359, %358 ], [ %351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit195, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp196, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn81 = phi { ptr, i32 } [ %207, %206 ], [ %210, %209 ], [ %151, %150 ], [ %.pn73, %156 ], [ %.pn, %171 ], [ %359, %358 ], [ %252, %251 ], [ %351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit195, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp196, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
   br label %.body

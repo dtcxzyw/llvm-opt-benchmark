@@ -1055,8 +1055,8 @@ define dso_local noundef ptr @GetExistingLocalJoinPath(ptr noundef readonly capt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %11, i64 144, i1 false)
   br label %20
 
-20:                                               ; preds = %.split67, %.split64, %.split
-  %.037.ph = phi ptr [ %17, %.split ], [ %18, %.split64 ], [ %19, %.split67 ]
+20:                                               ; preds = %.split, %.split64, %.split67
+  %.037.ph = phi ptr [ %19, %.split67 ], [ %18, %.split64 ], [ %17, %.split ]
   %21 = getelementptr inbounds nuw i8, ptr %.037.ph, i64 88
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4

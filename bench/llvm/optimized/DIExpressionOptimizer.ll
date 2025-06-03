@@ -488,20 +488,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
   %221 = load ptr, ptr %220, align 8, !tbaa !18
   %222 = load i64, ptr %221, align 8, !tbaa !8
   switch i64 %222, label %247 [
-    i64 34, label %_ZL16isNeutralElementmm.exit.i
-    i64 28, label %_ZL16isNeutralElementmm.exit.i
-    i64 36, label %_ZL16isNeutralElementmm.exit.i
-    i64 37, label %_ZL16isNeutralElementmm.exit.i
-    i64 30, label %223
-    i64 27, label %223
+    i64 34, label %223
+    i64 28, label %223
+    i64 36, label %223
+    i64 37, label %223
+    i64 30, label %_ZL16isNeutralElementmm.exit.i
+    i64 27, label %_ZL16isNeutralElementmm.exit.i
   ]
 
-223:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
-  %224 = icmp eq i64 %188, 1
+223:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
+  %224 = icmp eq i64 %188, 0
   br i1 %224, label %226, label %247
 
-_ZL16isNeutralElementmm.exit.i:                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
-  %225 = icmp eq i64 %188, 0
+_ZL16isNeutralElementmm.exit.i:                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
+  %225 = icmp eq i64 %188, 1
   br i1 %225, label %226, label %247
 
 226:                                              ; preds = %_ZL16isNeutralElementmm.exit.i, %223

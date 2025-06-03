@@ -510,14 +510,14 @@ _ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCrypto
   br label %103
 
 103:                                              ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %63, %40, %39, %37, %36, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %23
-  %.015 = phi i32 [ 0, %23 ], [ 0, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %63 ], [ %41, %40 ], [ 0, %39 ], [ %38, %37 ], [ 0, %36 ], [ 0, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %62 ]
+  %.015 = phi i32 [ 0, %23 ], [ 0, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %36 ], [ %38, %37 ], [ 0, %39 ], [ %41, %40 ], [ 0, %63 ], [ 0, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %62 ]
   %104 = icmp eq i32 %.015, 2
   %105 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %105, 10
   %or.cond = select i1 %104, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %19, !llvm.loop !152
 
-.critedge:                                        ; preds = %23, %103, %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.critedge:                                        ; preds = %23, %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %35
   ret void
 }
 

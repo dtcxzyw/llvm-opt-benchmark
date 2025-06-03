@@ -1689,8 +1689,8 @@ _ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371
   br i1 %.not, label %118, label %123
 
 115:                                              ; preds = %392, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit120, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit113, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit111, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit108, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit98, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit96
-  %.sroa.11.0 = phi i32 [ undef, %392 ], [ %337, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit113 ], [ %377, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit120 ], [ %111, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit96 ], [ %141, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit98 ], [ %297, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit111 ], [ %236, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit108 ]
-  %.sroa.01.0 = phi i32 [ 1, %392 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit113 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit120 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit96 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit98 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit111 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit108 ]
+  %.sroa.11.0 = phi i32 [ %111, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit96 ], [ %141, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit98 ], [ %297, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit111 ], [ %236, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit108 ], [ undef, %392 ], [ %337, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit113 ], [ %377, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit120 ]
+  %.sroa.01.0 = phi i32 [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit96 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit98 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit111 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit108 ], [ 1, %392 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit113 ], [ 0, %_ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371312aE.exit120 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.01.0, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2928,24 +2928,24 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
 
 .noexc66:                                         ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i
   %.pre.i = load i32, ptr %35, align 8, !range !316, !noalias !544
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.pre124.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !544
-  %.phi.trans.insert125.i = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %.pre126.i = load i32, ptr %.phi.trans.insert125.i, align 4, !noalias !544
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %.pre124.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !544
+  %.phi.trans.insert125.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.pre126.i = load ptr, ptr %.phi.trans.insert125.i, align 8, !noalias !544
   %151 = trunc nuw i32 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !544
   br i1 %151, label %167, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.noexc66, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread129.i
-  %152 = phi i32 [ %150, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread129.i ], [ %.pre126.i, %.noexc66 ]
+  %152 = phi i32 [ %150, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread129.i ], [ %.pre124.i, %.noexc66 ]
   %.not.i61 = icmp eq i32 %152, 0
   br i1 %.not.i61, label %.thread, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %.preheader.i
   %153 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %155 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %156 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 344
@@ -2966,7 +2966,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   br label %177
 
 167:                                              ; preds = %.noexc66, %.noexc65
-  %168 = phi ptr [ %149, %.noexc65 ], [ %.pre124.i, %.noexc66 ]
+  %168 = phi ptr [ %149, %.noexc65 ], [ %.pre126.i, %.noexc66 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !544
   invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull align 8 %168)
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3047,13 +3047,13 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
 .noexc71:                                         ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.i
   %.pre127.i = load i32, ptr %34, align 8, !range !316, !noalias !544
   %192 = trunc nuw i32 %.pre127.i to i1
-  %193 = load ptr, ptr %153, align 8, !noalias !544, !nonnull !4, !align !5
-  %194 = load i32, ptr %154, align 4, !noalias !544
+  %193 = load i32, ptr %154, align 4, !noalias !544
+  %194 = load ptr, ptr %153, align 8, !noalias !544, !nonnull !4, !align !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !544
   br i1 %192, label %.loopexit135.i, label %195
 
 195:                                              ; preds = %.noexc71, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.thread132.i
-  %196 = phi i32 [ %191, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.thread132.i ], [ %194, %.noexc71 ]
+  %196 = phi i32 [ %191, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.thread132.i ], [ %193, %.noexc71 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !544
   invoke void @"_ZN93_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hadfac840abf946a1E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(40) %45)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3061,13 +3061,13 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
 .noexc72:                                         ; preds = %195
   %197 = load i8, ptr %33, align 8, !range !407, !noalias !544, !noundef !4
   %trunc44.i = trunc nuw i8 %197 to i1
-  %198 = load ptr, ptr %155, align 8, !noalias !544, !nonnull !4, !align !5
-  %.sroa.030.0.copyload.i = load i32, ptr %156, align 1, !noalias !544
+  %.sroa.030.0.copyload.i = load i32, ptr %155, align 1, !noalias !544
+  %198 = load ptr, ptr %156, align 8, !noalias !544, !nonnull !4, !align !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !544
   br i1 %trunc44.i, label %203, label %200
 
 .loopexit135.i:                                   ; preds = %.noexc71, %.noexc70
-  %199 = phi ptr [ %190, %.noexc70 ], [ %193, %.noexc71 ]
+  %199 = phi ptr [ %190, %.noexc70 ], [ %194, %.noexc71 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31), !noalias !544
   invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %31, ptr noalias noundef nonnull align 8 %199)
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4298,7 +4298,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   unreachable
 
 51:                                               ; preds = %70, %46
-  %.0 = phi i64 [ %34, %70 ], [ 0, %46 ]
+  %.0 = phi i64 [ 0, %46 ], [ %34, %70 ]
   ret i64 %.0
 
 52:                                               ; preds = %31
@@ -5851,7 +5851,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h9c85d4d29976c4d0E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -5911,7 +5911,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hdd87076540868f40E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

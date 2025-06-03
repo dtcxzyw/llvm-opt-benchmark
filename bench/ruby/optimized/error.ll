@@ -2948,7 +2948,7 @@ define internal fastcc i64 @displaying_class_of(i64 noundef %0) unnamed_addr #0 
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %2
-  %.0 = phi i64 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.0 = phi i64 [ %9, %8 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ]
   ret i64 %.0
 }
 
@@ -4557,9 +4557,9 @@ define internal noundef i64 @exit_initialize(i32 noundef %0, ptr noundef %1, i64
   br label %19
 
 19:                                               ; preds = %3, %13, %7, %10, %16
-  %.016 = phi ptr [ %17, %16 ], [ %11, %10 ], [ %8, %7 ], [ %1, %13 ], [ %1, %3 ]
-  %.015 = phi i32 [ %18, %16 ], [ %12, %10 ], [ %9, %7 ], [ %0, %13 ], [ %0, %3 ]
-  %.0 = phi i64 [ %14, %16 ], [ 3, %10 ], [ 1, %7 ], [ 1, %13 ], [ 1, %3 ]
+  %.016 = phi ptr [ %17, %16 ], [ %8, %7 ], [ %11, %10 ], [ %1, %13 ], [ %1, %3 ]
+  %.015 = phi i32 [ %18, %16 ], [ %9, %7 ], [ %12, %10 ], [ %0, %13 ], [ %0, %3 ]
+  %.0 = phi i64 [ %14, %16 ], [ 1, %7 ], [ 3, %10 ], [ 1, %13 ], [ 1, %3 ]
   %20 = tail call i64 @rb_call_super(i32 noundef %.015, ptr noundef %.016) #33
   %21 = load i64, ptr @ruby_static_id_status, align 8, !tbaa !15
   %22 = tail call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %21, i64 noundef %.0) #33
@@ -5243,8 +5243,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_class_of.exit, %
   br label %77
 
 77:                                               ; preds = %47, %49, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %.150 = phi i64 [ %76, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %14, %49 ], [ %14, %47 ]
-  %.148 = phi i64 [ %75, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %50, %49 ], [ %48, %47 ]
+  %.150 = phi i64 [ %76, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %14, %47 ], [ %14, %49 ]
+  %.148 = phi i64 [ %75, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %48, %47 ], [ %50, %49 ]
   %78 = call i64 @rb_protect(ptr noundef nonnull @name_err_mesg_receiver_name, i64 noundef %.150, ptr noundef nonnull %6) #33
   %79 = load i32, ptr %6, align 4, !tbaa !32
   %.not54 = icmp ne i32 %79, 0
@@ -5274,9 +5274,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_class_of.exit, %
   br label %89
 
 89:                                               ; preds = %.thread63, %87, %71, %73, %19, %17, %15
-  %.049 = phi i64 [ %72, %71 ], [ %74, %73 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %88, %87 ], [ %85, %.thread63 ]
-  %.047 = phi i64 [ %68, %71 ], [ %68, %73 ], [ %12, %19 ], [ %12, %17 ], [ %12, %15 ], [ %.148, %87 ], [ %.148, %.thread63 ]
-  %.045 = phi i64 [ %.146, %71 ], [ %.146, %73 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %.146, %87 ], [ %.146, %.thread63 ]
+  %.049 = phi i64 [ %72, %71 ], [ %74, %73 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %88, %87 ], [ %85, %.thread63 ]
+  %.047 = phi i64 [ %68, %71 ], [ %68, %73 ], [ %12, %15 ], [ %12, %17 ], [ %12, %19 ], [ %.148, %87 ], [ %.148, %.thread63 ]
+  %.045 = phi i64 [ %.146, %71 ], [ %.146, %73 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %.146, %87 ], [ %.146, %.thread63 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !117
   %92 = call i64 @rb_obj_as_string(i64 noundef %91) #33
@@ -11077,8 +11077,8 @@ append_basename.exit97:                           ; preds = %84, %91
   %.not81 = icmp ne i8 %124, 0
   br label %128
 
-.thread:                                          ; preds = %113, %102, %93, %append_basename.exit97, %59, %append_basename.exit
-  %.371.ph = phi ptr [ %58, %append_basename.exit ], [ %61, %59 ], [ %92, %append_basename.exit97 ], [ %97, %93 ], [ %108, %102 ], [ %119, %113 ]
+.thread:                                          ; preds = %append_basename.exit, %59, %append_basename.exit97, %93, %102, %113
+  %.371.ph = phi ptr [ %119, %113 ], [ %108, %102 ], [ %97, %93 ], [ %92, %append_basename.exit97 ], [ %61, %59 ], [ %58, %append_basename.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
   br label %133
 

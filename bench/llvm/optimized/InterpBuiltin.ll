@@ -875,7 +875,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %205, %216
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %249, %232
-  %.1.i.i.i = phi ptr [ %245, %232 ], [ %250, %249 ]
+  %.1.i.i.i = phi ptr [ %250, %249 ], [ %245, %232 ]
   %251 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i = load i64, ptr %251, align 8, !tbaa !62
   %252 = tail call noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %238, i64 %.sroa.0.0.copyload.i1.i.i) #20
@@ -3628,7 +3628,7 @@ _ZN4llvm5APIntD2Ev.exit580.i:                     ; preds = %1512, %1509, %_ZN4l
   br label %1519
 
 1519:                                             ; preds = %1517, %1515, %1513, %1481, %1455
-  %.sroa.049.1.i = phi i8 [ %1518, %1517 ], [ %1516, %1515 ], [ %1514, %1513 ], [ %1484, %1481 ], [ %1458, %1455 ]
+  %.sroa.049.1.i = phi i8 [ %1518, %1517 ], [ %1458, %1455 ], [ %1484, %1481 ], [ %1514, %1513 ], [ %1516, %1515 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #20
   %1520 = add i32 %.0437109.i, 1
@@ -3781,7 +3781,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit603.i: ; pred
   br label %1586
 
 1586:                                             ; preds = %1584, %1582, %1580, %1578, %1576
-  %.sroa.042.1.i = phi i8 [ %1585, %1584 ], [ %1583, %1582 ], [ %1581, %1580 ], [ %1579, %1578 ], [ %1577, %1576 ]
+  %.sroa.042.1.i = phi i8 [ %1585, %1584 ], [ %1577, %1576 ], [ %1579, %1578 ], [ %1581, %1580 ], [ %1583, %1582 ]
   %1587 = add i32 %.0468104.i, 1
   %.not492.i = icmp eq i32 %1587, %.0.i562.i
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
@@ -4073,7 +4073,7 @@ _ZN4llvm5APIntD2Ev.exit638.i:                     ; preds = %1700, %1697, %_ZN4l
   br label %1707
 
 1707:                                             ; preds = %1705, %1703, %1701, %1669, %1643
-  %.sroa.035.1.i = phi i16 [ %1706, %1705 ], [ %1704, %1703 ], [ %1702, %1701 ], [ %1672, %1669 ], [ %1646, %1643 ]
+  %.sroa.035.1.i = phi i16 [ %1706, %1705 ], [ %1646, %1643 ], [ %1672, %1669 ], [ %1702, %1701 ], [ %1704, %1703 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %79) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %77) #20
   %1708 = add i32 %.046999.i, 1
@@ -4226,7 +4226,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit661.i: ; pre
   br label %1774
 
 1774:                                             ; preds = %1772, %1770, %1768, %1766, %1764
-  %.sroa.028.1.i = phi i16 [ %1773, %1772 ], [ %1771, %1770 ], [ %1769, %1768 ], [ %1767, %1766 ], [ %1765, %1764 ]
+  %.sroa.028.1.i = phi i16 [ %1773, %1772 ], [ %1765, %1764 ], [ %1767, %1766 ], [ %1769, %1768 ], [ %1771, %1770 ]
   %1775 = add i32 %.047194.i, 1
   %.not490.i = icmp eq i32 %1775, %.0.i562.i
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
@@ -4517,7 +4517,7 @@ _ZN4llvm5APIntD2Ev.exit696.i:                     ; preds = %1888, %1885, %_ZN4l
   br label %1895
 
 1895:                                             ; preds = %1893, %1891, %1889, %1857, %1831
-  %.sroa.021.1.i = phi i32 [ %1894, %1893 ], [ %1892, %1891 ], [ %1890, %1889 ], [ %1860, %1857 ], [ %1834, %1831 ]
+  %.sroa.021.1.i = phi i32 [ %1894, %1893 ], [ %1834, %1831 ], [ %1860, %1857 ], [ %1890, %1889 ], [ %1892, %1891 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91) #20
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
@@ -4669,7 +4669,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit719.i: ; pre
   br label %1961
 
 1961:                                             ; preds = %1959, %1957, %1955, %1953, %1951
-  %.sroa.014.1.i = phi i32 [ %1960, %1959 ], [ %1958, %1957 ], [ %1956, %1955 ], [ %1954, %1953 ], [ %1952, %1951 ]
+  %.sroa.014.1.i = phi i32 [ %1960, %1959 ], [ %1952, %1951 ], [ %1954, %1953 ], [ %1956, %1955 ], [ %1958, %1957 ]
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %lftr.wideiv460 = trunc i64 %indvars.iv.next129.i to i32
   %exitcond461 = icmp eq i32 %.0.i562.i, %lftr.wideiv460
@@ -4960,7 +4960,7 @@ _ZN4llvm5APIntD2Ev.exit754.i:                     ; preds = %2074, %2071, %_ZN4l
   br label %2081
 
 2081:                                             ; preds = %2079, %2077, %2075, %2043, %2017
-  %.sroa.07.1.i = phi i64 [ %2080, %2079 ], [ %2078, %2077 ], [ %2076, %2075 ], [ %2046, %2043 ], [ %2020, %2017 ]
+  %.sroa.07.1.i = phi i64 [ %2080, %2079 ], [ %2020, %2017 ], [ %2046, %2043 ], [ %2076, %2075 ], [ %2078, %2077 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #20
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
@@ -5112,7 +5112,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit777.i: ; pre
   br label %2147
 
 2147:                                             ; preds = %2145, %2143, %2141, %2139, %2137
-  %.sroa.0.1.i = phi i64 [ %2146, %2145 ], [ %2144, %2143 ], [ %2142, %2141 ], [ %2140, %2139 ], [ %2138, %2137 ]
+  %.sroa.0.1.i = phi i64 [ %2146, %2145 ], [ %2138, %2137 ], [ %2140, %2139 ], [ %2142, %2141 ], [ %2144, %2143 ]
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %lftr.wideiv456 = trunc i64 %indvars.iv.next119.i to i32
   %exitcond457 = icmp eq i32 %.0.i562.i, %lftr.wideiv456
@@ -8184,7 +8184,7 @@ _ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrE.exit.i: ; preds = %_Z
   unreachable
 
 _ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERSt8optionalINS0_8PrimTypeEE.exit: ; preds = %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrE.exit.i, %3298, %3300, %3302, %3304, %3306, %3308, %3310, %3312, %3314, %3316, %3318, %3320, %3322, %3324
-  %.0.i443 = phi i1 [ %3325, %3324 ], [ %3323, %3322 ], [ %3321, %3320 ], [ %3319, %3318 ], [ %3317, %3316 ], [ %3315, %3314 ], [ %3313, %3312 ], [ %3311, %3310 ], [ %3309, %3308 ], [ %3307, %3306 ], [ %3305, %3304 ], [ %3303, %3302 ], [ %3301, %3300 ], [ %3299, %3298 ], [ true, %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrE.exit.i ]
+  %.0.i443 = phi i1 [ %3299, %3298 ], [ %3301, %3300 ], [ %3303, %3302 ], [ %3305, %3304 ], [ %3307, %3306 ], [ %3309, %3308 ], [ %3311, %3310 ], [ %3313, %3312 ], [ %3315, %3314 ], [ %3317, %3316 ], [ %3319, %3318 ], [ %3321, %3320 ], [ %3323, %3322 ], [ %3325, %3324 ], [ true, %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
@@ -9643,7 +9643,7 @@ _ZNK5clang6interp7Pointer5derefIjEERT_v.exit:     ; preds = %173, %_ZNK5clang6in
   unreachable
 
 180:                                              ; preds = %_ZNK5clang6interp7Pointer5derefIjEERT_v.exit, %_ZNK5clang6interp7Pointer5derefItEERT_v.exit, %_ZNK5clang6interp7Pointer5derefIhEERT_v.exit
-  %.043 = phi i32 [ %178, %_ZNK5clang6interp7Pointer5derefIjEERT_v.exit ], [ %156, %_ZNK5clang6interp7Pointer5derefItEERT_v.exit ], [ %133, %_ZNK5clang6interp7Pointer5derefIhEERT_v.exit ]
+  %.043 = phi i32 [ %133, %_ZNK5clang6interp7Pointer5derefIhEERT_v.exit ], [ %156, %_ZNK5clang6interp7Pointer5derefItEERT_v.exit ], [ %178, %_ZNK5clang6interp7Pointer5derefIjEERT_v.exit ]
   %181 = icmp eq i32 %.043, 0
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #20
@@ -9902,7 +9902,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %97, %94, %91
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %102, %119
-  %.1.i.i = phi ptr [ %115, %102 ], [ %120, %119 ]
+  %.1.i.i = phi ptr [ %120, %119 ], [ %115, %102 ]
   %121 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %121, align 8, !tbaa !62
   %122 = call noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %108, i64 %.sroa.0.0.copyload.i1.i) #20
@@ -11607,7 +11607,7 @@ _ZNK5clang6interp8Floating10isDenormalEv.exit:    ; preds = %17, %19
   br label %23
 
 23:                                               ; preds = %22, %_ZNK5clang6interp8Floating10isDenormalEv.exit, %15, %14, %2
-  %.0.neg = phi i64 [ 0, %2 ], [ 1, %22 ], [ %21, %_ZNK5clang6interp8Floating10isDenormalEv.exit ], [ 4, %15 ], [ 5, %14 ]
+  %.0.neg = phi i64 [ 0, %2 ], [ 5, %14 ], [ 4, %15 ], [ %21, %_ZNK5clang6interp8Floating10isDenormalEv.exit ], [ 1, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %24, align 8, !tbaa !105
   %25 = load ptr, ptr %.val, align 8, !tbaa !106
@@ -18562,7 +18562,7 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %56
   %66 = icmp eq i32 %65, 255328256
   br i1 %66, label %67, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
-67:                                               ; preds = %56, %56, %47, %39, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+67:                                               ; preds = %56, %56, %39, %47, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !105
   %70 = load ptr, ptr %69, align 8, !tbaa !106
@@ -22163,7 +22163,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %95, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %96, %95 ]
+  %.1.i.i.i = phi ptr [ %96, %95 ], [ %91, %.lr.ph.i.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %98 = load i24, ptr %97, align 16
   %99 = and i24 %98, 1048576
@@ -22317,9 +22317,9 @@ default.unreachable:                              ; preds = %15
   unreachable
 
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit.thread: ; preds = %15, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %76, %183, %111
-  %.sroa.092.3.ph = phi i64 [ %.sroa.0.0.copyload.i75, %111 ], [ %.sroa.03.0.i.i, %183 ], [ %.sroa.092.0143, %15 ], [ %.sroa.0.0.copyload.i74, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.sroa.0.0.copyload.i74, %76 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
-  %.sroa.097.4.ph = phi i64 [ %120, %111 ], [ %189, %183 ], [ %.sroa.097.0144, %15 ], [ %68, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %68, %76 ], [ %68, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
-  %.254.ph = phi i32 [ %121, %111 ], [ %.052146, %183 ], [ %.052146, %15 ], [ %.052146, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.052146, %76 ], [ %.052146, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
+  %.sroa.092.3.ph = phi i64 [ %.sroa.03.0.i.i, %183 ], [ %.sroa.0.0.copyload.i75, %111 ], [ %.sroa.092.0143, %15 ], [ %.sroa.0.0.copyload.i74, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.sroa.0.0.copyload.i74, %76 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
+  %.sroa.097.4.ph = phi i64 [ %189, %183 ], [ %120, %111 ], [ %.sroa.097.0144, %15 ], [ %68, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %68, %76 ], [ %68, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
+  %.254.ph = phi i32 [ %.052146, %183 ], [ %121, %111 ], [ %.052146, %15 ], [ %.052146, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %.052146, %76 ], [ %.052146, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %.not, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, label %15, !llvm.loop !1043

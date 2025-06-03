@@ -5143,7 +5143,7 @@ _ZN9AstAssignC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit138: ; preds = %.noexc1
   br label %199
 
 199:                                              ; preds = %39, %48, %59, %195, %.thread32, %121, %94, %30
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %60, %59 ], [ %49, %48 ], [ %40, %39 ], [ %.pn62, %94 ], [ %.pn, %121 ], [ %.pn64.pn, %195 ], [ %.pn6735, %.thread32 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %40, %39 ], [ %49, %48 ], [ %60, %59 ], [ %.pn62, %94 ], [ %.pn, %121 ], [ %.pn64.pn, %195 ], [ %.pn6735, %.thread32 ]
   resume { ptr, i32 } %.pn67.pn.pn.pn.pn
 }
 

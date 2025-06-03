@@ -1611,7 +1611,7 @@ default.unreachable.i:                            ; preds = %_ZN7meshopt20decode
   unreachable
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %177, %174, %127, %75, %74
-  %.0.i.i = phi ptr [ %206, %177 ], [ %176, %174 ], [ %173, %127 ], [ %126, %75 ], [ %.05089.i, %74 ]
+  %.0.i.i = phi ptr [ %.05089.i, %74 ], [ %126, %75 ], [ %173, %127 ], [ %176, %174 ], [ %206, %177 ]
   %207 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %208 = lshr i32 %71, 2
   %209 = and i32 %208, 3
@@ -1781,7 +1781,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit.i:  ; preds = %177, %174, %127, %7
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %314, %311, %264, %212, %211
-  %.0.i56.i = phi ptr [ %343, %314 ], [ %313, %311 ], [ %310, %264 ], [ %263, %212 ], [ %.0.i.i, %211 ]
+  %.0.i56.i = phi ptr [ %.0.i.i, %211 ], [ %263, %212 ], [ %310, %264 ], [ %313, %311 ], [ %343, %314 ]
   %344 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %345 = lshr i32 %71, 4
   %346 = and i32 %345, 3
@@ -1951,7 +1951,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit61.i: ; preds = %314, %311, %264, %
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %451, %448, %401, %349, %348
-  %.0.i62.i = phi ptr [ %480, %451 ], [ %450, %448 ], [ %447, %401 ], [ %400, %349 ], [ %.0.i56.i, %348 ]
+  %.0.i62.i = phi ptr [ %.0.i56.i, %348 ], [ %400, %349 ], [ %447, %401 ], [ %450, %448 ], [ %480, %451 ]
   %481 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %482 = lshr i32 %71, 6
   %483 = add nuw nsw i32 %482, %53
@@ -2120,7 +2120,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit67.i: ; preds = %451, %448, %401, %
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %587, %584, %537, %485, %484
-  %.0.i68.i = phi ptr [ %616, %587 ], [ %586, %584 ], [ %583, %537 ], [ %536, %485 ], [ %.0.i62.i, %484 ]
+  %.0.i68.i = phi ptr [ %.0.i62.i, %484 ], [ %536, %485 ], [ %583, %537 ], [ %586, %584 ], [ %616, %587 ]
   %617 = add i64 %66, 64
   %618 = icmp ule i64 %617, %12
   %619 = ptrtoint ptr %.0.i68.i to i64
@@ -2314,7 +2314,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit73.i: ; preds = %587, %584, %537, %
   br label %_ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i
 
 _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %639, %638
-  %.0.i74.i = phi ptr [ %770, %741 ], [ %740, %738 ], [ %737, %691 ], [ %690, %639 ], [ %.15192.i, %638 ]
+  %.0.i74.i = phi ptr [ %.15192.i, %638 ], [ %690, %639 ], [ %737, %691 ], [ %740, %738 ], [ %770, %741 ]
   %771 = add nuw i64 %.15391.i, 16
   %772 = icmp ult i64 %771, %12
   br i1 %772, label %.lr.ph93.i, label %.loopexit, !llvm.loop !40
@@ -3429,7 +3429,7 @@ define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(p
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %77, %76, %.lr.ph.i
-  %.0.i.i = phi ptr [ %428, %427 ], [ %426, %299 ], [ %298, %171 ], [ %170, %77 ], [ %.02332.i, %76 ], [ %.02332.i, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ %.02332.i, %76 ], [ %170, %77 ], [ %298, %171 ], [ %426, %299 ], [ %428, %427 ], [ %.02332.i, %.lr.ph.i ]
   %429 = add nuw i64 %.02431.i, 16
   %.not.i = icmp uge i64 %429, %12
   %430 = ptrtoint ptr %.0.i.i to i64

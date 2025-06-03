@@ -653,8 +653,8 @@ dissect_ppcap_destination_address.exit:           ; preds = %177, %189, %203, %2
   br label %266
 
 266:                                              ; preds = %254, %245, %238, %234, %230, %dissect_ppcap_destination_address.exit, %dissect_ppcap_source_address.exit, %dissect_ppcap_payload_data.exit, %dissect_ppcap_payload_type.exit, %32
-  %.164 = phi i32 [ %.06365, %32 ], [ %.06365, %254 ], [ %.06365, %245 ], [ %.06365, %238 ], [ %.06365, %234 ], [ %.06365, %230 ], [ %.06365, %dissect_ppcap_destination_address.exit ], [ %.06365, %dissect_ppcap_source_address.exit ], [ %.06365, %dissect_ppcap_payload_data.exit ], [ %.2, %dissect_ppcap_payload_type.exit ]
-  %.1 = phi i32 [ %38, %32 ], [ %265, %254 ], [ %253, %245 ], [ %244, %238 ], [ %237, %234 ], [ %233, %230 ], [ %.082.i, %dissect_ppcap_destination_address.exit ], [ %.080.i, %dissect_ppcap_source_address.exit ], [ %.054.i, %dissect_ppcap_payload_data.exit ], [ %78, %dissect_ppcap_payload_type.exit ]
+  %.164 = phi i32 [ %.06365, %32 ], [ %.2, %dissect_ppcap_payload_type.exit ], [ %.06365, %dissect_ppcap_payload_data.exit ], [ %.06365, %dissect_ppcap_source_address.exit ], [ %.06365, %dissect_ppcap_destination_address.exit ], [ %.06365, %230 ], [ %.06365, %234 ], [ %.06365, %238 ], [ %.06365, %245 ], [ %.06365, %254 ]
+  %.1 = phi i32 [ %38, %32 ], [ %78, %dissect_ppcap_payload_type.exit ], [ %.054.i, %dissect_ppcap_payload_data.exit ], [ %.080.i, %dissect_ppcap_source_address.exit ], [ %.082.i, %dissect_ppcap_destination_address.exit ], [ %233, %230 ], [ %237, %234 ], [ %244, %238 ], [ %253, %245 ], [ %265, %254 ]
   %267 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %268 = icmp sgt i32 %267, 0
   br i1 %268, label %32, label %._crit_edge, !llvm.loop !6

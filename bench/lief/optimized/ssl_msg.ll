@@ -2882,7 +2882,7 @@ mbedtls_ssl_get_record_expansion.exit.thread:     ; preds = %22, %mbedtls_cipher
   br label %45
 
 36:                                               ; preds = %mbedtls_cipher_get_block_size.exit.i, %29
-  %.018.i = phi i64 [ %35, %mbedtls_cipher_get_block_size.exit.i ], [ %30, %29 ]
+  %.018.i = phi i64 [ %30, %29 ], [ %35, %mbedtls_cipher_get_block_size.exit.i ]
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 321
   %38 = load i8, ptr %37, align 1, !tbaa !63
   %.not.i = icmp eq i8 %38, 0
@@ -5931,7 +5931,7 @@ mbedtls_cipher_get_cipher_mode.exit.thread:       ; preds = %12, %mbedtls_cipher
   br label %32
 
 26:                                               ; preds = %mbedtls_cipher_get_block_size.exit, %19
-  %.018 = phi i64 [ %25, %mbedtls_cipher_get_block_size.exit ], [ %20, %19 ]
+  %.018 = phi i64 [ %20, %19 ], [ %25, %mbedtls_cipher_get_block_size.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 321
   %28 = load i8, ptr %27, align 1, !tbaa !63
   %.not = icmp eq i8 %28, 0

@@ -1667,7 +1667,7 @@ get_control_selector_name.exit:                   ; preds = %18, %25, %.thread.i
   br label %72
 
 72:                                               ; preds = %4, %67, %64, %60, %57, %9
-  %.2 = phi i32 [ %71, %67 ], [ %66, %64 ], [ 6, %60 ], [ 6, %57 ], [ 2, %9 ], [ -2, %4 ]
+  %.2 = phi i32 [ %71, %67 ], [ 6, %57 ], [ 6, %60 ], [ %66, %64 ], [ 2, %9 ], [ -2, %4 ]
   ret i32 %.2
 }
 
@@ -2097,8 +2097,8 @@ define internal fastcc void @dissect_usb_vid_control_value(ptr noundef %0, ptr n
   br label %10
 
 10:                                               ; preds = %4, %9, %8, %7, %6
-  %.035.in = phi ptr [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_default, %4 ]
-  %.0 = phi ptr [ @.str.591, %9 ], [ @.str.42, %8 ], [ @.str.590, %7 ], [ @.str.589, %6 ], [ @.str.588, %4 ]
+  %.035.in = phi ptr [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_default, %4 ]
+  %.0 = phi ptr [ @.str.589, %6 ], [ @.str.590, %7 ], [ @.str.42, %8 ], [ @.str.591, %9 ], [ @.str.588, %4 ]
   %.035 = load i32, ptr %.035.in, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %.035, -1

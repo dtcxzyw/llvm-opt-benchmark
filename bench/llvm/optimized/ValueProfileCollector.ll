@@ -272,7 +272,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
   tail call void @_ZN18MemIntrinsicPlugin13visitCallInstERN4llvm8CallInstE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
   br label %.thread
 
-.thread:                                          ; preds = %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %15, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
+.thread:                                          ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
   ret void
 }
 

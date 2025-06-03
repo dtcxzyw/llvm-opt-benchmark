@@ -139,8 +139,8 @@ define dso_local { ptr, i64 } @_ZN4llvm11StringSaver4saveERKNS_5TwineE(ptr nound
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = add i64 %.sroa.3.0.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -332,8 +332,8 @@ define dso_local { ptr, i64 } @_ZN4llvm17UniqueStringSaver4saveERKNS_5TwineE(ptr
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %12, %15, %17, %19, %24, %28
-  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %19 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %25, %24 ], [ %21, %19 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
+  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %23, %19 ], [ %27, %24 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %21, %19 ], [ %25, %24 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %.sroa.0.0.i, ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8

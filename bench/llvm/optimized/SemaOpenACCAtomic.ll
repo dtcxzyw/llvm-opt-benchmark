@@ -1943,7 +1943,7 @@ _ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i: ; preds = %769, 
   unreachable
 
 _ZN12_GLOBAL__N_120AtomicOperandChecker5CheckEv.exit: ; preds = %_ZN12_GLOBAL__N_120AtomicOperandChecker9CheckReadEv.exit.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker10CheckWriteEv.exit.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker11CheckUpdateEv.exit.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i
-  %.sroa.0.0.i = phi i64 [ %770, %_ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i ], [ %.sroa.03.0.i.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker11CheckUpdateEv.exit.i ], [ %.sroa.0.0.i17.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker10CheckWriteEv.exit.i ], [ %.sroa.0.0.i.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker9CheckReadEv.exit.i ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker9CheckReadEv.exit.i ], [ %.sroa.0.0.i17.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker10CheckWriteEv.exit.i ], [ %.sroa.03.0.i.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker11CheckUpdateEv.exit.i ], [ %770, %_ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #13
   br label %772
 
@@ -4379,14 +4379,14 @@ define internal fastcc { i64, ptr } @_ZN12_GLOBAL__N_120AtomicOperandChecker31Ch
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %64, %63, %62, %61, %60, %59, %55, %51, %47
-  %.sroa.6.0.ph.i = phi i32 [ 4, %47 ], [ 5, %59 ], [ 6, %60 ], [ 7, %61 ], [ 8, %62 ], [ 9, %63 ], [ 13, %64 ], [ 3, %55 ], [ 2, %51 ]
+  %.sroa.6.0.ph.i = phi i32 [ 4, %47 ], [ 13, %64 ], [ 9, %63 ], [ 8, %62 ], [ 7, %61 ], [ 6, %60 ], [ 5, %59 ], [ 2, %51 ], [ 3, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !468, !noalias !477
   %.not19.i = icmp eq i32 %66, 1
   br i1 %.not19.i, label %67, label %167
 
 67:                                               ; preds = %select.unfold.i, %55, %51
-  %.sroa.6.09.i = phi i32 [ %.sroa.6.0.ph.i, %select.unfold.i ], [ 1, %55 ], [ 0, %51 ]
+  %.sroa.6.09.i = phi i32 [ %.sroa.6.0.ph.i, %select.unfold.i ], [ 0, %51 ], [ 1, %55 ]
   %68 = load i32, ptr %1, align 8, !noalias !477
   %69 = lshr i32 %68, 24
   %70 = zext nneg i32 %69 to i64
@@ -6035,9 +6035,9 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit77:        ; preds = %_ZN5clang19Streamin
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit37
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit37:        ; preds = %249, %246, %241, %_ZN5clang19StreamingDiagnosticD2Ev.exit77, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit, %_ZN5clang19StreamingDiagnosticD2Ev.exit34
-  %.sroa.07.1 = phi i64 [ %742, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ %.sroa.04.0.insert.insert.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 1, %241 ], [ 1, %246 ], [ 1, %249 ]
-  %.sroa.617.1 = phi i64 [ 17179869184, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 0, %241 ], [ 0, %246 ], [ 0, %249 ]
-  %.sroa.7.1 = phi ptr [ %731, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ %.sroa.13.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ null, %241 ], [ null, %246 ], [ null, %249 ]
+  %.sroa.07.1 = phi i64 [ %.sroa.04.0.insert.insert.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %742, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 1, %241 ], [ 1, %246 ], [ 1, %249 ]
+  %.sroa.617.1 = phi i64 [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 17179869184, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 0, %241 ], [ 0, %246 ], [ 0, %249 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.13.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %731, %_ZN5clang19StreamingDiagnosticD2Ev.exit77 ], [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ null, %241 ], [ null, %246 ], [ null, %249 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #13
   br label %758
 

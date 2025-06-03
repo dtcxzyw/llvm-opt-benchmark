@@ -3109,7 +3109,7 @@ define dso_local ptr @archive_entry_digest(ptr noundef readnone captures(ret: ad
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %2 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -522,7 +522,7 @@ define internal range(i32 -1, 4) i32 @pg_eucjp_verifychar(ptr noundef readonly c
   br i1 %or.cond14, label %26, label %27
 
 26:                                               ; preds = %19, %23, %15, %7
-  %.038 = phi i32 [ 2, %23 ], [ 3, %15 ], [ 2, %7 ], [ 1, %19 ]
+  %.038 = phi i32 [ 2, %23 ], [ 2, %7 ], [ 3, %15 ], [ 1, %19 ]
   br label %27
 
 27:                                               ; preds = %23, %20, %15, %12, %10, %7, %5, %26
@@ -594,7 +594,7 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond14.i, label %29, label %.thread
 
 29:                                               ; preds = %5, %11, %19, %26
-  %.013 = phi i32 [ 1, %5 ], [ 2, %26 ], [ 3, %19 ], [ 2, %11 ]
+  %.013 = phi i32 [ 1, %5 ], [ 2, %26 ], [ 2, %11 ], [ 3, %19 ]
   %30 = zext nneg i32 %.013 to i64
   %31 = getelementptr inbounds nuw i8, ptr %.01424, i64 %30
   %32 = sub nsw i32 %.01523, %.013

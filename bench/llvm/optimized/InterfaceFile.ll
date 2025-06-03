@@ -3390,7 +3390,7 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit301: ; preds = %.lr.ph.i6.i12.i3.i.
   br i1 %.not.i9.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit, label %.lr.ph.i4.i.i, !llvm.loop !194
 
 _ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit: ; preds = %.lr.ph.i4.i.i, %580, %581, %.critedge2.i8.i.i, %563
-  %.sroa.0346.2 = phi ptr [ %578, %563 ], [ %.sroa.0346.1, %580 ], [ %.sroa.0346.1, %581 ], [ %582, %.critedge2.i8.i.i ], [ %.sroa.0346.1, %.lr.ph.i4.i.i ]
+  %.sroa.0346.2 = phi ptr [ %578, %563 ], [ %.sroa.0346.1, %581 ], [ %.sroa.0346.1, %580 ], [ %582, %.critedge2.i8.i.i ], [ %.sroa.0346.1, %.lr.ph.i4.i.i ]
   %.not481 = icmp eq ptr %.sroa.0346.2, %534
   br i1 %.not481, label %._crit_edge547, label %563
 
@@ -3456,7 +3456,7 @@ _ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EED2Ev.exit:
   br i1 %.not.i9.i.i333, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit337, label %.lr.ph.i4.i.i328, !llvm.loop !194
 
 _ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit337: ; preds = %.lr.ph.i4.i.i328, %604, %605, %.critedge2.i8.i.i332, %587
-  %.sroa.0338.2 = phi ptr [ %602, %587 ], [ %.sroa.0338.1, %604 ], [ %.sroa.0338.1, %605 ], [ %606, %.critedge2.i8.i.i332 ], [ %.sroa.0338.1, %.lr.ph.i4.i.i328 ]
+  %.sroa.0338.2 = phi ptr [ %602, %587 ], [ %.sroa.0338.1, %605 ], [ %.sroa.0338.1, %604 ], [ %606, %.critedge2.i8.i.i332 ], [ %.sroa.0338.1, %.lr.ph.i4.i.i328 ]
   %.not482 = icmp eq ptr %.sroa.0338.2, %556
   br i1 %.not482, label %_ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EED2Ev.exit, label %587
 
@@ -4871,7 +4871,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implIPKNS_5MachO6TargetESt8functio
   br i1 %.not.i9.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit, label %.lr.ph.i4.i.i, !llvm.loop !194
 
 _ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit: ; preds = %.lr.ph.i4.i.i, %520, %521, %.critedge2.i8.i.i, %517
-  %.sroa.0234.2 = phi ptr [ %518, %517 ], [ %.sroa.0234.1, %520 ], [ %.sroa.0234.1, %521 ], [ %522, %.critedge2.i8.i.i ], [ %.sroa.0234.1, %.lr.ph.i4.i.i ]
+  %.sroa.0234.2 = phi ptr [ %518, %517 ], [ %.sroa.0234.1, %521 ], [ %.sroa.0234.1, %520 ], [ %522, %.critedge2.i8.i.i ], [ %.sroa.0234.1, %.lr.ph.i4.i.i ]
   %.not306 = icmp eq ptr %.sroa.0234.2, %327
   br i1 %.not306, label %._crit_edge342, label %493
 
@@ -6495,7 +6495,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implIPKNS_5MachO6TargetESt8functio
   br i1 %.not.i9.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit, label %.lr.ph.i4.i.i, !llvm.loop !194
 
 _ZN4llvm21iterator_adaptor_baseINS_5MachO9SymbolSet21const_symbol_iteratorENS_16DenseMapIteratorINS_13SymbolsMapKeyEPNS1_6SymbolENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EELb1EEESt20forward_iterator_tagPKS6_lSG_SG_EppEv.exit: ; preds = %.lr.ph.i4.i.i, %505, %506, %.critedge2.i8.i.i, %502
-  %.sroa.0181.2 = phi ptr [ %503, %502 ], [ %.sroa.0181.1, %505 ], [ %.sroa.0181.1, %506 ], [ %507, %.critedge2.i8.i.i ], [ %.sroa.0181.1, %.lr.ph.i4.i.i ]
+  %.sroa.0181.2 = phi ptr [ %503, %502 ], [ %.sroa.0181.1, %506 ], [ %.sroa.0181.1, %505 ], [ %507, %.critedge2.i8.i.i ], [ %.sroa.0181.1, %.lr.ph.i4.i.i ]
   %.not247 = icmp eq ptr %.sroa.0181.2, %312
   br i1 %.not247, label %._crit_edge283, label %478
 
@@ -7924,7 +7924,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13SymbolsMapKeyEPNS_5MachO6SymbolENS_12D
   br i1 %.not.i9.i, label %_ZN4llvm16DenseMapIteratorINS_13SymbolsMapKeyEPNS_5MachO6SymbolENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S4_EELb1EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !194
 
 _ZN4llvm16DenseMapIteratorINS_13SymbolsMapKeyEPNS_5MachO6SymbolENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S4_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %36, %37, %.critedge2.i8.i, %.critedge16
-  %.sroa.022.2 = phi ptr [ %34, %.critedge16 ], [ %.sroa.022.1, %36 ], [ %.sroa.022.1, %37 ], [ %38, %.critedge2.i8.i ], [ %.sroa.022.1, %.lr.ph.i4.i ]
+  %.sroa.022.2 = phi ptr [ %34, %.critedge16 ], [ %.sroa.022.1, %37 ], [ %.sroa.022.1, %36 ], [ %38, %.critedge2.i8.i ], [ %.sroa.022.1, %.lr.ph.i4.i ]
   %.not25 = icmp eq ptr %.sroa.022.2, %13
   br i1 %.not25, label %.critedge, label %20
 

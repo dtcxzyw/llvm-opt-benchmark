@@ -5038,7 +5038,7 @@ _ZN3ue2L11coversGroupERKNS_13RoseBuildImplERKNS_17rose_literal_infoE.exit.i: ; p
   br label %346
 
 346:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit30.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.020.2.i.i.i.i.i.i = phi ptr [ %.sroa.020.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %345, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit30.i.i.i.i.i.i.i" ]
+  %.sroa.020.2.i.i.i.i.i.i = phi ptr [ %345, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit30.i.i.i.i.i.i.i" ], [ %.sroa.020.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val11.val.i.i.i.i.i.i.i = load ptr, ptr %58, align 8, !noalias !351
   %.val12.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.020.2.i.i.i.i.i.i, align 4, !noalias !351
   %347 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %.val11.val.i.i.i.i.i.i.i, i32 noundef %.val12.val.i.i.i.i.i.i.i), !noalias !351
@@ -5079,7 +5079,7 @@ _ZN3ue2L11coversGroupERKNS_13RoseBuildImplERKNS_17rose_literal_infoE.exit.i: ; p
   br label %359
 
 359:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit34.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.020.3.i.i.i.i.i.i = phi ptr [ %.sroa.020.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %358, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit34.i.i.i.i.i.i.i" ]
+  %.sroa.020.3.i.i.i.i.i.i = phi ptr [ %358, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15isGroupSquasherERKNS2_13RoseBuildImplEjyE3$_0EclINS2_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEEEEbT_.exit34.i.i.i.i.i.i.i" ], [ %.sroa.020.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val13.val.i.i.i.i.i.i.i = load ptr, ptr %58, align 8, !noalias !351
   %.val14.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.020.3.i.i.i.i.i.i, align 4, !noalias !351
   %360 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %.val13.val.i.i.i.i.i.i.i, i32 noundef %.val14.val.i.i.i.i.i.i.i), !noalias !351
@@ -5808,7 +5808,7 @@ define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12
   br label %160
 
 160:                                              ; preds = %158, %._crit_edge.i.i.i.i.i
-  %.sroa.03.2.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %159, %158 ]
+  %.sroa.03.2.i.i.i.i = phi ptr [ %159, %158 ], [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i = load ptr, ptr %.sroa.03.2.i.i.i.i, align 8, !noalias !380
   %161 = getelementptr i8, ptr %.sroa.03.2.i.i.i.i, i64 8
   %.val12.val16.i.i.i.i.i = load i64, ptr %161, align 8, !noalias !380
@@ -5871,7 +5871,7 @@ define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12
   br label %187
 
 187:                                              ; preds = %185, %._crit_edge.i.i.i.i.i
-  %.sroa.03.3.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %186, %185 ]
+  %.sroa.03.3.i.i.i.i = phi ptr [ %186, %185 ], [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val14.val.i.i.i.i.i = load ptr, ptr %.sroa.03.3.i.i.i.i, align 8, !noalias !380
   %188 = getelementptr i8, ptr %.sroa.03.3.i.i.i.i, i64 8
   %.val14.val15.i.i.i.i.i = load i64, ptr %188, align 8, !noalias !380

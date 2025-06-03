@@ -610,7 +610,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %51, %50 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %51, %50 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %53 = load i8, ptr %.sroa.032.1.i.i.i, align 1
   %54 = zext i8 %53 to i32
   %55 = call i32 @isspace(i32 noundef %54) #8
@@ -622,7 +622,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %58, %57 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %60 = load i8, ptr %.sroa.032.2.i.i.i, align 1
   %61 = zext i8 %60 to i32
   %62 = call i32 @isspace(i32 noundef %61) #8

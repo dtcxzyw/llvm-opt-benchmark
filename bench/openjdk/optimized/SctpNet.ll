@@ -92,7 +92,7 @@ define hidden range(i32 -5, 1) i32 @sctpHandleSocketErrorWithMessage(ptr noundef
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.3, %6 ], [ @.str.2, %5 ], [ @.str.1, %4 ], [ @.str, %3 ]
+  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str.3, %6 ], [ @.str, %3 ]
   %9 = tail call ptr @__errno_location() #9
   store i32 %1, ptr %9, align 4
   %10 = icmp eq ptr %2, null

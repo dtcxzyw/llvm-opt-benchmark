@@ -577,8 +577,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %38
 
 38:                                               ; preds = %30, %25
-  %.sroa.6.2 = phi i64 [ %37, %30 ], [ %29, %25 ]
-  %.pn = phi i64 [ %34, %30 ], [ %26, %25 ]
+  %.sroa.6.2 = phi i64 [ %29, %25 ], [ %37, %30 ]
+  %.pn = phi i64 [ %26, %25 ], [ %34, %30 ]
   %.sroa.0.2 = getelementptr inbounds i8, ptr %.val, i64 %.pn
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %22
@@ -2867,7 +2867,7 @@ define noundef i64 @_ZN4rope4Rope22offset_utf16_to_offset17h974d4f0ecd36b5bdE(pt
   br i1 %40, label %46, label %.noexc
 
 41:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$$LP$rope..offset_utf16..OffsetUtf16$C$usize$RP$$GT$$GT$17ha29e863f416a2efcE.exit13", %12
-  %.sroa.0.0 = phi i64 [ %123, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$$LP$rope..offset_utf16..OffsetUtf16$C$usize$RP$$GT$$GT$17ha29e863f416a2efcE.exit13" ], [ %13, %12 ]
+  %.sroa.0.0 = phi i64 [ %13, %12 ], [ %123, %"_ZN4core3ptr114drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$$LP$rope..offset_utf16..OffsetUtf16$C$usize$RP$$GT$$GT$17ha29e863f416a2efcE.exit13" ]
   ret i64 %.sroa.0.0
 
 .noexc:                                           ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h1e689b5edb773dcdE.llvm.4267649359718517871.exit.i"
@@ -5653,7 +5653,7 @@ define noundef i64 @_ZN4rope4Rope17clip_offset_utf1617h3b9305c9d58a15e9E(ptr noa
   br label %84
 
 84:                                               ; preds = %82, %80, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i"
-  %.sroa.03.0.i = phi i64 [ %83, %82 ], [ %81, %80 ], [ %.sroa.0.0.i.i.i, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i" ]
+  %.sroa.03.0.i = phi i64 [ %81, %80 ], [ %83, %82 ], [ %.sroa.0.0.i.i.i, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1166
   %85 = add i64 %.sroa.03.0.i, %64
   br label %"_ZN4core3ptr98drop_in_place$LT$sum_tree..cursor..Cursor$LT$rope..Chunk$C$rope..offset_utf16..OffsetUtf16$GT$$GT$17hb51603e05aa855deE.exit13"
@@ -6737,7 +6737,7 @@ define { i32, i32 } @_ZN4rope4Rope16clip_point_utf1617h6fb305ccc91a70c9E(ptr noa
   br label %111
 
 111:                                              ; preds = %109, %107, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i"
-  %.sroa.04.0.i = phi i64 [ %110, %109 ], [ %108, %107 ], [ %.sroa.0.0.i.i.i, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i" ]
+  %.sroa.04.0.i = phi i64 [ %108, %107 ], [ %110, %109 ], [ %.sroa.0.0.i.i.i, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h80749bee556dcea5E.exit.i" ]
   %112 = trunc i64 %.sroa.04.0.i to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1274
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9), !noalias !1274
@@ -7278,7 +7278,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit48: ; preds = %66
   br label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit49"
-  %.sroa.0.0.ph = phi i1 [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit" ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit49" ]
+  %.sroa.0.0.ph = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit49" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0e9255bba2347eabE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %80
 

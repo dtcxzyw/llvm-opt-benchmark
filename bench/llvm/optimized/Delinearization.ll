@@ -1792,7 +1792,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit52: ; preds
   br label %105
 
 105:                                              ; preds = %103, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %104, %103 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %104, %103 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !38
   %106 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 24
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %106, align 8, !tbaa !28
@@ -1804,7 +1804,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit52: ; preds
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %109, %108 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %109, %108 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !38
   %111 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 24
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %111, align 8, !tbaa !28

@@ -411,7 +411,7 @@ _ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit.thread
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %124, %123 ]
+  %.1.i.i = phi ptr [ %124, %123 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %.1.i.i.val = load i32, ptr %.1.i.i, align 8
   %126 = getelementptr i8, ptr %.1.i.i, i64 4
   %.1.i.i.val38 = load i32, ptr %126, align 4
@@ -423,7 +423,7 @@ _ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit.thread
   br label %130
 
 130:                                              ; preds = %128, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %129, %128 ]
+  %.2.i.i = phi ptr [ %129, %128 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %.2.i.i.val = load i32, ptr %.2.i.i, align 8
   %131 = getelementptr i8, ptr %.2.i.i, i64 4
   %.2.i.i.val39 = load i32, ptr %131, align 4
@@ -693,7 +693,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit73:            ; preds = %_ZNK4llvm3LLT9isPoi
   unreachable
 
 67:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %65, %64, %54, %52, %50, %45, %44, %43, %42
-  %.0 = phi i32 [ 6, %45 ], [ 3, %44 ], [ 2, %43 ], [ 1, %42 ], [ 11, %54 ], [ %53, %52 ], [ %51, %50 ], [ 8, %65 ], [ 7, %64 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73 ]
+  %.0 = phi i32 [ 1, %42 ], [ 2, %43 ], [ 3, %44 ], [ 6, %45 ], [ %51, %50 ], [ %53, %52 ], [ 11, %54 ], [ 7, %64 ], [ 8, %65 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 0, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73 ]
   ret i32 %.0
 }
 
@@ -1762,7 +1762,7 @@ _ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.e
   br label %404
 
 404:                                              ; preds = %39, %_ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit126, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit
-  %.1 = phi ptr [ %.2, %_ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.exit ], [ %189, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %163, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit126 ], [ %105, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit ], [ %40, %39 ]
+  %.1 = phi ptr [ %.2, %_ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.exit ], [ %105, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit ], [ %163, %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit126 ], [ %189, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %40, %39 ]
   ret ptr %.1
 }
 

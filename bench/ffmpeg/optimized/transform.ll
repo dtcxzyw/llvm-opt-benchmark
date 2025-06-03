@@ -174,9 +174,9 @@ avpriv_mirror.exit64.us:                          ; preds = %.lr.ph69.us, %.preh
   br label %76
 
 76:                                               ; preds = %74, %60, %avpriv_mirror.exit64.us, %31
-  %.052.us = phi nsz float [ %39, %31 ], [ %49, %avpriv_mirror.exit64.us ], [ %..i58.us, %60 ], [ %39, %74 ]
-  %.051.us = phi nsz float [ %45, %31 ], [ %52, %avpriv_mirror.exit64.us ], [ %..i.us, %60 ], [ %45, %74 ]
-  %.2.us = phi i8 [ %.172.us, %31 ], [ %59, %avpriv_mirror.exit64.us ], [ %73, %60 ], [ %75, %74 ]
+  %.052.us = phi nsz float [ %39, %31 ], [ %39, %74 ], [ %..i58.us, %60 ], [ %49, %avpriv_mirror.exit64.us ]
+  %.051.us = phi nsz float [ %45, %31 ], [ %45, %74 ], [ %..i.us, %60 ], [ %52, %avpriv_mirror.exit64.us ]
+  %.2.us = phi i8 [ %.172.us, %31 ], [ %75, %74 ], [ %73, %60 ], [ %59, %avpriv_mirror.exit64.us ]
   %77 = tail call zeroext i8 %switch.load(float noundef %.052.us, float noundef %.051.us, ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %2, i8 noundef zeroext %.2.us) #4, !callees !11
   %gep83 = getelementptr i8, ptr %invariant.gep82, i64 %indvars.iv
   store i8 %77, ptr %gep83, align 1, !tbaa !10

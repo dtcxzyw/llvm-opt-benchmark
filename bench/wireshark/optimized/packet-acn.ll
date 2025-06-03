@@ -3675,8 +3675,8 @@ dissect_acn_dmx_discovery_pdu.exit.i:             ; preds = %560, %533, %dissect
   br label %dissect_acn_dmx_extension_base_pdu.exit
 
 dissect_acn_dmx_extension_base_pdu.exit:          ; preds = %dissect_acn_common_base_pdu.exit.i71, %dissect_acn_dmx_discovery_pdu.exit.i, %562
-  %.sroa.3.10 = phi i32 [ %.sroa.3.8, %dissect_acn_common_base_pdu.exit.i71 ], [ %.sroa.3.8, %562 ], [ %.sroa.3.9, %dissect_acn_dmx_discovery_pdu.exit.i ]
-  %.sroa.19177.10 = phi i32 [ %spec.select200, %dissect_acn_common_base_pdu.exit.i71 ], [ %spec.select200, %562 ], [ %.sroa.19177.9, %dissect_acn_dmx_discovery_pdu.exit.i ]
+  %.sroa.3.10 = phi i32 [ %.sroa.3.8, %dissect_acn_common_base_pdu.exit.i71 ], [ %.sroa.3.9, %dissect_acn_dmx_discovery_pdu.exit.i ], [ %.sroa.3.8, %562 ]
+  %.sroa.19177.10 = phi i32 [ %spec.select200, %dissect_acn_common_base_pdu.exit.i71 ], [ %.sroa.19177.9, %dissect_acn_dmx_discovery_pdu.exit.i ], [ %spec.select200, %562 ]
   %571 = add i32 %463, %461
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #7
@@ -4473,8 +4473,8 @@ default.unreachable:                              ; preds = %819
   br label %get_field_type_parameters.exit.i.i.i.i.i
 
 get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %912, %907, %906, %905, %904, %903, %903
-  %.022.i.i.i.i.i = phi i32 [ 0, %912 ], [ 1, %907 ], [ 1, %906 ], [ 1, %905 ], [ 1, %904 ], [ 1, %903 ], [ 1, %903 ]
-  %.sink.i.i.i.i.i.i = phi i32 [ 1, %912 ], [ %911, %907 ], [ 8, %906 ], [ 4, %905 ], [ 2, %904 ], [ 1, %903 ], [ 1, %903 ]
+  %.022.i.i.i.i.i = phi i32 [ 0, %912 ], [ 1, %904 ], [ 1, %905 ], [ 1, %906 ], [ 1, %907 ], [ 1, %903 ], [ 1, %903 ]
+  %.sink.i.i.i.i.i.i = phi i32 [ 1, %912 ], [ 2, %904 ], [ 4, %905 ], [ 8, %906 ], [ %911, %907 ], [ 1, %903 ], [ 1, %903 ]
   %913 = add nsw i32 %.022.i.i.i.i.i, %.01223.i.i.i.i.i
   %914 = add i32 %913, %.sink.i.i.i.i.i.i
   %915 = add nuw nsw i32 %899, 1
@@ -4574,7 +4574,7 @@ dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.ph.i43.i.i.i.i,
   br label %get_field_type_parameters.exit.i44.i.i.i.i
 
 get_field_type_parameters.exit.i44.i.i.i.i:       ; preds = %943, %938, %937, %936, %935, %933, %933
-  %.030.i.i.i.i.i = phi i32 [ 192, %943 ], [ %942, %938 ], [ 1728, %937 ], [ 960, %936 ], [ 576, %935 ], [ 384, %933 ], [ 384, %933 ]
+  %.030.i.i.i.i.i = phi i32 [ 192, %943 ], [ 576, %935 ], [ 960, %936 ], [ 1728, %937 ], [ %942, %938 ], [ 384, %933 ], [ 384, %933 ]
   %944 = call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @acn_blob_preset_properties_field_name_ext, ptr noundef nonnull @.str.752)
   %945 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
   %946 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %945, ptr noundef %0, i32 noundef %.ph367, i32 noundef %.030.i.i.i.i.i, i32 noundef 0)
@@ -4688,7 +4688,7 @@ dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.ph.i46.
   br label %get_field_type_parameters.exit.i52.i.i.i.i
 
 get_field_type_parameters.exit.i52.i.i.i.i:       ; preds = %979, %974, %973, %972, %971, %969, %969
-  %.030.i53.i.i.i.i = phi i32 [ 64, %979 ], [ %978, %974 ], [ 576, %973 ], [ 320, %972 ], [ 192, %971 ], [ 128, %969 ], [ 128, %969 ]
+  %.030.i53.i.i.i.i = phi i32 [ 64, %979 ], [ 192, %971 ], [ 320, %972 ], [ 576, %973 ], [ %978, %974 ], [ 128, %969 ], [ 128, %969 ]
   %980 = call ptr @val_to_str_ext(i32 noundef 22, ptr noundef nonnull @acn_blob_dimmer_rack_status_properties2_field_name_ext, ptr noundef nonnull @.str.752)
   %981 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
   %982 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %981, ptr noundef %0, i32 noundef %.ph369, i32 noundef %.030.i53.i.i.i.i, i32 noundef 0)
@@ -6604,7 +6604,7 @@ define internal fastcc noundef i32 @acn_add_address(ptr noundef %0, ptr noundef 
   br label %60
 
 60:                                               ; preds = %48, %30, %12, %8, %5
-  %.0 = phi i32 [ %3, %5 ], [ %59, %48 ], [ %47, %30 ], [ %29, %12 ], [ %11, %8 ]
+  %.0 = phi i32 [ %3, %5 ], [ %11, %8 ], [ %29, %12 ], [ %47, %30 ], [ %59, %48 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret i32 %.0
 }
@@ -6916,7 +6916,7 @@ default.unreachable1:                             ; preds = %120, %75, %30, %9, 
   unreachable
 
 165:                                              ; preds = %27, %24, %72, %69, %117, %114, %162, %159, %120, %75, %30, %9
-  %.0 = phi i32 [ %2, %9 ], [ %2, %30 ], [ %2, %75 ], [ %2, %120 ], [ %153, %159 ], [ %153, %162 ], [ %108, %114 ], [ %108, %117 ], [ %63, %69 ], [ %63, %72 ], [ %22, %24 ], [ %22, %27 ]
+  %.0 = phi i32 [ %2, %9 ], [ %2, %30 ], [ %2, %75 ], [ %2, %120 ], [ %22, %24 ], [ %22, %27 ], [ %63, %69 ], [ %63, %72 ], [ %108, %114 ], [ %108, %117 ], [ %153, %159 ], [ %153, %162 ]
   ret i32 %.0
 }
 
@@ -7067,7 +7067,7 @@ default.unreachable:                              ; preds = %122, %36, %5
   br label %77
 
 77:                                               ; preds = %._crit_edge269, %61, %57, %52, %47
-  %.1236 = phi i32 [ %75, %._crit_edge269 ], [ %3, %61 ], [ %3, %57 ], [ %3, %52 ], [ %3, %47 ]
+  %.1236 = phi i32 [ %75, %._crit_edge269 ], [ %3, %47 ], [ %3, %52 ], [ %3, %57 ], [ %3, %61 ]
   %78 = add i32 %.1236, %11
   br label %.loopexit
 
@@ -7249,7 +7249,7 @@ default.unreachable:                              ; preds = %122, %36, %5
   br i1 %163, label %122, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %122, %157, %.lr.ph263, %77, %._crit_edge264, %41, %.critedge
-  %.0234 = phi i32 [ %42, %41 ], [ %33, %.critedge ], [ %121, %._crit_edge264 ], [ %78, %77 ], [ %3, %.lr.ph263 ], [ %3, %122 ], [ %158, %157 ]
+  %.0234 = phi i32 [ %42, %41 ], [ %33, %.critedge ], [ %78, %77 ], [ %121, %._crit_edge264 ], [ %3, %.lr.ph263 ], [ %3, %122 ], [ %158, %157 ]
   ret i32 %.0234
 }
 
@@ -7390,7 +7390,7 @@ default.unreachable91:                            ; preds = %10, %5
   unreachable
 
 .loopexit:                                        ; preds = %53, %56, %46, %.lr.ph89, %15, %._crit_edge, %10
-  %.075 = phi i32 [ %3, %10 ], [ %45, %._crit_edge ], [ %24, %15 ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
+  %.075 = phi i32 [ %3, %10 ], [ %24, %15 ], [ %45, %._crit_edge ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
   ret i32 %.075
 }
 
@@ -7497,10 +7497,10 @@ define internal fastcc void @display_blob_field(ptr noundef %0, ptr noundef %1, 
   br label %get_field_type_parameters.exit
 
 get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, %36, %37, %43
-  %.077 = phi i32 [ 0, %43 ], [ %42, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
-  %.076 = phi i32 [ 0, %43 ], [ 2, %37 ], [ 0, %36 ], [ 0, %35 ], [ 0, %34 ], [ 0, %31 ], [ 0, %31 ]
-  %.075 = phi i32 [ 0, %43 ], [ 1, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ 1, %31 ], [ 1, %31 ]
-  %.sink.i = phi i8 [ 1, %43 ], [ %41, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
+  %.077 = phi i32 [ 0, %43 ], [ 2, %34 ], [ 4, %35 ], [ 8, %36 ], [ %42, %37 ], [ 1, %31 ], [ 1, %31 ]
+  %.076 = phi i32 [ 0, %43 ], [ 0, %34 ], [ 0, %35 ], [ 0, %36 ], [ 2, %37 ], [ 0, %31 ], [ 0, %31 ]
+  %.075 = phi i32 [ 0, %43 ], [ 1, %34 ], [ 1, %35 ], [ 1, %36 ], [ 1, %37 ], [ 1, %31 ], [ 1, %31 ]
+  %.sink.i = phi i8 [ 1, %43 ], [ 2, %34 ], [ 4, %35 ], [ 8, %36 ], [ %41, %37 ], [ 1, %31 ], [ 1, %31 ]
   %44 = load i16, ptr %4, align 2
   %45 = tail call fastcc ptr @get_field_name(i8 noundef zeroext %2, i16 noundef zeroext %44)
   %46 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
@@ -7988,7 +7988,7 @@ define internal fastcc ptr @get_field_name(i8 noundef zeroext %0, i16 noundef ze
   br label %105
 
 105:                                              ; preds = %2, %102, %99, %96, %93, %90, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %3
-  %.0 = phi ptr [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ @.str.786, %2 ]
+  %.0 = phi ptr [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %89, %84 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ @.str.786, %2 ]
   ret ptr %.0
 }
 

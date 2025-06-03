@@ -35939,7 +35939,7 @@ _ZN4Luau21TablePropLookupResultD2Ev.exit452:      ; preds = %.critedge356.thread
   ret void
 
 938:                                              ; preds = %471, %497, %491, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit427, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit448, %_ZN4Luau21TablePropLookupResultD2Ev.exit387
-  %.pn345 = phi { ptr, i32 } [ %237, %236 ], [ %.pn340, %_ZN4Luau21TablePropLookupResultD2Ev.exit387 ], [ %.pn325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397 ], [ %.pn313.pn.pn.pn, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit427 ], [ %.pn298.pn.pn.pn, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit448 ], [ %472, %471 ], [ %498, %497 ], [ %492, %491 ]
+  %.pn345 = phi { ptr, i32 } [ %237, %236 ], [ %.pn340, %_ZN4Luau21TablePropLookupResultD2Ev.exit387 ], [ %.pn325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397 ], [ %.pn313.pn.pn.pn, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit427 ], [ %.pn298.pn.pn.pn, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit448 ], [ %472, %471 ], [ %492, %491 ], [ %498, %497 ]
   resume { ptr, i32 } %.pn345
 }
 
@@ -38369,7 +38369,7 @@ _ZNSt12__shared_ptrIN4Luau6ModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
   br label %366
 
 365:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZNSt12__shared_ptrIN4Luau6ModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN4Luau14UnknownRequireD2Ev.exit
-  %.023 = phi ptr [ %45, %_ZN4Luau14UnknownRequireD2Ev.exit ], [ %83, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %.4, %_ZNSt12__shared_ptrIN4Luau6ModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.023 = phi ptr [ %45, %_ZN4Luau14UnknownRequireD2Ev.exit ], [ %.4, %_ZNSt12__shared_ptrIN4Luau6ModuleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %83, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
   ret ptr %.023
 
 366:                                              ; preds = %364, %_ZN4Luau14UnknownRequireD2Ev.exit69

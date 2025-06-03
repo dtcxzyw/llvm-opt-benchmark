@@ -4844,11 +4844,11 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %.critedge3.thread, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %.critedge3
-  %.16271 = phi i32 [ %.2.lcssa, %159 ], [ %.2.lcssa, %158 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %147 ], [ %.16272, %160 ], [ %.16272, %161 ], [ %.16272, %162 ], [ %.16272, %163 ], [ %.16272, %164 ], [ %.16272, %165 ], [ %.16272, %166 ], [ %.16272, %167 ], [ %.16272, %168 ], [ %.16272, %169 ], [ %.16272, %170 ], [ %.16272, %171 ], [ %.16272, %172 ], [ %.2.lcssa, %.critedge3 ], [ %.16272, %.critedge3.thread ]
-  %.str.1048.sink.i = phi ptr [ @.str.1048, %159 ], [ @.str.1047, %158 ], [ @.str.1046, %157 ], [ @.str.1045, %156 ], [ @.str.1044, %155 ], [ @.str.1043, %154 ], [ @.str.1042, %153 ], [ @.str.1041, %152 ], [ @.str.1040, %151 ], [ @.str.1039, %150 ], [ @.str.1038, %149 ], [ @.str.1037, %148 ], [ @.str.1036, %147 ], [ @.str.1050, %160 ], [ @.str.1051, %161 ], [ @.str.1052, %162 ], [ @.str.1053, %163 ], [ @.str.1054, %164 ], [ @.str.1055, %165 ], [ @.str.1056, %166 ], [ @.str.1057, %167 ], [ @.str.1058, %168 ], [ @.str.1059, %169 ], [ @.str.1060, %170 ], [ @.str.1061, %171 ], [ @.str.1062, %172 ], [ @.str.1035, %.critedge3 ], [ @.str.1049, %.critedge3.thread ]
+  %.16271 = phi i32 [ %.2.lcssa, %147 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %158 ], [ %.2.lcssa, %159 ], [ %.16272, %160 ], [ %.16272, %161 ], [ %.16272, %162 ], [ %.16272, %163 ], [ %.16272, %164 ], [ %.16272, %165 ], [ %.16272, %166 ], [ %.16272, %167 ], [ %.16272, %168 ], [ %.16272, %169 ], [ %.16272, %170 ], [ %.16272, %171 ], [ %.16272, %172 ], [ %.2.lcssa, %.critedge3 ], [ %.16272, %.critedge3.thread ]
+  %.str.1035.sink.i = phi ptr [ @.str.1036, %147 ], [ @.str.1037, %148 ], [ @.str.1038, %149 ], [ @.str.1039, %150 ], [ @.str.1040, %151 ], [ @.str.1041, %152 ], [ @.str.1042, %153 ], [ @.str.1043, %154 ], [ @.str.1044, %155 ], [ @.str.1045, %156 ], [ @.str.1046, %157 ], [ @.str.1047, %158 ], [ @.str.1048, %159 ], [ @.str.1050, %160 ], [ @.str.1051, %161 ], [ @.str.1052, %162 ], [ @.str.1053, %163 ], [ @.str.1054, %164 ], [ @.str.1055, %165 ], [ @.str.1056, %166 ], [ @.str.1057, %167 ], [ @.str.1058, %168 ], [ @.str.1059, %169 ], [ @.str.1060, %170 ], [ @.str.1061, %171 ], [ @.str.1062, %172 ], [ @.str.1035, %.critedge3 ], [ @.str.1049, %.critedge3.thread ]
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %174 = load ptr, ptr %173, align 8
-  call void @col_append_sep_str(ptr noundef %174, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.str.1048.sink.i)
+  call void @col_append_sep_str(ptr noundef %174, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.str.1035.sink.i)
   br label %175
 
 175:                                              ; preds = %.critedge.sink.split.i, %.critedge3.thread
@@ -6028,10 +6028,10 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %156, %154
   br label %284
 
 284:                                              ; preds = %278, %258, %254, %244, %243, %207
-  %.0127.i.i = phi ptr [ null, %278 ], [ null, %258 ], [ null, %254 ], [ null, %243 ], [ %250, %244 ], [ null, %207 ]
-  %.0126.i.i = phi ptr [ null, %278 ], [ null, %258 ], [ null, %254 ], [ %237, %243 ], [ %237, %244 ], [ %217, %207 ]
-  %.0125.i.i = phi i16 [ %279, %278 ], [ %266, %258 ], [ %255, %254 ], [ %239, %243 ], [ %239, %244 ], [ %219, %207 ]
-  %.0.i59.i = phi ptr [ %283, %278 ], [ null, %258 ], [ null, %254 ], [ null, %243 ], [ null, %244 ], [ null, %207 ]
+  %.0127.i.i = phi ptr [ null, %207 ], [ null, %243 ], [ %250, %244 ], [ null, %254 ], [ null, %258 ], [ null, %278 ]
+  %.0126.i.i = phi ptr [ %217, %207 ], [ %237, %243 ], [ %237, %244 ], [ null, %254 ], [ null, %258 ], [ null, %278 ]
+  %.0125.i.i = phi i16 [ %219, %207 ], [ %239, %243 ], [ %239, %244 ], [ %255, %254 ], [ %266, %258 ], [ %279, %278 ]
+  %.0.i59.i = phi ptr [ null, %207 ], [ null, %243 ], [ null, %244 ], [ null, %254 ], [ null, %258 ], [ %283, %278 ]
   %285 = icmp eq i16 %.0125.i.i, 0
   %286 = icmp ne ptr %.0127.i.i, null
   %or.cond.i60.i = or i1 %286, %285
@@ -6510,7 +6510,7 @@ dissect_dvbci_cis_payload_device.exit:            ; preds = %.lr.ph.i77, %135
   br label %159
 
 159:                                              ; preds = %157, %146, %dissect_dvbci_cis_payload_device.exit, %dissect_dvbci_cis_payload_cftable_entry.exit, %dissect_dvbci_cis_payload_config.exit, %dissect_dvbci_cis_payload_tpll_v1.exit
-  %.2 = phi i32 [ %158, %157 ], [ %152, %146 ], [ %145, %dissect_dvbci_cis_payload_device.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.exit ], [ %116, %dissect_dvbci_cis_payload_config.exit ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.exit ]
+  %.2 = phi i32 [ %158, %157 ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.exit ], [ %116, %dissect_dvbci_cis_payload_config.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.exit ], [ %145, %dissect_dvbci_cis_payload_device.exit ], [ %152, %146 ]
   %160 = load ptr, ptr %5, align 8
   %161 = add nuw nsw i32 %25, 2
   call void @proto_item_set_len(ptr noundef %160, i32 noundef %161)

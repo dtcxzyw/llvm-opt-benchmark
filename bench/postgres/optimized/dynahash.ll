@@ -1488,7 +1488,7 @@ get_hash_entry.exit:                              ; preds = %.loopexit.sink.spli
   unreachable
 
 324:                                              ; preds = %187, %.loopexit, %189, %get_hash_entry.exit, %209, %206
-  %.0 = phi ptr [ %210, %209 ], [ %319, %get_hash_entry.exit ], [ %207, %206 ], [ null, %189 ], [ null, %.loopexit ], [ %spec.select, %187 ]
+  %.0 = phi ptr [ %207, %206 ], [ %210, %209 ], [ %319, %get_hash_entry.exit ], [ null, %189 ], [ null, %.loopexit ], [ %spec.select, %187 ]
   ret ptr %.0
 }
 

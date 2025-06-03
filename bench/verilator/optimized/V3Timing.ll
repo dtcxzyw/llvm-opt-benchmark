@@ -27645,40 +27645,40 @@ _ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerE
 
 14:                                               ; preds = %50
   %.not.i.i.i23 = icmp eq ptr %0, null
-  br i1 %.not.i.i.i23, label %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i, label %15
+  br i1 %.not.i.i.i23, label %18, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 8, !tbaa !167
   %17 = and i16 %.sroa.0.0.copyload.i.i.i.i.i, -2
   %spec.select.i.i.i.i = icmp eq i16 %17, 320
-  br i1 %spec.select.i.i.i.i, label %18, label %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i
+  br i1 %spec.select.i.i.i.i, label %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i, label %18
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %20 = load ptr, ptr %19, align 8, !tbaa !343
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 260
-  %22 = load i64, ptr %21, align 4
-  %23 = and i64 %22, 16384
-  %.not24.i = icmp eq i64 %23, 0
-  br i1 %.not24.i, label %28, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
-
-_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i: ; preds = %15, %14
-  %24 = load ptr, ptr %0, align 8, !tbaa !77
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
-  %26 = load ptr, ptr %25, align 8
-  %27 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(152) %0)
+18:                                               ; preds = %15, %14
+  %19 = load ptr, ptr %0, align 8, !tbaa !77
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %.noexc24 unwind label %56
 
-.noexc24:                                         ; preds = %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i
-  br i1 %27, label %.noexc24._crit_edge, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
+.noexc24:                                         ; preds = %18
+  br i1 %22, label %.noexc24._crit_edge, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
 
 .noexc24._crit_edge:                              ; preds = %.noexc24
   %.pre.pre.pre.pre.pre = load ptr, ptr %5, align 8, !tbaa !377
   br label %28
 
-28:                                               ; preds = %.noexc24._crit_edge, %18
-  %.pre.pre.pre.pre = phi ptr [ %.pre.pre.pre.pre.pre, %.noexc24._crit_edge ], [ %12, %18 ]
+_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i: ; preds = %15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %24 = load ptr, ptr %23, align 8, !tbaa !343
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 260
+  %26 = load i64, ptr %25, align 4
+  %27 = and i64 %26, 16384
+  %.not24.i = icmp eq i64 %27, 0
+  br i1 %.not24.i, label %28, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
+
+28:                                               ; preds = %.noexc24._crit_edge, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i
+  %.pre.pre.pre.pre = phi ptr [ %.pre.pre.pre.pre.pre, %.noexc24._crit_edge ], [ %12, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !188
   %.not.i = icmp eq ptr %30, null
@@ -27744,7 +27744,7 @@ _ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerE
   %55 = icmp ugt ptr %53, %54
   br i1 %55, label %.lr.ph, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread, !prof !592
 
-56:                                               ; preds = %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i
+56:                                               ; preds = %18
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %124
@@ -27774,7 +27774,7 @@ _ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerE
   invoke void @_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %72)
           to label %75 unwind label %73
 
-73:                                               ; preds = %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i28, %66
+73:                                               ; preds = %84, %66
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %124
@@ -27797,87 +27797,87 @@ _ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerE
   %.sroa.0.0.copyload.i.i.i.i.i26 = load i16, ptr %82, align 8, !tbaa !167
   %83 = and i16 %.sroa.0.0.copyload.i.i.i.i.i26, -2
   %spec.select.i.i.i.i27 = icmp eq i16 %83, 320
-  br i1 %spec.select.i.i.i.i27, label %84, label %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i28
+  br i1 %spec.select.i.i.i.i27, label %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i33, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  %86 = load ptr, ptr %85, align 8, !tbaa !343
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 260
-  %88 = load i64, ptr %87, align 4
-  %89 = and i64 %88, 16384
-  %.not24.i34 = icmp eq i64 %89, 0
-  br i1 %.not24.i34, label %94, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
-
-_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i28: ; preds = %81
-  %90 = load ptr, ptr %60, align 8, !tbaa !77
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 184
-  %92 = load ptr, ptr %91, align 8
-  %93 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(152) %60)
+  %85 = load ptr, ptr %60, align 8, !tbaa !77
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 184
+  %87 = load ptr, ptr %86, align 8
+  %88 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(152) %60)
           to label %.noexc35 unwind label %73
 
-.noexc35:                                         ; preds = %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i28
-  br i1 %93, label %94, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
+.noexc35:                                         ; preds = %84
+  br i1 %88, label %94, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
 
-94:                                               ; preds = %.noexc35, %84
+_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i33: ; preds = %81
+  %89 = getelementptr inbounds nuw i8, ptr %60, i64 152
+  %90 = load ptr, ptr %89, align 8, !tbaa !343
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 260
+  %92 = load i64, ptr %91, align 4
+  %93 = and i64 %92, 16384
+  %.not24.i34 = icmp eq i64 %93, 0
+  br i1 %.not24.i34, label %94, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread
+
+94:                                               ; preds = %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i33, %.noexc35
   %95 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %96 = load ptr, ptr %95, align 8, !tbaa !188
-  %.not.i30 = icmp eq ptr %96, null
-  %.pre56.pre.pre.pre = load ptr, ptr %5, align 8, !tbaa !377
-  br i1 %.not.i30, label %99, label %97
+  %.not.i29 = icmp eq ptr %96, null
+  %.pre55.pre.pre.pre = load ptr, ptr %5, align 8, !tbaa !377
+  br i1 %.not.i29, label %99, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %.pre56.pre.pre.pre, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.pre55.pre.pre.pre, i64 8
   store ptr %98, ptr %5, align 8, !tbaa !377
-  store ptr %96, ptr %.pre56.pre.pre.pre, align 8, !tbaa !168
+  store ptr %96, ptr %.pre55.pre.pre.pre, align 8, !tbaa !168
   br label %99
 
 99:                                               ; preds = %97, %94
-  %.pre56.pre.pre = phi ptr [ %98, %97 ], [ %.pre56.pre.pre.pre, %94 ]
+  %.pre55.pre.pre = phi ptr [ %98, %97 ], [ %.pre55.pre.pre.pre, %94 ]
   %100 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !331
-  %.not21.i31 = icmp eq ptr %101, null
-  br i1 %.not21.i31, label %104, label %102
+  %.not21.i30 = icmp eq ptr %101, null
+  br i1 %.not21.i30, label %104, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %.pre56.pre.pre, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.pre55.pre.pre, i64 8
   store ptr %103, ptr %5, align 8, !tbaa !377
-  store ptr %101, ptr %.pre56.pre.pre, align 8, !tbaa !168
+  store ptr %101, ptr %.pre55.pre.pre, align 8, !tbaa !168
   br label %104
 
 104:                                              ; preds = %102, %99
-  %.pre56.pre = phi ptr [ %103, %102 ], [ %.pre56.pre.pre, %99 ]
+  %.pre55.pre = phi ptr [ %103, %102 ], [ %.pre55.pre.pre, %99 ]
   %105 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %106 = load ptr, ptr %105, align 8, !tbaa !134
-  %.not22.i32 = icmp eq ptr %106, null
-  br i1 %.not22.i32, label %109, label %107
+  %.not22.i31 = icmp eq ptr %106, null
+  br i1 %.not22.i31, label %109, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %.pre56.pre, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.pre55.pre, i64 8
   store ptr %108, ptr %5, align 8, !tbaa !377
-  store ptr %106, ptr %.pre56.pre, align 8, !tbaa !168
+  store ptr %106, ptr %.pre55.pre, align 8, !tbaa !168
   br label %109
 
 109:                                              ; preds = %107, %104
-  %.pre56 = phi ptr [ %108, %107 ], [ %.pre56.pre, %104 ]
+  %.pre55 = phi ptr [ %108, %107 ], [ %.pre55.pre, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !230
-  %.not23.i33 = icmp eq ptr %111, null
-  br i1 %.not23.i33, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36, label %112
+  %.not23.i32 = icmp eq ptr %111, null
+  br i1 %.not23.i32, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %.pre56, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.pre55, i64 8
   store ptr %113, ptr %5, align 8, !tbaa !377
-  store ptr %111, ptr %.pre56, align 8, !tbaa !168
+  store ptr %111, ptr %.pre55, align 8, !tbaa !168
   br label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36
 
 _ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36: ; preds = %112, %109
-  %114 = phi ptr [ %113, %112 ], [ %.pre56, %109 ]
+  %114 = phi ptr [ %113, %112 ], [ %.pre55, %109 ]
   %115 = load ptr, ptr %4, align 8, !tbaa !377
   %116 = icmp ugt ptr %114, %115
   br i1 %116, label %.lr.ph, label %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread, !prof !595, !llvm.loop !657
 
-_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36, %.noexc35, %84, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit, %18, %.noexc24
-  %.0 = phi i1 [ true, %.noexc24 ], [ true, %18 ], [ false, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit ], [ false, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36 ], [ true, %.noexc35 ], [ true, %84 ]
+_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i33, %.noexc35, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit, %.noexc24, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i
+  %.0 = phi i1 [ true, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i ], [ true, %.noexc24 ], [ false, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit ], [ false, %_ZZN7AstNode13predicateImplIS_Lb0EZNK20TimingControlVisitor18needDynamicTriggerEPS_EUlS2_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS2_E_clES2_.exit36 ], [ true, %_ZZNK20TimingControlVisitor18needDynamicTriggerEP7AstNodeENKUlS1_E_clES1_.exit.i33 ], [ true, %.noexc35 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
@@ -28832,7 +28832,7 @@ _ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %164, %159, %.noexc8
           to label %_ZN7AstNode11dtypeSetBitEv.exit unwind label %168
 
 common.resume:                                    ; preds = %.body, %.body64, %.body82, %240, %.body129, %395, %406, %339, %303, %234, %168
-  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %235, %234 ], [ %304, %303 ], [ %340, %339 ], [ %.pn37.pn, %406 ], [ %.pn.pn, %395 ], [ %.pn40, %.body129 ], [ %.pn42, %240 ], [ %eh.lpad-body83, %.body82 ], [ %.pn44.pn, %.body ], [ %eh.lpad-body65, %.body64 ]
+  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %235, %234 ], [ %304, %303 ], [ %340, %339 ], [ %.pn44.pn, %.body ], [ %eh.lpad-body65, %.body64 ], [ %eh.lpad-body83, %.body82 ], [ %.pn42, %240 ], [ %.pn40, %.body129 ], [ %.pn37.pn, %406 ], [ %.pn.pn, %395 ]
   resume { ptr, i32 } %common.resume.op
 
 168:                                              ; preds = %_ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit

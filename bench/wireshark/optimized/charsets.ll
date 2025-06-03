@@ -776,8 +776,8 @@ GSM_to_UNICHAR.exit:                              ; preds = %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %GSM_to_UNICHAR.exit, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.0.sink = phi i32 [ %21, %GSM_to_UNICHAR.exit ], [ 65533, %17 ], [ 8364, %16 ], [ 124, %15 ], [ 93, %14 ], [ 126, %13 ], [ 91, %12 ], [ 92, %11 ], [ 125, %10 ], [ 123, %9 ], [ 94, %8 ], [ 12, %7 ], [ 65533, %5 ]
-  %.08.ph = phi i1 [ false, %GSM_to_UNICHAR.exit ], [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ], [ false, %13 ], [ false, %12 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %7 ], [ %2, %5 ]
+  %.0.sink = phi i32 [ %21, %GSM_to_UNICHAR.exit ], [ 65533, %17 ], [ 94, %8 ], [ 123, %9 ], [ 125, %10 ], [ 92, %11 ], [ 91, %12 ], [ 126, %13 ], [ 93, %14 ], [ 124, %15 ], [ 8364, %16 ], [ 12, %7 ], [ 65533, %5 ]
+  %.08.ph = phi i1 [ false, %GSM_to_UNICHAR.exit ], [ false, %17 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %7 ], [ %2, %5 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %0, i32 noundef %.0.sink)
   br label %22
 

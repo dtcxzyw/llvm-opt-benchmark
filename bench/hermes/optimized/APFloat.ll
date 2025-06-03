@@ -1744,12 +1744,17 @@ if.end43:                                         ; preds = %if.end37.thread, %i
   %omsb.093 = phi i32 [ 0, %if.end37.thread ], [ %omsb.0, %if.end37 ]
   %lost_fraction.addr.091 = phi i32 [ %lost_fraction, %if.end37.thread ], [ %lost_fraction.addr.0, %if.end37 ]
   switch i32 %rounding_mode, label %sw.epilog.i [
-    i32 4, label %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
+    i32 4, label %sw.bb.i
     i32 0, label %sw.bb3.i
     i32 3, label %if.end73
     i32 1, label %sw.bb11.i
-    i32 2, label %sw.bb16.i
+    i32 2, label %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
   ]
+
+sw.bb.i:                                          ; preds = %if.end43
+  %25 = and i32 %lost_fraction.addr.091, -2
+  %26 = icmp eq i32 %25, 2
+  br i1 %26, label %if.then45, label %if.end73
 
 sw.bb3.i:                                         ; preds = %if.end43
   switch i32 %lost_fraction.addr.091, label %if.end73 [
@@ -1764,38 +1769,33 @@ land.lhs.true.i42:                                ; preds = %sw.bb3.i
   br i1 %cmp6.not.i, label %if.end73, label %if.then7.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i42
-  %25 = load ptr, ptr %this, align 8
-  %precision.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %26 = load i32, ptr %precision.i.i.i.i44, align 4
-  %27 = add i32 %26, -64
-  %cmp.i.i.i45 = icmp ult i32 %27, -128
-  %28 = load ptr, ptr %significand.i.i.i, align 8
-  %retval.0.i.i.i47 = select i1 %cmp.i.i.i45, ptr %28, ptr %significand.i.i.i
+  %27 = load ptr, ptr %this, align 8
+  %precision.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %28 = load i32, ptr %precision.i.i.i.i44, align 4
+  %29 = add i32 %28, -64
+  %cmp.i.i.i45 = icmp ult i32 %29, -128
+  %30 = load ptr, ptr %significand.i.i.i, align 8
+  %retval.0.i.i.i47 = select i1 %cmp.i.i.i45, ptr %30, ptr %significand.i.i.i
   %call8.i = tail call noundef i32 @_ZN4llvh5APInt12tcExtractBitEPKmj(ptr noundef %retval.0.i.i.i47, i32 noundef 0) #26
   %tobool.i.not = icmp eq i32 %call8.i, 0
   br i1 %tobool.i.not, label %if.end73, label %if.then45
 
 sw.bb11.i:                                        ; preds = %if.end43
   %bf.load12.i = load i8, ptr %category.i.i.i, align 2
-  %29 = and i8 %bf.load12.i, 8
-  %tobool15.not.i = icmp eq i8 %29, 0
+  %31 = and i8 %bf.load12.i, 8
+  %tobool15.not.i = icmp eq i8 %31, 0
   br i1 %tobool15.not.i, label %if.then45, label %if.end73
-
-sw.bb16.i:                                        ; preds = %if.end43
-  %bf.load18.i = load i8, ptr %category.i.i.i, align 2
-  %30 = and i8 %bf.load18.i, 8
-  %tobool22.i.not = icmp eq i8 %30, 0
-  br i1 %tobool22.i.not, label %if.end73, label %if.then45
 
 sw.epilog.i:                                      ; preds = %if.end43
   unreachable
 
 _ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit: ; preds = %if.end43
-  %31 = and i32 %lost_fraction.addr.091, -2
-  %32 = icmp eq i32 %31, 2
-  br i1 %32, label %if.then45, label %if.end73
+  %bf.load18.i = load i8, ptr %category.i.i.i, align 2
+  %32 = and i8 %bf.load18.i, 8
+  %tobool22.i.not = icmp eq i8 %32, 0
+  br i1 %tobool22.i.not, label %if.end73, label %if.then45
 
-if.then45:                                        ; preds = %sw.bb3.i, %if.then7.i, %sw.bb11.i, %sw.bb16.i, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
+if.then45:                                        ; preds = %sw.bb3.i, %sw.bb11.i, %if.then7.i, %sw.bb.i, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
   %cmp46 = icmp eq i32 %omsb.093, 0
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp46, label %if.then47, label %if.end51
@@ -1861,8 +1861,8 @@ if.end70:                                         ; preds = %if.then58
   tail call void @_ZN4llvh5APInt12tcShiftRightEPmjj(ptr noundef %retval.0.i.i66, i32 noundef range(i32 0, 67108864) %div1.i.i.i68, i32 noundef 1) #26
   br label %return
 
-if.end73:                                         ; preds = %sw.bb3.i, %land.lhs.true.i42, %if.end43, %if.then7.i, %sw.bb11.i, %sw.bb16.i, %if.end51, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
-  %omsb.1 = phi i32 [ %add53, %if.end51 ], [ %omsb.093, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit ], [ %omsb.093, %sw.bb16.i ], [ %omsb.093, %sw.bb11.i ], [ %omsb.093, %if.then7.i ], [ %omsb.093, %if.end43 ], [ %omsb.093, %land.lhs.true.i42 ], [ %omsb.093, %sw.bb3.i ]
+if.end73:                                         ; preds = %sw.bb3.i, %land.lhs.true.i42, %if.end43, %sw.bb11.i, %if.then7.i, %sw.bb.i, %if.end51, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
+  %omsb.1 = phi i32 [ %add53, %if.end51 ], [ %omsb.093, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit ], [ %omsb.093, %sw.bb.i ], [ %omsb.093, %if.then7.i ], [ %omsb.093, %sw.bb11.i ], [ %omsb.093, %if.end43 ], [ %omsb.093, %land.lhs.true.i42 ], [ %omsb.093, %sw.bb3.i ]
   %48 = load ptr, ptr %this, align 8
   %precision75 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %49 = load i32, ptr %precision75, align 4
@@ -3527,7 +3527,7 @@ sw.epilog:                                        ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb3, %sw.bb16, %sw.bb11, %if.end9, %if.then7, %sw.bb
-  %retval.0 = phi i1 [ %tobool22, %sw.bb16 ], [ %tobool15.not, %sw.bb11 ], [ %tobool, %if.then7 ], [ false, %if.end9 ], [ %1, %sw.bb ], [ true, %sw.bb3 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %1, %sw.bb ], [ %tobool, %if.then7 ], [ false, %if.end9 ], [ %tobool15.not, %sw.bb11 ], [ %tobool22, %sw.bb16 ], [ true, %sw.bb3 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -3704,7 +3704,7 @@ sw.bb68:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.then32.i, %if.then, %sw.bb52, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb68, %_ZN4llvh6detail9IEEEFloat6assignERKS1_.exit, %sw.bb17, %sw.bb6
-  %retval.0 = phi i32 [ 2, %sw.bb68 ], [ 0, %_ZN4llvh6detail9IEEEFloat6assignERKS1_.exit ], [ 0, %sw.bb17 ], [ 0, %sw.bb6 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %sw.bb52 ], [ 1, %if.then ], [ 1, %if.then32.i ]
+  %retval.0 = phi i32 [ 0, %sw.bb6 ], [ 0, %sw.bb17 ], [ 0, %_ZN4llvh6detail9IEEEFloat6assignERKS1_.exit ], [ 2, %sw.bb68 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %sw.bb52 ], [ 1, %if.then ], [ 1, %if.then32.i ]
   ret i32 %retval.0
 }
 
@@ -3812,7 +3812,7 @@ if.then32.i:                                      ; preds = %sw.bb27
   br label %return
 
 return:                                           ; preds = %if.then32.i, %sw.bb27, %entry, %sw.bb22, %sw.bb17, %sw.bb8, %sw.bb
-  %retval.0 = phi i32 [ 0, %sw.bb22 ], [ 0, %sw.bb17 ], [ 0, %sw.bb8 ], [ 0, %sw.bb ], [ 0, %entry ], [ 1, %sw.bb27 ], [ 1, %if.then32.i ]
+  %retval.0 = phi i32 [ 0, %sw.bb ], [ 0, %sw.bb8 ], [ 0, %sw.bb17 ], [ 0, %sw.bb22 ], [ 0, %entry ], [ 1, %sw.bb27 ], [ 1, %if.then32.i ]
   ret i32 %retval.0
 }
 
@@ -3922,7 +3922,7 @@ if.then32.i:                                      ; preds = %sw.bb24
   br label %return
 
 return:                                           ; preds = %if.then32.i, %sw.bb24, %entry, %entry, %entry, %entry, %entry, %sw.bb9, %sw.bb19, %sw.bb14
-  %retval.0 = phi i32 [ 2, %sw.bb19 ], [ 0, %sw.bb14 ], [ 0, %sw.bb9 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 1, %sw.bb24 ], [ 1, %if.then32.i ]
+  %retval.0 = phi i32 [ 0, %sw.bb14 ], [ 2, %sw.bb19 ], [ 0, %sw.bb9 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 1, %sw.bb24 ], [ 1, %if.then32.i ]
   ret i32 %retval.0
 }
 
@@ -5441,12 +5441,15 @@ land.lhs.true:                                    ; preds = %if.end7.i, %if.end.
   %.not = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end.i ], [ true, %if.end7.i ]
   %retval.0.i.ph = phi i32 [ 3, %land.lhs.true.i ], [ 2, %if.end.i ], [ 1, %if.end7.i ]
   switch i32 %rounding_mode, label %sw.epilog.i [
-    i32 4, label %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
+    i32 4, label %sw.bb.i
     i32 0, label %sw.bb3.i
     i32 3, label %if.end63
     i32 1, label %sw.bb11.i
-    i32 2, label %sw.bb16.i
+    i32 2, label %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
   ]
+
+sw.bb.i:                                          ; preds = %land.lhs.true
+  br i1 %.not, label %if.end63, label %if.then55
 
 sw.bb3.i:                                         ; preds = %land.lhs.true
   switch i32 %retval.0.i.ph, label %if.end63 [
@@ -5478,25 +5481,22 @@ sw.bb11.i:                                        ; preds = %land.lhs.true
   %tobool15.not.i = icmp eq i8 %19, 0
   br i1 %tobool15.not.i, label %if.then55, label %if.end63
 
-sw.bb16.i:                                        ; preds = %land.lhs.true
+sw.epilog.i:                                      ; preds = %land.lhs.true
+  unreachable
+
+_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit: ; preds = %land.lhs.true
   %bf.load18.i = load i8, ptr %category, align 2
   %20 = and i8 %bf.load18.i, 8
   %tobool22.i.not = icmp eq i8 %20, 0
   br i1 %tobool22.i.not, label %if.end63, label %if.then55
 
-sw.epilog.i:                                      ; preds = %land.lhs.true
-  unreachable
-
-_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit: ; preds = %land.lhs.true
-  br i1 %.not, label %if.end63, label %if.then55
-
-if.then55:                                        ; preds = %sw.bb3.i, %if.then7.i, %sw.bb11.i, %sw.bb16.i, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
+if.then55:                                        ; preds = %sw.bb3.i, %sw.bb11.i, %if.then7.i, %sw.bb.i, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit
   %call.i34 = tail call noundef i64 @_ZN4llvh5APInt9tcAddPartEPmmj(ptr noundef %parts.coerce0, i64 noundef 1, i32 noundef %div1.i) #26
   %tobool58.not = icmp eq i64 %call.i34, 0
   br i1 %tobool58.not, label %if.end63, label %return
 
-if.end63:                                         ; preds = %sw.bb3.i, %land.lhs.true.i33, %land.lhs.true, %if.then7.i, %sw.bb11.i, %sw.bb16.i, %if.then50, %if.end48.thread, %if.end48, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit, %if.then55
-  %cmp102 = phi i1 [ false, %if.then55 ], [ false, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit ], [ true, %if.end48 ], [ true, %if.end48.thread ], [ true, %if.then50 ], [ false, %sw.bb16.i ], [ false, %sw.bb11.i ], [ false, %if.then7.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i33 ], [ false, %sw.bb3.i ]
+if.end63:                                         ; preds = %sw.bb3.i, %land.lhs.true.i33, %land.lhs.true, %sw.bb11.i, %if.then7.i, %sw.bb.i, %if.then50, %if.end48.thread, %if.end48, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit, %if.then55
+  %cmp102 = phi i1 [ false, %if.then55 ], [ false, %_ZNK4llvh6detail9IEEEFloat17roundAwayFromZeroENS_11APFloatBase12roundingModeENS_12lostFractionEj.exit ], [ true, %if.end48 ], [ true, %if.end48.thread ], [ true, %if.then50 ], [ false, %sw.bb.i ], [ false, %if.then7.i ], [ false, %sw.bb11.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i33 ], [ false, %sw.bb3.i ]
   %call65 = tail call noundef i32 @_ZN4llvh5APInt5tcMSBEPKmj(ptr noundef %parts.coerce0, i32 noundef %div1.i) #26
   %add66 = add i32 %call65, 1
   %bf.load68 = load i8, ptr %category, align 2
@@ -7132,7 +7132,7 @@ sw.bb28:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb28, %if.end23, %sw.bb6, %sw.bb, %if.end
-  %dst.addr.1 = phi ptr [ %dst.addr.0, %if.end ], [ %call, %sw.bb28 ], [ %incdec.ptr27, %if.end23 ], [ %add.ptr13, %sw.bb6 ], [ %add.ptr, %sw.bb ]
+  %dst.addr.1 = phi ptr [ %dst.addr.0, %if.end ], [ %add.ptr, %sw.bb ], [ %add.ptr13, %sw.bb6 ], [ %incdec.ptr27, %if.end23 ], [ %call, %sw.bb28 ]
   store i8 0, ptr %dst.addr.1, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %dst.addr.1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %dst to i64
@@ -12207,7 +12207,7 @@ if.else64:                                        ; preds = %for.body.i117, %_ZN
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.end.thread, %if.then32.i, %if.then6, %if.then45, %land.end, %if.else64, %if.then56, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit, %sw.bb, %if.then23, %if.then13, %sw.bb9, %if.end3, %if.end
-  %result.0 = phi i32 [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then45 ], [ 0, %land.end ], [ 0, %if.then56 ], [ 0, %if.else64 ], [ 0, %if.then23 ], [ 0, %sw.bb9 ], [ 0, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %if.end3 ], [ 0, %sw.bb ], [ 1, %if.then6 ], [ 1, %if.then32.i ], [ 0, %land.end.thread ]
+  %result.0 = phi i32 [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %sw.bb ], [ 0, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %sw.bb9 ], [ 0, %if.then13 ], [ 0, %if.then45 ], [ 0, %land.end ], [ 0, %if.then56 ], [ 0, %if.else64 ], [ 0, %if.then23 ], [ 1, %if.then6 ], [ 1, %if.then32.i ], [ 0, %land.end.thread ]
   br i1 %nextDown, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %sw.epilog
@@ -18046,7 +18046,7 @@ sw.bb28.i:                                        ; preds = %if.end.i8
   br label %_ZNK4llvh6detail9IEEEFloat18convertToHexStringEPcjbNS_11APFloatBase12roundingModeE.exit
 
 _ZNK4llvh6detail9IEEEFloat18convertToHexStringEPcjbNS_11APFloatBase12roundingModeE.exit: ; preds = %if.end.i8, %sw.bb.i, %sw.bb6.i, %if.end23.i, %sw.bb28.i
-  %dst.addr.1.i = phi ptr [ %dst.addr.0.i, %if.end.i8 ], [ %call.i9, %sw.bb28.i ], [ %incdec.ptr27.i, %if.end23.i ], [ %add.ptr13.i, %sw.bb6.i ], [ %add.ptr.i, %sw.bb.i ]
+  %dst.addr.1.i = phi ptr [ %dst.addr.0.i, %if.end.i8 ], [ %add.ptr.i, %sw.bb.i ], [ %add.ptr13.i, %sw.bb6.i ], [ %incdec.ptr27.i, %if.end23.i ], [ %call.i9, %sw.bb28.i ]
   store i8 0, ptr %dst.addr.1.i, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %dst.addr.1.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %DST to i64

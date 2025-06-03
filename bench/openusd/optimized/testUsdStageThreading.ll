@@ -15454,7 +15454,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #31
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   %66 = icmp eq i64 %64, %65
@@ -15477,7 +15477,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #31
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   %77 = icmp eq i64 %75, %76
@@ -15687,7 +15687,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %59, %58 ]
+  %.sroa.037.1 = phi ptr [ %59, %58 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %61 = load ptr, ptr %.sroa.037.1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %61, ptr %5, align 8
@@ -15712,7 +15712,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %69, %68 ]
+  %.sroa.037.2 = phi ptr [ %69, %68 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %71 = load ptr, ptr %.sroa.037.2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %71, ptr %4, align 8
@@ -17019,7 +17019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit114: ;
   ret void
 
 293:                                              ; preds = %211, %194, %213, %196, %.body112, %.body104, %.body97, %138, %.body
-  %.pn71.pn = phi { ptr, i32 } [ %.pn71144, %196 ], [ %195, %194 ], [ %.pn69150, %213 ], [ %212, %211 ], [ %.pn67, %.body104 ], [ %.pn65, %.body97 ], [ %.pn63, %.body112 ], [ %139, %138 ], [ %.pn.pn, %.body ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71144, %196 ], [ %195, %194 ], [ %.pn69150, %213 ], [ %212, %211 ], [ %.pn67, %.body104 ], [ %.pn65, %.body97 ], [ %.pn63, %.body112 ], [ %.pn.pn, %.body ], [ %139, %138 ]
   resume { ptr, i32 } %.pn71.pn
 
 294:                                              ; preds = %209, %192
@@ -18970,7 +18970,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %45, %44 ]
+  %.sroa.024.1 = phi ptr [ %45, %44 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.1)
   %47 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %5)
@@ -18991,7 +18991,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.sroa.024.2 = phi ptr [ %51, %50 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.2)
   %53 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)
@@ -19204,7 +19204,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %45, %44 ]
+  %.sroa.024.1 = phi ptr [ %45, %44 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.1)
   %47 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E0_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %5)
@@ -19225,7 +19225,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.sroa.024.2 = phi ptr [ %51, %50 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.2)
   %53 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E0_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)
@@ -19422,7 +19422,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %45, %44 ]
+  %.sroa.024.1 = phi ptr [ %45, %44 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.1)
   %47 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E1_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %5)
@@ -19443,7 +19443,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.sroa.024.2 = phi ptr [ %51, %50 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.2)
   %53 = invoke noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail11find_memberENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEbbENKUlS8_E1_clES8_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)
@@ -19635,7 +19635,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %63
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %.sroa.037.1 = phi ptr [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %64 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.1) #31
   %65 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   %66 = icmp eq i64 %64, %65
@@ -19658,7 +19658,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %74
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %.sroa.037.2 = phi ptr [ %73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.2) #31
   %76 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   %77 = icmp eq i64 %75, %76
@@ -21630,7 +21630,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt6all_ofIN9__gnu_cxx17__nor
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load i8, ptr %.sroa.025.1.i.i.i, align 1
   %35 = and i8 %34, -8
   %.not34.i.i.i = icmp eq i8 %35, 48
@@ -21641,7 +21641,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt6all_ofIN9__gnu_cxx17__nor
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i8, ptr %.sroa.025.2.i.i.i, align 1
   %40 = and i8 %39, -8
   %.not35.i.i.i = icmp eq i8 %40, 48
@@ -21740,7 +21740,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt6all_ofIN9__gnu_cxx17__nor
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %34 = load i8, ptr %.sroa.025.1.i.i.i, align 1
   %35 = and i8 %34, -2
   %.not34.i.i.i = icmp eq i8 %35, 48
@@ -21751,7 +21751,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt6all_ofIN9__gnu_cxx17__nor
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i8, ptr %.sroa.025.2.i.i.i, align 1
   %40 = and i8 %39, -2
   %.not35.i.i.i = icmp eq i8 %40, 48
@@ -21905,7 +21905,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3C
   br label %43
 
 43:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit31.thread, %._crit_edge
-  %.sroa.042.1 = phi ptr [ %.sroa.042.0.lcssa, %._crit_edge ], [ %42, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit31.thread ]
+  %.sroa.042.1 = phi ptr [ %42, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit31.thread ], [ %.sroa.042.0.lcssa, %._crit_edge ]
   %44 = load i8, ptr %.sroa.042.1, align 1
   %45 = add i8 %44, -58
   %or.cond.i.i32 = icmp ult i8 %45, -10
@@ -21920,7 +21920,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3C
   br label %50
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit35.thread, %._crit_edge
-  %.sroa.042.2 = phi ptr [ %.sroa.042.0.lcssa, %._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit35.thread ]
+  %.sroa.042.2 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail19convert_arg_for_iniERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEccEUlcE_EclINS_17__normal_iteratorIPKcSB_EEEEbT_.exit35.thread ], [ %.sroa.042.0.lcssa, %._crit_edge ]
   %51 = load i8, ptr %.sroa.042.2, align 1
   %52 = add i8 %51, -58
   %or.cond.i.i36 = icmp ult i8 %52, -10
@@ -22128,7 +22128,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %59, %58 ]
+  %.sroa.037.1 = phi ptr [ %59, %58 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %61 = load ptr, ptr %.sroa.037.1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %61, ptr %5, align 8
@@ -22153,7 +22153,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %69, %68 ]
+  %.sroa.037.2 = phi ptr [ %69, %68 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %71 = load ptr, ptr %.sroa.037.2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %71, ptr %4, align 8
@@ -24577,7 +24577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option15remove_excludesEPS2_.e
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %77, %76 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %77, %76 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %79 = load ptr, ptr %.sroa.032.1.i.i.i, align 8
   %80 = icmp eq ptr %79, %1
   br i1 %80, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6OptionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEZNS5_3App13remove_optionEPS6_EUlRKS9_E_ET_SK_SK_T0_.exit, label %81
@@ -24587,7 +24587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option15remove_excludesEPS2_.e
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %82, %81 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %82, %81 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %84 = load ptr, ptr %.sroa.032.2.i.i.i, align 8
   %85 = icmp eq ptr %84, %1
   %spec.select.i.i.i = select i1 %85, ptr %.sroa.032.2.i.i.i, ptr %47
@@ -27290,7 +27290,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %79, %78 ]
+  %.sroa.030.1 = phi ptr [ %79, %78 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %81 = load i8, ptr %.sroa.030.1, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #31
@@ -27319,7 +27319,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %92, %91 ]
+  %.sroa.030.2 = phi ptr [ %92, %91 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %94 = load i8, ptr %.sroa.030.2, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #31
@@ -27827,7 +27827,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %62
 
 62:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit23.thread43, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %61, %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit23.thread43 ]
+  %.sroa.030.1 = phi ptr [ %61, %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit23.thread43 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %63 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.030.1) #31
   br i1 %63, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %64
 
@@ -27853,7 +27853,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %73
 
 73:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit25.thread44, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit25.thread44 ]
+  %.sroa.030.2 = phi ptr [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit25.thread44 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %74 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.030.2) #31
   br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail23get_default_flag_valuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSD_E_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %75
 
@@ -29663,7 +29663,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.1 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.sroa.032.1, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option13matching_nameB5cxx11ERKS2_(ptr noundef nonnull align 8 dereferenceable(591) %39, ptr noundef nonnull align 8 dereferenceable(591) %2)
   %41 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #31
@@ -29674,7 +29674,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.032.2 = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.sroa.032.2, align 8
   %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option13matching_nameB5cxx11ERKS2_(ptr noundef nonnull align 8 dereferenceable(591) %45, ptr noundef nonnull align 8 dereferenceable(591) %2)
   %47 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #31
@@ -31694,7 +31694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %75
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App26_has_remaining_positionalsEv.exit, %.thread, %65, %49, %59, %57, %54
-  %.022.shrunk = phi i1 [ true, %65 ], [ %61, %.thread ], [ true, %59 ], [ %58, %57 ], [ false, %54 ], [ true, %49 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App26_has_remaining_positionalsEv.exit ]
+  %.022.shrunk = phi i1 [ true, %49 ], [ false, %54 ], [ %58, %57 ], [ true, %59 ], [ true, %65 ], [ %61, %.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App26_has_remaining_positionalsEv.exit ]
   ret i1 %.022.shrunk
 
 75:                                               ; preds = %71, %73, %.body
@@ -33966,7 +33966,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   ret i1 %.0110
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %50, %627, %629, %424, %426, %80, %82, %72, %74, %61, %63, %52, %614, %599, %593, %542, %504, %415, %364, %324, %287, %281, %163, %122
-  %.pn168.pn = phi { ptr, i32 } [ %.pn168283, %82 ], [ %81, %80 ], [ %.pn164, %415 ], [ %.pn161.pn293, %426 ], [ %425, %424 ], [ %615, %614 ], [ %.pn158.pn300, %629 ], [ %628, %627 ], [ %.pn154, %599 ], [ %594, %593 ], [ %543, %542 ], [ %505, %504 ], [ %.pn152, %287 ], [ %282, %281 ], [ %365, %364 ], [ %325, %324 ], [ %164, %163 ], [ %123, %122 ], [ %.pn279, %74 ], [ %73, %72 ], [ %.pn148275, %63 ], [ %62, %61 ], [ %.pn150269, %52 ], [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit305, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit308, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn168.pn = phi { ptr, i32 } [ %.pn168283, %82 ], [ %81, %80 ], [ %.pn164, %415 ], [ %.pn161.pn293, %426 ], [ %425, %424 ], [ %615, %614 ], [ %.pn158.pn300, %629 ], [ %628, %627 ], [ %.pn154, %599 ], [ %594, %593 ], [ %543, %542 ], [ %505, %504 ], [ %.pn152, %287 ], [ %282, %281 ], [ %365, %364 ], [ %325, %324 ], [ %164, %163 ], [ %123, %122 ], [ %.pn150269, %52 ], [ %51, %50 ], [ %.pn148275, %63 ], [ %62, %61 ], [ %.pn279, %74 ], [ %73, %72 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit305, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit308, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #31
@@ -40723,7 +40723,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %59, %58 ]
+  %.sroa.037.1 = phi ptr [ %59, %58 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %61 = load ptr, ptr %.sroa.037.1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %61, ptr %5, align 8
@@ -40748,7 +40748,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge ], [ %69, %68 ]
+  %.sroa.037.2 = phi ptr [ %69, %68 ], [ %.sroa.037.0.lcssa, %._crit_edge ]
   %71 = load ptr, ptr %.sroa.037.2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %71, ptr %4, align 8
@@ -41367,7 +41367,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.025.1 = phi ptr [ %27, %26 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %29 = tail call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App10_parse_argERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EENS1_6detail10ClassifierEENKUlRKSt10unique_ptrINS1_6OptionESt14default_deleteISG_EEE_clESL_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.1)
   br i1 %29, label %.loopexit, label %30
 
@@ -41376,7 +41376,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.025.2 = phi ptr [ %31, %30 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %33 = tail call noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI3App10_parse_argERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EENS1_6detail10ClassifierEENKUlRKSt10unique_ptrINS1_6OptionESt14default_deleteISG_EEE_clESL_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.025.2)
   %spec.select = select i1 %33, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -49654,7 +49654,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %101, %100 ]
+  %.sroa.031.1 = phi ptr [ %101, %100 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %103 = load i8, ptr %.sroa.031.1, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %104 = icmp eq i8 %2, 0
@@ -49692,7 +49692,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %118, %117 ]
+  %.sroa.031.2 = phi ptr [ %118, %117 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %120 = load i8, ptr %.sroa.031.2, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %121 = icmp eq i8 %2, 0
@@ -51488,7 +51488,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %45, %44 ]
+  %.sroa.024.1 = phi ptr [ %45, %44 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.1)
   %47 = invoke noundef zeroext i1 @_ZZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI9Formatter16make_subcommandsB5cxx11EPKNS1_3AppENS1_13AppFormatModeEENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clESC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %5)
@@ -51509,7 +51509,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CL
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.sroa.024.2 = phi ptr [ %51, %50 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.024.2)
   %53 = invoke noundef zeroext i1 @_ZZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI9Formatter16make_subcommandsB5cxx11EPKNS1_3AppENS1_13AppFormatModeEENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clESC_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)

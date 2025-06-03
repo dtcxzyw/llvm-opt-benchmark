@@ -4929,8 +4929,8 @@ evbuffer_find_eol_char.exit.thread.loopexit118:   ; preds = %180
   br label %evbuffer_find_eol_char.exit.thread
 
 evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_char.exit.thread.loopexit118, %evbuffer_find_eol_char.exit.thread.loopexit117, %evbuffer_find_eol_char.exit.thread.loopexit116, %evbuffer_find_eol_char.exit.thread.loopexit, %evbuffer_strchr.exit, %85, %164, %140, %26, %25, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82, %evbuffer_find_eol_char.exit, %evbuffer_strspn.exit
-  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_strchr.exit62 ], [ false, %evbuffer_strspn.exit ], [ true, %evbuffer_strchr.exit51 ], [ true, %82 ], [ true, %evbuffer_find_eol_char.exit ], [ true, %26 ], [ true, %140 ], [ true, %164 ], [ true, %85 ], [ true, %evbuffer_strchr.exit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
-  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_strchr.exit62 ], [ %.0, %evbuffer_strspn.exit ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %82 ], [ 0, %evbuffer_find_eol_char.exit ], [ 0, %26 ], [ 0, %140 ], [ 0, %164 ], [ 0, %85 ], [ 0, %evbuffer_strchr.exit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
+  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %26 ], [ true, %140 ], [ true, %164 ], [ true, %85 ], [ true, %evbuffer_strchr.exit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
+  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %26 ], [ 0, %140 ], [ 0, %164 ], [ 0, %85 ], [ 0, %evbuffer_strchr.exit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
   %188 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %188, null
   br i1 %.not29, label %192, label %189
@@ -5828,8 +5828,8 @@ define range(i32 -1, 1) i32 @evbuffer_ptr_set(ptr noundef readonly captures(none
   br label %26
 
 26:                                               ; preds = %11, %20
-  %.042 = phi i64 [ %25, %20 ], [ 0, %11 ]
-  %.039 = phi ptr [ %22, %20 ], [ %12, %11 ]
+  %.042 = phi i64 [ 0, %11 ], [ %25, %20 ]
+  %.039 = phi ptr [ %12, %11 ], [ %22, %20 ]
   %.not5058 = icmp eq ptr %.039, null
   br i1 %.not5058, label %.critedge54, label %.lr.ph
 

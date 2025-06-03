@@ -5334,7 +5334,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit434: ; preds = %_ZNSt15__exception
   br label %1020
 
 1020:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420, %1016, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit434, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit430
-  %.17 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %1019, %1016 ], [ null, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit430 ], [ null, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit434 ]
+  %.17 = phi ptr [ %1019, %1016 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ null, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit430 ], [ null, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit434 ]
   ret ptr %.17
 
 1021:                                             ; preds = %1014, %1012
@@ -7344,7 +7344,7 @@ _ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit:
   br label %210
 
 210:                                              ; preds = %19, %11, %2, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit, %208
-  %.0 = phi ptr [ null, %19 ], [ %205, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit ], [ null, %208 ], [ null, %2 ], [ %10, %11 ]
+  %.0 = phi ptr [ %205, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit ], [ null, %208 ], [ null, %19 ], [ null, %2 ], [ %10, %11 ]
   ret ptr %.0
 }
 
@@ -7803,7 +7803,7 @@ _ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit:
   br label %161
 
 161:                                              ; preds = %22, %14, %3, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit, %159
-  %.0 = phi ptr [ null, %22 ], [ %156, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit ], [ null, %159 ], [ null, %3 ], [ %12, %14 ]
+  %.0 = phi ptr [ %156, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit ], [ null, %159 ], [ null, %22 ], [ null, %3 ], [ %12, %14 ]
   ret ptr %.0
 }
 
@@ -8661,7 +8661,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -8907,7 +8907,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -9133,7 +9133,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 56:                                               ; preds = %48, %40, %26, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %55, %48 ], [ %47, %40 ], [ %39, %26 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %39, %26 ], [ %47, %40 ], [ %55, %48 ]
   %57 = shl i32 %.1.i, 3
   %58 = xor i32 %57, %.1.i
   %59 = lshr i32 %58, 5
@@ -9422,7 +9422,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -9672,7 +9672,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -9896,7 +9896,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -10047,7 +10047,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -10237,7 +10237,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -10386,7 +10386,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -10537,7 +10537,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -13644,7 +13644,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.031.1 = phi ptr [ %37, %36 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %39 = load i8, ptr %.sroa.031.1, align 1
   %40 = zext i8 %39 to i32
   %41 = tail call i32 @isspace(i32 noundef %40) #32
@@ -13656,7 +13656,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.031.2 = phi ptr [ %43, %42 ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %45 = load i8, ptr %.sroa.031.2, align 1
   %46 = zext i8 %45 to i32
   %47 = tail call i32 @isspace(i32 noundef %46) #32

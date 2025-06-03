@@ -1465,7 +1465,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7VtValueES1_EvT_S3_RSaIT0_E.ex
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_.exit unwind label %70
 
 common.resume:                                    ; preds = %.body, %.body11, %70
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %eh.lpad-body12, %.body11 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body12, %.body11 ]
   resume { ptr, i32 } %common.resume.op
 
 70:                                               ; preds = %66

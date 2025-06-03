@@ -116,8 +116,8 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 36:                                               ; preds = %40, %39, %30
-  %.pn2 = phi { ptr, i32 } [ %41, %40 ], [ %.pn, %30 ], [ %21, %39 ]
-  resume { ptr, i32 } %.pn2
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %30 ], [ %21, %39 ], [ %41, %40 ]
+  resume { ptr, i32 } %.pn.pn
 
 37:                                               ; preds = %20
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 248
@@ -533,8 +533,8 @@ define hidden { i64, ptr } @_ZN13logos_codegen6parser6Parser13parse_literal17h09
   br label %19
 
 19:                                               ; preds = %8, %24, %22, %18, %11
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %18 ], [ undef, %22 ], [ %.sroa.4.3, %24 ], [ %13, %11 ], [ %10, %8 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %18 ], [ 2, %22 ], [ %.sroa.0.3, %24 ], [ %17, %11 ], [ 0, %8 ]
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %18 ], [ %.sroa.4.3, %24 ], [ undef, %22 ], [ %10, %8 ], [ %13, %11 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %18 ], [ %.sroa.0.3, %24 ], [ 2, %22 ], [ 0, %8 ], [ %17, %11 ]
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.4.1, 1
   ret { i64, ptr } %21
@@ -621,13 +621,13 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !7
   call void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nonnull sret([40 x i8]) align 8 %4, ptr nonnull align 8 %6), !noalias !7
-  %.sroa.0.0.copyload30 = load i64, ptr %4, align 8
-  %.sroa.4.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx31, i64 32, i1 false)
+  %.sroa.0.0.copyload29 = load i64, ptr %4, align 8
+  %.sroa.4.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx30, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %26 = icmp eq i64 %.sroa.0.0.copyload30, 2
+  %26 = icmp eq i64 %.sroa.0.0.copyload29, 2
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread, %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
@@ -635,9 +635,9 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   br label %29
 
 28:                                               ; preds = %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit
-  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.237.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
-  store i64 %.sroa.0.0.copyload30, ptr %22, align 8
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.236.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
+  store i64 %.sroa.0.0.copyload29, ptr %22, align 8
   invoke void @_ZN13logos_codegen6parser6nested15AttributeParser6parsed17h5d4e295f936366a2E(ptr nonnull sret([32 x i8]) align 8 %21, ptr nonnull align 8 %22)
           to label %32 unwind label %30
 
@@ -704,8 +704,8 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   invoke void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c017c854926a376E"(ptr nonnull sret([88 x i8]) align 8 %15, ptr nonnull align 8 %16)
           to label %53 unwind label %51
 
-50:                                               ; preds = %72, %.thread43, %83, %80, %51
-  %.pn25 = phi { ptr, i32 } [ %52, %51 ], [ %84, %83 ], [ %lpad.thr_comm, %80 ], [ %lpad.thr_comm.split-lp, %72 ], [ %74, %.thread43 ]
+50:                                               ; preds = %72, %.thread42, %83, %80, %51
+  %.pn23.pn = phi { ptr, i32 } [ %lpad.thr_comm, %80 ], [ %lpad.thr_comm.split-lp, %72 ], [ %52, %51 ], [ %84, %83 ], [ %74, %.thread42 ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$logos_codegen..parser..nested..AttributeParser$GT$$GT$17h79485f77da042e18E"(ptr nonnull align 8 %16) #7
           to label %61 unwind label %81
 
@@ -734,7 +734,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   ]
 
 61:                                               ; preds = %62, %50
-  %.pn27 = phi { ptr, i32 } [ %63, %62 ], [ %.pn25, %50 ]
+  %.pn26 = phi { ptr, i32 } [ %63, %62 ], [ %.pn23.pn, %50 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$logos_codegen..parser..definition..Definition$GT$17hc6f84f380fe3183fE"(ptr nonnull align 8 %17) #7
           to label %102 unwind label %81
 
@@ -785,9 +785,9 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
 
 73:                                               ; preds = %70
   invoke void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$logos_codegen..leaf..Callback$GT$$GT$17h09cb59c003ba9d3eE"(ptr nonnull align 8 %48)
-          to label %75 unwind label %.thread43
+          to label %75 unwind label %.thread42
 
-.thread43:                                        ; preds = %73
+.thread42:                                        ; preds = %73
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
@@ -874,11 +874,11 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
           to label %90 unwind label %81
 
 102:                                              ; preds = %61, %103
-  %.pn27.pn41 = phi { ptr, i32 } [ %.pn27.pn.ph, %103 ], [ %.pn27, %61 ]
-  resume { ptr, i32 } %.pn27.pn41
+  %.pn26.pn40 = phi { ptr, i32 } [ %.pn26.pn.ph, %103 ], [ %.pn26, %61 ]
+  resume { ptr, i32 } %.pn26.pn40
 
 103:                                              ; preds = %30, %90
-  %.pn27.pn.ph = phi { ptr, i32 } [ %.pn, %90 ], [ %31, %30 ]
+  %.pn26.pn.ph = phi { ptr, i32 } [ %.pn, %90 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$logos_codegen..parser..nested..AttributeParser$GT$17h75bbc3b5de47ee09E"(ptr nonnull align 8 %22) #7
           to label %102 unwind label %81
 }

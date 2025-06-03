@@ -6120,7 +6120,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_key_move(ptr noundef captures(none) %0
   br label %88
 
 88:                                               ; preds = %87, %86, %84, %71, %56, %52, %49, %46, %43
-  %.2.i = phi i32 [ %22, %43 ], [ %.070.i, %87 ], [ 1, %86 ], [ %spec.store.select.i, %71 ], [ %..070.i, %56 ], [ %spec.select.i, %52 ], [ %51, %49 ], [ %48, %46 ], [ %spec.select78.i, %84 ]
+  %.2.i = phi i32 [ %22, %43 ], [ %48, %46 ], [ %51, %49 ], [ %spec.select.i, %52 ], [ %..070.i, %56 ], [ %spec.store.select.i, %71 ], [ 1, %86 ], [ %.070.i, %87 ], [ %spec.select78.i, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   br label %89
 

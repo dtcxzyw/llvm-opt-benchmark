@@ -9395,7 +9395,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread7: ; preds = %7, %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %33, %.lr.ph.i
-  %.1.i.i = phi ptr [ %29, %.lr.ph.i ], [ %34, %33 ]
+  %.1.i.i = phi ptr [ %34, %33 ], [ %29, %.lr.ph.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %36 = load i24, ptr %35, align 16
   %37 = and i24 %36, 1048576

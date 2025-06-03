@@ -1294,8 +1294,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager20getLValueFieldOrIvar
   br label %19
 
 19:                                               ; preds = %13, %17, %5, %15, %4
-  %.sroa.011.0 = phi ptr [ %2, %4 ], [ %2, %13 ], [ %18, %17 ], [ %16, %15 ], [ null, %5 ]
-  %.sroa.6.0 = phi i8 [ %3, %4 ], [ %3, %13 ], [ 4, %17 ], [ 4, %15 ], [ 0, %5 ]
+  %.sroa.011.0 = phi ptr [ %2, %4 ], [ %18, %17 ], [ %16, %15 ], [ %2, %13 ], [ null, %5 ]
+  %.sroa.6.0 = phi i8 [ %3, %4 ], [ 4, %17 ], [ 4, %15 ], [ %3, %13 ], [ 0, %5 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.6.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1343,8 +1343,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager13getLValueIvarEPKNS_1
   br label %_ZN5clang4ento12StoreManager20getLValueFieldOrIvarEPKNS_4DeclENS0_4SValE.exit
 
 _ZN5clang4ento12StoreManager20getLValueFieldOrIvarEPKNS_4DeclENS0_4SValE.exit: ; preds = %4, %5, %13, %15, %17
-  %.sroa.011.0.i = phi ptr [ %2, %4 ], [ %2, %13 ], [ %18, %17 ], [ %16, %15 ], [ null, %5 ]
-  %.sroa.6.0.i = phi i8 [ %3, %4 ], [ %3, %13 ], [ 4, %17 ], [ 4, %15 ], [ 0, %5 ]
+  %.sroa.011.0.i = phi ptr [ %2, %4 ], [ %18, %17 ], [ %16, %15 ], [ %2, %13 ], [ null, %5 ]
+  %.sroa.6.0.i = phi i8 [ %3, %4 ], [ 4, %17 ], [ 4, %15 ], [ %3, %13 ], [ 0, %5 ]
   %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 %.sroa.6.0.i, 1
   ret { ptr, i8 } %.fca.1.insert.i
@@ -1507,8 +1507,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %70, %77, %80
   br label %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit, %62, %52, %57, %.thread, %46, %39, %36, %38
-  %.sroa.044.3 = phi ptr [ %.sroa.044.0.copyload, %36 ], [ %.sroa.044.0.copyload45, %38 ], [ %51, %46 ], [ null, %39 ], [ null, %.thread ], [ %87, %_ZN4llvm5APIntD2Ev.exit ], [ %69, %62 ], [ null, %52 ], [ null, %57 ]
-  %.sroa.10.3 = phi i8 [ %.sroa.10.0.copyload, %36 ], [ %37, %38 ], [ 4, %46 ], [ 1, %39 ], [ 1, %.thread ], [ 4, %_ZN4llvm5APIntD2Ev.exit ], [ 4, %62 ], [ 1, %52 ], [ 1, %57 ]
+  %.sroa.044.3 = phi ptr [ %.sroa.044.0.copyload45, %38 ], [ %.sroa.044.0.copyload, %36 ], [ %51, %46 ], [ null, %39 ], [ null, %.thread ], [ %87, %_ZN4llvm5APIntD2Ev.exit ], [ %69, %62 ], [ null, %52 ], [ null, %57 ]
+  %.sroa.10.3 = phi i8 [ %37, %38 ], [ %.sroa.10.0.copyload, %36 ], [ 4, %46 ], [ 1, %39 ], [ 1, %.thread ], [ 4, %_ZN4llvm5APIntD2Ev.exit ], [ 4, %62 ], [ 1, %52 ], [ 1, %57 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.044.3, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.10.3, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1672,8 +1672,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZN5clang4ento12StoreManager14getLValueF
   br label %_ZN5clang4ento12StoreManager20getLValueFieldOrIvarEPKNS_4DeclENS0_4SValE.exit
 
 _ZN5clang4ento12StoreManager20getLValueFieldOrIvarEPKNS_4DeclENS0_4SValE.exit: ; preds = %4, %5, %13, %15, %17
-  %.sroa.011.0.i = phi ptr [ %2, %4 ], [ %2, %13 ], [ %18, %17 ], [ %16, %15 ], [ null, %5 ]
-  %.sroa.6.0.i = phi i8 [ %3, %4 ], [ %3, %13 ], [ 4, %17 ], [ 4, %15 ], [ 0, %5 ]
+  %.sroa.011.0.i = phi ptr [ %2, %4 ], [ %18, %17 ], [ %16, %15 ], [ %2, %13 ], [ null, %5 ]
+  %.sroa.6.0.i = phi i8 [ %3, %4 ], [ 4, %17 ], [ 4, %15 ], [ %3, %13 ], [ 0, %5 ]
   %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %.sroa.011.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 %.sroa.6.0.i, 1
   ret { ptr, i8 } %.fca.1.insert.i

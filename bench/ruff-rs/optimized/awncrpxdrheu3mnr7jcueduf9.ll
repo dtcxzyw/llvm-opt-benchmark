@@ -5338,7 +5338,7 @@ default.unreachable1:                             ; preds = %4
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
-  %.sroa.0.0 = phi i64 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i64 %.sroa.0.0
 }
 
@@ -50866,7 +50866,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$ruff..args..LineColumnParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17he0a37cc6f0408553E.exit"
 
 "_ZN69_$LT$ruff..args..LineColumnParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17he0a37cc6f0408553E.exit": ; preds = %9, %12, %15, %17, %20
-  %.sroa.0.0.in.i = phi i1 [ %22, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ %19, %17 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -52889,10 +52889,10 @@ default.unreachable:                              ; preds = %137, %"_ZN4jiff3fmt
   br label %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$3new17h800ec830dd55259cE.exit.i"
 
 "_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$3new17h800ec830dd55259cE.exit.i": ; preds = %56, %58, %57, %55, %54, %53, %51, %49, %47
-  %.sroa.17.0.i.i = phi i64 [ 4, %58 ], [ 1, %49 ], [ 1, %57 ], [ 1, %55 ], [ undef, %53 ], [ undef, %54 ], [ 4, %56 ], [ undef, %47 ], [ undef, %51 ]
-  %.sroa.11.0.i.i = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.382, %58 ], [ %anon.39b4bef0baa28d3d57d7a4b875dc438e.379.anon.39b4bef0baa28d3d57d7a4b875dc438e.378.i.i.i, %49 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.379, %57 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.379, %55 ], [ undef, %53 ], [ undef, %54 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.382, %56 ], [ undef, %47 ], [ undef, %51 ]
-  %.not6.i.i = phi i1 [ false, %58 ], [ false, %49 ], [ false, %57 ], [ false, %55 ], [ true, %53 ], [ true, %54 ], [ false, %56 ], [ true, %47 ], [ true, %51 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %58 ], [ 0, %49 ], [ 0, %57 ], [ 0, %55 ], [ 2, %53 ], [ 2, %54 ], [ 1, %56 ], [ 2, %47 ], [ 2, %51 ]
+  %.sroa.17.0.i.i = phi i64 [ 1, %55 ], [ 1, %57 ], [ 1, %49 ], [ 4, %58 ], [ undef, %53 ], [ undef, %54 ], [ 4, %56 ], [ undef, %47 ], [ undef, %51 ]
+  %.sroa.11.0.i.i = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.379, %55 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.379, %57 ], [ %anon.39b4bef0baa28d3d57d7a4b875dc438e.379.anon.39b4bef0baa28d3d57d7a4b875dc438e.378.i.i.i, %49 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.382, %58 ], [ undef, %53 ], [ undef, %54 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.382, %56 ], [ undef, %47 ], [ undef, %51 ]
+  %.not6.i.i = phi i1 [ false, %55 ], [ false, %57 ], [ false, %49 ], [ false, %58 ], [ true, %53 ], [ true, %54 ], [ false, %56 ], [ true, %47 ], [ true, %51 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %55 ], [ 0, %57 ], [ 0, %49 ], [ 1, %58 ], [ 2, %53 ], [ 2, %54 ], [ 1, %56 ], [ 2, %47 ], [ 2, %51 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %60 = load i8, ptr %59, align 1, !range !144, !alias.scope !1041, !noalias !1042, !noundef !8
   %61 = trunc nuw i8 %60 to i1
@@ -53064,7 +53064,7 @@ default.unreachable:                              ; preds = %137, %"_ZN4jiff3fmt
   br label %145
 
 145:                                              ; preds = %183, %182, %181, %180, %141, %137
-  %.sroa.022.0.i.i = phi i64 [ %144, %141 ], [ 1, %183 ], [ 2, %182 ], [ 3, %181 ], [ 4, %180 ], [ 5, %137 ]
+  %.sroa.022.0.i.i = phi i64 [ %144, %141 ], [ 4, %180 ], [ 3, %181 ], [ 2, %182 ], [ 1, %183 ], [ 5, %137 ]
   %146 = load ptr, ptr %71, align 8, !alias.scope !1053, !noalias !1033, !nonnull !8, !align !117, !noundef !8
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %20), !noalias !1057
   call void @llvm.experimental.noalias.scope.decl(metadata !1058)
@@ -53545,8 +53545,8 @@ _ZN4jiff15signed_duration14SignedDuration3new17h9ec745f67bdd6d28E.exit252.i: ; p
   br label %_ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h752ba8b1566a9acdE.exit
 
 _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h752ba8b1566a9acdE.exit: ; preds = %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17h1da97e1b92a547e1E.exit.thread259.i", %87, %95, %105, %111, %119, %129, %184, %196, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i", %214, %219, %227, %235, %243, %272, %275, %304, %307, %317, %331, %334, %343, %349, %366, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i", %371, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h255c388f9ff75c8bE.exit.thread272.i"
-  %.sroa.26.1.i = phi ptr [ %367, %366 ], [ %332, %331 ], [ %305, %304 ], [ %273, %272 ], [ %94, %87 ], [ %104, %95 ], [ %110, %105 ], [ %118, %111 ], [ %128, %119 ], [ %133, %129 ], [ %218, %214 ], [ %226, %219 ], [ %234, %227 ], [ %284, %275 ], [ %242, %235 ], [ %316, %307 ], [ %322, %317 ], [ %251, %243 ], [ %342, %334 ], [ %348, %343 ], [ %357, %349 ], [ %84, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17h1da97e1b92a547e1E.exit.thread259.i" ], [ %213, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i" ], [ %380, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h255c388f9ff75c8bE.exit.thread272.i" ], [ %201, %196 ], [ %189, %184 ], [ undef, %371 ], [ undef, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i" ]
-  %.sroa.0.1.i = phi i64 [ 1, %366 ], [ 1, %331 ], [ 1, %304 ], [ 1, %272 ], [ 1, %87 ], [ 1, %95 ], [ 1, %105 ], [ 1, %111 ], [ 1, %119 ], [ 1, %129 ], [ 1, %214 ], [ 1, %219 ], [ 1, %227 ], [ 1, %275 ], [ 1, %235 ], [ 1, %307 ], [ 1, %317 ], [ 1, %243 ], [ 1, %334 ], [ 1, %343 ], [ 1, %349 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17h1da97e1b92a547e1E.exit.thread259.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h255c388f9ff75c8bE.exit.thread272.i" ], [ 1, %196 ], [ 1, %184 ], [ 0, %371 ], [ 0, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i" ]
+  %.sroa.26.1.i = phi ptr [ %273, %272 ], [ %305, %304 ], [ %332, %331 ], [ %367, %366 ], [ %94, %87 ], [ %104, %95 ], [ %110, %105 ], [ %118, %111 ], [ %128, %119 ], [ %133, %129 ], [ %218, %214 ], [ %226, %219 ], [ %234, %227 ], [ %284, %275 ], [ %242, %235 ], [ %316, %307 ], [ %322, %317 ], [ %251, %243 ], [ %342, %334 ], [ %348, %343 ], [ %357, %349 ], [ %84, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17h1da97e1b92a547e1E.exit.thread259.i" ], [ %213, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i" ], [ %380, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h255c388f9ff75c8bE.exit.thread272.i" ], [ %201, %196 ], [ %189, %184 ], [ undef, %371 ], [ undef, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i" ]
+  %.sroa.0.1.i = phi i64 [ 1, %272 ], [ 1, %304 ], [ 1, %331 ], [ 1, %366 ], [ 1, %87 ], [ 1, %95 ], [ 1, %105 ], [ 1, %111 ], [ 1, %119 ], [ 1, %129 ], [ 1, %214 ], [ 1, %219 ], [ 1, %227 ], [ 1, %275 ], [ 1, %235 ], [ 1, %307 ], [ 1, %317 ], [ 1, %243 ], [ 1, %334 ], [ 1, %343 ], [ 1, %349 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17h1da97e1b92a547e1E.exit.thread259.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h255c388f9ff75c8bE.exit.thread272.i" ], [ 1, %196 ], [ 1, %184 ], [ 0, %371 ], [ 0, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i" ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26), !noalias !1033
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   br label %574
@@ -54994,7 +54994,7 @@ define internal noundef zeroext i1 @"_ZN55_$LT$clearscreen..Error$u20$as$u20$cor
   br label %32
 
 32:                                               ; preds = %29, %26, %24, %21, %17, %14
-  %.sroa.0.0.in = phi i1 [ %31, %29 ], [ %28, %26 ], [ %25, %24 ], [ %23, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in = phi i1 [ %16, %14 ], [ %20, %17 ], [ %23, %21 ], [ %25, %24 ], [ %28, %26 ], [ %31, %29 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -55028,8 +55028,8 @@ define internal { ptr, ptr } @"_ZN57_$LT$clearscreen..Error$u20$as$u20$core..err
   br label %12
 
 12:                                               ; preds = %1, %1, %1, %11, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.464, %11 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.462, %9 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.460, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %0, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.460, %7 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.462, %9 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.464, %11 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %14
@@ -55215,7 +55215,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %13, %11, %9, %6
-  %.sroa.0.0.in = phi i1 [ %15, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %6 ]
+  %.sroa.0.0.in = phi i1 [ %8, %6 ], [ %10, %9 ], [ %12, %11 ], [ %15, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -64800,7 +64800,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %20, %17, %15, %13, %10, %7
-  %.sroa.0.0.in = phi i1 [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %19, %17 ], [ %21, %20 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -64928,7 +64928,7 @@ default.unreachable1:                             ; preds = %2
   br label %38
 
 38:                                               ; preds = %35, %31, %28, %24, %22, %19, %16, %13, %11
-  %.sroa.0.0.in = phi i1 [ %37, %35 ], [ %34, %31 ], [ %30, %28 ], [ %27, %24 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ], [ %27, %24 ], [ %30, %28 ], [ %34, %31 ], [ %37, %35 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -71072,8 +71072,8 @@ define internal { ptr, ptr } @"_ZN7bincode8features8impl_std76_$LT$impl$u20$core
   br label %9
 
 9:                                                ; preds = %1, %7, %5, %3
-  %.sroa.5.0 = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.699, %7 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.460, %5 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.697, %3 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.697, %3 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.460, %5 ], [ @anon.39b4bef0baa28d3d57d7a4b875dc438e.699, %7 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %11

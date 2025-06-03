@@ -314,8 +314,8 @@ correctbytes.exit55:                              ; preds = %.lr.ph.i50, %78
   br label %109
 
 109:                                              ; preds = %108, %107, %correctbytes.exit55, %correctbytes.exit, %62, %putinteger.exit
-  %.037 = phi i64 [ %18, %108 ], [ %.2, %107 ], [ %18, %correctbytes.exit55 ], [ %18, %correctbytes.exit ], [ %18, %62 ], [ %18, %putinteger.exit ]
-  %.1 = phi i32 [ %.059, %108 ], [ %91, %107 ], [ %79, %correctbytes.exit55 ], [ %66, %correctbytes.exit ], [ %.059, %62 ], [ %41, %putinteger.exit ]
+  %.037 = phi i64 [ %18, %108 ], [ %18, %putinteger.exit ], [ %18, %62 ], [ %18, %correctbytes.exit ], [ %18, %correctbytes.exit55 ], [ %.2, %107 ]
+  %.1 = phi i32 [ %.059, %108 ], [ %41, %putinteger.exit ], [ %.059, %62 ], [ %66, %correctbytes.exit ], [ %79, %correctbytes.exit55 ], [ %91, %107 ]
   %110 = add i64 %39, %.037
   %111 = load ptr, ptr %4, align 8, !tbaa !11
   %112 = load i8, ptr %111, align 1, !tbaa !10
@@ -616,8 +616,8 @@ correctbytes.exit103:                             ; preds = %.lr.ph.i98, %79
   br label %121
 
 121:                                              ; preds = %35, %120, %114, %103, %correctbytes.exit103, %correctbytes.exit, %getinteger.exit
-  %.072 = phi i64 [ %20, %120 ], [ %118, %114 ], [ %.173, %103 ], [ %20, %correctbytes.exit103 ], [ %20, %correctbytes.exit ], [ %20, %35 ], [ %20, %getinteger.exit ]
-  %.1 = phi i32 [ %.071107, %120 ], [ %119, %114 ], [ %105, %103 ], [ %87, %correctbytes.exit103 ], [ %78, %correctbytes.exit ], [ %.071107, %35 ], [ %68, %getinteger.exit ]
+  %.072 = phi i64 [ %20, %120 ], [ %20, %getinteger.exit ], [ %20, %35 ], [ %20, %correctbytes.exit ], [ %20, %correctbytes.exit103 ], [ %.173, %103 ], [ %118, %114 ]
+  %.1 = phi i32 [ %.071107, %120 ], [ %68, %getinteger.exit ], [ %.071107, %35 ], [ %78, %correctbytes.exit ], [ %87, %correctbytes.exit103 ], [ %105, %103 ], [ %119, %114 ]
   %122 = add i64 %.072, %30
   %123 = load ptr, ptr %3, align 8, !tbaa !11
   %124 = load i8, ptr %123, align 1, !tbaa !10
@@ -878,7 +878,7 @@ getnum.exit19.thread:                             ; preds = %39, %71, %getnum.ex
   br label %getnum.exit
 
 getnum.exit:                                      ; preds = %7, %getnum.exit.loopexit, %3, %3, %3, %74, %getnum.exit19.thread, %6, %5, %4
-  %.0 = phi i64 [ 0, %74 ], [ %73, %getnum.exit19.thread ], [ 4, %6 ], [ 8, %5 ], [ 2, %4 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %7 ], [ %38, %getnum.exit.loopexit ]
+  %.0 = phi i64 [ 0, %74 ], [ 2, %4 ], [ 8, %5 ], [ 4, %6 ], [ %73, %getnum.exit19.thread ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %7 ], [ %38, %getnum.exit.loopexit ]
   ret i64 %.0
 }
 

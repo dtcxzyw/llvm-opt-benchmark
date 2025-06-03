@@ -2824,7 +2824,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 55:                                               ; preds = %47, %39, %25, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %54, %47 ], [ %46, %39 ], [ %38, %25 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %38, %25 ], [ %46, %39 ], [ %54, %47 ]
   %56 = shl i32 %.1.i, 3
   %57 = xor i32 %56, %.1.i
   %58 = lshr i32 %57, 5

@@ -8078,13 +8078,13 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   br label %.thread.i
 
 147:                                              ; preds = %83, %76, %73
-  %.1.i.i = phi ptr [ %75, %73 ], [ %84, %83 ], [ %77, %76 ]
+  %.1.i.i = phi ptr [ %77, %76 ], [ %84, %83 ], [ %75, %73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !914
   br label %289
 
 148:                                              ; preds = %.thread185.i, %.thread146.i
-  %.sroa.080.0.i = phi i8 [ %.sroa.080.3163191.i, %.thread185.i ], [ %.sroa.080.2124152.i, %.thread146.i ]
-  %.sroa.1785.0.i = phi ptr [ %.sroa.1785.3165190.i, %.thread185.i ], [ %.sroa.1785.2126151.i, %.thread146.i ]
+  %.sroa.080.0.i = phi i8 [ %.sroa.080.2124152.i, %.thread146.i ], [ %.sroa.080.3163191.i, %.thread185.i ]
+  %.sroa.1785.0.i = phi ptr [ %.sroa.1785.2126151.i, %.thread146.i ], [ %.sroa.1785.3165190.i, %.thread185.i ]
   %149 = icmp eq i8 %.sroa.080.0.i, 4
   br i1 %149, label %.thread.i, label %288
 
@@ -8107,7 +8107,7 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   br label %.thread.i
 
 153:                                              ; preds = %103, %96, %93
-  %.1.i59.i = phi ptr [ %95, %93 ], [ %104, %103 ], [ %97, %96 ]
+  %.1.i59.i = phi ptr [ %97, %96 ], [ %104, %103 ], [ %95, %93 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !924
   br label %289
 
@@ -8130,7 +8130,7 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   br label %.thread.i
 
 157:                                              ; preds = %123, %116, %113
-  %.1.i67.i = phi ptr [ %115, %113 ], [ %124, %123 ], [ %117, %116 ]
+  %.1.i67.i = phi ptr [ %117, %116 ], [ %124, %123 ], [ %115, %113 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !934
   br label %289
 
@@ -8386,7 +8386,7 @@ common.resume.sink.split.i:                       ; preds = %266, %222
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %243, %common.resume.sink.split.i, %199
-  %common.resume.op.i = phi { ptr, i32 } [ %244, %243 ], [ %200, %199 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %200, %199 ], [ %244, %243 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 222:                                              ; preds = %220, %216, %214
@@ -8617,7 +8617,7 @@ _ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit78.i: ; preds = %
   br label %289
 
 .thread.i:                                        ; preds = %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit78.i, %268, %181, %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit.i, %154, %150, %148, %145
-  %.sroa.1785.0116.i = phi ptr [ %.sroa.1785.0.i, %148 ], [ %146, %145 ], [ %152, %150 ], [ %156, %154 ], [ %.sink.i.i, %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit.i ], [ %.sroa.1785.1.i, %181 ], [ %269, %268 ], [ %.sink.i76.i, %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit78.i ]
+  %.sroa.1785.0116.i = phi ptr [ %.sroa.1785.0.i, %148 ], [ %.sroa.1785.1.i, %181 ], [ %.sink.i.i, %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit.i ], [ %156, %154 ], [ %152, %150 ], [ %146, %145 ], [ %269, %268 ], [ %.sink.i76.i, %_ZN10serde_json2de12ParserNumber5visit17h991f774018c0aac5E.exit78.i ]
   %286 = icmp ne ptr %.sroa.1785.0116.i, null
   call void @llvm.assume(i1 %286)
   %287 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h2c4d47f8f45e92bcE(ptr noalias noundef nonnull align 8 %.sroa.1785.0116.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1), !noalias !907
@@ -8638,8 +8638,8 @@ default.unreachable:                              ; preds = %288
     i8 3, label %304
   ]
 
-289:                                              ; preds = %.loopexit.i, %147, %153, %157, %168, %172, %191, %235, %.thread.i, %284
-  %.sroa.15.0.ph = phi ptr [ %62, %.loopexit.i ], [ %.1.i.i, %147 ], [ %.1.i59.i, %153 ], [ %.1.i67.i, %157 ], [ %169, %168 ], [ %136, %172 ], [ %192, %191 ], [ %236, %235 ], [ %287, %.thread.i ], [ %285, %284 ]
+289:                                              ; preds = %.loopexit.i, %235, %191, %172, %168, %157, %153, %147, %.thread.i, %284
+  %.sroa.15.0.ph = phi ptr [ %62, %.loopexit.i ], [ %236, %235 ], [ %192, %191 ], [ %136, %172 ], [ %169, %168 ], [ %.1.i67.i, %157 ], [ %.1.i59.i, %153 ], [ %.1.i.i, %147 ], [ %287, %.thread.i ], [ %285, %284 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.28.i)
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.15.0.ph, ptr %290, align 8

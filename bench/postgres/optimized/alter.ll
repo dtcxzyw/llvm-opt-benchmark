@@ -463,7 +463,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   unreachable
 
 200:                                              ; preds = %196, %195, %194, %193, %192, %191
-  %.0.i.i = phi ptr [ @.str.14, %196 ], [ @.str.13, %195 ], [ @.str.12, %194 ], [ @.str.11, %193 ], [ @.str.10, %192 ], [ @.str.9, %191 ]
+  %.0.i.i = phi ptr [ @.str.10, %192 ], [ @.str.11, %193 ], [ @.str.12, %194 ], [ @.str.13, %195 ], [ @.str.14, %196 ], [ @.str.9, %191 ]
   %201 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %201)
   %202 = call i32 @errcode(i32 noundef 290948) #8
@@ -529,9 +529,9 @@ AlterObjectRename_internal.exit:                  ; preds = %204, %231
   unreachable
 
 236:                                              ; preds = %AlterObjectRename_internal.exit, %48, %46, %44, %36, %34, %32, %26, %20, %14, %8, %6
-  %.sroa.071.0 = phi i64 [ %.fca.0.extract, %AlterObjectRename_internal.exit ], [ %.fca.0.extract5, %48 ], [ %.fca.0.extract9, %46 ], [ %.fca.0.extract13, %44 ], [ %.fca.0.extract17, %36 ], [ %.fca.0.extract21, %34 ], [ %.fca.0.extract25, %32 ], [ %.fca.0.extract29, %26 ], [ %.fca.0.extract33, %20 ], [ %.fca.0.extract37, %14 ], [ %.fca.0.extract41, %8 ], [ %.fca.0.extract45, %6 ]
-  %.sroa.14.0 = phi i64 [ %.sroa.14.0.extract.shift, %AlterObjectRename_internal.exit ], [ %.sroa.14.0.extract.shift83, %48 ], [ %.sroa.14.0.extract.shift85, %46 ], [ %.sroa.14.0.extract.shift87, %44 ], [ %.sroa.14.0.extract.shift89, %36 ], [ %.sroa.14.0.extract.shift91, %34 ], [ %.sroa.14.0.extract.shift93, %32 ], [ %.sroa.14.0.extract.shift95, %26 ], [ %.sroa.14.0.extract.shift97, %20 ], [ %.sroa.14.0.extract.shift99, %14 ], [ %.sroa.14.0.extract.shift101, %8 ], [ %.sroa.14.0.extract.shift103, %6 ]
-  %.pn = phi { i64, i32 } [ %53, %AlterObjectRename_internal.exit ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ], [ %13, %8 ], [ %7, %6 ]
+  %.sroa.071.0 = phi i64 [ %.fca.0.extract45, %6 ], [ %.fca.0.extract41, %8 ], [ %.fca.0.extract37, %14 ], [ %.fca.0.extract33, %20 ], [ %.fca.0.extract29, %26 ], [ %.fca.0.extract25, %32 ], [ %.fca.0.extract21, %34 ], [ %.fca.0.extract17, %36 ], [ %.fca.0.extract13, %44 ], [ %.fca.0.extract9, %46 ], [ %.fca.0.extract5, %48 ], [ %.fca.0.extract, %AlterObjectRename_internal.exit ]
+  %.sroa.14.0 = phi i64 [ %.sroa.14.0.extract.shift103, %6 ], [ %.sroa.14.0.extract.shift101, %8 ], [ %.sroa.14.0.extract.shift99, %14 ], [ %.sroa.14.0.extract.shift97, %20 ], [ %.sroa.14.0.extract.shift95, %26 ], [ %.sroa.14.0.extract.shift93, %32 ], [ %.sroa.14.0.extract.shift91, %34 ], [ %.sroa.14.0.extract.shift89, %36 ], [ %.sroa.14.0.extract.shift87, %44 ], [ %.sroa.14.0.extract.shift85, %46 ], [ %.sroa.14.0.extract.shift83, %48 ], [ %.sroa.14.0.extract.shift, %AlterObjectRename_internal.exit ]
+  %.pn = phi { i64, i32 } [ %7, %6 ], [ %13, %8 ], [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %33, %32 ], [ %35, %34 ], [ %43, %36 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %AlterObjectRename_internal.exit ]
   %.sroa.15.0 = extractvalue { i64, i32 } %.pn, 1
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0, 32
   %.sroa.071.0.insert.ext = and i64 %.sroa.071.0, 4294967295
@@ -774,9 +774,9 @@ define dso_local { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef %0, ptr nou
   unreachable
 
 35:                                               ; preds = %22, %16, %14, %6
-  %.pn = phi { i64, i32 } [ %25, %22 ], [ %21, %16 ], [ %15, %14 ], [ %13, %6 ]
-  %.sroa.026.sroa.0.0 = phi i64 [ %.fca.0.extract, %22 ], [ %.fca.0.extract8, %16 ], [ %.fca.0.extract14, %14 ], [ %.fca.0.extract20, %6 ]
-  %.sroa.026.sroa.8.0 = phi i64 [ %.sroa.026.sroa.8.0.extract.shift, %22 ], [ %.sroa.026.sroa.8.0.extract.shift30, %16 ], [ %.sroa.026.sroa.8.0.extract.shift32, %14 ], [ %.sroa.026.sroa.8.0.extract.shift34, %6 ]
+  %.pn = phi { i64, i32 } [ %13, %6 ], [ %15, %14 ], [ %21, %16 ], [ %25, %22 ]
+  %.sroa.026.sroa.0.0 = phi i64 [ %.fca.0.extract20, %6 ], [ %.fca.0.extract14, %14 ], [ %.fca.0.extract8, %16 ], [ %.fca.0.extract, %22 ]
+  %.sroa.026.sroa.8.0 = phi i64 [ %.sroa.026.sroa.8.0.extract.shift34, %6 ], [ %.sroa.026.sroa.8.0.extract.shift32, %14 ], [ %.sroa.026.sroa.8.0.extract.shift30, %16 ], [ %.sroa.026.sroa.8.0.extract.shift, %22 ]
   %.not58 = icmp eq ptr %1, null
   br i1 %.not58, label %40, label %36
 
@@ -1065,7 +1065,7 @@ define dso_local i32 @AlterObjectNamespace_oid(i32 noundef %0, i32 noundef %1, i
   br label %16
 
 16:                                               ; preds = %4, %13, %11, %5
-  %.0 = phi i32 [ 0, %4 ], [ %15, %13 ], [ %12, %11 ], [ %10, %5 ]
+  %.0 = phi i32 [ 0, %4 ], [ %10, %5 ], [ %12, %11 ], [ %15, %13 ]
   ret i32 %.0
 }
 
@@ -1209,9 +1209,9 @@ define dso_local { i64, i32 } @ExecAlterOwnerStmt(ptr noundef readonly captures(
   unreachable
 
 61:                                               ; preds = %53, %47, %41, %35, %29, %23, %19, %13, %7
-  %.sroa.057.0 = phi i64 [ %.fca.0.extract, %53 ], [ %.fca.0.extract4, %47 ], [ %.fca.0.extract8, %41 ], [ %.fca.0.extract12, %35 ], [ %.fca.0.extract16, %29 ], [ %.fca.0.extract20, %23 ], [ %.fca.0.extract24, %19 ], [ %.fca.0.extract28, %13 ], [ %.fca.0.extract32, %7 ]
-  %.sroa.11.0 = phi i64 [ %.sroa.11.0.extract.shift, %53 ], [ %.sroa.11.0.extract.shift66, %47 ], [ %.sroa.11.0.extract.shift68, %41 ], [ %.sroa.11.0.extract.shift70, %35 ], [ %.sroa.11.0.extract.shift72, %29 ], [ %.sroa.11.0.extract.shift74, %23 ], [ %.sroa.11.0.extract.shift76, %19 ], [ %.sroa.11.0.extract.shift78, %13 ], [ %.sroa.11.0.extract.shift80, %7 ]
-  %.pn = phi { i64, i32 } [ %56, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %19 ], [ %18, %13 ], [ %12, %7 ]
+  %.sroa.057.0 = phi i64 [ %.fca.0.extract32, %7 ], [ %.fca.0.extract28, %13 ], [ %.fca.0.extract24, %19 ], [ %.fca.0.extract20, %23 ], [ %.fca.0.extract16, %29 ], [ %.fca.0.extract12, %35 ], [ %.fca.0.extract8, %41 ], [ %.fca.0.extract4, %47 ], [ %.fca.0.extract, %53 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.0.extract.shift80, %7 ], [ %.sroa.11.0.extract.shift78, %13 ], [ %.sroa.11.0.extract.shift76, %19 ], [ %.sroa.11.0.extract.shift74, %23 ], [ %.sroa.11.0.extract.shift72, %29 ], [ %.sroa.11.0.extract.shift70, %35 ], [ %.sroa.11.0.extract.shift68, %41 ], [ %.sroa.11.0.extract.shift66, %47 ], [ %.sroa.11.0.extract.shift, %53 ]
+  %.pn = phi { i64, i32 } [ %12, %7 ], [ %18, %13 ], [ %22, %19 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %56, %53 ]
   %.sroa.12.0 = extractvalue { i64, i32 } %.pn, 1
   %.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.0, 32
   %.sroa.057.0.insert.ext = and i64 %.sroa.057.0, 4294967295
@@ -1541,7 +1541,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ]
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -1641,7 +1641,7 @@ define internal fastcc void @report_namespace_conflict(i32 noundef range(i32 125
   unreachable
 
 12:                                               ; preds = %3, %8, %7, %6, %5, %4
-  %.0 = phi ptr [ @.str.21, %8 ], [ @.str.20, %7 ], [ @.str.19, %6 ], [ @.str.18, %5 ], [ @.str.17, %4 ], [ @.str.16, %3 ]
+  %.0 = phi ptr [ @.str.17, %4 ], [ @.str.18, %5 ], [ @.str.19, %6 ], [ @.str.20, %7 ], [ @.str.21, %8 ], [ @.str.16, %3 ]
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 290948) #8

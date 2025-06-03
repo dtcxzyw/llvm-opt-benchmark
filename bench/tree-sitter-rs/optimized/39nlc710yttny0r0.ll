@@ -1666,7 +1666,7 @@ define noundef zeroext i1 @"_ZN62_$LT$tree_sitter_tags..Error$u20$as$u20$core..f
   br label %28
 
 28:                                               ; preds = %20, %18, %16, %13, %11
-  %.0.in = phi i1 [ %27, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %27, %20 ]
   ret i1 %.0.in
 }
 

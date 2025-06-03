@@ -7709,7 +7709,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord(ptr noundef %0, i
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit: ; preds = %54, %57, %60, %63
-  %.1.i.i = phi i32 [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.1.i.i = phi i32 [ %65, %63 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %28
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67)
@@ -8238,7 +8238,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit: ; preds = %52, %54, %57, %60, %63, %66
-  %.1.i.i = phi i32 [ %.0.i.i, %52 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %52 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ]
   %69 = load ptr, ptr %9, align 8
   %70 = sub i32 %.1.i.i, %28
   call void @proto_item_set_len(ptr noundef %69, i32 noundef %70)
@@ -13749,7 +13749,7 @@ lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit: ; preds = %58,
   br label %78
 
 78:                                               ; preds = %75, %72, %69, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit, %46, %43, %40, %37, %34, %31, %28, %25, %22, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %67, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit ], [ %56, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1 = phi i32 [ %.0, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %56, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit ], [ %67, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ]
   %79 = load ptr, ptr %8, align 8
   %80 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %79, i32 noundef %80)
@@ -14256,7 +14256,7 @@ define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0,
   br label %80
 
 80:                                               ; preds = %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ]
   %81 = load ptr, ptr %8, align 8
   %82 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %81, i32 noundef %82)
@@ -14907,7 +14907,7 @@ define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr nound
   br label %31
 
 31:                                               ; preds = %28, %25, %22, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ]
+  %.1 = phi i32 [ %.0, %13 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ]
   %32 = load ptr, ptr %8, align 8
   %33 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %33)

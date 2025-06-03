@@ -751,7 +751,7 @@ define internal i32 @dh_pkey_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %4, %16, %11, %7, %19, %14
-  %.0 = phi i32 [ %21, %19 ], [ %15, %14 ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ -2, %4 ], [ 0, %5 ]
+  %.0 = phi i32 [ %15, %14 ], [ %21, %19 ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ -2, %4 ], [ 0, %5 ]
   ret i32 %.0
 }
 

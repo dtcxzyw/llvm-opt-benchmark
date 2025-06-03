@@ -7575,7 +7575,7 @@ sw.epilog:                                        ; preds = %sw.bb7, %sw.bb, %if
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then10, %if.then3
-  %retval.0 = phi i1 [ %call19, %sw.epilog ], [ true, %if.then10 ], [ true, %if.then3 ]
+  %retval.0 = phi i1 [ %call19, %sw.epilog ], [ true, %if.then3 ], [ true, %if.then10 ]
   ret i1 %retval.0
 }
 
@@ -12454,8 +12454,8 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i
-  %22 = phi ptr [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ], [ %20, %if.end24.i.i.i ]
-  %__first.addr.2.i.i.i = phi ptr [ %Categories.coerce0, %for.end.sw.bb26_crit_edge.i.i.i ], [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ]
+  %22 = phi ptr [ %20, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
+  %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %Categories.coerce0, %for.end.sw.bb26_crit_edge.i.i.i ]
   %23 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i31.i.i.i = icmp eq ptr %23, %22
   br i1 %cmp.i31.i.i.i, label %_ZSt4findIPKPKN4llvh2cl14OptionCategoryEPS2_ET_S8_S8_RKT0_.exit, label %land.lhs.true
@@ -14636,7 +14636,7 @@ _ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163:
   br i1 %or.cond, label %return, label %while.body, !llvm.loop !189
 
 return:                                           ; preds = %while.body.i87, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163, %while.body.i134, %while.body.i, %if.end44, %if.end9.i, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116, %if.then48, %_ZN4llvhplERKNS_5TwineES2_.exit69, %if.then10, %if.then3
-  %retval.0 = phi i1 [ true, %if.then48 ], [ true, %if.then10 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit69 ], [ true, %if.then3 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116 ], [ %call15.i, %if.end9.i ], [ false, %if.end44 ], [ true, %while.body.i ], [ true, %while.body.i134 ], [ %call15.i161, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ true, %while.body.i87 ]
+  %retval.0 = phi i1 [ true, %if.then48 ], [ true, %if.then3 ], [ true, %if.then10 ], [ true, %_ZN4llvhplERKNS_5TwineES2_.exit69 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit116 ], [ %call15.i, %if.end9.i ], [ false, %if.end44 ], [ true, %while.body.i ], [ true, %while.body.i134 ], [ %call15.i161, %_ZL29CommaSeparateAndAddOccurrencePN4llvh2cl6OptionEjNS_9StringRefES3_b.exit163 ], [ true, %while.body.i87 ]
   ret i1 %retval.0
 }
 

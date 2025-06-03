@@ -1402,7 +1402,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit280: ; preds = %_ZN4cvc58internal
   %374 = load i32, ptr %373, align 4, !tbaa !271
   switch i32 %374, label %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread [
     i32 0, label %384
-    i32 1, label %386
+    i32 1, label %390
   ]
 
 375:                                              ; preds = %323
@@ -1426,32 +1426,32 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit280: ; preds = %_ZN4cvc58internal
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #23
   br label %697
 
-382:                                              ; preds = %585, %576, %563, %551, %537, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit395, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit403, %404, %396, %386, %384, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit280
+382:                                              ; preds = %585, %576, %563, %551, %537, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit395, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit403, %404, %396, %390, %384, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit280
   %383 = landingpad { ptr, i32 }
           cleanup
   br label %697
 
 384:                                              ; preds = %370
   %385 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %386 unwind label %382
+
+386:                                              ; preds = %384
+  %387 = xor i1 %238, true
+  %388 = or i1 %385, %387
+  %389 = or i1 %325, %388
+  br i1 %389, label %396, label %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread
+
+390:                                              ; preds = %370
+  %391 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %392 unwind label %382
 
-386:                                              ; preds = %370
-  %387 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %388 unwind label %382
-
-388:                                              ; preds = %386
-  %389 = xor i1 %238, true
-  %390 = and i1 %325, %389
-  %391 = or i1 %390, %387
-  br i1 %391, label %396, label %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread
-
-392:                                              ; preds = %384
+392:                                              ; preds = %390
   %393 = xor i1 %238, true
-  %394 = or i1 %385, %393
-  %395 = or i1 %325, %394
+  %394 = and i1 %325, %393
+  %395 = or i1 %394, %391
   br i1 %395, label %396, label %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread
 
-396:                                              ; preds = %388, %392
+396:                                              ; preds = %386, %392
   %397 = invoke noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %398 unwind label %382
 
@@ -1873,7 +1873,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i.i:  ; preds = %576, %570, %567
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %577)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit221 unwind label %382
 
-_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread: ; preds = %388, %370, %392, %.thread
+_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEaSERKS4_.exit.thread: ; preds = %386, %370, %392, %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #23
   %587 = load ptr, ptr %13, align 8, !tbaa !57
   store ptr %587, ptr %25, align 8, !tbaa !48

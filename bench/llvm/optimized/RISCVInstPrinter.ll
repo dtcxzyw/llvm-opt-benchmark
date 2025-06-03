@@ -2183,7 +2183,7 @@ define internal noundef zeroext i1 @_ZL33RISCVInstPrinterValidateMCOperandRKN4ll
   br label %51
 
 51:                                               ; preds = %50, %35, %34, %19, %18
-  %.1 = phi i1 [ %.5, %50 ], [ %.4, %35 ], [ %.3, %34 ], [ %.2, %19 ], [ %.0, %18 ]
+  %.1 = phi i1 [ %.0, %18 ], [ %.2, %19 ], [ %.3, %34 ], [ %.4, %35 ], [ %.5, %50 ]
   ret i1 %.1
 }
 

@@ -1645,7 +1645,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN97_$LT$ty_python_semantic..types..known_instance..KnownInstanceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8979067a65f81af5E.exit"
 
 "_ZN97_$LT$ty_python_semantic..types..known_instance..KnownInstanceType$u20$as$u20$core..fmt..Debug$GT$3fmt17h8979067a65f81af5E.exit": ; preds = %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %49, %52, %54, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97
-  %.sroa.0.0.in.i = phi i1 [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %54 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6790,7 +6790,7 @@ default.unreachable:                              ; preds = %6
   br label %_ZN18ty_python_semantic5types5infer15InferenceRegion5scope17h3c66449998d3c766E.exit
 
 _ZN18ty_python_semantic5types5infer15InferenceRegion5scope17h3c66449998d3c766E.exit: ; preds = %6, %19, %21
-  %.sroa.04.0.i = phi i32 [ %22, %21 ], [ %20, %19 ], [ %4, %6 ]
+  %.sroa.04.0.i = phi i32 [ %20, %19 ], [ %22, %21 ], [ %4, %6 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18)
   call void @_ZN18ty_python_semantic5types7context12InferContext3new17heddaba25092512aeE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %18, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %.sroa.04.0.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
@@ -7531,7 +7531,7 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder21infer_type_parameters
   unreachable
 
 common.resume:                                    ; preds = %559, %964, %"_ZN4core3ptr99drop_in_place$LT$alloc..sync..Arc$LT$ty_python_semantic..semantic_index..use_def..UseDefMap$GT$$GT$17h93c23991d6b64935E.exit.i34", %1385, %668, %728, %736, %738, %751, %801, %834, %840, %847, %854, %871, %929, %949, %412, %417, %.body.i, %279
-  %common.resume.op = phi { ptr, i32 } [ %280, %279 ], [ %eh.lpad-body.i, %.body.i ], [ %413, %417 ], [ %413, %412 ], [ %669, %668 ], [ %lpad.thr_comm270.i, %949 ], [ %lpad.thr_comm262.i, %929 ], [ %872, %871 ], [ %855, %854 ], [ %848, %847 ], [ %841, %840 ], [ %lpad.thr_comm246.i, %834 ], [ %lpad.thr_comm.i, %801 ], [ %752, %751 ], [ %739, %738 ], [ %737, %736 ], [ %729, %728 ], [ %965, %964 ], [ %.pn106.pn.i, %"_ZN4core3ptr99drop_in_place$LT$alloc..sync..Arc$LT$ty_python_semantic..semantic_index..use_def..UseDefMap$GT$$GT$17h93c23991d6b64935E.exit.i34" ], [ %.pn106.pn.pn11.i, %1385 ], [ %560, %559 ]
+  %common.resume.op = phi { ptr, i32 } [ %280, %279 ], [ %eh.lpad-body.i, %.body.i ], [ %413, %417 ], [ %413, %412 ], [ %669, %668 ], [ %lpad.thr_comm270.i, %949 ], [ %lpad.thr_comm262.i, %929 ], [ %729, %728 ], [ %872, %871 ], [ %lpad.thr_comm246.i, %834 ], [ %lpad.thr_comm.i, %801 ], [ %841, %840 ], [ %848, %847 ], [ %855, %854 ], [ %737, %736 ], [ %752, %751 ], [ %739, %738 ], [ %965, %964 ], [ %.pn106.pn.i, %"_ZN4core3ptr99drop_in_place$LT$alloc..sync..Arc$LT$ty_python_semantic..semantic_index..use_def..UseDefMap$GT$$GT$17h93c23991d6b64935E.exit.i34" ], [ %.pn106.pn.pn11.i, %1385 ], [ %560, %559 ]
   resume { ptr, i32 } %common.resume.op
 
 279:                                              ; preds = %259
@@ -12629,10 +12629,10 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder25infer_function_defini
   br label %.outer.i10
 
 .outer.i10:                                       ; preds = %725, %722, %694, %692
-  %.sroa.8.1.i = phi i16 [ %.sroa.8.049.i, %725 ], [ %724, %722 ], [ %695, %694 ], [ %693, %692 ]
-  %.sroa.0.1.i = phi i16 [ %.sroa.0.03150.i, %725 ], [ 1, %722 ], [ 1, %694 ], [ 1, %692 ]
-  %.sroa.014.1.i = phi i1 [ true, %725 ], [ %.sroa.014.0.ph64.i, %722 ], [ %.sroa.014.0.ph64.i, %694 ], [ %.sroa.014.0.ph64.i, %692 ]
-  %.sroa.3.1.i11 = phi i8 [ %726, %725 ], [ %.sroa.3.0.ph65.i, %722 ], [ %.sroa.3.0.ph65.i, %694 ], [ %.sroa.3.0.ph65.i, %692 ]
+  %.sroa.8.1.i = phi i16 [ %695, %694 ], [ %724, %722 ], [ %.sroa.8.049.i, %725 ], [ %693, %692 ]
+  %.sroa.0.1.i = phi i16 [ 1, %694 ], [ 1, %722 ], [ %.sroa.0.03150.i, %725 ], [ 1, %692 ]
+  %.sroa.014.1.i = phi i1 [ %.sroa.014.0.ph64.i, %694 ], [ %.sroa.014.0.ph64.i, %722 ], [ true, %725 ], [ %.sroa.014.0.ph64.i, %692 ]
+  %.sroa.3.1.i11 = phi i8 [ %.sroa.3.0.ph65.i, %694 ], [ %.sroa.3.0.ph65.i, %722 ], [ %726, %725 ], [ %.sroa.3.0.ph65.i, %692 ]
   %696 = icmp eq ptr %.sroa.019.152.i, %605
   %.sroa.019.1.idx47.i = select i1 %696, i64 0, i64 72
   %.sroa.019.148.i = getelementptr inbounds nuw i8, ptr %.sroa.019.152.i, i64 %.sroa.019.1.idx47.i
@@ -15474,7 +15474,7 @@ define internal fastcc noundef zeroext i1 @_ZN18ty_python_semantic5types5infer20
   br i1 %.not9, label %45, label %24
 
 20:                                               ; preds = %24, %14
-  %.sroa.05.0 = phi ptr [ %16, %14 ], [ %26, %24 ]
+  %.sroa.05.0 = phi ptr [ %26, %24 ], [ %16, %14 ]
   %21 = tail call noundef align 8 dereferenceable(24) ptr @_ZN18ty_python_semantic14semantic_index6symbol5Scope4node17h8501592e8e40891fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.05.0)
   %22 = load i64, ptr %21, align 8, !range !424, !noundef !59
   %23 = icmp eq i64 %22, 1
@@ -16651,7 +16651,7 @@ default.unreachable:                              ; preds = %497
   unreachable
 
 490:                                              ; preds = %716, %700, %639, %621, %500, %477
-  %.pn.i.i = phi { ptr, i32 } [ %701, %700 ], [ %717, %716 ], [ %640, %639 ], [ %622, %621 ], [ %501, %500 ], [ %478, %477 ]
+  %.pn.i.i = phi { ptr, i32 } [ %640, %639 ], [ %622, %621 ], [ %701, %700 ], [ %717, %716 ], [ %501, %500 ], [ %478, %477 ]
   resume { ptr, i32 } %.pn.i.i
 
 491:                                              ; preds = %487, %454, %450, %447
@@ -18625,7 +18625,7 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i163: ; preds = %199, %1
   br i1 %6, label %621, label %.loopexit
 
 .loopexit:                                        ; preds = %236, %218, %239, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit240", %626, %415, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit208", %426, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2a9f8ca5b1db8b4eE.exit", %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit207", %407, %381, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit206", %389, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit", %253, %7, %7, %511, %326, %251
-  %.sroa.0.0 = phi i1 [ %.sroa.0.6, %511 ], [ %.sroa.0.3, %326 ], [ false, %251 ], [ true, %7 ], [ true, %7 ], [ false, %253 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit" ], [ false, %389 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit206" ], [ false, %381 ], [ false, %407 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit207" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2a9f8ca5b1db8b4eE.exit" ], [ false, %426 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit208" ], [ false, %415 ], [ false, %626 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit240" ], [ false, %239 ], [ true, %218 ], [ true, %236 ]
+  %.sroa.0.0 = phi i1 [ false, %251 ], [ %.sroa.0.3, %326 ], [ %.sroa.0.6, %511 ], [ true, %7 ], [ true, %7 ], [ false, %253 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit" ], [ false, %389 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit206" ], [ false, %381 ], [ false, %407 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit207" ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2a9f8ca5b1db8b4eE.exit" ], [ false, %426 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit208" ], [ false, %415 ], [ false, %626 ], [ false, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$$GT$17h6e353a82d66641a0E.exit240" ], [ false, %239 ], [ true, %218 ], [ true, %236 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %152)
   ret i1 %.sroa.0.0
 
@@ -18707,7 +18707,7 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i163: ; preds = %199, %1
   br label %.loopexit
 
 common.resume:                                    ; preds = %259, %289, %309, %368, %379, %395, %414, %433, %466, %486, %545, %548, %619, %632, %common.resume.i.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i, %common.resume.i.i ], [ %633, %632 ], [ %lpad.thr_comm349, %433 ], [ %lpad.thr_comm, %414 ], [ %396, %395 ], [ %620, %619 ], [ %.pn, %548 ], [ %546, %545 ], [ %487, %486 ], [ %467, %466 ], [ %380, %379 ], [ %369, %368 ], [ %310, %309 ], [ %290, %289 ], [ %260, %259 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i, %common.resume.i.i ], [ %260, %259 ], [ %380, %379 ], [ %369, %368 ], [ %310, %309 ], [ %290, %289 ], [ %396, %395 ], [ %620, %619 ], [ %.pn, %548 ], [ %546, %545 ], [ %487, %486 ], [ %467, %466 ], [ %lpad.thr_comm, %414 ], [ %lpad.thr_comm349, %433 ], [ %633, %632 ]
   resume { ptr, i32 } %common.resume.op
 
 259:                                              ; preds = %252
@@ -19753,7 +19753,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread: ; preds
           to label %551 unwind label %549
 
 548:                                              ; preds = %595, %568, %605, %579, %549
-  %.pn = phi { ptr, i32 } [ %550, %549 ], [ %606, %605 ], [ %596, %595 ], [ %lpad.thr_comm363, %579 ], [ %lpad.thr_comm.split-lp364, %568 ]
+  %.pn = phi { ptr, i32 } [ %550, %549 ], [ %lpad.thr_comm363, %579 ], [ %lpad.thr_comm.split-lp364, %568 ], [ %606, %605 ], [ %596, %595 ]
   invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..call..CallDunderError$GT$$GT$17h97fca1068474a422E"(ptr noalias noundef align 8 dereferenceable(328) %99) #30
           to label %common.resume unwind label %261
 
@@ -20417,7 +20417,7 @@ common.resume.sink.split:                         ; preds = %78, %93
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %54, %80, %74
-  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %75, %74 ], [ %55, %54 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %81, %80 ], [ %55, %54 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable19:                            ; preds = %50
@@ -24062,9 +24062,9 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder16infer_expression17h87
   %220 = invoke { i32, i32 } @_ZN18ty_python_semantic5types11subclass_of15SubclassOfInner10into_class17h157dd9116867f746E(i64 %215)
           to label %216 unwind label %1062
 
-.thread374:                                       ; preds = %207, %210, %216
-  %.sroa.0.0379 = phi i32 [ %217, %216 ], [ 0, %207 ], [ 1, %210 ]
-  %.sroa.9.0378 = phi i32 [ %218, %216 ], [ %209, %207 ], [ %212, %210 ]
+.thread374:                                       ; preds = %210, %207, %216
+  %.sroa.0.0379 = phi i32 [ %217, %216 ], [ 1, %210 ], [ 0, %207 ]
+  %.sroa.9.0378 = phi i32 [ %218, %216 ], [ %212, %210 ], [ %209, %207 ]
   %221 = invoke noundef zeroext i1 @_ZN18ty_python_semantic5types4Type14is_subclass_of17h868a588f0883f951E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %175)
           to label %222 unwind label %1062
 
@@ -24361,7 +24361,7 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder16infer_expression17h87
           to label %319 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3ptr139drop_in_place$LT$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$GT$17h6161232b165e1c36E.exit": ; preds = %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit.split-lp, %.loopexit.split.split, %.loopexit.split.split.us.split.us, %.loopexit.split.us.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split.us.split.us, %.loopexit.split-lp.loopexit.loopexit.split.split.us.split.us, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.us, %.split803.us, %.split797.us, %.split794.us, %.split800.us, %.loopexit474, %1048, %1042, %1045, %.thread426.split.us, %.split809.us, %.split828.us, %.split790.us, %.split806.us, %1041, %.split825.us, %1040, %.thread398
-  %.pn246 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp425.us, %.split790.us ], [ %696, %.split806.us ], [ %697, %.split809.us ], [ %.pn230, %1041 ], [ %.pn236, %1040 ], [ %700, %.split825.us ], [ %701, %.split828.us ], [ %.pn241.pn, %.thread398 ], [ %lpad.thr_comm424.us, %.thread426.split.us ], [ %.pn, %1045 ], [ %.pn, %1042 ], [ %lpad.phi477, %1048 ], [ %lpad.phi477, %.loopexit474 ], [ %693, %.split797.us ], [ %692, %.split794.us ], [ %695, %.split803.us ], [ %694, %.split800.us ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit, %.loopexit.split.split ], [ %lpad.loopexit.us739.us, %.loopexit.split.split.us.split.us ], [ %lpad.loopexit494.us747.us, %.loopexit.split-lp.loopexit.loopexit.split.split.us.split.us ], [ %lpad.loopexit494.us.us, %.loopexit.split-lp.loopexit.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp495.us, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.us ], [ %lpad.loopexit505, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1239, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit ], [ %lpad.loopexit.split-lp1240, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit.split-lp ]
+  %.pn246 = phi { ptr, i32 } [ %.pn241.pn, %.thread398 ], [ %.pn236, %1040 ], [ %700, %.split825.us ], [ %701, %.split828.us ], [ %.pn230, %1041 ], [ %696, %.split806.us ], [ %697, %.split809.us ], [ %lpad.thr_comm.split-lp425.us, %.split790.us ], [ %lpad.thr_comm424.us, %.thread426.split.us ], [ %.pn, %1045 ], [ %.pn, %1042 ], [ %lpad.phi477, %1048 ], [ %lpad.phi477, %.loopexit474 ], [ %693, %.split797.us ], [ %692, %.split794.us ], [ %695, %.split803.us ], [ %694, %.split800.us ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit, %.loopexit.split.split ], [ %lpad.loopexit.us739.us, %.loopexit.split.split.us.split.us ], [ %lpad.loopexit494.us747.us, %.loopexit.split-lp.loopexit.loopexit.split.split.us.split.us ], [ %lpad.loopexit494.us.us, %.loopexit.split-lp.loopexit.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp495.us, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.us ], [ %lpad.loopexit505, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1239, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit ], [ %lpad.loopexit.split-lp1240, %.loopexit.split-lp.loopexit.loopexit.split-lp.split.split.us.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %161) #30
           to label %.body338 unwind label %287
 
@@ -26588,7 +26588,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.us: ; pr
   br label %1002
 
 1002:                                             ; preds = %.noexc299.us.us, %.noexc301.us.us
-  %.pn.i.us.us = phi { i64, ptr } [ %994, %.noexc301.us.us ], [ %1001, %.noexc299.us.us ]
+  %.pn.i.us.us = phi { i64, ptr } [ %1001, %.noexc299.us.us ], [ %994, %.noexc301.us.us ]
   %.sroa.01.0.i.us.us = extractvalue { i64, ptr } %.pn.i.us.us, 0
   %.not6.i.us.us = icmp eq i64 %.sroa.01.0.i.us.us, 2
   br i1 %.not6.i.us.us, label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder25first_param_type_in_scope17hc33805125ff0532eE.exit.thread.us.us, label %1003
@@ -28287,21 +28287,21 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
 84:                                               ; preds = %80, %80, %80
   %85 = load i8, ptr %6, align 8, !range !603, !noundef !59
   switch i8 %85, label %81 [
-    i8 21, label %90
-    i8 22, label %86
+    i8 21, label %86
+    i8 22, label %90
   ]
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %88 = load i8, ptr %87, align 1, !range !231, !noundef !59
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %81, label %94
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %88 = load i64, ptr %87, align 8, !noundef !59
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %94, label %81
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %92 = load i64, ptr %91, align 8, !noundef !59
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %81
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %92 = load i8, ptr %91, align 1, !range !231, !noundef !59
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %81, label %94
 
 94:                                               ; preds = %86, %90
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
@@ -28345,10 +28345,10 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
   br label %109
 
 109:                                              ; preds = %108, %107, %106
-  %.sroa.015.0.i = phi ptr [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.267, %108 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.265, %107 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.263, %106 ]
-  %.sroa.7.0.i = phi i64 [ 12, %108 ], [ 6, %107 ], [ 6, %106 ]
-  %.sroa.016.0.i = phi ptr [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.264, %108 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.266, %107 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.264, %106 ]
-  %.sroa.717.0.i = phi i64 [ 7, %108 ], [ 11, %107 ], [ 7, %106 ]
+  %.sroa.015.0.i = phi ptr [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.265, %107 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.267, %108 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.263, %106 ]
+  %.sroa.7.0.i = phi i64 [ 6, %107 ], [ 12, %108 ], [ 6, %106 ]
+  %.sroa.016.0.i = phi ptr [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.266, %107 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.264, %108 ], [ @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.264, %106 ]
+  %.sroa.717.0.i = phi i64 [ 11, %107 ], [ 7, %108 ], [ 7, %106 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !2204
   store ptr %.sroa.015.0.i, ptr %16, align 8, !noalias !2204
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -28414,7 +28414,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
   br label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder22check_division_by_zero17h12d29ba2dc5cd9fdE.exit
 
 common.resume:                                    ; preds = %156, %187, %375, %376, %434, %370, %125
-  %common.resume.op = phi { ptr, i32 } [ %126, %125 ], [ %lpad.phi, %156 ], [ %lpad.phi296, %187 ], [ %435, %434 ], [ %377, %376 ], [ %lpad.thr_comm.split-lp274, %375 ], [ %371, %370 ]
+  %common.resume.op = phi { ptr, i32 } [ %126, %125 ], [ %lpad.phi, %156 ], [ %lpad.phi296, %187 ], [ %435, %434 ], [ %lpad.thr_comm.split-lp274, %375 ], [ %377, %376 ], [ %371, %370 ]
   resume { ptr, i32 } %common.resume.op
 
 125:                                              ; preds = %114
@@ -31721,8 +31721,8 @@ default.unreachable360:                           ; preds = %556, %468, %433, %3
   br label %567
 
 567:                                              ; preds = %565, %563, %556
-  %.sroa.0112.1 = phi i64 [ %.sroa.0112.0341, %556 ], [ %.sroa.0112.0341, %565 ], [ %564, %563 ]
-  %.sroa.0117.1 = phi i64 [ %.sroa.0117.0342, %556 ], [ %566, %565 ], [ %.sroa.0117.0342, %563 ]
+  %.sroa.0112.1 = phi i64 [ %564, %563 ], [ %.sroa.0112.0341, %565 ], [ %.sroa.0112.0341, %556 ]
+  %.sroa.0117.1 = phi i64 [ %.sroa.0117.0342, %563 ], [ %566, %565 ], [ %.sroa.0117.0342, %556 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   %568 = icmp eq ptr %538, %518
   br i1 %568, label %._crit_edge, label %537
@@ -32598,7 +32598,7 @@ default.unreachable40:                            ; preds = %85, %"_ZN111_$LT$co
   br label %63
 
 63:                                               ; preds = %61, %59, %57, %55, %53, %51
-  %.sroa.05.0.in = phi i1 [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ]
+  %.sroa.05.0.in = phi i1 [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ]
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %65 = zext i1 %.sroa.05.0.in to i8
   store i8 %65, ptr %64, align 1
@@ -33412,7 +33412,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i: ; preds = %15
   unreachable
 
 common.resume:                                    ; preds = %416, %208, %283, %.body, %524, %526, %491, %457, %.body.thread, %170
-  %common.resume.op = phi { ptr, i32 } [ %171, %170 ], [ %.pn164, %526 ], [ %525, %524 ], [ %.pn174, %.body ], [ %.pn174, %491 ], [ %284, %283 ], [ %.pn, %208 ], [ %.pn169, %457 ], [ %common.resume.op.i, %.body.thread ], [ %417, %416 ]
+  %common.resume.op = phi { ptr, i32 } [ %171, %170 ], [ %.pn174, %.body ], [ %.pn174, %491 ], [ %.pn164, %526 ], [ %525, %524 ], [ %.pn, %208 ], [ %284, %283 ], [ %.pn169, %457 ], [ %common.resume.op.i, %.body.thread ], [ %417, %416 ]
   resume { ptr, i32 } %common.resume.op
 
 174:                                              ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h969893d5dccceff9E.exit.i"
@@ -37022,7 +37022,7 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_tuple_type_expr
   br label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_tuple_type_expression39element_could_alter_type_of_whole_tuple17h9224f9f074ec10bcE.exit12
 
 _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_tuple_type_expression39element_could_alter_type_of_whole_tuple17h9224f9f074ec10bcE.exit12: ; preds = %.noexc10, %95, %88, %.noexc9
-  %.sroa.0.0.i8 = phi i1 [ true, %95 ], [ %102, %.noexc10 ], [ false, %.noexc9 ], [ false, %88 ]
+  %.sroa.0.0.i8 = phi i1 [ %102, %.noexc10 ], [ true, %95 ], [ false, %.noexc9 ], [ false, %88 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %103 = load i64, ptr %66, align 8, !alias.scope !2683, !noalias !2686, !noundef !59
   %104 = load i64, ptr %18, align 8, !range !816, !alias.scope !2683, !noalias !2686, !noundef !59
@@ -37997,7 +37997,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
   unreachable
 
 common.resume:                                    ; preds = %497, %493, %243, %271, %347, %451, %448
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %347 ], [ %272, %271 ], [ %244, %243 ], [ %lpad.phi, %451 ], [ %lpad.phi, %448 ], [ %494, %497 ], [ %494, %493 ]
+  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %272, %271 ], [ %.pn.i, %347 ], [ %lpad.phi, %451 ], [ %lpad.phi, %448 ], [ %494, %497 ], [ %494, %493 ]
   resume { ptr, i32 } %common.resume.op
 
 259:                                              ; preds = %162
@@ -40341,7 +40341,7 @@ define noundef zeroext i1 @"_ZN99_$LT$ty_python_semantic..types..known_instance.
   br label %99
 
 99:                                               ; preds = %108, %101, %49, %107, %45, %100, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.sroa.0.0.shrunk = phi i1 [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ false, %100 ], [ true, %45 ], [ false, %107 ], [ true, %49 ], [ %106, %101 ], [ %113, %108 ]
+  %.sroa.0.0.shrunk = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ false, %100 ], [ true, %45 ], [ false, %107 ], [ true, %49 ], [ %106, %101 ], [ %113, %108 ]
   ret i1 %.sroa.0.0.shrunk
 
 100:                                              ; preds = %45
@@ -45139,7 +45139,7 @@ define internal fastcc noundef zeroext i1 @"_ZN101_$LT$ty_python_semantic..types
   ]
 
 7:                                                ; preds = %8, %16, %11, %6, %0, %18, %13, %20
-  %.sroa.0.0.shrunk = phi i1 [ %spec.select.i, %20 ], [ %19, %18 ], [ %14, %13 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %14, %13 ], [ %19, %18 ], [ %spec.select.i, %20 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -45416,7 +45416,7 @@ define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance
   br label %95
 
 95:                                               ; preds = %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %45, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %125, %124, %121, %120, %119, %116, %115, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %94
-  %.sroa.0173.0.shrunk = phi i1 [ true, %147 ], [ true, %146 ], [ true, %145 ], [ true, %144 ], [ true, %143 ], [ true, %142 ], [ true, %141 ], [ true, %140 ], [ true, %139 ], [ true, %138 ], [ true, %137 ], [ true, %136 ], [ true, %135 ], [ true, %134 ], [ true, %133 ], [ true, %132 ], [ true, %131 ], [ true, %130 ], [ true, %129 ], [ true, %128 ], [ %126, %125 ], [ true, %127 ], [ %123, %121 ], [ true, %124 ], [ true, %120 ], [ %118, %116 ], [ true, %119 ], [ %114, %112 ], [ true, %115 ], [ true, %111 ], [ true, %110 ], [ true, %109 ], [ true, %108 ], [ true, %107 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %102 ], [ true, %101 ], [ true, %100 ], [ true, %99 ], [ true, %98 ], [ true, %97 ], [ true, %96 ], [ true, %94 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %17 ], [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %31 ], [ false, %33 ], [ false, %35 ], [ false, %37 ], [ false, %39 ], [ false, %45 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ]
+  %.sroa.0173.0.shrunk = phi i1 [ true, %94 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ true, %103 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %107 ], [ true, %108 ], [ true, %109 ], [ true, %110 ], [ true, %111 ], [ %114, %112 ], [ true, %115 ], [ %118, %116 ], [ true, %119 ], [ true, %120 ], [ %123, %121 ], [ true, %124 ], [ %126, %125 ], [ true, %127 ], [ true, %128 ], [ true, %129 ], [ true, %130 ], [ true, %131 ], [ true, %132 ], [ true, %133 ], [ true, %134 ], [ true, %135 ], [ true, %136 ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %142 ], [ true, %143 ], [ true, %144 ], [ true, %145 ], [ true, %146 ], [ true, %147 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %17 ], [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %31 ], [ false, %33 ], [ false, %35 ], [ false, %37 ], [ false, %39 ], [ false, %45 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ]
   ret i1 %.sroa.0173.0.shrunk
 
 96:                                               ; preds = %9
@@ -45965,7 +45965,7 @@ default.unreachable1:                             ; preds = %2
   br label %112
 
 112:                                              ; preds = %109, %106, %103, %100, %98, %95, %92, %89, %87, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %32, %29
-  %.sroa.0.0.in = phi i1 [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %32 ], [ %31, %29 ]
+  %.sroa.0.0.in = phi i1 [ %31, %29 ], [ %33, %32 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %86, %85 ], [ %88, %87 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -46006,7 +46006,7 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
   ]
 
 "_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit": ; preds = %116, %111, %102, %89, %83, %74, %7, %6, %2, %180, %174, %168, %162, %156, %150, %144, %138, %132, %126, %120, %95, %68, %62, %56, %50, %44, %38, %32, %25, %19, %13
-  %.sroa.0.0.shrunk = phi i1 [ %185, %180 ], [ %179, %174 ], [ %173, %168 ], [ %167, %162 ], [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %143, %138 ], [ %137, %132 ], [ %131, %126 ], [ %125, %120 ], [ %spec.select.i17, %95 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %spec.select.i, %25 ], [ %24, %19 ], [ %18, %13 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
+  %.sroa.0.0.shrunk = phi i1 [ %18, %13 ], [ %24, %19 ], [ %spec.select.i, %25 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %spec.select.i17, %95 ], [ %125, %120 ], [ %131, %126 ], [ %137, %132 ], [ %143, %138 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ %167, %162 ], [ %173, %168 ], [ %179, %174 ], [ %185, %180 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
   ret i1 %.sroa.0.0.shrunk
 
 7:                                                ; preds = %6

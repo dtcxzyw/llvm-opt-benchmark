@@ -3471,8 +3471,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 586:                                              ; preds = %583
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65), !noalias !1377
-  %.val573.i.i = load i16, ptr %115, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %65, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val573.i.i), !noalias !712
+  %.val583.i.i = load i16, ptr %115, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %65, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val583.i.i), !noalias !712
   %587 = load i64, ptr %65, align 8, !range !1378, !noalias !1377, !noundef !8
   %588 = icmp eq i64 %587, -9223372036854775804
   br i1 %588, label %590, label %593
@@ -3488,8 +3488,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 590:                                              ; preds = %586
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64), !noalias !1377
-  %.val575.i.i = load i16, ptr %116, align 2, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %64, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val575.i.i), !noalias !712
+  %.val585.i.i = load i16, ptr %116, align 2, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %64, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val585.i.i), !noalias !712
   %591 = load i64, ptr %64, align 8, !range !1378, !noalias !1377, !noundef !8
   %592 = icmp eq i64 %591, -9223372036854775804
   br i1 %592, label %594, label %595
@@ -3524,8 +3524,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 599:                                              ; preds = %596
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62), !noalias !1377
-  %.val577.i.i = load i16, ptr %159, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %62, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val577.i.i), !noalias !712
+  %.val579.i.i = load i16, ptr %159, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %62, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val579.i.i), !noalias !712
   %600 = load i64, ptr %62, align 8, !range !1378, !noalias !1377, !noundef !8
   %601 = icmp eq i64 %600, -9223372036854775804
   br i1 %601, label %603, label %606
@@ -3541,8 +3541,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 603:                                              ; preds = %599
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61), !noalias !1377
-  %.val579.i.i = load i16, ptr %160, align 2, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %61, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val579.i.i), !noalias !712
+  %.val581.i.i = load i16, ptr %160, align 2, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %61, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val581.i.i), !noalias !712
   %604 = load i64, ptr %61, align 8, !range !1378, !noalias !1377, !noundef !8
   %605 = icmp eq i64 %604, -9223372036854775804
   br i1 %605, label %607, label %608
@@ -3596,8 +3596,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 617:                                              ; preds = %614
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58), !noalias !1377
-  %.val581.i.i = load i16, ptr %245, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %58, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val581.i.i), !noalias !712
+  %.val575.i.i = load i16, ptr %245, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %58, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.10.llvm.7725695193857395179, i64 noundef 5, i16 %.val575.i.i), !noalias !712
   %618 = load i64, ptr %58, align 8, !range !1378, !noalias !1377, !noundef !8
   %619 = icmp eq i64 %618, -9223372036854775804
   br i1 %619, label %621, label %624
@@ -3613,8 +3613,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 621:                                              ; preds = %617
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57), !noalias !1377
-  %.val583.i.i = load i16, ptr %246, align 2, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val583.i.i), !noalias !712
+  %.val577.i.i = load i16, ptr %246, align 2, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %57, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.11.llvm.7725695193857395179, i64 noundef 5, i16 %.val577.i.i), !noalias !712
   %622 = load i64, ptr %57, align 8, !range !1378, !noalias !1377, !noundef !8
   %623 = icmp eq i64 %622, -9223372036854775804
   br i1 %623, label %625, label %626
@@ -3650,10 +3650,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55), !noalias !1377
   %631 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val587.i.i = load ptr, ptr %631, align 8, !alias.scope !712, !noalias !713
+  %.val605.i.i = load ptr, ptr %631, align 8, !alias.scope !712, !noalias !713
   %632 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val588.i.i = load i64, ptr %632, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %55, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val587.i.i, i64 %.val588.i.i), !noalias !712
+  %.val606.i.i = load i64, ptr %632, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %55, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val605.i.i, i64 %.val606.i.i), !noalias !712
   %633 = load i64, ptr %55, align 8, !range !1378, !noalias !1377, !noundef !8
   %634 = icmp eq i64 %633, -9223372036854775804
   br i1 %634, label %636, label %637
@@ -3689,10 +3689,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53), !noalias !1377
   %642 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val590.i.i = load ptr, ptr %642, align 8, !alias.scope !712, !noalias !713
+  %.val602.i.i = load ptr, ptr %642, align 8, !alias.scope !712, !noalias !713
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val591.i.i = load i64, ptr %643, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %53, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val590.i.i, i64 %.val591.i.i), !noalias !712
+  %.val603.i.i = load i64, ptr %643, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %53, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val602.i.i, i64 %.val603.i.i), !noalias !712
   %644 = load i64, ptr %53, align 8, !range !1378, !noalias !1377, !noundef !8
   %645 = icmp eq i64 %644, -9223372036854775804
   br i1 %645, label %647, label %648
@@ -3728,10 +3728,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51), !noalias !1377
   %653 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val593.i.i = load ptr, ptr %653, align 8, !alias.scope !712, !noalias !713
+  %.val599.i.i = load ptr, ptr %653, align 8, !alias.scope !712, !noalias !713
   %654 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val594.i.i = load i64, ptr %654, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %51, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val593.i.i, i64 %.val594.i.i), !noalias !712
+  %.val600.i.i = load i64, ptr %654, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %51, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val599.i.i, i64 %.val600.i.i), !noalias !712
   %655 = load i64, ptr %51, align 8, !range !1378, !noalias !1377, !noundef !8
   %656 = icmp eq i64 %655, -9223372036854775804
   br i1 %656, label %658, label %659
@@ -3806,10 +3806,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47), !noalias !1377
   %675 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val599.i.i = load ptr, ptr %675, align 8, !alias.scope !712, !noalias !713
+  %.val590.i.i = load ptr, ptr %675, align 8, !alias.scope !712, !noalias !713
   %676 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val600.i.i = load i64, ptr %676, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %47, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val599.i.i, i64 %.val600.i.i), !noalias !712
+  %.val591.i.i = load i64, ptr %676, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %47, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val590.i.i, i64 %.val591.i.i), !noalias !712
   %677 = load i64, ptr %47, align 8, !range !1378, !noalias !1377, !noundef !8
   %678 = icmp eq i64 %677, -9223372036854775804
   br i1 %678, label %680, label %685
@@ -3826,10 +3826,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !1377
   %681 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val602.i.i = load ptr, ptr %681, align 8, !alias.scope !712, !noalias !713
+  %.val593.i.i = load ptr, ptr %681, align 8, !alias.scope !712, !noalias !713
   %682 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val603.i.i = load i64, ptr %682, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %46, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.21.llvm.7725695193857395179, i64 noundef 4, ptr %.val602.i.i, i64 %.val603.i.i), !noalias !712
+  %.val594.i.i = load i64, ptr %682, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %46, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.21.llvm.7725695193857395179, i64 noundef 4, ptr %.val593.i.i, i64 %.val594.i.i), !noalias !712
   %683 = load i64, ptr %46, align 8, !range !1378, !noalias !1377, !noundef !8
   %684 = icmp eq i64 %683, -9223372036854775804
   br i1 %684, label %686, label %687
@@ -3865,10 +3865,10 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44), !noalias !1377
   %692 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val605.i.i = load ptr, ptr %692, align 8, !alias.scope !712, !noalias !713
+  %.val587.i.i = load ptr, ptr %692, align 8, !alias.scope !712, !noalias !713
   %693 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val606.i.i = load i64, ptr %693, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %44, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val605.i.i, i64 %.val606.i.i), !noalias !712
+  %.val588.i.i = load i64, ptr %693, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h0cf629c35cc97d25E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %44, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.16.llvm.7725695193857395179, i64 noundef 7, ptr %.val587.i.i, i64 %.val588.i.i), !noalias !712
   %694 = load i64, ptr %44, align 8, !range !1378, !noalias !1377, !noundef !8
   %695 = icmp eq i64 %694, -9223372036854775804
   br i1 %695, label %697, label %698
@@ -3903,8 +3903,8 @@ define hidden void @"_ZN16uv_platform_tags8platform1_88_$LT$impl$u20$serde..ser.
 702:                                              ; preds = %699
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !1377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42), !noalias !1377
-  %.val585.i.i = load i16, ptr %541, align 8, !alias.scope !712, !noalias !713
-  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %42, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.24.llvm.7725695193857395179, i64 noundef 9, i16 %.val585.i.i), !noalias !712
+  %.val573.i.i = load i16, ptr %541, align 8, !alias.scope !712, !noalias !713
+  call fastcc void @"_ZN88_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc49baec1e82b0c76E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %42, ptr nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.7d5908b59b48297cefdbf9ecedf08ee1.24.llvm.7725695193857395179, i64 noundef 9, i16 %.val573.i.i), !noalias !712
   %703 = load i64, ptr %42, align 8, !range !1378, !noalias !1377, !noundef !8
   %704 = icmp eq i64 %703, -9223372036854775804
   br i1 %704, label %706, label %707
@@ -4890,10 +4890,10 @@ _ZN3rmp6encode3str9write_str17haa7010b3ab50b009E.exit.i26: ; preds = %1204, %119
   store i64 %1211, ptr %1178, align 8, !alias.scope !2206, !noalias !2188
   br label %753
 
-1212:                                             ; preds = %707, %705, %698, %696, %687, %685, %679, %670, %668, %659, %657, %648, %646, %637, %635, %626, %624, %620, %613, %608, %606, %602, %595, %593, %589, %157, %148, %201, %192, %243, %234, %287, %278, %329, %320, %371, %362, %413, %404, %455, %446, %497, %488, %539, %530, %582, %573, %744, %727
-  %.sroa.90.0.ph = phi i64 [ 163208757251, %727 ], [ 163208757251, %744 ], [ 163208757251, %573 ], [ 163208757251, %582 ], [ 163208757251, %530 ], [ 163208757251, %539 ], [ 163208757251, %488 ], [ 163208757251, %497 ], [ 163208757251, %446 ], [ 163208757251, %455 ], [ 163208757251, %404 ], [ 163208757251, %413 ], [ 163208757251, %362 ], [ 163208757251, %371 ], [ 163208757251, %320 ], [ 163208757251, %329 ], [ 163208757251, %278 ], [ 163208757251, %287 ], [ 163208757251, %234 ], [ 163208757251, %243 ], [ 163208757251, %192 ], [ 163208757251, %201 ], [ 163208757251, %148 ], [ 163208757251, %157 ], [ %.sroa.90.8.copyload77, %589 ], [ %.sroa.90.8.copyload78, %593 ], [ %.sroa.90.8.copyload79, %595 ], [ %.sroa.90.8.copyload74, %602 ], [ %.sroa.90.8.copyload75, %606 ], [ %.sroa.90.8.copyload76, %608 ], [ %.sroa.90.8.copyload73, %613 ], [ %.sroa.90.8.copyload70, %620 ], [ %.sroa.90.8.copyload71, %624 ], [ %.sroa.90.8.copyload72, %626 ], [ %.sroa.90.8.copyload68, %635 ], [ %.sroa.90.8.copyload69, %637 ], [ %.sroa.90.8.copyload66, %646 ], [ %.sroa.90.8.copyload67, %648 ], [ %.sroa.90.8.copyload64, %657 ], [ %.sroa.90.8.copyload65, %659 ], [ %.sroa.90.8.copyload62, %668 ], [ %.sroa.90.8.copyload63, %670 ], [ %.sroa.90.8.copyload59, %679 ], [ %.sroa.90.8.copyload60, %685 ], [ %.sroa.90.8.copyload61, %687 ], [ %.sroa.90.8.copyload57, %696 ], [ %.sroa.90.8.copyload58, %698 ], [ %.sroa.90.8.copyload, %705 ], [ %.sroa.90.8.copyload56, %707 ]
-  %.sroa.53.0.ph = phi i64 [ 1, %727 ], [ 0, %744 ], [ 0, %573 ], [ 0, %582 ], [ 0, %530 ], [ 0, %539 ], [ 0, %488 ], [ 0, %497 ], [ 0, %446 ], [ 0, %455 ], [ 0, %404 ], [ 0, %413 ], [ 0, %362 ], [ 0, %371 ], [ 0, %320 ], [ 0, %329 ], [ 0, %278 ], [ 0, %287 ], [ 0, %234 ], [ 0, %243 ], [ 0, %192 ], [ 0, %201 ], [ 0, %148 ], [ 0, %157 ], [ %.sroa.53.8.copyload53, %589 ], [ %.sroa.53.8.copyload54, %593 ], [ %.sroa.53.8.copyload55, %595 ], [ %.sroa.53.8.copyload50, %602 ], [ %.sroa.53.8.copyload51, %606 ], [ %.sroa.53.8.copyload52, %608 ], [ %.sroa.53.8.copyload49, %613 ], [ %.sroa.53.8.copyload46, %620 ], [ %.sroa.53.8.copyload47, %624 ], [ %.sroa.53.8.copyload48, %626 ], [ %.sroa.53.8.copyload44, %635 ], [ %.sroa.53.8.copyload45, %637 ], [ %.sroa.53.8.copyload42, %646 ], [ %.sroa.53.8.copyload43, %648 ], [ %.sroa.53.8.copyload40, %657 ], [ %.sroa.53.8.copyload41, %659 ], [ %.sroa.53.8.copyload38, %668 ], [ %.sroa.53.8.copyload39, %670 ], [ %.sroa.53.8.copyload35, %679 ], [ %.sroa.53.8.copyload36, %685 ], [ %.sroa.53.8.copyload37, %687 ], [ %.sroa.53.8.copyload33, %696 ], [ %.sroa.53.8.copyload34, %698 ], [ %.sroa.53.8.copyload, %705 ], [ %.sroa.53.8.copyload32, %707 ]
-  %.sroa.031.0.ph = phi i64 [ -9223372036854775808, %727 ], [ -9223372036854775808, %744 ], [ -9223372036854775808, %573 ], [ -9223372036854775808, %582 ], [ -9223372036854775808, %530 ], [ -9223372036854775808, %539 ], [ -9223372036854775808, %488 ], [ -9223372036854775808, %497 ], [ -9223372036854775808, %446 ], [ -9223372036854775808, %455 ], [ -9223372036854775808, %404 ], [ -9223372036854775808, %413 ], [ -9223372036854775808, %362 ], [ -9223372036854775808, %371 ], [ -9223372036854775808, %320 ], [ -9223372036854775808, %329 ], [ -9223372036854775808, %278 ], [ -9223372036854775808, %287 ], [ -9223372036854775808, %234 ], [ -9223372036854775808, %243 ], [ -9223372036854775808, %192 ], [ -9223372036854775808, %201 ], [ -9223372036854775808, %148 ], [ -9223372036854775808, %157 ], [ %584, %589 ], [ %587, %593 ], [ %591, %595 ], [ %597, %602 ], [ %600, %606 ], [ %604, %608 ], [ %610, %613 ], [ %615, %620 ], [ %618, %624 ], [ %622, %626 ], [ %628, %635 ], [ %633, %637 ], [ %639, %646 ], [ %644, %648 ], [ %650, %657 ], [ %655, %659 ], [ %661, %668 ], [ %666, %670 ], [ %672, %679 ], [ %677, %685 ], [ %683, %687 ], [ %689, %696 ], [ %694, %698 ], [ %700, %705 ], [ %703, %707 ]
+1212:                                             ; preds = %595, %593, %589, %608, %606, %602, %613, %626, %624, %620, %637, %635, %648, %646, %659, %657, %670, %668, %687, %685, %679, %698, %696, %707, %705, %157, %148, %201, %192, %243, %234, %287, %278, %329, %320, %371, %362, %413, %404, %455, %446, %497, %488, %539, %530, %582, %573, %744, %727
+  %.sroa.90.0.ph = phi i64 [ 163208757251, %727 ], [ 163208757251, %744 ], [ 163208757251, %573 ], [ 163208757251, %582 ], [ 163208757251, %530 ], [ 163208757251, %539 ], [ 163208757251, %488 ], [ 163208757251, %497 ], [ 163208757251, %446 ], [ 163208757251, %455 ], [ 163208757251, %404 ], [ 163208757251, %413 ], [ 163208757251, %362 ], [ 163208757251, %371 ], [ 163208757251, %320 ], [ 163208757251, %329 ], [ 163208757251, %278 ], [ 163208757251, %287 ], [ 163208757251, %234 ], [ 163208757251, %243 ], [ 163208757251, %192 ], [ 163208757251, %201 ], [ 163208757251, %148 ], [ 163208757251, %157 ], [ %.sroa.90.8.copyload, %705 ], [ %.sroa.90.8.copyload56, %707 ], [ %.sroa.90.8.copyload57, %696 ], [ %.sroa.90.8.copyload58, %698 ], [ %.sroa.90.8.copyload59, %679 ], [ %.sroa.90.8.copyload60, %685 ], [ %.sroa.90.8.copyload61, %687 ], [ %.sroa.90.8.copyload62, %668 ], [ %.sroa.90.8.copyload63, %670 ], [ %.sroa.90.8.copyload64, %657 ], [ %.sroa.90.8.copyload65, %659 ], [ %.sroa.90.8.copyload66, %646 ], [ %.sroa.90.8.copyload67, %648 ], [ %.sroa.90.8.copyload68, %635 ], [ %.sroa.90.8.copyload69, %637 ], [ %.sroa.90.8.copyload70, %620 ], [ %.sroa.90.8.copyload71, %624 ], [ %.sroa.90.8.copyload72, %626 ], [ %.sroa.90.8.copyload73, %613 ], [ %.sroa.90.8.copyload74, %602 ], [ %.sroa.90.8.copyload75, %606 ], [ %.sroa.90.8.copyload76, %608 ], [ %.sroa.90.8.copyload77, %589 ], [ %.sroa.90.8.copyload78, %593 ], [ %.sroa.90.8.copyload79, %595 ]
+  %.sroa.53.0.ph = phi i64 [ 1, %727 ], [ 0, %744 ], [ 0, %573 ], [ 0, %582 ], [ 0, %530 ], [ 0, %539 ], [ 0, %488 ], [ 0, %497 ], [ 0, %446 ], [ 0, %455 ], [ 0, %404 ], [ 0, %413 ], [ 0, %362 ], [ 0, %371 ], [ 0, %320 ], [ 0, %329 ], [ 0, %278 ], [ 0, %287 ], [ 0, %234 ], [ 0, %243 ], [ 0, %192 ], [ 0, %201 ], [ 0, %148 ], [ 0, %157 ], [ %.sroa.53.8.copyload, %705 ], [ %.sroa.53.8.copyload32, %707 ], [ %.sroa.53.8.copyload33, %696 ], [ %.sroa.53.8.copyload34, %698 ], [ %.sroa.53.8.copyload35, %679 ], [ %.sroa.53.8.copyload36, %685 ], [ %.sroa.53.8.copyload37, %687 ], [ %.sroa.53.8.copyload38, %668 ], [ %.sroa.53.8.copyload39, %670 ], [ %.sroa.53.8.copyload40, %657 ], [ %.sroa.53.8.copyload41, %659 ], [ %.sroa.53.8.copyload42, %646 ], [ %.sroa.53.8.copyload43, %648 ], [ %.sroa.53.8.copyload44, %635 ], [ %.sroa.53.8.copyload45, %637 ], [ %.sroa.53.8.copyload46, %620 ], [ %.sroa.53.8.copyload47, %624 ], [ %.sroa.53.8.copyload48, %626 ], [ %.sroa.53.8.copyload49, %613 ], [ %.sroa.53.8.copyload50, %602 ], [ %.sroa.53.8.copyload51, %606 ], [ %.sroa.53.8.copyload52, %608 ], [ %.sroa.53.8.copyload53, %589 ], [ %.sroa.53.8.copyload54, %593 ], [ %.sroa.53.8.copyload55, %595 ]
+  %.sroa.031.0.ph = phi i64 [ -9223372036854775808, %727 ], [ -9223372036854775808, %744 ], [ -9223372036854775808, %573 ], [ -9223372036854775808, %582 ], [ -9223372036854775808, %530 ], [ -9223372036854775808, %539 ], [ -9223372036854775808, %488 ], [ -9223372036854775808, %497 ], [ -9223372036854775808, %446 ], [ -9223372036854775808, %455 ], [ -9223372036854775808, %404 ], [ -9223372036854775808, %413 ], [ -9223372036854775808, %362 ], [ -9223372036854775808, %371 ], [ -9223372036854775808, %320 ], [ -9223372036854775808, %329 ], [ -9223372036854775808, %278 ], [ -9223372036854775808, %287 ], [ -9223372036854775808, %234 ], [ -9223372036854775808, %243 ], [ -9223372036854775808, %192 ], [ -9223372036854775808, %201 ], [ -9223372036854775808, %148 ], [ -9223372036854775808, %157 ], [ %700, %705 ], [ %703, %707 ], [ %689, %696 ], [ %694, %698 ], [ %672, %679 ], [ %677, %685 ], [ %683, %687 ], [ %661, %668 ], [ %666, %670 ], [ %650, %657 ], [ %655, %659 ], [ %639, %646 ], [ %644, %648 ], [ %628, %635 ], [ %633, %637 ], [ %615, %620 ], [ %618, %624 ], [ %622, %626 ], [ %610, %613 ], [ %597, %602 ], [ %600, %606 ], [ %604, %608 ], [ %584, %589 ], [ %587, %593 ], [ %591, %595 ]
   store i64 %.sroa.031.0.ph, ptr %0, align 8
   %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.53.0.ph, ptr %.sroa.289.0..sroa_idx, align 8
@@ -5301,9 +5301,9 @@ default.unreachable:                              ; preds = %20
   br label %168
 
 155:                                              ; preds = %32, %31
-  %.sroa.0.0.ph39.i = phi i8 [ 2, %32 ], [ 0, %31 ]
-  %.sroa.8.0.ph37.i = phi i8 [ %29, %32 ], [ undef, %31 ]
-  %.sroa.524.0.i = phi i8 [ %33, %32 ], [ undef, %31 ]
+  %.sroa.0.0.ph39.i = phi i8 [ 0, %31 ], [ 2, %32 ]
+  %.sroa.8.0.ph37.i = phi i8 [ undef, %31 ], [ %29, %32 ]
+  %.sroa.524.0.i = phi i8 [ undef, %31 ], [ %33, %32 ]
   store i8 %.sroa.0.0.ph39.i, ptr %0, align 8
   %.sroa.2283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i, ptr %.sroa.2283.0..sroa_idx, align 1
@@ -5320,9 +5320,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 158:                                              ; preds = %43, %42
-  %.sroa.0.0.ph39.i60 = phi i8 [ 2, %43 ], [ 0, %42 ]
-  %.sroa.8.0.ph37.i61 = phi i8 [ %40, %43 ], [ undef, %42 ]
-  %.sroa.524.0.i62 = phi i8 [ %44, %43 ], [ undef, %42 ]
+  %.sroa.0.0.ph39.i60 = phi i8 [ 0, %42 ], [ 2, %43 ]
+  %.sroa.8.0.ph37.i61 = phi i8 [ undef, %42 ], [ %40, %43 ]
+  %.sroa.524.0.i62 = phi i8 [ undef, %42 ], [ %44, %43 ]
   store i8 %.sroa.0.0.ph39.i60, ptr %0, align 8
   %.sroa.2313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i61, ptr %.sroa.2313.0..sroa_idx, align 1
@@ -5333,9 +5333,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 159:                                              ; preds = %54, %53
-  %.sroa.0.0.ph39.i72 = phi i8 [ 2, %54 ], [ 0, %53 ]
-  %.sroa.8.0.ph37.i73 = phi i8 [ %51, %54 ], [ undef, %53 ]
-  %.sroa.524.0.i74 = phi i8 [ %55, %54 ], [ undef, %53 ]
+  %.sroa.0.0.ph39.i72 = phi i8 [ 0, %53 ], [ 2, %54 ]
+  %.sroa.8.0.ph37.i73 = phi i8 [ undef, %53 ], [ %51, %54 ]
+  %.sroa.524.0.i74 = phi i8 [ undef, %53 ], [ %55, %54 ]
   store i8 %.sroa.0.0.ph39.i72, ptr %0, align 8
   %.sroa.2343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i73, ptr %.sroa.2343.0..sroa_idx, align 1
@@ -5346,9 +5346,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 160:                                              ; preds = %65, %64
-  %.sroa.0.0.ph39.i84 = phi i8 [ 2, %65 ], [ 0, %64 ]
-  %.sroa.8.0.ph37.i85 = phi i8 [ %62, %65 ], [ undef, %64 ]
-  %.sroa.524.0.i86 = phi i8 [ %66, %65 ], [ undef, %64 ]
+  %.sroa.0.0.ph39.i84 = phi i8 [ 0, %64 ], [ 2, %65 ]
+  %.sroa.8.0.ph37.i85 = phi i8 [ undef, %64 ], [ %62, %65 ]
+  %.sroa.524.0.i86 = phi i8 [ undef, %64 ], [ %66, %65 ]
   store i8 %.sroa.0.0.ph39.i84, ptr %0, align 8
   %.sroa.2373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i85, ptr %.sroa.2373.0..sroa_idx, align 1
@@ -5359,9 +5359,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 161:                                              ; preds = %76, %75
-  %.sroa.0.0.ph39.i96 = phi i8 [ 2, %76 ], [ 0, %75 ]
-  %.sroa.8.0.ph37.i97 = phi i8 [ %73, %76 ], [ undef, %75 ]
-  %.sroa.524.0.i98 = phi i8 [ %77, %76 ], [ undef, %75 ]
+  %.sroa.0.0.ph39.i96 = phi i8 [ 0, %75 ], [ 2, %76 ]
+  %.sroa.8.0.ph37.i97 = phi i8 [ undef, %75 ], [ %73, %76 ]
+  %.sroa.524.0.i98 = phi i8 [ undef, %75 ], [ %77, %76 ]
   store i8 %.sroa.0.0.ph39.i96, ptr %0, align 8
   %.sroa.2403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i97, ptr %.sroa.2403.0..sroa_idx, align 1
@@ -5372,9 +5372,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 162:                                              ; preds = %87, %86
-  %.sroa.0.0.ph39.i108 = phi i8 [ 2, %87 ], [ 0, %86 ]
-  %.sroa.8.0.ph37.i109 = phi i8 [ %84, %87 ], [ undef, %86 ]
-  %.sroa.524.0.i110 = phi i8 [ %88, %87 ], [ undef, %86 ]
+  %.sroa.0.0.ph39.i108 = phi i8 [ 0, %86 ], [ 2, %87 ]
+  %.sroa.8.0.ph37.i109 = phi i8 [ undef, %86 ], [ %84, %87 ]
+  %.sroa.524.0.i110 = phi i8 [ undef, %86 ], [ %88, %87 ]
   store i8 %.sroa.0.0.ph39.i108, ptr %0, align 8
   %.sroa.2433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i109, ptr %.sroa.2433.0..sroa_idx, align 1
@@ -5385,9 +5385,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 163:                                              ; preds = %98, %97
-  %.sroa.0.0.ph39.i120 = phi i8 [ 2, %98 ], [ 0, %97 ]
-  %.sroa.8.0.ph37.i121 = phi i8 [ %95, %98 ], [ undef, %97 ]
-  %.sroa.524.0.i122 = phi i8 [ %99, %98 ], [ undef, %97 ]
+  %.sroa.0.0.ph39.i120 = phi i8 [ 0, %97 ], [ 2, %98 ]
+  %.sroa.8.0.ph37.i121 = phi i8 [ undef, %97 ], [ %95, %98 ]
+  %.sroa.524.0.i122 = phi i8 [ undef, %97 ], [ %99, %98 ]
   store i8 %.sroa.0.0.ph39.i120, ptr %0, align 8
   %.sroa.2463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i121, ptr %.sroa.2463.0..sroa_idx, align 1
@@ -5398,9 +5398,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 164:                                              ; preds = %109, %108
-  %.sroa.0.0.ph39.i132 = phi i8 [ 2, %109 ], [ 0, %108 ]
-  %.sroa.8.0.ph37.i133 = phi i8 [ %106, %109 ], [ undef, %108 ]
-  %.sroa.524.0.i134 = phi i8 [ %110, %109 ], [ undef, %108 ]
+  %.sroa.0.0.ph39.i132 = phi i8 [ 0, %108 ], [ 2, %109 ]
+  %.sroa.8.0.ph37.i133 = phi i8 [ undef, %108 ], [ %106, %109 ]
+  %.sroa.524.0.i134 = phi i8 [ undef, %108 ], [ %110, %109 ]
   store i8 %.sroa.0.0.ph39.i132, ptr %0, align 8
   %.sroa.2493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i133, ptr %.sroa.2493.0..sroa_idx, align 1
@@ -5411,9 +5411,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 165:                                              ; preds = %120, %119
-  %.sroa.0.0.ph39.i144 = phi i8 [ 2, %120 ], [ 0, %119 ]
-  %.sroa.8.0.ph37.i145 = phi i8 [ %117, %120 ], [ undef, %119 ]
-  %.sroa.524.0.i146 = phi i8 [ %121, %120 ], [ undef, %119 ]
+  %.sroa.0.0.ph39.i144 = phi i8 [ 0, %119 ], [ 2, %120 ]
+  %.sroa.8.0.ph37.i145 = phi i8 [ undef, %119 ], [ %117, %120 ]
+  %.sroa.524.0.i146 = phi i8 [ undef, %119 ], [ %121, %120 ]
   store i8 %.sroa.0.0.ph39.i144, ptr %0, align 8
   %.sroa.2523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i145, ptr %.sroa.2523.0..sroa_idx, align 1
@@ -5424,9 +5424,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 166:                                              ; preds = %131, %130
-  %.sroa.0.0.ph39.i156 = phi i8 [ 2, %131 ], [ 0, %130 ]
-  %.sroa.8.0.ph37.i157 = phi i8 [ %128, %131 ], [ undef, %130 ]
-  %.sroa.524.0.i158 = phi i8 [ %132, %131 ], [ undef, %130 ]
+  %.sroa.0.0.ph39.i156 = phi i8 [ 0, %130 ], [ 2, %131 ]
+  %.sroa.8.0.ph37.i157 = phi i8 [ undef, %130 ], [ %128, %131 ]
+  %.sroa.524.0.i158 = phi i8 [ undef, %130 ], [ %132, %131 ]
   store i8 %.sroa.0.0.ph39.i156, ptr %0, align 8
   %.sroa.2553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i157, ptr %.sroa.2553.0..sroa_idx, align 1
@@ -5437,9 +5437,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 167:                                              ; preds = %142, %141
-  %.sroa.0.0.ph39.i168 = phi i8 [ 2, %142 ], [ 0, %141 ]
-  %.sroa.8.0.ph37.i169 = phi i8 [ %139, %142 ], [ undef, %141 ]
-  %.sroa.524.0.i170 = phi i8 [ %143, %142 ], [ undef, %141 ]
+  %.sroa.0.0.ph39.i168 = phi i8 [ 0, %141 ], [ 2, %142 ]
+  %.sroa.8.0.ph37.i169 = phi i8 [ undef, %141 ], [ %139, %142 ]
+  %.sroa.524.0.i170 = phi i8 [ undef, %141 ], [ %143, %142 ]
   store i8 %.sroa.0.0.ph39.i168, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i169, ptr %.sroa.247.0..sroa_idx, align 1
@@ -5450,9 +5450,9 @@ default.unreachable:                              ; preds = %20
   br label %169
 
 168:                                              ; preds = %153, %152
-  %.sroa.0.0.ph39.i180 = phi i8 [ 2, %153 ], [ 0, %152 ]
-  %.sroa.8.0.ph37.i181 = phi i8 [ %150, %153 ], [ undef, %152 ]
-  %.sroa.524.0.i182 = phi i8 [ %154, %153 ], [ undef, %152 ]
+  %.sroa.0.0.ph39.i180 = phi i8 [ 0, %152 ], [ 2, %153 ]
+  %.sroa.8.0.ph37.i181 = phi i8 [ undef, %152 ], [ %150, %153 ]
+  %.sroa.524.0.i182 = phi i8 [ undef, %152 ], [ %154, %153 ]
   store i8 %.sroa.0.0.ph39.i180, ptr %0, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i181, ptr %.sroa.253.0..sroa_idx, align 1
@@ -13079,7 +13079,7 @@ define hidden noundef i8 @_ZN3rmp6marker6Marker5to_u817hb514cefcd58c5a4dE.llvm.7
   br label %25
 
 25:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %20, %15, %10, %7, %4
-  %.sroa.0.0 = phi i8 [ %24, %20 ], [ %19, %15 ], [ %14, %10 ], [ %9, %7 ], [ %6, %4 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ]
+  %.sroa.0.0 = phi i8 [ %6, %4 ], [ %9, %7 ], [ %14, %10 ], [ %19, %15 ], [ %24, %20 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ], [ %2, %1 ]
   ret i8 %.sroa.0.0
 }
 
@@ -13326,7 +13326,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN74_$LT$rmp..encode..ValueWriteError$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd37abdaa12163dd6E.exit"
 
 "_ZN74_$LT$rmp..encode..ValueWriteError$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd37abdaa12163dd6E.exit": ; preds = %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -13383,7 +13383,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$rmp_serde..encode..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h16255ed41405fd4aE.exit"
 
 "_ZN61_$LT$rmp_serde..encode..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h16255ed41405fd4aE.exit": ; preds = %10, %13, %15, %18, %20
-  %.sroa.0.0.in.i = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -26902,7 +26902,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$rmp..encode..ValueWriteError$LT$E
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -29944,9 +29944,9 @@ define hidden void @"_ZN179_$LT$uv_python..pointer_size.._..$LT$impl$u20$serde..
   br label %38
 
 35:                                               ; preds = %22, %21
-  %.sroa.0.0.ph39.i = phi i8 [ 2, %22 ], [ 0, %21 ]
-  %.sroa.8.0.ph37.i = phi i8 [ %19, %22 ], [ undef, %21 ]
-  %.sroa.524.0.i = phi i8 [ %23, %22 ], [ undef, %21 ]
+  %.sroa.0.0.ph39.i = phi i8 [ 0, %21 ], [ 2, %22 ]
+  %.sroa.8.0.ph37.i = phi i8 [ undef, %21 ], [ %19, %22 ]
+  %.sroa.524.0.i = phi i8 [ undef, %21 ], [ %23, %22 ]
   store i8 %.sroa.0.0.ph39.i, ptr %0, align 8
   %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i, ptr %.sroa.276.0..sroa_idx, align 1
@@ -29964,9 +29964,9 @@ define hidden void @"_ZN179_$LT$uv_python..pointer_size.._..$LT$impl$u20$serde..
   br label %39
 
 38:                                               ; preds = %33, %32
-  %.sroa.0.0.ph39.i34 = phi i8 [ 2, %33 ], [ 0, %32 ]
-  %.sroa.8.0.ph37.i35 = phi i8 [ %30, %33 ], [ undef, %32 ]
-  %.sroa.524.0.i36 = phi i8 [ %34, %33 ], [ undef, %32 ]
+  %.sroa.0.0.ph39.i34 = phi i8 [ 0, %32 ], [ 2, %33 ]
+  %.sroa.8.0.ph37.i35 = phi i8 [ undef, %32 ], [ %30, %33 ]
+  %.sroa.524.0.i36 = phi i8 [ undef, %32 ], [ %34, %33 ]
   store i8 %.sroa.0.0.ph39.i34, ptr %0, align 8
   %.sroa.2106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.8.0.ph37.i35, ptr %.sroa.2106.0..sroa_idx, align 1

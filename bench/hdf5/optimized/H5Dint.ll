@@ -4073,8 +4073,8 @@ H5D__flush_real.exit.thread:                      ; preds = %35, %45, %40, %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %.preheader, %84, %64, %57
-  %153 = phi ptr [ %58, %57 ], [ %85, %84 ], [ %58, %64 ], [ %58, %.preheader ], [ %151, %.loopexit.sink.split ], [ %142, %._crit_edge ]
-  %.2 = phi i32 [ %.1, %57 ], [ %.1, %84 ], [ %.1, %64 ], [ %.1, %.preheader ], [ %.1, %.loopexit.sink.split ], [ %.6.lcssa, %._crit_edge ]
+  %153 = phi ptr [ %58, %64 ], [ %85, %84 ], [ %58, %57 ], [ %58, %.preheader ], [ %151, %.loopexit.sink.split ], [ %142, %._crit_edge ]
+  %.2 = phi i32 [ %.1, %64 ], [ %.1, %84 ], [ %.1, %57 ], [ %.1, %.preheader ], [ %.1, %.loopexit.sink.split ], [ %.6.lcssa, %._crit_edge ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 256
   %155 = load ptr, ptr %154, align 8, !tbaa !62
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 96
@@ -5031,8 +5031,8 @@ define range(i32 -1, 1) i32 @H5D__alloc_storage(ptr noundef %0, i32 noundef %1, 
   %138 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__alloc_storage, i32 noundef 2457, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.85) #12
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %83, %24, %78, %60, %27, %129, %4, %12, %20, %132, %.thread, %135, %100, %79, %71, %56, %41
-  %.064 = phi i32 [ 0, %12 ], [ 0, %20 ], [ -1, %79 ], [ -1, %135 ], [ 0, %132 ], [ 0, %.thread ], [ -1, %100 ], [ -1, %129 ], [ -1, %71 ], [ -1, %56 ], [ -1, %41 ], [ 0, %4 ], [ 0, %27 ], [ 0, %60 ], [ 0, %78 ], [ 0, %24 ], [ 0, %83 ]
+.thread.thread:                                   ; preds = %83, %27, %78, %60, %24, %129, %4, %12, %20, %132, %.thread, %135, %100, %79, %71, %56, %41
+  %.064 = phi i32 [ 0, %12 ], [ 0, %20 ], [ -1, %79 ], [ -1, %135 ], [ 0, %132 ], [ 0, %.thread ], [ -1, %100 ], [ -1, %129 ], [ -1, %41 ], [ -1, %56 ], [ -1, %71 ], [ 0, %4 ], [ 0, %24 ], [ 0, %60 ], [ 0, %78 ], [ 0, %27 ], [ 0, %83 ]
   ret i32 %.064
 }
 
@@ -5135,7 +5135,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__init_storage(ptr noundef %0, i
   br label %53
 
 53:                                               ; preds = %48, %3, %17, %16, %33, %32, %28, %49, %36, %20
-  %.021 = phi i32 [ -1, %49 ], [ %.1, %48 ], [ 0, %32 ], [ -1, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %16 ], [ -1, %20 ], [ 0, %17 ], [ 0, %3 ]
+  %.021 = phi i32 [ -1, %49 ], [ 0, %16 ], [ -1, %20 ], [ 0, %17 ], [ 0, %32 ], [ -1, %36 ], [ 0, %33 ], [ 0, %28 ], [ %.1, %48 ], [ 0, %3 ]
   ret i32 %.021
 }
 
@@ -5308,7 +5308,7 @@ define range(i32 -1, 1) i32 @H5D__get_storage_size(ptr noundef %0, ptr noundef %
   br label %52
 
 52:                                               ; preds = %27, %48, %39, %43, %31, %24, %47, %44, %2
-  %.0 = phi i32 [ -1, %48 ], [ 0, %47 ], [ 0, %44 ], [ 0, %39 ], [ 0, %43 ], [ -1, %27 ], [ 0, %24 ], [ 0, %31 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %48 ], [ -1, %27 ], [ 0, %24 ], [ 0, %31 ], [ 0, %39 ], [ 0, %43 ], [ 0, %44 ], [ 0, %47 ], [ 0, %2 ]
   %53 = load i64, ptr %3, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %53, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -5364,7 +5364,7 @@ define i64 @H5D__get_offset(ptr noundef readonly captures(none) %0) local_unname
   br label %24
 
 24:                                               ; preds = %13, %20, %._crit_edge, %8, %8, %8, %1
-  %.0 = phi i64 [ -1, %20 ], [ %19, %._crit_edge ], [ -1, %8 ], [ -1, %8 ], [ -1, %8 ], [ -1, %1 ], [ -1, %13 ]
+  %.0 = phi i64 [ -1, %20 ], [ -1, %8 ], [ -1, %8 ], [ -1, %8 ], [ %19, %._crit_edge ], [ -1, %1 ], [ -1, %13 ]
   ret i64 %.0
 }
 
@@ -7071,9 +7071,9 @@ define range(i32 -1, 1) i32 @H5D__format_convert(ptr noundef %0) local_unnamed_a
   %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__format_convert, i32 noundef 3445, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.88) #12
   br label %117
 
-117:                                              ; preds = %113, %109, %105, %101, %21, %49, %64, %71, %78
-  %.060.ph = phi ptr [ %19, %78 ], [ %19, %71 ], [ %19, %64 ], [ %19, %49 ], [ null, %21 ], [ null, %101 ], [ null, %105 ], [ null, %109 ], [ null, %113 ]
-  %.059.ph.not = phi i1 [ false, %78 ], [ false, %71 ], [ false, %64 ], [ true, %49 ], [ true, %21 ], [ true, %101 ], [ true, %105 ], [ true, %109 ], [ true, %113 ]
+117:                                              ; preds = %113, %21, %49, %64, %71, %78, %101, %105, %109
+  %.060.ph = phi ptr [ null, %109 ], [ null, %105 ], [ null, %101 ], [ %19, %78 ], [ %19, %71 ], [ %19, %64 ], [ %19, %49 ], [ null, %21 ], [ null, %113 ]
+  %.059.ph.not = phi i1 [ true, %109 ], [ true, %105 ], [ true, %101 ], [ false, %78 ], [ false, %71 ], [ false, %64 ], [ true, %49 ], [ true, %21 ], [ true, %113 ]
   %118 = load ptr, ptr %14, align 8, !tbaa !52
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 248
   %120 = load i32, ptr %119, align 8, !tbaa !58

@@ -10383,7 +10383,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !311
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -10841,7 +10841,7 @@ default.unreachable55:                            ; preds = %59
   unreachable
 
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %66, %64, %62, %60, %55
-  %.047 = phi double [ %56, %55 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ]
+  %.047 = phi double [ %56, %55 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ]
   %68 = fcmp olt double %.047, -1.500000e+01
   %69 = fcmp ogt double %.047, 1.500000e+01
   %..i = select i1 %69, double 1.500000e+01, double %.047
@@ -10983,7 +10983,7 @@ default.unreachable74:                            ; preds = %83
   unreachable
 
 _ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %83, %83, %88, %86, %79
-  %.058 = phi double [ %80, %79 ], [ %89, %88 ], [ %87, %86 ], [ %85, %83 ], [ %85, %83 ]
+  %.058 = phi double [ %80, %79 ], [ %87, %86 ], [ %89, %88 ], [ %85, %83 ], [ %85, %83 ]
   %90 = fcmp olt double %.058, 0x3C9CD2B297D889BC
   %91 = fcmp ogt double %.058, 1.500000e+01
   %..i = select i1 %91, double 1.500000e+01, double %.058
@@ -11627,7 +11627,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !311
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -12165,7 +12165,7 @@ default.unreachable60:                            ; preds = %98
   unreachable
 
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %107, %104, %101, %99, %94
-  %.047 = phi double [ %95, %94 ], [ %108, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %99 ]
+  %.047 = phi double [ %95, %94 ], [ %100, %99 ], [ %103, %101 ], [ %106, %104 ], [ %108, %107 ]
   %109 = fcmp olt double %.047, -1.500000e+01
   %110 = fcmp ogt double %.047, 1.500000e+01
   %..i = select i1 %110, double 1.500000e+01, double %.047
@@ -12915,7 +12915,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !311
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -13422,7 +13422,7 @@ default.unreachable57:                            ; preds = %80
   unreachable
 
 _ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %89, %86, %84, %81, %76
-  %.047 = phi double [ %77, %76 ], [ %91, %89 ], [ %88, %86 ], [ %85, %84 ], [ %83, %81 ]
+  %.047 = phi double [ %77, %76 ], [ %83, %81 ], [ %85, %84 ], [ %88, %86 ], [ %91, %89 ]
   %92 = fcmp olt double %.047, -1.500000e+01
   %93 = fcmp ogt double %.047, 1.500000e+01
   %..i = select i1 %93, double 1.500000e+01, double %.047
@@ -13681,7 +13681,7 @@ default.unreachable82:                            ; preds = %144
   unreachable
 
 _ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit: ; preds = %147, %145, %144, %140
-  %.058 = phi double [ %141, %140 ], [ %148, %147 ], [ %146, %145 ], [ 0x3C9CD2B297D889BC, %144 ]
+  %.058 = phi double [ %141, %140 ], [ %146, %145 ], [ %148, %147 ], [ 0x3C9CD2B297D889BC, %144 ]
   %149 = fcmp olt double %.058, 0x3C9CD2B297D889BC
   %150 = fcmp ogt double %.058, 1.500000e+01
   %..i = select i1 %150, double 1.500000e+01, double %.058
@@ -14131,7 +14131,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %87
   ret void
 
 .body:                                            ; preds = %92, %89, %85, %81, %77, %71, %67, %61
-  %.pn52 = phi { ptr, i32 } [ %86, %85 ], [ %78, %77 ], [ %82, %81 ], [ %68, %67 ], [ %72, %71 ], [ %62, %61 ], [ %90, %92 ], [ %90, %89 ]
+  %.pn52 = phi { ptr, i32 } [ %62, %61 ], [ %68, %67 ], [ %72, %71 ], [ %78, %77 ], [ %82, %81 ], [ %86, %85 ], [ %90, %92 ], [ %90, %89 ]
   %93 = load ptr, ptr %11, align 8, !tbaa !311
   %.not.i.i66 = icmp eq ptr %93, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %94

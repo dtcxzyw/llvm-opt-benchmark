@@ -1712,8 +1712,8 @@ define internal fastcc range(i32 -1, 2) i32 @handle_queue_error(i32 noundef %0, 
   br label %Py_DECREF.exit17
 
 58:                                               ; preds = %51, %47, %30, %12, %8
-  %.018.i = phi ptr [ %53, %51 ], [ %49, %47 ], [ %31, %30 ], [ %14, %12 ], [ %10, %8 ]
-  %.0.i = phi ptr [ %54, %51 ], [ %50, %47 ], [ %32, %30 ], [ %15, %12 ], [ %11, %8 ]
+  %.018.i = phi ptr [ %10, %8 ], [ %14, %12 ], [ %31, %30 ], [ %49, %47 ], [ %53, %51 ]
+  %.0.i = phi ptr [ %11, %8 ], [ %15, %12 ], [ %32, %30 ], [ %50, %47 ], [ %54, %51 ]
   %59 = icmp eq ptr %.0.i, null
   br i1 %59, label %Py_DECREF.exit17, label %resolve_module_errcode.exit
 

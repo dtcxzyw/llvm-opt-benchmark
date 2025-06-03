@@ -1354,7 +1354,7 @@ do_major_operation__remove_all.exit.i.i:          ; preds = %662, %652
   br label %.thread114.i.i
 
 665:                                              ; preds = %do_major_operation__remove_all.exit.i.i, %do_major_operation__remove.exit.i.i, %do_major_operation__append.exit.i.i
-  %.046.i.i = phi i32 [ %.0.lcssa.i.i.i, %do_major_operation__remove_all.exit.i.i ], [ %.016.lcssa.i.i.i, %do_major_operation__remove.exit.i.i ], [ %.0.i.i.i, %do_major_operation__append.exit.i.i ]
+  %.046.i.i = phi i32 [ %.0.i.i.i, %do_major_operation__append.exit.i.i ], [ %.016.lcssa.i.i.i, %do_major_operation__remove.exit.i.i ], [ %.0.lcssa.i.i.i, %do_major_operation__remove_all.exit.i.i ]
   %.not.i.i = icmp eq i32 %.046.i.i, 0
   br i1 %.not.i.i, label %do_major_operation_on_file.exit.sink.split.i, label %.thread114.i.i
 
@@ -2230,7 +2230,7 @@ define internal fastcc i32 @do_shorthand_operation(ptr noundef %0, i32 noundef %
   br label %do_shorthand_operation__add_padding.exit
 
 do_shorthand_operation__add_padding.exit:         ; preds = %38, %37, %6, %6, %39, %17, %15, %13, %10, %8
-  %.0 = phi i32 [ 0, %39 ], [ %20, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %8 ], [ 1, %6 ], [ 1, %6 ], [ 1, %38 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %39 ], [ %9, %8 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %20, %17 ], [ 1, %6 ], [ 1, %6 ], [ 1, %38 ], [ 0, %37 ]
   ret i32 %.0
 }
 

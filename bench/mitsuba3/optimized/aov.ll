@@ -6267,9 +6267,9 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %544
 
 544:                                              ; preds = %127, %268, %272, %277, %284, %289, %296, %303, %310, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit, %384, %389, %542, %.loopexit388, %.loopexit
-  %.1307 = phi ptr [ %.0306397, %127 ], [ %534, %542 ], [ %.0306397, %.loopexit ], [ %.0306397, %.loopexit388 ], [ %.0306397, %389 ], [ %.0306397, %384 ], [ %.0306397, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %.0306397, %310 ], [ %.0306397, %303 ], [ %.0306397, %296 ], [ %.0306397, %289 ], [ %.0306397, %284 ], [ %.0306397, %277 ], [ %.0306397, %272 ], [ %.0306397, %268 ]
-  %.1305 = phi ptr [ %.0304399, %127 ], [ %524, %542 ], [ %446, %.loopexit ], [ %450, %.loopexit388 ], [ %392, %389 ], [ %388, %384 ], [ %383, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %316, %310 ], [ %309, %303 ], [ %302, %296 ], [ %295, %289 ], [ %288, %284 ], [ %283, %277 ], [ %276, %272 ], [ %271, %268 ]
-  %.1303 = phi i64 [ %.0302400, %127 ], [ %543, %542 ], [ %.0302400, %.loopexit ], [ %.0302400, %.loopexit388 ], [ %.0302400, %389 ], [ %.0302400, %384 ], [ %.0302400, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %.0302400, %310 ], [ %.0302400, %303 ], [ %.0302400, %296 ], [ %.0302400, %289 ], [ %.0302400, %284 ], [ %.0302400, %277 ], [ %.0302400, %272 ], [ %.0302400, %268 ]
+  %.1307 = phi ptr [ %.0306397, %127 ], [ %.0306397, %268 ], [ %.0306397, %272 ], [ %.0306397, %277 ], [ %.0306397, %284 ], [ %.0306397, %289 ], [ %.0306397, %296 ], [ %.0306397, %303 ], [ %.0306397, %310 ], [ %.0306397, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %.0306397, %384 ], [ %.0306397, %389 ], [ %.0306397, %.loopexit ], [ %.0306397, %.loopexit388 ], [ %534, %542 ]
+  %.1305 = phi ptr [ %.0304399, %127 ], [ %271, %268 ], [ %276, %272 ], [ %283, %277 ], [ %288, %284 ], [ %295, %289 ], [ %302, %296 ], [ %309, %303 ], [ %316, %310 ], [ %383, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %388, %384 ], [ %392, %389 ], [ %446, %.loopexit ], [ %450, %.loopexit388 ], [ %524, %542 ]
+  %.1303 = phi i64 [ %.0302400, %127 ], [ %.0302400, %268 ], [ %.0302400, %272 ], [ %.0302400, %277 ], [ %.0302400, %284 ], [ %.0302400, %289 ], [ %.0302400, %296 ], [ %.0302400, %303 ], [ %.0302400, %310 ], [ %.0302400, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19compute_uv_partialsERKNS_15RayDifferentialINS_5PointIfLm3EEES5_EE.exit ], [ %.0302400, %384 ], [ %.0302400, %389 ], [ %.0302400, %.loopexit ], [ %.0302400, %.loopexit388 ], [ %543, %542 ]
   %545 = add nuw i64 %.0301402, 1
   %546 = load ptr, ptr %86, align 8
   %547 = load ptr, ptr %85, align 8
@@ -14590,7 +14590,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  %.sroa.034.0 = phi ptr [ %0, %48 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
   ret ptr %.sroa.034.0
 }
 
@@ -15686,7 +15686,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107: ; preds = %
   store i32 48, ptr %348, align 8
   br label %.thread117
 
-.thread117:                                       ; preds = %229, %.loopexit120, %.loopexit121, %.loopexit122, %311, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
+.thread117:                                       ; preds = %229, %311, %.loopexit122, %.loopexit121, %.loopexit120, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
   %360 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %.loopexit123
 

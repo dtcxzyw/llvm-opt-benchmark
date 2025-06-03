@@ -1914,7 +1914,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backend9constructENS2_6sys
   unreachable
 
 20:                                               ; preds = %18, %17
-  %.sroa.0.0 = phi i32 [ 10, %18 ], [ 2, %17 ]
+  %.sroa.0.0 = phi i32 [ 2, %17 ], [ 10, %18 ]
   %21 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #36
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %22, align 8, !tbaa !33

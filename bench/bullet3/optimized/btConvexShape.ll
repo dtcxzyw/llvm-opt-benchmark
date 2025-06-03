@@ -354,13 +354,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   br label %78
 
 78:                                               ; preds = %67, %77, %76
-  %79 = phi float [ %72, %77 ], [ %73, %76 ], [ %73, %67 ]
-  %.081.sroa.phi = phi ptr [ %.sroa.10176, %77 ], [ %.sroa.18, %76 ], [ %.sroa.18, %67 ]
-  %.080.sroa.phi = phi ptr [ %.sroa.18, %77 ], [ %.sroa.10176, %76 ], [ %.sroa.0174, %67 ]
-  %.080.sroa.phi197 = phi ptr [ %.sroa.20, %77 ], [ %.sroa.11, %76 ], [ %.sroa.0208, %67 ]
-  %.0.sroa.phi = phi ptr [ %.sroa.0174, %77 ], [ %.sroa.0174, %76 ], [ %.sroa.10176, %67 ]
-  %.0.sroa.phi179 = phi ptr [ %.sroa.0208, %77 ], [ %.sroa.0208, %76 ], [ %.sroa.11, %67 ]
-  %.0.sroa.phi209 = phi ptr [ %3, %77 ], [ %3, %76 ], [ %.0.sroa.gep211, %67 ]
+  %79 = phi float [ %73, %76 ], [ %72, %77 ], [ %73, %67 ]
+  %.081.sroa.phi = phi ptr [ %.sroa.18, %76 ], [ %.sroa.10176, %77 ], [ %.sroa.18, %67 ]
+  %.080.sroa.phi = phi ptr [ %.sroa.10176, %76 ], [ %.sroa.18, %77 ], [ %.sroa.0174, %67 ]
+  %.080.sroa.phi197 = phi ptr [ %.sroa.11, %76 ], [ %.sroa.20, %77 ], [ %.sroa.0208, %67 ]
+  %.0.sroa.phi = phi ptr [ %.sroa.0174, %76 ], [ %.sroa.0174, %77 ], [ %.sroa.10176, %67 ]
+  %.0.sroa.phi179 = phi ptr [ %.sroa.0208, %76 ], [ %.sroa.0208, %77 ], [ %.sroa.11, %67 ]
+  %.0.sroa.phi209 = phi ptr [ %3, %76 ], [ %3, %77 ], [ %.0.sroa.gep211, %67 ]
   %80 = load float, ptr %.0.sroa.phi209, align 4, !tbaa !15
   %81 = sext i32 %75 to i64
   %82 = getelementptr inbounds float, ptr %3, i64 %81
@@ -631,8 +631,8 @@ _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102: ; preds = %183, %._crit_edge
   br label %232
 
 232:                                              ; preds = %2, %225, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit, %132, %101, %29, %8
-  %.sroa.0227.0 = phi <2 x float> [ %230, %225 ], [ %.sroa.0.4.vec.insert.i8.i89, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102 ], [ %.sroa.0.4.vec.insert.i8.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.0227.4.vec.insert248, %132 ], [ %.sroa.0227.4.vec.insert246, %101 ], [ %.sroa.0227.4.vec.insert242, %29 ], [ %.sroa.0227.4.vec.insert240, %8 ], [ zeroinitializer, %2 ]
-  %.sroa.16.0 = phi <2 x float> [ %231, %225 ], [ %.sroa.3.12.vec.insert.i9.i90, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102 ], [ %.sroa.3.12.vec.insert.i9.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.16.12.vec.insert269, %132 ], [ %.sroa.16.12.vec.insert267, %101 ], [ %.sroa.16.12.vec.insert263, %29 ], [ %.sroa.16.12.vec.insert261, %8 ], [ zeroinitializer, %2 ]
+  %.sroa.0227.0 = phi <2 x float> [ %230, %225 ], [ %.sroa.0227.4.vec.insert240, %8 ], [ %.sroa.0227.4.vec.insert242, %29 ], [ %.sroa.0227.4.vec.insert246, %101 ], [ %.sroa.0227.4.vec.insert248, %132 ], [ %.sroa.0.4.vec.insert.i8.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.0.4.vec.insert.i8.i89, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102 ], [ zeroinitializer, %2 ]
+  %.sroa.16.0 = phi <2 x float> [ %231, %225 ], [ %.sroa.16.12.vec.insert261, %8 ], [ %.sroa.16.12.vec.insert263, %29 ], [ %.sroa.16.12.vec.insert267, %101 ], [ %.sroa.16.12.vec.insert269, %132 ], [ %.sroa.3.12.vec.insert.i9.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.3.12.vec.insert.i9.i90, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit102 ], [ zeroinitializer, %2 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0227.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.16.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -737,7 +737,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupp
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit:  ; preds = %29, %35, %38, %41, %44, %47, %50, %53
-  %.0.i = phi float [ %57, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %29 ]
+  %.0.i = phi float [ %57, %53 ], [ %34, %29 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
   %58 = extractvalue { <2 x float>, <2 x float> } %26, 1
   %59 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %60 = load float, ptr %3, align 4, !tbaa !15
@@ -822,7 +822,7 @@ define dso_local noundef float @_ZNK13btConvexShape19getMarginNonVirtualEv(ptr n
   br label %33
 
 33:                                               ; preds = %28, %25, %22, %19, %16, %13, %10, %4
-  %.0 = phi float [ %32, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %4 ]
+  %.0 = phi float [ %32, %28 ], [ %9, %4 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ]
   ret float %.0
 }
 

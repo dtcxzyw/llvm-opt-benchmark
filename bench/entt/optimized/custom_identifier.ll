@@ -3512,7 +3512,7 @@ _ZNSt12__shared_ptrIN4entt16basic_sparse_setI9entity_idSaIS2_EEELN9__gnu_cxx12_L
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %26, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setI9entity_idSaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.1 = phi ptr [ %28, %26 ], [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setI9entity_idSaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.1 = phi ptr [ %92, %_ZNSt12__shared_ptrIN4entt16basic_sparse_setI9entity_idSaIS2_EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %26 ]
   ret ptr %.1
 }
 
@@ -5390,7 +5390,7 @@ _ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36: ; preds = %86, %_ZNSt6ve
   br label %150
 
 150:                                              ; preds = %120, %_ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit, %42, %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit
-  %.0 = phi i64 [ %35, %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit ], [ %124, %120 ], [ %35, %_ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit ], [ %40, %42 ]
+  %.0 = phi i64 [ %35, %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit ], [ %35, %_ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit ], [ %40, %42 ], [ %124, %120 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %28, 0
   %151 = add nsw i64 %.0, 1
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %151, 1
@@ -7365,7 +7365,7 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   br label %12
 
 12:                                               ; preds = %3, %8, %6, %9, %5
-  %.0 = phi ptr [ %11, %9 ], [ %2, %5 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %11, %9 ], [ null, %6 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 

@@ -375,7 +375,7 @@ define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr r
   br i1 %32, label %34, label %42
 
 33:                                               ; preds = %15, %1, %1, %1, %42, %34, %25, %8
-  %.sroa.0.0 = phi i64 [ %41, %34 ], [ %43, %42 ], [ 2, %25 ], [ %14, %8 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %15 ]
+  %.sroa.0.0 = phi i64 [ %14, %8 ], [ 2, %25 ], [ %41, %34 ], [ %43, %42 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %15 ]
   ret i64 %.sroa.0.0
 
 34:                                               ; preds = %26
@@ -590,8 +590,8 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   unreachable
 
 .thread196:                                       ; preds = %382, %369, %366, %.thread, %113, %404
-  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm201, %404 ], [ %367, %366 ], [ %362, %369 ], [ %.pn131175, %.thread ], [ %114, %113 ], [ %.pn, %382 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn131.pn = phi { ptr, i32 } [ %.pn131175, %.thread ], [ %114, %113 ], [ %367, %366 ], [ %362, %369 ], [ %lpad.thr_comm201, %404 ], [ %.pn, %382 ]
+  resume { ptr, i32 } %.pn131.pn
 
 119:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -1814,7 +1814,7 @@ define void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parse
   unreachable
 
 55:                                               ; preds = %.body, %.body2
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body3, %.body2 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body3, %.body2 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 56:                                               ; preds = %27

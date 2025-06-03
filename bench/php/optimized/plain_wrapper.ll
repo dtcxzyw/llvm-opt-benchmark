@@ -66,8 +66,8 @@ define dso_local range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef 
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5, %4
-  %.not13 = phi i1 [ false, %7 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ true, %2 ]
-  %.0 = phi i32 [ 64, %7 ], [ 192, %6 ], [ 1088, %5 ], [ 576, %4 ], [ 0, %2 ]
+  %.not13 = phi i1 [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ true, %2 ]
+  %.0 = phi i32 [ 576, %4 ], [ 1088, %5 ], [ 192, %6 ], [ 64, %7 ], [ 0, %2 ]
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 43) #16
   %.not = icmp eq ptr %9, null
   %10 = or disjoint i32 %.0, 2
@@ -1277,8 +1277,8 @@ php_stdiop_sync.exit109:                          ; preds = %126, %php_stdiop_fl
   tail call void @add_assoc_bool_ex(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef 3, i1 noundef zeroext %166) #17
   br label %.thread
 
-.thread:                                          ; preds = %80, %95, %do_fstat.exit, %48, %91, %90, %98, %47, %19, %15, %157, %146, %153, %150, %102, %43, %41, %39, %32, %26, %17, %159, %147, %php_stdiop_sync.exit109, %php_stdiop_sync.exit, %103, %45, %37, %35, %33
-  %.0 = phi i32 [ 0, %159 ], [ %149, %147 ], [ %.0.i106, %php_stdiop_sync.exit109 ], [ %.0.i102, %php_stdiop_sync.exit ], [ %105, %103 ], [ 0, %45 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ -1, %17 ], [ -1, %26 ], [ -1, %32 ], [ -1, %39 ], [ 0, %41 ], [ -1, %43 ], [ -1, %102 ], [ %156, %153 ], [ -1, %150 ], [ -2, %146 ], [ -1, %157 ], [ -2, %15 ], [ %spec.select101, %19 ], [ -2, %47 ], [ -1, %95 ], [ -1, %80 ], [ -1, %do_fstat.exit ], [ %50, %48 ], [ 0, %91 ], [ -1, %90 ], [ 0, %98 ]
+.thread:                                          ; preds = %80, %95, %do_fstat.exit, %98, %91, %90, %48, %47, %19, %15, %157, %146, %153, %150, %102, %43, %41, %39, %32, %26, %17, %159, %147, %php_stdiop_sync.exit109, %php_stdiop_sync.exit, %103, %45, %37, %35, %33
+  %.0 = phi i32 [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ 0, %45 ], [ %105, %103 ], [ %.0.i102, %php_stdiop_sync.exit ], [ %.0.i106, %php_stdiop_sync.exit109 ], [ %149, %147 ], [ 0, %159 ], [ -1, %17 ], [ -1, %26 ], [ -1, %32 ], [ -1, %39 ], [ 0, %41 ], [ -1, %43 ], [ -1, %102 ], [ %156, %153 ], [ -1, %150 ], [ -2, %146 ], [ -1, %157 ], [ -2, %15 ], [ %spec.select101, %19 ], [ -2, %47 ], [ -1, %95 ], [ -1, %80 ], [ -1, %do_fstat.exit ], [ 0, %98 ], [ 0, %91 ], [ -1, %90 ], [ %50, %48 ]
   ret i32 %.0
 }
 
@@ -2548,7 +2548,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captu
   br label %53
 
 46:                                               ; preds = %41, %38, %29, %21
-  %.033 = phi i32 [ %44, %41 ], [ %40, %38 ], [ %31, %29 ], [ %22, %21 ]
+  %.033 = phi i32 [ %22, %21 ], [ %31, %29 ], [ %40, %38 ], [ %44, %41 ]
   %47 = icmp eq i32 %.033, -1
   br i1 %47, label %48, label %52
 
@@ -2564,7 +2564,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captu
   br label %53
 
 53:                                               ; preds = %.thread, %5, %52, %48, %45, %34, %25
-  %.0 = phi i32 [ 0, %45 ], [ 0, %48 ], [ 1, %52 ], [ 0, %34 ], [ 0, %25 ], [ 0, %5 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %48 ], [ 1, %52 ], [ 0, %25 ], [ 0, %34 ], [ 0, %5 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   ret i32 %.0

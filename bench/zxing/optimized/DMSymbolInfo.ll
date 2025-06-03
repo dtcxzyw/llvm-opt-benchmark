@@ -363,7 +363,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo21horizont
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 4, %5 ], [ 2, %4 ], [ %3, %1 ]
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 6, %6 ], [ %3, %1 ]
   ret i32 %.0
 }
 
@@ -418,7 +418,7 @@ define noundef range(i32 1, 7) i32 @_ZNK5ZXing10DataMatrix10SymbolInfo19vertical
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %1, %6, %5, %4
-  %.0 = phi i32 [ 6, %6 ], [ 4, %5 ], [ 2, %4 ], [ 1, %1 ], [ 1, %1 ]
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 6, %6 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.0
 }
 

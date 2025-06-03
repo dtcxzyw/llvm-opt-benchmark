@@ -760,7 +760,7 @@ common.resume.sink.split:                         ; preds = %9, %16, %35
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %29, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ], [ %30, %29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ], [ %45, %44 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6
@@ -5387,9 +5387,9 @@ define noundef ptr @_ZN7ruff_db6system9memory_fs14create_dir_all17h17bb35345462c
   br label %33
 
 33:                                               ; preds = %19, %31, %30, %29, %28
-  %.sroa.020.0 = phi i8 [ 9, %31 ], [ 8, %30 ], [ 7, %29 ], [ %18, %28 ], [ 6, %19 ]
-  %.sroa.824.1 = phi ptr [ %.sroa.614.0.copyload, %31 ], [ %.sroa.824.0, %30 ], [ %.sroa.824.0, %29 ], [ %.sroa.614.0.copyload, %28 ], [ %.sroa.824.0, %19 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.7.0.copyload, %31 ], [ %.sroa.9.0, %30 ], [ %.sroa.9.0, %29 ], [ %.sroa.7.0.copyload, %28 ], [ %.sroa.9.0, %19 ]
+  %.sroa.020.0 = phi i8 [ %18, %28 ], [ 7, %29 ], [ 8, %30 ], [ 9, %31 ], [ 6, %19 ]
+  %.sroa.824.1 = phi ptr [ %.sroa.614.0.copyload, %28 ], [ %.sroa.824.0, %29 ], [ %.sroa.824.0, %30 ], [ %.sroa.614.0.copyload, %31 ], [ %.sroa.824.0, %19 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.7.0.copyload, %28 ], [ %.sroa.9.0, %29 ], [ %.sroa.9.0, %30 ], [ %.sroa.7.0.copyload, %31 ], [ %.sroa.9.0, %19 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.631.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.822, i64 7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.934.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.822)
@@ -10478,7 +10478,7 @@ default.unreachable117:                           ; preds = %5
   br label %.thread110
 
 .thread98:                                        ; preds = %73, %58, %83, %.thread102, %87, %51
-  %.pn79 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %87 ], [ %52, %51 ], [ %lpad.thr_comm, %.thread102 ], [ %59, %58 ], [ %74, %83 ], [ %74, %73 ]
+  %.pn79 = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm.split-lp, %87 ], [ %lpad.thr_comm, %.thread102 ], [ %59, %58 ], [ %74, %83 ], [ %74, %73 ]
   %103 = load i64, ptr %2, align 8, !range !52, !alias.scope !646, !noundef !4
   %104 = icmp eq i64 %103, -9223372036854775808
   br i1 %104, label %.thread110, label %105
@@ -10490,7 +10490,7 @@ default.unreachable117:                           ; preds = %5
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hd11941a9ad98c831E.exit": ; preds = %27, %23, %.critedge, %107
   ret void
 
-.critedge:                                        ; preds = %98, %101, %48, %56, %95
+.critedge:                                        ; preds = %98, %101, %95, %56, %48
   %106 = load i64, ptr %1, align 8, !range !55, !noundef !4
   %.off = add nsw i64 %106, -1
   %switch = icmp ult i64 %.off, 5
@@ -10503,8 +10503,8 @@ default.unreachable117:                           ; preds = %5
 108:                                              ; preds = %.thread110, %110
   resume { ptr, i32 } %.pn81114
 
-.thread110:                                       ; preds = %46, %54, %90, %96, %.thread98, %105, %.thread115
-  %.pn81114 = phi { ptr, i32 } [ %102, %.thread115 ], [ %.pn79, %105 ], [ %.pn79, %.thread98 ], [ %47, %46 ], [ %55, %54 ], [ %91, %90 ], [ %97, %96 ]
+.thread110:                                       ; preds = %90, %96, %54, %46, %.thread98, %105, %.thread115
+  %.pn81114 = phi { ptr, i32 } [ %102, %.thread115 ], [ %.pn79, %105 ], [ %.pn79, %.thread98 ], [ %91, %90 ], [ %97, %96 ], [ %55, %54 ], [ %47, %46 ]
   %109 = load i64, ptr %1, align 8, !range !55, !noundef !4
   %.off85 = add nsw i64 %109, -1
   %switch86 = icmp ult i64 %.off85, 5

@@ -251,7 +251,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
   br label %35
 
 35:                                               ; preds = %33, %30, %27, %23, %13
-  %.not = phi i1 [ true, %13 ], [ true, %33 ], [ false, %30 ], [ false, %27 ], [ true, %23 ]
+  %.not = phi i1 [ true, %13 ], [ true, %23 ], [ false, %27 ], [ false, %30 ], [ true, %33 ]
   %36 = icmp eq i32 %3, 8
   br i1 %36, label %37, label %49
 
@@ -498,7 +498,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   br label %50
 
 50:                                               ; preds = %31, %40, %43, %45, %48
-  %.not232 = phi i1 [ true, %31 ], [ true, %48 ], [ false, %45 ], [ false, %43 ], [ true, %40 ]
+  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %43 ], [ false, %45 ], [ true, %48 ]
   %51 = and i32 %3, 2147483646
   %52 = icmp eq i32 %51, 16
   %or.cond11 = and i1 %52, %13

@@ -9110,7 +9110,7 @@ _ZNSt6vectorI17PreprocessResidueSaIS0_EE2atEm.exit: ; preds = %.lr.ph450
   br label %512
 
 512:                                              ; preds = %510, %._crit_edge.i.i.i
-  %.sroa.043.1.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %511, %510 ]
+  %.sroa.043.1.i.i.i = phi ptr [ %511, %510 ], [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %513 = load ptr, ptr %.sroa.043.1.i.i.i, align 8, !tbaa !303
   %514 = getelementptr inbounds nuw i8, ptr %.sroa.0198.0443, i64 16
   %515 = load i64, ptr %514, align 8, !tbaa !32
@@ -9136,7 +9136,7 @@ _ZNSt6vectorI17PreprocessResidueSaIS0_EE2atEm.exit: ; preds = %.lr.ph450
   br label %528
 
 528:                                              ; preds = %526, %._crit_edge.i.i.i
-  %.sroa.043.2.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %527, %526 ]
+  %.sroa.043.2.i.i.i = phi ptr [ %527, %526 ], [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %529 = load ptr, ptr %.sroa.043.2.i.i.i, align 8, !tbaa !303
   %530 = getelementptr inbounds nuw i8, ptr %.sroa.0198.0443, i64 16
   %531 = load i64, ptr %530, align 8, !tbaa !32
@@ -10979,7 +10979,7 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %118, %117 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %118, %117 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %120 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr readonly %85, ptr %.sroa.032.1.i.i.i)
   br i1 %120, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit", label %121
 
@@ -10988,7 +10988,7 @@ define void @_Z24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS0
   br label %123
 
 123:                                              ; preds = %121, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %122, %121 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %122, %121 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %124 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENS3_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNS3_INS2_11BasicVectorIfEEEEbRKNS2_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISN_SaISN_EEEEEEbT_"(ptr readonly %85, ptr %.sroa.032.2.i.i.i)
   %spec.select.i.i.i = select i1 %124, ptr %.sroa.032.2.i.i.i, ptr %94
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZ24match_atomnames_with_rtpN3gmx8ArrayRefI17PreprocessResidueEENSA_I21MoleculePatchDatabaseEEP7t_atomsP8t_symtabNSA_INS9_11BasicVectorIfEEEEbRKNS9_8MDLoggerEE3$_0ET_SQ_SQ_T0_.exit"
@@ -11653,7 +11653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i: ; preds = %
   br label %353
 
 353:                                              ; preds = %351, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %352, %351 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %352, %351 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %354 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %32, ptr %.sroa.032.1.i.i.i.i)
           to label %.noexc154.i unwind label %.loopexit.split-lp342.i
 
@@ -11665,7 +11665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i: ; preds = %
   br label %357
 
 357:                                              ; preds = %355, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %356, %355 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %356, %355 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %358 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_0EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %32, ptr %.sroa.032.2.i.i.i.i)
           to label %.noexc155.i unwind label %.loopexit.split-lp342.i
 
@@ -12448,7 +12448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i: ; preds =
   br label %624
 
 624:                                              ; preds = %622, %._crit_edge.i.i.i165.i
-  %.sroa.032.1.i.i.i171.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i167.i, %._crit_edge.i.i.i165.i ], [ %623, %622 ]
+  %.sroa.032.1.i.i.i171.i = phi ptr [ %623, %622 ], [ %.sroa.032.0.lcssa.i.i.i167.i, %._crit_edge.i.i.i165.i ]
   %625 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %33, ptr %.sroa.032.1.i.i.i171.i)
           to label %.noexc183.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -12460,7 +12460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i.i.i: ; preds =
   br label %628
 
 628:                                              ; preds = %626, %._crit_edge.i.i.i165.i
-  %.sroa.032.2.i.i.i168.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i167.i, %._crit_edge.i.i.i165.i ], [ %627, %626 ]
+  %.sroa.032.2.i.i.i168.i = phi ptr [ %627, %626 ], [ %.sroa.032.0.lcssa.i.i.i167.i, %._crit_edge.i.i.i165.i ]
   %629 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_1EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull %33, ptr %.sroa.032.2.i.i.i168.i)
           to label %.noexc184.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -12896,7 +12896,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %777
 
 777:                                              ; preds = %775, %._crit_edge.i.i.i209.i
-  %.sroa.032.1.i.i.i215.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i211.i, %._crit_edge.i.i.i209.i ], [ %776, %775 ]
+  %.sroa.032.1.i.i.i215.i = phi ptr [ %776, %775 ], [ %.sroa.032.0.lcssa.i.i.i211.i, %._crit_edge.i.i.i209.i ]
   %778 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull readonly %137, ptr %.sroa.032.1.i.i.i215.i)
   br i1 %778, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i", label %779
 
@@ -12905,7 +12905,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %781
 
 781:                                              ; preds = %779, %._crit_edge.i.i.i209.i
-  %.sroa.032.2.i.i.i212.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i211.i, %._crit_edge.i.i.i209.i ], [ %780, %779 ]
+  %.sroa.032.2.i.i.i212.i = phi ptr [ %780, %779 ], [ %.sroa.032.0.lcssa.i.i.i211.i, %._crit_edge.i.i.i209.i ]
   %782 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINS4_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNS4_8MDLoggerEE3$_2EclINS_17__normal_iteratorIPPPcSt6vectorISO_SaISO_EEEEEEbT_"(ptr nonnull readonly %137, ptr %.sroa.032.2.i.i.i212.i)
   %spec.select.i.i.i213.i = select i1 %782, ptr %.sroa.032.2.i.i.i212.i, ptr %752
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPPcSt6vectorIS3_SaIS3_EEEEZL29match_atomnames_with_rtp_atomP7t_atomsN3gmx8ArrayRefINSB_11BasicVectorIfEEEEP8t_symtabiP17PreprocessResidueRK21MoleculePatchDatabasebRKNSB_8MDLoggerEE3$_2ET_SR_SR_T0_.exit.i"

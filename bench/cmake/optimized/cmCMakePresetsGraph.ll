@@ -859,7 +859,7 @@ default.unreachable:                              ; preds = %18
   unreachable
 
 _ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %99, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i, %39, %45, %42, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66, %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %148
-  %.431.ph = phi i32 [ 0, %148 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 1, %20 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %82 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66 ], [ 2, %42 ], [ 2, %45 ], [ 2, %39 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i ], [ 1, %99 ]
+  %.431.ph = phi i32 [ 0, %148 ], [ 2, %_ZN12_GLOBAL__N_121IsValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 1, %20 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit66 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit61 ], [ 1, %_ZN12_GLOBAL__N_127PrefixesValidMacroNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %82 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ 2, %42 ], [ 2, %45 ], [ 2, %39 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54.i.i.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i48.i.i.i.i.i.i ], [ 1, %99 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.091.0120, i64 1
   %.not = icmp eq ptr %166, %16
   br i1 %.not, label %._crit_edge, label %18
@@ -2474,7 +2474,7 @@ define dso_local noundef zeroext i1 @_ZNK27cmCMakePresetsGraphInternal17AnyAllOf
   br label %42
 
 42:                                               ; preds = %39, %._crit_edge
-  %.3 = phi i1 [ %17, %39 ], [ true, %._crit_edge ]
+  %.3 = phi i1 [ true, %._crit_edge ], [ %17, %39 ]
   ret i1 %.3
 }
 

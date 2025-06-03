@@ -1032,7 +1032,7 @@ define hidden void @_ZN2ty8MainLoop17run_with_progress17h5262264b1ab2f028E(ptr d
           to label %120 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %813, %815, %352, %354, %.thread509.i, %734, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %.pn445512.i, %.thread509.i ], [ %.pn445.i, %354 ], [ %353, %352 ], [ %735, %734 ], [ %814, %815 ], [ %814, %813 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %353, %352 ], [ %.pn445512.i, %.thread509.i ], [ %.pn445.i, %354 ], [ %735, %734 ], [ %814, %815 ], [ %814, %813 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr33drop_in_place$LT$ty..MainLoop$GT$17hd0a7d525712e125bE"(ptr noalias noundef nonnull align 8 dereferenceable(456) %1) #21
           to label %912 unwind label %910
 
@@ -2752,7 +2752,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   br label %700
 
 700:                                              ; preds = %699, %698, %695, %652
-  %.sroa.0108.0.i = phi i8 [ 101, %699 ], [ 1, %698 ], [ %.sroa.0.0.sroa.speculated.i.i, %652 ], [ %697, %695 ]
+  %.sroa.0108.0.i = phi i8 [ 1, %698 ], [ 101, %699 ], [ %.sroa.0.0.sroa.speculated.i.i, %652 ], [ %697, %695 ]
   %701 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store i8 %.sroa.0108.0.i, ptr %701, align 1, !alias.scope !92, !noalias !104
   store i8 0, ptr %117, align 8, !alias.scope !92, !noalias !104
@@ -3544,7 +3544,7 @@ define hidden void @_ZN2ty8MainLoop17run_with_progress17ha5113e7cfbe06199E(ptr d
           to label %120 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %812, %814, %351, %353, %.thread507.i, %733, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %.pn445510.i, %.thread507.i ], [ %.pn445.i, %353 ], [ %352, %351 ], [ %734, %733 ], [ %813, %814 ], [ %813, %812 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %352, %351 ], [ %.pn445510.i, %.thread507.i ], [ %.pn445.i, %353 ], [ %734, %733 ], [ %813, %814 ], [ %813, %812 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr33drop_in_place$LT$ty..MainLoop$GT$17hd0a7d525712e125bE"(ptr noalias noundef nonnull align 8 dereferenceable(456) %1) #21
           to label %911 unwind label %909
 
@@ -5262,7 +5262,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   br label %699
 
 699:                                              ; preds = %698, %697, %694, %651
-  %.sroa.0108.0.i = phi i8 [ 101, %698 ], [ 1, %697 ], [ %.sroa.0.0.sroa.speculated.i.i, %651 ], [ %696, %694 ]
+  %.sroa.0108.0.i = phi i8 [ 1, %697 ], [ 101, %698 ], [ %.sroa.0.0.sroa.speculated.i.i, %651 ], [ %696, %694 ]
   %700 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store i8 %.sroa.0108.0.i, ptr %700, align 1, !alias.scope !144, !noalias !155
   store i8 0, ptr %117, align 8, !alias.scope !144, !noalias !155

@@ -2160,15 +2160,15 @@ define internal fastcc void @_ZN19example_test_helper10CmdBuilder15stdout_conten
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !250
   %12 = load i32, ptr %7, align 8, !range !254, !noundef !4
   %trunc = trunc nuw i32 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !4
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %16 = load i32, ptr %15, align 4, !range !255
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %14 = load i32, ptr %13, align 4, !range !255
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %trunc, label %41, label %17
 
 17:                                               ; preds = %11
-  store i32 %16, ptr %8, align 4
+  store i32 %14, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   invoke void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$14read_to_string17h5705c119f3bf205eE"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %20 unwind label %18
@@ -2241,7 +2241,7 @@ define internal fastcc void @_ZN19example_test_helper10CmdBuilder15stdout_conten
 41:                                               ; preds = %11
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %.sroa.4.0..sroa_idx24, align 8
+  store ptr %16, ptr %.sroa.4.0..sroa_idx24, align 8
   br label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h051c129672c3552fE.exit23"
 
 42:                                               ; preds = %.thread
@@ -3117,7 +3117,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hf90989d28715ea27E.exit.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hf90989d28715ea27E.exit.i.i": ; preds = %344, %342
-  %.0.i10.i.i = phi ptr [ %346, %344 ], [ %343, %342 ]
+  %.0.i10.i.i = phi ptr [ %343, %342 ], [ %346, %344 ]
   %349 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %350 = load i64, ptr %349, align 8, !range !395, !invariant.load !4, !noalias !364
   %351 = add i64 %350, -1
@@ -5120,8 +5120,8 @@ default.unreachable1:                             ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %1, %1, %1, %7, %5, %3
-  %.sroa.8.0 = phi ptr [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.102, %7 ], [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.100, %5 ], [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.98, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.8.0 = phi ptr [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.98, %3 ], [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.100, %5 ], [ @anon.daf1f8ea4b3076774c5f653b7e5f0226.102, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.8.0, 1
   ret { ptr, ptr } %11
@@ -5172,7 +5172,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10, %8, %6, %4
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 
@@ -5258,7 +5258,7 @@ default.unreachable1:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %22, %20, %18, %15, %12, %9, %7
-  %.0.in = phi i1 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.0.in = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   ret i1 %.0.in
 }
 

@@ -1062,7 +1062,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   tail call fastcc void @dissect_bpdu_pvst_tlv(ptr noundef %1, ptr noundef %100, ptr noundef %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %40, %37, %395, %449, %403, %392, %._crit_edge, %452, %451, %194, %117, %114
+.critedge:                                        ; preds = %43, %37, %40, %395, %449, %403, %392, %._crit_edge, %452, %451, %194, %117, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   ret void
 }

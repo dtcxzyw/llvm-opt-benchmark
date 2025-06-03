@@ -4521,7 +4521,7 @@ define internal i32 @listiter_traverse(ptr noundef readonly captures(none) %0, p
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -4627,7 +4627,7 @@ define internal i32 @listreviter_traverse(ptr noundef readonly captures(none) %0
   br label %9
 
 9:                                                ; preds = %6, %8
-  %.1 = phi i32 [ %7, %6 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %8 ], [ %7, %6 ]
   ret i32 %.1
 }
 

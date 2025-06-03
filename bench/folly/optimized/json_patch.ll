@@ -3752,7 +3752,7 @@ _ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5err
   %.not = icmp eq ptr %120, %11
   br i1 %.not, label %._crit_edge, label %24
 
-.thread245:                                       ; preds = %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, %107, %117, %75, %47, %39, %.thread, %.thread239, %.thread241
+.thread245:                                       ; preds = %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, %107, %47, %39, %75, %117, %.thread, %.thread239, %.thread241
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #27
   br label %123
 

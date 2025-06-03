@@ -1343,7 +1343,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge.i.i.i.i.i
-  %.sroa.066.1.i.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %91, %90 ]
+  %.sroa.066.1.i.i.i.i.i = phi ptr [ %91, %90 ], [ %.sroa.066.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %93 = getelementptr i8, ptr %.sroa.066.1.i.i.i.i.i, i64 8
   %.val1.i48.i.i.i.i.i = load ptr, ptr %93, align 8
   %.not.i.i.i.i.i.i.i.i49.i.i.i.i.i = icmp eq ptr %.val1.i48.i.i.i.i.i, null
@@ -1363,7 +1363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br label %100
 
 100:                                              ; preds = %98, %._crit_edge.i.i.i.i.i
-  %.sroa.066.2.i.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %99, %98 ]
+  %.sroa.066.2.i.i.i.i.i = phi ptr [ %99, %98 ], [ %.sroa.066.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %101 = getelementptr i8, ptr %.sroa.066.2.i.i.i.i.i, i64 8
   %.val1.i56.i.i.i.i.i = load ptr, ptr %101, align 8
   %.not.i.i.i.i.i.i.i.i57.i.i.i.i.i = icmp eq ptr %.val1.i56.i.i.i.i.i, null
@@ -6416,7 +6416,7 @@ _ZNSt3setIdSt4lessIdESaIdEED2Ev.exit:             ; preds = %49, %_ZNK32pxrInter
   br label %191
 
 191:                                              ; preds = %189, %._crit_edge.i.i.i.i
-  %.sroa.056.1.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %190, %189 ]
+  %.sroa.056.1.i.i.i.i = phi ptr [ %190, %189 ], [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %193 = load i8, ptr %192, align 8
   %194 = trunc i8 %193 to i1
@@ -6455,7 +6455,7 @@ _ZNSt3setIdSt4lessIdESaIdEED2Ev.exit:             ; preds = %49, %_ZNK32pxrInter
   br label %208
 
 208:                                              ; preds = %206, %._crit_edge.i.i.i.i
-  %.sroa.056.2.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %207, %206 ]
+  %.sroa.056.2.i.i.i.i = phi ptr [ %207, %206 ], [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %210 = load i8, ptr %209, align 8
   %211 = trunc i8 %210 to i1

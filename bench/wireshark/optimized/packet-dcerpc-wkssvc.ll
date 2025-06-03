@@ -3916,7 +3916,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   br label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit
 
 wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit: ; preds = %78, %80, %83
-  %.1.i.i = phi i32 [ %.0.i.i, %78 ], [ %85, %83 ], [ %82, %80 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %78 ], [ %82, %80 ], [ %85, %83 ]
   %86 = load ptr, ptr %9, align 8
   %87 = sub i32 %.1.i.i, %.1
   call void @proto_item_set_len(ptr noundef %86, i32 noundef %87)
@@ -5057,7 +5057,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
   br label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit
 
 wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit:  ; preds = %60, %62, %65, %68
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ]
   %71 = load ptr, ptr %9, align 8
   %72 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %71, i32 noundef %72)
@@ -7809,7 +7809,7 @@ define internal fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noun
   br label %143
 
 143:                                              ; preds = %33, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35
-  %.1 = phi i32 [ %.0, %33 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ %133, %131 ], [ %130, %128 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %100, %98 ], [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %115, %113 ], [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %136, %134 ], [ %139, %137 ], [ %142, %140 ]
   %144 = load ptr, ptr %8, align 8
   %145 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %144, i32 noundef %145)
@@ -8224,7 +8224,7 @@ define internal fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32
   br label %44
 
 44:                                               ; preds = %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %45 = load ptr, ptr %8, align 8
   %46 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %45, i32 noundef %46)
@@ -8464,7 +8464,7 @@ define internal fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32
   br label %47
 
 47:                                               ; preds = %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
   %48 = load ptr, ptr %8, align 8
   %49 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %48, i32 noundef %49)

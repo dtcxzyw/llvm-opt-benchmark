@@ -3786,7 +3786,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_mosaic(ptr noundef %0
   br label %proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit
 
 proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph94, %23, %25, %27
-  %.0.i = phi i32 [ %22, %.lr.ph94 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ]
+  %.0.i = phi i32 [ %22, %.lr.ph94 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   %29 = sub i32 %.0.i, %.092
   %30 = shl i32 %.092, 3
   %31 = tail call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %30, i32 noundef 6, i32 noundef 0)

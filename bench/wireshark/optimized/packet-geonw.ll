@@ -1674,7 +1674,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br label %56
 
 56:                                               ; preds = %52, %36, %42, %44, %46, %48, %50, %34
-  %.1525 = phi i32 [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %.0524, %34 ], [ %spec.select, %52 ], [ -1, %36 ]
+  %.1525 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %.0524, %34 ], [ %spec.select, %52 ], [ -1, %36 ]
   %57 = load i32, ptr @proto_geonw, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef %.1525, i32 noundef 0)
   %59 = load i32, ptr @ett_geonw, align 4
@@ -2177,10 +2177,10 @@ dissect_secured_message.exit:                     ; preds = %278, %111, %116, %.
 329:                                              ; preds = %319
   br label %.thread5
 
-.thread5:                                         ; preds = %.thread, %327, %319, %324, %325, %326, %329
-  %.051112 = phi ptr [ %318, %329 ], [ %318, %326 ], [ %318, %325 ], [ %318, %324 ], [ %318, %319 ], [ %318, %327 ], [ %0, %.thread ]
-  %.251811 = phi i32 [ 0, %329 ], [ 0, %326 ], [ 0, %325 ], [ 0, %324 ], [ %323, %319 ], [ 0, %327 ], [ %.0516, %.thread ]
-  %.252610 = phi i32 [ -1, %329 ], [ 36, %326 ], [ 52, %325 ], [ 56, %324 ], [ 32, %319 ], [ %spec.select576, %327 ], [ %.1525, %.thread ]
+.thread5:                                         ; preds = %.thread, %327, %319, %326, %325, %324, %329
+  %.051112 = phi ptr [ %318, %329 ], [ %318, %324 ], [ %318, %325 ], [ %318, %326 ], [ %318, %319 ], [ %318, %327 ], [ %0, %.thread ]
+  %.251811 = phi i32 [ 0, %329 ], [ 0, %324 ], [ 0, %325 ], [ 0, %326 ], [ %323, %319 ], [ 0, %327 ], [ %.0516, %.thread ]
+  %.252610 = phi i32 [ -1, %329 ], [ 56, %324 ], [ 52, %325 ], [ 36, %326 ], [ 32, %319 ], [ %spec.select576, %327 ], [ %.1525, %.thread ]
   %330 = load i32, ptr @hf_geonw_ch, align 4
   %331 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %330, ptr noundef %.051112, i32 noundef %.251811, i32 noundef 8, i32 noundef 0)
   %332 = load i32, ptr @ett_geonw_ch, align 4
@@ -3110,7 +3110,7 @@ transaction_end.exit:                             ; preds = %684, %692, %718, %7
   br label %878
 
 878:                                              ; preds = %876, %859, %839
-  %.6 = phi i32 [ %840, %839 ], [ %877, %876 ], [ %860, %859 ]
+  %.6 = phi i32 [ %840, %839 ], [ %860, %859 ], [ %877, %876 ]
   %879 = load i32, ptr @hf_geonw_gxc_reserved, align 4
   %880 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %470, i32 noundef %879, ptr noundef %.051112, i32 noundef %.6, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21)
   %881 = load i32, ptr %21, align 4
@@ -3321,7 +3321,7 @@ transaction_start.exit:                           ; preds = %966, %proto_item_se
   br label %997
 
 997:                                              ; preds = %transaction_start.exit, %884, %816, %791, %656
-  %.5 = phi i32 [ %657, %656 ], [ %915, %transaction_start.exit ], [ %885, %884 ], [ %817, %816 ], [ %792, %791 ]
+  %.5 = phi i32 [ %657, %656 ], [ %792, %791 ], [ %817, %816 ], [ %885, %884 ], [ %915, %transaction_start.exit ]
   call void @proto_item_set_end(ptr noundef %58, ptr noundef %.051112, i32 noundef %.5)
   %998 = load i32, ptr @geonw_tap, align 4
   call void @tap_queue_packet(i32 noundef %998, ptr noundef %1, ptr noundef %27)

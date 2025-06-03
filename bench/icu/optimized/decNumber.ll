@@ -3132,7 +3132,7 @@ _ZL12decGetDigitsPhi.exit383:                     ; preds = %.lr.ph.i376, %466, 
   call void @uprv_free_77(ptr noundef nonnull %.1269)
   br label %.thread400
 
-.thread400:                                       ; preds = %233, %_ZL12decGetDigitsPhi.exit, %395, %369, %197, %160, %34, %31, %23, %487, %486
+.thread400:                                       ; preds = %233, %_ZL12decGetDigitsPhi.exit, %369, %395, %197, %160, %34, %31, %23, %487, %486
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   ret ptr %0
@@ -11017,7 +11017,7 @@ split.thread:                                     ; preds = %296, %304, %split
   br label %332
 
 332:                                              ; preds = %289, %323, %split.thread
-  %.0156 = phi ptr [ null, %289 ], [ %.2, %split.thread ], [ %.1157, %323 ]
+  %.0156 = phi ptr [ %.2, %split.thread ], [ %.1157, %323 ], [ null, %289 ]
   %.not207 = icmp eq ptr %.1154, null
   br i1 %.not207, label %334, label %333
 

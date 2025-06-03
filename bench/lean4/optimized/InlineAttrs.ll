@@ -105,7 +105,7 @@ define noundef nonnull ptr @l_Lean_Compiler_InlineAttributeKind_toCtorIdx(i8 nou
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -157,7 +157,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit
 
 l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15, %16
-  %.0.i = phi ptr [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -344,7 +344,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Compiler_beqInlineAttributeKind____x40_
   br label %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit
 
 l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit: ; preds = %2, %3, %4, %5, %6
-  %.0.i9 = phi ptr [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %10 [
     i8 0, label %lean_dec.exit
     i8 1, label %7
@@ -365,7 +365,7 @@ l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit: ; preds = %2, %3, %4, %5, %6
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %10, %9, %8, %7, %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 9 to ptr), %10 ], [ inttoptr (i64 7 to ptr), %9 ], [ inttoptr (i64 5 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 9 to ptr), %10 ], [ inttoptr (i64 3 to ptr), %7 ], [ inttoptr (i64 5 to ptr), %8 ], [ inttoptr (i64 7 to ptr), %9 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit ]
   %11 = icmp eq ptr %.0.i9, %.0.i10
   %12 = zext i1 %11 to i8
   ret i8 %12
@@ -445,7 +445,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i
 
 l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %32 [
     i8 0, label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
     i8 1, label %29
@@ -466,7 +466,7 @@ l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %28, %27, %26, %
   br label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
 
 l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit: ; preds = %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i, %29, %30, %31, %32
-  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %32 ], [ inttoptr (i64 7 to ptr), %31 ], [ inttoptr (i64 5 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %32 ], [ inttoptr (i64 3 to ptr), %29 ], [ inttoptr (i64 5 to ptr), %30 ], [ inttoptr (i64 7 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
   %33 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %34 = select i1 %33, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %34
@@ -6188,7 +6188,7 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
   br label %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i
 
 l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %50, %49, %48, %47, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %50 ], [ inttoptr (i64 7 to ptr), %49 ], [ inttoptr (i64 5 to ptr), %48 ], [ inttoptr (i64 3 to ptr), %47 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %50 ], [ inttoptr (i64 3 to ptr), %47 ], [ inttoptr (i64 5 to ptr), %48 ], [ inttoptr (i64 7 to ptr), %49 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %39, label %54 [
     i8 0, label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
     i8 1, label %51
@@ -6209,7 +6209,7 @@ l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %50, %49, %48, %
   br label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
 
 l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit: ; preds = %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i, %51, %52, %53, %54
-  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %54 ], [ inttoptr (i64 7 to ptr), %53 ], [ inttoptr (i64 5 to ptr), %52 ], [ inttoptr (i64 3 to ptr), %51 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %54 ], [ inttoptr (i64 3 to ptr), %51 ], [ inttoptr (i64 5 to ptr), %52 ], [ inttoptr (i64 7 to ptr), %53 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
   %55 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %56 = zext i1 %55 to i8
   br label %57
@@ -6657,7 +6657,7 @@ lean_dec.exit41:                                  ; preds = %113, %112, %110, %l
   br label %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i
 
 l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %117, %116, %115, %114, %lean_dec.exit41
-  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %117 ], [ inttoptr (i64 7 to ptr), %116 ], [ inttoptr (i64 5 to ptr), %115 ], [ inttoptr (i64 3 to ptr), %114 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit41 ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 9 to ptr), %117 ], [ inttoptr (i64 3 to ptr), %114 ], [ inttoptr (i64 5 to ptr), %115 ], [ inttoptr (i64 7 to ptr), %116 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit41 ]
   switch i8 %106, label %121 [
     i8 0, label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
     i8 1, label %118
@@ -6678,7 +6678,7 @@ l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i: ; preds = %117, %116, %115
   br label %l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit
 
 l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18_.exit: ; preds = %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i, %118, %119, %120, %121
-  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %121 ], [ inttoptr (i64 7 to ptr), %120 ], [ inttoptr (i64 5 to ptr), %119 ], [ inttoptr (i64 3 to ptr), %118 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 9 to ptr), %121 ], [ inttoptr (i64 3 to ptr), %118 ], [ inttoptr (i64 5 to ptr), %119 ], [ inttoptr (i64 7 to ptr), %120 ], [ inttoptr (i64 1 to ptr), %l_Lean_Compiler_InlineAttributeKind_toCtorIdx.exit.i ]
   %122 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %123 = zext i1 %122 to i8
   br label %138

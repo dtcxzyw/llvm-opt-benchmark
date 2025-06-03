@@ -2412,7 +2412,7 @@ Py_XDECREF.exit86:                                ; preds = %Py_XDECREF.exit86.s
   br label %Py_DECREF.exit70.thread
 
 Py_DECREF.exit70.thread:                          ; preds = %Py_DECREF.exit, %23, %28, %Py_XDECREF.exit86, %91, %88, %85, %82, %81, %78, %77, %Py_DECREF.exit72, %46, %49
-  %.053101 = phi i32 [ %39, %49 ], [ %39, %46 ], [ %39, %Py_DECREF.exit72 ], [ %80, %78 ], [ %73, %81 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %74, %91 ], [ -1, %77 ], [ -1, %Py_XDECREF.exit86 ], [ -1, %28 ], [ -1, %23 ], [ -1, %Py_DECREF.exit ]
+  %.053101 = phi i32 [ %39, %49 ], [ %39, %46 ], [ %39, %Py_DECREF.exit72 ], [ %74, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %73, %81 ], [ %80, %78 ], [ -1, %77 ], [ -1, %Py_XDECREF.exit86 ], [ -1, %28 ], [ -1, %23 ], [ -1, %Py_DECREF.exit ]
   %92 = load i32, ptr %21, align 8, !tbaa !20
   %.not.i.i88 = icmp sgt i32 %92, -1
   br i1 %.not.i.i88, label %93, label %Py_XDECREF.exit89
@@ -5959,7 +5959,7 @@ define internal i32 @defdict_traverse(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %15
 
 15:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %14, %12 ]
+  %.1 = phi i32 [ %14, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -6424,7 +6424,7 @@ define internal i32 @dequeiter_traverse(ptr noundef readonly captures(none) %0, 
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

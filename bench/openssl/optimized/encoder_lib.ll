@@ -1308,7 +1308,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
   br label %54
 
 54:                                               ; preds = %48, %51, %9, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ 1, %9 ], [ 1, %51 ], [ 1, %48 ]
+  %.1 = phi i32 [ 1, %9 ], [ 0, %.thread ], [ 1, %51 ], [ 1, %48 ]
   ret i32 %.1
 }
 

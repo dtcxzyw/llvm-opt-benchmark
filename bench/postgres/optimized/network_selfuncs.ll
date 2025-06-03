@@ -149,7 +149,7 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, %74
-  %.0.i = phi i32 [ 2, %74 ], [ 1, %73 ], [ 0, %72 ], [ -1, %71 ], [ -2, %70 ]
+  %.0.i = phi i32 [ -1, %71 ], [ 0, %72 ], [ 1, %73 ], [ 2, %74 ], [ -2, %70 ]
   %78 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %79 = trunc nuw i8 %78 to i1
   %80 = sub nsw i32 0, %.0.i
@@ -782,7 +782,7 @@ mcv_population.exit84.i:                          ; preds = %.lr.ph.i79.i, %76, 
   unreachable
 
 inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, %mcv_population.exit84.i
-  %.0.i.i = phi i32 [ 2, %80 ], [ 1, %79 ], [ 0, %78 ], [ -1, %77 ], [ -2, %mcv_population.exit84.i ]
+  %.0.i.i = phi i32 [ -1, %77 ], [ 0, %78 ], [ 1, %79 ], [ 2, %80 ], [ -2, %mcv_population.exit84.i ]
   %or.cond.i = and i1 %.065.shrunk.i, %.064.shrunk.i
   br i1 %or.cond.i, label %84, label %112
 
@@ -1043,7 +1043,7 @@ networkjoinsel_inner.exit:                        ; preds = %186, %187
   unreachable
 
 206:                                              ; preds = %networkjoinsel_inner.exit, %199, %197
-  %.0 = phi double [ %201, %199 ], [ %198, %197 ], [ %.4.i, %networkjoinsel_inner.exit ]
+  %.0 = phi double [ %.4.i, %networkjoinsel_inner.exit ], [ %201, %199 ], [ %198, %197 ]
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %208 = load ptr, ptr %207, align 8
   %.not = icmp eq ptr %208, null
@@ -1239,7 +1239,7 @@ mcv_population.exit104:                           ; preds = %.lr.ph.i99, %52, %3
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %mcv_population.exit104, %61, %62, %63, %64
-  %.0.i = phi i32 [ 2, %64 ], [ 1, %63 ], [ 0, %62 ], [ -1, %61 ], [ -2, %mcv_population.exit104 ]
+  %.0.i = phi i32 [ -1, %61 ], [ 0, %62 ], [ 1, %63 ], [ 2, %64 ], [ -2, %mcv_population.exit104 ]
   %68 = call i32 @get_opcode(i32 noundef %0) #9
   call void @fmgr_info(i32 noundef %68, ptr noundef nonnull %4) #9
   br i1 %.077.shrunk, label %69, label %78

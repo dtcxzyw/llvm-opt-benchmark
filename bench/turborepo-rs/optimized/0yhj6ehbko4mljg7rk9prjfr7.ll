@@ -431,7 +431,7 @@ _RNvXNtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB4_3VecNtNtB6_6string6StringEIN
   unreachable
 
 49:                                               ; preds = %31, %44
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %45, %44 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -542,7 +542,7 @@ _RNvXNtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB4_3VecNtNtB6_6string6StringEIN
   unreachable
 
 41:                                               ; preds = %23, %36
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -651,7 +651,7 @@ _RNvXNtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB4_3VecNtNtB6_6string6StringEIN
   unreachable
 
 40:                                               ; preds = %21, %35
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ]
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -641,7 +641,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27: ; preds = %_ZN9Bytecode
   br label %_ZN9Relocator21instruction_length_atEi.exit
 
 _ZN9Relocator21instruction_length_atEi.exit:      ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %67, %53
-  %.0 = phi i32 [ %77, %67 ], [ %66, %53 ], [ %51, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i ], [ %50, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %91, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27 ], [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28 ]
+  %.0 = phi i32 [ %66, %53 ], [ %77, %67 ], [ %51, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i ], [ %50, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %91, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27 ], [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28 ]
   ret i32 %.0
 }
 
@@ -1206,7 +1206,7 @@ _ZN9Relocator11change_jumpEiibii.exit96:          ; preds = %122, %138, %139
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge122, %._crit_edge, %_ZN9Relocator11change_jumpEiibii.exit
-  %.074.be = phi i32 [ %194, %_ZN9Relocator11change_jumpEiibii.exit ], [ %190, %._crit_edge ], [ %143, %._crit_edge122 ]
+  %.074.be = phi i32 [ %194, %_ZN9Relocator11change_jumpEiibii.exit ], [ %143, %._crit_edge122 ], [ %190, %._crit_edge ]
   %144 = load i32, ptr %4, align 4
   %145 = icmp slt i32 %.074.be, %144
   br i1 %145, label %9, label %._crit_edge126, !llvm.loop !12

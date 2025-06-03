@@ -4129,8 +4129,8 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit: ; preds = %140
   %187 = icmp samesign ult i32 %175, 65536
   br i1 %187, label %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.thread, label %190
 
-_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.thread: ; preds = %145, %147, %155, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit
-  %.0.i185 = phi i32 [ %186, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit ], [ %146, %145 ], [ %154, %147 ], [ %166, %155 ]
+_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.thread: ; preds = %155, %147, %145, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit
+  %.0.i185 = phi i32 [ %186, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit ], [ %166, %155 ], [ %154, %147 ], [ %146, %145 ]
   %188 = trunc nuw i32 %.0.i185 to i16
   %189 = call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %188, i8 noundef zeroext %138, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit
@@ -4227,7 +4227,7 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %_ZN6icu_771
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit170: ; preds = %205, %207, %215, %227
-  %.0.i167 = phi i32 [ %246, %227 ], [ %226, %215 ], [ %214, %207 ], [ %206, %205 ]
+  %.0.i167 = phi i32 [ %206, %205 ], [ %214, %207 ], [ %226, %215 ], [ %246, %227 ]
   %248 = lshr i16 %130, 3
   %249 = zext nneg i16 %248 to i32
   %250 = add nuw nsw i32 %.0.i167, %249
@@ -4371,8 +4371,8 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174: ; preds = %318,
   %339 = icmp samesign ult i32 %.1125, 65536
   br i1 %339, label %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174.thread, label %342
 
-_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174.thread: ; preds = %296, %298, %306, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174
-  %.1125187 = phi i32 [ %.1125, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174 ], [ %297, %296 ], [ %305, %298 ], [ %317, %306 ]
+_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174.thread: ; preds = %306, %298, %296, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174
+  %.1125187 = phi i32 [ %.1125, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174 ], [ %317, %306 ], [ %305, %298 ], [ %297, %296 ]
   %340 = trunc nuw i32 %.1125187 to i16
   %341 = call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %340, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175
@@ -4469,7 +4469,7 @@ _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175: ; preds = %_ZN6icu_
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit179: ; preds = %378, %366, %358, %356, %349
-  %.2126 = phi i32 [ %.0124, %349 ], [ %397, %378 ], [ %377, %366 ], [ %365, %358 ], [ %357, %356 ]
+  %.2126 = phi i32 [ %.0124, %349 ], [ %357, %356 ], [ %365, %358 ], [ %377, %366 ], [ %397, %378 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #20
   %399 = add nsw i32 %.2126, -44032
   %400 = srem i32 %399, 28
@@ -9903,7 +9903,7 @@ _ZNK6icu_7715Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit.thread520: ; pr
   unreachable
 
 _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.i: ; preds = %233, %221, %213, %211
-  %.0.i.i = phi i32 [ %252, %233 ], [ %232, %221 ], [ %220, %213 ], [ %212, %211 ]
+  %.0.i.i = phi i32 [ %212, %211 ], [ %220, %213 ], [ %232, %221 ], [ %252, %233 ]
   %254 = add nsw i32 %.0.i.i, %183
   %255 = icmp ult i32 %254, 128
   br i1 %255, label %256, label %258
@@ -10354,7 +10354,7 @@ _ZN6icu_7712_GLOBAL__N_117getJamoTMinusBaseEPKhS2_.exit.thread: ; preds = %428, 
   br label %_ZN6icu_7712_GLOBAL__N_117getJamoTMinusBaseEPKhS2_.exit499
 
 _ZN6icu_7712_GLOBAL__N_117getJamoTMinusBaseEPKhS2_.exit499: ; preds = %474, %480, %486
-  %.1.i497 = phi i32 [ %479, %474 ], [ -1, %486 ], [ %485, %480 ]
+  %.1.i497 = phi i32 [ -1, %486 ], [ %479, %474 ], [ %485, %480 ]
   %487 = add nsw i32 %.1.i497, %.1.i
   %488 = getelementptr inbounds i8, ptr %.1298692, i64 -3
   %.not431 = icmp eq ptr %.0330695, %488

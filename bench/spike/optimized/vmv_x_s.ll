@@ -208,7 +208,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_x_sP11
   unreachable
 
 75:                                               ; preds = %71, %67, %63, %59
-  %.034 = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ]
+  %.034 = phi i64 [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
   %76 = lshr i64 %1, 7
   %77 = and i64 %76, 31
   %.not.i = icmp eq i64 %77, 0
@@ -497,7 +497,7 @@ define noundef i64 @_Z18fast_rv64i_vmv_x_sP11processor_t6insn_tm(ptr noundef %0,
   unreachable
 
 75:                                               ; preds = %71, %67, %63, %59
-  %.034 = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ]
+  %.034 = phi i64 [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
   %76 = lshr i64 %1, 7
   %77 = and i64 %76, 31
   %.not.i = icmp eq i64 %77, 0
@@ -658,7 +658,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_x_sP
   unreachable
 
 76:                                               ; preds = %72, %68, %64, %60
-  %.039 = phi i64 [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ]
+  %.039 = phi i64 [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ]
   %77 = shl i64 %.039, 32
   %78 = ashr exact i64 %77, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -831,7 +831,7 @@ define noundef i64 @_Z20logged_rv64i_vmv_x_sP11processor_t6insn_tm(ptr noundef %
   unreachable
 
 76:                                               ; preds = %72, %68, %64, %60
-  %.039 = phi i64 [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ]
+  %.039 = phi i64 [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   %77 = lshr i64 %1, 7
   %78 = and i64 %77, 31
@@ -999,7 +999,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_x_sP11
   unreachable
 
 75:                                               ; preds = %71, %67, %63, %59
-  %.037 = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ]
+  %.037 = phi i64 [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
   %76 = lshr i64 %1, 7
   %77 = and i64 %76, 31
   %78 = icmp samesign ugt i64 %77, 15
@@ -1179,7 +1179,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_x_sP11processor_t6insn_tm(ptr noundef %0,
   unreachable
 
 75:                                               ; preds = %71, %67, %63, %59
-  %.037 = phi i64 [ %73, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ]
+  %.037 = phi i64 [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
   %76 = lshr i64 %1, 7
   %77 = and i64 %76, 31
   %78 = icmp samesign ugt i64 %77, 15
@@ -1356,7 +1356,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_x_sP
   unreachable
 
 76:                                               ; preds = %72, %68, %64, %60
-  %.041 = phi i64 [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ]
+  %.041 = phi i64 [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ]
   %77 = lshr i64 %1, 7
   %78 = and i64 %77, 31
   %79 = icmp samesign ugt i64 %78, 15
@@ -1545,7 +1545,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_x_sP11processor_t6insn_tm(ptr noundef %
   unreachable
 
 76:                                               ; preds = %72, %68, %64, %60
-  %.041 = phi i64 [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ]
+  %.041 = phi i64 [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %74, %72 ]
   %77 = lshr i64 %1, 7
   %78 = and i64 %77, 31
   %79 = icmp samesign ugt i64 %78, 15

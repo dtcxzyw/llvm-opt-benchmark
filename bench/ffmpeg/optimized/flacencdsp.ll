@@ -639,9 +639,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %429
 
 429:                                              ; preds = %424, %420
-  %.0412.i = phi i32 [ 0, %420 ], [ %428, %424 ]
-  %.0382.i = phi i32 [ 0, %420 ], [ %426, %424 ]
-  %.0381.i = phi i32 [ %423, %420 ], [ %427, %424 ]
+  %.0412.i = phi i32 [ %428, %424 ], [ 0, %420 ]
+  %.0382.i = phi i32 [ %426, %424 ], [ 0, %420 ]
+  %.0381.i = phi i32 [ %427, %424 ], [ %423, %420 ]
   %430 = load i32, ptr %57, align 4, !tbaa !10
   %431 = mul nsw i32 %430, %.0381.i
   %432 = add nsw i32 %431, %.0382.i
@@ -652,9 +652,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %436
 
 436:                                              ; preds = %429, %420
-  %.1413.i = phi i32 [ 0, %420 ], [ %435, %429 ]
-  %.1383.i = phi i32 [ 0, %420 ], [ %432, %429 ]
-  %.1.i = phi i32 [ %423, %420 ], [ %433, %429 ]
+  %.1413.i = phi i32 [ %435, %429 ], [ 0, %420 ]
+  %.1383.i = phi i32 [ %432, %429 ], [ 0, %420 ]
+  %.1.i = phi i32 [ %433, %429 ], [ %423, %420 ]
   %437 = load i32, ptr %58, align 4, !tbaa !10
   %438 = mul nsw i32 %437, %.1.i
   %439 = add nsw i32 %438, %.1383.i
@@ -665,9 +665,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %443
 
 443:                                              ; preds = %436, %420
-  %.2414.i = phi i32 [ 0, %420 ], [ %442, %436 ]
-  %.2384.i = phi i32 [ 0, %420 ], [ %439, %436 ]
-  %.2.i = phi i32 [ %423, %420 ], [ %440, %436 ]
+  %.2414.i = phi i32 [ %442, %436 ], [ 0, %420 ]
+  %.2384.i = phi i32 [ %439, %436 ], [ 0, %420 ]
+  %.2.i = phi i32 [ %440, %436 ], [ %423, %420 ]
   %444 = load i32, ptr %59, align 4, !tbaa !10
   %445 = mul nsw i32 %444, %.2.i
   %446 = add nsw i32 %445, %.2384.i
@@ -678,9 +678,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %450
 
 450:                                              ; preds = %443, %420
-  %.3415.i = phi i32 [ 0, %420 ], [ %449, %443 ]
-  %.3385.i = phi i32 [ 0, %420 ], [ %446, %443 ]
-  %.3.i = phi i32 [ %423, %420 ], [ %447, %443 ]
+  %.3415.i = phi i32 [ %449, %443 ], [ 0, %420 ]
+  %.3385.i = phi i32 [ %446, %443 ], [ 0, %420 ]
+  %.3.i = phi i32 [ %447, %443 ], [ %423, %420 ]
   %451 = load i32, ptr %60, align 4, !tbaa !10
   %452 = mul nsw i32 %451, %.3.i
   %453 = add nsw i32 %452, %.3385.i
@@ -691,9 +691,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %457
 
 457:                                              ; preds = %450, %420
-  %.4416.i = phi i32 [ 0, %420 ], [ %456, %450 ]
-  %.4386.i = phi i32 [ 0, %420 ], [ %453, %450 ]
-  %.4.i = phi i32 [ %423, %420 ], [ %454, %450 ]
+  %.4416.i = phi i32 [ %456, %450 ], [ 0, %420 ]
+  %.4386.i = phi i32 [ %453, %450 ], [ 0, %420 ]
+  %.4.i = phi i32 [ %454, %450 ], [ %423, %420 ]
   %458 = load i32, ptr %61, align 4, !tbaa !10
   %459 = mul nsw i32 %458, %.4.i
   %460 = add nsw i32 %459, %.4386.i
@@ -704,9 +704,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %464
 
 464:                                              ; preds = %457, %420
-  %.5417.i = phi i32 [ 0, %420 ], [ %463, %457 ]
-  %.5387.i = phi i32 [ 0, %420 ], [ %460, %457 ]
-  %.5.i = phi i32 [ %423, %420 ], [ %461, %457 ]
+  %.5417.i = phi i32 [ %463, %457 ], [ 0, %420 ]
+  %.5387.i = phi i32 [ %460, %457 ], [ 0, %420 ]
+  %.5.i = phi i32 [ %461, %457 ], [ %423, %420 ]
   %465 = load i32, ptr %62, align 4, !tbaa !10
   %466 = mul nsw i32 %465, %.5.i
   %467 = add nsw i32 %466, %.5387.i
@@ -717,9 +717,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %471
 
 471:                                              ; preds = %464, %420
-  %.6418.i = phi i32 [ 0, %420 ], [ %470, %464 ]
-  %.6388.i = phi i32 [ 0, %420 ], [ %467, %464 ]
-  %.6.i = phi i32 [ %423, %420 ], [ %468, %464 ]
+  %.6418.i = phi i32 [ %470, %464 ], [ 0, %420 ]
+  %.6388.i = phi i32 [ %467, %464 ], [ 0, %420 ]
+  %.6.i = phi i32 [ %468, %464 ], [ %423, %420 ]
   %472 = load i32, ptr %63, align 4, !tbaa !10
   %473 = mul nsw i32 %472, %.6.i
   %474 = add nsw i32 %473, %.6388.i
@@ -730,9 +730,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %478
 
 478:                                              ; preds = %471, %420
-  %.7419.i = phi i32 [ 0, %420 ], [ %477, %471 ]
-  %.7389.i = phi i32 [ 0, %420 ], [ %474, %471 ]
-  %.7.i = phi i32 [ %423, %420 ], [ %475, %471 ]
+  %.7419.i = phi i32 [ %477, %471 ], [ 0, %420 ]
+  %.7389.i = phi i32 [ %474, %471 ], [ 0, %420 ]
+  %.7.i = phi i32 [ %475, %471 ], [ %423, %420 ]
   %479 = load i32, ptr %64, align 4, !tbaa !10
   %480 = mul nsw i32 %479, %.7.i
   %481 = add nsw i32 %480, %.7389.i
@@ -743,9 +743,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %485
 
 485:                                              ; preds = %478, %420
-  %.8420.i = phi i32 [ 0, %420 ], [ %484, %478 ]
-  %.8390.i = phi i32 [ 0, %420 ], [ %481, %478 ]
-  %.8.i = phi i32 [ %423, %420 ], [ %482, %478 ]
+  %.8420.i = phi i32 [ %484, %478 ], [ 0, %420 ]
+  %.8390.i = phi i32 [ %481, %478 ], [ 0, %420 ]
+  %.8.i = phi i32 [ %482, %478 ], [ %423, %420 ]
   %486 = load i32, ptr %65, align 4, !tbaa !10
   %487 = mul nsw i32 %486, %.8.i
   %488 = add nsw i32 %487, %.8390.i
@@ -756,9 +756,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %492
 
 492:                                              ; preds = %485, %420
-  %.9421.i = phi i32 [ 0, %420 ], [ %491, %485 ]
-  %.9391.i = phi i32 [ 0, %420 ], [ %488, %485 ]
-  %.9.i = phi i32 [ %423, %420 ], [ %489, %485 ]
+  %.9421.i = phi i32 [ %491, %485 ], [ 0, %420 ]
+  %.9391.i = phi i32 [ %488, %485 ], [ 0, %420 ]
+  %.9.i = phi i32 [ %489, %485 ], [ %423, %420 ]
   %493 = load i32, ptr %66, align 4, !tbaa !10
   %494 = mul nsw i32 %493, %.9.i
   %495 = add nsw i32 %494, %.9391.i
@@ -769,9 +769,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %499
 
 499:                                              ; preds = %492, %420
-  %.10422.i = phi i32 [ 0, %420 ], [ %498, %492 ]
-  %.10392.i = phi i32 [ 0, %420 ], [ %495, %492 ]
-  %.10.i = phi i32 [ %423, %420 ], [ %496, %492 ]
+  %.10422.i = phi i32 [ %498, %492 ], [ 0, %420 ]
+  %.10392.i = phi i32 [ %495, %492 ], [ 0, %420 ]
+  %.10.i = phi i32 [ %496, %492 ], [ %423, %420 ]
   %500 = load i32, ptr %67, align 4, !tbaa !10
   %501 = mul nsw i32 %500, %.10.i
   %502 = add nsw i32 %501, %.10392.i
@@ -782,9 +782,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %506
 
 506:                                              ; preds = %499, %420
-  %.11423.i = phi i32 [ 0, %420 ], [ %505, %499 ]
-  %.11393.i = phi i32 [ 0, %420 ], [ %502, %499 ]
-  %.11.i = phi i32 [ %423, %420 ], [ %503, %499 ]
+  %.11423.i = phi i32 [ %505, %499 ], [ 0, %420 ]
+  %.11393.i = phi i32 [ %502, %499 ], [ 0, %420 ]
+  %.11.i = phi i32 [ %503, %499 ], [ %423, %420 ]
   %507 = load i32, ptr %68, align 4, !tbaa !10
   %508 = mul nsw i32 %507, %.11.i
   %509 = add nsw i32 %508, %.11393.i
@@ -795,9 +795,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %513
 
 513:                                              ; preds = %506, %420
-  %.12424.i = phi i32 [ 0, %420 ], [ %512, %506 ]
-  %.12394.i = phi i32 [ 0, %420 ], [ %509, %506 ]
-  %.12.i = phi i32 [ %423, %420 ], [ %510, %506 ]
+  %.12424.i = phi i32 [ %512, %506 ], [ 0, %420 ]
+  %.12394.i = phi i32 [ %509, %506 ], [ 0, %420 ]
+  %.12.i = phi i32 [ %510, %506 ], [ %423, %420 ]
   %514 = load i32, ptr %69, align 4, !tbaa !10
   %515 = mul nsw i32 %514, %.12.i
   %516 = add nsw i32 %515, %.12394.i
@@ -808,9 +808,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %520
 
 520:                                              ; preds = %513, %420
-  %.13425.i = phi i32 [ 0, %420 ], [ %519, %513 ]
-  %.13395.i = phi i32 [ 0, %420 ], [ %516, %513 ]
-  %.13.i = phi i32 [ %423, %420 ], [ %517, %513 ]
+  %.13425.i = phi i32 [ %519, %513 ], [ 0, %420 ]
+  %.13395.i = phi i32 [ %516, %513 ], [ 0, %420 ]
+  %.13.i = phi i32 [ %517, %513 ], [ %423, %420 ]
   %521 = load i32, ptr %70, align 4, !tbaa !10
   %522 = mul nsw i32 %521, %.13.i
   %523 = add nsw i32 %522, %.13395.i
@@ -821,9 +821,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %527
 
 527:                                              ; preds = %520, %420
-  %.14426.i = phi i32 [ 0, %420 ], [ %526, %520 ]
-  %.14396.i = phi i32 [ 0, %420 ], [ %523, %520 ]
-  %.14.i = phi i32 [ %423, %420 ], [ %524, %520 ]
+  %.14426.i = phi i32 [ %526, %520 ], [ 0, %420 ]
+  %.14396.i = phi i32 [ %523, %520 ], [ 0, %420 ]
+  %.14.i = phi i32 [ %524, %520 ], [ %423, %420 ]
   %528 = load i32, ptr %71, align 4, !tbaa !10
   %529 = mul nsw i32 %528, %.14.i
   %530 = add nsw i32 %529, %.14396.i
@@ -834,9 +834,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %534
 
 534:                                              ; preds = %527, %420
-  %.15427.i = phi i32 [ 0, %420 ], [ %533, %527 ]
-  %.15397.i = phi i32 [ 0, %420 ], [ %530, %527 ]
-  %.15.i = phi i32 [ %423, %420 ], [ %531, %527 ]
+  %.15427.i = phi i32 [ %533, %527 ], [ 0, %420 ]
+  %.15397.i = phi i32 [ %530, %527 ], [ 0, %420 ]
+  %.15.i = phi i32 [ %531, %527 ], [ %423, %420 ]
   %535 = load i32, ptr %72, align 4, !tbaa !10
   %536 = mul nsw i32 %535, %.15.i
   %537 = add nsw i32 %536, %.15397.i
@@ -847,9 +847,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %541
 
 541:                                              ; preds = %534, %420
-  %.16428.i = phi i32 [ 0, %420 ], [ %540, %534 ]
-  %.16398.i = phi i32 [ 0, %420 ], [ %537, %534 ]
-  %.16.i = phi i32 [ %423, %420 ], [ %538, %534 ]
+  %.16428.i = phi i32 [ %540, %534 ], [ 0, %420 ]
+  %.16398.i = phi i32 [ %537, %534 ], [ 0, %420 ]
+  %.16.i = phi i32 [ %538, %534 ], [ %423, %420 ]
   %542 = load i32, ptr %73, align 4, !tbaa !10
   %543 = mul nsw i32 %542, %.16.i
   %544 = add nsw i32 %543, %.16398.i
@@ -860,9 +860,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %548
 
 548:                                              ; preds = %541, %420
-  %.17429.i = phi i32 [ 0, %420 ], [ %547, %541 ]
-  %.17399.i = phi i32 [ 0, %420 ], [ %544, %541 ]
-  %.17.i = phi i32 [ %423, %420 ], [ %545, %541 ]
+  %.17429.i = phi i32 [ %547, %541 ], [ 0, %420 ]
+  %.17399.i = phi i32 [ %544, %541 ], [ 0, %420 ]
+  %.17.i = phi i32 [ %545, %541 ], [ %423, %420 ]
   %549 = load i32, ptr %74, align 4, !tbaa !10
   %550 = mul nsw i32 %549, %.17.i
   %551 = add nsw i32 %550, %.17399.i
@@ -873,9 +873,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %555
 
 555:                                              ; preds = %548, %420
-  %.18430.i = phi i32 [ 0, %420 ], [ %554, %548 ]
-  %.18400.i = phi i32 [ 0, %420 ], [ %551, %548 ]
-  %.18.i = phi i32 [ %423, %420 ], [ %552, %548 ]
+  %.18430.i = phi i32 [ %554, %548 ], [ 0, %420 ]
+  %.18400.i = phi i32 [ %551, %548 ], [ 0, %420 ]
+  %.18.i = phi i32 [ %552, %548 ], [ %423, %420 ]
   %556 = load i32, ptr %75, align 4, !tbaa !10
   %557 = mul nsw i32 %556, %.18.i
   %558 = add nsw i32 %557, %.18400.i
@@ -886,9 +886,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %562
 
 562:                                              ; preds = %555, %420
-  %.19431.i = phi i32 [ 0, %420 ], [ %561, %555 ]
-  %.19401.i = phi i32 [ 0, %420 ], [ %558, %555 ]
-  %.19.i = phi i32 [ %423, %420 ], [ %559, %555 ]
+  %.19431.i = phi i32 [ %561, %555 ], [ 0, %420 ]
+  %.19401.i = phi i32 [ %558, %555 ], [ 0, %420 ]
+  %.19.i = phi i32 [ %559, %555 ], [ %423, %420 ]
   %563 = load i32, ptr %76, align 4, !tbaa !10
   %564 = mul nsw i32 %563, %.19.i
   %565 = add nsw i32 %564, %.19401.i
@@ -899,9 +899,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %569
 
 569:                                              ; preds = %562, %420
-  %.20432.i = phi i32 [ 0, %420 ], [ %568, %562 ]
-  %.20402.i = phi i32 [ 0, %420 ], [ %565, %562 ]
-  %.20.i = phi i32 [ %423, %420 ], [ %566, %562 ]
+  %.20432.i = phi i32 [ %568, %562 ], [ 0, %420 ]
+  %.20402.i = phi i32 [ %565, %562 ], [ 0, %420 ]
+  %.20.i = phi i32 [ %566, %562 ], [ %423, %420 ]
   %570 = load i32, ptr %77, align 4, !tbaa !10
   %571 = mul nsw i32 %570, %.20.i
   %572 = add nsw i32 %571, %.20402.i
@@ -912,9 +912,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %576
 
 576:                                              ; preds = %569, %420
-  %.21433.i = phi i32 [ 0, %420 ], [ %575, %569 ]
-  %.21403.i = phi i32 [ 0, %420 ], [ %572, %569 ]
-  %.21.i = phi i32 [ %423, %420 ], [ %573, %569 ]
+  %.21433.i = phi i32 [ %575, %569 ], [ 0, %420 ]
+  %.21403.i = phi i32 [ %572, %569 ], [ 0, %420 ]
+  %.21.i = phi i32 [ %573, %569 ], [ %423, %420 ]
   %577 = load i32, ptr %78, align 4, !tbaa !10
   %578 = mul nsw i32 %577, %.21.i
   %579 = add nsw i32 %578, %.21403.i
@@ -925,9 +925,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   br label %583
 
 583:                                              ; preds = %576, %420
-  %.22434.i = phi i32 [ 0, %420 ], [ %582, %576 ]
-  %.22404.i = phi i32 [ 0, %420 ], [ %579, %576 ]
-  %.22.i = phi i32 [ %423, %420 ], [ %580, %576 ]
+  %.22434.i = phi i32 [ %582, %576 ], [ 0, %420 ]
+  %.22404.i = phi i32 [ %579, %576 ], [ 0, %420 ]
+  %.22.i = phi i32 [ %580, %576 ], [ %423, %420 ]
   %584 = load i32, ptr %79, align 4, !tbaa !10
   %585 = mul nsw i32 %584, %.22.i
   %586 = add nsw i32 %585, %.22404.i

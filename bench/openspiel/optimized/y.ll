@@ -3197,7 +3197,7 @@ define noundef range(i32 0, 3) i32 @_ZN10open_spiel6y_game14PlayerRelativeENS0_7
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %2, %8, %5
-  %.06 = phi i32 [ %10, %8 ], [ %7, %5 ], [ 2, %2 ]
+  %.06 = phi i32 [ %7, %5 ], [ %10, %8 ], [ 2, %2 ]
   ret i32 %.06
 }
 
@@ -3400,7 +3400,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   br label %common.resume
 
 _ZN10open_spiel6y_game14PlayerRelativeENS0_7YPlayerEi.exit: ; preds = %64, %65, %66
-  %.06.i = phi i32 [ %56, %66 ], [ %58, %65 ], [ 2, %64 ]
+  %.06.i = phi i32 [ %58, %65 ], [ %56, %66 ], [ 2, %64 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %75 = trunc nuw nsw i64 %indvars.iv to i32

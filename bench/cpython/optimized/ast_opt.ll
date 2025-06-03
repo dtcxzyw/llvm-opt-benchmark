@@ -5631,7 +5631,7 @@ has_starred.exit:                                 ; preds = %.lr.ph.i, %9
   br label %safe_mod.exit
 
 safe_mod.exit:                                    ; preds = %326, %338, %336, %334, %332, %330, %328, %320, %318, %316, %314, %312
-  %.0 = phi ptr [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %327, %326 ]
+  %.0 = phi ptr [ %313, %312 ], [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %337, %336 ], [ %339, %338 ], [ %327, %326 ]
   %340 = icmp eq ptr %.0, null
   br i1 %340, label %safe_mod.exit.thread, label %344
 
@@ -5732,8 +5732,8 @@ define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr noundef captures(no
 .thread.fold.split:                               ; preds = %18
   br label %.thread
 
-.thread:                                          ; preds = %18, %.thread.fold.split, %21, %22, %23
-  %.0203 = phi i32 [ 7, %21 ], [ 10, %22 ], [ 9, %23 ], [ 8, %18 ], [ %20, %.thread.fold.split ]
+.thread:                                          ; preds = %18, %.thread.fold.split, %23, %22, %21
+  %.0203 = phi i32 [ 9, %23 ], [ 10, %22 ], [ 7, %21 ], [ 8, %18 ], [ %20, %.thread.fold.split ]
   store i32 %.0203, ptr %19, align 8, !tbaa !170
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   br label %.critedge

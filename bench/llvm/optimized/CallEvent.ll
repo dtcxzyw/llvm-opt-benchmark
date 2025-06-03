@@ -2067,7 +2067,7 @@ define dso_local i64 @_ZN5clang4ento9CallEvent21getDeclaredResultTypeEPKNS_4Decl
   br label %17
 
 17:                                               ; preds = %15, %7
-  %.1.i.i = phi ptr [ %11, %7 ], [ %16, %15 ]
+  %.1.i.i = phi ptr [ %16, %15 ], [ %11, %7 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %18, align 8, !tbaa !73
   br label %50
@@ -2186,7 +2186,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento9CallEvent10isVariadicEPKNS_4
   br label %23
 
 23:                                               ; preds = %12, %7, %17
-  %.1 = phi i1 [ %8, %7 ], [ %16, %12 ], [ %22, %17 ]
+  %.1 = phi i1 [ %16, %12 ], [ %8, %7 ], [ %22, %17 ]
   ret i1 %.1
 }
 
@@ -4050,8 +4050,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit: ; 
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i: ; preds = %35, %27
-  %37 = phi i8 [ %33, %27 ], [ %.pre.i25, %35 ]
-  %.1.i.i = phi ptr [ %31, %27 ], [ %36, %35 ]
+  %37 = phi i8 [ %.pre.i25, %35 ], [ %33, %27 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %31, %27 ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i8 %37, 26
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang13CXXMethodDecl7isConstEv.exit, label %39
@@ -5350,8 +5350,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %41, %62, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.sroa.07.0.i = phi ptr [ %.fca.0.extract1.i, %62 ], [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ null, %41 ]
-  %.sroa.4.0.i = phi i8 [ %.fca.1.extract2.i, %62 ], [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ 1, %41 ]
+  %.sroa.07.0.i = phi ptr [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ %.fca.0.extract1.i, %62 ], [ null, %41 ]
+  %.sroa.4.0.i = phi i8 [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ %.fca.1.extract2.i, %62 ], [ 1, %41 ]
   %76 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 96
@@ -5463,8 +5463,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37: ; preds = %_
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit44
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit44: ; preds = %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread, %118, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37
-  %.sroa.07.0.i33 = phi ptr [ %.fca.0.extract1.i42, %118 ], [ %.fca.0.extract.i38, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37 ], [ null, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
-  %.sroa.4.0.i34 = phi i8 [ %.fca.1.extract2.i43, %118 ], [ %.fca.1.extract.i39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37 ], [ 1, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
+  %.sroa.07.0.i33 = phi ptr [ %.fca.0.extract.i38, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37 ], [ %.fca.0.extract1.i42, %118 ], [ null, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
+  %.sroa.4.0.i34 = phi i8 [ %.fca.1.extract.i39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i37 ], [ %.fca.1.extract2.i43, %118 ], [ 1, %_ZNK5clang4ento14ObjCMethodCall19getAccessedPropertyEv.exit.thread ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load i32, ptr %134, align 8, !tbaa !159
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5619,8 +5619,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %10, %
   br label %37
 
 37:                                               ; preds = %21, %1, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread
-  %.sroa.07.0 = phi ptr [ %.fca.0.extract1, %21 ], [ %.fca.0.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ null, %1 ]
-  %.sroa.4.0 = phi i8 [ %.fca.1.extract2, %21 ], [ %.fca.1.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ 1, %1 ]
+  %.sroa.07.0 = phi ptr [ %.fca.0.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ %.fca.0.extract1, %21 ], [ null, %1 ]
+  %.sroa.4.0 = phi i8 [ %.fca.1.extract, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread ], [ %.fca.1.extract2, %21 ], [ 1, %1 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.07.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -6047,8 +6047,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread, %56, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.sroa.07.0.i = phi ptr [ %.fca.0.extract1.i, %56 ], [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ null, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
-  %.sroa.4.0.i = phi i8 [ %.fca.1.extract2.i, %56 ], [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ 1, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
+  %.sroa.07.0.i = phi ptr [ %.fca.0.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ %.fca.0.extract1.i, %56 ], [ null, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
+  %.sroa.4.0.i = phi i8 [ %.fca.1.extract.i, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ %.fca.1.extract2.i, %56 ], [ 1, %_ZNK5clang15ObjCMessageExpr12getSuperTypeEv.exit.thread ]
   store ptr %.sroa.07.0.i, ptr %7, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %.sroa.4.0.i, ptr %.sroa.240.0..sroa_idx, align 8
@@ -6124,7 +6124,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit110
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit110: ; preds = %93, %101
-  %.1.i.i109 = phi ptr [ %97, %93 ], [ %102, %101 ]
+  %.1.i.i109 = phi ptr [ %102, %101 ], [ %97, %93 ]
   %103 = getelementptr inbounds nuw i8, ptr %.1.i.i109, i64 24
   %.sroa.0.0.copyload.i.i111 = load i64, ptr %103, align 8, !tbaa !73
   %104 = and i64 %.sroa.0.0.copyload.i.i111, -16
@@ -6730,7 +6730,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i: ; preds = %_ZN
   br label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit
 
 _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %39, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i
-  %.pn = phi { ptr, i8 } [ %48, %39 ], [ %52, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ]
+  %.pn = phi { ptr, i8 } [ %52, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i ], [ %48, %39 ]
   %.sroa.4.0.i = extractvalue { ptr, i8 } %.pn, 1
   %53 = icmp eq i8 %.sroa.4.0.i, 1
   br i1 %53, label %_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit.thread, label %54

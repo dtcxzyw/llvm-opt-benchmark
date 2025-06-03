@@ -1221,7 +1221,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
   br label %_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit
 
 _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %388, %382, %413, %403, %351
-  %.459 = phi float [ %.055, %351 ], [ %425, %413 ], [ %412, %403 ], [ %385, %382 ], [ %391, %388 ], [ %402, %392 ]
+  %.459 = phi float [ %.055, %351 ], [ %412, %403 ], [ %425, %413 ], [ %385, %382 ], [ %391, %388 ], [ %402, %392 ]
   %426 = fcmp ult float %.459, 0.000000e+00
   br i1 %426, label %.thread142, label %427
 
@@ -4848,7 +4848,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit207: ; preds = %74
   br label %879
 
 879:                                              ; preds = %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit180, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit207, %544, %262, %822, %.thread
-  %.320 = phi i1 [ false, %.thread ], [ true, %544 ], [ true, %262 ], [ true, %822 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit207 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit180 ]
+  %.320 = phi i1 [ false, %.thread ], [ true, %262 ], [ true, %544 ], [ true, %822 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit207 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit180 ]
   ret i1 %.320
 }
 

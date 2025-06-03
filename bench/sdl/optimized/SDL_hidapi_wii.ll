@@ -140,7 +140,7 @@ define internal zeroext i1 @HIDAPI_DriverWii_InitDevice(ptr noundef %0) #0 {
   br label %GetExtensionType.exit.i
 
 GetExtensionType.exit.i:                          ; preds = %28, %27, %26, %25, %23
-  %.0.i.i = phi i32 [ 0, %28 ], [ 131, %27 ], [ 130, %26 ], [ 129, %25 ], [ 128, %23 ]
+  %.0.i.i = phi i32 [ 0, %28 ], [ 129, %25 ], [ 130, %26 ], [ 131, %27 ], [ 128, %23 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
   br label %ReadExtensionControllerType.exit
 

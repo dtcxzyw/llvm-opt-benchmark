@@ -173,7 +173,7 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exi
   br i1 %25, label %.preheader.i, label %.critedge.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %22, %19, %17, %15, %9
-  %.1.i = phi i64 [ %10, %9 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %.2.i, %22 ]
+  %.1.i = phi i64 [ %10, %9 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %.2.i, %22 ]
   %26 = add i64 %.01317.i, 1
   %27 = icmp ult i64 %.1.i, %0
   br i1 %27, label %.lr.ph.i, label %.lr.ph, !llvm.loop !20

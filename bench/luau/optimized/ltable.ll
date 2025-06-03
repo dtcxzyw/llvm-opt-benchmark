@@ -635,7 +635,7 @@ _ZL13setnodevectorP9lua_StateP8LuaTablei.exit:    ; preds = %52, %38
   br label %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit
 
 _ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit: ; preds = %121, %.thread
-  %.1.i = phi ptr [ %124, %121 ], [ %125, %.thread ]
+  %.1.i = phi ptr [ %125, %.thread ], [ %124, %121 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   br label %126

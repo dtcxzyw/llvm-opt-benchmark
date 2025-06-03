@@ -2162,7 +2162,7 @@ ehcleanup57:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 sw.epilog:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit, %sw.bb4, %sw.bb
-  %error.0 = phi double [ %sub34, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ], [ %sub9, %sw.bb4 ], [ %div, %sw.bb ]
+  %error.0 = phi double [ %div, %sw.bb ], [ %sub9, %sw.bb4 ], [ %sub34, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ]
   ret double %error.0
 
 unreachable:                                      ; preds = %invoke.cont47

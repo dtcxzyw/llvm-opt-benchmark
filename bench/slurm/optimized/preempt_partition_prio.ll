@@ -202,7 +202,7 @@ _get_grace_time.exit:                             ; preds = %30, %32
   br label %37
 
 37:                                               ; preds = %35, %_get_grace_time.exit, %_gen_job_prio.exit, %_job_preempt_mode.exit, %4
-  %.0 = phi i32 [ -1, %35 ], [ 0, %_get_grace_time.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_job_preempt_mode.exit ], [ 0, %4 ]
+  %.0 = phi i32 [ -1, %35 ], [ 0, %4 ], [ 0, %_job_preempt_mode.exit ], [ 0, %_gen_job_prio.exit ], [ 0, %_get_grace_time.exit ]
   ret i32 %.0
 }
 

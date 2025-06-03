@@ -1262,7 +1262,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_create_popo(i32 noundef %0, ptr nounde
   br label %.thread
 
 44:                                               ; preds = %29, %18, %41, %12
-  %.031 = phi ptr [ null, %12 ], [ %15, %41 ], [ %15, %29 ], [ %15, %18 ]
+  %.031 = phi ptr [ null, %12 ], [ %15, %18 ], [ %15, %29 ], [ %15, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !61
   tail call void @OSSL_CRMF_POPO_free(ptr noundef %46) #7
@@ -1489,7 +1489,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %0, i32 nound
   br label %59
 
 59:                                               ; preds = %49, %58, %57, %46, %39, %36, %27, %19, %15, %10
-  %.024 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 0, %57 ], [ 0, %27 ], [ 0, %36 ], [ 0, %39 ], [ 1, %58 ], [ 0, %46 ], [ 0, %19 ], [ 0, %49 ]
+  %.024 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 0, %57 ], [ 1, %58 ], [ 0, %19 ], [ 0, %27 ], [ 0, %36 ], [ 0, %39 ], [ 0, %46 ], [ 0, %49 ]
   ret i32 %.024
 }
 

@@ -2048,7 +2048,7 @@ _ZN6vectorIPN7datalog15relation_pluginELb0EjE3endEv.exit: ; preds = %65
   br label %91
 
 91:                                               ; preds = %44, %90
-  %.2 = phi ptr [ %48, %44 ], [ %.3, %90 ]
+  %.2 = phi ptr [ %.3, %90 ], [ %48, %44 ]
   ret ptr %.2
 }
 
@@ -4576,7 +4576,7 @@ _ZN7datalog16relation_manager19get_relation_pluginEi.exit: ; preds = %21, %32
   br label %54
 
 54:                                               ; preds = %44, %.thread
-  %.1 = phi ptr [ %48, %44 ], [ %53, %.thread ]
+  %.1 = phi ptr [ %53, %.thread ], [ %48, %44 ]
   ret ptr %.1
 }
 

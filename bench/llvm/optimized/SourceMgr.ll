@@ -2949,7 +2949,7 @@ _ZN4llvm9WithColorlsIcEERS0_RKT_.exit83:          ; preds = %152, %154
   br label %197
 
 197:                                              ; preds = %195, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %196, %195 ]
+  %.sroa.032.1.i.i.i.i.i.i = phi ptr [ %196, %195 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %198 = load i8, ptr %.sroa.032.1.i.i.i.i.i.i, align 1, !tbaa !21
   %199 = icmp slt i8 %198, 0
   br i1 %199, label %_ZN4llvm6any_ofIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbcEEEbOT_T0_.exit, label %200
@@ -2959,7 +2959,7 @@ _ZN4llvm9WithColorlsIcEERS0_RKT_.exit83:          ; preds = %152, %154
   br label %202
 
 202:                                              ; preds = %200, %._crit_edge.i.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %201, %200 ]
+  %.sroa.032.2.i.i.i.i.i.i = phi ptr [ %201, %200 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %203 = load i8, ptr %.sroa.032.2.i.i.i.i.i.i, align 1, !tbaa !21
   %204 = icmp slt i8 %203, 0
   %spec.select.i.i.i.i.i.i = select i1 %204, ptr %.sroa.032.2.i.i.i.i.i.i, ptr %168

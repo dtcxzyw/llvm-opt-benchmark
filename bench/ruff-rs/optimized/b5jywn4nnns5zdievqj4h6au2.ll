@@ -8204,7 +8204,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$ruff_formatter..diagnostics..ActualStart$u20$as$u20$core..fmt..Debug$GT$3fmt17h286dee2c7c0561fbE.exit"
 
 "_ZN77_$LT$ruff_formatter..diagnostics..ActualStart$u20$as$u20$core..fmt..Debug$GT$3fmt17h286dee2c7c0561fbE.exit": ; preds = %7, %9, %12, %15
-  %.sroa.0.0.in.i = phi i1 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8324,7 +8324,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN77_$LT$ruff_formatter..diagnostics..FormatError$u20$as$u20$core..fmt..Debug$GT$3fmt17h94bab6d1d1a49cc7E.exit"
 
 "_ZN77_$LT$ruff_formatter..diagnostics..FormatError$u20$as$u20$core..fmt..Debug$GT$3fmt17h94bab6d1d1a49cc7E.exit": ; preds = %8, %11, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %19, %18 ], [ %17, %15 ], [ %14, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %14, %11 ], [ %17, %15 ], [ %19, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8686,7 +8686,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN61_$LT$lsp_server..msg..Message$u20$as$u20$core..fmt..Debug$GT$3fmt17h54d26c0773611bf3E.exit"
 
 "_ZN61_$LT$lsp_server..msg..Message$u20$as$u20$core..fmt..Debug$GT$3fmt17h54d26c0773611bf3E.exit": ; preds = %12, %15, %17
-  %.sroa.0.0.in.i = phi i1 [ %19, %17 ], [ %16, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %16, %15 ], [ %19, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9181,7 +9181,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN86_$LT$ruff_formatter..diagnostics..InvalidDocumentError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbfd782844b40d22E.exit"
 
 "_ZN86_$LT$ruff_formatter..diagnostics..InvalidDocumentError$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbfd782844b40d22E.exit": ; preds = %9, %13, %16, %20
-  %.sroa.0.0.in.i = phi i1 [ %22, %20 ], [ %19, %16 ], [ %15, %13 ], [ %12, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %12, %9 ], [ %15, %13 ], [ %19, %16 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12135,10 +12135,10 @@ default.unreachable:                              ; preds = %30
   br label %"_ZN57_$LT$glob..PatternToken$u20$as$u20$core..clone..Clone$GT$5clone17hf176a43229b3ae0fE.exit.i.i"
 
 "_ZN57_$LT$glob..PatternToken$u20$as$u20$core..clone..Clone$GT$5clone17hf176a43229b3ae0fE.exit.i.i": ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i", %34, %30, %30, %30
-  %.sroa.416.1.i.i = phi i32 [ %.sroa.416.043.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.sroa.416.043.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.sroa.416.043.i.i, %30 ], [ %36, %34 ], [ %.sroa.416.043.i.i, %30 ], [ %.sroa.416.043.i.i, %30 ]
-  %.sroa.517.1.i.i = phi i64 [ %53, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %42, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.sroa.517.044.i.i, %30 ], [ %.sroa.517.044.i.i, %34 ], [ %.sroa.517.044.i.i, %30 ], [ %.sroa.517.044.i.i, %30 ]
-  %.sroa.718.1.i.i = phi ptr [ %58, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %45, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.sroa.718.047.i.i, %30 ], [ %.sroa.718.047.i.i, %34 ], [ %.sroa.718.047.i.i, %30 ], [ %.sroa.718.047.i.i, %30 ]
-  %.sroa.9.1.i.i = phi i64 [ %.val3.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.val1.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.sroa.9.049.i.i, %30 ], [ %.sroa.9.049.i.i, %34 ], [ %.sroa.9.049.i.i, %30 ], [ %.sroa.9.049.i.i, %30 ]
+  %.sroa.416.1.i.i = phi i32 [ %36, %34 ], [ %.sroa.416.043.i.i, %30 ], [ %.sroa.416.043.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.sroa.416.043.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.sroa.416.043.i.i, %30 ], [ %.sroa.416.043.i.i, %30 ]
+  %.sroa.517.1.i.i = phi i64 [ %.sroa.517.044.i.i, %34 ], [ %.sroa.517.044.i.i, %30 ], [ %42, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %53, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.sroa.517.044.i.i, %30 ], [ %.sroa.517.044.i.i, %30 ]
+  %.sroa.718.1.i.i = phi ptr [ %.sroa.718.047.i.i, %34 ], [ %.sroa.718.047.i.i, %30 ], [ %45, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %58, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.sroa.718.047.i.i, %30 ], [ %.sroa.718.047.i.i, %30 ]
+  %.sroa.9.1.i.i = phi i64 [ %.sroa.9.049.i.i, %34 ], [ %.sroa.9.049.i.i, %30 ], [ %.val1.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit.i.i.i" ], [ %.val3.i.i.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h91c5d6aef19e0bc1E.exit6.i.i.i" ], [ %.sroa.9.049.i.i, %30 ], [ %.sroa.9.049.i.i, %30 ]
   %61 = getelementptr inbounds nuw { [4 x i64] }, ptr %17, i64 %.sroa.7.046.i.i
   store i32 %33, ptr %61, align 8, !noalias !851
   %.sroa.424.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -20864,11 +20864,11 @@ define internal fastcc void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$
   br label %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h38f3a20a21d40298E.exit"
 
 "_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h38f3a20a21d40298E.exit": ; preds = %.noexc3, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i", %50, %49, %48, %47, %44, %36
-  %.sroa.13.sroa.0.1 = phi i32 [ %84, %.noexc3 ], [ %.sroa.418.4.extract.trunc, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %.sroa.13.sroa.0.076, %50 ], [ %.sroa.13.sroa.0.076, %49 ], [ %.sroa.13.sroa.0.076, %48 ], [ %.sroa.13.sroa.0.076, %47 ], [ %.sroa.13.sroa.0.076, %44 ], [ %.sroa.13.sroa.0.076, %36 ]
-  %.sroa.13.sroa.5.1 = phi i64 [ %85, %.noexc3 ], [ %.val1.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %.sroa.13.sroa.5.077, %50 ], [ %.sroa.13.sroa.5.077, %49 ], [ %.sroa.13.sroa.5.077, %48 ], [ %.sroa.13.sroa.5.077, %47 ], [ %.sroa.13.sroa.5.077, %44 ], [ %.sroa.13.sroa.5.077, %36 ]
-  %.sroa.137.1 = phi i8 [ %96, %.noexc3 ], [ %53, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %.sroa.137.078, %50 ], [ %.sroa.137.078, %49 ], [ %.sroa.137.078, %48 ], [ %.sroa.137.078, %47 ], [ %.sroa.137.078, %44 ], [ %.sroa.137.078, %36 ]
-  %.sroa.11.1 = phi i32 [ %82, %.noexc3 ], [ %.sroa.418.0.extract.trunc, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %.sroa.11.079, %50 ], [ %.sroa.11.079, %49 ], [ %.sroa.11.079, %48 ], [ %.sroa.11.079, %47 ], [ %46, %44 ], [ %.sroa.11.079, %36 ]
-  %.sroa.02.0 = phi i64 [ -9223372036854775801, %.noexc3 ], [ %58, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ -9223372036854775803, %50 ], [ -9223372036854775804, %49 ], [ -9223372036854775805, %48 ], [ -9223372036854775806, %47 ], [ -9223372036854775808, %44 ], [ -9223372036854775807, %36 ]
+  %.sroa.13.sroa.0.1 = phi i32 [ %.sroa.13.sroa.0.076, %44 ], [ %.sroa.13.sroa.0.076, %47 ], [ %.sroa.13.sroa.0.076, %48 ], [ %.sroa.13.sroa.0.076, %49 ], [ %.sroa.13.sroa.0.076, %50 ], [ %.sroa.418.4.extract.trunc, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %84, %.noexc3 ], [ %.sroa.13.sroa.0.076, %36 ]
+  %.sroa.13.sroa.5.1 = phi i64 [ %.sroa.13.sroa.5.077, %44 ], [ %.sroa.13.sroa.5.077, %47 ], [ %.sroa.13.sroa.5.077, %48 ], [ %.sroa.13.sroa.5.077, %49 ], [ %.sroa.13.sroa.5.077, %50 ], [ %.val1.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %85, %.noexc3 ], [ %.sroa.13.sroa.5.077, %36 ]
+  %.sroa.137.1 = phi i8 [ %.sroa.137.078, %44 ], [ %.sroa.137.078, %47 ], [ %.sroa.137.078, %48 ], [ %.sroa.137.078, %49 ], [ %.sroa.137.078, %50 ], [ %53, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %96, %.noexc3 ], [ %.sroa.137.078, %36 ]
+  %.sroa.11.1 = phi i32 [ %46, %44 ], [ %.sroa.11.079, %47 ], [ %.sroa.11.079, %48 ], [ %.sroa.11.079, %49 ], [ %.sroa.11.079, %50 ], [ %.sroa.418.0.extract.trunc, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ %82, %.noexc3 ], [ %.sroa.11.079, %36 ]
+  %.sroa.02.0 = phi i64 [ -9223372036854775808, %44 ], [ -9223372036854775806, %47 ], [ -9223372036854775805, %48 ], [ -9223372036854775804, %49 ], [ -9223372036854775803, %50 ], [ %58, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcae2afd3392e4511E.exit.i" ], [ -9223372036854775801, %.noexc3 ], [ -9223372036854775807, %36 ]
   %97 = getelementptr inbounds nuw { [4 x i64] }, ptr %21, i64 %.sroa.7.081
   store i64 %.sroa.02.0, ptr %97, align 8, !noalias !2530
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -22317,7 +22317,7 @@ default.unreachable:                              ; preds = %29
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit": ; preds = %.noexc2, %.noexc1, %.noexc, %36, %33, %29
-  %.sroa.9.1 = phi i8 [ %.sroa.9.027, %.noexc2 ], [ %.sroa.9.027, %.noexc1 ], [ %.sroa.9.027, %.noexc ], [ %.sroa.9.027, %36 ], [ %35, %33 ], [ %.sroa.9.027, %29 ]
+  %.sroa.9.1 = phi i8 [ %35, %33 ], [ %.sroa.9.027, %36 ], [ %.sroa.9.027, %.noexc ], [ %.sroa.9.027, %.noexc1 ], [ %.sroa.9.027, %.noexc2 ], [ %.sroa.9.027, %29 ]
   %44 = getelementptr inbounds nuw { [4 x i64] }, ptr %20, i64 %.sroa.7.025
   store i8 %32, ptr %44, align 8, !noalias !2768
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -23548,10 +23548,10 @@ default.unreachable:                              ; preds = %22
   br label %"_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i"
 
 "_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i": ; preds = %35, %28, %26, %22, %22, %22
-  %.sroa.413.1.i = phi i8 [ %.val4.i.i, %35 ], [ %.val6.i.i, %28 ], [ %.val.i.i, %26 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ]
-  %.sroa.714.1.i = phi i8 [ %.val5.i.i, %35 ], [ %.val7.i.i, %28 ], [ %.sroa.714.034.i, %26 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ]
-  %.sroa.915.1.i = phi ptr [ %39, %35 ], [ %32, %28 ], [ %.sroa.915.037.i, %26 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.52.0.i.i, %35 ], [ %.sroa.5.0.i.i, %28 ], [ %.sroa.11.039.i, %26 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ]
+  %.sroa.413.1.i = phi i8 [ %.sroa.413.033.i, %22 ], [ %.val.i.i, %26 ], [ %.val6.i.i, %28 ], [ %.val4.i.i, %35 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ]
+  %.sroa.714.1.i = phi i8 [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %26 ], [ %.val7.i.i, %28 ], [ %.val5.i.i, %35 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ]
+  %.sroa.915.1.i = phi ptr [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %26 ], [ %32, %28 ], [ %39, %35 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %26 ], [ %.sroa.5.0.i.i, %28 ], [ %.sroa.52.0.i.i, %35 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ]
   %42 = getelementptr inbounds nuw { [3 x i64] }, ptr %16, i64 %.sroa.7.036.i
   store i8 %25, ptr %42, align 8, !noalias !2960
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 1

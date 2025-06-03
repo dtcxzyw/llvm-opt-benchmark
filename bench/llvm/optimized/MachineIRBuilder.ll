@@ -1333,7 +1333,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5D
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = and i64 %.sroa.0.0.i, 2
   %.not.i.i = icmp ne i64 %31, 0
   %32 = and i64 %.sroa.0.0.i, -7
@@ -1401,7 +1401,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMaskLowPtrBitsER
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   %32 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %32, 0
@@ -1526,7 +1526,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder31buildPadVectorWithUnd
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %12, %14, %19, %25
-  %.sroa.0.0.i = phi i64 [ %27, %25 ], [ %11, %10 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi i64 [ %11, %10 ], [ %27, %25 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %switch.i = icmp eq i32 %30, 1
@@ -2170,7 +2170,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder33buildDeleteTrailingVe
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %12, %14, %19, %25
-  %.sroa.0.0.i = phi i64 [ %27, %25 ], [ %11, %10 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi i64 [ %11, %10 ], [ %27, %25 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %switch.i = icmp eq i32 %30, 1
@@ -3212,7 +3212,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %9, %11, %13, %18, %24
-  %.sroa.0.0.i = phi i64 [ %26, %24 ], [ %10, %9 ], [ 0, %3 ], [ %23, %18 ], [ 0, %13 ], [ 0, %11 ]
+  %.sroa.0.0.i = phi i64 [ %10, %9 ], [ %26, %24 ], [ 0, %3 ], [ %23, %18 ], [ 0, %13 ], [ 0, %11 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = load ptr, ptr %29, align 8, !tbaa !282
@@ -3497,7 +3497,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildLoadERKNS_5DstOpE
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %7, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %7 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %7 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = or i16 %5, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !3
@@ -3617,7 +3617,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildLoadFromOffsetER
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %5, %15, %17, %19, %24, %30
-  %.sroa.0.0.i = phi i64 [ %32, %30 ], [ %16, %15 ], [ 0, %5 ], [ %29, %24 ], [ 0, %19 ], [ 0, %17 ]
+  %.sroa.0.0.i = phi i64 [ %16, %15 ], [ %32, %30 ], [ 0, %5 ], [ %29, %24 ], [ 0, %19 ], [ 0, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = tail call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandElNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(1065) %35, ptr noundef nonnull %3, i64 noundef %4, i64 %.sroa.0.0.i) #12
@@ -4046,7 +4046,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildBoolExtInRegERKN
   unreachable
 
 31:                                               ; preds = %25, %23, %16
-  %.pn = phi { ptr, ptr } [ %29, %25 ], [ %24, %23 ], [ %22, %16 ]
+  %.pn = phi { ptr, ptr } [ %22, %16 ], [ %24, %23 ], [ %29, %25 ]
   ret { ptr, ptr } %.pn
 }
 
@@ -4100,7 +4100,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildZExtInRegERKNS_5
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
   store i64 %.sroa.0.0.i, ptr %7, align 8, !tbaa !167
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4259,7 +4259,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildExtOrTruncEjRKNS
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   %32 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %32, 0
   %33 = and i64 %.sroa.0.0.i, 2
@@ -4434,7 +4434,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit36:            ; preds = %83, %85
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit39: ; preds = %95, %98, %100, %102, %107, %113
-  %.sroa.0.0.i37 = phi i64 [ %115, %113 ], [ %99, %98 ], [ 0, %95 ], [ %112, %107 ], [ 0, %102 ], [ 0, %100 ]
+  %.sroa.0.0.i37 = phi i64 [ %99, %98 ], [ %115, %113 ], [ 0, %95 ], [ %112, %107 ], [ 0, %102 ], [ 0, %100 ]
   %117 = and i64 %.sroa.0.0.i37, -7
   %spec.select.i.i.i40 = icmp ne i64 %117, 0
   %118 = and i64 %.sroa.0.0.i37, 2
@@ -4683,7 +4683,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %8, %10, %1
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %35, %37, %39, %44, %50
-  %.sroa.0.0.i = phi i64 [ %52, %50 ], [ %36, %35 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %49, %44 ], [ 0, %39 ], [ 0, %37 ]
+  %.sroa.0.0.i = phi i64 [ %36, %35 ], [ %52, %50 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %49, %44 ], [ 0, %39 ], [ 0, %37 ]
   %spec.select.i = icmp eq i64 %.sroa.04.0.i, %.sroa.0.0.i
   br i1 %spec.select.i, label %62, label %54
 
@@ -4806,7 +4806,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %11, %13, %
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %38, %40, %42, %47, %53
-  %.sroa.0.0.i = phi i64 [ %55, %53 ], [ %39, %38 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %52, %47 ], [ 0, %42 ], [ 0, %40 ]
+  %.sroa.0.0.i = phi i64 [ %39, %38 ], [ %55, %53 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %52, %47 ], [ 0, %42 ], [ 0, %40 ]
   %57 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %57, 0
   %58 = and i64 %.sroa.0.0.i, 2
@@ -6152,7 +6152,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildShuffleSplatERKN
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %16, %18, %20, %25, %31
-  %.sroa.0.0.i = phi i64 [ %33, %31 ], [ %17, %16 ], [ 0, %3 ], [ %30, %25 ], [ 0, %20 ], [ 0, %18 ]
+  %.sroa.0.0.i = phi i64 [ %17, %16 ], [ %33, %31 ], [ 0, %3 ], [ %30, %25 ], [ 0, %20 ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
   store i64 %.sroa.0.0.i, ptr %8, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6484,7 +6484,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildInsertERKNS_5Dst
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %5, %11, %13, %15, %20, %26
-  %.sroa.0.0.i = phi i64 [ %28, %26 ], [ %12, %11 ], [ 0, %5 ], [ %25, %20 ], [ 0, %15 ], [ 0, %13 ]
+  %.sroa.0.0.i = phi i64 [ %12, %11 ], [ %28, %26 ], [ 0, %5 ], [ %25, %20 ], [ 0, %15 ], [ 0, %13 ]
   %30 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %30, 0
   %31 = and i64 %.sroa.0.0.i, 2
@@ -6899,7 +6899,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5Dst
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = and i64 %.sroa.0.0.i, 2
   %.not.i.i = icmp ne i64 %31, 0
   %32 = and i64 %.sroa.0.0.i, -7

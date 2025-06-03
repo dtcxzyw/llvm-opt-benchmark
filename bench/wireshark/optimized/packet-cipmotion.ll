@@ -2590,7 +2590,7 @@ dissect_devce_service.exit:                       ; preds = %642, %dissect_get_a
   br label %772
 
 772:                                              ; preds = %641, %dissect_devce_service.exit, %298, %dissect_cntr_service.exit, %157
-  %.4 = phi i32 [ %194, %157 ], [ %771, %dissect_devce_service.exit ], [ %.10, %641 ], [ %444, %dissect_cntr_service.exit ], [ %.7, %298 ]
+  %.4 = phi i32 [ %194, %157 ], [ %444, %dissect_cntr_service.exit ], [ %.7, %298 ], [ %771, %dissect_devce_service.exit ], [ %.10, %641 ]
   %773 = add nuw i32 %.083146, 1
   %774 = load i32, ptr %26, align 4
   %775 = icmp ult i32 %773, %774

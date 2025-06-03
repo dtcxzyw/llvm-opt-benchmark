@@ -373,7 +373,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   br label %_ZN4llvmgtENS_9StringRefES0_.exit
 
 _ZN4llvmgtENS_9StringRefES0_.exit:                ; preds = %47, %.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %28, %_ZN4llvmneENS_9StringRefES0_.exit, %16, %16, %41, %25, %14, %7
-  %.0 = phi i1 [ %8, %7 ], [ %15, %14 ], [ %27, %25 ], [ %32, %28 ], [ %43, %41 ], [ false, %16 ], [ false, %16 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.inv.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i, %.thread.i.i ], [ false, %47 ]
+  %.0 = phi i1 [ %8, %7 ], [ %15, %14 ], [ %27, %25 ], [ %43, %41 ], [ %32, %28 ], [ false, %16 ], [ false, %16 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.inv.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i, %.thread.i.i ], [ false, %47 ]
   ret i1 %.0
 }
 

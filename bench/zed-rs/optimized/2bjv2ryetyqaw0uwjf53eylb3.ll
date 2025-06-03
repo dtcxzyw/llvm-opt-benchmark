@@ -901,9 +901,9 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   br label %109
 
 74:                                               ; preds = %.noexc18, %.noexc14, %.noexc10, %.noexc6
-  %.sroa.012.1.i = phi i8 [ %.sroa.012.0165.i115, %.noexc18 ], [ %90, %.noexc14 ], [ %.sroa.012.0165.i115, %.noexc10 ], [ %.sroa.012.0165.i115, %.noexc6 ]
-  %.sroa.06.1.i = phi i8 [ %.sroa.06.0166.i114, %.noexc18 ], [ %.sroa.06.0166.i114, %.noexc14 ], [ %73, %.noexc10 ], [ %.sroa.06.0166.i114, %.noexc6 ]
-  %.sroa.020.1.i = phi i8 [ %103, %.noexc18 ], [ %.sroa.020.0167.i113, %.noexc14 ], [ %.sroa.020.0167.i113, %.noexc10 ], [ %.sroa.020.0167.i113, %.noexc6 ]
+  %.sroa.012.1.i = phi i8 [ %.sroa.012.0165.i115, %.noexc10 ], [ %90, %.noexc14 ], [ %.sroa.012.0165.i115, %.noexc18 ], [ %.sroa.012.0165.i115, %.noexc6 ]
+  %.sroa.06.1.i = phi i8 [ %73, %.noexc10 ], [ %.sroa.06.0166.i114, %.noexc14 ], [ %.sroa.06.0166.i114, %.noexc18 ], [ %.sroa.06.0166.i114, %.noexc6 ]
+  %.sroa.020.1.i = phi i8 [ %.sroa.020.0167.i113, %.noexc10 ], [ %.sroa.020.0167.i113, %.noexc14 ], [ %103, %.noexc18 ], [ %.sroa.020.0167.i113, %.noexc6 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !268, !noalias !141, !nonnull !4, !noundef !4
   %76 = load ptr, ptr %16, align 8, !alias.scope !268, !noalias !141, !nonnull !4, !noundef !4
   %77 = icmp eq ptr %76, %75
@@ -1066,7 +1066,7 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   br label %.body
 
 109:                                              ; preds = %.invoke, %.noexc16, %.noexc12, %.noexc8, %104
-  %.sroa.924.0.ph = phi ptr [ %105, %104 ], [ %.sroa.876.392.i, %.noexc8 ], [ %.sroa.880.3106.i, %.noexc12 ], [ %.sroa.884.3120.i, %.noexc16 ], [ %60, %.invoke ]
+  %.sroa.924.0.ph = phi ptr [ %105, %104 ], [ %.sroa.884.3120.i, %.noexc16 ], [ %.sroa.880.3106.i, %.noexc12 ], [ %.sroa.876.392.i, %.noexc8 ], [ %60, %.invoke ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.924.0.ph, ptr %110, align 8
   store i8 1, ptr %0, align 8
@@ -1261,8 +1261,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !347, !noundef !4
@@ -1274,8 +1274,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !347, !noundef !4
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -3690,7 +3690,7 @@ default.unreachable4:                             ; preds = %1
   br label %21
 
 21:                                               ; preds = %16, %8, %3
-  %.sroa.0.0 = phi i1 [ %20, %16 ], [ %15, %8 ], [ %7, %3 ]
+  %.sroa.0.0 = phi i1 [ %7, %3 ], [ %15, %8 ], [ %20, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -26499,7 +26499,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h4b6
           to label %10 unwind label %13
 
 7:                                                ; preds = %8, %13
-  %.pn4 = phi { ptr, i32 } [ %14, %13 ], [ %9, %8 ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %9, %8 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h583a6ad5bb48bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #35
           to label %17 unwind label %15
 
@@ -26533,7 +26533,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h4b6
   unreachable
 
 17:                                               ; preds = %7
-  resume { ptr, i32 } %.pn4
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26547,7 +26547,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17hd70
           to label %"_ZN98_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17h1750b4131a279d68E.llvm.1856919498638270738.exit" unwind label %12
 
 7:                                                ; preds = %8, %12
-  %.pn4 = phi { ptr, i32 } [ %13, %12 ], [ %9, %8 ]
+  %.pn.pn = phi { ptr, i32 } [ %13, %12 ], [ %9, %8 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h583a6ad5bb48bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
           to label %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h650ba5335d85c3ecE.exit" unwind label %14
 
@@ -26581,7 +26581,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17hd70
   unreachable
 
 "_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h650ba5335d85c3ecE.exit": ; preds = %7
-  resume { ptr, i32 } %.pn4
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

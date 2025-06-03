@@ -196,7 +196,7 @@ sock_free.exit:                                   ; preds = %5, %7, %17
   br label %38
 
 38:                                               ; preds = %4, %24, %._crit_edge, %37, %34, %30, %sock_free.exit
-  %.0 = phi i64 [ 0, %37 ], [ 1, %34 ], [ %33, %30 ], [ %29, %._crit_edge ], [ 1, %sock_free.exit ], [ -1, %24 ], [ 1, %4 ]
+  %.0 = phi i64 [ 0, %37 ], [ 1, %sock_free.exit ], [ %29, %._crit_edge ], [ %33, %30 ], [ 1, %34 ], [ -1, %24 ], [ 1, %4 ]
   ret i64 %.0
 }
 

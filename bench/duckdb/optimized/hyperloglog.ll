@@ -53,7 +53,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %26
 
 26:                                               ; preds = %._crit_edge, %20
-  %.2 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %25, %20 ]
+  %.2 = phi i64 [ %25, %20 ], [ %.0.lcssa, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = zext i8 %28 to i64
@@ -62,7 +62,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %32
 
 32:                                               ; preds = %._crit_edge, %26
-  %.3 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %31, %26 ]
+  %.3 = phi i64 [ %31, %26 ], [ %.0.lcssa, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 4
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i64
@@ -71,7 +71,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %38
 
 38:                                               ; preds = %._crit_edge, %32
-  %.4 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %37, %32 ]
+  %.4 = phi i64 [ %37, %32 ], [ %.0.lcssa, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !9
   %41 = zext i8 %40 to i64
@@ -80,7 +80,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %44
 
 44:                                               ; preds = %._crit_edge, %38
-  %.5 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %43, %38 ]
+  %.5 = phi i64 [ %43, %38 ], [ %.0.lcssa, %._crit_edge ]
   %45 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !9
   %47 = zext i8 %46 to i64
@@ -89,7 +89,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %50
 
 50:                                               ; preds = %._crit_edge, %44
-  %.6 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %49, %44 ]
+  %.6 = phi i64 [ %49, %44 ], [ %.0.lcssa, %._crit_edge ]
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !9
   %53 = zext i8 %52 to i64
@@ -98,7 +98,7 @@ define noundef i64 @_ZN10duckdb_hll13MurmurHash64AEPKvij(ptr noundef readonly ca
   br label %56
 
 56:                                               ; preds = %._crit_edge, %50
-  %.7 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %55, %50 ]
+  %.7 = phi i64 [ %55, %50 ], [ %.0.lcssa, %._crit_edge ]
   %57 = load i8, ptr %.038.lcssa, align 1, !tbaa !9
   %58 = zext i8 %57 to i64
   %59 = xor i64 %.7, %58
@@ -109,7 +109,7 @@ default.unreachable44:                            ; preds = %._crit_edge
   unreachable
 
 61:                                               ; preds = %._crit_edge, %56
-  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %60, %56 ]
+  %.1 = phi i64 [ %60, %56 ], [ %.0.lcssa, %._crit_edge ]
   %62 = lshr i64 %.1, 47
   %63 = xor i64 %62, %.1
   %64 = mul i64 %63, -4132994306676758123
@@ -175,7 +175,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %26
 
 26:                                               ; preds = %20, %._crit_edge.i
-  %.2.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %25, %20 ]
+  %.2.i = phi i64 [ %25, %20 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = zext i8 %28 to i64
@@ -184,7 +184,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %32
 
 32:                                               ; preds = %26, %._crit_edge.i
-  %.3.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %31, %26 ]
+  %.3.i = phi i64 [ %31, %26 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 4
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i64
@@ -193,7 +193,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %38
 
 38:                                               ; preds = %32, %._crit_edge.i
-  %.4.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %37, %32 ]
+  %.4.i = phi i64 [ %37, %32 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !9
   %41 = zext i8 %40 to i64
@@ -202,7 +202,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %44
 
 44:                                               ; preds = %38, %._crit_edge.i
-  %.5.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %43, %38 ]
+  %.5.i = phi i64 [ %43, %38 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !9
   %47 = zext i8 %46 to i64
@@ -211,7 +211,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %50
 
 50:                                               ; preds = %44, %._crit_edge.i
-  %.6.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %49, %44 ]
+  %.6.i = phi i64 [ %49, %44 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !9
   %53 = zext i8 %52 to i64
@@ -220,7 +220,7 @@ define noundef range(i32 1, 0) i32 @_ZN10duckdb_hll9hllPatLenEPhmPl(ptr noundef 
   br label %56
 
 56:                                               ; preds = %50, %._crit_edge.i
-  %.7.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %55, %50 ]
+  %.7.i = phi i64 [ %55, %50 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %57 = load i8, ptr %.038.lcssa.i, align 1, !tbaa !9
   %58 = zext i8 %57 to i64
   %59 = xor i64 %.7.i, %58
@@ -231,7 +231,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _ZN10duckdb_hll13MurmurHash64AEPKvij.exit:        ; preds = %._crit_edge.i, %56
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %60, %56 ]
+  %.1.i = phi i64 [ %60, %56 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %61 = lshr i64 %.1.i, 47
   %62 = xor i64 %61, %.1.i
   %63 = mul i64 %62, -4132994306676758123
@@ -388,7 +388,7 @@ define noundef range(i32 -1, 1) i32 @_ZN10duckdb_hll16hllSparseToDenseEPNS_4robj
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %1, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %1 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !26
@@ -564,7 +564,7 @@ define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll12hllSparseSetEPNS_4robjElh(
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ]
   %.ptr291 = getelementptr inbounds i8, ptr %8, i64 %.0.i
   %31 = icmp sgt i64 %.0.i, 17
   br i1 %31, label %.lr.ph, label %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit
@@ -846,7 +846,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %13, %16, %20, %24, 
   br label %_ZN10duckdb_hllL6sdslenEPc.exit223
 
 _ZN10duckdb_hllL6sdslenEPc.exit223:               ; preds = %163, %167, %170, %174, %178, %182
-  %.0.i222 = phi i64 [ %184, %182 ], [ %181, %178 ], [ %177, %174 ], [ %173, %170 ], [ %169, %167 ], [ 0, %163 ]
+  %.0.i222 = phi i64 [ %169, %167 ], [ %173, %170 ], [ %177, %174 ], [ %181, %178 ], [ %184, %182 ], [ 0, %163 ]
   %185 = zext nneg i32 %161 to i64
   %186 = add i64 %.0.i222, %185
   %187 = icmp ugt i64 %186, 3000
@@ -1341,7 +1341,7 @@ define noundef i64 @_ZN10duckdb_hll8hllCountEPNS_6hllhdrEPi(ptr noundef readonly
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %35, %38, %42, %46, %50
-  %.0.i = phi i64 [ %52, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %35 ]
+  %.0.i = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
   %53 = trunc i64 %.0.i to i32
   %54 = add i32 %53, -17
   %55 = sext i32 %54 to i64
@@ -1649,7 +1649,7 @@ _ZN10duckdb_hll11hllDenseAddEPhS0_m.exit:         ; preds = %9, %30
   br label %51
 
 51:                                               ; preds = %3, %46, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit
-  %.0 = phi i32 [ %50, %46 ], [ %.0.i.i, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit ], [ -1, %3 ]
+  %.0 = phi i32 [ %.0.i.i, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit ], [ %50, %46 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1734,7 +1734,7 @@ define noundef range(i32 -1, 1) i32 @_ZN10duckdb_hll8hllMergeEPhPNS_4robjE(ptr n
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %49 = icmp samesign ugt i64 %.0.i, 17
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge.thread

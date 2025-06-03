@@ -341,7 +341,7 @@ default.unreachable:                              ; preds = %25
   br label %101
 
 101:                                              ; preds = %92, %97, %99, %94, %93
-  %.3 = phi i32 [ 0, %92 ], [ %98, %97 ], [ %100, %99 ], [ 0, %94 ], [ 0, %93 ]
+  %.3 = phi i32 [ 0, %92 ], [ 0, %93 ], [ 0, %94 ], [ %98, %97 ], [ %100, %99 ]
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %103 = load ptr, ptr %102, align 16
   %.not93 = icmp eq ptr %103, null

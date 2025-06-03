@@ -633,8 +633,8 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77:           ; preds = %76, %._crit_edge.i.
   br label %109
 
 109:                                              ; preds = %107, %._crit_edge._crit_edge.i.i.i34
-  %110 = phi i8 [ %.pre.i.i.i35, %._crit_edge._crit_edge.i.i.i34 ], [ %105, %107 ]
-  %.1.i.i.i36 = phi ptr [ %.029.lcssa.i.i.i29, %._crit_edge._crit_edge.i.i.i34 ], [ %108, %107 ]
+  %110 = phi i8 [ %105, %107 ], [ %.pre.i.i.i35, %._crit_edge._crit_edge.i.i.i34 ]
+  %.1.i.i.i36 = phi ptr [ %108, %107 ], [ %.029.lcssa.i.i.i29, %._crit_edge._crit_edge.i.i.i34 ]
   %111 = load i8, ptr %.1.i.i.i36, align 1, !tbaa !9
   %112 = icmp eq i8 %111, %110
   br i1 %112, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, label %113
@@ -644,8 +644,8 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.us77:           ; preds = %76, %._crit_edge.i.
   br label %115
 
 115:                                              ; preds = %113, %._crit_edge._crit_edge52.i.i.i30
-  %116 = phi i8 [ %.pre53.i.i.i31, %._crit_edge._crit_edge52.i.i.i30 ], [ %110, %113 ]
-  %.2.i.i.i32 = phi ptr [ %.029.lcssa.i.i.i29, %._crit_edge._crit_edge52.i.i.i30 ], [ %114, %113 ]
+  %116 = phi i8 [ %110, %113 ], [ %.pre53.i.i.i31, %._crit_edge._crit_edge52.i.i.i30 ]
+  %.2.i.i.i32 = phi ptr [ %114, %113 ], [ %.029.lcssa.i.i.i29, %._crit_edge._crit_edge52.i.i.i30 ]
   %117 = load i8, ptr %.2.i.i.i32, align 1, !tbaa !9
   %118 = icmp eq i8 %117, %116
   br i1 %118, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread

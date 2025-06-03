@@ -7578,8 +7578,8 @@ define hidden { i64, ptr } @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %31
-  %.sroa.4.0.ph = phi ptr [ %23, %31 ], [ %34, %32 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %31 ], [ 1, %32 ]
+  %.sroa.4.0.ph = phi ptr [ %34, %32 ], [ %23, %31 ]
+  %.sroa.0.0.ph = phi i64 [ 1, %32 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !1600
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %35

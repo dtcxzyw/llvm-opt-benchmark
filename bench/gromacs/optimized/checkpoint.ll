@@ -5672,7 +5672,7 @@ _ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115: ; preds = %88
   resume { ptr, i32 } %131
 
 132:                                              ; preds = %49, %126, %124, %122, %120, %118, %116, %113, %110, %108, %106, %104, %102, %100, %98, %96, %94, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit113, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit111, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit109, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit107, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit, %56, %54
-  %.1 = phi i32 [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %89, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115 ], [ %83, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit113 ], [ %77, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit111 ], [ %71, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit109 ], [ %65, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit107 ], [ %59, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit ], [ %57, %56 ], [ %55, %54 ], [ 0, %49 ]
+  %.1 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %59, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit ], [ %65, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit107 ], [ %71, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit109 ], [ %77, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit111 ], [ %83, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit113 ], [ %89, %_ZL14do_cpte_matrixI10StateEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit115 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %112, %110 ], [ %115, %113 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ 0, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = icmp ne i64 %indvars.iv.next, 29
   %134 = icmp eq i32 %.1, 0
@@ -5909,7 +5909,7 @@ _ZL14do_cpte_matrixI17StateKineticEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit: ; preds =
   br label %common.resume
 
 93:                                               ; preds = %27, %87, %85, %83, %81, %79, %_ZL14do_cpte_matrixI17StateKineticEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit, %70, %67, %64, %_ZL11do_cpte_intI17StateKineticEntryEiP3XDRT_iPiP8_IO_FILE.exit
-  %.1 = phi i32 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %74, %_ZL14do_cpte_matrixI17StateKineticEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %.058.i.i.i, %_ZL11do_cpte_intI17StateKineticEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ 0, %27 ]
+  %.1 = phi i32 [ %.058.i.i.i, %_ZL11do_cpte_intI17StateKineticEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %74, %_ZL14do_cpte_matrixI17StateKineticEntryEiP3XDRT_iPA3_fP8_IO_FILE.exit ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ 0, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = icmp ne i64 %indvars.iv.next, 10
   %95 = icmp eq i32 %.1, 0
@@ -6762,8 +6762,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %299, %300
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit126
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %207, %52, %312, %309, %206, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit106, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit104, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit102, %103, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit, %90, %88, %_ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit
-  %.3 = phi ptr [ %.086228, %312 ], [ %.086228, %309 ], [ %.187, %206 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit106 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit104 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit102 ], [ %.086228, %103 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit ], [ %.086228, %90 ], [ %.086228, %88 ], [ %.086228, %_ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ %.086228, %52 ], [ %.086228, %207 ], [ %.086228, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
-  %.2 = phi i32 [ %314, %312 ], [ %311, %309 ], [ 0, %206 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit106 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit104 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit102 ], [ %104, %103 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit ], [ %91, %90 ], [ %89, %88 ], [ %.058.i.i.i, %_ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ 0, %52 ], [ 0, %207 ], [ %.058.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
+  %.3 = phi ptr [ %.086228, %_ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ %.086228, %88 ], [ %.086228, %90 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit ], [ %.086228, %103 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit102 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit104 ], [ %.086228, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit106 ], [ %.187, %206 ], [ %.086228, %309 ], [ %.086228, %312 ], [ %.086228, %52 ], [ %.086228, %207 ], [ %.086228, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
+  %.2 = phi i32 [ %.058.i.i.i, %_ZL11do_cpte_intI16StateEnergyEntryEiP3XDRT_iPiP8_IO_FILE.exit ], [ %89, %88 ], [ %91, %90 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit ], [ %104, %103 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit102 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit104 ], [ 0, %_ZL15do_cpt_step_errP3XDRPKcPlP8_IO_FILE.exit106 ], [ 0, %206 ], [ %311, %309 ], [ %314, %312 ], [ 0, %52 ], [ 0, %207 ], [ %.058.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %319 = icmp ne i64 %indvars.iv.next, 12
   %320 = icmp eq i32 %.2, 0
@@ -7285,7 +7285,7 @@ default.unreachable.i:                            ; preds = %194
   unreachable
 
 .loopexit.i:                                      ; preds = %.preheader68.i, %.preheader66.i, %.preheader.i, %214, %197, %195
-  %.5.i = phi i32 [ %215, %214 ], [ %198, %197 ], [ %196, %195 ], [ %200, %.preheader.i ], [ %205, %.preheader66.i ], [ %210, %.preheader68.i ]
+  %.5.i = phi i32 [ %196, %195 ], [ %198, %197 ], [ %215, %214 ], [ %200, %.preheader.i ], [ %205, %.preheader66.i ], [ %210, %.preheader68.i ]
   %221 = add nuw nsw i32 %.sroa.055.078.i, 1
   %222 = icmp eq i32 %.5.i, 0
   br i1 %222, label %194, label %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit, !llvm.loop !293

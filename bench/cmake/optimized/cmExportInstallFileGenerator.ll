@@ -4479,8 +4479,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %130
 
 130:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit33.thread56.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i
-  %131 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %122, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit33.thread56.i.i.i.i.i" ]
-  %.sroa.043.1.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %129, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit33.thread56.i.i.i.i.i" ]
+  %131 = phi i64 [ %122, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit33.thread56.i.i.i.i.i" ], [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.043.1.i.i.i.i.i = phi ptr [ %129, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit33.thread56.i.i.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %.val1.i34.i.i.i.i.i = load ptr, ptr %.sroa.043.1.i.i.i.i.i, align 8, !tbaa !345
   %132 = getelementptr inbounds nuw i8, ptr %.val1.i34.i.i.i.i.i, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !40
@@ -4503,8 +4503,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %141
 
 141:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit36.thread57.i.i.i.i.i", %._crit_edge._crit_edge89.i.i.i.i.i
-  %142 = phi i64 [ %.pre91.i.i.i.i.i, %._crit_edge._crit_edge89.i.i.i.i.i ], [ %131, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit36.thread57.i.i.i.i.i" ]
-  %.sroa.043.2.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge89.i.i.i.i.i ], [ %140, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit36.thread57.i.i.i.i.i" ]
+  %142 = phi i64 [ %131, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit36.thread57.i.i.i.i.i" ], [ %.pre91.i.i.i.i.i, %._crit_edge._crit_edge89.i.i.i.i.i ]
+  %.sroa.043.2.i.i.i.i.i = phi ptr [ %140, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK28cmExportInstallFileGenerator14FindExportInfoEPK17cmGeneratorTargetE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteISB_EESt6vectorISE_SaISE_EEEEEEbT_.exit36.thread57.i.i.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge89.i.i.i.i.i ]
   %.val1.i37.i.i.i.i.i = load ptr, ptr %.sroa.043.2.i.i.i.i.i, align 8, !tbaa !345
   %143 = getelementptr inbounds nuw i8, ptr %.val1.i37.i.i.i.i.i, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !40
@@ -5993,7 +5993,7 @@ define dso_local noundef zeroext i1 @_ZN28cmExportInstallFileGenerator14CollectE
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i
-  %.sroa.039.1.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %33, %32 ]
+  %.sroa.039.1.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %35 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN28cmExportInstallFileGenerator14CollectExportsERKSt8functionIFvPK14cmTargetExportEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISI_SaISI_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %1, ptr %.sroa.039.1.i.i.i.i)
   br i1 %35, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEZN28cmExportInstallFileGenerator14CollectExportsERKSt8functionIFvPKS3_EEE3$_0EbT_SM_T0_.exit", label %36
 
@@ -6002,7 +6002,7 @@ define dso_local noundef zeroext i1 @_ZN28cmExportInstallFileGenerator14CollectE
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i
-  %.sroa.039.2.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %37, %36 ]
+  %.sroa.039.2.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %39 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN28cmExportInstallFileGenerator14CollectExportsERKSt8functionIFvPK14cmTargetExportEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrIS4_St14default_deleteIS4_EESt6vectorISI_SaISI_EEEEEEbT_"(ptr nonnull %0, ptr nonnull %1, ptr %.sroa.039.2.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %39, ptr %.sroa.039.2.i.i.i.i, ptr %9
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrI14cmTargetExportSt14default_deleteIS3_EESt6vectorIS6_SaIS6_EEEEZN28cmExportInstallFileGenerator14CollectExportsERKSt8functionIFvPKS3_EEE3$_0EbT_SM_T0_.exit"

@@ -1273,7 +1273,7 @@ define void @redisProcessCallbacks(ptr noundef %0) local_unnamed_addr #0 {
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %32, %35, %39, %43, %47
-  %.0.i = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ]
+  %.0.i = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
   %50 = icmp eq i64 %.0.i, 0
   br i1 %50, label %hi_sdslen.exit.thread, label %__redisAsyncDisconnect.exit
 
@@ -4105,7 +4105,7 @@ define internal i32 @callbackHash(ptr noundef readonly captures(none) %0) #8 {
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
   %24 = trunc i64 %.0.i to i32
   %.not6.i = icmp eq i32 %24, 0
   br i1 %.not6.i, label %dictGenHashFunction.exit, label %.lr.ph.i
@@ -4186,7 +4186,7 @@ define internal range(i32 0, 2) i32 @callbackKeyCompare(ptr readnone captures(no
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
   %26 = trunc i64 %.0.i to i32
   %27 = getelementptr inbounds i8, ptr %2, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !12
@@ -4229,7 +4229,7 @@ hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %1
   br label %hi_sdslen.exit9
 
 hi_sdslen.exit9:                                  ; preds = %hi_sdslen.exit, %31, %34, %38, %42, %46
-  %.0.i8 = phi i64 [ %48, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %31 ], [ 0, %hi_sdslen.exit ]
+  %.0.i8 = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %hi_sdslen.exit ]
   %49 = trunc i64 %.0.i8 to i32
   %.not = icmp eq i32 %26, %49
   br i1 %.not, label %50, label %54

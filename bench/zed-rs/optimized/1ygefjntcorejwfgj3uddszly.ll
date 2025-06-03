@@ -180,7 +180,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$futures_util..stream..futur
   br label %26
 
 "_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h02131ce95cf35d35E.exit": ; preds = %26, %20, %14, %30, %43
-  %.sroa.0.0 = phi i8 [ 1, %43 ], [ 0, %30 ], [ 1, %14 ], [ 1, %20 ], [ 2, %26 ]
+  %.sroa.0.0 = phi i8 [ 0, %30 ], [ 1, %43 ], [ 1, %14 ], [ 1, %20 ], [ 2, %26 ]
   ret i8 %.sroa.0.0
 
 26:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h7e1d57e815ce628fE.exit", %.thread
@@ -25294,7 +25294,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h1f281
   br label %.body.i.i
 
 "_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17h00e60e51ee5b4feeE.exit.i.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit9.i.i.i", %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit.i.i.i"
-  %79 = phi ptr [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit.i.i.i" ], [ %44, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit9.i.i.i" ]
+  %79 = phi ptr [ %44, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit9.i.i.i" ], [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17hc27760365f2ee271E.exit.i.i.i" ]
   store ptr %79, ptr %17, align 8, !noalias !5224
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !5224
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !5224
@@ -27323,8 +27323,8 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hd8871
   br label %78
 
 78:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u64$GT$$GT$17h7721062280e747dfE.exit38.i.i", %35
-  %.sroa.018.4.i.i = phi i8 [ 1, %35 ], [ 0, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u64$GT$$GT$17h7721062280e747dfE.exit38.i.i" ]
-  %.sroa.0.1.i.i = phi ptr [ %37, %35 ], [ %77, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u64$GT$$GT$17h7721062280e747dfE.exit38.i.i" ]
+  %.sroa.018.4.i.i = phi i8 [ 0, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u64$GT$$GT$17h7721062280e747dfE.exit38.i.i" ], [ 1, %35 ]
+  %.sroa.0.1.i.i = phi ptr [ %77, %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u64$GT$$GT$17h7721062280e747dfE.exit38.i.i" ], [ %37, %35 ]
   invoke void @"_ZN69_$LT$sqlez..statement..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc237b8f5b3e083cdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %81 unwind label %79, !noalias !5615
 
@@ -27408,7 +27408,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hd8871
   br label %.thread
 
 113:                                              ; preds = %101, %97, %95, %67
-  %114 = phi ptr [ %.sroa.0.1.i.i, %95 ], [ %51, %67 ], [ %.sroa.0.0.i.i, %97 ], [ %.sroa.0.0.i.i, %101 ]
+  %114 = phi ptr [ %51, %67 ], [ %.sroa.0.1.i.i, %95 ], [ %.sroa.0.0.i.i, %97 ], [ %.sroa.0.0.i.i, %101 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !5615
   store ptr %114, ptr %13, align 8
   %115 = load i64, ptr %14, align 8, !noundef !4
@@ -36000,7 +36000,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %224
 
 224:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17hf4c8ffff5c7b49a9E.exit", %42
-  %.sroa.0.0 = phi ptr [ %38, %42 ], [ %187, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17hf4c8ffff5c7b49a9E.exit" ]
+  %.sroa.0.0 = phi ptr [ %187, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17hf4c8ffff5c7b49a9E.exit" ], [ %38, %42 ]
   ret ptr %.sroa.0.0
 
 225:                                              ; preds = %228, %.body, %.body18

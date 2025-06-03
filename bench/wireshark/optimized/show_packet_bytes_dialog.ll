@@ -5180,7 +5180,7 @@ _ZN6QImage12loadFromDataERK10QByteArrayPKc.exit:  ; preds = %333
   ret void
 
 366:                                              ; preds = %362, %_ZN10QByteArrayD2Ev.exit106, %_ZN7QStringD2Ev.exit94, %.loopexit, %_ZN10QByteArrayD2Ev.exit80
-  %.pn58 = phi { ptr, i32 } [ %363, %362 ], [ %264, %_ZN10QByteArrayD2Ev.exit106 ], [ %227, %_ZN7QStringD2Ev.exit94 ], [ %.pn, %.loopexit ], [ %.pn56, %_ZN10QByteArrayD2Ev.exit80 ]
+  %.pn58 = phi { ptr, i32 } [ %363, %362 ], [ %.pn56, %_ZN10QByteArrayD2Ev.exit80 ], [ %227, %_ZN7QStringD2Ev.exit94 ], [ %.pn, %.loopexit ], [ %264, %_ZN10QByteArrayD2Ev.exit106 ]
   resume { ptr, i32 } %.pn58
 }
 
@@ -9529,8 +9529,8 @@ _ZN10QByteArrayD2Ev.exit521:                      ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 988:                                              ; preds = %_ZN7QStringD2Ev.exit318, %_ZN10QByteArrayD2Ev.exit326, %_ZN10QByteArrayD2Ev.exit521, %_ZN7QStringD2Ev.exit500, %_ZN10QByteArrayD2Ev.exit436, %_ZN7QStringD2Ev.exit415, %_ZN7QStringD2Ev.exit406, %_ZN7QStringD2Ev.exit394, %_ZN10QByteArrayD2Ev.exit351, %_ZN7QStringD2Ev.exit291, %_ZN7QStringD2Ev.exit247, %_ZN10QByteArrayD2Ev.exit215, %_ZN10QByteArrayD2Ev.exit193, %59
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN10QByteArrayD2Ev.exit521 ], [ %.pn153.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit500 ], [ %.pn159.pn, %_ZN10QByteArrayD2Ev.exit436 ], [ %732, %_ZN7QStringD2Ev.exit415 ], [ %692, %_ZN7QStringD2Ev.exit406 ], [ %.pn162, %_ZN7QStringD2Ev.exit394 ], [ %.pn164.pn, %_ZN10QByteArrayD2Ev.exit351 ], [ %.pn172, %_ZN7QStringD2Ev.exit291 ], [ %.pn174, %_ZN7QStringD2Ev.exit247 ], [ %.pn176.pn, %_ZN10QByteArrayD2Ev.exit215 ], [ %.pn179.pn, %_ZN10QByteArrayD2Ev.exit193 ], [ %60, %59 ], [ %.pn169, %_ZN10QByteArrayD2Ev.exit326 ], [ %.pn167, %_ZN7QStringD2Ev.exit318 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn179.pn.pn = phi { ptr, i32 } [ %.pn179.pn, %_ZN10QByteArrayD2Ev.exit193 ], [ %.pn176.pn, %_ZN10QByteArrayD2Ev.exit215 ], [ %.pn174, %_ZN7QStringD2Ev.exit247 ], [ %.pn172, %_ZN7QStringD2Ev.exit291 ], [ %.pn164.pn, %_ZN10QByteArrayD2Ev.exit351 ], [ %.pn162, %_ZN7QStringD2Ev.exit394 ], [ %692, %_ZN7QStringD2Ev.exit406 ], [ %732, %_ZN7QStringD2Ev.exit415 ], [ %.pn159.pn, %_ZN10QByteArrayD2Ev.exit436 ], [ %.pn153.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit500 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit521 ], [ %60, %59 ], [ %.pn169, %_ZN10QByteArrayD2Ev.exit326 ], [ %.pn167, %_ZN7QStringD2Ev.exit318 ]
+  resume { ptr, i32 } %.pn179.pn.pn
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -10389,8 +10389,8 @@ _ZN7QStringD2Ev.exit67:                           ; preds = %_ZN10QByteArrayD2Ev
   ret void
 
 157:                                              ; preds = %_ZN7QStringD2Ev.exit67, %_ZN7QStringD2Ev.exit39, %_ZN7QStringD2Ev.exit31, %_ZN10QByteArrayD2Ev.exit23
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit67 ], [ %94, %_ZN7QStringD2Ev.exit39 ], [ %77, %_ZN7QStringD2Ev.exit31 ], [ %.pn9.pn, %_ZN10QByteArrayD2Ev.exit23 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %_ZN10QByteArrayD2Ev.exit23 ], [ %77, %_ZN7QStringD2Ev.exit31 ], [ %94, %_ZN7QStringD2Ev.exit39 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit67 ]
+  resume { ptr, i32 } %.pn9.pn.pn
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -11194,7 +11194,7 @@ _ZN7QStringD2Ev.exit98:                           ; preds = %182, %_ZN17QArrayDa
   ret void
 
 187:                                              ; preds = %176, %142, %118, %_ZN10QByteArrayD2Ev.exit62, %69
-  %.pn24 = phi { ptr, i32 } [ %70, %69 ], [ %.pn14.pn.pn, %176 ], [ %.pn18.pn, %142 ], [ %.pn21.pn, %118 ], [ %90, %_ZN10QByteArrayD2Ev.exit62 ]
+  %.pn24 = phi { ptr, i32 } [ %70, %69 ], [ %90, %_ZN10QByteArrayD2Ev.exit62 ], [ %.pn21.pn, %118 ], [ %.pn18.pn, %142 ], [ %.pn14.pn.pn, %176 ]
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %7) #28
   br label %188
 
@@ -14513,7 +14513,7 @@ _Z17qRegisterMetaTypeI17bytes_decode_typeEiPKc.exit: ; preds = %27, %_ZN17QArray
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 
@@ -14816,7 +14816,7 @@ _Z17qRegisterMetaTypeI15bytes_show_typeEiPKc.exit: ; preds = %27, %_ZN17QArrayDa
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 

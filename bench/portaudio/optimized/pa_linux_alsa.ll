@@ -1557,7 +1557,7 @@ IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.
   br label %287
 
 287:                                              ; preds = %.loopexit424, %158, %.thread249, %._crit_edge371, %263, %257
-  %.0 = phi i32 [ -9999, %158 ], [ %.8.ph, %.loopexit424 ], [ -9992, %257 ], [ -9992, %263 ], [ 0, %._crit_edge371 ], [ %.1.ph, %.thread249 ]
+  %.0 = phi i32 [ -9992, %257 ], [ -9992, %263 ], [ 0, %._crit_edge371 ], [ %.8.ph, %.loopexit424 ], [ -9999, %158 ], [ %.1.ph, %.thread249 ]
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #25
@@ -1661,7 +1661,7 @@ define internal i32 @StopStream(ptr noundef %0) #2 {
   br label %RealStop.exit
 
 RealStop.exit:                                    ; preds = %11, %16, %18
-  %.2.i = phi i32 [ %12, %11 ], [ 0, %18 ], [ %17, %16 ]
+  %.2.i = phi i32 [ 0, %18 ], [ %12, %11 ], [ %17, %16 ]
   ret i32 %.2.i
 }
 
@@ -1712,7 +1712,7 @@ define internal i32 @AbortStream(ptr noundef %0) #2 {
   br label %RealStop.exit
 
 RealStop.exit:                                    ; preds = %11, %16, %18
-  %.2.i = phi i32 [ %12, %11 ], [ 0, %18 ], [ %17, %16 ]
+  %.2.i = phi i32 [ 0, %18 ], [ %12, %11 ], [ %17, %16 ]
   ret i32 %.2.i
 }
 
@@ -3157,7 +3157,7 @@ define internal fastcc range(i32 -9999, 1) i32 @GropeDevice(ptr noundef %0, i32 
   br label %159
 
 159:                                              ; preds = %150, %140, %130, %120, %105, %95, %78, %68, %.thread159, %27, %79, %151
-  %.12 = phi i32 [ -9999, %27 ], [ -9999, %68 ], [ -9999, %78 ], [ -9999, %95 ], [ -9999, %105 ], [ -9999, %120 ], [ -9999, %130 ], [ -9999, %140 ], [ -9999, %150 ], [ 0, %151 ], [ -9999, %79 ], [ -9999, %.thread159 ]
+  %.12 = phi i32 [ 0, %151 ], [ -9999, %150 ], [ -9999, %140 ], [ -9999, %130 ], [ -9999, %120 ], [ -9999, %105 ], [ -9999, %95 ], [ -9999, %78 ], [ -9999, %68 ], [ -9999, %27 ], [ -9999, %79 ], [ -9999, %.thread159 ]
   %160 = call i32 @snd_pcm_close(ptr noundef %0) #25, !callees !179
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #25
@@ -3374,7 +3374,7 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
   br label %Pa2AlsaFormat.exit
 
 Pa2AlsaFormat.exit:                               ; preds = %48, %50, %51, %52, %53, %54, %55
-  %.0.i = phi i32 [ -1, %55 ], [ 1, %54 ], [ 0, %53 ], [ 10, %52 ], [ 32, %51 ], [ 2, %50 ], [ 14, %48 ]
+  %.0.i = phi i32 [ -1, %55 ], [ 2, %50 ], [ 32, %51 ], [ 10, %52 ], [ 0, %53 ], [ 1, %54 ], [ 14, %48 ]
   %56 = call i32 @snd_pcm_hw_params_set_format(ptr noundef %49, ptr noundef nonnull %7, i32 noundef %.0.i) #25, !callees !183
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %65, !prof !9
@@ -4506,7 +4506,7 @@ sub_2:                                            ; preds = %sub_1
   br label %Pa2AlsaFormat.exit
 
 Pa2AlsaFormat.exit:                               ; preds = %67, %68, %69, %70, %71, %72, %73
-  %.0.i = phi i32 [ -1, %73 ], [ 1, %72 ], [ 0, %71 ], [ 10, %70 ], [ 32, %69 ], [ 2, %68 ], [ 14, %67 ]
+  %.0.i = phi i32 [ -1, %73 ], [ 2, %68 ], [ 32, %69 ], [ 10, %70 ], [ 0, %71 ], [ 1, %72 ], [ 14, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.0.i, ptr %74, align 8, !tbaa !214
   %75 = and i64 %7, 2147483648
@@ -4857,7 +4857,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef n
   br label %115
 
 115:                                              ; preds = %113, %101, %84, %70, %39, %29, %19, %114, %106, %104
-  %.9 = phi i32 [ -9999, %19 ], [ -9999, %29 ], [ -9999, %39 ], [ -9999, %70 ], [ -9999, %84 ], [ -9999, %101 ], [ %105, %104 ], [ -9998, %113 ], [ %86, %114 ], [ %107, %106 ]
+  %.9 = phi i32 [ %105, %104 ], [ %86, %114 ], [ -9998, %113 ], [ -9999, %101 ], [ %107, %106 ], [ -9999, %84 ], [ -9999, %70 ], [ -9999, %39 ], [ -9999, %29 ], [ -9999, %19 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
   ret i32 %.9
@@ -5185,7 +5185,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_FinishConf
   br label %166
 
 166:                                              ; preds = %154, %143, %132, %.thread176, %95, %83, %71, %52, %39, %28, %165, %155
-  %.0 = phi i32 [ -9999, %28 ], [ -9999, %39 ], [ -9999, %52 ], [ -9999, %71 ], [ -9999, %83 ], [ -9999, %95 ], [ -9999, %132 ], [ -9999, %143 ], [ -9999, %154 ], [ -9999, %165 ], [ 0, %155 ], [ -9999, %.thread176 ]
+  %.0 = phi i32 [ -9999, %154 ], [ -9999, %143 ], [ -9999, %132 ], [ -9999, %95 ], [ -9999, %83 ], [ -9999, %71 ], [ -9999, %52 ], [ -9999, %39 ], [ -9999, %28 ], [ -9999, %165 ], [ 0, %155 ], [ -9999, %.thread176 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   ret i32 %.0
 }
@@ -5418,7 +5418,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_DetermineF
   br label %112
 
 112:                                              ; preds = %.thread26, %67, %109
-  %.0 = phi i32 [ -9999, %67 ], [ 0, %109 ], [ -9999, %.thread26 ]
+  %.0 = phi i32 [ 0, %109 ], [ -9999, %67 ], [ -9999, %.thread26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   ret i32 %.0
@@ -5958,7 +5958,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr noundef readonly c
   br label %85
 
 85:                                               ; preds = %73, %58, %50, %19, %61, %.thread67, %74, %84
-  %.7 = phi i32 [ -9999, %50 ], [ 0, %61 ], [ -9999, %73 ], [ 0, %.thread67 ], [ -9999, %19 ], [ -9999, %58 ], [ -9999, %84 ], [ 0, %74 ]
+  %.7 = phi i32 [ 0, %61 ], [ -9999, %73 ], [ 0, %.thread67 ], [ -9999, %50 ], [ -9999, %19 ], [ -9999, %58 ], [ -9999, %84 ], [ 0, %74 ]
   ret i32 %.7
 }
 
@@ -7279,7 +7279,7 @@ define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr noundef readonl
   br label %43
 
 43:                                               ; preds = %13, %34, %36, %33, %20
-  %.1 = phi i32 [ 0, %13 ], [ -9999, %20 ], [ 0, %33 ], [ 0, %36 ], [ 0, %34 ]
+  %.1 = phi i32 [ 0, %13 ], [ 0, %33 ], [ 0, %36 ], [ 0, %34 ], [ -9999, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   ret i32 %.1
 }
@@ -7881,7 +7881,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   br label %172
 
 172:                                              ; preds = %55, %39, %22, %.loopexit, %138, %24, %169, %171, %170
-  %.091 = phi i32 [ %23, %22 ], [ 0, %24 ], [ -9999, %39 ], [ 0, %.loopexit ], [ 0, %138 ], [ 0, %169 ], [ 0, %171 ], [ 0, %170 ], [ -9992, %55 ]
+  %.091 = phi i32 [ %23, %22 ], [ 0, %24 ], [ 0, %.loopexit ], [ 0, %138 ], [ -9999, %39 ], [ 0, %169 ], [ 0, %171 ], [ 0, %170 ], [ -9992, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   ret i32 %.091
 }

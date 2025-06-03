@@ -12136,8 +12136,8 @@ default.unreachable1594:                          ; preds = %4509
   unreachable
 
 4516:                                             ; preds = %4195, %4509, %4515, %4514, %4512, %4511
-  %4517 = phi ptr [ %4510, %4515 ], [ %4510, %4514 ], [ %4513, %4512 ], [ %4510, %4511 ], [ %4510, %4509 ], [ %4196, %4195 ]
-  %.0 = phi i32 [ 61, %4515 ], [ 60, %4514 ], [ 59, %4512 ], [ 58, %4511 ], [ 57, %4509 ], [ 62, %4195 ]
+  %4517 = phi ptr [ %4510, %4511 ], [ %4513, %4512 ], [ %4510, %4514 ], [ %4510, %4515 ], [ %4510, %4509 ], [ %4196, %4195 ]
+  %.0 = phi i32 [ 58, %4511 ], [ 59, %4512 ], [ 60, %4514 ], [ 61, %4515 ], [ 57, %4509 ], [ 62, %4195 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %343) #25
   %4518 = load ptr, ptr %0, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -13199,8 +13199,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %4944, %4942, %493
   ret void
 
 4946:                                             ; preds = %4930, %4840, %3183, %2903, %2629, %2355, %2073, %1924, %782
-  %.pn245.pn = phi { ptr, i32 } [ %.pn245, %4930 ], [ %.pn317.pn.pn.pn.pn.pn, %4840 ], [ %.pn324.pn.pn.pn.pn.pn.pn.pn, %3183 ], [ %.pn336.pn.pn.pn.pn.pn, %2903 ], [ %.pn346.pn.pn.pn.pn.pn, %2629 ], [ %.pn356.pn.pn.pn.pn.pn, %2355 ], [ %.pn374.pn, %2073 ], [ %.pn413.pn.pn.pn.pn.pn.pn, %1924 ], [ %.pn430.pn.pn.pn.pn.pn.pn.pn, %782 ]
-  resume { ptr, i32 } %.pn245.pn
+  %.pn430.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn430.pn.pn.pn.pn.pn.pn.pn, %782 ], [ %.pn413.pn.pn.pn.pn.pn.pn, %1924 ], [ %.pn374.pn, %2073 ], [ %.pn356.pn.pn.pn.pn.pn, %2355 ], [ %.pn346.pn.pn.pn.pn.pn, %2629 ], [ %.pn336.pn.pn.pn.pn.pn, %2903 ], [ %.pn324.pn.pn.pn.pn.pn.pn.pn, %3183 ], [ %.pn317.pn.pn.pn.pn.pn, %4840 ], [ %.pn245, %4930 ]
+  resume { ptr, i32 } %.pn430.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

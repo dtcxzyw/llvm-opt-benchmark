@@ -1485,8 +1485,8 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   unreachable
 
 33:                                               ; preds = %25, %31, %30, %29, %28, %27
-  %.not212 = phi i1 [ false, %31 ], [ true, %30 ], [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %25 ]
-  %.0159 = phi i32 [ 0, %31 ], [ 4, %30 ], [ 2, %29 ], [ 3, %28 ], [ 1, %27 ], [ 0, %25 ]
+  %.not212 = phi i1 [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ false, %31 ], [ true, %25 ]
+  %.0159 = phi i32 [ 1, %27 ], [ 3, %28 ], [ 2, %29 ], [ 4, %30 ], [ 0, %31 ], [ 0, %25 ]
   %34 = load i8, ptr %26, align 1, !tbaa !41
   %.not209 = icmp eq i8 %34, 0
   br i1 %.not209, label %37, label %35
@@ -1931,7 +1931,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %229
 
 229:                                              ; preds = %199, %223, %210, %228
-  %.0 = phi i32 [ 1, %228 ], [ %224, %223 ], [ %211, %210 ], [ 0, %199 ]
+  %.0 = phi i32 [ 1, %228 ], [ %211, %210 ], [ %224, %223 ], [ 0, %199 ]
   %.not188 = icmp eq i32 %.0139285, 0
   br i1 %.not188, label %.thread246, label %230
 

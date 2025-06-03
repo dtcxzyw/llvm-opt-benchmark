@@ -993,7 +993,7 @@ define dso_local ptr @slurm_job_step_layout_get(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %42, %1, %52, %47, %44
-  %.1 = phi ptr [ null, %52 ], [ null, %47 ], [ %46, %44 ], [ null, %42 ], [ null, %1 ], [ null, %34 ]
+  %.1 = phi ptr [ null, %52 ], [ null, %42 ], [ %46, %44 ], [ null, %47 ], [ null, %1 ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %3) #11
@@ -1180,7 +1180,7 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %39, %41
   br label %80
 
 80:                                               ; preds = %64, %63, %60, %69, %51
-  %.2 = phi i32 [ %73, %69 ], [ 2017, %63 ], [ 2017, %60 ], [ %58, %64 ], [ %.173, %51 ]
+  %.2 = phi i32 [ %73, %69 ], [ %.173, %51 ], [ 2017, %63 ], [ 2017, %60 ], [ %58, %64 ]
   %81 = call ptr @list_next(ptr noundef %43) #11
   %.not69 = icmp eq ptr %81, null
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -1451,7 +1451,7 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   br label %65
 
 65:                                               ; preds = %56, %50, %46
-  %.2 = phi i32 [ %60, %56 ], [ %53, %50 ], [ %.161, %46 ]
+  %.2 = phi i32 [ %60, %56 ], [ %.161, %46 ], [ %53, %50 ]
   %66 = call ptr @list_next(ptr noundef %38) #11
   %.not57 = icmp eq ptr %66, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !15

@@ -576,7 +576,7 @@ _ZL20lean_io_result_mk_okP11lean_object.exit40:   ; preds = %_ZL8lean_incP11lean
   unreachable
 
 115:                                              ; preds = %_ZL20lean_io_result_mk_okP11lean_object.exit40, %94, %_ZL20lean_io_result_mk_okP11lean_object.exit36, %_ZL20lean_io_result_mk_okP11lean_object.exit32, %_ZL20lean_io_result_mk_okP11lean_object.exit, %10
-  %.0 = phi ptr [ %86, %_ZL20lean_io_result_mk_okP11lean_object.exit36 ], [ %54, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ %68, %_ZL20lean_io_result_mk_okP11lean_object.exit32 ], [ %11, %10 ], [ %95, %94 ], [ %108, %_ZL20lean_io_result_mk_okP11lean_object.exit40 ]
+  %.0 = phi ptr [ %11, %10 ], [ %54, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ %68, %_ZL20lean_io_result_mk_okP11lean_object.exit32 ], [ %86, %_ZL20lean_io_result_mk_okP11lean_object.exit36 ], [ %95, %94 ], [ %108, %_ZL20lean_io_result_mk_okP11lean_object.exit40 ]
   ret ptr %.0
 }
 

@@ -23356,8 +23356,8 @@ _ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj.exit.thread: ; preds = %43
   unreachable
 
 68:                                               ; preds = %48, %66, %65, %64, %63, %62, %60, %58, %56, %54, %52, %51, %50
-  %.sroa.03.sroa.0.0 = phi i32 [ 6, %66 ], [ 5, %65 ], [ 2, %64 ], [ 2, %63 ], [ 2, %62 ], [ %spec.select10.i.i, %60 ], [ %spec.select9.i.i, %58 ], [ %spec.select8.i.i, %56 ], [ %spec.select7.i.i, %54 ], [ %spec.select.i.i, %52 ], [ 4, %51 ], [ 10, %50 ], [ 7, %48 ]
-  %.sroa.20.1 = phi i32 [ 8, %66 ], [ 16, %65 ], [ 64, %64 ], [ 32, %63 ], [ 16, %62 ], [ 128, %60 ], [ 64, %58 ], [ 32, %56 ], [ 16, %54 ], [ 8, %52 ], [ %.sroa.20.0, %51 ], [ %.sroa.20.0, %50 ], [ %.sroa.20.0, %48 ]
+  %.sroa.03.sroa.0.0 = phi i32 [ 10, %50 ], [ 4, %51 ], [ %spec.select.i.i, %52 ], [ %spec.select7.i.i, %54 ], [ %spec.select8.i.i, %56 ], [ %spec.select9.i.i, %58 ], [ %spec.select10.i.i, %60 ], [ 2, %62 ], [ 2, %63 ], [ 2, %64 ], [ 5, %65 ], [ 6, %66 ], [ 7, %48 ]
+  %.sroa.20.1 = phi i32 [ %.sroa.20.0, %50 ], [ %.sroa.20.0, %51 ], [ 8, %52 ], [ 16, %54 ], [ 32, %56 ], [ 64, %58 ], [ 128, %60 ], [ 16, %62 ], [ 32, %63 ], [ 64, %64 ], [ 16, %65 ], [ 8, %66 ], [ %.sroa.20.0, %48 ]
   %69 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
   %.not.i.i = icmp eq ptr %69, %47
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj.exit, label %48

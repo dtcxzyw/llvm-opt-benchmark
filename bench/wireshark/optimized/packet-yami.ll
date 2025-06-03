@@ -646,7 +646,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   br label %.thread
 
 .loopexit:                                        ; preds = %172, %167, %._crit_edge, %._crit_edge325, %._crit_edge332, %._crit_edge339, %._crit_edge345, %107, %57, %46, %41, %36, %31, %25
-  %.0297 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.6.lcssa, %._crit_edge325 ], [ %.5.lcssa, %._crit_edge332 ], [ %.4.lcssa, %._crit_edge339 ], [ %.3.lcssa, %._crit_edge345 ], [ %.2, %107 ], [ %66, %57 ], [ %53, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %25 ], [ %171, %167 ], [ %174, %172 ]
+  %.0297 = phi i32 [ %30, %25 ], [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %53, %46 ], [ %66, %57 ], [ %.2, %107 ], [ %.3.lcssa, %._crit_edge345 ], [ %.4.lcssa, %._crit_edge339 ], [ %.5.lcssa, %._crit_edge332 ], [ %.6.lcssa, %._crit_edge325 ], [ %.7.lcssa, %._crit_edge ], [ %171, %167 ], [ %174, %172 ]
   %177 = sub i32 %.0297, %3
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %177)
   br label %.thread

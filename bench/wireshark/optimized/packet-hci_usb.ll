@@ -443,7 +443,7 @@ proto_item_set_generated.exit147:                 ; preds = %138, %141, %144
   br label %proto_item_set_generated.exit150
 
 proto_item_set_generated.exit150:                 ; preds = %171, %168, %.critedge, %163, %160, %157, %154, %proto_item_set_generated.exit
-  %.0135 = phi ptr [ %59, %proto_item_set_generated.exit ], [ %.1, %154 ], [ %.1, %163 ], [ %.1, %160 ], [ %.1, %157 ], [ %59, %.critedge ], [ %59, %168 ], [ %59, %171 ]
+  %.0135 = phi ptr [ %59, %proto_item_set_generated.exit ], [ %.1, %154 ], [ %.1, %157 ], [ %.1, %160 ], [ %.1, %163 ], [ %59, %.critedge ], [ %59, %168 ], [ %59, %171 ]
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %176 = load i8, ptr %175, align 4
   switch i8 %176, label %183 [

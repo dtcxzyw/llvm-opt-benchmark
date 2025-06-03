@@ -784,7 +784,7 @@ Mtr_InitGroupTree.exit:                           ; preds = %2
   br label %34
 
 34:                                               ; preds = %.preheader, %26, %28, %30, %32
-  %.1 = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %.024, %.preheader ]
+  %.1 = phi i32 [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.024, %.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !27
 

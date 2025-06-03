@@ -3980,7 +3980,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %86, %80
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %131, %130 ]
+  %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.03.2.i.i.i.i.i.i, align 4, !noalias !97
   %133 = invoke noundef zeroext i1 @_ZNK3ue213RoseBuildImpl9isDelayedEj(ptr noundef nonnull align 8 dereferenceable(780) %1, i32 noundef %.val12.val.i.i.i.i.i.i.i)
           to label %.noexc37.i unwind label %.loopexit.split-lp.loopexit.i
@@ -3993,7 +3993,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %86, %80
   br label %136
 
 136:                                              ; preds = %134, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.03.3.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %135, %134 ]
+  %.sroa.03.3.i.i.i.i.i.i = phi ptr [ %135, %134 ], [ %.sroa.03.1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.val14.val.i.i.i.i.i.i.i = load i32, ptr %.sroa.03.3.i.i.i.i.i.i, align 4, !noalias !97
   %137 = invoke noundef zeroext i1 @_ZNK3ue213RoseBuildImpl9isDelayedEj(ptr noundef nonnull align 8 dereferenceable(780) %1, i32 noundef %.val14.val.i.i.i.i.i.i.i)
           to label %.noexc38.i unwind label %.loopexit.split-lp.loopexit.i
@@ -14781,7 +14781,7 @@ define internal fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8f
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %.sroa.03.2.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
+  %.sroa.03.2.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i = load i32, ptr %.sroa.03.2.i.i.i.i, align 4, !noalias !388
   %37 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %0, i32 noundef %.val12.val.i.i.i.i.i), !noalias !388
   %38 = load i32, ptr %37, align 8, !noalias !388
@@ -14793,7 +14793,7 @@ define internal fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8f
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i
-  %.sroa.03.3.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %40, %39 ]
+  %.sroa.03.3.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.03.1.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val14.val.i.i.i.i.i = load i32, ptr %.sroa.03.3.i.i.i.i, align 4, !noalias !388
   %42 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %0, i32 noundef %.val14.val.i.i.i.i.i), !noalias !388
   %43 = load i32, ptr %42, align 8, !noalias !388

@@ -3416,7 +3416,7 @@ thread-pre-split:                                 ; preds = %13, %_ZN6dlexer9sav
   br i1 %384, label %_ZN6dlexer8read_numEv.exit, label %11, !llvm.loop !327
 
 _ZN6dlexer8read_numEv.exit:                       ; preds = %382, %_ZN6dlexer13save_and_nextEv.exit.i, %1, %_ZN6dlexer13save_and_nextEv.exit.thread.i, %_ZN6dlexer13save_and_nextEv.exit, %_ZN6dlexer13save_and_nextEv.exit.thread, %_ZN6dlexer4nextEv.exit67.thread, %_ZN6dlexer4nextEv.exit51.thread, %378, %380, %_ZN6dlexer4nextEv.exit67, %_ZN6dlexer4nextEv.exit51, %_ZN6dlexer4nextEv.exit83, %252, %_ZN6dlexer4nextEv.exit75, %_ZN6dlexer4nextEv.exit59, %_ZN6dlexer4nextEv.exit43, %_ZN6dlexer4nextEv.exit35, %_ZN6dlexer4nextEv.exit27, %_ZN6dlexer4nextEv.exit19, %74, %_ZN6dlexer4nextEv.exit
-  %.0 = phi i32 [ %274, %_ZN6dlexer4nextEv.exit83 ], [ %253, %252 ], [ 10, %_ZN6dlexer4nextEv.exit75 ], [ 14, %_ZN6dlexer4nextEv.exit59 ], [ 17, %_ZN6dlexer4nextEv.exit43 ], [ 7, %_ZN6dlexer4nextEv.exit35 ], [ 1, %_ZN6dlexer4nextEv.exit27 ], [ 0, %_ZN6dlexer4nextEv.exit19 ], [ %75, %74 ], [ 12, %_ZN6dlexer4nextEv.exit ], [ 18, %_ZN6dlexer4nextEv.exit51 ], [ 8, %_ZN6dlexer4nextEv.exit67 ], [ %379, %378 ], [ %381, %380 ], [ 18, %_ZN6dlexer4nextEv.exit51.thread ], [ 8, %_ZN6dlexer4nextEv.exit67.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread.i ], [ 11, %1 ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.i ], [ 11, %382 ]
+  %.0 = phi i32 [ 12, %_ZN6dlexer4nextEv.exit ], [ %75, %74 ], [ 0, %_ZN6dlexer4nextEv.exit19 ], [ 1, %_ZN6dlexer4nextEv.exit27 ], [ 7, %_ZN6dlexer4nextEv.exit35 ], [ 17, %_ZN6dlexer4nextEv.exit43 ], [ 14, %_ZN6dlexer4nextEv.exit59 ], [ 10, %_ZN6dlexer4nextEv.exit75 ], [ %253, %252 ], [ %274, %_ZN6dlexer4nextEv.exit83 ], [ 18, %_ZN6dlexer4nextEv.exit51 ], [ 8, %_ZN6dlexer4nextEv.exit67 ], [ %379, %378 ], [ %381, %380 ], [ 18, %_ZN6dlexer4nextEv.exit51.thread ], [ 8, %_ZN6dlexer4nextEv.exit67.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread ], [ 4, %_ZN6dlexer13save_and_nextEv.exit ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.thread.i ], [ 11, %1 ], [ 4, %_ZN6dlexer13save_and_nextEv.exit.i ], [ 11, %382 ]
   ret i32 %.0
 }
 
@@ -3638,7 +3638,7 @@ _ZNK6dlexer14get_token_dataEv.exit:               ; preds = %._crit_edge.i.i, %_
   br label %.backedge
 
 .backedge:                                        ; preds = %37, %_ZNK6dlexer14get_token_dataEv.exit, %13, %7, %5
-  %.0.be = phi i32 [ %38, %37 ], [ %14, %13 ], [ %36, %_ZNK6dlexer14get_token_dataEv.exit ], [ %9, %7 ], [ %6, %5 ]
+  %.0.be = phi i32 [ %38, %37 ], [ %6, %5 ], [ %9, %7 ], [ %14, %13 ], [ %36, %_ZNK6dlexer14get_token_dataEv.exit ]
   br label %4, !llvm.loop !330
 
 39:                                               ; preds = %4, %4
@@ -12146,8 +12146,8 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i131
   ret i32 %.1
 
 333:                                              ; preds = %327, %202
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %327 ], [ %.pn51.pn, %202 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %202 ], [ %.pn.pn, %327 ]
+  resume { ptr, i32 } %.pn51.pn.pn
 
 334:                                              ; preds = %156
   unreachable

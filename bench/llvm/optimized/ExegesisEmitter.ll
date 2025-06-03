@@ -411,7 +411,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i110.i.i: ; preds = %109
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i117.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i117.i.i: ; preds = %114, %.thread.i.i.i.i.i124.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i110.i.i
-  %.1.i.i.i.i.i118.i.i = phi i32 [ %spec.select.i.i.i.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i110.i.i ], [ %116, %114 ], [ 0, %.thread.i.i.i.i.i124.i.i ]
+  %.1.i.i.i.i.i118.i.i = phi i32 [ %116, %114 ], [ %spec.select.i.i.i.i.i116.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i110.i.i ], [ 0, %.thread.i.i.i.i.i124.i.i ]
   %117 = icmp slt i32 %.1.i.i.i.i.i118.i.i, 0
   br label %_ZN4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_16SmallSetIteratorIS1_Lj16ES3_EEbEOT_.exit.thread358.i.i
 
@@ -647,7 +647,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i92.i.i: ; preds = %163
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i99.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i99.i.i: ; preds = %168, %.thread.i.i.i.i.i101.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i92.i.i
-  %.1.i.i.i.i.i100.i.i = phi i32 [ %spec.select.i.i.i.i.i98.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i92.i.i ], [ %170, %168 ], [ 0, %.thread.i.i.i.i.i101.i.i ]
+  %.1.i.i.i.i.i100.i.i = phi i32 [ %170, %168 ], [ %spec.select.i.i.i.i.i98.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i92.i.i ], [ 0, %.thread.i.i.i.i.i101.i.i ]
   %171 = icmp slt i32 %.1.i.i.i.i.i100.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
 
@@ -782,7 +782,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %197
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i: ; preds = %202, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %204, %202 ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %204, %202 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %205 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i
 
@@ -943,7 +943,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %247
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i: ; preds = %252, %.thread.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ %254, %252 ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i.i = phi i32 [ %254, %252 ], [ %spec.select.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i.i ]
   %255 = icmp slt i32 %.1.i.i.i.i.i.i.i.i, 0
   br label %.thread.i.i.i
 
@@ -1164,7 +1164,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i136.i.i: ; preds = %31
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i143.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i143.i.i: ; preds = %319, %.thread.i.i.i.i.i.i147.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i136.i.i
-  %.1.i.i.i.i.i.i144.i.i = phi i32 [ %spec.select.i.i.i.i.i.i142.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i136.i.i ], [ %321, %319 ], [ 0, %.thread.i.i.i.i.i.i147.i.i ]
+  %.1.i.i.i.i.i.i144.i.i = phi i32 [ %321, %319 ], [ %spec.select.i.i.i.i.i.i142.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i136.i.i ], [ 0, %.thread.i.i.i.i.i.i147.i.i ]
   %322 = icmp slt i32 %.1.i.i.i.i.i.i144.i.i, 0
   br label %.thread.i145.i.i
 
@@ -1617,7 +1617,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43.i.i:           ; preds = %432, %430
   br label %502
 
 502:                                              ; preds = %500, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i46 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %501, %500 ]
+  %.1.i.i.i.i.i.i.i.i46 = phi ptr [ %501, %500 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i46, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %.1.val.i.i.i.i.i.i.i.i, ptr nonnull @.str.6, i64 13) #18
@@ -1646,7 +1646,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43.i.i:           ; preds = %432, %430
   br label %514
 
 514:                                              ; preds = %512, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %513, %512 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %513, %512 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %10, ptr noundef nonnull align 8 dereferenceable(192) %.2.val.i.i.i.i.i.i.i.i, ptr nonnull @.str.6, i64 13) #18
@@ -3914,7 +3914,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %15
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i: ; preds = %20, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %22, %20 ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %22, %20 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
   %23 = icmp slt i32 %.1.i.i.i.i.i, 0
   br label %.thread
 

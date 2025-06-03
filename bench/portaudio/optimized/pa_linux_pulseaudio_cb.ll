@@ -1306,7 +1306,7 @@ PaPulseAudio_UnLock.exit128:                      ; preds = %PaPulseAudio_UnLock
   br label %123
 
 123:                                              ; preds = %122, %121, %119
-  %.091 = phi i32 [ -10000, %122 ], [ 0, %121 ], [ 0, %119 ]
+  %.091 = phi i32 [ 0, %121 ], [ 0, %119 ], [ -10000, %122 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret i32 %.091
 }

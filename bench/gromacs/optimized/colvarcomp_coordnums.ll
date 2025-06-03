@@ -4114,8 +4114,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit49.i:   ; preds = %._crit_edge.i46.i, 
   br label %_ZN6colvar8coordnum18switching_functionILi769EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi769EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %88, %179
-  %180 = phi ptr [ %89, %88 ], [ %.pre, %179 ]
-  %.1.i = phi double [ 0.000000e+00, %88 ], [ %.2.i, %179 ]
+  %180 = phi ptr [ %.pre, %179 ], [ %89, %88 ]
+  %.1.i = phi double [ %.2.i, %179 ], [ 0.000000e+00, %88 ]
   %181 = load double, ptr %64, align 8, !tbaa !124
   %182 = fadd double %.1.i, %181
   store double %182, ptr %64, align 8, !tbaa !124
@@ -5027,8 +5027,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit55.i:   ; preds = %._crit_edge.i52.i, 
   br label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %86, %168
-  %169 = phi ptr [ %87, %86 ], [ %.pre, %168 ]
-  %.1.i = phi double [ 0.000000e+00, %86 ], [ %.2.i, %168 ]
+  %169 = phi ptr [ %.pre, %168 ], [ %87, %86 ]
+  %.1.i = phi double [ %.2.i, %168 ], [ 0.000000e+00, %86 ]
   %170 = load double, ptr %62, align 8, !tbaa !124
   %171 = fadd double %.1.i, %170
   store double %171, ptr %62, align 8, !tbaa !124
@@ -5668,7 +5668,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit49:     ; preds = %14, %._crit_edge.i4
   br label %105
 
 105:                                              ; preds = %8, %104
-  %.1 = phi double [ 0.000000e+00, %8 ], [ %.2, %104 ]
+  %.1 = phi double [ %.2, %104 ], [ 0.000000e+00, %8 ]
   ret double %.1
 }
 
@@ -6124,7 +6124,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit55:     ; preds = %14, %._crit_edge.i5
   br label %94
 
 94:                                               ; preds = %8, %93
-  %.1 = phi double [ 0.000000e+00, %8 ], [ %.2, %93 ]
+  %.1 = phi double [ %.2, %93 ], [ 0.000000e+00, %8 ]
   ret double %.1
 }
 
@@ -6776,8 +6776,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i, 
   br label %_ZN6colvar8coordnum18switching_functionILi768EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi768EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %85, %_ZN12colvarmodule13integer_powerERKdi.exit38.i
-  %135 = phi ptr [ %86, %85 ], [ %.pre, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ]
-  %.1.i = phi double [ 0.000000e+00, %85 ], [ %..i, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ]
+  %135 = phi ptr [ %.pre, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ], [ %86, %85 ]
+  %.1.i = phi double [ %..i, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ], [ 0.000000e+00, %85 ]
   %136 = load double, ptr %64, align 8, !tbaa !124
   %137 = fadd double %.1.i, %136
   store double %137, ptr %64, align 8, !tbaa !124
@@ -7538,8 +7538,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i, 
   br label %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %83, %_ZN12colvarmodule13integer_powerERKdi.exit38.i
-  %131 = phi ptr [ %84, %83 ], [ %.pre, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ]
-  %.1.i = phi double [ 0.000000e+00, %83 ], [ %..i, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ]
+  %131 = phi ptr [ %.pre, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ], [ %84, %83 ]
+  %.1.i = phi double [ %..i, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ], [ 0.000000e+00, %83 ]
   %132 = load double, ptr %62, align 8, !tbaa !124
   %133 = fadd double %.1.i, %132
   store double %133, ptr %62, align 8, !tbaa !124
@@ -8095,7 +8095,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %14, %._crit_edge.i3
   br label %60
 
 60:                                               ; preds = %8, %_ZN12colvarmodule13integer_powerERKdi.exit38
-  %.1 = phi double [ 0.000000e+00, %8 ], [ %., %_ZN12colvarmodule13integer_powerERKdi.exit38 ]
+  %.1 = phi double [ %., %_ZN12colvarmodule13integer_powerERKdi.exit38 ], [ 0.000000e+00, %8 ]
   ret double %.1
 }
 
@@ -8400,7 +8400,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %14, %._crit_edge.i3
   br label %56
 
 56:                                               ; preds = %8, %_ZN12colvarmodule13integer_powerERKdi.exit38
-  %.1 = phi double [ 0.000000e+00, %8 ], [ %., %_ZN12colvarmodule13integer_powerERKdi.exit38 ]
+  %.1 = phi double [ %., %_ZN12colvarmodule13integer_powerERKdi.exit38 ], [ 0.000000e+00, %8 ]
   ret double %.1
 }
 
@@ -9129,7 +9129,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit55.i57: ; preds = %._crit_edge.i52.i55
   br label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph, %245
-  %.1.i = phi double [ 0.000000e+00, %.lr.ph ], [ %.2.i, %245 ]
+  %.1.i = phi double [ %.2.i, %245 ], [ 0.000000e+00, %.lr.ph ]
   %246 = load double, ptr %52, align 8, !tbaa !124
   %247 = fadd double %.1.i, %246
   store double %247, ptr %52, align 8, !tbaa !124
@@ -9627,7 +9627,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i55
   br label %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph, %_ZN12colvarmodule13integer_powerERKdi.exit38.i
-  %.1.i = phi double [ 0.000000e+00, %.lr.ph ], [ %..i59, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ]
+  %.1.i = phi double [ %..i59, %_ZN12colvarmodule13integer_powerERKdi.exit38.i ], [ 0.000000e+00, %.lr.ph ]
   %167 = load double, ptr %52, align 8, !tbaa !124
   %168 = fadd double %.1.i, %167
   store double %168, ptr %52, align 8, !tbaa !124

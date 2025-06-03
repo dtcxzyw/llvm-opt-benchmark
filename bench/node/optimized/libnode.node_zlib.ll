@@ -6836,7 +6836,7 @@ sw.bb24.i:                                        ; preds = %sw.bb4.i
   br i1 %cmp25.old.i, label %sw.bb36.i, label %if.end27.i
 
 if.end27.i:                                       ; preds = %sw.bb24.i, %if.then15.i
-  %next_expected_header_byte.1.i = phi ptr [ %4, %sw.bb24.i ], [ %incdec.ptr.i, %if.then15.i ]
+  %next_expected_header_byte.1.i = phi ptr [ %incdec.ptr.i, %if.then15.i ], [ %4, %sw.bb24.i ]
   %7 = load i8, ptr %next_expected_header_byte.1.i, align 1
   %cmp29.i = icmp eq i8 %7, -117
   br i1 %cmp29.i, label %if.then30.i, label %sw.bb36.sink.split.i

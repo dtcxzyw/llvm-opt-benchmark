@@ -5126,7 +5126,7 @@ default.unreachable7:                             ; preds = %3
   ret { i64, ptr } %14
 
 15:                                               ; preds = %7, %4
-  %.sroa.05.0 = phi i64 [ %9, %7 ], [ %6, %4 ]
+  %.sroa.05.0 = phi i64 [ %6, %4 ], [ %9, %7 ]
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.05.0, i64 %2)
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = icmp slt i64 %2, 0
@@ -5174,7 +5174,7 @@ default.unreachable7:                             ; preds = %3
   ret { i64, ptr } %14
 
 15:                                               ; preds = %7, %4
-  %.sroa.05.0 = phi i64 [ %9, %7 ], [ %6, %4 ]
+  %.sroa.05.0 = phi i64 [ %6, %4 ], [ %9, %7 ]
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.05.0, i64 %2)
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = icmp slt i64 %2, 0
@@ -5222,7 +5222,7 @@ default.unreachable7:                             ; preds = %3
   ret { i64, ptr } %14
 
 15:                                               ; preds = %7, %4
-  %.sroa.05.0 = phi i64 [ %9, %7 ], [ %6, %4 ]
+  %.sroa.05.0 = phi i64 [ %6, %4 ], [ %9, %7 ]
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.05.0, i64 %2)
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = icmp slt i64 %2, 0

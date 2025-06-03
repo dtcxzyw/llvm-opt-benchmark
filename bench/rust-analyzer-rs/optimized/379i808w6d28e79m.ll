@@ -544,8 +544,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17h48d688d578ade3c7E.exit"
 
 45:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i", %46, %40
-  %.sroa.9.0.i = phi i64 [ %47, %46 ], [ %41, %40 ], [ %spec.select, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i" ]
-  %.sroa.0.0.i = phi i64 [ 0, %46 ], [ 0, %40 ], [ %spec.select55, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i" ]
+  %.sroa.9.0.i = phi i64 [ %41, %40 ], [ %47, %46 ], [ %spec.select, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i" ]
+  %.sroa.0.0.i = phi i64 [ 0, %40 ], [ 0, %46 ], [ %spec.select55, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i" ]
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !106, !noalias !112
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !106, !noalias !112
@@ -648,8 +648,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17h48d688d578ade3c7E.exit"
 
 75:                                               ; preds = %84, %81, %76, %70, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i30"
-  %.sroa.9.0.i31 = phi i64 [ %87, %84 ], [ %77, %76 ], [ %71, %70 ], [ %.060, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i30" ], [ %82, %81 ]
-  %.sroa.0.0.i32 = phi i64 [ 0, %84 ], [ 0, %76 ], [ 0, %70 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i30" ], [ 2, %81 ]
+  %.sroa.9.0.i31 = phi i64 [ %87, %84 ], [ %71, %70 ], [ %77, %76 ], [ %.060, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i30" ], [ %82, %81 ]
+  %.sroa.0.0.i32 = phi i64 [ 0, %84 ], [ 0, %70 ], [ 0, %76 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h9aa186e16d861f37E.exit.thread.i30" ], [ 2, %81 ]
   store i64 %.sroa.0.0.i32, ptr %0, align 8, !alias.scope !123, !noalias !128
   %.sroa.9.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i31, ptr %.sroa.9.0..sroa_idx.i33, align 8, !alias.scope !123, !noalias !128
@@ -1160,7 +1160,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18p
   br label %21
 
 21:                                               ; preds = %.loopexit, %17, %19
-  %.1 = phi ptr [ null, %17 ], [ %20, %19 ], [ %16, %.loopexit ]
+  %.1 = phi ptr [ %16, %.loopexit ], [ null, %17 ], [ %20, %19 ]
   ret ptr %.1
 }
 
@@ -2519,8 +2519,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   tail call void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h79f3fca64c3f188eE.llvm.5665675499364299117"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %5)
   br label %25
 
-23:                                               ; preds = %19, %.loopexit.i
-  %.1.i.ph = phi ptr [ %18, %.loopexit.i ], [ %20, %19 ]
+23:                                               ; preds = %.loopexit.i, %19
+  %.1.i.ph = phi ptr [ %20, %19 ], [ %18, %.loopexit.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.1.i.ph, ptr %24, align 8
   store i8 22, ptr %0, align 8
@@ -4624,31 +4624,31 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %217, label %212
 
-115:                                              ; preds = %61, %54
-  %.0.i.ph = phi ptr [ %55, %54 ], [ %62, %61 ]
+115:                                              ; preds = %54, %61
+  %.0.i.ph = phi ptr [ %62, %61 ], [ %55, %54 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %116, align 8
   store i8 22, ptr %0, align 8
   br label %283
 
 117:                                              ; preds = %.thread263, %.thread200
-  %.sroa.083.0 = phi i8 [ %.sroa.083.3230275, %.thread263 ], [ %.sroa.083.2167212, %.thread200 ]
-  %.sroa.21.0 = phi i8 [ %.sroa.21.2232274, %.thread263 ], [ %.sroa.21.1169211, %.thread200 ]
-  %.sroa.2392.0 = phi i64 [ %.sroa.2392.3234273, %.thread263 ], [ %.sroa.2392.2171210, %.thread200 ]
-  %.sroa.35.0 = phi i64 [ %.sroa.35.3236272, %.thread263 ], [ %.sroa.35.2173209, %.thread200 ]
-  %.sroa.37.0 = phi i64 [ %.sroa.37.3238271, %.thread263 ], [ %.sroa.37.2175208, %.thread200 ]
+  %.sroa.083.0 = phi i8 [ %.sroa.083.2167212, %.thread200 ], [ %.sroa.083.3230275, %.thread263 ]
+  %.sroa.21.0 = phi i8 [ %.sroa.21.1169211, %.thread200 ], [ %.sroa.21.2232274, %.thread263 ]
+  %.sroa.2392.0 = phi i64 [ %.sroa.2392.2171210, %.thread200 ], [ %.sroa.2392.3234273, %.thread263 ]
+  %.sroa.35.0 = phi i64 [ %.sroa.35.2173209, %.thread200 ], [ %.sroa.35.3236272, %.thread263 ]
+  %.sroa.37.0 = phi i64 [ %.sroa.37.2175208, %.thread200 ], [ %.sroa.37.3238271, %.thread263 ]
   %118 = icmp eq i8 %.sroa.083.0, 22
   br i1 %118, label %279, label %.thread
 
-119:                                              ; preds = %77, %70
-  %.0.i57.ph = phi ptr [ %71, %70 ], [ %78, %77 ]
+119:                                              ; preds = %70, %77
+  %.0.i57.ph = phi ptr [ %78, %77 ], [ %71, %70 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i57.ph, ptr %120, align 8
   store i8 22, ptr %0, align 8
   br label %283
 
-121:                                              ; preds = %93, %86
-  %.0.i62.ph = phi ptr [ %87, %86 ], [ %94, %93 ]
+121:                                              ; preds = %86, %93
+  %.0.i62.ph = phi ptr [ %94, %93 ], [ %87, %86 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i62.ph, ptr %122, align 8
   store i8 22, ptr %0, align 8
@@ -4859,7 +4859,7 @@ switch.lookup:                                    ; preds = %95
           to label %common.resume unwind label %210
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h3b5903e5b2523940E.exit": ; preds = %180, %179, %.noexc66, %.noexc
-  %.1.i = phi ptr [ %167, %.noexc66 ], [ %165, %.noexc ], [ %178, %179 ], [ %176, %180 ]
+  %.1.i = phi ptr [ %165, %.noexc ], [ %167, %.noexc66 ], [ %178, %179 ], [ %176, %180 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %.1.i, ptr %185, align 8
@@ -4962,7 +4962,7 @@ common.resume.sink.split:                         ; preds = %208, %268
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %243, %.body
-  %common.resume.op = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %244, %243 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 208:                                              ; preds = %206, %202, %200
@@ -5087,7 +5087,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %common.resume unwind label %210
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hc22ec177dc9ce117E.exit": ; preds = %.noexc74, %.noexc73, %.noexc72
-  %.1.i69 = phi ptr [ %240, %.noexc73 ], [ %242, %.noexc74 ], [ %238, %.noexc72 ]
+  %.1.i69 = phi ptr [ %238, %.noexc72 ], [ %240, %.noexc73 ], [ %242, %.noexc74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   %245 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %.1.i69, ptr %245, align 8
@@ -5225,12 +5225,12 @@ switch.lookup342:                                 ; preds = %272
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   br label %283
 
-.thread:                                          ; preds = %81, %65, %49, %switch.lookup, %138, %switch.lookup342, %117
-  %.sroa.37.0145 = phi i64 [ %.sroa.37.0, %117 ], [ undef, %switch.lookup ], [ %.sroa.37.1, %138 ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
-  %.sroa.35.0144 = phi i64 [ %.sroa.35.0, %117 ], [ undef, %switch.lookup ], [ %.sroa.35.1, %138 ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
-  %.sroa.2392.0143 = phi i64 [ %.sroa.2392.0, %117 ], [ %.sroa.2.0.copyload, %switch.lookup ], [ %.sroa.2392.1, %138 ], [ %.sroa.2108.0.copyload, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
-  %.sroa.21.0142 = phi i8 [ %.sroa.21.0, %117 ], [ undef, %switch.lookup ], [ undef, %138 ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ 1, %65 ], [ 0, %81 ]
-  %.sroa.083.0141 = phi i8 [ %.sroa.083.0, %117 ], [ %switch.masked, %switch.lookup ], [ %.sroa.083.1, %138 ], [ %switch.masked346, %switch.lookup342 ], [ 18, %49 ], [ 0, %65 ], [ 0, %81 ]
+.thread:                                          ; preds = %81, %65, %49, %138, %switch.lookup, %switch.lookup342, %117
+  %.sroa.37.0145 = phi i64 [ %.sroa.37.0, %117 ], [ %.sroa.37.1, %138 ], [ undef, %switch.lookup ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
+  %.sroa.35.0144 = phi i64 [ %.sroa.35.0, %117 ], [ %.sroa.35.1, %138 ], [ undef, %switch.lookup ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
+  %.sroa.2392.0143 = phi i64 [ %.sroa.2392.0, %117 ], [ %.sroa.2392.1, %138 ], [ %.sroa.2.0.copyload, %switch.lookup ], [ %.sroa.2108.0.copyload, %switch.lookup342 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
+  %.sroa.21.0142 = phi i8 [ %.sroa.21.0, %117 ], [ undef, %138 ], [ undef, %switch.lookup ], [ undef, %switch.lookup342 ], [ undef, %49 ], [ 1, %65 ], [ 0, %81 ]
+  %.sroa.083.0141 = phi i8 [ %.sroa.083.0, %117 ], [ %.sroa.083.1, %138 ], [ %switch.masked, %switch.lookup ], [ %switch.masked346, %switch.lookup342 ], [ 18, %49 ], [ 0, %65 ], [ 0, %81 ]
   store i8 %.sroa.083.0141, ptr %0, align 8
   %.sroa.2122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.21.0142, ptr %.sroa.2122.0..sroa_idx, align 1

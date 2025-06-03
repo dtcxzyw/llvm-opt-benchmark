@@ -4638,7 +4638,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit682.thread1038:  ; preds = %_ZN4llvmeqENS_9Stri
   br label %2108
 
 2108:                                             ; preds = %2106, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %2107, %2106 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %2107, %2106 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %2109 = load ptr, ptr %.sroa.025.1.i.i.i.i, align 8, !tbaa !16
   %2110 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2109, ptr nonnull @.str.18, i64 14)
   br i1 %2110, label %"_ZN4llvm7find_ifIRSt6vectorIPKNS_6RecordESaIS4_EEZL16emitARMTargetDefRKNS_12RecordKeeperERNS_11raw_ostreamEE3$_0EEDaOT_T0_.exit", label %2111
@@ -4648,7 +4648,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit682.thread1038:  ; preds = %_ZN4llvmeqENS_9Stri
   br label %2113
 
 2113:                                             ; preds = %2111, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %2112, %2111 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %2112, %2111 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %2114 = load ptr, ptr %.sroa.025.2.i.i.i.i, align 8, !tbaa !16
   %2115 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2114, ptr nonnull @.str.18, i64 14)
   %spec.select.i.i.i.i = select i1 %2115, ptr %.sroa.025.2.i.i.i.i, ptr %.val249

@@ -70,12 +70,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
   %2 = alloca %"class.std::optional", align 8
   %3 = load i8, ptr %0, align 8, !tbaa !3
   %4 = icmp ugt i8 %3, 28
-  %5 = zext i8 %3 to i32
-  %6 = add nsw i32 %5, -29
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %.1.i = select i1 %4, i32 %6, i32 %9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i16, ptr %5, align 2
+  %7 = zext i16 %6 to i32
+  %8 = zext i8 %3 to i32
+  %9 = add nsw i32 %8, -29
+  %.1.i = select i1 %4, i32 %9, i32 %7
   switch i32 %.1.i, label %73 [
     i32 13, label %10
     i32 15, label %10
@@ -149,7 +149,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #11
   %40 = icmp eq i8 %3, 5
-  %41 = icmp eq i16 %8, 34
+  %41 = icmp eq i16 %6, 34
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %43, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
@@ -199,7 +199,7 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
   br label %.critedge
 
 63:                                               ; preds = %1, %1
-  %64 = add nsw i32 %5, -68
+  %64 = add nsw i32 %8, -68
   %switch.and.i.i.i.i.i.i.i.i.i = and i32 %64, -5
   %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
   %.not36.not = select i1 %4, i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, i1 false
@@ -243,7 +243,7 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %82, %67, %25, %10, %14, %68, %31, %26
-  %.0 = phi i1 [ %72, %68 ], [ %35, %31 ], [ %30, %26 ], [ true, %10 ], [ %16, %14 ], [ %spec.select, %25 ], [ %spec.select30, %67 ], [ %spec.select33, %82 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
+  %.0 = phi i1 [ %30, %26 ], [ %35, %31 ], [ %72, %68 ], [ true, %10 ], [ %16, %14 ], [ %spec.select, %25 ], [ %spec.select30, %67 ], [ %spec.select33, %82 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
   ret i1 %.0
 }
 
@@ -324,7 +324,7 @@ define dso_local noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr
   br label %9
 
 9:                                                ; preds = %4, %7
-  %.1 = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.1 = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.1
 }
 
@@ -346,7 +346,7 @@ define dso_local noundef ptr @_ZNK4llvm11GEPOperator20getResultElementTypeEv(ptr
   br label %9
 
 9:                                                ; preds = %4, %7
-  %.1 = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.1 = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.1
 }
 
@@ -372,7 +372,7 @@ define dso_local range(i8 -1, 64) i8 @_ZNK4llvm11GEPOperator24getMaxPreservedAli
   br label %_ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit.i
 
 _ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit.i: ; preds = %10, %7
-  %.1.i.i = phi ptr [ %9, %7 ], [ %11, %10 ]
+  %.1.i.i = phi ptr [ %11, %10 ], [ %9, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1073741824
@@ -488,7 +488,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %15, %18
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i: ; preds = %59, %56, %51
-  %.1.i.i26 = phi ptr [ %32, %51 ], [ %58, %56 ], [ %60, %59 ]
+  %.1.i.i26 = phi ptr [ %60, %59 ], [ %58, %56 ], [ %32, %51 ]
   %61 = icmp eq i64 %29, 2
   %62 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %.1.i.i26)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %62, 0
@@ -547,7 +547,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i32
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i32: ; preds = %89, %86, %74
-  %.1.i.i33 = phi ptr [ %32, %74 ], [ %88, %86 ], [ %91, %89 ]
+  %.1.i.i33 = phi ptr [ %91, %89 ], [ %88, %86 ], [ %32, %74 ]
   %92 = getelementptr inbounds nuw i8, ptr %.1.i.i33, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 255
@@ -685,8 +685,8 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2INS_4User23const_value_op_iteratorEEERK
   br label %_ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit
 
 _ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit: ; preds = %38, %41
-  %43 = phi i32 [ %35, %38 ], [ %.pre, %41 ]
-  %.1.i = phi ptr [ %40, %38 ], [ %42, %41 ]
+  %43 = phi i32 [ %.pre, %41 ], [ %35, %38 ]
+  %.1.i = phi ptr [ %42, %41 ], [ %40, %38 ]
   %44 = load ptr, ptr %6, align 8, !tbaa !54
   %45 = zext i32 %43 to i64
   store ptr %3, ptr %7, align 8, !tbaa !60
@@ -816,7 +816,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %30, %38, %41
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit: ; preds = %54, %61, %64
-  %.1.i = phi ptr [ %58, %54 ], [ %63, %61 ], [ %66, %64 ]
+  %.1.i = phi ptr [ %66, %64 ], [ %63, %61 ], [ %58, %54 ]
   %67 = call noundef zeroext i1 @_ZNK4llvm4Type12isScalableTyEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i) #11
   %68 = load ptr, ptr %.sroa.093.0127, align 8, !tbaa !58
   %69 = icmp eq i64 %55, 0
@@ -941,7 +941,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %109, %111
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i: ; preds = %117, %114, %_ZN4llvm5APIntC2ERKS0_.exit
-  %.1.i.i = phi ptr [ %58, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %116, %114 ], [ %119, %117 ]
+  %.1.i.i = phi ptr [ %119, %117 ], [ %116, %114 ], [ %58, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %120 = icmp eq i64 %55, 2
   %121 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef %.1.i.i)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %121, 0
@@ -1033,7 +1033,7 @@ _ZN4llvm5APIntC2ERKS0_.exit68:                    ; preds = %146, %148
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i72
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i72: ; preds = %154, %151, %_ZN4llvm5APIntC2ERKS0_.exit68
-  %.1.i.i74 = phi ptr [ %58, %_ZN4llvm5APIntC2ERKS0_.exit68 ], [ %153, %151 ], [ %156, %154 ]
+  %.1.i.i74 = phi ptr [ %156, %154 ], [ %153, %151 ], [ %58, %_ZN4llvm5APIntC2ERKS0_.exit68 ]
   %157 = icmp eq i64 %55, 2
   %158 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef %.1.i.i74)
   %.fca.0.extract.i.i.i75 = extractvalue { i64, i8 } %158, 0
@@ -1123,7 +1123,7 @@ _ZN4llvm5APIntD2Ev.exit86:                        ; preds = %176, %179, %182
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i90
 
 _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit.i90: ; preds = %189, %186, %.thread114
-  %.1.i.i91 = phi ptr [ %58, %.thread114 ], [ %188, %186 ], [ %191, %189 ]
+  %.1.i.i91 = phi ptr [ %191, %189 ], [ %188, %186 ], [ %58, %.thread114 ]
   %192 = getelementptr inbounds nuw i8, ptr %.1.i.i91, i64 8
   %193 = load i32, ptr %192, align 8
   %194 = and i32 %193, 255
@@ -1392,7 +1392,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11GEPOperator13collectOffsetERKNS_
   br label %_ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit.i
 
 _ZNK4llvm11GEPOperator20getSourceElementTypeEv.exit.i: ; preds = %24, %21
-  %.1.i.i = phi ptr [ %23, %21 ], [ %25, %24 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %23, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1073741824
@@ -1477,7 +1477,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %29, %32
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit: ; preds = %57, %64, %67
-  %.1.i = phi ptr [ %61, %57 ], [ %66, %64 ], [ %69, %67 ]
+  %.1.i = phi ptr [ %69, %67 ], [ %66, %64 ], [ %61, %57 ]
   %70 = call noundef zeroext i1 @_ZNK4llvm4Type12isScalableTyEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i) #11
   %71 = load ptr, ptr %.sroa.079.0105, align 8, !tbaa !38
   %72 = icmp eq i64 %58, 0
@@ -1599,7 +1599,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %109, %111
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i: ; preds = %117, %114, %_ZN4llvm5APIntC2ERKS0_.exit
-  %.1.i.i48 = phi ptr [ %61, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %116, %114 ], [ %119, %117 ]
+  %.1.i.i48 = phi ptr [ %119, %117 ], [ %116, %114 ], [ %61, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %120 = icmp eq i64 %58, 2
   %121 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %.1.i.i48)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %121, 0
@@ -1664,7 +1664,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i53
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i53: ; preds = %146, %143, %140
-  %.1.i.i55 = phi ptr [ %61, %140 ], [ %145, %143 ], [ %147, %146 ]
+  %.1.i.i55 = phi ptr [ %147, %146 ], [ %145, %143 ], [ %61, %140 ]
   %148 = icmp eq i64 %58, 2
   %149 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %.1.i.i55)
   %.fca.0.extract.i.i.i56 = extractvalue { i64, i8 } %149, 0
@@ -1875,7 +1875,7 @@ _ZN4llvm5APIntD2Ev.exit49.thread:                 ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i75
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i75: ; preds = %224, %221, %_ZN4llvm5APIntD2Ev.exit49.thread
-  %.1.i.i76 = phi ptr [ %61, %_ZN4llvm5APIntD2Ev.exit49.thread ], [ %223, %221 ], [ %226, %224 ]
+  %.1.i.i76 = phi ptr [ %226, %224 ], [ %223, %221 ], [ %61, %_ZN4llvm5APIntD2Ev.exit49.thread ]
   %227 = getelementptr inbounds nuw i8, ptr %.1.i.i76, i64 8
   %228 = load i32, ptr %227, align 8
   %229 = and i32 %228, 255
@@ -2503,8 +2503,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

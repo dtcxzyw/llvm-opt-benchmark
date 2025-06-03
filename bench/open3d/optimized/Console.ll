@@ -303,8 +303,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %67
 
 67:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit37.thread52
-  %68 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit37.thread52 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit37.thread52 ]
+  %68 = phi i64 [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit37.thread52 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit37.thread52 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %69 = load ptr, ptr %.1, align 8, !tbaa !4
   %70 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #19
   %71 = icmp eq i64 %68, %70
@@ -325,8 +325,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %77
 
 77:                                               ; preds = %._crit_edge._crit_edge200, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit39.thread53
-  %78 = phi i64 [ %.pre202, %._crit_edge._crit_edge200 ], [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit39.thread53 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge200 ], [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit39.thread53 ]
+  %78 = phi i64 [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit39.thread53 ], [ %.pre202, %._crit_edge._crit_edge200 ]
+  %.2 = phi ptr [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIPPcEEbT_.exit39.thread53 ], [ %.029.lcssa, %._crit_edge._crit_edge200 ]
   %79 = load ptr, ptr %.2, align 8, !tbaa !4
   %80 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #19
   %81 = icmp eq i64 %78, %80

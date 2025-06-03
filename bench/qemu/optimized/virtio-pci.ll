@@ -3162,7 +3162,7 @@ virtio_address_space_lookup.exit.i:               ; preds = %108
   br label %131
 
 131:                                              ; preds = %129, %127, %125
-  %.0.i = phi i64 [ %130, %129 ], [ %128, %127 ], [ %126, %125 ]
+  %.0.i = phi i64 [ %126, %125 ], [ %128, %127 ], [ %130, %129 ]
   %132 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %88, i1 false)
   %133 = call i32 @memory_region_dispatch_write(ptr noundef nonnull %117, i64 noundef %116, i64 noundef %.0.i, i32 noundef %132, i64 4294967296) #15
   br label %virtio_address_space_write.exit
@@ -3538,7 +3538,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %8, %32, %36, %12, %16, %126, %118, %111, %103, %96, %88, %81, %77, %69, %63, %58, %54, %51, %47, %41, %29, %9
-  %.046 = phi i32 [ %133, %126 ], [ %125, %118 ], [ %117, %111 ], [ %110, %103 ], [ %102, %96 ], [ %95, %88 ], [ %87, %81 ], [ %80, %77 ], [ %76, %69 ], [ %68, %63 ], [ %62, %58 ], [ %57, %54 ], [ %53, %51 ], [ %50, %47 ], [ %44, %41 ], [ %40, %36 ], [ 0, %32 ], [ %31, %29 ], [ %28, %16 ], [ 0, %12 ], [ %11, %9 ], [ 0, %8 ], [ %spec.select, %.preheader ]
+  %.046 = phi i32 [ %11, %9 ], [ %28, %16 ], [ 0, %12 ], [ %31, %29 ], [ %40, %36 ], [ 0, %32 ], [ %44, %41 ], [ %50, %47 ], [ %53, %51 ], [ %57, %54 ], [ %62, %58 ], [ %68, %63 ], [ %76, %69 ], [ %80, %77 ], [ %87, %81 ], [ %95, %88 ], [ %102, %96 ], [ %110, %103 ], [ %117, %111 ], [ %125, %118 ], [ %133, %126 ], [ 0, %8 ], [ %spec.select, %.preheader ]
   %134 = zext i32 %.046 to i64
   br label %virtio_bus_get_device.exit.thread
 
@@ -4020,7 +4020,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
   br label %18
 
 18:                                               ; preds = %8, %15, %12, %9
-  %.0.shrunk = phi i32 [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ 0, %8 ]
+  %.0.shrunk = phi i32 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ 0, %8 ]
   %.0 = zext i32 %.0.shrunk to i64
   br label %virtio_bus_get_device.exit.thread
 
@@ -4414,7 +4414,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %15, %13
   br label %virtio_ioport_read.exit
 
 virtio_ioport_read.exit:                          ; preds = %virtio_bus_get_device.exit.i, %19, %23, %27, %34, %39, %43, %47, %51, %55
-  %.0.i = phi i32 [ -1, %virtio_bus_get_device.exit.i ], [ %60, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %34 ], [ %33, %27 ], [ %26, %23 ], [ %22, %19 ]
+  %.0.i = phi i32 [ -1, %virtio_bus_get_device.exit.i ], [ %22, %19 ], [ %26, %23 ], [ %33, %27 ], [ %38, %34 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %60, %55 ]
   %61 = zext i32 %.0.i to i64
   br label %virtio_is_big_endian.exit.thread
 
@@ -4488,7 +4488,7 @@ virtio_ioport_read.exit:                          ; preds = %virtio_bus_get_devi
   br label %virtio_is_big_endian.exit.thread
 
 virtio_is_big_endian.exit.thread:                 ; preds = %88, %74, %82, %68, %virtio_bus_get_device.exit.thread, %62, %64, %78, %92, %virtio_bus_get_device.exit, %virtio_ioport_read.exit
-  %.022 = phi i64 [ %61, %virtio_ioport_read.exit ], [ -1, %virtio_bus_get_device.exit ], [ 0, %62 ], [ %94, %92 ], [ %81, %78 ], [ %67, %64 ], [ -1, %virtio_bus_get_device.exit.thread ], [ %71, %68 ], [ %85, %82 ], [ %71, %74 ], [ %85, %88 ]
+  %.022 = phi i64 [ %61, %virtio_ioport_read.exit ], [ -1, %virtio_bus_get_device.exit ], [ 0, %62 ], [ %67, %64 ], [ %81, %78 ], [ %94, %92 ], [ -1, %virtio_bus_get_device.exit.thread ], [ %71, %68 ], [ %85, %82 ], [ %71, %74 ], [ %85, %88 ]
   ret i64 %.022
 }
 

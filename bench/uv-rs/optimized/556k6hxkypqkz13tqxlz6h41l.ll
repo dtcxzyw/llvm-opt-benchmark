@@ -387,7 +387,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %63
 
 63:                                               ; preds = %64, %62
-  %.sroa.0.0 = phi i1 [ false, %64 ], [ true, %62 ]
+  %.sroa.0.0 = phi i1 [ true, %62 ], [ false, %64 ]
   ret i1 %.sroa.0.0
 
 64:                                               ; preds = %51, %55

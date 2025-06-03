@@ -3332,7 +3332,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad8, %lpad12, %lpad16, %lpad20, %lpad24, %lpad28, %lpad38, %ehcleanup65, %ehcleanup96, %lpad103, %lpad107, %lpad.i.i.i.i, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i.i ], [ %21, %lpad.i.i.i.i ], [ %97, %lpad107 ], [ %96, %lpad103 ], [ %.pn9, %ehcleanup65 ], [ %78, %lpad38 ], [ %.pn, %ehcleanup96 ], [ %14, %lpad28 ], [ %13, %lpad24 ], [ %12, %lpad20 ], [ %11, %lpad16 ], [ %10, %lpad12 ], [ %9, %lpad8 ], [ %8, %lpad4 ], [ %7, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i.i ], [ %21, %lpad.i.i.i.i ], [ %97, %lpad107 ], [ %7, %lpad ], [ %8, %lpad4 ], [ %9, %lpad8 ], [ %10, %lpad12 ], [ %11, %lpad16 ], [ %12, %lpad20 ], [ %13, %lpad24 ], [ %14, %lpad28 ], [ %.pn9, %ehcleanup65 ], [ %78, %lpad38 ], [ %.pn, %ehcleanup96 ], [ %96, %lpad103 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i, %if.then.i
@@ -11337,7 +11337,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad10, %lpad14, %lpad17, %lpad23, %lpad29, %lpad33, %lpad37, %lpad41, %lpad.i.i.i.i47, %lpad.i.i.i.i32, %lpad.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i.i.i ], [ %12, %lpad.i.i.i.i32 ], [ %29, %lpad.i.i.i.i47 ], [ %18, %lpad17 ], [ %17, %lpad14 ], [ %16, %lpad10 ], [ %14, %lpad ], [ %15, %lpad6 ], [ %24, %lpad23 ], [ %35, %lpad41 ], [ %34, %lpad37 ], [ %33, %lpad33 ], [ %32, %lpad29 ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i.i.i.i ], [ %12, %lpad.i.i.i.i32 ], [ %29, %lpad.i.i.i.i47 ], [ %18, %lpad17 ], [ %14, %lpad ], [ %15, %lpad6 ], [ %16, %lpad10 ], [ %17, %lpad14 ], [ %24, %lpad23 ], [ %35, %lpad41 ], [ %32, %lpad29 ], [ %33, %lpad33 ], [ %34, %lpad37 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i, %if.then.i.i

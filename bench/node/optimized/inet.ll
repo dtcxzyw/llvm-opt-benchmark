@@ -387,7 +387,7 @@ inet_ntop6.exit:                                  ; preds = %inet_ntop4.exit.i, 
   br label %return
 
 return:                                           ; preds = %entry, %inet_ntop6.exit, %inet_ntop4.exit
-  %retval.0 = phi i32 [ %retval.0.i8, %inet_ntop6.exit ], [ %retval.0.i, %inet_ntop4.exit ], [ -97, %entry ]
+  %retval.0 = phi i32 [ %retval.0.i, %inet_ntop4.exit ], [ %retval.0.i8, %inet_ntop6.exit ], [ -97, %entry ]
   ret i32 %retval.0
 }
 
@@ -768,7 +768,7 @@ inet_pton6.exit:                                  ; preds = %if.then29.i, %if.en
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5, %entry, %inet_pton6.exit, %inet_pton4.exit
-  %retval.0 = phi i32 [ %retval.0.i19, %inet_pton6.exit ], [ %retval.0.i, %inet_pton4.exit ], [ -22, %entry ], [ -22, %if.then5 ], [ -97, %if.end ]
+  %retval.0 = phi i32 [ %retval.0.i, %inet_pton4.exit ], [ %retval.0.i19, %inet_pton6.exit ], [ -22, %entry ], [ -22, %if.then5 ], [ -97, %if.end ]
   ret i32 %retval.0
 }
 

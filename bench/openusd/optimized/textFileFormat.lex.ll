@@ -341,8 +341,8 @@ define noundef range(i32 -128, 311) i32 @_Z19textFileFormatYylexPN32pxrInternal_
 _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %201, %.critedge, %212
   %215 = phi ptr [ %184, %201 ], [ %184, %.critedge ], [ %.pre, %212 ]
   %216 = tail call noalias noundef dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
-  %.not.i472 = icmp eq ptr %216, null
-  br i1 %.not.i472, label %217, label %218
+  %.not.i471 = icmp eq ptr %216, null
+  br i1 %.not.i471, label %217, label %218
 
 217:                                              ; preds = %_ZL35textFileFormatYyensure_buffer_stackPv.exit
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.5)
@@ -370,16 +370,16 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %226 = load i64, ptr %225, align 8
   %227 = getelementptr inbounds ptr, ptr %224, i64 %226
   store ptr %216, ptr %227, align 8
-  %.pre1284 = load ptr, ptr %190, align 8
-  %.pre1285 = load i64, ptr %225, align 8
-  %.phi.trans.insert1286 = getelementptr inbounds ptr, ptr %.pre1284, i64 %.pre1285
-  %.pre1287 = load ptr, ptr %.phi.trans.insert1286, align 8
+  %.pre1283 = load ptr, ptr %190, align 8
+  %.pre1284 = load i64, ptr %225, align 8
+  %.phi.trans.insert1285 = getelementptr inbounds ptr, ptr %.pre1283, i64 %.pre1284
+  %.pre1286 = load ptr, ptr %.phi.trans.insert1285, align 8
   br label %228
 
 228:                                              ; preds = %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit, %192
-  %229 = phi ptr [ %.pre1287, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %196, %192 ]
-  %230 = phi i64 [ %.pre1285, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %194, %192 ]
-  %231 = phi ptr [ %.pre1284, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %191, %192 ]
+  %229 = phi ptr [ %.pre1286, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %196, %192 ]
+  %230 = phi i64 [ %.pre1284, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %194, %192 ]
+  %231 = phi ptr [ %.pre1283, %_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit ], [ %191, %192 ]
   %232 = getelementptr inbounds ptr, ptr %231, i64 %230
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %234 = load i64, ptr %233, align 8
@@ -424,7 +424,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   br label %262
 
 262:                                              ; preds = %.backedge, %.loopexit
-  %263 = phi i8 [ %260, %.loopexit ], [ %.pre1288, %.backedge ]
+  %263 = phi i8 [ %260, %.loopexit ], [ %.pre1287, %.backedge ]
   %.0367 = phi ptr [ %259, %.loopexit ], [ %.0367.be, %.backedge ]
   %.0363 = phi ptr [ %259, %.loopexit ], [ %.0363.be, %.backedge ]
   %.0311 = phi i32 [ %261, %.loopexit ], [ %.0311.be, %.backedge ]
@@ -441,20 +441,20 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
 
 .lr.ph:                                           ; preds = %262, %278
   %273 = phi i32 [ %288, %278 ], [ %271, %262 ]
-  %.13641025 = phi ptr [ %279, %278 ], [ %.0363, %262 ]
+  %.13641024 = phi ptr [ %279, %278 ], [ %.0363, %262 ]
   %274 = zext nneg i32 %273 to i64
   %275 = getelementptr inbounds nuw [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %274
   %276 = load i16, ptr %275, align 2
-  %.not471 = icmp eq i16 %276, 0
-  br i1 %.not471, label %278, label %277
+  %.not470 = icmp eq i16 %276, 0
+  br i1 %.not470, label %278, label %277
 
 277:                                              ; preds = %.lr.ph
   store i32 %273, ptr %257, align 8
-  store ptr %.13641025, ptr %256, align 8
+  store ptr %.13641024, ptr %256, align 8
   br label %278
 
 278:                                              ; preds = %277, %.lr.ph
-  %279 = getelementptr inbounds nuw i8, ptr %.13641025, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.13641024, i64 1
   %280 = sext i32 %273 to i64
   %281 = load i8, ptr %279, align 1
   %282 = zext i8 %281 to i64
@@ -568,10 +568,10 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
     i32 65, label %1040
     i32 66, label %1060
     i32 67, label %1063
-    i32 68, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532.loopexit
+    i32 68, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit
     i32 69, label %1067
-    i32 71, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
-    i32 72, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+    i32 71, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
+    i32 72, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
     i32 70, label %1072
   ], !llvm.loop !6
 
@@ -611,7 +611,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 318:                                              ; preds = %311
   %319 = landingpad { ptr, i32 }
@@ -643,7 +643,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %328 = load i32, ptr %327, align 8
   %329 = add i32 %328, 1
   store i32 %329, ptr %327, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 330:                                              ; preds = %300
   %331 = load ptr, ptr %249, align 8
@@ -663,7 +663,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 337:                                              ; preds = %330
   %338 = landingpad { ptr, i32 }
@@ -699,7 +699,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 349:                                              ; preds = %342
   %350 = landingpad { ptr, i32 }
@@ -735,7 +735,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 361:                                              ; preds = %354
   %362 = landingpad { ptr, i32 }
@@ -771,7 +771,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %18) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 373:                                              ; preds = %366
   %374 = landingpad { ptr, i32 }
@@ -807,7 +807,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %21) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 385:                                              ; preds = %378
   %386 = landingpad { ptr, i32 }
@@ -843,7 +843,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %24) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 397:                                              ; preds = %390
   %398 = landingpad { ptr, i32 }
@@ -879,7 +879,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 409:                                              ; preds = %402
   %410 = landingpad { ptr, i32 }
@@ -915,7 +915,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %30) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 421:                                              ; preds = %414
   %422 = landingpad { ptr, i32 }
@@ -951,7 +951,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %33) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 433:                                              ; preds = %426
   %434 = landingpad { ptr, i32 }
@@ -987,7 +987,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %36) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 445:                                              ; preds = %438
   %446 = landingpad { ptr, i32 }
@@ -1023,7 +1023,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %39) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 457:                                              ; preds = %450
   %458 = landingpad { ptr, i32 }
@@ -1059,7 +1059,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %42) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 469:                                              ; preds = %462
   %470 = landingpad { ptr, i32 }
@@ -1095,7 +1095,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %45) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 481:                                              ; preds = %474
   %482 = landingpad { ptr, i32 }
@@ -1131,7 +1131,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %48) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 493:                                              ; preds = %486
   %494 = landingpad { ptr, i32 }
@@ -1167,7 +1167,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %51) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 505:                                              ; preds = %498
   %506 = landingpad { ptr, i32 }
@@ -1203,7 +1203,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %54) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 517:                                              ; preds = %510
   %518 = landingpad { ptr, i32 }
@@ -1239,7 +1239,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %57) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 529:                                              ; preds = %522
   %530 = landingpad { ptr, i32 }
@@ -1275,7 +1275,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %60) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 541:                                              ; preds = %534
   %542 = landingpad { ptr, i32 }
@@ -1311,7 +1311,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %63) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 553:                                              ; preds = %546
   %554 = landingpad { ptr, i32 }
@@ -1347,7 +1347,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %66) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 565:                                              ; preds = %558
   %566 = landingpad { ptr, i32 }
@@ -1383,7 +1383,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %69) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 577:                                              ; preds = %570
   %578 = landingpad { ptr, i32 }
@@ -1419,7 +1419,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %72) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 589:                                              ; preds = %582
   %590 = landingpad { ptr, i32 }
@@ -1455,7 +1455,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %75) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 601:                                              ; preds = %594
   %602 = landingpad { ptr, i32 }
@@ -1491,7 +1491,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %78) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 613:                                              ; preds = %606
   %614 = landingpad { ptr, i32 }
@@ -1527,7 +1527,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %81) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 625:                                              ; preds = %618
   %626 = landingpad { ptr, i32 }
@@ -1563,7 +1563,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %84) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 637:                                              ; preds = %630
   %638 = landingpad { ptr, i32 }
@@ -1599,7 +1599,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %87) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 649:                                              ; preds = %642
   %650 = landingpad { ptr, i32 }
@@ -1635,7 +1635,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %90) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 661:                                              ; preds = %654
   %662 = landingpad { ptr, i32 }
@@ -1671,7 +1671,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %93) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 673:                                              ; preds = %666
   %674 = landingpad { ptr, i32 }
@@ -1707,7 +1707,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %96) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 685:                                              ; preds = %678
   %686 = landingpad { ptr, i32 }
@@ -1743,7 +1743,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %99) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 697:                                              ; preds = %690
   %698 = landingpad { ptr, i32 }
@@ -1779,7 +1779,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %102) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %104) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 709:                                              ; preds = %702
   %710 = landingpad { ptr, i32 }
@@ -1815,7 +1815,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %105) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 721:                                              ; preds = %714
   %722 = landingpad { ptr, i32 }
@@ -1851,7 +1851,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %108) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %110) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 733:                                              ; preds = %726
   %734 = landingpad { ptr, i32 }
@@ -1887,7 +1887,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %111) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 745:                                              ; preds = %738
   %746 = landingpad { ptr, i32 }
@@ -1923,7 +1923,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %114) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %116) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 757:                                              ; preds = %750
   %758 = landingpad { ptr, i32 }
@@ -1959,7 +1959,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %117) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 769:                                              ; preds = %762
   %770 = landingpad { ptr, i32 }
@@ -1995,7 +1995,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %120) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %122) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 781:                                              ; preds = %774
   %782 = landingpad { ptr, i32 }
@@ -2031,7 +2031,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %123) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 793:                                              ; preds = %786
   %794 = landingpad { ptr, i32 }
@@ -2067,7 +2067,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %126) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %128) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 805:                                              ; preds = %798
   %806 = landingpad { ptr, i32 }
@@ -2103,7 +2103,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %129) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 817:                                              ; preds = %810
   %818 = landingpad { ptr, i32 }
@@ -2139,7 +2139,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %132) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %133) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %134) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 829:                                              ; preds = %822
   %830 = landingpad { ptr, i32 }
@@ -2206,7 +2206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit: ; preds = %838
 849:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.thread, %846
   %.1 = phi i32 [ 263, %846 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 850:                                              ; preds = %300
   %851 = load ptr, ptr %249, align 8
@@ -2224,9 +2224,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit: ; preds = %838
   %855 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %856 = load i8, ptr %855, align 8
   %857 = trunc i8 %856 to i1
-  br i1 %857, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516
+  br i1 %857, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515
 
-_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread: ; preds = %854
+_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515.thread: ; preds = %854
   store i8 0, ptr %855, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %141) #32
   br label %865
@@ -2237,27 +2237,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread: ; preds = 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %140) #32
   br label %1331
 
-860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516, %853
+860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515, %853
   %861 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #32
   br label %1331
 
-_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
+_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515: ; preds = %854
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %142, ptr noundef nonnull align 8 dereferenceable(32) %139)
           to label %862 unwind label %860
 
-862:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516
+862:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515
   %863 = getelementptr inbounds nuw i8, ptr %142, i64 64
   store i8 3, ptr %863, align 8
   %864 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %142) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %142) #32
   br label %865
 
-865:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread, %862
-  %.2 = phi i32 [ 265, %862 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516.thread ]
+865:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515.thread, %862
+  %.2 = phi i32 [ 265, %862 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %139) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 866:                                              ; preds = %300
   %867 = load ptr, ptr %249, align 8
@@ -2272,7 +2272,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
   %871 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %143) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %143) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 872:                                              ; preds = %866
   %873 = landingpad { ptr, i32 }
@@ -2303,7 +2303,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
 882:                                              ; preds = %878
   %883 = select i1 %881, i32 261, i32 260
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %145) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 884:                                              ; preds = %878, %874
   %885 = landingpad { ptr, i32 }
@@ -2344,7 +2344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit516: ; preds = %854
 897:                                              ; preds = %893
   %898 = select i1 %896, i32 261, i32 260
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %148) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 899:                                              ; preds = %893, %889
   %900 = landingpad { ptr, i32 }
@@ -2429,7 +2429,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx111
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 925:                                              ; preds = %904
   %926 = landingpad { ptr, i32 }
@@ -2458,7 +2458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   %933 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %153) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %153) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 934:                                              ; preds = %927
   %935 = landingpad { ptr, i32 }
@@ -2487,7 +2487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   %942 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %155) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %155) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 943:                                              ; preds = %936
   %944 = landingpad { ptr, i32 }
@@ -2509,7 +2509,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(72) %158)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525 unwind label %950
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524 unwind label %950
 
 950:                                              ; preds = %948
   %951 = landingpad { ptr, i32 }
@@ -2518,50 +2518,50 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   call void @__clang_call_terminate(ptr %952) #33
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525: ; preds = %948
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524: ; preds = %948
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %953 = load i8, ptr %949, align 8
   switch i8 %953, label %965 [
-    i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528
-    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
-    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
-    i8 2, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
+    i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527
+    i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
+    i8 1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
+    i8 2, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
     i8 3, label %954
     i8 4, label %955
     i8 5, label %963
   ]
 
-954:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525
+954:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %158) #32
-  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
+  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
 
-955:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525
+955:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524
   %956 = load ptr, ptr %158, align 8
   %957 = ptrtoint ptr %956 to i64
   %958 = and i64 %957, 7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i527 = icmp eq i64 %958, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i527, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526, label %959
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i526 = icmp eq i64 %958, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i526, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525, label %959
 
 959:                                              ; preds = %955
   %960 = and i64 %957, -8
   %961 = inttoptr i64 %960 to ptr
   %962 = atomicrmw sub ptr %961, i32 2 release, align 4
-  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
+  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
 
-963:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525
+963:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524
   %964 = getelementptr inbounds nuw i8, ptr %158, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %964) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %158) #32
-  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
+  br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
 
-965:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525
+965:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526: ; preds = %963, %959, %955, %954, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525: ; preds = %963, %959, %955, %954, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524
   store i8 -1, ptr %949, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit525, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i526
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS9_12SdfAssetPathEEE8_M_resetEvEUlOT_E_JRSt7variantIJmldS8_SA_SB_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i525
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %159) #32
   %966 = load i32, ptr %157, align 4
   %967 = load ptr, ptr %1, align 8
@@ -2569,7 +2569,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   %969 = load i32, ptr %968, align 8
   %970 = add i32 %969, %966
   store i32 %970, ptr %968, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 971:                                              ; preds = %945
   %972 = landingpad { ptr, i32 }
@@ -2583,7 +2583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   store i8 2, ptr %974, align 8
   %975 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %160) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %160) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 976:                                              ; preds = %300
   store i8 0, ptr %161, align 1
@@ -2596,7 +2596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %162) #32
   %981 = load i8, ptr %161, align 1
   %982 = trunc i8 %981 to i1
-  br i1 %982, label %983, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br i1 %982, label %983, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 983:                                              ; preds = %976
   store ptr @.str, ptr %163, align 8
@@ -2636,7 +2636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   store i8 2, ptr %1006, align 8
   %1007 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %164) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %164) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 1008:                                             ; preds = %300
   store i8 0, ptr %165, align 1
@@ -2649,7 +2649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %166) #32
   %1013 = load i8, ptr %165, align 1
   %1014 = trunc i8 %1013 to i1
-  br i1 %1014, label %1015, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br i1 %1014, label %1015, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 1015:                                             ; preds = %1008
   store ptr @.str, ptr %167, align 8
@@ -2689,7 +2689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   store i8 2, ptr %1038, align 8
   %1039 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %168) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %168) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 1040:                                             ; preds = %300, %300
   %1041 = load ptr, ptr %249, align 8
@@ -2700,7 +2700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(72) %169)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 unwind label %1044
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 unwind label %1044
 
 1044:                                             ; preds = %1040
   %1045 = landingpad { ptr, i32 }
@@ -2709,43 +2709,43 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528: ; pr
   call void @__clang_call_terminate(ptr %1046) #33
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ; preds = %1040
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ; preds = %1040
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %1047 = load i8, ptr %1043, align 8
   switch i8 %1047, label %1059 [
-    i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
-    i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
-    i8 1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
-    i8 2, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+    i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
+    i8 0, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
+    i8 1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
+    i8 2, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
     i8 3, label %1048
     i8 4, label %1049
     i8 5, label %1057
   ]
 
-1048:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529
+1048:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %169) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
-1049:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529
+1049:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528
   %1050 = load ptr, ptr %169, align 8
   %1051 = ptrtoint ptr %1050 to i64
   %1052 = and i64 %1051, 7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i531 = icmp eq i64 %1052, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i531, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532, label %1053
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i530 = icmp eq i64 %1052, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i530, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531, label %1053
 
 1053:                                             ; preds = %1049
   %1054 = and i64 %1051, -8
   %1055 = inttoptr i64 %1054 to ptr
   %1056 = atomicrmw sub ptr %1055, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
-1057:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529
+1057:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528
   %1058 = getelementptr inbounds nuw i8, ptr %169, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1058) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %169) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
-1059:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529
+1059:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528
   unreachable
 
 1060:                                             ; preds = %300
@@ -2754,13 +2754,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   store i8 2, ptr %1061, align 8
   %1062 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %170) #32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %170) #32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 1063:                                             ; preds = %300
   %1064 = load ptr, ptr %249, align 8
   %1065 = load i8, ptr %1064, align 1
   %1066 = sext i8 %1065 to i32
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 1067:                                             ; preds = %300
   %1068 = load ptr, ptr %249, align 8
@@ -2795,16 +2795,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   %1090 = load ptr, ptr %1089, align 8
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 64
   store i32 1, ptr %1091, align 8
-  %.pre1289 = load ptr, ptr %251, align 8
-  %.pre1290 = load i64, ptr %252, align 8
-  %.phi.trans.insert1291 = getelementptr inbounds ptr, ptr %.pre1289, i64 %.pre1290
-  %.pre1292 = load ptr, ptr %.phi.trans.insert1291, align 8
+  %.pre1288 = load ptr, ptr %251, align 8
+  %.pre1289 = load i64, ptr %252, align 8
+  %.phi.trans.insert1290 = getelementptr inbounds ptr, ptr %.pre1288, i64 %.pre1289
+  %.pre1291 = load ptr, ptr %.phi.trans.insert1290, align 8
   br label %1092
 
 1092:                                             ; preds = %1082, %1072
-  %1093 = phi ptr [ %.pre1292, %1082 ], [ %1078, %1072 ]
-  %1094 = phi i64 [ %.pre1290, %1082 ], [ %1076, %1072 ]
-  %1095 = phi ptr [ %.pre1289, %1082 ], [ %1075, %1072 ]
+  %1093 = phi ptr [ %.pre1291, %1082 ], [ %1078, %1072 ]
+  %1094 = phi i64 [ %.pre1289, %1082 ], [ %1076, %1072 ]
+  %1095 = phi ptr [ %.pre1288, %1082 ], [ %1075, %1072 ]
   %1096 = load ptr, ptr %246, align 8
   %1097 = getelementptr inbounds nuw i8, ptr %1093, i64 8
   %1098 = load ptr, ptr %1097, align 8
@@ -2830,9 +2830,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   %1113 = icmp slt i16 %1112, 1
   br i1 %1113, label %.outer.backedge, label %1114
 
-.outer.backedge:                                  ; preds = %1101, %_ZL18yy_get_next_bufferPv.exit.thread537
-  %.2365.ph.be = phi ptr [ %1329, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1109, %1101 ]
-  %.2313.ph.be = phi i32 [ %1328, %_ZL18yy_get_next_bufferPv.exit.thread537 ], [ %1108, %1101 ]
+.outer.backedge:                                  ; preds = %1101, %_ZL18yy_get_next_bufferPv.exit.thread536
+  %.2365.ph.be = phi ptr [ %1329, %_ZL18yy_get_next_bufferPv.exit.thread536 ], [ %1109, %1101 ]
+  %.2313.ph.be = phi i32 [ %1328, %_ZL18yy_get_next_bufferPv.exit.thread536 ], [ %1108, %1101 ]
   %.1368.ph.be = load ptr, ptr %249, align 8
   br label %.outer
 
@@ -2841,8 +2841,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529: ;
   %1116 = zext nneg i16 %1112 to i64
   %1117 = getelementptr inbounds nuw [404 x i16], ptr @_ZL9yy_accept, i64 0, i64 %1116
   %1118 = load i16, ptr %1117, align 2
-  %.not.i533 = icmp eq i16 %1118, 0
-  br i1 %.not.i533, label %_ZL16yy_try_NUL_transiPv.exit, label %1119
+  %.not.i532 = icmp eq i16 %1118, 0
+  br i1 %.not.i532, label %_ZL16yy_try_NUL_transiPv.exit, label %1119
 
 1119:                                             ; preds = %1114
   store i32 %1115, ptr %257, align 8
@@ -2859,7 +2859,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1119, %1114
   %.0367.be = phi ptr [ %1120, %_ZL16yy_try_NUL_transiPv.exit ], [ %1324, %1316 ]
   %.0363.be = phi ptr [ %1121, %_ZL16yy_try_NUL_transiPv.exit ], [ %1323, %1316 ]
   %.0311.be = phi i32 [ %1115, %_ZL16yy_try_NUL_transiPv.exit ], [ %1322, %1316 ]
-  %.pre1288 = load i8, ptr %.0363.be, align 1
+  %.pre1287 = load i8, ptr %.0363.be, align 1
   br label %262
 
 1122:                                             ; preds = %1092
@@ -2883,7 +2883,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1119, %1114
 
 1134:                                             ; preds = %1127
   %1135 = icmp eq i64 %1133, 1
-  br i1 %1135, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread537
+  br i1 %1135, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread536
 
 1136:                                             ; preds = %1127
   %1137 = trunc i64 %1133 to i32
@@ -2994,8 +2994,8 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1119, %1114
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.0131.lcssa.i, i64 8192)
   %1183 = getelementptr inbounds nuw i8, ptr %1182, i64 44
   %1184 = load i32, ptr %1183, align 4
-  %.not.i534 = icmp eq i32 %1184, 0
-  br i1 %.not.i534, label %1212, label %.preheader.i
+  %.not.i533 = icmp eq i32 %1184, 0
+  br i1 %.not.i533, label %1212, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge161.i, %1187
   %.0125162.i = phi i64 [ %1197, %1187 ], [ 0, %._crit_edge161.i ]
@@ -3211,19 +3211,19 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1259, %._crit_edge1
   %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 8
   %1309 = load ptr, ptr %1308, align 8
   store ptr %1309, ptr %249, align 8
-  switch i32 %.0132.i, label %default.unreachable1297 [
+  switch i32 %.0132.i, label %default.unreachable1296 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
     i32 0, label %1316
-    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge
+    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge
   ]
 
-_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
+_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
   %1310 = getelementptr inbounds ptr, ptr %1304, i64 %1305
-  %.pre1293 = load ptr, ptr %1310, align 8
-  %.phi.trans.insert1294 = getelementptr inbounds nuw i8, ptr %.pre1293, i64 8
-  %.pre1295 = load ptr, ptr %.phi.trans.insert1294, align 8
-  %.pre1296 = load i64, ptr %253, align 8
-  br label %_ZL18yy_get_next_bufferPv.exit.thread537
+  %.pre1292 = load ptr, ptr %1310, align 8
+  %.phi.trans.insert1293 = getelementptr inbounds nuw i8, ptr %.pre1292, i64 8
+  %.pre1294 = load ptr, ptr %.phi.trans.insert1293, align 8
+  %.pre1295 = load i64, ptr %253, align 8
+  br label %_ZL18yy_get_next_bufferPv.exit.thread536
 
 _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %1134, %_ZL18yy_get_next_bufferPv.exit
   %1311 = phi ptr [ %1123, %1134 ], [ %1309, %_ZL18yy_get_next_bufferPv.exit ]
@@ -3239,8 +3239,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %1134, %_ZL18yy_get_
   %1317 = ptrtoint ptr %1073 to i64
   %1318 = xor i64 %1317, -1
   %1319 = add i64 %1318, %297
-  %sext1038 = shl i64 %1319, 32
-  %1320 = ashr exact i64 %sext1038, 32
+  %sext1037 = shl i64 %1319, 32
+  %1320 = ashr exact i64 %sext1037, 32
   %1321 = getelementptr inbounds i8, ptr %1309, i64 %1320
   store ptr %1321, ptr %246, align 8
   %1322 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
@@ -3248,9 +3248,9 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %1134, %_ZL18yy_get_
   %1324 = load ptr, ptr %249, align 8
   br label %.backedge
 
-_ZL18yy_get_next_bufferPv.exit.thread537:         ; preds = %1134, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge
-  %1325 = phi i64 [ %.pre1296, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1099, %1134 ]
-  %1326 = phi ptr [ %.pre1295, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread537_crit_edge ], [ %1098, %1134 ]
+_ZL18yy_get_next_bufferPv.exit.thread536:         ; preds = %1134, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge
+  %1325 = phi i64 [ %.pre1295, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge ], [ %1099, %1134 ]
+  %1326 = phi ptr [ %.pre1294, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge ], [ %1098, %1134 ]
   %1327 = getelementptr inbounds i8, ptr %1326, i64 %1325
   store ptr %1327, ptr %246, align 8
   %1328 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
@@ -3261,19 +3261,19 @@ _ZL18yy_get_next_bufferPv.exit.thread537:         ; preds = %1134, %_ZL18yy_get_
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4)
   unreachable
 
-default.unreachable1297:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable1296:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532.loopexit: ; preds = %300
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit: ; preds = %300
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532: ; preds = %300, %300, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529, %1048, %1049, %1053, %1057, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529, %1008, %1034, %976, %1002, %1063, %1060, %973, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528, %940, %931, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit, %897, %882, %869, %865, %849, %826, %814, %802, %790, %778, %766, %754, %742, %730, %718, %706, %694, %682, %670, %658, %646, %634, %622, %610, %598, %586, %574, %562, %550, %538, %526, %514, %502, %490, %478, %466, %454, %442, %430, %418, %406, %394, %382, %370, %358, %346, %334, %325, %315
-  %.0 = phi i32 [ %1066, %1063 ], [ 266, %1060 ], [ 266, %973 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit528 ], [ 267, %940 ], [ 267, %931 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit ], [ %898, %897 ], [ %883, %882 ], [ 262, %869 ], [ %.2, %865 ], [ %.1, %849 ], [ 264, %826 ], [ 310, %814 ], [ 307, %802 ], [ 309, %790 ], [ 308, %778 ], [ 306, %766 ], [ 305, %754 ], [ 304, %742 ], [ 303, %730 ], [ 301, %718 ], [ 291, %706 ], [ 302, %694 ], [ 300, %682 ], [ 299, %670 ], [ 298, %658 ], [ 296, %646 ], [ 295, %634 ], [ 294, %622 ], [ 293, %610 ], [ 292, %598 ], [ 290, %586 ], [ 288, %574 ], [ 289, %562 ], [ 287, %550 ], [ 286, %538 ], [ 285, %526 ], [ 284, %514 ], [ 283, %502 ], [ 282, %490 ], [ 281, %478 ], [ 280, %466 ], [ 279, %454 ], [ 278, %442 ], [ 276, %430 ], [ 277, %418 ], [ 275, %406 ], [ 274, %394 ], [ 273, %382 ], [ 272, %370 ], [ 271, %358 ], [ 270, %346 ], [ 269, %334 ], [ 258, %325 ], [ 259, %315 ], [ 266, %1002 ], [ 266, %976 ], [ 266, %1034 ], [ 266, %1008 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %1057 ], [ 266, %1053 ], [ 266, %1049 ], [ 266, %1048 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit529 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit532.loopexit ], [ 0, %300 ], [ 0, %300 ]
+_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531: ; preds = %300, %300, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %1048, %1049, %1053, %1057, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %1008, %1034, %976, %1002, %1063, %1060, %973, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527, %940, %931, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit, %897, %882, %869, %865, %849, %826, %814, %802, %790, %778, %766, %754, %742, %730, %718, %706, %694, %682, %670, %658, %646, %634, %622, %610, %598, %586, %574, %562, %550, %538, %526, %514, %502, %490, %478, %466, %454, %442, %430, %418, %406, %394, %382, %370, %358, %346, %334, %325, %315
+  %.0 = phi i32 [ 259, %315 ], [ 258, %325 ], [ 269, %334 ], [ 270, %346 ], [ 271, %358 ], [ 272, %370 ], [ 273, %382 ], [ 274, %394 ], [ 275, %406 ], [ 277, %418 ], [ 276, %430 ], [ 278, %442 ], [ 279, %454 ], [ 280, %466 ], [ 281, %478 ], [ 282, %490 ], [ 283, %502 ], [ 284, %514 ], [ 285, %526 ], [ 286, %538 ], [ 287, %550 ], [ 289, %562 ], [ 288, %574 ], [ 290, %586 ], [ 292, %598 ], [ 293, %610 ], [ 294, %622 ], [ 295, %634 ], [ 296, %646 ], [ 298, %658 ], [ 299, %670 ], [ 300, %682 ], [ 302, %694 ], [ 291, %706 ], [ 301, %718 ], [ 303, %730 ], [ 304, %742 ], [ 305, %754 ], [ 306, %766 ], [ 308, %778 ], [ 309, %790 ], [ 307, %802 ], [ 310, %814 ], [ 264, %826 ], [ %.1, %849 ], [ %.2, %865 ], [ 262, %869 ], [ %883, %882 ], [ %898, %897 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit ], [ 267, %931 ], [ 267, %940 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527 ], [ 266, %973 ], [ 266, %1060 ], [ %1066, %1063 ], [ 266, %1002 ], [ 266, %976 ], [ 266, %1034 ], [ 266, %1008 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %1057 ], [ 266, %1053 ], [ 266, %1049 ], [ 266, %1048 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit ], [ 0, %300 ], [ 0, %300 ]
   ret i32 %.0
 
 1331:                                             ; preds = %971, %943, %934, %925, %903, %888, %872, %860, %858, %844, %842, %833, %821, %809, %797, %785, %773, %761, %749, %737, %725, %713, %701, %689, %677, %665, %653, %641, %629, %617, %605, %593, %581, %569, %557, %545, %533, %521, %509, %497, %485, %473, %461, %449, %437, %425, %413, %401, %389, %377, %365, %353, %341, %322
-  %.pn469 = phi { ptr, i32 } [ %972, %971 ], [ %944, %943 ], [ %935, %934 ], [ %926, %925 ], [ %.pn, %903 ], [ %.pn381, %888 ], [ %873, %872 ], [ %861, %860 ], [ %859, %858 ], [ %845, %844 ], [ %843, %842 ], [ %.pn383, %833 ], [ %.pn385, %821 ], [ %.pn387, %809 ], [ %.pn389, %797 ], [ %.pn391, %785 ], [ %.pn393, %773 ], [ %.pn395, %761 ], [ %.pn397, %749 ], [ %.pn399, %737 ], [ %.pn401, %725 ], [ %.pn403, %713 ], [ %.pn405, %701 ], [ %.pn407, %689 ], [ %.pn409, %677 ], [ %.pn411, %665 ], [ %.pn413, %653 ], [ %.pn415, %641 ], [ %.pn417, %629 ], [ %.pn419, %617 ], [ %.pn421, %605 ], [ %.pn423, %593 ], [ %.pn425, %581 ], [ %.pn427, %569 ], [ %.pn429, %557 ], [ %.pn431, %545 ], [ %.pn433, %533 ], [ %.pn435, %521 ], [ %.pn437, %509 ], [ %.pn439, %497 ], [ %.pn441, %485 ], [ %.pn443, %473 ], [ %.pn445, %461 ], [ %.pn447, %449 ], [ %.pn449, %437 ], [ %.pn451, %425 ], [ %.pn453, %413 ], [ %.pn455, %401 ], [ %.pn457, %389 ], [ %.pn459, %377 ], [ %.pn461, %365 ], [ %.pn463, %353 ], [ %.pn465, %341 ], [ %.pn467, %322 ]
-  resume { ptr, i32 } %.pn469
+  %.pn467.pn = phi { ptr, i32 } [ %.pn467, %322 ], [ %.pn465, %341 ], [ %.pn463, %353 ], [ %.pn461, %365 ], [ %.pn459, %377 ], [ %.pn457, %389 ], [ %.pn455, %401 ], [ %.pn453, %413 ], [ %.pn451, %425 ], [ %.pn449, %437 ], [ %.pn447, %449 ], [ %.pn445, %461 ], [ %.pn443, %473 ], [ %.pn441, %485 ], [ %.pn439, %497 ], [ %.pn437, %509 ], [ %.pn435, %521 ], [ %.pn433, %533 ], [ %.pn431, %545 ], [ %.pn429, %557 ], [ %.pn427, %569 ], [ %.pn425, %581 ], [ %.pn423, %593 ], [ %.pn421, %605 ], [ %.pn419, %617 ], [ %.pn417, %629 ], [ %.pn415, %641 ], [ %.pn413, %653 ], [ %.pn411, %665 ], [ %.pn409, %677 ], [ %.pn407, %689 ], [ %.pn405, %701 ], [ %.pn403, %713 ], [ %.pn401, %725 ], [ %.pn399, %737 ], [ %.pn397, %749 ], [ %.pn395, %761 ], [ %.pn393, %773 ], [ %.pn391, %785 ], [ %.pn389, %797 ], [ %.pn387, %809 ], [ %.pn385, %821 ], [ %.pn383, %833 ], [ %845, %844 ], [ %843, %842 ], [ %861, %860 ], [ %859, %858 ], [ %873, %872 ], [ %.pn381, %888 ], [ %.pn, %903 ], [ %926, %925 ], [ %935, %934 ], [ %944, %943 ], [ %972, %971 ]
+  resume { ptr, i32 } %.pn467.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

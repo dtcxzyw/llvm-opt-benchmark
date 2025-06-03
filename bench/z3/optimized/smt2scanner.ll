@@ -3621,8 +3621,8 @@ _ZN4smt27scanner18read_signed_numberEv.exit:      ; preds = %32, %20, %21, %77, 
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %.loopexit, label %15
 
-.loopexit:                                        ; preds = %77, %_ZN4smt27scanner18read_signed_numberEv.exit, %1, %_ZN4smt27scanner11read_symbolEv.exit23, %75, %73, %_ZN4smt27scanner11read_symbolEv.exit17, %54, %53, %52, %_ZN4smt27scanner11read_symbolEv.exit, %105, %_ZN6vectorIcLb0EjE9push_backEOc.exit.i
-  %.1.ph = phi i32 [ %125, %_ZN6vectorIcLb0EjE9push_backEOc.exit.i ], [ %106, %105 ], [ 3, %_ZN4smt27scanner11read_symbolEv.exit ], [ 1, %52 ], [ 2, %53 ], [ 4, %54 ], [ %72, %_ZN4smt27scanner11read_symbolEv.exit17 ], [ 5, %73 ], [ %76, %75 ], [ %101, %_ZN4smt27scanner11read_symbolEv.exit23 ], [ 9, %1 ], [ %78, %77 ], [ 9, %_ZN4smt27scanner18read_signed_numberEv.exit ]
+.loopexit:                                        ; preds = %77, %_ZN4smt27scanner18read_signed_numberEv.exit, %1, %_ZN4smt27scanner11read_symbolEv.exit, %52, %53, %54, %_ZN4smt27scanner11read_symbolEv.exit17, %73, %75, %_ZN4smt27scanner11read_symbolEv.exit23, %105, %_ZN6vectorIcLb0EjE9push_backEOc.exit.i
+  %.1.ph = phi i32 [ %125, %_ZN6vectorIcLb0EjE9push_backEOc.exit.i ], [ %106, %105 ], [ %101, %_ZN4smt27scanner11read_symbolEv.exit23 ], [ %76, %75 ], [ 5, %73 ], [ %72, %_ZN4smt27scanner11read_symbolEv.exit17 ], [ 4, %54 ], [ 2, %53 ], [ 1, %52 ], [ 3, %_ZN4smt27scanner11read_symbolEv.exit ], [ 9, %1 ], [ %78, %77 ], [ 9, %_ZN4smt27scanner18read_signed_numberEv.exit ]
   ret i32 %.1.ph
 
 165:                                              ; preds = %_ZN13cmd_exceptionC2EOS_.exit

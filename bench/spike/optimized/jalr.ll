@@ -229,7 +229,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 87:                                               ; preds = %83, %76, %68
-  %.1 = phi i64 [ %85, %83 ], [ %82, %76 ], [ %75, %68 ]
+  %.1 = phi i64 [ %75, %68 ], [ %82, %76 ], [ %85, %83 ]
   %88 = icmp eq i64 %.1, 0
   br i1 %88, label %.critedge, label %89
 
@@ -395,7 +395,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 82:                                               ; preds = %78, %71, %63
-  %.1 = phi i64 [ %80, %78 ], [ %77, %71 ], [ %70, %63 ]
+  %.1 = phi i64 [ %70, %63 ], [ %77, %71 ], [ %80, %78 ]
   %83 = icmp eq i64 %.1, 0
   br i1 %83, label %.critedge, label %84
 
@@ -564,7 +564,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 91:                                               ; preds = %87, %80, %72
-  %.1 = phi i64 [ %89, %87 ], [ %86, %80 ], [ %79, %72 ]
+  %.1 = phi i64 [ %79, %72 ], [ %86, %80 ], [ %89, %87 ]
   %92 = icmp eq i64 %.1, 0
   br i1 %92, label %.critedge, label %93
 
@@ -814,7 +814,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 86:                                               ; preds = %82, %75, %67
-  %.1 = phi i64 [ %84, %82 ], [ %81, %75 ], [ %74, %67 ]
+  %.1 = phi i64 [ %74, %67 ], [ %81, %75 ], [ %84, %82 ]
   %87 = icmp eq i64 %.1, 0
   br i1 %87, label %.critedge, label %88
 
@@ -1005,7 +1005,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %46, %50
   unreachable
 
 102:                                              ; preds = %98, %91, %83
-  %.143 = phi i64 [ %100, %98 ], [ %97, %91 ], [ %90, %83 ]
+  %.143 = phi i64 [ %90, %83 ], [ %97, %91 ], [ %100, %98 ]
   %103 = icmp eq i64 %.143, 0
   br i1 %103, label %.critedge, label %104
 
@@ -1203,7 +1203,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 96:                                               ; preds = %92, %85, %77
-  %.143 = phi i64 [ %94, %92 ], [ %91, %85 ], [ %84, %77 ]
+  %.143 = phi i64 [ %84, %77 ], [ %91, %85 ], [ %94, %92 ]
   %97 = icmp eq i64 %.143, 0
   br i1 %97, label %.critedge, label %98
 
@@ -1404,7 +1404,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %47, %54
   unreachable
 
 106:                                              ; preds = %102, %95, %87
-  %.146 = phi i64 [ %104, %102 ], [ %101, %95 ], [ %94, %87 ]
+  %.146 = phi i64 [ %94, %87 ], [ %101, %95 ], [ %104, %102 ]
   %107 = icmp eq i64 %.146, 0
   br i1 %107, label %.critedge, label %108
 
@@ -1600,7 +1600,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18c
   unreachable
 
 100:                                              ; preds = %96, %89, %81
-  %.146 = phi i64 [ %98, %96 ], [ %95, %89 ], [ %88, %81 ]
+  %.146 = phi i64 [ %88, %81 ], [ %95, %89 ], [ %98, %96 ]
   %101 = icmp eq i64 %.146, 0
   br i1 %101, label %.critedge, label %102
 

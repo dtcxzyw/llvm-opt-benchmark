@@ -58,7 +58,7 @@ define noundef i64 @Java_java_util_zip_Deflater_init(ptr noundef %0, ptr noundef
   br label %22
 
 22:                                               ; preds = %16, %15, %14, %12, %8
-  %.0 = phi i64 [ 0, %8 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ %13, %12 ]
+  %.0 = phi i64 [ 0, %8 ], [ 0, %16 ], [ %13, %12 ], [ 0, %14 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -272,7 +272,7 @@ doDeflate.exit:                                   ; preds = %52, %57
   br label %checkDeflateStatus.exit
 
 73:                                               ; preds = %70, %69, %69, %66, %65
-  %74 = phi i64 [ 0, %66 ], [ -9223372036854775808, %65 ], [ 0, %69 ], [ 0, %69 ], [ 4611686018427387904, %70 ]
+  %74 = phi i64 [ 0, %66 ], [ -9223372036854775808, %65 ], [ 4611686018427387904, %70 ], [ 0, %69 ], [ 0, %69 ]
   %.pn28.i = load i32, ptr %51, align 8
   %.023.i = sub i32 %8, %.pn28.i
   %.pn.i = load i32, ptr %50, align 8
@@ -379,7 +379,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr n
   br label %checkDeflateStatus.exit
 
 52:                                               ; preds = %49, %44, %44, %41, %33
-  %53 = phi i64 [ 0, %41 ], [ -9223372036854775808, %33 ], [ 0, %44 ], [ 0, %44 ], [ 4611686018427387904, %49 ]
+  %53 = phi i64 [ 0, %41 ], [ -9223372036854775808, %33 ], [ 4611686018427387904, %49 ], [ 0, %44 ], [ 0, %44 ]
   %.pn28.i = load i32, ptr %32, align 8
   %.023.i = sub i32 %7, %.pn28.i
   %.pn.i = load i32, ptr %31, align 8
@@ -486,7 +486,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr n
   br label %checkDeflateStatus.exit
 
 52:                                               ; preds = %49, %44, %44, %41, %33
-  %53 = phi i64 [ 0, %41 ], [ -9223372036854775808, %33 ], [ 0, %44 ], [ 0, %44 ], [ 4611686018427387904, %49 ]
+  %53 = phi i64 [ 0, %41 ], [ -9223372036854775808, %33 ], [ 4611686018427387904, %49 ], [ 0, %44 ], [ 0, %44 ]
   %.pn28.i = load i32, ptr %32, align 8
   %.023.i = sub i32 %7, %.pn28.i
   %.pn.i = load i32, ptr %31, align 8
@@ -560,7 +560,7 @@ define i64 @Java_java_util_zip_Deflater_deflateBufferBuffer(ptr noundef %0, ptr 
   br label %checkDeflateStatus.exit
 
 30:                                               ; preds = %27, %25, %25, %22, %17
-  %31 = phi i64 [ 0, %22 ], [ -9223372036854775808, %17 ], [ 0, %25 ], [ 0, %25 ], [ 4611686018427387904, %27 ]
+  %31 = phi i64 [ 0, %22 ], [ -9223372036854775808, %17 ], [ 4611686018427387904, %27 ], [ 0, %25 ], [ 0, %25 ]
   %.pn28.i = load i32, ptr %16, align 8
   %.023.i = sub i32 %6, %.pn28.i
   %.pn.i = load i32, ptr %15, align 8

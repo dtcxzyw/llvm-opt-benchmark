@@ -63719,8 +63719,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %31, %35
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %60, %52
-  %.0.copyload.i.i.i.i20.i.i = phi i64 [ %.sroa.012.0.copyload.i.i, %52 ], [ %.0.copyload.i.i.i.i20.pre.i.i, %60 ]
-  %.1.i.i.i.i = phi ptr [ %56, %52 ], [ %61, %60 ]
+  %.0.copyload.i.i.i.i20.i.i = phi i64 [ %.0.copyload.i.i.i.i20.pre.i.i, %60 ], [ %.sroa.012.0.copyload.i.i, %52 ]
+  %.1.i.i.i.i = phi ptr [ %61, %60 ], [ %56, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %62, align 8, !tbaa !239
   %63 = and i64 %.sroa.0.0.copyload.i1.i.i.i, -16
@@ -65009,7 +65009,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !513
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #22
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !5436
@@ -65988,7 +65988,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgSValERKN5clang4ento9CallEve
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %31, %23
-  %.1.i.i.i.i = phi ptr [ %27, %23 ], [ %32, %31 ]
+  %.1.i.i.i.i = phi ptr [ %32, %31 ], [ %27, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
 
@@ -66110,7 +66110,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %28, %20
-  %.1.i.i.i.i = phi ptr [ %24, %20 ], [ %29, %28 ]
+  %.1.i.i.i.i = phi ptr [ %29, %28 ], [ %24, %20 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
 
@@ -67004,7 +67004,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %43, %45
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %62, %54
-  %.1.i.i.i.i = phi ptr [ %58, %54 ], [ %63, %62 ]
+  %.1.i.i.i.i = phi ptr [ %63, %62 ], [ %58, %54 ]
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
 
@@ -67306,7 +67306,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126StdLibraryFunctionsCheck
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
-  %.1.i.i.i = phi ptr [ %10, %6 ], [ %15, %14 ]
+  %.1.i.i.i = phi ptr [ %15, %14 ], [ %10, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
 
@@ -68758,7 +68758,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgSValERKN5clang4ento9CallEve
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i53
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i53: ; preds = %84, %75
-  %.1.i.i.i.i54 = phi ptr [ %80, %75 ], [ %85, %84 ]
+  %.1.i.i.i.i54 = phi ptr [ %85, %84 ], [ %80, %75 ]
   %86 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i54, i64 24
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit55
 
@@ -69318,7 +69318,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126StdLibraryFunctionsCheck
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
-  %.1.i.i.i = phi ptr [ %10, %6 ], [ %15, %14 ]
+  %.1.i.i.i = phi ptr [ %15, %14 ], [ %10, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
 
@@ -69597,7 +69597,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126StdLibraryFunctionsCheck
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
-  %.1.i.i.i = phi ptr [ %10, %6 ], [ %15, %14 ]
+  %.1.i.i.i = phi ptr [ %15, %14 ], [ %10, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
 
@@ -69862,7 +69862,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i.i: ; preds = %70, %62
-  %.1.i.i.i.i.i = phi ptr [ %66, %62 ], [ %71, %70 ]
+  %.1.i.i.i.i.i = phi ptr [ %71, %70 ], [ %66, %62 ]
   %72 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit.i
 
@@ -70495,7 +70495,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126StdLibraryFunctionsCheck
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
-  %.1.i.i.i = phi ptr [ %10, %6 ], [ %15, %14 ]
+  %.1.i.i.i = phi ptr [ %15, %14 ], [ %10, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
 

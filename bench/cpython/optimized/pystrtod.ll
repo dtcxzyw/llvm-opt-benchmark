@@ -430,7 +430,7 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br label %10
 
 10:                                               ; preds = %9, %5
-  %.014 = phi ptr [ @lc_float_strings, %5 ], [ @uc_float_strings, %9 ]
+  %.014 = phi ptr [ @uc_float_strings, %9 ], [ @lc_float_strings, %5 ]
   %11 = add i32 %2, 1
   br label %18
 
@@ -441,7 +441,7 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br label %14
 
 14:                                               ; preds = %13, %5
-  %.2 = phi ptr [ @lc_float_strings, %5 ], [ @uc_float_strings, %13 ]
+  %.2 = phi ptr [ @uc_float_strings, %13 ], [ @lc_float_strings, %5 ]
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   br label %18
 
@@ -458,10 +458,10 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br label %173
 
 18:                                               ; preds = %5, %12, %15, %14, %10
-  %.020 = phi i32 [ 0, %15 ], [ %spec.store.select, %14 ], [ %11, %10 ], [ %2, %12 ], [ %2, %5 ]
-  %.319 = phi i8 [ 114, %15 ], [ 103, %14 ], [ 101, %10 ], [ 102, %12 ], [ %1, %5 ]
-  %.3 = phi ptr [ @lc_float_strings, %15 ], [ %.2, %14 ], [ %.014, %10 ], [ @uc_float_strings, %12 ], [ @lc_float_strings, %5 ]
-  %.0 = phi i32 [ 0, %15 ], [ 2, %14 ], [ 2, %10 ], [ 3, %12 ], [ 3, %5 ]
+  %.020 = phi i32 [ %11, %10 ], [ %spec.store.select, %14 ], [ 0, %15 ], [ %2, %12 ], [ %2, %5 ]
+  %.319 = phi i8 [ 101, %10 ], [ 103, %14 ], [ 114, %15 ], [ 102, %12 ], [ %1, %5 ]
+  %.3 = phi ptr [ %.014, %10 ], [ %.2, %14 ], [ @lc_float_strings, %15 ], [ @uc_float_strings, %12 ], [ @lc_float_strings, %5 ]
+  %.0 = phi i32 [ 2, %10 ], [ 2, %14 ], [ 0, %15 ], [ 3, %12 ], [ 3, %5 ]
   %19 = and i32 %3, 1
   %20 = and i32 %3, 2
   %21 = and i32 %3, 4
@@ -825,7 +825,7 @@ format_float_short.exit:                          ; preds = %170, %172
   br label %173
 
 173:                                              ; preds = %format_float_short.exit, %17, %16
-  %.015 = phi ptr [ null, %17 ], [ null, %16 ], [ %.0217222.i, %format_float_short.exit ]
+  %.015 = phi ptr [ null, %17 ], [ %.0217222.i, %format_float_short.exit ], [ null, %16 ]
   ret ptr %.015
 }
 

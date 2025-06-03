@@ -222,7 +222,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
 _ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit: ; preds = %switch.lookup, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %47, %44
-  %.0 = phi i8 [ %51, %47 ], [ %46, %44 ], [ 13, %43 ], [ 40, %42 ], [ 1, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0 = phi i8 [ %46, %44 ], [ %51, %47 ], [ 13, %43 ], [ 40, %42 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 1, %41 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -1866,7 +1866,7 @@ define void @"_ZN75_$LT$tokio_test..io..Mock$u20$as$u20$tokio..io..async_write..
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit92"
 
-"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit92": ; preds = %155, %157, %.critedge, %44
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit92": ; preds = %157, %155, %_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit, %44
   ret void
 
 45:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$17hbba71ca39240eb57E.exit.i"
@@ -2150,7 +2150,7 @@ thread-pre-split97:                               ; preds = %49
 
 143:                                              ; preds = %137, %135
   %.sink.i110 = phi i64 [ 1, %137 ], [ 0, %135 ]
-  %.sroa.11.0104 = phi i64 [ %.sroa.11.0, %137 ], [ %.sroa.11.0.ph, %135 ]
+  %.sroa.11.0107 = phi i64 [ %.sroa.11.0, %137 ], [ %.sroa.11.0.ph, %135 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !330)
   %144 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
           to label %.noexc66 unwind label %227
@@ -2165,11 +2165,11 @@ thread-pre-split97:                               ; preds = %49
   %149 = load ptr, ptr %148, align 8, !alias.scope !330
   store ptr null, ptr %22, align 8, !alias.scope !330
   %.not.i65 = icmp eq ptr %147, null
-  br i1 %.not.i65, label %.critedge, label %152
+  br i1 %.not.i65, label %_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit, label %152
 
 150:                                              ; preds = %.noexc66
   %151 = load i64, ptr %144, align 8, !range !134, !noalias !330, !noundef !5
-  switch i64 %151, label %.critedge [
+  switch i64 %151, label %_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit [
     i64 0, label %146
     i64 3, label %146
   ]
@@ -2178,7 +2178,7 @@ thread-pre-split97:                               ; preds = %49
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %154 = load ptr, ptr %153, align 8, !noalias !330, !nonnull !5, !noundef !5
   invoke void %154(ptr noundef %149)
-          to label %.critedge unwind label %227
+          to label %_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit unwind label %227
 
 .thread119:                                       ; preds = %85, %141
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
@@ -2191,14 +2191,14 @@ thread-pre-split97:                               ; preds = %49
 
 .loopexit:                                        ; preds = %187, %198, %202, %.thread119, %182
   %.sink.i113.ph = phi i64 [ 1, %187 ], [ 1, %198 ], [ 1, %202 ], [ 0, %.thread119 ], [ 1, %182 ]
-  %.sroa.11.0107.ph = phi i64 [ %.sroa.11.0, %187 ], [ %.sroa.11.0, %198 ], [ %.sroa.11.0, %202 ], [ 0, %.thread119 ], [ %.sroa.11.0, %182 ]
+  %.sroa.11.0106.ph = phi i64 [ %.sroa.11.0, %187 ], [ %.sroa.11.0, %198 ], [ %.sroa.11.0, %202 ], [ 0, %.thread119 ], [ %.sroa.11.0, %182 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %232
 
 .loopexit.split-lp:                               ; preds = %158, %193
   %.sink.i113.ph136 = phi i64 [ 0, %158 ], [ 1, %193 ]
-  %.sroa.11.0107.ph137 = phi i64 [ 0, %158 ], [ %.sroa.11.0, %193 ]
+  %.sroa.11.0106.ph137 = phi i64 [ 0, %158 ], [ %.sroa.11.0, %193 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %232
@@ -2413,14 +2413,14 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
 227:                                              ; preds = %152, %143
   %228 = landingpad { ptr, i32 }
           cleanup
-  %229 = inttoptr i64 %.sroa.11.0104 to ptr
+  %229 = inttoptr i64 %.sroa.11.0107 to ptr
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E"(i64 %.sink.i110, ptr %229) #15
           to label %common.resume unwind label %230
 
-.critedge:                                        ; preds = %150, %146, %152
+_ZN10tokio_test2io4Mock19maybe_wakeup_reader17hd3bff765ab59a5afE.exit: ; preds = %150, %146, %152
   store i64 %.sink.i110, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.11.0104, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.11.0107, ptr %.sroa.4.0..sroa_idx, align 8
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E.exit92"
 
 230:                                              ; preds = %227, %232
@@ -2431,7 +2431,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
 
 232:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body83, %168, %210
   %.sink.i109.ph = phi i64 [ 1, %.body83 ], [ 0, %168 ], [ 1, %210 ], [ %.sink.i113.ph, %.loopexit ], [ %.sink.i113.ph136, %.loopexit.split-lp ]
-  %.sroa.11.0103.ph = phi i64 [ %.sroa.11.0, %.body83 ], [ 0, %168 ], [ %.sroa.11.0, %210 ], [ %.sroa.11.0107.ph, %.loopexit ], [ %.sroa.11.0107.ph137, %.loopexit.split-lp ]
+  %.sroa.11.0103.ph = phi i64 [ %.sroa.11.0, %.body83 ], [ 0, %168 ], [ %.sroa.11.0, %210 ], [ %.sroa.11.0106.ph, %.loopexit ], [ %.sroa.11.0106.ph137, %.loopexit.split-lp ]
   %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body84, %.body83 ], [ %169, %168 ], [ %211, %210 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %233 = inttoptr i64 %.sroa.11.0103.ph to ptr
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h28021118b60e7569E"(i64 %.sink.i109.ph, ptr %233) #15

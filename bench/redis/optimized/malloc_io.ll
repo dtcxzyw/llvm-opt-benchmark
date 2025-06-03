@@ -435,8 +435,8 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %62, %58
-  %.ph = phi ptr [ %61, %58 ], [ %.pre719, %62 ]
-  %.0398.ph = phi i32 [ %60, %58 ], [ %65, %62 ]
+  %.ph = phi ptr [ %.pre719, %62 ], [ %61, %58 ]
+  %.0398.ph = phi i32 [ %65, %62 ], [ %60, %58 ]
   %.pr = load i8, ptr %.ph, align 1, !tbaa !8
   br label %66
 
@@ -505,8 +505,8 @@ thread-pre-split720:                              ; preds = %thread-pre-split720
   br label %.backedge
 
 .backedge:                                        ; preds = %81, %.loopexit, %.loopexit535, %.loopexit539, %.loopexit543, %.loopexit547, %.loopexit551, %.loopexit555, %699
-  %.promoted.be = phi ptr [ %701, %699 ], [ %693, %.loopexit555 ], [ %639, %.loopexit551 ], [ %588, %.loopexit547 ], [ %549, %.loopexit543 ], [ %435, %.loopexit539 ], [ %329, %.loopexit535 ], [ %219, %.loopexit ], [ %83, %81 ]
-  %.0384.be = phi i64 [ %700, %699 ], [ %.35, %.loopexit555 ], [ %.30, %.loopexit551 ], [ %.25, %.loopexit547 ], [ %.20, %.loopexit543 ], [ %.15, %.loopexit539 ], [ %.10, %.loopexit535 ], [ %.5, %.loopexit ], [ %82, %81 ]
+  %.promoted.be = phi ptr [ %701, %699 ], [ %83, %81 ], [ %219, %.loopexit ], [ %329, %.loopexit535 ], [ %435, %.loopexit539 ], [ %549, %.loopexit543 ], [ %588, %.loopexit547 ], [ %639, %.loopexit551 ], [ %693, %.loopexit555 ]
+  %.0384.be = phi i64 [ %700, %699 ], [ %82, %81 ], [ %.5, %.loopexit ], [ %.10, %.loopexit535 ], [ %.15, %.loopexit539 ], [ %.20, %.loopexit543 ], [ %.25, %.loopexit547 ], [ %.30, %.loopexit551 ], [ %.35, %.loopexit555 ]
   br label %18
 
 84:                                               ; preds = %74, %74
@@ -682,7 +682,7 @@ thread-pre-split720:                              ; preds = %thread-pre-split720
   unreachable
 
 173:                                              ; preds = %169, %157, %145, %133, %121, %109, %96
-  %.0409 = phi i64 [ %171, %169 ], [ %159, %157 ], [ %147, %145 ], [ %135, %133 ], [ %123, %121 ], [ %111, %109 ], [ %99, %96 ]
+  %.0409 = phi i64 [ %99, %96 ], [ %111, %109 ], [ %123, %121 ], [ %135, %133 ], [ %147, %145 ], [ %159, %157 ], [ %171, %169 ]
   %spec.select.i = call i64 @llvm.abs.i64(i64 %.0409, i1 true)
   store i8 0, ptr %17, align 16, !tbaa !8
   br label %.preheader.i.i
@@ -929,7 +929,7 @@ d2s.exit:                                         ; preds = %u2s.exit.i, %187
   unreachable
 
 285:                                              ; preds = %281, %269, %257, %245, %232
-  %.0415 = phi i64 [ %271, %269 ], [ %247, %245 ], [ %283, %281 ], [ %235, %232 ], [ %259, %257 ]
+  %.0415 = phi i64 [ %259, %257 ], [ %235, %232 ], [ %283, %281 ], [ %247, %245 ], [ %271, %269 ]
   store i8 0, ptr %16, align 16, !tbaa !8
   br label %286
 
@@ -1172,7 +1172,7 @@ o2s.exit:                                         ; preds = %u2s.exit.i483, %297
   unreachable
 
 395:                                              ; preds = %391, %379, %367, %355, %342
-  %.0410 = phi i64 [ %381, %379 ], [ %357, %355 ], [ %393, %391 ], [ %345, %342 ], [ %369, %367 ]
+  %.0410 = phi i64 [ %369, %367 ], [ %345, %342 ], [ %393, %391 ], [ %357, %355 ], [ %381, %379 ]
   store i8 0, ptr %15, align 16, !tbaa !8
   br label %.preheader.i
 
@@ -1401,7 +1401,7 @@ u2s.exit:                                         ; preds = %.preheader.i
   unreachable
 
 501:                                              ; preds = %497, %485, %473, %461, %448
-  %.0404 = phi i64 [ %487, %485 ], [ %463, %461 ], [ %499, %497 ], [ %451, %448 ], [ %475, %473 ]
+  %.0404 = phi i64 [ %475, %473 ], [ %451, %448 ], [ %499, %497 ], [ %463, %461 ], [ %487, %485 ]
   %502 = load i8, ptr %76, align 1, !tbaa !8
   %503 = icmp eq i8 %502, 88
   store i8 0, ptr %14, align 16, !tbaa !8

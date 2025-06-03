@@ -623,7 +623,7 @@ _ZNSt6vectorIPN5clang6interp7Program6GlobalESaIS4_EE9push_backERKS4_.exit: ; pre
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit:    ; preds = %145, %141, %137, %127
-  %149 = phi i32 [ 0, %127 ], [ %147, %145 ], [ %144, %141 ], [ %140, %137 ]
+  %149 = phi i32 [ 0, %127 ], [ %140, %137 ], [ %144, %141 ], [ %147, %145 ]
   switch i32 %switch.load, label %224 [
     i32 0, label %150
     i32 3, label %175
@@ -1544,7 +1544,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread63: ; preds = %42, %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %70, %.lr.ph.i
-  %.1.i.i = phi ptr [ %66, %.lr.ph.i ], [ %71, %70 ]
+  %.1.i.i = phi ptr [ %71, %70 ], [ %66, %.lr.ph.i ]
   %72 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %73 = load i24, ptr %72, align 16
   %74 = and i24 %73, 1048576
@@ -1813,7 +1813,7 @@ _ZNSt6vectorIPN5clang6interp7Program6GlobalESaIS4_EE9push_backERKS4_.exit: ; pre
   br label %216
 
 216:                                              ; preds = %33, %_ZNSt6vectorIPN5clang6interp7Program6GlobalESaIS4_EE9push_backERKS4_.exit
-  %.1 = phi i32 [ %35, %33 ], [ %134, %_ZNSt6vectorIPN5clang6interp7Program6GlobalESaIS4_EE9push_backERKS4_.exit ]
+  %.1 = phi i32 [ %134, %_ZNSt6vectorIPN5clang6interp7Program6GlobalESaIS4_EE9push_backERKS4_.exit ], [ %35, %33 ]
   ret i32 %.1
 }
 

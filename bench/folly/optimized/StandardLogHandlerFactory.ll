@@ -2840,7 +2840,7 @@ define internal void @_ZN5folly12_GLOBAL__N_125CustomLogFormatterFactory15create
   br label %13
 
 13:                                               ; preds = %7, %6, %3
-  %.0 = phi i1 [ %12, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ %12, %7 ], [ false, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25, !noalias !126
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -104,7 +104,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a5c26752de5436bE.exit"
 
 "_ZN69_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a5c26752de5436bE.exit": ; preds = %7, %10, %13
-  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %7 ], [ %12, %10 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in.i
 }
 

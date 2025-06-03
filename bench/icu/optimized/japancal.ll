@@ -505,7 +505,7 @@ define noundef i32 @_ZNK6icu_7716JapaneseCalendar14handleGetLimitE19UCalendarDat
   br label %20
 
 20:                                               ; preds = %11, %5, %18, %12, %6
-  %.0 = phi i32 [ %19, %18 ], [ %17, %12 ], [ %10, %6 ], [ 0, %5 ], [ 1, %11 ]
+  %.0 = phi i32 [ %19, %18 ], [ %10, %6 ], [ %17, %12 ], [ 0, %5 ], [ 1, %11 ]
   ret i32 %.0
 }
 

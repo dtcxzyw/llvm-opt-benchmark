@@ -1230,7 +1230,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   br label %fetch_att.exit158
 
 fetch_att.exit158:                                ; preds = %43, %46, %49, %52, %58, %244, %238, %235, %232, %229
-  %.1 = phi i64 [ %239, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %229 ], [ %245, %244 ], [ %59, %58 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ]
+  %.1 = phi i64 [ %231, %229 ], [ %234, %232 ], [ %237, %235 ], [ %239, %238 ], [ %245, %244 ], [ %59, %58 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ]
   ret i64 %.1
 }
 
@@ -1288,7 +1288,7 @@ define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nounde
   unreachable
 
 29:                                               ; preds = %22, %17, %12, %8, %5
-  %.0 = phi i64 [ %25, %22 ], [ %21, %17 ], [ %16, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.0 = phi i64 [ %7, %5 ], [ %11, %8 ], [ %16, %12 ], [ %21, %17 ], [ %25, %22 ]
   ret i64 %.0
 }
 
@@ -2271,7 +2271,7 @@ define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0,
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %98, %101, %104, %107, %113
-  %.0.i = phi i64 [ %108, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %98 ], [ %114, %113 ]
+  %.0.i = phi i64 [ %100, %98 ], [ %103, %101 ], [ %106, %104 ], [ %108, %107 ], [ %114, %113 ]
   %115 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %.0.i, ptr %115, align 8
   %116 = load i16, ptr %95, align 4

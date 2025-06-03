@@ -93609,7 +93609,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %41, %39
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %55, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %55 ], [ %56, %.thread.i ]
+  %.1.i = phi ptr [ %56, %.thread.i ], [ %.0.i.i.i, %55 ]
   tail call void @lean_inc_heartbeat() #5
   %57 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %58 = icmp eq ptr %57, null
@@ -94497,7 +94497,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %304, %302
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %318, %.thread.i
-  %.1.i667 = phi ptr [ %.0.i.i.i, %318 ], [ %319, %.thread.i ]
+  %.1.i667 = phi ptr [ %319, %.thread.i ], [ %.0.i.i.i, %318 ]
   %320 = lshr i64 %264, 1
   %321 = trunc i64 %320 to i8
   br i1 %.not935, label %322, label %lean_dec.exit482
@@ -96005,7 +96005,7 @@ lean_ensure_exclusive_array.exit.i.i782:          ; preds = %886, %884
   br label %lean_array_set.exit786
 
 lean_array_set.exit786:                           ; preds = %900, %.thread.i779
-  %.1.i780 = phi ptr [ %.0.i.i.i783, %900 ], [ %901, %.thread.i779 ]
+  %.1.i780 = phi ptr [ %901, %.thread.i779 ], [ %.0.i.i.i783, %900 ]
   %902 = lshr i64 %848, 1
   %903 = trunc i64 %902 to i8
   br i1 %.not903, label %904, label %lean_dec.exit454

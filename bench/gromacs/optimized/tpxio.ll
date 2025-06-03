@@ -12637,7 +12637,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit565:                 ; preds = %.lr.ph.i556
   br i1 %1754, label %1765, label %.thread1987
 
 1765:                                             ; preds = %1760, %1759, %1758, %1757, %1752, %._crit_edge1946, %1764
-  %.013221985 = phi i32 [ 0, %._crit_edge1946 ], [ 0, %1764 ], [ 5, %1760 ], [ 4, %1759 ], [ 3, %1758 ], [ 2, %1757 ], [ 1, %1752 ]
+  %.013221985 = phi i32 [ 0, %._crit_edge1946 ], [ 0, %1764 ], [ 2, %1757 ], [ 3, %1758 ], [ 4, %1759 ], [ 5, %1760 ], [ 1, %1752 ]
   %1766 = load ptr, ptr %0, align 8, !tbaa !19
   %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 16
   %1768 = load ptr, ptr %1767, align 8

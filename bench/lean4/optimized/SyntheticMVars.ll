@@ -104726,7 +104726,7 @@ lean_alloc_ctor.exit126:                          ; preds = %lean_alloc_ctor.exi
   br label %157
 
 157:                                              ; preds = %lean_alloc_ctor.exit116, %lean_alloc_ctor.exit126, %lean_alloc_ctor.exit113, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %67, %lean_alloc_ctor.exit113 ], [ %28, %lean_alloc_ctor.exit ], [ %102, %lean_alloc_ctor.exit116 ], [ %156, %lean_alloc_ctor.exit126 ]
+  %.0 = phi ptr [ %28, %lean_alloc_ctor.exit ], [ %67, %lean_alloc_ctor.exit113 ], [ %102, %lean_alloc_ctor.exit116 ], [ %156, %lean_alloc_ctor.exit126 ]
   ret ptr %.0
 }
 
@@ -105032,7 +105032,7 @@ lean_alloc_closure.exit39:                        ; preds = %33
   br label %44
 
 44:                                               ; preds = %lean_alloc_closure.exit39, %lean_alloc_closure.exit, %20
-  %.0 = phi ptr [ %43, %lean_alloc_closure.exit39 ], [ %32, %lean_alloc_closure.exit ], [ %21, %20 ]
+  %.0 = phi ptr [ %43, %lean_alloc_closure.exit39 ], [ %21, %20 ], [ %32, %lean_alloc_closure.exit ]
   ret ptr %.0
 }
 
@@ -128914,7 +128914,7 @@ lean_dec.exit:                                    ; preds = %797, %796, %794, %l
   br label %799
 
 799:                                              ; preds = %lean_dec.exit346, %lean_alloc_closure.exit480, %lean_dec.exit348, %lean_alloc_closure.exit, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit, %lean_dec.exit, %lean_alloc_closure.exit558, %lean_dec.exit337, %lean_alloc_closure.exit545, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit535, %lean_dec.exit360, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %11, %lean_dec.exit360 ], [ %124, %lean_alloc_ctor.exit ], [ %417, %lean_dec.exit346 ], [ %349, %lean_dec.exit348 ], [ %398, %lean_alloc_closure.exit480 ], [ %311, %lean_alloc_closure.exit ], [ %257, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit ], [ %798, %lean_dec.exit ], [ %730, %lean_dec.exit337 ], [ %779, %lean_alloc_closure.exit558 ], [ %692, %lean_alloc_closure.exit545 ], [ %638, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit535 ]
+  %.1 = phi ptr [ %11, %lean_dec.exit360 ], [ %124, %lean_alloc_ctor.exit ], [ %417, %lean_dec.exit346 ], [ %257, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit ], [ %311, %lean_alloc_closure.exit ], [ %349, %lean_dec.exit348 ], [ %398, %lean_alloc_closure.exit480 ], [ %798, %lean_dec.exit ], [ %638, %l___private_Lean_Elab_SyntheticMVars_0__Lean_Elab_Term_synthesizePendingInstMVar.exit535 ], [ %692, %lean_alloc_closure.exit545 ], [ %730, %lean_dec.exit337 ], [ %779, %lean_alloc_closure.exit558 ]
   ret ptr %.1
 }
 
@@ -206086,7 +206086,7 @@ lean_alloc_ctor.exit1623:                         ; preds = %2408
   br label %2421
 
 2421:                                             ; preds = %2162, %2418, %lean_dec.exit888, %lean_alloc_ctor.exit, %979, %lean_dec.exit880, %lean_alloc_ctor.exit1333, %1217
-  %.5 = phi ptr [ %.0689, %979 ], [ %731, %lean_dec.exit888 ], [ %810, %lean_alloc_ctor.exit ], [ %.0691, %1217 ], [ %1017, %lean_dec.exit880 ], [ %1062, %lean_alloc_ctor.exit1333 ], [ %.0, %2418 ], [ %.0702, %2162 ]
+  %.5 = phi ptr [ %.0689, %979 ], [ %731, %lean_dec.exit888 ], [ %810, %lean_alloc_ctor.exit ], [ %.0691, %1217 ], [ %1017, %lean_dec.exit880 ], [ %1062, %lean_alloc_ctor.exit1333 ], [ %.0702, %2162 ], [ %.0, %2418 ]
   ret ptr %.5
 }
 

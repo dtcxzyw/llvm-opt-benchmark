@@ -5388,7 +5388,7 @@ _ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit69: ; preds = %159, %_ZNK4llvm
   br label %.thread
 
 .thread:                                          ; preds = %21, %22, %94, %92, %.critedge2, %78, %57, %56, %48, %47, %42, %100, %179, %_ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit60, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit69, %28, %3, %8, %182
-  %.0 = phi i1 [ false, %28 ], [ true, %182 ], [ false, %8 ], [ false, %3 ], [ false, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit69 ], [ false, %_ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit60 ], [ false, %179 ], [ false, %100 ], [ false, %42 ], [ false, %47 ], [ false, %48 ], [ false, %56 ], [ false, %57 ], [ false, %78 ], [ false, %.critedge2 ], [ false, %92 ], [ false, %94 ], [ false, %22 ], [ false, %21 ]
+  %.0 = phi i1 [ true, %182 ], [ false, %28 ], [ false, %8 ], [ false, %3 ], [ false, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit69 ], [ false, %_ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit60 ], [ false, %179 ], [ false, %100 ], [ false, %42 ], [ false, %47 ], [ false, %48 ], [ false, %56 ], [ false, %57 ], [ false, %78 ], [ false, %.critedge2 ], [ false, %92 ], [ false, %94 ], [ false, %22 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -6151,7 +6151,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr24isStackAligningInl
   br label %12
 
 12:                                               ; preds = %5, %11
-  %.1 = phi i1 [ true, %5 ], [ false, %11 ]
+  %.1 = phi i1 [ false, %11 ], [ true, %5 ]
   ret i1 %.1
 }
 
@@ -8753,7 +8753,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %_ZNK4llvm12MachineI
   br label %139
 
 139:                                              ; preds = %137, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %138, %137 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %138, %137 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !232
   %140 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %140, align 8
@@ -8771,8 +8771,8 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %_ZNK4llvm12MachineI
   br label %146
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i.i.thread, %144, %._crit_edge.i.i.i.i.i.i
-  %147 = phi ptr [ %102, %._crit_edge.i.i.i.i.i.i ], [ %102, %144 ], [ %96, %._crit_edge.i.i.i.i.i.i.thread ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %145, %144 ], [ %86, %._crit_edge.i.i.i.i.i.i.thread ]
+  %147 = phi ptr [ %102, %144 ], [ %102, %._crit_edge.i.i.i.i.i.i ], [ %96, %._crit_edge.i.i.i.i.i.i.thread ]
+  %.2.i.i.i.i.i.i = phi ptr [ %145, %144 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %86, %._crit_edge.i.i.i.i.i.i.thread ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !232
   %148 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %148, align 8
@@ -8926,7 +8926,7 @@ _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.thread5: ; preds = %.
   br label %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit.thread: ; preds = %17, %13, %28, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit, %34
-  %.03 = phi i1 [ true, %28 ], [ false, %34 ], [ true, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit ], [ true, %13 ], [ true, %17 ]
+  %.03 = phi i1 [ false, %34 ], [ true, %28 ], [ true, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit ], [ true, %13 ], [ true, %17 ]
   ret i1 %.03
 }
 
@@ -15129,7 +15129,7 @@ define dso_local void @_ZN4llvm12MachineInstr21setPhysRegsDeadExceptENS_8ArrayRe
   br label %58
 
 58:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit58.thread78.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit58.thread78.i.i.i.i.i" ]
+  %.1.i.i.i.i.i = phi ptr [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit58.thread78.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4, !tbaa !524
   %59 = icmp eq i32 %.1.val.i.i.i.i.i, %20
   br i1 %59, label %"_ZN4llvm7none_ofIRNS_8ArrayRefINS_8RegisterEEEZNS_12MachineInstr21setPhysRegsDeadExceptES3_RKNS_18TargetRegisterInfoEE3$_0EEbOT_T0_.exit", label %60
@@ -15148,7 +15148,7 @@ define dso_local void @_ZN4llvm12MachineInstr21setPhysRegsDeadExceptENS_8ArrayRe
   br label %65
 
 65:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit61.thread81.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit61.thread81.i.i.i.i.i" ]
+  %.2.i.i.i.i.i = phi ptr [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm12MachineInstr21setPhysRegsDeadExceptENS2_8ArrayRefINS2_8RegisterEEERKNS2_18TargetRegisterInfoEE3$_0EclIPKS5_EEbT_.exit61.thread81.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !524
   %66 = icmp eq i32 %.2.val.i.i.i.i.i, %20
   br i1 %66, label %"_ZN4llvm7none_ofIRNS_8ArrayRefINS_8RegisterEEEZNS_12MachineInstr21setPhysRegsDeadExceptES3_RKNS_18TargetRegisterInfoEE3$_0EEbOT_T0_.exit", label %67
@@ -21185,7 +21185,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %58, %57 ]
+  %.1 = phi ptr [ %58, %57 ], [ %.029.lcssa, %._crit_edge ]
   %60 = load i32, ptr %.1, align 8
   %61 = and i32 %60, 255
   %62 = icmp eq i32 %61, 0
@@ -21200,7 +21200,7 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN4llvm14MachineOperandE
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %68, %67 ]
+  %.2 = phi ptr [ %68, %67 ], [ %.029.lcssa, %._crit_edge ]
   %70 = load i32, ptr %.2, align 8
   %71 = and i32 %70, 255
   %72 = icmp eq i32 %71, 0

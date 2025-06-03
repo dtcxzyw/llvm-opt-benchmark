@@ -103,7 +103,7 @@ define dso_local i64 @cliWriteConn(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %22, %25, %29, %33, %37
-  %.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %22 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ]
   %40 = icmp ugt i64 %.0.i, %2
   br i1 %40, label %41, label %hi_sdslen.exit.thread
 
@@ -168,7 +168,7 @@ hi_sdslen.exit.thread:                            ; preds = %16, %hi_sdslen.exit
   br label %hi_sdslen.exit24
 
 hi_sdslen.exit24:                                 ; preds = %53, %56, %60, %64, %68
-  %.0.i23 = phi i64 [ %70, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %53 ]
+  %.0.i23 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
   %71 = icmp ugt i64 %.0.i23, %2
   br i1 %71, label %72, label %hi_sdslen.exit24.thread
 
@@ -218,7 +218,7 @@ default.unreachable:                              ; preds = %hi_sdslen.exit24.th
   unreachable
 
 hi_sdslen.exit26:                                 ; preds = %48, %75, %78, %82, %86, %90
-  %.0.i25 = phi i64 [ %92, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %78 ], [ %77, %75 ], [ 0, %48 ]
+  %.0.i25 = phi i64 [ %77, %75 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %92, %90 ], [ 0, %48 ]
   call void @hi_sdsclear(ptr noundef nonnull %46) #12
   %93 = sub i64 %2, %.0.i25
   br label %94
@@ -789,7 +789,7 @@ define dso_local ptr @escapeJsonString(ptr noundef %0, ptr noundef readonly capt
   br label %25
 
 25:                                               ; preds = %20, %18, %16, %14, %12, %10, %7
-  %.1 = phi ptr [ %24, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %7 ]
+  %.1 = phi ptr [ %24, %20 ], [ %9, %7 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %.01418, i64 1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42

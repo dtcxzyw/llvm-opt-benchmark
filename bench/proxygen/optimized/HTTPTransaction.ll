@@ -15639,7 +15639,7 @@ cleanup246:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup250, !llvm.loop !105
 
 ehcleanup249:                                     ; preds = %lpad196.loopexit, %lpad196.loopexit.split-lp, %lpad237, %ehcleanup, %lpad208
-  %.pn19 = phi { ptr, i32 } [ %59, %lpad237 ], [ %.pn, %ehcleanup ], [ %49, %lpad208 ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
+  %.pn19 = phi { ptr, i32 } [ %49, %lpad208 ], [ %.pn, %ehcleanup ], [ %59, %lpad237 ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
   br label %ehcleanup251
 

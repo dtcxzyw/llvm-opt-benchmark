@@ -2848,7 +2848,7 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   br label %52
 
 52:                                               ; preds = %41, %30, %19
-  %.0 = phi i32 [ 1, %41 ], [ %40, %30 ], [ %29, %19 ]
+  %.0 = phi i32 [ 1, %41 ], [ %29, %19 ], [ %40, %30 ]
   ret i32 %.0
 }
 

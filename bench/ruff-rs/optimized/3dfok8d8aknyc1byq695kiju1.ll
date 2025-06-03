@@ -2750,7 +2750,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h87b4d2007b2f8317E.exit.i.i: ; preds 
   br label %"_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h62f2231dfe1bdce6E.exit"
 
 "_ZN10serde_json5value3ser76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$serde_json..value..Value$GT$9serialize17h62f2231dfe1bdce6E.exit": ; preds = %10, %14, %_ZN10serde_json3ser9Formatter10write_bool17h87b4d2007b2f8317E.exit.i.i, %24, %26, %29, %35, %37, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17ha1141c33a42a56c6E.exit.i", %96
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %96 ], [ %.sroa.01.0.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17ha1141c33a42a56c6E.exit.i" ], [ %39, %37 ], [ %28, %26 ], [ %15, %14 ], [ null, %10 ], [ %25, %24 ], [ null, %_ZN10serde_json3ser9Formatter10write_bool17h87b4d2007b2f8317E.exit.i.i ], [ %36, %35 ], [ null, %29 ]
+  %.sroa.0.0.i = phi ptr [ %28, %26 ], [ %39, %37 ], [ %.sroa.0.1.i, %96 ], [ %.sroa.01.0.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17ha1141c33a42a56c6E.exit.i" ], [ %15, %14 ], [ null, %10 ], [ %25, %24 ], [ null, %_ZN10serde_json3ser9Formatter10write_bool17h87b4d2007b2f8317E.exit.i.i ], [ %36, %35 ], [ null, %29 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   ret ptr %.sroa.0.0.i
 }
@@ -3204,8 +3204,8 @@ define internal fastcc { i8, i16 } @_ZN13unicode_width6tables12lookup_width17h4e
   br label %36
 
 36:                                               ; preds = %45, %47, %43, %41, %39, %29, %28, %18, %35, %34, %33, %32, %31
-  %.sroa.16.0 = phi i16 [ 14342, %35 ], [ -32768, %34 ], [ 16384, %33 ], [ 14337, %32 ], [ 0, %31 ], [ 0, %18 ], [ 14336, %28 ], [ 12543, %29 ], [ 15367, %39 ], [ 14339, %41 ], [ 15365, %43 ], [ %., %47 ], [ 3, %45 ]
-  %.sroa.0.0 = phi i8 [ 1, %35 ], [ 0, %34 ], [ 0, %33 ], [ 1, %32 ], [ 3, %31 ], [ %27, %18 ], [ 1, %28 ], [ 1, %29 ], [ 1, %39 ], [ 1, %41 ], [ 1, %43 ], [ 2, %47 ], [ 1, %45 ]
+  %.sroa.16.0 = phi i16 [ 0, %31 ], [ 14337, %32 ], [ 16384, %33 ], [ -32768, %34 ], [ 14342, %35 ], [ 0, %18 ], [ 14336, %28 ], [ 12543, %29 ], [ 15367, %39 ], [ 14339, %41 ], [ 15365, %43 ], [ %., %47 ], [ 3, %45 ]
+  %.sroa.0.0 = phi i8 [ 3, %31 ], [ 1, %32 ], [ 0, %33 ], [ 0, %34 ], [ 1, %35 ], [ %27, %18 ], [ 1, %28 ], [ 1, %29 ], [ 1, %39 ], [ 1, %41 ], [ 1, %43 ], [ 2, %47 ], [ 1, %45 ]
   %37 = insertvalue { i8, i16 } poison, i8 %.sroa.0.0, 0
   %38 = insertvalue { i8, i16 } %37, i16 %.sroa.16.0, 1
   ret { i8, i16 } %38
@@ -5686,7 +5686,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h49e8edf46c67f215E.exit"
 
 "_ZN73_$LT$aho_corasick..util..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h49e8edf46c67f215E.exit": ; preds = %8, %12, %16
-  %.sroa.0.0.in.i = phi i1 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9013,7 +9013,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha0426f7db0fb6981E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha0426f7db0fb6981E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17haf63c7d8b7c99bf2E.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h79ce15ba5ddff8a7E.exit"
 
@@ -9143,7 +9143,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha0426f7db0fb6981E.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha0426f7db0fb6981E.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -9745,7 +9745,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h269c51bc3c712be4E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h269c51bc3c712be4E.exit.i.i.i": ; preds = %62, %57, %54, %51
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %56, %54 ], [ %67, %62 ], [ %53, %51 ], [ %61, %57 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %61, %57 ], [ %53, %51 ], [ %67, %62 ], [ %56, %54 ]
   %68 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %68, label %69, label %71
 
@@ -10097,7 +10097,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8c1038cc8a09ea00E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8c1038cc8a09ea00E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hd2640f6572f344ebE.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h72affa0c80a3186bE.exit"
 
@@ -18755,11 +18755,11 @@ common.resume.i:                                  ; preds = %102, %85, %67, %50
   br label %109
 
 109:                                              ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i"
-  %.sroa.4.i61.i.sroa.7.0 = phi i8 [ %.sroa.4110.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %.sroa.4113.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %.sroa.4119.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ], [ %.sroa.4116.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ]
-  %.sroa.26.1.i = phi i32 [ %46, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %63, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %98, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ], [ %81, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ]
-  %.sroa.10.0.i = phi i64 [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %74, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ], [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ]
-  %.sroa.8.0.i = phi i64 [ %21, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ], [ %21, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ]
-  %.sroa.021.0.i = phi ptr [ %12, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %22, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %22, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ], [ %12, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ]
+  %.sroa.4.i61.i.sroa.7.0 = phi i8 [ %.sroa.4110.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %.sroa.4113.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %.sroa.4116.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ], [ %.sroa.4119.0.copyload, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ]
+  %.sroa.26.1.i = phi i32 [ %46, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %63, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %81, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ], [ %98, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ]
+  %.sroa.10.0.i = phi i64 [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %74, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ]
+  %.sroa.8.0.i = phi i64 [ %21, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %21, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ]
+  %.sroa.021.0.i = phi ptr [ %12, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit.i" ], [ %22, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit53.i" ], [ %12, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit60.i" ], [ %22, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a6ffba9558ff3fdE.exit67.i" ]
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.i, i64 1638
   %111 = load i16, ptr %110, align 2, !noalias !2558, !noundef !4
   %112 = zext i16 %111 to i64
@@ -32428,7 +32428,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h1a66f6e19b7c4258
   br label %_ZN13unicode_width6tables29starts_emoji_presentation_seq17h5a821ca04e5cbf42E.exit.i.i.i
 
 _ZN13unicode_width6tables29starts_emoji_presentation_seq17h5a821ca04e5cbf42E.exit.i.i.i: ; preds = %47, %46, %45, %44, %43, %42, %40
-  %.sroa.02.0.i.i.i.i = phi i64 [ 6, %47 ], [ 5, %46 ], [ 4, %45 ], [ 3, %44 ], [ 2, %43 ], [ 1, %42 ], [ 0, %40 ]
+  %.sroa.02.0.i.i.i.i = phi i64 [ 1, %42 ], [ 2, %43 ], [ 3, %44 ], [ 4, %45 ], [ 5, %46 ], [ 6, %47 ], [ 0, %40 ]
   %48 = lshr i32 %spec.select.i25.i, 3
   %49 = and i32 %48, 127
   %50 = zext nneg i32 %49 to i64
@@ -32548,8 +32548,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %._crit_edge.i.i.i.i.i
 
 89:                                               ; preds = %87, %86, %85, %84, %82, %81, %80, %78
-  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %87 ], [ 4, %86 ], [ 22, %85 ], [ 13, %84 ], [ 3, %82 ], [ 10, %81 ], [ 15, %80 ], [ 4, %78 ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %86 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %85 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %84 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %80 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %78 ]
+  %.sroa.11.0.i.i.i.i = phi i64 [ 15, %80 ], [ 10, %81 ], [ 3, %82 ], [ 13, %84 ], [ 22, %85 ], [ 4, %86 ], [ 10, %87 ], [ 4, %78 ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %80 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %84 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %85 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %86 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %78 ]
   %90 = trunc i32 %spec.select.i25.i to i8
   br label %.lr.ph.i.i.i.i.i
 
@@ -32761,8 +32761,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %155
 
 155:                                              ; preds = %154, %153, %152, %151, %150, %149, %146
-  %.sroa.9.0.i.i = phi i64 [ 2, %154 ], [ 12, %153 ], [ 6, %152 ], [ 4, %151 ], [ 9, %150 ], [ 4, %149 ], [ 2, %146 ]
-  %.sroa.01.0.i.i = phi ptr [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_717hd84adc7c4f4a8209E, %154 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_617h52c63d324323a821E, %153 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_517h42b6fa3b0dc02ff5E, %152 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_417hd6475118ca29ca3fE, %151 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_317h5849dfccd1699534E, %150 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_217h1c8fd96767403913E, %149 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_017hb29e1b072354a7d0E, %146 ]
+  %.sroa.9.0.i.i = phi i64 [ 4, %149 ], [ 9, %150 ], [ 4, %151 ], [ 6, %152 ], [ 12, %153 ], [ 2, %154 ], [ 2, %146 ]
+  %.sroa.01.0.i.i = phi ptr [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_217h1c8fd96767403913E, %149 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_317h5849dfccd1699534E, %150 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_417hd6475118ca29ca3fE, %151 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_517h42b6fa3b0dc02ff5E, %152 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_617h52c63d324323a821E, %153 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_717hd84adc7c4f4a8209E, %154 ], [ @_ZN13unicode_width6tables21EMOJI_MODIFIER_LEAF_017hb29e1b072354a7d0E, %146 ]
   %156 = trunc i32 %spec.select.i25.i to i8
   br label %.lr.ph.i.i.i
 
@@ -32970,8 +32970,8 @@ _ZN13unicode_width6tables22is_emoji_modifier_base17h9f21b938b2ba24b4E.exit.i: ; 
   br label %"_ZN13unicode_width6tables9str_width28_$u7b$$u7b$closure$u7d$$u7d$17hf1803fc6d7478d70E.exit.i"
 
 "_ZN13unicode_width6tables9str_width28_$u7b$$u7b$closure$u7d$$u7d$17hf1803fc6d7478d70E.exit.i": ; preds = %221, %220, %.thread56.i.i.i, %216, %215, %214, %212, %212, %212, %212, %212, %211, %211, %211, %211, %211, %207, %205, %203, %201, %199, %197, %195, %.critedge.thread.i.i.i, %188, %187, %186, %186, %186, %186, %186, %.thread44.i, %183, %183, %.thread52.i.i.i, %176, %._crit_edge.i.i.i, %144, %142, %133, %133, %131, %129, %128, %127, %126, %125, %124, %124, %124, %124, %116, %114, %113, %113, %._crit_edge.i.i.i.i.i, %74, %71, %.thread86.thread.i.i.i, %66, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i, %60
-  %.sroa.44.0.i.i.i = phi i16 [ 5, %60 ], [ 1, %220 ], [ %115, %114 ], [ %69, %.thread86.thread.i.i.i ], [ 11, %216 ], [ 19, %215 ], [ 18, %214 ], [ %.sroa.032.0.i.i.i, %74 ], [ %.sroa.031.0.i.i.i, %71 ], [ 0, %129 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 12543, %131 ], [ 0, %125 ], [ 0, %126 ], [ 15362, %127 ], [ 0, %128 ], [ 15364, %133 ], [ 15364, %133 ], [ 0, %176 ], [ 0, %.thread52.i.i.i ], [ 0, %142 ], [ 0, %144 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4103, %187 ], [ 4, %183 ], [ 4, %183 ], [ 2, %.critedge.thread.i.i.i ], [ 16, %207 ], [ 25, %195 ], [ 26, %197 ], [ 27, %199 ], [ 28, %201 ], [ 29, %203 ], [ 30, %205 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 5, %.thread56.i.i.i ], [ 0, %66 ], [ 0, %221 ], [ 0, %._crit_edge.i.i.i.i.i ], [ 10, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ %.sroa.0.1.i.i.i, %116 ], [ 5, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i.i, %113 ], [ %.sroa.0.1.i.i.i, %113 ], [ 9, %.thread44.i ], [ 9, %188 ]
-  %.sroa.029.0.i.i.i = phi i8 [ %..i.i.i, %60 ], [ 1, %220 ], [ 0, %114 ], [ %68, %.thread86.thread.i.i.i ], [ 3, %216 ], [ 0, %215 ], [ 0, %214 ], [ 0, %74 ], [ 0, %71 ], [ 0, %129 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %131 ], [ 0, %125 ], [ -1, %126 ], [ 0, %127 ], [ 0, %128 ], [ 1, %133 ], [ 1, %133 ], [ 0, %176 ], [ -1, %.thread52.i.i.i ], [ 0, %142 ], [ 0, %144 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %187 ], [ 1, %183 ], [ 1, %183 ], [ 0, %.critedge.thread.i.i.i ], [ 0, %207 ], [ 0, %195 ], [ 0, %197 ], [ 0, %199 ], [ 0, %201 ], [ 0, %203 ], [ 0, %205 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %.thread56.i.i.i ], [ 1, %66 ], [ %spec.select.i.i.i, %221 ], [ 1, %._crit_edge.i.i.i.i.i ], [ -1, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 0, %116 ], [ 0, %._crit_edge.i.i.i ], [ 0, %113 ], [ 0, %113 ], [ 1, %.thread44.i ], [ 1, %188 ]
+  %.sroa.44.0.i.i.i = phi i16 [ 5, %60 ], [ 1, %220 ], [ %115, %114 ], [ %69, %.thread86.thread.i.i.i ], [ 11, %216 ], [ 18, %214 ], [ 19, %215 ], [ %.sroa.031.0.i.i.i, %71 ], [ %.sroa.032.0.i.i.i, %74 ], [ 0, %129 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 12543, %131 ], [ 0, %125 ], [ 0, %126 ], [ 15362, %127 ], [ 0, %128 ], [ 15364, %133 ], [ 15364, %133 ], [ 0, %176 ], [ 0, %.thread52.i.i.i ], [ 0, %142 ], [ 0, %144 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4102, %186 ], [ 4103, %187 ], [ 4, %183 ], [ 4, %183 ], [ 2, %.critedge.thread.i.i.i ], [ 16, %207 ], [ 25, %195 ], [ 26, %197 ], [ 27, %199 ], [ 28, %201 ], [ 29, %203 ], [ 30, %205 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 5, %212 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 17, %211 ], [ 5, %.thread56.i.i.i ], [ 0, %66 ], [ 0, %221 ], [ 0, %._crit_edge.i.i.i.i.i ], [ 10, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ %.sroa.0.1.i.i.i, %116 ], [ 5, %._crit_edge.i.i.i ], [ %.sroa.0.1.i.i.i, %113 ], [ %.sroa.0.1.i.i.i, %113 ], [ 9, %.thread44.i ], [ 9, %188 ]
+  %.sroa.029.0.i.i.i = phi i8 [ %..i.i.i, %60 ], [ 1, %220 ], [ 0, %114 ], [ %68, %.thread86.thread.i.i.i ], [ 3, %216 ], [ 0, %214 ], [ 0, %215 ], [ 0, %71 ], [ 0, %74 ], [ 0, %129 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %124 ], [ 0, %131 ], [ 0, %125 ], [ -1, %126 ], [ 0, %127 ], [ 0, %128 ], [ 1, %133 ], [ 1, %133 ], [ 0, %176 ], [ -1, %.thread52.i.i.i ], [ 0, %142 ], [ 0, %144 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %186 ], [ 0, %187 ], [ 1, %183 ], [ 1, %183 ], [ 0, %.critedge.thread.i.i.i ], [ 0, %207 ], [ 0, %195 ], [ 0, %197 ], [ 0, %199 ], [ 0, %201 ], [ 0, %203 ], [ 0, %205 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %212 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %211 ], [ 0, %.thread56.i.i.i ], [ 1, %66 ], [ %spec.select.i.i.i, %221 ], [ 1, %._crit_edge.i.i.i.i.i ], [ -1, %_ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h7259294516f48f4cE.exit.thread43.fold.split.i.i.i ], [ 0, %116 ], [ 0, %._crit_edge.i.i.i ], [ 0, %113 ], [ 0, %113 ], [ 1, %.thread44.i ], [ 1, %188 ]
   %223 = sext i8 %.sroa.029.0.i.i.i to i64
   %224 = add i64 %.sroa.0.037.i, %223
   %.not.i.i = icmp eq ptr %0, %.sroa.2.324.i
@@ -33535,7 +33535,7 @@ default.unreachable71:                            ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %539, %556, %570, %511, %101, %144, %154, %197, %477
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i33.i.i, %144 ], [ %.pn.pn.i.i.i, %101 ], [ %.pn.pn.pn.i1444.i.i, %197 ], [ %.pn.pn.i19.i.i, %154 ], [ %478, %477 ], [ %512, %511 ], [ %.pn, %570 ], [ %.pn49, %556 ], [ %.pn51, %539 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i33.i.i, %144 ], [ %.pn.pn.i.i.i, %101 ], [ %.pn.pn.pn.i1444.i.i, %197 ], [ %.pn.pn.i19.i.i, %154 ], [ %478, %477 ], [ %512, %511 ], [ %.pn51, %539 ], [ %.pn49, %556 ], [ %.pn, %570 ]
   resume { ptr, i32 } %common.resume.op
 
 144:                                              ; preds = %.thread.i.i, %101
@@ -41815,7 +41815,7 @@ default.unreachable6:                             ; preds = %2
   br label %17
 
 21:                                               ; preds = %29, %22
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn
 
 22:                                               ; preds = %12
@@ -42475,7 +42475,7 @@ switch.lookup:                                    ; preds = %6
   br label %12
 
 12:                                               ; preds = %switch.lookup, %1, %11, %5, %4
-  %.sroa.0.0 = phi i8 [ 7, %11 ], [ 2, %5 ], [ 1, %4 ], [ %3, %1 ], [ %switch.offset, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 1, %4 ], [ 2, %5 ], [ 7, %11 ], [ %3, %1 ], [ %switch.offset, %switch.lookup ]
   ret i8 %.sroa.0.0
 
 13:                                               ; preds = %6
@@ -46452,7 +46452,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37: ; preds = %2
   br label %22
 
 22:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %21, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32 ], [ %19, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27 ], [ %18, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ]
+  %.sroa.0.0.in = phi i1 [ %18, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %19, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit27 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit32 ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit37 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -50761,7 +50761,7 @@ define internal fastcc noundef i64 @_ZN11ruff_linter5rules6mccabe5rules23functio
   ret i64 %.sroa.0.0.lcssa
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph63, %74, %81, %53, %131, %128, %._crit_edge, %67, %39, %25, %18, %10, %.lr.ph71
-  %.sroa.0.1 = phi i64 [ %.sroa.0.068, %.lr.ph71 ], [ %73, %67 ], [ %52, %39 ], [ %38, %25 ], [ %24, %18 ], [ %17, %10 ], [ %125, %._crit_edge ], [ %125, %128 ], [ %spec.select46, %131 ], [ %60, %53 ], [ %102, %81 ], [ %.sroa.0.068, %74 ], [ %117, %.lr.ph63 ], [ %141, %.lr.ph ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.068, %.lr.ph71 ], [ %17, %10 ], [ %24, %18 ], [ %38, %25 ], [ %52, %39 ], [ %73, %67 ], [ %125, %._crit_edge ], [ %125, %128 ], [ %spec.select46, %131 ], [ %60, %53 ], [ %102, %81 ], [ %.sroa.0.068, %74 ], [ %117, %.lr.ph63 ], [ %141, %.lr.ph ]
   %9 = icmp eq ptr %.sroa.034.169, %3
   %.sroa.034.1.idx = select i1 %9, i64 0, i64 120
   %.sroa.034.1 = getelementptr inbounds nuw i8, ptr %.sroa.034.169, i64 %.sroa.034.1.idx

@@ -1094,11 +1094,11 @@ dissect_lbtru_ncf.exit:                           ; preds = %232, %._crit_edge.i
   br label %268
 
 268:                                              ; preds = %259, %250, %236, %dissect_lbtru_ncf.exit, %dissect_lbtru_nak.exit, %107, %.critedge
-  %.0439688 = phi i32 [ 2, %259 ], [ 4, %250 ], [ 4, %236 ], [ 4, %dissect_lbtru_ncf.exit ], [ 4, %dissect_lbtru_nak.exit ], [ 4, %107 ], [ 4, %.critedge ]
-  %.0462646686 = phi i1 [ true, %259 ], [ false, %250 ], [ false, %236 ], [ true, %dissect_lbtru_ncf.exit ], [ false, %dissect_lbtru_nak.exit ], [ true, %107 ], [ true, %.critedge ]
-  %.0453648684 = phi i32 [ 0, %259 ], [ 0, %250 ], [ %237, %236 ], [ 0, %dissect_lbtru_ncf.exit ], [ 0, %dissect_lbtru_nak.exit ], [ %108, %107 ], [ %103, %.critedge ]
-  %.1452652682 = phi i1 [ false, %259 ], [ false, %250 ], [ false, %236 ], [ false, %dissect_lbtru_ncf.exit ], [ false, %dissect_lbtru_nak.exit ], [ false, %107 ], [ %.not494.not, %.critedge ]
-  %.0447 = phi i32 [ 0, %259 ], [ 0, %250 ], [ 4, %236 ], [ %235, %dissect_lbtru_ncf.exit ], [ %184, %dissect_lbtru_nak.exit ], [ 12, %107 ], [ 8, %.critedge ]
+  %.0439688 = phi i32 [ 4, %.critedge ], [ 4, %107 ], [ 4, %dissect_lbtru_nak.exit ], [ 4, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 4, %250 ], [ 2, %259 ]
+  %.0462646686 = phi i1 [ true, %.critedge ], [ true, %107 ], [ false, %dissect_lbtru_nak.exit ], [ true, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ], [ true, %259 ]
+  %.0453648684 = phi i32 [ %103, %.critedge ], [ %108, %107 ], [ 0, %dissect_lbtru_nak.exit ], [ 0, %dissect_lbtru_ncf.exit ], [ %237, %236 ], [ 0, %250 ], [ 0, %259 ]
+  %.1452652682 = phi i1 [ %.not494.not, %.critedge ], [ false, %107 ], [ false, %dissect_lbtru_nak.exit ], [ false, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ], [ false, %259 ]
+  %.0447 = phi i32 [ 8, %.critedge ], [ 12, %107 ], [ %184, %dissect_lbtru_nak.exit ], [ %235, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 0, %250 ], [ 0, %259 ]
   %269 = add i32 %.0447, %.0439688
   %270 = load i8, ptr @lbtru_sequence_analysis, align 1, !range !6, !noundef !7
   %271 = trunc nuw i8 %270 to i1
@@ -1220,8 +1220,8 @@ proto_item_set_generated.exit534:                 ; preds = %272, %275, %278
   br label %.thread727
 
 344:                                              ; preds = %301, %322, %330
-  %.2450 = phi ptr [ %338, %330 ], [ %316, %322 ], [ %295, %301 ]
-  %.2444 = phi i32 [ %.0442756, %330 ], [ %.0442756, %322 ], [ %309, %301 ]
+  %.2450 = phi ptr [ %338, %330 ], [ %295, %301 ], [ %316, %322 ]
+  %.2444 = phi i32 [ %.0442756, %330 ], [ %309, %301 ], [ %.0442756, %322 ]
   %345 = add i32 %.1440757, %288
   %346 = add i32 %.1465753, %288
   %.not495 = icmp eq i8 %285, 0
@@ -2618,8 +2618,8 @@ proto_item_set_generated.exit610:                 ; preds = %1027, %1024, %1021,
   call void @tap_queue_packet(i32 noundef %1033, ptr noundef %1, ptr noundef %90)
   br label %.thread727
 
-.thread727:                                       ; preds = %299, %320, %342, %proto_item_set_generated.exit610, %1032, %126
-  %.0 = phi i32 [ 2, %126 ], [ %.3, %1032 ], [ %.3, %proto_item_set_generated.exit610 ], [ %.1465753, %342 ], [ %.1465753, %320 ], [ %.1465753, %299 ]
+.thread727:                                       ; preds = %320, %299, %342, %proto_item_set_generated.exit610, %1032, %126
+  %.0 = phi i32 [ 2, %126 ], [ %.3, %1032 ], [ %.3, %proto_item_set_generated.exit610 ], [ %.1465753, %342 ], [ %.1465753, %299 ], [ %.1465753, %320 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
   ret i32 %.0

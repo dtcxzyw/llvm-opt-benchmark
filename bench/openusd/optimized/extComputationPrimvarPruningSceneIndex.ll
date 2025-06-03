@@ -10687,8 +10687,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   br label %221
 
 221:                                              ; preds = %219, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %219 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %220, %219 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %219 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %220, %219 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %222 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %222, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_.exit.i, label %223
@@ -10698,8 +10698,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   br label %225
 
 225:                                              ; preds = %223, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %223 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %224, %223 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %223 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %224, %223 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %226 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %226, ptr %.sroa.044.2.i.i.i, ptr %194

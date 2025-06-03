@@ -791,10 +791,10 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
   br label %53
 
 17:                                               ; preds = %7, %12, %11, %10
-  %.039 = phi ptr [ null, %12 ], [ null, %11 ], [ null, %10 ], [ %2, %7 ]
-  %.038 = phi ptr [ null, %12 ], [ null, %11 ], [ %2, %10 ], [ null, %7 ]
-  %.037 = phi ptr [ null, %12 ], [ %2, %11 ], [ null, %10 ], [ null, %7 ]
-  %.036 = phi ptr [ %2, %12 ], [ null, %11 ], [ null, %10 ], [ null, %7 ]
+  %.039 = phi ptr [ null, %10 ], [ null, %11 ], [ null, %12 ], [ %2, %7 ]
+  %.038 = phi ptr [ %2, %10 ], [ null, %11 ], [ null, %12 ], [ null, %7 ]
+  %.037 = phi ptr [ null, %10 ], [ %2, %11 ], [ null, %12 ], [ null, %7 ]
+  %.036 = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %12 ], [ null, %7 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %18
 
@@ -863,7 +863,7 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
   br label %46
 
 46:                                               ; preds = %43, %39, %35, %31
-  %.035 = phi i64 [ %45, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ]
+  %.035 = phi i64 [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ]
   %47 = icmp slt i64 %.035, 10
   %spec.select = select i1 %47, ptr @.str.8, ptr @.str.9
   br label %.thread

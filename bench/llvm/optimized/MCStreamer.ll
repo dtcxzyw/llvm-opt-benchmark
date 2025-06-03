@@ -405,8 +405,8 @@ define dso_local void @_ZN4llvm10MCStreamer11emitRawTextERKNS_5TwineE(ptr nounde
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
@@ -10412,8 +10412,8 @@ _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.
 87:                                               ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
   unreachable
 
-_ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %85, %86
-  %.sroa.0.0.i.ph = phi i64 [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ 12, %85 ], [ 5, %86 ]
+_ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %86, %85
+  %.sroa.0.0.i.ph = phi i64 [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ -9223371976725233654, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit ], [ 5, %86 ], [ 12, %85 ]
   %88 = trunc i64 %.pre-phi to i32
   %89 = trunc i64 %.sroa.0.0.i.ph to i32
   %90 = icmp ult i32 %88, %89
@@ -10492,7 +10492,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionO
   unreachable
 
 _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106, %107, %109, %112, %115, %118, %119
-  %.0.i = phi i32 [ %121, %119 ], [ 10, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ 1, %106 ], [ 1, %106 ], [ 6, %107 ]
+  %.0.i = phi i32 [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ 10, %118 ], [ %121, %119 ], [ 1, %106 ], [ 1, %106 ], [ 6, %107 ]
   %123 = trunc i64 %.pre-phi to i32
   %124 = lshr i64 %.pre-phi, 32
   %125 = trunc nuw i64 %124 to i32
@@ -10552,7 +10552,7 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   unreachable
 
 _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
-  %.0.i57 = phi i32 [ %146, %144 ], [ 10, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
+  %.0.i57 = phi i32 [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ 10, %143 ], [ %146, %144 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
   %148 = trunc i64 %.pre-phi to i32
   %149 = lshr i64 %.pre-phi, 32
   %150 = trunc nuw i64 %149 to i32
@@ -10643,7 +10643,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12Ver
   unreachable
 
 _ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %183, %183, %184, %185, %186
-  %.0.i86 = phi i32 [ 3, %186 ], [ 2, %185 ], [ 0, %184 ], [ 1, %183 ], [ 1, %183 ]
+  %.0.i86 = phi i32 [ 0, %184 ], [ 2, %185 ], [ 3, %186 ], [ 1, %183 ], [ 1, %183 ]
   %188 = trunc i64 %.pre-phi to i32
   %189 = lshr i64 %.pre-phi, 32
   %190 = trunc nuw i64 %189 to i32
@@ -10789,7 +10789,7 @@ define internal fastcc noundef range(i32 1, 13) i32 @_ZL32getMachoBuildVersionPl
   unreachable
 
 17:                                               ; preds = %1, %0, %0, %13, %12, %9, %6, %3
-  %.0 = phi i32 [ %15, %13 ], [ 10, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 1, %0 ], [ 1, %0 ], [ 6, %1 ]
+  %.0 = phi i32 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ 10, %12 ], [ %15, %13 ], [ 1, %0 ], [ 1, %0 ], [ 6, %1 ]
   ret i32 %.0
 }
 

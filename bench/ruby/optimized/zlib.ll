@@ -6092,7 +6092,7 @@ define internal fastcc void @raise_zlib_error(i32 noundef %0, ptr noundef %1) un
   br label %32
 
 32:                                               ; preds = %28, %24, %21, %18, %15, %12, %9, %6
-  %.0 = phi i64 [ %31, %28 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.0 = phi i64 [ %31, %28 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ]
   tail call void @rb_exc_raise(i64 noundef %.0) #19
   unreachable
 }

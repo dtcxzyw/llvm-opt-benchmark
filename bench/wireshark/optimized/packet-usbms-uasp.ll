@@ -703,7 +703,7 @@ get_itlq_nexus.exit127.thread:                    ; preds = %156, %165
   br label %175
 
 175:                                              ; preds = %get_itlq_nexus.exit.thread, %124, %115, %92, %.thread, %170, %151, %132, %127, %17
-  %.0100 = phi ptr [ null, %17 ], [ %.0.i126140, %170 ], [ %.0.i121136, %151 ], [ null, %132 ], [ null, %127 ], [ %112, %124 ], [ %112, %115 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ null, %get_itlq_nexus.exit.thread ]
+  %.0100 = phi ptr [ null, %17 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ %112, %124 ], [ %112, %115 ], [ null, %127 ], [ null, %132 ], [ %.0.i121136, %151 ], [ %.0.i126140, %170 ], [ null, %get_itlq_nexus.exit.thread ]
   call fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %3, ptr noundef %.0100, i32 noundef %22)
   %176 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %177

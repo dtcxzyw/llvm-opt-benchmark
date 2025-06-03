@@ -58,8 +58,8 @@ define hidden { ptr, i64 } @_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E
   br label %17
 
 17:                                               ; preds = %1, %12, %11, %10, %9
-  %.sroa.8.0 = phi i64 [ %16, %12 ], [ 2, %11 ], [ 1, %10 ], [ %.sroa.4.0.copyload, %9 ], [ %7, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %11 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %10 ], [ %.sroa.3.0.copyload, %9 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %1 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.4.0.copyload, %9 ], [ 1, %10 ], [ 2, %11 ], [ %16, %12 ], [ %7, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.3.0.copyload, %9 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %10 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %11 ], [ %14, %12 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %1 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %19
@@ -110,8 +110,8 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   br label %"_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h4e1d5a129eb6bb01E.llvm.2691049182606577699.exit"
 
 "_ZN6uucore8features2fs21make_path_relative_to28_$u7b$$u7b$closure$u7d$$u7d$17h4e1d5a129eb6bb01E.llvm.2691049182606577699.exit": ; preds = %2, %9, %10, %11, %12
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.3.0.copyload, %12 ], [ 2, %11 ], [ 1, %10 ], [ %.sroa.5.0.copyload, %9 ], [ %7, %2 ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.21.0.copyload, %12 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %11 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %10 ], [ %.sroa.42.0.copyload, %9 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %2 ]
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.5.0.copyload, %9 ], [ 1, %10 ], [ 2, %11 ], [ %.sroa.3.0.copyload, %12 ], [ %7, %2 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.42.0.copyload, %9 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %10 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %11 ], [ %.sroa.21.0.copyload, %12 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %2 ]
   %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.8.0.i.i, 1
   ret { ptr, i64 } %14
@@ -2519,8 +2519,8 @@ define hidden { ptr, i64 } @"_ZN6uucore8features2fs21make_path_relative_to28_$u7
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.2691049182606577699.exit
 
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.llvm.2691049182606577699.exit: ; preds = %2, %10, %11, %12, %13
-  %.sroa.8.0.i = phi i64 [ %17, %13 ], [ 2, %12 ], [ 1, %11 ], [ %.sroa.4.0.copyload.i, %10 ], [ %8, %2 ]
-  %.sroa.0.0.i = phi ptr [ %15, %13 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %12 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %11 ], [ %.sroa.3.0.copyload.i, %10 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %2 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.4.0.copyload.i, %10 ], [ 1, %11 ], [ 2, %12 ], [ %17, %13 ], [ %8, %2 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.3.0.copyload.i, %10 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.1.llvm.2691049182606577699, %11 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.2.llvm.2691049182606577699, %12 ], [ %15, %13 ], [ @anon.cb8572d123d5c3094929b79a058ca0fb.0.llvm.2691049182606577699, %2 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.8.0.i, 1
   ret { ptr, i64 } %19

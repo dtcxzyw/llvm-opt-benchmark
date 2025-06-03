@@ -646,7 +646,7 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %59
 
 59:                                               ; preds = %._crit_edge, %24, %15, %11, %8
-  %.0 = phi i32 [ 0, %11 ], [ 1, %8 ], [ %21, %15 ], [ 0, %._crit_edge ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ %21, %15 ], [ 0, %._crit_edge ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret i32 %.0

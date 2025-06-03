@@ -257,7 +257,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
   br label %6
 
 6:                                                ; preds = %5, %4
-  %.023 = phi i64 [ %2, %4 ], [ 0, %5 ]
+  %.023 = phi i64 [ 0, %5 ], [ %2, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %.not27 = icmp eq i32 %8, 0
@@ -354,7 +354,7 @@ fd_free.exit:                                     ; preds = %20, %22, %32
   br label %52
 
 52:                                               ; preds = %fd_free.exit, %44, %48, %51, %9, %6, %16, %13, %38, %4, %._crit_edge
-  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %51 ], [ 1, %48 ], [ %47, %44 ], [ 1, %fd_free.exit ], [ %19, %16 ], [ 0, %13 ], [ %12, %9 ], [ 0, %6 ], [ -1, %38 ], [ 1, %4 ]
+  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %51 ], [ %12, %9 ], [ 0, %6 ], [ %19, %16 ], [ 0, %13 ], [ 1, %fd_free.exit ], [ %47, %44 ], [ 1, %48 ], [ -1, %38 ], [ 1, %4 ]
   ret i64 %.0
 }
 

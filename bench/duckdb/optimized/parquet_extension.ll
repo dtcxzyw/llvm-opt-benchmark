@@ -18719,7 +18719,7 @@ _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit127: ; p
   br label %.body
 
 .body:                                            ; preds = %.loopexit282, %.loopexit.split-lp283, %423, %397, %377, %361, %294, %230, %228, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit127
-  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit127 ], [ %229, %230 ], [ %229, %228 ], [ %.pn.pn.pn.pn.i, %423 ], [ %.pn49.pn.i, %397 ], [ %.pn52.pn.i, %377 ], [ %.pn58.i, %361 ], [ %.pn63.i, %294 ], [ %lpad.loopexit284, %.loopexit282 ], [ %lpad.loopexit.split-lp285, %.loopexit.split-lp283 ]
+  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit127 ], [ %229, %230 ], [ %229, %228 ], [ %.pn63.i, %294 ], [ %.pn58.i, %361 ], [ %.pn52.pn.i, %377 ], [ %.pn49.pn.i, %397 ], [ %.pn.pn.pn.pn.i, %423 ], [ %lpad.loopexit284, %.loopexit282 ], [ %lpad.loopexit.split-lp285, %.loopexit.split-lp283 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #27
   br label %781
 
@@ -19804,7 +19804,7 @@ _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit230: ; p
   br label %.body189
 
 .body189:                                         ; preds = %.loopexit262, %.loopexit.split-lp263, %693, %668, %649, %634, %567, %504, %502, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit230
-  %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit230 ], [ %503, %504 ], [ %503, %502 ], [ %.pn.pn.pn.pn.i128, %693 ], [ %.pn49.pn.i134, %668 ], [ %.pn52.pn.i136, %649 ], [ %.pn58.i141, %634 ], [ %.pn63.i159, %567 ], [ %lpad.loopexit264, %.loopexit262 ], [ %lpad.loopexit.split-lp265, %.loopexit.split-lp263 ]
+  %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit230 ], [ %503, %504 ], [ %503, %502 ], [ %.pn63.i159, %567 ], [ %.pn58.i141, %634 ], [ %.pn52.pn.i136, %649 ], [ %.pn49.pn.i134, %668 ], [ %.pn.pn.pn.pn.i128, %693 ], [ %lpad.loopexit264, %.loopexit262 ], [ %lpad.loopexit.split-lp265, %.loopexit.split-lp263 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52) #27
   br label %781
 
@@ -59715,7 +59715,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %common.resume
 
 common.resume:                                    ; preds = %118, %194, %210, %230, %256, %44, %46
-  %common.resume.op = phi { ptr, i32 } [ %45, %46 ], [ %45, %44 ], [ %.pn.pn.pn.pn, %256 ], [ %.pn49.pn, %230 ], [ %.pn52.pn, %210 ], [ %.pn58, %194 ], [ %.pn63, %118 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %46 ], [ %45, %44 ], [ %.pn63, %118 ], [ %.pn58, %194 ], [ %.pn52.pn, %210 ], [ %.pn49.pn, %230 ], [ %.pn.pn.pn.pn, %256 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit: ; preds = %36
@@ -60677,7 +60677,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %common.resume
 
 common.resume:                                    ; preds = %118, %195, %211, %231, %257, %44, %46
-  %common.resume.op = phi { ptr, i32 } [ %45, %46 ], [ %45, %44 ], [ %.pn.pn.pn.pn, %257 ], [ %.pn49.pn, %231 ], [ %.pn52.pn, %211 ], [ %.pn58, %195 ], [ %.pn63, %118 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %46 ], [ %45, %44 ], [ %.pn63, %118 ], [ %.pn58, %195 ], [ %.pn52.pn, %211 ], [ %.pn49.pn, %231 ], [ %.pn.pn.pn.pn, %257 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit: ; preds = %36

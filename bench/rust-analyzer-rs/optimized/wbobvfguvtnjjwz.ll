@@ -1269,8 +1269,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %80
 
 80:                                               ; preds = %62, %59
-  %.sroa.3.0 = phi i32 [ undef, %62 ], [ %61, %59 ]
-  %.sroa.0.0 = phi i32 [ 0, %62 ], [ 1, %59 ]
+  %.sroa.3.0 = phi i32 [ %61, %59 ], [ undef, %62 ]
+  %.sroa.0.0 = phi i32 [ 1, %59 ], [ 0, %62 ]
   %81 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %82 = insertvalue { i32, i32 } %81, i32 %.sroa.3.0, 1
   ret { i32, i32 } %82

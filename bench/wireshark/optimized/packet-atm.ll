@@ -1540,7 +1540,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br i1 %.not190.not.i, label %.thread.i, label %dissect_reassembled_pdu.exit
 
 .thread.i:                                        ; preds = %277, %259, %258, %212, %203, %197, %195
-  %.1199.i = phi ptr [ %.3.i, %277 ], [ %.0.i, %258 ], [ %.0.i, %195 ], [ %.0.i, %259 ], [ %.0.i, %203 ], [ %.0.i, %212 ], [ %.0.i, %197 ]
+  %.1199.i = phi ptr [ %.3.i, %277 ], [ %.0.i, %258 ], [ %.0.i, %195 ], [ %.0.i, %197 ], [ %.0.i, %203 ], [ %.0.i, %212 ], [ %.0.i, %259 ]
   %283 = call i32 @call_data_dissector(ptr noundef %.1199.i, ptr noundef %1, ptr noundef %2)
   br label %dissect_reassembled_pdu.exit
 

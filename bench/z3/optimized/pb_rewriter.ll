@@ -6342,7 +6342,7 @@ _ZN8rationalD2Ev.exit286:                         ; preds = %.noexc.i285
   br label %844
 
 819:                                              ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit200, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %_ZN8rationalD2Ev.exit286
-  %.0143 = phi i32 [ %.1144, %_ZN8rationalD2Ev.exit286 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit200 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
+  %.0143 = phi i32 [ %.1144, %_ZN8rationalD2Ev.exit286 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit200 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
   %820 = load ptr, ptr %222, align 8, !tbaa !25
   %821 = icmp eq ptr %820, null

@@ -799,7 +799,7 @@ common.resume:                                    ; preds = %40, %26
   br label %75
 
 75:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbe614eedd24fc738E.exit", %74, %35
-  %.0 = phi i1 [ %39, %35 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbe614eedd24fc738E.exit" ], [ false, %74 ]
+  %.0 = phi i1 [ %39, %35 ], [ false, %74 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbe614eedd24fc738E.exit" ]
   ret i1 %.0
 
 76:                                               ; preds = %66, %58, %50, %73, %42

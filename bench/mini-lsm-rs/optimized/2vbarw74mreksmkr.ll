@@ -409,7 +409,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h3ac8e0d7f60d1d13E.exit: ;
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17hf8757d8017f137a0E.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h94d07df480aea2a7E.exit.thread: ; preds = %57, %64, %63, %62, %61, %60, %59
-  %.0.i = phi ptr [ @anon.a2529cd21221c1486fc2948c80b8cecc.21, %64 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.20, %63 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.19, %62 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.18, %61 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.17, %60 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.15, %59 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.14, %57 ]
+  %.0.i = phi ptr [ @anon.a2529cd21221c1486fc2948c80b8cecc.15, %59 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.17, %60 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.18, %61 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.19, %62 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.20, %63 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.21, %64 ], [ @anon.a2529cd21221c1486fc2948c80b8cecc.14, %57 ]
   %82 = load i64, ptr %6, align 8, !alias.scope !104, !noalias !113, !noundef !7
   %83 = load i64, ptr %.val30, align 8, !alias.scope !104, !noalias !113, !noundef !7
   %84 = sub i64 %83, %82
@@ -10034,7 +10034,7 @@ default.unreachable1:                             ; preds = %1
   br label %12
 
 12:                                               ; preds = %1, %9, %6, %3
-  %.0 = phi i8 [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 1, %1 ]
+  %.0 = phi i8 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ 1, %1 ]
   %13 = trunc nuw i8 %.0 to i1
   ret i1 %13
 }
@@ -10672,7 +10672,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17hff78672ab26e8dc2E.llvm.85158
   br label %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hc2519fd6ad60c70dE.exit"
 
 54:                                               ; preds = %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hc2519fd6ad60c70dE.exit", %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17h41307cfeea8b5a3bE.exit", %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h8aa3cd7eefb408a5E.exit", %9, %6
-  %.0 = phi ptr [ null, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h8aa3cd7eefb408a5E.exit" ], [ %11, %9 ], [ %8, %6 ], [ %60, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hc2519fd6ad60c70dE.exit" ], [ %75, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17h41307cfeea8b5a3bE.exit" ]
+  %.0 = phi ptr [ %8, %6 ], [ %11, %9 ], [ null, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h8aa3cd7eefb408a5E.exit" ], [ %60, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hc2519fd6ad60c70dE.exit" ], [ %75, %"_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17h41307cfeea8b5a3bE.exit" ]
   ret ptr %.0
 
 "_ZN92_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$15serialize_field17hc2519fd6ad60c70dE.exit": ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17hff78672ab26e8dc2E.llvm.8515880784993868172.exit, %53

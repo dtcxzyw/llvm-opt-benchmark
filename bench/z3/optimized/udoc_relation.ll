@@ -4007,8 +4007,8 @@ default.unreachable:                              ; preds = %90
           to label %221 unwind label %105
 
 221:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN8rational5resetEv.exit, %132, %_ZN8rationalD2Ev.exit, %107, %220
-  %.257 = phi i32 [ %.055159, %220 ], [ %.156, %_ZN8rationalD2Ev.exit ], [ %.0161, %_ZN8rational5resetEv.exit ], [ %.055159, %107 ], [ %.055159, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %.055159, %132 ]
-  %.2 = phi i8 [ %.054160, %220 ], [ 0, %_ZN8rationalD2Ev.exit ], [ 0, %_ZN8rational5resetEv.exit ], [ 0, %107 ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %132 ]
+  %.257 = phi i32 [ %.055159, %220 ], [ %.0161, %_ZN8rational5resetEv.exit ], [ %.055159, %107 ], [ %.156, %_ZN8rationalD2Ev.exit ], [ %.055159, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %.055159, %132 ]
+  %.2 = phi i8 [ %.054160, %220 ], [ 0, %_ZN8rational5resetEv.exit ], [ 0, %107 ], [ 0, %_ZN8rationalD2Ev.exit ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %132 ]
   %222 = add i32 %.0161, 1
   %exitcond.not = icmp eq i32 %222, %75
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !218
@@ -11896,7 +11896,7 @@ _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit34: ; preds = %_ZN7datalo
   br label %50
 
 50:                                               ; preds = %8, %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit34, %._crit_edge
-  %.028 = phi ptr [ %43, %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit34 ], [ %42, %._crit_edge ], [ null, %8 ]
+  %.028 = phi ptr [ %42, %._crit_edge ], [ %43, %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit34 ], [ null, %8 ]
   ret ptr %.028
 }
 

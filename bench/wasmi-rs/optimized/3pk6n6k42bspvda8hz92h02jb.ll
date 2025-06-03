@@ -1158,7 +1158,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs6me
   ], !prof !97
 
 56:                                               ; preds = %104, %77, %25
-  %.sroa.0.0 = phi ptr [ null, %25 ], [ %.sroa.0.1, %104 ], [ null, %77 ]
+  %.sroa.0.0 = phi ptr [ null, %25 ], [ null, %77 ], [ %.sroa.0.1, %104 ]
   ret ptr %.sroa.0.0
 
 57:                                               ; preds = %43
@@ -1273,7 +1273,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance13update_memory17heb12a571e2d5b7d
   br label %104
 
 104:                                              ; preds = %98, %95
-  %.sroa.0.1 = phi ptr [ %103, %98 ], [ %97, %95 ]
+  %.sroa.0.1 = phi ptr [ %97, %95 ], [ %103, %98 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %56
@@ -2693,7 +2693,7 @@ define internal fastcc noundef align 8 ptr @"_ZN5wasmi6engine8executor6instrs5ta
   br label %89
 
 89:                                               ; preds = %83, %80
-  %.sroa.0.1 = phi ptr [ %88, %83 ], [ %82, %80 ]
+  %.sroa.0.1 = phi ptr [ %82, %80 ], [ %88, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %59
@@ -7062,7 +7062,7 @@ _ZN5wasmi6engine8executor6instrs8Executor20execute_consume_fuel17ha9ac0992172dbc
   br label %2444
 
 2444:                                             ; preds = %2440, %2435, %2430, %2425
-  %.pn.i = phi { i64, i64 } [ %2443, %2440 ], [ %2439, %2435 ], [ %2434, %2430 ], [ %2429, %2425 ]
+  %.pn.i = phi { i64, i64 } [ %2429, %2425 ], [ %2434, %2430 ], [ %2439, %2435 ], [ %2443, %2440 ]
   %2445 = load ptr, ptr %706, align 8, !alias.scope !710, !noundef !3
   %2446 = getelementptr inbounds nuw { i16, [3 x i16] }, ptr %2445, i64 %2420
   %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 8

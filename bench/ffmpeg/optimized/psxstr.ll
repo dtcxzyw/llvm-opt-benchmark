@@ -104,8 +104,8 @@ define internal range(i32 0, 51) i32 @str_probe(ptr noundef readonly captures(no
   br label %48
 
 48:                                               ; preds = %25, %33, %46
-  %.237 = phi i32 [ %.03552, %46 ], [ %spec.select45, %33 ], [ %.03552, %25 ]
-  %.133 = phi i32 [ %47, %46 ], [ %.03253, %33 ], [ %.03253, %25 ]
+  %.237 = phi i32 [ %spec.select45, %33 ], [ %.03552, %46 ], [ %.03552, %25 ]
+  %.133 = phi i32 [ %.03253, %33 ], [ %47, %46 ], [ %.03253, %25 ]
   %49 = getelementptr inbounds nuw i8, ptr %.13154, i64 2352
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %17, %50

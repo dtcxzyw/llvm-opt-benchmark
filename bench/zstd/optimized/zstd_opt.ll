@@ -3491,7 +3491,7 @@ define internal fastcc i32 @ZSTD_insertBt1(ptr noundef readonly captures(none) %
   br label %ZSTD_hashPtr.exit
 
 ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, %33
-  %.0.i = phi i64 [ %17, %13 ], [ %32, %28 ], [ %27, %23 ], [ %22, %18 ], [ %37, %33 ]
+  %.0.i = phi i64 [ %17, %13 ], [ %37, %33 ], [ %22, %18 ], [ %27, %23 ], [ %32, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8, !tbaa !90
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 260

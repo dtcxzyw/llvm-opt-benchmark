@@ -1096,8 +1096,8 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
   br label %91
 
 91:                                               ; preds = %84, %71
-  %92 = phi i64 [ 1, %71 ], [ %90, %84 ]
-  %.2.i = phi i64 [ %.3, %71 ], [ %89, %84 ]
+  %92 = phi i64 [ %90, %84 ], [ 1, %71 ]
+  %.2.i = phi i64 [ %89, %84 ], [ %.3, %71 ]
   %93 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !28
   %95 = or i64 %94, %.2.i
@@ -1224,8 +1224,8 @@ define hidden void @_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 nounde
   br label %38
 
 38:                                               ; preds = %18, %31
-  %39 = phi i64 [ 1, %18 ], [ %37, %31 ]
-  %.2 = phi i64 [ %0, %18 ], [ %36, %31 ]
+  %39 = phi i64 [ %37, %31 ], [ 1, %18 ]
+  %.2 = phi i64 [ %36, %31 ], [ %0, %18 ]
   %40 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !28
   %42 = or i64 %41, %.2

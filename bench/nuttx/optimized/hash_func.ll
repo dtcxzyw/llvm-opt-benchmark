@@ -26,9 +26,9 @@ define internal i32 @hash4(ptr noundef readonly captures(none) %0, i64 noundef %
   ]
 
 7:                                                ; preds = %3, %50
-  %.744 = phi ptr [ %51, %50 ], [ %0, %3 ]
-  %.8 = phi i32 [ %54, %50 ], [ 0, %3 ]
-  %.7 = phi i64 [ %55, %50 ], [ %5, %3 ]
+  %.744 = phi ptr [ %0, %3 ], [ %51, %50 ]
+  %.8 = phi i32 [ 0, %3 ], [ %54, %50 ]
+  %.7 = phi i64 [ %5, %3 ], [ %55, %50 ]
   %8 = mul i32 %.8, 33
   %9 = getelementptr inbounds nuw i8, ptr %.744, i64 1
   %10 = load i8, ptr %.744, align 1
@@ -104,9 +104,9 @@ define internal i32 @hash4(ptr noundef readonly captures(none) %0, i64 noundef %
   br label %50
 
 50:                                               ; preds = %44, %3
-  %.643 = phi ptr [ %0, %3 ], [ %45, %44 ]
-  %.736 = phi i32 [ 0, %3 ], [ %49, %44 ]
-  %.6 = phi i64 [ %5, %3 ], [ %.5, %44 ]
+  %.643 = phi ptr [ %45, %44 ], [ %0, %3 ]
+  %.736 = phi i32 [ %49, %44 ], [ 0, %3 ]
+  %.6 = phi i64 [ %.5, %44 ], [ %5, %3 ]
   %51 = getelementptr inbounds nuw i8, ptr %.643, i64 1
   %52 = load i8, ptr %.643, align 1
   %53 = zext i8 %52 to i32

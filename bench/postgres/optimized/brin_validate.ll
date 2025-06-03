@@ -85,35 +85,35 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i16, ptr %38, align 4
   switch i16 %39, label %56 [
-    i16 1, label %68
-    i16 2, label %40
-    i16 3, label %44
-    i16 4, label %48
-    i16 5, label %52
+    i16 1, label %40
+    i16 2, label %44
+    i16 3, label %48
+    i16 4, label %52
+    i16 5, label %68
   ]
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %42, i32 noundef 16, i1 noundef zeroext true, i32 noundef 4, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
+  %43 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %42, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #4
   br i1 %43, label %.critedge, label %72
 
 44:                                               ; preds = %30
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %46 = load i32, ptr %45, align 4
-  %47 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %46, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 23) #4
+  %47 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %46, i32 noundef 16, i1 noundef zeroext true, i32 noundef 4, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %47, label %.critedge, label %72
 
 48:                                               ; preds = %30
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %50 = load i32, ptr %49, align 4
-  %51 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %50, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 3, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
+  %51 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %50, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 23) #4
   br i1 %51, label %.critedge, label %72
 
 52:                                               ; preds = %30
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %54 = load i32, ptr %53, align 4
-  %55 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %54) #4
+  %55 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %54, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 3, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %55, label %.critedge, label %72
 
 56:                                               ; preds = %30
@@ -139,10 +139,10 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 68:                                               ; preds = %30
   %69 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %70 = load i32, ptr %69, align 4
-  %71 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %70, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #4
+  %71 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %70) #4
   br i1 %71, label %.critedge, label %72
 
-72:                                               ; preds = %40, %44, %48, %52, %68
+72:                                               ; preds = %52, %48, %44, %40, %68
   %73 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
   br i1 %73, label %74, label %.critedge
 
@@ -157,8 +157,8 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull @__func__.brinvalidate) #4
   br label %.critedge
 
-.critedge:                                        ; preds = %40, %44, %48, %52, %56, %72, %74, %68
-  %.2 = phi i1 [ %.0130, %68 ], [ false, %74 ], [ false, %72 ], [ %.0130, %56 ], [ %.0130, %52 ], [ %.0130, %48 ], [ %.0130, %44 ], [ %.0130, %40 ]
+.critedge:                                        ; preds = %52, %48, %44, %40, %56, %72, %74, %68
+  %.2 = phi i1 [ %.0130, %68 ], [ false, %74 ], [ false, %72 ], [ %.0130, %56 ], [ %.0130, %40 ], [ %.0130, %44 ], [ %.0130, %48 ], [ %.0130, %52 ]
   %82 = load i16, ptr %38, align 4
   %83 = sext i16 %82 to i64
   %84 = and i64 %83, 4294967295

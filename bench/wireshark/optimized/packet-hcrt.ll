@@ -275,7 +275,7 @@ default.unreachable:                              ; preds = %dissect_hcrt_header
   unreachable
 
 60:                                               ; preds = %57, %55, %51, %48
-  %.0.i = phi i32 [ %59, %57 ], [ %56, %55 ], [ %54, %51 ], [ %50, %48 ]
+  %.0.i = phi i32 [ %50, %48 ], [ %54, %51 ], [ %56, %55 ], [ %59, %57 ]
   %61 = add nuw nsw i32 %.0.i, 4
   %62 = load i32, ptr @ett_hcrt_msg, align 4
   %63 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %34, ptr noundef %0, i32 noundef %.049, i32 noundef %61, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef %.0)

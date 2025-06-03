@@ -6544,7 +6544,7 @@ _ZN6vectorISt4pairIN3smt15theory_datatype8stack_opEPNS1_5enodeEELb0EjE4backEv.ex
   %58 = tail call noundef zeroext i1 @_ZN3smt15theory_datatype18occurs_check_enterEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %50)
   br i1 %58, label %.critedge10, label %.backedge
 
-.backedge:                                        ; preds = %_ZN6vectorISt4pairIN3smt15theory_datatype8stack_opEPNS1_5enodeEELb0EjE4backEv.exit12, %56, %57, %_ZN3smt15theory_datatype18oc_mark_cycle_freeEPNS_5enodeE.exit
+.backedge:                                        ; preds = %_ZN6vectorISt4pairIN3smt15theory_datatype8stack_opEPNS1_5enodeEELb0EjE4backEv.exit12, %_ZN3smt15theory_datatype18oc_mark_cycle_freeEPNS_5enodeE.exit, %56, %57
   %59 = load ptr, ptr %8, align 8, !tbaa !14
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %_ZNK6vectorISt4pairIN3smt15theory_datatype8stack_opEPNS1_5enodeEELb0EjE5emptyEv.exit

@@ -3242,7 +3242,7 @@ aps_decode_scaling.exit:                          ; preds = %125, %scaling_deriv
   br label %242
 
 242:                                              ; preds = %8, %aps_decode_alf.exit, %119, %aps_decode_scaling.exit, %2
-  %.013 = phi i32 [ -1094995529, %2 ], [ 0, %8 ], [ %.0.i16, %aps_decode_scaling.exit ], [ 0, %119 ], [ %.0.i, %aps_decode_alf.exit ]
+  %.013 = phi i32 [ -1094995529, %2 ], [ 0, %8 ], [ %.0.i, %aps_decode_alf.exit ], [ 0, %119 ], [ %.0.i16, %aps_decode_scaling.exit ]
   ret i32 %.013
 }
 
@@ -3797,8 +3797,8 @@ sh_partition_constraints.exit.i:                  ; preds = %266, %217
   %350 = icmp samesign ult i64 %indvars.iv.next.i50.i, %349
   br i1 %350, label %315, label %sh_derive.exit, !llvm.loop !345
 
-sh_derive.exit:                                   ; preds = %106, %347, %sh_partition_constraints.exit.i, %.preheader.i45.i, %sh_slice_address.exit.i, %117, %130, %140, %3, %5
-  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %3 ], [ 0, %sh_partition_constraints.exit.i ], [ 0, %.preheader.i45.i ], [ -1094995529, %sh_slice_address.exit.i ], [ -1094995529, %117 ], [ -1094995529, %130 ], [ -1094995529, %140 ], [ 0, %347 ], [ -1094995529, %106 ]
+sh_derive.exit:                                   ; preds = %106, %347, %sh_partition_constraints.exit.i, %.preheader.i45.i, %sh_slice_address.exit.i, %140, %130, %117, %3, %5
+  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %3 ], [ 0, %sh_partition_constraints.exit.i ], [ 0, %.preheader.i45.i ], [ -1094995529, %sh_slice_address.exit.i ], [ -1094995529, %140 ], [ -1094995529, %130 ], [ -1094995529, %117 ], [ 0, %347 ], [ -1094995529, %106 ]
   ret i32 %.0
 }
 

@@ -837,7 +837,7 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   ]
 
 handshake_status.exit:                            ; preds = %290, %292, %293, %294
-  %.0.i = phi i32 [ 4, %294 ], [ 4, %293 ], [ 3, %292 ], [ 3, %290 ]
+  %.0.i = phi i32 [ 4, %293 ], [ 4, %294 ], [ 3, %292 ], [ 3, %290 ]
   %296 = icmp eq i32 %288, 3
   br i1 %296, label %handshake_status.exit.thread199, label %handshake_status.exit171
 
@@ -922,8 +922,8 @@ next_phase.exit:                                  ; preds = %handshake_status.ex
   store i32 0, ptr %31, align 8, !tbaa !27
   br label %342
 
-312:                                              ; preds = %311, %310, %309, %303, %handshake_status.exit171.thread206, %307, %305
-  %.0.i172.ph = phi i32 [ %spec.select.i, %305 ], [ %..i, %307 ], [ 2, %handshake_status.exit171.thread206 ], [ 1, %303 ], [ 4, %309 ], [ 5, %310 ], [ -1, %311 ]
+312:                                              ; preds = %311, %309, %310, %303, %handshake_status.exit171.thread206, %307, %305
+  %.0.i172.ph = phi i32 [ %spec.select.i, %305 ], [ %..i, %307 ], [ 2, %handshake_status.exit171.thread206 ], [ 1, %303 ], [ 5, %310 ], [ 4, %309 ], [ -1, %311 ]
   store i32 1, ptr %280, align 4, !tbaa !58
   store i32 1, ptr %279, align 4, !tbaa !58
   br label %.outer.outer.outer231

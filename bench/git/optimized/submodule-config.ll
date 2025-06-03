@@ -1010,7 +1010,7 @@ cache_lookup_path.exit:                           ; preds = %67, %74
   br label %77
 
 77:                                               ; preds = %cache_lookup_path.exit, %cache_lookup_name.exit
-  %.128 = phi ptr [ %.0.i39, %cache_lookup_path.exit ], [ %.0.i, %cache_lookup_name.exit ]
+  %.128 = phi ptr [ %.0.i, %cache_lookup_name.exit ], [ %.0.i39, %cache_lookup_path.exit ]
   %.not35 = icmp eq ptr %.128, null
   br i1 %.not35, label %78, label %123
 
@@ -1116,7 +1116,7 @@ cache_lookup_path.exit45:                         ; preds = %113, %120
   br label %124
 
 124:                                              ; preds = %123, %cache_lookup_path.exit45, %cache_lookup_name.exit42, %27
-  %.1 = phi ptr [ %.027, %123 ], [ %.0.i44, %cache_lookup_path.exit45 ], [ %.0.i41, %cache_lookup_name.exit42 ], [ %.0, %27 ]
+  %.1 = phi ptr [ %.027, %123 ], [ %.0.i41, %cache_lookup_name.exit42 ], [ %.0.i44, %cache_lookup_path.exit45 ], [ %.0, %27 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %15) #15

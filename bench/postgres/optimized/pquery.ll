@@ -848,7 +848,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   unreachable
 
 66:                                               ; preds = %56, %51
-  %.0 = phi i1 [ true, %56 ], [ %55, %51 ]
+  %.0 = phi i1 [ %55, %51 ], [ true, %56 ]
   store ptr %27, ptr @PG_exception_stack, align 8
   store ptr %28, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #11
@@ -1831,7 +1831,7 @@ PortalRunSelect.exit122:                          ; preds = %110, %112
   br label %PortalRunSelect.exit
 
 PortalRunSelect.exit:                             ; preds = %190, %153, %147, %62, %56, %209, %208, %164, %PortalRunSelect.exit122, %101
-  %.073 = phi i64 [ %165, %164 ], [ %.0, %208 ], [ %211, %209 ], [ %192, %190 ], [ %102, %101 ], [ %119, %PortalRunSelect.exit122 ], [ %57, %56 ], [ %57, %62 ], [ %148, %147 ], [ %148, %153 ]
+  %.073 = phi i64 [ %.0, %208 ], [ %211, %209 ], [ %192, %190 ], [ %102, %101 ], [ %119, %PortalRunSelect.exit122 ], [ %165, %164 ], [ %57, %56 ], [ %57, %62 ], [ %148, %147 ], [ %148, %153 ]
   ret i64 %.073
 }
 

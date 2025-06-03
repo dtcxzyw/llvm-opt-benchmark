@@ -784,10 +784,10 @@ _ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit: ; preds = %93
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit, %85, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit, %76, %69
-  %.sroa.068.1 = phi i1 [ %.sroa.068.099, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ true, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ %.sroa.068.099, %85 ], [ %.sroa.068.099, %76 ], [ %.sroa.068.099, %69 ]
-  %.sroa.5.1 = phi i1 [ %.sroa.5.0100, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.5.0100, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ true, %85 ], [ %.sroa.5.0100, %76 ], [ true, %69 ]
-  %.sroa.7.1 = phi i8 [ %.sroa.7.0101, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.7.0101, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 1, %76 ], [ %.sroa.7.0101, %69 ]
-  %.sroa.1070.1 = phi i8 [ %.sroa.1070.0102, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.1070.0102, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 0, %76 ], [ 0, %69 ]
+  %.sroa.068.1 = phi i1 [ %.sroa.068.099, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.068.099, %69 ], [ %.sroa.068.099, %76 ], [ %.sroa.068.099, %85 ], [ true, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ]
+  %.sroa.5.1 = phi i1 [ %.sroa.5.0100, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ true, %69 ], [ %.sroa.5.0100, %76 ], [ true, %85 ], [ %.sroa.5.0100, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.0101, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.7.0101, %69 ], [ 1, %76 ], [ 1, %85 ], [ %.sroa.7.0101, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ]
+  %.sroa.1070.1 = phi i8 [ %.sroa.1070.0102, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ 0, %69 ], [ 0, %76 ], [ 1, %85 ], [ %.sroa.1070.0102, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ]
   %.sroa.012.0.copyload.i10 = load ptr, ptr %5, align 8
   %.sroa.2.0.copyload.i12 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.413.0.copyload.i14 = load i32, ptr %.sroa.413.0..sroa_idx.i, align 8

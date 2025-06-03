@@ -256,7 +256,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br i1 %.not247, label %341, label %34
 
 34:                                               ; preds = %33, %30
-  %.0228 = phi i32 [ 0, %33 ], [ %31, %30 ]
+  %.0228 = phi i32 [ %31, %30 ], [ 0, %33 ]
   br i1 %3, label %35, label %45
 
 35:                                               ; preds = %34

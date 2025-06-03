@@ -669,8 +669,8 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %115
 
 115:                                              ; preds = %111, %108
-  %.075 = phi ptr [ %1, %108 ], [ %114, %111 ]
-  %.2 = phi i32 [ %.1, %108 ], [ %113, %111 ]
+  %.075 = phi ptr [ %114, %111 ], [ %1, %108 ]
+  %.2 = phi i32 [ %113, %111 ], [ %.1, %108 ]
   %116 = trunc i32 %.2 to i8
   store i8 %116, ptr %.075, align 1
   %117 = lshr i32 %.2, 8
@@ -678,8 +678,8 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %119
 
 119:                                              ; preds = %115, %108
-  %.176 = phi ptr [ %1, %108 ], [ %118, %115 ]
-  %.3 = phi i32 [ %.1, %108 ], [ %117, %115 ]
+  %.176 = phi ptr [ %118, %115 ], [ %1, %108 ]
+  %.3 = phi i32 [ %117, %115 ], [ %.1, %108 ]
   %120 = trunc i32 %.3 to i8
   store i8 %120, ptr %.176, align 1
   %121 = lshr i32 %.3, 8
@@ -687,8 +687,8 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %123
 
 123:                                              ; preds = %119, %108
-  %.277 = phi ptr [ %1, %108 ], [ %122, %119 ]
-  %.4 = phi i32 [ %.1, %108 ], [ %121, %119 ]
+  %.277 = phi ptr [ %122, %119 ], [ %1, %108 ]
+  %.4 = phi i32 [ %121, %119 ], [ %.1, %108 ]
   %124 = trunc i32 %.4 to i8
   store i8 %124, ptr %.277, align 1
   br label %153
@@ -711,7 +711,7 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %132
 
 132:                                              ; preds = %128, %125
-  %.378 = phi ptr [ %1, %125 ], [ %131, %128 ]
+  %.378 = phi ptr [ %131, %128 ], [ %1, %125 ]
   %133 = lshr i32 %.1, 16
   %134 = trunc i32 %133 to i8
   store i8 %134, ptr %.378, align 1
@@ -719,7 +719,7 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %136
 
 136:                                              ; preds = %132, %125
-  %.479 = phi ptr [ %1, %125 ], [ %135, %132 ]
+  %.479 = phi ptr [ %135, %132 ], [ %1, %125 ]
   %137 = lshr i32 %.1, 8
   %138 = trunc i32 %137 to i8
   store i8 %138, ptr %.479, align 1
@@ -727,7 +727,7 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   br label %140
 
 140:                                              ; preds = %136, %125
-  %.5 = phi ptr [ %1, %125 ], [ %139, %136 ]
+  %.5 = phi ptr [ %139, %136 ], [ %1, %125 ]
   %141 = trunc i32 %.1 to i8
   store i8 %141, ptr %.5, align 1
   br label %153
@@ -796,8 +796,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %13
 
 13:                                               ; preds = %8, %5
-  %.071 = phi ptr [ %0, %5 ], [ %12, %8 ]
-  %.1 = phi i32 [ 0, %5 ], [ %11, %8 ]
+  %.071 = phi ptr [ %12, %8 ], [ %0, %5 ]
+  %.1 = phi i32 [ %11, %8 ], [ 0, %5 ]
   %14 = load i8, ptr %.071, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %.1, %15
@@ -806,8 +806,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %19
 
 19:                                               ; preds = %13, %5
-  %.172 = phi ptr [ %0, %5 ], [ %18, %13 ]
-  %.2 = phi i32 [ 0, %5 ], [ %17, %13 ]
+  %.172 = phi ptr [ %18, %13 ], [ %0, %5 ]
+  %.2 = phi i32 [ %17, %13 ], [ 0, %5 ]
   %20 = load i8, ptr %.172, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %.2, %21
@@ -816,8 +816,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %25
 
 25:                                               ; preds = %19, %5
-  %.273 = phi ptr [ %0, %5 ], [ %24, %19 ]
-  %.3 = phi i32 [ 0, %5 ], [ %23, %19 ]
+  %.273 = phi ptr [ %24, %19 ], [ %0, %5 ]
+  %.3 = phi i32 [ %23, %19 ], [ 0, %5 ]
   %26 = load i8, ptr %.273, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %.3, %27
@@ -841,8 +841,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %37
 
 37:                                               ; preds = %32, %29
-  %.374 = phi ptr [ %0, %29 ], [ %36, %32 ]
-  %.4 = phi i32 [ 0, %29 ], [ %35, %32 ]
+  %.374 = phi ptr [ %36, %32 ], [ %0, %29 ]
+  %.4 = phi i32 [ %35, %32 ], [ 0, %29 ]
   %38 = load i8, ptr %.374, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 16
@@ -851,8 +851,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %43
 
 43:                                               ; preds = %37, %29
-  %.475 = phi ptr [ %0, %29 ], [ %42, %37 ]
-  %.5 = phi i32 [ 0, %29 ], [ %41, %37 ]
+  %.475 = phi ptr [ %42, %37 ], [ %0, %29 ]
+  %.5 = phi i32 [ %41, %37 ], [ 0, %29 ]
   %44 = load i8, ptr %.475, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
@@ -861,8 +861,8 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %49
 
 49:                                               ; preds = %43, %29
-  %.576 = phi ptr [ %0, %29 ], [ %48, %43 ]
-  %.6 = phi i32 [ 0, %29 ], [ %47, %43 ]
+  %.576 = phi ptr [ %48, %43 ], [ %0, %29 ]
+  %.6 = phi i32 [ %47, %43 ], [ 0, %29 ]
   %50 = load i8, ptr %.576, align 1
   %51 = zext i8 %50 to i32
   %52 = or i32 %.6, %51
@@ -896,7 +896,7 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %65
 
 65:                                               ; preds = %53, %56, %58, %59, %62, %29, %49, %5, %25, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %53 ], [ %64, %62 ], [ %61, %59 ], [ -1, %58 ], [ %57, %56 ], [ 0, %29 ], [ %52, %49 ], [ 0, %5 ], [ %28, %25 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %28, %25 ], [ 0, %29 ], [ %52, %49 ], [ 0, %53 ], [ %57, %56 ], [ -1, %58 ], [ %61, %59 ], [ %64, %62 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load ptr, ptr %66, align 8
   %.not = icmp eq ptr %67, null

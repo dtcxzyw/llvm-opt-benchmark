@@ -3565,7 +3565,7 @@ define noundef i32 @"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore
   br label %37
 
 37:                                               ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit", %5
-  %.0 = phi i32 [ %35, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit" ], [ %7, %5 ]
+  %.0 = phi i32 [ %7, %5 ], [ %35, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit" ]
   ret i32 %.0
 }
 
@@ -3593,7 +3593,7 @@ define noundef i64 @"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore
   br label %12
 
 12:                                               ; preds = %7, %4
-  %.0 = phi i64 [ %11, %7 ], [ %6, %4 ]
+  %.0 = phi i64 [ %6, %4 ], [ %11, %7 ]
   ret i64 %.0
 }
 
@@ -3672,7 +3672,7 @@ define { ptr, ptr } @"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCor
   br label %24
 
 24:                                               ; preds = %21, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit"
-  %.pn = phi { ptr, ptr } [ %23, %21 ], [ %20, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit" ]
+  %.pn = phi { ptr, ptr } [ %20, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit" ], [ %23, %21 ]
   ret { ptr, ptr } %.pn
 }
 

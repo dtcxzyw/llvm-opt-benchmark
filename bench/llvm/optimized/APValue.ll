@@ -3052,7 +3052,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %20
   unreachable
 
 _ZNK4llvm7APFloat12needsCleanupEv.exit:           ; preds = %38, %35, %29, %27, %_ZNK4llvm12APFixedPoint8getValueEv.exit, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread, %16, %13, %1, %1, %1, %51, %46, %42, %5, %4
-  %.0 = phi i1 [ %54, %51 ], [ %50, %46 ], [ %45, %42 ], [ %8, %5 ], [ true, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %15, %13 ], [ %19, %16 ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit ], [ true, %27 ], [ true, %29 ], [ %37, %35 ], [ %41, %38 ]
+  %.0 = phi i1 [ true, %4 ], [ %8, %5 ], [ %45, %42 ], [ %50, %46 ], [ %54, %51 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %15, %13 ], [ %19, %16 ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit ], [ true, %27 ], [ true, %29 ], [ %37, %35 ], [ %41, %38 ]
   ret i1 %.0
 }
 
@@ -4583,7 +4583,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %140, %142
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %150
-  %.1.i216 = phi ptr [ %146, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %151, %150 ]
+  %.1.i216 = phi ptr [ %151, %150 ], [ %146, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %152 = getelementptr inbounds nuw i8, ptr %.1.i216, i64 32
   %.sroa.0.0.copyload.i217 = load i64, ptr %152, align 16, !tbaa !3
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5241,7 +5241,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit280:              ; preds = %468, %470
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit280, %476
-  %.1.i283 = phi ptr [ %473, %_ZN4llvm11raw_ostreamlsEPKc.exit280 ], [ %477, %476 ]
+  %.1.i283 = phi ptr [ %477, %476 ], [ %473, %_ZN4llvm11raw_ostreamlsEPKc.exit280 ]
   %478 = getelementptr inbounds nuw i8, ptr %.1.i283, i64 32
   %.sroa.0.0.copyload.i284 = load i64, ptr %478, align 16, !tbaa !3
   br label %504
@@ -5297,7 +5297,7 @@ _ZN4llvm11raw_ostreamlsEc.exit290:                ; preds = %493, %495
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit290, %501
-  %.1.i292 = phi ptr [ %497, %_ZN4llvm11raw_ostreamlsEc.exit290 ], [ %502, %501 ]
+  %.1.i292 = phi ptr [ %502, %501 ], [ %497, %_ZN4llvm11raw_ostreamlsEc.exit290 ]
   %503 = getelementptr inbounds nuw i8, ptr %.1.i292, i64 32
   %.sroa.0.0.copyload.i293 = load i64, ptr %503, align 16, !tbaa !3
   br label %504
@@ -5351,7 +5351,7 @@ _ZN4llvm11raw_ostreamlsEc.exit252:                ; preds = %._crit_edge495, %50
   br label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit300
 
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit300: ; preds = %516, %523
-  %.1.i299 = phi ptr [ %519, %516 ], [ %524, %523 ]
+  %.1.i299 = phi ptr [ %524, %523 ], [ %519, %516 ]
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %526 = load i32, ptr %525, align 8, !tbaa !72
   %.not191 = icmp eq i32 %526, 0
@@ -6458,7 +6458,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5: ; preds = %1, %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %27, %.lr.ph.i
-  %.1.i.i = phi ptr [ %23, %.lr.ph.i ], [ %28, %27 ]
+  %.1.i.i = phi ptr [ %28, %27 ], [ %23, %.lr.ph.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %30 = load i24, ptr %29, align 16
   %31 = and i24 %30, 1048576
@@ -7824,8 +7824,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZN5clang12escapeCStyleILNS_10EscapeCha
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ @.str.43, %11 ], [ @.str.42, %10 ], [ @.str.41, %9 ], [ @.str.40, %8 ], [ @.str.39, %7 ], [ @.str.38, %6 ], [ @.str.37, %5 ], [ @.str.36, %4 ], [ @.str.35, %3 ], [ @.str.34, %2 ], [ null, %1 ]
-  %.sroa.13.0 = phi i64 [ 2, %11 ], [ 2, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %7 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 2, %3 ], [ 2, %2 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.34, %2 ], [ @.str.35, %3 ], [ @.str.36, %4 ], [ @.str.37, %5 ], [ @.str.38, %6 ], [ @.str.39, %7 ], [ @.str.40, %8 ], [ @.str.41, %9 ], [ @.str.42, %10 ], [ @.str.43, %11 ], [ null, %1 ]
+  %.sroa.13.0 = phi i64 [ 2, %2 ], [ 2, %3 ], [ 2, %4 ], [ 2, %5 ], [ 2, %6 ], [ 2, %7 ], [ 2, %8 ], [ 2, %9 ], [ 2, %10 ], [ 2, %11 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.13.0, 1
   ret { ptr, i64 } %.fca.1.insert

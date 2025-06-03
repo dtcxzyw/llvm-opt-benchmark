@@ -1199,7 +1199,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
   br label %.thread349
 
 293:                                              ; preds = %286, %.split.us, %277, %214, %200, %190, %177, %162, %147, %133, %126, %115, %96, %83, %74, %62, %49, %30
-  %.0211.ph = phi ptr [ null, %30 ], [ null, %74 ], [ null, %62 ], [ null, %96 ], [ null, %126 ], [ null, %147 ], [ null, %162 ], [ null, %177 ], [ %220, %286 ], [ %220, %.split.us ], [ null, %277 ], [ null, %214 ], [ null, %200 ], [ null, %190 ], [ null, %133 ], [ null, %115 ], [ null, %83 ], [ null, %49 ]
+  %.0211.ph = phi ptr [ null, %30 ], [ null, %74 ], [ null, %62 ], [ null, %96 ], [ null, %126 ], [ null, %177 ], [ null, %162 ], [ null, %147 ], [ %220, %286 ], [ %220, %.split.us ], [ null, %277 ], [ null, %214 ], [ null, %200 ], [ null, %190 ], [ null, %133 ], [ null, %115 ], [ null, %83 ], [ null, %49 ]
   %.pr = load ptr, ptr %0, align 8, !tbaa !46
   %294 = icmp eq ptr %.pr, null
   br i1 %294, label %295, label %302
@@ -2172,7 +2172,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__point_project_simple(ptr noun
   br label %145
 
 145:                                              ; preds = %81, %3, %.loopexit, %98, %23, %14
-  %.099 = phi i32 [ -1, %14 ], [ -1, %23 ], [ -1, %81 ], [ 0, %.loopexit ], [ -1, %98 ], [ 0, %3 ]
+  %.099 = phi i32 [ -1, %14 ], [ -1, %23 ], [ 0, %.loopexit ], [ -1, %81 ], [ -1, %98 ], [ 0, %3 ]
   ret i32 %.099
 }
 
@@ -2513,7 +2513,7 @@ H5S__point_add.exit:                              ; preds = %.lr.ph117.i, %132
   br label %142
 
 142:                                              ; preds = %57, %18, %141, %H5S__point_add.exit, %31, %14
-  %.022 = phi i32 [ -1, %14 ], [ -1, %31 ], [ -1, %57 ], [ -1, %H5S__point_add.exit ], [ 0, %141 ], [ 0, %18 ]
+  %.022 = phi i32 [ -1, %14 ], [ -1, %31 ], [ -1, %H5S__point_add.exit ], [ 0, %141 ], [ -1, %57 ], [ 0, %18 ]
   ret i32 %.022
 }
 
@@ -3686,7 +3686,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %94
 
 94:                                               ; preds = %31, %51, %67, %71, %74, %90, %85, %89, %88, %78, %3
-  %.0 = phi i32 [ -1, %31 ], [ -1, %51 ], [ -1, %67 ], [ -1, %71 ], [ -1, %74 ], [ -1, %90 ], [ 0, %85 ], [ 0, %88 ], [ 0, %89 ], [ 0, %78 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %51 ], [ -1, %67 ], [ -1, %71 ], [ -1, %74 ], [ -1, %90 ], [ 0, %78 ], [ 0, %85 ], [ 0, %88 ], [ 0, %89 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15

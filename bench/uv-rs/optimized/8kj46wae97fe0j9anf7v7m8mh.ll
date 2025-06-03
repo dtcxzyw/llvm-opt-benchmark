@@ -1176,7 +1176,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2301921632670858153.ex
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %17, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2301921632670858153.exit
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2301921632670858153.exit ]
+  %.sroa.0.0.in = phi i1 [ %16, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2301921632670858153.exit ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in
 }
 

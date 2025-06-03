@@ -193,7 +193,7 @@ lean_dec.exit:                                    ; preds = %33, %32, %30, %19
   br label %.thread
 
 .thread:                                          ; preds = %lean_dec.exit, %lean_obj_tag.exit, %38, %11
-  %.1 = phi ptr [ %45, %38 ], [ %18, %11 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.1 = phi ptr [ %18, %11 ], [ %45, %38 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.1
 }
 
@@ -538,7 +538,7 @@ l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit: ; preds = %lean_obj_tag
   br i1 %30, label %.critedge.backedge, label %lean_dec.exit55
 
 .critedge.backedge:                               ; preds = %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit, %31, %40, %lean_obj_tag.exit.i
-  %.044.be = phi ptr [ %44, %40 ], [ %35, %31 ], [ %15, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit ], [ %15, %lean_obj_tag.exit.i ]
+  %.044.be = phi ptr [ %15, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit ], [ %35, %31 ], [ %44, %40 ], [ %15, %lean_obj_tag.exit.i ]
   br label %.critedge
 
 31:                                               ; preds = %lean_obj_tag.exit
@@ -579,7 +579,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit55
 
 lean_dec.exit55:                                  ; preds = %40, %31, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit, %lean_obj_tag.exit, %lean_nat_lt.exit, %lean_dec.exit
-  %.2 = phi i8 [ %54, %lean_dec.exit ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit ], [ 1, %31 ], [ 1, %40 ]
+  %.2 = phi i8 [ %54, %lean_dec.exit ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %40 ], [ 1, %31 ], [ 1, %l_Lean_Compiler_LCNF_Code_containsConst_goLetValue.exit ]
   ret i8 %.2
 }
 

@@ -439,7 +439,7 @@ if.then.us:                                       ; preds = %for.body.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %sw.bb9.us, %sw.bb14.us, %sw.bb21.us, %cond.false.us, %sw.bb25.us, %sw.bb35.us, %sw.bb42.us, %sw.bb49.us, %if.end.us, %if.end.us
-  %.pn.us = phi i32 [ %13, %if.then.us ], [ %.sroa.speculated39.us, %sw.bb49.us ], [ %.sroa.speculated43.us, %sw.bb42.us ], [ %.sroa.speculated47.us, %sw.bb35.us ], [ %cond.us, %sw.bb21.us ], [ %.sroa.speculated55.us, %sw.bb14.us ], [ %.sroa.speculated59.us, %sw.bb9.us ], [ 2, %if.end.us ], [ 2, %if.end.us ], [ %.sroa.speculated51.us, %cond.false.us ], [ 2, %sw.bb25.us ]
+  %.pn.us = phi i32 [ %13, %if.then.us ], [ %.sroa.speculated59.us, %sw.bb9.us ], [ %.sroa.speculated55.us, %sw.bb14.us ], [ %cond.us, %sw.bb21.us ], [ %.sroa.speculated47.us, %sw.bb35.us ], [ %.sroa.speculated43.us, %sw.bb42.us ], [ %.sroa.speculated39.us, %sw.bb49.us ], [ 2, %if.end.us ], [ 2, %if.end.us ], [ %.sroa.speculated51.us, %cond.false.us ], [ 2, %sw.bb25.us ]
   %size.1.us = add i32 %.pn.us, %size.068.us
   %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.067.us, i64 24
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %1
@@ -552,7 +552,7 @@ sw.default:                                       ; preds = %if.end, %if.end.us
   unreachable
 
 for.inc:                                          ; preds = %cond.false, %sw.bb25, %if.end, %if.end, %sw.bb9, %sw.bb14, %sw.bb21, %sw.bb35, %sw.bb42, %sw.bb49, %sw.bb56, %if.then
-  %.pn = phi i32 [ %17, %if.then ], [ %27, %sw.bb56 ], [ %.sroa.speculated39, %sw.bb49 ], [ %.sroa.speculated43, %sw.bb42 ], [ %.sroa.speculated47, %sw.bb35 ], [ %cond, %sw.bb21 ], [ %.sroa.speculated55, %sw.bb14 ], [ %.sroa.speculated59, %sw.bb9 ], [ 2, %if.end ], [ 2, %if.end ], [ %.sroa.speculated51, %cond.false ], [ 2, %sw.bb25 ]
+  %.pn = phi i32 [ %17, %if.then ], [ %.sroa.speculated59, %sw.bb9 ], [ %.sroa.speculated55, %sw.bb14 ], [ %cond, %sw.bb21 ], [ %.sroa.speculated47, %sw.bb35 ], [ %.sroa.speculated43, %sw.bb42 ], [ %.sroa.speculated39, %sw.bb49 ], [ %27, %sw.bb56 ], [ 2, %if.end ], [ 2, %if.end ], [ %.sroa.speculated51, %cond.false ], [ 2, %sw.bb25 ]
   %size.1 = add i32 %.pn, %size.068
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.067, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
@@ -987,7 +987,7 @@ sw.default:                                       ; preds = %if.else
   unreachable
 
 for.inc:                                          ; preds = %if.then17, %if.then102, %if.else108, %if.then51, %if.else56, %if.end273, %sw.bb254, %sw.bb243, %sw.bb232, %if.end227, %sw.bb186, %sw.bb176, %sw.bb151, %sw.bb141, %sw.bb119, %sw.bb79, %sw.bb68, %sw.bb31, %sw.bb
-  %result.addr.1 = phi ptr [ %add.ptr21, %if.then17 ], [ %add.ptr279, %if.end273 ], [ %add.ptr265, %sw.bb254 ], [ %add.ptr253, %sw.bb243 ], [ %add.ptr242, %sw.bb232 ], [ %add.ptr231, %if.end227 ], [ %add.ptr201, %sw.bb186 ], [ %add.ptr185, %sw.bb176 ], [ %add.ptr175, %sw.bb151 ], [ %add.ptr150, %sw.bb141 ], [ %add.ptr140, %sw.bb119 ], [ %add.ptr107, %if.then102 ], [ %add.ptr117, %if.else108 ], [ %add.ptr93, %sw.bb79 ], [ %add.ptr78, %sw.bb68 ], [ %add.ptr55, %if.then51 ], [ %add.ptr66, %if.else56 ], [ %add.ptr42, %sw.bb31 ], [ %add.ptr30, %sw.bb ]
+  %result.addr.1 = phi ptr [ %add.ptr21, %if.then17 ], [ %add.ptr30, %sw.bb ], [ %add.ptr42, %sw.bb31 ], [ %add.ptr55, %if.then51 ], [ %add.ptr66, %if.else56 ], [ %add.ptr78, %sw.bb68 ], [ %add.ptr93, %sw.bb79 ], [ %add.ptr107, %if.then102 ], [ %add.ptr117, %if.else108 ], [ %add.ptr140, %sw.bb119 ], [ %add.ptr150, %sw.bb141 ], [ %add.ptr175, %sw.bb151 ], [ %add.ptr185, %sw.bb176 ], [ %add.ptr201, %sw.bb186 ], [ %add.ptr231, %if.end227 ], [ %add.ptr242, %sw.bb232 ], [ %add.ptr253, %sw.bb243 ], [ %add.ptr265, %sw.bb254 ], [ %add.ptr279, %if.end273 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0196, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -3770,7 +3770,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %if.end181
 
 if.else104:                                       ; preds = %sw.bb19.i, %sw.bb10.i, %if.end.i, %if.else.i372, %if.then.i374, %if.end82, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit
-  %retval.0.i3714 = phi i32 [ %retval.0.i371, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit ], [ 2, %if.end82 ], [ 4, %if.else.i372 ], [ %conv8.i, %if.end.i ], [ %conv3.i, %if.then.i374 ], [ %conv18.i, %sw.bb10.i ], [ %conv27.i, %sw.bb19.i ]
+  %retval.0.i3714 = phi i32 [ %retval.0.i371, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit ], [ 2, %if.end82 ], [ 4, %if.else.i372 ], [ %conv27.i, %sw.bb19.i ], [ %conv18.i, %sw.bb10.i ], [ %conv8.i, %if.end.i ], [ %conv3.i, %if.then.i374 ]
   %cmp106 = icmp eq i8 %curPattern.coerce0, 8
   %99 = and i8 %curPattern.coerce0, -2
   %100 = icmp eq i8 %99, 2
@@ -5057,7 +5057,7 @@ sw.default:                                       ; preds = %while.end
           to label %if.end139 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end139:                                        ; preds = %sw.bb, %sw.bb46, %sw.bb50, %sw.bb54, %sw.bb58, %sw.bb62, %sw.bb66, %sw.bb70, %sw.bb74, %if.else84, %if.then80, %sw.bb89, %sw.bb93, %sw.bb96, %sw.bb100, %sw.bb104, %sw.bb108, %sw.bb112, %sw.bb116, %sw.bb120, %sw.bb124, %sw.bb128, %sw.default, %invoke.cont, %for.end
-  %cur.1 = phi ptr [ %add.ptr13, %invoke.cont ], [ %add.ptr30, %for.end ], [ %cur.2.lcssa, %sw.default ], [ %cur.2.lcssa, %sw.bb128 ], [ %cur.2.lcssa, %sw.bb124 ], [ %cur.2.lcssa, %sw.bb120 ], [ %cur.2.lcssa, %sw.bb116 ], [ %cur.2.lcssa, %sw.bb112 ], [ %cur.2.lcssa, %sw.bb108 ], [ %cur.2.lcssa, %sw.bb104 ], [ %cur.2.lcssa, %sw.bb100 ], [ %cur.2.lcssa, %sw.bb96 ], [ %cur.2.lcssa, %sw.bb93 ], [ %cur.2.lcssa, %sw.bb89 ], [ %cur.2.lcssa, %if.then80 ], [ %cur.2.lcssa, %if.else84 ], [ %cur.2.lcssa, %sw.bb74 ], [ %cur.2.lcssa, %sw.bb70 ], [ %cur.2.lcssa, %sw.bb66 ], [ %cur.2.lcssa, %sw.bb62 ], [ %cur.2.lcssa, %sw.bb58 ], [ %cur.2.lcssa, %sw.bb54 ], [ %cur.2.lcssa, %sw.bb50 ], [ %cur.2.lcssa, %sw.bb46 ], [ %cur.2.lcssa, %sw.bb ]
+  %cur.1 = phi ptr [ %add.ptr13, %invoke.cont ], [ %add.ptr30, %for.end ], [ %cur.2.lcssa, %sw.default ], [ %cur.2.lcssa, %sw.bb ], [ %cur.2.lcssa, %sw.bb46 ], [ %cur.2.lcssa, %sw.bb50 ], [ %cur.2.lcssa, %sw.bb54 ], [ %cur.2.lcssa, %sw.bb58 ], [ %cur.2.lcssa, %sw.bb62 ], [ %cur.2.lcssa, %sw.bb66 ], [ %cur.2.lcssa, %sw.bb70 ], [ %cur.2.lcssa, %sw.bb74 ], [ %cur.2.lcssa, %if.then80 ], [ %cur.2.lcssa, %if.else84 ], [ %cur.2.lcssa, %sw.bb89 ], [ %cur.2.lcssa, %sw.bb93 ], [ %cur.2.lcssa, %sw.bb96 ], [ %cur.2.lcssa, %sw.bb100 ], [ %cur.2.lcssa, %sw.bb104 ], [ %cur.2.lcssa, %sw.bb108 ], [ %cur.2.lcssa, %sw.bb112 ], [ %cur.2.lcssa, %sw.bb116 ], [ %cur.2.lcssa, %sw.bb120 ], [ %cur.2.lcssa, %sw.bb124 ], [ %cur.2.lcssa, %sw.bb128 ]
   %cmp = icmp ult ptr %cur.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end140, !llvm.loop !26
 

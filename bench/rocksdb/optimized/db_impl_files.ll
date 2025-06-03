@@ -4278,7 +4278,7 @@ _ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350: ; preds =
   %.not675 = icmp eq i64 %659, -1
   br i1 %.not675, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350.thread653, label %.critedge
 
-_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350.thread653: ; preds = %.lr.ph.i.i.i.i302, %.preheader916, %..loopexit_crit_edge21.i.i.i.i306, %506, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE6insertERKm.exit338, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE6insertERKm.exit, %524, %656, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350
+_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350.thread653: ; preds = %.lr.ph.i.i.i.i302, %.preheader916, %..loopexit_crit_edge21.i.i.i.i306, %506, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE6insertERKm.exit338, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE6insertERKm.exit, %656, %524, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #31
   store ptr %442, ptr %43, align 8, !tbaa !636
   store i64 0, ptr %443, align 8, !tbaa !16
@@ -5121,7 +5121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #31
   br label %.critedge
 
-.critedge:                                        ; preds = %488, %473, %601, %586, %624, %609, %576, %561, %543, %528, %517, %502, %538, %557, %619, %596, %.loopexit706, %571, %496, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit323, %512, %524, %656, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %655, %483, %.loopexit714, %633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350, %467
+.critedge:                                        ; preds = %488, %473, %601, %586, %624, %609, %576, %561, %543, %528, %517, %502, %538, %557, %619, %596, %.loopexit706, %571, %496, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit323, %512, %656, %524, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %655, %483, %.loopexit714, %633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit350, %467
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #31
   %946 = getelementptr inbounds nuw i8, ptr %.sroa.0601.0899, i64 64

@@ -1188,7 +1188,7 @@ generate_transition.exit.i:                       ; preds = %._crit_edge.us.i.i,
   br label %492
 
 492:                                              ; preds = %485, %469, %.lr.ph6.i
-  %.1.i = phi ptr [ %466, %.lr.ph6.i ], [ %491, %485 ], [ %484, %469 ]
+  %.1.i = phi ptr [ %466, %.lr.ph6.i ], [ %484, %469 ], [ %491, %485 ]
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next11.i, %wide.trip.count13.i
   br i1 %exitcond14.not.i, label %._crit_edge7.i, label %.lr.ph6.i, !llvm.loop !145
@@ -2061,7 +2061,7 @@ parse_optarg.exit189.i:                           ; preds = %203, %197
   br label %parse_options.exit.thread
 
 226:                                              ; preds = %.lr.ph.i49, %.loopexit259.i, %222, %194, %170, %.loopexit260.i, %98, %76, %75, %.lr.ph.i49
-  %.379.i = phi i8 [ %.177336.i, %222 ], [ %.177336.i, %194 ], [ %.177336.i, %170 ], [ %.177336.i, %.loopexit260.i ], [ %.177336.i, %98 ], [ %.177336.i, %76 ], [ %.177336.i, %75 ], [ %74, %.lr.ph.i49 ], [ %.177336.i, %.loopexit259.i ], [ %74, %.lr.ph.i49 ]
+  %.379.i = phi i8 [ %.177336.i, %75 ], [ %.177336.i, %76 ], [ %.177336.i, %98 ], [ %.177336.i, %.loopexit260.i ], [ %.177336.i, %170 ], [ %.177336.i, %194 ], [ %.177336.i, %222 ], [ %74, %.lr.ph.i49 ], [ %.177336.i, %.loopexit259.i ], [ %74, %.lr.ph.i49 ]
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0205.1335.i, i64 1
   %228 = icmp ult ptr %227, %.sroa.7.1.i
   br i1 %228, label %.lr.ph.i49, label %.loopexit264.loopexit.i, !llvm.loop !170
@@ -2140,8 +2140,8 @@ is_space.exit.thread.i.i95:                       ; preds = %.lr.ph.i.i94, %.lr.
   %exitcond.not.i.i96 = icmp eq ptr %253, %230
   br i1 %exitcond.not.i.i96, label %.loopexit, label %.lr.ph.i.i94, !llvm.loop !161
 
-parse_options.exit.thread:                        ; preds = %.critedge.i, %244, %.loopexit261.i, %233, %232, %parse_optarg.exit.i, %97, %parse_optarg.exit129.i, %125, %parse_optarg.exit144.i, %147, %parse_optarg.exit159.i, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit189.i, %221, %218, %223
-  %.0.i.ph = phi i32 [ -1094995529, %223 ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1094995529, %parse_optarg.exit189.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1163346256, %232 ], [ -1163346256, %233 ], [ -12, %.loopexit261.i ], [ -558323010, %.critedge.i ], [ -1094995529, %244 ]
+parse_options.exit.thread:                        ; preds = %.critedge.i, %244, %.loopexit261.i, %232, %233, %parse_optarg.exit189.i, %221, %218, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit159.i, %parse_optarg.exit144.i, %147, %parse_optarg.exit129.i, %125, %parse_optarg.exit.i, %97, %223
+  %.0.i.ph = phi i32 [ -1094995529, %223 ], [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1094995529, %parse_optarg.exit189.i ], [ -1163346256, %233 ], [ -1163346256, %232 ], [ -12, %.loopexit261.i ], [ -558323010, %.critedge.i ], [ -1094995529, %244 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #16
   br label %lex_line_end.exit88.thread116
 

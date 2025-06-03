@@ -363,7 +363,7 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %61
 
 61:                                               ; preds = %27, %44, %36, %38, %53, %40, %21, %23, %56
-  %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ 0, %56 ], [ %spec.select81, %27 ], [ 27, %44 ]
+  %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ 0, %56 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ %spec.select81, %27 ], [ 27, %44 ]
   call void @Curl_bufref_free(ptr noundef nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3

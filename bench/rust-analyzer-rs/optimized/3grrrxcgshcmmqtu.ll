@@ -4327,7 +4327,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit unwind label %51
 
 50:                                               ; preds = %.body47, %146, %145, %144, %51
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %122, %146 ], [ %122, %144 ], [ %122, %145 ], [ %eh.lpad-body48, %.body47 ]
+  %.pn = phi { ptr, i32 } [ %122, %146 ], [ %122, %144 ], [ %122, %145 ], [ %52, %51 ], [ %eh.lpad-body48, %.body47 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h94addf1f76d8fa57E"(ptr noalias noundef align 8 dereferenceable(40) %16) #26
           to label %.body unwind label %147
 
@@ -4897,10 +4897,10 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %84 = invoke { i64, i1 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_full17hdcf20998673d824aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %39, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %5)
           to label %87 unwind label %85
 
-.thread186:                                       ; preds = %.body, %302, %304, %303, %307, %301, %.thread190, %327, %97, %85
-  %.236 = phi i8 [ 0, %327 ], [ %.337, %97 ], [ 1, %85 ], [ 0, %.thread190 ], [ 0, %301 ], [ 0, %307 ], [ 0, %303 ], [ 0, %304 ], [ 0, %302 ], [ 0, %.body ]
-  %.3 = phi i8 [ 0, %327 ], [ %.4, %97 ], [ 1, %85 ], [ 0, %.thread190 ], [ 0, %301 ], [ 0, %307 ], [ 0, %303 ], [ 0, %304 ], [ 0, %302 ], [ 0, %.body ]
-  %.pn53.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %327 ], [ %.pn.pn.pn.pn, %97 ], [ %86, %85 ], [ %lpad.thr_comm, %.thread190 ], [ %eh.lpad-body111, %301 ], [ %eh.lpad-body111, %307 ], [ %eh.lpad-body111, %303 ], [ %eh.lpad-body111, %304 ], [ %eh.lpad-body111, %302 ], [ %eh.lpad-body, %.body ]
+.thread186:                                       ; preds = %.body, %303, %307, %302, %304, %301, %.thread190, %327, %97, %85
+  %.236 = phi i8 [ 0, %327 ], [ %.337, %97 ], [ 1, %85 ], [ 0, %.thread190 ], [ 0, %301 ], [ 0, %304 ], [ 0, %302 ], [ 0, %307 ], [ 0, %303 ], [ 0, %.body ]
+  %.3 = phi i8 [ 0, %327 ], [ %.4, %97 ], [ 1, %85 ], [ 0, %.thread190 ], [ 0, %301 ], [ 0, %304 ], [ 0, %302 ], [ 0, %307 ], [ 0, %303 ], [ 0, %.body ]
+  %.pn53.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %327 ], [ %.pn.pn.pn.pn, %97 ], [ %86, %85 ], [ %lpad.thr_comm, %.thread190 ], [ %eh.lpad-body111, %301 ], [ %eh.lpad-body111, %304 ], [ %eh.lpad-body111, %302 ], [ %eh.lpad-body111, %307 ], [ %eh.lpad-body111, %303 ], [ %eh.lpad-body, %.body ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$indexmap..set..IndexSet$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h421720acbc396462E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %39) #26
           to label %.body112 unwind label %305
 
@@ -5504,8 +5504,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i104: ; preds = %191, %
   br label %256
 
 256:                                              ; preds = %260, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa72033c0e5390c1E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he7d8a0e8a47730adE.exit"
-  %.146 = phi i1 [ true, %260 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa72033c0e5390c1E.exit" ], [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he7d8a0e8a47730adE.exit" ]
-  %.144 = phi i1 [ true, %260 ], [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa72033c0e5390c1E.exit" ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he7d8a0e8a47730adE.exit" ]
+  %.146 = phi i1 [ true, %260 ], [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he7d8a0e8a47730adE.exit" ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa72033c0e5390c1E.exit" ]
+  %.144 = phi i1 [ true, %260 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he7d8a0e8a47730adE.exit" ], [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfa72033c0e5390c1E.exit" ]
   %257 = load i64, ptr %28, align 8, !range !129, !noundef !4
   %258 = add i64 %257, 9223372036854775807
   %259 = call i64 @llvm.umin.i64(i64 %258, i64 4)

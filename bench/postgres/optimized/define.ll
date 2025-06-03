@@ -110,7 +110,7 @@ define dso_local ptr @defGetString(ptr noundef readonly captures(none) %0) local
   unreachable
 
 40:                                               ; preds = %33, %31, %29, %26, %21, %18, %13
-  %.0 = phi ptr [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %26 ], [ %25, %21 ], [ %20, %18 ], [ %17, %13 ]
+  %.0 = phi ptr [ %17, %13 ], [ %20, %18 ], [ %25, %21 ], [ %28, %26 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ]
   ret ptr %.0
 }
 
@@ -180,7 +180,7 @@ define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) l
   unreachable
 
 27:                                               ; preds = %17, %13
-  %.0 = phi double [ %20, %17 ], [ %16, %13 ]
+  %.0 = phi double [ %16, %13 ], [ %20, %17 ]
   ret double %.0
 }
 
@@ -331,7 +331,7 @@ define dso_local i64 @defGetInt64(ptr noundef readonly captures(none) %0) local_
   unreachable
 
 28:                                               ; preds = %17, %13
-  %.0 = phi i64 [ %21, %17 ], [ %16, %13 ]
+  %.0 = phi i64 [ %16, %13 ], [ %21, %17 ]
   ret i64 %.0
 }
 
@@ -387,7 +387,7 @@ define dso_local i32 @defGetObjectId(ptr noundef readonly captures(none) %0) loc
   unreachable
 
 28:                                               ; preds = %16, %13
-  %.0 = phi i32 [ %21, %16 ], [ %15, %13 ]
+  %.0 = phi i32 [ %15, %13 ], [ %21, %16 ]
   ret i32 %.0
 }
 
@@ -438,7 +438,7 @@ define dso_local ptr @defGetQualifiedName(ptr noundef readonly captures(none) %0
   unreachable
 
 24:                                               ; preds = %11, %16, %13
-  %.0 = phi ptr [ %17, %16 ], [ %15, %13 ], [ %3, %11 ]
+  %.0 = phi ptr [ %15, %13 ], [ %17, %16 ], [ %3, %11 ]
   ret ptr %.0
 }
 

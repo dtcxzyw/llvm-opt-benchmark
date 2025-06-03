@@ -228,9 +228,9 @@ _ZN6SourceD2Ev.exit77:                            ; preds = %_ZNKSt7__cxx1112bas
   br label %63
 
 63:                                               ; preds = %61, %62, %.lr.ph, %.lr.ph
-  %.sroa.9.4 = phi i1 [ true, %62 ], [ %.sroa.9.3251, %61 ], [ %.sroa.9.3251, %.lr.ph ], [ %.sroa.9.3251, %.lr.ph ]
-  %.454 = phi i1 [ true, %62 ], [ %.353253, %61 ], [ %.353253, %.lr.ph ], [ %.353253, %.lr.ph ]
-  %.449 = phi i1 [ %.348254, %62 ], [ true, %61 ], [ %.348254, %.lr.ph ], [ %.348254, %.lr.ph ]
+  %.sroa.9.4 = phi i1 [ %.sroa.9.3251, %.lr.ph ], [ %.sroa.9.3251, %.lr.ph ], [ %.sroa.9.3251, %61 ], [ true, %62 ]
+  %.454 = phi i1 [ %.353253, %.lr.ph ], [ %.353253, %.lr.ph ], [ %.353253, %61 ], [ true, %62 ]
+  %.449 = phi i1 [ %.348254, %.lr.ph ], [ %.348254, %.lr.ph ], [ true, %61 ], [ %.348254, %62 ]
   %64 = add nuw i64 %.064252, 1
   %exitcond.not = icmp eq i64 %64, %50
   br i1 %exitcond.not, label %.loopexit164, label %.lr.ph, !llvm.loop !22

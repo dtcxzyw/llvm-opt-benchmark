@@ -925,7 +925,7 @@ common.resume:                                    ; preds = %.thread276, %99, %.
   br label %212
 
 212:                                              ; preds = %235, %211
-  %.pn = phi ptr [ %238, %235 ], [ %138, %211 ]
+  %.pn = phi ptr [ %138, %211 ], [ %238, %235 ]
   %.067 = getelementptr inbounds i8, ptr %.pn, i64 -32
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.617.sroa.8)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8

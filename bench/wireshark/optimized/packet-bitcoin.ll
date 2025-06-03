@@ -988,8 +988,8 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   br label %get_varint.exit65
 
 get_varint.exit65:                                ; preds = %39, %43, %46, %49
-  %.1 = phi i32 [ 1, %39 ], [ 9, %49 ], [ 5, %46 ], [ 3, %43 ]
-  %.sink.i64 = phi i64 [ %40, %39 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.1 = phi i32 [ 1, %39 ], [ 9, %49 ], [ 3, %43 ], [ 5, %46 ]
+  %.sink.i64 = phi i64 [ %40, %39 ], [ %50, %49 ], [ %45, %43 ], [ %48, %46 ]
   %51 = load i32, ptr @hf_msg_addrv2_services, align 4
   %52 = load i32, ptr @ett_services, align 4
   %53 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %33, ptr noundef %0, i32 noundef %36, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @services_hf_flags, i64 noundef %.sink.i64)
@@ -1029,8 +1029,8 @@ get_varint.exit65:                                ; preds = %39, %43, %46, %49
   br label %get_varint.exit67
 
 get_varint.exit67:                                ; preds = %61, %65, %68, %71
-  %.2 = phi i32 [ 1, %61 ], [ 9, %71 ], [ 5, %68 ], [ 3, %65 ]
-  %.sink.i66 = phi i64 [ %62, %61 ], [ %72, %71 ], [ %70, %68 ], [ %67, %65 ]
+  %.2 = phi i32 [ 1, %61 ], [ 9, %71 ], [ 3, %65 ], [ 5, %68 ]
+  %.sink.i66 = phi i64 [ %62, %61 ], [ %72, %71 ], [ %67, %65 ], [ %70, %68 ]
   %73 = add i32 %.2, %58
   %74 = trunc i64 %.sink.i66 to i32
   switch i8 %55, label %85 [
@@ -1654,7 +1654,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   br label %get_varint.exit45
 
 get_varint.exit45:                                ; preds = %.lr.ph, %54, %56, %58
-  %.1 = phi i32 [ 9, %58 ], [ 5, %56 ], [ 3, %54 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 9, %58 ], [ 3, %54 ], [ 5, %56 ], [ 1, %.lr.ph ]
   %60 = load i32, ptr @hf_msg_headers_count8, align 4
   %61 = load i32, ptr @hf_msg_headers_count16, align 4
   %62 = load i32, ptr @hf_msg_headers_count32, align 4
@@ -1837,8 +1837,8 @@ add_varint_item.exit:                             ; preds = %26, %32, %39, %46
   br label %get_varint.exit59
 
 get_varint.exit59:                                ; preds = %59, %63, %66, %69
-  %.1 = phi i32 [ 1, %59 ], [ 9, %69 ], [ 5, %66 ], [ 3, %63 ]
-  %.sink.i58 = phi i64 [ %60, %59 ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ]
+  %.1 = phi i32 [ 1, %59 ], [ 9, %69 ], [ 3, %63 ], [ 5, %66 ]
+  %.sink.i58 = phi i64 [ %60, %59 ], [ %70, %69 ], [ %65, %63 ], [ %68, %66 ]
   %71 = load i32, ptr @ett_bitcoin_msg, align 4
   %72 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef -1, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.324)
   %73 = load i32, ptr @hf_msg_merkleblock_flags_size8, align 4
@@ -2017,8 +2017,8 @@ define internal fastcc void @create_string_tree(ptr noundef %0, i32 noundef %1, 
   br label %get_varint.exit
 
 get_varint.exit:                                  ; preds = %8, %12, %15, %18
-  %.0 = phi i32 [ 1, %8 ], [ 9, %18 ], [ 5, %15 ], [ 3, %12 ]
-  %.sink.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0 = phi i32 [ 1, %8 ], [ 9, %18 ], [ 3, %12 ], [ 5, %15 ]
+  %.sink.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %14, %12 ], [ %17, %15 ]
   %20 = trunc i64 %.sink.i to i32
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %.0, %20
@@ -2161,8 +2161,8 @@ define internal fastcc noundef i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0
   br label %get_varint.exit
 
 get_varint.exit:                                  ; preds = %27, %31, %34, %37
-  %.0 = phi i32 [ 1, %27 ], [ 9, %37 ], [ 5, %34 ], [ 3, %31 ]
-  %.sink.i = phi i64 [ %28, %27 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ]
+  %.0 = phi i32 [ 1, %27 ], [ 9, %37 ], [ 3, %31 ], [ 5, %34 ]
+  %.sink.i = phi i64 [ %28, %27 ], [ %38, %37 ], [ %33, %31 ], [ %36, %34 ]
   %39 = load i32, ptr @hf_msg_tx_in_count8, align 4
   %40 = load i32, ptr @hf_msg_tx_in_count16, align 4
   %41 = load i32, ptr @hf_msg_tx_in_count32, align 4
@@ -2206,8 +2206,8 @@ get_varint.exit:                                  ; preds = %27, %31, %34, %37
   br label %get_varint.exit150
 
 get_varint.exit150:                               ; preds = %47, %51, %54, %57
-  %.1 = phi i32 [ 1, %47 ], [ 9, %57 ], [ 5, %54 ], [ 3, %51 ]
-  %.sink.i149 = phi i64 [ %48, %47 ], [ %58, %57 ], [ %56, %54 ], [ %53, %51 ]
+  %.1 = phi i32 [ 1, %47 ], [ 9, %57 ], [ 3, %51 ], [ 5, %54 ]
+  %.sink.i149 = phi i64 [ %48, %47 ], [ %58, %57 ], [ %53, %51 ], [ %56, %54 ]
   %59 = load i32, ptr @hf_msg_tx_in, align 4
   %60 = trunc i64 %.sink.i149 to i32
   %61 = add nuw nsw i32 %.1, 40
@@ -2282,8 +2282,8 @@ get_varint.exit150:                               ; preds = %47, %51, %54, %57
   br label %get_varint.exit152
 
 get_varint.exit152:                               ; preds = %94, %98, %101, %104
-  %.2 = phi i32 [ 1, %94 ], [ 9, %104 ], [ 5, %101 ], [ 3, %98 ]
-  %.sink.i151 = phi i64 [ %95, %94 ], [ %105, %104 ], [ %103, %101 ], [ %100, %98 ]
+  %.2 = phi i32 [ 1, %94 ], [ 9, %104 ], [ 3, %98 ], [ 5, %101 ]
+  %.sink.i151 = phi i64 [ %95, %94 ], [ %105, %104 ], [ %100, %98 ], [ %103, %101 ]
   %106 = load i32, ptr @hf_msg_tx_out_count8, align 4
   %107 = load i32, ptr @hf_msg_tx_out_count16, align 4
   %108 = load i32, ptr @hf_msg_tx_out_count32, align 4
@@ -2327,8 +2327,8 @@ get_varint.exit152:                               ; preds = %94, %98, %101, %104
   br label %get_varint.exit154
 
 get_varint.exit154:                               ; preds = %114, %118, %121, %124
-  %.3189 = phi i32 [ 1, %114 ], [ 9, %124 ], [ 5, %121 ], [ 3, %118 ]
-  %.sink.i153 = phi i64 [ %115, %114 ], [ %125, %124 ], [ %123, %121 ], [ %120, %118 ]
+  %.3189 = phi i32 [ 1, %114 ], [ 9, %124 ], [ 3, %118 ], [ 5, %121 ]
+  %.sink.i153 = phi i64 [ %115, %114 ], [ %125, %124 ], [ %120, %118 ], [ %123, %121 ]
   %126 = load i32, ptr @hf_msg_tx_out, align 4
   %127 = add nuw nsw i32 %.3189, 8
   %128 = trunc i64 %.sink.i153 to i32
@@ -2404,8 +2404,8 @@ get_varint.exit154:                               ; preds = %114, %118, %121, %1
   br label %get_varint.exit156
 
 get_varint.exit156:                               ; preds = %157, %161, %164, %167
-  %.0192 = phi i32 [ 1, %157 ], [ 9, %167 ], [ 5, %164 ], [ 3, %161 ]
-  %.sink.i155 = phi i64 [ %158, %157 ], [ %168, %167 ], [ %166, %164 ], [ %163, %161 ]
+  %.0192 = phi i32 [ 1, %157 ], [ 9, %167 ], [ 3, %161 ], [ 5, %164 ]
+  %.sink.i155 = phi i64 [ %158, %157 ], [ %168, %167 ], [ %163, %161 ], [ %166, %164 ]
   %169 = load i32, ptr @hf_msg_tx_witness_components8, align 4
   %170 = load i32, ptr @hf_msg_tx_witness_components16, align 4
   %171 = load i32, ptr @hf_msg_tx_witness_components32, align 4
@@ -2546,8 +2546,8 @@ define internal fastcc void @create_data_tree(ptr noundef %0, i32 noundef %1, pt
   br label %get_varint.exit
 
 get_varint.exit:                                  ; preds = %8, %12, %15, %18
-  %.0 = phi i32 [ 1, %8 ], [ 9, %18 ], [ 5, %15 ], [ 3, %12 ]
-  %.sink.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.0 = phi i32 [ 1, %8 ], [ 9, %18 ], [ 3, %12 ], [ 5, %15 ]
+  %.sink.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %14, %12 ], [ %17, %15 ]
   %20 = trunc i64 %.sink.i to i32
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %.0, %20

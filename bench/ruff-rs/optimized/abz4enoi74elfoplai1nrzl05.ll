@@ -3554,7 +3554,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN75_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0debf6eccda950E.exit"
 
 "_ZN75_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0debf6eccda950E.exit": ; preds = %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %123, %125, %127, %129, %131, %133, %135, %137, %139, %141, %143, %145, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %173, %175, %177, %179, %181, %183, %185, %187, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %231, %233, %235, %237, %239, %241, %243, %245, %247, %249, %251, %253, %255, %257, %259, %261, %263, %265, %267, %269, %271, %273, %275, %277, %279
-  %.sroa.0.0.in.i = phi i1 [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ]
+  %.sroa.0.0.in.i = phi i1 [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6626,7 +6626,7 @@ default.unreachable:                              ; preds = %85
   br label %_ZN21ruff_python_formatter6string9normalize13QuoteMetadata6choose17hd10513aaf2f06982E.exit
 
 _ZN21ruff_python_formatter6string9normalize13QuoteMetadata6choose17hd10513aaf2f06982E.exit: ; preds = %92, %88, %96, %102, %105, %108, %109
-  %.sroa.0.0.i29 = phi i8 [ 1, %109 ], [ %51, %108 ], [ %107, %105 ], [ %104, %102 ], [ 0, %96 ], [ %51, %88 ], [ %51, %92 ]
+  %.sroa.0.0.i29 = phi i8 [ %104, %102 ], [ %107, %105 ], [ %51, %108 ], [ 1, %109 ], [ 0, %96 ], [ %51, %88 ], [ %51, %92 ]
   %110 = trunc nuw i8 %.sroa.0.0.i29 to i1
   %111 = call noundef i8 @_ZN15ruff_python_ast5nodes14AnyStringFlags16with_quote_style17h0da06e0a90a81942E(i8 noundef %47, i1 noundef zeroext %110)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -7569,7 +7569,7 @@ default.unreachable1:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %13, %31, %33, %28, %26, %21, %19
-  %.sroa.0.0 = phi i8 [ 1, %33 ], [ %32, %31 ], [ %30, %28 ], [ %27, %26 ], [ %23, %21 ], [ %20, %19 ], [ 0, %13 ]
+  %.sroa.0.0 = phi i8 [ %23, %21 ], [ %20, %19 ], [ %30, %28 ], [ %27, %26 ], [ %32, %31 ], [ 1, %33 ], [ 0, %13 ]
   %25 = trunc nuw i8 %.sroa.0.0 to i1
   ret i1 %25
 
@@ -7637,9 +7637,9 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize13QuoteMetadata5m
   br label %17
 
 17:                                               ; preds = %10, %6, %14
-  %.sroa.416.0 = phi i8 [ undef, %14 ], [ %13, %10 ], [ %9, %6 ]
-  %.sroa.617.0 = phi i32 [ %15, %14 ], [ undef, %10 ], [ undef, %6 ]
-  %.sroa.7.0 = phi i32 [ %16, %14 ], [ undef, %10 ], [ undef, %6 ]
+  %.sroa.416.0 = phi i8 [ %9, %6 ], [ %13, %10 ], [ undef, %14 ]
+  %.sroa.617.0 = phi i32 [ undef, %6 ], [ undef, %10 ], [ %15, %14 ]
+  %.sroa.7.0 = phi i32 [ undef, %6 ], [ undef, %10 ], [ %16, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load i8, ptr %18, align 4, !range !160, !noundef !3
   store i8 %.sroa.0.0.copyload, ptr %0, align 4
@@ -7764,9 +7764,9 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9normalize13QuoteM
   br i1 %47, label %._crit_edge, label %16
 
 48:                                               ; preds = %39, %35, %31
-  %.sroa.416.0.i = phi i8 [ undef, %39 ], [ %38, %35 ], [ %34, %31 ]
-  %.sroa.617.0.i = phi i32 [ %40, %39 ], [ undef, %35 ], [ undef, %31 ]
-  %.sroa.7.0.i = phi i32 [ %41, %39 ], [ undef, %35 ], [ undef, %31 ]
+  %.sroa.416.0.i = phi i8 [ %34, %31 ], [ %38, %35 ], [ undef, %39 ]
+  %.sroa.617.0.i = phi i32 [ undef, %31 ], [ undef, %35 ], [ %40, %39 ]
+  %.sroa.7.0.i = phi i32 [ undef, %31 ], [ undef, %35 ], [ %41, %39 ]
   %49 = load i8, ptr %15, align 4, !range !160, !alias.scope !598, !noalias !603, !noundef !3
   store i8 %.sroa.416.0.i, ptr %.sroa.2.0..sroa_idx.i, align 1
   store i32 %.sroa.617.0.i, ptr %.sroa.43.0..sroa_idx.i, align 4
@@ -8259,11 +8259,11 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize16normalize_strin
   br i1 %22, label %.backedge.backedge, label %190
 
 .backedge.backedge:                               ; preds = %129, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119", %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222, %773, %769, %659, %656, %194, %.thread.i183, %106
-  %.sroa.66.0.be = phi i32 [ 1114113, %129 ], [ 1114113, %194 ], [ 1114113, %656 ], [ 1114113, %769 ], [ 1114113, %.thread.i183 ], [ 1114113, %659 ], [ 1114113, %773 ], [ 1114113, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.66.2, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ 1114113, %106 ]
-  %.sroa.64.0.be = phi i64 [ %.sroa.64.0, %129 ], [ %.sroa.64.0, %194 ], [ %.sroa.64.0, %656 ], [ %.sroa.64.0, %769 ], [ %.sroa.64.0, %.thread.i183 ], [ %.sroa.64.0, %659 ], [ %.sroa.64.0, %773 ], [ %.sroa.64.0, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.0.0.i.i.i489, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.64.0, %106 ]
-  %.sroa.44.0.be = phi i64 [ %.sroa.44.1, %129 ], [ %.sroa.44.1, %194 ], [ %.sroa.44.4, %656 ], [ %.sroa.44.5, %769 ], [ %703, %.thread.i183 ], [ %.sroa.44.4, %659 ], [ %.sroa.44.1, %773 ], [ %.sroa.44.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.44.6484, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.44.1, %106 ]
-  %.sroa.0.0472.be = phi ptr [ %.sroa.0.1, %129 ], [ %.sroa.0.1, %194 ], [ %.sroa.0.4, %656 ], [ %.sroa.0.5, %769 ], [ %.sroa.0.16, %.thread.i183 ], [ %.sroa.0.4, %659 ], [ %.sroa.0.1, %773 ], [ %.sroa.0.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.0.10486, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.0.1, %106 ]
-  %.sroa.021.0.be = phi i64 [ %.sroa.021.0, %129 ], [ %.sroa.021.0, %194 ], [ %.sroa.021.2, %656 ], [ %770, %769 ], [ %.sroa.021.2, %.thread.i183 ], [ %.sroa.021.2, %659 ], [ %.sroa.021.0, %773 ], [ %812, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %189, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %79, %106 ]
+  %.sroa.66.0.be = phi i32 [ 1114113, %129 ], [ 1114113, %194 ], [ 1114113, %656 ], [ 1114113, %769 ], [ 1114113, %.thread.i183 ], [ 1114113, %659 ], [ 1114113, %773 ], [ 1114113, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ 1114113, %106 ], [ %.sroa.66.2, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ]
+  %.sroa.64.0.be = phi i64 [ %.sroa.64.0, %129 ], [ %.sroa.64.0, %194 ], [ %.sroa.64.0, %656 ], [ %.sroa.64.0, %769 ], [ %.sroa.64.0, %.thread.i183 ], [ %.sroa.64.0, %659 ], [ %.sroa.64.0, %773 ], [ %.sroa.64.0, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.64.0, %106 ], [ %.sroa.0.0.i.i.i489, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ]
+  %.sroa.44.0.be = phi i64 [ %.sroa.44.1, %129 ], [ %.sroa.44.1, %194 ], [ %.sroa.44.4, %656 ], [ %.sroa.44.5, %769 ], [ %703, %.thread.i183 ], [ %.sroa.44.4, %659 ], [ %.sroa.44.1, %773 ], [ %.sroa.44.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.44.1, %106 ], [ %.sroa.44.6484, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ]
+  %.sroa.0.0472.be = phi ptr [ %.sroa.0.1, %129 ], [ %.sroa.0.1, %194 ], [ %.sroa.0.4, %656 ], [ %.sroa.0.5, %769 ], [ %.sroa.0.16, %.thread.i183 ], [ %.sroa.0.4, %659 ], [ %.sroa.0.1, %773 ], [ %.sroa.0.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %.sroa.0.1, %106 ], [ %.sroa.0.10486, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ]
+  %.sroa.021.0.be = phi i64 [ %.sroa.021.0, %129 ], [ %.sroa.021.0, %194 ], [ %.sroa.021.2, %656 ], [ %770, %769 ], [ %.sroa.021.2, %.thread.i183 ], [ %.sroa.021.2, %659 ], [ %.sroa.021.0, %773 ], [ %812, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ], [ %79, %106 ], [ %189, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ]
   br label %.backedge
 
 130:                                              ; preds = %125, %123, %114

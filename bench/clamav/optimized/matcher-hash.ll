@@ -59,7 +59,7 @@ define i32 @hm_addhash_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %24
 
 18:                                               ; preds = %12, %16, %15
-  %.015 = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %12 ]
+  %.015 = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %12 ]
   %sext = shl i64 %13, 32
   %19 = ashr exact i64 %sext, 32
   %20 = call i32 @cli_hex2str_to(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %19) #8

@@ -5863,7 +5863,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef
   br label %25
 
 25:                                               ; preds = %2, %24, %22, %20
-  %.0 = phi i32 [ -1, %22 ], [ -1, %20 ], [ 0, %24 ], [ -1, %2 ]
+  %.0 = phi i32 [ -1, %22 ], [ 0, %24 ], [ -1, %20 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %3) #19
   ret i32 %.0

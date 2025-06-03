@@ -1639,7 +1639,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFN5
   ret void
 
 181:                                              ; preds = %173, %115, %86, %76, %69, %62, %55
-  %.pn35 = phi { ptr, i32 } [ %87, %86 ], [ %.pn32.pn, %115 ], [ %.pn.pn.pn, %173 ], [ %77, %76 ], [ %70, %69 ], [ %63, %62 ], [ %56, %55 ]
+  %.pn35 = phi { ptr, i32 } [ %87, %86 ], [ %.pn32.pn, %115 ], [ %.pn.pn.pn, %173 ], [ %56, %55 ], [ %63, %62 ], [ %70, %69 ], [ %77, %76 ]
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %183 = load ptr, ptr %182, align 8, !tbaa !96
   %.not.i69 = icmp eq ptr %183, null
@@ -2106,7 +2106,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFN5
   ret void
 
 203:                                              ; preds = %195, %137, %108, %98, %91, %84, %77
-  %.pn35 = phi { ptr, i32 } [ %109, %108 ], [ %.pn32.pn, %137 ], [ %.pn.pn.pn, %195 ], [ %99, %98 ], [ %92, %91 ], [ %85, %84 ], [ %78, %77 ]
+  %.pn35 = phi { ptr, i32 } [ %109, %108 ], [ %.pn32.pn, %137 ], [ %.pn.pn.pn, %195 ], [ %78, %77 ], [ %85, %84 ], [ %92, %91 ], [ %99, %98 ]
   %204 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %205 = load ptr, ptr %204, align 8, !tbaa !96
   %.not.i69 = icmp eq ptr %205, null
@@ -2596,7 +2596,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFN5
   ret void
 
 224:                                              ; preds = %216, %158, %129, %119, %112, %105, %98
-  %.pn35 = phi { ptr, i32 } [ %130, %129 ], [ %.pn32.pn, %158 ], [ %.pn.pn.pn, %216 ], [ %120, %119 ], [ %113, %112 ], [ %106, %105 ], [ %99, %98 ]
+  %.pn35 = phi { ptr, i32 } [ %130, %129 ], [ %.pn32.pn, %158 ], [ %.pn.pn.pn, %216 ], [ %99, %98 ], [ %106, %105 ], [ %113, %112 ], [ %120, %119 ]
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %226 = load ptr, ptr %225, align 8, !tbaa !96
   %.not.i69 = icmp eq ptr %226, null
@@ -3111,7 +3111,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFN5
   ret void
 
 244:                                              ; preds = %236, %178, %149, %139, %132, %125, %118
-  %.pn35 = phi { ptr, i32 } [ %150, %149 ], [ %.pn32.pn, %178 ], [ %.pn.pn.pn, %236 ], [ %140, %139 ], [ %133, %132 ], [ %126, %125 ], [ %119, %118 ]
+  %.pn35 = phi { ptr, i32 } [ %150, %149 ], [ %.pn32.pn, %178 ], [ %.pn.pn.pn, %236 ], [ %119, %118 ], [ %126, %125 ], [ %133, %132 ], [ %140, %139 ]
   %245 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %246 = load ptr, ptr %245, align 8, !tbaa !96
   %.not.i69 = icmp eq ptr %246, null

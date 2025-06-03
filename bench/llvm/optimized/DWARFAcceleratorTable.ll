@@ -900,8 +900,8 @@ define dso_local { i64, i16 } @_ZN4llvm21AppleAcceleratorTable9readAtomsEPm(ptr 
   br label %24
 
 24:                                               ; preds = %15, %20, %17
-  %.119 = phi i16 [ %.01821, %15 ], [ %23, %20 ], [ %.01821, %17 ]
-  %.1 = phi i64 [ %.01722, %15 ], [ %.01722, %20 ], [ %19, %17 ]
+  %.119 = phi i16 [ %.01821, %15 ], [ %.01821, %17 ], [ %23, %20 ]
+  %.1 = phi i64 [ %.01722, %15 ], [ %19, %17 ], [ %.01722, %20 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #30
   %25 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %.not = icmp eq ptr %25, %9

@@ -571,7 +571,7 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit299
 
 .loopexit:                                        ; preds = %155, %333, %285
-  %.0255 = phi i32 [ %347, %333 ], [ %297, %285 ], [ %105, %155 ]
+  %.0255 = phi i32 [ %297, %285 ], [ %347, %333 ], [ %105, %155 ]
   %350 = icmp slt i32 %.0255, 0
   br i1 %350, label %.loopexit299, label %.loopexit.thread
 
@@ -580,7 +580,7 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit299
 
 .loopexit299:                                     ; preds = %197, %.thread331, %.loopexit, %317, %305, %298, %271, %259, %252, %165, %100, %18, %.loopexit.thread, %348, %304, %258, %188
-  %.0 = phi i32 [ -1163346256, %348 ], [ -1094995529, %304 ], [ %10, %.loopexit.thread ], [ -1094995529, %258 ], [ -1094995529, %188 ], [ %23, %18 ], [ %105, %100 ], [ %166, %165 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ %300, %298 ], [ %315, %305 ], [ %331, %317 ], [ %.0255, %.loopexit ], [ %26, %.thread331 ], [ %210, %197 ]
+  %.0 = phi i32 [ -1163346256, %348 ], [ %10, %.loopexit.thread ], [ -1094995529, %188 ], [ -1094995529, %258 ], [ -1094995529, %304 ], [ %23, %18 ], [ %105, %100 ], [ %166, %165 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ %300, %298 ], [ %315, %305 ], [ %331, %317 ], [ %.0255, %.loopexit ], [ %26, %.thread331 ], [ %210, %197 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   ret i32 %.0

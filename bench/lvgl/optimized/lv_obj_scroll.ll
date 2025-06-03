@@ -1298,7 +1298,7 @@ default.unreachable:                              ; preds = %149, %78
   unreachable
 
 98:                                               ; preds = %78, %89, %84, %79
-  %.1147 = phi i32 [ %.0146, %78 ], [ %97, %89 ], [ %88, %84 ], [ %83, %79 ]
+  %.1147 = phi i32 [ %.0146, %78 ], [ %83, %79 ], [ %88, %84 ], [ %97, %89 ]
   %99 = load ptr, ptr %8, align 8, !tbaa !3
   %.not.i161 = icmp eq ptr %99, null
   br i1 %.not.i161, label %lv_obj_get_scroll_snap_x.exit.thread, label %lv_obj_get_scroll_snap_x.exit
@@ -1419,7 +1419,7 @@ lv_obj_get_scroll_snap_x.exit.thread:             ; preds = %lv_obj_get_scroll_s
   br label %172
 
 172:                                              ; preds = %149, %161, %156, %151
-  %.1149 = phi i32 [ %.0148, %149 ], [ %171, %161 ], [ %160, %156 ], [ %155, %151 ]
+  %.1149 = phi i32 [ %.0148, %149 ], [ %155, %151 ], [ %160, %156 ], [ %171, %161 ]
   %173 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %5, ptr noundef nonnull @scroll_y_anim) #5
   %174 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %5, ptr noundef nonnull @scroll_x_anim) #5
   %175 = and i32 %.0.i170175, 1

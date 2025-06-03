@@ -548,8 +548,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit: ; preds = %_ZStlsISt11char_t
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %130, i32 noundef %133)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127 unwind label %91
 
-134:                                              ; preds = %126, %125, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125
-  %.0.i.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125 ], [ @.str.20, %125 ], [ @.str.21, %126 ]
+134:                                              ; preds = %125, %126, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125
+  %.0.i.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125 ], [ @.str.21, %126 ], [ @.str.20, %125 ]
   %135 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.ph) #19
   %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i.ph, i64 noundef %135)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit127 unwind label %91
@@ -634,8 +634,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit135: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %169, i32 noundef %172)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit139 unwind label %91
 
-173:                                              ; preds = %165, %164, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133
-  %.0.i134.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133 ], [ @.str.20, %164 ], [ @.str.21, %165 ]
+173:                                              ; preds = %164, %165, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133
+  %.0.i134.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133 ], [ @.str.21, %165 ], [ @.str.20, %164 ]
   %174 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i134.ph) #19
   %175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i134.ph, i64 noundef %174)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit139 unwind label %91
@@ -720,8 +720,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit147: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %208, i32 noundef %211)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151 unwind label %91
 
-212:                                              ; preds = %204, %203, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit145
-  %.0.i146.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit145 ], [ @.str.20, %203 ], [ @.str.21, %204 ]
+212:                                              ; preds = %203, %204, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit145
+  %.0.i146.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit145 ], [ @.str.21, %204 ], [ @.str.20, %203 ]
   %213 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i146.ph) #19
   %214 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i146.ph, i64 noundef %213)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151 unwind label %91
@@ -811,8 +811,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit159: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %250, i32 noundef %253)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit163 unwind label %91
 
-254:                                              ; preds = %246, %245, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit157
-  %.0.i158.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit157 ], [ @.str.20, %245 ], [ @.str.21, %246 ]
+254:                                              ; preds = %245, %246, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit157
+  %.0.i158.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit157 ], [ @.str.21, %246 ], [ @.str.20, %245 ]
   %255 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i158.ph) #19
   %256 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i158.ph, i64 noundef %255)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit163 unwind label %91
@@ -897,8 +897,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit171: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %289, i32 noundef %292)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit175 unwind label %91
 
-293:                                              ; preds = %285, %284, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit169
-  %.0.i170.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit169 ], [ @.str.20, %284 ], [ @.str.21, %285 ]
+293:                                              ; preds = %284, %285, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit169
+  %.0.i170.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit169 ], [ @.str.21, %285 ], [ @.str.20, %284 ]
   %294 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i170.ph) #19
   %295 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i170.ph, i64 noundef %294)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit175 unwind label %91
@@ -983,8 +983,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit183: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %328, i32 noundef %331)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit187 unwind label %91
 
-332:                                              ; preds = %324, %323, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181
-  %.0.i182.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181 ], [ @.str.20, %323 ], [ @.str.21, %324 ]
+332:                                              ; preds = %323, %324, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181
+  %.0.i182.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181 ], [ @.str.21, %324 ], [ @.str.20, %323 ]
   %333 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i182.ph) #19
   %334 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i182.ph, i64 noundef %333)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit187 unwind label %91
@@ -1085,8 +1085,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit195: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %378, i32 noundef %381)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit199 unwind label %404
 
-382:                                              ; preds = %374, %373, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit193
-  %.0.i194.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit193 ], [ @.str.20, %373 ], [ @.str.21, %374 ]
+382:                                              ; preds = %373, %374, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit193
+  %.0.i194.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit193 ], [ @.str.21, %374 ], [ @.str.20, %373 ]
   %383 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i194.ph) #19
   %384 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i194.ph, i64 noundef %383)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit199 unwind label %404
@@ -1181,8 +1181,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit207: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %421, i32 noundef %424)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit211 unwind label %404
 
-425:                                              ; preds = %417, %416, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205
-  %.0.i206.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205 ], [ @.str.20, %416 ], [ @.str.21, %417 ]
+425:                                              ; preds = %416, %417, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205
+  %.0.i206.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205 ], [ @.str.21, %417 ], [ @.str.20, %416 ]
   %426 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i206.ph) #19
   %427 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i206.ph, i64 noundef %426)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit211 unwind label %404
@@ -1272,8 +1272,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit219: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %462, i32 noundef %465)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223 unwind label %404
 
-466:                                              ; preds = %458, %457, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217
-  %.0.i218.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217 ], [ @.str.20, %457 ], [ @.str.21, %458 ]
+466:                                              ; preds = %457, %458, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217
+  %.0.i218.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217 ], [ @.str.21, %458 ], [ @.str.20, %457 ]
   %467 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i218.ph) #19
   %468 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i218.ph, i64 noundef %467)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223 unwind label %404
@@ -1363,8 +1363,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit231: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %503, i32 noundef %506)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235 unwind label %404
 
-507:                                              ; preds = %499, %498, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit229
-  %.0.i230.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit229 ], [ @.str.20, %498 ], [ @.str.21, %499 ]
+507:                                              ; preds = %498, %499, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit229
+  %.0.i230.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit229 ], [ @.str.21, %499 ], [ @.str.20, %498 ]
   %508 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i230.ph) #19
   %509 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i230.ph, i64 noundef %508)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235 unwind label %404
@@ -1571,8 +1571,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit253: ; preds = %_ZStlsISt11cha
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %598, i32 noundef %601)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit257 unwind label %91
 
-602:                                              ; preds = %594, %593, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit251
-  %.0.i252.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit251 ], [ @.str.20, %593 ], [ @.str.21, %594 ]
+602:                                              ; preds = %593, %594, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit251
+  %.0.i252.ph = phi ptr [ @.str.19, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit251 ], [ @.str.21, %594 ], [ @.str.20, %593 ]
   %603 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i252.ph) #19
   %604 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %.0.i252.ph, i64 noundef %603)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit257 unwind label %91
@@ -2392,7 +2392,7 @@ define dso_local noundef ptr @_ZN5draco10PlyEncoder20GetAttributeDataTypeEi(ptr 
   br label %15
 
 15:                                               ; preds = %2, %14, %13, %12
-  %.0 = phi ptr [ null, %14 ], [ @.str.21, %13 ], [ @.str.20, %12 ], [ @.str.19, %2 ]
+  %.0 = phi ptr [ null, %14 ], [ @.str.20, %12 ], [ @.str.21, %13 ], [ @.str.19, %2 ]
   ret ptr %.0
 }
 

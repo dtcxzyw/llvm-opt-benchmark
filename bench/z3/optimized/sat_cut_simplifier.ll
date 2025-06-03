@@ -7793,9 +7793,9 @@ define hidden void @_ZN3sat14cut_simplifier12track_binaryERKNS0_7bin_relE(ptr no
   %38 = shl i32 %37, 1
   br label %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread
 
-_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread: ; preds = %33, %26, %19, %11
-  %.sroa.03.0.ph = phi i32 [ %14, %11 ], [ %22, %19 ], [ %28, %26 ], [ %35, %33 ]
-  %.sroa.0.0.ph = phi i32 [ %18, %11 ], [ %25, %19 ], [ %32, %26 ], [ %38, %33 ]
+_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread: ; preds = %11, %19, %26, %33
+  %.sroa.03.0.ph = phi i32 [ %35, %33 ], [ %28, %26 ], [ %22, %19 ], [ %14, %11 ]
+  %.sroa.0.0.ph = phi i32 [ %38, %33 ], [ %32, %26 ], [ %25, %19 ], [ %18, %11 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br label %40
 
@@ -7916,10 +7916,10 @@ _ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit: ; preds = %7
   %38 = trunc nuw i8 %.pre4 to i1
   br i1 %38, label %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread, label %_ZN3sat14cut_simplifier14untrack_binaryENS_7literalES1_.exit
 
-_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread: ; preds = %10, %18, %25, %32, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit
-  %.sroa.0.08 = phi i32 [ -2, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %17, %10 ], [ %24, %18 ], [ %31, %25 ], [ %37, %32 ]
-  %.sroa.03.07 = phi i32 [ -2, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %13, %10 ], [ %21, %18 ], [ %27, %25 ], [ %34, %32 ]
-  %39 = phi ptr [ %.pre, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %3, %10 ], [ %3, %18 ], [ %3, %25 ], [ %3, %32 ]
+_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread: ; preds = %32, %25, %18, %10, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit
+  %.sroa.0.08 = phi i32 [ -2, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %37, %32 ], [ %31, %25 ], [ %24, %18 ], [ %17, %10 ]
+  %.sroa.03.07 = phi i32 [ -2, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %34, %32 ], [ %27, %25 ], [ %21, %18 ], [ %13, %10 ]
+  %39 = phi ptr [ %.pre, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit ], [ %3, %32 ], [ %3, %25 ], [ %3, %18 ], [ %3, %10 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 552
   tail call void @_ZN3sat4drat3delENS_7literalES1_(ptr noundef nonnull align 8 dereferenceable(664) %40, i32 %.sroa.03.07, i32 %.sroa.0.08)
   br label %_ZN3sat14cut_simplifier14untrack_binaryENS_7literalES1_.exit

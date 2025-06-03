@@ -3151,7 +3151,7 @@ define noundef i32 @dt_culling_key_move(ptr noundef %0, i32 noundef %1) local_un
   br label %14
 
 14:                                               ; preds = %2, %2, %13, %12, %11, %8, %4, %3
-  %.0 = phi i32 [ 0, %13 ], [ 2147483647, %12 ], [ -2147483647, %11 ], [ %10, %8 ], [ %7, %4 ], [ 1, %3 ], [ -1, %2 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %3 ], [ %7, %4 ], [ %10, %8 ], [ -2147483647, %11 ], [ 2147483647, %12 ], [ -1, %2 ], [ -1, %2 ]
   tail call fastcc void @_thumbs_move(ptr noundef %0, i32 noundef %.0)
   ret i32 1
 }

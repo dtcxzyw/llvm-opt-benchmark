@@ -46,7 +46,7 @@ define hidden noundef nonnull ptr @Curl_alpnid2str(i32 noundef %0) local_unnamed
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -456,7 +456,7 @@ altsvc_out.exit.thread:                           ; preds = %31
   br label %Curl_alpnid2str.exit.i
 
 Curl_alpnid2str.exit.i:                           ; preds = %50, %49, %48, %38
-  %.0.i.i = phi ptr [ @.str.3, %50 ], [ @.str.2, %49 ], [ @.str.1, %48 ], [ @.str, %38 ]
+  %.0.i.i = phi ptr [ @.str.3, %50 ], [ @.str.1, %48 ], [ @.str.2, %49 ], [ @.str, %38 ]
   %51 = load ptr, ptr %32, align 8, !tbaa !34
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %53 = load i16, ptr %52, align 8, !tbaa !40
@@ -479,7 +479,7 @@ Curl_alpnid2str.exit.i:                           ; preds = %50, %49, %48, %38
   br label %altsvc_out.exit
 
 altsvc_out.exit:                                  ; preds = %Curl_alpnid2str.exit.i, %57, %58, %59
-  %.0.i24.i = phi ptr [ @.str.3, %59 ], [ @.str.2, %58 ], [ @.str.1, %57 ], [ @.str, %Curl_alpnid2str.exit.i ]
+  %.0.i24.i = phi ptr [ @.str.3, %59 ], [ @.str.1, %57 ], [ @.str.2, %58 ], [ @.str, %Curl_alpnid2str.exit.i ]
   %60 = load ptr, ptr %39, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %62 = load i16, ptr %61, align 8, !tbaa !42
@@ -1103,7 +1103,7 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   br label %Curl_alpnid2str.exit
 
 Curl_alpnid2str.exit:                             ; preds = %175, %177, %178, %179
-  %.0.i222 = phi ptr [ @.str.3, %179 ], [ @.str.2, %178 ], [ @.str.1, %177 ], [ @.str, %175 ]
+  %.0.i222 = phi ptr [ @.str.3, %179 ], [ @.str.1, %177 ], [ @.str.2, %178 ], [ @.str, %175 ]
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %.2135278, i32 noundef %176, ptr noundef nonnull %.0.i222) #12
   br label %180
 

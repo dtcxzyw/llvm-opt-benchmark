@@ -2120,7 +2120,7 @@ list_length.exit441:                              ; preds = %869, %874
   unreachable
 
 buildMergedJoinVar.exit:                          ; preds = %990, %991, %994, %997, %998
-  %.057.i = phi ptr [ %999, %998 ], [ %.056.i, %997 ], [ %.0.i443, %991 ], [ %.056..0.i, %994 ], [ %.0.i443, %990 ]
+  %.057.i = phi ptr [ %.056.i, %997 ], [ %999, %998 ], [ %.0.i443, %991 ], [ %.056..0.i, %994 ], [ %.0.i443, %990 ]
   tail call void @assign_expr_collations(ptr noundef %0, ptr noundef %.057.i) #9
   %1007 = tail call ptr @lappend(ptr noundef %900, ptr noundef %.057.i) #9
   %1008 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %680, i64 %indvars.iv719

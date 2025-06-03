@@ -6623,7 +6623,7 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit.i: ; preds = %341, %.critedge.i
   br label %.critedge
 
 .critedge:                                        ; preds = %142, %112, %_ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit.i, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit.i137, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit40.thread13.i, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit.thread12.i, %92
-  %.2 = phi i32 [ %2, %92 ], [ %2, %142 ], [ %2, %112 ], [ 1, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit.thread12.i ], [ 1, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit40.thread13.i ], [ 1, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i ], [ 6, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit.i137 ], [ %.070, %_ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit.i ]
+  %.2 = phi i32 [ %2, %92 ], [ %2, %112 ], [ %2, %142 ], [ 1, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit.thread12.i ], [ 1, %_ZN4llvm7objcarc17IsNoopInstructionEPKNS_11InstructionE.exit40.thread13.i ], [ 1, %_ZN4llvm8CallBase17setCalledFunctionEPNS_8FunctionE.exit.i ], [ 6, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit.i137 ], [ %.070, %_ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit.i ]
   %342 = call noundef zeroext i1 @_ZN4llvm7objcarc13IsAutoreleaseENS0_11ARCInstKindE(i32 noundef %.2) #21
   br i1 %342, label %343, label %_ZL29FindSingleUseIdentifiedObjectPKN4llvm5ValueE.exit.thread
 
@@ -7709,7 +7709,7 @@ _ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj1EED2Ev.exit: ; pred
   br i1 %.not118, label %._crit_edge122.loopexit, label %695, !llvm.loop !443
 
 thread-pre-split:                                 ; preds = %649, %610, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195, %661, %661, %661, %667, %._crit_edge
-  %.sroa.7.3.ph = phi i64 [ %.sroa.7.0, %._crit_edge ], [ %.sroa.7.0, %667 ], [ %.sroa.7.1.lcssa, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %610 ], [ %.sroa.7.0, %649 ]
+  %.sroa.7.3.ph = phi i64 [ %.sroa.7.0, %._crit_edge ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %667 ], [ %.sroa.7.1.lcssa, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195 ], [ %.sroa.7.0, %610 ], [ %.sroa.7.0, %649 ]
   %.pr = load i32, ptr %593, align 8, !tbaa !26
   br label %855
 
@@ -13748,9 +13748,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS
   br label %_ZL20CheckForUseCFGHazardN4llvm7objcarc8SequenceEbRNS0_15TopDownPtrStateERbS4_S4_S4_.exit.i.i
 
 _ZL20CheckForUseCFGHazardN4llvm7objcarc8SequenceEbRNS0_15TopDownPtrStateERbS4_S4_S4_.exit.i.i: ; preds = %2093, %2092, %2091, %2088, %2087, %2086, %2085, %2081, %2077, %2076
-  %.324.i.i = phi i1 [ %.02132.i.i, %2076 ], [ %.02132.i.i, %2077 ], [ %.02132.i.i, %2081 ], [ %.02132.i.i, %2087 ], [ %.02132.i.i, %2086 ], [ %.02132.i.i, %2085 ], [ %.02132.i.i, %2091 ], [ %.02132.i.i, %2092 ], [ %spec.select.i.i143, %2088 ], [ %spec.select26.i.i, %2093 ]
-  %.320.i.i = phi i1 [ %.01733.i.i, %2076 ], [ %.01733.i.i, %2077 ], [ %.01733.i.i, %2081 ], [ %.01733.i.i, %2087 ], [ %.01733.i.i, %2086 ], [ %.01733.i.i, %2085 ], [ %.01733.i.i, %2091 ], [ %.01733.i.i, %2092 ], [ %spec.select25.i.i, %2088 ], [ %spec.select27.i.i, %2093 ]
-  %.3.i.i = phi i1 [ %.034.i.i, %2076 ], [ %.034.i.i, %2077 ], [ %.034.i.i, %2081 ], [ true, %2087 ], [ %.034.i.i, %2086 ], [ %.034.i.i, %2085 ], [ %.034.i.i, %2091 ], [ true, %2092 ], [ %.034.i.i, %2088 ], [ %.034.i.i, %2093 ]
+  %.324.i.i = phi i1 [ %.02132.i.i, %2076 ], [ %.02132.i.i, %2077 ], [ %.02132.i.i, %2081 ], [ %.02132.i.i, %2086 ], [ %.02132.i.i, %2085 ], [ %.02132.i.i, %2087 ], [ %.02132.i.i, %2091 ], [ %.02132.i.i, %2092 ], [ %spec.select.i.i143, %2088 ], [ %spec.select26.i.i, %2093 ]
+  %.320.i.i = phi i1 [ %.01733.i.i, %2076 ], [ %.01733.i.i, %2077 ], [ %.01733.i.i, %2081 ], [ %.01733.i.i, %2086 ], [ %.01733.i.i, %2085 ], [ %.01733.i.i, %2087 ], [ %.01733.i.i, %2091 ], [ %.01733.i.i, %2092 ], [ %spec.select25.i.i, %2088 ], [ %spec.select27.i.i, %2093 ]
+  %.3.i.i = phi i1 [ %.034.i.i, %2076 ], [ %.034.i.i, %2077 ], [ %.034.i.i, %2081 ], [ %.034.i.i, %2086 ], [ %.034.i.i, %2085 ], [ true, %2087 ], [ %.034.i.i, %2091 ], [ true, %2092 ], [ %.034.i.i, %2088 ], [ %.034.i.i, %2093 ]
   %2095 = add nuw nsw i32 %.sroa.43.031.i.i, 1
   %.not29.i.i = icmp eq i32 %2095, %2041
   br i1 %.not29.i.i, label %._crit_edge.i113.i, label %2046

@@ -383,15 +383,15 @@ default.unreachable:                              ; preds = %check_retval.exit58
   unreachable
 
 138:                                              ; preds = %131, %125, %120, %113, %107, %101, %96, %95, %94, %93, %92, %91, %90, %89
-  %.0400 = phi double [ %136, %131 ], [ %129, %125 ], [ %123, %120 ], [ %118, %113 ], [ %111, %107 ], [ %105, %101 ], [ %99, %96 ], [ 1.000000e-02, %95 ], [ 1.000000e-02, %94 ], [ 1.000000e-02, %93 ], [ 1.000000e-02, %92 ], [ 1.000000e-02, %91 ], [ 1.000000e-02, %90 ], [ 1.000000e-02, %89 ]
-  %.0399 = phi double [ 0x3D06849B86A12B9B, %131 ], [ 0x3DA5FD7FE1796495, %125 ], [ 0x3DA5FD7FE1796495, %120 ], [ 0x3D06849B86A12B9B, %113 ], [ 0x3DA5FD7FE1796495, %107 ], [ 0x3DA5FD7FE1796495, %101 ], [ 0x3DA5FD7FE1796495, %96 ], [ 0x3DA5FD7FE1796495, %95 ], [ 0x3DA5FD7FE1796495, %94 ], [ 0x3DA5FD7FE1796495, %93 ], [ 0x3DA5FD7FE1796495, %92 ], [ 0x3DA5FD7FE1796495, %91 ], [ 0x3DA5FD7FE1796495, %90 ], [ 0x3DA5FD7FE1796495, %89 ]
-  %139 = phi i1 [ false, %131 ], [ false, %125 ], [ false, %120 ], [ false, %113 ], [ false, %107 ], [ true, %101 ], [ true, %96 ], [ false, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ false, %89 ]
-  %140 = phi i1 [ true, %131 ], [ true, %125 ], [ true, %120 ], [ true, %113 ], [ true, %107 ], [ false, %101 ], [ false, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ]
-  %141 = phi i1 [ true, %131 ], [ true, %125 ], [ true, %120 ], [ true, %113 ], [ true, %107 ], [ false, %101 ], [ false, %96 ], [ false, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ false, %89 ]
-  %142 = phi i1 [ true, %131 ], [ true, %125 ], [ true, %120 ], [ true, %113 ], [ true, %107 ], [ true, %101 ], [ true, %96 ], [ false, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ true, %89 ]
-  %143 = phi i1 [ false, %131 ], [ false, %125 ], [ false, %120 ], [ false, %113 ], [ false, %107 ], [ false, %101 ], [ false, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ false, %89 ]
-  %144 = phi i1 [ false, %131 ], [ false, %125 ], [ false, %120 ], [ false, %113 ], [ false, %107 ], [ false, %101 ], [ false, %96 ], [ false, %95 ], [ false, %94 ], [ false, %93 ], [ false, %92 ], [ false, %91 ], [ false, %90 ], [ true, %89 ]
-  %.not470 = phi i1 [ true, %131 ], [ true, %125 ], [ true, %120 ], [ true, %113 ], [ true, %107 ], [ true, %101 ], [ true, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ false, %89 ]
+  %.0400 = phi double [ 1.000000e-02, %89 ], [ 1.000000e-02, %90 ], [ 1.000000e-02, %91 ], [ 1.000000e-02, %92 ], [ 1.000000e-02, %93 ], [ 1.000000e-02, %94 ], [ 1.000000e-02, %95 ], [ %99, %96 ], [ %105, %101 ], [ %111, %107 ], [ %118, %113 ], [ %123, %120 ], [ %129, %125 ], [ %136, %131 ]
+  %.0399 = phi double [ 0x3DA5FD7FE1796495, %89 ], [ 0x3DA5FD7FE1796495, %90 ], [ 0x3DA5FD7FE1796495, %91 ], [ 0x3DA5FD7FE1796495, %92 ], [ 0x3DA5FD7FE1796495, %93 ], [ 0x3DA5FD7FE1796495, %94 ], [ 0x3DA5FD7FE1796495, %95 ], [ 0x3DA5FD7FE1796495, %96 ], [ 0x3DA5FD7FE1796495, %101 ], [ 0x3DA5FD7FE1796495, %107 ], [ 0x3D06849B86A12B9B, %113 ], [ 0x3DA5FD7FE1796495, %120 ], [ 0x3DA5FD7FE1796495, %125 ], [ 0x3D06849B86A12B9B, %131 ]
+  %139 = phi i1 [ false, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ true, %96 ], [ true, %101 ], [ false, %107 ], [ false, %113 ], [ false, %120 ], [ false, %125 ], [ false, %131 ]
+  %140 = phi i1 [ true, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ false, %96 ], [ false, %101 ], [ true, %107 ], [ true, %113 ], [ true, %120 ], [ true, %125 ], [ true, %131 ]
+  %141 = phi i1 [ false, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ false, %96 ], [ false, %101 ], [ true, %107 ], [ true, %113 ], [ true, %120 ], [ true, %125 ], [ true, %131 ]
+  %142 = phi i1 [ true, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ true, %96 ], [ true, %101 ], [ true, %107 ], [ true, %113 ], [ true, %120 ], [ true, %125 ], [ true, %131 ]
+  %143 = phi i1 [ false, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ false, %96 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %120 ], [ false, %125 ], [ false, %131 ]
+  %144 = phi i1 [ true, %89 ], [ false, %90 ], [ false, %91 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ false, %96 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %120 ], [ false, %125 ], [ false, %131 ]
+  %.not470 = phi i1 [ false, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %96 ], [ true, %101 ], [ true, %107 ], [ true, %113 ], [ true, %120 ], [ true, %125 ], [ true, %131 ]
   switch i32 %31, label %default.unreachable [
     i32 0, label %145
     i32 1, label %146
@@ -431,13 +431,13 @@ default.unreachable:                              ; preds = %check_retval.exit58
   br label %156
 
 156:                                              ; preds = %155, %154, %153, %152, %146, %145
-  %.1401 = phi double [ %.0400, %155 ], [ %.0400, %154 ], [ %.0400, %153 ], [ %.0400, %152 ], [ %150, %146 ], [ %.0400, %145 ]
-  %.1 = phi double [ %.0399, %155 ], [ %.0399, %154 ], [ %.0399, %153 ], [ %.0399, %152 ], [ 0x3DA5FD7FE1796495, %146 ], [ %.0399, %145 ]
-  %157 = phi i1 [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ true, %146 ], [ false, %145 ]
-  %158 = phi i1 [ true, %155 ], [ true, %154 ], [ true, %153 ], [ true, %152 ], [ false, %146 ], [ true, %145 ]
-  %159 = phi i1 [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ true, %146 ], [ true, %145 ]
-  %160 = phi i1 [ true, %155 ], [ true, %154 ], [ true, %153 ], [ true, %152 ], [ false, %146 ], [ false, %145 ]
-  %161 = phi i1 [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ false, %146 ], [ true, %145 ]
+  %.1401 = phi double [ %.0400, %145 ], [ %150, %146 ], [ %.0400, %152 ], [ %.0400, %153 ], [ %.0400, %154 ], [ %.0400, %155 ]
+  %.1 = phi double [ %.0399, %145 ], [ 0x3DA5FD7FE1796495, %146 ], [ %.0399, %152 ], [ %.0399, %153 ], [ %.0399, %154 ], [ %.0399, %155 ]
+  %157 = phi i1 [ false, %145 ], [ true, %146 ], [ false, %152 ], [ false, %153 ], [ false, %154 ], [ false, %155 ]
+  %158 = phi i1 [ true, %145 ], [ false, %146 ], [ true, %152 ], [ true, %153 ], [ true, %154 ], [ true, %155 ]
+  %159 = phi i1 [ true, %145 ], [ true, %146 ], [ false, %152 ], [ false, %153 ], [ false, %154 ], [ false, %155 ]
+  %160 = phi i1 [ false, %145 ], [ false, %146 ], [ true, %152 ], [ true, %153 ], [ true, %154 ], [ true, %155 ]
+  %161 = phi i1 [ true, %145 ], [ false, %146 ], [ false, %152 ], [ false, %153 ], [ false, %154 ], [ false, %155 ]
   %162 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %3) #9
   %163 = icmp slt i32 %162, 0
   br i1 %163, label %check_retval.exit, label %166

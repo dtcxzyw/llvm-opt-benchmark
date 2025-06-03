@@ -2754,7 +2754,7 @@ define void @"_ZN93_$LT$regex_automata..meta..regex..Split$u20$as$u20$core..iter
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hd369eafbee0b8ea0E.exit.i.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17hd369eafbee0b8ea0E.exit.i.i.i": ; preds = %21, %18
-  %.0.i.i.i.i = phi ptr [ %24, %21 ], [ %20, %18 ]
+  %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %24, %21 ]
   %.val.i.i.i = load ptr, ptr %14, align 8, !alias.scope !693, !noalias !694, !nonnull !20, !noundef !20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 32
@@ -2969,7 +2969,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hfcf3e076f37f893bE.exit
           to label %"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..search..MatchError$GT$17hb4249f71137c19ebE.exit.i" unwind label %118, !noalias !745
 
 111:                                              ; preds = %.thread101.i.i, %.thread.i.i
-  %.sroa.9.0.in.i = phi ptr [ %103, %.thread101.i.i ], [ %.sroa.4.0.copyload.i.i, %.thread.i.i ]
+  %.sroa.9.0.in.i = phi ptr [ %.sroa.4.0.copyload.i.i, %.thread.i.i ], [ %103, %.thread101.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !744
   store ptr %.sroa.9.0.in.i, ptr %12, align 8, !noalias !744
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !744
@@ -7904,8 +7904,8 @@ _ZN14regex_automata3nfa8thompson9backtrack5Cache12setup_search17h660cf617ced671d
   %.not737 = icmp eq i64 %91, 0
   br label %460
 
-.thread:                                          ; preds = %58, %75, %68
-  %.0210 = phi i32 [ %70, %68 ], [ %60, %58 ], [ %79, %75 ]
+.thread:                                          ; preds = %75, %58, %68
+  %.0210 = phi i32 [ %70, %68 ], [ %79, %75 ], [ %60, %58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1457)
   %104 = load i64, ptr %16, align 8, !alias.scope !1460, !noalias !1463, !noundef !20
   %105 = load i64, ptr %2, align 8, !alias.scope !1460, !noalias !1463, !noundef !20
@@ -8467,8 +8467,8 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
   store i64 %366, ptr %16, align 8, !alias.scope !1530, !noalias !1533
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread739, %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %375, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit110", %172, %170, %174, %179, %183, %187, %191, %195, %305, %317, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit101", %391, %411, %426, %428, %329, %326, %302, %299, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit, %252, %249, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit, %343, %335, %168, %166, %184, %197, %310, %319, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge
-  %.0.i52.be = phi i32 [ %354, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit101" ], [ %431, %428 ], [ %425, %426 ], [ %412, %411 ], [ %392, %391 ], [ %163, %329 ], [ %163, %326 ], [ %163, %302 ], [ %163, %299 ], [ %163, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit ], [ %163, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit ], [ %163, %252 ], [ %163, %249 ], [ %163, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92 ], [ %163, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit ], [ %163, %343 ], [ %163, %335 ], [ %163, %168 ], [ %163, %166 ], [ %163, %184 ], [ %163, %197 ], [ %163, %310 ], [ %163, %319 ], [ %163, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge ], [ %163, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge ], [ %163, %317 ], [ %163, %305 ], [ %163, %195 ], [ %163, %191 ], [ %163, %187 ], [ %163, %183 ], [ %163, %179 ], [ %163, %174 ], [ %163, %170 ], [ %163, %172 ], [ %377, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit110" ], [ %377, %375 ], [ %163, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge ], [ %163, %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge ], [ %163, %.thread739 ]
+.backedge:                                        ; preds = %.thread739, %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %375, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit110", %172, %170, %174, %179, %183, %187, %191, %195, %305, %317, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit101", %391, %411, %426, %428, %166, %168, %335, %343, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92, %249, %252, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit, %299, %302, %326, %329, %184, %197, %310, %319, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge
+  %.0.i52.be = phi i32 [ %392, %391 ], [ %412, %411 ], [ %425, %426 ], [ %431, %428 ], [ %354, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit101" ], [ %163, %166 ], [ %163, %168 ], [ %163, %335 ], [ %163, %343 ], [ %163, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit ], [ %163, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92 ], [ %163, %249 ], [ %163, %252 ], [ %163, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit ], [ %163, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit ], [ %163, %299 ], [ %163, %302 ], [ %163, %326 ], [ %163, %329 ], [ %163, %184 ], [ %163, %197 ], [ %163, %310 ], [ %163, %319 ], [ %163, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge ], [ %163, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge ], [ %163, %317 ], [ %163, %305 ], [ %163, %195 ], [ %163, %191 ], [ %163, %187 ], [ %163, %183 ], [ %163, %179 ], [ %163, %174 ], [ %163, %170 ], [ %163, %172 ], [ %377, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit110" ], [ %377, %375 ], [ %163, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge ], [ %163, %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge ], [ %163, %.thread739 ]
   %367 = load i64, ptr %8, align 8, !noalias !1479, !noundef !20
   %368 = sub i64 %367, %.val
   %369 = zext i32 %.0.i52.be to i64
@@ -8647,7 +8647,7 @@ _ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker9backtrack17h960e9fc31d6139c6E.exit
 
-_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread: ; preds = %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %.thread272, %259, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %414, %382, %191, %179, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2ed19b4a3c0f2aa6E.exit.i", %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit, %153, %_ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exit, %155, %394, %157, %_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f6E.exit, %319, %310, %197, %184, %166, %168, %335, %343, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92, %249, %252, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit, %299, %302, %326, %329, %349, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %402, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747f7d9fb2c040d3E.exit.i.i"
+_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit.thread: ; preds = %.thread739._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %.thread272, %259, %.thread272._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %414, %382, %191, %179, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit_crit_edge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2ed19b4a3c0f2aa6E.exit.i", %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit, %153, %_ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exit, %155, %394, %157, %_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f6E.exit, %319, %310, %197, %184, %329, %326, %302, %299, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit, %252, %249, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit, %343, %335, %168, %166, %349, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit92_crit_edge, %402, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747f7d9fb2c040d3E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.pr.pre = load i64, ptr %16, align 8, !alias.scope !1469, !noalias !1472
@@ -9247,8 +9247,8 @@ _ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074
   store i64 %720, ptr %16, align 8, !alias.scope !1646, !noalias !1649
   br label %.backedge292
 
-.backedge292:                                     ; preds = %.thread744, %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %729, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit168", %526, %524, %528, %533, %537, %541, %545, %549, %659, %671, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit148", %745, %765, %780, %782, %683, %680, %656, %653, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136, %606, %603, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128, %697, %689, %522, %520, %538, %551, %664, %673, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge
-  %.0.i.be = phi i32 [ %708, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit148" ], [ %785, %782 ], [ %779, %780 ], [ %766, %765 ], [ %746, %745 ], [ %517, %683 ], [ %517, %680 ], [ %517, %656 ], [ %517, %653 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136 ], [ %517, %606 ], [ %517, %603 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128 ], [ %517, %697 ], [ %517, %689 ], [ %517, %522 ], [ %517, %520 ], [ %517, %538 ], [ %517, %551 ], [ %517, %664 ], [ %517, %673 ], [ %517, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge ], [ %517, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge ], [ %517, %671 ], [ %517, %659 ], [ %517, %549 ], [ %517, %545 ], [ %517, %541 ], [ %517, %537 ], [ %517, %533 ], [ %517, %528 ], [ %517, %524 ], [ %517, %526 ], [ %731, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit168" ], [ %731, %729 ], [ %517, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge ], [ %517, %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge ], [ %517, %.thread744 ]
+.backedge292:                                     ; preds = %.thread744, %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %729, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit168", %526, %524, %528, %533, %537, %541, %545, %549, %659, %671, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit148", %745, %765, %780, %782, %520, %522, %689, %697, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132, %603, %606, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141, %653, %656, %680, %683, %538, %551, %664, %673, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge
+  %.0.i.be = phi i32 [ %746, %745 ], [ %766, %765 ], [ %779, %780 ], [ %785, %782 ], [ %708, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit148" ], [ %517, %520 ], [ %517, %522 ], [ %517, %689 ], [ %517, %697 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132 ], [ %517, %603 ], [ %517, %606 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136 ], [ %517, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141 ], [ %517, %653 ], [ %517, %656 ], [ %517, %680 ], [ %517, %683 ], [ %517, %538 ], [ %517, %551 ], [ %517, %664 ], [ %517, %673 ], [ %517, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge ], [ %517, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge ], [ %517, %671 ], [ %517, %659 ], [ %517, %549 ], [ %517, %545 ], [ %517, %541 ], [ %517, %537 ], [ %517, %533 ], [ %517, %528 ], [ %517, %524 ], [ %517, %526 ], [ %731, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1175d7985a323fa2E.exit168" ], [ %731, %729 ], [ %517, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge ], [ %517, %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge ], [ %517, %.thread744 ]
   %721 = load i64, ptr %10, align 8, !noalias !1599, !noundef !20
   %722 = sub i64 %721, %.val
   %723 = zext i32 %.0.i.be to i64
@@ -9419,7 +9419,7 @@ _ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f
   %804 = icmp ugt i64 %5, %803
   br i1 %804, label %807, label %809, !prof !1495
 
-_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit69.thread: ; preds = %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %.thread277, %613, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %768, %736, %545, %533, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2ed19b4a3c0f2aa6E.exit.i115", %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit119, %507, %_ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exit153, %509, %748, %511, %_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f6E.exit166, %673, %664, %551, %538, %520, %522, %689, %697, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132, %603, %606, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141, %653, %656, %680, %683, %703, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %756, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747f7d9fb2c040d3E.exit.i.i158"
+_ZN14regex_automata4util4look11LookMatcher14matches_inline17hfb6f75d19f1ee05cE.exit69.thread: ; preds = %.thread744._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %.thread277, %613, %.thread277._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %768, %736, %545, %533, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128_crit_edge, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2ed19b4a3c0f2aa6E.exit.i115", %_ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit119, %507, %_ZN14regex_automata3nfa8thompson3nfa10Transition7matches17h879a32be79d1b9dbE.exit153, %509, %748, %511, %_ZN14regex_automata3nfa8thompson3nfa16DenseTransitions7matches17hc0cd2d71367f33f6E.exit166, %673, %664, %551, %538, %683, %680, %656, %653, %_ZN14regex_automata4util4look11LookMatcher17is_word_end_ascii17h212097b5ac445074E.exit141, %_ZN14regex_automata4util4look11LookMatcher19is_word_start_ascii17h9805bd83da0c6cbfE.exit136, %606, %603, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132, %_ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit128, %697, %689, %522, %520, %703, %._ZN14regex_automata4util4look11LookMatcher13is_word_ascii17hebbfd5d695ea5afaE.exit132_crit_edge, %756, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747f7d9fb2c040d3E.exit.i.i158"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.pr231.pre = load i64, ptr %16, align 8, !alias.scope !1589, !noalias !1592
@@ -9879,14 +9879,14 @@ select.unfold:                                    ; preds = %62, %58, %60
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %.thread129, %109
-  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %109 ], [ %.sroa.422.4.insert.shift.i, %.thread129 ]
-  %.sroa.0.2.i = phi i64 [ 1, %109 ], [ 0, %.thread129 ]
+  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.422.4.insert.shift.i, %.thread129 ], [ %.sroa.425.1.insert.ext.i, %109 ]
+  %.sroa.0.2.i = phi i64 [ 0, %.thread129 ], [ 1, %109 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1726
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread
 
-_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread: ; preds = %65, %67, %111, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
-  %.sroa.7.sroa.0.2.i.sink = phi i64 [ %.sroa.7.sroa.0.2.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ], [ %.sroa.4.1.insert.ext.i, %65 ], [ %.sroa.420.4.insert.shift.i, %67 ], [ %.sroa.418.1.insert.ext.i, %111 ]
-  %.sroa.0.2.i.sink = phi i64 [ %.sroa.0.2.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ], [ 1, %65 ], [ 0, %67 ], [ 1, %111 ]
+_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread: ; preds = %67, %111, %65, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
+  %.sroa.7.sroa.0.2.i.sink = phi i64 [ %.sroa.7.sroa.0.2.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ], [ %.sroa.420.4.insert.shift.i, %67 ], [ %.sroa.418.1.insert.ext.i, %111 ], [ %.sroa.4.1.insert.ext.i, %65 ]
+  %.sroa.0.2.i.sink = phi i64 [ %.sroa.0.2.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ], [ 0, %67 ], [ 1, %111 ], [ 1, %65 ]
   %.sroa.7.0.insert.ext.i = shl nuw nsw i64 %.sroa.7.sroa.0.2.i.sink, 8
   %.sroa.0.0.insert.insert.i = add nuw nsw i64 %.sroa.7.0.insert.ext.i, %.sroa.0.2.i.sink
   %.sroa.683.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 32
@@ -10431,7 +10431,7 @@ select.unfold24:                                  ; preds = %98, %94, %96
   br label %147
 
 147:                                              ; preds = %148, %.thread39
-  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %148 ], [ %.sroa.422.4.insert.shift.i, %.thread39 ]
+  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.422.4.insert.shift.i, %.thread39 ], [ %.sroa.425.1.insert.ext.i, %148 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1754
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
@@ -10444,8 +10444,8 @@ select.unfold24:                                  ; preds = %98, %94, %96
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %101, %103, %147, %149
-  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %147 ], [ %.sroa.418.1.insert.ext.i, %149 ], [ %.sroa.420.4.insert.shift.i, %103 ], [ %.sroa.4.1.insert.ext.i, %101 ]
-  %.sroa.0.0.i = phi i1 [ %trunc.i18, %147 ], [ true, %149 ], [ false, %103 ], [ true, %101 ]
+  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %147 ], [ %.sroa.4.1.insert.ext.i, %101 ], [ %.sroa.418.1.insert.ext.i, %149 ], [ %.sroa.420.4.insert.shift.i, %103 ]
+  %.sroa.0.0.i = phi i1 [ %trunc.i18, %147 ], [ true, %101 ], [ true, %149 ], [ false, %103 ]
   br i1 %.sroa.0.0.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %150
 
 150:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
@@ -11183,7 +11183,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   br label %148
 
 148:                                              ; preds = %149, %.thread39
-  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %149 ], [ %.sroa.422.4.insert.shift.i, %.thread39 ]
+  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.422.4.insert.shift.i, %.thread39 ], [ %.sroa.425.1.insert.ext.i, %149 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1796
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
@@ -11196,8 +11196,8 @@ select.unfold24:                                  ; preds = %99, %95, %97
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %102, %104, %148, %150
-  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %148 ], [ %.sroa.418.1.insert.ext.i, %150 ], [ %.sroa.420.4.insert.shift.i, %104 ], [ %.sroa.4.1.insert.ext.i, %102 ]
-  %.sroa.0.0.i = phi i1 [ %trunc.i20, %148 ], [ true, %150 ], [ false, %104 ], [ true, %102 ]
+  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %148 ], [ %.sroa.4.1.insert.ext.i, %102 ], [ %.sroa.418.1.insert.ext.i, %150 ], [ %.sroa.420.4.insert.shift.i, %104 ]
+  %.sroa.0.0.i = phi i1 [ %trunc.i20, %148 ], [ true, %102 ], [ true, %150 ], [ false, %104 ]
   br i1 %.sroa.0.0.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %151
 
 151:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
@@ -11529,7 +11529,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   br label %148
 
 148:                                              ; preds = %149, %.thread39
-  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %149 ], [ %.sroa.422.4.insert.shift.i, %.thread39 ]
+  %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.422.4.insert.shift.i, %.thread39 ], [ %.sroa.425.1.insert.ext.i, %149 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1815
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
@@ -11542,8 +11542,8 @@ select.unfold24:                                  ; preds = %99, %95, %97
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %102, %104, %148, %150
-  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %148 ], [ %.sroa.418.1.insert.ext.i, %150 ], [ %.sroa.420.4.insert.shift.i, %104 ], [ %.sroa.4.1.insert.ext.i, %102 ]
-  %.sroa.0.0.i = phi i1 [ %trunc.i20, %148 ], [ true, %150 ], [ false, %104 ], [ true, %102 ]
+  %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %148 ], [ %.sroa.4.1.insert.ext.i, %102 ], [ %.sroa.418.1.insert.ext.i, %150 ], [ %.sroa.420.4.insert.shift.i, %104 ]
+  %.sroa.0.0.i = phi i1 [ %trunc.i20, %148 ], [ true, %102 ], [ true, %150 ], [ false, %104 ]
   br i1 %.sroa.0.0.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %151
 
 151:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit

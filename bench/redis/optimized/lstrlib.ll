@@ -1808,8 +1808,8 @@ capture_to_close.exit:                            ; preds = %62, %.loopexit.loop
   br label %classend.exit
 
 classend.exit:                                    ; preds = %116, %126, %148
-  %150 = phi ptr [ %129, %148 ], [ %119, %126 ], [ %119, %116 ]
-  %.015.i = phi ptr [ %149, %148 ], [ %127, %126 ], [ %119, %116 ]
+  %150 = phi ptr [ %119, %126 ], [ %129, %148 ], [ %119, %116 ]
+  %.015.i = phi ptr [ %127, %126 ], [ %149, %148 ], [ %119, %116 ]
   %151 = load ptr, ptr %0, align 8, !tbaa !27
   %152 = icmp eq ptr %.075.ph.ph, %151
   br i1 %152, label %156, label %153
@@ -2070,8 +2070,8 @@ check_capture.exit.i:                             ; preds = %231, %226
   br label %classend.exit125
 
 classend.exit125:                                 ; preds = %249, %257, %262, %283
-  %285 = phi ptr [ %258, %283 ], [ %212, %262 ], [ %258, %257 ], [ %250, %249 ]
-  %.015.i121 = phi ptr [ %284, %283 ], [ %263, %262 ], [ %258, %257 ], [ %250, %249 ]
+  %285 = phi ptr [ %212, %262 ], [ %258, %283 ], [ %258, %257 ], [ %250, %249 ]
+  %.015.i121 = phi ptr [ %263, %262 ], [ %284, %283 ], [ %258, %257 ], [ %250, %249 ]
   %286 = load ptr, ptr %5, align 8, !tbaa !28
   %287 = icmp ult ptr %.075.ph.ph, %286
   br i1 %287, label %288, label %singlematch.exit

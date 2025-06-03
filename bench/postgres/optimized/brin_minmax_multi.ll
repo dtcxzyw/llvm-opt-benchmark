@@ -1686,7 +1686,7 @@ define internal fastcc noundef ptr @brin_range_deserialize(i32 noundef %0, ptr n
   br label %fetch_att.exit.us
 
 fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
-  %.0.i.us = phi i64 [ %.0..0..0.151.us, %88 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ]
+  %.0.i.us = phi i64 [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %.0..0..0.151.us, %88 ]
   %95 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %indvars.iv233
   store i64 %.0.i.us, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %.2185.us, i64 %87
@@ -2054,7 +2054,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %119 = load i64, ptr %118, align 8
   br label %121
 
-120:                                              ; preds = %minmax_multi_get_strategy_procinfo.exit, %minmax_multi_get_strategy_procinfo.exit121, %247
+120:                                              ; preds = %minmax_multi_get_strategy_procinfo.exit121, %minmax_multi_get_strategy_procinfo.exit, %247
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread133, label %121, !llvm.loop !19
@@ -2273,7 +2273,7 @@ minmax_multi_get_strategy_procinfo.exit121:       ; preds = %202, %235
   %.not144 = icmp eq i64 %249, 0
   br i1 %.not144, label %120, label %.thread
 
-.thread:                                          ; preds = %minmax_multi_get_strategy_procinfo.exit, %minmax_multi_get_strategy_procinfo.exit121, %185, %247
+.thread:                                          ; preds = %minmax_multi_get_strategy_procinfo.exit121, %minmax_multi_get_strategy_procinfo.exit, %185, %247
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %250 = load i32, ptr %24, align 8
   %251 = sext i32 %250 to i64

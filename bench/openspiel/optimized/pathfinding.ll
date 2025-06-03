@@ -6520,7 +6520,7 @@ _ZN4absl7debian28AlphaNumC2El.exit29:             ; preds = %_ZN4absl7debian28Al
   ret void
 
 69:                                               ; preds = %66, %.body25, %.body20, %.body15, %.body10, %.body
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body26, %.body25 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body11, %.body10 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body11, %.body10 ], [ %eh.lpad-body16, %.body15 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body26, %.body25 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -15522,9 +15522,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre57, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %56, %59 ], [ %.pre57, %._crit_edge._crit_edge ]
+  %63 = phi i32 [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %60, %59 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %64 = load i32, ptr %.sroa.032.1, align 4
   %65 = icmp eq i32 %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 4
@@ -15538,9 +15538,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairI
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge58, %70
-  %73 = phi i32 [ %.pre61, %._crit_edge._crit_edge58 ], [ %62, %70 ]
-  %74 = phi i32 [ %.pre59, %._crit_edge._crit_edge58 ], [ %63, %70 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ], [ %71, %70 ]
+  %73 = phi i32 [ %62, %70 ], [ %.pre61, %._crit_edge._crit_edge58 ]
+  %74 = phi i32 [ %63, %70 ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.sroa.032.2 = phi ptr [ %71, %70 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ]
   %75 = load i32, ptr %.sroa.032.2, align 4
   %76 = icmp eq i32 %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.032.2, i64 4

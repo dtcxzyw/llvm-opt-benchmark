@@ -4564,7 +4564,7 @@ default.unreachable:                              ; preds = %if.end.i
   unreachable
 
 _ZNK6hermes2vm13HermesValue324toHVERNS0_11PointerBaseE.exit: ; preds = %if.then.i, %if.end.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb8.i.i, %sw.bb12.i.i, %sw.bb18.i.i, %sw.bb22.i.i, %sw.bb29.i.i, %sw.bb36.i.i, %sw.bb39.i.i
-  %retval.sroa.0.0.i = phi i64 [ %or.i.i.i.i, %if.then.i ], [ -1548112371908608, %sw.bb39.i.i ], [ -1970324836974592, %sw.bb36.i.i ], [ %or.i.i14.i.i, %sw.bb29.i.i ], [ %or.i.i.i2.i, %sw.bb22.i.i ], [ %13, %sw.bb18.i.i ], [ %retval.sroa.0.0.i.i.i, %sw.bb12.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ], [ -1688849860263936, %if.end.i ]
+  %retval.sroa.0.0.i = phi i64 [ %or.i.i.i.i, %if.then.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %retval.sroa.0.0.i.i.i, %sw.bb12.i.i ], [ %13, %sw.bb18.i.i ], [ %or.i.i.i2.i, %sw.bb22.i.i ], [ %or.i.i14.i.i, %sw.bb29.i.i ], [ -1970324836974592, %sw.bb36.i.i ], [ -1548112371908608, %sw.bb39.i.i ], [ -1688849860263936, %if.end.i ]
   store i64 %retval.sroa.0.0.i, ptr %ref.tmp, align 8
   %breakdown = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #27

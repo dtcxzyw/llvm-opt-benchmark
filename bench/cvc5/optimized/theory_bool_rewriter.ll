@@ -1739,11 +1739,11 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split: ; preds = %138
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350: ; preds = %524, %138, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split, %144, %.critedge274
-  %605 = phi ptr [ %139, %.critedge274 ], [ %139, %144 ], [ %139, %138 ], [ %515, %524 ], [ %139, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
-  %.sroa.0642.0 = phi ptr [ %123, %.critedge274 ], [ %123, %144 ], [ %123, %138 ], [ %529, %524 ], [ %123, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
-  %.0156 = phi i1 [ false, %.critedge274 ], [ true, %144 ], [ true, %138 ], [ %.1157.shrunk, %524 ], [ false, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
-  %.0154 = phi i32 [ 0, %.critedge274 ], [ 0, %144 ], [ 0, %138 ], [ %.1155, %524 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
-  %.0152 = phi i32 [ 5, %.critedge274 ], [ 5, %144 ], [ 24, %138 ], [ %.1153, %524 ], [ %127, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %605 = phi ptr [ %139, %.critedge274 ], [ %139, %138 ], [ %139, %144 ], [ %515, %524 ], [ %139, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %.sroa.0642.0 = phi ptr [ %123, %.critedge274 ], [ %123, %138 ], [ %123, %144 ], [ %529, %524 ], [ %123, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %.0156 = phi i1 [ false, %.critedge274 ], [ true, %138 ], [ true, %144 ], [ %.1157.shrunk, %524 ], [ false, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %.0154 = phi i32 [ 0, %.critedge274 ], [ 0, %138 ], [ 0, %144 ], [ %.1155, %524 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
+  %.0152 = phi i32 [ 5, %.critedge274 ], [ 24, %138 ], [ 5, %144 ], [ %.1153, %524 ], [ %127, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit350.fold.split ]
   %606 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %607 = icmp eq i8 %606, 0
   br i1 %607, label %608, label %616, !prof !26
@@ -4705,7 +4705,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit19
   br label %156
 
 156:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit19
-  %.1 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit19 ]
+  %.1 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit19 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   ret i1 %.1
 }
 
@@ -12491,7 +12491,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %2398, %2489, %2583,
   ret void
 
 3280:                                             ; preds = %.critedge827, %2496, %2507, %2590, %2601, %2744, %2886, %3015, %3038, %3168, %.critedge885, %2326, %2256, %2146, %2101, %1799, %1739, %1681, %960, %928, %908, %848, %782, %500, %573, %367, %440, %3278, %3234, %2212, %2021, %1963, %1903, %1873, %1837, %1685, %1623, %1109, %1051, %991, %751, %715, %641, %307, %252, %190
-  %.pn756 = phi { ptr, i32 } [ %3235, %3234 ], [ %.pn655, %2212 ], [ %3279, %3278 ], [ %.pn669, %1837 ], [ %.pn667, %1873 ], [ %1904, %1903 ], [ %1964, %1963 ], [ %2022, %2021 ], [ %992, %991 ], [ %1052, %1051 ], [ %1110, %1109 ], [ %1686, %1685 ], [ %.pn719.pn.pn, %1623 ], [ %642, %641 ], [ %716, %715 ], [ %.pn739, %751 ], [ %191, %190 ], [ %253, %252 ], [ %.pn753.pn, %307 ], [ %368, %367 ], [ %.pn748, %440 ], [ %501, %500 ], [ %.pn743, %573 ], [ %783, %782 ], [ %849, %848 ], [ %909, %908 ], [ %929, %928 ], [ %961, %960 ], [ %1682, %1681 ], [ %1740, %1739 ], [ %1800, %1799 ], [ %2102, %2101 ], [ %2147, %2146 ], [ %2257, %2256 ], [ %2327, %2326 ], [ %.pn642.pn, %.critedge827 ], [ %.pn631.pn, %2507 ], [ %.pn623.pn, %2601 ], [ %.pn616.pn, %2744 ], [ %.pn605.pn, %2886 ], [ %.pn594.pn, %3038 ], [ %.pn581.pn, %.critedge885 ], [ %.pn568.pn, %3168 ], [ %.pn565.pn, %3015 ], [ %.pn554.pn, %2590 ], [ %.pn551.pn, %2496 ]
+  %.pn756 = phi { ptr, i32 } [ %3235, %3234 ], [ %191, %190 ], [ %253, %252 ], [ %.pn753.pn, %307 ], [ %3279, %3278 ], [ %642, %641 ], [ %716, %715 ], [ %.pn739, %751 ], [ %992, %991 ], [ %1052, %1051 ], [ %1110, %1109 ], [ %1686, %1685 ], [ %.pn719.pn.pn, %1623 ], [ %.pn669, %1837 ], [ %.pn667, %1873 ], [ %1904, %1903 ], [ %1964, %1963 ], [ %2022, %2021 ], [ %.pn655, %2212 ], [ %368, %367 ], [ %.pn748, %440 ], [ %501, %500 ], [ %.pn743, %573 ], [ %783, %782 ], [ %849, %848 ], [ %909, %908 ], [ %929, %928 ], [ %961, %960 ], [ %1682, %1681 ], [ %1740, %1739 ], [ %1800, %1799 ], [ %2102, %2101 ], [ %2147, %2146 ], [ %2257, %2256 ], [ %2327, %2326 ], [ %.pn642.pn, %.critedge827 ], [ %.pn631.pn, %2507 ], [ %.pn623.pn, %2601 ], [ %.pn616.pn, %2744 ], [ %.pn605.pn, %2886 ], [ %.pn594.pn, %3038 ], [ %.pn581.pn, %.critedge885 ], [ %.pn568.pn, %3168 ], [ %.pn565.pn, %3015 ], [ %.pn554.pn, %2590 ], [ %.pn551.pn, %2496 ]
   resume { ptr, i32 } %.pn756
 }
 

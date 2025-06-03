@@ -110,8 +110,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %69
 
 69:                                               ; preds = %64, %59
-  %.1134 = phi i32 [ 0, %59 ], [ %68, %64 ]
-  %.2 = phi ptr [ %63, %59 ], [ %65, %64 ]
+  %.1134 = phi i32 [ %68, %64 ], [ 0, %59 ]
+  %.2 = phi ptr [ %65, %64 ], [ %63, %59 ]
   %70 = getelementptr inbounds i8, ptr %.2, i64 -1
   %71 = load i8, ptr %70, align 1, !tbaa !3
   %72 = zext i8 %71 to i32
@@ -120,8 +120,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %75
 
 75:                                               ; preds = %69, %59
-  %.2135 = phi i32 [ 0, %59 ], [ %74, %69 ]
-  %.3 = phi ptr [ %63, %59 ], [ %70, %69 ]
+  %.2135 = phi i32 [ %74, %69 ], [ 0, %59 ]
+  %.3 = phi ptr [ %70, %69 ], [ %63, %59 ]
   %76 = getelementptr inbounds i8, ptr %.3, i64 -1
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = zext i8 %77 to i32
@@ -130,8 +130,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %81
 
 81:                                               ; preds = %75, %59
-  %.3136 = phi i32 [ 0, %59 ], [ %80, %75 ]
-  %.4 = phi ptr [ %63, %59 ], [ %76, %75 ]
+  %.3136 = phi i32 [ %80, %75 ], [ 0, %59 ]
+  %.4 = phi ptr [ %76, %75 ], [ %63, %59 ]
   %82 = getelementptr inbounds i8, ptr %.4, i64 -1
   %83 = load i8, ptr %82, align 1, !tbaa !3
   %84 = zext i8 %83 to i32
@@ -139,8 +139,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %86
 
 86:                                               ; preds = %81, %59
-  %.4137 = phi i32 [ 0, %59 ], [ %85, %81 ]
-  %.5 = phi ptr [ %63, %59 ], [ %82, %81 ]
+  %.4137 = phi i32 [ %85, %81 ], [ 0, %59 ]
+  %.5 = phi ptr [ %82, %81 ], [ %63, %59 ]
   %87 = getelementptr inbounds i8, ptr %.5, i64 -1
   %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = zext i8 %88 to i32
@@ -148,9 +148,9 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %91
 
 91:                                               ; preds = %86, %59
-  %.1142 = phi i32 [ 0, %59 ], [ %90, %86 ]
-  %.5138 = phi i32 [ 0, %59 ], [ %.4137, %86 ]
-  %.6 = phi ptr [ %63, %59 ], [ %87, %86 ]
+  %.1142 = phi i32 [ %90, %86 ], [ 0, %59 ]
+  %.5138 = phi i32 [ %.4137, %86 ], [ 0, %59 ]
+  %.6 = phi ptr [ %87, %86 ], [ %63, %59 ]
   %92 = getelementptr inbounds i8, ptr %.6, i64 -1
   %93 = load i8, ptr %92, align 1, !tbaa !3
   %94 = zext i8 %93 to i32
@@ -159,9 +159,9 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %97
 
 97:                                               ; preds = %91, %59
-  %.2143 = phi i32 [ 0, %59 ], [ %96, %91 ]
-  %.6139 = phi i32 [ 0, %59 ], [ %.5138, %91 ]
-  %.7 = phi ptr [ %63, %59 ], [ %92, %91 ]
+  %.2143 = phi i32 [ %96, %91 ], [ 0, %59 ]
+  %.6139 = phi i32 [ %.5138, %91 ], [ 0, %59 ]
+  %.7 = phi ptr [ %92, %91 ], [ %63, %59 ]
   %98 = getelementptr inbounds i8, ptr %.7, i64 -1
   %99 = load i8, ptr %98, align 1, !tbaa !3
   %100 = zext i8 %99 to i32
@@ -170,9 +170,9 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %103
 
 103:                                              ; preds = %97, %59
-  %.3144 = phi i32 [ 0, %59 ], [ %102, %97 ]
-  %.7140 = phi i32 [ 0, %59 ], [ %.6139, %97 ]
-  %.8 = phi ptr [ %63, %59 ], [ %98, %97 ]
+  %.3144 = phi i32 [ %102, %97 ], [ 0, %59 ]
+  %.7140 = phi i32 [ %.6139, %97 ], [ 0, %59 ]
+  %.8 = phi ptr [ %98, %97 ], [ %63, %59 ]
   %104 = getelementptr inbounds i8, ptr %.8, i64 -1
   %105 = load i8, ptr %104, align 1, !tbaa !3
   %106 = zext i8 %105 to i32
@@ -208,7 +208,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %119
 
 119:                                              ; preds = %115, %108
-  %.2122 = phi ptr [ %114, %108 ], [ %118, %115 ]
+  %.2122 = phi ptr [ %118, %115 ], [ %114, %108 ]
   %120 = lshr i32 %113, 16
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds i8, ptr %.2122, i64 -1
@@ -216,7 +216,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %123
 
 123:                                              ; preds = %119, %108
-  %.3123 = phi ptr [ %114, %108 ], [ %122, %119 ]
+  %.3123 = phi ptr [ %122, %119 ], [ %114, %108 ]
   %124 = lshr i32 %113, 8
   %125 = trunc i32 %124 to i8
   %126 = getelementptr inbounds i8, ptr %.3123, i64 -1
@@ -224,14 +224,14 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %127
 
 127:                                              ; preds = %123, %108
-  %.4124 = phi ptr [ %114, %108 ], [ %126, %123 ]
+  %.4124 = phi ptr [ %126, %123 ], [ %114, %108 ]
   %128 = trunc i32 %113 to i8
   %129 = getelementptr inbounds i8, ptr %.4124, i64 -1
   store i8 %128, ptr %129, align 1, !tbaa !3
   br label %130
 
 130:                                              ; preds = %127, %108
-  %.5125 = phi ptr [ %114, %108 ], [ %129, %127 ]
+  %.5125 = phi ptr [ %129, %127 ], [ %114, %108 ]
   %131 = lshr i32 %111, 24
   %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %.5125, i64 -1
@@ -239,7 +239,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %134
 
 134:                                              ; preds = %130, %108
-  %.6126 = phi ptr [ %114, %108 ], [ %133, %130 ]
+  %.6126 = phi ptr [ %133, %130 ], [ %114, %108 ]
   %135 = lshr i32 %111, 16
   %136 = trunc i32 %135 to i8
   %137 = getelementptr inbounds i8, ptr %.6126, i64 -1
@@ -247,7 +247,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %138
 
 138:                                              ; preds = %134, %108
-  %.7127 = phi ptr [ %114, %108 ], [ %137, %134 ]
+  %.7127 = phi ptr [ %137, %134 ], [ %114, %108 ]
   %139 = lshr i32 %111, 8
   %140 = trunc i32 %139 to i8
   %141 = getelementptr inbounds i8, ptr %.7127, i64 -1
@@ -255,7 +255,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %142
 
 142:                                              ; preds = %138, %108
-  %.8128 = phi ptr [ %114, %108 ], [ %141, %138 ]
+  %.8128 = phi ptr [ %141, %138 ], [ %114, %108 ]
   %143 = trunc i32 %111 to i8
   %144 = getelementptr inbounds i8, ptr %.8128, i64 -1
   store i8 %143, ptr %144, align 1, !tbaa !3

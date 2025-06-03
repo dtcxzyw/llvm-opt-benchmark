@@ -1764,7 +1764,7 @@ get_invalid_block.exit.thread:                    ; preds = %32, %2
   unreachable
 
 get_replaced_block.exit:                          ; preds = %.lr.ph.i.i, %get_invalid_block.exit, %50, %38, %35
-  %.0 = phi i32 [ %33, %get_invalid_block.exit ], [ %56, %50 ], [ %37, %35 ], [ 0, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %.0 = phi i32 [ %33, %get_invalid_block.exit ], [ %37, %35 ], [ %56, %50 ], [ 0, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %58 = load ptr, ptr @update_miss, align 8
   %.not30 = icmp eq ptr %58, null
   br i1 %.not30, label %61, label %59

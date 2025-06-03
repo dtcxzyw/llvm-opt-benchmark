@@ -823,7 +823,7 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %._crit_edge.i
   br label %evutil_unparse_protoname.exit
 
 evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread, %evutil_getaddrinfo_infer_protocols.exit.thread113, %27, %29, %30, %31, %33
-  %.05.i = phi ptr [ @.str.29, %30 ], [ @.str.28, %29 ], [ %34, %33 ], [ null, %31 ], [ null, %27 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread113 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
+  %.05.i = phi ptr [ @.str.28, %29 ], [ @.str.29, %30 ], [ %34, %33 ], [ null, %31 ], [ null, %27 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread113 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
   br i1 %18, label %evutil_parse_servname.exit, label %35
 
 35:                                               ; preds = %evutil_unparse_protoname.exit
@@ -2440,7 +2440,7 @@ define ptr @evutil_gai_strerror(i32 noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ %15, %14 ], [ @.str.17, %13 ], [ @.str.16, %12 ], [ @.str.15, %11 ], [ @.str.14, %10 ], [ @.str.13, %9 ], [ @.str.12, %8 ], [ @.str.11, %7 ], [ @.str.10, %6 ], [ @.str.9, %5 ], [ @.str.8, %4 ], [ @.str.7, %3 ], [ @.str.6, %2 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ %15, %14 ], [ @.str.6, %2 ], [ @.str.7, %3 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.12, %8 ], [ @.str.13, %9 ], [ @.str.14, %10 ], [ @.str.15, %11 ], [ @.str.16, %12 ], [ @.str.17, %13 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 

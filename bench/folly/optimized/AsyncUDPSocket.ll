@@ -8971,11 +8971,11 @@ __cmsg_nxthdr.exit.i:                             ; preds = %__cmsg_nxthdr.exit.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %154, %164, %160, %156, %151, %147, %143, %__cmsg_nxthdr.exit.i
-  %.sroa.561.3 = phi i8 [ %.sroa.561.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.561.2, %164 ], [ %.sroa.561.2, %160 ], [ %.sroa.561.2, %156 ], [ %.sroa.561.2, %151 ], [ %.sroa.561.2, %147 ], [ %.sroa.561.2, %143 ], [ %.sroa.561.8.copyload, %154 ]
-  %.sroa.864.3 = phi i1 [ %.sroa.864.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.864.2, %164 ], [ %.sroa.864.2, %160 ], [ %.sroa.864.2, %156 ], [ %.sroa.864.2, %151 ], [ %.sroa.864.2, %147 ], [ %.sroa.864.2, %143 ], [ %spec.select69, %154 ]
-  %.sroa.060.3 = phi i32 [ %.sroa.060.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.060.2, %164 ], [ %.sroa.060.2, %160 ], [ %.sroa.060.2, %156 ], [ %.sroa.060.2, %151 ], [ %150, %147 ], [ %.sroa.060.2, %143 ], [ %.sroa.060.2, %154 ]
-  %.sroa.1266.3 = phi i8 [ %.sroa.1266.2, %__cmsg_nxthdr.exit.i ], [ %166, %164 ], [ %.sroa.1266.2, %160 ], [ %.sroa.1266.2, %156 ], [ %.sroa.1266.2, %151 ], [ %.sroa.1266.2, %147 ], [ %.sroa.1266.2, %143 ], [ %.sroa.1266.2, %154 ]
-  %167 = phi i1 [ %140, %__cmsg_nxthdr.exit.i ], [ %140, %164 ], [ %140, %160 ], [ %140, %156 ], [ %140, %151 ], [ %140, %147 ], [ %140, %143 ], [ true, %154 ]
+  %.sroa.561.3 = phi i8 [ %.sroa.561.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.561.2, %147 ], [ %.sroa.561.2, %143 ], [ %.sroa.561.2, %151 ], [ %.sroa.561.2, %164 ], [ %.sroa.561.2, %156 ], [ %.sroa.561.2, %160 ], [ %.sroa.561.8.copyload, %154 ]
+  %.sroa.864.3 = phi i1 [ %.sroa.864.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.864.2, %147 ], [ %.sroa.864.2, %143 ], [ %.sroa.864.2, %151 ], [ %.sroa.864.2, %164 ], [ %.sroa.864.2, %156 ], [ %.sroa.864.2, %160 ], [ %spec.select69, %154 ]
+  %.sroa.060.3 = phi i32 [ %.sroa.060.2, %__cmsg_nxthdr.exit.i ], [ %150, %147 ], [ %.sroa.060.2, %143 ], [ %.sroa.060.2, %151 ], [ %.sroa.060.2, %164 ], [ %.sroa.060.2, %156 ], [ %.sroa.060.2, %160 ], [ %.sroa.060.2, %154 ]
+  %.sroa.1266.3 = phi i8 [ %.sroa.1266.2, %__cmsg_nxthdr.exit.i ], [ %.sroa.1266.2, %147 ], [ %.sroa.1266.2, %143 ], [ %.sroa.1266.2, %151 ], [ %166, %164 ], [ %.sroa.1266.2, %156 ], [ %.sroa.1266.2, %160 ], [ %.sroa.1266.2, %154 ]
+  %167 = phi i1 [ %140, %__cmsg_nxthdr.exit.i ], [ %140, %147 ], [ %140, %143 ], [ %140, %151 ], [ %140, %164 ], [ %140, %156 ], [ %140, %160 ], [ true, %154 ]
   %168 = load i64, ptr %.024.i, align 8, !tbaa !32
   %169 = icmp ult i64 %168, 16
   br i1 %169, label %_ZN5folly14AsyncUDPSocket7fromMsgERNS0_12ReadCallback21OnDataAvailableParamsER6msghdr.exit, label %170

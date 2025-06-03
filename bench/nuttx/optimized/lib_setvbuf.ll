@@ -56,7 +56,7 @@ define range(i32 -1, 1) i32 @setvbuf(ptr noundef captures(none) %0, ptr noundef 
   br label %26
 
 26:                                               ; preds = %24, %20
-  %.050 = phi i8 [ %23, %20 ], [ %25, %24 ]
+  %.050 = phi i8 [ %25, %24 ], [ %23, %20 ]
   %.not58 = icmp eq i64 %.053, 0
   br i1 %.not58, label %33, label %27
 

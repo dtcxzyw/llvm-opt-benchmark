@@ -3532,7 +3532,7 @@ tailrecurse.backedge.i:                           ; preds = %62, %57, %54, %51, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %40, %44, %46, %60, %64
-  %.0.in.i = phi ptr [ %67, %64 ], [ %61, %60 ], [ %47, %46 ], [ %45, %44 ], [ %43, %40 ]
+  %.0.in.i = phi ptr [ %43, %40 ], [ %45, %44 ], [ %47, %46 ], [ %61, %60 ], [ %67, %64 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   tail call void @_ZNK4llvm4Type5printERNS_11raw_ostreamEbb(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i70, i1 noundef zeroext false, i1 noundef zeroext false) #31
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i70, i64 24
@@ -3708,7 +3708,7 @@ tailrecurse.backedge.i88:                         ; preds = %144, %139, %136, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit91:                  ; preds = %122, %126, %128, %142, %146
-  %.0.in.i86 = phi ptr [ %149, %146 ], [ %143, %142 ], [ %129, %128 ], [ %127, %126 ], [ %125, %122 ]
+  %.0.in.i86 = phi ptr [ %125, %122 ], [ %127, %126 ], [ %129, %128 ], [ %143, %142 ], [ %149, %146 ]
   %.0.i87 = load ptr, ptr %.0.in.i86, align 8, !tbaa !105
   tail call void @_ZNK4llvm4Type5printERNS_11raw_ostreamEbb(ptr noundef nonnull align 8 dereferenceable(24) %.0.i87, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i82, i1 noundef zeroext false, i1 noundef zeroext false) #31
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 24
@@ -3884,7 +3884,7 @@ tailrecurse.backedge.i108:                        ; preds = %226, %221, %218, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit111:                 ; preds = %204, %208, %210, %224, %228
-  %.0.in.i106 = phi ptr [ %231, %228 ], [ %225, %224 ], [ %211, %210 ], [ %209, %208 ], [ %207, %204 ]
+  %.0.in.i106 = phi ptr [ %207, %204 ], [ %209, %208 ], [ %211, %210 ], [ %225, %224 ], [ %231, %228 ]
   %.0.i107 = load ptr, ptr %.0.in.i106, align 8, !tbaa !105
   tail call void @_ZNK4llvm4Type5printERNS_11raw_ostreamEbb(ptr noundef nonnull align 8 dereferenceable(24) %.0.i107, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i102, i1 noundef zeroext false, i1 noundef zeroext false) #31
   %233 = getelementptr inbounds nuw i8, ptr %.0.i.i102, i64 24
@@ -4060,7 +4060,7 @@ tailrecurse.backedge.i128:                        ; preds = %308, %303, %300, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit131:                 ; preds = %286, %290, %292, %306, %310
-  %.0.in.i126 = phi ptr [ %313, %310 ], [ %307, %306 ], [ %293, %292 ], [ %291, %290 ], [ %289, %286 ]
+  %.0.in.i126 = phi ptr [ %289, %286 ], [ %291, %290 ], [ %293, %292 ], [ %307, %306 ], [ %313, %310 ]
   %.0.i127 = load ptr, ptr %.0.in.i126, align 8, !tbaa !105
   tail call void @_ZNK4llvm4Type5printERNS_11raw_ostreamEbb(ptr noundef nonnull align 8 dereferenceable(24) %.0.i127, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i122, i1 noundef zeroext false, i1 noundef zeroext false) #31
   %315 = getelementptr inbounds nuw i8, ptr %.0.i.i122, i64 24
@@ -4332,7 +4332,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit277:              ; preds = %432, %430, %_ZN4llv
   br label %454
 
 454:                                              ; preds = %2, %453, %452, %451, %450, %449, %448
-  %.065 = phi ptr [ @.str.93, %453 ], [ @.str.92, %452 ], [ @.str.91, %451 ], [ @.str.90, %450 ], [ @.str.89, %449 ], [ @.str.88, %448 ], [ @.str.87, %2 ]
+  %.065 = phi ptr [ @.str.88, %448 ], [ @.str.89, %449 ], [ @.str.90, %450 ], [ @.str.91, %451 ], [ @.str.92, %452 ], [ @.str.93, %453 ], [ @.str.87, %2 ]
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %456 = load ptr, ptr %455, align 8, !tbaa !86
   %457 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4709,7 +4709,7 @@ tailrecurse.backedge:                             ; preds = %12, %15, %18, %21, 
   unreachable
 
 33:                                               ; preds = %28, %24, %10, %8, %4
-  %.0.in = phi ptr [ %31, %28 ], [ %25, %24 ], [ %11, %10 ], [ %9, %8 ], [ %7, %4 ]
+  %.0.in = phi ptr [ %7, %4 ], [ %9, %8 ], [ %11, %10 ], [ %25, %24 ], [ %31, %28 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !105
   ret ptr %.0
 }
@@ -4832,7 +4832,7 @@ tailrecurse.i.backedge:                           ; preds = %28, %23, %20, %17, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %6, %10, %12, %26, %30
-  %.0.in.i = phi ptr [ %33, %30 ], [ %27, %26 ], [ %13, %12 ], [ %11, %10 ], [ %9, %6 ]
+  %.0.in.i = phi ptr [ %9, %6 ], [ %11, %10 ], [ %13, %12 ], [ %27, %26 ], [ %33, %30 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   ret ptr %.0.i
 }
@@ -4879,8 +4879,8 @@ define dso_local { ptr, i64 } @_ZNK4llvm4SCEV8operandsEv(ptr noundef nonnull ali
   unreachable
 
 14:                                               ; preds = %1, %1, %1, %11, %6, %4
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ %8, %6 ], [ %5, %4 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %.sroa.6.0 = phi i64 [ 2, %11 ], [ %10, %6 ], [ 1, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %8, %6 ], [ %12, %11 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.6.0 = phi i64 [ 1, %4 ], [ %10, %6 ], [ 2, %11 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -6508,7 +6508,7 @@ tailrecurse.backedge.i:                           ; preds = %67, %62, %59, %56, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %45, %49, %51, %65, %69
-  %.0.in.i = phi ptr [ %72, %69 ], [ %66, %65 ], [ %52, %51 ], [ %50, %49 ], [ %48, %45 ]
+  %.0.in.i = phi ptr [ %48, %45 ], [ %50, %49 ], [ %52, %51 ], [ %66, %65 ], [ %72, %69 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %74 = icmp eq i64 %indvars.iv, 1
   br i1 %74, label %75, label %77
@@ -6795,7 +6795,7 @@ tailrecurse.backedge.i28:                         ; preds = %184, %179, %176, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit31:                  ; preds = %162, %166, %168, %182, %186
-  %.0.in.i26 = phi ptr [ %189, %186 ], [ %183, %182 ], [ %169, %168 ], [ %167, %166 ], [ %165, %162 ]
+  %.0.in.i26 = phi ptr [ %165, %162 ], [ %167, %166 ], [ %169, %168 ], [ %183, %182 ], [ %189, %186 ]
   %.0.i27 = load ptr, ptr %.0.in.i26, align 8, !tbaa !105
   %191 = zext i32 %.048.i66 to i64
   %192 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 8
@@ -7084,7 +7084,7 @@ tailrecurse.backedge.i:                           ; preds = %32, %27, %24, %21, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %10, %14, %16, %30, %34
-  %.0.in.i = phi ptr [ %37, %34 ], [ %31, %30 ], [ %17, %16 ], [ %15, %14 ], [ %13, %10 ]
+  %.0.in.i = phi ptr [ %13, %10 ], [ %15, %14 ], [ %17, %16 ], [ %31, %30 ], [ %37, %34 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %40 = load i32, ptr %39, align 8
@@ -7201,7 +7201,7 @@ tailrecurse.backedge.i29:                         ; preds = %81, %76, %73, %70, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit32:                  ; preds = %59, %63, %65, %79, %83
-  %.0.in.i27 = phi ptr [ %86, %83 ], [ %80, %79 ], [ %66, %65 ], [ %64, %63 ], [ %62, %59 ]
+  %.0.in.i27 = phi ptr [ %62, %59 ], [ %64, %63 ], [ %66, %65 ], [ %80, %79 ], [ %86, %83 ]
   %.0.i28 = load ptr, ptr %.0.in.i27, align 8, !tbaa !105
   %88 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
   %89 = load i32, ptr %88, align 8
@@ -7312,7 +7312,7 @@ tailrecurse.backedge.i37:                         ; preds = %125, %120, %117, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit40:                  ; preds = %103, %107, %109, %123, %127
-  %.0.in.i35 = phi ptr [ %130, %127 ], [ %124, %123 ], [ %110, %109 ], [ %108, %107 ], [ %106, %103 ]
+  %.0.in.i35 = phi ptr [ %106, %103 ], [ %108, %107 ], [ %110, %109 ], [ %124, %123 ], [ %130, %127 ]
   %.0.i36 = load ptr, ptr %.0.in.i35, align 8, !tbaa !105
   %132 = call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %100, ptr noundef %.0.i36) #31
   %133 = load ptr, ptr %55, align 8, !tbaa !199
@@ -7398,7 +7398,7 @@ tailrecurse.backedge.i45:                         ; preds = %158, %153, %150, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit48:                  ; preds = %136, %140, %142, %156, %160
-  %.0.in.i43 = phi ptr [ %163, %160 ], [ %157, %156 ], [ %143, %142 ], [ %141, %140 ], [ %139, %136 ]
+  %.0.in.i43 = phi ptr [ %139, %136 ], [ %141, %140 ], [ %143, %142 ], [ %157, %156 ], [ %163, %160 ]
   %.0.i44 = load ptr, ptr %.0.in.i43, align 8, !tbaa !105
   %165 = getelementptr inbounds nuw i8, ptr %.0.i44, i64 8
   %166 = load i32, ptr %165, align 8
@@ -7556,7 +7556,7 @@ tailrecurse.backedge.i.i:                         ; preds = %222, %217, %214, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i:                  ; preds = %224, %220, %206, %204, %200
-  %.0.in.i.i = phi ptr [ %227, %224 ], [ %221, %220 ], [ %207, %206 ], [ %205, %204 ], [ %203, %200 ]
+  %.0.in.i.i = phi ptr [ %203, %200 ], [ %205, %204 ], [ %207, %206 ], [ %221, %220 ], [ %227, %224 ]
   %.0.i2.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %229 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 8
   %230 = load i32, ptr %229, align 8
@@ -7732,8 +7732,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -7939,7 +7939,7 @@ tailrecurse.backedge.i:                           ; preds = %33, %28, %25, %22, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %11, %15, %17, %31, %35
-  %.0.in.i = phi ptr [ %38, %35 ], [ %32, %31 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ]
+  %.0.in.i = phi ptr [ %14, %11 ], [ %16, %15 ], [ %18, %17 ], [ %32, %31 ], [ %38, %35 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %41 = load i32, ptr %40, align 8
@@ -8522,7 +8522,7 @@ tailrecurse.backedge.i:                           ; preds = %33, %28, %25, %22, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %11, %15, %17, %31, %35
-  %.0.in.i = phi ptr [ %38, %35 ], [ %32, %31 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ]
+  %.0.in.i = phi ptr [ %14, %11 ], [ %16, %15 ], [ %18, %17 ], [ %32, %31 ], [ %38, %35 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %41 = load i32, ptr %40, align 8
@@ -9084,8 +9084,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6insertEPS3_OS3_.exit.i: ; preds = %_ZN4ll
   br label %196
 
 196:                                              ; preds = %194, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %197 = phi i32 [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %193, %194 ]
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %195, %194 ]
+  %197 = phi i32 [ %193, %194 ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %195, %194 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !98
   %198 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 26
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %198, align 2, !tbaa !121
@@ -9098,8 +9098,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6insertEPS3_OS3_.exit.i: ; preds = %_ZN4ll
   br label %202
 
 202:                                              ; preds = %200, %._crit_edge._crit_edge55.i.i.i.i.i.i.i
-  %203 = phi i32 [ %.pre56.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ], [ %197, %200 ]
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ], [ %201, %200 ]
+  %203 = phi i32 [ %197, %200 ], [ %.pre56.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %201, %200 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !98
   %204 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 26
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %204, align 2, !tbaa !121
@@ -9240,7 +9240,7 @@ tailrecurse.i.backedge:                           ; preds = %250, %245, %242, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %228, %232, %234, %248, %252
-  %.0.in.i = phi ptr [ %255, %252 ], [ %249, %248 ], [ %235, %234 ], [ %233, %232 ], [ %231, %228 ]
+  %.0.in.i = phi ptr [ %231, %228 ], [ %233, %232 ], [ %235, %234 ], [ %249, %248 ], [ %255, %252 ]
   %.0.i610 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %257 = load i32, ptr %36, align 8, !tbaa !26
   %.not5651083 = icmp eq i32 %257, 1
@@ -9590,7 +9590,7 @@ tailrecurse.i27.i.backedge:                       ; preds = %401, %396, %393, %3
   unreachable
 
 "_ZZN4llvm15ScalarEvolution10getAddExprERNS_15SmallVectorImplIPKNS_4SCEVEEENS2_11NoWrapFlagsEjENK3$_4clEv.exit": ; preds = %333, %337, %339, %353, %357, %379, %383, %385, %399, %403
-  %.0.in.i29.sink.i = phi ptr [ %360, %357 ], [ %354, %353 ], [ %340, %339 ], [ %338, %337 ], [ %336, %333 ], [ %406, %403 ], [ %400, %399 ], [ %386, %385 ], [ %384, %383 ], [ %382, %379 ]
+  %.0.in.i29.sink.i = phi ptr [ %336, %333 ], [ %338, %337 ], [ %340, %339 ], [ %354, %353 ], [ %360, %357 ], [ %382, %379 ], [ %384, %383 ], [ %386, %385 ], [ %400, %399 ], [ %406, %403 ]
   %.0.i30.i = load ptr, ptr %.0.in.i29.sink.i, align 8, !tbaa !105
   %.not568 = icmp eq ptr %.0.i30.i, null
   br i1 %.not568, label %.thread930, label %408
@@ -9715,7 +9715,7 @@ tailrecurse.backedge.i617:                        ; preds = %450, %445, %442, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit620:                 ; preds = %428, %432, %434, %448, %452
-  %.0.in.i615 = phi ptr [ %455, %452 ], [ %449, %448 ], [ %435, %434 ], [ %433, %432 ], [ %431, %428 ]
+  %.0.in.i615 = phi ptr [ %431, %428 ], [ %433, %432 ], [ %435, %434 ], [ %449, %448 ], [ %455, %452 ]
   %.0.i616 = load ptr, ptr %.0.in.i615, align 8, !tbaa !105
   %.not576 = icmp eq ptr %.0.i616, %.0.i30.i
   br i1 %.not576, label %.thread905, label %.thread928
@@ -9896,7 +9896,7 @@ tailrecurse.backedge.i628:                        ; preds = %530, %525, %522, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit631:                 ; preds = %508, %512, %514, %528, %532
-  %.0.in.i626 = phi ptr [ %535, %532 ], [ %529, %528 ], [ %515, %514 ], [ %513, %512 ], [ %511, %508 ]
+  %.0.in.i626 = phi ptr [ %511, %508 ], [ %513, %512 ], [ %515, %514 ], [ %529, %528 ], [ %535, %532 ]
   %.0.i627 = load ptr, ptr %.0.in.i626, align 8, !tbaa !105
   %.not575 = icmp eq ptr %.0.i627, %.0.i30.i
   br i1 %.not575, label %537, label %.thread902
@@ -12277,8 +12277,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6insertEPS3_OS3_.exit.i: ; preds = %_ZN4ll
   br label %184
 
 184:                                              ; preds = %182, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %185 = phi i32 [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %181, %182 ]
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %183, %182 ]
+  %185 = phi i32 [ %181, %182 ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %183, %182 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !98
   %186 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 26
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %186, align 2, !tbaa !121
@@ -12291,8 +12291,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6insertEPS3_OS3_.exit.i: ; preds = %_ZN4ll
   br label %190
 
 190:                                              ; preds = %188, %._crit_edge._crit_edge55.i.i.i.i.i.i.i
-  %191 = phi i32 [ %.pre56.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ], [ %185, %188 ]
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ], [ %189, %188 ]
+  %191 = phi i32 [ %185, %188 ], [ %.pre56.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %189, %188 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !98
   %192 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 26
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %192, align 2, !tbaa !121
@@ -13446,7 +13446,7 @@ tailrecurse.i.i.backedge:                         ; preds = %725, %720, %717, %7
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %703, %707, %709, %723, %727
-  %.0.in.i.i = phi ptr [ %730, %727 ], [ %724, %723 ], [ %710, %709 ], [ %708, %707 ], [ %706, %703 ]
+  %.0.in.i.i = phi ptr [ %706, %703 ], [ %708, %707 ], [ %710, %709 ], [ %724, %723 ], [ %730, %727 ]
   %.0.i.i432 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %732 = getelementptr inbounds nuw i8, ptr %.0.i.i432, i64 8
   %733 = load i32, ptr %732, align 8
@@ -14237,7 +14237,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EEC2IS3_vEENS_8ArrayRefIT_EE.exit: ; preds =
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %101, %100 ]
+  %.1.i.i.i.i.i = phi ptr [ %101, %100 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !98
   %103 = call noundef i32 @_ZN4llvm15ScalarEvolution18getLoopDispositionEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.1.val.i.i.i.i.i, ptr noundef %2)
   %.not47.i.i.i.i.i = icmp eq i32 %103, 1
@@ -14248,7 +14248,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EEC2IS3_vEENS_8ArrayRefIT_EE.exit: ; preds =
   br label %106
 
 106:                                              ; preds = %104, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %105, %104 ]
+  %.2.i.i.i.i.i = phi ptr [ %105, %104 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !98
   %107 = call noundef i32 @_ZN4llvm15ScalarEvolution18getLoopDispositionEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.2.val.i.i.i.i.i, ptr noundef %2)
   %.not48.i.i.i.i.i = icmp eq i32 %107, 1
@@ -14353,7 +14353,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EEC2IS3_vEENS_8ArrayRefIT_EE.exit: ; preds =
   br label %143
 
 143:                                              ; preds = %141, %._crit_edge.i.i.i.i.i80
-  %.1.i.i.i.i.i86 = phi ptr [ %.029.lcssa.i.i.i.i.i82, %._crit_edge.i.i.i.i.i80 ], [ %142, %141 ]
+  %.1.i.i.i.i.i86 = phi ptr [ %142, %141 ], [ %.029.lcssa.i.i.i.i.i82, %._crit_edge.i.i.i.i.i80 ]
   %.1.val.i.i.i.i.i87 = load ptr, ptr %.1.i.i.i.i.i86, align 8, !tbaa !98
   %144 = call noundef i32 @_ZN4llvm15ScalarEvolution18getLoopDispositionEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.1.val.i.i.i.i.i87, ptr noundef %42)
   %.not47.i.i.i.i.i88 = icmp eq i32 %144, 1
@@ -14364,7 +14364,7 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj4EEC2IS3_vEENS_8ArrayRefIT_EE.exit: ; preds =
   br label %147
 
 147:                                              ; preds = %145, %._crit_edge.i.i.i.i.i80
-  %.2.i.i.i.i.i83 = phi ptr [ %.029.lcssa.i.i.i.i.i82, %._crit_edge.i.i.i.i.i80 ], [ %146, %145 ]
+  %.2.i.i.i.i.i83 = phi ptr [ %146, %145 ], [ %.029.lcssa.i.i.i.i.i82, %._crit_edge.i.i.i.i.i80 ]
   %.2.val.i.i.i.i.i84 = load ptr, ptr %.2.i.i.i.i.i83, align 8, !tbaa !98
   %148 = call noundef i32 @_ZN4llvm15ScalarEvolution18getLoopDispositionEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.2.val.i.i.i.i.i84, ptr noundef %42)
   %.not48.i.i.i.i.i85 = icmp eq i32 %148, 1
@@ -14534,7 +14534,7 @@ tailrecurse.backedge.i:                           ; preds = %38, %33, %30, %27, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %16, %20, %22, %36, %40
-  %.0.in.i = phi ptr [ %43, %40 ], [ %37, %36 ], [ %23, %22 ], [ %21, %20 ], [ %19, %16 ]
+  %.0.in.i = phi ptr [ %19, %16 ], [ %21, %20 ], [ %23, %22 ], [ %37, %36 ], [ %43, %40 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %46 = load i32, ptr %45, align 8
@@ -16054,7 +16054,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ScalarEvo
   br label %674
 
 674:                                              ; preds = %67, %64, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
-  %.1 = phi ptr [ %56, %64 ], [ %71, %67 ], [ %.4, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
+  %.1 = phi ptr [ %.4, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %71, %67 ], [ %56, %64 ]
   ret ptr %.1
 }
 
@@ -16721,7 +16721,7 @@ tailrecurse.i.i.backedge:                         ; preds = %154, %149, %146, %1
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %132, %136, %138, %152, %156
-  %.0.in.i.i = phi ptr [ %159, %156 ], [ %153, %152 ], [ %139, %138 ], [ %137, %136 ], [ %135, %132 ]
+  %.0.in.i.i = phi ptr [ %135, %132 ], [ %137, %136 ], [ %139, %138 ], [ %153, %152 ], [ %159, %156 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %162 = load i32, ptr %161, align 8
@@ -16877,7 +16877,7 @@ tailrecurse.backedge.i:                           ; preds = %220, %215, %212, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %198, %202, %204, %218, %222
-  %.0.in.i = phi ptr [ %225, %222 ], [ %219, %218 ], [ %205, %204 ], [ %203, %202 ], [ %201, %198 ]
+  %.0.in.i = phi ptr [ %201, %198 ], [ %203, %202 ], [ %205, %204 ], [ %219, %218 ], [ %225, %222 ]
   %.0.i51 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %227 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
   %228 = load i32, ptr %227, align 8
@@ -17689,7 +17689,7 @@ tailrecurse.i.i.backedge:                         ; preds = %65, %60, %57, %54, 
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %43, %47, %49, %63, %67
-  %.0.in.i.i = phi ptr [ %70, %67 ], [ %64, %63 ], [ %50, %49 ], [ %48, %47 ], [ %46, %43 ]
+  %.0.in.i.i = phi ptr [ %46, %43 ], [ %48, %47 ], [ %50, %49 ], [ %64, %63 ], [ %70, %67 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %73 = load i32, ptr %72, align 8
@@ -18288,7 +18288,7 @@ tailrecurse.backedge.i:                           ; preds = %97, %92, %89, %86, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %75, %79, %81, %95, %99
-  %.0.in.i115 = phi ptr [ %102, %99 ], [ %96, %95 ], [ %82, %81 ], [ %80, %79 ], [ %78, %75 ]
+  %.0.in.i115 = phi ptr [ %78, %75 ], [ %80, %79 ], [ %82, %81 ], [ %96, %95 ], [ %102, %99 ]
   %.0.i116 = load ptr, ptr %.0.in.i115, align 8, !tbaa !105
   %104 = getelementptr inbounds nuw i8, ptr %.0.i116, i64 8
   %105 = load i32, ptr %104, align 8
@@ -19004,7 +19004,7 @@ tailrecurse.backedge.i.i:                         ; preds = %132, %127, %124, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i:                  ; preds = %134, %130, %116, %114, %110
-  %.0.in.i.i = phi ptr [ %137, %134 ], [ %131, %130 ], [ %117, %116 ], [ %115, %114 ], [ %113, %110 ]
+  %.0.in.i.i = phi ptr [ %113, %110 ], [ %115, %114 ], [ %117, %116 ], [ %131, %130 ], [ %137, %134 ]
   %.0.i.i61 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i61, i64 8
   %140 = load i32, ptr %139, align 8
@@ -19315,7 +19315,7 @@ tailrecurse.backedge.i:                           ; preds = %35, %30, %27, %24, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %13, %17, %19, %33, %37
-  %.0.in.i = phi ptr [ %40, %37 ], [ %34, %33 ], [ %20, %19 ], [ %18, %17 ], [ %16, %13 ]
+  %.0.in.i = phi ptr [ %16, %13 ], [ %18, %17 ], [ %20, %19 ], [ %34, %33 ], [ %40, %37 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %43 = load i32, ptr %42, align 8
@@ -19427,7 +19427,7 @@ tailrecurse.backedge.i44:                         ; preds = %83, %78, %75, %72, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit47:                  ; preds = %61, %65, %67, %81, %85
-  %.0.in.i42 = phi ptr [ %88, %85 ], [ %82, %81 ], [ %68, %67 ], [ %66, %65 ], [ %64, %61 ]
+  %.0.in.i42 = phi ptr [ %64, %61 ], [ %66, %65 ], [ %68, %67 ], [ %82, %81 ], [ %88, %85 ]
   %.0.i43 = load ptr, ptr %.0.in.i42, align 8, !tbaa !105
   %90 = getelementptr inbounds nuw i8, ptr %.0.i43, i64 8
   %91 = load i32, ptr %90, align 8
@@ -19540,7 +19540,7 @@ tailrecurse.backedge.i53:                         ; preds = %128, %123, %120, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit56:                  ; preds = %106, %110, %112, %126, %130
-  %.0.in.i51 = phi ptr [ %133, %130 ], [ %127, %126 ], [ %113, %112 ], [ %111, %110 ], [ %109, %106 ]
+  %.0.in.i51 = phi ptr [ %109, %106 ], [ %111, %110 ], [ %113, %112 ], [ %127, %126 ], [ %133, %130 ]
   %.0.i52 = load ptr, ptr %.0.in.i51, align 8, !tbaa !105
   %135 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 8
   %136 = load i32, ptr %135, align 8
@@ -19658,7 +19658,7 @@ tailrecurse.backedge.i66:                         ; preds = %176, %171, %168, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit69:                  ; preds = %154, %158, %160, %174, %178
-  %.0.in.i64 = phi ptr [ %181, %178 ], [ %175, %174 ], [ %161, %160 ], [ %159, %158 ], [ %157, %154 ]
+  %.0.in.i64 = phi ptr [ %157, %154 ], [ %159, %158 ], [ %161, %160 ], [ %175, %174 ], [ %181, %178 ]
   %.0.i65 = load ptr, ptr %.0.in.i64, align 8, !tbaa !105
   br label %tailrecurse.i70
 
@@ -19742,7 +19742,7 @@ tailrecurse.backedge.i74:                         ; preds = %207, %202, %199, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit77:                  ; preds = %185, %189, %191, %205, %209
-  %.0.in.i72 = phi ptr [ %212, %209 ], [ %206, %205 ], [ %192, %191 ], [ %190, %189 ], [ %188, %185 ]
+  %.0.in.i72 = phi ptr [ %188, %185 ], [ %190, %189 ], [ %192, %191 ], [ %206, %205 ], [ %212, %209 ]
   %.0.i73 = load ptr, ptr %.0.in.i72, align 8, !tbaa !105
   %.not37 = icmp eq ptr %.0.i65, %.0.i73
   br i1 %.not37, label %246, label %tailrecurse.i78
@@ -19827,7 +19827,7 @@ tailrecurse.backedge.i82:                         ; preds = %238, %233, %230, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit85:                  ; preds = %216, %220, %222, %236, %240
-  %.0.in.i80 = phi ptr [ %243, %240 ], [ %237, %236 ], [ %223, %222 ], [ %221, %220 ], [ %219, %216 ]
+  %.0.in.i80 = phi ptr [ %219, %216 ], [ %221, %220 ], [ %223, %222 ], [ %237, %236 ], [ %243, %240 ]
   %.0.i81 = load ptr, ptr %.0.in.i80, align 8, !tbaa !105
   %245 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %151, ptr noundef %.0.i81, i32 noundef 0)
   store ptr %245, ptr %2, align 8, !tbaa !98
@@ -19918,7 +19918,7 @@ tailrecurse.backedge.i90:                         ; preds = %271, %266, %263, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit93:                  ; preds = %249, %253, %255, %269, %273
-  %.0.in.i88 = phi ptr [ %276, %273 ], [ %270, %269 ], [ %256, %255 ], [ %254, %253 ], [ %252, %249 ]
+  %.0.in.i88 = phi ptr [ %252, %249 ], [ %254, %253 ], [ %256, %255 ], [ %270, %269 ], [ %276, %273 ]
   %.0.i89 = load ptr, ptr %.0.in.i88, align 8, !tbaa !105
   %278 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 8
   %279 = load i32, ptr %278, align 8
@@ -20306,7 +20306,7 @@ tailrecurse.backedge.i:                           ; preds = %45, %40, %37, %34, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %23, %27, %29, %43, %47
-  %.0.in.i = phi ptr [ %50, %47 ], [ %44, %43 ], [ %30, %29 ], [ %28, %27 ], [ %26, %23 ]
+  %.0.in.i = phi ptr [ %26, %23 ], [ %28, %27 ], [ %30, %29 ], [ %44, %43 ], [ %50, %47 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %53 = load i32, ptr %52, align 8
@@ -20420,7 +20420,7 @@ tailrecurse.backedge.i25:                         ; preds = %92, %87, %84, %81, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit28:                  ; preds = %70, %74, %76, %90, %94
-  %.0.in.i23 = phi ptr [ %97, %94 ], [ %91, %90 ], [ %77, %76 ], [ %75, %74 ], [ %73, %70 ]
+  %.0.in.i23 = phi ptr [ %73, %70 ], [ %75, %74 ], [ %77, %76 ], [ %91, %90 ], [ %97, %94 ]
   %.0.i24 = load ptr, ptr %.0.in.i23, align 8, !tbaa !105
   %99 = load ptr, ptr %0, align 8, !tbaa !138
   %100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %99) #31
@@ -20683,7 +20683,7 @@ tailrecurse.backedge.i:                           ; preds = %96, %91, %88, %85, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %74, %78, %80, %94, %98
-  %.0.in.i = phi ptr [ %101, %98 ], [ %95, %94 ], [ %81, %80 ], [ %79, %78 ], [ %77, %74 ]
+  %.0.in.i = phi ptr [ %77, %74 ], [ %79, %78 ], [ %81, %80 ], [ %95, %94 ], [ %101, %98 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   br i1 %66, label %103, label %108
 
@@ -22812,7 +22812,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ScalarEvo
   br label %429
 
 429:                                              ; preds = %73, %66, %63, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
-  %.1 = phi ptr [ %55, %63 ], [ %70, %66 ], [ %77, %73 ], [ %.5, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
+  %.1 = phi ptr [ %.5, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %77, %73 ], [ %70, %66 ], [ %55, %63 ]
   ret ptr %.1
 }
 
@@ -23183,7 +23183,7 @@ tailrecurse.i.i.backedge:                         ; preds = %151, %146, %143, %1
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %129, %133, %135, %149, %153
-  %.0.in.i.i = phi ptr [ %156, %153 ], [ %150, %149 ], [ %136, %135 ], [ %134, %133 ], [ %132, %129 ]
+  %.0.in.i.i = phi ptr [ %132, %129 ], [ %134, %133 ], [ %136, %135 ], [ %150, %149 ], [ %156, %153 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %159 = load i32, ptr %158, align 8
@@ -23891,7 +23891,7 @@ define dso_local noundef ptr @_ZN4llvm15ScalarEvolution11getCastExprENS_9SCEVTyp
   unreachable
 
 _ZN4llvm15ScalarEvolution15getPtrToIntExprEPKNS_4SCEVEPNS_4TypeE.exit: ; preds = %16, %11, %9, %7, %5
-  %.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %17, %16 ], [ %12, %11 ]
+  %.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %17, %16 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -24038,7 +24038,7 @@ tailrecurse.backedge.i:                           ; preds = %68, %63, %60, %57, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %46, %50, %52, %66, %70
-  %.0.in.i = phi ptr [ %73, %70 ], [ %67, %66 ], [ %53, %52 ], [ %51, %50 ], [ %49, %46 ]
+  %.0.in.i = phi ptr [ %49, %46 ], [ %51, %50 ], [ %53, %52 ], [ %67, %66 ], [ %73, %70 ]
   %.0.i43 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %75 = getelementptr inbounds nuw i8, ptr %.0.i43, i64 8
   %76 = load i32, ptr %75, align 8
@@ -24185,7 +24185,7 @@ tailrecurse.backedge.i66:                         ; preds = %130, %125, %122, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit69:                  ; preds = %108, %112, %114, %128, %132
-  %.0.in.i64 = phi ptr [ %135, %132 ], [ %129, %128 ], [ %115, %114 ], [ %113, %112 ], [ %111, %108 ]
+  %.0.in.i64 = phi ptr [ %111, %108 ], [ %113, %112 ], [ %115, %114 ], [ %129, %128 ], [ %135, %132 ]
   %.0.i65 = load ptr, ptr %.0.in.i64, align 8, !tbaa !105
   %137 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 8
   %138 = load i32, ptr %137, align 8
@@ -24429,7 +24429,7 @@ tailrecurse.backedge.i:                           ; preds = %30, %25, %22, %19, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %8, %12, %14, %28, %32
-  %.0.in.i = phi ptr [ %35, %32 ], [ %29, %28 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.in.i = phi ptr [ %11, %8 ], [ %13, %12 ], [ %15, %14 ], [ %29, %28 ], [ %35, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
@@ -24606,7 +24606,7 @@ tailrecurse.backedge.i:                           ; preds = %47, %42, %39, %36, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %25, %29, %31, %45, %49
-  %.0.in.i = phi ptr [ %52, %49 ], [ %46, %45 ], [ %32, %31 ], [ %30, %29 ], [ %28, %25 ]
+  %.0.in.i = phi ptr [ %28, %25 ], [ %30, %29 ], [ %32, %31 ], [ %46, %45 ], [ %52, %49 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %54 = load ptr, ptr %.0.i, align 8, !tbaa !551
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
@@ -25365,7 +25365,7 @@ tailrecurse.backedge.i:                           ; preds = %34, %29, %26, %23, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %12, %16, %18, %32, %36
-  %.0.in.i = phi ptr [ %39, %36 ], [ %33, %32 ], [ %19, %18 ], [ %17, %16 ], [ %15, %12 ]
+  %.0.in.i = phi ptr [ %15, %12 ], [ %17, %16 ], [ %19, %18 ], [ %33, %32 ], [ %39, %36 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %42 = load i32, ptr %41, align 8
@@ -25465,7 +25465,7 @@ tailrecurse.backedge.i29:                         ; preds = %75, %70, %67, %64, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit32:                  ; preds = %53, %57, %59, %73, %77
-  %.0.in.i27 = phi ptr [ %80, %77 ], [ %74, %73 ], [ %60, %59 ], [ %58, %57 ], [ %56, %53 ]
+  %.0.in.i27 = phi ptr [ %56, %53 ], [ %58, %57 ], [ %60, %59 ], [ %74, %73 ], [ %80, %77 ]
   %.0.i28 = load ptr, ptr %.0.in.i27, align 8, !tbaa !105
   %82 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
   %83 = load i32, ptr %82, align 8
@@ -25553,7 +25553,7 @@ tailrecurse.backedge.i37:                         ; preds = %110, %105, %102, %9
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit40:                  ; preds = %88, %92, %94, %108, %112
-  %.0.in.i35 = phi ptr [ %115, %112 ], [ %109, %108 ], [ %95, %94 ], [ %93, %92 ], [ %91, %88 ]
+  %.0.in.i35 = phi ptr [ %91, %88 ], [ %93, %92 ], [ %95, %94 ], [ %109, %108 ], [ %115, %112 ]
   %.0.i36 = load ptr, ptr %.0.in.i35, align 8, !tbaa !105
   %117 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 8
   %118 = load i32, ptr %117, align 8
@@ -25866,12 +25866,12 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution35getStr
   %spec.select = or disjoint i32 %.031, %7
   %8 = load i8, ptr %1, align 8, !tbaa !243
   %9 = icmp ugt i8 %8, 28
-  %10 = zext i8 %8 to i32
-  %11 = add nsw i32 %10, -29
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %13 = load i16, ptr %12, align 2
-  %14 = zext i16 %13 to i32
-  %.1.i = select i1 %9, i32 %11, i32 %14
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = zext i16 %11 to i32
+  %13 = zext i8 %8 to i32
+  %14 = add nsw i32 %13, -29
+  %.1.i = select i1 %9, i32 %14, i32 %12
   switch i32 %.1.i, label %54 [
     i32 13, label %15
     i32 15, label %15
@@ -25905,11 +25905,11 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution35getStr
 31:                                               ; preds = %27
   %32 = load i8, ptr %1, align 8, !tbaa !243
   %33 = icmp ugt i8 %32, 28
-  %34 = zext i8 %32 to i32
-  %35 = add nsw i32 %34, -29
-  %36 = load i16, ptr %12, align 2
-  %37 = zext i16 %36 to i32
-  %.1.i25 = select i1 %33, i32 %35, i32 %37
+  %34 = load i16, ptr %10, align 2
+  %35 = zext i16 %34 to i32
+  %36 = zext i8 %32 to i32
+  %37 = add nsw i32 %36, -29
+  %.1.i25 = select i1 %33, i32 %37, i32 %35
   %38 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution15willNotOverflowENS_11Instruction9BinaryOpsEbPKNS_4SCEVES5_PKS1_(ptr noundef nonnull align 8 dereferenceable(1344) %0, i32 noundef %.1.i25, i1 noundef zeroext false, ptr noundef %18, ptr noundef %21, ptr noundef %28)
   %39 = or disjoint i32 %7, 2
   %spec.select37 = select i1 %38, i32 %39, i32 %spec.select
@@ -25927,11 +25927,11 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm15ScalarEvolution35getStr
 43:                                               ; preds = %40
   %44 = load i8, ptr %1, align 8, !tbaa !243
   %45 = icmp ugt i8 %44, 28
-  %46 = zext i8 %44 to i32
-  %47 = add nsw i32 %46, -29
-  %48 = load i16, ptr %12, align 2
-  %49 = zext i16 %48 to i32
-  %.1.i26 = select i1 %45, i32 %47, i32 %49
+  %46 = load i16, ptr %10, align 2
+  %47 = zext i16 %46 to i32
+  %48 = zext i8 %44 to i32
+  %49 = add nsw i32 %48, -29
+  %.1.i26 = select i1 %45, i32 %49, i32 %47
   %50 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution15willNotOverflowENS_11Instruction9BinaryOpsEbPKNS_4SCEVES5_PKS1_(ptr noundef nonnull align 8 dereferenceable(1344) %0, i32 noundef %.1.i26, i1 noundef zeroext true, ptr noundef %18, ptr noundef %21, ptr noundef %28)
   br i1 %50, label %.thread33, label %52
 
@@ -26050,7 +26050,7 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread: ; preds = %_
   br label %42
 
 42:                                               ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread
-  %.1 = phi ptr [ %40, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ], [ %41, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ]
+  %.1 = phi ptr [ %41, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ], [ %40, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ]
   ret ptr %.1
 }
 
@@ -27302,8 +27302,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMa
   br label %36
 
 36:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6doFindIS4_EEPSA_RKT_.exit, %.loopexit
-  %.sroa.0.1 = phi ptr [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6doFindIS4_EEPSA_RKT_.exit ], [ %35, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %33, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6doFindIS4_EEPSA_RKT_.exit ], [ %35, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %35, %.loopexit ], [ %.0.i.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6doFindIS4_EEPSA_RKT_.exit ]
+  %.sroa.3.1 = phi ptr [ %35, %.loopexit ], [ %33, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVENS_5APIntELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6doFindIS4_EEPSA_RKT_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -27745,7 +27745,7 @@ tailrecurse.i8.backedge:                          ; preds = %70, %65, %62, %59, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %72, %68, %54, %52, %48, %41, %37, %23, %21, %17
-  %.0.in.i10.sink = phi ptr [ %44, %41 ], [ %38, %37 ], [ %24, %23 ], [ %22, %21 ], [ %20, %17 ], [ %75, %72 ], [ %69, %68 ], [ %55, %54 ], [ %53, %52 ], [ %51, %48 ]
+  %.0.in.i10.sink = phi ptr [ %20, %17 ], [ %22, %21 ], [ %24, %23 ], [ %38, %37 ], [ %44, %41 ], [ %51, %48 ], [ %53, %52 ], [ %55, %54 ], [ %69, %68 ], [ %75, %72 ]
   %.0.i11 = load ptr, ptr %.0.in.i10.sink, align 8, !tbaa !105
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0.i11, ptr %77, align 8, !tbaa !630
@@ -29502,7 +29502,7 @@ _ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit64: ; preds = %110
   br label %130
 
 130:                                              ; preds = %128, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %129, %128 ]
+  %.1.i.i = phi ptr [ %129, %128 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %131 = load ptr, ptr %.1.i.i, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #31
   %132 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %131, i32 noundef 1, i32 noundef 0), !noalias !683
@@ -29539,7 +29539,7 @@ _ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit61: ; preds = %130
   br label %150
 
 150:                                              ; preds = %148, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %149, %148 ]
+  %.2.i.i = phi ptr [ %149, %148 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %151 = load ptr, ptr %.2.i.i, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #31
   %152 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %151, i32 noundef 1, i32 noundef 0), !noalias !686
@@ -30203,7 +30203,7 @@ tailrecurse.backedge.i:                           ; preds = %41, %36, %33, %30, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %19, %23, %25, %39, %43
-  %.0.in.i = phi ptr [ %46, %43 ], [ %40, %39 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ]
+  %.0.in.i = phi ptr [ %22, %19 ], [ %24, %23 ], [ %26, %25 ], [ %40, %39 ], [ %46, %43 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %49 = load i32, ptr %48, align 8
@@ -30843,7 +30843,7 @@ tailrecurse.backedge.i:                           ; preds = %36, %31, %28, %25, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %14, %18, %20, %34, %38
-  %.0.in.i = phi ptr [ %41, %38 ], [ %35, %34 ], [ %21, %20 ], [ %19, %18 ], [ %17, %14 ]
+  %.0.in.i = phi ptr [ %17, %14 ], [ %19, %18 ], [ %21, %20 ], [ %35, %34 ], [ %41, %38 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %44 = load i32, ptr %43, align 8
@@ -30895,7 +30895,7 @@ _ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit: ; 
   br label %64
 
 64:                                               ; preds = %8, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit
-  %.1 = phi ptr [ %12, %8 ], [ %60, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit ]
+  %.1 = phi ptr [ %60, %_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit ], [ %12, %8 ]
   ret ptr %.1
 }
 
@@ -31581,8 +31581,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_.exit: ; preds = %.lr.ph184, %
   br label %373
 
 373:                                              ; preds = %372, %371
-  %.027.i = phi ptr [ %369, %371 ], [ %365, %372 ]
-  %.026.i = phi ptr [ %365, %371 ], [ %369, %372 ]
+  %.027.i = phi ptr [ %365, %372 ], [ %369, %371 ]
+  %.026.i = phi ptr [ %369, %372 ], [ %365, %371 ]
   %374 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
   %375 = load i16, ptr %374, align 8, !tbaa !78
   %376 = icmp ne i16 %375, 4
@@ -31608,8 +31608,8 @@ _ZN4llvm12PatternMatch5matchIKNS_4SCEVENS_16SCEVPatternMatch19SCEVUnaryExpr_matc
   br label %384
 
 384:                                              ; preds = %383, %371
-  %.128.i = phi ptr [ %369, %371 ], [ %365, %383 ]
-  %.1.i118 = phi ptr [ %365, %371 ], [ %369, %383 ]
+  %.128.i = phi ptr [ %365, %383 ], [ %369, %371 ]
+  %.1.i118 = phi ptr [ %369, %383 ], [ %365, %371 ]
   %385 = getelementptr inbounds nuw i8, ptr %.1.i118, i64 24
   %386 = load i16, ptr %385, align 8, !tbaa !78
   %387 = icmp ne i16 %386, 3
@@ -31696,8 +31696,8 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_S6_.exit: ; preds = %_ZN4llvm1
   br label %423
 
 423:                                              ; preds = %422, %416
-  %.027.i134 = phi ptr [ %421, %416 ], [ %419, %422 ]
-  %.026.i135 = phi ptr [ %419, %416 ], [ %421, %422 ]
+  %.027.i134 = phi ptr [ %419, %422 ], [ %421, %416 ]
+  %.026.i135 = phi ptr [ %421, %422 ], [ %419, %416 ]
   %424 = getelementptr inbounds nuw i8, ptr %.026.i135, i64 24
   %425 = load i16, ptr %424, align 8, !tbaa !78
   %426 = icmp ne i16 %425, 4
@@ -31723,8 +31723,8 @@ _ZN4llvm12PatternMatch5matchIKNS_4SCEVENS_16SCEVPatternMatch19SCEVUnaryExpr_matc
   br label %434
 
 434:                                              ; preds = %433, %416
-  %.128.i122 = phi ptr [ %421, %416 ], [ %419, %433 ]
-  %.1.i123 = phi ptr [ %419, %416 ], [ %421, %433 ]
+  %.128.i122 = phi ptr [ %419, %433 ], [ %421, %416 ]
+  %.1.i123 = phi ptr [ %421, %433 ], [ %419, %416 ]
   %435 = getelementptr inbounds nuw i8, ptr %.1.i123, i64 24
   %436 = load i16, ptr %435, align 8, !tbaa !78
   %437 = icmp ne i16 %436, 3
@@ -31964,8 +31964,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution31isKnownViaNonRec
   br label %6
 
 6:                                                ; preds = %5, %4
-  %.027.i = phi ptr [ %3, %4 ], [ %2, %5 ]
-  %.026.i = phi ptr [ %2, %4 ], [ %3, %5 ]
+  %.027.i = phi ptr [ %2, %5 ], [ %3, %4 ]
+  %.026.i = phi ptr [ %3, %5 ], [ %2, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !78
   %9 = icmp ne i16 %8, 4
@@ -31991,8 +31991,8 @@ _ZN4llvm12PatternMatch5matchIKNS_4SCEVENS_16SCEVPatternMatch19SCEVUnaryExpr_matc
   br label %17
 
 17:                                               ; preds = %16, %4
-  %.128.i = phi ptr [ %3, %4 ], [ %2, %16 ]
-  %.1.i = phi ptr [ %2, %4 ], [ %3, %16 ]
+  %.128.i = phi ptr [ %2, %16 ], [ %3, %4 ]
+  %.1.i = phi ptr [ %3, %16 ], [ %2, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %19 = load i16, ptr %18, align 8, !tbaa !78
   %20 = icmp ne i16 %19, 3
@@ -33128,7 +33128,7 @@ tailrecurse.i.backedge:                           ; preds = %101, %96, %93, %90,
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %79, %83, %85, %99, %103
-  %.0.in.i = phi ptr [ %106, %103 ], [ %100, %99 ], [ %86, %85 ], [ %84, %83 ], [ %82, %79 ]
+  %.0.in.i = phi ptr [ %82, %79 ], [ %84, %83 ], [ %86, %85 ], [ %100, %99 ], [ %106, %103 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %108 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %109 = load i32, ptr %108, align 8
@@ -33541,7 +33541,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %297, %300
   br label %.thread169
 
 .thread169:                                       ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj6EED2Ev.exit, %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_.exit123, %.critedge205, %18, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %_ZN12_GLOBAL__N_140SCEVSequentialMinMaxDeduplicatingVisitorD2Ev.exit, %15
-  %.0 = phi ptr [ %17, %15 ], [ %21, %18 ], [ %.2, %_ZN12_GLOBAL__N_140SCEVSequentialMinMaxDeduplicatingVisitorD2Ev.exit ], [ %76, %.critedge205 ], [ %.6, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %236, %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_.exit123 ], [ %180, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj6EED2Ev.exit ]
+  %.0 = phi ptr [ %17, %15 ], [ %76, %.critedge205 ], [ %.2, %_ZN12_GLOBAL__N_140SCEVSequentialMinMaxDeduplicatingVisitorD2Ev.exit ], [ %21, %18 ], [ %.6, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %236, %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_.exit123 ], [ %180, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj6EED2Ev.exit ]
   ret ptr %.0
 }
 
@@ -33733,7 +33733,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   unreachable
 
 _ZN12_GLOBAL__N_140SCEVSequentialMinMaxDeduplicatingVisitor5visitEPKN4llvm4SCEVE.exit: ; preds = %59, %58, %56, %54, %52, %50, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38
-  %.pn.i = phi { ptr, i8 } [ %.fca.1.insert.i41.i, %59 ], [ %.fca.1.insert.i39.i, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %.fca.1.insert.i37.i, %47 ], [ %.fca.1.insert.i35.i, %46 ], [ %.fca.1.insert.i33.i, %45 ], [ %.fca.1.insert.i31.i, %44 ], [ %.fca.1.insert.i29.i, %43 ], [ %.fca.1.insert.i27.i, %42 ], [ %.fca.1.insert.i25.i, %41 ], [ %.fca.1.insert.i23.i, %40 ], [ %.fca.1.insert.i21.i, %39 ], [ %.fca.1.insert.i.i, %38 ]
+  %.pn.i = phi { ptr, i8 } [ %.fca.1.insert.i.i, %38 ], [ %.fca.1.insert.i21.i, %39 ], [ %.fca.1.insert.i23.i, %40 ], [ %.fca.1.insert.i25.i, %41 ], [ %.fca.1.insert.i27.i, %42 ], [ %.fca.1.insert.i29.i, %43 ], [ %.fca.1.insert.i31.i, %44 ], [ %.fca.1.insert.i33.i, %45 ], [ %.fca.1.insert.i35.i, %46 ], [ %.fca.1.insert.i37.i, %47 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %.fca.1.insert.i39.i, %58 ], [ %.fca.1.insert.i41.i, %59 ]
   %61 = extractvalue { ptr, i8 } %.pn.i, 0
   %62 = extractvalue { ptr, i8 } %.pn.i, 1
   store ptr %61, ptr %6, align 8
@@ -35803,8 +35803,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i.i
-  %43 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %38, %40 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %43 = phi ptr [ %38, %40 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !733
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEDaOT_RKT0_.exit, label %46
@@ -35814,8 +35814,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge52.i.i.i.i
-  %49 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %46 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %43, %46 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !733
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEDaOT_RKT0_.exit, label %52
@@ -35993,8 +35993,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE5eraseEPKS2_.exit: ; preds = %57, %59
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge._crit_edge.i.i.i.i23
-  %132 = phi ptr [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ], [ %127, %129 ]
-  %.1.i.i.i.i25 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ], [ %130, %129 ]
+  %132 = phi ptr [ %127, %129 ], [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ]
+  %.1.i.i.i.i25 = phi ptr [ %130, %129 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ]
   %133 = load ptr, ptr %.1.i.i.i.i25, align 8, !tbaa !733
   %134 = icmp eq ptr %133, %132
   br i1 %134, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEDaOT_RKT0_.exit30, label %135
@@ -36004,8 +36004,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE5eraseEPKS2_.exit: ; preds = %57, %59
   br label %137
 
 137:                                              ; preds = %135, %._crit_edge._crit_edge52.i.i.i.i20
-  %138 = phi ptr [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %132, %135 ]
-  %.2.i.i.i.i22 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %136, %135 ]
+  %138 = phi ptr [ %132, %135 ], [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ]
+  %.2.i.i.i.i22 = phi ptr [ %136, %135 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ]
   %139 = load ptr, ptr %.2.i.i.i.i22, align 8, !tbaa !733
   %140 = icmp eq ptr %139, %138
   br i1 %140, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEDaOT_RKT0_.exit30, label %141
@@ -36521,8 +36521,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !733
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit, label %50
@@ -36532,8 +36532,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_5ValueENS_
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !733
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit.thread
@@ -37412,7 +37412,7 @@ tailrecurse.backedge.i:                           ; preds = %129, %124, %121, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %107, %111, %113, %127, %131
-  %.0.in.i = phi ptr [ %134, %131 ], [ %128, %127 ], [ %114, %113 ], [ %112, %111 ], [ %110, %107 ]
+  %.0.in.i = phi ptr [ %110, %107 ], [ %112, %111 ], [ %114, %113 ], [ %128, %127 ], [ %134, %131 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %136 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %137 = load i32, ptr %136, align 8
@@ -37444,7 +37444,7 @@ _ZN4llvm15ScalarEvolution11getMinusOneEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4SCE
   br label %151
 
 151:                                              ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit, %7, %_ZN4llvm15ScalarEvolution11getMinusOneEPNS_4TypeE.exit
-  %.1 = phi ptr [ %11, %7 ], [ %150, %_ZN4llvm15ScalarEvolution11getMinusOneEPNS_4TypeE.exit ], [ %.3.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ]
+  %.1 = phi ptr [ %150, %_ZN4llvm15ScalarEvolution11getMinusOneEPNS_4TypeE.exit ], [ %11, %7 ], [ %.3.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ]
   ret ptr %.1
 }
 
@@ -37669,7 +37669,7 @@ tailrecurse.i.backedge:                           ; preds = %82, %77, %74, %71, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %60, %64, %66, %80, %84
-  %.0.in.i = phi ptr [ %87, %84 ], [ %81, %80 ], [ %67, %66 ], [ %65, %64 ], [ %63, %60 ]
+  %.0.in.i = phi ptr [ %63, %60 ], [ %65, %64 ], [ %67, %66 ], [ %81, %80 ], [ %87, %84 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %89 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %90 = load i32, ptr %89, align 8
@@ -37765,7 +37765,7 @@ tailrecurse.backedge.i50:                         ; preds = %118, %113, %110, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit53:                  ; preds = %96, %100, %102, %116, %120
-  %.0.in.i48 = phi ptr [ %123, %120 ], [ %117, %116 ], [ %103, %102 ], [ %101, %100 ], [ %99, %96 ]
+  %.0.in.i48 = phi ptr [ %99, %96 ], [ %101, %100 ], [ %103, %102 ], [ %117, %116 ], [ %123, %120 ]
   %.0.i49 = load ptr, ptr %.0.in.i48, align 8, !tbaa !105
   %125 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 8
   %126 = load i32, ptr %125, align 8
@@ -37786,7 +37786,7 @@ _ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4SCEV7get
   br label %135
 
 135:                                              ; preds = %94, %30, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit
-  %.1 = phi ptr [ %26, %30 ], [ %54, %94 ], [ %134, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit ]
+  %.1 = phi ptr [ %134, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit ], [ %54, %94 ], [ %26, %30 ]
   ret ptr %.1
 }
 
@@ -37912,7 +37912,7 @@ tailrecurse.backedge.i:                           ; preds = %27, %22, %19, %16, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %5, %9, %11, %25, %29
-  %.0.in.i = phi ptr [ %32, %29 ], [ %26, %25 ], [ %12, %11 ], [ %10, %9 ], [ %8, %5 ]
+  %.0.in.i = phi ptr [ %8, %5 ], [ %10, %9 ], [ %12, %11 ], [ %26, %25 ], [ %32, %29 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %35 = load i32, ptr %34, align 8
@@ -38039,7 +38039,7 @@ tailrecurse.backedge.i39:                         ; preds = %78, %73, %70, %67, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit42:                  ; preds = %56, %60, %62, %76, %80
-  %.0.in.i37 = phi ptr [ %83, %80 ], [ %77, %76 ], [ %63, %62 ], [ %61, %60 ], [ %59, %56 ]
+  %.0.in.i37 = phi ptr [ %59, %56 ], [ %61, %60 ], [ %63, %62 ], [ %77, %76 ], [ %83, %80 ]
   %.0.i38 = load ptr, ptr %.0.in.i37, align 8, !tbaa !105
   %85 = getelementptr inbounds nuw i8, ptr %.0.i38, i64 8
   %86 = load i32, ptr %85, align 8
@@ -38141,7 +38141,7 @@ tailrecurse.backedge.i:                           ; preds = %30, %25, %22, %19, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %8, %12, %14, %28, %32
-  %.0.in.i = phi ptr [ %35, %32 ], [ %29, %28 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.in.i = phi ptr [ %11, %8 ], [ %13, %12 ], [ %15, %14 ], [ %29, %28 ], [ %35, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
@@ -38299,7 +38299,7 @@ tailrecurse.backedge.i:                           ; preds = %30, %25, %22, %19, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %8, %12, %14, %28, %32
-  %.0.in.i = phi ptr [ %35, %32 ], [ %29, %28 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.in.i = phi ptr [ %11, %8 ], [ %13, %12 ], [ %15, %14 ], [ %29, %28 ], [ %35, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
@@ -38457,7 +38457,7 @@ tailrecurse.backedge.i:                           ; preds = %30, %25, %22, %19, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %8, %12, %14, %28, %32
-  %.0.in.i = phi ptr [ %35, %32 ], [ %29, %28 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.in.i = phi ptr [ %11, %8 ], [ %13, %12 ], [ %15, %14 ], [ %29, %28 ], [ %35, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
@@ -38618,7 +38618,7 @@ tailrecurse.backedge.i:                           ; preds = %33, %28, %25, %22, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %11, %15, %17, %31, %35
-  %.0.in.i = phi ptr [ %38, %35 ], [ %32, %31 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ]
+  %.0.in.i = phi ptr [ %14, %11 ], [ %16, %15 ], [ %18, %17 ], [ %32, %31 ], [ %38, %35 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %41 = load i32, ptr %40, align 8
@@ -38731,7 +38731,7 @@ tailrecurse.backedge.i17:                         ; preds = %78, %73, %70, %67, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit20:                  ; preds = %56, %60, %62, %76, %80
-  %.0.in.i15 = phi ptr [ %83, %80 ], [ %77, %76 ], [ %63, %62 ], [ %61, %60 ], [ %59, %56 ]
+  %.0.in.i15 = phi ptr [ %59, %56 ], [ %61, %60 ], [ %63, %62 ], [ %77, %76 ], [ %83, %80 ]
   %.0.i16 = load ptr, ptr %.0.in.i15, align 8, !tbaa !105
   %85 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 8
   %86 = load i32, ptr %85, align 8
@@ -38845,7 +38845,7 @@ tailrecurse.backedge.i30:                         ; preds = %124, %119, %116, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit33:                  ; preds = %102, %106, %108, %122, %126
-  %.0.in.i28 = phi ptr [ %129, %126 ], [ %123, %122 ], [ %109, %108 ], [ %107, %106 ], [ %105, %102 ]
+  %.0.in.i28 = phi ptr [ %105, %102 ], [ %107, %106 ], [ %109, %108 ], [ %123, %122 ], [ %129, %126 ]
   %.0.i29 = load ptr, ptr %.0.in.i28, align 8, !tbaa !105
   %131 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %2, ptr noundef %.0.i29, i32 noundef 0)
   br label %_ZN4llvm15ScalarEvolution19getNoopOrZeroExtendEPKNS_4SCEVEPNS_4TypeE.exit
@@ -38930,7 +38930,7 @@ tailrecurse.backedge.i38:                         ; preds = %156, %151, %148, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit41:                  ; preds = %134, %138, %140, %154, %158
-  %.0.in.i36 = phi ptr [ %161, %158 ], [ %155, %154 ], [ %141, %140 ], [ %139, %138 ], [ %137, %134 ]
+  %.0.in.i36 = phi ptr [ %137, %134 ], [ %139, %138 ], [ %141, %140 ], [ %155, %154 ], [ %161, %158 ]
   %.0.i37 = load ptr, ptr %.0.in.i36, align 8, !tbaa !105
   br label %tailrecurse.i53
 
@@ -39014,7 +39014,7 @@ tailrecurse.backedge.i57:                         ; preds = %187, %182, %179, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit60:                  ; preds = %165, %169, %171, %185, %189
-  %.0.in.i55 = phi ptr [ %192, %189 ], [ %186, %185 ], [ %172, %171 ], [ %170, %169 ], [ %168, %165 ]
+  %.0.in.i55 = phi ptr [ %168, %165 ], [ %170, %169 ], [ %172, %171 ], [ %186, %185 ], [ %192, %189 ]
   %.0.i56 = load ptr, ptr %.0.in.i55, align 8, !tbaa !105
   %194 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 8
   %195 = load i32, ptr %194, align 8
@@ -39276,7 +39276,7 @@ tailrecurse.backedge.i:                           ; preds = %52, %47, %44, %41, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %30, %34, %36, %50, %54
-  %.0.in.i = phi ptr [ %57, %54 ], [ %51, %50 ], [ %37, %36 ], [ %35, %34 ], [ %33, %30 ]
+  %.0.in.i = phi ptr [ %33, %30 ], [ %35, %34 ], [ %37, %36 ], [ %51, %50 ], [ %57, %54 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %59 = tail call noundef ptr @_ZNK4llvm15ScalarEvolution12getWiderTypeEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %.02471, ptr noundef %.0.i)
   br label %91
@@ -39361,7 +39361,7 @@ tailrecurse.backedge.i33:                         ; preds = %84, %79, %76, %73, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit36:                  ; preds = %62, %66, %68, %82, %86
-  %.0.in.i31 = phi ptr [ %89, %86 ], [ %83, %82 ], [ %69, %68 ], [ %67, %66 ], [ %65, %62 ]
+  %.0.in.i31 = phi ptr [ %65, %62 ], [ %67, %66 ], [ %69, %68 ], [ %83, %82 ], [ %89, %86 ]
   %.0.i32 = load ptr, ptr %.0.in.i31, align 8, !tbaa !105
   br label %91
 
@@ -39482,7 +39482,7 @@ tailrecurse.backedge.i48:                         ; preds = %128, %123, %120, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit51:                  ; preds = %106, %110, %112, %126, %130
-  %.0.in.i46 = phi ptr [ %133, %130 ], [ %127, %126 ], [ %113, %112 ], [ %111, %110 ], [ %109, %106 ]
+  %.0.in.i46 = phi ptr [ %109, %106 ], [ %111, %110 ], [ %113, %112 ], [ %127, %126 ], [ %133, %130 ]
   %.0.i47 = load ptr, ptr %.0.in.i46, align 8, !tbaa !105
   %135 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 8
   %136 = load i32, ptr %135, align 8
@@ -39795,7 +39795,7 @@ tailrecurse.i.i.backedge:                         ; preds = %102, %97, %94, %91,
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %80, %84, %86, %100, %104
-  %.0.in.i.i = phi ptr [ %107, %104 ], [ %101, %100 ], [ %87, %86 ], [ %85, %84 ], [ %83, %80 ]
+  %.0.in.i.i = phi ptr [ %83, %80 ], [ %85, %84 ], [ %87, %86 ], [ %101, %100 ], [ %107, %104 ]
   %.0.i.i24 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 8
   %110 = load i32, ptr %109, align 8
@@ -40324,7 +40324,7 @@ tailrecurse.backedge.i:                           ; preds = %37, %32, %29, %26, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %15, %19, %21, %35, %39
-  %.0.in.i = phi ptr [ %42, %39 ], [ %36, %35 ], [ %22, %21 ], [ %20, %19 ], [ %18, %15 ]
+  %.0.in.i = phi ptr [ %18, %15 ], [ %20, %19 ], [ %22, %21 ], [ %36, %35 ], [ %42, %39 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %45 = load i32, ptr %44, align 8
@@ -41115,7 +41115,7 @@ tailrecurse.backedge.i.i:                         ; preds = %160, %155, %152, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i:                  ; preds = %162, %158, %144, %142, %138
-  %.0.in.i.i = phi ptr [ %165, %162 ], [ %159, %158 ], [ %145, %144 ], [ %143, %142 ], [ %141, %138 ]
+  %.0.in.i.i = phi ptr [ %141, %138 ], [ %143, %142 ], [ %145, %144 ], [ %159, %158 ], [ %165, %162 ]
   %.0.i29.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %167 = getelementptr inbounds nuw i8, ptr %.0.i29.i, i64 8
   %168 = load i32, ptr %167, align 8
@@ -41446,7 +41446,7 @@ tailrecurse.backedge.i103:                        ; preds = %304, %299, %296, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit106:                 ; preds = %282, %286, %288, %302, %306
-  %.0.in.i101 = phi ptr [ %309, %306 ], [ %303, %302 ], [ %289, %288 ], [ %287, %286 ], [ %285, %282 ]
+  %.0.in.i101 = phi ptr [ %285, %282 ], [ %287, %286 ], [ %289, %288 ], [ %303, %302 ], [ %309, %306 ]
   %.0.i102 = load ptr, ptr %.0.in.i101, align 8, !tbaa !105
   %311 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef %279, ptr noundef %.0.i102, i32 noundef 0)
   br label %"_ZZN4llvm15ScalarEvolution32createAddRecFromPHIWithCastsImplEPKNS_11SCEVUnknownEENK3$_0clEPKNS_4SCEVEb.exit"
@@ -41531,7 +41531,7 @@ tailrecurse.backedge.i:                           ; preds = %336, %331, %328, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %314, %318, %320, %334, %338
-  %.0.in.i = phi ptr [ %341, %338 ], [ %335, %334 ], [ %321, %320 ], [ %319, %318 ], [ %317, %314 ]
+  %.0.in.i = phi ptr [ %317, %314 ], [ %319, %318 ], [ %321, %320 ], [ %335, %334 ], [ %341, %338 ]
   %.0.i98 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %343 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef %279, ptr noundef %.0.i98, i32 noundef 0)
   br label %"_ZZN4llvm15ScalarEvolution32createAddRecFromPHIWithCastsImplEPKNS_11SCEVUnknownEENK3$_0clEPKNS_4SCEVEb.exit"
@@ -41667,7 +41667,7 @@ tailrecurse.backedge.i112:                        ; preds = %384, %379, %376, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit115:                 ; preds = %362, %366, %368, %382, %386
-  %.0.in.i110 = phi ptr [ %389, %386 ], [ %383, %382 ], [ %369, %368 ], [ %367, %366 ], [ %365, %362 ]
+  %.0.in.i110 = phi ptr [ %365, %362 ], [ %367, %366 ], [ %369, %368 ], [ %383, %382 ], [ %389, %386 ]
   %.0.i111 = load ptr, ptr %.0.in.i110, align 8, !tbaa !105
   %391 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %1, ptr noundef %359, ptr noundef %.0.i111, i32 noundef 0)
   %.not.i96 = icmp eq ptr %207, %391
@@ -43153,12 +43153,12 @@ define internal fastcc void @_ZL13MatchBinaryOpPN4llvm5ValueERKNS_10DataLayoutER
 
 11:                                               ; preds = %3
   %12 = icmp ugt i8 %6, 28
-  %13 = zext i8 %6 to i32
-  %14 = add nsw i32 %13, -29
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %16 = load i16, ptr %15, align 2
-  %17 = zext i16 %16 to i32
-  %.1.i = select i1 %12, i32 %14, i32 %17
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %14 = load i16, ptr %13, align 2
+  %15 = zext i16 %14 to i32
+  %16 = zext i8 %6 to i32
+  %17 = add nsw i32 %16, -29
+  %.1.i = select i1 %12, i32 %17, i32 %15
   switch i32 %.1.i, label %.critedge79 [
     i32 13, label %18
     i32 15, label %18
@@ -43201,7 +43201,7 @@ _ZNK4llvm4User10getOperandEj.exit10.i:            ; preds = %25, %22
   br i1 %12, label %33, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i
 
 33:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit10.i
-  %34 = add nsw i32 %13, -42
+  %34 = add nsw i32 %16, -42
   %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 31)
   switch i32 %35, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i
@@ -43215,7 +43215,7 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   br i1 %36, label %37, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit
 
 37:                                               ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i
-  %38 = add nsw i32 %17, -13
+  %38 = add nsw i32 %15, -13
   %39 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 31)
   switch i32 %39, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i
@@ -43320,7 +43320,7 @@ _ZNK4llvm4User10getOperandEj.exit10.i90:          ; preds = %69, %66
   br i1 %12, label %77, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i91
 
 77:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit10.i90
-  %78 = add nsw i32 %13, -42
+  %78 = add nsw i32 %16, -42
   %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 31)
   switch i32 %79, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit95 [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i92
@@ -43334,7 +43334,7 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   br i1 %80, label %81, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit95
 
 81:                                               ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i91
-  %82 = add nsw i32 %17, -13
+  %82 = add nsw i32 %15, -13
   %83 = tail call i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 31)
   switch i32 %83, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit95 [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i92
@@ -43652,7 +43652,7 @@ _ZNK4llvm4User10getOperandEj.exit10.i120:         ; preds = %220, %217
   br i1 %12, label %228, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i121
 
 228:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit10.i120
-  %229 = add nsw i32 %13, -42
+  %229 = add nsw i32 %16, -42
   %230 = tail call i32 @llvm.fshl.i32(i32 %229, i32 %229, i32 31)
   switch i32 %230, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit125 [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i122
@@ -43666,7 +43666,7 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   br i1 %231, label %232, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit125
 
 232:                                              ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i121
-  %233 = add nsw i32 %17, -13
+  %233 = add nsw i32 %15, -13
   %234 = tail call i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 31)
   switch i32 %234, label %_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE.exit125 [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.i122
@@ -44993,7 +44993,7 @@ define dso_local noundef ptr @_ZN4llvm15ScalarEvolution24createNodeForSelectOrPH
   br label %34
 
 34:                                               ; preds = %26, %20, %.thread40
-  %.1 = phi ptr [ %22, %20 ], [ %33, %.thread40 ], [ %30, %26 ]
+  %.1 = phi ptr [ %33, %.thread40 ], [ %22, %20 ], [ %30, %26 ]
   ret ptr %.1
 }
 
@@ -45139,7 +45139,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit42:       ; preds = %27, %30
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge100
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge100 ], [ %66, %65 ]
+  %.1.i.i = phi ptr [ %66, %65 ], [ %.029.i.i.lcssa, %._crit_edge100 ]
   %68 = load ptr, ptr %.1.i.i, align 8, !tbaa !456
   %69 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %68)
   %.not77 = icmp eq ptr %24, %69
@@ -45150,7 +45150,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit42:       ; preds = %27, %30
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge100
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge100 ], [ %71, %70 ]
+  %.2.i.i = phi ptr [ %71, %70 ], [ %.029.i.i.lcssa, %._crit_edge100 ]
   %73 = load ptr, ptr %.2.i.i, align 8, !tbaa !456
   %74 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %73)
   %.not78 = icmp eq ptr %24, %74
@@ -45239,7 +45239,7 @@ define dso_local noundef ptr @_ZN4llvm15ScalarEvolution16createNodeForPHIEPNS_7P
   br label %29
 
 29:                                               ; preds = %21, %25, %23, %2, %27
-  %.1 = phi ptr [ %4, %2 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
+  %.1 = phi ptr [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %4, %2 ]
   ret ptr %.1
 }
 
@@ -45546,8 +45546,8 @@ define dso_local { ptr, i8 } @_ZN4llvm15ScalarEvolution44createNodeForSelectOrPH
   br label %25
 
 25:                                               ; preds = %24, %5, %5, %5, %5
-  %.0210 = phi ptr [ %20, %5 ], [ %20, %5 ], [ %20, %5 ], [ %20, %5 ], [ %18, %24 ]
-  %.0209 = phi ptr [ %18, %5 ], [ %18, %5 ], [ %18, %5 ], [ %18, %5 ], [ %20, %24 ]
+  %.0210 = phi ptr [ %18, %24 ], [ %20, %5 ], [ %20, %5 ], [ %20, %5 ], [ %20, %5 ]
+  %.0209 = phi ptr [ %20, %24 ], [ %18, %5 ], [ %18, %5 ], [ %18, %5 ], [ %18, %5 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0209, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !504
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -45702,7 +45702,7 @@ tailrecurse.backedge.i:                           ; preds = %89, %84, %81, %78, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %67, %71, %73, %87, %91
-  %.0.in.i = phi ptr [ %94, %91 ], [ %88, %87 ], [ %74, %73 ], [ %72, %71 ], [ %70, %67 ]
+  %.0.in.i = phi ptr [ %70, %67 ], [ %72, %71 ], [ %74, %73 ], [ %88, %87 ], [ %94, %91 ]
   %.0.i61 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %96 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 8
   %97 = load i32, ptr %96, align 8
@@ -45907,7 +45907,7 @@ tailrecurse.backedge.i91:                         ; preds = %164, %159, %156, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit94:                  ; preds = %142, %146, %148, %162, %166
-  %.0.in.i89 = phi ptr [ %169, %166 ], [ %163, %162 ], [ %149, %148 ], [ %147, %146 ], [ %145, %142 ]
+  %.0.in.i89 = phi ptr [ %145, %142 ], [ %147, %146 ], [ %149, %148 ], [ %163, %162 ], [ %169, %166 ]
   %.0.i90 = load ptr, ptr %.0.in.i89, align 8, !tbaa !105
   %171 = getelementptr inbounds nuw i8, ptr %.0.i90, i64 8
   %172 = load i32, ptr %171, align 8
@@ -46018,7 +46018,7 @@ tailrecurse.backedge.i99:                         ; preds = %209, %204, %201, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit102:                 ; preds = %187, %191, %193, %207, %211
-  %.0.in.i97 = phi ptr [ %214, %211 ], [ %208, %207 ], [ %194, %193 ], [ %192, %191 ], [ %190, %187 ]
+  %.0.in.i97 = phi ptr [ %190, %187 ], [ %192, %191 ], [ %194, %193 ], [ %208, %207 ], [ %214, %211 ]
   %.0.i98 = load ptr, ptr %.0.in.i97, align 8, !tbaa !105
   %216 = getelementptr inbounds nuw i8, ptr %.0.i98, i64 8
   %217 = load i32, ptr %216, align 8
@@ -46126,8 +46126,8 @@ _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103: ; preds = %246, %254
   br label %268
 
 268:                                              ; preds = %267, %5
-  %.0208 = phi ptr [ %4, %5 ], [ %3, %267 ]
-  %.0207 = phi ptr [ %3, %5 ], [ %4, %267 ]
+  %.0208 = phi ptr [ %3, %267 ], [ %4, %5 ]
+  %.0207 = phi ptr [ %4, %267 ], [ %3, %5 ]
   %269 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %270 = load ptr, ptr %269, align 8, !tbaa !504
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -46297,7 +46297,7 @@ tailrecurse.backedge.i119:                        ; preds = %338, %333, %330, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit122:                 ; preds = %316, %320, %322, %336, %340
-  %.0.in.i117 = phi ptr [ %343, %340 ], [ %337, %336 ], [ %323, %322 ], [ %321, %320 ], [ %319, %316 ]
+  %.0.in.i117 = phi ptr [ %319, %316 ], [ %321, %320 ], [ %323, %322 ], [ %337, %336 ], [ %343, %340 ]
   %.0.i118 = load ptr, ptr %.0.in.i117, align 8, !tbaa !105
   %345 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 8
   %346 = load i32, ptr %345, align 8
@@ -46469,8 +46469,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit80:           ; preds = %404
   br label %.critedge55
 
 .critedge55:                                      ; preds = %299, %264, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit83, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit85, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit81, %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit60, %_ZNK4llvm11ConstantInt6isZeroEv.exit80, %401, %_ZNK4llvm11ConstantInt6isZeroEv.exit78, %389, %5, %427, %._crit_edge, %233, %"_ZZN4llvm15ScalarEvolution44createNodeForSelectOrPHIInstWithICmpInstCondEPNS_4TypeEPNS_8ICmpInstEPNS_5ValueES6_ENK3$_0clEPKNS_4SCEVE.exit65", %255, %396, %409, %430, %.critedge
-  %.sroa.0185.2 = phi ptr [ %432, %430 ], [ %388, %.critedge ], [ undef, %5 ], [ undef, %._crit_edge ], [ undef, %427 ], [ undef, %_ZNK4llvm11ConstantInt6isZeroEv.exit80 ], [ undef, %401 ], [ undef, %_ZNK4llvm11ConstantInt6isZeroEv.exit78 ], [ undef, %389 ], [ undef, %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit60 ], [ undef, %"_ZZN4llvm15ScalarEvolution44createNodeForSelectOrPHIInstWithICmpInstCondEPNS_4TypeEPNS_8ICmpInstEPNS_5ValueES6_ENK3$_0clEPKNS_4SCEVE.exit65" ], [ undef, %233 ], [ undef, %255 ], [ undef, %396 ], [ undef, %409 ], [ %266, %264 ], [ %251, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103 ], [ %136, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit85 ], [ %128, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit83 ], [ %116, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit81 ], [ %108, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ undef, %299 ]
-  %.sroa.7.2 = phi i8 [ 1, %430 ], [ 1, %.critedge ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %427 ], [ 0, %_ZNK4llvm11ConstantInt6isZeroEv.exit80 ], [ 0, %401 ], [ 0, %_ZNK4llvm11ConstantInt6isZeroEv.exit78 ], [ 0, %389 ], [ 0, %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit60 ], [ 0, %"_ZZN4llvm15ScalarEvolution44createNodeForSelectOrPHIInstWithICmpInstCondEPNS_4TypeEPNS_8ICmpInstEPNS_5ValueES6_ENK3$_0clEPKNS_4SCEVE.exit65" ], [ 0, %233 ], [ 0, %255 ], [ 0, %396 ], [ 0, %409 ], [ 1, %264 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit85 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit83 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit81 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ 0, %299 ]
+  %.sroa.0185.2 = phi ptr [ %432, %430 ], [ %388, %.critedge ], [ undef, %5 ], [ undef, %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit60 ], [ undef, %._crit_edge ], [ undef, %427 ], [ undef, %_ZNK4llvm11ConstantInt6isZeroEv.exit80 ], [ undef, %401 ], [ undef, %_ZNK4llvm11ConstantInt6isZeroEv.exit78 ], [ undef, %389 ], [ undef, %"_ZZN4llvm15ScalarEvolution44createNodeForSelectOrPHIInstWithICmpInstCondEPNS_4TypeEPNS_8ICmpInstEPNS_5ValueES6_ENK3$_0clEPKNS_4SCEVE.exit65" ], [ undef, %233 ], [ undef, %255 ], [ undef, %396 ], [ undef, %409 ], [ %266, %264 ], [ %251, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103 ], [ %136, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit85 ], [ %128, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit83 ], [ %116, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit81 ], [ %108, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ undef, %299 ]
+  %.sroa.7.2 = phi i8 [ 1, %430 ], [ 1, %.critedge ], [ 0, %5 ], [ 0, %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit60 ], [ 0, %._crit_edge ], [ 0, %427 ], [ 0, %_ZNK4llvm11ConstantInt6isZeroEv.exit80 ], [ 0, %401 ], [ 0, %_ZNK4llvm11ConstantInt6isZeroEv.exit78 ], [ 0, %389 ], [ 0, %"_ZZN4llvm15ScalarEvolution44createNodeForSelectOrPHIInstWithICmpInstCondEPNS_4TypeEPNS_8ICmpInstEPNS_5ValueES6_ENK3$_0clEPKNS_4SCEVE.exit65" ], [ 0, %233 ], [ 0, %255 ], [ 0, %396 ], [ 0, %409 ], [ 1, %264 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit103 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit85 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit83 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit81 ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ 0, %299 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0185.2, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.7.2, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -46597,7 +46597,7 @@ _ZL29createNodeForSelectViaUMinSeqPN4llvm15ScalarEvolutionEPNS_5ValueES3_S3_.exi
   br label %50
 
 50:                                               ; preds = %48, %_ZL29createNodeForSelectViaUMinSeqPN4llvm15ScalarEvolutionEPNS_5ValueES3_S3_.exit.thread, %11
-  %.08 = phi ptr [ %44, %48 ], [ %49, %_ZL29createNodeForSelectViaUMinSeqPN4llvm15ScalarEvolutionEPNS_5ValueES3_S3_.exit.thread ], [ %12, %11 ]
+  %.08 = phi ptr [ %49, %_ZL29createNodeForSelectViaUMinSeqPN4llvm15ScalarEvolutionEPNS_5ValueES3_S3_.exit.thread ], [ %44, %48 ], [ %12, %11 ]
   ret ptr %.08
 }
 
@@ -46758,7 +46758,7 @@ tailrecurse.backedge.i:                           ; preds = %34, %29, %26, %23, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %12, %16, %18, %32, %36
-  %.0.in.i = phi ptr [ %39, %36 ], [ %33, %32 ], [ %19, %18 ], [ %17, %16 ], [ %15, %12 ]
+  %.0.in.i = phi ptr [ %15, %12 ], [ %17, %16 ], [ %19, %18 ], [ %33, %32 ], [ %39, %36 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %42 = load i32, ptr %41, align 8
@@ -49779,7 +49779,7 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread: ; preds = %_
   br label %_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit
 
 _ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit: ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread
-  %.1.i = phi ptr [ %201, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ], [ %202, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ]
+  %.1.i = phi ptr [ %202, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ], [ %201, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ]
   %203 = load i8, ptr %16, align 4, !tbaa !32, !range !54, !noalias !1076, !noundef !55
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %205, label %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i54
@@ -50532,7 +50532,7 @@ tailrecurse.backedge.i:                           ; preds = %250, %245, %242, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %228, %232, %234, %248, %252
-  %.0.in.i = phi ptr [ %255, %252 ], [ %249, %248 ], [ %235, %234 ], [ %233, %232 ], [ %231, %228 ]
+  %.0.in.i = phi ptr [ %231, %228 ], [ %233, %232 ], [ %235, %234 ], [ %249, %248 ], [ %255, %252 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %257 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %258 = load i32, ptr %257, align 8
@@ -51991,7 +51991,7 @@ _ZN4llvm5APIntD2Ev.exit361:                       ; preds = %836, %839, %842
   br label %876
 
 876:                                              ; preds = %496, %875, %874, %873
-  %.0270 = phi i32 [ 328, %875 ], [ 364, %874 ], [ 327, %873 ], [ 363, %496 ]
+  %.0270 = phi i32 [ 327, %873 ], [ 364, %874 ], [ 328, %875 ], [ 363, %496 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #31
   %877 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %878 = load ptr, ptr %877, align 8, !tbaa !95
@@ -53262,7 +53262,7 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread: ; preds = %_
   br label %_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit
 
 _ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit: ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread
-  %.1.i = phi ptr [ %1410, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ], [ %1411, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ]
+  %.1.i = phi ptr [ %1411, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread ], [ %1410, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit ]
   %1412 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.1.i, i32 noundef %2, i32 noundef %1365)
   %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 8
   %1414 = load i32, ptr %1413, align 8, !tbaa !119
@@ -53507,7 +53507,7 @@ _ZN4llvm5APIntD2Ev.exit431:                       ; preds = %_ZN4llvm5APInt7getZ
   br label %1510
 
 1510:                                             ; preds = %1498, %1486, %_ZN4llvm13ConstantRangeD2Ev.exit372, %861, %612, %._crit_edge512, %._crit_edge518, %519, %513, %507, %501, %498
-  %.2 = phi ptr [ %1509, %1498 ], [ %947, %_ZN4llvm13ConstantRangeD2Ev.exit372 ], [ %872, %861 ], [ %620, %612 ], [ %586, %._crit_edge512 ], [ %544, %._crit_edge518 ], [ %524, %519 ], [ %518, %513 ], [ %512, %507 ], [ %506, %501 ], [ %500, %498 ], [ %1497, %1486 ]
+  %.2 = phi ptr [ %1509, %1498 ], [ %1497, %1486 ], [ %500, %498 ], [ %506, %501 ], [ %512, %507 ], [ %518, %513 ], [ %524, %519 ], [ %544, %._crit_edge518 ], [ %586, %._crit_edge512 ], [ %620, %612 ], [ %872, %861 ], [ %947, %_ZN4llvm13ConstantRangeD2Ev.exit372 ]
   %1511 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %1512 = load i32, ptr %1511, align 8, !tbaa !119
   %1513 = icmp ugt i32 %1512, 64
@@ -54633,7 +54633,7 @@ tailrecurse.backedge.i:                           ; preds = %50, %45, %42, %39, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %28, %32, %34, %48, %52
-  %.0.in.i = phi ptr [ %55, %52 ], [ %49, %48 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ]
+  %.0.in.i = phi ptr [ %31, %28 ], [ %33, %32 ], [ %35, %34 ], [ %49, %48 ], [ %55, %52 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %58 = load i32, ptr %57, align 8
@@ -54748,7 +54748,7 @@ tailrecurse.i.i.backedge:                         ; preds = %97, %92, %89, %86, 
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %75, %79, %81, %95, %99
-  %.0.in.i.i = phi ptr [ %102, %99 ], [ %96, %95 ], [ %82, %81 ], [ %80, %79 ], [ %78, %75 ]
+  %.0.in.i.i = phi ptr [ %78, %75 ], [ %80, %79 ], [ %82, %81 ], [ %96, %95 ], [ %102, %99 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %105 = load i32, ptr %104, align 8
@@ -54870,7 +54870,7 @@ tailrecurse.i.i40.backedge:                       ; preds = %146, %141, %138, %1
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit47:       ; preds = %124, %128, %130, %144, %148
-  %.0.in.i.i43 = phi ptr [ %151, %148 ], [ %145, %144 ], [ %131, %130 ], [ %129, %128 ], [ %127, %124 ]
+  %.0.in.i.i43 = phi ptr [ %127, %124 ], [ %129, %128 ], [ %131, %130 ], [ %145, %144 ], [ %151, %148 ]
   %.0.i.i44 = load ptr, ptr %.0.in.i.i43, align 8, !tbaa !105
   br label %tailrecurse.i73
 
@@ -54954,7 +54954,7 @@ tailrecurse.backedge.i77:                         ; preds = %177, %172, %169, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit80:                  ; preds = %155, %159, %161, %175, %179
-  %.0.in.i75 = phi ptr [ %182, %179 ], [ %176, %175 ], [ %162, %161 ], [ %160, %159 ], [ %158, %155 ]
+  %.0.in.i75 = phi ptr [ %158, %155 ], [ %160, %159 ], [ %162, %161 ], [ %176, %175 ], [ %182, %179 ]
   %.0.i76 = load ptr, ptr %.0.in.i75, align 8, !tbaa !105
   %184 = getelementptr inbounds nuw i8, ptr %.0.i76, i64 8
   %185 = load i32, ptr %184, align 8
@@ -55106,7 +55106,7 @@ tailrecurse.i.i49.backedge:                       ; preds = %240, %235, %232, %2
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit56:       ; preds = %218, %222, %224, %238, %242
-  %.0.in.i.i52 = phi ptr [ %245, %242 ], [ %239, %238 ], [ %225, %224 ], [ %223, %222 ], [ %221, %218 ]
+  %.0.in.i.i52 = phi ptr [ %221, %218 ], [ %223, %222 ], [ %225, %224 ], [ %239, %238 ], [ %245, %242 ]
   %.0.i.i53 = load ptr, ptr %.0.in.i.i52, align 8, !tbaa !105
   %247 = getelementptr inbounds nuw i8, ptr %.0.i.i53, i64 8
   %248 = load i32, ptr %247, align 8
@@ -59516,12 +59516,12 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit496._crit_edge: ; preds = %_ZNK4llvm11Consta
 
 776:                                              ; preds = %767
   %777 = icmp ugt i8 %773, 28
-  %778 = zext i8 %773 to i32
-  %779 = add nsw i32 %778, -29
-  %780 = getelementptr inbounds nuw i8, ptr %750, i64 2
-  %781 = load i16, ptr %780, align 2
-  %782 = zext i16 %781 to i32
-  %.1.i = select i1 %777, i32 %779, i32 %782
+  %778 = getelementptr inbounds nuw i8, ptr %750, i64 2
+  %779 = load i16, ptr %778, align 2
+  %780 = zext i16 %779 to i32
+  %781 = zext i8 %773 to i32
+  %782 = add nsw i32 %781, -29
+  %.1.i = select i1 %777, i32 %782, i32 %780
   switch i32 %.1.i, label %.thread648 [
     i32 13, label %783
     i32 25, label %864
@@ -59565,12 +59565,12 @@ select.unfold:                                    ; preds = %794, %787
   %807 = load i8, ptr %806, align 8, !tbaa !243
   %808 = icmp eq i8 %807, 17
   %809 = icmp ugt i8 %803, 28
-  %810 = zext i8 %803 to i32
-  %811 = add nsw i32 %810, -29
-  %812 = getelementptr inbounds nuw i8, ptr %spec.select.i.i501661, i64 2
-  %813 = load i16, ptr %812, align 2
-  %814 = zext i16 %813 to i32
-  %.1.i505 = select i1 %809, i32 %811, i32 %814
+  %810 = getelementptr inbounds nuw i8, ptr %spec.select.i.i501661, i64 2
+  %811 = load i16, ptr %810, align 2
+  %812 = zext i16 %811 to i32
+  %813 = zext i8 %803 to i32
+  %814 = add nsw i32 %813, -29
+  %.1.i505 = select i1 %809, i32 %814, i32 %812
   %815 = icmp eq i32 %.1.i505, 25
   %or.cond18 = and i1 %808, %815
   br i1 %or.cond18, label %816, label %.thread648
@@ -59747,11 +59747,11 @@ _ZNK4llvm4User10getOperandEj.exit517:             ; preds = %881, %884
   %910 = call noundef ptr @_ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %.1313, ptr noundef %909, i32 noundef 0, i32 noundef 0)
   %911 = load i8, ptr %750, align 8, !tbaa !243
   %912 = icmp ugt i8 %911, 28
-  %913 = zext i8 %911 to i32
-  %914 = add nsw i32 %913, -29
-  %915 = load i16, ptr %780, align 2
-  %916 = zext i16 %915 to i32
-  %.1.i521 = select i1 %912, i32 %914, i32 %916
+  %913 = load i16, ptr %778, align 2
+  %914 = zext i16 %913 to i32
+  %915 = zext i8 %911 to i32
+  %916 = add nsw i32 %915, -29
+  %.1.i521 = select i1 %912, i32 %916, i32 %914
   %.not343 = icmp eq i32 %.1.i521, 25
   br i1 %.not343, label %919, label %917
 
@@ -59780,8 +59780,8 @@ _ZN4llvm5APIntD2Ev.exit522:                       ; preds = %919, %924, %927
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #31
   br label %.thread677
 
-.thread677:                                       ; preds = %738, %697, %607, %597, %592, %383, %370, %362, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit458, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit, %_ZN4llvm5APIntD2Ev.exit522, %765, %405, %409, %621, %658
-  %.5.ph = phi ptr [ %920, %_ZN4llvm5APIntD2Ev.exit522 ], [ %766, %765 ], [ %225, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit ], [ %358, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit458 ], [ %369, %362 ], [ %377, %370 ], [ %390, %383 ], [ %.8, %592 ], [ %600, %597 ], [ %612, %607 ], [ %.15, %697 ], [ %743, %738 ], [ %412, %409 ], [ %406, %405 ], [ %660, %658 ], [ %623, %621 ]
+.thread677:                                       ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit458, %362, %370, %383, %597, %592, %607, %697, %738, %_ZN4llvm5APIntD2Ev.exit522, %765, %405, %409, %621, %658
+  %.5.ph = phi ptr [ %920, %_ZN4llvm5APIntD2Ev.exit522 ], [ %766, %765 ], [ %743, %738 ], [ %.15, %697 ], [ %612, %607 ], [ %.8, %592 ], [ %600, %597 ], [ %390, %383 ], [ %377, %370 ], [ %369, %362 ], [ %358, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit458 ], [ %225, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj4EED2Ev.exit ], [ %412, %409 ], [ %406, %405 ], [ %660, %658 ], [ %623, %621 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #31
   br label %.thread
 
@@ -59789,12 +59789,12 @@ _ZN4llvm5APIntD2Ev.exit522:                       ; preds = %919, %924, %927
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #31
   %928 = load i8, ptr %1, align 8, !tbaa !243
   %929 = icmp ugt i8 %928, 28
-  %930 = zext i8 %928 to i32
-  %931 = add nsw i32 %930, -29
-  %932 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %933 = load i16, ptr %932, align 2
-  %934 = zext i16 %933 to i32
-  %.1.i523 = select i1 %929, i32 %931, i32 %934
+  %930 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %931 = load i16, ptr %930, align 2
+  %932 = zext i16 %931 to i32
+  %933 = zext i8 %928 to i32
+  %934 = add nsw i32 %933, -29
+  %.1.i523 = select i1 %929, i32 %934, i32 %932
   switch i32 %.1.i523, label %1379 [
     i32 38, label %935
     i32 39, label %952
@@ -60480,8 +60480,8 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %1247, %1250
   %1380 = call noundef ptr @_ZN4llvm15ScalarEvolution10getUnknownEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %1)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm11ConstantInt5isOneEv.exit, %1255, %1273, %1291, %1309, %1327, %1346, %1366, %1375, %65, %63, %61, %1216, %1067, %_ZNK4llvm4User10getOperandEj.exit540, %991, %.thread677, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, %_ZNK4llvm4User10getOperandEj.exit525, %_ZNK4llvm4User10getOperandEj.exit527, %_ZNK4llvm4User10getOperandEj.exit532, %_ZNK4llvm4User10getOperandEj.exit538, %1069, %_ZNK4llvm4User10getOperandEj.exit548, %_ZNK4llvm4User10getOperandEj.exit556, %1193, %1195, %_ZNK4llvm4User10getOperandEj.exit562, %1379, %37
-  %.0 = phi ptr [ %38, %37 ], [ %1380, %1379 ], [ %1217, %1216 ], [ %1213, %_ZNK4llvm4User10getOperandEj.exit562 ], [ %1196, %1195 ], [ %1194, %1193 ], [ %1192, %_ZNK4llvm4User10getOperandEj.exit556 ], [ %1131, %_ZNK4llvm4User10getOperandEj.exit548 ], [ %1070, %1069 ], [ %1046, %_ZNK4llvm4User10getOperandEj.exit538 ], [ %1017, %_ZNK4llvm4User10getOperandEj.exit532 ], [ %1001, %991 ], [ %968, %_ZNK4llvm4User10getOperandEj.exit527 ], [ %951, %_ZNK4llvm4User10getOperandEj.exit525 ], [ %59, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread ], [ %.5.ph, %.thread677 ], [ %1068, %1067 ], [ %1063, %_ZNK4llvm4User10getOperandEj.exit540 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %1254, %_ZNK4llvm11ConstantInt5isOneEv.exit ], [ %1272, %1255 ], [ %1290, %1273 ], [ %1308, %1291 ], [ %1326, %1309 ], [ %1345, %1327 ], [ %1365, %1346 ], [ %1374, %1366 ], [ %1378, %1375 ]
+.thread:                                          ; preds = %1375, %1366, %1346, %1327, %1309, %1291, %1273, %1255, %_ZNK4llvm11ConstantInt5isOneEv.exit, %65, %63, %61, %1216, %1067, %_ZNK4llvm4User10getOperandEj.exit540, %991, %.thread677, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, %_ZNK4llvm4User10getOperandEj.exit525, %_ZNK4llvm4User10getOperandEj.exit527, %_ZNK4llvm4User10getOperandEj.exit532, %_ZNK4llvm4User10getOperandEj.exit538, %1069, %_ZNK4llvm4User10getOperandEj.exit548, %_ZNK4llvm4User10getOperandEj.exit556, %1193, %1195, %_ZNK4llvm4User10getOperandEj.exit562, %1379, %37
+  %.0 = phi ptr [ %38, %37 ], [ %1380, %1379 ], [ %951, %_ZNK4llvm4User10getOperandEj.exit525 ], [ %968, %_ZNK4llvm4User10getOperandEj.exit527 ], [ %1017, %_ZNK4llvm4User10getOperandEj.exit532 ], [ %1001, %991 ], [ %1046, %_ZNK4llvm4User10getOperandEj.exit538 ], [ %1070, %1069 ], [ %1131, %_ZNK4llvm4User10getOperandEj.exit548 ], [ %1192, %_ZNK4llvm4User10getOperandEj.exit556 ], [ %1194, %1193 ], [ %1196, %1195 ], [ %1213, %_ZNK4llvm4User10getOperandEj.exit562 ], [ %1217, %1216 ], [ %59, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread ], [ %.5.ph, %.thread677 ], [ %1068, %1067 ], [ %1063, %_ZNK4llvm4User10getOperandEj.exit540 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %1378, %1375 ], [ %1374, %1366 ], [ %1365, %1346 ], [ %1345, %1327 ], [ %1326, %1309 ], [ %1308, %1291 ], [ %1290, %1273 ], [ %1272, %1255 ], [ %1254, %_ZNK4llvm11ConstantInt5isOneEv.exit ]
   ret ptr %.0
 }
 
@@ -60580,12 +60580,12 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.e
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #31
   %47 = load i8, ptr %1, align 8, !tbaa !243
   %48 = icmp ugt i8 %47, 28
-  %49 = zext i8 %47 to i32
-  %50 = add nsw i32 %49, -29
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %52 = load i16, ptr %51, align 2
-  %53 = zext i16 %52 to i32
-  %.1.i = select i1 %48, i32 %50, i32 %53
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i32
+  %52 = zext i8 %47 to i32
+  %53 = add nsw i32 %52, -29
+  %.1.i = select i1 %48, i32 %53, i32 %51
   switch i32 %.1.i, label %.thread [
     i32 38, label %196
     i32 39, label %196
@@ -60917,7 +60917,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit123: ; pred
   br label %.thread191
 
 .thread191:                                       ; preds = %162, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit123, %154, %156
-  %.5.ph = phi ptr [ null, %156 ], [ null, %154 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit123 ], [ %163, %162 ]
+  %.5.ph = phi ptr [ null, %156 ], [ null, %154 ], [ %163, %162 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit123 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #31
   br label %.thread
 
@@ -61287,8 +61287,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit150: ; pred
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %394)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit150, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit140, %_ZN4llvm4User8operandsEv.exit147, %_ZN4llvm4User8operandsEv.exit, %195, %364, %372, %387, %40, %38, %36, %.thread193, %355, %357, %354, %318, %.thread191, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit126, %_ZNK4llvm4User10getOperandEj.exit132, %253, %_ZNK4llvm4User10getOperandEj.exit136, %314, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %354 ], [ %315, %314 ], [ null, %_ZNK4llvm4User10getOperandEj.exit136 ], [ null, %_ZNK4llvm4User10getOperandEj.exit132 ], [ %254, %253 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit126 ], [ null, %195 ], [ %34, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread ], [ %.5.ph, %.thread191 ], [ %319, %318 ], [ null, %357 ], [ null, %355 ], [ null, %.thread193 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ null, %387 ], [ null, %372 ], [ null, %364 ], [ null, %_ZN4llvm4User8operandsEv.exit ], [ null, %_ZN4llvm4User8operandsEv.exit147 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit140 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit150 ]
+.thread:                                          ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit150, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit140, %_ZN4llvm4User8operandsEv.exit147, %_ZN4llvm4User8operandsEv.exit, %195, %387, %372, %364, %40, %38, %36, %.thread193, %355, %357, %354, %318, %.thread191, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit126, %_ZNK4llvm4User10getOperandEj.exit132, %253, %_ZNK4llvm4User10getOperandEj.exit136, %314, %12
+  %.0 = phi ptr [ %13, %12 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit126 ], [ null, %_ZNK4llvm4User10getOperandEj.exit132 ], [ %254, %253 ], [ null, %_ZNK4llvm4User10getOperandEj.exit136 ], [ %315, %314 ], [ null, %354 ], [ null, %195 ], [ %34, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread ], [ %.5.ph, %.thread191 ], [ %319, %318 ], [ null, %357 ], [ null, %355 ], [ null, %.thread193 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ null, %364 ], [ null, %372 ], [ null, %387 ], [ null, %_ZN4llvm4User8operandsEv.exit ], [ null, %_ZN4llvm4User8operandsEv.exit147 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit140 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit150 ]
   ret ptr %.0
 }
 
@@ -61963,7 +61963,7 @@ tailrecurse.backedge.i:                           ; preds = %32, %27, %24, %21, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %10, %14, %16, %30, %34
-  %.0.in.i = phi ptr [ %37, %34 ], [ %31, %30 ], [ %17, %16 ], [ %15, %14 ], [ %13, %10 ]
+  %.0.in.i = phi ptr [ %13, %10 ], [ %15, %14 ], [ %17, %16 ], [ %31, %30 ], [ %37, %34 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %39 = load ptr, ptr %.0.i, align 8, !tbaa !551
   %40 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #32
@@ -62081,7 +62081,7 @@ tailrecurse.backedge.i:                           ; preds = %40, %35, %32, %29, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %18, %22, %24, %38, %42
-  %.0.in.i = phi ptr [ %45, %42 ], [ %39, %38 ], [ %25, %24 ], [ %23, %22 ], [ %21, %18 ]
+  %.0.in.i = phi ptr [ %21, %18 ], [ %23, %22 ], [ %25, %24 ], [ %39, %38 ], [ %45, %42 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %48 = load i32, ptr %47, align 8
@@ -62288,7 +62288,7 @@ tailrecurse.backedge.i.i:                         ; preds = %125, %120, %117, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i:                  ; preds = %127, %123, %109, %107, %103
-  %.0.in.i.i = phi ptr [ %130, %127 ], [ %124, %123 ], [ %110, %109 ], [ %108, %107 ], [ %106, %103 ]
+  %.0.in.i.i = phi ptr [ %106, %103 ], [ %108, %107 ], [ %110, %109 ], [ %124, %123 ], [ %130, %127 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %133 = load i32, ptr %132, align 8
@@ -62429,7 +62429,7 @@ tailrecurse.backedge.i12:                         ; preds = %185, %180, %177, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit15:                  ; preds = %163, %167, %169, %183, %187
-  %.0.in.i10 = phi ptr [ %190, %187 ], [ %184, %183 ], [ %170, %169 ], [ %168, %167 ], [ %166, %163 ]
+  %.0.in.i10 = phi ptr [ %166, %163 ], [ %168, %167 ], [ %170, %169 ], [ %184, %183 ], [ %190, %187 ]
   %.0.i11 = load ptr, ptr %.0.in.i10, align 8, !tbaa !105
   %192 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 8
   %193 = load i32, ptr %192, align 8
@@ -62632,7 +62632,7 @@ _ZNK4llvm15ScalarEvolution17BackedgeTakenInfo14getConstantMaxEPS0_PNS_15SmallVec
   unreachable
 
 26:                                               ; preds = %23, %_ZNK4llvm15ScalarEvolution17BackedgeTakenInfo14getConstantMaxEPS0_PNS_15SmallVectorImplIPKNS_13SCEVPredicateEEE.exit, %5
-  %.0 = phi ptr [ %24, %23 ], [ %.0.i, %_ZNK4llvm15ScalarEvolution17BackedgeTakenInfo14getConstantMaxEPS0_PNS_15SmallVectorImplIPKNS_13SCEVPredicateEEE.exit ], [ %6, %5 ]
+  %.0 = phi ptr [ %6, %5 ], [ %.0.i, %_ZNK4llvm15ScalarEvolution17BackedgeTakenInfo14getConstantMaxEPS0_PNS_15SmallVectorImplIPKNS_13SCEVPredicateEEE.exit ], [ %24, %23 ]
   ret ptr %.0
 }
 
@@ -64568,7 +64568,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isBackedgeTakenC
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %30 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i, i64 40
   %.1.val.i.i.i.i.i.i.i = load i32, ptr %30, align 8, !tbaa !26
   %.not.i.i.i.i37.not.i.i.i.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i.i.i.i, 0
@@ -64579,7 +64579,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isBackedgeTakenC
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %32, %31 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %34 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i, i64 40
   %.2.val.i.i.i.i.i.i.i = load i32, ptr %34, align 8, !tbaa !26
   %.not.i.i.i.i38.not.i.i.i.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i.i.i.i, 0
@@ -64690,7 +64690,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15ScalarEvolution17BackedgeTakenIn
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %27, %26 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %27, %26 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %29 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 40
   %.1.val.i.i.i.i.i.i = load i32, ptr %29, align 8, !tbaa !26
   %.not.i.i.i.i37.not.i.i.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i.i.i, 0
@@ -64701,7 +64701,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15ScalarEvolution17BackedgeTakenIn
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %31, %30 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %31, %30 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %33 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 40
   %.2.val.i.i.i.i.i.i = load i32, ptr %33, align 8, !tbaa !26
   %.not.i.i.i.i38.not.i.i.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i.i.i, 0
@@ -71713,7 +71713,7 @@ tailrecurse.backedge.i:                           ; preds = %212, %207, %204, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %190, %194, %196, %210, %214
-  %.0.in.i = phi ptr [ %217, %214 ], [ %211, %210 ], [ %197, %196 ], [ %195, %194 ], [ %193, %190 ]
+  %.0.in.i = phi ptr [ %193, %190 ], [ %195, %194 ], [ %197, %196 ], [ %211, %210 ], [ %217, %214 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %219 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %220 = load i32, ptr %219, align 8
@@ -71818,7 +71818,7 @@ tailrecurse.backedge.i135:                        ; preds = %256, %251, %248, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit138:                 ; preds = %234, %238, %240, %254, %258
-  %.0.in.i133 = phi ptr [ %261, %258 ], [ %255, %254 ], [ %241, %240 ], [ %239, %238 ], [ %237, %234 ]
+  %.0.in.i133 = phi ptr [ %237, %234 ], [ %239, %238 ], [ %241, %240 ], [ %255, %254 ], [ %261, %258 ]
   %.0.i134 = load ptr, ptr %.0.in.i133, align 8, !tbaa !105
   %263 = getelementptr inbounds nuw i8, ptr %.0.i134, i64 8
   %264 = load i32, ptr %263, align 8
@@ -71952,7 +71952,7 @@ tailrecurse.backedge.i143:                        ; preds = %316, %311, %308, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit146:                 ; preds = %294, %298, %300, %314, %318
-  %.0.in.i141 = phi ptr [ %321, %318 ], [ %315, %314 ], [ %301, %300 ], [ %299, %298 ], [ %297, %294 ]
+  %.0.in.i141 = phi ptr [ %297, %294 ], [ %299, %298 ], [ %301, %300 ], [ %315, %314 ], [ %321, %318 ]
   %.0.i142 = load ptr, ptr %.0.in.i141, align 8, !tbaa !105
   %323 = getelementptr inbounds nuw i8, ptr %.0.i142, i64 8
   %324 = load i32, ptr %323, align 8
@@ -72057,7 +72057,7 @@ tailrecurse.backedge.i151:                        ; preds = %360, %355, %352, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit154:                 ; preds = %338, %342, %344, %358, %362
-  %.0.in.i149 = phi ptr [ %365, %362 ], [ %359, %358 ], [ %345, %344 ], [ %343, %342 ], [ %341, %338 ]
+  %.0.in.i149 = phi ptr [ %341, %338 ], [ %343, %342 ], [ %345, %344 ], [ %359, %358 ], [ %365, %362 ]
   %.0.i150 = load ptr, ptr %.0.in.i149, align 8, !tbaa !105
   %367 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 8
   %368 = load i32, ptr %367, align 8
@@ -72261,7 +72261,7 @@ tailrecurse.i157.backedge:                        ; preds = %459, %454, %451, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit164:                 ; preds = %437, %441, %443, %457, %461
-  %.0.in.i159 = phi ptr [ %464, %461 ], [ %458, %457 ], [ %444, %443 ], [ %442, %441 ], [ %440, %437 ]
+  %.0.in.i159 = phi ptr [ %440, %437 ], [ %442, %441 ], [ %444, %443 ], [ %458, %457 ], [ %464, %461 ]
   %.0.i160 = load ptr, ptr %.0.in.i159, align 8, !tbaa !105
   %466 = getelementptr inbounds nuw i8, ptr %.0.i160, i64 8
   %467 = load i32, ptr %466, align 8
@@ -72382,7 +72382,7 @@ tailrecurse.i166.backedge:                        ; preds = %509, %504, %501, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit173:                 ; preds = %487, %491, %493, %507, %511
-  %.0.in.i168 = phi ptr [ %514, %511 ], [ %508, %507 ], [ %494, %493 ], [ %492, %491 ], [ %490, %487 ]
+  %.0.in.i168 = phi ptr [ %490, %487 ], [ %492, %491 ], [ %494, %493 ], [ %508, %507 ], [ %514, %511 ]
   %.0.i169 = load ptr, ptr %.0.in.i168, align 8, !tbaa !105
   %516 = getelementptr inbounds nuw i8, ptr %.0.i169, i64 8
   %517 = load i32, ptr %516, align 8
@@ -72545,7 +72545,7 @@ tailrecurse.i176.backedge:                        ; preds = %583, %578, %575, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit183:                 ; preds = %561, %565, %567, %581, %585
-  %.0.in.i178 = phi ptr [ %588, %585 ], [ %582, %581 ], [ %568, %567 ], [ %566, %565 ], [ %564, %561 ]
+  %.0.in.i178 = phi ptr [ %564, %561 ], [ %566, %565 ], [ %568, %567 ], [ %582, %581 ], [ %588, %585 ]
   %.0.i179 = load ptr, ptr %.0.in.i178, align 8, !tbaa !105
   %590 = getelementptr inbounds nuw i8, ptr %.0.i179, i64 8
   %591 = load i32, ptr %590, align 8
@@ -73205,9 +73205,9 @@ define dso_local void @_ZN4llvm15ScalarEvolution28computeShiftCompareExitLimitEP
   br i1 %49, label %50, label %"_ZZN4llvm15ScalarEvolution28computeShiftCompareExitLimitEPNS_5ValueES2_PKNS_4LoopENS_7CmpInst9PredicateEENK3$_1clES2_RPNS_7PHINodeERNS_11Instruction9BinaryOpsE.exit.thread"
 
 50:                                               ; preds = %45, %37, %29
-  %.06.i = phi ptr [ %44, %45 ], [ %36, %37 ], [ %28, %29 ]
-  %.sink.i.i = phi i32 [ 25, %45 ], [ 27, %37 ], [ 26, %29 ]
-  %.016.i.i = phi ptr [ %47, %45 ], [ %39, %37 ], [ %31, %29 ]
+  %.06.i = phi ptr [ %28, %29 ], [ %36, %37 ], [ %44, %45 ]
+  %.sink.i.i = phi i32 [ 26, %29 ], [ 27, %37 ], [ 25, %45 ]
+  %.016.i.i = phi ptr [ %31, %29 ], [ %39, %37 ], [ %47, %45 ]
   %51 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !119
@@ -73344,10 +73344,10 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit.i: ; preds =
   br i1 %120, label %121, label %"_ZZN4llvm15ScalarEvolution28computeShiftCompareExitLimitEPNS_5ValueES2_PKNS_4LoopENS_7CmpInst9PredicateEENK3$_1clES2_RPNS_7PHINodeERNS_11Instruction9BinaryOpsE.exit.thread"
 
 121:                                              ; preds = %116, %108, %100
-  %.04.i = phi ptr [ %115, %116 ], [ %107, %108 ], [ %99, %100 ]
-  %switch = phi i1 [ false, %116 ], [ true, %108 ], [ false, %100 ]
-  %122 = phi i32 [ 25, %116 ], [ 27, %108 ], [ 26, %100 ]
-  %.016.i16.i = phi ptr [ %118, %116 ], [ %110, %108 ], [ %102, %100 ]
+  %.04.i = phi ptr [ %99, %100 ], [ %107, %108 ], [ %115, %116 ]
+  %switch = phi i1 [ false, %100 ], [ true, %108 ], [ false, %116 ]
+  %122 = phi i32 [ 26, %100 ], [ 27, %108 ], [ 25, %116 ]
+  %.016.i16.i = phi ptr [ %102, %100 ], [ %110, %108 ], [ %118, %116 ]
   %123 = getelementptr inbounds nuw i8, ptr %.016.i16.i, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i16.i, i64 32
   %125 = load i32, ptr %124, align 8, !tbaa !119
@@ -73547,7 +73547,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.
   br label %233
 
 233:                                              ; preds = %_ZN4llvm9KnownBitsD2Ev.exit, %229
-  %.2 = phi ptr [ %232, %229 ], [ %.1, %_ZN4llvm9KnownBitsD2Ev.exit ]
+  %.2 = phi ptr [ %.1, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %232, %229 ]
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %235 = load ptr, ptr %234, align 8, !tbaa !957
   %236 = call noundef ptr @_ZN4llvm31ConstantFoldCompareInstOperandsEjPNS_8ConstantES1_RKNS_10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_11InstructionE(i32 noundef %5, ptr noundef %.2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(496) %150, ptr noundef %235, ptr noundef null) #31
@@ -74317,7 +74317,7 @@ _ZN4llvm5APIntD2Ev.exit162:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %249
 
 249:                                              ; preds = %77, %_ZN4llvm5APIntD2Ev.exit153, %_ZN4llvm5APIntD2Ev.exit156, %_ZN4llvm5APIntD2Ev.exit159, %_ZN4llvm5APIntD2Ev.exit162, %.thread215, %146, %_ZNK4llvm5APInt6isZeroEv.exit, %135, %141
-  %.10.ph = phi i1 [ %.5125218, %141 ], [ %spec.select, %146 ], [ %.5125218, %_ZNK4llvm5APInt6isZeroEv.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit153 ], [ true, %_ZN4llvm5APIntD2Ev.exit156 ], [ true, %_ZN4llvm5APIntD2Ev.exit159 ], [ true, %_ZN4llvm5APIntD2Ev.exit162 ], [ %.5125218, %.thread215 ], [ %.6126, %135 ], [ %.2122, %77 ]
+  %.10.ph = phi i1 [ %.5125218, %141 ], [ %spec.select, %146 ], [ true, %_ZN4llvm5APIntD2Ev.exit162 ], [ true, %_ZN4llvm5APIntD2Ev.exit159 ], [ true, %_ZN4llvm5APIntD2Ev.exit156 ], [ true, %_ZN4llvm5APIntD2Ev.exit153 ], [ %.5125218, %_ZNK4llvm5APInt6isZeroEv.exit ], [ %.5125218, %.thread215 ], [ %.6126, %135 ], [ %.2122, %77 ]
   %250 = load ptr, ptr %2, align 8, !tbaa !98
   %251 = load ptr, ptr %3, align 8, !tbaa !98
   %252 = icmp eq ptr %250, %251
@@ -74825,7 +74825,7 @@ tailrecurse.i.backedge:                           ; preds = %482, %477, %474, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %460, %464, %466, %480, %484
-  %.0.in.i = phi ptr [ %487, %484 ], [ %481, %480 ], [ %467, %466 ], [ %465, %464 ], [ %463, %460 ]
+  %.0.in.i = phi ptr [ %463, %460 ], [ %465, %464 ], [ %467, %466 ], [ %481, %480 ], [ %487, %484 ]
   %.0.i264 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %489 = getelementptr inbounds nuw i8, ptr %.0.i264, i64 8
   %490 = load i32, ptr %489, align 8
@@ -74867,8 +74867,8 @@ _ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit: ; 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #31
   store ptr %503, ptr %.sink247, align 8, !tbaa !98
   store i32 %.sink, ptr %1, align 4, !tbaa !540
-  %.sroa.4192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 0, ptr %.sroa.4192.0..sroa_idx, align 4, !tbaa !72
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !72
   br label %.thread235
 
 .thread235:                                       ; preds = %_ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit, %457
@@ -75165,7 +75165,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %106, %102, %95
   br label %148
 
 148:                                              ; preds = %146, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %147, %146 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %147, %146 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !98
   %149 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 24
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %149, align 8, !tbaa !78
@@ -75177,7 +75177,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %106, %102, %95
   br label %152
 
 152:                                              ; preds = %150, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %151, %150 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %151, %150 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !98
   %153 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 24
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %153, align 8, !tbaa !78
@@ -75293,7 +75293,7 @@ tailrecurse.backedge.i.i:                         ; preds = %183, %178, %175, %1
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %161, %165, %167, %181, %185
-  %.0.in.i.i = phi ptr [ %188, %185 ], [ %182, %181 ], [ %168, %167 ], [ %166, %165 ], [ %164, %161 ]
+  %.0.in.i.i = phi ptr [ %164, %161 ], [ %166, %165 ], [ %168, %167 ], [ %182, %181 ], [ %188, %185 ]
   %.0.i.i51 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %190 = getelementptr inbounds nuw i8, ptr %.0.i.i51, i64 8
   %191 = load i32, ptr %190, align 8
@@ -75441,7 +75441,7 @@ tailrecurse.i.i52.backedge:                       ; preds = %241, %236, %233, %2
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit59:       ; preds = %219, %223, %225, %239, %243
-  %.0.in.i.i55 = phi ptr [ %246, %243 ], [ %240, %239 ], [ %226, %225 ], [ %224, %223 ], [ %222, %219 ]
+  %.0.in.i.i55 = phi ptr [ %222, %219 ], [ %224, %223 ], [ %226, %225 ], [ %240, %239 ], [ %246, %243 ]
   %.0.i.i56 = load ptr, ptr %.0.in.i.i55, align 8, !tbaa !105
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i56, i64 8
   %249 = load i32, ptr %248, align 8
@@ -76409,7 +76409,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZL25SolveQuad
   br label %664
 
 664:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread, %122, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit61, %_ZN4llvm5APIntD2Ev.exit71, %661, %157, %35
-  %.0 = phi ptr [ %37, %35 ], [ %.2, %122 ], [ %159, %157 ], [ %257, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit61 ], [ %.5, %_ZN4llvm5APIntD2Ev.exit71 ], [ %663, %661 ], [ %651, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread ]
+  %.0 = phi ptr [ %37, %35 ], [ %159, %157 ], [ %.2, %122 ], [ %257, %_ZN4llvm15ScalarEvolution7getZeroEPNS_4TypeE.exit61 ], [ %.5, %_ZN4llvm5APIntD2Ev.exit71 ], [ %663, %661 ], [ %651, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.thread ]
   ret ptr %.0
 }
 
@@ -76898,7 +76898,7 @@ tailrecurse.i.i.backedge:                         ; preds = %145, %140, %137, %1
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %123, %127, %129, %143, %147
-  %.0.in.i.i = phi ptr [ %150, %147 ], [ %144, %143 ], [ %130, %129 ], [ %128, %127 ], [ %126, %123 ]
+  %.0.in.i.i = phi ptr [ %126, %123 ], [ %128, %127 ], [ %130, %129 ], [ %144, %143 ], [ %150, %147 ]
   %.0.i.i88 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i88, i64 8
   %153 = load i32, ptr %152, align 8
@@ -78491,7 +78491,7 @@ tailrecurse.backedge.i:                           ; preds = %266, %261, %258, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %244, %248, %250, %264, %268
-  %.0.in.i = phi ptr [ %271, %268 ], [ %265, %264 ], [ %251, %250 ], [ %249, %248 ], [ %247, %244 ]
+  %.0.in.i = phi ptr [ %247, %244 ], [ %249, %248 ], [ %251, %250 ], [ %265, %264 ], [ %271, %268 ]
   %.0.i76 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %273 = getelementptr inbounds nuw i8, ptr %.0.i76, i64 8
   %274 = load i32, ptr %273, align 8
@@ -78599,7 +78599,7 @@ tailrecurse.backedge.i81:                         ; preds = %309, %304, %301, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit84:                  ; preds = %287, %291, %293, %307, %311
-  %.0.in.i79 = phi ptr [ %314, %311 ], [ %308, %307 ], [ %294, %293 ], [ %292, %291 ], [ %290, %287 ]
+  %.0.in.i79 = phi ptr [ %290, %287 ], [ %292, %291 ], [ %294, %293 ], [ %308, %307 ], [ %314, %311 ]
   %.0.i80 = load ptr, ptr %.0.in.i79, align 8, !tbaa !105
   %316 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 8
   %317 = load i32, ptr %316, align 8
@@ -79382,7 +79382,7 @@ tailrecurse.backedge.i:                           ; preds = %203, %198, %195, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %181, %185, %187, %201, %205
-  %.0.in.i = phi ptr [ %208, %205 ], [ %202, %201 ], [ %188, %187 ], [ %186, %185 ], [ %184, %181 ]
+  %.0.in.i = phi ptr [ %184, %181 ], [ %186, %185 ], [ %188, %187 ], [ %202, %201 ], [ %208, %205 ]
   %.0.i113 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %210 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 8
   %211 = load i32, ptr %210, align 8
@@ -81844,7 +81844,7 @@ tailrecurse.backedge.i:                           ; preds = %32, %27, %24, %21, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %10, %14, %16, %30, %34
-  %.0.in.i = phi ptr [ %37, %34 ], [ %31, %30 ], [ %17, %16 ], [ %15, %14 ], [ %13, %10 ]
+  %.0.in.i = phi ptr [ %13, %10 ], [ %15, %14 ], [ %17, %16 ], [ %31, %30 ], [ %37, %34 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   switch i16 %5, label %52 [
     i16 2, label %39
@@ -81925,7 +81925,7 @@ _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %10, %14, %16, %30, 
   unreachable
 
 _ZN4llvm15ScalarEvolution11getCastExprENS_9SCEVTypesEPKNS_4SCEVEPNS_4TypeE.exit: ; preds = %43, %41, %39, %45, %50, %3, %3, %3, %81, %79, %73, %67, %61, %53
-  %.0 = phi ptr [ %82, %81 ], [ %80, %79 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %53 ], [ %1, %3 ], [ %1, %3 ], [ %1, %3 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %51, %50 ], [ %46, %45 ]
+  %.0 = phi ptr [ %60, %53 ], [ %66, %61 ], [ %72, %67 ], [ %78, %73 ], [ %80, %79 ], [ %82, %81 ], [ %1, %3 ], [ %1, %3 ], [ %1, %3 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %51, %50 ], [ %46, %45 ]
   ret ptr %.0
 }
 
@@ -82145,7 +82145,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %62, %59, %56
   unreachable
 
 _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %71, %29, %25, %21, %17, %13, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %8, %5
-  %.0 = phi ptr [ %spec.select.i.i, %8 ], [ %7, %5 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %20, %17 ], [ null, %13 ], [ %28, %25 ], [ null, %21 ], [ null, %29 ], [ null, %39 ], [ %.246.ph, %71 ]
+  %.0 = phi ptr [ %7, %5 ], [ %spec.select.i.i, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %20, %17 ], [ null, %13 ], [ %28, %25 ], [ null, %21 ], [ null, %29 ], [ null, %39 ], [ %.246.ph, %71 ]
   ret ptr %.0
 }
 
@@ -82659,7 +82659,7 @@ tailrecurse.backedge.i:                           ; preds = %86, %81, %78, %75, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %64, %68, %70, %84, %88
-  %.0.in.i = phi ptr [ %91, %88 ], [ %85, %84 ], [ %71, %70 ], [ %69, %68 ], [ %67, %64 ]
+  %.0.in.i = phi ptr [ %67, %64 ], [ %69, %68 ], [ %71, %70 ], [ %85, %84 ], [ %91, %88 ]
   %.0.i42 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %93 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 8
   %94 = load i32, ptr %93, align 8
@@ -83333,7 +83333,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIPKNS_4S
   br label %25
 
 25:                                               ; preds = %23, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %23 ]
+  %.1.i.i.i.i = phi ptr [ %24, %23 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !98
   %26 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15ScalarEvolution22isKnownToBeAPowerOfTwoEPKNS2_4SCEVEbbE3$_0EclIPKS6_EEbT_"(ptr readonly %0, i8 %1, ptr %.1.val.i.i.i.i)
   br i1 %26, label %"_ZSt6all_ofIPKPKN4llvm4SCEVEZNS0_15ScalarEvolution22isKnownToBeAPowerOfTwoES3_bbE3$_0EbT_S8_T0_.exit", label %27
@@ -83343,7 +83343,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIPKNS_4S
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %28, %27 ]
+  %.2.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !98
   %30 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15ScalarEvolution22isKnownToBeAPowerOfTwoEPKNS2_4SCEVEbbE3$_0EclIPKS6_EEbT_"(ptr readonly %0, i8 %1, ptr %.2.val.i.i.i.i)
   br i1 %30, label %"_ZSt6all_ofIPKPKN4llvm4SCEVEZNS0_15ScalarEvolution22isKnownToBeAPowerOfTwoES3_bbE3$_0EbT_S8_T0_.exit", label %31
@@ -84319,7 +84319,7 @@ tailrecurse.backedge.i:                           ; preds = %58, %53, %50, %47, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %36, %40, %42, %56, %60
-  %.0.in.i = phi ptr [ %63, %60 ], [ %57, %56 ], [ %43, %42 ], [ %41, %40 ], [ %39, %36 ]
+  %.0.in.i = phi ptr [ %39, %36 ], [ %41, %40 ], [ %43, %42 ], [ %57, %56 ], [ %63, %60 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %66 = load i32, ptr %65, align 8
@@ -85881,7 +85881,7 @@ tailrecurse.backedge.i:                           ; preds = %50, %45, %42, %39, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %28, %32, %34, %48, %52
-  %.0.in.i = phi ptr [ %55, %52 ], [ %49, %48 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ]
+  %.0.in.i = phi ptr [ %31, %28 ], [ %33, %32 ], [ %35, %34 ], [ %49, %48 ], [ %55, %52 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %58 = load i32, ptr %57, align 8
@@ -85990,7 +85990,7 @@ tailrecurse.i.i.backedge:                         ; preds = %95, %90, %87, %84, 
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %73, %77, %79, %93, %97
-  %.0.in.i.i = phi ptr [ %100, %97 ], [ %94, %93 ], [ %80, %79 ], [ %78, %77 ], [ %76, %73 ]
+  %.0.in.i.i = phi ptr [ %76, %73 ], [ %78, %77 ], [ %80, %79 ], [ %94, %93 ], [ %100, %97 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   br label %tailrecurse.i37
 
@@ -86074,7 +86074,7 @@ tailrecurse.backedge.i41:                         ; preds = %126, %121, %118, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit44:                  ; preds = %104, %108, %110, %124, %128
-  %.0.in.i39 = phi ptr [ %131, %128 ], [ %125, %124 ], [ %111, %110 ], [ %109, %108 ], [ %107, %104 ]
+  %.0.in.i39 = phi ptr [ %107, %104 ], [ %109, %108 ], [ %111, %110 ], [ %125, %124 ], [ %131, %128 ]
   %.0.i40 = load ptr, ptr %.0.in.i39, align 8, !tbaa !105
   %.not36 = icmp eq ptr %.0.i.i, %.0.i40
   br i1 %.not36, label %133, label %148
@@ -86150,8 +86150,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicate
   br label %10
 
 10:                                               ; preds = %9, %4
-  %.023 = phi ptr [ %3, %4 ], [ %2, %9 ]
-  %.022 = phi ptr [ %2, %4 ], [ %3, %9 ]
+  %.023 = phi ptr [ %2, %9 ], [ %3, %4 ]
+  %.022 = phi ptr [ %3, %9 ], [ %2, %4 ]
   %11 = call fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_ENK3$_0clES4_S4_RNS_5APIntES7_NS2_11NoWrapFlagsE"(ptr nonnull %0, ptr noundef %.022, ptr noundef %.023, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 4)
   br i1 %11, label %12, label %33
 
@@ -86164,8 +86164,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicate
   br label %16
 
 16:                                               ; preds = %15, %4
-  %.124 = phi ptr [ %3, %4 ], [ %2, %15 ]
-  %.1 = phi ptr [ %2, %4 ], [ %3, %15 ]
+  %.124 = phi ptr [ %2, %15 ], [ %3, %4 ]
+  %.1 = phi ptr [ %3, %15 ], [ %2, %4 ]
   %17 = call fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_ENK3$_0clES4_S4_RNS_5APIntES7_NS2_11NoWrapFlagsE"(ptr nonnull %0, ptr noundef %.1, ptr noundef %.124, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 4)
   br i1 %17, label %18, label %33
 
@@ -86178,8 +86178,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicate
   br label %22
 
 22:                                               ; preds = %21, %4
-  %.225 = phi ptr [ %3, %4 ], [ %2, %21 ]
-  %.2 = phi ptr [ %2, %4 ], [ %3, %21 ]
+  %.225 = phi ptr [ %2, %21 ], [ %3, %4 ]
+  %.2 = phi ptr [ %3, %21 ], [ %2, %4 ]
   %23 = call fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_ENK3$_0clES4_S4_RNS_5APIntES7_NS2_11NoWrapFlagsE"(ptr nonnull %0, ptr noundef %.2, ptr noundef %.225, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 2)
   br i1 %23, label %24, label %33
 
@@ -86192,8 +86192,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isKnownPredicate
   br label %28
 
 28:                                               ; preds = %27, %4
-  %.326 = phi ptr [ %3, %4 ], [ %2, %27 ]
-  %.3 = phi ptr [ %2, %4 ], [ %3, %27 ]
+  %.326 = phi ptr [ %2, %27 ], [ %3, %4 ]
+  %.3 = phi ptr [ %3, %27 ], [ %2, %4 ]
   %29 = call fastcc noundef zeroext i1 @"_ZZN4llvm15ScalarEvolution29isKnownPredicateViaNoOverflowENS_12CmpPredicateEPKNS_4SCEVES4_ENK3$_0clES4_S4_RNS_5APIntES7_NS2_11NoWrapFlagsE"(ptr nonnull %0, ptr noundef %.3, ptr noundef %.326, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 2)
   br i1 %29, label %30, label %33
 
@@ -86350,7 +86350,7 @@ tailrecurse.backedge.i:                           ; preds = %43, %38, %35, %32, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %21, %25, %27, %41, %45
-  %.0.in.i = phi ptr [ %48, %45 ], [ %42, %41 ], [ %28, %27 ], [ %26, %25 ], [ %24, %21 ]
+  %.0.in.i = phi ptr [ %24, %21 ], [ %26, %25 ], [ %28, %27 ], [ %42, %41 ], [ %48, %45 ]
   %.0.i18 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %50 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
   %51 = load i32, ptr %50, align 8
@@ -86491,7 +86491,7 @@ tailrecurse.backedge.i28:                         ; preds = %103, %98, %95, %92,
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit31:                  ; preds = %81, %85, %87, %101, %105
-  %.0.in.i26 = phi ptr [ %108, %105 ], [ %102, %101 ], [ %88, %87 ], [ %86, %85 ], [ %84, %81 ]
+  %.0.in.i26 = phi ptr [ %84, %81 ], [ %86, %85 ], [ %88, %87 ], [ %102, %101 ], [ %108, %105 ]
   %.0.i27 = load ptr, ptr %.0.in.i26, align 8, !tbaa !105
   %110 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 8
   %111 = load i32, ptr %110, align 8
@@ -87037,7 +87037,7 @@ tailrecurse.backedge.i:                           ; preds = %39, %34, %31, %28, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %17, %21, %23, %37, %41
-  %.0.in.i = phi ptr [ %44, %41 ], [ %38, %37 ], [ %24, %23 ], [ %22, %21 ], [ %20, %17 ]
+  %.0.in.i = phi ptr [ %20, %17 ], [ %22, %21 ], [ %24, %23 ], [ %38, %37 ], [ %44, %41 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %47 = load i32, ptr %46, align 8
@@ -87150,7 +87150,7 @@ tailrecurse.backedge.i66:                         ; preds = %84, %79, %76, %73, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit69:                  ; preds = %62, %66, %68, %82, %86
-  %.0.in.i64 = phi ptr [ %89, %86 ], [ %83, %82 ], [ %69, %68 ], [ %67, %66 ], [ %65, %62 ]
+  %.0.in.i64 = phi ptr [ %65, %62 ], [ %67, %66 ], [ %69, %68 ], [ %83, %82 ], [ %89, %86 ]
   %.0.i65 = load ptr, ptr %.0.in.i64, align 8, !tbaa !105
   %91 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 8
   %92 = load i32, ptr %91, align 8
@@ -87268,7 +87268,7 @@ tailrecurse.backedge.i79:                         ; preds = %132, %127, %124, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit82:                  ; preds = %110, %114, %116, %130, %134
-  %.0.in.i77 = phi ptr [ %137, %134 ], [ %131, %130 ], [ %117, %116 ], [ %115, %114 ], [ %113, %110 ]
+  %.0.in.i77 = phi ptr [ %113, %110 ], [ %115, %114 ], [ %117, %116 ], [ %131, %130 ], [ %137, %134 ]
   %.0.i78 = load ptr, ptr %.0.in.i77, align 8, !tbaa !105
   %139 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 8
   %140 = load i32, ptr %139, align 8
@@ -87356,7 +87356,7 @@ tailrecurse.backedge.i87:                         ; preds = %167, %162, %159, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit90:                  ; preds = %145, %149, %151, %165, %169
-  %.0.in.i85 = phi ptr [ %172, %169 ], [ %166, %165 ], [ %152, %151 ], [ %150, %149 ], [ %148, %145 ]
+  %.0.in.i85 = phi ptr [ %148, %145 ], [ %150, %149 ], [ %152, %151 ], [ %166, %165 ], [ %172, %169 ]
   %.0.i86 = load ptr, ptr %.0.in.i85, align 8, !tbaa !105
   %174 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 8
   %175 = load i32, ptr %174, align 8
@@ -87444,7 +87444,7 @@ tailrecurse.backedge.i95:                         ; preds = %202, %197, %194, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit98:                  ; preds = %180, %184, %186, %200, %204
-  %.0.in.i93 = phi ptr [ %207, %204 ], [ %201, %200 ], [ %187, %186 ], [ %185, %184 ], [ %183, %180 ]
+  %.0.in.i93 = phi ptr [ %183, %180 ], [ %185, %184 ], [ %187, %186 ], [ %201, %200 ], [ %207, %204 ]
   %.0.i94 = load ptr, ptr %.0.in.i93, align 8, !tbaa !105
   br label %tailrecurse.i99
 
@@ -87528,7 +87528,7 @@ tailrecurse.backedge.i103:                        ; preds = %233, %228, %225, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit106:                 ; preds = %211, %215, %217, %231, %235
-  %.0.in.i101 = phi ptr [ %238, %235 ], [ %232, %231 ], [ %218, %217 ], [ %216, %215 ], [ %214, %211 ]
+  %.0.in.i101 = phi ptr [ %214, %211 ], [ %216, %215 ], [ %218, %217 ], [ %232, %231 ], [ %238, %235 ]
   %.0.i102 = load ptr, ptr %.0.in.i101, align 8, !tbaa !105
   %240 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 8
   %241 = load i32, ptr %240, align 8
@@ -87777,7 +87777,7 @@ tailrecurse.backedge.i116:                        ; preds = %338, %333, %330, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit119:                 ; preds = %316, %320, %322, %336, %340
-  %.0.in.i114 = phi ptr [ %343, %340 ], [ %337, %336 ], [ %323, %322 ], [ %321, %320 ], [ %319, %316 ]
+  %.0.in.i114 = phi ptr [ %319, %316 ], [ %321, %320 ], [ %323, %322 ], [ %337, %336 ], [ %343, %340 ]
   %.0.i115 = load ptr, ptr %.0.in.i114, align 8, !tbaa !105
   %345 = getelementptr inbounds nuw i8, ptr %.0.i115, i64 8
   %346 = load i32, ptr %345, align 8
@@ -87865,7 +87865,7 @@ tailrecurse.backedge.i124:                        ; preds = %373, %368, %365, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit127:                 ; preds = %351, %355, %357, %371, %375
-  %.0.in.i122 = phi ptr [ %378, %375 ], [ %372, %371 ], [ %358, %357 ], [ %356, %355 ], [ %354, %351 ]
+  %.0.in.i122 = phi ptr [ %354, %351 ], [ %356, %355 ], [ %358, %357 ], [ %372, %371 ], [ %378, %375 ]
   %.0.i123 = load ptr, ptr %.0.in.i122, align 8, !tbaa !105
   %380 = getelementptr inbounds nuw i8, ptr %.0.i123, i64 8
   %381 = load i32, ptr %380, align 8
@@ -87957,7 +87957,7 @@ tailrecurse.backedge.i132:                        ; preds = %410, %405, %402, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit135:                 ; preds = %388, %392, %394, %408, %412
-  %.0.in.i130 = phi ptr [ %415, %412 ], [ %409, %408 ], [ %395, %394 ], [ %393, %392 ], [ %391, %388 ]
+  %.0.in.i130 = phi ptr [ %391, %388 ], [ %393, %392 ], [ %395, %394 ], [ %409, %408 ], [ %415, %412 ]
   %.0.i131 = load ptr, ptr %.0.in.i130, align 8, !tbaa !105
   %417 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %2, ptr noundef %.0.i131, i32 noundef 0)
   br label %tailrecurse.i136
@@ -88042,7 +88042,7 @@ tailrecurse.backedge.i140:                        ; preds = %442, %437, %434, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit143:                 ; preds = %420, %424, %426, %440, %444
-  %.0.in.i138 = phi ptr [ %447, %444 ], [ %441, %440 ], [ %427, %426 ], [ %425, %424 ], [ %423, %420 ]
+  %.0.in.i138 = phi ptr [ %423, %420 ], [ %425, %424 ], [ %427, %426 ], [ %441, %440 ], [ %447, %444 ]
   %.0.i139 = load ptr, ptr %.0.in.i138, align 8, !tbaa !105
   %449 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %3, ptr noundef %.0.i139, i32 noundef 0)
   br label %805
@@ -88127,7 +88127,7 @@ tailrecurse.backedge.i148:                        ; preds = %474, %469, %466, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit151:                 ; preds = %452, %456, %458, %472, %476
-  %.0.in.i146 = phi ptr [ %479, %476 ], [ %473, %472 ], [ %459, %458 ], [ %457, %456 ], [ %455, %452 ]
+  %.0.in.i146 = phi ptr [ %455, %452 ], [ %457, %456 ], [ %459, %458 ], [ %473, %472 ], [ %479, %476 ]
   %.0.i147 = load ptr, ptr %.0.in.i146, align 8, !tbaa !105
   %481 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %2, ptr noundef %.0.i147, i32 noundef 0)
   br label %tailrecurse.i152
@@ -88212,7 +88212,7 @@ tailrecurse.backedge.i156:                        ; preds = %506, %501, %498, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit159:                 ; preds = %484, %488, %490, %504, %508
-  %.0.in.i154 = phi ptr [ %511, %508 ], [ %505, %504 ], [ %491, %490 ], [ %489, %488 ], [ %487, %484 ]
+  %.0.in.i154 = phi ptr [ %487, %484 ], [ %489, %488 ], [ %491, %490 ], [ %505, %504 ], [ %511, %508 ]
   %.0.i155 = load ptr, ptr %.0.in.i154, align 8, !tbaa !105
   %513 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %3, ptr noundef %.0.i155, i32 noundef 0)
   br label %805
@@ -88297,7 +88297,7 @@ tailrecurse.backedge.i164:                        ; preds = %538, %533, %530, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit167:                 ; preds = %516, %520, %522, %536, %540
-  %.0.in.i162 = phi ptr [ %543, %540 ], [ %537, %536 ], [ %523, %522 ], [ %521, %520 ], [ %519, %516 ]
+  %.0.in.i162 = phi ptr [ %519, %516 ], [ %521, %520 ], [ %523, %522 ], [ %537, %536 ], [ %543, %540 ]
   %.0.i163 = load ptr, ptr %.0.in.i162, align 8, !tbaa !105
   %545 = getelementptr inbounds nuw i8, ptr %.0.i163, i64 8
   %546 = load i32, ptr %545, align 8
@@ -88410,7 +88410,7 @@ tailrecurse.backedge.i177:                        ; preds = %583, %578, %575, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit180:                 ; preds = %561, %565, %567, %581, %585
-  %.0.in.i175 = phi ptr [ %588, %585 ], [ %582, %581 ], [ %568, %567 ], [ %566, %565 ], [ %564, %561 ]
+  %.0.in.i175 = phi ptr [ %564, %561 ], [ %566, %565 ], [ %568, %567 ], [ %582, %581 ], [ %588, %585 ]
   %.0.i176 = load ptr, ptr %.0.in.i175, align 8, !tbaa !105
   %590 = getelementptr inbounds nuw i8, ptr %.0.i176, i64 8
   %591 = load i32, ptr %590, align 8
@@ -88524,7 +88524,7 @@ tailrecurse.backedge.i190:                        ; preds = %629, %624, %621, %6
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit193:                 ; preds = %607, %611, %613, %627, %631
-  %.0.in.i188 = phi ptr [ %634, %631 ], [ %628, %627 ], [ %614, %613 ], [ %612, %611 ], [ %610, %607 ]
+  %.0.in.i188 = phi ptr [ %610, %607 ], [ %612, %611 ], [ %614, %613 ], [ %628, %627 ], [ %634, %631 ]
   %.0.i189 = load ptr, ptr %.0.in.i188, align 8, !tbaa !105
   %636 = getelementptr inbounds nuw i8, ptr %.0.i189, i64 8
   %637 = load i32, ptr %636, align 8
@@ -88612,7 +88612,7 @@ tailrecurse.backedge.i198:                        ; preds = %664, %659, %656, %6
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit201:                 ; preds = %642, %646, %648, %662, %666
-  %.0.in.i196 = phi ptr [ %669, %666 ], [ %663, %662 ], [ %649, %648 ], [ %647, %646 ], [ %645, %642 ]
+  %.0.in.i196 = phi ptr [ %645, %642 ], [ %647, %646 ], [ %649, %648 ], [ %663, %662 ], [ %669, %666 ]
   %.0.i197 = load ptr, ptr %.0.in.i196, align 8, !tbaa !105
   %671 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 8
   %672 = load i32, ptr %671, align 8
@@ -88704,7 +88704,7 @@ tailrecurse.backedge.i206:                        ; preds = %701, %696, %693, %6
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit209:                 ; preds = %679, %683, %685, %699, %703
-  %.0.in.i204 = phi ptr [ %706, %703 ], [ %700, %699 ], [ %686, %685 ], [ %684, %683 ], [ %682, %679 ]
+  %.0.in.i204 = phi ptr [ %682, %679 ], [ %684, %683 ], [ %686, %685 ], [ %700, %699 ], [ %706, %703 ]
   %.0.i205 = load ptr, ptr %.0.in.i204, align 8, !tbaa !105
   %708 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %5, ptr noundef %.0.i205, i32 noundef 0)
   br label %tailrecurse.i210
@@ -88789,7 +88789,7 @@ tailrecurse.backedge.i214:                        ; preds = %733, %728, %725, %7
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit217:                 ; preds = %711, %715, %717, %731, %735
-  %.0.in.i212 = phi ptr [ %738, %735 ], [ %732, %731 ], [ %718, %717 ], [ %716, %715 ], [ %714, %711 ]
+  %.0.in.i212 = phi ptr [ %714, %711 ], [ %716, %715 ], [ %718, %717 ], [ %732, %731 ], [ %738, %735 ]
   %.0.i213 = load ptr, ptr %.0.in.i212, align 8, !tbaa !105
   %740 = call noundef ptr @_ZN4llvm15ScalarEvolution17getSignExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %6, ptr noundef %.0.i213, i32 noundef 0)
   br label %805
@@ -88874,7 +88874,7 @@ tailrecurse.backedge.i222:                        ; preds = %765, %760, %757, %7
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit225:                 ; preds = %743, %747, %749, %763, %767
-  %.0.in.i220 = phi ptr [ %770, %767 ], [ %764, %763 ], [ %750, %749 ], [ %748, %747 ], [ %746, %743 ]
+  %.0.in.i220 = phi ptr [ %746, %743 ], [ %748, %747 ], [ %750, %749 ], [ %764, %763 ], [ %770, %767 ]
   %.0.i221 = load ptr, ptr %.0.in.i220, align 8, !tbaa !105
   %772 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %5, ptr noundef %.0.i221, i32 noundef 0)
   br label %tailrecurse.i226
@@ -88959,7 +88959,7 @@ tailrecurse.backedge.i230:                        ; preds = %797, %792, %789, %7
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit233:                 ; preds = %775, %779, %781, %795, %799
-  %.0.in.i228 = phi ptr [ %802, %799 ], [ %796, %795 ], [ %782, %781 ], [ %780, %779 ], [ %778, %775 ]
+  %.0.in.i228 = phi ptr [ %778, %775 ], [ %780, %779 ], [ %782, %781 ], [ %796, %795 ], [ %802, %799 ]
   %.0.i229 = load ptr, ptr %.0.in.i228, align 8, !tbaa !105
   %804 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull %6, ptr noundef %.0.i229, i32 noundef 0)
   br label %805
@@ -89230,7 +89230,7 @@ tailrecurse.backedge.i:                           ; preds = %118, %113, %110, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %96, %100, %102, %116, %120
-  %.0.in.i = phi ptr [ %123, %120 ], [ %117, %116 ], [ %103, %102 ], [ %101, %100 ], [ %99, %96 ]
+  %.0.in.i = phi ptr [ %99, %96 ], [ %101, %100 ], [ %103, %102 ], [ %117, %116 ], [ %123, %120 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %126 = load i32, ptr %125, align 8
@@ -89319,7 +89319,7 @@ tailrecurse.backedge.i93:                         ; preds = %152, %147, %144, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit96:                  ; preds = %130, %134, %136, %150, %154
-  %.0.in.i91 = phi ptr [ %157, %154 ], [ %151, %150 ], [ %137, %136 ], [ %135, %134 ], [ %133, %130 ]
+  %.0.in.i91 = phi ptr [ %133, %130 ], [ %135, %134 ], [ %137, %136 ], [ %151, %150 ], [ %157, %154 ]
   %.0.i92 = load ptr, ptr %.0.in.i91, align 8, !tbaa !105
   %159 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 8
   %160 = load i32, ptr %159, align 8
@@ -89421,7 +89421,7 @@ tailrecurse.backedge.i101:                        ; preds = %196, %191, %188, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit104:                 ; preds = %174, %178, %180, %194, %198
-  %.0.in.i99 = phi ptr [ %201, %198 ], [ %195, %194 ], [ %181, %180 ], [ %179, %178 ], [ %177, %174 ]
+  %.0.in.i99 = phi ptr [ %177, %174 ], [ %179, %178 ], [ %181, %180 ], [ %195, %194 ], [ %201, %198 ]
   %.0.i100 = load ptr, ptr %.0.in.i99, align 8, !tbaa !105
   %203 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 8
   %204 = load i32, ptr %203, align 8
@@ -89509,7 +89509,7 @@ tailrecurse.i105.backedge:                        ; preds = %231, %226, %223, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit112:                 ; preds = %209, %213, %215, %229, %233
-  %.0.in.i107 = phi ptr [ %236, %233 ], [ %230, %229 ], [ %216, %215 ], [ %214, %213 ], [ %212, %209 ]
+  %.0.in.i107 = phi ptr [ %212, %209 ], [ %214, %213 ], [ %216, %215 ], [ %230, %229 ], [ %236, %233 ]
   %.0.i108 = load ptr, ptr %.0.in.i107, align 8, !tbaa !105
   %238 = getelementptr inbounds nuw i8, ptr %.0.i108, i64 8
   %239 = load i32, ptr %238, align 8
@@ -90433,7 +90433,7 @@ tailrecurse.backedge.i:                           ; preds = %45, %40, %37, %34, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %23, %27, %29, %43, %47
-  %.0.in.i = phi ptr [ %50, %47 ], [ %44, %43 ], [ %30, %29 ], [ %28, %27 ], [ %26, %23 ]
+  %.0.in.i = phi ptr [ %26, %23 ], [ %28, %27 ], [ %30, %29 ], [ %44, %43 ], [ %50, %47 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %53 = load i32, ptr %52, align 8
@@ -93448,7 +93448,7 @@ tailrecurse.backedge.i:                           ; preds = %85, %80, %77, %74, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %63, %67, %69, %83, %87
-  %.0.in.i = phi ptr [ %90, %87 ], [ %84, %83 ], [ %70, %69 ], [ %68, %67 ], [ %66, %63 ]
+  %.0.in.i = phi ptr [ %66, %63 ], [ %68, %67 ], [ %70, %69 ], [ %84, %83 ], [ %90, %87 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %93 = load i32, ptr %92, align 8
@@ -93636,7 +93636,7 @@ tailrecurse.backedge.i83:                         ; preds = %164, %159, %156, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit86:                  ; preds = %142, %146, %148, %162, %166
-  %.0.in.i81 = phi ptr [ %169, %166 ], [ %163, %162 ], [ %149, %148 ], [ %147, %146 ], [ %145, %142 ]
+  %.0.in.i81 = phi ptr [ %145, %142 ], [ %147, %146 ], [ %149, %148 ], [ %163, %162 ], [ %169, %166 ]
   %.0.i82 = load ptr, ptr %.0.in.i81, align 8, !tbaa !105
   %171 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 8
   %172 = load i32, ptr %171, align 8
@@ -93766,7 +93766,7 @@ tailrecurse.backedge.i96:                         ; preds = %219, %214, %211, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit99:                  ; preds = %197, %201, %203, %217, %221
-  %.0.in.i94 = phi ptr [ %224, %221 ], [ %218, %217 ], [ %204, %203 ], [ %202, %201 ], [ %200, %197 ]
+  %.0.in.i94 = phi ptr [ %200, %197 ], [ %202, %201 ], [ %204, %203 ], [ %218, %217 ], [ %224, %221 ]
   %.0.i95 = load ptr, ptr %.0.in.i94, align 8, !tbaa !105
   %226 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 8
   %227 = load i32, ptr %226, align 8
@@ -94221,8 +94221,8 @@ define internal fastcc noundef zeroext i1 @_ZL27IsKnownPredicateViaMinOrMaxRN4ll
   br label %5
 
 5:                                                ; preds = %4, %3
-  %.013 = phi ptr [ %1, %3 ], [ %2, %4 ]
-  %.012 = phi ptr [ %2, %3 ], [ %1, %4 ]
+  %.013 = phi ptr [ %2, %4 ], [ %1, %3 ]
+  %.012 = phi ptr [ %1, %4 ], [ %2, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %7 = load i16, ptr %6, align 8, !tbaa !78
   %8 = icmp ne i16 %7, 12
@@ -94457,8 +94457,8 @@ _ZN4llvm12is_containedINS_8ArrayRefIPKNS_4SCEVEEES4_EEbOT_RKT0_.exit.i13: ; pred
   br label %99
 
 99:                                               ; preds = %98, %3
-  %.114 = phi ptr [ %1, %3 ], [ %2, %98 ]
-  %.1 = phi ptr [ %2, %3 ], [ %1, %98 ]
+  %.114 = phi ptr [ %2, %98 ], [ %1, %3 ]
+  %.1 = phi ptr [ %1, %98 ], [ %2, %3 ]
   %100 = getelementptr inbounds nuw i8, ptr %.114, i64 24
   %101 = load i16, ptr %100, align 8, !tbaa !78
   %102 = icmp ne i16 %101, 11
@@ -94875,7 +94875,7 @@ tailrecurse.backedge.i:                           ; preds = %40, %35, %32, %29, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %18, %22, %24, %38, %42
-  %.0.in.i = phi ptr [ %45, %42 ], [ %39, %38 ], [ %25, %24 ], [ %23, %22 ], [ %21, %18 ]
+  %.0.in.i = phi ptr [ %21, %18 ], [ %23, %22 ], [ %25, %24 ], [ %39, %38 ], [ %45, %42 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %48 = load i32, ptr %47, align 8
@@ -94988,7 +94988,7 @@ tailrecurse.backedge.i17:                         ; preds = %85, %80, %77, %74, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit20:                  ; preds = %63, %67, %69, %83, %87
-  %.0.in.i15 = phi ptr [ %90, %87 ], [ %84, %83 ], [ %70, %69 ], [ %68, %67 ], [ %66, %63 ]
+  %.0.in.i15 = phi ptr [ %66, %63 ], [ %68, %67 ], [ %70, %69 ], [ %84, %83 ], [ %90, %87 ]
   %.0.i16 = load ptr, ptr %.0.in.i15, align 8, !tbaa !105
   %92 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 8
   %93 = load i32, ptr %92, align 8
@@ -95374,7 +95374,7 @@ tailrecurse.backedge.i:                           ; preds = %40, %35, %32, %29, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %18, %22, %24, %38, %42
-  %.0.in.i = phi ptr [ %45, %42 ], [ %39, %38 ], [ %25, %24 ], [ %23, %22 ], [ %21, %18 ]
+  %.0.in.i = phi ptr [ %21, %18 ], [ %23, %22 ], [ %25, %24 ], [ %39, %38 ], [ %45, %42 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %48 = load i32, ptr %47, align 8
@@ -95487,7 +95487,7 @@ tailrecurse.backedge.i17:                         ; preds = %85, %80, %77, %74, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit20:                  ; preds = %63, %67, %69, %83, %87
-  %.0.in.i15 = phi ptr [ %90, %87 ], [ %84, %83 ], [ %70, %69 ], [ %68, %67 ], [ %66, %63 ]
+  %.0.in.i15 = phi ptr [ %66, %63 ], [ %68, %67 ], [ %70, %69 ], [ %84, %83 ], [ %90, %87 ]
   %.0.i16 = load ptr, ptr %.0.in.i15, align 8, !tbaa !105
   %92 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 8
   %93 = load i32, ptr %92, align 8
@@ -95850,7 +95850,7 @@ tailrecurse.backedge.i:                           ; preds = %30, %25, %22, %19, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %8, %12, %14, %28, %32
-  %.0.in.i = phi ptr [ %35, %32 ], [ %29, %28 ], [ %15, %14 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.in.i = phi ptr [ %11, %8 ], [ %13, %12 ], [ %15, %14 ], [ %29, %28 ], [ %35, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
@@ -96019,7 +96019,7 @@ tailrecurse.backedge.i:                           ; preds = %48, %43, %40, %37, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %26, %30, %32, %46, %50
-  %.0.in.i = phi ptr [ %53, %50 ], [ %47, %46 ], [ %33, %32 ], [ %31, %30 ], [ %29, %26 ]
+  %.0.in.i = phi ptr [ %29, %26 ], [ %31, %30 ], [ %33, %32 ], [ %47, %46 ], [ %53, %50 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %56 = load i32, ptr %55, align 8
@@ -96518,7 +96518,7 @@ tailrecurse.backedge.i61:                         ; preds = %262, %257, %254, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit64:                  ; preds = %240, %244, %246, %260, %264
-  %.0.in.i59 = phi ptr [ %267, %264 ], [ %261, %260 ], [ %247, %246 ], [ %245, %244 ], [ %243, %240 ]
+  %.0.in.i59 = phi ptr [ %243, %240 ], [ %245, %244 ], [ %247, %246 ], [ %261, %260 ], [ %267, %264 ]
   %.0.i60 = load ptr, ptr %.0.in.i59, align 8, !tbaa !105
   %269 = getelementptr inbounds nuw i8, ptr %.0.i60, i64 8
   %270 = load i32, ptr %269, align 8
@@ -96909,7 +96909,7 @@ tailrecurse.i.i.backedge:                         ; preds = %81, %76, %73, %70, 
   unreachable
 
 _ZNK4llvm14SCEVAddRecExpr7getTypeEv.exit:         ; preds = %59, %63, %65, %79, %83
-  %.0.in.i.i = phi ptr [ %86, %83 ], [ %80, %79 ], [ %66, %65 ], [ %64, %63 ], [ %62, %59 ]
+  %.0.in.i.i = phi ptr [ %62, %59 ], [ %64, %63 ], [ %66, %65 ], [ %80, %79 ], [ %86, %83 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %89 = load i32, ptr %88, align 8
@@ -97023,7 +97023,7 @@ tailrecurse.i.backedge:                           ; preds = %127, %122, %119, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %105, %109, %111, %125, %129
-  %.0.in.i = phi ptr [ %132, %129 ], [ %126, %125 ], [ %112, %111 ], [ %110, %109 ], [ %108, %105 ]
+  %.0.in.i = phi ptr [ %108, %105 ], [ %110, %109 ], [ %112, %111 ], [ %126, %125 ], [ %132, %129 ]
   %.0.i3 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %134 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 8
   %135 = load i32, ptr %134, align 8
@@ -97799,7 +97799,7 @@ tailrecurse.backedge.i:                           ; preds = %171, %166, %163, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %149, %153, %155, %169, %173
-  %.0.in.i = phi ptr [ %176, %173 ], [ %170, %169 ], [ %156, %155 ], [ %154, %153 ], [ %152, %149 ]
+  %.0.in.i = phi ptr [ %152, %149 ], [ %154, %153 ], [ %156, %155 ], [ %170, %169 ], [ %176, %173 ]
   %.0.i8 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %178 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
   %179 = load i32, ptr %178, align 8
@@ -103611,7 +103611,7 @@ _ZL21PrintSCEVWithTypeHintRN4llvm11raw_ostreamEPKNS_4SCEVE.exit252: ; preds = %_
   br label %394
 
 394:                                              ; preds = %392, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %393, %392 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %393, %392 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %395 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i.i, i64 40
   %.1.val.i.i.i.i.i.i.i.i = load i32, ptr %395, align 8, !tbaa !26
   %.not.i.i.i.i37.not.i.i.i.i.i.i.i.i = icmp eq i32 %.1.val.i.i.i.i.i.i.i.i, 0
@@ -103622,7 +103622,7 @@ _ZL21PrintSCEVWithTypeHintRN4llvm11raw_ostreamEPKNS_4SCEVE.exit252: ; preds = %_
   br label %398
 
 398:                                              ; preds = %396, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %397, %396 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %397, %396 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %399 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i.i, i64 40
   %.2.val.i.i.i.i.i.i.i.i = load i32, ptr %399, align 8, !tbaa !26
   %.not.i.i.i.i38.not.i.i.i.i.i.i.i.i = icmp eq i32 %.2.val.i.i.i.i.i.i.i.i, 0
@@ -103859,7 +103859,7 @@ _ZL21PrintSCEVWithTypeHintRN4llvm11raw_ostreamEPKNS_4SCEVE.exit272: ; preds = %_
   br label %501
 
 501:                                              ; preds = %499, %._crit_edge.i.i.i.i.i.i.i.i298
-  %.1.i.i.i.i.i.i.i.i304 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i300, %._crit_edge.i.i.i.i.i.i.i.i298 ], [ %500, %499 ]
+  %.1.i.i.i.i.i.i.i.i304 = phi ptr [ %500, %499 ], [ %.029.lcssa.i.i.i.i.i.i.i.i300, %._crit_edge.i.i.i.i.i.i.i.i298 ]
   %502 = getelementptr i8, ptr %.1.i.i.i.i.i.i.i.i304, i64 40
   %.1.val.i.i.i.i.i.i.i.i305 = load i32, ptr %502, align 8, !tbaa !26
   %.not.i.i.i.i37.not.i.i.i.i.i.i.i.i306 = icmp eq i32 %.1.val.i.i.i.i.i.i.i.i305, 0
@@ -103870,7 +103870,7 @@ _ZL21PrintSCEVWithTypeHintRN4llvm11raw_ostreamEPKNS_4SCEVE.exit272: ; preds = %_
   br label %505
 
 505:                                              ; preds = %503, %._crit_edge.i.i.i.i.i.i.i.i298
-  %.2.i.i.i.i.i.i.i.i301 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i300, %._crit_edge.i.i.i.i.i.i.i.i298 ], [ %504, %503 ]
+  %.2.i.i.i.i.i.i.i.i301 = phi ptr [ %504, %503 ], [ %.029.lcssa.i.i.i.i.i.i.i.i300, %._crit_edge.i.i.i.i.i.i.i.i298 ]
   %506 = getelementptr i8, ptr %.2.i.i.i.i.i.i.i.i301, i64 40
   %.2.val.i.i.i.i.i.i.i.i302 = load i32, ptr %506, align 8, !tbaa !26
   %.not.i.i.i.i38.not.i.i.i.i.i.i.i.i303 = icmp eq i32 %.2.val.i.i.i.i.i.i.i.i302, 0
@@ -108000,7 +108000,7 @@ tailrecurse.backedge.i:                           ; preds = %161, %156, %153, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %139, %143, %145, %159, %163
-  %.0.in.i = phi ptr [ %166, %163 ], [ %160, %159 ], [ %146, %145 ], [ %144, %143 ], [ %142, %139 ]
+  %.0.in.i = phi ptr [ %142, %139 ], [ %144, %143 ], [ %146, %145 ], [ %160, %159 ], [ %166, %163 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %168 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %169 = load i32, ptr %168, align 8
@@ -108110,7 +108110,7 @@ tailrecurse.backedge.i222:                        ; preds = %204, %199, %196, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit225:                 ; preds = %182, %186, %188, %202, %206
-  %.0.in.i220 = phi ptr [ %209, %206 ], [ %203, %202 ], [ %189, %188 ], [ %187, %186 ], [ %185, %182 ]
+  %.0.in.i220 = phi ptr [ %185, %182 ], [ %187, %186 ], [ %189, %188 ], [ %203, %202 ], [ %209, %206 ]
   %.0.i221 = load ptr, ptr %.0.in.i220, align 8, !tbaa !105
   %211 = getelementptr inbounds nuw i8, ptr %.0.i221, i64 8
   %212 = load i32, ptr %211, align 8
@@ -108221,7 +108221,7 @@ tailrecurse.backedge.i235:                        ; preds = %248, %243, %240, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit238:                 ; preds = %226, %230, %232, %246, %250
-  %.0.in.i233 = phi ptr [ %253, %250 ], [ %247, %246 ], [ %233, %232 ], [ %231, %230 ], [ %229, %226 ]
+  %.0.in.i233 = phi ptr [ %229, %226 ], [ %231, %230 ], [ %233, %232 ], [ %247, %246 ], [ %253, %250 ]
   %.0.i234 = load ptr, ptr %.0.in.i233, align 8, !tbaa !105
   %255 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %13, ptr noundef nonnull %133, ptr noundef %.0.i234, i32 noundef 0)
   br label %375
@@ -108306,7 +108306,7 @@ tailrecurse.backedge.i243:                        ; preds = %280, %275, %272, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit246:                 ; preds = %258, %262, %264, %278, %282
-  %.0.in.i241 = phi ptr [ %285, %282 ], [ %279, %278 ], [ %265, %264 ], [ %263, %262 ], [ %261, %258 ]
+  %.0.in.i241 = phi ptr [ %261, %258 ], [ %263, %262 ], [ %265, %264 ], [ %279, %278 ], [ %285, %282 ]
   %.0.i242 = load ptr, ptr %.0.in.i241, align 8, !tbaa !105
   %287 = getelementptr inbounds nuw i8, ptr %.0.i242, i64 8
   %288 = load i32, ptr %287, align 8
@@ -108416,7 +108416,7 @@ tailrecurse.backedge.i256:                        ; preds = %323, %318, %315, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit259:                 ; preds = %301, %305, %307, %321, %325
-  %.0.in.i254 = phi ptr [ %328, %325 ], [ %322, %321 ], [ %308, %307 ], [ %306, %305 ], [ %304, %301 ]
+  %.0.in.i254 = phi ptr [ %304, %301 ], [ %306, %305 ], [ %308, %307 ], [ %322, %321 ], [ %328, %325 ]
   %.0.i255 = load ptr, ptr %.0.in.i254, align 8, !tbaa !105
   %330 = getelementptr inbounds nuw i8, ptr %.0.i255, i64 8
   %331 = load i32, ptr %330, align 8
@@ -108527,7 +108527,7 @@ tailrecurse.backedge.i269:                        ; preds = %367, %362, %359, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit272:                 ; preds = %345, %349, %351, %365, %369
-  %.0.in.i267 = phi ptr [ %372, %369 ], [ %366, %365 ], [ %352, %351 ], [ %350, %349 ], [ %348, %345 ]
+  %.0.in.i267 = phi ptr [ %348, %345 ], [ %350, %349 ], [ %352, %351 ], [ %366, %365 ], [ %372, %369 ]
   %.0.i268 = load ptr, ptr %.0.in.i267, align 8, !tbaa !105
   %374 = call noundef ptr @_ZN4llvm15ScalarEvolution17getZeroExtendExprEPKNS_4SCEVEPNS_4TypeEj(ptr noundef nonnull align 8 dereferenceable(1344) %13, ptr noundef nonnull %131, ptr noundef %.0.i268, i32 noundef 0)
   br label %375
@@ -112816,7 +112816,7 @@ _ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE23visi
   unreachable
 
 _ZN4llvm11SCEVVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperPKNS_4SCEVEE5visitES5_.exit: ; preds = %.critedge.i, %196, %105, %99, %94, %88, %83, %77, %61, %75, %67, %51, %54, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit, %440, %443
-  %.0.i = phi ptr [ %.val23.val.i, %443 ], [ %442, %440 ], [ %439, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %400, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %361, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %322, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %283, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %244, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %187, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %148, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %60, %54 ], [ %1, %51 ], [ %1, %61 ], [ %76, %75 ], [ %71, %67 ], [ %87, %83 ], [ %1, %77 ], [ %98, %94 ], [ %1, %88 ], [ %109, %105 ], [ %1, %99 ], [ %199, %.critedge.i ], [ %1, %196 ]
+  %.0.i = phi ptr [ %60, %54 ], [ %148, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %187, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %244, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %283, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %322, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %361, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %400, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %439, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution6verifyEvE10SCEVMapperE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %442, %440 ], [ %.val23.val.i, %443 ], [ %1, %51 ], [ %1, %61 ], [ %76, %75 ], [ %71, %67 ], [ %87, %83 ], [ %1, %77 ], [ %98, %94 ], [ %1, %88 ], [ %109, %105 ], [ %1, %99 ], [ %199, %.critedge.i ], [ %1, %196 ]
   store ptr %.0.i, ptr %12, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -112932,8 +112932,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9SetVectorIPNS_5ValueENS
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i.i
-  %43 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %38, %40 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %43 = phi ptr [ %38, %40 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !733
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit, label %46
@@ -112943,8 +112943,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9SetVectorIPNS_5ValueENS
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge52.i.i.i.i
-  %49 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %46 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %43, %46 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !733
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit, label %52
@@ -113016,9 +113016,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12D
   br label %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit
 
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit: ; preds = %76, %63, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i
-  %.lcssa.i.i.i.i.pn = phi i64 [ %83, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i ], [ %70, %63 ], [ %79, %76 ]
+  %.pn = phi i64 [ %83, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i ], [ %70, %63 ], [ %79, %76 ]
   %84 = zext i32 %61 to i64
-  %85 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn, %84
+  %85 = icmp samesign ne i64 %.pn, %84
   br label %86
 
 86:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit
@@ -114424,7 +114424,7 @@ tailrecurse.backedge.i:                           ; preds = %53, %48, %45, %42, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %31, %35, %37, %51, %55
-  %.0.in.i = phi ptr [ %58, %55 ], [ %52, %51 ], [ %38, %37 ], [ %36, %35 ], [ %34, %31 ]
+  %.0.in.i = phi ptr [ %34, %31 ], [ %36, %35 ], [ %38, %37 ], [ %52, %51 ], [ %58, %55 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %61 = load i32, ptr %60, align 8
@@ -114512,7 +114512,7 @@ tailrecurse.backedge.i57:                         ; preds = %88, %83, %80, %77, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit60:                  ; preds = %66, %70, %72, %86, %90
-  %.0.in.i55 = phi ptr [ %93, %90 ], [ %87, %86 ], [ %73, %72 ], [ %71, %70 ], [ %69, %66 ]
+  %.0.in.i55 = phi ptr [ %69, %66 ], [ %71, %70 ], [ %73, %72 ], [ %87, %86 ], [ %93, %90 ]
   %.0.i56 = load ptr, ptr %.0.in.i55, align 8, !tbaa !105
   %95 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 8
   %96 = load i32, ptr %95, align 8
@@ -115186,7 +115186,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate12isAlwaysTrue
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !1414
   %43 = load ptr, ptr %.1.val.i.i.i.i.i, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -115199,7 +115199,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate12isAlwaysTrue
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %48, %47 ]
+  %.2.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !1414
   %50 = load ptr, ptr %.2.val.i.i.i.i.i, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -115304,7 +115304,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %41, %40 ]
+  %.1.i.i = phi ptr [ %41, %40 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %43 = load ptr, ptr %.1.i.i, align 8, !tbaa !1414
   %44 = tail call noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_13SCEVPredicateERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(1344) %2)
   br i1 %44, label %45, label %.loopexit
@@ -115314,7 +115314,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %46, %45 ]
+  %.2.i.i = phi ptr [ %46, %45 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %48 = load ptr, ptr %.2.i.i, align 8, !tbaa !1414
   %49 = tail call noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_13SCEVPredicateERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(1344) %2)
   br i1 %49, label %50, label %.loopexit
@@ -115425,7 +115425,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %94, %93 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %94, %93 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !1414
   %96 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
@@ -115438,7 +115438,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %101, %100 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %101, %100 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !1414
   %103 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !3
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
@@ -115467,7 +115467,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18SCEVUnionPredicate7impliesEPKNS_
   br label %112
 
 112:                                              ; preds = %.loopexit, %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPKNS_13SCEVPredicateELj16EEEZNKS_18SCEVUnionPredicate7impliesES4_RNS_15ScalarEvolutionEE3$_1EEbOT_T0_.exit"
-  %.1 = phi i1 [ %54, %.loopexit ], [ %111, %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPKNS_13SCEVPredicateELj16EEEZNKS_18SCEVUnionPredicate7impliesES4_RNS_15ScalarEvolutionEE3$_1EEbOT_T0_.exit" ]
+  %.1 = phi i1 [ %111, %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPKNS_13SCEVPredicateELj16EEEZNKS_18SCEVUnionPredicate7impliesES4_RNS_15ScalarEvolutionEE3$_1EEbOT_T0_.exit" ], [ %54, %.loopexit ]
   ret i1 %.1
 }
 
@@ -117250,7 +117250,7 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread.i: ; preds = 
   br label %_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit
 
 _ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit: ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread.i
-  %.1.i = phi ptr [ %63, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ], [ %64, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread.i ]
+  %.1.i = phi ptr [ %64, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.thread.i ], [ %63, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ]
   %65 = load ptr, ptr %0, align 8, !tbaa !2300
   %66 = load i32, ptr %13, align 8, !tbaa !2301
   %67 = icmp eq i32 %66, 0
@@ -118322,9 +118322,9 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread: ; preds = 
   br label %_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit
 
 _ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit: ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread
-  %483 = phi i32 [ %477, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ], [ %.pre719, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ]
-  %484 = phi ptr [ %478, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ], [ %.pre718, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ]
-  %.1.i = phi ptr [ %481, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ], [ %482, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ]
+  %483 = phi i32 [ %.pre719, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ], [ %477, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ]
+  %484 = phi ptr [ %.pre718, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ], [ %478, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ]
+  %.1.i = phi ptr [ %482, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i.thread ], [ %481, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i ]
   %485 = getelementptr inbounds i8, ptr %416, i64 -32
   %486 = load ptr, ptr %485, align 8, !tbaa !456
   %487 = icmp eq i32 %483, 0
@@ -118416,7 +118416,7 @@ _ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220.thread: ; preds
   br label %_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit226
 
 _ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE.exit226: ; preds = %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220.thread
-  %.1.i224 = phi ptr [ %518, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220 ], [ %519, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220.thread ]
+  %.1.i224 = phi ptr [ %519, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220.thread ], [ %518, %_ZN4llvm15ScalarEvolution15getExistingSCEVEPNS_5ValueE.exit.i220 ]
   %520 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %521 = load i16, ptr %520, align 8, !tbaa !78
   %522 = icmp eq i16 %521, 0
@@ -119174,7 +119174,7 @@ tailrecurse.backedge.i307:                        ; preds = %837, %832, %829, %8
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit310:                 ; preds = %815, %819, %821, %835, %839
-  %.0.in.i305 = phi ptr [ %842, %839 ], [ %836, %835 ], [ %822, %821 ], [ %820, %819 ], [ %818, %815 ]
+  %.0.in.i305 = phi ptr [ %818, %815 ], [ %820, %819 ], [ %822, %821 ], [ %836, %835 ], [ %842, %839 ]
   %.0.i306 = load ptr, ptr %.0.in.i305, align 8, !tbaa !105
   %844 = getelementptr inbounds nuw i8, ptr %.0.i306, i64 8
   %845 = load i32, ptr %844, align 8
@@ -119282,7 +119282,7 @@ tailrecurse.backedge.i:                           ; preds = %877, %872, %869, %8
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit:                    ; preds = %855, %859, %861, %875, %879
-  %.0.in.i = phi ptr [ %882, %879 ], [ %876, %875 ], [ %862, %861 ], [ %860, %859 ], [ %858, %855 ]
+  %.0.in.i = phi ptr [ %858, %855 ], [ %860, %859 ], [ %862, %861 ], [ %876, %875 ], [ %882, %879 ]
   %.0.i302 = load ptr, ptr %.0.in.i, align 8, !tbaa !105
   %884 = getelementptr inbounds nuw i8, ptr %.0.i302, i64 8
   %885 = load i32, ptr %884, align 8
@@ -119311,7 +119311,7 @@ _ZN4llvm15ScalarEvolution11getUMaxExprEPKNS_4SCEVES3_.exit301: ; preds = %888, %
   br label %893
 
 893:                                              ; preds = %_ZN4llvm15ScalarEvolution11getUMaxExprEPKNS_4SCEVES3_.exit301, %_ZN4llvm15ScalarEvolution6getOneEPNS_4TypeE.exit
-  %.3 = phi ptr [ %.1574, %_ZN4llvm15ScalarEvolution6getOneEPNS_4TypeE.exit ], [ %889, %_ZN4llvm15ScalarEvolution11getUMaxExprEPKNS_4SCEVES3_.exit301 ]
+  %.3 = phi ptr [ %889, %_ZN4llvm15ScalarEvolution11getUMaxExprEPKNS_4SCEVES3_.exit301 ], [ %.1574, %_ZN4llvm15ScalarEvolution6getOneEPNS_4TypeE.exit ]
   %894 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.3, ptr noundef %852, i32 noundef 0, i32 noundef 0)
   %895 = load ptr, ptr %39, align 8, !tbaa !98
   %.not69.i = icmp eq ptr %895, null
@@ -121566,7 +121566,7 @@ tailrecurse.backedge.i.i:                         ; preds = %146, %141, %138, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i:                  ; preds = %148, %144, %130, %128, %124
-  %.0.in.i.i = phi ptr [ %151, %148 ], [ %145, %144 ], [ %131, %130 ], [ %129, %128 ], [ %127, %124 ]
+  %.0.in.i.i = phi ptr [ %127, %124 ], [ %129, %128 ], [ %131, %130 ], [ %145, %144 ], [ %151, %148 ]
   %.0.i.i100 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !105
   %153 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i100) #32
   %154 = icmp ugt i32 %.019.i, %153
@@ -122482,7 +122482,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVES4_NS_12DenseMapInfoIS4_vEENS_6d
   unreachable
 
 _ZN4llvm11SCEVVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterS5_E5visitES5_.exit: ; preds = %50, %650, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findES4_.exit.i, %579, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit, %505, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit105, %50, %.critedge.i, %352, %249, %244, %238, %203, %.thread, %199, %.critedge.i99, %75, %69, %53, %59, %67, %50, %50, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %620, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %433, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %394, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %343, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %297, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %205, %203 ], [ %194, %.thread ], [ %202, %199 ], [ %1, %.critedge.i99 ], [ %251, %249 ], [ %248, %244 ], [ %1, %238 ], [ %355, %.critedge.i ], [ %1, %352 ], [ %1, %50 ], [ %504, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit105 ], [ %507, %505 ], [ %578, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ %581, %579 ], [ %652, %650 ], [ %1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findES4_.exit.i ], [ %1, %50 ]
+  %.0.i = phi ptr [ %297, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %343, %_ZZNK4llvm15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEEN21SCEVLoopGuardRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %394, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %433, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %620, %_ZN4llvm18SCEVRewriteVisitorIZNKS_15ScalarEvolution10LoopGuards7rewriteEPKNS_4SCEVEE21SCEVLoopGuardRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %205, %203 ], [ %194, %.thread ], [ %202, %199 ], [ %1, %.critedge.i99 ], [ %251, %249 ], [ %248, %244 ], [ %1, %238 ], [ %355, %.critedge.i ], [ %1, %352 ], [ %1, %50 ], [ %504, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit105 ], [ %507, %505 ], [ %578, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit ], [ %581, %579 ], [ %652, %650 ], [ %1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findES4_.exit.i ], [ %1, %50 ]
   store ptr %.0.i, ptr %11, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -123003,7 +123003,7 @@ tailrecurse.backedge.i.i.i178:                    ; preds = %81, %76, %73, %70, 
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i173:             ; preds = %83, %79, %65, %63, %59
-  %.0.in.i.i.i174 = phi ptr [ %86, %83 ], [ %80, %79 ], [ %66, %65 ], [ %64, %63 ], [ %62, %59 ]
+  %.0.in.i.i.i174 = phi ptr [ %62, %59 ], [ %64, %63 ], [ %66, %65 ], [ %80, %79 ], [ %86, %83 ]
   %.0.i.i.i175 = load ptr, ptr %.0.in.i.i.i174, align 8, !tbaa !105
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i175, i64 8
   %89 = load i32, ptr %88, align 8
@@ -123116,7 +123116,7 @@ tailrecurse.backedge.i.i.i168:                    ; preds = %131, %126, %123, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i163:             ; preds = %133, %129, %115, %113, %109
-  %.0.in.i.i.i164 = phi ptr [ %136, %133 ], [ %130, %129 ], [ %116, %115 ], [ %114, %113 ], [ %112, %109 ]
+  %.0.in.i.i.i164 = phi ptr [ %112, %109 ], [ %114, %113 ], [ %116, %115 ], [ %130, %129 ], [ %136, %133 ]
   %.0.i.i.i165 = load ptr, ptr %.0.in.i.i.i164, align 8, !tbaa !105
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i165, i64 8
   %139 = load i32, ptr %138, align 8
@@ -123222,7 +123222,7 @@ tailrecurse.backedge.i.i.i158:                    ; preds = %176, %171, %168, %1
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i153:             ; preds = %178, %174, %160, %158, %154
-  %.0.in.i.i.i154 = phi ptr [ %181, %178 ], [ %175, %174 ], [ %161, %160 ], [ %159, %158 ], [ %157, %154 ]
+  %.0.in.i.i.i154 = phi ptr [ %157, %154 ], [ %159, %158 ], [ %161, %160 ], [ %175, %174 ], [ %181, %178 ]
   %.0.i.i.i155 = load ptr, ptr %.0.in.i.i.i154, align 8, !tbaa !105
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i.i155, i64 8
   %184 = load i32, ptr %183, align 8
@@ -123328,7 +123328,7 @@ tailrecurse.backedge.i.i.i148:                    ; preds = %221, %216, %213, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i143:             ; preds = %223, %219, %205, %203, %199
-  %.0.in.i.i.i144 = phi ptr [ %226, %223 ], [ %220, %219 ], [ %206, %205 ], [ %204, %203 ], [ %202, %199 ]
+  %.0.in.i.i.i144 = phi ptr [ %202, %199 ], [ %204, %203 ], [ %206, %205 ], [ %220, %219 ], [ %226, %223 ]
   %.0.i.i.i145 = load ptr, ptr %.0.in.i.i.i144, align 8, !tbaa !105
   %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i145, i64 8
   %229 = load i32, ptr %228, align 8
@@ -123455,7 +123455,7 @@ tailrecurse.backedge.i.i.i138:                    ; preds = %274, %269, %266, %2
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i130:             ; preds = %276, %272, %258, %256, %252
-  %.0.in.i.i.i131 = phi ptr [ %279, %276 ], [ %273, %272 ], [ %259, %258 ], [ %257, %256 ], [ %255, %252 ]
+  %.0.in.i.i.i131 = phi ptr [ %255, %252 ], [ %257, %256 ], [ %259, %258 ], [ %273, %272 ], [ %279, %276 ]
   %.0.i.i.i132 = load ptr, ptr %.0.in.i.i.i131, align 8, !tbaa !105
   %281 = getelementptr inbounds nuw i8, ptr %.0.i.i.i132, i64 8
   %282 = load i32, ptr %281, align 8
@@ -123634,7 +123634,7 @@ tailrecurse.backedge.i.i.i120:                    ; preds = %354, %349, %346, %3
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i112:             ; preds = %356, %352, %338, %336, %332
-  %.0.in.i.i.i113 = phi ptr [ %359, %356 ], [ %353, %352 ], [ %339, %338 ], [ %337, %336 ], [ %335, %332 ]
+  %.0.in.i.i.i113 = phi ptr [ %335, %332 ], [ %337, %336 ], [ %339, %338 ], [ %353, %352 ], [ %359, %356 ]
   %.0.i.i.i114 = load ptr, ptr %.0.in.i.i.i113, align 8, !tbaa !105
   %361 = getelementptr inbounds nuw i8, ptr %.0.i.i.i114, i64 8
   %362 = load i32, ptr %361, align 8
@@ -123792,7 +123792,7 @@ tailrecurse.backedge.i.i.i103:                    ; preds = %426, %421, %418, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i97:              ; preds = %428, %424, %410, %408, %404
-  %.0.in.i.i.i98 = phi ptr [ %431, %428 ], [ %425, %424 ], [ %411, %410 ], [ %409, %408 ], [ %407, %404 ]
+  %.0.in.i.i.i98 = phi ptr [ %407, %404 ], [ %409, %408 ], [ %411, %410 ], [ %425, %424 ], [ %431, %428 ]
   %.0.i.i.i99 = load ptr, ptr %.0.in.i.i.i98, align 8, !tbaa !105
   %433 = getelementptr inbounds nuw i8, ptr %.0.i.i.i99, i64 8
   %434 = load i32, ptr %433, align 8
@@ -123890,7 +123890,7 @@ tailrecurse.backedge.i.i16.i:                     ; preds = %465, %460, %457, %4
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i12.i:              ; preds = %467, %463, %449, %447, %443
-  %.0.in.i.i13.i = phi ptr [ %470, %467 ], [ %464, %463 ], [ %450, %449 ], [ %448, %447 ], [ %446, %443 ]
+  %.0.in.i.i13.i = phi ptr [ %446, %443 ], [ %448, %447 ], [ %450, %449 ], [ %464, %463 ], [ %470, %467 ]
   %.0.i.i14.i = load ptr, ptr %.0.in.i.i13.i, align 8, !tbaa !105
   %472 = getelementptr inbounds nuw i8, ptr %.0.i.i14.i, i64 8
   %473 = load i32, ptr %472, align 8
@@ -124024,7 +124024,7 @@ tailrecurse.backedge.i.i.i92:                     ; preds = %518, %513, %510, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i84:              ; preds = %520, %516, %502, %500, %496
-  %.0.in.i.i.i85 = phi ptr [ %523, %520 ], [ %517, %516 ], [ %503, %502 ], [ %501, %500 ], [ %499, %496 ]
+  %.0.in.i.i.i85 = phi ptr [ %499, %496 ], [ %501, %500 ], [ %503, %502 ], [ %517, %516 ], [ %523, %520 ]
   %.0.i.i.i86 = load ptr, ptr %.0.in.i.i.i85, align 8, !tbaa !105
   %525 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 8
   %526 = load i32, ptr %525, align 8
@@ -124205,7 +124205,7 @@ tailrecurse.backedge.i.i.i75:                     ; preds = %600, %595, %592, %5
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i67:              ; preds = %602, %598, %584, %582, %578
-  %.0.in.i.i.i68 = phi ptr [ %605, %602 ], [ %599, %598 ], [ %585, %584 ], [ %583, %582 ], [ %581, %578 ]
+  %.0.in.i.i.i68 = phi ptr [ %581, %578 ], [ %583, %582 ], [ %585, %584 ], [ %599, %598 ], [ %605, %602 ]
   %.0.i.i.i69 = load ptr, ptr %.0.in.i.i.i68, align 8, !tbaa !105
   %607 = getelementptr inbounds nuw i8, ptr %.0.i.i.i69, i64 8
   %608 = load i32, ptr %607, align 8
@@ -124380,7 +124380,7 @@ tailrecurse.backedge.i.i.i57:                     ; preds = %676, %671, %668, %6
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i49:              ; preds = %678, %674, %660, %658, %654
-  %.0.in.i.i.i50 = phi ptr [ %681, %678 ], [ %675, %674 ], [ %661, %660 ], [ %659, %658 ], [ %657, %654 ]
+  %.0.in.i.i.i50 = phi ptr [ %657, %654 ], [ %659, %658 ], [ %661, %660 ], [ %675, %674 ], [ %681, %678 ]
   %.0.i.i.i51 = load ptr, ptr %.0.in.i.i.i50, align 8, !tbaa !105
   %683 = getelementptr inbounds nuw i8, ptr %.0.i.i.i51, i64 8
   %684 = load i32, ptr %683, align 8
@@ -124555,7 +124555,7 @@ tailrecurse.backedge.i.i.i39:                     ; preds = %752, %747, %744, %7
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i31:              ; preds = %754, %750, %736, %734, %730
-  %.0.in.i.i.i32 = phi ptr [ %757, %754 ], [ %751, %750 ], [ %737, %736 ], [ %735, %734 ], [ %733, %730 ]
+  %.0.in.i.i.i32 = phi ptr [ %733, %730 ], [ %735, %734 ], [ %737, %736 ], [ %751, %750 ], [ %757, %754 ]
   %.0.i.i.i33 = load ptr, ptr %.0.in.i.i.i32, align 8, !tbaa !105
   %759 = getelementptr inbounds nuw i8, ptr %.0.i.i.i33, i64 8
   %760 = load i32, ptr %759, align 8
@@ -124730,7 +124730,7 @@ tailrecurse.backedge.i.i.i21:                     ; preds = %828, %823, %820, %8
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i13:              ; preds = %830, %826, %812, %810, %806
-  %.0.in.i.i.i14 = phi ptr [ %833, %830 ], [ %827, %826 ], [ %813, %812 ], [ %811, %810 ], [ %809, %806 ]
+  %.0.in.i.i.i14 = phi ptr [ %809, %806 ], [ %811, %810 ], [ %813, %812 ], [ %827, %826 ], [ %833, %830 ]
   %.0.i.i.i15 = load ptr, ptr %.0.in.i.i.i14, align 8, !tbaa !105
   %835 = getelementptr inbounds nuw i8, ptr %.0.i.i.i15, i64 8
   %836 = load i32, ptr %835, align 8
@@ -124905,7 +124905,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %904, %899, %896, %8
   unreachable
 
 _ZNK4llvm4SCEV7getTypeEv.exit.i.i:                ; preds = %906, %902, %888, %886, %882
-  %.0.in.i.i.i = phi ptr [ %909, %906 ], [ %903, %902 ], [ %889, %888 ], [ %887, %886 ], [ %885, %882 ]
+  %.0.in.i.i.i = phi ptr [ %885, %882 ], [ %887, %886 ], [ %889, %888 ], [ %903, %902 ], [ %909, %906 ]
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !105
   %911 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %912 = load i32, ptr %911, align 8
@@ -124983,7 +124983,7 @@ _ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS
   unreachable
 
 _ZN4llvm11SCEVVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterS4_E5visitES4_.exit: ; preds = %_ZNK4llvm4SCEV7getTypeEv.exit.i.i143, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i153, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i163, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i173, %51, %.critedge.i, %479, %234, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i146, %189, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i156, %144, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i166, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i176, %94, %102, %51, %51, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit, %945
-  %.0.i = phi ptr [ %947, %945 ], [ %944, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %868, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %792, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %716, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %640, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %564, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %398, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %318, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %51 ], [ %1, %51 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i176 ], [ %103, %102 ], [ %98, %94 ], [ %148, %144 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i166 ], [ %193, %189 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i156 ], [ %238, %234 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i146 ], [ %482, %.critedge.i ], [ %1, %479 ], [ %1, %51 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i173 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i163 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i153 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i143 ]
+  %.0.i = phi ptr [ %318, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %398, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %564, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %640, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %716, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %792, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %868, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %944, %_ZN4llvm18SCEVRewriteVisitorIZNS_15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjE27SCEVPtrToIntSinkingRewriterE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %947, %945 ], [ %1, %51 ], [ %1, %51 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i176 ], [ %103, %102 ], [ %98, %94 ], [ %148, %144 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i166 ], [ %193, %189 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i156 ], [ %238, %234 ], [ %1, %_ZZN4llvm15ScalarEvolution23getLosslessPtrToIntExprEPKNS_4SCEVEjEN27SCEVPtrToIntSinkingRewriter5visitES3_.exit.i146 ], [ %482, %.critedge.i ], [ %1, %479 ], [ %1, %51 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i173 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i163 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i153 ], [ %1, %_ZNK4llvm4SCEV7getTypeEv.exit.i.i143 ]
   store ptr %.0.i, ptr %12, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -127129,7 +127129,7 @@ tailrecurse.i.i.i.backedge:                       ; preds = %33, %28, %25, %22, 
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit: ; preds = %11, %15, %17, %31, %35
-  %.0.in.i.i.i = phi ptr [ %38, %35 ], [ %32, %31 ], [ %18, %17 ], [ %16, %15 ], [ %14, %11 ]
+  %.0.in.i.i.i = phi ptr [ %14, %11 ], [ %16, %15 ], [ %18, %17 ], [ %32, %31 ], [ %38, %35 ]
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %41 = load i32, ptr %40, align 8
@@ -127221,7 +127221,7 @@ tailrecurse.i.i.i30.backedge:                     ; preds = %70, %65, %62, %59, 
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit37: ; preds = %48, %52, %54, %68, %72
-  %.0.in.i.i.i33 = phi ptr [ %75, %72 ], [ %69, %68 ], [ %55, %54 ], [ %53, %52 ], [ %51, %48 ]
+  %.0.in.i.i.i33 = phi ptr [ %51, %48 ], [ %53, %52 ], [ %55, %54 ], [ %69, %68 ], [ %75, %72 ]
   %.0.i.i.i34 = load ptr, ptr %.0.in.i.i.i33, align 8, !tbaa !105
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i34, i64 8
   %78 = load i32, ptr %77, align 8
@@ -127313,7 +127313,7 @@ tailrecurse.i.i.i38.backedge:                     ; preds = %107, %102, %99, %96
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit45: ; preds = %85, %89, %91, %105, %109
-  %.0.in.i.i.i41 = phi ptr [ %112, %109 ], [ %106, %105 ], [ %92, %91 ], [ %90, %89 ], [ %88, %85 ]
+  %.0.in.i.i.i41 = phi ptr [ %88, %85 ], [ %90, %89 ], [ %92, %91 ], [ %106, %105 ], [ %112, %109 ]
   %.0.i.i.i42 = load ptr, ptr %.0.in.i.i.i41, align 8, !tbaa !105
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i42, i64 8
   %115 = load i32, ptr %114, align 8
@@ -127405,7 +127405,7 @@ tailrecurse.i.i.i46.backedge:                     ; preds = %144, %139, %136, %1
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit53: ; preds = %122, %126, %128, %142, %146
-  %.0.in.i.i.i49 = phi ptr [ %149, %146 ], [ %143, %142 ], [ %129, %128 ], [ %127, %126 ], [ %125, %122 ]
+  %.0.in.i.i.i49 = phi ptr [ %125, %122 ], [ %127, %126 ], [ %129, %128 ], [ %143, %142 ], [ %149, %146 ]
   %.0.i.i.i50 = load ptr, ptr %.0.in.i.i.i49, align 8, !tbaa !105
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i50, i64 8
   %152 = load i32, ptr %151, align 8
@@ -127514,7 +127514,7 @@ tailrecurse.i.i.i54.backedge:                     ; preds = %184, %179, %176, %1
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit61: ; preds = %162, %166, %168, %182, %186
-  %.0.in.i.i.i57 = phi ptr [ %189, %186 ], [ %183, %182 ], [ %169, %168 ], [ %167, %166 ], [ %165, %162 ]
+  %.0.in.i.i.i57 = phi ptr [ %165, %162 ], [ %167, %166 ], [ %169, %168 ], [ %183, %182 ], [ %189, %186 ]
   %.0.i.i.i58 = load ptr, ptr %.0.in.i.i.i57, align 8, !tbaa !105
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i58, i64 8
   %192 = load i32, ptr %191, align 8
@@ -127527,7 +127527,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRef
   br label %197
 
 197:                                              ; preds = %195, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %196, %195 ]
+  %.1 = phi ptr [ %196, %195 ], [ %.029.lcssa, %._crit_edge ]
   br label %tailrecurse.i.i.i62
 
 tailrecurse.i.i.i62:                              ; preds = %tailrecurse.i.i.i62.backedge, %197
@@ -127610,7 +127610,7 @@ tailrecurse.i.i.i62.backedge:                     ; preds = %222, %217, %214, %2
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit69: ; preds = %200, %204, %206, %220, %224
-  %.0.in.i.i.i65 = phi ptr [ %227, %224 ], [ %221, %220 ], [ %207, %206 ], [ %205, %204 ], [ %203, %200 ]
+  %.0.in.i.i.i65 = phi ptr [ %203, %200 ], [ %205, %204 ], [ %207, %206 ], [ %221, %220 ], [ %227, %224 ]
   %.0.i.i.i66 = load ptr, ptr %.0.in.i.i.i65, align 8, !tbaa !105
   %229 = getelementptr inbounds nuw i8, ptr %.0.i.i.i66, i64 8
   %230 = load i32, ptr %229, align 8
@@ -127623,7 +127623,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRef
   br label %235
 
 235:                                              ; preds = %233, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %234, %233 ]
+  %.2 = phi ptr [ %234, %233 ], [ %.029.lcssa, %._crit_edge ]
   br label %tailrecurse.i.i.i70
 
 tailrecurse.i.i.i70:                              ; preds = %tailrecurse.i.i.i70.backedge, %235
@@ -127706,7 +127706,7 @@ tailrecurse.i.i.i70.backedge:                     ; preds = %260, %255, %252, %2
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm11SCEVAddExprC1ENS2_19FoldingSetNodeIDRefEPKPKNS2_4SCEVEmEUlS7_E_EclIS9_EEbT_.exit77: ; preds = %238, %242, %244, %258, %262
-  %.0.in.i.i.i73 = phi ptr [ %265, %262 ], [ %259, %258 ], [ %245, %244 ], [ %243, %242 ], [ %241, %238 ]
+  %.0.in.i.i.i73 = phi ptr [ %241, %238 ], [ %243, %242 ], [ %245, %244 ], [ %259, %258 ], [ %265, %262 ]
   %.0.i.i.i74 = load ptr, ptr %.0.in.i.i.i73, align 8, !tbaa !105
   %267 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 8
   %268 = load i32, ptr %267, align 8
@@ -128231,12 +128231,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_13SCEVPredicateELb1EE18uninitialized_move
 define internal fastcc void @_ZN12_GLOBAL__N_18BinaryOpC2EPN4llvm8OperatorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 4), (8, 26), (32, 40)) %0, ptr noundef nonnull %1) unnamed_addr #14 align 2 {
   %3 = load i8, ptr %1, align 8, !tbaa !243
   %4 = icmp ugt i8 %3, 28
-  %5 = zext i8 %3 to i32
-  %6 = add nsw i32 %5, -29
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %.1.i = select i1 %4, i32 %6, i32 %9
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %6 = load i16, ptr %5, align 2
+  %7 = zext i16 %6 to i32
+  %8 = zext i8 %3 to i32
+  %9 = add nsw i32 %8, -29
+  %.1.i = select i1 %4, i32 %9, i32 %7
   store i32 %.1.i, ptr %0, align 8, !tbaa !945
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -128293,7 +128293,7 @@ _ZNK4llvm4User10getOperandEj.exit10:              ; preds = %27, %30
   br i1 %4, label %41, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
 
 41:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit10
-  %42 = add nsw i32 %5, -42
+  %42 = add nsw i32 %8, -42
   %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 31)
   switch i32 %43, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.thread [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit
@@ -128307,7 +128307,7 @@ _ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i
   br i1 %44, label %45, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.thread
 
 45:                                               ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
-  %46 = add nsw i32 %9, -13
+  %46 = add nsw i32 %7, -13
   %47 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %46, i32 31)
   switch i32 %47, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit.thread [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_8OperatorEEEDcPT0_.exit
@@ -129275,7 +129275,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit.i:            ; preds = %449
   unreachable
 
 _ZN4llvm11SCEVVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEPKNS_4SCEVEE5visitES5_.exit: ; preds = %472, %51, %433, %467, %443, %.critedge.i, %189, %98, %92, %87, %81, %76, %70, %54, %60, %68, %51, %51, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %432, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %393, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %354, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %315, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %276, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %237, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %180, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %141, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %51 ], [ %1, %51 ], [ %1, %54 ], [ %69, %68 ], [ %64, %60 ], [ %80, %76 ], [ %1, %70 ], [ %91, %87 ], [ %1, %81 ], [ %102, %98 ], [ %1, %92 ], [ %192, %.critedge.i ], [ %1, %189 ], [ %1, %433 ], [ %471, %467 ], [ %1, %443 ], [ %1, %51 ], [ %spec.select, %472 ]
+  %.0.i = phi ptr [ %141, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %180, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %237, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %276, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %315, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %354, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %393, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %432, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_127SCEVBackedgeConditionFolderEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %51 ], [ %1, %51 ], [ %1, %54 ], [ %69, %68 ], [ %64, %60 ], [ %80, %76 ], [ %1, %70 ], [ %91, %87 ], [ %1, %81 ], [ %102, %98 ], [ %1, %92 ], [ %192, %.critedge.i ], [ %1, %189 ], [ %1, %433 ], [ %471, %467 ], [ %1, %443 ], [ %1, %51 ], [ %spec.select, %472 ]
   store ptr %.0.i, ptr %12, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -130129,7 +130129,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE23visitSequenti
   unreachable
 
 _ZN4llvm11SCEVVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEPKNS_4SCEVEE5visitES5_.exit: ; preds = %50, %409, %403, %206, %202, %.critedge.i, %188, %97, %91, %86, %80, %75, %69, %53, %59, %67, %50, %50, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %402, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %363, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %324, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %285, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %246, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %205, %202 ], [ %1, %206 ], [ %1, %403 ], [ %1, %409 ], [ %1, %50 ]
+  %.0.i = phi ptr [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %246, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %285, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %324, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %363, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %402, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_117SCEVShiftRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %205, %202 ], [ %1, %206 ], [ %1, %403 ], [ %1, %409 ], [ %1, %50 ]
   store ptr %.0.i, ptr %11, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -130913,7 +130913,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE23visitSequentia
   unreachable
 
 _ZN4llvm11SCEVVisitorIN12_GLOBAL__N_116SCEVInitRewriterEPKNS_4SCEVEE5visitES5_.exit: ; preds = %50, %405, %399, %202, %198, %.critedge.i, %188, %97, %91, %86, %80, %75, %69, %53, %59, %67, %50, %50, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %398, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %359, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %320, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %281, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %242, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %201, %198 ], [ %1, %202 ], [ %1, %399 ], [ %1, %405 ], [ %1, %50 ]
+  %.0.i = phi ptr [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %242, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %281, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %320, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %359, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %398, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_116SCEVInitRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %201, %198 ], [ %1, %202 ], [ %1, %399 ], [ %1, %405 ], [ %1, %50 ]
   store ptr %.0.i, ptr %11, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -134536,7 +134536,7 @@ _ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE23visitSequen
   unreachable
 
 _ZN4llvm11SCEVVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEPKNS_4SCEVEE5visitES5_.exit: ; preds = %50, %404, %398, %201, %198, %.critedge.i, %188, %97, %91, %86, %80, %75, %69, %53, %59, %67, %50, %50, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %397, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %358, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %319, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %280, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %241, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %200, %198 ], [ %1, %201 ], [ %1, %398 ], [ %1, %404 ], [ %1, %50 ]
+  %.0.i = phi ptr [ %140, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %179, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %241, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %280, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %319, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %358, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %397, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_119SCEVPostIncRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %50 ], [ %1, %50 ], [ %1, %53 ], [ %68, %67 ], [ %63, %59 ], [ %79, %75 ], [ %1, %69 ], [ %90, %86 ], [ %1, %80 ], [ %101, %97 ], [ %1, %91 ], [ %191, %.critedge.i ], [ %1, %188 ], [ %200, %198 ], [ %1, %201 ], [ %1, %398 ], [ %1, %404 ], [ %1, %50 ]
   store ptr %.0.i, ptr %11, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -137372,7 +137372,7 @@ _ZNSt14_Optional_baseISt4pairIPKN4llvm4SCEVENS1_11SmallVectorIPKNS1_13SCEVPredic
   unreachable
 
 _ZN4llvm11SCEVVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEPKNS_4SCEVEE5visitES5_.exit: ; preds = %.thread145, %52, %587, %576, %_ZNSt14_Optional_baseISt4pairIPKN4llvm4SCEVENS1_11SmallVectorIPKNS1_13SCEVPredicateELj3EEEELb0ELb0EED2Ev.exit, %.critedge.i, %304, %.thread130, %200, %.thread, %132, %77, %71, %55, %61, %69, %52, %52, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit
-  %.0.i = phi ptr [ %547, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %508, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %469, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %430, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %391, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %352, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %295, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %256, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %1, %52 ], [ %1, %52 ], [ %1, %55 ], [ %70, %69 ], [ %65, %61 ], [ %81, %77 ], [ %1, %71 ], [ %149, %.thread ], [ %145, %132 ], [ %217, %.thread130 ], [ %213, %200 ], [ %307, %.critedge.i ], [ %1, %304 ], [ %578, %576 ], [ %589, %587 ], [ %.1.i.i, %_ZNSt14_Optional_baseISt4pairIPKN4llvm4SCEVENS1_11SmallVectorIPKNS1_13SCEVPredicateELj3EEEELb0ELb0EED2Ev.exit ], [ %1, %52 ], [ %1, %.thread145 ]
+  %.0.i = phi ptr [ %256, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitAddExprEPKNS_11SCEVAddExprE.exit ], [ %295, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE12visitMulExprEPKNS_11SCEVMulExprE.exit ], [ %352, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE15visitAddRecExprEPKNS_14SCEVAddRecExprE.exit ], [ %391, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMaxExprEPKNS_12SCEVSMaxExprE.exit ], [ %430, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMaxExprEPKNS_12SCEVUMaxExprE.exit ], [ %469, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitSMinExprEPKNS_12SCEVSMinExprE.exit ], [ %508, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE13visitUMinExprEPKNS_12SCEVUMinExprE.exit ], [ %547, %_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_121SCEVPredicateRewriterEE23visitSequentialUMinExprEPKNS_22SCEVSequentialUMinExprE.exit ], [ %1, %52 ], [ %1, %52 ], [ %1, %55 ], [ %70, %69 ], [ %65, %61 ], [ %81, %77 ], [ %1, %71 ], [ %149, %.thread ], [ %145, %132 ], [ %217, %.thread130 ], [ %213, %200 ], [ %307, %.critedge.i ], [ %1, %304 ], [ %578, %576 ], [ %589, %587 ], [ %.1.i.i, %_ZNSt14_Optional_baseISt4pairIPKN4llvm4SCEVENS1_11SmallVectorIPKNS1_13SCEVPredicateELj3EEEELb0ELb0EED2Ev.exit ], [ %1, %52 ], [ %1, %.thread145 ]
   store ptr %.0.i, ptr %13, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #31
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4SCEVES4_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.906") align 8 %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -140242,8 +140242,8 @@ _ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.ex
   unreachable
 
 _ZNK4llvm4SCEV8operandsEv.exit:                   ; preds = %.critedge, %.critedge, %.critedge, %98, %100, %106
-  %.sroa.0.0.i = phi ptr [ %107, %106 ], [ %102, %100 ], [ %99, %98 ], [ null, %.critedge ], [ null, %.critedge ], [ null, %.critedge ]
-  %.sroa.6.0.i = phi i32 [ 2, %106 ], [ %105, %100 ], [ 1, %98 ], [ 0, %.critedge ], [ 0, %.critedge ], [ 0, %.critedge ]
+  %.sroa.0.0.i = phi ptr [ %99, %98 ], [ %102, %100 ], [ %107, %106 ], [ null, %.critedge ], [ null, %.critedge ], [ null, %.critedge ]
+  %.sroa.6.0.i = phi i32 [ 1, %98 ], [ %105, %100 ], [ 2, %106 ], [ 0, %.critedge ], [ 0, %.critedge ], [ 0, %.critedge ]
   %109 = load i16, ptr %13, align 8, !tbaa !78
   switch i16 %109, label %120 [
     i16 0, label %_ZNK4llvm4SCEV8operandsEv.exit72
@@ -140284,8 +140284,8 @@ _ZNK4llvm4SCEV8operandsEv.exit:                   ; preds = %.critedge, %.crited
   unreachable
 
 _ZNK4llvm4SCEV8operandsEv.exit72:                 ; preds = %_ZNK4llvm4SCEV8operandsEv.exit, %_ZNK4llvm4SCEV8operandsEv.exit, %_ZNK4llvm4SCEV8operandsEv.exit, %110, %112, %118
-  %.sroa.0.0.i68 = phi ptr [ %119, %118 ], [ %114, %112 ], [ %111, %110 ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ]
-  %.sroa.6.0.i69 = phi i32 [ 2, %118 ], [ %117, %112 ], [ 1, %110 ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ]
+  %.sroa.0.0.i68 = phi ptr [ %111, %110 ], [ %114, %112 ], [ %119, %118 ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ], [ null, %_ZNK4llvm4SCEV8operandsEv.exit ]
+  %.sroa.6.0.i69 = phi i32 [ 1, %110 ], [ %117, %112 ], [ 2, %118 ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ], [ 0, %_ZNK4llvm4SCEV8operandsEv.exit ]
   %.not63 = icmp eq i32 %.sroa.6.0.i, %.sroa.6.0.i69
   br i1 %.not63, label %.preheader, label %123
 
@@ -140332,8 +140332,8 @@ _ZNK4llvm4SCEV8operandsEv.exit72:                 ; preds = %_ZNK4llvm4SCEV8oper
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %89, %123, %.critedge67, %46, %54, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit.thread, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit, %6, %15, %72, %67, %65
-  %.sroa.086.0 = phi i32 [ %83, %72 ], [ %71, %67 ], [ %66, %65 ], [ %18, %15 ], [ 0, %6 ], [ 0, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit ], [ undef, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit.thread ], [ 0, %54 ], [ %52, %46 ], [ 0, %.critedge67 ], [ %124, %123 ], [ %spec.select, %89 ], [ %.sroa.086.0.extract.trunc, %.loopexit.loopexit ]
-  %.sroa.14.0 = phi i64 [ 4294967296, %72 ], [ 4294967296, %67 ], [ 4294967296, %65 ], [ 4294967296, %15 ], [ 4294967296, %6 ], [ 4294967296, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit ], [ 0, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit.thread ], [ 4294967296, %54 ], [ 4294967296, %46 ], [ 4294967296, %.critedge67 ], [ 4294967296, %123 ], [ 4294967296, %89 ], [ %136, %.loopexit.loopexit ]
+  %.sroa.086.0 = phi i32 [ %71, %67 ], [ %66, %65 ], [ %83, %72 ], [ %18, %15 ], [ 0, %6 ], [ 0, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit ], [ undef, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit.thread ], [ 0, %54 ], [ %52, %46 ], [ 0, %.critedge67 ], [ %124, %123 ], [ %spec.select, %89 ], [ %.sroa.086.0.extract.trunc, %.loopexit.loopexit ]
+  %.sroa.14.0 = phi i64 [ 4294967296, %67 ], [ 4294967296, %65 ], [ 4294967296, %72 ], [ 4294967296, %15 ], [ 4294967296, %6 ], [ 4294967296, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit ], [ 0, %_ZNK4llvm18EquivalenceClassesIPKNS_4SCEVESt4lessIS3_EE12isEquivalentERKS3_S8_.exit.thread ], [ 4294967296, %54 ], [ 4294967296, %46 ], [ 4294967296, %.critedge67 ], [ 4294967296, %123 ], [ 4294967296, %89 ], [ %136, %.loopexit.loopexit ]
   %.sroa.086.0.insert.ext = zext i32 %.sroa.086.0 to i64
   %.sroa.086.0.insert.insert = or disjoint i64 %.sroa.14.0, %.sroa.086.0.insert.ext
   ret i64 %.sroa.086.0.insert.insert
@@ -140771,7 +140771,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %3
   br label %13
 
 13:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit, %.thread, %10
-  %.1 = phi i32 [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ %12, %10 ], [ 0, %.thread ]
+  %.1 = phi i32 [ %12, %10 ], [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ 0, %.thread ]
   ret i32 %.1
 }
 
@@ -151461,9 +151461,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN4llvm4LoopEPKNS1_4SC
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi ptr [ %.pre52, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi ptr [ %56, %59 ], [ %.pre52, %._crit_edge._crit_edge ]
+  %63 = phi ptr [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %60, %59 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %64 = load ptr, ptr %.1, align 8, !tbaa !1490
   %65 = icmp eq ptr %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -151477,9 +151477,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPSt4pairIPKN4llvm4LoopEPKNS1_4SC
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge53, %70
-  %73 = phi ptr [ %.pre56, %._crit_edge._crit_edge53 ], [ %62, %70 ]
-  %74 = phi ptr [ %.pre54, %._crit_edge._crit_edge53 ], [ %63, %70 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge53 ], [ %71, %70 ]
+  %73 = phi ptr [ %62, %70 ], [ %.pre56, %._crit_edge._crit_edge53 ]
+  %74 = phi ptr [ %63, %70 ], [ %.pre54, %._crit_edge._crit_edge53 ]
+  %.2 = phi ptr [ %71, %70 ], [ %.029.lcssa, %._crit_edge._crit_edge53 ]
   %75 = load ptr, ptr %.2, align 8, !tbaa !1490
   %76 = icmp eq ptr %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -152038,8 +152038,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EE
   br label %82
 
 82:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit33.thread
-  %83 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %70, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit33.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit33.thread ]
+  %83 = phi ptr [ %70, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit33.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit33.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %84 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %86 = load ptr, ptr %.1, align 8, !tbaa !98
@@ -152065,8 +152065,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EE
   br label %98
 
 98:                                               ; preds = %._crit_edge._crit_edge58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit34.thread
-  %99 = phi ptr [ %.pre59, %._crit_edge._crit_edge58 ], [ %83, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit34.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge58 ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit34.thread ]
+  %99 = phi ptr [ %83, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit34.thread ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.2 = phi ptr [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm15ScalarEvolution6FoldIDEEclIPS5_EEbT_.exit34.thread ], [ %.029.lcssa, %._crit_edge._crit_edge58 ]
   %100 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %102 = load ptr, ptr %.2, align 8, !tbaa !98

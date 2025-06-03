@@ -2556,7 +2556,7 @@ _Z18for_each_expr_coreIN12_GLOBAL__N_124uninterp_const_collectorE13ast_fast_mark
   unreachable
 
 .body.i.i:                                        ; preds = %744, %707, %662, %613, %559, %519, %497
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %498, %497 ], [ %663, %662 ], [ %520, %519 ], [ %614, %613 ], [ %560, %559 ], [ %745, %744 ], [ %708, %707 ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %498, %497 ], [ %663, %662 ], [ %520, %519 ], [ %560, %559 ], [ %614, %613 ], [ %745, %744 ], [ %708, %707 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #21
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #21
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #21
@@ -3809,7 +3809,7 @@ _Z18for_each_expr_coreIN12_GLOBAL__N_113term_ite_procE13ast_fast_markILj1EELb0EL
   unreachable
 
 .body.i.i:                                        ; preds = %226, %189, %122, %88, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i, %.loopexit.split-lp215.i.i.i, %.loopexit214.i.i.i, %27
-  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %28, %27 ], [ %123, %122 ], [ %89, %88 ], [ %227, %226 ], [ %190, %189 ], [ %lpad.loopexit216.i.i.i, %.loopexit214.i.i.i ], [ %lpad.loopexit.split-lp217.i.i.i, %.loopexit.split-lp215.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn53.pn.i.i.i = phi { ptr, i32 } [ %28, %27 ], [ %89, %88 ], [ %123, %122 ], [ %227, %226 ], [ %190, %189 ], [ %lpad.loopexit216.i.i.i, %.loopexit214.i.i.i ], [ %lpad.loopexit.split-lp217.i.i.i, %.loopexit.split-lp215.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %1) #21
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %1) #21
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #21

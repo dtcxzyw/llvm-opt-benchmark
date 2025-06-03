@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   unreachable
 
 86:                                               ; preds = %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %78
-  %.3 = phi ptr [ %59, %78 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.2, %56 ]
+  %.3 = phi ptr [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %59, %78 ], [ %.2, %56 ]
   %87 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %56, !llvm.loop !33
 
@@ -953,8 +953,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   ret void
 
 223:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %.critedge65, %.critedge61
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ], [ %.pn51, %.critedge65 ], [ %.pn54, %.critedge61 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn54.pn = phi { ptr, i32 } [ %.pn54, %.critedge61 ], [ %.pn51, %.critedge65 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ]
+  resume { ptr, i32 } %.pn54.pn
 }
 
 ; Function Attrs: nofree nounwind

@@ -3381,8 +3381,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveEl.exit102: ; preds = %27
   br label %46
 
 46:                                               ; preds = %19, %34
-  %.sroa.0.0 = phi ptr [ %31, %34 ], [ %17, %19 ]
-  %.sroa.30.0 = phi i64 [ 6, %34 ], [ 3, %19 ]
+  %.sroa.0.0 = phi ptr [ %17, %19 ], [ %31, %34 ]
+  %.sroa.30.0 = phi i64 [ 3, %19 ], [ 6, %34 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -5209,8 +5209,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveEl.exit102: ; preds = %27
   br label %46
 
 46:                                               ; preds = %19, %34
-  %.sroa.0.0 = phi ptr [ %31, %34 ], [ %17, %19 ]
-  %.sroa.30.0 = phi i64 [ 6, %34 ], [ 3, %19 ]
+  %.sroa.0.0 = phi ptr [ %17, %19 ], [ %31, %34 ]
+  %.sroa.30.0 = phi i64 [ 3, %19 ], [ 6, %34 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)

@@ -6187,8 +6187,8 @@ _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit: ; preds = %.noexc
   store ptr null, ptr %950, align 8, !tbaa !59, !alias.scope !176, !noalias !173
   br label %_ZN10cmAlphaNumC2EPKc.exit.cont.cont.i
 
-951:                                              ; preds = %949, %945, %.noexc1092, %.noexc1093
-  %.0.i.ph = phi ptr [ %.str.7..str.8.i, %.noexc1093 ], [ @.str.5, %.noexc1092 ], [ @.str.6, %945 ], [ @.str.9, %949 ]
+951:                                              ; preds = %945, %949, %.noexc1092, %.noexc1093
+  %.0.i.ph = phi ptr [ %.str.7..str.8.i, %.noexc1093 ], [ @.str.5, %.noexc1092 ], [ @.str.9, %949 ], [ @.str.6, %945 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %71) #23, !noalias !173
   store i64 9, ptr %71, align 8, !tbaa !54, !alias.scope !176, !noalias !173
   %.sroa.4.0..sroa_idx.i.i10943217 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -21766,7 +21766,7 @@ define dso_local noundef ptr @_ZNK28cmNinjaNormalTargetGenerator18GetVisibleType
   br label %11
 
 11:                                               ; preds = %6, %1, %10, %9, %5
-  %.0 = phi ptr [ null, %10 ], [ @.str.9, %9 ], [ @.str.6, %5 ], [ @.str.5, %1 ], [ %.str.7..str.8, %6 ]
+  %.0 = phi ptr [ null, %10 ], [ @.str.6, %5 ], [ @.str.9, %9 ], [ @.str.5, %1 ], [ %.str.7..str.8, %6 ]
   ret ptr %.0
 }
 
@@ -24250,7 +24250,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
   br label %_ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit
 
 _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit: ; preds = %497, %496, %.noexc155, %492, %.noexc154
-  %.0.i = phi ptr [ null, %497 ], [ @.str.9, %496 ], [ @.str.6, %492 ], [ @.str.5, %.noexc154 ], [ %.str.7..str.8.i, %.noexc155 ]
+  %.0.i = phi ptr [ null, %497 ], [ @.str.6, %492 ], [ @.str.9, %496 ], [ @.str.5, %.noexc154 ], [ %.str.7..str.8.i, %.noexc155 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #23, !noalias !778
   store i64 17, ptr %6, align 8, !tbaa !54, !alias.scope !781, !noalias !778
   %.sroa.4.0..sroa_idx.i.i156 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24476,7 +24476,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
   br label %_ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit179
 
 _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit179: ; preds = %571, %570, %.noexc178, %566, %.noexc177
-  %.0.i175 = phi ptr [ null, %571 ], [ @.str.9, %570 ], [ @.str.6, %566 ], [ @.str.5, %.noexc177 ], [ %.str.7..str.8.i176, %.noexc178 ]
+  %.0.i175 = phi ptr [ null, %571 ], [ @.str.6, %566 ], [ @.str.9, %570 ], [ @.str.5, %.noexc177 ], [ %.str.7..str.8.i176, %.noexc178 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #23, !noalias !800
   store i64 8, ptr %4, align 8, !tbaa !54, !alias.scope !803, !noalias !800
   %.sroa.4.0..sroa_idx.i.i180 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -25393,10 +25393,10 @@ _ZN6cmListD2Ev.exit:                              ; preds = %11, %_ZNSt7__cxx111
   ret void
 
 122:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %12
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %.pn7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %13, %12 ]
+  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %13, %12 ]
   call void @_ZN6cmListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn7.pn
 }
 
 declare void @_ZN25cmRulePlaceholderExpander19ExpandRuleVariablesEP17cmOutputConverterRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13RuleVariablesE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #0
@@ -29865,7 +29865,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
   br label %_ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit
 
 _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit: ; preds = %874, %873, %.noexc358, %869, %.noexc357
-  %.0.i = phi ptr [ null, %874 ], [ @.str.9, %873 ], [ @.str.6, %869 ], [ @.str.5, %.noexc357 ], [ %.str.7..str.8.i, %.noexc358 ]
+  %.0.i = phi ptr [ null, %874 ], [ @.str.6, %869 ], [ @.str.9, %873 ], [ @.str.5, %.noexc357 ], [ %.str.7..str.8.i, %.noexc358 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18) #23, !noalias !920
   store i64 17, ptr %18, align 8, !tbaa !54, !alias.scope !923, !noalias !920
   %.sroa.4.0..sroa_idx.i.i359 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -30091,7 +30091,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
   br label %_ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit383
 
 _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit383: ; preds = %948, %947, %.noexc382, %943, %.noexc381
-  %.0.i379 = phi ptr [ null, %948 ], [ @.str.9, %947 ], [ @.str.6, %943 ], [ @.str.5, %.noexc381 ], [ %.str.7..str.8.i380, %.noexc382 ]
+  %.0.i379 = phi ptr [ null, %948 ], [ @.str.6, %943 ], [ @.str.9, %947 ], [ @.str.5, %.noexc381 ], [ %.str.7..str.8.i380, %.noexc382 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %16) #23, !noalias !942
   store i64 8, ptr %16, align 8, !tbaa !54, !alias.scope !945, !noalias !942
   %.sroa.4.0..sroa_idx.i.i384 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -32323,8 +32323,8 @@ _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit663: ; preds = %.no
   store ptr null, ptr %1749, align 8, !tbaa !59, !alias.scope !973, !noalias !970
   br label %_ZN10cmAlphaNumC2EPKc.exit.cont.cont.i666
 
-1750:                                             ; preds = %1748, %1744, %.noexc661, %.noexc662
-  %.0.i659.ph = phi ptr [ %.str.7..str.8.i660, %.noexc662 ], [ @.str.5, %.noexc661 ], [ @.str.6, %1744 ], [ @.str.9, %1748 ]
+1750:                                             ; preds = %1744, %1748, %.noexc661, %.noexc662
+  %.0.i659.ph = phi ptr [ %.str.7..str.8.i660, %.noexc662 ], [ @.str.5, %.noexc661 ], [ @.str.9, %1748 ], [ @.str.6, %1744 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #23, !noalias !970
   store i64 41, ptr %10, align 8, !tbaa !54, !alias.scope !973, !noalias !970
   %.sroa.4.0..sroa_idx.i.i664900 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -40007,8 +40007,8 @@ _ZNK28cmNinjaNormalTargetGenerator18GetVisibleTypeNameEv.exit: ; preds = %.noexc
   store ptr null, ptr %353, align 8, !tbaa !59, !alias.scope !1192, !noalias !1189
   br label %_ZN10cmAlphaNumC2EPKc.exit.cont.cont.i
 
-354:                                              ; preds = %352, %348, %.noexc322, %.noexc323
-  %.0.i.ph = phi ptr [ %.str.7..str.8.i, %.noexc323 ], [ @.str.5, %.noexc322 ], [ @.str.6, %348 ], [ @.str.9, %352 ]
+354:                                              ; preds = %348, %352, %.noexc322, %.noexc323
+  %.0.i.ph = phi ptr [ %.str.7..str.8.i, %.noexc323 ], [ @.str.5, %.noexc322 ], [ @.str.9, %352 ], [ @.str.6, %348 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #23, !noalias !1189
   store i64 9, ptr %12, align 8, !tbaa !54, !alias.scope !1192, !noalias !1189
   %.sroa.4.0..sroa_idx.i.i324775 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -48105,7 +48105,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_ite
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %52, %51 ]
+  %.sroa.024.1 = phi ptr [ %52, %51 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !12
   %56 = icmp eq i64 %55, 0
@@ -48122,7 +48122,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_ite
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %61, %60 ]
+  %.sroa.024.2 = phi ptr [ %61, %60 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.2, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !12
   %65 = icmp eq i64 %64, 0
@@ -50020,8 +50020,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50
-  %65 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ]
+  %65 = phi i64 [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit23.thread50 ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.037.1, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !12
   %68 = icmp eq i64 %67, %65
@@ -50043,8 +50043,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %75
 
 75:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51
-  %76 = phi i64 [ %.pre58, %._crit_edge._crit_edge56 ], [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge56 ], [ %74, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ]
+  %76 = phi i64 [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.pre58, %._crit_edge._crit_edge56 ]
+  %.sroa.037.2 = phi ptr [ %74, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit25.thread51 ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge56 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.037.2, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !12
   %79 = icmp eq i64 %78, %76

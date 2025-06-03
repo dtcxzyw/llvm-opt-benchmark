@@ -18733,7 +18733,7 @@ _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit:       ; preds = %47, %51
   br label %61
 
 61:                                               ; preds = %40, %2, %_ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit
-  %.1 = phi i1 [ %43, %40 ], [ %60, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ false, %_ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit ], [ false, %2 ]
+  %.1 = phi i1 [ %60, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ %43, %40 ], [ false, %_ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit ], [ false, %2 ]
   ret i1 %.1
 }
 
@@ -19301,7 +19301,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI6base_1JRKS3_EEEvDpOT0_.exit: ; preds 
   br label %33
 
 33:                                               ; preds = %3, %32, %30, %16, %11, %9
-  %.0 = phi ptr [ null, %32 ], [ %2, %30 ], [ %18, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %32 ], [ %2, %9 ], [ %2, %11 ], [ %18, %16 ], [ %2, %30 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -21545,7 +21545,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIiJRKiEEEvDpOT0_.exit: ; preds = %21, %
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -22583,7 +22583,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI6base_2JRKS3_EEEvDpOT0_.exit: ; preds 
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -23795,7 +23795,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI6base_3JRKS3_EEEvDpOT0_.exit: ; preds 
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -25414,7 +25414,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIcJRKcEEEvDpOT0_.exit: ; preds = %21, %
   br label %35
 
 35:                                               ; preds = %3, %34, %32, %16, %11, %9
-  %.0 = phi ptr [ null, %34 ], [ %2, %32 ], [ %20, %16 ], [ %2, %11 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %34 ], [ %2, %9 ], [ %2, %11 ], [ %20, %16 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -26134,7 +26134,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI7derivedJRKS3_EEEvDpOT0_.exit: ; preds
   br label %33
 
 33:                                               ; preds = %3, %32, %31, %14, %10, %9
-  %.0 = phi ptr [ null, %32 ], [ %2, %31 ], [ %20, %14 ], [ %2, %10 ], [ %2, %9 ], [ %8, %3 ]
+  %.0 = phi ptr [ null, %32 ], [ %2, %9 ], [ %2, %10 ], [ %20, %14 ], [ %2, %31 ], [ %8, %3 ]
   ret ptr %.0
 }
 

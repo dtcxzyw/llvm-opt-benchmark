@@ -1881,7 +1881,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit: ; preds = %switch.lookup, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %47, %44
-  %.0 = phi i8 [ %51, %47 ], [ %46, %44 ], [ 13, %43 ], [ 40, %42 ], [ 1, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0 = phi i8 [ %46, %44 ], [ %51, %47 ], [ 13, %43 ], [ 40, %42 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 1, %41 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -6435,7 +6435,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i: ; preds = %16
   br i1 %40, label %_ZN3std2io5Write9write_all17h1b70d76d81a1c45cE.exit.thread, label %11
 
 41:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i, %25, %21, %19, %13
-  %.1.i = phi ptr [ @anon.6741fc5854709c716905a6bef417820e.3, %13 ], [ %.val.i, %19 ], [ %.val.i, %21 ], [ %.val.i, %25 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
+  %.1.i = phi ptr [ @anon.6741fc5854709c716905a6bef417820e.3, %13 ], [ %.val.i, %25 ], [ %.val.i, %21 ], [ %.val.i, %19 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1808
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1823)
@@ -8091,15 +8091,15 @@ define hidden noundef ptr @"_ZN8flycheck7command22CommandHandle$LT$T$GT$4join17h
 27:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1744f558be97b7c1E.llvm.5727577660441154886.exit"
   %28 = load i32, ptr %15, align 8, !range !964, !noundef !4
   %trunc = trunc nuw i32 %28 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %30 = load ptr, ptr %29, align 8, !nonnull !4
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %32 = load ptr, ptr %31, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br i1 %trunc, label %114, label %33
 
 33:                                               ; preds = %27
-  store i32 %32, ptr %16, align 4
+  store i32 %30, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
@@ -8357,7 +8357,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
   resume { ptr, i32 } %.pn30.pn
 
 114:                                              ; preds = %27, %50
-  %.0 = phi ptr [ %46, %50 ], [ %30, %27 ]
+  %.0 = phi ptr [ %46, %50 ], [ %32, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   invoke void @"_ZN74_$LT$flycheck..command..JodGroupChild$u20$as$u20$core..ops..drop..Drop$GT$4drop17h911409b269ba5662E"(ptr noalias noundef nonnull align 4 dereferenceable(40) %17)
           to label %117 unwind label %115
@@ -9226,11 +9226,11 @@ default.unreachable:                              ; preds = %110
   br label %"_ZN4core3ptr102drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h73414b41f877c9b3E.exit.i"
 
 "_ZN4core3ptr102drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17h73414b41f877c9b3E.exit.i": ; preds = %185, %116, %115, %114
-  %.sroa.11.0 = phi i64 [ undef, %116 ], [ undef, %115 ], [ undef, %114 ], [ %.sroa.5.0.copyload.i.i.i, %185 ]
-  %.sroa.951.0 = phi ptr [ undef, %116 ], [ undef, %115 ], [ undef, %114 ], [ %177, %185 ]
-  %.sroa.550.0 = phi ptr [ %112, %116 ], [ %112, %115 ], [ %112, %114 ], [ %174, %185 ]
-  %.sroa.049.0 = phi i64 [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 1, %185 ]
-  %.sroa.12.0 = phi i8 [ undef, %116 ], [ undef, %115 ], [ undef, %114 ], [ %187, %185 ]
+  %.sroa.11.0 = phi i64 [ undef, %114 ], [ undef, %115 ], [ undef, %116 ], [ %.sroa.5.0.copyload.i.i.i, %185 ]
+  %.sroa.951.0 = phi ptr [ undef, %114 ], [ undef, %115 ], [ undef, %116 ], [ %177, %185 ]
+  %.sroa.550.0 = phi ptr [ %112, %114 ], [ %112, %115 ], [ %112, %116 ], [ %174, %185 ]
+  %.sroa.049.0 = phi i64 [ 2, %114 ], [ 2, %115 ], [ 2, %116 ], [ 1, %185 ]
+  %.sroa.12.0 = phi i8 [ undef, %114 ], [ undef, %115 ], [ undef, %116 ], [ %187, %185 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17h19b1ffc57a6f40e3E.llvm.774313995428851812"(ptr noalias noundef nonnull align 8 dereferenceable(208) %30)
           to label %199 unwind label %.body27
 

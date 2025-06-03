@@ -1752,7 +1752,7 @@ _ZNKSt3mapIN8rawspeed7CiffTagESt10unique_ptrIKNS0_9CiffEntryESt14default_deleteI
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge
-  %.sroa.024.2 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %46, %45 ]
+  %.sroa.024.2 = phi ptr [ %46, %45 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   %48 = load ptr, ptr %.sroa.024.2, align 8, !tbaa !36
   %49 = tail call noundef zeroext i1 @_ZNK8rawspeed7CiffIFD17hasEntryRecursiveENS_7CiffTagE(ptr noundef nonnull align 8 dereferenceable(88) %48, i16 noundef zeroext %1) #37
   br i1 %49, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIKN8rawspeed7CiffIFDESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops10_Iter_predIZNKS4_17hasEntryRecursiveENS3_7CiffTagEE3$_0EEET_SK_SK_T0_.exit", label %50
@@ -1762,7 +1762,7 @@ _ZNKSt3mapIN8rawspeed7CiffTagESt10unique_ptrIKNS0_9CiffEntryESt14default_deleteI
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.sroa.024.1 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.sroa.024.1 = phi ptr [ %51, %50 ], [ %.sroa.024.0.lcssa, %._crit_edge ]
   %53 = load ptr, ptr %.sroa.024.1, align 8, !tbaa !36
   %54 = tail call noundef zeroext i1 @_ZNK8rawspeed7CiffIFD17hasEntryRecursiveENS_7CiffTagE(ptr noundef nonnull align 8 dereferenceable(88) %53, i16 noundef zeroext %1) #37
   %spec.select = select i1 %54, ptr %.sroa.024.1, ptr %16

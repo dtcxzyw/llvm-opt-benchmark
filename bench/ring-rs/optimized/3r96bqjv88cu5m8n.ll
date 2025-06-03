@@ -190,7 +190,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h757d58c2fa035f26E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -981,17 +981,17 @@ _ZN4ring2ec7suite_b3ops15PublicScalarOps14elem_less_than17h9ef3e21ef8e84a9dE.exi
   br label %136
 
 136:                                              ; preds = %135, %99
-  %.2.i = phi i1 [ true, %99 ], [ %trunc24.i, %135 ]
+  %.2.i = phi i1 [ %trunc24.i, %135 ], [ true, %99 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !111
   br label %137
 
 137:                                              ; preds = %136, %89
-  %.1.i = phi i1 [ true, %89 ], [ %.2.i, %136 ]
+  %.1.i = phi i1 [ %.2.i, %136 ], [ true, %89 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !111
   br label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit
 
 _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit: ; preds = %.thread49.i, %72, %133, %137
-  %.5.i = phi i1 [ true, %133 ], [ true, %72 ], [ %.1.i, %137 ], [ true, %.thread49.i ]
+  %.5.i = phi i1 [ true, %133 ], [ %.1.i, %137 ], [ true, %72 ], [ true, %.thread49.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29), !noalias !111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   ret i1 %.5.i

@@ -585,7 +585,7 @@ lean_dec.exit:                                    ; preds = %63, %62, %60, %54
   br label %65
 
 65:                                               ; preds = %lean_dec.exit, %lean_dec.exit17, %lean_dec.exit19
-  %.0 = phi ptr [ %64, %lean_dec.exit ], [ %53, %lean_dec.exit17 ], [ %21, %lean_dec.exit19 ]
+  %.0 = phi ptr [ %64, %lean_dec.exit ], [ %21, %lean_dec.exit19 ], [ %53, %lean_dec.exit17 ]
   ret ptr %.0
 }
 

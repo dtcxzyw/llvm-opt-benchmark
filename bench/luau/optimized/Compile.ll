@@ -3897,7 +3897,7 @@ _ZN4Luau12AstNameTableD2Ev.exit.i:                ; preds = %511, %_ZN4Luau11Par
   br label %547
 
 512:                                              ; preds = %470, %453, %436, %424, %412, %410, %383, %381
-  %.pn67.i = phi { ptr, i32 } [ %411, %410 ], [ %471, %470 ], [ %454, %453 ], [ %437, %436 ], [ %425, %424 ], [ %413, %412 ], [ %.pn65179.i, %383 ], [ %382, %381 ]
+  %.pn67.i = phi { ptr, i32 } [ %425, %424 ], [ %437, %436 ], [ %454, %453 ], [ %411, %410 ], [ %471, %470 ], [ %413, %412 ], [ %.pn65179.i, %383 ], [ %382, %381 ]
   call void @_ZN4Luau11ParseResultD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #29
   br label %513
 

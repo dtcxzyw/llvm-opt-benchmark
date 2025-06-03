@@ -7918,7 +7918,7 @@ define noundef double @_ZmlRK11colvarvalueS1_(ptr noundef nonnull align 8 derefe
   br label %53
 
 53:                                               ; preds = %52, %48, %27, %11, %5
-  %.0 = phi double [ 0.000000e+00, %52 ], [ %51, %48 ], [ %47, %27 ], [ %26, %11 ], [ %10, %5 ]
+  %.0 = phi double [ 0.000000e+00, %52 ], [ %10, %5 ], [ %26, %11 ], [ %47, %27 ], [ %51, %48 ]
   ret double %.0
 }
 
@@ -8352,7 +8352,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit, label %.lr.ph.i, !llvm.loop !174
 
 _ZNK12colvarmodule8vector1dIdE5norm2Ev.exit:      ; preds = %_ZN11colvarvalueD2Ev.exit, %.lr.ph.i, %86, %1, %18, %8, %4
-  %.0 = phi double [ %30, %18 ], [ %17, %8 ], [ %7, %4 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %86 ], [ %97, %.lr.ph.i ], [ %49, %_ZN11colvarvalueD2Ev.exit ]
+  %.0 = phi double [ %7, %4 ], [ %17, %8 ], [ %30, %18 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %86 ], [ %97, %.lr.ph.i ], [ %49, %_ZN11colvarvalueD2Ev.exit ]
   ret double %.0
 }
 
@@ -8426,7 +8426,7 @@ define noundef double @_ZNK11colvarvalue3sumEv(ptr noundef nonnull readonly alig
   br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE3sumEv.exit, label %.lr.ph.i, !llvm.loop !175
 
 _ZNK12colvarmodule8vector1dIdE3sumEv.exit:        ; preds = %.lr.ph.i, %27, %1, %15, %6, %3
-  %.0 = phi double [ %26, %15 ], [ %14, %6 ], [ %5, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %27 ], [ %38, %.lr.ph.i ]
+  %.0 = phi double [ %5, %3 ], [ %14, %6 ], [ %26, %15 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %27 ], [ %38, %.lr.ph.i ]
   ret double %.0
 }
 
@@ -8789,7 +8789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn
 
 175:                                              ; preds = %147, %_ZN12colvarmodule8vector1dIdED2Ev.exit, %53, %35, %16, %9
-  %.016 = phi double [ 0.000000e+00, %147 ], [ %.06.lcssa.i3741, %_ZN12colvarmodule8vector1dIdED2Ev.exit ], [ %.0.i, %53 ], [ %52, %35 ], [ %34, %16 ], [ %15, %9 ]
+  %.016 = phi double [ 0.000000e+00, %147 ], [ %15, %9 ], [ %34, %16 ], [ %52, %35 ], [ %.0.i, %53 ], [ %.06.lcssa.i3741, %_ZN12colvarmodule8vector1dIdED2Ev.exit ]
   ret double %.016
 }
 
@@ -9403,8 +9403,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   ret void
 
 290:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %_ZN12colvarmodule8vector1dIdED2Ev.exit35
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %.pn20, %_ZN12colvarmodule8vector1dIdED2Ev.exit35 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %_ZN12colvarmodule8vector1dIdED2Ev.exit35 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ]
+  resume { ptr, i32 } %.pn20.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -11375,7 +11375,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %52
 
 52:                                               ; preds = %51, %48, %45, %42, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %.0 = phi i32 [ 1, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %16, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.0 = phi i32 [ 1, %51 ], [ %16, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ]
   ret i32 %.0
 }
 
@@ -12501,7 +12501,7 @@ define noundef i64 @_ZNK11colvarvalue12output_widthERKm(ptr noundef nonnull read
   br label %25
 
 25:                                               ; preds = %2, %14, %10, %6, %4
-  %.0 = phi i64 [ %24, %14 ], [ %13, %10 ], [ %9, %6 ], [ %5, %4 ], [ 0, %2 ]
+  %.0 = phi i64 [ %5, %4 ], [ %9, %6 ], [ %13, %10 ], [ %24, %14 ], [ 0, %2 ]
   ret i64 %.0
 }
 

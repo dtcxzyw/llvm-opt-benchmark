@@ -1295,8 +1295,8 @@ enc_synmane_type_leading_chars.exit.thread:       ; preds = %60, %57, %61, %64, 
   br i1 %.not64, label %174, label %.critedge
 
 174:                                              ; preds = %172, %163
-  %.2 = phi ptr [ %.15272, %163 ], [ %169, %172 ]
-  %.1 = phi i32 [ %.sroa.0.4.extract.trunc89, %163 ], [ 14, %172 ]
+  %.2 = phi ptr [ %169, %172 ], [ %.15272, %163 ]
+  %.1 = phi i32 [ 14, %172 ], [ %.sroa.0.4.extract.trunc89, %163 ]
   %175 = shl nuw nsw i32 1, %.1
   %176 = and i32 %175, %3
   %.not65 = icmp eq i32 %176, 0
@@ -1307,8 +1307,8 @@ enc_synmane_type_leading_chars.exit.thread:       ; preds = %60, %57, %61, %64, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %enc_synmane_type_leading_chars.exit.thread, %163, %177, %172, %168
-  %.051 = phi ptr [ %.15272, %163 ], [ %178, %177 ], [ %169, %168 ], [ %169, %172 ], [ %130, %enc_synmane_type_leading_chars.exit.thread ], [ %161, %.critedge2 ]
-  %.0 = phi i32 [ %.sroa.0.4.extract.trunc89, %163 ], [ 8, %177 ], [ 14, %168 ], [ 14, %172 ], [ %.sroa.32.0.i.ph, %enc_synmane_type_leading_chars.exit.thread ], [ %.sroa.0.4.extract.trunc89, %.critedge2 ]
+  %.051 = phi ptr [ %.15272, %163 ], [ %169, %168 ], [ %169, %172 ], [ %178, %177 ], [ %130, %enc_synmane_type_leading_chars.exit.thread ], [ %161, %.critedge2 ]
+  %.0 = phi i32 [ %.sroa.0.4.extract.trunc89, %163 ], [ 14, %168 ], [ 14, %172 ], [ 8, %177 ], [ %.sroa.32.0.i.ph, %enc_synmane_type_leading_chars.exit.thread ], [ %.sroa.0.4.extract.trunc89, %.critedge2 ]
   %179 = icmp eq ptr %.051, %7
   %180 = select i1 %179, i32 %.0, i32 -1
   br label %enc_synmane_type_leading_chars.exit

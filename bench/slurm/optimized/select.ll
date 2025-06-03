@@ -122,7 +122,7 @@ define dso_local ptr @select_plugin_id_to_string(i32 noundef %0) local_unnamed_a
   br label %13
 
 13:                                               ; preds = %8, %11
-  %.1 = phi ptr [ %10, %8 ], [ null, %11 ]
+  %.1 = phi ptr [ null, %11 ], [ %10, %8 ]
   ret ptr %.1
 }
 
@@ -160,7 +160,7 @@ define dso_local i32 @select_string_to_plugin_id(ptr noundef %0) local_unnamed_a
   br label %13
 
 13:                                               ; preds = %9, %11
-  %.1 = phi i32 [ %10, %9 ], [ 0, %11 ]
+  %.1 = phi i32 [ 0, %11 ], [ %10, %9 ]
   ret i32 %.1
 }
 
@@ -1131,7 +1131,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %select_plugin_id_to_string.exit
 
 select_plugin_id_to_string.exit:                  ; preds = %26, %29
-  %.1.i = phi ptr [ %28, %26 ], [ null, %29 ]
+  %.1.i = phi ptr [ null, %29 ], [ %28, %26 ]
   %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, ptr noundef %.1.i) #15
   br label %65
 
@@ -1560,7 +1560,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %select_plugin_id_to_string.exit
 
 select_plugin_id_to_string.exit:                  ; preds = %26, %29
-  %.1.i = phi ptr [ %28, %26 ], [ null, %29 ]
+  %.1.i = phi ptr [ null, %29 ], [ %28, %26 ]
   %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, ptr noundef %.1.i) #15
   br label %65
 

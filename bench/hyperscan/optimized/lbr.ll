@@ -180,7 +180,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 repeatHasMatch.exit:                              ; preds = %47, %40, %23, %31, %33, %52, %54, %56, %58
-  %.0.i13 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %..i, %33 ], [ %32, %31 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
+  %.0.i13 = phi i32 [ %32, %31 ], [ %..i, %33 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
   %60 = icmp eq i32 %.0.i13, 1
   %61 = zext i1 %60 to i8
   br label %lbrInAccept.exit
@@ -521,7 +521,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.e
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %81, %75, %73, %88, %90, %92, %94, %96
-  %.0.i29 = phi i64 [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %74, %73 ], [ %79, %75 ], [ %spec.select.i, %81 ]
+  %.0.i29 = phi i64 [ %74, %73 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %79, %75 ], [ %spec.select.i, %81 ]
   %98 = add i64 %.0.i29, -1
   %or.cond.i20.not = icmp ult i64 %98, %..i
   br i1 %or.cond.i20.not, label %99, label %repeatIsDead.exit124.i.thread35.loopexit
@@ -726,8 +726,8 @@ default.unreachable:                              ; preds = %151
   unreachable
 
 repeatLastTop.exit:                               ; preds = %151, %151, %.thread64, %152, %154, %156, %158, %160
-  %162 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %160 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %142, %.thread64 ], [ %.0.shrunk.i.i.i6.in.in, %151 ], [ %.0.shrunk.i.i.i6.in.in, %151 ]
-  %.0.i13 = phi i64 [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ 0, %.thread64 ], [ %.0.shrunk.i.i.i6.in, %151 ], [ %.0.shrunk.i.i.i6.in, %151 ]
+  %162 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %.0.shrunk.i.i.i6.in.in, %160 ], [ %142, %.thread64 ], [ %.0.shrunk.i.i.i6.in.in, %151 ], [ %.0.shrunk.i.i.i6.in.in, %151 ]
+  %.0.i13 = phi i64 [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ 0, %.thread64 ], [ %.0.shrunk.i.i.i6.in, %151 ], [ %.0.shrunk.i.i.i6.in, %151 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %128
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -901,7 +901,7 @@ default.unreachable82:                            ; preds = %204
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %204, %204, %185, %205, %207, %209, %211, %213
-  %.0.i14 = phi i64 [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ 0, %185 ], [ %.0.shrunk.i.i.i.in, %204 ], [ %.0.shrunk.i.i.i.in, %204 ]
+  %.0.i14 = phi i64 [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ 0, %185 ], [ %.0.shrunk.i.i.i.in, %204 ], [ %.0.shrunk.i.i.i.in, %204 ]
   %.not.i.i = icmp eq i64 %.0.i14, %188
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -1029,7 +1029,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %255, %253, %251, %249, %247, %245, %239
-  %.0.i12.i = phi i64 [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ 0, %239 ]
+  %.0.i12.i = phi i64 [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ 0, %239 ]
   %257 = load i32, ptr %236, align 4
   %258 = zext i32 %257 to i64
   %259 = add i64 %.0.i12.i, %258
@@ -1204,7 +1204,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.e
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %74, %67, %65, %82, %84, %86, %88, %90
-  %.0.i30 = phi i64 [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %66, %65 ], [ %72, %67 ], [ %spec.select.i, %74 ]
+  %.0.i30 = phi i64 [ %66, %65 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %72, %67 ], [ %spec.select.i, %74 ]
   %92 = add i64 %.0.i30, -1
   %or.cond.i19.not = icmp ult i64 %92, %..i
   %.pre = load i32, ptr %30, align 8
@@ -1414,8 +1414,8 @@ default.unreachable:                              ; preds = %149
   unreachable
 
 repeatLastTop.exit:                               ; preds = %149, %149, %.thread74, %150, %152, %154, %156, %158
-  %160 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %150 ], [ %140, %.thread74 ], [ %.0.shrunk.i.i.i6.in.in, %149 ], [ %.0.shrunk.i.i.i6.in.in, %149 ]
-  %.0.i13 = phi i64 [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ 0, %.thread74 ], [ %.0.shrunk.i.i.i6.in, %149 ], [ %.0.shrunk.i.i.i6.in, %149 ]
+  %160 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %150 ], [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %140, %.thread74 ], [ %.0.shrunk.i.i.i6.in.in, %149 ], [ %.0.shrunk.i.i.i6.in.in, %149 ]
+  %.0.i13 = phi i64 [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ 0, %.thread74 ], [ %.0.shrunk.i.i.i6.in, %149 ], [ %.0.shrunk.i.i.i6.in, %149 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %126
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -1589,7 +1589,7 @@ default.unreachable92:                            ; preds = %202
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %202, %202, %183, %203, %205, %207, %209, %211
-  %.0.i14 = phi i64 [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ 0, %183 ], [ %.0.shrunk.i.i.i.in, %202 ], [ %.0.shrunk.i.i.i.in, %202 ]
+  %.0.i14 = phi i64 [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ 0, %183 ], [ %.0.shrunk.i.i.i.in, %202 ], [ %.0.shrunk.i.i.i.in, %202 ]
   %.not.i.i = icmp eq i64 %.0.i14, %186
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -1717,7 +1717,7 @@ repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %253, %251, %249, %247, %245, %243, %237
-  %.0.i12.i = phi i64 [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ 0, %237 ]
+  %.0.i12.i = phi i64 [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ 0, %237 ]
   %255 = load i32, ptr %234, align 4
   %256 = zext i32 %255 to i64
   %257 = add i64 %.0.i12.i, %256
@@ -1946,8 +1946,8 @@ default.unreachable:                              ; preds = %68
   unreachable
 
 repeatLastTop.exit:                               ; preds = %68, %68, %.thread145, %69, %71, %73, %75, %77
-  %79 = phi ptr [ %.0.shrunk.i.i.i.in.in, %77 ], [ %.0.shrunk.i.i.i.in.in, %75 ], [ %.0.shrunk.i.i.i.in.in, %73 ], [ %.0.shrunk.i.i.i.in.in, %71 ], [ %.0.shrunk.i.i.i.in.in, %69 ], [ %59, %.thread145 ], [ %.0.shrunk.i.i.i.in.in, %68 ], [ %.0.shrunk.i.i.i.in.in, %68 ]
-  %.0.i106 = phi i64 [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ 0, %.thread145 ], [ %.0.shrunk.i.i.i.in, %68 ], [ %.0.shrunk.i.i.i.in, %68 ]
+  %79 = phi ptr [ %.0.shrunk.i.i.i.in.in, %69 ], [ %.0.shrunk.i.i.i.in.in, %71 ], [ %.0.shrunk.i.i.i.in.in, %73 ], [ %.0.shrunk.i.i.i.in.in, %75 ], [ %.0.shrunk.i.i.i.in.in, %77 ], [ %59, %.thread145 ], [ %.0.shrunk.i.i.i.in.in, %68 ], [ %.0.shrunk.i.i.i.in.in, %68 ]
+  %.0.i106 = phi i64 [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ 0, %.thread145 ], [ %.0.shrunk.i.i.i.in, %68 ], [ %.0.shrunk.i.i.i.in, %68 ]
   %.not.i.i = icmp eq i64 %.0.i106, %45
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -2099,7 +2099,7 @@ default.unreachable186:                           ; preds = %108
   unreachable
 
 repeatLastTop.exit108:                            ; preds = %108, %108, %91, %109, %111, %113, %115, %117
-  %.0.i107 = phi i64 [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ 0, %91 ], [ %.0.shrunk.i.i.in, %108 ], [ %.0.shrunk.i.i.in, %108 ]
+  %.0.i107 = phi i64 [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ 0, %91 ], [ %.0.shrunk.i.i.in, %108 ], [ %.0.shrunk.i.i.in, %108 ]
   %.not.i88 = icmp eq i64 %.0.i107, %88
   br i1 %.not.i88, label %lbrTop.exit, label %.split16.i
 
@@ -2255,7 +2255,7 @@ repeatIsDead.exit.thread:                         ; preds = %135, %repeatIsDead.
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %176, %174, %172, %170, %151, %149
-  %.0.i95 = phi i32 [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %..i97, %151 ], [ %150, %149 ]
+  %.0.i95 = phi i32 [ %150, %149 ], [ %..i97, %151 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ]
   %.not = icmp eq i32 %.0.i95, 1
   br i1 %.not, label %nfaExecLbrDot_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -2333,7 +2333,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %188, %209, %211, %213, %215
-  %.0.i94 = phi i32 [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %189, %188 ]
+  %.0.i94 = phi i32 [ %189, %188 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ]
   %217 = icmp eq i32 %.0.i94, 1
   br i1 %217, label %nfaExecLbrDot_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -2399,7 +2399,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %204, %190, %197, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %227, %219, %235, %237, %239, %241, %243
-  %.0.i113 = phi i64 [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %220, %219 ], [ %234, %227 ]
+  %.0.i113 = phi i64 [ %220, %219 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %234, %227 ]
   %.0.i113.fr = freeze i64 %.0.i113
   %.not.i91 = icmp eq i64 %.0.i113.fr, 0
   br i1 %.not.i91, label %repeatNextMatch.exit.thread, label %nfaExecLbrDot_TopScan.exit
@@ -2578,7 +2578,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 repeatHasMatch.exit:                              ; preds = %47, %40, %23, %31, %33, %52, %54, %56, %58
-  %.0.i13 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %..i, %33 ], [ %32, %31 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
+  %.0.i13 = phi i32 [ %32, %31 ], [ %..i, %33 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
   %60 = icmp eq i32 %.0.i13, 1
   %61 = zext i1 %60 to i8
   br label %lbrInAccept.exit
@@ -3065,7 +3065,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.p
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %158, %152, %150, %165, %167, %169, %171, %173
-  %.0.i29 = phi i64 [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %151, %150 ], [ %156, %152 ], [ %spec.select.i, %158 ]
+  %.0.i29 = phi i64 [ %151, %150 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %156, %152 ], [ %spec.select.i, %158 ]
   %175 = add i64 %.0.i29, -1
   %or.cond.i20.not = icmp ult i64 %175, %.0100.i
   br i1 %or.cond.i20.not, label %176, label %repeatNextMatch.exit.thread
@@ -3423,8 +3423,8 @@ default.unreachable:                              ; preds = %313
   unreachable
 
 repeatLastTop.exit:                               ; preds = %313, %313, %.thread132, %314, %316, %318, %320, %322
-  %324 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %316 ], [ %.0.shrunk.i.i.i6.in.in, %314 ], [ %304, %.thread132 ], [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %313 ]
-  %.0.i13 = phi i64 [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ 0, %.thread132 ], [ %.0.shrunk.i.i.i6.in, %313 ], [ %.0.shrunk.i.i.i6.in, %313 ]
+  %324 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %314 ], [ %.0.shrunk.i.i.i6.in.in, %316 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %304, %.thread132 ], [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %313 ]
+  %.0.i13 = phi i64 [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ 0, %.thread132 ], [ %.0.shrunk.i.i.i6.in, %313 ], [ %.0.shrunk.i.i.i6.in, %313 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %215
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -3599,7 +3599,7 @@ default.unreachable151:                           ; preds = %367
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %367, %367, %348, %368, %370, %372, %374, %376
-  %.0.i14 = phi i64 [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %369, %368 ], [ 0, %348 ], [ %.0.shrunk.i.i.i.in, %367 ], [ %.0.shrunk.i.i.i.in, %367 ]
+  %.0.i14 = phi i64 [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %377, %376 ], [ 0, %348 ], [ %.0.shrunk.i.i.i.in, %367 ], [ %.0.shrunk.i.i.i.in, %367 ]
   %.not.i.i = icmp eq i64 %.0.i14, %351
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -3727,7 +3727,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %418, %416, %414, %412, %410, %408, %402
-  %.0.i12.i = phi i64 [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ 0, %402 ]
+  %.0.i12.i = phi i64 [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ 0, %402 ]
   %420 = load i32, ptr %399, align 4
   %421 = zext i32 %420 to i64
   %422 = add i64 %.0.i12.i, %421
@@ -4049,7 +4049,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph189, %71, %.p
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %152, %145, %143, %160, %162, %164, %166, %168
-  %.0.i30 = phi i64 [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %144, %143 ], [ %150, %145 ], [ %spec.select.i, %152 ]
+  %.0.i30 = phi i64 [ %144, %143 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %150, %145 ], [ %spec.select.i, %152 ]
   %170 = add i64 %.0.i30, -1
   %or.cond.i19.not = icmp ult i64 %170, %.0100.i
   br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
@@ -4416,8 +4416,8 @@ default.unreachable:                              ; preds = %312
   unreachable
 
 repeatLastTop.exit:                               ; preds = %312, %312, %.thread146, %313, %315, %317, %319, %321
-  %323 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %315 ], [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %303, %.thread146 ], [ %.0.shrunk.i.i.i6.in.in, %312 ], [ %.0.shrunk.i.i.i6.in.in, %312 ]
-  %.0.i13 = phi i64 [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ 0, %.thread146 ], [ %.0.shrunk.i.i.i6.in, %312 ], [ %.0.shrunk.i.i.i6.in, %312 ]
+  %323 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %315 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %303, %.thread146 ], [ %.0.shrunk.i.i.i6.in.in, %312 ], [ %.0.shrunk.i.i.i6.in.in, %312 ]
+  %.0.i13 = phi i64 [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ 0, %.thread146 ], [ %.0.shrunk.i.i.i6.in, %312 ], [ %.0.shrunk.i.i.i6.in, %312 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %214
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -4592,7 +4592,7 @@ default.unreachable165:                           ; preds = %366
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %366, %366, %347, %367, %369, %371, %373, %375
-  %.0.i14 = phi i64 [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ 0, %347 ], [ %.0.shrunk.i.i.i.in, %366 ], [ %.0.shrunk.i.i.i.in, %366 ]
+  %.0.i14 = phi i64 [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ 0, %347 ], [ %.0.shrunk.i.i.i.in, %366 ], [ %.0.shrunk.i.i.i.in, %366 ]
   %.not.i.i = icmp eq i64 %.0.i14, %350
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -4720,7 +4720,7 @@ repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %417, %415, %413, %411, %409, %407, %401
-  %.0.i12.i = phi i64 [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ 0, %401 ]
+  %.0.i12.i = phi i64 [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ 0, %401 ]
   %419 = load i32, ptr %398, align 4
   %420 = zext i32 %419 to i64
   %421 = add i64 %.0.i12.i, %420
@@ -5448,8 +5448,8 @@ default.unreachable:                              ; preds = %324
   unreachable
 
 repeatLastTop.exit:                               ; preds = %324, %324, %.thread259, %325, %327, %329, %331, %333
-  %335 = phi ptr [ %.0.shrunk.i.i.i.in.in, %333 ], [ %.0.shrunk.i.i.i.in.in, %331 ], [ %.0.shrunk.i.i.i.in.in, %329 ], [ %.0.shrunk.i.i.i.in.in, %327 ], [ %.0.shrunk.i.i.i.in.in, %325 ], [ %315, %.thread259 ], [ %.0.shrunk.i.i.i.in.in, %324 ], [ %.0.shrunk.i.i.i.in.in, %324 ]
-  %.0.i110 = phi i64 [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ 0, %.thread259 ], [ %.0.shrunk.i.i.i.in, %324 ], [ %.0.shrunk.i.i.i.in, %324 ]
+  %335 = phi ptr [ %.0.shrunk.i.i.i.in.in, %325 ], [ %.0.shrunk.i.i.i.in.in, %327 ], [ %.0.shrunk.i.i.i.in.in, %329 ], [ %.0.shrunk.i.i.i.in.in, %331 ], [ %.0.shrunk.i.i.i.in.in, %333 ], [ %315, %.thread259 ], [ %.0.shrunk.i.i.i.in.in, %324 ], [ %.0.shrunk.i.i.i.in.in, %324 ]
+  %.0.i110 = phi i64 [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ 0, %.thread259 ], [ %.0.shrunk.i.i.i.in, %324 ], [ %.0.shrunk.i.i.i.in, %324 ]
   %.not.i.i = icmp eq i64 %.0.i110, %226
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -5603,7 +5603,7 @@ default.unreachable299:                           ; preds = %368
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %368, %368, %347, %369, %371, %373, %375, %377
-  %.0.i111 = phi i64 [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ 0, %347 ], [ %.0.shrunk.i.i.in, %368 ], [ %.0.shrunk.i.i.in, %368 ]
+  %.0.i111 = phi i64 [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ 0, %347 ], [ %.0.shrunk.i.i.in, %368 ], [ %.0.shrunk.i.i.in, %368 ]
   %.not.i88 = icmp eq i64 %.0.i111, %352
   br i1 %.not.i88, label %lbrTop.exit, label %.split16.i
 
@@ -5755,7 +5755,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %434, %432, %430, %428, %409, %407
-  %.0.i99 = phi i32 [ %435, %434 ], [ %433, %432 ], [ %431, %430 ], [ %429, %428 ], [ %..i101, %409 ], [ %408, %407 ]
+  %.0.i99 = phi i32 [ %408, %407 ], [ %..i101, %409 ], [ %429, %428 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ]
   %.not = icmp eq i32 %.0.i99, 1
   br i1 %.not, label %nfaExecLbrVerm_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -5833,7 +5833,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %446, %467, %469, %471, %473
-  %.0.i98 = phi i32 [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %447, %446 ]
+  %.0.i98 = phi i32 [ %447, %446 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ]
   %475 = icmp eq i32 %.0.i98, 1
   br i1 %475, label %nfaExecLbrVerm_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -5899,7 +5899,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %462, %448, %455, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %485, %477, %493, %495, %497, %499, %501
-  %.0.i117 = phi i64 [ %502, %501 ], [ %500, %499 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %478, %477 ], [ %492, %485 ]
+  %.0.i117 = phi i64 [ %478, %477 ], [ %494, %493 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %492, %485 ]
   %.0.i117.fr = freeze i64 %.0.i117
   %.not.i89 = icmp eq i64 %.0.i117.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrVerm_TopScan.exit
@@ -6078,7 +6078,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 repeatHasMatch.exit:                              ; preds = %47, %40, %23, %31, %33, %52, %54, %56, %58
-  %.0.i13 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %..i, %33 ], [ %32, %31 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
+  %.0.i13 = phi i32 [ %32, %31 ], [ %..i, %33 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
   %60 = icmp eq i32 %.0.i13, 1
   %61 = zext i1 %60 to i8
   br label %lbrInAccept.exit
@@ -6569,7 +6569,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.p
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %161, %155, %153, %168, %170, %172, %174, %176
-  %.0.i29 = phi i64 [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %154, %153 ], [ %159, %155 ], [ %spec.select.i, %161 ]
+  %.0.i29 = phi i64 [ %154, %153 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %159, %155 ], [ %spec.select.i, %161 ]
   %178 = add i64 %.0.i29, -1
   %or.cond.i20.not = icmp ult i64 %178, %.0100.i
   br i1 %or.cond.i20.not, label %179, label %repeatNextMatch.exit.thread
@@ -6930,8 +6930,8 @@ default.unreachable:                              ; preds = %318
   unreachable
 
 repeatLastTop.exit:                               ; preds = %318, %318, %.thread116, %319, %321, %323, %325, %327
-  %329 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %327 ], [ %.0.shrunk.i.i.i6.in.in, %325 ], [ %.0.shrunk.i.i.i6.in.in, %323 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %309, %.thread116 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %318 ]
-  %.0.i13 = phi i64 [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ 0, %.thread116 ], [ %.0.shrunk.i.i.i6.in, %318 ], [ %.0.shrunk.i.i.i6.in, %318 ]
+  %329 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %.0.shrunk.i.i.i6.in.in, %323 ], [ %.0.shrunk.i.i.i6.in.in, %325 ], [ %.0.shrunk.i.i.i6.in.in, %327 ], [ %309, %.thread116 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %318 ]
+  %.0.i13 = phi i64 [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ 0, %.thread116 ], [ %.0.shrunk.i.i.i6.in, %318 ], [ %.0.shrunk.i.i.i6.in, %318 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %218
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -7106,7 +7106,7 @@ default.unreachable135:                           ; preds = %372
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %372, %372, %353, %373, %375, %377, %379, %381
-  %.0.i14 = phi i64 [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ 0, %353 ], [ %.0.shrunk.i.i.i.in, %372 ], [ %.0.shrunk.i.i.i.in, %372 ]
+  %.0.i14 = phi i64 [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ 0, %353 ], [ %.0.shrunk.i.i.i.in, %372 ], [ %.0.shrunk.i.i.i.in, %372 ]
   %.not.i.i = icmp eq i64 %.0.i14, %356
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -7234,7 +7234,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %423, %421, %419, %417, %415, %413, %407
-  %.0.i12.i = phi i64 [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ 0, %407 ]
+  %.0.i12.i = phi i64 [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ 0, %407 ]
   %425 = load i32, ptr %404, align 4
   %426 = zext i32 %425 to i64
   %427 = add i64 %.0.i12.i, %426
@@ -7560,7 +7560,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph173, %70, %.p
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %155, %148, %146, %163, %165, %167, %169, %171
-  %.0.i30 = phi i64 [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %147, %146 ], [ %153, %148 ], [ %spec.select.i, %155 ]
+  %.0.i30 = phi i64 [ %147, %146 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %153, %148 ], [ %spec.select.i, %155 ]
   %173 = add i64 %.0.i30, -1
   %or.cond.i19.not = icmp ult i64 %173, %.0100.i
   br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
@@ -7930,8 +7930,8 @@ default.unreachable:                              ; preds = %317
   unreachable
 
 repeatLastTop.exit:                               ; preds = %317, %317, %.thread130, %318, %320, %322, %324, %326
-  %328 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %326 ], [ %.0.shrunk.i.i.i6.in.in, %324 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %308, %.thread130 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %317 ]
-  %.0.i13 = phi i64 [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ 0, %.thread130 ], [ %.0.shrunk.i.i.i6.in, %317 ], [ %.0.shrunk.i.i.i6.in, %317 ]
+  %328 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %.0.shrunk.i.i.i6.in.in, %324 ], [ %.0.shrunk.i.i.i6.in.in, %326 ], [ %308, %.thread130 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %317 ]
+  %.0.i13 = phi i64 [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ %325, %324 ], [ %327, %326 ], [ 0, %.thread130 ], [ %.0.shrunk.i.i.i6.in, %317 ], [ %.0.shrunk.i.i.i6.in, %317 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %217
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -8106,7 +8106,7 @@ default.unreachable149:                           ; preds = %371
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %371, %371, %352, %372, %374, %376, %378, %380
-  %.0.i14 = phi i64 [ %381, %380 ], [ %379, %378 ], [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ 0, %352 ], [ %.0.shrunk.i.i.i.in, %371 ], [ %.0.shrunk.i.i.i.in, %371 ]
+  %.0.i14 = phi i64 [ %373, %372 ], [ %375, %374 ], [ %377, %376 ], [ %379, %378 ], [ %381, %380 ], [ 0, %352 ], [ %.0.shrunk.i.i.i.in, %371 ], [ %.0.shrunk.i.i.i.in, %371 ]
   %.not.i.i = icmp eq i64 %.0.i14, %355
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -8234,7 +8234,7 @@ repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %422, %420, %418, %416, %414, %412, %406
-  %.0.i12.i = phi i64 [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ 0, %406 ]
+  %.0.i12.i = phi i64 [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ 0, %406 ]
   %424 = load i32, ptr %403, align 4
   %425 = zext i32 %424 to i64
   %426 = add i64 %.0.i12.i, %425
@@ -8973,8 +8973,8 @@ default.unreachable:                              ; preds = %332
   unreachable
 
 repeatLastTop.exit:                               ; preds = %332, %332, %.thread244, %333, %335, %337, %339, %341
-  %343 = phi ptr [ %.0.shrunk.i.i.i.in.in, %341 ], [ %.0.shrunk.i.i.i.in.in, %339 ], [ %.0.shrunk.i.i.i.in.in, %337 ], [ %.0.shrunk.i.i.i.in.in, %335 ], [ %.0.shrunk.i.i.i.in.in, %333 ], [ %323, %.thread244 ], [ %.0.shrunk.i.i.i.in.in, %332 ], [ %.0.shrunk.i.i.i.in.in, %332 ]
-  %.0.i110 = phi i64 [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ 0, %.thread244 ], [ %.0.shrunk.i.i.i.in, %332 ], [ %.0.shrunk.i.i.i.in, %332 ]
+  %343 = phi ptr [ %.0.shrunk.i.i.i.in.in, %333 ], [ %.0.shrunk.i.i.i.in.in, %335 ], [ %.0.shrunk.i.i.i.in.in, %337 ], [ %.0.shrunk.i.i.i.in.in, %339 ], [ %.0.shrunk.i.i.i.in.in, %341 ], [ %323, %.thread244 ], [ %.0.shrunk.i.i.i.in.in, %332 ], [ %.0.shrunk.i.i.i.in.in, %332 ]
+  %.0.i110 = phi i64 [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ 0, %.thread244 ], [ %.0.shrunk.i.i.i.in, %332 ], [ %.0.shrunk.i.i.i.in, %332 ]
   %.not.i.i = icmp eq i64 %.0.i110, %232
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -9128,7 +9128,7 @@ default.unreachable284:                           ; preds = %376
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %376, %376, %355, %377, %379, %381, %383, %385
-  %.0.i111 = phi i64 [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ 0, %355 ], [ %.0.shrunk.i.i.in, %376 ], [ %.0.shrunk.i.i.in, %376 ]
+  %.0.i111 = phi i64 [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ 0, %355 ], [ %.0.shrunk.i.i.in, %376 ], [ %.0.shrunk.i.i.in, %376 ]
   %.not.i88 = icmp eq i64 %.0.i111, %360
   br i1 %.not.i88, label %lbrTop.exit, label %.split16.i
 
@@ -9280,7 +9280,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %442, %440, %438, %436, %417, %415
-  %.0.i99 = phi i32 [ %443, %442 ], [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ %..i101, %417 ], [ %416, %415 ]
+  %.0.i99 = phi i32 [ %416, %415 ], [ %..i101, %417 ], [ %437, %436 ], [ %439, %438 ], [ %441, %440 ], [ %443, %442 ]
   %.not = icmp eq i32 %.0.i99, 1
   br i1 %.not, label %nfaExecLbrNVerm_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -9358,7 +9358,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %454, %475, %477, %479, %481
-  %.0.i98 = phi i32 [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %455, %454 ]
+  %.0.i98 = phi i32 [ %455, %454 ], [ %476, %475 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ]
   %483 = icmp eq i32 %.0.i98, 1
   br i1 %483, label %nfaExecLbrNVerm_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -9424,7 +9424,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %470, %456, %463, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %493, %485, %501, %503, %505, %507, %509
-  %.0.i117 = phi i64 [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %486, %485 ], [ %500, %493 ]
+  %.0.i117 = phi i64 [ %486, %485 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %500, %493 ]
   %.0.i117.fr = freeze i64 %.0.i117
   %.not.i89 = icmp eq i64 %.0.i117.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrNVerm_TopScan.exit
@@ -9603,7 +9603,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 repeatHasMatch.exit:                              ; preds = %47, %40, %23, %31, %33, %52, %54, %56, %58
-  %.0.i13 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %..i, %33 ], [ %32, %31 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
+  %.0.i13 = phi i32 [ %32, %31 ], [ %..i, %33 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
   %60 = icmp eq i32 %.0.i13, 1
   %61 = zext i1 %60 to i8
   br label %lbrInAccept.exit
@@ -9973,7 +9973,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108, %110, %112, %114, %116
-  %.0.i29 = phi i64 [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %94, %93 ], [ %99, %95 ], [ %spec.select.i, %101 ]
+  %.0.i29 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
   %118 = add i64 %.0.i29, -1
   %or.cond.i20.not = icmp ult i64 %118, %.0100.i
   br i1 %or.cond.i20.not, label %119, label %repeatNextMatch.exit.thread
@@ -10234,8 +10234,8 @@ default.unreachable:                              ; preds = %207
   unreachable
 
 repeatLastTop.exit:                               ; preds = %207, %207, %.thread79, %208, %210, %212, %214, %216
-  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
-  %.0.i13 = phi i64 [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
+  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
+  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %158
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -10410,7 +10410,7 @@ default.unreachable98:                            ; preds = %261
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %261, %261, %242, %262, %264, %266, %268, %270
-  %.0.i14 = phi i64 [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ 0, %242 ], [ %.0.shrunk.i.i.i.in, %261 ], [ %.0.shrunk.i.i.i.in, %261 ]
+  %.0.i14 = phi i64 [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ 0, %242 ], [ %.0.shrunk.i.i.i.in, %261 ], [ %.0.shrunk.i.i.i.in, %261 ]
   %.not.i.i = icmp eq i64 %.0.i14, %245
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -10538,7 +10538,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %312, %310, %308, %306, %304, %302, %296
-  %.0.i12.i = phi i64 [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ 0, %296 ]
+  %.0.i12.i = phi i64 [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %309, %308 ], [ %311, %310 ], [ %313, %312 ], [ 0, %296 ]
   %314 = load i32, ptr %293, align 4
   %315 = zext i32 %314 to i64
   %316 = add i64 %.0.i12.i, %315
@@ -10743,7 +10743,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %59, %69
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %95, %88, %86, %103, %105, %107, %109, %111
-  %.0.i30 = phi i64 [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %87, %86 ], [ %93, %88 ], [ %spec.select.i, %95 ]
+  %.0.i30 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
   %113 = add i64 %.0.i30, -1
   %or.cond.i19.not = icmp ult i64 %113, %.0100.i
   br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
@@ -11013,8 +11013,8 @@ default.unreachable:                              ; preds = %206
   unreachable
 
 repeatLastTop.exit:                               ; preds = %206, %206, %.thread93, %207, %209, %211, %213, %215
-  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
-  %.0.i13 = phi i64 [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
+  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
+  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %157
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -11189,7 +11189,7 @@ default.unreachable112:                           ; preds = %260
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %260, %260, %241, %261, %263, %265, %267, %269
-  %.0.i14 = phi i64 [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ 0, %241 ], [ %.0.shrunk.i.i.i.in, %260 ], [ %.0.shrunk.i.i.i.in, %260 ]
+  %.0.i14 = phi i64 [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ 0, %241 ], [ %.0.shrunk.i.i.i.in, %260 ], [ %.0.shrunk.i.i.i.in, %260 ]
   %.not.i.i = icmp eq i64 %.0.i14, %244
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -11317,7 +11317,7 @@ repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %311, %309, %307, %305, %303, %301, %295
-  %.0.i12.i = phi i64 [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ 0, %295 ]
+  %.0.i12.i = phi i64 [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ 0, %295 ]
   %313 = load i32, ptr %292, align 4
   %314 = zext i32 %313 to i64
   %315 = add i64 %.0.i12.i, %314
@@ -11705,8 +11705,8 @@ default.unreachable:                              ; preds = %158
   unreachable
 
 repeatLastTop.exit:                               ; preds = %158, %158, %.thread166, %159, %161, %163, %165, %167
-  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %167 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %159 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
-  %.0.i110 = phi i64 [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
+  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
+  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
   %.not.i.i = icmp eq i64 %.0.i110, %109
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -11860,7 +11860,7 @@ default.unreachable206:                           ; preds = %202
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %202, %202, %181, %203, %205, %207, %209, %211
-  %.0.i111 = phi i64 [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ 0, %181 ], [ %.0.shrunk.i.i.in, %202 ], [ %.0.shrunk.i.i.in, %202 ]
+  %.0.i111 = phi i64 [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ 0, %181 ], [ %.0.shrunk.i.i.in, %202 ], [ %.0.shrunk.i.i.in, %202 ]
   %.not.i88 = icmp eq i64 %.0.i111, %186
   br i1 %.not.i88, label %lbrTop.exit, label %.split16.i
 
@@ -12012,7 +12012,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %268, %266, %264, %262, %243, %241
-  %.0.i99 = phi i32 [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %..i101, %243 ], [ %242, %241 ]
+  %.0.i99 = phi i32 [ %242, %241 ], [ %..i101, %243 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ]
   %.not = icmp eq i32 %.0.i99, 1
   br i1 %.not, label %nfaExecLbrShuf_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -12090,7 +12090,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %280, %301, %303, %305, %307
-  %.0.i98 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %281, %280 ]
+  %.0.i98 = phi i32 [ %281, %280 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ]
   %309 = icmp eq i32 %.0.i98, 1
   br i1 %309, label %nfaExecLbrShuf_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -12156,7 +12156,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %319, %311, %327, %329, %331, %333, %335
-  %.0.i117 = phi i64 [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %312, %311 ], [ %326, %319 ]
+  %.0.i117 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
   %.0.i117.fr = freeze i64 %.0.i117
   %.not.i89 = icmp eq i64 %.0.i117.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrShuf_TopScan.exit
@@ -12335,7 +12335,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 repeatHasMatch.exit:                              ; preds = %47, %40, %23, %31, %33, %52, %54, %56, %58
-  %.0.i13 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %..i, %33 ], [ %32, %31 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
+  %.0.i13 = phi i32 [ %32, %31 ], [ %..i, %33 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 1, %23 ], [ 0, %40 ], [ %..i15, %47 ]
   %60 = icmp eq i32 %.0.i13, 1
   %61 = zext i1 %60 to i8
   br label %lbrInAccept.exit
@@ -12705,7 +12705,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108, %110, %112, %114, %116
-  %.0.i29 = phi i64 [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %94, %93 ], [ %99, %95 ], [ %spec.select.i, %101 ]
+  %.0.i29 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
   %118 = add i64 %.0.i29, -1
   %or.cond.i20.not = icmp ult i64 %118, %.0100.i
   br i1 %or.cond.i20.not, label %119, label %repeatNextMatch.exit.thread
@@ -12966,8 +12966,8 @@ default.unreachable:                              ; preds = %207
   unreachable
 
 repeatLastTop.exit:                               ; preds = %207, %207, %.thread79, %208, %210, %212, %214, %216
-  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
-  %.0.i13 = phi i64 [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
+  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
+  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %158
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -13142,7 +13142,7 @@ default.unreachable98:                            ; preds = %261
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %261, %261, %242, %262, %264, %266, %268, %270
-  %.0.i14 = phi i64 [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ 0, %242 ], [ %.0.shrunk.i.i.i.in, %261 ], [ %.0.shrunk.i.i.i.in, %261 ]
+  %.0.i14 = phi i64 [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ 0, %242 ], [ %.0.shrunk.i.i.i.in, %261 ], [ %.0.shrunk.i.i.i.in, %261 ]
   %.not.i.i = icmp eq i64 %.0.i14, %245
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -13270,7 +13270,7 @@ repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %312, %310, %308, %306, %304, %302, %296
-  %.0.i12.i = phi i64 [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ 0, %296 ]
+  %.0.i12.i = phi i64 [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %309, %308 ], [ %311, %310 ], [ %313, %312 ], [ 0, %296 ]
   %314 = load i32, ptr %293, align 4
   %315 = zext i32 %314 to i64
   %316 = add i64 %.0.i12.i, %315
@@ -13475,7 +13475,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %59, %69
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %95, %88, %86, %103, %105, %107, %109, %111
-  %.0.i30 = phi i64 [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %87, %86 ], [ %93, %88 ], [ %spec.select.i, %95 ]
+  %.0.i30 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
   %113 = add i64 %.0.i30, -1
   %or.cond.i19.not = icmp ult i64 %113, %.0100.i
   br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
@@ -13745,8 +13745,8 @@ default.unreachable:                              ; preds = %206
   unreachable
 
 repeatLastTop.exit:                               ; preds = %206, %206, %.thread93, %207, %209, %211, %213, %215
-  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
-  %.0.i13 = phi i64 [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
+  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
+  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %157
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -13921,7 +13921,7 @@ default.unreachable112:                           ; preds = %260
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %260, %260, %241, %261, %263, %265, %267, %269
-  %.0.i14 = phi i64 [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ 0, %241 ], [ %.0.shrunk.i.i.i.in, %260 ], [ %.0.shrunk.i.i.i.in, %260 ]
+  %.0.i14 = phi i64 [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ 0, %241 ], [ %.0.shrunk.i.i.i.in, %260 ], [ %.0.shrunk.i.i.i.in, %260 ]
   %.not.i.i = icmp eq i64 %.0.i14, %244
   br i1 %.not.i.i, label %lbrTop.exit.i, label %.split16.i.i
 
@@ -14049,7 +14049,7 @@ repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repea
   br label %repeatLastTop.exit.i
 
 repeatLastTop.exit.i:                             ; preds = %311, %309, %307, %305, %303, %301, %295
-  %.0.i12.i = phi i64 [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ 0, %295 ]
+  %.0.i12.i = phi i64 [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ 0, %295 ]
   %313 = load i32, ptr %292, align 4
   %314 = zext i32 %313 to i64
   %315 = add i64 %.0.i12.i, %314
@@ -14437,8 +14437,8 @@ default.unreachable:                              ; preds = %158
   unreachable
 
 repeatLastTop.exit:                               ; preds = %158, %158, %.thread166, %159, %161, %163, %165, %167
-  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %167 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %159 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
-  %.0.i110 = phi i64 [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
+  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
+  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
   %.not.i.i = icmp eq i64 %.0.i110, %109
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -14592,7 +14592,7 @@ default.unreachable206:                           ; preds = %202
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %202, %202, %181, %203, %205, %207, %209, %211
-  %.0.i111 = phi i64 [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ 0, %181 ], [ %.0.shrunk.i.i.in, %202 ], [ %.0.shrunk.i.i.in, %202 ]
+  %.0.i111 = phi i64 [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ 0, %181 ], [ %.0.shrunk.i.i.in, %202 ], [ %.0.shrunk.i.i.in, %202 ]
   %.not.i88 = icmp eq i64 %.0.i111, %186
   br i1 %.not.i88, label %lbrTop.exit, label %.split16.i
 
@@ -14744,7 +14744,7 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   br label %lbrInAccept.exit
 
 lbrInAccept.exit:                                 ; preds = %268, %266, %264, %262, %243, %241
-  %.0.i99 = phi i32 [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %..i101, %243 ], [ %242, %241 ]
+  %.0.i99 = phi i32 [ %242, %241 ], [ %..i101, %243 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ]
   %.not = icmp eq i32 %.0.i99, 1
   br i1 %.not, label %nfaExecLbrTruf_TopScan.exit, label %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge
 
@@ -14822,7 +14822,7 @@ lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lb
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %280, %301, %303, %305, %307
-  %.0.i98 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %281, %280 ]
+  %.0.i98 = phi i32 [ %281, %280 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ]
   %309 = icmp eq i32 %.0.i98, 1
   br i1 %309, label %nfaExecLbrTruf_TopScan.exit, label %repeatHasMatch.exit.repeatHasMatch.exit.threadthread-pre-split_crit_edge
 
@@ -14888,7 +14888,7 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %319, %311, %327, %329, %331, %333, %335
-  %.0.i117 = phi i64 [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %312, %311 ], [ %326, %319 ]
+  %.0.i117 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
   %.0.i117.fr = freeze i64 %.0.i117
   %.not.i89 = icmp eq i64 %.0.i117.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrTruf_TopScan.exit

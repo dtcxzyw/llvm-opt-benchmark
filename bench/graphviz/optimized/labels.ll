@@ -626,10 +626,10 @@ unreachable:                                      ; preds = %gv_alloc.exit
   unreachable
 
 28:                                               ; preds = %19, %16, %13
-  %.053 = phi ptr [ %27, %19 ], [ %18, %16 ], [ %15, %13 ]
-  %.052 = phi ptr [ null, %19 ], [ null, %16 ], [ %0, %13 ]
-  %.051 = phi ptr [ null, %19 ], [ %0, %16 ], [ null, %13 ]
-  %.050 = phi ptr [ %0, %19 ], [ null, %16 ], [ null, %13 ]
+  %.053 = phi ptr [ %15, %13 ], [ %18, %16 ], [ %27, %19 ]
+  %.052 = phi ptr [ %0, %13 ], [ null, %16 ], [ null, %19 ]
+  %.051 = phi ptr [ null, %13 ], [ %0, %16 ], [ null, %19 ]
+  %.050 = phi ptr [ null, %13 ], [ null, %16 ], [ %0, %19 ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %29, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -894,17 +894,17 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr noundef readonly captures(
   br label %74
 
 74:                                               ; preds = %64, %14, %22, %6, %12, %3
-  %.063 = phi ptr [ @.str.7, %3 ], [ @.str.7, %22 ], [ @.str.7, %14 ], [ @.str.7, %12 ], [ @.str.7, %6 ], [ %.sroa.4.0.copyload, %64 ]
-  %.062 = phi ptr [ @.str.7, %3 ], [ @.str.7, %22 ], [ @.str.7, %14 ], [ @.str.7, %12 ], [ @.str.7, %6 ], [ %.sroa.4.0.copyload2, %64 ]
-  %.061 = phi ptr [ @.str.8, %3 ], [ %16, %22 ], [ %16, %14 ], [ %7, %12 ], [ %7, %6 ], [ %34, %64 ]
-  %.060 = phi ptr [ @.str.9, %3 ], [ %17, %22 ], [ %17, %14 ], [ @.str.9, %12 ], [ @.str.9, %6 ], [ @.str.9, %64 ]
-  %.059 = phi ptr [ @.str.10, %3 ], [ @.str.10, %22 ], [ @.str.10, %14 ], [ @.str.10, %12 ], [ @.str.10, %6 ], [ %.str.4..str.3, %64 ]
-  %.058 = phi ptr [ @.str.11, %3 ], [ @.str.11, %22 ], [ @.str.11, %14 ], [ @.str.11, %12 ], [ @.str.11, %6 ], [ %54, %64 ]
-  %.057 = phi ptr [ @.str.12, %3 ], [ @.str.12, %22 ], [ @.str.12, %14 ], [ @.str.12, %12 ], [ @.str.12, %6 ], [ %41, %64 ]
-  %.055 = phi ptr [ @.str.13, %3 ], [ %23, %22 ], [ @.str.13, %14 ], [ %13, %12 ], [ @.str.13, %6 ], [ %.156, %64 ]
-  %.053 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %14 ], [ false, %12 ], [ false, %6 ], [ %.154, %64 ]
-  %.052 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %14 ], [ false, %12 ], [ false, %6 ], [ %.1, %64 ]
-  %.not79 = phi i1 [ true, %3 ], [ true, %22 ], [ true, %14 ], [ true, %12 ], [ true, %6 ], [ false, %64 ]
+  %.063 = phi ptr [ @.str.7, %3 ], [ @.str.7, %12 ], [ @.str.7, %6 ], [ @.str.7, %22 ], [ @.str.7, %14 ], [ %.sroa.4.0.copyload, %64 ]
+  %.062 = phi ptr [ @.str.7, %3 ], [ @.str.7, %12 ], [ @.str.7, %6 ], [ @.str.7, %22 ], [ @.str.7, %14 ], [ %.sroa.4.0.copyload2, %64 ]
+  %.061 = phi ptr [ @.str.8, %3 ], [ %7, %12 ], [ %7, %6 ], [ %16, %22 ], [ %16, %14 ], [ %34, %64 ]
+  %.060 = phi ptr [ @.str.9, %3 ], [ @.str.9, %12 ], [ @.str.9, %6 ], [ %17, %22 ], [ %17, %14 ], [ @.str.9, %64 ]
+  %.059 = phi ptr [ @.str.10, %3 ], [ @.str.10, %12 ], [ @.str.10, %6 ], [ @.str.10, %22 ], [ @.str.10, %14 ], [ %.str.4..str.3, %64 ]
+  %.058 = phi ptr [ @.str.11, %3 ], [ @.str.11, %12 ], [ @.str.11, %6 ], [ @.str.11, %22 ], [ @.str.11, %14 ], [ %54, %64 ]
+  %.057 = phi ptr [ @.str.12, %3 ], [ @.str.12, %12 ], [ @.str.12, %6 ], [ @.str.12, %22 ], [ @.str.12, %14 ], [ %41, %64 ]
+  %.055 = phi ptr [ @.str.13, %3 ], [ %13, %12 ], [ @.str.13, %6 ], [ %23, %22 ], [ @.str.13, %14 ], [ %.156, %64 ]
+  %.053 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %6 ], [ false, %22 ], [ false, %14 ], [ %.154, %64 ]
+  %.052 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %6 ], [ false, %22 ], [ false, %14 ], [ %.1, %64 ]
+  %.not79 = phi i1 [ true, %3 ], [ true, %12 ], [ true, %6 ], [ true, %22 ], [ true, %14 ], [ false, %64 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not78 = icmp eq i32 %2, 0
@@ -1617,7 +1617,7 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %67
 
 67:                                               ; preds = %54, %63, %59
-  %.sroa.0.0 = phi double [ %66, %63 ], [ %62, %59 ], [ %58, %54 ]
+  %.sroa.0.0 = phi double [ %62, %59 ], [ %66, %63 ], [ %58, %54 ]
   %68 = getelementptr inbounds nuw %struct.textspan_t, ptr %55, i64 %.047
   tail call void @gvrender_textspan(ptr noundef nonnull %0, double %.sroa.0.0, double %.sroa.6.246, ptr noundef %68) #16
   %69 = load ptr, ptr %11, align 8, !tbaa !13

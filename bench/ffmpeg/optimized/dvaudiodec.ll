@@ -145,7 +145,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %dv_get_audio_sample_count.exit
 
 dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
-  %.pn.i = phi i32 [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn.i = phi i32 [ %25, %24 ], [ %21, %20 ], [ %23, %22 ]
   %26 = and i8 %.val, 63
   %27 = zext nneg i8 %26 to i32
   %.0.i = add nuw nsw i32 %.pn.i, %27

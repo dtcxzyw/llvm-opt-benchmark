@@ -3008,7 +3008,7 @@ default.unreachable2:                             ; preds = %5
   br i1 %57, label %._crit_edge.i1, label %.lr.ph.i
 
 "_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$7Prepare17hf6dadbb154ddecdaE.llvm.6642645476840219850.exit": ; preds = %._crit_edge.i1, %43, %._crit_edge.i, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %.0.in = phi i1 [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ], [ false, %32 ], [ true, %._crit_edge.i ], [ false, %43 ], [ true, %._crit_edge.i1 ]
+  %.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ false, %32 ], [ true, %._crit_edge.i ], [ false, %43 ], [ true, %._crit_edge.i1 ]
   ret i1 %.0.in
 }
 

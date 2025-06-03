@@ -1185,7 +1185,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br label %120
 
 120:                                              ; preds = %117, %114, %111
-  %.0116.i = phi i32 [ 0, %111 ], [ %119, %117 ], [ %116, %114 ]
+  %.0116.i = phi i32 [ 0, %111 ], [ %116, %114 ], [ %119, %117 ]
   %121 = add nuw nsw i32 %.0116.i, 44
   br label %122
 
@@ -1213,7 +1213,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br label %132
 
 132:                                              ; preds = %129, %126, %123
-  %.0.i = phi i32 [ 0, %123 ], [ %131, %129 ], [ %128, %126 ]
+  %.0.i = phi i32 [ 0, %123 ], [ %128, %126 ], [ %131, %129 ]
   %133 = add nuw nsw i32 %.0.i, %.0118.i
   br label %134
 
@@ -1421,7 +1421,7 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
   br label %49
 
 49:                                               ; preds = %46, %43, %40
-  %.0 = phi i32 [ 0, %40 ], [ %48, %46 ], [ %45, %43 ]
+  %.0 = phi i32 [ 0, %40 ], [ %45, %43 ], [ %48, %46 ]
   %50 = add nuw nsw i32 %.0, 8
   br label %51
 
@@ -2425,7 +2425,7 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
   br label %51
 
 51:                                               ; preds = %48, %45, %42
-  %.0 = phi i32 [ 0, %42 ], [ %50, %48 ], [ %47, %45 ]
+  %.0 = phi i32 [ 0, %42 ], [ %47, %45 ], [ %50, %48 ]
   %52 = add nuw nsw i32 %.0, 12
   br label %53
 
@@ -2616,7 +2616,7 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
   br label %54
 
 54:                                               ; preds = %51, %48, %45
-  %.090 = phi i32 [ 0, %45 ], [ %53, %51 ], [ %50, %48 ]
+  %.090 = phi i32 [ 0, %45 ], [ %50, %48 ], [ %53, %51 ]
   %55 = add nuw nsw i32 %.090, 12
   br label %56
 
@@ -2644,7 +2644,7 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
   br label %66
 
 66:                                               ; preds = %63, %60, %57
-  %.0 = phi i32 [ 0, %57 ], [ %65, %63 ], [ %62, %60 ]
+  %.0 = phi i32 [ 0, %57 ], [ %62, %60 ], [ %65, %63 ]
   %67 = add nuw nsw i32 %.0, %.091
   br label %68
 

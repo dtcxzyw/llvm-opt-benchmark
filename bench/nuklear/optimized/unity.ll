@@ -1072,7 +1072,7 @@ define i32 @nk_murmur_hash(ptr noundef readonly captures(address_is_null) %0, i3
   br label %32
 
 32:                                               ; preds = %._crit_edge, %27
-  %.sroa.27.0 = phi i32 [ 0, %._crit_edge ], [ %31, %27 ]
+  %.sroa.27.0 = phi i32 [ %31, %27 ], [ 0, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i32
@@ -1081,7 +1081,7 @@ define i32 @nk_murmur_hash(ptr noundef readonly captures(address_is_null) %0, i3
   br label %38
 
 38:                                               ; preds = %._crit_edge, %32
-  %.sroa.26.0.insert.insert140 = phi i32 [ 0, %._crit_edge ], [ %37, %32 ]
+  %.sroa.26.0.insert.insert140 = phi i32 [ %37, %32 ], [ 0, %._crit_edge ]
   %39 = load i8, ptr %25, align 1, !tbaa !9
   %40 = trunc i32 %.sroa.26.0.insert.insert140 to i8
   %.sroa.0.0.extract.trunc74 = xor i8 %39, %40
@@ -1105,7 +1105,7 @@ default.unreachable331:                           ; preds = %._crit_edge
   unreachable
 
 46:                                               ; preds = %._crit_edge, %38
-  %.1 = phi i32 [ %.040.lcssa, %._crit_edge ], [ %45, %38 ]
+  %.1 = phi i32 [ %45, %38 ], [ %.040.lcssa, %._crit_edge ]
   %47 = xor i32 %.1, %1
   %48 = lshr i32 %47, 16
   %49 = xor i32 %48, %47
@@ -20266,10 +20266,10 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   br label %stbtt__add_point.exit.us.i
 
 stbtt__add_point.exit.us.i:                       ; preds = %108, %100, %90, %82, %66, %44, %40
-  %.3101.us.i = phi i32 [ %.2100131.us.i, %40 ], [ %.2100131.us.i, %44 ], [ %.2100131.us.i, %66 ], [ %101, %100 ], [ %101, %108 ], [ %.2100131.us.i, %82 ], [ %.2100131.us.i, %90 ]
-  %.3.us.i = phi i32 [ %.2132.us.i, %40 ], [ %.2132.us.i, %44 ], [ %.2132.us.i, %66 ], [ %.pre151.i, %100 ], [ %.pre151.i, %108 ], [ %.2132.us.i, %82 ], [ %.2132.us.i, %90 ]
-  %.193.us.i = phi float [ %.092133.us.i, %40 ], [ %63, %44 ], [ %79, %66 ], [ %103, %100 ], [ %103, %108 ], [ %84, %82 ], [ %84, %90 ]
-  %.1.us.i = phi float [ %.0134.us.i, %40 ], [ %65, %44 ], [ %81, %66 ], [ %106, %100 ], [ %106, %108 ], [ %87, %82 ], [ %87, %90 ]
+  %.3101.us.i = phi i32 [ %.2100131.us.i, %40 ], [ %.2100131.us.i, %66 ], [ %.2100131.us.i, %44 ], [ %101, %100 ], [ %101, %108 ], [ %.2100131.us.i, %82 ], [ %.2100131.us.i, %90 ]
+  %.3.us.i = phi i32 [ %.2132.us.i, %40 ], [ %.2132.us.i, %66 ], [ %.2132.us.i, %44 ], [ %.pre151.i, %100 ], [ %.pre151.i, %108 ], [ %.2132.us.i, %82 ], [ %.2132.us.i, %90 ]
+  %.193.us.i = phi float [ %.092133.us.i, %40 ], [ %79, %66 ], [ %63, %44 ], [ %103, %100 ], [ %103, %108 ], [ %84, %82 ], [ %84, %90 ]
+  %.1.us.i = phi float [ %.0134.us.i, %40 ], [ %81, %66 ], [ %65, %44 ], [ %106, %100 ], [ %106, %108 ], [ %87, %82 ], [ %87, %90 ]
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count.i
   br i1 %exitcond149.not.i, label %._crit_edge137.us.i, label %40, !llvm.loop !460
@@ -37958,7 +37958,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   br label %225
 
 225:                                              ; preds = %222, %220, %218, %nk_input_is_mouse_hovering_rect.exit.thread
-  %.sroa.5.0433 = phi i32 [ undef, %nk_input_is_mouse_hovering_rect.exit.thread ], [ %224, %222 ], [ 0, %220 ], [ 0, %218 ]
+  %.sroa.5.0433 = phi i32 [ undef, %nk_input_is_mouse_hovering_rect.exit.thread ], [ 0, %218 ], [ 0, %220 ], [ %224, %222 ]
   %226 = load float, ptr %184, align 4, !tbaa !898
   %227 = fadd float %178, %226
   %.sroa.035.4.vec.insert = insertelement <2 x float> <float undef, float poison>, float %227, i64 1
@@ -46897,7 +46897,7 @@ nk_rgb_factor.exit175:                            ; preds = %135, %136
   br label %151
 
 151:                                              ; preds = %72, %nk_rgb_factor.exit, %nk_rgb_factor.exit145, %nk_rgb_factor.exit175, %149
-  %.sroa.5.0 = phi i32 [ undef, %72 ], [ undef, %nk_rgb_factor.exit175 ], [ undef, %nk_rgb_factor.exit145 ], [ undef, %nk_rgb_factor.exit ], [ %150, %149 ]
+  %.sroa.5.0 = phi i32 [ undef, %72 ], [ undef, %nk_rgb_factor.exit ], [ undef, %nk_rgb_factor.exit145 ], [ undef, %nk_rgb_factor.exit175 ], [ %150, %149 ]
   %152 = load i32, ptr %35, align 4, !tbaa !910
   %153 = and i32 %152, 4096
   %.not130 = icmp eq i32 %153, 0
@@ -56850,7 +56850,7 @@ default.unreachable:                              ; preds = %128
   unreachable
 
 nk_atan2.exit.i.i:                                ; preds = %134, %132, %130, %128, %85
-  %.0.i90.i.i = phi float [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ 0.000000e+00, %85 ], [ %129, %128 ]
+  %.0.i90.i.i = phi float [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ 0.000000e+00, %85 ], [ %129, %128 ]
   %136 = zext i32 %5 to i64
   %137 = getelementptr inbounds nuw [4 x float], ptr @__const.nk_knob_behavior.direction_rads, i64 0, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !3
@@ -64192,7 +64192,7 @@ nk_rgb_factor.exit105.i.i:                        ; preds = %403, %402
   br label %416
 
 416:                                              ; preds = %nk_rgb_factor.exit105.i.i, %nk_rgb_factor.exit69.i.i, %nk_rgb_factor.exit57.i.i, %nk_rgb_factor.exit.i.i
-  %.sroa.5.0.i.i = phi i32 [ undef, %nk_rgb_factor.exit.i.i ], [ %379, %nk_rgb_factor.exit105.i.i ], [ 0, %nk_rgb_factor.exit69.i.i ], [ 0, %nk_rgb_factor.exit57.i.i ]
+  %.sroa.5.0.i.i = phi i32 [ undef, %nk_rgb_factor.exit.i.i ], [ 0, %nk_rgb_factor.exit57.i.i ], [ 0, %nk_rgb_factor.exit69.i.i ], [ %379, %nk_rgb_factor.exit105.i.i ]
   %417 = load i8, ptr %.0, align 1, !tbaa !9
   %.not45.i.i = icmp eq i8 %417, 35
   br i1 %.not45.i.i, label %nk_draw_property.exit.i, label %nk_widget_text.exit.i.i
@@ -67393,7 +67393,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   br label %110
 
 110:                                              ; preds = %nk_rgb_factor.exit166, %nk_rgb_factor.exit130, %nk_rgb_factor.exit118, %nk_rgb_factor.exit
-  %.sroa.5172.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ %71, %nk_rgb_factor.exit166 ], [ 0, %nk_rgb_factor.exit130 ], [ 0, %nk_rgb_factor.exit118 ]
+  %.sroa.5172.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit118 ], [ 0, %nk_rgb_factor.exit130 ], [ %71, %nk_rgb_factor.exit166 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
   %111 = load i32, ptr %27, align 8, !tbaa !877
   %112 = and i32 %111, 16
@@ -68443,7 +68443,7 @@ nk_rgb_factor.exit157:                            ; preds = %99, %100
   br label %113
 
 113:                                              ; preds = %nk_rgb_factor.exit157, %nk_rgb_factor.exit121, %nk_rgb_factor.exit109, %nk_rgb_factor.exit
-  %.sroa.017.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ %.sroa.017.0.copyload, %nk_rgb_factor.exit157 ], [ 0, %nk_rgb_factor.exit121 ], [ 0, %nk_rgb_factor.exit109 ]
+  %.sroa.017.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit109 ], [ 0, %nk_rgb_factor.exit121 ], [ %.sroa.017.0.copyload, %nk_rgb_factor.exit157 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
   %114 = load i32, ptr %24, align 8, !tbaa !877
   %115 = and i32 %114, 16
@@ -68829,9 +68829,9 @@ default.unreachable:                              ; preds = %104, %73
   br label %nk_triangle_from_direction.exit
 
 nk_triangle_from_direction.exit:                  ; preds = %88, %92, %96, %100
-  %.sroa.1488.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i147.i, %100 ], [ %.sroa.0.4.vec.insert.i141.i, %96 ], [ %.sroa.0.4.vec.insert.i135.i, %92 ], [ %.sroa.0.4.vec.insert.i129.i, %88 ]
-  %.sroa.887.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i145.i, %100 ], [ %.sroa.0.4.vec.insert.i139.i, %96 ], [ %.sroa.0.4.vec.insert.i133.i, %92 ], [ %.sroa.0.4.vec.insert.i127.i, %88 ]
-  %.sroa.086.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i143.i, %100 ], [ %.sroa.0.4.vec.insert.i137.i, %96 ], [ %.sroa.0.4.vec.insert.i131.i, %92 ], [ %.sroa.0.4.vec.insert.i.i, %88 ]
+  %.sroa.1488.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i147.i, %100 ], [ %.sroa.0.4.vec.insert.i129.i, %88 ], [ %.sroa.0.4.vec.insert.i135.i, %92 ], [ %.sroa.0.4.vec.insert.i141.i, %96 ]
+  %.sroa.887.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i145.i, %100 ], [ %.sroa.0.4.vec.insert.i127.i, %88 ], [ %.sroa.0.4.vec.insert.i133.i, %92 ], [ %.sroa.0.4.vec.insert.i139.i, %96 ]
+  %.sroa.086.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i143.i, %100 ], [ %.sroa.0.4.vec.insert.i.i, %88 ], [ %.sroa.0.4.vec.insert.i131.i, %92 ], [ %.sroa.0.4.vec.insert.i137.i, %96 ]
   %.sroa.086.0.vec.extract = extractelement <2 x float> %.sroa.086.0, i64 0
   %.sroa.086.4.vec.extract = extractelement <2 x float> %.sroa.086.0, i64 1
   %.sroa.887.8.vec.extract = extractelement <2 x float> %.sroa.887.0, i64 0
@@ -68914,9 +68914,9 @@ nk_triangle_from_direction.exit:                  ; preds = %88, %92, %96, %100
   br label %nk_triangle_from_direction.exit85
 
 nk_triangle_from_direction.exit85:                ; preds = %119, %123, %127, %131
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i147.i84, %131 ], [ %.sroa.0.4.vec.insert.i141.i68, %127 ], [ %.sroa.0.4.vec.insert.i135.i73, %123 ], [ %.sroa.0.4.vec.insert.i129.i79, %119 ]
-  %.sroa.8.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i145.i83, %131 ], [ %.sroa.0.4.vec.insert.i139.i66, %127 ], [ %.sroa.0.4.vec.insert.i133.i72, %123 ], [ %.sroa.0.4.vec.insert.i127.i77, %119 ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i143.i81, %131 ], [ %.sroa.0.4.vec.insert.i137.i64, %127 ], [ %.sroa.0.4.vec.insert.i131.i70, %123 ], [ %.sroa.0.4.vec.insert.i.i75, %119 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i147.i84, %131 ], [ %.sroa.0.4.vec.insert.i129.i79, %119 ], [ %.sroa.0.4.vec.insert.i135.i73, %123 ], [ %.sroa.0.4.vec.insert.i141.i68, %127 ]
+  %.sroa.8.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i145.i83, %131 ], [ %.sroa.0.4.vec.insert.i127.i77, %119 ], [ %.sroa.0.4.vec.insert.i133.i72, %123 ], [ %.sroa.0.4.vec.insert.i139.i66, %127 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i143.i81, %131 ], [ %.sroa.0.4.vec.insert.i.i75, %119 ], [ %.sroa.0.4.vec.insert.i131.i70, %123 ], [ %.sroa.0.4.vec.insert.i137.i64, %127 ]
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 0
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 1
   %.sroa.8.8.vec.extract = extractelement <2 x float> %.sroa.8.0, i64 0
@@ -69206,7 +69206,7 @@ nk_rgb_factor.exit197:                            ; preds = %110, %111
   br label %124
 
 124:                                              ; preds = %nk_rgb_factor.exit197, %nk_rgb_factor.exit161, %nk_rgb_factor.exit149, %nk_rgb_factor.exit137
-  %.sroa.5204.0 = phi i32 [ undef, %nk_rgb_factor.exit137 ], [ %85, %nk_rgb_factor.exit197 ], [ 0, %nk_rgb_factor.exit161 ], [ 0, %nk_rgb_factor.exit149 ]
+  %.sroa.5204.0 = phi i32 [ undef, %nk_rgb_factor.exit137 ], [ 0, %nk_rgb_factor.exit149 ], [ 0, %nk_rgb_factor.exit161 ], [ %85, %nk_rgb_factor.exit197 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
   %125 = load i32, ptr %25, align 8, !tbaa !877
   %126 = and i32 %125, 16
@@ -70038,7 +70038,7 @@ nk_rgb_factor.exit178:                            ; preds = %93, %94
   br label %107
 
 107:                                              ; preds = %nk_rgb_factor.exit178, %nk_rgb_factor.exit142, %nk_rgb_factor.exit130, %nk_rgb_factor.exit
-  %.sroa.5197.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ %68, %nk_rgb_factor.exit178 ], [ 0, %nk_rgb_factor.exit142 ], [ 0, %nk_rgb_factor.exit130 ]
+  %.sroa.5197.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit130 ], [ 0, %nk_rgb_factor.exit142 ], [ %68, %nk_rgb_factor.exit178 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
   %108 = load i32, ptr %25, align 8, !tbaa !877
   %109 = and i32 %108, 16
@@ -72705,7 +72705,7 @@ stbtt__csctx_rline_to.exit:                       ; preds = %stbtt__track_vertex
   br i1 %139, label %.critedge, label %140
 
 140:                                              ; preds = %138, %stbtt__csctx_rline_to.exit293
-  %.2246 = phi i32 [ 0, %138 ], [ %237, %stbtt__csctx_rline_to.exit293 ]
+  %.2246 = phi i32 [ %237, %stbtt__csctx_rline_to.exit293 ], [ 0, %138 ]
   %.not273 = icmp slt i32 %.2246, %.0241489
   br i1 %.not273, label %141, label %.thread
 
@@ -72810,7 +72810,7 @@ stbtt__csctx_rline_to.exit284:                    ; preds = %stbtt__track_vertex
   br label %189
 
 189:                                              ; preds = %136, %stbtt__csctx_rline_to.exit284
-  %.1245 = phi i32 [ %188, %stbtt__csctx_rline_to.exit284 ], [ 0, %136 ]
+  %.1245 = phi i32 [ 0, %136 ], [ %188, %stbtt__csctx_rline_to.exit284 ]
   %.not272 = icmp slt i32 %.1245, %.0241489
   br i1 %.not272, label %190, label %.thread
 
@@ -72923,7 +72923,7 @@ stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex
   br i1 %241, label %.critedge, label %242
 
 242:                                              ; preds = %240, %._crit_edge552
-  %.4 = phi i32 [ 0, %240 ], [ %283, %._crit_edge552 ]
+  %.4 = phi i32 [ %283, %._crit_edge552 ], [ 0, %240 ]
   %243 = add nsw i32 %.4, 3
   %.not271 = icmp slt i32 %243, %.0241489
   br i1 %.not271, label %244, label %.thread
@@ -72960,7 +72960,7 @@ stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex
   br label %267
 
 267:                                              ; preds = %238, %._crit_edge551
-  %.3247 = phi i32 [ %261, %._crit_edge551 ], [ 0, %238 ]
+  %.3247 = phi i32 [ 0, %238 ], [ %261, %._crit_edge551 ]
   %268 = add nsw i32 %.3247, 3
   %.not270 = icmp slt i32 %268, %.0241489
   br i1 %.not270, label %269, label %.thread
@@ -73535,9 +73535,9 @@ stbtt__cid_get_glyph_subrs.exit:                  ; preds = %stbtt__buf_get.exit
   br label %562
 
 562:                                              ; preds = %494, %stbtt__cid_get_glyph_subrs.exit, %493, %stbtt__buf_get8.exit
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0486, %stbtt__buf_get8.exit ], [ %.sroa.073.0486, %493 ], [ %560, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.073.0486, %494 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0487, %stbtt__buf_get8.exit ], [ %.sroa.5.0487, %493 ], [ %561, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.5.0487, %494 ]
-  %.1249 = phi i32 [ %.0248488, %stbtt__buf_get8.exit ], [ 1, %493 ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %494 ]
+  %.sroa.073.1 = phi ptr [ %.sroa.073.0486, %493 ], [ %.sroa.073.0486, %stbtt__buf_get8.exit ], [ %560, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.073.0486, %494 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0487, %493 ], [ %.sroa.5.0487, %stbtt__buf_get8.exit ], [ %561, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.5.0487, %494 ]
+  %.1249 = phi i32 [ 1, %493 ], [ %.0248488, %stbtt__buf_get8.exit ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %494 ]
   %563 = icmp slt i32 %.0241489, 1
   br i1 %563, label %.critedge, label %564
 
@@ -74077,16 +74077,16 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   store float %.2255, ptr %812, align 4, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %489, %.preheader457, %stbtt__csctx_rline_to.exit, %466, %702, %687, %672, %661, %49, %55, %60, %71, %78, %189, %140, %267, %242, %stbtt__csctx_rline_to.exit302, %442, %809, %603, %599
-  %.1233451 = phi i32 [ %.0232494, %809 ], [ %.0232494, %603 ], [ %.0232494, %599 ], [ %.0232494, %702 ], [ %.0232494, %687 ], [ %.0232494, %672 ], [ %.0232494, %661 ], [ 0, %49 ], [ %.0232494, %55 ], [ 0, %60 ], [ 0, %71 ], [ 0, %78 ], [ %.0232494, %189 ], [ %.0232494, %140 ], [ %.0232494, %267 ], [ %.0232494, %242 ], [ %.0232494, %stbtt__csctx_rline_to.exit302 ], [ %.0232494, %442 ], [ %.0232494, %466 ], [ %.0232494, %stbtt__csctx_rline_to.exit ], [ %.0232494, %.preheader457 ], [ %.0232494, %489 ]
-  %.2236450 = phi i32 [ %.0234493, %809 ], [ %.0234493, %603 ], [ %.0234493, %599 ], [ %.0234493, %702 ], [ %.0234493, %687 ], [ %.0234493, %672 ], [ %.0234493, %661 ], [ %.1235, %49 ], [ %57, %55 ], [ %.0234493, %60 ], [ %.0234493, %71 ], [ %.0234493, %78 ], [ %.0234493, %189 ], [ %.0234493, %140 ], [ %.0234493, %267 ], [ %.0234493, %242 ], [ %.0234493, %stbtt__csctx_rline_to.exit302 ], [ %.0234493, %442 ], [ %.0234493, %466 ], [ %.0234493, %stbtt__csctx_rline_to.exit ], [ %.0234493, %.preheader457 ], [ %.0234493, %489 ]
-  %.1240449 = phi i32 [ %.0239492, %809 ], [ %604, %603 ], [ %572, %599 ], [ %.0239492, %702 ], [ %.0239492, %687 ], [ %.0239492, %672 ], [ %.0239492, %661 ], [ %.0239492, %49 ], [ %.0239492, %55 ], [ %.0239492, %60 ], [ %.0239492, %71 ], [ %.0239492, %78 ], [ %.0239492, %189 ], [ %.0239492, %140 ], [ %.0239492, %267 ], [ %.0239492, %242 ], [ %.0239492, %stbtt__csctx_rline_to.exit302 ], [ %.0239492, %442 ], [ %.0239492, %466 ], [ %.0239492, %stbtt__csctx_rline_to.exit ], [ %.0239492, %.preheader457 ], [ %.0239492, %489 ]
-  %.2250448 = phi i32 [ %.0248488, %809 ], [ %.0248488, %603 ], [ %.1249, %599 ], [ %.0248488, %702 ], [ %.0248488, %687 ], [ %.0248488, %672 ], [ %.0248488, %661 ], [ %.0248488, %49 ], [ %.0248488, %55 ], [ %.0248488, %60 ], [ %.0248488, %71 ], [ %.0248488, %78 ], [ %.0248488, %189 ], [ %.0248488, %140 ], [ %.0248488, %267 ], [ %.0248488, %242 ], [ %.0248488, %stbtt__csctx_rline_to.exit302 ], [ %.0248488, %442 ], [ %.0248488, %466 ], [ %.0248488, %stbtt__csctx_rline_to.exit ], [ %.0248488, %.preheader457 ], [ %.0248488, %489 ]
-  %.sroa.5.2447 = phi i64 [ %.sroa.5.0487, %809 ], [ %.sroa.5.0487, %603 ], [ %.sroa.5.1, %599 ], [ %.sroa.5.0487, %702 ], [ %.sroa.5.0487, %687 ], [ %.sroa.5.0487, %672 ], [ %.sroa.5.0487, %661 ], [ %.sroa.5.0487, %49 ], [ %.sroa.5.0487, %55 ], [ %.sroa.5.0487, %60 ], [ %.sroa.5.0487, %71 ], [ %.sroa.5.0487, %78 ], [ %.sroa.5.0487, %189 ], [ %.sroa.5.0487, %140 ], [ %.sroa.5.0487, %267 ], [ %.sroa.5.0487, %242 ], [ %.sroa.5.0487, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.5.0487, %442 ], [ %.sroa.5.0487, %466 ], [ %.sroa.5.0487, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0487, %.preheader457 ], [ %.sroa.5.0487, %489 ]
-  %.sroa.073.2446 = phi ptr [ %.sroa.073.0486, %809 ], [ %.sroa.073.0486, %603 ], [ %.sroa.073.1, %599 ], [ %.sroa.073.0486, %702 ], [ %.sroa.073.0486, %687 ], [ %.sroa.073.0486, %672 ], [ %.sroa.073.0486, %661 ], [ %.sroa.073.0486, %49 ], [ %.sroa.073.0486, %55 ], [ %.sroa.073.0486, %60 ], [ %.sroa.073.0486, %71 ], [ %.sroa.073.0486, %78 ], [ %.sroa.073.0486, %189 ], [ %.sroa.073.0486, %140 ], [ %.sroa.073.0486, %267 ], [ %.sroa.073.0486, %242 ], [ %.sroa.073.0486, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.073.0486, %442 ], [ %.sroa.073.0486, %466 ], [ %.sroa.073.0486, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0486, %.preheader457 ], [ %.sroa.073.0486, %489 ]
-  %.sroa.0.1445 = phi ptr [ %.sroa.0.0431485, %809 ], [ %.sroa.0.0.copyload356, %603 ], [ %600, %599 ], [ %.sroa.0.0431485, %702 ], [ %.sroa.0.0431485, %687 ], [ %.sroa.0.0431485, %672 ], [ %.sroa.0.0431485, %661 ], [ %.sroa.0.0431485, %49 ], [ %.sroa.0.0431485, %55 ], [ %.sroa.0.0431485, %60 ], [ %.sroa.0.0431485, %71 ], [ %.sroa.0.0431485, %78 ], [ %.sroa.0.0431485, %189 ], [ %.sroa.0.0431485, %140 ], [ %.sroa.0.0431485, %267 ], [ %.sroa.0.0431485, %242 ], [ %.sroa.0.0431485, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.0.0431485, %442 ], [ %.sroa.0.0431485, %466 ], [ %.sroa.0.0431485, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0431485, %.preheader457 ], [ %.sroa.0.0431485, %489 ]
-  %.sroa.10.1444 = phi i64 [ %.sroa.10.2, %809 ], [ %.sroa.10.0.copyload358, %603 ], [ %.sroa.10.8.insert.mask, %599 ], [ %.sroa.10.8.insert.insert375, %702 ], [ %.sroa.10.8.insert.insert375, %687 ], [ %.sroa.10.8.insert.insert375, %672 ], [ %.sroa.10.8.insert.insert375, %661 ], [ %.sroa.10.8.insert.insert369, %49 ], [ %.sroa.10.8.insert.insert363, %55 ], [ %.sroa.10.8.insert.insert363, %60 ], [ %.sroa.10.8.insert.insert363, %71 ], [ %.sroa.10.8.insert.insert363, %78 ], [ %.sroa.10.8.insert.insert363, %189 ], [ %.sroa.10.8.insert.insert363, %140 ], [ %.sroa.10.8.insert.insert363, %267 ], [ %.sroa.10.8.insert.insert363, %242 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.10.8.insert.insert363, %442 ], [ %.sroa.10.8.insert.insert363, %466 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert363, %.preheader457 ], [ %.sroa.10.8.insert.insert363, %489 ]
-  %813 = phi i32 [ %810, %809 ], [ %.0241489, %603 ], [ %565, %599 ], [ 0, %702 ], [ 0, %687 ], [ 0, %672 ], [ 0, %661 ], [ 0, %49 ], [ 0, %55 ], [ 0, %60 ], [ 0, %71 ], [ 0, %78 ], [ 0, %189 ], [ 0, %140 ], [ 0, %267 ], [ 0, %242 ], [ 0, %stbtt__csctx_rline_to.exit302 ], [ 0, %442 ], [ 0, %466 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader457 ], [ 0, %489 ]
+.thread:                                          ; preds = %489, %.preheader457, %stbtt__csctx_rline_to.exit, %466, %702, %687, %672, %661, %442, %stbtt__csctx_rline_to.exit302, %242, %267, %140, %189, %78, %71, %60, %55, %49, %809, %603, %599
+  %.1233451 = phi i32 [ %.0232494, %809 ], [ %.0232494, %599 ], [ %.0232494, %603 ], [ %.0232494, %702 ], [ %.0232494, %687 ], [ %.0232494, %672 ], [ %.0232494, %661 ], [ %.0232494, %442 ], [ %.0232494, %stbtt__csctx_rline_to.exit302 ], [ %.0232494, %242 ], [ %.0232494, %267 ], [ %.0232494, %140 ], [ %.0232494, %189 ], [ 0, %78 ], [ 0, %71 ], [ 0, %60 ], [ %.0232494, %55 ], [ 0, %49 ], [ %.0232494, %466 ], [ %.0232494, %stbtt__csctx_rline_to.exit ], [ %.0232494, %.preheader457 ], [ %.0232494, %489 ]
+  %.2236450 = phi i32 [ %.0234493, %809 ], [ %.0234493, %599 ], [ %.0234493, %603 ], [ %.0234493, %702 ], [ %.0234493, %687 ], [ %.0234493, %672 ], [ %.0234493, %661 ], [ %.0234493, %442 ], [ %.0234493, %stbtt__csctx_rline_to.exit302 ], [ %.0234493, %242 ], [ %.0234493, %267 ], [ %.0234493, %140 ], [ %.0234493, %189 ], [ %.0234493, %78 ], [ %.0234493, %71 ], [ %.0234493, %60 ], [ %57, %55 ], [ %.1235, %49 ], [ %.0234493, %466 ], [ %.0234493, %stbtt__csctx_rline_to.exit ], [ %.0234493, %.preheader457 ], [ %.0234493, %489 ]
+  %.1240449 = phi i32 [ %.0239492, %809 ], [ %572, %599 ], [ %604, %603 ], [ %.0239492, %702 ], [ %.0239492, %687 ], [ %.0239492, %672 ], [ %.0239492, %661 ], [ %.0239492, %442 ], [ %.0239492, %stbtt__csctx_rline_to.exit302 ], [ %.0239492, %242 ], [ %.0239492, %267 ], [ %.0239492, %140 ], [ %.0239492, %189 ], [ %.0239492, %78 ], [ %.0239492, %71 ], [ %.0239492, %60 ], [ %.0239492, %55 ], [ %.0239492, %49 ], [ %.0239492, %466 ], [ %.0239492, %stbtt__csctx_rline_to.exit ], [ %.0239492, %.preheader457 ], [ %.0239492, %489 ]
+  %.2250448 = phi i32 [ %.0248488, %809 ], [ %.1249, %599 ], [ %.0248488, %603 ], [ %.0248488, %702 ], [ %.0248488, %687 ], [ %.0248488, %672 ], [ %.0248488, %661 ], [ %.0248488, %442 ], [ %.0248488, %stbtt__csctx_rline_to.exit302 ], [ %.0248488, %242 ], [ %.0248488, %267 ], [ %.0248488, %140 ], [ %.0248488, %189 ], [ %.0248488, %78 ], [ %.0248488, %71 ], [ %.0248488, %60 ], [ %.0248488, %55 ], [ %.0248488, %49 ], [ %.0248488, %466 ], [ %.0248488, %stbtt__csctx_rline_to.exit ], [ %.0248488, %.preheader457 ], [ %.0248488, %489 ]
+  %.sroa.5.2447 = phi i64 [ %.sroa.5.0487, %809 ], [ %.sroa.5.1, %599 ], [ %.sroa.5.0487, %603 ], [ %.sroa.5.0487, %702 ], [ %.sroa.5.0487, %687 ], [ %.sroa.5.0487, %672 ], [ %.sroa.5.0487, %661 ], [ %.sroa.5.0487, %442 ], [ %.sroa.5.0487, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.5.0487, %242 ], [ %.sroa.5.0487, %267 ], [ %.sroa.5.0487, %140 ], [ %.sroa.5.0487, %189 ], [ %.sroa.5.0487, %78 ], [ %.sroa.5.0487, %71 ], [ %.sroa.5.0487, %60 ], [ %.sroa.5.0487, %55 ], [ %.sroa.5.0487, %49 ], [ %.sroa.5.0487, %466 ], [ %.sroa.5.0487, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0487, %.preheader457 ], [ %.sroa.5.0487, %489 ]
+  %.sroa.073.2446 = phi ptr [ %.sroa.073.0486, %809 ], [ %.sroa.073.1, %599 ], [ %.sroa.073.0486, %603 ], [ %.sroa.073.0486, %702 ], [ %.sroa.073.0486, %687 ], [ %.sroa.073.0486, %672 ], [ %.sroa.073.0486, %661 ], [ %.sroa.073.0486, %442 ], [ %.sroa.073.0486, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.073.0486, %242 ], [ %.sroa.073.0486, %267 ], [ %.sroa.073.0486, %140 ], [ %.sroa.073.0486, %189 ], [ %.sroa.073.0486, %78 ], [ %.sroa.073.0486, %71 ], [ %.sroa.073.0486, %60 ], [ %.sroa.073.0486, %55 ], [ %.sroa.073.0486, %49 ], [ %.sroa.073.0486, %466 ], [ %.sroa.073.0486, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0486, %.preheader457 ], [ %.sroa.073.0486, %489 ]
+  %.sroa.0.1445 = phi ptr [ %.sroa.0.0431485, %809 ], [ %600, %599 ], [ %.sroa.0.0.copyload356, %603 ], [ %.sroa.0.0431485, %702 ], [ %.sroa.0.0431485, %687 ], [ %.sroa.0.0431485, %672 ], [ %.sroa.0.0431485, %661 ], [ %.sroa.0.0431485, %442 ], [ %.sroa.0.0431485, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.0.0431485, %242 ], [ %.sroa.0.0431485, %267 ], [ %.sroa.0.0431485, %140 ], [ %.sroa.0.0431485, %189 ], [ %.sroa.0.0431485, %78 ], [ %.sroa.0.0431485, %71 ], [ %.sroa.0.0431485, %60 ], [ %.sroa.0.0431485, %55 ], [ %.sroa.0.0431485, %49 ], [ %.sroa.0.0431485, %466 ], [ %.sroa.0.0431485, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0431485, %.preheader457 ], [ %.sroa.0.0431485, %489 ]
+  %.sroa.10.1444 = phi i64 [ %.sroa.10.2, %809 ], [ %.sroa.10.8.insert.mask, %599 ], [ %.sroa.10.0.copyload358, %603 ], [ %.sroa.10.8.insert.insert375, %702 ], [ %.sroa.10.8.insert.insert375, %687 ], [ %.sroa.10.8.insert.insert375, %672 ], [ %.sroa.10.8.insert.insert375, %661 ], [ %.sroa.10.8.insert.insert363, %442 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.10.8.insert.insert363, %242 ], [ %.sroa.10.8.insert.insert363, %267 ], [ %.sroa.10.8.insert.insert363, %140 ], [ %.sroa.10.8.insert.insert363, %189 ], [ %.sroa.10.8.insert.insert363, %78 ], [ %.sroa.10.8.insert.insert363, %71 ], [ %.sroa.10.8.insert.insert363, %60 ], [ %.sroa.10.8.insert.insert363, %55 ], [ %.sroa.10.8.insert.insert369, %49 ], [ %.sroa.10.8.insert.insert363, %466 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert363, %.preheader457 ], [ %.sroa.10.8.insert.insert363, %489 ]
+  %813 = phi i32 [ %810, %809 ], [ %565, %599 ], [ %.0241489, %603 ], [ 0, %702 ], [ 0, %687 ], [ 0, %672 ], [ 0, %661 ], [ 0, %442 ], [ 0, %stbtt__csctx_rline_to.exit302 ], [ 0, %242 ], [ 0, %267 ], [ 0, %140 ], [ 0, %189 ], [ 0, %78 ], [ 0, %71 ], [ 0, %60 ], [ 0, %55 ], [ 0, %49 ], [ 0, %466 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader457 ], [ 0, %489 ]
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1444 to i32
   %.sroa.10.12.extract.shift411 = lshr i64 %.sroa.10.1444, 32
   %.sroa.10.12.extract.trunc412 = trunc nuw i64 %.sroa.10.12.extract.shift411 to i32
@@ -75458,7 +75458,7 @@ define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %67, %35, %8, %16, %68, %25, %2
-  %.1 = phi i32 [ %74, %68 ], [ %34, %25 ], [ -1, %2 ], [ 0, %16 ], [ 0, %8 ], [ 0, %35 ], [ 0, %67 ]
+  %.1 = phi i32 [ %34, %25 ], [ %74, %68 ], [ -1, %2 ], [ 0, %16 ], [ 0, %8 ], [ 0, %35 ], [ 0, %67 ]
   ret i32 %.1
 }
 
@@ -77785,9 +77785,9 @@ nk_roundf.exit171:                                ; preds = %257, %260
   br label %276
 
 276:                                              ; preds = %nk_roundf.exit171, %274, %nk_roundf.exit169, %174, %nk_roundf.exit163, %70, %9, %233, %245, %187, %196, %179, %nk_roundf.exit
-  %.0149 = phi float [ 0.000000e+00, %9 ], [ %237, %245 ], [ %237, %233 ], [ %195, %196 ], [ %195, %187 ], [ %186, %179 ], [ %47, %nk_roundf.exit ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %nk_roundf.exit163 ], [ %155, %174 ], [ %155, %nk_roundf.exit169 ], [ %273, %274 ], [ %273, %nk_roundf.exit171 ]
-  %.0148 = phi float [ 0.000000e+00, %9 ], [ %242, %245 ], [ %242, %233 ], [ %189, %196 ], [ %189, %187 ], [ %181, %179 ], [ %46, %nk_roundf.exit ], [ %69, %70 ], [ %69, %nk_roundf.exit163 ], [ %173, %174 ], [ %173, %nk_roundf.exit169 ], [ %271, %274 ], [ %271, %nk_roundf.exit171 ]
-  %.0 = phi float [ 0.000000e+00, %9 ], [ %244, %245 ], [ %244, %233 ], [ %191, %196 ], [ %191, %187 ], [ %185, %179 ], [ %30, %nk_roundf.exit ], [ %53, %70 ], [ %53, %nk_roundf.exit163 ], [ %157, %174 ], [ %157, %nk_roundf.exit169 ], [ %255, %274 ], [ %255, %nk_roundf.exit171 ]
+  %.0149 = phi float [ 0.000000e+00, %9 ], [ %47, %nk_roundf.exit ], [ %186, %179 ], [ %195, %196 ], [ %195, %187 ], [ %237, %245 ], [ %237, %233 ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %nk_roundf.exit163 ], [ %155, %174 ], [ %155, %nk_roundf.exit169 ], [ %273, %274 ], [ %273, %nk_roundf.exit171 ]
+  %.0148 = phi float [ 0.000000e+00, %9 ], [ %46, %nk_roundf.exit ], [ %181, %179 ], [ %189, %196 ], [ %189, %187 ], [ %242, %245 ], [ %242, %233 ], [ %69, %70 ], [ %69, %nk_roundf.exit163 ], [ %173, %174 ], [ %173, %nk_roundf.exit169 ], [ %271, %274 ], [ %271, %nk_roundf.exit171 ]
+  %.0 = phi float [ 0.000000e+00, %9 ], [ %30, %nk_roundf.exit ], [ %185, %179 ], [ %191, %196 ], [ %191, %187 ], [ %244, %245 ], [ %244, %233 ], [ %53, %70 ], [ %53, %nk_roundf.exit163 ], [ %157, %174 ], [ %157, %nk_roundf.exit169 ], [ %255, %274 ], [ %255, %nk_roundf.exit171 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.0148, ptr %277, align 4, !tbaa !123
   %278 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -77955,7 +77955,7 @@ nk_rgb_factor.exit84:                             ; preds = %nk_rgb_factor.exit
   br label %55
 
 55:                                               ; preds = %50, %nk_rgb_factor.exit84, %nk_rgb_factor.exit72, %nk_rgb_factor.exit
-  %.sroa.6.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ %52, %50 ], [ 0, %nk_rgb_factor.exit84 ], [ 0, %nk_rgb_factor.exit72 ]
+  %.sroa.6.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit72 ], [ 0, %nk_rgb_factor.exit84 ], [ %52, %50 ]
   %.not59 = icmp eq ptr %4, null
   br i1 %.not59, label %69, label %56
 
@@ -79024,7 +79024,7 @@ nk_textedit_clamp.exit332:                        ; preds = %327, %330
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %333, %454
-  %.0.be = phi i32 [ 13, %333 ], [ 12, %454 ]
+  %.0.be = phi i32 [ 12, %454 ], [ 13, %333 ]
   br label %.backedge
 
 334:                                              ; preds = %.backedge

@@ -285,7 +285,7 @@ do_encode_custom.exit.thread:                     ; preds = %23, %do_encode_cust
   br label %54
 
 54:                                               ; preds = %do_encode_custom.exit.thread76, %do_encode_custom.exit.thread, %45, %49
-  %.157 = phi i32 [ %53, %49 ], [ %48, %45 ], [ %.05690, %do_encode_custom.exit.thread ], [ %.05690, %do_encode_custom.exit.thread76 ]
+  %.157 = phi i32 [ %48, %45 ], [ %.05690, %do_encode_custom.exit.thread ], [ %53, %49 ], [ %.05690, %do_encode_custom.exit.thread76 ]
   %55 = load i64, ptr %13, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8, !tbaa !15
@@ -365,7 +365,7 @@ do_decode_custom.exit.thread:                     ; preds = %54, %do_decode_cust
   br label %85
 
 85:                                               ; preds = %do_decode_custom.exit.thread79, %do_decode_custom.exit.thread, %76, %80
-  %.2 = phi i32 [ %84, %80 ], [ %79, %76 ], [ %.157, %do_decode_custom.exit.thread ], [ %.157, %do_decode_custom.exit.thread79 ]
+  %.2 = phi i32 [ %79, %76 ], [ %.157, %do_decode_custom.exit.thread ], [ %84, %80 ], [ %.157, %do_decode_custom.exit.thread79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 34
   br i1 %exitcond.not, label %86, label %23, !llvm.loop !22
@@ -471,7 +471,7 @@ do_enc_dec.exit.thread:                           ; preds = %93, %do_enc_dec.exi
   br label %131
 
 131:                                              ; preds = %do_enc_dec.exit.thread84, %do_enc_dec.exit.thread, %123, %126
-  %.4 = phi i32 [ %130, %126 ], [ %125, %123 ], [ %.394, %do_enc_dec.exit.thread ], [ %.394, %do_enc_dec.exit.thread84 ]
+  %.4 = phi i32 [ %125, %123 ], [ %.394, %do_enc_dec.exit.thread ], [ %130, %126 ], [ %.394, %do_enc_dec.exit.thread84 ]
   %132 = add i32 %.195, 1
   %133 = zext i32 %132 to i64
   %134 = icmp ugt i64 %91, %133

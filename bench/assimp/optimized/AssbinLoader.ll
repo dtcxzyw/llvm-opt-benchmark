@@ -779,7 +779,7 @@ default.unreachable.i:                            ; preds = %_Z4ReadIfET_PN6Assi
   unreachable
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit, %27, %28, %29
-  %.0.i = phi ptr [ %10, %29 ], [ %11, %28 ], [ %12, %27 ], [ %0, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit ]
+  %.0.i = phi ptr [ %12, %27 ], [ %11, %28 ], [ %10, %29 ], [ %0, %_Z4ReadIfET_PN6Assimp8IOStreamE.exit ]
   %30 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv
   store float %26, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1802,7 +1802,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145:  ; preds = %.noexc143, %.noexc1
   br label %.body
 
 326:                                              ; preds = %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145, %212, %323, %296, %282, %268, %254, %238
-  %.053 = phi ptr [ null, %212 ], [ %320, %323 ], [ %285, %296 ], [ %271, %282 ], [ %257, %268 ], [ %243, %254 ], [ %227, %238 ], [ %299, %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145 ]
+  %.053 = phi ptr [ null, %212 ], [ %227, %238 ], [ %243, %254 ], [ %257, %268 ], [ %271, %282 ], [ %285, %296 ], [ %320, %323 ], [ %299, %_Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145 ]
   %327 = load ptr, ptr %175, align 8
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
@@ -1818,7 +1818,7 @@ _ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit: ; preds = %326, %.lo
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit174, %.loopexit.split-lp175, %210, %133, %115, %99, %113, %88, %111, %77, %154, %240, %.body119, %.body124, %.body129, %.body134, %.body139, %317, %324, %224, %109, %107
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ], [ %155, %154 ], [ %225, %224 ], [ %325, %324 ], [ %241, %240 ], [ %318, %317 ], [ %eh.lpad-body140, %.body139 ], [ %eh.lpad-body135, %.body134 ], [ %eh.lpad-body130, %.body129 ], [ %eh.lpad-body125, %.body124 ], [ %eh.lpad-body120, %.body119 ], [ %112, %111 ], [ %78, %77 ], [ %114, %113 ], [ %89, %88 ], [ %116, %115 ], [ %100, %99 ], [ %134, %133 ], [ %211, %210 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ], [ %155, %154 ], [ %225, %224 ], [ %eh.lpad-body120, %.body119 ], [ %241, %240 ], [ %eh.lpad-body125, %.body124 ], [ %eh.lpad-body130, %.body129 ], [ %eh.lpad-body135, %.body134 ], [ %eh.lpad-body140, %.body139 ], [ %318, %317 ], [ %325, %324 ], [ %112, %111 ], [ %78, %77 ], [ %114, %113 ], [ %89, %88 ], [ %116, %115 ], [ %100, %99 ], [ %134, %133 ], [ %211, %210 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #18
   br label %331
 

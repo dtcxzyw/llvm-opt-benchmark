@@ -4203,7 +4203,7 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   br label %36
 
 36:                                               ; preds = %35, %34, %25
-  %.sroa.0.0.i = phi i8 [ 6, %35 ], [ 5, %34 ], [ %27, %25 ]
+  %.sroa.0.0.i = phi i8 [ 5, %34 ], [ 6, %35 ], [ %27, %25 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !665
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8, !range !131, !alias.scope !659, !noalias !663, !noundef !4
@@ -4575,7 +4575,7 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   br label %163
 
 163:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0580e05a238d898E.exit21.i", %157, %146
-  %.sroa.02.0.i = phi i64 [ -9223372036854775807, %157 ], [ %.sroa.02.0.copyload.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0580e05a238d898E.exit21.i" ], [ -9223372036854775808, %146 ]
+  %.sroa.02.0.i = phi i64 [ %.sroa.02.0.copyload.i, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0580e05a238d898E.exit21.i" ], [ -9223372036854775807, %157 ], [ -9223372036854775808, %146 ]
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %165 = load i8, ptr %164, align 4, !range !687, !alias.scope !659, !noalias !663, !noundef !4
   %.not.i = icmp samesign ult i8 %165, 2
@@ -4605,7 +4605,7 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   br label %"_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit"
 
 "_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit": ; preds = %163, %172, %174
-  %.sroa.06.0.i = phi i8 [ 3, %174 ], [ %173, %172 ], [ 2, %163 ]
+  %.sroa.06.0.i = phi i8 [ %173, %172 ], [ 3, %174 ], [ 2, %163 ]
   %switch.i = icmp eq i64 %19, 0
   %.sroa.6.0.i = select i1 %switch.i, i64 %73, i64 undef
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -6354,7 +6354,7 @@ switch.lookup:                                    ; preds = %1
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %switch.lookup, %18, %17, %16, %15, %14, %13, %10, %1
-  %.sroa.0.0 = phi i8 [ 26, %1 ], [ -121, %18 ], [ -117, %17 ], [ 118, %16 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 26, %1 ], [ 118, %16 ], [ -117, %17 ], [ -121, %18 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ], [ %switch.load, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 

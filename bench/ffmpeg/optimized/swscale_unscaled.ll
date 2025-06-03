@@ -4099,7 +4099,7 @@ isRGBinInt.exit576.thread:                        ; preds = %169, %169, %169, %1
   br label %210
 
 210:                                              ; preds = %116, %94, %83, %72, %57, %46, %33, %93, %92, %91, %82, %81, %80, %71, %70, %69, %56, %45, %167, %165, %163, %162, %161, %160, %158, %156, %154, %152, %150, %148, %147, %isRGBinInt.exit575.thread, %isRGBinInt.exit576.thread, %185, %186, %187, %188, %190, %192, %193, %194, %196, %198, %200, %202, %204, %206, %207, %208, %isRGBinInt.exit577.thread, %isRGBinInt.exit577, %105, %111, %114, %108, %22, %28, %31, %25
-  %.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %106, %105 ], [ %109, %108 ], [ %112, %111 ], [ %115, %114 ], [ null, %isRGBinInt.exit575.thread ], [ @rgb24to32, %167 ], [ %166, %165 ], [ %164, %163 ], [ @rgb32to24, %162 ], [ @rgb16to24, %161 ], [ @rgb15to24, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ], [ @rgb12to15, %147 ], [ null, %isRGBinInt.exit576.thread ], [ %209, %208 ], [ @rgb16tobgr32, %207 ], [ @rgb15tobgr32, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ @rgb16tobgr16, %193 ], [ @rgb15tobgr16, %192 ], [ %191, %190 ], [ %189, %188 ], [ @rgb16tobgr15, %187 ], [ @rgb15tobgr15, %186 ], [ @rgb12tobgr12, %185 ], [ null, %isRGBinInt.exit577.thread ], [ null, %isRGBinInt.exit577 ], [ @rgb48tobgr48_nobswap, %45 ], [ @rgb48to64_nobswap, %56 ], [ @rgb64tobgr48_nobswap, %69 ], [ @rgb64tobgr48_bswap, %70 ], [ @rgb64to48_nobswap, %71 ], [ @x2rgb10to48_nobswap, %80 ], [ @x2rgb10to48_bswap, %81 ], [ @x2rgb10tobgr48_nobswap, %82 ], [ @x2rgb10to64_nobswap, %91 ], [ @x2rgb10to64_bswap, %92 ], [ @x2rgb10tobgr64_nobswap, %93 ], [ %spec.select, %33 ], [ %spec.select540, %46 ], [ %spec.select542, %57 ], [ %spec.select545, %72 ], [ %spec.select546, %83 ], [ %spec.select549, %94 ], [ %spec.select550, %116 ]
+  %.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %106, %105 ], [ %109, %108 ], [ %112, %111 ], [ %115, %114 ], [ null, %isRGBinInt.exit575.thread ], [ @rgb12to15, %147 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ @rgb15to24, %160 ], [ @rgb16to24, %161 ], [ @rgb32to24, %162 ], [ %164, %163 ], [ %166, %165 ], [ @rgb24to32, %167 ], [ null, %isRGBinInt.exit576.thread ], [ @rgb12tobgr12, %185 ], [ @rgb15tobgr15, %186 ], [ @rgb16tobgr15, %187 ], [ %189, %188 ], [ %191, %190 ], [ @rgb15tobgr16, %192 ], [ @rgb16tobgr16, %193 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ @rgb15tobgr32, %206 ], [ @rgb16tobgr32, %207 ], [ %209, %208 ], [ null, %isRGBinInt.exit577.thread ], [ null, %isRGBinInt.exit577 ], [ @rgb48tobgr48_nobswap, %45 ], [ @rgb48to64_nobswap, %56 ], [ @rgb64tobgr48_nobswap, %69 ], [ @rgb64tobgr48_bswap, %70 ], [ @rgb64to48_nobswap, %71 ], [ @x2rgb10to48_nobswap, %80 ], [ @x2rgb10to48_bswap, %81 ], [ @x2rgb10tobgr48_nobswap, %82 ], [ @x2rgb10to64_nobswap, %91 ], [ @x2rgb10to64_bswap, %92 ], [ @x2rgb10tobgr64_nobswap, %93 ], [ %spec.select, %33 ], [ %spec.select540, %46 ], [ %spec.select542, %57 ], [ %spec.select545, %72 ], [ %spec.select546, %83 ], [ %spec.select549, %94 ], [ %spec.select550, %116 ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load i32, ptr %211, align 16, !tbaa !30
   %213 = and i32 %212, 524288
@@ -4790,7 +4790,7 @@ define internal noundef i32 @planarRgbToRgbWrapper(ptr noundef %0, ptr noundef r
   br label %125
 
 125:                                              ; preds = %124, %37
-  %.0 = phi i32 [ 0, %37 ], [ 1, %124 ]
+  %.0 = phi i32 [ 1, %124 ], [ 0, %37 ]
   %126 = load ptr, ptr %5, align 8, !tbaa !49
   %127 = load i32, ptr %6, align 4, !tbaa !48
   %128 = mul nsw i32 %127, %3
@@ -4805,7 +4805,7 @@ define internal noundef i32 @planarRgbToRgbWrapper(ptr noundef %0, ptr noundef r
   br label %134
 
 134:                                              ; preds = %133, %37
-  %.1 = phi i32 [ 0, %37 ], [ 1, %133 ]
+  %.1 = phi i32 [ 1, %133 ], [ 0, %37 ]
   %135 = load ptr, ptr %5, align 8, !tbaa !49
   %136 = load i32, ptr %6, align 4, !tbaa !48
   %137 = mul nsw i32 %136, %3
@@ -5090,7 +5090,7 @@ define internal noundef i32 @planarRgbaToRgbWrapper(ptr noundef %0, ptr noundef 
   br label %133
 
 133:                                              ; preds = %132, %45
-  %.0 = phi i32 [ 0, %45 ], [ 1, %132 ]
+  %.0 = phi i32 [ 1, %132 ], [ 0, %45 ]
   %134 = load ptr, ptr %5, align 8, !tbaa !49
   %135 = load i32, ptr %6, align 4, !tbaa !48
   %136 = mul nsw i32 %135, %3
@@ -5105,7 +5105,7 @@ define internal noundef i32 @planarRgbaToRgbWrapper(ptr noundef %0, ptr noundef 
   br label %142
 
 142:                                              ; preds = %141, %45
-  %.1 = phi i32 [ 0, %45 ], [ 1, %141 ]
+  %.1 = phi i32 [ 1, %141 ], [ 0, %45 ]
   %143 = load ptr, ptr %5, align 8, !tbaa !49
   %144 = load i32, ptr %6, align 4, !tbaa !48
   %145 = mul nsw i32 %144, %3
@@ -5650,7 +5650,7 @@ define internal noundef i32 @rgbToPlanarRgbWrapper(ptr noundef %0, ptr noundef r
   br label %84
 
 84:                                               ; preds = %83, %7
-  %.0 = phi i64 [ 0, %7 ], [ 1, %83 ]
+  %.0 = phi i64 [ 1, %83 ], [ 0, %7 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !49
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %87 = load i32, ptr %86, align 8, !tbaa !50
@@ -5713,7 +5713,7 @@ define internal noundef i32 @rgbToPlanarRgbWrapper(ptr noundef %0, ptr noundef r
   br label %113
 
 113:                                              ; preds = %112, %7
-  %.1 = phi i64 [ 0, %7 ], [ 1, %112 ]
+  %.1 = phi i64 [ 1, %112 ], [ 0, %7 ]
   %114 = load ptr, ptr %1, align 8, !tbaa !49
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load i32, ptr %115, align 8, !tbaa !50
@@ -6870,7 +6870,7 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   br label %22
 
 22:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %21, %19, %20
-  %.028 = phi ptr [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32_1, %19 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
+  %.028 = phi ptr [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked24, %20 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
   %23 = icmp sgt i32 %4, 0
   br i1 %23, label %.lr.ph, label %.loopexit
 

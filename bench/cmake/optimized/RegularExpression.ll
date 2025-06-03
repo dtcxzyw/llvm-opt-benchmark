@@ -2962,7 +2962,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
   br label %.critedge58
 
 .critedge58:                                      ; preds = %186, %225, %227, %27, %23, %15, %11, %112, %139, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61, %146, %_ZN5cmsys13RegExpCompile4regcEc.exit76, %140, %144, %156, %152, %151
-  %.1 = phi ptr [ null, %156 ], [ null, %152 ], [ null, %151 ], [ null, %144 ], [ %159, %_ZN5cmsys13RegExpCompile4regcEc.exit76 ], [ %145, %146 ], [ %.139, %140 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61 ], [ null, %139 ], [ null, %112 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ null, %186 ], [ %197, %225 ], [ %197, %227 ]
+  %.1 = phi ptr [ null, %151 ], [ null, %152 ], [ null, %156 ], [ null, %144 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61 ], [ %.139, %140 ], [ %145, %146 ], [ %159, %_ZN5cmsys13RegExpCompile4regcEc.exit76 ], [ null, %139 ], [ null, %112 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ null, %186 ], [ %197, %225 ], [ %197, %227 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret ptr %.1
 }
@@ -3621,8 +3621,8 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   br label %.thread
 
 139:                                              ; preds = %.critedge.thread, %45, %29, %28, %63, %54, %34, %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit
-  %140 = phi ptr [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %64, %63 ], [ %55, %54 ], [ %46, %45 ], [ %35, %34 ], [ %6, %29 ], [ %6, %28 ], [ %6, %.critedge.thread ]
-  %.051 = phi ptr [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %63 ], [ %.0.i, %54 ], [ %.0.i, %45 ], [ %.0.i, %34 ], [ %.0.i, %29 ], [ %.0.i, %28 ], [ %87, %.critedge.thread ]
+  %140 = phi ptr [ %6, %28 ], [ %6, %29 ], [ %35, %34 ], [ %46, %45 ], [ %55, %54 ], [ %64, %63 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %.critedge.thread ]
+  %.051 = phi ptr [ %.0.i, %28 ], [ %.0.i, %29 ], [ %.0.i, %34 ], [ %.0.i, %45 ], [ %.0.i, %54 ], [ %.0.i, %63 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %87, %.critedge.thread ]
   %.not = icmp eq ptr %.051, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !57
 

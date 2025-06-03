@@ -758,7 +758,7 @@ define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %process_sof_header.exit
 
 process_sof_header.exit:                          ; preds = %.lr.ph.i, %67, %66, %99, %98, %97, %65, %64, %63
-  %.3 = phi i1 [ %.1122.ph, %99 ], [ %.1122.ph, %98 ], [ %.1122.ph, %97 ], [ %.1122.ph, %65 ], [ false, %64 ], [ %.1122.ph, %63 ], [ %.1122.ph, %66 ], [ %.1122.ph, %67 ], [ %.1122.ph, %.lr.ph.i ]
+  %.3 = phi i1 [ %.1122.ph, %99 ], [ %.1122.ph, %63 ], [ false, %64 ], [ %.1122.ph, %65 ], [ %.1122.ph, %97 ], [ %.1122.ph, %98 ], [ %.1122.ph, %66 ], [ %.1122.ph, %67 ], [ %.1122.ph, %.lr.ph.i ]
   %100 = add i32 %58, %60
   br label %.outer
 
@@ -1413,9 +1413,9 @@ switch.lookup:                                    ; preds = %.lr.ph166
 106:                                              ; preds = %102
   br label %107
 
-107:                                              ; preds = %102, %106, %105
-  %.0125.ph.in = phi ptr [ @hf_ifd_tag_gps, %105 ], [ @hf_ifd_tag_interop, %106 ], [ @hf_ifd_tag_exif, %102 ]
-  %.0124.ph = phi ptr [ @.str.415, %105 ], [ @.str.416, %106 ], [ @.str.414, %102 ]
+107:                                              ; preds = %102, %105, %106
+  %.0125.ph.in = phi ptr [ @hf_ifd_tag_interop, %106 ], [ @hf_ifd_tag_gps, %105 ], [ @hf_ifd_tag_exif, %102 ]
+  %.0124.ph = phi ptr [ @.str.416, %106 ], [ @.str.415, %105 ], [ @.str.414, %102 ]
   %.0125.ph = load i32, ptr %.0125.ph.in, align 4
   %108 = call i32 @tvb_reported_length(ptr noundef %1)
   %109 = icmp ult i32 %103, %108

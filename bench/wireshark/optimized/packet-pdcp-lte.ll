@@ -2043,9 +2043,9 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   br label %439
 
 439:                                              ; preds = %422, %434, %410
-  %.4 = phi i32 [ 3, %434 ], [ 3, %422 ], [ 2, %410 ]
-  %.0368 = phi i32 [ %438, %434 ], [ %427, %422 ], [ %415, %410 ]
-  %.0362 = phi i32 [ 262143, %434 ], [ 32767, %422 ], [ 4095, %410 ]
+  %.4 = phi i32 [ 3, %434 ], [ 2, %410 ], [ 3, %422 ]
+  %.0368 = phi i32 [ %438, %434 ], [ %415, %410 ], [ %427, %422 ]
+  %.0362 = phi i32 [ 262143, %434 ], [ 4095, %410 ], [ 32767, %422 ]
   %440 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %441 = icmp sgt i32 %440, 0
   br i1 %441, label %442, label %.thread539
@@ -2320,7 +2320,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %403, %.thread539, %549, %576
+.critedge:                                        ; preds = %403, %576, %549, %.thread539
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15
   br label %.critedge432
 
@@ -2370,7 +2370,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   br label %.critedge432.thread
 
 .critedge432.thread:                              ; preds = %585, %579, %.thread548, %581, %593, %588, %595
-  %.7 = phi i32 [ 0, %595 ], [ %.1530551, %585 ], [ 1, %579 ], [ %.1530551, %588 ], [ %.1530551, %593 ], [ %.1530551, %581 ], [ %.1530551, %.thread548 ]
+  %.7 = phi i32 [ 0, %595 ], [ %.1530551, %585 ], [ 1, %579 ], [ %.1530551, %581 ], [ %.1530551, %588 ], [ %.1530551, %593 ], [ %.1530551, %.thread548 ]
   br i1 %.not403, label %600, label %596
 
 596:                                              ; preds = %.critedge432.thread
@@ -2752,7 +2752,7 @@ calculate_digest.exit:                            ; preds = %765, %693, %688, %6
   br label %lookup_rrc_dissector_handle.exit
 
 lookup_rrc_dissector_handle.exit:                 ; preds = %797, %793, %789, %786, %782, %777, %779, %785, %792, %796
-  %.0.i447.in = phi ptr [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ @lte_rrc_pcch_nb, %792 ], [ @lte_rrc_bcch_dl_sch, %785 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ], [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ]
+  %.0.i447.in = phi ptr [ @lte_rrc_bcch_dl_sch, %785 ], [ @lte_rrc_pcch_nb, %792 ], [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ], [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ]
   %.0.i447 = load ptr, ptr %.0.i447.in, align 8
   %.not428 = icmp eq ptr %.0.i447, null
   br i1 %.not428, label %lookup_rrc_dissector_handle.exit.thread, label %800
@@ -2768,7 +2768,7 @@ lookup_rrc_dissector_handle.exit:                 ; preds = %797, %793, %789, %7
   call void @col_set_writable(ptr noundef %806, i32 noundef 25, i1 noundef zeroext %803)
   br label %809
 
-lookup_rrc_dissector_handle.exit.thread:          ; preds = %782, %793, %777, %lookup_rrc_dissector_handle.exit
+lookup_rrc_dissector_handle.exit.thread:          ; preds = %793, %782, %777, %lookup_rrc_dissector_handle.exit
   %807 = load i32, ptr @hf_pdcp_lte_signalling_data, align 4
   %808 = call ptr @proto_tree_add_item(ptr noundef %.0346537, i32 noundef %807, ptr noundef %.058.i563, i32 noundef %.9561, i32 noundef %685, i32 noundef 0)
   br label %809
@@ -3612,7 +3612,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   unreachable
 
 75:                                               ; preds = %64, %73, %72, %71, %70
-  %.090 = phi i32 [ 262144, %73 ], [ 32768, %72 ], [ 4096, %71 ], [ 128, %70 ], [ 32, %64 ]
+  %.090 = phi i32 [ 128, %70 ], [ 4096, %71 ], [ 32768, %72 ], [ 262144, %73 ], [ 32, %64 ]
   br i1 %.not107, label %.thread104, label %84
 
 .thread104:                                       ; preds = %75
@@ -4033,7 +4033,7 @@ proto_item_set_generated.exit154:                 ; preds = %proto_item_set_gene
   unreachable
 
 108:                                              ; preds = %proto_item_set_generated.exit154, %106, %105, %104, %103
-  %.0127 = phi i32 [ 262144, %106 ], [ 32768, %105 ], [ 4096, %104 ], [ 128, %103 ], [ 32, %proto_item_set_generated.exit154 ]
+  %.0127 = phi i32 [ 128, %103 ], [ 4096, %104 ], [ 32768, %105 ], [ 262144, %106 ], [ 32, %proto_item_set_generated.exit154 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load i32, ptr %109, align 4
   %111 = mul i32 %110, %.0127

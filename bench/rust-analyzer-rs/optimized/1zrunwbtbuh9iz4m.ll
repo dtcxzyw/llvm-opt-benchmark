@@ -875,7 +875,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %175
 
-175:                                              ; preds = %154, %169, %_ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit31, %114, %112, %59, %84
+175:                                              ; preds = %154, %169, %_ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit31, %112, %114, %59, %84
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
   ret void
@@ -5081,7 +5081,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %14,
   br label %33
 
 33:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, %32, %31
-  %.010 = phi i16 [ 9, %32 ], [ 7, %31 ], [ 5, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ]
+  %.010 = phi i16 [ 7, %31 ], [ 9, %32 ], [ 5, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !917)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !920)

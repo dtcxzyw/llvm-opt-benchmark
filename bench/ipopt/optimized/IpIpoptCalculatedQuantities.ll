@@ -34644,7 +34644,7 @@ _ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %7
   br label %83
 
 83:                                               ; preds = %4, %_ZNK5Ipopt6Vector4AmaxEv.exit29, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20, %_ZNK5Ipopt6Vector4AsumEv.exit11
-  %.0 = phi double [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ %sqrt, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ 0.000000e+00, %4 ]
+  %.0 = phi double [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ %sqrt, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ 0.000000e+00, %4 ]
   ret double %.0
 }
 

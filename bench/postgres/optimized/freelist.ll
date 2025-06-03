@@ -534,7 +534,7 @@ define dso_local noundef ptr @GetAccessStrategy(i32 noundef %0) local_unnamed_ad
   unreachable
 
 GetAccessStrategyWithSize.exit:                   ; preds = %1, %3, %2
-  %.0 = phi i32 [ 256, %3 ], [ 2048, %2 ], [ 32, %1 ]
+  %.0 = phi i32 [ 2048, %2 ], [ 256, %3 ], [ 32, %1 ]
   %7 = load i32, ptr @NBuffers, align 4
   %8 = sdiv i32 %7, 8
   %..i = tail call i32 @llvm.smin.i32(i32 %8, i32 %.0)

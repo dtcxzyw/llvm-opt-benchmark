@@ -3379,7 +3379,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   resume { ptr, i32 } %.pn64.pn.pn.pn.pn
 
 210:                                              ; preds = %28, %_ZN8rationalD2Ev.exit
-  %.1 = phi i32 [ %30, %28 ], [ %.3, %_ZN8rationalD2Ev.exit ]
+  %.1 = phi i32 [ %.3, %_ZN8rationalD2Ev.exit ], [ %30, %28 ]
   ret i32 %.1
 }
 
@@ -23538,7 +23538,7 @@ _ZN8rationalD2Ev.exit91:                          ; preds = %.noexc.i90
   resume { ptr, i32 } %.pn64.pn.pn.pn.pn
 
 235:                                              ; preds = %28, %_ZN8rationalD2Ev.exit91
-  %.1 = phi i32 [ %30, %28 ], [ %.3, %_ZN8rationalD2Ev.exit91 ]
+  %.1 = phi i32 [ %.3, %_ZN8rationalD2Ev.exit91 ], [ %30, %28 ]
   ret i32 %.1
 }
 
@@ -38421,7 +38421,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   resume { ptr, i32 } %.pn61.pn.pn.pn
 
 193:                                              ; preds = %28, %_ZN8rationalD2Ev.exit
-  %.1 = phi i32 [ %30, %28 ], [ %.3, %_ZN8rationalD2Ev.exit ]
+  %.1 = phi i32 [ %.3, %_ZN8rationalD2Ev.exit ], [ %30, %28 ]
   ret i32 %.1
 }
 
@@ -50784,7 +50784,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   resume { ptr, i32 } %.pn61.pn.pn.pn
 
 187:                                              ; preds = %28, %_ZN8rationalD2Ev.exit
-  %.1 = phi i32 [ %30, %28 ], [ %.3, %_ZN8rationalD2Ev.exit ]
+  %.1 = phi i32 [ %.3, %_ZN8rationalD2Ev.exit ], [ %30, %28 ]
   ret i32 %.1
 }
 

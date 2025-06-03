@@ -399,8 +399,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 .lr.ph:                                           ; preds = %3
   %8 = load i32, ptr %0, align 4, !alias.scope !92, !noalias !97, !noundef !16
   %9 = load i32, ptr %1, align 4, !alias.scope !100, !noalias !103, !noundef !16
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %12
 
 12:                                               ; preds = %.lr.ph, %20
@@ -412,18 +412,18 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %8, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef %9, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %.013, i32 noundef 0), !noalias !106
   %13 = load i32, ptr %5, align 8, !range !107, !noundef !16
   %trunc = trunc nuw i32 %13 to i1
-  %14 = load i32, ptr %10, align 4, !range !108
-  %15 = load i64, ptr %11, align 8
+  %14 = load i64, ptr %10, align 8
+  %15 = load i32, ptr %11, align 4, !range !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %18, label %16
 
 .loopexit:                                        ; preds = %20, %3, %18
-  %.09 = phi i32 [ %14, %18 ], [ 134, %3 ], [ 134, %20 ]
+  %.09 = phi i32 [ %15, %18 ], [ 134, %3 ], [ 134, %20 ]
   ret i32 %.09
 
 16:                                               ; preds = %12
-  store i64 %15, ptr %6, align 8
-  %17 = icmp eq i64 %15, 0
+  store i64 %14, ptr %6, align 8
+  %17 = icmp eq i64 %14, 0
   br i1 %17, label %19, label %20
 
 18:                                               ; preds = %12
@@ -443,7 +443,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   unreachable
 
 20:                                               ; preds = %16
-  %21 = sub i64 %.013, %15
+  %21 = sub i64 %.013, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.loopexit, label %12

@@ -2070,7 +2070,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ]
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -3177,7 +3177,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %stringify_adefprivs_objtype.exit
 
 stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %142
-  %.0.i = phi ptr [ @.str.58, %142 ], [ @.str.73, %138 ], [ @.str.72, %137 ], [ @.str.71, %136 ], [ @.str.70, %135 ], [ @.str.69, %134 ], [ @.str.68, %133 ], [ @.str.67, %132 ], [ @.str.66, %131 ], [ @.str.65, %130 ], [ @.str.64, %129 ], [ @.str.63, %128 ], [ @.str.62, %127 ], [ @.str.61, %126 ], [ @.str.60, %125 ], [ @.str.59, %116 ]
+  %.0.i = phi ptr [ @.str.58, %142 ], [ @.str.60, %125 ], [ @.str.61, %126 ], [ @.str.62, %127 ], [ @.str.63, %128 ], [ @.str.64, %129 ], [ @.str.65, %130 ], [ @.str.66, %131 ], [ @.str.67, %132 ], [ @.str.68, %133 ], [ @.str.69, %134 ], [ @.str.70, %135 ], [ @.str.71, %136 ], [ @.str.72, %137 ], [ @.str.73, %138 ], [ @.str.59, %116 ]
   %143 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #16
   %144 = ptrtoint ptr %143 to i64
   store i64 %144, ptr %24, align 16
@@ -3311,7 +3311,7 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
   br label %stringify_grant_objtype.exit
 
 stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %174
-  %.0.i89 = phi ptr [ @.str.58, %174 ], [ @.str.56, %170 ], [ @.str.55, %169 ], [ @.str.54, %168 ], [ @.str.53, %167 ], [ @.str.52, %166 ], [ @.str.51, %165 ], [ @.str.50, %164 ], [ @.str.49, %163 ], [ @.str.48, %162 ], [ @.str.47, %161 ], [ @.str.46, %160 ], [ @.str.45, %159 ], [ @.str.44, %158 ], [ @.str.43, %157 ], [ @.str.42, %156 ], [ @.str.41, %145 ]
+  %.0.i89 = phi ptr [ @.str.58, %174 ], [ @.str.42, %156 ], [ @.str.43, %157 ], [ @.str.44, %158 ], [ @.str.45, %159 ], [ @.str.46, %160 ], [ @.str.47, %161 ], [ @.str.48, %162 ], [ @.str.49, %163 ], [ @.str.50, %164 ], [ @.str.51, %165 ], [ @.str.52, %166 ], [ @.str.53, %167 ], [ @.str.54, %168 ], [ @.str.55, %169 ], [ @.str.56, %170 ], [ @.str.41, %145 ]
   %175 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i89) #16
   %176 = ptrtoint ptr %175 to i64
   store i64 %176, ptr %24, align 16

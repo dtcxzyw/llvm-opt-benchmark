@@ -9674,7 +9674,7 @@ define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9d
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit: ; preds = %6, %9
-  %.0.i = phi ptr [ %12, %9 ], [ %8, %6 ]
+  %.0.i = phi ptr [ %8, %6 ], [ %12, %9 ]
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %15 = icmp eq ptr %.0.i, %2
   br i1 %15, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread, label %17

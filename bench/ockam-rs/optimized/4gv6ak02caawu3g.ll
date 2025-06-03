@@ -331,7 +331,7 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h719861c695eeef04E.exit.i
 
 88:                                               ; preds = %71, %70, %69, %68, %67, %_ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thread.i, %64
-  %.0.i.i = phi ptr [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.17, %71 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.16, %70 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.15, %69 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.14, %68 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.13, %67 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.10, %_ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thread.i ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.11, %64 ]
+  %.0.i.i = phi ptr [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.13, %67 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.14, %68 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.15, %69 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.16, %70 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.17, %71 ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.10, %_ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thread.i ], [ @anon.6a0f52975b2d5d105a52dfd87a792a1e.11, %64 ]
   %89 = load i64, ptr %6, align 8, !alias.scope !68, !noalias !77, !noundef !18
   %90 = sub i64 %89, %65
   %91 = icmp ult i64 %90, 2
@@ -1674,7 +1674,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.17557471103795588278.exit.t
   unreachable
 
 40:                                               ; preds = %51, %25
-  %.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %26, %25 ]
+  %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn.i
 
 41:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb4b2b521730dc057E.exit.i"
@@ -2247,7 +2247,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h80fabc9f94c78ff6E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -2307,7 +2307,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hec95b64132f980a8E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -2443,7 +2443,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17he5a1
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -2959,7 +2959,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$std..sync..rwlock..RwLock$LT$T$GT$$
   unreachable
 
 38:                                               ; preds = %48, %22
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$8try_read17h5dd9dc8f5ae1d056E.exit"
@@ -3095,7 +3095,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$std..sync..rwlock..RwLock$LT$T$GT$$
   unreachable
 
 38:                                               ; preds = %48, %22
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$8try_read17hebdefc6c84cbf697E.exit"
@@ -3231,7 +3231,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$std..sync..rwlock..RwLock$LT$T$GT$$
   unreachable
 
 38:                                               ; preds = %48, %22
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$8try_read17h0c4d2ded9e07ced5E.exit"
@@ -3367,7 +3367,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$std..sync..rwlock..RwLock$LT$T$GT$$
   unreachable
 
 38:                                               ; preds = %48, %22
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$8try_read17hc27a9cde712cdae2E.exit"
@@ -4053,7 +4053,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h7a7e9d2717b94115E.exit.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h7a7e9d2717b94115E.exit.i.i": ; preds = %75, %72
-  %.0.i10.i.i = phi ptr [ %78, %75 ], [ %74, %72 ]
+  %.0.i10.i.i = phi ptr [ %74, %72 ], [ %78, %75 ]
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %82 = load i64, ptr %81, align 8, !range !775, !invariant.load !18, !noalias !734
   %83 = add i64 %82, -1

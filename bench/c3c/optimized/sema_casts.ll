@@ -622,7 +622,7 @@ define dso_local void @cast_no_check(ptr noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 18:                                               ; preds = %15, %9
-  %.1.in.i = phi ptr [ %16, %15 ], [ %14, %9 ]
+  %.1.in.i = phi ptr [ %14, %9 ], [ %16, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %5
 
@@ -658,7 +658,7 @@ type_flatten.exit:                                ; preds = %5
   unreachable
 
 33:                                               ; preds = %30, %24
-  %.1.in.i83 = phi ptr [ %31, %30 ], [ %29, %24 ]
+  %.1.in.i83 = phi ptr [ %29, %24 ], [ %31, %30 ]
   %.1.i84 = load ptr, ptr %.1.in.i83, align 8
   br label %20
 
@@ -965,7 +965,7 @@ define dso_local void @cast_promote_vararg(ptr noundef %0, ptr noundef %1) local
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %4
 
@@ -1287,7 +1287,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %31,
   unreachable
 
 59:                                               ; preds = %56, %50
-  %.1.in.i = phi ptr [ %57, %56 ], [ %55, %50 ]
+  %.1.in.i = phi ptr [ %55, %50 ], [ %57, %56 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -1330,7 +1330,7 @@ type_flatten.exit:                                ; preds = %.preheader
   unreachable
 
 78:                                               ; preds = %75, %69
-  %.1.in.i115 = phi ptr [ %76, %75 ], [ %74, %69 ]
+  %.1.in.i115 = phi ptr [ %74, %69 ], [ %76, %75 ]
   %.1.i116 = load ptr, ptr %.1.in.i115, align 8
   br label %.preheader122
 
@@ -1460,7 +1460,7 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr noundef readonly ca
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -1494,7 +1494,7 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %2, %.loopexit4, %.loopexit3, %.loopexit2, %.loopexit1, %.loopexit, %18, %16
-  %.0 = phi i32 [ 13, %18 ], [ 1, %16 ], [ 4, %.loopexit ], [ 14, %.loopexit1 ], [ 30, %.loopexit2 ], [ 20, %.loopexit3 ], [ 16, %.loopexit4 ], [ 27, %2 ]
+  %.0 = phi i32 [ 1, %16 ], [ 13, %18 ], [ 4, %.loopexit ], [ 14, %.loopexit1 ], [ 30, %.loopexit2 ], [ 20, %.loopexit3 ], [ 16, %.loopexit4 ], [ 27, %2 ]
   ret i32 %.0
 }
 
@@ -1561,7 +1561,7 @@ define dso_local noundef zeroext i1 @cast_to_index(ptr noundef %0, ptr noundef %
   br label %28
 
 28:                                               ; preds = %23, %14, %11, %8, %5
-  %.012 = phi i1 [ false, %23 ], [ false, %14 ], [ false, %11 ], [ %10, %8 ], [ %7, %5 ]
+  %.012 = phi i1 [ false, %23 ], [ %7, %5 ], [ %10, %8 ], [ false, %11 ], [ false, %14 ]
   ret i1 %.012
 }
 
@@ -1687,7 +1687,7 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   br label %.backedge84
 
 .backedge84:                                      ; preds = %15, %9
-  %.0.i.in.be = phi ptr [ %16, %15 ], [ %14, %9 ]
+  %.0.i.in.be = phi ptr [ %14, %9 ], [ %16, %15 ]
   br label %5
 
 17:                                               ; preds = %5
@@ -1988,7 +1988,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr noundef readonly captures(none
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %70, %64
-  %.0.i.in.be = phi ptr [ %71, %70 ], [ %69, %64 ]
+  %.0.i.in.be = phi ptr [ %69, %64 ], [ %71, %70 ]
   br label %.preheader
 
 72:                                               ; preds = %.preheader
@@ -2904,7 +2904,7 @@ define internal zeroext i1 @rule_sa_to_sa(ptr noundef readonly captures(none) %0
   unreachable
 
 24:                                               ; preds = %21, %15
-  %.1.in.i = phi ptr [ %22, %21 ], [ %20, %15 ]
+  %.1.in.i = phi ptr [ %20, %15 ], [ %22, %21 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -2936,7 +2936,7 @@ type_flatten.exit:                                ; preds = %.preheader, %37
   unreachable
 
 37:                                               ; preds = %34, %28
-  %.1.in.i70 = phi ptr [ %35, %34 ], [ %33, %28 ]
+  %.1.in.i70 = phi ptr [ %33, %28 ], [ %35, %34 ]
   %.1.i71 = load ptr, ptr %.1.in.i70, align 8
   br label %type_flatten.exit
 
@@ -4454,7 +4454,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
   unreachable
 
 30:                                               ; preds = %27, %21
-  %.1.in.i = phi ptr [ %28, %27 ], [ %26, %21 ]
+  %.1.in.i = phi ptr [ %26, %21 ], [ %28, %27 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %17
 
@@ -4642,7 +4642,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   unreachable
 
 43:                                               ; preds = %40, %34
-  %.1.in.i = phi ptr [ %41, %40 ], [ %39, %34 ]
+  %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %30
 
@@ -5088,7 +5088,7 @@ define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr noundef readonly captu
   unreachable
 
 26:                                               ; preds = %23, %17
-  %.1.in.i = phi ptr [ %24, %23 ], [ %22, %17 ]
+  %.1.in.i = phi ptr [ %22, %17 ], [ %24, %23 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -5120,7 +5120,7 @@ type_flatten.exit:                                ; preds = %.preheader, %39
   unreachable
 
 39:                                               ; preds = %36, %30
-  %.1.in.i30 = phi ptr [ %37, %36 ], [ %35, %30 ]
+  %.1.in.i30 = phi ptr [ %35, %30 ], [ %37, %36 ]
   %.1.i31 = load ptr, ptr %.1.in.i30, align 8
   br label %type_flatten.exit
 
@@ -5522,7 +5522,7 @@ define internal void @cast_bool_to_int(ptr readnone captures(none) %0, ptr nound
   unreachable
 
 43:                                               ; preds = %40, %34
-  %.1.in.i = phi ptr [ %41, %40 ], [ %39, %34 ]
+  %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %30
 
@@ -5614,7 +5614,7 @@ define internal void @cast_bool_to_float(ptr readnone captures(none) %0, ptr nou
   unreachable
 
 43:                                               ; preds = %40, %34
-  %.1.in.i = phi ptr [ %41, %40 ], [ %39, %34 ]
+  %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %30
 
@@ -5855,7 +5855,7 @@ define internal void @cast_int_to_int(ptr readnone captures(none) %0, ptr nounde
   unreachable
 
 63:                                               ; preds = %56, %50, %48, %42
-  %.1.in.i = phi ptr [ %61, %56 ], [ %55, %50 ], [ %49, %48 ], [ %47, %42 ]
+  %.1.in.i = phi ptr [ %47, %42 ], [ %49, %48 ], [ %55, %50 ], [ %61, %56 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -5949,7 +5949,7 @@ define internal void @cast_int_to_float(ptr readnone captures(none) %0, ptr noun
   unreachable
 
 44:                                               ; preds = %41, %35
-  %.1.in.i = phi ptr [ %42, %41 ], [ %40, %35 ]
+  %.1.in.i = phi ptr [ %40, %35 ], [ %42, %41 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %31
 
@@ -6089,7 +6089,7 @@ define internal void @cast_int_arr_to_bitstruct(ptr readnone captures(none) %0, 
   br label %.backedge
 
 .backedge:                                        ; preds = %28, %22
-  %.0.i.in.be = phi ptr [ %29, %28 ], [ %27, %22 ]
+  %.0.i.in.be = phi ptr [ %27, %22 ], [ %29, %28 ]
   br label %18
 
 30:                                               ; preds = %18
@@ -6124,7 +6124,7 @@ type_flatten.exit:                                ; preds = %18, %43
   unreachable
 
 43:                                               ; preds = %40, %34
-  %.1.in.i17 = phi ptr [ %41, %40 ], [ %39, %34 ]
+  %.1.in.i17 = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i18 = load ptr, ptr %.1.in.i17, align 8
   br label %type_flatten.exit
 
@@ -6197,7 +6197,7 @@ define internal void @cast_int_to_enum(ptr readnone captures(none) %0, ptr nound
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %4
 
@@ -6384,7 +6384,7 @@ define internal void @cast_float_to_int(ptr readnone captures(none) %0, ptr noun
   unreachable
 
 42:                                               ; preds = %39, %33
-  %.1.in.i = phi ptr [ %40, %39 ], [ %38, %33 ]
+  %.1.in.i = phi ptr [ %38, %33 ], [ %40, %39 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %29
 
@@ -6473,7 +6473,7 @@ define internal void @cast_float_to_float(ptr readnone captures(none) %0, ptr no
   unreachable
 
 41:                                               ; preds = %38, %32
-  %.1.in.i = phi ptr [ %39, %38 ], [ %37, %32 ]
+  %.1.in.i = phi ptr [ %37, %32 ], [ %39, %38 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %28
 
@@ -6640,7 +6640,7 @@ define internal void @cast_ptr_to_int(ptr readnone captures(none) %0, ptr nounde
   unreachable
 
 41:                                               ; preds = %38, %32
-  %.1.in.i = phi ptr [ %39, %38 ], [ %37, %32 ]
+  %.1.in.i = phi ptr [ %37, %32 ], [ %39, %38 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %28
 
@@ -6678,7 +6678,7 @@ type_flatten.exit:                                ; preds = %28
   br label %54
 
 54:                                               ; preds = %48, %50, %52, %47, %44, %46
-  %.0 = phi i64 [ %27, %46 ], [ %27, %44 ], [ %27, %47 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
+  %.0 = phi i64 [ %27, %46 ], [ %27, %44 ], [ %27, %47 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6816,7 +6816,7 @@ define internal void @cast_ptr_to_infer(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %8
-  %.0.i.in.be = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.0.i.in.be = phi ptr [ %13, %8 ], [ %15, %14 ]
   br label %4
 
 16:                                               ; preds = %4
@@ -7018,7 +7018,7 @@ define internal void @cast_sa_to_sa(ptr readnone captures(none) %0, ptr noundef 
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %4
 
@@ -7051,7 +7051,7 @@ type_flatten.exit:                                ; preds = %4
   br label %.backedge86
 
 .backedge86:                                      ; preds = %29, %23
-  %.0.i24.in.be = phi ptr [ %30, %29 ], [ %28, %23 ]
+  %.0.i24.in.be = phi ptr [ %28, %23 ], [ %30, %29 ]
   br label %19
 
 31:                                               ; preds = %19
@@ -7083,7 +7083,7 @@ type_flatten.exit27:                              ; preds = %19, %type_flatten.e
   br label %type_flatten.exit27.backedge
 
 type_flatten.exit27.backedge:                     ; preds = %41, %35
-  %.0.i28.in.be = phi ptr [ %42, %41 ], [ %40, %35 ]
+  %.0.i28.in.be = phi ptr [ %40, %35 ], [ %42, %41 ]
   br label %type_flatten.exit27
 
 43:                                               ; preds = %type_flatten.exit27
@@ -7119,7 +7119,7 @@ type_flatten.exit31:                              ; preds = %type_flatten.exit27
   br label %.backedge
 
 .backedge:                                        ; preds = %55, %49
-  %.0.i32.in.be = phi ptr [ %56, %55 ], [ %54, %49 ]
+  %.0.i32.in.be = phi ptr [ %54, %49 ], [ %56, %55 ]
   br label %45
 
 57:                                               ; preds = %45
@@ -7285,7 +7285,7 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr noundef captures(none)
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %17, %11
-  %.0.i.in.be = phi ptr [ %18, %17 ], [ %16, %11 ]
+  %.0.i.in.be = phi ptr [ %16, %11 ], [ %18, %17 ]
   br label %.preheader
 
 19:                                               ; preds = %.preheader
@@ -7325,7 +7325,7 @@ type_flatten.exit:                                ; preds = %.preheader
   unreachable
 
 35:                                               ; preds = %32, %26
-  %.1.in.i72 = phi ptr [ %33, %32 ], [ %31, %26 ]
+  %.1.in.i72 = phi ptr [ %31, %26 ], [ %33, %32 ]
   %.1.i73 = load ptr, ptr %.1.in.i72, align 8
   br label %22
 
@@ -7762,7 +7762,7 @@ define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr n
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %8
-  %.0.i.in.be = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.0.i.in.be = phi ptr [ %13, %8 ], [ %15, %14 ]
   br label %4
 
 16:                                               ; preds = %4
@@ -7860,7 +7860,7 @@ define internal void @cast_arr_to_vec(ptr noundef %0, ptr noundef captures(none)
   unreachable
 
 18:                                               ; preds = %15, %9
-  %.1.in.i = phi ptr [ %16, %15 ], [ %14, %9 ]
+  %.1.in.i = phi ptr [ %14, %9 ], [ %16, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %5
 
@@ -7897,7 +7897,7 @@ type_flatten.exit:                                ; preds = %5
   unreachable
 
 34:                                               ; preds = %31, %25
-  %.1.in.i23 = phi ptr [ %32, %31 ], [ %30, %25 ]
+  %.1.in.i23 = phi ptr [ %30, %25 ], [ %32, %31 ]
   %.1.i24 = load ptr, ptr %.1.in.i23, align 8
   br label %21
 
@@ -7930,7 +7930,7 @@ type_flatten.exit25:                              ; preds = %21
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %45, %39
-  %.0.i26.in.be = phi ptr [ %46, %45 ], [ %44, %39 ]
+  %.0.i26.in.be = phi ptr [ %44, %39 ], [ %46, %45 ]
   br label %.preheader
 
 47:                                               ; preds = %.preheader
@@ -8226,7 +8226,7 @@ define internal void @cast_enum_to_int(ptr readnone captures(none) %0, ptr nound
   br label %.backedge
 
 .backedge:                                        ; preds = %20, %14, %8
-  %.0.i.in.be = phi ptr [ %21, %20 ], [ %19, %14 ], [ %13, %8 ]
+  %.0.i.in.be = phi ptr [ %13, %8 ], [ %19, %14 ], [ %21, %20 ]
   br label %4
 
 22:                                               ; preds = %4
@@ -8280,7 +8280,7 @@ type_base.exit:                                   ; preds = %4
   unreachable
 
 45:                                               ; preds = %42, %36
-  %.1.in.i52 = phi ptr [ %43, %42 ], [ %41, %36 ]
+  %.1.in.i52 = phi ptr [ %41, %36 ], [ %43, %42 ]
   %.1.i53 = load ptr, ptr %.1.in.i52, align 8
   br label %32
 
@@ -8305,7 +8305,7 @@ type_flatten.exit:                                ; preds = %32
   br label %53
 
 53:                                               ; preds = %type_flatten.exit, %49, %51, %48
-  %.0 = phi i64 [ %52, %51 ], [ %50, %49 ], [ %31, %type_flatten.exit ], [ %31, %48 ]
+  %.0 = phi i64 [ %50, %49 ], [ %52, %51 ], [ %31, %type_flatten.exit ], [ %31, %48 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -8602,7 +8602,7 @@ define internal void @cast_untyped_list_to_other(ptr noundef %0, ptr noundef %1,
   unreachable
 
 19:                                               ; preds = %16, %10
-  %.1.in.i = phi ptr [ %17, %16 ], [ %15, %10 ]
+  %.1.in.i = phi ptr [ %15, %10 ], [ %17, %16 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %6
 
@@ -8935,7 +8935,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %44, %41, %38, %16, %22, %61, %74, %119, %122, %125, %132
-  %.053.be = phi ptr [ %134, %132 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %79, %74 ], [ %66, %61 ], [ %26, %22 ], [ %21, %16 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
+  %.053.be = phi ptr [ %21, %16 ], [ %26, %22 ], [ %66, %61 ], [ %79, %74 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %134, %132 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
   br label %.backedge
 
 49:                                               ; preds = %.backedge
@@ -9035,7 +9035,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   unreachable
 
 103:                                              ; preds = %100, %94
-  %.1.in.i = phi ptr [ %101, %100 ], [ %99, %94 ]
+  %.1.in.i = phi ptr [ %99, %94 ], [ %101, %100 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -9072,7 +9072,7 @@ type_flatten.exit:                                ; preds = %.preheader
   unreachable
 
 117:                                              ; preds = %114, %108
-  %.1.in.i67 = phi ptr [ %115, %114 ], [ %113, %108 ]
+  %.1.in.i67 = phi ptr [ %113, %108 ], [ %115, %114 ]
   %.1.i68 = load ptr, ptr %.1.in.i67, align 8
   br label %.preheader109
 
@@ -9206,7 +9206,7 @@ define internal fastcc void @vector_const_initializer_convert_to_type(ptr nounde
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -9265,7 +9265,7 @@ type_flatten.exit:                                ; preds = %.preheader
   unreachable
 
 39:                                               ; preds = %36, %30
-  %.1.in.i71 = phi ptr [ %37, %36 ], [ %35, %30 ]
+  %.1.in.i71 = phi ptr [ %35, %30 ], [ %37, %36 ]
   %.1.i72 = load ptr, ptr %.1.in.i71, align 8
   br label %.preheader83
 
@@ -9324,7 +9324,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
   unreachable
 
 61:                                               ; preds = %58, %52
-  %.1.in.i75 = phi ptr [ %59, %58 ], [ %57, %52 ]
+  %.1.in.i75 = phi ptr [ %57, %52 ], [ %59, %58 ]
   %.1.i76 = load ptr, ptr %.1.in.i75, align 8
   br label %.preheader84
 
@@ -9357,7 +9357,7 @@ type_flatten.exit77:                              ; preds = %.preheader84
   br label %.backedge
 
 .backedge:                                        ; preds = %73, %67
-  %.0.i78.in.be = phi ptr [ %74, %73 ], [ %72, %67 ]
+  %.0.i78.in.be = phi ptr [ %72, %67 ], [ %74, %73 ]
   br label %63
 
 75:                                               ; preds = %63

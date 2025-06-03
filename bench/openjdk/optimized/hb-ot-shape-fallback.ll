@@ -227,12 +227,12 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 .thread.i:                                        ; preds = %28, %25, %24, %23, %22
-  %.013.i = phi i32 [ %.0.i, %28 ], [ 232, %23 ], [ 230, %24 ], [ 220, %25 ], [ 0, %22 ]
+  %.013.i = phi i32 [ %.0.i, %28 ], [ 220, %25 ], [ 230, %24 ], [ 232, %23 ], [ 0, %22 ]
   %35 = trunc nuw nsw i32 %.013.i to i16
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 _ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit: ; preds = %12, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %29, %30, %31, %32, %33, %34, %.thread.i
-  %.09.i = phi i16 [ %35, %.thread.i ], [ 222, %34 ], [ 230, %33 ], [ 230, %32 ], [ 228, %31 ], [ 232, %30 ], [ 214, %29 ], [ %13, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ]
+  %.09.i = phi i16 [ %35, %.thread.i ], [ 214, %29 ], [ 232, %30 ], [ 228, %31 ], [ 230, %32 ], [ 230, %33 ], [ 222, %34 ], [ %13, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ]
   %36 = and i16 %.val, 236
   %37 = shl nuw i16 %.09.i, 8
   %38 = or disjoint i16 %37, %36
@@ -777,7 +777,7 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %177
   br label %220
 
 220:                                              ; preds = %218, %217, %217
-  %.sroa.20.5.i = phi i32 [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ], [ %219, %218 ]
+  %.sroa.20.5.i = phi i32 [ %219, %218 ], [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ]
   %221 = add nsw i32 %.sroa.20.5.i, %.sroa.7.1169.i
   %222 = load i32, ptr %24, align 4
   %223 = sub i32 %221, %222
@@ -798,8 +798,8 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %177
   br label %233
 
 233:                                              ; preds = %230, %217, %217
-  %.sroa.20.3.i = phi i32 [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ], [ %232, %230 ]
-  %.sroa.7.3.i = phi i32 [ %.sroa.7.1169.i, %217 ], [ %.sroa.7.1169.i, %217 ], [ %231, %230 ]
+  %.sroa.20.3.i = phi i32 [ %232, %230 ], [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ]
+  %.sroa.7.3.i = phi i32 [ %231, %230 ], [ %.sroa.7.1169.i, %217 ], [ %.sroa.7.1169.i, %217 ]
   %234 = load i32, ptr %24, align 4
   %235 = load i32, ptr %25, align 4
   %236 = add i32 %234, %235
@@ -827,8 +827,8 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %177
   br label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
 
 _ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i: ; preds = %245, %220, %217, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
-  %.sroa.20.7.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %217 ], [ %248, %245 ], [ %229, %220 ]
-  %.sroa.7.5.i = phi i32 [ %.sroa.7.1169.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1169.i, %217 ], [ %247, %245 ], [ %.sroa.7.1169.i, %220 ]
+  %.sroa.20.7.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %217 ], [ %229, %220 ], [ %248, %245 ]
+  %.sroa.7.5.i = phi i32 [ %.sroa.7.1169.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1169.i, %217 ], [ %.sroa.7.1169.i, %220 ], [ %247, %245 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %249 = load ptr, ptr %17, align 8
   %250 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %249, i64 %indvars.iv.i
@@ -4541,28 +4541,28 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
   %69 = zext i8 %68 to i16
   %trunc.i.i.i.i.i = or disjoint i16 %66, %69
   switch i16 %trunc.i.i.i.i.i, label %85 [
-    i16 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
-    i16 2, label %70
-    i16 3, label %74
+    i16 1, label %70
+    i16 2, label %74
+    i16 3, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i
   ]
 
 70:                                               ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %72, %44
-  %.not.i.i = icmp ugt i64 %73, %47
-  br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
+  %.not12.i.i = icmp ugt i64 %73, %47
+  br i1 %.not12.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 74:                                               ; preds = %63
-  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
-  br i1 %75, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %76 = ptrtoint ptr %75 to i64
+  %77 = sub i64 %76, %44
+  %.not.i.i = icmp ugt i64 %77, %47
+  br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %63
-  %76 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %77 = ptrtoint ptr %76 to i64
-  %78 = sub i64 %77, %44
-  %.not12.i.i = icmp ugt i64 %78, %47
-  br i1 %.not12.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
+  %78 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
+  br i1 %78, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %74, %70, %54
   %79 = load i32, ptr %37, align 4
@@ -4580,7 +4580,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %_ZN21hb_saniti
   store i16 0, ptr %40, align 1
   br label %85
 
-85:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %48, %74, %70, %63, %84
+85:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i, %48, %70, %74, %63, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10CaretValueENS1_7IntTypeItLj2EEELb1EEEJPKNS1_8LigGlyphEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %39, !llvm.loop !34

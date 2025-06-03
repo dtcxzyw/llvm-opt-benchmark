@@ -1198,7 +1198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   ret void
 
 224:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
-  %.pn = phi { ptr, i32 } [ %192, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
+  %.pn = phi { ptr, i32 } [ %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ], [ %192, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1558,7 +1558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %80, %79 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %80, %79 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %82 = load ptr, ptr %.sroa.025.1.i.i.i.i.i, align 8, !tbaa !216
   %83 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK12cmSourceFile12GetExtensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(370) %82)
           to label %.noexc21 unwind label %.loopexit.split-lp
@@ -1573,7 +1573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %87, %86 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %87, %86 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %89 = load ptr, ptr %.sroa.025.2.i.i.i.i.i, align 8, !tbaa !216
   %90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK12cmSourceFile12GetExtensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(370) %89)
           to label %.noexc22 unwind label %.loopexit.split-lp
@@ -1646,7 +1646,7 @@ _ZNSt6vectorIP12cmSourceFileSaIS1_EED2Ev.exit24:  ; preds = %104, %106
   br label %113
 
 112:                                              ; preds = %30, %_ZNSt6vectorIP12cmSourceFileSaIS1_EED2Ev.exit
-  %.1 = phi i1 [ %34, %30 ], [ %96, %_ZNSt6vectorIP12cmSourceFileSaIS1_EED2Ev.exit ]
+  %.1 = phi i1 [ %96, %_ZNSt6vectorIP12cmSourceFileSaIS1_EED2Ev.exit ], [ %34, %30 ]
   ret i1 %.1
 
 113:                                              ; preds = %_ZNSt6vectorIP12cmSourceFileSaIS1_EED2Ev.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15

@@ -1486,7 +1486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit245: ; preds = %_Z
   ret i1 %.0
 
 419:                                              ; preds = %413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224, %339, %293, %216
-  %.pn102 = phi { ptr, i32 } [ %414, %413 ], [ %.pn98, %339 ], [ %217, %216 ], [ %384, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224 ], [ %.pn100, %293 ]
+  %.pn102 = phi { ptr, i32 } [ %414, %413 ], [ %217, %216 ], [ %.pn100, %293 ], [ %.pn98, %339 ], [ %384, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224 ]
   call void @_ZN6crypto4HKDFD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %20) #13
   br label %420
 

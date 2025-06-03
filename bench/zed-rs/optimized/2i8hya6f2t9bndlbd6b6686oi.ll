@@ -879,7 +879,7 @@ default.unreachable:                              ; preds = %84, %47
   br label %96
 
 83:                                               ; preds = %78, %72, %69
-  %.sroa.0.0.i.ph.i.i = phi ptr [ %73, %72 ], [ %79, %78 ], [ %71, %69 ]
+  %.sroa.0.0.i.ph.i.i = phi ptr [ %79, %78 ], [ %73, %72 ], [ %71, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !37
   br label %96
 
@@ -1158,7 +1158,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
   br label %92
 
 82:                                               ; preds = %77, %71, %68
-  %.sroa.0.0.i.ph.i.i = phi ptr [ %72, %71 ], [ %78, %77 ], [ %70, %68 ]
+  %.sroa.0.0.i.ph.i.i = phi ptr [ %78, %77 ], [ %72, %71 ], [ %70, %68 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !74
   br label %92
 
@@ -1367,7 +1367,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$async_zip..base..read..io..hashed..Hashe
   br label %"_ZN114_$LT$async_zip..base..read..io..compressed..CompressedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h6603313406063cd2E.llvm.15006262148341195119.exit"
 
 "_ZN114_$LT$async_zip..base..read..io..compressed..CompressedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h6603313406063cd2E.llvm.15006262148341195119.exit": ; preds = %11, %14, %16
-  %.pn.i = phi { i64, ptr } [ %17, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.pn.i = phi { i64, ptr } [ %13, %11 ], [ %15, %14 ], [ %17, %16 ]
   %18 = extractvalue { i64, ptr } %.pn.i, 0
   %.off = add i64 %18, -1
   %switch = icmp ult i64 %.off, 2
@@ -1422,7 +1422,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$async_zip..base..read..io..hashed..Hashe
   br label %"_ZN114_$LT$async_zip..base..read..io..compressed..CompressedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h51c61cc2e6287114E.llvm.15006262148341195119.exit"
 
 "_ZN114_$LT$async_zip..base..read..io..compressed..CompressedReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h51c61cc2e6287114E.llvm.15006262148341195119.exit": ; preds = %11, %14, %16
-  %.pn.i = phi { i64, ptr } [ %17, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.pn.i = phi { i64, ptr } [ %13, %11 ], [ %15, %14 ], [ %17, %16 ]
   %18 = extractvalue { i64, ptr } %.pn.i, 0
   %.off = add i64 %18, -1
   %switch = icmp ult i64 %.off, 2
@@ -2258,7 +2258,7 @@ define hidden { i64, ptr } @"_ZN114_$LT$async_zip..base..read..io..compressed..C
   br label %17
 
 17:                                               ; preds = %15, %13, %10
-  %.pn = phi { i64, ptr } [ %16, %15 ], [ %14, %13 ], [ %12, %10 ]
+  %.pn = phi { i64, ptr } [ %12, %10 ], [ %14, %13 ], [ %16, %15 ]
   ret { i64, ptr } %.pn
 }
 
@@ -2292,7 +2292,7 @@ define hidden { i64, ptr } @"_ZN114_$LT$async_zip..base..read..io..compressed..C
   br label %17
 
 17:                                               ; preds = %15, %13, %10
-  %.pn = phi { i64, ptr } [ %16, %15 ], [ %14, %13 ], [ %12, %10 ]
+  %.pn = phi { i64, ptr } [ %12, %10 ], [ %14, %13 ], [ %16, %15 ]
   ret { i64, ptr } %.pn
 }
 
@@ -2686,7 +2686,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2714,7 +2714,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2742,7 +2742,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2770,7 +2770,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2798,7 +2798,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2826,7 +2826,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2854,7 +2854,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %15
 
 15:                                               ; preds = %12, %8
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %8 ], [ %14, %12 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2909,7 +2909,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2964,7 +2964,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3019,7 +3019,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3074,7 +3074,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3129,7 +3129,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3184,7 +3184,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3239,7 +3239,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3294,7 +3294,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3349,7 +3349,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3404,7 +3404,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3459,7 +3459,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3514,7 +3514,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3569,7 +3569,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -3624,7 +3624,7 @@ define hidden noundef ptr @"_ZN127_$LT$wasmtime..runtime..component..resources..
   br label %29
 
 29:                                               ; preds = %26, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit"
-  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit" ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11211,7 +11211,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN91_$LT$wasmtime..runtime..component..resources..ResourceState$u20$as$u20$core..fmt..Debug$GT$3fmt17h0e9280d630be3bc7E.exit"
 
 "_ZN91_$LT$wasmtime..runtime..component..resources..ResourceState$u20$as$u20$core..fmt..Debug$GT$3fmt17h0e9280d630be3bc7E.exit": ; preds = %6, %8, %10, %12
-  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -11462,7 +11462,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN71_$LT$wasmtime_wasi..stream..StreamError$u20$as$u20$core..fmt..Debug$GT$3fmt17h82e8d8cee245afa0E.exit"
 
 "_ZN71_$LT$wasmtime_wasi..stream..StreamError$u20$as$u20$core..fmt..Debug$GT$3fmt17h82e8d8cee245afa0E.exit": ; preds = %7, %9, %12
-  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -12664,7 +12664,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h79a3d6291e1ac43bE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.sroa.01.0
 }
 
@@ -12724,7 +12724,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17ha95ef34d61243589E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -12784,7 +12784,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hf7e86d7ad57ff64dE.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -12861,7 +12861,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h6d22
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -14199,7 +14199,7 @@ define hidden noundef ptr @"_ZN72_$LT$str$u20$as$u20$wasmtime..runtime..componen
   br label %17
 
 17:                                               ; preds = %15, %10
-  %.sroa.0.0 = phi ptr [ %16, %15 ], [ null, %10 ]
+  %.sroa.0.0 = phi ptr [ null, %10 ], [ %16, %15 ]
   ret ptr %.sroa.0.0
 }
 
@@ -14286,7 +14286,7 @@ define hidden noundef ptr @"_ZN72_$LT$str$u20$as$u20$wasmtime..runtime..componen
   br label %48
 
 48:                                               ; preds = %46, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit6"
-  %.sroa.0.0 = phi ptr [ %47, %46 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit6" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit6" ], [ %47, %46 ]
   ret ptr %.sroa.0.0
 }
 
@@ -14404,7 +14404,7 @@ define hidden noundef ptr @"_ZN74_$LT$$RF$T$u20$as$u20$wasmtime..runtime..compon
   br label %"_ZN72_$LT$str$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h531b0563420e5bd1E.exit"
 
 "_ZN72_$LT$str$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h531b0563420e5bd1E.exit": ; preds = %12, %17
-  %.sroa.0.0.i = phi ptr [ %18, %17 ], [ null, %12 ]
+  %.sroa.0.0.i = phi ptr [ null, %12 ], [ %18, %17 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -14721,7 +14721,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %28
 
 28:                                               ; preds = %26, %21
-  %.sroa.01.0 = phi ptr [ %27, %26 ], [ null, %21 ]
+  %.sroa.01.0 = phi ptr [ null, %21 ], [ %27, %26 ]
   ret ptr %.sroa.01.0
 }
 
@@ -14773,7 +14773,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %28
 
 28:                                               ; preds = %26, %21
-  %.sroa.01.0 = phi ptr [ %27, %26 ], [ null, %21 ]
+  %.sroa.01.0 = phi ptr [ null, %21 ], [ %27, %26 ]
   ret ptr %.sroa.01.0
 }
 
@@ -14831,7 +14831,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %34
 
 34:                                               ; preds = %32, %27
-  %.sroa.01.0 = phi ptr [ %33, %32 ], [ null, %27 ]
+  %.sroa.01.0 = phi ptr [ null, %27 ], [ %33, %32 ]
   ret ptr %.sroa.01.0
 }
 
@@ -14946,7 +14946,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %65
 
 65:                                               ; preds = %63, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8"
-  %.sroa.01.0 = phi ptr [ %64, %63 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ]
+  %.sroa.01.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ], [ %64, %63 ]
   ret ptr %.sroa.01.0
 }
 
@@ -15055,7 +15055,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %59
 
 59:                                               ; preds = %57, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8"
-  %.sroa.01.0 = phi ptr [ %58, %57 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ]
+  %.sroa.01.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ], [ %58, %57 ]
   ret ptr %.sroa.01.0
 }
 
@@ -15164,7 +15164,7 @@ define hidden noundef ptr @"_ZN80_$LT$$u5b$T$u5d$$u20$as$u20$wasmtime..runtime..
   br label %59
 
 59:                                               ; preds = %57, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8"
-  %.sroa.01.0 = phi ptr [ %58, %57 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ]
+  %.sroa.01.0 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit8" ], [ %58, %57 ]
   ret ptr %.sroa.01.0
 }
 
@@ -15337,10 +15337,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hd4247a8eb3b56954E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf8b04ed0aa4c8ed9E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15351,8 +15351,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hd4247a8eb3b56954E.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -15531,10 +15531,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h9abcf08759b442ceE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h06f20295d2ad3431E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15545,8 +15545,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h9abcf08759b442ceE.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -16038,8 +16038,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.7.sroa.7.0.i41, ptr %.sroa.613.sroa.9.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %191
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit.thread": ; preds = %183, %186, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit"
-  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit" ], [ %.sroa.841.0.ph.i, %183 ], [ %182, %186 ], [ %70, %65 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit.thread": ; preds = %186, %183, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit"
+  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf040578436672072E.exit" ], [ %182, %186 ], [ %.sroa.841.0.ph.i, %183 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.17)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.030, ptr %190, align 8
@@ -16532,8 +16532,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.7.sroa.7.0.i41, ptr %.sroa.613.sroa.9.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %191
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit.thread": ; preds = %183, %186, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit"
-  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit" ], [ %.sroa.841.0.ph.i, %183 ], [ %182, %186 ], [ %70, %65 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit.thread": ; preds = %186, %183, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit"
+  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h41039ed1f1e67149E.exit" ], [ %182, %186 ], [ %.sroa.841.0.ph.i, %183 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.17)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.030, ptr %190, align 8
@@ -16906,10 +16906,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h3a9d5c98ff250357E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h2cd046e7d9859ff3E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16920,8 +16920,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h3a9d5c98ff250357E.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -17100,10 +17100,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h1b3ce1bca4eeb191E.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hef903ce4500c12aeE.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17114,8 +17114,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17h1b3ce1bca4eeb191E.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -17492,8 +17492,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.18.042, ptr %.sroa.613.sroa.7.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %153
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit.thread": ; preds = %145, %148, %63, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit"
-  %.sroa.820.029 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit" ], [ %.sroa.741.0.ph.i, %145 ], [ %144, %148 ], [ %68, %63 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit.thread": ; preds = %148, %145, %63, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit"
+  %.sroa.820.029 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17he926b72e07db3deeE.exit" ], [ %144, %148 ], [ %.sroa.741.0.ph.i, %145 ], [ %68, %63 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.029, ptr %152, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -17672,10 +17672,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17he5336114fdaed29dE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hfb6a383770f74b5cE.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17686,8 +17686,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17he5336114fdaed29dE.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -18179,8 +18179,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.7.sroa.7.0.i41, ptr %.sroa.613.sroa.9.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %191
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit.thread": ; preds = %183, %186, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit"
-  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit" ], [ %.sroa.841.0.ph.i, %183 ], [ %182, %186 ], [ %70, %65 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit.thread": ; preds = %186, %183, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit"
+  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h87cee7cb7ade64bfE.exit" ], [ %182, %186 ], [ %.sroa.841.0.ph.i, %183 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.17)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.030, ptr %190, align 8
@@ -18360,10 +18360,10 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hf53fa3a76bdaa32eE.exit.
   br label %85
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hd804a9a1308eabf6E.exit": ; preds = %82, %80
-  %.sroa.14.0 = phi ptr [ %79, %82 ], [ %70, %80 ]
-  %.sroa.820.0 = phi i64 [ %76, %82 ], [ %67, %80 ]
-  %.sroa.019.0 = phi i64 [ 1, %82 ], [ 0, %80 ]
-  %.sroa.16.0 = phi i64 [ %.sroa.631.0.copyload.i, %82 ], [ %.sroa.627.0.copyload.i, %80 ]
+  %.sroa.14.0 = phi ptr [ %70, %80 ], [ %79, %82 ]
+  %.sroa.820.0 = phi i64 [ %67, %80 ], [ %76, %82 ]
+  %.sroa.019.0 = phi i64 [ 0, %80 ], [ 1, %82 ]
+  %.sroa.16.0 = phi i64 [ %.sroa.627.0.copyload.i, %80 ], [ %.sroa.631.0.copyload.i, %82 ]
   %84 = inttoptr i64 %.sroa.820.0 to ptr
   store i64 %.sroa.019.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18374,8 +18374,8 @@ _ZN8wasmtime7runtime9component4func5typed11lift_option17hf53fa3a76bdaa32eE.exit.
   store i64 %.sroa.16.0, ptr %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %87
 
-85:                                               ; preds = %57, %83, %81
-  %.sroa.820.0.ph.in = phi ptr [ %70, %81 ], [ %79, %83 ], [ %62, %57 ]
+85:                                               ; preds = %57, %81, %83
+  %.sroa.820.0.ph.in = phi ptr [ %79, %83 ], [ %70, %81 ], [ %62, %57 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.0.ph.in, ptr %86, align 8
   store i64 2, ptr %0, align 8
@@ -18867,8 +18867,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.7.sroa.7.0.i41, ptr %.sroa.613.sroa.9.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %191
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit.thread": ; preds = %183, %186, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit"
-  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit" ], [ %.sroa.841.0.ph.i, %183 ], [ %182, %186 ], [ %70, %65 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit.thread": ; preds = %186, %183, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit"
+  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17hf0d69d7cd21d3ec9E.exit" ], [ %182, %186 ], [ %.sroa.841.0.ph.i, %183 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.17)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.030, ptr %190, align 8
@@ -19361,8 +19361,8 @@ define hidden void @"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..compo
   store i64 %.sroa.7.sroa.7.0.i41, ptr %.sroa.613.sroa.9.0..sroa.613.0..sroa_idx.sroa_idx, align 8
   br label %191
 
-"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit.thread": ; preds = %183, %186, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit"
-  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit" ], [ %.sroa.841.0.ph.i, %183 ], [ %182, %186 ], [ %70, %65 ]
+"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit.thread": ; preds = %186, %183, %65, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit"
+  %.sroa.820.030 = phi ptr [ %.pre.i.i.i, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4lift17h8ab1eb6ac47ea1eeE.exit" ], [ %182, %186 ], [ %.sroa.841.0.ph.i, %183 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.17)
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.820.030, ptr %190, align 8
@@ -19635,10 +19635,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17he55444841b4e9973E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
-  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
-  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
+  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
+  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
+  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19649,8 +19649,8 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   store i64 %.sroa.19.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   br label %118
 
-116:                                              ; preds = %73, %112, %110
-  %.sroa.9.0.ph.in = phi ptr [ %84, %110 ], [ %113, %112 ], [ %78, %73 ]
+116:                                              ; preds = %73, %110, %112
+  %.sroa.9.0.ph.in = phi ptr [ %113, %112 ], [ %84, %110 ], [ %78, %73 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in, ptr %117, align 8
   store i64 2, ptr %0, align 8
@@ -19923,10 +19923,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h29adc47c796c7613E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
-  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
-  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
+  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
+  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
+  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19937,8 +19937,8 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   store i64 %.sroa.19.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   br label %118
 
-116:                                              ; preds = %73, %112, %110
-  %.sroa.9.0.ph.in = phi ptr [ %84, %110 ], [ %113, %112 ], [ %78, %73 ]
+116:                                              ; preds = %73, %110, %112
+  %.sroa.9.0.ph.in = phi ptr [ %113, %112 ], [ %84, %110 ], [ %78, %73 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in, ptr %117, align 8
   store i64 2, ptr %0, align 8
@@ -20211,10 +20211,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h33b352c88da8ae53E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
-  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
-  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
+  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
+  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
+  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20225,8 +20225,8 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   store i64 %.sroa.19.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   br label %118
 
-116:                                              ; preds = %73, %112, %110
-  %.sroa.9.0.ph.in = phi ptr [ %84, %110 ], [ %113, %112 ], [ %78, %73 ]
+116:                                              ; preds = %73, %110, %112
+  %.sroa.9.0.ph.in = phi ptr [ %113, %112 ], [ %84, %110 ], [ %78, %73 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in, ptr %117, align 8
   store i64 2, ptr %0, align 8
@@ -20499,10 +20499,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5777f289a9325e69E.exit": ; preds = %111, %109
-  %.sroa.16.0 = phi ptr [ %108, %111 ], [ %84, %109 ]
-  %.sroa.9.0 = phi i64 [ %.pr, %111 ], [ %81, %109 ]
-  %.sroa.022.0 = phi i64 [ 1, %111 ], [ 0, %109 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.636.0.copyload.i, %111 ], [ %.sroa.632.0.copyload.i, %109 ]
+  %.sroa.16.0 = phi ptr [ %84, %109 ], [ %108, %111 ]
+  %.sroa.9.0 = phi i64 [ %81, %109 ], [ %.pr, %111 ]
+  %.sroa.022.0 = phi i64 [ 0, %109 ], [ 1, %111 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.632.0.copyload.i, %109 ], [ %.sroa.636.0.copyload.i, %111 ]
   %115 = inttoptr i64 %.sroa.9.0 to ptr
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20513,8 +20513,8 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   store i64 %.sroa.19.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   br label %118
 
-116:                                              ; preds = %73, %112, %110
-  %.sroa.9.0.ph.in = phi ptr [ %84, %110 ], [ %113, %112 ], [ %78, %73 ]
+116:                                              ; preds = %73, %110, %112
+  %.sroa.9.0.ph.in = phi ptr [ %113, %112 ], [ %84, %110 ], [ %78, %73 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in, ptr %117, align 8
   store i64 2, ptr %0, align 8
@@ -20609,7 +20609,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN74_$LT$$RF$T$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h36afdfdeb3e9c44eE.exit"
 
 "_ZN74_$LT$$RF$T$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h36afdfdeb3e9c44eE.exit": ; preds = %34, %39
-  %.sroa.0.0.i.i = phi ptr [ %40, %39 ], [ null, %34 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %34 ], [ %40, %39 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -20688,7 +20688,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1f7ead8ec368bf92E.llvm.15006262148341195119.exit": ; preds = %35, %39
-  %.sroa.0.0.i11 = phi ptr [ %41, %39 ], [ null, %35 ]
+  %.sroa.0.0.i11 = phi ptr [ null, %35 ], [ %41, %39 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -20767,7 +20767,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hf80751940c0d7e31E.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hf80751940c0d7e31E.llvm.15006262148341195119.exit": ; preds = %35, %39
-  %.sroa.0.0.i11 = phi ptr [ %41, %39 ], [ null, %35 ]
+  %.sroa.0.0.i11 = phi ptr [ null, %35 ], [ %41, %39 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -20846,7 +20846,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h854128b461afbe02E.llvm.15006262148341195119.exit": ; preds = %35, %39
-  %.sroa.0.0.i11 = phi ptr [ %41, %39 ], [ null, %35 ]
+  %.sroa.0.0.i11 = phi ptr [ null, %35 ], [ %41, %39 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -21151,7 +21151,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hbf403ad42d0ff4a3E.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17hbf403ad42d0ff4a3E.llvm.15006262148341195119.exit": ; preds = %35, %39
-  %.sroa.0.0.i11 = phi ptr [ %41, %39 ], [ null, %35 ]
+  %.sroa.0.0.i11 = phi ptr [ null, %35 ], [ %41, %39 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -21731,7 +21731,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17hc294414374b669deE.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17hc294414374b669deE.llvm.15006262148341195119.exit": ; preds = %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i", %55
-  %.sroa.0.0.i11 = phi ptr [ %57, %55 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ]
+  %.sroa.0.0.i11 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ], [ %57, %55 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -21898,7 +21898,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h4634b2499a042cdeE.llvm.15006262148341195119.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h4634b2499a042cdeE.llvm.15006262148341195119.exit": ; preds = %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i", %55
-  %.sroa.0.0.i11 = phi ptr [ %57, %55 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ]
+  %.sroa.0.0.i11 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ], [ %57, %55 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -22007,7 +22007,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h12587f603c888389E.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h12587f603c888389E.exit": ; preds = %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i", %55
-  %.sroa.0.0.i11 = phi ptr [ %57, %55 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ]
+  %.sroa.0.0.i11 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ], [ %57, %55 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -22260,7 +22260,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   br label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h21081de52b7cbe9cE.exit"
 
 "_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5store17h21081de52b7cbe9cE.exit": ; preds = %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i", %55
-  %.sroa.0.0.i11 = phi ptr [ %57, %55 ], [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ]
+  %.sroa.0.0.i11 = phi ptr [ null, %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$3get17h3c4125c211f07440E.exit.i" ], [ %57, %55 ]
   ret ptr %.sroa.0.0.i11
 }
 
@@ -35901,7 +35901,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hab9f528678135480E.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hbff34304560569b6E.exit.thread.i": ; preds = %104, %262, %266, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hbff34304560569b6E.exit.i"
-  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hbff34304560569b6E.exit.i" ], [ %.sroa.841.0.ph.i.i, %262 ], [ %267, %266 ], [ %109, %104 ]
+  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hbff34304560569b6E.exit.i" ], [ %267, %266 ], [ %.sroa.841.0.ph.i.i, %262 ], [ %109, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.21.i)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.033.in.i, ptr %271, align 8, !alias.scope !4978, !noalias !5125
@@ -36695,7 +36695,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h24b461da92cbbcebE.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5f12429810ab3ec8E.exit.thread.i": ; preds = %104, %262, %266, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5f12429810ab3ec8E.exit.i"
-  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5f12429810ab3ec8E.exit.i" ], [ %.sroa.841.0.ph.i.i, %262 ], [ %267, %266 ], [ %109, %104 ]
+  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h5f12429810ab3ec8E.exit.i" ], [ %267, %266 ], [ %.sroa.841.0.ph.i.i, %262 ], [ %109, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.21.i)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.033.in.i, ptr %271, align 8, !alias.scope !5126, !noalias !5273
@@ -37422,7 +37422,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h3db514e9241da873E.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h0f9116badc2294c5E.exit.thread.i": ; preds = %104, %262, %266, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h0f9116badc2294c5E.exit.i"
-  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h0f9116badc2294c5E.exit.i" ], [ %.sroa.841.0.ph.i.i, %262 ], [ %267, %266 ], [ %109, %104 ]
+  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h0f9116badc2294c5E.exit.i" ], [ %267, %266 ], [ %.sroa.841.0.ph.i.i, %262 ], [ %109, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.21.i)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.033.in.i, ptr %271, align 8, !alias.scope !5274, !noalias !5421
@@ -38216,7 +38216,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hac6e840bcc7af94cE.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hfbc6ee41b86f6552E.exit.thread.i": ; preds = %104, %262, %266, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hfbc6ee41b86f6552E.exit.i"
-  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hfbc6ee41b86f6552E.exit.i" ], [ %.sroa.841.0.ph.i.i, %262 ], [ %267, %266 ], [ %109, %104 ]
+  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hfbc6ee41b86f6552E.exit.i" ], [ %267, %266 ], [ %.sroa.841.0.ph.i.i, %262 ], [ %109, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.21.i)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.033.in.i, ptr %271, align 8, !alias.scope !5422, !noalias !5569
@@ -38691,10 +38691,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hc844d141afb405c4E.exit.i": ; preds = %133, %131
-  %.sroa.16.0.i = phi ptr [ %130, %133 ], [ %106, %131 ]
-  %.sroa.9.0.i = phi i64 [ %.pr.i, %133 ], [ %103, %131 ]
-  %.sroa.022.0.i = phi i64 [ 1, %133 ], [ 0, %131 ]
-  %.sroa.19.0.i = phi i64 [ %.sroa.636.0.copyload.i.i, %133 ], [ %.sroa.632.0.copyload.i.i, %131 ]
+  %.sroa.16.0.i = phi ptr [ %106, %131 ], [ %130, %133 ]
+  %.sroa.9.0.i = phi i64 [ %103, %131 ], [ %.pr.i, %133 ]
+  %.sroa.022.0.i = phi i64 [ 0, %131 ], [ 1, %133 ]
+  %.sroa.19.0.i = phi i64 [ %.sroa.632.0.copyload.i.i, %131 ], [ %.sroa.636.0.copyload.i.i, %133 ]
   %137 = inttoptr i64 %.sroa.9.0.i to ptr
   store i64 %.sroa.022.0.i, ptr %0, align 8, !alias.scope !5570, !noalias !5630
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38706,7 +38706,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17h29e6deeb3d8b320aE.exit"
 
 138:                                              ; preds = %134, %132, %95
-  %.sroa.9.0.ph.in.i = phi ptr [ %106, %132 ], [ %135, %134 ], [ %100, %95 ]
+  %.sroa.9.0.ph.in.i = phi ptr [ %135, %134 ], [ %106, %132 ], [ %100, %95 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in.i, ptr %139, align 8, !alias.scope !5570, !noalias !5630
   store i64 2, ptr %0, align 8, !alias.scope !5570, !noalias !5630
@@ -39113,10 +39113,10 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   unreachable
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hcb242276c0cb3831E.exit.i": ; preds = %133, %131
-  %.sroa.16.0.i = phi ptr [ %130, %133 ], [ %106, %131 ]
-  %.sroa.9.0.i = phi i64 [ %.pr.i, %133 ], [ %103, %131 ]
-  %.sroa.022.0.i = phi i64 [ 1, %133 ], [ 0, %131 ]
-  %.sroa.19.0.i = phi i64 [ %.sroa.636.0.copyload.i.i, %133 ], [ %.sroa.632.0.copyload.i.i, %131 ]
+  %.sroa.16.0.i = phi ptr [ %106, %131 ], [ %130, %133 ]
+  %.sroa.9.0.i = phi i64 [ %103, %131 ], [ %.pr.i, %133 ]
+  %.sroa.022.0.i = phi i64 [ 0, %131 ], [ 1, %133 ]
+  %.sroa.19.0.i = phi i64 [ %.sroa.632.0.copyload.i.i, %131 ], [ %.sroa.636.0.copyload.i.i, %133 ]
   %137 = inttoptr i64 %.sroa.9.0.i to ptr
   store i64 %.sroa.022.0.i, ptr %0, align 8, !alias.scope !5631, !noalias !5691
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39128,7 +39128,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17he1fc84b255db1e92E.exit"
 
 138:                                              ; preds = %134, %132, %95
-  %.sroa.9.0.ph.in.i = phi ptr [ %106, %132 ], [ %135, %134 ], [ %100, %95 ]
+  %.sroa.9.0.ph.in.i = phi ptr [ %135, %134 ], [ %106, %132 ], [ %100, %95 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.0.ph.in.i, ptr %139, align 8, !alias.scope !5631, !noalias !5691
   store i64 2, ptr %0, align 8, !alias.scope !5631, !noalias !5691
@@ -39854,7 +39854,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hbaa128b2e860a4abE.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17ha0ae74205e0c140aE.exit.thread.i": ; preds = %104, %262, %266, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17ha0ae74205e0c140aE.exit.i"
-  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17ha0ae74205e0c140aE.exit.i" ], [ %.sroa.841.0.ph.i.i, %262 ], [ %267, %266 ], [ %109, %104 ]
+  %.sroa.9.033.in.i = phi ptr [ %156, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17ha0ae74205e0c140aE.exit.i" ], [ %267, %266 ], [ %.sroa.841.0.ph.i.i, %262 ], [ %109, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.21.i)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.033.in.i, ptr %271, align 8, !alias.scope !5692, !noalias !5839
@@ -40863,7 +40863,7 @@ _ZN8wasmtime7runtime9component4func5typed11load_option17h178839dfe8d249d5E.exit.
   br label %"_ZN81_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hb5f6cca222a4b311E.exit"
 
 "_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hde779a2395058009E.exit.thread.i": ; preds = %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hde779a2395058009E.exit.i", %218, %214, %101
-  %.sroa.9.031.in.i = phi ptr [ %153, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hde779a2395058009E.exit.i" ], [ %.sroa.7.0.ph.i.i, %214 ], [ %219, %218 ], [ %106, %101 ]
+  %.sroa.9.031.in.i = phi ptr [ %153, %"_ZN101_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lift$GT$4load17hde779a2395058009E.exit.i" ], [ %219, %218 ], [ %.sroa.7.0.ph.i.i, %214 ], [ %106, %101 ]
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.031.in.i, ptr %223, align 8, !alias.scope !5906, !noalias !6017
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !5906, !noalias !6017
@@ -41281,7 +41281,7 @@ define hidden noundef ptr @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc
   br label %"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h3cab386daa30ad41E.llvm.15006262148341195119.exit"
 
 "_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h3cab386daa30ad41E.llvm.15006262148341195119.exit": ; preds = %34, %39
-  %.sroa.0.0.i.i.i = phi ptr [ %40, %39 ], [ null, %34 ]
+  %.sroa.0.0.i.i.i = phi ptr [ null, %34 ], [ %40, %39 ]
   ret ptr %.sroa.0.0.i.i.i
 }
 
@@ -41849,10 +41849,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -41873,7 +41873,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -41892,7 +41892,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -41972,16 +41972,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6185)
   call void @llvm.experimental.noalias.scope.decl(metadata !6182)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6187
@@ -42041,10 +42041,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -42056,13 +42056,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -42196,10 +42196,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -42220,7 +42220,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -42239,7 +42239,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -42319,16 +42319,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6191)
   call void @llvm.experimental.noalias.scope.decl(metadata !6188)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6193
@@ -42388,10 +42388,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -42403,13 +42403,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -42543,10 +42543,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -42567,7 +42567,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -42586,7 +42586,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -42666,16 +42666,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6197)
   call void @llvm.experimental.noalias.scope.decl(metadata !6194)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6199
@@ -42735,10 +42735,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -42750,13 +42750,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -42889,10 +42889,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %62 = load i32, ptr %17, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %62 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %64 = load ptr, ptr %63, align 8, !nonnull !5
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %66 = load i32, ptr %65, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %66 = load ptr, ptr %65, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br i1 %trunc55, label %78, label %71
 
@@ -42908,7 +42908,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   unreachable
 
 71:                                               ; preds = %54, %67
-  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %66, %54 ]
+  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %64, %54 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %72 = icmp ne ptr %.0.val, null
   call void @llvm.assume(i1 %72)
@@ -42929,7 +42929,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 78:                                               ; preds = %54
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %64, ptr %79, align 8
+  store ptr %66, ptr %79, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -43005,15 +43005,15 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %111 = load i32, ptr %12, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %111 to i1
-  %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %113 = load ptr, ptr %112, align 8, !nonnull !5
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %115 = load i32, ptr %114, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %115 = load ptr, ptr %114, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %trunc, label %145, label %116
 
 116:                                              ; preds = %135, %103, %80
-  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %141, %135 ], [ %115, %103 ]
+  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %139, %135 ], [ %113, %103 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6200)
   %117 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %.24.val, i32 noundef %3), !noalias !6203
   br i1 %117, label %125, label %118
@@ -43073,10 +43073,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %137 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %137 to i1
-  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %139 = load ptr, ptr %138, align 8, !nonnull !5
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %141 = load i32, ptr %140, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %141 = load ptr, ptr %140, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc53, label %143, label %116
 
@@ -43088,13 +43088,13 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 143:                                              ; preds = %135
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %139, ptr %144, align 8
+  store ptr %141, ptr %144, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 145:                                              ; preds = %103
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %113, ptr %146, align 8
+  store ptr %115, ptr %146, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -43228,10 +43228,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -43252,7 +43252,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -43271,7 +43271,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -43351,16 +43351,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6209)
   call void @llvm.experimental.noalias.scope.decl(metadata !6206)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6211
@@ -43420,10 +43420,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -43435,13 +43435,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -43575,10 +43575,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -43599,7 +43599,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -43618,7 +43618,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -43698,16 +43698,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6215)
   call void @llvm.experimental.noalias.scope.decl(metadata !6212)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6217
@@ -43767,10 +43767,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -43782,13 +43782,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -43922,10 +43922,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -43946,7 +43946,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -43965,7 +43965,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -44045,16 +44045,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6221)
   call void @llvm.experimental.noalias.scope.decl(metadata !6218)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6223
@@ -44114,10 +44114,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -44129,13 +44129,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -44269,10 +44269,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -44293,7 +44293,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -44312,7 +44312,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -44392,16 +44392,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6227)
   call void @llvm.experimental.noalias.scope.decl(metadata !6224)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6229
@@ -44461,10 +44461,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -44476,13 +44476,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -44615,10 +44615,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %62 = load i32, ptr %17, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %62 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %64 = load ptr, ptr %63, align 8, !nonnull !5
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %66 = load i32, ptr %65, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %66 = load ptr, ptr %65, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br i1 %trunc55, label %78, label %71
 
@@ -44634,7 +44634,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   unreachable
 
 71:                                               ; preds = %54, %67
-  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %66, %54 ]
+  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %64, %54 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %72 = icmp ne ptr %.0.val, null
   call void @llvm.assume(i1 %72)
@@ -44655,7 +44655,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 78:                                               ; preds = %54
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %64, ptr %79, align 8
+  store ptr %66, ptr %79, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -44731,15 +44731,15 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %111 = load i32, ptr %12, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %111 to i1
-  %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %113 = load ptr, ptr %112, align 8, !nonnull !5
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %115 = load i32, ptr %114, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %115 = load ptr, ptr %114, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %trunc, label %145, label %116
 
 116:                                              ; preds = %135, %103, %80
-  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %141, %135 ], [ %115, %103 ]
+  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %139, %135 ], [ %113, %103 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6230)
   %117 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %.24.val, i32 noundef %3), !noalias !6233
   br i1 %117, label %125, label %118
@@ -44799,10 +44799,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %137 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %137 to i1
-  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %139 = load ptr, ptr %138, align 8, !nonnull !5
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %141 = load i32, ptr %140, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %141 = load ptr, ptr %140, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc53, label %143, label %116
 
@@ -44814,13 +44814,13 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 143:                                              ; preds = %135
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %139, ptr %144, align 8
+  store ptr %141, ptr %144, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 145:                                              ; preds = %103
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %113, ptr %146, align 8
+  store ptr %115, ptr %146, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -44954,10 +44954,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -44978,7 +44978,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -44997,7 +44997,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -45077,16 +45077,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6239)
   call void @llvm.experimental.noalias.scope.decl(metadata !6236)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6241
@@ -45146,10 +45146,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -45161,13 +45161,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -45301,10 +45301,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -45325,7 +45325,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -45344,7 +45344,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -45424,16 +45424,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6245)
   call void @llvm.experimental.noalias.scope.decl(metadata !6242)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6247
@@ -45493,10 +45493,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -45508,13 +45508,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -45648,10 +45648,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -45672,7 +45672,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -45691,7 +45691,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -45771,16 +45771,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6251)
   call void @llvm.experimental.noalias.scope.decl(metadata !6248)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6253
@@ -45840,10 +45840,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -45855,13 +45855,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -45995,10 +45995,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -46019,7 +46019,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -46038,7 +46038,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -46118,16 +46118,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6257)
   call void @llvm.experimental.noalias.scope.decl(metadata !6254)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6259
@@ -46187,10 +46187,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -46202,13 +46202,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -46341,10 +46341,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %62 = load i32, ptr %17, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %62 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %64 = load ptr, ptr %63, align 8, !nonnull !5
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %66 = load i32, ptr %65, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %66 = load ptr, ptr %65, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br i1 %trunc55, label %78, label %71
 
@@ -46360,7 +46360,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   unreachable
 
 71:                                               ; preds = %54, %67
-  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %66, %54 ]
+  %.sroa.05.0 = phi i32 [ %69, %67 ], [ %64, %54 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %72 = icmp ne ptr %.0.val, null
   call void @llvm.assume(i1 %72)
@@ -46381,7 +46381,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 78:                                               ; preds = %54
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %64, ptr %79, align 8
+  store ptr %66, ptr %79, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -46457,15 +46457,15 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %111 = load i32, ptr %12, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %111 to i1
-  %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %113 = load ptr, ptr %112, align 8, !nonnull !5
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %115 = load i32, ptr %114, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %115 = load ptr, ptr %114, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %trunc, label %145, label %116
 
 116:                                              ; preds = %135, %103, %80
-  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %141, %135 ], [ %115, %103 ]
+  %.sroa.022.0 = phi i32 [ %82, %80 ], [ %139, %135 ], [ %113, %103 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6260)
   %117 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %.24.val, i32 noundef %3), !noalias !6263
   br i1 %117, label %125, label %118
@@ -46525,10 +46525,10 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %137 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %137 to i1
-  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %139 = load ptr, ptr %138, align 8, !nonnull !5
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %141 = load i32, ptr %140, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %141 = load ptr, ptr %140, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc53, label %143, label %116
 
@@ -46540,13 +46540,13 @@ define internal fastcc void @"_ZN8wasmtime7runtime9component9resources17Resource
 
 143:                                              ; preds = %135
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %139, ptr %144, align 8
+  store ptr %141, ptr %144, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 145:                                              ; preds = %103
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %113, ptr %146, align 8
+  store ptr %115, ptr %146, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -46680,10 +46680,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -46704,7 +46704,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -46723,7 +46723,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -46803,16 +46803,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6269)
   call void @llvm.experimental.noalias.scope.decl(metadata !6266)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6271
@@ -46872,10 +46872,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -46887,13 +46887,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -47027,10 +47027,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -47051,7 +47051,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -47070,7 +47070,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -47150,16 +47150,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6275)
   call void @llvm.experimental.noalias.scope.decl(metadata !6272)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6277
@@ -47219,10 +47219,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -47234,13 +47234,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -47374,10 +47374,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %65 = load i32, ptr %18, align 8, !range !194, !noundef !5
   %trunc55 = trunc nuw i32 %65 to i1
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %67 = load ptr, ptr %66, align 8, !nonnull !5
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %69 = load i32, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %69 = load ptr, ptr %68, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %trunc55, label %82, label %74
 
@@ -47398,7 +47398,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 74:                                               ; preds = %55, %70
   %75 = phi ptr [ %.pre71, %70 ], [ %62, %55 ]
   %76 = phi ptr [ %.pre69, %70 ], [ %57, %55 ]
-  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %69, %55 ]
+  %.sroa.05.0 = phi i32 [ %72, %70 ], [ %67, %55 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 552
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 520
@@ -47417,7 +47417,7 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %83, align 8
+  store ptr %69, ptr %83, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
@@ -47497,16 +47497,16 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %119 = load i32, ptr %13, align 8, !range !194, !noundef !5
   %trunc = trunc nuw i32 %119 to i1
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !5
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %123 = load i32, ptr %122, align 4
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %123 = load ptr, ptr %122, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br i1 %trunc, label %154, label %124
 
 124:                                              ; preds = %144, %109, %84
   %125 = phi ptr [ %.pre, %84 ], [ %95, %144 ], [ %116, %109 ]
-  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %150, %144 ], [ %123, %109 ]
+  %.sroa.022.0 = phi i32 [ %86, %84 ], [ %148, %144 ], [ %121, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6281)
   call void @llvm.experimental.noalias.scope.decl(metadata !6278)
   %126 = call noundef zeroext i1 @_ZN8wasmtime7runtime2vm9component17ComponentInstance30resource_owned_by_own_instance17h4920c633122b0fa2E(ptr noalias noundef readonly align 16 dereferenceable(144) %125, i32 noundef %4), !noalias !6283
@@ -47566,10 +47566,10 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %146 = load i32, ptr %14, align 8, !range !194, !noundef !5
   %trunc53 = trunc nuw i32 %146 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %148 = load ptr, ptr %147, align 8, !nonnull !5
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %150 = load i32, ptr %149, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %150 = load ptr, ptr %149, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc53, label %152, label %124
 
@@ -47581,13 +47581,13 @@ define hidden void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %148, ptr %153, align 8
+  store ptr %150, ptr %153, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 
 154:                                              ; preds = %109
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %155, align 8
+  store ptr %123, ptr %155, align 8
   store i32 1, ptr %0, align 8
   br label %"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$27guest_resource_lower_borrow17h271f52182a02ef49E.exit"
 }
@@ -52216,7 +52216,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52278,7 +52278,7 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %17, %15, %13, %11
-  %.sroa.0.0.in = phi i1 [ %21, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %21, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52356,7 +52356,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52409,7 +52409,7 @@ default.unreachable:                              ; preds = %2
   br label %19
 
 19:                                               ; preds = %16, %14, %12, %10
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52487,7 +52487,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52540,7 +52540,7 @@ default.unreachable:                              ; preds = %2
   br label %19
 
 19:                                               ; preds = %16, %14, %12, %10
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -52910,13 +52910,13 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_0_6..CodeLab
   br label %120
 
 120:                                              ; preds = %213, %118
-  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.629.0.copyload.i, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.5.0 = phi i64 [ %206, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.6.0 = phi ptr [ %209, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.7.0 = phi i64 [ %.sroa.633.0.copyload.i, %213 ], [ undef, %118 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.228.12.extract.trunc, %213 ], [ %.sroa.014.0.copyload.i, %118 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.228.8.extract.trunc, %213 ], [ %.sroa.010.0.copyload.i, %118 ]
-  %.sroa.03.0 = phi i64 [ %.pr, %213 ], [ -9223372036854775808, %118 ]
+  %.sroa.8.sroa.0.0 = phi i64 [ undef, %118 ], [ %.sroa.629.0.copyload.i, %213 ]
+  %.sroa.8.sroa.5.0 = phi i64 [ undef, %118 ], [ %206, %213 ]
+  %.sroa.8.sroa.6.0 = phi ptr [ undef, %118 ], [ %209, %213 ]
+  %.sroa.8.sroa.7.0 = phi i64 [ undef, %118 ], [ %.sroa.633.0.copyload.i, %213 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.014.0.copyload.i, %118 ], [ %.sroa.228.12.extract.trunc, %213 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.010.0.copyload.i, %118 ], [ %.sroa.228.8.extract.trunc, %213 ]
+  %.sroa.03.0 = phi i64 [ -9223372036854775808, %118 ], [ %.pr, %213 ]
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -53249,7 +53249,7 @@ default.unreachable1:                             ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -53302,7 +53302,7 @@ default.unreachable:                              ; preds = %2
   br label %19
 
 19:                                               ; preds = %16, %14, %12, %10
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -53465,7 +53465,7 @@ default.unreachable1:                             ; preds = %2
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %17, %15, %13, %11
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -53508,7 +53508,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %13, %9, %7
-  %.sroa.0.0.in = phi i1 [ %14, %13 ], [ %12, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %12, %9 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -54012,13 +54012,13 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_1_0..CodeLab
   br label %120
 
 120:                                              ; preds = %213, %118
-  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.629.0.copyload.i, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.5.0 = phi i64 [ %206, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.6.0 = phi ptr [ %209, %213 ], [ undef, %118 ]
-  %.sroa.8.sroa.7.0 = phi i64 [ %.sroa.633.0.copyload.i, %213 ], [ undef, %118 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.228.12.extract.trunc, %213 ], [ %.sroa.014.0.copyload.i, %118 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.228.8.extract.trunc, %213 ], [ %.sroa.010.0.copyload.i, %118 ]
-  %.sroa.03.0 = phi i64 [ %.pr, %213 ], [ -9223372036854775808, %118 ]
+  %.sroa.8.sroa.0.0 = phi i64 [ undef, %118 ], [ %.sroa.629.0.copyload.i, %213 ]
+  %.sroa.8.sroa.5.0 = phi i64 [ undef, %118 ], [ %206, %213 ]
+  %.sroa.8.sroa.6.0 = phi ptr [ undef, %118 ], [ %209, %213 ]
+  %.sroa.8.sroa.7.0 = phi i64 [ undef, %118 ], [ %.sroa.633.0.copyload.i, %213 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.014.0.copyload.i, %118 ], [ %.sroa.228.12.extract.trunc, %213 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.010.0.copyload.i, %118 ], [ %.sroa.228.8.extract.trunc, %213 ]
+  %.sroa.03.0 = phi i64 [ -9223372036854775808, %118 ], [ %.pr, %213 ]
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
@@ -54435,7 +54435,7 @@ default.unreachable1:                             ; preds = %2
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %17, %15, %13, %11
-  %.sroa.0.0.in = phi i1 [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -54478,7 +54478,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %13, %9, %7
-  %.sroa.0.0.in = phi i1 [ %14, %13 ], [ %12, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %12, %9 ], [ %14, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -54846,7 +54846,7 @@ default.unreachable1:                             ; preds = %2
   br label %84
 
 84:                                               ; preds = %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30
-  %.sroa.0.0.in = phi i1 [ %83, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ]
+  %.sroa.0.0.in = phi i1 [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %83, %80 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -54889,7 +54889,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %14, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %14, %11 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -55165,7 +55165,7 @@ default.unreachable1:                             ; preds = %2
   br label %87
 
 87:                                               ; preds = %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31
-  %.sroa.0.0.in = phi i1 [ %86, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ]
+  %.sroa.0.0.in = phi i1 [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %86, %83 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -55432,13 +55432,13 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_2_0..CodeLab
   br label %188
 
 90:                                               ; preds = %183, %81
-  %.sroa.8.sroa.0.0 = phi i64 [ %.sroa.629.0.copyload.i, %183 ], [ undef, %81 ]
-  %.sroa.8.sroa.5.0 = phi i64 [ %176, %183 ], [ undef, %81 ]
-  %.sroa.8.sroa.6.0 = phi ptr [ %179, %183 ], [ undef, %81 ]
-  %.sroa.8.sroa.7.0 = phi i64 [ %.sroa.633.0.copyload.i, %183 ], [ undef, %81 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.228.12.extract.trunc, %183 ], [ %85, %81 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.228.8.extract.trunc, %183 ], [ %83, %81 ]
-  %.sroa.03.0 = phi i64 [ %.pr, %183 ], [ -9223372036854775808, %81 ]
+  %.sroa.8.sroa.0.0 = phi i64 [ undef, %81 ], [ %.sroa.629.0.copyload.i, %183 ]
+  %.sroa.8.sroa.5.0 = phi i64 [ undef, %81 ], [ %176, %183 ]
+  %.sroa.8.sroa.6.0 = phi ptr [ undef, %81 ], [ %179, %183 ]
+  %.sroa.8.sroa.7.0 = phi i64 [ undef, %81 ], [ %.sroa.633.0.copyload.i, %183 ]
+  %.sroa.7.0 = phi i32 [ %85, %81 ], [ %.sroa.228.12.extract.trunc, %183 ]
+  %.sroa.6.0 = phi i32 [ %83, %81 ], [ %.sroa.228.8.extract.trunc, %183 ]
+  %.sroa.03.0 = phi i64 [ -9223372036854775808, %81 ], [ %.pr, %183 ]
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8

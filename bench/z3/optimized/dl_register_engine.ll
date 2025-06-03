@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN7datalog15register_engine9mk_engineENS_9DL_ENGINEE
   br label %29
 
 29:                                               ; preds = %28, %27, %23, %19, %15, %11, %7, %3
-  %.0 = phi ptr [ null, %28 ], [ null, %27 ], [ %24, %23 ], [ %20, %19 ], [ %16, %15 ], [ %12, %11 ], [ %8, %7 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %28 ], [ %4, %3 ], [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ %20, %19 ], [ %24, %23 ], [ null, %27 ]
   ret ptr %.0
 }
 

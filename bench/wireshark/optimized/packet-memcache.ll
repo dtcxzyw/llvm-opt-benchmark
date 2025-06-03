@@ -633,7 +633,7 @@ proto_item_set_generated.exit:                    ; preds = %59, %67, %70
   br label %.thread100.i
 
 .thread100.i:                                     ; preds = %126, %125, %119, %115, %112, %111, %104, %97, %94, %91
-  %.1.i = phi i32 [ 0, %126 ], [ 0, %125 ], [ 0, %94 ], [ 0, %119 ], [ 0, %115 ], [ 4, %112 ], [ 0, %111 ], [ 20, %104 ], [ 8, %97 ], [ 4, %91 ]
+  %.1.i = phi i32 [ 0, %126 ], [ 0, %125 ], [ 0, %94 ], [ 0, %119 ], [ 0, %115 ], [ 4, %91 ], [ 8, %97 ], [ 20, %104 ], [ 4, %112 ], [ 0, %111 ]
   %.not85.i = icmp eq i32 %.1.i, %61
   br i1 %.not85.i, label %dissect_extras.exit, label %130
 
@@ -1215,7 +1215,7 @@ memcache_req_resp_hdrs_do_reassembly.exit.thread: ; preds = %125, %127, %desegme
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.170, ptr noundef %153)
   br label %157
 
-.thread.i.thread:                                 ; preds = %._crit_edge.i, %sub_0.i, %11, %.tail.i, %51, %sub_0133.i, %.tail132.i, %sub_1134.i, %sub_1139.i, %.tail137.i, %sub_1144.i, %.tail142.i, %sub_1149.i, %.tail147.i, %84, %.thread.i.thread68, %91, %99, %.thread.i.thread74
+.thread.i.thread:                                 ; preds = %._crit_edge.i, %sub_0.i, %11, %51, %.tail.i, %sub_0133.i, %.tail132.i, %sub_1134.i, %sub_1139.i, %.tail137.i, %sub_1144.i, %.tail142.i, %sub_1149.i, %.thread.i.thread74, %99, %91, %.thread.i.thread68, %84, %.tail147.i
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %155 = load ptr, ptr %154, align 8
   call void @col_set_str(ptr noundef %155, i32 noundef 35, ptr noundef nonnull @.str.97)
@@ -1684,8 +1684,8 @@ sub_1.i71:                                        ; preds = %sub_0.i69
   br label %find_stat_colon.exit.thread.i
 
 find_stat_colon.exit.thread.i:                    ; preds = %218, %199, %find_stat_colon.exit.i, %157
-  %.1.i = phi i32 [ %165, %find_stat_colon.exit.i ], [ %227, %218 ], [ %211, %199 ], [ %165, %157 ]
-  %.081.i = phi ptr [ %160, %find_stat_colon.exit.i ], [ %228, %218 ], [ %212, %199 ], [ %160, %157 ]
+  %.1.i = phi i32 [ %211, %199 ], [ %227, %218 ], [ %165, %find_stat_colon.exit.i ], [ %165, %157 ]
+  %.081.i = phi ptr [ %212, %199 ], [ %228, %218 ], [ %160, %find_stat_colon.exit.i ], [ %160, %157 ]
   %229 = call i32 @get_token_len(ptr noundef %.081.i, ptr noundef %152, ptr noundef nonnull %11)
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %stat_dissector.exit, label %231
@@ -1804,7 +1804,7 @@ sub_181:                                          ; preds = %sub_080
   br label %286
 
 286:                                              ; preds = %247, %121, %.thread78, %130, %126, %123, %284, %274, %stat_dissector.exit, %140, %get_response_dissector.exit
-  %.0 = phi i32 [ %282, %274 ], [ %285, %284 ], [ %.0.i68, %stat_dissector.exit ], [ %144, %140 ], [ %.0.i, %get_response_dissector.exit ], [ -1, %121 ], [ -1, %123 ], [ -1, %126 ], [ -1, %130 ], [ -1, %247 ], [ %3, %.thread78 ]
+  %.0 = phi i32 [ %282, %274 ], [ %285, %284 ], [ %.0.i, %get_response_dissector.exit ], [ %144, %140 ], [ %.0.i68, %stat_dissector.exit ], [ -1, %121 ], [ -1, %123 ], [ -1, %126 ], [ -1, %130 ], [ -1, %247 ], [ %3, %.thread78 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
   ret i32 %.0
 }
@@ -2200,7 +2200,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %187, %111, %244, %12, %253, %234, %216, %213, %202, %199, %178, %160, %152, %149, %137, %121, %117, %114, %80, %46, %29, %24, %21, %7, %252, %208, %182, %144, %143
-  %.0 = phi i32 [ -1, %252 ], [ %212, %208 ], [ %186, %182 ], [ %148, %144 ], [ -1, %143 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %46 ], [ -1, %80 ], [ -1, %114 ], [ -1, %117 ], [ %132, %121 ], [ -1, %137 ], [ -1, %149 ], [ %157, %152 ], [ -1, %160 ], [ -1, %178 ], [ %20, %199 ], [ -1, %202 ], [ %20, %213 ], [ -1, %216 ], [ %239, %234 ], [ %., %253 ], [ %20, %12 ], [ %251, %244 ], [ %113, %111 ], [ %20, %187 ], [ %196, %.lr.ph ]
+  %.0 = phi i32 [ %148, %144 ], [ -1, %143 ], [ %186, %182 ], [ %212, %208 ], [ -1, %252 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %46 ], [ -1, %80 ], [ -1, %114 ], [ -1, %117 ], [ %132, %121 ], [ -1, %137 ], [ -1, %149 ], [ %157, %152 ], [ -1, %160 ], [ -1, %178 ], [ %20, %199 ], [ -1, %202 ], [ %20, %213 ], [ -1, %216 ], [ %239, %234 ], [ %., %253 ], [ %20, %12 ], [ %251, %244 ], [ %113, %111 ], [ %20, %187 ], [ %196, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   ret i32 %.0

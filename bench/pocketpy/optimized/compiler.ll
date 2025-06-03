@@ -16835,7 +16835,7 @@ _ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit134: ; preds = %.spl
   br label %415
 
 415:                                              ; preds = %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit134, %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit, %298, %_ZN4pkpy12small_vectorIiLm6EE9push_backERKi.exit, %325, %412
-  %.3 = phi i32 [ %.1, %298 ], [ 4, %412 ], [ 2, %325 ], [ 0, %_ZN4pkpy12small_vectorIiLm6EE9push_backERKi.exit ], [ 2, %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit ], [ 2, %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit134 ]
+  %.3 = phi i32 [ %.1, %298 ], [ 0, %_ZN4pkpy12small_vectorIiLm6EE9push_backERKi.exit ], [ 2, %325 ], [ 4, %412 ], [ 2, %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit ], [ 2, %_ZN4pkpy8FuncDecl9add_kwargEiNS_7StrNameEPNS_8PyObjectE.exit134 ]
   br label %416
 
 416:                                              ; preds = %431, %415
@@ -18084,7 +18084,7 @@ _ZNK4pkpy8Compiler4prevEv.exit72:                 ; preds = %_ZNK4pkpy8Compiler4
   br label %_ZN4pkpy8Compiler16consume_end_stmtEv.exit
 
 common.resume:                                    ; preds = %95, %119, %135, %158, %182, %219, %254, %340, %342, %415, %565, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit, %739, %792, %804, %832, %878, %982, %981, %.thread, %714, %715, %988, %876, %809, %575, %563, %483, %436, %365, %262, %206, %169, %145, %129
-  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %146, %145 ], [ %170, %169 ], [ %207, %206 ], [ %263, %262 ], [ %366, %365 ], [ %437, %436 ], [ %484, %483 ], [ %564, %563 ], [ %576, %575 ], [ %810, %809 ], [ %877, %876 ], [ %989, %988 ], [ %96, %95 ], [ %.pn62.pn.pn.pn319, %982 ], [ %.pn62.pn.pn, %981 ], [ %879, %878 ], [ %833, %832 ], [ %.pn.pn.pn, %804 ], [ %793, %792 ], [ %740, %739 ], [ %eh.lpad-body, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit ], [ %lpad.phi329, %565 ], [ %416, %415 ], [ %lpad.phi, %342 ], [ %341, %340 ], [ %255, %254 ], [ %220, %219 ], [ %183, %182 ], [ %159, %158 ], [ %136, %135 ], [ %120, %119 ], [ %664, %.thread ], [ %lpad.thr_comm.split-lp311, %714 ], [ %lpad.phi315, %715 ]
+  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %146, %145 ], [ %170, %169 ], [ %207, %206 ], [ %263, %262 ], [ %366, %365 ], [ %437, %436 ], [ %484, %483 ], [ %564, %563 ], [ %576, %575 ], [ %810, %809 ], [ %877, %876 ], [ %989, %988 ], [ %96, %95 ], [ %.pn62.pn.pn.pn319, %982 ], [ %.pn62.pn.pn, %981 ], [ %120, %119 ], [ %136, %135 ], [ %159, %158 ], [ %183, %182 ], [ %220, %219 ], [ %255, %254 ], [ %lpad.phi, %342 ], [ %341, %340 ], [ %416, %415 ], [ %lpad.phi329, %565 ], [ %eh.lpad-body, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit ], [ %.pn.pn.pn, %804 ], [ %793, %792 ], [ %740, %739 ], [ %879, %878 ], [ %833, %832 ], [ %664, %.thread ], [ %lpad.thr_comm.split-lp311, %714 ], [ %lpad.phi315, %715 ]
   resume { ptr, i32 } %common.resume.op
 
 129:                                              ; preds = %127
@@ -25008,7 +25008,7 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1
     i8 28, label %17
     i8 30, label %17
     i8 32, label %17
-    i8 49, label %.preheader81
+    i8 49, label %.preheader82
   ]
 
 17:                                               ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit, %_ZNK4pkpy8Compiler4currEv.exit
@@ -25075,16 +25075,16 @@ _ZNK4pkpy8Compiler4currEv.exit:                   ; preds = %1
 
 54:                                               ; preds = %39
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %47, i64 noundef %53) #35
-          to label %.noexc.i unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit52, !noalias !296
+          to label %.noexc.i unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit53, !noalias !296
 
 .noexc.i:                                         ; preds = %54
   unreachable
 
-common.resume:                                    ; preds = %37, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit52
-  %common.resume.op = phi { ptr, i32 } [ %55, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit52 ], [ %.pn, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50 ], [ %118, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit ], [ %38, %37 ]
+common.resume:                                    ; preds = %37, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit53
+  %common.resume.op = phi { ptr, i32 } [ %55, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit53 ], [ %118, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit ], [ %38, %37 ], [ %.pn, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit52: ; preds = %54
+_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit53: ; preds = %54
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = load ptr, ptr %42, align 8
@@ -25106,8 +25106,8 @@ _ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.e
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = sdiv exact i64 %67, 72
-  %.not.i.i.i22 = icmp ugt i64 %68, %62
-  br i1 %.not.i.i.i22, label %70, label %69
+  %.not.i.i.i23 = icmp ugt i64 %68, %62
+  br i1 %.not.i.i.i23, label %70, label %69
 
 69:                                               ; preds = %_ZN4pkpy8Compiler9make_exprINS_10BinaryExprEJEEENS_14unique_ptr_128IT_EEDpOT0_.exit
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %62, i64 noundef %68) #35
@@ -25174,8 +25174,8 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %88, %_ZN4pkpy5stack
   %99 = getelementptr inbounds i8, ptr %98, i64 -8
   store ptr %99, ptr %94, align 8, !noalias !302
   %100 = load ptr, ptr %99, align 8, !noalias !302
-  %.not.i.i.i.i.i24 = icmp eq ptr %100, null
-  br i1 %.not.i.i.i.i.i24, label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit25, label %101
+  %.not.i.i.i.i.i25 = icmp eq ptr %100, null
+  br i1 %.not.i.i.i.i.i25, label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit26, label %101
 
 101:                                              ; preds = %92
   %102 = load ptr, ptr %100, align 8, !noalias !302
@@ -25184,24 +25184,24 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit:     ; preds = %88, %_ZN4pkpy5stack
   %104 = load ptr, ptr %99, align 8, !noalias !302
   call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %104) #36, !noalias !302
   store ptr null, ptr %99, align 8, !noalias !302
-  br label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit25
+  br label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit26
 
-_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit25: ; preds = %101, %92
+_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit26: ; preds = %101, %92
   %105 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %106 = load ptr, ptr %105, align 8
-  %.not.i26 = icmp eq ptr %106, null
-  br i1 %.not.i26, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29, label %107
+  %.not.i27 = icmp eq ptr %106, null
+  br i1 %.not.i27, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit30, label %107
 
-107:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit25
+107:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit26
   %108 = load ptr, ptr %106, align 8
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(12) %106) #36
   %110 = load ptr, ptr %105, align 8
   call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %110) #36
   store ptr null, ptr %105, align 8
-  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29
+  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit30
 
-_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29:   ; preds = %107, %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit25
+_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit30:   ; preds = %107, %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit26
   store ptr %97, ptr %105, align 8
   %111 = load ptr, ptr %42, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
@@ -25209,7 +25209,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29:   ; preds = %107, %_ZN4pkpy5stac
   %114 = invoke noundef i32 %113(ptr noundef nonnull align 8 dereferenceable(12) %42)
           to label %115 unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit
 
-115:                                              ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29
+115:                                              ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit30
   %116 = icmp sgt i32 %114, 0
   br i1 %116, label %117, label %121
 
@@ -25217,7 +25217,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29:   ; preds = %107, %_ZN4pkpy5stac
   invoke void @_ZN4pkpy8Compiler11SyntaxErrorEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %121 unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit
 
-_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit: ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit29, %69, %135, %127, %121, %117, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
+_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit: ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit30, %69, %135, %127, %121, %117, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit
   %118 = landingpad { ptr, i32 }
           cleanup
   %119 = load ptr, ptr %42, align 8
@@ -25245,25 +25245,25 @@ _ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit: ; preds = %_ZN4pkpy14unique
           to label %134 unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit
 
 134:                                              ; preds = %127
-  br i1 %133, label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33, label %135
+  br i1 %133, label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34, label %135
 
 135:                                              ; preds = %134
   invoke void @_ZN4pkpy8Compiler11SyntaxErrorEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33 unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit
+          to label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34 unwind label %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit
 
-_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33: ; preds = %135, %134
+_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34: ; preds = %135, %134
   %136 = load ptr, ptr %42, align 8
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(32) %42) #36
   call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef nonnull %42) #36
   br label %231
 
-.preheader81:                                     ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %165
+.preheader82:                                     ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %165
   %.016 = phi i32 [ %167, %165 ], [ 0, %_ZNK4pkpy8Compiler4currEv.exit ]
   br label %138
 
-138:                                              ; preds = %153, %.preheader81
-  %indvars.iv.i = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next.i, %153 ]
+138:                                              ; preds = %153, %.preheader82
+  %indvars.iv.i = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next.i, %153 ]
   %139 = getelementptr inbounds nuw [95 x ptr], ptr @_ZN4pkpyL7kTokensE, i64 0, i64 %indvars.iv.i
   %140 = load ptr, ptr %139, align 8
   %141 = load i8, ptr %140, align 1
@@ -25282,8 +25282,8 @@ _ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33: ; preds = %135, %134
   %146 = getelementptr inbounds nuw i8, ptr %.01321.i, i64 1
   %147 = getelementptr inbounds nuw i8, ptr %.022.i, i64 1
   %148 = load i8, ptr %146, align 1
-  %.not.i34 = icmp eq i8 %148, 0
-  br i1 %.not.i34, label %.critedge.i, label %.lr.ph.i, !llvm.loop !15
+  %.not.i35 = icmp eq i8 %148, 0
+  br i1 %.not.i35, label %.critedge.i, label %.lr.ph.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %145, %.lr.ph.i, %138
   %.0.lcssa.i = phi ptr [ @.str.68, %138 ], [ %147, %145 ], [ %.022.i, %.lr.ph.i ]
@@ -25311,8 +25311,8 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %153, %151
   %159 = ptrtoint ptr %157 to i64
   %160 = sub i64 %158, %159
   %161 = sdiv exact i64 %160, 72
-  %.not.i.i.i.i35 = icmp ugt i64 %161, %155
-  br i1 %.not.i.i.i.i35, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %162
+  %.not.i.i.i.i36 = icmp ugt i64 %161, %155
+  br i1 %.not.i.i.i.i36, label %_ZNK4pkpy8Compiler4currEv.exit.i, label %162
 
 162:                                              ; preds = %_ZN4pkpy2TKEPKc.exit
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %155, i64 noundef %161) #35
@@ -25321,15 +25321,15 @@ _ZN4pkpy2TKEPKc.exit:                             ; preds = %153, %151
 _ZNK4pkpy8Compiler4currEv.exit.i:                 ; preds = %_ZN4pkpy2TKEPKc.exit
   %163 = getelementptr inbounds %"struct.pkpy::Token", ptr %157, i64 %155
   %164 = load i8, ptr %163, align 8
-  %.not.i36 = icmp eq i8 %164, %.015.i
-  br i1 %.not.i36, label %165, label %_ZN4pkpy8Compiler5matchEh.exit
+  %.not.i37 = icmp eq i8 %164, %.015.i
+  br i1 %.not.i37, label %165, label %_ZN4pkpy8Compiler5matchEh.exit
 
 165:                                              ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i
   %166 = add nsw i32 %154, 1
   store i32 %166, ptr %4, align 4
   tail call void @_ZN4pkpy8Compiler10EXPR_TUPLEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext false)
   %167 = add nuw nsw i32 %.016, 1
-  br label %.preheader81, !llvm.loop !305
+  br label %.preheader82, !llvm.loop !305
 
 _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -25343,8 +25343,8 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   %175 = getelementptr inbounds i8, ptr %174, i64 -8
   store ptr %175, ptr %170, align 8, !noalias !306
   %176 = load ptr, ptr %175, align 8, !noalias !306
-  %.not.i.i.i.i.i37 = icmp eq ptr %176, null
-  br i1 %.not.i.i.i.i.i37, label %181, label %177
+  %.not.i.i.i.i.i38 = icmp eq ptr %176, null
+  br i1 %.not.i.i.i.i.i38, label %181, label %177
 
 177:                                              ; preds = %_ZN4pkpy8Compiler5matchEh.exit
   %178 = load ptr, ptr %176, align 8, !noalias !306
@@ -25362,43 +25362,43 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8
   invoke void %186(ptr noundef nonnull align 8 dereferenceable(12) %173, ptr noundef nonnull %183)
-          to label %.preheader80 unwind label %.loopexit.split-lp
+          to label %.preheader81 unwind label %.loopexit.split-lp
 
-.preheader80:                                     ; preds = %181
+.preheader81:                                     ; preds = %181
   %187 = icmp samesign ugt i32 %.016, 1
   br i1 %187, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.preheader80
+.preheader:                                       ; preds = %.preheader81
   %.not = icmp eq i32 %.016, 0
-  br i1 %.not, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48, label %.lr.ph90.preheader
+  br i1 %.not, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit49, label %.lr.ph91.preheader
 
-.lr.ph90.preheader:                               ; preds = %191, %.preheader
-  br label %.lr.ph90
+.lr.ph91.preheader:                               ; preds = %191, %.preheader
+  br label %.lr.ph91
 
-.lr.ph:                                           ; preds = %.preheader80, %191
-  %.01588 = phi i32 [ %192, %191 ], [ 1, %.preheader80 ]
+.lr.ph:                                           ; preds = %.preheader81, %191
+  %.01589 = phi i32 [ %192, %191 ], [ 1, %.preheader81 ]
   %188 = load ptr, ptr %168, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 -232
   %190 = invoke noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %189, i8 noundef zeroext 2, i16 noundef zeroext 0, i32 noundef -1, i1 noundef zeroext false)
           to label %191 unwind label %.loopexit
 
 191:                                              ; preds = %.lr.ph
-  %192 = add nuw nsw i32 %.01588, 1
+  %192 = add nuw nsw i32 %.01589, 1
   %exitcond.not = icmp eq i32 %192, %.016
-  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !309
+  br i1 %exitcond.not, label %.lr.ph91.preheader, label %.lr.ph, !llvm.loop !309
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50
+  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51
 
 .loopexit.split-lp:                               ; preds = %181
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50
+  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51
 
-.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46
-  %.01489 = phi i32 [ %226, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46 ], [ 0, %.lr.ph90.preheader ]
+.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47
+  %.01490 = phi i32 [ %226, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47 ], [ 0, %.lr.ph91.preheader ]
   %193 = load ptr, ptr %168, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 -184
   %195 = load ptr, ptr %194, align 8, !noalias !310
@@ -25409,41 +25409,41 @@ _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4
   %199 = getelementptr inbounds i8, ptr %198, i64 -8
   store ptr %199, ptr %194, align 8, !noalias !310
   %200 = load ptr, ptr %199, align 8, !noalias !310
-  %.not.i.i.i.i.i39 = icmp eq ptr %200, null
-  br i1 %.not.i.i.i.i.i39, label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit40, label %201
+  %.not.i.i.i.i.i40 = icmp eq ptr %200, null
+  br i1 %.not.i.i.i.i.i40, label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit41, label %201
 
-201:                                              ; preds = %.lr.ph90
+201:                                              ; preds = %.lr.ph91
   %202 = load ptr, ptr %200, align 8, !noalias !310
   %203 = load ptr, ptr %202, align 8, !noalias !310
   tail call void %203(ptr noundef nonnull align 8 dereferenceable(12) %200) #36, !noalias !310
   %204 = load ptr, ptr %199, align 8, !noalias !310
   tail call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %204) #36, !noalias !310
   store ptr null, ptr %199, align 8, !noalias !310
-  br label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit40
+  br label %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit41
 
-_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit40: ; preds = %201, %.lr.ph90
+_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit41: ; preds = %201, %.lr.ph91
   %205 = load ptr, ptr %197, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 56
   %207 = load ptr, ptr %206, align 8
   %208 = invoke noundef i32 %207(ptr noundef nonnull align 8 dereferenceable(12) %197)
-          to label %209 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44
+          to label %209 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45
 
-209:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit40
+209:                                              ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit41
   %210 = icmp sgt i32 %208, 0
   br i1 %210, label %211, label %215
 
 211:                                              ; preds = %209
   invoke void @_ZN4pkpy8Compiler11SyntaxErrorEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %215 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44
+          to label %215 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45
 
-_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44:   ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit40, %223, %215, %211
+_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45:   ; preds = %_ZN4pkpy5stackINS_14unique_ptr_128INS_4ExprEEESt6vectorIS3_SaIS3_EEE4popxEv.exit41, %223, %215, %211
   %212 = landingpad { ptr, i32 }
           cleanup
   %213 = load ptr, ptr %197, align 8
   %214 = load ptr, ptr %213, align 8
   tail call void %214(ptr noundef nonnull align 8 dereferenceable(12) %197) #36
   tail call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef nonnull %197) #36
-  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50
+  br label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51
 
 215:                                              ; preds = %209, %211
   %216 = load ptr, ptr %168, align 8
@@ -25452,41 +25452,41 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44:   ; preds = %_ZN4pkpy5stackINS_1
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 88
   %220 = load ptr, ptr %219, align 8
   %221 = invoke noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull %217)
-          to label %222 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44
+          to label %222 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45
 
 222:                                              ; preds = %215
-  br i1 %221, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46, label %223
+  br i1 %221, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47, label %223
 
 223:                                              ; preds = %222
   invoke void @_ZN4pkpy8Compiler11SyntaxErrorEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44
+          to label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47 unwind label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45
 
-_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46:   ; preds = %223, %222
+_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47:   ; preds = %223, %222
   %224 = load ptr, ptr %197, align 8
   %225 = load ptr, ptr %224, align 8
   tail call void %225(ptr noundef nonnull align 8 dereferenceable(12) %197) #36
   tail call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef nonnull %197) #36
-  %226 = add nuw nsw i32 %.01489, 1
-  %exitcond100.not = icmp eq i32 %226, %.016
-  br i1 %exitcond100.not, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48, label %.lr.ph90, !llvm.loop !313
+  %226 = add nuw nsw i32 %.01490, 1
+  %exitcond101.not = icmp eq i32 %226, %.016
+  br i1 %exitcond101.not, label %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit49, label %.lr.ph91, !llvm.loop !313
 
-_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48:   ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit46, %.preheader
+_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit49:   ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit47, %.preheader
   %227 = load ptr, ptr %173, align 8
   %228 = load ptr, ptr %227, align 8
   tail call void %228(ptr noundef nonnull align 8 dereferenceable(12) %173) #36
   tail call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef nonnull %173) #36
   br label %231
 
-_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit50:   ; preds = %.loopexit, %.loopexit.split-lp, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44
-  %.pn = phi { ptr, i32 } [ %212, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit51:   ; preds = %.loopexit, %.loopexit.split-lp, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45
+  %.pn = phi { ptr, i32 } [ %212, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit45 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %229 = load ptr, ptr %173, align 8
   %230 = load ptr, ptr %229, align 8
   tail call void %230(ptr noundef nonnull align 8 dereferenceable(12) %173) #36
   tail call void @_ZN4pkpy15pool128_deallocEPv(ptr noundef nonnull %173) #36
   br label %common.resume
 
-231:                                              ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33
-  %.0 = phi i1 [ true, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit48 ], [ true, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit33 ], [ false, %_ZNK4pkpy8Compiler4currEv.exit ]
+231:                                              ; preds = %_ZNK4pkpy8Compiler4currEv.exit, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit49, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34
+  %.0 = phi i1 [ true, %_ZN4pkpy14unique_ptr_128INS_10BinaryExprEED2Ev.exit34 ], [ true, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit49 ], [ false, %_ZNK4pkpy8Compiler4currEv.exit ]
   ret i1 %.0
 }
 
@@ -26058,7 +26058,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit74: ; preds = %196, %198
   resume { ptr, i32 } %.pn
 
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit: ; preds = %193, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit, %_ZNK4pkpy8Compiler4prevEv.exit, %66, %61, %57, %53, %_ZNK4pkpy8Compiler4prevEv.exit12, %_ZNK4pkpy8Compiler4prevEv.exit10, %_ZNK4pkpy8Compiler4prevEv.exit8
-  %.05 = phi ptr [ %70, %66 ], [ %65, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %_ZNK4pkpy8Compiler4prevEv.exit12 ], [ %50, %_ZNK4pkpy8Compiler4prevEv.exit10 ], [ %48, %_ZNK4pkpy8Compiler4prevEv.exit8 ], [ null, %_ZNK4pkpy8Compiler4prevEv.exit ], [ %191, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %191, %193 ]
+  %.05 = phi ptr [ %48, %_ZNK4pkpy8Compiler4prevEv.exit8 ], [ %50, %_ZNK4pkpy8Compiler4prevEv.exit10 ], [ %52, %_ZNK4pkpy8Compiler4prevEv.exit12 ], [ %56, %53 ], [ %60, %57 ], [ %65, %61 ], [ %70, %66 ], [ null, %_ZNK4pkpy8Compiler4prevEv.exit ], [ %191, %_ZN4pkpy6py_varINS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit ], [ %191, %193 ]
   ret ptr %.05
 }
 

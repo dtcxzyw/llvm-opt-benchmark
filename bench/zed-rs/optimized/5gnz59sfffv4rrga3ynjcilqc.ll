@@ -2553,8 +2553,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br label %515
 
 515:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i", %486
-  %.pn.i = phi ptr [ %507, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i" ], [ %488, %486 ]
-  %.sroa.0.0.i148 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
+  %.sroa.08.0.copyload.pn.i = phi ptr [ %488, %486 ], [ %507, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i" ]
+  %.sroa.0.0.i148 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
   %516 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %517 = atomicrmw add ptr %516, i64 1 monotonic, align 8
@@ -2570,7 +2570,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   store i64 %521, ptr %172, align 8
   store i8 1, ptr %173, align 4
   store i32 %..sroa.5.0, ptr %174, align 8
-  %522 = getelementptr inbounds i8, ptr %.pn.i, i64 -8
+  %522 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i, i64 -8
   %523 = load i64, ptr %522, align 8, !alias.scope !637, !noalias !640, !noundef !4
   %524 = load i64, ptr %.sroa.0.0.i148, align 8, !alias.scope !637, !noalias !640, !noundef !4
   %525 = icmp eq i64 %523, %524
@@ -2603,7 +2603,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   unreachable
 
 535:                                              ; preds = %526, %519
-  %536 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
+  %536 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i, i64 -16
   %537 = load ptr, ptr %536, align 8, !alias.scope !637, !noalias !640, !nonnull !4, !noundef !4
   %538 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i32, i8, [3 x i8] }, ptr %537, i64 %523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %538, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false)
@@ -2748,8 +2748,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br label %602
 
 602:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i185", %573
-  %.pn.i176 = phi ptr [ %594, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i185" ], [ %575, %573 ]
-  %.sroa.0.0.i177 = getelementptr inbounds i8, ptr %.pn.i176, i64 -24
+  %.sroa.08.0.copyload.pn.i176 = phi ptr [ %575, %573 ], [ %594, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i185" ]
+  %.sroa.0.0.i177 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i176, i64 -24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36)
   %603 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %604 = atomicrmw add ptr %603, i64 1 monotonic, align 8
@@ -2765,7 +2765,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   store i64 %608, ptr %179, align 8
   store i8 0, ptr %180, align 4
   store i32 %..sroa.5.0, ptr %181, align 8
-  %609 = getelementptr inbounds i8, ptr %.pn.i176, i64 -8
+  %609 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i176, i64 -8
   %610 = load i64, ptr %609, align 8, !alias.scope !681, !noalias !684, !noundef !4
   %611 = load i64, ptr %.sroa.0.0.i177, align 8, !alias.scope !681, !noalias !684, !noundef !4
   %612 = icmp eq i64 %610, %611
@@ -2798,7 +2798,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   unreachable
 
 622:                                              ; preds = %613, %606
-  %623 = getelementptr inbounds i8, ptr %.pn.i176, i64 -16
+  %623 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i176, i64 -16
   %624 = load ptr, ptr %623, align 8, !alias.scope !681, !noalias !684, !nonnull !4, !noundef !4
   %625 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i32, i8, [3 x i8] }, ptr %624, i64 %610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %625, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false)
@@ -3070,8 +3070,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br label %738
 
 738:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i238", %709
-  %.pn.i229 = phi ptr [ %730, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i238" ], [ %711, %709 ]
-  %.sroa.0.0.i230 = getelementptr inbounds i8, ptr %.pn.i229, i64 -24
+  %.sroa.08.0.copyload.pn.i229 = phi ptr [ %711, %709 ], [ %730, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i238" ]
+  %.sroa.0.0.i230 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i229, i64 -24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   %739 = invoke noundef align 8 dereferenceable(104) ptr @"_ZN76_$LT$language..buffer..BufferSnapshot$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha0e77dc05ab79c69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %671)
           to label %740 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3101,7 +3101,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   store i64 %751, ptr %186, align 8
   store i8 0, ptr %187, align 4
   store i32 %..sroa.5.0, ptr %188, align 8
-  %752 = getelementptr inbounds i8, ptr %.pn.i229, i64 -8
+  %752 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i229, i64 -8
   %753 = load i64, ptr %752, align 8, !alias.scope !752, !noalias !755, !noundef !4
   %754 = load i64, ptr %.sroa.0.0.i230, align 8, !alias.scope !752, !noalias !755, !noundef !4
   %755 = icmp eq i64 %753, %754
@@ -3134,7 +3134,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   unreachable
 
 765:                                              ; preds = %756, %749
-  %766 = getelementptr inbounds i8, ptr %.pn.i229, i64 -16
+  %766 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i229, i64 -16
   %767 = load ptr, ptr %766, align 8, !alias.scope !752, !noalias !755, !nonnull !4, !noundef !4
   %768 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i32, i8, [3 x i8] }, ptr %767, i64 %753
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %768, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 40, i1 false)
@@ -3223,8 +3223,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br label %808
 
 808:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i263", %779
-  %.pn.i254 = phi ptr [ %800, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i263" ], [ %781, %779 ]
-  %.sroa.0.0.i255 = getelementptr inbounds i8, ptr %.pn.i254, i64 -24
+  %.sroa.08.0.copyload.pn.i254 = phi ptr [ %781, %779 ], [ %800, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h0d524344e0cca770E.exit.i263" ]
+  %.sroa.0.0.i255 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i254, i64 -24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38)
   %809 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %810 = load i64, ptr %161, align 8, !noundef !4
@@ -3234,7 +3234,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   store i64 %810, ptr %193, align 8
   store i8 1, ptr %194, align 4
   store i32 %..sroa.5.0, ptr %195, align 8
-  %811 = getelementptr inbounds i8, ptr %.pn.i254, i64 -8
+  %811 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i254, i64 -8
   %812 = load i64, ptr %811, align 8, !alias.scope !775, !noalias !778, !noundef !4
   %813 = load i64, ptr %.sroa.0.0.i255, align 8, !alias.scope !775, !noalias !778, !noundef !4
   %814 = icmp eq i64 %812, %813
@@ -3263,7 +3263,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   unreachable
 
 823:                                              ; preds = %815, %808
-  %824 = getelementptr inbounds i8, ptr %.pn.i254, i64 -16
+  %824 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload.pn.i254, i64 -16
   %825 = load ptr, ptr %824, align 8, !alias.scope !775, !noalias !778, !nonnull !4, !noundef !4
   %826 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i32, i8, [3 x i8] }, ptr %825, i64 %812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %826, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)

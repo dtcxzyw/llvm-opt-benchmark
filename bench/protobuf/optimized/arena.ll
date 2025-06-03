@@ -1754,7 +1754,7 @@ sw.default.i:                                     ; preds = %while.body, %while.
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit: ; preds = %if.then.i, %sw.bb1.i, %sw.default.i, %sw.bb.i
-  %retval.i.0 = phi i64 [ 16, %sw.default.i ], [ 8, %sw.bb.i ], [ 8, %sw.bb1.i ], [ 8, %if.then.i ]
+  %retval.i.0 = phi i64 [ 8, %sw.bb.i ], [ 16, %sw.default.i ], [ 8, %sw.bb1.i ], [ 8, %if.then.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %it.015, i64 %retval.i.0
   %cmp = icmp ult ptr %add.ptr, %add.ptr.i.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
@@ -2705,7 +2705,7 @@ sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.default.i.i.i.i, %if.then.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.i.0.i.i.i = phi i64 [ 16, %sw.default.i.i.i.i ], [ 8, %sw.bb.i.i.i.i ], [ 8, %sw.bb1.i.i.i.i ], [ 8, %if.then.i.i.i.i ]
+  %retval.i.0.i.i.i = phi i64 [ 8, %sw.bb.i.i.i.i ], [ 16, %sw.default.i.i.i.i ], [ 8, %sw.bb1.i.i.i.i ], [ 8, %if.then.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.015.i.i.i, i64 %retval.i.0.i.i.i
   %cmp.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i.i2.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !13
@@ -2796,7 +2796,7 @@ sw.default.i.i:                                   ; preds = %while.body.i4, %whi
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.default.i.i, %if.then.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %retval.i.0.i = phi i64 [ 16, %sw.default.i.i ], [ 8, %sw.bb.i.i ], [ 8, %sw.bb1.i.i ], [ 8, %if.then.i.i ]
+  %retval.i.0.i = phi i64 [ 8, %sw.bb.i.i ], [ 16, %sw.default.i.i ], [ 8, %sw.bb1.i.i ], [ 8, %if.then.i.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.015.i, i64 %retval.i.0.i
   %cmp.i = icmp ult ptr %add.ptr.i, %add.ptr.i.i.i3
   br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !13

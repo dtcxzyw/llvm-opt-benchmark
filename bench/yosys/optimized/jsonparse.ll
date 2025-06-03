@@ -17416,7 +17416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.backedge: ; pre
   br label %.loopexit.split-lp198
 
 52:                                               ; preds = %26, %17, %20, %21, %22, %23, %24, %25
-  %.0141 = phi i32 [ %19, %20 ], [ 10, %23 ], [ 12, %22 ], [ 8, %21 ], [ 13, %24 ], [ 9, %25 ], [ %16, %17 ], [ %.1138, %26 ]
+  %.0141 = phi i32 [ %19, %20 ], [ 9, %25 ], [ 13, %24 ], [ 8, %21 ], [ 12, %22 ], [ 10, %23 ], [ %16, %17 ], [ %.1138, %26 ]
   %53 = trunc i32 %.0141 to i8
   %54 = load i64, ptr %7, align 8, !tbaa !43
   %55 = add i64 %54, 1

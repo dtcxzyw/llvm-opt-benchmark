@@ -1515,7 +1515,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br label %239
 
 239:                                              ; preds = %237, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %238, %237 ]
+  %.1.i.i.i.i.i = phi ptr [ %238, %237 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %240 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !1234
   %241 = add i8 %240, -48
   %242 = icmp ult i8 %241, 10
@@ -1526,7 +1526,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br label %245
 
 245:                                              ; preds = %243, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %244, %243 ]
+  %.2.i.i.i.i.i = phi ptr [ %244, %243 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %246 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !1234
   %247 = add i8 %246, -48
   %248 = icmp ult i8 %247, 10
@@ -2650,8 +2650,8 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %715
   br label %.thread
 
 .thread:                                          ; preds = %711, %_ZNK5clang12FileEntryRef7getNameEv.exit, %710, %751, %757, %724, %729, %761, %667
-  %766 = phi ptr [ null, %667 ], [ null, %761 ], [ null, %729 ], [ null, %724 ], [ %748, %757 ], [ null, %751 ], [ null, %710 ], [ null, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ null, %711 ]
-  %.0108 = phi ptr [ undef, %667 ], [ %764, %761 ], [ %727, %729 ], [ %727, %724 ], [ %760, %757 ], [ %756, %751 ], [ %676, %710 ], [ %676, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %676, %711 ]
+  %766 = phi ptr [ null, %667 ], [ null, %729 ], [ null, %724 ], [ null, %761 ], [ %748, %757 ], [ null, %751 ], [ null, %710 ], [ null, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ null, %711 ]
+  %.0108 = phi ptr [ undef, %667 ], [ %727, %729 ], [ %727, %724 ], [ %764, %761 ], [ %760, %757 ], [ %756, %751 ], [ %676, %710 ], [ %676, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %676, %711 ]
   %767 = getelementptr inbounds nuw i8, ptr %0, i64 11000
   %768 = load ptr, ptr %767, align 8, !tbaa !1014
   %.not116 = icmp eq ptr %768, null
@@ -2910,7 +2910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL22DiagReservedModuleNameRN5clang4SemaEPKNS_14IdentifierInfoENS_14SourceLocationE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %_ZNK5clang16VisibleModuleSet12getImportLocEPKNS_6ModuleE.exit, %95, %93
-  %.sroa.0239.0 = phi ptr [ null, %_ZNK5clang16VisibleModuleSet12getImportLocEPKNS_6ModuleE.exit ], [ null, %93 ], [ null, %95 ], [ %.sroa.0239.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ null, %_ZL22DiagReservedModuleNameRN5clang4SemaEPKNS_14IdentifierInfoENS_14SourceLocationE.exit ]
+  %.sroa.0239.0 = phi ptr [ null, %_ZNK5clang16VisibleModuleSet12getImportLocEPKNS_6ModuleE.exit ], [ null, %95 ], [ null, %93 ], [ %.sroa.0239.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ null, %_ZL22DiagReservedModuleNameRN5clang4SemaEPKNS_14IdentifierInfoENS_14SourceLocationE.exit ]
   ret ptr %.sroa.0239.0
 }
 
@@ -3532,8 +3532,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang6Modul
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !1013
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit, label %50
@@ -3543,8 +3543,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang6Modul
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !1013
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit.thread

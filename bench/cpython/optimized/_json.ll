@@ -1417,7 +1417,7 @@ switch.early.test66.i:                            ; preds = %PyUnicode_READ.exit
   br label %ascii_escape_unichar.exit.i
 
 ascii_escape_unichar.exit.i:                      ; preds = %140, %100, %97, %94, %91, %88, %85, %82, %75
-  %.162.i = phi i64 [ %77, %75 ], [ %167, %140 ], [ %101, %100 ], [ %98, %97 ], [ %95, %94 ], [ %92, %91 ], [ %89, %88 ], [ %86, %85 ], [ %83, %82 ]
+  %.162.i = phi i64 [ %77, %75 ], [ %167, %140 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %98, %97 ], [ %101, %100 ]
   %169 = add nuw nsw i64 %.15899.i, 1
   %exitcond112.not.i = icmp eq i64 %169, %.val.i
   br i1 %exitcond112.not.i, label %._crit_edge101.i, label %.lr.ph100.i, !llvm.loop !30
@@ -1742,7 +1742,7 @@ _PyUnicode_DATA.exit242.i:                        ; preds = %56, %54
   br label %112
 
 112:                                              ; preds = %109, %91, %85, %81, %77, %73, %69, %65, %61
-  %.1210.i = phi i64 [ %107, %91 ], [ %110, %109 ], [ %87, %85 ], [ %83, %81 ], [ %79, %77 ], [ %75, %73 ], [ %71, %69 ], [ %67, %65 ], [ %63, %61 ]
+  %.1210.i = phi i64 [ %107, %91 ], [ %110, %109 ], [ %63, %61 ], [ %67, %65 ], [ %71, %69 ], [ %75, %73 ], [ %79, %77 ], [ %83, %81 ], [ %87, %85 ]
   %113 = add nuw nsw i64 %.1205283.i, 1
   %exitcond301.not.i = icmp eq i64 %113, %.val231.i
   br i1 %exitcond301.not.i, label %._crit_edge285.i, label %.lr.ph284.i, !llvm.loop !33
@@ -1886,7 +1886,7 @@ _PyUnicode_DATA.exit251.i:                        ; preds = %118, %116
   br label %176
 
 176:                                              ; preds = %173, %155, %149, %145, %141, %137, %133, %129, %125
-  %.3212.i = phi i64 [ %171, %155 ], [ %174, %173 ], [ %151, %149 ], [ %147, %145 ], [ %143, %141 ], [ %139, %137 ], [ %135, %133 ], [ %131, %129 ], [ %127, %125 ]
+  %.3212.i = phi i64 [ %171, %155 ], [ %174, %173 ], [ %127, %125 ], [ %131, %129 ], [ %135, %133 ], [ %139, %137 ], [ %143, %141 ], [ %147, %145 ], [ %151, %149 ]
   %177 = add nuw nsw i64 %.2206278.i, 1
   %exitcond300.not.i = icmp eq i64 %177, %.val231.i
   br i1 %exitcond300.not.i, label %._crit_edge280.i, label %121, !llvm.loop !34
@@ -2051,7 +2051,7 @@ PyUnicode_READ.exit262.i:                         ; preds = %194, %190, %186
   br label %248
 
 248:                                              ; preds = %245, %227, %221, %217, %213, %209, %205, %201, %197
-  %.5.i = phi i64 [ %243, %227 ], [ %246, %245 ], [ %223, %221 ], [ %219, %217 ], [ %215, %213 ], [ %211, %209 ], [ %207, %205 ], [ %203, %201 ], [ %199, %197 ]
+  %.5.i = phi i64 [ %243, %227 ], [ %246, %245 ], [ %199, %197 ], [ %203, %201 ], [ %207, %205 ], [ %211, %209 ], [ %215, %213 ], [ %219, %217 ], [ %223, %221 ]
   %249 = add nuw nsw i64 %.3288.i, 1
   %exitcond302.not.i = icmp eq i64 %249, %.val231.i
   br i1 %exitcond302.not.i, label %._crit_edge290.i, label %185, !llvm.loop !35
@@ -2599,9 +2599,9 @@ switch.lookup450:                                 ; preds = %PyUnicode_READ.exit
   tail call fastcc void @raise_errmsg(ptr noundef nonnull @.str.12, ptr noundef %0, i64 noundef %166)
   br label %.thread210
 
-.thread191:                                       ; preds = %.preheader, %159, %._crit_edge290, %79, %79, %79, %81, %82, %83, %84, %85, %._crit_edge, %110, %PyUnicode_READ.exit177, %PyUnicode_READ.exit179
-  %.4146 = phi i32 [ %.6, %PyUnicode_READ.exit179 ], [ %.6, %PyUnicode_READ.exit177 ], [ %.6, %110 ], [ %.6, %._crit_edge ], [ %.0.i172, %79 ], [ %.0.i172, %79 ], [ %.0.i172, %79 ], [ 8, %81 ], [ 12, %82 ], [ 10, %83 ], [ 13, %84 ], [ 9, %85 ], [ %.6, %._crit_edge290 ], [ %164, %159 ], [ 0, %.preheader ]
-  %.2133 = phi i64 [ %88, %PyUnicode_READ.exit179 ], [ %88, %PyUnicode_READ.exit177 ], [ %88, %110 ], [ %88, %._crit_edge ], [ %80, %79 ], [ %80, %79 ], [ %80, %79 ], [ %80, %81 ], [ %80, %82 ], [ %80, %83 ], [ %80, %84 ], [ %80, %85 ], [ %88, %._crit_edge290 ], [ %111, %159 ], [ %88, %.preheader ]
+.thread191:                                       ; preds = %.preheader, %159, %._crit_edge290, %85, %84, %83, %82, %81, %79, %79, %79, %._crit_edge, %110, %PyUnicode_READ.exit177, %PyUnicode_READ.exit179
+  %.4146 = phi i32 [ %.6, %PyUnicode_READ.exit179 ], [ %.6, %PyUnicode_READ.exit177 ], [ %.6, %110 ], [ %.6, %._crit_edge ], [ 9, %85 ], [ 13, %84 ], [ 10, %83 ], [ 12, %82 ], [ 8, %81 ], [ %.0.i172, %79 ], [ %.0.i172, %79 ], [ %.0.i172, %79 ], [ %.6, %._crit_edge290 ], [ %164, %159 ], [ 0, %.preheader ]
+  %.2133 = phi i64 [ %88, %PyUnicode_READ.exit179 ], [ %88, %PyUnicode_READ.exit177 ], [ %88, %110 ], [ %88, %._crit_edge ], [ %80, %85 ], [ %80, %84 ], [ %80, %83 ], [ %80, %82 ], [ %80, %81 ], [ %80, %79 ], [ %80, %79 ], [ %80, %79 ], [ %88, %._crit_edge290 ], [ %111, %159 ], [ %88, %.preheader ]
   %167 = tail call i32 @PyUnicodeWriter_WriteChar(ptr noundef nonnull %6, i32 noundef %.4146) #5
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %.thread210, label %22
@@ -2953,7 +2953,7 @@ define internal i32 @scanner_traverse(ptr noundef readonly captures(none) %0, pt
   br label %33
 
 33:                                               ; preds = %30, %25, %20, %15, %10, %5, %32
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ 0, %32 ]
+  %.1 = phi i32 [ 0, %32 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4969,7 +4969,7 @@ Py_DECREF.exit.i:                                 ; preds = %800, %797, %.thread
   br label %raise_stop_iteration.exit
 
 raise_stop_iteration.exit:                        ; preds = %Py_DECREF.exit.i, %.thread215.i, %767, %578, %575, %572, %570, %500, %497, %494, %492, %27, %24, %21, %19, %_Py_EnterRecursiveCall.exit153, %_Py_EnterRecursiveCall.exit, %470, %354, %252, %220, %160, %114, %_Py_EnterRecursiveCall.exit153.thread, %_Py_EnterRecursiveCall.exit.thread, %40, %16
-  %.0 = phi ptr [ null, %16 ], [ %471, %470 ], [ %355, %354 ], [ %253, %252 ], [ @_Py_FalseStruct, %220 ], [ @_Py_TrueStruct, %160 ], [ @_Py_NoneStruct, %114 ], [ %65, %_Py_EnterRecursiveCall.exit153.thread ], [ %53, %_Py_EnterRecursiveCall.exit.thread ], [ %45, %40 ], [ null, %_Py_EnterRecursiveCall.exit ], [ null, %_Py_EnterRecursiveCall.exit153 ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.0139.i, %Py_DECREF.exit.i ], [ null, %767 ], [ null, %492 ], [ null, %494 ], [ null, %497 ], [ null, %500 ], [ null, %570 ], [ null, %572 ], [ null, %575 ], [ null, %578 ], [ null, %.thread215.i ]
+  %.0 = phi ptr [ null, %16 ], [ %45, %40 ], [ %53, %_Py_EnterRecursiveCall.exit.thread ], [ %65, %_Py_EnterRecursiveCall.exit153.thread ], [ @_Py_NoneStruct, %114 ], [ @_Py_TrueStruct, %160 ], [ @_Py_FalseStruct, %220 ], [ %253, %252 ], [ %355, %354 ], [ %471, %470 ], [ null, %_Py_EnterRecursiveCall.exit ], [ null, %_Py_EnterRecursiveCall.exit153 ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.0139.i, %Py_DECREF.exit.i ], [ null, %767 ], [ null, %492 ], [ null, %494 ], [ null, %497 ], [ null, %500 ], [ null, %570 ], [ null, %572 ], [ null, %575 ], [ null, %578 ], [ null, %.thread215.i ]
   ret ptr %.0
 }
 
@@ -7088,7 +7088,7 @@ define internal i32 @encoder_traverse(ptr noundef readonly captures(none) %0, pt
   br label %38
 
 38:                                               ; preds = %35, %30, %25, %20, %15, %10, %5, %37
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ], [ %36, %35 ], [ 0, %37 ]
+  %.1 = phi i32 [ 0, %37 ], [ %36, %35 ], [ %31, %30 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

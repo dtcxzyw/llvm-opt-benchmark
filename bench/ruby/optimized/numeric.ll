@@ -8105,7 +8105,7 @@ RB_FLOAT_TYPE_P.exit.thread15:                    ; preds = %RB_FLOAT_TYPE_P.exi
   br label %RB_FLOAT_TYPE_P.exit.thread15.thread
 
 RB_FLOAT_TYPE_P.exit.thread15.thread:             ; preds = %8, %RB_FLOAT_TYPE_P.exit.thread15, %2, %24, %22, %RB_FLOAT_TYPE_P.exit.thread
-  %.0 = phi i64 [ %17, %RB_FLOAT_TYPE_P.exit.thread ], [ %25, %24 ], [ %23, %22 ], [ %3, %2 ], [ 4, %RB_FLOAT_TYPE_P.exit.thread15 ], [ 4, %8 ]
+  %.0 = phi i64 [ %17, %RB_FLOAT_TYPE_P.exit.thread ], [ %23, %22 ], [ %25, %24 ], [ %3, %2 ], [ 4, %RB_FLOAT_TYPE_P.exit.thread15 ], [ 4, %8 ]
   ret i64 %.0
 }
 
@@ -11307,7 +11307,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
   br label %32
 
 32:                                               ; preds = %27, %30, %15
-  %.0 = phi ptr [ %29, %27 ], [ %31, %30 ], [ %16, %15 ]
+  %.0 = phi ptr [ %16, %15 ], [ %29, %27 ], [ %31, %30 ]
   %33 = tail call i32 @rb_enc_codelen(i32 noundef %12, ptr noundef nonnull %.0) #26
   switch i32 %33, label %39 [
     i32 -400, label %34

@@ -200,9 +200,9 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.loopexit, label %95
 
-95:                                               ; preds = %89, %87
-  %.4.ph = phi ptr [ %86, %87 ], [ %93, %89 ]
-  %.1169.ph = phi ptr [ %88, %87 ], [ %91, %89 ]
+95:                                               ; preds = %87, %89
+  %.4.ph = phi ptr [ %93, %89 ], [ %86, %87 ]
+  %.1169.ph = phi ptr [ %91, %89 ], [ %88, %87 ]
   %96 = load ptr, ptr %29, align 8, !tbaa !14
   %97 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %96) #6
   %98 = load ptr, ptr %77, align 8, !tbaa !26

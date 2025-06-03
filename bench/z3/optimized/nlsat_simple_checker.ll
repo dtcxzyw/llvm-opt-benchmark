@@ -3183,7 +3183,7 @@ switch.lookup110:                                 ; preds = %41
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
 
 _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; preds = %41, %37, %.sink.split.i.us, %39, %36
-  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07392.us, %36 ], [ %.07392.us, %37 ], [ %.07392.us, %39 ], [ %.07392.us, %41 ]
+  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07392.us, %36 ], [ %.07392.us, %41 ], [ %.07392.us, %39 ], [ %.07392.us, %37 ]
   %45 = icmp ult i32 %.2.us, 6
   %switch.maskindex119 = trunc i32 %.2.us to i8
   %switch.shifted120 = lshr i8 57, %switch.maskindex119
@@ -3289,7 +3289,7 @@ switch.lookup134:                                 ; preds = %63
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
 _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %63, %61, %60, %65, %.sink.split.i
-  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07392, %60 ], [ %.07392, %63 ], [ %.07392, %65 ], [ %.07392, %61 ]
+  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07392, %60 ], [ %.07392, %61 ], [ %.07392, %65 ], [ %.07392, %63 ]
   %69 = icmp eq i32 %.2, 3
   br i1 %69, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
 

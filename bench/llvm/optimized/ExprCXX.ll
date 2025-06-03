@@ -492,7 +492,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %32, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %33, %32 ]
+  %.1.i.i.i = phi ptr [ %33, %32 ], [ %28, %.lr.ph.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %35 = load i24, ptr %34, align 16
   %36 = and i24 %35, 1048576
@@ -706,7 +706,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %32, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %33, %32 ]
+  %.1.i.i.i = phi ptr [ %33, %32 ], [ %28, %.lr.ph.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %35 = load i24, ptr %34, align 16
   %36 = and i24 %35, 1048576
@@ -1128,7 +1128,7 @@ _ZNK5clang4Decl7hasAttrINS_18ReturnsNonNullAttrEEEbv.exit.thread: ; preds = %23,
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_18ReturnsNonNullAttrEEEbv.exit.thread, %32
-  %.1.i = phi ptr [ %29, %_ZNK5clang4Decl7hasAttrINS_18ReturnsNonNullAttrEEEbv.exit.thread ], [ %33, %32 ]
+  %.1.i = phi ptr [ %33, %32 ], [ %29, %_ZNK5clang4Decl7hasAttrINS_18ReturnsNonNullAttrEEEbv.exit.thread ]
   %34 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i) #17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %40
@@ -1212,7 +1212,7 @@ define dso_local i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef 
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %27, %30
-  %.1.i = phi ptr [ %15, %27 ], [ %31, %30 ]
+  %.1.i = phi ptr [ %31, %30 ], [ %15, %27 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i12 = load i64, ptr %32, align 16, !tbaa !31
   br label %33
@@ -1925,7 +1925,7 @@ define dso_local i32 @_ZNK5clang16CXXConstructExpr11getBeginLocEv(ptr noundef no
   br label %15
 
 15:                                               ; preds = %6, %13
-  %.sroa.0.1 = phi i32 [ %12, %6 ], [ %.sroa.0.0.copyload.i, %13 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload.i, %13 ], [ %12, %6 ]
   ret i32 %.sroa.0.1
 }
 
@@ -2240,8 +2240,8 @@ define dso_local i64 @_ZNK5clang19CXXOperatorCallExpr18getSourceRangeImplEv(ptr 
   br label %109
 
 109:                                              ; preds = %107, %92, %79, %63, %50, %37, %23, %10
-  %.sroa.9.0 = phi i32 [ %22, %10 ], [ %.sroa.0.0.copyload.i.i20, %23 ], [ %91, %79 ], [ %106, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %.sroa.0.0.copyload.i22, %63 ], [ %.sroa.0.0.copyload.i, %50 ], [ %.sroa.0.0.copyload.i.i21, %37 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %10 ], [ %34, %23 ], [ %.sroa.0.0.copyload.i.i23, %79 ], [ %103, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %74, %63 ], [ %61, %50 ], [ %48, %37 ]
+  %.sroa.9.0 = phi i32 [ %22, %10 ], [ %.sroa.0.0.copyload.i.i20, %23 ], [ %91, %79 ], [ %106, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %.sroa.0.0.copyload.i.i21, %37 ], [ %.sroa.0.0.copyload.i, %50 ], [ %.sroa.0.0.copyload.i22, %63 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %10 ], [ %34, %23 ], [ %.sroa.0.0.copyload.i.i23, %79 ], [ %103, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %48, %37 ], [ %61, %50 ], [ %74, %63 ]
   %.sroa.9.0.insert.ext = zext i32 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -4134,7 +4134,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %38, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %39, %38 ]
+  %.1.i.i.i = phi ptr [ %39, %38 ], [ %34, %.lr.ph.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %41 = load i24, ptr %40, align 16
   %42 = and i24 %41, 1048576
@@ -4997,7 +4997,7 @@ define dso_local void @_ZN5clang13LambdaCaptureC2ENS_14SourceLocationEbNS_17Lamb
   br label %11
 
 11:                                               ; preds = %9, %6
-  %.2 = phi i32 [ %spec.select, %6 ], [ %10, %9 ]
+  %.2 = phi i32 [ %10, %9 ], [ %spec.select, %6 ]
   %12 = or i32 %.2, 4
   br label %15
 
@@ -5006,7 +5006,7 @@ define dso_local void @_ZN5clang13LambdaCaptureC2ENS_14SourceLocationEbNS_17Lamb
   br label %15
 
 15:                                               ; preds = %13, %11, %6
-  %.1 = phi i32 [ %spec.select, %6 ], [ %14, %13 ], [ %12, %11 ]
+  %.1 = phi i32 [ %spec.select, %6 ], [ %12, %11 ], [ %14, %13 ]
   %16 = ptrtoint ptr %4 to i64
   %17 = and i64 %16, -8
   %18 = zext nneg i32 %.1 to i64
@@ -6216,8 +6216,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang10LambdaExpr9isMutableEv(ptr noun
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i: ; preds = %15, %1
-  %17 = phi i8 [ %13, %1 ], [ %.pre.i, %15 ]
-  %.1.i.i = phi ptr [ %11, %1 ], [ %16, %15 ]
+  %17 = phi i8 [ %.pre.i, %15 ], [ %13, %1 ]
+  %.1.i.i = phi ptr [ %16, %15 ], [ %11, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i8 %17, 26
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i.i, label %19
@@ -7422,7 +7422,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %36, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %32, %.lr.ph.i.i ], [ %37, %36 ]
+  %.1.i.i.i = phi ptr [ %37, %36 ], [ %32, %.lr.ph.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %39 = load i24, ptr %38, align 16
   %40 = and i24 %39, 1048576
@@ -7456,7 +7456,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %17, %_ZNK5clang4Typ
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %44, %50
-  %.1.i = phi ptr [ %47, %44 ], [ %51, %50 ]
+  %.1.i = phi ptr [ %51, %50 ], [ %47, %44 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i8 = load i64, ptr %52, align 16, !tbaa !31
   br label %53
@@ -9503,7 +9503,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5cl
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %30, %.lr.ph.i
-  %.1.i.i = phi ptr [ %26, %.lr.ph.i ], [ %31, %30 ]
+  %.1.i.i = phi ptr [ %31, %30 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %33 = load i24, ptr %32, align 16
   %34 = and i24 %33, 1048576

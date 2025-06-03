@@ -179,8 +179,8 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   unreachable
 
 18:                                               ; preds = %3, %14, %13, %12, %11, %10, %9, %8
-  %.015 = phi ptr [ @query_formats.main_pix_fmts_gbrp, %14 ], [ @query_formats.main_pix_fmts_rgb, %13 ], [ @query_formats.main_pix_fmts_yuv444p10, %12 ], [ @query_formats.main_pix_fmts_yuv444, %11 ], [ @query_formats.main_pix_fmts_yuv422p10, %10 ], [ @query_formats.main_pix_fmts_yuv422, %9 ], [ @query_formats.main_pix_fmts_yuv420p10, %8 ], [ @query_formats.main_pix_fmts_yuv420, %3 ]
-  %.014 = phi ptr [ @query_formats.overlay_pix_fmts_gbrp, %14 ], [ @query_formats.overlay_pix_fmts_rgb, %13 ], [ @query_formats.overlay_pix_fmts_yuv444p10, %12 ], [ @query_formats.overlay_pix_fmts_yuv444, %11 ], [ @query_formats.overlay_pix_fmts_yuv422p10, %10 ], [ @query_formats.overlay_pix_fmts_yuv422, %9 ], [ @query_formats.overlay_pix_fmts_yuv420p10, %8 ], [ @query_formats.overlay_pix_fmts_yuv420, %3 ]
+  %.015 = phi ptr [ @query_formats.main_pix_fmts_yuv420p10, %8 ], [ @query_formats.main_pix_fmts_yuv422, %9 ], [ @query_formats.main_pix_fmts_yuv422p10, %10 ], [ @query_formats.main_pix_fmts_yuv444, %11 ], [ @query_formats.main_pix_fmts_yuv444p10, %12 ], [ @query_formats.main_pix_fmts_rgb, %13 ], [ @query_formats.main_pix_fmts_gbrp, %14 ], [ @query_formats.main_pix_fmts_yuv420, %3 ]
+  %.014 = phi ptr [ @query_formats.overlay_pix_fmts_yuv420p10, %8 ], [ @query_formats.overlay_pix_fmts_yuv422, %9 ], [ @query_formats.overlay_pix_fmts_yuv422p10, %10 ], [ @query_formats.overlay_pix_fmts_yuv444, %11 ], [ @query_formats.overlay_pix_fmts_yuv444p10, %12 ], [ @query_formats.overlay_pix_fmts_rgb, %13 ], [ @query_formats.overlay_pix_fmts_gbrp, %14 ], [ @query_formats.overlay_pix_fmts_yuv420, %3 ]
   %19 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.015) #10
   %20 = load ptr, ptr %1, align 8, !tbaa !32
   %21 = tail call i32 @ff_formats_ref(ptr noundef %19, ptr noundef %20) #10
@@ -201,7 +201,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %18, %23, %27, %15
-  %.013 = phi i32 [ %16, %15 ], [ %31, %27 ], [ %21, %18 ], [ %25, %23 ]
+  %.013 = phi i32 [ %31, %27 ], [ %16, %15 ], [ %21, %18 ], [ %25, %23 ]
   ret i32 %.013
 }
 

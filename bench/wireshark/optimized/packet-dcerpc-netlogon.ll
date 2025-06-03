@@ -2323,7 +2323,7 @@ define internal i32 @netlogon_dissect_CLAIMS_SET_METADATA(ptr noundef %0, i32 no
   br label %48
 
 48:                                               ; preds = %46, %44, %42, %40, %38
-  %.1 = phi i32 [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ]
+  %.1 = phi i32 [ %47, %46 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ]
   %49 = load i32, ptr @hf_netlogon_claims_compression_format, align 4
   %50 = tail call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %49, ptr noundef null)
   %51 = load i32, ptr @hf_netlogon_claims_set_uncompressed_size, align 4
@@ -2773,14 +2773,14 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %.thread3
 
-.thread:                                          ; preds = %14, %17, %20, %13, %23
+.thread:                                          ; preds = %20, %17, %14, %13, %23
   %26 = load i32, ptr @hf_netlogon_blob, align 4
   %27 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %26, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0)
   %28 = add i32 %2, %1
   br label %32
 
-.thread3:                                         ; preds = %16, %19, %22, %23
-  %.05 = phi ptr [ %24, %23 ], [ %15, %16 ], [ %18, %19 ], [ %21, %22 ]
+.thread3:                                         ; preds = %22, %19, %16, %23
+  %.05 = phi ptr [ %24, %23 ], [ %21, %22 ], [ %18, %19 ], [ %15, %16 ]
   %29 = add i32 %2, %1
   %30 = call i32 @nt_dissect_MIDL_NDRHEADERBLOB(ptr noundef %4, ptr noundef nonnull %.05, i32 noundef 0, ptr noundef nonnull %7)
   call void @init_ndr_pointer_list(ptr noundef nonnull %9)
@@ -2911,7 +2911,7 @@ define internal i32 @netlogon_dissect_CLAIMS_ENTRY_WRAPPER(ptr noundef %0, i32 n
   br label %43
 
 43:                                               ; preds = %39, %35, %31, %27, %25
-  %.1 = phi i32 [ %.0, %25 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ]
+  %.1 = phi i32 [ %.0, %25 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   ret i32 %.1
 }
@@ -5264,7 +5264,7 @@ define internal i32 @netlogon_dissect_LEVEL(ptr noundef %0, i32 noundef %1, ptr 
   br label %33
 
 33:                                               ; preds = %31, %29, %27, %25, %23, %21, %19, %17, %6
-  %.1 = phi i32 [ %.0, %6 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
   ret i32 %.1
 }
@@ -6012,7 +6012,7 @@ define internal i32 @netlogon_dissect_VALIDATION(ptr noundef %0, i32 noundef %1,
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23, %21, %19, %17, %6
-  %.1 = phi i32 [ %.0, %6 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
   ret i32 %.1
 }
@@ -7202,7 +7202,7 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %36, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %72, %74, %76, %78, %80, %82, %85, %88, %91
-  %.1.i = phi i32 [ %.0.i, %26 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
+  %.1.i = phi i32 [ %.0.i, %26 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ]
   %94 = load ptr, ptr %9, align 8
   %95 = sub i32 %.1.i, %18
   call void @proto_item_set_len(ptr noundef %94, i32 noundef %95)
@@ -7319,7 +7319,7 @@ netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %36, %39, %42, 
   br label %netlogon_dissect_DELTA_UNION.exit
 
 netlogon_dissect_DELTA_UNION.exit:                ; preds = %99, %108, %110, %112, %115, %117, %120, %122, %124, %127, %129, %131, %133, %135, %137, %139, %141
-  %.1.i29 = phi i32 [ %.0.i28, %99 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %117 ], [ %116, %115 ], [ %114, %112 ], [ %111, %110 ], [ %109, %108 ]
+  %.1.i29 = phi i32 [ %.0.i28, %99 ], [ %109, %108 ], [ %111, %110 ], [ %114, %112 ], [ %116, %115 ], [ %119, %117 ], [ %121, %120 ], [ %123, %122 ], [ %126, %124 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ]
   %143 = load ptr, ptr %7, align 8
   %144 = sub i32 %.1.i29, %.1.i
   call void @proto_item_set_len(ptr noundef %143, i32 noundef %144)
@@ -8067,7 +8067,7 @@ define internal i32 @netlogon_dissect_CONTROL_QUERY_INFORMATION(ptr noundef %0, 
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %6
-  %.1 = phi i32 [ %.0, %6 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   ret i32 %.1
 }
@@ -8161,7 +8161,7 @@ define internal i32 @netlogon_dissect_CONTROL_DATA_INFORMATION(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %26, %23, %20, %17, %6
-  %.1 = phi i32 [ %.0, %6 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.1 = phi i32 [ %.0, %6 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   ret i32 %.1
 }
@@ -8345,7 +8345,7 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   br label %45
 
 45:                                               ; preds = %35, %25, %15
-  %.1 = phi i32 [ %.0, %15 ], [ %44, %35 ], [ %34, %25 ]
+  %.1 = phi i32 [ %.0, %15 ], [ %34, %25 ], [ %44, %35 ]
   %46 = load ptr, ptr %7, align 8
   %47 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %46, i32 noundef %47)
@@ -8641,7 +8641,7 @@ define internal i32 @netlogon_dissect_DOMAIN_INFORMATION(ptr noundef %0, i32 nou
   br label %42
 
 42:                                               ; preds = %40, %38, %36
-  %.2 = phi i32 [ %.1, %36 ], [ %41, %40 ], [ %39, %38 ]
+  %.2 = phi i32 [ %.1, %36 ], [ %39, %38 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   ret i32 %.2
 }

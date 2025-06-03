@@ -1199,7 +1199,7 @@ apply_film_grain_8.exit:                          ; preds = %apply_grain_row_8.e
   br label %659
 
 659:                                              ; preds = %49, %658, %657, %656, %apply_film_grain_8.exit
-  %.054 = phi i32 [ 0, %658 ], [ 0, %657 ], [ 0, %656 ], [ 0, %apply_film_grain_8.exit ], [ -1094995529, %49 ]
+  %.054 = phi i32 [ 0, %apply_film_grain_8.exit ], [ 0, %656 ], [ 0, %657 ], [ 0, %658 ], [ -1094995529, %49 ]
   ret i32 %.054
 }
 

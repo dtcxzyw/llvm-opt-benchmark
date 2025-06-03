@@ -514,7 +514,7 @@ renderCanvas.exit:                                ; preds = %54, %30
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %renderCanvas.exit, %65, %68, %72, %76, %80
-  %.0.i17 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %renderCanvas.exit ]
+  %.0.i17 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %renderCanvas.exit ]
   call void @addReplyVerbatim(ptr noundef %0, ptr noundef nonnull %60, i64 noundef %.0.i17, ptr noundef nonnull @.str.3) #4
   call void @sdsfree(ptr noundef nonnull %60) #4
   call void @lwFreeCanvas(ptr noundef nonnull %34) #4

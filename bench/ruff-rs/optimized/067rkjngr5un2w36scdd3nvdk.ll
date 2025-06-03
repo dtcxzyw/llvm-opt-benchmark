@@ -4258,8 +4258,8 @@ define hidden void @"_ZN15path_absolutize4unix85_$LT$impl$u20$path_absolutize..a
   br label %69
 
 69:                                               ; preds = %58, %65, %66, %67, %68
-  %.sroa.8.0.i = phi i64 [ %.sroa.5157.0.copyload, %68 ], [ 2, %67 ], [ 1, %66 ], [ %.sroa.7.0.copyload, %65 ], [ %63, %58 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.4156.0.copyload, %68 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %67 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %66 ], [ %.sroa.6159.0.copyload, %65 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %58 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.7.0.copyload, %65 ], [ 1, %66 ], [ 2, %67 ], [ %.sroa.5157.0.copyload, %68 ], [ %63, %58 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.6159.0.copyload, %65 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %66 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %67 ], [ %.sroa.4156.0.copyload, %68 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %58 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   %70 = load i64, ptr %30, align 8, !alias.scope !428, !noalias !431, !noundef !9
   %71 = load i64, ptr %23, align 8, !range !6, !alias.scope !428, !noalias !431, !noundef !9
@@ -4533,8 +4533,8 @@ define hidden void @"_ZN15path_absolutize4unix85_$LT$impl$u20$path_absolutize..a
   br label %179
 
 179:                                              ; preds = %168, %175, %176, %177, %178
-  %.sroa.8.0.i89 = phi i64 [ %.sroa.5163.0.copyload, %178 ], [ 2, %177 ], [ 1, %176 ], [ %.sroa.7166.0.copyload, %175 ], [ %173, %168 ]
-  %.sroa.0.0.i90 = phi ptr [ %.sroa.4162.0.copyload, %178 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %177 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %176 ], [ %.sroa.6165.0.copyload, %175 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %168 ]
+  %.sroa.8.0.i89 = phi i64 [ %.sroa.7166.0.copyload, %175 ], [ 1, %176 ], [ 2, %177 ], [ %.sroa.5163.0.copyload, %178 ], [ %173, %168 ]
+  %.sroa.0.0.i90 = phi ptr [ %.sroa.6165.0.copyload, %175 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %176 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %177 ], [ %.sroa.4162.0.copyload, %178 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %168 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   %180 = load i64, ptr %30, align 8, !alias.scope !449, !noalias !452, !noundef !9
   %181 = load i64, ptr %23, align 8, !range !6, !alias.scope !449, !noalias !452, !noundef !9
@@ -4641,8 +4641,8 @@ define hidden void @"_ZN15path_absolutize4unix85_$LT$impl$u20$path_absolutize..a
   br label %219
 
 219:                                              ; preds = %208, %215, %216, %217, %218
-  %.sroa.8.0.i98 = phi i64 [ %.sroa.5170.0.copyload, %218 ], [ 2, %217 ], [ 1, %216 ], [ %.sroa.7173.0.copyload, %215 ], [ %213, %208 ]
-  %.sroa.0.0.i99 = phi ptr [ %.sroa.4169.0.copyload, %218 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %217 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %216 ], [ %.sroa.6172.0.copyload, %215 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %208 ]
+  %.sroa.8.0.i98 = phi i64 [ %.sroa.7173.0.copyload, %215 ], [ 1, %216 ], [ 2, %217 ], [ %.sroa.5170.0.copyload, %218 ], [ %213, %208 ]
+  %.sroa.0.0.i99 = phi ptr [ %.sroa.6172.0.copyload, %215 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %216 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %217 ], [ %.sroa.4169.0.copyload, %218 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %208 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   %220 = load i64, ptr %30, align 8, !alias.scope !456, !noalias !459, !noundef !9
   %221 = load i64, ptr %23, align 8, !range !6, !alias.scope !456, !noalias !459, !noundef !9
@@ -4718,8 +4718,8 @@ define hidden void @"_ZN15path_absolutize4unix85_$LT$impl$u20$path_absolutize..a
           to label %235 unwind label %.loopexit.split-lp189.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 252:                                              ; preds = %241, %240, %239, %237, %235
-  %.sroa.8.0.i107 = phi i64 [ %.sroa.4.0.copyload, %241 ], [ 2, %240 ], [ 1, %239 ], [ %.sroa.6.0.copyload, %237 ], [ %35, %235 ]
-  %.sroa.0.0.i108 = phi ptr [ %.sroa.3142.0.copyload, %241 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %240 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %239 ], [ %.sroa.5145.0.copyload, %237 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %235 ]
+  %.sroa.8.0.i107 = phi i64 [ %.sroa.6.0.copyload, %237 ], [ 1, %239 ], [ 2, %240 ], [ %.sroa.4.0.copyload, %241 ], [ %35, %235 ]
+  %.sroa.0.0.i108 = phi ptr [ %.sroa.5145.0.copyload, %237 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.79, %239 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.80, %240 ], [ %.sroa.3142.0.copyload, %241 ], [ @anon.64511d5a592194c1f56614c34e6c60ad.78, %235 ]
   %253 = load i64, ptr %30, align 8, !alias.scope !463, !noalias !466, !noundef !9
   %254 = load i64, ptr %23, align 8, !range !6, !alias.scope !463, !noalias !466, !noundef !9
   %255 = icmp eq i64 %253, %254
@@ -6126,7 +6126,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i: ; preds = %2
   br label %"_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h265c7c2a39b7fdd6E.exit"
 
 "_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h265c7c2a39b7fdd6E.exit": ; preds = %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i
-  %.sroa.0.0.in.i.i = phi i1 [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i ], [ %21, %16 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i ], [ %21, %16 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -7147,7 +7147,7 @@ default.unreachable22:                            ; preds = %12, %3
   br i1 %11, label %17, label %15, !prof !10
 
 12:                                               ; preds = %3, %15, %5
-  %.sroa.0.0 = phi i64 [ %16, %15 ], [ %7, %5 ], [ 0, %3 ]
+  %.sroa.0.0 = phi i64 [ %7, %5 ], [ %16, %15 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val20 = load i64, ptr %13, align 8, !range !216, !noundef !9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7188,7 +7188,7 @@ default.unreachable22:                            ; preds = %12, %3
   unreachable
 
 28:                                               ; preds = %12, %25, %22
-  %.sroa.07.0 = phi i64 [ %24, %22 ], [ %26, %25 ], [ %1, %12 ]
+  %.sroa.07.0 = phi i64 [ %26, %25 ], [ %24, %22 ], [ %1, %12 ]
   %29 = icmp ugt i64 %.sroa.0.0, %.sroa.07.0
   br i1 %29, label %32, label %30, !prof !10
 
@@ -14529,7 +14529,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %14, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17
-  %.sroa.0.0.in = phi i1 [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %18, %14 ]
+  %.sroa.0.0.in = phi i1 [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %18, %14 ]
   ret i1 %.sroa.0.0.in
 }
 

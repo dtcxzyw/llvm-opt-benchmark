@@ -57,8 +57,8 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %28
 
 28:                                               ; preds = %23, %21
-  %.2167 = phi i32 [ 0, %21 ], [ %27, %23 ]
-  %.3154 = phi ptr [ %22, %21 ], [ %24, %23 ]
+  %.2167 = phi i32 [ %27, %23 ], [ 0, %21 ]
+  %.3154 = phi ptr [ %24, %23 ], [ %22, %21 ]
   %29 = getelementptr inbounds i8, ptr %.3154, i64 -1
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = zext i8 %30 to i32
@@ -67,8 +67,8 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %34
 
 34:                                               ; preds = %28, %21
-  %.3168 = phi i32 [ 0, %21 ], [ %33, %28 ]
-  %.4155 = phi ptr [ %22, %21 ], [ %29, %28 ]
+  %.3168 = phi i32 [ %33, %28 ], [ 0, %21 ]
+  %.4155 = phi ptr [ %29, %28 ], [ %22, %21 ]
   %35 = getelementptr inbounds i8, ptr %.4155, i64 -1
   %36 = load i8, ptr %35, align 1, !tbaa !3
   %37 = zext i8 %36 to i32
@@ -76,8 +76,8 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %34, %21
-  %.4169 = phi i32 [ 0, %21 ], [ %38, %34 ]
-  %.5156 = phi ptr [ %22, %21 ], [ %35, %34 ]
+  %.4169 = phi i32 [ %38, %34 ], [ 0, %21 ]
+  %.5156 = phi ptr [ %35, %34 ], [ %22, %21 ]
   %40 = getelementptr inbounds i8, ptr %.5156, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i32
@@ -85,9 +85,9 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %44
 
 44:                                               ; preds = %39, %21
-  %.1174 = phi i32 [ 0, %21 ], [ %43, %39 ]
-  %.5170 = phi i32 [ 0, %21 ], [ %.4169, %39 ]
-  %.6157 = phi ptr [ %22, %21 ], [ %40, %39 ]
+  %.1174 = phi i32 [ %43, %39 ], [ 0, %21 ]
+  %.5170 = phi i32 [ %.4169, %39 ], [ 0, %21 ]
+  %.6157 = phi ptr [ %40, %39 ], [ %22, %21 ]
   %45 = getelementptr inbounds i8, ptr %.6157, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !3
   %47 = zext i8 %46 to i32
@@ -96,9 +96,9 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %50
 
 50:                                               ; preds = %44, %21
-  %.2175 = phi i32 [ 0, %21 ], [ %49, %44 ]
-  %.6171 = phi i32 [ 0, %21 ], [ %.5170, %44 ]
-  %.7158 = phi ptr [ %22, %21 ], [ %45, %44 ]
+  %.2175 = phi i32 [ %49, %44 ], [ 0, %21 ]
+  %.6171 = phi i32 [ %.5170, %44 ], [ 0, %21 ]
+  %.7158 = phi ptr [ %45, %44 ], [ %22, %21 ]
   %51 = getelementptr inbounds i8, ptr %.7158, i64 -1
   %52 = load i8, ptr %51, align 1, !tbaa !3
   %53 = zext i8 %52 to i32
@@ -107,9 +107,9 @@ define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %56
 
 56:                                               ; preds = %21, %50
-  %.3176 = phi i32 [ 0, %21 ], [ %55, %50 ]
-  %.7172 = phi i32 [ 0, %21 ], [ %.6171, %50 ]
-  %.8159 = phi ptr [ %22, %21 ], [ %51, %50 ]
+  %.3176 = phi i32 [ %55, %50 ], [ 0, %21 ]
+  %.7172 = phi i32 [ %.6171, %50 ], [ 0, %21 ]
+  %.8159 = phi ptr [ %51, %50 ], [ %22, %21 ]
   %57 = getelementptr inbounds i8, ptr %.8159, i64 -1
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = zext i8 %58 to i32
@@ -237,7 +237,7 @@ default.unreachable:                              ; preds = %21, %128
   br label %134
 
 134:                                              ; preds = %130, %128
-  %.4 = phi ptr [ %129, %128 ], [ %133, %130 ]
+  %.4 = phi ptr [ %133, %130 ], [ %129, %128 ]
   %135 = lshr i32 %126, 8
   %136 = trunc i32 %135 to i8
   %137 = getelementptr inbounds i8, ptr %.4, i64 -1
@@ -245,14 +245,14 @@ default.unreachable:                              ; preds = %21, %128
   br label %138
 
 138:                                              ; preds = %134, %128
-  %.5 = phi ptr [ %129, %128 ], [ %137, %134 ]
+  %.5 = phi ptr [ %137, %134 ], [ %129, %128 ]
   %139 = trunc i32 %126 to i8
   %140 = getelementptr inbounds i8, ptr %.5, i64 -1
   store i8 %139, ptr %140, align 1, !tbaa !3
   br label %141
 
 141:                                              ; preds = %138, %128
-  %.6 = phi ptr [ %129, %128 ], [ %140, %138 ]
+  %.6 = phi ptr [ %140, %138 ], [ %129, %128 ]
   %142 = lshr i32 %124, 24
   %143 = trunc nuw i32 %142 to i8
   %144 = getelementptr inbounds i8, ptr %.6, i64 -1
@@ -260,7 +260,7 @@ default.unreachable:                              ; preds = %21, %128
   br label %145
 
 145:                                              ; preds = %141, %128
-  %.7 = phi ptr [ %129, %128 ], [ %144, %141 ]
+  %.7 = phi ptr [ %144, %141 ], [ %129, %128 ]
   %146 = lshr i32 %124, 16
   %147 = trunc i32 %146 to i8
   %148 = getelementptr inbounds i8, ptr %.7, i64 -1
@@ -268,7 +268,7 @@ default.unreachable:                              ; preds = %21, %128
   br label %149
 
 149:                                              ; preds = %145, %128
-  %.8 = phi ptr [ %129, %128 ], [ %148, %145 ]
+  %.8 = phi ptr [ %148, %145 ], [ %129, %128 ]
   %150 = lshr i32 %124, 8
   %151 = trunc i32 %150 to i8
   %152 = getelementptr inbounds i8, ptr %.8, i64 -1
@@ -276,7 +276,7 @@ default.unreachable:                              ; preds = %21, %128
   br label %.thread
 
 .thread:                                          ; preds = %149, %128
-  %.9 = phi ptr [ %129, %128 ], [ %152, %149 ]
+  %.9 = phi ptr [ %152, %149 ], [ %129, %128 ]
   %153 = trunc i32 %124 to i8
   %154 = getelementptr inbounds i8, ptr %.9, i64 -1
   store i8 %153, ptr %154, align 1, !tbaa !3

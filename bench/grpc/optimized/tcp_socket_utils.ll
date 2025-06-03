@@ -717,9 +717,9 @@ define void @_ZN17grpc_event_engine12experimental23ResolvedAddressToStringB5cxx1
   br label %159
 
 42:                                               ; preds = %31, %35
-  %.0.ph = phi i32 [ 0, %31 ], [ %40, %35 ]
-  %.031.shrunk.ph = phi i16 [ %rev.i, %31 ], [ %rev.i44, %35 ]
-  %.030.ph = phi ptr [ %32, %31 ], [ %36, %35 ]
+  %.0.ph = phi i32 [ %40, %35 ], [ 0, %31 ]
+  %.031.shrunk.ph = phi i16 [ %rev.i44, %35 ], [ %rev.i, %31 ]
+  %.030.ph = phi ptr [ %36, %35 ], [ %32, %31 ]
   %.03181 = zext i16 %.031.shrunk.ph to i32
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %5) #25
   %43 = zext nneg i16 %30 to i32

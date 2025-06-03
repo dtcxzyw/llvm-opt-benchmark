@@ -118,7 +118,7 @@ define dso_local void @sema_invert_bitstruct_const_initializer(ptr noundef captu
   br label %.backedge
 
 .backedge:                                        ; preds = %38, %32
-  %.0.i.in.be = phi ptr [ %39, %38 ], [ %37, %32 ]
+  %.0.i.in.be = phi ptr [ %37, %32 ], [ %39, %38 ]
   br label %28
 
 40:                                               ; preds = %28
@@ -187,7 +187,7 @@ type_flatten.exit:                                ; preds = %28
   unreachable
 
 67:                                               ; preds = %64, %58
-  %.1.in.i60 = phi ptr [ %65, %64 ], [ %63, %58 ]
+  %.1.in.i60 = phi ptr [ %63, %58 ], [ %65, %64 ]
   %.1.i61 = load ptr, ptr %.1.in.i60, align 8
   br label %54
 
@@ -323,7 +323,7 @@ define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(n
   ret ptr %4
 
 16:                                               ; preds = %12, %6
-  %.1.in = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1 = load ptr, ptr %.1.in, align 8
   br label %2
 }
@@ -452,7 +452,7 @@ define dso_local ptr @sema_merge_bitstruct_const_initializers(ptr noundef captur
   br label %.backedge
 
 .backedge:                                        ; preds = %58, %52
-  %.0.i.in.be = phi ptr [ %59, %58 ], [ %57, %52 ]
+  %.0.i.in.be = phi ptr [ %57, %52 ], [ %59, %58 ]
   br label %48
 
 60:                                               ; preds = %48
@@ -593,7 +593,7 @@ define dso_local zeroext i1 @sema_expr_analyse_initializer_list(ptr noundef %0, 
   unreachable
 
 18:                                               ; preds = %15, %9
-  %.1.in.i = phi ptr [ %16, %15 ], [ %14, %9 ]
+  %.1.in.i = phi ptr [ %14, %9 ], [ %16, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %5
 
@@ -720,7 +720,7 @@ type_flatten.exit:                                ; preds = %5
   br label %71
 
 71:                                               ; preds = %55, %50, %30, %68, %67, %64, %63, %60, %41, %38
-  %.045 = phi i1 [ true, %67 ], [ false, %68 ], [ true, %63 ], [ false, %64 ], [ true, %41 ], [ %61, %60 ], [ %39, %38 ], [ false, %30 ], [ false, %50 ], [ false, %55 ]
+  %.045 = phi i1 [ true, %67 ], [ false, %68 ], [ %39, %38 ], [ true, %41 ], [ %61, %60 ], [ true, %63 ], [ false, %64 ], [ false, %30 ], [ false, %50 ], [ false, %55 ]
   ret i1 %.045
 }
 
@@ -839,7 +839,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_initializer(ptr nou
   unreachable
 
 58:                                               ; preds = %55, %49
-  %.1.in.i.i.i.i = phi ptr [ %56, %55 ], [ %54, %49 ]
+  %.1.in.i.i.i.i = phi ptr [ %54, %49 ], [ %56, %55 ]
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   br label %45
 
@@ -1108,7 +1108,7 @@ sema_expr_analyse_designator.exit.i:              ; preds = %42
   unreachable
 
 180:                                              ; preds = %177, %175, %173, %._crit_edge.i
-  %.087.i = phi ptr [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %1, %._crit_edge.i ]
+  %.087.i = phi ptr [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %1, %._crit_edge.i ]
   br i1 %.095.lcssa.i, label %181, label %186
 
 181:                                              ; preds = %180
@@ -1165,7 +1165,7 @@ sema_expr_analyse_designator.exit.i:              ; preds = %42
   br label %.backedge
 
 .backedge:                                        ; preds = %207, %201
-  %.0.i.in.i.i.be = phi ptr [ %208, %207 ], [ %206, %201 ]
+  %.0.i.in.i.i.be = phi ptr [ %206, %201 ], [ %208, %207 ]
   br label %197
 
 209:                                              ; preds = %197
@@ -1476,7 +1476,7 @@ thread-pre-split413.i:                            ; preds = %276, %275, %.prehea
   unreachable
 
 304:                                              ; preds = %301, %295
-  %.1.in.i.i = phi ptr [ %302, %301 ], [ %300, %295 ]
+  %.1.in.i.i = phi ptr [ %300, %295 ], [ %302, %301 ]
   %.1.i.i83 = load ptr, ptr %.1.in.i.i, align 8
   br label %.preheader435.i
 
@@ -1585,7 +1585,7 @@ thread-pre-split415.i:                            ; preds = %309, %308, %.prehea
   unreachable
 
 337:                                              ; preds = %334, %328
-  %.1.in.i365.i = phi ptr [ %335, %334 ], [ %333, %328 ]
+  %.1.in.i365.i = phi ptr [ %333, %328 ], [ %335, %334 ]
   %.1.i366.i = load ptr, ptr %.1.in.i365.i, align 8
   br label %324
 
@@ -1621,7 +1621,7 @@ thread-pre-split415.i:                            ; preds = %309, %308, %.prehea
   unreachable
 
 353:                                              ; preds = %350, %344
-  %.1.in.i369.i = phi ptr [ %351, %350 ], [ %349, %344 ]
+  %.1.in.i369.i = phi ptr [ %349, %344 ], [ %351, %350 ]
   %.1.i370.i = load ptr, ptr %.1.in.i369.i, align 8
   br label %340
 
@@ -1653,7 +1653,7 @@ type_flatten.exit371.i:                           ; preds = %340, %366
   unreachable
 
 366:                                              ; preds = %363, %357
-  %.1.in.i373.i = phi ptr [ %364, %363 ], [ %362, %357 ]
+  %.1.in.i373.i = phi ptr [ %362, %357 ], [ %364, %363 ]
   %.1.i374.i = load ptr, ptr %.1.in.i373.i, align 8
   br label %type_flatten.exit371.i
 
@@ -2091,7 +2091,7 @@ type_flatten.exit375.i:                           ; preds = %type_flatten.exit37
   unreachable
 
 589:                                              ; preds = %586, %584, %582, %579
-  %storemerge.i = phi ptr [ %587, %586 ], [ %585, %584 ], [ %583, %582 ], [ %.0315.i, %579 ]
+  %storemerge.i = phi ptr [ %583, %582 ], [ %585, %584 ], [ %587, %586 ], [ %.0315.i, %579 ]
   store ptr %storemerge.i, ptr %3, align 8
   br i1 %.0302.lcssa582.i, label %590, label %592
 
@@ -2299,7 +2299,7 @@ tailrecurse.i.i:                                  ; preds = %683, %.critedge.i
   br label %.backedge486
 
 .backedge486:                                     ; preds = %698, %692
-  %.0.i.in.i.i86.be = phi ptr [ %699, %698 ], [ %697, %692 ]
+  %.0.i.in.i.i86.be = phi ptr [ %697, %692 ], [ %699, %698 ]
   br label %688
 
 700:                                              ; preds = %688
@@ -2435,7 +2435,7 @@ define dso_local i32 @sema_get_initializer_const_array_size(ptr noundef %0, ptr 
   br label %.backedge
 
 .backedge:                                        ; preds = %22, %16
-  %.0.i.in.be = phi ptr [ %23, %22 ], [ %21, %16 ]
+  %.0.i.in.be = phi ptr [ %21, %16 ], [ %23, %22 ]
   br label %12
 
 24:                                               ; preds = %12
@@ -2635,7 +2635,7 @@ type_flatten.exit:                                ; preds = %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %101, %64, %67, %60, %57, %50, %47, %99, %88, %77, %54, %41, %32, %31, %28
-  %.068 = phi i32 [ 0, %54 ], [ %46, %41 ], [ %30, %28 ], [ 0, %31 ], [ 0, %32 ], [ -1, %99 ], [ -1, %88 ], [ -1, %77 ], [ %52, %50 ], [ 0, %47 ], [ %62, %60 ], [ 0, %57 ], [ 0, %67 ], [ 0, %64 ], [ %spec.select88, %101 ]
+  %.068 = phi i32 [ %30, %28 ], [ 0, %31 ], [ 0, %32 ], [ %46, %41 ], [ 0, %54 ], [ -1, %77 ], [ -1, %88 ], [ -1, %99 ], [ %52, %50 ], [ 0, %47 ], [ %62, %60 ], [ 0, %57 ], [ 0, %67 ], [ 0, %64 ], [ %spec.select88, %101 ]
   ret i32 %.068
 }
 
@@ -2918,7 +2918,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_struct_plain_initia
   br label %.backedge483
 
 .backedge483:                                     ; preds = %119, %113
-  %.0.i280.in.be = phi ptr [ %120, %119 ], [ %118, %113 ]
+  %.0.i280.in.be = phi ptr [ %118, %113 ], [ %120, %119 ]
   br label %109
 
 121:                                              ; preds = %109
@@ -3210,7 +3210,7 @@ sema_not_enough_elements_error.exit292:           ; preds = %203, %205
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %271, %265
-  %.0.i293.in.be = phi ptr [ %272, %271 ], [ %270, %265 ]
+  %.0.i293.in.be = phi ptr [ %270, %265 ], [ %272, %271 ]
   br label %.preheader
 
 273:                                              ; preds = %.preheader
@@ -3249,7 +3249,7 @@ type_flatten.exit296:                             ; preds = %.preheader
   br label %.backedge478
 
 .backedge478:                                     ; preds = %287, %281
-  %.0.i297.in.be = phi ptr [ %288, %287 ], [ %286, %281 ]
+  %.0.i297.in.be = phi ptr [ %286, %281 ], [ %288, %287 ]
   br label %277
 
 289:                                              ; preds = %277
@@ -3364,7 +3364,7 @@ tailrecurse.i:                                    ; preds = %328, %.critedge
   br label %.backedge
 
 .backedge:                                        ; preds = %343, %337
-  %.0.i.in.i.be = phi ptr [ %344, %343 ], [ %342, %337 ]
+  %.0.i.in.i.be = phi ptr [ %342, %337 ], [ %344, %343 ]
   br label %333
 
 345:                                              ; preds = %333
@@ -3513,7 +3513,7 @@ tailrecurse.i302:                                 ; preds = %394, %.critedge2
   br label %.backedge473
 
 .backedge473:                                     ; preds = %409, %403
-  %.0.i.in.i307.be = phi ptr [ %410, %409 ], [ %408, %403 ]
+  %.0.i.in.i307.be = phi ptr [ %408, %403 ], [ %410, %409 ]
   br label %399
 
 411:                                              ; preds = %399
@@ -3868,7 +3868,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.backedge302
 
 .backedge302:                                     ; preds = %56, %50
-  %.0.i21.in.be = phi ptr [ %57, %56 ], [ %55, %50 ]
+  %.0.i21.in.be = phi ptr [ %55, %50 ], [ %57, %56 ]
   br label %46
 
 58:                                               ; preds = %46
@@ -3982,7 +3982,7 @@ tailrecurse.i:                                    ; preds = %63, %90
   br label %.backedge
 
 .backedge:                                        ; preds = %105, %99
-  %.0.i.in.i.be = phi ptr [ %106, %105 ], [ %104, %99 ]
+  %.0.i.in.i.be = phi ptr [ %104, %99 ], [ %106, %105 ]
   br label %95
 
 107:                                              ; preds = %95
@@ -4088,7 +4088,7 @@ type_flatten.exit.i:                              ; preds = %95
   br label %.backedge303
 
 .backedge303:                                     ; preds = %159, %153
-  %.0.i33.in.be = phi ptr [ %160, %159 ], [ %158, %153 ]
+  %.0.i33.in.be = phi ptr [ %158, %153 ], [ %160, %159 ]
   br label %149
 
 161:                                              ; preds = %149
@@ -4184,7 +4184,7 @@ tailrecurse.i23:                                  ; preds = %tailrecurse.i23.pre
   br label %.backedge283
 
 .backedge283:                                     ; preds = %201, %195
-  %.0.i.in.i28.be = phi ptr [ %202, %201 ], [ %200, %195 ]
+  %.0.i.in.i28.be = phi ptr [ %200, %195 ], [ %202, %201 ]
   br label %191
 
 203:                                              ; preds = %191
@@ -4251,7 +4251,7 @@ type_flatten.exit.i31:                            ; preds = %191
   br label %.backedge299
 
 .backedge299:                                     ; preds = %232, %226
-  %.0.i57.in.be = phi ptr [ %233, %232 ], [ %231, %226 ]
+  %.0.i57.in.be = phi ptr [ %231, %226 ], [ %233, %232 ]
   br label %222
 
 234:                                              ; preds = %222
@@ -4535,7 +4535,7 @@ tailrecurse.i37:                                  ; preds = %325, %349
   br label %.backedge288
 
 .backedge288:                                     ; preds = %364, %358
-  %.0.i.in.i42.be = phi ptr [ %365, %364 ], [ %363, %358 ]
+  %.0.i.in.i42.be = phi ptr [ %363, %358 ], [ %365, %364 ]
   br label %354
 
 366:                                              ; preds = %354

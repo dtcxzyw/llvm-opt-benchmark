@@ -384,7 +384,7 @@ define internal range(i32 2, 17) i32 @dissect_nat_pmp(ptr noundef %0, ptr nounde
   br label %50
 
 50:                                               ; preds = %48, %37, %28, %21, %4
-  %.0 = phi i32 [ 2, %48 ], [ 16, %37 ], [ 12, %28 ], [ 12, %21 ], [ 2, %4 ]
+  %.0 = phi i32 [ 2, %48 ], [ 2, %4 ], [ 12, %21 ], [ 12, %28 ], [ 16, %37 ]
   ret i32 %.0
 }
 
@@ -613,7 +613,7 @@ proto_item_set_hidden.exit330.i:                  ; preds = %56, %53, %50
   br label %137
 
 137:                                              ; preds = %134, %109, %99, %94, %75, %75
-  %.1309.i = phi i32 [ 24, %134 ], [ %133, %109 ], [ %93, %94 ], [ %93, %99 ], [ 24, %75 ], [ 24, %75 ]
+  %.1309.i = phi i32 [ 24, %134 ], [ 24, %75 ], [ 24, %75 ], [ %93, %94 ], [ %93, %99 ], [ %133, %109 ]
   %138 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1309.i)
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %140, label %260
@@ -873,7 +873,7 @@ dissect_portcontrol_pdu.exit:                     ; preds = %267, %275, %276
   br label %282
 
 282:                                              ; preds = %4, %dissect_portcontrol_pdu.exit, %13
-  %.0 = phi i32 [ %.5.i, %dissect_portcontrol_pdu.exit ], [ %14, %13 ], [ 0, %4 ]
+  %.0 = phi i32 [ %14, %13 ], [ %.5.i, %dissect_portcontrol_pdu.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

@@ -2424,7 +2424,7 @@ strbuf_addch.exit16:                              ; preds = %strbuf_avail.exit.i
   br label %77
 
 77:                                               ; preds = %2, %hex2chr.exit, %strbuf_addch.exit16, %strbuf_addch.exit
-  %.0 = phi i64 [ 3, %strbuf_addch.exit16 ], [ 1, %strbuf_addch.exit ], [ 0, %hex2chr.exit ], [ 0, %2 ]
+  %.0 = phi i64 [ 1, %strbuf_addch.exit ], [ 3, %strbuf_addch.exit16 ], [ 0, %hex2chr.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 

@@ -10483,7 +10483,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %533
 
 533:                                              ; preds = %531, %._crit_edge.i.i.i
-  %.sroa.0117.1.i.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %532, %531 ]
+  %.sroa.0117.1.i.i.i = phi ptr [ %532, %531 ], [ %.sroa.0117.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %534 = load ptr, ptr %.sroa.0117.1.i.i.i, align 8, !tbaa !17, !noalias !502
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store ptr %534, ptr %26, align 8, !tbaa !124
@@ -10575,7 +10575,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %574
 
 574:                                              ; preds = %572, %._crit_edge.i.i.i
-  %.sroa.0117.2.i.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %573, %572 ]
+  %.sroa.0117.2.i.i.i = phi ptr [ %573, %572 ], [ %.sroa.0117.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %575 = load ptr, ptr %.sroa.0117.2.i.i.i, align 8, !tbaa !17, !noalias !508
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store ptr %575, ptr %25, align 8, !tbaa !124
@@ -11325,7 +11325,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %909
 
 909:                                              ; preds = %907, %._crit_edge.i.i.i283
-  %.sroa.0117.1.i.i.i303 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i285, %._crit_edge.i.i.i283 ], [ %908, %907 ]
+  %.sroa.0117.1.i.i.i303 = phi ptr [ %908, %907 ], [ %.sroa.0117.0.lcssa.i.i.i285, %._crit_edge.i.i.i283 ]
   %910 = load ptr, ptr %.sroa.0117.1.i.i.i303, align 8, !tbaa !17, !noalias !548
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr %910, ptr %19, align 8, !tbaa !124
@@ -11417,7 +11417,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %950
 
 950:                                              ; preds = %948, %._crit_edge.i.i.i283
-  %.sroa.0117.2.i.i.i286 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i285, %._crit_edge.i.i.i283 ], [ %949, %948 ]
+  %.sroa.0117.2.i.i.i286 = phi ptr [ %949, %948 ], [ %.sroa.0117.0.lcssa.i.i.i285, %._crit_edge.i.i.i283 ]
   %951 = load ptr, ptr %.sroa.0117.2.i.i.i286, align 8, !tbaa !17, !noalias !554
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr %951, ptr %18, align 8, !tbaa !124
@@ -12306,7 +12306,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %1339
 
 1339:                                             ; preds = %1337, %._crit_edge.i.i.i428
-  %.sroa.0117.1.i.i.i448 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i430, %._crit_edge.i.i.i428 ], [ %1338, %1337 ]
+  %.sroa.0117.1.i.i.i448 = phi ptr [ %1338, %1337 ], [ %.sroa.0117.0.lcssa.i.i.i430, %._crit_edge.i.i.i428 ]
   %1340 = load ptr, ptr %.sroa.0117.1.i.i.i448, align 8, !tbaa !17, !noalias !594
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %1340, ptr %12, align 8, !tbaa !124
@@ -12398,7 +12398,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %1380
 
 1380:                                             ; preds = %1378, %._crit_edge.i.i.i428
-  %.sroa.0117.2.i.i.i431 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i430, %._crit_edge.i.i.i428 ], [ %1379, %1378 ]
+  %.sroa.0117.2.i.i.i431 = phi ptr [ %1379, %1378 ], [ %.sroa.0117.0.lcssa.i.i.i430, %._crit_edge.i.i.i428 ]
   %1381 = load ptr, ptr %.sroa.0117.2.i.i.i431, align 8, !tbaa !17, !noalias !600
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %1381, ptr %11, align 8, !tbaa !124
@@ -13148,7 +13148,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %1715
 
 1715:                                             ; preds = %1713, %._crit_edge.i.i.i570
-  %.sroa.0117.1.i.i.i590 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i572, %._crit_edge.i.i.i570 ], [ %1714, %1713 ]
+  %.sroa.0117.1.i.i.i590 = phi ptr [ %1714, %1713 ], [ %.sroa.0117.0.lcssa.i.i.i572, %._crit_edge.i.i.i570 ]
   %1716 = load ptr, ptr %.sroa.0117.1.i.i.i590, align 8, !tbaa !17, !noalias !640
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1716, ptr %5, align 8, !tbaa !124
@@ -13240,7 +13240,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %1756
 
 1756:                                             ; preds = %1754, %._crit_edge.i.i.i570
-  %.sroa.0117.2.i.i.i573 = phi ptr [ %.sroa.0117.0.lcssa.i.i.i572, %._crit_edge.i.i.i570 ], [ %1755, %1754 ]
+  %.sroa.0117.2.i.i.i573 = phi ptr [ %1755, %1754 ], [ %.sroa.0117.0.lcssa.i.i.i572, %._crit_edge.i.i.i570 ]
   %1757 = load ptr, ptr %.sroa.0117.2.i.i.i573, align 8, !tbaa !17, !noalias !646
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1757, ptr %4, align 8, !tbaa !124
@@ -18472,7 +18472,7 @@ _ZN4cvc58internal6theory8booleans29ProofCircuitPropagatorForwardD2Ev.exit: ; pre
   br i1 %.not1542, label %.critedge, label %231, !llvm.loop !886
 
 4466:                                             ; preds = %.loopexit1622, %.loopexit.split-lp1623, %.loopexit1641, %.loopexit.split-lp1642, %.loopexit, %.loopexit.split-lp, %.loopexit1606, %.loopexit.split-lp1607, %3513, %3511, %3515, %3509, %.thread1535, %4417, %4421, %4425, %4427, %4423, %4419, %4413, %4415, %4098, %4106, %4100, %3957, %3965, %3959, %3762, %3768, %3758, %3760, %3636, %3642, %3632, %3634, %3505, %3507, %3501, %3503, %3189, %3195, %3119, %3125, %3012, %3018, %2943, %2949, %2777, %2781, %2785, %2787, %2783, %2779, %2773, %2775, %2467, %2469, %2371, %2373, %2271, %2275, %2277, %2273, %2100, %2104, %2106, %2102, %1917, %1923, %1856, %1454, %1452, %1858, %1864, %1114, %1116, %1084, %1086, %1050, %648, %646, %1052, %1058, %4435, %3955, %3953, %3117, %2941, %2939, %2937, %2465, %2463, %2369, %2367, %2269, %2098, %2096, %309
-  %.pn201 = phi { ptr, i32 } [ %4436, %4435 ], [ %310, %309 ], [ %3956, %3955 ], [ %3954, %3953 ], [ %2942, %2941 ], [ %3118, %3117 ], [ %2940, %2939 ], [ %2938, %2937 ], [ %2466, %2465 ], [ %2464, %2463 ], [ %2370, %2369 ], [ %2368, %2367 ], [ %2099, %2098 ], [ %2270, %2269 ], [ %2097, %2096 ], [ %1051, %1050 ], [ %649, %648 ], [ %647, %646 ], [ %.pn194, %1058 ], [ %1053, %1052 ], [ %1087, %1086 ], [ %1085, %1084 ], [ %1117, %1116 ], [ %1115, %1114 ], [ %1857, %1856 ], [ %1455, %1454 ], [ %1453, %1452 ], [ %.pn183, %1864 ], [ %1859, %1858 ], [ %.pn180, %1923 ], [ %1918, %1917 ], [ %2101, %2100 ], [ %2103, %2102 ], [ %2107, %2106 ], [ %2105, %2104 ], [ %2272, %2271 ], [ %2274, %2273 ], [ %2278, %2277 ], [ %2276, %2275 ], [ %2374, %2373 ], [ %2372, %2371 ], [ %2470, %2469 ], [ %2468, %2467 ], [ %2776, %2775 ], [ %2774, %2773 ], [ %2778, %2777 ], [ %2780, %2779 ], [ %2782, %2781 ], [ %2784, %2783 ], [ %2788, %2787 ], [ %2786, %2785 ], [ %.pn159, %2949 ], [ %2944, %2943 ], [ %.pn156, %3018 ], [ %3013, %3012 ], [ %.pn153, %3125 ], [ %3120, %3119 ], [ %.pn150, %3195 ], [ %3190, %3189 ], [ %3504, %3503 ], [ %3502, %3501 ], [ %3506, %3505 ], [ %3508, %3507 ], [ %3510, %3509 ], [ %3516, %3515 ], [ %3512, %3511 ], [ %3514, %3513 ], [ %3635, %3634 ], [ %3633, %3632 ], [ %.pn134, %3642 ], [ %3637, %3636 ], [ %3761, %3760 ], [ %3759, %3758 ], [ %.pn139, %3768 ], [ %3763, %3762 ], [ %3958, %3957 ], [ %.pn118, %3965 ], [ %3960, %3959 ], [ %4099, %4098 ], [ %.pn114, %4106 ], [ %4101, %4100 ], [ %4416, %4415 ], [ %4414, %4413 ], [ %4418, %4417 ], [ %4420, %4419 ], [ %4422, %4421 ], [ %4424, %4423 ], [ %4428, %4427 ], [ %4426, %4425 ], [ %3357, %.thread1535 ], [ %lpad.loopexit1608, %.loopexit1606 ], [ %lpad.loopexit.split-lp1609, %.loopexit.split-lp1607 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit1643, %.loopexit1641 ], [ %lpad.loopexit.split-lp1644, %.loopexit.split-lp1642 ], [ %lpad.loopexit1624, %.loopexit1622 ], [ %lpad.loopexit.split-lp1625, %.loopexit.split-lp1623 ]
+  %.pn201 = phi { ptr, i32 } [ %4436, %4435 ], [ %2466, %2465 ], [ %310, %309 ], [ %2464, %2463 ], [ %2370, %2369 ], [ %2368, %2367 ], [ %2099, %2098 ], [ %2270, %2269 ], [ %2097, %2096 ], [ %2942, %2941 ], [ %3118, %3117 ], [ %2940, %2939 ], [ %2938, %2937 ], [ %3956, %3955 ], [ %3954, %3953 ], [ %1051, %1050 ], [ %649, %648 ], [ %647, %646 ], [ %.pn194, %1058 ], [ %1053, %1052 ], [ %1087, %1086 ], [ %1085, %1084 ], [ %1117, %1116 ], [ %1115, %1114 ], [ %1857, %1856 ], [ %1455, %1454 ], [ %1453, %1452 ], [ %.pn183, %1864 ], [ %1859, %1858 ], [ %.pn180, %1923 ], [ %1918, %1917 ], [ %2101, %2100 ], [ %2103, %2102 ], [ %2107, %2106 ], [ %2105, %2104 ], [ %2272, %2271 ], [ %2274, %2273 ], [ %2278, %2277 ], [ %2276, %2275 ], [ %2374, %2373 ], [ %2372, %2371 ], [ %2470, %2469 ], [ %2468, %2467 ], [ %2776, %2775 ], [ %2774, %2773 ], [ %2778, %2777 ], [ %2780, %2779 ], [ %2782, %2781 ], [ %2784, %2783 ], [ %2788, %2787 ], [ %2786, %2785 ], [ %.pn159, %2949 ], [ %2944, %2943 ], [ %.pn156, %3018 ], [ %3013, %3012 ], [ %.pn153, %3125 ], [ %3120, %3119 ], [ %.pn150, %3195 ], [ %3190, %3189 ], [ %3504, %3503 ], [ %3502, %3501 ], [ %3506, %3505 ], [ %3508, %3507 ], [ %3510, %3509 ], [ %3516, %3515 ], [ %3512, %3511 ], [ %3514, %3513 ], [ %3635, %3634 ], [ %3633, %3632 ], [ %.pn134, %3642 ], [ %3637, %3636 ], [ %3761, %3760 ], [ %3759, %3758 ], [ %.pn139, %3768 ], [ %3763, %3762 ], [ %3958, %3957 ], [ %.pn118, %3965 ], [ %3960, %3959 ], [ %4099, %4098 ], [ %.pn114, %4106 ], [ %4101, %4100 ], [ %4416, %4415 ], [ %4414, %4413 ], [ %4418, %4417 ], [ %4420, %4419 ], [ %4422, %4421 ], [ %4424, %4423 ], [ %4428, %4427 ], [ %4426, %4425 ], [ %3357, %.thread1535 ], [ %lpad.loopexit1608, %.loopexit1606 ], [ %lpad.loopexit.split-lp1609, %.loopexit.split-lp1607 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit1643, %.loopexit1641 ], [ %lpad.loopexit.split-lp1644, %.loopexit.split-lp1642 ], [ %lpad.loopexit1624, %.loopexit1622 ], [ %lpad.loopexit.split-lp1625, %.loopexit.split-lp1623 ]
   call void @_ZN4cvc58internal6theory8booleans29ProofCircuitPropagatorForwardD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #23
   br label %4467
 
@@ -24973,7 +24973,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %234
 
 234:                                              ; preds = %232, %._crit_edge.i.i
-  %.sroa.0117.1.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ], [ %233, %232 ]
+  %.sroa.0117.1.i.i = phi ptr [ %233, %232 ], [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ]
   %235 = load ptr, ptr %.sroa.0117.1.i.i, align 8, !tbaa !17, !noalias !1005
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %235, ptr %5, align 8, !tbaa !124
@@ -25069,7 +25069,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %281
 
 281:                                              ; preds = %279, %._crit_edge.i.i
-  %.sroa.0117.2.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ], [ %280, %279 ]
+  %.sroa.0117.2.i.i = phi ptr [ %280, %279 ], [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ]
   %282 = load ptr, ptr %.sroa.0117.2.i.i, align 8, !tbaa !17, !noalias !1011
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %282, ptr %4, align 8, !tbaa !124
@@ -25662,7 +25662,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %234
 
 234:                                              ; preds = %232, %._crit_edge.i.i
-  %.sroa.0117.1.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ], [ %233, %232 ]
+  %.sroa.0117.1.i.i = phi ptr [ %233, %232 ], [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ]
   %235 = load ptr, ptr %.sroa.0117.1.i.i, align 8, !tbaa !17, !noalias !1048
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %235, ptr %5, align 8, !tbaa !124
@@ -25758,7 +25758,7 @@ _ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb0EEENS2_6theory8boolean
   br label %281
 
 281:                                              ; preds = %279, %._crit_edge.i.i
-  %.sroa.0117.2.i.i = phi ptr [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ], [ %280, %279 ]
+  %.sroa.0117.2.i.i = phi ptr [ %280, %279 ], [ %.sroa.0117.0.lcssa.i.i, %._crit_edge.i.i ]
   %282 = load ptr, ptr %.sroa.0117.2.i.i, align 8, !tbaa !17, !noalias !1054
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %282, ptr %4, align 8, !tbaa !124

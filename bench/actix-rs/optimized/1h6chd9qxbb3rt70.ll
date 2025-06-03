@@ -1282,7 +1282,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$actix_files..error..UriSegmentError$u20$as$u20$core..fmt..Display$GT$3fmt17hc923cac361488fb1E.exit"
 
 "_ZN74_$LT$actix_files..error..UriSegmentError$u20$as$u20$core..fmt..Display$GT$3fmt17hc923cac361488fb1E.exit": ; preds = %15, %23, %31, %39
-  %.0.in.i = phi i1 [ %44, %39 ], [ %38, %31 ], [ %30, %23 ], [ %22, %15 ]
+  %.0.in.i = phi i1 [ %22, %15 ], [ %30, %23 ], [ %38, %31 ], [ %44, %39 ]
   ret i1 %.0.in.i
 }
 
@@ -1333,7 +1333,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   br label %"_ZN69_$LT$actix_files..error..FilesError$u20$as$u20$core..fmt..Display$GT$3fmt17he0513e35a935f9dcE.exit"
 
 "_ZN69_$LT$actix_files..error..FilesError$u20$as$u20$core..fmt..Display$GT$3fmt17he0513e35a935f9dcE.exit": ; preds = %6, %12
-  %.0.in.i = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in.i = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -1577,13 +1577,13 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$acti
 define hidden { ptr, i64 } @_ZN4mime6Source6as_ref17h1833a194db9ffc96E.llvm.14700172292964297094(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 8, !range !145, !noundef !57
   %trunc = trunc nuw i8 %2 to i1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %3, align 8
-  %.val4 = load ptr, ptr %5, align 8, !nonnull !57
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val = load ptr, ptr %4, align 8
+  %.val4 = load ptr, ptr %3, align 8, !nonnull !57
   %.sroa.0.0 = select i1 %trunc, ptr %.val, ptr %.val4
-  %.val5 = load i64, ptr %4, align 8
+  %.val5 = load i64, ptr %5, align 8
   %.val6.cast = ptrtoint ptr %.val to i64
   %.sroa.3.0 = select i1 %trunc, i64 %.val5, i64 %.val6.cast
   %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
@@ -1626,13 +1626,13 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..Pa
 
 15:                                               ; preds = %2
   %trunc.i = trunc nuw i8 %9 to i1
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val.i = load ptr, ptr %16, align 8, !alias.scope !215
-  %.val4.i = load ptr, ptr %18, align 8, !alias.scope !215, !nonnull !57
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.val.i = load ptr, ptr %17, align 8, !alias.scope !215
+  %.val4.i = load ptr, ptr %16, align 8, !alias.scope !215, !nonnull !57
   %.sroa.0.0.i = select i1 %trunc.i, ptr %.val.i, ptr %.val4.i
-  %.val5.i = load i64, ptr %17, align 8, !alias.scope !215
+  %.val5.i = load i64, ptr %18, align 8, !alias.scope !215
   %.val6.cast.i = ptrtoint ptr %.val.i to i64
   %.sroa.3.0.i = select i1 %trunc.i, i64 %.val5.i, i64 %.val6.cast.i
   %19 = tail call noundef zeroext i1 @_ZN4mime11mime_eq_str17habda9d992e30fd8eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)

@@ -1827,7 +1827,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorUtf814getUnmatchCharERKN3ue212CodePointSetE.ex
   br label %496
 
 496:                                              ; preds = %.noexc15.i.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf814getUnmatchCharERKN3ue212CodePointSetE.exit.i.i.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf812getMatchCharEN3ue212CodePointSetE.exit129.i, %.noexc.i.i
-  %.0.i.i.i = phi i32 [ %495, %.noexc15.i.i ], [ %.0.i.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf814getUnmatchCharERKN3ue212CodePointSetE.exit.i.i.i ], [ 0, %.noexc.i.i ], [ %.0.i119.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf812getMatchCharEN3ue212CodePointSetE.exit129.i ]
+  %.0.i.i.i = phi i32 [ %.0.i.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf814getUnmatchCharERKN3ue212CodePointSetE.exit.i.i.i ], [ %495, %.noexc15.i.i ], [ 0, %.noexc.i.i ], [ %.0.i119.i, %_ZN12_GLOBAL__N_119CorpusGeneratorUtf812getMatchCharEN3ue212CodePointSetE.exit129.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !34
   %497 = load ptr, ptr %286, align 8, !alias.scope !34
   %498 = load ptr, ptr %287, align 8, !alias.scope !34
@@ -7878,7 +7878,7 @@ _ZN12_GLOBAL__N_119CorpusGeneratorImpl14getUnmatchCharERKN3ue29CharReachE.exit.i
   br label %_ZN12_GLOBAL__N_119CorpusGeneratorImpl7getCharEN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEE.exit.i.i
 
 _ZN12_GLOBAL__N_119CorpusGeneratorImpl7getCharEN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEE.exit.i.i: ; preds = %144, %.thread.i.i.i64.i, %.noexc23.i.i, %.noexc22.i.i, %._crit_edge.i.i.i67.i, %.noexc73.i, %139, %121, %.noexc20.i.i
-  %.0.i.i.i = phi i8 [ %218, %.noexc23.i.i ], [ %.0.i.i, %.noexc22.i.i ], [ 0, %.noexc20.i.i ], [ %148, %.noexc73.i ], [ 0, %121 ], [ %143, %139 ], [ %165, %._crit_edge.i.i.i67.i ], [ 0, %.thread.i.i.i64.i ], [ 0, %144 ]
+  %.0.i.i.i = phi i8 [ %.0.i.i, %.noexc22.i.i ], [ %218, %.noexc23.i.i ], [ 0, %.noexc20.i.i ], [ %148, %.noexc73.i ], [ 0, %121 ], [ %143, %139 ], [ %165, %._crit_edge.i.i.i67.i ], [ 0, %.thread.i.i.i64.i ], [ 0, %144 ]
   %219 = load i64, ptr %62, align 8, !alias.scope !167
   %220 = add i64 %219, 1
   %221 = load ptr, ptr %10, align 8, !alias.scope !167

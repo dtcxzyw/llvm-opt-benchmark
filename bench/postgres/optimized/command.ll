@@ -4635,463 +4635,462 @@ define internal fastcc range(i32 0, 6) i32 @exec_command_d(ptr noundef %0, i1 no
     i8 0, label %.thread
     i8 43, label %.thread
     i8 83, label %.thread
-    i8 65, label %21
-    i8 97, label %38
-    i8 98, label %40
-    i8 99, label %42
-    i8 67, label %49
+    i8 65, label %23
+    i8 97, label %40
+    i8 98, label %42
+    i8 99, label %44
+    i8 67, label %51
     i8 100, label %sub_0
-    i8 68, label %57
-    i8 102, label %59
-    i8 103, label %63
-    i8 108, label %65
-    i8 76, label %67
-    i8 110, label %69
-    i8 111, label %71
-    i8 79, label %73
-    i8 112, label %75
-    i8 80, label %77
-    i8 84, label %81
-    i8 116, label %83
-    i8 118, label %83
-    i8 109, label %83
-    i8 105, label %83
-    i8 115, label %83
-    i8 69, label %83
-    i8 114, label %85
-    i8 82, label %98
-    i8 117, label %107
-    i8 70, label %109
-    i8 101, label %119
-    i8 120, label %129
-    i8 88, label %134
-    i8 121, label %136
+    i8 68, label %59
+    i8 102, label %61
+    i8 103, label %65
+    i8 108, label %67
+    i8 76, label %69
+    i8 110, label %71
+    i8 111, label %73
+    i8 79, label %75
+    i8 112, label %77
+    i8 80, label %79
+    i8 84, label %83
+    i8 116, label %85
+    i8 118, label %85
+    i8 109, label %85
+    i8 105, label %85
+    i8 115, label %85
+    i8 69, label %85
+    i8 114, label %87
+    i8 82, label %100
+    i8 117, label %109
+    i8 70, label %111
+    i8 101, label %121
+    i8 120, label %131
+    i8 88, label %136
+    i8 121, label %ignore_slash_options.exit
   ]
 
 .thread:                                          ; preds = %4, %17, %17, %17
   %.not152 = icmp eq ptr %5, null
-  br i1 %.not152, label %ignore_slash_options.exit, label %19
+  br i1 %.not152, label %21, label %19
 
 19:                                               ; preds = %.thread
   %20 = tail call zeroext i1 @describeTableDetails(ptr noundef nonnull %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef nonnull %5) #17
-  %cond.fr201 = freeze i1 %20
-  br i1 %cond.fr201, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr163 = freeze i1 %20
+  br i1 %cond.fr163, label %ignore_slash_options.exit.thread, label %143
 
-21:                                               ; preds = %17
+21:                                               ; preds = %.thread
+  %22 = tail call zeroext i1 @listTables(ptr noundef nonnull @.str.189, ptr noundef null, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  %cond.fr164 = freeze i1 %22
+  br i1 %cond.fr164, label %ignore_slash_options.exit.thread, label %143
+
+23:                                               ; preds = %17
   %.not148 = icmp eq ptr %5, null
   %.pre205 = load i8, ptr %14, align 1
-  br i1 %.not148, label %25, label %22
+  br i1 %.not148, label %27, label %24
 
-22:                                               ; preds = %21
-  switch i8 %.pre205, label %23 [
-    i8 0, label %25
-    i8 43, label %25
-    i8 120, label %25
-  ]
-
-23:                                               ; preds = %22
-  %24 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
-  %.pre = load i8, ptr %14, align 1
-  br label %25
-
-25:                                               ; preds = %22, %22, %22, %23, %21
-  %26 = phi i8 [ %.pre, %23 ], [ %.pre205, %22 ], [ %.pre205, %21 ], [ %.pre205, %22 ], [ %.pre205, %22 ]
-  %.0139 = phi ptr [ %24, %23 ], [ null, %22 ], [ null, %21 ], [ null, %22 ], [ null, %22 ]
-  switch i8 %26, label %37 [
+24:                                               ; preds = %23
+  switch i8 %.pre205, label %25 [
     i8 0, label %27
     i8 43, label %27
     i8 120, label %27
-    i8 99, label %29
-    i8 102, label %31
-    i8 111, label %33
-    i8 112, label %35
   ]
 
-27:                                               ; preds = %25, %25, %25
-  %28 = tail call zeroext i1 @describeAccessMethods(ptr noundef %5, i1 noundef zeroext %7) #17
-  br label %37
+25:                                               ; preds = %24
+  %26 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
+  %.pre = load i8, ptr %14, align 1
+  br label %27
 
-29:                                               ; preds = %25
-  %30 = tail call zeroext i1 @listOperatorClasses(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
-  br label %37
+27:                                               ; preds = %24, %24, %24, %25, %23
+  %28 = phi i8 [ %.pre, %25 ], [ %.pre205, %24 ], [ %.pre205, %23 ], [ %.pre205, %24 ], [ %.pre205, %24 ]
+  %.0139 = phi ptr [ %26, %25 ], [ null, %24 ], [ null, %23 ], [ null, %24 ], [ null, %24 ]
+  switch i8 %28, label %39 [
+    i8 0, label %29
+    i8 43, label %29
+    i8 120, label %29
+    i8 99, label %31
+    i8 102, label %33
+    i8 111, label %35
+    i8 112, label %37
+  ]
 
-31:                                               ; preds = %25
-  %32 = tail call zeroext i1 @listOperatorFamilies(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
-  br label %37
+29:                                               ; preds = %27, %27, %27
+  %30 = tail call zeroext i1 @describeAccessMethods(ptr noundef %5, i1 noundef zeroext %7) #17
+  br label %39
 
-33:                                               ; preds = %25
-  %34 = tail call zeroext i1 @listOpFamilyOperators(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
-  br label %37
+31:                                               ; preds = %27
+  %32 = tail call zeroext i1 @listOperatorClasses(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
+  br label %39
 
-35:                                               ; preds = %25
-  %36 = tail call zeroext i1 @listOpFamilyFunctions(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
-  br label %37
+33:                                               ; preds = %27
+  %34 = tail call zeroext i1 @listOperatorFamilies(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
+  br label %39
 
-37:                                               ; preds = %25, %35, %33, %31, %29, %27
-  %.1142.shrunk = phi i1 [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ true, %25 ]
-  %.1 = phi i32 [ 2, %35 ], [ 2, %33 ], [ 2, %31 ], [ 2, %29 ], [ 2, %27 ], [ 0, %25 ]
+35:                                               ; preds = %27
+  %36 = tail call zeroext i1 @listOpFamilyOperators(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
+  br label %39
+
+37:                                               ; preds = %27
+  %38 = tail call zeroext i1 @listOpFamilyFunctions(ptr noundef %5, ptr noundef %.0139, i1 noundef zeroext %7) #17
+  br label %39
+
+39:                                               ; preds = %27, %37, %35, %33, %31, %29
+  %.1142.shrunk = phi i1 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ true, %27 ]
+  %.1 = phi i32 [ 2, %29 ], [ 2, %31 ], [ 2, %33 ], [ 2, %35 ], [ 2, %37 ], [ 0, %27 ]
   tail call void @free(ptr noundef %.0139) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr200 = freeze i1 %.1142.shrunk
-  br i1 %cond.fr200, label %ignore_slash_options.exit.thread, label %143
-
-38:                                               ; preds = %17
-  %39 = tail call zeroext i1 @describeAggregates(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
-  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
-  tail call void @free(ptr noundef %5) #17
-  %cond.fr199 = freeze i1 %39
-  br i1 %cond.fr199, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr165 = freeze i1 %.1142.shrunk
+  br i1 %cond.fr165, label %ignore_slash_options.exit.thread, label %143
 
 40:                                               ; preds = %17
-  %41 = tail call zeroext i1 @describeTablespaces(ptr noundef %5, i1 noundef zeroext %7) #17
+  %41 = tail call zeroext i1 @describeAggregates(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr198 = freeze i1 %41
-  br i1 %cond.fr198, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr166 = freeze i1 %41
+  br i1 %cond.fr166, label %ignore_slash_options.exit.thread, label %143
 
 42:                                               ; preds = %17
-  %43 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.190, i64 noundef 7) #18
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %47
-
-45:                                               ; preds = %42
-  %46 = tail call zeroext i1 @describeConfigurationParameters(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  %43 = tail call zeroext i1 @describeTablespaces(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr196 = freeze i1 %46
-  br i1 %cond.fr196, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr167 = freeze i1 %43
+  br i1 %cond.fr167, label %ignore_slash_options.exit.thread, label %143
 
-47:                                               ; preds = %42
-  %48 = tail call zeroext i1 @listConversions(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+44:                                               ; preds = %17
+  %45 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.190, i64 noundef 7) #18
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = tail call zeroext i1 @describeConfigurationParameters(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr197 = freeze i1 %48
-  br i1 %cond.fr197, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr168 = freeze i1 %48
+  br i1 %cond.fr168, label %ignore_slash_options.exit.thread, label %143
 
-49:                                               ; preds = %17
-  %50 = tail call zeroext i1 @listCasts(ptr noundef %5, i1 noundef zeroext %7) #17
+49:                                               ; preds = %44
+  %50 = tail call zeroext i1 @listConversions(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr195 = freeze i1 %50
-  br i1 %cond.fr195, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr169 = freeze i1 %50
+  br i1 %cond.fr169, label %ignore_slash_options.exit.thread, label %143
+
+51:                                               ; preds = %17
+  %52 = tail call zeroext i1 @listCasts(ptr noundef %5, i1 noundef zeroext %7) #17
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  tail call void @free(ptr noundef %5) #17
+  %cond.fr170 = freeze i1 %52
+  br i1 %cond.fr170, label %ignore_slash_options.exit.thread, label %143
 
 sub_0:                                            ; preds = %17
-  %51 = load i8, ptr %2, align 1
-  %.not202 = icmp eq i8 %51, 100
+  %53 = load i8, ptr %2, align 1
+  %.not202 = icmp eq i8 %53, 100
   br i1 %.not202, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %52 = load i8, ptr %14, align 1
-  %53 = icmp eq i8 %52, 112
-  br i1 %53, label %54, label %.tail.thread
+  %54 = load i8, ptr %14, align 1
+  %55 = icmp eq i8 %54, 112
+  br i1 %55, label %56, label %.tail.thread
 
-54:                                               ; preds = %.tail
-  %55 = tail call zeroext i1 @listDefaultACLs(ptr noundef %5) #17
+56:                                               ; preds = %.tail
+  %57 = tail call zeroext i1 @listDefaultACLs(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr193 = freeze i1 %55
-  br i1 %cond.fr193, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr171 = freeze i1 %57
+  br i1 %cond.fr171, label %ignore_slash_options.exit.thread, label %143
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %56 = tail call zeroext i1 @objectDescription(ptr noundef %5, i1 noundef zeroext %9) #17
+  %58 = tail call zeroext i1 @objectDescription(ptr noundef %5, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr194 = freeze i1 %56
-  br i1 %cond.fr194, label %ignore_slash_options.exit.thread, label %143
-
-57:                                               ; preds = %17
-  %58 = tail call zeroext i1 @listDomains(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
-  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
-  tail call void @free(ptr noundef %5) #17
-  %cond.fr192 = freeze i1 %58
-  br i1 %cond.fr192, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr172 = freeze i1 %58
+  br i1 %cond.fr172, label %ignore_slash_options.exit.thread, label %143
 
 59:                                               ; preds = %17
-  %60 = load i8, ptr %14, align 1
-  switch i8 %60, label %ignore_slash_options.exit.thread159 [
-    i8 0, label %61
-    i8 43, label %61
-    i8 83, label %61
-    i8 97, label %61
-    i8 110, label %61
-    i8 112, label %61
-    i8 116, label %61
-    i8 119, label %61
-    i8 120, label %61
+  %60 = tail call zeroext i1 @listDomains(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  tail call void @free(ptr noundef %5) #17
+  %cond.fr173 = freeze i1 %60
+  br i1 %cond.fr173, label %ignore_slash_options.exit.thread, label %143
+
+61:                                               ; preds = %17
+  %62 = load i8, ptr %14, align 1
+  switch i8 %62, label %ignore_slash_options.exit.thread159 [
+    i8 0, label %63
+    i8 43, label %63
+    i8 83, label %63
+    i8 97, label %63
+    i8 110, label %63
+    i8 112, label %63
+    i8 116, label %63
+    i8 119, label %63
+    i8 120, label %63
   ]
 
-61:                                               ; preds = %59, %59, %59, %59, %59, %59, %59, %59, %59
-  %62 = tail call fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9)
+63:                                               ; preds = %61, %61, %61, %61, %61, %61, %61, %61, %61
+  %64 = tail call fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9)
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr191 = freeze i1 %62
-  br i1 %cond.fr191, label %ignore_slash_options.exit.thread, label %143
-
-63:                                               ; preds = %17
-  %64 = tail call zeroext i1 @describeRoles(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
-  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
-  tail call void @free(ptr noundef %5) #17
-  %cond.fr190 = freeze i1 %64
-  br i1 %cond.fr190, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr174 = freeze i1 %64
+  br i1 %cond.fr174, label %ignore_slash_options.exit.thread, label %143
 
 65:                                               ; preds = %17
-  %66 = tail call zeroext i1 @listLargeObjects(i1 noundef zeroext %7) #17
+  %66 = tail call zeroext i1 @describeRoles(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr189 = freeze i1 %66
-  br i1 %cond.fr189, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr175 = freeze i1 %66
+  br i1 %cond.fr175, label %ignore_slash_options.exit.thread, label %143
 
 67:                                               ; preds = %17
-  %68 = tail call zeroext i1 @listLanguages(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  %68 = tail call zeroext i1 @listLargeObjects(i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr188 = freeze i1 %68
-  br i1 %cond.fr188, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr176 = freeze i1 %68
+  br i1 %cond.fr176, label %ignore_slash_options.exit.thread, label %143
 
 69:                                               ; preds = %17
-  %70 = tail call zeroext i1 @listSchemas(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  %70 = tail call zeroext i1 @listLanguages(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr187 = freeze i1 %70
-  br i1 %cond.fr187, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr177 = freeze i1 %70
+  br i1 %cond.fr177, label %ignore_slash_options.exit.thread, label %143
 
 71:                                               ; preds = %17
-  %72 = tail call fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9)
+  %72 = tail call zeroext i1 @listSchemas(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr186 = freeze i1 %72
-  br i1 %cond.fr186, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr178 = freeze i1 %72
+  br i1 %cond.fr178, label %ignore_slash_options.exit.thread, label %143
 
 73:                                               ; preds = %17
-  %74 = tail call zeroext i1 @listCollations(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  %74 = tail call fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9)
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr185 = freeze i1 %74
-  br i1 %cond.fr185, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr179 = freeze i1 %74
+  br i1 %cond.fr179, label %ignore_slash_options.exit.thread, label %143
 
 75:                                               ; preds = %17
-  %76 = tail call zeroext i1 @permissionsList(ptr noundef %5, i1 noundef zeroext %9) #17
+  %76 = tail call zeroext i1 @listCollations(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr184 = freeze i1 %76
-  br i1 %cond.fr184, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr180 = freeze i1 %76
+  br i1 %cond.fr180, label %ignore_slash_options.exit.thread, label %143
 
 77:                                               ; preds = %17
-  %78 = load i8, ptr %14, align 1
-  switch i8 %78, label %ignore_slash_options.exit.thread159 [
-    i8 0, label %79
-    i8 43, label %79
-    i8 116, label %79
-    i8 105, label %79
-    i8 110, label %79
-    i8 120, label %79
-  ]
-
-79:                                               ; preds = %77, %77, %77, %77, %77, %77
-  %80 = tail call zeroext i1 @listPartitionedTables(ptr noundef nonnull %14, ptr noundef %5, i1 noundef zeroext %7) #17
+  %78 = tail call zeroext i1 @permissionsList(ptr noundef %5, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr183 = freeze i1 %80
-  br i1 %cond.fr183, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr181 = freeze i1 %78
+  br i1 %cond.fr181, label %ignore_slash_options.exit.thread, label %143
 
-81:                                               ; preds = %17
-  %82 = tail call zeroext i1 @describeTypes(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+79:                                               ; preds = %17
+  %80 = load i8, ptr %14, align 1
+  switch i8 %80, label %ignore_slash_options.exit.thread159 [
+    i8 0, label %81
+    i8 43, label %81
+    i8 116, label %81
+    i8 105, label %81
+    i8 110, label %81
+    i8 120, label %81
+  ]
+
+81:                                               ; preds = %79, %79, %79, %79, %79, %79
+  %82 = tail call zeroext i1 @listPartitionedTables(ptr noundef nonnull %14, ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
   %cond.fr182 = freeze i1 %82
   br i1 %cond.fr182, label %ignore_slash_options.exit.thread, label %143
 
-83:                                               ; preds = %17, %17, %17, %17, %17, %17
-  %84 = tail call zeroext i1 @listTables(ptr noundef nonnull %11, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+83:                                               ; preds = %17
+  %84 = tail call zeroext i1 @describeTypes(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr181 = freeze i1 %84
-  br i1 %cond.fr181, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr183 = freeze i1 %84
+  br i1 %cond.fr183, label %ignore_slash_options.exit.thread, label %143
 
-85:                                               ; preds = %17
-  %86 = load i8, ptr %14, align 1
-  switch i8 %86, label %ignore_slash_options.exit.thread159 [
-    i8 100, label %87
-    i8 103, label %96
+85:                                               ; preds = %17, %17, %17, %17, %17, %17
+  %86 = tail call zeroext i1 @listTables(ptr noundef nonnull %11, ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  tail call void @free(ptr noundef %5) #17
+  %cond.fr184 = freeze i1 %86
+  br i1 %cond.fr184, label %ignore_slash_options.exit.thread, label %143
+
+87:                                               ; preds = %17
+  %88 = load i8, ptr %14, align 1
+  switch i8 %88, label %ignore_slash_options.exit.thread159 [
+    i8 100, label %89
+    i8 103, label %98
   ]
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, 115
-  br i1 %90, label %91, label %ignore_slash_options.exit.thread159
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %91 = load i8, ptr %90, align 1
+  %92 = icmp eq i8 %91, 115
+  br i1 %92, label %93, label %ignore_slash_options.exit.thread159
 
-91:                                               ; preds = %87
+93:                                               ; preds = %89
   %.not147 = icmp eq ptr %5, null
-  br i1 %.not147, label %94, label %92
+  br i1 %.not147, label %96, label %94
 
-92:                                               ; preds = %91
-  %93 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
-  br label %94
+94:                                               ; preds = %93
+  %95 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
+  br label %96
 
-94:                                               ; preds = %92, %91
-  %.0 = phi ptr [ %93, %92 ], [ null, %91 ]
-  %95 = tail call zeroext i1 @listDbRoleSettings(ptr noundef %5, ptr noundef %.0) #17
+96:                                               ; preds = %94, %93
+  %.0 = phi ptr [ %95, %94 ], [ null, %93 ]
+  %97 = tail call zeroext i1 @listDbRoleSettings(ptr noundef %5, ptr noundef %.0) #17
   tail call void @free(ptr noundef %.0) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr179 = freeze i1 %95
-  br i1 %cond.fr179, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr185 = freeze i1 %97
+  br i1 %cond.fr185, label %ignore_slash_options.exit.thread, label %143
 
-96:                                               ; preds = %85
-  %97 = tail call zeroext i1 @describeRoleGrants(ptr noundef %5, i1 noundef zeroext %9) #17
+98:                                               ; preds = %87
+  %99 = tail call zeroext i1 @describeRoleGrants(ptr noundef %5, i1 noundef zeroext %9) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr180 = freeze i1 %97
-  br i1 %cond.fr180, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr186 = freeze i1 %99
+  br i1 %cond.fr186, label %ignore_slash_options.exit.thread, label %143
 
-98:                                               ; preds = %17
-  %99 = load i8, ptr %14, align 1
-  switch i8 %99, label %ignore_slash_options.exit.thread159 [
-    i8 112, label %100
-    i8 115, label %105
+100:                                              ; preds = %17
+  %101 = load i8, ptr %14, align 1
+  switch i8 %101, label %ignore_slash_options.exit.thread159 [
+    i8 112, label %102
+    i8 115, label %107
   ]
 
-100:                                              ; preds = %98
-  br i1 %7, label %101, label %103
+102:                                              ; preds = %100
+  br i1 %7, label %103, label %105
 
-101:                                              ; preds = %100
-  %102 = tail call zeroext i1 @describePublications(ptr noundef %5) #17
+103:                                              ; preds = %102
+  %104 = tail call zeroext i1 @describePublications(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr177 = freeze i1 %102
-  br i1 %cond.fr177, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr187 = freeze i1 %104
+  br i1 %cond.fr187, label %ignore_slash_options.exit.thread, label %143
 
-103:                                              ; preds = %100
-  %104 = tail call zeroext i1 @listPublications(ptr noundef %5) #17
+105:                                              ; preds = %102
+  %106 = tail call zeroext i1 @listPublications(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr178 = freeze i1 %104
-  br i1 %cond.fr178, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr188 = freeze i1 %106
+  br i1 %cond.fr188, label %ignore_slash_options.exit.thread, label %143
 
-105:                                              ; preds = %98
-  %106 = tail call zeroext i1 @describeSubscriptions(ptr noundef %5, i1 noundef zeroext %7) #17
+107:                                              ; preds = %100
+  %108 = tail call zeroext i1 @describeSubscriptions(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr176 = freeze i1 %106
-  br i1 %cond.fr176, label %ignore_slash_options.exit.thread, label %143
-
-107:                                              ; preds = %17
-  %108 = tail call zeroext i1 @describeRoles(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
-  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
-  tail call void @free(ptr noundef %5) #17
-  %cond.fr175 = freeze i1 %108
-  br i1 %cond.fr175, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr189 = freeze i1 %108
+  br i1 %cond.fr189, label %ignore_slash_options.exit.thread, label %143
 
 109:                                              ; preds = %17
-  %110 = load i8, ptr %14, align 1
-  switch i8 %110, label %ignore_slash_options.exit.thread159 [
-    i8 0, label %111
-    i8 43, label %111
-    i8 120, label %111
-    i8 112, label %113
-    i8 100, label %115
-    i8 116, label %117
+  %110 = tail call zeroext i1 @describeRoles(ptr noundef %5, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  tail call void @free(ptr noundef %5) #17
+  %cond.fr190 = freeze i1 %110
+  br i1 %cond.fr190, label %ignore_slash_options.exit.thread, label %143
+
+111:                                              ; preds = %17
+  %112 = load i8, ptr %14, align 1
+  switch i8 %112, label %ignore_slash_options.exit.thread159 [
+    i8 0, label %113
+    i8 43, label %113
+    i8 120, label %113
+    i8 112, label %115
+    i8 100, label %117
+    i8 116, label %119
   ]
 
-111:                                              ; preds = %109, %109, %109
-  %112 = tail call zeroext i1 @listTSConfigs(ptr noundef %5, i1 noundef zeroext %7) #17
+113:                                              ; preds = %111, %111, %111
+  %114 = tail call zeroext i1 @listTSConfigs(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr174 = freeze i1 %112
-  br i1 %cond.fr174, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr191 = freeze i1 %114
+  br i1 %cond.fr191, label %ignore_slash_options.exit.thread, label %143
 
-113:                                              ; preds = %109
-  %114 = tail call zeroext i1 @listTSParsers(ptr noundef %5, i1 noundef zeroext %7) #17
+115:                                              ; preds = %111
+  %116 = tail call zeroext i1 @listTSParsers(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr173 = freeze i1 %114
-  br i1 %cond.fr173, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr192 = freeze i1 %116
+  br i1 %cond.fr192, label %ignore_slash_options.exit.thread, label %143
 
-115:                                              ; preds = %109
-  %116 = tail call zeroext i1 @listTSDictionaries(ptr noundef %5, i1 noundef zeroext %7) #17
+117:                                              ; preds = %111
+  %118 = tail call zeroext i1 @listTSDictionaries(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr172 = freeze i1 %116
-  br i1 %cond.fr172, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr193 = freeze i1 %118
+  br i1 %cond.fr193, label %ignore_slash_options.exit.thread, label %143
 
-117:                                              ; preds = %109
-  %118 = tail call zeroext i1 @listTSTemplates(ptr noundef %5, i1 noundef zeroext %7) #17
+119:                                              ; preds = %111
+  %120 = tail call zeroext i1 @listTSTemplates(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr171 = freeze i1 %118
-  br i1 %cond.fr171, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr194 = freeze i1 %120
+  br i1 %cond.fr194, label %ignore_slash_options.exit.thread, label %143
 
-119:                                              ; preds = %17
-  %120 = load i8, ptr %14, align 1
-  switch i8 %120, label %ignore_slash_options.exit.thread159 [
-    i8 115, label %121
-    i8 117, label %123
-    i8 119, label %125
-    i8 116, label %127
+121:                                              ; preds = %17
+  %122 = load i8, ptr %14, align 1
+  switch i8 %122, label %ignore_slash_options.exit.thread159 [
+    i8 115, label %123
+    i8 117, label %125
+    i8 119, label %127
+    i8 116, label %129
   ]
 
-121:                                              ; preds = %119
-  %122 = tail call zeroext i1 @listForeignServers(ptr noundef %5, i1 noundef zeroext %7) #17
+123:                                              ; preds = %121
+  %124 = tail call zeroext i1 @listForeignServers(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr170 = freeze i1 %122
-  br i1 %cond.fr170, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr195 = freeze i1 %124
+  br i1 %cond.fr195, label %ignore_slash_options.exit.thread, label %143
 
-123:                                              ; preds = %119
-  %124 = tail call zeroext i1 @listUserMappings(ptr noundef %5, i1 noundef zeroext %7) #17
+125:                                              ; preds = %121
+  %126 = tail call zeroext i1 @listUserMappings(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr169 = freeze i1 %124
-  br i1 %cond.fr169, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr196 = freeze i1 %126
+  br i1 %cond.fr196, label %ignore_slash_options.exit.thread, label %143
 
-125:                                              ; preds = %119
-  %126 = tail call zeroext i1 @listForeignDataWrappers(ptr noundef %5, i1 noundef zeroext %7) #17
+127:                                              ; preds = %121
+  %128 = tail call zeroext i1 @listForeignDataWrappers(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr168 = freeze i1 %126
-  br i1 %cond.fr168, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr197 = freeze i1 %128
+  br i1 %cond.fr197, label %ignore_slash_options.exit.thread, label %143
 
-127:                                              ; preds = %119
-  %128 = tail call zeroext i1 @listForeignTables(ptr noundef %5, i1 noundef zeroext %7) #17
+129:                                              ; preds = %121
+  %130 = tail call zeroext i1 @listForeignTables(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr167 = freeze i1 %128
-  br i1 %cond.fr167, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr198 = freeze i1 %130
+  br i1 %cond.fr198, label %ignore_slash_options.exit.thread, label %143
 
-129:                                              ; preds = %17
-  br i1 %7, label %130, label %132
+131:                                              ; preds = %17
+  br i1 %7, label %132, label %134
 
-130:                                              ; preds = %129
-  %131 = tail call zeroext i1 @listExtensionContents(ptr noundef %5) #17
+132:                                              ; preds = %131
+  %133 = tail call zeroext i1 @listExtensionContents(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr165 = freeze i1 %131
-  br i1 %cond.fr165, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr199 = freeze i1 %133
+  br i1 %cond.fr199, label %ignore_slash_options.exit.thread, label %143
 
-132:                                              ; preds = %129
-  %133 = tail call zeroext i1 @listExtensions(ptr noundef %5) #17
+134:                                              ; preds = %131
+  %135 = tail call zeroext i1 @listExtensions(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr166 = freeze i1 %133
-  br i1 %cond.fr166, label %ignore_slash_options.exit.thread, label %143
-
-134:                                              ; preds = %17
-  %135 = tail call zeroext i1 @listExtendedStats(ptr noundef %5) #17
-  store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
-  tail call void @free(ptr noundef %5) #17
-  %cond.fr164 = freeze i1 %135
-  br i1 %cond.fr164, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr200 = freeze i1 %135
+  br i1 %cond.fr200, label %ignore_slash_options.exit.thread, label %143
 
 136:                                              ; preds = %17
-  %137 = tail call zeroext i1 @listEventTriggers(ptr noundef %5, i1 noundef zeroext %7) #17
+  %137 = tail call zeroext i1 @listExtendedStats(ptr noundef %5) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
-  %cond.fr163 = freeze i1 %137
-  br i1 %cond.fr163, label %ignore_slash_options.exit.thread, label %143
+  %cond.fr201 = freeze i1 %137
+  br i1 %cond.fr201, label %ignore_slash_options.exit.thread, label %143
 
 138:                                              ; preds = %3
   %139 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
@@ -5105,23 +5104,24 @@ sub_0:                                            ; preds = %17
   %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %ignore_slash_options.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
-ignore_slash_options.exit.thread159:              ; preds = %85, %59, %77, %98, %109, %119, %17, %87
+ignore_slash_options.exit.thread159:              ; preds = %87, %61, %79, %100, %111, %121, %17, %89
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   tail call void @free(ptr noundef %5) #17
   br label %ignore_slash_options.exit.thread
 
-ignore_slash_options.exit:                        ; preds = %.thread
-  %142 = tail call zeroext i1 @listTables(ptr noundef nonnull @.str.189, ptr noundef null, i1 noundef zeroext %7, i1 noundef zeroext %9) #17
+ignore_slash_options.exit:                        ; preds = %17
+  %142 = tail call zeroext i1 @listEventTriggers(ptr noundef %5, i1 noundef zeroext %7) #17
   store i16 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
+  tail call void @free(ptr noundef %5) #17
   %cond.fr = freeze i1 %142
   br i1 %cond.fr, label %ignore_slash_options.exit.thread, label %143
 
-ignore_slash_options.exit.thread:                 ; preds = %.lr.ph.i, %138, %19, %37, %38, %40, %47, %45, %49, %.tail.thread, %54, %57, %61, %63, %65, %67, %69, %71, %73, %75, %79, %81, %83, %96, %94, %103, %101, %105, %107, %111, %113, %115, %117, %121, %123, %125, %127, %132, %130, %134, %136, %ignore_slash_options.exit.thread159, %ignore_slash_options.exit
-  %.2157 = phi i32 [ 2, %ignore_slash_options.exit ], [ 0, %ignore_slash_options.exit.thread159 ], [ 2, %136 ], [ 2, %134 ], [ 2, %130 ], [ 2, %132 ], [ 2, %127 ], [ 2, %125 ], [ 2, %123 ], [ 2, %121 ], [ 2, %117 ], [ 2, %115 ], [ 2, %113 ], [ 2, %111 ], [ 2, %107 ], [ 2, %105 ], [ 2, %101 ], [ 2, %103 ], [ 2, %94 ], [ 2, %96 ], [ 2, %83 ], [ 2, %81 ], [ 2, %79 ], [ 2, %75 ], [ 2, %73 ], [ 2, %71 ], [ 2, %69 ], [ 2, %67 ], [ 2, %65 ], [ 2, %63 ], [ 2, %61 ], [ 2, %57 ], [ 2, %54 ], [ 2, %.tail.thread ], [ 2, %49 ], [ 2, %45 ], [ 2, %47 ], [ 2, %40 ], [ 2, %38 ], [ %.1, %37 ], [ 2, %19 ], [ 2, %138 ], [ 2, %.lr.ph.i ]
+ignore_slash_options.exit.thread:                 ; preds = %.lr.ph.i, %138, %136, %134, %132, %129, %127, %125, %123, %119, %117, %115, %113, %109, %107, %105, %103, %98, %96, %85, %83, %81, %77, %75, %73, %71, %69, %67, %65, %63, %59, %.tail.thread, %56, %51, %49, %47, %42, %40, %39, %21, %19, %ignore_slash_options.exit.thread159, %ignore_slash_options.exit
+  %.2157 = phi i32 [ 2, %ignore_slash_options.exit ], [ 0, %ignore_slash_options.exit.thread159 ], [ 2, %19 ], [ 2, %21 ], [ %.1, %39 ], [ 2, %40 ], [ 2, %42 ], [ 2, %47 ], [ 2, %49 ], [ 2, %51 ], [ 2, %56 ], [ 2, %.tail.thread ], [ 2, %59 ], [ 2, %63 ], [ 2, %65 ], [ 2, %67 ], [ 2, %69 ], [ 2, %71 ], [ 2, %73 ], [ 2, %75 ], [ 2, %77 ], [ 2, %81 ], [ 2, %83 ], [ 2, %85 ], [ 2, %96 ], [ 2, %98 ], [ 2, %103 ], [ 2, %105 ], [ 2, %107 ], [ 2, %109 ], [ 2, %113 ], [ 2, %115 ], [ 2, %117 ], [ 2, %119 ], [ 2, %123 ], [ 2, %125 ], [ 2, %127 ], [ 2, %129 ], [ 2, %132 ], [ 2, %134 ], [ 2, %136 ], [ 2, %138 ], [ 2, %.lr.ph.i ]
   br label %143
 
-143:                                              ; preds = %19, %37, %38, %40, %47, %45, %49, %.tail.thread, %54, %57, %61, %63, %65, %67, %69, %71, %73, %75, %79, %81, %83, %96, %94, %103, %101, %105, %107, %111, %113, %115, %117, %121, %123, %125, %127, %132, %130, %134, %136, %ignore_slash_options.exit, %ignore_slash_options.exit.thread
-  %144 = phi i32 [ %.2157, %ignore_slash_options.exit.thread ], [ 5, %ignore_slash_options.exit ], [ 5, %136 ], [ 5, %134 ], [ 5, %130 ], [ 5, %132 ], [ 5, %127 ], [ 5, %125 ], [ 5, %123 ], [ 5, %121 ], [ 5, %117 ], [ 5, %115 ], [ 5, %113 ], [ 5, %111 ], [ 5, %107 ], [ 5, %105 ], [ 5, %101 ], [ 5, %103 ], [ 5, %94 ], [ 5, %96 ], [ 5, %83 ], [ 5, %81 ], [ 5, %79 ], [ 5, %75 ], [ 5, %73 ], [ 5, %71 ], [ 5, %69 ], [ 5, %67 ], [ 5, %65 ], [ 5, %63 ], [ 5, %61 ], [ 5, %57 ], [ 5, %54 ], [ 5, %.tail.thread ], [ 5, %49 ], [ 5, %45 ], [ 5, %47 ], [ 5, %40 ], [ 5, %38 ], [ 5, %37 ], [ 5, %19 ]
+143:                                              ; preds = %136, %134, %132, %129, %127, %125, %123, %119, %117, %115, %113, %109, %107, %105, %103, %98, %96, %85, %83, %81, %77, %75, %73, %71, %69, %67, %65, %63, %59, %.tail.thread, %56, %51, %49, %47, %42, %40, %39, %21, %19, %ignore_slash_options.exit, %ignore_slash_options.exit.thread
+  %144 = phi i32 [ %.2157, %ignore_slash_options.exit.thread ], [ 5, %ignore_slash_options.exit ], [ 5, %19 ], [ 5, %21 ], [ 5, %39 ], [ 5, %40 ], [ 5, %42 ], [ 5, %47 ], [ 5, %49 ], [ 5, %51 ], [ 5, %56 ], [ 5, %.tail.thread ], [ 5, %59 ], [ 5, %63 ], [ 5, %65 ], [ 5, %67 ], [ 5, %69 ], [ 5, %71 ], [ 5, %73 ], [ 5, %75 ], [ 5, %77 ], [ 5, %81 ], [ 5, %83 ], [ 5, %85 ], [ 5, %96 ], [ 5, %98 ], [ 5, %103 ], [ 5, %105 ], [ 5, %107 ], [ 5, %109 ], [ 5, %113 ], [ 5, %115 ], [ 5, %117 ], [ 5, %119 ], [ 5, %123 ], [ 5, %125 ], [ 5, %127 ], [ 5, %129 ], [ 5, %132 ], [ 5, %134 ], [ 5, %136 ]
   ret i32 %144
 }
 
@@ -5666,7 +5666,7 @@ discard_query_text.exit18:                        ; preds = %24, %25
   br label %34
 
 34:                                               ; preds = %discard_query_text.exit, %22, %33, %32, %discard_query_text.exit18, %save_query_text_state.exit, %3
-  %.0 = phi i32 [ 2, %3 ], [ 5, %33 ], [ 5, %32 ], [ 2, %discard_query_text.exit18 ], [ 2, %discard_query_text.exit ], [ 2, %22 ], [ 2, %save_query_text_state.exit ]
+  %.0 = phi i32 [ 2, %3 ], [ 2, %save_query_text_state.exit ], [ 2, %discard_query_text.exit ], [ 2, %22 ], [ 2, %discard_query_text.exit18 ], [ 5, %32 ], [ 5, %33 ]
   ret i32 %.0
 }
 
@@ -5748,7 +5748,7 @@ discard_query_text.exit15:                        ; preds = %21, %22
   br label %32
 
 32:                                               ; preds = %31, %30, %discard_query_text.exit15, %discard_query_text.exit, %save_query_text_state.exit, %3
-  %.0 = phi i32 [ 2, %3 ], [ 5, %31 ], [ 5, %30 ], [ 2, %discard_query_text.exit15 ], [ 2, %discard_query_text.exit ], [ 2, %save_query_text_state.exit ]
+  %.0 = phi i32 [ 2, %3 ], [ 2, %save_query_text_state.exit ], [ 2, %discard_query_text.exit ], [ 2, %discard_query_text.exit15 ], [ 5, %30 ], [ 5, %31 ]
   ret i32 %.0
 }
 
@@ -5756,50 +5756,50 @@ discard_query_text.exit15:                        ; preds = %21, %22
 define internal fastcc range(i32 2, 6) i32 @exec_command_endif(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #17
   switch i32 %4, label %.thread [
-    i32 1, label %14
-    i32 4, label %14
-    i32 2, label %5
-    i32 3, label %5
-    i32 5, label %5
+    i32 1, label %5
+    i32 4, label %5
+    i32 2, label %7
+    i32 3, label %7
+    i32 5, label %7
     i32 0, label %.thread8
   ]
 
-5:                                                ; preds = %3, %3, %3
+5:                                                ; preds = %3, %3
+  %6 = tail call zeroext i1 @conditional_stack_pop(ptr noundef %1) #17
+  %cond.fr11 = freeze i1 %6
+  br i1 %cond.fr11, label %.thread, label %17
+
+7:                                                ; preds = %3, %3, %3
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %discard_query_text.exit, label %6
+  br i1 %.not.i, label %14, label %8
 
-6:                                                ; preds = %5
-  %7 = tail call i32 @conditional_stack_get_query_len(ptr noundef %1) #17
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %8, ptr %9, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %8
-  store i8 0, ptr %11, align 1
-  br label %discard_query_text.exit
-
-discard_query_text.exit:                          ; preds = %5, %6
-  %12 = tail call i32 @conditional_stack_get_paren_depth(ptr noundef %1) #17
-  tail call void @psql_scan_set_paren_depth(ptr noundef %0, i32 noundef %12) #17
-  %13 = tail call zeroext i1 @conditional_stack_pop(ptr noundef %1) #17
-  %cond.fr11 = freeze i1 %13
-  br i1 %cond.fr11, label %.thread, label %16
+8:                                                ; preds = %7
+  %9 = tail call i32 @conditional_stack_get_query_len(ptr noundef %1) #17
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %10, ptr %11, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 %10
+  store i8 0, ptr %13, align 1
+  br label %14
 
 .thread8:                                         ; preds = %3
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.244) #17
-  br label %16
+  br label %17
 
-14:                                               ; preds = %3, %3
-  %15 = tail call zeroext i1 @conditional_stack_pop(ptr noundef %1) #17
-  %cond.fr = freeze i1 %15
-  br i1 %cond.fr, label %.thread, label %16
+14:                                               ; preds = %8, %7
+  %15 = tail call i32 @conditional_stack_get_paren_depth(ptr noundef %1) #17
+  tail call void @psql_scan_set_paren_depth(ptr noundef %0, i32 noundef %15) #17
+  %16 = tail call zeroext i1 @conditional_stack_pop(ptr noundef %1) #17
+  %cond.fr = freeze i1 %16
+  br i1 %cond.fr, label %.thread, label %17
 
-.thread:                                          ; preds = %3, %discard_query_text.exit, %14
-  br label %16
+.thread:                                          ; preds = %3, %5, %14
+  br label %17
 
-16:                                               ; preds = %discard_query_text.exit, %.thread8, %14, %.thread
-  %17 = phi i32 [ 2, %.thread ], [ 5, %14 ], [ 5, %.thread8 ], [ 5, %discard_query_text.exit ]
-  ret i32 %17
+17:                                               ; preds = %5, %.thread8, %14, %.thread
+  %18 = phi i32 [ 2, %.thread ], [ 5, %14 ], [ 5, %.thread8 ], [ 5, %5 ]
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

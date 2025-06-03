@@ -877,8 +877,8 @@ default.unreachable:                              ; preds = %4
           to label %78 unwind label %15
 
 13:                                               ; preds = %76, %61, %46, %30, %15
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %77, %76 ], [ %62, %61 ], [ %47, %46 ], [ %31, %30 ]
-  %.1 = phi i1 [ false, %15 ], [ true, %76 ], [ true, %61 ], [ true, %46 ], [ true, %30 ]
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %16, %15 ], [ %47, %46 ], [ %62, %61 ], [ %77, %76 ]
+  %.1 = phi i1 [ true, %30 ], [ false, %15 ], [ true, %46 ], [ true, %61 ], [ true, %76 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h162a5c74d82f497aE.llvm.11953678010571242332"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #31
           to label %81 unwind label %79
@@ -1448,7 +1448,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
   unreachable
 
 common.resume:                                    ; preds = %122, %.body, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %44, %.body.i.i ], [ %eh.lpad-body, %.body ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %.body.i.i ], [ %123, %122 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h85ac8c98e2dcf871E.exit.i": ; preds = %.lr.ph.i
@@ -2443,7 +2443,7 @@ define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..task..poll..
   br label %"_ZN4core3ptr159drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hd9251310b734cf13E.exit"
 
 common.resume.i:                                  ; preds = %337, %320, %312, %304, %295, %287, %279, %270, %262, %254, %243, %235, %227, %188, %180, %172, %151, %142, %135, %55, %47
-  %common.resume.op.i = phi { ptr, i32 } [ %48, %55 ], [ %48, %47 ], [ %152, %151 ], [ %143, %142 ], [ %136, %135 ], [ %173, %172 ], [ %181, %188 ], [ %181, %180 ], [ %236, %243 ], [ %236, %235 ], [ %305, %304 ], [ %280, %279 ], [ %255, %254 ], [ %228, %227 ], [ %263, %270 ], [ %263, %262 ], [ %288, %295 ], [ %288, %287 ], [ %313, %320 ], [ %313, %312 ], [ %338, %337 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %48, %55 ], [ %48, %47 ], [ %152, %151 ], [ %136, %135 ], [ %143, %142 ], [ %173, %172 ], [ %181, %188 ], [ %181, %180 ], [ %236, %243 ], [ %236, %235 ], [ %228, %227 ], [ %255, %254 ], [ %280, %279 ], [ %305, %304 ], [ %263, %270 ], [ %263, %262 ], [ %288, %295 ], [ %288, %287 ], [ %313, %320 ], [ %313, %312 ], [ %338, %337 ]
   resume { ptr, i32 } %common.resume.op.i
 
 64:                                               ; preds = %29
@@ -3891,7 +3891,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %58 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %27, %26 ], [ %.pn, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17hb78f1f072e394638E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h5ea1067c222b5d0fE.llvm.6150823513714300492.exit.i", %36, %40
@@ -4815,7 +4815,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h58504d10fe984463E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -4875,7 +4875,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -5011,7 +5011,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h7b73
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32

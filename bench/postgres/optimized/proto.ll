@@ -2535,7 +2535,7 @@ define dso_local noundef nonnull ptr @logicalrep_message_type(i32 noundef %0) lo
   br label %22
 
 22:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @logicalrep_message_type.err_unknown, %20 ], [ @.str.36, %19 ], [ @.str.35, %18 ], [ @.str.34, %17 ], [ @.str.33, %16 ], [ @.str.32, %15 ], [ @.str.31, %14 ], [ @.str.30, %13 ], [ @.str.29, %12 ], [ @.str.28, %11 ], [ @.str.27, %10 ], [ @.str.26, %9 ], [ @.str.25, %8 ], [ @.str.24, %7 ], [ @.str.23, %6 ], [ @.str.22, %5 ], [ @.str.21, %4 ], [ @.str.20, %3 ], [ @.str.19, %2 ], [ @.str.18, %1 ]
+  %.0 = phi ptr [ @logicalrep_message_type.err_unknown, %20 ], [ @.str.19, %2 ], [ @.str.20, %3 ], [ @.str.21, %4 ], [ @.str.22, %5 ], [ @.str.23, %6 ], [ @.str.24, %7 ], [ @.str.25, %8 ], [ @.str.26, %9 ], [ @.str.27, %10 ], [ @.str.28, %11 ], [ @.str.29, %12 ], [ @.str.30, %13 ], [ @.str.31, %14 ], [ @.str.32, %15 ], [ @.str.33, %16 ], [ @.str.34, %17 ], [ @.str.35, %18 ], [ @.str.36, %19 ], [ @.str.18, %1 ]
   ret ptr %.0
 }
 

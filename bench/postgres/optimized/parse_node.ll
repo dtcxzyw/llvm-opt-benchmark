@@ -453,10 +453,10 @@ define dso_local ptr @make_const(ptr noundef %0, ptr noundef readonly captures(n
   unreachable
 
 65:                                               ; preds = %48, %44, %40, %39, %13
-  %.035 = phi i64 [ %59, %48 ], [ %47, %44 ], [ %43, %40 ], [ %.237, %39 ], [ %16, %13 ]
-  %.032 = phi i32 [ 1560, %48 ], [ 705, %44 ], [ 16, %40 ], [ %.234, %39 ], [ 23, %13 ]
-  %.029 = phi i32 [ -1, %48 ], [ -2, %44 ], [ 1, %40 ], [ %.231, %39 ], [ 4, %13 ]
-  %.028 = phi i1 [ false, %48 ], [ false, %44 ], [ true, %40 ], [ %.2, %39 ], [ true, %13 ]
+  %.035 = phi i64 [ %16, %13 ], [ %.237, %39 ], [ %43, %40 ], [ %47, %44 ], [ %59, %48 ]
+  %.032 = phi i32 [ 23, %13 ], [ %.234, %39 ], [ 16, %40 ], [ 705, %44 ], [ 1560, %48 ]
+  %.029 = phi i32 [ 4, %13 ], [ %.231, %39 ], [ 1, %40 ], [ -2, %44 ], [ -1, %48 ]
+  %.028 = phi i1 [ true, %13 ], [ %.2, %39 ], [ true, %40 ], [ false, %44 ], [ false, %48 ]
   %66 = call ptr @makeConst(i32 noundef %.032, i32 noundef -1, i32 noundef 0, i32 noundef %.029, i64 noundef %.035, i1 noundef zeroext false, i1 noundef zeroext %.028) #8
   br label %67
 

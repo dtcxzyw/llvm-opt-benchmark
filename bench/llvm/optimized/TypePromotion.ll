@@ -4688,7 +4688,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit.i.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i, %_ZN4llvm5APIntD2Ev.exit.i110.i
-  %.1.i.i.i = phi ptr [ %1407, %_ZN4llvm5APIntD2Ev.exit.i110.i ], [ %1409, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i ]
+  %.1.i.i.i = phi ptr [ %1409, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i ], [ %1407, %_ZN4llvm5APIntD2Ev.exit.i110.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #20
   %1422 = getelementptr inbounds nuw i8, ptr %1379, i64 8
   %1423 = load i32, ptr %1422, align 8
@@ -4907,7 +4907,7 @@ _ZN12_GLOBAL__N_110IRPromoter13ConvertTruncsEv.exit.i: ; preds = %1335, %._crit_
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i.i.i: ; preds = %1516, %1515, %1513
-  %.0.i.i.i.i.i = phi i64 [ %1518, %1516 ], [ 2, %1515 ], [ 0, %1513 ]
+  %.0.i.i.i.i.i = phi i64 [ 2, %1515 ], [ %1518, %1516 ], [ 0, %1513 ]
   %1520 = load i32, ptr %1506, align 4
   %1521 = icmp slt i32 %1520, 0
   br i1 %1521, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i.i
@@ -7163,8 +7163,8 @@ switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_117
   %switch.masked = trunc i57 %switch.downshift to i1
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %99, %103, %9, %13, %.fold.split.i55, %149, %145, %141, %141, %.fold.split.i50, %136, %132, %128, %128, %121, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %113, %110, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23, %_ZNK4llvm4User10getOperandEj.exit39.thread, %.fold.split.i36, %70, %66, %_ZNK4llvm4User10getOperandEj.exit32, %_ZNK4llvm4User10getOperandEj.exit32, %.fold.split.i29, %27, %23, %19, %19, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46, %_ZNK4llvm4User10getOperandEj.exit39, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm4User10getOperandEj.exit41, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30
-  %.1 = phi i1 [ %152, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30 ], [ false, %.fold.split.i55 ], [ true, %141 ], [ false, %145 ], [ true, %141 ], [ %151, %149 ], [ false, %.fold.split.i50 ], [ true, %128 ], [ false, %132 ], [ true, %128 ], [ %138, %136 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ false, %110 ], [ false, %113 ], [ %123, %121 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39.thread ], [ false, %.fold.split.i36 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ false, %66 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ %72, %70 ], [ false, %.fold.split.i29 ], [ true, %19 ], [ false, %23 ], [ true, %19 ], [ %29, %27 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ %98, %_ZNK4llvm4User10getOperandEj.exit41 ], [ false, %13 ], [ false, %9 ], [ false, %103 ], [ false, %99 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %99, %103, %9, %13, %.fold.split.i55, %149, %145, %141, %141, %.fold.split.i50, %136, %132, %128, %128, %121, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %113, %110, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23, %_ZNK4llvm4User10getOperandEj.exit39.thread, %.fold.split.i36, %70, %66, %_ZNK4llvm4User10getOperandEj.exit32, %_ZNK4llvm4User10getOperandEj.exit32, %.fold.split.i29, %27, %23, %19, %19, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46, %_ZNK4llvm4User10getOperandEj.exit39, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %_ZNK4llvm4User10getOperandEj.exit41, %_ZNK4llvm4User10getOperandEj.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30
+  %.1 = phi i1 [ %152, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30 ], [ false, %.fold.split.i55 ], [ true, %141 ], [ false, %145 ], [ true, %141 ], [ %151, %149 ], [ false, %.fold.split.i50 ], [ true, %128 ], [ false, %132 ], [ true, %128 ], [ %138, %136 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ false, %110 ], [ false, %113 ], [ %123, %121 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39.thread ], [ false, %.fold.split.i36 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ false, %66 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ %72, %70 ], [ false, %.fold.split.i29 ], [ true, %19 ], [ false, %23 ], [ true, %19 ], [ %29, %27 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ %98, %_ZNK4llvm4User10getOperandEj.exit41 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %13 ], [ false, %9 ], [ false, %103 ], [ false, %99 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
   ret i1 %.1
 }
 
@@ -7806,7 +7806,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl6
   br label %.thread71
 
 .thread71:                                        ; preds = %2, %38, %32, %25, %21, %10, %4, %44
-  %.1 = phi i1 [ %9, %4 ], [ %20, %10 ], [ %24, %21 ], [ %31, %25 ], [ false, %44 ], [ %43, %38 ], [ true, %32 ], [ true, %2 ]
+  %.1 = phi i1 [ false, %44 ], [ %31, %25 ], [ %24, %21 ], [ %20, %10 ], [ %9, %4 ], [ %43, %38 ], [ true, %32 ], [ true, %2 ]
   ret i1 %.1
 }
 
@@ -8957,7 +8957,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -9840,7 +9840,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !306
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -9850,7 +9850,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !306
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

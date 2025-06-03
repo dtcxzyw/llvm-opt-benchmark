@@ -67,7 +67,7 @@ define dso_local noundef ptr @_ZN18AbsRndNumGenerator21make_rndnum_generatorE16R
   br label %7
 
 7:                                                ; preds = %2, %5, %3
-  %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %2 ], [ %4, %3 ], [ %6, %5 ]
   ret ptr %.0
 }
 

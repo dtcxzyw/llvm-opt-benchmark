@@ -4264,7 +4264,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vec
   br label %58
 
 52:                                               ; preds = %.lr.ph, %49, %48, %47
-  %.0 = phi i8 [ 4, %49 ], [ 2, %48 ], [ 1, %47 ], [ 0, %.lr.ph ]
+  %.0 = phi i8 [ 1, %47 ], [ 2, %48 ], [ 4, %49 ], [ 0, %.lr.ph ]
   %53 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Yosys5RTLIL5Const4bitsEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %54 unwind label %.loopexit
 

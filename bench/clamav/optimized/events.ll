@@ -2787,7 +2787,7 @@ get_event.exit82:                                 ; preds = %43
   br label %ev_diff.exit
 
 ev_diff.exit:                                     ; preds = %114, %119, %123
-  %.0.i83 = phi i32 [ %127, %123 ], [ %122, %119 ], [ %118, %114 ]
+  %.0.i83 = phi i32 [ %118, %114 ], [ %122, %119 ], [ %127, %123 ]
   %128 = freeze i32 %.0.i83
   %.not73 = icmp eq i32 %128, 0
   br i1 %.not73, label %ev_diff.exit.thread, label %129
@@ -2894,7 +2894,7 @@ define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr nounde
   br label %19
 
 19:                                               ; preds = %4, %14, %10, %5
-  %.0 = phi i32 [ %18, %14 ], [ %13, %10 ], [ %9, %5 ], [ 0, %4 ]
+  %.0 = phi i32 [ %9, %5 ], [ %13, %10 ], [ %18, %14 ], [ 0, %4 ]
   ret i32 %.0
 }
 

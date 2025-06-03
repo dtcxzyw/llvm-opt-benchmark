@@ -519,7 +519,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br label %134
 
 131:                                              ; preds = %126, %112, %109, %106, %105, %103
-  %.8 = phi i32 [ 11, %103 ], [ 12, %126 ], [ 12, %112 ], [ 12, %109 ], [ 12, %106 ], [ 12, %105 ]
+  %.8 = phi i32 [ 11, %103 ], [ 12, %105 ], [ 12, %106 ], [ 12, %109 ], [ 12, %112 ], [ 12, %126 ]
   %132 = load i32, ptr @max_slot_wal_keep_size_mb, align 4
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %134, label %137

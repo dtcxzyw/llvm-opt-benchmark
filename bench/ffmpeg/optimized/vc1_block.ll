@@ -11982,8 +11982,8 @@ decode012.exit.thread.i112:                       ; preds = %.critedge.i
   br label %2053
 
 2053:                                             ; preds = %2050, %decode012.exit.thread.i112
-  %2054 = phi i32 [ %spec.select.i3.i.i110, %2050 ], [ %spec.select.i.i.i108, %decode012.exit.thread.i112 ]
-  %.1.shrunk.i = phi i1 [ %2052, %2050 ], [ %2049, %decode012.exit.thread.i112 ]
+  %2054 = phi i32 [ %spec.select.i.i.i108, %decode012.exit.thread.i112 ], [ %spec.select.i3.i.i110, %2050 ]
+  %.1.shrunk.i = phi i1 [ %2049, %decode012.exit.thread.i112 ], [ %2052, %2050 ]
   %.1.i = zext i1 %.1.shrunk.i to i32
   br i1 %1792, label %2055, label %.thread1075.i
 
@@ -14618,9 +14618,9 @@ decode012.exit.thread.i149:                       ; preds = %3843
   br label %3876
 
 3876:                                             ; preds = %3875, %3871, %decode012.exit.thread.i149, %.thread542.i, %3693
-  %spec.select.i124 = phi i32 [ 2, %3693 ], [ 2, %3875 ], [ %3874, %3871 ], [ %3870, %decode012.exit.thread.i149 ], [ 0, %.thread542.i ]
-  %.0419.i = phi i32 [ 0, %3693 ], [ %.1420538.i, %3875 ], [ %.1420538.i, %3871 ], [ %.1420538.i, %decode012.exit.thread.i149 ], [ %.2421.i, %.thread542.i ]
-  %.0408.i = phi i32 [ 0, %3693 ], [ 2, %3875 ], [ %3874, %3871 ], [ %3870, %decode012.exit.thread.i149 ], [ 0, %.thread542.i ]
+  %spec.select.i124 = phi i32 [ 2, %3693 ], [ %3870, %decode012.exit.thread.i149 ], [ %3874, %3871 ], [ 2, %3875 ], [ 0, %.thread542.i ]
+  %.0419.i = phi i32 [ 0, %3693 ], [ %.1420538.i, %decode012.exit.thread.i149 ], [ %.1420538.i, %3871 ], [ %.1420538.i, %3875 ], [ %.2421.i, %.thread542.i ]
+  %.0408.i = phi i32 [ 0, %3693 ], [ %3870, %decode012.exit.thread.i149 ], [ %3874, %3871 ], [ 2, %3875 ], [ 0, %.thread542.i ]
   br label %3877
 
 3877:                                             ; preds = %3877, %3876

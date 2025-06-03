@@ -2234,7 +2234,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm11RISCVMatInt4Inst11getOp
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 2, %5 ], [ 3, %4 ], [ 1, %1 ]
+  %.0 = phi i32 [ 3, %4 ], [ 2, %5 ], [ 0, %6 ], [ 1, %1 ]
   ret i32 %.0
 }
 

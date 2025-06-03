@@ -5548,7 +5548,7 @@ no_exception_p.exit48:                            ; preds = %52
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.split, %no_exception_p.exit48, %no_exception_p.exit
-  %.0 = phi i64 [ %.pre, %no_exception_p.exit48 ], [ %.pre139, %no_exception_p.exit ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
+  %.0 = phi i64 [ %.pre139, %no_exception_p.exit ], [ %.pre, %no_exception_p.exit48 ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
   ret i64 %.0
 }
 
@@ -6057,8 +6057,8 @@ io_wait_writable.exit:                            ; preds = %151, %128
   call void (i64, ptr, ...) @rb_raise(i64 noundef %183, ptr noundef nonnull @.str.289) #10
   unreachable
 
-no_exception_p.exit.thread103:                    ; preds = %172, %106, %93, %no_exception_p.exit81, %no_exception_p.exit86, %66
-  %.0 = phi i64 [ %68, %66 ], [ 4, %172 ], [ 4, %106 ], [ %96, %93 ], [ %125, %no_exception_p.exit81 ], [ %148, %no_exception_p.exit86 ]
+no_exception_p.exit.thread103:                    ; preds = %172, %106, %no_exception_p.exit86, %no_exception_p.exit81, %93, %66
+  %.0 = phi i64 [ %68, %66 ], [ 4, %172 ], [ 4, %106 ], [ %148, %no_exception_p.exit86 ], [ %125, %no_exception_p.exit81 ], [ %96, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret i64 %.0
 }
@@ -6339,8 +6339,8 @@ io_wait_writable.exit.backedge:                   ; preds = %read_would_block.ex
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %87, ptr noundef nonnull @.str.290) #10
   unreachable
 
-io_wait_writable.exit.thread:                     ; preds = %47, %no_exception_p.exit, %no_exception_p.exit40, %RSTRING_LENINT.exit
-  %.0 = phi i64 [ 1, %RSTRING_LENINT.exit ], [ %50, %47 ], [ %59, %no_exception_p.exit ], [ %75, %no_exception_p.exit40 ]
+io_wait_writable.exit.thread:                     ; preds = %no_exception_p.exit40, %no_exception_p.exit, %47, %RSTRING_LENINT.exit
+  %.0 = phi i64 [ 1, %RSTRING_LENINT.exit ], [ %75, %no_exception_p.exit40 ], [ %59, %no_exception_p.exit ], [ %50, %47 ]
   ret i64 %.0
 }
 

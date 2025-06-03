@@ -310,7 +310,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   br i1 %79, label %96, label %80
 
 80:                                               ; preds = %87, %59, %35
-  %.042.i107 = phi i32 [ %78, %59 ], [ %57, %87 ], [ %42, %35 ]
+  %.042.i107 = phi i32 [ %42, %35 ], [ %57, %87 ], [ %78, %59 ]
   %81 = xor i32 %.042.i107, 55296
   %82 = add nsw i32 %81, -1114112
   %83 = icmp ult i32 %82, -1112064
@@ -523,7 +523,7 @@ select.unfold165:                                 ; preds = %115, %108, %112
   br i1 %182, label %199, label %183
 
 183:                                              ; preds = %190, %161, %135
-  %.042.i = phi i32 [ %181, %161 ], [ %159, %190 ], [ %143, %135 ]
+  %.042.i = phi i32 [ %143, %135 ], [ %159, %190 ], [ %181, %161 ]
   %184 = xor i32 %.042.i, 55296
   %185 = add nsw i32 %184, -1114112
   %186 = icmp ult i32 %185, -1112064
@@ -1145,7 +1145,7 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   br i1 %20, label %.thread68, label %23
 
 21:                                               ; preds = %.loopexit, %.loopexit.split-lp, %78, %90
-  %.pn5 = phi { ptr, i32 } [ %.pn3, %90 ], [ %67, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn5 = phi { ptr, i32 } [ %67, %78 ], [ %.pn3, %90 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val16 = load i64, ptr %1, align 8, !range !49, !alias.scope !7, !noundef !18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.val17 = load i32, ptr %22, align 4

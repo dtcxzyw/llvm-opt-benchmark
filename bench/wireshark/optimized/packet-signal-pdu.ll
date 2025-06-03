@@ -6244,7 +6244,7 @@ ws_sign_ext64.exit.i:                             ; preds = %249, %246
   br label %287
 
 287:                                              ; preds = %283, %281, %278
-  %.3.i = phi double [ 0.000000e+00, %278 ], [ %286, %283 ], [ %282, %281 ]
+  %.3.i = phi double [ 0.000000e+00, %278 ], [ %282, %281 ], [ %286, %283 ]
   %288 = call ptr @proto_tree_add_double(ptr noundef %12, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.083131, i32 noundef %spec.select.i, double noundef %.3.i)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %288, ptr noundef nonnull @.str.321, i64 noundef %.2.i.i)
   %289 = load i32, ptr @ett_spdu_signal, align 4
@@ -6314,10 +6314,10 @@ ws_sign_ext64.exit.i:                             ; preds = %249, %246
   br label %proto_item_set_hidden.exit.i
 
 325:                                              ; preds = %287, %274, %242
-  %.2 = phi i32 [ %.099129, %287 ], [ %spec.select111, %274 ], [ %spec.select, %242 ]
-  %.0268.i = phi double [ %.3.i, %287 ], [ %.2270.i, %274 ], [ %.1269.i, %242 ]
-  %.0263.i = phi ptr [ %290, %287 ], [ %276, %274 ], [ %244, %242 ]
-  %.0261.i = phi ptr [ %291, %287 ], [ %277, %274 ], [ %245, %242 ]
+  %.2 = phi i32 [ %spec.select, %242 ], [ %spec.select111, %274 ], [ %.099129, %287 ]
+  %.0268.i = phi double [ %.1269.i, %242 ], [ %.2270.i, %274 ], [ %.3.i, %287 ]
+  %.0263.i = phi ptr [ %244, %242 ], [ %276, %274 ], [ %290, %287 ]
+  %.0261.i = phi ptr [ %245, %242 ], [ %277, %274 ], [ %291, %287 ]
   %326 = load i8, ptr @spdu_deserializer_hide_raw_values, align 1, !range !6, !noundef !7
   %327 = trunc nuw i8 %326 to i1
   %.not.i299.i = icmp ne ptr %.0261.i, null
@@ -6338,9 +6338,9 @@ ws_sign_ext64.exit.i:                             ; preds = %249, %246
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %331, %328, %325, %314, %304, %296, %dissect_shifted_and_shortened_uint.exit.i
-  %.1 = phi i32 [ %.099129, %dissect_shifted_and_shortened_uint.exit.i ], [ %.099129, %314 ], [ %.099129, %304 ], [ %.099129, %296 ], [ %.2, %328 ], [ %.2, %331 ], [ %.2, %325 ]
-  %.0263329.i = phi ptr [ null, %dissect_shifted_and_shortened_uint.exit.i ], [ null, %314 ], [ null, %304 ], [ null, %296 ], [ %.0263.i, %328 ], [ %.0263.i, %331 ], [ %.0263.i, %325 ]
-  %.0268328.i = phi double [ 0.000000e+00, %dissect_shifted_and_shortened_uint.exit.i ], [ 0.000000e+00, %314 ], [ 0.000000e+00, %304 ], [ 0.000000e+00, %296 ], [ %.0268.i, %328 ], [ %.0268.i, %331 ], [ %.0268.i, %325 ]
+  %.1 = phi i32 [ %.099129, %dissect_shifted_and_shortened_uint.exit.i ], [ %.2, %328 ], [ %.2, %331 ], [ %.2, %325 ], [ %.099129, %296 ], [ %.099129, %304 ], [ %.099129, %314 ]
+  %.0263329.i = phi ptr [ null, %dissect_shifted_and_shortened_uint.exit.i ], [ %.0263.i, %328 ], [ %.0263.i, %331 ], [ %.0263.i, %325 ], [ null, %296 ], [ null, %304 ], [ null, %314 ]
+  %.0268328.i = phi double [ 0.000000e+00, %dissect_shifted_and_shortened_uint.exit.i ], [ %.0268.i, %328 ], [ %.0268.i, %331 ], [ %.0268.i, %325 ], [ 0.000000e+00, %296 ], [ 0.000000e+00, %304 ], [ 0.000000e+00, %314 ]
   %335 = getelementptr inbounds nuw i8, ptr %101, i64 72
   %336 = load i8, ptr %335, align 8, !range !6, !noundef !7
   %337 = trunc nuw i8 %336 to i1

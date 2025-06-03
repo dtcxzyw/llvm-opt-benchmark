@@ -14854,7 +14854,7 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp18get_coeff_in_e_rowEjj(ptr 
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %44 = load i32, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !301
   %45 = icmp eq i32 %44, %3
   br i1 %45, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2lp8row_cellI8rationalEESt6vectorIS5_13std_allocatorIS5_EEEEZNS2_8dioph_eq3imp18get_coeff_in_e_rowEjjEUlRKT_E_ESF_SF_SF_T0_.exit, label %46
@@ -14864,7 +14864,7 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp18get_coeff_in_e_rowEjj(ptr 
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %47, %46 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i32, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !301
   %50 = icmp eq i32 %49, %3
   %spec.select.i.i.i = select i1 %50, ptr %.sroa.032.2.i.i.i, ptr %11
@@ -15121,7 +15121,7 @@ _ZNK2lp9bijectionixEj.exit:                       ; preds = %34, %17, %29
   br label %82
 
 82:                                               ; preds = %80, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %81, %80 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %81, %80 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %83 = load i32, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !301
   %84 = icmp eq i32 %83, %3
   br i1 %84, label %_ZNK2lp8dioph_eq3imp17get_sign_in_e_rowEjj.exit, label %85
@@ -15131,7 +15131,7 @@ _ZNK2lp9bijectionixEj.exit:                       ; preds = %34, %17, %29
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %86, %85 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %86, %85 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %88 = load i32, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !301
   %89 = icmp eq i32 %88, %3
   %spec.select.i.i.i.i = select i1 %89, ptr %.sroa.032.2.i.i.i.i, ptr %50
@@ -19696,7 +19696,7 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp18eliminate_var_in_fEjji(ptr
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %51 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %54 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !391
   %55 = icmp eq i32 %54, %1
   br i1 %55, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN2lp8row_cellINS2_12empty_structEEESt6vectorIS5_13std_allocatorIS5_EEEEZNS2_8dioph_eq3imp18eliminate_var_in_fEjjiEUlRKT_E_ESE_SE_SE_T0_.exit, label %56
@@ -19706,7 +19706,7 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp18eliminate_var_in_fEjji(ptr
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %57, %56 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %59 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !391
   %60 = icmp eq i32 %59, %1
   %spec.select.i.i.i = select i1 %60, ptr %.sroa.032.2.i.i.i, ptr %21
@@ -29688,7 +29688,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %72, %76
   br label %147
 
 147:                                              ; preds = %145, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %146, %145 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %146, %145 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %148 = load i32, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !301
   %149 = icmp eq i32 %148, %1
   br i1 %149, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2lp8row_cellI8rationalEESt6vectorIS5_13std_allocatorIS5_EEEEZNS2_8dioph_eq3imp16subs_qfront_by_SEjRNSE_15protected_queueEEUlRKT_E_ESH_SH_SH_T0_.exit, label %150
@@ -29698,7 +29698,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %72, %76
   br label %152
 
 152:                                              ; preds = %150, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %151, %150 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %151, %150 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %153 = load i32, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !301
   %154 = icmp eq i32 %153, %1
   %spec.select.i.i.i = select i1 %154, ptr %.sroa.032.2.i.i.i, ptr %115
@@ -34680,7 +34680,7 @@ _ZN8rationalD2Ev.exit17:                          ; preds = %.noexc.i16
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %52, %58, %..loopexit_crit_edge21.i.i.i.i.i, %.loopexit, %83
-  %.1 = phi i32 [ 3, %.loopexit ], [ 5, %83 ], [ 5, %..loopexit_crit_edge21.i.i.i.i.i ], [ 5, %58 ], [ 5, %52 ], [ 5, %.lr.ph.i.i.i.i.i ]
+  %.1 = phi i32 [ 5, %83 ], [ 3, %.loopexit ], [ 5, %..loopexit_crit_edge21.i.i.i.i.i ], [ 5, %58 ], [ 5, %52 ], [ 5, %.lr.ph.i.i.i.i.i ]
   ret i32 %.1
 }
 

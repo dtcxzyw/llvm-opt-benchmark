@@ -112,7 +112,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   br label %.preheader.i
 
 41:                                               ; preds = %.loopexit, %.loopexit.split-lp, %139, %193, %196, %146, %140, %50
-  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %147, %146 ], [ %66, %140 ], [ %51, %50 ], [ %.pn7711.i, %193 ], [ %160, %196 ], [ %.pn71.i, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %66, %140 ], [ %147, %146 ], [ %51, %50 ], [ %.pn7711.i, %193 ], [ %160, %196 ], [ %.pn71.i, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 16
   invoke void @"_ZN4core3ptr125drop_in_place$LT$event_listener..Listener$LT$$LP$$RP$$C$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h1791e95088b67237E.llvm.14408593437386099104"(ptr noundef nonnull align 8 %42)
           to label %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i" unwind label %137
@@ -491,7 +491,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %102
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %135, %130, %.body.i.i.i.i, %86
-  %.pn71.i = phi { ptr, i32 } [ %87, %86 ], [ %lpad.thr_comm.i.i.i.i, %135 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %131, %130 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn71.i = phi { ptr, i32 } [ %87, %86 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i.i.i, %135 ], [ %131, %130 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60) #13
           to label %139 unwind label %137
 
@@ -954,7 +954,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

@@ -6012,7 +6012,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51: ; preds = %175
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %102, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit, %21, %17, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %80, %91, %150, %167, %.critedge4, %194, %40, %46
-  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %204, %194 ], [ %101, %91 ], [ %154, %150 ], [ %174, %167 ], [ %187, %.critedge4 ], [ %82, %80 ], [ %72, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %78, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %102 ]
+  %.1 = phi i64 [ %45, %40 ], [ %51, %46 ], [ %204, %194 ], [ %101, %91 ], [ %154, %150 ], [ %174, %167 ], [ %187, %.critedge4 ], [ %82, %80 ], [ %78, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %72, %_ZNK4mold6SymbolINS_6X86_64EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_6X86_64EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %102 ]
   ret i64 %.1
 }
 
@@ -7627,7 +7627,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %64, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i64 [ %71, %64 ], [ %79, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i64 [ %79, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %71, %64 ]
   %.not.i.i = icmp eq ptr %30, %29
   br i1 %.not.i.i, label %82, label %80
 
@@ -11075,7 +11075,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %43, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i64 [ %50, %43 ], [ %58, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i64 [ %58, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %50, %43 ]
   %59 = ptrtoint ptr %.037 to i64
   %60 = sub i64 %59, %32
   %61 = getelementptr inbounds nuw i8, ptr %.03435, i64 5
@@ -11199,7 +11199,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit: ; preds =
   br label %28
 
 28:                                               ; preds = %11, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit
-  %.1 = phi i64 [ %19, %11 ], [ %27, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit ]
+  %.1 = phi i64 [ %27, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit ], [ %19, %11 ]
   ret i64 %.1
 }
 
@@ -11508,7 +11508,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %43, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i64 [ %50, %43 ], [ %58, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i64 [ %58, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %50, %43 ]
   %59 = ptrtoint ptr %.035 to i64
   %60 = sub i64 %59, %32
   %61 = getelementptr inbounds nuw i8, ptr %.03233, i64 5
@@ -14173,7 +14173,7 @@ _ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i: ; preds
   br label %_ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_6X86_64EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %122, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i
-  %.1.i = phi i64 [ %130, %122 ], [ %138, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ]
+  %.1.i = phi i64 [ %138, %_ZNK4mold6SymbolINS_6X86_64EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %130, %122 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = trunc i64 %.1.i to i8
   store i8 %140, ptr %139, align 1, !tbaa !17
@@ -21758,7 +21758,7 @@ define weak_odr dso_local void @_ZN4mold14BuildIdSectionINS_6X86_64EE11update_sh
   unreachable
 
 _ZNK4mold7BuildId4sizeEv.exit:                    ; preds = %2, %5, %13
-  %.0.i = phi i64 [ %15, %13 ], [ %12, %5 ], [ 16, %2 ]
+  %.0.i = phi i64 [ %12, %5 ], [ %15, %13 ], [ 16, %2 ]
   %17 = add nsw i64 %.0.i, 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = trunc i64 %17 to i8
@@ -21838,7 +21838,7 @@ define weak_odr dso_local void @_ZN4mold14BuildIdSectionINS_6X86_64EE8copy_bufER
   unreachable
 
 _ZNK4mold7BuildId4sizeEv.exit:                    ; preds = %2, %15, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %15 ], [ 16, %2 ]
+  %.0.i = phi i64 [ %22, %15 ], [ %25, %23 ], [ 16, %2 ]
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %28 = trunc i64 %.0.i to i8
   store i8 %28, ptr %27, align 1, !tbaa !17
@@ -22162,8 +22162,8 @@ _ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit: ; preds = 
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge._crit_edge.i.i.i.i
-  %60 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %55, %57 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %58, %57 ]
+  %60 = phi ptr [ %55, %57 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %61 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !611
   %62 = icmp eq ptr %61, %60
   br i1 %62, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops16_Iter_equals_valIKS6_EEET_SG_SG_T0_.exit.i.i, label %63
@@ -22173,8 +22173,8 @@ _ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EEC2ERKS6_.exit: ; preds = 
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge._crit_edge57.i.i.i.i
-  %66 = phi ptr [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %60, %63 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %64, %63 ]
+  %66 = phi ptr [ %60, %63 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %67 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !611
   %68 = icmp eq ptr %67, %66
   %spec.select.i.i.i.i = select i1 %68, ptr %.sroa.032.2.i.i.i.i, ptr %23
@@ -29251,7 +29251,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11up
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge
-  %.sroa.0109.1 = phi ptr [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %82, %81 ]
+  %.sroa.0109.1 = phi ptr [ %82, %81 ], [ %.sroa.0109.0.lcssa, %._crit_edge ]
   %84 = load ptr, ptr %.sroa.0109.1, align 8, !tbaa !611
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 560
   %86 = load ptr, ptr %85, align 8, !tbaa !1027
@@ -29291,7 +29291,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11up
   br label %99
 
 99:                                               ; preds = %97, %._crit_edge
-  %.sroa.0109.2 = phi ptr [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %98, %97 ]
+  %.sroa.0109.2 = phi ptr [ %98, %97 ], [ %.sroa.0109.0.lcssa, %._crit_edge ]
   %100 = load ptr, ptr %.sroa.0109.2, align 8, !tbaa !611
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 560
   %102 = load ptr, ptr %101, align 8, !tbaa !1027
@@ -45341,7 +45341,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRKZN4mold14EhFrameSecti
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i.i.i
-  %.sroa.026.1.i.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %38, %37 ]
+  %.sroa.026.1.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.026.1.i.i.i.i.i, i64 14
   %41 = load atomic i8, ptr %40 monotonic, align 1
   %42 = trunc i8 %41 to i1
@@ -45352,7 +45352,7 @@ define linkonce_odr dso_local void @_ZSt13__invoke_implIvRKZN4mold14EhFrameSecti
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i.i.i
-  %.sroa.026.2.i.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %44, %43 ]
+  %.sroa.026.2.i.i.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.026.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.026.2.i.i.i.i.i, i64 14
   %47 = load atomic i8, ptr %46 monotonic, align 1
   %48 = trunc i8 %47 to i1
@@ -52311,7 +52311,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %55, %50, %47
   br label %_ZN3tbb6detail2d19final_sumINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d19final_sumINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %47, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %46, %47 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %46, %47 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = load i64, ptr %57, align 16, !tbaa !1212
   %59 = inttoptr i64 %58 to ptr
@@ -52353,7 +52353,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %13, %8, %5
   br label %_ZN3tbb6detail2d19final_sumINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d19final_sumINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %5, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %4, %5 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %4, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load i64, ptr %15, align 16, !tbaa !1212
   %17 = inttoptr i64 %16 to ptr
@@ -52663,7 +52663,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %168, %163, %160
   br label %_ZN3tbb6detail2d110start_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEENS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d110start_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEENS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %160, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %159, %160 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %159, %160 ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %171 = load i64, ptr %170, align 8, !tbaa !1212
   %172 = inttoptr i64 %171 to ptr
@@ -52845,7 +52845,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %13, %8, %5
   br label %_ZN3tbb6detail2d110start_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEENS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d110start_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEENS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %5, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %4, %5 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %4, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i64, ptr %15, align 8, !tbaa !1212
   %17 = inttoptr i64 %16 to ptr
@@ -53033,7 +53033,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %66, %61, %58
   br label %_ZN3tbb6detail2d18sum_nodeINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d18sum_nodeINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %58, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %57, %58 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %57, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %69 = load i64, ptr %68, align 32, !tbaa !1212
   %70 = inttoptr i64 %69 to ptr
@@ -53079,7 +53079,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %13, %8, %5
   br label %_ZN3tbb6detail2d18sum_nodeINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d18sum_nodeINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %5, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %4, %5 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %4, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load i64, ptr %15, align 32, !tbaa !1212
   %17 = inttoptr i64 %16 to ptr
@@ -53216,7 +53216,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %60, %55, %52
   br label %_ZN3tbb6detail2d111finish_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d111finish_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %52, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %51, %52 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %51, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = load i64, ptr %62, align 16, !tbaa !1212
   %64 = inttoptr i64 %63 to ptr
@@ -53258,7 +53258,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i: ; preds = %13, %8, %5
   br label %_ZN3tbb6detail2d111finish_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d111finish_scanINS1_13blocked_rangeIlEENS1_16lambda_scan_bodyIS4_iZN4mold12RelocSectionINS6_6X86_64EEC1ERNS6_7ContextIS8_EERNS6_13OutputSectionIS8_EEEUlRKS4_lbE_St4plusIvEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %5, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i
-  %.1.i.i = phi ptr [ %4, %5 ], [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ]
+  %.1.i.i = phi ptr [ null, %_ZN3tbb6detail2d112wait_context7releaseEj.exit.i.i ], [ %4, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i64, ptr %15, align 16, !tbaa !1212
   %17 = inttoptr i64 %16 to ptr

@@ -2278,7 +2278,7 @@ pmix_obj_run_destructors.exit151.i.i:             ; preds = %.lr.ph.i148.i.i, %2
   br label %construct_message.exit.thread.i
 
 242:                                              ; preds = %218, %203, %195, %186
-  %.1.i.i = phi i64 [ %232, %218 ], [ %217, %203 ], [ %202, %195 ], [ %194, %186 ]
+  %.1.i.i = phi i64 [ %194, %186 ], [ %202, %195 ], [ %217, %203 ], [ %232, %218 ]
   %243 = getelementptr i8, ptr %calloc.i.i, i64 %.1.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %243, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false)
   %244 = getelementptr i8, ptr %243, i64 8

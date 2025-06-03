@@ -104,8 +104,8 @@ neato_extra_args.exit.thread:                     ; preds = %22
   br label %41
 
 41:                                               ; preds = %39, %33, %28, %22, %18
-  %.129.i = phi ptr [ %34, %33 ], [ %.02836.i, %22 ], [ %.02836.i, %28 ], [ %.02836.i, %18 ], [ %40, %39 ]
-  %.1.i = phi i32 [ %30, %33 ], [ %.038.i, %22 ], [ %.038.i, %28 ], [ %.038.i, %18 ], [ %36, %39 ]
+  %.129.i = phi ptr [ %34, %33 ], [ %.02836.i, %18 ], [ %.02836.i, %22 ], [ %.02836.i, %28 ], [ %40, %39 ]
+  %.1.i = phi i32 [ %30, %33 ], [ %.038.i, %18 ], [ %.038.i, %22 ], [ %.038.i, %28 ], [ %36, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %neato_extra_args.exit, label %.lr.ph.i, !llvm.loop !13
@@ -392,8 +392,8 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   br label %147
 
 147:                                              ; preds = %145, %139, %134, %133, %130, %124
-  %.128.i = phi ptr [ %140, %139 ], [ %.02734.i, %134 ], [ %.02734.i, %133 ], [ %.02734.i, %130 ], [ %.02734.i, %124 ], [ %146, %145 ]
-  %.1.i38 = phi i32 [ %136, %139 ], [ %.035.i, %134 ], [ %.035.i, %133 ], [ %.035.i, %130 ], [ %.035.i, %124 ], [ %142, %145 ]
+  %.128.i = phi ptr [ %140, %139 ], [ %.02734.i, %130 ], [ %.02734.i, %124 ], [ %.02734.i, %133 ], [ %.02734.i, %134 ], [ %146, %145 ]
+  %.1.i38 = phi i32 [ %136, %139 ], [ %.035.i, %130 ], [ %.035.i, %124 ], [ %.035.i, %133 ], [ %.035.i, %134 ], [ %142, %145 ]
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i35
   br i1 %exitcond.not.i40, label %config_extra_args.exit, label %116, !llvm.loop !44

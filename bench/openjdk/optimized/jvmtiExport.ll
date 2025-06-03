@@ -11820,7 +11820,7 @@ define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP
   unreachable
 
 44:                                               ; preds = %34, %36, %38, %40, %22, %18
-  %.1 = phi i8 [ %6, %22 ], [ 83, %40 ], [ 67, %38 ], [ 66, %36 ], [ 90, %34 ], [ %6, %18 ]
+  %.1 = phi i8 [ 90, %34 ], [ 66, %36 ], [ 67, %38 ], [ 83, %40 ], [ %6, %22 ], [ %6, %18 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %45
 

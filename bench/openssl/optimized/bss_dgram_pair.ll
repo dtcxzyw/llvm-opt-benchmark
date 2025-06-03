@@ -1745,7 +1745,7 @@ dgram_pair_ctrl_get_local_addr_cap.exit.i:        ; preds = %128, %126
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
 dgram_pair_ctrl_get_write_guarantee.exit:         ; preds = %179, %177, %174, %148, %141, %134, %dgram_pair_ctrl_get_local_addr_cap.exit.i, %124, %ring_buf_resize.exit.i, %23, %19, %11, %167, %163, %57, %52, %8, %47, %50, %dgram_pair_ctrl_pending.exit, %107, %112, %119, %154, %157, %160, %171, %183, %4
-  %.0 = phi i64 [ 0, %4 ], [ 0, %183 ], [ 1, %171 ], [ %162, %160 ], [ 1, %157 ], [ %156, %154 ], [ 1, %119 ], [ 1, %112 ], [ %111, %107 ], [ 1, %8 ], [ %.0.i47, %dgram_pair_ctrl_pending.exit ], [ 1, %50 ], [ %49, %47 ], [ %spec.store.select.i43, %57 ], [ 0, %52 ], [ 1, %163 ], [ 1, %167 ], [ 0, %11 ], [ 1, %ring_buf_resize.exit.i ], [ 0, %19 ], [ 0, %23 ], [ 1, %134 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.exit.i ], [ 0, %124 ], [ %153, %148 ], [ 0, %141 ], [ 1, %174 ], [ 0, %177 ], [ %182, %179 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %183 ], [ %49, %47 ], [ 1, %50 ], [ %.0.i47, %dgram_pair_ctrl_pending.exit ], [ 1, %8 ], [ %111, %107 ], [ 1, %112 ], [ 1, %119 ], [ %156, %154 ], [ 1, %157 ], [ %162, %160 ], [ 1, %171 ], [ %spec.store.select.i43, %57 ], [ 0, %52 ], [ 1, %163 ], [ 1, %167 ], [ 0, %11 ], [ 1, %ring_buf_resize.exit.i ], [ 0, %19 ], [ 0, %23 ], [ 1, %134 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.exit.i ], [ 0, %124 ], [ %153, %148 ], [ 0, %141 ], [ 1, %174 ], [ 0, %177 ], [ %182, %179 ]
   ret i64 %.0
 }
 

@@ -1886,7 +1886,7 @@ _ZN5clang15hasSpecificAttrINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEE
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i: ; preds = %288, %282
-  %.1.i.i.i = phi ptr [ %285, %282 ], [ %289, %288 ]
+  %.1.i.i.i = phi ptr [ %289, %288 ], [ %285, %282 ]
   %290 = call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i.i.i) #21
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %.critedge40.i.i, label %292
@@ -2398,7 +2398,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i68.i.i: ; preds = %481, %473
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i103.i
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i103.i: ; preds = %497, %.lr.ph.i100.i
-  %.1.i.i104.i = phi ptr [ %.027.i101.i, %.lr.ph.i100.i ], [ %498, %497 ]
+  %.1.i.i104.i = phi ptr [ %498, %497 ], [ %.027.i101.i, %.lr.ph.i100.i ]
   %499 = getelementptr inbounds nuw i8, ptr %.1.i.i104.i, i64 32
   %.sroa.0.0.copyload.i.i105.i = load i64, ptr %499, align 16, !tbaa !43
   %.0.in.in.i106.i = and i64 %.sroa.0.0.copyload.i.i105.i, -16
@@ -2535,7 +2535,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i.i.i: ; preds = %543, %.lr.ph11.i
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i: ; preds = %556, %.lr.ph.i85.i
-  %.1.i.i86.i = phi ptr [ %.027.i.i, %.lr.ph.i85.i ], [ %557, %556 ]
+  %.1.i.i86.i = phi ptr [ %557, %556 ], [ %.027.i.i, %.lr.ph.i85.i ]
   %558 = getelementptr inbounds nuw i8, ptr %.1.i.i86.i, i64 32
   %.sroa.0.0.copyload.i.i87.i = load i64, ptr %558, align 16, !tbaa !43
   %.0.in.in.i.i = and i64 %.sroa.0.0.copyload.i.i87.i, -16
@@ -14918,7 +14918,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor1
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %.lr.ph, %15
-  %.1.i = phi ptr [ %.027, %.lr.ph ], [ %16, %15 ]
+  %.1.i = phi ptr [ %16, %15 ], [ %.027, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 16, !tbaa !43
   %.0.in.in = and i64 %.sroa.0.0.copyload.i, -16

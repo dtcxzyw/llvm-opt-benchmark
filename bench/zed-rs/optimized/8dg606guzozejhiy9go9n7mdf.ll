@@ -416,11 +416,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %98
   unreachable
 
 common.resume:                                    ; preds = %115, %.body, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i": ; preds = %common.ret.sink.split.i20.i.i.i, %106, %103, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !6
   store i8 2, ptr %12, align 8, !noalias !6
   br label %common.resume
@@ -439,9 +439,9 @@ common.ret.sink.split.i20.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %23, %83
-  %.sroa.018.0.copyload = phi ptr [ %87, %83 ], [ %.sroa.047.0.copyload.i.i.i, %23 ]
-  %.sroa.420.0.copyload = phi i32 [ %.sroa.353.0.copyload55.i.i.i, %83 ], [ 2, %23 ]
-  %.sroa.456.0.i.i.i = phi i64 [ %.sroa.456.0.copyload58.i.i.i, %83 ], [ undef, %23 ]
+  %.sroa.018.0.copyload = phi ptr [ %.sroa.047.0.copyload.i.i.i, %23 ], [ %87, %83 ]
+  %.sroa.420.0.copyload = phi i32 [ 2, %23 ], [ %.sroa.353.0.copyload55.i.i.i, %83 ]
+  %.sroa.456.0.i.i.i = phi i64 [ undef, %23 ], [ %.sroa.456.0.copyload58.i.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !6
   store i8 1, ptr %12, align 8, !noalias !6
   store ptr %.sroa.018.0.copyload, ptr %11, align 8
@@ -868,11 +868,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %99
   unreachable
 
 common.resume:                                    ; preds = %.body, %"_ZN4core3ptr113drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28d6f05218fd6696E.exit22.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28d6f05218fd6696E.exit22.i.i.i" ], [ %113, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr113drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28d6f05218fd6696E.exit22.i.i.i" ], [ %113, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr113drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28d6f05218fd6696E.exit22.i.i.i": ; preds = %common.ret.sink.split.i19.i.i.i, %104, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12), !noalias !36
   store i8 2, ptr %14, align 8, !noalias !36
   br label %common.resume
@@ -891,8 +891,8 @@ common.ret.sink.split.i19.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %25, %85
-  %.sroa.018.0.copyload = phi i64 [ %.sroa.048.0.copyload49.i.i.i, %85 ], [ -9223372036854775808, %25 ]
-  %.sroa.519.0.copyload = phi ptr [ %.sroa.350.0.copyload52.i.i.i, %85 ], [ %.sroa.046.0.copyload.i.i.i, %25 ]
+  %.sroa.018.0.copyload = phi i64 [ -9223372036854775808, %25 ], [ %.sroa.048.0.copyload49.i.i.i, %85 ]
+  %.sroa.519.0.copyload = phi ptr [ %.sroa.046.0.copyload.i.i.i, %25 ], [ %.sroa.350.0.copyload52.i.i.i, %85 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12), !noalias !36
   store i8 1, ptr %14, align 8, !noalias !36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.735.i.i.i.i)
@@ -1334,11 +1334,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %98
   unreachable
 
 common.resume:                                    ; preds = %115, %.body, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i": ; preds = %common.ret.sink.split.i20.i.i.i, %106, %103, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !73
   store i8 2, ptr %12, align 8, !noalias !73
   br label %common.resume
@@ -1357,9 +1357,9 @@ common.ret.sink.split.i20.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %23, %83
-  %.sroa.018.0.copyload = phi ptr [ %87, %83 ], [ %.sroa.047.0.copyload.i.i.i, %23 ]
-  %.sroa.420.0.copyload = phi i32 [ %.sroa.353.0.copyload55.i.i.i, %83 ], [ 2, %23 ]
-  %.sroa.456.0.i.i.i = phi i64 [ %.sroa.456.0.copyload58.i.i.i, %83 ], [ undef, %23 ]
+  %.sroa.018.0.copyload = phi ptr [ %.sroa.047.0.copyload.i.i.i, %23 ], [ %87, %83 ]
+  %.sroa.420.0.copyload = phi i32 [ 2, %23 ], [ %.sroa.353.0.copyload55.i.i.i, %83 ]
+  %.sroa.456.0.i.i.i = phi i64 [ undef, %23 ], [ %.sroa.456.0.copyload58.i.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !73
   store i8 1, ptr %12, align 8, !noalias !73
   store ptr %.sroa.018.0.copyload, ptr %11, align 8
@@ -1786,11 +1786,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %99
   unreachable
 
 common.resume:                                    ; preds = %.body, %"_ZN4core3ptr120drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServerProject$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5ba147e5b89a9317E.exit22.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr120drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServerProject$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5ba147e5b89a9317E.exit22.i.i.i" ], [ %113, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr120drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServerProject$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5ba147e5b89a9317E.exit22.i.i.i" ], [ %113, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr120drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..CreateDevServerProject$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5ba147e5b89a9317E.exit22.i.i.i": ; preds = %common.ret.sink.split.i19.i.i.i, %104, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12), !noalias !101
   store i8 2, ptr %14, align 8, !noalias !101
   br label %common.resume
@@ -1809,8 +1809,8 @@ common.ret.sink.split.i19.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %25, %85
-  %.sroa.018.0.copyload = phi i64 [ %.sroa.048.0.copyload49.i.i.i, %85 ], [ 3, %25 ]
-  %.sroa.519.0.copyload = phi ptr [ %.sroa.350.0.copyload52.i.i.i, %85 ], [ %.sroa.046.0.copyload.i.i.i, %25 ]
+  %.sroa.018.0.copyload = phi i64 [ 3, %25 ], [ %.sroa.048.0.copyload49.i.i.i, %85 ]
+  %.sroa.519.0.copyload = phi ptr [ %.sroa.046.0.copyload.i.i.i, %25 ], [ %.sroa.350.0.copyload52.i.i.i, %85 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %12), !noalias !101
   store i8 1, ptr %14, align 8, !noalias !101
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.735.i.i.i.i)
@@ -2252,11 +2252,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %98
   unreachable
 
 common.resume:                                    ; preds = %115, %.body, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i" ], [ %113, %.body ], [ %113, %115 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$proto..typed_envelope..TypedEnvelope$LT$proto..Ack$GT$$C$anyhow..Error$GT$$GT$17h8f81fb6885f2afcdE.exit.i.i.i": ; preds = %common.ret.sink.split.i20.i.i.i, %106, %103, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %106 ], [ %.pn4.i.i.i, %103 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %80, %.body.i.i.i ], [ %80, %common.ret.sink.split.i20.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !138
   store i8 2, ptr %12, align 8, !noalias !138
   br label %common.resume
@@ -2275,9 +2275,9 @@ common.ret.sink.split.i20.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %23, %83
-  %.sroa.018.0.copyload = phi ptr [ %87, %83 ], [ %.sroa.047.0.copyload.i.i.i, %23 ]
-  %.sroa.420.0.copyload = phi i32 [ %.sroa.353.0.copyload55.i.i.i, %83 ], [ 2, %23 ]
-  %.sroa.456.0.i.i.i = phi i64 [ %.sroa.456.0.copyload58.i.i.i, %83 ], [ undef, %23 ]
+  %.sroa.018.0.copyload = phi ptr [ %.sroa.047.0.copyload.i.i.i, %23 ], [ %87, %83 ]
+  %.sroa.420.0.copyload = phi i32 [ 2, %23 ], [ %.sroa.353.0.copyload55.i.i.i, %83 ]
+  %.sroa.456.0.i.i.i = phi i64 [ undef, %23 ], [ %.sroa.456.0.copyload58.i.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !138
   store i8 1, ptr %12, align 8, !noalias !138
   store ptr %.sroa.018.0.copyload, ptr %11, align 8
@@ -2704,11 +2704,11 @@ _ZN3log13__private_api3log17ha91a4afa9674199dE.exit.i.i.i: ; preds = %99
   unreachable
 
 common.resume:                                    ; preds = %.body, %"_ZN4core3ptr122drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..RegenerateDevServerToken$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6cb394eae2bb099E.exit22.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.pn.pn.pn.i.i.i, %"_ZN4core3ptr122drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..RegenerateDevServerToken$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6cb394eae2bb099E.exit22.i.i.i" ], [ %113, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.i.i.i, %"_ZN4core3ptr122drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..RegenerateDevServerToken$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6cb394eae2bb099E.exit22.i.i.i" ], [ %113, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr122drop_in_place$LT$rpc..peer..Peer..request_internal$LT$proto..RegenerateDevServerToken$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6cb394eae2bb099E.exit22.i.i.i": ; preds = %common.ret.sink.split.i19.i.i.i, %104, %.body.i.i.i, %.body.thread.i.i.i
-  %.pn4.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
+  %.pn8.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %104 ], [ %.pn11.pn.i.i.i.i, %.body.thread.i.i.i ], [ %84, %.body.i.i.i ], [ %84, %common.ret.sink.split.i19.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12), !noalias !166
   store i8 2, ptr %14, align 8, !noalias !166
   br label %common.resume
@@ -2727,8 +2727,8 @@ common.ret.sink.split.i19.i.i.i:                  ; preds = %109, %.body.i.i.i
   unreachable
 
 112:                                              ; preds = %25, %85
-  %.sroa.018.0.copyload = phi i64 [ %.sroa.048.0.copyload49.i.i.i, %85 ], [ -9223372036854775808, %25 ]
-  %.sroa.519.0.copyload = phi ptr [ %.sroa.350.0.copyload52.i.i.i, %85 ], [ %.sroa.046.0.copyload.i.i.i, %25 ]
+  %.sroa.018.0.copyload = phi i64 [ -9223372036854775808, %25 ], [ %.sroa.048.0.copyload49.i.i.i, %85 ]
+  %.sroa.519.0.copyload = phi ptr [ %.sroa.046.0.copyload.i.i.i, %25 ], [ %.sroa.350.0.copyload52.i.i.i, %85 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12), !noalias !166
   store i8 1, ptr %14, align 8, !noalias !166
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.735.i.i.i.i)
@@ -3507,7 +3507,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfcda7c4eb5b1af43E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfcda7c4eb5b1af43E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 

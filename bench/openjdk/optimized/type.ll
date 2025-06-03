@@ -802,7 +802,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %35, %37
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
 _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit: ; preds = %54, %50, %_ZN10TypeRawPtr4makeEPh.exit, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %47, %_ZN10TypeRawPtr4makeEPh.exit ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %53, %50 ], [ %55, %54 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %47, %_ZN10TypeRawPtr4makeEPh.exit ], [ %53, %50 ], [ %55, %54 ]
   ret ptr %.0
 }
 
@@ -2255,7 +2255,7 @@ define hidden noundef ptr @_ZN4Type32make_constant_from_array_elementEP7ciArrayi
   br label %13
 
 13:                                               ; preds = %5, %12, %11
-  %.0.i = phi i8 [ 12, %12 ], [ 8, %11 ], [ %9, %5 ]
+  %.0.i = phi i8 [ 8, %11 ], [ 12, %12 ], [ %9, %5 ]
   switch i8 %3, label %16 [
     i8 4, label %14
     i8 16, label %15
@@ -2270,7 +2270,7 @@ define hidden noundef ptr @_ZN4Type32make_constant_from_array_elementEP7ciArrayi
   br label %16
 
 16:                                               ; preds = %15, %14, %13
-  %.013.i = phi i8 [ %3, %13 ], [ 12, %15 ], [ 8, %14 ]
+  %.013.i = phi i8 [ %3, %13 ], [ 8, %14 ], [ 12, %15 ]
   %17 = icmp eq i8 %.0.i, %.013.i
   br i1 %17, label %18, label %21
 
@@ -2404,7 +2404,7 @@ define hidden noundef ptr @_ZN4Type24make_constant_from_fieldEP7ciFieldP10ciInst
   br label %18
 
 18:                                               ; preds = %15, %17, %16
-  %.0.i = phi i8 [ 12, %17 ], [ 8, %16 ], [ %.sroa.037.0, %15 ]
+  %.0.i = phi i8 [ 8, %16 ], [ 12, %17 ], [ %.sroa.037.0, %15 ]
   switch i8 %2, label %21 [
     i8 4, label %19
     i8 16, label %20
@@ -2419,7 +2419,7 @@ define hidden noundef ptr @_ZN4Type24make_constant_from_fieldEP7ciFieldP10ciInst
   br label %21
 
 21:                                               ; preds = %20, %19, %18
-  %.013.i = phi i8 [ %2, %18 ], [ 12, %20 ], [ 8, %19 ]
+  %.013.i = phi i8 [ %2, %18 ], [ 8, %19 ], [ 12, %20 ]
   %22 = icmp eq i8 %.0.i, %.013.i
   br i1 %22, label %23, label %29
 
@@ -8387,7 +8387,7 @@ define hidden noundef ptr @_ZNK4Type5xmeetEPKS_(ptr noundef nonnull align 8 dere
   br label %70
 
 70:                                               ; preds = %57, %49, %65, %9, %4, %2, %69, %61, %59, %53, %51, %42, %37, %32, %27, %22, %17, %12, %7
-  %.0 = phi ptr [ %8, %7 ], [ %60, %59 ], [ %62, %61 ], [ %52, %51 ], [ %54, %53 ], [ %0, %69 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %31, %27 ], [ %26, %22 ], [ %21, %17 ], [ %16, %12 ], [ %0, %2 ], [ %1, %4 ], [ %1, %9 ], [ %0, %49 ], [ %0, %57 ], [ %0, %65 ]
+  %.0 = phi ptr [ %8, %7 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %0, %69 ], [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %62, %61 ], [ %0, %2 ], [ %1, %4 ], [ %1, %9 ], [ %0, %49 ], [ %0, %57 ], [ %0, %65 ]
   ret ptr %.0
 }
 
@@ -9121,7 +9121,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %51, %53
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN7TypeInt4makeEiii.exit, %7
-  %.0 = phi ptr [ %61, %_ZN7TypeInt4makeEiii.exit ], [ %8, %7 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ %61, %_ZN7TypeInt4makeEiii.exit ], [ %0, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -9774,7 +9774,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %51, %53
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN8TypeLong4makeElli.exit, %7
-  %.0 = phi ptr [ %61, %_ZN8TypeLong4makeElli.exit ], [ %8, %7 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ %61, %_ZN8TypeLong4makeElli.exit ], [ %0, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -11891,7 +11891,7 @@ _ZN4TypenwEm.exit33:                              ; preds = %185, %187
   unreachable
 
 197:                                              ; preds = %_ZN4TypenwEm.exit33, %_ZN4TypenwEm.exit30, %_ZN4TypenwEm.exit27, %_ZN4TypenwEm.exit24, %_ZN4TypenwEm.exit21, %_ZN4TypenwEm.exit, %4
-  %.0 = phi ptr [ %5, %4 ], [ %194, %_ZN4TypenwEm.exit33 ], [ %167, %_ZN4TypenwEm.exit30 ], [ %140, %_ZN4TypenwEm.exit27 ], [ %113, %_ZN4TypenwEm.exit24 ], [ %86, %_ZN4TypenwEm.exit21 ], [ %59, %_ZN4TypenwEm.exit ]
+  %.0 = phi ptr [ %5, %4 ], [ %59, %_ZN4TypenwEm.exit ], [ %86, %_ZN4TypenwEm.exit21 ], [ %113, %_ZN4TypenwEm.exit24 ], [ %140, %_ZN4TypenwEm.exit27 ], [ %167, %_ZN4TypenwEm.exit30 ], [ %194, %_ZN4TypenwEm.exit33 ]
   ret ptr %.0
 }
 
@@ -12025,7 +12025,7 @@ define hidden noundef ptr @_ZNK8TypeVect5xmeetEPK4Type(ptr noundef nonnull reado
   br label %34
 
 34:                                               ; preds = %4, %2, %33, %21, %9
-  %.0 = phi ptr [ %20, %9 ], [ %0, %33 ], [ %32, %21 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %20, %9 ], [ %32, %21 ], [ %0, %33 ], [ %0, %2 ], [ %1, %4 ]
   ret ptr %.0
 }
 
@@ -12510,7 +12510,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %62, %64
   unreachable
 
 81:                                               ; preds = %4, %2, %74, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit, %7
-  %.0 = phi ptr [ %78, %74 ], [ %73, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %8, %7 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ %73, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %78, %74 ], [ %0, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -13769,7 +13769,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %95, %97
   unreachable
 
 118:                                              ; preds = %59, %107, %55, %20, %18, %4, %2, %111, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit, %58, %51, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit, %7
-  %.0 = phi ptr [ %115, %111 ], [ %106, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %1, %58 ], [ %52, %51 ], [ %50, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit ], [ %0, %7 ], [ %0, %2 ], [ %1, %4 ], [ %1, %18 ], [ %0, %20 ], [ %0, %55 ], [ %0, %107 ], [ %spec.select, %59 ]
+  %.0 = phi ptr [ %1, %58 ], [ %106, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %115, %111 ], [ %0, %7 ], [ %50, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit ], [ %52, %51 ], [ %0, %2 ], [ %1, %4 ], [ %1, %18 ], [ %0, %20 ], [ %0, %55 ], [ %0, %107 ], [ %spec.select, %59 ]
   ret ptr %.0
 }
 
@@ -16081,7 +16081,7 @@ _ZNK7TypePtr11meet_offsetEi.exit53:               ; preds = %_ZNK7TypePtr17xmeet
   br label %113
 
 113:                                              ; preds = %4, %2, %108, %_ZNK7TypePtr11meet_offsetEi.exit53, %58, %_ZNK10TypeOopPtr16meet_instance_idEi.exit, %53, %11, %7
-  %.0 = phi ptr [ %12, %11 ], [ %112, %108 ], [ %107, %_ZNK7TypePtr11meet_offsetEi.exit53 ], [ %59, %58 ], [ %57, %_ZNK10TypeOopPtr16meet_instance_idEi.exit ], [ %54, %53 ], [ %8, %7 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %12, %11 ], [ %8, %7 ], [ %107, %_ZNK7TypePtr11meet_offsetEi.exit53 ], [ %54, %53 ], [ %57, %_ZNK10TypeOopPtr16meet_instance_idEi.exit ], [ %59, %58 ], [ %112, %108 ], [ %0, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -19097,7 +19097,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %194, %200, %.thread
   br label %255
 
 255:                                              ; preds = %219, %248, %.split86, %.split87, %.split, %.split84, %8, %2, %140, %122, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101, %17, %15, %11
-  %.0 = phi ptr [ %16, %15 ], [ %141, %140 ], [ %123, %122 ], [ %77, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101 ], [ %21, %17 ], [ %12, %11 ], [ %0, %2 ], [ %0, %8 ], [ %61, %.split ], [ %58, %.split84 ], [ %139, %.split86 ], [ %136, %.split87 ], [ %224, %219 ], [ %254, %248 ]
+  %.0 = phi ptr [ %16, %15 ], [ %12, %11 ], [ %21, %17 ], [ %123, %122 ], [ %141, %140 ], [ %77, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101 ], [ %0, %2 ], [ %0, %8 ], [ %61, %.split ], [ %58, %.split84 ], [ %139, %.split86 ], [ %136, %.split87 ], [ %224, %219 ], [ %254, %248 ]
   ret ptr %.0
 }
 
@@ -23545,7 +23545,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %293, %294, %.thread
   unreachable
 
 387:                                              ; preds = %.split126, %.split127, %.split122, %.split123, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151, %.split, %.split120, %8, %2, %380, %336, %327, %231, %153, %128, %124, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142, %11
-  %.0 = phi ptr [ %83, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142 ], [ %384, %380 ], [ %339, %336 ], [ %335, %327 ], [ %243, %231 ], [ %154, %153 ], [ %129, %128 ], [ %125, %124 ], [ %12, %11 ], [ %0, %2 ], [ %0, %8 ], [ %73, %.split ], [ %63, %.split120 ], [ %0, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151 ], [ %150, %.split122 ], [ %140, %.split123 ], [ %379, %.split126 ], [ %369, %.split127 ]
+  %.0 = phi ptr [ %83, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142 ], [ %12, %11 ], [ %125, %124 ], [ %129, %128 ], [ %154, %153 ], [ %243, %231 ], [ %339, %336 ], [ %335, %327 ], [ %384, %380 ], [ %0, %2 ], [ %0, %8 ], [ %73, %.split ], [ %63, %.split120 ], [ %0, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151 ], [ %150, %.split122 ], [ %140, %.split123 ], [ %379, %.split126 ], [ %369, %.split127 ]
   ret ptr %.0
 }
 
@@ -25506,7 +25506,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52: ; preds = %127, %
   br label %147
 
 147:                                              ; preds = %144, %142, %4, %2, %145, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52, %80, %70, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit, %30, %7
-  %.0 = phi ptr [ %81, %80 ], [ %77, %70 ], [ %69, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit ], [ %37, %30 ], [ %139, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52 ], [ %146, %145 ], [ %8, %7 ], [ %0, %2 ], [ %0, %4 ], [ %1, %142 ], [ %0, %144 ]
+  %.0 = phi ptr [ %81, %80 ], [ %37, %30 ], [ %69, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit ], [ %77, %70 ], [ %8, %7 ], [ %139, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52 ], [ %146, %145 ], [ %0, %2 ], [ %0, %4 ], [ %1, %142 ], [ %0, %144 ]
   ret ptr %.0
 }
 
@@ -27677,7 +27677,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71:  ; preds = %155, %156, %.thread
   unreachable
 
 238:                                              ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %8, %2, %231, %223, %197, %189, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit, %60, %50, %42, %34, %11
-  %.0 = phi ptr [ %61, %60 ], [ %57, %50 ], [ %49, %42 ], [ %41, %34 ], [ %235, %231 ], [ %230, %223 ], [ %202, %197 ], [ %196, %189 ], [ %133, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit ], [ %12, %11 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
+  %.0 = phi ptr [ %61, %60 ], [ %41, %34 ], [ %49, %42 ], [ %57, %50 ], [ %12, %11 ], [ %133, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit ], [ %202, %197 ], [ %196, %189 ], [ %235, %231 ], [ %230, %223 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
   ret ptr %.0
 }
 
@@ -29528,7 +29528,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit:    ; preds = %139, %140, %.thread
   unreachable
 
 217:                                              ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %8, %2, %210, %204, %179, %173, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit, %60, %50, %42, %34, %11
-  %.0 = phi ptr [ %61, %60 ], [ %57, %50 ], [ %49, %42 ], [ %41, %34 ], [ %214, %210 ], [ %209, %204 ], [ %183, %179 ], [ %178, %173 ], [ %119, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit ], [ %12, %11 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
+  %.0 = phi ptr [ %61, %60 ], [ %41, %34 ], [ %49, %42 ], [ %57, %50 ], [ %12, %11 ], [ %119, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit ], [ %183, %179 ], [ %178, %173 ], [ %214, %210 ], [ %209, %204 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
   ret ptr %.0
 }
 

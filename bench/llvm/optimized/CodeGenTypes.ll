@@ -1497,7 +1497,7 @@ _ZNK5clang4Type13isMFloat8TypeEv.exit.thread:     ; preds = %175, %_ZNK5clang4Ty
   br label %218
 
 218:                                              ; preds = %196, %212, %207, %203
-  %.6 = phi ptr [ %217, %212 ], [ %211, %207 ], [ %206, %203 ], [ %199, %196 ]
+  %.6 = phi ptr [ %206, %203 ], [ %211, %207 ], [ %217, %212 ], [ %199, %196 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
   br label %520
 
@@ -1988,13 +1988,13 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %421, %428
   br label %518
 
 518:                                              ; preds = %391, %395, %.thread178, %472, %484, %462, %464, %94, %98, %103, %108, %118, %145, %150, %157, %162, %167, %230, %235, %264, %282, %513, %504, %496, %_ZNK5clang8QualType15getAddressSpaceEv.exit, %400, %388, %386, %377, %372, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit, %320, %307, %300, %293, %287, %.thread173
-  %.0102 = phi ptr [ null, %.thread173 ], [ null, %94 ], [ %286, %282 ], [ %270, %264 ], [ %239, %235 ], [ %234, %230 ], [ %174, %167 ], [ %166, %162 ], [ %161, %157 ], [ %156, %150 ], [ %147, %145 ], [ %124, %118 ], [ %117, %108 ], [ %107, %103 ], [ %102, %98 ], [ %292, %287 ], [ %299, %293 ], [ %306, %300 ], [ %309, %307 ], [ %321, %320 ], [ %343, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %376, %372 ], [ %385, %377 ], [ %387, %386 ], [ %390, %388 ], [ %404, %400 ], [ %438, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ %503, %496 ], [ %512, %504 ], [ %517, %513 ], [ %471, %464 ], [ %463, %462 ], [ %495, %484 ], [ %474, %472 ], [ %417, %.thread178 ], [ %399, %395 ], [ %394, %391 ]
+  %.0102 = phi ptr [ null, %.thread173 ], [ %517, %513 ], [ %512, %504 ], [ %503, %496 ], [ %438, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ %404, %400 ], [ %390, %388 ], [ %387, %386 ], [ %385, %377 ], [ %376, %372 ], [ %343, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %321, %320 ], [ %309, %307 ], [ %306, %300 ], [ %299, %293 ], [ %292, %287 ], [ null, %94 ], [ %102, %98 ], [ %107, %103 ], [ %117, %108 ], [ %124, %118 ], [ %147, %145 ], [ %156, %150 ], [ %161, %157 ], [ %166, %162 ], [ %174, %167 ], [ %234, %230 ], [ %239, %235 ], [ %270, %264 ], [ %286, %282 ], [ %471, %464 ], [ %463, %462 ], [ %495, %484 ], [ %474, %472 ], [ %417, %.thread178 ], [ %399, %395 ], [ %394, %391 ]
   %519 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %.0102, ptr %519, align 8, !tbaa !868
   br label %520
 
 520:                                              ; preds = %91, %518, %276, %271, %263, %224, %219, %218, %418, %58, %37, %47
-  %.2 = phi ptr [ %60, %58 ], [ %43, %37 ], [ %53, %47 ], [ %93, %91 ], [ %.0102, %518 ], [ %281, %276 ], [ %275, %271 ], [ %.8, %263 ], [ %229, %224 ], [ %223, %219 ], [ %.6, %218 ], [ %420, %418 ]
+  %.2 = phi ptr [ %60, %58 ], [ %43, %37 ], [ %53, %47 ], [ %93, %91 ], [ %.0102, %518 ], [ %420, %418 ], [ %.6, %218 ], [ %223, %219 ], [ %229, %224 ], [ %.8, %263 ], [ %275, %271 ], [ %281, %276 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   ret ptr %.2
 }
@@ -3426,7 +3426,7 @@ define linkonce_odr hidden i64 @_ZNK5clang13ReferenceType14getPointeeTypeEv(ptr 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit: ; preds = %.lr.ph, %12
-  %.1.i = phi ptr [ %8, %.lr.ph ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %8, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %15 = load i24, ptr %14, align 16
   %16 = and i24 %15, 1048576
@@ -3809,7 +3809,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule18isPaddedA
   br label %_ZNK5clang4Type6castAsINS_10AtomicTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10AtomicTypeEEEPKT_v.exit: ; preds = %2, %8
-  %.1.i = phi ptr [ %5, %2 ], [ %9, %8 ]
+  %.1.i = phi ptr [ %9, %8 ], [ %5, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %12 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %11, ptr noundef %.1.i) #16
@@ -4524,8 +4524,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

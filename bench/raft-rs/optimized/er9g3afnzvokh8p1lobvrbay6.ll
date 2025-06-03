@@ -463,7 +463,7 @@ define void @_ZN10raft_proto10confchange17parse_conf_change17he894210fdd0eef47E(
   br label %110
 
 110:                                              ; preds = %105, %109, %108
-  %.sroa.02.0 = phi i8 [ 1, %109 ], [ 2, %108 ], [ 0, %105 ]
+  %.sroa.02.0 = phi i8 [ 2, %108 ], [ 1, %109 ], [ 0, %105 ]
   invoke void @_ZN10raft_proto6protos7eraftpb16ConfChangeSingle15set_change_type17h83cd7093a7613fa1E(ptr noalias noundef nonnull align 8 dereferenceable(32) %15, i8 noundef %.sroa.02.0)
           to label %111 unwind label %.loopexit101
 

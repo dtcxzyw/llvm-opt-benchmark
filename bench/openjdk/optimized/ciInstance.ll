@@ -440,8 +440,8 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %75
   unreachable
 
 93:                                               ; preds = %80, %_ZN5ciEnv10get_objectEP7oopDesc.exit, %69, %63, %57, %51, %44, %37, %30, %23
-  %.sroa.24.sroa.0.1 = phi i32 [ %.sroa.24.sroa.0.0.extract.trunc82, %80 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.0.0.extract.trunc, %69 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %63 ], [ %62, %57 ], [ %56, %51 ], [ %50, %44 ], [ %43, %37 ], [ %36, %30 ], [ %29, %23 ]
-  %.sroa.24.sroa.13.1 = phi i64 [ %.sroa.24.sroa.13.0.extract.shift88, %80 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.2.0.extract.shift, %69 ], [ %.sroa.24.sroa.13.0.extract.shift90, %63 ], [ 0, %57 ], [ 0, %51 ], [ 0, %44 ], [ 0, %37 ], [ 0, %30 ], [ 0, %23 ]
+  %.sroa.24.sroa.0.1 = phi i32 [ %29, %23 ], [ %36, %30 ], [ %43, %37 ], [ %50, %44 ], [ %56, %51 ], [ %62, %57 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %63 ], [ %.sroa.243.sroa.0.0.extract.trunc, %69 ], [ %.sroa.24.sroa.0.0.extract.trunc82, %80 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ]
+  %.sroa.24.sroa.13.1 = phi i64 [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %44 ], [ 0, %51 ], [ 0, %57 ], [ %.sroa.24.sroa.13.0.extract.shift90, %63 ], [ %.sroa.243.sroa.2.0.extract.shift, %69 ], [ %.sroa.24.sroa.13.0.extract.shift88, %80 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ]
   %.sroa.24.sroa.0.0.insert.ext = zext i32 %.sroa.24.sroa.0.1 to i64
   %.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %.sroa.24.sroa.13.1, %.sroa.24.sroa.0.0.insert.ext
   tail call void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %2, i8 %1, i64 %.sroa.24.sroa.0.0.insert.insert) #5

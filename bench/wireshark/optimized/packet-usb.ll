@@ -2388,8 +2388,8 @@ define hidden range(i32 0, 8192) i32 @sanitize_usb_max_packet_size(i8 noundef ze
   br label %36
 
 36:                                               ; preds = %34, %20, %18, %9, %16, %14, %12, %3, %23, %24, %22, %11, %8, %7
-  %.023 = phi i32 [ %4, %3 ], [ %4, %22 ], [ 512, %24 ], [ 64, %23 ], [ %4, %11 ], [ %4, %7 ], [ 8, %8 ], [ %spec.select, %9 ], [ 64, %12 ], [ 32, %14 ], [ %., %16 ], [ %spec.select26, %18 ], [ %spec.select27, %20 ], [ %spec.select28, %34 ]
-  %.0 = phi i32 [ %6, %3 ], [ %6, %22 ], [ 0, %24 ], [ 0, %23 ], [ 0, %11 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %12 ], [ 0, %14 ], [ 0, %16 ], [ 0, %18 ], [ 0, %20 ], [ %.1, %34 ]
+  %.023 = phi i32 [ %4, %3 ], [ %4, %7 ], [ 8, %8 ], [ %4, %11 ], [ %4, %22 ], [ 64, %23 ], [ 512, %24 ], [ %spec.select, %9 ], [ 64, %12 ], [ 32, %14 ], [ %., %16 ], [ %spec.select26, %18 ], [ %spec.select27, %20 ], [ %spec.select28, %34 ]
+  %.0 = phi i32 [ %6, %3 ], [ 0, %7 ], [ 0, %8 ], [ 0, %11 ], [ %6, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %9 ], [ 0, %12 ], [ 0, %14 ], [ 0, %16 ], [ 0, %18 ], [ 0, %20 ], [ %.1, %34 ]
   %37 = shl nuw nsw i32 %.0, 11
   %38 = add nuw nsw i32 %37, %.023
   ret i32 %38
@@ -2895,13 +2895,13 @@ define hidden void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr nound
   br label %107
 
 107:                                              ; preds = %70, %54, %95, %85, %52, %31
-  %.0264 = phi i8 [ %98, %95 ], [ %87, %85 ], [ %.1265, %52 ], [ %32, %31 ], [ %56, %54 ], [ %73, %70 ]
-  %.0263 = phi i32 [ %104, %95 ], [ %89, %85 ], [ %44, %52 ], [ %34, %31 ], [ %spec.select279, %54 ], [ %spec.select280, %70 ]
-  %.0262 = phi i16 [ %101, %95 ], [ %91, %85 ], [ %42, %52 ], [ %36, %31 ], [ %60, %54 ], [ %75, %70 ]
-  %.0261 = phi i16 [ %106, %95 ], [ %94, %85 ], [ %53, %52 ], [ %37, %31 ], [ %66, %54 ], [ %78, %70 ]
-  %.0259 = phi ptr [ null, %95 ], [ null, %85 ], [ null, %52 ], [ null, %31 ], [ %4, %54 ], [ null, %70 ]
-  %.0258 = phi ptr [ null, %95 ], [ null, %85 ], [ null, %52 ], [ null, %31 ], [ null, %54 ], [ %4, %70 ]
-  %.0257 = phi ptr [ %4, %95 ], [ null, %85 ], [ null, %52 ], [ null, %31 ], [ null, %54 ], [ null, %70 ]
+  %.0264 = phi i8 [ %32, %31 ], [ %.1265, %52 ], [ %87, %85 ], [ %98, %95 ], [ %56, %54 ], [ %73, %70 ]
+  %.0263 = phi i32 [ %34, %31 ], [ %44, %52 ], [ %89, %85 ], [ %104, %95 ], [ %spec.select279, %54 ], [ %spec.select280, %70 ]
+  %.0262 = phi i16 [ %36, %31 ], [ %42, %52 ], [ %91, %85 ], [ %101, %95 ], [ %60, %54 ], [ %75, %70 ]
+  %.0261 = phi i16 [ %37, %31 ], [ %53, %52 ], [ %94, %85 ], [ %106, %95 ], [ %66, %54 ], [ %78, %70 ]
+  %.0259 = phi ptr [ null, %31 ], [ null, %52 ], [ null, %85 ], [ null, %95 ], [ %4, %54 ], [ null, %70 ]
+  %.0258 = phi ptr [ null, %31 ], [ null, %52 ], [ null, %85 ], [ null, %95 ], [ null, %54 ], [ %4, %70 ]
+  %.0257 = phi ptr [ null, %31 ], [ null, %52 ], [ null, %85 ], [ %4, %95 ], [ null, %54 ], [ null, %70 ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load ptr, ptr %108, align 8
   tail call void @col_set_str(ptr noundef %109, i32 noundef 35, ptr noundef nonnull @.str.14)
@@ -3481,10 +3481,10 @@ default.unreachable:                              ; preds = %clear_usb_conv_tmp_
   unreachable
 
 440:                                              ; preds = %435, %dissect_darwin_buffer_packet_header.exit, %.thread, %327, %dissect_usbpcap_buffer_packet_header.exit, %dissect_linux_usb_pseudo_header.exit
-  %.0338 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %.thread ], [ 0, %327 ], [ %324, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0267 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %353, %.thread ], [ 0, %327 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0266 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %329, %.thread ], [ 0, %327 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0254 = phi i32 [ 0, %435 ], [ %423, %dissect_darwin_buffer_packet_header.exit ], [ %345, %.thread ], [ 20, %327 ], [ 27, %dissect_usbpcap_buffer_packet_header.exit ], [ 40, %dissect_linux_usb_pseudo_header.exit ]
+  %.0338 = phi i32 [ 0, %dissect_linux_usb_pseudo_header.exit ], [ %324, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %327 ], [ 0, %.thread ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %435 ]
+  %.0267 = phi i32 [ 0, %dissect_linux_usb_pseudo_header.exit ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %327 ], [ %353, %.thread ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %435 ]
+  %.0266 = phi i32 [ 0, %dissect_linux_usb_pseudo_header.exit ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %327 ], [ %329, %.thread ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %435 ]
+  %.0254 = phi i32 [ 40, %dissect_linux_usb_pseudo_header.exit ], [ 27, %dissect_usbpcap_buffer_packet_header.exit ], [ 20, %327 ], [ %345, %.thread ], [ %423, %dissect_darwin_buffer_packet_header.exit ], [ 0, %435 ]
   %441 = load i64, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 %441, ptr %22, align 8
@@ -4141,7 +4141,7 @@ dissect_usb_setup_request.exit:                   ; preds = %680, %741, %742
   br label %1241
 
 789:                                              ; preds = %773, %754, %759, %753
-  %.4 = phi i32 [ %.2256, %753 ], [ %.2256, %773 ], [ %772, %759 ], [ %757, %754 ]
+  %.4 = phi i32 [ %.2256, %753 ], [ %772, %759 ], [ %757, %754 ], [ %.2256, %773 ]
   %790 = call ptr @proto_tree_get_parent_tree(ptr noundef %113)
   %.not.i299 = icmp eq ptr %201, null
   br i1 %.not.i299, label %835, label %791
@@ -4770,8 +4770,8 @@ dissect_darwin_usb_iso_transfer.exit:             ; preds = %.lr.ph.i332, %1111,
   br label %dissect_usb_setup_response.exit
 
 dissect_usb_setup_response.exit:                  ; preds = %1002, %1000, %998, %940, %838, %835, %831, %is_usb_standard_setup_request.exit.thread.i301, %822, %820, %.thread.i.i, %._crit_edge.i, %1120, %745, %proto_item_set_generated.exit, %1126, %1121, %842, %dissect_linux_usb_iso_transfer.exit, %dissect_usbip_iso_transfer.exit, %dissect_darwin_usb_iso_transfer.exit, %751, %746, %dissect_usb_setup_request.exit, %554, %549
-  %.1255 = phi i32 [ %.0254, %1120 ], [ %1139, %1126 ], [ %1124, %1121 ], [ %.0254, %842 ], [ %.0.lcssa.i, %dissect_usbip_iso_transfer.exit ], [ %.068.lcssa.i, %dissect_darwin_usb_iso_transfer.exit ], [ %928, %dissect_linux_usb_iso_transfer.exit ], [ %.0.i298, %dissect_usb_setup_request.exit ], [ %.2256, %745 ], [ %752, %751 ], [ %749, %746 ], [ %.0254, %proto_item_set_generated.exit ], [ %567, %554 ], [ %552, %549 ], [ %834, %831 ], [ %828, %is_usb_standard_setup_request.exit.thread.i301 ], [ %841, %838 ], [ %.4, %835 ], [ %.4, %._crit_edge.i ], [ %821, %820 ], [ %825, %822 ], [ %.4, %.thread.i.i ], [ %942, %940 ], [ %1003, %1002 ], [ %.090.lcssa.i, %1000 ], [ %.090.lcssa.i, %998 ]
-  %.0253 = phi ptr [ %0, %1120 ], [ %0, %1126 ], [ %0, %1121 ], [ %0, %842 ], [ %0, %dissect_usbip_iso_transfer.exit ], [ %0, %dissect_darwin_usb_iso_transfer.exit ], [ %0, %dissect_linux_usb_iso_transfer.exit ], [ %.1, %dissect_usb_setup_request.exit ], [ %.1, %745 ], [ %.1, %751 ], [ %.1, %746 ], [ %0, %proto_item_set_generated.exit ], [ %0, %554 ], [ %0, %549 ], [ %.1, %831 ], [ %.1, %is_usb_standard_setup_request.exit.thread.i301 ], [ %.1, %838 ], [ %.1, %835 ], [ %.1, %._crit_edge.i ], [ %.1, %820 ], [ %.1, %822 ], [ %.1, %.thread.i.i ], [ %0, %940 ], [ %0, %1002 ], [ %0, %1000 ], [ %0, %998 ]
+  %.1255 = phi i32 [ %.0254, %1120 ], [ %1139, %1126 ], [ %1124, %1121 ], [ %.0254, %proto_item_set_generated.exit ], [ %567, %554 ], [ %552, %549 ], [ %.0.i298, %dissect_usb_setup_request.exit ], [ %.2256, %745 ], [ %752, %751 ], [ %749, %746 ], [ %.0254, %842 ], [ %928, %dissect_linux_usb_iso_transfer.exit ], [ %.068.lcssa.i, %dissect_darwin_usb_iso_transfer.exit ], [ %.0.lcssa.i, %dissect_usbip_iso_transfer.exit ], [ %834, %831 ], [ %828, %is_usb_standard_setup_request.exit.thread.i301 ], [ %841, %838 ], [ %.4, %835 ], [ %.4, %._crit_edge.i ], [ %821, %820 ], [ %825, %822 ], [ %.4, %.thread.i.i ], [ %942, %940 ], [ %1003, %1002 ], [ %.090.lcssa.i, %1000 ], [ %.090.lcssa.i, %998 ]
+  %.0253 = phi ptr [ %0, %1120 ], [ %0, %1126 ], [ %0, %1121 ], [ %0, %proto_item_set_generated.exit ], [ %0, %554 ], [ %0, %549 ], [ %.1, %dissect_usb_setup_request.exit ], [ %.1, %745 ], [ %.1, %751 ], [ %.1, %746 ], [ %0, %842 ], [ %0, %dissect_linux_usb_iso_transfer.exit ], [ %0, %dissect_darwin_usb_iso_transfer.exit ], [ %0, %dissect_usbip_iso_transfer.exit ], [ %.1, %831 ], [ %.1, %is_usb_standard_setup_request.exit.thread.i301 ], [ %.1, %838 ], [ %.1, %835 ], [ %.1, %._crit_edge.i ], [ %.1, %820 ], [ %.1, %822 ], [ %.1, %.thread.i.i ], [ %0, %940 ], [ %0, %1002 ], [ %0, %1000 ], [ %0, %998 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
@@ -6280,10 +6280,10 @@ proto_item_set_generated.exit:                    ; preds = %179, %187, %190
   br label %195
 
 195:                                              ; preds = %101, %is_usb_standard_setup_request.exit, %108, %proto_item_set_generated.exit, %105, %102
-  %.0166 = phi ptr [ %0, %101 ], [ %0, %is_usb_standard_setup_request.exit ], [ %194, %proto_item_set_generated.exit ], [ %0, %108 ], [ %0, %105 ], [ %0, %102 ]
-  %.0162 = phi ptr [ null, %101 ], [ null, %is_usb_standard_setup_request.exit ], [ %.1163, %proto_item_set_generated.exit ], [ null, %108 ], [ %107, %105 ], [ %104, %102 ]
-  %.0159 = phi ptr [ null, %101 ], [ null, %is_usb_standard_setup_request.exit ], [ %.1160, %proto_item_set_generated.exit ], [ null, %108 ], [ %106, %105 ], [ %103, %102 ]
-  %.0157 = phi ptr [ %3, %101 ], [ %3, %is_usb_standard_setup_request.exit ], [ %.1158, %proto_item_set_generated.exit ], [ %3, %108 ], [ %3, %105 ], [ %3, %102 ]
+  %.0166 = phi ptr [ %0, %101 ], [ %0, %102 ], [ %0, %105 ], [ %0, %is_usb_standard_setup_request.exit ], [ %194, %proto_item_set_generated.exit ], [ %0, %108 ]
+  %.0162 = phi ptr [ null, %101 ], [ %104, %102 ], [ %107, %105 ], [ null, %is_usb_standard_setup_request.exit ], [ %.1163, %proto_item_set_generated.exit ], [ null, %108 ]
+  %.0159 = phi ptr [ null, %101 ], [ %103, %102 ], [ %106, %105 ], [ null, %is_usb_standard_setup_request.exit ], [ %.1160, %proto_item_set_generated.exit ], [ null, %108 ]
+  %.0157 = phi ptr [ %3, %101 ], [ %3, %102 ], [ %3, %105 ], [ %3, %is_usb_standard_setup_request.exit ], [ %.1158, %proto_item_set_generated.exit ], [ %3, %108 ]
   %196 = getelementptr inbounds nuw i8, ptr %.0157, i64 40
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 4
@@ -7000,7 +7000,7 @@ dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_
   br label %185
 
 185:                                              ; preds = %181, %183, %5
-  %.046 = phi i32 [ %33, %5 ], [ %spec.store.select, %183 ], [ 3, %181 ]
+  %.046 = phi i32 [ %spec.store.select, %183 ], [ %33, %5 ], [ 3, %181 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #12
   store i8 -1, ptr %22, align 1
@@ -7495,7 +7495,7 @@ dissect_usb_endpoint_companion_descriptor.exit.i: ; preds = %477, %468
   br label %505
 
 505:                                              ; preds = %491, %489, %dissect_usb_endpoint_companion_descriptor.exit.i, %408, %406, %dissect_usb_interface_descriptor.exit.i
-  %.2.i = phi i32 [ %490, %489 ], [ %503, %491 ], [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ], [ %436, %408 ], [ %407, %406 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ]
+  %.2.i = phi i32 [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ], [ %407, %406 ], [ %436, %408 ], [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ]
   %506 = sub i32 %.2.i, %3
   %507 = icmp slt i32 %506, %244
   br i1 %507, label %252, label %dissect_usb_configuration_descriptor.exit
@@ -7932,7 +7932,7 @@ dissect_usb_bos_descriptor.exit:                  ; preds = %636, %.loopexit.i
   br label %746
 
 746:                                              ; preds = %5, %5, %736, %dissect_usb_bos_descriptor.exit, %dissect_usb_device_qualifier_descriptor.exit, %dissect_usb_string_descriptor.exit, %dissect_usb_configuration_descriptor.exit, %dissect_usb_device_descriptor.exit
-  %.0 = phi i32 [ %745, %736 ], [ %.0.i65, %dissect_usb_bos_descriptor.exit ], [ %634, %dissect_usb_device_qualifier_descriptor.exit ], [ %.0.i51, %dissect_usb_string_descriptor.exit ], [ %.0128146.i, %dissect_usb_configuration_descriptor.exit ], [ %.0.i, %dissect_usb_device_descriptor.exit ], [ %3, %5 ], [ %3, %5 ]
+  %.0 = phi i32 [ %745, %736 ], [ %3, %5 ], [ %3, %5 ], [ %.0.i, %dissect_usb_device_descriptor.exit ], [ %.0128146.i, %dissect_usb_configuration_descriptor.exit ], [ %.0.i51, %dissect_usb_string_descriptor.exit ], [ %634, %dissect_usb_device_qualifier_descriptor.exit ], [ %.0.i65, %dissect_usb_bos_descriptor.exit ]
   ret i32 %.0
 }
 

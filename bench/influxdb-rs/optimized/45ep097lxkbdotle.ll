@@ -10724,14 +10724,14 @@ common.resume:                                    ; preds = %2, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Kind$GT$17h4d8f300ce6bf8ea3E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !561, !noundef !4
-  switch i64 %2, label %default.unreachable8 [
+  switch i64 %2, label %default.unreachable7 [
     i64 0, label %24
     i64 1, label %36
     i64 2, label %51
     i64 3, label %3
   ]
 
-default.unreachable8:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -10776,8 +10776,8 @@ default.unreachable8:                             ; preds = %1
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %19, i64 noundef %21) #21, !noalias !3856
   br label %"_ZN4core3ptr346drop_in_place$LT$hyper..common..sync_wrapper..SyncWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h9694aefac1e6f7b9E.llvm.9135219245553044050.exit"
 
-common.resume:                                    ; preds = %.body6, %98, %86, %90, %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ], [ %10, %9 ], [ %87, %90 ], [ %87, %86 ], [ %99, %98 ], [ %.pn, %.body6 ]
+common.resume:                                    ; preds = %.body5, %98, %86, %90, %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i"
+  %common.resume.op = phi { ptr, i32 } [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ], [ %10, %9 ], [ %87, %90 ], [ %87, %86 ], [ %.pn, %.body5 ], [ %99, %98 ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %1
@@ -10869,7 +10869,7 @@ common.resume:                                    ; preds = %.body6, %98, %86, %
   %eh.lpad-body = phi { ptr, i32 } [ %60, %59 ], [ %39, %43 ], [ %39, %38 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr129drop_in_place$LT$futures_channel..mpsc..Receiver$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$$GT$17h8392908f13e4c3faE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(8) %61) #24
-          to label %.body6 unwind label %96
+          to label %.body5 unwind label %96
 
 "_ZN4core3ptr49drop_in_place$LT$hyper..common..watch..Sender$GT$17h70574ebae75933e7E.llvm.9135219245553044050.exit": ; preds = %44, %48
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10882,17 +10882,17 @@ common.resume:                                    ; preds = %.body6, %98, %86, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3897)
   %65 = load ptr, ptr %62, align 8, !alias.scope !3900, !noundef !4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.body6, label %67
+  br i1 %66, label %.body5, label %67
 
 67:                                               ; preds = %63
   %68 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !3903
   %69 = icmp eq i64 %68, 1
-  br i1 %69, label %70, label %.body6
+  br i1 %69, label %70, label %.body5
 
 70:                                               ; preds = %67
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1d12fdc18747f94cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62)
-          to label %.body6 unwind label %78
+          to label %.body5 unwind label %78
 
 71:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$hyper..common..watch..Sender$GT$17h70574ebae75933e7E.llvm.9135219245553044050.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3908)
@@ -10916,7 +10916,7 @@ common.resume:                                    ; preds = %.body6, %98, %86, %
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23
   unreachable
 
-.body6:                                           ; preds = %81, %70, %67, %63, %.body
+.body5:                                           ; preds = %81, %70, %67, %63, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %82, %81 ], [ %64, %70 ], [ %64, %67 ], [ %64, %63 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr91drop_in_place$LT$futures_channel..oneshot..Receiver$LT$http..header..map..HeaderMap$GT$$GT$17h890e801aa59323afE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(8) %80) #24
@@ -10925,7 +10925,7 @@ common.resume:                                    ; preds = %.body6, %98, %86, %
 81:                                               ; preds = %77
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %.body6
+  br label %.body5
 
 "_ZN4core3ptr129drop_in_place$LT$futures_channel..mpsc..Receiver$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$$GT$17h8392908f13e4c3faE.llvm.9135219245553044050.exit": ; preds = %74, %71, %77
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10963,7 +10963,7 @@ common.resume:                                    ; preds = %.body6, %98, %86, %
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23
   unreachable
 
-96:                                               ; preds = %98, %.body6, %.body
+96:                                               ; preds = %98, %.body5, %.body
   %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23
@@ -27390,7 +27390,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h024212a5141a6afeE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -27450,7 +27450,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h7310f244617e5aa8E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -27510,7 +27510,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h8a9bb53664d0b4bfE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -27571,7 +27571,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h8d7e0436708ffa83E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }

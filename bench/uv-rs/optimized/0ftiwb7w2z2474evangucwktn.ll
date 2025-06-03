@@ -550,7 +550,7 @@ default.unreachable45:                            ; preds = %4
   unreachable
 
 79:                                               ; preds = %93, %65
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %66, %65 ]
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn
 
 80:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit44"
@@ -702,7 +702,7 @@ default.unreachable11:                            ; preds = %3
   unreachable
 
 37:                                               ; preds = %38, %23
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.pn
 
 38:                                               ; preds = %17
@@ -1605,7 +1605,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit38: ; preds = %2
   br label %34
 
 34:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit38, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit33, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %17
-  %.sroa.0.0.in = phi i1 [ %33, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit38 ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit33 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %18, %17 ]
+  %.sroa.0.0.in = phi i1 [ %18, %17 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit33 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit38 ]
   ret i1 %.sroa.0.0.in
 }
 

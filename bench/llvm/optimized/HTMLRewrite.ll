@@ -620,7 +620,7 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
   br label %43
 
 43:                                               ; preds = %41, %39, %36, %30, %28, %26, %24, %.lr.ph.split.us, %.lr.ph.split.us
-  %.1.us = phi i32 [ %42, %41 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %35, %30 ], [ 0, %36 ], [ %40, %39 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %42, %41 ], [ %40, %39 ], [ 0, %36 ], [ %35, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ]
   %44 = getelementptr inbounds nuw i8, ptr %.055.us, i64 1
   %45 = add i32 %.03653.us, 1
   %.not.us = icmp eq ptr %44, %21
@@ -1761,15 +1761,15 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit.
   br label %98
 
 98:                                               ; preds = %95, %83, %83, %83
-  %.040.i = phi i32 [ %86, %83 ], [ %86, %83 ], [ %86, %83 ], [ %97, %95 ]
-  %.0.i = phi i32 [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %96, %95 ]
+  %.040.i = phi i32 [ %97, %95 ], [ %86, %83 ], [ %86, %83 ], [ %86, %83 ]
+  %.0.i = phi i32 [ %96, %95 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ]
   %99 = add i32 %.0.i, 1
   %100 = add i32 %.040.i, -1
   br label %101
 
 101:                                              ; preds = %98, %83
-  %.141.i = phi i32 [ %86, %83 ], [ %100, %98 ]
-  %.1.i = phi i32 [ %.sroa.3.0.extract.trunc.i.i, %83 ], [ %99, %98 ]
+  %.141.i = phi i32 [ %100, %98 ], [ %86, %83 ]
+  %.1.i = phi i32 [ %99, %98 ], [ %.sroa.3.0.extract.trunc.i.i, %83 ]
   %102 = add i32 %.1.i, %.141.i
   call fastcc void @"_ZN4llvm12function_refIFvRNS_13RewriteBufferEjjPKcS4_S4_EE11callback_fnIZN5clang4html15SyntaxHighlightERNS8_8RewriterENS8_6FileIDERKNS8_12PreprocessorESt10shared_ptrINS9_17RelexRewriteCacheEEE3$_0EEvlS2_jjS4_S4_S4_"(i64 noundef %62, ptr noundef nonnull align 8 dereferenceable(32) %63, i32 noundef %.1.i, i32 noundef %102, ptr noundef %.sroa.0.0.copyload.i.i, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.23) #16
   br label %124

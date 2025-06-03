@@ -495,7 +495,7 @@ define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr
   br label %21
 
 21:                                               ; preds = %8, %9, %15, %2
-  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %20, %15 ], [ %14, %9 ]
+  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %14, %9 ], [ %20, %15 ]
   ret i32 %.010
 }
 
@@ -983,7 +983,7 @@ X509_LOOKUP_by_subject_ex.exit.thread:            ; preds = %66, %X509_LOOKUP_by
   br label %X509_OBJECT_up_ref_count.exit
 
 X509_OBJECT_up_ref_count.exit:                    ; preds = %77, %81
-  %.0.i46 = phi i32 [ %80, %77 ], [ %84, %81 ]
+  %.0.i46 = phi i32 [ %84, %81 ], [ %80, %77 ]
   %.not44 = icmp eq i32 %.0.i46, 0
   br i1 %.not44, label %.loopexit, label %X509_OBJECT_up_ref_count.exit.X509_OBJECT_up_ref_count.exit.thread_crit_edge
 
@@ -1082,7 +1082,7 @@ define i32 @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %0) loc
   br label %11
 
 11:                                               ; preds = %1, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ 1, %1 ]
+  %.0 = phi i32 [ %10, %7 ], [ %6, %3 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -1131,7 +1131,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_store_add(ptr noundef readonly 
   br label %X509_OBJECT_up_ref_count.exit
 
 X509_OBJECT_up_ref_count.exit:                    ; preds = %10, %12
-  %.0.i = phi i32 [ %11, %10 ], [ %13, %12 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %11, %10 ]
   %.not28 = icmp eq i32 %.0.i, 0
   br i1 %.not28, label %X509_OBJECT_free.exit, label %14
 
@@ -1825,7 +1825,7 @@ define ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) local_unn
   br label %x509_object_cmp.exit
 
 x509_object_cmp.exit:                             ; preds = %18, %23
-  %.010.i = phi i32 [ %27, %23 ], [ %22, %18 ]
+  %.010.i = phi i32 [ %22, %18 ], [ %27, %23 ]
   %.not16 = icmp eq i32 %.010.i, 0
   br i1 %.not16, label %thread-pre-split, label %x509_object_cmp.exit.thread29
 

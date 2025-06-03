@@ -2388,7 +2388,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %387 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4389, i64 noundef %385, i64 noundef %386, ptr noundef nonnull @.str.81) #14
   br label %.thread527
 
-.thread527:                                       ; preds = %378, %328, %384, %239, %190
+.thread527:                                       ; preds = %378, %190, %384, %239, %328
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #14
   br label %606
@@ -2809,7 +2809,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %602 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4482, i64 noundef %600, i64 noundef %601, ptr noundef nonnull @.str.81) #14
   br label %.thread532
 
-.thread532:                                       ; preds = %444, %582, %599, %551, %500, %469, %431, %415, %399
+.thread532:                                       ; preds = %444, %582, %599, %469, %500, %551, %399, %415, %431
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #14
   br label %606
 
@@ -7559,7 +7559,7 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   %177 = icmp eq i32 %1, 0
   br i1 %177, label %.thread210, label %184
 
-.thread210:                                       ; preds = %145, %145, %145, %145, %150, %150, %171, %.thread280
+.thread210:                                       ; preds = %171, %150, %150, %145, %145, %145, %145, %.thread280
   %178 = call fastcc i32 @H5S__set_regular_hyperslab(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef %4, ptr noundef nonnull %spec.store.select12, ptr noundef nonnull %.0189, ptr noundef nonnull %.0188, ptr noundef %.0187)
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %180, label %286
@@ -7775,7 +7775,7 @@ H5S__hyper_get_clip_diminfo.exit:                 ; preds = %229, %213, %232, %2
   br label %286
 
 286:                                              ; preds = %.thread220, %156, %259, %271, %278, %275, %256, %24, %.thread210, %282, %180, %173, %167, %163, %146, %139, %119, %114, %73, %66, %57, %53, %41, %20, %50, %49, %49, %49, %145, %145, %150, %160
-  %.0177 = phi i32 [ -1, %20 ], [ -1, %41 ], [ -1, %57 ], [ -1, %53 ], [ -1, %66 ], [ -1, %73 ], [ -1, %114 ], [ -1, %139 ], [ -1, %173 ], [ -1, %180 ], [ 0, %.thread210 ], [ -1, %282 ], [ -1, %167 ], [ -1, %163 ], [ -1, %156 ], [ -1, %146 ], [ -1, %119 ], [ 0, %24 ], [ 0, %50 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %145 ], [ 0, %145 ], [ 0, %150 ], [ 0, %160 ], [ -1, %259 ], [ -1, %271 ], [ -1, %278 ], [ 0, %275 ], [ 0, %256 ], [ -1, %.thread220 ]
+  %.0177 = phi i32 [ -1, %20 ], [ -1, %41 ], [ -1, %57 ], [ -1, %53 ], [ -1, %66 ], [ -1, %73 ], [ -1, %114 ], [ -1, %139 ], [ -1, %173 ], [ -1, %146 ], [ -1, %180 ], [ 0, %.thread210 ], [ -1, %282 ], [ -1, %167 ], [ -1, %156 ], [ -1, %163 ], [ -1, %119 ], [ 0, %24 ], [ 0, %50 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %145 ], [ 0, %145 ], [ 0, %150 ], [ 0, %160 ], [ -1, %259 ], [ -1, %271 ], [ -1, %278 ], [ 0, %275 ], [ 0, %256 ], [ -1, %.thread220 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #14
@@ -8997,7 +8997,7 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %87 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10324, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.33) #14
   br label %.thread70
 
-.thread70:                                        ; preds = %67, %84, %78, %62, %55, %51, %44
+.thread70:                                        ; preds = %67, %78, %84, %62, %55, %51, %44
   %88 = call i32 @H5CX_pop(i1 noundef zeroext true) #14
   br label %.thread64
 
@@ -9424,7 +9424,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   br label %215
 
 215:                                              ; preds = %114, %136, %158, %177, %193, %200, %207, %211, %._crit_edge158, %174, %197, %185, %204
-  %.3 = phi i32 [ -1, %114 ], [ -1, %211 ], [ -1, %207 ], [ -1, %193 ], [ -1, %200 ], [ -1, %177 ], [ -1, %136 ], [ -1, %158 ], [ 0, %._crit_edge158 ], [ 0, %174 ], [ 0, %197 ], [ 0, %185 ], [ 0, %204 ]
+  %.3 = phi i32 [ -1, %114 ], [ -1, %211 ], [ -1, %136 ], [ -1, %158 ], [ -1, %177 ], [ -1, %193 ], [ -1, %200 ], [ -1, %207 ], [ 0, %._crit_edge158 ], [ 0, %174 ], [ 0, %197 ], [ 0, %185 ], [ 0, %204 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8)
@@ -9454,7 +9454,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   br label %230
 
 230:                                              ; preds = %215, %23, %223, %226, %219, %71, %67, %60, %53, %41, %19, %57, %64
-  %.0130 = phi i32 [ -1, %19 ], [ -1, %41 ], [ -1, %71 ], [ -1, %67 ], [ -1, %53 ], [ -1, %60 ], [ %.3, %215 ], [ -1, %219 ], [ -1, %226 ], [ 0, %223 ], [ 0, %23 ], [ 0, %57 ], [ 0, %64 ]
+  %.0130 = phi i32 [ -1, %19 ], [ -1, %41 ], [ -1, %71 ], [ -1, %53 ], [ -1, %60 ], [ -1, %67 ], [ -1, %219 ], [ -1, %226 ], [ 0, %223 ], [ %.3, %215 ], [ 0, %23 ], [ 0, %57 ], [ 0, %64 ]
   ret i32 %.0130
 }
 
@@ -14756,9 +14756,9 @@ default.unreachable:                              ; preds = %396
   unreachable
 
 397:                                              ; preds = %432, %396
-  %.12376.i = phi i64 [ %436, %432 ], [ %.4368452.i, %396 ]
-  %.10.i = phi i64 [ %435, %432 ], [ %.2358453.i, %396 ]
-  %.7.i = phi i64 [ %437, %432 ], [ %391, %396 ]
+  %.12376.i = phi i64 [ %.4368452.i, %396 ], [ %436, %432 ]
+  %.10.i = phi i64 [ %.2358453.i, %396 ], [ %435, %432 ]
+  %.7.i = phi i64 [ %391, %396 ], [ %437, %432 ]
   %398 = getelementptr inbounds nuw i64, ptr %.0125, i64 %.10.i
   store i64 %.12376.i, ptr %398, align 8, !tbaa !11
   %399 = getelementptr inbounds nuw i64, ptr %.0128, i64 %.10.i
@@ -14840,9 +14840,9 @@ default.unreachable:                              ; preds = %396
   br label %432
 
 432:                                              ; preds = %427, %396
-  %.11375.i = phi i64 [ %.4368452.i, %396 ], [ %431, %427 ]
-  %.9.i = phi i64 [ %.2358453.i, %396 ], [ %430, %427 ]
-  %.6.i = phi i64 [ %391, %396 ], [ %.5.i, %427 ]
+  %.11375.i = phi i64 [ %431, %427 ], [ %.4368452.i, %396 ]
+  %.9.i = phi i64 [ %430, %427 ], [ %.2358453.i, %396 ]
+  %.6.i = phi i64 [ %.5.i, %427 ], [ %391, %396 ]
   %433 = getelementptr inbounds nuw i64, ptr %.0125, i64 %.9.i
   store i64 %.11375.i, ptr %433, align 8, !tbaa !11
   %434 = getelementptr inbounds nuw i64, ptr %.0128, i64 %.9.i
@@ -16061,7 +16061,7 @@ H5S__hyper_get_enc_size_real.exit112:             ; preds = %._crit_edge132, %21
   br label %218
 
 218:                                              ; preds = %60, %75, %153, %157, %160, %214, %H5S__hyper_get_enc_size_real.exit109, %H5S__hyper_get_enc_size_real.exit112, %165, %164, %4
-  %.085 = phi i32 [ -1, %60 ], [ -1, %75 ], [ -1, %153 ], [ -1, %157 ], [ -1, %160 ], [ -1, %214 ], [ 0, %H5S__hyper_get_enc_size_real.exit109 ], [ 0, %H5S__hyper_get_enc_size_real.exit112 ], [ 0, %165 ], [ 0, %164 ], [ 0, %4 ]
+  %.085 = phi i32 [ -1, %60 ], [ -1, %75 ], [ -1, %153 ], [ -1, %157 ], [ -1, %160 ], [ -1, %214 ], [ 0, %164 ], [ 0, %165 ], [ 0, %H5S__hyper_get_enc_size_real.exit109 ], [ 0, %H5S__hyper_get_enc_size_real.exit112 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #14
@@ -17616,7 +17616,7 @@ H5S__hyper_spans_nelem.exit114:                   ; preds = %285, %292
   br label %.thread
 
 .thread:                                          ; preds = %H5S__hyper_spans_nelem.exit, %135, %104, %H5S__hyper_spans_nelem.exit114, %227, %281, %204, %195, %105, %300, %303, %307, %189, %140, %108, %99, %91, %23
-  %.1 = phi i32 [ -1, %23 ], [ -1, %307 ], [ 0, %303 ], [ 0, %300 ], [ -1, %189 ], [ -1, %140 ], [ -1, %108 ], [ -1, %99 ], [ -1, %91 ], [ 0, %105 ], [ -1, %195 ], [ -1, %204 ], [ -1, %281 ], [ -1, %227 ], [ 0, %H5S__hyper_spans_nelem.exit114 ], [ 0, %104 ], [ 0, %135 ], [ 0, %H5S__hyper_spans_nelem.exit ]
+  %.1 = phi i32 [ -1, %23 ], [ -1, %307 ], [ 0, %303 ], [ 0, %300 ], [ -1, %189 ], [ -1, %99 ], [ -1, %91 ], [ -1, %108 ], [ -1, %140 ], [ 0, %105 ], [ -1, %195 ], [ -1, %204 ], [ -1, %281 ], [ -1, %227 ], [ 0, %H5S__hyper_spans_nelem.exit114 ], [ 0, %104 ], [ 0, %135 ], [ 0, %H5S__hyper_spans_nelem.exit ]
   %311 = load ptr, ptr %8, align 8, !tbaa !99
   %.not = icmp eq ptr %311, null
   br i1 %.not, label %319, label %312

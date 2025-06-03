@@ -481,7 +481,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   br label %92
 
 92:                                               ; preds = %90, %81, %78, %75, %73, %68, %59
-  %.1.i.ph.us = phi i64 [ %69, %68 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %73 ], [ %60, %59 ], [ %91, %90 ]
+  %.1.i.ph.us = phi i64 [ %69, %68 ], [ %74, %73 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %60, %59 ], [ %91, %90 ]
   %93 = load i32, ptr %11, align 8
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds %struct.GISTENTRY, ptr %18, i64 %94
@@ -658,7 +658,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %39, %33, %30, %27, %24, %41, %54, %53
-  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %40, %39 ]
+  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %42, %41 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %40, %39 ]
   ret i64 %.1
 }
 
@@ -1745,8 +1745,8 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %136 = call i64 @nocache_index_getattr(ptr noundef nonnull %79, i32 noundef %135, ptr noundef %88) #11
   br label %137
 
-137:                                              ; preds = %134, %113, %110, %107, %104, %119, %121
-  %.1.i.ph = phi i64 [ %120, %119 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %114, %113 ], [ %123, %121 ], [ %136, %134 ]
+137:                                              ; preds = %134, %104, %107, %110, %113, %119, %121
+  %.1.i.ph = phi i64 [ %120, %119 ], [ %114, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %123, %121 ], [ %136, %134 ]
   store i64 %.1.i.ph, ptr %7, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8

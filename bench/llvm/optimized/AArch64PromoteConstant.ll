@@ -2489,7 +2489,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i:           ; preds = %893
   br label %939
 
 939:                                              ; preds = %937, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %938, %937 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %938, %937 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %940 = load i32, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !228
   %941 = icmp eq i32 %940, 0
   br i1 %941, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i.i, label %942
@@ -2499,7 +2499,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i:           ; preds = %893
   br label %944
 
 944:                                              ; preds = %942, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %943, %942 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %943, %942 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %945 = load i32, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !228
   %946 = icmp eq i32 %945, 0
   br i1 %946, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i.i
@@ -3105,7 +3105,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %9, %12
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %46, %45 ]
+  %.1.i.i = phi ptr [ %46, %45 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %48 = load ptr, ptr %.1.i.i, align 8, !tbaa !89
   %49 = tail call fastcc noundef zeroext i1 @_ZL24containsOnlyConstantDataPKN4llvm8ConstantE(ptr noundef %48)
   br i1 %49, label %50, label %"_ZSt13__find_if_notIPKN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZL24containsOnlyConstantDataPKNS0_8ConstantEE3$_0EEET_SC_SC_T0_.exit"
@@ -3115,7 +3115,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %9, %12
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %51, %50 ]
+  %.2.i.i = phi ptr [ %51, %50 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %53 = load ptr, ptr %.2.i.i, align 8, !tbaa !89
   %54 = tail call fastcc noundef zeroext i1 @_ZL24containsOnlyConstantDataPKN4llvm8ConstantE(ptr noundef %53)
   br i1 %54, label %55, label %"_ZSt13__find_if_notIPKN4llvm3UseEN9__gnu_cxx5__ops10_Iter_predIZL24containsOnlyConstantDataPKNS0_8ConstantEE3$_0EEET_SC_SC_T0_.exit"

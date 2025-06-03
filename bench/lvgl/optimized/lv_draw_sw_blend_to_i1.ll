@@ -552,7 +552,7 @@ define void @lv_draw_sw_blend_image_to_i1(ptr noundef readonly %0) local_unnamed
   br label %82
 
 82:                                               ; preds = %78, %74, %70
-  %.0.in.i.us.i = phi i32 [ %73, %70 ], [ %77, %74 ], [ %81, %78 ]
+  %.0.in.i.us.i = phi i32 [ %81, %78 ], [ %77, %74 ], [ %73, %70 ]
   %83 = icmp eq i8 %.sroa.6.0.us.i, 0
   br i1 %83, label %lv_color_8_8_mix.exit.i.us.i, label %84
 
@@ -1064,7 +1064,7 @@ lv_color_8_8_mix.exit198.us.i:                    ; preds = %265, %263, %242
   br label %357
 
 357:                                              ; preds = %353, %349, %345
-  %.0.in.i.us.i16 = phi i32 [ %348, %345 ], [ %352, %349 ], [ %356, %353 ]
+  %.0.in.i.us.i16 = phi i32 [ %356, %353 ], [ %352, %349 ], [ %348, %345 ]
   %358 = icmp eq i32 %.sroa.4.0.us.i, 0
   br i1 %358, label %lv_color_8_8_mix.exit.i.us.i18, label %359
 
@@ -1588,7 +1588,7 @@ lv_color_8_8_mix.exit194.us.i:                    ; preds = %566, %564, %537
   br label %655
 
 655:                                              ; preds = %651, %647, %643
-  %.0.in.i.us.i59 = phi i32 [ %646, %643 ], [ %650, %647 ], [ %654, %651 ]
+  %.0.in.i.us.i59 = phi i32 [ %654, %651 ], [ %650, %647 ], [ %646, %643 ]
   %656 = icmp eq i8 %.sroa.6.0.us.i52, 0
   br i1 %656, label %lv_color_8_8_mix.exit.i.us.i61, label %657
 
@@ -2094,7 +2094,7 @@ lv_color_8_8_mix.exit187.us.i:                    ; preds = %831, %829, %809
   br label %925
 
 925:                                              ; preds = %921, %917, %913
-  %.0.in.i.us.i98 = phi i32 [ %916, %913 ], [ %920, %917 ], [ %924, %921 ]
+  %.0.in.i.us.i98 = phi i32 [ %924, %921 ], [ %920, %917 ], [ %916, %913 ]
   %926 = icmp eq i32 %.sroa.6.0.us.i89, 0
   br i1 %926, label %lv_color_8_8_mix.exit.i.us.i100, label %927
 
@@ -2620,7 +2620,7 @@ lv_color_8_8_mix.exit207.us.i:                    ; preds = %1126, %1124, %1099
   br label %1222
 
 1222:                                             ; preds = %1218, %1214, %1210
-  %.0.in.i.us.i128 = phi i32 [ %1213, %1210 ], [ %1217, %1214 ], [ %1221, %1218 ]
+  %.0.in.i.us.i128 = phi i32 [ %1221, %1218 ], [ %1217, %1214 ], [ %1213, %1210 ]
   %1223 = icmp eq i8 %.sroa.8.0.us.i, 0
   br i1 %1223, label %lv_color_8_8_mix.exit.i.us.i130, label %1224
 
@@ -3339,7 +3339,7 @@ lv_color_8_8_mix.exit197.us:                      ; preds = %140, %138, %120
   br label %209
 
 209:                                              ; preds = %205, %201, %197
-  %.0.in.i.us = phi i32 [ %200, %197 ], [ %204, %201 ], [ %208, %205 ]
+  %.0.in.i.us = phi i32 [ %208, %205 ], [ %204, %201 ], [ %200, %197 ]
   %210 = icmp eq i8 %.sroa.6.0.us, 0
   br i1 %210, label %lv_color_8_8_mix.exit.i.us, label %211
 

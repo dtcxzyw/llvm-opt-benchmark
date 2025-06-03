@@ -28,7 +28,7 @@ define i32 @wc_SignatureGetSize(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %12
 
 12:                                               ; preds = %3, %10, %8, %6, %4
-  %.0 = phi i32 [ %11, %10 ], [ -173, %8 ], [ %7, %6 ], [ -173, %4 ], [ -173, %3 ]
+  %.0 = phi i32 [ %7, %6 ], [ -173, %4 ], [ %11, %10 ], [ -173, %8 ], [ -173, %3 ]
   ret i32 %.0
 }
 
@@ -84,7 +84,7 @@ define i32 @wc_SignatureVerifyHash(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, %25
-  %.0.i = phi i32 [ %26, %25 ], [ -173, %23 ], [ %22, %21 ], [ -173, %19 ], [ -173, %18 ]
+  %.0.i = phi i32 [ %22, %21 ], [ -173, %19 ], [ %26, %25 ], [ -173, %23 ], [ -173, %18 ]
   %27 = icmp sgt i32 %5, %.0.i
   br i1 %27, label %66, label %28
 
@@ -188,7 +188,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   br label %66
 
 66:                                               ; preds = %39, %65, %31, %28, %wc_SignatureGetSize.exit, %8
-  %.055 = phi i32 [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %29, %28 ], [ %.6, %65 ], [ %spec.store.select, %39 ], [ -173, %31 ]
+  %.055 = phi i32 [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %29, %28 ], [ %spec.store.select, %39 ], [ %.6, %65 ], [ -173, %31 ]
   ret i32 %.055
 }
 
@@ -245,7 +245,7 @@ define i32 @wc_SignatureVerify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %16, %17, %19, %21, %23
-  %.0.i = phi i32 [ %24, %23 ], [ -173, %21 ], [ %20, %19 ], [ -173, %17 ], [ -173, %16 ]
+  %.0.i = phi i32 [ %20, %19 ], [ -173, %17 ], [ %24, %23 ], [ -173, %21 ], [ -173, %16 ]
   %25 = icmp sgt i32 %5, %.0.i
   br i1 %25, label %wc_SignatureDerEncode.exit.thread55, label %26
 
@@ -361,7 +361,7 @@ define i32 @wc_SignatureGenerateHash_ex(i32 noundef %0, i32 noundef %1, ptr noun
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, %27
-  %.0.i = phi i32 [ %28, %27 ], [ -173, %25 ], [ %24, %23 ], [ -173, %21 ], [ -173, %20 ]
+  %.0.i = phi i32 [ %24, %23 ], [ -173, %21 ], [ %28, %27 ], [ -173, %25 ], [ -173, %20 ]
   %29 = icmp slt i32 %16, %.0.i
   br i1 %29, label %.thread, label %30
 
@@ -492,7 +492,7 @@ define i32 @wc_SignatureGenerate_ex(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %22, %23, %25, %27, %29
-  %.0.i = phi i32 [ %30, %29 ], [ -173, %27 ], [ %26, %25 ], [ -173, %23 ], [ -173, %22 ]
+  %.0.i = phi i32 [ %26, %25 ], [ -173, %23 ], [ %30, %29 ], [ -173, %27 ], [ -173, %22 ]
   %31 = icmp slt i32 %18, %.0.i
   br i1 %31, label %46, label %32
 

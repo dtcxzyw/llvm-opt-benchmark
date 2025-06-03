@@ -2519,8 +2519,8 @@ get_unary.exit:                                   ; preds = %301, %312
   %323 = icmp eq i32 %320, 0
   %324 = icmp eq i32 %322, 3
   %or.cond.i530 = select i1 %323, i1 %324, i1 false
-  %.0.i108.sroa.gep169.i = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %.0.i108.sroa.gep170.i = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.0.i108.sroa.gep169.i = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.0.i108.sroa.gep170.i = getelementptr inbounds nuw i8, ptr %20, i64 36
   %.0.i108.sroa.gep171.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   br i1 %or.cond.i530, label %325, label %347
 
@@ -2679,8 +2679,8 @@ get_unary.exit:                                   ; preds = %301, %312
   br label %get_mv_dimensions.exit.i
 
 get_mv_dimensions.exit.i:                         ; preds = %394, %392, %390, %388, %387, %386, %385, %384, %382
-  %.sroa.0110.1.i = phi i32 [ %.sroa.0110.0138.i, %382 ], [ %395, %394 ], [ %393, %392 ], [ %368, %390 ], [ %368, %388 ], [ %319, %387 ], [ %319, %386 ], [ %368, %385 ], [ %368, %384 ]
-  %.sroa.13.1.i = phi i32 [ %.sroa.13.0139.i, %382 ], [ %368, %394 ], [ %368, %392 ], [ %391, %390 ], [ %389, %388 ], [ %319, %387 ], [ %368, %386 ], [ %319, %385 ], [ %368, %384 ]
+  %.sroa.0110.1.i = phi i32 [ %.sroa.0110.0138.i, %382 ], [ %368, %384 ], [ %368, %385 ], [ %319, %386 ], [ %319, %387 ], [ %368, %388 ], [ %368, %390 ], [ %393, %392 ], [ %395, %394 ]
+  %.sroa.13.1.i = phi i32 [ %.sroa.13.0139.i, %382 ], [ %368, %384 ], [ %319, %385 ], [ %368, %386 ], [ %319, %387 ], [ %389, %388 ], [ %391, %390 ], [ %368, %392 ], [ %368, %394 ]
   %.0..0..0..0..0.118.i = load i32, ptr %18, align 4, !tbaa !40
   %.0..0..0..0..0..i = load i32, ptr %19, align 4, !tbaa !40
   %396 = getelementptr inbounds nuw [4 x %struct.MVInfo], ptr %369, i64 0, i64 %indvars.iv.i
@@ -2896,8 +2896,8 @@ mv_pred.exit.i.i:                                 ; preds = %485, %484, %482, %4
   br label %487
 
 487:                                              ; preds = %mv_pred.exit.i.i, %445, %442, %has_top_block.exit.thread.i.i
-  %.sroa.8115.0.i.i = phi i16 [ %.sink54.i.i.i, %mv_pred.exit.i.i ], [ %459, %445 ], [ %444, %442 ], [ 0, %has_top_block.exit.thread.i.i ]
-  %.sroa.0114.0.i.i = phi i16 [ %.sink.i.i.i, %mv_pred.exit.i.i ], [ %452, %445 ], [ %443, %442 ], [ 0, %has_top_block.exit.thread.i.i ]
+  %.sroa.8115.0.i.i = phi i16 [ %444, %442 ], [ %459, %445 ], [ %.sink54.i.i.i, %mv_pred.exit.i.i ], [ 0, %has_top_block.exit.thread.i.i ]
+  %.sroa.0114.0.i.i = phi i16 [ %443, %442 ], [ %452, %445 ], [ %.sink.i.i.i, %mv_pred.exit.i.i ], [ 0, %has_top_block.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #16
   br label %488
 
@@ -3083,8 +3083,8 @@ mv_pred.exit113.i.i:                              ; preds = %581, %580, %578, %5
   br label %583
 
 583:                                              ; preds = %mv_pred.exit113.i.i, %541, %538, %has_top_block.exit103.thread.i.i
-  %.sroa.8.0.i.i = phi i16 [ %.sink54.i112.i.i, %mv_pred.exit113.i.i ], [ %555, %541 ], [ %540, %538 ], [ 0, %has_top_block.exit103.thread.i.i ]
-  %.sroa.0.0.i.i = phi i16 [ %.sink.i110.i.i, %mv_pred.exit113.i.i ], [ %548, %541 ], [ %539, %538 ], [ 0, %has_top_block.exit103.thread.i.i ]
+  %.sroa.8.0.i.i = phi i16 [ %540, %538 ], [ %555, %541 ], [ %.sink54.i112.i.i, %mv_pred.exit113.i.i ], [ 0, %has_top_block.exit103.thread.i.i ]
+  %.sroa.0.0.i.i = phi i16 [ %539, %538 ], [ %548, %541 ], [ %.sink.i110.i.i, %mv_pred.exit113.i.i ], [ 0, %has_top_block.exit103.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #16
   br label %predict_mv.exit.i
 
@@ -3180,9 +3180,9 @@ predict_mv.exit.i:                                ; preds = %583, %488
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %616, %612, %606, %604
-  %.1.i = phi i32 [ %617, %616 ], [ %615, %612 ], [ %610, %606 ], [ %605, %604 ]
-  %.sink.i.i = phi ptr [ %18, %616 ], [ %19, %612 ], [ %19, %606 ], [ %18, %604 ]
-  %.4.val.sink.i.i = phi i32 [ %.sroa.0110.1.i, %616 ], [ %.sroa.13.1.i, %612 ], [ %.sroa.13.1.i, %606 ], [ %.sroa.0110.1.i, %604 ]
+  %.1.i = phi i32 [ %610, %606 ], [ %605, %604 ], [ %615, %612 ], [ %617, %616 ]
+  %.sink.i.i = phi ptr [ %19, %606 ], [ %18, %604 ], [ %19, %612 ], [ %18, %616 ]
+  %.4.val.sink.i.i = phi i32 [ %.sroa.13.1.i, %606 ], [ %.sroa.0110.1.i, %604 ], [ %.sroa.13.1.i, %612 ], [ %.sroa.0110.1.i, %616 ]
   %618 = load i32, ptr %.sink.i.i, align 4, !tbaa !40
   %619 = add nsw i32 %618, %.4.val.sink.i.i
   store i32 %619, ptr %.sink.i.i, align 4, !tbaa !40
@@ -3622,7 +3622,7 @@ fill_mv_skip_cand.exit.i:                         ; preds = %.lr.ph.i.i, %add_if
   br label %get_skip_mv_index.exit.i
 
 get_skip_mv_index.exit.i:                         ; preds = %757, %756, %755, %fill_mv_skip_cand.exit.i
-  %.0.i108.sroa.phi.i = phi ptr [ %20, %757 ], [ %.0.i108.sroa.gep169.i, %756 ], [ %.0.i108.sroa.gep170.i, %755 ], [ %.0.i108.sroa.gep171.i, %fill_mv_skip_cand.exit.i ]
+  %.0.i108.sroa.phi.i = phi ptr [ %20, %757 ], [ %.0.i108.sroa.gep169.i, %755 ], [ %.0.i108.sroa.gep170.i, %756 ], [ %.0.i108.sroa.gep171.i, %fill_mv_skip_cand.exit.i ]
   %758 = icmp sgt i32 %623, 0
   br i1 %758, label %.preheader129.lr.ph.i, label %.loopexit130.i
 
@@ -3846,8 +3846,8 @@ reconstruct.exit:                                 ; preds = %._crit_edge.us151.i
   br label %get_mv_dimensions.exit
 
 get_mv_dimensions.exit:                           ; preds = %850, %855, %856, %857, %858, %859, %861, %863, %865
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0586, %850 ], [ %841, %865 ], [ %841, %863 ], [ %862, %861 ], [ %860, %859 ], [ %319, %858 ], [ %841, %857 ], [ %319, %856 ], [ %841, %855 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0587, %850 ], [ %866, %865 ], [ %864, %863 ], [ %841, %861 ], [ %841, %859 ], [ %319, %858 ], [ %319, %857 ], [ %841, %856 ], [ %841, %855 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0586, %850 ], [ %841, %855 ], [ %319, %856 ], [ %841, %857 ], [ %319, %858 ], [ %860, %859 ], [ %862, %861 ], [ %841, %863 ], [ %841, %865 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0587, %850 ], [ %841, %855 ], [ %841, %856 ], [ %319, %857 ], [ %319, %858 ], [ %841, %859 ], [ %841, %861 ], [ %864, %863 ], [ %866, %865 ]
   %867 = shl i32 %.sroa.0.1, 2
   %868 = shl i32 %.sroa.13.1, 2
   %.0..0..0.559 = load i32, ptr %21, align 4, !tbaa !40
@@ -4031,9 +4031,9 @@ avg_plane.exit.i:                                 ; preds = %._crit_edge.us.i.i,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %942, %938, %932, %930
-  %.1 = phi i32 [ %943, %942 ], [ %941, %938 ], [ %936, %932 ], [ %931, %930 ]
-  %.sink.i = phi ptr [ %21, %942 ], [ %22, %938 ], [ %22, %932 ], [ %21, %930 ]
-  %.4.val.sink.i = phi i32 [ %.sroa.0.1, %942 ], [ %.sroa.13.1, %938 ], [ %.sroa.13.1, %932 ], [ %.sroa.0.1, %930 ]
+  %.1 = phi i32 [ %936, %932 ], [ %931, %930 ], [ %941, %938 ], [ %943, %942 ]
+  %.sink.i = phi ptr [ %22, %932 ], [ %21, %930 ], [ %22, %938 ], [ %21, %942 ]
+  %.4.val.sink.i = phi i32 [ %.sroa.13.1, %932 ], [ %.sroa.0.1, %930 ], [ %.sroa.13.1, %938 ], [ %.sroa.0.1, %942 ]
   %944 = load i32, ptr %.sink.i, align 4, !tbaa !40
   %945 = add nsw i32 %944, %.4.val.sink.i
   store i32 %945, ptr %.sink.i, align 4, !tbaa !40
@@ -7746,7 +7746,7 @@ has_left_block.exit.thread:                       ; preds = %.lr.ph.i94, %._crit
   br label %104
 
 104:                                              ; preds = %100, %94, %87
-  %.075 = phi ptr [ %103, %100 ], [ %99, %94 ], [ %93, %87 ]
+  %.075 = phi ptr [ %103, %100 ], [ %93, %87 ], [ %99, %94 ]
   %.075.val = load i32, ptr %.075, align 4, !tbaa !179
   %.not144 = icmp eq i32 %.075.val, 0
   br i1 %.not144, label %105, label %unique_list_intramode_add.exit111

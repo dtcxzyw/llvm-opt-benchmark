@@ -4438,7 +4438,7 @@ ehcleanup31:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb2, %sw.bb
-  %retval.0 = phi double [ %call3, %sw.bb2 ], [ %call, %sw.bb ]
+  %retval.0 = phi double [ %call, %sw.bb ], [ %call3, %sw.bb2 ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont21

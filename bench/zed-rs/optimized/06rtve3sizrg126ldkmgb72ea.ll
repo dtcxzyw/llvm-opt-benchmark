@@ -3201,7 +3201,7 @@ default.unreachable99:                            ; preds = %55, %33, %32, %23, 
   br label %_ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit
 
 _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34, %37, %40, %44, %47, %50
-  %.sroa.0.0.i = phi ptr [ %53, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.sroa.0.0.i = phi ptr [ %36, %34 ], [ %39, %37 ], [ %43, %40 ], [ %46, %44 ], [ %49, %47 ], [ %53, %50 ]
   %.sroa.7.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.7.0.i = load i64, ptr %.sroa.7.0.in.i, align 8, !alias.scope !808, !noundef !4
   store i8 6, ptr %10, align 8
@@ -3276,8 +3276,8 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %77
 
 77:                                               ; preds = %73, %70, %67
-  %.sroa.040.0 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 0, %67 ]
-  %.sroa.6.0 = phi ptr [ %76, %73 ], [ %72, %70 ], [ %69, %67 ]
+  %.sroa.040.0 = phi i64 [ 0, %67 ], [ 1, %70 ], [ 1, %73 ]
+  %.sroa.6.0 = phi ptr [ %69, %67 ], [ %72, %70 ], [ %76, %73 ]
   %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8, !noundef !4
   store i8 1, ptr %10, align 8
@@ -3424,7 +3424,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %121
 
 121:                                              ; preds = %117, %114, %111
-  %.sroa.04.0 = phi ptr [ %120, %117 ], [ %116, %114 ], [ %113, %111 ]
+  %.sroa.04.0 = phi ptr [ %113, %111 ], [ %116, %114 ], [ %120, %117 ]
   %.sroa.45.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.45.0 = load i64, ptr %.sroa.45.0.in, align 8, !noundef !4
   store i8 2, ptr %10, align 8
@@ -3455,7 +3455,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %133
 
 133:                                              ; preds = %129, %126, %123
-  %.sroa.09.0 = phi ptr [ %132, %129 ], [ %128, %126 ], [ %125, %123 ]
+  %.sroa.09.0 = phi ptr [ %125, %123 ], [ %128, %126 ], [ %132, %129 ]
   %.sroa.410.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.410.0 = load i64, ptr %.sroa.410.0.in, align 8, !noundef !4
   store i8 3, ptr %10, align 8
@@ -3486,7 +3486,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %145
 
 145:                                              ; preds = %141, %138, %135
-  %.sroa.014.0 = phi ptr [ %144, %141 ], [ %140, %138 ], [ %137, %135 ]
+  %.sroa.014.0 = phi ptr [ %137, %135 ], [ %140, %138 ], [ %144, %141 ]
   %.sroa.415.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.415.0 = load i64, ptr %.sroa.415.0.in, align 8, !noundef !4
   store i8 4, ptr %10, align 8
@@ -3517,7 +3517,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %157
 
 157:                                              ; preds = %153, %150, %147
-  %.sroa.025.0 = phi ptr [ %156, %153 ], [ %152, %150 ], [ %149, %147 ]
+  %.sroa.025.0 = phi ptr [ %149, %147 ], [ %152, %150 ], [ %156, %153 ]
   %.sroa.426.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.426.0 = load i64, ptr %.sroa.426.0.in, align 8, !noundef !4
   store i8 7, ptr %10, align 8
@@ -3687,7 +3687,7 @@ default.unreachable102:                           ; preds = %55, %33, %32, %23, 
   br label %_ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit
 
 _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34, %37, %40, %44, %47, %50
-  %.sroa.0.0.i = phi ptr [ %53, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.sroa.0.0.i = phi ptr [ %36, %34 ], [ %39, %37 ], [ %43, %40 ], [ %46, %44 ], [ %49, %47 ], [ %53, %50 ]
   %.sroa.7.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.7.0.i = load i64, ptr %.sroa.7.0.in.i, align 8, !alias.scope !833, !noundef !4
   store i8 6, ptr %10, align 8
@@ -3762,8 +3762,8 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %77
 
 77:                                               ; preds = %73, %70, %67
-  %.sroa.040.0 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 0, %67 ]
-  %.sroa.6.0 = phi ptr [ %76, %73 ], [ %72, %70 ], [ %69, %67 ]
+  %.sroa.040.0 = phi i64 [ 0, %67 ], [ 1, %70 ], [ 1, %73 ]
+  %.sroa.6.0 = phi ptr [ %69, %67 ], [ %72, %70 ], [ %76, %73 ]
   %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8, !noundef !4
   store i8 1, ptr %10, align 8
@@ -3929,7 +3929,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %125
 
 125:                                              ; preds = %121, %118, %115
-  %.sroa.04.0 = phi ptr [ %124, %121 ], [ %120, %118 ], [ %117, %115 ]
+  %.sroa.04.0 = phi ptr [ %117, %115 ], [ %120, %118 ], [ %124, %121 ]
   %.sroa.45.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.45.0 = load i64, ptr %.sroa.45.0.in, align 8, !noundef !4
   store i8 2, ptr %10, align 8
@@ -3960,7 +3960,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %137
 
 137:                                              ; preds = %133, %130, %127
-  %.sroa.09.0 = phi ptr [ %136, %133 ], [ %132, %130 ], [ %129, %127 ]
+  %.sroa.09.0 = phi ptr [ %129, %127 ], [ %132, %130 ], [ %136, %133 ]
   %.sroa.410.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.410.0 = load i64, ptr %.sroa.410.0.in, align 8, !noundef !4
   store i8 3, ptr %10, align 8
@@ -3991,7 +3991,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %149
 
 149:                                              ; preds = %145, %142, %139
-  %.sroa.014.0 = phi ptr [ %148, %145 ], [ %144, %142 ], [ %141, %139 ]
+  %.sroa.014.0 = phi ptr [ %141, %139 ], [ %144, %142 ], [ %148, %145 ]
   %.sroa.415.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.415.0 = load i64, ptr %.sroa.415.0.in, align 8, !noundef !4
   store i8 4, ptr %10, align 8
@@ -4022,7 +4022,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %161
 
 161:                                              ; preds = %157, %154, %151
-  %.sroa.025.0 = phi ptr [ %160, %157 ], [ %156, %154 ], [ %153, %151 ]
+  %.sroa.025.0 = phi ptr [ %153, %151 ], [ %156, %154 ], [ %160, %157 ]
   %.sroa.426.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.426.0 = load i64, ptr %.sroa.426.0.in, align 8, !noundef !4
   store i8 7, ptr %10, align 8
@@ -4188,7 +4188,7 @@ default.unreachable102:                           ; preds = %55, %33, %32, %23, 
   br label %_ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit
 
 _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34, %37, %40, %44, %47, %50
-  %.sroa.0.0.i = phi ptr [ %53, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.sroa.0.0.i = phi ptr [ %36, %34 ], [ %39, %37 ], [ %43, %40 ], [ %46, %44 ], [ %49, %47 ], [ %53, %50 ]
   %.sroa.7.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.7.0.i = load i64, ptr %.sroa.7.0.in.i, align 8, !alias.scope !868, !noundef !4
   store i8 6, ptr %10, align 8
@@ -4263,8 +4263,8 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %77
 
 77:                                               ; preds = %73, %70, %67
-  %.sroa.040.0 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 0, %67 ]
-  %.sroa.6.0 = phi ptr [ %76, %73 ], [ %72, %70 ], [ %69, %67 ]
+  %.sroa.040.0 = phi i64 [ 0, %67 ], [ 1, %70 ], [ 1, %73 ]
+  %.sroa.6.0 = phi ptr [ %69, %67 ], [ %72, %70 ], [ %76, %73 ]
   %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8, !noundef !4
   store i8 1, ptr %10, align 8
@@ -4430,7 +4430,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %125
 
 125:                                              ; preds = %121, %118, %115
-  %.sroa.04.0 = phi ptr [ %124, %121 ], [ %120, %118 ], [ %117, %115 ]
+  %.sroa.04.0 = phi ptr [ %117, %115 ], [ %120, %118 ], [ %124, %121 ]
   %.sroa.45.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.45.0 = load i64, ptr %.sroa.45.0.in, align 8, !noundef !4
   store i8 2, ptr %10, align 8
@@ -4461,7 +4461,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %137
 
 137:                                              ; preds = %133, %130, %127
-  %.sroa.09.0 = phi ptr [ %136, %133 ], [ %132, %130 ], [ %129, %127 ]
+  %.sroa.09.0 = phi ptr [ %129, %127 ], [ %132, %130 ], [ %136, %133 ]
   %.sroa.410.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.410.0 = load i64, ptr %.sroa.410.0.in, align 8, !noundef !4
   store i8 3, ptr %10, align 8
@@ -4492,7 +4492,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %149
 
 149:                                              ; preds = %145, %142, %139
-  %.sroa.014.0 = phi ptr [ %148, %145 ], [ %144, %142 ], [ %141, %139 ]
+  %.sroa.014.0 = phi ptr [ %141, %139 ], [ %144, %142 ], [ %148, %145 ]
   %.sroa.415.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.415.0 = load i64, ptr %.sroa.415.0.in, align 8, !noundef !4
   store i8 4, ptr %10, align 8
@@ -4523,7 +4523,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %161
 
 161:                                              ; preds = %157, %154, %151
-  %.sroa.025.0 = phi ptr [ %160, %157 ], [ %156, %154 ], [ %153, %151 ]
+  %.sroa.025.0 = phi ptr [ %153, %151 ], [ %156, %154 ], [ %160, %157 ]
   %.sroa.426.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.426.0 = load i64, ptr %.sroa.426.0.in, align 8, !noundef !4
   store i8 7, ptr %10, align 8
@@ -4689,7 +4689,7 @@ default.unreachable99:                            ; preds = %55, %33, %32, %23, 
   br label %_ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit
 
 _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34, %37, %40, %44, %47, %50
-  %.sroa.0.0.i = phi ptr [ %53, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.sroa.0.0.i = phi ptr [ %36, %34 ], [ %39, %37 ], [ %43, %40 ], [ %46, %44 ], [ %49, %47 ], [ %53, %50 ]
   %.sroa.7.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.7.0.i = load i64, ptr %.sroa.7.0.in.i, align 8, !alias.scope !903, !noundef !4
   store i8 6, ptr %10, align 8
@@ -4764,8 +4764,8 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %77
 
 77:                                               ; preds = %73, %70, %67
-  %.sroa.040.0 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 0, %67 ]
-  %.sroa.6.0 = phi ptr [ %76, %73 ], [ %72, %70 ], [ %69, %67 ]
+  %.sroa.040.0 = phi i64 [ 0, %67 ], [ 1, %70 ], [ 1, %73 ]
+  %.sroa.6.0 = phi ptr [ %69, %67 ], [ %72, %70 ], [ %76, %73 ]
   %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8, !noundef !4
   store i8 1, ptr %10, align 8
@@ -4912,7 +4912,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %121
 
 121:                                              ; preds = %117, %114, %111
-  %.sroa.04.0 = phi ptr [ %120, %117 ], [ %116, %114 ], [ %113, %111 ]
+  %.sroa.04.0 = phi ptr [ %113, %111 ], [ %116, %114 ], [ %120, %117 ]
   %.sroa.45.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.45.0 = load i64, ptr %.sroa.45.0.in, align 8, !noundef !4
   store i8 2, ptr %10, align 8
@@ -4943,7 +4943,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %133
 
 133:                                              ; preds = %129, %126, %123
-  %.sroa.09.0 = phi ptr [ %132, %129 ], [ %128, %126 ], [ %125, %123 ]
+  %.sroa.09.0 = phi ptr [ %125, %123 ], [ %128, %126 ], [ %132, %129 ]
   %.sroa.410.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.410.0 = load i64, ptr %.sroa.410.0.in, align 8, !noundef !4
   store i8 3, ptr %10, align 8
@@ -4974,7 +4974,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %145
 
 145:                                              ; preds = %141, %138, %135
-  %.sroa.014.0 = phi ptr [ %144, %141 ], [ %140, %138 ], [ %137, %135 ]
+  %.sroa.014.0 = phi ptr [ %137, %135 ], [ %140, %138 ], [ %144, %141 ]
   %.sroa.415.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.415.0 = load i64, ptr %.sroa.415.0.in, align 8, !noundef !4
   store i8 4, ptr %10, align 8
@@ -5005,7 +5005,7 @@ _ZN10zbus_names8bus_name7BusName6as_str17h62eb8d311767b453E.exit: ; preds = %34,
   br label %157
 
 157:                                              ; preds = %153, %150, %147
-  %.sroa.025.0 = phi ptr [ %156, %153 ], [ %152, %150 ], [ %149, %147 ]
+  %.sroa.025.0 = phi ptr [ %149, %147 ], [ %152, %150 ], [ %156, %153 ]
   %.sroa.426.0.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.426.0 = load i64, ptr %.sroa.426.0.in, align 8, !noundef !4
   store i8 7, ptr %10, align 8
@@ -5388,8 +5388,8 @@ define hidden void @"_ZN70_$LT$zbus..message..field..Field$u20$as$u20$serde..de.
   br label %87
 
 85:                                               ; preds = %127, %121, %116, %112, %108, %98, %94, %90, %83
-  %.sroa.13.0 = phi i32 [ %.sroa.6240.0653.ph, %127 ], [ %.sroa.6217.sroa.6.0643, %121 ], [ %.sroa.6186.sroa.0.0631, %116 ], [ %.sroa.6161.sroa.0.0613, %112 ], [ %.sroa.7135.0595.ph, %108 ], [ %.sroa.798.sroa.0.0587, %98 ], [ %.sroa.769.sroa.0.0574, %94 ], [ %.sroa.740.sroa.0.0566, %90 ], [ %.sroa.723.sroa.0.0558, %83 ]
-  %.sroa.02.0 = phi i64 [ 11, %127 ], [ %.sroa.6217.sroa.0.0641, %121 ], [ 9, %116 ], [ 8, %112 ], [ 7, %108 ], [ 6, %98 ], [ 5, %94 ], [ 4, %90 ], [ 3, %83 ]
+  %.sroa.13.0 = phi i32 [ %.sroa.723.sroa.0.0558, %83 ], [ %.sroa.740.sroa.0.0566, %90 ], [ %.sroa.769.sroa.0.0574, %94 ], [ %.sroa.798.sroa.0.0587, %98 ], [ %.sroa.7135.0595.ph, %108 ], [ %.sroa.6161.sroa.0.0613, %112 ], [ %.sroa.6186.sroa.0.0631, %116 ], [ %.sroa.6217.sroa.6.0643, %121 ], [ %.sroa.6240.0653.ph, %127 ]
+  %.sroa.02.0 = phi i64 [ 3, %83 ], [ 4, %90 ], [ 5, %94 ], [ 6, %98 ], [ 7, %108 ], [ 8, %112 ], [ 9, %116 ], [ %.sroa.6217.sroa.0.0641, %121 ], [ 11, %127 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.02.0, ptr %86, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6201,8 +6201,8 @@ define hidden void @"_ZN70_$LT$zbus..message..field..Field$u20$as$u20$serde..de.
   br label %87
 
 85:                                               ; preds = %127, %121, %116, %112, %108, %98, %94, %90, %83
-  %.sroa.13.0 = phi i32 [ %.sroa.6240.0653.ph, %127 ], [ %.sroa.6217.sroa.6.0643, %121 ], [ %.sroa.6186.sroa.0.0631, %116 ], [ %.sroa.6161.sroa.0.0613, %112 ], [ %.sroa.7135.0595.ph, %108 ], [ %.sroa.798.sroa.0.0587, %98 ], [ %.sroa.769.sroa.0.0574, %94 ], [ %.sroa.740.sroa.0.0566, %90 ], [ %.sroa.723.sroa.0.0558, %83 ]
-  %.sroa.02.0 = phi i64 [ 11, %127 ], [ %.sroa.6217.sroa.0.0641, %121 ], [ 9, %116 ], [ 8, %112 ], [ 7, %108 ], [ 6, %98 ], [ 5, %94 ], [ 4, %90 ], [ 3, %83 ]
+  %.sroa.13.0 = phi i32 [ %.sroa.723.sroa.0.0558, %83 ], [ %.sroa.740.sroa.0.0566, %90 ], [ %.sroa.769.sroa.0.0574, %94 ], [ %.sroa.798.sroa.0.0587, %98 ], [ %.sroa.7135.0595.ph, %108 ], [ %.sroa.6161.sroa.0.0613, %112 ], [ %.sroa.6186.sroa.0.0631, %116 ], [ %.sroa.6217.sroa.6.0643, %121 ], [ %.sroa.6240.0653.ph, %127 ]
+  %.sroa.02.0 = phi i64 [ 3, %83 ], [ 4, %90 ], [ 5, %94 ], [ 6, %98 ], [ 7, %108 ], [ 8, %112 ], [ 9, %116 ], [ %.sroa.6217.sroa.0.0641, %121 ], [ 11, %127 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.02.0, ptr %86, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

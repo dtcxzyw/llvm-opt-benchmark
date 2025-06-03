@@ -39,7 +39,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha51674a1f0999f0eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha51674a1f0999f0eE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -376,7 +376,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.sroa.0.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.sroa.0.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !71
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i, ptr %48, align 8
@@ -508,7 +508,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %49
 
 47:                                               ; preds = %34, %37, %44
-  %.sroa.0.1.i = phi ptr [ %36, %34 ], [ %45, %44 ], [ %38, %37 ]
+  %.sroa.0.1.i = phi ptr [ %38, %37 ], [ %45, %44 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !108
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i, ptr %48, align 8

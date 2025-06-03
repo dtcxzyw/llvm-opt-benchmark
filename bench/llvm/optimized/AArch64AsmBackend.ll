@@ -477,7 +477,7 @@ _ZN12_GLOBAL__N_121COFFAArch64AsmBackendC2ERKN4llvm6TargetERKNS1_6TripleE.exit: 
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %54, %57, %58, %59, %60
-  %.0.i = phi i8 [ 0, %60 ], [ 12, %59 ], [ 6, %58 ], [ 9, %57 ], [ -1, %54 ]
+  %.0.i = phi i8 [ 0, %60 ], [ 9, %57 ], [ 6, %58 ], [ 12, %59 ], [ -1, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = load i32, ptr %61, align 8, !tbaa !28
   %63 = icmp eq i32 %62, 13
@@ -578,7 +578,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64beAsmBackendERKNS_6
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %4, %9, %10, %11, %12
-  %.0.i = phi i8 [ 0, %12 ], [ 12, %11 ], [ 6, %10 ], [ 9, %9 ], [ -1, %4 ]
+  %.0.i = phi i8 [ 0, %12 ], [ 9, %9 ], [ 6, %10 ], [ 12, %11 ], [ -1, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8, !tbaa !28
   %15 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
@@ -3108,7 +3108,7 @@ define internal void @_ZNK12_GLOBAL__N_117AArch64AsmBackend10applyFixupERKN4llvm
   br label %_ZL20getFixupKindNumBytesj.exit
 
 _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, %70
-  %.0.i = phi i64 [ 8, %70 ], [ 4, %69 ], [ 3, %68 ], [ 2, %67 ], [ 1, %65 ]
+  %.0.i = phi i64 [ 2, %67 ], [ 3, %68 ], [ 4, %69 ], [ 8, %70 ], [ 1, %65 ]
   %71 = load ptr, ptr %0, align 8, !tbaa !18
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = load ptr, ptr %72, align 8
@@ -3566,9 +3566,9 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   unreachable
 
 243:                                              ; preds = %240, %238, %236, %232, %229, %227, %225, %221
-  %244 = phi i1 [ true, %229 ], [ true, %227 ], [ true, %225 ], [ true, %221 ], [ false, %240 ], [ false, %238 ], [ false, %236 ], [ false, %232 ]
-  %.1197.i = phi i64 [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %.0, %221 ], [ %.0, %240 ], [ %.0, %238 ], [ %.0, %236 ], [ %.0, %232 ]
-  %.6.i = phi i64 [ %.0, %229 ], [ %.0, %227 ], [ %.0, %225 ], [ %.0, %221 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %.0, %232 ]
+  %244 = phi i1 [ true, %221 ], [ true, %225 ], [ true, %227 ], [ true, %229 ], [ false, %232 ], [ false, %236 ], [ false, %238 ], [ false, %240 ]
+  %.1197.i = phi i64 [ %.0, %221 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %.0, %232 ], [ %.0, %236 ], [ %.0, %238 ], [ %.0, %240 ]
+  %.6.i = phi i64 [ %.0, %221 ], [ %.0, %225 ], [ %.0, %227 ], [ %.0, %229 ], [ %.0, %232 ], [ %237, %236 ], [ %239, %238 ], [ %241, %240 ]
   %245 = and i32 %.val, 256
   %.not208.i = icmp eq i32 %245, 0
   br i1 %.not208.i, label %248, label %246
@@ -3803,7 +3803,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split: ; preds = %328, %306, %291, %275, %258, %256, %255, %246, %217, %212, %211, %200, %184, %168, %152, %134, %130, %127, %107, %101, %86
-  %.0.i58.ph = phi i64 [ %.6.i, %256 ], [ %.6.i, %258 ], [ %spec.select220.i, %255 ], [ %247, %246 ], [ %spec.select219.i, %211 ], [ %.0, %212 ], [ %.0, %217 ], [ %spec.select.i, %130 ], [ %spec.select.i, %134 ], [ %91, %86 ], [ %113, %107 ], [ %106, %101 ], [ %129, %127 ], [ %153, %152 ], [ %169, %168 ], [ %185, %184 ], [ %201, %200 ], [ %277, %275 ], [ %293, %291 ], [ %308, %306 ], [ %330, %328 ]
+  %.0.i58.ph = phi i64 [ %.6.i, %256 ], [ %.6.i, %258 ], [ %spec.select220.i, %255 ], [ %247, %246 ], [ %spec.select219.i, %211 ], [ %.0, %212 ], [ %.0, %217 ], [ %spec.select.i, %130 ], [ %spec.select.i, %134 ], [ %330, %328 ], [ %308, %306 ], [ %293, %291 ], [ %277, %275 ], [ %201, %200 ], [ %185, %184 ], [ %169, %168 ], [ %153, %152 ], [ %129, %127 ], [ %113, %107 ], [ %106, %101 ], [ %91, %86 ]
   %.pr = load i32, ptr %37, align 4, !tbaa !38
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
 
@@ -3855,8 +3855,8 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
 341:                                              ; preds = %338
   br label %.preheader70
 
-.preheader70:                                     ; preds = %338, %341, %340, %338
-  %.0.i59.ph = phi i32 [ %331, %338 ], [ 4, %340 ], [ 8, %341 ], [ %331, %338 ]
+.preheader70:                                     ; preds = %338, %340, %341, %338
+  %.0.i59.ph = phi i32 [ %331, %338 ], [ 8, %341 ], [ 4, %340 ], [ %331, %338 ]
   %342 = add i32 %.0.i59.ph, %335
   br label %352
 
@@ -4350,7 +4350,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br label %_ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit
 
 _ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit: ; preds = %71, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %.thread236
-  %.sroa.02.0.i = phi i32 [ %72, %.thread236 ], [ 79, %134 ], [ 78, %133 ], [ 77, %132 ], [ 76, %131 ], [ 75, %130 ], [ 74, %129 ], [ 73, %128 ], [ 72, %127 ], [ 71, %126 ], [ 70, %125 ], [ 69, %124 ], [ 68, %123 ], [ 67, %122 ], [ 66, %121 ], [ 65, %120 ], [ 64, %119 ], [ 63, %118 ], [ 62, %117 ], [ 61, %116 ], [ 60, %115 ], [ 59, %114 ], [ 58, %113 ], [ 57, %112 ], [ 56, %111 ], [ 55, %110 ], [ 54, %109 ], [ 53, %108 ], [ 52, %107 ], [ 51, %106 ], [ 50, %105 ], [ 49, %104 ], [ 48, %71 ]
+  %.sroa.02.0.i = phi i32 [ %72, %.thread236 ], [ 49, %104 ], [ 50, %105 ], [ 51, %106 ], [ 52, %107 ], [ 53, %108 ], [ 54, %109 ], [ 55, %110 ], [ 56, %111 ], [ 57, %112 ], [ 58, %113 ], [ 59, %114 ], [ 60, %115 ], [ 61, %116 ], [ 62, %117 ], [ 63, %118 ], [ 64, %119 ], [ 65, %120 ], [ 66, %121 ], [ 67, %122 ], [ 68, %123 ], [ 69, %124 ], [ 70, %125 ], [ 71, %126 ], [ 72, %127 ], [ 73, %128 ], [ 74, %129 ], [ 75, %130 ], [ 76, %131 ], [ 77, %132 ], [ 78, %133 ], [ 79, %134 ], [ 48, %71 ]
   %switch.tableidx = add i32 %73, -16
   %135 = icmp ult i32 %switch.tableidx, 32
   %switch.offset = add i32 %73, 32
@@ -4627,7 +4627,7 @@ define internal fastcc range(i32 239, 208) i32 @_ZN4llvmL15getXRegFromWRegENS_10
   br label %35
 
 35:                                               ; preds = %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 14, %33 ], [ 8, %32 ], [ 6, %31 ], [ 2, %30 ], [ 267, %29 ], [ 266, %28 ], [ 265, %27 ], [ 264, %26 ], [ 263, %25 ], [ 262, %24 ], [ 261, %23 ], [ 260, %22 ], [ 259, %21 ], [ 258, %20 ], [ 257, %19 ], [ 256, %18 ], [ 255, %17 ], [ 254, %16 ], [ 253, %15 ], [ 252, %14 ], [ 251, %13 ], [ 250, %12 ], [ 249, %11 ], [ 248, %10 ], [ 247, %9 ], [ 246, %8 ], [ 245, %7 ], [ 244, %6 ], [ 243, %5 ], [ 242, %4 ], [ 241, %3 ], [ 240, %2 ], [ 239, %1 ]
+  %.sroa.02.0 = phi i32 [ %0, %34 ], [ 240, %2 ], [ 241, %3 ], [ 242, %4 ], [ 243, %5 ], [ 244, %6 ], [ 245, %7 ], [ 246, %8 ], [ 247, %9 ], [ 248, %10 ], [ 249, %11 ], [ 250, %12 ], [ 251, %13 ], [ 252, %14 ], [ 253, %15 ], [ 254, %16 ], [ 255, %17 ], [ 256, %18 ], [ 257, %19 ], [ 258, %20 ], [ 259, %21 ], [ 260, %22 ], [ 261, %23 ], [ 262, %24 ], [ 263, %25 ], [ 264, %26 ], [ 265, %27 ], [ 266, %28 ], [ 267, %29 ], [ 2, %30 ], [ 6, %31 ], [ 8, %32 ], [ 14, %33 ], [ 239, %1 ]
   ret i32 %.sroa.02.0
 }
 

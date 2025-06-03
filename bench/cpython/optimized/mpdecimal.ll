@@ -2020,7 +2020,7 @@ define hidden void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly captures(
   br label %_mpd_rnd_incr.exit.i.i
 
 _mpd_rnd_incr.exit.i.i:                           ; preds = %57, %54, %51, %47, %40, %32, %25
-  %.0.i.i.i = phi i32 [ %66, %57 ], [ %56, %54 ], [ %53, %51 ], [ %27, %25 ], [ %37, %32 ], [ %44, %40 ], [ %50, %47 ]
+  %.0.i.i.i = phi i32 [ %27, %25 ], [ %53, %51 ], [ %56, %54 ], [ %66, %57 ], [ %37, %32 ], [ %44, %40 ], [ %50, %47 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %_mpd_apply_round.exit.i, label %_mpd_rnd_incr.exit.thread24.i.i
 
@@ -15854,7 +15854,7 @@ define internal fastcc void @_mpd_apply_round_excess(ptr noundef %0, i64 noundef
   br label %_mpd_rnd_incr.exit
 
 _mpd_rnd_incr.exit:                               ; preds = %4, %11, %19, %26, %30, %33, %36
-  %.0.i14 = phi i32 [ %45, %36 ], [ %35, %33 ], [ %32, %30 ], [ %6, %4 ], [ %16, %11 ], [ %23, %19 ], [ %29, %26 ]
+  %.0.i14 = phi i32 [ %6, %4 ], [ %32, %30 ], [ %35, %33 ], [ %45, %36 ], [ %16, %11 ], [ %23, %19 ], [ %29, %26 ]
   %.not = icmp eq i32 %.0.i14, 0
   br i1 %.not, label %_mpd_rnd_incr.exit.thread, label %_mpd_rnd_incr.exit.thread3
 
@@ -24715,7 +24715,7 @@ define internal fastcc range(i32 0, 2) i32 @_mpd_apply_round_fit(ptr noundef %0,
   br label %_mpd_rnd_incr.exit
 
 _mpd_rnd_incr.exit:                               ; preds = %7, %14, %22, %29, %33, %36, %39
-  %.0.i21 = phi i32 [ %48, %39 ], [ %38, %36 ], [ %35, %33 ], [ %9, %7 ], [ %19, %14 ], [ %26, %22 ], [ %32, %29 ]
+  %.0.i21 = phi i32 [ %9, %7 ], [ %35, %33 ], [ %38, %36 ], [ %48, %39 ], [ %19, %14 ], [ %26, %22 ], [ %32, %29 ]
   %.not = icmp eq i32 %.0.i21, 0
   br i1 %.not, label %_mpd_rnd_incr.exit.thread, label %_mpd_rnd_incr.exit.thread24
 
@@ -29998,7 +29998,7 @@ mpd_seterror.exit66:                              ; preds = %108, %111, %123
   br label %.critedge
 
 .critedge:                                        ; preds = %84, %mpd_setspecial.exit, %46, %mpd_seterror.exit66, %mpd_seterror.exit, %mpd_setspecial.exit59
-  %.1 = phi i32 [ -1, %mpd_seterror.exit ], [ -1, %mpd_seterror.exit66 ], [ 0, %mpd_setspecial.exit59 ], [ 0, %46 ], [ 0, %mpd_setspecial.exit ], [ 0, %84 ]
+  %.1 = phi i32 [ -1, %mpd_seterror.exit ], [ -1, %mpd_seterror.exit66 ], [ 0, %46 ], [ 0, %mpd_setspecial.exit59 ], [ 0, %mpd_setspecial.exit ], [ 0, %84 ]
   ret i32 %.1
 }
 
@@ -30284,7 +30284,7 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   br label %46
 
 46:                                               ; preds = %41, %40
-  %.0.i19.i = phi i128 [ 0, %40 ], [ %45, %41 ]
+  %.0.i19.i = phi i128 [ %45, %41 ], [ 0, %40 ]
   %47 = getelementptr i8, ptr %25, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = zext i64 %48 to i128
@@ -30311,7 +30311,7 @@ _coeff_as_uint128.exit:                           ; preds = %mpd_qcmp.exit.i
   br label %69
 
 55:                                               ; preds = %40, %46
-  %.1.i.i = phi i128 [ 0, %40 ], [ %51, %46 ]
+  %.1.i.i = phi i128 [ %51, %46 ], [ 0, %40 ]
   %56 = load i64, ptr %25, align 8, !tbaa !3
   %57 = zext i64 %56 to i128
   %58 = add i128 %.1.i.i, %57

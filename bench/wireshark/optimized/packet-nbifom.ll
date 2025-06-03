@@ -565,7 +565,7 @@ dissect_nbifom_routing_rules.exit:                ; preds = %dissect_nbifom_rout
   br label %191
 
 191:                                              ; preds = %.lr.ph, %186, %189, %179, %182, %172, %175, %44, %dissect_nbifom_routing_rules.exit, %40, %36, %32
-  %.1 = phi i32 [ %30, %.lr.ph ], [ %190, %189 ], [ %30, %186 ], [ %185, %182 ], [ %30, %179 ], [ %178, %175 ], [ %30, %172 ], [ %171, %dissect_nbifom_routing_rules.exit ], [ %30, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ]
+  %.1 = phi i32 [ %30, %.lr.ph ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %30, %44 ], [ %171, %dissect_nbifom_routing_rules.exit ], [ %178, %175 ], [ %30, %172 ], [ %185, %182 ], [ %30, %179 ], [ %190, %189 ], [ %30, %186 ]
   %192 = sub i32 %.1, %30
   %193 = load i32, ptr %9, align 4
   %194 = icmp slt i32 %192, %193

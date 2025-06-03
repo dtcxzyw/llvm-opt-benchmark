@@ -903,7 +903,7 @@ define i32 @prte_hwloc_base_topology_set_flags(ptr noundef %0, i64 noundef %1, i
   br label %9
 
 9:                                                ; preds = %4, %6
-  %.1 = phi i32 [ %5, %4 ], [ %8, %6 ]
+  %.1 = phi i32 [ %8, %6 ], [ %5, %4 ]
   ret i32 %.1
 }
 
@@ -3551,7 +3551,7 @@ prte_hwloc_base_get_locality_string_by_depth.exit: ; preds = %25
   br label %86
 
 86:                                               ; preds = %28, %84, %76, %68, %60, %52, %44, %36
-  %.3 = phi ptr [ %.081104, %28 ], [ %85, %84 ], [ %77, %76 ], [ %69, %68 ], [ %61, %60 ], [ %53, %52 ], [ %45, %44 ], [ %37, %36 ]
+  %.3 = phi ptr [ %.081104, %28 ], [ %37, %36 ], [ %45, %44 ], [ %53, %52 ], [ %61, %60 ], [ %69, %68 ], [ %77, %76 ], [ %85, %84 ]
   %87 = load ptr, ptr %3, align 8, !tbaa !20
   call void @free(ptr noundef %87) #18
   br label %88

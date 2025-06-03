@@ -6914,7 +6914,7 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt22PardisoSolverInterface10MultiSolv
   br label %13
 
 13:                                               ; preds = %9, %11
-  %.1 = phi i32 [ %10, %9 ], [ %12, %11 ]
+  %.1 = phi i32 [ %12, %11 ], [ %10, %9 ]
   ret i32 %.1
 }
 

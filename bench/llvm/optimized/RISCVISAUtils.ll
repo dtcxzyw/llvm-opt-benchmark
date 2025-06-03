@@ -90,7 +90,7 @@ _ZL25singleLetterExtensionRankc.exit.i:           ; preds = %17, %14, %9, %5
   br label %_ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2, %_ZL25singleLetterExtensionRankc.exit.i, %20, %21, %23, %25, %30, %33
-  %.0.i = phi i32 [ 192, %20 ], [ %19, %_ZL25singleLetterExtensionRankc.exit.i ], [ 128, %2 ], [ 256, %21 ], [ 1, %25 ], [ 0, %23 ], [ %32, %30 ], [ %34, %33 ]
+  %.0.i = phi i32 [ %19, %_ZL25singleLetterExtensionRankc.exit.i ], [ 192, %20 ], [ 128, %2 ], [ 256, %21 ], [ 1, %25 ], [ 0, %23 ], [ %32, %30 ], [ %34, %33 ]
   %.val11 = load ptr, ptr %1, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val12 = load i64, ptr %35, align 8
@@ -172,7 +172,7 @@ _ZL25singleLetterExtensionRankc.exit.i14:         ; preds = %49, %46, %41, %37
   br label %_ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
 
 _ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %_ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZL25singleLetterExtensionRankc.exit.i14, %52, %53, %55, %57, %62, %65
-  %.0.i13 = phi i32 [ 192, %52 ], [ %51, %_ZL25singleLetterExtensionRankc.exit.i14 ], [ 128, %_ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 256, %53 ], [ 1, %57 ], [ 0, %55 ], [ %64, %62 ], [ %66, %65 ]
+  %.0.i13 = phi i32 [ %51, %_ZL25singleLetterExtensionRankc.exit.i14 ], [ 192, %52 ], [ 128, %_ZL16getExtensionRankRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 256, %53 ], [ 1, %57 ], [ 0, %55 ], [ %64, %62 ], [ %66, %65 ]
   %.not = icmp eq i32 %.0.i, %.0.i13
   br i1 %.not, label %69, label %67
 

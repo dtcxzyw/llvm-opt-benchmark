@@ -1569,9 +1569,9 @@ switch.early.test:                                ; preds = %540
   br label %606
 
 600:                                              ; preds = %.thread209, %_load_cluster_settings.exit, %35, %75, %58, %46
-  %.0111 = phi ptr [ null, %35 ], [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ %.1112236, %.thread209 ]
-  %.0106 = phi ptr [ null, %35 ], [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ %.1107237, %.thread209 ]
-  %.095 = phi i32 [ 0, %35 ], [ 0, %58 ], [ 0, %_load_cluster_settings.exit ], [ 0, %75 ], [ 0, %46 ], [ %.196238, %.thread209 ]
+  %.0111 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1112236, %.thread209 ]
+  %.0106 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1107237, %.thread209 ]
+  %.095 = phi i32 [ 0, %58 ], [ 0, %_load_cluster_settings.exit ], [ 0, %75 ], [ 0, %46 ], [ 0, %35 ], [ %.196238, %.thread209 ]
   %601 = load i8, ptr @ignore_state_errors, align 1, !range !11, !noundef !12
   %602 = trunc nuw i8 %601 to i1
   br i1 %602, label %604, label %603
@@ -1585,7 +1585,7 @@ switch.early.test:                                ; preds = %540
   br label %.loopexit
 
 606:                                              ; preds = %599, %54, %34
-  %.0 = phi i32 [ %.4, %599 ], [ 14, %54 ], [ 2, %34 ]
+  %.0 = phi i32 [ 14, %54 ], [ %.4, %599 ], [ 2, %34 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15

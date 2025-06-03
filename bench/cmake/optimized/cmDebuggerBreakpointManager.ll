@@ -548,7 +548,7 @@ define dso_local noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager21Find
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i
-  %.sroa.056.1.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %44, %43 ]
+  %.sroa.056.1.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.056.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i34.i.i.i = load i64, ptr %.sroa.056.1.i.i.i, align 8, !tbaa !51
   %46 = getelementptr i8, ptr %.sroa.056.1.i.i.i, i64 8
   %.val2.i35.i.i.i = load i64, ptr %46, align 8
@@ -562,7 +562,7 @@ define dso_local noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager21Find
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i
-  %.sroa.056.2.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
+  %.sroa.056.2.i.i.i = phi ptr [ %50, %49 ], [ %.sroa.056.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i37.i.i.i = load i64, ptr %.sroa.056.2.i.i.i, align 8, !tbaa !51
   %52 = getelementptr i8, ptr %.sroa.056.2.i.i.i, i64 8
   %.val2.i38.i.i.i = load i64, ptr %52, align 8
@@ -677,7 +677,7 @@ define dso_local noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager23Cali
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]
+  %.sroa.044.1.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 8, !tbaa !51
   %.not53.i.i.i = icmp slt i64 %.val1.i26.i.i.i, %2
   br i1 %.not53.i.i.i, label %31, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN10cmDebugger26cmDebuggerFunctionLocationESt6vectorIS3_SaIS3_EEEEZNS2_27cmDebuggerBreakpointManager23CalibrateBreakpointLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0ET_SJ_SJ_T0_.exit"
@@ -687,7 +687,7 @@ define dso_local noundef i64 @_ZN10cmDebugger27cmDebuggerBreakpointManager23Cali
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %32, %31 ]
+  %.sroa.044.2.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 8, !tbaa !51
   %.not54.i.i.i = icmp slt i64 %.val1.i27.i.i.i, %2
   %spec.select.i.i.i = select i1 %.not54.i.i.i, ptr %9, ptr %.sroa.044.2.i.i.i
@@ -2481,7 +2481,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
   br label %55
 
 55:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit33.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.043.1.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit33.thread.i.i.i" ]
+  %.sroa.043.1.i.i.i = phi ptr [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit33.thread.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %56 = getelementptr i8, ptr %.sroa.043.1.i.i.i, i64 16
   %.val2.i34.i.i.i = load i8, ptr %56, align 8, !tbaa !153, !range !64, !noundef !65
   %57 = trunc nuw i8 %.val2.i34.i.i.i to i1
@@ -2498,7 +2498,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vect
   br label %61
 
 61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit36.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.043.2.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit36.thread.i.i.i" ]
+  %.sroa.043.2.i.i.i = phi ptr [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN10cmDebugger27cmDebuggerBreakpointManager14GetBreakpointsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElE3$_0EclINS_17__normal_iteratorIPKNS2_26cmDebuggerSourceBreakpointESt6vectorISG_SaISG_EEEEEEbT_.exit36.thread.i.i.i" ], [ %.sroa.043.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %62 = getelementptr i8, ptr %.sroa.043.2.i.i.i, i64 16
   %.val2.i37.i.i.i = load i8, ptr %62, align 8, !tbaa !153, !range !64, !noundef !65
   %63 = trunc nuw i8 %.val2.i37.i.i.i to i1

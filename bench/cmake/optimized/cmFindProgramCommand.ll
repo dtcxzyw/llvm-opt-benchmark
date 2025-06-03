@@ -3397,7 +3397,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.025.1 = phi ptr [ %28, %27 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %30 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN19cmFindProgramHelper18CheckCompoundNamesEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.1)
   br i1 %30, label %.loopexit, label %31
 
@@ -3406,7 +3406,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.025.2 = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %34 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN19cmFindProgramHelper18CheckCompoundNamesEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.2)
   %spec.select = select i1 %34, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -3558,7 +3558,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %27, %26 ]
+  %.sroa.025.1 = phi ptr [ %27, %26 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %29 = call noundef zeroext i1 @_ZZN19cmFindProgramHelper21CheckDirectoryForNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENKUlS7_E_clES7_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.1)
   br i1 %29, label %.loopexit, label %30
 
@@ -3567,7 +3567,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %31, %30 ]
+  %.sroa.025.2 = phi ptr [ %31, %30 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %33 = call noundef zeroext i1 @_ZZN19cmFindProgramHelper21CheckDirectoryForNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENKUlS7_E_clES7_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.2)
   %spec.select = select i1 %33, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -4377,7 +4377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   resume { ptr, i32 } %.pn20.pn
 
 117:                                              ; preds = %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %13, %11
-  %.017 = phi i1 [ %14, %13 ], [ %12, %11 ], [ %17, %15 ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %.017 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   ret i1 %.017
 }
 
@@ -4513,7 +4513,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge
-  %.sroa.050.1 = phi ptr [ %.sroa.050.0.lcssa, %._crit_edge ], [ %48, %47 ]
+  %.sroa.050.1 = phi ptr [ %48, %47 ], [ %.sroa.050.0.lcssa, %._crit_edge ]
   %50 = load ptr, ptr %2, align 8, !tbaa !74
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !74
@@ -4533,7 +4533,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge
-  %.sroa.050.2 = phi ptr [ %.sroa.050.0.lcssa, %._crit_edge ], [ %55, %54 ]
+  %.sroa.050.2 = phi ptr [ %55, %54 ], [ %.sroa.050.0.lcssa, %._crit_edge ]
   %57 = load ptr, ptr %2, align 8, !tbaa !74
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !74

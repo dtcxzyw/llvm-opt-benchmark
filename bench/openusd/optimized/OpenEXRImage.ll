@@ -5559,8 +5559,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit309: ; preds = %901, %_ZN3
   ret void
 
 _ZNSt6vectorIfSaIfEED2Ev.exit161:                 ; preds = %367, %.body140, %.body302, %.body292, %.body282, %.body272, %.body262, %.body252, %.body242, %.body227, %.body216, %.body206, %.body196, %.body186, %.body176, %.body166, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit163, %.body129, %.body119, %.body109, %.body
-  %.pn64.pn = phi { ptr, i32 } [ %.pn64, %.body206 ], [ %.pn66, %.body216 ], [ %.pn68, %.body196 ], [ %.pn70, %.body186 ], [ %.pn72, %.body176 ], [ %.pn74, %.body166 ], [ %.pn78, %.body227 ], [ %.pn80, %.body242 ], [ %.pn85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit163 ], [ %.pn87, %.body129 ], [ %.pn89, %.body252 ], [ %.pn91, %.body119 ], [ %.pn93, %.body262 ], [ %.pn95, %.body272 ], [ %.pn97, %.body282 ], [ %.pn99, %.body109 ], [ %.pn101, %.body ], [ %.pn103, %.body292 ], [ %.pn, %.body302 ], [ %.pn82.pn, %.body140 ], [ %.pn82.pn, %367 ]
-  resume { ptr, i32 } %.pn64.pn
+  %.pn103.pn = phi { ptr, i32 } [ %.pn103, %.body292 ], [ %.pn101, %.body ], [ %.pn99, %.body109 ], [ %.pn97, %.body282 ], [ %.pn95, %.body272 ], [ %.pn93, %.body262 ], [ %.pn91, %.body119 ], [ %.pn89, %.body252 ], [ %.pn87, %.body129 ], [ %.pn85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit163 ], [ %.pn80, %.body242 ], [ %.pn78, %.body227 ], [ %.pn74, %.body166 ], [ %.pn72, %.body176 ], [ %.pn70, %.body186 ], [ %.pn68, %.body196 ], [ %.pn66, %.body216 ], [ %.pn64, %.body206 ], [ %.pn, %.body302 ], [ %.pn82.pn, %.body140 ], [ %.pn82.pn, %367 ]
+  resume { ptr, i32 } %.pn103.pn
 }
 
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary5emptyEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2

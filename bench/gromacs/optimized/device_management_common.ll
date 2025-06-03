@@ -598,7 +598,7 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.052.1.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.052.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i32.i.i.i = load ptr, ptr %.sroa.052.1.i.i.i, align 8, !tbaa !30
   %39 = getelementptr i8, ptr %.val1.i32.i.i.i, i64 4
   %.val1.val.i33.i.i.i = load i32, ptr %39, align 4, !tbaa !48
@@ -610,7 +610,7 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.052.2.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.052.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.052.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i34.i.i.i = load ptr, ptr %.sroa.052.2.i.i.i, align 8, !tbaa !30
   %44 = getelementptr i8, ptr %.val1.i34.i.i.i, i64 4
   %.val1.val.i35.i.i.i = load i32, ptr %44, align 4, !tbaa !48

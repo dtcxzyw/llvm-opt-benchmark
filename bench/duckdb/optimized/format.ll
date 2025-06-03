@@ -3067,8 +3067,8 @@ _ZN10duckdb_fmt2v68internal13fixed_handler8on_startEmmmRi.exit: ; preds = %_ZN10
   br label %155
 
 155:                                              ; preds = %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %125
-  %.0384 = phi i32 [ 0, %125 ], [ %.0382, %154 ], [ %152, %151 ], [ %149, %148 ], [ %146, %145 ], [ %143, %142 ], [ %140, %139 ], [ %137, %136 ], [ %134, %133 ], [ %131, %130 ], [ %128, %127 ]
-  %.1383 = phi i32 [ %.0382, %125 ], [ 0, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %129, %127 ]
+  %.0384 = phi i32 [ 0, %125 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ], [ %137, %136 ], [ %140, %139 ], [ %143, %142 ], [ %146, %145 ], [ %149, %148 ], [ %152, %151 ], [ %.0382, %154 ]
+  %.1383 = phi i32 [ %.0382, %125 ], [ %129, %127 ], [ %132, %130 ], [ %135, %133 ], [ %138, %136 ], [ %141, %139 ], [ %144, %142 ], [ %147, %145 ], [ %150, %148 ], [ %153, %151 ], [ 0, %154 ]
   %156 = add nsw i32 %126, -1
   %157 = trunc i32 %.0384 to i8
   %158 = add i8 %157, 48
@@ -3546,8 +3546,8 @@ _ZN10duckdb_fmt2v68internal9normalizeILi0EEENS1_2fpES3_.exit202: ; preds = %.lr.
   br label %398
 
 398:                                              ; preds = %397, %394, %391, %388, %385, %382, %379, %376, %373, %370, %368
-  %.0381 = phi i32 [ 0, %368 ], [ %.0379, %397 ], [ %395, %394 ], [ %392, %391 ], [ %389, %388 ], [ %386, %385 ], [ %383, %382 ], [ %380, %379 ], [ %377, %376 ], [ %374, %373 ], [ %371, %370 ]
-  %.1380 = phi i32 [ %.0379, %368 ], [ 0, %397 ], [ %396, %394 ], [ %393, %391 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ]
+  %.0381 = phi i32 [ 0, %368 ], [ %371, %370 ], [ %374, %373 ], [ %377, %376 ], [ %380, %379 ], [ %383, %382 ], [ %386, %385 ], [ %389, %388 ], [ %392, %391 ], [ %395, %394 ], [ %.0379, %397 ]
+  %.1380 = phi i32 [ %.0379, %368 ], [ %372, %370 ], [ %375, %373 ], [ %378, %376 ], [ %381, %379 ], [ %384, %382 ], [ %387, %385 ], [ %390, %388 ], [ %393, %391 ], [ %396, %394 ], [ 0, %397 ]
   %399 = add nsw i32 %369, -1
   %400 = zext i32 %.1380 to i64
   %401 = shl i64 %400, %351
@@ -5984,7 +5984,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   br label %124
 
 122:                                              ; preds = %54, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit, %95, %82
-  %.169 = phi ptr [ %93, %95 ], [ %79, %82 ], [ %37, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit ], [ %37, %54 ]
+  %.169 = phi ptr [ %79, %82 ], [ %93, %95 ], [ %37, %54 ], [ %37, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit ]
   %123 = getelementptr inbounds nuw i8, ptr %.169, i64 1
   %.not = icmp eq ptr %123, %15
   br i1 %.not, label %.loopexit, label %30, !llvm.loop !139
@@ -7669,7 +7669,7 @@ _ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13erro
   br label %169
 
 169:                                              ; preds = %168, %162, %159, %154, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclEPKc.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %107, %103, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %61, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit, %36, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit
-  %.sroa.037.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i59, %168 ], [ %158, %154 ], [ %.sroa.0.0.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclEPKc.exit ], [ %.sroa.0.0.copyload.i.i.i57, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i55, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i53, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i51, %107 ], [ %106, %103 ], [ %.sroa.0.0.copyload.i.i.i50, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i43, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %63, %61 ], [ %.sroa.0.0.copyload.i.i.i40, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %38, %36 ], [ %.sroa.0.0.copyload.i.i.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %161, %159 ], [ %.sroa.0.0.copyload.i.i, %162 ]
+  %.sroa.037.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i59, %168 ], [ %.sroa.0.0.copyload.i.i, %162 ], [ %161, %159 ], [ %.sroa.0.0.copyload.i.i.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %38, %36 ], [ %.sroa.0.0.copyload.i.i.i40, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %63, %61 ], [ %.sroa.0.0.copyload.i.i.i43, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i50, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %106, %103 ], [ %.sroa.0.0.copyload.i.i.i51, %107 ], [ %.sroa.0.0.copyload.i.i.i53, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i55, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i57, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit ], [ %.sroa.0.0.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclEPKc.exit ], [ %158, %154 ]
   ret ptr %.sroa.037.0
 }
 
@@ -30128,7 +30128,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %30
 
 30:                                               ; preds = %28, %2
-  %.sroa.2.1 = phi i32 [ %14, %2 ], [ %29, %28 ]
+  %.sroa.2.1 = phi i32 [ %29, %28 ], [ %14, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !151
   %.not49 = icmp eq i32 %32, 0
@@ -30143,7 +30143,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %39
 
 39:                                               ; preds = %37, %2
-  %.sroa.2.2 = phi i32 [ %14, %2 ], [ %38, %37 ]
+  %.sroa.2.2 = phi i32 [ %38, %37 ], [ %14, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !151
   %.not = icmp eq i32 %41, 0
@@ -30158,7 +30158,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %48
 
 48:                                               ; preds = %46, %2
-  %.sroa.2.3 = phi i32 [ %14, %2 ], [ %47, %46 ]
+  %.sroa.2.3 = phi i32 [ %47, %46 ], [ %14, %2 ]
   %49 = or i32 %.sroa.2.3, 3
   br label %79
 
@@ -30256,7 +30256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn
 
 79:                                               ; preds = %2, %26, %50, %48, %39, %30, %17
-  %.sroa.2.4 = phi i32 [ %51, %50 ], [ %49, %48 ], [ %45, %39 ], [ %36, %30 ], [ %25, %17 ], [ %14, %2 ], [ %27, %26 ]
+  %.sroa.2.4 = phi i32 [ %25, %17 ], [ %36, %30 ], [ %45, %39 ], [ %49, %48 ], [ %51, %50 ], [ %27, %26 ], [ %14, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift
@@ -33854,7 +33854,7 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal18parse_format_specs
   br label %61
 
 61:                                               ; preds = %56, %49, %45, %41, %33, %25, %17, %15
-  %.060 = phi ptr [ %13, %15 ], [ %60, %56 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %33 ], [ %32, %25 ], [ %24, %17 ]
+  %.060 = phi ptr [ %13, %15 ], [ %24, %17 ], [ %32, %25 ], [ %40, %33 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %60, %56 ]
   %62 = icmp eq ptr %.060, %1
   br i1 %62, label %145, label %63
 
@@ -36415,7 +36415,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 218:                                              ; preds = %76, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %61, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %45, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
-  %.0 = phi i64 [ %.sroa.01.0.extract.trunc, %76 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %49, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %44, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ]
+  %.0 = phi i64 [ %44, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %49, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %.sroa.01.0.extract.trunc, %76 ]
   ret i64 %.0
 }
 
@@ -37759,7 +37759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 218:                                              ; preds = %76, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %61, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %45, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
-  %.0 = phi i64 [ %.sroa.01.0.extract.trunc, %76 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %49, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %44, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ]
+  %.0 = phi i64 [ %44, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %49, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %.sroa.01.0.extract.trunc, %76 ]
   ret i64 %.0
 }
 
@@ -39004,7 +39004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   br label %125
 
 123:                                              ; preds = %51, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit, %96, %82
-  %.168 = phi ptr [ %33, %51 ], [ %33, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit ], [ %94, %96 ], [ %79, %82 ]
+  %.168 = phi ptr [ %33, %51 ], [ %33, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit ], [ %79, %82 ], [ %94, %96 ]
   %124 = getelementptr inbounds nuw i8, ptr %.168, i64 4
   %.not = icmp eq ptr %124, %15
   br i1 %.not, label %.loopexit, label %29, !llvm.loop !715
@@ -40646,7 +40646,7 @@ _ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13erro
   br label %198
 
 198:                                              ; preds = %197, %191, %188, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclENS0_17basic_string_viewIwEE.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclEPKw.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %109, %105, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %63, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit, %38, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit
-  %.sroa.037.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i61, %197 ], [ %.sroa.0.0.copyload.i.i.i60, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclENS0_17basic_string_viewIwEE.exit ], [ %.sroa.0.0.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclEPKw.exit ], [ %.sroa.0.0.copyload.i.i.i57, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i55, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i53, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i51, %109 ], [ %108, %105 ], [ %.sroa.0.0.copyload.i.i.i50, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i43, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %65, %63 ], [ %.sroa.0.0.copyload.i.i.i40, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %40, %38 ], [ %.sroa.0.0.copyload.i.i.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %190, %188 ], [ %.sroa.0.0.copyload.i.i, %191 ]
+  %.sroa.037.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i61, %197 ], [ %.sroa.0.0.copyload.i.i, %191 ], [ %190, %188 ], [ %.sroa.0.0.copyload.i.i.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIiTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %40, %38 ], [ %.sroa.0.0.copyload.i.i.i40, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIxTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %65, %63 ], [ %.sroa.0.0.copyload.i.i.i43, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i50, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %108, %105 ], [ %.sroa.0.0.copyload.i.i.i51, %109 ], [ %.sroa.0.0.copyload.i.i.i53, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIfTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i55, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.copyload.i.i.i57, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclIeTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIwEEES9_.exit ], [ %.sroa.0.0.i, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclEPKw.exit ], [ %.sroa.0.0.copyload.i.i.i60, %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13error_handlerEEclENS0_17basic_string_viewIwEE.exit ]
   ret ptr %.sroa.037.0
 }
 
@@ -65537,7 +65537,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %30
 
 30:                                               ; preds = %28, %2
-  %.sroa.2.1 = phi i32 [ %14, %2 ], [ %29, %28 ]
+  %.sroa.2.1 = phi i32 [ %29, %28 ], [ %14, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !724
   %.not49 = icmp eq i32 %32, 0
@@ -65552,7 +65552,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %39
 
 39:                                               ; preds = %37, %2
-  %.sroa.2.2 = phi i32 [ %14, %2 ], [ %38, %37 ]
+  %.sroa.2.2 = phi i32 [ %38, %37 ], [ %14, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !724
   %.not = icmp eq i32 %41, 0
@@ -65567,7 +65567,7 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   br label %48
 
 48:                                               ; preds = %46, %2
-  %.sroa.2.3 = phi i32 [ %14, %2 ], [ %47, %46 ]
+  %.sroa.2.3 = phi i32 [ %47, %46 ], [ %14, %2 ]
   %49 = or i32 %.sroa.2.3, 3
   br label %79
 
@@ -65665,7 +65665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn
 
 79:                                               ; preds = %2, %26, %50, %48, %39, %30, %17
-  %.sroa.2.4 = phi i32 [ %51, %50 ], [ %49, %48 ], [ %45, %39 ], [ %36, %30 ], [ %25, %17 ], [ %14, %2 ], [ %27, %26 ]
+  %.sroa.2.4 = phi i32 [ %25, %17 ], [ %36, %30 ], [ %45, %39 ], [ %49, %48 ], [ %51, %50 ], [ %27, %26 ], [ %14, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift
@@ -69476,7 +69476,7 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal18parse_format_specs
   br label %63
 
 63:                                               ; preds = %57, %50, %46, %42, %34, %26, %18, %15
-  %.060 = phi ptr [ %13, %15 ], [ %62, %57 ], [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %34 ], [ %33, %26 ], [ %25, %18 ]
+  %.060 = phi ptr [ %13, %15 ], [ %25, %18 ], [ %33, %26 ], [ %41, %34 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %62, %57 ]
   %64 = icmp eq ptr %.060, %1
   br i1 %64, label %148, label %65
 
@@ -72018,7 +72018,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 218:                                              ; preds = %76, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %61, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %45, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
-  %.0 = phi i64 [ %.sroa.01.0.extract.trunc, %76 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %49, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %44, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ]
+  %.0 = phi i64 [ %44, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %49, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal13width_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %.sroa.01.0.extract.trunc, %76 ]
   ret i64 %.0
 }
 
@@ -73359,7 +73359,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 218:                                              ; preds = %76, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %61, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %45, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit
-  %.0 = phi i64 [ %.sroa.01.0.extract.trunc, %76 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %49, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %44, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ]
+  %.0 = phi i64 [ %44, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %47, %45 ], [ %49, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %62, %61 ], [ %.sroa.03.0.extract.trunc, %_ZN10duckdb_fmt2v68internal17precision_checkerINS1_13error_handlerEEclInTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %.sroa.01.0.extract.trunc, %76 ]
   ret i64 %.0
 }
 

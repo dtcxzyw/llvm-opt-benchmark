@@ -10550,8 +10550,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIN7datalog18relati
   br label %242
 
 242:                                              ; preds = %._crit_edge._crit_edge, %235
-  %243 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %236, %235 ]
-  %.2 = phi i32 [ %228, %._crit_edge._crit_edge ], [ %241, %235 ]
+  %243 = phi ptr [ %236, %235 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %241, %235 ], [ %228, %._crit_edge._crit_edge ]
   %244 = load ptr, ptr %243, align 8, !tbaa !63
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 12
   %246 = load i32, ptr %245, align 4, !tbaa !205
@@ -10600,7 +10600,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIN7datalog18relati
   br label %285
 
 285:                                              ; preds = %4, %248, %90, %43, %7
-  %.0 = phi i32 [ %284, %248 ], [ %176, %90 ], [ %89, %43 ], [ %42, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %284, %248 ], [ %42, %7 ], [ %89, %43 ], [ %176, %90 ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -12566,8 +12566,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIbjE22def
   br label %217
 
 217:                                              ; preds = %._crit_edge._crit_edge, %211
-  %218 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %212, %211 ]
-  %.2 = phi i32 [ %204, %._crit_edge._crit_edge ], [ %216, %211 ]
+  %218 = phi ptr [ %212, %211 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.2 = phi i32 [ %216, %211 ], [ %204, %._crit_edge._crit_edge ]
   %219 = load i8, ptr %218, align 1, !tbaa !32, !range !34, !noundef !35
   %220 = zext nneg i8 %219 to i32
   %221 = add i32 %208, %220
@@ -12615,7 +12615,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIbjE22def
   br label %259
 
 259:                                              ; preds = %4, %222, %78, %40, %7
-  %.0 = phi i32 [ %258, %222 ], [ %155, %78 ], [ %77, %40 ], [ %39, %7 ], [ 11, %4 ]
+  %.0 = phi i32 [ %258, %222 ], [ %39, %7 ], [ %77, %40 ], [ %155, %78 ], [ 11, %4 ]
   ret i32 %.0
 }
 

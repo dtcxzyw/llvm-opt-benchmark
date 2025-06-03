@@ -10673,7 +10673,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238, %.body, %366, %239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %557, %379, %113
-  %common.resume.op = phi { ptr, i32 } [ %114, %113 ], [ %380, %379 ], [ %558, %557 ], [ %.pn6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn6.i87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i86 ], [ %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i91 ], [ %.pn6.i114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113 ], [ %251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238 ], [ %.pn59.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %.pn57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.pn64.pn, %239 ], [ %.pn68.pn, %.body ], [ %.pn73.pn, %366 ]
+  %common.resume.op = phi { ptr, i32 } [ %114, %113 ], [ %380, %379 ], [ %558, %557 ], [ %.pn6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn6.i87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i86 ], [ %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i91 ], [ %.pn6.i114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113 ], [ %251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118 ], [ %.pn59.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %.pn57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238 ], [ %.pn64.pn, %239 ], [ %.pn68.pn, %.body ], [ %.pn73.pn, %366 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_EEC2Ev.exit: ; preds = %42
@@ -14544,7 +14544,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi3072E
   br label %142
 
 142:                                              ; preds = %140, %130, %97, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi3072EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3072EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3072EEEPNS2_8xml_nodeIcEERPc.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %140 ], [ %132, %130 ], [ %99, %97 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi3072EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3072EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3072EEEPNS2_8xml_nodeIcEERPc.exit ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3072EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3072EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %140 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi3072EEEPNS2_8xml_nodeIcEERPc.exit ], [ %99, %97 ], [ %132, %130 ]
   ret ptr %.0
 }
 
@@ -14887,7 +14887,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   unreachable
 
 16:                                               ; preds = %5, %9, %7
-  %.1 = phi i32 [ %.016, %5 ], [ %10, %9 ], [ %8, %7 ]
+  %.1 = phi i32 [ %.016, %5 ], [ %8, %7 ], [ %10, %9 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge17, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !3
   %17 = icmp sgt i32 %.1, 0
@@ -15517,8 +15517,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !343
 
 27:                                               ; preds = %13
@@ -15915,8 +15915,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !345
 
 27:                                               ; preds = %13
@@ -16320,8 +16320,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.loopexit, %25, %41, %60, %71, %82, %218, %232
-  %.098.be = phi ptr [ %234, %232 ], [ %.199, %218 ], [ %83, %82 ], [ %72, %71 ], [ %61, %60 ], [ %26, %25 ], [ %42, %41 ], [ %28, %.backedge.loopexit ]
-  %.0.be = phi ptr [ %233, %232 ], [ %219, %218 ], [ %84, %82 ], [ %73, %71 ], [ %62, %60 ], [ %27, %25 ], [ %43, %41 ], [ %.6, %.backedge.loopexit ]
+  %.098.be = phi ptr [ %234, %232 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %.199, %218 ], [ %28, %.backedge.loopexit ]
+  %.0.be = phi ptr [ %233, %232 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %219, %218 ], [ %.6, %.backedge.loopexit ]
   br label %.backedge, !llvm.loop !347
 
 29:                                               ; preds = %14
@@ -16997,7 +16997,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi0EEEP
   br label %142
 
 142:                                              ; preds = %140, %130, %97, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi0EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi0EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi0EEEPNS2_8xml_nodeIcEERPc.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %140 ], [ %132, %130 ], [ %99, %97 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi0EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi0EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi0EEEPNS2_8xml_nodeIcEERPc.exit ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi0EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi0EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %140 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi0EEEPNS2_8xml_nodeIcEERPc.exit ], [ %99, %97 ], [ %132, %130 ]
   ret ptr %.0
 }
 
@@ -17340,7 +17340,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   unreachable
 
 16:                                               ; preds = %5, %9, %7
-  %.1 = phi i32 [ %.016, %5 ], [ %10, %9 ], [ %8, %7 ]
+  %.1 = phi i32 [ %.016, %5 ], [ %8, %7 ], [ %10, %9 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge17, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !3
   %17 = icmp sgt i32 %.1, 0
@@ -17947,8 +17947,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !361
 
 27:                                               ; preds = %13
@@ -18345,8 +18345,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !363
 
 27:                                               ; preds = %13
@@ -18743,8 +18743,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !365
 
 27:                                               ; preds = %13
@@ -19345,7 +19345,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3136EEEPNS2
   br label %128
 
 128:                                              ; preds = %126, %116, %83, %56, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3136EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3136EEEPNS2_8xml_nodeIcEERPc.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %126 ], [ %118, %116 ], [ %85, %83 ], [ %58, %56 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3136EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3136EEEPNS2_8xml_nodeIcEERPc.exit ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi3136EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3136EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %126 ], [ %58, %56 ], [ %85, %83 ], [ %118, %116 ]
   ret ptr %.0
 }
 
@@ -19804,7 +19804,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   unreachable
 
 16:                                               ; preds = %5, %9, %7
-  %.1 = phi i32 [ %.016, %5 ], [ %10, %9 ], [ %8, %7 ]
+  %.1 = phi i32 [ %.016, %5 ], [ %8, %7 ], [ %10, %9 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge17, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !3
   %17 = icmp sgt i32 %.1, 0
@@ -20431,8 +20431,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !378
 
 27:                                               ; preds = %13
@@ -20829,8 +20829,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !380
 
 27:                                               ; preds = %13
@@ -21234,8 +21234,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.loopexit, %25, %41, %60, %71, %82, %218, %232
-  %.098.be = phi ptr [ %234, %232 ], [ %.199, %218 ], [ %83, %82 ], [ %72, %71 ], [ %61, %60 ], [ %26, %25 ], [ %42, %41 ], [ %28, %.backedge.loopexit ]
-  %.0.be = phi ptr [ %233, %232 ], [ %219, %218 ], [ %84, %82 ], [ %73, %71 ], [ %62, %60 ], [ %27, %25 ], [ %43, %41 ], [ %.6, %.backedge.loopexit ]
+  %.098.be = phi ptr [ %234, %232 ], [ %26, %25 ], [ %42, %41 ], [ %61, %60 ], [ %72, %71 ], [ %83, %82 ], [ %.199, %218 ], [ %28, %.backedge.loopexit ]
+  %.0.be = phi ptr [ %233, %232 ], [ %27, %25 ], [ %43, %41 ], [ %62, %60 ], [ %73, %71 ], [ %84, %82 ], [ %219, %218 ], [ %.6, %.backedge.loopexit ]
   br label %.backedge, !llvm.loop !382
 
 29:                                               ; preds = %14
@@ -21858,7 +21858,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi64EEEPNS2_8
   br label %128
 
 128:                                              ; preds = %126, %116, %83, %56, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi64EEEPNS2_8xml_nodeIcEERPc.exit, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi64EEEPNS2_8xml_nodeIcEERPc.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %126 ], [ %118, %116 ], [ %85, %83 ], [ %58, %56 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi64EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi64EEEPNS2_8xml_nodeIcEERPc.exit ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE21parse_xml_declarationILi64EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi64EEEPNS2_8xml_nodeIcEERPc.exit ], [ null, %126 ], [ %58, %56 ], [ %85, %83 ], [ %118, %116 ]
   ret ptr %.0
 }
 
@@ -22317,7 +22317,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   unreachable
 
 16:                                               ; preds = %5, %9, %7
-  %.1 = phi i32 [ %.016, %5 ], [ %10, %9 ], [ %8, %7 ]
+  %.1 = phi i32 [ %.016, %5 ], [ %8, %7 ], [ %10, %9 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge17, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !3
   %17 = icmp sgt i32 %.1, 0
@@ -22924,8 +22924,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !396
 
 27:                                               ; preds = %13
@@ -23322,8 +23322,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !398
 
 27:                                               ; preds = %13
@@ -23720,8 +23720,8 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %24, %39, %58, %69, %80, %216, %.thread
-  %.086.be = phi ptr [ %223, %.thread ], [ %.187, %216 ], [ %81, %80 ], [ %70, %69 ], [ %59, %58 ], [ %25, %24 ], [ %40, %39 ]
-  %.0.be = phi ptr [ %222, %.thread ], [ %217, %216 ], [ %82, %80 ], [ %71, %69 ], [ %60, %58 ], [ %26, %24 ], [ %41, %39 ]
+  %.086.be = phi ptr [ %223, %.thread ], [ %25, %24 ], [ %40, %39 ], [ %59, %58 ], [ %70, %69 ], [ %81, %80 ], [ %.187, %216 ]
+  %.0.be = phi ptr [ %222, %.thread ], [ %26, %24 ], [ %41, %39 ], [ %60, %58 ], [ %71, %69 ], [ %82, %80 ], [ %217, %216 ]
   br label %.backedge, !llvm.loop !400
 
 27:                                               ; preds = %13
@@ -25505,8 +25505,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i
-  %48 = phi i8 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %45 ]
+  %48 = phi i8 [ %43, %45 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %49 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !20
   %50 = icmp eq i8 %49, %48
   br i1 %50, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %51
@@ -25516,8 +25516,8 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11string_pathINSt7__cxx
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i
-  %54 = phi i8 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %52, %51 ]
+  %54 = phi i8 [ %48, %51 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %55 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !20
   %56 = icmp eq i8 %55, %54
   %spec.select.i.i.i = select i1 %56, ptr %.sroa.032.2.i.i.i, ptr %12

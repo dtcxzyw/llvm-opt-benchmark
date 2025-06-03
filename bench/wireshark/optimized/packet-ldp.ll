@@ -2806,7 +2806,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %98 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %63, i32 noundef %97, ptr noundef %0, i32 noundef %70, i32 noundef %42, ptr noundef %96, ptr noundef nonnull @.str.1018, ptr noundef %96)
   %99 = add i32 %42, %70
   %.neg700 = add nsw i32 %.0619813, -4
-  %100 = sub nsw i32 %.neg700, %42
+  %100 = sub i32 %.neg700, %42
   br label %.loopexit
 
 101:                                              ; preds = %20
@@ -3413,8 +3413,8 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit702
 
 .loopexit:                                        ; preds = %424, %214, %405, %185, %438, %499, %490, %344, %331, %._crit_edge, %139, %113, %._crit_edge810.thread, %71, %45, %22
-  %.1620 = phi i32 [ %503, %499 ], [ %496, %490 ], [ %455, %438 ], [ %368, %344 ], [ %332, %331 ], [ %141, %139 ], [ %157, %._crit_edge ], [ %119, %113 ], [ %73, %71 ], [ %100, %._crit_edge810.thread ], [ %50, %45 ], [ %28, %22 ], [ %191, %185 ], [ %.3622, %405 ], [ %215, %214 ], [ %425, %424 ]
-  %.1 = phi i32 [ %504, %499 ], [ %497, %490 ], [ %456, %438 ], [ %.reass, %344 ], [ %333, %331 ], [ %140, %139 ], [ %156, %._crit_edge ], [ %118, %113 ], [ %72, %71 ], [ %99, %._crit_edge810.thread ], [ %49, %45 ], [ %29, %22 ], [ %193, %185 ], [ %.3, %405 ], [ %217, %214 ], [ %428, %424 ]
+  %.1620 = phi i32 [ %28, %22 ], [ %73, %71 ], [ %100, %._crit_edge810.thread ], [ %50, %45 ], [ %141, %139 ], [ %157, %._crit_edge ], [ %119, %113 ], [ %332, %331 ], [ %368, %344 ], [ %503, %499 ], [ %496, %490 ], [ %455, %438 ], [ %191, %185 ], [ %.3622, %405 ], [ %215, %214 ], [ %425, %424 ]
+  %.1 = phi i32 [ %29, %22 ], [ %72, %71 ], [ %99, %._crit_edge810.thread ], [ %49, %45 ], [ %140, %139 ], [ %156, %._crit_edge ], [ %118, %113 ], [ %333, %331 ], [ %.reass, %344 ], [ %504, %499 ], [ %497, %490 ], [ %456, %438 ], [ %193, %185 ], [ %.3, %405 ], [ %217, %214 ], [ %428, %424 ]
   %510 = add i16 %.0631812, 1
   %511 = icmp sgt i32 %.1620, 0
   br i1 %511, label %20, label %.loopexit702, !llvm.loop !16

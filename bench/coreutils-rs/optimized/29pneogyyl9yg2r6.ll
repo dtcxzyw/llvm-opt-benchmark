@@ -386,7 +386,7 @@ define hidden void @"_ZN84_$LT$$LP$A$C$B$C$C$RP$$u20$as$u20$nom..branch..Alt$LT$
   br label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17h263e48556a1eecbeE.exit.thread"
 
 "_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17h263e48556a1eecbeE.exit.thread": ; preds = %26, %25, %24, %23, %22, %21, %20, %19
-  %.sroa.9.0.ph = phi i8 [ 7, %20 ], [ 8, %21 ], [ 12, %22 ], [ 10, %23 ], [ 13, %24 ], [ 9, %25 ], [ 11, %26 ], [ %.sroa.3.0.copyload.i.i.i.i, %19 ]
+  %.sroa.9.0.ph = phi i8 [ 11, %26 ], [ 9, %25 ], [ 13, %24 ], [ 10, %23 ], [ 12, %22 ], [ 8, %21 ], [ 7, %20 ], [ %.sroa.3.0.copyload.i.i.i.i, %19 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !92
   br label %34

@@ -25063,7 +25063,7 @@ select.unfold:                                    ; preds = %tailrecurse, %.lr.p
   br label %39
 
 39:                                               ; preds = %21, %12, %38
-  %.3 = phi i1 [ %18, %12 ], [ %28, %21 ], [ %spec.select35, %38 ]
+  %.3 = phi i1 [ %28, %21 ], [ %18, %12 ], [ %spec.select35, %38 ]
   ret i1 %.3
 }
 

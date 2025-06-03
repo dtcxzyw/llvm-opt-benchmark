@@ -126,7 +126,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br label %38
 
 38:                                               ; preds = %2, %37, %36, %16, %13
-  %.0 = phi i32 [ %10, %37 ], [ 1, %36 ], [ %35, %16 ], [ %15, %13 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %37 ], [ %15, %13 ], [ %35, %16 ], [ 1, %36 ], [ 0, %2 ]
   %39 = zext i1 %9 to i64
   %40 = getelementptr inbounds nuw [2 x ptr], ptr @perm_str, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !38

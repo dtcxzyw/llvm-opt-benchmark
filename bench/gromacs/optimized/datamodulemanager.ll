@@ -234,7 +234,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager4Impl19checkModulePropertyERKNS_1
   %.pn.pn29 = phi { ptr, i32 } [ %.pn.pn30, %30 ], [ %29, %28 ]
   resume { ptr, i32 } %.pn.pn29
 
-.critedge:                                        ; preds = %17, %13, %11
+.critedge:                                        ; preds = %11, %13, %17
   ret void
 
 32:                                               ; preds = %25

@@ -5161,7 +5161,7 @@ ExecReadyExpr.exit:                               ; preds = %ExprEvalPushStep.ex
   br label %93
 
 93:                                               ; preds = %.thread95, %83, %86, %87, %90, %82
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0101121, %83 ], [ 21, %90 ], [ 20, %87 ], [ 19, %86 ], [ 18, %82 ], [ 17, %.thread95 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0101121, %83 ], [ 19, %86 ], [ 20, %87 ], [ 21, %90 ], [ 18, %82 ], [ 17, %.thread95 ]
   %94 = zext nneg i16 %60 to i32
   %95 = add nsw i32 %94, -1
   %96 = getelementptr inbounds nuw i8, ptr %52, i64 16

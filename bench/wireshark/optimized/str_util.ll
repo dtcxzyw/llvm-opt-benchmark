@@ -1262,7 +1262,7 @@ define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %16, %17, %18, %19, %20, %21, %22, %.lr.ph.split.split.i
-  %.sink69.i.ph = phi i8 [ 97, %23 ], [ 48, %22 ], [ %15, %21 ], [ 118, %20 ], [ 116, %19 ], [ 114, %18 ], [ 110, %17 ], [ 102, %16 ], [ 98, %.lr.ph.split.split.i ]
+  %.sink69.i.ph = phi i8 [ 97, %23 ], [ 102, %16 ], [ 110, %17 ], [ 114, %18 ], [ 116, %19 ], [ 118, %20 ], [ %15, %21 ], [ 48, %22 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %10, i8 noundef signext 92)
   br label %24
 
@@ -1343,7 +1343,7 @@ define ptr @ws_escape_string(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %12, %13, %14, %15, %16, %17, %18, %.lr.ph.split.split.i
-  %.sink69.i.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ %11, %17 ], [ 118, %16 ], [ 116, %15 ], [ 114, %14 ], [ 110, %13 ], [ 102, %12 ], [ 98, %.lr.ph.split.split.i ]
+  %.sink69.i.ph = phi i8 [ 97, %19 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ %11, %17 ], [ 48, %18 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext 92)
   br label %20
 
@@ -1514,7 +1514,7 @@ define ptr @ws_escape_csv(ptr noundef %0, ptr noundef readonly captures(none) %1
   br label %25
 
 25:                                               ; preds = %.lr.ph.split.us.i, %23, %22, %21, %20, %19, %18, %17, %24
-  %.5.ph = phi i8 [ 97, %24 ], [ 48, %23 ], [ 92, %22 ], [ 118, %21 ], [ 116, %20 ], [ 114, %19 ], [ 110, %18 ], [ 102, %17 ], [ 98, %.lr.ph.split.us.i ]
+  %.5.ph = phi i8 [ 97, %24 ], [ 102, %17 ], [ 110, %18 ], [ 114, %19 ], [ 116, %20 ], [ 118, %21 ], [ 92, %22 ], [ 48, %23 ], [ 98, %.lr.ph.split.us.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %escape_char.exit35
 
@@ -1634,7 +1634,7 @@ escape_char.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not.i, label %.sink.split83, label %52
 
 .sink.split83:                                    ; preds = %51, %escape_char.exit, %49, %42, %43, %44, %45, %46, %47, %48, %.lr.ph.split.split.i
-  %.sink69.i.ph = phi i8 [ 97, %49 ], [ 48, %48 ], [ 92, %47 ], [ 118, %46 ], [ 116, %45 ], [ 114, %44 ], [ 110, %43 ], [ 102, %42 ], [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 92, %51 ]
+  %.sink69.i.ph = phi i8 [ 97, %49 ], [ 102, %42 ], [ 110, %43 ], [ 114, %44 ], [ 116, %45 ], [ 118, %46 ], [ 92, %47 ], [ 48, %48 ], [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 92, %51 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %52
 
@@ -2430,10 +2430,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %327
 
 327:                                              ; preds = %35, %52, %56, %60, %64, %68, %72, %76, %86, %324, %23
-  %.2284 = phi ptr [ %.1283, %23 ], [ %.3285, %35 ], [ %.5287, %86 ], [ %.4286, %76 ], [ %.4286, %72 ], [ %.4286, %68 ], [ %.4286, %64 ], [ %.4286, %60 ], [ %.4286, %56 ], [ %.4286, %52 ], [ %.8290.sink, %324 ]
-  %.2280 = phi i32 [ %.1279, %23 ], [ %.3281, %35 ], [ %.5, %86 ], [ %.4, %76 ], [ %.4, %72 ], [ %.4, %68 ], [ %.4, %64 ], [ %.4, %60 ], [ %.4, %56 ], [ %.4, %52 ], [ %.7, %324 ]
-  %.1276 = phi i32 [ %26, %23 ], [ %38, %35 ], [ %101, %86 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %.2277, %324 ]
-  %.1272 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %76 ], [ %10, %72 ], [ %10, %68 ], [ %10, %64 ], [ %10, %60 ], [ %10, %56 ], [ %10, %52 ], [ %.3274333, %324 ]
+  %.2284 = phi ptr [ %.1283, %23 ], [ %.3285, %35 ], [ %.5287, %86 ], [ %.4286, %52 ], [ %.4286, %56 ], [ %.4286, %60 ], [ %.4286, %64 ], [ %.4286, %68 ], [ %.4286, %72 ], [ %.4286, %76 ], [ %.8290.sink, %324 ]
+  %.2280 = phi i32 [ %.1279, %23 ], [ %.3281, %35 ], [ %.5, %86 ], [ %.4, %52 ], [ %.4, %56 ], [ %.4, %60 ], [ %.4, %64 ], [ %.4, %68 ], [ %.4, %72 ], [ %.4, %76 ], [ %.7, %324 ]
+  %.1276 = phi i32 [ %26, %23 ], [ %38, %35 ], [ %101, %86 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %.2277, %324 ]
+  %.1272 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %52 ], [ %10, %56 ], [ %10, %60 ], [ %10, %64 ], [ %10, %68 ], [ %10, %72 ], [ %10, %76 ], [ %.3274333, %324 ]
   %328 = icmp ult ptr %.1272, %6
   br i1 %328, label %9, label %._crit_edge373.loopexit, !llvm.loop !32
 
@@ -2552,7 +2552,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   br label %20
 
 20:                                               ; preds = %11, %18, %17, %16, %15, %14, %13, %12, %19
-  %.021.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ 92, %17 ], [ 118, %16 ], [ 116, %15 ], [ 114, %14 ], [ 110, %13 ], [ 102, %12 ], [ 98, %11 ]
+  %.021.ph = phi i8 [ 97, %19 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ 92, %17 ], [ 48, %18 ], [ 98, %11 ]
   %21 = tail call noalias dereferenceable_or_null(3) ptr @wmem_alloc(ptr noundef %0, i64 noundef 3) #25
   store i8 92, ptr %21, align 1
   %22 = getelementptr i8, ptr %21, i64 1

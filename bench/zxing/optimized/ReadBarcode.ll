@@ -1829,7 +1829,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN5ZX
   br label %297
 
 297:                                              ; preds = %295, %._crit_edge.i
-  %.sroa.032.1.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge.i ], [ %296, %295 ]
+  %.sroa.032.1.i = phi ptr [ %296, %295 ], [ %.sroa.032.0.lcssa.i, %._crit_edge.i ]
   %298 = invoke noundef zeroext i1 @_ZNK5ZXing6ResulteqERKS0_(ptr noundef nonnull align 8 dereferenceable(211) %.sroa.032.1.i, ptr noundef nonnull align 8 dereferenceable(211) %.sroa.0179.0250)
           to label %.noexc173 unwind label %.loopexit.split-lp
 
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN5ZX
   br label %301
 
 301:                                              ; preds = %299, %._crit_edge.i
-  %.sroa.032.2.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge.i ], [ %300, %299 ]
+  %.sroa.032.2.i = phi ptr [ %300, %299 ], [ %.sroa.032.0.lcssa.i, %._crit_edge.i ]
   %302 = invoke noundef zeroext i1 @_ZNK5ZXing6ResulteqERKS0_(ptr noundef nonnull align 8 dereferenceable(211) %.sroa.032.2.i, ptr noundef nonnull align 8 dereferenceable(211) %.sroa.0179.0250)
           to label %.noexc174 unwind label %.loopexit.split-lp
 

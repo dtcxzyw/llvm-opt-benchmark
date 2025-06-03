@@ -246,7 +246,7 @@ handle_luainit.exit:                              ; preds = %14
   br label %55
 
 55:                                               ; preds = %54, %38
-  %.1 = phi i32 [ %.0, %38 ], [ 1, %54 ]
+  %.1 = phi i32 [ 1, %54 ], [ %.0, %38 ]
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %57 = load i8, ptr %56, align 1, !tbaa !18
   %58 = icmp eq i8 %57, 0

@@ -446,8 +446,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h06e3d332115ef9d9E(ptr no
   %11 = ptrtoint ptr %10 to i64
   br i1 %switch, label %12, label %14
 
-.loopexit:                                        ; preds = %12, %21, %26, %32, %16, %37, %3
-  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %16 ], [ %10, %32 ], [ %10, %26 ], [ %10, %21 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.1, %12 ], [ null, %37 ]
+.loopexit:                                        ; preds = %12, %23, %21, %28, %16, %37, %3
+  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %16 ], [ %10, %28 ], [ %10, %21 ], [ %10, %23 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.1, %12 ], [ null, %37 ]
   ret ptr %.sroa.04.0
 
 12:                                               ; preds = %7
@@ -457,10 +457,10 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h06e3d332115ef9d9E(ptr no
 14:                                               ; preds = %7
   %15 = and i64 %11, 3
   switch i64 %15, label %default.unreachable [
-    i64 2, label %32
+    i64 2, label %21
     i64 3, label %16
-    i64 0, label %21
-    i64 1, label %26
+    i64 0, label %23
+    i64 1, label %28
   ]
 
 default.unreachable:                              ; preds = %14
@@ -485,28 +485,28 @@ default.unreachable:                              ; preds = %14
   br label %37
 
 21:                                               ; preds = %14
-  %22 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %24 = load i8, ptr %23, align 8, !range !53, !noundef !7
-  %25 = icmp eq i8 %24, 35
-  br i1 %25, label %34, label %.loopexit
-
-26:                                               ; preds = %14
-  %27 = getelementptr i8, ptr %10, i64 -1
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  %29 = getelementptr i8, ptr %10, i64 15
-  %30 = load i8, ptr %29, align 8, !range !53, !noundef !7
-  %31 = icmp eq i8 %30, 35
-  br i1 %31, label %34, label %.loopexit
-
-32:                                               ; preds = %14
   %.mask43 = and i64 %11, -4294967296
-  %33 = icmp eq i64 %.mask43, 17179869184
+  %22 = icmp eq i64 %.mask43, 17179869184
+  br i1 %22, label %34, label %.loopexit
+
+23:                                               ; preds = %14
+  %24 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %24)
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %26 = load i8, ptr %25, align 8, !range !53, !noundef !7
+  %27 = icmp eq i8 %26, 35
+  br i1 %27, label %34, label %.loopexit
+
+28:                                               ; preds = %14
+  %29 = getelementptr i8, ptr %10, i64 -1
+  %30 = icmp ne ptr %29, null
+  call void @llvm.assume(i1 %30)
+  %31 = getelementptr i8, ptr %10, i64 15
+  %32 = load i8, ptr %31, align 8, !range !53, !noundef !7
+  %33 = icmp eq i8 %32, 35
   br i1 %33, label %34, label %.loopexit
 
-34:                                               ; preds = %32, %26, %21, %16
+34:                                               ; preds = %28, %21, %23, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !54
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h903b54cb721ff79dE.llvm.16659958247667724540(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !54
   %35 = load i8, ptr %4, align 8, !range !61, !alias.scope !62, !noalias !54, !noundef !7
@@ -686,7 +686,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN64_$LT$base64..decode..DecodeError$u20$as$u20$core..fmt..Debug$GT$3fmt17he33dd75b53cec8a7E.exit"
 
 "_ZN64_$LT$base64..decode..DecodeError$u20$as$u20$core..fmt..Debug$GT$3fmt17he33dd75b53cec8a7E.exit": ; preds = %7, %11, %13, %17
-  %.sroa.0.0.in.i = phi i1 [ %18, %17 ], [ %16, %13 ], [ %12, %11 ], [ %10, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %7 ], [ %12, %11 ], [ %16, %13 ], [ %18, %17 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2448,7 +2448,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %12, %10, %6
-  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %15, %12 ], [ %11, %10 ], [ %9, %6 ]
+  %.sroa.0.0.in = phi i1 [ %9, %6 ], [ %11, %10 ], [ %15, %12 ], [ %17, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2616,8 +2616,8 @@ define hidden { ptr, ptr } @"_ZN66_$LT$jsonwebtoken..errors..Error$u20$as$u20$co
   br label %16
 
 16:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %15, %14, %10, %8
-  %.sroa.20.0 = phi ptr [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.68, %15 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.66, %14 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.64, %10 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.62, %8 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %2, %15 ], [ %2, %14 ], [ %13, %10 ], [ %9, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.20.0 = phi ptr [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.62, %8 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.64, %10 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.66, %14 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.68, %15 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %13, %10 ], [ %2, %14 ], [ %2, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.20.0, 1
   ret { ptr, ptr } %18

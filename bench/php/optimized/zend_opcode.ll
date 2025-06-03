@@ -4267,7 +4267,7 @@ define dso_local noundef nonnull ptr @get_binary_op(i32 noundef %0) local_unname
   unreachable
 
 22:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @boolean_xor_function, %20 ], [ @bitwise_xor_function, %19 ], [ @bitwise_and_function, %18 ], [ @bitwise_or_function, %17 ], [ @compare_function, %16 ], [ @is_smaller_or_equal_function, %15 ], [ @is_smaller_function, %14 ], [ @is_not_equal_function, %13 ], [ @is_equal_function, %12 ], [ @is_not_identical_function, %11 ], [ @is_identical_function, %10 ], [ @concat_function, %9 ], [ @shift_right_function, %8 ], [ @shift_left_function, %7 ], [ @mod_function, %6 ], [ @div_function, %5 ], [ @pow_function, %4 ], [ @mul_function, %3 ], [ @sub_function, %2 ], [ @add_function, %1 ]
+  %.0 = phi ptr [ @sub_function, %2 ], [ @mul_function, %3 ], [ @pow_function, %4 ], [ @div_function, %5 ], [ @mod_function, %6 ], [ @shift_left_function, %7 ], [ @shift_right_function, %8 ], [ @concat_function, %9 ], [ @is_identical_function, %10 ], [ @is_not_identical_function, %11 ], [ @is_equal_function, %12 ], [ @is_not_equal_function, %13 ], [ @is_smaller_function, %14 ], [ @is_smaller_or_equal_function, %15 ], [ @compare_function, %16 ], [ @bitwise_or_function, %17 ], [ @bitwise_and_function, %18 ], [ @bitwise_xor_function, %19 ], [ @boolean_xor_function, %20 ], [ @add_function, %1 ]
   ret ptr %.0
 }
 
@@ -4391,7 +4391,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   br label %30
 
 30:                                               ; preds = %28, %24, %.lr.ph
-  %.187 = phi i32 [ %.086115, %.lr.ph ], [ %29, %28 ], [ %25, %24 ]
+  %.187 = phi i32 [ %.086115, %.lr.ph ], [ %25, %24 ], [ %29, %28 ]
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %32 = icmp ult ptr %31, %11
   br i1 %32, label %.lr.ph, label %._crit_edge
@@ -4557,8 +4557,8 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   br label %125
 
 125:                                              ; preds = %123, %5, %._crit_edge120, %56, %18, %16
-  %.091 = phi i32 [ 0, %56 ], [ 0, %._crit_edge120 ], [ 2, %16 ], [ 1, %18 ], [ 0, %123 ], [ 3, %5 ]
-  %.1 = phi i32 [ %55, %56 ], [ %55, %._crit_edge120 ], [ %17, %16 ], [ %19, %18 ], [ %124, %123 ], [ %2, %5 ]
+  %.091 = phi i32 [ 0, %56 ], [ 0, %._crit_edge120 ], [ 0, %123 ], [ 2, %16 ], [ 1, %18 ], [ 3, %5 ]
+  %.1 = phi i32 [ %55, %56 ], [ %55, %._crit_edge120 ], [ %124, %123 ], [ %17, %16 ], [ %19, %18 ], [ %2, %5 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %127 = load i32, ptr %126, align 8, !tbaa !163
   %128 = add nsw i32 %127, 1

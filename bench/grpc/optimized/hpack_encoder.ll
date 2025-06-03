@@ -2860,8 +2860,8 @@ define void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18HttpStatusMeta
 14:                                               ; preds = %3
   br label %15
 
-15:                                               ; preds = %3, %14, %13, %12, %11, %10
-  %.010.ph = phi i8 [ -118, %10 ], [ -117, %11 ], [ -116, %12 ], [ -115, %13 ], [ -114, %14 ], [ -119, %3 ]
+15:                                               ; preds = %3, %10, %11, %12, %13, %14
+  %.010.ph = phi i8 [ -114, %14 ], [ -115, %13 ], [ -116, %12 ], [ -117, %11 ], [ -118, %10 ], [ -119, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !103
   %18 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(232) %17, i64 noundef 1)
@@ -2923,7 +2923,7 @@ define void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18HttpMethodMeta
   %4 = alloca %"class.grpc_core::Slice", align 8
   %5 = alloca %"class.grpc_core::Slice", align 8
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
-  switch i8 %1, label %_ZN9grpc_core5SliceD2Ev.exit13 [
+  switch i8 %1, label %_ZN9grpc_core5SliceD2Ev.exit12 [
     i8 0, label %7
     i8 1, label %11
     i8 2, label %15
@@ -2935,14 +2935,14 @@ define void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18HttpMethodMeta
   %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(232) %9, i64 noundef 1)
   store i8 -125, ptr %10, align 1, !tbaa !25
-  br label %_ZN9grpc_core5SliceD2Ev.exit13
+  br label %_ZN9grpc_core5SliceD2Ev.exit12
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !103
   %14 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(232) %13, i64 noundef 1)
   store i8 -126, ptr %14, align 1, !tbaa !25
-  br label %_ZN9grpc_core5SliceD2Ev.exit13
+  br label %_ZN9grpc_core5SliceD2Ev.exit12
 
 15:                                               ; preds = %3
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8, !tbaa !169, !alias.scope !290
@@ -2951,10 +2951,10 @@ define void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18HttpMethodMeta
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !290
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8, !tbaa !169, !alias.scope !295
-  %.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 3, ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !295
-  %.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.6, ptr %.sroa.5.0..sroa_idx.i.i12, align 8, !alias.scope !295
+  %.sroa.4.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 3, ptr %.sroa.4.0..sroa_idx.i.i10, align 8, !alias.scope !295
+  %.sroa.5.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.6, ptr %.sroa.5.0..sroa_idx.i.i11, align 8, !alias.scope !295
   invoke void @_ZN9grpc_core20hpack_encoder_detail7Encoder38EmitLitHdrWithNonBinaryStringKeyNotIdxENS_5SliceES2_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %16 unwind label %39
 
@@ -2984,18 +2984,18 @@ define void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18HttpMethodMeta
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %16, %19, %22
   %28 = load ptr, ptr %4, align 8, !tbaa !107
   %29 = icmp ugt ptr %28, inttoptr (i64 1 to ptr)
-  br i1 %29, label %30, label %_ZN9grpc_core5SliceD2Ev.exit13
+  br i1 %29, label %30, label %_ZN9grpc_core5SliceD2Ev.exit12
 
 30:                                               ; preds = %_ZN9grpc_core5SliceD2Ev.exit
   %31 = atomicrmw sub ptr %28, i64 1 acq_rel, align 8
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %_ZN9grpc_core5SliceD2Ev.exit13
+  br i1 %32, label %33, label %_ZN9grpc_core5SliceD2Ev.exit12
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !123
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %_ZN9grpc_core5SliceD2Ev.exit13 unwind label %36
+          to label %_ZN9grpc_core5SliceD2Ev.exit12 unwind label %36
 
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
@@ -3022,7 +3022,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 1, ptr %42, align 1, !tbaa !281
-  br label %_ZN9grpc_core5SliceD2Ev.exit13
+  br label %_ZN9grpc_core5SliceD2Ev.exit12
 
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
@@ -3031,12 +3031,12 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
   br label %45
 
-_ZN9grpc_core5SliceD2Ev.exit13:                   ; preds = %33, %30, %_ZN9grpc_core5SliceD2Ev.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit, %11, %7, %3
+_ZN9grpc_core5SliceD2Ev.exit12:                   ; preds = %33, %30, %_ZN9grpc_core5SliceD2Ev.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit, %11, %7, %3
   ret void
 
 45:                                               ; preds = %43, %39
-  %.pn9 = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ]
-  resume { ptr, i32 } %.pn9
+  %.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %44, %43 ]
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

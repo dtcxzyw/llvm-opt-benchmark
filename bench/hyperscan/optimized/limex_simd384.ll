@@ -1134,7 +1134,7 @@ testbit384.exit97:                                ; preds = %testbit384.exit97.l
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %194, %203, %205, %207, %209, %211, %213
-  %.0.i101 = phi i64 [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ 0, %194 ]
+  %.0.i101 = phi i64 [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ 0, %194 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 16) ], !noalias !95
   %215 = load <2 x i64>, ptr %164, align 16, !noalias !95
   call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 16) ], !noalias !95
@@ -1438,9 +1438,9 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit163
 
 lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit169, %lshift64_m128.exit127
-  %.sroa.01136.6 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %122, %lshift64_m128.exit169 ]
-  %.sroa.271152.6 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %123, %lshift64_m128.exit169 ]
-  %.sroa.351183.6 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %124, %lshift64_m128.exit169 ]
+  %.sroa.01136.6 = phi <2 x i64> [ %122, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.6 = phi <2 x i64> [ %123, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.6 = phi <2 x i64> [ %124, %lshift64_m128.exit169 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !113
   %125 = load <2 x i64>, ptr %51, align 16, !noalias !113
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !113
@@ -1467,9 +1467,9 @@ lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit157
 
 lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit163, %lshift64_m128.exit127
-  %.sroa.01136.5 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %142, %lshift64_m128.exit163 ]
-  %.sroa.271152.5 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %143, %lshift64_m128.exit163 ]
-  %.sroa.351183.5 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %144, %lshift64_m128.exit163 ]
+  %.sroa.01136.5 = phi <2 x i64> [ %142, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.5 = phi <2 x i64> [ %143, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.5 = phi <2 x i64> [ %144, %lshift64_m128.exit163 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !116
   %145 = load <2 x i64>, ptr %55, align 16, !noalias !116
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ], !noalias !116
@@ -1496,9 +1496,9 @@ lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit151
 
 lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit157, %lshift64_m128.exit127
-  %.sroa.01136.4 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %162, %lshift64_m128.exit157 ]
-  %.sroa.271152.4 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %163, %lshift64_m128.exit157 ]
-  %.sroa.351183.4 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %164, %lshift64_m128.exit157 ]
+  %.sroa.01136.4 = phi <2 x i64> [ %162, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.4 = phi <2 x i64> [ %163, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.4 = phi <2 x i64> [ %164, %lshift64_m128.exit157 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !119
   %165 = load <2 x i64>, ptr %59, align 16, !noalias !119
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ], !noalias !119
@@ -1525,9 +1525,9 @@ lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit145
 
 lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit151, %lshift64_m128.exit127
-  %.sroa.01136.3 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %182, %lshift64_m128.exit151 ]
-  %.sroa.271152.3 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %183, %lshift64_m128.exit151 ]
-  %.sroa.351183.3 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %184, %lshift64_m128.exit151 ]
+  %.sroa.01136.3 = phi <2 x i64> [ %182, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.3 = phi <2 x i64> [ %183, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.3 = phi <2 x i64> [ %184, %lshift64_m128.exit151 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !122
   %185 = load <2 x i64>, ptr %63, align 16, !noalias !122
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ], !noalias !122
@@ -1554,9 +1554,9 @@ lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit139
 
 lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit145, %lshift64_m128.exit127
-  %.sroa.01136.2 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %202, %lshift64_m128.exit145 ]
-  %.sroa.271152.2 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %203, %lshift64_m128.exit145 ]
-  %.sroa.351183.2 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %204, %lshift64_m128.exit145 ]
+  %.sroa.01136.2 = phi <2 x i64> [ %202, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.2 = phi <2 x i64> [ %203, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.2 = phi <2 x i64> [ %204, %lshift64_m128.exit145 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !125
   %205 = load <2 x i64>, ptr %67, align 16, !noalias !125
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 16) ], !noalias !125
@@ -1583,9 +1583,9 @@ lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit133
 
 lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit139, %lshift64_m128.exit127
-  %.sroa.01136.0 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %222, %lshift64_m128.exit139 ]
-  %.sroa.271152.0 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %223, %lshift64_m128.exit139 ]
-  %.sroa.351183.0 = phi <2 x i64> [ %103, %lshift64_m128.exit127 ], [ %224, %lshift64_m128.exit139 ]
+  %.sroa.01136.0 = phi <2 x i64> [ %222, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.271152.0 = phi <2 x i64> [ %223, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
+  %.sroa.351183.0 = phi <2 x i64> [ %224, %lshift64_m128.exit139 ], [ %103, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !128
   %225 = load <2 x i64>, ptr %71, align 16, !noalias !128
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ], !noalias !128
@@ -1918,7 +1918,7 @@ testbit384.exit.i:                                ; preds = %334
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %375, %396, %398, %400, %402
-  %.0.i285 = phi i32 [ %403, %402 ], [ %401, %400 ], [ %399, %398 ], [ %397, %396 ], [ %376, %375 ]
+  %.0.i285 = phi i32 [ %376, %375 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ]
   switch i32 %.0.i285, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread1863
     i32 2, label %repeatHasMatch.exit.thread1865
@@ -2254,9 +2254,9 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit115
 
 lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit121, %lshift64_m128.exit79
-  %.sroa.0811.6 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %567, %lshift64_m128.exit121 ]
-  %.sroa.27827.6 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %568, %lshift64_m128.exit121 ]
-  %.sroa.35858.6 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %569, %lshift64_m128.exit121 ]
+  %.sroa.0811.6 = phi <2 x i64> [ %567, %lshift64_m128.exit121 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.6 = phi <2 x i64> [ %568, %lshift64_m128.exit121 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.6 = phi <2 x i64> [ %569, %lshift64_m128.exit121 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %490, i64 16) ], !noalias !151
   %570 = load <2 x i64>, ptr %490, align 16, !noalias !151
   call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 16) ], !noalias !151
@@ -2283,9 +2283,9 @@ lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit109
 
 lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit115, %lshift64_m128.exit79
-  %.sroa.0811.5 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %587, %lshift64_m128.exit115 ]
-  %.sroa.27827.5 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %588, %lshift64_m128.exit115 ]
-  %.sroa.35858.5 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %589, %lshift64_m128.exit115 ]
+  %.sroa.0811.5 = phi <2 x i64> [ %587, %lshift64_m128.exit115 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.5 = phi <2 x i64> [ %588, %lshift64_m128.exit115 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.5 = phi <2 x i64> [ %589, %lshift64_m128.exit115 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %494, i64 16) ], !noalias !154
   %590 = load <2 x i64>, ptr %494, align 16, !noalias !154
   call void @llvm.assume(i1 true) [ "align"(ptr %495, i64 16) ], !noalias !154
@@ -2312,9 +2312,9 @@ lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit103
 
 lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit109, %lshift64_m128.exit79
-  %.sroa.0811.4 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %607, %lshift64_m128.exit109 ]
-  %.sroa.27827.4 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %608, %lshift64_m128.exit109 ]
-  %.sroa.35858.4 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %609, %lshift64_m128.exit109 ]
+  %.sroa.0811.4 = phi <2 x i64> [ %607, %lshift64_m128.exit109 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.4 = phi <2 x i64> [ %608, %lshift64_m128.exit109 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.4 = phi <2 x i64> [ %609, %lshift64_m128.exit109 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %498, i64 16) ], !noalias !157
   %610 = load <2 x i64>, ptr %498, align 16, !noalias !157
   call void @llvm.assume(i1 true) [ "align"(ptr %499, i64 16) ], !noalias !157
@@ -2341,9 +2341,9 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit79
-  %.sroa.0811.3 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %627, %lshift64_m128.exit103 ]
-  %.sroa.27827.3 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %628, %lshift64_m128.exit103 ]
-  %.sroa.35858.3 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %629, %lshift64_m128.exit103 ]
+  %.sroa.0811.3 = phi <2 x i64> [ %627, %lshift64_m128.exit103 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.3 = phi <2 x i64> [ %628, %lshift64_m128.exit103 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.3 = phi <2 x i64> [ %629, %lshift64_m128.exit103 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %502, i64 16) ], !noalias !160
   %630 = load <2 x i64>, ptr %502, align 16, !noalias !160
   call void @llvm.assume(i1 true) [ "align"(ptr %503, i64 16) ], !noalias !160
@@ -2370,9 +2370,9 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit79
-  %.sroa.0811.2 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %647, %lshift64_m128.exit97 ]
-  %.sroa.27827.2 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %648, %lshift64_m128.exit97 ]
-  %.sroa.35858.2 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %649, %lshift64_m128.exit97 ]
+  %.sroa.0811.2 = phi <2 x i64> [ %647, %lshift64_m128.exit97 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.2 = phi <2 x i64> [ %648, %lshift64_m128.exit97 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.2 = phi <2 x i64> [ %649, %lshift64_m128.exit97 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %506, i64 16) ], !noalias !163
   %650 = load <2 x i64>, ptr %506, align 16, !noalias !163
   call void @llvm.assume(i1 true) [ "align"(ptr %507, i64 16) ], !noalias !163
@@ -2399,9 +2399,9 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit79
-  %.sroa.0811.0 = phi <2 x i64> [ %542, %lshift64_m128.exit79 ], [ %667, %lshift64_m128.exit91 ]
-  %.sroa.27827.0 = phi <2 x i64> [ %545, %lshift64_m128.exit79 ], [ %668, %lshift64_m128.exit91 ]
-  %.sroa.35858.0 = phi <2 x i64> [ %548, %lshift64_m128.exit79 ], [ %669, %lshift64_m128.exit91 ]
+  %.sroa.0811.0 = phi <2 x i64> [ %667, %lshift64_m128.exit91 ], [ %542, %lshift64_m128.exit79 ]
+  %.sroa.27827.0 = phi <2 x i64> [ %668, %lshift64_m128.exit91 ], [ %545, %lshift64_m128.exit79 ]
+  %.sroa.35858.0 = phi <2 x i64> [ %669, %lshift64_m128.exit91 ], [ %548, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %510, i64 16) ], !noalias !166
   %670 = load <2 x i64>, ptr %510, align 16, !noalias !166
   call void @llvm.assume(i1 true) [ "align"(ptr %511, i64 16) ], !noalias !166
@@ -2737,7 +2737,7 @@ testbit384.exit.i243:                             ; preds = %779
   br label %repeatHasMatch.exit287
 
 repeatHasMatch.exit287:                           ; preds = %820, %841, %843, %845, %847
-  %.0.i286 = phi i32 [ %848, %847 ], [ %846, %845 ], [ %844, %843 ], [ %842, %841 ], [ %821, %820 ]
+  %.0.i286 = phi i32 [ %821, %820 ], [ %842, %841 ], [ %844, %843 ], [ %846, %845 ], [ %848, %847 ]
   switch i32 %.0.i286, label %repeatHasMatch.exit287.thread [
     i32 1, label %repeatHasMatch.exit287.thread1958
     i32 2, label %repeatHasMatch.exit287.thread1960
@@ -3142,9 +3142,9 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit31
-  %.sroa.0405.6 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1042, %lshift64_m128.exit73 ]
-  %.sroa.27.6 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1043, %lshift64_m128.exit73 ]
-  %.sroa.35.6 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1044, %lshift64_m128.exit73 ]
+  %.sroa.0405.6 = phi <2 x i64> [ %1042, %lshift64_m128.exit73 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.6 = phi <2 x i64> [ %1043, %lshift64_m128.exit73 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.6 = phi <2 x i64> [ %1044, %lshift64_m128.exit73 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %937, i64 16) ], !noalias !196
   %1045 = load <2 x i64>, ptr %937, align 16, !noalias !196
   call void @llvm.assume(i1 true) [ "align"(ptr %938, i64 16) ], !noalias !196
@@ -3171,9 +3171,9 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit61
 
 lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit67, %lshift64_m128.exit31
-  %.sroa.0405.5 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1062, %lshift64_m128.exit67 ]
-  %.sroa.27.5 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1063, %lshift64_m128.exit67 ]
-  %.sroa.35.5 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1064, %lshift64_m128.exit67 ]
+  %.sroa.0405.5 = phi <2 x i64> [ %1062, %lshift64_m128.exit67 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.5 = phi <2 x i64> [ %1063, %lshift64_m128.exit67 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.5 = phi <2 x i64> [ %1064, %lshift64_m128.exit67 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %941, i64 16) ], !noalias !199
   %1065 = load <2 x i64>, ptr %941, align 16, !noalias !199
   call void @llvm.assume(i1 true) [ "align"(ptr %942, i64 16) ], !noalias !199
@@ -3200,9 +3200,9 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit61, %lshift64_m128.exit31
-  %.sroa.0405.4 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1082, %lshift64_m128.exit61 ]
-  %.sroa.27.4 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1083, %lshift64_m128.exit61 ]
-  %.sroa.35.4 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1084, %lshift64_m128.exit61 ]
+  %.sroa.0405.4 = phi <2 x i64> [ %1082, %lshift64_m128.exit61 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.4 = phi <2 x i64> [ %1083, %lshift64_m128.exit61 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.4 = phi <2 x i64> [ %1084, %lshift64_m128.exit61 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %945, i64 16) ], !noalias !202
   %1085 = load <2 x i64>, ptr %945, align 16, !noalias !202
   call void @llvm.assume(i1 true) [ "align"(ptr %946, i64 16) ], !noalias !202
@@ -3229,9 +3229,9 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit55, %lshift64_m128.exit31
-  %.sroa.0405.3 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1102, %lshift64_m128.exit55 ]
-  %.sroa.27.3 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1103, %lshift64_m128.exit55 ]
-  %.sroa.35.3 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1104, %lshift64_m128.exit55 ]
+  %.sroa.0405.3 = phi <2 x i64> [ %1102, %lshift64_m128.exit55 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.3 = phi <2 x i64> [ %1103, %lshift64_m128.exit55 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.3 = phi <2 x i64> [ %1104, %lshift64_m128.exit55 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %949, i64 16) ], !noalias !205
   %1105 = load <2 x i64>, ptr %949, align 16, !noalias !205
   call void @llvm.assume(i1 true) [ "align"(ptr %950, i64 16) ], !noalias !205
@@ -3258,9 +3258,9 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit43
 
 lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit31
-  %.sroa.0405.2 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1122, %lshift64_m128.exit49 ]
-  %.sroa.27.2 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1123, %lshift64_m128.exit49 ]
-  %.sroa.35.2 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1124, %lshift64_m128.exit49 ]
+  %.sroa.0405.2 = phi <2 x i64> [ %1122, %lshift64_m128.exit49 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.2 = phi <2 x i64> [ %1123, %lshift64_m128.exit49 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.2 = phi <2 x i64> [ %1124, %lshift64_m128.exit49 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %953, i64 16) ], !noalias !208
   %1125 = load <2 x i64>, ptr %953, align 16, !noalias !208
   call void @llvm.assume(i1 true) [ "align"(ptr %954, i64 16) ], !noalias !208
@@ -3287,9 +3287,9 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit31
-  %.sroa.0405.0 = phi <2 x i64> [ %1017, %lshift64_m128.exit31 ], [ %1142, %lshift64_m128.exit43 ]
-  %.sroa.27.0 = phi <2 x i64> [ %1020, %lshift64_m128.exit31 ], [ %1143, %lshift64_m128.exit43 ]
-  %.sroa.35.0 = phi <2 x i64> [ %1023, %lshift64_m128.exit31 ], [ %1144, %lshift64_m128.exit43 ]
+  %.sroa.0405.0 = phi <2 x i64> [ %1142, %lshift64_m128.exit43 ], [ %1017, %lshift64_m128.exit31 ]
+  %.sroa.27.0 = phi <2 x i64> [ %1143, %lshift64_m128.exit43 ], [ %1020, %lshift64_m128.exit31 ]
+  %.sroa.35.0 = phi <2 x i64> [ %1144, %lshift64_m128.exit43 ], [ %1023, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %957, i64 16) ], !noalias !211
   %1145 = load <2 x i64>, ptr %957, align 16, !noalias !211
   call void @llvm.assume(i1 true) [ "align"(ptr %958, i64 16) ], !noalias !211
@@ -3625,7 +3625,7 @@ testbit384.exit.i265:                             ; preds = %1254
   br label %repeatHasMatch.exit289
 
 repeatHasMatch.exit289:                           ; preds = %1295, %1316, %1318, %1320, %1322
-  %.0.i288 = phi i32 [ %1323, %1322 ], [ %1321, %1320 ], [ %1319, %1318 ], [ %1317, %1316 ], [ %1296, %1295 ]
+  %.0.i288 = phi i32 [ %1296, %1295 ], [ %1317, %1316 ], [ %1319, %1318 ], [ %1321, %1320 ], [ %1323, %1322 ]
   switch i32 %.0.i288, label %repeatHasMatch.exit289.thread [
     i32 1, label %repeatHasMatch.exit289.thread2055
     i32 2, label %repeatHasMatch.exit289.thread2057
@@ -4350,7 +4350,7 @@ testbit384.exit136:                               ; preds = %testbit384.exit136.
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %233, %240, %242, %244, %246, %248, %250
-  %.0.i140 = phi i64 [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ 0, %233 ]
+  %.0.i140 = phi i64 [ %241, %240 ], [ %243, %242 ], [ %245, %244 ], [ %247, %246 ], [ %249, %248 ], [ %251, %250 ], [ 0, %233 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %203, i64 16) ], !noalias !252
   %252 = load <2 x i64>, ptr %203, align 16, !noalias !252
   call void @llvm.assume(i1 true) [ "align"(ptr %204, i64 16) ], !noalias !252
@@ -4654,9 +4654,9 @@ lshift64_m128.exit172:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit166
 
 lshift64_m128.exit166:                            ; preds = %lshift64_m128.exit172, %lshift64_m128.exit130
-  %.sroa.01112.6 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %123, %lshift64_m128.exit172 ]
-  %.sroa.271128.6 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %124, %lshift64_m128.exit172 ]
-  %.sroa.351159.6 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %125, %lshift64_m128.exit172 ]
+  %.sroa.01112.6 = phi <2 x i64> [ %123, %lshift64_m128.exit172 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.6 = phi <2 x i64> [ %124, %lshift64_m128.exit172 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.6 = phi <2 x i64> [ %125, %lshift64_m128.exit172 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !270
   %126 = load <2 x i64>, ptr %51, align 16, !noalias !270
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !270
@@ -4683,9 +4683,9 @@ lshift64_m128.exit166:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit160
 
 lshift64_m128.exit160:                            ; preds = %lshift64_m128.exit166, %lshift64_m128.exit130
-  %.sroa.01112.5 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %143, %lshift64_m128.exit166 ]
-  %.sroa.271128.5 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %144, %lshift64_m128.exit166 ]
-  %.sroa.351159.5 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %145, %lshift64_m128.exit166 ]
+  %.sroa.01112.5 = phi <2 x i64> [ %143, %lshift64_m128.exit166 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.5 = phi <2 x i64> [ %144, %lshift64_m128.exit166 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.5 = phi <2 x i64> [ %145, %lshift64_m128.exit166 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !273
   %146 = load <2 x i64>, ptr %55, align 16, !noalias !273
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 16) ], !noalias !273
@@ -4712,9 +4712,9 @@ lshift64_m128.exit160:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit154
 
 lshift64_m128.exit154:                            ; preds = %lshift64_m128.exit160, %lshift64_m128.exit130
-  %.sroa.01112.4 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %163, %lshift64_m128.exit160 ]
-  %.sroa.271128.4 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %164, %lshift64_m128.exit160 ]
-  %.sroa.351159.4 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %165, %lshift64_m128.exit160 ]
+  %.sroa.01112.4 = phi <2 x i64> [ %163, %lshift64_m128.exit160 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.4 = phi <2 x i64> [ %164, %lshift64_m128.exit160 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.4 = phi <2 x i64> [ %165, %lshift64_m128.exit160 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !276
   %166 = load <2 x i64>, ptr %59, align 16, !noalias !276
   call void @llvm.assume(i1 true) [ "align"(ptr %60, i64 16) ], !noalias !276
@@ -4741,9 +4741,9 @@ lshift64_m128.exit154:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit148
 
 lshift64_m128.exit148:                            ; preds = %lshift64_m128.exit154, %lshift64_m128.exit130
-  %.sroa.01112.3 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %183, %lshift64_m128.exit154 ]
-  %.sroa.271128.3 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %184, %lshift64_m128.exit154 ]
-  %.sroa.351159.3 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %185, %lshift64_m128.exit154 ]
+  %.sroa.01112.3 = phi <2 x i64> [ %183, %lshift64_m128.exit154 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.3 = phi <2 x i64> [ %184, %lshift64_m128.exit154 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.3 = phi <2 x i64> [ %185, %lshift64_m128.exit154 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !279
   %186 = load <2 x i64>, ptr %63, align 16, !noalias !279
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 16) ], !noalias !279
@@ -4770,9 +4770,9 @@ lshift64_m128.exit148:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit142
 
 lshift64_m128.exit142:                            ; preds = %lshift64_m128.exit148, %lshift64_m128.exit130
-  %.sroa.01112.2 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %203, %lshift64_m128.exit148 ]
-  %.sroa.271128.2 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %204, %lshift64_m128.exit148 ]
-  %.sroa.351159.2 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %205, %lshift64_m128.exit148 ]
+  %.sroa.01112.2 = phi <2 x i64> [ %203, %lshift64_m128.exit148 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.2 = phi <2 x i64> [ %204, %lshift64_m128.exit148 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.2 = phi <2 x i64> [ %205, %lshift64_m128.exit148 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !282
   %206 = load <2 x i64>, ptr %67, align 16, !noalias !282
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 16) ], !noalias !282
@@ -4799,9 +4799,9 @@ lshift64_m128.exit142:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit136
 
 lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit142, %lshift64_m128.exit130
-  %.sroa.01112.0 = phi <2 x i64> [ %98, %lshift64_m128.exit130 ], [ %223, %lshift64_m128.exit142 ]
-  %.sroa.271128.0 = phi <2 x i64> [ %101, %lshift64_m128.exit130 ], [ %224, %lshift64_m128.exit142 ]
-  %.sroa.351159.0 = phi <2 x i64> [ %104, %lshift64_m128.exit130 ], [ %225, %lshift64_m128.exit142 ]
+  %.sroa.01112.0 = phi <2 x i64> [ %223, %lshift64_m128.exit142 ], [ %98, %lshift64_m128.exit130 ]
+  %.sroa.271128.0 = phi <2 x i64> [ %224, %lshift64_m128.exit142 ], [ %101, %lshift64_m128.exit130 ]
+  %.sroa.351159.0 = phi <2 x i64> [ %225, %lshift64_m128.exit142 ], [ %104, %lshift64_m128.exit130 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !285
   %226 = load <2 x i64>, ptr %71, align 16, !noalias !285
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ], !noalias !285
@@ -5121,7 +5121,7 @@ testbit384.exit.i:                                ; preds = %333
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %374, %395, %397, %399, %401
-  %.0.i253 = phi i32 [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %375, %374 ]
+  %.0.i253 = phi i32 [ %375, %374 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ]
   switch i32 %.0.i253, label %runException384.exit [
     i32 1, label %repeatHasMatch.exit.thread1905
     i32 2, label %repeatHasMatch.exit.thread1907
@@ -5408,9 +5408,9 @@ lshift64_m128.exit124:                            ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit118
 
 lshift64_m128.exit118:                            ; preds = %lshift64_m128.exit124, %lshift64_m128.exit82
-  %.sroa.0787.6 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %554, %lshift64_m128.exit124 ]
-  %.sroa.27803.6 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %555, %lshift64_m128.exit124 ]
-  %.sroa.35834.6 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %556, %lshift64_m128.exit124 ]
+  %.sroa.0787.6 = phi <2 x i64> [ %554, %lshift64_m128.exit124 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.6 = phi <2 x i64> [ %555, %lshift64_m128.exit124 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.6 = phi <2 x i64> [ %556, %lshift64_m128.exit124 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %476, i64 16) ], !noalias !309
   %557 = load <2 x i64>, ptr %476, align 16, !noalias !309
   call void @llvm.assume(i1 true) [ "align"(ptr %477, i64 16) ], !noalias !309
@@ -5437,9 +5437,9 @@ lshift64_m128.exit118:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit112
 
 lshift64_m128.exit112:                            ; preds = %lshift64_m128.exit118, %lshift64_m128.exit82
-  %.sroa.0787.5 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %574, %lshift64_m128.exit118 ]
-  %.sroa.27803.5 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %575, %lshift64_m128.exit118 ]
-  %.sroa.35834.5 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %576, %lshift64_m128.exit118 ]
+  %.sroa.0787.5 = phi <2 x i64> [ %574, %lshift64_m128.exit118 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.5 = phi <2 x i64> [ %575, %lshift64_m128.exit118 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.5 = phi <2 x i64> [ %576, %lshift64_m128.exit118 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %480, i64 16) ], !noalias !312
   %577 = load <2 x i64>, ptr %480, align 16, !noalias !312
   call void @llvm.assume(i1 true) [ "align"(ptr %481, i64 16) ], !noalias !312
@@ -5466,9 +5466,9 @@ lshift64_m128.exit112:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit106
 
 lshift64_m128.exit106:                            ; preds = %lshift64_m128.exit112, %lshift64_m128.exit82
-  %.sroa.0787.4 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %594, %lshift64_m128.exit112 ]
-  %.sroa.27803.4 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %595, %lshift64_m128.exit112 ]
-  %.sroa.35834.4 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %596, %lshift64_m128.exit112 ]
+  %.sroa.0787.4 = phi <2 x i64> [ %594, %lshift64_m128.exit112 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.4 = phi <2 x i64> [ %595, %lshift64_m128.exit112 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.4 = phi <2 x i64> [ %596, %lshift64_m128.exit112 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %484, i64 16) ], !noalias !315
   %597 = load <2 x i64>, ptr %484, align 16, !noalias !315
   call void @llvm.assume(i1 true) [ "align"(ptr %485, i64 16) ], !noalias !315
@@ -5495,9 +5495,9 @@ lshift64_m128.exit106:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit100
 
 lshift64_m128.exit100:                            ; preds = %lshift64_m128.exit106, %lshift64_m128.exit82
-  %.sroa.0787.3 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %614, %lshift64_m128.exit106 ]
-  %.sroa.27803.3 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %615, %lshift64_m128.exit106 ]
-  %.sroa.35834.3 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %616, %lshift64_m128.exit106 ]
+  %.sroa.0787.3 = phi <2 x i64> [ %614, %lshift64_m128.exit106 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.3 = phi <2 x i64> [ %615, %lshift64_m128.exit106 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.3 = phi <2 x i64> [ %616, %lshift64_m128.exit106 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %488, i64 16) ], !noalias !318
   %617 = load <2 x i64>, ptr %488, align 16, !noalias !318
   call void @llvm.assume(i1 true) [ "align"(ptr %489, i64 16) ], !noalias !318
@@ -5524,9 +5524,9 @@ lshift64_m128.exit100:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit94
 
 lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit100, %lshift64_m128.exit82
-  %.sroa.0787.2 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %634, %lshift64_m128.exit100 ]
-  %.sroa.27803.2 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %635, %lshift64_m128.exit100 ]
-  %.sroa.35834.2 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %636, %lshift64_m128.exit100 ]
+  %.sroa.0787.2 = phi <2 x i64> [ %634, %lshift64_m128.exit100 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.2 = phi <2 x i64> [ %635, %lshift64_m128.exit100 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.2 = phi <2 x i64> [ %636, %lshift64_m128.exit100 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %492, i64 16) ], !noalias !321
   %637 = load <2 x i64>, ptr %492, align 16, !noalias !321
   call void @llvm.assume(i1 true) [ "align"(ptr %493, i64 16) ], !noalias !321
@@ -5553,9 +5553,9 @@ lshift64_m128.exit94:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit88
 
 lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit94, %lshift64_m128.exit82
-  %.sroa.0787.0 = phi <2 x i64> [ %529, %lshift64_m128.exit82 ], [ %654, %lshift64_m128.exit94 ]
-  %.sroa.27803.0 = phi <2 x i64> [ %532, %lshift64_m128.exit82 ], [ %655, %lshift64_m128.exit94 ]
-  %.sroa.35834.0 = phi <2 x i64> [ %535, %lshift64_m128.exit82 ], [ %656, %lshift64_m128.exit94 ]
+  %.sroa.0787.0 = phi <2 x i64> [ %654, %lshift64_m128.exit94 ], [ %529, %lshift64_m128.exit82 ]
+  %.sroa.27803.0 = phi <2 x i64> [ %655, %lshift64_m128.exit94 ], [ %532, %lshift64_m128.exit82 ]
+  %.sroa.35834.0 = phi <2 x i64> [ %656, %lshift64_m128.exit94 ], [ %535, %lshift64_m128.exit82 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %496, i64 16) ], !noalias !324
   %657 = load <2 x i64>, ptr %496, align 16, !noalias !324
   call void @llvm.assume(i1 true) [ "align"(ptr %497, i64 16) ], !noalias !324
@@ -5878,7 +5878,7 @@ testbit384.exit.i220:                             ; preds = %764
   br label %repeatHasMatch.exit255
 
 repeatHasMatch.exit255:                           ; preds = %805, %826, %828, %830, %832
-  %.0.i254 = phi i32 [ %833, %832 ], [ %831, %830 ], [ %829, %828 ], [ %827, %826 ], [ %806, %805 ]
+  %.0.i254 = phi i32 [ %806, %805 ], [ %827, %826 ], [ %829, %828 ], [ %831, %830 ], [ %833, %832 ]
   switch i32 %.0.i254, label %runException384.exit224 [
     i32 1, label %repeatHasMatch.exit255.thread1944
     i32 2, label %repeatHasMatch.exit255.thread1946
@@ -6234,9 +6234,9 @@ lshift64_m128.exit76:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit70
 
 lshift64_m128.exit70:                             ; preds = %lshift64_m128.exit76, %lshift64_m128.exit34
-  %.sroa.0376.6 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1015, %lshift64_m128.exit76 ]
-  %.sroa.27.6 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1016, %lshift64_m128.exit76 ]
-  %.sroa.35.6 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1017, %lshift64_m128.exit76 ]
+  %.sroa.0376.6 = phi <2 x i64> [ %1015, %lshift64_m128.exit76 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.6 = phi <2 x i64> [ %1016, %lshift64_m128.exit76 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.6 = phi <2 x i64> [ %1017, %lshift64_m128.exit76 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %909, i64 16) ], !noalias !357
   %1018 = load <2 x i64>, ptr %909, align 16, !noalias !357
   call void @llvm.assume(i1 true) [ "align"(ptr %910, i64 16) ], !noalias !357
@@ -6263,9 +6263,9 @@ lshift64_m128.exit70:                             ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit64
 
 lshift64_m128.exit64:                             ; preds = %lshift64_m128.exit70, %lshift64_m128.exit34
-  %.sroa.0376.5 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1035, %lshift64_m128.exit70 ]
-  %.sroa.27.5 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1036, %lshift64_m128.exit70 ]
-  %.sroa.35.5 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1037, %lshift64_m128.exit70 ]
+  %.sroa.0376.5 = phi <2 x i64> [ %1035, %lshift64_m128.exit70 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.5 = phi <2 x i64> [ %1036, %lshift64_m128.exit70 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.5 = phi <2 x i64> [ %1037, %lshift64_m128.exit70 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %913, i64 16) ], !noalias !360
   %1038 = load <2 x i64>, ptr %913, align 16, !noalias !360
   call void @llvm.assume(i1 true) [ "align"(ptr %914, i64 16) ], !noalias !360
@@ -6292,9 +6292,9 @@ lshift64_m128.exit64:                             ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit58
 
 lshift64_m128.exit58:                             ; preds = %lshift64_m128.exit64, %lshift64_m128.exit34
-  %.sroa.0376.4 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1055, %lshift64_m128.exit64 ]
-  %.sroa.27.4 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1056, %lshift64_m128.exit64 ]
-  %.sroa.35.4 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1057, %lshift64_m128.exit64 ]
+  %.sroa.0376.4 = phi <2 x i64> [ %1055, %lshift64_m128.exit64 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.4 = phi <2 x i64> [ %1056, %lshift64_m128.exit64 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.4 = phi <2 x i64> [ %1057, %lshift64_m128.exit64 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %917, i64 16) ], !noalias !363
   %1058 = load <2 x i64>, ptr %917, align 16, !noalias !363
   call void @llvm.assume(i1 true) [ "align"(ptr %918, i64 16) ], !noalias !363
@@ -6321,9 +6321,9 @@ lshift64_m128.exit58:                             ; preds = %lshift64_m128.exit6
   br label %lshift64_m128.exit52
 
 lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit58, %lshift64_m128.exit34
-  %.sroa.0376.3 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1075, %lshift64_m128.exit58 ]
-  %.sroa.27.3 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1076, %lshift64_m128.exit58 ]
-  %.sroa.35.3 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1077, %lshift64_m128.exit58 ]
+  %.sroa.0376.3 = phi <2 x i64> [ %1075, %lshift64_m128.exit58 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.3 = phi <2 x i64> [ %1076, %lshift64_m128.exit58 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.3 = phi <2 x i64> [ %1077, %lshift64_m128.exit58 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %921, i64 16) ], !noalias !366
   %1078 = load <2 x i64>, ptr %921, align 16, !noalias !366
   call void @llvm.assume(i1 true) [ "align"(ptr %922, i64 16) ], !noalias !366
@@ -6350,9 +6350,9 @@ lshift64_m128.exit52:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit46
 
 lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit52, %lshift64_m128.exit34
-  %.sroa.0376.2 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1095, %lshift64_m128.exit52 ]
-  %.sroa.27.2 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1096, %lshift64_m128.exit52 ]
-  %.sroa.35.2 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1097, %lshift64_m128.exit52 ]
+  %.sroa.0376.2 = phi <2 x i64> [ %1095, %lshift64_m128.exit52 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.2 = phi <2 x i64> [ %1096, %lshift64_m128.exit52 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.2 = phi <2 x i64> [ %1097, %lshift64_m128.exit52 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %925, i64 16) ], !noalias !369
   %1098 = load <2 x i64>, ptr %925, align 16, !noalias !369
   call void @llvm.assume(i1 true) [ "align"(ptr %926, i64 16) ], !noalias !369
@@ -6379,9 +6379,9 @@ lshift64_m128.exit46:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit40
 
 lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit46, %lshift64_m128.exit34
-  %.sroa.0376.0 = phi <2 x i64> [ %990, %lshift64_m128.exit34 ], [ %1115, %lshift64_m128.exit46 ]
-  %.sroa.27.0 = phi <2 x i64> [ %993, %lshift64_m128.exit34 ], [ %1116, %lshift64_m128.exit46 ]
-  %.sroa.35.0 = phi <2 x i64> [ %996, %lshift64_m128.exit34 ], [ %1117, %lshift64_m128.exit46 ]
+  %.sroa.0376.0 = phi <2 x i64> [ %1115, %lshift64_m128.exit46 ], [ %990, %lshift64_m128.exit34 ]
+  %.sroa.27.0 = phi <2 x i64> [ %1116, %lshift64_m128.exit46 ], [ %993, %lshift64_m128.exit34 ]
+  %.sroa.35.0 = phi <2 x i64> [ %1117, %lshift64_m128.exit46 ], [ %996, %lshift64_m128.exit34 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %929, i64 16) ], !noalias !372
   %1118 = load <2 x i64>, ptr %929, align 16, !noalias !372
   call void @llvm.assume(i1 true) [ "align"(ptr %930, i64 16) ], !noalias !372
@@ -6704,7 +6704,7 @@ testbit384.exit.i233:                             ; preds = %1225
   br label %repeatHasMatch.exit257
 
 repeatHasMatch.exit257:                           ; preds = %1266, %1287, %1289, %1291, %1293
-  %.0.i256 = phi i32 [ %1294, %1293 ], [ %1292, %1291 ], [ %1290, %1289 ], [ %1288, %1287 ], [ %1267, %1266 ]
+  %.0.i256 = phi i32 [ %1267, %1266 ], [ %1288, %1287 ], [ %1290, %1289 ], [ %1292, %1291 ], [ %1294, %1293 ]
   switch i32 %.0.i256, label %runException384.exit237 [
     i32 1, label %repeatHasMatch.exit257.thread1983
     i32 2, label %repeatHasMatch.exit257.thread1985
@@ -7234,7 +7234,7 @@ testbit384.exit87:                                ; preds = %testbit384.exit87.l
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %158, %165, %167, %169, %171, %173, %175
-  %.0.i96 = phi i64 [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ 0, %158 ]
+  %.0.i96 = phi i64 [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ 0, %158 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 16) ], !noalias !413
   %177 = load <2 x i64>, ptr %128, align 16, !noalias !413
   call void @llvm.assume(i1 true) [ "align"(ptr %129, i64 16) ], !noalias !413
@@ -7457,7 +7457,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %263, %284, %286, %288, %290
-  %.0.i92 = phi i32 [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %264, %263 ]
+  %.0.i92 = phi i32 [ %264, %263 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ]
   %.not20.i = icmp eq i32 %.0.i92, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread234, label %repeatHasMatch.exit.thread
 
@@ -7474,7 +7474,7 @@ repeatHasMatch.exit.thread.else:                  ; preds = %repeatHasMatch.exit
   br label %repeatHasMatch.exit.thread234
 
 repeatHasMatch.exit.thread234:                    ; preds = %repeatHasMatch.exit.thread.else, %repeatHasMatch.exit.thread, %279, %255, %265, %repeatHasMatch.exit, %testbit384.exit
-  %.sroa.0143.1 = phi <2 x i64> [ %.sroa.0143.0, %255 ], [ %.sroa.0143.0, %repeatHasMatch.exit ], [ %.sroa.0143.0, %279 ], [ %.sroa.0143.0, %265 ], [ %.sroa.0143.0, %testbit384.exit ], [ %.sroa.0143.0, %repeatHasMatch.exit.thread.else ], [ %293, %repeatHasMatch.exit.thread ]
+  %.sroa.0143.1 = phi <2 x i64> [ %.sroa.0143.0, %repeatHasMatch.exit ], [ %.sroa.0143.0, %265 ], [ %.sroa.0143.0, %279 ], [ %.sroa.0143.0, %255 ], [ %.sroa.0143.0, %testbit384.exit ], [ %.sroa.0143.0, %repeatHasMatch.exit.thread.else ], [ %293, %repeatHasMatch.exit.thread ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %294 = load i32, ptr %108, align 4
   %295 = zext i32 %294 to i64
@@ -7787,9 +7787,9 @@ lshift64_m128.exit169:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit163
 
 lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit169, %lshift64_m128.exit127
-  %.sroa.01084.6 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %119, %lshift64_m128.exit169 ]
-  %.sroa.271100.6 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %120, %lshift64_m128.exit169 ]
-  %.sroa.351131.6 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %121, %lshift64_m128.exit169 ]
+  %.sroa.01084.6 = phi <2 x i64> [ %119, %lshift64_m128.exit169 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.6 = phi <2 x i64> [ %120, %lshift64_m128.exit169 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.6 = phi <2 x i64> [ %121, %lshift64_m128.exit169 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ], !noalias !437
   %122 = load <2 x i64>, ptr %50, align 16, !noalias !437
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 16) ], !noalias !437
@@ -7816,9 +7816,9 @@ lshift64_m128.exit163:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit157
 
 lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit163, %lshift64_m128.exit127
-  %.sroa.01084.5 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %139, %lshift64_m128.exit163 ]
-  %.sroa.271100.5 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %140, %lshift64_m128.exit163 ]
-  %.sroa.351131.5 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %141, %lshift64_m128.exit163 ]
+  %.sroa.01084.5 = phi <2 x i64> [ %139, %lshift64_m128.exit163 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.5 = phi <2 x i64> [ %140, %lshift64_m128.exit163 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.5 = phi <2 x i64> [ %141, %lshift64_m128.exit163 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 16) ], !noalias !440
   %142 = load <2 x i64>, ptr %54, align 16, !noalias !440
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 16) ], !noalias !440
@@ -7845,9 +7845,9 @@ lshift64_m128.exit157:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit151
 
 lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit157, %lshift64_m128.exit127
-  %.sroa.01084.4 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %159, %lshift64_m128.exit157 ]
-  %.sroa.271100.4 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %160, %lshift64_m128.exit157 ]
-  %.sroa.351131.4 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %161, %lshift64_m128.exit157 ]
+  %.sroa.01084.4 = phi <2 x i64> [ %159, %lshift64_m128.exit157 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.4 = phi <2 x i64> [ %160, %lshift64_m128.exit157 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.4 = phi <2 x i64> [ %161, %lshift64_m128.exit157 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 16) ], !noalias !443
   %162 = load <2 x i64>, ptr %58, align 16, !noalias !443
   call void @llvm.assume(i1 true) [ "align"(ptr %59, i64 16) ], !noalias !443
@@ -7874,9 +7874,9 @@ lshift64_m128.exit151:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit145
 
 lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit151, %lshift64_m128.exit127
-  %.sroa.01084.3 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %179, %lshift64_m128.exit151 ]
-  %.sroa.271100.3 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %180, %lshift64_m128.exit151 ]
-  %.sroa.351131.3 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %181, %lshift64_m128.exit151 ]
+  %.sroa.01084.3 = phi <2 x i64> [ %179, %lshift64_m128.exit151 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.3 = phi <2 x i64> [ %180, %lshift64_m128.exit151 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.3 = phi <2 x i64> [ %181, %lshift64_m128.exit151 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 16) ], !noalias !446
   %182 = load <2 x i64>, ptr %62, align 16, !noalias !446
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 16) ], !noalias !446
@@ -7903,9 +7903,9 @@ lshift64_m128.exit145:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit139
 
 lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit145, %lshift64_m128.exit127
-  %.sroa.01084.2 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %199, %lshift64_m128.exit145 ]
-  %.sroa.271100.2 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %200, %lshift64_m128.exit145 ]
-  %.sroa.351131.2 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %201, %lshift64_m128.exit145 ]
+  %.sroa.01084.2 = phi <2 x i64> [ %199, %lshift64_m128.exit145 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.2 = phi <2 x i64> [ %200, %lshift64_m128.exit145 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.2 = phi <2 x i64> [ %201, %lshift64_m128.exit145 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %66, i64 16) ], !noalias !449
   %202 = load <2 x i64>, ptr %66, align 16, !noalias !449
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 16) ], !noalias !449
@@ -7932,9 +7932,9 @@ lshift64_m128.exit139:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit133
 
 lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit139, %lshift64_m128.exit127
-  %.sroa.01084.0 = phi <2 x i64> [ %94, %lshift64_m128.exit127 ], [ %219, %lshift64_m128.exit139 ]
-  %.sroa.271100.0 = phi <2 x i64> [ %97, %lshift64_m128.exit127 ], [ %220, %lshift64_m128.exit139 ]
-  %.sroa.351131.0 = phi <2 x i64> [ %100, %lshift64_m128.exit127 ], [ %221, %lshift64_m128.exit139 ]
+  %.sroa.01084.0 = phi <2 x i64> [ %219, %lshift64_m128.exit139 ], [ %94, %lshift64_m128.exit127 ]
+  %.sroa.271100.0 = phi <2 x i64> [ %220, %lshift64_m128.exit139 ], [ %97, %lshift64_m128.exit127 ]
+  %.sroa.351131.0 = phi <2 x i64> [ %221, %lshift64_m128.exit139 ], [ %100, %lshift64_m128.exit127 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 16) ], !noalias !452
   %222 = load <2 x i64>, ptr %70, align 16, !noalias !452
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 16) ], !noalias !452
@@ -8233,7 +8233,7 @@ testbit384.exit.i:                                ; preds = %317
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %358, %379, %381, %383, %385
-  %.0.i250 = phi i32 [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %359, %358 ]
+  %.0.i250 = phi i32 [ %359, %358 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ]
   switch i32 %.0.i250, label %runException384.exit [
     i32 1, label %repeatHasMatch.exit.thread1802
     i32 2, label %repeatHasMatch.exit.thread1804
@@ -8517,9 +8517,9 @@ lshift64_m128.exit121:                            ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit115
 
 lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit121, %lshift64_m128.exit79
-  %.sroa.0759.6 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %534, %lshift64_m128.exit121 ]
-  %.sroa.27775.6 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %535, %lshift64_m128.exit121 ]
-  %.sroa.35806.6 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %536, %lshift64_m128.exit121 ]
+  %.sroa.0759.6 = phi <2 x i64> [ %534, %lshift64_m128.exit121 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.6 = phi <2 x i64> [ %535, %lshift64_m128.exit121 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.6 = phi <2 x i64> [ %536, %lshift64_m128.exit121 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %459, i64 16) ], !noalias !473
   %537 = load <2 x i64>, ptr %459, align 16, !noalias !473
   call void @llvm.assume(i1 true) [ "align"(ptr %460, i64 16) ], !noalias !473
@@ -8546,9 +8546,9 @@ lshift64_m128.exit115:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit109
 
 lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit115, %lshift64_m128.exit79
-  %.sroa.0759.5 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %554, %lshift64_m128.exit115 ]
-  %.sroa.27775.5 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %555, %lshift64_m128.exit115 ]
-  %.sroa.35806.5 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %556, %lshift64_m128.exit115 ]
+  %.sroa.0759.5 = phi <2 x i64> [ %554, %lshift64_m128.exit115 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.5 = phi <2 x i64> [ %555, %lshift64_m128.exit115 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.5 = phi <2 x i64> [ %556, %lshift64_m128.exit115 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %463, i64 16) ], !noalias !476
   %557 = load <2 x i64>, ptr %463, align 16, !noalias !476
   call void @llvm.assume(i1 true) [ "align"(ptr %464, i64 16) ], !noalias !476
@@ -8575,9 +8575,9 @@ lshift64_m128.exit109:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit103
 
 lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit109, %lshift64_m128.exit79
-  %.sroa.0759.4 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %574, %lshift64_m128.exit109 ]
-  %.sroa.27775.4 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %575, %lshift64_m128.exit109 ]
-  %.sroa.35806.4 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %576, %lshift64_m128.exit109 ]
+  %.sroa.0759.4 = phi <2 x i64> [ %574, %lshift64_m128.exit109 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.4 = phi <2 x i64> [ %575, %lshift64_m128.exit109 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.4 = phi <2 x i64> [ %576, %lshift64_m128.exit109 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %467, i64 16) ], !noalias !479
   %577 = load <2 x i64>, ptr %467, align 16, !noalias !479
   call void @llvm.assume(i1 true) [ "align"(ptr %468, i64 16) ], !noalias !479
@@ -8604,9 +8604,9 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit79
-  %.sroa.0759.3 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %594, %lshift64_m128.exit103 ]
-  %.sroa.27775.3 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %595, %lshift64_m128.exit103 ]
-  %.sroa.35806.3 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %596, %lshift64_m128.exit103 ]
+  %.sroa.0759.3 = phi <2 x i64> [ %594, %lshift64_m128.exit103 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.3 = phi <2 x i64> [ %595, %lshift64_m128.exit103 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.3 = phi <2 x i64> [ %596, %lshift64_m128.exit103 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %471, i64 16) ], !noalias !482
   %597 = load <2 x i64>, ptr %471, align 16, !noalias !482
   call void @llvm.assume(i1 true) [ "align"(ptr %472, i64 16) ], !noalias !482
@@ -8633,9 +8633,9 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit79
-  %.sroa.0759.2 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %614, %lshift64_m128.exit97 ]
-  %.sroa.27775.2 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %615, %lshift64_m128.exit97 ]
-  %.sroa.35806.2 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %616, %lshift64_m128.exit97 ]
+  %.sroa.0759.2 = phi <2 x i64> [ %614, %lshift64_m128.exit97 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.2 = phi <2 x i64> [ %615, %lshift64_m128.exit97 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.2 = phi <2 x i64> [ %616, %lshift64_m128.exit97 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %475, i64 16) ], !noalias !485
   %617 = load <2 x i64>, ptr %475, align 16, !noalias !485
   call void @llvm.assume(i1 true) [ "align"(ptr %476, i64 16) ], !noalias !485
@@ -8662,9 +8662,9 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit79
-  %.sroa.0759.0 = phi <2 x i64> [ %509, %lshift64_m128.exit79 ], [ %634, %lshift64_m128.exit91 ]
-  %.sroa.27775.0 = phi <2 x i64> [ %512, %lshift64_m128.exit79 ], [ %635, %lshift64_m128.exit91 ]
-  %.sroa.35806.0 = phi <2 x i64> [ %515, %lshift64_m128.exit79 ], [ %636, %lshift64_m128.exit91 ]
+  %.sroa.0759.0 = phi <2 x i64> [ %634, %lshift64_m128.exit91 ], [ %509, %lshift64_m128.exit79 ]
+  %.sroa.27775.0 = phi <2 x i64> [ %635, %lshift64_m128.exit91 ], [ %512, %lshift64_m128.exit79 ]
+  %.sroa.35806.0 = phi <2 x i64> [ %636, %lshift64_m128.exit91 ], [ %515, %lshift64_m128.exit79 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %479, i64 16) ], !noalias !488
   %637 = load <2 x i64>, ptr %479, align 16, !noalias !488
   call void @llvm.assume(i1 true) [ "align"(ptr %480, i64 16) ], !noalias !488
@@ -8966,7 +8966,7 @@ testbit384.exit.i217:                             ; preds = %732
   br label %repeatHasMatch.exit252
 
 repeatHasMatch.exit252:                           ; preds = %773, %794, %796, %798, %800
-  %.0.i251 = phi i32 [ %801, %800 ], [ %799, %798 ], [ %797, %796 ], [ %795, %794 ], [ %774, %773 ]
+  %.0.i251 = phi i32 [ %774, %773 ], [ %795, %794 ], [ %797, %796 ], [ %799, %798 ], [ %801, %800 ]
   switch i32 %.0.i251, label %runException384.exit221 [
     i32 1, label %repeatHasMatch.exit252.thread1824
     i32 2, label %repeatHasMatch.exit252.thread1826
@@ -9319,9 +9319,9 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit3
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit31
-  %.sroa.0368.6 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %979, %lshift64_m128.exit73 ]
-  %.sroa.27.6 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %980, %lshift64_m128.exit73 ]
-  %.sroa.35.6 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %981, %lshift64_m128.exit73 ]
+  %.sroa.0368.6 = phi <2 x i64> [ %979, %lshift64_m128.exit73 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.6 = phi <2 x i64> [ %980, %lshift64_m128.exit73 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.6 = phi <2 x i64> [ %981, %lshift64_m128.exit73 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %876, i64 16) ], !noalias !518
   %982 = load <2 x i64>, ptr %876, align 16, !noalias !518
   call void @llvm.assume(i1 true) [ "align"(ptr %877, i64 16) ], !noalias !518
@@ -9348,9 +9348,9 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit61
 
 lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit67, %lshift64_m128.exit31
-  %.sroa.0368.5 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %999, %lshift64_m128.exit67 ]
-  %.sroa.27.5 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1000, %lshift64_m128.exit67 ]
-  %.sroa.35.5 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1001, %lshift64_m128.exit67 ]
+  %.sroa.0368.5 = phi <2 x i64> [ %999, %lshift64_m128.exit67 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.5 = phi <2 x i64> [ %1000, %lshift64_m128.exit67 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.5 = phi <2 x i64> [ %1001, %lshift64_m128.exit67 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %880, i64 16) ], !noalias !521
   %1002 = load <2 x i64>, ptr %880, align 16, !noalias !521
   call void @llvm.assume(i1 true) [ "align"(ptr %881, i64 16) ], !noalias !521
@@ -9377,9 +9377,9 @@ lshift64_m128.exit61:                             ; preds = %lshift64_m128.exit6
   br label %lshift64_m128.exit55
 
 lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit61, %lshift64_m128.exit31
-  %.sroa.0368.4 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1019, %lshift64_m128.exit61 ]
-  %.sroa.27.4 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1020, %lshift64_m128.exit61 ]
-  %.sroa.35.4 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1021, %lshift64_m128.exit61 ]
+  %.sroa.0368.4 = phi <2 x i64> [ %1019, %lshift64_m128.exit61 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.4 = phi <2 x i64> [ %1020, %lshift64_m128.exit61 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.4 = phi <2 x i64> [ %1021, %lshift64_m128.exit61 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %884, i64 16) ], !noalias !524
   %1022 = load <2 x i64>, ptr %884, align 16, !noalias !524
   call void @llvm.assume(i1 true) [ "align"(ptr %885, i64 16) ], !noalias !524
@@ -9406,9 +9406,9 @@ lshift64_m128.exit55:                             ; preds = %lshift64_m128.exit6
   br label %lshift64_m128.exit49
 
 lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit55, %lshift64_m128.exit31
-  %.sroa.0368.3 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1039, %lshift64_m128.exit55 ]
-  %.sroa.27.3 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1040, %lshift64_m128.exit55 ]
-  %.sroa.35.3 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1041, %lshift64_m128.exit55 ]
+  %.sroa.0368.3 = phi <2 x i64> [ %1039, %lshift64_m128.exit55 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.3 = phi <2 x i64> [ %1040, %lshift64_m128.exit55 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.3 = phi <2 x i64> [ %1041, %lshift64_m128.exit55 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %888, i64 16) ], !noalias !527
   %1042 = load <2 x i64>, ptr %888, align 16, !noalias !527
   call void @llvm.assume(i1 true) [ "align"(ptr %889, i64 16) ], !noalias !527
@@ -9435,9 +9435,9 @@ lshift64_m128.exit49:                             ; preds = %lshift64_m128.exit5
   br label %lshift64_m128.exit43
 
 lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit49, %lshift64_m128.exit31
-  %.sroa.0368.2 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1059, %lshift64_m128.exit49 ]
-  %.sroa.27.2 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1060, %lshift64_m128.exit49 ]
-  %.sroa.35.2 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1061, %lshift64_m128.exit49 ]
+  %.sroa.0368.2 = phi <2 x i64> [ %1059, %lshift64_m128.exit49 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.2 = phi <2 x i64> [ %1060, %lshift64_m128.exit49 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.2 = phi <2 x i64> [ %1061, %lshift64_m128.exit49 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %892, i64 16) ], !noalias !530
   %1062 = load <2 x i64>, ptr %892, align 16, !noalias !530
   call void @llvm.assume(i1 true) [ "align"(ptr %893, i64 16) ], !noalias !530
@@ -9464,9 +9464,9 @@ lshift64_m128.exit43:                             ; preds = %lshift64_m128.exit4
   br label %lshift64_m128.exit37
 
 lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit43, %lshift64_m128.exit31
-  %.sroa.0368.0 = phi <2 x i64> [ %954, %lshift64_m128.exit31 ], [ %1079, %lshift64_m128.exit43 ]
-  %.sroa.27.0 = phi <2 x i64> [ %957, %lshift64_m128.exit31 ], [ %1080, %lshift64_m128.exit43 ]
-  %.sroa.35.0 = phi <2 x i64> [ %960, %lshift64_m128.exit31 ], [ %1081, %lshift64_m128.exit43 ]
+  %.sroa.0368.0 = phi <2 x i64> [ %1079, %lshift64_m128.exit43 ], [ %954, %lshift64_m128.exit31 ]
+  %.sroa.27.0 = phi <2 x i64> [ %1080, %lshift64_m128.exit43 ], [ %957, %lshift64_m128.exit31 ]
+  %.sroa.35.0 = phi <2 x i64> [ %1081, %lshift64_m128.exit43 ], [ %960, %lshift64_m128.exit31 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %896, i64 16) ], !noalias !533
   %1082 = load <2 x i64>, ptr %896, align 16, !noalias !533
   call void @llvm.assume(i1 true) [ "align"(ptr %897, i64 16) ], !noalias !533
@@ -9768,7 +9768,7 @@ testbit384.exit.i230:                             ; preds = %1177
   br label %repeatHasMatch.exit254
 
 repeatHasMatch.exit254:                           ; preds = %1218, %1239, %1241, %1243, %1245
-  %.0.i253 = phi i32 [ %1246, %1245 ], [ %1244, %1243 ], [ %1242, %1241 ], [ %1240, %1239 ], [ %1219, %1218 ]
+  %.0.i253 = phi i32 [ %1219, %1218 ], [ %1240, %1239 ], [ %1242, %1241 ], [ %1244, %1243 ], [ %1246, %1245 ]
   switch i32 %.0.i253, label %runException384.exit234 [
     i32 1, label %repeatHasMatch.exit254.thread1846
     i32 2, label %repeatHasMatch.exit254.thread1848
@@ -10085,7 +10085,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %62, %83, %85, %87, %89
-  %.0.i14 = phi i32 [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %63, %62 ]
+  %.0.i14 = phi i32 [ %63, %62 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread34, label %repeatHasMatch.exit.thread
 
@@ -10394,7 +10394,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %84, %86, %88, %90, %92
-  %.0.i33 = phi i32 [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ]
+  %.0.i33 = phi i32 [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ]
   %.not20.i = icmp eq i32 %.0.i33, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread62, label %repeatHasMatch.exit.thread
 
@@ -10598,9 +10598,9 @@ lshift64_m128.exit103:                            ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit97
 
 lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit103, %lshift64_m128.exit109
-  %.sroa.0217.0 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %99, %lshift64_m128.exit103 ]
-  %.sroa.25.0 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %100, %lshift64_m128.exit103 ]
-  %.sroa.33.0 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %101, %lshift64_m128.exit103 ]
+  %.sroa.0217.0 = phi <2 x i64> [ %99, %lshift64_m128.exit103 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.0 = phi <2 x i64> [ %100, %lshift64_m128.exit103 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.0 = phi <2 x i64> [ %101, %lshift64_m128.exit103 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 16) ], !noalias !578
   %102 = load <2 x i64>, ptr %24, align 16, !noalias !578
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 16) ], !noalias !578
@@ -10627,9 +10627,9 @@ lshift64_m128.exit97:                             ; preds = %lshift64_m128.exit1
   br label %lshift64_m128.exit91
 
 lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit97, %lshift64_m128.exit109
-  %.sroa.0217.1 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %119, %lshift64_m128.exit97 ]
-  %.sroa.25.1 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %120, %lshift64_m128.exit97 ]
-  %.sroa.33.1 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %121, %lshift64_m128.exit97 ]
+  %.sroa.0217.1 = phi <2 x i64> [ %119, %lshift64_m128.exit97 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.1 = phi <2 x i64> [ %120, %lshift64_m128.exit97 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.1 = phi <2 x i64> [ %121, %lshift64_m128.exit97 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 16) ], !noalias !581
   %122 = load <2 x i64>, ptr %28, align 16, !noalias !581
   call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 16) ], !noalias !581
@@ -10656,9 +10656,9 @@ lshift64_m128.exit91:                             ; preds = %lshift64_m128.exit9
   br label %lshift64_m128.exit85
 
 lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit91, %lshift64_m128.exit109
-  %.sroa.0217.2 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %139, %lshift64_m128.exit91 ]
-  %.sroa.25.2 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %140, %lshift64_m128.exit91 ]
-  %.sroa.33.2 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %141, %lshift64_m128.exit91 ]
+  %.sroa.0217.2 = phi <2 x i64> [ %139, %lshift64_m128.exit91 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.2 = phi <2 x i64> [ %140, %lshift64_m128.exit91 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.2 = phi <2 x i64> [ %141, %lshift64_m128.exit91 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 16) ], !noalias !584
   %142 = load <2 x i64>, ptr %32, align 16, !noalias !584
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 16) ], !noalias !584
@@ -10685,9 +10685,9 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
   br label %lshift64_m128.exit79
 
 lshift64_m128.exit79:                             ; preds = %lshift64_m128.exit85, %lshift64_m128.exit109
-  %.sroa.0217.3 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %159, %lshift64_m128.exit85 ]
-  %.sroa.25.3 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %160, %lshift64_m128.exit85 ]
-  %.sroa.33.3 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %161, %lshift64_m128.exit85 ]
+  %.sroa.0217.3 = phi <2 x i64> [ %159, %lshift64_m128.exit85 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.3 = phi <2 x i64> [ %160, %lshift64_m128.exit85 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.3 = phi <2 x i64> [ %161, %lshift64_m128.exit85 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 16) ], !noalias !587
   %162 = load <2 x i64>, ptr %36, align 16, !noalias !587
   call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 16) ], !noalias !587
@@ -10714,9 +10714,9 @@ lshift64_m128.exit79:                             ; preds = %lshift64_m128.exit8
   br label %lshift64_m128.exit73
 
 lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit79, %lshift64_m128.exit109
-  %.sroa.0217.4 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %179, %lshift64_m128.exit79 ]
-  %.sroa.25.4 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %180, %lshift64_m128.exit79 ]
-  %.sroa.33.4 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %181, %lshift64_m128.exit79 ]
+  %.sroa.0217.4 = phi <2 x i64> [ %179, %lshift64_m128.exit79 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.4 = phi <2 x i64> [ %180, %lshift64_m128.exit79 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.4 = phi <2 x i64> [ %181, %lshift64_m128.exit79 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %40, i64 16) ], !noalias !590
   %182 = load <2 x i64>, ptr %40, align 16, !noalias !590
   call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 16) ], !noalias !590
@@ -10743,9 +10743,9 @@ lshift64_m128.exit73:                             ; preds = %lshift64_m128.exit7
   br label %lshift64_m128.exit67
 
 lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit73, %lshift64_m128.exit109
-  %.sroa.0217.5 = phi <2 x i64> [ %74, %lshift64_m128.exit109 ], [ %199, %lshift64_m128.exit73 ]
-  %.sroa.25.5 = phi <2 x i64> [ %77, %lshift64_m128.exit109 ], [ %200, %lshift64_m128.exit73 ]
-  %.sroa.33.5 = phi <2 x i64> [ %80, %lshift64_m128.exit109 ], [ %201, %lshift64_m128.exit73 ]
+  %.sroa.0217.5 = phi <2 x i64> [ %199, %lshift64_m128.exit73 ], [ %74, %lshift64_m128.exit109 ]
+  %.sroa.25.5 = phi <2 x i64> [ %200, %lshift64_m128.exit73 ], [ %77, %lshift64_m128.exit109 ]
+  %.sroa.33.5 = phi <2 x i64> [ %201, %lshift64_m128.exit73 ], [ %80, %lshift64_m128.exit109 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %44, i64 16) ], !noalias !593
   %202 = load <2 x i64>, ptr %44, align 16, !noalias !593
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 16) ], !noalias !593
@@ -11292,7 +11292,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %72, %93, %95, %97, %99
-  %.0.i15 = phi i32 [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %73, %72 ]
+  %.0.i15 = phi i32 [ %73, %72 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread62, label %repeatHasMatch.exit.thread
 
@@ -11309,7 +11309,7 @@ repeatHasMatch.exit.thread.else:                  ; preds = %repeatHasMatch.exit
   br label %repeatHasMatch.exit.thread62
 
 repeatHasMatch.exit.thread62:                     ; preds = %repeatHasMatch.exit.thread.else, %repeatHasMatch.exit.thread, %88, %64, %74, %repeatHasMatch.exit, %testbit384.exit
-  %.sroa.0.1 = phi <2 x i64> [ %.sroa.0.0, %64 ], [ %.sroa.0.0, %repeatHasMatch.exit ], [ %.sroa.0.0, %88 ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %testbit384.exit ], [ %.sroa.0.0, %repeatHasMatch.exit.thread.else ], [ %102, %repeatHasMatch.exit.thread ]
+  %.sroa.0.1 = phi <2 x i64> [ %.sroa.0.0, %repeatHasMatch.exit ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %88 ], [ %.sroa.0.0, %64 ], [ %.sroa.0.0, %testbit384.exit ], [ %.sroa.0.0, %repeatHasMatch.exit.thread.else ], [ %102, %repeatHasMatch.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load i32, ptr %42, align 4
   %104 = zext i32 %103 to i64
@@ -11586,7 +11586,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %69, %90, %92, %94, %96
-  %.0.i14 = phi i32 [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %70, %69 ]
+  %.0.i14 = phi i32 [ %70, %69 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread56, label %repeatHasMatch.exit.thread
 
@@ -11603,7 +11603,7 @@ repeatHasMatch.exit.thread.else:                  ; preds = %repeatHasMatch.exit
   br label %repeatHasMatch.exit.thread56
 
 repeatHasMatch.exit.thread56:                     ; preds = %repeatHasMatch.exit.thread.else, %repeatHasMatch.exit.thread, %85, %61, %71, %repeatHasMatch.exit, %testbit384.exit
-  %.sroa.0.1 = phi <2 x i64> [ %.sroa.0.0, %61 ], [ %.sroa.0.0, %repeatHasMatch.exit ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %71 ], [ %.sroa.0.0, %testbit384.exit ], [ %.sroa.0.0, %repeatHasMatch.exit.thread.else ], [ %99, %repeatHasMatch.exit.thread ]
+  %.sroa.0.1 = phi <2 x i64> [ %.sroa.0.0, %repeatHasMatch.exit ], [ %.sroa.0.0, %71 ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %61 ], [ %.sroa.0.0, %testbit384.exit ], [ %.sroa.0.0, %repeatHasMatch.exit.thread.else ], [ %99, %repeatHasMatch.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = load i32, ptr %39, align 4
   %101 = zext i32 %100 to i64
@@ -11776,7 +11776,7 @@ testbit384.exit:                                  ; preds = %testbit384.exit.lr.
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %54, %75, %77, %79, %81
-  %.0.i16 = phi i32 [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %55, %54 ]
+  %.0.i16 = phi i32 [ %55, %54 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ]
   %.not20.i = icmp eq i32 %.0.i16, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread51, label %repeatHasMatch.exit.thread
 
@@ -11793,7 +11793,7 @@ repeatHasMatch.exit.thread.else:                  ; preds = %repeatHasMatch.exit
   br label %repeatHasMatch.exit.thread51
 
 repeatHasMatch.exit.thread51:                     ; preds = %repeatHasMatch.exit.thread.else, %repeatHasMatch.exit.thread, %70, %46, %56, %repeatHasMatch.exit, %testbit384.exit
-  %.sroa.022.2 = phi <2 x i64> [ %.sroa.022.1, %46 ], [ %.sroa.022.1, %repeatHasMatch.exit ], [ %.sroa.022.1, %70 ], [ %.sroa.022.1, %56 ], [ %.sroa.022.1, %testbit384.exit ], [ %.sroa.022.1, %repeatHasMatch.exit.thread.else ], [ %84, %repeatHasMatch.exit.thread ]
+  %.sroa.022.2 = phi <2 x i64> [ %.sroa.022.1, %repeatHasMatch.exit ], [ %.sroa.022.1, %56 ], [ %.sroa.022.1, %70 ], [ %.sroa.022.1, %46 ], [ %.sroa.022.1, %testbit384.exit ], [ %.sroa.022.1, %repeatHasMatch.exit.thread.else ], [ %84, %repeatHasMatch.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %12, align 4
   %86 = zext i32 %85 to i64

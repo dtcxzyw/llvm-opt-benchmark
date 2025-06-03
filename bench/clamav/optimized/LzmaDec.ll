@@ -1333,18 +1333,18 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %61 = sub i32 8, %43
   br label %62
 
-62:                                               ; preds = %.loopexit1144.i, %32
-  %.0965.i = phi i32 [ 0, %32 ], [ %.1966.ph.i, %.loopexit1144.i ]
-  %.0924.i = phi ptr [ %46, %32 ], [ %.7931.ph.i, %.loopexit1144.i ]
-  %.0868.i = phi i32 [ %47, %32 ], [ %.9877.ph.i, %.loopexit1144.i ]
-  %.0852.i = phi i32 [ %48, %32 ], [ %.9861.ph.i, %.loopexit1144.i ]
-  %.0848.i = phi i32 [ %.pre68, %32 ], [ %.1849.ph.i, %.loopexit1144.i ]
-  %.0836.i = phi i64 [ %.pre, %32 ], [ %.1837.ph.i, %.loopexit1144.i ]
-  %.0828.i = phi i32 [ %38, %32 ], [ %.1829.ph.i, %.loopexit1144.i ]
-  %.0805.i = phi i32 [ %37, %32 ], [ %.1806.ph.i, %.loopexit1144.i ]
-  %.0794.i = phi i32 [ %36, %32 ], [ %.1795.ph.i, %.loopexit1144.i ]
-  %.0785.i = phi i32 [ %35, %32 ], [ %.1786.ph.i, %.loopexit1144.i ]
-  %.0777.i = phi i32 [ %34, %32 ], [ %.2779.ph.i, %.loopexit1144.i ]
+62:                                               ; preds = %.loopexit1142.i, %32
+  %.0965.i = phi i32 [ 0, %32 ], [ %.1966.ph.i, %.loopexit1142.i ]
+  %.0924.i = phi ptr [ %46, %32 ], [ %.7931.ph.i, %.loopexit1142.i ]
+  %.0868.i = phi i32 [ %47, %32 ], [ %.9877.ph.i, %.loopexit1142.i ]
+  %.0852.i = phi i32 [ %48, %32 ], [ %.9861.ph.i, %.loopexit1142.i ]
+  %.0848.i = phi i32 [ %.pre68, %32 ], [ %.1849.ph.i, %.loopexit1142.i ]
+  %.0836.i = phi i64 [ %.pre, %32 ], [ %.1837.ph.i, %.loopexit1142.i ]
+  %.0828.i = phi i32 [ %38, %32 ], [ %.1829.ph.i, %.loopexit1142.i ]
+  %.0805.i = phi i32 [ %37, %32 ], [ %.1806.ph.i, %.loopexit1142.i ]
+  %.0794.i = phi i32 [ %36, %32 ], [ %.1795.ph.i, %.loopexit1142.i ]
+  %.0785.i = phi i32 [ %35, %32 ], [ %.1786.ph.i, %.loopexit1142.i ]
+  %.0777.i = phi i32 [ %34, %32 ], [ %.2779.ph.i, %.loopexit1142.i ]
   %63 = and i32 %.0848.i, %40
   %64 = shl i32 %.0777.i, 4
   %65 = zext i32 %64 to i64
@@ -1527,36 +1527,36 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %179
 
 179:                                              ; preds = %173, %167
-  %.sink1169.i = phi i16 [ %171, %167 ], [ %177, %173 ]
+  %.sink1167.i = phi i16 [ %171, %167 ], [ %177, %173 ]
   %.8876.i = phi i32 [ %164, %167 ], [ %174, %173 ]
   %.8860.i = phi i32 [ %.7859.i, %167 ], [ %175, %173 ]
   %.4847.i = phi i32 [ %166, %167 ], [ %178, %173 ]
   %.1841.i = phi i32 [ %172, %167 ], [ %145, %173 ]
-  store i16 %.sink1169.i, ptr %151, align 2, !tbaa !30
+  store i16 %.sink1167.i, ptr %151, align 2, !tbaa !30
   %180 = icmp ult i32 %.4847.i, 256
-  br i1 %180, label %143, label %.loopexit.loopexit1157.i
+  br i1 %180, label %143, label %.loopexit.loopexit1155.i
 
 .loopexit.loopexit.i:                             ; preds = %131
   %181 = tail call i32 @llvm.usub.sat.i32(i32 %.0777.i, i32 3)
   br label %.loopexit.i
 
-.loopexit.loopexit1157.i:                         ; preds = %179
+.loopexit.loopexit1155.i:                         ; preds = %179
   %182 = icmp ult i32 %.0777.i, 10
   %.neg1043.i = select i1 %182, i32 -3, i32 -6
   %183 = add i32 %.neg1043.i, %.0777.i
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit1157.i, %.loopexit.loopexit.i
-  %.4928.i = phi ptr [ %.3927.i, %.loopexit.loopexit.i ], [ %.6930.i, %.loopexit.loopexit1157.i ]
-  %.5873.i = phi i32 [ %.4872.i, %.loopexit.loopexit.i ], [ %.8876.i, %.loopexit.loopexit1157.i ]
-  %.5857.i = phi i32 [ %.4856.i, %.loopexit.loopexit.i ], [ %.8860.i, %.loopexit.loopexit1157.i ]
-  %.2845.i = phi i32 [ %.1844.i, %.loopexit.loopexit.i ], [ %.4847.i, %.loopexit.loopexit1157.i ]
-  %.1778.i = phi i32 [ %181, %.loopexit.loopexit.i ], [ %183, %.loopexit.loopexit1157.i ]
+.loopexit.i:                                      ; preds = %.loopexit.loopexit1155.i, %.loopexit.loopexit.i
+  %.4928.i = phi ptr [ %.3927.i, %.loopexit.loopexit.i ], [ %.6930.i, %.loopexit.loopexit1155.i ]
+  %.5873.i = phi i32 [ %.4872.i, %.loopexit.loopexit.i ], [ %.8876.i, %.loopexit.loopexit1155.i ]
+  %.5857.i = phi i32 [ %.4856.i, %.loopexit.loopexit.i ], [ %.8860.i, %.loopexit.loopexit1155.i ]
+  %.2845.i = phi i32 [ %.1844.i, %.loopexit.loopexit.i ], [ %.4847.i, %.loopexit.loopexit1155.i ]
+  %.1778.i = phi i32 [ %181, %.loopexit.loopexit.i ], [ %183, %.loopexit.loopexit1155.i ]
   %184 = trunc i32 %.2845.i to i8
   %185 = add i64 %.0836.i, 1
   %186 = getelementptr inbounds nuw i8, ptr %44, i64 %.0836.i
   store i8 %184, ptr %186, align 1, !tbaa !24
-  br label %.loopexit1144.i
+  br label %.loopexit1142.i
 
 187:                                              ; preds = %79
   %188 = sub i32 %.1869.i, %81
@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %270 = add i64 %.0836.i, 1
   %271 = icmp ult i32 %.0777.i, 7
   %272 = select i1 %271, i32 9, i32 11
-  br label %.loopexit1144.i
+  br label %.loopexit1142.i
 
 273:                                              ; preds = %253
   %274 = sub i32 %.13881.i, %255
@@ -1947,11 +1947,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %426
 
 426:                                              ; preds = %420, %415
-  %.sink1170.i = phi i16 [ %419, %415 ], [ %424, %420 ]
+  %.sink1168.i = phi i16 [ %419, %415 ], [ %424, %420 ]
   %.3968.i = phi i32 [ %414, %415 ], [ %425, %420 ]
   %.24892.i = phi i32 [ %412, %415 ], [ %421, %420 ]
   %.24.i = phi i32 [ %.23.i, %415 ], [ %422, %420 ]
-  store i16 %.sink1170.i, ptr %399, align 2, !tbaa !30
+  store i16 %.sink1168.i, ptr %399, align 2, !tbaa !30
   %427 = icmp ult i32 %.3968.i, %.0822.i
   br i1 %427, label %397, label %428
 
@@ -2052,11 +2052,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %491
 
 491:                                              ; preds = %485, %480
-  %.sink1171.i = phi i16 [ %484, %480 ], [ %489, %485 ]
+  %.sink1169.i = phi i16 [ %484, %480 ], [ %489, %485 ]
   %.29897.i = phi i32 [ %477, %480 ], [ %486, %485 ]
   %.29.i = phi i32 [ %.28.i, %480 ], [ %487, %485 ]
   %.1813.i = phi i32 [ %479, %480 ], [ %490, %485 ]
-  store i16 %.sink1171.i, ptr %464, align 2, !tbaa !30
+  store i16 %.sink1169.i, ptr %464, align 2, !tbaa !30
   %492 = zext nneg i32 %.1813.i to i64
   %493 = getelementptr inbounds nuw i16, ptr %436, i64 %492
   %494 = load i16, ptr %493, align 2, !tbaa !30
@@ -2099,11 +2099,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %520
 
 520:                                              ; preds = %514, %509
-  %.sink1172.i = phi i16 [ %513, %509 ], [ %518, %514 ]
+  %.sink1170.i = phi i16 [ %513, %509 ], [ %518, %514 ]
   %.31899.i = phi i32 [ %506, %509 ], [ %515, %514 ]
   %.31.i = phi i32 [ %.30.i, %509 ], [ %516, %514 ]
   %.2814.i = phi i32 [ %508, %509 ], [ %519, %514 ]
-  store i16 %.sink1172.i, ptr %493, align 2, !tbaa !30
+  store i16 %.sink1170.i, ptr %493, align 2, !tbaa !30
   %521 = zext nneg i32 %.2814.i to i64
   %522 = getelementptr inbounds nuw i16, ptr %436, i64 %521
   %523 = load i16, ptr %522, align 2, !tbaa !30
@@ -2146,11 +2146,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %549
 
 549:                                              ; preds = %543, %538
-  %.sink1173.i = phi i16 [ %542, %538 ], [ %547, %543 ]
+  %.sink1171.i = phi i16 [ %542, %538 ], [ %547, %543 ]
   %.33901.i = phi i32 [ %535, %538 ], [ %544, %543 ]
   %.33.i = phi i32 [ %.32.i, %538 ], [ %545, %543 ]
   %.3815.i = phi i32 [ %537, %538 ], [ %548, %543 ]
-  store i16 %.sink1173.i, ptr %522, align 2, !tbaa !30
+  store i16 %.sink1171.i, ptr %522, align 2, !tbaa !30
   %550 = zext nneg i32 %.3815.i to i64
   %551 = getelementptr inbounds nuw i16, ptr %436, i64 %550
   %552 = load i16, ptr %551, align 2, !tbaa !30
@@ -2193,11 +2193,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %578
 
 578:                                              ; preds = %572, %567
-  %.sink1174.i = phi i16 [ %571, %567 ], [ %576, %572 ]
+  %.sink1172.i = phi i16 [ %571, %567 ], [ %576, %572 ]
   %.35903.i = phi i32 [ %564, %567 ], [ %573, %572 ]
   %.35.i = phi i32 [ %.34.i, %567 ], [ %574, %572 ]
   %.4816.i = phi i32 [ %566, %567 ], [ %577, %572 ]
-  store i16 %.sink1174.i, ptr %551, align 2, !tbaa !30
+  store i16 %.sink1172.i, ptr %551, align 2, !tbaa !30
   %579 = zext nneg i32 %.4816.i to i64
   %580 = getelementptr inbounds nuw i16, ptr %436, i64 %579
   %581 = load i16, ptr %580, align 2, !tbaa !30
@@ -2240,11 +2240,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %607
 
 607:                                              ; preds = %601, %596
-  %.sink1175.i = phi i16 [ %600, %596 ], [ %605, %601 ]
+  %.sink1173.i = phi i16 [ %600, %596 ], [ %605, %601 ]
   %.37905.i = phi i32 [ %593, %596 ], [ %602, %601 ]
   %.37.i = phi i32 [ %.36.i, %596 ], [ %603, %601 ]
   %.5817.i = phi i32 [ %595, %596 ], [ %606, %601 ]
-  store i16 %.sink1175.i, ptr %580, align 2, !tbaa !30
+  store i16 %.sink1173.i, ptr %580, align 2, !tbaa !30
   %608 = add nsw i32 %.5817.i, -64
   %609 = icmp samesign ugt i32 %608, 3
   br i1 %609, label %610, label %.thread1047.i
@@ -2318,12 +2318,12 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %654
 
 654:                                              ; preds = %647, %642
-  %.sink1176.i = phi i16 [ %646, %642 ], [ %651, %647 ]
+  %.sink1174.i = phi i16 [ %646, %642 ], [ %651, %647 ]
   %.41909.i = phi i32 [ %639, %642 ], [ %648, %647 ]
   %.41.i = phi i32 [ %.40.i, %642 ], [ %649, %647 ]
   %.8.i = phi i32 [ %.7819.i, %642 ], [ %653, %647 ]
   %.1801.i = phi i32 [ %641, %642 ], [ %652, %647 ]
-  store i16 %.sink1176.i, ptr %626, align 2, !tbaa !30
+  store i16 %.sink1174.i, ptr %626, align 2, !tbaa !30
   %655 = shl i32 %.0802.i, 1
   %656 = add nsw i32 %.0803.i, -1
   %.not1037.i = icmp eq i32 %656, 0
@@ -2408,12 +2408,12 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %704
 
 704:                                              ; preds = %698, %693
-  %.sink1177.i = phi i16 [ %697, %693 ], [ %702, %698 ]
+  %.sink1175.i = phi i16 [ %697, %693 ], [ %702, %698 ]
   %.46914.i = phi i32 [ %691, %693 ], [ %699, %698 ]
   %.46.i = phi i32 [ %.45.i, %693 ], [ %700, %698 ]
   %.11.i = phi i32 [ %678, %693 ], [ %703, %698 ]
   %.0791.i = phi i32 [ 2, %693 ], [ 3, %698 ]
-  store i16 %.sink1177.i, ptr %58, align 2, !tbaa !30
+  store i16 %.sink1175.i, ptr %58, align 2, !tbaa !30
   %705 = zext nneg i32 %.0791.i to i64
   %706 = getelementptr inbounds nuw i16, ptr %57, i64 %705
   %707 = load i16, ptr %706, align 2, !tbaa !30
@@ -2457,12 +2457,12 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %734
 
 734:                                              ; preds = %727, %722
-  %.sink1178.i = phi i16 [ %726, %722 ], [ %731, %727 ]
+  %.sink1176.i = phi i16 [ %726, %722 ], [ %731, %727 ]
   %.48916.i = phi i32 [ %719, %722 ], [ %728, %727 ]
   %.48.i = phi i32 [ %.47.i, %722 ], [ %729, %727 ]
   %.12.i = phi i32 [ %.11.i, %722 ], [ %733, %727 ]
   %.1792.i = phi i32 [ %721, %722 ], [ %732, %727 ]
-  store i16 %.sink1178.i, ptr %706, align 2, !tbaa !30
+  store i16 %.sink1176.i, ptr %706, align 2, !tbaa !30
   %735 = zext nneg i32 %.1792.i to i64
   %736 = getelementptr inbounds nuw i16, ptr %57, i64 %735
   %737 = load i16, ptr %736, align 2, !tbaa !30
@@ -2506,12 +2506,12 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %764
 
 764:                                              ; preds = %757, %752
-  %.sink1179.i = phi i16 [ %756, %752 ], [ %761, %757 ]
+  %.sink1177.i = phi i16 [ %756, %752 ], [ %761, %757 ]
   %.50918.i = phi i32 [ %749, %752 ], [ %758, %757 ]
   %.50.i = phi i32 [ %.49.i, %752 ], [ %759, %757 ]
   %.13.i = phi i32 [ %.12.i, %752 ], [ %763, %757 ]
   %.2793.i = phi i32 [ %751, %752 ], [ %762, %757 ]
-  store i16 %.sink1179.i, ptr %736, align 2, !tbaa !30
+  store i16 %.sink1177.i, ptr %736, align 2, !tbaa !30
   %765 = zext nneg i32 %.2793.i to i64
   %766 = getelementptr inbounds nuw i16, ptr %57, i64 %765
   %767 = load i16, ptr %766, align 2, !tbaa !30
@@ -2617,7 +2617,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   store i8 %819, ptr %.0782.i, align 1, !tbaa !24
   %820 = getelementptr inbounds nuw i8, ptr %.0782.i, i64 1
   %.not1042.i = icmp eq ptr %820, %816
-  br i1 %.not1042.i, label %.loopexit1144.loopexit1158.i, label %817
+  br i1 %.not1042.i, label %.loopexit1142.loopexit1156.i, label %817
 
 .preheader.i:                                     ; preds = %800, %.preheader.i
   %.3839.i = phi i64 [ %823, %.preheader.i ], [ %.0836.i, %800 ]
@@ -2633,63 +2633,63 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %spec.store.select.i = select i1 %826, i64 0, i64 %825
   %827 = add i32 %.0784.i, -1
   %.not1041.i = icmp eq i32 %827, 0
-  br i1 %.not1041.i, label %.loopexit1144.i, label %.preheader.i
+  br i1 %.not1041.i, label %.loopexit1142.i, label %.preheader.i
 
 828:                                              ; preds = %785
   %829 = add i32 %430, 274
   %830 = add i32 %.3780.i, -12
-  br label %.loopexit1146.i
-
-.loopexit1144.loopexit1158.i:                     ; preds = %817
-  %831 = add i64 %804, %.0836.i
   br label %.loopexit1144.i
 
-.loopexit1144.i:                                  ; preds = %.preheader.i, %.loopexit1144.loopexit1158.i, %257, %.loopexit.i
-  %.1966.ph.i = phi i32 [ %.0965.i, %257 ], [ %.0965.i, %.loopexit.i ], [ %811, %.loopexit1144.loopexit1158.i ], [ %811, %.preheader.i ]
-  %.7931.ph.i = phi ptr [ %.11935.i, %257 ], [ %.4928.i, %.loopexit.i ], [ %.21945.i, %.loopexit1144.loopexit1158.i ], [ %.21945.i, %.preheader.i ]
-  %.9877.ph.i = phi i32 [ %255, %257 ], [ %.5873.i, %.loopexit.i ], [ %.25893.i, %.loopexit1144.loopexit1158.i ], [ %.25893.i, %.preheader.i ]
-  %.9861.ph.i = phi i32 [ %.13865.i, %257 ], [ %.5857.i, %.loopexit.i ], [ %.25.i, %.loopexit1144.loopexit1158.i ], [ %.25.i, %.preheader.i ]
-  %.pn.i = phi i32 [ 1, %257 ], [ 1, %.loopexit.i ], [ %805, %.loopexit1144.loopexit1158.i ], [ %805, %.preheader.i ]
-  %.1837.ph.i = phi i64 [ %270, %257 ], [ %185, %.loopexit.i ], [ %831, %.loopexit1144.loopexit1158.i ], [ %823, %.preheader.i ]
-  %.1829.ph.i = phi i32 [ %.0828.i, %257 ], [ %.0828.i, %.loopexit.i ], [ %.6834.i, %.loopexit1144.loopexit1158.i ], [ %.6834.i, %.preheader.i ]
-  %.1806.ph.i = phi i32 [ %.0805.i, %257 ], [ %.0805.i, %.loopexit.i ], [ %.5810.i, %.loopexit1144.loopexit1158.i ], [ %.5810.i, %.preheader.i ]
-  %.1795.ph.i = phi i32 [ %.0794.i, %257 ], [ %.0794.i, %.loopexit.i ], [ %.4798.i, %.loopexit1144.loopexit1158.i ], [ %.4798.i, %.preheader.i ]
-  %.1786.ph.i = phi i32 [ %.0785.i, %257 ], [ %.0785.i, %.loopexit.i ], [ %.4789.i, %.loopexit1144.loopexit1158.i ], [ %.4789.i, %.preheader.i ]
-  %.2779.ph.i = phi i32 [ %272, %257 ], [ %.1778.i, %.loopexit.i ], [ %.4781.i, %.loopexit1144.loopexit1158.i ], [ %.4781.i, %.preheader.i ]
+.loopexit1142.loopexit1156.i:                     ; preds = %817
+  %831 = add i64 %804, %.0836.i
+  br label %.loopexit1142.i
+
+.loopexit1142.i:                                  ; preds = %.preheader.i, %.loopexit1142.loopexit1156.i, %257, %.loopexit.i
+  %.1966.ph.i = phi i32 [ %.0965.i, %257 ], [ %.0965.i, %.loopexit.i ], [ %811, %.loopexit1142.loopexit1156.i ], [ %811, %.preheader.i ]
+  %.7931.ph.i = phi ptr [ %.11935.i, %257 ], [ %.4928.i, %.loopexit.i ], [ %.21945.i, %.loopexit1142.loopexit1156.i ], [ %.21945.i, %.preheader.i ]
+  %.9877.ph.i = phi i32 [ %255, %257 ], [ %.5873.i, %.loopexit.i ], [ %.25893.i, %.loopexit1142.loopexit1156.i ], [ %.25893.i, %.preheader.i ]
+  %.9861.ph.i = phi i32 [ %.13865.i, %257 ], [ %.5857.i, %.loopexit.i ], [ %.25.i, %.loopexit1142.loopexit1156.i ], [ %.25.i, %.preheader.i ]
+  %.pn.i = phi i32 [ 1, %257 ], [ 1, %.loopexit.i ], [ %805, %.loopexit1142.loopexit1156.i ], [ %805, %.preheader.i ]
+  %.1837.ph.i = phi i64 [ %270, %257 ], [ %185, %.loopexit.i ], [ %831, %.loopexit1142.loopexit1156.i ], [ %823, %.preheader.i ]
+  %.1829.ph.i = phi i32 [ %.0828.i, %257 ], [ %.0828.i, %.loopexit.i ], [ %.6834.i, %.loopexit1142.loopexit1156.i ], [ %.6834.i, %.preheader.i ]
+  %.1806.ph.i = phi i32 [ %.0805.i, %257 ], [ %.0805.i, %.loopexit.i ], [ %.5810.i, %.loopexit1142.loopexit1156.i ], [ %.5810.i, %.preheader.i ]
+  %.1795.ph.i = phi i32 [ %.0794.i, %257 ], [ %.0794.i, %.loopexit.i ], [ %.4798.i, %.loopexit1142.loopexit1156.i ], [ %.4798.i, %.preheader.i ]
+  %.1786.ph.i = phi i32 [ %.0785.i, %257 ], [ %.0785.i, %.loopexit.i ], [ %.4789.i, %.loopexit1142.loopexit1156.i ], [ %.4789.i, %.preheader.i ]
+  %.2779.ph.i = phi i32 [ %272, %257 ], [ %.1778.i, %.loopexit.i ], [ %.4781.i, %.loopexit1142.loopexit1156.i ], [ %.4781.i, %.preheader.i ]
   %.1849.ph.i = add i32 %.pn.i, %.0848.i
   %832 = icmp ult i64 %.1837.ph.i, %.031
   %833 = icmp ult ptr %.7931.ph.i, %2
   %834 = select i1 %832, i1 %833, i1 false
-  br i1 %834, label %62, label %.loopexit1146.i
+  br i1 %834, label %62, label %.loopexit1144.i
 
-.loopexit1146.i:                                  ; preds = %.loopexit1144.i, %828
-  %.27791105.i = phi i32 [ %830, %828 ], [ %.2779.ph.i, %.loopexit1144.i ]
-  %835 = phi i32 [ %.2787.i, %828 ], [ %.1786.ph.i, %.loopexit1144.i ]
-  %.17951101.i = phi i32 [ %.2796.i, %828 ], [ %.1795.ph.i, %.loopexit1144.i ]
-  %.18061099.i = phi i32 [ %.2807.i, %828 ], [ %.1806.ph.i, %.loopexit1144.i ]
-  %.18291097.i = phi i32 [ %.2830.i, %828 ], [ %.1829.ph.i, %.loopexit1144.i ]
-  %836 = phi i64 [ %.0836.i, %828 ], [ %.1837.ph.i, %.loopexit1144.i ]
-  %.18491092.i = phi i32 [ %.0848.i, %828 ], [ %.1849.ph.i, %.loopexit1144.i ]
-  %.98611090.i = phi i32 [ %787, %828 ], [ %.9861.ph.i, %.loopexit1144.i ]
-  %.98771088.i = phi i32 [ %786, %828 ], [ %.9877.ph.i, %.loopexit1144.i ]
-  %.79311085.i = phi ptr [ %.37961.i, %828 ], [ %.7931.ph.i, %.loopexit1144.i ]
-  %837 = phi i32 [ %829, %828 ], [ %.1966.ph.i, %.loopexit1144.i ]
+.loopexit1144.i:                                  ; preds = %.loopexit1142.i, %828
+  %.27791104.i = phi i32 [ %830, %828 ], [ %.2779.ph.i, %.loopexit1142.i ]
+  %835 = phi i32 [ %.2787.i, %828 ], [ %.1786.ph.i, %.loopexit1142.i ]
+  %.17951100.i = phi i32 [ %.2796.i, %828 ], [ %.1795.ph.i, %.loopexit1142.i ]
+  %.18061098.i = phi i32 [ %.2807.i, %828 ], [ %.1806.ph.i, %.loopexit1142.i ]
+  %.18291096.i = phi i32 [ %.2830.i, %828 ], [ %.1829.ph.i, %.loopexit1142.i ]
+  %836 = phi i64 [ %.0836.i, %828 ], [ %.1837.ph.i, %.loopexit1142.i ]
+  %.18491092.i = phi i32 [ %.0848.i, %828 ], [ %.1849.ph.i, %.loopexit1142.i ]
+  %.98611090.i = phi i32 [ %787, %828 ], [ %.9861.ph.i, %.loopexit1142.i ]
+  %.98771088.i = phi i32 [ %786, %828 ], [ %.9877.ph.i, %.loopexit1142.i ]
+  %.79311086.i = phi ptr [ %.37961.i, %828 ], [ %.7931.ph.i, %.loopexit1142.i ]
+  %837 = phi i32 [ %829, %828 ], [ %.1966.ph.i, %.loopexit1142.i ]
   %838 = icmp ult i32 %.98771088.i, 16777216
   br i1 %838, label %839, label %846
 
-839:                                              ; preds = %.loopexit1146.i
+839:                                              ; preds = %.loopexit1144.i
   %840 = shl nuw i32 %.98771088.i, 8
   %841 = shl i32 %.98611090.i, 8
-  %842 = getelementptr inbounds nuw i8, ptr %.79311085.i, i64 1
-  %843 = load i8, ptr %.79311085.i, align 1, !tbaa !24
+  %842 = getelementptr inbounds nuw i8, ptr %.79311086.i, i64 1
+  %843 = load i8, ptr %.79311086.i, align 1, !tbaa !24
   %844 = zext i8 %843 to i32
   %845 = or disjoint i32 %841, %844
   br label %846
 
-846:                                              ; preds = %839, %.loopexit1146.i
-  %.40964.i = phi ptr [ %842, %839 ], [ %.79311085.i, %.loopexit1146.i ]
-  %.55923.i = phi i32 [ %840, %839 ], [ %.98771088.i, %.loopexit1146.i ]
-  %.55.i = phi i32 [ %845, %839 ], [ %.98611090.i, %.loopexit1146.i ]
+846:                                              ; preds = %839, %.loopexit1144.i
+  %.40964.i = phi ptr [ %842, %839 ], [ %.79311086.i, %.loopexit1144.i ]
+  %.55923.i = phi i32 [ %840, %839 ], [ %.98771088.i, %.loopexit1144.i ]
+  %.55.i = phi i32 [ %845, %839 ], [ %.98611090.i, %.loopexit1144.i ]
   store ptr %.40964.i, ptr %17, align 8, !tbaa !33
   store i32 %.55923.i, ptr %18, align 8, !tbaa !26
   store i32 %.55.i, ptr %19, align 4, !tbaa !25
@@ -2697,10 +2697,10 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   store i64 %836, ptr %15, align 8, !tbaa !18
   store i32 %.18491092.i, ptr %16, align 8, !tbaa !15
   store i32 %835, ptr %7, align 4, !tbaa !22
-  store i32 %.17951101.i, ptr %8, align 4, !tbaa !22
-  store i32 %.18061099.i, ptr %9, align 4, !tbaa !22
-  store i32 %.18291097.i, ptr %10, align 4, !tbaa !22
-  store i32 %.27791105.i, ptr %6, align 8, !tbaa !32
+  store i32 %.17951100.i, ptr %8, align 4, !tbaa !22
+  store i32 %.18061098.i, ptr %9, align 4, !tbaa !22
+  store i32 %.18291096.i, ptr %10, align 4, !tbaa !22
+  store i32 %.27791104.i, ptr %6, align 8, !tbaa !32
   %847 = load i32, ptr %20, align 4, !tbaa !23
   %.not36 = icmp ult i32 %.18491092.i, %847
   br i1 %.not36, label %849, label %848

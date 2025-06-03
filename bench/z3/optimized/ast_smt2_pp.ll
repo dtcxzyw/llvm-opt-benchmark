@@ -23064,7 +23064,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 .thread.sink.split.sink.split:                    ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i19, %55, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %37
   %.sink = phi ptr [ %28, %37 ], [ %28, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %46, %55 ], [ %46, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i19 ]
-  %.0.i.i.i.sink.ph = phi i32 [ %.0.i.i.i, %37 ], [ %.0.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %.0.i.i.i20, %55 ], [ %.0.i.i.i20, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i19 ]
+  %.0.i.i.i20.sink.ph = phi i32 [ %.0.i.i.i, %37 ], [ %.0.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %.0.i.i.i20, %55 ], [ %.0.i.i.i20, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i19 ]
   %.sink40.ph = phi i8 [ %27, %37 ], [ %27, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %45, %55 ], [ %45, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i19 ]
   tail call void @_ZN6vectorIN12smt2_printer5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink)
   %.pre.i.i24.sink = load ptr, ptr %.sink, align 8, !tbaa !362
@@ -23075,17 +23075,17 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %55, %37
   %.sink47 = phi i32 [ %39, %37 ], [ %57, %55 ], [ %.pre2.i.i26, %.thread.sink.split.sink.split ]
   %.sink45 = phi ptr [ %35, %37 ], [ %53, %55 ], [ %.pre.i.i24.sink, %.thread.sink.split.sink.split ]
-  %.0.i.i.i.sink = phi i32 [ %.0.i.i.i, %37 ], [ %.0.i.i.i20, %55 ], [ %.0.i.i.i.sink.ph, %.thread.sink.split.sink.split ]
+  %.0.i.i.i20.sink = phi i32 [ %.0.i.i.i, %37 ], [ %.0.i.i.i20, %55 ], [ %.0.i.i.i20.sink.ph, %.thread.sink.split.sink.split ]
   %.sink40 = phi i8 [ %27, %37 ], [ %45, %55 ], [ %.sink40.ph, %.thread.sink.split.sink.split ]
   %64 = zext i32 %.sink47 to i64
   %65 = getelementptr inbounds nuw %"struct.smt2_printer::frame", ptr %.sink45, i64 %64
   store ptr %13, ptr %65, align 8, !tbaa !415
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !17
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 12
-  store i32 %.0.i.i.i.sink, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !17
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i8 %.sink40, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !164
+  %.sroa.4.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i32 0, ptr %.sroa.4.0..sroa_idx.i21, align 8, !tbaa !17
+  %.sroa.5.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  store i32 %.0.i.i.i20.sink, ptr %.sroa.5.0..sroa_idx.i22, align 4, !tbaa !17
+  %.sroa.6.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i8 %.sink40, ptr %.sroa.6.0..sroa_idx.i23, align 8, !tbaa !164
   %66 = getelementptr inbounds i8, ptr %.sink45, i64 -4
   %67 = add i32 %.sink47, 1
   store i32 %67, ptr %66, align 4, !tbaa !17

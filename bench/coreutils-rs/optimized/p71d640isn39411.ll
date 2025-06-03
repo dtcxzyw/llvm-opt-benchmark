@@ -597,7 +597,7 @@ define internal void @"_ZN4core3ptr42drop_in_place$LT$uu_mv..error..MvError$GT$1
   unreachable
 
 123:                                              ; preds = %137, %124, %108
-  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %125, %124 ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %125, %124 ], [ %138, %137 ]
   resume { ptr, i32 } %.pn
 
 124:                                              ; preds = %62
@@ -1334,7 +1334,7 @@ define internal noundef zeroext i1 @"_ZN63_$LT$fs_extra..error..ErrorKind$u20$as
   br label %36
 
 36:                                               ; preds = %34, %32, %30, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0.in = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %29, %27 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   ret i1 %.0.in
 }
 
@@ -6684,8 +6684,8 @@ _ZN3std2fs12canonicalize17h4d03fe5c53559a32E.exit170: ; preds = %"_ZN9hashbrown3
   br label %_ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit.i.i
 
 _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit.i.i: ; preds = %472, %471, %470, %468, %461
-  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.8282.0.copyload, %472 ], [ 2, %471 ], [ 1, %470 ], [ %.sroa.11284.0.copyload, %468 ], [ %466, %461 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.7281.0.copyload, %472 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.6, %471 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.5, %470 ], [ %.sroa.10283.0.copyload, %468 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.4, %461 ]
+  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.11284.0.copyload, %468 ], [ 1, %470 ], [ 2, %471 ], [ %.sroa.8282.0.copyload, %472 ], [ %466, %461 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.10283.0.copyload, %468 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.5, %470 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.6, %471 ], [ %.sroa.7281.0.copyload, %472 ], [ @anon.399233d4c3e9ec6627e8cefe8af5f295.4, %461 ]
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.8.0.i.i.i)
           to label %.noexc183 unwind label %.loopexit.split-lp
 
@@ -7564,7 +7564,7 @@ define internal fastcc noundef ptr @_ZN5uu_mv6rename17h600fb01428cf9b2dE(ptr noa
   br i1 %or.cond3, label %337, label %.thread
 
 66:                                               ; preds = %.invoke, %317, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit193, %275, %260, %252, %236, %234, %228, %218, %214, %124, %96, %84, %74, %72, %68, %6, %225, %222, %220, %194, %153, %149, %144, %137, %128, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %117, %115, %101, %89
-  %.0127 = phi i8 [ 1, %220 ], [ 1, %225 ], [ 1, %222 ], [ 1, %194 ], [ 1, %117 ], [ 1, %153 ], [ 1, %149 ], [ 1, %144 ], [ 1, %137 ], [ 1, %128 ], [ 1, %115 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 1, %101 ], [ 1, %89 ], [ 1, %6 ], [ 1, %68 ], [ 1, %72 ], [ 1, %74 ], [ 1, %84 ], [ 1, %96 ], [ 1, %124 ], [ 1, %214 ], [ 1, %218 ], [ 1, %228 ], [ 1, %234 ], [ 1, %236 ], [ 1, %252 ], [ 1, %260 ], [ 1, %275 ], [ 0, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit193 ], [ %.4131, %317 ], [ 1, %.invoke ]
+  %.0127 = phi i8 [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 1, %220 ], [ 1, %225 ], [ 1, %222 ], [ 1, %194 ], [ 1, %117 ], [ 1, %153 ], [ 1, %149 ], [ 1, %144 ], [ 1, %137 ], [ 1, %128 ], [ 1, %115 ], [ 1, %101 ], [ 1, %89 ], [ 1, %6 ], [ 1, %68 ], [ 1, %72 ], [ 1, %74 ], [ 1, %84 ], [ 1, %96 ], [ 1, %124 ], [ 1, %214 ], [ 1, %218 ], [ 1, %228 ], [ 1, %234 ], [ 1, %236 ], [ 1, %252 ], [ 1, %260 ], [ 1, %275 ], [ 0, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit193 ], [ %.4131, %317 ], [ 1, %.invoke ]
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9154,7 +9154,7 @@ default.unreachable1:                             ; preds = %2
   br label %47
 
 47:                                               ; preds = %44, %41, %38, %34, %31, %27, %24, %20, %17, %14
-  %.0.in = phi i1 [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %34 ], [ %33, %31 ], [ %30, %27 ], [ %26, %24 ], [ %23, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.0.in = phi i1 [ %16, %14 ], [ %19, %17 ], [ %23, %20 ], [ %26, %24 ], [ %30, %27 ], [ %33, %31 ], [ %37, %34 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
   ret i1 %.0.in
 }
 

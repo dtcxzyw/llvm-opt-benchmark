@@ -2402,7 +2402,7 @@ _ZN4llvm7GVNPass10ExpressionD2Ev.exit11:          ; preds = %110, %118
   br label %137
 
 137:                                              ; preds = %134, %128, %119, %56
-  %.2 = phi i32 [ %132, %128 ], [ %126, %119 ], [ %.sroa.0.0.extract.trunc, %134 ], [ %57, %56 ]
+  %.2 = phi i32 [ %132, %128 ], [ %57, %56 ], [ %.sroa.0.0.extract.trunc, %134 ], [ %126, %119 ]
   %138 = load ptr, ptr %51, align 8, !tbaa !25
   %139 = icmp eq ptr %138, %52
   br i1 %139, label %_ZN4llvm7GVNPass10ExpressionD2Ev.exit12, label %140
@@ -7512,7 +7512,7 @@ define dso_local void @_ZN4llvm7GVNPass23AnalyzeLoadAvailabilityEPNS_8LoadInstEN
   unreachable
 
 _ZNK4llvm12MemDepResult7getInstEv.exit:           ; preds = %5, %17, %20, %23
-  %.0.i = phi ptr [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ null, %5 ]
+  %.0.i = phi ptr [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ null, %5 ]
   %27 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #27
   %28 = and i64 %3, 7
   %29 = icmp eq i64 %28, 1
@@ -8062,7 +8062,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit68.i: ; preds = %_ZL11
   unreachable
 
 _ZNK4llvm12MemDepResult7getInstEv.exit.i:         ; preds = %253, %250, %247, %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit68.i
-  %.0.i69.i = phi ptr [ %255, %253 ], [ %252, %250 ], [ %249, %247 ], [ null, %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit68.i ]
+  %.0.i69.i = phi ptr [ %249, %247 ], [ %252, %250 ], [ %255, %253 ], [ null, %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit68.i ]
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr nonnull @.str.73, i64 11, ptr noundef %.0.i69.i) #27
   %257 = call noundef nonnull align 8 dereferenceable(432) ptr @_ZN4llvmlsINS_24OptimizationRemarkMissedEEERT_S3_NSt9enable_ifIXsr3std10is_base_ofINS_30DiagnosticInfoOptimizationBaseES2_EE5valueENS5_8ArgumentEE4typeE(ptr noundef nonnull align 8 dereferenceable(432) %8, ptr noundef nonnull %11)
   %258 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -20426,8 +20426,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_10BasicBlo
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !398
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_10BasicBlockELj4EEES3_EEbOT_RKT0_.exit, label %50
@@ -20437,8 +20437,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_10BasicBlo
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !398
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_10BasicBlockELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_10BasicBlockELj4EEES3_EEbOT_RKT0_.exit.thread
@@ -20800,7 +20800,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

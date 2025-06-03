@@ -303,7 +303,7 @@ default.unreachable4:                             ; preds = %1
   unreachable
 
 13:                                               ; preds = %cms_get_enveloped_type.exit.thread, %8, %3
-  %.0 = phi ptr [ %12, %8 ], [ %7, %3 ], [ null, %cms_get_enveloped_type.exit.thread ]
+  %.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ null, %cms_get_enveloped_type.exit.thread ]
   ret ptr %.0
 }
 
@@ -346,7 +346,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 CMS_get0_RecipientInfos.exit:                     ; preds = %cms_get_enveloped_type.exit.thread.i, %4, %9
-  %.0.i = phi ptr [ %13, %9 ], [ %8, %4 ], [ null, %cms_get_enveloped_type.exit.thread.i ]
+  %.0.i = phi ptr [ %8, %4 ], [ %13, %9 ], [ null, %cms_get_enveloped_type.exit.thread.i ]
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %.0.i) #6
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -907,7 +907,7 @@ define i32 @ossl_cms_pkey_get_ri_type(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %18, %10, %8, %6, %4, %1, %22
-  %.011 = phi i32 [ %21, %18 ], [ 0, %22 ], [ 1, %1 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ 0, %10 ]
+  %.011 = phi i32 [ 0, %22 ], [ %21, %18 ], [ 1, %1 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ 0, %10 ]
   ret i32 %.011
 }
 
@@ -1154,8 +1154,8 @@ aes_wrap_keylen.exit:                             ; preds = %12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 726, ptr noundef nonnull @__func__.CMS_add0_recipient_key) #6
   br label %.thread.sink.split
 
-19:                                               ; preds = %12, %18, %17
-  %.0.i53.ph = phi i64 [ 24, %17 ], [ 32, %18 ], [ 16, %12 ]
+19:                                               ; preds = %12, %17, %18
+  %.0.i53.ph = phi i64 [ 32, %18 ], [ 24, %17 ], [ 16, %12 ]
   %.not46 = icmp eq i64 %3, %.0.i53.ph
   br i1 %.not46, label %21, label %20
 
@@ -1165,7 +1165,7 @@ aes_wrap_keylen.exit:                             ; preds = %12
   br label %.thread.sink.split
 
 21:                                               ; preds = %19, %13, %14, %15
-  %.039 = phi i32 [ 790, %15 ], [ 789, %14 ], [ 788, %13 ], [ %1, %19 ]
+  %.039 = phi i32 [ 789, %14 ], [ 790, %15 ], [ 788, %13 ], [ %1, %19 ]
   %22 = tail call ptr @CMS_RecipientInfo_it() #6
   %23 = tail call ptr @ASN1_item_new(ptr noundef %22) #6
   %.not47 = icmp eq ptr %23, null
@@ -1697,7 +1697,7 @@ aes_wrap_keylen.exit.i:                           ; preds = %108
   br label %cms_get_key_wrap_cipher.exit.i
 
 cms_get_key_wrap_cipher.exit.i:                   ; preds = %130, %129, %128
-  %.0.i51.i = phi ptr [ @.str.10, %130 ], [ @.str.9, %129 ], [ @.str.8, %128 ]
+  %.0.i51.i = phi ptr [ @.str.9, %129 ], [ @.str.10, %130 ], [ @.str.8, %128 ]
   %131 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %97) #6
   %132 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %97) #6
   %133 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %131, ptr noundef nonnull %.0.i51.i, ptr noundef %132) #6
@@ -1807,7 +1807,7 @@ cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_t
   br label %176
 
 176:                                              ; preds = %175, %173, %cms_RecipientInfo_kekri_decrypt.exit, %cms_RecipientInfo_ktri_decrypt.exit
-  %.0 = phi i32 [ 0, %175 ], [ %174, %173 ], [ %.0.i15, %cms_RecipientInfo_kekri_decrypt.exit ], [ %.0.i, %cms_RecipientInfo_ktri_decrypt.exit ]
+  %.0 = phi i32 [ 0, %175 ], [ %.0.i, %cms_RecipientInfo_ktri_decrypt.exit ], [ %.0.i15, %cms_RecipientInfo_kekri_decrypt.exit ], [ %174, %173 ]
   ret i32 %.0
 }
 
@@ -2032,7 +2032,7 @@ ossl_cms_get0_env_enc_content.exit.i14:           ; preds = %74, %70
   br label %cms_get_key_wrap_cipher.exit.i
 
 cms_get_key_wrap_cipher.exit.i:                   ; preds = %90, %89, %86
-  %.0.i40.i = phi ptr [ @.str.10, %90 ], [ @.str.9, %89 ], [ @.str.8, %86 ]
+  %.0.i40.i = phi ptr [ @.str.9, %89 ], [ @.str.10, %90 ], [ @.str.8, %86 ]
   %91 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %68) #6
   %92 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %68) #6
   %93 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %91, ptr noundef nonnull %.0.i40.i, ptr noundef %92) #6
@@ -2149,7 +2149,7 @@ cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_t
   br label %137
 
 137:                                              ; preds = %136, %134, %cms_RecipientInfo_kekri_encrypt.exit, %65, %cms_RecipientInfo_ktri_encrypt.exit
-  %.0 = phi i32 [ 0, %136 ], [ %135, %134 ], [ %.0.i17, %cms_RecipientInfo_kekri_encrypt.exit ], [ %66, %65 ], [ %.026.i, %cms_RecipientInfo_ktri_encrypt.exit ]
+  %.0 = phi i32 [ 0, %136 ], [ %.026.i, %cms_RecipientInfo_ktri_encrypt.exit ], [ %66, %65 ], [ %.0.i17, %cms_RecipientInfo_kekri_encrypt.exit ], [ %135, %134 ]
   ret i32 %.0
 }
 

@@ -698,7 +698,7 @@ _ZNK6HandleclEv.exit22:                           ; preds = %44, %45
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
 
 60:                                               ; preds = %54, %50
-  %.sroa.0.0 = phi ptr [ %55, %54 ], [ %51, %50 ]
+  %.sroa.0.0 = phi ptr [ %51, %50 ], [ %55, %54 ]
   %61 = icmp eq ptr %.sroa.0.0, null
   br i1 %61, label %62, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
 
@@ -1434,10 +1434,10 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %2, %_ZN26GrowableAr
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %149, %147, %86, %84, %152, %158, %156, %103, %43
-  %160 = phi ptr [ %10, %152 ], [ %10, %156 ], [ %10, %158 ], [ %10, %103 ], [ %10, %43 ], [ %10, %84 ], [ %10, %86 ], [ %140, %147 ], [ %140, %149 ]
-  %.028 = phi ptr [ %38, %152 ], [ %38, %156 ], [ %38, %158 ], [ %.129, %103 ], [ %38, %43 ], [ %38, %84 ], [ %38, %86 ], [ %.129, %147 ], [ %.129, %149 ]
-  %.027 = phi i32 [ %153, %152 ], [ %157, %156 ], [ %159, %158 ], [ %90, %103 ], [ %46, %43 ], [ %46, %84 ], [ %46, %86 ], [ %90, %147 ], [ %90, %149 ]
-  %.026 = phi i32 [ -2, %152 ], [ -2, %156 ], [ -2, %158 ], [ %89, %103 ], [ %45, %43 ], [ %45, %84 ], [ %45, %86 ], [ %89, %147 ], [ %89, %149 ]
+  %160 = phi ptr [ %10, %43 ], [ %10, %103 ], [ %10, %152 ], [ %10, %156 ], [ %10, %158 ], [ %10, %84 ], [ %10, %86 ], [ %140, %147 ], [ %140, %149 ]
+  %.028 = phi ptr [ %38, %43 ], [ %.129, %103 ], [ %38, %152 ], [ %38, %156 ], [ %38, %158 ], [ %38, %84 ], [ %38, %86 ], [ %.129, %147 ], [ %.129, %149 ]
+  %.027 = phi i32 [ %46, %43 ], [ %90, %103 ], [ %153, %152 ], [ %157, %156 ], [ %159, %158 ], [ %46, %84 ], [ %46, %86 ], [ %90, %147 ], [ %90, %149 ]
+  %.026 = phi i32 [ %45, %43 ], [ %89, %103 ], [ -2, %152 ], [ -2, %156 ], [ -2, %158 ], [ %45, %84 ], [ %45, %86 ], [ %89, %147 ], [ %89, %149 ]
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 28
@@ -6036,7 +6036,7 @@ _ZNK6HandleclEv.exit.sink.split:                  ; preds = %211, %197
   br label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exit.sink.split, %211, %197, %213, %173, %172
-  %.081 = phi ptr [ null, %172 ], [ %231, %213 ], [ %190, %173 ], [ null, %197 ], [ null, %211 ], [ %233, %_ZNK6HandleclEv.exit.sink.split ]
+  %.081 = phi ptr [ null, %172 ], [ %190, %173 ], [ %231, %213 ], [ null, %197 ], [ null, %211 ], [ %233, %_ZNK6HandleclEv.exit.sink.split ]
   %234 = load ptr, ptr %11, align 8
   %235 = load ptr, ptr %234, align 8
   %236 = add nuw nsw i32 %.178116, 1

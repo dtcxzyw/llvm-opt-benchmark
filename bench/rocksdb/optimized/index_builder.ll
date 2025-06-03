@@ -220,7 +220,7 @@ define noundef ptr @_ZN7rocksdb12IndexBuilder18CreateIndexBuilderENS_22BlockBase
           to label %_ZN7rocksdb23PartitionedIndexBuilder18CreateIndexBuilderEPKNS_21InternalKeyComparatorEbRKNS_22BlockBasedTableOptionsEmb.exit unwind label %39
 
 common.resume:                                    ; preds = %.body, %35, %.body34, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %eh.lpad-body35, %.body34 ], [ %36, %35 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %eh.lpad-body, %.body ], [ %36, %35 ], [ %eh.lpad-body35, %.body34 ]
   resume { ptr, i32 } %common.resume.op
 
 39:                                               ; preds = %37

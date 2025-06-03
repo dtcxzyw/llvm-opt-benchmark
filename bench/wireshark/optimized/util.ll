@@ -567,7 +567,7 @@ define hidden ptr @get_open_dialog_initial_dir() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %7, %10, %2, %5, %12
-  %.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %6, %5 ], [ %3, %2 ], [ %8, %7 ]
+  %.0 = phi ptr [ %6, %5 ], [ %3, %2 ], [ %11, %10 ], [ %13, %12 ], [ %8, %7 ]
   ret ptr %.0
 }
 

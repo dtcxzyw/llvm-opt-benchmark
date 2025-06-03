@@ -574,7 +574,7 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %129
 
 129:                                              ; preds = %124, %119, %105, %100, %95, %90, %85, %80, %75, %61
-  %.1.i = phi i32 [ %128, %124 ], [ %123, %119 ], [ %118, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %85 ], [ %84, %80 ], [ %79, %75 ], [ %74, %61 ]
+  %.1.i = phi i32 [ %128, %124 ], [ %74, %61 ], [ %79, %75 ], [ %84, %80 ], [ %89, %85 ], [ %94, %90 ], [ %99, %95 ], [ %104, %100 ], [ %118, %105 ], [ %123, %119 ]
   %130 = call i32 @tvb_reported_length(ptr noundef %0)
   %131 = icmp ult i32 %.1.i, %130
   br i1 %131, label %.lr.ph.i, label %dissect_papi_debug.exit, !llvm.loop !8

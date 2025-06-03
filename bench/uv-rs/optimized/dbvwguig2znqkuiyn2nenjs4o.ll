@@ -179,7 +179,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17had039c06f646800
   br label %.sink.split.i.i
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h35e34900e988f925E.llvm.13650873964992380408.exit": ; preds = %2, %9, %.sink.split.i.i
-  %.sroa.02.0 = phi i64 [ %7, %2 ], [ %48, %.sink.split.i.i ], [ %17, %9 ]
+  %.sroa.02.0 = phi i64 [ %48, %.sink.split.i.i ], [ %17, %9 ], [ %7, %2 ]
   %51 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.02.0, i64 %.sroa.02.0, i64 26)
   ret i64 %51
 }

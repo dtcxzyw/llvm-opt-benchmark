@@ -857,13 +857,13 @@ _ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i: ; preds = %189, %_ZNK4llv
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit"
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit": ; preds = %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit", %189, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit", %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit", %126, %130, %135, %141, %147, %153, %159, %165, %171, %177, %183, %209, %232, %228, %218, %258, %254, %244, %264, %266, %270, %274, %284, %286, %289, %291, %293
-  %.sroa.35.31 = phi ptr [ %295, %293 ], [ %.val.i58, %291 ], [ %.val.i55, %289 ], [ %.val.val.val.i52, %286 ], [ %.val.i48, %284 ], [ %279, %274 ], [ %.val5.val.i44, %270 ], [ %.val5.val.i, %266 ], [ %265, %264 ], [ %257, %254 ], [ %262, %258 ], [ %248, %244 ], [ %231, %228 ], [ %236, %232 ], [ %222, %218 ], [ %210, %209 ], [ %187, %183 ], [ %181, %177 ], [ %175, %171 ], [ %169, %165 ], [ %163, %159 ], [ %157, %153 ], [ %151, %147 ], [ %145, %141 ], [ %139, %135 ], [ %.val.val.val.val.i, %130 ], [ %129, %126 ], [ %125, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit" ], [ %114, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit" ], [ %103, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit" ], [ %92, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit" ], [ %81, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit" ], [ %59, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread" ], [ %70, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit" ], [ %193, %189 ], [ undef, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit" ], [ %193, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ]
+  %.sroa.35.31 = phi ptr [ %295, %293 ], [ %.val.i58, %291 ], [ %.val.i55, %289 ], [ %.val.val.val.i52, %286 ], [ %.val.i48, %284 ], [ %279, %274 ], [ %.val5.val.i44, %270 ], [ %.val5.val.i, %266 ], [ %265, %264 ], [ %262, %258 ], [ %257, %254 ], [ %248, %244 ], [ %236, %232 ], [ %231, %228 ], [ %222, %218 ], [ %210, %209 ], [ %187, %183 ], [ %181, %177 ], [ %175, %171 ], [ %169, %165 ], [ %163, %159 ], [ %157, %153 ], [ %151, %147 ], [ %145, %141 ], [ %139, %135 ], [ %.val.val.val.val.i, %130 ], [ %129, %126 ], [ %125, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_17VPScalarPHIRecipeEEEDaPKT_.exit" ], [ %114, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_21VPEVLBasedIVPHIRecipeEEEDaPKT_.exit" ], [ %103, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_29VPWidenPointerInductionRecipeEEEDaPKT_.exit" ], [ %92, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_20VPReductionPHIRecipeEEEDaPKT_.exit" ], [ %81, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_31VPFirstOrderRecurrencePHIRecipeEEEDaPKT_.exit" ], [ %59, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_25VPActiveLaneMaskPHIRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_0EERS6_OT0_.exit.thread" ], [ %70, %"_ZZN4llvm14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEENK3$_0clINS_22VPCanonicalIVPHIRecipeEEEDaPKT_.exit" ], [ %193, %189 ], [ undef, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_19VPWidenSelectRecipeERZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_3EERS6_OT0_.exit" ], [ %193, %_ZNK4llvm13VPBlendRecipe16getIncomingValueEj.exit.i.i ]
   %296 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr %.sroa.35.31, ptr %296, align 8, !tbaa !12
   br label %297
 
 297:                                              ; preds = %39, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit", %42
-  %.1 = phi ptr [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ], [ %41, %39 ], [ %44, %42 ], [ %.sroa.35.31, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit" ]
+  %.1 = phi ptr [ %44, %42 ], [ %41, %39 ], [ %.sroa.35.31, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEPNS_4TypeEE4CaseINS_17VPReductionRecipeEZNS_14VPTypeAnalysis15inferScalarTypeEPKNS_7VPValueEE3$_9EERS6_OT0_.exit" ], [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_7VPValueEPNS_4TypeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ]
   ret ptr %.1
 }
 
@@ -1150,7 +1150,7 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   unreachable
 
 "_ZZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipeEPKNS_13VPInstructionEENK3$_0clEv.exit": ; preds = %.lr.ph, %.lr.ph37, %50, %9, %73, %64, %85, %80, %76, %46, %38, %34, %24
-  %.0 = phi ptr [ %88, %85 ], [ %84, %80 ], [ %79, %76 ], [ %49, %46 ], [ %45, %38 ], [ %37, %34 ], [ %29, %24 ], [ %75, %73 ], [ %68, %64 ], [ %13, %9 ], [ %54, %50 ], [ %13, %.lr.ph37 ], [ %54, %.lr.ph ]
+  %.0 = phi ptr [ %29, %24 ], [ %37, %34 ], [ %45, %38 ], [ %49, %46 ], [ %79, %76 ], [ %84, %80 ], [ %88, %85 ], [ %75, %73 ], [ %68, %64 ], [ %13, %9 ], [ %54, %50 ], [ %13, %.lr.ph37 ], [ %54, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1206,7 +1206,7 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   br label %28
 
 28:                                               ; preds = %23, %19, %9
-  %.0 = phi ptr [ %13, %9 ], [ %27, %23 ], [ %22, %19 ]
+  %.0 = phi ptr [ %13, %9 ], [ %22, %19 ], [ %27, %23 ]
   ret ptr %.0
 }
 
@@ -1486,7 +1486,7 @@ define dso_local noundef ptr @_ZN4llvm14VPTypeAnalysis24inferScalarTypeForRecipe
   unreachable
 
 74:                                               ; preds = %69, %66, %61, %58, %54, %44, %25, %21, %9
-  %.0 = phi ptr [ %13, %9 ], [ %23, %21 ], [ %72, %69 ], [ %68, %66 ], [ %65, %61 ], [ %60, %58 ], [ %57, %54 ], [ %49, %44 ], [ %43, %25 ]
+  %.0 = phi ptr [ %13, %9 ], [ %23, %21 ], [ %43, %25 ], [ %49, %44 ], [ %57, %54 ], [ %60, %58 ], [ %65, %61 ], [ %68, %66 ], [ %72, %69 ]
   ret ptr %.0
 }
 
@@ -1951,7 +1951,7 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   br label %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit.i
 
 _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit.i: ; preds = %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10.i, %231
-  %.1.in.i.i.i = phi ptr [ %232, %231 ], [ %241, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10.i ]
+  %.1.in.i.i.i = phi ptr [ %241, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10.i ], [ %232, %231 ]
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !162
   %242 = load i8, ptr %59, align 4, !tbaa !142, !range !113, !noalias !176, !noundef !114
   %243 = trunc nuw i8 %242 to i1
@@ -2319,9 +2319,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseENS_6detail13DenseSetEmpty
   br i1 %417, label %_ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, label %.lr.ph.i.i.i.i, !prof !22, !llvm.loop !223
 
 _ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %411, %398
-  %.lcssa.i.i.i.pn.i = phi i64 [ %405, %398 ], [ %414, %411 ]
+  %.pn.i = phi i64 [ %405, %398 ], [ %414, %411 ]
   %418 = zext i32 %396 to i64
-  %.not146 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %418
+  %.not146 = icmp samesign eq i64 %.pn.i, %418
   br i1 %.not146, label %_ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %719
 
 _ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %394, %_ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
@@ -2434,8 +2434,8 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %462, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit.i.i.i.i.i.i": ; preds = %456, %444
-  %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %450, %444 ], [ %459, %456 ]
-  %.not.i.i.i.i.i4.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %435
+  %.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %450, %444 ], [ %459, %456 ]
+  %.not.i.i.i.i.i4.i.i.i = icmp samesign eq i64 %.pn.i.i.i.i.i.i.i.i.i, %435
   br i1 %.not.i.i.i.i.i4.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit", label %463
 
 463:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit.i.i.i.i.i.i"
@@ -2477,8 +2477,8 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %486, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit56.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i48.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit56.i.i.i.i.i.i": ; preds = %480, %468
-  %.lcssa.i.i.i.pn.i.i.i53.i.i.i.i.i.i = phi i64 [ %474, %468 ], [ %483, %480 ]
-  %.not.i.i54.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i53.i.i.i.i.i.i, %435
+  %.pn.i.i.i53.i.i.i.i.i.i = phi i64 [ %474, %468 ], [ %483, %480 ]
+  %.not.i.i54.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i53.i.i.i.i.i.i, %435
   br i1 %.not.i.i54.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit.loopexit294.split.loop.exit", label %487
 
 487:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit56.i.i.i.i.i.i"
@@ -2520,8 +2520,8 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %510, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit66.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i58.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit66.i.i.i.i.i.i": ; preds = %504, %492
-  %.lcssa.i.i.i.pn.i.i.i63.i.i.i.i.i.i = phi i64 [ %498, %492 ], [ %507, %504 ]
-  %.not.i.i64.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i63.i.i.i.i.i.i, %435
+  %.pn.i.i.i63.i.i.i.i.i.i = phi i64 [ %498, %492 ], [ %507, %504 ]
+  %.not.i.i64.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i63.i.i.i.i.i.i, %435
   br i1 %.not.i.i64.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit.loopexit294.split.loop.exit343", label %511
 
 511:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit66.i.i.i.i.i.i"
@@ -2563,8 +2563,8 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %534, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit76.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i68.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit76.i.i.i.i.i.i": ; preds = %528, %516
-  %.lcssa.i.i.i.pn.i.i.i73.i.i.i.i.i.i = phi i64 [ %522, %516 ], [ %531, %528 ]
-  %.not.i.i74.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i73.i.i.i.i.i.i, %435
+  %.pn.i.i.i73.i.i.i.i.i.i = phi i64 [ %522, %516 ], [ %531, %528 ]
+  %.not.i.i74.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i73.i.i.i.i.i.i, %435
   br i1 %.not.i.i74.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit.loopexit294.split.loop.exit345", label %535
 
 535:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit76.i.i.i.i.i.i"
@@ -2628,9 +2628,9 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %563, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit86.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i78.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit86.i.i.i.i.i.i": ; preds = %557, %544
-  %.lcssa.i.i.i.pn.i.i.i83.i.i.i.i.i.i = phi i64 [ %551, %544 ], [ %560, %557 ]
+  %.pn.i.i.i83.i.i.i.i.i.i = phi i64 [ %551, %544 ], [ %560, %557 ]
   %564 = zext i32 %.16.val.fr.i.i.i.i.i.i to i64
-  %.not.i.i84.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i83.i.i.i.i.i.i, %564
+  %.not.i.i84.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i83.i.i.i.i.i.i, %564
   br i1 %.not.i.i84.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit", label %565
 
 565:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit86.i.i.i.i.i.i"
@@ -2638,7 +2638,7 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br label %567
 
 567:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %565
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %566, %565 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %566, %565 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !227
   %568 = icmp eq ptr %.1.val.i.i.i.i.i.i, null
   %569 = getelementptr inbounds i8, ptr %.1.val.i.i.i.i.i.i, i64 -40
@@ -2678,9 +2678,9 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %590, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit96.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i88.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit96.i.i.i.i.i.i": ; preds = %584, %571
-  %.lcssa.i.i.i.pn.i.i.i93.i.i.i.i.i.i = phi i64 [ %578, %571 ], [ %587, %584 ]
+  %.pn.i.i.i93.i.i.i.i.i.i = phi i64 [ %578, %571 ], [ %587, %584 ]
   %591 = zext i32 %.16.val.fr.i.i.i.i.i.i to i64
-  %.not.i.i94.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i93.i.i.i.i.i.i, %591
+  %.not.i.i94.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i93.i.i.i.i.i.i, %591
   br i1 %.not.i.i94.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit", label %592
 
 592:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit96.i.i.i.i.i.i"
@@ -2688,7 +2688,7 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br label %594
 
 594:                                              ; preds = %._crit_edge.i.i.i.i.i.i, %592
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %593, %592 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %593, %592 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !227
   %595 = icmp eq ptr %.2.val.i.i.i.i.i.i, null
   %596 = getelementptr inbounds i8, ptr %.2.val.i.i.i.i.i.i, i64 -40
@@ -2728,9 +2728,9 @@ _ZN4llvm8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoIS2_vEEEC2ERKS5_.exit: ; p
   br i1 %617, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit106.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i98.i.i.i.i.i.i, !prof !22, !llvm.loop !223
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm31collectEphemeralRecipesForVPlanERNS2_5VPlanERNS2_8DenseSetIPNS2_12VPRecipeBaseENS2_12DenseMapInfoIS7_vEEEEE3$_0EclIPPNS2_6VPUserEEEbT_.exit106.i.i.i.i.i.i": ; preds = %611, %598
-  %.lcssa.i.i.i.pn.i.i.i103.i.i.i.i.i.i = phi i64 [ %605, %598 ], [ %614, %611 ]
+  %.pn.i.i.i103.i.i.i.i.i.i = phi i64 [ %605, %598 ], [ %614, %611 ]
   %618 = zext i32 %.16.val.fr.i.i.i.i.i.i to i64
-  %.not.i.i104.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i103.i.i.i.i.i.i, %618
+  %.not.i.i104.i.i.i.i.i.i = icmp samesign eq i64 %.pn.i.i.i103.i.i.i.i.i.i, %618
   %spec.select.i.i.i.i.i = select i1 %.not.i.i104.i.i.i.i.i.i, ptr %.2.i.i.i.i.i.i, ptr %424
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPPNS_6VPUserEEEZNS_31collectEphemeralRecipesForVPlanERNS_5VPlanERNS_8DenseSetIPNS_12VPRecipeBaseENS_12DenseMapInfoISA_vEEEEE3$_0EEbOT_T0_.exit"
 
@@ -6375,7 +6375,7 @@ _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exi
   br label %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit
 
 _ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEEdeEv.exit: ; preds = %42, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10
-  %.1.in.i.i = phi ptr [ %43, %42 ], [ %52, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10 ]
+  %.1.in.i.i = phi ptr [ %52, %_ZN4llvm23VPAllSuccessorsIteratorIPNS_11VPBlockBaseEE17getBlockWithSuccsES2_.exit.i.i10 ], [ %43, %42 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !162
   %53 = load i8, ptr %5, align 4, !tbaa !142, !range !113, !noalias !400, !noundef !114
   %54 = trunc nuw i8 %53 to i1
@@ -9555,7 +9555,7 @@ _ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !162
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZSt9__find_ifIPPN4llvm11VPBlockBaseEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %54
@@ -9565,7 +9565,7 @@ _ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !162
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm11VPBlockBaseEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_11VPBlockBaseELj8EEEDnEEvRT_T0_.exit
@@ -9955,7 +9955,7 @@ _ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.1.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !162
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZSt9__find_ifIPPN4llvm11VPBlockBaseEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %53
@@ -9965,7 +9965,7 @@ _ZN4llvm8childrenIPNS_11VPBlockBaseEEENS_14iterator_rangeINS_11GraphTraitsIT_E17
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %54, %53 ]
+  %.2.i.i.i.i.i = phi ptr [ %54, %53 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %56 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !162
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_ZSt9__find_ifIPPN4llvm11VPBlockBaseEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_11VPBlockBaseELj8EEEDnEEvRT_T0_.exit
@@ -10966,7 +10966,7 @@ _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.thread: ;
   br label %50
 
 50:                                               ; preds = %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit, %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.thread
-  %.1 = phi ptr [ %43, %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit ], [ %49, %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.thread ]
+  %.1 = phi ptr [ %49, %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.thread ], [ %43, %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit ]
   ret ptr %.1
 }
 

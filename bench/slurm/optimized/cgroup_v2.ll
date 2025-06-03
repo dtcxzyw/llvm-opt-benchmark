@@ -683,7 +683,7 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   br label %168
 
 168:                                              ; preds = %165, %._crit_edge13.i, %155, %._crit_edge.i17, %131, %120, %112, %108, %104
-  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %131 ], [ false, %155 ], [ false, %165 ], [ true, %._crit_edge13.i ], [ true, %._crit_edge.i17 ]
+  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %165 ], [ false, %155 ], [ false, %131 ], [ true, %._crit_edge13.i ], [ true, %._crit_edge.i17 ]
   call void @common_cgroup_destroy(ptr noundef nonnull %22) #17
   %.not33.i = icmp eq ptr %101, null
   br i1 %.not33.i, label %_empty_pids.exit, label %169
@@ -2982,8 +2982,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %63 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i32 noundef %spec.store.select1) #17
   br label %91
 
-64:                                               ; preds = %59, %49
-  %.044.ph = phi ptr [ %51, %49 ], [ %60, %59 ]
+64:                                               ; preds = %49, %59
+  %.044.ph = phi ptr [ %60, %59 ], [ %51, %49 ]
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %66 = tail call ptr @gres_device_id2str(ptr noundef nonnull %65) #17
   store ptr %66, ptr %4, align 8
@@ -3037,7 +3037,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %91
 
 91:                                               ; preds = %42, %21, %10, %80, %89, %18, %39, %6, %3, %61, %56
-  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %88, %80 ], [ %.3, %39 ], [ %.1, %18 ], [ %0, %10 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
+  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %0, %10 ], [ %.1, %18 ], [ %.3, %39 ], [ %88, %80 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret i32 %.043
 }

@@ -8061,7 +8061,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit138:   ; preds = %_ZNK6duckdb15Select
   br label %167
 
 167:                                              ; preds = %165, %._crit_edge.i
-  %.sroa.032.1.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge.i ], [ %166, %165 ]
+  %.sroa.032.1.i = phi ptr [ %166, %165 ], [ %.sroa.032.0.lcssa.i, %._crit_edge.i ]
   %168 = invoke noundef zeroext i1 @_ZNK6duckdb5ValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.1.i, ptr noundef nonnull align 8 dereferenceable(64) %13)
           to label %.noexc212 unwind label %.loopexit.split-lp.loopexit
 
@@ -8073,7 +8073,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit138:   ; preds = %_ZNK6duckdb15Select
   br label %171
 
 171:                                              ; preds = %169, %._crit_edge.i
-  %.sroa.032.2.i = phi ptr [ %.sroa.032.0.lcssa.i, %._crit_edge.i ], [ %170, %169 ]
+  %.sroa.032.2.i = phi ptr [ %170, %169 ], [ %.sroa.032.0.lcssa.i, %._crit_edge.i ]
   %172 = invoke noundef zeroext i1 @_ZNK6duckdb5ValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032.2.i, ptr noundef nonnull align 8 dereferenceable(64) %13)
           to label %.noexc213 unwind label %.loopexit.split-lp.loopexit
 
@@ -12829,7 +12829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn93
 
 70:                                               ; preds = %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.085 = phi i64 [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.085 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ]
   ret i64 %.085
 
 71:                                               ; preds = %45
@@ -15930,7 +15930,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -16394,12 +16394,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -16580,12 +16580,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -17056,13 +17056,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -17243,13 +17243,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -17544,12 +17544,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -17731,12 +17731,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -18689,7 +18689,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -18936,12 +18936,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -19122,12 +19122,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -19459,13 +19459,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -19646,13 +19646,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -19945,12 +19945,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -20132,12 +20132,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -21090,7 +21090,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -21337,12 +21337,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -21523,12 +21523,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -21860,13 +21860,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -22047,13 +22047,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -22346,12 +22346,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -22533,12 +22533,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -23491,7 +23491,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -23738,12 +23738,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -23924,12 +23924,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -24261,13 +24261,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -24448,13 +24448,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -24747,12 +24747,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -24934,12 +24934,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -25914,7 +25914,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %98
 
 98:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %85, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %85, %.split.us ]
   ret i32 %.0
 }
 
@@ -27344,7 +27344,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -27591,12 +27591,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -27777,12 +27777,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -28114,13 +28114,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -28301,13 +28301,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -28600,12 +28600,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -28787,12 +28787,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -29745,7 +29745,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -29992,12 +29992,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -30178,12 +30178,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -30515,13 +30515,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -30702,13 +30702,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -31001,12 +31001,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -31188,12 +31188,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -32146,7 +32146,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -32393,12 +32393,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -32579,12 +32579,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -32916,13 +32916,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -33103,13 +33103,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -33402,12 +33402,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -33589,12 +33589,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -34547,7 +34547,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %95
 
 95:                                               ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %82, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %82, %.split.us ]
   ret i32 %.0
 }
 
@@ -34794,12 +34794,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %106, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %38, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %39, %.split.us.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %105, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %121 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %.split.us.i ]
+  %122 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %38, %.split.us.i ]
+  %123 = phi ptr [ %47, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %111, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %39, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %105, %.split.us.i ]
   %124 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %124, align 4, !tbaa !58
   %125 = add nuw i64 %.1142, 1
@@ -34980,12 +34980,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %126, %.split.us.i79 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %127, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %128, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %129, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %130, %.split.us.i79 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %199, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %126, %.split.us.i79 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %127, %.split.us.i79 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %128, %.split.us.i79 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %129, %.split.us.i79 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %199, %.split.us.i79 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4144
   store i32 %.0.i68, ptr %216, align 4, !tbaa !58
   br label %217
@@ -35317,13 +35317,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %121, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %135 = phi ptr [ %65, %.split.us.i ], [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %136 = phi ptr [ %66, %.split.us.i ], [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %137 = phi ptr [ %67, %.split.us.i ], [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %138 = phi ptr [ %68, %.split.us.i ], [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %139 = phi ptr [ %69, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %140 = phi ptr [ %70, %.split.us.i ], [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i63 = phi i32 [ %120, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %135 = phi ptr [ %123, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %65, %.split.us.i ]
+  %136 = phi ptr [ %124, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %.split.us.i ]
+  %137 = phi ptr [ %125, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %.split.us.i ]
+  %138 = phi ptr [ %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %.split.us.i ]
+  %139 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %.split.us.i ]
+  %140 = phi ptr [ %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %.split.us.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %120, %.split.us.i ]
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %.1142
   store i32 %.0.i63, ptr %141, align 4, !tbaa !58
   %142 = add nuw i64 %.1142, 1
@@ -35504,13 +35504,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %218, %
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit96: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94, %.split.us.i79, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %143, %.split.us.i79 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %144, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %145, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %146, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %147, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %148, %.split.us.i79 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %217, %.split.us.i79 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %229 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %220, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %143, %.split.us.i79 ]
+  %230 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %144, %.split.us.i79 ]
+  %231 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %145, %.split.us.i79 ]
+  %232 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %146, %.split.us.i79 ]
+  %233 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %147, %.split.us.i79 ]
+  %234 = phi ptr [ %159, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ %221, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %148, %.split.us.i79 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i94 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %217, %.split.us.i79 ]
   %235 = getelementptr inbounds nuw i32, ptr %2, i64 %.4145
   store i32 %.0.i68, ptr %235, align 4, !tbaa !58
   br label %236
@@ -35803,12 +35803,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %105, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %.split.us.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %32, %.split.us.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %.split.us.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %.split.us.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %.split.us.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %104, %.split.us.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %118 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %32, %.split.us.i ]
+  %119 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %108, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %.split.us.i ]
+  %120 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %109, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %.split.us.i ]
+  %121 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %.split.us.i ]
+  %122 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %110, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %.split.us.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %104, %.split.us.i ]
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %.1151
   store i32 %.0.i72, ptr %123, align 4, !tbaa !58
   %124 = add nuw i64 %.1151, 1
@@ -35990,12 +35990,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %200, %
   br label %_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105
 
 _ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit105: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103, %.split.us.i88, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %125, %.split.us.i88 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %126, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %127, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %128, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %129, %.split.us.i88 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %199, %.split.us.i88 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %211 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %202, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %125, %.split.us.i88 ]
+  %212 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %126, %.split.us.i88 ]
+  %213 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %127, %.split.us.i88 ]
+  %214 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %128, %.split.us.i88 ]
+  %215 = phi ptr [ %141, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ %203, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %129, %.split.us.i88 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i103 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %199, %.split.us.i88 ]
   %216 = getelementptr inbounds nuw i32, ptr %2, i64 %.4153
   store i32 %.0.i77, ptr %216, align 4, !tbaa !58
   br label %217
@@ -36493,7 +36493,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %60, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
   br label %68
@@ -37016,7 +37016,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %77
 
 77:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %64, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %64, %56 ]
   ret i32 %.0
 }
 
@@ -37213,7 +37213,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %75, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %69, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %73, %69 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %73, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %85 = getelementptr inbounds nuw i32, ptr %2, i64 %.1122
   store i32 %.0.i72, ptr %85, align 4, !tbaa !58
@@ -37343,7 +37343,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit93
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit93: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4123
   store i32 %.0.i77, ptr %142, align 4, !tbaa !58
@@ -37589,7 +37589,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %75, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %69, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i72 = phi i32 [ %73, %69 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %73, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %85 = getelementptr inbounds nuw i32, ptr %2, i64 %.1122
   store i32 %.0.i72, ptr %85, align 4, !tbaa !58
@@ -37719,7 +37719,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit93
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit93: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4123
   store i32 %.0.i77, ptr %142, align 4, !tbaa !58
@@ -37950,7 +37950,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %75, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %69, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i81 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %73, %69 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i81 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %73, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %85 = getelementptr inbounds nuw i32, ptr %2, i64 %.1131
   store i32 %.0.i81, ptr %85, align 4, !tbaa !58
@@ -38082,7 +38082,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85: ; preds = %133, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100, %127, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85
-  %.0.i86 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %131, %127 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
+  %.0.i86 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %131, %127 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %143 = getelementptr inbounds nuw i32, ptr %2, i64 %.4132
   store i32 %.0.i86, ptr %143, align 4, !tbaa !58
@@ -38584,7 +38584,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %60, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
   br label %68
@@ -39107,7 +39107,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %77
 
 77:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %64, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %64, %56 ]
   ret i32 %.0
 }
 
@@ -39296,7 +39296,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %74, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %68, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %72, %68 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %72, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %84 = getelementptr inbounds nuw i32, ptr %2, i64 %.1113
   store i32 %.0.i63, ptr %84, align 4, !tbaa !58
@@ -39424,7 +39424,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4114
   store i32 %.0.i68, ptr %142, align 4, !tbaa !58
@@ -39660,7 +39660,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %74, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %68, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i63 = phi i32 [ %72, %68 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %72, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %84 = getelementptr inbounds nuw i32, ptr %2, i64 %.1113
   store i32 %.0.i63, ptr %84, align 4, !tbaa !58
@@ -39787,7 +39787,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4114
   store i32 %.0.i68, ptr %142, align 4, !tbaa !58
@@ -40009,7 +40009,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %73, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %67, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %71, %67 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %71, %67 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %83 = getelementptr inbounds nuw i32, ptr %2, i64 %.1122
   store i32 %.0.i72, ptr %83, align 4, !tbaa !58
@@ -40138,7 +40138,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit93
 
 _ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit93: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4123
   store i32 %.0.i77, ptr %142, align 4, !tbaa !58
@@ -40623,7 +40623,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %60, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
   br label %68
@@ -41146,7 +41146,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %77
 
 77:                                               ; preds = %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %64, %56 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %64, %56 ]
   ret i32 %.0
 }
 
@@ -41335,7 +41335,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %74, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %68, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %72, %68 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %72, %68 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %84 = getelementptr inbounds nuw i32, ptr %2, i64 %.1113
   store i32 %.0.i63, ptr %84, align 4, !tbaa !58
@@ -41463,7 +41463,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4114
   store i32 %.0.i68, ptr %142, align 4, !tbaa !58
@@ -41699,7 +41699,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %74, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %68, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i63 = phi i32 [ %72, %68 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i63 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %72, %68 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %84 = getelementptr inbounds nuw i32, ptr %2, i64 %.1113
   store i32 %.0.i63, ptr %84, align 4, !tbaa !58
@@ -41826,7 +41826,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit84: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67
-  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ]
+  %.0.i68 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i82 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i67 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4114
   store i32 %.0.i68, ptr %142, align 4, !tbaa !58
@@ -42048,7 +42048,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %73, %._c
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %67, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %71, %67 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %71, %67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %83 = getelementptr inbounds nuw i32, ptr %2, i64 %.1122
   store i32 %.0.i72, ptr %83, align 4, !tbaa !58
@@ -42177,7 +42177,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %132, %
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit93
 
 _ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit93: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91, %126, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ %130, %126 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i91 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %142 = getelementptr inbounds nuw i32, ptr %2, i64 %.4123
   store i32 %.0.i77, ptr %142, align 4, !tbaa !58
@@ -43198,7 +43198,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %126
 
 126:                                              ; preds = %.split.us, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %113, %.split.us ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %113, %.split.us ]
   ret i32 %.0
 }
 
@@ -44626,7 +44626,7 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26: ; preds = %._crit_edg
   br label %100
 
 100:                                              ; preds = %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ %87, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ]
+  %.0 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26 ], [ %87, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread ]
   ret i32 %.0
 }
 
@@ -44924,12 +44924,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %133, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %146 = phi ptr [ %52, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %42, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %135, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %147 = phi ptr [ %53, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %43, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %136, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %148 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %44, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %137, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %149 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %45, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %150 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %46, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %132, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %146 = phi ptr [ %52, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %135, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %42, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %147 = phi ptr [ %53, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %136, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %43, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %148 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %137, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %44, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %149 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %45, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %150 = phi ptr [ %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %46, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %132, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
   %151 = getelementptr inbounds nuw i32, ptr %2, i64 %.1135
   store i32 %.0.i72, ptr %151, align 4, !tbaa !58
   %152 = add nuw i64 %.1135, 1
@@ -45157,12 +45157,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %254, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %265 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %153, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %256, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %266 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %154, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %267 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %155, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %268 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %156, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %269 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %157, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %253, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %265 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %256, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %153, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %266 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %154, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %267 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %155, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %268 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %156, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %269 = phi ptr [ %167, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %157, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %253, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
   %270 = getelementptr inbounds nuw i32, ptr %2, i64 %.4139
   store i32 %.0.i77, ptr %270, align 4, !tbaa !58
   br label %271
@@ -45544,13 +45544,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %149, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %163 = phi ptr [ %66, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %151, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %164 = phi ptr [ %67, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %152, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %165 = phi ptr [ %68, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %153, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %166 = phi ptr [ %69, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %154, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %167 = phi ptr [ %70, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %155, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %168 = phi ptr [ %71, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %155, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i72 = phi i32 [ %148, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %163 = phi ptr [ %151, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %66, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %164 = phi ptr [ %152, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %67, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %165 = phi ptr [ %153, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %68, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %166 = phi ptr [ %154, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %69, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %167 = phi ptr [ %155, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %70, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %168 = phi ptr [ %155, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %71, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %.0.i72 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %148, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
   %169 = getelementptr inbounds nuw i32, ptr %2, i64 %.1135
   store i32 %.0.i72, ptr %169, align 4, !tbaa !58
   %170 = add nuw i64 %.1135, 1
@@ -45779,13 +45779,13 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76: ; preds = %273, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit102: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76
-  %284 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %171, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %275, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %285 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %172, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %286 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %173, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %287 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %174, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %288 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %175, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %289 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %176, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
-  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %272, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ]
+  %284 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %275, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %171, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %285 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %172, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %286 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %173, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %287 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %174, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %288 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %175, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %289 = phi ptr [ %186, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ %276, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %176, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
+  %.0.i77 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i100 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i76 ], [ %272, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i98 ]
   %290 = getelementptr inbounds nuw i32, ptr %2, i64 %.4141
   store i32 %.0.i77, ptr %290, align 4, !tbaa !58
   br label %291
@@ -46130,12 +46130,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %133, %._
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %146 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %33, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %135, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %147 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %34, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %136, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %148 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %35, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %137, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %149 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %36, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %150 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %37, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
-  %.0.i81 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %132, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ]
+  %146 = phi ptr [ %44, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %135, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %33, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %147 = phi ptr [ %45, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %136, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %34, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %148 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %137, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %35, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %149 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %36, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %150 = phi ptr [ %46, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ %138, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %37, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
+  %.0.i81 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %132, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i ]
   %151 = getelementptr inbounds nuw i32, ptr %2, i64 %.1144
   store i32 %.0.i81, ptr %151, align 4, !tbaa !58
   %152 = add nuw i64 %.1144, 1
@@ -46365,12 +46365,12 @@ _ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85: ; preds = %255, %
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit111
 
 _ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit111: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85
-  %266 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %153, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
-  %267 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %154, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
-  %268 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %155, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
-  %269 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %156, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
-  %270 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %157, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
-  %.0.i86 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %254, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ]
+  %266 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %257, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %153, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
+  %267 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %154, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
+  %268 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %155, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
+  %269 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %156, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
+  %270 = phi ptr [ %168, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ %258, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %157, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
+  %.0.i86 = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i109 ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i85 ], [ %254, %_ZN6duckdb6Equals9OperationINS_10interval_tEEEbRKT_S5_.exit.thread.i107 ]
   %271 = getelementptr inbounds nuw i32, ptr %2, i64 %.4148
   store i32 %.0.i86, ptr %271, align 4, !tbaa !58
   br label %272

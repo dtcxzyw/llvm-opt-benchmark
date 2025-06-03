@@ -4691,8 +4691,8 @@ define { i64, ptr } @_ZN4jiff2tz2db16TimeZoneDatabase3get17hcec543e6ec98666bE(pt
   br label %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread
 
 _ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit.thread: ; preds = %56, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit, %394, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i", %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i, %413, %411, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit", %43
-  %.sroa.6.0 = phi ptr [ %414, %413 ], [ %410, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ %412, %411 ], [ %48, %43 ], [ %.sroa.10.2.i, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ %86, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ %.val34.i, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ %.sroa.10.1.i, %394 ], [ inttoptr (i64 1 to ptr), %56 ]
-  %.sroa.0.0 = phi i64 [ 0, %413 ], [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ 0, %411 ], [ 1, %43 ], [ 0, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ 0, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ 0, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ 0, %394 ], [ 0, %56 ]
+  %.sroa.6.0 = phi ptr [ %410, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ %412, %411 ], [ %414, %413 ], [ %48, %43 ], [ %.sroa.10.2.i, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ %86, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ %.val34.i, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ %.sroa.10.1.i, %394 ], [ inttoptr (i64 1 to ptr), %56 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$jiff..tz..timezone..TimeZone$GT$$GT$17h45f65de7b0260df2E.exit" ], [ 0, %411 ], [ 0, %413 ], [ 1, %43 ], [ 0, %_ZN4jiff2tz2db8zoneinfo5inner8Database3get17hce2d461d65f0fa5aE.exit ], [ 0, %_ZN4jiff4util4utf827cmp_ignore_ascii_case_bytes17h9df39327b2780ef9E.exit9.i.i ], [ 0, %"_ZN69_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone17hd2c75619ae85364cE.exit.i" ], [ 0, %394 ], [ 0, %56 ]
   %49 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %50 = insertvalue { i64, ptr } %49, ptr %.sroa.6.0, 1
   ret { i64, ptr } %50
@@ -6200,7 +6200,7 @@ define noundef zeroext i1 @_ZN4jiff2tz2db16TimeZoneDatabase21is_definitively_emp
   ]
 
 10:                                               ; preds = %1, %12, %15, %17
-  %.sroa.0.0.shrunk = phi i1 [ %18, %17 ], [ %16, %15 ], [ %.not.i, %12 ], [ true, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.not.i, %12 ], [ %16, %15 ], [ %18, %17 ], [ true, %1 ]
   ret i1 %.sroa.0.0.shrunk
 
 11:                                               ; preds = %3
@@ -6846,8 +6846,8 @@ define { ptr, i64 } @_ZN4jiff2tz8timezone8TimeZone16kind_description17hab694e17b
   br label %15
 
 15:                                               ; preds = %1, %12, %9, %8, %7, %6
-  %.sroa.7.0 = phi i64 [ 5, %12 ], [ 4, %9 ], [ 4, %8 ], [ 5, %7 ], [ 11, %6 ], [ 3, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.95a2a2af46fa738d12abe82399562330.127, %12 ], [ @anon.95a2a2af46fa738d12abe82399562330.126, %9 ], [ @anon.95a2a2af46fa738d12abe82399562330.126, %8 ], [ @anon.95a2a2af46fa738d12abe82399562330.125, %7 ], [ @anon.95a2a2af46fa738d12abe82399562330.124, %6 ], [ @anon.95a2a2af46fa738d12abe82399562330.123, %1 ]
+  %.sroa.7.0 = phi i64 [ 11, %6 ], [ 5, %7 ], [ 4, %8 ], [ 4, %9 ], [ 5, %12 ], [ 3, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.95a2a2af46fa738d12abe82399562330.124, %6 ], [ @anon.95a2a2af46fa738d12abe82399562330.125, %7 ], [ @anon.95a2a2af46fa738d12abe82399562330.126, %8 ], [ @anon.95a2a2af46fa738d12abe82399562330.126, %9 ], [ @anon.95a2a2af46fa738d12abe82399562330.127, %12 ], [ @anon.95a2a2af46fa738d12abe82399562330.123, %1 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %17
@@ -7178,7 +7178,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit52: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %25, %20, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit62, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit52, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit47
-  %.sroa.0.0.in = phi i1 [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit52 ], [ %64, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit62 ], [ %56, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit47 ], [ %24, %20 ], [ %29, %25 ]
+  %.sroa.0.0.in = phi i1 [ %33, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit47 ], [ %56, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit57 ], [ %64, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit62 ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit52 ], [ %24, %20 ], [ %29, %25 ]
   ret i1 %.sroa.0.0.in
 
 51:                                               ; preds = %34

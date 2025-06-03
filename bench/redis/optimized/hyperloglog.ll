@@ -103,7 +103,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %26
 
 26:                                               ; preds = %._crit_edge, %20
-  %.2 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %25, %20 ]
+  %.2 = phi i64 [ %25, %20 ], [ %.0.lcssa, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = zext i8 %28 to i64
@@ -112,7 +112,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %32
 
 32:                                               ; preds = %._crit_edge, %26
-  %.3 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %31, %26 ]
+  %.3 = phi i64 [ %31, %26 ], [ %.0.lcssa, %._crit_edge ]
   %33 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 4
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = zext i8 %34 to i64
@@ -121,7 +121,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %38
 
 38:                                               ; preds = %._crit_edge, %32
-  %.4 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %37, %32 ]
+  %.4 = phi i64 [ %37, %32 ], [ %.0.lcssa, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = zext i8 %40 to i64
@@ -130,7 +130,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %44
 
 44:                                               ; preds = %._crit_edge, %38
-  %.5 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %43, %38 ]
+  %.5 = phi i64 [ %43, %38 ], [ %.0.lcssa, %._crit_edge ]
   %45 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = zext i8 %46 to i64
@@ -139,7 +139,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %50
 
 50:                                               ; preds = %._crit_edge, %44
-  %.6 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %49, %44 ]
+  %.6 = phi i64 [ %49, %44 ], [ %.0.lcssa, %._crit_edge ]
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %53 = zext i8 %52 to i64
@@ -148,7 +148,7 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   br label %56
 
 56:                                               ; preds = %._crit_edge, %50
-  %.7 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %55, %50 ]
+  %.7 = phi i64 [ %55, %50 ], [ %.0.lcssa, %._crit_edge ]
   %57 = load i8, ptr %.038.lcssa, align 1, !tbaa !11
   %58 = zext i8 %57 to i64
   %59 = xor i64 %.7, %58
@@ -159,7 +159,7 @@ default.unreachable44:                            ; preds = %._crit_edge
   unreachable
 
 61:                                               ; preds = %._crit_edge, %56
-  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %60, %56 ]
+  %.1 = phi i64 [ %60, %56 ], [ %.0.lcssa, %._crit_edge ]
   %62 = lshr i64 %.1, 47
   %63 = xor i64 %62, %.1
   %64 = mul i64 %63, -4132994306676758123
@@ -225,7 +225,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %26
 
 26:                                               ; preds = %20, %._crit_edge.i
-  %.2.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %25, %20 ]
+  %.2.i = phi i64 [ %25, %20 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 5
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = zext i8 %28 to i64
@@ -234,7 +234,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %32
 
 32:                                               ; preds = %26, %._crit_edge.i
-  %.3.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %31, %26 ]
+  %.3.i = phi i64 [ %31, %26 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 4
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = zext i8 %34 to i64
@@ -243,7 +243,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %38
 
 38:                                               ; preds = %32, %._crit_edge.i
-  %.4.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %37, %32 ]
+  %.4.i = phi i64 [ %37, %32 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = zext i8 %40 to i64
@@ -252,7 +252,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %44
 
 44:                                               ; preds = %38, %._crit_edge.i
-  %.5.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %43, %38 ]
+  %.5.i = phi i64 [ %43, %38 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = zext i8 %46 to i64
@@ -261,7 +261,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %50
 
 50:                                               ; preds = %44, %._crit_edge.i
-  %.6.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %49, %44 ]
+  %.6.i = phi i64 [ %49, %44 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa.i, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %53 = zext i8 %52 to i64
@@ -270,7 +270,7 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   br label %56
 
 56:                                               ; preds = %50, %._crit_edge.i
-  %.7.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %55, %50 ]
+  %.7.i = phi i64 [ %55, %50 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %57 = load i8, ptr %.038.lcssa.i, align 1, !tbaa !11
   %58 = zext i8 %57 to i64
   %59 = xor i64 %.7.i, %58
@@ -281,7 +281,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 MurmurHash64A.exit:                               ; preds = %._crit_edge.i, %56
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %60, %56 ]
+  %.1.i = phi i64 [ %60, %56 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %61 = lshr i64 %.1.i, 47
   %62 = xor i64 %61, %.1.i
   %63 = mul i64 %62, -4132994306676758123
@@ -612,7 +612,7 @@ define dso_local range(i32 -1, 1) i32 @hllSparseToDense(ptr noundef captures(non
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %8 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %1 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i8, ptr %27, align 1, !tbaa !11
@@ -777,7 +777,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -838,7 +838,7 @@ define dso_local range(i32 -1, 2) i32 @hllSparseSet(ptr noundef captures(none) %
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %6, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ], [ 0, %6 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %6 ]
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7752), align 8, !tbaa !22
   %32 = icmp ult i64 %.0.i, %31
   br i1 %32, label %33, label %87
@@ -890,7 +890,7 @@ sdsalloc.exit:                                    ; preds = %6, %13, %16, %20, %
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %35, %43, %51, %58
-  %.0.i245 = phi i64 [ %63, %58 ], [ %57, %51 ], [ %50, %43 ], [ %42, %35 ]
+  %.0.i245 = phi i64 [ %42, %35 ], [ %50, %43 ], [ %57, %51 ], [ %63, %58 ]
   %64 = icmp ult i64 %.0.i245, 3
   br i1 %64, label %sdsavail.exit.thread, label %87
 
@@ -932,7 +932,7 @@ sdsavail.exit.thread:                             ; preds = %33, %sdsavail.exit
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %sdsavail.exit.thread, %65, %68, %72, %76, %80
-  %.0.i246 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %sdsavail.exit.thread ]
+  %.0.i246 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %sdsavail.exit.thread ]
   %83 = add i64 %.0.i246, 3
   %84 = tail call i64 @llvm.umin.i64(i64 %83, i64 300)
   %85 = add i64 %84, %83
@@ -987,7 +987,7 @@ sdslen.exit:                                      ; preds = %sdsavail.exit.threa
   br label %sdslen.exit248
 
 sdslen.exit248:                                   ; preds = %91, %94, %98, %102, %106
-  %.0.i247 = phi i64 [ %108, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %91 ]
+  %.0.i247 = phi i64 [ %93, %91 ], [ %97, %94 ], [ %101, %98 ], [ %105, %102 ], [ %108, %106 ]
   %.ptr328 = getelementptr inbounds i8, ptr %88, i64 %.0.i247
   %109 = icmp sgt i64 %.0.i247, 16
   br i1 %109, label %.lr.ph, label %.thread.thread
@@ -1268,7 +1268,7 @@ sdslen.exit248:                                   ; preds = %91, %94, %98, %102,
   br label %sdslen.exit250
 
 sdslen.exit250:                                   ; preds = %245, %246, %249, %253, %257, %261
-  %.0.i249 = phi i64 [ %263, %261 ], [ %260, %257 ], [ %256, %253 ], [ %252, %249 ], [ %248, %246 ], [ 0, %245 ]
+  %.0.i249 = phi i64 [ %248, %246 ], [ %252, %249 ], [ %256, %253 ], [ %260, %257 ], [ %263, %261 ], [ 0, %245 ]
   %264 = zext nneg i32 %241 to i64
   %265 = add i64 %.0.i249, %264
   %266 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7752), align 8, !tbaa !22
@@ -1338,9 +1338,9 @@ sdslen.exit252:                                   ; preds = %._crit_edge
   br label %sdsalloc.exit254
 
 sdsalloc.exit254:                                 ; preds = %sdslen.exit252, %sdslen.exit252.thread, %sdslen.exit252.thread281, %sdslen.exit252.thread283, %sdslen.exit252.thread285, %sdslen.exit252.thread287
-  %303 = phi i64 [ %299, %sdslen.exit252.thread287 ], [ %292, %sdslen.exit252.thread285 ], [ %284, %sdslen.exit252.thread283 ], [ %276, %sdslen.exit252.thread281 ], [ %271, %sdslen.exit252.thread ], [ %302, %sdslen.exit252 ]
-  %304 = phi i64 [ %298, %sdslen.exit252.thread287 ], [ %291, %sdslen.exit252.thread285 ], [ %283, %sdslen.exit252.thread283 ], [ %275, %sdslen.exit252.thread281 ], [ %270, %sdslen.exit252.thread ], [ %302, %sdslen.exit252 ]
-  %.0.i253 = phi i64 [ %301, %sdslen.exit252.thread287 ], [ %295, %sdslen.exit252.thread285 ], [ %287, %sdslen.exit252.thread283 ], [ %279, %sdslen.exit252.thread281 ], [ %269, %sdslen.exit252.thread ], [ 0, %sdslen.exit252 ]
+  %303 = phi i64 [ %271, %sdslen.exit252.thread ], [ %276, %sdslen.exit252.thread281 ], [ %284, %sdslen.exit252.thread283 ], [ %292, %sdslen.exit252.thread285 ], [ %299, %sdslen.exit252.thread287 ], [ %302, %sdslen.exit252 ]
+  %304 = phi i64 [ %270, %sdslen.exit252.thread ], [ %275, %sdslen.exit252.thread281 ], [ %283, %sdslen.exit252.thread283 ], [ %291, %sdslen.exit252.thread285 ], [ %298, %sdslen.exit252.thread287 ], [ %302, %sdslen.exit252 ]
+  %.0.i253 = phi i64 [ %269, %sdslen.exit252.thread ], [ %279, %sdslen.exit252.thread281 ], [ %287, %sdslen.exit252.thread283 ], [ %295, %sdslen.exit252.thread285 ], [ %301, %sdslen.exit252.thread287 ], [ 0, %sdslen.exit252 ]
   %.not236 = icmp ugt i64 %303, %.0.i253
   br i1 %.not236, label %305, label %306, !prof !50
 
@@ -1822,7 +1822,7 @@ define dso_local i64 @hllCount(ptr noundef readonly captures(address) %0, ptr no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
   %32 = trunc i64 %.0.i to i32
   %33 = add i32 %32, -16
   %34 = sext i32 %33 to i64
@@ -2129,7 +2129,7 @@ hllDenseAdd.exit:                                 ; preds = %10, %30
   br label %51
 
 51:                                               ; preds = %3, %46, %hllDenseAdd.exit
-  %.0 = phi i32 [ %50, %46 ], [ %.0.i.i, %hllDenseAdd.exit ], [ -1, %3 ]
+  %.0 = phi i32 [ %.0.i.i, %hllDenseAdd.exit ], [ %50, %46 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -2376,7 +2376,7 @@ define dso_local range(i32 -1, 1) i32 @hllMerge(ptr noundef captures(none) %0, p
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %36, %39, %43, %47, %51
-  %.0.i = phi i64 [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %36 ]
+  %.0.i = phi i64 [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i
   %55 = icmp samesign ugt i64 %.0.i, 16
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -2801,7 +2801,7 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #5 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %51, %55, %59
-  %.0.i = phi i64 [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %44 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
   %62 = tail call i32 @hllAdd(ptr noundef %.0, ptr noundef nonnull %39, i64 noundef %.0.i)
   switch i32 %62, label %66 [
     i32 1, label %63

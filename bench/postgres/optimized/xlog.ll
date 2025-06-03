@@ -2476,9 +2476,9 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   br label %129
 
 129:                                              ; preds = %117, %124
-  %.172 = phi i64 [ %.071, %117 ], [ %125, %124 ]
-  %.170 = phi ptr [ %.069, %117 ], [ %126, %124 ]
-  %.4 = phi i32 [ %.3, %117 ], [ %128, %124 ]
+  %.172 = phi i64 [ %125, %124 ], [ %.071, %117 ]
+  %.170 = phi ptr [ %126, %124 ], [ %.069, %117 ]
+  %.4 = phi i32 [ %128, %124 ], [ %.3, %117 ]
   %.not82 = icmp eq i64 %.172, 0
   br i1 %.not82, label %130, label %86, !llvm.loop !37
 
@@ -3323,7 +3323,7 @@ define dso_local range(i32 0, -2147483648) i32 @XLogFileInit(i64 noundef %0, i32
   unreachable
 
 get_sync_bit.exit:                                ; preds = %7, %16, %16, %16, %17, %19
-  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ], [ %spec.store.select.i, %7 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ]
+  %.0.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ %spec.store.select.i, %7 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ]
   %24 = or i32 %.0.i, 524290
   %25 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef %24) #26
   %26 = icmp slt i32 %25, 0
@@ -3396,7 +3396,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 
   unreachable
 
 get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %24, %26
-  %.0.i = phi i32 [ %27, %26 ], [ %25, %24 ], [ %spec.store.select.i, %4 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ]
+  %.0.i = phi i32 [ %25, %24 ], [ %27, %26 ], [ %spec.store.select.i, %4 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ]
   %31 = or i32 %.0.i, 524290
   %32 = tail call i32 @BasicOpenFile(ptr noundef nonnull %3, i32 noundef %31) #26
   %33 = icmp slt i32 %32, 0
@@ -3627,7 +3627,7 @@ define dso_local range(i32 0, -2147483648) i32 @XLogFileOpen(i64 noundef %0, i32
   unreachable
 
 get_sync_bit.exit:                                ; preds = %2, %20, %20, %20, %21, %23
-  %.0.i = phi i32 [ %24, %23 ], [ %22, %21 ], [ %spec.store.select.i, %2 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ]
+  %.0.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ %spec.store.select.i, %2 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ]
   %28 = or i32 %.0.i, 524290
   %29 = call i32 @BasicOpenFile(ptr noundef nonnull %3, i32 noundef %28) #26
   %30 = icmp slt i32 %29, 0
@@ -10155,7 +10155,7 @@ define dso_local void @assign_wal_sync_method(i32 noundef %0, ptr noundef readno
   unreachable
 
 38:                                               ; preds = %30, %30, %30, %31, %33
-  %.0.i.ph = phi i32 [ %spec.store.select.i, %30 ], [ %spec.store.select.i, %30 ], [ %spec.store.select.i, %30 ], [ %32, %31 ], [ %34, %33 ]
+  %.0.i.ph = phi i32 [ %spec.store.select.i, %30 ], [ %spec.store.select.i, %30 ], [ %spec.store.select.i, %30 ], [ %34, %33 ], [ %32, %31 ]
   switch i32 %0, label %43 [
     i32 0, label %get_sync_bit.exit8
     i32 3, label %get_sync_bit.exit8
@@ -10180,7 +10180,7 @@ define dso_local void @assign_wal_sync_method(i32 noundef %0, ptr noundef readno
   unreachable
 
 get_sync_bit.exit8:                               ; preds = %38, %38, %38, %39, %41
-  %.0.i7 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ]
+  %.0.i7 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ]
   %.not4 = icmp eq i32 %.0.i.ph, %.0.i7
   br i1 %.not4, label %get_sync_bit.exit8.thread, label %46
 

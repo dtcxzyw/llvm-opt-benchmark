@@ -152,7 +152,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$uu_env..parse_error..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha502ba724a76f596E.exit"
 
 "_ZN68_$LT$uu_env..parse_error..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha502ba724a76f596E.exit": ; preds = %11, %15, %19, %22, %26, %30, %34, %36
-  %.0.in.i = phi i1 [ %37, %36 ], [ %35, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.0.in.i = phi i1 [ %14, %11 ], [ %18, %15 ], [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %35, %34 ], [ %37, %36 ]
   ret i1 %.0.in.i
 }
 
@@ -178,7 +178,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3a1c95ef937e48fE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3a1c95ef937e48fE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1282,13 +1282,13 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @llvm.assume(i1 %305)
   br label %308
 
-306:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, %288, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %269, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i, %254, %262, %164
-  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %268, %262 ], [ %.sroa.280.i.sroa.6.0.copyload, %254 ], [ %235, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %275, %269 ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %294, %288 ], [ %178, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.7.0.copyload, %254 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ undef, %269 ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.5.0.copyload, %254 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %273, %269 ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %266, %262 ], [ %.sroa.280.i.sroa.4.0.copyload, %254 ], [ %232, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %273, %269 ], [ %201, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %175, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %262 ], [ %.sroa.280.i.sroa.0.0.copyload, %254 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ undef, %269 ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %262 ], [ %239, %254 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ 5, %269 ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %288 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+306:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, %288, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i, %254, %262, %269, %164
+  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %275, %269 ], [ %268, %262 ], [ %.sroa.280.i.sroa.6.0.copyload, %254 ], [ %235, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %294, %288 ], [ %178, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %269 ], [ undef, %262 ], [ %.sroa.280.i.sroa.7.0.copyload, %254 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %273, %269 ], [ %266, %262 ], [ %.sroa.280.i.sroa.5.0.copyload, %254 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %273, %269 ], [ %266, %262 ], [ %.sroa.280.i.sroa.4.0.copyload, %254 ], [ %232, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %201, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %292, %288 ], [ %175, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %269 ], [ undef, %262 ], [ %.sroa.280.i.sroa.0.0.copyload, %254 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %288 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %269 ], [ 5, %262 ], [ %239, %254 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %288 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
   %307 = inttoptr i64 %.sroa.15.0.ph to ptr
   store i32 %.sroa.0161.0.ph, ptr %0, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4

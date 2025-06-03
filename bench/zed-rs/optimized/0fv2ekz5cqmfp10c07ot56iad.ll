@@ -2628,7 +2628,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   ]
 
 51:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit78", %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit"
-  %.sroa.013.0 = phi i8 [ %.sroa.013.1, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit78" ], [ 2, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit" ]
+  %.sroa.013.0 = phi i8 [ 2, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit" ], [ %.sroa.013.1, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit78" ]
   ret i8 %.sroa.013.0
 
 52:                                               ; preds = %48
@@ -2849,8 +2849,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   br label %51
 
 134:                                              ; preds = %147, %201, %177, %85
-  %.sroa.026.1 = phi i8 [ %.sroa.026.0, %177 ], [ 0, %201 ], [ 0, %147 ], [ 1, %85 ]
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %lpad.thr_comm, %201 ], [ %lpad.thr_comm.split-lp, %147 ], [ %86, %85 ]
+  %.sroa.026.1 = phi i8 [ %.sroa.026.0, %177 ], [ 1, %85 ], [ 0, %201 ], [ 0, %147 ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %86, %85 ], [ %lpad.thr_comm, %201 ], [ %lpad.thr_comm.split-lp, %147 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #38
           to label %128 unwind label %202
 
@@ -7151,8 +7151,8 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   resume { ptr, i32 } %7
 
 "_ZN8wasmtime7runtime9component14resource_table13ResourceTable12iter_entries28_$u7b$$u7b$closure$u7d$$u7d$17h94962e6a256aed03E.llvm.16188651594484228709.exit": ; preds = %14, %21
-  %.sroa.3.0.i = phi ptr [ %24, %21 ], [ %20, %14 ]
-  %.sroa.01.0.i = phi ptr [ null, %21 ], [ %18, %14 ]
+  %.sroa.3.0.i = phi ptr [ %20, %14 ], [ %24, %21 ]
+  %.sroa.01.0.i = phi ptr [ %18, %14 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !640
   store ptr %.sroa.01.0.i, ptr %0, align 8, !alias.scope !635, !noalias !650
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -67562,7 +67562,7 @@ default.unreachable1:                             ; preds = %2
   br label %58
 
 58:                                               ; preds = %56, %54, %50, %48, %46, %43, %41, %37, %35, %33, %31, %29, %27, %25, %22, %20, %17, %14, %11
-  %.sroa.0.0.in = phi i1 [ %57, %56 ], [ %55, %54 ], [ %53, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %43 ], [ %42, %41 ], [ %40, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %21, %20 ], [ %24, %22 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %40, %37 ], [ %42, %41 ], [ %45, %43 ], [ %47, %46 ], [ %49, %48 ], [ %53, %50 ], [ %55, %54 ], [ %57, %56 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -115108,8 +115108,8 @@ define hidden void @"_ZN8wasmtime7runtime9component14resource_table13ResourceTab
   br label %27
 
 27:                                               ; preds = %23, %16
-  %.sroa.3.0 = phi ptr [ %26, %23 ], [ %22, %16 ]
-  %.sroa.01.0 = phi ptr [ null, %23 ], [ %20, %16 ]
+  %.sroa.3.0 = phi ptr [ %22, %16 ], [ %26, %23 ]
+  %.sroa.01.0 = phi ptr [ %20, %16 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store ptr %.sroa.01.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

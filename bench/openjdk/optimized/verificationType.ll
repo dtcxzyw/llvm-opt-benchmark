@@ -171,7 +171,7 @@ define hidden noundef ptr @_ZN16VerificationType8from_tagEh(i8 noundef zeroext %
   unreachable
 
 9:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ null, %6 ], [ inttoptr (i64 262657 to ptr), %5 ], [ inttoptr (i64 197121 to ptr), %4 ], [ inttoptr (i64 131329 to ptr), %3 ], [ inttoptr (i64 65793 to ptr), %2 ], [ inttoptr (i64 4294901761 to ptr), %1 ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 65793 to ptr), %2 ], [ inttoptr (i64 131329 to ptr), %3 ], [ inttoptr (i64 197121 to ptr), %4 ], [ inttoptr (i64 262657 to ptr), %5 ], [ null, %6 ], [ inttoptr (i64 4294901761 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -696,7 +696,7 @@ _ZN15SignatureStream17skip_array_prefixEi.exit:   ; preds = %15, %2
   br label %29
 
 29:                                               ; preds = %_ZN15SignatureStream17skip_array_prefixEi.exit, %28, %25, %24, %23, %22, %21, %20, %19, %18
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 4294901761 to ptr), %28 ], [ %27, %25 ], [ inttoptr (i64 197121 to ptr), %24 ], [ inttoptr (i64 131329 to ptr), %23 ], [ inttoptr (i64 262657 to ptr), %22 ], [ inttoptr (i64 65793 to ptr), %21 ], [ inttoptr (i64 721153 to ptr), %20 ], [ inttoptr (i64 786689 to ptr), %19 ], [ inttoptr (i64 655617 to ptr), %18 ], [ inttoptr (i64 590081 to ptr), %_ZN15SignatureStream17skip_array_prefixEi.exit ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 4294901761 to ptr), %28 ], [ inttoptr (i64 655617 to ptr), %18 ], [ inttoptr (i64 786689 to ptr), %19 ], [ inttoptr (i64 721153 to ptr), %20 ], [ inttoptr (i64 65793 to ptr), %21 ], [ inttoptr (i64 262657 to ptr), %22 ], [ inttoptr (i64 131329 to ptr), %23 ], [ inttoptr (i64 197121 to ptr), %24 ], [ %27, %25 ], [ inttoptr (i64 590081 to ptr), %_ZN15SignatureStream17skip_array_prefixEi.exit ]
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
   ret ptr %.sroa.0.0
 }
@@ -1606,7 +1606,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType18is_assign
   br label %33
 
 33:                                               ; preds = %28, %20, %23, %5, %31, %26, %17, %14, %11
-  %.0 = phi i1 [ %32, %31 ], [ %27, %26 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ true, %5 ], [ true, %20 ], [ %25, %23 ], [ false, %28 ]
+  %.0 = phi i1 [ %32, %31 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %27, %26 ], [ true, %5 ], [ true, %20 ], [ %25, %23 ], [ false, %28 ]
   ret i1 %.0
 }
 

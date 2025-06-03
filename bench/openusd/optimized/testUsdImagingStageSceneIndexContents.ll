@@ -1066,8 +1066,8 @@ default.unreachable:                              ; preds = %.lr.ph.i
   unreachable
 
 375:                                              ; preds = %372, %368, %361, %358, %354
-  %.4.i = phi i32 [ 3, %368 ], [ %.19.i, %361 ], [ %..i, %358 ], [ %switch.select21.i, %354 ], [ 0, %372 ]
-  %.1.i = phi i64 [ %369, %368 ], [ %.028.i, %361 ], [ %.028.i, %358 ], [ %.028.i, %354 ], [ 0, %372 ]
+  %.4.i = phi i32 [ %switch.select21.i, %354 ], [ %..i, %358 ], [ %.19.i, %361 ], [ 3, %368 ], [ 0, %372 ]
+  %.1.i = phi i64 [ %.028.i, %354 ], [ %.028.i, %358 ], [ %.028.i, %361 ], [ %369, %368 ], [ 0, %372 ]
   %376 = getelementptr inbounds nuw i8, ptr %.sroa.022.026.i, i64 1
   %.not.i77 = icmp eq ptr %376, %352
   br i1 %.not.i77, label %_ZL19_CleanOutputForDiffNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i

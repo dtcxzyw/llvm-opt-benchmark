@@ -7987,10 +7987,10 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
   br label %72
 
 72:                                               ; preds = %71, %70, %69, %._crit_edge
-  %.0125.shrunk = phi i1 [ %61, %._crit_edge ], [ true, %71 ], [ %61, %70 ], [ %61, %69 ]
-  %.0124 = phi i1 [ false, %._crit_edge ], [ true, %71 ], [ false, %70 ], [ false, %69 ]
-  %.not139 = phi i1 [ true, %._crit_edge ], [ false, %71 ], [ false, %70 ], [ false, %69 ]
-  %.0123 = phi ptr [ null, %._crit_edge ], [ @.str.24, %71 ], [ @.str.23, %70 ], [ @.str.22, %69 ]
+  %.0125.shrunk = phi i1 [ %61, %._crit_edge ], [ %61, %69 ], [ %61, %70 ], [ true, %71 ]
+  %.0124 = phi i1 [ false, %._crit_edge ], [ false, %69 ], [ false, %70 ], [ true, %71 ]
+  %.not139 = phi i1 [ true, %._crit_edge ], [ false, %69 ], [ false, %70 ], [ false, %71 ]
+  %.0123 = phi ptr [ null, %._crit_edge ], [ @.str.22, %69 ], [ @.str.23, %70 ], [ @.str.24, %71 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #20
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %73, ptr %13, align 8, !tbaa !3
@@ -10346,9 +10346,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5clang
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre57, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %56, %59 ], [ %.pre57, %._crit_edge._crit_edge ]
+  %63 = phi i32 [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %60, %59 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %64 = load i32, ptr %.sroa.032.1, align 4, !tbaa !629
   %65 = icmp eq i32 %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 4
@@ -10362,9 +10362,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN5clang
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge58, %70
-  %73 = phi i32 [ %.pre61, %._crit_edge._crit_edge58 ], [ %62, %70 ]
-  %74 = phi i32 [ %.pre59, %._crit_edge._crit_edge58 ], [ %63, %70 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ], [ %71, %70 ]
+  %73 = phi i32 [ %62, %70 ], [ %.pre61, %._crit_edge._crit_edge58 ]
+  %74 = phi i32 [ %63, %70 ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.sroa.032.2 = phi ptr [ %71, %70 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ]
   %75 = load i32, ptr %.sroa.032.2, align 4, !tbaa !629
   %76 = icmp eq i32 %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.032.2, i64 4
@@ -10507,9 +10507,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang1
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
-  %62 = phi i32 [ %.pre57, %._crit_edge._crit_edge ], [ %56, %59 ]
-  %63 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %51, %59 ]
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ], [ %60, %59 ]
+  %62 = phi i32 [ %56, %59 ], [ %.pre57, %._crit_edge._crit_edge ]
+  %63 = phi i32 [ %51, %59 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.032.1 = phi ptr [ %60, %59 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge ]
   %64 = load i32, ptr %.sroa.032.1, align 4, !tbaa !629
   %65 = icmp eq i32 %64, %63
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 4
@@ -10523,9 +10523,9 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang1
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge58, %70
-  %73 = phi i32 [ %.pre61, %._crit_edge._crit_edge58 ], [ %62, %70 ]
-  %74 = phi i32 [ %.pre59, %._crit_edge._crit_edge58 ], [ %63, %70 ]
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ], [ %71, %70 ]
+  %73 = phi i32 [ %62, %70 ], [ %.pre61, %._crit_edge._crit_edge58 ]
+  %74 = phi i32 [ %63, %70 ], [ %.pre59, %._crit_edge._crit_edge58 ]
+  %.sroa.032.2 = phi ptr [ %71, %70 ], [ %.sroa.032.0.lcssa, %._crit_edge._crit_edge58 ]
   %75 = load i32, ptr %.sroa.032.2, align 4, !tbaa !629
   %76 = icmp eq i32 %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.032.2, i64 4

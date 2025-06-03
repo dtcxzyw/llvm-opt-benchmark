@@ -668,7 +668,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   br label %264
 
 264:                                              ; preds = %259, %253, %250, %247, %242, %237, %237
-  %.0186.i = phi float [ %263, %259 ], [ %258, %253 ], [ %252, %250 ], [ %249, %247 ], [ %246, %242 ], [ 1.000000e+00, %237 ], [ 1.000000e+00, %237 ]
+  %.0186.i = phi float [ %263, %259 ], [ %246, %242 ], [ %249, %247 ], [ %252, %250 ], [ %258, %253 ], [ 1.000000e+00, %237 ], [ 1.000000e+00, %237 ]
   %265 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv385.i
   %266 = load ptr, ptr %265, align 8, !tbaa !34
   %267 = getelementptr inbounds nuw float, ptr %266, i64 %indvars.iv383.i
@@ -1150,7 +1150,7 @@ _ZN12_GLOBAL__N_17float2DEii.exit232.i:           ; preds = %.lr.ph.i226.i, %.no
   br label %494
 
 494:                                              ; preds = %487, %475, %466, %460, %452, %445, %431
-  %.0.i = phi float [ %493, %487 ], [ %486, %475 ], [ %474, %466 ], [ %465, %460 ], [ %459, %452 ], [ %451, %445 ], [ 1.000000e+00, %431 ]
+  %.0.i = phi float [ %493, %487 ], [ %451, %445 ], [ %459, %452 ], [ %465, %460 ], [ %474, %466 ], [ %486, %475 ], [ 1.000000e+00, %431 ]
   %495 = getelementptr inbounds nuw ptr, ptr %362, i64 %indvars.iv379.i
   %496 = load ptr, ptr %495, align 8, !tbaa !34
   %497 = getelementptr inbounds nuw float, ptr %496, i64 %indvars.iv377.i

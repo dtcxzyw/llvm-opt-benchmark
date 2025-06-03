@@ -2722,8 +2722,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h589a24b99387785
           to label %.thread11 unwind label %421
 
 .thread:                                          ; preds = %468, %494, %386, %412, %.thread23, %.thread11, %446, %364
-  %.pn37.pn = phi { ptr, i32 } [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
-  resume { ptr, i32 } %.pn37.pn
+  %.pn45.pn = phi { ptr, i32 } [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
+  resume { ptr, i32 } %.pn45.pn
 
 .thread11:                                        ; preds = %365, %443, %364
   %.pn4514 = phi { ptr, i32 } [ %.pn43, %364 ], [ %366, %365 ], [ %444, %443 ]
@@ -3217,7 +3217,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr55drop
   br label %_ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit: ; preds = %32, %41, %44
-  %.sroa.0.0.i = phi ptr [ %45, %44 ], [ %43, %41 ], [ %40, %32 ]
+  %.sroa.0.0.i = phi ptr [ %40, %32 ], [ %43, %41 ], [ %45, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 23
   %47 = load i8, ptr %46, align 1, !range !51, !noundef !22
   %48 = icmp eq i8 %47, -40
@@ -25107,7 +25107,7 @@ _ZN12polars_arrow4mmap5array12mmap_binview17hba21bb8915f4bf24E.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   br label %832
 
-832:                                              ; preds = %_ZN12polars_arrow4mmap5array20mmap_fixed_size_list17hccdfbf018f10f998E.exit, %_ZN12polars_arrow4mmap5array9mmap_list17h834f772b2577e19fE.exit, %865, %866, %867, %868, %869, %870, %871, %872, %873, %_ZN12polars_arrow4mmap5array12mmap_binview17hba21bb8915f4bf24E.exit, %_ZN12polars_arrow4mmap5array11mmap_struct17h0de6d5a12ee38244E.exit, %_ZN12polars_arrow4mmap5array9mmap_list17h13419cb6b5645dceE.exit, %_ZN12polars_arrow4mmap5array11mmap_binary17h6137eeac96a6224cE.exit, %_ZN12polars_arrow4mmap5array22mmap_fixed_size_binary17h5ca2c304e723cb3eE.exit, %_ZN12polars_arrow4mmap5array11mmap_binary17h7e8a3f7dec8dc1b4E.exit, %_ZN12polars_arrow4mmap5array12mmap_boolean17h6c5126bbee91b23cE.exit, %_ZN12polars_arrow4mmap5array9mmap_null17h0c04ff385527c79bE.exit, %862
+832:                                              ; preds = %873, %872, %871, %870, %869, %868, %867, %866, %865, %_ZN12polars_arrow4mmap5array9mmap_list17h834f772b2577e19fE.exit, %_ZN12polars_arrow4mmap5array20mmap_fixed_size_list17hccdfbf018f10f998E.exit, %_ZN12polars_arrow4mmap5array12mmap_binview17hba21bb8915f4bf24E.exit, %_ZN12polars_arrow4mmap5array11mmap_struct17h0de6d5a12ee38244E.exit, %_ZN12polars_arrow4mmap5array9mmap_list17h13419cb6b5645dceE.exit, %_ZN12polars_arrow4mmap5array11mmap_binary17h6137eeac96a6224cE.exit, %_ZN12polars_arrow4mmap5array22mmap_fixed_size_binary17h5ca2c304e723cb3eE.exit, %_ZN12polars_arrow4mmap5array11mmap_binary17h7e8a3f7dec8dc1b4E.exit, %_ZN12polars_arrow4mmap5array12mmap_boolean17h6c5126bbee91b23cE.exit, %_ZN12polars_arrow4mmap5array9mmap_null17h0c04ff385527c79bE.exit, %862
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %115)
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..mmap..MMapSemaphore$GT$$GT$17h4c8ae4f497c3ed94E.exit"
 
@@ -25189,7 +25189,7 @@ _ZN12polars_arrow4mmap5array12mmap_binview17hba21bb8915f4bf24E.exit: ; preds = %
   call fastcc void @_ZN12polars_arrow4mmap5array14mmap_primitive17h563e712a273fb7f0E(ptr noalias noundef align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %861, ptr noalias noundef readonly align 8 dereferenceable(16) %115, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(32) %8)
   br label %862
 
-862:                                              ; preds = %838, %840, %842, %844, %846, %848, %850, %852, %854, %856, %858, %860
+862:                                              ; preds = %860, %858, %856, %854, %852, %850, %848, %846, %844, %842, %840, %838
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114)
   br label %832
 
@@ -32649,7 +32649,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$value_trait..node..StaticNode$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a2ddbb465d7ecf2E.exit"
 
 "_ZN66_$LT$value_trait..node..StaticNode$u20$as$u20$core..fmt..Debug$GT$3fmt17h5a2ddbb465d7ecf2E.exit": ; preds = %9, %12, %15, %18, %21
-  %.sroa.0.0.in.i = phi i1 [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -33566,7 +33566,7 @@ default.unreachable:                              ; preds = %58
   br label %"_ZN9polars_io3csv4read9read_impl12cast_columns28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0ed48432fd2b764dE.exit.i.i"
 
 "_ZN9polars_io3csv4read9read_impl12cast_columns28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0ed48432fd2b764dE.exit.i.i": ; preds = %36, %34, %26
-  %.sroa.0.0.i.i.i.i = phi ptr [ %37, %36 ], [ %35, %34 ], [ %33, %26 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %33, %26 ], [ %35, %34 ], [ %37, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 71
   %40 = load i8, ptr %39, align 1, !range !51, !alias.scope !3885, !noalias !3882, !noundef !22
@@ -33810,13 +33810,13 @@ common.resume.i.i:                                ; preds = %109, %100
   unreachable
 
 "_ZN73_$LT$polars_core..frame..column..Column$u20$as$u20$core..clone..Clone$GT$5clone17hce88a4b75081082cE.exit.i": ; preds = %121, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i", %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i"
-  %.sroa.14.sroa.0.0.i = phi i64 [ %120, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ undef, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ undef, %121 ]
-  %.sroa.11.0.i = phi i64 [ %.sroa.01.i.sroa.8.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %89, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ undef, %121 ]
-  %.sroa.10.0.i = phi ptr [ %.sroa.01.i.sroa.7.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %87, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ undef, %121 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.01.i.sroa.6.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %79, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %124, %121 ]
-  %.sroa.66.0.i = phi ptr [ %.sroa.01.i.sroa.5.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %77, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %122, %121 ]
-  %.sroa.03.0.i = phi i8 [ %.sroa.01.i.sroa.0.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ 29, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ 28, %121 ]
-  %.sroa.1411.0.i = phi i64 [ %114, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ undef, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ undef, %121 ]
+  %.sroa.14.sroa.0.0.i = phi i64 [ undef, %121 ], [ undef, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %120, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.11.0.i = phi i64 [ undef, %121 ], [ %89, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.8.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.10.0.i = phi ptr [ undef, %121 ], [ %87, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.7.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.8.0.i = phi ptr [ %124, %121 ], [ %79, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.6.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.66.0.i = phi ptr [ %122, %121 ], [ %77, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.5.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.03.0.i = phi i8 [ 28, %121 ], [ 29, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.0.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.1411.0.i = phi i64 [ undef, %121 ], [ undef, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %114, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
   store i8 %.sroa.03.0.i, ptr %0, align 16, !alias.scope !3877, !noalias !3880
   %.sroa.65.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.65.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.65.i, i64 7, i1 false), !noalias !3880
@@ -38077,7 +38077,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -40932,7 +40932,7 @@ default.unreachable1:                             ; preds = %2
   br label %117
 
 117:                                              ; preds = %115, %112, %109, %106, %103, %99, %95, %89, %87, %84, %81, %78, %76, %73, %70, %68, %65, %63, %61, %59, %56, %54, %51, %48, %45, %43, %40, %38, %35, %33, %30, %28, %26, %24
-  %.sroa.0.0.in = phi i1 [ %116, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %99 ], [ %98, %95 ], [ %94, %89 ], [ %88, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %68 ], [ %67, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %43 ], [ %42, %40 ], [ %39, %38 ], [ %37, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ]
+  %.sroa.0.0.in = phi i1 [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %34, %33 ], [ %37, %35 ], [ %39, %38 ], [ %42, %40 ], [ %44, %43 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %55, %54 ], [ %58, %56 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %67, %65 ], [ %69, %68 ], [ %72, %70 ], [ %75, %73 ], [ %77, %76 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %88, %87 ], [ %94, %89 ], [ %98, %95 ], [ %102, %99 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %116, %115 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -41731,7 +41731,7 @@ default.unreachable:                              ; preds = %_ZN11polars_core5fr
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %26, %35, %38
-  %.sroa.0.0.i = phi ptr [ %39, %38 ], [ %37, %35 ], [ %34, %26 ]
+  %.sroa.0.0.i = phi ptr [ %34, %26 ], [ %37, %35 ], [ %39, %38 ]
   %40 = load i8, ptr %.sroa.0.0.i, align 16, !range !97, !noundef !22
   %41 = icmp eq i8 %40, 13
   br i1 %41, label %42, label %44
@@ -48963,12 +48963,12 @@ _ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE
           to label %149 unwind label %106, !noalias !5446
 
 102:                                              ; preds = %149, %144, %139, %108, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %19, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit
-  %.sroa.43.0.i = phi i64 [ %151, %149 ], [ %147, %144 ], [ %141, %139 ], [ undef, %79 ], [ undef, %76 ], [ undef, %67 ], [ undef, %64 ], [ undef, %61 ], [ undef, %58 ], [ undef, %55 ], [ undef, %52 ], [ undef, %49 ], [ undef, %46 ], [ undef, %43 ], [ undef, %40 ], [ undef, %37 ], [ %111, %108 ], [ undef, %19 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
-  %.sroa.33.0.i = phi i64 [ %152, %149 ], [ %148, %144 ], [ %140, %139 ], [ %81, %79 ], [ %78, %76 ], [ undef, %67 ], [ %66, %64 ], [ undef, %61 ], [ %60, %58 ], [ undef, %55 ], [ undef, %52 ], [ undef, %49 ], [ %48, %46 ], [ undef, %43 ], [ undef, %40 ], [ undef, %37 ], [ %112, %108 ], [ undef, %19 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ %75, %73 ], [ %72, %70 ]
-  %.sroa.29.0.i = phi i32 [ undef, %149 ], [ undef, %144 ], [ undef, %139 ], [ undef, %79 ], [ undef, %76 ], [ %69, %67 ], [ undef, %64 ], [ %63, %61 ], [ undef, %58 ], [ %57, %55 ], [ undef, %52 ], [ undef, %49 ], [ undef, %46 ], [ %45, %43 ], [ undef, %40 ], [ undef, %37 ], [ undef, %108 ], [ undef, %19 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
-  %.sroa.27.0.i = phi i16 [ undef, %149 ], [ undef, %144 ], [ undef, %139 ], [ undef, %79 ], [ undef, %76 ], [ undef, %67 ], [ undef, %64 ], [ undef, %61 ], [ undef, %58 ], [ undef, %55 ], [ %54, %52 ], [ undef, %49 ], [ undef, %46 ], [ undef, %43 ], [ %42, %40 ], [ undef, %37 ], [ undef, %108 ], [ undef, %19 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
-  %.sroa.24.0.i = phi i8 [ undef, %149 ], [ undef, %144 ], [ undef, %139 ], [ undef, %79 ], [ undef, %76 ], [ undef, %67 ], [ undef, %64 ], [ undef, %61 ], [ undef, %58 ], [ undef, %55 ], [ undef, %52 ], [ %51, %49 ], [ undef, %46 ], [ undef, %43 ], [ undef, %40 ], [ %39, %37 ], [ undef, %108 ], [ %21, %19 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
-  %.sroa.0.0.i2 = phi i8 [ 14, %149 ], [ 14, %144 ], [ 13, %139 ], [ 5, %79 ], [ 5, %76 ], [ 4, %67 ], [ 11, %64 ], [ 10, %61 ], [ 5, %58 ], [ 4, %55 ], [ 3, %52 ], [ 2, %49 ], [ 9, %46 ], [ 8, %43 ], [ 7, %40 ], [ 6, %37 ], [ 13, %108 ], [ 1, %19 ], [ %18, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ 5, %73 ], [ 5, %70 ]
+  %.sroa.43.0.i = phi i64 [ undef, %19 ], [ %111, %108 ], [ undef, %37 ], [ undef, %40 ], [ undef, %43 ], [ undef, %46 ], [ undef, %49 ], [ undef, %52 ], [ undef, %55 ], [ undef, %58 ], [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ undef, %76 ], [ undef, %79 ], [ %141, %139 ], [ %147, %144 ], [ %151, %149 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
+  %.sroa.33.0.i = phi i64 [ undef, %19 ], [ %112, %108 ], [ undef, %37 ], [ undef, %40 ], [ undef, %43 ], [ %48, %46 ], [ undef, %49 ], [ undef, %52 ], [ undef, %55 ], [ %60, %58 ], [ undef, %61 ], [ %66, %64 ], [ undef, %67 ], [ %78, %76 ], [ %81, %79 ], [ %140, %139 ], [ %148, %144 ], [ %152, %149 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ %75, %73 ], [ %72, %70 ]
+  %.sroa.29.0.i = phi i32 [ undef, %19 ], [ undef, %108 ], [ undef, %37 ], [ undef, %40 ], [ %45, %43 ], [ undef, %46 ], [ undef, %49 ], [ undef, %52 ], [ %57, %55 ], [ undef, %58 ], [ %63, %61 ], [ undef, %64 ], [ %69, %67 ], [ undef, %76 ], [ undef, %79 ], [ undef, %139 ], [ undef, %144 ], [ undef, %149 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
+  %.sroa.27.0.i = phi i16 [ undef, %19 ], [ undef, %108 ], [ undef, %37 ], [ %42, %40 ], [ undef, %43 ], [ undef, %46 ], [ undef, %49 ], [ %54, %52 ], [ undef, %55 ], [ undef, %58 ], [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ undef, %76 ], [ undef, %79 ], [ undef, %139 ], [ undef, %144 ], [ undef, %149 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
+  %.sroa.24.0.i = phi i8 [ %21, %19 ], [ undef, %108 ], [ %39, %37 ], [ undef, %40 ], [ undef, %43 ], [ undef, %46 ], [ %51, %49 ], [ undef, %52 ], [ undef, %55 ], [ undef, %58 ], [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ undef, %76 ], [ undef, %79 ], [ undef, %139 ], [ undef, %144 ], [ undef, %149 ], [ undef, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ undef, %73 ], [ undef, %70 ]
+  %.sroa.0.0.i2 = phi i8 [ 1, %19 ], [ 13, %108 ], [ 6, %37 ], [ 7, %40 ], [ 8, %43 ], [ 9, %46 ], [ 2, %49 ], [ 3, %52 ], [ 4, %55 ], [ 5, %58 ], [ 10, %61 ], [ 11, %64 ], [ 4, %67 ], [ 5, %76 ], [ 5, %79 ], [ 13, %139 ], [ 14, %144 ], [ 14, %149 ], [ %18, %_ZN9polars_io10predicates19ColumnPredicateExpr12to_eq_scalar17h461a6cc7ba38495cE.exit ], [ 5, %73 ], [ 5, %70 ]
   store i8 %.sroa.0.0.i2, ptr %0, align 8, !alias.scope !5443, !noalias !5454
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.24.0.i, ptr %.sroa.24.0..sroa_idx.i, align 1, !alias.scope !5443, !noalias !5454

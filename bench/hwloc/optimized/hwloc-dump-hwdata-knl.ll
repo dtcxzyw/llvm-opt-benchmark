@@ -535,7 +535,7 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
   br label %print_result.exit
 
 222:                                              ; preds = %217, %216, %214, %214, %214
-  %.052.i = phi i64 [ 4, %217 ], [ 2, %216 ], [ 1, %214 ], [ 1, %214 ], [ 1, %214 ]
+  %.052.i = phi i64 [ 2, %216 ], [ 4, %217 ], [ 1, %214 ], [ 1, %214 ], [ 1, %214 ]
   switch i32 %.lcssa8098, label %240 [
     i32 1, label %223
     i32 2, label %243
@@ -615,7 +615,7 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
   br label %get_cluster_mode_str.exit.i
 
 get_cluster_mode_str.exit.i:                      ; preds = %249, %248, %247, %246, %245, %243
-  %.0.i.i = phi ptr [ @.str.57, %249 ], [ @.str.56, %248 ], [ @.str.55, %247 ], [ @.str.54, %246 ], [ @.str.53, %245 ], [ @.str.52, %243 ]
+  %.0.i.i = phi ptr [ @.str.57, %249 ], [ @.str.53, %245 ], [ @.str.54, %246 ], [ @.str.55, %247 ], [ @.str.56, %248 ], [ @.str.52, %243 ]
   switch i32 %.lcssa8098, label %252 [
     i32 1, label %get_memory_mode_str.exit.i
     i32 2, label %250
@@ -700,7 +700,7 @@ get_memory_mode_str.exit.i:                       ; preds = %252, %251, %250, %g
   br label %get_cluster_mode_str.exit58.i
 
 get_cluster_mode_str.exit58.i:                    ; preds = %287, %286, %285, %284, %283, %277
-  %.0.i57.i = phi ptr [ @.str.57, %287 ], [ @.str.56, %286 ], [ @.str.55, %285 ], [ @.str.54, %284 ], [ @.str.53, %283 ], [ @.str.52, %277 ]
+  %.0.i57.i = phi ptr [ @.str.57, %287 ], [ @.str.53, %283 ], [ @.str.54, %284 ], [ @.str.55, %285 ], [ @.str.56, %286 ], [ @.str.52, %277 ]
   %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %269, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0.i57.i) #11
   switch i32 %.lcssa8098, label %291 [
     i32 1, label %get_memory_mode_str.exit64.i

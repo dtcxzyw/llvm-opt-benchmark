@@ -1649,7 +1649,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit82:          ; preds = %276, %._crit_edge, 
   br label %305
 
 305:                                              ; preds = %271, %_ZNK3ade6HandleINS_4NodeEE3getEv.exit82
-  %.3 = phi i1 [ true, %271 ], [ false, %_ZNK3ade6HandleINS_4NodeEE3getEv.exit82 ]
+  %.3 = phi i1 [ false, %_ZNK3ade6HandleINS_4NodeEE3getEv.exit82 ], [ true, %271 ]
   ret i1 %.3
 }
 

@@ -482,8 +482,8 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
   %245 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_ref_seq_blk_free_list, ptr noundef nonnull %.0196274) #5
   br label %.thread263.thread
 
-.thread263.thread:                                ; preds = %73, %226, %59, %19, %24, %33, %42, %54, %50, %9, %244, %.thread263
-  %.0176 = phi i32 [ %.1178275, %244 ], [ %.1178275, %.thread263 ], [ 0, %9 ], [ -1, %226 ], [ -1, %59 ], [ 0, %19 ], [ -1, %24 ], [ -1, %33 ], [ -1, %42 ], [ 0, %54 ], [ -1, %50 ], [ 0, %73 ]
+.thread263.thread:                                ; preds = %73, %226, %24, %33, %42, %54, %50, %19, %59, %9, %244, %.thread263
+  %.0176 = phi i32 [ %.1178275, %244 ], [ %.1178275, %.thread263 ], [ 0, %9 ], [ -1, %226 ], [ -1, %24 ], [ -1, %33 ], [ -1, %42 ], [ 0, %54 ], [ -1, %50 ], [ 0, %19 ], [ -1, %59 ], [ 0, %73 ]
   ret i32 %.0176
 }
 

@@ -1373,8 +1373,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !365, !noundef !5
@@ -1386,8 +1386,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !365, !noundef !5
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -2381,7 +2381,7 @@ default.unreachable:                              ; preds = %31, %11
   br label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.llvm.6954931580167067417.exit"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.llvm.6954931580167067417.exit": ; preds = %66, %.preheader.split, %76, %71, %57, %51, %46, %42, %38, %34, %26, %2, %11, %12, %14, %16, %18, %20
-  %.sroa.0.0.shrunk.i = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ false, %26 ], [ %56, %51 ], [ false, %46 ], [ false, %57 ], [ %84, %76 ], [ false, %71 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %66 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ false, %26 ], [ %56, %51 ], [ false, %46 ], [ false, %57 ], [ %84, %76 ], [ false, %71 ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %66 ]
   %85 = xor i1 %.sroa.0.0.shrunk.i, true
   ret i1 %85
 }
@@ -11797,7 +11797,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20
   ]
 
 "_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit": ; preds = %62, %.preheader.split.i, %72, %67, %57, %51, %46, %42, %38, %34, %26, %11, %12, %14, %16, %18, %2, %20
-  %.sroa.0.0.shrunk = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ false, %26 ], [ %56, %51 ], [ false, %46 ], [ false, %57 ], [ %80, %72 ], [ false, %67 ], [ %exitcond.not.i, %.preheader.split.i ], [ %exitcond.not.i, %62 ]
+  %.sroa.0.0.shrunk = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ false, %26 ], [ %56, %51 ], [ false, %46 ], [ false, %57 ], [ %80, %72 ], [ false, %67 ], [ %exitcond.not.i, %.preheader.split.i ], [ %exitcond.not.i, %62 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable:                              ; preds = %31, %11
@@ -14306,7 +14306,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14582701375544310392.exit
           to label %453 unwind label %.loopexit.split-lp231
 
 453:                                              ; preds = %466, %459, %470, %465, %452
-  %.sroa.017.3 = phi i8 [ 1, %466 ], [ 1, %470 ], [ 1, %459 ], [ 1, %465 ], [ 0, %452 ]
+  %.sroa.017.3 = phi i8 [ 1, %470 ], [ 1, %466 ], [ 1, %465 ], [ 1, %459 ], [ 0, %452 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3356)
   call void @llvm.experimental.noalias.scope.decl(metadata !3359)
   call void @llvm.experimental.noalias.scope.decl(metadata !3362)
@@ -15479,7 +15479,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14582701375544310392.exit
           to label %300 unwind label %.loopexit.split-lp185
 
 300:                                              ; preds = %313, %306, %317, %312, %299
-  %.sroa.017.3 = phi i8 [ 1, %313 ], [ 1, %317 ], [ 1, %306 ], [ 1, %312 ], [ 0, %299 ]
+  %.sroa.017.3 = phi i8 [ 1, %317 ], [ 1, %313 ], [ 1, %312 ], [ 1, %306 ], [ 0, %299 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3511)
   call void @llvm.experimental.noalias.scope.decl(metadata !3514)
   call void @llvm.experimental.noalias.scope.decl(metadata !3517)

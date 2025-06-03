@@ -5621,7 +5621,7 @@ dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i9
   br label %61
 
 61:                                               ; preds = %52, %47, %27, %56, %dissect_blocks.exit95, %dissect_blocks.exit
-  %.0.ph = phi i32 [ %.0.lcssa14.i, %dissect_blocks.exit ], [ %28, %27 ], [ %.0.lcssa14.i89, %dissect_blocks.exit95 ], [ %48, %47 ], [ %53, %52 ], [ %60, %56 ]
+  %.0.ph = phi i32 [ %53, %52 ], [ %48, %47 ], [ %.0.lcssa14.i89, %dissect_blocks.exit95 ], [ %28, %27 ], [ %.0.lcssa14.i, %dissect_blocks.exit ], [ %60, %56 ]
   %.pr = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %.thread, label %62
@@ -5631,7 +5631,7 @@ dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i9
   br label %.thread
 
 .thread:                                          ; preds = %24, %40, %42, %44, %29, %49, %54, %26, %46, %51, %62, %61
-  %.099 = phi i32 [ %.0.ph, %62 ], [ %.0.ph, %61 ], [ %1, %51 ], [ %1, %46 ], [ %1, %26 ], [ %25, %24 ], [ %30, %29 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %50, %49 ], [ %55, %54 ]
+  %.099 = phi i32 [ %.0.ph, %62 ], [ %.0.ph, %61 ], [ %1, %51 ], [ %1, %46 ], [ %1, %26 ], [ %55, %54 ], [ %50, %49 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %30, %29 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #11
   ret i32 %.099
 }
@@ -6123,7 +6123,7 @@ dissect_RecordDataWrite.exit:                     ; preds = %82, %97, %114, %dis
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %238, %240, %242, %dissect_RecordDataWrite.exit
-  %.1 = phi i32 [ %236, %dissect_RecordDataWrite.exit ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %29, %.preheader ], [ %35, %.lr.ph ]
+  %.1 = phi i32 [ %236, %dissect_RecordDataWrite.exit ], [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ %29, %.preheader ], [ %35, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %2)
   br label %244
 
@@ -14653,7 +14653,7 @@ define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 n
   br label %37
 
 37:                                               ; preds = %18, %16
-  %.085 = phi i32 [ %36, %18 ], [ %17, %16 ]
+  %.085 = phi i32 [ %17, %16 ], [ %36, %18 ]
   %38 = load i32, ptr @hf_pn_io_pdportstatistic_ifInOctets, align 4
   %39 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.085, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %9)
   %40 = load i32, ptr @hf_pn_io_pdportstatistic_ifOutOctets, align 4
@@ -17748,7 +17748,7 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
   br i1 %69, label %402, label %395
 
-.loopexit.thread:                                 ; preds = %239, %222, %190, %138
+.loopexit.thread:                                 ; preds = %138, %190, %222, %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %43) #11
@@ -17821,7 +17821,7 @@ switch.lookup:                                    ; preds = %93
 394:                                              ; preds = %100
   br i1 %69, label %402, label %395
 
-395:                                              ; preds = %117, %124, %171, %211, %175, %370, %382, %392, %.loopexit, %394
+395:                                              ; preds = %382, %370, %211, %175, %171, %124, %117, %392, %.loopexit, %394
   %396 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %397 = load ptr, ptr %396, align 8
   %398 = load i8, ptr %11, align 1
@@ -17831,7 +17831,7 @@ switch.lookup:                                    ; preds = %93
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %397, i32 noundef 25, ptr noundef nonnull @.str.1720, i32 noundef %399, ptr noundef %401)
   br label %402
 
-402:                                              ; preds = %117, %124, %171, %211, %175, %370, %382, %392, %.loopexit.thread, %.loopexit, %394, %395, %50
+402:                                              ; preds = %382, %370, %211, %175, %171, %124, %117, %392, %.loopexit.thread, %.loopexit, %394, %395, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
@@ -19730,7 +19730,7 @@ define internal fastcc i32 @dissect_RS_EventInfo(ptr noundef %0, i32 noundef %1,
   br label %dissect_RS_EventDataExtension_Data.exit.thread.i.i.i
 
 dissect_RS_EventDataExtension_Data.exit.thread.i.i.i: ; preds = %185, %155, %152, %120
-  %.0.i.ph.i.i.i = phi i32 [ %122, %120 ], [ %154, %152 ], [ %173, %155 ], [ %187, %185 ]
+  %.0.i.ph.i.i.i = phi i32 [ %173, %155 ], [ %154, %152 ], [ %122, %120 ], [ %187, %185 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #11
@@ -19740,8 +19740,8 @@ dissect_RS_EventDataExtension_Data.exit.thread.i.i.i: ; preds = %185, %155, %152
   br label %dissect_RS_EventDataExtension.exit.i.i
 
 dissect_RS_EventDataExtension_Data.exit.i.i.i:    ; preds = %174, %138, %123, %107
-  %188 = phi i8 [ %184, %174 ], [ %.pre.i.i.i, %138 ], [ %136, %123 ], [ %119, %107 ]
-  %.0.i.i.i.i = phi i32 [ %182, %174 ], [ %151, %138 ], [ %134, %123 ], [ %117, %107 ]
+  %188 = phi i8 [ %119, %107 ], [ %.pre.i.i.i, %138 ], [ %136, %123 ], [ %184, %174 ]
+  %.0.i.i.i.i = phi i32 [ %117, %107 ], [ %151, %138 ], [ %134, %123 ], [ %182, %174 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #11
@@ -20162,7 +20162,7 @@ define internal fastcc i32 @dissect_AM_Location(ptr noundef %0, i32 noundef %1, 
   br label %83
 
 83:                                               ; preds = %81, %62, %21
-  %.0 = phi i32 [ %82, %81 ], [ %80, %62 ], [ %61, %21 ]
+  %.0 = phi i32 [ %82, %81 ], [ %61, %21 ], [ %80, %62 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -20558,7 +20558,7 @@ define internal fastcc i32 @dissect_profidrive_value(ptr noundef %0, i32 noundef
   br label %31
 
 31:                                               ; preds = %27, %22, %19, %16, %13, %10
-  %.0 = phi i32 [ %29, %27 ], [ %26, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0 = phi i32 [ %29, %27 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
@@ -21640,7 +21640,7 @@ indexReservedForProfiles.exit.i:                  ; preds = %186
   br label %dissect_RecordDataRead.exit
 
 dissect_RecordDataRead.exit:                      ; preds = %dissect_ProfiDriveParameterResponse.exit.i, %180, %select.unfold.i, %189, %197, %199, %201, %203, %205
-  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %181, %180 ], [ %188, %select.unfold.i ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %190, %189 ], [ %200, %199 ], [ %.1.i, %197 ]
+  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %181, %180 ], [ %188, %select.unfold.i ], [ %206, %205 ], [ %190, %189 ], [ %202, %201 ], [ %204, %203 ], [ %200, %199 ], [ %.1.i, %197 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
@@ -21915,7 +21915,7 @@ define internal fastcc void @dissect_PNIO_RTA(ptr noundef %0, ptr noundef %1, pt
   br label %86
 
 86:                                               ; preds = %83, %80, %78, %76, %73
-  %.0 = phi i32 [ %85, %83 ], [ %82, %80 ], [ %70, %78 ], [ %70, %76 ], [ %75, %73 ]
+  %.0 = phi i32 [ %85, %83 ], [ %75, %73 ], [ %70, %76 ], [ %70, %78 ], [ %82, %80 ]
   call void @proto_item_set_len(ptr noundef %21, i32 noundef %.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #11

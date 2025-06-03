@@ -155,7 +155,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit"
 
 "_ZN89_$LT$uv_distribution_filename..build_tag..BuildTagError$u20$as$u20$core..fmt..Display$GT$3fmt17h8403ffb736c51e91E.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -472,7 +472,7 @@ define noundef zeroext i1 @"_ZN90_$LT$uv_distribution_filename..extension..Exten
   br label %8
 
 8:                                                ; preds = %6, %4
-  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0.in = phi i1 [ %5, %4 ], [ %7, %6 ]
   ret i1 %.sroa.0.0.in
 }
 

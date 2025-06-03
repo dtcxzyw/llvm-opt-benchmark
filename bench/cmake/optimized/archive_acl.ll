@@ -657,7 +657,7 @@ define dso_local range(i32 -30, 2) i32 @archive_acl_next(ptr noundef %0, ptr nou
   br label %54
 
 54:                                               ; preds = %46, %8, %51, %._crit_edge, %23, %19, %15
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %51 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ -20, %8 ], [ -30, %46 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %51 ], [ 0, %15 ], [ 0, %19 ], [ 0, %23 ], [ -20, %8 ], [ -30, %46 ]
   ret i32 %.0
 }
 
@@ -939,9 +939,9 @@ append_entry_w.exit:                              ; preds = %29, %69
   br label %150
 
 131:                                              ; preds = %127, %._crit_edge119.i
-  %132 = phi ptr [ %.pre120.i, %._crit_edge119.i ], [ %.pre121.i86, %127 ]
-  %.180.i = phi ptr [ %118, %._crit_edge119.i ], [ null, %127 ]
-  %.178.i = phi i32 [ %.058, %._crit_edge119.i ], [ -1, %127 ]
+  %132 = phi ptr [ %.pre121.i86, %127 ], [ %.pre120.i, %._crit_edge119.i ]
+  %.180.i = phi ptr [ null, %127 ], [ %118, %._crit_edge119.i ]
+  %.178.i = phi i32 [ -1, %127 ], [ %.058, %._crit_edge119.i ]
   %133 = call ptr @wcscpy(ptr noundef %132, ptr noundef nonnull @.str.9) #20
   br label %150
 
@@ -956,9 +956,9 @@ append_entry_w.exit:                              ; preds = %29, %69
   br label %150
 
 138:                                              ; preds = %134, %._crit_edge.i
-  %139 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre118.i85, %134 ]
-  %.281.i = phi ptr [ %118, %._crit_edge.i ], [ null, %134 ]
-  %.2.i = phi i32 [ %.058, %._crit_edge.i ], [ -1, %134 ]
+  %139 = phi ptr [ %.pre118.i85, %134 ], [ %.pre.i, %._crit_edge.i ]
+  %.281.i = phi ptr [ null, %134 ], [ %118, %._crit_edge.i ]
+  %.2.i = phi i32 [ -1, %134 ], [ %.058, %._crit_edge.i ]
   %140 = call ptr @wcscpy(ptr noundef %139, ptr noundef nonnull @.str.10) #20
   br label %150
 
@@ -978,9 +978,9 @@ append_entry_w.exit:                              ; preds = %29, %69
   br label %150
 
 150:                                              ; preds = %._crit_edge107, %147, %144, %141, %138, %136, %131, %129
-  %151 = phi ptr [ %.pre, %._crit_edge107 ], [ %148, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %.pre118.i85, %136 ], [ %132, %131 ], [ %.pre121.i86, %129 ]
-  %.079.i = phi ptr [ %118, %._crit_edge107 ], [ null, %147 ], [ null, %144 ], [ null, %141 ], [ %.281.i, %138 ], [ null, %136 ], [ %.180.i, %131 ], [ null, %129 ]
-  %.077.i = phi i32 [ %.058, %._crit_edge107 ], [ -1, %147 ], [ -1, %144 ], [ -1, %141 ], [ %.2.i, %138 ], [ -1, %136 ], [ %.178.i, %131 ], [ -1, %129 ]
+  %151 = phi ptr [ %.pre, %._crit_edge107 ], [ %.pre121.i86, %129 ], [ %132, %131 ], [ %.pre118.i85, %136 ], [ %139, %138 ], [ %142, %141 ], [ %145, %144 ], [ %148, %147 ]
+  %.079.i = phi ptr [ %118, %._crit_edge107 ], [ null, %129 ], [ %.180.i, %131 ], [ null, %136 ], [ %.281.i, %138 ], [ null, %141 ], [ null, %144 ], [ null, %147 ]
+  %.077.i = phi i32 [ %.058, %._crit_edge107 ], [ -1, %129 ], [ %.178.i, %131 ], [ -1, %136 ], [ %.2.i, %138 ], [ -1, %141 ], [ -1, %144 ], [ -1, %147 ]
   %152 = call i64 @wcslen(ptr noundef %151) #25
   %153 = getelementptr inbounds nuw i32, ptr %151, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
@@ -1344,7 +1344,7 @@ define internal fastcc i64 @archive_acl_text_len(ptr noundef readonly captures(n
   br label %71
 
 38:                                               ; preds = %34, %31, %._crit_edge113
-  %.3 = phi i64 [ %.2, %._crit_edge113 ], [ %35, %34 ], [ %32, %31 ]
+  %.3 = phi i64 [ %.2, %._crit_edge113 ], [ %32, %31 ], [ %35, %34 ]
   %39 = add i64 %.3, 1
   switch i32 %24, label %71 [
     i32 10001, label %40
@@ -1812,9 +1812,9 @@ append_entry.exit:                                ; preds = %29, %64
   br label %138
 
 125:                                              ; preds = %122, %._crit_edge118.i
-  %126 = phi ptr [ %.pre119.i, %._crit_edge118.i ], [ %.pre120.i84, %122 ]
-  %.180.i = phi ptr [ %106, %._crit_edge118.i ], [ null, %122 ]
-  %.178.i = phi i32 [ %.055, %._crit_edge118.i ], [ -1, %122 ]
+  %126 = phi ptr [ %.pre120.i84, %122 ], [ %.pre119.i, %._crit_edge118.i ]
+  %.180.i = phi ptr [ null, %122 ], [ %106, %._crit_edge118.i ]
+  %.178.i = phi i32 [ -1, %122 ], [ %.055, %._crit_edge118.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %126, ptr noundef nonnull align 1 dereferenceable(5) @.str.23, i64 5, i1 false) #20
   br label %138
 
@@ -1829,9 +1829,9 @@ append_entry.exit:                                ; preds = %29, %64
   br label %138
 
 130:                                              ; preds = %127, %._crit_edge.i
-  %131 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre117.i83, %127 ]
-  %.281.i = phi ptr [ %106, %._crit_edge.i ], [ null, %127 ]
-  %.2.i = phi i32 [ %.055, %._crit_edge.i ], [ -1, %127 ]
+  %131 = phi ptr [ %.pre117.i83, %127 ], [ %.pre.i, %._crit_edge.i ]
+  %.281.i = phi ptr [ null, %127 ], [ %106, %._crit_edge.i ]
+  %.2.i = phi i32 [ -1, %127 ], [ %.055, %._crit_edge.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %131, ptr noundef nonnull align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #20
   br label %138
 
@@ -1851,9 +1851,9 @@ append_entry.exit:                                ; preds = %29, %64
   br label %138
 
 138:                                              ; preds = %._crit_edge110, %136, %134, %132, %130, %129, %125, %124
-  %139 = phi ptr [ %.pre, %._crit_edge110 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %.pre117.i83, %129 ], [ %126, %125 ], [ %.pre120.i84, %124 ]
-  %.079.i = phi ptr [ %106, %._crit_edge110 ], [ null, %136 ], [ null, %134 ], [ null, %132 ], [ %.281.i, %130 ], [ null, %129 ], [ %.180.i, %125 ], [ null, %124 ]
-  %.077.i = phi i32 [ %.055, %._crit_edge110 ], [ -1, %136 ], [ -1, %134 ], [ -1, %132 ], [ %.2.i, %130 ], [ -1, %129 ], [ %.178.i, %125 ], [ -1, %124 ]
+  %139 = phi ptr [ %.pre, %._crit_edge110 ], [ %.pre120.i84, %124 ], [ %126, %125 ], [ %.pre117.i83, %129 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ]
+  %.079.i = phi ptr [ %106, %._crit_edge110 ], [ null, %124 ], [ %.180.i, %125 ], [ null, %129 ], [ %.281.i, %130 ], [ null, %132 ], [ null, %134 ], [ null, %136 ]
+  %.077.i = phi i32 [ %.055, %._crit_edge110 ], [ -1, %124 ], [ %.178.i, %125 ], [ -1, %129 ], [ %.2.i, %130 ], [ -1, %132 ], [ -1, %134 ], [ -1, %136 ]
   %140 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %139) #25
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
@@ -2147,8 +2147,8 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr noundef capt
   br label %7
 
 7:                                                ; preds = %3, %3, %5, %6
-  %.1119 = phi i32 [ %2, %6 ], [ %2, %3 ], [ %2, %3 ], [ 256, %5 ]
-  %.0117 = phi i32 [ 6, %6 ], [ 5, %3 ], [ 5, %3 ], [ 5, %5 ]
+  %.1119 = phi i32 [ %2, %6 ], [ 256, %5 ], [ %2, %3 ], [ %2, %3 ]
+  %.0117 = phi i32 [ 6, %6 ], [ 5, %5 ], [ 5, %3 ], [ 5, %3 ]
   %.not322 = icmp eq ptr %1, null
   br i1 %.not322, label %.critedge, label %.lr.ph331
 
@@ -2513,8 +2513,8 @@ isint_w.exit164:                                  ; preds = %.preheader.i158, %1
   br label %141
 
 141:                                              ; preds = %.sink.split.i, %.preheader313
-  %.4218 = phi i32 [ %.3217, %.preheader313 ], [ %140, %.sink.split.i ]
-  %142 = phi i32 [ %135, %.preheader313 ], [ %140, %.sink.split.i ]
+  %.4218 = phi i32 [ %140, %.sink.split.i ], [ %.3217, %.preheader313 ]
+  %142 = phi i32 [ %140, %.sink.split.i ], [ %135, %.preheader313 ]
   %143 = icmp ult ptr %136, %67
   br i1 %143, label %.preheader313, label %ismode_w.exit, !llvm.loop !62
 
@@ -2585,8 +2585,8 @@ ismode_w.exit.thread247:                          ; preds = %146, %134, %147, %i
   br label %163
 
 163:                                              ; preds = %.sink.split.i171, %.preheader312
-  %.7 = phi i32 [ %.6220, %.preheader312 ], [ %162, %.sink.split.i171 ]
-  %164 = phi i32 [ %157, %.preheader312 ], [ %162, %.sink.split.i171 ]
+  %.7 = phi i32 [ %162, %.sink.split.i171 ], [ %.6220, %.preheader312 ]
+  %164 = phi i32 [ %162, %.sink.split.i171 ], [ %157, %.preheader312 ]
   %165 = icmp ult ptr %158, %156
   br i1 %165, label %.preheader312, label %isint_w.exit196, !llvm.loop !62
 
@@ -2744,7 +2744,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
   br label %218
 
 218:                                              ; preds = %.sink.split.i184, %.lr.ph.i
-  %.10 = phi i32 [ %.9, %.lr.ph.i ], [ %217, %.sink.split.i184 ]
+  %.10 = phi i32 [ %217, %.sink.split.i184 ], [ %.9, %.lr.ph.i ]
   %219 = icmp ult ptr %202, %200
   br i1 %219, label %.lr.ph.i, label %.loopexit311, !llvm.loop !64
 
@@ -2799,7 +2799,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
   br label %236
 
 236:                                              ; preds = %.sink.split.i186, %.lr.ph.i185
-  %.13 = phi i32 [ %.12, %.lr.ph.i185 ], [ %235, %.sink.split.i186 ]
+  %.13 = phi i32 [ %235, %.sink.split.i186 ], [ %.12, %.lr.ph.i185 ]
   %237 = icmp ult ptr %227, %225
   br i1 %237, label %.lr.ph.i185, label %.loopexit, !llvm.loop !65
 
@@ -3048,8 +3048,8 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_nl(ptr nou
   br label %9
 
 9:                                                ; preds = %5, %5, %7, %8
-  %.1122 = phi i32 [ %3, %8 ], [ %3, %5 ], [ %3, %5 ], [ 256, %7 ]
-  %.0120 = phi i32 [ 6, %8 ], [ 5, %5 ], [ 5, %5 ], [ 5, %7 ]
+  %.1122 = phi i32 [ %3, %8 ], [ 256, %7 ], [ %3, %5 ], [ %3, %5 ]
+  %.0120 = phi i32 [ 6, %8 ], [ 5, %7 ], [ 5, %5 ], [ 5, %5 ]
   %10 = icmp ne ptr %1, null
   %11 = icmp ne i64 %2, 0
   %or.cond384 = and i1 %10, %11
@@ -3458,8 +3458,8 @@ isint.exit174:                                    ; preds = %.preheader.i167, %1
   br label %149
 
 149:                                              ; preds = %.sink.split.i, %.preheader364
-  %.4242 = phi i32 [ %.3241, %.preheader364 ], [ %148, %.sink.split.i ]
-  %150 = phi i32 [ %143, %.preheader364 ], [ %148, %.sink.split.i ]
+  %.4242 = phi i32 [ %148, %.sink.split.i ], [ %.3241, %.preheader364 ]
+  %150 = phi i32 [ %148, %.sink.split.i ], [ %143, %.preheader364 ]
   %exitcond.not.i176 = icmp eq ptr %144, %76
   br i1 %exitcond.not.i176, label %ismode.exit, label %.preheader364, !llvm.loop !75
 
@@ -3530,8 +3530,8 @@ ismode.exit.thread289:                            ; preds = %153, %142, %154, %i
   br label %170
 
 170:                                              ; preds = %.sink.split.i181, %.preheader
-  %.7 = phi i32 [ %.6244, %.preheader ], [ %169, %.sink.split.i181 ]
-  %171 = phi i32 [ %164, %.preheader ], [ %169, %.sink.split.i181 ]
+  %.7 = phi i32 [ %169, %.sink.split.i181 ], [ %.6244, %.preheader ]
+  %171 = phi i32 [ %169, %.sink.split.i181 ], [ %164, %.preheader ]
   %exitcond.not.i180 = icmp eq ptr %165, %163
   br i1 %exitcond.not.i180, label %isint.exit209, label %.preheader, !llvm.loop !75
 
@@ -3689,7 +3689,7 @@ isint.exit193:                                    ; preds = %.preheader.i186, %1
   br label %218
 
 218:                                              ; preds = %.sink.split.i196, %.lr.ph.i194
-  %.10 = phi i32 [ %.9, %.lr.ph.i194 ], [ %217, %.sink.split.i196 ]
+  %.10 = phi i32 [ %217, %.sink.split.i196 ], [ %.9, %.lr.ph.i194 ]
   %exitcond.not.i195 = icmp eq ptr %202, %200
   br i1 %exitcond.not.i195, label %.loopexit363, label %.lr.ph.i194, !llvm.loop !77
 
@@ -3744,7 +3744,7 @@ isint.exit193:                                    ; preds = %.preheader.i186, %1
   br label %235
 
 235:                                              ; preds = %.sink.split.i199, %.lr.ph.i197
-  %.13 = phi i32 [ %.12, %.lr.ph.i197 ], [ %234, %.sink.split.i199 ]
+  %.13 = phi i32 [ %234, %.sink.split.i199 ], [ %.12, %.lr.ph.i197 ]
   %exitcond.not.i198 = icmp eq ptr %226, %224
   br i1 %exitcond.not.i198, label %.loopexit, label %.lr.ph.i197, !llvm.loop !78
 

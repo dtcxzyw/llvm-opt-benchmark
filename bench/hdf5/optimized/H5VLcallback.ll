@@ -997,7 +997,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_cmp_connector_info(ptr noundef reado
   br label %58
 
 58:                                               ; preds = %.thread, %48, %18, %54, %50, %30, %28, %24, %14
-  %.031 = phi i32 [ -1, %14 ], [ 0, %24 ], [ 0, %28 ], [ 0, %30 ], [ %42, %48 ], [ -1, %50 ], [ 0, %54 ], [ 0, %18 ], [ -1, %.thread ]
+  %.031 = phi i32 [ -1, %14 ], [ 0, %24 ], [ 0, %28 ], [ 0, %30 ], [ -1, %50 ], [ %42, %48 ], [ 0, %54 ], [ 0, %18 ], [ -1, %.thread ]
   ret i32 %.031
 }
 
@@ -1195,7 +1195,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef read
   br label %45
 
 45:                                               ; preds = %.thread, %37, %16, %43, %39, %12
-  %.014 = phi i32 [ -1, %12 ], [ %31, %37 ], [ -1, %39 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -1375,7 +1375,7 @@ define range(i32 -1, -2147483648) i32 @H5VL__connector_str_to_info(ptr noundef %
   br label %37
 
 37:                                               ; preds = %.thread, %29, %3, %36, %35, %31
-  %.014 = phi i32 [ %23, %29 ], [ -1, %31 ], [ 0, %35 ], [ 0, %36 ], [ 0, %3 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %31 ], [ %23, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -1622,7 +1622,7 @@ define ptr @H5VL_wrap_object(ptr noundef readonly captures(none) %0, ptr noundef
   br label %40
 
 40:                                               ; preds = %.thread, %34, %18, %36, %14, %21
-  %.014 = phi ptr [ null, %14 ], [ %28, %34 ], [ null, %36 ], [ null, %18 ], [ %2, %21 ], [ null, %.thread ]
+  %.014 = phi ptr [ null, %14 ], [ null, %36 ], [ %28, %34 ], [ null, %18 ], [ %2, %21 ], [ null, %.thread ]
   ret ptr %.014
 }
 
@@ -1747,7 +1747,7 @@ define ptr @H5VL_unwrap_object(ptr noundef readonly captures(none) %0, ptr nound
   br label %40
 
 40:                                               ; preds = %.thread, %34, %16, %36, %12, %19
-  %.012 = phi ptr [ null, %12 ], [ %28, %34 ], [ null, %36 ], [ null, %16 ], [ %1, %19 ], [ null, %.thread ]
+  %.012 = phi ptr [ null, %12 ], [ null, %36 ], [ %28, %34 ], [ null, %16 ], [ %1, %19 ], [ null, %.thread ]
   ret ptr %.012
 }
 
@@ -1992,7 +1992,7 @@ define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, pt
   br label %43
 
 43:                                               ; preds = %.thread, %37, %10, %39, %22
-  %.019 = phi ptr [ null, %22 ], [ %31, %37 ], [ null, %39 ], [ null, %10 ], [ null, %.thread ]
+  %.019 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
   ret ptr %.019
 }
 
@@ -2176,7 +2176,7 @@ define internal fastcc ptr @H5VL__attr_open(ptr noundef %0, ptr noundef %1, ptr 
   br label %40
 
 40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ %28, %34 ], [ null, %36 ], [ null, %7 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
   ret ptr %.016
 }
 
@@ -2359,7 +2359,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_read(ptr nound
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -2542,7 +2542,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_write(ptr noun
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -2725,7 +2725,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_get(ptr nounde
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -2917,7 +2917,7 @@ define internal fastcc i32 @H5VL__attr_specific(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %33 ], [ %27, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -3099,7 +3099,7 @@ define internal i32 @H5VL__attr_optional(ptr noundef %0, ptr noundef readonly ca
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %32 ], [ %26, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -3467,7 +3467,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_close(ptr noun
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -3649,7 +3649,7 @@ define internal fastcc ptr @H5VL__dataset_create(ptr noundef %0, ptr noundef %1,
   br label %44
 
 44:                                               ; preds = %.thread, %38, %11, %40, %23
-  %.020 = phi ptr [ null, %23 ], [ %32, %38 ], [ null, %40 ], [ null, %11 ], [ null, %.thread ]
+  %.020 = phi ptr [ null, %23 ], [ null, %40 ], [ %32, %38 ], [ null, %11 ], [ null, %.thread ]
   ret ptr %.020
 }
 
@@ -3831,7 +3831,7 @@ define internal fastcc ptr @H5VL__dataset_open(ptr noundef %0, ptr noundef %1, p
   br label %40
 
 40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ %28, %34 ], [ null, %36 ], [ null, %7 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
   ret ptr %.016
 }
 
@@ -4020,7 +4020,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_read(i64 no
   br label %42
 
 42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ %30, %36 ], [ -1, %38 ], [ 0, %9 ], [ -1, %.thread ]
+  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
   ret i32 %.018
 }
 
@@ -4271,7 +4271,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
   br label %42
 
 42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ %30, %36 ], [ -1, %38 ], [ 0, %9 ], [ -1, %.thread ]
+  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
   ret i32 %.018
 }
 
@@ -4516,7 +4516,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -4699,7 +4699,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -4882,7 +4882,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -5183,7 +5183,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -5365,7 +5365,7 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
   br label %43
 
 43:                                               ; preds = %.thread, %37, %10, %39, %22
-  %.019 = phi ptr [ null, %22 ], [ %31, %37 ], [ null, %39 ], [ null, %10 ], [ null, %.thread ]
+  %.019 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
   ret ptr %.019
 }
 
@@ -5547,7 +5547,7 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
   br label %40
 
 40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ %28, %34 ], [ null, %36 ], [ null, %7 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
   ret ptr %.016
 }
 
@@ -5730,7 +5730,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -5913,7 +5913,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -6096,7 +6096,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -6504,7 +6504,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -6661,7 +6661,7 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
   br label %40
 
 40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ %28, %34 ], [ null, %36 ], [ null, %7 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
   ret ptr %.016
 }
 
@@ -6890,7 +6890,7 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi ptr [ null, %18 ], [ %27, %33 ], [ null, %35 ], [ null, %6 ], [ null, %.thread ]
+  %.015 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
   ret ptr %.015
 }
 
@@ -7218,7 +7218,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -7456,7 +7456,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -7629,7 +7629,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -7930,7 +7930,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -8112,7 +8112,7 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
   br label %42
 
 42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi ptr [ null, %21 ], [ %30, %36 ], [ null, %38 ], [ null, %9 ], [ null, %.thread ]
+  %.018 = phi ptr [ null, %21 ], [ null, %38 ], [ %30, %36 ], [ null, %9 ], [ null, %.thread ]
   ret ptr %.018
 }
 
@@ -8294,7 +8294,7 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
   br label %40
 
 40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ %28, %34 ], [ null, %36 ], [ null, %7 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
   ret ptr %.016
 }
 
@@ -8477,7 +8477,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -8660,7 +8660,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -8842,7 +8842,7 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %32 ], [ %26, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -9143,7 +9143,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -9347,7 +9347,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
   br label %41
 
 41:                                               ; preds = %.thread, %35, %8, %37, %20
-  %.017 = phi i32 [ -1, %20 ], [ %29, %35 ], [ -1, %37 ], [ 0, %8 ], [ -1, %.thread ]
+  %.017 = phi i32 [ -1, %20 ], [ -1, %37 ], [ %29, %35 ], [ 0, %8 ], [ -1, %.thread ]
   ret i32 %.017
 }
 
@@ -9532,7 +9532,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
   br label %42
 
 42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ %30, %36 ], [ -1, %38 ], [ 0, %9 ], [ -1, %.thread ]
+  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
   ret i32 %.018
 }
 
@@ -9717,7 +9717,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
   br label %42
 
 42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ %30, %36 ], [ -1, %38 ], [ 0, %9 ], [ -1, %.thread ]
+  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
   ret i32 %.018
 }
 
@@ -9890,7 +9890,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -10072,7 +10072,7 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %33 ], [ %27, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -10255,7 +10255,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -10603,7 +10603,7 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi ptr [ null, %18 ], [ %27, %33 ], [ null, %35 ], [ null, %6 ], [ null, %.thread ]
+  %.015 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
   ret ptr %.015
 }
 
@@ -10806,7 +10806,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
   br label %44
 
 44:                                               ; preds = %.thread, %38, %11, %40, %23
-  %.020 = phi i32 [ -1, %23 ], [ %32, %38 ], [ -1, %40 ], [ 0, %11 ], [ -1, %.thread ]
+  %.020 = phi i32 [ -1, %23 ], [ -1, %40 ], [ %32, %38 ], [ 0, %11 ], [ -1, %.thread ]
   ret i32 %.020
 }
 
@@ -10991,7 +10991,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -11173,7 +11173,7 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %33 ], [ %27, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -11356,7 +11356,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -11703,7 +11703,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -11843,7 +11843,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
   br label %45
 
 45:                                               ; preds = %.thread, %39, %17, %41, %24, %13
-  %.013 = phi i32 [ -1, %13 ], [ -1, %24 ], [ %33, %39 ], [ -1, %41 ], [ 0, %17 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %13 ], [ -1, %24 ], [ -1, %41 ], [ %33, %39 ], [ 0, %17 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -12026,7 +12026,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ %26, %32 ], [ -1, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -12199,7 +12199,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -12372,7 +12372,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -12545,7 +12545,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
   br label %36
 
 36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ %24, %30 ], [ -1, %32 ], [ 0, %3 ], [ -1, %.thread ]
+  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.012
 }
 
@@ -12718,7 +12718,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
   br label %36
 
 36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ %24, %30 ], [ -1, %32 ], [ 0, %3 ], [ -1, %.thread ]
+  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.012
 }
 
@@ -12891,7 +12891,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
   br label %36
 
 36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ %24, %30 ], [ -1, %32 ], [ 0, %3 ], [ -1, %.thread ]
+  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.012
 }
 
@@ -13185,7 +13185,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
   br label %35
 
 35:                                               ; preds = %.thread, %29, %2, %31, %14
-  %.011 = phi i32 [ -1, %14 ], [ %23, %29 ], [ -1, %31 ], [ 0, %2 ], [ -1, %.thread ]
+  %.011 = phi i32 [ -1, %14 ], [ -1, %31 ], [ %23, %29 ], [ 0, %2 ], [ -1, %.thread ]
   ret i32 %.011
 }
 
@@ -13335,7 +13335,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -13495,7 +13495,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
   br label %39
 
 39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ %27, %33 ], [ -1, %35 ], [ 0, %6 ], [ -1, %.thread ]
+  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
   ret i32 %.015
 }
 
@@ -13655,7 +13655,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -13815,7 +13815,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
   br label %37
 
 37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ %25, %31 ], [ -1, %33 ], [ 0, %4 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
   ret i32 %.013
 }
 
@@ -14002,7 +14002,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
   br label %45
 
 45:                                               ; preds = %.thread, %37, %5, %16, %22, %43, %20, %39
-  %.030 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ %31, %37 ], [ -1, %39 ], [ 0, %43 ], [ 0, %5 ], [ -1, %.thread ]
+  %.030 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.030
 }
 
@@ -14170,7 +14170,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
   br label %34
 
 34:                                               ; preds = %.thread, %27, %5, %33, %29
-  %.014 = phi i32 [ %21, %27 ], [ -1, %29 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -14348,7 +14348,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   br label %34
 
 34:                                               ; preds = %.thread, %27, %5, %33, %29
-  %.014 = phi i32 [ %21, %27 ], [ -1, %29 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
+  %.014 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.014
 }
 
@@ -14550,7 +14550,7 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
   br label %38
 
 38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %32 ], [ %26, %34 ], [ 0, %5 ], [ -1, %.thread ]
+  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
   ret i32 %.013
 }
 

@@ -1071,7 +1071,7 @@ _.exit90:                                         ; preds = %trailer_set_if_miss
   unreachable
 
 skip_prefix.exit:                                 ; preds = %6, %15, %trailer_set_if_missing.exit.thread, %trailer_set_if_exists.exit.thread, %trailer_set_where.exit.thread, %68, %80, %92, %_.exit74, %_.exit83, %_.exit90, %21, %11, %90, %78, %66
-  %.047 = phi i32 [ -1, %90 ], [ -1, %78 ], [ -1, %66 ], [ 0, %11 ], [ 0, %21 ], [ 0, %_.exit90 ], [ 0, %_.exit83 ], [ 0, %_.exit74 ], [ 0, %92 ], [ 0, %80 ], [ 0, %68 ], [ 0, %trailer_set_where.exit.thread ], [ 0, %trailer_set_if_exists.exit.thread ], [ 0, %trailer_set_if_missing.exit.thread ], [ 0, %15 ], [ 0, %6 ]
+  %.047 = phi i32 [ -1, %66 ], [ -1, %78 ], [ -1, %90 ], [ 0, %11 ], [ 0, %21 ], [ 0, %_.exit90 ], [ 0, %_.exit83 ], [ 0, %_.exit74 ], [ 0, %92 ], [ 0, %80 ], [ 0, %68 ], [ 0, %trailer_set_where.exit.thread ], [ 0, %trailer_set_if_exists.exit.thread ], [ 0, %trailer_set_if_missing.exit.thread ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.047
 }
 

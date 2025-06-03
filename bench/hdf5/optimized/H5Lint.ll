@@ -433,7 +433,7 @@ define range(i32 -1, 1) i32 @H5L_register(ptr noundef readonly captures(none) %0
   br label %41
 
 41:                                               ; preds = %32, %14, %.thread, %10
-  %.015 = phi i32 [ -1, %10 ], [ -1, %32 ], [ 0, %.thread ], [ 0, %14 ]
+  %.015 = phi i32 [ -1, %10 ], [ 0, %.thread ], [ -1, %32 ], [ 0, %14 ]
   ret i32 %.015
 }
 
@@ -1838,7 +1838,7 @@ define internal noundef range(i32 -1, 1) i32 @H5L__exists_inter_cb(ptr readnone 
   br label %32
 
 32:                                               ; preds = %26, %6, %.thread
-  %.019 = phi i32 [ -1, %26 ], [ 0, %.thread ], [ 0, %6 ]
+  %.019 = phi i32 [ 0, %.thread ], [ -1, %26 ], [ 0, %6 ]
   ret i32 %.019
 }
 

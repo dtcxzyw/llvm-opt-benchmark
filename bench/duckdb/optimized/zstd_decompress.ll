@@ -674,8 +674,8 @@ default.unreachable:                              ; preds = %90, %77
   unreachable
 
 90:                                               ; preds = %77, %87, %83, %78
-  %.1103 = phi i64 [ %.0102, %77 ], [ %86, %83 ], [ %82, %78 ], [ %89, %87 ]
-  %.098 = phi i32 [ %56, %77 ], [ %85, %83 ], [ %81, %78 ], [ %.val119, %87 ]
+  %.1103 = phi i64 [ %.0102, %77 ], [ %89, %87 ], [ %82, %78 ], [ %86, %83 ]
+  %.098 = phi i32 [ %56, %77 ], [ %.val119, %87 ], [ %81, %78 ], [ %85, %83 ]
   switch i32 %59, label %default.unreachable [
     i32 3, label %103
     i32 1, label %96
@@ -711,7 +711,7 @@ default.unreachable:                              ; preds = %90, %77
   br label %105
 
 105:                                              ; preds = %91, %92, %103, %100, %96
-  %.097 = phi i64 [ %95, %92 ], [ -1, %91 ], [ %102, %100 ], [ %99, %96 ], [ %.val127, %103 ]
+  %.097 = phi i64 [ %95, %92 ], [ -1, %91 ], [ %.val127, %103 ], [ %99, %96 ], [ %102, %100 ]
   %spec.select = select i1 %.not112, i64 %.099, i64 %.097
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %106, align 4, !tbaa !59
@@ -1682,7 +1682,7 @@ define noundef i64 @_ZN11duckdb_zstd19ZSTD_decompressDCtxEPNS_11ZSTD_DCtx_sEPvmP
   br label %_ZN11duckdb_zstdL13ZSTD_getDDictEPNS_11ZSTD_DCtx_sE.exit
 
 _ZN11duckdb_zstdL13ZSTD_getDDictEPNS_11ZSTD_DCtx_sE.exit: ; preds = %8, %12, %15
-  %.0.i = phi ptr [ null, %8 ], [ %14, %12 ], [ %17, %15 ]
+  %.0.i = phi ptr [ null, %8 ], [ %17, %15 ], [ %14, %12 ]
   %18 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL25ZSTD_decompressMultiFrameEPNS_11ZSTD_DCtx_sEPvmPKvmS4_mPKNS_12ZSTD_DDict_sE(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef %.0.i)
   ret i64 %18
 }
@@ -1722,7 +1722,7 @@ define internal fastcc noundef ptr @_ZN11duckdb_zstdL13ZSTD_getDDictEPNS_11ZSTD_
   br label %14
 
 14:                                               ; preds = %11, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ %10, %8 ], [ %13, %11 ]
+  %.0 = phi ptr [ null, %4 ], [ %13, %11 ], [ %10, %8 ]
   ret ptr %.0
 }
 
@@ -2269,7 +2269,7 @@ _ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit: ; preds = %1
   br label %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread
 
 _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread: ; preds = %114, %110, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread, %171, %67, %19, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit, %105, %132, %148, %158, %163, %164, %167, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit, %209, %202, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit, %104, %75, %63, %31
-  %.0 = phi i64 [ 0, %209 ], [ 0, %202 ], [ -22, %171 ], [ 0, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit ], [ %.2, %104 ], [ %73, %67 ], [ 0, %75 ], [ 0, %31 ], [ 0, %63 ], [ -72, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ], [ %4, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140183, %148 ], [ -20, %158 ], [ %.0140183, %163 ], [ %.0140183, %164 ], [ %.0140183, %167 ], [ -1, %19 ], [ -72, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread ], [ %60, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit ], [ -70, %110 ], [ -74, %114 ]
+  %.0 = phi i64 [ 0, %31 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ 0, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit ], [ -22, %171 ], [ 0, %202 ], [ 0, %209 ], [ -72, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ], [ %4, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140183, %148 ], [ -20, %158 ], [ %.0140183, %163 ], [ %.0140183, %164 ], [ %.0140183, %167 ], [ -1, %19 ], [ -72, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread ], [ %60, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit ], [ -70, %110 ], [ -74, %114 ]
   ret i64 %.0
 }
 
@@ -3801,7 +3801,7 @@ define noundef range(i64 -64, 6) i64 @_ZN11duckdb_zstd27ZSTD_initDStream_usingDD
   br label %13
 
 13:                                               ; preds = %2, %8
-  %.1 = phi i64 [ %6, %2 ], [ %12, %8 ]
+  %.1 = phi i64 [ %12, %8 ], [ %6, %2 ]
   ret i64 %.1
 }
 
@@ -3864,8 +3864,8 @@ define { i64, i64 } @_ZN11duckdb_zstd21ZSTD_dParam_getBoundsENS_15ZSTD_dParamete
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %4 ], [ 562949953422336, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
+  %.sroa.3.0 = phi i64 [ 0, %4 ], [ 4294967296, %2 ], [ 562949953422336, %3 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %4 ], [ 0, %2 ], [ 0, %3 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3988,7 +3988,7 @@ define noundef range(i64 -60, 1) i64 @_ZN11duckdb_zstd22ZSTD_DCtx_setParameterEP
   br label %41
 
 41:                                               ; preds = %37, %6, %33, %28, %26, %22, %18, %14, %7, %3, %39, %35, %31, %24, %20, %16, %10
-  %.0 = phi i64 [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %10 ], [ -60, %3 ], [ -42, %7 ], [ -42, %14 ], [ -42, %18 ], [ -42, %22 ], [ -42, %26 ], [ -40, %28 ], [ -42, %33 ], [ -40, %6 ], [ -42, %37 ]
+  %.0 = phi i64 [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ], [ -60, %3 ], [ -42, %7 ], [ -42, %14 ], [ -42, %18 ], [ -42, %22 ], [ -42, %26 ], [ -40, %28 ], [ -42, %33 ], [ -40, %6 ], [ -42, %37 ]
   ret i64 %.0
 }
 

@@ -193,7 +193,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   unreachable
 
 68:                                               ; preds = %58, %65, %63
-  %.0229 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %2, %58 ]
+  %.0229 = phi i32 [ %2, %58 ], [ %64, %63 ], [ %66, %65 ]
   %69 = lshr i16 %6, 3
   %70 = and i16 %69, 63
   switch i16 %70, label %sema_resolve_type_identifier.exit.thread [
@@ -819,7 +819,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %.backedge
 
 .backedge:                                        ; preds = %361, %355
-  %.0.i305.in.be = phi ptr [ %362, %361 ], [ %360, %355 ]
+  %.0.i305.in.be = phi ptr [ %360, %355 ], [ %362, %361 ]
   br label %351
 
 363:                                              ; preds = %351
@@ -1006,7 +1006,7 @@ sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %sema_resolve_type_identifier.exit.thread
 
-466:                                              ; preds = %343, %453, %433, %373, %449, %437, %424, %413, %402
+466:                                              ; preds = %343, %453, %433, %373, %402, %413, %424, %437, %449
   %467 = load i16, ptr %1, align 8
   %468 = and i16 %467, -505
   store i16 %468, ptr %1, align 8
@@ -1052,7 +1052,7 @@ sema_resolve_ptr_type.exit.thread:                ; preds = %473
   store i16 %storemerge.i, ptr %1, align 8
   br label %553
 
-sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %198, %220, %sema_resolve_ptr_type.exit.thread, %sema_resolve_array_type.exit, %317, %.critedge292, %.critedge288, %130, %.critedge2, %68
+sema_resolve_type_identifier.exit.thread:         ; preds = %151, %220, %198, %184, %177, %sema_resolve_ptr_type.exit.thread, %sema_resolve_array_type.exit, %317, %.critedge292, %.critedge288, %130, %.critedge2, %68
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %491 = load ptr, ptr %490, align 8
   %492 = load i32, ptr %491, align 8
@@ -1187,7 +1187,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br label %553
 
 553:                                              ; preds = %.critedge, %19, %8, %549, %505, %495, %485, %466, %332, %.critedge296, %.critedge294, %.critedge290, %sema_resolve_type_identifier.exit, %.critedge286, %99, %51, %37
-  %.0232 = phi i1 [ false, %37 ], [ false, %51 ], [ true, %549 ], [ false, %505 ], [ false, %495 ], [ false, %485 ], [ false, %466 ], [ false, %332 ], [ false, %.critedge296 ], [ false, %.critedge294 ], [ false, %.critedge290 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge286 ], [ false, %99 ], [ false, %8 ], [ true, %19 ], [ true, %.critedge ]
+  %.0232 = phi i1 [ false, %37 ], [ false, %51 ], [ true, %549 ], [ false, %495 ], [ false, %505 ], [ false, %99 ], [ false, %.critedge286 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge290 ], [ false, %.critedge294 ], [ false, %.critedge296 ], [ false, %466 ], [ false, %332 ], [ false, %485 ], [ false, %8 ], [ true, %19 ], [ true, %.critedge ]
   ret i1 %.0232
 }
 

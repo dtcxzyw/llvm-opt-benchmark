@@ -3398,7 +3398,7 @@ _ZN11duckdb_zstdL25ZSTDMT_serialState_updateEPNS_13serialState_tEPNS_11ZSTD_CCtx
   br label %.thread190
 
 .thread190:                                       ; preds = %253, %131, %116, %123, %.thread208, %208, %107, %.thread203, %91, %83, %51
-  %.0 = phi i64 [ 0, %51 ], [ 0, %83 ], [ 0, %91 ], [ 0, %107 ], [ 0, %253 ], [ %.1207, %.thread203 ], [ 0, %208 ], [ 0, %.thread208 ], [ 0, %123 ], [ 0, %116 ], [ 0, %131 ]
+  %.0 = phi i64 [ 0, %51 ], [ 0, %83 ], [ 0, %91 ], [ %.1207, %.thread203 ], [ 0, %253 ], [ 0, %208 ], [ 0, %107 ], [ 0, %.thread208 ], [ 0, %123 ], [ 0, %116 ], [ 0, %131 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %256 = load ptr, ptr %255, align 8, !tbaa !152
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 104

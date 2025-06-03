@@ -238,8 +238,8 @@ _ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL12TestOverflowv.exit.thread
 
-_ZL12TestOverflowv.exit.thread:                   ; preds = %68, %63, %26, %21, %_ZL12TestPutMacrov.exit, %_ZL12TestPutErrorv.exit.thread8, %_ZL12TestPutErrorv.exit.thread, %87
-  %.0 = phi i32 [ 0, %87 ], [ 1, %_ZL12TestPutMacrov.exit ], [ 1, %_ZL12TestPutErrorv.exit.thread ], [ 1, %_ZL12TestPutErrorv.exit.thread8 ], [ 1, %21 ], [ 1, %26 ], [ 1, %63 ], [ 1, %68 ]
+_ZL12TestOverflowv.exit.thread:                   ; preds = %68, %63, %21, %26, %_ZL12TestPutMacrov.exit, %_ZL12TestPutErrorv.exit.thread8, %_ZL12TestPutErrorv.exit.thread, %87
+  %.0 = phi i32 [ 0, %87 ], [ 1, %_ZL12TestPutMacrov.exit ], [ 1, %_ZL12TestPutErrorv.exit.thread ], [ 1, %_ZL12TestPutErrorv.exit.thread8 ], [ 1, %26 ], [ 1, %21 ], [ 1, %63 ], [ 1, %68 ]
   ret i32 %.0
 }
 

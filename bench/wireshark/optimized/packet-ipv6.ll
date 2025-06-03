@@ -4009,12 +4009,12 @@ define internal i32 @dissect_routing6_crh(ptr noundef %0, ptr noundef %1, ptr no
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.888, i32 noundef 1524) #20
   unreachable
 
-29:                                               ; preds = %10, %19
-  %.pre-phi = phi i32 [ %13, %10 ], [ %22, %19 ]
-  %.075 = phi i32 [ 4, %10 ], [ 2, %19 ]
-  %.074 = phi i32 [ %18, %10 ], [ %27, %19 ]
-  %.073 = phi i32 [ 2, %10 ], [ 4, %19 ]
-  %.072 = phi i32 [ %15, %10 ], [ %24, %19 ]
+29:                                               ; preds = %19, %10
+  %.pre-phi = phi i32 [ %22, %19 ], [ %13, %10 ]
+  %.075 = phi i32 [ 2, %19 ], [ 4, %10 ]
+  %.074 = phi i32 [ %27, %19 ], [ %18, %10 ]
+  %.073 = phi i32 [ 4, %19 ], [ 2, %10 ]
+  %.072 = phi i32 [ %24, %19 ], [ %15, %10 ]
   %30 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %.075, i1 true)
   %31 = lshr i32 %.074, %30
   %32 = add nsw i32 %.075, -1
@@ -5383,7 +5383,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   unreachable
 
 81:                                               ; preds = %76, %72, %64, %56, %48, %44
-  %.2 = phi i32 [ %79, %76 ], [ %75, %72 ], [ %71, %64 ], [ %63, %56 ], [ %55, %48 ], [ %47, %44 ]
+  %.2 = phi i32 [ %47, %44 ], [ %55, %48 ], [ %63, %56 ], [ %71, %64 ], [ %75, %72 ], [ %79, %76 ]
   %82 = load ptr, ptr @nat64_prefix_uats, align 8
   %83 = getelementptr %struct.nat64_prefix_data, ptr %82, i64 %.099137, i32 1
   %84 = load i8, ptr %83, align 8
@@ -7567,7 +7567,7 @@ dissect_opt_dff.exit:                             ; preds = %717, %718
   br label %dissect_opt_apn6.exit
 
 dissect_opt_apn6.exit:                            ; preds = %715, %710, %645, %643, %625, %243, %233, %224, %217, %737, %733, %727, %dissect_opt_dff.exit, %dissect_opt_lio.exit, %679, %dissect_opt_home_address.exit, %dissect_opt_pdm.exit, %dissect_opt_calipso.exit, %dissect_opt_tpf.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.exit, %dissect_opt_rtalert.exit, %dissect_opt_tel.exit, %dissect_opt_rpl.exit, %dissect_opt_jumbo.exit
-  %.1 = phi i32 [ %741, %737 ], [ %736, %733 ], [ %731, %727 ], [ %726, %dissect_opt_dff.exit ], [ %696, %dissect_opt_lio.exit ], [ %682, %679 ], [ %678, %dissect_opt_home_address.exit ], [ %669, %dissect_opt_pdm.exit ], [ %620, %dissect_opt_calipso.exit ], [ %597, %dissect_opt_tpf.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %202, %dissect_opt_pmtu.exit ], [ %185, %dissect_opt_rtalert.exit ], [ %179, %dissect_opt_tel.exit ], [ %173, %dissect_opt_rpl.exit ], [ %159, %dissect_opt_jumbo.exit ], [ %249, %243 ], [ %236, %233 ], [ %227, %224 ], [ %223, %217 ], [ %628, %625 ], [ %648, %645 ], [ %.039.i, %643 ], [ %714, %710 ], [ %709, %715 ]
+  %.1 = phi i32 [ %741, %737 ], [ %159, %dissect_opt_jumbo.exit ], [ %173, %dissect_opt_rpl.exit ], [ %179, %dissect_opt_tel.exit ], [ %185, %dissect_opt_rtalert.exit ], [ %202, %dissect_opt_pmtu.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %597, %dissect_opt_tpf.exit ], [ %620, %dissect_opt_calipso.exit ], [ %669, %dissect_opt_pdm.exit ], [ %678, %dissect_opt_home_address.exit ], [ %682, %679 ], [ %696, %dissect_opt_lio.exit ], [ %726, %dissect_opt_dff.exit ], [ %731, %727 ], [ %736, %733 ], [ %249, %243 ], [ %236, %233 ], [ %227, %224 ], [ %223, %217 ], [ %628, %625 ], [ %648, %645 ], [ %.039.i, %643 ], [ %714, %710 ], [ %709, %715 ]
   %742 = and i32 %134, 255
   %743 = add nuw nsw i32 %742, %94
   %744 = icmp slt i32 %.1, %743

@@ -481,12 +481,12 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.27, i32 noundef %179) #11
   br label %.thread407
 
-.thread407:                                       ; preds = %178, %140, %151, %168, %127
+.thread407:                                       ; preds = %178, %127, %140, %151, %168
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #10
   br label %.thread418
 
 182:                                              ; preds = %134, %._crit_edge
-  %.1260 = phi i32 [ %177, %._crit_edge ], [ %136, %134 ]
+  %.1260 = phi i32 [ %136, %134 ], [ %177, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8) #10
   br label %507
 

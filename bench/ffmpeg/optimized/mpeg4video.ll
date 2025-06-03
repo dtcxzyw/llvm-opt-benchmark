@@ -69,7 +69,7 @@ define range(i32 -2147483633, -2147483648) i32 @ff_mpeg4_get_video_packet_prefix
   br label %10
 
 10:                                               ; preds = %3, %9, %6, %4
-  %.0 = phi i32 [ -1, %9 ], [ %spec.select, %6 ], [ %5, %4 ], [ 16, %3 ]
+  %.0 = phi i32 [ -1, %9 ], [ %5, %4 ], [ %spec.select, %6 ], [ 16, %3 ]
   ret i32 %.0
 }
 

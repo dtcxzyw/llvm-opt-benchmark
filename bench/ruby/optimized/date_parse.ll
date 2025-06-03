@@ -6190,7 +6190,7 @@ rbimpl_intern_const.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %10
   br label %gengo.exit.i.i
 
 gengo.exit.i.i:                                   ; preds = %35, %34, %.thread.i.i, %33, %32, %30, %30
-  %.0.i.i.i = phi i64 [ 1, %35 ], [ 4037, %34 ], [ 3977, %.thread.i.i ], [ 3851, %33 ], [ 3823, %32 ], [ 3735, %30 ], [ 3735, %30 ]
+  %.0.i.i.i = phi i64 [ 1, %35 ], [ 3823, %32 ], [ 3851, %33 ], [ 3977, %.thread.i.i ], [ 4037, %34 ], [ 3735, %30 ], [ 3735, %30 ]
   %.pr.i.i2.i = load i64, ptr @jisx0301_cb.rbimpl_id, align 8, !tbaa !6
   %.not4.i.i3.i = icmp eq i64 %.pr.i.i2.i, 0
   br i1 %.not4.i.i3.i, label %.lr.ph.i.i6.i, label %rbimpl_intern_const.exit.i4.i
@@ -7752,7 +7752,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   br label %gengo.exit
 
 gengo.exit:                                       ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit, %13, %14, %15, %16, %17
-  %.0.i = phi i64 [ 1, %17 ], [ 4037, %16 ], [ 3977, %15 ], [ 3851, %14 ], [ 3823, %13 ], [ 3735, %RSTRING_PTR.exit ], [ 3735, %RSTRING_PTR.exit ]
+  %.0.i = phi i64 [ 1, %17 ], [ 3823, %13 ], [ 3851, %14 ], [ 3977, %15 ], [ 4037, %16 ], [ 3735, %RSTRING_PTR.exit ], [ 3735, %RSTRING_PTR.exit ]
   %.pr.i = load i64, ptr @parse_jis_cb.rbimpl_id, align 8, !tbaa !6
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit

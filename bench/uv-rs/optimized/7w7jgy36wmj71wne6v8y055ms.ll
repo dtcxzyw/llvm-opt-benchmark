@@ -1037,13 +1037,13 @@ default.unreachable135:                           ; preds = %2
 72:                                               ; preds = %68, %69
   %73 = load ptr, ptr %5, align 8, !nonnull !6, !align !93, !noundef !6
   %74 = load i8, ptr %43, align 8, !range !82, !noundef !6
-  %.val = load ptr, ptr %73, align 8
-  call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h5226ec37d8dba167E"(ptr %.val, i8 noundef %74)
+  %.val107 = load ptr, ptr %73, align 8
+  call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h5226ec37d8dba167E"(ptr %.val107, i8 noundef %74)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %75
 
 75:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit120.thread", %153, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit116.thread", %113, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit.thread", %72
-  %.sroa.0.1 = phi ptr [ %.sroa.0.3, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit120.thread" ], [ null, %153 ], [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit116.thread" ], [ null, %113 ], [ %.sroa.0.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit.thread" ], [ null, %72 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit.thread" ], [ null, %72 ], [ %.sroa.0.2, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit116.thread" ], [ null, %113 ], [ %.sroa.0.3, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit120.thread" ], [ null, %153 ]
   ret ptr %.sroa.0.1
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit.thread": ; preds = %48, %35, %69, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc40339cdc91de2b1E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h85c6b3e14c687838E.exit"
@@ -1203,8 +1203,8 @@ default.unreachable135:                           ; preds = %2
 153:                                              ; preds = %149, %150
   %154 = load ptr, ptr %3, align 8, !nonnull !6, !align !93, !noundef !6
   %155 = load i8, ptr %124, align 8, !range !82, !noundef !6
-  %.val107 = load ptr, ptr %154, align 8
-  call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h5226ec37d8dba167E"(ptr %.val107, i8 noundef %155)
+  %.val = load ptr, ptr %154, align 8
+  call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h5226ec37d8dba167E"(ptr %.val, i8 noundef %155)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %75
 

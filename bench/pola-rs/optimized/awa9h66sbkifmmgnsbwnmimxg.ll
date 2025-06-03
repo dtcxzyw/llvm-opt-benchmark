@@ -47702,7 +47702,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -51160,7 +51160,7 @@ default.unreachable:                              ; preds = %33
   br label %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
 
 _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %36, %45, %48
-  %.sroa.0.0.i = phi ptr [ %49, %48 ], [ %47, %45 ], [ %44, %36 ]
+  %.sroa.0.0.i = phi ptr [ %44, %36 ], [ %47, %45 ], [ %49, %48 ]
   %50 = load i8, ptr %.sroa.0.0.i, align 16, !range !4179, !noundef !6
   switch i8 %50, label %31 [
     i8 21, label %152
@@ -54299,7 +54299,7 @@ _ZN3std4sync6poison4once4Once9call_once17hd24d25dcb31a59afE.exit: ; preds = %.no
   br label %.loopexit.split-lp451
 
 .loopexit.split-lp451:                            ; preds = %267, %266, %.thread1032, %.loopexit450, %.loopexit.split-lp451.loopexit.split-lp, %.loopexit.split-lp451.loopexit, %.body
-  %.pn236.ph = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit4681039, %266 ], [ %lpad.loopexit468, %267 ], [ %lpad.loopexit452, %.loopexit450 ], [ %lpad.loopexit463, %.loopexit.split-lp451.loopexit ], [ %lpad.loopexit.split-lp464, %.loopexit.split-lp451.loopexit.split-lp ], [ %lpad.loopexit.split-lp469, %.thread1032 ]
+  %.pn236.ph = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit468, %267 ], [ %lpad.loopexit4681039, %266 ], [ %lpad.loopexit452, %.loopexit450 ], [ %lpad.loopexit463, %.loopexit.split-lp451.loopexit ], [ %lpad.loopexit.split-lp464, %.loopexit.split-lp451.loopexit.split-lp ], [ %lpad.loopexit.split-lp469, %.thread1032 ]
   invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_pipe..operators..sink..Sink$GT$$GT$17hbfd9632f93455be9E"(ptr nonnull %116, ptr nonnull %118) #30
           to label %.thread352 unwind label %209
 

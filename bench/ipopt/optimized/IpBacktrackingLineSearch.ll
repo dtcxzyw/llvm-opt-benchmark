@@ -15823,7 +15823,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit329: ; preds = %_ZN5Ipopt8Smar
   br label %886
 
 886:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit141, %.fold.split501, %.fold.split, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit206, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit171, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit, %309, %307, %305, %122
-  %.071 = phi double [ -1.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit141 ], [ %.374, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit ], [ 1.000000e+00, %309 ], [ %.sroa.speculated.i212, %307 ], [ %.sroa.speculated.i211, %305 ], [ %.273, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit206 ], [ %.172, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit171 ], [ %128, %122 ], [ %1, %.fold.split ], [ %2, %.fold.split501 ]
+  %.071 = phi double [ -1.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit141 ], [ %128, %122 ], [ %.172, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit171 ], [ %.273, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit206 ], [ %.sroa.speculated.i211, %305 ], [ %.sroa.speculated.i212, %307 ], [ 1.000000e+00, %309 ], [ %.374, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit ], [ %1, %.fold.split ], [ %2, %.fold.split501 ]
   %887 = load ptr, ptr %12, align 8, !tbaa !39
   %888 = load ptr, ptr %3, align 8, !tbaa !83
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 208

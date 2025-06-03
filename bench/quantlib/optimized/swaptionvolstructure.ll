@@ -440,7 +440,7 @@ ehcleanup78:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 return:                                           ; preds = %sw.bb32, %sw.bb
-  %retval.0 = phi double [ %conv34, %sw.bb32 ], [ %div, %sw.bb ]
+  %retval.0 = phi double [ %div, %sw.bb ], [ %conv34, %sw.bb32 ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup78, %ehcleanup28

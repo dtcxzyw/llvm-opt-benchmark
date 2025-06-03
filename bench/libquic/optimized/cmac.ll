@@ -28,7 +28,7 @@ define hidden range(i32 0, 2) i32 @AES_CMAC(ptr noundef %0, ptr noundef %1, i64 
   br label %12
 
 12:                                               ; preds = %10, %8
-  %.08 = phi ptr [ %11, %10 ], [ %9, %8 ]
+  %.08 = phi ptr [ %9, %8 ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #8
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %7) #8
   %13 = call i32 @CMAC_Init(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %.08, ptr poison)

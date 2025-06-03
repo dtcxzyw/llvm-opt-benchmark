@@ -1051,7 +1051,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %63, 
   br label %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
 
 _ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %106, %105, %104, %101
-  %.sroa.01.0.i.i = phi i16 [ %109, %106 ], [ 7, %105 ], [ 6, %104 ], [ 5, %101 ]
+  %.sroa.01.0.i.i = phi i16 [ %109, %106 ], [ 6, %104 ], [ 7, %105 ], [ 5, %101 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
   %110 = zext nneg i16 %.sroa.01.0.i.i to i64
   %111 = add nsw i64 %110, -1
@@ -1658,7 +1658,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit: ; preds = %9, %22, %22, %25
   br label %37
 
 37:                                               ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit, %36, %35, %34
-  %.0 = phi i32 [ 51, %36 ], [ 22, %35 ], [ 3, %34 ], [ 2, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
+  %.0 = phi i32 [ 51, %36 ], [ 3, %34 ], [ 22, %35 ], [ 2, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
   %38 = select i1 %29, i32 54, i32 25
   %39 = select i1 %29, i32 55, i32 26
   %.sroa.0141.0.copyload = load ptr, ptr %6, align 8, !tbaa !317

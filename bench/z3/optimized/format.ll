@@ -2030,11 +2030,11 @@ _ZN9decl_infoD2Ev.exit116:                        ; preds = %_ZN11ast_manager12m
   br label %219
 
 218:                                              ; preds = %7, %_ZN9decl_infoD2Ev.exit116, %_ZN9decl_infoD2Ev.exit101, %_ZN9decl_infoD2Ev.exit86, %_ZN9decl_infoD2Ev.exit71, %_ZN9decl_infoD2Ev.exit56, %_ZN9decl_infoD2Ev.exit41, %_ZN9decl_infoD2Ev.exit
-  %.025 = phi ptr [ %204, %_ZN9decl_infoD2Ev.exit116 ], [ %175, %_ZN9decl_infoD2Ev.exit101 ], [ %146, %_ZN9decl_infoD2Ev.exit86 ], [ %117, %_ZN9decl_infoD2Ev.exit71 ], [ %88, %_ZN9decl_infoD2Ev.exit56 ], [ %59, %_ZN9decl_infoD2Ev.exit41 ], [ %30, %_ZN9decl_infoD2Ev.exit ], [ null, %7 ]
+  %.025 = phi ptr [ %30, %_ZN9decl_infoD2Ev.exit ], [ %59, %_ZN9decl_infoD2Ev.exit41 ], [ %88, %_ZN9decl_infoD2Ev.exit56 ], [ %117, %_ZN9decl_infoD2Ev.exit71 ], [ %146, %_ZN9decl_infoD2Ev.exit86 ], [ %175, %_ZN9decl_infoD2Ev.exit101 ], [ %204, %_ZN9decl_infoD2Ev.exit116 ], [ null, %7 ]
   ret ptr %.025
 
 219:                                              ; preds = %216, %187, %158, %129, %100, %71, %42
-  %.pn = phi { ptr, i32 } [ %217, %216 ], [ %188, %187 ], [ %159, %158 ], [ %130, %129 ], [ %101, %100 ], [ %72, %71 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %72, %71 ], [ %101, %100 ], [ %130, %129 ], [ %159, %158 ], [ %188, %187 ], [ %217, %216 ]
   resume { ptr, i32 } %.pn
 }
 

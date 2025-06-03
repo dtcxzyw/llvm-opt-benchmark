@@ -3717,12 +3717,12 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   br label %117
 
 117:                                              ; preds = %116, %46, %44, %35
-  %.sroa.14.0 = phi i32 [ %.sroa.14.0.copyload, %35 ], [ 1, %46 ], [ 0, %44 ], [ 2, %116 ]
-  %.sroa.0102.sroa.0.0 = phi i16 [ %.sroa.0102.sroa.0.0.extract.trunc, %35 ], [ %42, %46 ], [ %42, %44 ], [ %.sroa.067.sroa.0.0.insert.insert, %116 ]
-  %.sroa.0102.sroa.5.0 = phi i16 [ %.sroa.0102.sroa.5.0.extract.trunc, %35 ], [ %.sroa.085.0.insert.insert, %46 ], [ %.sroa.089.0.insert.insert, %44 ], [ %.sroa.062.0.insert.insert, %116 ]
-  %.sroa.0102.sroa.8.0 = phi i64 [ %.sroa.0102.sroa.8.0.extract.shift, %35 ], [ %.sroa.083.0.insert.insert, %46 ], [ %.sroa.087.0.insert.insert, %44 ], [ %.sroa.0.0.insert.insert, %116 ]
-  %.sroa.0102.sroa.11.0 = phi i8 [ %.sroa.0102.sroa.11.0.extract.trunc, %35 ], [ 0, %46 ], [ 0, %44 ], [ %.153, %116 ]
-  %.sroa.0102.sroa.14.0 = phi i64 [ %.sroa.0102.sroa.14.0.extract.shift, %35 ], [ 0, %46 ], [ 0, %44 ], [ 0, %116 ]
+  %.sroa.14.0 = phi i32 [ %.sroa.14.0.copyload, %35 ], [ 0, %44 ], [ 1, %46 ], [ 2, %116 ]
+  %.sroa.0102.sroa.0.0 = phi i16 [ %.sroa.0102.sroa.0.0.extract.trunc, %35 ], [ %42, %44 ], [ %42, %46 ], [ %.sroa.067.sroa.0.0.insert.insert, %116 ]
+  %.sroa.0102.sroa.5.0 = phi i16 [ %.sroa.0102.sroa.5.0.extract.trunc, %35 ], [ %.sroa.089.0.insert.insert, %44 ], [ %.sroa.085.0.insert.insert, %46 ], [ %.sroa.062.0.insert.insert, %116 ]
+  %.sroa.0102.sroa.8.0 = phi i64 [ %.sroa.0102.sroa.8.0.extract.shift, %35 ], [ %.sroa.087.0.insert.insert, %44 ], [ %.sroa.083.0.insert.insert, %46 ], [ %.sroa.0.0.insert.insert, %116 ]
+  %.sroa.0102.sroa.11.0 = phi i8 [ %.sroa.0102.sroa.11.0.extract.trunc, %35 ], [ 0, %44 ], [ 0, %46 ], [ %.153, %116 ]
+  %.sroa.0102.sroa.14.0 = phi i64 [ %.sroa.0102.sroa.14.0.extract.shift, %35 ], [ 0, %44 ], [ 0, %46 ], [ 0, %116 ]
   %.sroa.0102.sroa.11.0.insert.ext = zext i8 %.sroa.0102.sroa.11.0 to i64
   %.sroa.0102.sroa.11.0.insert.shift = shl nuw nsw i64 %.sroa.0102.sroa.11.0.insert.ext, 48
   %.sroa.0102.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0102.sroa.11.0.insert.shift, %.sroa.0102.sroa.14.0

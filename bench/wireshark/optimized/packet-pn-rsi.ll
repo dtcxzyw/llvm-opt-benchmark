@@ -465,7 +465,7 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %dissect_FREQ_RTA_block.exit
 
 dissect_FREQ_RTA_block.exit:                      ; preds = %97, %99, %102, %104, %106, %108, %110, %112, %114, %116, %118
-  %.0.i = phi i32 [ %120, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %99 ], [ %98, %97 ]
+  %.0.i = phi i32 [ %120, %118 ], [ %98, %97 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   br label %157
 
@@ -537,7 +537,7 @@ dissect_FRSP_RTA_block.exit:                      ; preds = %149, %151
   br label %157
 
 157:                                              ; preds = %71, %75, %154, %dissect_FRSP_RTA_block.exit, %dissect_FREQ_RTA_block.exit, %77
-  %.0 = phi i32 [ %156, %154 ], [ %.1.i.i, %dissect_FRSP_RTA_block.exit ], [ %.0.i, %dissect_FREQ_RTA_block.exit ], [ %79, %77 ], [ %68, %75 ], [ %68, %71 ]
+  %.0 = phi i32 [ %156, %154 ], [ %68, %75 ], [ %68, %71 ], [ %79, %77 ], [ %.0.i, %dissect_FREQ_RTA_block.exit ], [ %.1.i.i, %dissect_FRSP_RTA_block.exit ]
   %158 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %20, i32 noundef %158)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #3

@@ -104,8 +104,8 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %49, %46
-  %55 = phi i64 [ 8, %46 ], [ 7, %49 ]
-  %.2 = phi i32 [ 0, %46 ], [ %53, %49 ]
+  %55 = phi i64 [ 7, %49 ], [ 8, %46 ]
+  %.2 = phi i32 [ %53, %49 ], [ 0, %46 ]
   %56 = getelementptr i8, ptr %47, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -1
   %58 = load i8, ptr %57, align 1, !tbaa !7
@@ -115,8 +115,8 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %62
 
 62:                                               ; preds = %54, %46
-  %.3203 = phi ptr [ %48, %46 ], [ %57, %54 ]
-  %.3 = phi i32 [ 0, %46 ], [ %61, %54 ]
+  %.3203 = phi ptr [ %57, %54 ], [ %48, %46 ]
+  %.3 = phi i32 [ %61, %54 ], [ 0, %46 ]
   %63 = getelementptr inbounds i8, ptr %.3203, i64 -1
   %64 = load i8, ptr %63, align 1, !tbaa !7
   %65 = zext i8 %64 to i32
@@ -124,8 +124,8 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %67
 
 67:                                               ; preds = %62, %46
-  %.4204 = phi ptr [ %48, %46 ], [ %63, %62 ]
-  %.4 = phi i32 [ 0, %46 ], [ %66, %62 ]
+  %.4204 = phi ptr [ %63, %62 ], [ %48, %46 ]
+  %.4 = phi i32 [ %66, %62 ], [ 0, %46 ]
   %68 = getelementptr inbounds i8, ptr %.4204, i64 -1
   %69 = load i8, ptr %68, align 1, !tbaa !7
   %70 = zext i8 %69 to i32
@@ -133,9 +133,9 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %72
 
 72:                                               ; preds = %67, %46
-  %.5205 = phi ptr [ %48, %46 ], [ %68, %67 ]
-  %.1197 = phi i32 [ 0, %46 ], [ %71, %67 ]
-  %.5 = phi i32 [ 0, %46 ], [ %.4, %67 ]
+  %.5205 = phi ptr [ %68, %67 ], [ %48, %46 ]
+  %.1197 = phi i32 [ %71, %67 ], [ 0, %46 ]
+  %.5 = phi i32 [ %.4, %67 ], [ 0, %46 ]
   %73 = getelementptr inbounds i8, ptr %.5205, i64 -1
   %74 = load i8, ptr %73, align 1, !tbaa !7
   %75 = zext i8 %74 to i32
@@ -144,9 +144,9 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %78
 
 78:                                               ; preds = %72, %46
-  %.6206 = phi ptr [ %48, %46 ], [ %73, %72 ]
-  %.2198 = phi i32 [ 0, %46 ], [ %77, %72 ]
-  %.6 = phi i32 [ 0, %46 ], [ %.5, %72 ]
+  %.6206 = phi ptr [ %73, %72 ], [ %48, %46 ]
+  %.2198 = phi i32 [ %77, %72 ], [ 0, %46 ]
+  %.6 = phi i32 [ %.5, %72 ], [ 0, %46 ]
   %79 = getelementptr inbounds i8, ptr %.6206, i64 -1
   %80 = load i8, ptr %79, align 1, !tbaa !7
   %81 = zext i8 %80 to i32
@@ -155,9 +155,9 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %84
 
 84:                                               ; preds = %46, %78
-  %.7207 = phi ptr [ %48, %46 ], [ %79, %78 ]
-  %.3199 = phi i32 [ 0, %46 ], [ %83, %78 ]
-  %.7 = phi i32 [ 0, %46 ], [ %.6, %78 ]
+  %.7207 = phi ptr [ %79, %78 ], [ %48, %46 ]
+  %.3199 = phi i32 [ %83, %78 ], [ 0, %46 ]
+  %.7 = phi i32 [ %.6, %78 ], [ 0, %46 ]
   %85 = getelementptr inbounds i8, ptr %.7207, i64 -1
   %86 = load i8, ptr %85, align 1, !tbaa !7
   %87 = zext i8 %86 to i32
@@ -328,7 +328,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %187
 
 187:                                              ; preds = %183, %172
-  %188 = phi i64 [ 8, %172 ], [ 7, %183 ]
+  %188 = phi i64 [ 7, %183 ], [ 8, %172 ]
   %189 = getelementptr i8, ptr %181, i64 %188
   %190 = lshr i32 %180, 8
   %191 = trunc i32 %190 to i8
@@ -337,14 +337,14 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %193
 
 193:                                              ; preds = %187, %172
-  %.4212 = phi ptr [ %182, %172 ], [ %192, %187 ]
+  %.4212 = phi ptr [ %192, %187 ], [ %182, %172 ]
   %194 = trunc i32 %180 to i8
   %195 = getelementptr inbounds i8, ptr %.4212, i64 -1
   store i8 %194, ptr %195, align 1, !tbaa !7
   br label %196
 
 196:                                              ; preds = %193, %172
-  %.5213 = phi ptr [ %182, %172 ], [ %195, %193 ]
+  %.5213 = phi ptr [ %195, %193 ], [ %182, %172 ]
   %197 = lshr i32 %178, 24
   %198 = trunc nuw i32 %197 to i8
   %199 = getelementptr inbounds i8, ptr %.5213, i64 -1
@@ -352,7 +352,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %200
 
 200:                                              ; preds = %196, %172
-  %.6214 = phi ptr [ %182, %172 ], [ %199, %196 ]
+  %.6214 = phi ptr [ %199, %196 ], [ %182, %172 ]
   %201 = lshr i32 %178, 16
   %202 = trunc i32 %201 to i8
   %203 = getelementptr inbounds i8, ptr %.6214, i64 -1
@@ -360,7 +360,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %204
 
 204:                                              ; preds = %200, %172
-  %.7215 = phi ptr [ %182, %172 ], [ %203, %200 ]
+  %.7215 = phi ptr [ %203, %200 ], [ %182, %172 ]
   %205 = lshr i32 %178, 8
   %206 = trunc i32 %205 to i8
   %207 = getelementptr inbounds i8, ptr %.7215, i64 -1
@@ -368,7 +368,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %208
 
 208:                                              ; preds = %172, %204
-  %.8216 = phi ptr [ %182, %172 ], [ %207, %204 ]
+  %.8216 = phi ptr [ %207, %204 ], [ %182, %172 ]
   %209 = trunc i32 %178 to i8
   %210 = getelementptr inbounds i8, ptr %.8216, i64 -1
   store i8 %209, ptr %210, align 1, !tbaa !7

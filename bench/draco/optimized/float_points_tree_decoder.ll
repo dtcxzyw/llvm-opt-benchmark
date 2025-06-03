@@ -499,7 +499,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_24Conversion
   br label %_ZN5draco13DecoderBuffer6DecodeIfEEbPT_.exit
 
 102:                                              ; preds = %89, %85, %81, %77, %73, %69, %65
-  %.pn = phi { ptr, i32 } [ %90, %89 ], [ %86, %85 ], [ %82, %81 ], [ %78, %77 ], [ %74, %73 ], [ %70, %69 ], [ %66, %65 ]
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %70, %69 ], [ %74, %73 ], [ %78, %77 ], [ %82, %81 ], [ %86, %85 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn
 

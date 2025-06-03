@@ -1099,7 +1099,7 @@ is_typename.exit.thread46:                        ; preds = %.loopexit.i, %is_ty
   unreachable
 
 254:                                              ; preds = %239, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240
-  %.5.in = phi ptr [ @ty_ldouble, %251 ], [ @ty_double, %250 ], [ @ty_float, %249 ], [ @ty_ulong, %248 ], [ @ty_long, %247 ], [ @ty_uint, %246 ], [ @ty_int, %245 ], [ @ty_ushort, %244 ], [ @ty_short, %243 ], [ @ty_uchar, %242 ], [ @ty_char, %241 ], [ @ty_bool, %240 ], [ @ty_void, %239 ]
+  %.5.in = phi ptr [ @ty_bool, %240 ], [ @ty_char, %241 ], [ @ty_uchar, %242 ], [ @ty_short, %243 ], [ @ty_ushort, %244 ], [ @ty_int, %245 ], [ @ty_uint, %246 ], [ @ty_long, %247 ], [ @ty_ulong, %248 ], [ @ty_float, %249 ], [ @ty_double, %250 ], [ @ty_ldouble, %251 ], [ @ty_void, %239 ]
   %.5 = load ptr, ptr %.5.in, align 8, !tbaa !52
   %255 = load ptr, ptr %4, align 8, !tbaa !25
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
@@ -2368,8 +2368,8 @@ tailrecurse.backedge:                             ; preds = %183, %8
   unreachable
 
 300:                                              ; preds = %232, %241, %250, %228, %221, %211, %201, %294, %292, %269, %256, %252, %tailrecurse.outer._crit_edge
-  %accumulator.tr.ph236 = phi i64 [ %accumulator.tr.ph.lcssa235, %tailrecurse.outer._crit_edge ], [ %accumulator.tr.ph246, %294 ], [ %accumulator.tr.ph246, %292 ], [ %accumulator.tr.ph246, %269 ], [ %accumulator.tr.ph246, %256 ], [ %accumulator.tr.ph246, %252 ], [ %accumulator.tr.ph246, %201 ], [ %accumulator.tr.ph246, %211 ], [ %accumulator.tr.ph246, %250 ], [ %accumulator.tr.ph246, %241 ], [ %accumulator.tr.ph246, %232 ], [ %accumulator.tr.ph246, %228 ], [ %accumulator.tr.ph246, %221 ]
-  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %296, %294 ], [ 0, %292 ], [ %278, %269 ], [ 0, %256 ], [ %255, %252 ], [ 0, %201 ], [ 1, %211 ], [ %251, %250 ], [ %249, %241 ], [ %240, %232 ], [ %225, %228 ], [ %225, %221 ]
+  %accumulator.tr.ph236 = phi i64 [ %accumulator.tr.ph.lcssa235, %tailrecurse.outer._crit_edge ], [ %accumulator.tr.ph246, %252 ], [ %accumulator.tr.ph246, %256 ], [ %accumulator.tr.ph246, %269 ], [ %accumulator.tr.ph246, %292 ], [ %accumulator.tr.ph246, %294 ], [ %accumulator.tr.ph246, %201 ], [ %accumulator.tr.ph246, %211 ], [ %accumulator.tr.ph246, %232 ], [ %accumulator.tr.ph246, %241 ], [ %accumulator.tr.ph246, %250 ], [ %accumulator.tr.ph246, %228 ], [ %accumulator.tr.ph246, %221 ]
+  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %255, %252 ], [ 0, %256 ], [ %278, %269 ], [ 0, %292 ], [ %296, %294 ], [ 0, %201 ], [ 1, %211 ], [ %240, %232 ], [ %249, %241 ], [ %251, %250 ], [ %225, %228 ], [ %225, %221 ]
   %accumulator.ret.tr133 = add nsw i64 %.0, %accumulator.tr.ph236
   br label %common.ret650
 }
@@ -2418,7 +2418,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   ]
 
 common.ret85:                                     ; preds = %77, %73, %13, %11, %48, %40, %32, %24, %16
-  %common.ret85.op = phi double [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %47, %40 ], [ %52, %48 ], [ %12, %11 ], [ %14, %13 ], [ %80, %77 ], [ %76, %73 ]
+  %common.ret85.op = phi double [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %47, %40 ], [ %52, %48 ], [ %12, %11 ], [ %14, %13 ], [ %76, %73 ], [ %80, %77 ]
   ret double %common.ret85.op
 
 16:                                               ; preds = %.lr.ph
@@ -2560,7 +2560,7 @@ define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, pt
   br label %common.ret11
 
 common.ret11:                                     ; preds = %15, %13, %19
-  %common.ret11.op = phi i64 [ %28, %19 ], [ %18, %15 ], [ 0, %13 ]
+  %common.ret11.op = phi i64 [ %28, %19 ], [ 0, %13 ], [ %18, %15 ]
   ret i64 %common.ret11.op
 
 19:                                               ; preds = %2

@@ -5557,7 +5557,7 @@ _ZN4Node7del_outEPS_.exit.i.i:                    ; preds = %752, %740, %_ZN8Gra
   br label %_ZN12StringConcat12set_argumentEiP4Node.exit
 
 _ZN12StringConcat12set_argumentEiP4Node.exit:     ; preds = %768, %757, %_ZN4Node7del_outEPS_.exit.i.i, %559, %308
-  %.0192 = phi ptr [ %313, %308 ], [ %313, %559 ], [ null, %_ZN4Node7del_outEPS_.exit.i.i ], [ %734, %757 ], [ %734, %768 ]
+  %.0192 = phi ptr [ %313, %559 ], [ %313, %308 ], [ null, %_ZN4Node7del_outEPS_.exit.i.i ], [ %734, %757 ], [ %734, %768 ]
   %774 = load ptr, ptr %204, align 8
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 40
   %776 = load ptr, ptr %775, align 8
@@ -7044,9 +7044,9 @@ _ZN8GraphKit4AddIEP4NodeS1_.exit399:              ; preds = %_ZN4NodenwEm.exit.i
   unreachable
 
 _ZN8GraphKit11set_controlEP4Node.exit243:         ; preds = %553, %542, %_ZN8GraphKit4AddIEP4NodeS1_.exit, %507, %496, %_ZN4Node7del_outEPS_.exit.i.i.i239, %_ZN8GraphKit4AddIEP4NodeS1_.exit399, %_ZN8GraphKit4AddIEP4NodeS1_.exit373
-  %.2188 = phi i8 [ %.4190, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %.3189454, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %.1187478, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.1187478, %496 ], [ %.1187478, %507 ], [ %.1187478, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %.1187478, %542 ], [ %.1187478, %553 ]
-  %.1185 = phi ptr [ %1627, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %1427, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %.0184479, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.0184479, %496 ], [ %.0184479, %507 ], [ %539, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %539, %542 ], [ %539, %553 ]
-  %.2 = phi ptr [ %.5, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %.4, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %.1183480, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.1183480, %496 ], [ %.1183480, %507 ], [ %.1183480, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %.1183480, %542 ], [ %.1183480, %553 ]
+  %.2188 = phi i8 [ %.3189454, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %.4190, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %.1187478, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.1187478, %496 ], [ %.1187478, %507 ], [ %.1187478, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %.1187478, %542 ], [ %.1187478, %553 ]
+  %.1185 = phi ptr [ %1427, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %1627, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %.0184479, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.0184479, %496 ], [ %.0184479, %507 ], [ %539, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %539, %542 ], [ %539, %553 ]
+  %.2 = phi ptr [ %.4, %_ZN8GraphKit4AddIEP4NodeS1_.exit373 ], [ %.5, %_ZN8GraphKit4AddIEP4NodeS1_.exit399 ], [ %.1183480, %_ZN4Node7del_outEPS_.exit.i.i.i239 ], [ %.1183480, %496 ], [ %.1183480, %507 ], [ %.1183480, %_ZN8GraphKit4AddIEP4NodeS1_.exit ], [ %.1183480, %542 ], [ %.1183480, %553 ]
   %.not = icmp eq i64 %indvars.iv508, 0
   br i1 %.not, label %_ZN4Node7set_reqEjPS_.exit431, label %1630
 
@@ -7669,7 +7669,7 @@ _ZN8GraphKit7LShiftIEP4NodeS1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
   unreachable
 
 1977:                                             ; preds = %1966, %1971, %1973, %1957
-  %.1 = phi ptr [ %1974, %1973 ], [ %1972, %1971 ], [ %1970, %1966 ], [ %.0177485, %1957 ]
+  %.1 = phi ptr [ %.0177485, %1957 ], [ %1970, %1966 ], [ %1972, %1971 ], [ %1974, %1973 ]
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %1978 = load i32, ptr %207, align 4
   %1979 = sext i32 %1978 to i64

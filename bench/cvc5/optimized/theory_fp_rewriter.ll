@@ -20268,7 +20268,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZN4cvc58internal12
   br label %218
 
 218:                                              ; preds = %30, %32, %216, %214, %176, %168, %141, %114, %87, %60
-  %.pn21 = phi { ptr, i32 } [ %177, %176 ], [ %217, %216 ], [ %215, %214 ], [ %.pn11, %168 ], [ %.pn13, %141 ], [ %.pn15, %114 ], [ %.pn17, %87 ], [ %.pn19, %60 ], [ %33, %32 ], [ %31, %30 ]
+  %.pn21 = phi { ptr, i32 } [ %177, %176 ], [ %217, %216 ], [ %215, %214 ], [ %.pn19, %60 ], [ %.pn17, %87 ], [ %.pn15, %114 ], [ %.pn13, %141 ], [ %.pn11, %168 ], [ %33, %32 ], [ %31, %30 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit51 unwind label %219
 

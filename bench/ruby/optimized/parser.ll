@@ -2297,7 +2297,7 @@ json_eat_whitespace.exit385:                      ; preds = %.lr.ph.i381, %623, 
   unreachable
 
 637:                                              ; preds = %490, %rvalue_stack_push.exit375, %341, %rvalue_stack_push.exit350, %rvalue_stack_push.exit326, %rvalue_stack_push.exit333, %311, %167, %rvalue_stack_push.exit320, %rvalue_stack_push.exit315, %rvalue_stack_push.exit310, %rvalue_stack_push.exit305, %rvalue_stack_push.exit
-  %.0 = phi i64 [ %312, %311 ], [ %171, %167 ], [ %142, %rvalue_stack_push.exit320 ], [ %115, %rvalue_stack_push.exit315 ], [ 0, %rvalue_stack_push.exit310 ], [ 20, %rvalue_stack_push.exit305 ], [ 4, %rvalue_stack_push.exit ], [ %.0.i321, %rvalue_stack_push.exit326 ], [ %.0.i328, %rvalue_stack_push.exit333 ], [ %343, %341 ], [ %.017.i, %rvalue_stack_push.exit350 ], [ %492, %490 ], [ %566, %rvalue_stack_push.exit375 ]
+  %.0 = phi i64 [ 4, %rvalue_stack_push.exit ], [ 20, %rvalue_stack_push.exit305 ], [ 0, %rvalue_stack_push.exit310 ], [ %115, %rvalue_stack_push.exit315 ], [ %142, %rvalue_stack_push.exit320 ], [ %171, %167 ], [ %312, %311 ], [ %.0.i321, %rvalue_stack_push.exit326 ], [ %.0.i328, %rvalue_stack_push.exit333 ], [ %343, %341 ], [ %.017.i, %rvalue_stack_push.exit350 ], [ %492, %490 ], [ %566, %rvalue_stack_push.exit375 ]
   ret i64 %.0
 }
 
@@ -2729,9 +2729,9 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   br label %rbimpl_size_mul_or_raise.exit97.i.i
 
 rbimpl_size_mul_or_raise.exit97.i.i:              ; preds = %194, %183, %175, %171, %122, %119, %70, %69, %68, %67, %66, %65, %62
-  %.187.i.i = phi ptr [ %63, %70 ], [ %63, %69 ], [ %63, %68 ], [ %63, %67 ], [ %63, %66 ], [ %63, %65 ], [ %63, %62 ], [ %116, %122 ], [ %116, %119 ], [ %96, %171 ], [ %96, %175 ], [ %.288109115118.i.i, %183 ], [ %.288109115123.i.i, %194 ]
-  %.084.i.i = phi ptr [ @.str.68, %70 ], [ @.str.67, %69 ], [ @.str.66, %68 ], [ @.str.65, %67 ], [ @.str.64, %66 ], [ @.str.63, %65 ], [ @.str.62, %62 ], [ @.str.61, %122 ], [ @.str.61, %119 ], [ %4, %171 ], [ %4, %175 ], [ %4, %183 ], [ %4, %194 ]
-  %.079.i.i = phi i64 [ 1, %70 ], [ 1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 1, %65 ], [ 1, %62 ], [ 1, %122 ], [ 1, %119 ], [ 1, %171 ], [ 2, %175 ], [ 3, %183 ], [ 4, %194 ]
+  %.187.i.i = phi ptr [ %63, %65 ], [ %63, %66 ], [ %63, %67 ], [ %63, %68 ], [ %63, %69 ], [ %63, %70 ], [ %63, %62 ], [ %116, %122 ], [ %116, %119 ], [ %96, %171 ], [ %96, %175 ], [ %.288109115118.i.i, %183 ], [ %.288109115123.i.i, %194 ]
+  %.084.i.i = phi ptr [ @.str.63, %65 ], [ @.str.64, %66 ], [ @.str.65, %67 ], [ @.str.66, %68 ], [ @.str.67, %69 ], [ @.str.68, %70 ], [ @.str.62, %62 ], [ @.str.61, %122 ], [ @.str.61, %119 ], [ %4, %171 ], [ %4, %175 ], [ %4, %183 ], [ %4, %194 ]
+  %.079.i.i = phi i64 [ 1, %65 ], [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 1, %62 ], [ 1, %122 ], [ 1, %119 ], [ 1, %171 ], [ 2, %175 ], [ 3, %183 ], [ 4, %194 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.182.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %.084.i.i, i64 noundef range(i64 1, 0) %.079.i.i, i1 noundef false) #20
   %209 = getelementptr inbounds nuw i8, ptr %.182.i.i, i64 %.079.i.i
   %210 = getelementptr inbounds nuw i8, ptr %.187.i.i, i64 1

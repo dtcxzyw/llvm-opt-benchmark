@@ -640,7 +640,7 @@ define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr readnone captur
   br label %dissect_fmp_vmInfo.exit
 
 dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.lr.ph.i, %70, %48, %36, %33, %30, %17, %9, %4
-  %.0 = phi i32 [ %6, %4 ], [ %13, %9 ], [ %13, %70 ], [ %47, %36 ], [ %35, %33 ], [ %32, %30 ], [ %52, %48 ], [ %.0393.i, %17 ], [ %.039.i, %.lr.ph.i ], [ %68, %._crit_edge.i.i ]
+  %.0 = phi i32 [ %6, %4 ], [ %13, %9 ], [ %32, %30 ], [ %35, %33 ], [ %47, %36 ], [ %13, %70 ], [ %52, %48 ], [ %.0393.i, %17 ], [ %.039.i, %.lr.ph.i ], [ %68, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret i32 %.0
 }
@@ -1545,7 +1545,7 @@ define internal fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 nounde
   br label %get_fileHandleSrc_size.exit
 
 get_fileHandleSrc_size.exit:                      ; preds = %3, %5, %9, %10, %14, %15, %16
-  %.0.i = phi i32 [ 4, %16 ], [ 1032, %15 ], [ 8, %14 ], [ %13, %10 ], [ 10, %9 ], [ %8, %5 ], [ 1028, %3 ]
+  %.0.i = phi i32 [ 4, %16 ], [ %8, %5 ], [ 10, %9 ], [ %13, %10 ], [ 8, %14 ], [ 1032, %15 ], [ 1028, %3 ]
   %17 = load i32, ptr @ett_fmp_fileHandle, align 4
   %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %.0.i, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.282)
   %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1)
@@ -1655,7 +1655,7 @@ get_fileHandleSrc_size.exit:                      ; preds = %3, %5, %9, %10, %14
   br label %dissect_fmp_genString.exit
 
 dissect_fmp_genString.exit:                       ; preds = %86, %79, %63, %56, %53, %46, %get_fileHandleSrc_size.exit, %66, %42, %39, %29, %26, %23
-  %.0 = phi i32 [ %22, %get_fileHandleSrc_size.exit ], [ %78, %66 ], [ %45, %42 ], [ %41, %39 ], [ %38, %29 ], [ %28, %26 ], [ %25, %23 ], [ %55, %53 ], [ %49, %46 ], [ %65, %63 ], [ %59, %56 ], [ %88, %86 ], [ %82, %79 ]
+  %.0 = phi i32 [ %22, %get_fileHandleSrc_size.exit ], [ %25, %23 ], [ %28, %26 ], [ %38, %29 ], [ %41, %39 ], [ %45, %42 ], [ %78, %66 ], [ %55, %53 ], [ %49, %46 ], [ %65, %63 ], [ %59, %56 ], [ %88, %86 ], [ %82, %79 ]
   ret i32 %.0
 }
 
@@ -1794,7 +1794,7 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   br i1 %exitcond.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_fmp_VolumeDescription.exit:               ; preds = %.lr.ph.i, %.lr.ph95.i, %.lr.ph99.i, %.lr.ph, %20, %28, %42, %51, %60, %73
-  %.1.i = phi i32 [ %19, %.lr.ph ], [ %59, %51 ], [ %27, %20 ], [ %27, %42 ], [ %34, %28 ], [ %68, %60 ], [ %79, %73 ], [ %40, %.lr.ph99.i ], [ %71, %.lr.ph95.i ], [ %82, %.lr.ph.i ]
+  %.1.i = phi i32 [ %19, %.lr.ph ], [ %27, %20 ], [ %27, %42 ], [ %59, %51 ], [ %34, %28 ], [ %68, %60 ], [ %79, %73 ], [ %40, %.lr.ph99.i ], [ %71, %.lr.ph95.i ], [ %82, %.lr.ph.i ]
   %84 = add i32 %.027, -1
   %.not = icmp eq i32 %84, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13

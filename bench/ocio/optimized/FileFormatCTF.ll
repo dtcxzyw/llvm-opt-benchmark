@@ -5339,8 +5339,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__g
   ret void
 
 168:                                              ; preds = %44, %48, %92, %145, %46, %27, %25
-  %.sroa.8.062 = phi ptr [ null, %27 ], [ null, %25 ], [ %.val36, %44 ], [ %.val36, %46 ], [ %.val36, %145 ], [ %.val36, %92 ], [ %.val36, %48 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %45, %44 ], [ %47, %46 ], [ %146, %145 ], [ %93, %92 ], [ %49, %48 ]
+  %.sroa.8.062 = phi ptr [ null, %27 ], [ null, %25 ], [ %.val36, %44 ], [ %.val36, %46 ], [ %.val36, %92 ], [ %.val36, %145 ], [ %.val36, %48 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %45, %44 ], [ %47, %46 ], [ %93, %92 ], [ %146, %145 ], [ %49, %48 ]
   call fastcc void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.sroa.8.062) #26
   resume { ptr, i32 } %.pn.pn.pn.pn
 

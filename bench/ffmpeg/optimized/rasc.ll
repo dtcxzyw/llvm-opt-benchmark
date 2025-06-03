@@ -1242,8 +1242,8 @@ bytestream2_init.exit.i93:                        ; preds = %615
   br label %.thread
 
 628:                                              ; preds = %bytestream2_init.exit.i93, %bytestream2_init.exit187.i
-  %.sroa.36.0.i = phi ptr [ %626, %bytestream2_init.exit.i93 ], [ %614, %bytestream2_init.exit187.i ]
-  %.sroa.0.0.i = phi ptr [ %624, %bytestream2_init.exit.i93 ], [ %612, %bytestream2_init.exit187.i ]
+  %.sroa.36.0.i = phi ptr [ %614, %bytestream2_init.exit187.i ], [ %626, %bytestream2_init.exit.i93 ]
+  %.sroa.0.0.i = phi ptr [ %612, %bytestream2_init.exit187.i ], [ %624, %bytestream2_init.exit.i93 ]
   %629 = ptrtoint ptr %.sroa.36.0.i to i64
   %630 = ptrtoint ptr %.sroa.0.0.i to i64
   %631 = sub i64 %629, %630
@@ -1769,7 +1769,7 @@ decode_mpos.exit:                                 ; preds = %bytestream2_get_le3
   br label %904
 
 904:                                              ; preds = %61, %decode_mpos.exit, %901, %.critedge78.i, %._crit_edge.i, %.thread236.i, %852
-  %.066 = phi i32 [ 0, %901 ], [ 0, %decode_mpos.exit ], [ %62, %61 ], [ 0, %.critedge78.i ], [ 0, %._crit_edge.i ], [ 0, %.thread236.i ], [ 0, %852 ]
+  %.066 = phi i32 [ 0, %901 ], [ %62, %61 ], [ 0, %decode_mpos.exit ], [ 0, %.critedge78.i ], [ 0, %._crit_edge.i ], [ 0, %.thread236.i ], [ 0, %852 ]
   %905 = icmp sgt i32 %.066, -1
   br i1 %905, label %24, label %.thread, !llvm.loop !76
 

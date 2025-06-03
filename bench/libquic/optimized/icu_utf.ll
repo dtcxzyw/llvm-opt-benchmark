@@ -59,9 +59,9 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   br label %32
 
 32:                                               ; preds = %15, %28
-  %.179 = phi i32 [ %6, %15 ], [ %29, %28 ]
-  %.175 = phi i8 [ 0, %15 ], [ %31, %28 ]
-  %.172 = phi i32 [ %18, %15 ], [ %26, %28 ]
+  %.179 = phi i32 [ %29, %28 ], [ %6, %15 ]
+  %.175 = phi i8 [ %31, %28 ], [ 0, %15 ]
+  %.172 = phi i32 [ %26, %28 ], [ %18, %15 ]
   %33 = add nsw i32 %.179, 1
   %34 = sext i32 %.179 to i64
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
@@ -76,9 +76,9 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   br label %44
 
 44:                                               ; preds = %15, %32
-  %.280 = phi i32 [ %6, %15 ], [ %33, %32 ]
-  %.276 = phi i8 [ 0, %15 ], [ %43, %32 ]
-  %.2 = phi i32 [ %18, %15 ], [ %40, %32 ]
+  %.280 = phi i32 [ %33, %32 ], [ %6, %15 ]
+  %.276 = phi i8 [ %43, %32 ], [ 0, %15 ]
+  %.2 = phi i32 [ %40, %32 ], [ %18, %15 ]
   %45 = add nsw i32 %.280, 1
   %46 = sext i32 %.280 to i64
   %47 = getelementptr inbounds i8, ptr %0, i64 %46

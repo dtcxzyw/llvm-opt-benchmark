@@ -450,7 +450,7 @@ define internal noundef i32 @_ZL22stringIteratorGetIndexP13UCharIterator19UCharI
   br label %16
 
 16:                                               ; preds = %2, %15, %12, %9, %6, %3
-  %.0 = phi i32 [ -1, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %15 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -489,7 +489,7 @@ define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIter
   br label %20
 
 20:                                               ; preds = %3, %16, %12, %8, %4
-  %.0 = phi i32 [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ %1, %3 ]
+  %.0 = phi i32 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %1, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !27
   %23 = icmp slt i32 %.0, %22
@@ -811,7 +811,7 @@ define internal noundef i32 @_ZL25characterIteratorGetIndexP13UCharIterator19UCh
   br label %20
 
 20:                                               ; preds = %2, %19, %15, %11, %7, %3
-  %.0 = phi i32 [ -1, %19 ], [ %18, %15 ], [ %14, %11 ], [ %10, %7 ], [ %6, %3 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %19 ], [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -859,7 +859,7 @@ define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharI
   br label %31
 
 31:                                               ; preds = %3, %19, %13, %4
-  %.0 = phi i32 [ %30, %19 ], [ %18, %13 ], [ %12, %4 ], [ -1, %3 ]
+  %.0 = phi i32 [ %12, %4 ], [ %18, %13 ], [ %30, %19 ], [ -1, %3 ]
   ret i32 %.0
 }
 

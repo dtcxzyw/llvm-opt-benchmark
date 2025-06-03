@@ -4089,7 +4089,7 @@ define hidden noundef ptr @_ZN3api7context6mk_andEjPKP4expr(ptr noundef nonnull 
   br label %16
 
 16:                                               ; preds = %12, %9, %4
-  %.0 = phi ptr [ %15, %12 ], [ %11, %9 ], [ %8, %4 ]
+  %.0 = phi ptr [ %15, %12 ], [ %8, %4 ], [ %11, %9 ]
   ret ptr %.0
 }
 

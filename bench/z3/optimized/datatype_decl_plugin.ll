@@ -9939,7 +9939,7 @@ define hidden noundef ptr @_ZN8datatype4decl6plugin12mk_func_declEijPK9parameter
   unreachable
 
 21:                                               ; preds = %16, %14, %12, %10, %8
-  %.0 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0 = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret ptr %.0
 }
 

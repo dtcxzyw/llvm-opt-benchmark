@@ -1829,7 +1829,7 @@ define internal void @_ZN4ncnnL13convolution1dERKNS_3MatERS0_S2_S2_iiiiS2_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %104, %99, %98, %93, %86, %80, %76, %72, %66, %._crit_edge79.us
-  %.170.us = phi nsz float [ %.1.lcssa.us, %._crit_edge79.us ], [ %.1.lcssa.us, %72 ], [ %79, %76 ], [ %85, %80 ], [ %92, %86 ], [ %95, %98 ], [ %.069.us, %93 ], [ %103, %99 ], [ %105, %104 ], [ 0.000000e+00, %66 ]
+  %.170.us = phi nsz float [ %.1.lcssa.us, %._crit_edge79.us ], [ %105, %104 ], [ %103, %99 ], [ %95, %98 ], [ %.069.us, %93 ], [ %92, %86 ], [ %85, %80 ], [ %.1.lcssa.us, %72 ], [ %79, %76 ], [ 0.000000e+00, %66 ]
   %106 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv105
   store float %.170.us, ptr %106, align 4, !tbaa !59
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1

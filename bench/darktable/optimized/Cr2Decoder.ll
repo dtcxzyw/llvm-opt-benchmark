@@ -2603,8 +2603,8 @@ switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOB
 53:                                               ; preds = %switch.lookup
   unreachable
 
-54:                                               ; preds = %40, %40, %47, %43, %42, %45, %49, %51
-  %.sroa.050.0.i.ph = phi i64 [ %spec.select52.i, %51 ], [ %spec.select51.i, %49 ], [ %spec.select.i, %45 ], [ 3092376453835, %42 ], [ 3109556323023, %43 ], [ 2078764171743, %47 ], [ 2993592206004, %40 ], [ 2993592206004, %40 ]
+54:                                               ; preds = %40, %40, %42, %43, %47, %45, %49, %51
+  %.sroa.050.0.i.ph = phi i64 [ %spec.select52.i, %51 ], [ %spec.select51.i, %49 ], [ %spec.select.i, %45 ], [ 2078764171743, %47 ], [ 3109556323023, %43 ], [ 3092376453835, %42 ], [ 2993592206004, %40 ], [ 2993592206004, %40 ]
   %.sroa.071.4.extract.shift = lshr i64 %.sroa.050.0.i.ph, 32
   %.sroa.071.4.extract.trunc = trunc nuw nsw i64 %.sroa.071.4.extract.shift to i32
   %55 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %.sroa.071.4.extract.trunc)
@@ -3371,7 +3371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   br label %80
 
 80:                                               ; preds = %.critedge31.thread, %34, %72, %26
-  %.019 = phi i32 [ %33, %26 ], [ %71, %.critedge31.thread ], [ %79, %72 ], [ 0, %34 ]
+  %.019 = phi i32 [ %33, %26 ], [ %79, %72 ], [ %71, %.critedge31.thread ], [ 0, %34 ]
   ret i32 %.019
 }
 

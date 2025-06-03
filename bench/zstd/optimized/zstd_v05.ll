@@ -5978,8 +5978,8 @@ define internal fastcc i64 @ZSTDv05_decompressBlock_internal(ptr noundef %0, ptr
   br label %159
 
 159:                                              ; preds = %147, %140, %138
-  %.0124.in.i = phi i32 [ %139, %138 ], [ %146, %140 ], [ %158, %147 ]
-  %.0123.i = phi i64 [ 1, %138 ], [ 2, %140 ], [ 3, %147 ]
+  %.0124.in.i = phi i32 [ %139, %138 ], [ %158, %147 ], [ %146, %140 ]
+  %.0123.i = phi i64 [ 1, %138 ], [ 3, %147 ], [ 2, %140 ]
   %.0124.i = zext nneg i32 %.0124.in.i to i64
   %160 = add nuw nsw i64 %.0123.i, %.0124.i
   %161 = add nuw nsw i64 %160, 8
@@ -6258,7 +6258,7 @@ default.unreachable:                              ; preds = %FSEv05_buildDTable_
   br label %FSEv05_buildDTable_raw.exit.i.i
 
 FSEv05_buildDTable_raw.exit.i.i:                  ; preds = %292, %307, %297, %282
-  %.296.i.i = phi ptr [ %308, %307 ], [ %278, %297 ], [ %283, %282 ], [ %278, %292 ]
+  %.296.i.i = phi ptr [ %308, %307 ], [ %283, %282 ], [ %278, %297 ], [ %278, %292 ]
   switch i32 %250, label %default.unreachable [
     i32 1, label %311
     i32 0, label %322
@@ -6340,7 +6340,7 @@ FSEv05_buildDTable_raw.exit.i.i:                  ; preds = %292, %307, %297, %2
   br label %FSEv05_buildDTable_raw.exit123.i.i
 
 FSEv05_buildDTable_raw.exit123.i.i:               ; preds = %325, %340, %330, %314
-  %.599.i.i = phi ptr [ %341, %340 ], [ %.296.i.i, %330 ], [ %315, %314 ], [ %.296.i.i, %325 ]
+  %.599.i.i = phi ptr [ %341, %340 ], [ %315, %314 ], [ %.296.i.i, %330 ], [ %.296.i.i, %325 ]
   switch i32 %252, label %default.unreachable [
     i32 1, label %344
     i32 0, label %354
@@ -7912,7 +7912,7 @@ ZSTDv05_copyRawBlock.exit:                        ; preds = %64, %59
   br label %ZSTDv05_decodeFrameHeader_Part2.exit.thread67
 
 ZSTDv05_decodeFrameHeader_Part2.exit.thread67:    ; preds = %28, %ZSTDv05_copyRawBlock.exit.thread75, %ZSTDv05_checkContinuity.exit, %66, %56, %ZSTDv05_copyRawBlock.exit, %ZSTDv05_decodeFrameHeader_Part2.exit.thread, %ZSTDv05_decodeFrameHeader_Part2.exit, %21, %5, %55, %24
-  %.049 = phi i64 [ 0, %55 ], [ -10, %24 ], [ -72, %5 ], [ -72, %21 ], [ 0, %ZSTDv05_decodeFrameHeader_Part2.exit.thread ], [ -14, %ZSTDv05_decodeFrameHeader_Part2.exit ], [ %.074, %66 ], [ -1, %56 ], [ %.0, %ZSTDv05_copyRawBlock.exit ], [ -1, %ZSTDv05_checkContinuity.exit ], [ -70, %ZSTDv05_copyRawBlock.exit.thread75 ], [ -10, %28 ]
+  %.049 = phi i64 [ -10, %24 ], [ 0, %55 ], [ -72, %5 ], [ -72, %21 ], [ 0, %ZSTDv05_decodeFrameHeader_Part2.exit.thread ], [ -14, %ZSTDv05_decodeFrameHeader_Part2.exit ], [ %.074, %66 ], [ -1, %56 ], [ %.0, %ZSTDv05_copyRawBlock.exit ], [ -1, %ZSTDv05_checkContinuity.exit ], [ -70, %ZSTDv05_copyRawBlock.exit.thread75 ], [ -10, %28 ]
   ret i64 %.049
 }
 
@@ -8248,8 +8248,8 @@ ZSTDv05_getFrameParams.exit224:                   ; preds = %52
   br label %105
 
 105:                                              ; preds = %._crit_edge316, %104
-  %106 = phi i64 [ %.pre318, %._crit_edge316 ], [ %83, %104 ]
-  %.3174 = phi ptr [ %.0171314.ph, %._crit_edge316 ], [ %.2173, %104 ]
+  %106 = phi i64 [ %83, %104 ], [ %.pre318, %._crit_edge316 ]
+  %.3174 = phi ptr [ %.2173, %104 ], [ %.0171314.ph, %._crit_edge316 ]
   %107 = load i64, ptr %20, align 8, !tbaa !95
   %108 = sub i64 %106, %107
   %109 = load i64, ptr %16, align 8, !tbaa !101
@@ -8308,9 +8308,9 @@ ZBUFFv05_limitCopy.exit226:                       ; preds = %112, %116
   br label %138
 
 138:                                              ; preds = %._crit_edge320, %135
-  %139 = phi i64 [ %.pre322, %._crit_edge320 ], [ %136, %135 ]
-  %140 = phi i64 [ %.pre321, %._crit_edge320 ], [ %137, %135 ]
-  %.4175 = phi ptr [ %.0171314.ph, %._crit_edge320 ], [ %120, %135 ]
+  %139 = phi i64 [ %136, %135 ], [ %.pre322, %._crit_edge320 ]
+  %140 = phi i64 [ %137, %135 ], [ %.pre321, %._crit_edge320 ]
+  %.4175 = phi ptr [ %120, %135 ], [ %.0171314.ph, %._crit_edge320 ]
   %141 = sub i64 %140, %139
   %142 = ptrtoint ptr %.0180313.ph.ph to i64
   %143 = sub i64 %24, %142

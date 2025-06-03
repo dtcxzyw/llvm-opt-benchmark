@@ -949,7 +949,7 @@ tailrecurse.backedge:                             ; preds = %120, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %33, %33, %33, %33, %33, %33, %33, %33, %33, %105, %104, %66, %67, %.loopexit180.split.loop.exit, %.preheader, %125, %119, %80, %89, %92, %52, %61, %40, %35
-  %.0 = phi i32 [ %.0.i128, %40 ], [ %.0.i127, %35 ], [ %.0.i129, %52 ], [ %.0.i130, %61 ], [ %.0.i131, %80 ], [ %.0.i132, %89 ], [ %99, %92 ], [ %.0.i133, %119 ], [ %.0.i156, %125 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit180.split.loop.exit ], [ 0, %66 ], [ %74, %67 ], [ 0, %104 ], [ %113, %105 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %24 ]
+  %.0 = phi i32 [ %.0.i127, %35 ], [ %.0.i128, %40 ], [ %.0.i129, %52 ], [ %.0.i130, %61 ], [ %.0.i131, %80 ], [ %.0.i132, %89 ], [ %99, %92 ], [ %.0.i133, %119 ], [ %.0.i156, %125 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit180.split.loop.exit ], [ 0, %66 ], [ %74, %67 ], [ 0, %104 ], [ %113, %105 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1035,7 +1035,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %9
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %19, %.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %22, %31, %25, %29, %30, %7
-  %.0 = phi i32 [ 0, %7 ], [ %.mux, %22 ], [ %36, %31 ], [ 0, %25 ], [ -1, %29 ], [ 1, %30 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %21, %19 ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %.mux, %22 ], [ %36, %31 ], [ 0, %25 ], [ -1, %29 ], [ 1, %30 ], [ %21, %19 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
   ret i32 %.0
 }
 
@@ -1664,7 +1664,7 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exi
   unreachable
 
 .thread:                                          ; preds = %.lr.ph514, %.lr.ph, %.lr.ph463, %179, %181, %153, %154, %125, %127, %290, %.preheader445, %.preheader442, %.preheader, %24, %24, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit, %230, %234, %100, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %51, %46, %39, %.thread424, %269, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit, %110, %114, %301, %95, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %118, %144, %170, %204, %255, %197, %288, %274, %299, %62, %58, %54, %19
-  %.1 = phi i32 [ %., %19 ], [ %14, %54 ], [ 1, %58 ], [ -1, %62 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %306, %301 ], [ %117, %114 ], [ %113, %110 ], [ %.0.i385, %95 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %118 ], [ %.0.i391, %144 ], [ %.0.i392, %170 ], [ %.0.i393, %197 ], [ %.34, %255 ], [ %.0.i394, %204 ], [ %300, %299 ], [ %279, %274 ], [ 0, %288 ], [ 1, %24 ], [ 0, %.thread424 ], [ %.0.i399, %269 ], [ %spec.select367, %51 ], [ %.0.i381, %46 ], [ %.0.i, %39 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %.0.i.i388, %100 ], [ %233, %230 ], [ %.0.i396, %234 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ 1, %24 ], [ 0, %.preheader ], [ 0, %.preheader442 ], [ 0, %.preheader445 ], [ -1, %290 ], [ 0, %125 ], [ %143, %127 ], [ 0, %153 ], [ %169, %154 ], [ 0, %179 ], [ %196, %181 ], [ %228, %.lr.ph463 ], [ -1, %.lr.ph ], [ 1, %.lr.ph514 ]
+  %.1 = phi i32 [ %., %19 ], [ %14, %54 ], [ 1, %58 ], [ -1, %62 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %113, %110 ], [ %117, %114 ], [ %306, %301 ], [ %.0.i385, %95 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %118 ], [ %.0.i391, %144 ], [ %.0.i392, %170 ], [ %.0.i393, %197 ], [ %.34, %255 ], [ %.0.i394, %204 ], [ %300, %299 ], [ %279, %274 ], [ 0, %288 ], [ 1, %24 ], [ 0, %.thread424 ], [ %.0.i399, %269 ], [ %spec.select367, %51 ], [ %.0.i381, %46 ], [ %.0.i, %39 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %.0.i.i388, %100 ], [ %233, %230 ], [ %.0.i396, %234 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ 1, %24 ], [ 0, %.preheader ], [ 0, %.preheader442 ], [ 0, %.preheader445 ], [ -1, %290 ], [ 0, %125 ], [ %143, %127 ], [ 0, %153 ], [ %169, %154 ], [ 0, %179 ], [ %196, %181 ], [ %228, %.lr.ph463 ], [ -1, %.lr.ph ], [ 1, %.lr.ph514 ]
   ret i32 %.1
 }
 
@@ -2967,7 +2967,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit540:    ; preds = %_ZNK4llvm11Instruct
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm4User10getOperandEj.exit517, %367, %366, %237, %190, %.thread630, %.preheader693, %.preheader, %.thread.loopexit696.split.loop.exit701, %.preheader695, %358, %.thread.loopexit694, %.thread.loopexit692, %.thread653, %210, %206, %202, %191, %_ZNK4llvm11Instruction11getMetadataEj.exit540, %341, %334, %311, %322, %327, %304, %276, %285, %290, %297, %269, %260, %243, %226, %172, %147, %156, %165, %145, %113, %122, %131, %138, %102, %96, %16, %32, %181, %49, %43, %34, %6, %4
-  %.1 = phi i32 [ %5, %4 ], [ %.0.i, %6 ], [ %.0.i514, %34 ], [ %48, %43 ], [ %.0.i515, %49 ], [ %.0.i531, %181 ], [ %31, %16 ], [ %33, %32 ], [ %101, %96 ], [ %.0.i519, %102 ], [ %.0.i521, %113 ], [ %.0.i522, %122 ], [ %.0.i523, %131 ], [ %.0.i524, %138 ], [ %146, %145 ], [ %.0.i526, %147 ], [ %.0.i527, %156 ], [ %.0.i528, %165 ], [ %.0.i529, %172 ], [ %.0.i544, %226 ], [ %.0.i551, %243 ], [ %.0.i554, %260 ], [ %.0.i555, %269 ], [ %.0.i557, %276 ], [ %.0.i558, %285 ], [ %.0.i559, %290 ], [ %.0.i560, %297 ], [ %.0.i561, %304 ], [ %.0.i563, %311 ], [ %.0.i564, %322 ], [ %.0.i565, %327 ], [ %.0.i566, %334 ], [ %.0.i572, %341 ], [ %225, %_ZNK4llvm11Instruction11getMetadataEj.exit540 ], [ %.0.i535, %210 ], [ %207, %206 ], [ %205, %202 ], [ %.0.i532, %191 ], [ 0, %.thread653 ], [ %.0.i573.le, %.thread.loopexit692 ], [ %.0.i552.le, %.thread.loopexit694 ], [ 0, %358 ], [ %.0.i545.le, %.thread.loopexit696.split.loop.exit701 ], [ 0, %.preheader695 ], [ 0, %.preheader ], [ 0, %.preheader693 ], [ 0, %.thread630 ], [ 0, %190 ], [ 0, %237 ], [ %380, %367 ], [ 0, %366 ], [ %94, %_ZNK4llvm4User10getOperandEj.exit517 ]
+  %.1 = phi i32 [ %.0.i531, %181 ], [ %.0.i515, %49 ], [ %48, %43 ], [ %.0.i514, %34 ], [ %.0.i, %6 ], [ %5, %4 ], [ %31, %16 ], [ %33, %32 ], [ %101, %96 ], [ %.0.i519, %102 ], [ %.0.i521, %113 ], [ %.0.i522, %122 ], [ %.0.i523, %131 ], [ %.0.i524, %138 ], [ %146, %145 ], [ %.0.i526, %147 ], [ %.0.i527, %156 ], [ %.0.i528, %165 ], [ %.0.i529, %172 ], [ %.0.i544, %226 ], [ %.0.i551, %243 ], [ %.0.i554, %260 ], [ %.0.i555, %269 ], [ %.0.i557, %276 ], [ %.0.i558, %285 ], [ %.0.i559, %290 ], [ %.0.i560, %297 ], [ %.0.i561, %304 ], [ %.0.i563, %311 ], [ %.0.i564, %322 ], [ %.0.i565, %327 ], [ %.0.i566, %334 ], [ %.0.i572, %341 ], [ %225, %_ZNK4llvm11Instruction11getMetadataEj.exit540 ], [ %.0.i535, %210 ], [ %207, %206 ], [ %205, %202 ], [ %.0.i532, %191 ], [ 0, %.thread653 ], [ %.0.i573.le, %.thread.loopexit692 ], [ %.0.i552.le, %.thread.loopexit694 ], [ 0, %358 ], [ %.0.i545.le, %.thread.loopexit696.split.loop.exit701 ], [ 0, %.preheader695 ], [ 0, %.preheader ], [ 0, %.preheader693 ], [ 0, %.thread630 ], [ 0, %190 ], [ 0, %237 ], [ %380, %367 ], [ 0, %366 ], [ %94, %_ZNK4llvm4User10getOperandEj.exit517 ]
   ret i32 %.1
 }
 
@@ -3286,7 +3286,7 @@ _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70.thread: ; preds = 
   br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread84
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread84: ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i64, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %45, %38, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70.thread, %5, %3
-  %.0 = phi i32 [ %8, %5 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i.i61, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70 ], [ %.0.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70.thread ], [ %.0.i71, %38 ], [ 0, %3 ], [ %spec.select, %45 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i68, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i64 ]
+  %.0 = phi i32 [ %.0.i71, %38 ], [ %.0.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70.thread ], [ %.0.i.i61, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit70 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %8, %5 ], [ 0, %3 ], [ %spec.select, %45 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i68, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i64 ]
   ret i32 %.0
 }
 
@@ -3634,7 +3634,7 @@ _ZNK4llvm8Function7arg_endEv.exit:                ; preds = %_ZNK4llvm8Function9
   br i1 %.not58, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread103, label %.lr.ph, !llvm.loop !203
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread103: ; preds = %.lr.ph, %_ZNK4llvm8Function7arg_endEv.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i85, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %83, %72, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91.thread, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, %8, %1
-  %.1 = phi i32 [ %7, %1 ], [ %.0.i, %8 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i75, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread ], [ %.0.i.i82, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91 ], [ %.0.i92, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91.thread ], [ %.0.i93, %72 ], [ %84, %83 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i89, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i85 ], [ 0, %_ZNK4llvm8Function7arg_endEv.exit ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %84, %83 ], [ %.0.i93, %72 ], [ %.0.i92, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91.thread ], [ %.0.i.i82, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit91 ], [ %.0.i75, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i, %8 ], [ %7, %1 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i89, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i85 ], [ 0, %_ZNK4llvm8Function7arg_endEv.exit ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -3964,7 +3964,7 @@ _ZN4llvm11SmallVectorIPKNS_10BasicBlockELj8EED2Ev.exit85: ; preds = %_ZN4llvm11S
   br label %150
 
 150:                                              ; preds = %_ZN4llvm18FunctionComparator12beginCompareEv.exit, %_ZN4llvm11SmallVectorIPKNS_10BasicBlockELj8EED2Ev.exit85
-  %.1 = phi i32 [ %43, %_ZN4llvm18FunctionComparator12beginCompareEv.exit ], [ %.6.ph, %_ZN4llvm11SmallVectorIPKNS_10BasicBlockELj8EED2Ev.exit85 ]
+  %.1 = phi i32 [ %.6.ph, %_ZN4llvm11SmallVectorIPKNS_10BasicBlockELj8EED2Ev.exit85 ], [ %43, %_ZN4llvm18FunctionComparator12beginCompareEv.exit ]
   ret i32 %.1
 }
 

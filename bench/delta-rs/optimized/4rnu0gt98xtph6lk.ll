@@ -2927,7 +2927,7 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$$LT$object_store..local..Lo
     i8 3, label %13
   ]
 
-common.ret:                                       ; preds = %4, %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbf7709de5b1cbfbbE.exit", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbf7709de5b1cbfbbE.exit", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -3176,7 +3176,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h042b6de1e7b644f8E.exit"
 
 common.resume:                                    ; preds = %286, %294, %261, %269, %236, %244, %278, %253, %228, %201, %209, %217, %157, %165, %149, %113, %120, %129, %32, %40
-  %common.resume.op = phi { ptr, i32 } [ %33, %40 ], [ %33, %32 ], [ %130, %129 ], [ %121, %120 ], [ %114, %113 ], [ %150, %149 ], [ %158, %165 ], [ %158, %157 ], [ %210, %217 ], [ %210, %209 ], [ %279, %278 ], [ %254, %253 ], [ %229, %228 ], [ %202, %201 ], [ %237, %244 ], [ %237, %236 ], [ %262, %269 ], [ %262, %261 ], [ %287, %294 ], [ %287, %286 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %40 ], [ %33, %32 ], [ %130, %129 ], [ %114, %113 ], [ %121, %120 ], [ %150, %149 ], [ %158, %165 ], [ %158, %157 ], [ %210, %217 ], [ %210, %209 ], [ %202, %201 ], [ %229, %228 ], [ %254, %253 ], [ %279, %278 ], [ %237, %244 ], [ %237, %236 ], [ %262, %269 ], [ %262, %261 ], [ %287, %294 ], [ %287, %286 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %1

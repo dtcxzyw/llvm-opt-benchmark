@@ -1144,7 +1144,7 @@ _ZN5boost6locale4util14simple_codecvtIwEC2ERKNSt7__cxx1112basic_stringIcSt11char
   ret void
 
 65:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47, %.body18, %.body
-  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body19, %.body18 ], [ %.pn22, %47 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body, %.body ], [ %.pn22, %47 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   resume { ptr, i32 } %.pn15
 
 66:                                               ; preds = %35
@@ -2177,9 +2177,9 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %49
 
 49:                                               ; preds = %21, %44
-  %50 = phi ptr [ %6, %21 ], [ %41, %44 ]
-  %.0.i.ph.ph51 = phi i32 [ 2, %21 ], [ %.0.i.ph.ph52, %44 ]
-  %.2 = phi i32 [ %23, %21 ], [ %48, %44 ]
+  %50 = phi ptr [ %41, %44 ], [ %6, %21 ]
+  %.0.i.ph.ph51 = phi i32 [ %.0.i.ph.ph52, %44 ], [ 2, %21 ]
+  %.2 = phi i32 [ %48, %44 ], [ %23, %21 ]
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %52, !prof !66
 

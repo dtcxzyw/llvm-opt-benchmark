@@ -804,7 +804,7 @@ default.unreachable18:                            ; preds = %2
   br label %45
 
 45:                                               ; preds = %37, %25, %13
-  %.0.in = phi i1 [ %44, %37 ], [ %36, %25 ], [ %24, %13 ]
+  %.0.in = phi i1 [ %24, %13 ], [ %36, %25 ], [ %44, %37 ]
   ret i1 %.0.in
 }
 

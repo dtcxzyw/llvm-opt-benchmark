@@ -2612,8 +2612,8 @@ select.unfold:                                    ; preds = %219
   br label %318
 
 318:                                              ; preds = %506, %582, %317
-  %.sroa.8.2 = phi ptr [ %.sroa.8.1, %317 ], [ @anon.3aeeff4943c4ebce34e82b4b5d92a5b4.3, %582 ], [ %507, %506 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %317 ], [ %465, %582 ], [ %508, %506 ]
+  %.sroa.8.2 = phi ptr [ %.sroa.8.1, %317 ], [ %507, %506 ], [ @anon.3aeeff4943c4ebce34e82b4b5d92a5b4.3, %582 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %317 ], [ %508, %506 ], [ %465, %582 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !582
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab335a7944d5b728E.llvm.17459353245601373923"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43)
           to label %.noexc208 unwind label %412

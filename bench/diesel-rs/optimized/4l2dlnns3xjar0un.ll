@@ -2881,7 +2881,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17habc8a0af9f52
   resume { ptr, i32 } %.pn
 
 46:                                               ; preds = %12, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %22, %21 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2fbc088efd6cbbd1E"(ptr noalias noundef align 8 dereferenceable(24) %2) #28
           to label %45 unwind label %43
 }

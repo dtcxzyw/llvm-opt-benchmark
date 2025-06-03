@@ -417,7 +417,7 @@ define noundef i32 @_ZN3g2o18SolverSLAM2DLinear5solveEib(ptr noundef nonnull ali
   br label %9
 
 9:                                                ; preds = %5, %7
-  %.1 = phi i32 [ -1, %5 ], [ %8, %7 ]
+  %.1 = phi i32 [ %8, %7 ], [ -1, %5 ]
   ret i32 %.1
 }
 

@@ -2083,7 +2083,7 @@ ec_get_ecm_params.exit.thread:                    ; preds = %94, %92, %105, %102
   br label %.thread
 
 .thread:                                          ; preds = %71, %70, %49, %46, %ec_get_ecm_params.exit.thread, %61, %42, %108, %110, %112, %57, %54, %24, %19
-  %.068 = phi i32 [ 0, %42 ], [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %24 ], [ 0, %19 ], [ 0, %110 ], [ 0, %108 ], [ %115, %112 ], [ 0, %ec_get_ecm_params.exit.thread ], [ 0, %46 ], [ 0, %49 ], [ 0, %70 ], [ 0, %71 ]
+  %.068 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %42 ], [ 0, %24 ], [ 0, %19 ], [ 0, %110 ], [ 0, %108 ], [ %115, %112 ], [ 0, %ec_get_ecm_params.exit.thread ], [ 0, %46 ], [ 0, %49 ], [ 0, %70 ], [ 0, %71 ]
   %116 = load ptr, ptr %8, align 8, !tbaa !42
   call void @CRYPTO_free(ptr noundef %116, ptr noundef nonnull @.str, i32 noundef 762) #5
   %117 = load ptr, ptr %7, align 8, !tbaa !42

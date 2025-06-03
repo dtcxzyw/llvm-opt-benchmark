@@ -591,7 +591,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad108, %lpad121, %lpad132, %lpad223, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %89, %lpad223 ], [ %46, %lpad108 ], [ %50, %lpad121 ], [ %53, %lpad132 ], [ %24, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %24, %lpad ], [ %46, %lpad108 ], [ %50, %lpad121 ], [ %53, %lpad132 ], [ %89, %lpad223 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.else

@@ -1172,8 +1172,8 @@ luaV_tointegerns.exit79:                          ; preds = %31
   %138 = icmp eq ptr %137, null
   br i1 %138, label %luaV_tointegerns.exit.thread92, label %.thread112
 
-.thread112:                                       ; preds = %83, %112, %132
-  %.054114 = phi ptr [ %137, %132 ], [ %88, %83 ], [ %117, %112 ]
+.thread112:                                       ; preds = %112, %83, %132
+  %.054114 = phi ptr [ %137, %132 ], [ %117, %112 ], [ %88, %83 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   %141 = tail call zeroext i8 @luaT_callTMres(ptr noundef nonnull %0, ptr noundef nonnull %.054114, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %140) #13
@@ -1185,7 +1185,7 @@ luaV_tointegerns.exit79:                          ; preds = %31
   br label %luaV_tointegerns.exit.thread92
 
 luaV_tointegerns.exit.thread92:                   ; preds = %.thread107, %123, %.thread, %94, %27, %26, %31, %17, %16, %21, %36, %132, %102, %98, %73, %69, %39, %39, %39, %12, %.thread112, %127, %65, %60, %55, %50, %45, %40
-  %.0 = phi i32 [ %131, %127 ], [ %145, %.thread112 ], [ %68, %65 ], [ %64, %60 ], [ %59, %55 ], [ %54, %50 ], [ %49, %45 ], [ %44, %40 ], [ 0, %12 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %69 ], [ 0, %73 ], [ 1, %98 ], [ 0, %102 ], [ 0, %132 ], [ %38, %36 ], [ 0, %21 ], [ 0, %16 ], [ 0, %17 ], [ 0, %31 ], [ 0, %26 ], [ 0, %27 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %123 ], [ 0, %.thread107 ]
+  %.0 = phi i32 [ %131, %127 ], [ %44, %40 ], [ %49, %45 ], [ %54, %50 ], [ %59, %55 ], [ %64, %60 ], [ %68, %65 ], [ %145, %.thread112 ], [ 0, %12 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %69 ], [ 0, %73 ], [ 1, %98 ], [ 0, %102 ], [ 0, %132 ], [ %38, %36 ], [ 0, %21 ], [ 0, %16 ], [ 0, %17 ], [ 0, %31 ], [ 0, %26 ], [ 0, %27 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %123 ], [ 0, %.thread107 ]
   ret i32 %.0
 }
 
@@ -7649,7 +7649,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br i1 %3127, label %.lr.ph3281, label %.loopexit, !prof !74
 
 .loopexit:                                        ; preds = %.lr.ph3281, %.lr.ph3284, %3112, %3082, %3096, %3110, %3077, %3071, %3024
-  %.103 = phi i32 [ 1, %3096 ], [ %.32227, %3110 ], [ 1, %3077 ], [ %3074, %3071 ], [ %3029, %3024 ], [ %.32227, %3082 ], [ %.32227, %3112 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
+  %.103 = phi i32 [ %3029, %3024 ], [ %3074, %3071 ], [ 1, %3077 ], [ 1, %3096 ], [ %.32227, %3110 ], [ %.32227, %3082 ], [ %.32227, %3112 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
   %3128 = getelementptr inbounds nuw i8, ptr %.1, i64 60
   %3129 = load i32, ptr %3128, align 4, !tbaa !71
   %3130 = and i32 %3129, 65536
@@ -7932,7 +7932,7 @@ luaV_tonumber_.exit.i.i:                          ; preds = %3263, %3241
   br i1 %3274, label %forprep.exit.thread, label %forlimit.exit.i
 
 forlimit.exit.sink.split.i:                       ; preds = %luaV_tointeger.exit.i.i, %luaV_tointeger.exit.thread26.i.i
-  %.0104.ph.i = phi i64 [ %3234, %luaV_tointeger.exit.i.i ], [ %3233, %luaV_tointeger.exit.thread26.i.i ]
+  %.0104.ph.i = phi i64 [ %3233, %luaV_tointeger.exit.thread26.i.i ], [ %3234, %luaV_tointeger.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   br label %forlimit.exit.i
 
@@ -8267,8 +8267,8 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   br label %3434
 
 3434:                                             ; preds = %.backedge, %3416
-  %.12306 = phi i32 [ %.02305, %.backedge ], [ %3433, %3416 ]
-  %.392220 = phi ptr [ %.02181, %.backedge ], [ %3432, %3416 ]
+  %.12306 = phi i32 [ %3433, %3416 ], [ %.02305, %.backedge ]
+  %.392220 = phi ptr [ %3432, %3416 ], [ %.02181, %.backedge ]
   %3435 = lshr i32 %.12306, 7
   %3436 = and i32 %3435, 255
   %3437 = zext nneg i32 %3436 to i64
@@ -8315,10 +8315,10 @@ forprep.exit.thread:                              ; preds = %3400, %3402, %forli
   br label %3463
 
 3463:                                             ; preds = %.backedge, %3460
-  %.22307 = phi i32 [ %.02305, %.backedge ], [ %3462, %3460 ]
-  %.112 = phi i32 [ %.32227, %.backedge ], [ %3456, %3460 ]
-  %.402221 = phi ptr [ %.02181, %.backedge ], [ %3461, %3460 ]
-  %.80 = phi ptr [ %.12180, %.backedge ], [ %.79, %3460 ]
+  %.22307 = phi i32 [ %3462, %3460 ], [ %.02305, %.backedge ]
+  %.112 = phi i32 [ %3456, %3460 ], [ %.32227, %.backedge ]
+  %.402221 = phi ptr [ %3461, %3460 ], [ %.02181, %.backedge ]
+  %.80 = phi ptr [ %.79, %3460 ], [ %.12180, %.backedge ]
   %3464 = lshr i32 %.22307, 7
   %3465 = and i32 %3464, 255
   %3466 = zext nneg i32 %3465 to i64

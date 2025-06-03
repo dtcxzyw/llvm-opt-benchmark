@@ -1360,8 +1360,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb3pbc4evalERK7svectorI5lbooljE
   br label %24
 
 24:                                               ; preds = %12, %22, %20
-  %.120 = phi i32 [ %.01925, %12 ], [ %23, %22 ], [ %.01925, %20 ]
-  %.1 = phi i32 [ %.01826, %12 ], [ %.01826, %22 ], [ %21, %20 ]
+  %.120 = phi i32 [ %.01925, %12 ], [ %.01925, %20 ], [ %23, %22 ]
+  %.1 = phi i32 [ %.01826, %12 ], [ %21, %20 ], [ %.01826, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.02124, i64 8
   %.not = icmp eq ptr %25, %.ptr28
   br i1 %.not, label %._crit_edge, label %12
@@ -1419,8 +1419,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb3pbc4evalERKNS_16solver_inter
   br label %19
 
 19:                                               ; preds = %.lr.ph, %17, %15
-  %.120 = phi i32 [ %.01925, %.lr.ph ], [ %18, %17 ], [ %.01925, %15 ]
-  %.1 = phi i32 [ %.01826, %.lr.ph ], [ %.01826, %17 ], [ %16, %15 ]
+  %.120 = phi i32 [ %.01925, %.lr.ph ], [ %.01925, %15 ], [ %18, %17 ]
+  %.1 = phi i32 [ %.01826, %.lr.ph ], [ %16, %15 ], [ %.01826, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %.02124, i64 8
   %.not = icmp eq ptr %20, %.ptr28
   br i1 %.not, label %._crit_edge, label %.lr.ph

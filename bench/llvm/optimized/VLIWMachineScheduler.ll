@@ -4520,7 +4520,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler20pickNodeBidrect
   br label %37
 
 37:                                               ; preds = %11, %7, %36
-  %.1 = phi ptr [ %6, %7 ], [ %10, %11 ], [ %.3, %36 ]
+  %.1 = phi ptr [ %.3, %36 ], [ %10, %11 ], [ %6, %7 ]
   ret ptr %.1
 }
 

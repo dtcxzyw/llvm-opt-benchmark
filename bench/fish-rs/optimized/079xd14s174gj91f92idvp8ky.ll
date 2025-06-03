@@ -2196,7 +2196,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %15, %13, %11, %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %17, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4468,8 +4468,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h17a9e3bb7ebfd00aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4530,8 +4530,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h196e22d428d3d22fE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4592,8 +4592,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1d2fa9d1b4fc9936E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4654,8 +4654,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1d4c775b3bc38b15E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4716,8 +4716,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h1eb45fb353276935E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4778,8 +4778,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h217d5bc98e54476eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4840,8 +4840,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h22b123c77f60a9c3E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4902,8 +4902,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h23b596f0a338a1e9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -4964,8 +4964,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h28d0d5ae6e4500cbE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5026,8 +5026,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h2de9a36b755953d1E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5088,8 +5088,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h2fa0a5471c2d5f9cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5150,8 +5150,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h30b963e2e8e354e6E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5212,8 +5212,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h320a09f4b122ebe2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5274,8 +5274,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h32a2bd4c7616fc8cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5336,8 +5336,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h37c7875f0e847678E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5398,8 +5398,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h3e614968b4ba3b20E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5460,8 +5460,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h470e7906cb055890E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5522,8 +5522,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4753ba63bfc81397E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5584,8 +5584,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h495106b38c47bfc9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5646,8 +5646,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4997f16bc7170345E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5708,8 +5708,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4af8781fc3e629c7E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5770,8 +5770,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4b4faa90ff267a5eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5832,8 +5832,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4bea24bb7ccd1b5aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5894,8 +5894,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h4ddfa639aabfda16E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -5956,8 +5956,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5752f491d9bf9839E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6018,8 +6018,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5b2f6ae5470771d2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6080,8 +6080,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5e29b4e6a1971e1dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6142,8 +6142,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h5f9470049f030980E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6204,8 +6204,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h67aa57ca49892851E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6266,8 +6266,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h6907d213a2f9320cE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6328,8 +6328,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h6e2dffb2fd7e0569E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6390,8 +6390,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h744d83e0c2b74317E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6452,8 +6452,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h75a4921607836cd6E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6514,8 +6514,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h76b4668e97710708E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6576,8 +6576,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h77e08ef87abeb59eE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6638,8 +6638,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h866da9104c347bffE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6700,8 +6700,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h87f90fe42783d95dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6762,8 +6762,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h8de7b3d4a83831b3E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6824,8 +6824,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h8ed39b7ef9eba555E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6886,8 +6886,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h93e2ab127e8c819aE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -6948,8 +6948,8 @@ define internal { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h972b59d5ffd61b2cE(ptr 
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7010,8 +7010,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17h9e6547ecc9cd9a7bE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7072,8 +7072,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17ha046b5256e629bd7E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7134,8 +7134,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hadd2523b77ff0700E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7196,8 +7196,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17haf263f1e781b7bb8E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7258,8 +7258,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17haf306604776d886dE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7320,8 +7320,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hba5af8daa43ef9bbE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7382,8 +7382,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hbde0b941b84b4694E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7444,8 +7444,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hc5ca99fe886d34cfE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7506,8 +7506,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hc5fae835a4f20a6fE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7568,8 +7568,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hcc60b8f0d4eeb211E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7630,8 +7630,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hdbf26082cf04c184E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7692,8 +7692,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hdd53f45cc78b5239E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7754,8 +7754,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hefeaebfbf821c380E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7816,8 +7816,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf1bfce4fd1a0f1e9E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7878,8 +7878,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf44548b04ecc5336E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -7940,8 +7940,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hf99f7d37a296539bE(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -8002,8 +8002,8 @@ define hidden { ptr, ptr } @_ZN4fish3ast4Node7as_leaf17hfa28c16f836218c2E(ptr no
   br label %33
 
 33:                                               ; preds = %1, %30, %27, %24, %14, %4
-  %.sroa.7.0 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ %23, %14 ], [ %13, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %22, %14 ], [ %12, %4 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %13, %4 ], [ %23, %14 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.57, %24 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.60, %27 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.63, %30 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %12, %4 ], [ %22, %14 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.7.0, 1
@@ -32720,7 +32720,7 @@ define hidden void @"_ZN4fish3ast12Ast$LT$N$GT$4dump17h9664a167570728ceE"(ptr de
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %303, %297, %276, %252, %218, %179, %111
-  %.pn28 = phi { ptr, i32 } [ %lpad.phi138, %179 ], [ %lpad.phi123, %218 ], [ %298, %297 ], [ %.pn, %276 ], [ %.pn25, %252 ], [ %304, %303 ], [ %lpad.phi115, %111 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit109, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn28 = phi { ptr, i32 } [ %lpad.phi138, %179 ], [ %lpad.phi123, %218 ], [ %298, %297 ], [ %.pn25, %252 ], [ %.pn, %276 ], [ %304, %303 ], [ %lpad.phi115, %111 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit109, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$fish..ast..Traversal$GT$17h2e255453ba32050cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #15
           to label %.thread unwind label %190
 
@@ -46631,8 +46631,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -46664,10 +46664,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -48945,8 +48945,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -48978,10 +48978,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -51259,8 +51259,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -51292,10 +51292,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -53573,8 +53573,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -53606,10 +53606,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -55887,8 +55887,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -55920,10 +55920,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -58201,8 +58201,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -58234,10 +58234,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -60515,8 +60515,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -60548,10 +60548,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -62829,8 +62829,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -62862,10 +62862,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -65143,8 +65143,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -65176,10 +65176,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -67457,8 +67457,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -67490,10 +67490,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -69771,8 +69771,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -69804,10 +69804,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -72085,8 +72085,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -72118,10 +72118,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -74399,8 +74399,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -74432,10 +74432,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -76713,8 +76713,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -76746,10 +76746,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -79027,8 +79027,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -79060,10 +79060,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -81341,8 +81341,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -81374,10 +81374,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -83655,8 +83655,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -83688,10 +83688,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -85969,8 +85969,8 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   br i1 %362, label %370, label %369, !prof !5200
 
 363:                                              ; preds = %354, %337
-  %.sroa.4.1 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ], [ %341, %337 ]
-  %.sroa.057.1 = phi ptr [ %356, %354 ], [ %340, %337 ]
+  %.sroa.4.1 = phi ptr [ %341, %337 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %354 ]
+  %.sroa.057.1 = phi ptr [ %340, %337 ], [ %356, %354 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %331
 
@@ -86002,10 +86002,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   %.sink455 = phi ptr [ %343, %342 ], [ %346, %345 ], [ %349, %348 ], [ %352, %351 ], [ %358, %357 ], [ %361, %360 ]
   %.sroa.13.0.ph = phi i64 [ 8, %342 ], [ 10, %345 ], [ 19, %348 ], [ 5, %351 ], [ 12, %357 ], [ 16, %360 ]
   %.sroa.10.0.ph = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %342 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %345 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %348 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %351 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %357 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %360 ]
-  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
-  %.sroa.020.0.ph = load i32, ptr %.sroa.496.0..sroa_idx, align 4
-  %.sroa.9.0.ph = load i32, ptr %.sroa.597.0..sroa_idx, align 4
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  %.sroa.020.0.ph = load i32, ptr %.sroa.461.0..sroa_idx, align 4
+  %.sroa.9.0.ph = load i32, ptr %.sroa.562.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %371 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, i64 noundef 0)
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 9
@@ -114024,7 +114024,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$fish..ast..Statement$u20$as$u20$c
   br label %33
 
 33:                                               ; preds = %30, %27, %24, %21, %18, %16
-  %.sroa.0.0.in = phi i1 [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %16 ]
+  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -115426,8 +115426,8 @@ common.resume:                                    ; preds = %282, %482, %491, %4
   br i1 %532, label %540, label %539, !prof !5200
 
 533:                                              ; preds = %524, %507
-  %.sroa.4.1.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %524 ], [ %511, %507 ]
-  %.sroa.057.1.i = phi ptr [ %526, %524 ], [ %510, %507 ]
+  %.sroa.4.1.i = phi ptr [ %511, %507 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %524 ]
+  %.sroa.057.1.i = phi ptr [ %510, %507 ], [ %526, %524 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83), !noalias !11299
   br label %501
 
@@ -115459,10 +115459,10 @@ common.resume:                                    ; preds = %282, %482, %491, %4
   %.sink455.i = phi ptr [ %513, %512 ], [ %516, %515 ], [ %519, %518 ], [ %522, %521 ], [ %528, %527 ], [ %531, %530 ]
   %.sroa.13.0.ph.i = phi i64 [ 8, %512 ], [ 10, %515 ], [ 19, %518 ], [ 5, %521 ], [ 12, %527 ], [ 16, %530 ]
   %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %512 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %515 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %518 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %521 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %527 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %530 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !11301
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !11301
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !11301
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !11301
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83), !noalias !11299
   %541 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11301
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 9
@@ -119453,8 +119453,8 @@ default.unreachable:                              ; preds = %1144, %249
   br i1 %692, label %700, label %699, !prof !5200
 
 693:                                              ; preds = %684, %667
-  %.sroa.4.1.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %684 ], [ %671, %667 ]
-  %.sroa.057.1.i = phi ptr [ %686, %684 ], [ %670, %667 ]
+  %.sroa.4.1.i = phi ptr [ %671, %667 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %684 ]
+  %.sroa.057.1.i = phi ptr [ %670, %667 ], [ %686, %684 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83), !noalias !11734
   br label %661
 
@@ -119486,10 +119486,10 @@ default.unreachable:                              ; preds = %1144, %249
   %.sink455.i = phi ptr [ %673, %672 ], [ %676, %675 ], [ %679, %678 ], [ %682, %681 ], [ %688, %687 ], [ %691, %690 ]
   %.sroa.13.0.ph.i = phi i64 [ 8, %672 ], [ 10, %675 ], [ 19, %678 ], [ 5, %681 ], [ 12, %687 ], [ 16, %690 ]
   %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %672 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %675 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %678 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %681 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %687 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %690 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !11736
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !11736
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !11736
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !11736
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83), !noalias !11734
   %701 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11736
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 9
@@ -132435,8 +132435,8 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
   br i1 %587, label %595, label %594, !prof !5200
 
 588:                                              ; preds = %579, %562
-  %.sroa.4.1.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %579 ], [ %566, %562 ]
-  %.sroa.057.1.i = phi ptr [ %581, %579 ], [ %565, %562 ]
+  %.sroa.4.1.i = phi ptr [ %566, %562 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %579 ]
+  %.sroa.057.1.i = phi ptr [ %565, %562 ], [ %581, %579 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67), !noalias !13163
   br label %556
 
@@ -132468,10 +132468,10 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
   %.sink455.i = phi ptr [ %568, %567 ], [ %571, %570 ], [ %574, %573 ], [ %577, %576 ], [ %583, %582 ], [ %586, %585 ]
   %.sroa.13.0.ph.i = phi i64 [ 8, %567 ], [ 10, %570 ], [ 19, %573 ], [ 5, %576 ], [ 12, %582 ], [ 16, %585 ]
   %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %567 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %570 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %573 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %576 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %582 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %585 ]
-  %.sroa.597.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
-  %.sroa.496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
-  %.sroa.020.0.ph.i = load i32, ptr %.sroa.496.0..sroa_idx.i, align 4, !noalias !13159
-  %.sroa.9.0.ph.i = load i32, ptr %.sroa.597.0..sroa_idx.i, align 4, !noalias !13159
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 8
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink455.i, i64 4
+  %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !13159
+  %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !13159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67), !noalias !13163
   %596 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !13159
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 9
@@ -134352,7 +134352,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$fish..ast..BlockStatementHeader$u
   br label %23
 
 23:                                               ; preds = %20, %18, %15, %12
-  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ]
   ret i1 %.sroa.0.0.in
 }
 

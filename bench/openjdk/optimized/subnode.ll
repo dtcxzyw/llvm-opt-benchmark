@@ -8390,7 +8390,7 @@ define hidden noundef ptr @_ZNK7AbsNode5ValueEP8PhaseGVN(ptr noundef nonnull ali
   br label %52
 
 52:                                               ; preds = %2, %47, %42, %37, %35, %27
-  %.0 = phi ptr [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %35 ], [ %28, %27 ], [ %16, %2 ]
+  %.0 = phi ptr [ %51, %47 ], [ %28, %27 ], [ %36, %35 ], [ %41, %37 ], [ %46, %42 ], [ %16, %2 ]
   ret ptr %.0
 }
 

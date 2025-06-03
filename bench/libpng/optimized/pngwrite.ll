@@ -2828,7 +2828,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   br label %120
 
 120:                                              ; preds = %110, %98
-  %.6.us.i = phi i32 [ %.4.us.i, %98 ], [ %.3.us.i, %110 ]
+  %.6.us.i = phi i32 [ %.3.us.i, %110 ], [ %.4.us.i, %98 ]
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
   br i1 %exitcond40.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !222

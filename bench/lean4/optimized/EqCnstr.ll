@@ -204886,7 +204886,7 @@ define noundef nonnull ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCn
   br label %9
 
 9:                                                ; preds = %1, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -204950,7 +204950,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit
 
 l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18, %19
-  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %19 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -205149,7 +205149,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_Grind_Arith_Cutsat_beqSupportedTer
   br label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit
 
 l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit: ; preds = %2, %3, %4, %5, %6, %7, %8, %9
-  %.0.i9 = phi ptr [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 15 to ptr), %9 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %16 [
     i8 0, label %lean_dec.exit
     i8 1, label %10
@@ -205182,7 +205182,7 @@ l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %16, %15, %14, %13, %12, %11, %10, %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 15 to ptr), %16 ], [ inttoptr (i64 13 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %12 ], [ inttoptr (i64 5 to ptr), %11 ], [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 15 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 5 to ptr), %11 ], [ inttoptr (i64 7 to ptr), %12 ], [ inttoptr (i64 9 to ptr), %13 ], [ inttoptr (i64 11 to ptr), %14 ], [ inttoptr (i64 13 to ptr), %15 ], [ inttoptr (i64 1 to ptr), %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit ]
   %17 = icmp eq ptr %.0.i9, %.0.i10
   %18 = zext i1 %17 to i8
   ret i8 %18
@@ -205274,7 +205274,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit.i
 
 l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit.i: ; preds = %31, %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 15 to ptr), %31 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %38 [
     i8 0, label %l_Lean_Meta_Grind_Arith_Cutsat_beqSupportedTermKind____x40_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr___hyg_6442_.exit
     i8 1, label %32
@@ -205307,7 +205307,7 @@ l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith
   br label %l_Lean_Meta_Grind_Arith_Cutsat_beqSupportedTermKind____x40_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr___hyg_6442_.exit
 
 l_Lean_Meta_Grind_Arith_Cutsat_beqSupportedTermKind____x40_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr___hyg_6442_.exit: ; preds = %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit.i, %32, %33, %34, %35, %36, %37, %38
-  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %38 ], [ inttoptr (i64 13 to ptr), %37 ], [ inttoptr (i64 11 to ptr), %36 ], [ inttoptr (i64 9 to ptr), %35 ], [ inttoptr (i64 7 to ptr), %34 ], [ inttoptr (i64 5 to ptr), %33 ], [ inttoptr (i64 3 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 15 to ptr), %38 ], [ inttoptr (i64 3 to ptr), %32 ], [ inttoptr (i64 5 to ptr), %33 ], [ inttoptr (i64 7 to ptr), %34 ], [ inttoptr (i64 9 to ptr), %35 ], [ inttoptr (i64 11 to ptr), %36 ], [ inttoptr (i64 13 to ptr), %37 ], [ inttoptr (i64 1 to ptr), %l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_EqCnstr_0__Lean_Meta_Grind_Arith_Cutsat_SupportedTermKind_toCtorIdx.exit.i ]
   %39 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %40 = select i1 %39, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %40
@@ -260701,7 +260701,7 @@ lean_alloc_ctor.exit268:                          ; preds = %lean_dec.exit
   br label %371
 
 371:                                              ; preds = %lean_alloc_ctor.exit268, %lean_dec.exit141, %lean_dec.exit154, %lean_dec.exit153, %lean_dec.exit152, %lean_dec.exit150, %lean_alloc_ctor.exit, %lean_dec.exit156
-  %.2 = phi ptr [ %271, %lean_dec.exit150 ], [ %253, %lean_dec.exit152 ], [ %234, %lean_dec.exit153 ], [ %215, %lean_dec.exit154 ], [ %85, %lean_dec.exit156 ], [ %191, %lean_alloc_ctor.exit ], [ %365, %lean_alloc_ctor.exit268 ], [ %85, %lean_dec.exit141 ]
+  %.2 = phi ptr [ %271, %lean_dec.exit150 ], [ %215, %lean_dec.exit154 ], [ %234, %lean_dec.exit153 ], [ %253, %lean_dec.exit152 ], [ %85, %lean_dec.exit156 ], [ %191, %lean_alloc_ctor.exit ], [ %365, %lean_alloc_ctor.exit268 ], [ %85, %lean_dec.exit141 ]
   ret ptr %.2
 }
 
@@ -261635,7 +261635,7 @@ lean_dec.exit:                                    ; preds = %271
   br label %365
 
 365:                                              ; preds = %lean_alloc_ctor.exit230, %360, %362, %lean_dec.exit, %lean_alloc_ctor.exit, %lean_dec.exit137, %lean_alloc_ctor.exit227, %lean_dec.exit147
-  %.3 = phi ptr [ %103, %lean_alloc_ctor.exit ], [ %150, %lean_dec.exit147 ], [ %110, %lean_dec.exit137 ], [ %265, %lean_alloc_ctor.exit227 ], [ %364, %lean_dec.exit ], [ %363, %362 ], [ %361, %360 ], [ %354, %lean_alloc_ctor.exit230 ]
+  %.3 = phi ptr [ %103, %lean_alloc_ctor.exit ], [ %150, %lean_dec.exit147 ], [ %110, %lean_dec.exit137 ], [ %265, %lean_alloc_ctor.exit227 ], [ %364, %lean_dec.exit ], [ %354, %lean_alloc_ctor.exit230 ], [ %361, %360 ], [ %363, %362 ]
   ret ptr %.3
 }
 

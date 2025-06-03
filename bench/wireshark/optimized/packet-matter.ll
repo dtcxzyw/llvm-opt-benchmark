@@ -553,7 +553,7 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 72:                                               ; preds = %37, %39, %50, %65, %37, %37
-  %.4 = phi i32 [ %68, %65 ], [ %64, %50 ], [ %.266, %37 ], [ %.266, %37 ], [ %.266, %37 ], [ %49, %39 ]
+  %.4 = phi i32 [ %49, %39 ], [ %64, %50 ], [ %.266, %37 ], [ %.266, %37 ], [ %.266, %37 ], [ %68, %65 ]
   %73 = sub i32 %.4, %.06482
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %73)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3

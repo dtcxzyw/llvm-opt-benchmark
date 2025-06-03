@@ -1864,7 +1864,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKP4exprN5smtfd10
   br label %236
 
 236:                                              ; preds = %230, %._crit_edge
-  %.2 = phi i32 [ %223, %._crit_edge ], [ %235, %230 ]
+  %.2 = phi i32 [ %235, %230 ], [ %223, %._crit_edge ]
   %237 = load ptr, ptr %0, align 8, !tbaa !34
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 12
   %239 = load i32, ptr %238, align 4, !tbaa !89
@@ -1913,7 +1913,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKP4exprN5smtfd10
   br label %278
 
 278:                                              ; preds = %4, %241, %87, %41, %6
-  %.0 = phi i32 [ %277, %241 ], [ %172, %87 ], [ %86, %41 ], [ %40, %6 ], [ 11, %4 ]
+  %.0 = phi i32 [ %277, %241 ], [ %40, %6 ], [ %86, %41 ], [ %172, %87 ], [ 11, %4 ]
   ret i32 %.0
 }
 

@@ -154,9 +154,9 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %78
 
 78:                                               ; preds = %75, %77, %76
-  %.0134 = phi i32 [ 2, %77 ], [ 2, %76 ], [ 3, %75 ]
-  %79 = phi i1 [ true, %77 ], [ false, %76 ], [ true, %75 ]
-  %.0133 = phi i32 [ 3, %77 ], [ 2, %76 ], [ 3, %75 ]
+  %.0134 = phi i32 [ 2, %76 ], [ 2, %77 ], [ 3, %75 ]
+  %79 = phi i1 [ false, %76 ], [ true, %77 ], [ true, %75 ]
+  %.0133 = phi i32 [ 2, %76 ], [ 3, %77 ], [ 3, %75 ]
   %80 = ptrtoint ptr %.0119 to i64
   %81 = sub i64 %24, %80
   %82 = shl nuw nsw i32 %.0134, 8

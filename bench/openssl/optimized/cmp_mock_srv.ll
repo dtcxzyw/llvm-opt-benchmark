@@ -1637,7 +1637,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br label %97
 
 97:                                               ; preds = %10, %95, %.thread, %.thread51, %70, %34, %94
-  %.1 = phi ptr [ %.3, %94 ], [ null, %70 ], [ null, %34 ], [ %96, %95 ], [ %13, %10 ], [ %.131.ph, %.thread ], [ %.333.ph, %.thread51 ]
+  %.1 = phi ptr [ null, %34 ], [ null, %70 ], [ %.3, %94 ], [ %96, %95 ], [ %13, %10 ], [ %.131.ph, %.thread ], [ %.333.ph, %.thread51 ]
   ret ptr %.1
 }
 

@@ -219,9 +219,9 @@ define internal range(i32 -1163346256, 1) i32 @smjpeg_read_header(ptr noundef %0
   br label %.loopexit
 
 96:                                               ; preds = %71, %40, %29
-  %97 = phi ptr [ %17, %71 ], [ %17, %40 ], [ %25, %29 ]
-  %.176 = phi ptr [ %70, %71 ], [ %.07595, %40 ], [ %.07595, %29 ]
-  %.1 = phi ptr [ %.07496, %71 ], [ %39, %40 ], [ %.07496, %29 ]
+  %97 = phi ptr [ %25, %29 ], [ %17, %40 ], [ %17, %71 ]
+  %.176 = phi ptr [ %.07595, %29 ], [ %.07595, %40 ], [ %70, %71 ]
+  %.1 = phi ptr [ %.07496, %29 ], [ %39, %40 ], [ %.07496, %71 ]
   %98 = tail call i32 @avio_feof(ptr noundef %6) #5
   %.not84 = icmp eq i32 %98, 0
   br i1 %.not84, label %16, label %.loopexit.loopexit, !llvm.loop !51
@@ -233,7 +233,7 @@ define internal range(i32 -1163346256, 1) i32 @smjpeg_read_header(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %11, %95, %65, %34, %28
-  %.0 = phi i32 [ -1094995529, %95 ], [ -1094995529, %65 ], [ -1163346256, %34 ], [ -1094995529, %28 ], [ -541478725, %11 ], [ %.0.ph, %.loopexit.loopexit ]
+  %.0 = phi i32 [ -1094995529, %95 ], [ -1094995529, %28 ], [ -1163346256, %34 ], [ -1094995529, %65 ], [ -541478725, %11 ], [ %.0.ph, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret i32 %.0
 }
@@ -309,7 +309,7 @@ define internal i32 @smjpeg_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %45
 
 45:                                               ; preds = %16, %32, %44, %8, %28, %13, %2
-  %.032 = phi i32 [ -541478725, %2 ], [ -1094995529, %13 ], [ -1094995529, %28 ], [ -1094995529, %44 ], [ %38, %32 ], [ %22, %16 ], [ -541478725, %8 ]
+  %.032 = phi i32 [ -541478725, %2 ], [ -1094995529, %13 ], [ -1094995529, %28 ], [ -1094995529, %44 ], [ %22, %16 ], [ %38, %32 ], [ -541478725, %8 ]
   ret i32 %.032
 }
 

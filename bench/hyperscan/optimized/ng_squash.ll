@@ -1401,7 +1401,7 @@ _ZN3ue2L9buildPredERN5boost14dynamic_bitsetImSaImEEERKNS_8NGHolderENS_12graph_de
   br label %476
 
 476:                                              ; preds = %474, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %475, %474 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %475, %474 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %477 = load i64, ptr %.sroa.032.1.i.i.i.i, align 8
   %.not14.i = icmp eq i64 %477, 0
   br i1 %.not14.i, label %478, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i
@@ -1411,7 +1411,7 @@ _ZN3ue2L9buildPredERN5boost14dynamic_bitsetImSaImEEERKNS_8NGHolderENS_12graph_de
   br label %480
 
 480:                                              ; preds = %478, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %479, %478 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %479, %478 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %481 = load i64, ptr %.sroa.032.2.i.i.i.i, align 8
   %.not15.i = icmp eq i64 %481, 0
   %spec.select.i.i.i.i = select i1 %.not15.i, ptr %.sroa.14829.2854, ptr %.sroa.032.2.i.i.i.i
@@ -1552,7 +1552,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.._crit_edge_crit_edge: ; p
   br label %524
 
 524:                                              ; preds = %522, %._crit_edge.i.i.i.i572
-  %.sroa.032.1.i.i.i.i595 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i574, %._crit_edge.i.i.i.i572 ], [ %523, %522 ]
+  %.sroa.032.1.i.i.i.i595 = phi ptr [ %523, %522 ], [ %.sroa.032.0.lcssa.i.i.i.i574, %._crit_edge.i.i.i.i572 ]
   %525 = load i64, ptr %.sroa.032.1.i.i.i.i595, align 8
   %.not14.i596 = icmp eq i64 %525, 0
   br i1 %.not14.i596, label %526, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i578
@@ -1562,7 +1562,7 @@ _ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit.._crit_edge_crit_edge: ; p
   br label %528
 
 528:                                              ; preds = %526, %._crit_edge.i.i.i.i572
-  %.sroa.032.2.i.i.i.i575 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i574, %._crit_edge.i.i.i.i572 ], [ %527, %526 ]
+  %.sroa.032.2.i.i.i.i575 = phi ptr [ %527, %526 ], [ %.sroa.032.0.lcssa.i.i.i.i574, %._crit_edge.i.i.i.i572 ]
   %529 = load i64, ptr %.sroa.032.2.i.i.i.i575, align 8
   %.not15.i576 = icmp eq i64 %529, 0
   %spec.select.i.i.i.i577 = select i1 %.not15.i576, ptr %.sroa.20.2, ptr %.sroa.032.2.i.i.i.i575
@@ -1921,7 +1921,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %645
 
 645:                                              ; preds = %643, %._crit_edge.i.i.i.i642
-  %.sroa.032.1.i.i.i.i665 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i644, %._crit_edge.i.i.i.i642 ], [ %644, %643 ]
+  %.sroa.032.1.i.i.i.i665 = phi ptr [ %644, %643 ], [ %.sroa.032.0.lcssa.i.i.i.i644, %._crit_edge.i.i.i.i642 ]
   %646 = load i64, ptr %.sroa.032.1.i.i.i.i665, align 8
   %.not14.i666 = icmp eq i64 %646, 0
   br i1 %.not14.i666, label %647, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i648
@@ -1931,7 +1931,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %649
 
 649:                                              ; preds = %647, %._crit_edge.i.i.i.i642
-  %.sroa.032.2.i.i.i.i645 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i644, %._crit_edge.i.i.i.i642 ], [ %648, %647 ]
+  %.sroa.032.2.i.i.i.i645 = phi ptr [ %648, %647 ], [ %.sroa.032.0.lcssa.i.i.i.i644, %._crit_edge.i.i.i.i642 ]
   %650 = load i64, ptr %.sroa.032.2.i.i.i.i645, align 8
   %.not15.i646 = icmp eq i64 %650, 0
   %spec.select.i.i.i.i647 = select i1 %.not15.i646, ptr %.sroa.14829.2854, ptr %.sroa.032.2.i.i.i.i645
@@ -2609,7 +2609,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i392:    ; preds = %_ZN5boost6detail10l
   br label %874
 
 874:                                              ; preds = %872, %._crit_edge.i.i.i.i712
-  %.sroa.032.1.i.i.i.i735 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i714, %._crit_edge.i.i.i.i712 ], [ %873, %872 ]
+  %.sroa.032.1.i.i.i.i735 = phi ptr [ %873, %872 ], [ %.sroa.032.0.lcssa.i.i.i.i714, %._crit_edge.i.i.i.i712 ]
   %875 = load i64, ptr %.sroa.032.1.i.i.i.i735, align 8
   %.not14.i736 = icmp eq i64 %875, 0
   br i1 %.not14.i736, label %876, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i718
@@ -2619,7 +2619,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i392:    ; preds = %_ZN5boost6detail10l
   br label %878
 
 878:                                              ; preds = %876, %._crit_edge.i.i.i.i712
-  %.sroa.032.2.i.i.i.i715 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i714, %._crit_edge.i.i.i.i712 ], [ %877, %876 ]
+  %.sroa.032.2.i.i.i.i715 = phi ptr [ %877, %876 ], [ %.sroa.032.0.lcssa.i.i.i.i714, %._crit_edge.i.i.i.i712 ]
   %879 = load i64, ptr %.sroa.032.2.i.i.i.i715, align 8
   %.not15.i716 = icmp eq i64 %879, 0
   %spec.select.i.i.i.i717 = select i1 %.not15.i716, ptr %.sroa.20.2, ptr %.sroa.032.2.i.i.i.i715
@@ -3044,7 +3044,7 @@ _ZNK5boost14dynamic_bitsetImSaImEEcoEv.exit.i459: ; preds = %971, %._crit_edge.i
   br label %1005
 
 1005:                                             ; preds = %1003, %._crit_edge.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1004, %1003 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %1004, %1003 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %1006 = load i64, ptr %.sroa.032.1.i.i.i.i.i, align 8
   %.not14.i.i = icmp eq i64 %1006, 0
   br i1 %.not14.i.i, label %1007, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i.i
@@ -3054,7 +3054,7 @@ _ZNK5boost14dynamic_bitsetImSaImEEcoEv.exit.i459: ; preds = %971, %._crit_edge.i
   br label %1009
 
 1009:                                             ; preds = %1007, %._crit_edge.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1008, %1007 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %1008, %1007 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %1010 = load i64, ptr %.sroa.032.2.i.i.i.i.i, align 8
   %.not15.i.i = icmp eq i64 %1010, 0
   %spec.select.i.i.i.i.i = select i1 %.not15.i.i, ptr %.sroa.16.1.i, ptr %.sroa.032.2.i.i.i.i.i
@@ -3385,7 +3385,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i:     ; preds = %_ZN5boost6detail10l
   br label %1147
 
 1147:                                             ; preds = %1145, %._crit_edge.i.i.i.i55.i
-  %.sroa.032.1.i.i.i.i78.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i57.i, %._crit_edge.i.i.i.i55.i ], [ %1146, %1145 ]
+  %.sroa.032.1.i.i.i.i78.i = phi ptr [ %1146, %1145 ], [ %.sroa.032.0.lcssa.i.i.i.i57.i, %._crit_edge.i.i.i.i55.i ]
   %1148 = load i64, ptr %.sroa.032.1.i.i.i.i78.i, align 8
   %.not14.i79.i = icmp eq i64 %1148, 0
   br i1 %.not14.i79.i, label %1149, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i61.i
@@ -3395,7 +3395,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i.i:     ; preds = %_ZN5boost6detail10l
   br label %1151
 
 1151:                                             ; preds = %1149, %._crit_edge.i.i.i.i55.i
-  %.sroa.032.2.i.i.i.i58.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i57.i, %._crit_edge.i.i.i.i55.i ], [ %1150, %1149 ]
+  %.sroa.032.2.i.i.i.i58.i = phi ptr [ %1150, %1149 ], [ %.sroa.032.0.lcssa.i.i.i.i57.i, %._crit_edge.i.i.i.i55.i ]
   %1152 = load i64, ptr %.sroa.032.2.i.i.i.i58.i, align 8
   %.not15.i59.i = icmp eq i64 %1152, 0
   %spec.select.i.i.i.i60.i = select i1 %.not15.i59.i, ptr %.sroa.16.1.i, ptr %.sroa.032.2.i.i.i.i58.i
@@ -4844,7 +4844,7 @@ _ZN5boost14dynamic_bitsetImSaImEE4flipEv.exit:    ; preds = %95, %._crit_edge.i
   br label %128
 
 128:                                              ; preds = %126, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %127, %126 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %127, %126 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %129 = load i64, ptr %.sroa.032.1.i.i.i.i, align 8
   %.not14.i = icmp eq i64 %129, 0
   br i1 %.not14.i, label %130, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i
@@ -4854,7 +4854,7 @@ _ZN5boost14dynamic_bitsetImSaImEE4flipEv.exit:    ; preds = %95, %._crit_edge.i
   br label %132
 
 132:                                              ; preds = %130, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %131, %130 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %131, %130 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %133 = load i64, ptr %.sroa.032.2.i.i.i.i, align 8
   %.not15.i = icmp eq i64 %133, 0
   %spec.select.i.i.i.i = select i1 %.not15.i, ptr %93, ptr %.sroa.032.2.i.i.i.i
@@ -5085,7 +5085,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %213
 
 213:                                              ; preds = %211, %._crit_edge.i.i.i.i100
-  %.sroa.032.1.i.i.i.i123 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ], [ %212, %211 ]
+  %.sroa.032.1.i.i.i.i123 = phi ptr [ %212, %211 ], [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ]
   %214 = load i64, ptr %.sroa.032.1.i.i.i.i123, align 8
   %.not14.i124 = icmp eq i64 %214, 0
   br i1 %.not14.i124, label %215, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit.i106
@@ -5095,7 +5095,7 @@ _ZN5boost6detail10lowest_bitImEEiT_.exit.i:       ; preds = %_ZN5boost6detail10l
   br label %217
 
 217:                                              ; preds = %215, %._crit_edge.i.i.i.i100
-  %.sroa.032.2.i.i.i.i103 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ], [ %216, %215 ]
+  %.sroa.032.2.i.i.i.i103 = phi ptr [ %216, %215 ], [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ]
   %218 = load i64, ptr %.sroa.032.2.i.i.i.i103, align 8
   %.not15.i104 = icmp eq i64 %218, 0
   %spec.select.i.i.i.i105 = select i1 %.not15.i104, ptr %93, ptr %.sroa.032.2.i.i.i.i103
@@ -9714,7 +9714,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost14dynamic_bitsetImSaImEE14m_do
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %32 = load i64, ptr %.sroa.032.1.i.i.i, align 8
   %.not14 = icmp eq i64 %32, 0
   br i1 %.not14, label %33, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPFbmEET_SA_SA_T0_.exit
@@ -9724,7 +9724,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost14dynamic_bitsetImSaImEE14m_do
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = load i64, ptr %.sroa.032.2.i.i.i, align 8
   %.not15 = icmp eq i64 %36, 0
   %spec.select.i.i.i = select i1 %.not15, ptr %6, ptr %.sroa.032.2.i.i.i

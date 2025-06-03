@@ -1488,7 +1488,7 @@ _ZN20CompressedReadStream8read_intEv.exit.i:      ; preds = %.loopexit.loopexit.
   unreachable
 
 _ZN19DebugInfoReadStream17get_cached_objectEv.exit: ; preds = %154, %164, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.exit, %53, %51, %47, %43, %41, %37, %33
-  %.0 = phi ptr [ %165, %164 ], [ %83, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %54, %53 ], [ %52, %51 ], [ %48, %47 ], [ %44, %43 ], [ %42, %41 ], [ %38, %37 ], [ %34, %33 ], [ %158, %154 ]
+  %.0 = phi ptr [ %34, %33 ], [ %38, %37 ], [ %42, %41 ], [ %44, %43 ], [ %48, %47 ], [ %52, %51 ], [ %54, %53 ], [ %83, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %165, %164 ], [ %158, %154 ]
   ret ptr %.0
 }
 

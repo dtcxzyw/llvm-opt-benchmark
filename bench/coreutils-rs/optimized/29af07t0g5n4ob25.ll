@@ -441,8 +441,8 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
           to label %190 unwind label %.loopexit.split-lp
 
 115:                                              ; preds = %.loopexit, %.loopexit.split-lp, %176, %156, %128
-  %.val167 = phi i64 [ %.val167229, %176 ], [ %.val167229, %156 ], [ %.val167229, %128 ], [ %.val167229, %.loopexit ], [ %.val167.pre, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %177, %176 ], [ %157, %156 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.val167 = phi i64 [ %.val167229, %128 ], [ %.val167229, %156 ], [ %.val167229, %176 ], [ %.val167229, %.loopexit ], [ %.val167.pre, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %129, %128 ], [ %157, %156 ], [ %177, %176 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %116 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.val168 = load ptr, ptr %116, align 8
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h1b49e9cb1fa1bba9E"(i64 %.val167, ptr %.val168) #14
@@ -1088,10 +1088,10 @@ define void @_ZN7uu_comm9open_file17had276bc1683a016bE(ptr noalias noundef write
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !157
   %8 = load i32, ptr %6, align 8, !range !161, !noundef !5
   %trunc = trunc nuw i32 %8 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %12 = load i32, ptr %11, align 4, !range !162
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4, !range !162
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %trunc, label %24, label %15
 
@@ -1109,7 +1109,7 @@ define void @_ZN7uu_comm9open_file17had276bc1683a016bE(ptr noalias noundef write
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = invoke noundef i32 @close(i32 noundef %12)
+  %19 = invoke noundef i32 @close(i32 noundef %10)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h6f27e9ee1e08e810E.exit.i" unwind label %20, !noalias !163
 
 20:                                               ; preds = %17
@@ -1131,11 +1131,11 @@ define void @_ZN7uu_comm9open_file17had276bc1683a016bE(ptr noalias noundef write
   %.sroa.0.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.527.0..sroa_idx, i8 0, i64 24, i1 false)
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store i32 %10, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   br label %25
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc8d811df06c7a9b2E.exit.thread"
-  store ptr %10, ptr %0, align 8
+  store ptr %12, ptr %0, align 8
   br label %25
 
 25:                                               ; preds = %13, %"_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hd04563b8afc70cabE.exit", %24

@@ -513,7 +513,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   br label %58
 
 58:                                               ; preds = %._crit_edge.i.i.i.i, %56
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %.1.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 4
   %.not46.i.i.i.i = icmp ult i32 %.1.val.i.i.i.i, %33
   br i1 %.not46.i.i.i.i, label %59, label %.loopexit
@@ -523,7 +523,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   br label %61
 
 61:                                               ; preds = %._crit_edge.i.i.i.i, %59
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
+  %.2.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 4
   %.not47.i.i.i.i = icmp ult i32 %.2.val.i.i.i.i, %33
   br i1 %.not47.i.i.i.i, label %.thread, label %.loopexit

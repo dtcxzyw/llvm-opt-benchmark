@@ -2235,7 +2235,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev26FixedFunctionStyleToString
   br label %30
 
 29:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.04 = phi ptr [ @.str.78, %18 ], [ @.str.77, %17 ], [ @.str.76, %16 ], [ @.str.75, %15 ], [ @.str.74, %14 ], [ @.str.73, %13 ], [ @.str.72, %12 ], [ @.str.71, %11 ], [ @.str.70, %10 ], [ @.str.69, %9 ], [ @.str.68, %8 ], [ @.str.67, %7 ], [ @.str.66, %6 ], [ @.str.65, %5 ], [ @.str.64, %4 ], [ @.str.63, %3 ], [ @.str.62, %2 ], [ @.str.61, %1 ]
+  %.04 = phi ptr [ @.str.62, %2 ], [ @.str.63, %3 ], [ @.str.64, %4 ], [ @.str.65, %5 ], [ @.str.66, %6 ], [ @.str.67, %7 ], [ @.str.68, %8 ], [ @.str.69, %9 ], [ @.str.70, %10 ], [ @.str.71, %11 ], [ @.str.72, %12 ], [ @.str.73, %13 ], [ @.str.74, %14 ], [ @.str.75, %15 ], [ @.str.76, %16 ], [ @.str.77, %17 ], [ @.str.78, %18 ], [ @.str.61, %1 ]
   ret ptr %.04
 
 30:                                               ; preds = %27, %22
@@ -4274,7 +4274,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   br label %67
 
 67:                                               ; preds = %65, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %66, %65 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %68 = load i8, ptr %.sroa.025.1.i.i.i.i, align 1, !tbaa !15
   %69 = icmp ugt i8 %68, 32
   br i1 %69, label %_ZN11StringUtils19IsEmptyOrWhiteSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %70
@@ -4284,7 +4284,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %71, %70 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %73 = load i8, ptr %.sroa.025.2.i.i.i.i, align 1, !tbaa !15
   %74 = icmp ugt i8 %73, 32
   %spec.select.i.i.i.i = select i1 %74, ptr %.sroa.025.2.i.i.i.i, ptr %59
@@ -5317,7 +5317,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %130
 
 130:                                              ; preds = %128, %._crit_edge.i.i.i.i3
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i3 ], [ %129, %128 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %129, %128 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i3 ]
   %131 = load i8, ptr %.sroa.025.1.i.i.i.i, align 1, !tbaa !15, !noalias !129
   %132 = icmp ugt i8 %131, 32
   br i1 %132, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN11StringUtils8LeftTrimES8_EUlcE_ET_SC_SC_T0_.exit.i, label %133
@@ -5327,7 +5327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %135
 
 135:                                              ; preds = %133, %._crit_edge.i.i.i.i3
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i3 ], [ %134, %133 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %134, %133 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i3 ]
   %136 = load i8, ptr %.sroa.025.2.i.i.i.i, align 1, !tbaa !15, !noalias !129
   %137 = icmp ugt i8 %136, 32
   %spec.select.i.i.i.i = select i1 %137, ptr %.sroa.025.2.i.i.i.i, ptr %100

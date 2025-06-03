@@ -72980,7 +72980,7 @@ common.resume:                                    ; preds = %147, %98, %84
   unreachable
 
 157:                                              ; preds = %110, %146, %145
-  %.sroa.072.0 = phi i8 [ 37, %146 ], [ 36, %145 ], [ 13, %110 ]
+  %.sroa.072.0 = phi i8 [ 36, %145 ], [ 37, %146 ], [ 13, %110 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %158, align 8
   store i64 17, ptr %0, align 8
@@ -163326,7 +163326,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -164657,7 +164657,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %137, %132 ], [ %125, %120 ], [ %107, %102 ], [ %95, %90 ], [ %89, %84 ], [ %83, %78 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ %35, %20 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -180406,8 +180406,8 @@ define { i64, i64 } @"_ZN92_$LT$polars_core..series..Series$u20$as$u20$polars_op
   br label %66
 
 66:                                               ; preds = %183, %248, %257, %266, %275, %284, %293, %302, %311, %320, %329, %153, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7df228a577924d47E.exit.thread, %111, %96, %81, %63
-  %.sroa.20.0 = phi i64 [ %331, %329 ], [ %322, %320 ], [ %313, %311 ], [ %304, %302 ], [ %295, %293 ], [ %286, %284 ], [ %277, %275 ], [ %268, %266 ], [ %259, %257 ], [ %250, %248 ], [ %180, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7df228a577924d47E.exit.thread ], [ %155, %153 ], [ %113, %111 ], [ %98, %96 ], [ %83, %81 ], [ %65, %63 ], [ undef, %183 ]
-  %.sroa.0.0 = phi i64 [ %330, %329 ], [ %321, %320 ], [ %312, %311 ], [ %303, %302 ], [ %294, %293 ], [ %285, %284 ], [ %276, %275 ], [ %267, %266 ], [ %258, %257 ], [ %249, %248 ], [ %.sroa.4.080, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7df228a577924d47E.exit.thread ], [ %154, %153 ], [ %112, %111 ], [ %97, %96 ], [ %82, %81 ], [ %64, %63 ], [ 0, %183 ]
+  %.sroa.20.0 = phi i64 [ %250, %248 ], [ %259, %257 ], [ %268, %266 ], [ %277, %275 ], [ %286, %284 ], [ %295, %293 ], [ %304, %302 ], [ %313, %311 ], [ %322, %320 ], [ %331, %329 ], [ %65, %63 ], [ %83, %81 ], [ %98, %96 ], [ %113, %111 ], [ %180, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7df228a577924d47E.exit.thread ], [ %155, %153 ], [ undef, %183 ]
+  %.sroa.0.0 = phi i64 [ %249, %248 ], [ %258, %257 ], [ %267, %266 ], [ %276, %275 ], [ %285, %284 ], [ %294, %293 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %64, %63 ], [ %82, %81 ], [ %97, %96 ], [ %112, %111 ], [ %.sroa.4.080, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7df228a577924d47E.exit.thread ], [ %154, %153 ], [ 0, %183 ]
   %67 = load ptr, ptr %23, align 8, !alias.scope !18993, !noundef !6
   %68 = icmp eq ptr %67, null
   br i1 %68, label %"_ZN4core3ptr74drop_in_place$LT$alloc..borrow..Cow$LT$polars_core..series..Series$GT$$GT$17h25fd08534ce05915E.exit66", label %"_ZN4core3ptr74drop_in_place$LT$alloc..borrow..Cow$LT$polars_core..series..Series$GT$$GT$17h25fd08534ce05915E.exit66.sink.split"
@@ -181217,8 +181217,8 @@ define { i64, i64 } @"_ZN92_$LT$polars_core..series..Series$u20$as$u20$polars_op
   br label %65
 
 65:                                               ; preds = %197, %262, %271, %280, %289, %298, %307, %316, %325, %334, %343, %152, %_ZN4core4iter6traits8iterator8Iterator6reduce17h267e67d0b7c24871E.exit, %110, %95, %80, %62
-  %.sroa.20.0 = phi i64 [ %345, %343 ], [ %336, %334 ], [ %327, %325 ], [ %318, %316 ], [ %309, %307 ], [ %300, %298 ], [ %291, %289 ], [ %282, %280 ], [ %273, %271 ], [ %264, %262 ], [ %.sroa.20.2, %_ZN4core4iter6traits8iterator8Iterator6reduce17h267e67d0b7c24871E.exit ], [ %154, %152 ], [ %112, %110 ], [ %97, %95 ], [ %82, %80 ], [ %64, %62 ], [ undef, %197 ]
-  %.sroa.0.0 = phi i64 [ %344, %343 ], [ %335, %334 ], [ %326, %325 ], [ %317, %316 ], [ %308, %307 ], [ %299, %298 ], [ %290, %289 ], [ %281, %280 ], [ %272, %271 ], [ %263, %262 ], [ %157, %_ZN4core4iter6traits8iterator8Iterator6reduce17h267e67d0b7c24871E.exit ], [ %153, %152 ], [ %111, %110 ], [ %96, %95 ], [ %81, %80 ], [ %63, %62 ], [ 0, %197 ]
+  %.sroa.20.0 = phi i64 [ %264, %262 ], [ %273, %271 ], [ %282, %280 ], [ %291, %289 ], [ %300, %298 ], [ %309, %307 ], [ %318, %316 ], [ %327, %325 ], [ %336, %334 ], [ %345, %343 ], [ %64, %62 ], [ %82, %80 ], [ %97, %95 ], [ %112, %110 ], [ %.sroa.20.2, %_ZN4core4iter6traits8iterator8Iterator6reduce17h267e67d0b7c24871E.exit ], [ %154, %152 ], [ undef, %197 ]
+  %.sroa.0.0 = phi i64 [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %308, %307 ], [ %317, %316 ], [ %326, %325 ], [ %335, %334 ], [ %344, %343 ], [ %63, %62 ], [ %81, %80 ], [ %96, %95 ], [ %111, %110 ], [ %157, %_ZN4core4iter6traits8iterator8Iterator6reduce17h267e67d0b7c24871E.exit ], [ %153, %152 ], [ 0, %197 ]
   %66 = load ptr, ptr %22, align 8, !alias.scope !19096, !noundef !6
   %67 = icmp eq ptr %66, null
   br i1 %67, label %"_ZN4core3ptr74drop_in_place$LT$alloc..borrow..Cow$LT$polars_core..series..Series$GT$$GT$17h25fd08534ce05915E.exit50", label %"_ZN4core3ptr74drop_in_place$LT$alloc..borrow..Cow$LT$polars_core..series..Series$GT$$GT$17h25fd08534ce05915E.exit50.sink.split"
@@ -203313,7 +203313,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !21155
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h0a7f6ef90fc9ab21E.exit: ; preds = %366, %371
@@ -205543,7 +205543,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" unwind label %232, !noalias !21250
 
 common.resume:                                    ; preds = %444, %414, %757, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" ], [ %758, %757 ], [ %415, %414 ], [ %.pn104.pn.pn.pn.i, %444 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" ], [ %415, %414 ], [ %758, %757 ], [ %.pn104.pn.pn.pn.i, %444 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h188a98b09f25664aE.exit: ; preds = %357, %362
@@ -207782,7 +207782,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" unwind label %237, !noalias !21345
 
 common.resume:                                    ; preds = %460, %430, %786, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" ], [ %787, %786 ], [ %431, %430 ], [ %.pn104.pn.pn.pn.i, %460 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" ], [ %431, %430 ], [ %787, %786 ], [ %.pn104.pn.pn.pn.i, %460 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf0711a21a85943a9E.exit: ; preds = %372, %377
@@ -210063,7 +210063,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %246, !noalias !21440
 
 common.resume:                                    ; preds = %464, %434, %781, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %782, %781 ], [ %435, %434 ], [ %.pn104.pn.pn.pn.i, %464 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %435, %434 ], [ %782, %781 ], [ %.pn104.pn.pn.pn.i, %464 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h14e757eba2d25125E.exit: ; preds = %377, %382
@@ -212338,7 +212338,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" unwind label %237, !noalias !21542
 
 common.resume:                                    ; preds = %460, %430, %786, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" ], [ %787, %786 ], [ %431, %430 ], [ %.pn104.pn.pn.pn.i, %460 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit101.i" ], [ %431, %430 ], [ %787, %786 ], [ %.pn104.pn.pn.pn.i, %460 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17hf4a39a732d444e9cE.exit: ; preds = %372, %377
@@ -214583,7 +214583,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !21637
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h3c4726b32d3d197bE.exit: ; preds = %366, %371
@@ -216819,7 +216819,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !21732
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h5922b18e6bd80906E.exit: ; preds = %366, %371
@@ -219055,7 +219055,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !21827
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h8974a32bb12ef4bbE.exit: ; preds = %366, %371
@@ -221285,7 +221285,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" unwind label %232, !noalias !21922
 
 common.resume:                                    ; preds = %444, %414, %757, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" ], [ %758, %757 ], [ %415, %414 ], [ %.pn104.pn.pn.pn.i, %444 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit95.i" ], [ %415, %414 ], [ %758, %757 ], [ %.pn104.pn.pn.pn.i, %444 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h842efc7157f362fdE.exit: ; preds = %357, %362
@@ -223515,7 +223515,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !22017
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h016ab40a4474e72dE.exit: ; preds = %366, %371
@@ -225751,7 +225751,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" unwind label %235, !noalias !22112
 
 common.resume:                                    ; preds = %454, %424, %773, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %774, %773 ], [ %425, %424 ], [ %.pn104.pn.pn.pn.i, %454 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn80.pn.pn.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17hb9225408e4cb75aaE.exit94.i" ], [ %425, %424 ], [ %774, %773 ], [ %.pn104.pn.pn.pn.i, %454 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10polars_ops6series3ops5is_in21is_in_helper_array_ca17h75152880881bd09bE.exit: ; preds = %366, %371

@@ -2586,7 +2586,7 @@ _ZNK4llvm8DWARFDie15isSubroutineDIEEv.exit:       ; preds = %2
   br label %_ZNK4llvm8DWARFDie7getNameENS_10DINameKindE.exit
 
 _ZNK4llvm8DWARFDie7getNameENS_10DINameKindE.exit: ; preds = %2, %_ZNK4llvm8DWARFDie15isSubroutineDIEEv.exit, %16, %14, %9
-  %.0 = phi ptr [ null, %_ZNK4llvm8DWARFDie15isSubroutineDIEEv.exit ], [ %15, %14 ], [ %17, %16 ], [ null, %9 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %_ZNK4llvm8DWARFDie15isSubroutineDIEEv.exit ], [ %17, %16 ], [ %15, %14 ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2616,7 +2616,7 @@ define dso_local noundef ptr @_ZNK4llvm8DWARFDie7getNameENS_10DINameKindE(ptr no
   br label %15
 
 15:                                               ; preds = %11, %2, %13
-  %.07 = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %2 ]
+  %.07 = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %2 ]
   ret ptr %.07
 }
 
@@ -10997,8 +10997,8 @@ _ZN4llvm11raw_ostreamlsEc.exit220:                ; preds = %609, %611
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %476, %474, %_ZN4llvm11raw_ostreamlsEc.exit220, %_ZNK4llvm9StringRef9ends_withES0_.exit214, %_ZNK4llvm9StringRef9ends_withES0_.exit214.thread471, %613, %461, %460, %458, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %420, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit169, %_ZN4llvm11raw_ostreamlsEPKc.exit154, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit282, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit258, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit91, %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit223, %62, %60
-  %.sroa.6383.0 = phi ptr [ null, %60 ], [ null, %62 ], [ null, %613 ], [ null, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ null, %420 ], [ %408, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit169 ], [ %310, %_ZN4llvm11raw_ostreamlsEPKc.exit154 ], [ %250, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit282 ], [ %193, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit258 ], [ %171, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit91 ], [ %137, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %80, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit223 ], [ null, %458 ], [ null, %460 ], [ null, %461 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214.thread471 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214 ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit220 ], [ null, %474 ], [ null, %476 ]
-  %.sroa.0382.0 = phi ptr [ null, %60 ], [ null, %62 ], [ null, %613 ], [ null, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ null, %420 ], [ %407, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit169 ], [ %309, %_ZN4llvm11raw_ostreamlsEPKc.exit154 ], [ %249, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit282 ], [ %192, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit258 ], [ %170, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit91 ], [ %136, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %79, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit223 ], [ null, %458 ], [ null, %460 ], [ null, %461 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214.thread471 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214 ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit220 ], [ null, %474 ], [ null, %476 ]
+  %.sroa.6383.0 = phi ptr [ null, %60 ], [ null, %62 ], [ null, %613 ], [ %80, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit223 ], [ %137, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %171, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit91 ], [ %193, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit258 ], [ %250, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit282 ], [ %310, %_ZN4llvm11raw_ostreamlsEPKc.exit154 ], [ %408, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit169 ], [ null, %420 ], [ null, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ null, %458 ], [ null, %460 ], [ null, %461 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214.thread471 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214 ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit220 ], [ null, %474 ], [ null, %476 ]
+  %.sroa.0382.0 = phi ptr [ null, %60 ], [ null, %62 ], [ null, %613 ], [ %79, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit223 ], [ %136, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %170, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit91 ], [ %192, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit258 ], [ %249, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit282 ], [ %309, %_ZN4llvm11raw_ostreamlsEPKc.exit154 ], [ %407, %_ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendQualifiedNameBeforeES1_.exit169 ], [ null, %420 ], [ null, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ null, %458 ], [ null, %460 ], [ null, %461 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214.thread471 ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit214 ], [ null, %_ZN4llvm11raw_ostreamlsEc.exit220 ], [ null, %474 ], [ null, %476 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0382.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.6383.0, 1
   ret { ptr, ptr } %.fca.1.insert

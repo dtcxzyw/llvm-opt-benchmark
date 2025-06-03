@@ -1556,7 +1556,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly c
   br i1 %.not115, label %154, label %153
 
 153:                                              ; preds = %146, %122, %99, %76, %53, %.thread169, %.thread161, %.thread153, %.thread145, %.thread137, %.thread165, %24, %150, %147, %27, %3
-  %.074 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %53 ], [ %25, %76 ], [ %25, %99 ], [ %25, %122 ], [ %25, %146 ], [ %25, %.thread165 ], [ %25, %147 ], [ %25, %150 ], [ %25, %24 ], [ %25, %.thread137 ], [ %25, %.thread145 ], [ %25, %.thread153 ], [ %25, %.thread161 ], [ %25, %.thread169 ]
+  %.074 = phi ptr [ null, %3 ], [ %25, %27 ], [ %25, %147 ], [ %25, %150 ], [ %25, %.thread165 ], [ %25, %146 ], [ %25, %122 ], [ %25, %99 ], [ %25, %76 ], [ %25, %53 ], [ %25, %24 ], [ %25, %.thread137 ], [ %25, %.thread145 ], [ %25, %.thread153 ], [ %25, %.thread161 ], [ %25, %.thread169 ]
   store ptr null, ptr %0, align 8
   call void @free_cron_entry(ptr noundef %.074)
   br label %154

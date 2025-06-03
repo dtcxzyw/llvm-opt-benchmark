@@ -4001,7 +4001,7 @@ default.unreachable165:                           ; preds = %25
   br i1 %71, label %.lr.ph147, label %.loopexit125, !llvm.loop !11
 
 .loopexit125:                                     ; preds = %.loopexit, %7, %62, %35, %27
-  %.0.in = phi i32 [ %4, %27 ], [ %4, %62 ], [ %4, %35 ], [ 0, %7 ], [ %70, %.loopexit ]
+  %.0.in = phi i32 [ %4, %27 ], [ %4, %35 ], [ %4, %62 ], [ 0, %7 ], [ %70, %.loopexit ]
   %.0 = trunc i32 %.0.in to i16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   ret i16 %.0
@@ -4910,7 +4910,7 @@ define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef
   br label %82
 
 82:                                               ; preds = %7, %80, %49, %21, %17
-  %.0 = phi i32 [ %16, %7 ], [ %81, %80 ], [ %79, %49 ], [ %48, %21 ], [ %20, %17 ]
+  %.0 = phi i32 [ %16, %7 ], [ %20, %17 ], [ %48, %21 ], [ %79, %49 ], [ %81, %80 ]
   %83 = sub i32 %.0, %3
   %84 = trunc i32 %83 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
@@ -5080,7 +5080,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   br label %78
 
 78:                                               ; preds = %44, %52, %57, %63, %69, %75
-  %.2 = phi i32 [ %77, %75 ], [ %74, %69 ], [ %68, %63 ], [ %62, %57 ], [ %56, %52 ], [ %51, %44 ]
+  %.2 = phi i32 [ %77, %75 ], [ %51, %44 ], [ %56, %52 ], [ %62, %57 ], [ %68, %63 ], [ %74, %69 ]
   %79 = add nuw i32 %.0103105, 1
   %80 = load i32, ptr %10, align 4
   %81 = icmp ult i32 %79, %80
@@ -5124,7 +5124,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   br label %105
 
 105:                                              ; preds = %._crit_edge, %100, %93
-  %.3 = phi i32 [ %91, %._crit_edge ], [ %104, %100 ], [ %99, %93 ]
+  %.3 = phi i32 [ %91, %._crit_edge ], [ %99, %93 ], [ %104, %100 ]
   %106 = load i8, ptr %14, align 1, !range !16, !noundef !17
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %115

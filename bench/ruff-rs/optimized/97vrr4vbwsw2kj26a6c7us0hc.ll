@@ -1474,7 +1474,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit"
 
 "_ZN64_$LT$ty_project..walk..WalkError$u20$as$u20$core..fmt..Debug$GT$3fmt17h45f587309e7af626E.exit": ; preds = %12, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1677,7 +1677,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h685fe0e557ef53ddE.exit"
 
 "_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h685fe0e557ef53ddE.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i = phi ptr [ null, %5 ], [ %4, %3 ], [ @"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h89f60c197fd727ceE", %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ null, %5 ], [ @"_ZN7ruff_db5panic14LAST_BACKTRACE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h89f60c197fd727ceE", %1 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -5248,7 +5248,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %14, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17
-  %.sroa.0.0.in = phi i1 [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %18, %14 ]
+  %.sroa.0.0.in = phi i1 [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %18, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5433,7 +5433,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %18, %14, %11, %8
-  %.sroa.0.0.in = phi i1 [ %21, %18 ], [ %17, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in = phi i1 [ %10, %8 ], [ %13, %11 ], [ %17, %14 ], [ %21, %18 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -11105,7 +11105,7 @@ default.unreachable:                              ; preds = %2
   br label %17
 
 17:                                               ; preds = %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -11419,8 +11419,8 @@ default.unreachable:                              ; preds = %1
   br label %11
 
 11:                                               ; preds = %1, %9, %7, %5
-  %.sroa.5.0 = phi ptr [ @anon.4c7e1a88640444eca2a4b9650267a67c.258, %9 ], [ @anon.4c7e1a88640444eca2a4b9650267a67c.256, %7 ], [ @anon.4c7e1a88640444eca2a4b9650267a67c.254, %5 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.4c7e1a88640444eca2a4b9650267a67c.254, %5 ], [ @anon.4c7e1a88640444eca2a4b9650267a67c.256, %7 ], [ @anon.4c7e1a88640444eca2a4b9650267a67c.258, %9 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %13
@@ -11588,7 +11588,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit49: ; preds = %2
   br label %38
 
 38:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit49, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit44, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit39, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %37, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit49 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit44 ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit39 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ]
+  %.sroa.0.0.in = phi i1 [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit39 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit44 ], [ %37, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit49 ]
   ret i1 %.sroa.0.0.in
 }
 

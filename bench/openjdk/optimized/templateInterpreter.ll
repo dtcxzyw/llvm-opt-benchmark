@@ -634,7 +634,7 @@ define hidden noundef nonnull ptr @_ZN19TemplateInterpreter29invoke_return_entry
   unreachable
 
 9:                                                ; preds = %1, %1, %1, %1, %1, %3, %2
-  %.0 = phi ptr [ @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, %3 ], [ @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, %2 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ]
+  %.0 = phi ptr [ @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, %2 ], [ @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, %3 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ]
   ret ptr %.0
 }
 
@@ -685,7 +685,7 @@ define hidden noundef ptr @_ZN19TemplateInterpreter12return_entryE8TosStateiN9By
   br label %21
 
 21:                                               ; preds = %16, %13, %10, %7
-  %.0.in = phi ptr [ %20, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi ptr [ %20, %16 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }

@@ -2110,7 +2110,7 @@ define internal i32 @attrgetter_traverse(ptr noundef readonly captures(none) %0,
   br label %13
 
 13:                                               ; preds = %10, %6, %12
-  %.1 = phi i32 [ %7, %6 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %7, %6 ]
   ret i32 %.1
 }
 
@@ -3147,7 +3147,7 @@ define internal i32 @itemgetter_traverse(ptr noundef readonly captures(none) %0,
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3609,7 +3609,7 @@ define internal i32 @methodcaller_traverse(ptr noundef readonly captures(none) %
   br label %33
 
 33:                                               ; preds = %30, %26, %21, %16, %11, %6, %32
-  %.1 = phi i32 [ %7, %6 ], [ %12, %11 ], [ %17, %16 ], [ %22, %21 ], [ %27, %26 ], [ %31, %30 ], [ 0, %32 ]
+  %.1 = phi i32 [ 0, %32 ], [ %31, %30 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %7, %6 ]
   ret i32 %.1
 }
 

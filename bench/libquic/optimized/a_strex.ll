@@ -89,11 +89,11 @@ define internal fastcc i32 @do_name_ex(ptr noundef readonly captures(none) %0, p
   br label %16
 
 16:                                               ; preds = %.loopexit149, %15, %14, %13
-  %.093 = phi i32 [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ %spec.store.select, %.loopexit149 ]
-  %.092 = phi ptr [ @.str.5, %15 ], [ @.str.4, %14 ], [ @.str.2, %13 ], [ @.str, %.loopexit149 ]
-  %.091 = phi ptr [ @.str.1, %15 ], [ @.str.1, %14 ], [ @.str.3, %13 ], [ @.str.1, %.loopexit149 ]
-  %.089 = phi i32 [ 2, %15 ], [ 2, %14 ], [ 1, %13 ], [ 1, %.loopexit149 ]
-  %.088 = phi i32 [ 3, %15 ], [ 3, %14 ], [ 1, %13 ], [ 3, %.loopexit149 ]
+  %.093 = phi i32 [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ %spec.store.select, %.loopexit149 ]
+  %.092 = phi ptr [ @.str.2, %13 ], [ @.str.4, %14 ], [ @.str.5, %15 ], [ @.str, %.loopexit149 ]
+  %.091 = phi ptr [ @.str.3, %13 ], [ @.str.1, %14 ], [ @.str.1, %15 ], [ @.str.1, %.loopexit149 ]
+  %.089 = phi i32 [ 1, %13 ], [ 2, %14 ], [ 2, %15 ], [ 1, %.loopexit149 ]
+  %.088 = phi i32 [ 1, %13 ], [ 3, %14 ], [ 3, %15 ], [ 3, %.loopexit149 ]
   %17 = and i64 %4, 8388608
   %.not108 = icmp eq i64 %17, 0
   %.str.7..str.6 = select i1 %.not108, ptr @.str.7, ptr @.str.6
@@ -789,9 +789,9 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %55 = or disjoint i64 %51, %54
   br label %.thread
 
-.thread:                                          ; preds = %24, %28, %37
-  %.sink = phi i64 [ %27, %24 ], [ %36, %28 ], [ %55, %37 ]
-  %.150.us.ph = phi ptr [ %25, %24 ], [ %33, %28 ], [ %52, %37 ]
+.thread:                                          ; preds = %37, %28, %24
+  %.sink = phi i64 [ %55, %37 ], [ %36, %28 ], [ %27, %24 ]
+  %.150.us.ph = phi ptr [ %52, %37 ], [ %33, %28 ], [ %25, %24 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !30
   %56 = icmp ne ptr %.150.us.ph, %15
   %or.cond64.us117 = or i1 %.not60, %56
@@ -986,8 +986,8 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %147
 
 147:                                              ; preds = %144, %137, %128, %109
-  %148 = phi i64 [ %.pre, %144 ], [ %140, %137 ], [ %136, %128 ], [ %127, %109 ]
-  %.150 = phi ptr [ %146, %144 ], [ %138, %137 ], [ %133, %128 ], [ %124, %109 ]
+  %148 = phi i64 [ %127, %109 ], [ %136, %128 ], [ %140, %137 ], [ %.pre, %144 ]
+  %.150 = phi ptr [ %124, %109 ], [ %133, %128 ], [ %138, %137 ], [ %146, %144 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %13) #10
   %149 = call i32 @UTF8_putc(ptr noundef nonnull %13, i32 noundef 6, i64 noundef %148) #10
   %.not6399 = icmp sgt i32 %149, 0

@@ -217,7 +217,7 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 50:                                               ; preds = %49, %.loopexit.i, %32, %31, %27, %24
-  %.1.i = phi i32 [ %.02433.i, %24 ], [ %48, %.loopexit.i ], [ 1, %49 ], [ 1, %31 ], [ 0, %32 ], [ 2, %27 ]
+  %.1.i = phi i32 [ 1, %31 ], [ 0, %32 ], [ %48, %.loopexit.i ], [ 1, %49 ], [ %.02433.i, %24 ], [ 2, %27 ]
   %51 = icmp sgt i32 %.in.i, 1
   br i1 %51, label %21, label %au_read_annotation.exit, !llvm.loop !31
 

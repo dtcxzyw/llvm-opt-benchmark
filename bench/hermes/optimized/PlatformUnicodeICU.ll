@@ -567,7 +567,7 @@ sw.bb7:                                           ; preds = %entry
   br label %if.else.i
 
 if.else.i:                                        ; preds = %entry, %sw.bb, %sw.bb3, %sw.bb5, %sw.bb7
-  %norm.0 = phi ptr [ null, %entry ], [ %call8, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %call4, %sw.bb3 ], [ %call2, %sw.bb ]
+  %norm.0 = phi ptr [ null, %entry ], [ %call2, %sw.bb ], [ %call4, %sw.bb3 ], [ %call6, %sw.bb5 ], [ %call8, %sw.bb7 ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %dest, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %dest, align 8
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %dest, i64 8

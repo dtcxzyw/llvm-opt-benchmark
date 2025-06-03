@@ -607,7 +607,7 @@ define range(i32 0, 2) i32 @ABC_AddGate(ptr noundef readonly captures(none) %0, 
   br label %126
 
 126:                                              ; preds = %._crit_edge, %121, %113, %105, %92, %79, %70, %61, %52, %43
-  %.077 = phi ptr [ null, %._crit_edge ], [ %125, %121 ], [ %117, %113 ], [ %109, %105 ], [ %96, %92 ], [ %83, %79 ], [ %74, %70 ], [ %65, %61 ], [ %56, %52 ], [ %47, %43 ]
+  %.077 = phi ptr [ null, %._crit_edge ], [ %47, %43 ], [ %56, %52 ], [ %65, %61 ], [ %74, %70 ], [ %83, %79 ], [ %96, %92 ], [ %109, %105 ], [ %117, %113 ], [ %125, %121 ]
   %127 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store ptr %.077, ptr %127, align 8, !tbaa !59
   br label %147
@@ -648,7 +648,7 @@ define range(i32 0, 2) i32 @ABC_AddGate(ptr noundef readonly captures(none) %0, 
   br label %147
 
 147:                                              ; preds = %146, %144, %126, %18
-  %.078 = phi ptr [ null, %146 ], [ %134, %144 ], [ %28, %126 ], [ %21, %18 ]
+  %.078 = phi ptr [ null, %146 ], [ %21, %18 ], [ %28, %126 ], [ %134, %144 ]
   %148 = load ptr, ptr %0, align 8, !tbaa !31
   %149 = call i32 @stmm_insert(ptr noundef %148, ptr noundef nonnull %13, ptr noundef %.078) #14
   %.not86 = icmp eq i32 %149, 0
@@ -659,7 +659,7 @@ define range(i32 0, 2) i32 @ABC_AddGate(ptr noundef readonly captures(none) %0, 
   br label %152
 
 152:                                              ; preds = %147, %150, %141, %129, %119, %111, %103, %99, %90, %86, %77, %68, %59, %50, %41, %34, %16
-  %.076 = phi i32 [ 0, %150 ], [ 0, %129 ], [ 0, %141 ], [ 0, %34 ], [ 0, %119 ], [ 0, %111 ], [ 0, %99 ], [ 0, %103 ], [ 0, %86 ], [ 0, %90 ], [ 0, %77 ], [ 0, %68 ], [ 0, %59 ], [ 0, %50 ], [ 0, %41 ], [ 0, %16 ], [ 1, %147 ]
+  %.076 = phi i32 [ 0, %150 ], [ 0, %16 ], [ 0, %34 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %90 ], [ 0, %99 ], [ 0, %103 ], [ 0, %111 ], [ 0, %119 ], [ 0, %129 ], [ 0, %141 ], [ 1, %147 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   ret i32 %.076
 }

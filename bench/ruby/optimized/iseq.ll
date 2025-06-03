@@ -4857,7 +4857,7 @@ define hidden i64 @rb_insn_operand_intern(ptr noundef readonly captures(none) %0
   br label %35
 
 35:                                               ; preds = %33, %31, %29, %27
-  %.1 = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.1 = phi i64 [ %34, %33 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   %.not164 = icmp eq i64 %.1, 0
   br i1 %.not164, label %.thread, label %.thread224
 
@@ -4955,7 +4955,7 @@ define hidden i64 @rb_insn_operand_intern(ptr noundef readonly captures(none) %0
   br label %obj_resurrect.exit
 
 obj_resurrect.exit:                               ; preds = %69, %74, %78, %82, %84, %86
-  %.0.i = phi i64 [ %3, %69 ], [ %3, %74 ], [ %3, %78 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
+  %.0.i = phi i64 [ %3, %69 ], [ %3, %74 ], [ %3, %78 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ]
   %88 = icmp eq i64 %1, 47
   %89 = icmp eq i32 %2, 1
   %or.cond7 = and i1 %88, %89
@@ -5587,7 +5587,7 @@ vm_ci_flag.exit220:                               ; preds = %364, %367
   unreachable
 
 .thread224:                                       ; preds = %97, %99, %41, %35, %123, %129, %51, %62, %58, %396, %131, %rb_class_of.exit, %120, %397, %383, %379, %154, %._crit_edge, %66, %.thread, %17
-  %.0 = phi i64 [ %403, %397 ], [ %.6, %396 ], [ %384, %383 ], [ %382, %379 ], [ %162, %154 ], [ %142, %._crit_edge ], [ %132, %131 ], [ %102, %120 ], [ %102, %rb_class_of.exit ], [ %68, %66 ], [ %.1, %35 ], [ %43, %.thread ], [ %42, %41 ], [ %21, %17 ], [ %54, %51 ], [ %61, %58 ], [ %65, %62 ], [ %128, %129 ], [ %128, %123 ], [ %100, %99 ], [ %98, %97 ]
+  %.0 = phi i64 [ %21, %17 ], [ %43, %.thread ], [ %.1, %35 ], [ %42, %41 ], [ %68, %66 ], [ %102, %120 ], [ %102, %rb_class_of.exit ], [ %132, %131 ], [ %142, %._crit_edge ], [ %162, %154 ], [ %382, %379 ], [ %384, %383 ], [ %.6, %396 ], [ %403, %397 ], [ %54, %51 ], [ %61, %58 ], [ %65, %62 ], [ %128, %129 ], [ %128, %123 ], [ %100, %99 ], [ %98, %97 ]
   ret i64 %.0
 }
 
@@ -11342,14 +11342,14 @@ insn_op_type.exit:                                ; preds = %obj_resurrect.exit,
   br label %301
 
 301:                                              ; preds = %298, %295
-  %.0.i460 = phi i32 [ 0, %295 ], [ %300, %298 ]
+  %.0.i460 = phi i32 [ %300, %298 ], [ 0, %295 ]
   %302 = getelementptr inbounds nuw i8, ptr %297, i64 248
   %303 = load i32, ptr %302, align 8, !tbaa !37
   %304 = add i32 %303, %.0.i460
   br label %305
 
 305:                                              ; preds = %301, %295
-  %.1.i = phi i32 [ 0, %295 ], [ %304, %301 ]
+  %.1.i = phi i32 [ %304, %301 ], [ 0, %295 ]
   %306 = getelementptr inbounds nuw i8, ptr %297, i64 244
   %307 = load i32, ptr %306, align 4, !tbaa !38
   %308 = add i32 %307, %.1.i
@@ -11361,7 +11361,7 @@ insn_op_type.exit:                                ; preds = %obj_resurrect.exit,
   unreachable
 
 ISEQ_IS_ENTRY_START.exit:                         ; preds = %295, %305
-  %.2.i = phi i64 [ 0, %295 ], [ %309, %305 ]
+  %.2.i = phi i64 [ %309, %305 ], [ 0, %295 ]
   %311 = getelementptr inbounds nuw i8, ptr %297, i64 176
   %312 = load ptr, ptr %311, align 8, !tbaa !14
   %313 = getelementptr %union.iseq_inline_storage_entry, ptr %312, i64 %.2.i
@@ -11692,7 +11692,7 @@ insn_op_type.exit.thread:                         ; preds = %insn_op_type.exit
   unreachable
 
 obj_resurrect.exit:                               ; preds = %rb_array_len.exit, %.lr.ph731, %419, %416, %283, %278, %276, %274, %272, %268, %264, %258, %280, %rbimpl_intern_const.exit524, %384, %rbimpl_intern_const.exit494, %ISEQ_IS_ENTRY_START.exit, %254, %248
-  %.sink894 = phi i64 [ %282, %280 ], [ %422, %rbimpl_intern_const.exit524 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ %257, %254 ], [ %252, %248 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ 4, %278 ], [ %284, %283 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
+  %.sink894 = phi i64 [ %282, %280 ], [ %422, %rbimpl_intern_const.exit524 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ %257, %254 ], [ %252, %248 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ 4, %278 ], [ %284, %283 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
   %465 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %.sink894) #20
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %466 = getelementptr i8, ptr %.1345737, i64 8
@@ -12563,7 +12563,7 @@ define internal noundef i32 @cdhash_each(i64 noundef %0, i64 noundef %1, i64 nou
   br label %obj_resurrect.exit
 
 obj_resurrect.exit:                               ; preds = %3, %8, %12, %16, %18, %20
-  %.0.i = phi i64 [ %0, %3 ], [ %0, %8 ], [ %0, %12 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %0, %3 ], [ %0, %8 ], [ %0, %12 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   %22 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %.0.i) #20
   %23 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %1) #20
   ret i32 0
@@ -12666,16 +12666,16 @@ define internal fastcc i64 @iseqw_s_compile_parser(i32 noundef %0, ptr noundef r
   br label %41
 
 41:                                               ; preds = %37, %33
-  %42 = phi i64 [ %.087.i64, %33 ], [ %38, %37 ]
-  %.128 = phi i64 [ 4, %33 ], [ %40, %37 ]
+  %42 = phi i64 [ %38, %37 ], [ %.087.i64, %33 ]
+  %.128 = phi i64 [ %40, %37 ], [ 4, %33 ]
   %43 = getelementptr i8, ptr %1, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !42
   br label %45
 
 45:                                               ; preds = %33, %41
-  %46 = phi i64 [ %.087.i64, %33 ], [ %42, %41 ]
-  %.131 = phi i64 [ 4, %33 ], [ %44, %41 ]
-  %.229 = phi i64 [ 4, %33 ], [ %.128, %41 ]
+  %46 = phi i64 [ %42, %41 ], [ %.087.i64, %33 ]
+  %.131 = phi i64 [ %44, %41 ], [ 4, %33 ]
+  %.229 = phi i64 [ %.128, %41 ], [ 4, %33 ]
   %47 = getelementptr i8, ptr %1, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !42
   %49 = icmp eq i64 %48, 4

@@ -3438,7 +3438,7 @@ dot_product.exit327:                              ; preds = %scalar_product.exit
   br label %1722
 
 1722:                                             ; preds = %1719, %1695, %1671, %1666, %1662
-  %.0236 = phi nsz float [ %1721, %1719 ], [ %1718, %1695 ], [ %1694, %1671 ], [ %1670, %1666 ], [ %1665, %1662 ]
+  %.0236 = phi nsz float [ %1721, %1719 ], [ %1665, %1662 ], [ %1670, %1666 ], [ %1694, %1671 ], [ %1718, %1695 ]
   %1723 = fcmp reassoc nsz arcp contract afn olt float %.0236, 0.000000e+00
   %1724 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %.0236)
   %1725 = fpext reassoc nsz arcp contract afn float %1724 to double
@@ -6976,10 +6976,10 @@ _pack_hue.exit:                                   ; preds = %269
   br label %293
 
 293:                                              ; preds = %275, %_pack_hue.exit, %233
-  %.0178 = phi i32 [ 1, %275 ], [ 0, %_pack_hue.exit ], [ 1, %233 ]
-  %.0177 = phi nsz float [ 5.000000e-01, %275 ], [ 0x3FC45F3060000000, %_pack_hue.exit ], [ 5.000000e-01, %233 ]
-  %.0175 = phi nsz float [ 1.000000e+00, %275 ], [ 5.000000e-01, %_pack_hue.exit ], [ 1.000000e+00, %233 ]
-  %.0174 = phi nsz float [ 1.000000e+00, %275 ], [ %274, %_pack_hue.exit ], [ 1.000000e+00, %233 ]
+  %.0178 = phi i32 [ 1, %275 ], [ 1, %233 ], [ 0, %_pack_hue.exit ]
+  %.0177 = phi nsz float [ 5.000000e-01, %275 ], [ 5.000000e-01, %233 ], [ 0x3FC45F3060000000, %_pack_hue.exit ]
+  %.0175 = phi nsz float [ 1.000000e+00, %275 ], [ 1.000000e+00, %233 ], [ 5.000000e-01, %_pack_hue.exit ]
+  %.0174 = phi nsz float [ 1.000000e+00, %275 ], [ 1.000000e+00, %233 ], [ %274, %_pack_hue.exit ]
   %294 = fdiv reassoc nsz arcp contract afn float 0x400921FB60000000, %.0174
   call fastcc void @_periodic_RBF_interpolate(ptr noundef %11, float noundef %294, ptr noundef %224, float noundef 0.000000e+00, i32 noundef %.0178)
   %295 = getelementptr inbounds nuw i8, ptr %15, i64 124

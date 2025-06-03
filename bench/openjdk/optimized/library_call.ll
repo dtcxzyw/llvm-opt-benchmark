@@ -2667,7 +2667,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit13try_to_inlineEi(ptr nound
   br label %597
 
 597:                                              ; preds = %12, %595, %593, %591, %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %527, %525, %523, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %431, %429, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %394, %392, %390, %387, %384, %381, %378, %376, %374, %372, %370, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %17
-  %.0 = phi i1 [ true, %595 ], [ true, %593 ], [ %592, %591 ], [ %590, %589 ], [ %588, %587 ], [ %586, %585 ], [ %584, %583 ], [ %582, %581 ], [ %580, %579 ], [ %578, %577 ], [ %576, %575 ], [ %574, %573 ], [ %572, %571 ], [ %570, %569 ], [ %568, %567 ], [ %566, %565 ], [ %564, %563 ], [ %562, %561 ], [ %560, %559 ], [ %558, %557 ], [ %556, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %548, %547 ], [ %546, %545 ], [ %544, %543 ], [ true, %541 ], [ true, %539 ], [ true, %537 ], [ true, %535 ], [ %534, %533 ], [ true, %531 ], [ %530, %529 ], [ true, %527 ], [ %526, %525 ], [ true, %523 ], [ %522, %521 ], [ true, %519 ], [ %518, %517 ], [ true, %515 ], [ %514, %513 ], [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ true, %499 ], [ true, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %490, %489 ], [ %488, %487 ], [ %486, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ true, %455 ], [ true, %453 ], [ true, %451 ], [ true, %449 ], [ true, %447 ], [ true, %445 ], [ %444, %443 ], [ true, %441 ], [ true, %439 ], [ true, %437 ], [ true, %431 ], [ %430, %429 ], [ %428, %427 ], [ true, %425 ], [ true, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ true, %403 ], [ true, %401 ], [ true, %399 ], [ true, %397 ], [ true, %394 ], [ true, %392 ], [ true, %390 ], [ true, %387 ], [ true, %384 ], [ true, %381 ], [ true, %378 ], [ true, %376 ], [ true, %374 ], [ true, %372 ], [ true, %370 ], [ true, %367 ], [ true, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ true, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ true, %71 ], [ true, %69 ], [ true, %67 ], [ true, %65 ], [ %64, %63 ], [ %62, %61 ], [ true, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ true, %49 ], [ true, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ true, %29 ], [ %28, %27 ], [ true, %25 ], [ true, %23 ], [ true, %17 ], [ false, %12 ]
+  %.0 = phi i1 [ true, %17 ], [ true, %23 ], [ true, %25 ], [ %28, %27 ], [ true, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ true, %47 ], [ true, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ true, %59 ], [ %62, %61 ], [ %64, %63 ], [ true, %65 ], [ true, %67 ], [ true, %69 ], [ true, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ true, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %154, %153 ], [ %156, %155 ], [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ true, %365 ], [ true, %367 ], [ true, %370 ], [ true, %372 ], [ true, %374 ], [ true, %376 ], [ true, %378 ], [ true, %381 ], [ true, %384 ], [ true, %387 ], [ true, %390 ], [ true, %392 ], [ true, %394 ], [ true, %397 ], [ true, %399 ], [ true, %401 ], [ true, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ true, %423 ], [ true, %425 ], [ %428, %427 ], [ %430, %429 ], [ true, %431 ], [ true, %437 ], [ true, %439 ], [ true, %441 ], [ %444, %443 ], [ true, %445 ], [ true, %447 ], [ true, %449 ], [ true, %451 ], [ true, %453 ], [ true, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %486, %485 ], [ %488, %487 ], [ %490, %489 ], [ %492, %491 ], [ %494, %493 ], [ %496, %495 ], [ true, %497 ], [ true, %499 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %512, %511 ], [ %514, %513 ], [ true, %515 ], [ %518, %517 ], [ true, %519 ], [ %522, %521 ], [ true, %523 ], [ %526, %525 ], [ true, %527 ], [ %530, %529 ], [ true, %531 ], [ %534, %533 ], [ true, %535 ], [ true, %537 ], [ true, %539 ], [ true, %541 ], [ %544, %543 ], [ %546, %545 ], [ %548, %547 ], [ %550, %549 ], [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %558, %557 ], [ %560, %559 ], [ %562, %561 ], [ %564, %563 ], [ %566, %565 ], [ %568, %567 ], [ %570, %569 ], [ %572, %571 ], [ %574, %573 ], [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %582, %581 ], [ %584, %583 ], [ %586, %585 ], [ %588, %587 ], [ %590, %589 ], [ %592, %591 ], [ true, %593 ], [ true, %595 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -3058,7 +3058,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i:                  ; preds = %51, %39, %30
   br label %_ZN8GraphKit11set_controlEP4Node.exit
 
 _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %67, %56, %_ZN4Node7del_outEPS_.exit.i.i.i, %28, %26, %24, %22, %20, %18, %16
-  %.0 = phi ptr [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %34, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ %34, %56 ], [ %34, %67 ]
+  %.0 = phi ptr [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %34, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ %34, %56 ], [ %34, %67 ]
   ret ptr %.0
 }
 
@@ -5679,7 +5679,7 @@ _ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit40: ; preds = %_ZN4NodenwEm
   unreachable
 
 461:                                              ; preds = %2, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit40, %414, %391, %389, %366, %364, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit33, %235, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit28, %191, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit, %147, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit22, %103, %101, %99, %97, %95, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit, %51, %46, %49, %38, %41, %30, %33, %22, %25, %14, %17, %6, %9, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit36, %281, %279
-  %.0 = phi i1 [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit36 ], [ true, %281 ], [ true, %279 ], [ true, %9 ], [ true, %6 ], [ true, %17 ], [ true, %14 ], [ true, %25 ], [ true, %22 ], [ true, %33 ], [ true, %30 ], [ true, %41 ], [ true, %38 ], [ true, %49 ], [ true, %46 ], [ false, %51 ], [ true, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit ], [ false, %95 ], [ true, %97 ], [ false, %99 ], [ true, %101 ], [ false, %103 ], [ true, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit22 ], [ false, %147 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit ], [ false, %191 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit28 ], [ false, %235 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit33 ], [ false, %364 ], [ true, %366 ], [ false, %389 ], [ true, %391 ], [ false, %414 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit40 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %279 ], [ true, %281 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit36 ], [ true, %9 ], [ true, %6 ], [ true, %17 ], [ true, %14 ], [ true, %25 ], [ true, %22 ], [ true, %33 ], [ true, %30 ], [ true, %41 ], [ true, %38 ], [ true, %49 ], [ true, %46 ], [ false, %51 ], [ true, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit ], [ false, %95 ], [ true, %97 ], [ false, %99 ], [ true, %101 ], [ false, %103 ], [ true, %_ZN14LibraryCallKit18inline_double_mathE13vmIntrinsicID.exit22 ], [ false, %147 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit ], [ false, %191 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit28 ], [ false, %235 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit33 ], [ false, %364 ], [ true, %366 ], [ false, %389 ], [ true, %391 ], [ false, %414 ], [ true, %_ZN14LibraryCallKit11inline_mathE13vmIntrinsicID.exit40 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -12100,7 +12100,7 @@ default.unreachable:                              ; preds = %108
   unreachable
 
 116:                                              ; preds = %114, %108, %108, %108, %112
-  %.067 = phi ptr [ %111, %108 ], [ %111, %108 ], [ %111, %108 ], [ %111, %112 ], [ %spec.select, %114 ]
+  %.067 = phi ptr [ %111, %112 ], [ %111, %108 ], [ %111, %108 ], [ %111, %108 ], [ %spec.select, %114 ]
   %117 = load ptr, ptr %85, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %119 = load ptr, ptr %118, align 8
@@ -12194,7 +12194,7 @@ _Z17is_reference_type9BasicTypeb.exit82:          ; preds = %134, %155, %156, %1
   br label %176
 
 176:                                              ; preds = %174, %_Z17is_reference_type9BasicTypeb.exit82
-  %.1 = phi i64 [ %.066, %_Z17is_reference_type9BasicTypeb.exit82 ], [ %175, %174 ]
+  %.1 = phi i64 [ %175, %174 ], [ %.066, %_Z17is_reference_type9BasicTypeb.exit82 ]
   %177 = load ptr, ptr %5, align 8
   %178 = tail call noundef ptr @_ZN8GraphKit29access_atomic_cmpxchg_bool_atEP4NodeS1_PK7TypePtriS1_S1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %177, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.171, ptr noundef %.173, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.1) #13
   br label %185
@@ -12213,7 +12213,7 @@ default.unreachable83:                            ; preds = %_Z17is_reference_ty
   unreachable
 
 185:                                              ; preds = %182, %179, %176, %171
-  %.0 = phi ptr [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %173, %171 ]
+  %.0 = phi ptr [ %173, %171 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.0, ptr %186, align 8
   br label %187
@@ -28945,10 +28945,10 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit25inline_native_Class_query
   unreachable
 
 86:                                               ; preds = %78, %69, %65, %61, %57, %53, %48, %30
-  %not..058 = phi i1 [ true, %78 ], [ true, %69 ], [ true, %65 ], [ false, %61 ], [ false, %57 ], [ true, %53 ], [ true, %48 ], [ true, %30 ]
-  %.057 = phi ptr [ %29, %78 ], [ %29, %69 ], [ %29, %65 ], [ %29, %61 ], [ %29, %57 ], [ %29, %53 ], [ %29, %48 ], [ %47, %30 ]
-  %.055 = phi ptr [ %81, %78 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %51, %48 ], [ %33, %30 ]
-  %.054 = phi ptr [ %82, %78 ], [ %77, %69 ], [ %4, %65 ], [ %4, %61 ], [ %4, %57 ], [ %4, %53 ], [ %52, %48 ], [ %4, %30 ]
+  %not..058 = phi i1 [ true, %30 ], [ true, %48 ], [ true, %53 ], [ false, %57 ], [ false, %61 ], [ true, %65 ], [ true, %69 ], [ true, %78 ]
+  %.057 = phi ptr [ %47, %30 ], [ %29, %48 ], [ %29, %53 ], [ %29, %57 ], [ %29, %61 ], [ %29, %65 ], [ %29, %69 ], [ %29, %78 ]
+  %.055 = phi ptr [ %33, %30 ], [ %51, %48 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %81, %78 ]
+  %.054 = phi ptr [ %4, %30 ], [ %52, %48 ], [ %4, %53 ], [ %4, %57 ], [ %4, %61 ], [ %4, %65 ], [ %77, %69 ], [ %82, %78 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
@@ -29404,7 +29404,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %238, %244, %255
   br label %352
 
 352:                                              ; preds = %343, %345, %351, %347, %302, %294, %291, %283, %274, %268
-  %.0 = phi ptr [ %267, %351 ], [ %350, %347 ], [ %267, %343 ], [ %346, %345 ], [ %304, %302 ], [ %296, %294 ], [ %293, %291 ], [ %285, %283 ], [ %277, %274 ], [ %273, %268 ]
+  %.0 = phi ptr [ %267, %351 ], [ %273, %268 ], [ %277, %274 ], [ %285, %283 ], [ %293, %291 ], [ %296, %294 ], [ %304, %302 ], [ %267, %343 ], [ %346, %345 ], [ %350, %347 ]
   %353 = load ptr, ptr %241, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store ptr %.0, ptr %354, align 8
@@ -31521,7 +31521,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit220:    ; preds = %_ZN9VectorSet8test_
   unreachable
 
 1155:                                             ; preds = %_ZN4NodenwEm.exit88, %_ZN12ConvHF2FNodeC2EP4Node.exit, %_ZN4NodenwEm.exit84, %_ZN12ConvF2HFNodeC2EP4Node.exit, %_ZN4NodenwEm.exit81, %107, %_ZN4NodenwEm.exit78, %84, %_ZN4NodenwEm.exit75, %61, %_ZN4NodenwEm.exit, %38, %_ZNK8GraphKit15record_for_igvnEP4Node.exit220, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
-  %.0 = phi ptr [ %.0.i.i.i155, %_ZNK8GraphKit15record_for_igvnEP4Node.exit220 ], [ %.0.i.i.i96, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.0.i.i.i, %38 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i74, %61 ], [ null, %_ZN4NodenwEm.exit75 ], [ %.0.i.i.i77, %84 ], [ null, %_ZN4NodenwEm.exit78 ], [ %.0.i.i.i80, %107 ], [ null, %_ZN4NodenwEm.exit81 ], [ %.0.i.i.i83, %_ZN12ConvF2HFNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit84 ], [ %.0.i.i.i87, %_ZN12ConvHF2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit88 ]
+  %.0 = phi ptr [ %.0.i.i.i96, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.0.i.i.i155, %_ZNK8GraphKit15record_for_igvnEP4Node.exit220 ], [ %.0.i.i.i, %38 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i74, %61 ], [ null, %_ZN4NodenwEm.exit75 ], [ %.0.i.i.i77, %84 ], [ null, %_ZN4NodenwEm.exit78 ], [ %.0.i.i.i80, %107 ], [ null, %_ZN4NodenwEm.exit81 ], [ %.0.i.i.i83, %_ZN12ConvF2HFNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit84 ], [ %.0.i.i.i87, %_ZN12ConvHF2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit88 ]
   %1156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1157 = load ptr, ptr %1156, align 8
   %1158 = load ptr, ptr %1157, align 8
@@ -35961,10 +35961,10 @@ _ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44: ; pre
   unreachable
 
 93:                                               ; preds = %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit
-  %.033 = phi ptr [ %.0.i43, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ %.0.i41, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ %.0.i39, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ %.0.i37, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ %.0.i, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ]
-  %.032 = phi ptr [ %88, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ]
-  %.031 = phi ptr [ %87, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ %79, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ %71, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ %63, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ %55, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ]
-  %.0 = phi ptr [ @.str.111, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ @.str.110, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ @.str.109, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ @.str.108, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ @.str.107, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ]
+  %.033 = phi ptr [ %.0.i, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ], [ %.0.i37, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ %.0.i39, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ %.0.i41, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ %.0.i43, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ]
+  %.032 = phi ptr [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ null, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ %88, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ]
+  %.031 = phi ptr [ %55, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ], [ %63, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ %71, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ %79, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ %87, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ]
+  %.0 = phi ptr [ @.str.107, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit ], [ @.str.108, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit38 ], [ @.str.109, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit40 ], [ @.str.110, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit42 ], [ @.str.111, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ]
   %94 = icmp eq ptr %.033, null
   %95 = icmp eq ptr %.031, null
   %or.cond = or i1 %94, %95
@@ -36103,8 +36103,8 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   %83 = tail call noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCompressMBEP4NodeP15ciInstanceKlass9BasicTypePhPKcS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %16, ptr noundef %82, i8 noundef zeroext %.027, ptr noundef nonnull %.028, ptr noundef nonnull %.029, ptr noundef %51, ptr noundef %24, ptr noundef %28)
   br label %.thread
 
-.thread:                                          ; preds = %52, %54, %56, %58, %60, %64, %47, %2, %40, %66
-  %.0 = phi i1 [ %83, %66 ], [ false, %40 ], [ false, %2 ], [ false, %47 ], [ false, %64 ], [ false, %60 ], [ false, %58 ], [ false, %56 ], [ false, %54 ], [ false, %52 ]
+.thread:                                          ; preds = %60, %58, %56, %54, %52, %64, %47, %2, %40, %66
+  %.0 = phi i1 [ %83, %66 ], [ false, %40 ], [ false, %2 ], [ false, %47 ], [ false, %64 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ]
   ret i1 %.0
 }
 
@@ -40824,7 +40824,7 @@ _ZN4NodenwEm.exit13:                              ; preds = %97, %99
   unreachable
 
 114:                                              ; preds = %107, %53
-  %.0 = phi ptr [ %110, %107 ], [ %56, %53 ]
+  %.0 = phi ptr [ %56, %53 ], [ %110, %107 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.0, ptr %115, align 8
   ret i1 true
@@ -46746,7 +46746,7 @@ _ZN4NodenwEm.exit19:                              ; preds = %98, %100
   unreachable
 
 119:                                              ; preds = %_ZN4NodenwEm.exit19, %103, %_ZN4NodenwEm.exit16, %60, %_ZN4NodenwEm.exit, %38, %112, %104, %78, %74, %70
-  %.0 = phi ptr [ %115, %112 ], [ %111, %104 ], [ %81, %78 ], [ %77, %74 ], [ %73, %70 ], [ %.0.i.i.i, %38 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i15, %60 ], [ null, %_ZN4NodenwEm.exit16 ], [ %.0.i.i.i18, %103 ], [ null, %_ZN4NodenwEm.exit19 ]
+  %.0 = phi ptr [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %111, %104 ], [ %115, %112 ], [ %.0.i.i.i, %38 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i15, %60 ], [ null, %_ZN4NodenwEm.exit16 ], [ %.0.i.i.i18, %103 ], [ null, %_ZN4NodenwEm.exit19 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
@@ -48191,7 +48191,7 @@ _ZN4NodenwEm.exit11:                              ; preds = %52, %54
   unreachable
 
 66:                                               ; preds = %59, %30
-  %.0 = phi ptr [ %62, %59 ], [ %33, %30 ]
+  %.0 = phi ptr [ %33, %30 ], [ %62, %59 ]
   ret ptr %.0
 }
 
@@ -56625,7 +56625,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit28get_state_from_digest_objectEP4N
   unreachable
 
 8:                                                ; preds = %3, %5, %4
-  %.08 = phi ptr [ @.str.125, %5 ], [ @.str.78, %4 ], [ @.str.91, %3 ]
+  %.08 = phi ptr [ @.str.78, %4 ], [ @.str.125, %5 ], [ @.str.91, %3 ]
   %9 = tail call noundef ptr @_ZN14LibraryCallKit22load_field_from_objectEP4NodePKcS3_mbP15ciInstanceKlass(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %.08, i64 noundef 262144, i1 noundef zeroext false, ptr noundef null)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
@@ -56733,7 +56733,7 @@ _ZN4NodenwEm.exit:                                ; preds = %38, %40
   unreachable
 
 59:                                               ; preds = %56, %55, %49
-  %.08.i = phi ptr [ @.str.125, %56 ], [ @.str.78, %55 ], [ @.str.91, %49 ]
+  %.08.i = phi ptr [ @.str.78, %55 ], [ @.str.125, %56 ], [ @.str.91, %49 ]
   %60 = tail call noundef ptr @_ZN14LibraryCallKit22load_field_from_objectEP4NodePKcS3_mbP15ciInstanceKlass(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %54, ptr noundef nonnull @.str.126, ptr noundef nonnull %.08.i, i64 noundef 262144, i1 noundef zeroext false, ptr noundef null)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit.thread, label %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit

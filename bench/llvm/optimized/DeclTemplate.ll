@@ -2358,7 +2358,7 @@ _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRe
   br label %_ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_34FunctionTemplateSpecializationInfoEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit
 
 _ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_34FunctionTemplateSpecializationInfoEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit: ; preds = %4, %10, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i, %20
-  %.1.i = phi ptr [ %9, %4 ], [ %21, %20 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
+  %.1.i = phi ptr [ %21, %20 ], [ %9, %4 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
   ret ptr %.1.i
 }
 
@@ -2797,7 +2797,7 @@ _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRe
   br label %_ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_31ClassTemplateSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit
 
 _ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_31ClassTemplateSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit: ; preds = %4, %10, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i, %20
-  %.1.i = phi ptr [ %9, %4 ], [ %21, %20 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
+  %.1.i = phi ptr [ %21, %20 ], [ %9, %4 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
   ret ptr %.1.i
 }
 
@@ -2964,7 +2964,7 @@ _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRe
   br label %_ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_38ClassTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit
 
 _ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_38ClassTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit: ; preds = %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit, %22, %31, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i, %38
-  %.1.i = phi ptr [ %21, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit ], [ %39, %38 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %31 ], [ null, %22 ]
+  %.1.i = phi ptr [ %39, %38 ], [ %21, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %31 ], [ null, %22 ]
   ret ptr %.1.i
 }
 
@@ -5100,8 +5100,8 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: 
   unreachable
 
 49:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, %46, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, %32
-  %.sroa.040.1 = phi i32 [ %.sroa.040.255, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.040.255, %46 ], [ %.sroa.040.0.extract.trunc42, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.040.0.extract.trunc42, %32 ], [ %.sroa.040.0.extract.trunc41, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0.extract.trunc49, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.0.0.copyload.i34, %46 ], [ %.sroa.7.0.extract.trunc47, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i17, %32 ], [ %.sroa.7.0.extract.trunc45, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
+  %.sroa.040.1 = phi i32 [ %.sroa.040.0.extract.trunc42, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.040.0.extract.trunc42, %32 ], [ %.sroa.040.255, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.040.255, %46 ], [ %.sroa.040.0.extract.trunc41, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0.extract.trunc47, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i17, %32 ], [ %.sroa.7.0.extract.trunc49, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.0.0.copyload.i34, %46 ], [ %.sroa.7.0.extract.trunc45, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
   %.sroa.7.0.insert.ext = zext i32 %.sroa.7.1 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.040.0.insert.ext = zext i32 %.sroa.040.1 to i64
@@ -6166,7 +6166,7 @@ _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRe
   br label %_ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_29VarTemplateSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit
 
 _ZN5clang24RedeclarableTemplateDecl22findSpecializationImplINS_29VarTemplateSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorIS9_NS3_11SmallVectorIPS9_Lj8EEEEERPvDpOT0_.exit: ; preds = %4, %10, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i, %20
-  %.1.i = phi ptr [ %9, %4 ], [ %21, %20 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
+  %.1.i = phi ptr [ %21, %20 ], [ %9, %4 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.i ], [ null, %10 ]
   ret ptr %.1.i
 }
 
@@ -6410,7 +6410,7 @@ _ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplateP
   br label %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.thread
 
 _ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit.thread: ; preds = %25, %34, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit18
-  %.1 = phi ptr [ %21, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit ], [ %55, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit18 ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit ], [ null, %34 ], [ null, %25 ]
+  %.1 = phi ptr [ %55, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit18 ], [ %21, %_ZN5clang24RedeclarableTemplateDecl25findSpecializationLocallyINS_36VarTemplatePartialSpecializationDeclEJRN4llvm8ArrayRefINS_16TemplateArgumentEEERPNS_21TemplateParameterListEEEEPNS0_15SpecEntryTraitsIT_E8DeclTypeERNS3_16FoldingSetVectorISC_NS3_11SmallVectorIPSC_Lj8EEEEERPvDpOT0_.exit ], [ null, %_ZNK5clang24RedeclarableTemplateDecl27loadLazySpecializationsImplEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListE.exit ], [ null, %34 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -7167,8 +7167,8 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43: ; 
   unreachable
 
 70:                                               ; preds = %.critedge25, %17, %_ZN5clang15VarTemplateDecl13getDefinitionEv.exit, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43, %67, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, %53
-  %.sroa.050.1 = phi i32 [ %.sroa.050.270, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43 ], [ %.sroa.050.270, %67 ], [ %.sroa.050.0.extract.trunc53, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.050.0.extract.trunc53, %53 ], [ %.sroa.050.0.extract.trunc52, %.critedge25 ], [ %.sroa.050.0.extract.trunc51, %_ZN5clang15VarTemplateDecl13getDefinitionEv.exit ], [ %.sroa.050.0.extract.trunc, %17 ]
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0.extract.trunc62, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43 ], [ %.sroa.0.0.copyload.i44, %67 ], [ %.sroa.8.0.extract.trunc60, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i27, %53 ], [ %.sroa.8.0.extract.trunc58, %.critedge25 ], [ %.sroa.8.0.extract.trunc56, %_ZN5clang15VarTemplateDecl13getDefinitionEv.exit ], [ %.sroa.8.0.extract.trunc, %17 ]
+  %.sroa.050.1 = phi i32 [ %.sroa.050.0.extract.trunc53, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.050.0.extract.trunc53, %53 ], [ %.sroa.050.270, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43 ], [ %.sroa.050.270, %67 ], [ %.sroa.050.0.extract.trunc52, %.critedge25 ], [ %.sroa.050.0.extract.trunc51, %_ZN5clang15VarTemplateDecl13getDefinitionEv.exit ], [ %.sroa.050.0.extract.trunc, %17 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0.extract.trunc60, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i27, %53 ], [ %.sroa.8.0.extract.trunc62, %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit43 ], [ %.sroa.0.0.copyload.i44, %67 ], [ %.sroa.8.0.extract.trunc58, %.critedge25 ], [ %.sroa.8.0.extract.trunc56, %_ZN5clang15VarTemplateDecl13getDefinitionEv.exit ], [ %.sroa.8.0.extract.trunc, %17 ]
   %.sroa.8.0.insert.ext = zext i32 %.sroa.8.1 to i64
   %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
   %.sroa.050.0.insert.ext = zext i32 %.sroa.050.1 to i64
@@ -8131,7 +8131,7 @@ _ZL27createBuiltinCommonTypeListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i:
   unreachable
 
 _ZL34createBuiltinTemplateParameterListRKN5clang10ASTContextEPNS_11DeclContextENS_19BuiltinTemplateKindE.exit: ; preds = %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i, %_ZL27createBuiltinCommonTypeListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i
-  %.0.i = phi ptr [ %.0.i.i.i.i36.i.i, %_ZL27createBuiltinCommonTypeListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i.i11.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i42.i.i, %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ]
+  %.0.i = phi ptr [ %.0.i.i.i.i42.i.i, %_ZL33createMakeIntegerSeqParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i.i11.i, %_ZL34createTypePackElementParameterListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ], [ %.0.i.i.i.i36.i.i, %_ZL27createBuiltinCommonTypeListRKN5clang10ASTContextEPNS_11DeclContextE.exit.i ]
   call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 72, ptr noundef %2, i32 0)
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %351, align 8, !tbaa !124
@@ -8565,7 +8565,7 @@ _ZNK5clang29VarTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exi
   unreachable
 
 65:                                               ; preds = %56, %54, %24, %22, %62, %60, %58, %40, %38, %32, %30, %28, %26, %8, %5
-  %.0.in = phi ptr [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %41, %40 ], [ %39, %38 ], [ %37, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %9, %8 ], [ %7, %5 ], [ %25, %24 ], [ %23, %22 ], [ %57, %56 ], [ %55, %54 ]
+  %.0.in = phi ptr [ %7, %5 ], [ %9, %8 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %37, %32 ], [ %39, %38 ], [ %41, %40 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %25, %24 ], [ %23, %22 ], [ %57, %56 ], [ %55, %54 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !157
   ret ptr %.0
 }

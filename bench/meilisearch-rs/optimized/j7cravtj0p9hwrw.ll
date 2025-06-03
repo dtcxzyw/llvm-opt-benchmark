@@ -580,7 +580,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std3sys4sync4once5futex4Once5state1
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.sroa.0.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
   ret i8 %.sroa.0.0
 }
 

@@ -7816,9 +7816,9 @@ _ZN4llvm21DominanceFrontierBaseINS_10BasicBlockELb0EE4findEPS1_.exit87: ; preds 
   br i1 %107, label %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit, label %.lr.ph.i.i.i.i.i, !prof !106, !llvm.loop !448
 
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %101, %88
-  %.lcssa.i.i.i.i.pn.i = phi i64 [ %95, %88 ], [ %104, %101 ]
+  %.pn.i = phi i64 [ %95, %88 ], [ %104, %101 ]
   %108 = zext i32 %86 to i64
-  %.not97 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %108
+  %.not97 = icmp samesign eq i64 %.pn.i, %108
   br i1 %.not97, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE19isCommonDomFrontierEPNS_10BasicBlockES6_S6_.exit, label %109
 
 109:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

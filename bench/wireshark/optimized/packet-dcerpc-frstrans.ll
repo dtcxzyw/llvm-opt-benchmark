@@ -1328,7 +1328,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   br label %frstrans_dissect_element_RdcParameters_u.exit
 
 frstrans_dissect_element_RdcParameters_u.exit:    ; preds = %61, %63, %66, %69
-  %.1.i.i = phi i32 [ %.0.i.i, %61 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %61 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ]
   %72 = load ptr, ptr %9, align 8
   %73 = sub i32 %.1.i.i, %37
   call void @proto_item_set_len(ptr noundef %72, i32 noundef %73)

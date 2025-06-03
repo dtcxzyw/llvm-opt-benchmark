@@ -1094,8 +1094,8 @@ define { i32, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder11try_use_
   br label %22
 
 22:                                               ; preds = %21, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit"
-  %.sroa.3.0 = phi i32 [ %1, %21 ], [ %19, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ]
-  %.sroa.0.0 = phi i32 [ 1, %21 ], [ 0, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ]
+  %.sroa.3.0 = phi i32 [ %19, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ], [ %1, %21 ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ], [ 1, %21 ]
   %23 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %24 = insertvalue { i32, i32 } %23, i32 %.sroa.3.0, 1
   ret { i32, i32 } %24
@@ -3415,9 +3415,9 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder25emit_smal
   br label %37
 
 37:                                               ; preds = %10, %36, %35, %34, %33, %26
-  %switch17 = phi i1 [ false, %36 ], [ false, %35 ], [ false, %34 ], [ false, %33 ], [ true, %26 ], [ true, %10 ]
-  %.015 = phi i8 [ 5, %36 ], [ 4, %35 ], [ 3, %34 ], [ 2, %33 ], [ %3, %26 ], [ %3, %10 ]
-  %.014 = phi i64 [ 1, %36 ], [ 0, %35 ], [ 1, %34 ], [ 0, %33 ], [ 0, %26 ], [ 1, %10 ]
+  %switch17 = phi i1 [ true, %26 ], [ false, %33 ], [ false, %34 ], [ false, %35 ], [ false, %36 ], [ true, %10 ]
+  %.015 = phi i8 [ %3, %26 ], [ 2, %33 ], [ 3, %34 ], [ 4, %35 ], [ 5, %36 ], [ %3, %10 ]
+  %.014 = phi i64 [ 0, %26 ], [ 0, %33 ], [ 1, %34 ], [ 0, %35 ], [ 1, %36 ], [ 1, %10 ]
   %38 = icmp eq i64 %6, 0
   br i1 %38, label %39, label %51
 

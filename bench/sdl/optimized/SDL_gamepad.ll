@@ -1845,8 +1845,8 @@ SDL_ConvertMappingToPositionalAXBY.exit.thread:   ; preds = %SDL_ConvertMappingT
   br label %127
 
 127:                                              ; preds = %117, %124, %126, %125, %120, %118
-  %.370118 = phi ptr [ null, %117 ], [ %.370.ph, %118 ], [ %.370.ph, %120 ], [ %.370.ph, %125 ], [ %.370.ph, %126 ], [ %.370.ph, %124 ]
-  %.366 = phi i32 [ %.164, %117 ], [ -1, %118 ], [ 0, %120 ], [ 1, %125 ], [ 1, %126 ], [ 1, %124 ]
+  %.370118 = phi ptr [ %.370.ph, %118 ], [ null, %117 ], [ %.370.ph, %120 ], [ %.370.ph, %125 ], [ %.370.ph, %126 ], [ %.370.ph, %124 ]
+  %.366 = phi i32 [ -1, %118 ], [ %.164, %117 ], [ 0, %120 ], [ 1, %125 ], [ 1, %126 ], [ 1, %124 ]
   %128 = load ptr, ptr %3, align 8
   call void @SDL_free_REAL(ptr noundef %128) #10
   call void @SDL_free_REAL(ptr noundef %.370118) #10
@@ -5348,7 +5348,7 @@ SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split: ; preds = %7, %5
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %SDL_GetGamepadFaceStyleForGamepadType.exit, %3, %SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split, %7, %5
-  %.0.i2 = phi i32 [ 0, %7 ], [ 0, %5 ], [ %spec.select, %3 ], [ %spec.select14, %SDL_GetGamepadFaceStyleForGamepadType.exit ], [ %switch.load11, %SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split ]
+  %.0.i2 = phi i32 [ 0, %5 ], [ 0, %7 ], [ %spec.select, %3 ], [ %spec.select14, %SDL_GetGamepadFaceStyleForGamepadType.exit ], [ %switch.load11, %SDL_GetGamepadButtonLabelForFaceStyle.exit.sink.split ]
   ret i32 %.0.i2
 }
 
@@ -5412,7 +5412,7 @@ switch.lookup6:                                   ; preds = %16
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 SDL_GetGamepadButtonLabelForFaceStyle.exit:       ; preds = %18, %12, %switch.lookup6, %16, %switch.lookup5, %14, %9, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %16 ], [ 0, %14 ], [ %switch.load, %switch.lookup5 ], [ %switch.load8, %switch.lookup6 ], [ %spec.select, %12 ], [ %spec.select11, %18 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ], [ %switch.load, %switch.lookup5 ], [ %switch.load8, %switch.lookup6 ], [ %spec.select, %12 ], [ %spec.select11, %18 ]
   ret i32 %.0
 }
 
@@ -6058,7 +6058,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   br label %24
 
 24:                                               ; preds = %.critedge, %.loopexit
-  %.5 = phi i1 [ true, %.critedge ], [ %23, %.loopexit ]
+  %.5 = phi i1 [ %23, %.loopexit ], [ true, %.critedge ]
   ret i1 %.5
 }
 

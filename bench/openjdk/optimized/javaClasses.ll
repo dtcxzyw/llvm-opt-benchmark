@@ -7233,7 +7233,7 @@ _ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit: ; preds = %1
   br label %_ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit.thread
 
 _ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit.thread: ; preds = %1, %_ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.0 = phi ptr [ @.str.52, %20 ], [ @.str.51, %19 ], [ @.str.50, %18 ], [ @.str.49, %17 ], [ @.str.48, %16 ], [ @.str.47, %15 ], [ @.str.46, %14 ], [ @.str.45, %13 ], [ @.str.44, %12 ], [ @.str.43, %_ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit ], [ @.str.43, %1 ]
+  %.0 = phi ptr [ @.str.52, %20 ], [ @.str.44, %12 ], [ @.str.45, %13 ], [ @.str.46, %14 ], [ @.str.47, %15 ], [ @.str.48, %16 ], [ @.str.49, %17 ], [ @.str.50, %18 ], [ @.str.51, %19 ], [ @.str.43, %_ZN16java_lang_Thread17get_thread_statusEP7oopDesc.exit ], [ @.str.43, %1 ]
   ret ptr %.0
 }
 
@@ -7469,7 +7469,7 @@ define hidden noundef range(i32 0, 674) i32 @_ZN23java_lang_VirtualThread26map_s
   unreachable
 
 9:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi i32 [ 2, %6 ], [ 673, %5 ], [ 657, %4 ], [ 5, %3 ], [ %2, %1 ]
+  %.0 = phi i32 [ 5, %3 ], [ 657, %4 ], [ 673, %5 ], [ 2, %6 ], [ %2, %1 ]
   ret i32 %.0
 }
 
@@ -17020,9 +17020,9 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %15, %5
   br label %_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %18, %25, %32, %39, %48, %55, %62, %69
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %55 ], [ 0, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ 0, %18 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %55 ], [ %54, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %18 ]
-  %.sroa.0.sroa.0.sroa.9.0 = phi i32 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift4, %69 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift6, %62 ], [ 0, %55 ], [ 0, %48 ], [ %47, %39 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift, %32 ], [ 0, %25 ], [ 0, %18 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ 0, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %69 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %24, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %54, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %69 ]
+  %.sroa.0.sroa.0.sroa.9.0 = phi i32 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ 0, %25 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift, %32 ], [ %47, %39 ], [ 0, %48 ], [ 0, %55 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift6, %62 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift4, %69 ]
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
@@ -17218,10 +17218,10 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %15, %5
   br label %_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %18, %25, %32, %39, %48, %55, %62, %69
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %55 ], [ 0, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ 0, %18 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %55 ], [ %54, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %18 ]
-  %.sroa.0.sroa.0.sroa.9.0 = phi i32 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift4, %69 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift6, %62 ], [ 0, %55 ], [ 0, %48 ], [ %47, %39 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift, %32 ], [ 0, %25 ], [ 0, %18 ]
-  %.sroa.0.sroa.9.0 = phi i32 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %76, %69 ], [ undef, %62 ], [ undef, %55 ], [ undef, %48 ], [ %.sroa.0.sroa.9.0.extract.trunc, %39 ], [ undef, %32 ], [ undef, %25 ], [ undef, %18 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ 0, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %69 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %24, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %54, %48 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %69 ]
+  %.sroa.0.sroa.0.sroa.9.0 = phi i32 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ 0, %25 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift, %32 ], [ %47, %39 ], [ 0, %48 ], [ 0, %55 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift6, %62 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.shift4, %69 ]
+  %.sroa.0.sroa.9.0 = phi i32 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ undef, %18 ], [ undef, %25 ], [ undef, %32 ], [ %.sroa.0.sroa.9.0.extract.trunc, %39 ], [ undef, %48 ], [ undef, %55 ], [ undef, %62 ], [ %76, %69 ]
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
@@ -17412,8 +17412,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %15, %5
   br label %_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %18, %25, %32, %39, %46, %53, %60, %67
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %53 ], [ 0, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ 0, %18 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %53 ], [ %52, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %18 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ 0, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %67 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %24, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %52, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %67 ]
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
@@ -17598,8 +17598,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %15, %5
   br label %_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %18, %25, %32, %39, %46, %53, %60, %67
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %53 ], [ 0, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ 0, %18 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %53 ], [ %52, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %18 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0 = phi i16 [ 0, %_ZNK7oopDesc5klassEv.exit.i ], [ 0, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift15, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc18, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc24, %39 ], [ 0, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.shift, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc22, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc20, %67 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ undef, %_ZNK7oopDesc5klassEv.exit.i ], [ %24, %18 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %39 ], [ %52, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %67 ]
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
@@ -17770,7 +17770,7 @@ unreachable:                                      ; preds = %_ZNK7oopDesc5klassE
   unreachable
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %19, %25, %31, %37, %43, %49, %55, %61
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %48, %43 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %37 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %19 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %24, %19 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %37 ], [ %48, %43 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %61 ]
   ret i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0
 }
 
@@ -17958,7 +17958,7 @@ unreachable:                                      ; preds = %_ZNK7oopDesc5klassE
   unreachable
 
 _ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue.exit: ; preds = %19, %25, %31, %37, %43, %49, %55, %61
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %48, %43 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %37 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %24, %19 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %24, %19 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc10, %25 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc11, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc14, %37 ], [ %48, %43 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc13, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc12, %61 ]
   ret i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0
 }
 

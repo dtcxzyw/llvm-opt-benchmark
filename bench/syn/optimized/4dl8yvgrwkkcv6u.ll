@@ -2525,7 +2525,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread10: ; pred
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %41, %37, %26, %23, %19
-  %.0.i.i = phi i64 [ %..i.i, %41 ], [ %25, %23 ], [ 1, %19 ], [ 1, %37 ], [ 1, %26 ]
+  %.0.i.i = phi i64 [ %25, %23 ], [ %..i.i, %41 ], [ 1, %19 ], [ 1, %37 ], [ 1, %26 ]
   %31 = getelementptr inbounds { i32, [9 x i32] }, ptr %20, i64 %.0.i.i
   br label %32
 
@@ -2578,7 +2578,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread10: ; pred
   br i1 %55, label %63, label %56
 
 56:                                               ; preds = %67, %63, %52, %49, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i2.i = phi i64 [ %..i6.i, %67 ], [ %51, %49 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %63 ], [ 1, %52 ]
+  %.0.i2.i = phi i64 [ %51, %49 ], [ %..i6.i, %67 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %63 ], [ 1, %52 ]
   %57 = getelementptr inbounds { i32, [9 x i32] }, ptr %46, i64 %.0.i2.i
   br label %58
 
@@ -3845,7 +3845,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread141: ; pre
   br i1 %108, label %116, label %109
 
 109:                                              ; preds = %120, %116, %105, %102, %96
-  %.0.i.i = phi i64 [ %..i.i, %120 ], [ %104, %102 ], [ 1, %96 ], [ 1, %116 ], [ 1, %105 ]
+  %.0.i.i = phi i64 [ %104, %102 ], [ %..i.i, %120 ], [ 1, %96 ], [ 1, %116 ], [ 1, %105 ]
   %110 = getelementptr inbounds { i32, [9 x i32] }, ptr %98, i64 %.0.i.i
   br label %111
 
@@ -3905,7 +3905,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread141: ; pre
   br i1 %134, label %142, label %135
 
 135:                                              ; preds = %146, %142, %131, %128, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i"
-  %.0.i2.i = phi i64 [ %..i6.i, %146 ], [ %130, %128 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %142 ], [ 1, %131 ]
+  %.0.i2.i = phi i64 [ %130, %128 ], [ %..i6.i, %146 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea62d1acbdb8a02E.llvm.1436107206926948344.exit.thread.i" ], [ 1, %142 ], [ 1, %131 ]
   %136 = getelementptr inbounds { i32, [9 x i32] }, ptr %125, i64 %.0.i2.i
   br label %137
 
@@ -4391,7 +4391,7 @@ define void @_ZN3syn5error5Error11new_spanned11new_spanned17h13e99cbd1d6d8bbdE(p
   br label %"_ZN3syn5error5Error11new_spanned11new_spanned28_$u7b$$u7b$closure$u7d$$u7d$17h8d5edbc90e2e29ffE.exit.i"
 
 "_ZN3syn5error5Error11new_spanned11new_spanned28_$u7b$$u7b$closure$u7d$$u7d$17h8d5edbc90e2e29ffE.exit.i": ; preds = %39, %36, %32, %27
-  %.0.i.i.i = phi i32 [ %.07.i.i.i, %39 ], [ %38, %36 ], [ %.08.i.i.i, %32 ], [ %.09.i.i.i, %27 ]
+  %.0.i.i.i = phi i32 [ %.09.i.i.i, %27 ], [ %.08.i.i.i, %32 ], [ %38, %36 ], [ %.07.i.i.i, %39 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc8 unwind label %104
 
@@ -4536,7 +4536,7 @@ define void @_ZN3syn5error5Error11new_spanned11new_spanned17h13e99cbd1d6d8bbdE(p
   br label %"_ZN3syn5error5Error11new_spanned11new_spanned28_$u7b$$u7b$closure$u7d$$u7d$17hccd255243c54b290E.exit.i"
 
 "_ZN3syn5error5Error11new_spanned11new_spanned28_$u7b$$u7b$closure$u7d$$u7d$17hccd255243c54b290E.exit.i": ; preds = %85, %82, %78, %74
-  %.0.i.i.i12 = phi i32 [ %.07.i.i.i11, %85 ], [ %84, %82 ], [ %.08.i.i.i14, %78 ], [ %.09.i.i.i16, %74 ]
+  %.0.i.i.i12 = phi i32 [ %.09.i.i.i16, %74 ], [ %.08.i.i.i14, %78 ], [ %84, %82 ], [ %.07.i.i.i11, %85 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h61fb23fa5af22cafE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc17 unwind label %.thread39
 

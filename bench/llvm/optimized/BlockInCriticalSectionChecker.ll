@@ -3310,7 +3310,7 @@ _ZNK12_GLOBAL__N_119RAIIMutexDescriptor11matchesImplIN5clang4ento18CXXConstructo
   unreachable
 
 "_ZZNK12_GLOBAL__N_129BlockInCriticalSectionChecker20checkDescriptorMatchERKN5clang4ento9CallEventERNS2_14CheckerContextEbENK3$_0clIRKSt7variantIJNS_23FirstArgMutexDescriptorENS_21MemberMutexDescriptorENS_19RAIIMutexDescriptorEEEEEDaOT_.exit": ; preds = %6, %8, %33, %46, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor11matchesImplIN5clang4ento18CXXConstructorCallEEEbRKNS3_9CallEventE.exit.sink.split.i.i.i.i.i.i.i.i
-  %.0.i.i.i = phi i1 [ %9, %8 ], [ %7, %6 ], [ false, %33 ], [ false, %46 ], [ %67, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor11matchesImplIN5clang4ento18CXXConstructorCallEEEbRKNS3_9CallEventE.exit.sink.split.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ false, %33 ], [ false, %46 ], [ %67, %_ZNK12_GLOBAL__N_119RAIIMutexDescriptor11matchesImplIN5clang4ento18CXXConstructorCallEEEbRKNS3_9CallEventE.exit.sink.split.i.i.i.i.i.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -5238,7 +5238,7 @@ _ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i: ; preds = %
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %64, %63 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !703
   %66 = icmp eq ptr %.1.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
   br i1 %66, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %67
@@ -5248,7 +5248,7 @@ _ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i: ; preds = %
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %68, %67 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !703
   %70 = icmp eq ptr %.2.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
   br i1 %70, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %71

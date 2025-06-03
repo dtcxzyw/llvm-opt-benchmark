@@ -7101,7 +7101,7 @@ _ZN4llvm9MapVectorISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_11SmallVectorINS_1
   br label %422
 
 422:                                              ; preds = %420, %._crit_edge.i33.i
-  %.1.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge.i33.i ], [ %421, %420 ]
+  %.1.i.i = phi ptr [ %421, %420 ], [ %.029.lcssa.i.i, %._crit_edge.i33.i ]
   %423 = load i32, ptr %.1.i.i, align 8
   %424 = and i32 %423, 255
   %425 = icmp eq i32 %424, 0
@@ -7116,7 +7116,7 @@ _ZN4llvm9MapVectorISt4pairIPKNS_6DINodeEPKNS_10DILocationEENS_11SmallVectorINS_1
   br label %432
 
 432:                                              ; preds = %430, %._crit_edge.i33.i
-  %.2.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge.i33.i ], [ %431, %430 ]
+  %.2.i.i = phi ptr [ %431, %430 ], [ %.029.lcssa.i.i, %._crit_edge.i33.i ]
   %433 = load i32, ptr %.2.i.i, align 8
   %434 = and i32 %433, 255
   %435 = icmp eq i32 %434, 0

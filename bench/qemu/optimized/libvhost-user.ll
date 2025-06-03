@@ -1329,12 +1329,12 @@ vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit
   call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, i32 noundef %155)
   br label %vu_process_message.exit
 
-.thread:                                          ; preds = %.critedge.i.i, %98, %vu_get_features_exec.exit.i, %36, %50, %69, %74, %107, %vu_set_postcopy_listen.exit.i, %vu_set_postcopy_end.exit.i, %125, %129, %vu_get_shared_object.exit.i
+.thread:                                          ; preds = %.critedge.i.i, %98, %vu_get_shared_object.exit.i, %129, %125, %vu_set_postcopy_end.exit.i, %vu_set_postcopy_listen.exit.i, %107, %74, %69, %50, %36, %vu_get_features_exec.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
   br label %159
 
 vu_process_message.exit:                          ; preds = %43, %86, %85, %20, %23, %34, %37, %39, %49, %51, %52, %58, %59, %70, %71, %73, %93, %105, %126, %127, %132, %134, %vmsg_close_fds.exit.i
-  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %134 ], [ %133, %132 ], [ false, %127 ], [ false, %126 ], [ false, %105 ], [ false, %93 ], [ false, %73 ], [ %72, %71 ], [ false, %70 ], [ false, %59 ], [ false, %58 ], [ false, %52 ], [ false, %51 ], [ false, %49 ], [ false, %37 ], [ false, %34 ], [ false, %23 ], [ false, %39 ], [ false, %85 ], [ false, %86 ], [ false, %43 ]
+  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %34 ], [ false, %37 ], [ false, %49 ], [ false, %51 ], [ false, %52 ], [ false, %58 ], [ false, %59 ], [ false, %70 ], [ %72, %71 ], [ false, %73 ], [ false, %93 ], [ false, %105 ], [ false, %126 ], [ false, %127 ], [ %133, %132 ], [ false, %134 ], [ false, %23 ], [ false, %39 ], [ false, %85 ], [ false, %86 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
   %or.cond.not = select i1 %.074.i, i1 true, i1 %12
   br i1 %or.cond.not, label %158, label %.critedge

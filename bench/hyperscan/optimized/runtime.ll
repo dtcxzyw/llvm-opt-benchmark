@@ -511,7 +511,7 @@ flushStoredSomMatches.exit:                       ; preds = %248
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %35, %29, %27, %23, %11, %9, %validScratch.exit, %251, %265, %20, %validDatabase.exit, %267, %258, %244, %241, %47, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %47 ], [ -13, %258 ], [ %270, %267 ], [ -13, %241 ], [ -3, %244 ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ %.123, %265 ], [ -10, %validScratch.exit ], [ -5, %11 ], [ -1, %9 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %47 ], [ -13, %241 ], [ -3, %244 ], [ -13, %258 ], [ %270, %267 ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ %.123, %265 ], [ -10, %validScratch.exit ], [ -5, %11 ], [ -1, %9 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ], [ -1, %35 ]
   ret i32 %.0
 }
 
@@ -1100,7 +1100,7 @@ rvermicelliDoubleExec.exit62:                     ; preds = %267, %.thread139, %
   br i1 %.not.i, label %337, label %nfaRevAccelCheck.exit.thread
 
 337:                                              ; preds = %44, %326, %316, %306, %297, %rvermicelliDoubleExec.exit62, %232, %rvermicelliDoubleExec.exit, %171, %rvermicelliExec.exit50, %107, %rvermicelliExec.exit, %47
-  %.0.i33 = phi i64 [ %39, %326 ], [ %39, %316 ], [ %39, %306 ], [ %39, %297 ], [ %39, %232 ], [ %296, %rvermicelliDoubleExec.exit62 ], [ %39, %171 ], [ %231, %rvermicelliDoubleExec.exit ], [ %39, %107 ], [ %170, %rvermicelliExec.exit50 ], [ %39, %47 ], [ %106, %rvermicelliExec.exit ], [ %39, %44 ]
+  %.0.i33 = phi i64 [ %39, %47 ], [ %106, %rvermicelliExec.exit ], [ %39, %107 ], [ %170, %rvermicelliExec.exit50 ], [ %39, %171 ], [ %231, %rvermicelliDoubleExec.exit ], [ %39, %232 ], [ %296, %rvermicelliDoubleExec.exit62 ], [ %39, %297 ], [ %39, %306 ], [ %39, %316 ], [ %39, %326 ], [ %39, %44 ]
   %338 = icmp ult i64 %.0.i33, %42
   br i1 %338, label %nfaRevAccelCheck.exit.thread, label %nfaRevAccelCheck.exit
 
@@ -2351,7 +2351,7 @@ isAllExhausted.exit.i.thread142:                  ; preds = %157, %isAllExhauste
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %167, %187, %189, %202, %210, %218, %221, %229, %232
-  %.0.i127 = phi i64 [ %234, %232 ], [ %231, %229 ], [ %228, %221 ], [ %220, %218 ], [ %217, %210 ], [ %209, %202 ], [ %201, %189 ], [ %188, %187 ], [ 0, %167 ]
+  %.0.i127 = phi i64 [ %188, %187 ], [ %201, %189 ], [ %209, %202 ], [ %217, %210 ], [ %220, %218 ], [ %228, %221 ], [ %231, %229 ], [ %234, %232 ], [ 0, %167 ]
   %235 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %.0.i127, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %94, i64 240

@@ -3620,7 +3620,7 @@ define internal i32 @PyThreadHandleObject_traverse(ptr noundef readonly captures
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3882,7 +3882,7 @@ define internal i32 @lock_traverse(ptr noundef readonly captures(none) %0, ptr n
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4165,7 +4165,7 @@ define internal i32 @rlock_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -4624,7 +4624,7 @@ define internal i32 @local_traverse(ptr noundef readonly captures(none) %0, ptr 
   br label %28
 
 28:                                               ; preds = %25, %20, %15, %10, %5, %27
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %27 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

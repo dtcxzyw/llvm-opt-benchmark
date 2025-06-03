@@ -410,7 +410,7 @@ define void @_ZN5uu_df10filesystem10Filesystem3new17he403037032768331E(ptr noali
   ret void
 
 43:                                               ; preds = %44, %14
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %15, %14 ]
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0f794a85861f7fb1E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %1) #19
           to label %48 unwind label %46
 

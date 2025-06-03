@@ -196,9 +196,9 @@ define internal fastcc noalias noundef nonnull ptr @_ZnwmRKN12_GLOBAL__N_116Name
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %8, %11, %13, %15, %20, %24
-  %27 = phi ptr [ %25, %24 ], [ %3, %20 ], [ %3, %15 ], [ %3, %11 ], [ %3, %13 ], [ %3, %8 ]
-  %.sroa.3.0.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ %19, %15 ], [ 0, %11 ], [ %14, %13 ], [ 0, %8 ]
-  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %21, %20 ], [ %17, %15 ], [ null, %11 ], [ %12, %13 ], [ null, %8 ]
+  %27 = phi ptr [ %25, %24 ], [ %3, %15 ], [ %3, %20 ], [ %3, %11 ], [ %3, %13 ], [ %3, %8 ]
+  %.sroa.3.0.i = phi i64 [ %26, %24 ], [ %19, %15 ], [ %23, %20 ], [ 0, %11 ], [ %14, %13 ], [ 0, %8 ]
+  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %17, %15 ], [ %21, %20 ], [ null, %11 ], [ %12, %13 ], [ null, %8 ]
   %28 = add nuw nsw i64 %0, 9
   %29 = add i64 %28, %.sroa.3.0.i
   %30 = call noalias ptr @malloc(i64 noundef %29) #25
@@ -352,8 +352,8 @@ define dso_local void @_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineEbbSt8o
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %19, %21, %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %21 ], [ %20, %19 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ], [ %18, %19 ]
+  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %25, %21 ], [ %29, %26 ], [ %20, %19 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %23, %21 ], [ %27, %26 ], [ %18, %19 ]
   %.not.i = icmp eq i64 %.sroa.3.0.i, 1
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread7
 
@@ -964,9 +964,9 @@ define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRK
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %12, %15, %17, %19, %24, %28
-  %31 = phi ptr [ %29, %28 ], [ %7, %24 ], [ %7, %19 ], [ %7, %15 ], [ %7, %17 ], [ %7, %12 ]
-  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %19 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
-  %.sroa.0.0.i20 = phi ptr [ %29, %28 ], [ %25, %24 ], [ %21, %19 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
+  %31 = phi ptr [ %29, %28 ], [ %7, %19 ], [ %7, %24 ], [ %7, %15 ], [ %7, %17 ], [ %7, %12 ]
+  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %23, %19 ], [ %27, %24 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
+  %.sroa.0.0.i20 = phi ptr [ %29, %28 ], [ %21, %19 ], [ %25, %24 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
   %32 = add i64 %.sroa.3.0.i, 33
   %33 = and i16 %3, 255
   %narrow = select i1 %.not29, i16 4, i16 %33

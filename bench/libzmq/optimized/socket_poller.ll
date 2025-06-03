@@ -1389,7 +1389,7 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread:
   br label %84
 
 84:                                               ; preds = %18, %27, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread, %29, %26, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %18 ], [ -1, %26 ], [ -1, %29 ], [ %.6, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread ], [ -1, %27 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %26 ], [ -1, %29 ], [ %.6, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread ], [ -1, %18 ], [ -1, %27 ]
   ret i32 %.0
 }
 

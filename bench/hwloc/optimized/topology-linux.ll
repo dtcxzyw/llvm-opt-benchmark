@@ -1631,7 +1631,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thisthread_last_cpu_locati
   br label %15
 
 15:                                               ; preds = %11, %13, %6
-  %.07 = phi i32 [ -1, %6 ], [ 0, %11 ], [ %14, %13 ]
+  %.07 = phi i32 [ -1, %6 ], [ %14, %13 ], [ 0, %11 ]
   ret i32 %.07
 }
 
@@ -2118,12 +2118,12 @@ hwloc_linux_membind_policy_to_hwloc.exit.thread:  ; preds = %._crit_edge
   store i32 -1, ptr %4, align 4, !tbaa !3
   br i1 %.052.lcssa, label %68, label %65
 
-65:                                               ; preds = %63, %62, %61, %.thread, %hwloc_linux_membind_policy_to_hwloc.exit.thread
+65:                                               ; preds = %.thread, %61, %62, %63, %hwloc_linux_membind_policy_to_hwloc.exit.thread
   %66 = call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #31
   %67 = call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %66) #28
   br label %hwloc_linux_membind_mask_to_nodeset.exit
 
-68:                                               ; preds = %.thread.thread, %63, %62, %61, %.thread, %hwloc_linux_membind_policy_to_hwloc.exit.thread
+68:                                               ; preds = %.thread.thread, %.thread, %61, %62, %63, %hwloc_linux_membind_policy_to_hwloc.exit.thread
   call void @hwloc_bitmap_zero(ptr noundef %3) #28
   %.not.i64 = icmp ult i32 %.fr107, 64
   br i1 %.not.i64, label %hwloc_linux_membind_mask_to_nodeset.exit, label %.lr.ph.preheader.i65

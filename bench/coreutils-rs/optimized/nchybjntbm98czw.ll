@@ -1965,10 +1965,10 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br i1 %464, label %_ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit, label %106
 
 _ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit.thread: ; preds = %.noexc14.i, %.noexc28.i, %432, %437, %438, %439, %445, %446, %451, %452, %.noexc30.i, %460, %462
-  %.sroa.17.sroa.16.sroa.0.1.in.in.i = phi i64 [ %422, %.noexc28.i ], [ %433, %432 ], [ %193, %452 ], [ %.sink514.i.i, %446 ], [ %.sink512.i.i, %439 ], [ %391, %438 ], [ %408, %437 ], [ %455, %.noexc30.i ], [ %133, %460 ], [ %209, %451 ], [ %300, %445 ], [ %128, %462 ], [ %116, %.noexc14.i ]
-  %.sroa.42.1.i = phi i64 [ %110, %.noexc28.i ], [ %122, %432 ], [ %.sroa.314.i.sroa.4.0.copyload.i.i, %452 ], [ %.sroa.4.1.i.i87.i, %446 ], [ %.sroa.4.1.i.lcssa430.sink.i.i, %439 ], [ %.sroa.314.i39.sroa.4.0.copyload.i, %438 ], [ %.sroa.314.i.sroa.4.0.copyload.i, %437 ], [ %.sroa.4.1.i.i.i.i, %.noexc30.i ], [ %.sroa.3239.i.sroa.4.0.copyload.i, %460 ], [ %.sroa.3266.i.sroa.4.0.copyload.i, %451 ], [ %.sroa.3281.i.sroa.4.0.copyload.i, %445 ], [ %.sroa.3230.i.sroa.4.0.copyload.i, %462 ], [ %110, %.noexc14.i ]
-  %.sroa.32.1.i = phi i64 [ %425, %.noexc28.i ], [ %436, %432 ], [ %.sroa.314.i.sroa.0.0.copyload.i.i, %452 ], [ %447, %446 ], [ %440, %439 ], [ %.sroa.314.i39.sroa.0.0.copyload.i, %438 ], [ %.sroa.314.i.sroa.0.0.copyload.i, %437 ], [ %458, %.noexc30.i ], [ %.sroa.3239.i.sroa.0.0.copyload.i, %460 ], [ %.sroa.3266.i.sroa.0.0.copyload.i, %451 ], [ %.sroa.3281.i.sroa.0.0.copyload.i, %445 ], [ %.sroa.3230.i.sroa.0.0.copyload.i, %462 ], [ %119, %.noexc14.i ]
-  %.sroa.0137.0.i = phi i64 [ 0, %.noexc28.i ], [ 10, %432 ], [ %191, %452 ], [ %.sink515.i.i, %446 ], [ %.sink513.i.i, %439 ], [ %389, %438 ], [ %406, %437 ], [ 6, %.noexc30.i ], [ %131, %460 ], [ %207, %451 ], [ %298, %445 ], [ %126, %462 ], [ 0, %.noexc14.i ]
+  %.sroa.17.sroa.16.sroa.0.1.in.in.i = phi i64 [ %422, %.noexc28.i ], [ %128, %462 ], [ %133, %460 ], [ %209, %451 ], [ %300, %445 ], [ %455, %.noexc30.i ], [ %391, %438 ], [ %408, %437 ], [ %193, %452 ], [ %.sink514.i.i, %446 ], [ %.sink512.i.i, %439 ], [ %433, %432 ], [ %116, %.noexc14.i ]
+  %.sroa.42.1.i = phi i64 [ %110, %.noexc28.i ], [ %.sroa.3230.i.sroa.4.0.copyload.i, %462 ], [ %.sroa.3239.i.sroa.4.0.copyload.i, %460 ], [ %.sroa.3266.i.sroa.4.0.copyload.i, %451 ], [ %.sroa.3281.i.sroa.4.0.copyload.i, %445 ], [ %.sroa.4.1.i.i.i.i, %.noexc30.i ], [ %.sroa.314.i39.sroa.4.0.copyload.i, %438 ], [ %.sroa.314.i.sroa.4.0.copyload.i, %437 ], [ %.sroa.314.i.sroa.4.0.copyload.i.i, %452 ], [ %.sroa.4.1.i.i87.i, %446 ], [ %.sroa.4.1.i.lcssa430.sink.i.i, %439 ], [ %122, %432 ], [ %110, %.noexc14.i ]
+  %.sroa.32.1.i = phi i64 [ %425, %.noexc28.i ], [ %.sroa.3230.i.sroa.0.0.copyload.i, %462 ], [ %.sroa.3239.i.sroa.0.0.copyload.i, %460 ], [ %.sroa.3266.i.sroa.0.0.copyload.i, %451 ], [ %.sroa.3281.i.sroa.0.0.copyload.i, %445 ], [ %458, %.noexc30.i ], [ %.sroa.314.i39.sroa.0.0.copyload.i, %438 ], [ %.sroa.314.i.sroa.0.0.copyload.i, %437 ], [ %.sroa.314.i.sroa.0.0.copyload.i.i, %452 ], [ %447, %446 ], [ %440, %439 ], [ %436, %432 ], [ %119, %.noexc14.i ]
+  %.sroa.0137.0.i = phi i64 [ 0, %.noexc28.i ], [ %126, %462 ], [ %131, %460 ], [ %207, %451 ], [ %298, %445 ], [ 6, %.noexc30.i ], [ %389, %438 ], [ %406, %437 ], [ %191, %452 ], [ %.sink515.i.i, %446 ], [ %.sink513.i.i, %439 ], [ 10, %432 ], [ 0, %.noexc14.i ]
   tail call void @"_ZN4core3ptr45drop_in_place$LT$uu_dd..parseargs..Parser$GT$17h1bae17a1e4d088d9E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %1), !noalias !57
   br label %594
 
@@ -2207,8 +2207,8 @@ default.unreachable:                              ; preds = %547, %546
   br label %_ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i
 
 _ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i: ; preds = %553, %552, %550, %549, %548, %546
-  %.sroa.1487.0.i = phi i64 [ %.sroa.11.0.i, %549 ], [ %.sroa.11.0.i, %548 ], [ %551, %550 ], [ undef, %546 ], [ %.sroa.11.0.i, %552 ], [ %.sroa.11.0.i, %553 ]
-  %.sroa.0.0.i = phi i8 [ 2, %549 ], [ 1, %548 ], [ 0, %550 ], [ 7, %546 ], [ %spec.select89.i, %552 ], [ %spec.select90.i, %553 ]
+  %.sroa.1487.0.i = phi i64 [ %.sroa.11.0.i, %548 ], [ %.sroa.11.0.i, %549 ], [ %551, %550 ], [ undef, %546 ], [ %.sroa.11.0.i, %552 ], [ %.sroa.11.0.i, %553 ]
+  %.sroa.0.0.i = phi i8 [ 1, %548 ], [ 2, %549 ], [ 0, %550 ], [ 7, %546 ], [ %spec.select89.i, %552 ], [ %spec.select90.i, %553 ]
   %spec.select.i = select i1 %494, i8 %.77.i, i8 undef
   %trunc.i = trunc nuw i64 %.sroa.0.0.copyload to i1
   %trunc68.i = trunc nuw i64 %.sroa.8.0.copyload to i1
@@ -2710,7 +2710,7 @@ default.unreachable19:                            ; preds = %2
   br label %145
 
 145:                                              ; preds = %137, %129, %121, %113, %107, %99, %91, %83, %69, %63, %57, %51, %45, %37
-  %.0.in = phi i1 [ %144, %137 ], [ %136, %129 ], [ %128, %121 ], [ %120, %113 ], [ %112, %107 ], [ %106, %99 ], [ %98, %91 ], [ %90, %83 ], [ %82, %69 ], [ %68, %63 ], [ %62, %57 ], [ %56, %51 ], [ %50, %45 ], [ %44, %37 ]
+  %.0.in = phi i1 [ %44, %37 ], [ %50, %45 ], [ %56, %51 ], [ %62, %57 ], [ %68, %63 ], [ %82, %69 ], [ %90, %83 ], [ %98, %91 ], [ %106, %99 ], [ %112, %107 ], [ %120, %113 ], [ %128, %121 ], [ %136, %129 ], [ %144, %137 ]
   ret i1 %.0.in
 }
 
@@ -2911,8 +2911,8 @@ default.unreachable192:                           ; preds = %52
   resume { ptr, i32 } %69
 
 77:                                               ; preds = %126, %107, %83, %65
-  %.1107 = phi i64 [ %128, %126 ], [ %109, %107 ], [ %85, %83 ], [ %.0106, %65 ]
-  %.1 = phi i64 [ 1, %126 ], [ 2, %107 ], [ 512, %83 ], [ 1, %65 ]
+  %.1107 = phi i64 [ %.0106, %65 ], [ %85, %83 ], [ %109, %107 ], [ %128, %126 ]
+  %.1 = phi i64 [ 1, %65 ], [ 512, %83 ], [ 2, %107 ], [ 1, %126 ]
   %78 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.1107, i64 %.1)
   %79 = extractvalue { i64, i1 } %78, 1
   br i1 %79, label %134, label %139

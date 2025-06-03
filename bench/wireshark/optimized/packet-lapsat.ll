@@ -318,7 +318,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %63
 
 63:                                               ; preds = %62, %61, %60, %59, %56, %54
-  %.1.i = phi ptr [ @.str.115, %62 ], [ @.str.125, %61 ], [ @.str.124, %60 ], [ @.str.123, %59 ], [ %58, %56 ], [ @.str.122, %54 ]
+  %.1.i = phi ptr [ @.str.115, %62 ], [ %58, %56 ], [ @.str.123, %59 ], [ @.str.124, %60 ], [ @.str.125, %61 ], [ @.str.122, %54 ]
   %.not64.i = icmp eq i16 %46, 0
   %64 = select i1 %.0104, ptr @.str.118, ptr @.str.117
   %65 = select i1 %.not64.i, ptr @.str.119, ptr %64

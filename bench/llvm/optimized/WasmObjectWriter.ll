@@ -13213,7 +13213,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14: ; preds = %85
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i17: ; preds = %90, %.thread.i.i.i.i.i.i18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14 ], [ %92, %90 ], [ 0, %.thread.i.i.i.i.i.i18 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %92, %90 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i14 ], [ 0, %.thread.i.i.i.i.i.i18 ]
   %93 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %94
 
@@ -17588,7 +17588,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit31.thread.i:   ; preds = %_ZNK4llvm8MCSymbol9
   unreachable
 
 _ZN12_GLOBAL__N_116WasmObjectWriter19getProvisionalValueERKN4llvm11MCAssemblerERKNS_19WasmRelocationEntryE.exit: ; preds = %50, %67, %_ZN12_GLOBAL__N_116WasmObjectWriter23getRelocationIndexValueERKNS_19WasmRelocationEntryE.exit.i, %103, %112, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i, %139, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.thread.i
-  %.0.i = phi i64 [ %157, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.thread.i ], [ %134, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i ], [ %107, %103 ], [ %102, %_ZN12_GLOBAL__N_116WasmObjectWriter23getRelocationIndexValueERKNS_19WasmRelocationEntryE.exit.i ], [ %.1.i, %67 ], [ %53, %50 ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.i ], [ 0, %112 ], [ 0, %139 ]
+  %.0.i = phi i64 [ %.1.i, %67 ], [ %102, %_ZN12_GLOBAL__N_116WasmObjectWriter23getRelocationIndexValueERKNS_19WasmRelocationEntryE.exit.i ], [ %107, %103 ], [ %134, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i ], [ %157, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.thread.i ], [ %53, %50 ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit31.i ], [ 0, %112 ], [ 0, %139 ]
   %159 = load i32, ptr %37, align 8, !tbaa !491
   switch i32 %159, label %285 [
     i32 0, label %160

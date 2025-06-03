@@ -1305,7 +1305,7 @@ lj_buf_more.exit75.i.i:                           ; preds = %238, %cp_get.exit57
   br label %cp_get.exit54.i.i, !llvm.loop !103
 
 242:                                              ; preds = %188, %153, %152, %151, %150, %149, %148, %147, %cp_get.exit69.i.i, %136
-  %.0.i106.i = phi i32 [ %.0.i68.i.i, %188 ], [ 27, %153 ], [ 11, %152 ], [ 9, %151 ], [ 13, %150 ], [ 10, %149 ], [ 12, %148 ], [ 8, %147 ], [ %137, %136 ], [ 7, %cp_get.exit69.i.i ]
+  %.0.i106.i = phi i32 [ %.0.i68.i.i, %188 ], [ 8, %147 ], [ 12, %148 ], [ 10, %149 ], [ 13, %150 ], [ 9, %151 ], [ 11, %152 ], [ 27, %153 ], [ %137, %136 ], [ 7, %cp_get.exit69.i.i ]
   %243 = load ptr, ptr %135, align 8, !tbaa !45
   %244 = load ptr, ptr %3, align 8, !tbaa !97
   %245 = ptrtoint ptr %243 to i64
@@ -2449,7 +2449,7 @@ cp_check.exit.us:                                 ; preds = %103, %100
   br label %.backedge.us
 
 .backedge.us:                                     ; preds = %39, %cp_check.exit.us, %114, %112, %36, %29
-  %.094.be.us = phi i32 [ %30, %29 ], [ %37, %36 ], [ %113, %112 ], [ %115, %114 ], [ %40, %cp_check.exit.us ], [ %40, %39 ]
+  %.094.be.us = phi i32 [ %115, %114 ], [ %113, %112 ], [ %37, %36 ], [ %30, %29 ], [ %40, %cp_check.exit.us ], [ %40, %39 ]
   call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
   %116 = load i32, ptr %15, align 4, !tbaa !64
   %117 = add i32 %116, -269
@@ -3714,7 +3714,7 @@ thread-pre-split.i:                               ; preds = %97, %89, %86
   br label %109
 
 109:                                              ; preds = %108, %107, %106, %105, %104, %thread-pre-split.i
-  %.025.i = phi i32 [ 32, %108 ], [ 16, %107 ], [ 8, %106 ], [ 4, %105 ], [ 2, %104 ], [ 1, %thread-pre-split.i ]
+  %.025.i = phi i32 [ 2, %104 ], [ 4, %105 ], [ 8, %106 ], [ 16, %107 ], [ 32, %108 ], [ 1, %thread-pre-split.i ]
   %110 = load i8, ptr %103, align 1, !tbaa !4
   switch i8 %110, label %124 [
     i8 73, label %111

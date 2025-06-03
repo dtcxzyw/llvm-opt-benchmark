@@ -749,7 +749,7 @@ default.unreachable:                              ; preds = %366
   unreachable
 
 383:                                              ; preds = %380, %376, %373, %370
-  %.0.i = phi i32 [ %382, %380 ], [ %379, %376 ], [ %375, %373 ], [ %372, %370 ]
+  %.0.i = phi i32 [ %372, %370 ], [ %375, %373 ], [ %379, %376 ], [ %382, %380 ]
   %384 = getelementptr inbounds nuw [8 x %struct.Timing], ptr %356, i64 0, i64 %indvars.iv.i25
   store i32 %369, ptr %384, align 4
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 4

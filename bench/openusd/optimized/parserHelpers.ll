@@ -28500,7 +28500,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 50:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES9_SL_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit, %14, %11, %8
-  %.0 = phi i1 [ %34, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES9_SL_.exit ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit ], [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0 = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit ], [ %34, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIbvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES9_SL_.exit ]
   ret i1 %.0
 }
 
@@ -29602,7 +29602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 52:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIhEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIhvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %9, %7
-  %.0 = phi i8 [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIhEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIhvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi i8 [ %8, %7 ], [ %10, %9 ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIhEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIhvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ]
   ret i8 %.0
 }
 
@@ -30776,7 +30776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 70:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit, %7
-  %.0 = phi i32 [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit ], [ %8, %7 ]
+  %.0 = phi i32 [ %8, %7 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit ], [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ]
   ret i32 %.0
 }
 
@@ -31863,7 +31863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 69:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit, %7
-  %.0 = phi i32 [ %35, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit ], [ %8, %7 ]
+  %.0 = phi i32 [ %8, %7 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit ], [ %35, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIjEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ]
   ret i32 %.0
 }
 
@@ -32933,7 +32933,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SL_.exit: ; preds = %7, %29, %27
-  %.0 = phi i64 [ %31, %29 ], [ %28, %27 ], [ %8, %7 ]
+  %.0 = phi i64 [ %28, %27 ], [ %31, %29 ], [ %8, %7 ]
   ret i64 %.0
 }
 
@@ -33963,7 +33963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit: ; preds = %9, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %7
-  %.0 = phi i64 [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %8, %7 ], [ %10, %9 ]
+  %.0 = phi i64 [ %8, %7 ], [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %10, %9 ]
   ret i64 %.0
 }
 
@@ -34911,7 +34911,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIfEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIfvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit: ; preds = %21, %18, %15, %27, %12, %9, %6
-  %.0 = phi float [ %28, %27 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ 0x7FF0000000000000, %15 ], [ 0xFFF0000000000000, %18 ], [ 0x7FF8000000000000, %21 ]
+  %.0 = phi float [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %28, %27 ], [ 0x7FF0000000000000, %15 ], [ 0xFFF0000000000000, %18 ], [ 0x7FF8000000000000, %21 ]
   ret float %.0
 }
 
@@ -36634,7 +36634,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIdEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIdvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit: ; preds = %20, %17, %14, %26, %12, %9, %6
-  %.0 = phi double [ %27, %26 ], [ %13, %12 ], [ %11, %9 ], [ %8, %6 ], [ 0x7FF0000000000000, %14 ], [ 0xFFF0000000000000, %17 ], [ 0x7FF8000000000000, %20 ]
+  %.0 = phi double [ %8, %6 ], [ %11, %9 ], [ %13, %12 ], [ %27, %26 ], [ 0x7FF0000000000000, %14 ], [ 0xFFF0000000000000, %17 ], [ 0x7FF8000000000000, %20 ]
   ret double %.0
 }
 

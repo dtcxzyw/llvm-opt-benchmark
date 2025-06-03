@@ -10539,7 +10539,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %.loopexit, %1252
   br label %1285
 
 1257:                                             ; preds = %.loopexit492, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, %354
-  %.1472 = phi ptr [ %.9, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ %.4, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ], [ %.2, %354 ], [ %.0471, %.loopexit492 ]
+  %.1472 = phi ptr [ %.9, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ %.0471, %.loopexit492 ], [ %.2, %354 ], [ %.4, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit ]
   %1258 = load ptr, ptr %1, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   store ptr %1258, ptr %3, align 8, !tbaa !187

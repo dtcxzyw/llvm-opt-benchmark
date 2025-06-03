@@ -318,7 +318,7 @@ define range(i32 -1, 1) i32 @redisReaderFeed(ptr noundef captures(none) %0, ptr 
   br label %hi_sdsavail.exit
 
 hi_sdsavail.exit:                                 ; preds = %21, %29, %37, %44
-  %.0.i = phi i64 [ %49, %44 ], [ %43, %37 ], [ %36, %29 ], [ %28, %21 ]
+  %.0.i = phi i64 [ %28, %21 ], [ %36, %29 ], [ %43, %37 ], [ %49, %44 ]
   %50 = icmp ugt i64 %.0.i, %14
   br i1 %50, label %51, label %hi_sdsavail.exit.thread
 
@@ -384,7 +384,7 @@ hi_sdsavail.exit.thread:                          ; preds = %15, %54, %hi_sdsava
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %60, %65, %68, %72, %76, %80
-  %.0.i25 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %60 ]
+  %.0.i25 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %60 ]
   store i64 %.0.i25, ptr %9, align 8, !tbaa !30
   br label %98
 
@@ -2277,7 +2277,7 @@ processItem.exit.thread:                          ; preds = %processItem.exit, %
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %684, %690, %693, %697, %701, %705
-  %.0.i43 = phi i64 [ %707, %705 ], [ %704, %701 ], [ %700, %697 ], [ %696, %693 ], [ %692, %690 ], [ 0, %684 ]
+  %.0.i43 = phi i64 [ %692, %690 ], [ %696, %693 ], [ %700, %697 ], [ %704, %701 ], [ %707, %705 ], [ 0, %684 ]
   store i64 %.0.i43, ptr %11, align 8, !tbaa !30
   br label %708
 

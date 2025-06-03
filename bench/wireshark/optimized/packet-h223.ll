@@ -1028,14 +1028,14 @@ h223_mux_check_hdlc.exit.thread:                  ; preds = %44, %h223_mux_check
   unreachable
 
 99:                                               ; preds = %92, %82, %72
-  %.0115.i = phi i32 [ %84, %92 ], [ 0, %72 ], [ -1, %82 ]
-  %.0114.i = phi i8 [ %94, %92 ], [ %76, %72 ], [ 0, %82 ]
-  %.0113.in.i = phi i32 [ %89, %92 ], [ %79, %72 ], [ %86, %82 ]
-  %.0112.i = phi i1 [ %97, %92 ], [ %81, %72 ], [ false, %82 ]
-  %.0111.i = phi i32 [ %88, %92 ], [ 0, %72 ], [ 0, %82 ]
-  %.0109.i = phi i32 [ %83, %92 ], [ %74, %72 ], [ %83, %82 ]
-  %.0108.i = phi i32 [ %86, %92 ], [ %80, %72 ], [ %86, %82 ]
-  %.0.i79 = phi i32 [ 3, %92 ], [ 1, %72 ], [ 3, %82 ]
+  %.0115.i = phi i32 [ 0, %72 ], [ %84, %92 ], [ -1, %82 ]
+  %.0114.i = phi i8 [ %76, %72 ], [ %94, %92 ], [ 0, %82 ]
+  %.0113.in.i = phi i32 [ %79, %72 ], [ %89, %92 ], [ %86, %82 ]
+  %.0112.i = phi i1 [ %81, %72 ], [ %97, %92 ], [ false, %82 ]
+  %.0111.i = phi i32 [ 0, %72 ], [ %88, %92 ], [ 0, %82 ]
+  %.0109.i = phi i32 [ %74, %72 ], [ %83, %92 ], [ %83, %82 ]
+  %.0108.i = phi i32 [ %80, %72 ], [ %86, %92 ], [ %86, %82 ]
+  %.0.i79 = phi i32 [ 1, %72 ], [ 3, %92 ], [ 3, %82 ]
   %.not123.i = icmp eq ptr %3, null
   %.pre.i = and i32 %.0113.in.i, 255
   br i1 %.not123.i, label %.thread.i, label %100
@@ -2046,7 +2046,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %116, %113, %110, %1
   br label %123
 
 123:                                              ; preds = %122, %96
-  %.051.i = phi i1 [ false, %96 ], [ true, %122 ]
+  %.051.i = phi i1 [ true, %122 ], [ false, %96 ]
   %124 = load i32, ptr @hf_h223_al2, align 4
   %125 = call ptr @proto_tree_add_boolean(ptr noundef %51, i32 noundef %124, ptr noundef %.0..0..0..0.62, i32 noundef 0, i32 noundef 0, i64 noundef 1)
   %126 = load i32, ptr @hf_h223_al2_sequenced, align 4

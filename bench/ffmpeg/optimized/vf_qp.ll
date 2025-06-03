@@ -440,7 +440,7 @@ av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params
   br label %220
 
 220:                                              ; preds = %.split113.us, %59, %47, %.thread102
-  %.073 = phi i32 [ %.us-phi, %.split113.us ], [ %219, %.thread102 ], [ -12, %47 ], [ -12, %59 ]
+  %.073 = phi i32 [ %219, %.thread102 ], [ %.us-phi, %.split113.us ], [ -12, %47 ], [ -12, %59 ]
   call void @av_frame_free(ptr noundef nonnull %3) #6
   call void @av_frame_free(ptr noundef nonnull %4) #6
   br label %221

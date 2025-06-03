@@ -518,10 +518,10 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
   br label %dnxhd_init_vlc.exit.thread
 
 dnxhd_get_profile.exit:                           ; preds = %77, %92, %91
-  %96 = phi i1 [ true, %92 ], [ false, %91 ], [ false, %77 ]
-  %97 = phi i1 [ false, %92 ], [ true, %91 ], [ false, %77 ]
-  %98 = phi i1 [ false, %92 ], [ false, %91 ], [ true, %77 ]
-  %.0159 = phi i32 [ 12, %92 ], [ 10, %91 ], [ 8, %77 ]
+  %96 = phi i1 [ false, %91 ], [ true, %92 ], [ false, %77 ]
+  %97 = phi i1 [ true, %91 ], [ false, %92 ], [ false, %77 ]
+  %98 = phi i1 [ false, %91 ], [ false, %92 ], [ true, %77 ]
+  %.0159 = phi i32 [ 10, %91 ], [ 12, %92 ], [ 8, %77 ]
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %100 = load i32, ptr %99, align 1, !tbaa !76
   %101 = tail call i32 @llvm.bswap.i32(i32 %100)

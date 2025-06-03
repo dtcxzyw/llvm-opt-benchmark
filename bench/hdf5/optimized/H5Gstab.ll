@@ -701,8 +701,8 @@ define range(i32 -1, 1) i32 @H5G__stab_lookup_by_idx(ptr noundef %0, i32 noundef
   %64 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__stab_lookup_by_idx, i32 noundef 927, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.20) #7
   br label %65
 
-65:                                               ; preds = %40, %54, %58, %61
-  %.1.ph = phi i32 [ -1, %61 ], [ 0, %58 ], [ -1, %54 ], [ -1, %40 ]
+65:                                               ; preds = %54, %58, %61, %40
+  %.1.ph = phi i32 [ -1, %40 ], [ -1, %61 ], [ 0, %58 ], [ -1, %54 ]
   %66 = call i32 @H5HL_unprotect(ptr noundef nonnull %25) #7
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %72
@@ -1237,9 +1237,9 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   store i8 0, ptr %74, align 1, !tbaa !76
   br label %75
 
-75:                                               ; preds = %42, %55, %62, %72, %68, %66
-  %.033.ph = phi i1 [ true, %66 ], [ true, %68 ], [ true, %72 ], [ true, %62 ], [ true, %55 ], [ false, %42 ]
-  %.1.ph = phi i32 [ 0, %66 ], [ 0, %68 ], [ 0, %72 ], [ -1, %62 ], [ -1, %55 ], [ -1, %42 ]
+75:                                               ; preds = %55, %62, %72, %68, %66, %42
+  %.033.ph = phi i1 [ false, %42 ], [ true, %66 ], [ true, %68 ], [ true, %72 ], [ true, %62 ], [ true, %55 ]
+  %.1.ph = phi i32 [ -1, %42 ], [ 0, %66 ], [ 0, %68 ], [ 0, %72 ], [ -1, %62 ], [ -1, %55 ]
   %76 = call i32 @H5HL_unprotect(ptr noundef nonnull %27) #7
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %82

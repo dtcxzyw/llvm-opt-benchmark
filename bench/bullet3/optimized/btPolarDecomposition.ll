@@ -500,7 +500,7 @@ define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3
   br label %382
 
 382:                                              ; preds = %260, %.thread253
-  %.4 = phi i32 [ %.042275, %260 ], [ %381, %.thread253 ]
+  %.4 = phi i32 [ %381, %.thread253 ], [ %.042275, %260 ]
   ret i32 %.4
 }
 

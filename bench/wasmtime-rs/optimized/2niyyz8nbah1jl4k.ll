@@ -1499,7 +1499,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -1559,7 +1559,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h97c0d45cbc47c5c7E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -1612,20 +1612,20 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write.
   store i8 %8, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %10, ptr %12, align 2
-  br label %18
+  br label %19
 
 13:                                               ; preds = %2
-  %.sroa.59.0.extract.trunc = zext nneg i32 %.sroa.59.0.extract.shift to i64
-  %sext = shl nuw i64 %.sroa.59.0.extract.trunc, 48
-  %14 = ashr exact i64 %sext, 48
-  %.neg = mul nsw i64 %14, -4294967296
-  %15 = or disjoint i64 %.neg, 2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8
-  br label %18
+  %14 = zext nneg i32 %.sroa.59.0.extract.shift to i64
+  %sext = shl nuw i64 %14, 48
+  %15 = ashr exact i64 %sext, 48
+  %.neg = mul nsw i64 %15, -4294967296
+  %16 = or disjoint i64 %.neg, 2
+  %17 = inttoptr i64 %16 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %13, %5
+19:                                               ; preds = %13, %5
   %storemerge = phi i8 [ 1, %13 ], [ 0, %5 ]
   store i8 %storemerge, ptr %0, align 8
   ret void
@@ -1651,20 +1651,20 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write.
   store i8 %8, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %10, ptr %12, align 2
-  br label %18
+  br label %19
 
 13:                                               ; preds = %2
-  %.sroa.59.0.extract.trunc = zext nneg i32 %.sroa.59.0.extract.shift to i64
-  %sext = shl nuw i64 %.sroa.59.0.extract.trunc, 48
-  %14 = ashr exact i64 %sext, 48
-  %.neg = mul nsw i64 %14, -4294967296
-  %15 = or disjoint i64 %.neg, 2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8
-  br label %18
+  %14 = zext nneg i32 %.sroa.59.0.extract.shift to i64
+  %sext = shl nuw i64 %14, 48
+  %15 = ashr exact i64 %sext, 48
+  %.neg = mul nsw i64 %15, -4294967296
+  %16 = or disjoint i64 %.neg, 2
+  %17 = inttoptr i64 %16 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %13, %5
+19:                                               ; preds = %13, %5
   %storemerge = phi i8 [ 1, %13 ], [ 0, %5 ]
   store i8 %storemerge, ptr %0, align 8
   ret void
@@ -2595,22 +2595,22 @@ define hidden void @_ZN11wasi_common4sync3net12get_fd_flags17h64e96e40002412a4E(
   call void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetSetFdFlags$GT$12get_fd_flags17hbb90af52a9277d0aE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   %5 = load i32, ptr %3, align 8, !range !200, !noundef !28
   %trunc = trunc nuw i32 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i32, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = and i32 %9, 4
+  %11 = and i32 %7, 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %14, align 8
+  store ptr %9, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %10, %13
@@ -2628,22 +2628,22 @@ define hidden void @_ZN11wasi_common4sync3net12get_fd_flags17h6a1f830acb1dc115E(
   call void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetSetFdFlags$GT$12get_fd_flags17hdd2e3f3a6d8a31f9E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   %5 = load i32, ptr %3, align 8, !range !200, !noundef !28
   %trunc = trunc nuw i32 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i32, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = and i32 %9, 4
+  %11 = and i32 %7, 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %14, align 8
+  store ptr %9, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %10, %13
@@ -2661,22 +2661,22 @@ define hidden void @_ZN11wasi_common4sync3net12get_fd_flags17hee028a7fb8ad8bc6E(
   call void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetSetFdFlags$GT$12get_fd_flags17h764049890523e485E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   %5 = load i32, ptr %3, align 8, !range !200, !noundef !28
   %trunc = trunc nuw i32 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i32, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = and i32 %9, 4
+  %11 = and i32 %7, 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %14, align 8
+  store ptr %9, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %10, %13
@@ -2694,22 +2694,22 @@ define hidden void @_ZN11wasi_common4sync3net12get_fd_flags17hf101b66bbb51eca2E(
   call void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetSetFdFlags$GT$12get_fd_flags17hfc7c39b3631e51d9E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   %5 = load i32, ptr %3, align 8, !range !200, !noundef !28
   %trunc = trunc nuw i32 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i32, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = and i32 %9, 4
+  %11 = and i32 %7, 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %14, align 8
+  store ptr %9, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %10, %13
@@ -2740,14 +2740,14 @@ define hidden void @_ZN11wasi_common4sync3net13is_read_write17hcd1717d1db40ece5E
   br label %"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17hb083e84de6969fe8E.llvm.180552711213681523.exit"
 
 13:                                               ; preds = %2
-  %.sroa.59.0.extract.trunc.i = zext nneg i32 %.sroa.59.0.extract.shift.i to i64
-  %sext.i = shl nuw i64 %.sroa.59.0.extract.trunc.i, 48
-  %14 = ashr exact i64 %sext.i, 48
-  %.neg.i = mul nsw i64 %14, -4294967296
-  %15 = or disjoint i64 %.neg.i, 2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8, !alias.scope !201, !noalias !208
+  %14 = zext nneg i32 %.sroa.59.0.extract.shift.i to i64
+  %sext.i = shl nuw i64 %14, 48
+  %15 = ashr exact i64 %sext.i, 48
+  %.neg.i = mul nsw i64 %15, -4294967296
+  %16 = or disjoint i64 %.neg.i, 2
+  %17 = inttoptr i64 %16 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !alias.scope !201, !noalias !208
   br label %"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17hb083e84de6969fe8E.llvm.180552711213681523.exit"
 
 "_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17hb083e84de6969fe8E.llvm.180552711213681523.exit": ; preds = %5, %13
@@ -2778,14 +2778,14 @@ define hidden void @_ZN11wasi_common4sync3net13is_read_write17hfa0eafa96471608cE
   br label %"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17h17ca89294002ba6cE.llvm.180552711213681523.exit"
 
 13:                                               ; preds = %2
-  %.sroa.59.0.extract.trunc.i = zext nneg i32 %.sroa.59.0.extract.shift.i to i64
-  %sext.i = shl nuw i64 %.sroa.59.0.extract.trunc.i, 48
-  %14 = ashr exact i64 %sext.i, 48
-  %.neg.i = mul nsw i64 %14, -4294967296
-  %15 = or disjoint i64 %.neg.i, 2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8, !alias.scope !209, !noalias !216
+  %14 = zext nneg i32 %.sroa.59.0.extract.shift.i to i64
+  %sext.i = shl nuw i64 %14, 48
+  %15 = ashr exact i64 %sext.i, 48
+  %.neg.i = mul nsw i64 %15, -4294967296
+  %16 = or disjoint i64 %.neg.i, 2
+  %17 = inttoptr i64 %16 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !alias.scope !209, !noalias !216
   br label %"_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17h17ca89294002ba6cE.llvm.180552711213681523.exit"
 
 "_ZN70_$LT$T$u20$as$u20$system_interface..io..is_read_write..IsReadWrite$GT$13is_read_write17h17ca89294002ba6cE.llvm.180552711213681523.exit": ; preds = %5, %13
@@ -9709,7 +9709,7 @@ default.unreachable1:                             ; preds = %2
   br label %25
 
 25:                                               ; preds = %19, %13, %7
-  %.0.in = phi i1 [ %24, %19 ], [ %18, %13 ], [ %12, %7 ]
+  %.0.in = phi i1 [ %12, %7 ], [ %18, %13 ], [ %24, %19 ]
   ret i1 %.0.in
 }
 

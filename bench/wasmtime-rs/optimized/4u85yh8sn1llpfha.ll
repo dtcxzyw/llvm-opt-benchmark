@@ -844,7 +844,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hf797d16a4fe7207dE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.0
 }
 
@@ -2689,11 +2689,11 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5alloc17h
   call void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList12check_layout17hbb169f9629930a0cE.llvm.16389591707760502172(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3)
   %11 = load i32, ptr %10, align 8, !range !292, !noundef !4
   %trunc = trunc nuw i32 %11 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load ptr, ptr %12, align 8, !nonnull !4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %15 = load i32, ptr %14, align 4
-  %.sroa.6.0 = select i1 %trunc, i32 undef, i32 %15
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !4
+  %.sroa.6.0 = select i1 %trunc, i32 undef, i32 %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %trunc, label %34, label %16
 
@@ -2750,7 +2750,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5alloc17h
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %35, align 8
+  store ptr %15, ptr %35, align 8
   br label %53
 
 36:                                               ; preds = %27
@@ -4461,7 +4461,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.e
   br label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread
 
 _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit: ; preds = %32, %41, %.thread, %98, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread
-  %.1 = phi ptr [ %67, %.thread ], [ %.2, %98 ], [ null, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread ], [ %44, %41 ], [ %33, %32 ]
+  %.1 = phi ptr [ %.2, %98 ], [ null, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread ], [ %67, %.thread ], [ %44, %41 ], [ %33, %32 ]
   ret ptr %.1
 
 98:                                               ; preds = %57, %75
@@ -5033,19 +5033,19 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
   call void %32(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %2, i64 noundef 0, i64 noundef %spec.select55, i64 noundef %.sroa.06.1, i64 %.sroa.9.1)
   %33 = load i8, ptr %8, align 8, !range !609, !noundef !4
   %trunc44 = trunc nuw i8 %33 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %35 = load ptr, ptr %34, align 8, !nonnull !4
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %37 = load i8, ptr %36, align 1, !range !609
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %35 = load i8, ptr %34, align 1, !range !609
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %37 = load ptr, ptr %36, align 8, !nonnull !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc44, label %40, label %38
 
 38:                                               ; preds = %30
-  %39 = trunc nuw i8 %37 to i1
+  %39 = trunc nuw i8 %35 to i1
   br i1 %39, label %29, label %41
 
 40:                                               ; preds = %30
-  store ptr %35, ptr %0, align 8
+  store ptr %37, ptr %0, align 8
   br label %51
 
 41:                                               ; preds = %38

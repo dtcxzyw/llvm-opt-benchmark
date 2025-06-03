@@ -474,7 +474,7 @@ ossl_statem_client13_read_transition.exit.thread.thread: ; preds = %42, %33, %25
   br label %167
 
 167:                                              ; preds = %ossl_statem_client13_read_transition.exit, %ossl_statem_client13_read_transition.exit.thread.thread, %163, %160, %157, %154, %151, %148, %142, %139, %.thread116, %117, %111, %110, %.thread, %96, %87, %72, %68, %65, %56, %53, %49
-  %.0 = phi i32 [ 0, %163 ], [ 0, %ossl_statem_client13_read_transition.exit.thread.thread ], [ 1, %160 ], [ 1, %157 ], [ 1, %154 ], [ 1, %148 ], [ 1, %151 ], [ 1, %142 ], [ 1, %139 ], [ 1, %.thread116 ], [ 1, %117 ], [ 1, %65 ], [ 1, %68 ], [ 1, %72 ], [ 1, %87 ], [ 1, %.thread ], [ 1, %110 ], [ 1, %111 ], [ 1, %96 ], [ 1, %56 ], [ 1, %49 ], [ 1, %53 ], [ 1, %ossl_statem_client13_read_transition.exit ]
+  %.0 = phi i32 [ 0, %163 ], [ 0, %ossl_statem_client13_read_transition.exit.thread.thread ], [ 1, %49 ], [ 1, %53 ], [ 1, %56 ], [ 1, %65 ], [ 1, %68 ], [ 1, %72 ], [ 1, %87 ], [ 1, %.thread ], [ 1, %110 ], [ 1, %111 ], [ 1, %96 ], [ 1, %117 ], [ 1, %.thread116 ], [ 1, %139 ], [ 1, %142 ], [ 1, %148 ], [ 1, %151 ], [ 1, %154 ], [ 1, %157 ], [ 1, %160 ], [ 1, %ossl_statem_client13_read_transition.exit ]
   ret i32 %.0
 }
 
@@ -905,7 +905,7 @@ do_compressed_cert.exit42.thread.i:               ; preds = %do_compressed_cert.
   br label %ossl_statem_client13_write_transition.exit
 
 ossl_statem_client13_write_transition.exit:       ; preds = %85, %82, %81, %80, %75, %do_compressed_cert.exit42.thread.i, %74, %67, %62, %55, %33, %32, %26, %15, %124, %161, %150, %137, %147, %148, %142, %90, %164, %163, %158, %157, %153, %149, %132, %123, %118, %117, %114, %113, %102, %98, %93, %89
-  %.0 = phi i32 [ 0, %89 ], [ 1, %163 ], [ 1, %164 ], [ 1, %157 ], [ 1, %158 ], [ 1, %153 ], [ 1, %149 ], [ 1, %132 ], [ 1, %123 ], [ 1, %118 ], [ 1, %117 ], [ 2, %114 ], [ 1, %113 ], [ 1, %98 ], [ 2, %102 ], [ 1, %93 ], [ 2, %90 ], [ 1, %142 ], [ 1, %148 ], [ 1, %147 ], [ 1, %137 ], [ 2, %150 ], [ 0, %161 ], [ 1, %124 ], [ 0, %15 ], [ 1, %85 ], [ 1, %81 ], [ 1, %80 ], [ 1, %75 ], [ 1, %62 ], [ 1, %55 ], [ 1, %26 ], [ 1, %33 ], [ 0, %32 ], [ 1, %74 ], [ 1, %do_compressed_cert.exit42.thread.i ], [ 1, %67 ], [ 2, %82 ]
+  %.0 = phi i32 [ 0, %89 ], [ 1, %93 ], [ 1, %98 ], [ 2, %102 ], [ 1, %113 ], [ 2, %114 ], [ 1, %117 ], [ 1, %118 ], [ 1, %123 ], [ 1, %132 ], [ 1, %149 ], [ 1, %153 ], [ 1, %157 ], [ 1, %158 ], [ 1, %163 ], [ 1, %164 ], [ 2, %90 ], [ 1, %142 ], [ 1, %148 ], [ 1, %147 ], [ 1, %137 ], [ 2, %150 ], [ 0, %161 ], [ 1, %124 ], [ 0, %15 ], [ 1, %26 ], [ 1, %33 ], [ 0, %32 ], [ 1, %55 ], [ 1, %62 ], [ 1, %75 ], [ 1, %80 ], [ 1, %81 ], [ 1, %85 ], [ 1, %74 ], [ 1, %do_compressed_cert.exit42.thread.i ], [ 1, %67 ], [ 2, %82 ]
   ret i32 %.0
 }
 
@@ -1001,7 +1001,7 @@ define i32 @ossl_statem_client_pre_work(ptr noundef %0, i32 noundef %1) local_un
   br label %43
 
 43:                                               ; preds = %35, %35, %20, %14, %42, %40, %38
-  %.0 = phi i32 [ 2, %42 ], [ %41, %40 ], [ %39, %38 ], [ 0, %14 ], [ 0, %20 ], [ 2, %35 ], [ 2, %35 ]
+  %.0 = phi i32 [ 2, %42 ], [ %39, %38 ], [ %41, %40 ], [ 0, %14 ], [ 0, %20 ], [ 2, %35 ], [ 2, %35 ]
   ret i32 %.0
 }
 
@@ -2655,7 +2655,7 @@ define i64 @ossl_statem_client_max_message_size(ptr noundef readonly captures(no
   br label %35
 
 35:                                               ; preds = %19, %27, %30, %15, %1, %34, %33, %32, %12, %11, %10, %9, %6, %5, %4
-  %.0 = phi i64 [ 1, %34 ], [ 20000, %33 ], [ 64, %32 ], [ %14, %12 ], [ 102400, %11 ], [ 16384, %10 ], [ 65539, %9 ], [ %8, %6 ], [ 258, %5 ], [ 65607, %4 ], [ 0, %1 ], [ %., %15 ], [ 65541, %27 ], [ 65541, %19 ], [ %31, %30 ]
+  %.0 = phi i64 [ 65607, %4 ], [ 258, %5 ], [ %8, %6 ], [ 65539, %9 ], [ 16384, %10 ], [ 102400, %11 ], [ %14, %12 ], [ 64, %32 ], [ 20000, %33 ], [ 1, %34 ], [ 0, %1 ], [ %., %15 ], [ 65541, %27 ], [ 65541, %19 ], [ %31, %30 ]
   ret i64 %.0
 }
 
@@ -2843,7 +2843,7 @@ tls_process_encrypted_extensions.exit:            ; preds = %68, %69
   br label %dtls_process_hello_verify.exit
 
 dtls_process_hello_verify.exit:                   ; preds = %22, %PACKET_forward.exit.thread.i, %71, %tls_process_encrypted_extensions.exit, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ %72, %71 ], [ %.0.i31, %tls_process_encrypted_extensions.exit ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %..i, %34 ], [ %33, %32 ], [ %31, %30 ], [ %9, %8 ], [ 1, %22 ], [ 0, %PACKET_forward.exit.thread.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %9, %8 ], [ %31, %30 ], [ %33, %32 ], [ %..i, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %.0.i31, %tls_process_encrypted_extensions.exit ], [ %72, %71 ], [ 1, %22 ], [ 0, %PACKET_forward.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -5149,7 +5149,7 @@ PACKET_memdup.exit95:                             ; preds = %97
   br label %.thread123
 
 .thread123:                                       ; preds = %.critedge, %88, %PACKET_memdup.exit95, %.thread, %148, %132, %14, %151, %136
-  %.050 = phi i32 [ 0, %132 ], [ 0, %136 ], [ 2, %151 ], [ 0, %14 ], [ 3, %148 ], [ %.151.ph, %.thread ], [ 0, %PACKET_memdup.exit95 ], [ 0, %88 ], [ 0, %.critedge ]
+  %.050 = phi i32 [ 0, %136 ], [ 2, %151 ], [ 0, %132 ], [ 0, %14 ], [ 3, %148 ], [ %.151.ph, %.thread ], [ 0, %PACKET_memdup.exit95 ], [ 0, %88 ], [ 0, %.critedge ]
   ret i32 %.050
 }
 
@@ -5628,7 +5628,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %166, %164
   br label %229
 
 227:                                              ; preds = %.thread178, %127, %217, %218, %197, %190, %147, %144, %PACKET_get_net_4.exit.thread
-  %.082 = phi ptr [ null, %PACKET_get_net_4.exit.thread ], [ null, %127 ], [ null, %144 ], [ null, %190 ], [ %188, %197 ], [ null, %147 ], [ null, %218 ], [ null, %217 ], [ null, %.thread178 ]
+  %.082 = phi ptr [ null, %PACKET_get_net_4.exit.thread ], [ null, %144 ], [ null, %190 ], [ %188, %197 ], [ null, %147 ], [ null, %127 ], [ null, %218 ], [ null, %217 ], [ null, %.thread178 ]
   call void @EVP_MD_free(ptr noundef %.082) #8
   %228 = load ptr, ptr %4, align 8, !tbaa !179
   call void @CRYPTO_free(ptr noundef %228, ptr noundef nonnull @.str, i32 noundef 2873) #8
@@ -5719,7 +5719,7 @@ define range(i32 0, 5) i32 @ossl_statem_client_post_process_message(ptr noundef 
   br label %10
 
 10:                                               ; preds = %8, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %9, %8 ], [ %7, %6 ]
+  %.0 = phi i32 [ 0, %5 ], [ %7, %6 ], [ %9, %8 ]
   ret i32 %.0
 }
 

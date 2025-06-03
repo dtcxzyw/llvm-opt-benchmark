@@ -1030,7 +1030,7 @@ define hidden noundef ptr @_ZN7datalog14dl_decl_plugin7mk_sortEijPK9parameter(pt
   br label %12
 
 12:                                               ; preds = %11, %9, %7, %5
-  %.0 = phi ptr [ null, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi ptr [ null, %11 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret ptr %.0
 }
 
@@ -5170,11 +5170,11 @@ _ZN9decl_infoD2Ev.exit88:                         ; preds = %_ZN11ast_manager12m
   unreachable
 
 141:                                              ; preds = %12, %16, %20, %27, %34, %39, %44, %49, %54, %59, %66, %71, %75, %_ZN9decl_infoD2Ev.exit, %_ZN9decl_infoD2Ev.exit88
-  %.070 = phi ptr [ %124, %_ZN9decl_infoD2Ev.exit88 ], [ %95, %_ZN9decl_infoD2Ev.exit ], [ %79, %75 ], [ %74, %71 ], [ %70, %66 ], [ %65, %59 ], [ %58, %54 ], [ %53, %49 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %27 ], [ %26, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.070 = phi ptr [ %15, %12 ], [ %19, %16 ], [ %26, %20 ], [ %33, %27 ], [ %38, %34 ], [ %43, %39 ], [ %48, %44 ], [ %53, %49 ], [ %58, %54 ], [ %65, %59 ], [ %70, %66 ], [ %74, %71 ], [ %79, %75 ], [ %95, %_ZN9decl_infoD2Ev.exit ], [ %124, %_ZN9decl_infoD2Ev.exit88 ]
   ret ptr %.070
 
 142:                                              ; preds = %136, %107
-  %.pn = phi { ptr, i32 } [ %137, %136 ], [ %108, %107 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %137, %136 ]
   resume { ptr, i32 } %.pn
 }
 

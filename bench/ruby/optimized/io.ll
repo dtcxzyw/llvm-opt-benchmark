@@ -1792,7 +1792,7 @@ io_fd_check_closed.exit:                          ; preds = %1
   br label %io_wait_for_single_fd.exit
 
 io_wait_for_single_fd.exit:                       ; preds = %24, %19, %io_fd_check_closed.exit, %10, %8
-  %.0 = phi i32 [ %16, %10 ], [ 1, %8 ], [ 0, %io_fd_check_closed.exit ], [ 1, %19 ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %8 ], [ %16, %10 ], [ 0, %io_fd_check_closed.exit ], [ 1, %19 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -1855,7 +1855,7 @@ io_fd_check_closed.exit:                          ; preds = %1
   br label %io_wait_for_single_fd.exit
 
 io_wait_for_single_fd.exit:                       ; preds = %24, %19, %io_fd_check_closed.exit, %10, %8
-  %.0 = phi i32 [ %16, %10 ], [ 1, %8 ], [ 0, %io_fd_check_closed.exit ], [ 1, %19 ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %8 ], [ %16, %10 ], [ 0, %io_fd_check_closed.exit ], [ 1, %19 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -1980,7 +1980,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   br label %18
 
 18:                                               ; preds = %rb_io_check_closed.exit, %16, %15
-  %.0 = phi i64 [ %17, %16 ], [ %2, %15 ], [ 4, %rb_io_check_closed.exit ]
+  %.0 = phi i64 [ %2, %15 ], [ %17, %16 ], [ 4, %rb_io_check_closed.exit ]
   ret i64 %.0
 }
 
@@ -9781,7 +9781,7 @@ define dso_local void @rb_readwrite_syserr_fail(i32 noundef %0, i32 noundef %1, 
   unreachable
 
 18:                                               ; preds = %13, %9, %14, %10
-  %.0.in = phi ptr [ @rb_eEINPROGRESSWaitReadable, %14 ], [ @rb_eEINPROGRESSWaitWritable, %10 ], [ @rb_eEAGAINWaitWritable, %9 ], [ @rb_eEAGAINWaitReadable, %13 ]
+  %.0.in = phi ptr [ @rb_eEINPROGRESSWaitWritable, %10 ], [ @rb_eEINPROGRESSWaitReadable, %14 ], [ @rb_eEAGAINWaitWritable, %9 ], [ @rb_eEAGAINWaitReadable, %13 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !23
   %19 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %.0) #28
   call void @rb_exc_raise(i64 noundef %19) #30
@@ -10464,7 +10464,7 @@ rb_num2long_inline.exit27:                        ; preds = %43, %41, %33
   br label %111
 
 111:                                              ; preds = %96, %83, %72, %63, %56, %51, %48, %._crit_edge.thread
-  %.023 = phi i64 [ %110, %96 ], [ %95, %83 ], [ %82, %72 ], [ %71, %63 ], [ %62, %56 ], [ %55, %51 ], [ %50, %48 ], [ %47, %._crit_edge.thread ]
+  %.023 = phi i64 [ %47, %._crit_edge.thread ], [ %50, %48 ], [ %55, %51 ], [ %62, %56 ], [ %71, %63 ], [ %82, %72 ], [ %95, %83 ], [ %110, %96 ]
   %112 = icmp eq i64 %.023, -1
   br i1 %112, label %.thread, label %115
 
@@ -11526,10 +11526,10 @@ define internal i64 @rb_io_s_popen(i32 noundef %0, ptr noundef readonly captures
   br label %.thread34
 
 .thread34:                                        ; preds = %12, %21, %.thread31
-  %.02041 = phi i64 [ %.020, %.thread31 ], [ %.020, %21 ], [ 4, %12 ]
-  %.02340 = phi ptr [ %.023, %.thread31 ], [ %.023, %21 ], [ %1, %12 ]
-  %.0212839 = phi i64 [ %.02128, %.thread31 ], [ %.02128, %21 ], [ %10, %12 ]
-  %.022 = phi i64 [ 4, %.thread31 ], [ %23, %21 ], [ 4, %12 ]
+  %.02041 = phi i64 [ %.020, %21 ], [ %.020, %.thread31 ], [ 4, %12 ]
+  %.02340 = phi ptr [ %.023, %21 ], [ %.023, %.thread31 ], [ %1, %12 ]
+  %.0212839 = phi i64 [ %.02128, %21 ], [ %.02128, %.thread31 ], [ %10, %12 ]
+  %.022 = phi i64 [ %23, %21 ], [ 4, %.thread31 ], [ 4, %12 ]
   %24 = load i64, ptr %.02340, align 8, !tbaa !23
   %25 = tail call i64 @rb_io_popen(i64 noundef %24, i64 noundef %.022, i64 noundef %.02041, i64 noundef %.0212839)
   %26 = icmp eq i64 %25, 4
@@ -34038,7 +34038,7 @@ default.unreachable42:                            ; preds = %14
   br label %49
 
 49:                                               ; preds = %38, %41, %26, %29, %44, %17, %11, %8
-  %.0 = phi ptr [ %10, %8 ], [ %13, %11 ], [ %48, %44 ], [ %21, %17 ], [ %28, %26 ], [ %31, %29 ], [ %40, %38 ], [ %43, %41 ]
+  %.0 = phi ptr [ %10, %8 ], [ %13, %11 ], [ %21, %17 ], [ %48, %44 ], [ %28, %26 ], [ %31, %29 ], [ %40, %38 ], [ %43, %41 ]
   ret ptr %.0
 }
 
@@ -35517,7 +35517,7 @@ define internal range(i64 1, 257) i64 @fcntl_narg_len(i64 noundef %0) #12 {
   br label %5
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %3, %2
-  %.0 = phi i64 [ 256, %4 ], [ 32, %3 ], [ 1, %2 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
+  %.0 = phi i64 [ 256, %4 ], [ 1, %2 ], [ 32, %3 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
   ret i64 %.0
 }
 

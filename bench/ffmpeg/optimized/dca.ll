@@ -204,7 +204,7 @@ flush_put_bits.exit:                              ; preds = %76, %17, %._crit_ed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph55, %.preheader, %4, %flush_put_bits.exit, %10
-  %.0 = phi i32 [ %86, %flush_put_bits.exit ], [ %spec.select, %10 ], [ -1094995529, %4 ], [ %spec.select, %.preheader ], [ %spec.select, %.lr.ph55 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ %86, %flush_put_bits.exit ], [ -1094995529, %4 ], [ %spec.select, %.preheader ], [ %spec.select, %.lr.ph55 ]
   ret i32 %.0
 }
 

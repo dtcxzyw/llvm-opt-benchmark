@@ -693,7 +693,7 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
   unreachable
 
 common.resume:                                    ; preds = %351, %.body.thread, %135, %136, %.thread99, %203, %131, %201, %172
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi193, %203 ], [ %.pn.pn.i102, %.thread99 ], [ %eh.lpad-body.i, %136 ], [ %lpad.phi188, %135 ], [ %132, %131 ], [ %202, %201 ], [ %lpad.phi183, %172 ], [ %.pn, %351 ], [ %eh.lpad-body160, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi193, %203 ], [ %lpad.phi188, %135 ], [ %.pn.pn.i102, %.thread99 ], [ %eh.lpad-body.i, %136 ], [ %132, %131 ], [ %202, %201 ], [ %lpad.phi183, %172 ], [ %.pn, %351 ], [ %eh.lpad-body160, %.body.thread ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit184:                                     ; preds = %110, %119
@@ -966,10 +966,10 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
           to label %common.resume unwind label %133, !noalias !67
 
 "_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit": ; preds = %126, %181, %196
-  %.sroa.076.5 = phi i64 [ %.sroa.076.489, %196 ], [ %.sroa.076.1230, %181 ], [ %.sroa.076.1230, %126 ]
-  %.sroa.057.1 = phi i64 [ %.sroa.04.i.sroa.0.0.copyload, %196 ], [ %.sroa.057.0, %181 ], [ %.sroa.0.i.sroa.0.0.copyload, %126 ]
-  %.sroa.961.2 = phi ptr [ %199, %196 ], [ %.sroa.961.1, %181 ], [ %129, %126 ]
-  %.sroa.1262.2 = phi i64 [ %198, %196 ], [ %.sroa.1262.1, %181 ], [ %128, %126 ]
+  %.sroa.076.5 = phi i64 [ %.sroa.076.489, %196 ], [ %.sroa.076.1230, %126 ], [ %.sroa.076.1230, %181 ]
+  %.sroa.057.1 = phi i64 [ %.sroa.04.i.sroa.0.0.copyload, %196 ], [ %.sroa.0.i.sroa.0.0.copyload, %126 ], [ %.sroa.057.0, %181 ]
+  %.sroa.961.2 = phi ptr [ %199, %196 ], [ %129, %126 ], [ %.sroa.961.1, %181 ]
+  %.sroa.1262.2 = phi i64 [ %198, %196 ], [ %128, %126 ], [ %.sroa.1262.1, %181 ]
   %.not.i.i = icmp eq i64 %.sroa.057.1, -9223372036854775808
   br i1 %.not.i.i, label %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread", label %214
 
@@ -1314,9 +1314,9 @@ default.unreachable23.i:                          ; preds = %257
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit.i"
 
 "_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit.i": ; preds = %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %240, %328, %322, %316, %311, %308, %305, %298, %293, %290, %287
-  %.sroa.351.0.i = phi i32 [ %324, %322 ], [ %.sroa.08.0.i.i, %328 ], [ undef, %316 ], [ %313, %311 ], [ %310, %308 ], [ %307, %305 ], [ %302, %298 ], [ %295, %293 ], [ undef, %290 ], [ undef, %287 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
-  %.sroa.43.0.i = phi i64 [ undef, %322 ], [ %.sroa.43.12.insert.insert.i, %328 ], [ %318, %316 ], [ %.sroa.43.8.insert.ext.i, %311 ], [ undef, %308 ], [ undef, %305 ], [ %.sroa.43.12.insert.insert22.i, %298 ], [ %.sroa.43.8.insert.ext15.i, %293 ], [ undef, %290 ], [ undef, %287 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
-  %.sroa.33.0.i = phi i8 [ undef, %322 ], [ undef, %328 ], [ undef, %316 ], [ undef, %311 ], [ undef, %308 ], [ undef, %305 ], [ undef, %298 ], [ undef, %293 ], [ %292, %290 ], [ %289, %287 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
+  %.sroa.351.0.i = phi i32 [ undef, %287 ], [ undef, %290 ], [ %295, %293 ], [ %302, %298 ], [ %307, %305 ], [ %310, %308 ], [ %313, %311 ], [ undef, %316 ], [ %.sroa.08.0.i.i, %328 ], [ %324, %322 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
+  %.sroa.43.0.i = phi i64 [ undef, %287 ], [ undef, %290 ], [ %.sroa.43.8.insert.ext15.i, %293 ], [ %.sroa.43.12.insert.insert22.i, %298 ], [ undef, %305 ], [ undef, %308 ], [ %.sroa.43.8.insert.ext.i, %311 ], [ %318, %316 ], [ %.sroa.43.12.insert.insert.i, %328 ], [ undef, %322 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
+  %.sroa.33.0.i = phi i8 [ %289, %287 ], [ %292, %290 ], [ undef, %293 ], [ undef, %298 ], [ undef, %305 ], [ undef, %308 ], [ undef, %311 ], [ undef, %316 ], [ undef, %328 ], [ undef, %322 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ], [ undef, %240 ]
   store i8 %242, ptr %217, align 8, !alias.scope !102
   store i8 %.sroa.33.0.i, ptr %.sroa.33.0..sroa_idx.i, align 1, !alias.scope !102
   store i32 %.sroa.351.0.i, ptr %.sroa.351.0..sroa_idx.i, align 4, !alias.scope !102
@@ -1371,7 +1371,7 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
   br label %.backedge
 
 .backedge:                                        ; preds = %240, %233, %246, %249, %.noexc, %251, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha303b679b5d36e7bE.exit", %236
-  %.sroa.076.0.be = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha303b679b5d36e7bE.exit" ], [ 0, %236 ], [ 0, %240 ], [ %.sroa.076.0235, %246 ], [ %250, %249 ], [ %.sroa.076.0235, %233 ], [ %spec.select174, %.noexc ], [ %252, %251 ]
+  %.sroa.076.0.be = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha303b679b5d36e7bE.exit" ], [ 0, %236 ], [ %.sroa.076.0235, %246 ], [ %250, %249 ], [ %.sroa.076.0235, %233 ], [ 0, %240 ], [ %spec.select174, %.noexc ], [ %252, %251 ]
   %.not25 = icmp eq ptr %231, %216
   br i1 %.not25, label %._crit_edge, label %230
 
@@ -1485,7 +1485,7 @@ define noundef zeroext i1 @_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState
   ]
 
 15:                                               ; preds = %5, %21, %24, %28, %29, %20, %16, %7, %12, %19, %8
-  %.sroa.0.0 = phi i1 [ true, %19 ], [ %11, %8 ], [ false, %12 ], [ false, %7 ], [ true, %16 ], [ true, %20 ], [ true, %29 ], [ true, %28 ], [ true, %24 ], [ true, %21 ], [ true, %5 ]
+  %.sroa.0.0 = phi i1 [ %11, %8 ], [ true, %19 ], [ false, %12 ], [ false, %7 ], [ true, %16 ], [ true, %20 ], [ true, %29 ], [ true, %28 ], [ true, %24 ], [ true, %21 ], [ true, %5 ]
   ret i1 %.sroa.0.0
 
 16:                                               ; preds = %12

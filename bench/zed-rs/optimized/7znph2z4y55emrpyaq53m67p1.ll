@@ -4443,7 +4443,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..backtrack..Frame$u20$as$u20$core..fmt..Debug$GT$3fmt17hd7ce87b23e4b42f6E.exit"
 
 "_ZN84_$LT$regex_automata..nfa..thompson..backtrack..Frame$u20$as$u20$core..fmt..Debug$GT$3fmt17hd7ce87b23e4b42f6E.exit": ; preds = %9, %11
-  %.sroa.0.0.in.i = phi i1 [ %12, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4573,7 +4573,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
   unreachable
 
 41:                                               ; preds = %52, %25
-  %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %26, %25 ]
+  %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn.i
 
 42:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h46f820332db22517E.exit.i"
@@ -4850,7 +4850,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
   unreachable
 
 41:                                               ; preds = %52, %25
-  %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %26, %25 ]
+  %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn.i
 
 42:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hde1ab9c2bdbc38d4E.exit.i"
@@ -5013,7 +5013,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.531992751332406584.exit.i
   unreachable
 
 41:                                               ; preds = %52, %25
-  %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %26, %25 ]
+  %.pn.i = phi { ptr, i32 } [ %26, %25 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn.i
 
 42:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h4f64ea29f527d39dE.exit.i"
@@ -5181,7 +5181,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN89_$LT$regex_automata..nfa..thompson..pikevm..FollowEpsilon$u20$as$u20$core..fmt..Debug$GT$3fmt17h0011944691d5ac66E.exit"
 
 "_ZN89_$LT$regex_automata..nfa..thompson..pikevm..FollowEpsilon$u20$as$u20$core..fmt..Debug$GT$3fmt17h0011944691d5ac66E.exit": ; preds = %7, %10
-  %.sroa.0.0.in.i = phi i1 [ %13, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %7 ], [ %13, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6939,7 +6939,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %92, label %common.ret.sink.split, label %common.ret
 
 93:                                               ; preds = %161, %125, %58
-  %.pn4 = phi { ptr, i32 } [ %.pn, %125 ], [ %40, %161 ], [ %.pn2, %58 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %58 ], [ %.pn, %125 ], [ %40, %161 ]
   resume { ptr, i32 } %.pn4
 
 94:                                               ; preds = %161, %160, %125, %114, %.body, %58, %47
@@ -10219,7 +10219,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17ha7
   br label %_ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E.llvm.531992751332406584.exit.preheader
 
 _ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E.llvm.531992751332406584.exit.preheader: ; preds = %7, %14, %21
-  %.sroa.01.0.ph = phi i64 [ %8, %7 ], [ %15, %14 ], [ %22, %21 ]
+  %.sroa.01.0.ph = phi i64 [ %22, %21 ], [ %15, %14 ], [ %8, %7 ]
   br label %_ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E.llvm.531992751332406584.exit
 
 _ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E.llvm.531992751332406584.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E.llvm.531992751332406584.exit.preheader, %27
@@ -10307,7 +10307,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h2df66963955b2a56E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -10367,7 +10367,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17ha2e3fbe578043dccE.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -10427,7 +10427,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hba86d812b880085bE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -10622,7 +10622,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h9aa1
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -10781,7 +10781,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hd9c8
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -10940,7 +10940,7 @@ define internal fastcc { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchan
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -25917,7 +25917,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -26722,8 +26722,8 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
           to label %.body unwind label %64
 
 43:                                               ; preds = %.noexc17, %.noexc15
-  %.pn.i.i = phi i64 [ 1, %.noexc17 ], [ 0, %.noexc15 ]
-  %.sroa.3.0.i.i = phi ptr [ %40, %.noexc17 ], [ %38, %.noexc15 ]
+  %.pn.i.i = phi i64 [ 0, %.noexc15 ], [ 1, %.noexc17 ]
+  %.sroa.3.0.i.i = phi ptr [ %38, %.noexc15 ], [ %40, %.noexc17 ]
   store i64 %.pn.i.i, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0.i.i, ptr %44, align 8
@@ -27505,7 +27505,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %12, %8, %6
-  %.sroa.0.0.in = phi i1 [ %14, %12 ], [ %11, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %11, %8 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

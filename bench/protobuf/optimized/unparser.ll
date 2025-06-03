@@ -6637,7 +6637,7 @@ if.then.i.i.i.i378:                               ; preds = %sw.bb349
           to label %invoke.cont.i379 unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %ehcleanup, %ehcleanup64, %lpad69, %lpad111, %lpad156, %lpad185, %lpad214, %lpad247, %ehcleanup319, %lpad324, %lpad353, %lpad387, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %78, %lpad.i.i.i ], [ %102, %lpad387 ], [ %84, %lpad353 ], [ %74, %lpad324 ], [ %.pn72, %ehcleanup319 ], [ %56, %lpad247 ], [ %52, %lpad214 ], [ %47, %lpad185 ], [ %42, %lpad156 ], [ %35, %lpad111 ], [ %28, %lpad69 ], [ %.pn86, %ehcleanup64 ], [ %.pn88, %ehcleanup ]
+  %common.resume.op = phi { ptr, i32 } [ %78, %lpad.i.i.i ], [ %102, %lpad387 ], [ %.pn88, %ehcleanup ], [ %.pn86, %ehcleanup64 ], [ %28, %lpad69 ], [ %35, %lpad111 ], [ %42, %lpad156 ], [ %47, %lpad185 ], [ %52, %lpad214 ], [ %56, %lpad247 ], [ %.pn72, %ehcleanup319 ], [ %74, %lpad324 ], [ %84, %lpad353 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i378
@@ -7473,7 +7473,7 @@ return:                                           ; preds = %invoke.cont363, %sw
   ret void
 
 eh.resume:                                        ; preds = %lpad374, %lpad342, %lpad314, %lpad268, %lpad236, %lpad205, %lpad177, %lpad149, %lpad106, %lpad66, %ehcleanup60, %ehcleanup
-  %.pn100 = phi { ptr, i32 } [ %81, %lpad374 ], [ %66, %lpad342 ], [ %62, %lpad314 ], [ %55, %lpad268 ], [ %48, %lpad236 ], [ %44, %lpad205 ], [ %39, %lpad177 ], [ %34, %lpad149 ], [ %27, %lpad106 ], [ %20, %lpad66 ], [ %.pn96, %ehcleanup60 ], [ %.pn98, %ehcleanup ]
+  %.pn100 = phi { ptr, i32 } [ %81, %lpad374 ], [ %.pn98, %ehcleanup ], [ %.pn96, %ehcleanup60 ], [ %20, %lpad66 ], [ %27, %lpad106 ], [ %34, %lpad149 ], [ %39, %lpad177 ], [ %44, %lpad205 ], [ %48, %lpad236 ], [ %55, %lpad268 ], [ %62, %lpad314 ], [ %66, %lpad342 ]
   resume { ptr, i32 } %.pn100
 }
 
@@ -10098,7 +10098,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEED2Ev.exit: ; preds 
   br i1 %cleanup.dest.slot.3, label %return, label %for.cond
 
 ehcleanup:                                        ; preds = %lpad18.loopexit, %lpad18.loopexit.split-lp.loopexit.split-lp, %lpad18.loopexit.split-lp.loopexit, %lpad.i, %lpad17.i, %lpad47.i, %lpad77.i, %lpad107.i, %lpad138.i, %lpad169.i, %lpad197.i
-  %.pn = phi { ptr, i32 } [ %78, %lpad197.i ], [ %67, %lpad169.i ], [ %62, %lpad138.i ], [ %59, %lpad107.i ], [ %55, %lpad77.i ], [ %51, %lpad47.i ], [ %47, %lpad17.i ], [ %43, %lpad.i ], [ %lpad.loopexit, %lpad18.loopexit ], [ %lpad.loopexit152, %lpad18.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp153, %lpad18.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %78, %lpad197.i ], [ %43, %lpad.i ], [ %47, %lpad17.i ], [ %51, %lpad47.i ], [ %55, %lpad77.i ], [ %59, %lpad107.i ], [ %62, %lpad138.i ], [ %67, %lpad169.i ], [ %lpad.loopexit, %lpad18.loopexit ], [ %lpad.loopexit152, %lpad18.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp153, %lpad18.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4absl12lts_202308028StatusOrIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %is_empty) #27
   br label %ehcleanup90
 
@@ -10400,7 +10400,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp5.i.i.i, label %do.end.thread, label %for.body.lr.ph.i.i.i
 
 common.resume:                                    ; preds = %ehcleanup.i, %ehcleanup62.i, %lpad68.i, %lpad108.i, %lpad151.i, %lpad179.i, %lpad207.i, %lpad238.i, %lpad270.i, %lpad316.i, %lpad344.i, %lpad376.i, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i.i ], [ %107, %lpad376.i ], [ %94, %lpad344.i ], [ %lpad.loopexit, %lpad316.i ], [ %lpad.loopexit461, %lpad270.i ], [ %lpad.loopexit464, %lpad238.i ], [ %lpad.loopexit467, %lpad207.i ], [ %78, %lpad179.i ], [ %74, %lpad151.i ], [ %lpad.phi472, %lpad108.i ], [ %lpad.phi475, %lpad68.i ], [ %.pn106.i, %ehcleanup62.i ], [ %.pn108.i, %ehcleanup.i ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i.i ], [ %107, %lpad376.i ], [ %.pn108.i, %ehcleanup.i ], [ %.pn106.i, %ehcleanup62.i ], [ %lpad.phi475, %lpad68.i ], [ %lpad.phi472, %lpad108.i ], [ %74, %lpad151.i ], [ %78, %lpad179.i ], [ %lpad.loopexit467, %lpad207.i ], [ %lpad.loopexit464, %lpad238.i ], [ %lpad.loopexit461, %lpad270.i ], [ %lpad.loopexit, %lpad316.i ], [ %94, %lpad344.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %_ZN6google8protobuf13json_internal23UnparseProto2Descriptor7GetSizeEPKNS0_15FieldDescriptorERKNS0_7MessageE.exit.i.i.i, %if.then.i.i7.i.i, %for.body.i.i.i
@@ -12938,7 +12938,7 @@ if.then.i.i.i.i382:                               ; preds = %sw.bb337
           to label %invoke.cont.i383 unwind label %lpad.i.i.i
 
 common.resume:                                    ; preds = %ehcleanup, %ehcleanup60, %lpad66, %lpad106, %lpad149, %lpad177, %lpad205, %lpad236, %ehcleanup308, %lpad314, %lpad341, %lpad375, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %140, %lpad.i.i.i ], [ %157, %lpad375 ], [ %146, %lpad341 ], [ %132, %lpad314 ], [ %.pn72, %ehcleanup308 ], [ %102, %lpad236 ], [ %95, %lpad205 ], [ %84, %lpad177 ], [ %73, %lpad149 ], [ %57, %lpad106 ], [ %41, %lpad66 ], [ %.pn86, %ehcleanup60 ], [ %.pn88, %ehcleanup ]
+  %common.resume.op = phi { ptr, i32 } [ %140, %lpad.i.i.i ], [ %157, %lpad375 ], [ %.pn88, %ehcleanup ], [ %.pn86, %ehcleanup60 ], [ %41, %lpad66 ], [ %57, %lpad106 ], [ %73, %lpad149 ], [ %84, %lpad177 ], [ %95, %lpad205 ], [ %102, %lpad236 ], [ %.pn72, %ehcleanup308 ], [ %132, %lpad314 ], [ %146, %lpad341 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i382
@@ -13652,7 +13652,7 @@ return:                                           ; preds = %nrvo.unused352, %sw
   ret void
 
 eh.resume:                                        ; preds = %lpad374, %lpad342, %lpad314, %lpad268, %lpad236, %lpad205, %lpad177, %lpad149, %lpad106, %lpad66, %ehcleanup60, %ehcleanup
-  %.pn100 = phi { ptr, i32 } [ %78, %lpad374 ], [ %70, %lpad342 ], [ %65, %lpad314 ], [ %58, %lpad268 ], [ %51, %lpad236 ], [ %46, %lpad205 ], [ %40, %lpad177 ], [ %34, %lpad149 ], [ %26, %lpad106 ], [ %18, %lpad66 ], [ %.pn96, %ehcleanup60 ], [ %.pn98, %ehcleanup ]
+  %.pn100 = phi { ptr, i32 } [ %78, %lpad374 ], [ %.pn98, %ehcleanup ], [ %.pn96, %ehcleanup60 ], [ %18, %lpad66 ], [ %26, %lpad106 ], [ %34, %lpad149 ], [ %40, %lpad177 ], [ %46, %lpad205 ], [ %51, %lpad236 ], [ %58, %lpad268 ], [ %65, %lpad314 ], [ %70, %lpad342 ]
   resume { ptr, i32 } %.pn100
 }
 
@@ -18570,7 +18570,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal14UntypedMessa
   br i1 %cleanup.dest.slot.3, label %return, label %for.cond
 
 ehcleanup:                                        ; preds = %lpad18.loopexit, %lpad18.loopexit.split-lp.loopexit.split-lp, %lpad18.loopexit.split-lp.loopexit, %lpad.i, %lpad17.i, %lpad47.i, %lpad77.i, %lpad107.i, %lpad138.i, %lpad169.i, %lpad197.i
-  %.pn = phi { ptr, i32 } [ %73, %lpad197.i ], [ %67, %lpad169.i ], [ %62, %lpad138.i ], [ %58, %lpad107.i ], [ %53, %lpad77.i ], [ %48, %lpad47.i ], [ %43, %lpad17.i ], [ %38, %lpad.i ], [ %lpad.loopexit, %lpad18.loopexit ], [ %lpad.loopexit131, %lpad18.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp132, %lpad18.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %73, %lpad197.i ], [ %38, %lpad.i ], [ %43, %lpad17.i ], [ %48, %lpad47.i ], [ %53, %lpad77.i ], [ %58, %lpad107.i ], [ %62, %lpad138.i ], [ %67, %lpad169.i ], [ %lpad.loopexit, %lpad18.loopexit ], [ %lpad.loopexit131, %lpad18.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp132, %lpad18.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4absl12lts_202308028StatusOrIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %is_empty) #27
   br label %ehcleanup90
 
@@ -19039,7 +19039,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup.i25, %ehcleanup62.i, %lpad68.i, %lpad108.i, %lpad151.i, %lpad179.i, %lpad207.i, %lpad238.i, %lpad270.i, %lpad316.i, %lpad344.i, %lpad376.i, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %117, %lpad376.i ], [ %111, %lpad344.i ], [ %lpad.loopexit, %lpad316.i ], [ %lpad.loopexit435, %lpad270.i ], [ %lpad.loopexit438, %lpad238.i ], [ %lpad.loopexit441, %lpad207.i ], [ %92, %lpad179.i ], [ %87, %lpad151.i ], [ %lpad.phi446, %lpad108.i ], [ %lpad.phi449, %lpad68.i ], [ %.pn106.i, %ehcleanup62.i ], [ %.pn108.i, %ehcleanup.i25 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %117, %lpad376.i ], [ %.pn108.i, %ehcleanup.i25 ], [ %.pn106.i, %ehcleanup62.i ], [ %lpad.phi449, %lpad68.i ], [ %lpad.phi446, %lpad108.i ], [ %87, %lpad151.i ], [ %92, %lpad179.i ], [ %lpad.loopexit441, %lpad207.i ], [ %lpad.loopexit438, %lpad238.i ], [ %lpad.loopexit435, %lpad270.i ], [ %lpad.loopexit, %lpad316.i ], [ %111, %lpad344.i ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup.i:                                      ; preds = %lpad.i.i, %lpad.i
@@ -20403,7 +20403,7 @@ if.end37:                                         ; preds = %sw.bb
   br label %sw.bb39
 
 sw.bb39:                                          ; preds = %if.end37, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i31, %if.end37 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i31, %if.end37 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %20 = load ptr, ptr %__first.sroa.0.1, align 8
   %name_.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %21 = load ptr, ptr %name_.i.i.i.i32, align 8
@@ -20419,7 +20419,7 @@ if.end44:                                         ; preds = %sw.bb39
   br label %sw.bb46
 
 sw.bb46:                                          ; preds = %if.end44, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i36, %if.end44 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i36, %if.end44 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %24 = load ptr, ptr %__first.sroa.0.2, align 8
   %name_.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %25 = load ptr, ptr %name_.i.i.i.i37, align 8

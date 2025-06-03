@@ -1055,8 +1055,8 @@ define internal range(i32 0, 3) i32 @ll_binary_merge(ptr readnone captures(none)
   br label %19
 
 19:                                               ; preds = %14, %11, %17, %18
-  %.011 = phi i32 [ 0, %18 ], [ 0, %17 ], [ 0, %11 ], [ 2, %14 ]
-  %.0 = phi ptr [ %7, %18 ], [ %5, %17 ], [ %3, %11 ], [ %5, %14 ]
+  %.011 = phi i32 [ 0, %17 ], [ 0, %18 ], [ 0, %11 ], [ 2, %14 ]
+  %.0 = phi ptr [ %5, %17 ], [ %7, %18 ], [ %3, %11 ], [ %5, %14 ]
   %20 = load ptr, ptr %.0, align 8, !tbaa !9
   store ptr %20, ptr %1, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -1129,8 +1129,8 @@ define internal range(i32 -2147483648, 3) i32 @ll_xdl_merge(ptr readnone capture
   br label %ll_binary_merge.exit
 
 ll_binary_merge.exit:                             ; preds = %35, %38, %41, %42
-  %.011.i = phi i32 [ 0, %42 ], [ 0, %41 ], [ 0, %35 ], [ 2, %38 ]
-  %.0.i = phi ptr [ %7, %42 ], [ %5, %41 ], [ %3, %35 ], [ %5, %38 ]
+  %.011.i = phi i32 [ 0, %41 ], [ 0, %42 ], [ 0, %35 ], [ 2, %38 ]
+  %.0.i = phi ptr [ %5, %41 ], [ %7, %42 ], [ %3, %35 ], [ %5, %38 ]
   %43 = load ptr, ptr %.0.i, align 8, !tbaa !9
   store ptr %43, ptr %1, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8

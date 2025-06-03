@@ -793,7 +793,7 @@ pmix_pointer_array_get_item.exit195:              ; preds = %165
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %10, %.thread233, %.thread227, %.thread221, %.thread215, %.thread209, %.thread203, %.thread, %pmix_pointer_array_get_item.exit, %18, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %.9236, %.thread233 ], [ %.8230, %.thread227 ], [ %.6224, %.thread221 ], [ %.5218, %.thread215 ], [ %.4212, %.thread209 ], [ %.3206, %.thread203 ], [ %.2200, %.thread ], [ %21, %18 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %8 ], [ -16, %10 ]
+  %.0 = phi i32 [ %7, %5 ], [ %.2200, %.thread ], [ %.3206, %.thread203 ], [ %.4212, %.thread209 ], [ %.5218, %.thread215 ], [ %.6224, %.thread221 ], [ %.8230, %.thread227 ], [ %.9236, %.thread233 ], [ %21, %18 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %8 ], [ -16, %10 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -1200,7 +1200,7 @@ pmix_pointer_array_get_item.exit204:              ; preds = %152
   br label %171
 
 171:                                              ; preds = %.thread, %.thread246, %.thread240, %.thread234, %.thread228, %.thread222, %.thread216, %.thread210, %21, %21, %11, %9, %7, %5
-  %.0 = phi i32 [ -27, %5 ], [ %8, %7 ], [ %8, %9 ], [ %.0154207, %.thread ], [ %24, %21 ], [ %.9249, %.thread246 ], [ %.7243, %.thread240 ], [ %.6237, %.thread234 ], [ %.5231, %.thread228 ], [ %.4225, %.thread222 ], [ %.3219, %.thread216 ], [ %.2213, %.thread210 ], [ %24, %21 ], [ -46, %11 ]
+  %.0 = phi i32 [ -27, %5 ], [ %8, %7 ], [ %8, %9 ], [ %.0154207, %.thread ], [ %24, %21 ], [ %.2213, %.thread210 ], [ %.3219, %.thread216 ], [ %.4225, %.thread222 ], [ %.5231, %.thread228 ], [ %.6237, %.thread234 ], [ %.7243, %.thread240 ], [ %.9249, %.thread246 ], [ %24, %21 ], [ -46, %11 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -1577,7 +1577,7 @@ pmix_pointer_array_get_item.exit195:              ; preds = %165
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %10, %.thread233, %.thread227, %.thread221, %.thread215, %.thread209, %.thread203, %.thread, %pmix_pointer_array_get_item.exit, %18, %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %.9236, %.thread233 ], [ %.8230, %.thread227 ], [ %.7224, %.thread221 ], [ %.5218, %.thread215 ], [ %.4212, %.thread209 ], [ %.3206, %.thread203 ], [ %.2200, %.thread ], [ %21, %18 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %8 ], [ -16, %10 ]
+  %.0 = phi i32 [ %7, %5 ], [ %.2200, %.thread ], [ %.3206, %.thread203 ], [ %.4212, %.thread209 ], [ %.5218, %.thread215 ], [ %.7224, %.thread221 ], [ %.8230, %.thread227 ], [ %.9236, %.thread233 ], [ %21, %18 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %8 ], [ -16, %10 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   ret i32 %.0
 }

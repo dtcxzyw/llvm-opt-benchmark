@@ -683,7 +683,7 @@ _ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_iESt10_Select1stIS4_ESt4les
   br label %_ZN3gmx12_GLOBAL__N_121getNormalizationValueENS_18AwhOutputEntryTypeERKNS_4BiasEi.exit
 
 _ZN3gmx12_GLOBAL__N_121getNormalizationValueENS_18AwhOutputEntryTypeERKNS_4BiasEi.exit: ; preds = %143, %135, %130, %129
-  %.0.i = phi float [ 0.000000e+00, %129 ], [ %151, %143 ], [ %142, %135 ], [ %134, %130 ]
+  %.0.i = phi float [ 0.000000e+00, %129 ], [ %134, %130 ], [ %142, %135 ], [ %151, %143 ]
   %152 = load ptr, ptr %21, align 8, !tbaa !77
   %153 = load ptr, ptr %22, align 8, !tbaa !80
   %.not.i24 = icmp eq ptr %152, %153

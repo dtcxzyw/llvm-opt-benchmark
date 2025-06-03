@@ -887,8 +887,8 @@ define internal noundef i32 @filter_slice_rgb24_pl(ptr noundef readonly captures
   br label %preserve_color.exit
 
 preserve_color.exit:                              ; preds = %118, %134, %142, %151, %156, %171, %.lr.ph
-  %.3 = phi nsz float [ %.12123, %.lr.ph ], [ %181, %171 ], [ %163, %156 ], [ %153, %151 ], [ %146, %142 ], [ %.109.i, %134 ], [ %125, %118 ]
-  %.2 = phi nsz float [ %.124, %.lr.ph ], [ %191, %171 ], [ %170, %156 ], [ %155, %151 ], [ %150, %142 ], [ %141, %134 ], [ %133, %118 ]
+  %.3 = phi nsz float [ %.12123, %.lr.ph ], [ %125, %118 ], [ %.109.i, %134 ], [ %146, %142 ], [ %153, %151 ], [ %163, %156 ], [ %181, %171 ]
+  %.2 = phi nsz float [ %.124, %.lr.ph ], [ %133, %118 ], [ %141, %134 ], [ %150, %142 ], [ %155, %151 ], [ %170, %156 ], [ %191, %171 ]
   %192 = fcmp nsz ugt float %.2, 0.000000e+00
   %.0.i12 = select nsz i1 %192, float %.2, float 0x3F60101020000000
   %193 = fdiv nsz float %.3, %.0.i12
@@ -1338,8 +1338,8 @@ define internal noundef i32 @filter_slice_rgb0_pl(ptr noundef readonly captures(
   br label %preserve_color.exit
 
 preserve_color.exit:                              ; preds = %118, %134, %142, %151, %156, %171, %.lr.ph
-  %.3 = phi nsz float [ %.12123, %.lr.ph ], [ %181, %171 ], [ %163, %156 ], [ %153, %151 ], [ %146, %142 ], [ %.109.i, %134 ], [ %125, %118 ]
-  %.2 = phi nsz float [ %.124, %.lr.ph ], [ %191, %171 ], [ %170, %156 ], [ %155, %151 ], [ %150, %142 ], [ %141, %134 ], [ %133, %118 ]
+  %.3 = phi nsz float [ %.12123, %.lr.ph ], [ %125, %118 ], [ %.109.i, %134 ], [ %146, %142 ], [ %153, %151 ], [ %163, %156 ], [ %181, %171 ]
+  %.2 = phi nsz float [ %.124, %.lr.ph ], [ %133, %118 ], [ %141, %134 ], [ %150, %142 ], [ %155, %151 ], [ %170, %156 ], [ %191, %171 ]
   %192 = fcmp nsz ugt float %.2, 0.000000e+00
   %.0.i12 = select nsz i1 %192, float %.2, float 0x3F60101020000000
   %193 = fdiv nsz float %.3, %.0.i12
@@ -1861,8 +1861,8 @@ define internal noundef i32 @filter_slice_rgba_pl(ptr noundef readonly captures(
   br label %preserve_color.exit
 
 preserve_color.exit:                              ; preds = %144, %160, %168, %177, %182, %197, %.lr.ph
-  %.3 = phi nsz float [ %.12426, %.lr.ph ], [ %207, %197 ], [ %189, %182 ], [ %179, %177 ], [ %172, %168 ], [ %.109.i, %160 ], [ %151, %144 ]
-  %.2 = phi nsz float [ %.127, %.lr.ph ], [ %217, %197 ], [ %196, %182 ], [ %181, %177 ], [ %176, %168 ], [ %167, %160 ], [ %159, %144 ]
+  %.3 = phi nsz float [ %.12426, %.lr.ph ], [ %151, %144 ], [ %.109.i, %160 ], [ %172, %168 ], [ %179, %177 ], [ %189, %182 ], [ %207, %197 ]
+  %.2 = phi nsz float [ %.127, %.lr.ph ], [ %159, %144 ], [ %167, %160 ], [ %176, %168 ], [ %181, %177 ], [ %196, %182 ], [ %217, %197 ]
   %218 = fcmp nsz ugt float %.2, 0.000000e+00
   %.0.i15 = select nsz i1 %218, float %.2, float 0x3F60101020000000
   %219 = fdiv nsz float %.3, %.0.i15
@@ -2327,8 +2327,8 @@ define internal noundef i32 @filter_slice_rgb48_pl(ptr noundef readonly captures
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %179, %171, %162, %157, %142, %121, %69
-  %.3.us = phi nsz float [ %.11113.us, %69 ], [ %131, %121 ], [ %149, %142 ], [ %159, %157 ], [ %166, %162 ], [ %.109.i.us, %171 ], [ %186, %179 ]
-  %.2.us = phi nsz float [ %.114.us, %69 ], [ %141, %121 ], [ %156, %142 ], [ %161, %157 ], [ %170, %162 ], [ %178, %171 ], [ %194, %179 ]
+  %.3.us = phi nsz float [ %.11113.us, %69 ], [ %186, %179 ], [ %.109.i.us, %171 ], [ %166, %162 ], [ %159, %157 ], [ %149, %142 ], [ %131, %121 ]
+  %.2.us = phi nsz float [ %.114.us, %69 ], [ %194, %179 ], [ %178, %171 ], [ %170, %162 ], [ %161, %157 ], [ %156, %142 ], [ %141, %121 ]
   %195 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %195, float %.2.us, float 0x3EE0001000000000
   %196 = fdiv nsz float %.3.us, %.0.i.us
@@ -2834,8 +2834,8 @@ define internal noundef i32 @filter_slice_rgba64_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %209, %201, %192, %187, %172, %151, %86
-  %.3.us = phi nsz float [ %.11113.us, %86 ], [ %161, %151 ], [ %179, %172 ], [ %189, %187 ], [ %196, %192 ], [ %.109.i.us, %201 ], [ %216, %209 ]
-  %.2.us = phi nsz float [ %.114.us, %86 ], [ %171, %151 ], [ %186, %172 ], [ %191, %187 ], [ %200, %192 ], [ %208, %201 ], [ %224, %209 ]
+  %.3.us = phi nsz float [ %.11113.us, %86 ], [ %216, %209 ], [ %.109.i.us, %201 ], [ %196, %192 ], [ %189, %187 ], [ %179, %172 ], [ %161, %151 ]
+  %.2.us = phi nsz float [ %.114.us, %86 ], [ %224, %209 ], [ %208, %201 ], [ %200, %192 ], [ %191, %187 ], [ %186, %172 ], [ %171, %151 ]
   %225 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %225, float %.2.us, float 0x3EE0001000000000
   %226 = fdiv nsz float %.3.us, %.0.i.us
@@ -3392,8 +3392,8 @@ define internal noundef i32 @filter_slice_gbrp_pl(ptr noundef readonly captures(
   br label %preserve_color.exit
 
 preserve_color.exit:                              ; preds = %160, %176, %184, %193, %198, %213, %.lr.ph
-  %.3 = phi nsz float [ %.11113, %.lr.ph ], [ %223, %213 ], [ %205, %198 ], [ %195, %193 ], [ %188, %184 ], [ %.109.i, %176 ], [ %167, %160 ]
-  %.2 = phi nsz float [ %.114, %.lr.ph ], [ %233, %213 ], [ %212, %198 ], [ %197, %193 ], [ %192, %184 ], [ %183, %176 ], [ %175, %160 ]
+  %.3 = phi nsz float [ %.11113, %.lr.ph ], [ %167, %160 ], [ %.109.i, %176 ], [ %188, %184 ], [ %195, %193 ], [ %205, %198 ], [ %223, %213 ]
+  %.2 = phi nsz float [ %.114, %.lr.ph ], [ %175, %160 ], [ %183, %176 ], [ %192, %184 ], [ %197, %193 ], [ %212, %198 ], [ %233, %213 ]
   %234 = fcmp nsz ugt float %.2, 0.000000e+00
   %.0.i = select nsz i1 %234, float %.2, float 0x3F60101020000000
   %235 = fdiv nsz float %.3, %.0.i
@@ -4045,8 +4045,8 @@ define internal noundef i32 @filter_slice_gbrap_pl(ptr noundef readonly captures
   br label %preserve_color.exit
 
 preserve_color.exit:                              ; preds = %204, %220, %228, %237, %242, %257, %.lr.ph
-  %.3 = phi nsz float [ %.11113, %.lr.ph ], [ %267, %257 ], [ %249, %242 ], [ %239, %237 ], [ %232, %228 ], [ %.109.i, %220 ], [ %211, %204 ]
-  %.2 = phi nsz float [ %.114, %.lr.ph ], [ %277, %257 ], [ %256, %242 ], [ %241, %237 ], [ %236, %228 ], [ %227, %220 ], [ %219, %204 ]
+  %.3 = phi nsz float [ %.11113, %.lr.ph ], [ %211, %204 ], [ %.109.i, %220 ], [ %232, %228 ], [ %239, %237 ], [ %249, %242 ], [ %267, %257 ]
+  %.2 = phi nsz float [ %.114, %.lr.ph ], [ %219, %204 ], [ %227, %220 ], [ %236, %228 ], [ %241, %237 ], [ %256, %242 ], [ %277, %257 ]
   %278 = fcmp nsz ugt float %.2, 0.000000e+00
   %.0.i = select nsz i1 %278, float %.2, float 0x3F60101020000000
   %279 = fdiv nsz float %.3, %.0.i
@@ -4553,8 +4553,8 @@ define internal noundef i32 @filter_slice_gbrp9_pl(ptr noundef readonly captures
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %203, %195, %186, %181, %166, %145, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %155, %145 ], [ %173, %166 ], [ %183, %181 ], [ %190, %186 ], [ %.109.i.us, %195 ], [ %210, %203 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %165, %145 ], [ %180, %166 ], [ %185, %181 ], [ %194, %186 ], [ %202, %195 ], [ %218, %203 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %210, %203 ], [ %.109.i.us, %195 ], [ %190, %186 ], [ %183, %181 ], [ %173, %166 ], [ %155, %145 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %218, %203 ], [ %202, %195 ], [ %194, %186 ], [ %185, %181 ], [ %180, %166 ], [ %165, %145 ]
   %219 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %219, float %.2.us, float 0x3F50080400000000
   %220 = fdiv nsz float %.3.us, %.0.i.us
@@ -5050,8 +5050,8 @@ define internal noundef i32 @filter_slice_gbrp10_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %203, %195, %186, %181, %166, %145, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %155, %145 ], [ %173, %166 ], [ %183, %181 ], [ %190, %186 ], [ %.109.i.us, %195 ], [ %210, %203 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %165, %145 ], [ %180, %166 ], [ %185, %181 ], [ %194, %186 ], [ %202, %195 ], [ %218, %203 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %210, %203 ], [ %.109.i.us, %195 ], [ %190, %186 ], [ %183, %181 ], [ %173, %166 ], [ %155, %145 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %218, %203 ], [ %202, %195 ], [ %194, %186 ], [ %185, %181 ], [ %180, %166 ], [ %165, %145 ]
   %219 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %219, float %.2.us, float 0x3F40040100000000
   %220 = fdiv nsz float %.3.us, %.0.i.us
@@ -5657,8 +5657,8 @@ define internal noundef i32 @filter_slice_gbrap10_pl(ptr noundef readonly captur
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %247, %239, %230, %225, %210, %189, %128
-  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %199, %189 ], [ %217, %210 ], [ %227, %225 ], [ %234, %230 ], [ %.109.i.us, %239 ], [ %254, %247 ]
-  %.2.us = phi nsz float [ %.114.us, %128 ], [ %209, %189 ], [ %224, %210 ], [ %229, %225 ], [ %238, %230 ], [ %246, %239 ], [ %262, %247 ]
+  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %254, %247 ], [ %.109.i.us, %239 ], [ %234, %230 ], [ %227, %225 ], [ %217, %210 ], [ %199, %189 ]
+  %.2.us = phi nsz float [ %.114.us, %128 ], [ %262, %247 ], [ %246, %239 ], [ %238, %230 ], [ %229, %225 ], [ %224, %210 ], [ %209, %189 ]
   %263 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %263, float %.2.us, float 0x3F40040100000000
   %264 = fdiv nsz float %.3.us, %.0.i.us
@@ -6172,8 +6172,8 @@ define internal noundef i32 @filter_slice_gbrp12_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %203, %195, %186, %181, %166, %145, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %155, %145 ], [ %173, %166 ], [ %183, %181 ], [ %190, %186 ], [ %.109.i.us, %195 ], [ %210, %203 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %165, %145 ], [ %180, %166 ], [ %185, %181 ], [ %194, %186 ], [ %202, %195 ], [ %218, %203 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %210, %203 ], [ %.109.i.us, %195 ], [ %190, %186 ], [ %183, %181 ], [ %173, %166 ], [ %155, %145 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %218, %203 ], [ %202, %195 ], [ %194, %186 ], [ %185, %181 ], [ %180, %166 ], [ %165, %145 ]
   %219 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %219, float %.2.us, float 0x3F20010020000000
   %220 = fdiv nsz float %.3.us, %.0.i.us
@@ -6779,8 +6779,8 @@ define internal noundef i32 @filter_slice_gbrap12_pl(ptr noundef readonly captur
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %247, %239, %230, %225, %210, %189, %128
-  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %199, %189 ], [ %217, %210 ], [ %227, %225 ], [ %234, %230 ], [ %.109.i.us, %239 ], [ %254, %247 ]
-  %.2.us = phi nsz float [ %.114.us, %128 ], [ %209, %189 ], [ %224, %210 ], [ %229, %225 ], [ %238, %230 ], [ %246, %239 ], [ %262, %247 ]
+  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %254, %247 ], [ %.109.i.us, %239 ], [ %234, %230 ], [ %227, %225 ], [ %217, %210 ], [ %199, %189 ]
+  %.2.us = phi nsz float [ %.114.us, %128 ], [ %262, %247 ], [ %246, %239 ], [ %238, %230 ], [ %229, %225 ], [ %224, %210 ], [ %209, %189 ]
   %263 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %263, float %.2.us, float 0x3F20010020000000
   %264 = fdiv nsz float %.3.us, %.0.i.us
@@ -7294,8 +7294,8 @@ define internal noundef i32 @filter_slice_gbrp14_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %203, %195, %186, %181, %166, %145, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %155, %145 ], [ %173, %166 ], [ %183, %181 ], [ %190, %186 ], [ %.109.i.us, %195 ], [ %210, %203 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %165, %145 ], [ %180, %166 ], [ %185, %181 ], [ %194, %186 ], [ %202, %195 ], [ %218, %203 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %210, %203 ], [ %.109.i.us, %195 ], [ %190, %186 ], [ %183, %181 ], [ %173, %166 ], [ %155, %145 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %218, %203 ], [ %202, %195 ], [ %194, %186 ], [ %185, %181 ], [ %180, %166 ], [ %165, %145 ]
   %219 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %219, float %.2.us, float 0x3F00004000000000
   %220 = fdiv nsz float %.3.us, %.0.i.us
@@ -7791,8 +7791,8 @@ define internal noundef i32 @filter_slice_gbrp16_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %203, %195, %186, %181, %166, %145, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %155, %145 ], [ %173, %166 ], [ %183, %181 ], [ %190, %186 ], [ %.109.i.us, %195 ], [ %210, %203 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %165, %145 ], [ %180, %166 ], [ %185, %181 ], [ %194, %186 ], [ %202, %195 ], [ %218, %203 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %210, %203 ], [ %.109.i.us, %195 ], [ %190, %186 ], [ %183, %181 ], [ %173, %166 ], [ %155, %145 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %218, %203 ], [ %202, %195 ], [ %194, %186 ], [ %185, %181 ], [ %180, %166 ], [ %165, %145 ]
   %219 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %219, float %.2.us, float 0x3EE0001000000000
   %220 = fdiv nsz float %.3.us, %.0.i.us
@@ -8398,8 +8398,8 @@ define internal noundef i32 @filter_slice_gbrap16_pl(ptr noundef readonly captur
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %247, %239, %230, %225, %210, %189, %128
-  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %199, %189 ], [ %217, %210 ], [ %227, %225 ], [ %234, %230 ], [ %.109.i.us, %239 ], [ %254, %247 ]
-  %.2.us = phi nsz float [ %.114.us, %128 ], [ %209, %189 ], [ %224, %210 ], [ %229, %225 ], [ %238, %230 ], [ %246, %239 ], [ %262, %247 ]
+  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %254, %247 ], [ %.109.i.us, %239 ], [ %234, %230 ], [ %227, %225 ], [ %217, %210 ], [ %199, %189 ]
+  %.2.us = phi nsz float [ %.114.us, %128 ], [ %262, %247 ], [ %246, %239 ], [ %238, %230 ], [ %229, %225 ], [ %224, %210 ], [ %209, %189 ]
   %263 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %263, float %.2.us, float 0x3EE0001000000000
   %264 = fdiv nsz float %.3.us, %.0.i.us
@@ -8850,8 +8850,8 @@ define internal noundef i32 @filter_slice_gbrp32_pl(ptr noundef readonly capture
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %164, %156, %147, %142, %133, %118, %96
-  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %125, %118 ], [ %137, %133 ], [ %144, %142 ], [ %151, %147 ], [ %.109.i.us, %156 ], [ %171, %164 ]
-  %.2.us = phi nsz float [ %.114.us, %96 ], [ %132, %118 ], [ %141, %133 ], [ %146, %142 ], [ %155, %147 ], [ %163, %156 ], [ %179, %164 ]
+  %.3.us = phi nsz float [ %.11113.us, %96 ], [ %171, %164 ], [ %.109.i.us, %156 ], [ %151, %147 ], [ %144, %142 ], [ %137, %133 ], [ %125, %118 ]
+  %.2.us = phi nsz float [ %.114.us, %96 ], [ %179, %164 ], [ %163, %156 ], [ %155, %147 ], [ %146, %142 ], [ %141, %133 ], [ %132, %118 ]
   %180 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %180, float %.2.us, float 5.000000e-01
   %181 = fdiv nsz float %.3.us, %.0.i.us
@@ -9364,8 +9364,8 @@ define internal noundef i32 @filter_slice_gbrap32_pl(ptr noundef readonly captur
   br label %preserve_color.exit.us
 
 preserve_color.exit.us:                           ; preds = %205, %197, %188, %183, %174, %159, %128
-  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %166, %159 ], [ %178, %174 ], [ %185, %183 ], [ %192, %188 ], [ %.109.i.us, %197 ], [ %212, %205 ]
-  %.2.us = phi nsz float [ %.114.us, %128 ], [ %173, %159 ], [ %182, %174 ], [ %187, %183 ], [ %196, %188 ], [ %204, %197 ], [ %220, %205 ]
+  %.3.us = phi nsz float [ %.11113.us, %128 ], [ %212, %205 ], [ %.109.i.us, %197 ], [ %192, %188 ], [ %185, %183 ], [ %178, %174 ], [ %166, %159 ]
+  %.2.us = phi nsz float [ %.114.us, %128 ], [ %220, %205 ], [ %204, %197 ], [ %196, %188 ], [ %187, %183 ], [ %182, %174 ], [ %173, %159 ]
   %221 = fcmp nsz ugt float %.2.us, 0.000000e+00
   %.0.i.us = select nsz i1 %221, float %.2.us, float 5.000000e-01
   %222 = fdiv nsz float %.3.us, %.0.i.us

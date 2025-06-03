@@ -1049,8 +1049,8 @@ sw.default.i:                                     ; preds = %if.end12, %for.end2
   br label %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
 
 _ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit: ; preds = %for.end23, %sw.bb1.i, %sw.bb2.i, %sw.default.i
-  %sum.0.lcssa50 = phi double [ %sum.0.lcssa51, %sw.default.i ], [ %sum.0.lcssa, %sw.bb2.i ], [ %sum.0.lcssa, %sw.bb1.i ], [ %sum.0.lcssa, %for.end23 ]
-  %retval.0.i = phi double [ %div3.i, %sw.default.i ], [ 7.090000e-01, %sw.bb2.i ], [ 6.970000e-01, %sw.bb1.i ], [ 6.730000e-01, %for.end23 ]
+  %sum.0.lcssa50 = phi double [ %sum.0.lcssa51, %sw.default.i ], [ %sum.0.lcssa, %sw.bb1.i ], [ %sum.0.lcssa, %sw.bb2.i ], [ %sum.0.lcssa, %for.end23 ]
+  %retval.0.i = phi double [ %div3.i, %sw.default.i ], [ 6.970000e-01, %sw.bb1.i ], [ 7.090000e-01, %sw.bb2.i ], [ 6.730000e-01, %for.end23 ]
   %conv27 = sitofp i32 %shl to double
   %mul28 = fmul double %retval.0.i, %conv27
   %mul30 = fmul double %mul28, %conv27

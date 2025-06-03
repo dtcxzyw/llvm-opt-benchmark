@@ -3072,7 +3072,7 @@ _ZN3ade4util5Range13IterableRangeINS1_11FilterRangeINS1_9IterRangeIN9__gnu_cxx17
   br i1 %1064, label %_ZNK3ade4util5Range13IterableRangeINS1_11FilterRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKNS_6HandleINS_4NodeEEESt6vectorIS9_SaIS9_EEEESF_EENS_6passes19TopologicalSortData11NodesFilterEEEE8iteratorneERKSM_.exit, label %238
 
 .body:                                            ; preds = %.loopexit359, %.loopexit.split-lp360.loopexit.split-lp, %.loopexit.split-lp360.loopexit, %288, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.body248, %829
-  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn.pn, %.body248 ], [ %.pn42.pn.pn.pn, %829 ], [ %277, %288 ], [ %277, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %277, %276 ], [ %lpad.loopexit361, %.loopexit359 ], [ %lpad.loopexit364, %.loopexit.split-lp360.loopexit ], [ %lpad.loopexit.split-lp365, %.loopexit.split-lp360.loopexit.split-lp ]
+  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn42.pn.pn.pn, %829 ], [ %.pn.pn, %.body248 ], [ %277, %288 ], [ %277, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %277, %276 ], [ %lpad.loopexit361, %.loopexit359 ], [ %lpad.loopexit364, %.loopexit.split-lp360.loopexit ], [ %lpad.loopexit.split-lp365, %.loopexit.split-lp360.loopexit.split-lp ]
   %.not.i.i.i300 = icmp eq ptr %241, null
   br i1 %.not.i.i.i300, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit304, label %1065
 
@@ -4187,7 +4187,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i: ; preds = %71, %
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZN2cv5gimpl6RcDescD2Ev.exit80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN2cv8GMatDescD2Ev.exit168, %_ZN2cv5gimpl6RcDescD2Ev.exit204, %_ZN2cv5gimpl6RcDescD2Ev.exit240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243, %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %74, %275
-  %common.resume.op = phi { ptr, i32 } [ %276, %275 ], [ %63, %74 ], [ %63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %63, %62 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243 ], [ %eh.lpad-body218, %_ZN2cv5gimpl6RcDescD2Ev.exit240 ], [ %eh.lpad-body182, %_ZN2cv5gimpl6RcDescD2Ev.exit204 ], [ %eh.lpad-body, %_ZN2cv5gimpl6RcDescD2Ev.exit80 ], [ %.pn43.pn, %_ZN2cv8GMatDescD2Ev.exit168 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %276, %275 ], [ %63, %74 ], [ %63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %63, %62 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243 ], [ %eh.lpad-body, %_ZN2cv5gimpl6RcDescD2Ev.exit80 ], [ %.pn43.pn, %_ZN2cv8GMatDescD2Ev.exit168 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %eh.lpad-body182, %_ZN2cv5gimpl6RcDescD2Ev.exit204 ], [ %eh.lpad-body218, %_ZN2cv5gimpl6RcDescD2Ev.exit240 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit: ; preds = %47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %58
@@ -9242,7 +9242,7 @@ define hidden noundef zeroext i1 @_ZNK2cv5gimpl9GExecutor10canReshapeEv(ptr noun
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %46, %45 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %48 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i, i64 48
   %.val.i20.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !100
   %49 = load ptr, ptr %.val.i20.i.i.i.i, align 8, !tbaa !3
@@ -9256,7 +9256,7 @@ define hidden noundef zeroext i1 @_ZNK2cv5gimpl9GExecutor10canReshapeEv(ptr noun
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %56 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i, i64 48
   %.val.i21.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !100
   %57 = load ptr, ptr %.val.i21.i.i.i.i, align 8, !tbaa !3

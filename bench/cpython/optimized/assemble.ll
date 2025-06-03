@@ -391,7 +391,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %151, %148, %146, %P
   br label %201
 
 201:                                              ; preds = %196, %188
-  %.025.i.i.i = phi ptr [ %194, %188 ], [ %200, %196 ]
+  %.025.i.i.i = phi ptr [ %200, %196 ], [ %194, %188 ]
   store i8 68, ptr %.025.i.i.i, align 2, !tbaa !25
   %202 = lshr i32 %.val19.i.i, 16
   %203 = trunc i32 %202 to i8
@@ -401,7 +401,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %151, %148, %146, %P
   br label %206
 
 206:                                              ; preds = %201, %188
-  %.1.i.i.i = phi ptr [ %194, %188 ], [ %205, %201 ]
+  %.1.i.i.i = phi ptr [ %205, %201 ], [ %194, %188 ]
   store i8 68, ptr %.1.i.i.i, align 2, !tbaa !25
   %207 = lshr i32 %.val19.i.i, 8
   %208 = trunc i32 %207 to i8
@@ -411,7 +411,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %151, %148, %146, %P
   br label %211
 
 211:                                              ; preds = %206, %188
-  %.2.i.i.i = phi ptr [ %194, %188 ], [ %210, %206 ]
+  %.2.i.i.i = phi ptr [ %210, %206 ], [ %194, %188 ]
   %212 = trunc i32 %.val18.i.i to i8
   store i8 %212, ptr %.2.i.i.i, align 2, !tbaa !25
   %213 = trunc i32 %.val19.i.i to i8

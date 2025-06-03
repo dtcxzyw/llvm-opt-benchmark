@@ -1074,7 +1074,7 @@ define dso_local void @latencyAllCommandsFillCDF(ptr noundef %0, ptr noundef %1,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %10, %17, %20, %24, %28, %32
-  %.0.i = phi i64 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ], [ 0, %10 ]
+  %.0.i = phi i64 [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %10 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %.0.i) #14
   %35 = load ptr, ptr %8, align 8, !tbaa !69
   tail call void @fillCommandCDF(ptr noundef %0, ptr noundef %35)
@@ -1193,7 +1193,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %29, %32, %36, %40, %44
-  %.0.i = phi i64 [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %29 ], [ 0, %22 ]
+  %.0.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %22 ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %.0.i) #14
   %47 = load ptr, ptr %20, align 8, !tbaa !69
   call void @fillCommandCDF(ptr noundef nonnull %0, ptr noundef %47)
@@ -1266,7 +1266,7 @@ sdslen.exit:                                      ; preds = %22, %29, %32, %36, 
   br label %sdslen.exit36
 
 sdslen.exit36:                                    ; preds = %59, %66, %69, %73, %77, %81
-  %.0.i35 = phi i64 [ %83, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %66 ], [ 0, %59 ]
+  %.0.i35 = phi i64 [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %83, %81 ], [ 0, %59 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %61, i64 noundef %.0.i35) #14
   %84 = load ptr, ptr %57, align 8, !tbaa !69
   call void @addReplyMapLen(ptr noundef %0, i64 noundef 2) #14
@@ -1692,7 +1692,7 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
   br label %.thread
 
 .thread:                                          ; preds = %82, %78, %74, %70, %67, %59
-  %.0.i = phi i64 [ %84, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %67 ], [ 0, %59 ]
+  %.0.i = phi i64 [ %69, %67 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %84, %82 ], [ 0, %59 ]
   tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %.0.i, ptr noundef nonnull @.str.53) #14
   tail call void @sdsfree(ptr noundef nonnull %62) #14
   br label %180
@@ -1766,7 +1766,7 @@ latencyCommandReplyWithSamples.exit:              ; preds = %42
   br label %sdslen.exit68
 
 sdslen.exit68:                                    ; preds = %98, %104, %107, %111, %115, %119
-  %.0.i67 = phi i64 [ %121, %119 ], [ %118, %115 ], [ %114, %111 ], [ %110, %107 ], [ %106, %104 ], [ 0, %98 ]
+  %.0.i67 = phi i64 [ %106, %104 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %121, %119 ], [ 0, %98 ]
   tail call void @addReplyVerbatim(ptr noundef nonnull %0, ptr noundef nonnull %99, i64 noundef %.0.i67, ptr noundef nonnull @.str.53) #14
   tail call void @sdsfree(ptr noundef nonnull %99) #14
   br label %180

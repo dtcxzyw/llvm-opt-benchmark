@@ -1125,7 +1125,7 @@ define internal i32 @stringio_traverse(ptr noundef readonly captures(none) %0, p
   br label %28
 
 28:                                               ; preds = %25, %20, %15, %10, %5, %27
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %27 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

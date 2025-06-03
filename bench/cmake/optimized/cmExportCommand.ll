@@ -1575,7 +1575,7 @@ _ZN5cmsys17RegularExpressionD2Ev.exit.i:          ; preds = %542, %539
   br label %547
 
 543:                                              ; preds = %538, %527, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i, %332, %327, %312
-  %.pn59.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.i, %327 ], [ %313, %312 ], [ %.pn55.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i ], [ %.pn57.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i ], [ %333, %332 ], [ %.pn59.pn.i, %538 ], [ %528, %527 ]
+  %.pn59.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.i, %327 ], [ %313, %312 ], [ %.pn57.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i ], [ %.pn55.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i ], [ %333, %332 ], [ %.pn59.pn.i, %538 ], [ %528, %527 ]
   %544 = load ptr, ptr %248, align 8, !tbaa !92
   %545 = icmp eq ptr %544, null
   br i1 %545, label %_ZN5cmsys17RegularExpressionD2Ev.exit146.i, label %546

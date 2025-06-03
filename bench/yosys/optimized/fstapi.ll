@@ -2769,8 +2769,8 @@ _ZL14fstGetVarint32PhPi.exit502:                  ; preds = %.preheader877
   ]
 
 268:                                              ; preds = %.critedge, %322
-  %.8405 = phi i32 [ %323, %322 ], [ %266, %.critedge ]
-  %.11368 = phi ptr [ %329, %322 ], [ %.3360712, %.critedge ]
+  %.8405 = phi i32 [ %266, %.critedge ], [ %323, %322 ]
+  %.11368 = phi ptr [ %.3360712, %.critedge ], [ %329, %322 ]
   %269 = add i32 %.8405, -1
   %270 = zext i32 %269 to i64
   %271 = getelementptr inbounds nuw i8, ptr %259, i64 %270
@@ -2857,9 +2857,9 @@ _ZL14fstGetVarint32PhPi.exit502:                  ; preds = %.preheader877
   br label %322
 
 322:                                              ; preds = %314, %.critedge
-  %.7404 = phi i32 [ %266, %.critedge ], [ %.6403, %314 ]
-  %.6395 = phi i8 [ 0, %.critedge ], [ %321, %314 ]
-  %.10367 = phi ptr [ %.3360712, %.critedge ], [ %.9366, %314 ]
+  %.7404 = phi i32 [ %.6403, %314 ], [ %266, %.critedge ]
+  %.6395 = phi i8 [ %321, %314 ], [ 0, %.critedge ]
+  %.10367 = phi ptr [ %.9366, %314 ], [ %.3360712, %.critedge ]
   %323 = add i32 %.7404, -8
   %324 = zext i32 %323 to i64
   %325 = getelementptr inbounds nuw i8, ptr %259, i64 %324
@@ -5175,7 +5175,7 @@ define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %7
-  %.1 = phi i32 [ %spec.select, %7 ], [ %spec.store.select7, %16 ], [ %spec.store.select6, %15 ], [ %spec.store.select, %14 ]
+  %.1 = phi i32 [ %spec.select, %7 ], [ %spec.store.select, %14 ], [ %spec.store.select6, %15 ], [ %spec.store.select7, %16 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !27
   %19 = tail call i32 @fputc(i32 noundef %.1, ptr noundef %18)
   %20 = load ptr, ptr %8, align 8, !tbaa !27
@@ -5609,7 +5609,7 @@ define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(non
   br label %55
 
 55:                                               ; preds = %7, %10, %13, %16, %19, %22, %25, %28, %31, %34, %37, %44, %43
-  %.1 = phi ptr [ %42, %43 ], [ %54, %44 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.1 = phi ptr [ %42, %43 ], [ %54, %44 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
@@ -8312,7 +8312,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit136:         ; preds = %.preheader.i133
   store i8 %202, ptr %200, align 4
   br label %203
 
-203:                                              ; preds = %198, %190, %124, %_ZL14fstGetVarint64PhPi.exit, %._crit_edge146, %69, %._crit_edge158, %108
+203:                                              ; preds = %._crit_edge158, %69, %_ZL14fstGetVarint64PhPi.exit, %._crit_edge146, %124, %198, %190, %108
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 584
   br label %205
 
@@ -9061,7 +9061,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
   br label %292
 
 292:                                              ; preds = %53, %262, %289, %159, %160, %163, %_ZL17fstReaderVarint64P8_IO_FILE.exit, %122, %143, %157, %_ZL14fstGetVarint64PhPi.exit, %136, %131, %126, %82, %83, %76, %77
-  %.1224 = phi i32 [ %.0223316, %53 ], [ %.0223316, %289 ], [ %.2225, %262 ], [ %.0223316, %163 ], [ %.0223316, %160 ], [ %.0223316, %159 ], [ %.0223316, %143 ], [ %.0223316, %_ZL14fstGetVarint64PhPi.exit ], [ %.0223316, %157 ], [ %.0223316, %136 ], [ %.0223316, %131 ], [ %.0223316, %126 ], [ %.0223316, %122 ], [ %.0223316, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ %.0223316, %83 ], [ %.0223316, %82 ], [ %.0223316, %77 ], [ %.0223316, %76 ]
+  %.1224 = phi i32 [ %.0223316, %53 ], [ %.0223316, %77 ], [ %.0223316, %76 ], [ %.0223316, %83 ], [ %.0223316, %82 ], [ %.0223316, %143 ], [ %.0223316, %_ZL14fstGetVarint64PhPi.exit ], [ %.0223316, %157 ], [ %.0223316, %126 ], [ %.0223316, %131 ], [ %.0223316, %136 ], [ %.0223316, %122 ], [ %.0223316, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ %.0223316, %163 ], [ %.0223316, %160 ], [ %.0223316, %159 ], [ %.0223316, %289 ], [ %.2225, %262 ]
   %293 = load ptr, ptr %11, align 8, !tbaa !153
   %294 = call i32 @feof(ptr noundef %293) #39
   %.not250 = icmp eq i32 %294, 0
@@ -15049,7 +15049,7 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge.i
-  %.2.i = phi i32 [ %60, %._crit_edge.i ], [ %66, %61 ]
+  %.2.i = phi i32 [ %66, %61 ], [ %60, %._crit_edge.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 9
   %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i32
@@ -15058,7 +15058,7 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge.i
-  %.3.i = phi i32 [ %60, %._crit_edge.i ], [ %72, %67 ]
+  %.3.i = phi i32 [ %72, %67 ], [ %60, %._crit_edge.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 8
   %75 = load i8, ptr %74, align 1, !tbaa !6
   %76 = zext i8 %75 to i32
@@ -15067,7 +15067,7 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge.i
-  %.4.i = phi i32 [ %60, %._crit_edge.i ], [ %78, %73 ]
+  %.4.i = phi i32 [ %78, %73 ], [ %60, %._crit_edge.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 7
   %81 = load i8, ptr %80, align 1, !tbaa !6
   %82 = zext i8 %81 to i32
@@ -15076,8 +15076,8 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge.i
-  %.2156.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %84, %79 ]
-  %.5.i = phi i32 [ %60, %._crit_edge.i ], [ %.4.i, %79 ]
+  %.2156.i = phi i32 [ %84, %79 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.5.i = phi i32 [ %.4.i, %79 ], [ %60, %._crit_edge.i ]
   %86 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 6
   %87 = load i8, ptr %86, align 1, !tbaa !6
   %88 = zext i8 %87 to i32
@@ -15086,8 +15086,8 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %91
 
 91:                                               ; preds = %85, %._crit_edge.i
-  %.3157.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %90, %85 ]
-  %.6.i = phi i32 [ %60, %._crit_edge.i ], [ %.5.i, %85 ]
+  %.3157.i = phi i32 [ %90, %85 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.6.i = phi i32 [ %.5.i, %85 ], [ %60, %._crit_edge.i ]
   %92 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 5
   %93 = load i8, ptr %92, align 1, !tbaa !6
   %94 = zext i8 %93 to i32
@@ -15096,8 +15096,8 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %97
 
 97:                                               ; preds = %91, %._crit_edge.i
-  %.4158.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %96, %91 ]
-  %.7.i = phi i32 [ %60, %._crit_edge.i ], [ %.6.i, %91 ]
+  %.4158.i = phi i32 [ %96, %91 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.7.i = phi i32 [ %.6.i, %91 ], [ %60, %._crit_edge.i ]
   %98 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 4
   %99 = load i8, ptr %98, align 1, !tbaa !6
   %100 = zext i8 %99 to i32
@@ -15105,8 +15105,8 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %102
 
 102:                                              ; preds = %97, %._crit_edge.i
-  %.5159.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %101, %97 ]
-  %.8.i = phi i32 [ %60, %._crit_edge.i ], [ %.7.i, %97 ]
+  %.5159.i = phi i32 [ %101, %97 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.8.i = phi i32 [ %.7.i, %97 ], [ %60, %._crit_edge.i ]
   %103 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 3
   %104 = load i8, ptr %103, align 1, !tbaa !6
   %105 = zext i8 %104 to i32
@@ -15115,9 +15115,9 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %108
 
 108:                                              ; preds = %102, %._crit_edge.i
-  %.2165.i = phi i32 [ %.0163.lcssa.i, %._crit_edge.i ], [ %107, %102 ]
-  %.6160.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %.5159.i, %102 ]
-  %.9.i = phi i32 [ %60, %._crit_edge.i ], [ %.8.i, %102 ]
+  %.2165.i = phi i32 [ %107, %102 ], [ %.0163.lcssa.i, %._crit_edge.i ]
+  %.6160.i = phi i32 [ %.5159.i, %102 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.9.i = phi i32 [ %.8.i, %102 ], [ %60, %._crit_edge.i ]
   %109 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 2
   %110 = load i8, ptr %109, align 1, !tbaa !6
   %111 = zext i8 %110 to i32
@@ -15126,9 +15126,9 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %114
 
 114:                                              ; preds = %108, %._crit_edge.i
-  %.3166.i = phi i32 [ %.0163.lcssa.i, %._crit_edge.i ], [ %113, %108 ]
-  %.7161.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %.6160.i, %108 ]
-  %.10.i = phi i32 [ %60, %._crit_edge.i ], [ %.9.i, %108 ]
+  %.3166.i = phi i32 [ %113, %108 ], [ %.0163.lcssa.i, %._crit_edge.i ]
+  %.7161.i = phi i32 [ %.6160.i, %108 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.10.i = phi i32 [ %.9.i, %108 ], [ %60, %._crit_edge.i ]
   %115 = getelementptr inbounds nuw i8, ptr %.0168.lcssa.i, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !6
   %117 = zext i8 %116 to i32
@@ -15137,9 +15137,9 @@ define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0,
   br label %120
 
 120:                                              ; preds = %114, %._crit_edge.i
-  %.4167.i = phi i32 [ %.0163.lcssa.i, %._crit_edge.i ], [ %119, %114 ]
-  %.8162.i = phi i32 [ %.0154.lcssa.i, %._crit_edge.i ], [ %.7161.i, %114 ]
-  %.11.i = phi i32 [ %60, %._crit_edge.i ], [ %.10.i, %114 ]
+  %.4167.i = phi i32 [ %119, %114 ], [ %.0163.lcssa.i, %._crit_edge.i ]
+  %.8162.i = phi i32 [ %.7161.i, %114 ], [ %.0154.lcssa.i, %._crit_edge.i ]
+  %.11.i = phi i32 [ %.10.i, %114 ], [ %60, %._crit_edge.i ]
   %121 = load i8, ptr %.0168.lcssa.i, align 1, !tbaa !6
   %122 = zext i8 %121 to i32
   %123 = add i32 %.4167.i, %122

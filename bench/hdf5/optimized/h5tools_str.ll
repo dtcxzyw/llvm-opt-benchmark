@@ -2868,8 +2868,8 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 8, ptr noundef nonnull @.str.80, i32 noundef %24) #21
   br label %26
 
-26:                                               ; preds = %23, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %.lr.ph
-  %.036.ph = phi ptr [ @.str.81, %.lr.ph ], [ @.str.67, %6 ], [ @.str.69, %7 ], [ @.str.82, %8 ], [ @.str.83, %9 ], [ @.str.71, %10 ], [ @.str.73, %11 ], [ @.str.75, %12 ], [ @.str.77, %13 ], [ @.str.79, %14 ], [ @.str.84, %15 ], [ %2, %23 ]
+26:                                               ; preds = %23, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %.lr.ph
+  %.036.ph = phi ptr [ @.str.81, %.lr.ph ], [ @.str.84, %15 ], [ @.str.79, %14 ], [ @.str.77, %13 ], [ @.str.75, %12 ], [ @.str.73, %11 ], [ @.str.71, %10 ], [ @.str.83, %9 ], [ @.str.82, %8 ], [ @.str.69, %7 ], [ @.str.67, %6 ], [ %2, %23 ]
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.036.ph) #24
   %28 = add i64 %.03348, 1
   %29 = add i64 %28, %27

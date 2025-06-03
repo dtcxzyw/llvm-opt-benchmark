@@ -1981,7 +1981,7 @@ list_length.exit:                                 ; preds = %188, %189
   unreachable
 
 210:                                              ; preds = %199, %204, %203, %202
-  %.0168 = phi i32 [ 5, %204 ], [ 3, %203 ], [ 2, %202 ], [ 4, %199 ]
+  %.0168 = phi i32 [ 2, %202 ], [ 3, %203 ], [ 5, %204 ], [ 4, %199 ]
   call void @ReleaseSysCache(ptr noundef nonnull %119) #8
   br label %.thread224
 
@@ -2192,8 +2192,8 @@ define dso_local void @check_srf_call_placement(ptr noundef %0, ptr noundef read
 31:                                               ; preds = %3
   br label %32
 
-32:                                               ; preds = %3, %3, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %31
-  %.017.ph = phi ptr [ @.str.89, %31 ], [ @.str.74, %16 ], [ @.str.75, %17 ], [ @.str.76, %18 ], [ @.str.77, %19 ], [ @.str.78, %20 ], [ @.str.79, %21 ], [ @.str.80, %22 ], [ @.str.81, %23 ], [ @.str.82, %24 ], [ @.str.83, %25 ], [ @.str.84, %26 ], [ @.str.85, %27 ], [ @.str.86, %28 ], [ @.str.87, %29 ], [ @.str.88, %30 ], [ @.str.72, %3 ], [ @.str.72, %3 ]
+32:                                               ; preds = %3, %3, %31, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
+  %.017.ph = phi ptr [ @.str.88, %30 ], [ @.str.87, %29 ], [ @.str.86, %28 ], [ @.str.85, %27 ], [ @.str.84, %26 ], [ @.str.83, %25 ], [ @.str.82, %24 ], [ @.str.81, %23 ], [ @.str.80, %22 ], [ @.str.79, %21 ], [ @.str.78, %20 ], [ @.str.77, %19 ], [ @.str.76, %18 ], [ @.str.75, %17 ], [ @.str.74, %16 ], [ @.str.89, %31 ], [ @.str.72, %3 ], [ @.str.72, %3 ]
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 1088) #8
@@ -2972,7 +2972,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %25
 
 25:                                               ; preds = %23, %19, %17, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.02233.us, %.lr.ph.split.us ], [ %24, %23 ], [ %.02233.us, %17 ], [ %.02233.us, %19 ]
+  %.1.us = phi i32 [ %.02233.us, %.lr.ph.split.us ], [ %24, %23 ], [ %.02233.us, %19 ], [ %.02233.us, %17 ]
   %26 = load ptr, ptr %.034.us, align 8
   %.not.us = icmp eq ptr %26, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !27

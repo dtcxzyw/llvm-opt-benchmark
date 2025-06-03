@@ -318,7 +318,7 @@ call4.i.noexc21:                                  ; preds = %invoke.cont1.thread
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %invoke.cont1, %call4.i.noexc21, %call.i.noexc19
-  %valueDest.0.i13 = phi i64 [ %conv8.i18, %call4.i.noexc21 ], [ %conv2.i12, %call.i.noexc19 ], [ %nTime2, %invoke.cont1 ]
+  %valueDest.0.i13 = phi i64 [ %conv2.i12, %call.i.noexc19 ], [ %conv8.i18, %call4.i.noexc21 ], [ %nTime2, %invoke.cont1 ]
   %mTime2NS = getelementptr inbounds nuw i8, ptr %result, i64 56
   store i64 %valueDest.0.i13, ptr %mTime2NS, align 8
   %tobool.not = icmp eq ptr %pNotes, null

@@ -2020,9 +2020,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   br label %.thread490
 
 select.unfold:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %59, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge, %133, %130, %166
-  %.0518 = phi i32 [ 0, %166 ], [ %160, %133 ], [ 0, %130 ], [ 0, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ %35, %59 ], [ %35, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %.0 = phi i64 [ %34, %166 ], [ 0, %133 ], [ %34, %130 ], [ %34, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ 0, %59 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %.4110 = phi i32 [ %167, %166 ], [ %145, %133 ], [ %131, %130 ], [ %.pre520, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ %35, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %59 ]
+  %.0518 = phi i32 [ 0, %130 ], [ 0, %166 ], [ %160, %133 ], [ 0, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ %35, %59 ], [ %35, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %.0 = phi i64 [ %34, %130 ], [ %34, %166 ], [ 0, %133 ], [ %34, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ 0, %59 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %.4110 = phi i32 [ %131, %130 ], [ %167, %166 ], [ %145, %133 ], [ %.pre520, %._ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit268_crit_edge ], [ %35, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %59 ]
   %.not138 = icmp eq i32 %.4110, 0
   br i1 %.not138, label %.thread, label %.thread490
 
@@ -2112,8 +2112,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit303: ; preds = %227, %231, %237
   br label %260
 
 .thread:                                          ; preds = %189, %45, %42, %193, %171, %185, %188, %161, %164, %127, %96, %168, %133, %126, %select.unfold
-  %.1519 = phi i32 [ 0, %168 ], [ %.0518, %select.unfold ], [ %160, %133 ], [ %switch.select5.i275, %126 ], [ %35, %96 ], [ %35, %127 ], [ %35, %164 ], [ %35, %161 ], [ 1, %171 ], [ %switch.select.i290, %188 ], [ %183, %185 ], [ %switch.select5.i296, %193 ], [ %35, %42 ], [ %35, %45 ], [ %192, %189 ]
-  %.0488 = phi i64 [ %34, %168 ], [ %.0, %select.unfold ], [ 0, %133 ], [ 0, %126 ], [ %34, %96 ], [ 1, %127 ], [ %165, %164 ], [ 1, %161 ], [ 0, %171 ], [ 0, %188 ], [ 0, %185 ], [ 1, %193 ], [ 0, %42 ], [ 0, %45 ], [ 1, %189 ]
+  %.1519 = phi i32 [ 0, %168 ], [ %.0518, %select.unfold ], [ %switch.select5.i275, %126 ], [ %160, %133 ], [ %35, %96 ], [ %35, %127 ], [ %35, %164 ], [ %35, %161 ], [ 1, %171 ], [ %switch.select.i290, %188 ], [ %183, %185 ], [ %switch.select5.i296, %193 ], [ %35, %42 ], [ %35, %45 ], [ %192, %189 ]
+  %.0488 = phi i64 [ %34, %168 ], [ %.0, %select.unfold ], [ 0, %126 ], [ 0, %133 ], [ %34, %96 ], [ 1, %127 ], [ %165, %164 ], [ 1, %161 ], [ 0, %171 ], [ 0, %188 ], [ 0, %185 ], [ 1, %193 ], [ 0, %42 ], [ 0, %45 ], [ 1, %189 ]
   %247 = load i64, ptr %36, align 8, !noalias !331
   %248 = trunc i64 %247 to i32
   %249 = and i32 %248, 1023

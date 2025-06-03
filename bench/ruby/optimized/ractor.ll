@@ -8195,7 +8195,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %.critedge, %86, %82, %78, %74, %49, %25, %53, %rb_vm_lock_leave.exit
-  %.1 = phi i32 [ 1, %rb_vm_lock_leave.exit ], [ 1, %53 ], [ 1, %25 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %82 ], [ 1, %86 ], [ %., %.critedge ], [ 1, %46 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 1, %53 ], [ 1, %rb_vm_lock_leave.exit ], [ 1, %25 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %82 ], [ 1, %86 ], [ %., %.critedge ], [ 1, %46 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   br label %103
 

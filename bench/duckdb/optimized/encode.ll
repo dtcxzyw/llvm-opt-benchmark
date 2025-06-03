@@ -115,7 +115,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli25BrotliEncoderSetParamete
   br label %32
 
 32:                                               ; preds = %6, %27, %14, %3, %29, %25, %23, %20, %17, %15, %12, %10, %8, %7
-  %.0 = phi i32 [ 1, %29 ], [ 1, %25 ], [ 1, %23 ], [ 1, %20 ], [ 1, %17 ], [ 1, %15 ], [ 1, %12 ], [ 1, %10 ], [ 1, %8 ], [ 1, %7 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 1, %29 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5518,9 +5518,9 @@ _ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit: ; 
   br label %_ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit
 
 _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit: ; preds = %85, %105, %106, %107, %117, %127, %128, %129, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit, %139
-  %.sroa.0.0 = phi i64 [ 0, %85 ], [ 524288, %139 ], [ %136, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 4194304, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ 262144, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 4194304, %129 ], [ 262144, %128 ], [ 262144, %127 ], [ %124, %117 ], [ %114, %107 ], [ 524288, %106 ], [ 262144, %105 ]
-  %.sroa.17.0 = phi i64 [ 0, %85 ], [ %142, %139 ], [ %138, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 0, %129 ], [ 1048576, %128 ], [ 262144, %127 ], [ %126, %117 ], [ %116, %107 ], [ 0, %106 ], [ 0, %105 ]
-  %.sroa.27.0 = phi i64 [ 0, %85 ], [ 0, %139 ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 0, %129 ], [ 0, %128 ], [ 0, %127 ], [ 0, %117 ], [ 0, %107 ], [ 0, %106 ], [ 0, %105 ]
+  %.sroa.0.0 = phi i64 [ 0, %85 ], [ 262144, %105 ], [ 524288, %106 ], [ %114, %107 ], [ %124, %117 ], [ 262144, %127 ], [ 262144, %128 ], [ 4194304, %129 ], [ 262144, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 4194304, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ %136, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 524288, %139 ]
+  %.sroa.17.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ 0, %106 ], [ %116, %107 ], [ %126, %117 ], [ 262144, %127 ], [ 1048576, %128 ], [ 0, %129 ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 0, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ %138, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ %142, %139 ]
+  %.sroa.27.0 = phi i64 [ 0, %85 ], [ 0, %105 ], [ 0, %106 ], [ 0, %107 ], [ 0, %117 ], [ 0, %127 ], [ 0, %128 ], [ 0, %129 ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH35EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH55EPK19BrotliEncoderParamsimPm.exit ], [ 67108864, %_ZN13duckdb_brotliL22HashMemAllocInBytesH65EPK19BrotliEncoderParamsimPm.exit ], [ 0, %139 ]
   %143 = icmp samesign ult i32 %0, 4
   br i1 %143, label %144, label %148
 

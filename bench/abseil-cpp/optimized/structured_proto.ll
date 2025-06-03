@@ -85,7 +85,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   unreachable
 
 _ZSt5visitIN4absl12log_internal12_GLOBAL__N_114EncoderVisitorEJRSt7variantIJS4_IJmljibEES4_IJmldEENS0_4SpanIKcEES4_IJjifEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEEON4absl12log_internal12_GLOBAL__N_114EncoderVisitorERSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SI_.exit.i.i, %16, %18, %21
-  %.0.i.i = phi i1 [ %22, %21 ], [ %20, %18 ], [ %17, %16 ], [ %15, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEEON4absl12log_internal12_GLOBAL__N_114EncoderVisitorERSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SI_.exit.i.i ]
+  %.0.i.i = phi i1 [ %15, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIbEEON4absl12log_internal12_GLOBAL__N_114EncoderVisitorERSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SI_.exit.i.i ], [ %17, %16 ], [ %20, %18 ], [ %22, %21 ]
   ret i1 %.0.i.i
 }
 

@@ -4034,8 +4034,8 @@ switch.lookup:                                    ; preds = %53
   %88 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %87, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread124
 
-.thread124:                                       ; preds = %82, %31, %17, %20, %23, %26, %.thread128, %86
-  %.0113127 = phi i32 [ %.0113131, %.thread128 ], [ %51, %86 ], [ %51, %82 ], [ %35, %31 ], [ %16, %17 ], [ %16, %20 ], [ %16, %23 ], [ %16, %26 ]
+.thread124:                                       ; preds = %82, %31, %26, %23, %20, %17, %.thread128, %86
+  %.0113127 = phi i32 [ %.0113131, %.thread128 ], [ %51, %86 ], [ %51, %82 ], [ %35, %31 ], [ %16, %26 ], [ %16, %23 ], [ %16, %20 ], [ %16, %17 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
@@ -4129,8 +4129,8 @@ define internal i32 @wkh_accept_ranges(ptr noundef %0, ptr noundef %1, i32 nound
   %47 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %46, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
 
-.thread:                                          ; preds = %24, %16, %19, %45
-  %.051 = phi i32 [ %.0, %45 ], [ %28, %24 ], [ %15, %16 ], [ %15, %19 ]
+.thread:                                          ; preds = %24, %19, %16, %45
+  %.051 = phi i32 [ %.0, %45 ], [ %28, %24 ], [ %15, %19 ], [ %15, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
@@ -4872,8 +4872,8 @@ define internal i32 @wkh_content_encoding(ptr noundef %0, ptr noundef %1, i32 no
   %50 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %49, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
 
-.thread:                                          ; preds = %27, %16, %19, %22, %48
-  %.056 = phi i32 [ %.0, %48 ], [ %31, %27 ], [ %15, %16 ], [ %15, %19 ], [ %15, %22 ]
+.thread:                                          ; preds = %27, %22, %19, %16, %48
+  %.056 = phi i32 [ %.0, %48 ], [ %31, %27 ], [ %15, %22 ], [ %15, %19 ], [ %15, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5

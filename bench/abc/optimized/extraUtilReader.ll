@@ -536,8 +536,8 @@ Vec_IntPush.exit.i:                               ; preds = %138, %Vec_IntGrow.e
   br label %148
 
 148:                                              ; preds = %147, %Vec_IntPush.exit.i, %78, %76, %60
-  %.2.i = phi ptr [ %.04560.i, %60 ], [ %.04560.i, %147 ], [ %.04560.i, %78 ], [ %.04560.i, %Vec_IntPush.exit.i ], [ %77, %76 ]
-  %.1.i = phi i32 [ %.04461.i, %60 ], [ 0, %147 ], [ 1, %78 ], [ 1, %Vec_IntPush.exit.i ], [ 0, %76 ]
+  %.2.i = phi ptr [ %.04560.i, %60 ], [ %77, %76 ], [ %.04560.i, %78 ], [ %.04560.i, %Vec_IntPush.exit.i ], [ %.04560.i, %147 ]
+  %.1.i = phi i32 [ %.04461.i, %60 ], [ 0, %76 ], [ 1, %78 ], [ 1, %Vec_IntPush.exit.i ], [ 0, %147 ]
   %149 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %150 = load ptr, ptr %7, align 8, !tbaa !24
   %151 = icmp ult ptr %149, %150

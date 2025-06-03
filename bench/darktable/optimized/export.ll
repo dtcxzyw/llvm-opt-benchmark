@@ -4425,7 +4425,7 @@ define internal fastcc float @pixels2print(ptr noundef readonly captures(none) %
   br label %30
 
 30:                                               ; preds = %28, %18, %7, %5
-  %.0 = phi nsz float [ %29, %28 ], [ %27, %18 ], [ %17, %7 ], [ %6, %5 ]
+  %.0 = phi nsz float [ %29, %28 ], [ %6, %5 ], [ %17, %7 ], [ %27, %18 ]
   ret float %.0
 }
 

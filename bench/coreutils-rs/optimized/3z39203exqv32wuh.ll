@@ -175,7 +175,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ab77bd2872e7efcE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ab77bd2872e7efcE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -201,7 +201,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h31092576a893409dE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h31092576a893409dE.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1684,7 +1684,7 @@ default.unreachable138:                           ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i100", %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8cf8a5138b523484E.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit99", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit87"
+.critedge:                                        ; preds = %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i100", %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8cf8a5138b523484E.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit87", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit99"
   ret void
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8cf8a5138b523484E.exit": ; preds = %60, %58, %29, %86
@@ -1704,8 +1704,8 @@ default.unreachable138:                           ; preds = %4
   %.pn132 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %lpad.thr_comm, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102" ], [ %79, %78 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i" ], [ %103, %102 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96" ]
   resume { ptr, i32 } %.pn132
 
-112:                                              ; preds = %86, %46, %36, %29, %19, %58, %60
-  %113 = phi ptr [ %48, %86 ], [ %48, %46 ], [ %38, %36 ], [ %31, %29 ], [ %21, %19 ], [ %21, %58 ], [ %38, %60 ]
+112:                                              ; preds = %19, %29, %36, %86, %46, %58, %60
+  %113 = phi ptr [ %21, %19 ], [ %31, %29 ], [ %38, %36 ], [ %48, %86 ], [ %48, %46 ], [ %21, %58 ], [ %38, %60 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
@@ -1909,17 +1909,20 @@ define hidden noundef ptr @_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h
   %10 = load i64, ptr %3, align 8, !range !17, !noalias !414, !noundef !4
   %trunc.i = trunc nuw i64 %10 to i1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !414
+  %12 = load i64, ptr %11, align 8, !noalias !414
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !414
-  br i1 %trunc.i, label %_ZN5uu_dd4Dest8truncate17h8f3ab92c0cb5dc63E.exit, label %13
+  br i1 %trunc.i, label %15, label %13
 
 13:                                               ; preds = %7
-  %.cast.i = ptrtoint ptr %12 to i64
-  %14 = tail call noundef ptr @_ZN3std2fs4File7set_len17h04464cd0fb664b3dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, i64 noundef %.cast.i)
+  %14 = tail call noundef ptr @_ZN3std2fs4File7set_len17h04464cd0fb664b3dE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, i64 noundef %12)
   br label %_ZN5uu_dd4Dest8truncate17h8f3ab92c0cb5dc63E.exit
 
-_ZN5uu_dd4Dest8truncate17h8f3ab92c0cb5dc63E.exit: ; preds = %1, %7, %13
-  %.0.i = phi ptr [ %14, %13 ], [ null, %1 ], [ %12, %7 ]
+15:                                               ; preds = %7
+  %16 = inttoptr i64 %12 to ptr
+  br label %_ZN5uu_dd4Dest8truncate17h8f3ab92c0cb5dc63E.exit
+
+_ZN5uu_dd4Dest8truncate17h8f3ab92c0cb5dc63E.exit: ; preds = %1, %13, %15
+  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %1 ]
   ret ptr %.0.i
 }
 

@@ -173,7 +173,7 @@ define noundef nonnull ptr @l_Lake_Toml_KeyTy_toCtorIdx(i8 noundef zeroext %0) l
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -225,7 +225,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lake_Toml_KeyTy_toCtorIdx.exit
 
 l_Lake_Toml_KeyTy_toCtorIdx.exit:                 ; preds = %lean_dec.exit, %13, %14, %15, %16
-  %.0.i = phi ptr [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -35872,7 +35872,7 @@ lean_alloc_ctor.exit815:                          ; preds = %lean_inc.exit
   br label %lean_dec.exit513
 
 lean_dec.exit513:                                 ; preds = %lean_dec.exit514, %310, %312, %313, %954, %lean_alloc_ctor.exit811, %lean_dec.exit509, %lean_dec.exit504, %lean_dec.exit496, %lean_dec.exit498, %lean_dec.exit493, %lean_dec.exit494, %lean_dec.exit485, %lean_dec.exit487, %lean_dec.exit473, %lean_dec.exit468, %856, %lean_dec.exit462, %949, %lean_alloc_ctor.exit784, %lean_alloc_ctor.exit815
-  %.8446 = phi ptr [ %1011, %lean_alloc_ctor.exit815 ], [ %221, %lean_dec.exit504 ], [ %221, %lean_dec.exit509 ], [ %319, %lean_dec.exit498 ], [ %498, %lean_dec.exit496 ], [ %221, %lean_dec.exit493 ], [ %221, %lean_dec.exit494 ], [ %319, %lean_dec.exit487 ], [ %613, %lean_dec.exit485 ], [ %684, %lean_alloc_ctor.exit784 ], [ %.0452, %949 ], [ %896, %lean_dec.exit462 ], [ %.0448, %856 ], [ %808, %lean_dec.exit468 ], [ %765, %lean_dec.exit473 ], [ %221, %954 ], [ %987, %lean_alloc_ctor.exit811 ], [ %221, %313 ], [ %221, %312 ], [ %221, %310 ], [ %221, %lean_dec.exit514 ]
+  %.8446 = phi ptr [ %1011, %lean_alloc_ctor.exit815 ], [ %221, %lean_dec.exit509 ], [ %221, %lean_dec.exit504 ], [ %319, %lean_dec.exit498 ], [ %498, %lean_dec.exit496 ], [ %221, %lean_dec.exit493 ], [ %221, %lean_dec.exit494 ], [ %319, %lean_dec.exit487 ], [ %613, %lean_dec.exit485 ], [ %684, %lean_alloc_ctor.exit784 ], [ %.0452, %949 ], [ %765, %lean_dec.exit473 ], [ %808, %lean_dec.exit468 ], [ %.0448, %856 ], [ %896, %lean_dec.exit462 ], [ %221, %954 ], [ %987, %lean_alloc_ctor.exit811 ], [ %221, %313 ], [ %221, %312 ], [ %221, %310 ], [ %221, %lean_dec.exit514 ]
   %1017 = ptrtoint ptr %.0437 to i64
   %1018 = and i64 %1017, 1
   %.not894 = icmp eq i64 %1018, 0

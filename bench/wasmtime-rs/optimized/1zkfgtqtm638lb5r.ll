@@ -13570,12 +13570,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -13764,12 +13764,12 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -14007,7 +14007,7 @@ default.unreachable17:                            ; preds = %62, %1
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15: ; preds = %71, %68, %62, %66, %65
-  %.2 = phi i8 [ 3, %66 ], [ 1, %65 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
+  %.2 = phi i8 [ 1, %65 ], [ 3, %66 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
 
@@ -14177,12 +14177,12 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   br label %52
 
 52:                                               ; preds = %46, %51, %50, %49
-  %.2 = phi i8 [ 0, %51 ], [ 3, %50 ], [ 1, %49 ], [ 2, %46 ]
+  %.2 = phi i8 [ 1, %49 ], [ 3, %50 ], [ 0, %51 ], [ 2, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %1, %44, %52, %1, %48
-  %.1 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.2, %52 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %48 ], [ %.2, %52 ], [ 0, %44 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -14371,12 +14371,12 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -14422,10 +14422,10 @@ default.unreachable10:                            ; preds = %45, %1
   br label %15
 
 15:                                               ; preds = %16, %13
-  %.sroa.10.030.i = phi ptr [ %20, %16 ], [ %.sroa.10.8.copyload.i, %13 ]
-  %.sroa.6.sroa.0.0.i = phi ptr [ %19, %16 ], [ %14, %13 ]
-  %.sroa.03.0.i = phi i64 [ 1, %16 ], [ 0, %13 ]
-  %.sroa.6.sroa.7.0.i = phi i64 [ %21, %16 ], [ undef, %13 ]
+  %.sroa.10.030.i = phi ptr [ %.sroa.10.8.copyload.i, %13 ], [ %20, %16 ]
+  %.sroa.6.sroa.0.0.i = phi ptr [ %14, %13 ], [ %19, %16 ]
+  %.sroa.03.0.i = phi i64 [ 0, %13 ], [ 1, %16 ]
+  %.sroa.6.sroa.7.0.i = phi i64 [ undef, %13 ], [ %21, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !3576
   store i64 %.sroa.03.0.i, ptr %2, align 8, !noalias !3579
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14528,12 +14528,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -14722,12 +14722,12 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -14980,7 +14980,7 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15: ; preds = %72, %69, %63, %67, %66
-  %.2 = phi i8 [ 3, %67 ], [ 1, %66 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
+  %.2 = phi i8 [ 1, %66 ], [ 3, %67 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
 
@@ -15174,12 +15174,12 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -15327,12 +15327,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -15591,7 +15591,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15: ; preds = %67, %65, %59, %63, %62
-  %.2 = phi i8 [ 3, %63 ], [ 1, %62 ], [ 2, %59 ], [ 0, %65 ], [ 0, %67 ]
+  %.2 = phi i8 [ 1, %62 ], [ 3, %63 ], [ 2, %59 ], [ 0, %65 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
 
@@ -15745,12 +15745,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -15898,12 +15898,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16092,12 +16092,12 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16245,12 +16245,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16439,12 +16439,12 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16592,12 +16592,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16745,12 +16745,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -16898,12 +16898,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -17156,7 +17156,7 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15: ; preds = %72, %69, %63, %67, %66
-  %.2 = phi i8 [ 3, %67 ], [ 1, %66 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
+  %.2 = phi i8 [ 1, %66 ], [ 3, %67 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
 
@@ -17310,12 +17310,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -17463,12 +17463,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -17514,10 +17514,10 @@ default.unreachable10:                            ; preds = %45, %1
   br label %15
 
 15:                                               ; preds = %16, %13
-  %.sroa.10.030.i = phi ptr [ %20, %16 ], [ %.sroa.10.8.copyload.i, %13 ]
-  %.sroa.6.sroa.0.0.i = phi ptr [ %19, %16 ], [ %14, %13 ]
-  %.sroa.03.0.i = phi i64 [ 1, %16 ], [ 0, %13 ]
-  %.sroa.6.sroa.7.0.i = phi i64 [ %21, %16 ], [ undef, %13 ]
+  %.sroa.10.030.i = phi ptr [ %.sroa.10.8.copyload.i, %13 ], [ %20, %16 ]
+  %.sroa.6.sroa.0.0.i = phi ptr [ %14, %13 ], [ %19, %16 ]
+  %.sroa.03.0.i = phi i64 [ 0, %13 ], [ 1, %16 ]
+  %.sroa.6.sroa.7.0.i = phi i64 [ undef, %13 ], [ %21, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !3975
   store i64 %.sroa.03.0.i, ptr %2, align 8, !noalias !3978
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17620,12 +17620,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -17814,12 +17814,12 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -17967,12 +17967,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18120,12 +18120,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18273,12 +18273,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18467,12 +18467,12 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18620,12 +18620,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18775,12 +18775,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -18928,12 +18928,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -19081,12 +19081,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -19234,12 +19234,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -19387,12 +19387,12 @@ default.unreachable10:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 0, %49 ], [ 3, %48 ], [ 1, %47 ], [ 2, %44 ]
+  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %1, %42, %50, %1, %46
-  %.1 = phi i8 [ 0, %46 ], [ 0, %42 ], [ %.2, %50 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %46 ], [ %.2, %50 ], [ 0, %42 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 
@@ -19542,12 +19542,12 @@ default.unreachable10:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 0, %50 ], [ 3, %49 ], [ 1, %48 ], [ 2, %45 ]
+  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %1, %43, %51, %1, %47
-  %.1 = phi i8 [ 0, %47 ], [ 0, %43 ], [ %.2, %51 ], [ %6, %1 ], [ %6, %1 ]
+  %.1 = phi i8 [ 0, %47 ], [ %.2, %51 ], [ 0, %43 ], [ %6, %1 ], [ %6, %1 ]
   ret i8 %.1
 }
 

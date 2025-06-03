@@ -24851,7 +24851,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %28, %33, %38, %43, %48, %53, %58, %62, %67, %72, %77
-  %.0.i15 = phi i64 [ %80, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %58 ], [ %57, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ], [ %37, %33 ], [ %32, %28 ]
+  %.0.i15 = phi i64 [ %32, %28 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %61, %58 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %80, %77 ]
   switch i8 %.sroa.5559.88.copyload, label %136 [
     i8 0, label %82
     i8 1, label %82
@@ -24948,7 +24948,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %82, %86, %91, %96, %101, %106, %111, %116, %121, %126, %131
-  %.0.i = phi float [ %135, %131 ], [ %130, %126 ], [ %125, %121 ], [ %120, %116 ], [ %115, %111 ], [ %110, %106 ], [ %105, %101 ], [ %100, %96 ], [ %95, %91 ], [ %90, %86 ], [ %85, %82 ]
+  %.0.i = phi float [ %85, %82 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %125, %121 ], [ %130, %126 ], [ %135, %131 ]
   %137 = load ptr, ptr %10, align 8, !tbaa !769
   %138 = fcmp ord float %.0.i, 0.000000e+00
   %139 = load float, ptr %137, align 4
@@ -25193,7 +25193,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %31, %36, %41, %46, %51, %56, %61, %65, %70, %75, %80
-  %.0.i15 = phi i64 [ %83, %80 ], [ %79, %75 ], [ %74, %70 ], [ %69, %65 ], [ %64, %61 ], [ %60, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ]
+  %.0.i15 = phi i64 [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %64, %61 ], [ %69, %65 ], [ %74, %70 ], [ %79, %75 ], [ %83, %80 ]
   switch i8 %.sroa.5559.88.copyload, label %139 [
     i8 0, label %85
     i8 1, label %85
@@ -25290,7 +25290,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %85, %89, %94, %99, %104, %109, %114, %119, %124, %129, %134
-  %.0.i = phi float [ %138, %134 ], [ %133, %129 ], [ %128, %124 ], [ %123, %119 ], [ %118, %114 ], [ %113, %109 ], [ %108, %104 ], [ %103, %99 ], [ %98, %94 ], [ %93, %89 ], [ %88, %85 ]
+  %.0.i = phi float [ %88, %85 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ], [ %133, %129 ], [ %138, %134 ]
   %140 = fcmp ord float %.0.i, 0.000000e+00
   %141 = load float, ptr %27, align 4
   %142 = fcmp une float %.0.i, %141
@@ -25523,7 +25523,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %31, %36, %41, %46, %51, %56, %61, %65, %70, %75, %80
-  %.0.i15 = phi i64 [ %83, %80 ], [ %79, %75 ], [ %74, %70 ], [ %69, %65 ], [ %64, %61 ], [ %60, %56 ], [ %55, %51 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ]
+  %.0.i15 = phi i64 [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %64, %61 ], [ %69, %65 ], [ %74, %70 ], [ %79, %75 ], [ %83, %80 ]
   switch i8 %.sroa.5559.88.copyload, label %139 [
     i8 0, label %85
     i8 1, label %85
@@ -25620,7 +25620,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %85, %89, %94, %99, %104, %109, %114, %119, %124, %129, %134
-  %.0.i = phi float [ %138, %134 ], [ %133, %129 ], [ %128, %124 ], [ %123, %119 ], [ %118, %114 ], [ %113, %109 ], [ %108, %104 ], [ %103, %99 ], [ %98, %94 ], [ %93, %89 ], [ %88, %85 ]
+  %.0.i = phi float [ %88, %85 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ], [ %133, %129 ], [ %138, %134 ]
   %140 = fcmp ord float %.0.i, 0.000000e+00
   %141 = load float, ptr %27, align 4
   %142 = fcmp une float %.0.i, %141
@@ -25834,7 +25834,7 @@ define linkonce_odr noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12Dispatc
   unreachable
 
 104:                                              ; preds = %95, %86, %77, %68, %60, %51, %42, %33, %24, %15, %6
-  %.0 = phi i64 [ %102, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %60 ], [ %59, %51 ], [ %50, %42 ], [ %41, %33 ], [ %32, %24 ], [ %23, %15 ], [ %14, %6 ]
+  %.0 = phi i64 [ %14, %6 ], [ %23, %15 ], [ %32, %24 ], [ %41, %33 ], [ %50, %42 ], [ %59, %51 ], [ %67, %60 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %102, %95 ]
   ret i64 %.0
 }
 
@@ -26639,7 +26639,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %28, %32, %37, %42, %47, %52, %57, %62, %67, %72, %77
-  %.0.i = phi float [ %81, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %31, %28 ]
+  %.0.i = phi float [ %31, %28 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ]
   %83 = load ptr, ptr %9, align 8, !tbaa !806
   %84 = fcmp ord float %.0.i, 0.000000e+00
   %85 = load float, ptr %83, align 4
@@ -26888,7 +26888,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %29, %33, %38, %43, %48, %53, %58, %63, %68, %73, %78
-  %.0.i = phi float [ %82, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %58 ], [ %57, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ], [ %37, %33 ], [ %32, %29 ]
+  %.0.i = phi float [ %32, %29 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %82, %78 ]
   %84 = fcmp ord float %.0.i, 0.000000e+00
   %85 = load float, ptr %25, align 4
   %86 = fcmp une float %.0.i, %85
@@ -27125,7 +27125,7 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %29, %33, %38, %43, %48, %53, %58, %63, %68, %73, %78
-  %.0.i = phi float [ %82, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %58 ], [ %57, %53 ], [ %52, %48 ], [ %47, %43 ], [ %42, %38 ], [ %37, %33 ], [ %32, %29 ]
+  %.0.i = phi float [ %32, %29 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %82, %78 ]
   %84 = fcmp ord float %.0.i, 0.000000e+00
   %85 = load float, ptr %25, align 4
   %86 = fcmp une float %.0.i, %85
@@ -28052,7 +28052,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %2
   unreachable
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %131, %122, %113, %104, %95, %86, %77, %68, %59, %50, %42
-  %141 = phi float [ %139, %131 ], [ %130, %122 ], [ %121, %113 ], [ %112, %104 ], [ %103, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %59 ], [ %58, %50 ], [ %49, %42 ]
+  %141 = phi float [ %49, %42 ], [ %58, %50 ], [ %67, %59 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %103, %95 ], [ %112, %104 ], [ %121, %113 ], [ %130, %122 ], [ %139, %131 ]
   %142 = load ptr, ptr %13, align 8, !tbaa !832
   %143 = fcmp ord float %141, 0.000000e+00
   %144 = load float, ptr %142, align 4
@@ -28361,7 +28361,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %2
   unreachable
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %136, %127, %118, %109, %100, %91, %82, %73, %64, %55, %47
-  %146 = phi float [ %144, %136 ], [ %135, %127 ], [ %126, %118 ], [ %117, %109 ], [ %108, %100 ], [ %99, %91 ], [ %90, %82 ], [ %81, %73 ], [ %72, %64 ], [ %63, %55 ], [ %54, %47 ]
+  %146 = phi float [ %54, %47 ], [ %63, %55 ], [ %72, %64 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %117, %109 ], [ %126, %118 ], [ %135, %127 ], [ %144, %136 ]
   %147 = fcmp ord float %146, 0.000000e+00
   %148 = load float, ptr %30, align 4
   %149 = fcmp une float %146, %148
@@ -28660,7 +28660,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %2
   unreachable
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %136, %127, %118, %109, %100, %91, %82, %73, %64, %55, %47
-  %146 = phi float [ %144, %136 ], [ %135, %127 ], [ %126, %118 ], [ %117, %109 ], [ %108, %100 ], [ %99, %91 ], [ %90, %82 ], [ %81, %73 ], [ %72, %64 ], [ %63, %55 ], [ %54, %47 ]
+  %146 = phi float [ %54, %47 ], [ %63, %55 ], [ %72, %64 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %117, %109 ], [ %126, %118 ], [ %135, %127 ], [ %144, %136 ]
   %147 = fcmp ord float %146, 0.000000e+00
   %148 = load float, ptr %30, align 4
   %149 = fcmp une float %146, %148

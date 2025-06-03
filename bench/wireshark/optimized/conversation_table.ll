@@ -671,7 +671,7 @@ define ptr @get_conversation_port(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
-  %.0 = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi ptr [ %14, %13 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -725,7 +725,7 @@ define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10, %8
-  %.0 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0 = phi ptr [ %17, %16 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1654,7 +1654,7 @@ conversation_get_filter_name.exit213:             ; preds = %352, %349, %346, %.
   br label %361
 
 361:                                              ; preds = %conversation_get_filter_name.exit165, %conversation_get_filter_name.exit173, %359, %conversation_get_filter_name.exit213, %conversation_get_filter_name.exit209, %conversation_get_filter_name.exit205, %conversation_get_filter_name.exit201, %conversation_get_filter_name.exit197, %conversation_get_filter_name.exit193, %conversation_get_filter_name.exit189, %conversation_get_filter_name.exit181
-  %.0138 = phi ptr [ %360, %359 ], [ %358, %conversation_get_filter_name.exit213 ], [ %335, %conversation_get_filter_name.exit209 ], [ %312, %conversation_get_filter_name.exit205 ], [ %289, %conversation_get_filter_name.exit201 ], [ %266, %conversation_get_filter_name.exit197 ], [ %243, %conversation_get_filter_name.exit193 ], [ %220, %conversation_get_filter_name.exit189 ], [ %175, %conversation_get_filter_name.exit181 ], [ %86, %conversation_get_filter_name.exit165 ], [ %130, %conversation_get_filter_name.exit173 ]
+  %.0138 = phi ptr [ %360, %359 ], [ %86, %conversation_get_filter_name.exit165 ], [ %130, %conversation_get_filter_name.exit173 ], [ %175, %conversation_get_filter_name.exit181 ], [ %220, %conversation_get_filter_name.exit189 ], [ %243, %conversation_get_filter_name.exit193 ], [ %266, %conversation_get_filter_name.exit197 ], [ %289, %conversation_get_filter_name.exit201 ], [ %312, %conversation_get_filter_name.exit205 ], [ %335, %conversation_get_filter_name.exit209 ], [ %358, %conversation_get_filter_name.exit213 ]
   tail call void @g_free(ptr noundef %.0.i)
   tail call void @g_free(ptr noundef %.0.i157)
   tail call void @wmem_free(ptr noundef null, ptr noundef %.0216)

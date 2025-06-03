@@ -1567,7 +1567,7 @@ hwloc_calc_parse_level_size.exit.thread.i:        ; preds = %373, %hwloc_calc_pa
   unreachable
 
 hwloc_utils_cpuset_format_sscanf.exit.i:          ; preds = %.thread18.i.i, %.thread16.i.i, %.thread.i.i
-  %.011.i.i = phi i32 [ %551, %.thread18.i.i ], [ %550, %.thread16.i.i ], [ %549, %.thread.i.i ]
+  %.011.i.i = phi i32 [ %549, %.thread.i.i ], [ %550, %.thread16.i.i ], [ %551, %.thread18.i.i ]
   %553 = icmp slt i32 %.011.i.i, 0
   br i1 %553, label %hwloc_calc_process_location_as_set.exit.thread577, label %554
 
@@ -4356,7 +4356,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %23
   br label %.thread
 
 .thread:                                          ; preds = %22, %17, %29, %hwloc_obj_get_info_by_name.exit, %42, %65, %56, %47, %5, %8, %70
-  %.0 = phi i32 [ 1, %42 ], [ 0, %70 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %70 ], [ 1, %42 ], [ 1, %8 ], [ 1, %5 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %hwloc_obj_get_info_by_name.exit ], [ 1, %29 ], [ 1, %17 ], [ 1, %22 ]
   ret i32 %.0
 }
 

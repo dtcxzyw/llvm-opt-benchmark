@@ -2289,7 +2289,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %292, %290
   br i1 %329, label %319, label %._crit_edge144.i, !llvm.loop !22
 
 330:                                              ; preds = %._crit_edge144.i, %198, %191, %177
-  %.4.i = phi i32 [ -1, %177 ], [ %193, %191 ], [ %197, %198 ], [ %.5133.i, %._crit_edge144.i ]
+  %.4.i = phi i32 [ %193, %191 ], [ %197, %198 ], [ %.5133.i, %._crit_edge144.i ], [ -1, %177 ]
   store ptr @_x11_signal_handler, ptr %27, align 8
   %331 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %331, align 8

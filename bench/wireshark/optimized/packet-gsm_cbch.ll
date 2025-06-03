@@ -251,7 +251,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread
 
 49:                                               ; preds = %39, %34
-  %.0 = phi ptr [ %42, %39 ], [ %38, %34 ]
+  %.0 = phi ptr [ %38, %34 ], [ %42, %39 ]
   %.not83 = icmp eq ptr %.0, null
   br i1 %.not83, label %.thread, label %50
 

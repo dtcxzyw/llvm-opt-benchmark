@@ -456,7 +456,7 @@ define internal i32 @dissect_h263_data(ptr noundef %0, ptr noundef readonly capt
   br label %31
 
 31:                                               ; preds = %25, %22, %20, %18, %14
-  %.033 = phi i32 [ 2, %25 ], [ %24, %22 ], [ 0, %20 ], [ 0, %18 ], [ 0, %14 ]
+  %.033 = phi i32 [ 2, %25 ], [ 0, %20 ], [ %24, %22 ], [ 0, %18 ], [ 0, %14 ]
   %.not34 = icmp eq ptr %2, null
   br i1 %.not34, label %34, label %.sink.split
 

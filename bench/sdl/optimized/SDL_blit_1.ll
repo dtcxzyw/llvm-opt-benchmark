@@ -86,7 +86,7 @@ define hidden ptr @SDL_CalculateBlit1(ptr noundef readonly captures(none) %0) lo
   br label %41
 
 41:                                               ; preds = %.critedge, %10, %16, %26, %38, %35, %32, %28, %18, %12
-  %.021 = phi ptr [ %40, %38 ], [ %37, %35 ], [ %31, %28 ], [ %34, %32 ], [ %21, %18 ], [ %15, %12 ], [ null, %26 ], [ null, %16 ], [ null, %10 ], [ null, %.critedge ]
+  %.021 = phi ptr [ %15, %12 ], [ %21, %18 ], [ %31, %28 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ null, %26 ], [ null, %16 ], [ null, %10 ], [ null, %.critedge ]
   ret ptr %.021
 }
 
@@ -154,9 +154,9 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   ]
 
 47:                                               ; preds = %45, %1424
-  %.3679 = phi i32 [ %1427, %1424 ], [ %28, %45 ]
-  %.4659 = phi ptr [ %1426, %1424 ], [ %.0655686, %45 ]
-  %.4 = phi ptr [ %1425, %1424 ], [ %.0654687, %45 ]
+  %.3679 = phi i32 [ %28, %45 ], [ %1427, %1424 ]
+  %.4659 = phi ptr [ %.0655686, %45 ], [ %1426, %1424 ]
+  %.4 = phi ptr [ %.0654687, %45 ], [ %1425, %1424 ]
   %48 = load i8, ptr %.4, align 1
   %49 = zext i8 %48 to i32
   %.not681 = icmp eq i32 %11, %49
@@ -362,10 +362,10 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   br label %234
 
 234:                                              ; preds = %50, %184, %168, %117, %66
-  %.0672.shrunk = phi i8 [ %233, %184 ], [ -1, %168 ], [ %167, %117 ], [ %116, %66 ], [ 0, %50 ]
-  %.0668.shrunk = phi i8 [ %221, %184 ], [ %183, %168 ], [ %155, %117 ], [ %104, %66 ], [ 0, %50 ]
-  %.0664.shrunk = phi i8 [ %209, %184 ], [ %178, %168 ], [ %143, %117 ], [ %92, %66 ], [ 0, %50 ]
-  %.0660.shrunk = phi i8 [ %197, %184 ], [ %173, %168 ], [ %131, %117 ], [ %80, %66 ], [ 0, %50 ]
+  %.0672.shrunk = phi i8 [ %116, %66 ], [ %167, %117 ], [ -1, %168 ], [ %233, %184 ], [ 0, %50 ]
+  %.0668.shrunk = phi i8 [ %104, %66 ], [ %155, %117 ], [ %183, %168 ], [ %221, %184 ], [ 0, %50 ]
+  %.0664.shrunk = phi i8 [ %92, %66 ], [ %143, %117 ], [ %178, %168 ], [ %209, %184 ], [ 0, %50 ]
+  %.0660.shrunk = phi i8 [ %80, %66 ], [ %131, %117 ], [ %173, %168 ], [ %197, %184 ], [ 0, %50 ]
   %.0660 = zext i8 %.0660.shrunk to i32
   %.0664 = zext i8 %.0664.shrunk to i32
   %.0668 = zext i8 %.0668.shrunk to i32
@@ -759,10 +759,10 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   br label %579
 
 579:                                              ; preds = %395, %529, %513, %462, %411
-  %.1673.shrunk = phi i8 [ %578, %529 ], [ -1, %513 ], [ %512, %462 ], [ %461, %411 ], [ 0, %395 ]
-  %.1669.shrunk = phi i8 [ %566, %529 ], [ %528, %513 ], [ %500, %462 ], [ %449, %411 ], [ 0, %395 ]
-  %.1665.shrunk = phi i8 [ %554, %529 ], [ %523, %513 ], [ %488, %462 ], [ %437, %411 ], [ 0, %395 ]
-  %.1661.shrunk = phi i8 [ %542, %529 ], [ %518, %513 ], [ %476, %462 ], [ %425, %411 ], [ 0, %395 ]
+  %.1673.shrunk = phi i8 [ %461, %411 ], [ %512, %462 ], [ -1, %513 ], [ %578, %529 ], [ 0, %395 ]
+  %.1669.shrunk = phi i8 [ %449, %411 ], [ %500, %462 ], [ %528, %513 ], [ %566, %529 ], [ 0, %395 ]
+  %.1665.shrunk = phi i8 [ %437, %411 ], [ %488, %462 ], [ %523, %513 ], [ %554, %529 ], [ 0, %395 ]
+  %.1661.shrunk = phi i8 [ %425, %411 ], [ %476, %462 ], [ %518, %513 ], [ %542, %529 ], [ 0, %395 ]
   %.1661 = zext i8 %.1661.shrunk to i32
   %.1665 = zext i8 %.1665.shrunk to i32
   %.1669 = zext i8 %.1669.shrunk to i32
@@ -1156,10 +1156,10 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   br label %924
 
 924:                                              ; preds = %740, %874, %858, %807, %756
-  %.2674.shrunk = phi i8 [ %923, %874 ], [ -1, %858 ], [ %857, %807 ], [ %806, %756 ], [ 0, %740 ]
-  %.2670.shrunk = phi i8 [ %911, %874 ], [ %873, %858 ], [ %845, %807 ], [ %794, %756 ], [ 0, %740 ]
-  %.2666.shrunk = phi i8 [ %899, %874 ], [ %868, %858 ], [ %833, %807 ], [ %782, %756 ], [ 0, %740 ]
-  %.2662.shrunk = phi i8 [ %887, %874 ], [ %863, %858 ], [ %821, %807 ], [ %770, %756 ], [ 0, %740 ]
+  %.2674.shrunk = phi i8 [ %806, %756 ], [ %857, %807 ], [ -1, %858 ], [ %923, %874 ], [ 0, %740 ]
+  %.2670.shrunk = phi i8 [ %794, %756 ], [ %845, %807 ], [ %873, %858 ], [ %911, %874 ], [ 0, %740 ]
+  %.2666.shrunk = phi i8 [ %782, %756 ], [ %833, %807 ], [ %868, %858 ], [ %899, %874 ], [ 0, %740 ]
+  %.2662.shrunk = phi i8 [ %770, %756 ], [ %821, %807 ], [ %863, %858 ], [ %887, %874 ], [ 0, %740 ]
   %.2662 = zext i8 %.2662.shrunk to i32
   %.2666 = zext i8 %.2666.shrunk to i32
   %.2670 = zext i8 %.2670.shrunk to i32
@@ -1345,9 +1345,9 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   br label %1082
 
 1082:                                             ; preds = %1079, %45
-  %.2678 = phi i32 [ %28, %45 ], [ %.1677, %1079 ]
-  %.3658 = phi ptr [ %.0655686, %45 ], [ %1081, %1079 ]
-  %.3 = phi ptr [ %.0654687, %45 ], [ %1080, %1079 ]
+  %.2678 = phi i32 [ %.1677, %1079 ], [ %28, %45 ]
+  %.3658 = phi ptr [ %1081, %1079 ], [ %.0655686, %45 ]
+  %.3 = phi ptr [ %1080, %1079 ], [ %.0654687, %45 ]
   %1083 = load i8, ptr %.3, align 1
   %1084 = zext i8 %1083 to i32
   %.not684 = icmp eq i32 %11, %1084
@@ -1553,10 +1553,10 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   br label %1269
 
 1269:                                             ; preds = %1085, %1219, %1203, %1152, %1101
-  %.3675.shrunk = phi i8 [ %1268, %1219 ], [ -1, %1203 ], [ %1202, %1152 ], [ %1151, %1101 ], [ 0, %1085 ]
-  %.3671.shrunk = phi i8 [ %1256, %1219 ], [ %1218, %1203 ], [ %1190, %1152 ], [ %1139, %1101 ], [ 0, %1085 ]
-  %.3667.shrunk = phi i8 [ %1244, %1219 ], [ %1213, %1203 ], [ %1178, %1152 ], [ %1127, %1101 ], [ 0, %1085 ]
-  %.3663.shrunk = phi i8 [ %1232, %1219 ], [ %1208, %1203 ], [ %1166, %1152 ], [ %1115, %1101 ], [ 0, %1085 ]
+  %.3675.shrunk = phi i8 [ %1151, %1101 ], [ %1202, %1152 ], [ -1, %1203 ], [ %1268, %1219 ], [ 0, %1085 ]
+  %.3671.shrunk = phi i8 [ %1139, %1101 ], [ %1190, %1152 ], [ %1218, %1203 ], [ %1256, %1219 ], [ 0, %1085 ]
+  %.3667.shrunk = phi i8 [ %1127, %1101 ], [ %1178, %1152 ], [ %1213, %1203 ], [ %1244, %1219 ], [ 0, %1085 ]
+  %.3663.shrunk = phi i8 [ %1115, %1101 ], [ %1166, %1152 ], [ %1208, %1203 ], [ %1232, %1219 ], [ 0, %1085 ]
   %.3663 = zext i8 %.3663.shrunk to i32
   %.3667 = zext i8 %.3667.shrunk to i32
   %.3671 = zext i8 %.3671.shrunk to i32
@@ -1818,9 +1818,9 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 45:                                               ; preds = %43, %1414
-  %.3670 = phi i32 [ %1417, %1414 ], [ %26, %43 ]
-  %.4650 = phi ptr [ %1416, %1414 ], [ %.0646673, %43 ]
-  %.4 = phi ptr [ %1415, %1414 ], [ %.0645674, %43 ]
+  %.3670 = phi i32 [ %26, %43 ], [ %1417, %1414 ]
+  %.4650 = phi ptr [ %.0646673, %43 ], [ %1416, %1414 ]
+  %.4 = phi ptr [ %.0645674, %43 ], [ %1415, %1414 ]
   %46 = load i8, ptr %.4, align 1
   %47 = zext i8 %46 to i64
   %48 = getelementptr inbounds nuw %struct.SDL_Color, ptr %9, i64 %47
@@ -2021,10 +2021,10 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br label %230
 
 230:                                              ; preds = %45, %180, %164, %113, %62
-  %.0663.shrunk = phi i8 [ %229, %180 ], [ -1, %164 ], [ %163, %113 ], [ %112, %62 ], [ 0, %45 ]
-  %.0659.shrunk = phi i8 [ %217, %180 ], [ %179, %164 ], [ %151, %113 ], [ %100, %62 ], [ 0, %45 ]
-  %.0655.shrunk = phi i8 [ %205, %180 ], [ %174, %164 ], [ %139, %113 ], [ %88, %62 ], [ 0, %45 ]
-  %.0651.shrunk = phi i8 [ %193, %180 ], [ %169, %164 ], [ %127, %113 ], [ %76, %62 ], [ 0, %45 ]
+  %.0663.shrunk = phi i8 [ %112, %62 ], [ %163, %113 ], [ -1, %164 ], [ %229, %180 ], [ 0, %45 ]
+  %.0659.shrunk = phi i8 [ %100, %62 ], [ %151, %113 ], [ %179, %164 ], [ %217, %180 ], [ 0, %45 ]
+  %.0655.shrunk = phi i8 [ %88, %62 ], [ %139, %113 ], [ %174, %164 ], [ %205, %180 ], [ 0, %45 ]
+  %.0651.shrunk = phi i8 [ %76, %62 ], [ %127, %113 ], [ %169, %164 ], [ %193, %180 ], [ 0, %45 ]
   %.0651 = zext i8 %.0651.shrunk to i32
   %.0655 = zext i8 %.0655.shrunk to i32
   %.0659 = zext i8 %.0659.shrunk to i32
@@ -2413,10 +2413,10 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br label %573
 
 573:                                              ; preds = %388, %523, %507, %456, %405
-  %.1664.shrunk = phi i8 [ %572, %523 ], [ -1, %507 ], [ %506, %456 ], [ %455, %405 ], [ 0, %388 ]
-  %.1660.shrunk = phi i8 [ %560, %523 ], [ %522, %507 ], [ %494, %456 ], [ %443, %405 ], [ 0, %388 ]
-  %.1656.shrunk = phi i8 [ %548, %523 ], [ %517, %507 ], [ %482, %456 ], [ %431, %405 ], [ 0, %388 ]
-  %.1652.shrunk = phi i8 [ %536, %523 ], [ %512, %507 ], [ %470, %456 ], [ %419, %405 ], [ 0, %388 ]
+  %.1664.shrunk = phi i8 [ %455, %405 ], [ %506, %456 ], [ -1, %507 ], [ %572, %523 ], [ 0, %388 ]
+  %.1660.shrunk = phi i8 [ %443, %405 ], [ %494, %456 ], [ %522, %507 ], [ %560, %523 ], [ 0, %388 ]
+  %.1656.shrunk = phi i8 [ %431, %405 ], [ %482, %456 ], [ %517, %507 ], [ %548, %523 ], [ 0, %388 ]
+  %.1652.shrunk = phi i8 [ %419, %405 ], [ %470, %456 ], [ %512, %507 ], [ %536, %523 ], [ 0, %388 ]
   %.1652 = zext i8 %.1652.shrunk to i32
   %.1656 = zext i8 %.1656.shrunk to i32
   %.1660 = zext i8 %.1660.shrunk to i32
@@ -2805,10 +2805,10 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br label %916
 
 916:                                              ; preds = %731, %866, %850, %799, %748
-  %.2665.shrunk = phi i8 [ %915, %866 ], [ -1, %850 ], [ %849, %799 ], [ %798, %748 ], [ 0, %731 ]
-  %.2661.shrunk = phi i8 [ %903, %866 ], [ %865, %850 ], [ %837, %799 ], [ %786, %748 ], [ 0, %731 ]
-  %.2657.shrunk = phi i8 [ %891, %866 ], [ %860, %850 ], [ %825, %799 ], [ %774, %748 ], [ 0, %731 ]
-  %.2653.shrunk = phi i8 [ %879, %866 ], [ %855, %850 ], [ %813, %799 ], [ %762, %748 ], [ 0, %731 ]
+  %.2665.shrunk = phi i8 [ %798, %748 ], [ %849, %799 ], [ -1, %850 ], [ %915, %866 ], [ 0, %731 ]
+  %.2661.shrunk = phi i8 [ %786, %748 ], [ %837, %799 ], [ %865, %850 ], [ %903, %866 ], [ 0, %731 ]
+  %.2657.shrunk = phi i8 [ %774, %748 ], [ %825, %799 ], [ %860, %850 ], [ %891, %866 ], [ 0, %731 ]
+  %.2653.shrunk = phi i8 [ %762, %748 ], [ %813, %799 ], [ %855, %850 ], [ %879, %866 ], [ 0, %731 ]
   %.2653 = zext i8 %.2653.shrunk to i32
   %.2657 = zext i8 %.2657.shrunk to i32
   %.2661 = zext i8 %.2661.shrunk to i32
@@ -2994,9 +2994,9 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br label %1074
 
 1074:                                             ; preds = %1071, %43
-  %.2669 = phi i32 [ %26, %43 ], [ %.1668, %1071 ]
-  %.3649 = phi ptr [ %.0646673, %43 ], [ %1073, %1071 ]
-  %.3 = phi ptr [ %.0645674, %43 ], [ %1072, %1071 ]
+  %.2669 = phi i32 [ %.1668, %1071 ], [ %26, %43 ]
+  %.3649 = phi ptr [ %1073, %1071 ], [ %.0646673, %43 ]
+  %.3 = phi ptr [ %1072, %1071 ], [ %.0645674, %43 ]
   %1075 = load i8, ptr %.3, align 1
   %1076 = zext i8 %1075 to i64
   %1077 = getelementptr inbounds nuw %struct.SDL_Color, ptr %9, i64 %1076
@@ -3197,10 +3197,10 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br label %1259
 
 1259:                                             ; preds = %1074, %1209, %1193, %1142, %1091
-  %.3666.shrunk = phi i8 [ %1258, %1209 ], [ -1, %1193 ], [ %1192, %1142 ], [ %1141, %1091 ], [ 0, %1074 ]
-  %.3662.shrunk = phi i8 [ %1246, %1209 ], [ %1208, %1193 ], [ %1180, %1142 ], [ %1129, %1091 ], [ 0, %1074 ]
-  %.3658.shrunk = phi i8 [ %1234, %1209 ], [ %1203, %1193 ], [ %1168, %1142 ], [ %1117, %1091 ], [ 0, %1074 ]
-  %.3654.shrunk = phi i8 [ %1222, %1209 ], [ %1198, %1193 ], [ %1156, %1142 ], [ %1105, %1091 ], [ 0, %1074 ]
+  %.3666.shrunk = phi i8 [ %1141, %1091 ], [ %1192, %1142 ], [ -1, %1193 ], [ %1258, %1209 ], [ 0, %1074 ]
+  %.3662.shrunk = phi i8 [ %1129, %1091 ], [ %1180, %1142 ], [ %1208, %1193 ], [ %1246, %1209 ], [ 0, %1074 ]
+  %.3658.shrunk = phi i8 [ %1117, %1091 ], [ %1168, %1142 ], [ %1203, %1193 ], [ %1234, %1209 ], [ 0, %1074 ]
+  %.3654.shrunk = phi i8 [ %1105, %1091 ], [ %1156, %1142 ], [ %1198, %1193 ], [ %1222, %1209 ], [ 0, %1074 ]
   %.3654 = zext i8 %.3654.shrunk to i32
   %.3658 = zext i8 %.3658.shrunk to i32
   %.3662 = zext i8 %.3662.shrunk to i32
@@ -3444,9 +3444,9 @@ define internal void @Blit1to1(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 23:                                               ; preds = %21, %72
-  %.871 = phi ptr [ %77, %72 ], [ %.06374, %21 ]
-  %.8 = phi ptr [ %78, %72 ], [ %.05575, %21 ]
-  %.7 = phi i32 [ %79, %72 ], [ %17, %21 ]
+  %.871 = phi ptr [ %.06374, %21 ], [ %77, %72 ]
+  %.8 = phi ptr [ %.05575, %21 ], [ %78, %72 ]
+  %.7 = phi i32 [ %17, %21 ], [ %79, %72 ]
   %24 = load i8, ptr %.8, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
@@ -3535,9 +3535,9 @@ define internal void @Blit1to1(ptr noundef readonly captures(none) %0) #1 {
   br label %72
 
 72:                                               ; preds = %65, %21
-  %.770 = phi ptr [ %.06374, %21 ], [ %70, %65 ]
-  %.762 = phi ptr [ %.05575, %21 ], [ %71, %65 ]
-  %.6 = phi i32 [ %17, %21 ], [ %.5, %65 ]
+  %.770 = phi ptr [ %70, %65 ], [ %.06374, %21 ]
+  %.762 = phi ptr [ %71, %65 ], [ %.05575, %21 ]
+  %.6 = phi i32 [ %.5, %65 ], [ %17, %21 ]
   %73 = load i8, ptr %.762, align 1
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 %74
@@ -3606,9 +3606,9 @@ define internal void @Blit1to2(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 23:                                               ; preds = %21, %72
-  %.863 = phi ptr [ %78, %72 ], [ %.05566, %21 ]
-  %.8 = phi ptr [ %73, %72 ], [ %.04767, %21 ]
-  %.7 = phi i32 [ %79, %72 ], [ %17, %21 ]
+  %.863 = phi ptr [ %.05566, %21 ], [ %78, %72 ]
+  %.8 = phi ptr [ %.04767, %21 ], [ %73, %72 ]
+  %.7 = phi i32 [ %17, %21 ], [ %79, %72 ]
   %24 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %25 = load i8, ptr %.8, align 1
   %26 = zext i8 %25 to i64
@@ -3697,9 +3697,9 @@ define internal void @Blit1to2(ptr noundef readonly captures(none) %0) #1 {
   br label %72
 
 72:                                               ; preds = %65, %21
-  %.762 = phi ptr [ %.05566, %21 ], [ %71, %65 ]
-  %.754 = phi ptr [ %.04767, %21 ], [ %66, %65 ]
-  %.6 = phi i32 [ %17, %21 ], [ %.5, %65 ]
+  %.762 = phi ptr [ %71, %65 ], [ %.05566, %21 ]
+  %.754 = phi ptr [ %66, %65 ], [ %.04767, %21 ]
+  %.6 = phi i32 [ %.5, %65 ], [ %17, %21 ]
   %73 = getelementptr inbounds nuw i8, ptr %.754, i64 1
   %74 = load i8, ptr %.754, align 1
   %75 = zext i8 %74 to i64
@@ -3764,9 +3764,9 @@ define internal void @Blit1to3(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 23:                                               ; preds = %21, %65
-  %.471 = phi ptr [ %77, %65 ], [ %.06774, %21 ]
-  %.4 = phi ptr [ %78, %65 ], [ %.06375, %21 ]
-  %.3 = phi i32 [ %79, %65 ], [ %17, %21 ]
+  %.471 = phi ptr [ %.06774, %21 ], [ %77, %65 ]
+  %.4 = phi ptr [ %.06375, %21 ], [ %78, %65 ]
+  %.3 = phi i32 [ %17, %21 ], [ %79, %65 ]
   %24 = load i8, ptr %.471, align 1
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 2
@@ -3830,9 +3830,9 @@ define internal void @Blit1to3(ptr noundef readonly captures(none) %0) #1 {
   br label %65
 
 65:                                               ; preds = %51, %21
-  %.370 = phi ptr [ %.06774, %21 ], [ %63, %51 ]
-  %.366 = phi ptr [ %.06375, %21 ], [ %64, %51 ]
-  %.2 = phi i32 [ %17, %21 ], [ %.1, %51 ]
+  %.370 = phi ptr [ %63, %51 ], [ %.06774, %21 ]
+  %.366 = phi ptr [ %64, %51 ], [ %.06375, %21 ]
+  %.2 = phi i32 [ %.1, %51 ], [ %17, %21 ]
   %66 = load i8, ptr %.370, align 1
   %67 = zext i8 %66 to i64
   %68 = shl nuw nsw i64 %67, 2
@@ -3911,9 +3911,9 @@ define internal void @Blit1to4(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 24:                                               ; preds = %22, %73
-  %.855 = phi ptr [ %79, %73 ], [ %.04758, %22 ]
-  %.8 = phi ptr [ %74, %73 ], [ %.03959, %22 ]
-  %.7 = phi i32 [ %80, %73 ], [ %18, %22 ]
+  %.855 = phi ptr [ %.04758, %22 ], [ %79, %73 ]
+  %.8 = phi ptr [ %.03959, %22 ], [ %74, %73 ]
+  %.7 = phi i32 [ %18, %22 ], [ %80, %73 ]
   %25 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %26 = load i8, ptr %.8, align 1
   %27 = zext i8 %26 to i64
@@ -4002,9 +4002,9 @@ define internal void @Blit1to4(ptr noundef readonly captures(none) %0) #1 {
   br label %73
 
 73:                                               ; preds = %66, %22
-  %.754 = phi ptr [ %.04758, %22 ], [ %72, %66 ]
-  %.746 = phi ptr [ %.03959, %22 ], [ %67, %66 ]
-  %.6 = phi i32 [ %18, %22 ], [ %.5, %66 ]
+  %.754 = phi ptr [ %72, %66 ], [ %.04758, %22 ]
+  %.746 = phi ptr [ %67, %66 ], [ %.03959, %22 ]
+  %.6 = phi i32 [ %.5, %66 ], [ %18, %22 ]
   %74 = getelementptr inbounds nuw i8, ptr %.746, i64 1
   %75 = load i8, ptr %.746, align 1
   %76 = zext i8 %75 to i64
@@ -4090,9 +4090,9 @@ define internal void @Blit1to1Key(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 29:                                               ; preds = %.lr.ph.split, %106
-  %.8155 = phi ptr [ %107, %106 ], [ %.0147189, %.lr.ph.split ]
-  %.8 = phi ptr [ %108, %106 ], [ %.0139190, %.lr.ph.split ]
-  %.7136 = phi i32 [ %109, %106 ], [ %19, %.lr.ph.split ]
+  %.8155 = phi ptr [ %.0147189, %.lr.ph.split ], [ %107, %106 ]
+  %.8 = phi ptr [ %.0139190, %.lr.ph.split ], [ %108, %106 ]
+  %.7136 = phi i32 [ %19, %.lr.ph.split ], [ %109, %106 ]
   %30 = load i8, ptr %.8, align 1
   %31 = zext i8 %30 to i32
   %.not177 = icmp eq i32 %17, %31
@@ -4243,9 +4243,9 @@ default.unreachable:                              ; preds = %.lr.ph194.split
   unreachable
 
 99:                                               ; preds = %.lr.ph.split, %96
-  %.7154 = phi ptr [ %.0147189, %.lr.ph.split ], [ %97, %96 ]
-  %.7146 = phi ptr [ %.0139190, %.lr.ph.split ], [ %98, %96 ]
-  %.6135 = phi i32 [ %19, %.lr.ph.split ], [ %.5134, %96 ]
+  %.7154 = phi ptr [ %97, %96 ], [ %.0147189, %.lr.ph.split ]
+  %.7146 = phi ptr [ %98, %96 ], [ %.0139190, %.lr.ph.split ]
+  %.6135 = phi i32 [ %.5134, %96 ], [ %19, %.lr.ph.split ]
   %100 = load i8, ptr %.7146, align 1
   %101 = zext i8 %100 to i32
   %.not184 = icmp eq i32 %17, %101
@@ -4288,9 +4288,9 @@ default.unreachable:                              ; preds = %.lr.ph194.split
   ]
 
 115:                                              ; preds = %.lr.ph194.split, %168
-  %.17164 = phi ptr [ %169, %168 ], [ %.9156192, %.lr.ph194.split ]
-  %.17 = phi ptr [ %170, %168 ], [ %.9193, %.lr.ph194.split ]
-  %.7 = phi i32 [ %171, %168 ], [ %24, %.lr.ph194.split ]
+  %.17164 = phi ptr [ %.9156192, %.lr.ph194.split ], [ %169, %168 ]
+  %.17 = phi ptr [ %.9193, %.lr.ph194.split ], [ %170, %168 ]
+  %.7 = phi i32 [ %24, %.lr.ph194.split ], [ %171, %168 ]
   %116 = load i8, ptr %.17, align 1
   %117 = zext i8 %116 to i32
   %.not168 = icmp eq i32 %17, %117
@@ -4414,9 +4414,9 @@ default.unreachable:                              ; preds = %.lr.ph194.split
   br label %164
 
 164:                                              ; preds = %.lr.ph194.split, %161
-  %.16163 = phi ptr [ %.9156192, %.lr.ph194.split ], [ %162, %161 ]
-  %.16 = phi ptr [ %.9193, %.lr.ph194.split ], [ %163, %161 ]
-  %.6 = phi i32 [ %24, %.lr.ph194.split ], [ %.5, %161 ]
+  %.16163 = phi ptr [ %162, %161 ], [ %.9156192, %.lr.ph194.split ]
+  %.16 = phi ptr [ %163, %161 ], [ %.9193, %.lr.ph194.split ]
+  %.6 = phi i32 [ %.5, %161 ], [ %24, %.lr.ph194.split ]
   %165 = load i8, ptr %.16, align 1
   %166 = zext i8 %165 to i32
   %.not175 = icmp eq i32 %17, %166
@@ -4490,9 +4490,9 @@ define internal void @Blit1to2Key(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 26:                                               ; preds = %24, %103
-  %.889 = phi ptr [ %105, %103 ], [ %.081100, %24 ]
-  %.8 = phi ptr [ %104, %103 ], [ %.073101, %24 ]
-  %.7 = phi i32 [ %106, %103 ], [ %20, %24 ]
+  %.889 = phi ptr [ %.081100, %24 ], [ %105, %103 ]
+  %.8 = phi ptr [ %.073101, %24 ], [ %104, %103 ]
+  %.7 = phi i32 [ %20, %24 ], [ %106, %103 ]
   %27 = load i8, ptr %.8, align 1
   %28 = zext i8 %27 to i32
   %.not91 = icmp eq i32 %7, %28
@@ -4637,9 +4637,9 @@ define internal void @Blit1to2Key(ptr noundef readonly captures(none) %0) #1 {
   br label %96
 
 96:                                               ; preds = %93, %24
-  %.788 = phi ptr [ %.081100, %24 ], [ %95, %93 ]
-  %.780 = phi ptr [ %.073101, %24 ], [ %94, %93 ]
-  %.6 = phi i32 [ %20, %24 ], [ %.5, %93 ]
+  %.788 = phi ptr [ %95, %93 ], [ %.081100, %24 ]
+  %.780 = phi ptr [ %94, %93 ], [ %.073101, %24 ]
+  %.6 = phi i32 [ %.5, %93 ], [ %20, %24 ]
   %97 = load i8, ptr %.780, align 1
   %98 = zext i8 %97 to i32
   %.not98 = icmp eq i32 %7, %98
@@ -4714,9 +4714,9 @@ define internal void @Blit1to3Key(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 25:                                               ; preds = %23, %90
-  %.480 = phi ptr [ %92, %90 ], [ %.07691, %23 ]
-  %.4 = phi ptr [ %91, %90 ], [ %.07292, %23 ]
-  %.3 = phi i32 [ %93, %90 ], [ %19, %23 ]
+  %.480 = phi ptr [ %.07691, %23 ], [ %92, %90 ]
+  %.4 = phi ptr [ %.07292, %23 ], [ %91, %90 ]
+  %.3 = phi i32 [ %19, %23 ], [ %93, %90 ]
   %26 = load i8, ptr %.4, align 1
   %27 = zext i8 %26 to i32
   %.not86 = icmp eq i32 %7, %27
@@ -4804,9 +4804,9 @@ define internal void @Blit1to3Key(ptr noundef readonly captures(none) %0) #1 {
   br label %76
 
 76:                                               ; preds = %73, %23
-  %.379 = phi ptr [ %.07691, %23 ], [ %75, %73 ]
-  %.375 = phi ptr [ %.07292, %23 ], [ %74, %73 ]
-  %.2 = phi i32 [ %19, %23 ], [ %.1, %73 ]
+  %.379 = phi ptr [ %75, %73 ], [ %.07691, %23 ]
+  %.375 = phi ptr [ %74, %73 ], [ %.07292, %23 ]
+  %.2 = phi i32 [ %.1, %73 ], [ %19, %23 ]
   %77 = load i8, ptr %.375, align 1
   %78 = zext i8 %77 to i32
   %.not89 = icmp eq i32 %7, %78
@@ -4895,9 +4895,9 @@ define internal void @Blit1to4Key(ptr noundef readonly captures(none) %0) #1 {
   ]
 
 26:                                               ; preds = %24, %103
-  %.889 = phi ptr [ %105, %103 ], [ %.081100, %24 ]
-  %.8 = phi ptr [ %104, %103 ], [ %.073101, %24 ]
-  %.7 = phi i32 [ %106, %103 ], [ %20, %24 ]
+  %.889 = phi ptr [ %.081100, %24 ], [ %105, %103 ]
+  %.8 = phi ptr [ %.073101, %24 ], [ %104, %103 ]
+  %.7 = phi i32 [ %20, %24 ], [ %106, %103 ]
   %27 = load i8, ptr %.8, align 1
   %28 = zext i8 %27 to i32
   %.not91 = icmp eq i32 %7, %28
@@ -5042,9 +5042,9 @@ define internal void @Blit1to4Key(ptr noundef readonly captures(none) %0) #1 {
   br label %96
 
 96:                                               ; preds = %93, %24
-  %.788 = phi ptr [ %.081100, %24 ], [ %95, %93 ]
-  %.780 = phi ptr [ %.073101, %24 ], [ %94, %93 ]
-  %.6 = phi i32 [ %20, %24 ], [ %.5, %93 ]
+  %.788 = phi ptr [ %95, %93 ], [ %.081100, %24 ]
+  %.780 = phi ptr [ %94, %93 ], [ %.073101, %24 ]
+  %.6 = phi i32 [ %.5, %93 ], [ %20, %24 ]
   %97 = load i8, ptr %.780, align 1
   %98 = zext i8 %97 to i32
   %.not98 = icmp eq i32 %7, %98

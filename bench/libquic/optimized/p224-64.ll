@@ -3774,9 +3774,9 @@ felem_to_BN.exit222:                              ; preds = %574
   br label %586
 
 586:                                              ; preds = %flip_endian.exit203, %BN_to_felem.exit198.thread, %BN_to_felem.exit182.thread, %BN_to_felem.exit.thread, %70, %28, %31, %34, %37, %584, %583, %46
-  %.0142 = phi i32 [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %46 ], [ 0, %flip_endian.exit203 ], [ %585, %584 ], [ 0, %583 ], [ 0, %70 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %BN_to_felem.exit182.thread ], [ 0, %BN_to_felem.exit198.thread ]
-  %.0139 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %42, %46 ], [ %.1140, %flip_endian.exit203 ], [ %.1140, %584 ], [ %.1140, %583 ], [ %42, %70 ], [ %42, %BN_to_felem.exit.thread ], [ %42, %BN_to_felem.exit182.thread ], [ %42, %BN_to_felem.exit198.thread ]
-  %.0137 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %43, %46 ], [ %.1138, %flip_endian.exit203 ], [ %.1138, %584 ], [ %.1138, %583 ], [ %43, %70 ], [ %43, %BN_to_felem.exit.thread ], [ %43, %BN_to_felem.exit182.thread ], [ %43, %BN_to_felem.exit198.thread ]
+  %.0142 = phi i32 [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %46 ], [ %585, %584 ], [ 0, %583 ], [ 0, %flip_endian.exit203 ], [ 0, %70 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %BN_to_felem.exit182.thread ], [ 0, %BN_to_felem.exit198.thread ]
+  %.0139 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %42, %46 ], [ %.1140, %584 ], [ %.1140, %583 ], [ %.1140, %flip_endian.exit203 ], [ %42, %70 ], [ %42, %BN_to_felem.exit.thread ], [ %42, %BN_to_felem.exit182.thread ], [ %42, %BN_to_felem.exit198.thread ]
+  %.0137 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %43, %46 ], [ %.1138, %584 ], [ %.1138, %583 ], [ %.1138, %flip_endian.exit203 ], [ %43, %70 ], [ %43, %BN_to_felem.exit.thread ], [ %43, %BN_to_felem.exit182.thread ], [ %43, %BN_to_felem.exit198.thread ]
   call void @BN_CTX_end(ptr noundef nonnull %.0141) #10
   call void @BN_CTX_free(ptr noundef %.0143) #10
   call void @free(ptr noundef %.0139) #10

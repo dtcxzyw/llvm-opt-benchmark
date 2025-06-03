@@ -762,7 +762,7 @@ ff_iamf_get_param_definition.exit241.thread:      ; preds = %294
   br label %.thread
 
 .thread:                                          ; preds = %50, %40, %34, %29, %.thread246, %.critedge223, %173, %._crit_edge, %3, %.thread261, %328, %fill_codec_config.exit.thread, %11
-  %.0 = phi i32 [ %.059.i249, %fill_codec_config.exit.thread ], [ %.0150, %.thread261 ], [ 0, %328 ], [ -22, %.critedge223 ], [ -22, %11 ], [ -22, %3 ], [ -12, %._crit_edge ], [ -12, %173 ], [ -22, %.thread246 ], [ -22, %50 ], [ -1163346256, %40 ], [ -22, %34 ], [ -22, %29 ]
+  %.0 = phi i32 [ %.059.i249, %fill_codec_config.exit.thread ], [ 0, %328 ], [ %.0150, %.thread261 ], [ -22, %.critedge223 ], [ -22, %11 ], [ -22, %3 ], [ -12, %._crit_edge ], [ -12, %173 ], [ -22, %.thread246 ], [ -22, %50 ], [ -1163346256, %40 ], [ -22, %34 ], [ -22, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.0
 }
@@ -1231,7 +1231,7 @@ add_param_definition.exit.thread:                 ; preds = %.thread53.i, %.loop
   br label %158
 
 158:                                              ; preds = %27, %.critedge, %3, %add_param_definition.exit.thread, %153, %16
-  %.0 = phi i32 [ %.8, %add_param_definition.exit.thread ], [ 0, %153 ], [ -22, %27 ], [ -22, %16 ], [ -22, %3 ], [ -12, %.critedge ]
+  %.0 = phi i32 [ 0, %153 ], [ %.8, %add_param_definition.exit.thread ], [ -22, %27 ], [ -22, %16 ], [ -22, %3 ], [ -12, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.0
 }

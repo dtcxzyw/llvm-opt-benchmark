@@ -251,9 +251,9 @@ _ZN3rmp6encode8RmpWrite14write_data_u3217hd29e8a845cf86c73E.exit.thread.i: ; pre
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hddf31ddda51c25ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.83)
   br label %"_ZN43_$LT$T$u20$as$u20$rmp..encode..RmpWrite$GT$11write_bytes17h7d05bb19698f843bE.exit"
 
-"_ZN43_$LT$T$u20$as$u20$rmp..encode..RmpWrite$GT$11write_bytes17h7d05bb19698f843bE.exit": ; preds = %46, %41, %15, %.thread.i, %25, %33, %40
-  %.sroa.4.0 = phi ptr [ %16, %15 ], [ %17, %.thread.i ], [ inttoptr (i64 163208757251 to ptr), %25 ], [ inttoptr (i64 163208757251 to ptr), %33 ], [ inttoptr (i64 163208757251 to ptr), %40 ], [ null, %46 ], [ inttoptr (i64 163208757251 to ptr), %41 ]
-  %.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %.thread.i ], [ 1, %25 ], [ 1, %33 ], [ 1, %40 ], [ 2, %46 ], [ 1, %41 ]
+"_ZN43_$LT$T$u20$as$u20$rmp..encode..RmpWrite$GT$11write_bytes17h7d05bb19698f843bE.exit": ; preds = %46, %41, %15, %.thread.i, %25, %40, %33
+  %.sroa.4.0 = phi ptr [ %16, %15 ], [ %17, %.thread.i ], [ inttoptr (i64 163208757251 to ptr), %25 ], [ inttoptr (i64 163208757251 to ptr), %40 ], [ inttoptr (i64 163208757251 to ptr), %33 ], [ null, %46 ], [ inttoptr (i64 163208757251 to ptr), %41 ]
+  %.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %.thread.i ], [ 1, %25 ], [ 1, %40 ], [ 1, %33 ], [ 2, %46 ], [ 1, %41 ]
   %48 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %49 = insertvalue { i64, ptr } %48, ptr %.sroa.4.0, 1
   ret { i64, ptr } %49

@@ -82,7 +82,7 @@ define double @lgamma_r(double noundef %0, ptr noundef writeonly captures(none) 
   br label %sin_pi.exit
 
 sin_pi.exit:                                      ; preds = %35, %37, %39, %42
-  %.0.i = phi double [ %36, %35 ], [ %41, %39 ], [ %38, %37 ], [ %44, %42 ]
+  %.0.i = phi double [ %36, %35 ], [ %44, %42 ], [ %38, %37 ], [ %41, %39 ]
   %45 = fcmp oeq double %.0.i, 0.000000e+00
   br i1 %45, label %46, label %49
 
@@ -254,25 +254,25 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %156
 
 156:                                              ; preds = %154, %135
-  %.0161 = phi double [ 1.000000e+00, %135 ], [ %155, %154 ]
+  %.0161 = phi double [ %155, %154 ], [ 1.000000e+00, %135 ]
   %157 = fadd double %138, 5.000000e+00
   %158 = fmul double %157, %.0161
   br label %159
 
 159:                                              ; preds = %156, %135
-  %.1162 = phi double [ 1.000000e+00, %135 ], [ %158, %156 ]
+  %.1162 = phi double [ %158, %156 ], [ 1.000000e+00, %135 ]
   %160 = fadd double %138, 4.000000e+00
   %161 = fmul double %160, %.1162
   br label %162
 
 162:                                              ; preds = %159, %135
-  %.2163 = phi double [ 1.000000e+00, %135 ], [ %161, %159 ]
+  %.2163 = phi double [ %161, %159 ], [ 1.000000e+00, %135 ]
   %163 = fadd double %138, 3.000000e+00
   %164 = fmul double %163, %.2163
   br label %165
 
 165:                                              ; preds = %162, %135
-  %.3 = phi double [ 1.000000e+00, %135 ], [ %164, %162 ]
+  %.3 = phi double [ %164, %162 ], [ 1.000000e+00, %135 ]
   %166 = fadd double %138, 2.000000e+00
   %167 = fmul double %166, %.3
   %168 = tail call double @log(double noundef %167) #4
@@ -304,7 +304,7 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %188
 
 188:                                              ; preds = %58, %118, %95, %79, %173, %185, %135, %165
-  %.0156 = phi double [ %132, %118 ], [ %117, %95 ], [ %94, %79 ], [ %153, %135 ], [ %169, %165 ], [ %184, %173 ], [ %187, %185 ], [ 0.000000e+00, %58 ]
+  %.0156 = phi double [ %94, %79 ], [ %117, %95 ], [ %132, %118 ], [ %153, %135 ], [ %169, %165 ], [ %184, %173 ], [ %187, %185 ], [ 0.000000e+00, %58 ]
   %189 = fsub double %.0160, %.0156
   %.2 = select i1 %.not166, double %.0156, double %189
   br label %190

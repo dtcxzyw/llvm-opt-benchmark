@@ -320,7 +320,7 @@ define range(i32 1, 3) i32 @input_colorspace(ptr noundef readnone captures(none)
   br label %10
 
 10:                                               ; preds = %4, %9
-  %.1 = phi i32 [ 1, %4 ], [ 2, %9 ]
+  %.1 = phi i32 [ 2, %9 ], [ 1, %4 ]
   ret i32 %.1
 }
 

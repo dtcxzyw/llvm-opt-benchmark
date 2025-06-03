@@ -306,8 +306,8 @@ define ptr @Io_ReadAiger(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %Ioa_ReadLoadFileBz2Aig.exit
 
 Ioa_ReadLoadFileBz2Aig.exit:                      ; preds = %12, %16, %46, %53, %.loopexit.i
-  %.1461 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %46 ], [ %.1.i, %.loopexit.i ], [ -1, %16 ]
-  %.036.i = phi ptr [ null, %12 ], [ null, %53 ], [ null, %46 ], [ %.042.i, %.loopexit.i ], [ null, %16 ]
+  %.1461 = phi i32 [ -1, %12 ], [ -1, %53 ], [ %.1.i, %.loopexit.i ], [ -1, %46 ], [ -1, %16 ]
+  %.036.i = phi ptr [ null, %12 ], [ null, %53 ], [ %.042.i, %.loopexit.i ], [ null, %46 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   br label %sub_0466
 

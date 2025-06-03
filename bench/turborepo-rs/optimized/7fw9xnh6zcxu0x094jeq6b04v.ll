@@ -457,8 +457,8 @@ define noundef zeroext i1 @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1004cellNtB2_4Cell
 
 13:                                               ; preds = %7
   switch i8 %10, label %default.unreachable [
-    i8 1, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit
-    i8 2, label %14
+    i8 1, label %14
+    i8 2, label %20
     i8 0, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7
   ]
 
@@ -471,33 +471,33 @@ default.unreachable:                              ; preds = %42, %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %18 = load i8, ptr %17, align 2, !alias.scope !17, !noalias !14, !noundef !4
   %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
+  br i1 %19, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %22 = load i8, ptr %21, align 1, !alias.scope !14, !noalias !17, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %24 = load i8, ptr %23, align 1, !alias.scope !17, !noalias !14, !noundef !4
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %22 = load i8, ptr %21, align 2, !alias.scope !14, !noalias !17, !noundef !4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %24 = load i8, ptr %23, align 2, !alias.scope !17, !noalias !14, !noundef !4
   %25 = icmp eq i8 %22, %24
   br i1 %25, label %26, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %28 = load i8, ptr %27, align 4, !alias.scope !14, !noalias !17, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %30 = load i8, ptr %29, align 4, !alias.scope !17, !noalias !14, !noundef !4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 27
+  %28 = load i8, ptr %27, align 1, !alias.scope !14, !noalias !17, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 27
+  %30 = load i8, ptr %29, align 1, !alias.scope !17, !noalias !14, !noundef !4
   %31 = icmp eq i8 %28, %30
-  br i1 %31, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
+  br i1 %31, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit: ; preds = %13
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %33 = load i8, ptr %32, align 2, !alias.scope !14, !noalias !17, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %35 = load i8, ptr %34, align 2, !alias.scope !17, !noalias !14, !noundef !4
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit: ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %33 = load i8, ptr %32, align 4, !alias.scope !14, !noalias !17, !noundef !4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %35 = load i8, ptr %34, align 4, !alias.scope !17, !noalias !14, !noundef !4
   %36 = icmp eq i8 %33, %35
   br i1 %36, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7: ; preds = %13, %26, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7: ; preds = %13, %14, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
@@ -509,8 +509,8 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 
 42:                                               ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7
   switch i8 %39, label %default.unreachable [
-    i8 1, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5
-    i8 2, label %43
+    i8 1, label %43
+    i8 2, label %49
     i8 0, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10
   ]
 
@@ -520,33 +520,33 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %47 = load i8, ptr %46, align 2, !alias.scope !23, !noalias !20, !noundef !4
   %48 = icmp eq i8 %45, %47
-  br i1 %48, label %49, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
+  br i1 %48, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  %51 = load i8, ptr %50, align 1, !alias.scope !20, !noalias !23, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %53 = load i8, ptr %52, align 1, !alias.scope !23, !noalias !20, !noundef !4
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %51 = load i8, ptr %50, align 2, !alias.scope !20, !noalias !23, !noundef !4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %53 = load i8, ptr %52, align 2, !alias.scope !23, !noalias !20, !noundef !4
   %54 = icmp eq i8 %51, %53
   br i1 %54, label %55, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load i8, ptr %56, align 4, !alias.scope !20, !noalias !23, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = load i8, ptr %58, align 4, !alias.scope !23, !noalias !20, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  %57 = load i8, ptr %56, align 1, !alias.scope !20, !noalias !23, !noundef !4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 31
+  %59 = load i8, ptr %58, align 1, !alias.scope !23, !noalias !20, !noundef !4
   %60 = icmp eq i8 %57, %59
-  br i1 %60, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
+  br i1 %60, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5: ; preds = %42
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %62 = load i8, ptr %61, align 2, !alias.scope !20, !noalias !23, !noundef !4
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %64 = load i8, ptr %63, align 2, !alias.scope !23, !noalias !20, !noundef !4
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5: ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %62 = load i8, ptr %61, align 4, !alias.scope !20, !noalias !23, !noundef !4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %64 = load i8, ptr %63, align 4, !alias.scope !23, !noalias !20, !noundef !4
   %65 = icmp eq i8 %62, %64
   br i1 %65, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10: ; preds = %42, %55, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10: ; preds = %42, %43, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %67 = load i8, ptr %66, align 1, !noundef !4
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 33
@@ -570,8 +570,8 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrB
   %76 = icmp eq i32 %bcmp.i, 0
   br label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread: ; preds = %43, %49, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7, %14, %20, %7, %55, %26, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5, %2, %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit
-  %.sroa.0.0 = phi i1 [ %76, %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit ], [ false, %2 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10 ], [ false, %26 ], [ false, %55 ], [ false, %7 ], [ false, %20 ], [ false, %14 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7 ], [ false, %49 ], [ false, %43 ]
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread: ; preds = %49, %55, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7, %20, %26, %7, %43, %14, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5, %2, %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit
+  %.sroa.0.0 = phi i1 [ %76, %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit ], [ false, %2 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit5.thread10 ], [ false, %14 ], [ false, %43 ], [ false, %7 ], [ false, %26 ], [ false, %20 ], [ false, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.6172016698289805888.exit.thread7 ], [ false, %55 ], [ false, %49 ]
   ret i1 %.sroa.0.0
 }
 
@@ -902,7 +902,7 @@ define hidden noundef zeroext i1 @_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attr
   ]
 
 7:                                                ; preds = %14, %20, %6, %2, %26, %8
-  %.sroa.0.0.shrunk = phi i1 [ %31, %26 ], [ %13, %8 ], [ false, %2 ], [ true, %6 ], [ false, %20 ], [ false, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %13, %8 ], [ %31, %26 ], [ false, %2 ], [ true, %6 ], [ false, %20 ], [ false, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6

@@ -332,7 +332,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.1.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !4
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
@@ -346,7 +346,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !4
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58

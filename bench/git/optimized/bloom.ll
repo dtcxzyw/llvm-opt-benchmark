@@ -236,7 +236,7 @@ define dso_local i32 @murmur3_seeded_v2(i32 noundef %0, ptr noundef readonly cap
   br label %38
 
 38:                                               ; preds = %._crit_edge, %33
-  %.047 = phi i32 [ 0, %._crit_edge ], [ %37, %33 ]
+  %.047 = phi i32 [ %37, %33 ], [ 0, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %41 = zext i8 %40 to i32
@@ -245,7 +245,7 @@ define dso_local i32 @murmur3_seeded_v2(i32 noundef %0, ptr noundef readonly cap
   br label %44
 
 44:                                               ; preds = %._crit_edge, %38
-  %.148 = phi i32 [ 0, %._crit_edge ], [ %43, %38 ]
+  %.148 = phi i32 [ %43, %38 ], [ 0, %._crit_edge ]
   %45 = load i8, ptr %31, align 1, !tbaa !22
   %46 = zext i8 %45 to i32
   %47 = xor i32 %.148, %46
@@ -261,7 +261,7 @@ default.unreachable53:                            ; preds = %._crit_edge
   unreachable
 
 54:                                               ; preds = %._crit_edge, %44
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %53, %44 ]
+  %.1 = phi i32 [ %53, %44 ], [ %.0.lcssa, %._crit_edge ]
   %55 = trunc i64 %2 to i32
   %56 = xor i32 %.1, %55
   %57 = lshr i32 %56, 16
@@ -342,7 +342,7 @@ define dso_local void @fill_bloom_key(ptr noundef readonly captures(none) %0, i6
   br label %42
 
 42:                                               ; preds = %37, %._crit_edge.i
-  %.047.i = phi i32 [ 0, %._crit_edge.i ], [ %41, %37 ]
+  %.047.i = phi i32 [ %41, %37 ], [ 0, %._crit_edge.i ]
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !22
   %45 = zext i8 %44 to i32
@@ -351,7 +351,7 @@ define dso_local void @fill_bloom_key(ptr noundef readonly captures(none) %0, i6
   br label %48
 
 48:                                               ; preds = %42, %._crit_edge.i
-  %.148.i = phi i32 [ 0, %._crit_edge.i ], [ %47, %42 ]
+  %.148.i = phi i32 [ %47, %42 ], [ 0, %._crit_edge.i ]
   %49 = load i8, ptr %35, align 1, !tbaa !22
   %50 = zext i8 %49 to i32
   %51 = xor i32 %.148.i, %50
@@ -367,7 +367,7 @@ default.unreachable:                              ; preds = %._crit_edge.i20, %.
   unreachable
 
 murmur3_seeded_v2.exit:                           ; preds = %._crit_edge.i, %48
-  %.1.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %57, %48 ]
+  %.1.i = phi i32 [ %57, %48 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %58 = trunc i64 %1 to i32
   %59 = xor i32 %.1.i, %58
   %60 = lshr i32 %59, 16
@@ -431,7 +431,7 @@ murmur3_seeded_v2.exit:                           ; preds = %._crit_edge.i, %48
   br label %96
 
 96:                                               ; preds = %91, %._crit_edge.i20
-  %.047.i25 = phi i32 [ 0, %._crit_edge.i20 ], [ %95, %91 ]
+  %.047.i25 = phi i32 [ %95, %91 ], [ 0, %._crit_edge.i20 ]
   %97 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !22
   %99 = zext i8 %98 to i32
@@ -440,7 +440,7 @@ murmur3_seeded_v2.exit:                           ; preds = %._crit_edge.i, %48
   br label %102
 
 102:                                              ; preds = %96, %._crit_edge.i20
-  %.148.i24 = phi i32 [ 0, %._crit_edge.i20 ], [ %101, %96 ]
+  %.148.i24 = phi i32 [ %101, %96 ], [ 0, %._crit_edge.i20 ]
   %103 = load i8, ptr %35, align 1, !tbaa !22
   %104 = zext i8 %103 to i32
   %105 = xor i32 %.148.i24, %104
@@ -453,7 +453,7 @@ murmur3_seeded_v2.exit:                           ; preds = %._crit_edge.i, %48
   br label %murmur3_seeded_v2.exit34
 
 murmur3_seeded_v2.exit34:                         ; preds = %._crit_edge.i20, %102
-  %.1.i23 = phi i32 [ %.0.lcssa.i21, %._crit_edge.i20 ], [ %111, %102 ]
+  %.1.i23 = phi i32 [ %111, %102 ], [ %.0.lcssa.i21, %._crit_edge.i20 ]
   %112 = xor i32 %.1.i23, %58
   %113 = lshr i32 %112, 16
   %114 = xor i32 %113, %112
@@ -566,7 +566,7 @@ define internal fastcc i32 @murmur3_seeded_v1(i32 noundef range(i32 691726191, 2
   br label %43
 
 43:                                               ; preds = %._crit_edge, %38
-  %.047 = phi i32 [ 0, %._crit_edge ], [ %42, %38 ]
+  %.047 = phi i32 [ %42, %38 ], [ 0, %._crit_edge ]
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !22
   %46 = sext i8 %45 to i32
@@ -575,7 +575,7 @@ define internal fastcc i32 @murmur3_seeded_v1(i32 noundef range(i32 691726191, 2
   br label %49
 
 49:                                               ; preds = %._crit_edge, %43
-  %.148 = phi i32 [ 0, %._crit_edge ], [ %48, %43 ]
+  %.148 = phi i32 [ %48, %43 ], [ 0, %._crit_edge ]
   %50 = load i8, ptr %36, align 1, !tbaa !22
   %51 = sext i8 %50 to i32
   %52 = xor i32 %.148, %51
@@ -591,7 +591,7 @@ default.unreachable53:                            ; preds = %._crit_edge
   unreachable
 
 59:                                               ; preds = %._crit_edge, %49
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %58, %49 ]
+  %.1 = phi i32 [ %58, %49 ], [ %.0.lcssa, %._crit_edge ]
   %60 = trunc i64 %2 to i32
   %61 = xor i32 %.1, %60
   %62 = lshr i32 %61, 16

@@ -319,8 +319,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %41
 
 41:                                               ; preds = %35, %34
-  %.477.us = phi i32 [ %.275.us, %34 ], [ %40, %35 ]
-  %.471.us = phi ptr [ %32, %34 ], [ %39, %35 ]
+  %.477.us = phi i32 [ %40, %35 ], [ %.275.us, %34 ]
+  %.471.us = phi ptr [ %39, %35 ], [ %32, %34 ]
   %42 = trunc i32 %.477.us to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
@@ -330,8 +330,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %47
 
 47:                                               ; preds = %41, %34
-  %.578.us = phi i32 [ %.275.us, %34 ], [ %46, %41 ]
-  %.572.us = phi ptr [ %32, %34 ], [ %45, %41 ]
+  %.578.us = phi i32 [ %46, %41 ], [ %.275.us, %34 ]
+  %.572.us = phi ptr [ %45, %41 ], [ %32, %34 ]
   %48 = trunc i32 %.578.us to i8
   %49 = and i8 %48, 63
   %50 = or disjoint i8 %49, -128
@@ -341,8 +341,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %53
 
 53:                                               ; preds = %47, %34
-  %.679.us = phi i32 [ %.275.us, %34 ], [ %52, %47 ]
-  %.6.us = phi ptr [ %32, %34 ], [ %51, %47 ]
+  %.679.us = phi i32 [ %52, %47 ], [ %.275.us, %34 ]
+  %.6.us = phi ptr [ %51, %47 ], [ %32, %34 ]
   %54 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %31
   %55 = load i8, ptr %54, align 1, !tbaa !16
   %56 = trunc i32 %.679.us to i8
@@ -423,8 +423,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %92
 
 92:                                               ; preds = %86, %85
-  %.477.us143 = phi i32 [ %.275.us139, %85 ], [ %91, %86 ]
-  %.471.us144 = phi ptr [ %83, %85 ], [ %90, %86 ]
+  %.477.us143 = phi i32 [ %91, %86 ], [ %.275.us139, %85 ]
+  %.471.us144 = phi ptr [ %90, %86 ], [ %83, %85 ]
   %93 = trunc i32 %.477.us143 to i8
   %94 = and i8 %93, 63
   %95 = or disjoint i8 %94, -128
@@ -434,8 +434,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %98
 
 98:                                               ; preds = %92, %85
-  %.578.us145 = phi i32 [ %.275.us139, %85 ], [ %97, %92 ]
-  %.572.us146 = phi ptr [ %83, %85 ], [ %96, %92 ]
+  %.578.us145 = phi i32 [ %97, %92 ], [ %.275.us139, %85 ]
+  %.572.us146 = phi ptr [ %96, %92 ], [ %83, %85 ]
   %99 = trunc i32 %.578.us145 to i8
   %100 = and i8 %99, 63
   %101 = or disjoint i8 %100, -128
@@ -445,8 +445,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %104
 
 104:                                              ; preds = %98, %85
-  %.679.us147 = phi i32 [ %.275.us139, %85 ], [ %103, %98 ]
-  %.6.us148 = phi ptr [ %83, %85 ], [ %102, %98 ]
+  %.679.us147 = phi i32 [ %103, %98 ], [ %.275.us139, %85 ]
+  %.6.us148 = phi ptr [ %102, %98 ], [ %83, %85 ]
   %105 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %82
   %106 = load i8, ptr %105, align 1, !tbaa !16
   %107 = trunc i32 %.679.us147 to i8
@@ -531,8 +531,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br label %30
 
 30:                                               ; preds = %24, %23
-  %.4.us = phi ptr [ %21, %23 ], [ %28, %24 ]
-  %.147.us = phi i32 [ %.046.us, %23 ], [ %29, %24 ]
+  %.4.us = phi ptr [ %28, %24 ], [ %21, %23 ]
+  %.147.us = phi i32 [ %29, %24 ], [ %.046.us, %23 ]
   %31 = trunc i32 %.147.us to i8
   %32 = and i8 %31, 63
   %33 = or disjoint i8 %32, -128
@@ -542,8 +542,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br label %36
 
 36:                                               ; preds = %30, %23
-  %.5.us = phi ptr [ %21, %23 ], [ %34, %30 ]
-  %.248.us = phi i32 [ %.046.us, %23 ], [ %35, %30 ]
+  %.5.us = phi ptr [ %34, %30 ], [ %21, %23 ]
+  %.248.us = phi i32 [ %35, %30 ], [ %.046.us, %23 ]
   %37 = trunc i32 %.248.us to i8
   %38 = and i8 %37, 63
   %39 = or disjoint i8 %38, -128
@@ -553,8 +553,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br label %42
 
 42:                                               ; preds = %36, %23
-  %.6.us = phi ptr [ %21, %23 ], [ %40, %36 ]
-  %.349.us = phi i32 [ %.046.us, %23 ], [ %41, %36 ]
+  %.6.us = phi ptr [ %40, %36 ], [ %21, %23 ]
+  %.349.us = phi i32 [ %41, %36 ], [ %.046.us, %23 ]
   %43 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %20
   %44 = load i8, ptr %43, align 1, !tbaa !16
   %45 = trunc i32 %.349.us to i8
@@ -621,8 +621,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br label %72
 
 72:                                               ; preds = %66, %65
-  %.4 = phi ptr [ %63, %65 ], [ %70, %66 ]
-  %.147 = phi i32 [ %.046, %65 ], [ %71, %66 ]
+  %.4 = phi ptr [ %70, %66 ], [ %63, %65 ]
+  %.147 = phi i32 [ %71, %66 ], [ %.046, %65 ]
   %73 = trunc i32 %.147 to i8
   %74 = and i8 %73, 63
   %75 = or disjoint i8 %74, -128
@@ -632,8 +632,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br label %78
 
 78:                                               ; preds = %72, %65
-  %.5 = phi ptr [ %63, %65 ], [ %76, %72 ]
-  %.248 = phi i32 [ %.046, %65 ], [ %77, %72 ]
+  %.5 = phi ptr [ %76, %72 ], [ %63, %65 ]
+  %.248 = phi i32 [ %77, %72 ], [ %.046, %65 ]
   %79 = trunc i32 %.248 to i8
   %80 = and i8 %79, 63
   %81 = or disjoint i8 %80, -128
@@ -646,8 +646,8 @@ default.unreachable90:                            ; preds = %23, %65
   unreachable
 
 84:                                               ; preds = %65, %78
-  %.6 = phi ptr [ %63, %65 ], [ %82, %78 ]
-  %.349 = phi i32 [ %.046, %65 ], [ %83, %78 ]
+  %.6 = phi ptr [ %82, %78 ], [ %63, %65 ]
+  %.349 = phi i32 [ %83, %78 ], [ %.046, %65 ]
   %85 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %62
   %86 = load i8, ptr %85, align 1, !tbaa !16
   %87 = trunc i32 %.349 to i8
@@ -713,14 +713,14 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvmL11isLegalUTF8
   br i1 %or.cond, label %28, label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %4, %2 ], [ %6, %5 ]
+  %.0 = phi ptr [ %6, %5 ], [ %4, %2 ]
   %9 = getelementptr inbounds i8, ptr %.0, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !16
   %or.cond5 = icmp sgt i8 %10, -65
   br i1 %or.cond5, label %28, label %11
 
 11:                                               ; preds = %8, %2
-  %.1 = phi ptr [ %4, %2 ], [ %9, %8 ]
+  %.1 = phi ptr [ %9, %8 ], [ %4, %2 ]
   %12 = getelementptr inbounds i8, ptr %.1, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !16
   %or.cond8 = icmp sgt i8 %13, -65
@@ -894,9 +894,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %29
 
 29:                                               ; preds = %25, %24
-  %30 = phi i8 [ %12, %24 ], [ %.pre, %25 ]
-  %.475 = phi ptr [ %.071106, %24 ], [ %26, %25 ]
-  %.165 = phi i32 [ 0, %24 ], [ %28, %25 ]
+  %30 = phi i8 [ %.pre, %25 ], [ %12, %24 ]
+  %.475 = phi ptr [ %26, %25 ], [ %.071106, %24 ]
+  %.165 = phi i32 [ %28, %25 ], [ 0, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %.475, i64 1
   %32 = zext i8 %30 to i32
   %33 = add nuw nsw i32 %.165, %32
@@ -905,9 +905,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %35
 
 35:                                               ; preds = %29, %24
-  %36 = phi i8 [ %12, %24 ], [ %.pre128, %29 ]
-  %.576 = phi ptr [ %.071106, %24 ], [ %31, %29 ]
-  %.266 = phi i32 [ 0, %24 ], [ %34, %29 ]
+  %36 = phi i8 [ %.pre128, %29 ], [ %12, %24 ]
+  %.576 = phi ptr [ %31, %29 ], [ %.071106, %24 ]
+  %.266 = phi i32 [ %34, %29 ], [ 0, %24 ]
   %37 = getelementptr inbounds nuw i8, ptr %.576, i64 1
   %38 = zext i8 %36 to i32
   %39 = add nuw nsw i32 %.266, %38
@@ -916,9 +916,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %41
 
 41:                                               ; preds = %35, %24
-  %42 = phi i8 [ %12, %24 ], [ %.pre129, %35 ]
-  %.6 = phi ptr [ %.071106, %24 ], [ %37, %35 ]
-  %.3 = phi i32 [ 0, %24 ], [ %40, %35 ]
+  %42 = phi i8 [ %.pre129, %35 ], [ %12, %24 ]
+  %.6 = phi ptr [ %37, %35 ], [ %.071106, %24 ]
+  %.3 = phi i32 [ %40, %35 ], [ 0, %24 ]
   %43 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %44 = zext i8 %42 to i32
   %45 = add nuw nsw i32 %.3, %44
@@ -927,9 +927,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %47
 
 47:                                               ; preds = %41, %24
-  %48 = phi i8 [ %12, %24 ], [ %.pre130, %41 ]
-  %.7 = phi ptr [ %.071106, %24 ], [ %43, %41 ]
-  %.4 = phi i32 [ 0, %24 ], [ %46, %41 ]
+  %48 = phi i8 [ %.pre130, %41 ], [ %12, %24 ]
+  %.7 = phi ptr [ %43, %41 ], [ %.071106, %24 ]
+  %.4 = phi i32 [ %46, %41 ], [ 0, %24 ]
   %49 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %50 = zext i8 %48 to i32
   %51 = add i32 %.4, %50
@@ -938,9 +938,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %53
 
 53:                                               ; preds = %47, %24
-  %54 = phi i8 [ %12, %24 ], [ %.pre131, %47 ]
-  %.8 = phi ptr [ %.071106, %24 ], [ %49, %47 ]
-  %.5 = phi i32 [ 0, %24 ], [ %52, %47 ]
+  %54 = phi i8 [ %.pre131, %47 ], [ %12, %24 ]
+  %.8 = phi ptr [ %49, %47 ], [ %.071106, %24 ]
+  %.5 = phi i32 [ %52, %47 ], [ 0, %24 ]
   %55 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %56 = zext i8 %54 to i32
   %57 = add i32 %.5, %56
@@ -1332,9 +1332,9 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   br label %144
 
 144:                                              ; preds = %140, %139
-  %145 = phi i8 [ %14, %139 ], [ %.pre, %140 ]
-  %.474 = phi ptr [ %.070101, %139 ], [ %141, %140 ]
-  %.163 = phi i32 [ 0, %139 ], [ %143, %140 ]
+  %145 = phi i8 [ %.pre, %140 ], [ %14, %139 ]
+  %.474 = phi ptr [ %141, %140 ], [ %.070101, %139 ]
+  %.163 = phi i32 [ %143, %140 ], [ 0, %139 ]
   %146 = getelementptr inbounds nuw i8, ptr %.474, i64 1
   %147 = zext i8 %145 to i32
   %148 = add nuw nsw i32 %.163, %147
@@ -1343,9 +1343,9 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   br label %150
 
 150:                                              ; preds = %144, %139
-  %151 = phi i8 [ %14, %139 ], [ %.pre119, %144 ]
-  %.575 = phi ptr [ %.070101, %139 ], [ %146, %144 ]
-  %.264 = phi i32 [ 0, %139 ], [ %149, %144 ]
+  %151 = phi i8 [ %.pre119, %144 ], [ %14, %139 ]
+  %.575 = phi ptr [ %146, %144 ], [ %.070101, %139 ]
+  %.264 = phi i32 [ %149, %144 ], [ 0, %139 ]
   %152 = getelementptr inbounds nuw i8, ptr %.575, i64 1
   %153 = zext i8 %151 to i32
   %154 = add nuw nsw i32 %.264, %153
@@ -1354,9 +1354,9 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   br label %156
 
 156:                                              ; preds = %150, %139
-  %157 = phi i8 [ %14, %139 ], [ %.pre120, %150 ]
-  %.6 = phi ptr [ %.070101, %139 ], [ %152, %150 ]
-  %.365 = phi i32 [ 0, %139 ], [ %155, %150 ]
+  %157 = phi i8 [ %.pre120, %150 ], [ %14, %139 ]
+  %.6 = phi ptr [ %152, %150 ], [ %.070101, %139 ]
+  %.365 = phi i32 [ %155, %150 ], [ 0, %139 ]
   %158 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %159 = zext i8 %157 to i32
   %160 = add nuw nsw i32 %.365, %159
@@ -1365,9 +1365,9 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   br label %162
 
 162:                                              ; preds = %156, %139
-  %163 = phi i8 [ %14, %139 ], [ %.pre121, %156 ]
-  %.7 = phi ptr [ %.070101, %139 ], [ %158, %156 ]
-  %.4 = phi i32 [ 0, %139 ], [ %161, %156 ]
+  %163 = phi i8 [ %.pre121, %156 ], [ %14, %139 ]
+  %.7 = phi ptr [ %158, %156 ], [ %.070101, %139 ]
+  %.4 = phi i32 [ %161, %156 ], [ 0, %139 ]
   %164 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %165 = zext i8 %163 to i32
   %166 = add i32 %.4, %165
@@ -1376,9 +1376,9 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   br label %168
 
 168:                                              ; preds = %162, %139
-  %169 = phi i8 [ %14, %139 ], [ %.pre122, %162 ]
-  %.8 = phi ptr [ %.070101, %139 ], [ %164, %162 ]
-  %.5 = phi i32 [ 0, %139 ], [ %167, %162 ]
+  %169 = phi i8 [ %.pre122, %162 ], [ %14, %139 ]
+  %.8 = phi ptr [ %164, %162 ], [ %.070101, %139 ]
+  %.5 = phi i32 [ %167, %162 ], [ 0, %139 ]
   %170 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %171 = zext i8 %169 to i32
   %172 = add i32 %.5, %171

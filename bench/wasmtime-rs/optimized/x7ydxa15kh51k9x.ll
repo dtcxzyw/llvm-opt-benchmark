@@ -319,8 +319,8 @@ default.unreachable:                              ; preds = %1
   br label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit
 
 _ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit: ; preds = %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i, %10, %18, %22
-  %.0.i3.i = phi i64 [ 1, %22 ], [ %4, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ 1, %18 ], [ 1, %10 ]
-  %.0.i1.i = phi i64 [ %.0.i.i7.i.i, %22 ], [ %.0.i.i.i.i, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ %..i4.i.i, %18 ], [ %.0.i.i.i, %10 ]
+  %.0.i3.i = phi i64 [ 1, %10 ], [ 1, %18 ], [ %4, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ 1, %22 ]
+  %.0.i1.i = phi i64 [ %.0.i.i.i, %10 ], [ %..i4.i.i, %18 ], [ %.0.i.i.i.i, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ %.0.i.i7.i.i, %22 ]
   %28 = mul i64 %.0.i1.i, %.0.i3.i
   %29 = lshr i64 %28, 3
   ret i64 %29
@@ -423,7 +423,7 @@ default.unreachable4:                             ; preds = %1
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
 _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %29, %31, %33, %34, %35, %36
-  %.0.i.i = phi i16 [ 122, %36 ], [ 121, %35 ], [ 120, %34 ], [ 119, %33 ], [ %..i.i, %29 ], [ 118, %31 ]
+  %.0.i.i = phi i16 [ 119, %33 ], [ 120, %34 ], [ 121, %35 ], [ 122, %36 ], [ %..i.i, %29 ], [ 118, %31 ]
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 false)
   %38 = trunc nuw nsw i64 %37 to i16
   %39 = shl nuw nsw i16 %38, 4
@@ -470,7 +470,7 @@ _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.ex
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
 _ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %48, %51, %53, %54, %55, %56
-  %.0.i.i2 = phi i16 [ 1258, %56 ], [ 1257, %55 ], [ 1256, %54 ], [ 1255, %53 ], [ %50, %48 ], [ 1254, %51 ]
+  %.0.i.i2 = phi i16 [ 1255, %53 ], [ 1256, %54 ], [ 1257, %55 ], [ 1258, %56 ], [ %50, %48 ], [ 1254, %51 ]
   %57 = load i64, ptr %42, align 8, !noundef !4
   %58 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %57, i1 false)
   %59 = trunc nuw nsw i64 %58 to i16
@@ -479,7 +479,7 @@ _ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
 _ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %16, %15, %14, %13, %11, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %17
-  %.0 = phi i16 [ %61, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %40, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %..i1, %17 ], [ 122, %16 ], [ 121, %15 ], [ 120, %14 ], [ 119, %13 ], [ %..i, %9 ], [ 118, %11 ]
+  %.0 = phi i16 [ %..i1, %17 ], [ %40, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %61, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ 119, %13 ], [ 120, %14 ], [ 121, %15 ], [ 122, %16 ], [ %..i, %9 ], [ 118, %11 ]
   ret i16 %.0
 }
 
@@ -708,7 +708,7 @@ default.unreachable1:                             ; preds = %2
   br label %56
 
 56:                                               ; preds = %48, %40, %34, %"_ZN84_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$as$u20$core..fmt..Display$GT$3fmt17h0ab5941d7d06aaf5E.exit"
-  %.0.in = phi i1 [ %55, %48 ], [ %47, %40 ], [ %39, %34 ], [ %33, %"_ZN84_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$as$u20$core..fmt..Display$GT$3fmt17h0ab5941d7d06aaf5E.exit" ]
+  %.0.in = phi i1 [ %33, %"_ZN84_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$as$u20$core..fmt..Display$GT$3fmt17h0ab5941d7d06aaf5E.exit" ], [ %39, %34 ], [ %47, %40 ], [ %55, %48 ]
   ret i1 %.0.in
 }
 
@@ -777,7 +777,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_f
   br label %9
 
 9:                                                ; preds = %1, %8, %7, %6, %5
-  %.0 = phi i8 [ -128, %8 ], [ 64, %7 ], [ 32, %6 ], [ 16, %5 ], [ 8, %1 ]
+  %.0 = phi i8 [ 16, %5 ], [ 32, %6 ], [ 64, %7 ], [ -128, %8 ], [ 8, %1 ]
   %10 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.0, 1
   ret { i1, i8 } %10
 }

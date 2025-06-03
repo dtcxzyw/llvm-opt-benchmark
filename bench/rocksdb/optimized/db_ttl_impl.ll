@@ -10170,7 +10170,7 @@ define linkonce_odr noundef i32 @_ZNK7rocksdb16CompactionFilter8FilterV2EiRKNS_5
   br label %23
 
 23:                                               ; preds = %7, %17, %9
-  %.1 = phi i32 [ %22, %17 ], [ %.0, %9 ], [ 0, %7 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %22, %17 ], [ 0, %7 ]
   ret i32 %.1
 }
 

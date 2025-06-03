@@ -358,11 +358,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit154
 
 56:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit102, %_ZNSt6vectorIdSaIdEED2Ev.exit87
-  %57 = phi double [ 0x3FEC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ], [ 0x3FFC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ]
-  %58 = phi double [ 0x3FEC5BF89425E745, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ], [ 0x3FFC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ]
-  %.sroa.0240.0 = phi ptr [ %36, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ], [ %20, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ]
-  %.sroa.0246.0 = phi ptr [ %35, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ], [ %19, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ]
-  %.sroa.0254.0 = phi ptr [ %34, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ], [ %18, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ]
+  %57 = phi double [ 0x3FFC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ], [ 0x3FEC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ]
+  %58 = phi double [ 0x3FFC5BF89176B569, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ], [ 0x3FEC5BF89425E745, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ]
+  %.sroa.0240.0 = phi ptr [ %20, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ], [ %36, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ]
+  %.sroa.0246.0 = phi ptr [ %19, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ], [ %35, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ]
+  %.sroa.0254.0 = phi ptr [ %18, %_ZNSt6vectorIdSaIdEED2Ev.exit87 ], [ %34, %_ZNSt6vectorIdSaIdEED2Ev.exit102 ]
   %59 = sext i32 %2 to i64
   %60 = icmp slt i32 %2, 0
   br i1 %60, label %61, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -590,20 +590,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit150.thread308:       ; preds = %127, %129, %131
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0240.0) #17
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit152.thread
 
-_ZNSt6vectorIdSaIdEED2Ev.exit152.thread:          ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308, %25, %41
-  %.sroa.0246.1267306 = phi ptr [ %.sroa.0246.0, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %35, %41 ], [ %19, %25 ]
-  %.sroa.0254.1268305 = phi ptr [ %.sroa.0254.0, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %34, %41 ], [ %18, %25 ]
-  %.pn75.pn269304 = phi { ptr, i32 } [ %.pn75.pn281.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %42, %41 ], [ %26, %25 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit152.thread:          ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308, %41, %25
+  %.sroa.0246.1267306 = phi ptr [ %.sroa.0246.0, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %19, %25 ], [ %35, %41 ]
+  %.sroa.0254.1268305 = phi ptr [ %.sroa.0254.0, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %18, %25 ], [ %34, %41 ]
+  %.pn75.pn269304 = phi { ptr, i32 } [ %.pn75.pn281.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit150.thread308 ], [ %26, %25 ], [ %42, %41 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0246.1267306) #17
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit152
 
-_ZNSt6vectorIdSaIdEED2Ev.exit152:                 ; preds = %39, %23, %_ZNSt6vectorIdSaIdEED2Ev.exit152.thread
+_ZNSt6vectorIdSaIdEED2Ev.exit152:                 ; preds = %23, %39, %_ZNSt6vectorIdSaIdEED2Ev.exit152.thread
   %.pn75.pn269294326 = phi { ptr, i32 } [ %.pn75.pn269304, %_ZNSt6vectorIdSaIdEED2Ev.exit152.thread ], [ %24, %23 ], [ %40, %39 ]
   %.sroa.0254.1268295325 = phi ptr [ %.sroa.0254.1268305, %_ZNSt6vectorIdSaIdEED2Ev.exit152.thread ], [ %18, %23 ], [ %34, %39 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0254.1268295325) #17
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit154
 
-_ZNSt6vectorIdSaIdEED2Ev.exit154:                 ; preds = %21, %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt6vectorIdSaIdEED2Ev.exit152
+_ZNSt6vectorIdSaIdEED2Ev.exit154:                 ; preds = %37, %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt6vectorIdSaIdEED2Ev.exit152
   %.pn75.pn269294327 = phi { ptr, i32 } [ %.pn75.pn269294326, %_ZNSt6vectorIdSaIdEED2Ev.exit152 ], [ %38, %37 ], [ %22, %21 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %149 = load ptr, ptr %8, align 8, !tbaa !46
   %.not.i.i.i155 = icmp eq ptr %149, null

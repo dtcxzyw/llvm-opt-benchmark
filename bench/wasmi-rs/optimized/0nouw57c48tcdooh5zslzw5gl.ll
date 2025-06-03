@@ -317,7 +317,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$wast..core..module..ModuleField$u20$as$u20$core..fmt..Debug$GT$3fmt17h6c95498ac5da5762E.exit"
 
 "_ZN68_$LT$wast..core..module..ModuleField$u20$as$u20$core..fmt..Debug$GT$3fmt17h6c95498ac5da5762E.exit": ; preds = %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43
-  %.sroa.0.0.in.i = phi i1 [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.sroa.0.0.in.i = phi i1 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -553,7 +553,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN65_$LT$wast..core..import..ItemKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h67876f8b53bd92cfE.exit"
 
 "_ZN65_$LT$wast..core..import..ItemKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h67876f8b53bd92cfE.exit": ; preds = %15, %18, %20, %23, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %18 ], [ %17, %15 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %15 ], [ %19, %18 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1346,7 +1346,7 @@ default.unreachable:                              ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10, %8, %6
-  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   ret i1 %.sroa.0.0.in
 }
 

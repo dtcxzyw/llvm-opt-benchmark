@@ -4724,7 +4724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %8, %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %50, %46
-  %.0 = phi i1 [ %.0.i, %50 ], [ %49, %46 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %1 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ %49, %46 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.0.i, %50 ], [ true, %1 ], [ false, %8 ], [ false, %11 ]
   ret i1 %.0
 }
 

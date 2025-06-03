@@ -5318,7 +5318,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #33
   ret ptr %.sroa.0.150
 
-.thread56:                                        ; preds = %35, %33, %30, %28, %18, %16
+.thread56:                                        ; preds = %18, %16, %30, %28, %35, %33
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EED2Ev.exit40

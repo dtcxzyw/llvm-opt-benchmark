@@ -491,7 +491,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_server_t22next_handshake_com
   br label %11
 
 11:                                               ; preds = %9, %8, %6, %5
-  %.0 = phi i32 [ -1, %9 ], [ 0, %8 ], [ 0, %6 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %5 ], [ 0, %6 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -611,7 +611,7 @@ define noundef range(i32 -1, 1) i32 @_ZTv0_n32_N3zmq14plain_server_t22next_hands
   br label %_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE.exit
 
 _ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE.exit: ; preds = %9, %10, %12, %13
-  %.0.i = phi i32 [ -1, %13 ], [ 0, %12 ], [ 0, %10 ], [ 0, %9 ]
+  %.0.i = phi i32 [ -1, %13 ], [ 0, %9 ], [ 0, %10 ], [ 0, %12 ]
   ret i32 %.0.i
 }
 
@@ -644,7 +644,7 @@ define noundef i32 @_ZN3zmq14plain_server_t25process_handshake_commandEPNS_5msg_
   br label %37
 
 15:                                               ; preds = %7, %5
-  %.0 = phi i32 [ %8, %7 ], [ %6, %5 ]
+  %.0 = phi i32 [ %6, %5 ], [ %8, %7 ]
   %16 = icmp eq i32 %.0, 0
   br i1 %16, label %17, label %37
 

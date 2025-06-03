@@ -2286,8 +2286,8 @@ define dso_local i64 @_ZNK4llvm15TargetInstrInfo28getPatchpointUnfoldableRangeER
   unreachable
 
 46:                                               ; preds = %21, %8, %7
-  %.sroa.022.0 = phi i64 [ %44, %21 ], [ 0, %8 ], [ 0, %7 ]
-  %.sroa.423.0 = phi i32 [ %43, %21 ], [ %20, %8 ], [ 2, %7 ]
+  %.sroa.022.0 = phi i64 [ 0, %7 ], [ 0, %8 ], [ %44, %21 ]
+  %.sroa.423.0 = phi i32 [ 2, %7 ], [ %20, %8 ], [ %43, %21 ]
   %.sroa.423.0.insert.ext = zext i32 %.sroa.423.0 to i64
   %.sroa.423.0.insert.shift = shl nuw i64 %.sroa.423.0.insert.ext, 32
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.423.0.insert.shift, %.sroa.022.0
@@ -4316,10 +4316,10 @@ _ZL16mustSwapOperandsj.exit:                      ; preds = %_ZNK4llvm15TargetIn
   unreachable
 
 137:                                              ; preds = %_ZL16mustSwapOperandsj.exit, %135, %134, %133
-  %.0109.in = phi ptr [ %43, %135 ], [ %52, %134 ], [ %43, %133 ], [ %52, %_ZL16mustSwapOperandsj.exit ]
-  %.0108.in = phi ptr [ %52, %135 ], [ %43, %134 ], [ %52, %133 ], [ %43, %_ZL16mustSwapOperandsj.exit ]
-  %.0107.in = phi ptr [ %37, %135 ], [ %37, %134 ], [ %48, %133 ], [ %48, %_ZL16mustSwapOperandsj.exit ]
-  %.0.in = phi ptr [ %48, %135 ], [ %48, %134 ], [ %37, %133 ], [ %37, %_ZL16mustSwapOperandsj.exit ]
+  %.0109.in = phi ptr [ %43, %133 ], [ %52, %134 ], [ %43, %135 ], [ %52, %_ZL16mustSwapOperandsj.exit ]
+  %.0108.in = phi ptr [ %52, %133 ], [ %43, %134 ], [ %52, %135 ], [ %43, %_ZL16mustSwapOperandsj.exit ]
+  %.0107.in = phi ptr [ %48, %133 ], [ %37, %134 ], [ %37, %135 ], [ %48, %_ZL16mustSwapOperandsj.exit ]
+  %.0.in = phi ptr [ %37, %133 ], [ %48, %134 ], [ %48, %135 ], [ %37, %_ZL16mustSwapOperandsj.exit ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !181
   %.0107 = load i32, ptr %.0107.in, align 4, !tbaa !181
   %.0108 = load i32, ptr %.0108.in, align 4, !tbaa !181
@@ -7713,7 +7713,7 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo33mergeOutliningCandidateAttrib
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.sroa.043.1.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.sroa.043.1.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = getelementptr i8, ptr %.sroa.043.1.i.i.i.i.i, i64 24
   %.val.i28.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !560
   %53 = getelementptr i8, ptr %.val.i28.i.i.i.i.i, i64 32
@@ -7727,7 +7727,7 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo33mergeOutliningCandidateAttrib
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i.i
-  %.sroa.043.2.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %55 ]
+  %.sroa.043.2.i.i.i.i.i = phi ptr [ %56, %55 ], [ %.sroa.043.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = getelementptr i8, ptr %.sroa.043.2.i.i.i.i.i, i64 24
   %.val.i31.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !560
   %59 = getelementptr i8, ptr %.val.i31.i.i.i.i.i, i64 32

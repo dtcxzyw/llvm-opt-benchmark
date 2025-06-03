@@ -604,7 +604,7 @@ define noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 
   unreachable
 
 20:                                               ; preds = %8, %6, %2, %13, %9
-  %.0 = phi i32 [ %17, %13 ], [ %12, %9 ], [ -1, %2 ], [ 1, %6 ], [ %3, %8 ]
+  %.0 = phi i32 [ %12, %9 ], [ %17, %13 ], [ -1, %2 ], [ 1, %6 ], [ %3, %8 ]
   ret i32 %.0
 }
 

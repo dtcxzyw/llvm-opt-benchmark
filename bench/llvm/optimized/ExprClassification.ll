@@ -879,7 +879,7 @@ _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit435: ; preds =
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit435, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit, %231, %225, %242, %257, %253, %_ZNK5clang12CompoundStmt9body_backEv.exit, %110, %115, %287, %216, %207, %195, %158, %22, %18, %278, %269, %237, %219, %210, %202, %198, %163, %161, %135, %129, %123, %119, %101, %99, %92, %35, %7
-  %.0 = phi i32 [ %11, %7 ], [ %39, %35 ], [ %98, %92 ], [ %100, %99 ], [ %102, %101 ], [ %122, %119 ], [ %128, %123 ], [ %134, %129 ], [ %140, %135 ], [ %162, %161 ], [ %165, %163 ], [ %201, %198 ], [ %206, %202 ], [ %215, %210 ], [ %224, %219 ], [ %239, %237 ], [ %273, %269 ], [ %279, %278 ], [ %.0.i, %22 ], [ 0, %18 ], [ 11, %158 ], [ 11, %195 ], [ 11, %207 ], [ 11, %216 ], [ %.155, %287 ], [ %114, %110 ], [ %., %115 ], [ %259, %257 ], [ 11, %253 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %242 ], [ %236, %231 ], [ 11, %225 ], [ %.0.ph, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit435 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
+  %.0 = phi i32 [ %279, %278 ], [ %273, %269 ], [ %239, %237 ], [ %224, %219 ], [ %215, %210 ], [ %206, %202 ], [ %201, %198 ], [ %165, %163 ], [ %162, %161 ], [ %140, %135 ], [ %134, %129 ], [ %128, %123 ], [ %122, %119 ], [ %102, %101 ], [ %98, %92 ], [ %100, %99 ], [ %39, %35 ], [ %11, %7 ], [ %.0.i, %22 ], [ 0, %18 ], [ 11, %158 ], [ 11, %195 ], [ 11, %207 ], [ 11, %216 ], [ %.155, %287 ], [ %114, %110 ], [ %., %115 ], [ %259, %257 ], [ 11, %253 ], [ 11, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ 11, %242 ], [ %236, %231 ], [ 11, %225 ], [ %.0.ph, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit ], [ 11, %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit435 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -1017,7 +1017,7 @@ switch.lookup:                                    ; preds = %3
   br label %19
 
 19:                                               ; preds = %switch.lookup, %3, %3, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 14, %14 ], [ 16, %13 ], [ 15, %12 ], [ 13, %11 ], [ 12, %10 ], [ 3, %9 ], [ 2, %8 ], [ 1, %7 ], [ %17, %15 ], [ 4, %3 ], [ 4, %3 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %17, %15 ], [ 1, %7 ], [ 2, %8 ], [ 3, %9 ], [ 12, %10 ], [ 13, %11 ], [ 15, %12 ], [ 16, %13 ], [ 14, %14 ], [ 4, %3 ], [ 4, %3 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   ret i32 %.0
 }
@@ -1628,7 +1628,7 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread6: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %35, %.lr.ph.i
-  %.1.i.i = phi ptr [ %31, %.lr.ph.i ], [ %36, %35 ]
+  %.1.i.i = phi ptr [ %36, %35 ], [ %31, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %38 = load i24, ptr %37, align 16
   %39 = and i24 %38, 1048576

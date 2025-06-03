@@ -2942,7 +2942,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h80a90226c33f37e5E(p
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i: ; preds = %59, %57, %43, %.preheader
-  %.sroa.0.0.i.i.i.i = phi i1 [ %37, %.preheader ], [ %58, %57 ], [ %72, %59 ], [ %56, %43 ]
+  %.sroa.0.0.i.i.i.i = phi i1 [ %37, %.preheader ], [ %56, %43 ], [ %58, %57 ], [ %72, %59 ]
   %..i = select i1 %.sroa.0.0.i.i.i.i, ptr %19, ptr %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %..i, i64 24, i1 false), !noalias !788
   %73 = xor i1 %.sroa.0.0.i.i.i.i, true
@@ -3047,7 +3047,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i: ; preds = %59, 
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i20
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i20: ; preds = %119, %117, %103, %.lr.ph.i
-  %.sroa.0.0.i.i.i.i21 = phi i1 [ %97, %.lr.ph.i ], [ %118, %117 ], [ %132, %119 ], [ %116, %103 ]
+  %.sroa.0.0.i.i.i.i21 = phi i1 [ %97, %.lr.ph.i ], [ %116, %103 ], [ %118, %117 ], [ %132, %119 ]
   %133 = xor i1 %.sroa.0.0.i.i.i.i21, true
   %.sroa.05.0.i = select i1 %.sroa.0.0.i.i.i.i21, ptr %.sroa.0.02.i, ptr %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0.i, i64 24, i1 false), !noalias !823

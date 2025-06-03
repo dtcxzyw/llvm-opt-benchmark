@@ -145,7 +145,7 @@ wait_for_process.exit.i:                          ; preds = %57, %19
   br label %spawn_and_wait.exit
 
 spawn_and_wait.exit:                              ; preds = %14, %15, %wait_for_process.exit.i
-  %.0.i = phi i32 [ %66, %wait_for_process.exit.i ], [ 70, %15 ], [ 71, %14 ]
+  %.0.i = phi i32 [ %66, %wait_for_process.exit.i ], [ 71, %14 ], [ 70, %15 ]
   ret i32 %.0.i
 }
 

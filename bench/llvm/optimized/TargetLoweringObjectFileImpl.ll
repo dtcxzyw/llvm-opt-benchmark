@@ -6453,9 +6453,9 @@ _ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.e
 40:                                               ; preds = %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit
   unreachable
 
-41:                                               ; preds = %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit, %39, %38, %37, %36
-  %.sroa.7.0.i.ph = phi i64 [ 2, %36 ], [ 1, %37 ], [ 1, %38 ], [ 3, %39 ], [ 2, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ], [ 2, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ]
-  %.sroa.0.0.i.ph = phi ptr [ @.str.122, %36 ], [ @.str.123, %37 ], [ @.str.124, %38 ], [ @.str.125, %39 ], [ @.str.121, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ], [ @.str.121, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ]
+41:                                               ; preds = %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit, %36, %37, %38, %39
+  %.sroa.7.0.i.ph = phi i64 [ 3, %39 ], [ 1, %38 ], [ 1, %37 ], [ 2, %36 ], [ 2, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ], [ 2, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ]
+  %.sroa.0.0.i.ph = phi ptr [ @.str.125, %39 ], [ @.str.124, %38 ], [ @.str.123, %37 ], [ @.str.122, %36 ], [ @.str.121, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ], [ @.str.121, %_ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.i.ph, i64 %.sroa.7.0.i.ph, i1 false)
   br label %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit
 
@@ -6886,9 +6886,9 @@ _ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit: ; preds = %91
   %101 = call fastcc noundef ptr @_ZL18getComdatGVForCOFFPKN4llvm11GlobalValueE(ptr noundef nonnull %1)
   br label %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread
 
-_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread: ; preds = %99, %98, %97, %96, %93, %100, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit
-  %102 = phi i32 [ 5, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit ], [ 3, %99 ], [ 1, %98 ], [ 6, %97 ], [ 4, %96 ], [ 2, %93 ], [ 0, %100 ]
-  %.055 = phi ptr [ %101, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit ], [ %1, %99 ], [ %1, %98 ], [ %1, %97 ], [ %1, %96 ], [ %1, %93 ], [ %1, %100 ]
+_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread: ; preds = %96, %97, %98, %99, %93, %100, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit
+  %102 = phi i32 [ 5, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit ], [ 4, %96 ], [ 6, %97 ], [ 1, %98 ], [ 3, %99 ], [ 2, %93 ], [ 0, %100 ]
+  %.055 = phi ptr [ %101, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit ], [ %1, %96 ], [ %1, %97 ], [ %1, %98 ], [ %1, %99 ], [ %1, %93 ], [ %1, %100 ]
   %103 = getelementptr inbounds nuw i8, ptr %.055, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = and i32 %104, 15
@@ -9137,7 +9137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   br label %183
 
 183:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %181
-  %.1 = phi ptr [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %182, %181 ]
+  %.1 = phi ptr [ %182, %181 ], [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ]
   ret ptr %.1
 }
 
@@ -11007,7 +11007,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit79:        ; preds = %152, %166
   unreachable
 
 171:                                              ; preds = %34, %167, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit79, %144, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit74, %120, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit70, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit67, %72, %66, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit64
-  %.1 = phi ptr [ %30, %34 ], [ %56, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit64 ], [ %71, %66 ], [ %74, %72 ], [ %96, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit67 ], [ %116, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit70 ], [ %122, %120 ], [ %140, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit74 ], [ %146, %144 ], [ %163, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit79 ], [ %169, %167 ]
+  %.1 = phi ptr [ %56, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit64 ], [ %71, %66 ], [ %74, %72 ], [ %96, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit67 ], [ %116, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit70 ], [ %122, %120 ], [ %140, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit74 ], [ %146, %144 ], [ %163, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit79 ], [ %169, %167 ], [ %30, %34 ]
   ret ptr %.1
 }
 
@@ -11158,7 +11158,7 @@ define dso_local noundef zeroext range(i8 2, 112) i8 @_ZN4llvm29TargetLoweringOb
   unreachable
 
 9:                                                ; preds = %1, %1, %6, %5
-  %.0 = phi i8 [ 111, %6 ], [ 2, %5 ], [ 107, %1 ], [ 107, %1 ]
+  %.0 = phi i8 [ 2, %5 ], [ 111, %6 ], [ 107, %1 ], [ 107, %1 ]
   ret i8 %.0
 }
 

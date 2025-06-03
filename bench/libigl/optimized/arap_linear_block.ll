@@ -175,8 +175,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %25, %_ZNSt1
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit221
 
 41:                                               ; preds = %.invoke, %56, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107, %43, %31, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %18
-  %.sroa.40.0 = phi ptr [ %.sroa.40.9, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ %.sroa.40.8, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ null, %.invoke ]
-  %.sroa.0357.0 = phi ptr [ %.sroa.19.4, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ %.sroa.19.3, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ null, %.invoke ]
+  %.sroa.40.0 = phi ptr [ %.sroa.40.8, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ %.sroa.40.9, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ null, %.invoke ]
+  %.sroa.0357.0 = phi ptr [ %.sroa.19.3, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ %.sroa.19.4, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ null, %.invoke ]
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %201
@@ -257,11 +257,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit118: ; preds = %50, %_ZN
   br label %70
 
 70:                                               ; preds = %33, %58, %16
-  %.sroa.0.0 = phi ptr [ null, %16 ], [ %54, %58 ], [ %29, %33 ]
-  %71 = phi i1 [ false, %16 ], [ true, %58 ], [ true, %33 ]
-  %.sroa.30.0 = phi i64 [ 0, %16 ], [ 6, %58 ], [ 3, %33 ]
-  %.sroa.40.1 = phi ptr [ null, %16 ], [ %.sroa.40.9, %58 ], [ %.sroa.40.8, %33 ]
-  %.sroa.19.0 = phi ptr [ null, %16 ], [ %.sroa.19.4, %58 ], [ %.sroa.19.3, %33 ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %29, %33 ], [ %54, %58 ]
+  %71 = phi i1 [ false, %16 ], [ true, %33 ], [ true, %58 ]
+  %.sroa.30.0 = phi i64 [ 0, %16 ], [ 3, %33 ], [ 6, %58 ]
+  %.sroa.40.1 = phi ptr [ null, %16 ], [ %.sroa.40.8, %33 ], [ %.sroa.40.9, %58 ]
+  %.sroa.19.0 = phi ptr [ null, %16 ], [ %.sroa.19.3, %33 ], [ %.sroa.19.4, %58 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -839,8 +839,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %24, %_ZNSt1
   br label %67
 
 38:                                               ; preds = %.invoke, %53, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122, %40, %30, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %17
-  %.sroa.52.0 = phi ptr [ %.sroa.52.12, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ %.sroa.52.11, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
-  %.sroa.0434.0 = phi ptr [ %.sroa.23.6, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ %.sroa.23.5, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
+  %.sroa.52.0 = phi ptr [ %.sroa.52.11, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.52.12, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ null, %.invoke ]
+  %.sroa.0434.0 = phi ptr [ %.sroa.23.5, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.23.6, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ null, %.invoke ]
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %264
@@ -921,11 +921,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit133: ; preds = %47, %_ZN
   br label %67
 
 67:                                               ; preds = %32, %55, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %51, %55 ], [ %28, %32 ]
-  %68 = phi i1 [ false, %4 ], [ true, %55 ], [ true, %32 ]
-  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 6, %55 ], [ 3, %32 ]
-  %.sroa.52.1 = phi ptr [ null, %4 ], [ %.sroa.52.12, %55 ], [ %.sroa.52.11, %32 ]
-  %.sroa.23.0 = phi ptr [ null, %4 ], [ %.sroa.23.6, %55 ], [ %.sroa.23.5, %32 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %28, %32 ], [ %51, %55 ]
+  %68 = phi i1 [ false, %4 ], [ true, %32 ], [ true, %55 ]
+  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 3, %32 ], [ 6, %55 ]
+  %.sroa.52.1 = phi ptr [ null, %4 ], [ %.sroa.52.11, %32 ], [ %.sroa.52.12, %55 ]
+  %.sroa.23.0 = phi ptr [ null, %4 ], [ %.sroa.23.5, %32 ], [ %.sroa.23.6, %55 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -1708,8 +1708,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %24, %_ZNSt1
   br label %67
 
 38:                                               ; preds = %.invoke, %53, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101, %40, %30, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %17
-  %.sroa.28.0 = phi ptr [ %.sroa.28.9, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ %.sroa.28.8, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
-  %.sroa.0300.0 = phi ptr [ %.sroa.15307.4, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ %.sroa.15307.3, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
+  %.sroa.28.0 = phi ptr [ %.sroa.28.8, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.28.9, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ null, %.invoke ]
+  %.sroa.0300.0 = phi ptr [ %.sroa.15307.3, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.15307.4, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ null, %.invoke ]
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -1790,11 +1790,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit112: ; preds = %47, %_ZN
   br label %67
 
 67:                                               ; preds = %32, %55, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %51, %55 ], [ %28, %32 ]
-  %68 = phi i1 [ false, %4 ], [ true, %55 ], [ true, %32 ]
-  %.sroa.30.0 = phi i64 [ 0, %4 ], [ 6, %55 ], [ 3, %32 ]
-  %.sroa.28.1 = phi ptr [ null, %4 ], [ %.sroa.28.9, %55 ], [ %.sroa.28.8, %32 ]
-  %.sroa.15307.0 = phi ptr [ null, %4 ], [ %.sroa.15307.4, %55 ], [ %.sroa.15307.3, %32 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %28, %32 ], [ %51, %55 ]
+  %68 = phi i1 [ false, %4 ], [ true, %32 ], [ true, %55 ]
+  %.sroa.30.0 = phi i64 [ 0, %4 ], [ 3, %32 ], [ 6, %55 ]
+  %.sroa.28.1 = phi ptr [ null, %4 ], [ %.sroa.28.8, %32 ], [ %.sroa.28.9, %55 ]
+  %.sroa.15307.0 = phi ptr [ null, %4 ], [ %.sroa.15307.3, %32 ], [ %.sroa.15307.4, %55 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -2234,8 +2234,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %25, %_ZNSt1
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit221
 
 41:                                               ; preds = %.invoke, %56, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107, %43, %31, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %18
-  %.sroa.40.0 = phi ptr [ %.sroa.40.9, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ %.sroa.40.8, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ null, %.invoke ]
-  %.sroa.0357.0 = phi ptr [ %.sroa.19.4, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ %.sroa.19.3, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ null, %.invoke ]
+  %.sroa.40.0 = phi ptr [ %.sroa.40.8, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ %.sroa.40.9, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ null, %.invoke ]
+  %.sroa.0357.0 = phi ptr [ %.sroa.19.3, %31 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %18 ], [ %.sroa.19.4, %56 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i107 ], [ null, %43 ], [ null, %.invoke ]
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %201
@@ -2316,11 +2316,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit118: ; preds = %50, %_ZN
   br label %70
 
 70:                                               ; preds = %33, %58, %16
-  %.sroa.0.0 = phi ptr [ null, %16 ], [ %54, %58 ], [ %29, %33 ]
-  %71 = phi i1 [ false, %16 ], [ true, %58 ], [ true, %33 ]
-  %.sroa.30.0 = phi i64 [ 0, %16 ], [ 6, %58 ], [ 3, %33 ]
-  %.sroa.40.1 = phi ptr [ null, %16 ], [ %.sroa.40.9, %58 ], [ %.sroa.40.8, %33 ]
-  %.sroa.19.0 = phi ptr [ null, %16 ], [ %.sroa.19.4, %58 ], [ %.sroa.19.3, %33 ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %29, %33 ], [ %54, %58 ]
+  %71 = phi i1 [ false, %16 ], [ true, %33 ], [ true, %58 ]
+  %.sroa.30.0 = phi i64 [ 0, %16 ], [ 3, %33 ], [ 6, %58 ]
+  %.sroa.40.1 = phi ptr [ null, %16 ], [ %.sroa.40.8, %33 ], [ %.sroa.40.9, %58 ]
+  %.sroa.19.0 = phi ptr [ null, %16 ], [ %.sroa.19.3, %33 ], [ %.sroa.19.4, %58 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -2898,8 +2898,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %24, %_ZNSt1
   br label %67
 
 38:                                               ; preds = %.invoke, %53, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122, %40, %30, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %17
-  %.sroa.52.0 = phi ptr [ %.sroa.52.12, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ %.sroa.52.11, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
-  %.sroa.0434.0 = phi ptr [ %.sroa.23.6, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ %.sroa.23.5, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
+  %.sroa.52.0 = phi ptr [ %.sroa.52.11, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.52.12, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ null, %.invoke ]
+  %.sroa.0434.0 = phi ptr [ %.sroa.23.5, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.23.6, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i122 ], [ null, %40 ], [ null, %.invoke ]
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %264
@@ -2980,11 +2980,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit133: ; preds = %47, %_ZN
   br label %67
 
 67:                                               ; preds = %32, %55, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %51, %55 ], [ %28, %32 ]
-  %68 = phi i1 [ false, %4 ], [ true, %55 ], [ true, %32 ]
-  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 6, %55 ], [ 3, %32 ]
-  %.sroa.52.1 = phi ptr [ null, %4 ], [ %.sroa.52.12, %55 ], [ %.sroa.52.11, %32 ]
-  %.sroa.23.0 = phi ptr [ null, %4 ], [ %.sroa.23.6, %55 ], [ %.sroa.23.5, %32 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %28, %32 ], [ %51, %55 ]
+  %68 = phi i1 [ false, %4 ], [ true, %32 ], [ true, %55 ]
+  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 3, %32 ], [ 6, %55 ]
+  %.sroa.52.1 = phi ptr [ null, %4 ], [ %.sroa.52.11, %32 ], [ %.sroa.52.12, %55 ]
+  %.sroa.23.0 = phi ptr [ null, %4 ], [ %.sroa.23.5, %32 ], [ %.sroa.23.6, %55 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -3767,8 +3767,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %24, %_ZNSt1
   br label %67
 
 38:                                               ; preds = %.invoke, %53, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101, %40, %30, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %17
-  %.sroa.28.0 = phi ptr [ %.sroa.28.9, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ %.sroa.28.8, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
-  %.sroa.0300.0 = phi ptr [ %.sroa.15307.4, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ %.sroa.15307.3, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ null, %.invoke ]
+  %.sroa.28.0 = phi ptr [ %.sroa.28.8, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.28.9, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ null, %.invoke ]
+  %.sroa.0300.0 = phi ptr [ %.sroa.15307.3, %30 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %17 ], [ %.sroa.15307.4, %53 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i101 ], [ null, %40 ], [ null, %.invoke ]
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -3849,11 +3849,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit112: ; preds = %47, %_ZN
   br label %67
 
 67:                                               ; preds = %32, %55, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %51, %55 ], [ %28, %32 ]
-  %68 = phi i1 [ false, %4 ], [ true, %55 ], [ true, %32 ]
-  %.sroa.30.0 = phi i64 [ 0, %4 ], [ 6, %55 ], [ 3, %32 ]
-  %.sroa.28.1 = phi ptr [ null, %4 ], [ %.sroa.28.9, %55 ], [ %.sroa.28.8, %32 ]
-  %.sroa.15307.0 = phi ptr [ null, %4 ], [ %.sroa.15307.4, %55 ], [ %.sroa.15307.3, %32 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %28, %32 ], [ %51, %55 ]
+  %68 = phi i1 [ false, %4 ], [ true, %32 ], [ true, %55 ]
+  %.sroa.30.0 = phi i64 [ 0, %4 ], [ 3, %32 ], [ 6, %55 ]
+  %.sroa.28.1 = phi ptr [ null, %4 ], [ %.sroa.28.8, %32 ], [ %.sroa.28.9, %55 ]
+  %.sroa.15307.0 = phi ptr [ null, %4 ], [ %.sroa.15307.3, %32 ], [ %.sroa.15307.4, %55 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)

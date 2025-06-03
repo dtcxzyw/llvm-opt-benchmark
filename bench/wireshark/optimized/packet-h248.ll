@@ -3306,7 +3306,7 @@ define hidden ptr @gcp_msg_to_str(ptr noundef readonly captures(address) %0, ptr
   br label %51
 
 51:                                               ; preds = %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %27
-  %.021.i.i = phi ptr [ @.str.36, %50 ], [ @.str.789, %49 ], [ @.str.788, %48 ], [ @.str.787, %47 ], [ @.str.786, %46 ], [ @.str.785, %45 ], [ @.str.784, %44 ], [ @.str.783, %43 ], [ @.str.782, %42 ], [ @.str.781, %41 ], [ @.str.780, %40 ], [ @.str.779, %39 ], [ @.str.778, %38 ], [ @.str.777, %37 ], [ @.str.776, %36 ], [ @.str.775, %35 ], [ @.str.774, %34 ], [ @.str.773, %33 ], [ @.str.772, %32 ], [ @.str.771, %31 ], [ @.str.770, %30 ], [ @.str.769, %27 ]
+  %.021.i.i = phi ptr [ @.str.36, %50 ], [ @.str.770, %30 ], [ @.str.771, %31 ], [ @.str.772, %32 ], [ @.str.773, %33 ], [ @.str.774, %34 ], [ @.str.775, %35 ], [ @.str.776, %36 ], [ @.str.777, %37 ], [ @.str.778, %38 ], [ @.str.779, %39 ], [ @.str.780, %40 ], [ @.str.781, %41 ], [ @.str.782, %42 ], [ @.str.783, %43 ], [ @.str.784, %44 ], [ @.str.785, %45 ], [ @.str.786, %46 ], [ @.str.787, %47 ], [ @.str.788, %48 ], [ @.str.789, %49 ], [ @.str.769, %27 ]
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.028.i.i = load ptr, ptr %52, align 8
   %.not2529.i.i = icmp eq ptr %.028.i.i, null
@@ -6607,7 +6607,7 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
   br label %28
 
 28:                                               ; preds = %14, %17, %20, %24, %12, %6
-  %.021 = phi i32 [ -1, %12 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ], [ %16, %14 ], [ -1, %6 ]
+  %.021 = phi i32 [ -1, %12 ], [ %16, %14 ], [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ -1, %6 ]
   store ptr @no_param, ptr getelementptr inbounds nuw (i8, ptr @curr_info, i64 72), align 8
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @curr_info, i64 48), align 8
   %.not28 = icmp eq ptr %29, null
@@ -6999,7 +6999,7 @@ define internal i32 @dissect_h248_SigParameterName(i1 noundef zeroext %0, ptr no
   br label %27
 
 27:                                               ; preds = %6, %23, %19, %16, %13
-  %.021 = phi i32 [ -1, %6 ], [ %26, %23 ], [ %22, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.021 = phi i32 [ -1, %6 ], [ %15, %13 ], [ %18, %16 ], [ %22, %19 ], [ %26, %23 ]
   store ptr @no_param, ptr getelementptr inbounds nuw (i8, ptr @curr_info, i64 72), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @curr_info, i64 56), align 8
   %.not = icmp eq ptr %28, null

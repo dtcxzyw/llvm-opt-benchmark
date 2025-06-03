@@ -1335,12 +1335,12 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejm
 
 78:                                               ; preds = %68
   %79 = icmp ugt i8 %69, 28
-  %80 = zext i8 %69 to i32
-  %81 = add nsw i32 %80, -29
-  %82 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i32
-  %.1.i = select i1 %79, i32 %81, i32 %84
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  %81 = load i16, ptr %80, align 2
+  %82 = zext i16 %81 to i32
+  %83 = zext i8 %69 to i32
+  %84 = add nsw i32 %83, -29
+  %.1.i = select i1 %79, i32 %84, i32 %82
   %.1.i.off = add nsw i32 %.1.i, -49
   %switch = icmp ult i32 %.1.i.off, 2
   br i1 %switch, label %85, label %102
@@ -1378,7 +1378,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %89, %92
 
 103:                                              ; preds = %102
   %104 = icmp eq i8 %69, 5
-  %105 = icmp eq i16 %83, 34
+  %105 = icmp eq i16 %81, 34
   %or.cond = select i1 %104, i1 %105, i1 false
   br i1 %or.cond, label %_ZN4llvm8dyn_castINS_11GEPOperatorEKNS_8OperatorEEEDcPT0_.exit, label %_ZN4llvm13BasicAAResult13DecomposedGEPD2Ev.exit
 
@@ -1537,7 +1537,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %159
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i: ; preds = %176, %173, %169
-  %.1.i.i = phi ptr [ %142, %169 ], [ %175, %173 ], [ %178, %176 ]
+  %.1.i.i = phi ptr [ %178, %176 ], [ %175, %173 ], [ %142, %169 ]
   %179 = icmp eq i64 %139, 2
   %180 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %2, ptr noundef %.1.i.i)
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %180, 0
@@ -1624,7 +1624,7 @@ _ZN4llvm5APIntD2Ev.exit178:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i182
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i182: ; preds = %215, %212, %208
-  %.1.i.i184 = phi ptr [ %142, %208 ], [ %214, %212 ], [ %217, %215 ]
+  %.1.i.i184 = phi ptr [ %217, %215 ], [ %214, %212 ], [ %142, %208 ]
   %218 = icmp eq i64 %139, 2
   %219 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %2, ptr noundef %.1.i.i184)
   %.fca.0.extract.i.i.i185 = extractvalue { i64, i8 } %219, 0
@@ -2154,7 +2154,7 @@ _ZN12_GLOBAL__N_116LinearExpressionD2Ev.exit204:  ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i208
 
 _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i208: ; preds = %.thread342, %439, %.thread267
-  %.1.i.i209 = phi ptr [ %142, %.thread267 ], [ %441, %439 ], [ %443, %.thread342 ]
+  %.1.i.i209 = phi ptr [ %443, %.thread342 ], [ %441, %439 ], [ %142, %.thread267 ]
   %444 = getelementptr inbounds nuw i8, ptr %.1.i.i209, i64 8
   %445 = load i32, ptr %444, align 8
   %446 = and i32 %445, 255
@@ -4307,7 +4307,7 @@ _ZNK4llvm8CallBase9hasFnAttrENS_9Attribute8AttrKindE.exit: ; preds = %58
   unreachable
 
 _ZNK4llvm8CallBase17data_operands_endEv.exit:     ; preds = %62, %70, %71
-  %.0.i.i.i = phi i64 [ %73, %71 ], [ 2, %70 ], [ 0, %62 ]
+  %.0.i.i.i = phi i64 [ 2, %70 ], [ %73, %71 ], [ 0, %62 ]
   %75 = sub nsw i64 0, %.0.i.i.i
   %76 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
@@ -12066,7 +12066,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -13181,12 +13181,12 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchIKNS_5ValueEEEbPT_.exit: ; preds 
   br label %.critedge20
 
 .thread:                                          ; preds = %20
-  %23 = zext i8 %.fr to i32
-  %24 = add nsw i32 %23, -29
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %26 = load i16, ptr %25, align 2
-  %27 = zext i16 %26 to i32
-  %spec.select = select i1 %21, i32 %24, i32 %27
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %24 = load i16, ptr %23, align 2
+  %25 = zext i16 %24 to i32
+  %26 = zext i8 %.fr to i32
+  %27 = add nsw i32 %26, -29
+  %spec.select = select i1 %21, i32 %27, i32 %25
   %28 = icmp eq i32 %spec.select, 47
   br i1 %28, label %29, label %.critedge20
 
@@ -14192,8 +14192,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

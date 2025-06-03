@@ -1230,8 +1230,8 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   br label %.thread372
 
 185:                                              ; preds = %94, %28
-  %.2279 = phi i32 [ 0, %94 ], [ %30, %28 ]
-  %.2273 = phi i32 [ %102, %94 ], [ %.1272, %28 ]
+  %.2279 = phi i32 [ %30, %28 ], [ 0, %94 ]
+  %.2273 = phi i32 [ %.1272, %28 ], [ %102, %94 ]
   %186 = getelementptr inbounds nuw i8, ptr %.1296, i64 1
   %exitcond.not = icmp eq ptr %186, %scevgep690
   br i1 %exitcond.not, label %187, label %19
@@ -1652,8 +1652,8 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   store i32 1, ptr %394, align 8, !tbaa !29
   br label %.thread372
 
-.thread372:                                       ; preds = %272, %264, %249, %240, %233, %332, %340, %338, %195, %202, %209, %.loopexit, %308, %295, %285, %347, %362, %374, %154, %162, %160, %84, %92, %90, %187, %180, %164, %130, %117, %107, %60, %47, %37, %23, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %180 ], [ null, %107 ], [ null, %117 ], [ null, %130 ], [ %179, %164 ], [ null, %37 ], [ null, %47 ], [ null, %60 ], [ null, %187 ], [ null, %23 ], [ null, %90 ], [ null, %92 ], [ null, %84 ], [ null, %160 ], [ null, %162 ], [ null, %154 ], [ null, %332 ], [ null, %340 ], [ null, %338 ], [ null, %195 ], [ null, %202 ], [ null, %209 ], [ null, %.loopexit ], [ null, %308 ], [ null, %295 ], [ null, %285 ], [ null, %347 ], [ %373, %362 ], [ null, %374 ], [ null, %233 ], [ null, %240 ], [ null, %249 ], [ null, %264 ], [ null, %272 ]
+.thread372:                                       ; preds = %272, %264, %249, %240, %233, %332, %340, %338, %347, %362, %308, %295, %285, %209, %202, %.loopexit, %195, %374, %154, %162, %160, %84, %92, %90, %187, %180, %164, %130, %117, %107, %60, %47, %37, %23, %12
+  %.1 = phi ptr [ null, %12 ], [ null, %180 ], [ null, %23 ], [ null, %187 ], [ null, %37 ], [ null, %47 ], [ null, %60 ], [ null, %107 ], [ null, %117 ], [ null, %130 ], [ %179, %164 ], [ null, %90 ], [ null, %92 ], [ null, %84 ], [ null, %160 ], [ null, %162 ], [ null, %154 ], [ null, %332 ], [ null, %340 ], [ null, %338 ], [ null, %347 ], [ %373, %362 ], [ null, %308 ], [ null, %295 ], [ null, %285 ], [ null, %209 ], [ null, %202 ], [ null, %.loopexit ], [ null, %195 ], [ null, %374 ], [ null, %233 ], [ null, %240 ], [ null, %249 ], [ null, %264 ], [ null, %272 ]
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   ret ptr %.1
@@ -2861,8 +2861,8 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br label %.thread372
 
 183:                                              ; preds = %92, %25
-  %.2279 = phi i32 [ 0, %92 ], [ %28, %25 ]
-  %.2273 = phi i32 [ %100, %92 ], [ %.1272, %25 ]
+  %.2279 = phi i32 [ %28, %25 ], [ 0, %92 ]
+  %.2273 = phi i32 [ %.1272, %25 ], [ %100, %92 ]
   %184 = getelementptr inbounds nuw i8, ptr %.1296, i64 4
   %.not318 = icmp ult ptr %184, %2
   br i1 %.not318, label %.preheader, label %185
@@ -3284,8 +3284,8 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   store i32 1, ptr %393, align 8, !tbaa !69
   br label %.thread372
 
-.thread372:                                       ; preds = %270, %262, %247, %238, %231, %330, %338, %336, %193, %200, %207, %.loopexit, %306, %293, %283, %345, %360, %372, %152, %160, %158, %82, %90, %88, %185, %178, %162, %128, %115, %105, %58, %45, %35, %20, %11
-  %.1 = phi ptr [ null, %11 ], [ null, %178 ], [ null, %105 ], [ null, %115 ], [ null, %128 ], [ %177, %162 ], [ null, %35 ], [ null, %45 ], [ null, %58 ], [ null, %185 ], [ null, %20 ], [ null, %88 ], [ null, %90 ], [ null, %82 ], [ null, %158 ], [ null, %160 ], [ null, %152 ], [ null, %330 ], [ null, %338 ], [ null, %336 ], [ null, %193 ], [ null, %200 ], [ null, %207 ], [ null, %.loopexit ], [ null, %306 ], [ null, %293 ], [ null, %283 ], [ null, %345 ], [ %371, %360 ], [ null, %372 ], [ null, %231 ], [ null, %238 ], [ null, %247 ], [ null, %262 ], [ null, %270 ]
+.thread372:                                       ; preds = %270, %262, %247, %238, %231, %330, %338, %336, %345, %360, %306, %293, %283, %207, %200, %.loopexit, %193, %372, %152, %160, %158, %82, %90, %88, %185, %178, %162, %128, %115, %105, %58, %45, %35, %20, %11
+  %.1 = phi ptr [ null, %11 ], [ null, %178 ], [ null, %20 ], [ null, %185 ], [ null, %35 ], [ null, %45 ], [ null, %58 ], [ null, %105 ], [ null, %115 ], [ null, %128 ], [ %177, %162 ], [ null, %88 ], [ null, %90 ], [ null, %82 ], [ null, %158 ], [ null, %160 ], [ null, %152 ], [ null, %330 ], [ null, %338 ], [ null, %336 ], [ null, %345 ], [ %371, %360 ], [ null, %306 ], [ null, %293 ], [ null, %283 ], [ null, %207 ], [ null, %200 ], [ null, %.loopexit ], [ null, %193 ], [ null, %372 ], [ null, %231 ], [ null, %238 ], [ null, %247 ], [ null, %262 ], [ null, %270 ]
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret ptr %.1
@@ -4105,7 +4105,7 @@ uriOnExitOwnHostUserInfoA.exit.i.i:               ; preds = %40
   br label %uriParseAuthorityA.exit.thread
 
 uriParseAuthorityA.exit:                          ; preds = %77, %83
-  %.0.i = phi ptr [ %88, %83 ], [ %82, %77 ]
+  %.0.i = phi ptr [ %82, %77 ], [ %88, %83 ]
   %99 = icmp eq ptr %.0.i, null
   br i1 %99, label %uriParsePathAbsNoLeadSlashA.exit, label %uriParseAuthorityA.exit.thread
 
@@ -5032,7 +5032,7 @@ define internal fastcc ptr @uriParsePcharA(ptr noundef nonnull captures(none) %0
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -5608,7 +5608,7 @@ define internal fastcc ptr @uriParsePctSubUnresA(ptr noundef nonnull captures(no
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -5813,7 +5813,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br label %uriOnExitOwnPortUserInfoA.exit.thread
 
 uriOnExitOwnPortUserInfoA.exit.thread:            ; preds = %18, %24, %58, %48, %43, %60, %50, %36, %uriOnExitOwnPortUserInfoA.exit
-  %.0 = phi ptr [ null, %uriOnExitOwnPortUserInfoA.exit ], [ null, %60 ], [ %57, %50 ], [ %41, %36 ], [ %49, %48 ], [ null, %43 ], [ %.tr5563, %58 ], [ %2, %24 ], [ %2, %18 ]
+  %.0 = phi ptr [ null, %uriOnExitOwnPortUserInfoA.exit ], [ null, %60 ], [ %41, %36 ], [ %57, %50 ], [ %49, %48 ], [ null, %43 ], [ %.tr5563, %58 ], [ %2, %24 ], [ %2, %18 ]
   ret ptr %.0
 }
 
@@ -7245,7 +7245,7 @@ uriOnExitOwnHostUserInfoW.exit.i.i:               ; preds = %40
   br label %uriParseAuthorityW.exit.thread
 
 uriParseAuthorityW.exit:                          ; preds = %77, %83
-  %.0.i = phi ptr [ %88, %83 ], [ %82, %77 ]
+  %.0.i = phi ptr [ %82, %77 ], [ %88, %83 ]
   %99 = icmp eq ptr %.0.i, null
   br i1 %99, label %uriParsePathAbsNoLeadSlashW.exit, label %uriParseAuthorityW.exit.thread
 
@@ -8172,7 +8172,7 @@ define internal fastcc ptr @uriParsePcharW(ptr noundef nonnull captures(none) %0
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -8746,7 +8746,7 @@ define internal fastcc ptr @uriParsePctSubUnresW(ptr noundef nonnull captures(no
   br label %21
 
 21:                                               ; preds = %16, %14, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ %13, %12 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -8944,7 +8944,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.
   br label %uriOnExitOwnPortUserInfoW.exit.thread
 
 uriOnExitOwnPortUserInfoW.exit.thread:            ; preds = %15, %21, %55, %45, %40, %57, %47, %33, %uriOnExitOwnPortUserInfoW.exit
-  %.0 = phi ptr [ null, %uriOnExitOwnPortUserInfoW.exit ], [ null, %57 ], [ %54, %47 ], [ %38, %33 ], [ %46, %45 ], [ null, %40 ], [ %.tr5563, %55 ], [ %2, %21 ], [ %2, %15 ]
+  %.0 = phi ptr [ null, %uriOnExitOwnPortUserInfoW.exit ], [ null, %57 ], [ %38, %33 ], [ %54, %47 ], [ %46, %45 ], [ null, %40 ], [ %.tr5563, %55 ], [ %2, %21 ], [ %2, %15 ]
   ret ptr %.0
 }
 

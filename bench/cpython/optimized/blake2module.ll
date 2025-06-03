@@ -778,7 +778,7 @@ define internal i32 @py_blake2_traverse(ptr noundef readonly captures(none) %0, 
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -1262,7 +1262,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   unreachable
 
 25:                                               ; preds = %22, %20, %18, %16
-  %.0.i = phi i8 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0.i = phi i8 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   %26 = load i8, ptr %4, align 4, !tbaa !59, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_blake2_blake2b_digest_impl.exit
@@ -1335,7 +1335,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   unreachable
 
 25:                                               ; preds = %22, %20, %18, %16
-  %.0.i = phi i8 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0.i = phi i8 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   %26 = load i8, ptr %4, align 4, !tbaa !59, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_blake2_blake2b_hexdigest_impl.exit

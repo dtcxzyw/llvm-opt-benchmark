@@ -582,7 +582,7 @@ define internal i32 @dissect_rpkirtr_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   br label %224
 
 224:                                              ; preds = %179, %._crit_edge, %132, %134, %110, %120, %222, %156, %81, %52, %45, %38, %28
-  %.1 = phi i32 [ %223, %222 ], [ %26, %179 ], [ %.2.lcssa, %._crit_edge ], [ %176, %156 ], [ %26, %132 ], [ %155, %134 ], [ %129, %120 ], [ %119, %110 ], [ %109, %81 ], [ %80, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %28 ]
+  %.1 = phi i32 [ %223, %222 ], [ %37, %28 ], [ %44, %38 ], [ %51, %45 ], [ %80, %52 ], [ %109, %81 ], [ %129, %120 ], [ %119, %110 ], [ %26, %132 ], [ %155, %134 ], [ %176, %156 ], [ %26, %179 ], [ %.2.lcssa, %._crit_edge ]
   %225 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %10, label %._crit_edge270, !llvm.loop !8

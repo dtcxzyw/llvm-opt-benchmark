@@ -908,8 +908,8 @@ attr_value_unescape.exit.i.i.i:                   ; preds = %105
   br label %122
 
 122:                                              ; preds = %attr_value_unescape.exit.i.i.i, %98, %90, %86
-  %.040.i.i.i = phi ptr [ %81, %98 ], [ %81, %attr_value_unescape.exit.i.i.i ], [ %92, %90 ], [ %88, %86 ]
-  %.039.i.i.i = phi i64 [ %95, %98 ], [ %95, %attr_value_unescape.exit.i.i.i ], [ %93, %90 ], [ %89, %86 ]
+  %.040.i.i.i = phi ptr [ %81, %98 ], [ %81, %attr_value_unescape.exit.i.i.i ], [ %88, %86 ], [ %92, %90 ]
+  %.039.i.i.i = phi i64 [ %95, %98 ], [ %95, %attr_value_unescape.exit.i.i.i ], [ %89, %86 ], [ %93, %90 ]
   %123 = call ptr @xmemdupz(ptr noundef nonnull %.040.i.i.i, i64 noundef %.039.i.i.i) #17
   %124 = call ptr @git_attr(ptr noundef %123) #17
   %.not49.i.i.i = icmp eq ptr %124, null

@@ -1471,7 +1471,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit300: ; preds = %_ZNK4llvm7CCS
   br label %.thread1097
 
 .thread1097:                                      ; preds = %608, %568, %555, %544, %533, %522, %511, %500, %486, %469, %440, %383, %_ZN4llvm7CCState11AllocateRegEt.exit255, %_ZN4llvm7CCState11AllocateRegEt.exit246, %_ZN4llvm7CCState11AllocateRegEt.exit237, %_ZN4llvm7CCState11AllocateRegEt.exit228, %144, %_ZN4llvm7CCState11AllocateRegEt.exit, %331, %.critedge22, %.critedge20, %.critedge18, %.critedge16, %.thread732, %198
-  %.2 = phi i1 [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %144 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit228 ], [ false, %198 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit237 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit246 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit255 ], [ false, %383 ], [ false, %440 ], [ false, %469 ], [ false, %486 ], [ false, %.thread732 ], [ false, %500 ], [ false, %511 ], [ false, %522 ], [ false, %533 ], [ false, %544 ], [ false, %555 ], [ false, %568 ], [ false, %.critedge16 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %.critedge22 ], [ false, %331 ], [ true, %608 ]
+  %.2 = phi i1 [ false, %198 ], [ false, %.thread732 ], [ false, %.critedge16 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %.critedge22 ], [ false, %568 ], [ false, %555 ], [ false, %544 ], [ false, %533 ], [ false, %522 ], [ false, %511 ], [ false, %500 ], [ false, %486 ], [ false, %469 ], [ false, %440 ], [ false, %383 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit255 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit246 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit237 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit228 ], [ false, %144 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %331 ], [ true, %608 ]
   ret i1 %.2
 }
 
@@ -3628,7 +3628,7 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit300: ; preds = %_ZN4llvm7CCState
   br label %665
 
 665:                                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit213.thread508, %.thread615, %.thread625, %.thread635, %609, %_ZN4llvm7CCState11AllocateRegEt.exit273, %513, %455, %397, %339, %_ZN4llvm7CCState11AllocateRegEt.exit213, %_ZN4llvm7CCState11AllocateRegEt.exit204, %_ZN4llvm7CCState11AllocateRegEt.exit195, %_ZN4llvm7CCState11AllocateRegEt.exit186, %_ZN4llvm7CCState11AllocateRegEt.exit177, %_ZN4llvm7CCState11AllocateRegEt.exit, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit300
-  %.2 = phi i1 [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit177 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit186 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit195 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit204 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit213 ], [ false, %339 ], [ false, %397 ], [ false, %455 ], [ false, %513 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit273 ], [ false, %609 ], [ false, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit300 ], [ true, %.thread635 ], [ true, %.thread625 ], [ true, %.thread615 ], [ true, %_ZN4llvm7CCState11AllocateRegEt.exit213.thread508 ]
+  %.2 = phi i1 [ false, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit300 ], [ false, %609 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit273 ], [ false, %513 ], [ false, %455 ], [ false, %397 ], [ false, %339 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit213 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit204 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit195 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit186 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit177 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ true, %.thread635 ], [ true, %.thread625 ], [ true, %.thread615 ], [ true, %_ZN4llvm7CCState11AllocateRegEt.exit213.thread508 ]
   ret i1 %.2
 }
 
@@ -4333,7 +4333,7 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit120: ; preds = %_ZN4llvm7CCState
   br label %.thread539
 
 .thread539:                                       ; preds = %121, %230, %174, %_ZN4llvm7CCState11AllocateRegEt.exit, %68, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit120, %120
-  %.2 = phi i1 [ false, %68 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %120 ], [ false, %174 ], [ false, %230 ], [ false, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit120 ], [ true, %121 ]
+  %.2 = phi i1 [ false, %120 ], [ false, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit120 ], [ false, %230 ], [ false, %174 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %68 ], [ true, %121 ]
   ret i1 %.2
 }
 
@@ -5622,7 +5622,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit279: ; preds = %_ZNK4llvm7CCS
   br label %573
 
 573:                                              ; preds = %554, %492, %482, %472, %461, %450, %439, %427, %397, %383, %323, %266, %_ZN4llvm7CCState11AllocateRegEt.exit228, %_ZN4llvm7CCState11AllocateRegEt.exit219, %_ZN4llvm7CCState11AllocateRegEt.exit210, %_ZN4llvm7CCState11AllocateRegEt.exit, %214, %.critedge20, %.critedge18, %544, %.critedge16, %.critedge14, %.critedge12, %.thread676, %80
-  %.2 = phi i1 [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %80 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit210 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit219 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit228 ], [ false, %266 ], [ false, %323 ], [ false, %383 ], [ false, %397 ], [ false, %.thread676 ], [ false, %427 ], [ false, %439 ], [ false, %450 ], [ false, %461 ], [ false, %472 ], [ false, %482 ], [ false, %492 ], [ false, %.critedge12 ], [ false, %.critedge14 ], [ false, %.critedge16 ], [ false, %544 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %214 ], [ true, %554 ]
+  %.2 = phi i1 [ false, %80 ], [ false, %.thread676 ], [ false, %.critedge12 ], [ false, %.critedge14 ], [ false, %.critedge16 ], [ false, %544 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %492 ], [ false, %482 ], [ false, %472 ], [ false, %461 ], [ false, %450 ], [ false, %439 ], [ false, %427 ], [ false, %397 ], [ false, %383 ], [ false, %323 ], [ false, %266 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit228 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit219 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit210 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %214 ], [ true, %554 ]
   ret i1 %.2
 }
 
@@ -6834,7 +6834,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit94: ; preds = %_ZNK4llvm7CCSt
   br label %.thread261
 
 .thread261:                                       ; preds = %80, %29, %139, %195, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit64, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i61, %7, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit79, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i76, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i91, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit94, %231, %172, %116, %60
-  %.2 = phi i1 [ false, %60 ], [ false, %116 ], [ false, %172 ], [ false, %231 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit94 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i91 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i76 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit79 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ true, %7 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i61 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit64 ], [ true, %195 ], [ true, %139 ], [ true, %29 ], [ true, %80 ]
+  %.2 = phi i1 [ false, %231 ], [ false, %172 ], [ false, %116 ], [ false, %60 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit94 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i91 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i76 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit79 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ true, %7 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i61 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit64 ], [ true, %195 ], [ true, %139 ], [ true, %29 ], [ true, %80 ]
   ret i1 %.2
 }
 
@@ -7280,7 +7280,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit116.thread174: ; preds = %160, %_ZN4llvm7CCS
   br label %244
 
 244:                                              ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit116, %_ZN4llvm7CCState11AllocateRegEt.exit, %146, %89, %_ZN4llvm7CCState11AllocateRegEt.exit116.thread174, %.thread188, %34, %24
-  %.0 = phi i1 [ false, %89 ], [ false, %146 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit116 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %24 ], [ false, %34 ], [ false, %.thread188 ], [ %243, %_ZN4llvm7CCState11AllocateRegEt.exit116.thread174 ]
+  %.0 = phi i1 [ false, %_ZN4llvm7CCState11AllocateRegEt.exit116 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %146 ], [ false, %89 ], [ false, %24 ], [ false, %34 ], [ false, %.thread188 ], [ %243, %_ZN4llvm7CCState11AllocateRegEt.exit116.thread174 ]
   ret i1 %.0
 }
 
@@ -8627,7 +8627,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit281: ; preds = %_ZNK4llvm7CCS
   br label %.thread1072
 
 .thread1072:                                      ; preds = %592, %552, %539, %528, %517, %506, %495, %484, %470, %456, %396, %339, %_ZN4llvm7CCState11AllocateRegEt.exit236, %_ZN4llvm7CCState11AllocateRegEt.exit227, %_ZN4llvm7CCState11AllocateRegEt.exit218, %_ZN4llvm7CCState11AllocateRegEt.exit, %100, %287, %.critedge22, %.critedge20, %.critedge18, %.critedge16, %.thread707, %154
-  %.2 = phi i1 [ false, %100 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %154 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit218 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit227 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit236 ], [ false, %339 ], [ false, %396 ], [ false, %456 ], [ false, %470 ], [ false, %.thread707 ], [ false, %484 ], [ false, %495 ], [ false, %506 ], [ false, %517 ], [ false, %528 ], [ false, %539 ], [ false, %552 ], [ false, %.critedge16 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %.critedge22 ], [ false, %287 ], [ true, %592 ]
+  %.2 = phi i1 [ false, %154 ], [ false, %.thread707 ], [ false, %.critedge16 ], [ false, %.critedge18 ], [ false, %.critedge20 ], [ false, %.critedge22 ], [ false, %552 ], [ false, %539 ], [ false, %528 ], [ false, %517 ], [ false, %506 ], [ false, %495 ], [ false, %484 ], [ false, %470 ], [ false, %456 ], [ false, %396 ], [ false, %339 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit236 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit227 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit218 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %100 ], [ false, %287 ], [ true, %592 ]
   ret i1 %.2
 }
 
@@ -9991,7 +9991,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit241: ; preds = %_ZNK4llvm7CCS
   br label %.thread561
 
 .thread561:                                       ; preds = %103, %561, %.thread549, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i238, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit241, %.thread553, %566, %539, %531, %475, %419, %363, %307, %251, %195, %139, %_ZN4llvm7CCState11AllocateRegEt.exit, %25
-  %.0 = phi i1 [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %139 ], [ false, %195 ], [ false, %251 ], [ false, %307 ], [ false, %363 ], [ false, %419 ], [ false, %475 ], [ false, %531 ], [ false, %539 ], [ false, %566 ], [ false, %25 ], [ true, %.thread553 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit241 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i238 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ true, %.thread549 ], [ true, %561 ], [ true, %103 ]
+  %.0 = phi i1 [ false, %566 ], [ false, %539 ], [ false, %531 ], [ false, %475 ], [ false, %419 ], [ false, %363 ], [ false, %307 ], [ false, %251 ], [ false, %195 ], [ false, %139 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %25 ], [ true, %.thread553 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit241 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i238 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit ], [ true, %.thread549 ], [ true, %561 ], [ true, %103 ]
   ret i1 %.0
 }
 
@@ -10915,7 +10915,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit193: ; preds = %_ZNK4llvm7CCS
   br label %.thread426
 
 .thread426:                                       ; preds = %411, %299, %355, %282, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i175, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit178, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i190, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit193, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i160, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit163, %447, %391, %335, %_ZN4llvm7CCState11AllocateRegEt.exit, %230, %174, %119, %64
-  %.2 = phi i1 [ false, %64 ], [ false, %119 ], [ false, %174 ], [ false, %230 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %335 ], [ false, %391 ], [ false, %447 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit163 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i160 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit193 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i190 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit178 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i175 ], [ true, %282 ], [ true, %355 ], [ true, %299 ], [ true, %411 ]
+  %.2 = phi i1 [ false, %447 ], [ false, %391 ], [ false, %335 ], [ false, %_ZN4llvm7CCState11AllocateRegEt.exit ], [ false, %230 ], [ false, %174 ], [ false, %119 ], [ false, %64 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit163 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i160 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit193 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i190 ], [ true, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit178 ], [ true, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i175 ], [ true, %282 ], [ true, %355 ], [ true, %299 ], [ true, %411 ]
   ret i1 %.2
 }
 

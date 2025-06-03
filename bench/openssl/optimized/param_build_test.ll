@@ -487,8 +487,8 @@ define internal range(i32 0, 2) i32 @template_public_test(i32 noundef %0) #0 {
   br label %105
 
 105:                                              ; preds = %94, %102, %99, %97, %95
-  %.192 = phi ptr [ %104, %102 ], [ %101, %99 ], [ %98, %97 ], [ %96, %95 ], [ %92, %94 ]
-  %.1 = phi ptr [ %103, %102 ], [ %100, %99 ], [ null, %97 ], [ null, %95 ], [ null, %94 ]
+  %.192 = phi ptr [ %104, %102 ], [ %96, %95 ], [ %98, %97 ], [ %101, %99 ], [ %92, %94 ]
+  %.1 = phi ptr [ %103, %102 ], [ null, %95 ], [ null, %97 ], [ %100, %99 ], [ null, %94 ]
   %106 = tail call ptr @OSSL_PARAM_locate(ptr noundef %.192, ptr noundef nonnull @.str.48) #3
   %107 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 146, ptr noundef nonnull @.str.49, ptr noundef %106) #3
   %.not111 = icmp eq i32 %107, 0
@@ -1243,8 +1243,8 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
   br label %108
 
 108:                                              ; preds = %97, %105, %102, %100, %98
-  %.1120 = phi ptr [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %98 ], [ %95, %97 ]
-  %.1 = phi ptr [ %106, %105 ], [ %103, %102 ], [ null, %100 ], [ null, %98 ], [ null, %97 ]
+  %.1120 = phi ptr [ %107, %105 ], [ %99, %98 ], [ %101, %100 ], [ %104, %102 ], [ %95, %97 ]
+  %.1 = phi ptr [ %106, %105 ], [ null, %98 ], [ null, %100 ], [ %103, %102 ], [ null, %97 ]
   %109 = tail call ptr @OSSL_PARAM_locate(ptr noundef %.1120, ptr noundef nonnull @.str.48) #3
   %110 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 301, ptr noundef nonnull @.str.49, ptr noundef %109) #3
   %.not144 = icmp eq i32 %110, 0

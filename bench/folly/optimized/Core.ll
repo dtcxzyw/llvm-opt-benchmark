@@ -4552,7 +4552,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %65, %64 ]
+  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %65, %64 ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %67 = getelementptr i8, ptr %.sroa.036.1.i.i.i.i.i.i, i64 8
   %.val.i28.i.i.i.i.i.i = load ptr, ptr %67, align 8, !tbaa !15
   %.not.i.i.i.i29.i.i.i.i.i.i = icmp eq ptr %.val.i28.i.i.i.i.i.i, null
@@ -4569,7 +4569,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %72, %71 ]
+  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %74 = getelementptr i8, ptr %.sroa.036.2.i.i.i.i.i.i, i64 8
   %.val.i31.i.i.i.i.i.i = load ptr, ptr %74, align 8, !tbaa !15
   %.not.i.i.i.i32.i.i.i.i.i.i = icmp eq ptr %.val.i31.i.i.i.i.i.i, null

@@ -77276,7 +77276,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit131:                 ; preds = %272, %270, %_ZNSt6v
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %55, %53, %_ZNSt6vectorIiSaIiEED2Ev.exit122, %_ZNSt6vectorIiSaIiEED2Ev.exit131
-  %.084 = phi i32 [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ], [ %283, %_ZNSt6vectorIiSaIiEED2Ev.exit131 ], [ 1, %53 ], [ 1, %55 ]
+  %.084 = phi i32 [ %283, %_ZNSt6vectorIiSaIiEED2Ev.exit131 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ], [ 1, %53 ], [ 1, %55 ]
   ret i32 %.084
 
 _ZNSt6vectorIiSaIiEED2Ev.exit104.sink.split:      ; preds = %273, %249, %56

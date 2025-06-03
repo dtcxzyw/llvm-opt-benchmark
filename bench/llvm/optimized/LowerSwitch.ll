@@ -2147,7 +2147,7 @@ _ZN4llvm5APIntD2Ev.exit164.i:                     ; preds = %686, %683, %680
   br label %715
 
 715:                                              ; preds = %713, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.041.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %714, %713 ]
+  %.sroa.041.1.i.i.i.i.i.i.i = phi ptr [ %714, %713 ], [ %.sroa.041.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %716 = getelementptr i8, ptr %.sroa.041.1.i.i.i.i.i.i.i, i64 16
   %.val2.i30.i.i.i.i.i.i.i = load ptr, ptr %716, align 8, !tbaa !132
   %717 = icmp eq ptr %.val2.i30.i.i.i.i.i.i.i, %.1103.i
@@ -2158,7 +2158,7 @@ _ZN4llvm5APIntD2Ev.exit164.i:                     ; preds = %686, %683, %680
   br label %720
 
 720:                                              ; preds = %718, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.041.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %719, %718 ]
+  %.sroa.041.2.i.i.i.i.i.i.i = phi ptr [ %719, %718 ], [ %.sroa.041.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %721 = getelementptr i8, ptr %.sroa.041.2.i.i.i.i.i.i.i, i64 16
   %.val2.i31.i.i.i.i.i.i.i = load ptr, ptr %721, align 8, !tbaa !132
   %722 = icmp eq ptr %.val2.i31.i.i.i.i.i.i.i, %.1103.i

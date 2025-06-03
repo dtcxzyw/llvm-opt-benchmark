@@ -2767,8 +2767,8 @@ define void @"_ZN104_$LT$jiff..fmt..strtime..BrokenDownTime$u20$as$u20$core..con
   br label %31
 
 31:                                               ; preds = %26, %23, %2
-  %.sroa.9.0.i = phi i64 [ %30, %26 ], [ %25, %23 ], [ 3, %2 ]
-  %.sroa.0.0.i = phi ptr [ %28, %26 ], [ %12, %23 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %2 ]
+  %.sroa.9.0.i = phi i64 [ %25, %23 ], [ %30, %26 ], [ 3, %2 ]
+  %.sroa.0.0.i = phi ptr [ %12, %23 ], [ %28, %26 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %2 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !147
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.9.0.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !147
   %32 = load i64, ptr %3, align 8, !range !20, !noalias !147, !noundef !3
@@ -5936,8 +5936,8 @@ define internal fastcc { i64, i64 } @_ZN4jiff2tz2db12concatenated5inner11CachedZ
   unreachable
 
 _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit.i.i: ; preds = %25, %22, %._crit_edge.i
-  %.sroa.9.0.i.i.i.i = phi i64 [ %29, %25 ], [ %24, %22 ], [ 3, %._crit_edge.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %27, %25 ], [ %11, %22 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %._crit_edge.i ]
+  %.sroa.9.0.i.i.i.i = phi i64 [ %24, %22 ], [ %29, %25 ], [ 3, %._crit_edge.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %11, %22 ], [ %27, %25 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %._crit_edge.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
   br label %31
@@ -6050,8 +6050,8 @@ _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit
   unreachable
 
 _ZN4jiff2tz2db12concatenated5inner14CachedTimeZone4name17hf35c0d3339cf5a12E.exit.i26.i: ; preds = %76, %73, %.lr.ph.i
-  %.sroa.9.0.i.i.i27.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ 3, %.lr.ph.i ]
-  %.sroa.0.0.i.i.i28.i = phi ptr [ %78, %76 ], [ %62, %73 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %.lr.ph.i ]
+  %.sroa.9.0.i.i.i27.i = phi i64 [ %75, %73 ], [ %80, %76 ], [ 3, %.lr.ph.i ]
+  %.sroa.0.0.i.i.i28.i = phi ptr [ %62, %73 ], [ %78, %76 ], [ @anon.e144535da28e22b2c0b740002851b875.191, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   br label %81
@@ -7334,7 +7334,7 @@ define internal fastcc noundef i32 @_ZN4jiff2tz8timezone8TimeZone9to_offset17hd8
   br label %"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$9to_offset17h27e443a23a545c74E.exit"
 
 "_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$9to_offset17h27e443a23a545c74E.exit": ; preds = %31, %29, %16, %14, %2, %2, %33, %6
-  %.sroa.0.0 = phi i32 [ %39, %33 ], [ %8, %6 ], [ 0, %2 ], [ 0, %2 ], [ %15, %14 ], [ %17, %16 ], [ %30, %29 ], [ %32, %31 ]
+  %.sroa.0.0 = phi i32 [ %8, %6 ], [ %39, %33 ], [ 0, %2 ], [ 0, %2 ], [ %15, %14 ], [ %17, %16 ], [ %30, %29 ], [ %32, %31 ]
   ret i32 %.sroa.0.0
 }
 

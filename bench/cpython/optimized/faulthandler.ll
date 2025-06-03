@@ -1393,7 +1393,7 @@ define internal i32 @faulthandler_traverse(ptr readnone captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %18, %5, %20
-  %.1 = phi i32 [ %6, %5 ], [ %19, %18 ], [ 0, %20 ], [ %13, %12 ]
+  %.1 = phi i32 [ 0, %20 ], [ %19, %18 ], [ %6, %5 ], [ %13, %12 ]
   ret i32 %.1
 }
 
@@ -2108,8 +2108,8 @@ Py_XDECREF.exit:                                  ; preds = %Py_XINCREF.exit, %8
   store i32 1, ptr %44, align 8, !tbaa !184
   br label %check_signum.exit.thread
 
-check_signum.exit.thread:                         ; preds = %56, %52, %24, %19, %get_thread_state.exit.thread, %get_thread_state.exit, %3, %Py_XDECREF.exit, %66, %38
-  %.0 = phi ptr [ %39, %38 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %66 ], [ null, %3 ], [ null, %get_thread_state.exit ], [ null, %get_thread_state.exit.thread ], [ null, %19 ], [ null, %24 ], [ null, %52 ], [ null, %56 ]
+check_signum.exit.thread:                         ; preds = %56, %52, %19, %24, %get_thread_state.exit.thread, %get_thread_state.exit, %3, %Py_XDECREF.exit, %66, %38
+  %.0 = phi ptr [ %39, %38 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %66 ], [ null, %3 ], [ null, %get_thread_state.exit ], [ null, %get_thread_state.exit.thread ], [ null, %24 ], [ null, %19 ], [ null, %52 ], [ null, %56 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
@@ -2204,8 +2204,8 @@ faulthandler_unregister.exit:                     ; preds = %22, %Py_DECREF.exit
   %38 = call ptr @PyBool_FromLong(i64 noundef %.0.i) #16
   br label %check_signum.exit.thread
 
-check_signum.exit.thread:                         ; preds = %18, %13, %check_signum.exit, %2, %faulthandler_unregister.exit
-  %.0 = phi ptr [ %38, %faulthandler_unregister.exit ], [ null, %2 ], [ @_Py_FalseStruct, %check_signum.exit ], [ null, %13 ], [ null, %18 ]
+check_signum.exit.thread:                         ; preds = %13, %18, %check_signum.exit, %2, %faulthandler_unregister.exit
+  %.0 = phi ptr [ %38, %faulthandler_unregister.exit ], [ null, %2 ], [ @_Py_FalseStruct, %check_signum.exit ], [ null, %18 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret ptr %.0
 }

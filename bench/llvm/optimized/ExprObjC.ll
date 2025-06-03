@@ -1528,8 +1528,8 @@ _ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit: ; preds = %11, %14
   unreachable
 
 27:                                               ; preds = %22, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit
-  %.sroa.4.0 = phi i32 [ %.sroa.0.0.i, %22 ], [ %21, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit ], [ %.sroa.4.0.extract.trunc, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %22 ], [ %20, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit ], [ %.sroa.0.0.extract.trunc, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ]
+  %.sroa.4.0 = phi i32 [ %.sroa.4.0.extract.trunc, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ], [ %21, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit ], [ %.sroa.0.0.i, %22 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.extract.trunc, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ], [ %20, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit ], [ %.sroa.0.0.i, %22 ]
   %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -1714,7 +1714,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread22: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader: ; preds = %44, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread22
-  %.pn.i.i.ph = phi ptr [ %45, %44 ], [ %40, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread22 ]
+  %.pn.i.i.ph = phi ptr [ %40, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread22 ], [ %45, %44 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i

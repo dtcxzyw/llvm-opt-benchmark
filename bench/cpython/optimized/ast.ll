@@ -189,8 +189,8 @@ validate_exprs.exit:                              ; preds = %5
   tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str) #5
   br label %.thread
 
-40:                                               ; preds = %19, %15, %11, %.loopexit
-  %.015.ph = phi i32 [ %38, %.loopexit ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ]
+40:                                               ; preds = %11, %15, %19, %.loopexit
+  %.015.ph = phi i32 [ %38, %.loopexit ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
   %.not20 = icmp eq i32 %.015.ph, 0
   br i1 %.not20, label %.thread, label %41
 
@@ -1631,8 +1631,8 @@ validate_stmt.exit.thread947:                     ; preds = %133, %.split24.i919
   store i32 %673, ptr %0, align 4, !tbaa !21
   br label %validate_stmt.exit.thread
 
-validate_stmt.exit:                               ; preds = %628, %.critedge429.i, %.critedge425.i, %85, %141, %validate_assignlist.exit, %184, %204, %220, %236, %252, %264, %276, %389, %499, %575, %584, %665
-  %.0278.i.ph = phi i32 [ %666, %665 ], [ %585, %584 ], [ %576, %575 ], [ %500, %499 ], [ %390, %389 ], [ %279, %276 ], [ %267, %264 ], [ %255, %252 ], [ %239, %236 ], [ %223, %220 ], [ %207, %204 ], [ %187, %184 ], [ %179, %validate_assignlist.exit ], [ %142, %141 ], [ %86, %85 ], [ %309, %.critedge425.i ], [ %339, %.critedge429.i ], [ %631, %628 ]
+validate_stmt.exit:                               ; preds = %.critedge425.i, %.critedge429.i, %628, %85, %141, %validate_assignlist.exit, %184, %204, %220, %236, %252, %264, %276, %389, %499, %575, %584, %665
+  %.0278.i.ph = phi i32 [ %666, %665 ], [ %585, %584 ], [ %576, %575 ], [ %500, %499 ], [ %390, %389 ], [ %279, %276 ], [ %267, %264 ], [ %255, %252 ], [ %239, %236 ], [ %223, %220 ], [ %207, %204 ], [ %187, %184 ], [ %179, %validate_assignlist.exit ], [ %142, %141 ], [ %86, %85 ], [ %631, %628 ], [ %339, %.critedge429.i ], [ %309, %.critedge425.i ]
   %674 = load i32, ptr %0, align 4, !tbaa !21
   %675 = add i32 %674, -1
   store i32 %675, ptr %0, align 4, !tbaa !21
@@ -1659,8 +1659,8 @@ validate_stmt.exit.thread.loopexit390.loopexit:   ; preds = %validate_body.exit3
   %681 = zext i1 %.not139.not.not.not.not.not.not.not.not to i32
   br label %validate_stmt.exit.thread
 
-validate_stmt.exit.thread:                        ; preds = %548, %validate_body.exit33, %472, %validate_body.exit43, %360, %369, %validate_body.exit53, %325, %334, %295, %304, %validate_stmt.exit.thread947, %validate_stmt.exit.thread.loopexit390.loopexit, %validate_body.exit33.thread, %validate_body.exit38.thread, %446, %split631, %466, %validate_body.exit43.thread, %validate_body.exit48.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %195, %212, %394, %.critedge437.i, %429, %.critedge453.i, %534, %599, %48, %40, %split, %20, %validate_stmt.exit.thread129, %validate_stmt.exit.thread124, %.critedge
-  %.not139.not626 = phi i32 [ 0, %validate_body.exit33.thread ], [ 0, %validate_body.exit38.thread ], [ 0, %446 ], [ 0, %split631 ], [ 0, %466 ], [ 0, %validate_body.exit43.thread ], [ 0, %validate_body.exit48.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %195 ], [ 0, %212 ], [ 0, %394 ], [ 0, %.critedge437.i ], [ 0, %429 ], [ 0, %.critedge453.i ], [ 0, %534 ], [ 0, %599 ], [ 0, %48 ], [ 0, %40 ], [ 0, %split ], [ 0, %20 ], [ 0, %validate_stmt.exit.thread129 ], [ 0, %validate_stmt.exit.thread124 ], [ 0, %.critedge ], [ %681, %validate_stmt.exit.thread.loopexit390.loopexit ], [ 0, %validate_stmt.exit.thread947 ], [ 0, %304 ], [ 0, %295 ], [ 0, %334 ], [ 0, %325 ], [ 0, %validate_body.exit53 ], [ 0, %369 ], [ 0, %360 ], [ 0, %validate_body.exit43 ], [ 0, %472 ], [ 0, %validate_body.exit33 ], [ 0, %548 ]
+validate_stmt.exit.thread:                        ; preds = %548, %validate_body.exit33, %472, %validate_body.exit43, %360, %369, %validate_body.exit53, %325, %334, %295, %304, %validate_stmt.exit.thread947, %validate_stmt.exit.thread.loopexit390.loopexit, %validate_body.exit33.thread, %validate_body.exit38.thread, %446, %split631, %466, %validate_body.exit43.thread, %validate_body.exit48.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %599, %.critedge453.i, %534, %.critedge437.i, %429, %394, %212, %195, %48, %40, %split, %20, %validate_stmt.exit.thread129, %validate_stmt.exit.thread124, %.critedge
+  %.not139.not626 = phi i32 [ 0, %validate_body.exit33.thread ], [ 0, %validate_body.exit38.thread ], [ 0, %446 ], [ 0, %split631 ], [ 0, %466 ], [ 0, %validate_body.exit43.thread ], [ 0, %validate_body.exit48.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %599 ], [ 0, %.critedge453.i ], [ 0, %534 ], [ 0, %.critedge437.i ], [ 0, %429 ], [ 0, %394 ], [ 0, %212 ], [ 0, %195 ], [ 0, %48 ], [ 0, %40 ], [ 0, %split ], [ 0, %20 ], [ 0, %validate_stmt.exit.thread129 ], [ 0, %validate_stmt.exit.thread124 ], [ 0, %.critedge ], [ %681, %validate_stmt.exit.thread.loopexit390.loopexit ], [ 0, %validate_stmt.exit.thread947 ], [ 0, %304 ], [ 0, %295 ], [ 0, %334 ], [ 0, %325 ], [ 0, %validate_body.exit53 ], [ 0, %369 ], [ 0, %360 ], [ 0, %validate_body.exit43 ], [ 0, %472 ], [ 0, %validate_body.exit33 ], [ 0, %548 ]
   ret i32 %.not139.not626
 }
 
@@ -2208,15 +2208,15 @@ thread-pre-split:                                 ; preds = %51
   tail call void @PyErr_SetString(ptr noundef %276, ptr noundef nonnull @.str.67) #5
   br label %.thread218
 
-.thread218:                                       ; preds = %.thread, %255, %252, %245, %250, %234, %230, %221, %208, %204, %196, %200, %193, %191, %165, %162, %158, %150, %154, %146, %142, %138, %134, %130, %126, %119, %117, %96, %88, %92, %84, %80, %72, %68, %66, %76, %122, %167, %171, %212, %224, %226, %238, %257, %261, %271, %275
-  %.1 = phi i32 [ 0, %275 ], [ %256, %255 ], [ 1, %252 ], [ 0, %245 ], [ 0, %250 ], [ %237, %234 ], [ 0, %230 ], [ 1, %221 ], [ 1, %208 ], [ %207, %204 ], [ 0, %196 ], [ 0, %200 ], [ %195, %193 ], [ 0, %191 ], [ %166, %165 ], [ 1, %162 ], [ %161, %158 ], [ 0, %150 ], [ 0, %154 ], [ %149, %146 ], [ 0, %142 ], [ %141, %138 ], [ 0, %134 ], [ %133, %130 ], [ 0, %126 ], [ %121, %119 ], [ 0, %117 ], [ %99, %96 ], [ 0, %88 ], [ 0, %92 ], [ %87, %84 ], [ 0, %80 ], [ %75, %72 ], [ 0, %68 ], [ %67, %66 ], [ %79, %76 ], [ %125, %122 ], [ %170, %167 ], [ %174, %171 ], [ %215, %212 ], [ %225, %224 ], [ %229, %226 ], [ %241, %238 ], [ %260, %257 ], [ %264, %261 ], [ %274, %271 ], [ 1, %.thread ]
+.thread218:                                       ; preds = %.thread, %255, %252, %245, %250, %234, %230, %221, %208, %204, %196, %200, %193, %191, %165, %162, %158, %150, %154, %146, %142, %138, %134, %130, %126, %119, %117, %96, %88, %92, %84, %80, %72, %68, %271, %261, %257, %238, %226, %224, %212, %171, %167, %122, %76, %66, %275
+  %.1 = phi i32 [ 0, %275 ], [ %256, %255 ], [ 1, %252 ], [ 0, %245 ], [ 0, %250 ], [ %237, %234 ], [ 0, %230 ], [ 1, %221 ], [ 1, %208 ], [ %207, %204 ], [ 0, %196 ], [ 0, %200 ], [ %195, %193 ], [ 0, %191 ], [ %166, %165 ], [ 1, %162 ], [ %161, %158 ], [ 0, %150 ], [ 0, %154 ], [ %149, %146 ], [ 0, %142 ], [ %141, %138 ], [ 0, %134 ], [ %133, %130 ], [ 0, %126 ], [ %121, %119 ], [ 0, %117 ], [ %99, %96 ], [ 0, %88 ], [ 0, %92 ], [ %87, %84 ], [ 0, %80 ], [ %75, %72 ], [ 0, %68 ], [ %274, %271 ], [ %264, %261 ], [ %260, %257 ], [ %241, %238 ], [ %229, %226 ], [ %225, %224 ], [ %215, %212 ], [ %174, %171 ], [ %170, %167 ], [ %125, %122 ], [ %79, %76 ], [ %67, %66 ], [ 1, %.thread ]
   %277 = load i32, ptr %0, align 4, !tbaa !21
   %278 = add i32 %277, -1
   store i32 %278, ptr %0, align 4, !tbaa !21
   br label %279
 
 279:                                              ; preds = %39, %216, %208, %44, %.thread218, %269, %.thread216, %.critedge207, %115, %.critedge, %switch.lookup, %expr_context_name.exit, %30, %21, %9
-  %.0151 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ 0, %expr_context_name.exit ], [ 0, %switch.lookup ], [ %.1, %.thread218 ], [ 0, %269 ], [ 0, %.thread216 ], [ 0, %.critedge207 ], [ 0, %115 ], [ 0, %.critedge ], [ 0, %44 ], [ 0, %208 ], [ 0, %216 ]
+  %.0151 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ 0, %expr_context_name.exit ], [ 0, %switch.lookup ], [ %.1, %.thread218 ], [ 0, %.critedge ], [ 0, %115 ], [ 0, %.thread216 ], [ 0, %.critedge207 ], [ 0, %269 ], [ 0, %44 ], [ 0, %208 ], [ 0, %216 ]
   ret i32 %.0151
 }
 
@@ -3171,8 +3171,8 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   tail call void @PyErr_SetString(ptr noundef %194, ptr noundef nonnull @.str.55) #5
   br label %.thread161
 
-.thread161:                                       ; preds = %99, %56, %.critedge166, %156, %192, %47, %.thread158, %174, %172, %166, %162, %152, %124, %80, %43, %54, %51, %75, %130, %122, %160, %182, %180, %.critedge141, %.thread163
-  %.8 = phi i32 [ 0, %.thread163 ], [ 0, %.thread158 ], [ 1, %174 ], [ 0, %172 ], [ %167, %166 ], [ 1, %162 ], [ 0, %152 ], [ 0, %124 ], [ 0, %80 ], [ %46, %43 ], [ 0, %54 ], [ 1, %51 ], [ 0, %75 ], [ 0, %130 ], [ 0, %122 ], [ 0, %160 ], [ %183, %182 ], [ 0, %180 ], [ 0, %.critedge141 ], [ 1, %47 ], [ %193, %192 ], [ %158, %156 ], [ %105, %.critedge166 ], [ %59, %56 ], [ 0, %99 ]
+.thread161:                                       ; preds = %99, %56, %.critedge166, %156, %192, %47, %.thread158, %174, %172, %166, %162, %152, %124, %80, %.critedge141, %182, %180, %160, %130, %122, %75, %54, %51, %43, %.thread163
+  %.8 = phi i32 [ 0, %.thread163 ], [ 0, %.thread158 ], [ 1, %174 ], [ 0, %172 ], [ %167, %166 ], [ 1, %162 ], [ 0, %152 ], [ 0, %124 ], [ 0, %80 ], [ 0, %.critedge141 ], [ %183, %182 ], [ 0, %180 ], [ 0, %160 ], [ 0, %130 ], [ 0, %122 ], [ 0, %75 ], [ 0, %54 ], [ 1, %51 ], [ %46, %43 ], [ 1, %47 ], [ %59, %56 ], [ %105, %.critedge166 ], [ %158, %156 ], [ %193, %192 ], [ 0, %99 ]
   %195 = load i32, ptr %0, align 4, !tbaa !21
   %196 = add i32 %195, -1
   store i32 %196, ptr %0, align 4, !tbaa !21

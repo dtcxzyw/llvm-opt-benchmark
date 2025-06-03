@@ -3180,10 +3180,10 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   unreachable
 
 72:                                               ; preds = %._crit_edge.thread184, %43, %32
-  %.0105 = phi i32 [ 0, %._crit_edge.thread184 ], [ 0, %43 ], [ %..pre181, %32 ]
-  %.0104 = phi i32 [ %70, %._crit_edge.thread184 ], [ %45, %43 ], [ %34, %32 ]
-  %.093 = phi ptr [ null, %._crit_edge.thread184 ], [ %38, %43 ], [ null, %32 ]
-  %.190 = phi ptr [ %.392187, %._crit_edge.thread184 ], [ null, %43 ], [ null, %32 ]
+  %.0105 = phi i32 [ %..pre181, %32 ], [ 0, %43 ], [ 0, %._crit_edge.thread184 ]
+  %.0104 = phi i32 [ %34, %32 ], [ %45, %43 ], [ %70, %._crit_edge.thread184 ]
+  %.093 = phi ptr [ null, %32 ], [ %38, %43 ], [ null, %._crit_edge.thread184 ]
+  %.190 = phi ptr [ null, %32 ], [ null, %43 ], [ %.392187, %._crit_edge.thread184 ]
   %.not132160 = icmp slt i32 %.0105, %.0104
   br i1 %.not132160, label %.lr.ph164, label %.loopexit
 
@@ -3369,7 +3369,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
   br i1 %exitcond178.not, label %.loopexit, label %83, !llvm.loop !164
 
 .loopexit:                                        ; preds = %.thread138, %72, %161, %23, %._crit_edge.thread, %._crit_edge159
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %._crit_edge159 ], [ 0, %23 ], [ %165, %161 ], [ 0, %72 ], [ 0, %.thread138 ]
+  %.0 = phi i32 [ 0, %._crit_edge159 ], [ 0, %._crit_edge.thread ], [ 0, %23 ], [ %165, %161 ], [ 0, %72 ], [ 0, %.thread138 ]
   ret i32 %.0
 }
 
@@ -3436,8 +3436,8 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %7
-  %.047 = phi i32 [ %14, %7 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
-  %.046 = phi i32 [ 0, %7 ], [ 115, %23 ], [ 97, %21 ], [ 118, %19 ]
+  %.047 = phi i32 [ %14, %7 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ]
+  %.046 = phi i32 [ 0, %7 ], [ 118, %19 ], [ 97, %21 ], [ 115, %23 ]
   %26 = tail call ptr @av_dict_iterate(ptr noundef %0, ptr noundef null) #15
   %.not5568 = icmp eq ptr %26, null
   br i1 %.not5568, label %._crit_edge, label %.lr.ph
@@ -3642,7 +3642,7 @@ define range(i32 -2147483648, 1) i32 @setup_find_stream_info_opts(ptr noundef re
   br i1 %27, label %.lr.ph34, label %._crit_edge35, !llvm.loop !177
 
 28:                                               ; preds = %7, %3, %._crit_edge35, %._crit_edge
-  %.024 = phi i32 [ %21, %._crit_edge35 ], [ 0, %._crit_edge ], [ 0, %3 ], [ -12, %7 ]
+  %.024 = phi i32 [ 0, %._crit_edge ], [ %21, %._crit_edge35 ], [ 0, %3 ], [ -12, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   ret i32 %.024
 }

@@ -917,7 +917,7 @@ qc_hash_lookup.exit10.i:                          ; preds = %86, %NFKC_QC_hash_f
   br label %91
 
 91:                                               ; preds = %qc_hash_lookup.exit10.i, %qc_hash_lookup.exit.i
-  %.0.i35 = phi ptr [ %.0.i7.i, %qc_hash_lookup.exit10.i ], [ %.0.i.i, %qc_hash_lookup.exit.i ]
+  %.0.i35 = phi ptr [ %.0.i.i, %qc_hash_lookup.exit.i ], [ %.0.i7.i, %qc_hash_lookup.exit10.i ]
   %.not.i = icmp eq ptr %.0.i35, null
   br i1 %.not.i, label %qc_is_allowed.exit.thread, label %qc_is_allowed.exit
 

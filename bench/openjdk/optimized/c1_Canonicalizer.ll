@@ -1269,7 +1269,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %55, %57
   store ptr %.0.i.i.i, ptr %75, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %22, %24, %26, %_ZN7ciField4typeEv.exit, %77, %74, %27, %_ZL16in_current_blockP11Instruction.exit, %2
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %26, %24, %22, %_ZN7ciField4typeEv.exit, %77, %74, %27, %_ZL16in_current_blockP11Instruction.exit, %2
   ret void
 }
 
@@ -1956,7 +1956,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   store ptr %.0.i.i.i, ptr %116, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %14, %16, %18, %9, %118, %115, %19, %_ZL16in_current_blockP11Instruction.exit, %2
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %18, %16, %14, %9, %118, %115, %19, %_ZL16in_current_blockP11Instruction.exit, %2
   ret void
 }
 
@@ -3934,7 +3934,7 @@ define hidden void @_ZN13Canonicalizer5do_IfEP2If(ptr noundef nonnull align 8 de
   unreachable
 
 69:                                               ; preds = %62, %56, %51, %45, %39, %34
-  %.0.in = phi ptr [ %66, %62 ], [ %61, %56 ], [ %55, %51 ], [ %50, %45 ], [ %44, %39 ], [ %38, %34 ]
+  %.0.in = phi ptr [ %38, %34 ], [ %44, %39 ], [ %50, %45 ], [ %55, %51 ], [ %61, %56 ], [ %66, %62 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %70 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %71 = load ptr, ptr %70, align 8
@@ -4259,10 +4259,10 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
 _ZL7is_truelN11Instruction9ConditionEl.exit135:   ; preds = %210, %222, %232, %243, %254, %266
-  %.in = phi ptr [ %276, %266 ], [ %264, %254 ], [ %252, %243 ], [ %241, %232 ], [ %230, %222 ], [ %220, %210 ]
-  %278 = phi ptr [ %271, %266 ], [ %259, %254 ], [ %248, %243 ], [ %236, %232 ], [ %226, %222 ], [ %215, %210 ]
-  %.in200 = phi ptr [ %273, %266 ], [ %261, %254 ], [ %250, %243 ], [ %238, %232 ], [ %228, %222 ], [ %217, %210 ]
-  %.0.i134 = phi i1 [ %277, %266 ], [ %265, %254 ], [ %253, %243 ], [ %242, %232 ], [ %231, %222 ], [ %221, %210 ]
+  %.in = phi ptr [ %220, %210 ], [ %230, %222 ], [ %241, %232 ], [ %252, %243 ], [ %264, %254 ], [ %276, %266 ]
+  %278 = phi ptr [ %215, %210 ], [ %226, %222 ], [ %236, %232 ], [ %248, %243 ], [ %259, %254 ], [ %271, %266 ]
+  %.in200 = phi ptr [ %217, %210 ], [ %228, %222 ], [ %238, %232 ], [ %250, %243 ], [ %261, %254 ], [ %273, %266 ]
+  %.0.i134 = phi i1 [ %221, %210 ], [ %231, %222 ], [ %242, %232 ], [ %253, %243 ], [ %265, %254 ], [ %277, %266 ]
   %279 = load ptr, ptr %.in200, align 8
   %280 = load ptr, ptr %.in, align 8
   %not..i136 = xor i1 %.0.i134, true

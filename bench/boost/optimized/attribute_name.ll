@@ -1046,7 +1046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   resume { ptr, i32 } %.pn22.pn.pn.pn
 
 250:                                              ; preds = %31, %244
-  %.1 = phi i32 [ %33, %31 ], [ %246, %244 ]
+  %.1 = phi i32 [ %246, %244 ], [ %33, %31 ]
   ret i32 %.1
 }
 

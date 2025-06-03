@@ -569,14 +569,14 @@ bytestream2_init.exit135:                         ; preds = %165
   %225 = getelementptr inbounds i8, ptr %.sroa.0.9243, i64 %..i151
   br label %.thread245
 
-.thread256:                                       ; preds = %bytestream2_get_le32.exit143, %65, %77, %bytestream2_get_le24.exit157, %219, %156, %96
-  %.2.ph = phi i32 [ -1094995529, %96 ], [ -1094995529, %156 ], [ %208, %219 ], [ -1094995529, %bytestream2_get_le32.exit143 ], [ %70, %65 ], [ %82, %77 ], [ %130, %bytestream2_get_le24.exit157 ]
+.thread256:                                       ; preds = %bytestream2_get_le32.exit143, %65, %77, %bytestream2_get_le24.exit157, %96, %156, %219
+  %.2.ph = phi i32 [ %208, %219 ], [ -1094995529, %156 ], [ -1094995529, %96 ], [ -1094995529, %bytestream2_get_le32.exit143 ], [ %70, %65 ], [ %82, %77 ], [ %130, %bytestream2_get_le24.exit157 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #11
   br label %234
 
 .thread245:                                       ; preds = %bytestream2_get_le24.exit157, %153, %152, %72, %87, %196, %220, %223, %.thread250
-  %.sroa.0.1 = phi ptr [ %225, %223 ], [ %222, %220 ], [ %198, %196 ], [ %89, %87 ], [ %74, %72 ], [ %218, %.thread250 ], [ %149, %152 ], [ %149, %153 ], [ %.sroa.0.13, %bytestream2_get_le24.exit157 ]
-  %.1108 = phi i32 [ %.0107270, %223 ], [ %.0107270, %220 ], [ %.0107270, %196 ], [ %.0107270, %87 ], [ %.0107270, %72 ], [ %.0107270, %.thread250 ], [ %.0107270, %152 ], [ %.0107270, %153 ], [ %.0.i152, %bytestream2_get_le24.exit157 ]
+  %.sroa.0.1 = phi ptr [ %225, %223 ], [ %74, %72 ], [ %89, %87 ], [ %198, %196 ], [ %222, %220 ], [ %218, %.thread250 ], [ %149, %152 ], [ %149, %153 ], [ %.sroa.0.13, %bytestream2_get_le24.exit157 ]
+  %.1108 = phi i32 [ %.0107270, %223 ], [ %.0107270, %72 ], [ %.0107270, %87 ], [ %.0107270, %196 ], [ %.0107270, %220 ], [ %.0107270, %.thread250 ], [ %.0107270, %152 ], [ %.0107270, %153 ], [ %.0.i152, %bytestream2_get_le24.exit157 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #11
   %226 = ptrtoint ptr %.sroa.0.1 to i64
   %227 = sub i64 %27, %226
@@ -3004,8 +3004,8 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
   br label %469
 
 469:                                              ; preds = %455, %441, %421
-  %.066.i = phi i32 [ %468, %455 ], [ %454, %441 ], [ %434, %421 ]
-  %.0.i299 = phi i8 [ 0, %455 ], [ 0, %441 ], [ %440, %421 ]
+  %.066.i = phi i32 [ %434, %421 ], [ %454, %441 ], [ %468, %455 ]
+  %.0.i299 = phi i8 [ %440, %421 ], [ 0, %441 ], [ 0, %455 ]
   %470 = add nsw i32 %.066.i, %.072138.i
   %471 = icmp sgt i32 %470, %.0238
   br i1 %471, label %474, label %.preheader.preheader.i

@@ -3518,7 +3518,7 @@ _ZN8QuantLib8CalendarD2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i.i
   ret void
 
 ehcleanup571:                                     ; preds = %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i346, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i, %lpad414, %ehcleanup440, %ehcleanup495, %ehcleanup510, %ehcleanup524, %ehcleanup567, %ehcleanup383, %ehcleanup333, %ehcleanup227, %ehcleanup185, %ehcleanup137, %lpad112
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup185 ], [ %146, %lpad112 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup383 ], [ %.pn53, %ehcleanup333 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup227 ], [ %.pn43, %ehcleanup137 ], [ %.pn77, %ehcleanup440 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup567 ], [ %.pn61, %ehcleanup524 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup495 ], [ %.pn63, %ehcleanup510 ], [ %267, %lpad414 ], [ %190, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i ], [ %201, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i346 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup185 ], [ %146, %lpad112 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup383 ], [ %.pn53, %ehcleanup333 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup227 ], [ %.pn43, %ehcleanup137 ], [ %.pn77, %ehcleanup440 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup567 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup495 ], [ %.pn63, %ehcleanup510 ], [ %267, %lpad414 ], [ %.pn61, %ehcleanup524 ], [ %190, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i ], [ %201, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i346 ]
   call void @_ZN8QuantLib8ScheduleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %sch) #28
   br label %ehcleanup572
 
@@ -7585,7 +7585,7 @@ _ZN8QuantLib8CalendarD2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i.i
   ret void
 
 ehcleanup566:                                     ; preds = %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i350, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i, %lpad409, %ehcleanup435, %ehcleanup490, %ehcleanup505, %ehcleanup519, %ehcleanup562, %ehcleanup378, %ehcleanup328, %ehcleanup222, %ehcleanup180, %ehcleanup132, %lpad107
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup180 ], [ %142, %lpad107 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup378 ], [ %.pn53, %ehcleanup328 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup222 ], [ %.pn43, %ehcleanup132 ], [ %.pn77, %ehcleanup435 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup562 ], [ %.pn61, %ehcleanup519 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup490 ], [ %.pn63, %ehcleanup505 ], [ %263, %lpad409 ], [ %186, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i ], [ %197, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i350 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %ehcleanup180 ], [ %142, %lpad107 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup378 ], [ %.pn53, %ehcleanup328 ], [ %.pn47.pn.pn.pn.pn, %ehcleanup222 ], [ %.pn43, %ehcleanup132 ], [ %.pn77, %ehcleanup435 ], [ %.pn71.pn.pn.pn.pn, %ehcleanup562 ], [ %.pn65.pn.pn.pn.pn, %ehcleanup490 ], [ %.pn63, %ehcleanup505 ], [ %263, %lpad409 ], [ %.pn61, %ehcleanup519 ], [ %186, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i ], [ %197, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit.i350 ]
   call void @_ZN8QuantLib8ScheduleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %sch) #28
   br label %ehcleanup567
 
@@ -7991,7 +7991,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEptEv.exit32: ; pred
   br label %return
 
 return:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib39CompoundingOvernightIndexedCouponPricerEED2Ev.exit, %_ZNK5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEptEv.exit32
-  %retval.1 = phi double [ %call35, %_ZN5boost10shared_ptrIN8QuantLib39CompoundingOvernightIndexedCouponPricerEED2Ev.exit ], [ %call44, %_ZNK5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEptEv.exit32 ]
+  %retval.1 = phi double [ %call44, %_ZNK5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEptEv.exit32 ], [ %call35, %_ZN5boost10shared_ptrIN8QuantLib39CompoundingOvernightIndexedCouponPricerEED2Ev.exit ]
   ret double %retval.1
 
 eh.resume:                                        ; preds = %lpad31, %ehcleanup24

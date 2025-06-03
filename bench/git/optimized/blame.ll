@@ -4694,11 +4694,11 @@ sub_1.i:                                          ; preds = %.tail110.i
   %229 = trunc i32 %228 to i16
   %trunc.i.i = and i16 %229, -4096
   switch i16 %trunc.i.i, label %canon_mode.exit.thread.i [
-    i16 -32768, label %canon_mode.exit.thread104.i
+    i16 -32768, label %canon_mode.exit.thread103.i
     i16 -24576, label %canon_mode.exit.thread107.i
   ]
 
-canon_mode.exit.thread104.i:                      ; preds = %226
+canon_mode.exit.thread103.i:                      ; preds = %226
   %230 = and i32 %228, 64
   %.not.i98.i = icmp eq i32 %230, 0
   %231 = select i1 %.not.i98.i, i32 33188, i32 33261
@@ -4707,7 +4707,7 @@ canon_mode.exit.thread104.i:                      ; preds = %226
   %.not88.i = icmp eq i32 %233, 0
   br i1 %.not88.i, label %241, label %234
 
-234:                                              ; preds = %canon_mode.exit.thread104.i
+234:                                              ; preds = %canon_mode.exit.thread103.i
   %235 = call ptr @null_oid() #21
   %236 = call i32 @textconv_object(ptr noundef %122, ptr noundef %.078.i, i32 noundef %231, ptr noundef %235, i32 noundef 0, ptr noundef nonnull %13, ptr noundef nonnull %14) #21
   %.not89.i = icmp eq i32 %236, 0
@@ -4720,7 +4720,7 @@ canon_mode.exit.thread104.i:                      ; preds = %226
   call void @strbuf_attach(ptr noundef nonnull %10, ptr noundef %238, i64 noundef %239, i64 noundef %240) #21
   br label %251
 
-241:                                              ; preds = %234, %canon_mode.exit.thread104.i
+241:                                              ; preds = %234, %canon_mode.exit.thread103.i
   %242 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %243 = load i64, ptr %242, align 8, !tbaa !259
   %244 = call i64 @strbuf_read_file(ptr noundef nonnull %10, ptr noundef %.078.i, i64 noundef %243) #21
@@ -4747,7 +4747,7 @@ canon_mode.exit.thread.i:                         ; preds = %226
   unreachable
 
 251:                                              ; preds = %canon_mode.exit.thread107.i, %241, %237
-  %.0.i103.i = phi i32 [ 40960, %canon_mode.exit.thread107.i ], [ %231, %237 ], [ %231, %241 ]
+  %.0.i105.i = phi i32 [ 40960, %canon_mode.exit.thread107.i ], [ %231, %237 ], [ %231, %241 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #21
@@ -4763,7 +4763,7 @@ canon_mode.exit.thread.i:                         ; preds = %226
   unreachable
 
 256:                                              ; preds = %252, %251
-  %.079.i = phi i32 [ %.0.i103.i, %251 ], [ 0, %252 ]
+  %.079.i = phi i32 [ %.0.i105.i, %251 ], [ 0, %252 ]
   %257 = getelementptr inbounds nuw i8, ptr %122, i64 384
   %258 = load ptr, ptr %257, align 8, !tbaa !226
   %259 = getelementptr inbounds nuw i8, ptr %10, i64 16

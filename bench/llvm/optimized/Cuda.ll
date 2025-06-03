@@ -6443,8 +6443,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -10376,7 +10376,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit: ; preds = %23, %_ZNS
   br label %71
 
 71:                                               ; preds = %45, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49
-  %.0 = phi ptr [ @.str.84, %70 ], [ @.str.106, %69 ], [ @.str.105, %68 ], [ @.str.104, %67 ], [ @.str.103, %66 ], [ @.str.102, %65 ], [ @.str.101, %64 ], [ @.str.100, %63 ], [ @.str.99, %62 ], [ @.str.98, %61 ], [ @.str.97, %60 ], [ @.str.96, %59 ], [ @.str.95, %58 ], [ @.str.94, %57 ], [ @.str.93, %56 ], [ @.str.92, %55 ], [ @.str.91, %54 ], [ @.str.90, %53 ], [ @.str.89, %52 ], [ @.str.88, %51 ], [ @.str.87, %50 ], [ @.str.86, %49 ], [ @.str.85, %45 ]
+  %.0 = phi ptr [ @.str.84, %70 ], [ @.str.86, %49 ], [ @.str.87, %50 ], [ @.str.88, %51 ], [ @.str.89, %52 ], [ @.str.90, %53 ], [ @.str.91, %54 ], [ @.str.92, %55 ], [ @.str.93, %56 ], [ @.str.94, %57 ], [ @.str.95, %58 ], [ @.str.96, %59 ], [ @.str.97, %60 ], [ @.str.98, %61 ], [ @.str.99, %62 ], [ @.str.100, %63 ], [ @.str.101, %64 ], [ @.str.102, %65 ], [ @.str.103, %66 ], [ @.str.104, %67 ], [ @.str.105, %68 ], [ @.str.106, %69 ], [ @.str.85, %45 ]
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !451
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 16

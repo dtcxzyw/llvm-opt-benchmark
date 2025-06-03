@@ -14373,9 +14373,9 @@ if.end19:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %for.end.sw.bb21_crit_edge, %if.end19
-  %agg.tmp2.sroa.2.0.copyload.i79 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i79.pre, %for.end.sw.bb21_crit_edge ], [ %agg.tmp2.sroa.2.0.copyload.i67, %if.end19 ]
-  %agg.tmp2.sroa.0.0.copyload.i77 = phi ptr [ %agg.tmp2.sroa.0.0.copyload.i77.pre, %for.end.sw.bb21_crit_edge ], [ %agg.tmp2.sroa.0.0.copyload.i65, %if.end19 ]
-  %__first.addr.1 = phi ptr [ %__first.addr.0.lcssa, %for.end.sw.bb21_crit_edge ], [ %incdec.ptr20, %if.end19 ]
+  %agg.tmp2.sroa.2.0.copyload.i79 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i67, %if.end19 ], [ %agg.tmp2.sroa.2.0.copyload.i79.pre, %for.end.sw.bb21_crit_edge ]
+  %agg.tmp2.sroa.0.0.copyload.i77 = phi ptr [ %agg.tmp2.sroa.0.0.copyload.i65, %if.end19 ], [ %agg.tmp2.sroa.0.0.copyload.i77.pre, %for.end.sw.bb21_crit_edge ]
+  %__first.addr.1 = phi ptr [ %incdec.ptr20, %if.end19 ], [ %__first.addr.0.lcssa, %for.end.sw.bb21_crit_edge ]
   %agg.tmp.sroa.0.0.copyload.i74 = load ptr, ptr %__first.addr.1, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i75 = getelementptr inbounds nuw i8, ptr %__first.addr.1, i64 8
   %agg.tmp.sroa.2.0.copyload.i76 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i75, align 8
@@ -14396,9 +14396,9 @@ if.end24:                                         ; preds = %sw.bb21, %_ZN9__gnu
   br label %sw.bb26
 
 sw.bb26:                                          ; preds = %for.end.sw.bb26_crit_edge, %if.end24
-  %agg.tmp2.sroa.2.0.copyload.i91 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i91.pre, %for.end.sw.bb26_crit_edge ], [ %agg.tmp2.sroa.2.0.copyload.i79, %if.end24 ]
-  %agg.tmp2.sroa.0.0.copyload.i89 = phi ptr [ %agg.tmp2.sroa.0.0.copyload.i89.pre, %for.end.sw.bb26_crit_edge ], [ %agg.tmp2.sroa.0.0.copyload.i77, %if.end24 ]
-  %__first.addr.2 = phi ptr [ %__first.addr.0.lcssa, %for.end.sw.bb26_crit_edge ], [ %incdec.ptr25, %if.end24 ]
+  %agg.tmp2.sroa.2.0.copyload.i91 = phi i64 [ %agg.tmp2.sroa.2.0.copyload.i79, %if.end24 ], [ %agg.tmp2.sroa.2.0.copyload.i91.pre, %for.end.sw.bb26_crit_edge ]
+  %agg.tmp2.sroa.0.0.copyload.i89 = phi ptr [ %agg.tmp2.sroa.0.0.copyload.i77, %if.end24 ], [ %agg.tmp2.sroa.0.0.copyload.i89.pre, %for.end.sw.bb26_crit_edge ]
+  %__first.addr.2 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %__first.addr.0.lcssa, %for.end.sw.bb26_crit_edge ]
   %agg.tmp.sroa.0.0.copyload.i86 = load ptr, ptr %__first.addr.2, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %__first.addr.2, i64 8
   %agg.tmp.sroa.2.0.copyload.i88 = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i87, align 8

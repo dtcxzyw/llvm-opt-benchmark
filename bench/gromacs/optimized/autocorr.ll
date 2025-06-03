@@ -2996,7 +2996,7 @@ define void @_Z11do_autocorrPKcPK16gmx_output_env_tS0_iiPPffmb(ptr noundef %0, p
   br label %22
 
 22:                                               ; preds = %11, %20, %18, %16
-  %.0 = phi i64 [ %7, %11 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.0 = phi i64 [ %7, %11 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 8), align 8, !tbaa !81
   %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL3acf, i64 25), align 1, !tbaa !84, !range !15, !noundef !16
   %25 = trunc nuw i8 %24 to i1

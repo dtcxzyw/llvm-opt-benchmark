@@ -2087,7 +2087,7 @@ _ZN11MutexLockerD2Ev.exit65:                      ; preds = %_ZN11MutexLockerD2E
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %74, %72, %84, %_ZN11MutexLockerD2Ev.exit, %9, %86
-  %.0 = phi ptr [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %76, %86 ], [ %10, %9 ], [ null, %84 ], [ null, %72 ], [ null, %74 ]
+  %.0 = phi ptr [ %76, %86 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %10, %9 ], [ null, %84 ], [ null, %72 ], [ null, %74 ]
   ret ptr %.0
 }
 
@@ -4033,7 +4033,7 @@ _ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData
   br label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
 _ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit: ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit, %120, %116, %6, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
-  %.036 = phi ptr [ null, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit ], [ %0, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit ], [ null, %6 ], [ null, %116 ], [ %117, %120 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit ]
+  %.036 = phi ptr [ %0, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit ], [ null, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit ], [ null, %6 ], [ null, %116 ], [ %117, %120 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit ]
   ret ptr %.036
 }
 
@@ -4815,7 +4815,7 @@ _ZN11MutexLockerD2Ev.exit51:                      ; preds = %46, %49
   br label %52
 
 52:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %_ZN11MutexLockerD2Ev.exit51
-  %.1 = phi ptr [ %.0, %_ZN11MutexLockerD2Ev.exit ], [ %51, %_ZN11MutexLockerD2Ev.exit51 ]
+  %.1 = phi ptr [ %51, %_ZN11MutexLockerD2Ev.exit51 ], [ %.0, %_ZN11MutexLockerD2Ev.exit ]
   ret ptr %.1
 }
 
@@ -6264,7 +6264,7 @@ _ZN13MonitorLockerD2Ev.exit33:                    ; preds = %112, %_ZN21Resource
   br label %126
 
 126:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit, %125
-  %.1 = phi ptr [ %65, %_ZN13MonitorLockerD2Ev.exit ], [ %.3, %125 ]
+  %.1 = phi ptr [ %.3, %125 ], [ %65, %_ZN13MonitorLockerD2Ev.exit ]
   ret ptr %.1
 }
 

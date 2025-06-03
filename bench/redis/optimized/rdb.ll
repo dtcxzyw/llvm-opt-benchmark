@@ -2751,7 +2751,7 @@ switch.edge:                                      ; preds = %2, %2
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %switch.edge, %17, %20, %24, %28, %32
-  %.0.i = phi i64 [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ], [ 0, %switch.edge ]
+  %.0.i = phi i64 [ %19, %17 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ 0, %switch.edge ]
   %35 = tail call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %.0.i)
   br label %36
 
@@ -2805,7 +2805,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -3076,7 +3076,7 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   br label %rioRead.exit
 
 rioRead.exit:                                     ; preds = %112, %61, %.thread91, %.thread, %92, %118, %121, %120, %89, %82, %66, %31, %38, %39, %3, %23, %21, %18
-  %.0 = phi ptr [ null, %23 ], [ %22, %21 ], [ %20, %18 ], [ null, %3 ], [ null, %66 ], [ null, %31 ], [ null, %38 ], [ %27, %39 ], [ null, %82 ], [ null, %89 ], [ null, %120 ], [ null, %121 ], [ null, %118 ], [ %.049, %92 ], [ null, %.thread ], [ null, %.thread91 ], [ %27, %61 ], [ %.049, %112 ]
+  %.0 = phi ptr [ null, %23 ], [ %20, %18 ], [ %22, %21 ], [ null, %3 ], [ null, %66 ], [ null, %31 ], [ null, %38 ], [ %27, %39 ], [ null, %82 ], [ null, %89 ], [ null, %120 ], [ null, %121 ], [ null, %118 ], [ %.049, %92 ], [ null, %.thread ], [ null, %.thread91 ], [ %27, %61 ], [ %.049, %112 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
   ret ptr %.0
 }
@@ -3360,7 +3360,7 @@ rioRead.exit15:                                   ; preds = %rioRead.exit15.loop
   br label %rioRead.exit.thread
 
 rioRead.exit.thread:                              ; preds = %.thread.i14, %35, %.thread.i, %2, %rioRead.exit15, %33, %31, %29
-  %.0 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ %., %rioRead.exit15 ], [ -1, %2 ], [ -1, %.thread.i ], [ -1, %35 ], [ -1, %.thread.i14 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ %., %rioRead.exit15 ], [ -1, %2 ], [ -1, %.thread.i ], [ -1, %35 ], [ -1, %.thread.i14 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #23
   ret i32 %.0
@@ -4487,7 +4487,7 @@ rdbSaveType.exit160:                              ; preds = %370, %349, %350, %.
   unreachable
 
 376:                                              ; preds = %rdbSaveType.exit160, %rdbSaveType.exit149, %rdbSaveType.exit138, %rdbSaveType.exit127, %rdbSaveType.exit116, %rdbSaveType.exit105, %rdbSaveType.exit94, %rdbSaveType.exit83, %rdbSaveType.exit72, %rdbSaveType.exit61, %rdbSaveType.exit50, %rdbSaveType.exit39, %rdbSaveType.exit
-  %.0 = phi i32 [ %.0.i.i152, %rdbSaveType.exit160 ], [ %.0.i.i141, %rdbSaveType.exit149 ], [ %.0.i.i97, %rdbSaveType.exit105 ], [ %.0.i.i108, %rdbSaveType.exit116 ], [ %.0.i.i119, %rdbSaveType.exit127 ], [ %.0.i.i130, %rdbSaveType.exit138 ], [ %.0.i.i75, %rdbSaveType.exit83 ], [ %.0.i.i86, %rdbSaveType.exit94 ], [ %.0.i.i42, %rdbSaveType.exit50 ], [ %.0.i.i53, %rdbSaveType.exit61 ], [ %.0.i.i64, %rdbSaveType.exit72 ], [ %.0.i.i31, %rdbSaveType.exit39 ], [ %.0.i.i, %rdbSaveType.exit ]
+  %.0 = phi i32 [ %.0.i.i, %rdbSaveType.exit ], [ %.0.i.i31, %rdbSaveType.exit39 ], [ %.0.i.i42, %rdbSaveType.exit50 ], [ %.0.i.i53, %rdbSaveType.exit61 ], [ %.0.i.i64, %rdbSaveType.exit72 ], [ %.0.i.i75, %rdbSaveType.exit83 ], [ %.0.i.i86, %rdbSaveType.exit94 ], [ %.0.i.i97, %rdbSaveType.exit105 ], [ %.0.i.i108, %rdbSaveType.exit116 ], [ %.0.i.i119, %rdbSaveType.exit127 ], [ %.0.i.i130, %rdbSaveType.exit138 ], [ %.0.i.i141, %rdbSaveType.exit149 ], [ %.0.i.i152, %rdbSaveType.exit160 ]
   ret i32 %.0
 }
 
@@ -5313,7 +5313,7 @@ rdbSaveLen.exit424.thread:                        ; preds = %89, %.thread.i.i.i4
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph569, %139, %142, %146, %150, %154
-  %.0.i = phi i64 [ %156, %154 ], [ %153, %150 ], [ %149, %146 ], [ %145, %142 ], [ %141, %139 ], [ 0, %.lr.ph569 ]
+  %.0.i = phi i64 [ %141, %139 ], [ %145, %142 ], [ %149, %146 ], [ %153, %150 ], [ %156, %154 ], [ 0, %.lr.ph569 ]
   %157 = tail call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %134, i64 noundef %.0.i)
   %.not407 = icmp eq i64 %157, -1
   br i1 %.not407, label %.thread482, label %130
@@ -5439,7 +5439,7 @@ sdslen.exit:                                      ; preds = %.lr.ph569, %139, %1
   br label %sdslen.exit426
 
 sdslen.exit426:                                   ; preds = %197, %203, %206, %210, %214, %218
-  %.0.i425 = phi i64 [ %220, %218 ], [ %217, %214 ], [ %213, %210 ], [ %209, %206 ], [ %205, %203 ], [ 0, %197 ]
+  %.0.i425 = phi i64 [ %205, %203 ], [ %209, %206 ], [ %213, %210 ], [ %217, %214 ], [ %220, %218 ], [ 0, %197 ]
   %221 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %198, i64 noundef %.0.i425)
   %222 = icmp eq i64 %221, -1
   br i1 %222, label %.thread, label %223
@@ -5779,7 +5779,7 @@ rdbSaveMillisecondTime.exit456:                   ; preds = %313, %292
   br label %sdslen.exit458
 
 sdslen.exit458:                                   ; preds = %352, %358, %361, %365, %369, %373
-  %.0.i457 = phi i64 [ %375, %373 ], [ %372, %369 ], [ %368, %365 ], [ %364, %361 ], [ %360, %358 ], [ 0, %352 ]
+  %.0.i457 = phi i64 [ %360, %358 ], [ %364, %361 ], [ %368, %365 ], [ %372, %369 ], [ %375, %373 ], [ 0, %352 ]
   %376 = call i64 @rdbSaveRawString(ptr noundef %0, ptr noundef nonnull %337, i64 noundef %.0.i457)
   %377 = icmp eq i64 %376, -1
   br i1 %377, label %378, label %332
@@ -7086,7 +7086,7 @@ rdbSaveLen.exit.thread:                           ; preds = %45, %.thread.i.i.i3
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %76, %81, %84, %88, %92, %96
-  %.0.i = phi i64 [ %98, %96 ], [ %95, %92 ], [ %91, %88 ], [ %87, %84 ], [ %83, %81 ], [ 0, %76 ]
+  %.0.i = phi i64 [ %83, %81 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %98, %96 ], [ 0, %76 ]
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %rdbWriteRaw.exit, label %99
 
@@ -7349,7 +7349,7 @@ define dso_local i64 @rdbSaveFunctions(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %35, %31, %27, %23, %20, %11
-  %.0.i.us = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %11 ]
+  %.0.i.us = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %11 ]
   %38 = tail call i64 @rdbSaveRawString(ptr noundef null, ptr noundef nonnull %15, i64 noundef %.0.i.us)
   %39 = icmp slt i64 %38, 0
   %40 = add nuw nsw i64 %12, %38
@@ -7456,7 +7456,7 @@ rdbSaveType.exit.thread:                          ; preds = %42, %.thread.i.i.i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.loopexit, %69, %72, %76, %80, %84
-  %.0.i = phi i64 [ %86, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %69 ], [ 0, %.loopexit ]
+  %.0.i = phi i64 [ %71, %69 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ %86, %84 ], [ 0, %.loopexit ]
   %87 = call i64 @rdbSaveRawString(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %.0.i)
   %88 = icmp slt i64 %87, 0
   %89 = add nuw nsw i64 %61, %87
@@ -9361,7 +9361,7 @@ define dso_local ptr @rdbLoadObject(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %97, %105, %108, %112, %116, %120
-  %.0.i1056 = phi i64 [ %122, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %105 ], [ 0, %97 ]
+  %.0.i1056 = phi i64 [ %107, %105 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ 0, %97 ]
   %123 = load ptr, ptr %91, align 8, !tbaa !65
   %124 = tail call i32 @quicklistPushTail(ptr noundef %123, ptr noundef nonnull %100, i64 noundef %.0.i1056) #23
   tail call void @decrRefCount(ptr noundef nonnull %98) #23
@@ -9472,7 +9472,7 @@ sdslen.exit:                                      ; preds = %97, %105, %108, %11
   br label %sdslen.exit1059
 
 sdslen.exit1059:                                  ; preds = %147, %152, %155, %159, %163, %167
-  %.0.i1058 = phi i64 [ %169, %167 ], [ %166, %163 ], [ %162, %159 ], [ %158, %155 ], [ %154, %152 ], [ 0, %147 ]
+  %.0.i1058 = phi i64 [ %154, %152 ], [ %158, %155 ], [ %162, %159 ], [ %166, %163 ], [ %169, %167 ], [ 0, %147 ]
   %170 = add i64 %.0.i1058, %.08281337
   %spec.select = call i64 @llvm.umax.i64(i64 %.0.i1058, i64 %.08241338)
   %171 = load i32, ptr %.2759, align 8
@@ -9807,7 +9807,7 @@ rdbLoadBinaryDoubleValue.exit:                    ; preds = %272, %277
   br label %sdslen.exit1062
 
 sdslen.exit1062:                                  ; preds = %289, %292, %296, %300, %304
-  %.0.i1061 = phi i64 [ %306, %304 ], [ %303, %300 ], [ %299, %296 ], [ %295, %292 ], [ %291, %289 ]
+  %.0.i1061 = phi i64 [ %291, %289 ], [ %295, %292 ], [ %299, %296 ], [ %303, %300 ], [ %306, %304 ]
   %307 = icmp ugt i64 %.0.i1061, %.08341347
   br i1 %307, label %308, label %sdslen.exit1064
 
@@ -10076,7 +10076,7 @@ sdslen.exit1066:                                  ; preds = %sdslen.exit1064.thr
   br label %sdslen.exit1069
 
 sdslen.exit1069:                                  ; preds = %380, %383, %387, %391, %395
-  %.0.i1068 = phi i64 [ %397, %395 ], [ %394, %391 ], [ %390, %387 ], [ %386, %383 ], [ %382, %380 ]
+  %.0.i1068 = phi i64 [ %382, %380 ], [ %386, %383 ], [ %390, %387 ], [ %394, %391 ], [ %397, %395 ]
   %398 = icmp ugt i64 %.0.i1068, %373
   br i1 %398, label %424, label %sdslen.exit1069.thread
 
@@ -10123,7 +10123,7 @@ sdslen.exit1069.thread:                           ; preds = %375, %sdslen.exit10
   br label %sdslen.exit1071
 
 sdslen.exit1071:                                  ; preds = %sdslen.exit1069.thread, %404, %407, %411, %415, %419
-  %.0.i1070 = phi i64 [ %421, %419 ], [ %418, %415 ], [ %414, %411 ], [ %410, %407 ], [ %406, %404 ], [ 0, %sdslen.exit1069.thread ]
+  %.0.i1070 = phi i64 [ %406, %404 ], [ %410, %407 ], [ %414, %411 ], [ %418, %415 ], [ %421, %419 ], [ 0, %sdslen.exit1069.thread ]
   %422 = add i64 %.0.i1070, %400
   %423 = tail call i32 @lpSafeToAdd(ptr noundef %399, i64 noundef %422) #23
   %.not987 = icmp eq i32 %423, 0
@@ -10206,7 +10206,7 @@ sdslen.exit1071:                                  ; preds = %sdslen.exit1069.thr
   br label %sdslen.exit1073
 
 sdslen.exit1073:                                  ; preds = %439, %447, %450, %454, %458, %462
-  %.0.i1072 = phi i64 [ %464, %462 ], [ %461, %458 ], [ %457, %454 ], [ %453, %450 ], [ %449, %447 ], [ 0, %439 ]
+  %.0.i1072 = phi i64 [ %449, %447 ], [ %453, %450 ], [ %457, %454 ], [ %461, %458 ], [ %464, %462 ], [ 0, %439 ]
   %465 = trunc i64 %.0.i1072 to i32
   %466 = tail call ptr @lpAppend(ptr noundef %443, ptr noundef nonnull %362, i32 noundef %465) #23
   store ptr %466, ptr %354, align 8, !tbaa !65
@@ -11422,7 +11422,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
   br label %.critedge1031
 
-.thread1199:                                      ; preds = %730, %938, %876, %828, %807, %781, %738, %.critedge1025
+.thread1199:                                      ; preds = %730, %781, %738, %807, %828, %876, %938, %.critedge1025
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
   br label %.critedge1041
 
@@ -11432,7 +11432,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   br label %1209
 
 .thread1183:                                      ; preds = %913, %867
-  %.18794 = phi i32 [ %.24800, %913 ], [ %.23799, %867 ]
+  %.18794 = phi i32 [ %.23799, %867 ], [ %.24800, %913 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #23
   %cond = icmp ne i32 %.18794, 2
   %brmerge = or i1 %.not, %cond

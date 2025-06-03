@@ -1717,7 +1717,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread52: ; preds = %103, %_Z
   br label %142
 
 142:                                              ; preds = %140, %139, %117, %23, %21
-  %.030 = phi ptr [ %141, %140 ], [ %.131, %139 ], [ %116, %117 ], [ %24, %23 ], [ %22, %21 ]
+  %.030 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %116, %117 ], [ %.131, %139 ], [ %141, %140 ]
   %143 = load i32, ptr %2, align 4, !tbaa !13
   %144 = icmp slt i32 %143, 1
   br i1 %144, label %.thread56, label %145

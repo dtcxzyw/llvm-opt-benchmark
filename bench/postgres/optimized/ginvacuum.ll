@@ -488,8 +488,8 @@ ginVacuumItemPointers.exit.i:                     ; preds = %156
   br label %200
 
 200:                                              ; preds = %199, %107, %.lr.ph.i
-  %.178 = phi i32 [ %.077, %199 ], [ %.077, %.lr.ph.i ], [ %115, %107 ]
-  %.1.i = phi ptr [ %.2.i, %199 ], [ %.05991.i, %.lr.ph.i ], [ %.05991.i, %107 ]
+  %.178 = phi i32 [ %.077, %199 ], [ %115, %107 ], [ %.077, %.lr.ph.i ]
+  %.1.i = phi ptr [ %.2.i, %199 ], [ %.05991.i, %107 ], [ %.05991.i, %.lr.ph.i ]
   %201 = add i16 %.06089.i, 1
   %.not.i = icmp ugt i16 %201, %93
   br i1 %.not.i, label %ginVacuumEntryPage.exit, label %.lr.ph.i, !llvm.loop !6

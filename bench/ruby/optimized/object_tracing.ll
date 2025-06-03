@@ -63,7 +63,7 @@ define ptr @objspace_lookup_allocation_info(i64 noundef %0) local_unnamed_addr #
   br label %lookup_allocation_info.exit
 
 lookup_allocation_info.exit:                      ; preds = %4, %10
-  %.1.i = phi ptr [ %9, %4 ], [ null, %10 ]
+  %.1.i = phi ptr [ null, %10 ], [ %9, %4 ]
   ret ptr %.1.i
 }
 

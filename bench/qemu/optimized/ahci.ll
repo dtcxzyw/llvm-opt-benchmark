@@ -1553,7 +1553,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   br label %trace_ahci_mem_read_32_host_default.exit
 
 trace_ahci_mem_read_32_host_default.exit:         ; preds = %46, %40, %34, %25, %22, %19, %16, %13
-  %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ]
+  %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i32 = icmp eq i32 %.pr, 0
   br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !19
@@ -1750,7 +1750,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br label %trace_ahci_port_read_default.exit.i
 
 trace_ahci_port_read_default.exit.i:              ; preds = %142, %136, %130, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82
-  %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %..i, %109 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ]
+  %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %..i, %109 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ]
   %.pr.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i30.i = icmp eq i32 %.pr.i, 0
   br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !20

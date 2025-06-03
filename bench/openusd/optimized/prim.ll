@@ -3265,7 +3265,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %29, %28 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %31 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__L25_IsSchemaInAppliedSchemasERKSt6vectorINS2_7TfTokenESaIS4_EERKNS2_17UsdSchemaRegistry10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPKS4_S6_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.1.i.i.i.i.i)
   br i1 %31, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNS2_L25_IsSchemaInAppliedSchemasERKS8_RKNS2_17UsdSchemaRegistry10SchemaInfoEE3$_0EbT_SH_T0_.exit", label %32
 
@@ -3274,7 +3274,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %35 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__L25_IsSchemaInAppliedSchemasERKSt6vectorINS2_7TfTokenESaIS4_EERKNS2_17UsdSchemaRegistry10SchemaInfoEE3$_0EclINS_17__normal_iteratorIPKS4_S6_EEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.sroa.025.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %35, ptr %.sroa.025.2.i.i.i.i.i, ptr %.8.val
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNS2_L25_IsSchemaInAppliedSchemasERKS8_RKNS2_17UsdSchemaRegistry10SchemaInfoEE3$_0EbT_SH_T0_.exit"

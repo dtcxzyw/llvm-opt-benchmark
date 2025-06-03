@@ -3180,7 +3180,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr noundef non
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i
-  %.sroa.030.1.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %35, %34 ]
+  %.sroa.030.1.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %37 = load ptr, ptr %.sroa.030.1.i.i.i.i, align 8, !tbaa !19
   %.not.i.i.i.i24.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i24.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i"
@@ -3195,7 +3195,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr noundef non
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.030.2.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.030.2.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load ptr, ptr %.sroa.030.2.i.i.i.i, align 8, !tbaa !19
   %.not.i.i.i.i26.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i26.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i"
@@ -5340,7 +5340,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau14NormalizedType11hasTopTableEv(pt
   br label %59
 
 59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i" ]
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %60 = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8, !tbaa !19
   %.not.i.i.i.i28.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i28.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i", label %61
@@ -5361,7 +5361,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau14NormalizedType11hasTopTableEv(pt
   br label %68
 
 68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i" ]
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %69 = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8, !tbaa !19
   %.not.i.i.i.i31.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i31.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i", label %70
@@ -5849,7 +5849,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau10Normalizer20withinResourceLimitsE
   br label %35
 
 35:                                               ; preds = %24, %30, %34
-  %.1 = phi i1 [ false, %24 ], [ true, %34 ], [ false, %30 ]
+  %.1 = phi i1 [ true, %34 ], [ false, %24 ], [ false, %30 ]
   ret i1 %.1
 }
 
@@ -6256,7 +6256,7 @@ _ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit15: ; preds = %58, %60
   br label %61
 
 61:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit15
-  %.1 = phi i32 [ %not., %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ], [ %39, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit15 ]
+  %.1 = phi i32 [ %39, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEED2Ev.exit15 ], [ %not., %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ]
   ret i32 %.1
 }
 
@@ -7122,7 +7122,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit37:   ; preds = %64
   resume { ptr, i32 } %.pn34
 
 110:                                              ; preds = %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EE4findERKS5_.exit, %108
-  %.1 = phi i32 [ %not., %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EE4findERKS5_.exit ], [ %.2, %108 ]
+  %.1 = phi i32 [ %.2, %108 ], [ %not., %_ZN4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_EbNS_14TypeIdPairHashESt8equal_toIS5_EE4findERKS5_.exit ]
   ret i32 %.1
 }
 

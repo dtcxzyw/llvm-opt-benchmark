@@ -11466,7 +11466,7 @@ _ZNK5folly11compression5Codec23needsUncompressedLengthEv.exit.i.i.i: ; preds = %
   br label %162
 
 162:                                              ; preds = %160, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %161, %160 ]
+  %.sroa.031.1.i.i.i.i.i.i.i.i = phi ptr [ %161, %160 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.val.i20.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.031.1.i.i.i.i.i.i.i.i, align 8, !tbaa !305, !noalias !309
   %163 = load ptr, ptr %.val.i20.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !309
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
@@ -11482,7 +11482,7 @@ _ZNK5folly11compression5Codec23needsUncompressedLengthEv.exit.i.i.i: ; preds = %
   br label %169
 
 169:                                              ; preds = %167, %._crit_edge.i.i.i.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %168, %167 ]
+  %.sroa.031.2.i.i.i.i.i.i.i.i = phi ptr [ %168, %167 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.val.i21.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.031.2.i.i.i.i.i.i.i.i, align 8, !tbaa !305, !noalias !309
   %170 = load ptr, ptr %.val.i21.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !309
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 40
@@ -12247,7 +12247,7 @@ _ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i: ; preds = %57
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %64, %63 ]
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i28.i.i.i.i.i = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !23
@@ -12274,7 +12274,7 @@ _ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i: ; preds = %65
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %72, %71 ]
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i31.i.i.i.i.i = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i8 0, ptr %4, align 8, !tbaa !23

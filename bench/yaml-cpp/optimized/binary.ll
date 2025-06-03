@@ -150,7 +150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   br label %92
 
 92:                                               ; preds = %66, %50, %._crit_edge
-  %.1 = phi ptr [ %.036.lcssa, %._crit_edge ], [ %65, %50 ], [ %91, %66 ]
+  %.1 = phi ptr [ %.036.lcssa, %._crit_edge ], [ %91, %66 ], [ %65, %50 ]
   %93 = load ptr, ptr %0, align 8, !tbaa !13
   %94 = ptrtoint ptr %.1 to i64
   %95 = ptrtoint ptr %93 to i64

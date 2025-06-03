@@ -651,7 +651,7 @@ define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %0, p
   br label %22
 
 22:                                               ; preds = %16, %20, %19
-  %.1 = phi i32 [ 0, %16 ], [ 0, %19 ], [ %., %20 ]
+  %.1 = phi i32 [ 0, %19 ], [ 0, %16 ], [ %., %20 ]
   ret i32 %.1
 }
 

@@ -6691,8 +6691,8 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit": ; preds = %15, %11
-  %.sroa.0.0.i.i17.pn = phi ptr [ %13, %11 ], [ %16, %15 ]
-  %17 = icmp eq ptr %.sroa.0.0.i.i17.pn, null
+  %.sroa.0.0.i.i.pn = phi ptr [ %13, %11 ], [ %16, %15 ]
+  %17 = icmp eq ptr %.sroa.0.0.i.i.pn, null
   br i1 %17, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.thread"
 
 18:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
@@ -6700,7 +6700,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit.thread": ; preds = %14, %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit", %2
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.0.0.i.i17.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ], [ inttoptr (i64 8 to ptr), %10 ], [ inttoptr (i64 8 to ptr), %14 ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.0.0.i.i.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ], [ inttoptr (i64 8 to ptr), %10 ], [ inttoptr (i64 8 to ptr), %14 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %0, 1
   ret { ptr, i64 } %20
@@ -6732,7 +6732,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %11
 
 11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
-  %.pn21 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ]
+  %.pn21 = phi ptr [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit" ]
   %12 = icmp eq ptr %.pn21, null
   br i1 %12, label %13, label %14
 
@@ -6774,8 +6774,8 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br label %12
 
 12:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit"
-  %.sroa.0.0.i.i17.pn = phi ptr [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit" ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ]
-  %13 = icmp eq ptr %.sroa.0.0.i.i17.pn, null
+  %.sroa.0.0.i.i.pn = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h3d45643e45cad501E.exit" ], [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17ha8e2f7a00bef336bE.exit" ]
+  %13 = icmp eq ptr %.sroa.0.0.i.i.pn, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -6783,7 +6783,7 @@ define hidden { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   unreachable
 
 15:                                               ; preds = %12, %2
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.0.0.i.i17.pn, %12 ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %.sroa.0.0.i.i.pn, %12 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %0, 1
   ret { ptr, i64 } %17
@@ -10103,10 +10103,10 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$10make_error17h2f6cdb3bb
   br i1 %23, label %24, label %53
 
 24:                                               ; preds = %53, %18, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit", %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit", %15
-  %.sroa.9.sroa.0.0 = phi ptr [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ undef, %18 ], [ null, %53 ], [ %.sroa.9.sroa.0.136, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ %.sroa.0.0.copyload, %15 ]
-  %.sroa.9.sroa.5.0 = phi ptr [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ undef, %18 ], [ %22, %53 ], [ %.sroa.9.sroa.5.138, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ %.sroa.428.0.copyload, %15 ]
-  %.sroa.9.sroa.6.0 = phi i64 [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ undef, %18 ], [ undef, %53 ], [ %.sroa.9.sroa.6.140, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ %.sroa.529.0.copyload, %15 ]
-  %.sroa.04.0 = phi i64 [ 0, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ 0, %18 ], [ 1, %53 ], [ %.sroa.04.142, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ 1, %15 ]
+  %.sroa.9.sroa.0.0 = phi ptr [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.9.sroa.0.136, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ undef, %18 ], [ null, %53 ]
+  %.sroa.9.sroa.5.0 = phi ptr [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.428.0.copyload, %15 ], [ %.sroa.9.sroa.5.138, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ undef, %18 ], [ %22, %53 ]
+  %.sroa.9.sroa.6.0 = phi i64 [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.529.0.copyload, %15 ], [ %.sroa.9.sroa.6.140, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ undef, %18 ], [ undef, %53 ]
+  %.sroa.04.0 = phi i64 [ 0, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ 1, %15 ], [ %.sroa.04.142, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ 0, %18 ], [ 1, %53 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %14, ptr %25, align 8
   store i64 %.sroa.04.0, ptr %0, align 8
@@ -11306,21 +11306,21 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %.val = load ptr, ptr %20, align 8, !noundef !13
   %21 = getelementptr i8, ptr %19, i64 56
-  %.val20 = load ptr, ptr %21, align 8
+  %.val19 = load ptr, ptr %21, align 8
   %22 = icmp eq ptr %.val, null
   br i1 %22, label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit", label %23
 
 23:                                               ; preds = %14
-  %24 = icmp ne ptr %.val20, null
+  %24 = icmp ne ptr %.val19, null
   call void @llvm.assume(i1 %24)
-  %25 = load ptr, ptr %.val20, align 8, !invariant.load !13, !noalias !2407, !nonnull !13
+  %25 = load ptr, ptr %.val19, align 8, !invariant.load !13, !noalias !2407, !nonnull !13
   invoke void %25(ptr noundef nonnull align 1 %.val)
           to label %30 unwind label %.body, !noalias !2407
 
 .body:                                            ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val20) #34, !noalias !2407
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val19) #34, !noalias !2407
   %27 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %17, ptr %28, align 8
@@ -11329,9 +11329,9 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
   br label %61
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %.val20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
   %32 = load i64, ptr %31, align 8, !range !42, !invariant.load !13, !noalias !2407
-  %33 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
   %34 = load i64, ptr %33, align 8, !range !43, !invariant.load !13, !noalias !2407
   %35 = icmp ult i64 %34, -9223372036854775807
   call void @llvm.assume(i1 %35)
@@ -11354,7 +11354,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
           to label %48 unwind label %62
 
 43:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit", %38
-  %.0 = phi i32 [ -1, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ], [ -1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ %39, %38 ]
+  %.0 = phi i32 [ %39, %38 ], [ -1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ -1, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   ret i32 %.0
@@ -11382,13 +11382,13 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %41, %48 ]
   %52 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %.val21 = load ptr, ptr %53, align 8, !noundef !13
-  %54 = icmp eq ptr %.val21, null
+  %.val20 = load ptr, ptr %53, align 8, !noundef !13
+  %54 = icmp eq ptr %.val20, null
   br i1 %54, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit", label %55
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2410
-  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h080d414149a4e1e9E.llvm.12836552674783018658(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val21)
+  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h080d414149a4e1e9E.llvm.12836552674783018658(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val20)
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %55
@@ -11403,19 +11403,19 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i": ; preds = %57, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2410
-  %.pre35 = load ptr, ptr %8, align 8
+  %.pre34 = load ptr, ptr %8, align 8
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i", %50
-  %59 = phi ptr [ %.pre35, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i" ], [ %52, %50 ]
+  %59 = phi ptr [ %.pre34, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i" ], [ %52, %50 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %51, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %43
 
 61:                                               ; preds = %44, %.body, %62
-  %.pn16 = phi { ptr, i32 } [ %26, %.body ], [ %63, %62 ], [ %45, %44 ]
-  resume { ptr, i32 } %.pn16
+  %.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %45, %44 ], [ %26, %.body ]
+  resume { ptr, i32 } %.pn.pn
 
 62:                                               ; preds = %49, %40
   %63 = landingpad { ptr, i32 }
@@ -11493,21 +11493,21 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %.val = load ptr, ptr %20, align 8, !noundef !13
   %21 = getelementptr i8, ptr %19, i64 56
-  %.val20 = load ptr, ptr %21, align 8
+  %.val19 = load ptr, ptr %21, align 8
   %22 = icmp eq ptr %.val, null
   br i1 %22, label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit", label %23
 
 23:                                               ; preds = %14
-  %24 = icmp ne ptr %.val20, null
+  %24 = icmp ne ptr %.val19, null
   call void @llvm.assume(i1 %24)
-  %25 = load ptr, ptr %.val20, align 8, !invariant.load !13, !noalias !2427, !nonnull !13
+  %25 = load ptr, ptr %.val19, align 8, !invariant.load !13, !noalias !2427, !nonnull !13
   invoke void %25(ptr noundef nonnull align 1 %.val)
           to label %30 unwind label %.body, !noalias !2427
 
 .body:                                            ; preds = %23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val20) #34, !noalias !2427
+  call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr nonnull %.val, ptr nonnull readonly %.val19) #34, !noalias !2427
   %27 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %17, ptr %28, align 8
@@ -11516,9 +11516,9 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
   br label %61
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %.val20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
   %32 = load i64, ptr %31, align 8, !range !42, !invariant.load !13, !noalias !2427
-  %33 = getelementptr inbounds nuw i8, ptr %.val20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
   %34 = load i64, ptr %33, align 8, !range !43, !invariant.load !13, !noalias !2427
   %35 = icmp ult i64 %34, -9223372036854775807
   call void @llvm.assume(i1 %35)
@@ -11541,7 +11541,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
           to label %48 unwind label %62
 
 43:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit", %38
-  %.0 = phi i32 [ -1, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ], [ -1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ %39, %38 ]
+  %.0 = phi i32 [ %39, %38 ], [ -1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ -1, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   ret i32 %.0
@@ -11569,13 +11569,13 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %41, %48 ]
   %52 = load ptr, ptr %8, align 8, !nonnull !13, !align !40, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %.val21 = load ptr, ptr %53, align 8, !noundef !13
-  %54 = icmp eq ptr %.val21, null
+  %.val20 = load ptr, ptr %53, align 8, !noundef !13
+  %54 = icmp eq ptr %.val20, null
   br i1 %54, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit", label %55
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2430
-  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h080d414149a4e1e9E.llvm.12836552674783018658(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val21)
+  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h080d414149a4e1e9E.llvm.12836552674783018658(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val20)
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %55
@@ -11590,19 +11590,19 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i": ; preds = %57, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2430
-  %.pre35 = load ptr, ptr %8, align 8
+  %.pre34 = load ptr, ptr %8, align 8
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i", %50
-  %59 = phi ptr [ %.pre35, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i" ], [ %52, %50 ]
+  %59 = phi ptr [ %.pre34, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd3b2f142e79cb84dE.exit.i" ], [ %52, %50 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %51, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %43
 
 61:                                               ; preds = %44, %.body, %62
-  %.pn16 = phi { ptr, i32 } [ %26, %.body ], [ %63, %62 ], [ %45, %44 ]
-  resume { ptr, i32 } %.pn16
+  %.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %45, %44 ], [ %26, %.body ]
+  resume { ptr, i32 } %.pn.pn
 
 62:                                               ; preds = %49, %40
   %63 = landingpad { ptr, i32 }
@@ -13675,7 +13675,7 @@ define noundef zeroext i1 @"_ZN95_$LT$ockam_transport_tcp..registry..common..Tcp
   br label %18
 
 18:                                               ; preds = %12, %6
-  %.0.in = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in
 }
 

@@ -1833,8 +1833,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280: ; preds = %_Z
   br label %626
 
 626:                                              ; preds = %617, %618, %619, %620, %608, %625
-  %.860 = phi i32 [ %.254, %608 ], [ 0, %617 ], [ %.254, %620 ], [ 2, %619 ], [ 1, %618 ], [ %.254, %625 ]
-  %cond = phi i1 [ false, %608 ], [ true, %617 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %625 ]
+  %.860 = phi i32 [ %.254, %608 ], [ 0, %617 ], [ 1, %618 ], [ 2, %619 ], [ %.254, %620 ], [ %.254, %625 ]
+  %cond = phi i1 [ false, %608 ], [ true, %617 ], [ true, %618 ], [ true, %619 ], [ true, %620 ], [ true, %625 ]
   %627 = load ptr, ptr %25, align 8, !tbaa !72
   %.not.i.i.i281 = icmp eq ptr %627, null
   br i1 %.not.i.i.i281, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %628

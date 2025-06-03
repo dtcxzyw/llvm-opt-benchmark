@@ -2680,7 +2680,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit574:       ; preds = %_ZNKSt7__cxx1112bas
   br label %503
 
 503:                                              ; preds = %.lr.ph1205, %502, %501, %500
-  %.1446 = phi ptr [ %.04451203, %.lr.ph1205 ], [ %486, %502 ], [ %481, %501 ], [ %476, %500 ]
+  %.1446 = phi ptr [ %.04451203, %.lr.ph1205 ], [ %476, %500 ], [ %481, %501 ], [ %486, %502 ]
   %504 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv1334
   %505 = load i32, ptr %504, align 4, !tbaa !4
   %.not5421197 = icmp slt i32 %505, 0

@@ -377,8 +377,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %122
 
 122:                                              ; preds = %114, %108
-  %.pn16 = phi i64 [ %118, %114 ], [ %110, %108 ]
-  %.pn13 = phi i64 [ %121, %114 ], [ %113, %108 ]
+  %.pn16 = phi i64 [ %110, %108 ], [ %118, %114 ]
+  %.pn13 = phi i64 [ %113, %108 ], [ %121, %114 ]
   %.pn15 = getelementptr inbounds i8, ptr %.val, i64 %.pn16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %105
@@ -1200,7 +1200,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
   br label %219
 
 219:                                              ; preds = %194, %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h6c736b4b25aa9ae0E.exit.i"
-  %.pn.i = phi ptr [ %209, %194 ], [ %.sroa.4134.0.copyload, %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h6c736b4b25aa9ae0E.exit.i" ]
+  %.pn.i = phi ptr [ %.sroa.4134.0.copyload, %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h6c736b4b25aa9ae0E.exit.i" ], [ %209, %194 ]
   %.sroa.0.0.i74 = getelementptr inbounds i8, ptr %.pn.i, i64 -8
   store ptr %.sroa.0.0.i74, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)

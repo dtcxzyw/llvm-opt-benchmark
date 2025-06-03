@@ -1289,7 +1289,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN109_$LT$wasmtime_wasi..bindings..sync..generated..wasi..io..streams..StreamError$u20$as$u20$core..fmt..Debug$GT$3fmt17hdeb308abe1c23e1eE.exit"
 
 "_ZN109_$LT$wasmtime_wasi..bindings..sync..generated..wasi..io..streams..StreamError$u20$as$u20$core..fmt..Debug$GT$3fmt17hdeb308abe1c23e1eE.exit": ; preds = %7, %11
-  %.0.in.i = phi i1 [ %12, %11 ], [ %10, %7 ]
+  %.0.in.i = phi i1 [ %10, %7 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 
@@ -2001,7 +2001,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i": ; preds = %62, %57, %54, %51
-  %.0.i.i.i.i.i = phi i8 [ %56, %54 ], [ %67, %62 ], [ %53, %51 ], [ %61, %57 ]
+  %.0.i.i.i.i.i = phi i8 [ %61, %57 ], [ %53, %51 ], [ %67, %62 ], [ %56, %54 ]
   %68 = trunc i8 %.0.i.i.i.i.i to i1
   br i1 %68, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h2307eb73495a23bdE.exit.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5d8332c349d6c5b4E.exit"
 
@@ -2132,7 +2132,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11": ; preds = %126, %121, %118, %115
-  %.0.i.i.i.i.i12 = phi i8 [ %120, %118 ], [ %131, %126 ], [ %117, %115 ], [ %125, %121 ]
+  %.0.i.i.i.i.i12 = phi i8 [ %125, %121 ], [ %117, %115 ], [ %131, %126 ], [ %120, %118 ]
   %132 = trunc i8 %.0.i.i.i.i.i12 to i1
   br i1 %132, label %133, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit"
 
@@ -2349,8 +2349,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %55, %
   br label %81
 
 81:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h392844f6ec262e3cE.exit", %77, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %80, %77 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h392844f6ec262e3cE.exit" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %79, %77 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h392844f6ec262e3cE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %76, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h392844f6ec262e3cE.exit" ], [ %80, %77 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h392844f6ec262e3cE.exit" ], [ %79, %77 ]
   %82 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %83 = insertvalue { ptr, i64 } %82, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %83
@@ -2412,7 +2412,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h3ace9b310a7716d2E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.0
 }
 
@@ -3009,7 +3009,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -15325,7 +15325,7 @@ _ZN4core3ops8function6FnOnce9call_once17h38468e01b14031acE.exit: ; preds = %18, 
 
 64:                                               ; preds = %61
   %.sroa.46.0.extract.shift.i.i = lshr i40 %62, 8
-  %extract.t16.i = trunc nuw i40 %.sroa.46.0.extract.shift.i.i to i32
+  %extract.t18.i = trunc nuw i40 %.sroa.46.0.extract.shift.i.i to i32
   br label %67
 
 65:                                               ; preds = %61
@@ -15334,7 +15334,7 @@ _ZN4core3ops8function6FnOnce9call_once17h38468e01b14031acE.exit: ; preds = %18, 
   br i1 %66, label %73, label %.thread
 
 67:                                               ; preds = %64, %60
-  %.sroa.7.0.ph.off0.i = phi i32 [ %.sroa.10.sroa.9.0.in.in, %60 ], [ %extract.t16.i, %64 ]
+  %.sroa.7.0.ph.off0.i = phi i32 [ %.sroa.10.sroa.9.0.in.in, %60 ], [ %extract.t18.i, %64 ]
   %68 = icmp eq i32 %.sroa.7.0.ph.off0.i, 0
   br i1 %68, label %73, label %69
 
@@ -15717,7 +15717,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 28:                                               ; preds = %26, %24, %22, %20, %18, %16, %14, %12
-  %.0.in = phi i1 [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0.in = phi i1 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
   ret i1 %.0.in
 }
 
@@ -15781,7 +15781,7 @@ default.unreachable1:                             ; preds = %2
   br label %15
 
 15:                                               ; preds = %11, %9, %7
-  %.0.in = phi i1 [ %14, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %14, %11 ]
   ret i1 %.0.in
 }
 
@@ -15983,7 +15983,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %14, %12, %10
-  %.0.in = phi i1 [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   ret i1 %.0.in
 }
 
@@ -16025,7 +16025,7 @@ define noundef zeroext i1 @"_ZN109_$LT$wasmtime_wasi..bindings..sync..generated.
   br label %12
 
 12:                                               ; preds = %10, %6
-  %.0.in = phi i1 [ %11, %10 ], [ %9, %6 ]
+  %.0.in = phi i1 [ %9, %6 ], [ %11, %10 ]
   ret i1 %.0.in
 }
 
@@ -16525,7 +16525,7 @@ define noundef zeroext i1 @"_ZN102_$LT$wasmtime_wasi..bindings..async_io..wasi..
   br label %12
 
 12:                                               ; preds = %10, %6
-  %.0.in = phi i1 [ %11, %10 ], [ %9, %6 ]
+  %.0.in = phi i1 [ %9, %6 ], [ %11, %10 ]
   ret i1 %.0.in
 }
 

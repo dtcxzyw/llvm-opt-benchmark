@@ -480,7 +480,7 @@ default.unreachable:                              ; preds = %_ZL12invertBufferPD
   unreachable
 
 171:                                              ; preds = %_ZL12invertBufferPDsijii.exit.thread, %160, %165, %162, %169, %167
-  %.1302 = phi i32 [ %170, %169 ], [ %168, %167 ], [ %161, %160 ], [ %163, %165 ], [ %163, %162 ], [ %158, %_ZL12invertBufferPDsijii.exit.thread ]
+  %.1302 = phi i32 [ %161, %160 ], [ %163, %165 ], [ %163, %162 ], [ %168, %167 ], [ %170, %169 ], [ %158, %_ZL12invertBufferPDsijii.exit.thread ]
   br i1 %142, label %172, label %_ZL12invertBufferPDsijii.exit375
 
 172:                                              ; preds = %171
@@ -2280,7 +2280,7 @@ define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr no
   br label %21
 
 21:                                               ; preds = %13, %14, %19, %16, %15, %.lr.ph
-  %.125 = phi i8 [ %.02430, %.lr.ph ], [ 1, %19 ], [ 1, %16 ], [ 0, %15 ], [ 1, %14 ], [ 0, %13 ]
+  %.125 = phi i8 [ %.02430, %.lr.ph ], [ 0, %13 ], [ 1, %14 ], [ 1, %19 ], [ 1, %16 ], [ 0, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
@@ -2321,7 +2321,7 @@ define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr no
   br label %34
 
 34:                                               ; preds = %.lr.ph34, %28, %29, %32, %27, %26
-  %.3 = phi i8 [ %.232, %.lr.ph34 ], [ 1, %32 ], [ 1, %29 ], [ 0, %28 ], [ 1, %27 ], [ 0, %26 ]
+  %.3 = phi i8 [ %.232, %.lr.ph34 ], [ 0, %26 ], [ 1, %27 ], [ 1, %32 ], [ 1, %29 ], [ 0, %28 ]
   %35 = icmp samesign ugt i64 %indvars.iv36, 1
   br i1 %35, label %.lr.ph34, label %.loopexit, !llvm.loop !34
 

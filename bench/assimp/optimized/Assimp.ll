@@ -1651,7 +1651,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -1895,7 +1895,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -2234,7 +2234,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 56:                                               ; preds = %48, %40, %26, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %55, %48 ], [ %47, %40 ], [ %39, %26 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %39, %26 ], [ %47, %40 ], [ %55, %48 ]
   %57 = shl i32 %.1.i, 3
   %58 = xor i32 %57, %.1.i
   %59 = lshr i32 %58, 5
@@ -2525,7 +2525,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 54:                                               ; preds = %46, %38, %24, %._crit_edge.i
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %53, %46 ], [ %45, %38 ], [ %37, %24 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %37, %24 ], [ %45, %38 ], [ %53, %46 ]
   %55 = shl i32 %.1.i, 3
   %56 = xor i32 %55, %.1.i
   %57 = lshr i32 %56, 5
@@ -4861,7 +4861,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(36) ptr @_ZN1
   br label %_ZN12aiMatrix3x3tIfEixEj.exit
 
 _ZN12aiMatrix3x3tIfEixEj.exit:                    ; preds = %60, %61, %62
-  %.0.i = phi ptr [ %58, %62 ], [ %57, %61 ], [ %2, %60 ]
+  %.0.i = phi ptr [ %57, %61 ], [ %58, %62 ], [ %2, %60 ]
   %63 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv148
   %64 = load float, ptr %63, align 4
   %65 = fadd float %64, 1.000000e+00
@@ -4884,7 +4884,7 @@ _ZN12aiMatrix3x3tIfEixEj.exit:                    ; preds = %60, %61, %62
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %66, %67, %68
-  %.0.i95.sroa.speculated = phi float [ %39, %68 ], [ %38, %67 ], [ %37, %66 ]
+  %.0.i95.sroa.speculated = phi float [ %38, %67 ], [ %39, %68 ], [ %37, %66 ]
   %69 = fmul float %.0.i95.sroa.speculated, %56
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit97 [
@@ -4899,7 +4899,7 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %66, %67, %68
   br label %_ZN10aiVector3tIfEixEj.exit97
 
 _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %_ZN10aiVector3tIfEixEj.exit, %71, %72
-  %.0.i96.sroa.speculated = phi float [ %39, %72 ], [ %38, %71 ], [ %37, %_ZN10aiVector3tIfEixEj.exit ]
+  %.0.i96.sroa.speculated = phi float [ %38, %71 ], [ %39, %72 ], [ %37, %_ZN10aiVector3tIfEixEj.exit ]
   switch i32 %59, label %_ZN10aiVector3tIfEixEj.exit99 [
     i32 2, label %74
     i32 1, label %73
@@ -4912,7 +4912,7 @@ _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit99
 
 _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %_ZN10aiVector3tIfEixEj.exit97, %73, %74
-  %.0.i98.sroa.speculated = phi float [ %42, %74 ], [ %41, %73 ], [ %40, %_ZN10aiVector3tIfEixEj.exit97 ]
+  %.0.i98.sroa.speculated = phi float [ %41, %73 ], [ %42, %74 ], [ %40, %_ZN10aiVector3tIfEixEj.exit97 ]
   %75 = fmul float %50, %.0.i98.sroa.speculated
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit101 [
     i32 2, label %77
@@ -4926,7 +4926,7 @@ _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit101
 
 _ZN10aiVector3tIfEixEj.exit101:                   ; preds = %_ZN10aiVector3tIfEixEj.exit99, %76, %77
-  %.0.i100.sroa.speculated = phi float [ %42, %77 ], [ %41, %76 ], [ %40, %_ZN10aiVector3tIfEixEj.exit99 ]
+  %.0.i100.sroa.speculated = phi float [ %41, %76 ], [ %42, %77 ], [ %40, %_ZN10aiVector3tIfEixEj.exit99 ]
   %78 = fneg float %.0.i100.sroa.speculated
   %79 = fmul float %75, %78
   %80 = tail call float @llvm.fmuladd.f32(float %69, float %.0.i96.sroa.speculated, float %79)
@@ -4942,7 +4942,7 @@ _ZN10aiVector3tIfEixEj.exit101:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit103
 
 _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %_ZN10aiVector3tIfEixEj.exit101, %81, %82
-  %.0.i102.sroa.speculated = phi float [ %42, %82 ], [ %41, %81 ], [ %40, %_ZN10aiVector3tIfEixEj.exit101 ]
+  %.0.i102.sroa.speculated = phi float [ %41, %81 ], [ %42, %82 ], [ %40, %_ZN10aiVector3tIfEixEj.exit101 ]
   %83 = fmul float %55, %.0.i102.sroa.speculated
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit105 [
     i32 2, label %85
@@ -4956,7 +4956,7 @@ _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit105
 
 _ZN10aiVector3tIfEixEj.exit105:                   ; preds = %_ZN10aiVector3tIfEixEj.exit103, %84, %85
-  %.0.i104.sroa.speculated = phi float [ %39, %85 ], [ %38, %84 ], [ %37, %_ZN10aiVector3tIfEixEj.exit103 ]
+  %.0.i104.sroa.speculated = phi float [ %38, %84 ], [ %39, %85 ], [ %37, %_ZN10aiVector3tIfEixEj.exit103 ]
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %.0.i104.sroa.speculated, float %80)
   switch i32 %59, label %_ZN12aiMatrix3x3tIfEixEj.exit107 [
     i32 2, label %88
@@ -4970,7 +4970,7 @@ _ZN10aiVector3tIfEixEj.exit105:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN12aiMatrix3x3tIfEixEj.exit107
 
 _ZN12aiMatrix3x3tIfEixEj.exit107:                 ; preds = %_ZN10aiVector3tIfEixEj.exit105, %87, %88
-  %.0.i106 = phi ptr [ %58, %88 ], [ %57, %87 ], [ %2, %_ZN10aiVector3tIfEixEj.exit105 ]
+  %.0.i106 = phi ptr [ %57, %87 ], [ %58, %88 ], [ %2, %_ZN10aiVector3tIfEixEj.exit105 ]
   %89 = getelementptr inbounds nuw float, ptr %.0.i106, i64 %indvars.iv
   store float %86, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15318,8 +15318,8 @@ _ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit: ; preds = %.lr.ph.i, %.lr.ph5
   %747 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
   br label %62, !llvm.loop !98
 
-.thread406:                                       ; preds = %456, %.thread101.i, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %95, %189, %234, %245, %251, %228, %222, %219, %186, %179, %.loopexit426, %115, %110, %98, %501, %507, %705, %503, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread, %.thread389, %449, %450, %263, %258, %254, %410, %417, %414, %373, %368, %365, %361, %357, %446, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread, %454, %441, %715, %710, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread, %_ZL22stbi__check_png_headerP13stbi__context.exit
-  %.0 = phi i32 [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 0, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %503 ], [ 1, %705 ], [ 0, %507 ], [ 0, %501 ], [ 0, %.thread389 ], [ 1, %449 ], [ 1, %450 ], [ 0, %263 ], [ 0, %258 ], [ 0, %254 ], [ 0, %410 ], [ 1, %417 ], [ 0, %414 ], [ 0, %373 ], [ 0, %368 ], [ 1, %365 ], [ 0, %361 ], [ 0, %357 ], [ 0, %446 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 0, %454 ], [ 0, %441 ], [ 0, %715 ], [ 0, %710 ], [ 0, %98 ], [ 0, %110 ], [ 0, %115 ], [ 0, %.loopexit426 ], [ 0, %179 ], [ 0, %186 ], [ 0, %219 ], [ 0, %222 ], [ 0, %228 ], [ 0, %251 ], [ 0, %245 ], [ 0, %234 ], [ 0, %189 ], [ 0, %95 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %.thread101.i ], [ 0, %456 ]
+.thread406:                                       ; preds = %456, %.thread101.i, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %95, %189, %234, %245, %251, %228, %222, %219, %186, %179, %.loopexit426, %115, %110, %98, %501, %507, %705, %503, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread, %.thread389, %449, %450, %446, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread, %454, %441, %410, %417, %414, %373, %368, %365, %361, %357, %263, %258, %254, %715, %710, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread, %_ZL22stbi__check_png_headerP13stbi__context.exit
+  %.0 = phi i32 [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 0, %assimp_stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %503 ], [ 1, %705 ], [ 0, %507 ], [ 0, %501 ], [ 0, %.thread389 ], [ 1, %449 ], [ 1, %450 ], [ 0, %446 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 0, %454 ], [ 0, %441 ], [ 0, %410 ], [ 1, %417 ], [ 0, %414 ], [ 0, %373 ], [ 0, %368 ], [ 1, %365 ], [ 0, %361 ], [ 0, %357 ], [ 0, %263 ], [ 0, %258 ], [ 0, %254 ], [ 0, %715 ], [ 0, %710 ], [ 0, %98 ], [ 0, %110 ], [ 0, %115 ], [ 0, %.loopexit426 ], [ 0, %179 ], [ 0, %186 ], [ 0, %219 ], [ 0, %222 ], [ 0, %228 ], [ 0, %251 ], [ 0, %245 ], [ 0, %234 ], [ 0, %189 ], [ 0, %95 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %.thread101.i ], [ 0, %456 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #48
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #48
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #48

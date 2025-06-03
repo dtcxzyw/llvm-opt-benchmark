@@ -1445,7 +1445,7 @@ is_inter_block.exit.thread:                       ; preds = %35, %is_inter_block
   br label %av1_get_max_uv_txsize.exit.thread
 
 av1_get_max_uv_txsize.exit.thread:                ; preds = %18, %18, %18, %32, %33, %34, %45, %is_inter_block.exit.thread, %is_inter_block.exit
-  %.025 = phi i8 [ %37, %is_inter_block.exit.thread ], [ %74, %45 ], [ %37, %is_inter_block.exit ], [ 3, %18 ], [ 3, %18 ], [ 3, %18 ], [ 10, %32 ], [ 9, %33 ], [ %31, %34 ]
+  %.025 = phi i8 [ %37, %is_inter_block.exit.thread ], [ %74, %45 ], [ %37, %is_inter_block.exit ], [ 3, %18 ], [ 3, %18 ], [ 3, %18 ], [ 9, %33 ], [ 10, %32 ], [ %31, %34 ]
   %75 = icmp eq i8 %2, 0
   %76 = zext i8 %.025 to i64
   %77 = getelementptr inbounds nuw [19 x i8], ptr @txsize_horz_map, i64 0, i64 %76

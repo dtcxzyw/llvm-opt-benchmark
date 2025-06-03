@@ -238,7 +238,7 @@ define hidden void @_ZN5boost6locale8impl_icu14create_convertERKSt6localeRKNS1_5
   ret void
 
 26:                                               ; preds = %22, %17, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %18, %17 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -888,7 +888,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu19utf8_converter_impl
   unreachable
 
 common.resume:                                    ; preds = %_ZN5boost6locale8impl_icu12raii_casemapIcED2Ev.exit27, %112, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %.pn22.pn, %112 ], [ %35, %_ZN5boost6locale8impl_icu12raii_casemapIcED2Ev.exit27 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %35, %_ZN5boost6locale8impl_icu12raii_casemapIcED2Ev.exit27 ], [ %.pn22.pn, %112 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %25

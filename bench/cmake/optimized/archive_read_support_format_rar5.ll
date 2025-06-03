@@ -606,7 +606,7 @@ do_unpack.exit.thread:                            ; preds = %59
   br label %83
 
 do_unpack.exit:                                   ; preds = %57, %62, %68
-  %.0.i = phi i32 [ %58, %57 ], [ %69, %68 ], [ %63, %62 ]
+  %.0.i = phi i32 [ %58, %57 ], [ %63, %62 ], [ %69, %68 ]
   %.not41 = icmp eq i32 %.0.i, 0
   br i1 %.not41, label %70, label %83
 
@@ -1072,7 +1072,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br label %read_var_sized.exit
 
 read_var_sized.exit:                              ; preds = %rar5_read_data_skip.exit, %14, %skip_unprocessed_bytes.exit.thread, %38, %44, %118, %77, %106, %96, %75, %73, %70, %63, %read_u32.exit, %121, %114, %113, %103, %101, %99, %69, %62, %58
-  %.0 = phi i32 [ -30, %58 ], [ -30, %62 ], [ -30, %69 ], [ -30, %121 ], [ -30, %113 ], [ 0, %114 ], [ -30, %103 ], [ %102, %101 ], [ %100, %99 ], [ 1, %read_u32.exit ], [ 1, %63 ], [ 1, %70 ], [ 1, %73 ], [ 1, %75 ], [ %., %96 ], [ 1, %106 ], [ 1, %77 ], [ -10, %118 ], [ 1, %44 ], [ -30, %38 ], [ 1, %skip_unprocessed_bytes.exit.thread ], [ -30, %14 ], [ %33, %rar5_read_data_skip.exit ]
+  %.0 = phi i32 [ -30, %58 ], [ -30, %62 ], [ -30, %69 ], [ -30, %121 ], [ %100, %99 ], [ %102, %101 ], [ -30, %103 ], [ -30, %113 ], [ 0, %114 ], [ 1, %read_u32.exit ], [ 1, %63 ], [ 1, %70 ], [ 1, %73 ], [ 1, %75 ], [ %., %96 ], [ 1, %106 ], [ 1, %77 ], [ -10, %118 ], [ 1, %44 ], [ -30, %38 ], [ 1, %skip_unprocessed_bytes.exit.thread ], [ -30, %14 ], [ %33, %rar5_read_data_skip.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   ret i32 %.0
@@ -3054,8 +3054,8 @@ read_var_sized.exit.i:                            ; preds = %232, %227
   br label %parse_file_extra_redir.exit
 
 parse_file_extra_redir.exit:                      ; preds = %179, %194, %197, %213, %216, %227, %232, %237, %240, %241, %243, %247, %253, %254, %255
-  %.7 = phi i64 [ %72, %179 ], [ %198, %197 ], [ %217, %216 ], [ %235, %237 ], [ %235, %240 ], [ %235, %241 ], [ %235, %247 ], [ %235, %255 ], [ %235, %254 ], [ %235, %253 ], [ %235, %243 ], [ %217, %227 ], [ %217, %232 ], [ %198, %213 ], [ %72, %194 ]
-  %.0.i47 = phi i32 [ 1, %179 ], [ 1, %197 ], [ 1, %216 ], [ -30, %237 ], [ -30, %240 ], [ 1, %241 ], [ 0, %247 ], [ 0, %255 ], [ 0, %254 ], [ 0, %253 ], [ 1, %243 ], [ 1, %227 ], [ 1, %232 ], [ 1, %213 ], [ 1, %194 ]
+  %.7 = phi i64 [ %72, %179 ], [ %198, %197 ], [ %217, %216 ], [ %235, %237 ], [ %235, %240 ], [ %235, %241 ], [ %235, %247 ], [ %235, %254 ], [ %235, %253 ], [ %235, %255 ], [ %235, %243 ], [ %217, %227 ], [ %217, %232 ], [ %198, %213 ], [ %72, %194 ]
+  %.0.i47 = phi i32 [ 1, %179 ], [ 1, %197 ], [ 1, %216 ], [ -30, %237 ], [ -30, %240 ], [ 1, %241 ], [ 0, %247 ], [ 0, %254 ], [ 0, %253 ], [ 0, %255 ], [ 1, %243 ], [ 1, %227 ], [ 1, %232 ], [ 1, %213 ], [ 1, %194 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %27) #15
   br label %parse_file_extra_hash.exit
 
@@ -3426,8 +3426,8 @@ parse_file_extra_version.exit:                    ; preds = %362, %.loopexit36.i
   br i1 %403, label %parse_file_extra_hash.exit, label %read_var.exit
 
 parse_file_extra_hash.exit:                       ; preds = %read_u32.exit.i, %95, %174, %172, %.loopexit.i43, %101, %99, %93, %.loopexit.i, %76, %400, %parse_file_extra_version.exit, %parse_file_extra_owner.exit, %parse_file_extra_redir.exit
-  %.1134 = phi i64 [ %401, %400 ], [ %.12, %parse_file_extra_version.exit ], [ %.11, %parse_file_extra_owner.exit ], [ %.7, %parse_file_extra_redir.exit ], [ %72, %76 ], [ %88, %93 ], [ %88, %99 ], [ %88, %.loopexit.i ], [ %72, %101 ], [ %.5, %172 ], [ %.5, %174 ], [ %113, %.loopexit.i43 ], [ %spec.select, %95 ], [ %spec.select149, %read_u32.exit.i ]
-  %.1 = phi i32 [ %.0192, %400 ], [ %.0.i72, %parse_file_extra_version.exit ], [ %.025.i, %parse_file_extra_owner.exit ], [ %.0.i47, %parse_file_extra_redir.exit ], [ 1, %76 ], [ 1, %93 ], [ -30, %99 ], [ 1, %.loopexit.i ], [ 1, %101 ], [ 0, %172 ], [ 1, %174 ], [ 1, %.loopexit.i43 ], [ %spec.select148, %95 ], [ %spec.select150, %read_u32.exit.i ]
+  %.1134 = phi i64 [ %401, %400 ], [ %.7, %parse_file_extra_redir.exit ], [ %.11, %parse_file_extra_owner.exit ], [ %.12, %parse_file_extra_version.exit ], [ %72, %76 ], [ %88, %93 ], [ %88, %99 ], [ %88, %.loopexit.i ], [ %72, %101 ], [ %.5, %172 ], [ %.5, %174 ], [ %113, %.loopexit.i43 ], [ %spec.select, %95 ], [ %spec.select149, %read_u32.exit.i ]
+  %.1 = phi i32 [ %.0192, %400 ], [ %.0.i47, %parse_file_extra_redir.exit ], [ %.025.i, %parse_file_extra_owner.exit ], [ %.0.i72, %parse_file_extra_version.exit ], [ 1, %76 ], [ 1, %93 ], [ -30, %99 ], [ 1, %.loopexit.i ], [ 1, %101 ], [ 0, %172 ], [ 1, %174 ], [ 1, %.loopexit.i43 ], [ %spec.select148, %95 ], [ %spec.select150, %read_u32.exit.i ]
   %404 = icmp sgt i64 %.1134, 0
   br i1 %404, label %44, label %read_var.exit, !llvm.loop !98
 

@@ -5652,7 +5652,7 @@ sw.default.i.i.i.i:                               ; preds = %if.end
   br label %_ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i
 
 _ZZN12_GLOBAL__N_16uvimpl4Work19AfterThreadPoolWorkEiENKUlP10napi_env__E_clES3_.exit.i.i: ; preds = %sw.default.i.i.i.i, %sw.bb2.i.i.i.i, %sw.bb1.i.i.i.i, %if.end
-  %retval.0.i.i.i.i = phi i32 [ 9, %sw.default.i.i.i.i ], [ 11, %sw.bb2.i.i.i.i ], [ 1, %sw.bb1.i.i.i.i ], [ %status, %if.end ]
+  %retval.0.i.i.i.i = phi i32 [ 9, %sw.default.i.i.i.i ], [ 1, %sw.bb1.i.i.i.i ], [ 11, %sw.bb2.i.i.i.i ], [ %status, %if.end ]
   %_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %7 = load ptr, ptr %_data.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(226) %3, i32 noundef %retval.0.i.i.i.i, ptr noundef %7) #21

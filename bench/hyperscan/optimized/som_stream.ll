@@ -80,7 +80,7 @@ define hidden void @storeSomToStream(ptr noundef readonly captures(none) %0, i64
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %30, %33, %36, %44
-  %.0.i59 = phi i64 [ %50, %44 ], [ %43, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.0.i59 = phi i64 [ %50, %44 ], [ %32, %30 ], [ %35, %33 ], [ %43, %36 ]
   %.not74.i37 = icmp eq i64 %.0.i59, 0
   br i1 %.not74.i37, label %._crit_edge130, label %51
 
@@ -167,7 +167,7 @@ mmbit_get_flat_block.exit:                        ; preds = %30, %33, %36, %44
   br label %mmbit_get_flat_block.exit63
 
 mmbit_get_flat_block.exit63:                      ; preds = %74, %77, %80, %88
-  %.0.i61 = phi i64 [ %94, %88 ], [ %87, %80 ], [ %79, %77 ], [ %76, %74 ]
+  %.0.i61 = phi i64 [ %94, %88 ], [ %76, %74 ], [ %79, %77 ], [ %87, %80 ]
   %.not71.i31 = icmp eq i64 %.0.i61, 0
   br i1 %.not71.i31, label %._crit_edge130, label %95
 
@@ -363,7 +363,7 @@ storeSomValue.exit:                               ; preds = %156, %157, %158, %1
   br label %mmbit_get_flat_block.exit67
 
 mmbit_get_flat_block.exit67:                      ; preds = %182, %179, %176, %173
-  %.0.i65 = phi i64 [ %183, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ]
+  %.0.i65 = phi i64 [ %183, %182 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ]
   %184 = add nuw i32 %.0128, 1
   %185 = icmp eq i32 %184, 64
   %186 = zext nneg i32 %184 to i64
@@ -431,7 +431,7 @@ mmbit_get_flat_block.exit67:                      ; preds = %182, %179, %176, %1
   br label %mmbit_get_flat_block.exit75
 
 mmbit_get_flat_block.exit75:                      ; preds = %206, %209, %212, %220
-  %.0.i73 = phi i64 [ %226, %220 ], [ %219, %212 ], [ %211, %209 ], [ %208, %206 ]
+  %.0.i73 = phi i64 [ %226, %220 ], [ %208, %206 ], [ %211, %209 ], [ %219, %212 ]
   %227 = sub i32 %193, %199
   %228 = icmp eq i32 %227, 64
   %229 = zext nneg i32 %227 to i64
@@ -530,7 +530,7 @@ mmbit_get_flat_block.exit75:                      ; preds = %206, %209, %212, %2
   br label %mmbit_get_flat_block.exit71
 
 mmbit_get_flat_block.exit71:                      ; preds = %258, %261, %264, %272
-  %.0.i69 = phi i64 [ %278, %272 ], [ %271, %264 ], [ %263, %261 ], [ %260, %258 ]
+  %.0.i69 = phi i64 [ %278, %272 ], [ %260, %258 ], [ %263, %261 ], [ %271, %264 ]
   %.not71.i = icmp eq i64 %.0.i69, 0
   br i1 %.not71.i, label %._crit_edge130, label %279
 
@@ -679,7 +679,7 @@ define hidden void @loadSomFromStream(ptr noundef readonly captures(none) %0, i6
   br label %mmbit_get_flat_block.exit69
 
 mmbit_get_flat_block.exit69:                      ; preds = %30, %33, %36, %44
-  %.0.i67 = phi i64 [ %50, %44 ], [ %43, %36 ], [ %35, %33 ], [ %32, %30 ]
+  %.0.i67 = phi i64 [ %50, %44 ], [ %32, %30 ], [ %35, %33 ], [ %43, %36 ]
   %.not74.i = icmp eq i64 %.0.i67, 0
   br i1 %.not74.i, label %._crit_edge128, label %51
 
@@ -766,7 +766,7 @@ mmbit_get_flat_block.exit69:                      ; preds = %30, %33, %36, %44
   br label %mmbit_get_flat_block.exit73
 
 mmbit_get_flat_block.exit73:                      ; preds = %74, %77, %80, %88
-  %.0.i71 = phi i64 [ %94, %88 ], [ %87, %80 ], [ %79, %77 ], [ %76, %74 ]
+  %.0.i71 = phi i64 [ %94, %88 ], [ %76, %74 ], [ %79, %77 ], [ %87, %80 ]
   %.not71.i = icmp eq i64 %.0.i71, 0
   br i1 %.not71.i, label %._crit_edge128, label %95
 
@@ -891,7 +891,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   br i1 %158, label %loadSomValue.exit.us131, label %159
 
 159:                                              ; preds = %155, %151, %149, %.lr.ph127.split.split.us
-  %.0.i.us130 = phi i64 [ %150, %149 ], [ %153, %151 ], [ %157, %155 ], [ 0, %.lr.ph127.split.split.us ]
+  %.0.i.us130 = phi i64 [ %157, %155 ], [ %153, %151 ], [ %150, %149 ], [ 0, %.lr.ph127.split.split.us ]
   %160 = sub i64 %1, %.0.i.us130
   br label %loadSomValue.exit.us131
 
@@ -1001,7 +1001,7 @@ mmbit_iterate.exit.us133:                         ; preds = %183
   br i1 %209, label %loadSomValue.exit.us138, label %210
 
 210:                                              ; preds = %206, %202, %200, %.lr.ph127.split.split.split.us
-  %.0.i.us137 = phi i64 [ %201, %200 ], [ %204, %202 ], [ %208, %206 ], [ 0, %.lr.ph127.split.split.split.us ]
+  %.0.i.us137 = phi i64 [ %208, %206 ], [ %204, %202 ], [ %201, %200 ], [ 0, %.lr.ph127.split.split.split.us ]
   %211 = sub i64 %1, %.0.i.us137
   br label %loadSomValue.exit.us138
 
@@ -1043,7 +1043,7 @@ loadSomValue.exit.us138:                          ; preds = %210, %206, %202
   br label %mmbit_get_flat_block.exit.us
 
 mmbit_get_flat_block.exit.us:                     ; preds = %225, %222, %219, %216
-  %.0.i57.us = phi i64 [ %226, %225 ], [ %218, %216 ], [ %221, %219 ], [ %224, %222 ]
+  %.0.i57.us = phi i64 [ %226, %225 ], [ %224, %222 ], [ %221, %219 ], [ %218, %216 ]
   %227 = add nuw i32 %.0126.us136, 1
   %228 = icmp eq i32 %227, 64
   %229 = zext nneg i32 %227 to i64
@@ -1089,7 +1089,7 @@ mmbit_iterate.exit.us140:                         ; preds = %mmbit_get_flat_bloc
   br label %247
 
 247:                                              ; preds = %245, %241, %237, %.lr.ph127.split.split.split
-  %.0.i = phi i64 [ %246, %245 ], [ %243, %241 ], [ %239, %237 ], [ 0, %.lr.ph127.split.split.split ]
+  %.0.i = phi i64 [ %239, %237 ], [ %243, %241 ], [ %246, %245 ], [ 0, %.lr.ph127.split.split.split ]
   %248 = sub i64 %1, %.0.i
   br label %loadSomValue.exit
 
@@ -1154,7 +1154,7 @@ loadSomValue.exit:                                ; preds = %237, %241, %247
   br label %mmbit_get_flat_block.exit65
 
 mmbit_get_flat_block.exit65:                      ; preds = %266, %269, %272, %280
-  %.0.i63 = phi i64 [ %286, %280 ], [ %279, %272 ], [ %271, %269 ], [ %268, %266 ]
+  %.0.i63 = phi i64 [ %286, %280 ], [ %268, %266 ], [ %271, %269 ], [ %279, %272 ]
   %287 = sub i32 %253, %259
   %288 = icmp eq i32 %287, 64
   %289 = zext nneg i32 %287 to i64
@@ -1244,7 +1244,7 @@ mmbit_get_flat_block.exit65:                      ; preds = %266, %269, %272, %2
   br label %mmbit_get_flat_block.exit61
 
 mmbit_get_flat_block.exit61:                      ; preds = %312, %315, %318, %326
-  %.0.i59 = phi i64 [ %332, %326 ], [ %325, %318 ], [ %317, %315 ], [ %314, %312 ]
+  %.0.i59 = phi i64 [ %332, %326 ], [ %314, %312 ], [ %317, %315 ], [ %325, %318 ]
   %.not71.i31 = icmp eq i64 %.0.i59, 0
   br i1 %.not71.i31, label %._crit_edge128, label %mmbit_iterate.exit
 

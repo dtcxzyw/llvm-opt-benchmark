@@ -1953,7 +1953,7 @@ common.ret:                                       ; preds = %136, %131, %116, %3
           to label %34 unwind label %32
 
 26:                                               ; preds = %32, %21
-  %.pn17.i = phi { ptr, i32 } [ %33, %32 ], [ %22, %21 ]
+  %.pn16.i = phi { ptr, i32 } [ %33, %32 ], [ %22, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
@@ -1987,7 +1987,7 @@ common.ret:                                       ; preds = %136, %131, %116, %3
   br label %common.ret
 
 common.resume:                                    ; preds = %128, %123, %26, %31, %112
-  %common.resume.op = phi { ptr, i32 } [ %.pn15.i, %112 ], [ %.pn17.i, %31 ], [ %.pn17.i, %26 ], [ %.pn, %123 ], [ %.pn, %128 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %112 ], [ %.pn16.i, %31 ], [ %.pn16.i, %26 ], [ %.pn, %123 ], [ %.pn, %128 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i", %105, %98, %97, %66, %31, %21
@@ -2141,7 +2141,7 @@ common.resume:                                    ; preds = %128, %123, %26, %31
           to label %82 unwind label %40
 
 100:                                              ; preds = %106, %82
-  %.pn11.i = phi { ptr, i32 } [ %107, %106 ], [ %.pn9.i, %82 ]
+  %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %82 ], [ %107, %106 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -2161,7 +2161,7 @@ common.resume:                                    ; preds = %128, %123, %26, %31
   br label %100
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i": ; preds = %109, %105, %100
-  %.pn13.i = phi { ptr, i32 } [ %110, %109 ], [ %.pn11.i, %105 ], [ %.pn11.i, %100 ]
+  %.pn12.i = phi { ptr, i32 } [ %110, %109 ], [ %.pn9.pn.i, %105 ], [ %.pn9.pn.i, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tokio..sync..watch..Sender$LT$bool$GT$$GT$17h4ae5bfd1c4b498e0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %108) #18
           to label %112 unwind label %40
@@ -2177,7 +2177,7 @@ common.resume:                                    ; preds = %128, %123, %26, %31
           to label %116 unwind label %114
 
 112:                                              ; preds = %114, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i"
-  %.pn15.i = phi { ptr, i32 } [ %115, %114 ], [ %.pn13.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i" ]
+  %.pn14.i = phi { ptr, i32 } [ %115, %114 ], [ %.pn12.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit32.i" ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 2540
   store i8 0, ptr %113, align 4
   br label %common.resume
@@ -2386,7 +2386,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br label %"_ZN4core3ptr95drop_in_place$LT$pingora_core..protocols..l4..ext..connect_uds..$u7b$$u7b$closure$u7d$$u7d$$GT$17he744def0c5d24f5cE.exit.i.i"
 
 38:                                               ; preds = %41, %31
-  %.pn.i.i = phi { ptr, i32 } [ %32, %31 ], [ %42, %41 ]
+  %.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %32, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 377
   store i8 0, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2469,7 +2469,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br label %"_ZN4core3ptr134drop_in_place$LT$pingora_core..connectors..l4..connect$LT$pingora_core..upstreams..peer..HttpPeer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h63a5bb97f099daf5E.exit"
 
 72:                                               ; preds = %74, %68
-  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %69, %68 ]
+  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %75, %74 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 193
   store i8 0, ptr %73, align 1
   br label %.body
@@ -2639,7 +2639,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br label %"_ZN4core3ptr95drop_in_place$LT$pingora_core..protocols..l4..ext..connect_uds..$u7b$$u7b$closure$u7d$$u7d$$GT$17he744def0c5d24f5cE.exit.i.i"
 
 38:                                               ; preds = %41, %31
-  %.pn.i.i = phi { ptr, i32 } [ %32, %31 ], [ %42, %41 ]
+  %.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %32, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 377
   store i8 0, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2722,7 +2722,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br label %"_ZN4core3ptr135drop_in_place$LT$pingora_core..connectors..l4..connect$LT$pingora_core..upstreams..peer..BasicPeer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3ae9e2823b47572aE.exit"
 
 72:                                               ; preds = %74, %68
-  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %69, %68 ]
+  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %75, %74 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 193
   store i8 0, ptr %73, align 1
   br label %.body
@@ -3233,7 +3233,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 .body:                                            ; preds = %16, %11
-  %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %17, %16 ]
+  %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store i8 0, ptr %15, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$pingora_core..upstreams..peer..HttpPeer$GT$17he703bbf382104699E"(ptr noalias noundef nonnull align 8 dereferenceable(592) %0) #18
@@ -3299,7 +3299,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 .body:                                            ; preds = %16, %11
-  %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %17, %16 ]
+  %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i8 0, ptr %15, align 8
   invoke void @"_ZN4core3ptr61drop_in_place$LT$pingora_core..upstreams..peer..BasicPeer$GT$17hb0645329fa274e56E"(ptr noalias noundef nonnull align 8 dereferenceable(496) %0) #18
@@ -3380,7 +3380,7 @@ common.ret:                                       ; preds = %86, %81, %65, %35, 
           to label %30 unwind label %28
 
 22:                                               ; preds = %28, %17
-  %.pn9.i = phi { ptr, i32 } [ %29, %28 ], [ %18, %17 ]
+  %.pn10.i = phi { ptr, i32 } [ %29, %28 ], [ %18, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
@@ -3414,10 +3414,10 @@ common.ret:                                       ; preds = %86, %81, %65, %35, 
   br label %common.ret
 
 common.resume:                                    ; preds = %78, %73, %22, %27, %60
-  %common.resume.op = phi { ptr, i32 } [ %.pn7.i, %60 ], [ %.pn9.i, %27 ], [ %.pn9.i, %22 ], [ %.pn, %73 ], [ %.pn, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.i, %60 ], [ %.pn10.i, %27 ], [ %.pn10.i, %22 ], [ %.pn, %73 ], [ %.pn, %78 ]
   resume { ptr, i32 } %common.resume.op
 
-36:                                               ; preds = %60, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i", %51, %27, %17
+36:                                               ; preds = %60, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i", %51, %27, %17
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
@@ -3435,27 +3435,27 @@ common.resume:                                    ; preds = %78, %73, %22, %27, 
   %42 = load ptr, ptr %41, align 8, !alias.scope !370, !nonnull !3, !noundef !3
   %43 = atomicrmw sub ptr %42, i64 1 release, align 8, !noalias !370
   %44 = icmp eq i64 %43, 1
-  br i1 %44, label %45, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i"
+  br i1 %44, label %45, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i"
 
 45:                                               ; preds = %40
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h40997327706b7838E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i" unwind label %57
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i" unwind label %57
 
 46:                                               ; preds = %54, %52, %38
-  %.pn.pn.i = phi { ptr, i32 } [ %39, %38 ], [ %55, %54 ], [ %53, %52 ]
+  %.pn4.i = phi { ptr, i32 } [ %39, %38 ], [ %53, %52 ], [ %55, %54 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
   %48 = load ptr, ptr %47, align 8, !alias.scope !377, !nonnull !3, !noundef !3
   %49 = atomicrmw sub ptr %48, i64 1 release, align 8, !noalias !377
   %50 = icmp eq i64 %49, 1
-  br i1 %50, label %51, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i"
+  br i1 %50, label %51, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i"
 
 51:                                               ; preds = %46
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h40997327706b7838E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %47)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i" unwind label %36
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i" unwind label %36
 
 52:                                               ; preds = %13
   %53 = landingpad { ptr, i32 }
@@ -3467,8 +3467,8 @@ common.resume:                                    ; preds = %78, %73, %22, %27, 
           cleanup
   br label %46
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i": ; preds = %57, %51, %46
-  %.pn5.i = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn.i, %51 ], [ %.pn.pn.i, %46 ]
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i": ; preds = %57, %51, %46
+  %.pn6.i = phi { ptr, i32 } [ %58, %57 ], [ %.pn4.i, %51 ], [ %.pn4.i, %46 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17h666bd08bae24ec61E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56) #18
           to label %60 unwind label %36
@@ -3476,27 +3476,27 @@ common.resume:                                    ; preds = %78, %73, %22, %27, 
 57:                                               ; preds = %45
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i"
+  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i": ; preds = %45, %40
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i": ; preds = %45, %40
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17h666bd08bae24ec61E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %59)
           to label %65 unwind label %63
 
-60:                                               ; preds = %63, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i"
-  %.pn7.i = phi { ptr, i32 } [ %64, %63 ], [ %.pn5.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit17.i" ]
+60:                                               ; preds = %63, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i"
+  %.pn8.i = phi { ptr, i32 } [ %64, %63 ], [ %.pn6.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit18.i" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 169
   store i8 0, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @"_ZN4core3ptr40drop_in_place$LT$h2..share..PingPong$GT$17h23350501c0a2e56fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62) #18
           to label %common.resume unwind label %36
 
-63:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i"
+63:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i"
   %64 = landingpad { ptr, i32 }
           cleanup
   br label %60
 
-65:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit15.i"
+65:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h51a6695a9792eef0E.exit16.i"
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 169
   store i8 0, ptr %66, align 1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5897,8 +5897,8 @@ common.resume.i:                                  ; preds = %172, %133, %117, %6
   br label %"_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$12idle_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb48799670d027247E.exit"
 
 "_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$12idle_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb48799670d027247E.exit": ; preds = %.critedge.i, %35, %119, %124, %147, %209
-  %.sroa.8.0.i = phi i8 [ undef, %.critedge.i ], [ undef, %35 ], [ undef, %209 ], [ %137, %147 ], [ undef, %124 ], [ %.sroa.0.2.ph.i.ph.i.i, %119 ]
-  %.sroa.0.0.i = phi i8 [ 5, %.critedge.i ], [ %..i, %35 ], [ 3, %209 ], [ 2, %147 ], [ 1, %124 ], [ 0, %119 ]
+  %.sroa.8.0.i = phi i8 [ undef, %.critedge.i ], [ undef, %35 ], [ %.sroa.0.2.ph.i.ph.i.i, %119 ], [ undef, %124 ], [ %137, %147 ], [ undef, %209 ]
+  %.sroa.0.0.i = phi i8 [ 5, %.critedge.i ], [ %..i, %35 ], [ 0, %119 ], [ 1, %124 ], [ 2, %147 ], [ 3, %209 ]
   %212 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
   %213 = insertvalue { i8, i8 } %212, i8 %.sroa.8.0.i, 1
   ret { i8, i8 } %213
@@ -6006,7 +6006,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i: ; preds = %
   br label %"_ZN12pingora_core9protocols4http2v26client16drive_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he05623496a46ff77E.exit"
 
 "_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8768a863e6f43546E.exit.thread.i": ; preds = %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.i.i", %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.thread.i.i", %37, %32, %30
-  %.sroa.06.1.i = phi i1 [ %.sroa.06.030.i, %32 ], [ %.sroa.06.030.i, %30 ], [ true, %37 ], [ true, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.i.i" ], [ true, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.thread.i.i" ]
+  %.sroa.06.1.i = phi i1 [ %.sroa.06.030.i, %30 ], [ true, %37 ], [ %.sroa.06.030.i, %32 ], [ true, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.i.i" ], [ true, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17hc28dc7a5ba5d1abdE.exit.thread.i.i" ]
   br i1 %25, label %24, label %23
 
 41:                                               ; preds = %32
@@ -8575,11 +8575,11 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i: ; preds = %3
   br label %46
 
 common.resume:                                    ; preds = %62, %60, %28
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %28 ], [ %61, %60 ], [ %61, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2.pn.i, %28 ], [ %61, %60 ], [ %61, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %33, %21
-  %.pn.pn.i = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %34, %33 ]
   store i8 2, ptr %17, align 8, !noalias !1045
   br label %common.resume
 

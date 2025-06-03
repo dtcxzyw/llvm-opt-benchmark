@@ -1341,8 +1341,8 @@ define internal ptr @tokenizeriter_next(ptr noundef captures(none) %0) #0 {
   br label %41
 
 41:                                               ; preds = %40, %39, %37, %35, %27, %11
-  %.040.i = phi ptr [ %12, %40 ], [ %12, %39 ], [ %38, %37 ], [ %36, %35 ], [ %28, %27 ], [ %12, %11 ]
-  %.035.i = phi ptr [ @.str.23, %40 ], [ @.str.22, %39 ], [ @.str.21, %37 ], [ @.str.20, %35 ], [ @.str.19, %27 ], [ @.str.17, %11 ]
+  %.040.i = phi ptr [ %12, %40 ], [ %28, %27 ], [ %36, %35 ], [ %38, %37 ], [ %12, %39 ], [ %12, %11 ]
+  %.035.i = phi ptr [ @.str.23, %40 ], [ @.str.19, %27 ], [ @.str.20, %35 ], [ @.str.21, %37 ], [ @.str.22, %39 ], [ @.str.17, %11 ]
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !45
   %44 = load ptr, ptr %13, align 8, !tbaa !46
@@ -1799,8 +1799,8 @@ Py_DECREF.exit95:                                 ; preds = %248, %250, %253
   br label %255
 
 255:                                              ; preds = %243, %Py_DECREF.exit95
-  %.2114 = phi i64 [ %.1113, %Py_DECREF.exit95 ], [ %244, %243 ]
-  %.2 = phi ptr [ %254, %Py_DECREF.exit95 ], [ %.3, %243 ]
+  %.2114 = phi i64 [ %244, %243 ], [ %.1113, %Py_DECREF.exit95 ]
+  %.2 = phi ptr [ %.3, %243 ], [ %254, %Py_DECREF.exit95 ]
   %256 = icmp eq ptr %.2, null
   br i1 %256, label %257, label %.thread121
 

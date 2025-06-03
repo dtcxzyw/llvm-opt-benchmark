@@ -2904,7 +2904,7 @@ skip_prefix.exit283:                              ; preds = %.preheader, %1131, 
   unreachable
 
 1142:                                             ; preds = %skip_prefix.exit283, %1118
-  %.0357 = phi ptr [ %.1358, %skip_prefix.exit283 ], [ %1096, %1118 ]
+  %.0357 = phi ptr [ %1096, %1118 ], [ %.1358, %skip_prefix.exit283 ]
   %1143 = load i32, ptr %25, align 4, !tbaa !34
   %.not182 = icmp eq i32 %1143, 0
   br i1 %.not182, label %1153, label %1144
@@ -3613,8 +3613,8 @@ _.exit330:                                        ; preds = %1430, %1432
   br label %1457
 
 1457:                                             ; preds = %674, %659, %1448, %753, %751
-  %.0113.ph = phi ptr [ null, %659 ], [ null, %674 ], [ null, %751 ], [ null, %753 ], [ %.2115, %1448 ]
-  %.0104.ph = phi ptr [ null, %659 ], [ null, %674 ], [ null, %751 ], [ null, %753 ], [ %.2106, %1448 ]
+  %.0113.ph = phi ptr [ %.2115, %1448 ], [ null, %753 ], [ null, %751 ], [ null, %674 ], [ null, %659 ]
+  %.0104.ph = phi ptr [ %.2106, %1448 ], [ null, %753 ], [ null, %751 ], [ null, %674 ], [ null, %659 ]
   %.pr380 = load i32, ptr %22, align 8, !tbaa !4
   switch i32 %.pr380, label %1760 [
     i32 1, label %.thread446
@@ -4050,7 +4050,7 @@ edit_todo_file.exit.i.i:                          ; preds = %1643, %_.exit.i32.i
   unreachable
 
 run_sequencer_rebase.exit.i:                      ; preds = %1644, %edit_todo_file.exit.i.i, %1618, %do_interactive_rebase.exit.i.i
-  %.0.i.i = phi i32 [ %1646, %1644 ], [ %.09.i.i.i, %edit_todo_file.exit.i.i ], [ %1620, %1618 ], [ %.0.i.i.i, %do_interactive_rebase.exit.i.i ]
+  %.0.i.i = phi i32 [ %.0.i.i.i, %do_interactive_rebase.exit.i.i ], [ %1620, %1618 ], [ %.09.i.i.i, %edit_todo_file.exit.i.i ], [ %1646, %1644 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #19
   br label %1761
 
@@ -4458,9 +4458,9 @@ cleanup_autostash.exit:                           ; preds = %state_dir_path.exit
   br label %1823
 
 1823:                                             ; preds = %_.exit330, %run_specific_rebase.exit, %cleanup_autostash.exit, %strbuf_setlen.exit257, %_.exit, %731, %709, %.thread376
-  %.1114 = phi ptr [ %.2115, %cleanup_autostash.exit ], [ %.0113449, %run_specific_rebase.exit ], [ %.2115, %_.exit330 ], [ null, %731 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit257 ], [ null, %709 ], [ %.2115, %.thread376 ]
-  %.1105 = phi ptr [ %.2106, %cleanup_autostash.exit ], [ %.0104451, %run_specific_rebase.exit ], [ %.2106, %_.exit330 ], [ null, %731 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit257 ], [ null, %709 ], [ %.2106, %.thread376 ]
-  %.0100 = phi i32 [ -1, %cleanup_autostash.exit ], [ %1792, %run_specific_rebase.exit ], [ %1437, %_.exit330 ], [ %737, %731 ], [ -1, %_.exit ], [ 0, %strbuf_setlen.exit257 ], [ %711, %709 ], [ %1318, %.thread376 ]
+  %.1114 = phi ptr [ %.0113449, %run_specific_rebase.exit ], [ null, %709 ], [ null, %731 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit257 ], [ %.2115, %cleanup_autostash.exit ], [ %.2115, %_.exit330 ], [ %.2115, %.thread376 ]
+  %.1105 = phi ptr [ %.0104451, %run_specific_rebase.exit ], [ null, %709 ], [ null, %731 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit257 ], [ %.2106, %cleanup_autostash.exit ], [ %.2106, %_.exit330 ], [ %.2106, %.thread376 ]
+  %.0100 = phi i32 [ %1792, %run_specific_rebase.exit ], [ %711, %709 ], [ %737, %731 ], [ 1, %_.exit ], [ 0, %strbuf_setlen.exit257 ], [ 1, %cleanup_autostash.exit ], [ %1437, %_.exit330 ], [ %1318, %.thread376 ]
   call void @strbuf_release(ptr noundef nonnull %29) #19
   call void @strbuf_release(ptr noundef nonnull %27) #19
   call void @strbuf_release(ptr noundef nonnull %28) #19

@@ -1721,7 +1721,7 @@ _set_seq_context.exit25:                          ; preds = %63, %.preheader27, 
   br label %common.ret32
 
 common.ret32:                                     ; preds = %3, %95, %80, %_set_seq_context.exit25, %_set_seq_context.exit, %5, %110
-  %common.ret32.op = phi ptr [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %_set_seq_context.exit25 ], [ %48, %_set_seq_context.exit ], [ %17, %5 ], [ %1, %3 ]
+  %common.ret32.op = phi ptr [ %124, %110 ], [ %17, %5 ], [ %48, %_set_seq_context.exit ], [ %79, %_set_seq_context.exit25 ], [ %94, %80 ], [ %109, %95 ], [ %1, %3 ]
   ret ptr %common.ret32.op
 
 110:                                              ; preds = %3
@@ -3649,10 +3649,10 @@ define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef read
   br label %34
 
 34:                                               ; preds = %32, %29, %18
-  %.1163 = phi i64 [ %33, %32 ], [ %31, %29 ], [ %22, %18 ]
-  %.2151 = phi i32 [ %.0149257, %32 ], [ %.0149257, %29 ], [ %.0149., %18 ]
-  %.2145 = phi i32 [ %.0143258, %32 ], [ %.0143258, %29 ], [ %..0143, %18 ]
-  %.1142 = phi i32 [ 1, %32 ], [ 1, %29 ], [ %.0141259, %18 ]
+  %.1163 = phi i64 [ %33, %32 ], [ %22, %18 ], [ %31, %29 ]
+  %.2151 = phi i32 [ %.0149257, %32 ], [ %.0149., %18 ], [ %.0149257, %29 ]
+  %.2145 = phi i32 [ %.0143258, %32 ], [ %..0143, %18 ], [ %.0143258, %29 ]
+  %.1142 = phi i32 [ 1, %32 ], [ %.0141259, %18 ], [ 1, %29 ]
   %35 = add nuw nsw i64 %.0152256, 1
   %exitcond.not = icmp eq i64 %35, %11
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !142
@@ -4200,7 +4200,7 @@ define hidden ptr @_PyPegen_get_expr_name(ptr noundef readonly captures(none) %0
   br label %38
 
 38:                                               ; preds = %20, %24, %26, %28, %1, %33, %32, %31, %30, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %33 ], [ @.str.35, %32 ], [ @.str.34, %31 ], [ @.str.33, %30 ], [ @.str.27, %19 ], [ @.str.26, %18 ], [ @.str.25, %17 ], [ @.str.24, %16 ], [ @.str.23, %15 ], [ @.str.22, %14 ], [ @.str.21, %13 ], [ @.str.20, %12 ], [ @.str.19, %11 ], [ @.str.18, %10 ], [ @.str.17, %9 ], [ @.str.16, %8 ], [ @.str.15, %7 ], [ @.str.14, %6 ], [ @.str.13, %5 ], [ @.str.12, %4 ], [ @.str.11, %3 ], [ @.str.10, %1 ], [ @.str.28, %20 ], [ @.str.29, %24 ], [ @.str.30, %26 ], [ %.str.31..str.32, %28 ]
+  %.0 = phi ptr [ null, %33 ], [ @.str.11, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.20, %12 ], [ @.str.21, %13 ], [ @.str.22, %14 ], [ @.str.23, %15 ], [ @.str.24, %16 ], [ @.str.25, %17 ], [ @.str.26, %18 ], [ @.str.27, %19 ], [ @.str.33, %30 ], [ @.str.34, %31 ], [ @.str.35, %32 ], [ @.str.10, %1 ], [ @.str.28, %20 ], [ @.str.29, %24 ], [ @.str.30, %26 ], [ %.str.31..str.32, %28 ]
   ret ptr %.0
 }
 

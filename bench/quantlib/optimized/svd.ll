@@ -1592,7 +1592,7 @@ while.end:                                        ; preds = %if.end1455, %while.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.end992, %for.end888, %sw.bb894, %sw.bb, %while.end, %for.end1319
-  %p.1 = phi i32 [ %dec1457, %while.end ], [ %p.01200, %for.end1319 ], [ %p.01200, %sw.bb ], [ %p.01200, %sw.bb894 ], [ %p.01200, %for.end888 ], [ %p.01200, %for.end992 ]
+  %p.1 = phi i32 [ %p.01200, %for.end1319 ], [ %dec1457, %while.end ], [ %p.01200, %sw.bb ], [ %p.01200, %sw.bb894 ], [ %p.01200, %for.end888 ], [ %p.01200, %for.end992 ]
   %cmp701 = icmp sgt i32 %p.1, 0
   br i1 %cmp701, label %while.body, label %while.end1460, !llvm.loop !74
 

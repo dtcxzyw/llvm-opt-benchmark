@@ -2261,7 +2261,7 @@ define internal ptr @encode_locale_ex(ptr readnone captures(none) %0, ptr nounde
   br label %34
 
 34:                                               ; preds = %32, %30, %25, %23, %19
-  %.07 = phi ptr [ null, %32 ], [ null, %30 ], [ null, %25 ], [ null, %23 ], [ %21, %19 ]
+  %.07 = phi ptr [ null, %32 ], [ %21, %19 ], [ null, %23 ], [ null, %25 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -2341,7 +2341,7 @@ define internal ptr @decode_locale_ex(ptr readnone captures(none) %0, ptr nounde
   br label %32
 
 32:                                               ; preds = %30, %28, %23, %21, %16
-  %.04 = phi ptr [ null, %30 ], [ null, %28 ], [ null, %23 ], [ null, %21 ], [ %19, %16 ]
+  %.04 = phi ptr [ null, %30 ], [ %19, %16 ], [ null, %21 ], [ null, %23 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -5367,7 +5367,7 @@ Py_DECREF.exit:                                   ; preds = %get_module_state.ex
   br label %35
 
 35:                                               ; preds = %Py_DECREF.exit, %33
-  %.1 = phi ptr [ null, %Py_DECREF.exit ], [ %34, %33 ]
+  %.1 = phi ptr [ %34, %33 ], [ null, %Py_DECREF.exit ]
   ret ptr %.1
 }
 

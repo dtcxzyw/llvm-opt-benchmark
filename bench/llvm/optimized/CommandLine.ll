@@ -4433,7 +4433,7 @@ _ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit114:
   br i1 %or.cond, label %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit, label %.lr.ph, !llvm.loop !228
 
 _ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit: ; preds = %.lr.ph.i75, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit114, %.lr.ph.i99, %.lr.ph.i, %.thread, %.thread.i, %121, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit90, %_ZN4llvmplERKNS_5TwineES2_.exit67, %49, %37
-  %.0 = phi i1 [ true, %49 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit67 ], [ true, %37 ], [ true, %121 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit90 ], [ %90, %.thread.i ], [ false, %.thread ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i99 ], [ %153, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit114 ], [ true, %.lr.ph.i75 ]
+  %.0 = phi i1 [ true, %37 ], [ true, %49 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit67 ], [ true, %121 ], [ true, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit90 ], [ %90, %.thread.i ], [ false, %.thread ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i99 ], [ %153, %_ZL29CommaSeparateAndAddOccurrencePN4llvm2cl6OptionEjNS_9StringRefES3_b.exit114 ], [ true, %.lr.ph.i75 ]
   ret i1 %.0
 }
 
@@ -5148,10 +5148,10 @@ default.unreachable79:                            ; preds = %14
   unreachable
 
 .critedge:                                        ; preds = %.thread, %.preheader32, %75, %105, %107, %85, %_ZL18isWhitespaceOrNullc.exit102.thread, %50, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit, %46, %45, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, %89, %125, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108
-  %.6 = phi i64 [ %108, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ %.08868, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ %126, %125 ], [ %.08868, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %90, %89 ], [ %.39186, %50 ], [ %.391, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ %74, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ %.39186, %46 ], [ %.39186, %45 ], [ %.08868, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ %.08868, %85 ], [ %.08868, %107 ], [ %.08868, %105 ], [ %.08868, %75 ], [ %.08868, %.preheader32 ], [ %1, %.thread ]
-  %137 = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ false, %125 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ false, %89 ], [ true, %50 ], [ false, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ false, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ true, %46 ], [ true, %45 ], [ true, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ true, %85 ], [ false, %107 ], [ false, %105 ], [ false, %75 ], [ true, %.preheader32 ], [ true, %.thread ]
-  %.287 = phi i32 [ 2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ 2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ 2, %125 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ 1, %89 ], [ 0, %50 ], [ 2, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ 1, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ 0, %46 ], [ 0, %45 ], [ 0, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ 0, %85 ], [ 1, %107 ], [ 1, %105 ], [ 2, %75 ], [ 0, %.preheader32 ], [ 0, %.thread ]
-  %.3 = phi i8 [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ 0, %125 ], [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ 0, %89 ], [ %9, %50 ], [ %.070, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ %.070, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ 0, %46 ], [ 0, %45 ], [ 0, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ %9, %85 ], [ %.070, %107 ], [ %.070, %105 ], [ %.070, %75 ], [ %.070, %.preheader32 ], [ %.070, %.thread ]
+  %.6 = phi i64 [ %.08868, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %90, %89 ], [ %108, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ %.08868, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ %126, %125 ], [ %.39186, %50 ], [ %.391, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ %74, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ %.39186, %46 ], [ %.39186, %45 ], [ %.08868, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ %.08868, %85 ], [ %.08868, %107 ], [ %.08868, %105 ], [ %.08868, %75 ], [ %.08868, %.preheader32 ], [ %1, %.thread ]
+  %137 = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ false, %89 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ false, %125 ], [ true, %50 ], [ false, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ false, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ true, %46 ], [ true, %45 ], [ true, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ true, %85 ], [ false, %107 ], [ false, %105 ], [ false, %75 ], [ true, %.preheader32 ], [ true, %.thread ]
+  %.287 = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ 1, %89 ], [ 2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ 2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ 2, %125 ], [ 0, %50 ], [ 2, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ 1, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ 0, %46 ], [ 0, %45 ], [ 0, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ 0, %85 ], [ 1, %107 ], [ 1, %105 ], [ 2, %75 ], [ 0, %.preheader32 ], [ 0, %.thread ]
+  %.3 = phi i8 [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ 0, %89 ], [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit108 ], [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit111 ], [ 0, %125 ], [ %9, %50 ], [ %.070, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit ], [ %.070, %_ZN4llvm11SmallStringILj128EEpLENS_9StringRefE.exit101 ], [ 0, %46 ], [ 0, %45 ], [ 0, %_ZL18isWhitespaceOrNullc.exit102.thread ], [ %9, %85 ], [ %.070, %107 ], [ %.070, %105 ], [ %.070, %75 ], [ %.070, %.preheader32 ], [ %.070, %.thread ]
   %138 = add i64 %.6, 1
   %139 = icmp ult i64 %138, %1
   br i1 %139, label %14, label %._crit_edge, !llvm.loop !243
@@ -18526,8 +18526,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringM
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge.i.i.i.i
-  %54 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %49, %51 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %52, %51 ]
+  %54 = phi ptr [ %49, %51 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %52, %51 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %55 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !172
   %56 = icmp eq ptr %55, %54
   br i1 %56, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKNS_2cl14OptionCategoryEEEPS3_EEbOT_RKT0_.exit, label %57
@@ -18537,8 +18537,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_2cl6OptionEEENS_14StringM
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge._crit_edge52.i.i.i.i
-  %60 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %54, %57 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %58, %57 ]
+  %60 = phi ptr [ %54, %57 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %58, %57 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %61 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !172
   %62 = icmp eq ptr %61, %60
   br i1 %62, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKNS_2cl14OptionCategoryEEEPS3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_8ArrayRefIPKNS_2cl14OptionCategoryEEEPS3_EEbOT_RKT0_.exit.thread
@@ -24023,7 +24023,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %2
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %.thread.i, %8
-  %.1.i = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %10, %8 ], [ 0, %.thread.i ]
+  %.1.i = phi i32 [ %10, %8 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
   ret i32 %.1.i
 }
 

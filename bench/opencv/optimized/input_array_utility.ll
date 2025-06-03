@@ -209,8 +209,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %56, %53, %_ZN2cv3og
   ret void
 
 57:                                               ; preds = %48, %_ZN2cv4cuda6GpuMatD2Ev.exit16
-  %.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %17, %_ZN2cv4cuda6GpuMatD2Ev.exit16 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn13.pn = phi { ptr, i32 } [ %17, %_ZN2cv4cuda6GpuMatD2Ev.exit16 ], [ %49, %48 ]
+  resume { ptr, i32 } %.pn13.pn
 }
 
 declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
@@ -431,8 +431,8 @@ _ZN2cv3ogl6BufferD2Ev.exit:                       ; preds = %24, %32, %_ZN9__gnu
   ret void
 
 52:                                               ; preds = %48, %_ZN2cv4cuda6GpuMatD2Ev.exit16
-  %.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %17, %_ZN2cv4cuda6GpuMatD2Ev.exit16 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn13.pn = phi { ptr, i32 } [ %17, %_ZN2cv4cuda6GpuMatD2Ev.exit16 ], [ %49, %48 ]
+  resume { ptr, i32 } %.pn13.pn
 }
 
 declare void @_ZN2cv4UMatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
@@ -1815,7 +1815,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %72, %75
   ret void
 
 80:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit36, %67, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn29.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %78, %77 ], [ %68, %67 ], [ %61, %_ZN2cv4cuda6GpuMatD2Ev.exit36 ]
+  %.pn29.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %78, %77 ], [ %61, %_ZN2cv4cuda6GpuMatD2Ev.exit36 ], [ %68, %67 ]
   resume { ptr, i32 } %.pn29.pn
 }
 

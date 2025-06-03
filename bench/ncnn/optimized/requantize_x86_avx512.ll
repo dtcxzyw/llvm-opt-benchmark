@@ -794,7 +794,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPaRKNS_3MatES5_S5_iS5_ii(p
   br label %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit
 
 _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit:  ; preds = %75, %79, %81, %89, %100, %126, %207
-  %.0.i = phi nsz <16 x float> [ %219, %207 ], [ %206, %126 ], [ %125, %100 ], [ %99, %89 ], [ %88, %81 ], [ %80, %79 ], [ %78, %75 ]
+  %.0.i = phi nsz <16 x float> [ %80, %79 ], [ %88, %81 ], [ %99, %89 ], [ %125, %100 ], [ %206, %126 ], [ %219, %207 ], [ %78, %75 ]
   %220 = fmul fast <16 x float> %.0.i, %.0155
   %221 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %220)
   %222 = fadd fast <16 x float> %221, %220
@@ -988,7 +988,7 @@ _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit:  ; preds = %75, %79, %81, %89, 
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %233, %237, %239, %247, %256, %283, %367
-  %.0.i164 = phi nsz <8 x float> [ %377, %367 ], [ %366, %283 ], [ %282, %256 ], [ %255, %247 ], [ %246, %239 ], [ %238, %237 ], [ %236, %233 ]
+  %.0.i164 = phi nsz <8 x float> [ %238, %237 ], [ %246, %239 ], [ %255, %247 ], [ %282, %256 ], [ %366, %283 ], [ %377, %367 ], [ %236, %233 ]
   %378 = fmul fast <8 x float> %.0.i164, %.0154
   %379 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %378)
   %380 = fadd fast <8 x float> %379, %378
@@ -1195,7 +1195,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %233, %237, %239, %2
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.lr.ph518, %395, %397, %406, %417, %446, %534
-  %.0.i167 = phi nsz <4 x float> [ %547, %534 ], [ %533, %446 ], [ %445, %417 ], [ %416, %406 ], [ %405, %397 ], [ %396, %395 ], [ %394, %.lr.ph518 ]
+  %.0.i167 = phi nsz <4 x float> [ %396, %395 ], [ %405, %397 ], [ %416, %406 ], [ %445, %417 ], [ %533, %446 ], [ %547, %534 ], [ %394, %.lr.ph518 ]
   %548 = fmul fast <4 x float> %.0.i167, %24
   %549 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %548)
   %550 = fadd fast <4 x float> %549, %548
@@ -1305,7 +1305,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.lr.ph518, %395, %3
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %600, %.lr.ph525, %571, %573, %579, %586, %587, %594, %608, %612
-  %.1456 = phi nsz float [ %570, %.lr.ph525 ], [ %570, %608 ], [ %615, %612 ], [ %599, %594 ], [ %593, %587 ], [ %583, %586 ], [ %.0455, %579 ], [ %578, %573 ], [ %572, %571 ], [ 0.000000e+00, %600 ]
+  %.1456 = phi nsz float [ %570, %.lr.ph525 ], [ %572, %571 ], [ %578, %573 ], [ %583, %586 ], [ %.0455, %579 ], [ %593, %587 ], [ %599, %594 ], [ %570, %608 ], [ %615, %612 ], [ 0.000000e+00, %600 ]
   %616 = fmul fast float %.1456, %22
   %617 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %616)
   %618 = fptosi float %617 to i32
@@ -1574,7 +1574,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %600, %.lr.ph525, %5
   br label %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163
 
 _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163: ; preds = %675, %679, %681, %689, %700, %726, %807
-  %.0.i162 = phi nsz <16 x float> [ %819, %807 ], [ %806, %726 ], [ %725, %700 ], [ %699, %689 ], [ %688, %681 ], [ %680, %679 ], [ %678, %675 ]
+  %.0.i162 = phi nsz <16 x float> [ %680, %679 ], [ %688, %681 ], [ %699, %689 ], [ %725, %700 ], [ %806, %726 ], [ %819, %807 ], [ %678, %675 ]
   %820 = fmul fast <16 x float> %.0.i162, %.0155
   %821 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %820)
   %822 = fadd fast <16 x float> %821, %820
@@ -1768,7 +1768,7 @@ _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163: ; preds = %675, %679, %681, 
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit166
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit166:   ; preds = %833, %837, %839, %847, %856, %883, %967
-  %.0.i165 = phi nsz <8 x float> [ %977, %967 ], [ %966, %883 ], [ %882, %856 ], [ %855, %847 ], [ %846, %839 ], [ %838, %837 ], [ %836, %833 ]
+  %.0.i165 = phi nsz <8 x float> [ %838, %837 ], [ %846, %839 ], [ %855, %847 ], [ %882, %856 ], [ %966, %883 ], [ %977, %967 ], [ %836, %833 ]
   %978 = fmul fast <8 x float> %.0.i165, %.0154
   %979 = tail call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %978)
   %980 = fadd fast <8 x float> %979, %978
@@ -1975,7 +1975,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit166:   ; preds = %833, %837, %839, %8
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit169
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit169:   ; preds = %.lr.ph493, %995, %997, %1006, %1017, %1046, %1134
-  %.0.i168 = phi nsz <4 x float> [ %1147, %1134 ], [ %1133, %1046 ], [ %1045, %1017 ], [ %1016, %1006 ], [ %1005, %997 ], [ %996, %995 ], [ %994, %.lr.ph493 ]
+  %.0.i168 = phi nsz <4 x float> [ %996, %995 ], [ %1005, %997 ], [ %1016, %1006 ], [ %1045, %1017 ], [ %1133, %1046 ], [ %1147, %1134 ], [ %994, %.lr.ph493 ]
   %1148 = fmul fast <4 x float> %.0.i168, %24
   %1149 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1148)
   %1150 = fadd fast <4 x float> %1149, %1148
@@ -2086,7 +2086,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit169:   ; preds = %.lr.ph493, %995, %9
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit170
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit170:        ; preds = %1201, %.lr.ph500, %1172, %1174, %1180, %1187, %1188, %1195, %1209, %1213
-  %.1453 = phi nsz float [ %1171, %.lr.ph500 ], [ %1171, %1209 ], [ %1216, %1213 ], [ %1200, %1195 ], [ %1194, %1188 ], [ %1184, %1187 ], [ %.0452, %1180 ], [ %1179, %1174 ], [ %1173, %1172 ], [ 0.000000e+00, %1201 ]
+  %.1453 = phi nsz float [ %1171, %.lr.ph500 ], [ %1173, %1172 ], [ %1179, %1174 ], [ %1184, %1187 ], [ %.0452, %1180 ], [ %1194, %1188 ], [ %1200, %1195 ], [ %1171, %1209 ], [ %1216, %1213 ], [ 0.000000e+00, %1201 ]
   %1217 = fmul fast float %.1453, %22
   %1218 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %1217)
   %1219 = fptosi float %1218 to i32

@@ -7535,7 +7535,7 @@ define hidden void @_ZN13ClassVerifier19translate_signatureEP6SymbolP25sig_as_ve
   unreachable
 
 _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit: ; preds = %21, %24, %25, %26, %27
-  %.0.i = phi i32 [ 1, %27 ], [ 1, %26 ], [ 2, %25 ], [ 2, %24 ], [ 1, %21 ]
+  %.0.i = phi i32 [ 1, %21 ], [ 2, %24 ], [ 2, %25 ], [ 1, %26 ], [ 1, %27 ]
   %wide.trip.count = zext nneg i32 %.0.i to i64
   br label %30
 
@@ -7721,7 +7721,7 @@ _ZN26GrowableArrayWithAllocatorI16VerificationType13GrowableArrayIS0_EE4pushERKS
   unreachable
 
 _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit21: ; preds = %90, %93, %95, %97, %98
-  %.0.i20 = phi i64 [ 1, %98 ], [ 1, %97 ], [ 2, %95 ], [ 2, %93 ], [ 1, %90 ]
+  %.0.i20 = phi i64 [ 1, %90 ], [ 2, %93 ], [ 2, %95 ], [ 1, %97 ], [ 1, %98 ]
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %103
@@ -7818,7 +7818,7 @@ define linkonce_odr hidden noundef i32 @_ZN13ClassVerifier30change_sig_to_verifi
   unreachable
 
 17:                                               ; preds = %14, %13, %11, %9, %6
-  %.0 = phi i32 [ 1, %14 ], [ 1, %13 ], [ 2, %11 ], [ 2, %9 ], [ 1, %6 ]
+  %.0 = phi i32 [ 1, %6 ], [ 2, %9 ], [ 2, %11 ], [ 1, %13 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -8287,7 +8287,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %100, %106
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %122, %128, %131, %134, %137, %140, %143, %148
-  %.0.i = phi i1 [ %149, %148 ], [ %144, %143 ], [ %136, %134 ], [ %133, %131 ], [ %130, %128 ], [ true, %122 ], [ true, %137 ], [ %142, %140 ]
+  %.0.i = phi i1 [ %149, %148 ], [ %130, %128 ], [ %133, %131 ], [ %136, %134 ], [ %144, %143 ], [ true, %122 ], [ true, %137 ], [ %142, %140 ]
   %150 = load ptr, ptr %49, align 8
   %151 = icmp ne ptr %150, null
   %152 = load ptr, ptr %50, align 8
@@ -9860,7 +9860,7 @@ define linkonce_odr hidden ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %9, %21, %24, %27, %30, %33, %36, %41
-  %.0.i = phi i1 [ %42, %41 ], [ %37, %36 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ true, %9 ], [ true, %30 ], [ %35, %33 ]
+  %.0.i = phi i1 [ %42, %41 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %37, %36 ], [ true, %9 ], [ true, %30 ], [ %35, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not9 = icmp eq ptr %44, null
@@ -10244,7 +10244,7 @@ define linkonce_odr hidden void @_ZN13StackMapFrame11pop_stack_2E16VerificationT
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %14, %26, %29, %32, %35, %38, %41, %43, %46
-  %.0.i = phi i1 [ %47, %46 ], [ %42, %41 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ true, %14 ], [ true, %35 ], [ %40, %38 ], [ false, %43 ]
+  %.0.i = phi i1 [ %47, %46 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %42, %41 ], [ true, %14 ], [ true, %35 ], [ %40, %38 ], [ false, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %49, null
@@ -10317,8 +10317,8 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   %82 = icmp eq ptr %.pre, null
   br i1 %82, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread, label %89
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread: ; preds = %73, %70, %50, %61, %64, %67, %76, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15
-  %.0.i1320 = phi i1 [ %81, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15 ], [ %75, %73 ], [ true, %70 ], [ true, %50 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %77, %76 ]
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread: ; preds = %73, %70, %50, %76, %67, %64, %61, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15
+  %.0.i1320 = phi i1 [ %81, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15 ], [ %75, %73 ], [ true, %70 ], [ true, %50 ], [ %77, %76 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ]
   %or.cond = and i1 %.0.i, %.0.i1320
   br i1 %or.cond, label %83, label %._crit_edge
 
@@ -10858,7 +10858,7 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %19, %22, %25, %28, %31, %34, %37, %39, %42
-  %.0.i = phi i1 [ %43, %42 ], [ %38, %37 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ true, %19 ], [ true, %31 ], [ %36, %34 ], [ false, %39 ]
+  %.0.i = phi i1 [ %43, %42 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %38, %37 ], [ true, %19 ], [ true, %31 ], [ %36, %34 ], [ false, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
@@ -11073,7 +11073,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %68, %63, %.thread, 
   unreachable
 
 _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit: ; preds = %90, %93, %95, %97, %98
-  %.0.i = phi i64 [ 1, %98 ], [ 1, %97 ], [ 2, %95 ], [ 2, %93 ], [ 1, %90 ]
+  %.0.i = phi i64 [ 1, %90 ], [ 2, %93 ], [ 2, %95 ], [ 1, %97 ], [ 1, %98 ]
   %101 = load i32, ptr %25, align 8
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %103 = load i32, ptr %102, align 4
@@ -11508,8 +11508,8 @@ define hidden void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecod
   br label %45
 
 45:                                               ; preds = %10, %44, %38, %37
-  %46 = phi i32 [ %30, %44 ], [ %.pre, %38 ], [ %30, %37 ], [ %30, %10 ]
-  %.0 = phi i32 [ 1024, %44 ], [ %43, %38 ], [ 262144, %37 ], [ 2048, %10 ]
+  %46 = phi i32 [ %30, %44 ], [ %30, %37 ], [ %.pre, %38 ], [ %30, %10 ]
+  %.0 = phi i32 [ 1024, %44 ], [ 262144, %37 ], [ %43, %38 ], [ 2048, %10 ]
   tail call void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlejP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %46, i16 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0, ptr noundef %9)
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -12630,7 +12630,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType18is_assign
   br label %33
 
 33:                                               ; preds = %28, %20, %23, %5, %31, %26, %17, %14, %11
-  %.0 = phi i1 [ %32, %31 ], [ %27, %26 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ], [ true, %5 ], [ true, %20 ], [ %25, %23 ], [ false, %28 ]
+  %.0 = phi i1 [ %32, %31 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %27, %26 ], [ true, %5 ], [ true, %20 ], [ %25, %23 ], [ false, %28 ]
   ret i1 %.0
 }
 

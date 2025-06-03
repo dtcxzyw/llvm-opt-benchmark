@@ -52,7 +52,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %23
 
 23:                                               ; preds = %17, %._crit_edge.i
-  %.2.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %22, %17 ]
+  %.2.i = phi i64 [ %22, %17 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !9
   %26 = zext i8 %25 to i64
@@ -61,7 +61,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i
-  %.3.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %28, %23 ]
+  %.3.i = phi i64 [ %28, %23 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 4
   %31 = load i8, ptr %30, align 1, !tbaa !9
   %32 = zext i8 %31 to i64
@@ -70,7 +70,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i
-  %.4.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %34, %29 ]
+  %.4.i = phi i64 [ %34, %29 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 3
   %37 = load i8, ptr %36, align 1, !tbaa !9
   %38 = zext i8 %37 to i64
@@ -79,7 +79,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i
-  %.5.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %40, %35 ]
+  %.5.i = phi i64 [ %40, %35 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !9
   %44 = zext i8 %43 to i64
@@ -88,7 +88,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i
-  %.6.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %46, %41 ]
+  %.6.i = phi i64 [ %46, %41 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.037.lcssa.i, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !9
   %50 = zext i8 %49 to i64
@@ -97,7 +97,7 @@ define hidden noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef %0, ptr noundef r
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i
-  %.7.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %52, %47 ]
+  %.7.i = phi i64 [ %52, %47 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %54 = load i8, ptr %.037.lcssa.i, align 1, !tbaa !9
   %55 = zext i8 %54 to i64
   %56 = xor i64 %.7.i, %55
@@ -108,7 +108,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _ZN4leanL13MurmurHash64AEPKvmm.exit:              ; preds = %._crit_edge.i, %53
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %57, %53 ]
+  %.1.i = phi i64 [ %57, %53 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %58 = lshr i64 %.1.i, 47
   %59 = xor i64 %58, %.1.i
   %60 = mul i64 %59, -4132994306676758123

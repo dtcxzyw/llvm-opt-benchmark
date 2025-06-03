@@ -327,7 +327,7 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
   br label %131
 
 131:                                              ; preds = %123, %123, %119, %126, %126, %101, %103, %111, %.thread402, %105, %100
-  %.6 = phi i1 [ %.5, %101 ], [ %.5, %111 ], [ %.5, %123 ], [ %.5, %126 ], [ false, %.thread402 ], [ %.5, %105 ], [ %.5, %103 ], [ %.5, %100 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %119 ]
+  %.6 = phi i1 [ %.5, %101 ], [ %.5, %103 ], [ %.5, %111 ], [ %.5, %123 ], [ %.5, %126 ], [ false, %.thread402 ], [ %.5, %105 ], [ %.5, %100 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %119 ]
   %132 = load i32, ptr %7, align 4, !tbaa !33
   %133 = and i32 %132, 32
   %.not326 = icmp eq i32 %133, 0
@@ -509,7 +509,7 @@ ir_check_domination.exit:                         ; preds = %138
   br label %ir_check_use_list.exit
 
 .thread349:                                       ; preds = %177, %._crit_edge.i, %184, %190, %193, %199, %179, %182, %167, %166, %171, %170, %131, %134, %136, %ir_check_domination.exit, %157, %202
-  %.8 = phi i1 [ false, %202 ], [ %.3269, %193 ], [ false, %199 ], [ %.3269, %182 ], [ false, %179 ], [ %.3269, %166 ], [ false, %167 ], [ false, %171 ], [ %.3269, %170 ], [ %.6, %ir_check_domination.exit ], [ false, %157 ], [ %.6, %136 ], [ %.6, %134 ], [ %.6, %131 ], [ false, %190 ], [ %.3269, %184 ], [ %.6, %._crit_edge.i ], [ %.3269, %177 ]
+  %.8 = phi i1 [ false, %202 ], [ %.6, %ir_check_domination.exit ], [ false, %157 ], [ %.6, %136 ], [ %.6, %134 ], [ %.6, %131 ], [ %.3269, %166 ], [ false, %167 ], [ false, %171 ], [ %.3269, %170 ], [ %.3269, %182 ], [ false, %179 ], [ %.3269, %193 ], [ false, %199 ], [ false, %190 ], [ %.3269, %184 ], [ %.6, %._crit_edge.i ], [ %.3269, %177 ]
   %227 = load ptr, ptr %10, align 8, !tbaa !36
   %.not362 = icmp eq ptr %227, null
   br i1 %.not362, label %ir_check_use_list.exit, label %228
@@ -696,7 +696,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i345, %47, %
   br label %327
 
 327:                                              ; preds = %316, %318, %324, %308, %313, %303, %305, %279, %286, %261, %272, %._crit_edge400, %246, %258, %._crit_edge
-  %.10 = phi i1 [ %.2268.lcssa, %._crit_edge ], [ false, %324 ], [ %.2268.lcssa, %318 ], [ %.2268.lcssa, %316 ], [ false, %313 ], [ %.2268.lcssa, %308 ], [ false, %305 ], [ %.2268.lcssa, %303 ], [ false, %286 ], [ %.2268.lcssa, %279 ], [ false, %._crit_edge400 ], [ %.2268.lcssa, %272 ], [ %.2268.lcssa, %261 ], [ false, %258 ], [ %.2268.lcssa, %246 ]
+  %.10 = phi i1 [ %.2268.lcssa, %._crit_edge ], [ false, %258 ], [ %.2268.lcssa, %246 ], [ false, %._crit_edge400 ], [ %.2268.lcssa, %272 ], [ %.2268.lcssa, %261 ], [ false, %286 ], [ %.2268.lcssa, %279 ], [ false, %305 ], [ %.2268.lcssa, %303 ], [ false, %313 ], [ %.2268.lcssa, %308 ], [ false, %324 ], [ %.2268.lcssa, %318 ], [ %.2268.lcssa, %316 ]
   %328 = load ptr, ptr %10, align 8, !tbaa !36
   %.not302 = icmp eq ptr %328, null
   br i1 %.not302, label %445, label %329
@@ -931,7 +931,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i346, %.loop
   br label %445
 
 445:                                              ; preds = %436, %375, %._crit_edge378, %._crit_edge386, %439, %420, %412, %387, %.thread357, %376, %371, %372, %366, %368, %327
-  %.11 = phi i1 [ %.10, %327 ], [ %.12.lcssa, %412 ], [ %.12.lcssa, %420 ], [ false, %439 ], [ %.12.lcssa, %._crit_edge386 ], [ false, %.thread357 ], [ %.12.lcssa, %387 ], [ %.12.lcssa, %376 ], [ false, %372 ], [ %.12.lcssa, %371 ], [ false, %368 ], [ %.12.lcssa, %366 ], [ %.12.lcssa, %._crit_edge378 ], [ %.12.lcssa, %375 ], [ %.12.lcssa, %436 ]
+  %.11 = phi i1 [ %.10, %327 ], [ %.12.lcssa, %412 ], [ %.12.lcssa, %420 ], [ false, %439 ], [ %.12.lcssa, %._crit_edge386 ], [ false, %368 ], [ %.12.lcssa, %366 ], [ false, %372 ], [ %.12.lcssa, %371 ], [ %.12.lcssa, %376 ], [ false, %.thread357 ], [ %.12.lcssa, %387 ], [ %.12.lcssa, %._crit_edge378 ], [ %.12.lcssa, %375 ], [ %.12.lcssa, %436 ]
   %446 = lshr i32 %.0.i, 2
   %447 = add nuw nsw i32 %446, 1
   %448 = add nuw nsw i32 %447, %.0262390

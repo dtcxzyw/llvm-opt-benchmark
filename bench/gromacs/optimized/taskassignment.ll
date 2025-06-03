@@ -2960,7 +2960,7 @@ define noundef ptr @_ZNK3gmx18GpuTaskAssignments10initDeviceEv(ptr noundef nonnu
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !131
   %spec.select.i6 = icmp ult i32 %36, 2
   br i1 %spec.select.i6, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx14GpuTaskMappingESt6vectorIS3_SaIS3_EEEEPFbRS4_EET_SD_SD_T0_.exit, label %37
@@ -2970,7 +2970,7 @@ define noundef ptr @_ZNK3gmx18GpuTaskAssignments10initDeviceEv(ptr noundef nonnu
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %38, %37 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %38, %37 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %40 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !131
   %spec.select.i = icmp ult i32 %40, 2
   %spec.select.i.i.i = select i1 %spec.select.i, ptr %.sroa.032.2.i.i.i, ptr %9
@@ -3087,7 +3087,7 @@ define noundef zeroext i1 @_ZNK3gmx18GpuTaskAssignments21thisRankHasPmeGpuTaskEv
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %39, %38 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %41 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !131
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx14GpuTaskMappingESt6vectorIS3_SaIS3_EEEEPFbRS4_EET_SD_SD_T0_.exit, label %43
@@ -3097,7 +3097,7 @@ define noundef zeroext i1 @_ZNK3gmx18GpuTaskAssignments21thisRankHasPmeGpuTaskEv
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %44, %43 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %46 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !131
   %47 = icmp eq i32 %46, 1
   %spec.select.i.i.i = select i1 %47, ptr %.sroa.032.2.i.i.i, ptr %9

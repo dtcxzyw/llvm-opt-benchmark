@@ -1459,7 +1459,7 @@ thread-pre-split:                                 ; preds = %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %thread-pre-split, %.thread, %4, %78, %55
-  %.1 = phi i32 [ %38, %4 ], [ %85, %78 ], [ %72, %55 ], [ %46, %.thread ], [ %38, %thread-pre-split ], [ %46, %53 ]
+  %.1 = phi i32 [ %38, %4 ], [ %72, %55 ], [ %85, %78 ], [ %46, %.thread ], [ %38, %thread-pre-split ], [ %46, %53 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5

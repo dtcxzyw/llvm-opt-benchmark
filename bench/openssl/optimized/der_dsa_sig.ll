@@ -52,8 +52,8 @@ define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_DSA_with_MD(ptr nound
   br label %13
 
 13:                                               ; preds = %4, %12, %11, %10, %9, %8, %7, %6, %5
-  %.08 = phi ptr [ @ossl_der_oid_id_dsa_with_sha3_512, %12 ], [ @ossl_der_oid_id_dsa_with_sha3_384, %11 ], [ @ossl_der_oid_id_dsa_with_sha3_256, %10 ], [ @ossl_der_oid_id_dsa_with_sha3_224, %9 ], [ @ossl_der_oid_id_dsa_with_sha512, %8 ], [ @ossl_der_oid_id_dsa_with_sha384, %7 ], [ @ossl_der_oid_id_dsa_with_sha256, %6 ], [ @ossl_der_oid_id_dsa_with_sha224, %5 ], [ @ossl_der_oid_id_dsa_with_sha1, %4 ]
-  %.0 = phi i64 [ 11, %12 ], [ 11, %11 ], [ 11, %10 ], [ 11, %9 ], [ 11, %8 ], [ 11, %7 ], [ 11, %6 ], [ 11, %5 ], [ 9, %4 ]
+  %.08 = phi ptr [ @ossl_der_oid_id_dsa_with_sha224, %5 ], [ @ossl_der_oid_id_dsa_with_sha256, %6 ], [ @ossl_der_oid_id_dsa_with_sha384, %7 ], [ @ossl_der_oid_id_dsa_with_sha512, %8 ], [ @ossl_der_oid_id_dsa_with_sha3_224, %9 ], [ @ossl_der_oid_id_dsa_with_sha3_256, %10 ], [ @ossl_der_oid_id_dsa_with_sha3_384, %11 ], [ @ossl_der_oid_id_dsa_with_sha3_512, %12 ], [ @ossl_der_oid_id_dsa_with_sha1, %4 ]
+  %.0 = phi i64 [ 11, %5 ], [ 11, %6 ], [ 11, %7 ], [ 11, %8 ], [ 11, %9 ], [ 11, %10 ], [ 11, %11 ], [ 11, %12 ], [ 9, %4 ]
   %14 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %0, i32 noundef %1) #2
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15

@@ -20897,7 +20897,7 @@ rb_ary_entry.exit:                                ; preds = %rb_array_const_ptr.
   br label %.thread
 
 .thread:                                          ; preds = %62, %61, %58
-  %.336.ph = phi i32 [ 0, %61 ], [ 1, %62 ], [ %.03361, %58 ]
+  %.336.ph = phi i32 [ 1, %62 ], [ 0, %61 ], [ %.03361, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   br label %69
 
@@ -23121,7 +23121,7 @@ rb_ary_dup.exit:                                  ; preds = %255, %259
   br label %rb_ary_elt.exit
 
 rb_ary_elt.exit:                                  ; preds = %RARRAY_AREF.exit.i, %38, %rb_array_len.exit.i, %284, %288, %RARRAY_AREF.exit238, %RARRAY_AREF.exit229, %RARRAY_AREF.exit, %80, %77
-  %.0 = phi i64 [ %79, %77 ], [ %126, %RARRAY_AREF.exit238 ], [ %107, %RARRAY_AREF.exit229 ], [ %92, %RARRAY_AREF.exit ], [ %82, %80 ], [ %.0164, %288 ], [ %.0164, %284 ], [ %47, %RARRAY_AREF.exit.i ], [ 4, %rb_array_len.exit.i ], [ 4, %38 ]
+  %.0 = phi i64 [ %79, %77 ], [ %82, %80 ], [ %92, %RARRAY_AREF.exit ], [ %107, %RARRAY_AREF.exit229 ], [ %126, %RARRAY_AREF.exit238 ], [ %.0164, %288 ], [ %.0164, %284 ], [ %47, %RARRAY_AREF.exit.i ], [ 4, %rb_array_len.exit.i ], [ 4, %38 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #24
   ret i64 %.0

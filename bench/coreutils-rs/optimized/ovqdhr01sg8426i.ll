@@ -615,7 +615,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit105: ; preds = %64
   br label %158
 
 158:                                              ; preds = %167, %166, %157
-  %.0 = phi ptr [ %.08.i.i.i125, %167 ], [ %.08.i.i.i114, %166 ], [ %.08.i.i.i, %157 ]
+  %.0 = phi ptr [ %.08.i.i.i, %157 ], [ %.08.i.i.i114, %166 ], [ %.08.i.i.i125, %167 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !178
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)

@@ -514,7 +514,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterI
   unreachable
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %14, %9, %7, %2, %20, %5
-  %.sroa.0.0 = phi i64 [ %22, %20 ], [ %6, %5 ], [ 0, %2 ], [ %19, %14 ], [ 0, %9 ], [ 0, %7 ]
+  %.sroa.0.0 = phi i64 [ %6, %5 ], [ %22, %20 ], [ 0, %2 ], [ %19, %14 ], [ 0, %9 ], [ 0, %7 ]
   ret i64 %.sroa.0.0
 }
 
@@ -776,7 +776,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13CSEMIRBuilder23checkCopyToDefsPos
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %30, %29 ]
+  %.1.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %32 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !48
   %33 = and i32 %.1.val.i.i.i.i.i, -3
@@ -788,7 +788,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13CSEMIRBuilder23checkCopyToDefsPos
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
+  %.2.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %37 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i = load i32, ptr %37, align 8, !tbaa !48
   %38 = and i32 %.2.val.i.i.i.i.i, -3
@@ -966,7 +966,7 @@ _ZN4llvm8DebugLocD2Ev.exit21:                     ; preds = %60, %_ZN4llvm13Trac
   br label %65
 
 65:                                               ; preds = %13, %_ZN4llvm8DebugLocD2Ev.exit21
-  %.fca.1.insert.merged = phi { ptr, ptr } [ %22, %13 ], [ %64, %_ZN4llvm8DebugLocD2Ev.exit21 ]
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %64, %_ZN4llvm8DebugLocD2Ev.exit21 ], [ %22, %13 ]
   ret { ptr, ptr } %.fca.1.insert.merged
 }
 
@@ -1619,7 +1619,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132: ; preds = %_ZNK4llvm5S
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %292, %297, %299, %301, %306, %312
-  %.sroa.0.0.i133 = phi i64 [ %314, %312 ], [ %298, %297 ], [ 0, %292 ], [ %311, %306 ], [ 0, %301 ], [ 0, %299 ]
+  %.sroa.0.0.i133 = phi i64 [ %298, %297 ], [ %314, %312 ], [ 0, %292 ], [ %311, %306 ], [ 0, %301 ], [ 0, %299 ]
   %316 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %317 = load i32, ptr %316, align 8, !tbaa !56
   %switch.i134 = icmp eq i32 %317, 1
@@ -1947,7 +1947,7 @@ _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %_ZNSt14_Optional_ba
   br label %458
 
 458:                                              ; preds = %456, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %457, %456 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %457, %456 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %459 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i = load i32, ptr %459, align 8, !tbaa !48
   %460 = and i32 %.1.val.i.i.i.i.i.i, -3
@@ -1959,7 +1959,7 @@ _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %_ZNSt14_Optional_ba
   br label %463
 
 463:                                              ; preds = %461, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %462, %461 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %462, %461 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %464 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i = load i32, ptr %464, align 8, !tbaa !48
   %465 = and i32 %.2.val.i.i.i.i.i.i, -3
@@ -2074,8 +2074,8 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %502, %505
   br label %506
 
 506:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit139.thread, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132.thread, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit.thread, %_ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread, %478, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %_ZNSt14_Function_baseD2Ev.exit151, %229, %_ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit
-  %.sroa.0202.1 = phi ptr [ %.sroa.0202.9, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %480, %478 ], [ %475, %_ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread ], [ %.sroa.0202.8, %_ZNSt14_Function_baseD2Ev.exit151 ], [ %.sroa.0202.2, %229 ], [ %.sroa.0202.0, %_ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit ], [ %255, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit.thread ], [ %281, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132.thread ], [ %329, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit139.thread ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.9, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %481, %478 ], [ %476, %_ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread ], [ %.sroa.14.8, %_ZNSt14_Function_baseD2Ev.exit151 ], [ %.sroa.14.2, %229 ], [ %.sroa.14.0, %_ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit ], [ %256, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit.thread ], [ %282, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132.thread ], [ %330, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit139.thread ]
+  %.sroa.0202.1 = phi ptr [ %.sroa.0202.9, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %480, %478 ], [ %475, %_ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread ], [ %.sroa.0202.0, %_ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit ], [ %.sroa.0202.2, %229 ], [ %.sroa.0202.8, %_ZNSt14_Function_baseD2Ev.exit151 ], [ %255, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit.thread ], [ %281, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132.thread ], [ %329, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit139.thread ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.9, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ], [ %481, %478 ], [ %476, %_ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread ], [ %.sroa.14.0, %_ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit ], [ %.sroa.14.2, %229 ], [ %.sroa.14.8, %_ZNSt14_Function_baseD2Ev.exit151 ], [ %256, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit.thread ], [ %282, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit132.thread ], [ %330, %_ZNSt14_Optional_baseIN4llvm7APFloatELb0ELb0EED2Ev.exit139.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0202.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.14.1, 1
   ret { ptr, ptr } %.fca.1.insert

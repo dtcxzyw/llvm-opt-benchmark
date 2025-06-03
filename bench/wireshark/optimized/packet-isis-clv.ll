@@ -268,7 +268,7 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   %46 = tail call ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %12, i32 noundef -1)
   br label %.thread
 
-.thread:                                          ; preds = %20, %15, %29, %24, %41, %36, %43, %8
+.thread:                                          ; preds = %41, %36, %29, %24, %20, %15, %43, %8
   ret void
 }
 

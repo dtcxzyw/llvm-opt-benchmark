@@ -3053,7 +3053,7 @@ define noundef range(i32 8, 536870913) i32 @_ZN15FilterColorProc15getRequirement
   br label %11
 
 11:                                               ; preds = %2, %10, %9, %8
-  %.0 = phi i32 [ 8, %10 ], [ 65536, %9 ], [ 16, %8 ], [ 536870912, %2 ]
+  %.0 = phi i32 [ 8, %10 ], [ 16, %8 ], [ 65536, %9 ], [ 536870912, %2 ]
   ret i32 %.0
 }
 
@@ -3079,7 +3079,7 @@ define noundef range(i32 8, 536870913) i32 @_ZThn16_N15FilterColorProc15getRequi
   br label %_ZN15FilterColorProc15getRequirementsEPK7QAction.exit
 
 _ZN15FilterColorProc15getRequirementsEPK7QAction.exit: ; preds = %2, %7, %8, %9
-  %.0.i = phi i32 [ 8, %9 ], [ 65536, %8 ], [ 16, %7 ], [ 536870912, %2 ]
+  %.0.i = phi i32 [ 8, %9 ], [ 16, %7 ], [ 65536, %8 ], [ 536870912, %2 ]
   ret i32 %.0.i
 }
 
@@ -14406,15 +14406,15 @@ _ZN11QStringListD2Ev.exit2764:                    ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 3074:                                             ; preds = %3052, %3016, %3005, %2994, %2983, %2972, %2789, %2778, %2767, %2756, %2745, %2578, %2567, %2556, %2545, %2403, %2367, %2356, %2295, %2204, %2083, %2047, %2011, %2000, %1939, %1928, %1917, %1906, %1895, %1753, %1742, %1679, %1668, %1657, %1646, %1535, %1412, %1401, %1390, %1379, %1368, %1232, %1221, %1210, %1199, %1188, %1177, %1166, %1155, %1144, %1133, %872, %836, %825, %814, %803, %692, %681, %670, %659, %544, %533, %469
-  %.pn308.pn.pn.pn = phi { ptr, i32 } [ %.pn308.pn.pn, %3052 ], [ %470, %469 ], [ %.pn328.pn.pn, %3016 ], [ %.pn324.pn.pn, %3005 ], [ %.pn320.pn.pn, %2994 ], [ %.pn316.pn.pn, %2983 ], [ %.pn312.pn.pn, %2972 ], [ %.pn348.pn.pn, %2789 ], [ %.pn344.pn.pn, %2778 ], [ %.pn340.pn.pn, %2767 ], [ %.pn336.pn.pn, %2756 ], [ %.pn332.pn.pn, %2745 ], [ %.pn364.pn.pn, %2578 ], [ %.pn360.pn.pn, %2567 ], [ %.pn356.pn.pn, %2556 ], [ %.pn352.pn.pn, %2545 ], [ %.pn368.pn.pn, %2403 ], [ %.pn376.pn.pn, %2367 ], [ %.pn372.pn.pn, %2356 ], [ %.pn380.pn.pn.pn, %2295 ], [ %.pn385.pn.pn.pn, %2204 ], [ %.pn390.pn.pn, %2083 ], [ %.pn394.pn.pn, %2047 ], [ %.pn402.pn.pn, %2011 ], [ %.pn398.pn.pn, %2000 ], [ %.pn422.pn.pn, %1939 ], [ %.pn418.pn.pn, %1928 ], [ %.pn414.pn.pn, %1917 ], [ %.pn410.pn.pn, %1906 ], [ %.pn406.pn.pn, %1895 ], [ %.pn430.pn.pn, %1753 ], [ %.pn426.pn.pn, %1742 ], [ %.pn446.pn.pn, %1679 ], [ %.pn442.pn.pn, %1668 ], [ %.pn438.pn.pn, %1657 ], [ %.pn434.pn.pn, %1646 ], [ %.pn457.pn.pn.pn, %1535 ], [ %.pn478.pn.pn, %1412 ], [ %.pn474.pn.pn, %1401 ], [ %.pn470.pn.pn, %1390 ], [ %.pn466.pn.pn, %1379 ], [ %.pn462.pn.pn, %1368 ], [ %.pn518.pn.pn, %1232 ], [ %.pn514.pn.pn, %1221 ], [ %.pn510.pn.pn, %1210 ], [ %.pn506.pn.pn, %1199 ], [ %.pn502.pn.pn, %1188 ], [ %.pn498.pn.pn, %1177 ], [ %.pn494.pn.pn, %1166 ], [ %.pn490.pn.pn, %1155 ], [ %.pn486.pn.pn, %1144 ], [ %.pn482.pn.pn, %1133 ], [ %.pn522.pn.pn, %872 ], [ %.pn538.pn.pn, %836 ], [ %.pn534.pn.pn, %825 ], [ %.pn530.pn.pn, %814 ], [ %.pn526.pn.pn, %803 ], [ %.pn554.pn.pn, %692 ], [ %.pn550.pn.pn, %681 ], [ %.pn546.pn.pn, %670 ], [ %.pn542.pn.pn, %659 ], [ %.pn562.pn.pn, %544 ], [ %.pn558.pn.pn, %533 ]
+  %.pn562.pn.pn.pn = phi { ptr, i32 } [ %.pn562.pn.pn, %544 ], [ %470, %469 ], [ %.pn558.pn.pn, %533 ], [ %.pn554.pn.pn, %692 ], [ %.pn550.pn.pn, %681 ], [ %.pn546.pn.pn, %670 ], [ %.pn542.pn.pn, %659 ], [ %.pn538.pn.pn, %836 ], [ %.pn534.pn.pn, %825 ], [ %.pn530.pn.pn, %814 ], [ %.pn526.pn.pn, %803 ], [ %.pn522.pn.pn, %872 ], [ %.pn518.pn.pn, %1232 ], [ %.pn514.pn.pn, %1221 ], [ %.pn510.pn.pn, %1210 ], [ %.pn506.pn.pn, %1199 ], [ %.pn502.pn.pn, %1188 ], [ %.pn498.pn.pn, %1177 ], [ %.pn494.pn.pn, %1166 ], [ %.pn490.pn.pn, %1155 ], [ %.pn486.pn.pn, %1144 ], [ %.pn482.pn.pn, %1133 ], [ %.pn478.pn.pn, %1412 ], [ %.pn474.pn.pn, %1401 ], [ %.pn470.pn.pn, %1390 ], [ %.pn466.pn.pn, %1379 ], [ %.pn462.pn.pn, %1368 ], [ %.pn457.pn.pn.pn, %1535 ], [ %.pn446.pn.pn, %1679 ], [ %.pn442.pn.pn, %1668 ], [ %.pn438.pn.pn, %1657 ], [ %.pn434.pn.pn, %1646 ], [ %.pn430.pn.pn, %1753 ], [ %.pn426.pn.pn, %1742 ], [ %.pn422.pn.pn, %1939 ], [ %.pn418.pn.pn, %1928 ], [ %.pn414.pn.pn, %1917 ], [ %.pn410.pn.pn, %1906 ], [ %.pn406.pn.pn, %1895 ], [ %.pn402.pn.pn, %2011 ], [ %.pn398.pn.pn, %2000 ], [ %.pn394.pn.pn, %2047 ], [ %.pn390.pn.pn, %2083 ], [ %.pn385.pn.pn.pn, %2204 ], [ %.pn380.pn.pn.pn, %2295 ], [ %.pn376.pn.pn, %2367 ], [ %.pn372.pn.pn, %2356 ], [ %.pn368.pn.pn, %2403 ], [ %.pn364.pn.pn, %2578 ], [ %.pn360.pn.pn, %2567 ], [ %.pn356.pn.pn, %2556 ], [ %.pn352.pn.pn, %2545 ], [ %.pn348.pn.pn, %2789 ], [ %.pn344.pn.pn, %2778 ], [ %.pn340.pn.pn, %2767 ], [ %.pn336.pn.pn, %2756 ], [ %.pn332.pn.pn, %2745 ], [ %.pn328.pn.pn, %3016 ], [ %.pn324.pn.pn, %3005 ], [ %.pn320.pn.pn, %2994 ], [ %.pn316.pn.pn, %2983 ], [ %.pn312.pn.pn, %2972 ], [ %.pn308.pn.pn, %3052 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #30
   br label %3075
 
 3075:                                             ; preds = %467, %3074, %448, %466
   %.sink2783 = phi ptr [ %6, %466 ], [ %6, %448 ], [ %5, %3074 ], [ %5, %467 ]
-  %.pn308.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %466 ], [ %449, %448 ], [ %.pn308.pn.pn.pn, %3074 ], [ %468, %467 ]
+  %.pn562.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %466 ], [ %449, %448 ], [ %.pn562.pn.pn.pn, %3074 ], [ %468, %467 ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink2783) #30
-  resume { ptr, i32 } %.pn308.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn562.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16917,7 +16917,7 @@ _ZN7QStringD2Ev.exit727:                          ; preds = %735, %_ZN9QtPrivate
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE15ColorDesaturateENS_6Color4IhEEi.exit.i
 
 _ZN3vcg3tri11UpdateColorI6CMeshOE15ColorDesaturateENS_6Color4IhEEi.exit.i: ; preds = %768, %759, %753, %751
-  %.sroa.9.0.i.i = phi i32 [ %775, %768 ], [ %767, %759 ], [ %758, %753 ], [ 255, %751 ]
+  %.sroa.9.0.i.i = phi i32 [ %758, %753 ], [ %767, %759 ], [ %775, %768 ], [ 255, %751 ]
   %.sroa.9.0.insert.ext.i.i = and i32 %.sroa.9.0.i.i, 255
   %.sroa.5.0.insert.insert.i.i = mul nuw nsw i32 %.sroa.9.0.insert.ext.i.i, 65793
   %.sroa.0.0.insert.insert.i.i = or disjoint i32 %.sroa.5.0.insert.insert.i.i, -16777216
@@ -22596,7 +22596,7 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE17PerVertexConstantERS2_NS_6Color4IhEEb.exit: ;
   ret void
 
 .body:                                            ; preds = %.loopexit1702, %.loopexit.split-lp1703, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %2856, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit1327, %1724, %1728, %1703, %1705, %3157, %3096, %2884, %2872, %2028, %1759, %1752, %1739, %1658, %1605, %1603, %1601, %1496, %1414, %1412, %1410, %1281, %1211, %1209, %1207, %1071, %1069, %1067, %1040, %1038, %1019, %1017, %1015, %1013, %1011, %903, %888, %886, %826, %815, %804, %793, %781, %779, %721, %719, %717, %715, %713, %571, %560, %549, %547, %545, %543, %541, %539, %537, %535, %463, %414, %412, %410, %408, %310, %308, %306, %304, %225, %223
-  %.pn433 = phi { ptr, i32 } [ %3158, %3157 ], [ %.pn397.pn.pn, %3096 ], [ %2885, %2884 ], [ %2873, %2872 ], [ %.pn4231605, %1705 ], [ %1704, %1703 ], [ %.pn420.pn, %2028 ], [ %.pn410, %1759 ], [ %.pn412, %1752 ], [ %1740, %1739 ], [ %.pn425, %1658 ], [ %1606, %1605 ], [ %1604, %1603 ], [ %1602, %1601 ], [ %.pn427.pn, %1496 ], [ %1415, %1414 ], [ %1413, %1412 ], [ %1411, %1410 ], [ %.pn430.pn, %1281 ], [ %1212, %1211 ], [ %1210, %1209 ], [ %1208, %1207 ], [ %1072, %1071 ], [ %1070, %1069 ], [ %1068, %1067 ], [ %1041, %1040 ], [ %1039, %1038 ], [ %1020, %1019 ], [ %1018, %1017 ], [ %1016, %1015 ], [ %1014, %1013 ], [ %1012, %1011 ], [ %904, %903 ], [ %889, %888 ], [ %887, %886 ], [ %827, %826 ], [ %816, %815 ], [ %805, %804 ], [ %794, %793 ], [ %782, %781 ], [ %780, %779 ], [ %722, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %572, %571 ], [ %561, %560 ], [ %550, %549 ], [ %548, %547 ], [ %546, %545 ], [ %544, %543 ], [ %542, %541 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %464, %463 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %226, %225 ], [ %224, %223 ], [ %1725, %1728 ], [ %1725, %1724 ], [ %.pn407.pn, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit1327 ], [ %.pn407.pn, %2856 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1685, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit1691, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1693, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1740, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1741, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1704, %.loopexit1702 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp1703 ]
+  %.pn433 = phi { ptr, i32 } [ %226, %225 ], [ %224, %223 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %464, %463 ], [ %572, %571 ], [ %561, %560 ], [ %550, %549 ], [ %548, %547 ], [ %546, %545 ], [ %544, %543 ], [ %542, %541 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %722, %721 ], [ %720, %719 ], [ %718, %717 ], [ %716, %715 ], [ %714, %713 ], [ %782, %781 ], [ %780, %779 ], [ %827, %826 ], [ %816, %815 ], [ %805, %804 ], [ %794, %793 ], [ %889, %888 ], [ %887, %886 ], [ %904, %903 ], [ %1020, %1019 ], [ %1018, %1017 ], [ %1016, %1015 ], [ %1014, %1013 ], [ %1012, %1011 ], [ %1041, %1040 ], [ %1039, %1038 ], [ %1072, %1071 ], [ %1070, %1069 ], [ %1068, %1067 ], [ %.pn430.pn, %1281 ], [ %1212, %1211 ], [ %1210, %1209 ], [ %1208, %1207 ], [ %.pn427.pn, %1496 ], [ %1415, %1414 ], [ %1413, %1412 ], [ %1411, %1410 ], [ %.pn425, %1658 ], [ %1606, %1605 ], [ %1604, %1603 ], [ %1602, %1601 ], [ %.pn4231605, %1705 ], [ %1704, %1703 ], [ %.pn420.pn, %2028 ], [ %.pn412, %1752 ], [ %.pn410, %1759 ], [ %1740, %1739 ], [ %2873, %2872 ], [ %2885, %2884 ], [ %.pn397.pn.pn, %3096 ], [ %3158, %3157 ], [ %1725, %1728 ], [ %1725, %1724 ], [ %.pn407.pn, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit1327 ], [ %.pn407.pn, %2856 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1685, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit1691, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1693, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1740, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1741, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1704, %.loopexit1702 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp1703 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
   resume { ptr, i32 } %.pn433
 
@@ -23815,9 +23815,9 @@ define linkonce_odr i32 @_ZN3vcg6Color4IhE7ScatterEiiff(i32 noundef %0, i32 noun
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %42, %41, %23
-  %.042.i = phi float [ 0.000000e+00, %46 ], [ %37, %45 ], [ %3, %44 ], [ %3, %43 ], [ %40, %42 ], [ %34, %41 ], [ %34, %23 ]
-  %.041.i = phi float [ 0.000000e+00, %46 ], [ %34, %45 ], [ %34, %44 ], [ %37, %43 ], [ %3, %42 ], [ %3, %41 ], [ %40, %23 ]
-  %.040.i = phi float [ 0.000000e+00, %46 ], [ %3, %45 ], [ %40, %44 ], [ %34, %43 ], [ %34, %42 ], [ %37, %41 ], [ %3, %23 ]
+  %.042.i = phi float [ 0.000000e+00, %46 ], [ %34, %41 ], [ %40, %42 ], [ %3, %43 ], [ %3, %44 ], [ %37, %45 ], [ %34, %23 ]
+  %.041.i = phi float [ 0.000000e+00, %46 ], [ %3, %41 ], [ %3, %42 ], [ %37, %43 ], [ %34, %44 ], [ %34, %45 ], [ %40, %23 ]
+  %.040.i = phi float [ 0.000000e+00, %46 ], [ %37, %41 ], [ %34, %42 ], [ %34, %43 ], [ %40, %44 ], [ %3, %45 ], [ %3, %23 ]
   %48 = fmul float %.040.i, 2.550000e+02
   %49 = fptoui float %48 to i8
   %50 = fmul float %.041.i, 2.550000e+02

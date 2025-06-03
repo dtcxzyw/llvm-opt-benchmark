@@ -696,7 +696,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %"_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit"
 
 "_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit": ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread30, %50, %51, %52
-  %.pn.i = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %52 ], [ { i64 13, ptr @.str.13 }, %51 ], [ { i64 13, ptr @.str.12 }, %50 ], [ { i64 7, ptr @.str.11 }, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread30 ]
+  %.pn.i = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %52 ], [ { i64 13, ptr @.str.12 }, %50 ], [ { i64 13, ptr @.str.13 }, %51 ], [ { i64 7, ptr @.str.11 }, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread30 ]
   %53 = extractvalue { i64, ptr } %.pn.i, 0
   %54 = extractvalue { i64, ptr } %.pn.i, 1
   switch i32 %3, label %57 [
@@ -715,7 +715,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %"_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit19"
 
 "_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit19": ; preds = %"_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit", %55, %56, %57
-  %.pn.i18 = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %57 ], [ { i64 13, ptr @.str.13 }, %56 ], [ { i64 13, ptr @.str.12 }, %55 ], [ { i64 7, ptr @.str.11 }, %"_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit" ]
+  %.pn.i18 = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %57 ], [ { i64 13, ptr @.str.12 }, %55 ], [ { i64 13, ptr @.str.13 }, %56 ], [ { i64 7, ptr @.str.11 }, %"_ZZN14CxxModuleUsage12AddReferenceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_12LookupMethodENK3$_0clES8_.exit" ]
   %58 = extractvalue { i64, ptr } %.pn.i18, 0
   %59 = extractvalue { i64, ptr } %.pn.i18, 1
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #27, !noalias !48
@@ -972,7 +972,7 @@ define dso_local { i64, ptr } @_Z21CxxModuleMapExtensionSt8optionalI18CxxModuleM
   br label %7
 
 7:                                                ; preds = %3, %6, %5, %4
-  %.pn = phi { i64, ptr } [ { i64 4, ptr @.str.8 }, %6 ], [ { i64 4, ptr @.str.7 }, %5 ], [ { i64 4, ptr @.str.6 }, %4 ], [ { i64 4, ptr @.str.5 }, %3 ]
+  %.pn = phi { i64, ptr } [ { i64 4, ptr @.str.8 }, %6 ], [ { i64 4, ptr @.str.6 }, %4 ], [ { i64 4, ptr @.str.7 }, %5 ], [ { i64 4, ptr @.str.5 }, %3 ]
   ret { i64, ptr } %.pn
 }
 
@@ -4208,7 +4208,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %"_ZZN12_GLOBAL__N_123CxxModuleMapContentMsvcB5cxx11ERK18CxxModuleLocationsRK13cmScanDepInfoRK14CxxModuleUsageENK3$_0clE12LookupMethod.exit.i"
 
 "_ZZN12_GLOBAL__N_123CxxModuleMapContentMsvcB5cxx11ERK18CxxModuleLocationsRK13cmScanDepInfoRK14CxxModuleUsageENK3$_0clE12LookupMethod.exit.i": ; preds = %536, %535, %534, %531
-  %.pn.i.i = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %536 ], [ { i64 17, ptr @.str.27 }, %535 ], [ { i64 17, ptr @.str.26 }, %534 ], [ { i64 10, ptr @.str.25 }, %531 ]
+  %.pn.i.i = phi { i64, ptr } [ { i64 0, ptr @.str.14 }, %536 ], [ { i64 17, ptr @.str.26 }, %534 ], [ { i64 17, ptr @.str.27 }, %535 ], [ { i64 10, ptr @.str.25 }, %531 ]
   %537 = extractvalue { i64, ptr } %.pn.i.i, 0
   %538 = extractvalue { i64, ptr } %.pn.i.i, 1
   %539 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %504, ptr noundef %538, i64 noundef %537)

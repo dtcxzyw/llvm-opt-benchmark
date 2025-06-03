@@ -1424,7 +1424,7 @@ _ZN6vectorIPvLb0EjED2Ev.exit:                     ; preds = %.critedge133, %400
   ret i32 %.3
 
 405:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit199, %.loopexit.split-lp200, %178, %180, %.body177, %200, %207, %168, %150
-  %.merged126 = phi { ptr, i32 } [ %.pn104.pn.pn, %168 ], [ %151, %150 ], [ %.pn113.pn.pn, %.body177 ], [ %179, %178 ], [ %181, %180 ], [ %208, %207 ], [ %201, %200 ], [ %lpad.loopexit201, %.loopexit199 ], [ %lpad.loopexit.split-lp202, %.loopexit.split-lp200 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged126 = phi { ptr, i32 } [ %.pn104.pn.pn, %168 ], [ %151, %150 ], [ %179, %178 ], [ %.pn113.pn.pn, %.body177 ], [ %181, %180 ], [ %208, %207 ], [ %201, %200 ], [ %lpad.loopexit201, %.loopexit199 ], [ %lpad.loopexit.split-lp202, %.loopexit.split-lp200 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #24
   br label %406
 
@@ -8098,7 +8098,7 @@ _ZN8rationalD2Ev.exit115:                         ; preds = %.noexc.i114
   br label %467
 
 467:                                              ; preds = %465, %410, %405, %400, %395, %388
-  %.pn50 = phi { ptr, i32 } [ %466, %465 ], [ %411, %410 ], [ %406, %405 ], [ %401, %400 ], [ %396, %395 ], [ %389, %388 ]
+  %.pn50 = phi { ptr, i32 } [ %466, %465 ], [ %389, %388 ], [ %396, %395 ], [ %401, %400 ], [ %406, %405 ], [ %411, %410 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #24

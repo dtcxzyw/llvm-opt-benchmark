@@ -5047,9 +5047,9 @@ Ndr_ObjReadArray.exit.i:                          ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjGetRange.exit
 
 Ndr_ObjGetRange.exit:                             ; preds = %92, %Ndr_ObjReadArray.exit.i, %134, %.thread.i
-  %.0449 = phi i32 [ %138, %.thread.i ], [ %135, %134 ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ 0, %92 ]
-  %.0448 = phi i32 [ %136, %.thread.i ], [ %135, %134 ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ 0, %92 ]
-  %.012.i214 = phi i32 [ %.019.i, %.thread.i ], [ 0, %134 ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ 0, %92 ]
+  %.0449 = phi i32 [ %138, %.thread.i ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ %135, %134 ], [ 0, %92 ]
+  %.0448 = phi i32 [ %136, %.thread.i ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ %135, %134 ], [ 0, %92 ]
+  %.012.i214 = phi i32 [ %.019.i, %.thread.i ], [ %.0.lcssa.i.i, %Ndr_ObjReadArray.exit.i ], [ 0, %134 ], [ 0, %92 ]
   %139 = tail call i32 @Wln_ObjAlloc(ptr noundef %31, i32 noundef 3, i32 noundef %.012.i214, i32 noundef %.0448, i32 noundef %.0449) #21
   %.val14.i216 = load ptr, ptr %13, align 8, !tbaa !12
   %140 = getelementptr inbounds i32, ptr %.val14.i216, i64 %89
@@ -5313,9 +5313,9 @@ Ndr_ObjReadArray.exit.i253:                       ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjGetRange.exit262
 
 Ndr_ObjGetRange.exit262:                          ; preds = %Ndr_ObjReadArray.exit.i253, %256, %.thread.i256
-  %.0451 = phi i32 [ %258, %.thread.i256 ], [ %257, %256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ]
-  %.0450 = phi i32 [ %260, %.thread.i256 ], [ %257, %256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ]
-  %.012.i246 = phi i32 [ %.019.i257, %.thread.i256 ], [ 0, %256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ]
+  %.0451 = phi i32 [ %258, %.thread.i256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ], [ %257, %256 ]
+  %.0450 = phi i32 [ %260, %.thread.i256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ], [ %257, %256 ]
+  %.012.i246 = phi i32 [ %.019.i257, %.thread.i256 ], [ %.0.lcssa.i.i255, %Ndr_ObjReadArray.exit.i253 ], [ 0, %256 ]
   br label %.lr.ph.i265
 
 .lr.ph.i265:                                      ; preds = %Ndr_ObjGetRange.exit262, %Ndr_DataSize.exit.i268
@@ -6496,9 +6496,9 @@ Ndr_ObjReadArray.exit.i359:                       ; preds = %Ndr_DataSize.exit.i
   br label %Ndr_ObjGetRange.exit368
 
 Ndr_ObjGetRange.exit368:                          ; preds = %Ndr_ObjReadArray.exit.i359, %772, %.thread.i362
-  %.0443 = phi i32 [ %774, %.thread.i362 ], [ %773, %772 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ]
-  %.0442 = phi i32 [ %776, %.thread.i362 ], [ %773, %772 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ]
-  %.012.i352 = phi i32 [ %.019.i363, %.thread.i362 ], [ 0, %772 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ]
+  %.0443 = phi i32 [ %774, %.thread.i362 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ], [ %773, %772 ]
+  %.0442 = phi i32 [ %776, %.thread.i362 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ], [ %773, %772 ]
+  %.012.i352 = phi i32 [ %.019.i363, %.thread.i362 ], [ %.0.lcssa.i.i361, %Ndr_ObjReadArray.exit.i359 ], [ 0, %772 ]
   br label %.lr.ph.i371
 
 .lr.ph.i371:                                      ; preds = %Ndr_ObjGetRange.exit368, %Ndr_DataSize.exit.i379

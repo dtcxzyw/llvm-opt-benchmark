@@ -1717,7 +1717,7 @@ define noundef nonnull ptr @l_Lake_InitTemplate_toCtorIdx(i8 noundef zeroext %0)
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -1765,7 +1765,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lake_InitTemplate_toCtorIdx.exit
 
 l_Lake_InitTemplate_toCtorIdx.exit:               ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -2198,7 +2198,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqInitTemplate(i8 noundef 
   br label %l_Lake_InitTemplate_toCtorIdx.exit
 
 l_Lake_InitTemplate_toCtorIdx.exit:               ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -2215,7 +2215,7 @@ l_Lake_InitTemplate_toCtorIdx.exit:               ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lake_InitTemplate_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lake_InitTemplate_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lake_InitTemplate_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -2291,7 +2291,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lake_InitTemplate_toCtorIdx.exit.i
 
 l_Lake_InitTemplate_toCtorIdx.exit.i:             ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lake_instDecidableEqInitTemplate.exit
     i8 1, label %28
@@ -2308,7 +2308,7 @@ l_Lake_InitTemplate_toCtorIdx.exit.i:             ; preds = %27, %26, %25, %lean
   br label %l_Lake_instDecidableEqInitTemplate.exit
 
 l_Lake_instDecidableEqInitTemplate.exit:          ; preds = %l_Lake_InitTemplate_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lake_InitTemplate_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lake_InitTemplate_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -12059,7 +12059,7 @@ lean_dec.exit:                                    ; preds = %723, %722, %720, %l
   br label %lean_dec.exit326
 
 lean_dec.exit326:                                 ; preds = %lean_dec.exit306, %608, %610, %611, %lean_dec.exit312, %474, %476, %477, %lean_dec.exit320, %297, %299, %300, %lean_dec.exit327, %152, %154, %155, %lean_dec.exit, %543, %683, %176, %lean_dec.exit323, %321, %lean_dec.exit316, %lean_dec.exit334, %lean_dec.exit335
-  %.0 = phi ptr [ %30, %lean_dec.exit334 ], [ %19, %lean_dec.exit335 ], [ %724, %lean_dec.exit ], [ %92, %176 ], [ %232, %lean_dec.exit323 ], [ %246, %321 ], [ %377, %lean_dec.exit316 ], [ %.0299, %543 ], [ %.0298, %683 ], [ %148, %155 ], [ %148, %154 ], [ %148, %152 ], [ %148, %lean_dec.exit327 ], [ %293, %300 ], [ %293, %299 ], [ %293, %297 ], [ %293, %lean_dec.exit320 ], [ %470, %477 ], [ %470, %476 ], [ %470, %474 ], [ %470, %lean_dec.exit312 ], [ %604, %611 ], [ %604, %610 ], [ %604, %608 ], [ %604, %lean_dec.exit306 ]
+  %.0 = phi ptr [ %19, %lean_dec.exit335 ], [ %30, %lean_dec.exit334 ], [ %724, %lean_dec.exit ], [ %92, %176 ], [ %232, %lean_dec.exit323 ], [ %246, %321 ], [ %377, %lean_dec.exit316 ], [ %.0299, %543 ], [ %.0298, %683 ], [ %148, %155 ], [ %148, %154 ], [ %148, %152 ], [ %148, %lean_dec.exit327 ], [ %293, %300 ], [ %293, %299 ], [ %293, %297 ], [ %293, %lean_dec.exit320 ], [ %470, %477 ], [ %470, %476 ], [ %470, %474 ], [ %470, %lean_dec.exit312 ], [ %604, %611 ], [ %604, %610 ], [ %604, %608 ], [ %604, %lean_dec.exit306 ]
   ret ptr %.0
 }
 

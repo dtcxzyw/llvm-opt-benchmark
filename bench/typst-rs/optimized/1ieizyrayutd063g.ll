@@ -631,7 +631,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !100
   br label %.loopexit
 
-33:                                               ; preds = %17, %19, %23, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i
+33:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %23, %19, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !100
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !100
   br label %.loopexit
@@ -643,7 +643,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %.loopexit, label %37
 
-.loopexit:                                        ; preds = %34, %.thread79, %33, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit
+.loopexit:                                        ; preds = %34, %.thread79, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit, %33
   %.0 = phi ptr [ %63, %_ZN3std2io5error5Error3new17h1b57fc4b74ea09c8E.exit ], [ %.val6.i.i, %33 ], [ inttoptr (i64 158913789955 to ptr), %.thread79 ], [ null, %34 ]
   ret ptr %.0
 
@@ -942,7 +942,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   br label %.backedge.backedge
 
 106:                                              ; preds = %104, %157
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %105, %104 ]
+  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %158, %157 ]
   resume { ptr, i32 } %.pn
 
 .lr.ph315:                                        ; preds = %.preheader, %128
@@ -1027,7 +1027,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %120, %115
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit234", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit", %.backedge, %265, %293, %74, %79, %86, %133, %222, %186
-  %.0 = phi ptr [ %294, %293 ], [ %266, %265 ], [ %223, %222 ], [ %187, %186 ], [ %134, %133 ], [ %87, %86 ], [ %80, %79 ], [ %75, %74 ], [ %241, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit234" ], [ %228, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit" ], [ null, %.backedge ]
+  %.0 = phi ptr [ %134, %133 ], [ %87, %86 ], [ %80, %79 ], [ %75, %74 ], [ %187, %186 ], [ %223, %222 ], [ %294, %293 ], [ %266, %265 ], [ %241, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit234" ], [ %228, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdbbc63738c14ac31E.exit" ], [ null, %.backedge ]
   ret ptr %.0
 
 "_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h00b7f646d66082caE.exit197": ; preds = %42

@@ -737,8 +737,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %75
 
 75:                                               ; preds = %71, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread"
-  %.sroa.6.2 = phi i64 [ %74, %71 ], [ %70, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ]
-  %.pn = phi i64 [ %.sroa.6.0518, %71 ], [ %67, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ]
+  %.sroa.6.2 = phi i64 [ %70, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ], [ %74, %71 ]
+  %.pn = phi i64 [ %67, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread" ], [ %.sroa.6.0518, %71 ]
   %.sroa.0.2 = getelementptr inbounds i8, ptr %.val, i64 %.pn
   br label %64
 }
@@ -2501,7 +2501,7 @@ _ZN6memchr4arch7generic6memchr4Iter4next17h0e0fa9f53ae3598bE.exit.thread: ; pred
   unreachable
 
 common.resume:                                    ; preds = %300, %166, %411, %412, %417, %422, %427
-  %common.resume.op = phi { ptr, i32 } [ %428, %427 ], [ %423, %422 ], [ %418, %417 ], [ %413, %412 ], [ %.pn332.pn.pn.ph, %411 ], [ %167, %166 ], [ %301, %300 ]
+  %common.resume.op = phi { ptr, i32 } [ %167, %166 ], [ %.pn332.pn.pn.ph, %411 ], [ %413, %412 ], [ %418, %417 ], [ %423, %422 ], [ %428, %427 ], [ %301, %300 ]
   resume { ptr, i32 } %common.resume.op
 
 171:                                              ; preds = %162, %160
@@ -4688,7 +4688,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.ex
   br label %121
 
 121:                                              ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit117, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit112, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit107, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit102, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit97, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit92, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit87, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit82, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit77, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit
-  %.sroa.0.0.in = phi i1 [ %120, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit117 ], [ %114, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit112 ], [ %108, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit107 ], [ %102, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit102 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit97 ], [ %88, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit92 ], [ %80, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit87 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit82 ], [ %64, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit77 ], [ %58, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit72 ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit ]
+  %.sroa.0.0.in = phi i1 [ %50, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit ], [ %58, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit72 ], [ %64, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit77 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit82 ], [ %80, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit87 ], [ %88, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit92 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit97 ], [ %102, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit102 ], [ %108, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit107 ], [ %114, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit112 ], [ %120, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.2012879051417506007.exit117 ]
   ret i1 %.sroa.0.0.in
 }
 

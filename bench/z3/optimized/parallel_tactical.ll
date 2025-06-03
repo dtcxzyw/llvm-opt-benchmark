@@ -2749,7 +2749,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit126: 
   ret void
 
 433:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.thread, %342, %309, %276, %111
-  %.pn73 = phi { ptr, i32 } [ %112, %111 ], [ %343, %342 ], [ %310, %309 ], [ %.pn68.pn.pn.pn, %276 ], [ %302, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.thread ], [ %335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.thread ]
+  %.pn73 = phi { ptr, i32 } [ %112, %111 ], [ %.pn68.pn.pn.pn, %276 ], [ %343, %342 ], [ %310, %309 ], [ %302, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.thread ], [ %335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.thread ]
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
   br label %434
@@ -6951,9 +6951,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit252: ; preds = %_ZNS
   br label %.body
 
 516:                                              ; preds = %422, %497, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit
-  %.262 = phi i32 [ %.060, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ -1, %497 ], [ %.363, %422 ]
-  %.253 = phi i32 [ %.051, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %.051, %497 ], [ %369, %422 ]
-  %.3 = phi i32 [ %.050, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %439, %497 ], [ %.050, %422 ]
+  %.262 = phi i32 [ %.060, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %.363, %422 ], [ -1, %497 ]
+  %.253 = phi i32 [ %.051, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %369, %422 ], [ %.051, %497 ]
+  %.3 = phi i32 [ %.050, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %.050, %422 ], [ %439, %497 ]
   %517 = load ptr, ptr %6, align 8, !tbaa !238
   %518 = icmp eq ptr %517, null
   br i1 %518, label %_ZNK6vectorIN15parallel_tactic8cube_varELb1EjE4sizeEv.exit256, label %519

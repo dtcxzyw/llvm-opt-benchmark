@@ -3330,8 +3330,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %30
 
 30:                                               ; preds = %._crit_edge, %27
-  %.254 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %28, %27 ]
-  %.2 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %29, %27 ]
+  %.254 = phi ptr [ %28, %27 ], [ %.052.lcssa, %._crit_edge ]
+  %.2 = phi ptr [ %29, %27 ], [ %.051.lcssa, %._crit_edge ]
   %31 = load i8, ptr %.254, align 1
   %32 = load i8, ptr %.2, align 1
   %.not13 = icmp eq i8 %31, %32
@@ -3343,8 +3343,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %36
 
 36:                                               ; preds = %._crit_edge, %33
-  %.355 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %34, %33 ]
-  %.3 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %35, %33 ]
+  %.355 = phi ptr [ %34, %33 ], [ %.052.lcssa, %._crit_edge ]
+  %.3 = phi ptr [ %35, %33 ], [ %.051.lcssa, %._crit_edge ]
   %37 = load i8, ptr %.355, align 1
   %38 = load i8, ptr %.3, align 1
   %.not14 = icmp eq i8 %37, %38
@@ -3356,8 +3356,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %42
 
 42:                                               ; preds = %._crit_edge, %39
-  %.456 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %40, %39 ]
-  %.4 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %41, %39 ]
+  %.456 = phi ptr [ %40, %39 ], [ %.052.lcssa, %._crit_edge ]
+  %.4 = phi ptr [ %41, %39 ], [ %.051.lcssa, %._crit_edge ]
   %43 = load i8, ptr %.456, align 1
   %44 = load i8, ptr %.4, align 1
   %.not15 = icmp eq i8 %43, %44
@@ -3369,8 +3369,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %48
 
 48:                                               ; preds = %._crit_edge, %45
-  %.557 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %46, %45 ]
-  %.5 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %47, %45 ]
+  %.557 = phi ptr [ %46, %45 ], [ %.052.lcssa, %._crit_edge ]
+  %.5 = phi ptr [ %47, %45 ], [ %.051.lcssa, %._crit_edge ]
   %49 = load i8, ptr %.557, align 1
   %50 = load i8, ptr %.5, align 1
   %.not16 = icmp eq i8 %49, %50
@@ -3382,8 +3382,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %54
 
 54:                                               ; preds = %._crit_edge, %51
-  %.658 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %52, %51 ]
-  %.6 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %53, %51 ]
+  %.658 = phi ptr [ %52, %51 ], [ %.052.lcssa, %._crit_edge ]
+  %.6 = phi ptr [ %53, %51 ], [ %.051.lcssa, %._crit_edge ]
   %55 = load i8, ptr %.658, align 1
   %56 = load i8, ptr %.6, align 1
   %.not17 = icmp eq i8 %55, %56
@@ -3395,8 +3395,8 @@ define internal fastcc { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__L8Mism
   br label %60
 
 60:                                               ; preds = %._crit_edge, %57
-  %.759 = phi ptr [ %.052.lcssa, %._crit_edge ], [ %58, %57 ]
-  %.7 = phi ptr [ %.051.lcssa, %._crit_edge ], [ %59, %57 ]
+  %.759 = phi ptr [ %58, %57 ], [ %.052.lcssa, %._crit_edge ]
+  %.7 = phi ptr [ %59, %57 ], [ %.051.lcssa, %._crit_edge ]
   %61 = load i8, ptr %.759, align 1
   %62 = load i8, ptr %.7, align 1
   %.not18 = icmp eq i8 %61, %62
@@ -3411,8 +3411,8 @@ default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
 66:                                               ; preds = %63, %24, %30, %36, %42, %48, %54, %60, %._crit_edge, %3, %14
-  %.sroa.4.0 = phi ptr [ %19, %14 ], [ %2, %3 ], [ %.051.lcssa, %._crit_edge ], [ %65, %63 ], [ %.7, %60 ], [ %.6, %54 ], [ %.5, %48 ], [ %.4, %42 ], [ %.3, %36 ], [ %.2, %30 ], [ %.051.lcssa, %24 ]
-  %.sroa.0.0 = phi ptr [ %18, %14 ], [ %0, %3 ], [ %.052.lcssa, %._crit_edge ], [ %64, %63 ], [ %.759, %60 ], [ %.658, %54 ], [ %.557, %48 ], [ %.456, %42 ], [ %.355, %36 ], [ %.254, %30 ], [ %.052.lcssa, %24 ]
+  %.sroa.4.0 = phi ptr [ %19, %14 ], [ %2, %3 ], [ %65, %63 ], [ %.7, %60 ], [ %.6, %54 ], [ %.5, %48 ], [ %.4, %42 ], [ %.3, %36 ], [ %.2, %30 ], [ %.051.lcssa, %24 ], [ %.051.lcssa, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %18, %14 ], [ %0, %3 ], [ %64, %63 ], [ %.759, %60 ], [ %.658, %54 ], [ %.557, %48 ], [ %.456, %42 ], [ %.355, %36 ], [ %.254, %30 ], [ %.052.lcssa, %24 ], [ %.052.lcssa, %._crit_edge ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

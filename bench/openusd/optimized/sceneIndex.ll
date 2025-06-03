@@ -1094,7 +1094,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExp
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.sroa.066.1.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  %.sroa.066.1.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %56 = getelementptr i8, ptr %.sroa.066.1.i.i.i.i, i64 8
   %.val1.i48.i.i.i.i = load ptr, ptr %56, align 8
   %.not.i.i.i.i.i.i.i.i49.i.i.i.i = icmp eq ptr %.val1.i48.i.i.i.i, null
@@ -1114,7 +1114,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExp
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i
-  %.sroa.066.2.i.i.i.i = phi ptr [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %62, %61 ]
+  %.sroa.066.2.i.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.066.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %64 = getelementptr i8, ptr %.sroa.066.2.i.i.i.i, i64 8
   %.val1.i56.i.i.i.i = load ptr, ptr %64, align 8
   %.not.i.i.i.i.i.i.i.i57.i.i.i.i = icmp eq ptr %.val1.i56.i.i.i.i, null
@@ -3153,7 +3153,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__9TfWea
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge
-  %.sroa.061.1 = phi ptr [ %.sroa.061.0.lcssa, %._crit_edge ], [ %92, %91 ]
+  %.sroa.061.1 = phi ptr [ %92, %91 ], [ %.sroa.061.0.lcssa, %._crit_edge ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.061.1, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i.i.i.i40 = icmp eq ptr %95, null
@@ -3190,7 +3190,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__9TfWea
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge
-  %.sroa.061.2 = phi ptr [ %.sroa.061.0.lcssa, %._crit_edge ], [ %110, %109 ]
+  %.sroa.061.2 = phi ptr [ %110, %109 ], [ %.sroa.061.0.lcssa, %._crit_edge ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.061.2, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i.i.i.i.i.i46 = icmp eq ptr %113, null

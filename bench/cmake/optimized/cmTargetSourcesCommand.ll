@@ -4726,7 +4726,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117TargetSourcesImpl24ConvertToAbso
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = icmp eq i32 %5, 0
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.0.sroa.gep114 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.0.sroa.gep116 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %17, label %18, label %41
 
 18:                                               ; preds = %6
@@ -4816,7 +4816,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
   store ptr %51, ptr %10, align 8, !tbaa !48
-  store ptr %51, ptr %.0.sroa.gep114, align 8, !tbaa !51
+  store ptr %51, ptr %.0.sroa.gep116, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %46
   store ptr %52, ptr %50, align 8, !tbaa !53
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
@@ -5094,7 +5094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.026138, %98 ]
-  %150 = load ptr, ptr %.0.sroa.gep114, align 8, !tbaa !51
+  %150 = load ptr, ptr %.0.sroa.gep116, align 8, !tbaa !51
   %151 = load ptr, ptr %50, align 8, !tbaa !53
   %.not.i52 = icmp eq ptr %150, %151
   br i1 %.not.i52, label %169, label %152
@@ -5143,9 +5143,9 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %163
   store i8 0, ptr %166, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  %167 = load ptr, ptr %.0.sroa.gep114, align 8, !tbaa !51
+  %167 = load ptr, ptr %.0.sroa.gep116, align 8, !tbaa !51
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  store ptr %168, ptr %.0.sroa.gep114, align 8, !tbaa !51
+  store ptr %168, ptr %.0.sroa.gep116, align 8, !tbaa !51
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 169:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
@@ -5472,7 +5472,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94
 
 .thread:                                          ; preds = %202, %198, %232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
   %.0123 = phi ptr [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %10, %198 ], [ %10, %232 ], [ %3, %202 ]
-  %.0.sroa.phi122 = phi ptr [ %.0.sroa.gep, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.0.sroa.gep114, %198 ], [ %.0.sroa.gep114, %232 ], [ %.0.sroa.gep, %202 ]
+  %.0.sroa.phi122 = phi ptr [ %.0.sroa.gep, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %.0.sroa.gep116, %198 ], [ %.0.sroa.gep116, %232 ], [ %.0.sroa.gep, %202 ]
   %280 = load ptr, ptr %.0.sroa.phi122, align 8, !tbaa !51
   %281 = load ptr, ptr %.0123, align 8, !tbaa !48
   %282 = ptrtoint ptr %280 to i64
@@ -5569,7 +5569,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 315:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit68, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %316 = load ptr, ptr %10, align 8, !tbaa !48
-  %317 = load ptr, ptr %.0.sroa.gep114, align 8, !tbaa !51
+  %317 = load ptr, ptr %.0.sroa.gep116, align 8, !tbaa !51
   %.not4.i.i.i.i = icmp eq ptr %316, %317
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i107
 

@@ -2504,8 +2504,8 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge._crit_edge.i.i.i.i.i
-  %50 = phi i32 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %45, %47 ]
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %48, %47 ]
+  %50 = phi i32 [ %45, %47 ], [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %51 = load i32, ptr %.sroa.032.1.i.i.i.i.i, align 4, !tbaa !15
   %52 = icmp eq i32 %51, %50
   br i1 %52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit, label %53
@@ -2515,8 +2515,8 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge._crit_edge57.i.i.i.i.i
-  %56 = phi i32 [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %50, %53 ]
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %54, %53 ]
+  %56 = phi i32 [ %50, %53 ], [ %.pre58.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ]
   %57 = load i32, ptr %.sroa.032.2.i.i.i.i.i, align 4, !tbaa !15
   %58 = icmp eq i32 %57, %56
   %spec.select.i.i.i.i.i = select i1 %58, ptr %.sroa.032.2.i.i.i.i.i, ptr %11
@@ -2609,8 +2609,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge._crit_edge.i.i.i.i.i24
-  %93 = phi i32 [ %.pre.i.i.i.i.i25, %._crit_edge._crit_edge.i.i.i.i.i24 ], [ %88, %90 ]
-  %.sroa.032.1.i.i.i.i.i26 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i.i24 ], [ %91, %90 ]
+  %93 = phi i32 [ %88, %90 ], [ %.pre.i.i.i.i.i25, %._crit_edge._crit_edge.i.i.i.i.i24 ]
+  %.sroa.032.1.i.i.i.i.i26 = phi ptr [ %91, %90 ], [ %.sroa.032.0.lcssa.i.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i.i24 ]
   %94 = load i32, ptr %.sroa.032.1.i.i.i.i.i26, align 4, !tbaa !15
   %95 = icmp eq i32 %94, %93
   br i1 %95, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit37, label %96
@@ -2620,8 +2620,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge._crit_edge57.i.i.i.i.i19
-  %99 = phi i32 [ %.pre58.i.i.i.i.i20, %._crit_edge._crit_edge57.i.i.i.i.i19 ], [ %93, %96 ]
-  %.sroa.032.2.i.i.i.i.i21 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i18, %._crit_edge._crit_edge57.i.i.i.i.i19 ], [ %97, %96 ]
+  %99 = phi i32 [ %93, %96 ], [ %.pre58.i.i.i.i.i20, %._crit_edge._crit_edge57.i.i.i.i.i19 ]
+  %.sroa.032.2.i.i.i.i.i21 = phi ptr [ %97, %96 ], [ %.sroa.032.0.lcssa.i.i.i.i.i18, %._crit_edge._crit_edge57.i.i.i.i.i19 ]
   %100 = load i32, ptr %.sroa.032.2.i.i.i.i.i21, align 4, !tbaa !15
   %101 = icmp eq i32 %100, %99
   %spec.select.i.i.i.i.i22 = select i1 %101, ptr %.sroa.032.2.i.i.i.i.i21, ptr %11
@@ -2714,8 +2714,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %135
 
 135:                                              ; preds = %133, %._crit_edge._crit_edge.i.i.i.i.i46
-  %136 = phi i32 [ %.pre.i.i.i.i.i47, %._crit_edge._crit_edge.i.i.i.i.i46 ], [ %131, %133 ]
-  %.sroa.032.1.i.i.i.i.i48 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i40, %._crit_edge._crit_edge.i.i.i.i.i46 ], [ %134, %133 ]
+  %136 = phi i32 [ %131, %133 ], [ %.pre.i.i.i.i.i47, %._crit_edge._crit_edge.i.i.i.i.i46 ]
+  %.sroa.032.1.i.i.i.i.i48 = phi ptr [ %134, %133 ], [ %.sroa.032.0.lcssa.i.i.i.i.i40, %._crit_edge._crit_edge.i.i.i.i.i46 ]
   %137 = load i32, ptr %.sroa.032.1.i.i.i.i.i48, align 4, !tbaa !15
   %138 = icmp eq i32 %137, %136
   br i1 %138, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit59, label %139
@@ -2725,8 +2725,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %141
 
 141:                                              ; preds = %139, %._crit_edge._crit_edge57.i.i.i.i.i41
-  %142 = phi i32 [ %.pre58.i.i.i.i.i42, %._crit_edge._crit_edge57.i.i.i.i.i41 ], [ %136, %139 ]
-  %.sroa.032.2.i.i.i.i.i43 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i40, %._crit_edge._crit_edge57.i.i.i.i.i41 ], [ %140, %139 ]
+  %142 = phi i32 [ %136, %139 ], [ %.pre58.i.i.i.i.i42, %._crit_edge._crit_edge57.i.i.i.i.i41 ]
+  %.sroa.032.2.i.i.i.i.i43 = phi ptr [ %140, %139 ], [ %.sroa.032.0.lcssa.i.i.i.i.i40, %._crit_edge._crit_edge57.i.i.i.i.i41 ]
   %143 = load i32, ptr %.sroa.032.2.i.i.i.i.i43, align 4, !tbaa !15
   %144 = icmp eq i32 %143, %142
   %spec.select.i.i.i.i.i44 = select i1 %144, ptr %.sroa.032.2.i.i.i.i.i43, ptr %11
@@ -2819,8 +2819,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %178
 
 178:                                              ; preds = %176, %._crit_edge._crit_edge.i.i.i.i.i68
-  %179 = phi i32 [ %.pre.i.i.i.i.i69, %._crit_edge._crit_edge.i.i.i.i.i68 ], [ %174, %176 ]
-  %.sroa.032.1.i.i.i.i.i70 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i62, %._crit_edge._crit_edge.i.i.i.i.i68 ], [ %177, %176 ]
+  %179 = phi i32 [ %174, %176 ], [ %.pre.i.i.i.i.i69, %._crit_edge._crit_edge.i.i.i.i.i68 ]
+  %.sroa.032.1.i.i.i.i.i70 = phi ptr [ %177, %176 ], [ %.sroa.032.0.lcssa.i.i.i.i.i62, %._crit_edge._crit_edge.i.i.i.i.i68 ]
   %180 = load i32, ptr %.sroa.032.1.i.i.i.i.i70, align 4, !tbaa !15
   %181 = icmp eq i32 %180, %179
   br i1 %181, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit81, label %182
@@ -2830,8 +2830,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %184
 
 184:                                              ; preds = %182, %._crit_edge._crit_edge57.i.i.i.i.i63
-  %185 = phi i32 [ %.pre58.i.i.i.i.i64, %._crit_edge._crit_edge57.i.i.i.i.i63 ], [ %179, %182 ]
-  %.sroa.032.2.i.i.i.i.i65 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i62, %._crit_edge._crit_edge57.i.i.i.i.i63 ], [ %183, %182 ]
+  %185 = phi i32 [ %179, %182 ], [ %.pre58.i.i.i.i.i64, %._crit_edge._crit_edge57.i.i.i.i.i63 ]
+  %.sroa.032.2.i.i.i.i.i65 = phi ptr [ %183, %182 ], [ %.sroa.032.0.lcssa.i.i.i.i.i62, %._crit_edge._crit_edge57.i.i.i.i.i63 ]
   %186 = load i32, ptr %.sroa.032.2.i.i.i.i.i65, align 4, !tbaa !15
   %187 = icmp eq i32 %186, %185
   %spec.select.i.i.i.i.i66 = select i1 %187, ptr %.sroa.032.2.i.i.i.i.i65, ptr %11
@@ -2979,8 +2979,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %234
 
 234:                                              ; preds = %232, %._crit_edge._crit_edge.i.i.i.i.i90
-  %235 = phi i32 [ %.pre.i.i.i.i.i91, %._crit_edge._crit_edge.i.i.i.i.i90 ], [ %230, %232 ]
-  %.sroa.032.1.i.i.i.i.i92 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i84, %._crit_edge._crit_edge.i.i.i.i.i90 ], [ %233, %232 ]
+  %235 = phi i32 [ %230, %232 ], [ %.pre.i.i.i.i.i91, %._crit_edge._crit_edge.i.i.i.i.i90 ]
+  %.sroa.032.1.i.i.i.i.i92 = phi ptr [ %233, %232 ], [ %.sroa.032.0.lcssa.i.i.i.i.i84, %._crit_edge._crit_edge.i.i.i.i.i90 ]
   %236 = load i32, ptr %.sroa.032.1.i.i.i.i.i92, align 4, !tbaa !15
   %237 = icmp eq i32 %236, %235
   br i1 %237, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit103, label %238
@@ -2990,8 +2990,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %240
 
 240:                                              ; preds = %238, %._crit_edge._crit_edge57.i.i.i.i.i85
-  %241 = phi i32 [ %.pre58.i.i.i.i.i86, %._crit_edge._crit_edge57.i.i.i.i.i85 ], [ %235, %238 ]
-  %.sroa.032.2.i.i.i.i.i87 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i84, %._crit_edge._crit_edge57.i.i.i.i.i85 ], [ %239, %238 ]
+  %241 = phi i32 [ %235, %238 ], [ %.pre58.i.i.i.i.i86, %._crit_edge._crit_edge57.i.i.i.i.i85 ]
+  %.sroa.032.2.i.i.i.i.i87 = phi ptr [ %239, %238 ], [ %.sroa.032.0.lcssa.i.i.i.i.i84, %._crit_edge._crit_edge57.i.i.i.i.i85 ]
   %242 = load i32, ptr %.sroa.032.2.i.i.i.i.i87, align 4, !tbaa !15
   %243 = icmp eq i32 %242, %241
   %spec.select.i.i.i.i.i88 = select i1 %243, ptr %.sroa.032.2.i.i.i.i.i87, ptr %199
@@ -3101,8 +3101,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %282
 
 282:                                              ; preds = %280, %._crit_edge._crit_edge.i.i.i.i.i112
-  %283 = phi i32 [ %.pre.i.i.i.i.i113, %._crit_edge._crit_edge.i.i.i.i.i112 ], [ %278, %280 ]
-  %.sroa.032.1.i.i.i.i.i114 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i106, %._crit_edge._crit_edge.i.i.i.i.i112 ], [ %281, %280 ]
+  %283 = phi i32 [ %278, %280 ], [ %.pre.i.i.i.i.i113, %._crit_edge._crit_edge.i.i.i.i.i112 ]
+  %.sroa.032.1.i.i.i.i.i114 = phi ptr [ %281, %280 ], [ %.sroa.032.0.lcssa.i.i.i.i.i106, %._crit_edge._crit_edge.i.i.i.i.i112 ]
   %284 = load i32, ptr %.sroa.032.1.i.i.i.i.i114, align 4, !tbaa !15
   %285 = icmp eq i32 %284, %283
   br i1 %285, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit125, label %286
@@ -3112,8 +3112,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %288
 
 288:                                              ; preds = %286, %._crit_edge._crit_edge57.i.i.i.i.i107
-  %289 = phi i32 [ %.pre58.i.i.i.i.i108, %._crit_edge._crit_edge57.i.i.i.i.i107 ], [ %283, %286 ]
-  %.sroa.032.2.i.i.i.i.i109 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i106, %._crit_edge._crit_edge57.i.i.i.i.i107 ], [ %287, %286 ]
+  %289 = phi i32 [ %283, %286 ], [ %.pre58.i.i.i.i.i108, %._crit_edge._crit_edge57.i.i.i.i.i107 ]
+  %.sroa.032.2.i.i.i.i.i109 = phi ptr [ %287, %286 ], [ %.sroa.032.0.lcssa.i.i.i.i.i106, %._crit_edge._crit_edge57.i.i.i.i.i107 ]
   %290 = load i32, ptr %.sroa.032.2.i.i.i.i.i109, align 4, !tbaa !15
   %291 = icmp eq i32 %290, %289
   %spec.select.i.i.i.i.i110 = select i1 %291, ptr %.sroa.032.2.i.i.i.i.i109, ptr %249
@@ -3223,8 +3223,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %330
 
 330:                                              ; preds = %328, %._crit_edge._crit_edge.i.i.i.i.i134
-  %331 = phi i32 [ %.pre.i.i.i.i.i135, %._crit_edge._crit_edge.i.i.i.i.i134 ], [ %326, %328 ]
-  %.sroa.032.1.i.i.i.i.i136 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i128, %._crit_edge._crit_edge.i.i.i.i.i134 ], [ %329, %328 ]
+  %331 = phi i32 [ %326, %328 ], [ %.pre.i.i.i.i.i135, %._crit_edge._crit_edge.i.i.i.i.i134 ]
+  %.sroa.032.1.i.i.i.i.i136 = phi ptr [ %329, %328 ], [ %.sroa.032.0.lcssa.i.i.i.i.i128, %._crit_edge._crit_edge.i.i.i.i.i134 ]
   %332 = load i32, ptr %.sroa.032.1.i.i.i.i.i136, align 4, !tbaa !15
   %333 = icmp eq i32 %332, %331
   br i1 %333, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersectionsIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS5_IdLin1ELin1ELi0ELin1ELin1EEENS5_IiLin1ELin1ELi0ELin1ELin1EEES8_NS5_IiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEbiRKNS4_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EERKNS2_4AABBISF_Li3EEEiEUlPKNS13_IS7_Li3EEEE_EclINS_17__normal_iteratorIPS19_St6vectorIS19_SaIS19_EEEEEEbSB_.exit147, label %334
@@ -3234,8 +3234,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN3igl40collapse_edge_would_create_intersections
   br label %336
 
 336:                                              ; preds = %334, %._crit_edge._crit_edge57.i.i.i.i.i129
-  %337 = phi i32 [ %.pre58.i.i.i.i.i130, %._crit_edge._crit_edge57.i.i.i.i.i129 ], [ %331, %334 ]
-  %.sroa.032.2.i.i.i.i.i131 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i128, %._crit_edge._crit_edge57.i.i.i.i.i129 ], [ %335, %334 ]
+  %337 = phi i32 [ %331, %334 ], [ %.pre58.i.i.i.i.i130, %._crit_edge._crit_edge57.i.i.i.i.i129 ]
+  %.sroa.032.2.i.i.i.i.i131 = phi ptr [ %335, %334 ], [ %.sroa.032.0.lcssa.i.i.i.i.i128, %._crit_edge._crit_edge57.i.i.i.i.i129 ]
   %338 = load i32, ptr %.sroa.032.2.i.i.i.i.i131, align 4, !tbaa !15
   %339 = icmp eq i32 %338, %337
   %spec.select.i.i.i.i.i132 = select i1 %339, ptr %.sroa.032.2.i.i.i.i.i131, ptr %297

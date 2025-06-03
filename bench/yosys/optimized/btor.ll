@@ -23196,7 +23196,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %785, %784, %_ZNK5Yo
   br label %798
 
 798:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit246, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit
-  %.2 = phi i32 [ %.1, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit246 ], [ %797, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit ]
+  %.2 = phi i32 [ %797, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit ], [ %.1, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit246 ]
   %799 = icmp sgt i32 %2, -1
   br i1 %799, label %800, label %836
 
@@ -23277,8 +23277,8 @@ _ZN12_GLOBAL__N_110BtorWorker10get_bv_sidEi.exit368: ; preds = %820, %823
   ret i32 %.0
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit366:     ; preds = %792, %791, %282
-  %.pn151.pn = phi { ptr, i32 } [ %.pn151, %282 ], [ %.pn174.pn.pn.pn, %791 ], [ %.pn174.pn.pn.pn, %792 ]
-  resume { ptr, i32 } %.pn151.pn
+  %.pn174.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn151, %282 ], [ %.pn174.pn.pn.pn, %791 ], [ %.pn174.pn.pn.pn, %792 ]
+  resume { ptr, i32 } %.pn174.pn.pn.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

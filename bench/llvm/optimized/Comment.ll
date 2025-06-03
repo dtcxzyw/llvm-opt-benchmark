@@ -88,7 +88,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment11child_beginEv(ptr nou
   unreachable
 
 20:                                               ; preds = %1, %1, %1, %1, %1, %1, %17, %15, %12, %10, %7, %4
-  %.0 = phi ptr [ %16, %15 ], [ %14, %12 ], [ %11, %10 ], [ %9, %7 ], [ %6, %4 ], [ %18, %17 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.0 = phi ptr [ %18, %17 ], [ %6, %4 ], [ %9, %7 ], [ %11, %10 ], [ %14, %12 ], [ %16, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -151,7 +151,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
   unreachable
 
 29:                                               ; preds = %1, %1, %1, %1, %1, %1, %26, %24, %18, %16, %10, %4
-  %.0 = phi ptr [ %25, %24 ], [ %23, %18 ], [ %17, %16 ], [ %15, %10 ], [ %9, %4 ], [ %27, %26 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.0 = phi ptr [ %27, %26 ], [ %9, %4 ], [ %15, %10 ], [ %17, %16 ], [ %23, %18 ], [ %25, %24 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -243,7 +243,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.1.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !23
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %52
@@ -257,7 +257,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %57, %56 ]
+  %.2.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %59 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !23
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %60
@@ -419,7 +419,7 @@ define dso_local void @_ZN5clang8comments8DeclInfo4fillEv(ptr noundef nonnull al
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %13, %26
-  %.1.i.i = phi ptr [ %22, %13 ], [ %27, %26 ]
+  %.1.i.i = phi ptr [ %27, %26 ], [ %22, %13 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %28, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -539,7 +539,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit81: ; preds = %82, %97
-  %.1.i.i79 = phi ptr [ %93, %82 ], [ %98, %97 ]
+  %.1.i.i79 = phi ptr [ %98, %97 ], [ %93, %82 ]
   %99 = getelementptr inbounds nuw i8, ptr %.1.i.i79, i64 24
   %.sroa.0.0.copyload.i1.i80 = load i64, ptr %99, align 8, !tbaa !23
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1207,7 +1207,7 @@ _ZNK5clang15FunctionTypeLoc9getParamsEv.exit:     ; preds = %_ZN5clang8commentsL
   store i16 %472, ptr %2, align 8
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread
 
-_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %423, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %420, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %._crit_edge.i, %176, %152, %56, %62, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %108, %112, %116, %118, %166, %189, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
+_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %423, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %420, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %._crit_edge.i, %176, %152, %189, %166, %118, %116, %112, %108, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %62, %56, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
   %473 = load i16, ptr %2, align 8
   br label %474
 

@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @inet_aton(ptr noundef readonly captures(none) %0, pt
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %10, %3
-  %.120 = phi i32 [ %.019, %3 ], [ %11, %10 ]
+  %.120 = phi i32 [ %11, %10 ], [ %.019, %3 ]
   %14 = icmp ugt i32 %.017, 255
   br i1 %14, label %.loopexit, label %15
 
@@ -51,9 +51,9 @@ define range(i32 0, 2) i32 @inet_aton(ptr noundef readonly captures(none) %0, pt
   br label %18
 
 18:                                               ; preds = %5, %15
-  %.221 = phi i32 [ %.120, %15 ], [ %.019, %5 ]
-  %.118 = phi i32 [ 0, %15 ], [ %9, %5 ]
-  %.1 = phi i32 [ %17, %15 ], [ %.016, %5 ]
+  %.221 = phi i32 [ %.019, %5 ], [ %.120, %15 ]
+  %.118 = phi i32 [ %9, %5 ], [ 0, %15 ]
+  %.1 = phi i32 [ %.016, %5 ], [ %17, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %20, label %3, !llvm.loop !6

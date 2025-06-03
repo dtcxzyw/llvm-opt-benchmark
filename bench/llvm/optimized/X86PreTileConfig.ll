@@ -2611,7 +2611,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %785, %.sink.split.i
   br label %825
 
 825:                                              ; preds = %823, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %824, %823 ]
+  %.1.i.i.i.i.i = phi ptr [ %824, %823 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %826 = and i32 %.1.val.i.i.i.i.i, 255
   %827 = icmp eq i32 %826, 12
@@ -2622,7 +2622,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %785, %.sink.split.i
   br label %830
 
 830:                                              ; preds = %828, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %829, %828 ]
+  %.2.i.i.i.i.i = phi ptr [ %829, %828 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %831 = and i32 %.2.val.i.i.i.i.i, 255
   %832 = icmp eq i32 %831, 12
@@ -2778,7 +2778,7 @@ _ZN4llvm9BitVector15clearBitsInMaskEPKjj.exit.i:  ; preds = %.lr.ph41.i.i.i, %.p
   br label %886
 
 886:                                              ; preds = %884, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %885, %884 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %885, %884 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %887 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !11
   %.not30.i.i.i.i.i.i.i.i.i = icmp eq i64 %887, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i, label %888, label %_ZNK4llvm9BitVector4noneEv.exit.i
@@ -2788,7 +2788,7 @@ _ZN4llvm9BitVector15clearBitsInMaskEPKjj.exit.i:  ; preds = %.lr.ph41.i.i.i, %.p
   br label %890
 
 890:                                              ; preds = %888, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %889, %888 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %889, %888 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %891 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !11
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %891, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %892, label %_ZNK4llvm9BitVector4noneEv.exit.i

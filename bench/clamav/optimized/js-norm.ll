@@ -1782,7 +1782,7 @@ yylex.exit.thread.thread172:                      ; preds = %textbuf_clean.exit.
   unreachable
 
 yylex.exit:                                       ; preds = %parseOperator.exit.i, %parseOperator.exit114.i, %173, %175, %177, %179, %181, %183, %185, %199
-  %.0.i = phi i32 [ %200, %199 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %parseOperator.exit114.i ], [ %130, %parseOperator.exit.i ]
+  %.0.i = phi i32 [ %130, %parseOperator.exit.i ], [ %172, %parseOperator.exit114.i ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %200, %199 ]
   %.not100 = icmp eq i32 %.0.i, 0
   br i1 %.not100, label %yylex.exit.thread138, label %yylex.exit.thread
 
@@ -2263,8 +2263,8 @@ yyget_text.exit125:                               ; preds = %402, %406
   unreachable
 
 .thread144:                                       ; preds = %.thread.thread, %scope_new.exit, %227, %add_token.exit, %.thread
-  %.0.i136148 = phi i32 [ %.0.i136149.ph, %.thread ], [ 3, %227 ], [ 11, %add_token.exit ], [ 73, %scope_new.exit ], [ 14, %.thread.thread ]
-  %.1146 = phi ptr [ %.0, %.thread ], [ %.0, %227 ], [ %301, %add_token.exit ], [ %342, %scope_new.exit ], [ %.0, %.thread.thread ]
+  %.0.i136148 = phi i32 [ %.0.i136149.ph, %.thread ], [ 73, %scope_new.exit ], [ 11, %add_token.exit ], [ 3, %227 ], [ 14, %.thread.thread ]
+  %.1146 = phi ptr [ %.0, %.thread ], [ %342, %scope_new.exit ], [ %301, %add_token.exit ], [ %.0, %227 ], [ %.0, %.thread.thread ]
   %410 = load i64, ptr %20, align 8, !tbaa !23
   %411 = add i64 %410, 1
   %412 = load i64, ptr %24, align 8, !tbaa !24

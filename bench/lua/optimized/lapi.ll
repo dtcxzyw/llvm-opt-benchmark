@@ -1625,7 +1625,7 @@ index2value.exit25:                               ; preds = %56, %62, %68, %75, 
   br label %113
 
 113:                                              ; preds = %107, %109, %111, %106, %index2value.exit25
-  %.0 = phi i32 [ 0, %106 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ 0, %index2value.exit25 ]
+  %.0 = phi i32 [ 0, %106 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ 0, %index2value.exit25 ]
   ret i32 %.0
 }
 
@@ -2410,7 +2410,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   br label %72
 
 72:                                               ; preds = %index2value.exit, %69, %65, %61, %56
-  %.0 = phi i64 [ %71, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %56 ], [ 0, %index2value.exit ]
+  %.0 = phi i64 [ %60, %56 ], [ %64, %61 ], [ %68, %65 ], [ %71, %69 ], [ 0, %index2value.exit ]
   ret i64 %.0
 }
 
@@ -2623,7 +2623,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   br label %touserdata.exit
 
 touserdata.exit:                                  ; preds = %index2value.exit, %56, %66
-  %.0.i = phi ptr [ %67, %66 ], [ %65, %56 ], [ null, %index2value.exit ]
+  %.0.i = phi ptr [ %65, %56 ], [ %67, %66 ], [ null, %index2value.exit ]
   ret ptr %.0.i
 }
 
@@ -2848,7 +2848,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   br label %touserdata.exit
 
 touserdata.exit:                                  ; preds = %71, %61, %59, %73, %75, %57
-  %.0 = phi ptr [ %76, %75 ], [ %58, %57 ], [ null, %73 ], [ %72, %71 ], [ %70, %61 ], [ null, %59 ]
+  %.0 = phi ptr [ %76, %75 ], [ %58, %57 ], [ null, %73 ], [ %70, %61 ], [ %72, %71 ], [ null, %59 ]
   ret ptr %.0
 }
 
@@ -4171,7 +4171,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   br label %68
 
 68:                                               ; preds = %62, %59, %56
-  %.0.in = phi ptr [ %67, %62 ], [ %61, %59 ], [ %58, %56 ]
+  %.0.in = phi ptr [ %67, %62 ], [ %58, %56 ], [ %61, %59 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !60
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %75, label %69
@@ -5925,7 +5925,7 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, ...) local_unnamed_
   br label %111
 
 111:                                              ; preds = %9, %98, %109, %67, %62, %58, %.critedge, %21, %13, %12, %11, %10
-  %.036 = phi i32 [ %71, %67 ], [ %66, %62 ], [ %61, %58 ], [ %.1, %.critedge ], [ %28, %21 ], [ %20, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ %107, %109 ], [ %107, %98 ], [ -1, %9 ]
+  %.036 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ %20, %13 ], [ %28, %21 ], [ %.1, %.critedge ], [ %61, %58 ], [ %66, %62 ], [ %71, %67 ], [ %107, %109 ], [ %107, %98 ], [ -1, %9 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %112
 
@@ -6870,7 +6870,7 @@ getupvalref.exit:                                 ; preds = %index2value.exit.i,
   br label %.thread
 
 .thread:                                          ; preds = %118, %121, %125, %index2value.exit, %getupvalref.exit
-  %.0 = phi ptr [ %129, %125 ], [ %117, %getupvalref.exit ], [ null, %index2value.exit ], [ null, %121 ], [ null, %118 ]
+  %.0 = phi ptr [ %117, %getupvalref.exit ], [ %129, %125 ], [ null, %index2value.exit ], [ null, %121 ], [ null, %118 ]
   ret ptr %.0
 }
 

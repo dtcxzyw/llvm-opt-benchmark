@@ -1075,7 +1075,7 @@ define linkonce_odr void @_ZN4absl7debian227StripLeadingAsciiWhitespaceEPNSt7__c
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %47 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %50 = load i8, ptr %.sroa.032.1.i.i.i, align 1
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %51
@@ -1089,7 +1089,7 @@ define linkonce_odr void @_ZN4absl7debian227StripLeadingAsciiWhitespaceEPNSt7__c
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %56, %55 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %56, %55 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %58 = load i8, ptr %.sroa.032.2.i.i.i, align 1
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %59

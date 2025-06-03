@@ -5687,8 +5687,8 @@ if.end19.i.i:                                     ; preds = %sw.bb.i.i
   br label %sw.bb21.i.i
 
 sw.bb21.i.i:                                      ; preds = %if.end19.i.i, %for.end.sw.bb21_crit_edge.i.i
-  %10 = phi ptr [ %.pre.i.i, %for.end.sw.bb21_crit_edge.i.i ], [ %9, %if.end19.i.i ]
-  %__first.addr.1.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb21_crit_edge.i.i ], [ %incdec.ptr20.i.i, %if.end19.i.i ]
+  %10 = phi ptr [ %9, %if.end19.i.i ], [ %.pre.i.i, %for.end.sw.bb21_crit_edge.i.i ]
+  %__first.addr.1.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end19.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb21_crit_edge.i.i ]
   %11 = load ptr, ptr %__first.addr.1.i.i, align 8
   %cmp.i30.i.i = icmp eq ptr %11, %10
   br i1 %cmp.i30.i.i, label %_ZSt9__find_ifIPKPN6hermes10BasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %if.end24.i.i
@@ -5698,8 +5698,8 @@ if.end24.i.i:                                     ; preds = %sw.bb21.i.i
   br label %sw.bb26.i.i
 
 sw.bb26.i.i:                                      ; preds = %if.end24.i.i, %for.end.sw.bb26_crit_edge.i.i
-  %12 = phi ptr [ %.pre55.i.i, %for.end.sw.bb26_crit_edge.i.i ], [ %10, %if.end24.i.i ]
-  %__first.addr.2.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb26_crit_edge.i.i ], [ %incdec.ptr25.i.i, %if.end24.i.i ]
+  %12 = phi ptr [ %10, %if.end24.i.i ], [ %.pre55.i.i, %for.end.sw.bb26_crit_edge.i.i ]
+  %__first.addr.2.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end24.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb26_crit_edge.i.i ]
   %13 = load ptr, ptr %__first.addr.2.i.i, align 8
   %cmp.i31.i.i = icmp eq ptr %13, %12
   br i1 %cmp.i31.i.i, label %_ZSt9__find_ifIPKPN6hermes10BasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %sw.default.i.i
@@ -23884,8 +23884,8 @@ if.end19.i.i:                                     ; preds = %sw.bb.i.i
   br label %sw.bb21.i.i
 
 sw.bb21.i.i:                                      ; preds = %if.end19.i.i, %for.end.sw.bb21_crit_edge.i.i
-  %10 = phi ptr [ %.pre.i.i, %for.end.sw.bb21_crit_edge.i.i ], [ %9, %if.end19.i.i ]
-  %__first.addr.1.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb21_crit_edge.i.i ], [ %incdec.ptr20.i.i, %if.end19.i.i ]
+  %10 = phi ptr [ %9, %if.end19.i.i ], [ %.pre.i.i, %for.end.sw.bb21_crit_edge.i.i ]
+  %__first.addr.1.i.i = phi ptr [ %incdec.ptr20.i.i, %if.end19.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb21_crit_edge.i.i ]
   %11 = load ptr, ptr %__first.addr.1.i.i, align 8
   %cmp.i30.i.i = icmp eq ptr %11, %10
   br i1 %cmp.i30.i.i, label %_ZSt9__find_ifIPKPN6hermes10BasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %if.end24.i.i
@@ -23895,8 +23895,8 @@ if.end24.i.i:                                     ; preds = %sw.bb21.i.i
   br label %sw.bb26.i.i
 
 sw.bb26.i.i:                                      ; preds = %if.end24.i.i, %for.end.sw.bb26_crit_edge.i.i
-  %12 = phi ptr [ %.pre55.i.i, %for.end.sw.bb26_crit_edge.i.i ], [ %10, %if.end24.i.i ]
-  %__first.addr.2.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb26_crit_edge.i.i ], [ %incdec.ptr25.i.i, %if.end24.i.i ]
+  %12 = phi ptr [ %10, %if.end24.i.i ], [ %.pre55.i.i, %for.end.sw.bb26_crit_edge.i.i ]
+  %__first.addr.2.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end24.i.i ], [ %__first.addr.0.lcssa.i.i, %for.end.sw.bb26_crit_edge.i.i ]
   %13 = load ptr, ptr %__first.addr.2.i.i, align 8
   %cmp.i31.i.i = icmp eq ptr %13, %12
   br i1 %cmp.i31.i.i, label %_ZSt9__find_ifIPKPN6hermes10BasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %sw.default.i.i

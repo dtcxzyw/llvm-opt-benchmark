@@ -11992,8 +11992,8 @@ if.end29:                                         ; preds = %sw.bb, %_ZN9__gnu_c
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %for.end.sw.bb31_crit_edge, %if.end29
-  %23 = phi i64 [ %.pre, %for.end.sw.bb31_crit_edge ], [ %19, %if.end29 ]
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb31_crit_edge ], [ %incdec.ptr.i48, %if.end29 ]
+  %23 = phi i64 [ %19, %if.end29 ], [ %.pre, %for.end.sw.bb31_crit_edge ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i48, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end.sw.bb31_crit_edge ]
   %_M_string_length.i.i.i49 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 8
   %24 = load i64, ptr %_M_string_length.i.i.i49, align 8, !tbaa !40
   %cmp.i.i51 = icmp eq i64 %24, %23
@@ -12015,8 +12015,8 @@ if.end36:                                         ; preds = %sw.bb31, %_ZN9__gnu
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %for.end.sw.bb38_crit_edge, %if.end36
-  %28 = phi i64 [ %.pre93, %for.end.sw.bb38_crit_edge ], [ %23, %if.end36 ]
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb38_crit_edge ], [ %incdec.ptr.i57, %if.end36 ]
+  %28 = phi i64 [ %23, %if.end36 ], [ %.pre93, %for.end.sw.bb38_crit_edge ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i57, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end.sw.bb38_crit_edge ]
   %_M_string_length.i.i.i58 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.2, i64 8
   %29 = load i64, ptr %_M_string_length.i.i.i58, align 8, !tbaa !40
   %cmp.i.i60 = icmp eq i64 %29, %28

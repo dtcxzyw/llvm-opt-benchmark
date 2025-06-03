@@ -4738,7 +4738,7 @@ define linkonce_odr void @_ZNK10open_spiel11matrix_game10MatrixGame14ActionToStr
   ret void
 
 73:                                               ; preds = %70, %61, %47, %41, %27
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %70 ], [ %62, %61 ], [ %48, %47 ], [ %42, %41 ], [ %28, %27 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %70 ], [ %42, %41 ], [ %28, %27 ], [ %62, %61 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn.pn
 }
 

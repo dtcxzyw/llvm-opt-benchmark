@@ -11742,7 +11742,7 @@ _ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit: ; preds = %.lr.
   br label %39
 
 39:                                               ; preds = %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit, %38
-  %.1 = phi i1 [ true, %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit ], [ false, %38 ]
+  %.1 = phi i1 [ false, %38 ], [ true, %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit ]
   ret i1 %.1
 }
 

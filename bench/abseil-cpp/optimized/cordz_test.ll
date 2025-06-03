@@ -1474,8 +1474,8 @@ define internal void @_ZN4absl12_GLOBAL__N_148gtest_WithParamCordzUpdateTest_Eva
   br label %_ZN4absl12_GLOBAL__N_117TestParamToStringB5cxx11EN7testing13TestParamInfoINS_12TestCordSizeEEE.exit
 
 _ZN4absl12_GLOBAL__N_117TestParamToStringB5cxx11EN7testing13TestParamInfoINS_12TestCordSizeEEE.exit: ; preds = %2, %8, %9, %10, %11, %12, %13, %14
-  %.sroa.9.0.i.i = phi ptr [ @.str.85, %14 ], [ @.str.84, %13 ], [ @.str.83, %12 ], [ @.str.82, %11 ], [ @.str.81, %10 ], [ @.str.80, %9 ], [ @.str.79, %8 ], [ @.str.78, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ 3, %14 ], [ 5, %13 ], [ 6, %12 ], [ 10, %11 ], [ 10, %10 ], [ 5, %9 ], [ 7, %8 ], [ 5, %2 ]
+  %.sroa.9.0.i.i = phi ptr [ @.str.85, %14 ], [ @.str.79, %8 ], [ @.str.80, %9 ], [ @.str.81, %10 ], [ @.str.82, %11 ], [ @.str.83, %12 ], [ @.str.84, %13 ], [ @.str.78, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 3, %14 ], [ 7, %8 ], [ 5, %9 ], [ 10, %10 ], [ 10, %11 ], [ 6, %12 ], [ 5, %13 ], [ 5, %2 ]
   store i64 %.sroa.0.0.i.i, ptr %4, align 8, !tbaa !23, !noalias !37
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.9.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !40, !noalias !37
@@ -1842,8 +1842,8 @@ define internal void @_ZN4absl12_GLOBAL__N_148gtest_WithParamCordzStringTest_Eva
   br label %_ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE.exit
 
 _ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE.exit: ; preds = %2, %4, %5, %6, %7, %8, %9, %10
-  %.sroa.9.0.i.i = phi ptr [ @.str.85, %10 ], [ @.str.84, %9 ], [ @.str.83, %8 ], [ @.str.82, %7 ], [ @.str.81, %6 ], [ @.str.80, %5 ], [ @.str.79, %4 ], [ @.str.78, %2 ]
-  %.sroa.0.0.i.i = phi i64 [ 3, %10 ], [ 5, %9 ], [ 6, %8 ], [ 10, %7 ], [ 10, %6 ], [ 5, %5 ], [ 7, %4 ], [ 5, %2 ]
+  %.sroa.9.0.i.i = phi ptr [ @.str.85, %10 ], [ @.str.79, %4 ], [ @.str.80, %5 ], [ @.str.81, %6 ], [ @.str.82, %7 ], [ @.str.83, %8 ], [ @.str.84, %9 ], [ @.str.78, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ 3, %10 ], [ 7, %4 ], [ 5, %5 ], [ 10, %6 ], [ 10, %7 ], [ 6, %8 ], [ 5, %9 ], [ 5, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !21, !alias.scope !46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.9.0.i.i, i64 %.sroa.0.0.i.i, i1 false)
@@ -35199,8 +35199,8 @@ define linkonce_odr dso_local void @_ZN7testing13PrintToStringIN4absl12TestCordS
   br label %_ZN7testing8internal14UniversalPrintIN4absl12TestCordSizeEEEvRKT_PSo.exit.i
 
 _ZN7testing8internal14UniversalPrintIN4absl12TestCordSizeEEEvRKT_PSo.exit.i: ; preds = %12, %11, %10, %9, %8, %7, %6, %2
-  %.sroa.9.0.i.i.i.i.i.i.i.i = phi ptr [ @.str.85, %12 ], [ @.str.84, %11 ], [ @.str.83, %10 ], [ @.str.82, %9 ], [ @.str.81, %8 ], [ @.str.80, %7 ], [ @.str.79, %6 ], [ @.str.78, %2 ]
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i64 [ 3, %12 ], [ 5, %11 ], [ 6, %10 ], [ 10, %9 ], [ 10, %8 ], [ 5, %7 ], [ 7, %6 ], [ 5, %2 ]
+  %.sroa.9.0.i.i.i.i.i.i.i.i = phi ptr [ @.str.85, %12 ], [ @.str.79, %6 ], [ @.str.80, %7 ], [ @.str.81, %8 ], [ @.str.82, %9 ], [ @.str.83, %10 ], [ @.str.84, %11 ], [ @.str.78, %2 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i64 [ 3, %12 ], [ 7, %6 ], [ 5, %7 ], [ 10, %8 ], [ 10, %9 ], [ 6, %10 ], [ 5, %11 ], [ 5, %2 ]
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.sroa.9.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.0.0.i.i.i.i.i.i.i.i)
           to label %_ZN7testing8internal21UniversalTersePrinterIN4absl12TestCordSizeEE5PrintERKS3_PSo.exit unwind label %62
 

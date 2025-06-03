@@ -1017,9 +1017,9 @@ _ZN6icu_7713UnicodeString8truncateEi.exit119:     ; preds = %137, %131, %130
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit.thread
 
 _ZN6icu_7713UnicodeString8truncateEi.exit.thread: ; preds = %53, %162, %89, %169, %73, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %49
-  %.176 = phi i32 [ %.075145, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.075145, %73 ], [ %170, %169 ], [ %.075145, %49 ], [ %.075145, %89 ], [ %.075145, %162 ], [ %.075145, %53 ]
-  %.171.shrunk = phi i1 [ true, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ true, %73 ], [ false, %169 ], [ false, %49 ], [ %96, %89 ], [ %.not96.not, %162 ], [ false, %53 ]
-  %.1 = phi i32 [ %.069147, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.069147, %73 ], [ %.069147, %169 ], [ %.069147, %49 ], [ %.069147, %89 ], [ %.069147, %162 ], [ %.075145, %53 ]
+  %.176 = phi i32 [ %.075145, %49 ], [ %.075145, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.075145, %73 ], [ %170, %169 ], [ %.075145, %89 ], [ %.075145, %162 ], [ %.075145, %53 ]
+  %.171.shrunk = phi i1 [ false, %49 ], [ true, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ true, %73 ], [ false, %169 ], [ %96, %89 ], [ %.not96.not, %162 ], [ false, %53 ]
+  %.1 = phi i32 [ %.069147, %49 ], [ %.069147, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.069147, %73 ], [ %.069147, %169 ], [ %.069147, %89 ], [ %.069147, %162 ], [ %.075145, %53 ]
   %.171 = zext i1 %.171.shrunk to i32
   %171 = icmp ult i32 %45, 65536
   %172 = select i1 %171, i32 1, i32 2

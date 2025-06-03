@@ -496,7 +496,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captur
   br label %parser_token.exit
 
 parser_token.exit:                                ; preds = %19, %._crit_edge.i, %2, %27, %13, %11, %9, %7, %5
-  %.0 = phi i32 [ %28, %27 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ -1, %2 ], [ 0, %._crit_edge.i ], [ 0, %19 ]
+  %.0 = phi i32 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %28, %27 ], [ -1, %2 ], [ 0, %._crit_edge.i ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1320,7 +1320,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   br label %101
 
 101:                                              ; preds = %._crit_edge, %.thread, %.thread65
-  %.1 = phi ptr [ %100, %.thread65 ], [ %74, %.thread ], [ %.0.lcssa, %._crit_edge ]
+  %.1 = phi ptr [ %74, %.thread ], [ %100, %.thread65 ], [ %.0.lcssa, %._crit_edge ]
   %102 = load ptr, ptr %0, align 8, !tbaa !19
   %103 = ptrtoint ptr %.1 to i64
   %104 = ptrtoint ptr %102 to i64
@@ -1402,7 +1402,7 @@ define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef
   br label %29
 
 29:                                               ; preds = %26, %24
-  %.0.i = phi i8 [ %28, %26 ], [ %25, %24 ]
+  %.0.i = phi i8 [ %25, %24 ], [ %28, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %31 = load i8, ptr %30, align 1, !tbaa !12
   switch i8 %31, label %pctdecode.exit [
@@ -2294,7 +2294,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   br label %26
 
 26:                                               ; preds = %23, %21
-  %.0.i = phi i8 [ %25, %23 ], [ %22, %21 ]
+  %.0.i = phi i8 [ %22, %21 ], [ %25, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %.ptr, i64 2
   store ptr %27, ptr %0, align 8, !tbaa !33
   %28 = load i8, ptr %27, align 1, !tbaa !12

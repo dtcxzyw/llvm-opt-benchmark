@@ -4346,7 +4346,7 @@ sw.default.i:                                     ; preds = %if.end
   br label %_ZN4node5http225TranslateNghttp2ErrorCodeEi.exit
 
 _ZN4node5http225TranslateNghttp2ErrorCodeEi.exit: ; preds = %if.end, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.default.i
-  %retval.0.i = phi i32 [ 2, %sw.default.i ], [ 1, %sw.bb5.i ], [ 7, %sw.bb4.i ], [ 3, %sw.bb3.i ], [ 6, %sw.bb2.i ], [ 9, %sw.bb1.i ], [ 5, %if.end ]
+  %retval.0.i = phi i32 [ 2, %sw.default.i ], [ 9, %sw.bb1.i ], [ 6, %sw.bb2.i ], [ 3, %sw.bb3.i ], [ 7, %sw.bb4.i ], [ 1, %sw.bb5.i ], [ 5, %if.end ]
   %call31 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %5, i32 noundef %retval.0.i) #28
   store ptr %call31, ptr %arrayinit.element28, align 16
   %11 = load ptr, ptr %principal_realm_.i.i, align 8
@@ -4890,7 +4890,7 @@ _ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit: ; preds = %sw.bb2, 
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit, %_ZN4node5http212Http2Session21OnMaxFrameSizePaddingEmm.exit, %entry
-  %padding.0 = phi i64 [ %0, %entry ], [ %6, %_ZN4node5http212Http2Session21OnMaxFrameSizePaddingEmm.exit ], [ %retval.0.i, %_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit ]
+  %padding.0 = phi i64 [ %0, %entry ], [ %retval.0.i, %_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit ], [ %6, %_ZN4node5http212Http2Session21OnMaxFrameSizePaddingEmm.exit ]
   ret i64 %padding.0
 }
 
@@ -10928,7 +10928,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.default, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 2, %sw.default ], [ 1, %sw.bb5 ], [ 7, %sw.bb4 ], [ 3, %sw.bb3 ], [ 6, %sw.bb2 ], [ 9, %sw.bb1 ], [ 5, %entry ]
+  %retval.0 = phi i32 [ 2, %sw.default ], [ 9, %sw.bb1 ], [ 6, %sw.bb2 ], [ 3, %sw.bb3 ], [ 7, %sw.bb4 ], [ 1, %sw.bb5 ], [ 5, %entry ]
   ret i32 %retval.0
 }
 

@@ -4751,7 +4751,7 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeT
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i
 
 _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %93, %91, %89, %38
-  %.0.i.i.i = phi i64 [ %92, %91 ], [ %90, %89 ], [ %94, %93 ], [ %88, %38 ]
+  %.0.i.i.i = phi i64 [ %94, %93 ], [ %90, %89 ], [ %92, %91 ], [ %88, %38 ]
   store i64 %.0.i.i.i, ptr %4, align 8, !tbaa !17
   br label %95
 
@@ -5049,7 +5049,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.i.i: ; preds = %.thread.i.i.
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i
 
 _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %108, %106, %105
-  %.0.i.i.i = phi i64 [ %109, %108 ], [ %107, %106 ], [ %111, %110 ], [ %103, %105 ]
+  %.0.i.i.i = phi i64 [ %111, %110 ], [ %107, %106 ], [ %109, %108 ], [ %103, %105 ]
   store i64 %.0.i.i.i, ptr %4, align 8, !tbaa !17
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit
 
@@ -5385,7 +5385,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   br i1 %or.cond13.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %286, !prof !114
 
 .thread117.i:                                     ; preds = %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i
-  %.sroa.0.0.ph.i = phi i64 [ %212, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i ], [ %243, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ]
+  %.sroa.0.0.ph.i = phi i64 [ %243, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ], [ %212, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i ]
   %283 = add nsw i64 %.sroa.0.0.ph.i, %103
   %284 = load i64, ptr %8, align 8, !tbaa !115
   %285 = add nsw i64 %283, %284
@@ -5426,7 +5426,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   br label %_ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i
 
 _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, %302, %300, %298
-  %.0.i.i94.i = phi i64 [ %303, %302 ], [ %301, %300 ], [ %305, %304 ], [ %299, %298 ]
+  %.0.i.i94.i = phi i64 [ %305, %304 ], [ %301, %300 ], [ %303, %302 ], [ %299, %298 ]
   store i64 %.0.i.i94.i, ptr %4, align 8, !tbaa !17
   br label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i
 

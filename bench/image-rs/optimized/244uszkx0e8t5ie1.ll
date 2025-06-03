@@ -1111,13 +1111,14 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$11goto_o
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h155d14e543025dc3E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 4 dereferenceable(4) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3), !noalias !173
   %.pre = load i64, ptr %4, align 8, !range !183
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre5 = load i64, ptr %.phi.trans.insert, align 8
   %13 = trunc nuw i64 %.pre to i1
-  %14 = select i1 %13, ptr %.pre5, ptr null
+  %14 = inttoptr i64 %.pre5 to ptr
+  %15 = select i1 %13, ptr %14, ptr null
   br label %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Seek$u20$for$u20$$RF$mut$u20$S$GT$4seek17hd5dba54f2d7c77c9E.llvm.15109044229312055141.exit"
 
 "_ZN3std2io5impls57_$LT$impl$u20$std..io..Seek$u20$for$u20$$RF$mut$u20$S$GT$4seek17hd5dba54f2d7c77c9E.llvm.15109044229312055141.exit": ; preds = %2, %11
-  %trunc = phi ptr [ %14, %11 ], [ %9, %2 ]
+  %trunc = phi ptr [ %15, %11 ], [ %9, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %trunc
@@ -1132,22 +1133,25 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$11write_
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %3
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %14
+  br label %16
 
-14:                                               ; preds = %3, %9
-  %.0 = phi ptr [ null, %9 ], [ %8, %3 ]
+14:                                               ; preds = %3
+  %15 = inttoptr i64 %8 to ptr
+  br label %16
+
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1160,22 +1164,25 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$11write_
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %3
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %14
+  br label %16
 
-14:                                               ; preds = %3, %9
-  %.0 = phi ptr [ null, %9 ], [ %8, %3 ]
+14:                                               ; preds = %3
+  %15 = inttoptr i64 %8 to ptr
+  br label %16
+
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1248,27 +1255,27 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %2
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2
+  %15 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %8, %14 ], [ null, %9 ]
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1284,27 +1291,27 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %2
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2
+  %15 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %8, %14 ], [ null, %9 ]
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1320,27 +1327,27 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %2
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2
+  %15 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %8, %14 ], [ null, %9 ]
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1356,27 +1363,27 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %2
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2
+  %15 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %8, %14 ], [ null, %9 ]
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -1392,27 +1399,27 @@ define hidden noundef ptr @"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u
   %6 = load i64, ptr %4, align 8, !range !183, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %14, label %9
 
 9:                                                ; preds = %2
-  %.cast = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.cast, ptr %10, align 8
+  store i64 %8, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !7
-  %13 = add i64 %12, %.cast
+  %13 = add i64 %12, %8
   store i64 %13, ptr %11, align 8
-  br label %15
+  br label %16
 
 14:                                               ; preds = %2
+  %15 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %8, %14 ], [ null, %9 ]
+16:                                               ; preds = %14, %9
+  %.0 = phi ptr [ null, %9 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -6996,7 +7003,7 @@ default.unreachable5:                             ; preds = %2
   br label %35
 
 35:                                               ; preds = %21, %19, %17, %15, %13, %11, %9
-  %.0.in = phi i1 [ %34, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %34, %21 ]
   ret i1 %.0.in
 }
 
@@ -9820,7 +9827,7 @@ _ZN5image6codecs4jpeg7encoder26build_quantization_segment17h1d324340d9fc3415E.ex
   br label %216
 
 663:                                              ; preds = %59, %61, %62, %63, %64, %65
-  %.sroa.0.0.i = phi i8 [ 24, %65 ], [ 23, %64 ], [ 20, %63 ], [ 19, %62 ], [ 18, %61 ], [ 17, %59 ]
+  %.sroa.0.0.i = phi i8 [ 18, %61 ], [ 19, %62 ], [ 20, %63 ], [ 23, %64 ], [ 24, %65 ], [ 17, %59 ]
   store i8 0, ptr %0, align 8
   %.sroa.0202.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.0202.sroa.4.0..sroa_idx, align 1
@@ -9863,14 +9870,14 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1082
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4176
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %29
 
 .loopexit:                                        ; preds = %32
@@ -9886,7 +9893,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %32
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %2
-  %.0 = phi ptr [ null, %2 ], [ %60, %54 ], [ null, %.loopexit ]
+  %.0 = phi ptr [ null, %2 ], [ %61, %54 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   ret ptr %.0
@@ -9894,7 +9901,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 32:                                               ; preds = %54, %29
   %.sroa.047.0 = phi i32 [ 0, %29 ], [ %52, %54 ]
   %.sroa.648.0 = phi i32 [ %.0.i.i.i30, %29 ], [ %53, %54 ]
-  %.1 = phi i32 [ %.02181, %29 ], [ %61, %54 ]
+  %.1 = phi i32 [ %.02181, %29 ], [ %60, %54 ]
   %.not.i31 = icmp eq i32 %.sroa.648.0, 0
   br i1 %.not.i31, label %.loopexit, label %33
 
@@ -9970,18 +9977,18 @@ _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17ha2b3954976e92806E.exit: ; pred
 54:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc929fc508b562bdaE.exit.preheader"
   %55 = load i16, ptr %20, align 8, !range !1275, !alias.scope !1276, !noundef !7
   %trunc.i = trunc nuw i16 %55 to i1
-  %56 = load ptr, ptr %22, align 8, !alias.scope !1276, !nonnull !7, !align !1279
-  %.0.i = select i1 %trunc.i, ptr %21, ptr %56
+  %56 = load ptr, ptr %21, align 8, !alias.scope !1276, !nonnull !7, !align !1279
+  %.0.i = select i1 %trunc.i, ptr %22, ptr %56
   %57 = load i16, ptr %23, align 8, !range !1275, !alias.scope !1280, !noundef !7
   %trunc.i37 = trunc nuw i16 %57 to i1
-  %58 = load ptr, ptr %25, align 8, !alias.scope !1280, !nonnull !7, !align !1279
-  %.0.i38 = select i1 %trunc.i37, ptr %24, ptr %58
+  %58 = load ptr, ptr %24, align 8, !alias.scope !1280, !nonnull !7, !align !1279
+  %.0.i38 = select i1 %trunc.i37, ptr %25, ptr %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(16) %26, ptr noalias noundef readonly align 4 dereferenceable(256) %4, i32 noundef %.1, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i38, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i)
   %59 = load i32, ptr %3, align 8, !range !1283, !noundef !7
   %trunc = trunc nuw i32 %59 to i1
-  %60 = load ptr, ptr %27, align 8, !nonnull !7
-  %61 = load i32, ptr %28, align 4
+  %60 = load i32, ptr %27, align 4
+  %61 = load ptr, ptr %28, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %._crit_edge, label %32
 
@@ -10041,14 +10048,14 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1082
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4176
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %29
 
 .loopexit:                                        ; preds = %32
@@ -10064,7 +10071,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %32
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %2
-  %.0 = phi ptr [ null, %2 ], [ %60, %54 ], [ null, %.loopexit ]
+  %.0 = phi ptr [ null, %2 ], [ %61, %54 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   ret ptr %.0
@@ -10072,7 +10079,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 32:                                               ; preds = %54, %29
   %.sroa.047.0 = phi i32 [ 0, %29 ], [ %52, %54 ]
   %.sroa.648.0 = phi i32 [ %.0.i.i.i30, %29 ], [ %53, %54 ]
-  %.1 = phi i32 [ %.02181, %29 ], [ %61, %54 ]
+  %.1 = phi i32 [ %.02181, %29 ], [ %60, %54 ]
   %.not.i31 = icmp eq i32 %.sroa.648.0, 0
   br i1 %.not.i31, label %.loopexit, label %33
 
@@ -10146,18 +10153,18 @@ _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0724a45ad1bf8f91E.exit: ; pred
 54:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc929fc508b562bdaE.exit.preheader"
   %55 = load i16, ptr %20, align 8, !range !1275, !alias.scope !1302, !noundef !7
   %trunc.i = trunc nuw i16 %55 to i1
-  %56 = load ptr, ptr %22, align 8, !alias.scope !1302, !nonnull !7, !align !1279
-  %.0.i = select i1 %trunc.i, ptr %21, ptr %56
+  %56 = load ptr, ptr %21, align 8, !alias.scope !1302, !nonnull !7, !align !1279
+  %.0.i = select i1 %trunc.i, ptr %22, ptr %56
   %57 = load i16, ptr %23, align 8, !range !1275, !alias.scope !1305, !noundef !7
   %trunc.i37 = trunc nuw i16 %57 to i1
-  %58 = load ptr, ptr %25, align 8, !alias.scope !1305, !nonnull !7, !align !1279
-  %.0.i38 = select i1 %trunc.i37, ptr %24, ptr %58
+  %58 = load ptr, ptr %24, align 8, !alias.scope !1305, !nonnull !7, !align !1279
+  %.0.i38 = select i1 %trunc.i37, ptr %25, ptr %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(16) %26, ptr noalias noundef readonly align 4 dereferenceable(256) %4, i32 noundef %.1, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i38, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i)
   %59 = load i32, ptr %3, align 8, !range !1283, !noundef !7
   %trunc = trunc nuw i32 %59 to i1
-  %60 = load ptr, ptr %27, align 8, !nonnull !7
-  %61 = load i32, ptr %28, align 4
+  %60 = load i32, ptr %27, align 4
+  %61 = load ptr, ptr %28, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %._crit_edge, label %32
 
@@ -10231,24 +10238,24 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1082
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2114
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2114
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3146
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 3152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 3146
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4176
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %45
 
 .loopexit:                                        ; preds = %48
@@ -10266,7 +10273,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %48
 
 ._crit_edge:                                      ; preds = %.loopexit, %100, %112, %116, %2
-  %.0 = phi ptr [ null, %2 ], [ %110, %100 ], [ %114, %112 ], [ %118, %116 ], [ null, %.loopexit ]
+  %.0 = phi ptr [ null, %2 ], [ %111, %100 ], [ %115, %112 ], [ %119, %116 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -10278,9 +10285,9 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 48:                                               ; preds = %116, %45
   %.sroa.085.0 = phi i32 [ 0, %45 ], [ %89, %116 ]
   %.sroa.686.0 = phi i32 [ %.0.i.i.i64, %45 ], [ %90, %116 ]
-  %.137 = phi i32 [ %.036124, %45 ], [ %111, %116 ]
-  %.135 = phi i32 [ %.034125, %45 ], [ %115, %116 ]
-  %.133 = phi i32 [ %.032126, %45 ], [ %119, %116 ]
+  %.137 = phi i32 [ %.036124, %45 ], [ %110, %116 ]
+  %.135 = phi i32 [ %.034125, %45 ], [ %114, %116 ]
+  %.133 = phi i32 [ %.032126, %45 ], [ %118, %116 ]
   %.not.i65 = icmp eq i32 %.sroa.686.0, 0
   br i1 %.not.i65, label %.loopexit, label %49
 
@@ -10393,26 +10400,26 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17ha3e1b35b5d003f22E.exit: ; pre
 100:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc929fc508b562bdaE.exit"
   %101 = load i16, ptr %26, align 8, !range !1275, !alias.scope !1337, !noundef !7
   %trunc.i = trunc nuw i16 %101 to i1
-  %102 = load ptr, ptr %28, align 8, !alias.scope !1337, !nonnull !7, !align !1279
-  %.0.i = select i1 %trunc.i, ptr %27, ptr %102
+  %102 = load ptr, ptr %27, align 8, !alias.scope !1337, !nonnull !7, !align !1279
+  %.0.i = select i1 %trunc.i, ptr %28, ptr %102
   %103 = load i16, ptr %29, align 8, !range !1275, !alias.scope !1340, !noundef !7
   %trunc.i71 = trunc nuw i16 %103 to i1
-  %104 = load ptr, ptr %31, align 8, !alias.scope !1340, !nonnull !7, !align !1279
-  %.0.i72 = select i1 %trunc.i71, ptr %30, ptr %104
+  %104 = load ptr, ptr %30, align 8, !alias.scope !1340, !nonnull !7, !align !1279
+  %.0.i72 = select i1 %trunc.i71, ptr %31, ptr %104
   %105 = load i16, ptr %32, align 8, !range !1275, !alias.scope !1343, !noundef !7
   %trunc.i73 = trunc nuw i16 %105 to i1
-  %106 = load ptr, ptr %34, align 8, !alias.scope !1343, !nonnull !7, !align !1279
-  %.0.i74 = select i1 %trunc.i73, ptr %33, ptr %106
+  %106 = load ptr, ptr %33, align 8, !alias.scope !1343, !nonnull !7, !align !1279
+  %.0.i74 = select i1 %trunc.i73, ptr %34, ptr %106
   %107 = load i16, ptr %35, align 8, !range !1275, !alias.scope !1346, !noundef !7
   %trunc.i75 = trunc nuw i16 %107 to i1
-  %108 = load ptr, ptr %37, align 8, !alias.scope !1346, !nonnull !7, !align !1279
-  %.0.i76 = select i1 %trunc.i75, ptr %36, ptr %108
+  %108 = load ptr, ptr %36, align 8, !alias.scope !1346, !nonnull !7, !align !1279
+  %.0.i76 = select i1 %trunc.i75, ptr %37, ptr %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %11, i32 noundef %.137, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i72, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i)
   %109 = load i32, ptr %5, align 8, !range !1283, !noundef !7
   %trunc = trunc nuw i32 %109 to i1
-  %110 = load ptr, ptr %39, align 8, !nonnull !7
-  %111 = load i32, ptr %40, align 4
+  %110 = load i32, ptr %39, align 4
+  %111 = load ptr, ptr %40, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %._crit_edge, label %112
 
@@ -10421,8 +10428,8 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17ha3e1b35b5d003f22E.exit: ; pre
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %10, i32 noundef %.135, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i74, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i76)
   %113 = load i32, ptr %4, align 8, !range !1283, !noundef !7
   %trunc39 = trunc nuw i32 %113 to i1
-  %114 = load ptr, ptr %41, align 8, !nonnull !7
-  %115 = load i32, ptr %42, align 4
+  %114 = load i32, ptr %41, align 4
+  %115 = load ptr, ptr %42, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc39, label %._crit_edge, label %116
 
@@ -10431,8 +10438,8 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17ha3e1b35b5d003f22E.exit: ; pre
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %9, i32 noundef %.133, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i74, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i76)
   %117 = load i32, ptr %3, align 8, !range !1283, !noundef !7
   %trunc41 = trunc nuw i32 %117 to i1
-  %118 = load ptr, ptr %43, align 8, !nonnull !7
-  %119 = load i32, ptr %44, align 4
+  %118 = load i32, ptr %43, align 4
+  %119 = load ptr, ptr %44, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc41, label %._crit_edge, label %48
 
@@ -10525,24 +10532,24 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1082
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2114
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2114
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3146
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 3152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 3146
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4176
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %45
 
 .loopexit:                                        ; preds = %48
@@ -10560,7 +10567,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %48
 
 ._crit_edge:                                      ; preds = %.loopexit, %101, %113, %117, %2
-  %.0 = phi ptr [ null, %2 ], [ %111, %101 ], [ %115, %113 ], [ %119, %117 ], [ null, %.loopexit ]
+  %.0 = phi ptr [ null, %2 ], [ %112, %101 ], [ %116, %113 ], [ %120, %117 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -10572,9 +10579,9 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 48:                                               ; preds = %117, %45
   %.sroa.085.0 = phi i32 [ 0, %45 ], [ %90, %117 ]
   %.sroa.686.0 = phi i32 [ %.0.i.i.i64, %45 ], [ %91, %117 ]
-  %.137 = phi i32 [ %.036124, %45 ], [ %112, %117 ]
-  %.135 = phi i32 [ %.034125, %45 ], [ %116, %117 ]
-  %.133 = phi i32 [ %.032126, %45 ], [ %120, %117 ]
+  %.137 = phi i32 [ %.036124, %45 ], [ %111, %117 ]
+  %.135 = phi i32 [ %.034125, %45 ], [ %115, %117 ]
+  %.133 = phi i32 [ %.032126, %45 ], [ %119, %117 ]
   %.not.i65 = icmp eq i32 %.sroa.686.0, 0
   br i1 %.not.i65, label %.loopexit, label %49
 
@@ -10687,26 +10694,26 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17h882b2a053a5127fbE.exit: ; pre
 101:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc929fc508b562bdaE.exit"
   %102 = load i16, ptr %26, align 8, !range !1275, !alias.scope !1377, !noundef !7
   %trunc.i = trunc nuw i16 %102 to i1
-  %103 = load ptr, ptr %28, align 8, !alias.scope !1377, !nonnull !7, !align !1279
-  %.0.i = select i1 %trunc.i, ptr %27, ptr %103
+  %103 = load ptr, ptr %27, align 8, !alias.scope !1377, !nonnull !7, !align !1279
+  %.0.i = select i1 %trunc.i, ptr %28, ptr %103
   %104 = load i16, ptr %29, align 8, !range !1275, !alias.scope !1380, !noundef !7
   %trunc.i71 = trunc nuw i16 %104 to i1
-  %105 = load ptr, ptr %31, align 8, !alias.scope !1380, !nonnull !7, !align !1279
-  %.0.i72 = select i1 %trunc.i71, ptr %30, ptr %105
+  %105 = load ptr, ptr %30, align 8, !alias.scope !1380, !nonnull !7, !align !1279
+  %.0.i72 = select i1 %trunc.i71, ptr %31, ptr %105
   %106 = load i16, ptr %32, align 8, !range !1275, !alias.scope !1383, !noundef !7
   %trunc.i73 = trunc nuw i16 %106 to i1
-  %107 = load ptr, ptr %34, align 8, !alias.scope !1383, !nonnull !7, !align !1279
-  %.0.i74 = select i1 %trunc.i73, ptr %33, ptr %107
+  %107 = load ptr, ptr %33, align 8, !alias.scope !1383, !nonnull !7, !align !1279
+  %.0.i74 = select i1 %trunc.i73, ptr %34, ptr %107
   %108 = load i16, ptr %35, align 8, !range !1275, !alias.scope !1386, !noundef !7
   %trunc.i75 = trunc nuw i16 %108 to i1
-  %109 = load ptr, ptr %37, align 8, !alias.scope !1386, !nonnull !7, !align !1279
-  %.0.i76 = select i1 %trunc.i75, ptr %36, ptr %109
+  %109 = load ptr, ptr %36, align 8, !alias.scope !1386, !nonnull !7, !align !1279
+  %.0.i76 = select i1 %trunc.i75, ptr %37, ptr %109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %11, i32 noundef %.137, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i72, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i)
   %110 = load i32, ptr %5, align 8, !range !1283, !noundef !7
   %trunc = trunc nuw i32 %110 to i1
-  %111 = load ptr, ptr %39, align 8, !nonnull !7
-  %112 = load i32, ptr %40, align 4
+  %111 = load i32, ptr %39, align 4
+  %112 = load ptr, ptr %40, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %._crit_edge, label %113
 
@@ -10715,8 +10722,8 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17h882b2a053a5127fbE.exit: ; pre
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %10, i32 noundef %.135, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i74, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i76)
   %114 = load i32, ptr %4, align 8, !range !1283, !noundef !7
   %trunc39 = trunc nuw i32 %114 to i1
-  %115 = load ptr, ptr %41, align 8, !nonnull !7
-  %116 = load i32, ptr %42, align 4
+  %115 = load i32, ptr %41, align 4
+  %116 = load ptr, ptr %42, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc39, label %._crit_edge, label %117
 
@@ -10725,8 +10732,8 @@ _ZN5image6codecs4jpeg7encoder17copy_blocks_ycbcr17h882b2a053a5127fbE.exit: ; pre
   call fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$11write_block17h385dbe765190abb3E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef align 8 dereferenceable(16) %38, ptr noalias noundef readonly align 4 dereferenceable(256) %9, i32 noundef %.133, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i74, ptr noalias noundef readonly align 2 dereferenceable(1024) %.0.i76)
   %118 = load i32, ptr %3, align 8, !range !1283, !noundef !7
   %trunc41 = trunc nuw i32 %118 to i1
-  %119 = load ptr, ptr %43, align 8, !nonnull !7
-  %120 = load i32, ptr %44, align 4
+  %119 = load i32, ptr %43, align 4
+  %120 = load ptr, ptr %44, align 8, !nonnull !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc41, label %._crit_edge, label %48
 
@@ -11131,8 +11138,8 @@ common.resume:                                    ; preds = %72, %55, %48, %37, 
   br i1 %60, label %70, label %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit
 
 61:                                               ; preds = %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit, %52
-  %.val27101 = phi i64 [ %69, %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit ], [ %.val27102, %52 ]
-  %.024 = phi i64 [ %68, %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit ], [ %.sroa.56.0.copyload, %52 ]
+  %.val27101 = phi i64 [ %.val27102, %52 ], [ %69, %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit ]
+  %.024 = phi i64 [ %.sroa.56.0.copyload, %52 ], [ %68, %_ZN5image6codecs4webp7huffman11HuffmanTree15assign_children17h5aa14eb1822548c2E.exit ]
   %62 = and i16 %28, 63
   %63 = zext nneg i16 %62 to i64
   %64 = lshr i64 %11, %63
@@ -13060,7 +13067,7 @@ default.unreachable45:                            ; preds = %2
   br label %70
 
 70:                                               ; preds = %62, %54, %46, %38, %36, %19
-  %.0.in = phi i1 [ %69, %62 ], [ %61, %54 ], [ %53, %46 ], [ %45, %38 ], [ %37, %36 ], [ %35, %19 ]
+  %.0.in = phi i1 [ %35, %19 ], [ %37, %36 ], [ %45, %38 ], [ %53, %46 ], [ %61, %54 ], [ %69, %62 ]
   ret i1 %.0.in
 }
 
@@ -20236,7 +20243,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit156.thre
   br label %.preheader219.i
 
 .preheader219.i:                                  ; preds = %1562, %1561, %1560, %1558
-  %.03.i.ph.i = phi i8 [ 0, %1562 ], [ 3, %1560 ], [ 1, %1561 ], [ 2, %1558 ]
+  %.03.i.ph.i = phi i8 [ 0, %1562 ], [ 1, %1561 ], [ 3, %1560 ], [ 2, %1558 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %scevgep.i, i8 %.03.i.ph.i, i64 4, i1 false), !noalias !2313
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.sroa.6.0..sroa_idx, i8 %.03.i.ph.i, i64 4, i1 false), !alias.scope !2310, !noalias !2315
   br label %.thread.i96

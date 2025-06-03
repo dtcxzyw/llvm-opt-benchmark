@@ -1278,7 +1278,7 @@ add_obj.exit47:                                   ; preds = %._crit_edge.i43, %1
   br label %152
 
 152:                                              ; preds = %add_obj.exit47, %146, %97, %add_obj.exit36, %4, %100, %37, %10, %add_obj.exit
-  %.0 = phi i32 [ 0, %4 ], [ 0, %100 ], [ 0, %37 ], [ 0, %add_obj.exit ], [ 0, %10 ], [ 0, %97 ], [ -1, %add_obj.exit36 ], [ 0, %146 ], [ 0, %add_obj.exit47 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %add_obj.exit ], [ 0, %10 ], [ 0, %37 ], [ 0, %100 ], [ 0, %97 ], [ -1, %add_obj.exit36 ], [ 0, %146 ], [ 0, %add_obj.exit47 ]
   ret i32 %.0
 }
 

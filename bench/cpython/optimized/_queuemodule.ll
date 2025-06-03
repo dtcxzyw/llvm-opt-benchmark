@@ -953,8 +953,8 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
 .split.us:                                        ; preds = %87, %.lr.ph.split.split.us
   unreachable
 
-.thread37:                                        ; preds = %94, %25, %.split62.us, %.split60.us
-  %.5.ph = phi ptr [ %89, %.split60.us ], [ null, %.split62.us ], [ null, %25 ], [ null, %94 ]
+.thread37:                                        ; preds = %94, %25, %.split60.us, %.split62.us
+  %.5.ph = phi ptr [ null, %.split62.us ], [ %89, %.split60.us ], [ null, %25 ], [ null, %94 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   br label %99

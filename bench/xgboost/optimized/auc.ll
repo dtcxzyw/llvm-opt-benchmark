@@ -8340,7 +8340,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %64
 
 64:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit, %58, %60, %62, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit ], [ %59, %58 ], [ %61, %60 ]
   ret ptr %.sroa.018.0
 }
 
@@ -18366,7 +18366,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %68
   ret void
 
 .body:                                            ; preds = %73, %70, %66, %62, %58, %52, %48, %42
-  %.pn52 = phi { ptr, i32 } [ %67, %66 ], [ %59, %58 ], [ %63, %62 ], [ %49, %48 ], [ %53, %52 ], [ %43, %42 ], [ %71, %73 ], [ %71, %70 ]
+  %.pn52 = phi { ptr, i32 } [ %43, %42 ], [ %49, %48 ], [ %53, %52 ], [ %59, %58 ], [ %63, %62 ], [ %67, %66 ], [ %71, %73 ], [ %71, %70 ]
   %74 = load ptr, ptr %11, align 8, !tbaa !567
   %.not.i.i66 = icmp eq ptr %74, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %75
@@ -20038,7 +20038,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !567
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -22530,8 +22530,8 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1
   br label %63
 
 63:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit52
-  %64 = phi i64 [ %.pre, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge ], [ %52, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit52 ]
-  %.sroa.23.1 = phi i64 [ %.sroa.23.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge ], [ %62, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit52 ]
+  %64 = phi i64 [ %52, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit52 ], [ %.pre, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge ]
+  %.sroa.23.1 = phi i64 [ %62, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit52 ], [ %.sroa.23.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge ]
   %65 = icmp ult i64 %.sroa.23.1, %64
   br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7xgboost6metric17PRAUCLabelInvalidEEclINS2_6common6detail12SpanIteratorINS7_4SpanIKfLm18446744073709551615EEELb1EEEEEbT_.exit53, label %66, !prof !44
 
@@ -22554,8 +22554,8 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1
   br label %75
 
 75:                                               ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge105, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit55
-  %76 = phi i64 [ %.pre106, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge105 ], [ %64, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit55 ]
-  %.sroa.23.2 = phi i64 [ %.sroa.23.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge105 ], [ %74, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit55 ]
+  %76 = phi i64 [ %64, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit55 ], [ %.pre106, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge105 ]
+  %.sroa.23.2 = phi i64 [ %74, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEppEv.exit55 ], [ %.sroa.23.0.lcssa, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKfLm18446744073709551615EEELb1EEmiES6_.exit49._crit_edge105 ]
   %77 = icmp ult i64 %.sroa.23.2, %76
   br i1 %77, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7xgboost6metric17PRAUCLabelInvalidEEclINS2_6common6detail12SpanIteratorINS7_4SpanIKfLm18446744073709551615EEELb1EEEEEbT_.exit56, label %78, !prof !44
 
@@ -22889,7 +22889,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %68
   ret void
 
 .body:                                            ; preds = %73, %70, %66, %62, %58, %52, %48, %42
-  %.pn52 = phi { ptr, i32 } [ %67, %66 ], [ %59, %58 ], [ %63, %62 ], [ %49, %48 ], [ %53, %52 ], [ %43, %42 ], [ %71, %73 ], [ %71, %70 ]
+  %.pn52 = phi { ptr, i32 } [ %43, %42 ], [ %49, %48 ], [ %53, %52 ], [ %59, %58 ], [ %63, %62 ], [ %67, %66 ], [ %71, %73 ], [ %71, %70 ]
   %74 = load ptr, ptr %11, align 8, !tbaa !567
   %.not.i.i66 = icmp eq ptr %74, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %75

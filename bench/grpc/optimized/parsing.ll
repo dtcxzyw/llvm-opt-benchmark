@@ -307,7 +307,7 @@ define noundef i32 @_Z34grpc_chttp2_min_read_progress_sizeP21grpc_chttp2_transpo
   unreachable
 
 12:                                               ; preds = %8, %6, %4
-  %.0 = phi i32 [ %10, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %10, %8 ]
   ret i32 %.0
 }
 
@@ -3310,7 +3310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223: ; preds = %_Z
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i, %489, %492, %496, %728, %750, %826, %858, %935, %1037, %1066, %1108, %1164
-  %eh.lpad-body = phi { ptr, i32 } [ %1165, %1164 ], [ %827, %826 ], [ %.pn31.i.i, %1037 ], [ %.pn55.i.i, %728 ], [ %490, %489 ], [ %490, %492 ], [ %490, %496 ], [ %859, %858 ], [ %.pn.i153.i, %935 ], [ %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i ], [ %414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i ], [ %461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i ], [ %.pn.pn.i, %1108 ], [ %1067, %1066 ], [ %751, %750 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %1165, %1164 ], [ %827, %826 ], [ %.pn31.i.i, %1037 ], [ %.pn55.i.i, %728 ], [ %490, %489 ], [ %490, %492 ], [ %490, %496 ], [ %859, %858 ], [ %.pn.i153.i, %935 ], [ %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i ], [ %414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i ], [ %461, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i ], [ %.pn.pn.i, %1108 ], [ %751, %750 ], [ %1067, %1066 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #33
   br label %1292
 
@@ -3485,9 +3485,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %12
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit259
 
 1227:                                             ; preds = %._crit_edge340, %1222
-  %1228 = phi i32 [ %.pre342, %._crit_edge340 ], [ %1169, %1222 ]
-  %1229 = phi ptr [ %1, %._crit_edge340 ], [ %1167, %1222 ]
-  %.11 = phi ptr [ %94, %._crit_edge340 ], [ %1223, %1222 ]
+  %1228 = phi i32 [ %1169, %1222 ], [ %.pre342, %._crit_edge340 ]
+  %1229 = phi ptr [ %1167, %1222 ], [ %1, %._crit_edge340 ]
+  %.11 = phi ptr [ %1223, %1222 ], [ %94, %._crit_edge340 ]
   %1230 = ptrtoint ptr %99 to i64
   %1231 = ptrtoint ptr %.11 to i64
   %1232 = sub i64 %1230, %1231
@@ -3656,7 +3656,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit259:        ; preds = %_ZN4absl12lts_20240
   ret void
 
 1292:                                             ; preds = %1282, %1261, %1243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242, %1177, %.body, %1163, %1131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167
-  %.pn152 = phi { ptr, i32 } [ %1132, %1131 ], [ %1244, %1243 ], [ %1178, %1177 ], [ %.pn145.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242 ], [ %eh.lpad-body, %.body ], [ %.pn.pn.pn.pn.pn, %1163 ], [ %1262, %1261 ], [ %1283, %1282 ], [ %.pn149.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167 ]
+  %.pn152 = phi { ptr, i32 } [ %1132, %1131 ], [ %.pn149.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167 ], [ %1178, %1177 ], [ %.pn145.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242 ], [ %1244, %1243 ], [ %1262, %1261 ], [ %1283, %1282 ], [ %eh.lpad-body, %.body ], [ %.pn.pn.pn.pn.pn, %1163 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #33
   resume { ptr, i32 } %.pn152
@@ -6463,7 +6463,7 @@ _ZL19hpack_boundary_typeP21grpc_chttp2_transportb.exit: ; preds = %514, %521
   ret void
 
 527:                                              ; preds = %464, %477, %483, %487, %512, %440, %419, %384, %366, %308, %178, %164, %133, %118
-  %.pn145 = phi { ptr, i32 } [ %119, %118 ], [ %134, %133 ], [ %165, %164 ], [ %179, %178 ], [ %309, %308 ], [ %367, %366 ], [ %385, %384 ], [ %441, %440 ], [ %420, %419 ], [ %513, %512 ], [ %488, %487 ], [ %484, %483 ], [ %465, %464 ], [ %478, %477 ]
+  %.pn145 = phi { ptr, i32 } [ %119, %118 ], [ %134, %133 ], [ %165, %164 ], [ %179, %178 ], [ %309, %308 ], [ %367, %366 ], [ %385, %384 ], [ %441, %440 ], [ %420, %419 ], [ %513, %512 ], [ %465, %464 ], [ %478, %477 ], [ %484, %483 ], [ %488, %487 ]
   resume { ptr, i32 } %.pn145
 }
 

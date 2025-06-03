@@ -3257,7 +3257,7 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %295, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit
-  %.1 = phi i32 [ %.083358, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.3, %_ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit ], [ %.083358, %295 ]
+  %.1 = phi i32 [ %.3, %_ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit ], [ %.083358, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.083358, %295 ]
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %.not91 = icmp eq i64 %indvars.iv.next416, %197
   br i1 %.not91, label %._crit_edge362, label %256, !llvm.loop !255

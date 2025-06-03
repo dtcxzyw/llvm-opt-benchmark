@@ -1054,7 +1054,7 @@ find_func.exit:                                   ; preds = %504
   br label %514
 
 514:                                              ; preds = %79, %find_func.exit, %495, %487, %make_elist.exit346, %make_elist.exit342, %429, %421, %416, %410, %404, %398, %393, %make_uop.exit338, %354, %make_uop.exit333, %317, %make_uop.exit328, %280, %274, %268, %262, %256, %250, %244, %238, %232, %226, %220, %214, %208, %202, %196, %190, %184, %178, %172, %make_uop.exit, %141, %136, %129, %126, %122, %make_elist.exit323, %make_elist.exit, %88, %86
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %79 ], [ %512, %find_func.exit ], [ %501, %495 ], [ %494, %487 ], [ %486, %make_elist.exit346 ], [ %461, %make_elist.exit342 ], [ %431, %429 ], [ %428, %421 ], [ %420, %416 ], [ %415, %410 ], [ %409, %404 ], [ %403, %398 ], [ %397, %393 ], [ %392, %make_uop.exit338 ], [ %362, %354 ], [ %353, %make_uop.exit333 ], [ %324, %317 ], [ %316, %make_uop.exit328 ], [ %287, %280 ], [ %279, %274 ], [ %273, %268 ], [ %267, %262 ], [ %261, %256 ], [ %255, %250 ], [ %249, %244 ], [ %243, %238 ], [ %237, %232 ], [ %231, %226 ], [ %225, %220 ], [ %219, %214 ], [ %213, %208 ], [ %207, %202 ], [ %201, %196 ], [ %195, %190 ], [ %189, %184 ], [ %183, %178 ], [ %177, %172 ], [ %171, %make_uop.exit ], [ %147, %141 ], [ %140, %136 ], [ %135, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %make_elist.exit323 ], [ %102, %make_elist.exit ], [ 0, %88 ], [ %.sroa.0.0.copyload, %86 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %79 ], [ %.sroa.0.0.copyload, %86 ], [ 0, %88 ], [ %102, %make_elist.exit ], [ %121, %make_elist.exit323 ], [ %125, %122 ], [ %128, %126 ], [ %135, %129 ], [ %140, %136 ], [ %147, %141 ], [ %171, %make_uop.exit ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %195, %190 ], [ %201, %196 ], [ %207, %202 ], [ %213, %208 ], [ %219, %214 ], [ %225, %220 ], [ %231, %226 ], [ %237, %232 ], [ %243, %238 ], [ %249, %244 ], [ %255, %250 ], [ %261, %256 ], [ %267, %262 ], [ %273, %268 ], [ %279, %274 ], [ %287, %280 ], [ %316, %make_uop.exit328 ], [ %324, %317 ], [ %353, %make_uop.exit333 ], [ %362, %354 ], [ %392, %make_uop.exit338 ], [ %397, %393 ], [ %403, %398 ], [ %409, %404 ], [ %415, %410 ], [ %420, %416 ], [ %428, %421 ], [ %431, %429 ], [ %461, %make_elist.exit342 ], [ %486, %make_elist.exit346 ], [ %494, %487 ], [ %501, %495 ], [ %512, %find_func.exit ]
   %515 = sub nsw i64 0, %83
   %516 = getelementptr inbounds %union.YYSTYPE, ptr %.2278, i64 %515
   %517 = getelementptr inbounds i8, ptr %.2290, i64 %515
@@ -1367,9 +1367,9 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   unreachable
 
 .thread:                                          ; preds = %60, %59, %39, %38
-  %.0.i40.sink = phi ptr [ %.0.i, %38 ], [ %.0.i, %39 ], [ %.0.i40, %59 ], [ %.0.i40, %60 ]
+  %.0.i.sink = phi ptr [ %.0.i, %38 ], [ %.0.i, %39 ], [ %.0.i40, %59 ], [ %.0.i40, %60 ]
   %.sink = phi ptr [ %34, %38 ], [ %34, %39 ], [ %55, %59 ], [ %55, %60 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i40.sink, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.sink, i64 8
   store ptr %.sink, ptr %67, align 8
   store i32 2, ptr %9, align 8
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -1387,7 +1387,7 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   br i1 %.not.i, label %.critedge, label %75
 
 75:                                               ; preds = %.thread, %71
-  %.044 = phi ptr [ %.0.i40.sink, %.thread ], [ %2, %71 ]
+  %.044 = phi ptr [ %.0.i.sink, %.thread ], [ %2, %71 ]
   %76 = load ptr, ptr %.044, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %76, ptr %77, align 8

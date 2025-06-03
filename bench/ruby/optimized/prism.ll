@@ -2001,7 +2001,7 @@ wrap_statements.exit.i:                           ; preds = %pm_statements_node_
   br label %350
 
 350:                                              ; preds = %349, %348, %347, %345
-  %.0.i28.i = phi ptr [ @.str.93, %349 ], [ @.str.65, %348 ], [ @.str.64, %347 ], [ @.str.71, %345 ]
+  %.0.i28.i = phi ptr [ @.str.93, %349 ], [ @.str.64, %347 ], [ @.str.65, %348 ], [ @.str.71, %345 ]
   %351 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %352 = load ptr, ptr %351, align 8, !tbaa !131
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 16
@@ -3063,8 +3063,8 @@ match_eol_offset.exit.thread.thread:              ; preds = %match_eol_offset.ex
   br i1 %90, label %108, label %.loopexit4358
 
 match_eol_offset.exit.thread:                     ; preds = %82, %81, %87, %match_eol_offset.exit, %56
-  %92 = phi ptr [ %69, %match_eol_offset.exit ], [ %57, %56 ], [ %80, %81 ], [ %.pre4233, %82 ], [ %88, %87 ]
-  %.11705 = phi i8 [ 1, %match_eol_offset.exit ], [ 1, %56 ], [ %.017043872, %81 ], [ 1, %82 ], [ %.017043872, %87 ]
+  %92 = phi ptr [ %57, %56 ], [ %69, %match_eol_offset.exit ], [ %80, %81 ], [ %.pre4233, %82 ], [ %88, %87 ]
+  %.11705 = phi i8 [ 1, %56 ], [ 1, %match_eol_offset.exit ], [ %.017043872, %81 ], [ 1, %82 ], [ %.017043872, %87 ]
   %93 = load ptr, ptr %24, align 8, !tbaa !76
   %94 = icmp ult ptr %92, %93
   br i1 %94, label %.lr.ph3874, label %.loopexit4358.sink.split, !llvm.loop !168
@@ -7504,7 +7504,7 @@ lex_mode_incrementor.exit:                        ; preds = %1862, %1862, %1862,
   br label %lex_mode_terminator.exit
 
 lex_mode_terminator.exit:                         ; preds = %lex_mode_incrementor.exit, %1865, %1866, %1867, %1868
-  %.0.i2583 = phi i8 [ %1863, %1868 ], [ 62, %1867 ], [ 125, %1866 ], [ 93, %1865 ], [ 41, %lex_mode_incrementor.exit ]
+  %.0.i2583 = phi i8 [ %1863, %1868 ], [ 93, %1865 ], [ 125, %1866 ], [ 62, %1867 ], [ 41, %lex_mode_incrementor.exit ]
   call fastcc void @lex_mode_push_string(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext false, i8 noundef zeroext %.0.i2582, i8 noundef zeroext %.0.i2583)
   store i32 149, ptr %11, align 8, !tbaa !169
   %1869 = load ptr, ptr %34, align 8, !tbaa !170
@@ -7646,7 +7646,7 @@ lex_mode_incrementor.exit2597:                    ; preds = %1906, %1906, %1906,
   br label %lex_mode_terminator.exit2599
 
 lex_mode_terminator.exit2599:                     ; preds = %lex_mode_incrementor.exit2597, %1909, %1910, %1911, %1912
-  %.0.i2598 = phi i8 [ %1907, %1912 ], [ 62, %1911 ], [ 125, %1910 ], [ 93, %1909 ], [ 41, %lex_mode_incrementor.exit2597 ]
+  %.0.i2598 = phi i8 [ %1907, %1912 ], [ 93, %1909 ], [ 125, %1910 ], [ 62, %1911 ], [ 41, %lex_mode_incrementor.exit2597 ]
   call fastcc void @lex_mode_push_regexp(ptr noundef nonnull %0, i8 noundef zeroext %.0.i2596, i8 noundef zeroext %.0.i2598)
   br label %1914
 
@@ -7700,7 +7700,7 @@ lex_mode_incrementor.exit2603:                    ; preds = %1919, %1919, %1919,
   br label %lex_mode_terminator.exit2605
 
 lex_mode_terminator.exit2605:                     ; preds = %lex_mode_incrementor.exit2603, %1922, %1923, %1924, %1925
-  %.0.i2604 = phi i8 [ %1920, %1925 ], [ 62, %1924 ], [ 125, %1923 ], [ 93, %1922 ], [ 41, %lex_mode_incrementor.exit2603 ]
+  %.0.i2604 = phi i8 [ %1920, %1925 ], [ 93, %1922 ], [ 125, %1923 ], [ 62, %1924 ], [ 41, %lex_mode_incrementor.exit2603 ]
   call fastcc void @lex_mode_push_string(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef zeroext %.0.i2602, i8 noundef zeroext %.0.i2604)
   br label %1927
 
@@ -7754,7 +7754,7 @@ lex_mode_incrementor.exit2609:                    ; preds = %1932, %1932, %1932,
   br label %lex_mode_terminator.exit2611
 
 lex_mode_terminator.exit2611:                     ; preds = %lex_mode_incrementor.exit2609, %1935, %1936, %1937, %1938
-  %.0.i2610 = phi i8 [ %1933, %1938 ], [ 62, %1937 ], [ 125, %1936 ], [ 93, %1935 ], [ 41, %lex_mode_incrementor.exit2609 ]
+  %.0.i2610 = phi i8 [ %1933, %1938 ], [ 93, %1935 ], [ 125, %1936 ], [ 62, %1937 ], [ 41, %lex_mode_incrementor.exit2609 ]
   call fastcc void @lex_mode_push_string(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext false, i8 noundef zeroext %.0.i2608, i8 noundef zeroext %.0.i2610)
   br label %1940
 
@@ -7808,7 +7808,7 @@ lex_mode_incrementor.exit2615:                    ; preds = %1945, %1945, %1945,
   br label %lex_mode_terminator.exit2617
 
 lex_mode_terminator.exit2617:                     ; preds = %lex_mode_incrementor.exit2615, %1948, %1949, %1950, %1951
-  %.0.i2616 = phi i8 [ %1946, %1951 ], [ 62, %1950 ], [ 125, %1949 ], [ 93, %1948 ], [ 41, %lex_mode_incrementor.exit2615 ]
+  %.0.i2616 = phi i8 [ %1946, %1951 ], [ 93, %1948 ], [ 125, %1949 ], [ 62, %1950 ], [ 41, %lex_mode_incrementor.exit2615 ]
   call fastcc void @lex_mode_push_string(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef zeroext %.0.i2614, i8 noundef zeroext %.0.i2616)
   store i32 4224, ptr %29, align 4, !tbaa !193
   br label %1953
@@ -7905,7 +7905,7 @@ lex_mode_incrementor.exit2625:                    ; preds = %1974, %1974, %1974,
   br label %lex_mode_terminator.exit2627
 
 lex_mode_terminator.exit2627:                     ; preds = %lex_mode_incrementor.exit2625, %1977, %1978, %1979, %1980
-  %.0.i2626 = phi i8 [ %1975, %1980 ], [ 62, %1979 ], [ 125, %1978 ], [ 93, %1977 ], [ 41, %lex_mode_incrementor.exit2625 ]
+  %.0.i2626 = phi i8 [ %1975, %1980 ], [ 93, %1977 ], [ 125, %1978 ], [ 62, %1979 ], [ 41, %lex_mode_incrementor.exit2625 ]
   call fastcc void @lex_mode_push_string(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext false, i8 noundef zeroext %.0.i2624, i8 noundef zeroext %.0.i2626)
   br label %1982
 
@@ -8313,7 +8313,7 @@ peek.exit.i2636:                                  ; preds = %2152, %char_is_iden
   br label %lex_global_variable.exit
 
 lex_global_variable.exit:                         ; preds = %.preheader.split.us.i, %2143, %char_is_identifier.exit85.us.i, %2001, %2005, %2007, %2011, %char_is_identifier.exit.thread.i, %2065, %.preheader.split.i, %2155, %2157
-  %.0.i2634 = phi i32 [ 48, %2001 ], [ %2073, %2065 ], [ %2010, %2007 ], [ 48, %2005 ], [ 48, %char_is_identifier.exit.thread.i ], [ 48, %2011 ], [ 48, %2155 ], [ 48, %2157 ], [ 48, %.preheader.split.i ], [ 48, %char_is_identifier.exit85.us.i ], [ 48, %2143 ], [ 48, %.preheader.split.us.i ]
+  %.0.i2634 = phi i32 [ 48, %2001 ], [ 48, %2005 ], [ %2010, %2007 ], [ %2073, %2065 ], [ 48, %char_is_identifier.exit.thread.i ], [ 48, %2011 ], [ 48, %2155 ], [ 48, %2157 ], [ 48, %.preheader.split.i ], [ 48, %char_is_identifier.exit85.us.i ], [ 48, %2143 ], [ 48, %.preheader.split.us.i ]
   %2177 = load ptr, ptr %18, align 8, !tbaa !89
   %2178 = load i32, ptr %2177, align 8, !tbaa !97
   %2179 = icmp eq i32 %2178, 2
@@ -10876,7 +10876,7 @@ pm_regexp_token_buffer_escape.exit:               ; preds = %3159, %3162
   br label %3171
 
 3171:                                             ; preds = %pm_regexp_token_buffer_escape.exit, %3144
-  %.21762 = phi ptr [ %.017603863, %3144 ], [ %3152, %pm_regexp_token_buffer_escape.exit ]
+  %.21762 = phi ptr [ %3152, %pm_regexp_token_buffer_escape.exit ], [ %.017603863, %3144 ]
   %3172 = load ptr, ptr %3061, align 8, !tbaa !167
   %3173 = icmp eq ptr %3172, null
   br i1 %3173, label %3174, label %3182
@@ -11091,7 +11091,7 @@ parser_lex_callback.exit2759:                     ; preds = %3240
   br label %parser_lex_callback.exit2734
 
 parser_lex_callback.exit2734:                     ; preds = %.thread3147, %peek_at.exit2744.thread, %3174, %3144, %parser_lex_callback.exit2757, %parser_lex_callback.exit2759, %3135, %3079
-  %.11761 = phi ptr [ %3085, %3079 ], [ %3141, %3135 ], [ %.017603863, %3144 ], [ %3250, %parser_lex_callback.exit2759 ], [ %3239, %parser_lex_callback.exit2757 ], [ %3181, %3174 ], [ %3158, %peek_at.exit2744.thread ], [ %3150, %.thread3147 ]
+  %.11761 = phi ptr [ %3085, %3079 ], [ %3141, %3135 ], [ %.017603863, %3144 ], [ %3150, %.thread3147 ], [ %3158, %peek_at.exit2744.thread ], [ %3181, %3174 ], [ %3239, %parser_lex_callback.exit2757 ], [ %3250, %parser_lex_callback.exit2759 ]
   %.not1859 = icmp eq ptr %.11761, null
   br i1 %.not1859, label %._crit_edge3866, label %3063
 
@@ -11215,7 +11215,7 @@ parser_lex_callback.exit2761:                     ; preds = %parser_lex_callback
   br label %.backedge3318
 
 .backedge3318:                                    ; preds = %3324, %parser_lex_callback.exit2805, %parser_lex_callback.exit2802, %.critedge1919, %3423, %peek_at.exit2787.thread, %3395, %3301
-  %.01750.be = phi ptr [ %3309, %3301 ], [ %3330, %3324 ], [ %.017503860, %.critedge1919 ], [ %3535, %parser_lex_callback.exit2805 ], [ %3510, %parser_lex_callback.exit2802 ], [ %3430, %3423 ], [ %3408, %peek_at.exit2787.thread ], [ %3401, %3395 ]
+  %.01750.be = phi ptr [ %3309, %3301 ], [ %3330, %3324 ], [ %.017503860, %.critedge1919 ], [ %3401, %3395 ], [ %3408, %peek_at.exit2787.thread ], [ %3430, %3423 ], [ %3510, %parser_lex_callback.exit2802 ], [ %3535, %parser_lex_callback.exit2805 ]
   %.not1848 = icmp eq ptr %.01750.be, null
   br i1 %.not1848, label %._crit_edge, label %3298, !llvm.loop !228
 
@@ -11479,7 +11479,7 @@ pm_token_buffer_escape.exit2789:                  ; preds = %3409, %3412
   br label %3420
 
 3420:                                             ; preds = %pm_token_buffer_escape.exit2789, %.critedge1919
-  %.21752 = phi ptr [ %.017503860, %.critedge1919 ], [ %3402, %pm_token_buffer_escape.exit2789 ]
+  %.21752 = phi ptr [ %3402, %pm_token_buffer_escape.exit2789 ], [ %.017503860, %.critedge1919 ]
   %3421 = load ptr, ptr %3296, align 8, !tbaa !167
   %3422 = icmp eq ptr %3421, null
   br i1 %3422, label %3423, label %3431
@@ -12147,8 +12147,8 @@ pm_heredoc_strspn_inline_whitespace.exit.thread3193: ; preds = %3676, %peek_at.e
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %3726, %3728, %peek_at.exit2825.thread, %parser_lex_callback.exit2831, %parser_lex_callback.exit2856.thread3219, %parser_lex_callback.exit2859, %parser_lex_callback.exit2856
-  %.01723.ph.be = phi ptr [ %.pn, %parser_lex_callback.exit2856 ], [ %3910, %parser_lex_callback.exit2859 ], [ %3839, %parser_lex_callback.exit2831 ], [ %3742, %peek_at.exit2825.thread ], [ %3734, %3728 ], [ %3885, %parser_lex_callback.exit2856.thread3219 ], [ %.01723, %3726 ]
-  %.01721.ph.be = phi i1 [ %.11722, %parser_lex_callback.exit2856 ], [ false, %parser_lex_callback.exit2859 ], [ false, %parser_lex_callback.exit2831 ], [ false, %peek_at.exit2825.thread ], [ false, %3728 ], [ false, %parser_lex_callback.exit2856.thread3219 ], [ false, %3726 ]
+  %.01723.ph.be = phi ptr [ %.pn, %parser_lex_callback.exit2856 ], [ %3734, %3728 ], [ %3742, %peek_at.exit2825.thread ], [ %3839, %parser_lex_callback.exit2831 ], [ %3910, %parser_lex_callback.exit2859 ], [ %3885, %parser_lex_callback.exit2856.thread3219 ], [ %.01723, %3726 ]
+  %.01721.ph.be = phi i1 [ %.11722, %parser_lex_callback.exit2856 ], [ false, %3728 ], [ false, %peek_at.exit2825.thread ], [ false, %parser_lex_callback.exit2831 ], [ false, %parser_lex_callback.exit2859 ], [ false, %parser_lex_callback.exit2856.thread3219 ], [ false, %3726 ]
   br label %.outer, !llvm.loop !236
 
 3735:                                             ; preds = %3726
@@ -12993,9 +12993,9 @@ define internal fastcc void @pm_void_statement_check(ptr noundef %0, ptr noundef
 46:                                               ; preds = %2
   br label %select.unfold
 
-select.unfold:                                    ; preds = %32, %29, %27, %27, %25, %25, %25, %25, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %2, %2, %2, %2, %2, %2, %46, %45, %41, %40, %39, %38, %37, %36, %35
-  %.028.ph = phi i32 [ 2, %35 ], [ 10, %36 ], [ 8, %37 ], [ 5, %38 ], [ 9, %39 ], [ 3, %40 ], [ %., %41 ], [ 4, %45 ], [ 4, %46 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ 2, %27 ], [ 2, %27 ], [ 2, %29 ], [ 3, %32 ]
-  %.0.ph = phi ptr [ @.str.156, %35 ], [ @.str.157, %36 ], [ @.str.50, %37 ], [ @.str.45, %38 ], [ @.str.158, %39 ], [ @.str.60, %40 ], [ %.str.159..str.99, %41 ], [ @.str.66, %45 ], [ @.str.44, %46 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %22, %25 ], [ %22, %25 ], [ %22, %25 ], [ %22, %25 ], [ %22, %27 ], [ %22, %27 ], [ %22, %29 ], [ @.str.13, %32 ]
+select.unfold:                                    ; preds = %32, %29, %27, %27, %25, %25, %25, %25, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %2, %2, %2, %2, %2, %2, %35, %36, %37, %38, %39, %40, %41, %45, %46
+  %.028.ph = phi i32 [ 4, %46 ], [ 4, %45 ], [ %., %41 ], [ 3, %40 ], [ 9, %39 ], [ 5, %38 ], [ 8, %37 ], [ 10, %36 ], [ 2, %35 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 10, %2 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ 2, %25 ], [ 2, %27 ], [ 2, %27 ], [ 2, %29 ], [ 3, %32 ]
+  %.0.ph = phi ptr [ @.str.44, %46 ], [ @.str.66, %45 ], [ %.str.159..str.99, %41 ], [ @.str.60, %40 ], [ @.str.158, %39 ], [ @.str.45, %38 ], [ @.str.50, %37 ], [ @.str.157, %36 ], [ @.str.156, %35 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ @.str.155, %2 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %22, %25 ], [ %22, %25 ], [ %22, %25 ], [ %22, %25 ], [ %22, %27 ], [ %22, %27 ], [ %22, %29 ], [ @.str.13, %32 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !131
@@ -13196,7 +13196,7 @@ define internal fastcc void @flush_block_exits(ptr noundef %0, ptr noundef %1) u
   br label %18
 
 18:                                               ; preds = %13, %17, %16, %15
-  %.0 = phi ptr [ @.str.93, %17 ], [ @.str.65, %16 ], [ @.str.64, %15 ], [ @.str.71, %13 ]
+  %.0 = phi ptr [ @.str.93, %17 ], [ @.str.64, %15 ], [ @.str.65, %16 ], [ @.str.71, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !131
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -13276,7 +13276,7 @@ define internal fastcc void @parser_lex_magic_comment_encoding(ptr noundef %0) u
   ]
 
 .backedge:                                        ; preds = %.lr.ph, %.lr.ph, %16, %18, %20, %22, %24, %26, %28
-  %.0.be = phi ptr [ %11, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %11, %28 ], [ %11, %.lr.ph ], [ %11, %.lr.ph ]
+  %.0.be = phi ptr [ %11, %26 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %11, %28 ], [ %11, %.lr.ph ], [ %11, %.lr.ph ]
   %13 = ptrtoint ptr %.0.be to i64
   %14 = sub i64 %7, %13
   %15 = icmp slt i64 %14, 7
@@ -14194,7 +14194,7 @@ pm_strspn_decimal_number_validate.exit96.i:       ; preds = %190, %peek_offset.e
   br label %201
 
 201:                                              ; preds = %pm_strspn_decimal_number_validate.exit96.i, %183, %181, %180, %pm_strspn_octal_number_validate.exit87.i, %128, %92, %match.exit.i, %pm_strspn_decimal_number_validate.exit.i, %20
-  %.0.i = phi i32 [ 58, %20 ], [ %184, %183 ], [ %182, %181 ], [ 58, %180 ], [ 58, %pm_strspn_octal_number_validate.exit87.i ], [ 58, %128 ], [ 58, %92 ], [ 58, %pm_strspn_decimal_number_validate.exit.i ], [ 58, %match.exit.i ], [ %200, %pm_strspn_decimal_number_validate.exit96.i ]
+  %.0.i = phi i32 [ 58, %20 ], [ 58, %pm_strspn_decimal_number_validate.exit.i ], [ 58, %match.exit.i ], [ 58, %92 ], [ 58, %128 ], [ 58, %pm_strspn_octal_number_validate.exit87.i ], [ 58, %180 ], [ %182, %181 ], [ %184, %183 ], [ %200, %pm_strspn_decimal_number_validate.exit96.i ]
   %.val67.i = load ptr, ptr %12, align 8, !tbaa !76
   %.val68.i = load ptr, ptr %10, align 8, !tbaa !74
   %202 = icmp ult ptr %.val68.i, %.val67.i
@@ -14548,7 +14548,7 @@ lex_mode_incrementor.exit:                        ; preds = %3, %3, %3, %3, %6
   br label %lex_mode_terminator.exit
 
 lex_mode_terminator.exit:                         ; preds = %lex_mode_incrementor.exit, %7, %8, %9, %10
-  %.0.i19 = phi i8 [ %2, %10 ], [ 62, %9 ], [ 125, %8 ], [ 93, %7 ], [ 41, %lex_mode_incrementor.exit ]
+  %.0.i19 = phi i8 [ %2, %10 ], [ 93, %7 ], [ 125, %8 ], [ 62, %9 ], [ 41, %lex_mode_incrementor.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i32 4, ptr %4, align 8, !tbaa !97
@@ -16908,7 +16908,7 @@ lex_mode_push.exit92:                             ; preds = %178, %181, %182
   br label %195
 
 195:                                              ; preds = %57, %lex_mode_push.exit, %char_is_identifier_start.exit.thread, %193, %lex_mode_push.exit92, %166, %char_is_global_name_punctuation.exit.thread, %lex_mode_push.exit90, %142, %86, %79, %12, %6
-  %.067 = phi i32 [ 150, %6 ], [ 3, %193 ], [ 150, %166 ], [ 36, %lex_mode_push.exit92 ], [ 150, %79 ], [ 150, %86 ], [ 150, %142 ], [ 38, %lex_mode_push.exit90 ], [ 3, %char_is_global_name_punctuation.exit.thread ], [ 150, %12 ], [ 150, %57 ], [ 38, %lex_mode_push.exit ], [ 3, %char_is_identifier_start.exit.thread ]
+  %.067 = phi i32 [ 150, %6 ], [ 3, %193 ], [ 150, %12 ], [ 150, %79 ], [ 150, %86 ], [ 150, %142 ], [ 38, %lex_mode_push.exit90 ], [ 3, %char_is_global_name_punctuation.exit.thread ], [ 150, %166 ], [ 36, %lex_mode_push.exit92 ], [ 150, %57 ], [ 38, %lex_mode_push.exit ], [ 3, %char_is_identifier_start.exit.thread ]
   ret i32 %.067
 }
 
@@ -17818,7 +17818,7 @@ switch.lookup72:                                  ; preds = %58
   br label %switch.edge
 
 switch.edge:                                      ; preds = %58, %switch.lookup72, %46, %switch.lookup67, %29, %switch.lookup61, %26, %switch.lookup55, %13, %switch.lookup, %32, %2, %55, %51, %43, %40, %37, %34, %23, %19, %16, %10, %6, %3
-  %.0 = phi i1 [ %57, %55 ], [ %spec.select52, %51 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %spec.select50, %34 ], [ %25, %23 ], [ %spec.select46, %19 ], [ %18, %16 ], [ %12, %10 ], [ %spec.select, %6 ], [ %5, %3 ], [ false, %2 ], [ %switch, %32 ], [ %switch.masked, %switch.lookup ], [ false, %13 ], [ %switch.masked60, %switch.lookup55 ], [ false, %26 ], [ %switch.masked66, %switch.lookup61 ], [ false, %29 ], [ %switch.masked71, %switch.lookup67 ], [ false, %46 ], [ %switch.masked77, %switch.lookup72 ], [ false, %58 ]
+  %.0 = phi i1 [ %5, %3 ], [ %spec.select, %6 ], [ %12, %10 ], [ %18, %16 ], [ %spec.select46, %19 ], [ %25, %23 ], [ %spec.select50, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %spec.select52, %51 ], [ %57, %55 ], [ false, %2 ], [ %switch, %32 ], [ %switch.masked, %switch.lookup ], [ false, %13 ], [ %switch.masked60, %switch.lookup55 ], [ false, %26 ], [ %switch.masked66, %switch.lookup61 ], [ false, %29 ], [ %switch.masked71, %switch.lookup67 ], [ false, %46 ], [ %switch.masked77, %switch.lookup72 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -21700,7 +21700,7 @@ context_push.exit2397:                            ; preds = %1303, %1312
   br label %1331
 
 1331:                                             ; preds = %1330, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397, %context_push.exit2397
-  %.01828 = phi i1 [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ false, %1330 ]
+  %.01828 = phi i1 [ false, %1330 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ], [ true, %context_push.exit2397 ]
   call fastcc void @pm_parser_scope_push(ptr noundef nonnull %0, i1 noundef zeroext true)
   call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54) #31
@@ -21777,7 +21777,7 @@ context_push.exit2397:                            ; preds = %1303, %1312
   br label %1358
 
 1358:                                             ; preds = %1333, %1356, %1354, %1352, %1350, %1348, %1346, %1344, %1342, %1340, %1338, %1336
-  %.11824 = phi ptr [ null, %1333 ], [ %1357, %1356 ], [ %1355, %1354 ], [ %1353, %1352 ], [ %1351, %1350 ], [ %1349, %1348 ], [ %1347, %1346 ], [ %1345, %1344 ], [ %1343, %1342 ], [ %1341, %1340 ], [ %1339, %1338 ], [ %1337, %1336 ]
+  %.11824 = phi ptr [ null, %1333 ], [ %1337, %1336 ], [ %1339, %1338 ], [ %1341, %1340 ], [ %1343, %1342 ], [ %1345, %1344 ], [ %1347, %1346 ], [ %1349, %1348 ], [ %1351, %1350 ], [ %1353, %1352 ], [ %1355, %1354 ], [ %1357, %1356 ]
   call fastcc void @parse_method_definition_name(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull %0)
   br label %1370
 
@@ -21863,7 +21863,7 @@ context_push.exit2404:                            ; preds = %accept1.exit2401, %
   br label %1387
 
 1387:                                             ; preds = %1320, %1324, %1386, %context_push.exit2404, %1370, %1316
-  %.01823 = phi ptr [ null, %1386 ], [ %1382, %context_push.exit2404 ], [ %.21825, %1370 ], [ %1321, %1320 ], [ null, %1324 ], [ null, %1316 ]
+  %.01823 = phi ptr [ null, %1386 ], [ null, %1316 ], [ %1321, %1320 ], [ null, %1324 ], [ %.21825, %1370 ], [ %1382, %context_push.exit2404 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56) #31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57) #31
   %1388 = load i32, ptr %113, align 8, !tbaa !169
@@ -21994,7 +21994,7 @@ accept1.exit2406:                                 ; preds = %1395
   br label %1430
 
 1430:                                             ; preds = %1425, %1418, %1413
-  %.11830 = phi ptr [ null, %1425 ], [ %1420, %1418 ], [ %.01829, %1413 ]
+  %.11830 = phi ptr [ null, %1425 ], [ %.01829, %1413 ], [ %1420, %1418 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58) #31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59) #31
   %.val.i2407 = load i32, ptr %113, align 8, !tbaa !169
@@ -23490,18 +23490,22 @@ pm_array_node_elements_append.exit2519:           ; preds = %1977, %1975, %1955
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %pm_array_node_elements_append.exit2519, %2010, %2047, %2045, %2087, %2085
+  %.01853.ph.be = phi ptr [ %.51858, %2085 ], [ %.51858, %2087 ], [ %.41857, %2045 ], [ %.41857, %2047 ], [ %.31856, %2010 ], [ null, %pm_array_node_elements_append.exit2519 ]
+  br label %.outer, !llvm.loop !363
+
 1980:                                             ; preds = %1954
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82) #31
   %.val2070 = load ptr, ptr %1937, align 8, !tbaa !72
-  store i32 3, ptr %82, align 8, !tbaa !124, !alias.scope !363
-  store i32 0, ptr %1940, align 4, !alias.scope !363
-  store ptr %.val2070, ptr %1941, align 8, !tbaa !125, !alias.scope !363
-  store ptr %.val2070, ptr %1942, align 8, !tbaa !126, !alias.scope !363
+  store i32 3, ptr %82, align 8, !tbaa !124, !alias.scope !364
+  store i32 0, ptr %1940, align 4, !alias.scope !364
+  store ptr %.val2070, ptr %1941, align 8, !tbaa !125, !alias.scope !364
+  store ptr %.val2070, ptr %1942, align 8, !tbaa !126, !alias.scope !364
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83) #31
-  store i32 3, ptr %83, align 8, !tbaa !124, !alias.scope !366
-  store i32 0, ptr %1943, align 4, !alias.scope !366
-  store ptr %.val2070, ptr %1944, align 8, !tbaa !125, !alias.scope !366
-  store ptr %.val2070, ptr %1945, align 8, !tbaa !126, !alias.scope !366
+  store i32 3, ptr %83, align 8, !tbaa !124, !alias.scope !367
+  store i32 0, ptr %1943, align 4, !alias.scope !367
+  store ptr %.val2070, ptr %1944, align 8, !tbaa !125, !alias.scope !367
+  store ptr %.val2070, ptr %1945, align 8, !tbaa !126, !alias.scope !367
   %1981 = icmp eq ptr %.01853.ph, null
   br i1 %1981, label %1982, label %1984
 
@@ -23525,9 +23529,9 @@ pm_array_node_elements_append.exit2519:           ; preds = %1977, %1975, %1955
 
 1988:                                             ; preds = %1984
   %1989 = getelementptr inbounds nuw i8, ptr %.01853.ph, i64 40
-  %1990 = load ptr, ptr %1989, align 8, !tbaa !369
+  %1990 = load ptr, ptr %1989, align 8, !tbaa !370
   %1991 = getelementptr inbounds nuw i8, ptr %.01853.ph, i64 48
-  %1992 = load ptr, ptr %1991, align 8, !tbaa !371
+  %1992 = load ptr, ptr %1991, align 8, !tbaa !372
   %1993 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #34
   %1994 = icmp eq ptr %1993, null
   br i1 %1994, label %1995, label %pm_string_node_create_unescaped.exit
@@ -23606,10 +23610,6 @@ pm_interpolated_symbol_node_create.exit3256:      ; preds = %pm_string_node_crea
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82) #31
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %2010, %pm_array_node_elements_append.exit2519, %2047, %2045, %2087, %2085
-  %.01853.ph.be = phi ptr [ %.51858, %2085 ], [ %.51858, %2087 ], [ %.41857, %2045 ], [ %.41857, %2047 ], [ null, %pm_array_node_elements_append.exit2519 ], [ %.31856, %2010 ]
-  br label %.outer, !llvm.loop !372
 
 2011:                                             ; preds = %1954
   %2012 = icmp eq ptr %.01853.ph, null
@@ -23871,7 +23871,7 @@ accept1.exit.i2591:                               ; preds = %1954
   store ptr %2091, ptr %1953, align 8, !tbaa !241
   store i32 2, ptr %1935, align 8, !tbaa !197
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
-  br label %1954, !llvm.loop !372
+  br label %1954, !llvm.loop !363
 
 2093:                                             ; preds = %1954, %1954
   %.not1885 = icmp eq ptr %.01853.ph, null
@@ -24181,18 +24181,22 @@ pm_array_node_elements_append.exit2613:           ; preds = %2206, %2204, %2184
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   br label %.outer3474.backedge
 
+.outer3474.backedge:                              ; preds = %pm_array_node_elements_append.exit2613, %2233, %2257, %2282
+  %.01843.ph.be = phi ptr [ %.51848, %2282 ], [ %.41847, %2257 ], [ %.31846, %2233 ], [ null, %pm_array_node_elements_append.exit2613 ]
+  br label %.outer3474, !llvm.loop !382
+
 2209:                                             ; preds = %2183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88) #31
   %.val2083 = load ptr, ptr %2164, align 8, !tbaa !72
-  store i32 3, ptr %88, align 8, !tbaa !124, !alias.scope !382
-  store i32 0, ptr %2167, align 4, !alias.scope !382
-  store ptr %.val2083, ptr %2168, align 8, !tbaa !125, !alias.scope !382
-  store ptr %.val2083, ptr %2169, align 8, !tbaa !126, !alias.scope !382
+  store i32 3, ptr %88, align 8, !tbaa !124, !alias.scope !383
+  store i32 0, ptr %2167, align 4, !alias.scope !383
+  store ptr %.val2083, ptr %2168, align 8, !tbaa !125, !alias.scope !383
+  store ptr %.val2083, ptr %2169, align 8, !tbaa !126, !alias.scope !383
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %89) #31
-  store i32 3, ptr %89, align 8, !tbaa !124, !alias.scope !385
-  store i32 0, ptr %2170, align 4, !alias.scope !385
-  store ptr %.val2083, ptr %2171, align 8, !tbaa !125, !alias.scope !385
-  store ptr %.val2083, ptr %2172, align 8, !tbaa !126, !alias.scope !385
+  store i32 3, ptr %89, align 8, !tbaa !124, !alias.scope !386
+  store i32 0, ptr %2170, align 4, !alias.scope !386
+  store ptr %.val2083, ptr %2171, align 8, !tbaa !125, !alias.scope !386
+  store ptr %.val2083, ptr %2172, align 8, !tbaa !126, !alias.scope !386
   %2210 = call fastcc ptr @pm_string_node_create_current_string(ptr noundef nonnull %0, ptr noundef %88, ptr noundef nonnull %113, ptr noundef %89)
   %2211 = load ptr, ptr %2173, align 8, !tbaa !203
   %.not.i2614 = icmp eq ptr %2211, null
@@ -24450,17 +24454,13 @@ pm_interpolated_string_node_create.exit2685:      ; preds = %2273
   tail call fastcc void @pm_interpolated_string_node_append(ptr noundef %.51848, ptr noundef %2283)
   br label %.outer3474.backedge
 
-.outer3474.backedge:                              ; preds = %2282, %2257, %2233, %pm_array_node_elements_append.exit2613
-  %.01843.ph.be = phi ptr [ null, %pm_array_node_elements_append.exit2613 ], [ %.31846, %2233 ], [ %.41847, %2257 ], [ %.51848, %2282 ]
-  br label %.outer3474, !llvm.loop !388
-
 accept1.exit.i2687:                               ; preds = %2183
   %2284 = load ptr, ptr %2180, align 8, !tbaa !240
   %2285 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %2181, ptr noundef %2284, ptr noundef %2284, i32 noundef 179) #31
   store ptr %2284, ptr %2182, align 8, !tbaa !241
   store i32 2, ptr %2162, align 8, !tbaa !197
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
-  br label %2183, !llvm.loop !388
+  br label %2183, !llvm.loop !382
 
 2286:                                             ; preds = %2183, %2183
   %.not1884 = icmp eq ptr %.01843.ph, null
@@ -25329,7 +25329,7 @@ accept1.exit2712:                                 ; preds = %2629, %2631
   br label %thread-pre-split3058
 
 thread-pre-split3058:                             ; preds = %accept1.exit2712, %2636
-  %.11791.ph = phi ptr [ %.01790, %accept1.exit2712 ], [ %2645, %2636 ]
+  %.11791.ph = phi ptr [ %2645, %2636 ], [ %.01790, %accept1.exit2712 ]
   %.val.i2714.pr = load i32, ptr %113, align 8, !tbaa !169
   br label %2648
 
@@ -25555,7 +25555,7 @@ context_recoverable.exit.thread:                  ; preds = %2708, %2706, %conte
   br label %.loopexit3079
 
 .loopexit3079:                                    ; preds = %1694, %1682, %848, %857, %1794, %1800, %1681, %1693, %790, %794, %796, %583, %587, %589, %574, %578, %580, %565, %569, %571, %493, %497, %499, %2735, %2701, %2698, %2689, %pm_parser_scope_toplevel_p.exit, %2610, %2580, %2568, %2555, %2551, %2530, %2528, %2422, %2296, %2159, %2103, %1932, %accept2.exit2502, %accept2.exit2494, %1807, %1804, %1801, %1791, %1790, %1722, %1720, %1659, %1642, %1580, %context_def_p.exit2446, %1553, %parse_operator_symbol_name.exit, %1302, %1200, %1175, %1152, %1111, %pm_begin_node_end_keyword_set.exit, %1060, %825, %822, %819, %814, %809, %804, %799, %789, %684, %562, %559, %556, %553, %551, %536, %526, %492, %accept1.exit2269, %context_p.exit, %258
-  %.0 = phi ptr [ %2740, %2735 ], [ %2705, %2701 ], [ %2700, %2698 ], [ %2697, %2689 ], [ %2685, %pm_parser_scope_toplevel_p.exit ], [ %.01795, %2610 ], [ %2588, %2580 ], [ %2576, %2568 ], [ %2564, %2555 ], [ %2535, %2530 ], [ %.19, %2551 ], [ %.16, %2528 ], [ %.13, %2422 ], [ %2163, %2296 ], [ %2107, %2159 ], [ %1936, %2103 ], [ %1882, %1932 ], [ %1879, %accept2.exit2502 ], [ %1844, %accept2.exit2494 ], [ %1809, %1807 ], [ %1806, %1804 ], [ %1803, %1801 ], [ %1793, %1791 ], [ %.12, %1790 ], [ %1725, %1722 ], [ %1721, %1720 ], [ %1665, %1659 ], [ %1645, %1642 ], [ %1582, %1580 ], [ %1579, %context_def_p.exit2446 ], [ %1559, %1553 ], [ %1531, %parse_operator_symbol_name.exit ], [ %.11, %1302 ], [ %1191, %1200 ], [ %.10, %1175 ], [ %.9, %1152 ], [ %1112, %1111 ], [ %1079, %pm_begin_node_end_keyword_set.exit ], [ %.8, %1060 ], [ %827, %825 ], [ %824, %822 ], [ %821, %819 ], [ %818, %814 ], [ %813, %809 ], [ %808, %804 ], [ %803, %799 ], [ %.6, %789 ], [ %.5, %684 ], [ %564, %562 ], [ %561, %559 ], [ %558, %556 ], [ %555, %553 ], [ %552, %551 ], [ %.01799, %536 ], [ %.4, %526 ], [ %.3, %492 ], [ %445, %accept1.exit2269 ], [ %.1, %context_p.exit ], [ %117, %258 ], [ %501, %499 ], [ %495, %497 ], [ %495, %493 ], [ %573, %571 ], [ %567, %569 ], [ %567, %565 ], [ %582, %580 ], [ %576, %578 ], [ %576, %574 ], [ %591, %589 ], [ %585, %587 ], [ %585, %583 ], [ %798, %796 ], [ %792, %794 ], [ %792, %790 ], [ %1676, %1693 ], [ %1676, %1681 ], [ %1796, %1800 ], [ %1796, %1794 ], [ %858, %857 ], [ %849, %848 ], [ %1676, %1682 ], [ %1676, %1694 ]
+  %.0 = phi ptr [ %2740, %2735 ], [ %117, %258 ], [ %.1, %context_p.exit ], [ %445, %accept1.exit2269 ], [ %.3, %492 ], [ %.4, %526 ], [ %.01799, %536 ], [ %552, %551 ], [ %555, %553 ], [ %558, %556 ], [ %561, %559 ], [ %564, %562 ], [ %.5, %684 ], [ %.6, %789 ], [ %803, %799 ], [ %808, %804 ], [ %813, %809 ], [ %818, %814 ], [ %821, %819 ], [ %824, %822 ], [ %827, %825 ], [ %.8, %1060 ], [ %1079, %pm_begin_node_end_keyword_set.exit ], [ %1112, %1111 ], [ %.9, %1152 ], [ %.10, %1175 ], [ %1191, %1200 ], [ %.11, %1302 ], [ %1531, %parse_operator_symbol_name.exit ], [ %1559, %1553 ], [ %1579, %context_def_p.exit2446 ], [ %1582, %1580 ], [ %1645, %1642 ], [ %1665, %1659 ], [ %1721, %1720 ], [ %1725, %1722 ], [ %.12, %1790 ], [ %1793, %1791 ], [ %1803, %1801 ], [ %1806, %1804 ], [ %1809, %1807 ], [ %1844, %accept2.exit2494 ], [ %1879, %accept2.exit2502 ], [ %1882, %1932 ], [ %1936, %2103 ], [ %2107, %2159 ], [ %2163, %2296 ], [ %.13, %2422 ], [ %.16, %2528 ], [ %2535, %2530 ], [ %.19, %2551 ], [ %2564, %2555 ], [ %2576, %2568 ], [ %2588, %2580 ], [ %.01795, %2610 ], [ %2685, %pm_parser_scope_toplevel_p.exit ], [ %2697, %2689 ], [ %2700, %2698 ], [ %2705, %2701 ], [ %501, %499 ], [ %495, %497 ], [ %495, %493 ], [ %573, %571 ], [ %567, %569 ], [ %567, %565 ], [ %582, %580 ], [ %576, %578 ], [ %576, %574 ], [ %591, %589 ], [ %585, %587 ], [ %585, %583 ], [ %798, %796 ], [ %792, %794 ], [ %792, %790 ], [ %1676, %1693 ], [ %1676, %1681 ], [ %1796, %1800 ], [ %1796, %1794 ], [ %858, %857 ], [ %849, %848 ], [ %1676, %1682 ], [ %1676, %1694 ]
   ret ptr %.0
 }
 
@@ -26295,7 +26295,7 @@ pm_node_alloc.exit.i:                             ; preds = %318
   br label %pm_global_variable_operator_write_node_create.exit
 
 pm_global_variable_operator_write_node_create.exit: ; preds = %pm_node_alloc.exit.i, %332, %335, %338
-  %.0.i.i = phi i32 [ %345, %338 ], [ %337, %335 ], [ %334, %332 ], [ -1, %pm_node_alloc.exit.i ]
+  %.0.i.i = phi i32 [ %334, %332 ], [ %337, %335 ], [ %345, %338 ], [ -1, %pm_node_alloc.exit.i ]
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %320, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %327, i64 16, i1 false)
   %346 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -27371,7 +27371,7 @@ accept1.exit:                                     ; preds = %717, %719
   br label %762
 
 762:                                              ; preds = %746, %744, %742, %760, %757, %756
-  %.8 = phi ptr [ %761, %760 ], [ %759, %757 ], [ %.9, %756 ], [ %747, %746 ], [ %.0890, %744 ], [ %.0890, %742 ]
+  %.8 = phi ptr [ %761, %760 ], [ %.9, %756 ], [ %759, %757 ], [ %747, %746 ], [ %.0890, %744 ], [ %.0890, %742 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #31
   br label %.critedge.thread
 
@@ -27584,7 +27584,7 @@ accept1.exit1113.thread1136:                      ; preds = %accept1.exit1110, %
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %527, %519, %6, %559, %.critedge5, %.critedge, %515, %420, %434, %446, %263, %278, %290, %142, %157, %169, %831, %824, %823, %accept1.exit1106, %762, %726, %690, %683, %680, %677, %675, %669, %608, %587, %pm_or_node_create.exit, %pm_and_node_create.exit, %454, %449, %pm_token_is_numbered_parameter.exit1081.thread, %378, %373, %367, %361, %356, %pm_global_variable_operator_write_node_create.exit, %300, %295, %pm_token_is_numbered_parameter.exit1079.thread, %222, %217, %211, %205, %200, %197, %179, %174, %pm_token_is_numbered_parameter.exit.thread, %101, %96, %90, %84, %79, %76, %58, %55, %51, %49
-  %.0 = phi ptr [ %837, %831 ], [ %830, %824 ], [ %.10, %823 ], [ %777, %accept1.exit1106 ], [ %.8, %762 ], [ %.6, %726 ], [ %696, %690 ], [ %689, %683 ], [ %682, %680 ], [ %679, %677 ], [ %676, %675 ], [ %.4, %669 ], [ %610, %608 ], [ %589, %587 ], [ %500, %pm_or_node_create.exit ], [ %474, %pm_and_node_create.exit ], [ %1, %454 ], [ %1, %449 ], [ %414, %pm_token_is_numbered_parameter.exit1081.thread ], [ %383, %378 ], [ %377, %373 ], [ %372, %367 ], [ %366, %361 ], [ %360, %356 ], [ %320, %pm_global_variable_operator_write_node_create.exit ], [ %1, %300 ], [ %1, %295 ], [ %258, %pm_token_is_numbered_parameter.exit1079.thread ], [ %227, %222 ], [ %221, %217 ], [ %216, %211 ], [ %210, %205 ], [ %204, %200 ], [ %199, %197 ], [ %1, %179 ], [ %1, %174 ], [ %137, %pm_token_is_numbered_parameter.exit.thread ], [ %106, %101 ], [ %100, %96 ], [ %95, %90 ], [ %89, %84 ], [ %83, %79 ], [ %78, %76 ], [ %1, %58 ], [ %57, %55 ], [ %54, %51 ], [ %50, %49 ], [ %153, %142 ], [ %159, %157 ], [ %173, %169 ], [ %274, %263 ], [ %280, %278 ], [ %294, %290 ], [ %431, %420 ], [ %436, %434 ], [ %448, %446 ], [ %565, %559 ], [ %550, %.critedge5 ], [ %517, %.critedge ], [ %517, %515 ], [ null, %6 ], [ %517, %519 ], [ %517, %527 ]
+  %.0 = phi ptr [ %1, %58 ], [ %50, %49 ], [ %54, %51 ], [ %57, %55 ], [ %1, %179 ], [ %78, %76 ], [ %83, %79 ], [ %89, %84 ], [ %95, %90 ], [ %100, %96 ], [ %106, %101 ], [ %137, %pm_token_is_numbered_parameter.exit.thread ], [ %1, %174 ], [ %1, %300 ], [ %199, %197 ], [ %204, %200 ], [ %210, %205 ], [ %216, %211 ], [ %221, %217 ], [ %227, %222 ], [ %258, %pm_token_is_numbered_parameter.exit1079.thread ], [ %1, %295 ], [ %1, %454 ], [ %320, %pm_global_variable_operator_write_node_create.exit ], [ %360, %356 ], [ %366, %361 ], [ %372, %367 ], [ %377, %373 ], [ %383, %378 ], [ %414, %pm_token_is_numbered_parameter.exit1081.thread ], [ %1, %449 ], [ %474, %pm_and_node_create.exit ], [ %500, %pm_or_node_create.exit ], [ %589, %587 ], [ %610, %608 ], [ %.4, %669 ], [ %676, %675 ], [ %679, %677 ], [ %682, %680 ], [ %689, %683 ], [ %696, %690 ], [ %.6, %726 ], [ %.8, %762 ], [ %777, %accept1.exit1106 ], [ %.10, %823 ], [ %830, %824 ], [ %837, %831 ], [ %153, %142 ], [ %159, %157 ], [ %173, %169 ], [ %274, %263 ], [ %280, %278 ], [ %294, %290 ], [ %431, %420 ], [ %436, %434 ], [ %448, %446 ], [ %565, %559 ], [ %550, %.critedge5 ], [ %517, %.critedge ], [ %517, %515 ], [ null, %6 ], [ %517, %519 ], [ %517, %527 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #31
   ret ptr %.0
 }
@@ -28229,8 +28229,8 @@ pm_assert_value_expression.exit108:               ; preds = %201, %204
   br label %209
 
 209:                                              ; preds = %pm_assert_value_expression.exit108, %pm_assert_value_expression.exit100, %pm_assoc_splat_node_create.exit.cont
-  %.064 = phi ptr [ %208, %pm_assert_value_expression.exit108 ], [ %175, %pm_assert_value_expression.exit100 ], [ %57, %pm_assoc_splat_node_create.exit.cont ]
-  %.1 = phi i1 [ %.063, %pm_assert_value_expression.exit108 ], [ %.063, %pm_assert_value_expression.exit100 ], [ true, %pm_assoc_splat_node_create.exit.cont ]
+  %.064 = phi ptr [ %208, %pm_assert_value_expression.exit108 ], [ %57, %pm_assoc_splat_node_create.exit.cont ], [ %175, %pm_assert_value_expression.exit100 ]
+  %.1 = phi i1 [ %.063, %pm_assert_value_expression.exit108 ], [ true, %pm_assoc_splat_node_create.exit.cont ], [ %.063, %pm_assert_value_expression.exit100 ]
   %210 = load i16, ptr %2, align 8, !tbaa !113
   %211 = icmp eq i16 %210, 65
   br i1 %211, label %212, label %227
@@ -28677,7 +28677,7 @@ define internal fastcc void @pop_block_exits(ptr noundef %0, ptr noundef %1) unn
   br label %24
 
 24:                                               ; preds = %23, %22, %21, %19
-  %.0.i = phi ptr [ @.str.93, %23 ], [ @.str.65, %22 ], [ @.str.64, %21 ], [ @.str.71, %19 ]
+  %.0.i = phi ptr [ @.str.93, %23 ], [ @.str.64, %21 ], [ @.str.65, %22 ], [ @.str.71, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !131
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -32327,7 +32327,7 @@ pm_missing_node_create.exit:                      ; preds = %expect1.exit89
   br label %147
 
 147:                                              ; preds = %pm_missing_node_create.exit, %pm_class_variable_read_node_create.exit, %pm_instance_variable_read_node_create.exit, %pm_global_variable_read_node_create.exit, %87, %pm_back_reference_read_node_create.exit
-  %.0 = phi ptr [ %140, %pm_missing_node_create.exit ], [ %120, %pm_class_variable_read_node_create.exit ], [ %105, %pm_instance_variable_read_node_create.exit ], [ %90, %pm_global_variable_read_node_create.exit ], [ %88, %87 ], [ %73, %pm_back_reference_read_node_create.exit ]
+  %.0 = phi ptr [ %140, %pm_missing_node_create.exit ], [ %73, %pm_back_reference_read_node_create.exit ], [ %88, %87 ], [ %90, %pm_global_variable_read_node_create.exit ], [ %105, %pm_instance_variable_read_node_create.exit ], [ %120, %pm_class_variable_read_node_create.exit ]
   %148 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #34
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %pm_embedded_variable_node_create.exit
@@ -32370,7 +32370,7 @@ pm_embedded_variable_node_create.exit:            ; preds = %147
   br label %164
 
 164:                                              ; preds = %157, %pm_embedded_variable_node_create.exit, %pm_embedded_statements_node_create.exit, %parse_unescaped_encoding.exit
-  %.061 = phi ptr [ null, %157 ], [ %148, %pm_embedded_variable_node_create.exit ], [ %60, %pm_embedded_statements_node_create.exit ], [ %15, %parse_unescaped_encoding.exit ]
+  %.061 = phi ptr [ null, %157 ], [ %15, %parse_unescaped_encoding.exit ], [ %60, %pm_embedded_statements_node_create.exit ], [ %148, %pm_embedded_variable_node_create.exit ]
   ret ptr %.061
 }
 
@@ -32803,7 +32803,7 @@ pm_node_alloc.exit:                               ; preds = %3
   br label %22
 
 22:                                               ; preds = %pm_node_alloc.exit, %21, %20, %19
-  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 4, %21 ], [ 2, %20 ], [ 1, %19 ]
+  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 1, %19 ], [ 2, %20 ], [ 4, %21 ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx, i32 noundef %.0, ptr noundef %14, ptr noundef %16) #31
   ret ptr %4
@@ -32872,7 +32872,7 @@ pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
   br label %pm_integer_node_create.exit
 
 pm_integer_node_create.exit:                      ; preds = %pm_node_alloc.exit.i, %26, %27, %28
-  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 4, %28 ], [ 2, %27 ], [ 1, %26 ]
+  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 1, %26 ], [ 2, %27 ], [ 4, %28 ]
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx.i, i32 noundef %.0.i, ptr noundef %12, ptr noundef %15) #31
   store i16 68, ptr %4, align 8, !tbaa !108
@@ -32940,7 +32940,7 @@ pm_node_alloc.exit:                               ; preds = %3
   br label %22
 
 22:                                               ; preds = %pm_node_alloc.exit, %21, %20, %19
-  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 4, %21 ], [ 2, %20 ], [ 1, %19 ]
+  %.0 = phi i32 [ 3, %pm_node_alloc.exit ], [ 1, %19 ], [ 2, %20 ], [ 4, %21 ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = getelementptr i8, ptr %16, i64 -1
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx, i32 noundef %.0, ptr noundef %14, ptr noundef %23) #31
@@ -33012,7 +33012,7 @@ pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
   br label %pm_integer_node_rational_create.exit
 
 pm_integer_node_rational_create.exit:             ; preds = %pm_node_alloc.exit.i, %26, %27, %28
-  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 4, %28 ], [ 2, %27 ], [ 1, %26 ]
+  %.0.i = phi i32 [ 3, %pm_node_alloc.exit.i ], [ 1, %26 ], [ 2, %27 ], [ 4, %28 ]
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %29 = getelementptr i8, ptr %14, i64 -2
   tail call void @pm_integer_parse(ptr noundef nonnull %.sroa.6.0..sroa_idx.i, i32 noundef %.0.i, ptr noundef %12, ptr noundef %29) #31
@@ -33367,7 +33367,7 @@ parse_symbol_encoding.exit:                       ; preds = %.lr.ph.i24.i, %36, 
   br label %67
 
 67:                                               ; preds = %57, %54, %51, %48, %42, %parse_symbol_encoding.exit, %7
-  %.0 = phi ptr [ %66, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %42 ], [ %18, %parse_symbol_encoding.exit ], [ %13, %7 ]
+  %.0 = phi ptr [ %66, %57 ], [ %13, %7 ], [ %18, %parse_symbol_encoding.exit ], [ %47, %42 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ]
   ret ptr %.0
 }
 
@@ -33561,7 +33561,7 @@ token_newline_index.exit:                         ; preds = %13, %17
   br label %52
 
 52:                                               ; preds = %48, %46
-  %.1.us.i = phi i64 [ %47, %46 ], [ %51, %48 ]
+  %.1.us.i = phi i64 [ %51, %48 ], [ %47, %46 ]
   %53 = getelementptr i8, ptr %.1201.us.i, i64 1
   %exitcond11.not.i = icmp eq ptr %53, %.val37
   br i1 %exitcond11.not.i, label %token_column.exit, label %.lr.ph.split.us.i, !llvm.loop !476
@@ -33590,7 +33590,7 @@ token_newline_index.exit:                         ; preds = %13, %17
   br label %63
 
 63:                                               ; preds = %61, %59, %55
-  %.1.i = phi i64 [ %62, %61 ], [ %60, %59 ], [ %58, %55 ]
+  %.1.i = phi i64 [ %62, %61 ], [ %58, %55 ], [ %60, %59 ]
   %64 = getelementptr i8, ptr %.1201.i, i64 1
   %exitcond.not.i = icmp eq ptr %64, %.val37
   br i1 %exitcond.not.i, label %token_column.exit, label %.lr.ph.split.i, !llvm.loop !476
@@ -33655,7 +33655,7 @@ token_column.exit.thread:                         ; preds = %43, %token_column.e
   br label %91
 
 91:                                               ; preds = %87, %85
-  %.1.us.i47 = phi i64 [ %86, %85 ], [ %90, %87 ]
+  %.1.us.i47 = phi i64 [ %90, %87 ], [ %86, %85 ]
   %92 = getelementptr i8, ptr %.1201.us.i46, i64 1
   %exitcond11.not.i48 = icmp eq ptr %92, %.val40
   br i1 %exitcond11.not.i48, label %token_column.exit51, label %.lr.ph.split.us.i44, !llvm.loop !476
@@ -33878,8 +33878,8 @@ pm_symbol_node_label_p.exit.thread:               ; preds = %35, %30, %pm_symbol
   br label %55
 
 55:                                               ; preds = %52, %50, %pm_symbol_node_label_p.exit.thread
-  %.086 = phi ptr [ %54, %52 ], [ %51, %50 ], [ %48, %pm_symbol_node_label_p.exit.thread ]
-  %.085 = phi i1 [ false, %52 ], [ true, %50 ], [ false, %pm_symbol_node_label_p.exit.thread ]
+  %.086 = phi ptr [ %54, %52 ], [ %48, %pm_symbol_node_label_p.exit.thread ], [ %51, %50 ]
+  %.085 = phi i1 [ false, %52 ], [ false, %pm_symbol_node_label_p.exit.thread ], [ true, %50 ]
   %56 = load i16, ptr %.086, align 8, !tbaa !113
   switch i16 %56, label %pm_symbol_node_label_p.exit108.thread [
     i16 143, label %58
@@ -36183,10 +36183,10 @@ parse_arguments_append.exit251:                   ; preds = %376, %.sink.split.i
   br label %parse_arguments_append.exit214thread-pre-split
 
 parse_arguments_append.exit214thread-pre-split:   ; preds = %parse_arguments_append.exit, %parse_arguments_append.exit236, %parse_arguments_append.exit251, %146, %parse_arguments_append.exit174, %.sink.split.i.i208
-  %.1152.ph = phi ptr [ %.2153, %.sink.split.i.i208 ], [ %110, %parse_arguments_append.exit174 ], [ %110, %146 ], [ %52, %parse_arguments_append.exit ], [ %248, %parse_arguments_append.exit236 ], [ %.4, %parse_arguments_append.exit251 ]
-  %.1148.ph = phi i1 [ %.0147, %.sink.split.i.i208 ], [ %.0147, %parse_arguments_append.exit174 ], [ %.0147, %146 ], [ %.0147, %parse_arguments_append.exit ], [ true, %parse_arguments_append.exit236 ], [ %.0147, %parse_arguments_append.exit251 ]
-  %.1146.ph = phi i1 [ %.0145, %.sink.split.i.i208 ], [ true, %parse_arguments_append.exit174 ], [ true, %146 ], [ %.0145, %parse_arguments_append.exit ], [ %.0145, %parse_arguments_append.exit236 ], [ %.0145, %parse_arguments_append.exit251 ]
-  %.1144.ph = phi i8 [ %.0143, %.sink.split.i.i208 ], [ %.0143, %parse_arguments_append.exit174 ], [ %.0143, %146 ], [ 1, %parse_arguments_append.exit ], [ %.0143, %parse_arguments_append.exit236 ], [ %.2, %parse_arguments_append.exit251 ]
+  %.1152.ph = phi ptr [ %.2153, %.sink.split.i.i208 ], [ %110, %parse_arguments_append.exit174 ], [ %110, %146 ], [ %248, %parse_arguments_append.exit236 ], [ %52, %parse_arguments_append.exit ], [ %.4, %parse_arguments_append.exit251 ]
+  %.1148.ph = phi i1 [ %.0147, %.sink.split.i.i208 ], [ %.0147, %parse_arguments_append.exit174 ], [ %.0147, %146 ], [ true, %parse_arguments_append.exit236 ], [ %.0147, %parse_arguments_append.exit ], [ %.0147, %parse_arguments_append.exit251 ]
+  %.1146.ph = phi i1 [ %.0145, %.sink.split.i.i208 ], [ true, %parse_arguments_append.exit174 ], [ true, %146 ], [ %.0145, %parse_arguments_append.exit236 ], [ %.0145, %parse_arguments_append.exit ], [ %.0145, %parse_arguments_append.exit251 ]
+  %.1144.ph = phi i8 [ %.0143, %.sink.split.i.i208 ], [ %.0143, %parse_arguments_append.exit174 ], [ %.0143, %146 ], [ %.0143, %parse_arguments_append.exit236 ], [ 1, %parse_arguments_append.exit ], [ %.2, %parse_arguments_append.exit251 ]
   %.pr282 = load i16, ptr %.1152.ph, align 8, !tbaa !113
   br label %parse_arguments_append.exit214
 
@@ -38580,7 +38580,7 @@ pm_required_keyword_parameter_node_create.exit433: ; preds = %574
   br label %603
 
 603:                                              ; preds = %432, %588, %449, %425
-  %.4 = phi i8 [ %not., %588 ], [ 1, %449 ], [ 1, %425 ], [ 0, %432 ]
+  %.4 = phi i8 [ %not., %588 ], [ 1, %425 ], [ 1, %449 ], [ 0, %432 ]
   store i8 0, ptr %38, align 1, !tbaa !195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #31
   br label %772
@@ -39010,11 +39010,11 @@ pm_implicit_rest_node_create.exit:                ; preds = %739
   br label %.thread583
 
 772:                                              ; preds = %603, %366
-  %.0232 = phi i8 [ %.4, %603 ], [ %.2, %366 ]
+  %.0232 = phi i8 [ %.2, %366 ], [ %.4, %603 ]
   %773 = trunc nuw i8 %.0232 to i1
   br i1 %773, label %.thread, label %.thread583
 
-.thread:                                          ; preds = %714, %721, %69, %70, %124, %162, %657, %772
+.thread:                                          ; preds = %714, %721, %69, %70, %657, %162, %124, %772
   %.val.i521.pr.pre613 = load i32, ptr %29, align 8, !tbaa !169
   br i1 %2, label %774, label %accept1.exit520
 
@@ -39880,7 +39880,7 @@ parse_target_implicit_parameter.exit144:          ; preds = %172, %pm_parser_loc
   br i1 %.not106, label %common.ret199, label %184
 
 common.ret199:                                    ; preds = %4, %pm_index_target_node_create.exit, %238, %210, %181, %175, %176, %294, %174, %parse_target_implicit_parameter.exit144, %pm_locals_unread.exit, %57, %46, %context_def_p.exit127, %context_def_p.exit, %25, %.sink.split.i, %184
-  %common.ret199.op = phi ptr [ %1, %184 ], [ %1, %294 ], [ %1, %174 ], [ %153, %parse_target_implicit_parameter.exit144 ], [ %1, %pm_locals_unread.exit ], [ %1, %57 ], [ %1, %46 ], [ %1, %context_def_p.exit127 ], [ %1, %context_def_p.exit ], [ %1, %25 ], [ %24, %.sink.split.i ], [ %1, %4 ], [ %1, %176 ], [ %1, %175 ], [ %1, %181 ], [ %246, %pm_index_target_node_create.exit ], [ %240, %238 ], [ %215, %210 ]
+  %common.ret199.op = phi ptr [ %1, %184 ], [ %1, %294 ], [ %24, %.sink.split.i ], [ %1, %25 ], [ %1, %context_def_p.exit ], [ %1, %context_def_p.exit127 ], [ %1, %46 ], [ %1, %57 ], [ %1, %pm_locals_unread.exit ], [ %153, %parse_target_implicit_parameter.exit144 ], [ %1, %174 ], [ %1, %4 ], [ %1, %176 ], [ %1, %175 ], [ %1, %181 ], [ %246, %pm_index_target_node_create.exit ], [ %240, %238 ], [ %215, %210 ]
   ret ptr %common.ret199.op
 
 184:                                              ; preds = %181
@@ -40790,7 +40790,7 @@ expect1.exit133:                                  ; preds = %accept1.exit.i131, 
   br label %216
 
 216:                                              ; preds = %215, %214, %213, %211
-  %.0.i.i = phi ptr [ @.str.93, %215 ], [ @.str.65, %214 ], [ @.str.64, %213 ], [ @.str.71, %211 ]
+  %.0.i.i = phi ptr [ @.str.93, %215 ], [ @.str.64, %213 ], [ @.str.65, %214 ], [ @.str.71, %211 ]
   %217 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !131
   %219 = getelementptr inbounds nuw i8, ptr %210, i64 16
@@ -41048,7 +41048,7 @@ parse_symbol_encoding.exit:                       ; preds = %.lr.ph.i24.i, %31, 
   br label %52
 
 52:                                               ; preds = %42, %37, %parse_symbol_encoding.exit, %6
-  %.0 = phi ptr [ %51, %42 ], [ %41, %37 ], [ %13, %parse_symbol_encoding.exit ], [ %11, %6 ]
+  %.0 = phi ptr [ %51, %42 ], [ %11, %6 ], [ %13, %parse_symbol_encoding.exit ], [ %41, %37 ]
   ret ptr %.0
 }
 
@@ -41333,7 +41333,7 @@ define internal fastcc void @parse_retry(ptr noundef %0, ptr noundef nonnull rea
   br label %11
 
 11:                                               ; preds = %10, %9, %.lr.ph
-  %.1 = phi i32 [ %.021, %.lr.ph ], [ 1, %10 ], [ 2, %9 ]
+  %.1 = phi i32 [ %.021, %.lr.ph ], [ 2, %9 ], [ 1, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %.01222, i64 8
   %.012 = load ptr, ptr %12, align 8, !tbaa !207
   %.not = icmp eq ptr %.012, null
@@ -45015,13 +45015,13 @@ pm_locals_read.exit:                              ; preds = %117, %123, %125, %1
   br label %.thread
 
 .thread156:                                       ; preds = %21, %19, %75, %62, %._crit_edge, %84, %81, %78, %44, %41, %38
-  %.9109 = phi ptr [ %.0100187, %84 ], [ %.0100187, %81 ], [ %.0100187, %78 ], [ %spec.select148, %75 ], [ %spec.select147, %62 ], [ %.0100187, %44 ], [ %.0100187, %41 ], [ %.0100187, %38 ], [ %.6106, %._crit_edge ], [ %.0100187, %19 ], [ %.0100187, %21 ]
-  %.495 = phi ptr [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %64, %62 ], [ %51, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %._crit_edge ], [ %20, %19 ], [ %23, %21 ]
+  %.9109 = phi ptr [ %.6106, %._crit_edge ], [ %.0100187, %38 ], [ %.0100187, %41 ], [ %.0100187, %44 ], [ %spec.select147, %62 ], [ %spec.select148, %75 ], [ %.0100187, %78 ], [ %.0100187, %81 ], [ %.0100187, %84 ], [ %.0100187, %19 ], [ %.0100187, %21 ]
+  %.495 = phi ptr [ %37, %._crit_edge ], [ %40, %38 ], [ %43, %41 ], [ %51, %44 ], [ %64, %62 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %20, %19 ], [ %23, %21 ]
   %.not = icmp eq ptr %.495, null
   br i1 %.not, label %.thread, label %.lr.ph191, !llvm.loop !610
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph191, %.thread156, %17, %12, %24, %26, %56, %52, %60, %69, %65, %73, %2, %pm_locals_read.exit, %4
-  %.1 = phi ptr [ null, %pm_locals_read.exit ], [ %5, %4 ], [ null, %2 ], [ %.6106, %._crit_edge ], [ null, %.lr.ph191 ], [ null, %.thread156 ], [ %18, %17 ], [ %13, %12 ], [ null, %24 ], [ null, %26 ], [ null, %56 ], [ null, %52 ], [ null, %60 ], [ null, %69 ], [ null, %65 ], [ null, %73 ]
+  %.1 = phi ptr [ %5, %4 ], [ null, %pm_locals_read.exit ], [ null, %2 ], [ %.6106, %._crit_edge ], [ null, %.lr.ph191 ], [ null, %.thread156 ], [ %18, %17 ], [ %13, %12 ], [ null, %24 ], [ null, %26 ], [ null, %56 ], [ null, %52 ], [ null, %60 ], [ null, %69 ], [ null, %65 ], [ null, %73 ]
   ret ptr %.1
 }
 
@@ -45148,7 +45148,7 @@ pm_symbol_node_create.exit38:                     ; preds = %34
   br label %46
 
 46:                                               ; preds = %2, %pm_symbol_node_create.exit38, %parse_symbol_encoding.exit
-  %.0 = phi ptr [ %39, %pm_symbol_node_create.exit38 ], [ %9, %parse_symbol_encoding.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %9, %parse_symbol_encoding.exit ], [ %39, %pm_symbol_node_create.exit38 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -47291,7 +47291,7 @@ accept1.exit247:                                  ; preds = %accept1.exit, %91
   br label %143
 
 143:                                              ; preds = %132, %129, %127, %124
-  %.0212 = phi ptr [ %142, %132 ], [ %131, %129 ], [ %128, %127 ], [ %126, %124 ]
+  %.0212 = phi ptr [ %142, %132 ], [ %126, %124 ], [ %128, %127 ], [ %131, %129 ]
   %144 = add i16 %3, 1
   %145 = tail call fastcc ptr @parse_pattern_hash(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0212, i16 noundef zeroext %144)
   %.val.i250 = load i32, ptr %10, align 8, !tbaa !169
@@ -47689,7 +47689,7 @@ pm_missing_node_create.exit:                      ; preds = %263
   br label %accept2.exit
 
 accept2.exit:                                     ; preds = %pm_symbol_node_label_p.exit.thread, %206, %208, %211, %214, %217, %220, %accept1.exit255, %231, %85, %117, %188, %pm_symbol_node_label_p.exit, %pm_missing_node_create.exit, %pm_constant_read_node_create.exit, %expect1.exit, %171, %159, %parse_pattern_capture.exit
-  %.0 = phi ptr [ %272, %pm_missing_node_create.exit ], [ %262, %pm_constant_read_node_create.exit ], [ %247, %expect1.exit ], [ %172, %171 ], [ %.0211, %159 ], [ %82, %parse_pattern_capture.exit ], [ %189, %188 ], [ %175, %pm_symbol_node_label_p.exit ], [ %87, %85 ], [ %.3, %117 ], [ %175, %pm_symbol_node_label_p.exit.thread ], [ %235, %231 ], [ %230, %accept1.exit255 ], [ %222, %220 ], [ %219, %217 ], [ %216, %214 ], [ %213, %211 ], [ %210, %208 ], [ %207, %206 ]
+  %.0 = phi ptr [ %272, %pm_missing_node_create.exit ], [ %82, %parse_pattern_capture.exit ], [ %.0211, %159 ], [ %172, %171 ], [ %247, %expect1.exit ], [ %262, %pm_constant_read_node_create.exit ], [ %189, %188 ], [ %175, %pm_symbol_node_label_p.exit ], [ %87, %85 ], [ %.3, %117 ], [ %175, %pm_symbol_node_label_p.exit.thread ], [ %235, %231 ], [ %207, %206 ], [ %210, %208 ], [ %213, %211 ], [ %216, %214 ], [ %219, %217 ], [ %222, %220 ], [ %230, %accept1.exit255 ]
   ret ptr %.0
 }
 
@@ -50174,8 +50174,8 @@ define internal fastcc zeroext range(i16 0, 576) i16 @pm_regular_expression_flag
   br label %36
 
 36:                                               ; preds = %15, %17, %19, %21, %23, %26, %29, %32, %35
-  %37 = phi ptr [ %.pre, %35 ], [ %13, %32 ], [ %13, %29 ], [ %13, %26 ], [ %13, %23 ], [ %13, %21 ], [ %13, %19 ], [ %13, %17 ], [ %13, %15 ]
-  %.2 = phi i16 [ %.126, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ]
+  %37 = phi ptr [ %.pre, %35 ], [ %13, %15 ], [ %13, %17 ], [ %13, %19 ], [ %13, %21 ], [ %13, %23 ], [ %13, %26 ], [ %13, %29 ], [ %13, %32 ]
+  %.2 = phi i16 [ %.126, %35 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ]
   %.022 = getelementptr i8, ptr %.02227, i64 1
   %38 = icmp ult ptr %.022, %37
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !652
@@ -51302,8 +51302,8 @@ pm_implicit_array_write_flags.exit.i227:          ; preds = %148, %144
   br label %pm_global_variable_write_name.exit.i
 
 pm_global_variable_write_name.exit.i:             ; preds = %162, %159, %156, %pm_implicit_array_write_flags.exit.i227
-  %170 = phi ptr [ %.pre.i, %162 ], [ %152, %159 ], [ %152, %156 ], [ %152, %pm_implicit_array_write_flags.exit.i227 ]
-  %.0.i15.i = phi i32 [ %169, %162 ], [ %161, %159 ], [ %158, %156 ], [ -1, %pm_implicit_array_write_flags.exit.i227 ]
+  %170 = phi ptr [ %152, %156 ], [ %152, %159 ], [ %.pre.i, %162 ], [ %152, %pm_implicit_array_write_flags.exit.i227 ]
+  %.0.i15.i = phi i32 [ %158, %156 ], [ %161, %159 ], [ %169, %162 ], [ -1, %pm_implicit_array_write_flags.exit.i227 ]
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !132
   %173 = load i32, ptr %2, align 8, !tbaa !124
@@ -52099,7 +52099,7 @@ pm_implicit_array_write_flags.exit311:            ; preds = %513, %517
   br label %parse_shareable_constant_write.exit
 
 parse_shareable_constant_write.exit:              ; preds = %pm_implicit_array_write_flags.exit311, %pm_implicit_array_write_flags.exit, %412, %pm_shareable_constant_node_create.exit.i218, %context_def_p.exit214, %pm_shareable_constant_node_create.exit.i, %context_def_p.exit, %521, %pm_multi_target_node_create.exit, %372, %pm_instance_variable_write_node_create.exit, %parse_target_implicit_parameter.exit286, %pm_local_variable_write_node_create.exit, %pm_global_variable_write_node_create.exit, %pm_class_variable_write_node_create.exit, %7
-  %.0 = phi ptr [ %1, %521 ], [ %387, %pm_multi_target_node_create.exit ], [ %373, %372 ], [ %343, %pm_instance_variable_write_node_create.exit ], [ %298, %parse_target_implicit_parameter.exit286 ], [ %267, %pm_local_variable_write_node_create.exit ], [ %137, %pm_global_variable_write_node_create.exit ], [ %9, %pm_class_variable_write_node_create.exit ], [ %1, %7 ], [ %71, %pm_shareable_constant_node_create.exit.i ], [ %36, %context_def_p.exit ], [ %117, %pm_shareable_constant_node_create.exit.i218 ], [ %80, %context_def_p.exit214 ], [ %1, %pm_implicit_array_write_flags.exit311 ], [ %1, %pm_implicit_array_write_flags.exit ], [ %422, %412 ]
+  %.0 = phi ptr [ %1, %521 ], [ %1, %7 ], [ %9, %pm_class_variable_write_node_create.exit ], [ %137, %pm_global_variable_write_node_create.exit ], [ %267, %pm_local_variable_write_node_create.exit ], [ %298, %parse_target_implicit_parameter.exit286 ], [ %343, %pm_instance_variable_write_node_create.exit ], [ %373, %372 ], [ %387, %pm_multi_target_node_create.exit ], [ %71, %pm_shareable_constant_node_create.exit.i ], [ %36, %context_def_p.exit ], [ %117, %pm_shareable_constant_node_create.exit.i218 ], [ %80, %context_def_p.exit214 ], [ %1, %pm_implicit_array_write_flags.exit311 ], [ %1, %pm_implicit_array_write_flags.exit ], [ %422, %412 ]
   ret ptr %.0
 }
 
@@ -52377,7 +52377,7 @@ pm_node_alloc.exit:                               ; preds = %4
   br label %pm_global_variable_write_name.exit
 
 pm_global_variable_write_name.exit:               ; preds = %pm_node_alloc.exit, %17, %20, %23
-  %.0.i = phi i32 [ %30, %23 ], [ %22, %20 ], [ %19, %17 ], [ -1, %pm_node_alloc.exit ]
+  %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %30, %23 ], [ -1, %pm_node_alloc.exit ]
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53061,7 +53061,7 @@ pm_node_alloc.exit:                               ; preds = %4
   br label %pm_global_variable_write_name.exit
 
 pm_global_variable_write_name.exit:               ; preds = %pm_node_alloc.exit, %17, %20, %23
-  %.0.i = phi i32 [ %30, %23 ], [ %22, %20 ], [ %19, %17 ], [ -1, %pm_node_alloc.exit ]
+  %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %30, %23 ], [ -1, %pm_node_alloc.exit ]
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -56345,16 +56345,16 @@ attributes #38 = { cold }
 !360 = distinct !{!360, !361, !"not_provided: argument 0"}
 !361 = distinct !{!361, !"not_provided"}
 !362 = distinct !{!362, !71}
-!363 = !{!364}
-!364 = distinct !{!364, !365, !"not_provided: argument 0"}
-!365 = distinct !{!365, !"not_provided"}
-!366 = !{!367}
-!367 = distinct !{!367, !368, !"not_provided: argument 0"}
-!368 = distinct !{!368, !"not_provided"}
-!369 = !{!370, !15, i64 40}
-!370 = !{!"pm_symbol_node", !101, i64 0, !32, i64 24, !32, i64 40, !32, i64 56, !24, i64 72}
-!371 = !{!370, !15, i64 48}
-!372 = distinct !{!372, !71}
+!363 = distinct !{!363, !71}
+!364 = !{!365}
+!365 = distinct !{!365, !366, !"not_provided: argument 0"}
+!366 = distinct !{!366, !"not_provided"}
+!367 = !{!368}
+!368 = distinct !{!368, !369, !"not_provided: argument 0"}
+!369 = distinct !{!369, !"not_provided"}
+!370 = !{!371, !15, i64 40}
+!371 = !{!"pm_symbol_node", !101, i64 0, !32, i64 24, !32, i64 40, !32, i64 56, !24, i64 72}
+!372 = !{!371, !15, i64 48}
 !373 = !{!374, !15, i64 8}
 !374 = !{!"pm_interpolated_symbol_node", !101, i64 0, !32, i64 24, !62, i64 40, !32, i64 64}
 !375 = !{!376}
@@ -56364,13 +56364,13 @@ attributes #38 = { cold }
 !379 = distinct !{!379, !380, !"not_provided: argument 0"}
 !380 = distinct !{!380, !"not_provided"}
 !381 = distinct !{!381, !71}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"not_provided: argument 0"}
-!384 = distinct !{!384, !"not_provided"}
-!385 = !{!386}
-!386 = distinct !{!386, !387, !"not_provided: argument 0"}
-!387 = distinct !{!387, !"not_provided"}
-!388 = distinct !{!388, !71}
+!382 = distinct !{!382, !71}
+!383 = !{!384}
+!384 = distinct !{!384, !385, !"not_provided: argument 0"}
+!385 = distinct !{!385, !"not_provided"}
+!386 = !{!387}
+!387 = distinct !{!387, !388, !"not_provided: argument 0"}
+!388 = distinct !{!388, !"not_provided"}
 !389 = !{!390, !38, i64 2}
 !390 = !{!"pm_regular_expression_node", !101, i64 0, !32, i64 24, !32, i64 40, !32, i64 56, !24, i64 72}
 !391 = !{!392}
@@ -56623,8 +56623,8 @@ attributes #38 = { cold }
 !638 = !{!639, !639, i64 0}
 !639 = !{!"p1 _ZTS29pm_local_variable_target_node", !13, i64 0}
 !640 = distinct !{!640, !71}
-!641 = !{!370, !15, i64 8}
-!642 = !{!370, !15, i64 16}
+!641 = !{!371, !15, i64 8}
+!642 = !{!371, !15, i64 16}
 !643 = distinct !{!643, !71}
 !644 = distinct !{!644, !71}
 !645 = !{!482, !104, i64 24}

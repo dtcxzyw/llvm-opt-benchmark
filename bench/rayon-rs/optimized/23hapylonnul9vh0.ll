@@ -735,8 +735,8 @@ default.unreachable:                              ; preds = %13
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i": ; preds = %24, %19, %13
-  %.sroa.4.0.i.i.i = phi ptr [ undef, %24 ], [ %23, %19 ], [ undef, %13 ]
-  %.sroa.0.0.i.i.i = phi ptr [ null, %24 ], [ %21, %19 ], [ null, %13 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %23, %19 ], [ undef, %24 ], [ undef, %13 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %21, %19 ], [ null, %24 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !123
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d5760175140b0afE.llvm.17432428852515034553.exit"
 
@@ -816,8 +816,8 @@ default.unreachable:                              ; preds = %7
   br label %"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b$$u7b$closure$u7d$$u7d$17hbe8279d478d8944cE.llvm.17432428852515034553.exit"
 
 "_ZN10rayon_core8registry12WorkerThread5steal28_$u7b$$u7b$closure$u7d$$u7d$17hbe8279d478d8944cE.llvm.17432428852515034553.exit": ; preds = %7, %12, %17
-  %.sroa.4.0.i = phi ptr [ undef, %17 ], [ %16, %12 ], [ undef, %7 ]
-  %.sroa.0.0.i = phi ptr [ null, %17 ], [ %14, %12 ], [ null, %7 ]
+  %.sroa.4.0.i = phi ptr [ %16, %12 ], [ undef, %17 ], [ undef, %7 ]
+  %.sroa.0.0.i = phi ptr [ %14, %12 ], [ null, %17 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !137
   %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.4.0.i, 1
@@ -877,8 +877,8 @@ default.unreachable:                              ; preds = %12
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit": ; preds = %12, %18, %23
-  %.sroa.4.0.i.i = phi ptr [ undef, %23 ], [ %22, %18 ], [ undef, %12 ]
-  %.sroa.0.0.i.i = phi ptr [ null, %23 ], [ %20, %18 ], [ null, %12 ]
+  %.sroa.4.0.i.i = phi ptr [ %22, %18 ], [ undef, %23 ], [ undef, %12 ]
+  %.sroa.0.0.i.i = phi ptr [ %20, %18 ], [ null, %23 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !152
   br label %26
 
@@ -1033,8 +1033,8 @@ default.unreachable2:                             ; preds = %7
   br label %20
 
 20:                                               ; preds = %7, %17, %12
-  %.sroa.4.0 = phi ptr [ undef, %17 ], [ %16, %12 ], [ undef, %7 ]
-  %.sroa.0.0 = phi ptr [ null, %17 ], [ %14, %12 ], [ null, %7 ]
+  %.sroa.4.0 = phi ptr [ %16, %12 ], [ undef, %17 ], [ undef, %7 ]
+  %.sroa.0.0 = phi ptr [ %14, %12 ], [ null, %17 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.4.0, 1

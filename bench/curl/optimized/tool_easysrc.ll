@@ -420,7 +420,7 @@ easysrc_add.exit87:                               ; preds = %57
   br label %.thread
 
 .thread:                                          ; preds = %72, %66, %easysrc_add.exit.thread, %easysrc_add.exit78, %easysrc_add.exit81, %easysrc_add.exit75, %easysrc_add.exit72, %easysrc_add.exit87, %easysrc_add.exit84
-  %.9 = phi i32 [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit87 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit72 ], [ 0, %72 ], [ 27, %66 ]
+  %.9 = phi i32 [ 27, %easysrc_add.exit87 ], [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit72 ], [ 0, %72 ], [ 27, %66 ]
   ret i32 %.9
 }
 

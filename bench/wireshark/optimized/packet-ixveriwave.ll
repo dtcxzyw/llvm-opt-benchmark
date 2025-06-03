@@ -2566,7 +2566,7 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   br label %964
 
 964:                                              ; preds = %901, %889, %884, %869, %856, %841
-  %.0.i803 = phi i32 [ 31, %901 ], [ %900, %889 ], [ %888, %884 ], [ %883, %869 ], [ 31, %841 ], [ 31, %856 ]
+  %.0.i803 = phi i32 [ 31, %901 ], [ 31, %841 ], [ 31, %856 ], [ %883, %869 ], [ %888, %884 ], [ %900, %889 ]
   %965 = load i32, ptr @hf_radiotap_rfid, align 4
   %966 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %965, ptr noundef %616, i32 noundef %.0.i803, i32 noundef 1, i32 noundef -2147483648)
   %967 = add nuw nsw i32 %.0.i803, 1

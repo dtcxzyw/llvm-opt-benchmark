@@ -89,15 +89,15 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06bjhash8hashwordEPKjmj(ptr noundef re
   br label %48
 
 48:                                               ; preds = %44, %._crit_edge
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %47, %44 ]
+  %.2 = phi i32 [ %47, %44 ], [ %.0.lcssa, %._crit_edge ]
   %49 = getelementptr inbounds nuw i8, ptr %.098.lcssa, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !3
   %51 = add i32 %50, %.095.lcssa
   br label %52
 
 52:                                               ; preds = %48, %._crit_edge
-  %.196 = phi i32 [ %.095.lcssa, %._crit_edge ], [ %51, %48 ]
-  %.3 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.2, %48 ]
+  %.196 = phi i32 [ %51, %48 ], [ %.095.lcssa, %._crit_edge ]
+  %.3 = phi i32 [ %.2, %48 ], [ %.0.lcssa, %._crit_edge ]
   %53 = load i32, ptr %.098.lcssa, align 4, !tbaa !3
   %54 = add i32 %53, %.097.lcssa
   %55 = xor i32 %.3, %.196
@@ -307,9 +307,9 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   unreachable
 
 .thread:                                          ; preds = %46, %54, %63, %72, %81, %86, %92, %98, %104, %106, %109, %112
-  %.pn = phi i32 [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %104 ], [ %103, %98 ], [ %97, %92 ], [ %91, %86 ], [ %85, %81 ], [ %80, %72 ], [ %71, %63 ], [ %62, %54 ], [ %53, %46 ]
-  %.1360 = phi i32 [ %.0359.lcssa, %112 ], [ %.0359.lcssa, %109 ], [ %.0359.lcssa, %106 ], [ %.0359.lcssa, %104 ], [ %102, %98 ], [ %96, %92 ], [ %90, %86 ], [ %84, %81 ], [ %79, %72 ], [ %70, %63 ], [ %61, %54 ], [ %52, %46 ]
-  %.1356 = phi i32 [ %.0355.lcssa, %112 ], [ %.0355.lcssa, %109 ], [ %.0355.lcssa, %106 ], [ %.0355.lcssa, %104 ], [ %.0355.lcssa, %98 ], [ %.0355.lcssa, %92 ], [ %.0355.lcssa, %86 ], [ %.0355.lcssa, %81 ], [ %76, %72 ], [ %67, %63 ], [ %58, %54 ], [ %49, %46 ]
+  %.pn = phi i32 [ %53, %46 ], [ %62, %54 ], [ %71, %63 ], [ %80, %72 ], [ %85, %81 ], [ %91, %86 ], [ %97, %92 ], [ %103, %98 ], [ %105, %104 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ]
+  %.1360 = phi i32 [ %52, %46 ], [ %61, %54 ], [ %70, %63 ], [ %79, %72 ], [ %84, %81 ], [ %90, %86 ], [ %96, %92 ], [ %102, %98 ], [ %.0359.lcssa, %104 ], [ %.0359.lcssa, %106 ], [ %.0359.lcssa, %109 ], [ %.0359.lcssa, %112 ]
+  %.1356 = phi i32 [ %49, %46 ], [ %58, %54 ], [ %67, %63 ], [ %76, %72 ], [ %.0355.lcssa, %81 ], [ %.0355.lcssa, %86 ], [ %.0355.lcssa, %92 ], [ %.0355.lcssa, %98 ], [ %.0355.lcssa, %104 ], [ %.0355.lcssa, %106 ], [ %.0355.lcssa, %109 ], [ %.0355.lcssa, %112 ]
   %.1379 = add i32 %.pn, %.0378.lcssa
   br label %.thread397
 
@@ -410,7 +410,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %169
 
 169:                                              ; preds = %163, %._crit_edge428
-  %.6 = phi i32 [ %.4.lcssa, %._crit_edge428 ], [ %168, %163 ]
+  %.6 = phi i32 [ %168, %163 ], [ %.4.lcssa, %._crit_edge428 ]
   %170 = getelementptr inbounds nuw i8, ptr %.0347.lcssa, i64 8
   %171 = load i16, ptr %170, align 2, !tbaa !12
   %172 = zext i16 %171 to i32
@@ -430,7 +430,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %184
 
 184:                                              ; preds = %179, %._crit_edge428
-  %.7 = phi i32 [ %.4.lcssa, %._crit_edge428 ], [ %183, %179 ]
+  %.7 = phi i32 [ %183, %179 ], [ %.4.lcssa, %._crit_edge428 ]
   %185 = getelementptr inbounds nuw i8, ptr %.0347.lcssa, i64 4
   %186 = load i32, ptr %185, align 2
   %187 = add i32 %186, %.4363.lcssa
@@ -447,7 +447,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %196
 
 196:                                              ; preds = %190, %._crit_edge428
-  %.6365 = phi i32 [ %.4363.lcssa, %._crit_edge428 ], [ %195, %190 ]
+  %.6365 = phi i32 [ %195, %190 ], [ %.4363.lcssa, %._crit_edge428 ]
   %197 = getelementptr inbounds nuw i8, ptr %.0347.lcssa, i64 4
   %198 = load i16, ptr %197, align 2, !tbaa !12
   %199 = zext i16 %198 to i32
@@ -464,7 +464,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %208
 
 208:                                              ; preds = %203, %._crit_edge428
-  %.7366 = phi i32 [ %.4363.lcssa, %._crit_edge428 ], [ %207, %203 ]
+  %.7366 = phi i32 [ %207, %203 ], [ %.4363.lcssa, %._crit_edge428 ]
   %209 = load i32, ptr %.0347.lcssa, align 2
   %210 = add i32 %209, %.4382.lcssa
   br label %.thread397
@@ -478,7 +478,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %217
 
 217:                                              ; preds = %211, %._crit_edge428
-  %.6384 = phi i32 [ %.4382.lcssa, %._crit_edge428 ], [ %216, %211 ]
+  %.6384 = phi i32 [ %216, %211 ], [ %.4382.lcssa, %._crit_edge428 ]
   %218 = load i16, ptr %.0347.lcssa, align 2, !tbaa !12
   %219 = zext i16 %218 to i32
   %220 = add i32 %.6384, %219
@@ -612,7 +612,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %314
 
 314:                                              ; preds = %308, %._crit_edge
-  %.11 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %313, %308 ]
+  %.11 = phi i32 [ %313, %308 ], [ %.9.lcssa, %._crit_edge ]
   %315 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 10
   %316 = load i8, ptr %315, align 1, !tbaa !11
   %317 = zext i8 %316 to i32
@@ -621,7 +621,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %320
 
 320:                                              ; preds = %314, %._crit_edge
-  %.12 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %319, %314 ]
+  %.12 = phi i32 [ %319, %314 ], [ %.9.lcssa, %._crit_edge ]
   %321 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 9
   %322 = load i8, ptr %321, align 1, !tbaa !11
   %323 = zext i8 %322 to i32
@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %326
 
 326:                                              ; preds = %320, %._crit_edge
-  %.13 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %325, %320 ]
+  %.13 = phi i32 [ %325, %320 ], [ %.9.lcssa, %._crit_edge ]
   %327 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %328 = load i8, ptr %327, align 1, !tbaa !11
   %329 = zext i8 %328 to i32
@@ -638,7 +638,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %331
 
 331:                                              ; preds = %326, %._crit_edge
-  %.14 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %330, %326 ]
+  %.14 = phi i32 [ %330, %326 ], [ %.9.lcssa, %._crit_edge ]
   %332 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 7
   %333 = load i8, ptr %332, align 1, !tbaa !11
   %334 = zext i8 %333 to i32
@@ -647,8 +647,8 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %337
 
 337:                                              ; preds = %331, %._crit_edge
-  %.11370 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %336, %331 ]
-  %.15 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.14, %331 ]
+  %.11370 = phi i32 [ %336, %331 ], [ %.9368.lcssa, %._crit_edge ]
+  %.15 = phi i32 [ %.14, %331 ], [ %.9.lcssa, %._crit_edge ]
   %338 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 6
   %339 = load i8, ptr %338, align 1, !tbaa !11
   %340 = zext i8 %339 to i32
@@ -657,8 +657,8 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %343
 
 343:                                              ; preds = %337, %._crit_edge
-  %.12371 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %342, %337 ]
-  %.16 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.15, %337 ]
+  %.12371 = phi i32 [ %342, %337 ], [ %.9368.lcssa, %._crit_edge ]
+  %.16 = phi i32 [ %.15, %337 ], [ %.9.lcssa, %._crit_edge ]
   %344 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 5
   %345 = load i8, ptr %344, align 1, !tbaa !11
   %346 = zext i8 %345 to i32
@@ -667,8 +667,8 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %349
 
 349:                                              ; preds = %343, %._crit_edge
-  %.13372 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %348, %343 ]
-  %.17 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.16, %343 ]
+  %.13372 = phi i32 [ %348, %343 ], [ %.9368.lcssa, %._crit_edge ]
+  %.17 = phi i32 [ %.16, %343 ], [ %.9.lcssa, %._crit_edge ]
   %350 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %351 = load i8, ptr %350, align 1, !tbaa !11
   %352 = zext i8 %351 to i32
@@ -676,8 +676,8 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %354
 
 354:                                              ; preds = %349, %._crit_edge
-  %.14373 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %353, %349 ]
-  %.18 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.17, %349 ]
+  %.14373 = phi i32 [ %353, %349 ], [ %.9368.lcssa, %._crit_edge ]
+  %.18 = phi i32 [ %.17, %349 ], [ %.9.lcssa, %._crit_edge ]
   %355 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 3
   %356 = load i8, ptr %355, align 1, !tbaa !11
   %357 = zext i8 %356 to i32
@@ -686,9 +686,9 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %360
 
 360:                                              ; preds = %354, %._crit_edge
-  %.10388 = phi i32 [ %.8386.lcssa, %._crit_edge ], [ %359, %354 ]
-  %.15374 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %.14373, %354 ]
-  %.19 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.18, %354 ]
+  %.10388 = phi i32 [ %359, %354 ], [ %.8386.lcssa, %._crit_edge ]
+  %.15374 = phi i32 [ %.14373, %354 ], [ %.9368.lcssa, %._crit_edge ]
+  %.19 = phi i32 [ %.18, %354 ], [ %.9.lcssa, %._crit_edge ]
   %361 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %362 = load i8, ptr %361, align 1, !tbaa !11
   %363 = zext i8 %362 to i32
@@ -697,9 +697,9 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %366
 
 366:                                              ; preds = %360, %._crit_edge
-  %.11389 = phi i32 [ %.8386.lcssa, %._crit_edge ], [ %365, %360 ]
-  %.16375 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %.15374, %360 ]
-  %.20 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.19, %360 ]
+  %.11389 = phi i32 [ %365, %360 ], [ %.8386.lcssa, %._crit_edge ]
+  %.16375 = phi i32 [ %.15374, %360 ], [ %.9368.lcssa, %._crit_edge ]
+  %.20 = phi i32 [ %.19, %360 ], [ %.9.lcssa, %._crit_edge ]
   %367 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %368 = load i8, ptr %367, align 1, !tbaa !11
   %369 = zext i8 %368 to i32
@@ -708,18 +708,18 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   br label %.thread403
 
 .thread403:                                       ; preds = %366, %._crit_edge
-  %.12390 = phi i32 [ %.8386.lcssa, %._crit_edge ], [ %371, %366 ]
-  %.17376 = phi i32 [ %.9368.lcssa, %._crit_edge ], [ %.16375, %366 ]
-  %.21 = phi i32 [ %.9.lcssa, %._crit_edge ], [ %.20, %366 ]
+  %.12390 = phi i32 [ %371, %366 ], [ %.8386.lcssa, %._crit_edge ]
+  %.17376 = phi i32 [ %.16375, %366 ], [ %.9368.lcssa, %._crit_edge ]
+  %.21 = phi i32 [ %.20, %366 ], [ %.9.lcssa, %._crit_edge ]
   %372 = load i8, ptr %.0.lcssa, align 1, !tbaa !11
   %373 = zext i8 %372 to i32
   %374 = add i32 %.12390, %373
   br label %.thread397
 
 .thread397:                                       ; preds = %154, %169, %184, %196, %208, %217, %221, %.thread403, %.thread
-  %.3381 = phi i32 [ %.1379, %.thread ], [ %374, %.thread403 ], [ %162, %154 ], [ %178, %169 ], [ %189, %184 ], [ %202, %196 ], [ %210, %208 ], [ %220, %217 ], [ %224, %221 ]
-  %.3362 = phi i32 [ %.1360, %.thread ], [ %.17376, %.thread403 ], [ %160, %154 ], [ %176, %169 ], [ %187, %184 ], [ %200, %196 ], [ %.7366, %208 ], [ %.4363.lcssa, %217 ], [ %.4363.lcssa, %221 ]
-  %.3358 = phi i32 [ %.1356, %.thread ], [ %.21, %.thread403 ], [ %157, %154 ], [ %173, %169 ], [ %.7, %184 ], [ %.4.lcssa, %196 ], [ %.4.lcssa, %208 ], [ %.4.lcssa, %217 ], [ %.4.lcssa, %221 ]
+  %.3381 = phi i32 [ %.1379, %.thread ], [ %374, %.thread403 ], [ %224, %221 ], [ %220, %217 ], [ %210, %208 ], [ %202, %196 ], [ %189, %184 ], [ %178, %169 ], [ %162, %154 ]
+  %.3362 = phi i32 [ %.1360, %.thread ], [ %.17376, %.thread403 ], [ %.4363.lcssa, %221 ], [ %.4363.lcssa, %217 ], [ %.7366, %208 ], [ %200, %196 ], [ %187, %184 ], [ %176, %169 ], [ %160, %154 ]
+  %.3358 = phi i32 [ %.1356, %.thread ], [ %.21, %.thread403 ], [ %.4.lcssa, %221 ], [ %.4.lcssa, %217 ], [ %.4.lcssa, %208 ], [ %.4.lcssa, %196 ], [ %.7, %184 ], [ %173, %169 ], [ %157, %154 ]
   %375 = xor i32 %.3358, %.3362
   %376 = tail call i32 @llvm.fshl.i32(i32 %.3362, i32 %.3362, i32 14)
   %377 = sub i32 %375, %376

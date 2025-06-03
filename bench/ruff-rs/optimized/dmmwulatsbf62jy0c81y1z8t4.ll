@@ -726,7 +726,7 @@ default.unreachable:                              ; preds = %17, %10
   br label %17
 
 17:                                               ; preds = %15, %13, %10
-  %.sroa.6.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ undef, %10 ]
+  %.sroa.6.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ undef, %10 ]
   %18 = getelementptr i8, ptr %11, i64 -16
   %19 = load i64, ptr %18, align 8, !range !67, !noalias !71, !noundef !4
   switch i64 %19, label %default.unreachable [
@@ -744,7 +744,7 @@ default.unreachable:                              ; preds = %17, %10
   br label %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range28_$u7b$$u7b$closure$u7d$$u7d$17hc695353ce514e801E.exit"
 
 "_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range28_$u7b$$u7b$closure$u7d$$u7d$17hc695353ce514e801E.exit": ; preds = %17, %20, %22
-  %.sroa.63.0.i = phi ptr [ %23, %22 ], [ %21, %20 ], [ undef, %17 ]
+  %.sroa.63.0.i = phi ptr [ %21, %20 ], [ %23, %22 ], [ undef, %17 ]
   store i64 %12, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0.i, ptr %.sroa.42.0..sroa_idx, align 8
@@ -14691,7 +14691,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %208, %.no
           to label %.thread unwind label %212
 
 .body101:                                         ; preds = %340, %267, %214, %.body134, %.body149
-  %.pn95 = phi { ptr, i32 } [ %eh.lpad-body150, %.body149 ], [ %.pn93, %.body134 ], [ %215, %214 ], [ %268, %267 ], [ %341, %340 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %.body134 ], [ %eh.lpad-body150, %.body149 ], [ %215, %214 ], [ %268, %267 ], [ %341, %340 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$ruff_db..system..walk_directory..Error$GT$17ha3d3ba465f0f9dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20) #26
           to label %.thread unwind label %212
 

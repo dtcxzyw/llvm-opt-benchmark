@@ -6387,7 +6387,7 @@ default.unreachable:                              ; preds = %40
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1a202569135eb2ddE.exit": ; preds = %26, %33, %37
-  %.0.i.i.i = phi ptr [ %35, %33 ], [ %38, %37 ], [ null, %26 ]
+  %.0.i.i.i = phi ptr [ %38, %37 ], [ %35, %33 ], [ null, %26 ]
   %51 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.10.062
   %52 = ptrtoint ptr %.0.i.i.i to i64
   %.not.i = and i64 %52, 1

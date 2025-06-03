@@ -2472,7 +2472,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %301
 
 301:                                              ; preds = %300, %299, %298, %297, %296, %295, %.loopexit217
-  %.0180 = phi i64 [ 8, %.loopexit217 ], [ 3, %300 ], [ 5, %299 ], [ 4, %298 ], [ 0, %297 ], [ 1, %296 ], [ 7, %295 ]
+  %.0180 = phi i64 [ 8, %.loopexit217 ], [ 7, %295 ], [ 1, %296 ], [ 0, %297 ], [ 4, %298 ], [ 5, %299 ], [ 3, %300 ]
   %302 = load i32, ptr %292, align 4, !tbaa !11
   switch i32 %302, label %307 [
     i32 43, label %303
@@ -2965,8 +2965,8 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit209:      ; preds = %407
   tail call void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 7)
   br label %.loopexit222
 
-522:                                              ; preds = %520, %519, %518, %514
-  %.0169.ph = phi i32 [ 1, %514 ], [ 2, %518 ], [ 3, %519 ], [ 4, %520 ]
+522:                                              ; preds = %518, %519, %520, %514
+  %.0169.ph = phi i32 [ 1, %514 ], [ 4, %520 ], [ 3, %519 ], [ 2, %518 ]
   %523 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %524 = load i32, ptr %523, align 4, !tbaa !11
   %525 = icmp eq i32 %524, 0
@@ -3546,7 +3546,7 @@ define noundef i32 @_ZN11CommandData11GetExclAttrEPKwRb(ptr nonnull readnone ali
   br label %15
 
 15:                                               ; preds = %13, %12, %.lr.ph
-  %.1 = phi i32 [ %.013, %.lr.ph ], [ %14, %13 ], [ %.013, %12 ]
+  %.1 = phi i32 [ %.013, %.lr.ph ], [ %.013, %12 ], [ %14, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !11
   %.not = icmp eq i32 %17, 0

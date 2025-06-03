@@ -1391,7 +1391,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %.thread293.thread, 
   br label %dissect_zbee_aps_transport_key.exit.i
 
 dissect_zbee_aps_transport_key.exit.i:            ; preds = %351, %346, %337, %334
-  %.0.i.i290 = phi i32 [ 18, %334 ], [ 27, %351 ], [ 34, %346 ], [ 35, %337 ]
+  %.0.i.i290 = phi i32 [ 18, %334 ], [ 35, %337 ], [ 34, %346 ], [ 27, %351 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   br label %dissect_zbee_aps_request_key.exit.i
 
@@ -1513,7 +1513,7 @@ dissect_zbee_aps_auth_challenge.exit.i:           ; preds = %391, %385
   br label %dissect_zbee_aps_request_key.exit.i
 
 dissect_zbee_aps_request_key.exit.i:              ; preds = %429, %422, %414, %405, %dissect_zbee_aps_auth_challenge.exit.i, %380, %377, %371, %368, %dissect_zbee_aps_update_device.exit.i, %dissect_zbee_aps_transport_key.exit.i, %317, %310, %299
-  %.0.i289 = phi i32 [ 1, %299 ], [ 11, %429 ], [ 26, %422 ], [ %421, %414 ], [ 22, %405 ], [ %404, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %380 ], [ 9, %368 ], [ %367, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i290, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %317 ], [ 33, %310 ], [ 10, %377 ], [ 2, %371 ]
+  %.0.i289 = phi i32 [ 1, %299 ], [ 33, %310 ], [ 33, %317 ], [ %.0.i.i290, %dissect_zbee_aps_transport_key.exit.i ], [ %367, %dissect_zbee_aps_update_device.exit.i ], [ 9, %368 ], [ 2, %380 ], [ %404, %dissect_zbee_aps_auth_challenge.exit.i ], [ 22, %405 ], [ %421, %414 ], [ 26, %422 ], [ 11, %429 ], [ 10, %377 ], [ 2, %371 ]
   %441 = call i32 @dissect_zbee_tlvs(ptr noundef nonnull %.1266, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i289, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %303)
   %442 = call i32 @tvb_captured_length(ptr noundef nonnull %.1266)
   %443 = icmp ult i32 %441, %442
@@ -1547,7 +1547,7 @@ dissect_zbee_aps_cmd.exit:                        ; preds = %dissect_zbee_aps_re
   br label %453
 
 453:                                              ; preds = %.thread298, %4, %.thread310, %dissect_zbee_aps_cmd.exit, %296, %292, %238, %.thread292
-  %.0 = phi i32 [ %239, %238 ], [ %452, %.thread310 ], [ %449, %dissect_zbee_aps_cmd.exit ], [ %298, %296 ], [ %294, %292 ], [ %85, %.thread292 ], [ 0, %4 ], [ %272, %.thread298 ]
+  %.0 = phi i32 [ %239, %238 ], [ %452, %.thread310 ], [ %294, %292 ], [ %449, %dissect_zbee_aps_cmd.exit ], [ %298, %296 ], [ %85, %.thread292 ], [ 0, %4 ], [ %272, %.thread298 ]
   ret i32 %.0
 }
 
@@ -1624,7 +1624,7 @@ define internal i32 @dissect_zbee_apf(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %37
 
 37:                                               ; preds = %36, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
-  %.0.i.us = phi i32 [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ], [ 5, %36 ]
+  %.0.i.us = phi i32 [ 5, %36 ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split.us ]
   %trunc23.i.us = trunc i32 %35 to i8
   switch i8 %trunc23.i.us, label %zbee_apf_transaction_len.exit.us [
     i8 12, label %48
@@ -1662,7 +1662,7 @@ define internal i32 @dissect_zbee_apf(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %zbee_apf_transaction_len.exit.us
 
 zbee_apf_transaction_len.exit.us:                 ; preds = %50, %48, %46, %44, %38, %37, %.lr.ph.split.us, %.lr.ph.split.us
-  %.122.i.us = phi i32 [ 4, %50 ], [ 5, %.lr.ph.split.us ], [ 5, %.lr.ph.split.us ], [ %.0.i.us, %37 ], [ %43, %38 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
+  %.122.i.us = phi i32 [ 4, %50 ], [ 5, %.lr.ph.split.us ], [ 5, %.lr.ph.split.us ], [ %.0.i.us, %37 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %38 ]
   %51 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.148.us, i32 noundef %.122.i.us)
   %52 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.045, ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %53 = add i32 %.122.i.us, %.148.us
@@ -1819,7 +1819,7 @@ define internal fastcc range(i32 0, 258) i32 @dissect_zbee_t2(ptr noundef nonnul
   br label %21
 
 21:                                               ; preds = %16, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %16 ], [ %15, %6 ]
+  %.0 = phi i32 [ 0, %3 ], [ %15, %6 ], [ 1, %16 ]
   ret i32 %.0
 }
 

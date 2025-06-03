@@ -1714,8 +1714,8 @@ b2SolveSimplex2.exit.thread.thread:               ; preds = %b2SolveSimplex2.exi
   br label %222
 
 222:                                              ; preds = %b2SolveSimplex2.exit, %213, %b2SolveSimplex2.exit.thread.thread
-  %223 = phi i32 [ 2, %213 ], [ 1, %b2SolveSimplex2.exit.thread.thread ], [ %212, %b2SolveSimplex2.exit ]
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.05.4.vec.insert.i.i, %213 ], [ %.sroa.0.0.copyload6.i, %b2SolveSimplex2.exit.thread.thread ], [ zeroinitializer, %b2SolveSimplex2.exit ]
+  %223 = phi i32 [ 1, %b2SolveSimplex2.exit.thread.thread ], [ 2, %213 ], [ %212, %b2SolveSimplex2.exit ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload6.i, %b2SolveSimplex2.exit.thread.thread ], [ %.sroa.05.4.vec.insert.i.i, %213 ], [ zeroinitializer, %b2SolveSimplex2.exit ]
   %224 = add nuw nsw i32 %.093244, 1
   %exitcond.not = icmp eq i32 %224, 20
   br i1 %exitcond.not, label %.critedge, label %111, !llvm.loop !67
@@ -1765,7 +1765,7 @@ b2SolveSimplex2.exit.thread.thread:               ; preds = %b2SolveSimplex2.exi
   br label %b2ComputeSimplexWitnessPoints.exit
 
 b2ComputeSimplexWitnessPoints.exit:               ; preds = %229, %230, %233
-  %.sroa.0232.0 = phi <2 x float> [ undef, %229 ], [ %.sroa.05.4.vec.insert.i31.i, %233 ], [ %232, %230 ]
+  %.sroa.0232.0 = phi <2 x float> [ undef, %229 ], [ %232, %230 ], [ %.sroa.05.4.vec.insert.i31.i, %233 ]
   %.sroa.0.4.vec.extract.i209 = extractelement <2 x float> %.sroa.036.0.lcssa, i64 1
   %246 = fmul <2 x float> %.sroa.036.0.lcssa, %.sroa.036.0.lcssa
   %247 = extractelement <2 x float> %246, i64 0
@@ -3095,7 +3095,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   br label %194
 
 194:                                              ; preds = %4, %159, %123, %92
-  %.0 = phi float [ %193, %159 ], [ %158, %123 ], [ %122, %92 ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %122, %92 ], [ %158, %123 ], [ %193, %159 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 

@@ -736,8 +736,8 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit156.i: ; preds = %169, %162
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge
 
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge: ; preds = %178, %133, %102
-  %.pn.i.be = phi { ptr, i32 } [ %184, %178 ], [ %139, %133 ], [ %109, %102 ]
-  %.3.i.be = phi i64 [ %.7.i, %178 ], [ %134, %133 ], [ %103, %102 ]
+  %.pn.i.be = phi { ptr, i32 } [ %109, %102 ], [ %139, %133 ], [ %184, %178 ]
+  %.3.i.be = phi i64 [ %103, %102 ], [ %134, %133 ], [ %.7.i, %178 ]
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
 
 .thread224.i:                                     ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i

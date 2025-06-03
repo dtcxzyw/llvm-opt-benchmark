@@ -853,7 +853,7 @@ _ZL13sanitize_namePc.exit200.i:                   ; preds = %293, %287
   br label %316
 
 316:                                              ; preds = %._crit_edge.i.i24, %312
-  %.1.i.i = phi i32 [ %313, %312 ], [ -1, %._crit_edge.i.i24 ]
+  %.1.i.i = phi i32 [ -1, %._crit_edge.i.i24 ], [ %313, %312 ]
   store i32 %.1.i.i, ptr %23, align 4, !tbaa !29
   %317 = call i64 @fwrite(ptr noundef nonnull %23, i64 noundef 4, i64 noundef 1, ptr noundef %98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #21

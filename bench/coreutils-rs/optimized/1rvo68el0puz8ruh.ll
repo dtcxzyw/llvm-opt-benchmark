@@ -45,20 +45,23 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit: 
   %20 = load i64, ptr %4, align 8, !range !9, !noundef !4
   %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %22 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %25, label %23
 
 23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf487e8bf48fce4fdE.exit"
-  %.cast = ptrtoint ptr %22 to i64
-  %24 = add i64 %15, %.cast
+  %24 = add i64 %22, %15
   store i64 %24, ptr %14, align 8
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %6, i64 %24)
   store i64 %.0.sroa.speculated.i, ptr %7, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf487e8bf48fce4fdE.exit", %23
-  %.0 = phi ptr [ null, %23 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf487e8bf48fce4fdE.exit" ]
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf487e8bf48fce4fdE.exit"
+  %26 = inttoptr i64 %22 to ptr
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %.0 = phi ptr [ null, %23 ], [ %26, %25 ]
   ret ptr %.0
 }
 

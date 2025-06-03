@@ -2427,8 +2427,8 @@ select.unfold:                                    ; preds = %41, %39
   br i1 %.not.i6.not.i.i40, label %.thread117, label %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit
 
 _ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit: ; preds = %60, %54
-  %.0130 = phi ptr [ %59, %60 ], [ %53, %54 ]
-  %storemerge = phi ptr [ %62, %60 ], [ %56, %54 ]
+  %.0130 = phi ptr [ %53, %54 ], [ %59, %60 ]
+  %storemerge = phi ptr [ %56, %54 ], [ %62, %60 ]
   %63 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction6isFastEv(ptr noundef nonnull align 8 dereferenceable(72) %44) #16
   br i1 %63, label %.thread119, label %.thread111
 
@@ -2500,8 +2500,8 @@ _ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5ma
   br label %100
 
 .thread119:                                       ; preds = %.thread135, %.thread, %75, %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit, %70
-  %.1 = phi ptr [ %66, %70 ], [ %.0130, %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit ], [ %74, %75 ], [ %79, %.thread ], [ %.pre, %.thread135 ]
-  %.0 = phi ptr [ %69, %70 ], [ %storemerge, %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit ], [ %77, %75 ], [ %81, %.thread ], [ %84, %.thread135 ]
+  %.1 = phi ptr [ %.0130, %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit ], [ %66, %70 ], [ %74, %75 ], [ %79, %.thread ], [ %.pre, %.thread135 ]
+  %.0 = phi ptr [ %storemerge, %_ZN4llvm12PatternMatch14BinaryOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj14ELb0EE5matchINS_11InstructionEEEbPT_.exit ], [ %69, %70 ], [ %77, %75 ], [ %81, %.thread ], [ %84, %.thread135 ]
   %88 = load i8, ptr %.1, align 8, !tbaa !21
   %89 = icmp eq i8 %88, 84
   br i1 %89, label %93, label %90
@@ -3406,8 +3406,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_14iterator_ran
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi ptr [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !16
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %_ZSt4findIPN4llvm3UseEPNS0_5ValueEET_S5_S5_RKT0_.exit, label %43
@@ -3417,8 +3417,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_14iterator_ran
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge52.i.i.i
-  %46 = phi ptr [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %40, %43 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %44, %43 ]
+  %46 = phi ptr [ %40, %43 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %47 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !16
   %48 = icmp eq ptr %47, %46
   br i1 %48, label %_ZSt4findIPN4llvm3UseEPNS0_5ValueEET_S5_S5_RKT0_.exit, label %49
@@ -5302,8 +5302,8 @@ define dso_local void @_ZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_
   unreachable
 
 _ZNK4llvm20RecurrenceDescriptor9getOpcodeEv.exit: ; preds = %4, %15, %16, %17, %18, %19, %20, %21, %22
-  %switch10.i = phi i1 [ false, %22 ], [ false, %21 ], [ true, %20 ], [ true, %19 ], [ true, %18 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %4 ]
-  %.0.i.i = phi i32 [ 54, %22 ], [ 53, %21 ], [ 14, %20 ], [ 18, %19 ], [ 30, %18 ], [ 28, %17 ], [ 29, %16 ], [ 17, %15 ], [ 13, %4 ]
+  %switch10.i = phi i1 [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ false, %21 ], [ false, %22 ], [ true, %4 ]
+  %.0.i.i = phi i32 [ 17, %15 ], [ 29, %16 ], [ 28, %17 ], [ 30, %18 ], [ 18, %19 ], [ 14, %20 ], [ 53, %21 ], [ 54, %22 ], [ 13, %4 ]
   %24 = add nsw i32 %.0.i.i, -53
   %or.cond = icmp ult i32 %24, 2
   %spec.store.select = select i1 %or.cond, i32 2, i32 1
@@ -7169,8 +7169,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

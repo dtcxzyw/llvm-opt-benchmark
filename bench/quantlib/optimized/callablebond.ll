@@ -5012,7 +5012,7 @@ ehcleanup67:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %sw.bb28, %sw.bb
-  %dirtyTargetPrice.0 = phi double [ %add, %sw.bb28 ], [ %call27, %sw.bb ]
+  %dirtyTargetPrice.0 = phi double [ %call27, %sw.bb ], [ %add, %sw.bb28 ]
   %faceAmount_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %46 = load double, ptr %faceAmount_, align 8, !tbaa !66
   %mul = fmul double %dirtyTargetPrice.0, %46
@@ -7876,12 +7876,12 @@ call2.i.i193.i.noexc:                             ; preds = %_ZNK8QuantLib12_GLO
   br label %if.end141.i
 
 if.end141.i:                                      ; preds = %call2.i.i193.i.noexc, %call2.i.i171.i.noexc, %if.else111.i, %call2.i.i149.i.noexc, %call2.i.i127.i.noexc
-  %solver.sroa.31.6 = phi double [ %solver.sroa.31.1, %call2.i.i127.i.noexc ], [ %97, %call2.i.i149.i.noexc ], [ %solver.sroa.31.1, %if.else111.i ], [ %103, %call2.i.i193.i.noexc ], [ %solver.sroa.31.1, %call2.i.i171.i.noexc ]
-  %solver.sroa.14.5 = phi double [ %94, %call2.i.i127.i.noexc ], [ %solver.sroa.14.1, %call2.i.i149.i.noexc ], [ %solver.sroa.14.1, %if.else111.i ], [ %solver.sroa.14.1, %call2.i.i193.i.noexc ], [ %100, %call2.i.i171.i.noexc ]
-  %solver.sroa.78.2 = phi i64 [ %solver.sroa.78.0, %call2.i.i127.i.noexc ], [ %solver.sroa.78.0, %call2.i.i149.i.noexc ], [ %solver.sroa.78.0, %if.else111.i ], [ %solver.sroa.78.0, %call2.i.i193.i.noexc ], [ %inc.i, %call2.i.i171.i.noexc ]
-  %solver.sroa.59.6 = phi double [ %solver.sroa.59.1, %call2.i.i127.i.noexc ], [ %sub.i150.i, %call2.i.i149.i.noexc ], [ %solver.sroa.59.1, %if.else111.i ], [ %sub.i194.i, %call2.i.i193.i.noexc ], [ %solver.sroa.59.1, %call2.i.i171.i.noexc ]
-  %solver.sroa.47.5 = phi double [ %sub.i128.i, %call2.i.i127.i.noexc ], [ %solver.sroa.47.1, %call2.i.i149.i.noexc ], [ %solver.sroa.47.1, %if.else111.i ], [ %solver.sroa.47.1, %call2.i.i193.i.noexc ], [ %sub.i172.i, %call2.i.i171.i.noexc ]
-  %flipflop.1.i = phi i32 [ %flipflop.067.i, %call2.i.i127.i.noexc ], [ %flipflop.067.i, %call2.i.i149.i.noexc ], [ 0, %if.else111.i ], [ -1, %call2.i.i193.i.noexc ], [ 1, %call2.i.i171.i.noexc ]
+  %solver.sroa.31.6 = phi double [ %solver.sroa.31.1, %call2.i.i127.i.noexc ], [ %97, %call2.i.i149.i.noexc ], [ %solver.sroa.31.1, %if.else111.i ], [ %solver.sroa.31.1, %call2.i.i171.i.noexc ], [ %103, %call2.i.i193.i.noexc ]
+  %solver.sroa.14.5 = phi double [ %94, %call2.i.i127.i.noexc ], [ %solver.sroa.14.1, %call2.i.i149.i.noexc ], [ %solver.sroa.14.1, %if.else111.i ], [ %100, %call2.i.i171.i.noexc ], [ %solver.sroa.14.1, %call2.i.i193.i.noexc ]
+  %solver.sroa.78.2 = phi i64 [ %solver.sroa.78.0, %call2.i.i127.i.noexc ], [ %solver.sroa.78.0, %call2.i.i149.i.noexc ], [ %solver.sroa.78.0, %if.else111.i ], [ %inc.i, %call2.i.i171.i.noexc ], [ %solver.sroa.78.0, %call2.i.i193.i.noexc ]
+  %solver.sroa.59.6 = phi double [ %solver.sroa.59.1, %call2.i.i127.i.noexc ], [ %sub.i150.i, %call2.i.i149.i.noexc ], [ %solver.sroa.59.1, %if.else111.i ], [ %solver.sroa.59.1, %call2.i.i171.i.noexc ], [ %sub.i194.i, %call2.i.i193.i.noexc ]
+  %solver.sroa.47.5 = phi double [ %sub.i128.i, %call2.i.i127.i.noexc ], [ %solver.sroa.47.1, %call2.i.i149.i.noexc ], [ %solver.sroa.47.1, %if.else111.i ], [ %sub.i172.i, %call2.i.i171.i.noexc ], [ %solver.sroa.47.1, %call2.i.i193.i.noexc ]
+  %flipflop.1.i = phi i32 [ %flipflop.067.i, %call2.i.i127.i.noexc ], [ %flipflop.067.i, %call2.i.i149.i.noexc ], [ 0, %if.else111.i ], [ 1, %call2.i.i171.i.noexc ], [ -1, %call2.i.i193.i.noexc ]
   %inc143.i = add i64 %solver.sroa.78.2, 1
   %cmp60.not.i = icmp ugt i64 %inc143.i, %maxIterations
   br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !171

@@ -41,7 +41,7 @@ define internal i32 @misc4_parse(ptr noundef readonly captures(none) %0, ptr nou
   br label %20
 
 20:                                               ; preds = %19, %18, %15
-  %.025 = phi i32 [ 0, %15 ], [ 690, %19 ], [ 283, %18 ]
+  %.025 = phi i32 [ 0, %15 ], [ 283, %18 ], [ 690, %19 ]
   %21 = icmp sgt i32 %5, 0
   br i1 %21, label %.lr.ph.preheader, label %.loopexit
 

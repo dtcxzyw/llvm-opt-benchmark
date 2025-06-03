@@ -1871,7 +1871,7 @@ define dso_local void @_ZN4pbrt18SurfaceInteraction7GetBSDFERKNS_15RayDifferenti
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %32, %34, %36, %41, %43, %45, %47, %51, %53
-  %.0.i.i.i = phi i32 [ %54, %53 ], [ %52, %51 ], [ %50, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0.i.i.i = phi i32 [ %54, %53 ], [ %33, %32 ], [ %35, %34 ], [ %40, %36 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %50, %47 ], [ %52, %51 ]
   call void @_ZN4pbrt18SurfaceInteraction20ComputeDifferentialsERKNS_15RayDifferentialENS_6CameraEi(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(92) %2, ptr noundef nonnull %17, i32 noundef %.0.i.i.i)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %56 = load i64, ptr %55, align 8, !tbaa !120
@@ -2164,8 +2164,8 @@ _ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
 _ZNK4pbrt8Material12GetNormalMapEv.exit:          ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144, %129, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %146, %149, %152, %155, %157, %160, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i136 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i157, %160 ], [ %storemerge.i.sink.i.i.i152, %157 ], [ %storemerge.i.sink.i.i.i143, %152 ], [ %storemerge.i.sink.i.i.i140, %149 ], [ %storemerge.i.sink.i.i.i137, %146 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ 0, %129 ], [ %137, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %storemerge.i.i.i.i, %155 ], [ %139, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
-  %.0.i.i.i62 = phi ptr [ %.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %162, %160 ], [ %159, %157 ], [ %154, %152 ], [ %151, %149 ], [ %148, %146 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ null, %129 ], [ %.pre163, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %156, %155 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
+  %storemerge.i.sink.i.i.i136 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i137, %146 ], [ %storemerge.i.sink.i.i.i140, %149 ], [ %storemerge.i.sink.i.i.i143, %152 ], [ %storemerge.i.sink.i.i.i152, %157 ], [ %storemerge.i.sink.i.i.i157, %160 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ 0, %129 ], [ %137, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %storemerge.i.i.i.i, %155 ], [ %139, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
+  %.0.i.i.i62 = phi ptr [ %.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %159, %157 ], [ %162, %160 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ null, %129 ], [ %.pre163, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %156, %155 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
   %163 = and i64 %storemerge.i.sink.i.i.i136, 144115188075855871
   %164 = icmp ne i64 %163, 0
   %165 = icmp ne ptr %.0.i.i.i62, null
@@ -8610,7 +8610,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -9437,7 +9437,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Samp
   br label %58
 
 58:                                               ; preds = %43, %41, %39, %33, %31, %25, %23, %6, %4
-  %.0 = phi float [ %57, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %33 ], [ %32, %31 ], [ %30, %25 ], [ %24, %23 ], [ %.sroa.speculated.i.i.i, %6 ], [ %5, %4 ]
+  %.0 = phi float [ %57, %43 ], [ %5, %4 ], [ %.sroa.speculated.i.i.i, %6 ], [ %24, %23 ], [ %30, %25 ], [ %32, %31 ], [ %38, %33 ], [ %40, %39 ], [ %42, %41 ]
   ret float %.0
 }
 
@@ -11475,7 +11475,7 @@ _ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = 
   br label %84
 
 84:                                               ; preds = %63, %61, %59, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, %45, %37, %35, %6, %4
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %62, %61 ], [ %60, %59 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %5, %4 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %5, %4 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %60, %59 ], [ %62, %61 ]
   ret <2 x float> %.sroa.0.0
 }
 
@@ -22767,7 +22767,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; pred
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit: ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %72, %42, %39, %18, %14, %6, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %23, %4
-  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %26, %23 ], [ %5, %4 ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
+  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %26, %23 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
   ret float %.0
 }
 

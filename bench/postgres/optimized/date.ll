@@ -264,7 +264,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr noundef cap
   br label %61
 
 61:                                               ; preds = %22, %53, %55, %44, %46, %58, %26, %25, %.thread
-  %.0 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ -2147483648, %25 ], [ %60, %58 ], [ 0, %46 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 2147483647, %22 ]
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ %60, %58 ], [ -2147483648, %25 ], [ 0, %46 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 2147483647, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8) #16
@@ -1272,7 +1272,7 @@ date2timestamp_opt_overflow.exit:                 ; preds = %4
   %10 = select i1 %9, i32 -1, i32 1
   br label %13
 
-11:                                               ; preds = %6, %3, %2
+11:                                               ; preds = %6, %2, %3
   %.010.i.ph = phi i64 [ -9223372036854775808, %2 ], [ %8, %6 ], [ 9223372036854775807, %3 ]
   %12 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph, i64 noundef %1) #16
   br label %13
@@ -1619,7 +1619,7 @@ define dso_local i32 @date_cmp_timestamptz_internal(i32 noundef %0, i64 noundef 
   %29 = select i1 %28, i32 1, i32 -1
   br label %32
 
-30:                                               ; preds = %2, %4, %7
+30:                                               ; preds = %4, %2, %7
   %.0.i.ph.ph = phi i64 [ 9223372036854775807, %4 ], [ %20, %7 ], [ -9223372036854775808, %2 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #16
   %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph, i64 noundef %1) #16
@@ -3318,13 +3318,13 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   unreachable
 
 173:                                              ; preds = %128, %136, %159, %119, %123, %109, %113, %100, %103, %92, %94, %142, %126, %83, %77, %74, %71
-  %.041 = phi i64 [ %151, %142 ], [ %spec.store.select, %136 ], [ %127, %126 ], [ %122, %119 ], [ %125, %123 ], [ %112, %109 ], [ %115, %113 ], [ %102, %100 ], [ %105, %103 ], [ %93, %92 ], [ %96, %94 ], [ %88, %83 ], [ %82, %77 ], [ %76, %74 ], [ %73, %71 ], [ %162, %159 ], [ %spec.select, %128 ]
+  %.041 = phi i64 [ %73, %71 ], [ %76, %74 ], [ %82, %77 ], [ %88, %83 ], [ %93, %92 ], [ %96, %94 ], [ %102, %100 ], [ %105, %103 ], [ %112, %109 ], [ %115, %113 ], [ %122, %119 ], [ %125, %123 ], [ %127, %126 ], [ %spec.store.select, %136 ], [ %151, %142 ], [ %162, %159 ], [ %spec.select, %128 ]
   %174 = call ptr @int64_to_numeric(i64 noundef %.041) #16
   %175 = ptrtoint ptr %174 to i64
   br label %176
 
 176:                                              ; preds = %173, %57, %52, %49
-  %.0 = phi i64 [ %56, %52 ], [ %61, %57 ], [ 0, %49 ], [ %175, %173 ]
+  %.0 = phi i64 [ 0, %49 ], [ %56, %52 ], [ %61, %57 ], [ %175, %173 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
@@ -4864,7 +4864,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   unreachable
 
 110:                                              ; preds = %42, %87, %54
-  %.140 = phi i64 [ %44, %87 ], [ %58, %54 ], [ %47, %42 ]
+  %.140 = phi i64 [ %58, %54 ], [ %44, %87 ], [ %47, %42 ]
   br i1 %1, label %111, label %114
 
 111:                                              ; preds = %110
@@ -4877,8 +4877,8 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %116 = bitcast double %115 to i64
   br label %.thread
 
-.thread:                                          ; preds = %67, %60, %81, %74, %114, %111, %101, %98
-  %.1 = phi i64 [ %113, %111 ], [ %116, %114 ], [ %100, %98 ], [ %104, %101 ], [ %72, %67 ], [ %66, %60 ], [ %86, %81 ], [ %80, %74 ]
+.thread:                                          ; preds = %81, %74, %67, %60, %114, %111, %101, %98
+  %.1 = phi i64 [ %113, %111 ], [ %116, %114 ], [ %100, %98 ], [ %104, %101 ], [ %86, %81 ], [ %80, %74 ], [ %72, %67 ], [ %66, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret i64 %.1
 }
@@ -6378,7 +6378,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   unreachable
 
 136:                                              ; preds = %43, %103, %70, %66, %61, %58
-  %.142.ph = phi i64 [ %60, %58 ], [ %65, %61 ], [ %69, %66 ], [ %74, %70 ], [ %46, %103 ], [ %49, %43 ]
+  %.142.ph = phi i64 [ %46, %103 ], [ %74, %70 ], [ %69, %66 ], [ %65, %61 ], [ %60, %58 ], [ %49, %43 ]
   br i1 %1, label %137, label %140
 
 137:                                              ; preds = %136
@@ -6392,7 +6392,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   br label %143
 
 143:                                              ; preds = %76, %83, %90, %97, %140, %137, %123, %115
-  %.1 = phi i64 [ %139, %137 ], [ %142, %140 ], [ %122, %115 ], [ %130, %123 ], [ %96, %90 ], [ %102, %97 ], [ %82, %76 ], [ %88, %83 ]
+  %.1 = phi i64 [ %139, %137 ], [ %142, %140 ], [ %122, %115 ], [ %130, %123 ], [ %82, %76 ], [ %88, %83 ], [ %96, %90 ], [ %102, %97 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   ret i64 %.1
 }

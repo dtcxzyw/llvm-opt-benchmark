@@ -661,7 +661,7 @@ define void @_ZNK5boost4urls13url_view_base16encoded_passwordEv(ptr dead_on_unwi
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.sroa.0.0 = phi ptr [ %6, %2 ], [ %9, %8 ]
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %6, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !45, !alias.scope !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)

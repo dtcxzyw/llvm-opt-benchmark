@@ -4019,7 +4019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   resume { ptr, i32 } %23
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit: ; preds = %5, %8, %12, %16
-  %.04.in.i = phi ptr [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.04.in.i = phi ptr [ %7, %5 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   %.04.i = load ptr, ptr %.04.in.i, align 8, !tbaa !193
   %30 = load float, ptr %.04.i, align 4, !tbaa !168
   %31 = fcmp uno float %30, 0.000000e+00
@@ -4109,7 +4109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %23
 
 30:                                               ; preds = %16, %12, %8, %5
-  %.04.in = phi ptr [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.04.in = phi ptr [ %7, %5 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   %.04 = load ptr, ptr %.04.in, align 8, !tbaa !193
   ret ptr %.04
 }
@@ -6347,7 +6347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   resume { ptr, i32 } %23
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit: ; preds = %5, %8, %12, %16
-  %.04.in.i = phi ptr [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.04.in.i = phi ptr [ %7, %5 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   %.04.i = load ptr, ptr %.04.in.i, align 8, !tbaa !193
   ret ptr %.04.i
 }
@@ -6422,7 +6422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   resume { ptr, i32 } %23
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit: ; preds = %5, %8, %12, %16
-  %.04.in.i = phi ptr [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.04.in.i = phi ptr [ %7, %5 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   %.04.i = load ptr, ptr %.04.in.i, align 8, !tbaa !193
   ret ptr %.04.i
 }
@@ -6497,7 +6497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   resume { ptr, i32 } %23
 
 _ZN2cv7details10Chessboard5Board9PointIterdeEv.exit: ; preds = %5, %8, %12, %16
-  %.04.in.i.i = phi ptr [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %5 ]
+  %.04.in.i.i = phi ptr [ %7, %5 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ]
   %.04.i.i = load ptr, ptr %.04.in.i.i, align 8, !tbaa !193
   ret ptr %.04.i.i
 }
@@ -15905,7 +15905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   br label %59
 
 .thread:                                          ; preds = %29, %.preheader._crit_edge, %39, %._crit_edge114
-  %.136.in = phi ptr [ %32, %._crit_edge114 ], [ %40, %39 ], [ %38, %.preheader._crit_edge ], [ %31, %29 ]
+  %.136.in = phi ptr [ %32, %._crit_edge114 ], [ %38, %.preheader._crit_edge ], [ %40, %39 ], [ %31, %29 ]
   %.136 = load ptr, ptr %.136.in, align 8, !tbaa !193
   ret ptr %.136
 
@@ -21294,8 +21294,8 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %74, %5
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge.i.i.i
-  %49 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %44, %46 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %44, %46 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %50 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !213
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit, label %52
@@ -21305,8 +21305,8 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %74, %5
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge._crit_edge57.i.i.i
-  %55 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %49, %52 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %53, %52 ]
+  %55 = phi ptr [ %49, %52 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %56 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !213
   %57 = icmp eq ptr %56, %55
   %spec.select.i.i.i = select i1 %57, ptr %.sroa.032.2.i.i.i, ptr %12
@@ -21492,8 +21492,8 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %76, %_ZN2cv
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge.i.i.i
-  %51 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %48 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %49, %48 ]
+  %51 = phi ptr [ %46, %48 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %52 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !213
   %53 = icmp eq ptr %52, %51
   br i1 %53, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit, label %54
@@ -21503,8 +21503,8 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %76, %_ZN2cv
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge._crit_edge57.i.i.i
-  %57 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %51, %54 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %55, %54 ]
+  %57 = phi ptr [ %51, %54 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %58 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !213
   %59 = icmp eq ptr %58, %57
   %spec.select.i.i.i = select i1 %59, ptr %.sroa.032.2.i.i.i, ptr %14
@@ -21679,8 +21679,8 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %74, %5
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge.i.i.i
-  %49 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %44, %46 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %44, %46 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %50 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !213
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit, label %52
@@ -21690,8 +21690,8 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %74, %5
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge._crit_edge57.i.i.i
-  %55 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %49, %52 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %53, %52 ]
+  %55 = phi ptr [ %49, %52 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %53, %52 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %56 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !213
   %57 = icmp eq ptr %56, %55
   %spec.select.i.i.i = select i1 %57, ptr %.sroa.032.2.i.i.i, ptr %12
@@ -21877,8 +21877,8 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %76, %_ZN2cv7
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge.i.i.i
-  %51 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %48 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %49, %48 ]
+  %51 = phi ptr [ %46, %48 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %52 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !213
   %53 = icmp eq ptr %52, %51
   br i1 %53, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN2cv7details10Chessboard5Board4CellESt6vectorIS7_SaIS7_EEEES7_ET_SD_SD_RKT0_.exit, label %54
@@ -21888,8 +21888,8 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %76, %_ZN2cv7
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge._crit_edge57.i.i.i
-  %57 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %51, %54 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %55, %54 ]
+  %57 = phi ptr [ %51, %54 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %58 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !213
   %59 = icmp eq ptr %58, %57
   %spec.select.i.i.i = select i1 %59, ptr %.sroa.032.2.i.i.i, ptr %14
@@ -22140,10 +22140,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   br label %68
 
 68:                                               ; preds = %66, %64
-  %.04.i.i122135149159174.ph201 = phi ptr [ %.04.i.i122, %66 ], [ %.04.i.i130, %64 ]
-  %.04.i.i26151157176.ph199 = phi ptr [ %.04.i.i26, %66 ], [ %.04.i.i26146, %64 ]
-  %.04.i.i45178.ph197 = phi ptr [ %.04.i.i45, %66 ], [ %.04.i.i45171, %64 ]
-  %.04.in.i.i63 = phi ptr [ %67, %66 ], [ %65, %64 ]
+  %.04.i.i122135149159174.ph201 = phi ptr [ %.04.i.i130, %64 ], [ %.04.i.i122, %66 ]
+  %.04.i.i26151157176.ph199 = phi ptr [ %.04.i.i26146, %64 ], [ %.04.i.i26, %66 ]
+  %.04.i.i45178.ph197 = phi ptr [ %.04.i.i45171, %64 ], [ %.04.i.i45, %66 ]
+  %.04.in.i.i63 = phi ptr [ %65, %64 ], [ %67, %66 ]
   %.04.i.i64 = load ptr, ptr %.04.in.i.i63, align 8, !tbaa !193
   %69 = invoke noundef zeroext i1 @_ZN2cv7details10Chessboard5Board13estimatePointERKNS_6Point_IfEES6_S6_S6_RS4_(ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i64, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i45178.ph197, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i26151157176.ph199, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i122135149159174.ph201, ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %74 unwind label %.body50.loopexit
@@ -22864,10 +22864,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   br label %_ZN2cv7details10Chessboard5Board9PointIterdeEv.exit104
 
 _ZN2cv7details10Chessboard5Board9PointIterdeEv.exit104: ; preds = %67, %69
-  %.04.i.i176189203213228.ph258 = phi ptr [ %.04.i.i176, %69 ], [ %.04.i.i184, %67 ]
-  %.04.i.i59205211230.ph256 = phi ptr [ %.04.i.i59, %69 ], [ %.04.i.i59200, %67 ]
-  %.04.i.i78232.ph254 = phi ptr [ %.04.i.i78, %69 ], [ %.04.i.i78225, %67 ]
-  %.04.in.i.i96 = phi ptr [ %70, %69 ], [ %68, %67 ]
+  %.04.i.i176189203213228.ph258 = phi ptr [ %.04.i.i184, %67 ], [ %.04.i.i176, %69 ]
+  %.04.i.i59205211230.ph256 = phi ptr [ %.04.i.i59200, %67 ], [ %.04.i.i59, %69 ]
+  %.04.i.i78232.ph254 = phi ptr [ %.04.i.i78225, %67 ], [ %.04.i.i78, %69 ]
+  %.04.in.i.i96 = phi ptr [ %68, %67 ], [ %70, %69 ]
   %.04.i.i97 = load ptr, ptr %.04.in.i.i96, align 8, !tbaa !193
   br label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit95
 
@@ -23434,10 +23434,10 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
   br label %52
 
 52:                                               ; preds = %50, %48
-  %.04.i.i122135149159174.ph201 = phi ptr [ %.04.i.i130, %50 ], [ %.04.i.i122.ph, %48 ]
-  %.04.i.i26151157176.ph199 = phi ptr [ %.04.i.i26146, %50 ], [ %.04.i.i26, %48 ]
-  %.04.i.i45178.ph197 = phi ptr [ %.04.i.i45171, %50 ], [ %.04.i.i45, %48 ]
-  %.04.in.i.i63 = phi ptr [ %51, %50 ], [ %49, %48 ]
+  %.04.i.i122135149159174.ph201 = phi ptr [ %.04.i.i122.ph, %48 ], [ %.04.i.i130, %50 ]
+  %.04.i.i26151157176.ph199 = phi ptr [ %.04.i.i26, %48 ], [ %.04.i.i26146, %50 ]
+  %.04.i.i45178.ph197 = phi ptr [ %.04.i.i45, %48 ], [ %.04.i.i45171, %50 ]
+  %.04.in.i.i63 = phi ptr [ %49, %48 ], [ %51, %50 ]
   %.04.i.i64 = load ptr, ptr %.04.in.i.i63, align 8, !tbaa !193
   %53 = invoke noundef zeroext i1 @_ZN2cv7details10Chessboard5Board13estimatePointERKNS_6Point_IfEES6_S6_S6_RS4_(ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i64, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i45178.ph197, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i26151157176.ph199, ptr noundef nonnull align 4 dereferenceable(8) %.04.i.i122135149159174.ph201, ptr noundef nonnull align 4 dereferenceable(8) %5)
           to label %57 unwind label %.body50.loopexit
@@ -24071,10 +24071,10 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
   br label %_ZN2cv7details10Chessboard5Board9PointIterdeEv.exit103
 
 _ZN2cv7details10Chessboard5Board9PointIterdeEv.exit103: ; preds = %51, %53
-  %.04.i.i175188202212227.ph257 = phi ptr [ %.04.i.i183, %53 ], [ %.04.i.i175.ph, %51 ]
-  %.04.i.i58204210229.ph255 = phi ptr [ %.04.i.i58199, %53 ], [ %.04.i.i58, %51 ]
-  %.04.i.i77231.ph253 = phi ptr [ %.04.i.i77224, %53 ], [ %.04.i.i77, %51 ]
-  %.04.in.i.i95 = phi ptr [ %54, %53 ], [ %52, %51 ]
+  %.04.i.i175188202212227.ph257 = phi ptr [ %.04.i.i175.ph, %51 ], [ %.04.i.i183, %53 ]
+  %.04.i.i58204210229.ph255 = phi ptr [ %.04.i.i58, %51 ], [ %.04.i.i58199, %53 ]
+  %.04.i.i77231.ph253 = phi ptr [ %.04.i.i77, %51 ], [ %.04.i.i77224, %53 ]
+  %.04.in.i.i95 = phi ptr [ %52, %51 ], [ %54, %53 ]
   %.04.i.i96 = load ptr, ptr %.04.in.i.i95, align 8, !tbaa !193
   br label %_ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit94
 
@@ -24587,9 +24587,9 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %_ZN2cv7deta
   %.04.i.i32160 = load ptr, ptr %.sroa.11124.1.ph, align 8, !tbaa !193
   %42 = load ptr, ptr %34, align 8, !tbaa !187
   %.not.i41 = icmp eq ptr %42, null
-  %.sroa.1799.1175.ph = select i1 %.not.i41, ptr %.sroa.11124.1.ph, ptr %42
-  %.04.i.i51186 = load ptr, ptr %.sroa.1799.1175.ph, align 8, !tbaa !193
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1799.1175.ph, i64 32
+  %.sroa.1799.1176.ph = select i1 %.not.i41, ptr %.sroa.11124.1.ph, ptr %42
+  %.04.i.i51186 = load ptr, ptr %.sroa.1799.1176.ph, align 8, !tbaa !193
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1799.1176.ph, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !187
   %.not.i60 = icmp eq ptr %44, null
   br i1 %.not.i60, label %_ZN2cv7details10Chessboard5Board9PointIter4leftEb.exit68, label %52
@@ -24874,9 +24874,9 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit: ; preds = %_ZN2cv7deta
   %.04.i.i64213 = load ptr, ptr %.sroa.11177.1.ph, align 8, !tbaa !193
   %45 = load ptr, ptr %40, align 8, !tbaa !187
   %.not.i73 = icmp eq ptr %45, null
-  %.sroa.17152.1228.ph = select i1 %.not.i73, ptr %.sroa.11177.1.ph, ptr %45
-  %.04.i.i83239 = load ptr, ptr %.sroa.17152.1228.ph, align 8, !tbaa !193
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.17152.1228.ph, i64 32
+  %.sroa.17152.1229.ph = select i1 %.not.i73, ptr %.sroa.11177.1.ph, ptr %45
+  %.04.i.i83239 = load ptr, ptr %.sroa.17152.1229.ph, align 8, !tbaa !193
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.17152.1229.ph, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !187
   %.not.i92 = icmp eq ptr %47, null
   br i1 %.not.i92, label %_ZN2cv7details10Chessboard5Board9PointIter4leftEb.exit100, label %_ZN2cv7details10Chessboard5Board9PointIterdeEv.exit109
@@ -25413,9 +25413,9 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
   %.04.i.i32160 = load ptr, ptr %.sroa.11124.1.ph, align 8, !tbaa !193
   %42 = load ptr, ptr %37, align 8, !tbaa !185
   %.not.i41 = icmp eq ptr %42, null
-  %.sroa.1799.1175.ph = select i1 %.not.i41, ptr %.sroa.11124.1.ph, ptr %42
-  %.04.i.i51186 = load ptr, ptr %.sroa.1799.1175.ph, align 8, !tbaa !193
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1799.1175.ph, i64 40
+  %.sroa.1799.1176.ph = select i1 %.not.i41, ptr %.sroa.11124.1.ph, ptr %42
+  %.04.i.i51186 = load ptr, ptr %.sroa.1799.1176.ph, align 8, !tbaa !193
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1799.1176.ph, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !185
   %.not.i60 = icmp eq ptr %44, null
   br i1 %.not.i60, label %_ZN2cv7details10Chessboard5Board9PointIter3topEb.exit68, label %52
@@ -25698,9 +25698,9 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %_ZN2cv7detai
   %.04.i.i64213 = load ptr, ptr %.sroa.11177.1.ph, align 8, !tbaa !193
   %45 = load ptr, ptr %43, align 8, !tbaa !185
   %.not.i73 = icmp eq ptr %45, null
-  %.sroa.17152.1228.ph = select i1 %.not.i73, ptr %.sroa.11177.1.ph, ptr %45
-  %.04.i.i83239 = load ptr, ptr %.sroa.17152.1228.ph, align 8, !tbaa !193
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.17152.1228.ph, i64 40
+  %.sroa.17152.1229.ph = select i1 %.not.i73, ptr %.sroa.11177.1.ph, ptr %45
+  %.04.i.i83239 = load ptr, ptr %.sroa.17152.1229.ph, align 8, !tbaa !193
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.17152.1229.ph, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !185
   %.not.i92 = icmp eq ptr %47, null
   br i1 %.not.i92, label %_ZN2cv7details10Chessboard5Board9PointIter3topEb.exit100, label %_ZN2cv7details10Chessboard5Board9PointIterdeEv.exit109
@@ -27043,7 +27043,7 @@ _ZN2cv7details10Chessboard5Board9PointIter6bottomEb.exit.outer.backedge: ; preds
   br label %_ZN2cv7details10Chessboard5Board9PointIterdeEv.exit
 
 _ZN2cv7details10Chessboard5Board9PointIterdeEv.exit: ; preds = %.critedge33, %66, %68, %70
-  %.04.in.i.i = phi ptr [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %.ph, %.critedge33 ]
+  %.04.in.i.i = phi ptr [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %.ph, %.critedge33 ]
   %.04.i.i = load ptr, ptr %.04.in.i.i, align 8, !tbaa !193
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -27109,7 +27109,7 @@ default.unreachable237:                           ; preds = %83
   unreachable
 
 90:                                               ; preds = %88, %86, %84, %83
-  %.04.in.i.i46 = phi ptr [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %76, %83 ]
+  %.04.in.i.i46 = phi ptr [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %76, %83 ]
   %.04.i.i47 = load ptr, ptr %.04.in.i.i46, align 8, !tbaa !193
   %91 = load ptr, ptr %73, align 8, !tbaa !246
   %.not.i55 = icmp eq ptr %75, %91
@@ -27220,7 +27220,7 @@ default.unreachable238:                           ; preds = %119
   unreachable
 
 126:                                              ; preds = %124, %122, %120, %119
-  %.04.in.i.i58 = phi ptr [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %76, %119 ]
+  %.04.in.i.i58 = phi ptr [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %76, %119 ]
   %.04.i.i59 = load ptr, ptr %.04.in.i.i58, align 8, !tbaa !193
   %127 = load ptr, ptr %73, align 8, !tbaa !246
   %.not.i67 = icmp eq ptr %75, %127
@@ -27323,7 +27323,7 @@ default.unreachable239:                           ; preds = %155
   unreachable
 
 162:                                              ; preds = %160, %158, %156, %155
-  %.04.in.i.i83 = phi ptr [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %76, %155 ]
+  %.04.in.i.i83 = phi ptr [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %76, %155 ]
   %.04.i.i84 = load ptr, ptr %.04.in.i.i83, align 8, !tbaa !193
   %163 = load ptr, ptr %73, align 8, !tbaa !246
   %.not.i92 = icmp eq ptr %75, %163
@@ -27426,7 +27426,7 @@ default.unreachable240:                           ; preds = %191
   unreachable
 
 198:                                              ; preds = %196, %194, %192, %191
-  %.04.in.i.i108 = phi ptr [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %76, %191 ]
+  %.04.in.i.i108 = phi ptr [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %76, %191 ]
   %.04.i.i109 = load ptr, ptr %.04.in.i.i108, align 8, !tbaa !193
   %199 = load ptr, ptr %73, align 8, !tbaa !246
   %.not.i117 = icmp eq ptr %75, %199
@@ -27568,8 +27568,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i136: ; preds =
   br label %.body41
 
 247:                                              ; preds = %234, %231, %228, %226
-  %248 = phi ptr [ %235, %234 ], [ %232, %231 ], [ %229, %228 ], [ %227, %226 ]
-  %.04.in.i.i133 = phi ptr [ %236, %234 ], [ %233, %231 ], [ %230, %228 ], [ %227, %226 ]
+  %248 = phi ptr [ %227, %226 ], [ %229, %228 ], [ %232, %231 ], [ %235, %234 ]
+  %.04.in.i.i133 = phi ptr [ %227, %226 ], [ %230, %228 ], [ %233, %231 ], [ %236, %234 ]
   %.04.i.i134 = load ptr, ptr %.04.in.i.i133, align 8, !tbaa !193
   %.not27 = icmp eq ptr %.04.i.i134, %.04.i.i
   br i1 %.not27, label %.critedge.loopexit, label %74, !llvm.loop !659

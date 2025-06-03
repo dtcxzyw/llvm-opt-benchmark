@@ -5149,7 +5149,7 @@ define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noun
   br label %60
 
 60:                                               ; preds = %48, %52, %56, %30, %39, %43, %47, %34
-  %.030 = phi ptr [ %35, %39 ], [ %35, %47 ], [ @executor_globals, %43 ], [ %35, %34 ], [ %29, %30 ], [ null, %48 ], [ %59, %56 ], [ @executor_globals, %52 ]
+  %.030 = phi ptr [ %35, %39 ], [ @executor_globals, %43 ], [ %35, %47 ], [ %35, %34 ], [ %29, %30 ], [ null, %48 ], [ @executor_globals, %52 ], [ %59, %56 ]
   %.val = load ptr, ptr %5, align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val41 = load i8, ptr %61, align 8, !tbaa !65, !range !66, !noundef !67
@@ -5215,7 +5215,7 @@ define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noun
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %72, %67, %63, %60, %78, %81, %84, %73, %4, %10, %24, %20
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %10 ], [ @executor_globals, %4 ], [ null, %78 ], [ %87, %84 ], [ @executor_globals, %81 ], [ %76, %73 ], [ %.030, %60 ], [ %.030, %63 ], [ %.030, %67 ], [ %.030, %72 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %10 ], [ @executor_globals, %4 ], [ null, %78 ], [ @executor_globals, %81 ], [ %87, %84 ], [ %76, %73 ], [ %.030, %60 ], [ %.030, %63 ], [ %.030, %67 ], [ %.030, %72 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
   ret ptr %.0
 }

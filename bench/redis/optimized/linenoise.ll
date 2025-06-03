@@ -2629,7 +2629,7 @@ linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %412, %416, %.lr.ph2
   br label %linenoiseEditBackspace.exit.i.i
 
 .thread.i.i:                                      ; preds = %391, %297, %265, %259, %.loopexit.i.i, %._crit_edge.i.i
-  %.2.ph.i.i = phi i32 [ %229, %.loopexit.i.i ], [ %261, %259 ], [ -1, %265 ], [ -1, %297 ], [ %153, %._crit_edge.i.i ], [ -1, %391 ]
+  %.2.ph.i.i = phi i32 [ %229, %.loopexit.i.i ], [ -1, %297 ], [ -1, %265 ], [ %261, %259 ], [ %153, %._crit_edge.i.i ], [ -1, %391 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #24
   %424 = icmp eq i32 %.2.ph.i.i, -1

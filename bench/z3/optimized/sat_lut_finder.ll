@@ -3285,8 +3285,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi i32 [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load i32, ptr %.1.i.i.i, align 4, !tbaa !10
   %42 = icmp eq i32 %41, %40
   br i1 %42, label %_ZN6vectorIjLb0EjE3endEv.exit5.thread, label %43
@@ -3296,8 +3296,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %2
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge52.i.i.i
-  %46 = phi i32 [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %40, %43 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %44, %43 ]
+  %46 = phi i32 [ %40, %43 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %47 = load i32, ptr %.2.i.i.i, align 4, !tbaa !10
   %48 = icmp eq i32 %47, %46
   %spec.select = select i1 %48, ptr %.2.i.i.i, ptr %8

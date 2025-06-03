@@ -9516,7 +9516,7 @@ common.resume.sink.split:                         ; preds = %55, %72
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %72, %49, %67, %79, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %68, %67 ], [ %35, %79 ], [ %.pn, %49 ], [ %73, %72 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %.pn, %49 ], [ %68, %67 ], [ %35, %79 ], [ %73, %72 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 65:                                               ; preds = %79, %67, %.body7, %49, %.body
@@ -9933,7 +9933,7 @@ common.resume.sink.split:                         ; preds = %55, %72
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %72, %49, %67, %79, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %68, %67 ], [ %35, %79 ], [ %.pn, %49 ], [ %73, %72 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %.pn, %49 ], [ %68, %67 ], [ %35, %79 ], [ %73, %72 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 65:                                               ; preds = %79, %67, %.body7, %49, %.body
@@ -32631,7 +32631,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eeb29a73f6de096E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

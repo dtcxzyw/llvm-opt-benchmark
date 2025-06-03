@@ -14887,7 +14887,7 @@ _ZNK4llvm20GenericSchedulerBase10CandPolicyneERKS1_.exit18.thread: ; preds = %49
   br label %76
 
 76:                                               ; preds = %12, %8, %65
-  %.1 = phi ptr [ %7, %8 ], [ %11, %12 ], [ %74, %65 ]
+  %.1 = phi ptr [ %74, %65 ], [ %11, %12 ], [ %7, %8 ]
   ret ptr %.1
 }
 
@@ -16586,7 +16586,7 @@ _ZNK4llvm20GenericSchedulerBase10CandPolicyneERKS1_.exit18.thread: ; preds = %46
   br label %70
 
 70:                                               ; preds = %12, %8, %59
-  %.1 = phi ptr [ %7, %8 ], [ %11, %12 ], [ %68, %59 ]
+  %.1 = phi ptr [ %68, %59 ], [ %11, %12 ], [ %7, %8 ]
   ret ptr %.1
 }
 

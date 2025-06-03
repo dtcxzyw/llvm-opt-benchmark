@@ -762,7 +762,7 @@ shutdown_flush_done.exit:                         ; preds = %13, %22
   br label %28
 
 28:                                               ; preds = %3, %27, %shutdown_flush_done.exit
-  %.0 = phi i32 [ 1, %shutdown_flush_done.exit ], [ 1, %27 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %27 ], [ 1, %shutdown_flush_done.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -789,7 +789,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr n
   br label %10
 
 10:                                               ; preds = %2, %9, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
 

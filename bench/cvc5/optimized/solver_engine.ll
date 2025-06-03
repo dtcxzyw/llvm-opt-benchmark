@@ -4626,7 +4626,7 @@ _ZN4cvc58internal6ResultD2Ev.exit:                ; preds = %_ZNKSt7__cxx1112bas
   br label %388
 
 201:                                              ; preds = %189, %185, %181
-  %.pn52 = phi { ptr, i32 } [ %190, %189 ], [ %186, %185 ], [ %182, %181 ]
+  %.pn52 = phi { ptr, i32 } [ %190, %189 ], [ %182, %181 ], [ %186, %185 ]
   %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !141
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -15281,8 +15281,8 @@ define void @_ZN4cvc58internal12SolverEngine19getUnsatAssumptionsEv(ptr dead_on_
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge._crit_edge.i.i.i
-  %79 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %74, %76 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %77, %76 ]
+  %79 = phi ptr [ %74, %76 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %77, %76 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %80 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !533
   %81 = icmp eq ptr %80, %79
   br i1 %81, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %82
@@ -15292,8 +15292,8 @@ define void @_ZN4cvc58internal12SolverEngine19getUnsatAssumptionsEv(ptr dead_on_
   br label %84
 
 84:                                               ; preds = %82, %._crit_edge._crit_edge57.i.i.i
-  %85 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %79, %82 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %83, %82 ]
+  %85 = phi ptr [ %79, %82 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %83, %82 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %86 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !533
   %87 = icmp eq ptr %86, %85
   %spec.select.i.i.i = select i1 %87, ptr %.sroa.032.2.i.i.i, ptr %43
@@ -24606,7 +24606,7 @@ define void @_ZN4cvc58internal12SolverEngine10printProofERSoSt10shared_ptrINS0_9
   br label %16
 
 16:                                               ; preds = %15, %7, %5
-  %.0 = phi i32 [ %3, %15 ], [ %14, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ %14, %7 ], [ %3, %15 ], [ 0, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !153
   %19 = load ptr, ptr %2, align 8, !tbaa !694

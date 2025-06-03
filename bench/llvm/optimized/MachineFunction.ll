@@ -1013,7 +1013,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %_ZL19getFnStackAlignmentPKN4llvm19TargetSubtargetInfoERKNS_8FunctionE.exit
 
 _ZL19getFnStackAlignmentPKN4llvm19TargetSubtargetInfoERKNS_8FunctionE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit9, %79
-  %.sroa.0.1.i = phi i8 [ %.sroa.0.0.extract.trunc.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit9 ], [ %.sroa.0.0.copyload.i.i, %79 ]
+  %.sroa.0.1.i = phi i8 [ %.sroa.0.0.copyload.i.i, %79 ], [ %.sroa.0.0.extract.trunc.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit9 ]
   %85 = and i1 %47, %54
   %86 = zext i1 %47 to i8
   %87 = zext i1 %85 to i8
@@ -6623,7 +6623,7 @@ _ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_
   br label %_ZN4llvm15MachineFunction12getTypeIDForEPKNS_11GlobalValueE.exit
 
 _ZN4llvm15MachineFunction12getTypeIDForEPKNS_11GlobalValueE.exit: ; preds = %173, %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit.i
-  %.1.i = phi i32 [ %175, %173 ], [ %198, %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit.i ]
+  %.1.i = phi i32 [ %198, %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit.i ], [ %175, %173 ]
   %199 = load i32, ptr %58, align 8, !tbaa !26
   %200 = load i32, ptr %59, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %199, %200
@@ -7326,8 +7326,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12Ca
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit: ; preds = %.loopexit.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPSB_RKT_.exit.i, %12
-  %.sroa.0.1.i.pn = phi ptr [ %14, %12 ], [ %.0.i.ph.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPSB_RKT_.exit.i ], [ %40, %.loopexit.i ]
-  %.sroa.3.1.i.pn = phi ptr [ %14, %12 ], [ %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPSB_RKT_.exit.i ], [ %40, %.loopexit.i ]
+  %.sroa.0.1.i.pn = phi ptr [ %14, %12 ], [ %40, %.loopexit.i ], [ %.0.i.ph.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPSB_RKT_.exit.i ]
+  %.sroa.3.1.i.pn = phi ptr [ %14, %12 ], [ %40, %.loopexit.i ], [ %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_15MachineFunction12CallSiteInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPSB_RKT_.exit.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.pn, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.sroa.3.1.i.pn, 1
   ret { ptr, ptr } %.pn
@@ -9907,7 +9907,7 @@ define dso_local noundef i32 @_ZNK4llvm20MachineJumpTableInfo12getEntrySizeERKNS
   unreachable
 
 9:                                                ; preds = %2, %2, %7, %6, %4
-  %.0 = phi i32 [ 0, %7 ], [ 4, %6 ], [ %5, %4 ], [ 8, %2 ], [ 8, %2 ]
+  %.0 = phi i32 [ %5, %4 ], [ 4, %6 ], [ 0, %7 ], [ 8, %2 ], [ 8, %2 ]
   ret i32 %.0
 }
 
@@ -9951,7 +9951,7 @@ define dso_local noundef i32 @_ZNK4llvm20MachineJumpTableInfo17getEntryAlignment
   unreachable
 
 20:                                               ; preds = %2, %14, %9, %4
-  %.0 = phi i32 [ %18, %14 ], [ %13, %9 ], [ %8, %4 ], [ 1, %2 ]
+  %.0 = phi i32 [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -11577,8 +11577,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

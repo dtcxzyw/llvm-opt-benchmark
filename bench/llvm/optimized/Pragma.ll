@@ -9463,7 +9463,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br label %332
 
 switch.lookup:                                    ; preds = %14, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %14 ]
+  %.0 = phi i1 [ true, %14 ], [ false, %4 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %100, ptr %6, align 8, !tbaa !6

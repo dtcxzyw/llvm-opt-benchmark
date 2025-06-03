@@ -2476,8 +2476,8 @@ select.unfold76:                                  ; preds = %79, %_ZNK5draco58Pr
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17: ; preds = %select.unfold, %90, %select.unfold76
-  %.sroa.7.0 = phi i32 [ %102, %select.unfold76 ], [ %98, %90 ], [ %89, %select.unfold ]
-  %.sroa.029.0 = phi i32 [ %104, %select.unfold76 ], [ %97, %90 ], [ %88, %select.unfold ]
+  %.sroa.7.0 = phi i32 [ %89, %select.unfold ], [ %98, %90 ], [ %102, %select.unfold76 ]
+  %.sroa.029.0 = phi i32 [ %88, %select.unfold ], [ %97, %90 ], [ %104, %select.unfold76 ]
   %.sroa.7.0.insert.ext = zext i32 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.029.0.insert.ext = zext i32 %.sroa.029.0 to i64

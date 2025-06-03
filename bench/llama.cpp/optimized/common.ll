@@ -1068,7 +1068,7 @@ define noundef zeroext i1 @_Z20set_process_priority19ggml_sched_priority(i32 nou
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi i32 [ -20, %4 ], [ -10, %3 ], [ -5, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ -5, %2 ], [ -10, %3 ], [ -20, %4 ], [ 0, %1 ]
   %6 = tail call i32 @setpriority(i32 noundef 0, i32 noundef 0, i32 noundef %.0) #38
   %.not = icmp ne i32 %6, 0
   %7 = load i32, ptr @common_log_verbosity_thold, align 4
@@ -3913,7 +3913,7 @@ _Z21common_token_to_pieceB5cxx11PK13llama_contextib.exit: ; preds = %.noexc27
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %62, %61 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %62, %61 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %64 = load i8, ptr %.sroa.031.1.i.i.i.i, align 1, !tbaa !28
   %65 = zext i8 %64 to i32
   %66 = call i32 @isprint(i32 noundef %65) #42
@@ -3925,7 +3925,7 @@ _Z21common_token_to_pieceB5cxx11PK13llama_contextib.exit: ; preds = %.noexc27
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %68, %67 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %68, %67 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %70 = load i8, ptr %.sroa.031.2.i.i.i.i, align 1, !tbaa !28
   %71 = zext i8 %70 to i32
   %72 = call i32 @isprint(i32 noundef %71) #42
@@ -4497,7 +4497,7 @@ _Z21common_token_to_pieceB5cxx11PK13llama_contextib.exit: ; preds = %.noexc45
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge.i.i.i.i
-  %.sroa.031.1.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %80, %79 ]
+  %.sroa.031.1.i.i.i.i = phi ptr [ %80, %79 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %82 = load i8, ptr %.sroa.031.1.i.i.i.i, align 1, !tbaa !28
   %83 = zext i8 %82 to i32
   %84 = call i32 @isprint(i32 noundef %83) #42
@@ -4509,7 +4509,7 @@ _Z21common_token_to_pieceB5cxx11PK13llama_contextib.exit: ; preds = %.noexc45
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge.i.i.i.i
-  %.sroa.031.2.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %86, %85 ]
+  %.sroa.031.2.i.i.i.i = phi ptr [ %86, %85 ], [ %.sroa.031.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %88 = load i8, ptr %.sroa.031.2.i.i.i.i, align 1, !tbaa !28
   %89 = zext i8 %88 to i32
   %90 = call i32 @isprint(i32 noundef %89) #42
@@ -5712,8 +5712,8 @@ define void @_Z22string_process_escapesRNSt7__cxx1112basic_stringIcSt11char_trai
   br label %65
 
 65:                                               ; preds = %48, %62, %53, %34, %31, %28, %25, %22, %19
-  %.348 = phi i64 [ %14, %53 ], [ %38, %48 ], [ %14, %34 ], [ %14, %31 ], [ %14, %28 ], [ %14, %25 ], [ %14, %22 ], [ %14, %19 ], [ %.04556, %62 ]
-  %.3 = phi i64 [ %59, %53 ], [ %50, %48 ], [ %35, %34 ], [ %32, %31 ], [ %29, %28 ], [ %26, %25 ], [ %23, %22 ], [ %20, %19 ], [ %63, %62 ]
+  %.348 = phi i64 [ %14, %53 ], [ %14, %19 ], [ %14, %22 ], [ %14, %25 ], [ %14, %28 ], [ %14, %31 ], [ %14, %34 ], [ %38, %48 ], [ %.04556, %62 ]
+  %.3 = phi i64 [ %59, %53 ], [ %20, %19 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ %50, %48 ], [ %63, %62 ]
   %66 = add nuw i64 %.348, 1
   %67 = icmp ult i64 %66, %5
   br i1 %67, label %8, label %._crit_edge, !llvm.loop !261
@@ -11782,7 +11782,7 @@ define void @_Z21common_embd_normalizePKfPfii(ptr noundef readonly captures(none
   br i1 %exitcond70.not, label %._crit_edge53, label %23, !llvm.loop !501
 
 30:                                               ; preds = %4, %._crit_edge53, %._crit_edge, %._crit_edge48
-  %.037 = phi double [ %22, %._crit_edge53 ], [ %15, %._crit_edge ], [ %9, %._crit_edge48 ], [ 1.000000e+00, %4 ]
+  %.037 = phi double [ %22, %._crit_edge53 ], [ %9, %._crit_edge48 ], [ %15, %._crit_edge ], [ 1.000000e+00, %4 ]
   %31 = fcmp ogt double %.037, 0.000000e+00
   %32 = fdiv double 1.000000e+00, %.037
   %33 = select i1 %31, double %32, double 0.000000e+00

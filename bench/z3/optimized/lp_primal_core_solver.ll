@@ -6742,7 +6742,7 @@ _ZN8rationalD2Ev.exit51:                          ; preds = %.noexc.i50
   ret i1 %.017
 
 368:                                              ; preds = %359, %245, %139, %78
-  %.pn = phi { ptr, i32 } [ %360, %359 ], [ %246, %245 ], [ %140, %139 ], [ %79, %78 ]
+  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %140, %139 ], [ %360, %359 ], [ %246, %245 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -13498,7 +13498,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp21lp_primal_core_solverI8r
   br label %59
 
 59:                                               ; preds = %24, %10, %2, %58, %52, %46, %28, %14
-  %.0 = phi i1 [ false, %58 ], [ %51, %46 ], [ %57, %52 ], [ %37, %28 ], [ %23, %14 ], [ true, %2 ], [ true, %10 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %58 ], [ %23, %14 ], [ %37, %28 ], [ %51, %46 ], [ %57, %52 ], [ true, %2 ], [ true, %10 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -15566,7 +15566,7 @@ _ZN8rationalD2Ev.exit45:                          ; preds = %.noexc.i44
   ret i1 %.017
 
 296:                                              ; preds = %287, %211, %139, %78
-  %.pn = phi { ptr, i32 } [ %288, %287 ], [ %212, %211 ], [ %140, %139 ], [ %79, %78 ]
+  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %140, %139 ], [ %288, %287 ], [ %212, %211 ]
   resume { ptr, i32 } %.pn
 }
 

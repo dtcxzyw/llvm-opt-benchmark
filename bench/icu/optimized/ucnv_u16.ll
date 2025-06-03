@@ -1343,8 +1343,8 @@ define internal void @_ZL26_UTF16ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %60
 
 60:                                               ; preds = %21, %58, %56, %22
-  %.181 = phi i32 [ %.080111, %21 ], [ 9, %58 ], [ 8, %56 ], [ 1, %22 ]
-  %.1 = phi ptr [ %.0112, %21 ], [ %59, %58 ], [ %57, %56 ], [ %23, %22 ]
+  %.181 = phi i32 [ %.080111, %21 ], [ 1, %22 ], [ 8, %56 ], [ 9, %58 ]
+  %.1 = phi ptr [ %.0112, %21 ], [ %23, %22 ], [ %57, %56 ], [ %59, %58 ]
   %61 = icmp ult ptr %.1, %8
   br i1 %61, label %18, label %.critedge, !llvm.loop !52
 

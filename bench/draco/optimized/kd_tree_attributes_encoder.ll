@@ -3035,7 +3035,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit219:                 ; preds = %_ZNK5draco14PointAt
   br label %.loopexit294
 
 .loopexit294:                                     ; preds = %89, %104, %388, %382, %366, %350, %334, %318, %302, %286, %._crit_edge318
-  %.3 = phi i1 [ true, %388 ], [ false, %382 ], [ false, %366 ], [ false, %350 ], [ false, %334 ], [ false, %318 ], [ false, %302 ], [ false, %286 ], [ false, %._crit_edge318 ], [ false, %104 ], [ false, %89 ]
+  %.3 = phi i1 [ true, %388 ], [ false, %286 ], [ false, %302 ], [ false, %318 ], [ false, %334 ], [ false, %350 ], [ false, %366 ], [ false, %382 ], [ false, %._crit_edge318 ], [ false, %104 ], [ false, %89 ]
   %389 = load ptr, ptr %66, align 8, !tbaa !164
   %.not.i.i.i.i220 = icmp eq ptr %389, null
   br i1 %.not.i.i.i.i220, label %_ZN5draco12PointDVectorIjED2Ev.exit, label %390
@@ -3055,7 +3055,7 @@ _ZN5draco12PointDVectorIjED2Ev.exit:              ; preds = %.loopexit294, %390
   ret i1 %.3
 
 _ZNSt6vectorIiSaIiEED2Ev.exit206:                 ; preds = %225, %_ZNSt6vectorIjSaIjEED2Ev.exit219, %174, %_ZNSt6vectorIjSaIjEED2Ev.exit204.thread, %291, %307, %323, %339, %355, %371, %387
-  %.pn169.pn.pn.pn = phi { ptr, i32 } [ %.pn169.pn, %387 ], [ %.pn172.pn, %371 ], [ %.pn175.pn, %355 ], [ %.pn178.pn, %339 ], [ %.pn181.pn, %323 ], [ %.pn184.pn, %307 ], [ %.pn187.pn, %291 ], [ %175, %174 ], [ %.pn163277, %_ZNSt6vectorIjSaIjEED2Ev.exit204.thread ], [ %246, %_ZNSt6vectorIjSaIjEED2Ev.exit219 ], [ %226, %225 ]
+  %.pn187.pn.pn.pn = phi { ptr, i32 } [ %.pn187.pn, %291 ], [ %.pn184.pn, %307 ], [ %.pn181.pn, %323 ], [ %.pn178.pn, %339 ], [ %.pn175.pn, %355 ], [ %.pn172.pn, %371 ], [ %.pn169.pn, %387 ], [ %175, %174 ], [ %.pn163277, %_ZNSt6vectorIjSaIjEED2Ev.exit204.thread ], [ %246, %_ZNSt6vectorIjSaIjEED2Ev.exit219 ], [ %226, %225 ]
   %396 = load ptr, ptr %66, align 8, !tbaa !164
   %.not.i.i.i.i221 = icmp eq ptr %396, null
   br i1 %.not.i.i.i.i221, label %_ZN5draco12PointDVectorIjED2Ev.exit222, label %397
@@ -3072,7 +3072,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit206:                 ; preds = %225, %_ZNSt6vectorI
 _ZN5draco12PointDVectorIjED2Ev.exit222:           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit206, %397
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #22
-  resume { ptr, i32 } %.pn169.pn.pn.pn
+  resume { ptr, i32 } %.pn187.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7429,7 +7429,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %296, %259, %257, %224, %222, %190, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i117, %.critedge.i115, %.lr.ph39.preheader.i, %.critedge.i103, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %279, %277
-  %.0 = phi i1 [ %280, %279 ], [ %278, %277 ], [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %190 ], [ false, %222 ], [ false, %224 ], [ false, %257 ], [ false, %259 ], [ false, %296 ]
+  %.0 = phi i1 [ %278, %277 ], [ %280, %279 ], [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %190 ], [ false, %222 ], [ false, %224 ], [ false, %257 ], [ false, %259 ], [ false, %296 ]
   ret i1 %.0
 }
 
@@ -8508,7 +8508,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIajEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %293, %256, %254, %222, %220, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i, %.critedge.i116, %.lr.ph37.preheader.i109, %.critedge.i107, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %276, %274
-  %.0 = phi i1 [ %277, %276 ], [ %275, %274 ], [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i107 ], [ true, %.lr.ph37.preheader.i109 ], [ true, %.critedge.i116 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %220 ], [ false, %222 ], [ false, %254 ], [ false, %256 ], [ false, %293 ]
+  %.0 = phi i1 [ %275, %274 ], [ %277, %276 ], [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i107 ], [ true, %.lr.ph37.preheader.i109 ], [ true, %.critedge.i116 ], [ true, %.lr.ph39.preheader.i ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ true, %.critedge.i141 ], [ true, %.lr.ph37.preheader.i143 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ false, %188 ], [ false, %220 ], [ false, %222 ], [ false, %254 ], [ false, %256 ], [ false, %293 ]
   ret i1 %.0
 }
 

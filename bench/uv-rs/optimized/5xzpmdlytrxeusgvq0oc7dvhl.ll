@@ -67,7 +67,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   br label %"_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i"
 
 "_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i": ; preds = %26, %21, %18, %15
-  %.sroa.0.0.i.i.i = phi i8 [ %20, %18 ], [ %31, %26 ], [ %17, %15 ], [ %25, %21 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %25, %21 ], [ %17, %15 ], [ %31, %26 ], [ %20, %18 ]
   %32 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %32, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit", label %35
 
@@ -157,7 +157,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   br label %"_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i.i"
 
 "_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h95c5192f05d6ad0aE.exit.i.i": ; preds = %26, %21, %18, %15
-  %.sroa.0.0.i.i.i.i = phi i8 [ %20, %18 ], [ %31, %26 ], [ %17, %15 ], [ %25, %21 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %25, %21 ], [ %17, %15 ], [ %31, %26 ], [ %20, %18 ]
   %32 = trunc i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %32, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3c51397e9c9c461dE.exit.i", label %35
 

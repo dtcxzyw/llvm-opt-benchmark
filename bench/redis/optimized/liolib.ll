@@ -743,7 +743,7 @@ read_chars.exit62:                                ; preds = %72, %74
   br label %94
 
 .thread:                                          ; preds = %read_number.exit, %60, %read_chars.exit62, %22, %read_chars.exit
-  %.4 = phi i32 [ %26, %22 ], [ %43, %read_chars.exit ], [ %.0.i58, %read_number.exit ], [ %61, %60 ], [ 1, %read_chars.exit62 ]
+  %.4 = phi i32 [ %26, %22 ], [ %43, %read_chars.exit ], [ 1, %read_chars.exit62 ], [ %61, %60 ], [ %.0.i58, %read_number.exit ]
   %78 = add nuw nsw i32 %.14870, 1
   %79 = add nsw i32 %16, -1
   %80 = icmp ne i32 %16, 0

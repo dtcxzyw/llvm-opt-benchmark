@@ -5040,7 +5040,7 @@ sw.epilog:                                        ; preds = %_ZN5boost10shared_p
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup55, %lpad25, %lpad14, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup55 ], [ %62, %lpad25 ], [ %43, %lpad14 ], [ %24, %lpad ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup55 ], [ %43, %lpad14 ], [ %62, %lpad25 ], [ %24, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont45
@@ -6904,7 +6904,7 @@ sw.epilog:                                        ; preds = %_ZN5boost10shared_p
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup55, %lpad25, %lpad14, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup55 ], [ %62, %lpad25 ], [ %43, %lpad14 ], [ %24, %lpad ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup55 ], [ %43, %lpad14 ], [ %62, %lpad25 ], [ %24, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont45

@@ -1305,7 +1305,7 @@ _ZNK5folly14ThreadLocalPtrISt10shared_ptrINS_23MuxIOThreadPoolExecutor8IOThreadE
   br label %_ZN5folly23MuxIOThreadPoolExecutor12pickEvbStateEv.exit
 
 _ZN5folly23MuxIOThreadPoolExecutor12pickEvbStateEv.exit: ; preds = %22, %25
-  %.1.in.i = phi ptr [ %24, %22 ], [ %37, %25 ]
+  %.1.in.i = phi ptr [ %37, %25 ], [ %24, %22 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #30
   call void @_ZN5folly18ThreadPoolExecutor4TaskC1EONS_8FunctionIFvvEEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEES5_a(ptr noundef nonnull align 16 dereferenceable(112) %5, ptr noundef nonnull align 16 dereferenceable(64) %1, i64 %2, ptr noundef nonnull align 16 dereferenceable(64) %3, i8 noundef signext 0)
@@ -3675,7 +3675,7 @@ _ZNK5folly14ThreadLocalPtrISt10shared_ptrINS_23MuxIOThreadPoolExecutor8IOThreadE
   br label %_ZN5folly23MuxIOThreadPoolExecutor12pickEvbStateEv.exit
 
 _ZN5folly23MuxIOThreadPoolExecutor12pickEvbStateEv.exit: ; preds = %15, %18
-  %.1.in.i = phi ptr [ %17, %15 ], [ %30, %18 ]
+  %.1.in.i = phi ptr [ %30, %18 ], [ %17, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8, !tbaa !71
   ret ptr %.1.i
 }
@@ -3829,7 +3829,7 @@ _ZNK5folly14ThreadLocalPtrISt10shared_ptrINS_23MuxIOThreadPoolExecutor8IOThreadE
   br label %_ZN5folly23MuxIOThreadPoolExecutor12getEventBaseEv.exit
 
 _ZN5folly23MuxIOThreadPoolExecutor12getEventBaseEv.exit: ; preds = %15, %18
-  %.1.in.i.i = phi ptr [ %17, %15 ], [ %30, %18 ]
+  %.1.in.i.i = phi ptr [ %30, %18 ], [ %17, %15 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !71
   ret ptr %.1.i.i
 }
@@ -16771,7 +16771,7 @@ _ZNK5folly14ThreadLocalPtrISt10shared_ptrINS_23MuxIOThreadPoolExecutor8IOThreadE
   br label %31
 
 31:                                               ; preds = %15, %18
-  %.1.in = phi ptr [ %17, %15 ], [ %30, %18 ]
+  %.1.in = phi ptr [ %30, %18 ], [ %17, %15 ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !71
   ret ptr %.1
 }

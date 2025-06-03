@@ -417,8 +417,8 @@ av_strnlen.exit97:                                ; preds = %.lr.ph.i92, %69
   %.not78 = icmp eq i32 %90, 0
   br i1 %.not78, label %.lr.ph, label %av_strnlen.exit.thread, !llvm.loop !65
 
-av_strnlen.exit.thread:                           ; preds = %87, %63, %av_strnlen.exit97, %49, %av_strnlen.exit90, %40, %av_strnlen.exit, %47, %61, %78, %2, %25, %80, %85
-  %.173 = phi i32 [ %spec.store.select, %25 ], [ %81, %80 ], [ -1094995529, %85 ], [ -5, %2 ], [ -1094995529, %78 ], [ -1094995529, %61 ], [ -1094995529, %47 ], [ -1094995529, %av_strnlen.exit ], [ -1094995529, %40 ], [ -1094995529, %av_strnlen.exit90 ], [ -1094995529, %49 ], [ -1094995529, %av_strnlen.exit97 ], [ -1094995529, %63 ], [ -5, %87 ]
+av_strnlen.exit.thread:                           ; preds = %87, %63, %av_strnlen.exit97, %49, %av_strnlen.exit90, %40, %av_strnlen.exit, %47, %61, %78, %2, %80, %25, %85
+  %.173 = phi i32 [ %81, %80 ], [ %spec.store.select, %25 ], [ -1094995529, %85 ], [ -5, %2 ], [ -1094995529, %78 ], [ -1094995529, %61 ], [ -1094995529, %47 ], [ -1094995529, %av_strnlen.exit ], [ -1094995529, %40 ], [ -1094995529, %av_strnlen.exit90 ], [ -1094995529, %49 ], [ -1094995529, %av_strnlen.exit97 ], [ -1094995529, %63 ], [ -5, %87 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
   ret i32 %.173
 }

@@ -4539,7 +4539,7 @@ cgltf_component_size.exit.thread.i.i:             ; preds = %cgltf_component_siz
   br label %cgltf_calc_size.exit.i
 
 cgltf_num_components.exit.i.i:                    ; preds = %306, %305, %304, %303, %302, %cgltf_component_size.exit.thread.i.i
-  %phi.call.i.i = phi i64 [ 1, %305 ], [ 16, %304 ], [ 4, %303 ], [ 3, %302 ], [ 9, %306 ], [ 2, %cgltf_component_size.exit.thread.i.i ]
+  %phi.call.i.i = phi i64 [ 1, %305 ], [ 3, %302 ], [ 4, %303 ], [ 16, %304 ], [ 9, %306 ], [ 2, %cgltf_component_size.exit.thread.i.i ]
   %310 = mul nuw nsw i64 %phi.call.i.i, %.0.i21.i.i
   br label %cgltf_calc_size.exit.i
 
@@ -6114,8 +6114,8 @@ cgltf_unhex.exit:                                 ; preds = %.preheader, %38, %4
   br label %73
 
 73:                                               ; preds = %10, %12, %14, %16, %18, %20, %22, %24, %.lr.ph, %52, %60, %48
-  %.257 = phi ptr [ %8, %.lr.ph ], [ %8, %24 ], [ %8, %22 ], [ %8, %20 ], [ %8, %18 ], [ %8, %16 ], [ %8, %14 ], [ %8, %12 ], [ %8, %10 ], [ %scevgep, %52 ], [ %scevgep, %60 ], [ %scevgep, %48 ]
-  %.2 = phi ptr [ %6, %.lr.ph ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %59, %52 ], [ %72, %60 ], [ %28, %48 ]
+  %.257 = phi ptr [ %8, %.lr.ph ], [ %8, %10 ], [ %8, %12 ], [ %8, %14 ], [ %8, %16 ], [ %8, %18 ], [ %8, %20 ], [ %8, %22 ], [ %8, %24 ], [ %scevgep, %52 ], [ %scevgep, %60 ], [ %scevgep, %48 ]
+  %.2 = phi ptr [ %6, %.lr.ph ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %59, %52 ], [ %72, %60 ], [ %28, %48 ]
   %74 = tail call i64 @strcspn(ptr noundef nonnull %.257, ptr noundef nonnull @.str.1) #55
   %75 = getelementptr inbounds nuw i8, ptr %.257, i64 %74
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2, ptr nonnull align 1 %.257, i64 %74, i1 false)
@@ -6231,7 +6231,7 @@ cgltf_unhex.exit.thread:                          ; preds = %15, %4, %13
   br label %.backedge
 
 .backedge:                                        ; preds = %.thread45, %42
-  %.020.be = phi ptr [ %.424, %42 ], [ %43, %.thread45 ]
+  %.020.be = phi ptr [ %43, %.thread45 ], [ %.424, %42 ]
   %.018.be = getelementptr inbounds nuw i8, ptr %.018, i64 1
   br label %2
 
@@ -6592,7 +6592,7 @@ cgltf_unhex.exit.thread.i.i:                      ; preds = %151, %149, %140
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.thread45.i.i, %178
-  %.020.be.i.i = phi ptr [ %.424.i.i, %178 ], [ %179, %.thread45.i.i ]
+  %.020.be.i.i = phi ptr [ %179, %.thread45.i.i ], [ %.424.i.i, %178 ]
   %.018.be.i.i = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 1
   br label %138
 
@@ -6729,7 +6729,7 @@ cgltf_component_size.exit.thread.i:               ; preds = %cgltf_component_siz
   br label %cgltf_calc_size.exit
 
 cgltf_num_components.exit.i:                      ; preds = %27, %26, %25, %24, %23, %cgltf_component_size.exit.thread.i
-  %phi.call.i = phi i64 [ 1, %26 ], [ 16, %25 ], [ 4, %24 ], [ 3, %23 ], [ 9, %27 ], [ 2, %cgltf_component_size.exit.thread.i ]
+  %phi.call.i = phi i64 [ 1, %26 ], [ 3, %23 ], [ 4, %24 ], [ 16, %25 ], [ 9, %27 ], [ 2, %cgltf_component_size.exit.thread.i ]
   %31 = mul nuw nsw i64 %phi.call.i, %.0.i21.i
   br label %cgltf_calc_size.exit
 
@@ -7648,7 +7648,7 @@ cgltf_component_size.exit.thread:                 ; preds = %2, %2, %3, %4, %cgl
   br label %15
 
 cgltf_num_components.exit:                        ; preds = %cgltf_component_size.exit.thread, %10, %9, %8, %7, %6
-  %phi.call = phi i64 [ 1, %9 ], [ 16, %8 ], [ 4, %7 ], [ 3, %6 ], [ 9, %10 ], [ 2, %cgltf_component_size.exit.thread ]
+  %phi.call = phi i64 [ 1, %9 ], [ 3, %6 ], [ 4, %7 ], [ 16, %8 ], [ 9, %10 ], [ 2, %cgltf_component_size.exit.thread ]
   %14 = mul nuw nsw i64 %phi.call, %.0.i21
   br label %15
 
@@ -9767,12 +9767,12 @@ cgltf_component_size.exit:                        ; preds = %10, %10
   br label %cgltf_component_read_integer.exit.i129
 
 cgltf_component_read_integer.exit.i129:           ; preds = %52, %32
-  %.0.i.i130 = phi i64 [ %59, %52 ], [ %39, %32 ]
+  %.0.i.i130 = phi i64 [ %39, %32 ], [ %59, %52 ]
   %60 = sitofp i64 %.0.i.i130 to float
   br label %cgltf_component_read_float.exit131
 
 cgltf_component_read_float.exit131:               ; preds = %19, %40, %cgltf_component_read_integer.exit.i129
-  %.0.i128 = phi float [ %51, %40 ], [ %30, %19 ], [ %60, %cgltf_component_read_integer.exit.i129 ]
+  %.0.i128 = phi float [ %30, %19 ], [ %51, %40 ], [ %60, %cgltf_component_read_integer.exit.i129 ]
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %.0.i128, ptr %61, align 4
   br label %.loopexit
@@ -9949,12 +9949,12 @@ cgltf_component_read_float.exit131:               ; preds = %19, %40, %cgltf_com
   br label %cgltf_component_read_integer.exit.i174
 
 cgltf_component_read_integer.exit.i174:           ; preds = %165, %112
-  %.0.i.i175 = phi i64 [ %184, %165 ], [ %131, %112 ]
+  %.0.i.i175 = phi i64 [ %131, %112 ], [ %184, %165 ]
   %185 = sitofp i64 %.0.i.i175 to float
   br label %cgltf_component_read_float.exit176
 
 cgltf_component_read_float.exit176:               ; preds = %74, %132, %cgltf_component_read_integer.exit.i174
-  %.0.i173 = phi float [ %164, %132 ], [ %106, %74 ], [ %185, %cgltf_component_read_integer.exit.i174 ]
+  %.0.i173 = phi float [ %106, %74 ], [ %164, %132 ], [ %185, %cgltf_component_read_integer.exit.i174 ]
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float %.0.i173, ptr %186, align 4
   br label %.loopexit
@@ -10020,7 +10020,7 @@ cgltf_component_read_float.exit226.us:            ; preds = %10, %cgltf_componen
   br label %cgltf_component_read_integer.exit.i224.us
 
 cgltf_component_read_integer.exit.i224.us:        ; preds = %208, %205, %202, %199, %196, %.preheader.split.split.us
-  %.0.i.i225.us = phi i64 [ %198, %196 ], [ %201, %199 ], [ %204, %202 ], [ %207, %205 ], [ %210, %208 ], [ 0, %.preheader.split.split.us ]
+  %.0.i.i225.us = phi i64 [ %210, %208 ], [ %207, %205 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ 0, %.preheader.split.split.us ]
   %211 = sitofp i64 %.0.i.i225.us to float
   %212 = getelementptr inbounds nuw float, ptr %4, i64 %.0636.us637
   store float %211, ptr %212, align 4
@@ -10265,12 +10265,12 @@ cgltf_component_read_float.exit226.us653:         ; preds = %.preheader.split.sp
   br label %cgltf_component_read_integer.exit.i219
 
 cgltf_component_read_integer.exit.i219:           ; preds = %.thread449, %.thread447
-  %.0.i.i220 = phi i64 [ %361, %.thread449 ], [ %342, %.thread447 ]
+  %.0.i.i220 = phi i64 [ %342, %.thread447 ], [ %361, %.thread449 ]
   %362 = sitofp i64 %.0.i.i220 to float
   br label %cgltf_component_read_float.exit221
 
 cgltf_component_read_float.exit221:               ; preds = %.thread439, %.thread441, %cgltf_component_read_integer.exit.i219
-  %.0.i218 = phi float [ %318, %.thread441 ], [ %286, %.thread439 ], [ %362, %cgltf_component_read_integer.exit.i219 ]
+  %.0.i218 = phi float [ %286, %.thread439 ], [ %318, %.thread441 ], [ %362, %cgltf_component_read_integer.exit.i219 ]
   %363 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float %.0.i218, ptr %363, align 4
   br label %.loopexit
@@ -10504,7 +10504,7 @@ cgltf_component_size.exit:                        ; preds = %90, %switch.lookup1
   br label %cgltf_component_read_index.exit
 
 cgltf_component_read_index.exit:                  ; preds = %105, %107, %110, %113
-  %.0.i116 = phi i64 [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ 0, %105 ]
+  %.0.i116 = phi i64 [ %109, %107 ], [ %112, %110 ], [ %115, %113 ], [ 0, %105 ]
   %116 = mul nuw nsw i64 %.0.i116, %.0.i
   %117 = getelementptr inbounds nuw float, ptr %1, i64 %116
   %118 = load i32, ptr %4, align 8
@@ -10614,7 +10614,7 @@ cgltf_buffer_view_data.exit.thread18:             ; preds = %cgltf_buffer_view_d
   br label %cgltf_num_components.exit.i
 
 cgltf_num_components.exit.i:                      ; preds = %35, %34, %33, %cgltf_buffer_view_data.exit.thread18
-  %.0.i.i = phi i64 [ 1, %35 ], [ 4, %34 ], [ 3, %33 ], [ 2, %cgltf_buffer_view_data.exit.thread18 ]
+  %.0.i.i = phi i64 [ 1, %35 ], [ 3, %33 ], [ 4, %34 ], [ 2, %cgltf_buffer_view_data.exit.thread18 ]
   %36 = icmp ult i64 %3, %.0.i.i
   %37 = add i32 %30, -5
   %or.cond3.i = icmp ult i32 %37, 3
@@ -10778,7 +10778,7 @@ cgltf_buffer_view_data.exit.thread14:             ; preds = %cgltf_buffer_view_d
   br label %cgltf_component_read_index.exit
 
 cgltf_component_read_index.exit:                  ; preds = %12, %35, %32, %29, %cgltf_buffer_view_data.exit.thread14, %5, %2
-  %.0 = phi i64 [ 0, %2 ], [ 0, %5 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ 0, %cgltf_buffer_view_data.exit.thread14 ], [ 0, %12 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %5 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ 0, %cgltf_buffer_view_data.exit.thread14 ], [ 0, %12 ]
   ret i64 %.0
 }
 
@@ -11080,7 +11080,7 @@ cgltf_buffer_view_data.exit.thread60:             ; preds = %cgltf_buffer_view_d
   br label %cgltf_component_read_index.exit
 
 cgltf_component_read_index.exit:                  ; preds = %44, %46, %48, %51
-  %.0.i56 = phi i16 [ %53, %51 ], [ %50, %48 ], [ %47, %46 ], [ 0, %44 ]
+  %.0.i56 = phi i16 [ %47, %46 ], [ %50, %48 ], [ %53, %51 ], [ 0, %44 ]
   %54 = getelementptr inbounds nuw i16, ptr %1, i64 %.04468
   store i16 %.0.i56, ptr %54, align 2
   %55 = add nuw i64 %.04468, 1
@@ -11114,7 +11114,7 @@ cgltf_component_read_index.exit:                  ; preds = %44, %46, %48, %51
   br label %cgltf_component_read_index.exit58
 
 cgltf_component_read_index.exit58:                ; preds = %58, %60, %63, %65
-  %.0.i57 = phi i32 [ %67, %65 ], [ %64, %63 ], [ %62, %60 ], [ 0, %58 ]
+  %.0.i57 = phi i32 [ %62, %60 ], [ %64, %63 ], [ %67, %65 ], [ 0, %58 ]
   %68 = getelementptr inbounds nuw i32, ptr %1, i64 %.066
   store i32 %.0.i57, ptr %68, align 4
   %69 = add nuw i64 %.066, 1
@@ -18331,7 +18331,7 @@ _m3d_getidx.exit2368.thread:                      ; preds = %.thread2603, %_m3d_
   br label %._crit_edge2917.loopexit
 
 1061:                                             ; preds = %1053, %1058, %980, %989, %1000, %1004, %1022, %1018, %1013, %1008
-  %.15 = phi ptr [ %.0.i23672608, %1058 ], [ %.0.i23672608, %1053 ], [ %1025, %1022 ], [ %1021, %1018 ], [ %1017, %1013 ], [ %1009, %1008 ], [ %962, %980 ], [ %1007, %1004 ], [ %1003, %1000 ], [ %992, %989 ]
+  %.15 = phi ptr [ %962, %980 ], [ %992, %989 ], [ %1003, %1000 ], [ %1007, %1004 ], [ %1009, %1008 ], [ %1017, %1013 ], [ %1021, %1018 ], [ %1025, %1022 ], [ %.0.i23672608, %1058 ], [ %.0.i23672608, %1053 ]
   %1062 = icmp ult ptr %.15, %400
   br i1 %1062, label %.lr.ph2916, label %._crit_edge2917.loopexit
 
@@ -19953,7 +19953,7 @@ _m3d_getidx.exit2443:                             ; preds = %1777, %1783, %1789
   br label %1832
 
 1832:                                             ; preds = %1829, %1827, %1823, %1819, %1817
-  %.02066 = phi float [ 0.000000e+00, %1817 ], [ %1831, %1829 ], [ %1828, %1827 ], [ %1826, %1823 ], [ %1822, %1819 ]
+  %.02066 = phi float [ 0.000000e+00, %1817 ], [ %1822, %1819 ], [ %1826, %1823 ], [ %1828, %1827 ], [ %1831, %1829 ]
   %1833 = load ptr, ptr %1706, align 8
   %1834 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1833, i64 %1739, i32 1
   %1835 = load ptr, ptr %1834, align 8
@@ -20199,9 +20199,9 @@ _m3d_getidx.exit2443:                             ; preds = %1777, %1783, %1789
   br label %_m3d_getidx.exit2448
 
 _m3d_getidx.exit2448:                             ; preds = %1771, %_m3d_getidx.exit2443, %.sink.split.i2459, %1903, %.sink.split.i2454, %1882, %.sink.split.i2449, %1861, %.sink.split.i2444, %1840, %1762, %1832, %1924, %1935, %1946, %1977, %.loopexit2725, %1816
-  %.22029 = phi i32 [ %.020272886, %1762 ], [ %1984, %1977 ], [ %.020272886, %1946 ], [ %.020272886, %1935 ], [ %.020272886, %1924 ], [ %.020272886, %1832 ], [ %.120282754, %1816 ], [ %.120282754, %.loopexit2725 ], [ %.020272886, %1840 ], [ %.020272886, %.sink.split.i2444 ], [ %.020272886, %1861 ], [ %.020272886, %.sink.split.i2449 ], [ %.020272886, %1882 ], [ %.020272886, %.sink.split.i2454 ], [ %.020272886, %1903 ], [ %.020272886, %.sink.split.i2459 ], [ %.020272886, %_m3d_getidx.exit2443 ], [ %.020272886, %1771 ]
-  %.32011 = phi i32 [ %.220102887, %1762 ], [ %1968, %1977 ], [ %.220102887, %1946 ], [ %.220102887, %1935 ], [ %.220102887, %1924 ], [ %.220102887, %1832 ], [ %.220102887, %1816 ], [ %.220102887, %.loopexit2725 ], [ %.220102887, %1840 ], [ %.220102887, %.sink.split.i2444 ], [ %.220102887, %1861 ], [ %.220102887, %.sink.split.i2449 ], [ %.220102887, %1882 ], [ %.220102887, %.sink.split.i2454 ], [ %.220102887, %1903 ], [ %.220102887, %.sink.split.i2459 ], [ %.220102887, %_m3d_getidx.exit2443 ], [ %.220102887, %1771 ]
-  %.33 = phi ptr [ %.322889, %1762 ], [ %1978, %1977 ], [ %1952, %1946 ], [ %1945, %1935 ], [ %1934, %1924 ], [ %1839, %1832 ], [ %1791, %1816 ], [ %1791, %.loopexit2725 ], [ %.322889, %1840 ], [ %1860, %.sink.split.i2444 ], [ %.322889, %1861 ], [ %1881, %.sink.split.i2449 ], [ %.322889, %1882 ], [ %1902, %.sink.split.i2454 ], [ %.322889, %1903 ], [ %1923, %.sink.split.i2459 ], [ %1791, %_m3d_getidx.exit2443 ], [ %.322889, %1771 ]
+  %.22029 = phi i32 [ %.020272886, %1762 ], [ %.120282754, %1816 ], [ %.120282754, %.loopexit2725 ], [ %.020272886, %1832 ], [ %.020272886, %1924 ], [ %.020272886, %1935 ], [ %.020272886, %1946 ], [ %1984, %1977 ], [ %.020272886, %1840 ], [ %.020272886, %.sink.split.i2444 ], [ %.020272886, %1861 ], [ %.020272886, %.sink.split.i2449 ], [ %.020272886, %1882 ], [ %.020272886, %.sink.split.i2454 ], [ %.020272886, %1903 ], [ %.020272886, %.sink.split.i2459 ], [ %.020272886, %_m3d_getidx.exit2443 ], [ %.020272886, %1771 ]
+  %.32011 = phi i32 [ %.220102887, %1762 ], [ %.220102887, %1816 ], [ %.220102887, %.loopexit2725 ], [ %.220102887, %1832 ], [ %.220102887, %1924 ], [ %.220102887, %1935 ], [ %.220102887, %1946 ], [ %1968, %1977 ], [ %.220102887, %1840 ], [ %.220102887, %.sink.split.i2444 ], [ %.220102887, %1861 ], [ %.220102887, %.sink.split.i2449 ], [ %.220102887, %1882 ], [ %.220102887, %.sink.split.i2454 ], [ %.220102887, %1903 ], [ %.220102887, %.sink.split.i2459 ], [ %.220102887, %_m3d_getidx.exit2443 ], [ %.220102887, %1771 ]
+  %.33 = phi ptr [ %.322889, %1762 ], [ %1791, %1816 ], [ %1791, %.loopexit2725 ], [ %1839, %1832 ], [ %1934, %1924 ], [ %1945, %1935 ], [ %1952, %1946 ], [ %1978, %1977 ], [ %.322889, %1840 ], [ %1860, %.sink.split.i2444 ], [ %.322889, %1861 ], [ %1881, %.sink.split.i2449 ], [ %.322889, %1882 ], [ %1902, %.sink.split.i2454 ], [ %.322889, %1903 ], [ %1923, %.sink.split.i2459 ], [ %1791, %_m3d_getidx.exit2443 ], [ %.322889, %1771 ]
   %indvars.iv.next3141 = add nuw nsw i64 %indvars.iv3140, 1
   %1985 = zext i32 %.32011 to i64
   %1986 = icmp samesign ult i64 %indvars.iv.next3141, %1985
@@ -20376,8 +20376,8 @@ thread-pre-split2691:                             ; preds = %2046, %2044, %_m3d_
   br label %2070
 
 2070:                                             ; preds = %2067, %2064, %2054, %thread-pre-split2691
-  %.22001 = phi i32 [ 0, %thread-pre-split2691 ], [ %2068, %2067 ], [ %2065, %2064 ], [ %2055, %2054 ]
-  %.34 = phi ptr [ %.0.i24882690, %thread-pre-split2691 ], [ %2069, %2067 ], [ %2066, %2064 ], [ %2056, %2054 ]
+  %.22001 = phi i32 [ 0, %thread-pre-split2691 ], [ %2055, %2054 ], [ %2065, %2064 ], [ %2068, %2067 ]
+  %.34 = phi ptr [ %.0.i24882690, %thread-pre-split2691 ], [ %2056, %2054 ], [ %2066, %2064 ], [ %2069, %2067 ]
   %2071 = load i8, ptr %156, align 1
   %2072 = sext i8 %2071 to i32
   %2073 = sext i8 %1999 to i32
@@ -35023,8 +35023,8 @@ default.unreachable:                              ; preds = %2115
   unreachable
 
 MatrixDecompose.exit.i:                           ; preds = %2165, %2156, %2148, %2140, %2110
-  %.sink123.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert40.i.i.i, %2165 ], [ %.sroa.0.0.vec.insert32.i.i.i, %2156 ], [ %.sroa.0.4.vec.insert36.i.i.i, %2148 ], [ %.sroa.0.4.vec.insert.i.i.i, %2140 ], [ zeroinitializer, %2110 ]
-  %.sink.i.i = phi <2 x float> [ %.sroa.10.12.vec.insert53.i.i.i, %2165 ], [ %.sroa.10.8.vec.insert45.i.i.i, %2156 ], [ %.sroa.10.8.vec.insert43.i.i.i, %2148 ], [ %.sroa.10.8.vec.insert.i.i.i, %2140 ], [ <float 0.000000e+00, float 1.000000e+00>, %2110 ]
+  %.sink123.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %2140 ], [ %.sroa.0.4.vec.insert36.i.i.i, %2148 ], [ %.sroa.0.0.vec.insert32.i.i.i, %2156 ], [ %.sroa.0.4.vec.insert40.i.i.i, %2165 ], [ zeroinitializer, %2110 ]
+  %.sink.i.i = phi <2 x float> [ %.sroa.10.8.vec.insert.i.i.i, %2140 ], [ %.sroa.10.8.vec.insert43.i.i.i, %2148 ], [ %.sroa.10.8.vec.insert45.i.i.i, %2156 ], [ %.sroa.10.12.vec.insert53.i.i.i, %2165 ], [ <float 0.000000e+00, float 1.000000e+00>, %2110 ]
   store <2 x float> %.sink123.i.i, ptr %2080, align 4, !noalias !19
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2079, i64 20
   store <2 x float> %.sink.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !19
@@ -50805,7 +50805,7 @@ jsmn_parse_string.exit:                           ; preds = %78
   br label %170
 
 170:                                              ; preds = %.thread158, %jsmn_parse_string.exit.thread151, %123, %11, %11, %11, %11, %153, %165, %120, %121, %127, %jsmn_parse_string.exit, %112, %56, %68, %38, %15, %117, %32
-  %.1106 = phi i32 [ %164, %165 ], [ %164, %153 ], [ %.0105191, %127 ], [ %.0105191, %121 ], [ %.0105191, %120 ], [ %.0105191, %117 ], [ %111, %112 ], [ %111, %jsmn_parse_string.exit ], [ %.0105191, %38 ], [ %.0105191, %56 ], [ %.0105191, %68 ], [ %16, %15 ], [ %16, %32 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %123 ], [ %77, %jsmn_parse_string.exit.thread151 ], [ %149, %.thread158 ]
+  %.1106 = phi i32 [ %16, %15 ], [ %16, %32 ], [ %.0105191, %38 ], [ %.0105191, %56 ], [ %.0105191, %68 ], [ %111, %112 ], [ %111, %jsmn_parse_string.exit ], [ %.0105191, %117 ], [ %.0105191, %127 ], [ %.0105191, %121 ], [ %.0105191, %120 ], [ %164, %165 ], [ %164, %153 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %11 ], [ %.0105191, %123 ], [ %77, %jsmn_parse_string.exit.thread151 ], [ %149, %.thread158 ]
   %171 = load i64, ptr %0, align 8
   %172 = add i64 %171, 1
   store i64 %172, ptr %0, align 8
@@ -51288,7 +51288,7 @@ cgltf_json_strcmp.exit109.i:                      ; preds = %141
   br label %295
 
 295:                                              ; preds = %291, %286, %283, %283
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %283 ], [ %.016.i.i.i, %283 ], [ %294, %291 ], [ %290, %286 ]
+  %.1.i.i.i = phi i32 [ %290, %286 ], [ %294, %291 ], [ %.016.i.i.i, %283 ], [ %.016.i.i.i, %283 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %296 = sext i32 %.1.i.i.i to i64
   %297 = icmp slt i64 %indvars.iv.next.i.i.i, %296
@@ -51401,7 +51401,7 @@ cgltf_json_strcmp.exit114.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %347
 
 347:                                              ; preds = %343, %338, %335, %335
-  %.1.i.i = phi i32 [ %.016.i.i, %335 ], [ %.016.i.i, %335 ], [ %346, %343 ], [ %342, %338 ]
+  %.1.i.i = phi i32 [ %342, %338 ], [ %346, %343 ], [ %.016.i.i, %335 ], [ %.016.i.i, %335 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %348 = sext i32 %.1.i.i to i64
   %349 = icmp slt i64 %indvars.iv.next.i.i, %348
@@ -51974,7 +51974,7 @@ cgltf_json_strcmp.exit191.i.i.i:                  ; preds = %502
   br label %645
 
 645:                                              ; preds = %641, %636, %633, %633
-  %.1.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i, %633 ], [ %.016.i.i.i.i.i, %633 ], [ %644, %641 ], [ %640, %636 ]
+  %.1.i.i.i.i.i = phi i32 [ %640, %636 ], [ %644, %641 ], [ %.016.i.i.i.i.i, %633 ], [ %.016.i.i.i.i.i, %633 ]
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %646 = sext i32 %.1.i.i.i.i.i to i64
   %647 = icmp slt i64 %indvars.iv.next.i.i.i.i.i, %646
@@ -52183,7 +52183,7 @@ cgltf_json_strcmp.exit45.thread.i.i.i.i:          ; preds = %cgltf_json_strcmp.e
   br label %750
 
 750:                                              ; preds = %746, %741, %738, %738
-  %.1.i.i205.i.i.i = phi i32 [ %.016.i.i204.i.i.i, %738 ], [ %.016.i.i204.i.i.i, %738 ], [ %749, %746 ], [ %745, %741 ]
+  %.1.i.i205.i.i.i = phi i32 [ %745, %741 ], [ %749, %746 ], [ %.016.i.i204.i.i.i, %738 ], [ %.016.i.i204.i.i.i, %738 ]
   %indvars.iv.next.i.i206.i.i.i = add nuw nsw i64 %indvars.iv.i.i203.i.i.i, 1
   %751 = sext i32 %.1.i.i205.i.i.i to i64
   %752 = icmp slt i64 %indvars.iv.next.i.i206.i.i.i, %751
@@ -52330,7 +52330,7 @@ cgltf_json_strcmp.exit.thread.i.i.i.i:            ; preds = %cgltf_json_strcmp.e
   br label %817
 
 817:                                              ; preds = %813, %808, %805, %805
-  %.1.i.i217.i.i.i = phi i32 [ %.016.i.i216.i.i.i, %805 ], [ %.016.i.i216.i.i.i, %805 ], [ %816, %813 ], [ %812, %808 ]
+  %.1.i.i217.i.i.i = phi i32 [ %812, %808 ], [ %816, %813 ], [ %.016.i.i216.i.i.i, %805 ], [ %.016.i.i216.i.i.i, %805 ]
   %indvars.iv.next.i.i218.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i, 1
   %818 = sext i32 %.1.i.i217.i.i.i to i64
   %819 = icmp slt i64 %indvars.iv.next.i.i218.i.i.i, %818
@@ -52400,7 +52400,7 @@ cgltf_json_strcmp.exit196.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %845
 
 845:                                              ; preds = %841, %836, %833, %833
-  %.1.i.i.i.i = phi i32 [ %.016.i.i.i.i, %833 ], [ %.016.i.i.i.i, %833 ], [ %844, %841 ], [ %840, %836 ]
+  %.1.i.i.i.i = phi i32 [ %840, %836 ], [ %844, %841 ], [ %.016.i.i.i.i, %833 ], [ %.016.i.i.i.i, %833 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %846 = sext i32 %.1.i.i.i.i to i64
   %847 = icmp slt i64 %indvars.iv.next.i.i.i.i, %846
@@ -52624,7 +52624,7 @@ cgltf_json_strcmp.exit173.thread.i.i:             ; preds = %928, %cgltf_json_st
   br label %951
 
 951:                                              ; preds = %947, %942, %939, %939
-  %.1.i.i.i307 = phi i32 [ %.016.i.i.i306, %939 ], [ %.016.i.i.i306, %939 ], [ %950, %947 ], [ %946, %942 ]
+  %.1.i.i.i307 = phi i32 [ %946, %942 ], [ %950, %947 ], [ %.016.i.i.i306, %939 ], [ %.016.i.i.i306, %939 ]
   %indvars.iv.next.i175.i.i = add nuw nsw i64 %indvars.iv.i174.i.i, 1
   %952 = sext i32 %.1.i.i.i307 to i64
   %953 = icmp slt i64 %indvars.iv.next.i175.i.i, %952
@@ -52669,7 +52669,7 @@ cgltf_skip_json.exit.i.i:                         ; preds = %.split.loop.exit.i.
   br label %970
 
 970:                                              ; preds = %966, %961, %958, %958
-  %.1.i178.i.i = phi i32 [ %.016.i177.i.i, %958 ], [ %.016.i177.i.i, %958 ], [ %969, %966 ], [ %965, %961 ]
+  %.1.i178.i.i = phi i32 [ %965, %961 ], [ %969, %966 ], [ %.016.i177.i.i, %958 ], [ %.016.i177.i.i, %958 ]
   %indvars.iv.next.i179.i.i = add nuw nsw i64 %indvars.iv.i176.i.i, 1
   %971 = sext i32 %.1.i178.i.i to i64
   %972 = icmp slt i64 %indvars.iv.next.i179.i.i, %971
@@ -52782,7 +52782,7 @@ cgltf_json_strcmp.exit185.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %1022
 
 1022:                                             ; preds = %1018, %1013, %1010, %1010
-  %.1.i195.i.i = phi i32 [ %.016.i194.i.i, %1010 ], [ %.016.i194.i.i, %1010 ], [ %1021, %1018 ], [ %1017, %1013 ]
+  %.1.i195.i.i = phi i32 [ %1017, %1013 ], [ %1021, %1018 ], [ %.016.i194.i.i, %1010 ], [ %.016.i194.i.i, %1010 ]
   %indvars.iv.next.i196.i.i = add nuw nsw i64 %indvars.iv.i193.i.i, 1
   %1023 = sext i32 %.1.i195.i.i to i64
   %1024 = icmp slt i64 %indvars.iv.next.i196.i.i, %1023
@@ -53664,7 +53664,7 @@ cgltf_json_strcmp.exit162.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %1456
 
 1456:                                             ; preds = %1452, %1447, %1444, %1444
-  %.1.i.i.i.i339 = phi i32 [ %.016.i.i.i.i338, %1444 ], [ %.016.i.i.i.i338, %1444 ], [ %1455, %1452 ], [ %1451, %1447 ]
+  %.1.i.i.i.i339 = phi i32 [ %1451, %1447 ], [ %1455, %1452 ], [ %.016.i.i.i.i338, %1444 ], [ %.016.i.i.i.i338, %1444 ]
   %indvars.iv.next.i.i.i.i340 = add nuw nsw i64 %indvars.iv.i.i.i.i337, 1
   %1457 = sext i32 %.1.i.i.i.i339 to i64
   %1458 = icmp slt i64 %indvars.iv.next.i.i.i.i340, %1457
@@ -53833,7 +53833,7 @@ cgltf_json_strcmp.exit176.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %1543
 
 1543:                                             ; preds = %1539, %1534, %1531, %1531
-  %.1.i183.i.i.i = phi i32 [ %.016.i182.i.i.i, %1531 ], [ %.016.i182.i.i.i, %1531 ], [ %1542, %1539 ], [ %1538, %1534 ]
+  %.1.i183.i.i.i = phi i32 [ %1538, %1534 ], [ %1542, %1539 ], [ %.016.i182.i.i.i, %1531 ], [ %.016.i182.i.i.i, %1531 ]
   %indvars.iv.next.i184.i.i.i = add nuw nsw i64 %indvars.iv.i181.i.i.i, 1
   %1544 = sext i32 %.1.i183.i.i.i to i64
   %1545 = icmp slt i64 %indvars.iv.next.i184.i.i.i, %1544
@@ -53881,7 +53881,7 @@ cgltf_json_strcmp.exit166.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %1563
 
 1563:                                             ; preds = %1559, %1554, %1551, %1551
-  %.1.i190.i.i.i = phi i32 [ %.016.i189.i.i.i, %1551 ], [ %.016.i189.i.i.i, %1551 ], [ %1562, %1559 ], [ %1558, %1554 ]
+  %.1.i190.i.i.i = phi i32 [ %1558, %1554 ], [ %1562, %1559 ], [ %.016.i189.i.i.i, %1551 ], [ %.016.i189.i.i.i, %1551 ]
   %indvars.iv.next.i191.i.i.i = add nuw nsw i64 %indvars.iv.i188.i.i.i, 1
   %1564 = sext i32 %.1.i190.i.i.i to i64
   %1565 = icmp slt i64 %indvars.iv.next.i191.i.i.i, %1564
@@ -53967,7 +53967,7 @@ cgltf_json_strcmp.exit249.i.i:                    ; preds = %cgltf_json_strcmp.e
   br label %1605
 
 1605:                                             ; preds = %1601, %1596, %1593, %1593
-  %.1.i.i.i335 = phi i32 [ %.016.i.i.i334, %1593 ], [ %.016.i.i.i334, %1593 ], [ %1604, %1601 ], [ %1600, %1596 ]
+  %.1.i.i.i335 = phi i32 [ %1600, %1596 ], [ %1604, %1601 ], [ %.016.i.i.i334, %1593 ], [ %.016.i.i.i334, %1593 ]
   %indvars.iv.next.i.i43.i = add nuw nsw i64 %indvars.iv.i.i42.i, 1
   %1606 = sext i32 %.1.i.i.i335 to i64
   %1607 = icmp slt i64 %indvars.iv.next.i.i43.i, %1606
@@ -54080,7 +54080,7 @@ cgltf_json_strcmp.exit252.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %1657
 
 1657:                                             ; preds = %1653, %1648, %1645, %1645
-  %.1.i.i328 = phi i32 [ %.016.i.i327, %1645 ], [ %.016.i.i327, %1645 ], [ %1656, %1653 ], [ %1652, %1648 ]
+  %.1.i.i328 = phi i32 [ %1652, %1648 ], [ %1656, %1653 ], [ %.016.i.i327, %1645 ], [ %.016.i.i327, %1645 ]
   %indvars.iv.next.i32.i = add nsw i64 %indvars.iv.i31.i, 1
   %1658 = sext i32 %.1.i.i328 to i64
   %1659 = icmp slt i64 %indvars.iv.next.i32.i, %1658
@@ -54538,7 +54538,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
   br label %1896
 
 1896:                                             ; preds = %1892, %1887, %1884, %1884
-  %.1.i.i.i.i411 = phi i32 [ %.016.i.i.i.i410, %1884 ], [ %.016.i.i.i.i410, %1884 ], [ %1895, %1892 ], [ %1891, %1887 ]
+  %.1.i.i.i.i411 = phi i32 [ %1891, %1887 ], [ %1895, %1892 ], [ %.016.i.i.i.i410, %1884 ], [ %.016.i.i.i.i410, %1884 ]
   %indvars.iv.next.i.i.i.i412 = add nuw nsw i64 %indvars.iv.i.i.i.i409, 1
   %1897 = sext i32 %.1.i.i.i.i411 to i64
   %1898 = icmp slt i64 %indvars.iv.next.i.i.i.i412, %1897
@@ -54995,7 +54995,7 @@ cgltf_json_strcmp.exit151.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   br label %2123
 
 2123:                                             ; preds = %2119, %2114, %2111, %2111
-  %.1.i.i196.i.i = phi i32 [ %.016.i.i195.i.i, %2111 ], [ %.016.i.i195.i.i, %2111 ], [ %2122, %2119 ], [ %2118, %2114 ]
+  %.1.i.i196.i.i = phi i32 [ %2118, %2114 ], [ %2122, %2119 ], [ %.016.i.i195.i.i, %2111 ], [ %.016.i.i195.i.i, %2111 ]
   %indvars.iv.next.i.i197.i.i = add nuw nsw i64 %indvars.iv.i.i194.i.i, 1
   %2124 = sext i32 %.1.i.i196.i.i to i64
   %2125 = icmp slt i64 %indvars.iv.next.i.i197.i.i, %2124
@@ -55063,7 +55063,7 @@ cgltf_json_strcmp.exit187.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %2150
 
 2150:                                             ; preds = %2146, %2141, %2138, %2138
-  %.1.i.i.i390 = phi i32 [ %.016.i.i.i389, %2138 ], [ %.016.i.i.i389, %2138 ], [ %2149, %2146 ], [ %2145, %2141 ]
+  %.1.i.i.i390 = phi i32 [ %2145, %2141 ], [ %2149, %2146 ], [ %.016.i.i.i389, %2138 ], [ %.016.i.i.i389, %2138 ]
   %indvars.iv.next.i.i.i391 = add nuw nsw i64 %indvars.iv.i.i.i388, 1
   %2151 = sext i32 %.1.i.i.i390 to i64
   %2152 = icmp slt i64 %indvars.iv.next.i.i.i391, %2151
@@ -55408,7 +55408,7 @@ cgltf_json_strcmp.exit85.i.i:                     ; preds = %2207
   br label %2330
 
 2330:                                             ; preds = %2326, %2321, %2318, %2318
-  %.1.i.i.i.i445 = phi i32 [ %.016.i.i.i.i444, %2318 ], [ %.016.i.i.i.i444, %2318 ], [ %2329, %2326 ], [ %2325, %2321 ]
+  %.1.i.i.i.i445 = phi i32 [ %2325, %2321 ], [ %2329, %2326 ], [ %.016.i.i.i.i444, %2318 ], [ %.016.i.i.i.i444, %2318 ]
   %indvars.iv.next.i.i.i.i446 = add nuw nsw i64 %indvars.iv.i.i.i.i443, 1
   %2331 = sext i32 %.1.i.i.i.i445 to i64
   %2332 = icmp slt i64 %indvars.iv.next.i.i.i.i446, %2331
@@ -55521,7 +55521,7 @@ cgltf_json_strcmp.exit90.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %2382
 
 2382:                                             ; preds = %2378, %2373, %2370, %2370
-  %.1.i.i.i436 = phi i32 [ %.016.i.i.i435, %2370 ], [ %.016.i.i.i435, %2370 ], [ %2381, %2378 ], [ %2377, %2373 ]
+  %.1.i.i.i436 = phi i32 [ %2377, %2373 ], [ %2381, %2378 ], [ %.016.i.i.i435, %2370 ], [ %.016.i.i.i435, %2370 ]
   %indvars.iv.next.i.i.i437 = add nuw nsw i64 %indvars.iv.i.i.i434, 1
   %2383 = sext i32 %.1.i.i.i436 to i64
   %2384 = icmp slt i64 %indvars.iv.next.i.i.i437, %2383
@@ -56044,7 +56044,7 @@ cgltf_json_strcmp.exit84.thread.i.i.i:            ; preds = %cgltf_json_strcmp.e
   br label %2648
 
 2648:                                             ; preds = %2644, %2639, %2636, %2636
-  %.1.i.i.i.i518 = phi i32 [ %.016.i.i.i.i517, %2636 ], [ %.016.i.i.i.i517, %2636 ], [ %2647, %2644 ], [ %2643, %2639 ]
+  %.1.i.i.i.i518 = phi i32 [ %2643, %2639 ], [ %2647, %2644 ], [ %.016.i.i.i.i517, %2636 ], [ %.016.i.i.i.i517, %2636 ]
   %indvars.iv.next.i86.i.i.i = add nuw nsw i64 %indvars.iv.i85.i.i.i, 1
   %2649 = sext i32 %.1.i.i.i.i518 to i64
   %2650 = icmp slt i64 %indvars.iv.next.i86.i.i.i, %2649
@@ -56343,7 +56343,7 @@ cgltf_json_strcmp.exit337.i.i:                    ; preds = %2498
   br label %2795
 
 2795:                                             ; preds = %2791, %2786, %2783, %2783
-  %.1.i.i342.i.i = phi i32 [ %.016.i.i341.i.i, %2783 ], [ %.016.i.i341.i.i, %2783 ], [ %2794, %2791 ], [ %2790, %2786 ]
+  %.1.i.i342.i.i = phi i32 [ %2790, %2786 ], [ %2794, %2791 ], [ %.016.i.i341.i.i, %2783 ], [ %.016.i.i341.i.i, %2783 ]
   %indvars.iv.next.i.i343.i.i = add nuw nsw i64 %indvars.iv.i.i340.i.i, 1
   %2796 = sext i32 %.1.i.i342.i.i to i64
   %2797 = icmp slt i64 %indvars.iv.next.i.i343.i.i, %2796
@@ -56683,7 +56683,7 @@ cgltf_json_strcmp.exit93.thread.i.i.i:            ; preds = %cgltf_json_strcmp.e
   br label %2953
 
 2953:                                             ; preds = %2949, %2944, %2941, %2941
-  %.1.i.i357.i.i = phi i32 [ %.016.i.i356.i.i, %2941 ], [ %.016.i.i356.i.i, %2941 ], [ %2952, %2949 ], [ %2948, %2944 ]
+  %.1.i.i357.i.i = phi i32 [ %2948, %2944 ], [ %2952, %2949 ], [ %.016.i.i356.i.i, %2941 ], [ %.016.i.i356.i.i, %2941 ]
   %indvars.iv.next.i95.i.i.i = add nuw nsw i64 %indvars.iv.i94.i.i.i, 1
   %2954 = sext i32 %.1.i.i357.i.i to i64
   %2955 = icmp slt i64 %indvars.iv.next.i95.i.i.i, %2954
@@ -56751,7 +56751,7 @@ cgltf_json_strcmp.exit378.i.i:                    ; preds = %2826
   br label %2981
 
 2981:                                             ; preds = %2977, %2972, %2969, %2969
-  %.1.i.i502 = phi i32 [ %.016.i.i501, %2969 ], [ %.016.i.i501, %2969 ], [ %2980, %2977 ], [ %2976, %2972 ]
+  %.1.i.i502 = phi i32 [ %2976, %2972 ], [ %2980, %2977 ], [ %.016.i.i501, %2969 ], [ %.016.i.i501, %2969 ]
   %indvars.iv.next.i178.i = add nsw i64 %indvars.iv.i177.i, 1
   %2982 = sext i32 %.1.i.i502 to i64
   %2983 = icmp slt i64 %indvars.iv.next.i178.i, %2982
@@ -56951,7 +56951,7 @@ cgltf_json_strcmp.exit84.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %3083
 
 3083:                                             ; preds = %3079, %3074, %3071, %3071
-  %.1.i.i169.i = phi i32 [ %.016.i.i168.i, %3071 ], [ %.016.i.i168.i, %3071 ], [ %3082, %3079 ], [ %3078, %3074 ]
+  %.1.i.i169.i = phi i32 [ %3078, %3074 ], [ %3082, %3079 ], [ %.016.i.i168.i, %3071 ], [ %.016.i.i168.i, %3071 ]
   %indvars.iv.next.i.i170.i = add nuw nsw i64 %indvars.iv.i.i167.i, 1
   %3084 = sext i32 %.1.i.i169.i to i64
   %3085 = icmp slt i64 %indvars.iv.next.i.i170.i, %3084
@@ -57100,7 +57100,7 @@ cgltf_json_strcmp.exit.thread.i149.i:             ; preds = %cgltf_json_strcmp.e
   br label %3154
 
 3154:                                             ; preds = %3150, %3145, %3142, %3142
-  %.1.i.i152.i = phi i32 [ %.016.i.i151.i, %3142 ], [ %.016.i.i151.i, %3142 ], [ %3153, %3150 ], [ %3149, %3145 ]
+  %.1.i.i152.i = phi i32 [ %3149, %3145 ], [ %3153, %3150 ], [ %.016.i.i151.i, %3142 ], [ %.016.i.i151.i, %3142 ]
   %indvars.iv.next.i.i153.i = add nuw nsw i64 %indvars.iv.i.i150.i, 1
   %3155 = sext i32 %.1.i.i152.i to i64
   %3156 = icmp slt i64 %indvars.iv.next.i.i153.i, %3155
@@ -57324,7 +57324,7 @@ cgltf_json_strcmp.exit73.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %3259
 
 3259:                                             ; preds = %3255, %3250, %3247, %3247
-  %.1.i.i118.i = phi i32 [ %.016.i.i117.i, %3247 ], [ %.016.i.i117.i, %3247 ], [ %3258, %3255 ], [ %3254, %3250 ]
+  %.1.i.i118.i = phi i32 [ %3254, %3250 ], [ %3258, %3255 ], [ %.016.i.i117.i, %3247 ], [ %.016.i.i117.i, %3247 ]
   %indvars.iv.next.i75.i119.i = add nuw nsw i64 %indvars.iv.i74.i116.i, 1
   %3260 = sext i32 %.1.i.i118.i to i64
   %3261 = icmp slt i64 %indvars.iv.next.i75.i119.i, %3260
@@ -57477,7 +57477,7 @@ cgltf_json_strcmp.exit46.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %3332
 
 3332:                                             ; preds = %3328, %3323, %3320, %3320
-  %.1.i.i101.i = phi i32 [ %.016.i.i100.i, %3320 ], [ %.016.i.i100.i, %3320 ], [ %3331, %3328 ], [ %3327, %3323 ]
+  %.1.i.i101.i = phi i32 [ %3327, %3323 ], [ %3331, %3328 ], [ %.016.i.i100.i, %3320 ], [ %.016.i.i100.i, %3320 ]
   %indvars.iv.next.i.i102.i = add nuw nsw i64 %indvars.iv.i.i99.i, 1
   %3333 = sext i32 %.1.i.i101.i to i64
   %3334 = icmp slt i64 %indvars.iv.next.i.i102.i, %3333
@@ -57718,7 +57718,7 @@ cgltf_json_strcmp.exit69.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %3449
 
 3449:                                             ; preds = %3445, %3440, %3437, %3437
-  %.1.i.i74.i = phi i32 [ %.016.i.i73.i, %3437 ], [ %.016.i.i73.i, %3437 ], [ %3448, %3445 ], [ %3444, %3440 ]
+  %.1.i.i74.i = phi i32 [ %3444, %3440 ], [ %3448, %3445 ], [ %.016.i.i73.i, %3437 ], [ %.016.i.i73.i, %3437 ]
   %indvars.iv.next.i75.i.i = add nuw nsw i64 %indvars.iv.i74.i.i, 1
   %3450 = sext i32 %.1.i.i74.i to i64
   %3451 = icmp slt i64 %indvars.iv.next.i75.i.i, %3450
@@ -57938,7 +57938,7 @@ cgltf_json_strcmp.exit68.thread.i.i:              ; preds = %cgltf_json_strcmp.e
   br label %3552
 
 3552:                                             ; preds = %3548, %3543, %3540, %3540
-  %.1.i.i51.i = phi i32 [ %.016.i.i50.i, %3540 ], [ %.016.i.i50.i, %3540 ], [ %3551, %3548 ], [ %3547, %3543 ]
+  %.1.i.i51.i = phi i32 [ %3547, %3543 ], [ %3551, %3548 ], [ %.016.i.i50.i, %3540 ], [ %.016.i.i50.i, %3540 ]
   %indvars.iv.next.i70.i.i = add nuw nsw i64 %indvars.iv.i69.i.i, 1
   %3553 = sext i32 %.1.i.i51.i to i64
   %3554 = icmp slt i64 %indvars.iv.next.i70.i.i, %3553
@@ -58079,7 +58079,7 @@ cgltf_json_strcmp.exit.thread.i.i:                ; preds = %cgltf_json_strcmp.e
   br label %3621
 
 3621:                                             ; preds = %3617, %3612, %3609, %3609
-  %.1.i.i40.i = phi i32 [ %.016.i.i39.i, %3609 ], [ %.016.i.i39.i, %3609 ], [ %3620, %3617 ], [ %3616, %3612 ]
+  %.1.i.i40.i = phi i32 [ %3616, %3612 ], [ %3620, %3617 ], [ %.016.i.i39.i, %3609 ], [ %.016.i.i39.i, %3609 ]
   %indvars.iv.next.i.i41.i = add nuw nsw i64 %indvars.iv.i.i38.i, 1
   %3622 = sext i32 %.1.i.i40.i to i64
   %3623 = icmp slt i64 %indvars.iv.next.i.i41.i, %3622
@@ -58182,7 +58182,7 @@ cgltf_json_strcmp.exit347.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %3667
 
 3667:                                             ; preds = %3663, %3658, %3655, %3655
-  %.1.i.i.i484 = phi i32 [ %.016.i.i.i483, %3655 ], [ %.016.i.i.i483, %3655 ], [ %3666, %3663 ], [ %3662, %3658 ]
+  %.1.i.i.i484 = phi i32 [ %3662, %3658 ], [ %3666, %3663 ], [ %.016.i.i.i483, %3655 ], [ %.016.i.i.i483, %3655 ]
   %indvars.iv.next.i383.i.i = add nuw nsw i64 %indvars.iv.i382.i.i, 1
   %3668 = sext i32 %.1.i.i.i484 to i64
   %3669 = icmp slt i64 %indvars.iv.next.i383.i.i, %3668
@@ -58577,7 +58577,7 @@ cgltf_json_strcmp.exit102.i.i:                    ; preds = %3726
   br label %3879
 
 3879:                                             ; preds = %3875, %3870, %3867, %3867
-  %.1.i.i.i.i559 = phi i32 [ %.016.i.i.i.i558, %3867 ], [ %.016.i.i.i.i558, %3867 ], [ %3878, %3875 ], [ %3874, %3870 ]
+  %.1.i.i.i.i559 = phi i32 [ %3874, %3870 ], [ %3878, %3875 ], [ %.016.i.i.i.i558, %3867 ], [ %.016.i.i.i.i558, %3867 ]
   %indvars.iv.next.i.i.i.i560 = add nuw nsw i64 %indvars.iv.i.i.i.i557, 1
   %3880 = sext i32 %.1.i.i.i.i559 to i64
   %3881 = icmp slt i64 %indvars.iv.next.i.i.i.i560, %3880
@@ -58690,7 +58690,7 @@ cgltf_json_strcmp.exit107.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %3931
 
 3931:                                             ; preds = %3927, %3922, %3919, %3919
-  %.1.i.i.i550 = phi i32 [ %.016.i.i.i549, %3919 ], [ %.016.i.i.i549, %3919 ], [ %3930, %3927 ], [ %3926, %3922 ]
+  %.1.i.i.i550 = phi i32 [ %3926, %3922 ], [ %3930, %3927 ], [ %.016.i.i.i549, %3919 ], [ %.016.i.i.i549, %3919 ]
   %indvars.iv.next.i.i.i551 = add nuw nsw i64 %indvars.iv.i.i.i548, 1
   %3932 = sext i32 %.1.i.i.i550 to i64
   %3933 = icmp slt i64 %indvars.iv.next.i.i.i551, %3932
@@ -59024,7 +59024,7 @@ cgltf_json_strcmp.exit204.i.i607:                 ; preds = %cgltf_json_strcmp.e
   br label %4106
 
 4106:                                             ; preds = %4102, %4097, %4094, %4094
-  %.1.i.i.i.i611 = phi i32 [ %.016.i.i.i.i610, %4094 ], [ %.016.i.i.i.i610, %4094 ], [ %4105, %4102 ], [ %4101, %4097 ]
+  %.1.i.i.i.i611 = phi i32 [ %4101, %4097 ], [ %4105, %4102 ], [ %.016.i.i.i.i610, %4094 ], [ %.016.i.i.i.i610, %4094 ]
   %indvars.iv.next.i.i.i.i612 = add nuw nsw i64 %indvars.iv.i.i.i.i609, 1
   %4107 = sext i32 %.1.i.i.i.i611 to i64
   %4108 = icmp slt i64 %indvars.iv.next.i.i.i.i612, %4107
@@ -59224,7 +59224,7 @@ cgltf_json_strcmp.exit217.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %4206
 
 4206:                                             ; preds = %4202, %4197, %4194, %4194
-  %.1.i.i.i604 = phi i32 [ %.016.i.i.i603, %4194 ], [ %.016.i.i.i603, %4194 ], [ %4205, %4202 ], [ %4201, %4197 ]
+  %.1.i.i.i604 = phi i32 [ %4201, %4197 ], [ %4205, %4202 ], [ %.016.i.i.i603, %4194 ], [ %.016.i.i.i603, %4194 ]
   %indvars.iv.next.i.i.i605 = add nuw nsw i64 %indvars.iv.i.i.i602, 1
   %4207 = sext i32 %.1.i.i.i604 to i64
   %4208 = icmp slt i64 %indvars.iv.next.i.i.i605, %4207
@@ -59358,7 +59358,7 @@ cgltf_json_strcmp.exit227.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %4275
 
 4275:                                             ; preds = %4271, %4266, %4263, %4263
-  %.1.i234.i.i = phi i32 [ %.016.i233.i.i, %4263 ], [ %.016.i233.i.i, %4263 ], [ %4274, %4271 ], [ %4270, %4266 ]
+  %.1.i234.i.i = phi i32 [ %4270, %4266 ], [ %4274, %4271 ], [ %.016.i233.i.i, %4263 ], [ %.016.i233.i.i, %4263 ]
   %indvars.iv.next.i235.i.i = add nuw nsw i64 %indvars.iv.i232.i.i, 1
   %4276 = sext i32 %.1.i234.i.i to i64
   %4277 = icmp slt i64 %indvars.iv.next.i235.i.i, %4276
@@ -59422,7 +59422,7 @@ cgltf_json_strcmp.exit209.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %4303
 
 4303:                                             ; preds = %4299, %4294, %4291, %4291
-  %.1.i241.i.i = phi i32 [ %.016.i240.i.i, %4291 ], [ %.016.i240.i.i, %4291 ], [ %4302, %4299 ], [ %4298, %4294 ]
+  %.1.i241.i.i = phi i32 [ %4298, %4294 ], [ %4302, %4299 ], [ %.016.i240.i.i, %4291 ], [ %.016.i240.i.i, %4291 ]
   %indvars.iv.next.i242.i.i = add nuw nsw i64 %indvars.iv.i239.i.i, 1
   %4304 = sext i32 %.1.i241.i.i to i64
   %4305 = icmp slt i64 %indvars.iv.next.i242.i.i, %4304
@@ -59823,7 +59823,7 @@ cgltf_json_strcmp.exit118.i.i:                    ; preds = %4361
   br label %4510
 
 4510:                                             ; preds = %4506, %4501, %4498, %4498
-  %.1.i.i.i.i660 = phi i32 [ %.016.i.i.i.i659, %4498 ], [ %.016.i.i.i.i659, %4498 ], [ %4509, %4506 ], [ %4505, %4501 ]
+  %.1.i.i.i.i660 = phi i32 [ %4505, %4501 ], [ %4509, %4506 ], [ %.016.i.i.i.i659, %4498 ], [ %.016.i.i.i.i659, %4498 ]
   %indvars.iv.next.i.i.i.i661 = add nuw nsw i64 %indvars.iv.i.i.i.i658, 1
   %4511 = sext i32 %.1.i.i.i.i660 to i64
   %4512 = icmp slt i64 %indvars.iv.next.i.i.i.i661, %4511
@@ -59937,7 +59937,7 @@ cgltf_json_strcmp.exit123.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %4563
 
 4563:                                             ; preds = %4559, %4554, %4551, %4551
-  %.1.i.i.i641 = phi i32 [ %.016.i.i.i640, %4551 ], [ %.016.i.i.i640, %4551 ], [ %4562, %4559 ], [ %4558, %4554 ]
+  %.1.i.i.i641 = phi i32 [ %4558, %4554 ], [ %4562, %4559 ], [ %.016.i.i.i640, %4551 ], [ %.016.i.i.i640, %4551 ]
   %indvars.iv.next.i.i.i642 = add nuw nsw i64 %indvars.iv.i.i.i639, 1
   %4564 = sext i32 %.1.i.i.i641 to i64
   %4565 = icmp slt i64 %indvars.iv.next.i.i.i642, %4564
@@ -60348,7 +60348,7 @@ cgltf_json_strcmp.exit122.i.i:                    ; preds = %cgltf_json_strcmp.e
   br label %4777
 
 4777:                                             ; preds = %4773, %4768, %4765, %4765
-  %.1.i.i.i.i702 = phi i32 [ %.016.i.i.i.i701, %4765 ], [ %.016.i.i.i.i701, %4765 ], [ %4776, %4773 ], [ %4772, %4768 ]
+  %.1.i.i.i.i702 = phi i32 [ %4772, %4768 ], [ %4776, %4773 ], [ %.016.i.i.i.i701, %4765 ], [ %.016.i.i.i.i701, %4765 ]
   %indvars.iv.next.i.i.i.i703 = add nuw nsw i64 %indvars.iv.i.i.i.i700, 1
   %4778 = sext i32 %.1.i.i.i.i702 to i64
   %4779 = icmp slt i64 %indvars.iv.next.i.i.i.i703, %4778
@@ -60462,7 +60462,7 @@ cgltf_json_strcmp.exit127.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %4830
 
 4830:                                             ; preds = %4826, %4821, %4818, %4818
-  %.1.i.i.i683 = phi i32 [ %.016.i.i.i682, %4818 ], [ %.016.i.i.i682, %4818 ], [ %4829, %4826 ], [ %4825, %4821 ]
+  %.1.i.i.i683 = phi i32 [ %4825, %4821 ], [ %4829, %4826 ], [ %.016.i.i.i682, %4818 ], [ %.016.i.i.i682, %4818 ]
   %indvars.iv.next.i.i.i684 = add nsw i64 %indvars.iv.i.i.i681, 1
   %4831 = sext i32 %.1.i.i.i683 to i64
   %4832 = icmp slt i64 %indvars.iv.next.i.i.i684, %4831
@@ -61267,7 +61267,7 @@ cgltf_json_strcmp.exit246.i:                      ; preds = %124
   br label %246
 
 246:                                              ; preds = %242, %237, %234, %234
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %234 ], [ %.016.i.i.i, %234 ], [ %245, %242 ], [ %241, %237 ]
+  %.1.i.i.i = phi i32 [ %241, %237 ], [ %245, %242 ], [ %.016.i.i.i, %234 ], [ %.016.i.i.i, %234 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %247 = sext i32 %.1.i.i.i to i64
   %248 = icmp slt i64 %indvars.iv.next.i.i.i, %247
@@ -61305,7 +61305,7 @@ cgltf_json_strcmp.exit246.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %264
 
 264:                                              ; preds = %260, %255, %252, %252
-  %.1.i.i = phi i32 [ %.016.i.i, %252 ], [ %.016.i.i, %252 ], [ %263, %260 ], [ %259, %255 ]
+  %.1.i.i = phi i32 [ %259, %255 ], [ %263, %260 ], [ %.016.i.i, %252 ], [ %.016.i.i, %252 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %265 = sext i32 %.1.i.i to i64
   %266 = icmp slt i64 %indvars.iv.next.i.i, %265
@@ -61589,7 +61589,7 @@ cgltf_json_strcmp.exit282.i:                      ; preds = %290
   br label %411
 
 411:                                              ; preds = %407, %402, %399, %399
-  %.1.i.i288.i = phi i32 [ %.016.i.i287.i, %399 ], [ %.016.i.i287.i, %399 ], [ %410, %407 ], [ %406, %402 ]
+  %.1.i.i288.i = phi i32 [ %406, %402 ], [ %410, %407 ], [ %.016.i.i287.i, %399 ], [ %.016.i.i287.i, %399 ]
   %indvars.iv.next.i.i289.i = add nuw nsw i64 %indvars.iv.i.i286.i, 1
   %412 = sext i32 %.1.i.i288.i to i64
   %413 = icmp slt i64 %indvars.iv.next.i.i289.i, %412
@@ -61627,7 +61627,7 @@ cgltf_json_strcmp.exit282.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %429
 
 429:                                              ; preds = %425, %420, %417, %417
-  %.1.i294.i = phi i32 [ %.016.i293.i, %417 ], [ %.016.i293.i, %417 ], [ %428, %425 ], [ %424, %420 ]
+  %.1.i294.i = phi i32 [ %424, %420 ], [ %428, %425 ], [ %.016.i293.i, %417 ], [ %.016.i293.i, %417 ]
   %indvars.iv.next.i295.i = add nuw nsw i64 %indvars.iv.i292.i, 1
   %430 = sext i32 %.1.i294.i to i64
   %431 = icmp slt i64 %indvars.iv.next.i295.i, %430
@@ -61711,7 +61711,7 @@ cgltf_json_strcmp.exit301.i:                      ; preds = %69
   br label %471
 
 471:                                              ; preds = %467, %462, %459, %459
-  %.1.i.i307.i = phi i32 [ %.016.i.i306.i, %459 ], [ %.016.i.i306.i, %459 ], [ %470, %467 ], [ %466, %462 ]
+  %.1.i.i307.i = phi i32 [ %466, %462 ], [ %470, %467 ], [ %.016.i.i306.i, %459 ], [ %.016.i.i306.i, %459 ]
   %indvars.iv.next.i.i308.i = add nuw nsw i64 %indvars.iv.i.i305.i, 1
   %472 = sext i32 %.1.i.i307.i to i64
   %473 = icmp slt i64 %indvars.iv.next.i.i308.i, %472
@@ -61825,7 +61825,7 @@ cgltf_json_strcmp.exit313.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %524
 
 524:                                              ; preds = %520, %515, %512, %512
-  %.1.i318.i = phi i32 [ %.016.i317.i, %512 ], [ %.016.i317.i, %512 ], [ %523, %520 ], [ %519, %515 ]
+  %.1.i318.i = phi i32 [ %519, %515 ], [ %523, %520 ], [ %.016.i317.i, %512 ], [ %.016.i317.i, %512 ]
   %indvars.iv.next.i319.i = add nuw nsw i64 %indvars.iv.i316.i, 1
   %525 = sext i32 %.1.i318.i to i64
   %526 = icmp slt i64 %indvars.iv.next.i319.i, %525
@@ -62634,7 +62634,7 @@ cgltf_json_strcmp.exit351.i:                      ; preds = %cgltf_json_strcmp.e
   br label %399
 
 399:                                              ; preds = %395, %390, %387, %387
-  %.1.i.i53 = phi i32 [ %.016.i.i52, %387 ], [ %.016.i.i52, %387 ], [ %398, %395 ], [ %394, %390 ]
+  %.1.i.i53 = phi i32 [ %394, %390 ], [ %398, %395 ], [ %.016.i.i52, %387 ], [ %.016.i.i52, %387 ]
   %indvars.iv.next.i.i54 = add nuw nsw i64 %indvars.iv.i.i51, 1
   %400 = sext i32 %.1.i.i53 to i64
   %401 = icmp slt i64 %indvars.iv.next.i.i54, %400
@@ -62840,7 +62840,7 @@ cgltf_json_strcmp.exit359.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %502
 
 502:                                              ; preds = %498, %493, %490, %490
-  %.1.i.i = phi i32 [ %.016.i.i, %490 ], [ %.016.i.i, %490 ], [ %501, %498 ], [ %497, %493 ]
+  %.1.i.i = phi i32 [ %497, %493 ], [ %501, %498 ], [ %.016.i.i, %490 ], [ %.016.i.i, %490 ]
   %indvars.iv.next.i365.i = add nsw i64 %indvars.iv.i364.i, 1
   %503 = sext i32 %.1.i.i to i64
   %504 = icmp slt i64 %indvars.iv.next.i365.i, %503
@@ -62944,7 +62944,7 @@ cgltf_json_strcmp.exit.thread.i:                  ; preds = %cgltf_json_strcmp.e
   br label %554
 
 554:                                              ; preds = %550, %545, %542, %542
-  %.1.i.i37 = phi i32 [ %.016.i.i36, %542 ], [ %.016.i.i36, %542 ], [ %553, %550 ], [ %549, %545 ]
+  %.1.i.i37 = phi i32 [ %549, %545 ], [ %553, %550 ], [ %.016.i.i36, %542 ], [ %.016.i.i36, %542 ]
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %555 = sext i32 %.1.i.i37 to i64
   %556 = icmp slt i64 %indvars.iv.next.i.i38, %555
@@ -63008,7 +63008,7 @@ cgltf_json_strcmp.exit47.thread:                  ; preds = %cgltf_json_strcmp.e
   br label %581
 
 581:                                              ; preds = %577, %572, %569, %569
-  %.1.i = phi i32 [ %.016.i, %569 ], [ %.016.i, %569 ], [ %580, %577 ], [ %576, %572 ]
+  %.1.i = phi i32 [ %576, %572 ], [ %580, %577 ], [ %.016.i, %569 ], [ %.016.i, %569 ]
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i31, 1
   %582 = sext i32 %.1.i to i64
   %583 = icmp slt i64 %indvars.iv.next.i32, %582
@@ -63373,7 +63373,7 @@ cgltf_json_strcmp.exit84.i:                       ; preds = %54
   br label %168
 
 168:                                              ; preds = %164, %159, %156, %156
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %156 ], [ %.016.i.i.i, %156 ], [ %167, %164 ], [ %163, %159 ]
+  %.1.i.i.i = phi i32 [ %163, %159 ], [ %167, %164 ], [ %.016.i.i.i, %156 ], [ %.016.i.i.i, %156 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %169 = sext i32 %.1.i.i.i to i64
   %170 = icmp slt i64 %indvars.iv.next.i.i.i, %169
@@ -63487,7 +63487,7 @@ cgltf_json_strcmp.exit89.thread.i:                ; preds = %cgltf_json_strcmp.e
   br label %221
 
 221:                                              ; preds = %217, %212, %209, %209
-  %.1.i.i = phi i32 [ %.016.i.i, %209 ], [ %.016.i.i, %209 ], [ %220, %217 ], [ %216, %212 ]
+  %.1.i.i = phi i32 [ %216, %212 ], [ %220, %217 ], [ %.016.i.i, %209 ], [ %.016.i.i, %209 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %222 = sext i32 %.1.i.i to i64
   %223 = icmp slt i64 %indvars.iv.next.i.i, %222
@@ -64021,7 +64021,7 @@ cgltf_json_strcmp.exit100.i.i:                    ; preds = %cgltf_json_strcmp.e
   br label %253
 
 253:                                              ; preds = %249, %244, %241, %241
-  %.1.i.i.i.i = phi i32 [ %.016.i.i.i.i, %241 ], [ %.016.i.i.i.i, %241 ], [ %252, %249 ], [ %248, %244 ]
+  %.1.i.i.i.i = phi i32 [ %248, %244 ], [ %252, %249 ], [ %.016.i.i.i.i, %241 ], [ %.016.i.i.i.i, %241 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %254 = sext i32 %.1.i.i.i.i to i64
   %255 = icmp slt i64 %indvars.iv.next.i.i.i.i, %254
@@ -64135,7 +64135,7 @@ cgltf_json_strcmp.exit105.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %306
 
 306:                                              ; preds = %302, %297, %294, %294
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %294 ], [ %.016.i.i.i, %294 ], [ %305, %302 ], [ %301, %297 ]
+  %.1.i.i.i = phi i32 [ %301, %297 ], [ %305, %302 ], [ %.016.i.i.i, %294 ], [ %.016.i.i.i, %294 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %307 = sext i32 %.1.i.i.i to i64
   %308 = icmp slt i64 %indvars.iv.next.i.i.i, %307
@@ -64515,7 +64515,7 @@ cgltf_json_strcmp.exit142.i.i:                    ; preds = %407
   br label %498
 
 498:                                              ; preds = %494, %489, %486, %486
-  %.1.i.i.i158.i = phi i32 [ %.016.i.i.i157.i, %486 ], [ %.016.i.i.i157.i, %486 ], [ %497, %494 ], [ %493, %489 ]
+  %.1.i.i.i158.i = phi i32 [ %493, %489 ], [ %497, %494 ], [ %.016.i.i.i157.i, %486 ], [ %.016.i.i.i157.i, %486 ]
   %indvars.iv.next.i.i.i159.i = add nuw nsw i64 %indvars.iv.i.i.i156.i, 1
   %499 = sext i32 %.1.i.i.i158.i to i64
   %500 = icmp slt i64 %indvars.iv.next.i.i.i159.i, %499
@@ -64629,7 +64629,7 @@ cgltf_json_strcmp.exit147.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %551
 
 551:                                              ; preds = %547, %542, %539, %539
-  %.1.i.i139.i = phi i32 [ %.016.i.i138.i, %539 ], [ %.016.i.i138.i, %539 ], [ %550, %547 ], [ %546, %542 ]
+  %.1.i.i139.i = phi i32 [ %546, %542 ], [ %550, %547 ], [ %.016.i.i138.i, %539 ], [ %.016.i.i138.i, %539 ]
   %indvars.iv.next.i.i140.i = add nuw nsw i64 %indvars.iv.i.i137.i, 1
   %552 = sext i32 %.1.i.i139.i to i64
   %553 = icmp slt i64 %indvars.iv.next.i.i140.i, %552
@@ -64682,7 +64682,7 @@ cgltf_json_strcmp.exit117.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   br label %572
 
 572:                                              ; preds = %568, %563, %560, %560
-  %.1.i152.i.i = phi i32 [ %.016.i151.i.i, %560 ], [ %.016.i151.i.i, %560 ], [ %571, %568 ], [ %567, %563 ]
+  %.1.i152.i.i = phi i32 [ %567, %563 ], [ %571, %568 ], [ %.016.i151.i.i, %560 ], [ %.016.i151.i.i, %560 ]
   %indvars.iv.next.i153.i.i = add nuw nsw i64 %indvars.iv.i150.i.i, 1
   %573 = sext i32 %.1.i152.i.i to i64
   %574 = icmp slt i64 %indvars.iv.next.i153.i.i, %573
@@ -64784,7 +64784,7 @@ cgltf_json_strcmp.exit168.i:                      ; preds = %59
   br label %618
 
 618:                                              ; preds = %614, %609, %606, %606
-  %.1.i.i173.i = phi i32 [ %.016.i.i172.i, %606 ], [ %.016.i.i172.i, %606 ], [ %617, %614 ], [ %613, %609 ]
+  %.1.i.i173.i = phi i32 [ %613, %609 ], [ %617, %614 ], [ %.016.i.i172.i, %606 ], [ %.016.i.i172.i, %606 ]
   %indvars.iv.next.i.i174.i = add nuw nsw i64 %indvars.iv.i.i171.i, 1
   %619 = sext i32 %.1.i.i173.i to i64
   %620 = icmp slt i64 %indvars.iv.next.i.i174.i, %619
@@ -64898,7 +64898,7 @@ cgltf_json_strcmp.exit178.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %671
 
 671:                                              ; preds = %667, %662, %659, %659
-  %.1.i.i = phi i32 [ %.016.i.i, %659 ], [ %.016.i.i, %659 ], [ %670, %667 ], [ %666, %662 ]
+  %.1.i.i = phi i32 [ %666, %662 ], [ %670, %667 ], [ %.016.i.i, %659 ], [ %.016.i.i, %659 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %672 = sext i32 %.1.i.i to i64
   %673 = icmp slt i64 %indvars.iv.next.i.i, %672
@@ -65003,7 +65003,7 @@ define internal fastcc i32 @cgltf_parse_json_extras(ptr noundef nonnull readonly
   br label %42
 
 42:                                               ; preds = %38, %33, %30, %30
-  %.1.i = phi i32 [ %.016.i, %30 ], [ %.016.i, %30 ], [ %41, %38 ], [ %37, %33 ]
+  %.1.i = phi i32 [ %37, %33 ], [ %41, %38 ], [ %.016.i, %30 ], [ %.016.i, %30 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = sext i32 %.1.i to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
@@ -65508,7 +65508,7 @@ cgltf_json_strcmp.exit182.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %261
 
 261:                                              ; preds = %257, %252, %249, %249
-  %.1.i.i = phi i32 [ %.016.i.i, %249 ], [ %.016.i.i, %249 ], [ %260, %257 ], [ %256, %252 ]
+  %.1.i.i = phi i32 [ %256, %252 ], [ %260, %257 ], [ %.016.i.i, %249 ], [ %.016.i.i, %249 ]
   %indvars.iv.next.i188.i = add nuw nsw i64 %indvars.iv.i187.i, 1
   %262 = sext i32 %.1.i.i to i64
   %263 = icmp slt i64 %indvars.iv.next.i188.i, %262
@@ -65590,7 +65590,7 @@ cgltf_json_strcmp.exit191.i:                      ; preds = %61
   br label %303
 
 303:                                              ; preds = %299, %294, %291, %291
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %291 ], [ %.016.i.i.i, %291 ], [ %302, %299 ], [ %298, %294 ]
+  %.1.i.i.i = phi i32 [ %298, %294 ], [ %302, %299 ], [ %.016.i.i.i, %291 ], [ %.016.i.i.i, %291 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %304 = sext i32 %.1.i.i.i to i64
   %305 = icmp slt i64 %indvars.iv.next.i.i.i, %304
@@ -65632,7 +65632,7 @@ cgltf_json_strcmp.exit191.thread.i:               ; preds = %cgltf_json_strcmp.e
   br label %322
 
 322:                                              ; preds = %318, %313, %310, %310
-  %.1.i196.i = phi i32 [ %.016.i195.i, %310 ], [ %.016.i195.i, %310 ], [ %321, %318 ], [ %317, %313 ]
+  %.1.i196.i = phi i32 [ %317, %313 ], [ %321, %318 ], [ %.016.i195.i, %310 ], [ %.016.i195.i, %310 ]
   %indvars.iv.next.i197.i = add nuw nsw i64 %indvars.iv.i194.i, 1
   %323 = sext i32 %.1.i196.i to i64
   %324 = icmp slt i64 %indvars.iv.next.i197.i, %323
@@ -65705,7 +65705,7 @@ define internal fastcc i32 @cgltf_skip_json(ptr noundef nonnull readonly capture
   br label %17
 
 17:                                               ; preds = %5, %5, %13, %8
-  %.1 = phi i32 [ %.016, %5 ], [ %.016, %5 ], [ %16, %13 ], [ %12, %8 ]
+  %.1 = phi i32 [ %12, %8 ], [ %16, %13 ], [ %.016, %5 ], [ %.016, %5 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %18 = sext i32 %.1 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
@@ -65927,7 +65927,7 @@ cgltf_json_strcmp.exit45.i:                       ; preds = %49
   br label %119
 
 119:                                              ; preds = %115, %110, %107, %107
-  %.1.i.i.i = phi i32 [ %.016.i.i.i, %107 ], [ %.016.i.i.i, %107 ], [ %118, %115 ], [ %114, %110 ]
+  %.1.i.i.i = phi i32 [ %114, %110 ], [ %118, %115 ], [ %.016.i.i.i, %107 ], [ %.016.i.i.i, %107 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %120 = sext i32 %.1.i.i.i to i64
   %121 = icmp slt i64 %indvars.iv.next.i.i.i, %120
@@ -65965,7 +65965,7 @@ cgltf_json_strcmp.exit45.thread.i:                ; preds = %cgltf_json_strcmp.e
   br label %137
 
 137:                                              ; preds = %133, %128, %125, %125
-  %.1.i.i = phi i32 [ %.016.i.i, %125 ], [ %.016.i.i, %125 ], [ %136, %133 ], [ %132, %128 ]
+  %.1.i.i = phi i32 [ %132, %128 ], [ %136, %133 ], [ %.016.i.i, %125 ], [ %.016.i.i, %125 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %138 = sext i32 %.1.i.i to i64
   %139 = icmp slt i64 %indvars.iv.next.i.i, %138
@@ -66096,7 +66096,7 @@ define internal fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef n
   br label %62
 
 62:                                               ; preds = %58, %53, %50, %50
-  %.1.i = phi i32 [ %.016.i, %50 ], [ %.016.i, %50 ], [ %61, %58 ], [ %57, %53 ]
+  %.1.i = phi i32 [ %57, %53 ], [ %61, %58 ], [ %.016.i, %50 ], [ %.016.i, %50 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %63 = sext i32 %.1.i to i64
   %64 = icmp slt i64 %indvars.iv.next.i, %63
@@ -66588,7 +66588,7 @@ cgltf_json_strcmp.exit130:                        ; preds = %cgltf_json_strcmp.e
   br label %81
 
 81:                                               ; preds = %77, %72, %69, %69
-  %.1.i = phi i32 [ %.016.i, %69 ], [ %.016.i, %69 ], [ %80, %77 ], [ %76, %72 ]
+  %.1.i = phi i32 [ %76, %72 ], [ %80, %77 ], [ %.016.i, %69 ], [ %.016.i, %69 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %82 = sext i32 %.1.i to i64
   %83 = icmp slt i64 %indvars.iv.next.i, %82
@@ -66636,7 +66636,7 @@ cgltf_json_strcmp.exit133:                        ; preds = %35
   br label %104
 
 104:                                              ; preds = %100, %95, %92, %92
-  %.1.i136 = phi i32 [ %.016.i135, %92 ], [ %.016.i135, %92 ], [ %103, %100 ], [ %99, %95 ]
+  %.1.i136 = phi i32 [ %99, %95 ], [ %103, %100 ], [ %.016.i135, %92 ], [ %.016.i135, %92 ]
   %indvars.iv.next.i137 = add nsw i64 %indvars.iv.i134, 1
   %105 = sext i32 %.1.i136 to i64
   %106 = icmp slt i64 %indvars.iv.next.i137, %105
@@ -66678,7 +66678,7 @@ cgltf_json_strcmp.exit133.thread:                 ; preds = %35, %cgltf_json_str
   br label %123
 
 123:                                              ; preds = %119, %114, %111, %111
-  %.1.i143 = phi i32 [ %.016.i142, %111 ], [ %.016.i142, %111 ], [ %122, %119 ], [ %118, %114 ]
+  %.1.i143 = phi i32 [ %118, %114 ], [ %122, %119 ], [ %.016.i142, %111 ], [ %.016.i142, %111 ]
   %indvars.iv.next.i144 = add nsw i64 %indvars.iv.i141, 1
   %124 = sext i32 %.1.i143 to i64
   %125 = icmp slt i64 %indvars.iv.next.i144, %124
@@ -66820,7 +66820,7 @@ cgltf_json_to_int.exit151:                        ; preds = %143
   br label %195
 
 195:                                              ; preds = %191, %186, %183, %183
-  %.1.i.i = phi i32 [ %.016.i.i, %183 ], [ %.016.i.i, %183 ], [ %194, %191 ], [ %190, %186 ]
+  %.1.i.i = phi i32 [ %190, %186 ], [ %194, %191 ], [ %.016.i.i, %183 ], [ %.016.i.i, %183 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %196 = sext i32 %.1.i.i to i64
   %197 = icmp slt i64 %indvars.iv.next.i.i, %196
@@ -67390,7 +67390,7 @@ cgltf_json_strcmp.exit84.thread.i:                ; preds = %cgltf_json_strcmp.e
   br label %281
 
 281:                                              ; preds = %277, %272, %269, %269
-  %.1.i.i = phi i32 [ %.016.i.i, %269 ], [ %.016.i.i, %269 ], [ %280, %277 ], [ %276, %272 ]
+  %.1.i.i = phi i32 [ %276, %272 ], [ %280, %277 ], [ %.016.i.i, %269 ], [ %.016.i.i, %269 ]
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %282 = sext i32 %.1.i.i to i64
   %283 = icmp slt i64 %indvars.iv.next.i89.i, %282
@@ -67440,7 +67440,7 @@ cgltf_json_strcmp.exit130.thread:                 ; preds = %145, %cgltf_json_st
   br label %301
 
 301:                                              ; preds = %297, %292, %289, %289
-  %.1.i = phi i32 [ %.016.i, %289 ], [ %.016.i, %289 ], [ %300, %297 ], [ %296, %292 ]
+  %.1.i = phi i32 [ %296, %292 ], [ %300, %297 ], [ %.016.i, %289 ], [ %.016.i, %289 ]
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %302 = sext i32 %.1.i to i64
   %303 = icmp slt i64 %indvars.iv.next.i136, %302
@@ -67493,7 +67493,7 @@ cgltf_json_strcmp.exit127.thread:                 ; preds = %38, %cgltf_json_str
   br label %322
 
 322:                                              ; preds = %318, %313, %310, %310
-  %.1.i139 = phi i32 [ %.016.i138, %310 ], [ %.016.i138, %310 ], [ %321, %318 ], [ %317, %313 ]
+  %.1.i139 = phi i32 [ %317, %313 ], [ %321, %318 ], [ %.016.i138, %310 ], [ %.016.i138, %310 ]
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i137, 1
   %323 = sext i32 %.1.i139 to i64
   %324 = icmp slt i64 %indvars.iv.next.i140, %323
@@ -67779,7 +67779,7 @@ cgltf_json_strcmp.exit108.thread:                 ; preds = %29, %cgltf_json_str
   br label %142
 
 142:                                              ; preds = %138, %133, %130, %130
-  %.1.i = phi i32 [ %.016.i, %130 ], [ %.016.i, %130 ], [ %141, %138 ], [ %137, %133 ]
+  %.1.i = phi i32 [ %137, %133 ], [ %141, %138 ], [ %.016.i, %130 ], [ %.016.i, %130 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %143 = sext i32 %.1.i to i64
   %144 = icmp slt i64 %indvars.iv.next.i, %143
@@ -67970,7 +67970,7 @@ cgltf_json_strcmp.exit62.thread:                  ; preds = %24, %cgltf_json_str
   br label %91
 
 91:                                               ; preds = %87, %82, %79, %79
-  %.1.i = phi i32 [ %.016.i, %79 ], [ %.016.i, %79 ], [ %90, %87 ], [ %86, %82 ]
+  %.1.i = phi i32 [ %86, %82 ], [ %90, %87 ], [ %.016.i, %79 ], [ %.016.i, %79 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %92 = sext i32 %.1.i to i64
   %93 = icmp slt i64 %indvars.iv.next.i, %92
@@ -68105,7 +68105,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %20, %cgltf_json_str
   br label %62
 
 62:                                               ; preds = %58, %53, %50, %50
-  %.1.i = phi i32 [ %.016.i, %50 ], [ %.016.i, %50 ], [ %61, %58 ], [ %57, %53 ]
+  %.1.i = phi i32 [ %57, %53 ], [ %61, %58 ], [ %.016.i, %50 ], [ %.016.i, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %63 = sext i32 %.1.i to i64
   %64 = icmp slt i64 %indvars.iv.next.i, %63

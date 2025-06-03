@@ -3088,7 +3088,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br i1 %160, label %91, label %.loopexit, !llvm.loop !96
 
 161:                                              ; preds = %148, %.body59, %.body, %98
-  %.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %.pn10.i, %.body59 ], [ %.pn9.i, %.body ], [ %99, %98 ]
+  %.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %.pn9.i, %.body ], [ %.pn10.i, %.body59 ], [ %99, %98 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #35
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #35
@@ -4446,7 +4446,7 @@ define noundef range(i32 0, 4) i32 @_ZNK6icu_7724DateTimePatternGenerator19getDe
   unreachable
 
 13:                                               ; preds = %5, %2, %11, %10, %9, %8
-  %.0 = phi i32 [ 2, %8 ], [ 3, %11 ], [ 2, %10 ], [ 1, %9 ], [ 2, %2 ], [ 0, %5 ]
+  %.0 = phi i32 [ 2, %8 ], [ 1, %9 ], [ 2, %10 ], [ 3, %11 ], [ 2, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 

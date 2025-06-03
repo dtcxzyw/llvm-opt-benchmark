@@ -2053,7 +2053,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %.critedge191, %232,
   br label %243
 
 243:                                              ; preds = %1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %242, %11
-  %.0138 = phi i1 [ %18, %11 ], [ %.1139, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %242 ], [ true, %1 ]
+  %.0138 = phi i1 [ %18, %11 ], [ false, %242 ], [ %.1139, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %1 ]
   ret i1 %.0138
 }
 

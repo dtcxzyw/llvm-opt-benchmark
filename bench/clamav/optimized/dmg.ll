@@ -1138,7 +1138,7 @@ define internal fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef 
   br label %58
 
 58:                                               ; preds = %.sink.split.i, %54, %54
-  %.1208 = phi i8 [ %.0207258, %54 ], [ %.0207258, %54 ], [ 1, %.sink.split.i ]
+  %.1208 = phi i8 [ 1, %.sink.split.i ], [ %.0207258, %54 ], [ %.0207258, %54 ]
   %59 = add i64 %56, %.0210257
   %60 = icmp ult i64 %.0210257, %59
   br i1 %60, label %62, label %61
@@ -1792,8 +1792,8 @@ dmg_stripe_inflate.exit:                          ; preds = %190, %206, %211, %2
   br i1 %317, label %.preheader20.i, label %.thread11.i
 
 .thread11.i:                                      ; preds = %314, %313, %312, %303, %.thread6.i, %282, %278, %264
-  %.172.i = phi i64 [ %.071.i, %264 ], [ %.071.i, %278 ], [ %.071.i, %282 ], [ %307, %312 ], [ %307, %303 ], [ %285, %.thread6.i ], [ %307, %313 ], [ %.273.i, %314 ]
-  %.1.i = phi i32 [ 26, %264 ], [ 19, %278 ], [ 26, %282 ], [ 14, %312 ], [ %309, %303 ], [ 26, %.thread6.i ], [ 0, %313 ], [ %.4.i203, %314 ]
+  %.172.i = phi i64 [ %.071.i, %264 ], [ %.071.i, %282 ], [ %.071.i, %278 ], [ %307, %312 ], [ %307, %303 ], [ %285, %.thread6.i ], [ %307, %313 ], [ %.273.i, %314 ]
+  %.1.i = phi i32 [ 26, %264 ], [ 26, %282 ], [ 19, %278 ], [ 14, %312 ], [ %309, %303 ], [ 26, %.thread6.i ], [ 0, %313 ], [ %.4.i203, %314 ]
   %318 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %6) #13
   %319 = icmp ne i32 %.1.i, 0
   %.not89.i = icmp eq i64 %.172.i, %260
@@ -1818,7 +1818,7 @@ dmg_stripe_bzip.exit:                             ; preds = %.thread11.i, %.sink
   br label %dmg_stripe_store.exit
 
 dmg_stripe_store.exit:                            ; preds = %141, %123, %dmg_stripe_zeroes.exit, %dmg_stripe_adc.exit, %dmg_stripe_inflate.exit, %dmg_stripe_bzip.exit, %320
-  %.1169 = phi i32 [ 0, %320 ], [ %.0.i201, %dmg_stripe_bzip.exit ], [ %.034.i, %dmg_stripe_inflate.exit ], [ %.037.i, %dmg_stripe_adc.exit ], [ %.017.i188, %dmg_stripe_zeroes.exit ], [ 0, %123 ], [ 0, %141 ]
+  %.1169 = phi i32 [ 0, %320 ], [ %.017.i188, %dmg_stripe_zeroes.exit ], [ %.037.i, %dmg_stripe_adc.exit ], [ %.034.i, %dmg_stripe_inflate.exit ], [ %.0.i201, %dmg_stripe_bzip.exit ], [ 0, %123 ], [ 0, %141 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %322 = load ptr, ptr %4, align 8, !tbaa !58
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 200

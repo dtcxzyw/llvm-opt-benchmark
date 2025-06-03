@@ -1239,7 +1239,7 @@ sub_1123:                                         ; preds = %sub_0122
           to label %328 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 328:                                              ; preds = %.invoke389, %323, %314, %311, %327, %322, %320
-  %.023 = phi i32 [ 0, %327 ], [ 0, %322 ], [ 0, %320 ], [ %313, %311 ], [ %315, %314 ], [ %325, %323 ], [ %319, %.invoke389 ]
+  %.023 = phi i32 [ 0, %327 ], [ 0, %320 ], [ 0, %322 ], [ %313, %311 ], [ %315, %314 ], [ %325, %323 ], [ %319, %.invoke389 ]
   invoke void @_Z15disable_timeoutv()
           to label %329 unwind label %.loopexit.split-lp.loopexit.split-lp
 

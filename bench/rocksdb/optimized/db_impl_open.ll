@@ -19776,7 +19776,7 @@ _ZN7rocksdb6StatusD2Ev.exit55:                    ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #27
   br label %182
 
-.critedge:                                        ; preds = %112, %115, %66, %27
+.critedge:                                        ; preds = %112, %115, %27, %66
   %118 = load i8, ptr %9, align 1, !tbaa !198, !range !91, !noundef !92
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %181

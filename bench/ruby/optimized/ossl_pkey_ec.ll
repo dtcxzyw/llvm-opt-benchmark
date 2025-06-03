@@ -1503,7 +1503,7 @@ define internal i64 @ossl_ec_group_get_point_conversion_form(i64 noundef %0) #0 
   unreachable
 
 12:                                               ; preds = %6, %9, %8
-  %.0.in = phi ptr [ @ID_hybrid, %9 ], [ @ID_compressed, %8 ], [ @ID_uncompressed, %6 ]
+  %.0.in = phi ptr [ @ID_compressed, %8 ], [ @ID_hybrid, %9 ], [ @ID_uncompressed, %6 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !6
   %13 = tail call i64 @rb_id2sym(i64 noundef %.0) #8
   ret i64 %13
@@ -2783,7 +2783,7 @@ define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef 
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.0 = phi i32 [ %16, %15 ], [ %14, %13 ]
+  %.0 = phi i32 [ %14, %13 ], [ %16, %15 ]
   %.not13 = icmp eq i32 %.0, 1
   br i1 %.not13, label %21, label %18
 

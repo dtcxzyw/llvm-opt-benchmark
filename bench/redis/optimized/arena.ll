@@ -3023,7 +3023,7 @@ define hidden ptr @je_arena_malloc_hard(ptr noundef %0, ptr noundef %1, i64 noun
   br label %arena_choose_maybe_huge.exit
 
 arena_choose_maybe_huge.exit:                     ; preds = %.thread, %19, %5
-  %.014 = phi ptr [ %1, %5 ], [ %20, %19 ], [ %21, %.thread ]
+  %.014 = phi ptr [ %1, %5 ], [ %21, %.thread ], [ %20, %19 ]
   %22 = icmp eq ptr %.014, null
   br i1 %22, label %arena_malloc_small.exit, label %23, !prof !185
 

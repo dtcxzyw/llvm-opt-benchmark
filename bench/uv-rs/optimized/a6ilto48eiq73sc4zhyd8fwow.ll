@@ -2477,7 +2477,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN64_$LT$uv_python..sysconfig..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h43b7ae4adde5b02bE.exit"
 
 "_ZN64_$LT$uv_python..sysconfig..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h43b7ae4adde5b02bE.exit": ; preds = %8, %11, %13, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2543,7 +2543,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN72_$LT$uv_python..sysconfig..parser..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f9a76bc70dba660E.exit"
 
 "_ZN72_$LT$uv_python..sysconfig..parser..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f9a76bc70dba660E.exit": ; preds = %8, %10, %13, %15, %18, %21, %23
-  %.sroa.0.0.in.i = phi i1 [ %24, %23 ], [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %12, %10 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3773,7 +3773,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$uv_python..discovery..Error$
   unreachable
 
 common.resume:                                    ; preds = %.body, %468, %130, %189, %287, %298, %337, %354, %378, %401, %411, %420, %429
-  %common.resume.op = phi { ptr, i32 } [ %190, %189 ], [ %131, %130 ], [ %299, %298 ], [ %288, %287 ], [ %338, %337 ], [ %430, %429 ], [ %421, %420 ], [ %412, %411 ], [ %.pn.i, %401 ], [ %.pn2.i, %378 ], [ %355, %354 ], [ %469, %468 ], [ %104, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %190, %189 ], [ %131, %130 ], [ %288, %287 ], [ %299, %298 ], [ %338, %337 ], [ %355, %354 ], [ %.pn2.i, %378 ], [ %.pn.i, %401 ], [ %412, %411 ], [ %421, %420 ], [ %430, %429 ], [ %469, %468 ], [ %104, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 145:                                              ; preds = %106
@@ -5182,7 +5182,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$uv_python..downloads..Error$
   unreachable
 
 common.resume:                                    ; preds = %201, %221, %239, %253, %262, %271, %.body43, %216, %210, %286
-  %common.resume.op = phi { ptr, i32 } [ %287, %286 ], [ %211, %210 ], [ %.pn2, %.body43 ], [ %272, %271 ], [ %263, %262 ], [ %254, %253 ], [ %.pn, %239 ], [ %222, %221 ], [ %202, %201 ], [ %217, %216 ]
+  %common.resume.op = phi { ptr, i32 } [ %287, %286 ], [ %211, %210 ], [ %.pn2, %.body43 ], [ %202, %201 ], [ %222, %221 ], [ %.pn, %239 ], [ %254, %253 ], [ %263, %262 ], [ %272, %271 ], [ %217, %216 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17he6fbc55a3970d250E.llvm.1525709606161698564.exit.i.i": ; preds = %208
@@ -5782,7 +5782,7 @@ default.unreachable12:                            ; preds = %1
   unreachable
 
 115:                                              ; preds = %116, %104
-  %.pn = phi { ptr, i32 } [ %117, %116 ], [ %105, %104 ]
+  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %117, %116 ]
   resume { ptr, i32 } %.pn
 
 116:                                              ; preds = %99, %94, %89, %84
@@ -7116,8 +7116,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN66_$LT$uv_python..sysconfig..Error$u20$as$u20$core..error..Error$GT$6source17hf46385394675c8c6E.exit"
 
 "_ZN66_$LT$uv_python..sysconfig..Error$u20$as$u20$core..error..Error$GT$6source17hf46385394675c8c6E.exit": ; preds = %1, %1, %3, %8, %12
-  %.sroa.6.0.i = phi ptr [ %16, %12 ], [ @anon.be360845690a7974eca65cf19609f225.314.llvm.10896961552849713402, %8 ], [ %7, %3 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %15, %12 ], [ %.sroa.0.0.i.i, %8 ], [ %6, %3 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.6.0.i = phi ptr [ %7, %3 ], [ @anon.be360845690a7974eca65cf19609f225.314.llvm.10896961552849713402, %8 ], [ %16, %12 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %6, %3 ], [ %.sroa.0.0.i.i, %8 ], [ %15, %12 ], [ null, %1 ], [ null, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.6.0.i, 1
   ret { ptr, ptr } %18
@@ -10861,7 +10861,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h964293312164cbc0E.exit29.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0dedafb2d3b67b2aE.exit.i.i
 
 108:                                              ; preds = %90, %89, %88, %87, %86, %.thread.i.i, %69
-  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.24, %90 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.23, %89 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.22, %88 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.21, %87 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.20, %86 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.17, %.thread.i.i ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.18, %69 ]
+  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.20, %86 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.21, %87 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.22, %88 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.23, %89 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.24, %90 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.17, %.thread.i.i ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.18, %69 ]
   %109 = load i64, ptr %.0.val, align 8, !range !3214, !alias.scope !3880, !noalias !3891, !noundef !3
   %110 = sub i64 %109, %70
   %111 = icmp ult i64 %110, 2
@@ -11152,7 +11152,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h62dab5ee508e1849E.exit29.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h74f89700ac0bde25E.exit.i.i
 
 108:                                              ; preds = %90, %89, %88, %87, %86, %.thread.i.i, %69
-  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.24, %90 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.23, %89 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.22, %88 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.21, %87 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.20, %86 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.17, %.thread.i.i ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.18, %69 ]
+  %.sroa.02.0.i.i.i = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.20, %86 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.21, %87 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.22, %88 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.23, %89 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.24, %90 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.17, %.thread.i.i ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.18, %69 ]
   %109 = load i64, ptr %.0.val, align 8, !range !3214, !alias.scope !3999, !noalias !4010, !noundef !3
   %110 = sub i64 %109, %70
   %111 = icmp ult i64 %110, 2
@@ -12956,14 +12956,14 @@ define hidden void @_ZN9uv_pep4407version7Version12with_release17h211546e735733a
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %10 = load i8, ptr %9, align 1, !noundef !3
   %11 = icmp eq i8 %10, 0
-  %.sink24.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink24.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink24.sroa.gep29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink24.sroa.gep30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink24.sroa.gep32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink24.sroa.gep33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink24.sroa.gep35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink24.sroa.gep36 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink25.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink25.sroa.gep28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink25.sroa.gep30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink25.sroa.gep31 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink25.sroa.gep33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink25.sroa.gep34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink25.sroa.gep36 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink25.sroa.gep37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %3
@@ -13036,19 +13036,19 @@ define hidden void @_ZN9uv_pep4407version7Version12with_release17h211546e735733a
   br label %.invoke
 
 .invoke:                                          ; preds = %67, %36
-  %.sink24.sroa.phi = phi ptr [ %.sink24.sroa.gep, %67 ], [ %.sink24.sroa.gep27, %36 ]
-  %.sink24.sroa.phi28 = phi ptr [ %.sink24.sroa.gep29, %67 ], [ %.sink24.sroa.gep30, %36 ]
-  %.sink24.sroa.phi31 = phi ptr [ %.sink24.sroa.gep32, %67 ], [ %.sink24.sroa.gep33, %36 ]
-  %.sink24.sroa.phi34 = phi ptr [ %.sink24.sroa.gep35, %67 ], [ %.sink24.sroa.gep36, %36 ]
-  %.sink24 = phi ptr [ %6, %67 ], [ %5, %36 ]
-  %.sink18 = phi ptr [ inttoptr (i64 8 to ptr), %67 ], [ %4, %36 ]
+  %.sink25.sroa.phi = phi ptr [ %.sink25.sroa.gep, %67 ], [ %.sink25.sroa.gep28, %36 ]
+  %.sink25.sroa.phi29 = phi ptr [ %.sink25.sroa.gep30, %67 ], [ %.sink25.sroa.gep31, %36 ]
+  %.sink25.sroa.phi32 = phi ptr [ %.sink25.sroa.gep33, %67 ], [ %.sink25.sroa.gep34, %36 ]
+  %.sink25.sroa.phi35 = phi ptr [ %.sink25.sroa.gep36, %67 ], [ %.sink25.sroa.gep37, %36 ]
+  %.sink25 = phi ptr [ %6, %67 ], [ %5, %36 ]
+  %.sink19 = phi ptr [ inttoptr (i64 8 to ptr), %67 ], [ %4, %36 ]
   %.sink = phi i64 [ 0, %67 ], [ 1, %36 ]
   %37 = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.122, %67 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.126, %36 ]
-  store i64 1, ptr %.sink24.sroa.phi, align 8
-  store ptr null, ptr %.sink24.sroa.phi28, align 8
-  store ptr %.sink18, ptr %.sink24.sroa.phi31, align 8
-  store i64 %.sink, ptr %.sink24.sroa.phi34, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink24, ptr noalias noundef readonly align 8 dereferenceable(24) %37) #55
+  store i64 1, ptr %.sink25.sroa.phi, align 8
+  store ptr null, ptr %.sink25.sroa.phi29, align 8
+  store ptr %.sink19, ptr %.sink25.sroa.phi32, align 8
+  store i64 %.sink, ptr %.sink25.sroa.phi35, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink25, ptr noalias noundef readonly align 8 dereferenceable(24) %37) #55
           to label %.cont unwind label %18
 
 .cont:                                            ; preds = %.invoke
@@ -13087,11 +13087,11 @@ define hidden void @_ZN9uv_pep4407version7Version12with_release17h211546e735733a
   br label %62
 
 62:                                               ; preds = %53, %46, %41, %38, %29, %27
-  %.sroa.07.0.i = phi i64 [ 5, %29 ], [ 4, %53 ], [ 3, %46 ], [ 2, %41 ], [ 1, %38 ], [ 0, %27 ]
-  %.sroa.7.0.i = phi i64 [ %35, %29 ], [ %55, %53 ], [ %48, %46 ], [ %43, %41 ], [ %40, %38 ], [ undef, %27 ]
-  %.sroa.12.0.i = phi i64 [ %34, %29 ], [ %57, %53 ], [ %50, %46 ], [ %45, %41 ], [ undef, %38 ], [ undef, %27 ]
-  %.sroa.16.0.i = phi i64 [ undef, %29 ], [ %59, %53 ], [ %52, %46 ], [ undef, %41 ], [ undef, %38 ], [ undef, %27 ]
-  %.sroa.18.0.i = phi i64 [ undef, %29 ], [ %61, %53 ], [ undef, %46 ], [ undef, %41 ], [ undef, %38 ], [ undef, %27 ]
+  %.sroa.07.0.i = phi i64 [ 5, %29 ], [ 1, %38 ], [ 2, %41 ], [ 3, %46 ], [ 4, %53 ], [ 0, %27 ]
+  %.sroa.7.0.i = phi i64 [ %35, %29 ], [ %40, %38 ], [ %43, %41 ], [ %48, %46 ], [ %55, %53 ], [ undef, %27 ]
+  %.sroa.12.0.i = phi i64 [ %34, %29 ], [ undef, %38 ], [ %45, %41 ], [ %50, %46 ], [ %57, %53 ], [ undef, %27 ]
+  %.sroa.16.0.i = phi i64 [ undef, %29 ], [ undef, %38 ], [ undef, %41 ], [ %52, %46 ], [ %59, %53 ], [ undef, %27 ]
+  %.sroa.18.0.i = phi i64 [ undef, %29 ], [ undef, %38 ], [ undef, %41 ], [ undef, %46 ], [ %61, %53 ], [ undef, %27 ]
   store i64 %.sroa.07.0.i, ptr %7, align 8, !alias.scope !4514, !noalias !4517
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !4514, !noalias !4517
@@ -13208,7 +13208,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
   unreachable
 
 112:                                              ; preds = %69, %18
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %70, %69 ]
+  %.pn4 = phi { ptr, i32 } [ %19, %18 ], [ %70, %69 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4529)
   call void @llvm.experimental.noalias.scope.decl(metadata !4532)
   %113 = load i8, ptr %9, align 1, !alias.scope !4535, !noundef !3
@@ -13229,7 +13229,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
           to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit" unwind label %110
 
 "_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit": ; preds = %114, %112, %118
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -13268,8 +13268,8 @@ define hidden { i64, i8 } @_ZN9uv_pep4407version7Version3pre17h95d233939197304aE
   br label %19
 
 19:                                               ; preds = %5, %17, %18, %16, %10
-  %.sroa.6.0 = phi i8 [ %15, %10 ], [ 3, %17 ], [ 2, %18 ], [ 1, %16 ], [ 0, %5 ]
-  %.sroa.0.0 = phi i64 [ %13, %10 ], [ undef, %17 ], [ %9, %18 ], [ %9, %16 ], [ %9, %5 ]
+  %.sroa.6.0 = phi i8 [ %15, %10 ], [ 3, %17 ], [ 1, %16 ], [ 2, %18 ], [ 0, %5 ]
+  %.sroa.0.0 = phi i64 [ %13, %10 ], [ undef, %17 ], [ %9, %16 ], [ %9, %18 ], [ %9, %5 ]
   %20 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %21 = insertvalue { i64, i8 } %20, i8 %.sroa.6.0, 1
   ret { i64, i8 } %21
@@ -13355,11 +13355,11 @@ define hidden void @_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.ll
   br label %47
 
 47:                                               ; preds = %8, %23, %26, %31, %38, %11
-  %.sroa.07.0 = phi i64 [ 5, %11 ], [ 4, %38 ], [ 3, %31 ], [ 2, %26 ], [ 1, %23 ], [ 0, %8 ]
-  %.sroa.7.0 = phi i64 [ %17, %11 ], [ %40, %38 ], [ %33, %31 ], [ %28, %26 ], [ %25, %23 ], [ undef, %8 ]
-  %.sroa.12.0 = phi i64 [ %16, %11 ], [ %42, %38 ], [ %35, %31 ], [ %30, %26 ], [ undef, %23 ], [ undef, %8 ]
-  %.sroa.16.0 = phi i64 [ undef, %11 ], [ %44, %38 ], [ %37, %31 ], [ undef, %26 ], [ undef, %23 ], [ undef, %8 ]
-  %.sroa.18.0 = phi i64 [ undef, %11 ], [ %46, %38 ], [ undef, %31 ], [ undef, %26 ], [ undef, %23 ], [ undef, %8 ]
+  %.sroa.07.0 = phi i64 [ 5, %11 ], [ 1, %23 ], [ 2, %26 ], [ 3, %31 ], [ 4, %38 ], [ 0, %8 ]
+  %.sroa.7.0 = phi i64 [ %17, %11 ], [ %25, %23 ], [ %28, %26 ], [ %33, %31 ], [ %40, %38 ], [ undef, %8 ]
+  %.sroa.12.0 = phi i64 [ %16, %11 ], [ undef, %23 ], [ %30, %26 ], [ %35, %31 ], [ %42, %38 ], [ undef, %8 ]
+  %.sroa.16.0 = phi i64 [ undef, %11 ], [ undef, %23 ], [ undef, %26 ], [ %37, %31 ], [ %44, %38 ], [ undef, %8 ]
+  %.sroa.18.0 = phi i64 [ undef, %11 ], [ undef, %23 ], [ undef, %26 ], [ undef, %31 ], [ %46, %38 ], [ undef, %8 ]
   store i64 %.sroa.07.0, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
@@ -14339,8 +14339,8 @@ define void @_ZN9uv_python12installation21PythonInstallationKey16new_from_versio
   br label %36
 
 36:                                               ; preds = %35, %34, %33, %27, %22
-  %.sroa.6.0.i = phi i8 [ %32, %27 ], [ 3, %34 ], [ 2, %35 ], [ 1, %33 ], [ 0, %22 ]
-  %.sroa.0.0.i = phi i64 [ %30, %27 ], [ undef, %34 ], [ %26, %35 ], [ %26, %33 ], [ %26, %22 ]
+  %.sroa.6.0.i = phi i8 [ %32, %27 ], [ 3, %34 ], [ 1, %33 ], [ 2, %35 ], [ 0, %22 ]
+  %.sroa.0.0.i = phi i64 [ %30, %27 ], [ undef, %34 ], [ %26, %33 ], [ %26, %35 ], [ %26, %22 ]
   %37 = extractvalue { i1, i8 } %15, 1
   %38 = extractvalue { i1, i8 } %15, 0
   %.sroa.07.0 = select i1 %38, i8 %37, i8 0
@@ -17126,11 +17126,11 @@ common.resume:                                    ; preds = %61, %49, %53
   br label %157
 
 157:                                              ; preds = %148, %141, %136, %133, %125, %122
-  %.sroa.07.0.i = phi i64 [ 5, %125 ], [ 4, %148 ], [ 3, %141 ], [ 2, %136 ], [ 1, %133 ], [ 0, %122 ]
-  %.sroa.7.0.i = phi i64 [ %131, %125 ], [ %150, %148 ], [ %143, %141 ], [ %138, %136 ], [ %135, %133 ], [ undef, %122 ]
-  %.sroa.12.0.i = phi i64 [ %130, %125 ], [ %152, %148 ], [ %145, %141 ], [ %140, %136 ], [ undef, %133 ], [ undef, %122 ]
-  %.sroa.16.0.i = phi i64 [ undef, %125 ], [ %154, %148 ], [ %147, %141 ], [ undef, %136 ], [ undef, %133 ], [ undef, %122 ]
-  %.sroa.18.0.i = phi i64 [ undef, %125 ], [ %156, %148 ], [ undef, %141 ], [ undef, %136 ], [ undef, %133 ], [ undef, %122 ]
+  %.sroa.07.0.i = phi i64 [ 5, %125 ], [ 1, %133 ], [ 2, %136 ], [ 3, %141 ], [ 4, %148 ], [ 0, %122 ]
+  %.sroa.7.0.i = phi i64 [ %131, %125 ], [ %135, %133 ], [ %138, %136 ], [ %143, %141 ], [ %150, %148 ], [ undef, %122 ]
+  %.sroa.12.0.i = phi i64 [ %130, %125 ], [ undef, %133 ], [ %140, %136 ], [ %145, %141 ], [ %152, %148 ], [ undef, %122 ]
+  %.sroa.16.0.i = phi i64 [ undef, %125 ], [ undef, %133 ], [ undef, %136 ], [ %147, %141 ], [ %154, %148 ], [ undef, %122 ]
+  %.sroa.18.0.i = phi i64 [ undef, %125 ], [ undef, %133 ], [ undef, %136 ], [ undef, %141 ], [ %156, %148 ], [ undef, %122 ]
   store i64 %.sroa.07.0.i, ptr %32, align 8, !alias.scope !5130, !noalias !5133
   %.sroa.7.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i87, align 8, !alias.scope !5130, !noalias !5133
@@ -17267,11 +17267,11 @@ common.resume:                                    ; preds = %61, %49, %53
   br label %213
 
 213:                                              ; preds = %204, %197, %192, %189, %181, %178
-  %.sroa.07.0.i91 = phi i64 [ 5, %181 ], [ 4, %204 ], [ 3, %197 ], [ 2, %192 ], [ 1, %189 ], [ 0, %178 ]
-  %.sroa.7.0.i92 = phi i64 [ %187, %181 ], [ %206, %204 ], [ %199, %197 ], [ %194, %192 ], [ %191, %189 ], [ undef, %178 ]
-  %.sroa.12.0.i93 = phi i64 [ %186, %181 ], [ %208, %204 ], [ %201, %197 ], [ %196, %192 ], [ undef, %189 ], [ undef, %178 ]
-  %.sroa.16.0.i94 = phi i64 [ undef, %181 ], [ %210, %204 ], [ %203, %197 ], [ undef, %192 ], [ undef, %189 ], [ undef, %178 ]
-  %.sroa.18.0.i95 = phi i64 [ undef, %181 ], [ %212, %204 ], [ undef, %197 ], [ undef, %192 ], [ undef, %189 ], [ undef, %178 ]
+  %.sroa.07.0.i91 = phi i64 [ 5, %181 ], [ 1, %189 ], [ 2, %192 ], [ 3, %197 ], [ 4, %204 ], [ 0, %178 ]
+  %.sroa.7.0.i92 = phi i64 [ %187, %181 ], [ %191, %189 ], [ %194, %192 ], [ %199, %197 ], [ %206, %204 ], [ undef, %178 ]
+  %.sroa.12.0.i93 = phi i64 [ %186, %181 ], [ undef, %189 ], [ %196, %192 ], [ %201, %197 ], [ %208, %204 ], [ undef, %178 ]
+  %.sroa.16.0.i94 = phi i64 [ undef, %181 ], [ undef, %189 ], [ undef, %192 ], [ %203, %197 ], [ %210, %204 ], [ undef, %178 ]
+  %.sroa.18.0.i95 = phi i64 [ undef, %181 ], [ undef, %189 ], [ undef, %192 ], [ undef, %197 ], [ %212, %204 ], [ undef, %178 ]
   store i64 %.sroa.07.0.i91, ptr %28, align 8, !alias.scope !5144, !noalias !5147
   %.sroa.7.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %.sroa.7.0.i92, ptr %.sroa.7.0..sroa_idx.i96, align 8, !alias.scope !5144, !noalias !5147
@@ -17427,11 +17427,11 @@ common.resume:                                    ; preds = %61, %49, %53
   br label %269
 
 269:                                              ; preds = %260, %253, %248, %245, %237, %234
-  %.sroa.07.0.i105 = phi i64 [ 5, %237 ], [ 4, %260 ], [ 3, %253 ], [ 2, %248 ], [ 1, %245 ], [ 0, %234 ]
-  %.sroa.7.0.i106 = phi i64 [ %243, %237 ], [ %262, %260 ], [ %255, %253 ], [ %250, %248 ], [ %247, %245 ], [ undef, %234 ]
-  %.sroa.12.0.i107 = phi i64 [ %242, %237 ], [ %264, %260 ], [ %257, %253 ], [ %252, %248 ], [ undef, %245 ], [ undef, %234 ]
-  %.sroa.16.0.i108 = phi i64 [ undef, %237 ], [ %266, %260 ], [ %259, %253 ], [ undef, %248 ], [ undef, %245 ], [ undef, %234 ]
-  %.sroa.18.0.i109 = phi i64 [ undef, %237 ], [ %268, %260 ], [ undef, %253 ], [ undef, %248 ], [ undef, %245 ], [ undef, %234 ]
+  %.sroa.07.0.i105 = phi i64 [ 5, %237 ], [ 1, %245 ], [ 2, %248 ], [ 3, %253 ], [ 4, %260 ], [ 0, %234 ]
+  %.sroa.7.0.i106 = phi i64 [ %243, %237 ], [ %247, %245 ], [ %250, %248 ], [ %255, %253 ], [ %262, %260 ], [ undef, %234 ]
+  %.sroa.12.0.i107 = phi i64 [ %242, %237 ], [ undef, %245 ], [ %252, %248 ], [ %257, %253 ], [ %264, %260 ], [ undef, %234 ]
+  %.sroa.16.0.i108 = phi i64 [ undef, %237 ], [ undef, %245 ], [ undef, %248 ], [ %259, %253 ], [ %266, %260 ], [ undef, %234 ]
+  %.sroa.18.0.i109 = phi i64 [ undef, %237 ], [ undef, %245 ], [ undef, %248 ], [ undef, %253 ], [ %268, %260 ], [ undef, %234 ]
   store i64 %.sroa.07.0.i105, ptr %24, align 8, !alias.scope !5158, !noalias !5161
   %.sroa.7.0..sroa_idx.i110 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.7.0.i106, ptr %.sroa.7.0..sroa_idx.i110, align 8, !alias.scope !5158, !noalias !5161
@@ -18520,11 +18520,11 @@ define void @_ZN9uv_python14python_version13PythonVersion14python_version17h7c22
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit: ; preds = %15, %18, %30, %33, %38, %45
-  %.sroa.07.0.i = phi i64 [ 5, %18 ], [ 4, %45 ], [ 3, %38 ], [ 2, %33 ], [ 1, %30 ], [ 0, %15 ]
-  %.sroa.7.0.i = phi i64 [ %24, %18 ], [ %47, %45 ], [ %40, %38 ], [ %35, %33 ], [ %32, %30 ], [ undef, %15 ]
-  %.sroa.12.0.i = phi i64 [ %23, %18 ], [ %49, %45 ], [ %42, %38 ], [ %37, %33 ], [ undef, %30 ], [ undef, %15 ]
-  %.sroa.16.0.i = phi i64 [ undef, %18 ], [ %51, %45 ], [ %44, %38 ], [ undef, %33 ], [ undef, %30 ], [ undef, %15 ]
-  %.sroa.18.0.i = phi i64 [ undef, %18 ], [ %53, %45 ], [ undef, %38 ], [ undef, %33 ], [ undef, %30 ], [ undef, %15 ]
+  %.sroa.07.0.i = phi i64 [ 5, %18 ], [ 1, %30 ], [ 2, %33 ], [ 3, %38 ], [ 4, %45 ], [ 0, %15 ]
+  %.sroa.7.0.i = phi i64 [ %24, %18 ], [ %32, %30 ], [ %35, %33 ], [ %40, %38 ], [ %47, %45 ], [ undef, %15 ]
+  %.sroa.12.0.i = phi i64 [ %23, %18 ], [ undef, %30 ], [ %37, %33 ], [ %42, %38 ], [ %49, %45 ], [ undef, %15 ]
+  %.sroa.16.0.i = phi i64 [ undef, %18 ], [ undef, %30 ], [ undef, %33 ], [ %44, %38 ], [ %51, %45 ], [ undef, %15 ]
+  %.sroa.18.0.i = phi i64 [ undef, %18 ], [ undef, %30 ], [ undef, %33 ], [ undef, %38 ], [ %53, %45 ], [ undef, %15 ]
   store i64 %.sroa.07.0.i, ptr %10, align 8, !alias.scope !5370, !noalias !5373
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !5370, !noalias !5373
@@ -18629,11 +18629,11 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit22
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit22: ; preds = %65, %68, %80, %83, %88, %95
-  %.sroa.07.0.i12 = phi i64 [ 5, %68 ], [ 4, %95 ], [ 3, %88 ], [ 2, %83 ], [ 1, %80 ], [ 0, %65 ]
-  %.sroa.7.0.i13 = phi i64 [ %74, %68 ], [ %97, %95 ], [ %90, %88 ], [ %85, %83 ], [ %82, %80 ], [ undef, %65 ]
-  %.sroa.12.0.i14 = phi i64 [ %73, %68 ], [ %99, %95 ], [ %92, %88 ], [ %87, %83 ], [ undef, %80 ], [ undef, %65 ]
-  %.sroa.16.0.i15 = phi i64 [ undef, %68 ], [ %101, %95 ], [ %94, %88 ], [ undef, %83 ], [ undef, %80 ], [ undef, %65 ]
-  %.sroa.18.0.i16 = phi i64 [ undef, %68 ], [ %103, %95 ], [ undef, %88 ], [ undef, %83 ], [ undef, %80 ], [ undef, %65 ]
+  %.sroa.07.0.i12 = phi i64 [ 5, %68 ], [ 1, %80 ], [ 2, %83 ], [ 3, %88 ], [ 4, %95 ], [ 0, %65 ]
+  %.sroa.7.0.i13 = phi i64 [ %74, %68 ], [ %82, %80 ], [ %85, %83 ], [ %90, %88 ], [ %97, %95 ], [ undef, %65 ]
+  %.sroa.12.0.i14 = phi i64 [ %73, %68 ], [ undef, %80 ], [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ undef, %65 ]
+  %.sroa.16.0.i15 = phi i64 [ undef, %68 ], [ undef, %80 ], [ undef, %83 ], [ %94, %88 ], [ %101, %95 ], [ undef, %65 ]
+  %.sroa.18.0.i16 = phi i64 [ undef, %68 ], [ undef, %80 ], [ undef, %83 ], [ undef, %88 ], [ %103, %95 ], [ undef, %65 ]
   store i64 %.sroa.07.0.i12, ptr %9, align 8, !alias.scope !5376, !noalias !5379
   %.sroa.7.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.sroa.7.0.i13, ptr %.sroa.7.0..sroa_idx.i17, align 8, !alias.scope !5376, !noalias !5379
@@ -18699,14 +18699,14 @@ define void @_ZN9uv_python14python_version13PythonVersion19python_full_version17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %22 = load i8, ptr %21, align 1, !alias.scope !5385, !noalias !5382, !noundef !3
   %23 = icmp eq i8 %22, 0
-  %.sink24.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink24.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink24.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink24.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink24.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink24.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink24.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink24.i.sroa.gep67 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink25.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink25.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink25.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink25.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink25.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink25.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink25.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink25.i.sroa.gep67 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %2
@@ -18780,11 +18780,11 @@ define void @_ZN9uv_python14python_version13PythonVersion19python_full_version17
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit: ; preds = %24, %27, %39, %42, %47, %54
-  %.sroa.07.0.i = phi i64 [ 5, %27 ], [ 4, %54 ], [ 3, %47 ], [ 2, %42 ], [ 1, %39 ], [ 0, %24 ]
-  %.sroa.7.0.i = phi i64 [ %33, %27 ], [ %56, %54 ], [ %49, %47 ], [ %44, %42 ], [ %41, %39 ], [ undef, %24 ]
-  %.sroa.12.0.i = phi i64 [ %32, %27 ], [ %58, %54 ], [ %51, %47 ], [ %46, %42 ], [ undef, %39 ], [ undef, %24 ]
-  %.sroa.16.0.i = phi i64 [ undef, %27 ], [ %60, %54 ], [ %53, %47 ], [ undef, %42 ], [ undef, %39 ], [ undef, %24 ]
-  %.sroa.18.0.i = phi i64 [ undef, %27 ], [ %62, %54 ], [ undef, %47 ], [ undef, %42 ], [ undef, %39 ], [ undef, %24 ]
+  %.sroa.07.0.i = phi i64 [ 5, %27 ], [ 1, %39 ], [ 2, %42 ], [ 3, %47 ], [ 4, %54 ], [ 0, %24 ]
+  %.sroa.7.0.i = phi i64 [ %33, %27 ], [ %41, %39 ], [ %44, %42 ], [ %49, %47 ], [ %56, %54 ], [ undef, %24 ]
+  %.sroa.12.0.i = phi i64 [ %32, %27 ], [ undef, %39 ], [ %46, %42 ], [ %51, %47 ], [ %58, %54 ], [ undef, %24 ]
+  %.sroa.16.0.i = phi i64 [ undef, %27 ], [ undef, %39 ], [ undef, %42 ], [ %53, %47 ], [ %60, %54 ], [ undef, %24 ]
+  %.sroa.18.0.i = phi i64 [ undef, %27 ], [ undef, %39 ], [ undef, %42 ], [ undef, %47 ], [ %62, %54 ], [ undef, %24 ]
   store i64 %.sroa.07.0.i, ptr %19, align 8, !alias.scope !5382, !noalias !5385
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !5382, !noalias !5385
@@ -18889,11 +18889,11 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit34
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit34: ; preds = %74, %77, %89, %92, %97, %104
-  %.sroa.07.0.i24 = phi i64 [ 5, %77 ], [ 4, %104 ], [ 3, %97 ], [ 2, %92 ], [ 1, %89 ], [ 0, %74 ]
-  %.sroa.7.0.i25 = phi i64 [ %83, %77 ], [ %106, %104 ], [ %99, %97 ], [ %94, %92 ], [ %91, %89 ], [ undef, %74 ]
-  %.sroa.12.0.i26 = phi i64 [ %82, %77 ], [ %108, %104 ], [ %101, %97 ], [ %96, %92 ], [ undef, %89 ], [ undef, %74 ]
-  %.sroa.16.0.i27 = phi i64 [ undef, %77 ], [ %110, %104 ], [ %103, %97 ], [ undef, %92 ], [ undef, %89 ], [ undef, %74 ]
-  %.sroa.18.0.i28 = phi i64 [ undef, %77 ], [ %112, %104 ], [ undef, %97 ], [ undef, %92 ], [ undef, %89 ], [ undef, %74 ]
+  %.sroa.07.0.i24 = phi i64 [ 5, %77 ], [ 1, %89 ], [ 2, %92 ], [ 3, %97 ], [ 4, %104 ], [ 0, %74 ]
+  %.sroa.7.0.i25 = phi i64 [ %83, %77 ], [ %91, %89 ], [ %94, %92 ], [ %99, %97 ], [ %106, %104 ], [ undef, %74 ]
+  %.sroa.12.0.i26 = phi i64 [ %82, %77 ], [ undef, %89 ], [ %96, %92 ], [ %101, %97 ], [ %108, %104 ], [ undef, %74 ]
+  %.sroa.16.0.i27 = phi i64 [ undef, %77 ], [ undef, %89 ], [ undef, %92 ], [ %103, %97 ], [ %110, %104 ], [ undef, %74 ]
+  %.sroa.18.0.i28 = phi i64 [ undef, %77 ], [ undef, %89 ], [ undef, %92 ], [ undef, %97 ], [ %112, %104 ], [ undef, %74 ]
   store i64 %.sroa.07.0.i24, ptr %18, align 8, !alias.scope !5388, !noalias !5391
   %.sroa.7.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.7.0.i25, ptr %.sroa.7.0..sroa_idx.i29, align 8, !alias.scope !5388, !noalias !5391
@@ -18997,11 +18997,11 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit45
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit45: ; preds = %125, %128, %140, %143, %148, %155
-  %.sroa.07.0.i35 = phi i64 [ 5, %128 ], [ 4, %155 ], [ 3, %148 ], [ 2, %143 ], [ 1, %140 ], [ 0, %125 ]
-  %.sroa.7.0.i36 = phi i64 [ %134, %128 ], [ %157, %155 ], [ %150, %148 ], [ %145, %143 ], [ %142, %140 ], [ undef, %125 ]
-  %.sroa.12.0.i37 = phi i64 [ %133, %128 ], [ %159, %155 ], [ %152, %148 ], [ %147, %143 ], [ undef, %140 ], [ undef, %125 ]
-  %.sroa.16.0.i38 = phi i64 [ undef, %128 ], [ %161, %155 ], [ %154, %148 ], [ undef, %143 ], [ undef, %140 ], [ undef, %125 ]
-  %.sroa.18.0.i39 = phi i64 [ undef, %128 ], [ %163, %155 ], [ undef, %148 ], [ undef, %143 ], [ undef, %140 ], [ undef, %125 ]
+  %.sroa.07.0.i35 = phi i64 [ 5, %128 ], [ 1, %140 ], [ 2, %143 ], [ 3, %148 ], [ 4, %155 ], [ 0, %125 ]
+  %.sroa.7.0.i36 = phi i64 [ %134, %128 ], [ %142, %140 ], [ %145, %143 ], [ %150, %148 ], [ %157, %155 ], [ undef, %125 ]
+  %.sroa.12.0.i37 = phi i64 [ %133, %128 ], [ undef, %140 ], [ %147, %143 ], [ %152, %148 ], [ %159, %155 ], [ undef, %125 ]
+  %.sroa.16.0.i38 = phi i64 [ undef, %128 ], [ undef, %140 ], [ undef, %143 ], [ %154, %148 ], [ %161, %155 ], [ undef, %125 ]
+  %.sroa.18.0.i39 = phi i64 [ undef, %128 ], [ undef, %140 ], [ undef, %143 ], [ undef, %148 ], [ %163, %155 ], [ undef, %125 ]
   store i64 %.sroa.07.0.i35, ptr %17, align 8, !alias.scope !5394, !noalias !5397
   %.sroa.7.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.7.0.i36, ptr %.sroa.7.0..sroa_idx.i40, align 8, !alias.scope !5394, !noalias !5397
@@ -19089,19 +19089,19 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %217, %186
-  %.sink24.i.sroa.phi = phi ptr [ %.sink24.i.sroa.gep, %217 ], [ %.sink24.i.sroa.gep58, %186 ]
-  %.sink24.i.sroa.phi59 = phi ptr [ %.sink24.i.sroa.gep60, %217 ], [ %.sink24.i.sroa.gep61, %186 ]
-  %.sink24.i.sroa.phi62 = phi ptr [ %.sink24.i.sroa.gep63, %217 ], [ %.sink24.i.sroa.gep64, %186 ]
-  %.sink24.i.sroa.phi65 = phi ptr [ %.sink24.i.sroa.gep66, %217 ], [ %.sink24.i.sroa.gep67, %186 ]
-  %.sink24.i = phi ptr [ %5, %217 ], [ %4, %186 ]
-  %.sink18.i = phi ptr [ inttoptr (i64 8 to ptr), %217 ], [ %3, %186 ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sink25.i.sroa.gep, %217 ], [ %.sink25.i.sroa.gep58, %186 ]
+  %.sink25.i.sroa.phi59 = phi ptr [ %.sink25.i.sroa.gep60, %217 ], [ %.sink25.i.sroa.gep61, %186 ]
+  %.sink25.i.sroa.phi62 = phi ptr [ %.sink25.i.sroa.gep63, %217 ], [ %.sink25.i.sroa.gep64, %186 ]
+  %.sink25.i.sroa.phi65 = phi ptr [ %.sink25.i.sroa.gep66, %217 ], [ %.sink25.i.sroa.gep67, %186 ]
+  %.sink25.i = phi ptr [ %5, %217 ], [ %4, %186 ]
+  %.sink19.i = phi ptr [ inttoptr (i64 8 to ptr), %217 ], [ %3, %186 ]
   %.sink.i = phi i64 [ 0, %217 ], [ 1, %186 ]
   %187 = phi ptr [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.122, %217 ], [ @anon.3c143aa1f2b117bdc78fcd1d5485f41b.126, %186 ]
-  store i64 1, ptr %.sink24.i.sroa.phi, align 8, !noalias !5407
-  store ptr null, ptr %.sink24.i.sroa.phi59, align 8, !noalias !5407
-  store ptr %.sink18.i, ptr %.sink24.i.sroa.phi62, align 8, !noalias !5407
-  store i64 %.sink.i, ptr %.sink24.i.sroa.phi65, align 8, !noalias !5407
-  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187) #55
+  store i64 1, ptr %.sink25.i.sroa.phi, align 8, !noalias !5407
+  store ptr null, ptr %.sink25.i.sroa.phi59, align 8, !noalias !5407
+  store ptr %.sink19.i, ptr %.sink25.i.sroa.phi62, align 8, !noalias !5407
+  store i64 %.sink.i, ptr %.sink25.i.sroa.phi65, align 8, !noalias !5407
+  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink25.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187) #55
           to label %.cont.i unwind label %171, !noalias !5405
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -19140,11 +19140,11 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.39833143156051160
   br label %212
 
 212:                                              ; preds = %203, %196, %191, %188, %179, %177
-  %.sroa.07.0.i.i = phi i64 [ 5, %179 ], [ 4, %203 ], [ 3, %196 ], [ 2, %191 ], [ 1, %188 ], [ 0, %177 ]
-  %.sroa.7.0.i.i = phi i64 [ %185, %179 ], [ %205, %203 ], [ %198, %196 ], [ %193, %191 ], [ %190, %188 ], [ undef, %177 ]
-  %.sroa.12.0.i.i = phi i64 [ %184, %179 ], [ %207, %203 ], [ %200, %196 ], [ %195, %191 ], [ undef, %188 ], [ undef, %177 ]
-  %.sroa.16.0.i.i = phi i64 [ undef, %179 ], [ %209, %203 ], [ %202, %196 ], [ undef, %191 ], [ undef, %188 ], [ undef, %177 ]
-  %.sroa.18.0.i.i = phi i64 [ undef, %179 ], [ %211, %203 ], [ undef, %196 ], [ undef, %191 ], [ undef, %188 ], [ undef, %177 ]
+  %.sroa.07.0.i.i = phi i64 [ 5, %179 ], [ 1, %188 ], [ 2, %191 ], [ 3, %196 ], [ 4, %203 ], [ 0, %177 ]
+  %.sroa.7.0.i.i = phi i64 [ %185, %179 ], [ %190, %188 ], [ %193, %191 ], [ %198, %196 ], [ %205, %203 ], [ undef, %177 ]
+  %.sroa.12.0.i.i = phi i64 [ %184, %179 ], [ undef, %188 ], [ %195, %191 ], [ %200, %196 ], [ %207, %203 ], [ undef, %177 ]
+  %.sroa.16.0.i.i = phi i64 [ undef, %179 ], [ undef, %188 ], [ undef, %191 ], [ %202, %196 ], [ %209, %203 ], [ undef, %177 ]
+  %.sroa.18.0.i.i = phi i64 [ undef, %179 ], [ undef, %188 ], [ undef, %191 ], [ undef, %196 ], [ %211, %203 ], [ undef, %177 ]
   store i64 %.sroa.07.0.i.i, ptr %6, align 8, !alias.scope !5409, !noalias !5418
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !5409, !noalias !5418
@@ -19257,7 +19257,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
   unreachable
 
 261:                                              ; preds = %218, %171
-  %.pn.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %219, %218 ]
+  %.pn4.i = phi { ptr, i32 } [ %172, %171 ], [ %219, %218 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5428)
   call void @llvm.experimental.noalias.scope.decl(metadata !5431)
   %262 = load i8, ptr %.sroa.518.0..sroa_idx, align 1, !alias.scope !5434, !noalias !5405, !noundef !3
@@ -19278,7 +19278,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
           to label %common.resume unwind label %259, !noalias !5405
 
 common.resume:                                    ; preds = %306, %309, %313, %355, %358, %362, %377, %369, %373, %388, %380, %384, %261, %263, %267
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %267 ], [ %.pn.pn.i, %263 ], [ %.pn.pn.i, %261 ], [ %307, %306 ], [ %307, %309 ], [ %307, %313 ], [ %356, %355 ], [ %356, %358 ], [ %356, %362 ], [ %370, %377 ], [ %370, %369 ], [ %370, %373 ], [ %381, %388 ], [ %381, %380 ], [ %381, %384 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn4.i, %267 ], [ %.pn4.i, %263 ], [ %.pn4.i, %261 ], [ %307, %306 ], [ %307, %309 ], [ %307, %313 ], [ %356, %355 ], [ %356, %358 ], [ %356, %362 ], [ %370, %377 ], [ %370, %369 ], [ %370, %373 ], [ %381, %388 ], [ %381, %380 ], [ %381, %384 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9uv_pep4407version7Version12with_release17h1cc9e28262180414E.exit: ; preds = %214
@@ -19323,8 +19323,8 @@ _ZN9uv_pep4407version7Version12with_release17h1cc9e28262180414E.exit: ; preds = 
   br label %287
 
 287:                                              ; preds = %286, %285, %284, %278, %273
-  %.sroa.6.0.i = phi i8 [ %283, %278 ], [ 3, %285 ], [ 2, %286 ], [ 1, %284 ], [ 0, %273 ]
-  %.sroa.0.0.i = phi i64 [ %281, %278 ], [ undef, %285 ], [ %277, %286 ], [ %277, %284 ], [ %277, %273 ]
+  %.sroa.6.0.i = phi i8 [ %283, %278 ], [ 3, %285 ], [ 1, %284 ], [ 2, %286 ], [ 0, %273 ]
+  %.sroa.0.0.i = phi i64 [ %281, %278 ], [ undef, %285 ], [ %277, %284 ], [ %277, %286 ], [ %277, %273 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5447)
   %288 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %289 = load i8, ptr %288, align 1, !alias.scope !5450, !noalias !5447, !noundef !3
@@ -19695,11 +19695,11 @@ define noundef i8 @_ZN9uv_python14python_version13PythonVersion5major17h7ec89e5e
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit: ; preds = %10, %13, %25, %28, %33, %40
-  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 4, %40 ], [ 3, %33 ], [ 2, %28 ], [ 1, %25 ], [ 0, %10 ]
-  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %42, %40 ], [ %35, %33 ], [ %30, %28 ], [ %27, %25 ], [ undef, %10 ]
-  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ %44, %40 ], [ %37, %33 ], [ %32, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ %46, %40 ], [ %39, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ %48, %40 ], [ undef, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
+  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 1, %25 ], [ 2, %28 ], [ 3, %33 ], [ 4, %40 ], [ 0, %10 ]
+  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %27, %25 ], [ %30, %28 ], [ %35, %33 ], [ %42, %40 ], [ undef, %10 ]
+  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ undef, %25 ], [ %32, %28 ], [ %37, %33 ], [ %44, %40 ], [ undef, %10 ]
+  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ %39, %33 ], [ %46, %40 ], [ undef, %10 ]
+  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ undef, %33 ], [ %48, %40 ], [ undef, %10 ]
   store i64 %.sroa.07.0.i, ptr %5, align 8, !alias.scope !5534, !noalias !5537
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !5534, !noalias !5537
@@ -19825,11 +19825,11 @@ define noundef i8 @_ZN9uv_python14python_version13PythonVersion5minor17h14c224c8
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit: ; preds = %10, %13, %25, %28, %33, %40
-  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 4, %40 ], [ 3, %33 ], [ 2, %28 ], [ 1, %25 ], [ 0, %10 ]
-  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %42, %40 ], [ %35, %33 ], [ %30, %28 ], [ %27, %25 ], [ undef, %10 ]
-  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ %44, %40 ], [ %37, %33 ], [ %32, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ %46, %40 ], [ %39, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ %48, %40 ], [ undef, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
+  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 1, %25 ], [ 2, %28 ], [ 3, %33 ], [ 4, %40 ], [ 0, %10 ]
+  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %27, %25 ], [ %30, %28 ], [ %35, %33 ], [ %42, %40 ], [ undef, %10 ]
+  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ undef, %25 ], [ %32, %28 ], [ %37, %33 ], [ %44, %40 ], [ undef, %10 ]
+  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ %39, %33 ], [ %46, %40 ], [ undef, %10 ]
+  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ undef, %33 ], [ %48, %40 ], [ undef, %10 ]
   store i64 %.sroa.07.0.i, ptr %5, align 8, !alias.scope !5540, !noalias !5543
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !5540, !noalias !5543
@@ -19954,11 +19954,11 @@ define { i1, i8 } @_ZN9uv_python14python_version13PythonVersion5patch17h54f57d5f
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.llvm.3983314315605116038.exit: ; preds = %10, %13, %25, %28, %33, %40
-  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 4, %40 ], [ 3, %33 ], [ 2, %28 ], [ 1, %25 ], [ 0, %10 ]
-  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %42, %40 ], [ %35, %33 ], [ %30, %28 ], [ %27, %25 ], [ undef, %10 ]
-  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ %44, %40 ], [ %37, %33 ], [ %32, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ %46, %40 ], [ %39, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
-  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ %48, %40 ], [ undef, %33 ], [ undef, %28 ], [ undef, %25 ], [ undef, %10 ]
+  %.sroa.07.0.i = phi i64 [ 5, %13 ], [ 1, %25 ], [ 2, %28 ], [ 3, %33 ], [ 4, %40 ], [ 0, %10 ]
+  %.sroa.7.0.i = phi i64 [ %19, %13 ], [ %27, %25 ], [ %30, %28 ], [ %35, %33 ], [ %42, %40 ], [ undef, %10 ]
+  %.sroa.12.0.i = phi i64 [ %18, %13 ], [ undef, %25 ], [ %32, %28 ], [ %37, %33 ], [ %44, %40 ], [ undef, %10 ]
+  %.sroa.16.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ %39, %33 ], [ %46, %40 ], [ undef, %10 ]
+  %.sroa.18.0.i = phi i64 [ undef, %13 ], [ undef, %25 ], [ undef, %28 ], [ undef, %33 ], [ %48, %40 ], [ undef, %10 ]
   store i64 %.sroa.07.0.i, ptr %5, align 8, !alias.scope !5546, !noalias !5549
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !5546, !noalias !5549

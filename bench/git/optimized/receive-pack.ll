@@ -3712,8 +3712,8 @@ define internal fastcc noundef ptr @unpack(i32 noundef %0, ptr noundef nonnull r
 14:                                               ; preds = %2
   br label %15
 
-15:                                               ; preds = %14, %13, %12, %2
-  %.0.i.ph = phi ptr [ @.str.98, %2 ], [ @.str.99, %12 ], [ @.str.100, %13 ], [ @.str.101, %14 ]
+15:                                               ; preds = %14, %12, %13, %2
+  %.0.i.ph = phi ptr [ @.str.98, %2 ], [ @.str.100, %13 ], [ @.str.99, %12 ], [ @.str.101, %14 ]
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %17, label %118
 
@@ -4342,7 +4342,7 @@ define internal fastcc i32 @run_proc_receive_hook(ptr noundef nonnull %0, ptr no
   br label %115
 
 115:                                              ; preds = %.critedge.thread129, %.thread134, %.thread123, %74, %.thread117
-  %.6 = phi i32 [ %.257116, %.thread117 ], [ -1, %74 ], [ %.10126, %.thread123 ], [ %.13132, %.critedge.thread129 ], [ %114, %.thread134 ]
+  %.6 = phi i32 [ %.257116, %.thread117 ], [ -1, %74 ], [ %.10126, %.thread123 ], [ %114, %.thread134 ], [ %.13132, %.critedge.thread129 ]
   %116 = load i32, ptr %13, align 8, !tbaa !162
   %117 = call i32 @close(i32 noundef %116) #21
   %118 = load i32, ptr %14, align 4, !tbaa !186
@@ -5194,7 +5194,7 @@ define internal fastcc ptr @update(ptr noundef nonnull %0, ptr noundef nonnull %
   br label %38
 
 38:                                               ; preds = %30, %32, %37, %27, %23
-  %.not92 = phi i1 [ true, %27 ], [ true, %30 ], [ true, %32 ], [ false, %37 ], [ true, %23 ]
+  %.not92 = phi i1 [ true, %27 ], [ true, %30 ], [ false, %37 ], [ true, %32 ], [ true, %23 ]
   %bcmp.i104 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %14, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i105.not = icmp eq i32 %bcmp.i104, 0
   br i1 %.not.i105.not, label %45, label %39

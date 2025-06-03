@@ -2371,8 +2371,8 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %124
 
 .thread189:                                       ; preds = %82, %65, %.preheader, %57, %41, %49, %51, %.thread183
-  %.2122195 = phi ptr [ %.2122, %57 ], [ %.1121223, %41 ], [ null, %49 ], [ %.4124, %51 ], [ %.3123188, %.thread183 ], [ %.0120238, %.preheader ], [ %.1121223, %65 ], [ %.1121223, %82 ]
-  call void @BN_free(ptr noundef %.2122195) #10
+  %.2122196 = phi ptr [ %.2122, %57 ], [ %.1121223, %41 ], [ null, %49 ], [ %.4124, %51 ], [ %.3123188, %.thread183 ], [ %.0120238, %.preheader ], [ %.1121223, %65 ], [ %.1121223, %82 ]
+  call void @BN_free(ptr noundef %.2122196) #10
   br label %124
 
 124:                                              ; preds = %26, %9, %11, %.thread189, %._crit_edge

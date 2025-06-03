@@ -1460,8 +1460,8 @@ default.unreachable:                              ; preds = %15
   br label %"_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit"
 
 "_ZN84_$LT$regex_automata..nfa..thompson..builder..State$u20$as$u20$core..clone..Clone$GT$5clone17h4cc7b41247d3ec71E.exit": ; preds = %74, %.noexc14, %.noexc13, %47, %40, %35, %.noexc, %22, %19, %15
-  %.sroa.18.1 = phi ptr [ %.sroa.18.054, %74 ], [ %.sroa.18.054, %15 ], [ %71, %.noexc14 ], [ %61, %.noexc13 ], [ %.sroa.18.054, %47 ], [ %.sroa.18.054, %40 ], [ %.sroa.18.054, %35 ], [ %32, %.noexc ], [ %.sroa.18.054, %22 ], [ %.sroa.18.054, %19 ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.056, %74 ], [ %.sroa.21.056, %15 ], [ %68, %.noexc14 ], [ %58, %.noexc13 ], [ %.sroa.21.056, %47 ], [ %.sroa.21.056, %40 ], [ %.sroa.21.056, %35 ], [ %29, %.noexc ], [ %.sroa.21.056, %22 ], [ %.sroa.21.056, %19 ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.054, %19 ], [ %.sroa.18.054, %22 ], [ %32, %.noexc ], [ %.sroa.18.054, %35 ], [ %.sroa.18.054, %40 ], [ %.sroa.18.054, %47 ], [ %61, %.noexc13 ], [ %71, %.noexc14 ], [ %.sroa.18.054, %15 ], [ %.sroa.18.054, %74 ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.056, %19 ], [ %.sroa.21.056, %22 ], [ %29, %.noexc ], [ %.sroa.21.056, %35 ], [ %.sroa.21.056, %40 ], [ %.sroa.21.056, %47 ], [ %58, %.noexc13 ], [ %68, %.noexc14 ], [ %.sroa.21.056, %15 ], [ %.sroa.21.056, %74 ]
   %77 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %7, i64 0, i64 %.sroa.7.053
   store i32 %18, ptr %77, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -2536,7 +2536,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd19093b91813
   resume { ptr, i32 } %.pn
 
 53:                                               ; preds = %11, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..map..Utf8BoundedEntry$GT$17hdb3c8da37850bb56E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #18
           to label %52 unwind label %50
 }

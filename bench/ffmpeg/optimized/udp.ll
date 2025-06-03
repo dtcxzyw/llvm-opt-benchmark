@@ -1715,7 +1715,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
   br label %35
 
 35:                                               ; preds = %23, %.thread19, %31, %19
-  %.2 = phi i32 [ %22, %19 ], [ %34, %31 ], [ 0, %.thread19 ], [ 0, %23 ]
+  %.2 = phi i32 [ %34, %31 ], [ %22, %19 ], [ 0, %.thread19 ], [ 0, %23 ]
   ret i32 %.2
 }
 

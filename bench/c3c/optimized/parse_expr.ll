@@ -4454,7 +4454,7 @@ extend_span_with_token.exit:                      ; preds = %57, %58
   br label %147
 
 147:                                              ; preds = %.critedge.thread, %.critedge, %132, %108, %103, %97, %85, %.outer._crit_edge, %71, %28, %23, %parse_next_may_be_type_or_ident.exit, %13
-  %.0 = phi ptr [ %112, %108 ], [ %101, %97 ], [ %107, %103 ], [ %89, %85 ], [ %133, %132 ], [ %76, %.outer._crit_edge ], [ %74, %71 ], [ %31, %28 ], [ %24, %23 ], [ %20, %parse_next_may_be_type_or_ident.exit ], [ %14, %13 ], [ %35, %.critedge ], [ %35, %.critedge.thread ]
+  %.0 = phi ptr [ %112, %108 ], [ %89, %85 ], [ %101, %97 ], [ %107, %103 ], [ %133, %132 ], [ %76, %.outer._crit_edge ], [ %74, %71 ], [ %31, %28 ], [ %24, %23 ], [ %20, %parse_next_may_be_type_or_ident.exit ], [ %14, %13 ], [ %35, %.critedge ], [ %35, %.critedge.thread ]
   ret ptr %.0
 }
 
@@ -5249,7 +5249,7 @@ parse_identifier.exit:                            ; preds = %17, %19
   br label %36
 
 36:                                               ; preds = %32, %29, %parse_identifier.exit, %5
-  %.0 = phi ptr [ %35, %32 ], [ %31, %29 ], [ %.0.i, %parse_identifier.exit ], [ %6, %5 ]
+  %.0 = phi ptr [ %35, %32 ], [ %.0.i, %parse_identifier.exit ], [ %31, %29 ], [ %6, %5 ]
   ret ptr %.0
 }
 

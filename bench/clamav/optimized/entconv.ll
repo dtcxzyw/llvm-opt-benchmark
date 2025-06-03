@@ -1235,11 +1235,11 @@ define ptr @encoding_detect_bom(ptr noundef readonly captures(none) %0, i64 noun
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.792) #16
   br label %detect_encoding.exit.thread
 
-detect_encoding.exit.thread:                      ; preds = %4, %87, %83, %79, %75, %48, %35, %28, %24, %6, %71, %61, %9, %67, %64, %20, %16, %12
+detect_encoding.exit.thread:                      ; preds = %4, %28, %35, %48, %87, %83, %79, %75, %24, %6, %71, %61, %9, %67, %64, %20, %16, %12
   br label %detect_encoding.exit
 
 detect_encoding.exit:                             ; preds = %32, %67, %71, %24, %detect_encoding.exit.thread, %60, %56, %47, %43, %20, %16, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.768, %60 ], [ @.str.764, %47 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.780, %43 ], [ @.str.773, %56 ], [ @.str.777, %24 ], [ @.str.764, %71 ], [ @.str.780, %67 ], [ %switch.select9, %32 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.764, %47 ], [ @.str.768, %60 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.780, %43 ], [ @.str.773, %56 ], [ @.str.777, %24 ], [ @.str.764, %71 ], [ @.str.780, %67 ], [ %switch.select9, %32 ]
   ret ptr %.0
 }
 

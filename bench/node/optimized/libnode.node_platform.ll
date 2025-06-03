@@ -3902,7 +3902,7 @@ if.end30.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i30.i.i.i, %if.end30.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i30.i.i.i, %if.end30.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %8 = getelementptr i8, ptr %__first.sroa.0.1.i.i.i, i64 8
   %call.val.i31.i.i.i = load ptr, ptr %8, align 8
   %cmp.i.i32.i.i.i = icmp eq ptr %call.val.i31.i.i.i, %task
@@ -3913,7 +3913,7 @@ if.end37.i.i.i:                                   ; preds = %sw.bb32.i.i.i
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i33.i.i.i, %if.end37.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i33.i.i.i, %if.end37.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %9 = getelementptr i8, ptr %__first.sroa.0.2.i.i.i, i64 8
   %call.val.i34.i.i.i = load ptr, ptr %9, align 8
   %cmp.i.i35.i.i.i = icmp eq ptr %call.val.i34.i.i.i, %task

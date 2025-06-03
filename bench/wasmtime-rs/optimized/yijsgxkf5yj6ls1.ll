@@ -195,7 +195,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7bf5b767c732ebf5E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7bf5b767c732ebf5E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -894,7 +894,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %2, %2, %7, %4
-  %.sroa.7.0 = phi i32 [ %9, %7 ], [ %6, %4 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.7.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ undef, %2 ], [ undef, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !7
   store i32 %3, ptr %0, align 8

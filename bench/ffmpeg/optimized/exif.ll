@@ -174,7 +174,7 @@ exif_get_tag_name.exit:                           ; preds = %49
   br label %exif_add_metadata.exit
 
 exif_add_metadata.exit:                           ; preds = %59, %60, %62, %64, %66, %68, %70, %72, %74, %76
-  %.0.i17 = phi i32 [ 0, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ 0, %59 ]
+  %.0.i17 = phi i32 [ 0, %76 ], [ 0, %59 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10) #6
   br label %exif_decode_tag.exit
 

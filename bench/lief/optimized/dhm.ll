@@ -73,7 +73,7 @@ define hidden i32 @mbedtls_dhm_get_value(ptr noundef %0, i32 noundef %1, ptr nou
   br label %14
 
 14:                                               ; preds = %3, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %0, %3 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %0, %3 ]
   %15 = tail call i32 @mbedtls_mpi_copy(ptr noundef %2, ptr noundef %.0) #10
   br label %16
 

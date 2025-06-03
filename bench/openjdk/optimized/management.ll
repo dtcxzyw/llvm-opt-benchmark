@@ -3883,7 +3883,7 @@ _ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit: ; preds = %31, %_
   br label %101
 
 99:                                               ; preds = %79, %70
-  %.0 = phi i64 [ %81, %79 ], [ %72, %70 ]
+  %.0 = phi i64 [ %72, %70 ], [ %81, %79 ]
   %.not = icmp eq i64 %.0, %3
   br i1 %.not, label %101, label %100
 
@@ -3893,7 +3893,7 @@ _ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit: ; preds = %31, %_
   br label %101
 
 101:                                              ; preds = %99, %100, %64, %90, %82, %73, %65, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit, %96, %87, %27
-  %.029 = phi i64 [ -1, %27 ], [ %98, %96 ], [ %89, %87 ], [ 0, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit ], [ -1, %65 ], [ -1, %73 ], [ -1, %82 ], [ -1, %90 ], [ -1, %64 ], [ %.0, %100 ], [ %3, %99 ]
+  %.029 = phi i64 [ -1, %27 ], [ %89, %87 ], [ %98, %96 ], [ 0, %_ZL28get_memory_pool_from_jobjectP8_jobjectP10JavaThread.exit ], [ -1, %65 ], [ -1, %73 ], [ -1, %82 ], [ -1, %90 ], [ -1, %64 ], [ %.0, %100 ], [ %3, %99 ]
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
@@ -4231,7 +4231,7 @@ _ZN7VM_Exit18block_if_vm_exitedEv.exit:           ; preds = %2, %5
   br label %21
 
 21:                                               ; preds = %_ZN7VM_Exit18block_if_vm_exitedEv.exit, %18, %15, %12, %9, %6
-  %.0.shrunk = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ false, %_ZN7VM_Exit18block_if_vm_exitedEv.exit ]
+  %.0.shrunk = phi i1 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ false, %_ZN7VM_Exit18block_if_vm_exitedEv.exit ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -4323,7 +4323,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37, %34, %31, %28, %25
-  %.0.shrunk = phi i1 [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ]
+  %.0.shrunk = phi i1 [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -4489,7 +4489,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %_ZL16get_gc_attributeP15GCMemoryManager16jmmLongAttribute.exit
 
 _ZL16get_gc_attributeP15GCMemoryManager16jmmLongAttribute.exit: ; preds = %40, %37, %34, %33, %32, %28, %26
-  %.0 = phi i64 [ %27, %26 ], [ 0, %28 ], [ -1, %32 ], [ -1, %40 ], [ %39, %37 ], [ %36, %34 ], [ 1, %33 ]
+  %.0 = phi i64 [ %27, %26 ], [ 0, %28 ], [ -1, %32 ], [ -1, %40 ], [ %36, %34 ], [ %39, %37 ], [ 1, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -4751,7 +4751,7 @@ _ZL19get_vm_thread_countv.exit:                   ; preds = %_ZN11MutexLockerC2E
   br label %_ZL13get_num_flagsv.exit
 
 _ZL13get_num_flagsv.exit:                         ; preds = %61, %_ZL13get_num_flagsv.exit.loopexit, %1, %97, %95, %93, %91, %89, %_ZL19get_vm_thread_countv.exit, %81, %79, %77, %75, %59, %57, %55, %53, %51, %49, %47, %44, %36, %28, %23, %20, %15, %12, %7, %5, %3
-  %.0 = phi i64 [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %_ZL19get_vm_thread_countv.exit ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %44 ], [ %43, %36 ], [ %35, %28 ], [ %27, %23 ], [ %22, %20 ], [ %19, %15 ], [ %14, %12 ], [ %11, %7 ], [ %6, %5 ], [ %4, %3 ], [ -1, %1 ], [ 0, %61 ], [ %74, %_ZL13get_num_flagsv.exit.loopexit ]
+  %.0 = phi i64 [ %4, %3 ], [ %6, %5 ], [ %11, %7 ], [ %14, %12 ], [ %19, %15 ], [ %22, %20 ], [ %27, %23 ], [ %35, %28 ], [ %43, %36 ], [ %46, %44 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %88, %_ZL19get_vm_thread_countv.exit ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ -1, %1 ], [ 0, %61 ], [ %74, %_ZL13get_num_flagsv.exit.loopexit ]
   ret i64 %.0
 }
 
@@ -5070,7 +5070,7 @@ _ZL16get_gc_attributeP15GCMemoryManager16jmmLongAttribute.exit.thread: ; preds =
   br label %54
 
 _ZL16get_gc_attributeP15GCMemoryManager16jmmLongAttribute.exit: ; preds = %46, %48
-  %.0.i = phi i64 [ %50, %48 ], [ %47, %46 ]
+  %.0.i = phi i64 [ %47, %46 ], [ %50, %48 ]
   %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %.0.i, ptr %52, align 8
   %.not = icmp eq i64 %.0.i, -1
@@ -7006,7 +7006,7 @@ _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %_ZN10JNIHandle
   br label %136
 
 136:                                              ; preds = %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %128, %134, %126, %119, %88, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %40, %37
-  %.0 = phi i8 [ 0, %126 ], [ 1, %134 ], [ 0, %88 ], [ 1, %119 ], [ 0, %40 ], [ %.1, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ 1, %37 ], [ 0, %128 ], [ 0, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 0, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit ]
+  %.0 = phi i8 [ 1, %37 ], [ 0, %40 ], [ %.1, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ 0, %88 ], [ 1, %119 ], [ 0, %126 ], [ 1, %134 ], [ 0, %128 ], [ 0, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 0, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit ]
   %137 = load ptr, ptr %30, align 8
   %.not.i.i.i.i45 = icmp eq ptr %137, null
   br i1 %.not.i.i.i.i45, label %139, label %138

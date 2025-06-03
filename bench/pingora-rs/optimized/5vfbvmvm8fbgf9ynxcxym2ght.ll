@@ -1444,7 +1444,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$pingora_cache..NoCacheReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c287dbc76c70888E.exit"
 
 "_ZN65_$LT$pingora_cache..NoCacheReason$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c287dbc76c70888E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4278,7 +4278,7 @@ default.unreachable:                              ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %17, %14, %12, %9
-  %.sroa.0.0.in = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %13, %12 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7328,10 +7328,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   unreachable
 
 .body:                                            ; preds = %150, %135, %.thread.i, %34, %175, %179, %167, %157
-  %.pn12.pn = phi { ptr, i32 } [ %158, %157 ], [ %176, %175 ], [ %180, %179 ], [ %168, %167 ], [ %151, %150 ], [ %136, %135 ], [ %35, %34 ], [ %.pn4282.i, %.thread.i ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %176, %175 ], [ %180, %179 ], [ %168, %167 ], [ %151, %150 ], [ %136, %135 ], [ %35, %34 ], [ %.pn4282.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   store i8 2, ptr %26, align 8
-  resume { ptr, i32 } %.pn12.pn
+  resume { ptr, i32 } %.pn14.pn.pn
 
 163:                                              ; preds = %2
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17hfb1fd669f29d72d4E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.106) #24

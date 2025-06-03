@@ -575,7 +575,7 @@ define internal fastcc void @_ZL10FixDigraphRN5clang6ParserERNS_12PreprocessorER
   unreachable
 
 _ZL25SelectDigraphErrorMessageN5clang3tok9TokenKindE.exit: ; preds = %10, %13, %14, %15, %16, %17
-  %.0.i = phi i64 [ 5, %17 ], [ 4, %16 ], [ 3, %15 ], [ 2, %14 ], [ 1, %13 ], [ 0, %10 ]
+  %.0.i = phi i64 [ 1, %13 ], [ 2, %14 ], [ 3, %15 ], [ 4, %16 ], [ 5, %17 ], [ 0, %10 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !945
   %.not.i29 = icmp eq ptr %19, null
   br i1 %.not.i29, label %20, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
@@ -4221,8 +4221,8 @@ _ZN5clang6Parser13cutOffParsingEv.exit:           ; preds = %255, %259
   tail call void @_ZN5clang18SemaCodeCompletion24CodeCompleteOperatorNameEPNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(24) %267, ptr noundef %269) #19
   br label %571
 
-270:                                              ; preds = %251, %219, %188, %185, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %.thread, %.thread269
-  %.3147.ph = phi i32 [ %70, %.thread269 ], [ %73, %.thread ], [ 5, %77 ], [ 6, %80 ], [ 7, %83 ], [ 8, %86 ], [ 9, %89 ], [ 10, %92 ], [ 11, %95 ], [ 12, %98 ], [ 13, %101 ], [ 14, %104 ], [ 15, %107 ], [ 16, %110 ], [ 17, %113 ], [ 18, %116 ], [ 19, %119 ], [ 20, %122 ], [ 21, %125 ], [ 22, %128 ], [ 23, %131 ], [ 24, %134 ], [ 25, %137 ], [ 26, %140 ], [ 27, %143 ], [ 28, %146 ], [ 29, %149 ], [ 30, %152 ], [ 31, %155 ], [ 32, %158 ], [ 33, %161 ], [ 34, %164 ], [ 35, %167 ], [ 36, %170 ], [ 37, %173 ], [ 38, %176 ], [ 39, %179 ], [ 40, %182 ], [ 41, %185 ], [ 45, %188 ], [ 42, %219 ], [ 43, %251 ]
+270:                                              ; preds = %77, %80, %83, %86, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %119, %122, %125, %128, %131, %134, %137, %140, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %185, %188, %219, %251, %.thread, %.thread269
+  %.3147.ph = phi i32 [ %70, %.thread269 ], [ %73, %.thread ], [ 43, %251 ], [ 42, %219 ], [ 45, %188 ], [ 41, %185 ], [ 40, %182 ], [ 39, %179 ], [ 38, %176 ], [ 37, %173 ], [ 36, %170 ], [ 35, %167 ], [ 34, %164 ], [ 33, %161 ], [ 32, %158 ], [ 31, %155 ], [ 30, %152 ], [ 29, %149 ], [ 28, %146 ], [ 27, %143 ], [ 26, %140 ], [ 25, %137 ], [ 24, %134 ], [ 23, %131 ], [ 22, %128 ], [ 21, %125 ], [ 20, %122 ], [ 19, %119 ], [ 18, %116 ], [ 17, %113 ], [ 16, %110 ], [ 15, %107 ], [ 14, %104 ], [ 13, %101 ], [ 12, %98 ], [ 11, %95 ], [ 10, %92 ], [ 9, %89 ], [ 8, %86 ], [ 7, %83 ], [ 6, %80 ], [ 5, %77 ]
   call void @_ZN5clang13UnqualifiedId21setOperatorFunctionIdENS_14SourceLocationENS_22OverloadedOperatorKindEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 %.sroa.01.0.copyload.i, i32 noundef %.3147.ph, ptr noundef nonnull %6) #19
   br label %571
 
@@ -4882,7 +4882,7 @@ _ZN5clang8DeclSpecD2Ev.exit:                      ; preds = %_ZN5clang13Attribut
   br label %571
 
 571:                                              ; preds = %.thread274, %.thread272, %74, %_ZN5clang8DeclSpecD2Ev.exit, %_ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit, %270, %_ZN5clang6Parser13cutOffParsingEv.exit
-  %.3 = phi i1 [ false, %270 ], [ %.6, %_ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit ], [ %553, %_ZN5clang8DeclSpecD2Ev.exit ], [ true, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ true, %74 ], [ true, %.thread272 ], [ true, %.thread274 ]
+  %.3 = phi i1 [ false, %270 ], [ %.6, %_ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit ], [ %553, %_ZN5clang8DeclSpecD2Ev.exit ], [ true, %74 ], [ true, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ true, %.thread272 ], [ true, %.thread274 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #19
   ret i1 %.3
 }
@@ -8540,8 +8540,8 @@ _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %359, %357, %_ZN
   br label %423
 
 423:                                              ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit108, %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit, %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit
-  %.sroa.0337.2 = phi i64 [ 0, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit108 ], [ %.sroa.0337.4, %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit ], [ %.sroa.0337.1, %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit ]
-  %.1346 = phi i32 [ 0, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit108 ], [ %., %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit ], [ 2, %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit ]
+  %.sroa.0337.2 = phi i64 [ 0, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit108 ], [ %.sroa.0337.1, %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit ], [ %.sroa.0337.4, %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit ]
+  %.1346 = phi i32 [ 0, %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit108 ], [ 2, %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit ], [ %., %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit ]
   %424 = load i16, ptr %33, align 8, !tbaa !307
   %.not.i.i141 = icmp eq i16 %424, 27
   br i1 %.not.i.i141, label %425, label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit142
@@ -8557,15 +8557,15 @@ _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %359, %357, %_ZN
   br label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit142
 
 _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindERNS_14SourceLocationE.exit142: ; preds = %425, %423, %241, %234
-  %.val31.i.i.i.i.i.i = phi i1 [ %429, %425 ], [ false, %423 ], [ false, %241 ], [ false, %234 ]
-  %.val30.i.i.i.i.i.i = phi i32 [ %.val30.i.i.i.i.i.i360, %425 ], [ %.val30.i.i.i.i.i.i360, %423 ], [ 0, %241 ], [ 0, %234 ]
-  %.val.i.i.i.i.i.i = phi i32 [ %.val.i.i.i.i.i.i358, %425 ], [ %.val.i.i.i.i.i.i358, %423 ], [ 0, %241 ], [ 0, %234 ]
-  %.029.val.i.i.i.i.i.i = phi i32 [ %.029.val.i.i.i.i.i.i356, %425 ], [ %.029.val.i.i.i.i.i.i356, %423 ], [ 0, %241 ], [ 0, %234 ]
-  %.sroa.0.0353 = phi i32 [ %.sroa.01.0.copyload.i106, %425 ], [ %.sroa.01.0.copyload.i106, %423 ], [ %.sroa.01.0.copyload.i93, %241 ], [ %.sroa.01.0.copyload.i89, %234 ]
-  %.sroa.0337.0 = phi i64 [ %.sroa.0337.2, %425 ], [ %.sroa.0337.2, %423 ], [ 0, %241 ], [ 0, %234 ]
-  %.0347 = phi ptr [ %301, %425 ], [ %301, %423 ], [ null, %241 ], [ null, %234 ]
-  %.0345 = phi i32 [ %.1346, %425 ], [ %.1346, %423 ], [ 0, %241 ], [ 0, %234 ]
-  %.0 = phi i32 [ %.1344, %425 ], [ %.1344, %423 ], [ 0, %241 ], [ 1, %234 ]
+  %.val31.i.i.i.i.i.i = phi i1 [ %429, %425 ], [ false, %423 ], [ false, %234 ], [ false, %241 ]
+  %.val30.i.i.i.i.i.i = phi i32 [ %.val30.i.i.i.i.i.i360, %425 ], [ %.val30.i.i.i.i.i.i360, %423 ], [ 0, %234 ], [ 0, %241 ]
+  %.val.i.i.i.i.i.i = phi i32 [ %.val.i.i.i.i.i.i358, %425 ], [ %.val.i.i.i.i.i.i358, %423 ], [ 0, %234 ], [ 0, %241 ]
+  %.029.val.i.i.i.i.i.i = phi i32 [ %.029.val.i.i.i.i.i.i356, %425 ], [ %.029.val.i.i.i.i.i.i356, %423 ], [ 0, %234 ], [ 0, %241 ]
+  %.sroa.0.0353 = phi i32 [ %.sroa.01.0.copyload.i106, %425 ], [ %.sroa.01.0.copyload.i106, %423 ], [ %.sroa.01.0.copyload.i89, %234 ], [ %.sroa.01.0.copyload.i93, %241 ]
+  %.sroa.0337.0 = phi i64 [ %.sroa.0337.2, %425 ], [ %.sroa.0337.2, %423 ], [ 0, %234 ], [ 0, %241 ]
+  %.0347 = phi ptr [ %301, %425 ], [ %301, %423 ], [ null, %234 ], [ null, %241 ]
+  %.0345 = phi i32 [ %.1346, %425 ], [ %.1346, %423 ], [ 0, %234 ], [ 0, %241 ]
+  %.0 = phi i32 [ %.1344, %425 ], [ %.1344, %423 ], [ 1, %234 ], [ 0, %241 ]
   %430 = load i16, ptr %33, align 8
   %431 = icmp eq i16 %430, 5
   %or.cond212 = select i1 %.not66, i1 %431, i1 false
@@ -12199,7 +12199,7 @@ define dso_local i64 @_ZN5clang6Parser13ParseCXXCastsEv(ptr noundef nonnull alig
   br label %15
 
 15:                                               ; preds = %1, %14, %13, %12, %11
-  %.0 = phi ptr [ @.str.9, %14 ], [ @.str.8, %13 ], [ @.str.7, %12 ], [ @.str.6, %11 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ @.str.6, %11 ], [ @.str.7, %12 ], [ @.str.8, %13 ], [ @.str.9, %14 ], [ @.str.5, %1 ]
   %16 = load i32, ptr %7, align 8, !tbaa !305
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %16, ptr %17, align 8, !tbaa !312
@@ -13694,7 +13694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
   br label %.critedge142
 
 .critedge142:                                     ; preds = %46, %.thread131, %32, %.thread, %121, %.critedge
-  %.296 = phi i32 [ %.397, %.critedge ], [ %130, %121 ], [ %37, %32 ], [ %44, %.thread ], [ %120, %.thread131 ], [ 5, %46 ]
+  %.296 = phi i32 [ %37, %32 ], [ %44, %.thread ], [ %130, %121 ], [ %.397, %.critedge ], [ %120, %.thread131 ], [ 5, %46 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #19
   store i32 0, ptr %25, align 4, !tbaa !1082
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #19
@@ -13837,7 +13837,7 @@ _ZN4llvm11SmallVectorIN5clang22ParsedTemplateArgumentELj16EED2Ev.exit: ; preds =
   br label %.thread134
 
 .thread134:                                       ; preds = %46, %.thread.thread, %10, %.thread, %121, %_ZN4llvm11SmallVectorIN5clang22ParsedTemplateArgumentELj16EED2Ev.exit
-  %.1 = phi i1 [ %.3, %_ZN4llvm11SmallVectorIN5clang22ParsedTemplateArgumentELj16EED2Ev.exit ], [ false, %121 ], [ false, %.thread ], [ false, %10 ], [ false, %.thread.thread ], [ false, %46 ]
+  %.1 = phi i1 [ %.3, %_ZN4llvm11SmallVectorIN5clang22ParsedTemplateArgumentELj16EED2Ev.exit ], [ false, %.thread ], [ false, %121 ], [ false, %10 ], [ false, %.thread.thread ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
   ret i1 %.1
 }
@@ -20864,7 +20864,7 @@ define dso_local i64 @_ZN5clang6Parser19ParseArrayTypeTraitEv(ptr noundef nonnul
   br label %50
 
 50:                                               ; preds = %27, %31, %38, %40, %44, %1
-  %.sroa.011.0 = phi i64 [ 1, %1 ], [ 1, %27 ], [ 1, %38 ], [ %35, %31 ], [ %49, %44 ], [ 1, %40 ]
+  %.sroa.011.0 = phi i64 [ 1, %1 ], [ 1, %27 ], [ %35, %31 ], [ 1, %38 ], [ %49, %44 ], [ 1, %40 ]
   %51 = load i8, ptr %14, align 8, !tbaa !1110, !range !974, !noundef !975
   %52 = load ptr, ptr %5, align 8, !tbaa !1119
   store i8 %51, ptr %52, align 1, !tbaa !986

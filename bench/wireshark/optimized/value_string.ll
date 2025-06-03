@@ -820,7 +820,7 @@ define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr noundef w
   br label %17
 
 17:                                               ; preds = %7, %.thread
-  %.1 = phi ptr [ %16, %7 ], [ null, %.thread ]
+  %.1 = phi ptr [ null, %.thread ], [ %16, %7 ]
   ret ptr %.1
 }
 
@@ -1223,7 +1223,7 @@ define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr noundef
   br label %17
 
 17:                                               ; preds = %7, %.thread
-  %.1 = phi ptr [ %16, %7 ], [ null, %.thread ]
+  %.1 = phi ptr [ null, %.thread ], [ %16, %7 ]
   ret ptr %.1
 }
 

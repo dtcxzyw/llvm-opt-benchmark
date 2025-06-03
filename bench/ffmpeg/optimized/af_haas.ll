@@ -190,7 +190,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %70
 
 70:                                               ; preds = %64, %58, %55, %53, %51
-  %.1 = phi nsz double [ %.06772, %51 ], [ %69, %64 ], [ %63, %58 ], [ %57, %55 ], [ %54, %53 ]
+  %.1 = phi nsz double [ %.06772, %51 ], [ %54, %53 ], [ %57, %55 ], [ %63, %58 ], [ %69, %64 ]
   %71 = fmul nsz double %13, %.1
   %72 = zext i32 %52 to i64
   %73 = getelementptr inbounds nuw double, ptr %21, i64 %72

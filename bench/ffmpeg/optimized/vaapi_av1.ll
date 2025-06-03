@@ -1198,7 +1198,7 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not50.not, label %38, label %._crit_edge, !llvm.loop !207
 
 56:                                               ; preds = %27, %._crit_edge
-  %.1 = phi i32 [ -12, %27 ], [ %37, %._crit_edge ]
+  %.1 = phi i32 [ %37, %._crit_edge ], [ -12, %27 ]
   %57 = tail call i32 @ff_vaapi_decode_cancel(ptr noundef nonnull %0, ptr noundef %7) #6
   br label %58
 

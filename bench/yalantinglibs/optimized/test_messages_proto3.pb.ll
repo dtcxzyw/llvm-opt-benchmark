@@ -4685,7 +4685,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %if.then9
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPKcPT_S8_.exit
-  %ptr.addr.0.be = phi ptr [ %call41, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPKcPT_S8_.exit ], [ %13, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %retval.0.i.i8.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ]
+  %ptr.addr.0.be = phi ptr [ %call41, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %13, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN22protobuf_test_messages6proto318TestAllTypesProto3EEEPKcPT_S8_.exit ], [ %retval.0.i.i8.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ]
   br label %while.cond, !llvm.loop !5
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %if.end.i.i6
@@ -57005,7 +57005,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2722: ; preds = %sw.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2722, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2708, %sw.bb1795, %sw.bb1793, %sw.bb1788, %sw.bb1786, %sw.bb1781, %sw.bb1776, %_ZNK22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage12ByteSizeLongEv.exit2897, %sw.bb, %if.end1766
-  %total_size.127 = phi i64 [ %total_size.126, %if.end1766 ], [ %add1806, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2722 ], [ %add1801, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2708 ], [ %add1796, %sw.bb1795 ], [ %add1794, %sw.bb1793 ], [ %add1792, %sw.bb1788 ], [ %add1787, %sw.bb1786 ], [ %add1785, %sw.bb1781 ], [ %add1780, %sw.bb1776 ], [ %add1775, %_ZNK22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage12ByteSizeLongEv.exit2897 ], [ %add1771, %sw.bb ]
+  %total_size.127 = phi i64 [ %total_size.126, %if.end1766 ], [ %add1771, %sw.bb ], [ %add1775, %_ZNK22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage12ByteSizeLongEv.exit2897 ], [ %add1780, %sw.bb1776 ], [ %add1785, %sw.bb1781 ], [ %add1787, %sw.bb1786 ], [ %add1792, %sw.bb1788 ], [ %add1794, %sw.bb1793 ], [ %add1796, %sw.bb1795 ], [ %add1801, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2708 ], [ %add1806, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2722 ]
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %679 = load ptr, ptr %_internal_metadata_, align 8
   %680 = ptrtoint ptr %679 to i64
@@ -65226,7 +65226,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit34, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit34 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE17EiE4ReadEPKcPNS1_12ParseContextEPi.exit34 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !803
 
@@ -65843,7 +65843,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit33, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit33 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE18ElE4ReadEPKcPNS1_12ParseContextEPl.exit33 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !804
 
@@ -66350,7 +66350,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then10, %if.then3, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i12, %if.then10 ], [ %add.ptr.i.i.i, %if.then3 ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i, %if.then3 ], [ %add.ptr.i.i.i12, %if.then10 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !805
 
@@ -66757,7 +66757,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then10, %if.then3, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i12, %if.then10 ], [ %add.ptr.i.i.i, %if.then3 ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i, %if.then3 ], [ %add.ptr.i.i.i12, %if.then10 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !806
 
@@ -67170,7 +67170,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then10, %if.then3, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i12, %if.then10 ], [ %add.ptr.i.i.i, %if.then3 ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i, %if.then3 ], [ %add.ptr.i.i.i12, %if.then10 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !807
 
@@ -67577,7 +67577,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then10, %if.then3, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i12, %if.then10 ], [ %add.ptr.i.i.i, %if.then3 ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %add.ptr.i.i.i, %if.then3 ], [ %add.ptr.i.i.i12, %if.then10 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !808
 
@@ -69072,7 +69072,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit28, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit, %if.end21
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit28 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit ], [ %retval.0.i.i.i.i23, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE8EbE4ReadEPKcPNS1_12ParseContextEPb.exit28 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !811
 
@@ -69631,7 +69631,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end21, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit51, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i46, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit51 ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %retval.0.i46, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit51 ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !812
 
@@ -72355,7 +72355,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit, %if.end21, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !816
 
@@ -73019,7 +73019,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto311ForeignEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit, %if.end21, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit
-  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto311ForeignEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ]
+  %ptr.addr.1 = phi ptr [ %call22, %if.end21 ], [ %retval.0.i14, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %retval.0.i.i.i.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE14EN22protobuf_test_messages6proto311ForeignEnumEE4ReadEPKcPNS1_12ParseContextEPi.exit ]
   %tobool25.not = icmp eq ptr %ptr.addr.1, null
   br i1 %tobool25.not, label %return, label %while.cond, !llvm.loop !817
 

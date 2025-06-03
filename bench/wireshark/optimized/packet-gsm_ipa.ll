@@ -367,7 +367,7 @@ define internal fastcc noundef zeroext i1 @dissect_ipa(ptr noundef %0, ptr nound
   br label %83
 
 83:                                               ; preds = %78, %74, %62
-  %.024.i.i = phi i32 [ 2, %78 ], [ 2, %74 ], [ %73, %62 ]
+  %.024.i.i = phi i32 [ 2, %78 ], [ %73, %62 ], [ 2, %74 ]
   %84 = add i32 %.024.i.i, %.025.i.i
   %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %41, i32 noundef %84)
   %86 = icmp sgt i32 %85, 0

@@ -6541,7 +6541,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %44, %_ZN17QArrayDat
   ret void
 
 57:                                               ; preds = %_ZN7QStringD2Ev.exit27, %_ZN7QStringD2Ev.exit18
-  %.pn = phi { ptr, i32 } [ %45, %_ZN7QStringD2Ev.exit27 ], [ %33, %_ZN7QStringD2Ev.exit18 ]
+  %.pn = phi { ptr, i32 } [ %33, %_ZN7QStringD2Ev.exit18 ], [ %45, %_ZN7QStringD2Ev.exit27 ]
   resume { ptr, i32 } %.pn
 }
 

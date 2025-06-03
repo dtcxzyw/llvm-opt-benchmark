@@ -523,7 +523,7 @@ pg_isblank.exit46.i:                              ; preds = %.critedge.i, %.crit
   br label %.critedge.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %79, %pg_isblank.exit46.i, %.critedge.i, %.preheader.i.preheader
-  %.0131 = phi i1 [ false, %.preheader.i.preheader ], [ true, %79 ], [ false, %.critedge.i ], [ false, %pg_isblank.exit46.i ]
+  %.0131 = phi i1 [ false, %.preheader.i.preheader ], [ true, %79 ], [ false, %pg_isblank.exit46.i ], [ false, %.critedge.i ]
   %92 = phi ptr [ %scevgep252, %.preheader.i.preheader ], [ %.2128, %.critedge.i ], [ %.2128, %pg_isblank.exit46.i ], [ %.2128, %79 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 -1
   %94 = load i32, ptr %26, align 8

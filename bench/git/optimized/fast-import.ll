@@ -1344,7 +1344,7 @@ convert_num_notes_to_fanout.exit.i:               ; preds = %.lr.ph.i92.i, %load
   unreachable
 
 391:                                              ; preds = %388, %387, %387, %387, %387, %387
-  %.054.i.i = phi i16 [ %385, %387 ], [ %385, %387 ], [ %385, %387 ], [ %385, %387 ], [ %385, %387 ], [ %389, %388 ]
+  %.054.i.i = phi i16 [ %389, %388 ], [ %385, %387 ], [ %385, %387 ], [ %385, %387 ], [ %385, %387 ], [ %385, %387 ]
   %392 = load i8, ptr %386, align 1, !tbaa !30
   %393 = icmp eq i8 %392, 58
   br i1 %393, label %394, label %.preheader67.i.i
@@ -12211,7 +12211,7 @@ option_depth.exit:                                ; preds = %ulong_arg.exit.i, %
   br label %83
 
 83:                                               ; preds = %33, %24, %81, %option_depth.exit
-  %.14 = phi i32 [ 0, %24 ], [ 1, %option_depth.exit ], [ 0, %33 ], [ 0, %81 ]
+  %.14 = phi i32 [ 1, %option_depth.exit ], [ 0, %24 ], [ 0, %33 ], [ 0, %81 ]
   ret i32 %.14
 }
 

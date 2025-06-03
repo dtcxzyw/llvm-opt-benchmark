@@ -1656,7 +1656,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m
   br label %common.resume
 
 common.resume:                                    ; preds = %21, %23, %111
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn, %111 ], [ %22, %23 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn70, %111 ], [ %22, %23 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds = %17
@@ -1869,9 +1869,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %63 to i32
   %65 = and i32 %64, 1023
-  %switch.tableidx94 = add nsw i32 %65, -318
-  %66 = icmp ult i32 %switch.tableidx94, 28
-  br i1 %66, label %switch.lookup93, label %switch.edge
+  %switch.tableidx95 = add nsw i32 %65, -318
+  %66 = icmp ult i32 %switch.tableidx95, 28
+  br i1 %66, label %switch.lookup94, label %switch.edge
 
 67:                                               ; preds = %26
   %68 = load ptr, ptr %.pr.i, align 8, !tbaa !100
@@ -1892,9 +1892,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
   br label %switch.edge
 
 80:                                               ; preds = %67
-  %switch.tableidx100 = add nsw i32 %72, -316
-  %81 = icmp ult i32 %switch.tableidx100, 19
-  br i1 %81, label %switch.lookup99, label %switch.edge
+  %switch.tableidx101 = add nsw i32 %72, -316
+  %81 = icmp ult i32 %switch.tableidx101, 19
+  br i1 %81, label %switch.lookup100, label %switch.edge
 
 82:                                               ; preds = %26
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.pr.i)
@@ -1938,20 +1938,20 @@ switch.lookup:                                    ; preds = %53
   %switch.masked = trunc i39 %switch.downshift to i1
   br label %switch.edge
 
-switch.lookup93:                                  ; preds = %60
-  %switch.cast95 = trunc nuw nsw i32 %switch.tableidx94 to i28
-  %switch.downshift97 = lshr i28 -126775317, %switch.cast95
-  %switch.masked98 = trunc i28 %switch.downshift97 to i1
+switch.lookup94:                                  ; preds = %60
+  %switch.cast96 = trunc nuw nsw i32 %switch.tableidx95 to i28
+  %switch.downshift98 = lshr i28 -126775317, %switch.cast96
+  %switch.masked99 = trunc i28 %switch.downshift98 to i1
   br label %switch.edge
 
-switch.lookup99:                                  ; preds = %80
-  %switch.cast101 = trunc nuw nsw i32 %switch.tableidx100 to i19
-  %switch.downshift103 = lshr i19 -261343, %switch.cast101
-  %switch.masked104 = trunc i19 %switch.downshift103 to i1
+switch.lookup100:                                 ; preds = %80
+  %switch.cast102 = trunc nuw nsw i32 %switch.tableidx101 to i19
+  %switch.downshift104 = lshr i19 -261343, %switch.cast102
+  %switch.masked105 = trunc i19 %switch.downshift104 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %80, %switch.lookup99, %60, %switch.lookup93, %53, %switch.lookup, %94, %85, %74, %31, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %95, %47
-  %.0 = phi i1 [ false, %95 ], [ %46, %47 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ %33, %31 ], [ %79, %74 ], [ true, %85 ], [ true, %94 ], [ %switch.masked, %switch.lookup ], [ false, %53 ], [ %switch.masked98, %switch.lookup93 ], [ false, %60 ], [ %switch.masked104, %switch.lookup99 ], [ false, %80 ]
+switch.edge:                                      ; preds = %80, %switch.lookup100, %60, %switch.lookup94, %53, %switch.lookup, %94, %85, %74, %31, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %95, %47
+  %.0 = phi i1 [ false, %95 ], [ %46, %47 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ %33, %31 ], [ %79, %74 ], [ true, %85 ], [ true, %94 ], [ %switch.masked, %switch.lookup ], [ false, %53 ], [ %switch.masked99, %switch.lookup94 ], [ false, %60 ], [ %switch.masked105, %switch.lookup100 ], [ false, %80 ]
   %.not4.i.i.i.i = icmp eq ptr %.pr.i, %20
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1985,12 +1985,12 @@ switch.edge:                                      ; preds = %80, %switch.lookup9
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %105, %99, %.lr.ph.i.i.i.i
   %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i78 = icmp eq ptr %109, %20
-  br i1 %.not.i.i.i.i78, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !301
+  %.not.i.i.i.i79 = icmp eq ptr %109, %20
+  br i1 %.not.i.i.i.i79, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !301
 
 _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, %switch.edge
-  %.not.i.i.i79 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i79, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %110
+  %.not.i.i.i80 = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i.i80, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %110
 
 110:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %13) #27
@@ -2001,7 +2001,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   ret i1 %.0
 
 111:                                              ; preds = %86, %52, %27
-  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %87, %86 ], [ %.pn68, %52 ]
+  %.pn70 = phi { ptr, i32 } [ %28, %27 ], [ %.pn68, %52 ], [ %87, %86 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
   br label %common.resume
@@ -2635,12 +2635,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %_ZN4cvc58internal12
   br label %204
 
 204:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %203, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit20
-  %.09 = phi i1 [ false, %203 ], [ %172, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ], [ %73, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit20 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  %.09 = phi i1 [ false, %203 ], [ %73, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit20 ], [ %172, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.09
 
 205:                                              ; preds = %202, %118
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %202 ], [ %.pn11.pn, %118 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %118 ], [ %.pn, %202 ]
+  resume { ptr, i32 } %.pn11.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -4345,9 +4345,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143: ; preds = %_ZNSt6vectorIN4cvc
   br label %206
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %57, %36, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143, %130, %47, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %83
-  %.sroa.21.4 = phi ptr [ %.sroa.21.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.21.0, %83 ], [ %.sroa.21.0, %47 ], [ %.sroa.21.0, %130 ], [ %.sroa.21.8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %.sroa.21.0, %36 ], [ %.sroa.21.0, %57 ]
-  %.sroa.11.1 = phi ptr [ %30, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %30, %83 ], [ %30, %47 ], [ %30, %130 ], [ %.sroa.11.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %30, %36 ], [ %30, %57 ]
-  %.sroa.0188.4 = phi ptr [ %.sroa.0188.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.0188.0, %83 ], [ %.sroa.0188.0, %47 ], [ %.sroa.0188.0, %130 ], [ %.sroa.0188.8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %.sroa.0188.0, %36 ], [ %.sroa.0188.0, %57 ]
+  %.sroa.21.4 = phi ptr [ %.sroa.21.0, %83 ], [ %.sroa.21.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.21.0, %47 ], [ %.sroa.21.0, %130 ], [ %.sroa.21.8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %.sroa.21.0, %36 ], [ %.sroa.21.0, %57 ]
+  %.sroa.11.1 = phi ptr [ %30, %83 ], [ %30, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %30, %47 ], [ %30, %130 ], [ %.sroa.11.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %30, %36 ], [ %30, %57 ]
+  %.sroa.0188.4 = phi ptr [ %.sroa.0188.0, %83 ], [ %.sroa.0188.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.0188.0, %47 ], [ %.sroa.0188.0, %130 ], [ %.sroa.0188.8, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit143 ], [ %.sroa.0188.0, %36 ], [ %.sroa.0188.0, %57 ]
   %192 = icmp eq ptr %.sroa.0188.4, %.sroa.11.1
   br i1 %192, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, label %29, !llvm.loop !364
 
@@ -16511,7 +16511,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280: ; preds = %_ZNSt6vectorIN4cvc
   ret void
 
 970:                                              ; preds = %935, %853, %776, %135, %59
-  %.pn110.pn = phi { ptr, i32 } [ %.pn110, %935 ], [ %.pn.pn, %853 ], [ %.pn106, %776 ], [ %.pn108, %135 ], [ %60, %59 ]
+  %.pn110.pn = phi { ptr, i32 } [ %.pn110, %935 ], [ %.pn108, %135 ], [ %.pn106, %776 ], [ %.pn.pn, %853 ], [ %60, %59 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
   br label %.body
 

@@ -1061,7 +1061,7 @@ define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$i
   br label %87
 
 87:                                               ; preds = %10, %42, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit", %54, %39
-  %.sroa.0.0 = phi double [ %95, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit" ], [ %86, %54 ], [ %41, %39 ], [ %53, %42 ], [ 1.000000e+00, %10 ]
+  %.sroa.0.0 = phi double [ %95, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit" ], [ %41, %39 ], [ %86, %54 ], [ %53, %42 ], [ 1.000000e+00, %10 ]
   ret double %.sroa.0.0
 
 common.resume:                                    ; preds = %105, %88

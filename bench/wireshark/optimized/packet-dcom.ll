@@ -1753,8 +1753,8 @@ dissect_dcom_tobedone_data.exit:                  ; preds = %126, %129, %132
   br label %138
 
 138:                                              ; preds = %117, %123, %dissect_dcom_tobedone_data.exit, %114, %111, %108, %105, %dissect_dcom_HRESULT.exit
-  %.1156 = phi i32 [ %137, %dissect_dcom_tobedone_data.exit ], [ %125, %123 ], [ %.0155168, %117 ], [ %116, %114 ], [ %.0155168, %111 ], [ %.0155168, %108 ], [ %.0155168, %105 ], [ %.0155168, %dissect_dcom_HRESULT.exit ]
-  %.2 = phi i32 [ %.1169, %dissect_dcom_tobedone_data.exit ], [ %121, %123 ], [ %121, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %90, %dissect_dcom_HRESULT.exit ]
+  %.1156 = phi i32 [ %137, %dissect_dcom_tobedone_data.exit ], [ %.0155168, %dissect_dcom_HRESULT.exit ], [ %.0155168, %105 ], [ %.0155168, %108 ], [ %.0155168, %111 ], [ %116, %114 ], [ %125, %123 ], [ %.0155168, %117 ]
+  %.2 = phi i32 [ %.1169, %dissect_dcom_tobedone_data.exit ], [ %90, %dissect_dcom_HRESULT.exit ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %121, %123 ], [ %121, %117 ]
   %139 = load i32, ptr %20, align 4
   %140 = add i32 %139, -1
   store i32 %140, ptr %20, align 4
@@ -2174,7 +2174,7 @@ dissect_dcom_tobedone_data.exit:                  ; preds = %162, %165, %168
   br label %174
 
 174:                                              ; preds = %148, %154, %110, %116, %101, %107, %dissect_dcom_tobedone_data.exit, %157, %dissect_dcom_HRESULT.exit, %130, %98, %95, %92, %89, %86, %75, %72, %69, %66, %63, %60, %57, %54, %52
-  %.2 = phi i32 [ %173, %dissect_dcom_tobedone_data.exit ], [ %161, %157 ], [ %156, %154 ], [ %152, %148 ], [ %134, %dissect_dcom_HRESULT.exit ], [ %131, %130 ], [ %128, %116 ], [ %114, %110 ], [ %109, %107 ], [ %105, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %76, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %.1, %52 ]
+  %.2 = phi i32 [ %173, %dissect_dcom_tobedone_data.exit ], [ %.1, %52 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %76, %75 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %100, %98 ], [ %109, %107 ], [ %105, %101 ], [ %128, %116 ], [ %114, %110 ], [ %131, %130 ], [ %134, %dissect_dcom_HRESULT.exit ], [ %156, %154 ], [ %152, %148 ], [ %161, %157 ]
   call void @decrement_dissection_depth(ptr noundef %2)
   %175 = load i16, ptr %14, align 2
   %176 = zext i16 %175 to i32
@@ -2960,7 +2960,7 @@ dissect_dcom_CUSTOBJREF.exit:                     ; preds = %53, %41, %dcom_get_
   br label %64
 
 64:                                               ; preds = %dissect_dcom_CUSTOBJREF.exit, %35, %31, %8
-  %.071 = phi i32 [ %29, %8 ], [ %.0.i, %dissect_dcom_CUSTOBJREF.exit ], [ %40, %35 ], [ %34, %31 ]
+  %.071 = phi i32 [ %29, %8 ], [ %34, %31 ], [ %40, %35 ], [ %.0.i, %dissect_dcom_CUSTOBJREF.exit ]
   %65 = load i32, ptr %12, align 4
   %66 = add i32 %65, -1
   %or.cond = icmp ult i32 %66, 2

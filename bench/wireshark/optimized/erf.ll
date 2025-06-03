@@ -408,7 +408,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr noundef captures(none) %0, ptr 
   br label %78
 
 78:                                               ; preds = %._crit_edge, %76, %66
-  %.1 = phi i32 [ %.069.lcssa, %._crit_edge ], [ %77, %76 ], [ %67, %66 ]
+  %.1 = phi i32 [ %.069.lcssa, %._crit_edge ], [ %67, %66 ], [ %77, %76 ]
   %79 = load ptr, ptr %0, align 8
   %80 = call zeroext i1 @wtap_read_bytes(ptr noundef %79, ptr noundef null, i32 noundef %.1, ptr noundef %1, ptr noundef %2)
   br i1 %80, label %85, label %81
@@ -1209,11 +1209,11 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br label %371
 
 371:                                              ; preds = %363, %360, %357, %354, %351, %348, %345, %344, %324
-  %.194.i.i = phi ptr [ %.09365.i.i, %324 ], [ %.09365.i.i, %344 ], [ %.09365.i.i, %363 ], [ %.09365.i.i, %360 ], [ %359, %357 ], [ %.09365.i.i, %354 ], [ %.09365.i.i, %351 ], [ %.09365.i.i, %348 ], [ %.09365.i.i, %345 ]
-  %.192.i.i = phi ptr [ %.09166.i.i, %324 ], [ %.09166.i.i, %344 ], [ %.09166.i.i, %363 ], [ %362, %360 ], [ %.09166.i.i, %357 ], [ %.09166.i.i, %354 ], [ %.09166.i.i, %351 ], [ %.09166.i.i, %348 ], [ %.09166.i.i, %345 ]
-  %.189.i.i = phi ptr [ %.08867.i.i, %324 ], [ %.08867.i.i, %344 ], [ %.08867.i.i, %363 ], [ %.08867.i.i, %360 ], [ %.08867.i.i, %357 ], [ %.08867.i.i, %354 ], [ %.08867.i.i, %351 ], [ %.08867.i.i, %348 ], [ %347, %345 ]
-  %.187.i.i = phi ptr [ %.08668.i.i, %324 ], [ %.08668.i.i, %344 ], [ %.08668.i.i, %363 ], [ %.08668.i.i, %360 ], [ %.08668.i.i, %357 ], [ %.08668.i.i, %354 ], [ %353, %351 ], [ %.08668.i.i, %348 ], [ %.08668.i.i, %345 ]
-  %.1.i127.i = phi ptr [ %.08569.i.i, %324 ], [ %.08569.i.i, %344 ], [ %.08569.i.i, %363 ], [ %.08569.i.i, %360 ], [ %.08569.i.i, %357 ], [ %.08569.i.i, %354 ], [ %.08569.i.i, %351 ], [ %350, %348 ], [ %.08569.i.i, %345 ]
+  %.194.i.i = phi ptr [ %.09365.i.i, %324 ], [ %.09365.i.i, %344 ], [ %.09365.i.i, %345 ], [ %.09365.i.i, %348 ], [ %.09365.i.i, %351 ], [ %.09365.i.i, %354 ], [ %359, %357 ], [ %.09365.i.i, %360 ], [ %.09365.i.i, %363 ]
+  %.192.i.i = phi ptr [ %.09166.i.i, %324 ], [ %.09166.i.i, %344 ], [ %.09166.i.i, %345 ], [ %.09166.i.i, %348 ], [ %.09166.i.i, %351 ], [ %.09166.i.i, %354 ], [ %.09166.i.i, %357 ], [ %362, %360 ], [ %.09166.i.i, %363 ]
+  %.189.i.i = phi ptr [ %.08867.i.i, %324 ], [ %.08867.i.i, %344 ], [ %347, %345 ], [ %.08867.i.i, %348 ], [ %.08867.i.i, %351 ], [ %.08867.i.i, %354 ], [ %.08867.i.i, %357 ], [ %.08867.i.i, %360 ], [ %.08867.i.i, %363 ]
+  %.187.i.i = phi ptr [ %.08668.i.i, %324 ], [ %.08668.i.i, %344 ], [ %.08668.i.i, %345 ], [ %.08668.i.i, %348 ], [ %353, %351 ], [ %.08668.i.i, %354 ], [ %.08668.i.i, %357 ], [ %.08668.i.i, %360 ], [ %.08668.i.i, %363 ]
+  %.1.i127.i = phi ptr [ %.08569.i.i, %324 ], [ %.08569.i.i, %344 ], [ %.08569.i.i, %345 ], [ %350, %348 ], [ %.08569.i.i, %351 ], [ %.08569.i.i, %354 ], [ %.08569.i.i, %357 ], [ %.08569.i.i, %360 ], [ %.08569.i.i, %363 ]
   %372 = load ptr, ptr %11, align 8
   %373 = zext nneg i32 %315 to i64
   %374 = getelementptr i8, ptr %372, i64 %373
@@ -3374,8 +3374,8 @@ define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr n
   br label %135
 
 135:                                              ; preds = %133, %131
-  %.2152 = phi i1 [ %.0150187, %131 ], [ true, %133 ]
-  %.2 = phi i64 [ %.0148188, %131 ], [ %.3, %133 ]
+  %.2152 = phi i1 [ true, %133 ], [ %.0150187, %131 ]
+  %.2 = phi i64 [ %.3, %133 ], [ %.0148188, %131 ]
   %.not178 = icmp eq i8 %.0153186, 0
   %spec.select = select i1 %.not178, i8 %100, i8 %.0153186
   br label %136
@@ -3468,7 +3468,7 @@ define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr n
   br label %erf_find_anchor_mapping.exit.thread.us.i
 
 erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %161, %171, %168, %164, %.lr.ph.split.us.split.i
-  %.156.us.i = phi i64 [ %.05576.us.i, %.lr.ph.split.us.split.i ], [ %.05576.us.i, %168 ], [ %.05576.us.i, %164 ], [ %172, %171 ], [ %.05576.us.i, %161 ]
+  %.156.us.i = phi i64 [ %.05576.us.i, %.lr.ph.split.us.split.i ], [ %172, %171 ], [ %.05576.us.i, %168 ], [ %.05576.us.i, %164 ], [ %.05576.us.i, %161 ]
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %173 = icmp slt i64 %157, 0
   %174 = icmp samesign ult i64 %indvars.iv96.i, 15
@@ -3611,9 +3611,9 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %208
   br label %229
 
 229:                                              ; preds = %226, %222, %220, %217, %213, %erf_find_anchor_mapping.exit.i, %206, %.lr.ph.split.split.i
-  %.158.i = phi ptr [ %.05775.i, %.lr.ph.split.split.i ], [ %.05775.i, %226 ], [ %.05775.i, %222 ], [ %.05775.i, %206 ], [ %.05775.i, %213 ], [ %.05775.i, %erf_find_anchor_mapping.exit.i ], [ %.05775.i, %217 ], [ %spec.select.i, %220 ]
-  %.156.i = phi i64 [ %.05576.i, %.lr.ph.split.split.i ], [ %.05576.i, %226 ], [ %.05576.i, %222 ], [ %207, %206 ], [ %.05576.i, %213 ], [ %.05576.i, %erf_find_anchor_mapping.exit.i ], [ %.05576.i, %217 ], [ %.05576.i, %220 ]
-  %.1.i = phi i64 [ %.05477.i, %.lr.ph.split.split.i ], [ %.05477.i, %226 ], [ %.05477.i, %222 ], [ %.05477.i, %206 ], [ %.05477.i, %213 ], [ %.05477.i, %erf_find_anchor_mapping.exit.i ], [ %215, %217 ], [ %215, %220 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph.split.split.i ], [ %.05775.i, %206 ], [ %.05775.i, %226 ], [ %.05775.i, %222 ], [ %.05775.i, %213 ], [ %.05775.i, %erf_find_anchor_mapping.exit.i ], [ %.05775.i, %217 ], [ %spec.select.i, %220 ]
+  %.156.i = phi i64 [ %.05576.i, %.lr.ph.split.split.i ], [ %207, %206 ], [ %.05576.i, %226 ], [ %.05576.i, %222 ], [ %.05576.i, %213 ], [ %.05576.i, %erf_find_anchor_mapping.exit.i ], [ %.05576.i, %217 ], [ %.05576.i, %220 ]
+  %.1.i = phi i64 [ %.05477.i, %.lr.ph.split.split.i ], [ %.05477.i, %206 ], [ %.05477.i, %226 ], [ %.05477.i, %222 ], [ %.05477.i, %213 ], [ %.05477.i, %erf_find_anchor_mapping.exit.i ], [ %215, %217 ], [ %215, %220 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %230 = icmp slt i64 %202, 0
   %231 = icmp samesign ult i64 %indvars.iv.i, 15
@@ -3721,7 +3721,7 @@ erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_map
   br label %277
 
 277:                                              ; preds = %erf_update_anchors_from_header.exit, %270, %257, %245
-  %.1 = phi i32 [ %.0145.lcssa, %erf_update_anchors_from_header.exit ], [ %248, %245 ], [ %260, %257 ], [ %273, %270 ]
+  %.1 = phi i32 [ %.0145.lcssa, %erf_update_anchors_from_header.exit ], [ %273, %270 ], [ %260, %257 ], [ %248, %245 ]
   %278 = load i16, ptr %75, align 2
   %rev175 = call i16 @llvm.bswap.i16(i16 %278)
   %279 = zext i16 %rev175 to i32
@@ -4185,9 +4185,9 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %78
 
 78:                                               ; preds = %.sink.split, %48, %73, %69
-  %.1155 = phi i1 [ false, %48 ], [ false, %73 ], [ false, %69 ], [ true, %.sink.split ]
-  %.0149 = phi i32 [ %36, %48 ], [ %36, %73 ], [ %70, %69 ], [ %76, %.sink.split ]
-  %.0148 = phi i32 [ %38, %48 ], [ %38, %73 ], [ %38, %69 ], [ %77, %.sink.split ]
+  %.1155 = phi i1 [ false, %48 ], [ false, %69 ], [ false, %73 ], [ true, %.sink.split ]
+  %.0149 = phi i32 [ %36, %48 ], [ %70, %69 ], [ %36, %73 ], [ %76, %.sink.split ]
+  %.0148 = phi i32 [ %38, %48 ], [ %38, %69 ], [ %38, %73 ], [ %77, %.sink.split ]
   %79 = or i8 %59, -128
   store i8 %79, ptr %60, align 8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -5497,13 +5497,13 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   br label %40
 
 40:                                               ; preds = %35, %27, %21
-  %.1106 = phi i64 [ %.0105129, %21 ], [ %.0105129, %35 ], [ %.2107, %27 ]
-  %.1102 = phi i64 [ %.0101131, %21 ], [ %.2103, %35 ], [ %.0101131, %27 ]
-  %.199 = phi i8 [ %.098132, %21 ], [ %.098132, %35 ], [ 1, %27 ]
-  %.195 = phi i8 [ %.094133, %21 ], [ %.094133, %35 ], [ %.296, %27 ]
-  %.193 = phi i8 [ %.092134, %21 ], [ 1, %35 ], [ %.092134, %27 ]
-  %.190 = phi i8 [ %.089135, %21 ], [ %.089135, %35 ], [ %34, %27 ]
-  %.1 = phi i8 [ %.088136, %21 ], [ %.2, %35 ], [ %.088136, %27 ]
+  %.1106 = phi i64 [ %.0105129, %21 ], [ %.2107, %27 ], [ %.0105129, %35 ]
+  %.1102 = phi i64 [ %.0101131, %21 ], [ %.0101131, %27 ], [ %.2103, %35 ]
+  %.199 = phi i8 [ %.098132, %21 ], [ 1, %27 ], [ %.098132, %35 ]
+  %.195 = phi i8 [ %.094133, %21 ], [ %.296, %27 ], [ %.094133, %35 ]
+  %.193 = phi i8 [ %.092134, %21 ], [ %.092134, %27 ], [ 1, %35 ]
+  %.190 = phi i8 [ %.089135, %21 ], [ %34, %27 ], [ %.089135, %35 ]
+  %.1 = phi i8 [ %.088136, %21 ], [ %.088136, %27 ], [ %.2, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = icmp slt i64 %23, 0
   %42 = icmp samesign ult i64 %indvars.iv, 15
@@ -5900,7 +5900,7 @@ define internal fastcc zeroext i1 @erf_write_phdr(ptr noundef %0, ptr noundef re
   br label %88
 
 88:                                               ; preds = %59, %72, %85, %3
-  %.072 = phi i64 [ 0, %3 ], [ 2, %85 ], [ 4, %72 ], [ 4, %59 ]
+  %.072 = phi i64 [ 0, %3 ], [ 4, %59 ], [ 4, %72 ], [ 2, %85 ]
   %89 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 16, ptr noundef %2)
   br i1 %89, label %90, label %133
 

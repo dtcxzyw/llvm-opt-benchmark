@@ -1201,7 +1201,7 @@ define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl20unregisterThr
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i
-  %.sroa.038.1.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %31, %30 ]
+  %.sroa.038.1.i.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i.i, align 8, !tbaa !36
   %33 = icmp eq ptr %.val1.i26.i.i.i.i, %1
   br i1 %33, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5folly15debugger_detail24GlobalThreadPoolListImpl8PoolInfoESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNS4_20unregisterThreadPoolEPNS2_18ThreadPoolListHookEE3$_0EEET_SH_SH_T0_.exit.i.i", label %34
@@ -1211,7 +1211,7 @@ define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl20unregisterThr
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i
-  %.sroa.038.2.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %35, %34 ]
+  %.sroa.038.2.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.038.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i27.i.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i.i, align 8, !tbaa !36
   %37 = icmp eq ptr %.val1.i27.i.i.i.i, %1
   %spec.select.i.i.i.i = select i1 %37, ptr %.sroa.038.2.i.i.i.i, ptr %5

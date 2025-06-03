@@ -6193,7 +6193,7 @@ _Z17qRegisterMetaTypeI5QListIiEEiPKc.exit:        ; preds = %27, %_ZN17QArrayDat
   br label %39
 
 39:                                               ; preds = %0, %38
-  %.1 = phi i32 [ %4, %0 ], [ %.sink, %38 ]
+  %.1 = phi i32 [ %.sink, %38 ], [ %4, %0 ]
   ret i32 %.1
 }
 
@@ -6211,7 +6211,7 @@ define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeI5QListIiEEiRK10
   br label %_ZNK9QMetaType2idEi.exit
 
 _ZNK9QMetaType2idEi.exit:                         ; preds = %1, %4
-  %.1.i = phi i32 [ %3, %1 ], [ %5, %4 ]
+  %.1.i = phi i32 [ %5, %4 ], [ %3, %1 ]
   %6 = call noundef zeroext i1 @_ZN9QMetaType30hasRegisteredConverterFunctionES_S_(ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI5QListIiEE8metaTypeE, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI9QIterableI13QMetaSequenceEE8metaTypeE)
   br i1 %6, label %_ZN9QtPrivate29SequentialValueTypeIsMetaTypeI5QListIiELb1EE17registerConverterEv.exit, label %7
 
@@ -6618,7 +6618,7 @@ define linkonce_odr noundef ptr @_ZZN22QtMetaContainerPrivate26QMetaContainerFor
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit
 
 _ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit: ; preds = %2, %3, %5, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %6, %5 ], [ %4, %3 ], [ null, %2 ]
+  %.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %10, %9 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -7080,7 +7080,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i10: ; preds = %_ZNK17
   br label %30
 
 29:                                               ; preds = %3, %21, %11, %4
-  %.06 = phi ptr [ %17, %21 ], [ %7, %11 ], [ %5, %4 ], [ null, %3 ]
+  %.06 = phi ptr [ %5, %4 ], [ %7, %11 ], [ %17, %21 ], [ null, %3 ]
   ret ptr %.06
 
 30:                                               ; preds = %27, %14

@@ -163,7 +163,7 @@ cleanup.cont:                                     ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %cleanup, %cleanup.cont
-  %retval.1 = phi i1 [ false, %cleanup ], [ %call1, %cleanup.cont ]
+  %retval.1 = phi i1 [ %call1, %cleanup.cont ], [ false, %cleanup ]
   ret i1 %retval.1
 }
 

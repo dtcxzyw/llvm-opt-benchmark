@@ -866,7 +866,7 @@ check_ir.exit:                                    ; preds = %40
   br label %216
 
 216:                                              ; preds = %211, %206, %203
-  %.0105.i.i = phi i32 [ undef, %203 ], [ 7, %211 ], [ 6, %206 ]
+  %.0105.i.i = phi i32 [ undef, %203 ], [ 6, %206 ], [ 7, %211 ]
   %217 = icmp slt i32 %.0276413.i, 1
   %218 = load ptr, ptr %23, align 8, !tbaa !74
   %219 = load ptr, ptr %218, align 8, !tbaa !71

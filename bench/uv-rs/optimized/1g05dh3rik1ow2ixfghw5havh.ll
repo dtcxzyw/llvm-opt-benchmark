@@ -275,7 +275,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN90_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..fmt..Debug$GT$3fmt17he145d1c8a4b5209bE.exit"
 
 "_ZN90_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..fmt..Debug$GT$3fmt17he145d1c8a4b5209bE.exit": ; preds = %14, %18, %22, %25, %28
-  %.sroa.0.0.in.i = phi i1 [ %31, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %18 ], [ %17, %14 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ %27, %25 ], [ %31, %28 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -660,7 +660,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN76_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ee27040d81af698E.exit"
 
 "_ZN76_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ee27040d81af698E.exit": ; preds = %17, %19, %23, %26, %29, %32, %35, %40, %43, %47, %51, %54, %58
-  %.sroa.0.0.in.i = phi i1 [ %60, %58 ], [ %57, %54 ], [ %53, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ], [ %39, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %19 ], [ %18, %17 ]
+  %.sroa.0.0.in.i = phi i1 [ %18, %17 ], [ %22, %19 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %39, %35 ], [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ], [ %57, %54 ], [ %60, %58 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -998,7 +998,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 

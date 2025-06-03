@@ -378,7 +378,7 @@ define dso_local range(i32 0, 2) i32 @credential_has_capability(ptr noundef read
   br label %10
 
 10:                                               ; preds = %2, %6, %3
-  %.0.shrunk = phi i8 [ %narrow, %6 ], [ %5, %3 ], [ 0, %2 ]
+  %.0.shrunk = phi i8 [ %5, %3 ], [ %narrow, %6 ], [ 0, %2 ]
   %.0 = zext nneg i8 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -738,7 +738,7 @@ credential_has_capability.exit.thread.thread:     ; preds = %7
   br label %16
 
 credential_has_capability.exit:                   ; preds = %7, %5
-  %.0.shrunk.i.in = phi i8 [ %10, %7 ], [ %6, %5 ]
+  %.0.shrunk.i.in = phi i8 [ %6, %5 ], [ %10, %7 ]
   %.0.shrunk.i = and i8 %.0.shrunk.i.in, 1
   %.not = icmp eq i8 %.0.shrunk.i, 0
   br i1 %.not, label %credential_has_capability.exit.thread, label %credential_write_item.exit
@@ -767,8 +767,8 @@ credential_has_capability.exit.thread:            ; preds = %3, %credential_writ
   br i1 %.not.i69, label %credential_has_capability.exit74.thread.thread, label %credential_has_capability.exit74
 
 credential_has_capability.exit74:                 ; preds = %16, %14
-  %21 = phi ptr [ %17, %16 ], [ %13, %14 ]
-  %.0.shrunk.i72.in = phi i8 [ %20, %16 ], [ %15, %14 ]
+  %21 = phi ptr [ %13, %14 ], [ %17, %16 ]
+  %.0.shrunk.i72.in = phi i8 [ %15, %14 ], [ %20, %16 ]
   %.0.shrunk.i72 = and i8 %.0.shrunk.i72.in, 1
   %.not63 = icmp eq i8 %.0.shrunk.i72, 0
   br i1 %.not63, label %credential_has_capability.exit74.thread, label %credential_write_item.exit78
@@ -794,8 +794,8 @@ credential_has_capability.exit74.thread.thread:   ; preds = %credential_has_capa
   br i1 %.not.i79, label %credential_has_capability.exit84.thread, label %credential_has_capability.exit84
 
 credential_has_capability.exit84:                 ; preds = %credential_has_capability.exit74.thread.thread, %23
-  %29 = phi ptr [ %25, %credential_has_capability.exit74.thread.thread ], [ %21, %23 ]
-  %.0.shrunk.i82.in = phi i8 [ %28, %credential_has_capability.exit74.thread.thread ], [ %24, %23 ]
+  %29 = phi ptr [ %21, %23 ], [ %25, %credential_has_capability.exit74.thread.thread ]
+  %.0.shrunk.i82.in = phi i8 [ %24, %23 ], [ %28, %credential_has_capability.exit74.thread.thread ]
   %.0.shrunk.i82 = and i8 %.0.shrunk.i82.in, 1
   %.not64 = icmp eq i8 %.0.shrunk.i82, 0
   br i1 %.not64, label %credential_has_capability.exit84.thread, label %30
@@ -1101,7 +1101,7 @@ credential_write_item.exit116:                    ; preds = %132, %145
   br i1 %.not.i117, label %credential_has_capability.exit122.thread, label %credential_has_capability.exit122
 
 credential_has_capability.exit122:                ; preds = %154, %152
-  %.0.shrunk.i120.in = phi i8 [ %157, %154 ], [ %153, %152 ]
+  %.0.shrunk.i120.in = phi i8 [ %153, %152 ], [ %157, %154 ]
   %.0.shrunk.i120 = and i8 %.0.shrunk.i120.in, 1
   %.not67 = icmp eq i8 %.0.shrunk.i120, 0
   br i1 %.not67, label %credential_has_capability.exit122.thread, label %178

@@ -6111,7 +6111,7 @@ _ZZN3smt13theory_recfun13set_depth_recEjP4exprEN8insert_cclEP3app.exit105.i.i: ;
   unreachable
 
 332:                                              ; preds = %317, %296, %243, %174, %96, %71, %41
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %244, %243 ], [ %72, %71 ], [ %175, %174 ], [ %97, %96 ], [ %318, %317 ], [ %297, %296 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %42, %41 ], [ %244, %243 ], [ %72, %71 ], [ %97, %96 ], [ %175, %174 ], [ %318, %317 ], [ %297, %296 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %6) #24
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6) #24
   br label %.body.i

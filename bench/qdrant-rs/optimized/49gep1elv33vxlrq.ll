@@ -431,7 +431,7 @@ define hidden noundef align 8 ptr @_ZN10serde_json4read13ignore_escape17hd3c2b11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %7, %7, %7, %7, %7, %7, %7, %7, %36, %13, %10
-  %.0 = phi ptr [ %12, %10 ], [ %18, %13 ], [ %.sroa.74.0, %36 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %35 ]
+  %.0 = phi ptr [ %18, %13 ], [ %.sroa.74.0, %36 ], [ %12, %10 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %35 ]
   ret ptr %.0
 }
 
@@ -1131,8 +1131,8 @@ tailrecurse.i:                                    ; preds = %277
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !306
   br label %324
 
-324:                                              ; preds = %tailrecurse._crit_edge.i, %73, %180, %318, %246, %255, %279, %280, %297, %304, %311
-  %.0.i.ph = phi ptr [ %316, %311 ], [ %309, %304 ], [ %302, %297 ], [ %285, %280 ], [ %.sroa.818.3, %279 ], [ %257, %255 ], [ %248, %246 ], [ %323, %318 ], [ %.sroa.846.0.i, %180 ], [ %78, %73 ], [ %72, %tailrecurse._crit_edge.i ]
+324:                                              ; preds = %73, %tailrecurse._crit_edge.i, %318, %280, %297, %279, %304, %255, %311, %246, %180
+  %.0.i.ph = phi ptr [ %.sroa.846.0.i, %180 ], [ %248, %246 ], [ %316, %311 ], [ %257, %255 ], [ %309, %304 ], [ %.sroa.818.3, %279 ], [ %302, %297 ], [ %285, %280 ], [ %323, %318 ], [ %72, %tailrecurse._crit_edge.i ], [ %78, %73 ]
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %325, align 8
   store ptr null, ptr %0, align 8
@@ -2093,7 +2093,7 @@ default.unreachable:                              ; preds = %33
   br i1 %49, label %51, label %52
 
 50:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %42, %38, %36, %30
-  %.1.i.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %30 ], [ %.val.i.i, %36 ], [ %.val.i.i, %38 ], [ %.val.i.i, %42 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
+  %.1.i.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %30 ], [ %.val.i.i, %42 ], [ %.val.i.i, %38 ], [ %.val.i.i, %36 ], [ %.val.i.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !501
   br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hae7108d53603c46eE.exit"
 
@@ -2228,8 +2228,8 @@ default.unreachable:                              ; preds = %23
   %37 = icmp eq i8 %36, 35
   br i1 %37, label %.thread, label %38
 
-38:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26, %20
-  %.1 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %26 ], [ %.val, %28 ], [ %.val, %32 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
+38:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %26, %28, %32, %20
+  %.1 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %32 ], [ %.val, %28 ], [ %.val, %26 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %._crit_edge
 
@@ -2250,7 +2250,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %.0
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %26, %28, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !518
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %.val)
           to label %.noexc unwind label %14
@@ -2713,7 +2713,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$
   br i1 %24, label %.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %22, %15, %16, %._crit_edge
-  %.0 = phi ptr [ %14, %._crit_edge ], [ %21, %16 ], [ %23, %22 ], [ null, %15 ]
+  %.0 = phi ptr [ %21, %16 ], [ %14, %._crit_edge ], [ %23, %22 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -3040,7 +3040,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i: ; preds = %16
   br i1 %40, label %_ZN3std2io5Write9write_all17ha0b503960784f987E.exit.thread, label %11
 
 41:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i, %25, %21, %19, %13
-  %.1.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %13 ], [ %.val.i, %19 ], [ %.val.i, %21 ], [ %.val.i, %25 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
+  %.1.i = phi ptr [ @anon.f995eab9e051666c7337493b56022542.11, %13 ], [ %.val.i, %25 ], [ %.val.i, %21 ], [ %.val.i, %19 ], [ %.val.i, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !644
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !659)

@@ -273,7 +273,7 @@ define internal i64 @file_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i6
   br label %9
 
 9:                                                ; preds = %8, %4
-  %.0 = phi i64 [ %2, %4 ], [ 0, %8 ]
+  %.0 = phi i64 [ 0, %8 ], [ %2, %4 ]
   %10 = tail call i32 @fseek(ptr noundef %7, i64 noundef %.0, i32 noundef 0)
   %11 = sext i32 %10 to i64
   br label %68
@@ -414,7 +414,7 @@ file_free.exit47:                                 ; preds = %28, %36
   br label %68
 
 68:                                               ; preds = %4, %55, %56, %64, %61, %57, %53, %52, %47, %file_free.exit, %15, %12, %9
-  %.035 = phi i64 [ %67, %64 ], [ 1, %61 ], [ %60, %57 ], [ 1, %56 ], [ 1, %55 ], [ 0, %52 ], [ 1, %53 ], [ 0, %47 ], [ 1, %file_free.exit ], [ %16, %15 ], [ %14, %12 ], [ %11, %9 ], [ 0, %4 ]
+  %.035 = phi i64 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ 1, %file_free.exit ], [ 0, %52 ], [ 1, %53 ], [ 0, %47 ], [ 1, %56 ], [ 1, %55 ], [ %60, %57 ], [ 1, %61 ], [ %67, %64 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i64 %.035
 }

@@ -4019,7 +4019,7 @@ switch.lookup:                                    ; preds = %42
   br label %45
 
 45:                                               ; preds = %42, %switch.lookup, %36, %32, %28, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit, %1, %8, %35, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread, %12
-  %.0 = phi i32 [ 2, %35 ], [ 3, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread ], [ %15, %12 ], [ 3, %8 ], [ 3, %1 ], [ 1, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit ], [ %31, %28 ], [ %., %32 ], [ 1, %36 ], [ %switch.load, %switch.lookup ], [ 0, %42 ]
+  %.0 = phi i32 [ %15, %12 ], [ 3, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread ], [ 2, %35 ], [ 3, %8 ], [ 3, %1 ], [ 1, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit ], [ %31, %28 ], [ %., %32 ], [ 1, %36 ], [ %switch.load, %switch.lookup ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -11645,8 +11645,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !746
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8

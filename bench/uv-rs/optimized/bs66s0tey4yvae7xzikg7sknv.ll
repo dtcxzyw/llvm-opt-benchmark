@@ -452,7 +452,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hc79887083ee2dcd3
   br label %"_ZN80_$LT$uv_pypi_types..conflicts..ConflictItem$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hea00ab2e4b3ff140E.llvm.11214957115434834686.exit"
 
 "_ZN80_$LT$uv_pypi_types..conflicts..ConflictItem$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hea00ab2e4b3ff140E.llvm.11214957115434834686.exit": ; preds = %2, %24, %38, %40
-  %.sroa.0.0.i = phi i1 [ %18, %2 ], [ %39, %38 ], [ %53, %40 ], [ %37, %24 ]
+  %.sroa.0.0.i = phi i1 [ %18, %2 ], [ %37, %24 ], [ %39, %38 ], [ %53, %40 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -549,7 +549,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h9b48b2f
   br label %_ZN4core3cmp10PartialOrd2lt17hc79887083ee2dcd3E.llvm.11214957115434834686.exit
 
 _ZN4core3cmp10PartialOrd2lt17hc79887083ee2dcd3E.llvm.11214957115434834686.exit: ; preds = %3, %25, %39, %41
-  %.sroa.0.0.i.i = phi i1 [ %19, %3 ], [ %40, %39 ], [ %54, %41 ], [ %38, %25 ]
+  %.sroa.0.0.i.i = phi i1 [ %19, %3 ], [ %38, %25 ], [ %40, %39 ], [ %54, %41 ]
   ret i1 %.sroa.0.0.i.i
 }
 
@@ -1009,7 +1009,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit: ; preds = %20, %42, %56, %58
-  %.sroa.0.0.i.i.i = phi i1 [ %36, %20 ], [ %57, %56 ], [ %71, %58 ], [ %55, %42 ]
+  %.sroa.0.0.i.i.i = phi i1 [ %36, %20 ], [ %55, %42 ], [ %57, %56 ], [ %71, %58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
@@ -1093,7 +1093,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit25
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit25: ; preds = %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit, %88, %102, %104
-  %.sroa.0.0.i.i.i14 = phi i1 [ %82, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %103, %102 ], [ %117, %104 ], [ %101, %88 ]
+  %.sroa.0.0.i.i.i14 = phi i1 [ %82, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %101, %88 ], [ %103, %102 ], [ %117, %104 ]
   %118 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i14
   br i1 %118, label %_ZN4core5slice4sort6shared5pivot7median317h690e34ca04ca9884E.llvm.11214957115434834686.exit, label %119
 
@@ -1176,7 +1176,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit39
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit39: ; preds = %119, %131, %145, %147
-  %.sroa.0.0.i.i.i28 = phi i1 [ %125, %119 ], [ %146, %145 ], [ %160, %147 ], [ %144, %131 ]
+  %.sroa.0.0.i.i.i28 = phi i1 [ %125, %119 ], [ %144, %131 ], [ %146, %145 ], [ %160, %147 ]
   %161 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i28
   %..i = select i1 %161, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317h690e34ca04ca9884E.llvm.11214957115434834686.exit
@@ -1421,7 +1421,7 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort6
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit: ; preds = %13, %35, %49, %51
-  %.sroa.0.0.i.i.i = phi i1 [ %29, %13 ], [ %50, %49 ], [ %64, %51 ], [ %48, %35 ]
+  %.sroa.0.0.i.i.i = phi i1 [ %29, %13 ], [ %48, %35 ], [ %50, %49 ], [ %64, %51 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
@@ -1505,7 +1505,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit15
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit15: ; preds = %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit, %81, %95, %97
-  %.sroa.0.0.i.i.i4 = phi i1 [ %75, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %96, %95 ], [ %110, %97 ], [ %94, %81 ]
+  %.sroa.0.0.i.i.i4 = phi i1 [ %75, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %94, %81 ], [ %96, %95 ], [ %110, %97 ]
   %111 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i4
   br i1 %111, label %_ZN4core5slice4sort6shared5pivot7median317h690e34ca04ca9884E.llvm.11214957115434834686.exit, label %112
 
@@ -1588,7 +1588,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit29
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit29: ; preds = %112, %124, %138, %140
-  %.sroa.0.0.i.i.i18 = phi i1 [ %118, %112 ], [ %139, %138 ], [ %153, %140 ], [ %137, %124 ]
+  %.sroa.0.0.i.i.i18 = phi i1 [ %118, %112 ], [ %137, %124 ], [ %139, %138 ], [ %153, %140 ]
   %154 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i18
   %..i = select i1 %154, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317h690e34ca04ca9884E.llvm.11214957115434834686.exit
@@ -1692,7 +1692,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h69
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit: ; preds = %4, %26, %40, %42
-  %.sroa.0.0.i.i.i = phi i1 [ %20, %4 ], [ %41, %40 ], [ %55, %42 ], [ %39, %26 ]
+  %.sroa.0.0.i.i.i = phi i1 [ %20, %4 ], [ %39, %26 ], [ %41, %40 ], [ %55, %42 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
@@ -1776,7 +1776,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit14
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit14: ; preds = %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit, %72, %86, %88
-  %.sroa.0.0.i.i.i3 = phi i1 [ %66, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %87, %86 ], [ %101, %88 ], [ %85, %72 ]
+  %.sroa.0.0.i.i.i3 = phi i1 [ %66, %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit ], [ %85, %72 ], [ %87, %86 ], [ %101, %88 ]
   %102 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i3
   br i1 %102, label %146, label %103
 
@@ -1859,7 +1859,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.112149571154348346
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit28
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.llvm.11214957115434834686.exit28: ; preds = %103, %115, %129, %131
-  %.sroa.0.0.i.i.i17 = phi i1 [ %109, %103 ], [ %130, %129 ], [ %144, %131 ], [ %128, %115 ]
+  %.sroa.0.0.i.i.i17 = phi i1 [ %109, %103 ], [ %128, %115 ], [ %130, %129 ], [ %144, %131 ]
   %145 = xor i1 %.sroa.0.0.i.i.i, %.sroa.0.0.i.i.i17
   %. = select i1 %145, ptr %2, ptr %1
   br label %146
@@ -4140,8 +4140,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %91
 
 91:                                               ; preds = %66, %71
-  %.sroa.3.0 = phi i32 [ undef, %71 ], [ %70, %66 ]
-  %.sroa.0.0 = phi i32 [ 0, %71 ], [ 1, %66 ]
+  %.sroa.3.0 = phi i32 [ %70, %66 ], [ undef, %71 ]
+  %.sroa.0.0 = phi i32 [ 1, %66 ], [ 0, %71 ]
   %92 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %93 = insertvalue { i32, i32 } %92, i32 %.sroa.3.0, 1
   ret { i32, i32 } %93
@@ -4735,7 +4735,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %74
 
 74:                                               ; preds = %75, %73
-  %.sroa.0.0 = phi i1 [ false, %75 ], [ true, %73 ]
+  %.sroa.0.0 = phi i1 [ true, %73 ], [ false, %75 ]
   ret i1 %.sroa.0.0
 
 75:                                               ; preds = %62, %66
@@ -6895,7 +6895,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN80_$LT$uv_pypi_types..conflicts..C
   br label %"_ZN83_$LT$uv_pypi_types..conflicts..ConflictPackage$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8b478f7c49fc2ebdE.exit"
 
 "_ZN83_$LT$uv_pypi_types..conflicts..ConflictPackage$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8b478f7c49fc2ebdE.exit": ; preds = %40, %38, %24, %2
-  %.sroa.0.0 = phi i8 [ %17, %2 ], [ %39, %38 ], [ %53, %40 ], [ %37, %24 ]
+  %.sroa.0.0 = phi i8 [ %17, %2 ], [ %37, %24 ], [ %39, %38 ], [ %53, %40 ]
   ret i8 %.sroa.0.0
 }
 

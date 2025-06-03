@@ -631,7 +631,7 @@ _ZNK16stackChunkHandleclEv.exit40:                ; preds = %39, %41
   unreachable
 
 134:                                              ; preds = %123, %100, %89, %79, %68, %53, %48, %_ZNK16stackChunkHandleclEv.exit40, %_ZNK16stackChunkHandleclEv.exit38, %28, %23, %18, %11
-  %.0 = phi ptr [ %54, %53 ], [ %50, %48 ], [ %44, %_ZNK16stackChunkHandleclEv.exit40 ], [ %38, %_ZNK16stackChunkHandleclEv.exit38 ], [ %29, %28 ], [ %24, %23 ], [ %20, %18 ], [ %14, %11 ], [ %71, %68 ], [ %80, %79 ], [ %92, %89 ], [ %103, %100 ], [ %116, %123 ]
+  %.0 = phi ptr [ %14, %11 ], [ %20, %18 ], [ %24, %23 ], [ %29, %28 ], [ %38, %_ZNK16stackChunkHandleclEv.exit38 ], [ %44, %_ZNK16stackChunkHandleclEv.exit40 ], [ %50, %48 ], [ %54, %53 ], [ %71, %68 ], [ %80, %79 ], [ %92, %89 ], [ %103, %100 ], [ %116, %123 ]
   ret ptr %.0
 }
 
@@ -1079,7 +1079,7 @@ _ZNK16stackChunkHandleclEv.exit37:                ; preds = %7
   unreachable
 
 123:                                              ; preds = %112, %89, %78, %68, %57, %42, %37, %_ZNK16stackChunkHandleclEv.exit37, %_ZNK16stackChunkHandleclEv.exit36, %27, %22, %17, %10
-  %.0 = phi ptr [ %43, %42 ], [ %39, %37 ], [ %33, %_ZNK16stackChunkHandleclEv.exit37 ], [ %32, %_ZNK16stackChunkHandleclEv.exit36 ], [ %28, %27 ], [ %23, %22 ], [ %19, %17 ], [ %13, %10 ], [ %60, %57 ], [ %69, %68 ], [ %81, %78 ], [ %92, %89 ], [ %105, %112 ]
+  %.0 = phi ptr [ %13, %10 ], [ %19, %17 ], [ %23, %22 ], [ %28, %27 ], [ %32, %_ZNK16stackChunkHandleclEv.exit36 ], [ %33, %_ZNK16stackChunkHandleclEv.exit37 ], [ %39, %37 ], [ %43, %42 ], [ %60, %57 ], [ %69, %68 ], [ %81, %78 ], [ %92, %89 ], [ %105, %112 ]
   ret ptr %.0
 }
 

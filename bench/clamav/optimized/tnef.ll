@@ -348,7 +348,7 @@ fmap_readn.exit78.i:                              ; preds = %112
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %fmap_readn.exit78.i, %122, %.thread.i, %102
-  %.3112 = phi ptr [ %.0109235, %122 ], [ %.2111, %.thread.i ], [ %.4113, %102 ], [ %.2111, %fmap_readn.exit78.i ]
+  %.3112 = phi ptr [ %.0109235, %122 ], [ %.4113, %102 ], [ %.2111, %.thread.i ], [ %.2111, %fmap_readn.exit78.i ]
   %123 = zext nneg i32 %.0..0..0..0..0.36.i to i64
   %.not70.i = icmp ult i64 %9, %123
   br i1 %.not70.i, label %126, label %124
@@ -447,9 +447,9 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   %or.cond44.not.i = icmp ult i64 %.1107, %160
   br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit
 
-.thread169:                                       ; preds = %.loopexit, %.loopexit183, %128, %.thread165, %76, %.loopexit184, %64
-  %.2180 = phi i32 [ 26, %128 ], [ 26, %.thread165 ], [ 26, %76 ], [ 26, %.loopexit184 ], [ 26, %64 ], [ 0, %.loopexit ], [ 0, %.loopexit183 ]
-  %.1110179 = phi ptr [ %.0109235, %128 ], [ %.0109235, %.thread165 ], [ %69, %76 ], [ %.5114.ph, %.loopexit184 ], [ %.0109235, %64 ], [ %.0109198, %.loopexit ], [ %.0109235, %.loopexit183 ]
+.thread169:                                       ; preds = %.loopexit, %.loopexit183, %128, %.thread165, %.loopexit184, %76, %64
+  %.2180 = phi i32 [ 26, %128 ], [ 26, %.thread165 ], [ 26, %.loopexit184 ], [ 26, %76 ], [ 26, %64 ], [ 0, %.loopexit ], [ 0, %.loopexit183 ]
+  %.1110179 = phi ptr [ %.0109235, %128 ], [ %.0109235, %.thread165 ], [ %.5114.ph, %.loopexit184 ], [ %69, %76 ], [ %.0109235, %64 ], [ %.0109198, %.loopexit ], [ %.0109235, %.loopexit183 ]
   %.not49 = icmp eq ptr %.1110179, null
   br i1 %.not49, label %166, label %161
 

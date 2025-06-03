@@ -809,7 +809,7 @@ ssl_print_client_cert_types.exit:                 ; preds = %6, %._crit_edge.i
   br label %get_sigtype.exit
 
 get_sigtype.exit:                                 ; preds = %41, %43, %44, %45, %46, %47, %48, %49, %50, %51
-  %.0.i = phi ptr [ %52, %51 ], [ @.str.153, %50 ], [ @.str.152, %49 ], [ @.str.151, %48 ], [ @.str.150, %47 ], [ @.str.149, %46 ], [ @.str.148, %45 ], [ @.str.147, %44 ], [ @.str.146, %43 ], [ @.str.145, %41 ]
+  %.0.i = phi ptr [ %52, %51 ], [ @.str.146, %43 ], [ @.str.147, %44 ], [ @.str.148, %45 ], [ @.str.149, %46 ], [ @.str.150, %47 ], [ @.str.151, %48 ], [ @.str.152, %49 ], [ @.str.153, %50 ], [ @.str.145, %41 ]
   %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %.0.i) #6
   br label %54
 
@@ -973,8 +973,8 @@ get_sigtype.exit:                                 ; preds = %46
   %.not40 = icmp eq i32 %61, 0
   br i1 %.not40, label %68, label %64
 
-.thread53:                                        ; preds = %get_sigtype.exit, %55, %54, %53, %52, %51, %50, %49, %48, %46
-  %.0.i49 = phi ptr [ %56, %get_sigtype.exit ], [ @.str.145, %46 ], [ @.str.146, %48 ], [ @.str.147, %49 ], [ @.str.148, %50 ], [ @.str.149, %51 ], [ @.str.150, %52 ], [ @.str.151, %53 ], [ @.str.152, %54 ], [ @.str.153, %55 ]
+.thread53:                                        ; preds = %get_sigtype.exit, %48, %49, %50, %51, %52, %53, %54, %55, %46
+  %.0.i49 = phi ptr [ %56, %get_sigtype.exit ], [ @.str.145, %46 ], [ @.str.153, %55 ], [ @.str.152, %54 ], [ @.str.151, %53 ], [ @.str.150, %52 ], [ @.str.149, %51 ], [ @.str.148, %50 ], [ @.str.147, %49 ], [ @.str.146, %48 ]
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i49) #6
   %63 = load i32, ptr %4, align 4, !tbaa !22
   %.not4055 = icmp eq i32 %63, 0
@@ -1632,10 +1632,10 @@ lookup.exit71.thread112:                          ; preds = %.lr.ph.i73.preheade
   br label %.lr.ph103.preheader
 
 lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph.i67, %.lookup.exit71.loopexit90_crit_edge, %.lookup.exit71.loopexit_crit_edge, %lookup.exit, %37, %38, %39, %40, %15, %42
-  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.57, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ %switch.select65, %.lr.ph.i67 ], [ %33, %.lr.ph.i73 ]
-  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %39 ], [ @.str.53, %38 ], [ @.str.53, %37 ], [ @.str.53, %15 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ]
-  %.057 = phi ptr [ %8, %40 ], [ @.str.64, %39 ], [ @.str.63, %38 ], [ @.str.62, %37 ], [ @.str.56, %15 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.56, %.lr.ph.i67 ], [ @.str.61, %.lr.ph.i73 ]
-  %.056 = phi ptr [ %.0.i, %40 ], [ %.0.i, %39 ], [ %.0.i, %38 ], [ %.0.i, %37 ], [ %.0.i, %15 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph.i73 ]
+  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.57, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ %switch.select65, %.lr.ph.i67 ], [ %33, %.lr.ph.i73 ]
+  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ]
+  %.057 = phi ptr [ %8, %40 ], [ @.str.56, %15 ], [ @.str.62, %37 ], [ @.str.63, %38 ], [ @.str.64, %39 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.56, %.lr.ph.i67 ], [ @.str.61, %.lr.ph.i73 ]
+  %.056 = phi ptr [ %.0.i, %40 ], [ %.0.i, %15 ], [ %.0.i, %37 ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph.i73 ]
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef %.056, ptr noundef nonnull %.057, i64 noundef %4, ptr noundef %.1, ptr noundef nonnull %.058) #6
   %.not63 = icmp eq i64 %4, 0
   br i1 %.not63, label %59, label %.lr.ph103.preheader
@@ -3016,9 +3016,9 @@ lookup.exit86:                                    ; preds = %.lr.ph.i82, %.lr.ph
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.281, ptr noundef nonnull %.0.i) #6
   br label %.thread
 
-.thread:                                          ; preds = %lookup.exit, %lookup.exit, %lookup.exit86, %34, %33, %36, %35
-  %.not79109 = phi i1 [ false, %36 ], [ false, %35 ], [ false, %33 ], [ true, %lookup.exit86 ], [ false, %34 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
-  %.not78108 = phi i1 [ %.not78110, %36 ], [ true, %35 ], [ false, %33 ], [ true, %lookup.exit86 ], [ true, %34 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
+.thread:                                          ; preds = %lookup.exit, %lookup.exit, %34, %lookup.exit86, %33, %36, %35
+  %.not79109 = phi i1 [ false, %36 ], [ false, %35 ], [ false, %33 ], [ false, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
+  %.not78108 = phi i1 [ %.not78110, %36 ], [ true, %35 ], [ false, %33 ], [ true, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
   %39 = add i32 %2, -65536
   %40 = lshr i32 %39, 16
   %trunc = trunc nuw i32 %40 to i16

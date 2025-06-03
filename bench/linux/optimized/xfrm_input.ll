@@ -743,9 +743,9 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %.critedge49.thread
 
 xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exit50_crit_edge, %232, %204
-  %248 = phi ptr [ %.pre, %.xfrm_parse_spi.exit50_crit_edge ], [ %206, %204 ], [ %234, %232 ]
-  %.260 = phi i32 [ %2, %.xfrm_parse_spi.exit50_crit_edge ], [ %215, %204 ], [ %240, %232 ]
-  %.2 = phi i32 [ 0, %.xfrm_parse_spi.exit50_crit_edge ], [ 0, %204 ], [ %242, %232 ]
+  %248 = phi ptr [ %.pre, %.xfrm_parse_spi.exit50_crit_edge ], [ %234, %232 ], [ %206, %204 ]
+  %.260 = phi i32 [ %2, %.xfrm_parse_spi.exit50_crit_edge ], [ %240, %232 ], [ %215, %204 ]
+  %.2 = phi i32 [ 0, %.xfrm_parse_spi.exit50_crit_edge ], [ %242, %232 ], [ 0, %204 ]
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %250 = load i16, ptr %249, align 4
   %251 = zext i16 %250 to i64
@@ -1980,8 +1980,8 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br label %xfrm_parse_spi.exit51.thread76
 
 xfrm_parse_spi.exit51.thread76:                   ; preds = %1077, %1050
-  %.9.ph = phi i32 [ %1085, %1077 ], [ %1061, %1050 ]
-  %.6.ph = phi i32 [ %1087, %1077 ], [ 0, %1050 ]
+  %.9.ph = phi i32 [ %1061, %1050 ], [ %1085, %1077 ]
+  %.6.ph = phi i32 [ 0, %1050 ], [ %1087, %1077 ]
   %1088 = getelementptr inbounds nuw i8, ptr %398, i64 80
   br label %257
 

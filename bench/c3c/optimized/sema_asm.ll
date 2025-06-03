@@ -227,7 +227,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   unreachable
 
 37:                                               ; preds = %31, %26, %20
-  %.0.in.i = phi i32 [ %35, %31 ], [ %30, %26 ], [ %25, %20 ]
+  %.0.in.i = phi i32 [ %25, %20 ], [ %30, %26 ], [ %35, %31 ]
   %.0.not.i = icmp eq i32 %.0.in.i, 0
   br i1 %.0.not.i, label %38, label %42
 
@@ -605,7 +605,7 @@ switch.lookup:                                    ; preds = %200
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %222, %216
-  %.0.i63.in.i.be = phi ptr [ %223, %222 ], [ %221, %216 ]
+  %.0.i63.in.i.be = phi ptr [ %221, %216 ], [ %223, %222 ]
   br label %.preheader.i
 
 224:                                              ; preds = %.preheader.i
@@ -904,7 +904,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   unreachable
 
 361:                                              ; preds = %358, %352
-  %.1.in.i.i63 = phi ptr [ %359, %358 ], [ %357, %352 ]
+  %.1.in.i.i63 = phi ptr [ %357, %352 ], [ %359, %358 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i63, align 8
   br label %348
 

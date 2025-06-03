@@ -2971,7 +2971,7 @@ define noundef ptr @wtap_dump_open(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %wtap_dump_file_open.exit
 
 wtap_dump_file_open.exit:                         ; preds = %12, %14, %16
-  %.0.i = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0.i = phi ptr [ %17, %16 ], [ %13, %12 ], [ %15, %14 ]
   %18 = icmp eq ptr %.0.i, null
   br i1 %18, label %19, label %21
 
@@ -3353,7 +3353,7 @@ wtap_default_file_extension.exit:                 ; preds = %12, %14, %18
   br label %wtap_dump_file_fdopen.exit
 
 wtap_dump_file_fdopen.exit:                       ; preds = %32, %34, %36
-  %.0.i35 = phi ptr [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0.i35 = phi ptr [ %37, %36 ], [ %33, %32 ], [ %35, %34 ]
   %38 = icmp eq ptr %.0.i35, null
   br i1 %38, label %39, label %42
 
@@ -3493,7 +3493,7 @@ define noundef ptr @wtap_dump_fdopen(i32 noundef %0, i32 noundef %1, i32 noundef
   br label %wtap_dump_file_fdopen.exit
 
 wtap_dump_file_fdopen.exit:                       ; preds = %12, %14, %16
-  %.0.i = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.0.i = phi ptr [ %17, %16 ], [ %13, %12 ], [ %15, %14 ]
   %18 = icmp eq ptr %.0.i, null
   br i1 %18, label %19, label %21
 
@@ -3754,7 +3754,7 @@ define zeroext i1 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly capture
   br label %wtap_dump_file_close.exit
 
 wtap_dump_file_close.exit:                        ; preds = %14, %16, %18
-  %.0.i = phi i32 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.0.i = phi i32 [ %19, %18 ], [ %15, %14 ], [ %17, %16 ]
   %20 = icmp eq i32 %.0.i, -1
   br i1 %20, label %21, label %26
 
@@ -4019,7 +4019,7 @@ define noundef zeroext i1 @wtap_dump_file_write(ptr noundef captures(none) %0, p
   br label %36
 
 36:                                               ; preds = %32, %31, %19, %12
-  %.0 = phi i1 [ false, %31 ], [ true, %32 ], [ false, %19 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %31 ], [ true, %32 ], [ false, %12 ], [ false, %19 ]
   ret i1 %.0
 }
 

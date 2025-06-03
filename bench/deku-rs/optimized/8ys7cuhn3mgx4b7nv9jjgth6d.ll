@@ -191,7 +191,7 @@ default.unreachable1:                             ; preds = %1
   br label %"_ZN4core3ptr43drop_in_place$LT$deku..error..DekuError$GT$17hf7adf3e691c0c858E.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$deku..error..DekuError$GT$17hf7adf3e691c0c858E.exit": ; preds = %1, %19, %17, %15, %13, %11, %9
-  %.sroa.0.0 = phi ptr [ %22, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ inttoptr (i64 90194313219 to ptr), %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %22, %19 ], [ inttoptr (i64 90194313219 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -265,7 +265,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 28:                                               ; preds = %25, %23, %21, %18, %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %27, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ], [ %27, %25 ]
   ret i1 %.sroa.0.0.in
 }
 

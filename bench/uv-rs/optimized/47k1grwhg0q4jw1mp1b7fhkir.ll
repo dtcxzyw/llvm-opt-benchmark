@@ -630,9 +630,9 @@ default.unreachable:                              ; preds = %11
   store i64 %41, ptr %29, align 8, !alias.scope !53
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit, %22, %18, %16, %34
-  %42 = phi { i64, ptr } [ %.lcssa11, %34 ], [ %13, %16 ], [ %13, %18 ], [ %13, %22 ], [ %13, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit ]
-  %.sroa.3.0 = phi ptr [ %.in, %34 ], [ %12, %16 ], [ %12, %18 ], [ %12, %22 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit ]
+.loopexit:                                        ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit, %16, %18, %22, %34
+  %42 = phi { i64, ptr } [ %.lcssa11, %34 ], [ %13, %22 ], [ %13, %18 ], [ %13, %16 ], [ %13, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit ]
+  %.sroa.3.0 = phi ptr [ %.in, %34 ], [ %12, %22 ], [ %12, %18 ], [ %12, %16 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %43 = insertvalue { i64, ptr } %42, ptr %.sroa.3.0, 1
   ret { i64, ptr } %43
@@ -642,7 +642,7 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit: ; preds = %11
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %44, label %.loopexit
 
-44:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit, %22, %18, %16
+44:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit, %16, %18, %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !54
   %45 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %45)

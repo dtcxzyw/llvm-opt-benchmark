@@ -724,7 +724,7 @@ proto_item_set_generated.exit:                    ; preds = %86, %92, %95
   br label %242
 
 242:                                              ; preds = %115, %116, %237, %232, %213, %204, %199, %190, %182, %177, %168, %159, %148, %121, %102
-  %.0533 = phi i32 [ 5, %102 ], [ 5, %213 ], [ 7, %204 ], [ 5, %199 ], [ 10, %190 ], [ %189, %182 ], [ 5, %177 ], [ 10, %168 ], [ 7, %159 ], [ 11, %148 ], [ 5, %232 ], [ 5, %237 ], [ 9, %121 ], [ %120, %116 ], [ 5, %115 ]
+  %.0533 = phi i32 [ 5, %102 ], [ %120, %116 ], [ 5, %115 ], [ 9, %121 ], [ 5, %237 ], [ 5, %232 ], [ 11, %148 ], [ 7, %159 ], [ 10, %168 ], [ 5, %177 ], [ %189, %182 ], [ 10, %190 ], [ 5, %199 ], [ 7, %204 ], [ 5, %213 ]
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 57
@@ -915,8 +915,8 @@ proto_item_set_generated.exit557:                 ; preds = %300, %304, %307
   %349 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %413
 
-350:                                              ; preds = %339, %332, %329, %322, %314, %311, %proto_item_set_generated.exit554, %proto_item_set_generated.exit557
-  %.2.ph = phi i32 [ 0, %proto_item_set_generated.exit557 ], [ 0, %proto_item_set_generated.exit554 ], [ 0, %311 ], [ %321, %314 ], [ %328, %322 ], [ 0, %329 ], [ %338, %332 ], [ %345, %339 ]
+350:                                              ; preds = %314, %311, %322, %329, %332, %339, %proto_item_set_generated.exit554, %proto_item_set_generated.exit557
+  %.2.ph = phi i32 [ 0, %proto_item_set_generated.exit557 ], [ 0, %proto_item_set_generated.exit554 ], [ %345, %339 ], [ %338, %332 ], [ 0, %329 ], [ %328, %322 ], [ 0, %311 ], [ %321, %314 ]
   %351 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.ph)
   %352 = zext i16 %351 to i32
   %353 = load ptr, ptr %10, align 8

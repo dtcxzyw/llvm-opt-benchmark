@@ -1001,7 +1001,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %42
   %48 = icmp eq i32 %47, 255328256
   br i1 %48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %36, %28, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42, %42, %42, %28, %36, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %49 = load ptr, ptr %0, align 8, !tbaa !109
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #14
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !42
@@ -1345,13 +1345,13 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %_ZN4llvm18Intrus
   %spec.select.i = icmp ult i32 %46, 20
   br i1 %spec.select.i, label %49, label %47
 
-47:                                               ; preds = %41, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+47:                                               ; preds = %33, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %48 = load ptr, ptr %2, align 8, !tbaa !3
   store ptr %48, ptr %0, align 8, !tbaa !3
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14
 
-49:                                               ; preds = %41, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+49:                                               ; preds = %33, %41, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %50 = tail call ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %16, i64 noundef 0, i64 %20) #14
   %51 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i.i11 = icmp eq ptr %51, null

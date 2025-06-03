@@ -354,7 +354,7 @@ default.unreachable54:                            ; preds = %25
   unreachable
 
 67:                                               ; preds = %add_storage.exit46, %64, %add_storage.exit
-  %.036 = phi i32 [ %.0.i45, %64 ], [ %.0.i45, %add_storage.exit46 ], [ %.0.i, %add_storage.exit ]
+  %.036 = phi i32 [ %.0.i, %add_storage.exit ], [ %.0.i45, %64 ], [ %.0.i45, %add_storage.exit46 ]
   %.not44 = icmp eq i32 %.036, 0
   br i1 %.not44, label %.thread48, label %.thread51
 
@@ -1943,7 +1943,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_encap_seed(ptr noundef writeonly capture
   br label %38
 
 38:                                               ; preds = %36, %34, %32, %29
-  %.0 = phi i32 [ 0, %29 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0 = phi i32 [ 0, %29 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %27) #13
   br label %39
 
@@ -2094,7 +2094,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_decap(ptr noundef %0, i64 noundef %1, pt
   br label %40
 
 40:                                               ; preds = %38, %36, %34, %31
-  %.0 = phi i32 [ 0, %31 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ]
+  %.0 = phi i32 [ 0, %31 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %23) #13
   br label %41
 

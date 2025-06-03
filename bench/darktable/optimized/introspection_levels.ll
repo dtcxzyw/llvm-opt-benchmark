@@ -2159,8 +2159,8 @@ default.unreachable:                              ; preds = %6
   br label %63
 
 52:                                               ; preds = %24, %7
-  %.033.ph = phi float [ 0.000000e+00, %7 ], [ %39, %24 ]
-  %.0.ph = phi float [ %23, %7 ], [ 1.000000e+00, %24 ]
+  %.033.ph = phi float [ %39, %24 ], [ 0.000000e+00, %7 ]
+  %.0.ph = phi float [ 1.000000e+00, %24 ], [ %23, %7 ]
   %53 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.033.ph, float %1)
   %54 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %.0.ph, float %53)
   %55 = zext nneg i32 %0 to i64

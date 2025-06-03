@@ -2268,7 +2268,7 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %18, %16, %26, %_ZN6
   ret ptr %1
 
 101:                                              ; preds = %97, %68
-  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %69, %68 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %98, %97 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6239,7 +6239,7 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %18, %16, %26, %_ZN6
   ret ptr %1
 
 111:                                              ; preds = %108, %68
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %108 ], [ %69, %68 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %lpad.phi, %108 ]
   resume { ptr, i32 } %.pn
 }
 

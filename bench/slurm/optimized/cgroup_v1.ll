@@ -425,12 +425,12 @@ define dso_local i32 @cgroup_p_system_create(i32 noundef %0) local_unnamed_addr 
   br label %32
 
 31:                                               ; preds = %3, %19, %11, %5, %21, %16
-  %.0 = phi i32 [ %10, %5 ], [ %12, %11 ], [ %15, %16 ], [ %20, %21 ], [ 0, %19 ], [ %4, %3 ]
+  %.0 = phi i32 [ %4, %3 ], [ %10, %5 ], [ %12, %11 ], [ %15, %16 ], [ %20, %21 ], [ 0, %19 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #11
   br label %32
 
 32:                                               ; preds = %31, %29, %24
-  %.014 = phi i32 [ -1, %29 ], [ -1, %24 ], [ %.0, %31 ]
+  %.014 = phi i32 [ -1, %29 ], [ %.0, %31 ], [ -1, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i32 %.014
 }
@@ -566,7 +566,7 @@ define dso_local i32 @cgroup_p_system_addto(i32 noundef %0, ptr noundef %1, i32 
   br label %15
 
 15:                                               ; preds = %10, %8, %6, %4
-  %.0 = phi i32 [ -1, %8 ], [ %7, %6 ], [ %5, %4 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %8 ], [ %5, %4 ], [ %7, %6 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -760,12 +760,12 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   br label %54
 
 54:                                               ; preds = %.sink.split, %44, %38, %32, %18, %12
-  %.1 = phi i32 [ 0, %44 ], [ 0, %38 ], [ 0, %32 ], [ 0, %18 ], [ 0, %12 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ 0, %12 ], [ 0, %18 ], [ 0, %32 ], [ 0, %38 ], [ 0, %44 ], [ %.1.ph, %.sink.split ]
   %55 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
   br label %60
 
 56:                                               ; preds = %44, %38, %20, %18, %12, %50
-  %.0 = phi i32 [ -1, %50 ], [ %49, %44 ], [ %43, %38 ], [ %25, %20 ], [ %19, %18 ], [ %17, %12 ]
+  %.0 = phi i32 [ -1, %50 ], [ %17, %12 ], [ %19, %18 ], [ %25, %20 ], [ %43, %38 ], [ %49, %44 ]
   %57 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
   %58 = load i16, ptr %9, align 2
   %59 = add i16 %58, -1
@@ -955,7 +955,7 @@ define dso_local i32 @cgroup_p_step_addto(i32 noundef %0, ptr noundef %1, i32 no
   br label %27
 
 27:                                               ; preds = %3, %24, %22, %18, %15
-  %.0 = phi i32 [ -1, %22 ], [ -1, %18 ], [ %26, %24 ], [ %17, %15 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %22 ], [ %17, %15 ], [ %26, %24 ], [ -1, %18 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1275,7 +1275,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %51, %53, %6, %.thread99, %39, %13, %7, %55, %71, %69, %31, %32, %73, %61, %5
-  %.071 = phi i32 [ -1, %73 ], [ %70, %69 ], [ %72, %71 ], [ -1, %61 ], [ 0, %55 ], [ %spec.select92, %32 ], [ 0, %31 ], [ %spec.select, %7 ], [ %0, %5 ], [ %spec.select90, %13 ], [ %spec.select93, %39 ], [ %spec.select91, %.thread99 ], [ 0, %6 ], [ %spec.select95, %53 ], [ %spec.select94, %51 ]
+  %.071 = phi i32 [ -1, %73 ], [ %0, %5 ], [ %spec.select, %7 ], [ %spec.select92, %32 ], [ 0, %31 ], [ %70, %69 ], [ %72, %71 ], [ -1, %61 ], [ 0, %55 ], [ %spec.select90, %13 ], [ %spec.select93, %39 ], [ %spec.select91, %.thread99 ], [ 0, %6 ], [ %spec.select95, %53 ], [ %spec.select94, %51 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   br label %75
 
@@ -1537,10 +1537,10 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr(ptr noundef readnone captures(
   br label %102
 
 102:                                              ; preds = %116, %101, %69, %35, %29, %21
-  %.046 = phi i32 [ -1, %21 ], [ -1, %29 ], [ %27, %35 ], [ %27, %116 ], [ %27, %69 ], [ %27, %101 ]
-  %.042 = phi i32 [ -1, %21 ], [ -1, %29 ], [ -1, %35 ], [ %33, %116 ], [ %33, %69 ], [ %33, %101 ]
-  %.not75 = phi i1 [ false, %21 ], [ false, %29 ], [ false, %35 ], [ false, %116 ], [ false, %69 ], [ true, %101 ]
-  %.041 = phi i32 [ -1, %21 ], [ -1, %29 ], [ -1, %35 ], [ -1, %116 ], [ -1, %69 ], [ 0, %101 ]
+  %.046 = phi i32 [ -1, %21 ], [ -1, %29 ], [ %27, %35 ], [ %27, %69 ], [ %27, %101 ], [ %27, %116 ]
+  %.042 = phi i32 [ -1, %21 ], [ -1, %29 ], [ -1, %35 ], [ %33, %69 ], [ %33, %101 ], [ %33, %116 ]
+  %.not75 = phi i1 [ false, %21 ], [ false, %29 ], [ false, %35 ], [ false, %69 ], [ true, %101 ], [ false, %116 ]
+  %.041 = phi i32 [ -1, %21 ], [ -1, %29 ], [ -1, %35 ], [ -1, %69 ], [ 0, %101 ], [ -1, %116 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   %103 = load i32, ptr @oom_kill_type, align 4
   %.not74 = icmp eq i32 %103, 2

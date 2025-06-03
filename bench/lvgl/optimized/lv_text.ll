@@ -807,8 +807,8 @@ define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null)
   br label %.thread17.i.i
 
 .thread17.i.i:                                    ; preds = %.thread17.i.sink.split.i, %52, %49
-  %.7 = phi i32 [ %.287, %49 ], [ %.sink.i, %.thread17.i.sink.split.i ], [ %.287, %52 ]
-  %54 = phi i32 [ %44, %49 ], [ %.sink.i, %.thread17.i.sink.split.i ], [ 1, %52 ]
+  %.7 = phi i32 [ %.sink.i, %.thread17.i.sink.split.i ], [ %.287, %49 ], [ %.287, %52 ]
+  %54 = phi i32 [ %.sink.i, %.thread17.i.sink.split.i ], [ %44, %49 ], [ 1, %52 ]
   %55 = load i32, ptr %9, align 4, !tbaa !6
   %56 = zext i32 %45 to i64
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 %56

@@ -11792,8 +11792,8 @@ _ZN4cvc58internal8RationalD2Ev.exit703:           ; preds = %1052, %1046
   br label %1096
 
 1096:                                             ; preds = %1094, %._crit_edge._crit_edge.i.i.i
-  %1097 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %1092, %1094 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %1095, %1094 ]
+  %1097 = phi ptr [ %1092, %1094 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %1095, %1094 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %1098 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !62
   %1099 = icmp eq ptr %1098, %1097
   br i1 %1099, label %.loopexit1657, label %1100
@@ -11803,8 +11803,8 @@ _ZN4cvc58internal8RationalD2Ev.exit703:           ; preds = %1052, %1046
   br label %1102
 
 1102:                                             ; preds = %1100, %._crit_edge._crit_edge57.i.i.i
-  %1103 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %1097, %1100 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %1101, %1100 ]
+  %1103 = phi ptr [ %1097, %1100 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %1101, %1100 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %1104 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !62
   %1105 = icmp eq ptr %1104, %1103
   %spec.select.i.i.i = select i1 %1105, ptr %.sroa.032.2.i.i.i, ptr %1062

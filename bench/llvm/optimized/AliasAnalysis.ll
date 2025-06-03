@@ -2140,7 +2140,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   br label %33
 
 33:                                               ; preds = %._crit_edge.loopexit.i, %4, %32
-  %.08 = phi i8 [ 0, %._crit_edge.loopexit.i ], [ 1, %32 ], [ 3, %4 ]
+  %.08 = phi i8 [ 1, %32 ], [ 0, %._crit_edge.loopexit.i ], [ 3, %4 ]
   ret i8 %.08
 }
 
@@ -2448,7 +2448,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   br label %33
 
 33:                                               ; preds = %._crit_edge.loopexit.i, %4, %32
-  %.08 = phi i8 [ 0, %._crit_edge.loopexit.i ], [ 3, %32 ], [ 3, %4 ]
+  %.08 = phi i8 [ 3, %32 ], [ 0, %._crit_edge.loopexit.i ], [ 3, %4 ]
   ret i8 %.08
 }
 
@@ -2517,7 +2517,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   br label %33
 
 33:                                               ; preds = %._crit_edge.loopexit.i, %4, %32
-  %.08 = phi i8 [ 0, %._crit_edge.loopexit.i ], [ 3, %32 ], [ 3, %4 ]
+  %.08 = phi i8 [ 3, %32 ], [ 0, %._crit_edge.loopexit.i ], [ 3, %4 ]
   ret i8 %.08
 }
 
@@ -3000,7 +3000,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105: ; pred
   br i1 %220, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %212
 
 _ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit: ; preds = %.lr.ph.i.i95, %212, %.lr.ph.i.i88, %196, %.lr.ph.i8.i, %60, %207, %205, %191, %189, %186, %._crit_edge.loopexit.i.i81, %159, %158, %._crit_edge.loopexit.i.i69, %131, %129, %127, %.thread.i59, %125, %106, %97, %96, %._crit_edge.loopexit.i.i47, %69, %59, %.thread.i, %._crit_edge.loopexit.i.i, %40, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105, %187
-  %.2 = phi i8 [ %188, %187 ], [ 0, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105 ], [ 3, %40 ], [ 0, %._crit_edge.loopexit.i.i ], [ 3, %59 ], [ 3, %.thread.i ], [ 0, %._crit_edge.loopexit.i.i47 ], [ 1, %96 ], [ 3, %69 ], [ 3, %97 ], [ 0, %.thread.i59 ], [ 2, %125 ], [ 2, %106 ], [ %130, %129 ], [ 3, %127 ], [ 0, %._crit_edge.loopexit.i.i69 ], [ 3, %158 ], [ 3, %131 ], [ 0, %._crit_edge.loopexit.i.i81 ], [ 3, %186 ], [ 3, %159 ], [ 3, %189 ], [ 3, %191 ], [ 3, %205 ], [ 3, %207 ], [ %67, %60 ], [ 0, %.lr.ph.i8.i ], [ %203, %196 ], [ 0, %.lr.ph.i.i88 ], [ %219, %212 ], [ 0, %.lr.ph.i.i95 ]
+  %.2 = phi i8 [ %188, %187 ], [ 0, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105 ], [ 3, %40 ], [ 0, %._crit_edge.loopexit.i.i ], [ 3, %59 ], [ 3, %.thread.i ], [ 1, %96 ], [ 0, %._crit_edge.loopexit.i.i47 ], [ 3, %69 ], [ 3, %97 ], [ 0, %.thread.i59 ], [ 2, %125 ], [ 2, %106 ], [ %130, %129 ], [ 3, %127 ], [ 3, %158 ], [ 0, %._crit_edge.loopexit.i.i69 ], [ 3, %131 ], [ 3, %186 ], [ 0, %._crit_edge.loopexit.i.i81 ], [ 3, %159 ], [ 3, %189 ], [ 3, %191 ], [ 3, %205 ], [ 3, %207 ], [ %67, %60 ], [ 0, %.lr.ph.i8.i ], [ %203, %196 ], [ 0, %.lr.ph.i.i88 ], [ %219, %212 ], [ 0, %.lr.ph.i.i95 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #24
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
 
@@ -3064,7 +3064,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %12, %
   unreachable
 
 _ZNK4llvm8CallBase17data_operands_endEv.exit:     ; preds = %17, %25, %26
-  %.0.i.i.i = phi i64 [ %28, %26 ], [ 2, %25 ], [ 0, %17 ]
+  %.0.i.i.i = phi i64 [ 2, %25 ], [ %28, %26 ], [ 0, %17 ]
   %30 = sub nsw i64 0, %.0.i.i.i
   %31 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -32
@@ -5052,7 +5052,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

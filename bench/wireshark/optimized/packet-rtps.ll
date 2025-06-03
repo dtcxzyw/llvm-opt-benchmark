@@ -7241,7 +7241,7 @@ define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr nound
   %.not204 = icmp eq ptr %106, null
   br i1 %.not204, label %107, label %108
 
-107:                                              ; preds = %97, %105, %103, %99, %101
+107:                                              ; preds = %97, %99, %101, %103, %105
   br label %108
 
 108:                                              ; preds = %105, %103, %101, %99, %96, %107
@@ -10117,7 +10117,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %1584, %1585
   br label %1705
 
 1705:                                             ; preds = %1695, %1689
-  %.0.i.i = phi ptr [ %1700, %1695 ], [ %1694, %1689 ]
+  %.0.i.i = phi ptr [ %1694, %1689 ], [ %1700, %1695 ]
   %1706 = load i32, ptr @hf_rtps_locator_port, align 4
   %1707 = add i32 %.151.i.i, 20
   %1708 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1685, i32 noundef %1706, ptr noundef %2, i32 noundef %1707, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %4, ptr noundef nonnull %29)
@@ -10879,7 +10879,7 @@ rtps_util_typecode_id_to_string.exit.thread460:   ; preds = %14
   br label %238
 
 rtps_util_typecode_id_to_string.exit.thread:      ; preds = %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %14
-  %.0.i.ph = phi ptr [ @.str.1200, %47 ], [ @.str.1201, %48 ], [ @.str.1202, %49 ], [ @.str.1203, %50 ], [ @.str.1204, %51 ], [ @.str.1205, %52 ], [ @.str.1206, %53 ], [ @.str.1207, %54 ], [ @.str.1208, %55 ], [ @.str.1209, %56 ], [ @.str.1210, %57 ], [ @.str.1211, %58 ], [ @.str.1199, %14 ]
+  %.0.i.ph = phi ptr [ @.str.1211, %58 ], [ @.str.1210, %57 ], [ @.str.1209, %56 ], [ @.str.1208, %55 ], [ @.str.1207, %54 ], [ @.str.1206, %53 ], [ @.str.1205, %52 ], [ @.str.1204, %51 ], [ @.str.1203, %50 ], [ @.str.1202, %49 ], [ @.str.1201, %48 ], [ @.str.1200, %47 ], [ @.str.1199, %14 ]
   %81 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull %.0.i.ph, i64 noundef 40)
   br label %252
 
@@ -11026,8 +11026,8 @@ rtps_util_typecode_id_to_string.exit437.thread464: ; preds = %check_offset_addit
   br label %rtps_util_typecode_id_to_string.exit437.thread
 
 rtps_util_typecode_id_to_string.exit437.thread:   ; preds = %rtps_util_typecode_id_to_string.exit437, %check_offset_addition.exit, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %rtps_util_typecode_id_to_string.exit437.thread464
-  %.0.i436463 = phi ptr [ @.str.1182, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ @.str.1213, %rtps_util_typecode_id_to_string.exit437 ], [ @.str.430, %111 ], [ @.str.1199, %112 ], [ @.str.1200, %113 ], [ @.str.1201, %114 ], [ @.str.1202, %115 ], [ @.str.1203, %116 ], [ @.str.1204, %117 ], [ @.str.1205, %118 ], [ @.str.1206, %119 ], [ @.str.1207, %120 ], [ @.str.1208, %121 ], [ @.str.1209, %122 ], [ @.str.1210, %123 ], [ @.str.1211, %124 ], [ @.str.1188, %125 ], [ @.str.1187, %126 ], [ @.str.434, %127 ], [ @.str.436, %128 ], [ @.str.1212, %129 ], [ @.str.1189, %130 ], [ @.str.426, %check_offset_addition.exit ]
-  %.0412 = phi ptr [ %136, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ null, %rtps_util_typecode_id_to_string.exit437 ], [ null, %111 ], [ null, %112 ], [ null, %113 ], [ null, %114 ], [ null, %115 ], [ null, %116 ], [ null, %117 ], [ null, %118 ], [ null, %119 ], [ null, %120 ], [ null, %121 ], [ null, %122 ], [ null, %123 ], [ null, %124 ], [ null, %125 ], [ null, %126 ], [ null, %127 ], [ null, %128 ], [ null, %129 ], [ null, %130 ], [ null, %check_offset_addition.exit ]
+  %.0.i436463 = phi ptr [ @.str.1182, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ @.str.1213, %rtps_util_typecode_id_to_string.exit437 ], [ @.str.1189, %130 ], [ @.str.1212, %129 ], [ @.str.436, %128 ], [ @.str.434, %127 ], [ @.str.1187, %126 ], [ @.str.1188, %125 ], [ @.str.1211, %124 ], [ @.str.1210, %123 ], [ @.str.1209, %122 ], [ @.str.1208, %121 ], [ @.str.1207, %120 ], [ @.str.1206, %119 ], [ @.str.1205, %118 ], [ @.str.1204, %117 ], [ @.str.1203, %116 ], [ @.str.1202, %115 ], [ @.str.1201, %114 ], [ @.str.1200, %113 ], [ @.str.1199, %112 ], [ @.str.430, %111 ], [ @.str.426, %check_offset_addition.exit ]
+  %.0412 = phi ptr [ %136, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ null, %rtps_util_typecode_id_to_string.exit437 ], [ null, %130 ], [ null, %129 ], [ null, %128 ], [ null, %127 ], [ null, %126 ], [ null, %125 ], [ null, %124 ], [ null, %123 ], [ null, %122 ], [ null, %121 ], [ null, %120 ], [ null, %119 ], [ null, %118 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %112 ], [ null, %111 ], [ null, %check_offset_addition.exit ]
   %137 = zext i16 %108 to i32
   %138 = add i32 %109, %137
   %139 = load i32, ptr @hf_rtps_union, align 4
@@ -11253,7 +11253,7 @@ check_offset_addition.exit442:                    ; preds = %238
   br label %252
 
 252:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread, %._crit_edge492, %182, %check_offset_addition.exit442, %check_offset_addition.exit441, %rtps_util_typecode_id_to_string.exit.thread450
-  %.0404 = phi i32 [ %30, %rtps_util_typecode_id_to_string.exit ], [ %246, %check_offset_addition.exit442 ], [ %78, %check_offset_addition.exit441 ], [ %96, %rtps_util_typecode_id_to_string.exit.thread450 ], [ %.2.lcssa, %182 ], [ %.6.lcssa, %._crit_edge492 ], [ %30, %rtps_util_typecode_id_to_string.exit.thread ]
+  %.0404 = phi i32 [ %30, %rtps_util_typecode_id_to_string.exit ], [ %96, %rtps_util_typecode_id_to_string.exit.thread450 ], [ %78, %check_offset_addition.exit441 ], [ %246, %check_offset_addition.exit442 ], [ %.2.lcssa, %182 ], [ %.6.lcssa, %._crit_edge492 ], [ %30, %rtps_util_typecode_id_to_string.exit.thread ]
   %.not424 = icmp eq i32 %11, -1
   br i1 %.not424, label %260, label %.thread
 
@@ -12495,7 +12495,7 @@ rtps_util_add_type_element_struct.exit:           ; preds = %._crit_edge.i, %._c
   br label %rtps_util_add_type_element_array.exit
 
 rtps_util_add_type_element_array.exit:            ; preds = %.critedge.i, %.critedge.us.i, %rtps_util_dissect_parameter_header.exit27.i, %241, %rtps_util_dissect_parameter_header.exit30.i, %rtps_util_dissect_parameter_header.exit51.i, %461, %447, %rtps_util_add_type_element_struct.exit, %rtps_util_add_type_element_union.exit, %rtps_util_add_type_element_alias.exit, %rtps_util_add_type_element_enumeration.exit
-  %.0.i = phi i1 [ false, %461 ], [ false, %447 ], [ true, %rtps_util_add_type_element_struct.exit ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %241 ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
+  %.0.i = phi i1 [ false, %461 ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_struct.exit ], [ false, %447 ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %241 ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
   %464 = icmp slt i32 %54, %.087
   br i1 %464, label %465, label %check_offset_addition.exit
 
@@ -13351,7 +13351,7 @@ define internal fastcc void @generate_status_info(ptr noundef %0, i32 noundef %1
   br label %31
 
 31:                                               ; preds = %28, %24, %3, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10
-  %.0 = phi ptr [ null, %3 ], [ @.str.1318, %23 ], [ @.str.1317, %22 ], [ @.str.1316, %21 ], [ @.str.1315, %20 ], [ @.str.1314, %19 ], [ @.str.1313, %18 ], [ @.str.1312, %17 ], [ @.str.1311, %16 ], [ @.str.1310, %15 ], [ @.str.1309, %14 ], [ @.str.1308, %13 ], [ @.str.1307, %12 ], [ @.str.1306, %11 ], [ @.str.1305, %10 ], [ null, %24 ], [ %spec.select, %28 ]
+  %.0 = phi ptr [ null, %3 ], [ @.str.1305, %10 ], [ @.str.1306, %11 ], [ @.str.1307, %12 ], [ @.str.1308, %13 ], [ @.str.1309, %14 ], [ @.str.1310, %15 ], [ @.str.1311, %16 ], [ @.str.1312, %17 ], [ @.str.1313, %18 ], [ @.str.1314, %19 ], [ @.str.1315, %20 ], [ @.str.1316, %21 ], [ @.str.1317, %22 ], [ @.str.1318, %23 ], [ null, %24 ], [ %spec.select, %28 ]
   %32 = icmp ult i32 %2, 4
   br i1 %32, label %switch.lookup, label %35
 
@@ -13968,33 +13968,33 @@ get_native_type_cdr_alignment.exit:               ; preds = %87, %87, %89, %102
 105:                                              ; preds = %get_native_type_cdr_alignment.exit.thread731, %get_native_type_cdr_alignment.exit
   %106 = phi i32 [ %92, %get_native_type_cdr_alignment.exit.thread731 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %107 = icmp eq i32 %5, 1
-  %.neg785 = select i1 %107, i32 -8, i32 -4
+  %.neg782 = select i1 %107, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit562
 
 108:                                              ; preds = %get_native_type_cdr_alignment.exit, %get_native_type_cdr_alignment.exit.thread733
   %109 = phi i32 [ %95, %get_native_type_cdr_alignment.exit.thread733 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %110 = icmp eq i32 %5, 1
-  %.neg784 = select i1 %110, i32 -8, i32 -4
+  %.neg783 = select i1 %110, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit562
 
 111:                                              ; preds = %get_native_type_cdr_alignment.exit.thread729, %get_native_type_cdr_alignment.exit
   %112 = phi i32 [ %98, %get_native_type_cdr_alignment.exit.thread729 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %113 = icmp eq i32 %5, 1
-  %.neg783 = select i1 %113, i32 -8, i32 -4
+  %.neg784 = select i1 %113, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit562
 
 114:                                              ; preds = %get_native_type_cdr_alignment.exit.thread, %get_native_type_cdr_alignment.exit
   %115 = phi i32 [ %101, %get_native_type_cdr_alignment.exit.thread ], [ %103, %get_native_type_cdr_alignment.exit ]
   %116 = icmp eq i32 %5, 1
-  %.neg782 = select i1 %116, i32 -8, i32 -4
+  %.neg785 = select i1 %116, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit562
 
 117:                                              ; preds = %get_native_type_cdr_alignment.exit
   br label %get_native_type_cdr_alignment.exit562
 
 get_native_type_cdr_alignment.exit562:            ; preds = %get_native_type_cdr_alignment.exit, %get_native_type_cdr_alignment.exit, %104, %105, %108, %111, %114, %117
-  %118 = phi i32 [ %103, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %108 ], [ %106, %105 ], [ %103, %104 ], [ %103, %get_native_type_cdr_alignment.exit ], [ %103, %get_native_type_cdr_alignment.exit ]
-  %.0.i561.neg = phi i32 [ -1, %117 ], [ %.neg782, %114 ], [ %.neg783, %111 ], [ %.neg784, %108 ], [ %.neg785, %105 ], [ -4, %104 ], [ -2, %get_native_type_cdr_alignment.exit ], [ -2, %get_native_type_cdr_alignment.exit ]
+  %118 = phi i32 [ %103, %117 ], [ %103, %104 ], [ %106, %105 ], [ %109, %108 ], [ %112, %111 ], [ %115, %114 ], [ %103, %get_native_type_cdr_alignment.exit ], [ %103, %get_native_type_cdr_alignment.exit ]
+  %.0.i561.neg = phi i32 [ -1, %117 ], [ -4, %104 ], [ %.neg782, %105 ], [ %.neg783, %108 ], [ %.neg784, %111 ], [ %.neg785, %114 ], [ -2, %get_native_type_cdr_alignment.exit ], [ -2, %get_native_type_cdr_alignment.exit ]
   %119 = and i32 %.0.i561.neg, %118
   %120 = add i32 %119, %.0481
   %121 = call signext i8 @tvb_get_int8(ptr noundef %1, i32 noundef %120)
@@ -14106,33 +14106,33 @@ get_native_type_cdr_alignment.exit572:            ; preds = %151, %151, %151, %1
 167:                                              ; preds = %get_native_type_cdr_alignment.exit572, %get_native_type_cdr_alignment.exit572.thread738
   %168 = phi i32 [ %155, %get_native_type_cdr_alignment.exit572.thread738 ], [ %166, %get_native_type_cdr_alignment.exit572 ]
   %169 = icmp eq i32 %5, 1
-  %.neg777 = select i1 %169, i32 -8, i32 -4
+  %.neg = select i1 %169, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit574
 
 170:                                              ; preds = %get_native_type_cdr_alignment.exit572, %get_native_type_cdr_alignment.exit572.thread740
   %171 = phi i32 [ %158, %get_native_type_cdr_alignment.exit572.thread740 ], [ %166, %get_native_type_cdr_alignment.exit572 ]
   %172 = icmp eq i32 %5, 1
-  %.neg776 = select i1 %172, i32 -8, i32 -4
+  %.neg775 = select i1 %172, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit574
 
 173:                                              ; preds = %get_native_type_cdr_alignment.exit572.thread736, %get_native_type_cdr_alignment.exit572
   %174 = phi i32 [ %161, %get_native_type_cdr_alignment.exit572.thread736 ], [ %166, %get_native_type_cdr_alignment.exit572 ]
   %175 = icmp eq i32 %5, 1
-  %.neg775 = select i1 %175, i32 -8, i32 -4
+  %.neg776 = select i1 %175, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit574
 
 176:                                              ; preds = %get_native_type_cdr_alignment.exit572.thread, %get_native_type_cdr_alignment.exit572
   %177 = phi i32 [ %164, %get_native_type_cdr_alignment.exit572.thread ], [ %166, %get_native_type_cdr_alignment.exit572 ]
   %178 = icmp eq i32 %5, 1
-  %.neg = select i1 %178, i32 -8, i32 -4
+  %.neg777 = select i1 %178, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit574
 
 179:                                              ; preds = %get_native_type_cdr_alignment.exit572
   br label %get_native_type_cdr_alignment.exit574
 
 get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr_alignment.exit572, %get_native_type_cdr_alignment.exit572, %get_native_type_cdr_alignment.exit572, %get_native_type_cdr_alignment.exit572, %167, %170, %173, %176, %179
-  %180 = phi i32 [ %166, %179 ], [ %177, %176 ], [ %174, %173 ], [ %171, %170 ], [ %168, %167 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ]
-  %.0.i573.neg = phi i32 [ -1, %179 ], [ %.neg, %176 ], [ %.neg775, %173 ], [ %.neg776, %170 ], [ %.neg777, %167 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ]
+  %180 = phi i32 [ %166, %179 ], [ %168, %167 ], [ %171, %170 ], [ %174, %173 ], [ %177, %176 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ], [ %166, %get_native_type_cdr_alignment.exit572 ]
+  %.0.i573.neg = phi i32 [ -1, %179 ], [ %.neg, %167 ], [ %.neg775, %170 ], [ %.neg776, %173 ], [ %.neg777, %176 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ], [ -4, %get_native_type_cdr_alignment.exit572 ]
   %181 = and i32 %.0.i573.neg, %180
   %182 = add i32 %181, %.0481
   %183 = call i32 @tvb_get_int32(ptr noundef %1, i32 noundef %182, i32 noundef %4)
@@ -14853,7 +14853,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %498, %399, %535, %.loopexit, %322, %.thread767, %279, %.thread751, %540, %541, %398, %361, %355, %260, %248, %235, %223, %210, %197, %186, %149, %137, %125, %85
-  %.4718 = phi i32 [ %.2716, %541 ], [ %.2716, %540 ], [ %.2716, %399 ], [ %.22, %.loopexit ], [ %.22, %535 ], [ %.20, %398 ], [ %362, %361 ], [ %356, %355 ], [ %.18773, %.thread767 ], [ %325, %322 ], [ %.16757, %.thread751 ], [ %281, %279 ], [ %261, %260 ], [ %249, %248 ], [ %236, %235 ], [ %224, %223 ], [ %211, %210 ], [ %198, %197 ], [ %187, %186 ], [ %150, %149 ], [ %138, %137 ], [ %126, %125 ], [ %86, %85 ], [ %.23, %498 ]
+  %.4718 = phi i32 [ %.2716, %541 ], [ %.2716, %540 ], [ %86, %85 ], [ %126, %125 ], [ %138, %137 ], [ %150, %149 ], [ %187, %186 ], [ %198, %197 ], [ %211, %210 ], [ %224, %223 ], [ %236, %235 ], [ %249, %248 ], [ %261, %260 ], [ %.16757, %.thread751 ], [ %281, %279 ], [ %.18773, %.thread767 ], [ %325, %322 ], [ %356, %355 ], [ %362, %361 ], [ %.20, %398 ], [ %.2716, %399 ], [ %.22, %.loopexit ], [ %.22, %535 ], [ %.23, %498 ]
   call void @decrement_dissection_depth(ptr noundef %2)
   %542 = add i32 %.0481, %.1709
   %spec.select = select i1 %59, i32 %542, i32 %.4718

@@ -749,7 +749,7 @@ _ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_
   br label %114
 
 114:                                              ; preds = %112, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %113, %112 ]
+  %.1.i.i.i.i = phi ptr [ %113, %112 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !49
   %115 = getelementptr i8, ptr %.1.val.i.i.i.i, i64 8
   %.1.val.val.i.i.i.i = load i8, ptr %115, align 8, !tbaa !51
@@ -762,7 +762,7 @@ _ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %118, %117 ]
+  %.2.i.i.i.i = phi ptr [ %118, %117 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !49
   %120 = getelementptr i8, ptr %.2.val.i.i.i.i, i64 8
   %.2.val.val.i.i.i.i = load i8, ptr %120, align 8, !tbaa !51
@@ -989,7 +989,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %190
 
 190:                                              ; preds = %142, %4, %189, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit
-  %.0 = phi ptr [ null, %142 ], [ %157, %189 ], [ null, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit ], [ null, %4 ]
+  %.0 = phi ptr [ %157, %189 ], [ null, %142 ], [ null, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1654,7 +1654,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor5
   br label %272
 
 272:                                              ; preds = %270, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %271, %270 ]
+  %.1.i.i.i.i.i = phi ptr [ %271, %270 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %273 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !49
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load i8, ptr %274, align 8, !tbaa !51
@@ -1667,7 +1667,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor5
   br label %279
 
 279:                                              ; preds = %277, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %278, %277 ]
+  %.2.i.i.i.i.i = phi ptr [ %278, %277 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %280 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !49
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load i8, ptr %281, align 8, !tbaa !51
@@ -2021,7 +2021,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i: ; pr
   br label %413
 
 413:                                              ; preds = %411, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %412, %411 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %412, %411 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !77
   %.val30.val.i.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !69
   %414 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val30.val.i.i.i.i.i.i.i, i8 noundef zeroext 15, ptr noundef %.1.val.i.i.i.i.i.i.i) #16
@@ -2032,7 +2032,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i: ; pr
   br label %417
 
 417:                                              ; preds = %415, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %416, %415 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %416, %415 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !77
   %.val.val.i.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !69
   %418 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val.val.i.i.i.i.i.i.i, i8 noundef zeroext 15, ptr noundef %.2.val.i.i.i.i.i.i.i) #16
@@ -3887,7 +3887,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i336: ;
   br label %1261
 
 1261:                                             ; preds = %1259, %._crit_edge.i.i.i.i.i.i.i354
-  %.1.i.i.i.i.i.i.i384 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i356, %._crit_edge.i.i.i.i.i.i.i354 ], [ %1260, %1259 ]
+  %.1.i.i.i.i.i.i.i384 = phi ptr [ %1260, %1259 ], [ %.029.lcssa.i.i.i.i.i.i.i356, %._crit_edge.i.i.i.i.i.i.i354 ]
   %.1.val.i.i.i.i.i.i.i385 = load ptr, ptr %.1.i.i.i.i.i.i.i384, align 8, !tbaa !77
   %.val30.val.i.i.i.i.i.i.i386 = load ptr, ptr %0, align 8, !tbaa !69
   %1262 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val30.val.i.i.i.i.i.i.i386, i8 noundef zeroext 17, ptr noundef %.1.val.i.i.i.i.i.i.i385) #16
@@ -3898,7 +3898,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i336: ;
   br label %1265
 
 1265:                                             ; preds = %1263, %._crit_edge.i.i.i.i.i.i.i354
-  %.2.i.i.i.i.i.i.i357 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i356, %._crit_edge.i.i.i.i.i.i.i354 ], [ %1264, %1263 ]
+  %.2.i.i.i.i.i.i.i357 = phi ptr [ %1264, %1263 ], [ %.029.lcssa.i.i.i.i.i.i.i356, %._crit_edge.i.i.i.i.i.i.i354 ]
   %.2.val.i.i.i.i.i.i.i358 = load ptr, ptr %.2.i.i.i.i.i.i.i357, align 8, !tbaa !77
   %.val.val.i.i.i.i.i.i.i359 = load ptr, ptr %0, align 8, !tbaa !69
   %1266 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val.val.i.i.i.i.i.i.i359, i8 noundef zeroext 17, ptr noundef %.2.val.i.i.i.i.i.i.i358) #16
@@ -4268,7 +4268,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i436: ;
   br label %1396
 
 1396:                                             ; preds = %1394, %._crit_edge.i.i.i.i.i.i.i454
-  %.1.i.i.i.i.i.i.i475 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i456, %._crit_edge.i.i.i.i.i.i.i454 ], [ %1395, %1394 ]
+  %.1.i.i.i.i.i.i.i475 = phi ptr [ %1395, %1394 ], [ %.029.lcssa.i.i.i.i.i.i.i456, %._crit_edge.i.i.i.i.i.i.i454 ]
   %.1.val.i.i.i.i.i.i.i476 = load ptr, ptr %.1.i.i.i.i.i.i.i475, align 8, !tbaa !77
   %.val30.val.i.i.i.i.i.i.i477 = load ptr, ptr %0, align 8, !tbaa !69
   %1397 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val30.val.i.i.i.i.i.i.i477, i8 noundef zeroext 19, ptr noundef %.1.val.i.i.i.i.i.i.i476) #16
@@ -4279,7 +4279,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EEC2IS3_vEENS_8ArrayRefIT_EE.exit.i436: ;
   br label %1400
 
 1400:                                             ; preds = %1398, %._crit_edge.i.i.i.i.i.i.i454
-  %.2.i.i.i.i.i.i.i457 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i456, %._crit_edge.i.i.i.i.i.i.i454 ], [ %1399, %1398 ]
+  %.2.i.i.i.i.i.i.i457 = phi ptr [ %1399, %1398 ], [ %.029.lcssa.i.i.i.i.i.i.i456, %._crit_edge.i.i.i.i.i.i.i454 ]
   %.2.val.i.i.i.i.i.i.i458 = load ptr, ptr %.2.i.i.i.i.i.i.i457, align 8, !tbaa !77
   %.val.val.i.i.i.i.i.i.i459 = load ptr, ptr %0, align 8, !tbaa !69
   %1401 = call noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTypeENS_17OpenACCClauseKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %.val.val.i.i.i.i.i.i.i459, i8 noundef zeroext 19, ptr noundef %.2.val.i.i.i.i.i.i.i458) #16
@@ -4640,7 +4640,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitFirstPrivateClauseERN5clang11S
   br label %1550
 
 1550:                                             ; preds = %1548, %._crit_edge.i.i.i.i.i517
-  %.1.i.i.i.i.i542 = phi ptr [ %.029.lcssa.i.i.i.i.i518, %._crit_edge.i.i.i.i.i517 ], [ %1549, %1548 ]
+  %.1.i.i.i.i.i542 = phi ptr [ %1549, %1548 ], [ %.029.lcssa.i.i.i.i.i518, %._crit_edge.i.i.i.i.i517 ]
   %1551 = load ptr, ptr %.1.i.i.i.i.i542, align 8, !tbaa !49
   %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 8
   %1553 = load i8, ptr %1552, align 8, !tbaa !51
@@ -4652,7 +4652,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitFirstPrivateClauseERN5clang11S
   br label %1557
 
 1557:                                             ; preds = %1555, %._crit_edge.i.i.i.i.i517
-  %.2.i.i.i.i.i541 = phi ptr [ %.029.lcssa.i.i.i.i.i518, %._crit_edge.i.i.i.i.i517 ], [ %1556, %1555 ]
+  %.2.i.i.i.i.i541 = phi ptr [ %1556, %1555 ], [ %.029.lcssa.i.i.i.i.i518, %._crit_edge.i.i.i.i.i517 ]
   %1558 = load ptr, ptr %.2.i.i.i.i.i541, align 8, !tbaa !49
   %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 8
   %1560 = load i8, ptr %1559, align 8, !tbaa !51
@@ -4771,7 +4771,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %1612
 
 1612:                                             ; preds = %1610, %._crit_edge.i.i.i.i75.i
-  %.1.i.i.i.i80.i = phi ptr [ %.029.lcssa.i.i.i.i77.i, %._crit_edge.i.i.i.i75.i ], [ %1611, %1610 ]
+  %.1.i.i.i.i80.i = phi ptr [ %1611, %1610 ], [ %.029.lcssa.i.i.i.i77.i, %._crit_edge.i.i.i.i75.i ]
   %1613 = load ptr, ptr %.1.i.i.i.i80.i, align 8, !tbaa !49
   %1614 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   %1615 = load i8, ptr %1614, align 8, !tbaa !51
@@ -4783,7 +4783,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %1619
 
 1619:                                             ; preds = %1617, %._crit_edge.i.i.i.i75.i
-  %.2.i.i.i.i79.i = phi ptr [ %.029.lcssa.i.i.i.i77.i, %._crit_edge.i.i.i.i75.i ], [ %1618, %1617 ]
+  %.2.i.i.i.i79.i = phi ptr [ %1618, %1617 ], [ %.029.lcssa.i.i.i.i77.i, %._crit_edge.i.i.i.i75.i ]
   %1620 = load ptr, ptr %.2.i.i.i.i79.i, align 8, !tbaa !49
   %1621 = getelementptr inbounds nuw i8, ptr %1620, i64 8
   %1622 = load i8, ptr %1621, align 8, !tbaa !51
@@ -5900,7 +5900,7 @@ _ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit.i: ; preds = %215
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitGangClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
 _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitGangClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit: ; preds = %1500, %1504, %.critedge65.i, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit.i
-  %.0.i524 = phi ptr [ null, %.critedge65.i ], [ %.4.i, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit.i ], [ null, %1504 ], [ null, %1500 ]
+  %.0.i524 = phi ptr [ %.4.i, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit.i ], [ null, %.critedge65.i ], [ null, %1504 ], [ null, %1500 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %149)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %150)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %155)
@@ -6041,7 +6041,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitHostClauseERN5clang11SemaOpenA
   br label %2215
 
 2215:                                             ; preds = %2213, %._crit_edge.i.i.i.i.i567
-  %.1.i.i.i.i.i585 = phi ptr [ %.029.lcssa.i.i.i.i.i569, %._crit_edge.i.i.i.i.i567 ], [ %2214, %2213 ]
+  %.1.i.i.i.i.i585 = phi ptr [ %2214, %2213 ], [ %.029.lcssa.i.i.i.i.i569, %._crit_edge.i.i.i.i.i567 ]
   %2216 = load ptr, ptr %.1.i.i.i.i.i585, align 8, !tbaa !49
   %2217 = getelementptr inbounds nuw i8, ptr %2216, i64 8
   %2218 = load i8, ptr %2217, align 8, !tbaa !51
@@ -6053,7 +6053,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitHostClauseERN5clang11SemaOpenA
   br label %2222
 
 2222:                                             ; preds = %2220, %._crit_edge.i.i.i.i.i567
-  %.2.i.i.i.i.i584 = phi ptr [ %.029.lcssa.i.i.i.i.i569, %._crit_edge.i.i.i.i.i567 ], [ %2221, %2220 ]
+  %.2.i.i.i.i.i584 = phi ptr [ %2221, %2220 ], [ %.029.lcssa.i.i.i.i.i569, %._crit_edge.i.i.i.i.i567 ]
   %2223 = load ptr, ptr %.2.i.i.i.i.i584, align 8, !tbaa !49
   %2224 = getelementptr inbounds nuw i8, ptr %2223, i64 8
   %2225 = load i8, ptr %2224, align 8, !tbaa !51
@@ -7070,7 +7070,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit133.i: ; preds = 
   br label %2675
 
 2675:                                             ; preds = %2673, %._crit_edge.i.i.i.i.i624
-  %.1.i.i.i.i.i633 = phi ptr [ %.029.lcssa.i.i.i.i.i626, %._crit_edge.i.i.i.i.i624 ], [ %2674, %2673 ]
+  %.1.i.i.i.i.i633 = phi ptr [ %2674, %2673 ], [ %.029.lcssa.i.i.i.i.i626, %._crit_edge.i.i.i.i.i624 ]
   %2676 = load ptr, ptr %.1.i.i.i.i.i633, align 8, !tbaa !49
   %2677 = getelementptr inbounds nuw i8, ptr %2676, i64 8
   %2678 = load i8, ptr %2677, align 8, !tbaa !51
@@ -7082,7 +7082,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit133.i: ; preds = 
   br label %2682
 
 2682:                                             ; preds = %2680, %._crit_edge.i.i.i.i.i624
-  %.2.i.i.i.i.i632 = phi ptr [ %.029.lcssa.i.i.i.i.i626, %._crit_edge.i.i.i.i.i624 ], [ %2681, %2680 ]
+  %.2.i.i.i.i.i632 = phi ptr [ %2681, %2680 ], [ %.029.lcssa.i.i.i.i.i626, %._crit_edge.i.i.i.i.i624 ]
   %2683 = load ptr, ptr %.2.i.i.i.i.i632, align 8, !tbaa !49
   %2684 = getelementptr inbounds nuw i8, ptr %2683, i64 8
   %2685 = load i8, ptr %2684, align 8, !tbaa !51
@@ -7182,7 +7182,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %2727
 
 2727:                                             ; preds = %2725, %._crit_edge.i.i.i.i142.i
-  %.1.i.i.i.i147.i = phi ptr [ %.029.lcssa.i.i.i.i144.i, %._crit_edge.i.i.i.i142.i ], [ %2726, %2725 ]
+  %.1.i.i.i.i147.i = phi ptr [ %2726, %2725 ], [ %.029.lcssa.i.i.i.i144.i, %._crit_edge.i.i.i.i142.i ]
   %2728 = load ptr, ptr %.1.i.i.i.i147.i, align 8, !tbaa !49
   %2729 = getelementptr inbounds nuw i8, ptr %2728, i64 8
   %2730 = load i8, ptr %2729, align 8, !tbaa !51
@@ -7194,7 +7194,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %2734
 
 2734:                                             ; preds = %2732, %._crit_edge.i.i.i.i142.i
-  %.2.i.i.i.i146.i = phi ptr [ %.029.lcssa.i.i.i.i144.i, %._crit_edge.i.i.i.i142.i ], [ %2733, %2732 ]
+  %.2.i.i.i.i146.i = phi ptr [ %2733, %2732 ], [ %.029.lcssa.i.i.i.i144.i, %._crit_edge.i.i.i.i142.i ]
   %2735 = load ptr, ptr %.2.i.i.i.i146.i, align 8, !tbaa !49
   %2736 = getelementptr inbounds nuw i8, ptr %2735, i64 8
   %2737 = load i8, ptr %2736, align 8, !tbaa !51
@@ -7531,7 +7531,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit175.i: ; preds = 
   br label %2889
 
 2889:                                             ; preds = %2887, %._crit_edge.i.i.i.i184.i
-  %.1.i.i.i.i189.i = phi ptr [ %.029.lcssa.i.i.i.i186.i, %._crit_edge.i.i.i.i184.i ], [ %2888, %2887 ]
+  %.1.i.i.i.i189.i = phi ptr [ %2888, %2887 ], [ %.029.lcssa.i.i.i.i186.i, %._crit_edge.i.i.i.i184.i ]
   %2890 = load ptr, ptr %.1.i.i.i.i189.i, align 8, !tbaa !49
   %2891 = getelementptr inbounds nuw i8, ptr %2890, i64 8
   %2892 = load i8, ptr %2891, align 8, !tbaa !51
@@ -7543,7 +7543,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit175.i: ; preds = 
   br label %2896
 
 2896:                                             ; preds = %2894, %._crit_edge.i.i.i.i184.i
-  %.2.i.i.i.i188.i = phi ptr [ %.029.lcssa.i.i.i.i186.i, %._crit_edge.i.i.i.i184.i ], [ %2895, %2894 ]
+  %.2.i.i.i.i188.i = phi ptr [ %2895, %2894 ], [ %.029.lcssa.i.i.i.i186.i, %._crit_edge.i.i.i.i184.i ]
   %2897 = load ptr, ptr %.2.i.i.i.i188.i, align 8, !tbaa !49
   %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 8
   %2899 = load i8, ptr %2898, align 8, !tbaa !51
@@ -8684,7 +8684,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i670: ; preds = 
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor21VisitNumWorkersClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
 _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor21VisitNumWorkersClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit: ; preds = %3238, %3398, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i670
-  %.0.i673 = phi ptr [ null, %3398 ], [ %3424, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i670 ], [ null, %3238 ]
+  %.0.i673 = phi ptr [ %3424, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i670 ], [ null, %3398 ], [ null, %3238 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %96)
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor16VisitAsyncClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
@@ -8857,7 +8857,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitPrivateClauseERN5clang11SemaOp
   br label %3499
 
 3499:                                             ; preds = %3497, %._crit_edge.i.i.i.i.i789
-  %.1.i.i.i.i.i806 = phi ptr [ %.029.lcssa.i.i.i.i.i791, %._crit_edge.i.i.i.i.i789 ], [ %3498, %3497 ]
+  %.1.i.i.i.i.i806 = phi ptr [ %3498, %3497 ], [ %.029.lcssa.i.i.i.i.i791, %._crit_edge.i.i.i.i.i789 ]
   %3500 = load ptr, ptr %.1.i.i.i.i.i806, align 8, !tbaa !49
   %3501 = getelementptr inbounds nuw i8, ptr %3500, i64 8
   %3502 = load i8, ptr %3501, align 8, !tbaa !51
@@ -8869,7 +8869,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitPrivateClauseERN5clang11SemaOp
   br label %3506
 
 3506:                                             ; preds = %3504, %._crit_edge.i.i.i.i.i789
-  %.2.i.i.i.i.i805 = phi ptr [ %.029.lcssa.i.i.i.i.i791, %._crit_edge.i.i.i.i.i789 ], [ %3505, %3504 ]
+  %.2.i.i.i.i.i805 = phi ptr [ %3505, %3504 ], [ %.029.lcssa.i.i.i.i.i791, %._crit_edge.i.i.i.i.i789 ]
   %3507 = load ptr, ptr %.2.i.i.i.i.i805, align 8, !tbaa !49
   %3508 = getelementptr inbounds nuw i8, ptr %3507, i64 8
   %3509 = load i8, ptr %3508, align 8, !tbaa !51
@@ -8988,7 +8988,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %3561
 
 3561:                                             ; preds = %3559, %._crit_edge.i.i.i.i80.i
-  %.1.i.i.i.i85.i = phi ptr [ %.029.lcssa.i.i.i.i82.i, %._crit_edge.i.i.i.i80.i ], [ %3560, %3559 ]
+  %.1.i.i.i.i85.i = phi ptr [ %3560, %3559 ], [ %.029.lcssa.i.i.i.i82.i, %._crit_edge.i.i.i.i80.i ]
   %3562 = load ptr, ptr %.1.i.i.i.i85.i, align 8, !tbaa !49
   %3563 = getelementptr inbounds nuw i8, ptr %3562, i64 8
   %3564 = load i8, ptr %3563, align 8, !tbaa !51
@@ -9000,7 +9000,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %3568
 
 3568:                                             ; preds = %3566, %._crit_edge.i.i.i.i80.i
-  %.2.i.i.i.i84.i = phi ptr [ %.029.lcssa.i.i.i.i82.i, %._crit_edge.i.i.i.i80.i ], [ %3567, %3566 ]
+  %.2.i.i.i.i84.i = phi ptr [ %3567, %3566 ], [ %.029.lcssa.i.i.i.i82.i, %._crit_edge.i.i.i.i80.i ]
   %3569 = load ptr, ptr %.2.i.i.i.i84.i, align 8, !tbaa !49
   %3570 = getelementptr inbounds nuw i8, ptr %3569, i64 8
   %3571 = load i8, ptr %3570, align 8, !tbaa !51
@@ -9668,7 +9668,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i757: ;
   br i1 %.not64.i, label %._crit_edge.i, label %3862
 
 _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitReductionClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit: ; preds = %.critedge66.i, %3831, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i753
-  %.4.i754 = phi ptr [ null, %.critedge66.i ], [ null, %3831 ], [ %3858, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i753 ]
+  %.4.i754 = phi ptr [ %3858, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i753 ], [ null, %3831 ], [ null, %.critedge66.i ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %87)
@@ -9812,7 +9812,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i842: ; preds = %
   br label %3949
 
 3949:                                             ; preds = %3947, %._crit_edge.i.i.i.i.i818
-  %.1.i.i.i.i.i837 = phi ptr [ %.029.lcssa.i.i.i.i.i820, %._crit_edge.i.i.i.i.i818 ], [ %3948, %3947 ]
+  %.1.i.i.i.i.i837 = phi ptr [ %3948, %3947 ], [ %.029.lcssa.i.i.i.i.i820, %._crit_edge.i.i.i.i.i818 ]
   %3950 = load ptr, ptr %.1.i.i.i.i.i837, align 8, !tbaa !49
   %3951 = getelementptr inbounds nuw i8, ptr %3950, i64 8
   %3952 = load i8, ptr %3951, align 8, !tbaa !51
@@ -9824,7 +9824,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i842: ; preds = %
   br label %3956
 
 3956:                                             ; preds = %3954, %._crit_edge.i.i.i.i.i818
-  %.2.i.i.i.i.i836 = phi ptr [ %.029.lcssa.i.i.i.i.i820, %._crit_edge.i.i.i.i.i818 ], [ %3955, %3954 ]
+  %.2.i.i.i.i.i836 = phi ptr [ %3955, %3954 ], [ %.029.lcssa.i.i.i.i.i820, %._crit_edge.i.i.i.i.i818 ]
   %3957 = load ptr, ptr %.2.i.i.i.i.i836, align 8, !tbaa !49
   %3958 = getelementptr inbounds nuw i8, ptr %3957, i64 8
   %3959 = load i8, ptr %3958, align 8, !tbaa !51
@@ -10032,7 +10032,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitSelfClauseERN5clang11SemaOpenA
   br label %4041
 
 4041:                                             ; preds = %4039, %._crit_edge.i.i.i.i.i863
-  %.1.i.i.i.i.i875 = phi ptr [ %.029.lcssa.i.i.i.i.i865, %._crit_edge.i.i.i.i.i863 ], [ %4040, %4039 ]
+  %.1.i.i.i.i.i875 = phi ptr [ %4040, %4039 ], [ %.029.lcssa.i.i.i.i.i865, %._crit_edge.i.i.i.i.i863 ]
   %4042 = load ptr, ptr %.1.i.i.i.i.i875, align 8, !tbaa !49
   %4043 = getelementptr inbounds nuw i8, ptr %4042, i64 8
   %4044 = load i8, ptr %4043, align 8, !tbaa !51
@@ -10045,7 +10045,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitSelfClauseERN5clang11SemaOpenA
   br label %4048
 
 4048:                                             ; preds = %4046, %._crit_edge.i.i.i.i.i863
-  %.2.i.i.i.i.i873 = phi ptr [ %.029.lcssa.i.i.i.i.i865, %._crit_edge.i.i.i.i.i863 ], [ %4047, %4046 ]
+  %.2.i.i.i.i.i873 = phi ptr [ %4047, %4046 ], [ %.029.lcssa.i.i.i.i.i865, %._crit_edge.i.i.i.i.i863 ]
   %4049 = load ptr, ptr %.2.i.i.i.i.i873, align 8, !tbaa !49
   %4050 = getelementptr inbounds nuw i8, ptr %4049, i64 8
   %4051 = load i8, ptr %4050, align 8, !tbaa !51
@@ -10236,7 +10236,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %4126
 
 4126:                                             ; preds = %4124, %._crit_edge.i.i.i.i34.i
-  %.1.i.i.i.i38.i = phi ptr [ %.029.lcssa.i.i.i.i36.i, %._crit_edge.i.i.i.i34.i ], [ %4125, %4124 ]
+  %.1.i.i.i.i38.i = phi ptr [ %4125, %4124 ], [ %.029.lcssa.i.i.i.i36.i, %._crit_edge.i.i.i.i34.i ]
   %4127 = load ptr, ptr %.1.i.i.i.i38.i, align 8, !tbaa !49
   %4128 = getelementptr inbounds nuw i8, ptr %4127, i64 8
   %4129 = load i8, ptr %4128, align 8, !tbaa !51
@@ -10251,7 +10251,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %4132
 
 4132:                                             ; preds = %4130, %._crit_edge.i.i.i.i34.i
-  %.2.i.i.i.i37.i = phi ptr [ %.029.lcssa.i.i.i.i36.i, %._crit_edge.i.i.i.i34.i ], [ %4131, %4130 ]
+  %.2.i.i.i.i37.i = phi ptr [ %4131, %4130 ], [ %.029.lcssa.i.i.i.i36.i, %._crit_edge.i.i.i.i34.i ]
   %4133 = load ptr, ptr %.2.i.i.i.i37.i, align 8, !tbaa !49
   %4134 = getelementptr inbounds nuw i8, ptr %4133, i64 8
   %4135 = load i8, ptr %4134, align 8, !tbaa !51
@@ -10848,7 +10848,7 @@ _ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostate
   br label %.thread.i930
 
 .thread.i930:                                     ; preds = %4371, %4364, %4360, %4359, %4336, %4327, %4326, %4322, %4322, %_ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostateNS2_14DefaultDetailsENS2_16ConditionDetailsES3_NS2_14VarListDetailsENS2_11WaitDetailsENS2_17DeviceTypeDetailsENS2_16ReductionDetailsENS2_15CollapseDetailsENS2_11GangDetailsEEERT_RSt7variantIJDpT0_EE.exit.i.i926, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.i924, %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsENS3_15CollapseDetailsENS3_11GangDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i921
-  %.040.i = phi ptr [ null, %4360 ], [ null, %4326 ], [ %4319, %4322 ], [ %4319, %4322 ], [ null, %_ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostateNS2_14DefaultDetailsENS2_16ConditionDetailsES3_NS2_14VarListDetailsENS2_11WaitDetailsENS2_17DeviceTypeDetailsENS2_16ReductionDetailsENS2_15CollapseDetailsENS2_11GangDetailsEEERT_RSt7variantIJDpT0_EE.exit.i.i926 ], [ null, %4336 ], [ %4319, %4327 ], [ null, %4371 ], [ %4319, %4364 ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.i924 ], [ null, %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsENS3_15CollapseDetailsENS3_11GangDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i921 ], [ %4319, %4359 ]
+  %.040.i = phi ptr [ null, %4360 ], [ %4319, %4322 ], [ %4319, %4322 ], [ null, %4326 ], [ null, %_ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostateNS2_14DefaultDetailsENS2_16ConditionDetailsES3_NS2_14VarListDetailsENS2_11WaitDetailsENS2_17DeviceTypeDetailsENS2_16ReductionDetailsENS2_15CollapseDetailsENS2_11GangDetailsEEERT_RSt7variantIJDpT0_EE.exit.i.i926 ], [ null, %4336 ], [ %4319, %4327 ], [ null, %4371 ], [ %4319, %4364 ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.i924 ], [ null, %_ZSt17holds_alternativeISt9monostateJS0_N5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsENS3_15CollapseDetailsENS3_11GangDetailsEEEbRKSt7variantIJDpT0_EE.exit.i.i921 ], [ %4319, %4359 ]
   %4394 = load i8, ptr %1, align 8, !tbaa !19
   %4395 = add i8 %4394, -9
   %spec.select.i57.i = icmp ult i8 %4395, 3
@@ -11553,7 +11553,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i965: ; preds = 
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitVectorLengthClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
 _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitVectorLengthClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit: ; preds = %4543, %4703, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i965
-  %.0.i969 = phi ptr [ null, %4703 ], [ %4729, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i965 ], [ null, %4543 ]
+  %.0.i969 = phi ptr [ %4729, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i965 ], [ null, %4703 ], [ null, %4543 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %36)
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor16VisitAsyncClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
@@ -11919,7 +11919,7 @@ _ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostate
   br label %4871
 
 4871:                                             ; preds = %4869, %._crit_edge.i.i.i.i.i1057
-  %.1.i.i.i.i.i1088 = phi ptr [ %.029.lcssa.i.i.i.i.i1059, %._crit_edge.i.i.i.i.i1057 ], [ %4870, %4869 ]
+  %.1.i.i.i.i.i1088 = phi ptr [ %4870, %4869 ], [ %.029.lcssa.i.i.i.i.i1059, %._crit_edge.i.i.i.i.i1057 ]
   %4872 = load ptr, ptr %.1.i.i.i.i.i1088, align 8, !tbaa !49
   %4873 = getelementptr inbounds nuw i8, ptr %4872, i64 8
   %4874 = load i8, ptr %4873, align 8, !tbaa !51
@@ -11931,7 +11931,7 @@ _ZSt3getIN5clang11SemaOpenACC19OpenACCParsedClause14IntExprDetailsEJSt9monostate
   br label %4878
 
 4878:                                             ; preds = %4876, %._crit_edge.i.i.i.i.i1057
-  %.2.i.i.i.i.i1087 = phi ptr [ %.029.lcssa.i.i.i.i.i1059, %._crit_edge.i.i.i.i.i1057 ], [ %4877, %4876 ]
+  %.2.i.i.i.i.i1087 = phi ptr [ %4877, %4876 ], [ %.029.lcssa.i.i.i.i.i1059, %._crit_edge.i.i.i.i.i1057 ]
   %4879 = load ptr, ptr %.2.i.i.i.i.i1087, align 8, !tbaa !49
   %4880 = getelementptr inbounds nuw i8, ptr %4879, i64 8
   %4881 = load i8, ptr %4880, align 8, !tbaa !51
@@ -12542,7 +12542,7 @@ _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitWorkerClauseERN5clang11SemaOpe
   br label %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor16VisitAsyncClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
 
 _ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor16VisitAsyncClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i887, %4210, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i719, %3427, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i493, %1464, %1462, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i, %1440, %1438, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i, %1355, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i410, %1322, %1320, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i301, %1182, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit12.i, %1168, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit.i, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i145, %630, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i125, %554, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i109, %482, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause7isForceEv.exit.i, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause12getLoopCountEv.exit.i, %453, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.thread.i, %330, %5180, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitWorkerClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitWaitClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitVectorLengthClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitVectorClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitUseDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor14VisitSeqClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitSelfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitReductionClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor21VisitNumWorkersClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNumGangsClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNoCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor22VisitIndependentClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %2261, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor13VisitIfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitHostClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitGangClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitFirstPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %1484, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeleteClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit285, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit268, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit243, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit225, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit198, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit180, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitAutoClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit
-  %.0 = phi ptr [ null, %5180 ], [ %.0.i1036, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitWorkerClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %4781, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitWaitClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i969, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitVectorLengthClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i916, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitVectorClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %4280, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitUseDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i850, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor14VisitSeqClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i828, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitSelfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.4.i754, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitReductionClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %3451, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i673, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor21VisitNumWorkersClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i614, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNumGangsClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2327, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNoCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i591, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor22VisitIndependentClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2265, %2261 ], [ %.0.i576, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor13VisitIfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2165, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitHostClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i524, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitGangClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1499, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitFirstPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1488, %1484 ], [ %1311, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1297, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1221, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeleteClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1160, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit285 ], [ %1087, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit268 ], [ %1014, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i233, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit243 ], [ %.0.i215, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit225 ], [ %.0.i199, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i188, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit198 ], [ %.0.i170, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit180 ], [ %.0.i154, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %449, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitAutoClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %373, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.thread.i ], [ null, %330 ], [ null, %453 ], [ %479, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause7isForceEv.exit.i ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause12getLoopCountEv.exit.i ], [ %495, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i109 ], [ null, %482 ], [ %571, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i125 ], [ null, %554 ], [ %647, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i145 ], [ null, %630 ], [ %1181, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit12.i ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit.i ], [ null, %1168 ], [ %1210, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i301 ], [ null, %1182 ], [ %1352, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i410 ], [ null, %1320 ], [ null, %1322 ], [ %1432, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i ], [ null, %1355 ], [ null, %1438 ], [ %1459, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i ], [ null, %1440 ], [ null, %1462 ], [ %1483, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i493 ], [ null, %1464 ], [ %3440, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i719 ], [ null, %3427 ], [ %.4.i886, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i887 ], [ null, %4210 ]
+  %.0 = phi ptr [ null, %5180 ], [ %.0.i, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitAutoClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %449, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitAttachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i154, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i170, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit180 ], [ %.0.i188, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCopyInClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit198 ], [ %.0.i199, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i215, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit225 ], [ %.0.i233, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitCopyOutClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit243 ], [ %1014, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1087, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit268 ], [ %1160, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit285 ], [ %1221, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeleteClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1297, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDetachClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1311, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %1488, %1484 ], [ %1499, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitFirstPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i524, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitGangClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2165, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitHostClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i576, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor13VisitIfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2265, %2261 ], [ %.0.i591, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor22VisitIndependentClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %2327, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNoCreateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i614, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor19VisitNumGangsClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i673, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor21VisitNumWorkersClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %3451, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor18VisitPrivateClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.4.i754, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitReductionClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i828, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitSelfClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i850, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor14VisitSeqClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %4280, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor20VisitUseDeviceClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i916, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitVectorClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i969, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor23VisitVectorLengthClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %4781, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor15VisitWaitClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %.0.i1036, %_ZN12_GLOBAL__N_124SemaOpenACCClauseVisitor17VisitWorkerClauseERN5clang11SemaOpenACC19OpenACCParsedClauseE.exit ], [ %373, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause14getNumIntExprsEv.exit.thread.i ], [ null, %330 ], [ null, %453 ], [ %479, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause7isForceEv.exit.i ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause12getLoopCountEv.exit.i ], [ %495, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i109 ], [ null, %482 ], [ %571, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i125 ], [ null, %554 ], [ %647, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i145 ], [ null, %630 ], [ %1181, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit12.i ], [ null, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause20getDefaultClauseKindEv.exit.i ], [ null, %1168 ], [ %1210, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i301 ], [ null, %1182 ], [ %1352, %_ZN5clang11SemaOpenACC19OpenACCParsedClause11getIntExprsEv.exit.i410 ], [ null, %1320 ], [ null, %1322 ], [ %1432, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i ], [ null, %1355 ], [ null, %1438 ], [ %1459, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i ], [ null, %1440 ], [ null, %1462 ], [ %1483, %_ZNK5clang11SemaOpenACC19OpenACCParsedClause26getDeviceTypeArchitecturesEv.exit.i493 ], [ null, %1464 ], [ %3440, %_ZN5clang11SemaOpenACC19OpenACCParsedClause10getVarListEv.exit.i719 ], [ null, %3427 ], [ %.4.i886, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit.i887 ], [ null, %4210 ]
   ret ptr %.0
 }
 
@@ -16214,7 +16214,7 @@ define dso_local i64 @_ZN5clang11SemaOpenACC13CheckGangExprEN4llvm8ArrayRefIPKNS
   unreachable
 
 _ZN12_GLOBAL__N_119CheckGangSerialExprERN5clang11SemaOpenACCENS0_20OpenACCDirectiveKindES3_NS0_15OpenACCGangKindEPNS0_4ExprE.exit: ; preds = %43, %41, %35, %22, %20, %12, %46, %32, %25, %7
-  %.sroa.023.0 = phi i64 [ %47, %46 ], [ %33, %32 ], [ %28, %25 ], [ %10, %7 ], [ %15, %12 ], [ %21, %20 ], [ %24, %22 ], [ %36, %35 ], [ %42, %41 ], [ %45, %43 ]
+  %.sroa.023.0 = phi i64 [ %10, %7 ], [ %28, %25 ], [ %33, %32 ], [ %47, %46 ], [ %15, %12 ], [ %21, %20 ], [ %24, %22 ], [ %36, %35 ], [ %42, %41 ], [ %45, %43 ]
   ret i64 %.sroa.023.0
 }
 
@@ -16945,7 +16945,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_120CheckGangKernelsExprERN5clang11Se
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %62, %61 ]
+  %.1.i.i.i.i = phi ptr [ %62, %61 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %64 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !49
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 8, !tbaa !51
@@ -16957,7 +16957,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_120CheckGangKernelsExprERN5clang11Se
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %69, %68 ]
+  %.2.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %71 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !49
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i8, ptr %72, align 8, !tbaa !51
@@ -17424,7 +17424,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC15CheckGangClauseENS_20OpenA
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %52, %51 ]
+  %.1.i.i.i.i = phi ptr [ %52, %51 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %54 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !49
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i8, ptr %55, align 8, !tbaa !51
@@ -17436,7 +17436,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC15CheckGangClauseENS_20OpenA
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %59, %58 ]
+  %.2.i.i.i.i = phi ptr [ %59, %58 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %61 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !49
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i8, ptr %62, align 8, !tbaa !51
@@ -18653,7 +18653,7 @@ _ZN4llvm20filter_iterator_baseIPKPKN5clang13OpenACCClauseENS_6detail17IsaCheckPr
   br label %273
 
 273:                                              ; preds = %269, %.thread92
-  %.6 = phi ptr [ null, %269 ], [ %272, %.thread92 ]
+  %.6 = phi ptr [ %272, %.thread92 ], [ null, %269 ]
   ret ptr %.6
 }
 
@@ -19390,7 +19390,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124SemaOpenACCClauseV
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %52 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !49
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !51
@@ -19402,7 +19402,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124SemaOpenACCClauseV
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %56 ]
+  %.2.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %59 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !49
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8, !tbaa !51
@@ -20128,7 +20128,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKPKN5clang13OpenACCClauseEN9__g
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.1 = phi ptr [ %37, %36 ], [ %.029.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.1, align 8, !tbaa !49
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !51
@@ -20142,7 +20142,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKPKN5clang13OpenACCClauseEN9__g
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.2 = phi ptr [ %43, %42 ], [ %.029.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.2, align 8, !tbaa !49
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8, !tbaa !51
@@ -20603,7 +20603,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenAC
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i.i, %40
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %43 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !49
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i8, ptr %44, align 8, !tbaa !51
@@ -20615,7 +20615,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenAC
   br label %49
 
 49:                                               ; preds = %._crit_edge.i.i.i, %47
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %47 ]
+  %.2.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i8, ptr %51, align 8, !tbaa !51
@@ -20779,7 +20779,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenA
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i.i, %40
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %43 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !49
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i8, ptr %44, align 8, !tbaa !51
@@ -20791,7 +20791,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenA
   br label %49
 
 49:                                               ; preds = %._crit_edge.i.i.i, %47
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %47 ]
+  %.2.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i8, ptr %51, align 8, !tbaa !51
@@ -21843,7 +21843,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenA
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i.i, %40
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %43 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !49
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i8, ptr %44, align 8, !tbaa !51
@@ -21855,7 +21855,7 @@ define linkonce_odr noundef ptr @_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenA
   br label %49
 
 49:                                               ; preds = %._crit_edge.i.i.i, %47
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %47 ]
+  %.2.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i8, ptr %51, align 8, !tbaa !51

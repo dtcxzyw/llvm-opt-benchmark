@@ -3427,8 +3427,8 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly c
 19:                                               ; preds = %13
   br label %20
 
-20:                                               ; preds = %13, %19, %18
-  %.1.ph = phi i32 [ 336, %18 ], [ 400, %19 ], [ 200, %13 ]
+20:                                               ; preds = %13, %18, %19
+  %.1.ph = phi i32 [ 400, %19 ], [ 336, %18 ], [ 200, %13 ]
   %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
   %.not157 = icmp slt i32 %21, %.1.ph
   br i1 %.not157, label %158, label %23

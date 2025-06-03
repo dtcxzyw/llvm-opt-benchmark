@@ -4319,7 +4319,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %142, %130, %197, %82, %71, %187, %182, %192, %191, %64
-  %.1 = phi i32 [ -1, %64 ], [ -1, %197 ], [ -1, %191 ], [ 0, %192 ], [ 0, %182 ], [ -1, %187 ], [ -1, %71 ], [ %.2, %82 ], [ 0, %142 ], [ -1, %130 ]
+  %.1 = phi i32 [ -1, %64 ], [ -1, %197 ], [ -1, %71 ], [ %.2, %82 ], [ 0, %182 ], [ -1, %187 ], [ -1, %191 ], [ 0, %192 ], [ 0, %142 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #14
   br label %313
 
@@ -4563,7 +4563,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %314
 
 313:                                              ; preds = %.thread, %296, %257, %203, %295, %263
-  %.0148.ph = phi i32 [ %.6, %257 ], [ -1, %203 ], [ %.8, %295 ], [ -1, %263 ], [ 0, %296 ], [ %.1, %.thread ]
+  %.0148.ph = phi i32 [ %.8, %295 ], [ -1, %263 ], [ %.6, %257 ], [ -1, %203 ], [ 0, %296 ], [ %.1, %.thread ]
   call void @h5tools_str_close(ptr noundef nonnull %7) #14
   call void @free(ptr noundef nonnull %56) #14
   br label %314

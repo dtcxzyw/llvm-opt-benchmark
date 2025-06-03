@@ -34420,7 +34420,7 @@ _ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %164, %159, %.noexc8
           to label %_ZN7AstNode11dtypeSetBitEv.exit unwind label %168
 
 common.resume:                                    ; preds = %.body, %.body64, %.body82, %240, %.body129, %395, %406, %339, %303, %234, %168
-  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %235, %234 ], [ %304, %303 ], [ %340, %339 ], [ %.pn37.pn, %406 ], [ %.pn.pn, %395 ], [ %.pn40, %.body129 ], [ %.pn42, %240 ], [ %eh.lpad-body83, %.body82 ], [ %.pn44.pn, %.body ], [ %eh.lpad-body65, %.body64 ]
+  %common.resume.op = phi { ptr, i32 } [ %169, %168 ], [ %235, %234 ], [ %304, %303 ], [ %340, %339 ], [ %.pn44.pn, %.body ], [ %eh.lpad-body65, %.body64 ], [ %eh.lpad-body83, %.body82 ], [ %.pn42, %240 ], [ %.pn40, %.body129 ], [ %.pn37.pn, %406 ], [ %.pn.pn, %395 ]
   resume { ptr, i32 } %common.resume.op
 
 168:                                              ; preds = %_ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit

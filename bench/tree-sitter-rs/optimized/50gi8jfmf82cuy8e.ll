@@ -19646,7 +19646,7 @@ define noundef zeroext i1 @"_ZN91_$LT$tree_sitter_cli..generate..grammars..Prece
   br label %25
 
 25:                                               ; preds = %18, %11
-  %.0.in = phi i1 [ %24, %18 ], [ %17, %11 ]
+  %.0.in = phi i1 [ %17, %11 ], [ %24, %18 ]
   ret i1 %.0.in
 }
 

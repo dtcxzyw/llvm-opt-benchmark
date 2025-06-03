@@ -3287,7 +3287,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   br label %57
 
 57:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN12JvmtiEnvBase28is_cthread_with_continuationEP10JavaThread.exit, %51
-  %.024 = phi i32 [ %.125, %_ZN12ResourceMarkD2Ev.exit ], [ %56, %51 ], [ 0, %_ZN12JvmtiEnvBase28is_cthread_with_continuationEP10JavaThread.exit ]
+  %.024 = phi i32 [ %56, %51 ], [ %.125, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %_ZN12JvmtiEnvBase28is_cthread_with_continuationEP10JavaThread.exit ]
   ret i32 %.024
 }
 
@@ -7006,8 +7006,8 @@ define hidden noundef range(i32 0, 35) i32 @_ZN12JvmtiEnvBase15check_top_frameEP
   br label %_Z11as_TosState9BasicType.exit
 
 _Z11as_TosState9BasicType.exit:                   ; preds = %36, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63
-  %or.cond5 = phi i1 [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ false, %56 ], [ false, %55 ], [ false, %54 ], [ false, %36 ]
-  %.0.i = phi i32 [ 11, %63 ], [ 8, %62 ], [ 9, %61 ], [ 7, %60 ], [ 6, %59 ], [ 5, %58 ], [ 4, %57 ], [ 3, %56 ], [ 2, %55 ], [ 1, %54 ], [ 0, %36 ]
+  %or.cond5 = phi i1 [ true, %63 ], [ false, %54 ], [ false, %55 ], [ false, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ true, %60 ], [ true, %61 ], [ true, %62 ], [ false, %36 ]
+  %.0.i = phi i32 [ 11, %63 ], [ 1, %54 ], [ 2, %55 ], [ 3, %56 ], [ 4, %57 ], [ 5, %58 ], [ 6, %59 ], [ 7, %60 ], [ 9, %61 ], [ 8, %62 ], [ 0, %36 ]
   %.not = icmp eq i32 %.0.i, %3
   br i1 %.not, label %65, label %64
 

@@ -1712,7 +1712,7 @@ define dso_local noundef i32 @_ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.05 = phi i64 [ 4, %7 ], [ 3, %6 ], [ 2, %5 ], [ 1, %4 ], [ 0, %3 ]
+  %.05 = phi i64 [ 1, %4 ], [ 2, %5 ], [ 3, %6 ], [ 4, %7 ], [ 0, %3 ]
   %switch.tableidx = add i32 %1, -2
   %9 = icmp ult i32 %switch.tableidx, 6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
@@ -1777,7 +1777,7 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %3
   br label %14
 
 14:                                               ; preds = %13, %12, %11, %10, %9
-  %.05.i = phi i64 [ 4, %13 ], [ 3, %12 ], [ 2, %11 ], [ 1, %10 ], [ 0, %9 ]
+  %.05.i = phi i64 [ 1, %10 ], [ 2, %11 ], [ 3, %12 ], [ 4, %13 ], [ 0, %9 ]
   %switch.tableidx = add i32 %1, -2
   %15 = icmp ult i32 %switch.tableidx, 6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
@@ -1816,7 +1816,7 @@ switch.lookup:                                    ; preds = %14
   br label %24
 
 24:                                               ; preds = %23, %22, %21, %20, %19
-  %.05.i14 = phi i64 [ 4, %23 ], [ 3, %22 ], [ 2, %21 ], [ 1, %20 ], [ 0, %19 ]
+  %.05.i14 = phi i64 [ 1, %20 ], [ 2, %21 ], [ 3, %22 ], [ 4, %23 ], [ 0, %19 ]
   %switch.tableidx36 = add i32 %1, -2
   %25 = icmp ult i32 %switch.tableidx36, 6
   %switch.maskindex38 = trunc i32 %switch.tableidx36 to i8
@@ -1855,7 +1855,7 @@ switch.lookup37:                                  ; preds = %24
   br label %34
 
 34:                                               ; preds = %33, %32, %31, %30, %29
-  %.05.i18 = phi i64 [ 4, %33 ], [ 3, %32 ], [ 2, %31 ], [ 1, %30 ], [ 0, %29 ]
+  %.05.i18 = phi i64 [ 1, %30 ], [ 2, %31 ], [ 3, %32 ], [ 4, %33 ], [ 0, %29 ]
   %switch.tableidx45 = add i32 %1, -2
   %35 = icmp ult i32 %switch.tableidx45, 6
   %switch.maskindex47 = trunc i32 %switch.tableidx45 to i8
@@ -1894,7 +1894,7 @@ switch.lookup46:                                  ; preds = %34
   br label %44
 
 44:                                               ; preds = %43, %42, %41, %40, %39
-  %.05.i22 = phi i64 [ 4, %43 ], [ 3, %42 ], [ 2, %41 ], [ 1, %40 ], [ 0, %39 ]
+  %.05.i22 = phi i64 [ 1, %40 ], [ 2, %41 ], [ 3, %42 ], [ 4, %43 ], [ 0, %39 ]
   %switch.tableidx54 = add i32 %1, -2
   %45 = icmp ult i32 %switch.tableidx54, 6
   %switch.maskindex56 = trunc i32 %switch.tableidx54 to i8
@@ -1933,7 +1933,7 @@ switch.lookup55:                                  ; preds = %44
   br label %54
 
 54:                                               ; preds = %53, %52, %51, %50, %49
-  %.05.i26 = phi i64 [ 4, %53 ], [ 3, %52 ], [ 2, %51 ], [ 1, %50 ], [ 0, %49 ]
+  %.05.i26 = phi i64 [ 1, %50 ], [ 2, %51 ], [ 3, %52 ], [ 4, %53 ], [ 0, %49 ]
   %switch.tableidx63 = add i32 %1, -2
   %55 = icmp ult i32 %switch.tableidx63, 6
   %switch.maskindex65 = trunc i32 %switch.tableidx63 to i8
@@ -1972,7 +1972,7 @@ switch.lookup64:                                  ; preds = %54
   br label %64
 
 64:                                               ; preds = %63, %62, %61, %60, %59
-  %.05.i30 = phi i64 [ 4, %63 ], [ 3, %62 ], [ 2, %61 ], [ 1, %60 ], [ 0, %59 ]
+  %.05.i30 = phi i64 [ 1, %60 ], [ 2, %61 ], [ 3, %62 ], [ 4, %63 ], [ 0, %59 ]
   %switch.tableidx72 = add i32 %1, -2
   %65 = icmp ult i32 %switch.tableidx72, 6
   %switch.maskindex74 = trunc i32 %switch.tableidx72 to i8
@@ -2127,7 +2127,7 @@ define dso_local noundef range(i32 461, 718) i32 @_ZN4llvm5RTLIB34getMEMCPY_ELEM
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 717, %6 ], [ 465, %5 ], [ 464, %4 ], [ 463, %3 ], [ 462, %2 ], [ 461, %1 ]
+  %.0 = phi i32 [ 717, %6 ], [ 462, %2 ], [ 463, %3 ], [ 464, %4 ], [ 465, %5 ], [ 461, %1 ]
   ret i32 %.0
 }
 
@@ -2157,7 +2157,7 @@ define dso_local noundef range(i32 466, 718) i32 @_ZN4llvm5RTLIB35getMEMMOVE_ELE
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 717, %6 ], [ 470, %5 ], [ 469, %4 ], [ 468, %3 ], [ 467, %2 ], [ 466, %1 ]
+  %.0 = phi i32 [ 717, %6 ], [ 467, %2 ], [ 468, %3 ], [ 469, %4 ], [ 470, %5 ], [ 466, %1 ]
   ret i32 %.0
 }
 
@@ -2187,7 +2187,7 @@ define dso_local noundef range(i32 471, 718) i32 @_ZN4llvm5RTLIB34getMEMSET_ELEM
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 717, %6 ], [ 475, %5 ], [ 474, %4 ], [ 473, %3 ], [ 472, %2 ], [ 471, %1 ]
+  %.0 = phi i32 [ 717, %6 ], [ 472, %2 ], [ 473, %3 ], [ 474, %4 ], [ 475, %5 ], [ 471, %1 ]
   ret i32 %.0
 }
 
@@ -2813,8 +2813,8 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
 101:                                              ; preds = %91
   br label %102
 
-102:                                              ; preds = %101, %100, %99, %98, %97, %96, %95, %91
-  %.sroa.0.0.i.ph = phi i16 [ 2, %91 ], [ 3, %95 ], [ 4, %96 ], [ 5, %97 ], [ 6, %98 ], [ 7, %99 ], [ 8, %100 ], [ 9, %101 ]
+102:                                              ; preds = %95, %96, %97, %98, %99, %100, %101, %91
+  %.sroa.0.0.i.ph = phi i16 [ 2, %91 ], [ 9, %101 ], [ 8, %100 ], [ 7, %99 ], [ 6, %98 ], [ 5, %97 ], [ 4, %96 ], [ 3, %95 ]
   %.idx891 = mul nuw nsw i64 %.sroa.0668.0904, 496
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx891
   store i8 1, ptr %gep, align 2, !tbaa !139
@@ -3582,7 +3582,7 @@ define dso_local range(i16 0, 10) i16 @_ZNK4llvm18TargetLoweringBase22getScalarS
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %4, %8, %9, %10, %11, %12, %13, %14, %15
-  %.sroa.0.0.i = phi i16 [ 0, %15 ], [ 9, %14 ], [ 8, %13 ], [ 7, %12 ], [ 6, %11 ], [ 5, %10 ], [ 4, %9 ], [ 3, %8 ], [ 2, %4 ]
+  %.sroa.0.0.i = phi i16 [ 0, %15 ], [ 3, %8 ], [ 4, %9 ], [ 5, %10 ], [ 6, %11 ], [ 7, %12 ], [ 8, %13 ], [ 9, %14 ], [ 2, %4 ]
   ret i16 %.sroa.0.0.i
 }
 
@@ -4209,8 +4209,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %_ZNK4llvm3EVT13getS
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
 
 _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit75, %88, %89, %90, %91, %92, %93, %94, %_ZN4llvm3MVT12getIntegerVTEj.exit.i
-  %.sroa.3.0.i76 = phi ptr [ %97, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %94 ], [ null, %93 ], [ null, %92 ], [ null, %91 ], [ null, %90 ], [ null, %89 ], [ null, %88 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit75 ]
-  %.sroa.0.0.i77 = phi i16 [ %96, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 9, %94 ], [ 8, %93 ], [ 7, %92 ], [ 6, %91 ], [ 5, %90 ], [ 4, %89 ], [ 3, %88 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit75 ]
+  %.sroa.3.0.i76 = phi ptr [ %97, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ null, %88 ], [ null, %89 ], [ null, %90 ], [ null, %91 ], [ null, %92 ], [ null, %93 ], [ null, %94 ], [ null, %_ZNK4llvm3EVT13getSizeInBitsEv.exit75 ]
+  %.sroa.0.0.i77 = phi i16 [ %96, %_ZN4llvm3MVT12getIntegerVTEj.exit.i ], [ 3, %88 ], [ 4, %89 ], [ 5, %90 ], [ 6, %91 ], [ 7, %92 ], [ 8, %93 ], [ 9, %94 ], [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit75 ]
   store i8 2, ptr %0, align 8, !tbaa !152
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.0.0.i77, ptr %98, align 8, !tbaa !138
@@ -4438,8 +4438,8 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit99:            ; preds = %164, %168
 178:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit99
   br label %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit105.thread
 
-_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit105.thread: ; preds = %178, %177, %176, %175, %174, %173, %172, %_ZNK4llvm3EVT13getSizeInBitsEv.exit99
-  %.sroa.0.0.i101.ph = phi i16 [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit99 ], [ 3, %172 ], [ 4, %173 ], [ 5, %174 ], [ 6, %175 ], [ 7, %176 ], [ 8, %177 ], [ 9, %178 ]
+_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit105.thread: ; preds = %172, %173, %174, %175, %176, %177, %178, %_ZNK4llvm3EVT13getSizeInBitsEv.exit99
+  %.sroa.0.0.i101.ph = phi i16 [ 2, %_ZNK4llvm3EVT13getSizeInBitsEv.exit99 ], [ 9, %178 ], [ 8, %177 ], [ 7, %176 ], [ 6, %175 ], [ 5, %174 ], [ 4, %173 ], [ 3, %172 ]
   store i16 %.sroa.0.0.i101.ph, ptr %16, align 8
   store ptr null, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
@@ -5108,7 +5108,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %48, %47 ]
+  %.1.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 8
   %50 = and i32 %.1.val.i.i.i.i.i, 255
   %51 = icmp eq i32 %50, 5
@@ -5119,7 +5119,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetLoweringBase14emitPatchPointERNS_
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %53, %52 ]
+  %.2.i.i.i.i.i = phi ptr [ %53, %52 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 8
   %55 = and i32 %.2.val.i.i.i.i.i, 255
   %56 = icmp eq i32 %55, 5
@@ -9458,7 +9458,7 @@ define linkonce_odr hidden i16 @_ZNK4llvm18TargetLoweringBase12getPointerTyERKNS
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %3, %7, %8, %9, %10, %11, %12, %13, %14
-  %.sroa.0.0.i = phi i16 [ 0, %14 ], [ 9, %13 ], [ 8, %12 ], [ 7, %11 ], [ 6, %10 ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %3 ]
+  %.sroa.0.0.i = phi i16 [ 0, %14 ], [ 3, %7 ], [ 4, %8 ], [ 5, %9 ], [ 6, %10 ], [ 7, %11 ], [ 8, %12 ], [ 9, %13 ], [ 2, %3 ]
   ret i16 %.sroa.0.0.i
 }
 
@@ -9503,7 +9503,7 @@ define linkonce_odr hidden i16 @_ZNK4llvm18TargetLoweringBase15getPointerMemTyER
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %3, %7, %8, %9, %10, %11, %12, %13, %14
-  %.sroa.0.0.i = phi i16 [ 0, %14 ], [ 9, %13 ], [ 8, %12 ], [ 7, %11 ], [ 6, %10 ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %3 ]
+  %.sroa.0.0.i = phi i16 [ 0, %14 ], [ 3, %7 ], [ 4, %8 ], [ 5, %9 ], [ 6, %10 ], [ 7, %11 ], [ 8, %12 ], [ 9, %13 ], [ 2, %3 ]
   ret i16 %.sroa.0.0.i
 }
 
@@ -9791,8 +9791,8 @@ define linkonce_odr hidden i16 @_ZNK4llvm18TargetLoweringBase22hasFastEqualityCo
 9:                                                ; preds = %2
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %2, %3, %4, %5, %6, %7, %8, %9
-  %.sroa.0.0.i.ph = phi i16 [ 2, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 8, %8 ], [ 9, %9 ]
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %2, %9, %8, %7, %6, %5, %4, %3
+  %.sroa.0.0.i.ph = phi i16 [ 2, %2 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = zext nneg i16 %.sroa.0.0.i.ph to i64
   %12 = getelementptr inbounds nuw [234 x ptr], ptr %10, i64 0, i64 %11

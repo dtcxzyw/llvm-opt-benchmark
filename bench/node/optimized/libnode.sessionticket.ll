@@ -1191,7 +1191,7 @@ _ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit: ; preds = %sw.bb3, %
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, %sw.bb1
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit ], [ 2, %sw.bb1 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 2, %sw.bb1 ], [ %retval.0.i, %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

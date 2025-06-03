@@ -3071,7 +3071,7 @@ matroska_aac_sri.exit180.i.i.i:                   ; preds = %562, %.split.loop.e
   br label %matroska_parse_flac.exit.i.i.i
 
 matroska_parse_flac.exit.i.i.i:                   ; preds = %756, %605, %matroska_aac_sri.exit180.i.i.i, %matroska_aac_sri.exit.i.i.i
-  %.0132.i.i.i = phi i32 [ 2, %756 ], [ 22, %605 ], [ 5, %matroska_aac_sri.exit180.i.i.i ], [ 2, %matroska_aac_sri.exit.i.i.i ]
+  %.0132.i.i.i = phi i32 [ 22, %605 ], [ 2, %756 ], [ 5, %matroska_aac_sri.exit180.i.i.i ], [ 2, %matroska_aac_sri.exit.i.i.i ]
   %758 = call i32 @ff_alloc_extradata(ptr noundef %356, i32 noundef %.0132.i.i.i) #15
   %759 = icmp slt i32 %758, 0
   br i1 %759, label %mka_parse_audio.exit.thread275.i, label %760
@@ -3089,7 +3089,7 @@ mka_parse_audio_codec.exit.i.i:                   ; preds = %448
   br label %matroska_convert_tags.exit
 
 mka_parse_audio_codec.exit.thread53.i.i:          ; preds = %747, %712, %760, %752, %707, %706, %694, %690, %682, %620, %617, %574, %566, %524, %523, %519, %518, %517, %516, %513, %512, %511, %510, %507, %506, %504, %mka_parse_audio_codec.exit.thread56.i.i
-  %.1257.i = phi i32 [ %spec.select.i.i.i, %mka_parse_audio_codec.exit.thread56.i.i ], [ 0, %504 ], [ 0, %506 ], [ 0, %760 ], [ 0, %752 ], [ 0, %694 ], [ 0, %706 ], [ 8, %707 ], [ 0, %690 ], [ 0, %620 ], [ %.3259.i, %682 ], [ 0, %617 ], [ 0, %574 ], [ 0, %566 ], [ 0, %524 ], [ 0, %523 ], [ 0, %519 ], [ 0, %513 ], [ 0, %518 ], [ 0, %517 ], [ 0, %516 ], [ 0, %507 ], [ 0, %512 ], [ 0, %511 ], [ 0, %510 ], [ 8, %712 ], [ 8, %747 ]
+  %.1257.i = phi i32 [ %spec.select.i.i.i, %mka_parse_audio_codec.exit.thread56.i.i ], [ 0, %504 ], [ 0, %506 ], [ 0, %507 ], [ 0, %510 ], [ 0, %511 ], [ 0, %512 ], [ 0, %513 ], [ 0, %516 ], [ 0, %517 ], [ 0, %518 ], [ 0, %523 ], [ 0, %519 ], [ 0, %760 ], [ 0, %524 ], [ 0, %574 ], [ 0, %566 ], [ 0, %617 ], [ 0, %620 ], [ %.3259.i, %682 ], [ 0, %690 ], [ 0, %694 ], [ 0, %706 ], [ 8, %707 ], [ 0, %752 ], [ 8, %712 ], [ 8, %747 ]
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %18)
   store i32 1, ptr %356, align 8, !tbaa !226
   %764 = getelementptr inbounds nuw i8, ptr %188, i64 416
@@ -3415,7 +3415,7 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   br label %mkv_parse_video.exit.thread.i
 
 921:                                              ; preds = %919, %914, %910, %909, %908, %906, %839, %827
-  %.5.i = phi i32 [ 0, %906 ], [ 0, %908 ], [ 0, %919 ], [ 0, %914 ], [ 0, %910 ], [ 26, %909 ], [ 40, %839 ], [ 40, %827 ]
+  %.5.i = phi i32 [ 0, %906 ], [ 0, %908 ], [ 26, %909 ], [ 0, %914 ], [ 0, %910 ], [ 0, %919 ], [ 40, %839 ], [ 40, %827 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   store i32 0, ptr %356, align 8, !tbaa !226
   %922 = getelementptr inbounds nuw i8, ptr %188, i64 192
@@ -3486,7 +3486,7 @@ mkv_parse_video_codec.exit.i.i:                   ; preds = %855
   br label %mkv_field_order.exit.i.i
 
 mkv_field_order.exit.i.i:                         ; preds = %951, %949, %947, %946, %945, %944
-  %.06.i.i.i = phi i32 [ 0, %951 ], [ %950, %949 ], [ %948, %947 ], [ 3, %946 ], [ 2, %945 ], [ 1, %944 ]
+  %.06.i.i.i = phi i32 [ 0, %951 ], [ 2, %945 ], [ 3, %946 ], [ %948, %947 ], [ %950, %949 ], [ 1, %944 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   br label %.sink.split.i.i
@@ -4337,7 +4337,7 @@ mkv_stereo3d_conv.exit.i.i:                       ; preds = %1098
   br label %.loopexit295.i
 
 .loopexit295.i:                                   ; preds = %1359, %1311, %1387, %1357, %1346, %1338, %1337
-  %.0.i166.ph.i.i = phi i32 [ -1094995529, %1338 ], [ -1094995529, %1337 ], [ -1094995529, %1357 ], [ -12, %1387 ], [ -1094995529, %1346 ], [ -12, %1311 ], [ -12, %1359 ]
+  %.0.i166.ph.i.i = phi i32 [ -1094995529, %1357 ], [ -1094995529, %1346 ], [ -1094995529, %1338 ], [ -12, %1387 ], [ -1094995529, %1337 ], [ -12, %1311 ], [ -12, %1359 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   br label %mkv_parse_video.exit.thread.i
@@ -4463,7 +4463,7 @@ mkv_parse_subtitle_codec.exit.i:                  ; preds = %1429, %1427, %1423,
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %1435, %mkv_parse_subtitle_codec.exit.i, %mkv_parse_video.exit.i, %806, %803
-  %.0256.ph.i = phi i32 [ %.1257.i, %803 ], [ %.1257.i, %806 ], [ %.5.i, %mkv_parse_video.exit.i ], [ 0, %1435 ], [ 0, %mkv_parse_subtitle_codec.exit.i ]
+  %.0256.ph.i = phi i32 [ %.1257.i, %803 ], [ %.1257.i, %806 ], [ 0, %1435 ], [ 0, %mkv_parse_subtitle_codec.exit.i ], [ %.5.i, %mkv_parse_video.exit.i ]
   %.pr.i = load i32, ptr %357, align 4, !tbaa !190
   br label %1439
 
@@ -4538,7 +4538,7 @@ thread-pre-split.i:                               ; preds = %1435, %mkv_parse_su
   br label %1474
 
 1474:                                             ; preds = %1470, %.lr.ph.i242.i, %.lr.ph.i242.i
-  %.050.i.i = phi i64 [ %1469, %.lr.ph.i242.i ], [ %1469, %.lr.ph.i242.i ], [ 1, %1470 ]
+  %.050.i.i = phi i64 [ 1, %1470 ], [ %1469, %.lr.ph.i242.i ], [ %1469, %.lr.ph.i242.i ]
   %1475 = load i64, ptr %1467, align 8, !tbaa !329
   %.not62.i247.i = icmp eq i64 %1475, %.050.i.i
   br i1 %.not62.i247.i, label %1501, label %1476
@@ -7225,8 +7225,8 @@ default.unreachable.i.i:                          ; preds = %159
   br label %matroska_parse_block.exit
 
 matroska_parse_laces.exit.i:                      ; preds = %.lr.ph154.i.i, %218, %._crit_edge160.thread.i.i, %156
-  %.2227.i = phi ptr [ %103, %156 ], [ %220, %218 ], [ %.196.lcssa187.i.i, %._crit_edge160.thread.i.i ], [ %163, %.lr.ph154.i.i ]
-  %.0224.i = phi i32 [ 1, %156 ], [ %162, %218 ], [ %162, %._crit_edge160.thread.i.i ], [ %162, %.lr.ph154.i.i ]
+  %.2227.i = phi ptr [ %103, %156 ], [ %.196.lcssa187.i.i, %._crit_edge160.thread.i.i ], [ %220, %218 ], [ %163, %.lr.ph154.i.i ]
+  %.0224.i = phi i32 [ 1, %156 ], [ %162, %._crit_edge160.thread.i.i ], [ %162, %218 ], [ %162, %.lr.ph154.i.i ]
   %227 = getelementptr inbounds nuw i8, ptr %81, i64 88
   %228 = load i64, ptr %227, align 8, !tbaa !156
   %229 = icmp ne i64 %228, 0
@@ -8618,8 +8618,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
   br label %104
 
 104:                                              ; preds = %103, %73, %27, %42
-  %.190 = phi i32 [ %100, %103 ], [ %74, %73 ], [ %44, %42 ], [ %23, %27 ]
-  %.176 = phi ptr [ %87, %103 ], [ %57, %73 ], [ %34, %42 ], [ %26, %27 ]
+  %.190 = phi i32 [ %23, %27 ], [ %44, %42 ], [ %74, %73 ], [ %100, %103 ]
+  %.176 = phi ptr [ %26, %27 ], [ %34, %42 ], [ %57, %73 ], [ %87, %103 ]
   %105 = sext i32 %.190 to i64
   %106 = getelementptr inbounds i8, ptr %.176, i64 %105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %106, i8 0, i64 64, i1 false)
@@ -8634,7 +8634,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @matroska_decode_buffer(ptr
   br label %.thread
 
 .thread:                                          ; preds = %22, %21, %20, %.thread30, %.thread18, %10, %2, %107, %104
-  %.0 = phi i32 [ %.184, %107 ], [ 0, %104 ], [ -1094995529, %2 ], [ -1094995529, %10 ], [ -1, %.thread18 ], [ -1, %.thread30 ], [ -12, %22 ], [ 0, %21 ], [ -1, %20 ]
+  %.0 = phi i32 [ 0, %104 ], [ %.184, %107 ], [ -1094995529, %2 ], [ -1094995529, %10 ], [ -1, %.thread18 ], [ -1, %.thread30 ], [ -12, %22 ], [ 0, %21 ], [ -1, %20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   ret i32 %.0
 }

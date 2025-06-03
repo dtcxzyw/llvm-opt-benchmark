@@ -7268,7 +7268,7 @@ define void @_ZN5arrow2io8internal18CoalesceReadRangesESt6vectorINS0_9ReadRangeE
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %47, %46 ]
+  %.sroa.031.1.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %49 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i.i, i64 8
   %.val.i20.i.i.i.i.i = load i64, ptr %49, align 8, !tbaa !316, !noalias !313
   %50 = icmp eq i64 %.val.i20.i.i.i.i.i, 0
@@ -7279,7 +7279,7 @@ define void @_ZN5arrow2io8internal18CoalesceReadRangesESt6vectorINS0_9ReadRangeE
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %52, %51 ]
+  %.sroa.031.2.i.i.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %54 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i.i, i64 8
   %.val.i21.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !316, !noalias !313
   %55 = icmp eq i64 %.val.i21.i.i.i.i.i, 0

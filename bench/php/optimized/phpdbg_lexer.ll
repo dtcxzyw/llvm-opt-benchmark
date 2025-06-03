@@ -52,7 +52,7 @@ define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr noundef writeonly captures(n
 
 .outer:                                           ; preds = %.outer.backedge, %1
   %.pre.ph = phi ptr [ %.promoted1160, %1 ], [ %.pre.ph.be, %.outer.backedge ]
-  %.ph1927 = phi i32 [ %.promoted, %1 ], [ %.ph1927.be, %.outer.backedge ]
+  %.ph1926 = phi i32 [ %.promoted, %1 ], [ %.ph1926.be, %.outer.backedge ]
   %2 = getelementptr inbounds nuw i8, ptr %.pre.ph, i64 1
   %3 = getelementptr inbounds nuw i8, ptr %.pre.ph, i64 1
   %4 = getelementptr inbounds nuw i8, ptr %.pre.ph, i64 2
@@ -72,7 +72,7 @@ define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr noundef writeonly captures(n
   br label %18
 
 18:                                               ; preds = %.backedge, %.outer
-  %19 = phi i32 [ %.ph1927, %.outer ], [ %.be1928, %.backedge ]
+  %19 = phi i32 [ %.ph1926, %.outer ], [ %.be1927, %.backedge ]
   store ptr %.pre.ph, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 792), align 8, !tbaa !40
   %20 = icmp slt i32 %19, 2
   %21 = load i8, ptr %.pre.ph, align 1, !tbaa !42
@@ -150,9 +150,9 @@ define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr noundef writeonly captures(n
   br label %36
 
 36:                                               ; preds = %441, %430, %516, %442, %431, %424, %369, %222, %192, %753, %715, %711, %701, %697, %689, %685, %681, %639, %609, %605, %601, %447, %443, %432, %414, %410, %406, %232, %228, %214, %210, %206, %202, %198, %186, %705, %693, %647, %643, %455, %451, %422, %381, %378, %375, %367, %240, %236, %226, %225, %193, %188, %138, %.loopexit1022
-  %37 = phi ptr [ %34, %.loopexit1022 ], [ %706, %705 ], [ %694, %693 ], [ %648, %647 ], [ %456, %455 ], [ %241, %240 ], [ %644, %643 ], [ %452, %451 ], [ %237, %236 ], [ %438, %442 ], [ %448, %447 ], [ %233, %232 ], [ %640, %639 ], [ %444, %443 ], [ %229, %228 ], [ %427, %431 ], [ %433, %432 ], [ %219, %225 ], [ %219, %226 ], [ %215, %214 ], [ %419, %422 ], [ %419, %424 ], [ %211, %210 ], [ %690, %689 ], [ %610, %609 ], [ %415, %414 ], [ %207, %206 ], [ %716, %715 ], [ %702, %701 ], [ %686, %685 ], [ %606, %605 ], [ %411, %410 ], [ %203, %202 ], [ %754, %753 ], [ %712, %711 ], [ %698, %697 ], [ %682, %681 ], [ %602, %601 ], [ %407, %406 ], [ %199, %198 ], [ %176, %186 ], [ %176, %188 ], [ %176, %192 ], [ %382, %381 ], [ %176, %193 ], [ %362, %367 ], [ %362, %369 ], [ %362, %375 ], [ %362, %378 ], [ %132, %138 ], [ %219, %222 ], [ %427, %430 ], [ %438, %441 ], [ %517, %516 ]
-  %.0836 = phi i8 [ %35, %.loopexit1022 ], [ %707, %705 ], [ %695, %693 ], [ %649, %647 ], [ %457, %455 ], [ %242, %240 ], [ %645, %643 ], [ %453, %451 ], [ %238, %236 ], [ %439, %442 ], [ %449, %447 ], [ %234, %232 ], [ %641, %639 ], [ %445, %443 ], [ %230, %228 ], [ %428, %431 ], [ %434, %432 ], [ %220, %225 ], [ %220, %226 ], [ %216, %214 ], [ %420, %422 ], [ %420, %424 ], [ %212, %210 ], [ %691, %689 ], [ %611, %609 ], [ %416, %414 ], [ %208, %206 ], [ %717, %715 ], [ %703, %701 ], [ %687, %685 ], [ %607, %605 ], [ %412, %410 ], [ %204, %202 ], [ %755, %753 ], [ %713, %711 ], [ %699, %697 ], [ %683, %681 ], [ %603, %601 ], [ %408, %406 ], [ %200, %198 ], [ %177, %186 ], [ %177, %188 ], [ %177, %192 ], [ %383, %381 ], [ %177, %193 ], [ %363, %367 ], [ %363, %369 ], [ %363, %375 ], [ %363, %378 ], [ %133, %138 ], [ %220, %222 ], [ %428, %430 ], [ %439, %441 ], [ %518, %516 ]
-  %.0834 = phi i32 [ 0, %.loopexit1022 ], [ 0, %705 ], [ 0, %693 ], [ 0, %647 ], [ 0, %455 ], [ 0, %240 ], [ 0, %643 ], [ 0, %451 ], [ 0, %236 ], [ 0, %442 ], [ 0, %447 ], [ 0, %232 ], [ 0, %639 ], [ 0, %443 ], [ 0, %228 ], [ 0, %431 ], [ 0, %432 ], [ 0, %225 ], [ 0, %226 ], [ 0, %214 ], [ 0, %422 ], [ 0, %424 ], [ 0, %210 ], [ 0, %689 ], [ 0, %609 ], [ 0, %414 ], [ 0, %206 ], [ 0, %715 ], [ 0, %701 ], [ 0, %685 ], [ 0, %605 ], [ 0, %410 ], [ 0, %202 ], [ 0, %753 ], [ 0, %711 ], [ 0, %697 ], [ 0, %681 ], [ 0, %601 ], [ 0, %406 ], [ 0, %198 ], [ 2, %186 ], [ 2, %188 ], [ 2, %192 ], [ 0, %381 ], [ 2, %193 ], [ 0, %367 ], [ 0, %369 ], [ 0, %375 ], [ 0, %378 ], [ 0, %138 ], [ 0, %222 ], [ 0, %430 ], [ 0, %441 ], [ 0, %516 ]
+  %37 = phi ptr [ %34, %.loopexit1022 ], [ %362, %367 ], [ %362, %369 ], [ %362, %375 ], [ %362, %378 ], [ %132, %138 ], [ %176, %186 ], [ %176, %188 ], [ %176, %192 ], [ %382, %381 ], [ %176, %193 ], [ %427, %431 ], [ %754, %753 ], [ %712, %711 ], [ %698, %697 ], [ %682, %681 ], [ %602, %601 ], [ %407, %406 ], [ %199, %198 ], [ %438, %442 ], [ %716, %715 ], [ %702, %701 ], [ %686, %685 ], [ %606, %605 ], [ %411, %410 ], [ %203, %202 ], [ %690, %689 ], [ %610, %609 ], [ %415, %414 ], [ %207, %206 ], [ %419, %422 ], [ %419, %424 ], [ %211, %210 ], [ %215, %214 ], [ %433, %432 ], [ %219, %225 ], [ %219, %226 ], [ %640, %639 ], [ %444, %443 ], [ %229, %228 ], [ %448, %447 ], [ %233, %232 ], [ %706, %705 ], [ %694, %693 ], [ %644, %643 ], [ %452, %451 ], [ %237, %236 ], [ %648, %647 ], [ %456, %455 ], [ %241, %240 ], [ %219, %222 ], [ %427, %430 ], [ %438, %441 ], [ %517, %516 ]
+  %.0836 = phi i8 [ %35, %.loopexit1022 ], [ %363, %367 ], [ %363, %369 ], [ %363, %375 ], [ %363, %378 ], [ %133, %138 ], [ %177, %186 ], [ %177, %188 ], [ %177, %192 ], [ %383, %381 ], [ %177, %193 ], [ %428, %431 ], [ %755, %753 ], [ %713, %711 ], [ %699, %697 ], [ %683, %681 ], [ %603, %601 ], [ %408, %406 ], [ %200, %198 ], [ %439, %442 ], [ %717, %715 ], [ %703, %701 ], [ %687, %685 ], [ %607, %605 ], [ %412, %410 ], [ %204, %202 ], [ %691, %689 ], [ %611, %609 ], [ %416, %414 ], [ %208, %206 ], [ %420, %422 ], [ %420, %424 ], [ %212, %210 ], [ %216, %214 ], [ %434, %432 ], [ %220, %225 ], [ %220, %226 ], [ %641, %639 ], [ %445, %443 ], [ %230, %228 ], [ %449, %447 ], [ %234, %232 ], [ %707, %705 ], [ %695, %693 ], [ %645, %643 ], [ %453, %451 ], [ %238, %236 ], [ %649, %647 ], [ %457, %455 ], [ %242, %240 ], [ %220, %222 ], [ %428, %430 ], [ %439, %441 ], [ %518, %516 ]
+  %.0834 = phi i32 [ 0, %.loopexit1022 ], [ 0, %367 ], [ 0, %369 ], [ 0, %375 ], [ 0, %378 ], [ 0, %138 ], [ 2, %186 ], [ 2, %188 ], [ 2, %192 ], [ 0, %381 ], [ 2, %193 ], [ 0, %431 ], [ 0, %753 ], [ 0, %711 ], [ 0, %697 ], [ 0, %681 ], [ 0, %601 ], [ 0, %406 ], [ 0, %198 ], [ 0, %442 ], [ 0, %715 ], [ 0, %701 ], [ 0, %685 ], [ 0, %605 ], [ 0, %410 ], [ 0, %202 ], [ 0, %689 ], [ 0, %609 ], [ 0, %414 ], [ 0, %206 ], [ 0, %422 ], [ 0, %424 ], [ 0, %210 ], [ 0, %214 ], [ 0, %432 ], [ 0, %225 ], [ 0, %226 ], [ 0, %639 ], [ 0, %443 ], [ 0, %228 ], [ 0, %447 ], [ 0, %232 ], [ 0, %705 ], [ 0, %693 ], [ 0, %643 ], [ 0, %451 ], [ 0, %236 ], [ 0, %647 ], [ 0, %455 ], [ 0, %240 ], [ 0, %222 ], [ 0, %430 ], [ 0, %441 ], [ 0, %516 ]
   %38 = zext i8 %.0836 to i64
   %39 = or disjoint i64 %38, 256
   %40 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %39
@@ -253,14 +253,14 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %88 = icmp eq i8 %87, 34
   br i1 %88, label %.loopexit1007, label %.preheader1004
 
-.thread991:                                       ; preds = %508, %503, %359, %597, %671, %111, %307, %300, %300, %298, %270, %270, %356, %356, %355, %355, %355, %327, %327, %513, %510
-  %.3.ph = phi i32 [ 0, %355 ], [ 0, %355 ], [ 0, %671 ], [ 0, %356 ], [ 0, %327 ], [ 1, %111 ], [ 0, %300 ], [ 0, %270 ], [ 0, %307 ], [ 0, %300 ], [ 0, %298 ], [ 0, %270 ], [ 0, %356 ], [ 0, %355 ], [ 0, %327 ], [ 0, %513 ], [ 0, %510 ], [ 0, %597 ], [ 0, %359 ], [ 0, %503 ], [ 0, %508 ]
+.thread991:                                       ; preds = %508, %503, %359, %597, %671, %111, %513, %510, %356, %356, %355, %355, %355, %327, %327, %307, %300, %300, %298, %270, %270
+  %.3.ph = phi i32 [ 0, %355 ], [ 0, %355 ], [ 0, %671 ], [ 0, %356 ], [ 0, %327 ], [ 1, %111 ], [ 0, %300 ], [ 0, %270 ], [ 0, %513 ], [ 0, %510 ], [ 0, %356 ], [ 0, %355 ], [ 0, %327 ], [ 0, %307 ], [ 0, %300 ], [ 0, %298 ], [ 0, %270 ], [ 0, %597 ], [ 0, %359 ], [ 0, %503 ], [ 0, %508 ]
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   br label %95
 
 90:                                               ; preds = %493, %486, %255, %462, %.loopexit1008, %345, %288, %253
-  %.3 = phi i32 [ %.4, %253 ], [ %.5, %.loopexit1008 ], [ %.6, %462 ], [ %.10, %345 ], [ %.10, %493 ], [ %.8, %288 ], [ %.8, %486 ], [ %.2, %255 ]
+  %.3 = phi i32 [ %.4, %253 ], [ %.5, %.loopexit1008 ], [ %.6, %462 ], [ %.8, %288 ], [ %.8, %486 ], [ %.10, %345 ], [ %.10, %493 ], [ %.2, %255 ]
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %92 = icmp ult i32 %.3, 4
@@ -320,7 +320,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %or.cond980, label %.thread991, label %.preheader1009.preheader
 
 .preheader1009.preheader:                         ; preds = %110, %119, %111
-  %.ph1792 = phi ptr [ %105, %110 ], [ %112, %111 ], [ %105, %119 ]
+  %.ph1791 = phi ptr [ %105, %110 ], [ %112, %111 ], [ %105, %119 ]
   br label %.preheader1009
 
 116:                                              ; preds = %104
@@ -368,7 +368,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %139, label %361, label %36
 
 .preheader1024:                                   ; preds = %.preheader1024.preheader, %.preheader1024
-  %140 = phi ptr [ %141, %.preheader1024 ], [ %.ph1839, %.preheader1024.preheader ]
+  %140 = phi ptr [ %141, %.preheader1024 ], [ %.ph1838, %.preheader1024.preheader ]
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
@@ -454,7 +454,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %.not959, label %182, label %.preheader1024.preheader
 
 .preheader1024.preheader:                         ; preds = %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %131, %175
-  %.ph1839 = phi ptr [ %176, %175 ], [ %132, %131 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ]
+  %.ph1838 = phi ptr [ %176, %175 ], [ %132, %131 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ], [ %.pre.ph, %30 ]
   br label %.preheader1024
 
 182:                                              ; preds = %175
@@ -605,12 +605,12 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
 .loopexit1007.loopexit:                           ; preds = %303, %309
   br label %.loopexit1007
 
-.loopexit1007.loopexit1794:                       ; preds = %359, %360
+.loopexit1007.loopexit1793:                       ; preds = %359, %360
   br label %.loopexit1007
 
-.loopexit1007:                                    ; preds = %.loopexit1007.loopexit1794, %.loopexit1007.loopexit, %355, %739, %536, %532, %356, %300, %298, %736, %584, %581, %307, %247, %161, %158, %127, %85, %46
-  %244 = phi ptr [ %37, %46 ], [ %248, %247 ], [ %720, %736 ], [ %720, %739 ], [ %141, %158 ], [ %141, %161 ], [ %564, %581 ], [ %564, %584 ], [ %128, %127 ], [ %334, %356 ], [ %86, %85 ], [ %277, %298 ], [ %277, %300 ], [ %277, %307 ], [ %334, %355 ], [ %526, %532 ], [ %534, %536 ], [ %277, %.loopexit1007.loopexit ], [ %334, %.loopexit1007.loopexit1794 ]
-  %.1835 = phi i32 [ %.0834, %46 ], [ %.4, %247 ], [ 6, %736 ], [ 6, %739 ], [ 2, %158 ], [ 2, %161 ], [ 4, %581 ], [ 4, %584 ], [ 0, %127 ], [ 0, %356 ], [ 0, %85 ], [ 0, %298 ], [ 0, %300 ], [ 0, %307 ], [ 0, %355 ], [ 3, %532 ], [ 3, %536 ], [ 0, %.loopexit1007.loopexit ], [ 0, %.loopexit1007.loopexit1794 ]
+.loopexit1007:                                    ; preds = %.loopexit1007.loopexit1793, %.loopexit1007.loopexit, %355, %739, %536, %532, %356, %300, %298, %736, %584, %581, %307, %247, %161, %158, %127, %85, %46
+  %244 = phi ptr [ %37, %46 ], [ %248, %247 ], [ %86, %85 ], [ %277, %298 ], [ %277, %300 ], [ %277, %307 ], [ %128, %127 ], [ %334, %356 ], [ %141, %158 ], [ %141, %161 ], [ %564, %581 ], [ %564, %584 ], [ %720, %736 ], [ %720, %739 ], [ %334, %355 ], [ %526, %532 ], [ %534, %536 ], [ %277, %.loopexit1007.loopexit ], [ %334, %.loopexit1007.loopexit1793 ]
+  %.1835 = phi i32 [ %.0834, %46 ], [ %.4, %247 ], [ 0, %85 ], [ 0, %298 ], [ 0, %300 ], [ 0, %307 ], [ 0, %127 ], [ 0, %356 ], [ 2, %158 ], [ 2, %161 ], [ 4, %581 ], [ 4, %584 ], [ 6, %736 ], [ 6, %739 ], [ 0, %355 ], [ 3, %532 ], [ 3, %536 ], [ 0, %.loopexit1007.loopexit ], [ 0, %.loopexit1007.loopexit1793 ]
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
   store ptr %245, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %246 = load i8, ptr %245, align 1, !tbaa !42
@@ -632,8 +632,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %254, label %90, label %.loopexit1008
 
 255:                                              ; preds = %739, %586, %163, %546, %46
-  %256 = phi ptr [ %37, %46 ], [ %141, %163 ], [ %564, %586 ], [ %534, %546 ], [ %720, %739 ]
-  %.2 = phi i32 [ %.0834, %46 ], [ 2, %163 ], [ 4, %586 ], [ 3, %546 ], [ 6, %739 ]
+  %256 = phi ptr [ %37, %46 ], [ %141, %163 ], [ %534, %546 ], [ %564, %586 ], [ %720, %739 ]
+  %.2 = phi i32 [ %.0834, %46 ], [ 2, %163 ], [ 3, %546 ], [ 4, %586 ], [ 6, %739 ]
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 1
   store ptr %257, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %258 = load i8, ptr %257, align 1, !tbaa !42
@@ -643,7 +643,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   ]
 
 .preheader1003.preheader:                         ; preds = %195, %255
-  %.ph1764 = phi ptr [ %257, %255 ], [ %196, %195 ]
+  %.ph1763 = phi ptr [ %257, %255 ], [ %196, %195 ]
   br label %.preheader1003
 
 259:                                              ; preds = %309, %305, %.preheader1004
@@ -761,7 +761,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   ]
 
 .preheader1009:                                   ; preds = %.preheader1009.preheader, %.preheader1009
-  %310 = phi ptr [ %311, %.preheader1009 ], [ %.ph1792, %.preheader1009.preheader ]
+  %310 = phi ptr [ %311, %.preheader1009 ], [ %.ph1791, %.preheader1009.preheader ]
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 1
   store ptr %311, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %312 = load i8, ptr %311, align 1, !tbaa !42
@@ -875,13 +875,13 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %358, label %359, label %360
 
 359:                                              ; preds = %357
-  switch i8 %335, label %.loopexit1007.loopexit1794 [
+  switch i8 %335, label %.loopexit1007.loopexit1793 [
     i8 35, label %.thread991
     i8 39, label %316
   ]
 
 360:                                              ; preds = %357
-  switch i8 %335, label %.loopexit1007.loopexit1794 [
+  switch i8 %335, label %.loopexit1007.loopexit1793 [
     i8 58, label %.loopexit1008
     i8 92, label %316
   ]
@@ -956,7 +956,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br label %1134
 
 .preheader1003:                                   ; preds = %.preheader1003.backedge, %.preheader1003.preheader
-  %391 = phi ptr [ %.ph1764, %.preheader1003.preheader ], [ %.be, %.preheader1003.backedge ]
+  %391 = phi ptr [ %.ph1763, %.preheader1003.preheader ], [ %.be, %.preheader1003.backedge ]
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 1
   store ptr %392, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   store ptr %392, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
@@ -1623,11 +1623,11 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %or.cond987, label %.thread991, label %.preheader1016.preheader
 
 .preheader1016.preheader:                         ; preds = %512, %671, %513
-  %.ph1822 = phi ptr [ %.promoted12341360, %513 ], [ %672, %671 ], [ %.promoted12341360, %512 ]
+  %.ph1821 = phi ptr [ %.promoted12341360, %513 ], [ %672, %671 ], [ %.promoted12341360, %512 ]
   br label %.preheader1016
 
 .preheader1016:                                   ; preds = %.preheader1016.preheader, %.preheader1016
-  %676 = phi ptr [ %677, %.preheader1016 ], [ %.ph1822, %.preheader1016.preheader ]
+  %676 = phi ptr [ %677, %.preheader1016 ], [ %.ph1821, %.preheader1016.preheader ]
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 1
   store ptr %677, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %678 = load i8, ptr %677, align 1, !tbaa !42
@@ -1839,11 +1839,11 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %.not951, label %.loopexit1081, label %.preheader1079.preheader
 
 .preheader1079.preheader:                         ; preds = %763, %769
-  %.ph1924 = phi ptr [ %16, %769 ], [ %.pre.ph, %763 ]
+  %.ph1923 = phi ptr [ %16, %769 ], [ %.pre.ph, %763 ]
   br label %.preheader1079
 
 .preheader1079:                                   ; preds = %.preheader1079.preheader, %.preheader1079
-  %775 = phi ptr [ %776, %.preheader1079 ], [ %.ph1924, %.preheader1079.preheader ]
+  %775 = phi ptr [ %776, %.preheader1079 ], [ %.ph1923, %.preheader1079.preheader ]
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 1
   store ptr %776, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %777 = load i8, ptr %776, align 1, !tbaa !42
@@ -2445,10 +2445,10 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
 
 .backedge:                                        ; preds = %1029, %.loopexit1081
   %storemerge.in = phi i64 [ %1031, %1029 ], [ %768, %.loopexit1081 ]
-  %.be1928 = phi i32 [ 0, %1029 ], [ 2, %.loopexit1081 ]
+  %.be1927 = phi i32 [ 0, %1029 ], [ 2, %.loopexit1081 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 784), align 8, !tbaa !41
-  store i32 %.be1928, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 824), align 8, !tbaa !38
+  store i32 %.be1927, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 824), align 8, !tbaa !38
   store ptr %.pre.ph, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   br label %18
 
@@ -2462,11 +2462,11 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br i1 %.not932, label %1029, label %.preheader1084.preheader
 
 .preheader1084.preheader:                         ; preds = %1032, %1012
-  %.ph1925 = phi ptr [ %.pre.ph, %1012 ], [ %11, %1032 ]
+  %.ph1924 = phi ptr [ %.pre.ph, %1012 ], [ %11, %1032 ]
   br label %.preheader1084
 
 .preheader1084:                                   ; preds = %.preheader1084.preheader, %.preheader1084
-  %1037 = phi ptr [ %1038, %.preheader1084 ], [ %.ph1925, %.preheader1084.preheader ]
+  %1037 = phi ptr [ %1038, %.preheader1084 ], [ %.ph1924, %.preheader1084.preheader ]
   %1038 = getelementptr inbounds nuw i8, ptr %1037, i64 1
   store ptr %1038, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %1039 = load i8, ptr %1038, align 1, !tbaa !42
@@ -2486,7 +2486,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
 
 .outer.backedge:                                  ; preds = %1043, %782, %80
   %.pre.ph.be = phi ptr [ %74, %80 ], [ %776, %782 ], [ %1038, %1043 ]
-  %.ph1927.be = phi i32 [ %19, %80 ], [ 1, %782 ], [ %19, %1043 ]
+  %.ph1926.be = phi i32 [ %19, %80 ], [ 1, %782 ], [ %19, %1043 ]
   br label %.outer
 
 1048:                                             ; preds = %1012, %1023
@@ -2595,7 +2595,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br label %.backedge1078
 
 .backedge1076:                                    ; preds = %.backedge1076.backedge, %.backedge1076.preheader
-  %1087 = phi ptr [ %.ph1919, %.backedge1076.preheader ], [ %1088, %.backedge1076.backedge ]
+  %1087 = phi ptr [ %.ph1918, %.backedge1076.preheader ], [ %1088, %.backedge1076.backedge ]
   %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 1
   store ptr %1088, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %1089 = load i8, ptr %1088, align 1, !tbaa !42
@@ -2681,7 +2681,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   br label %.backedge1076.preheader
 
 .backedge1076.preheader:                          ; preds = %1067, %1063, %1062, %.preheader1075.split.loop.exit1574, %.preheader1075.split.loop.exit1568
-  %.ph1919 = phi ptr [ %1120, %.preheader1075.split.loop.exit1574 ], [ %1119, %.preheader1075.split.loop.exit1568 ], [ %2, %1062 ], [ %2, %1063 ], [ %2, %1067 ]
+  %.ph1918 = phi ptr [ %1120, %.preheader1075.split.loop.exit1574 ], [ %1119, %.preheader1075.split.loop.exit1568 ], [ %2, %1062 ], [ %2, %1063 ], [ %2, %1067 ]
   br label %.backedge1076
 
 .preheader1075.split.loop.exit1574:               ; preds = %1118, %1118
@@ -2721,8 +2721,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1133, i8 0, i64 80, i1 false)
   br label %1134
 
-1134:                                             ; preds = %unescape_string.exit, %120, %165, %559, %588, %._crit_edge1363, %740, %632, %626, %620, %389, %388, %315, %31, %832, %.loopexit1032, %849, %889, %1107, %1094, %1128
-  %.1.ph = phi i32 [ 260, %1128 ], [ 259, %1094 ], [ 258, %1107 ], [ 268, %889 ], [ 0, %849 ], [ 275, %.loopexit1032 ], [ 277, %832 ], [ 0, %31 ], [ 267, %315 ], [ 265, %388 ], [ 266, %389 ], [ 261, %620 ], [ 263, %626 ], [ 262, %632 ], [ 273, %740 ], [ 269, %._crit_edge1363 ], [ 272, %588 ], [ 277, %559 ], [ 270, %165 ], [ 268, %120 ], [ 274, %unescape_string.exit ]
+1134:                                             ; preds = %unescape_string.exit, %120, %165, %559, %588, %._crit_edge1363, %740, %31, %315, %389, %388, %626, %632, %620, %832, %.loopexit1032, %849, %889, %1107, %1094, %1128
+  %.1.ph = phi i32 [ 260, %1128 ], [ 259, %1094 ], [ 258, %1107 ], [ 268, %889 ], [ 0, %849 ], [ 275, %.loopexit1032 ], [ 277, %832 ], [ 261, %620 ], [ 262, %632 ], [ 263, %626 ], [ 265, %388 ], [ 266, %389 ], [ 267, %315 ], [ 0, %31 ], [ 273, %740 ], [ 269, %._crit_edge1363 ], [ 272, %588 ], [ 277, %559 ], [ 270, %165 ], [ 268, %120 ], [ 274, %unescape_string.exit ]
   ret i32 %.1.ph
 }
 

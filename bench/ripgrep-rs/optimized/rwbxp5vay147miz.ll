@@ -1404,7 +1404,7 @@ define noundef zeroext i1 @"_ZN84_$LT$grep_printer..hyperlink..HyperlinkFormatEr
   br label %94
 
 94:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5de721b7ffb12e7aE.exit", %59, %53, %47, %40, %34, %28
-  %.0.in = phi i1 [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %40 ], [ %39, %34 ], [ %33, %28 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5de721b7ffb12e7aE.exit" ]
+  %.0.in = phi i1 [ %84, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5de721b7ffb12e7aE.exit" ], [ %33, %28 ], [ %39, %34 ], [ %46, %40 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ]
   ret i1 %.0.in
 
 95:                                               ; preds = %76, %65
@@ -2156,7 +2156,7 @@ define noundef zeroext i1 @"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$c
   br label %72
 
 72:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8232bad34c09aff3E.exit", %41, %35, %29, %23, %17
-  %.0.in = phi i1 [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ %28, %23 ], [ %22, %17 ], [ %59, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8232bad34c09aff3E.exit" ]
+  %.0.in = phi i1 [ %59, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8232bad34c09aff3E.exit" ], [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %46, %41 ]
   ret i1 %.0.in
 
 73:                                               ; preds = %47

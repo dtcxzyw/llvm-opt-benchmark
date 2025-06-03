@@ -2703,8 +2703,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveEl.exit61: ; preds = %43, %34
   br label %60
 
 60:                                               ; preds = %26, %48
-  %.sroa.0.0 = phi ptr [ %45, %48 ], [ %24, %26 ]
-  %.sroa.27.0 = phi i64 [ 6, %48 ], [ 3, %26 ]
+  %.sroa.0.0 = phi ptr [ %24, %26 ], [ %45, %48 ]
+  %.sroa.27.0 = phi i64 [ 3, %26 ], [ 6, %48 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %61 unwind label %197
@@ -21077,10 +21077,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE6resizeEll.exit.
 
 387:                                              ; preds = %366, %381, %145, %155
   %.sink878 = phi ptr [ %28, %155 ], [ %28, %145 ], [ %31, %381 ], [ %31, %366 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn45, %155 ], [ %146, %145 ], [ %.pn.pn.pn.pn, %381 ], [ %367, %366 ]
+  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45, %155 ], [ %146, %145 ], [ %.pn.pn.pn.pn, %381 ], [ %367, %366 ]
   %388 = load ptr, ptr %.sink878, align 8
   call void @free(ptr noundef %388) #16
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn45.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31141,7 +31141,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %31, %_ZNSt1
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit174
 
 47:                                               ; preds = %.invoke, %68, %37, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i64, %58, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %27
-  %.sroa.0315.0 = phi ptr [ %.sroa.16.4, %68 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i64 ], [ null, %58 ], [ %.sroa.16.3, %37 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %27 ], [ null, %.invoke ]
+  %.sroa.0315.0 = phi ptr [ %.sroa.16.3, %37 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %27 ], [ %.sroa.16.4, %68 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i64 ], [ null, %58 ], [ null, %.invoke ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %206
@@ -31236,11 +31236,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit75: ; preds = %62, %_ZNS
   br label %82
 
 82:                                               ; preds = %39, %70, %16
-  %.sroa.0.0 = phi ptr [ null, %16 ], [ %66, %70 ], [ %35, %39 ]
-  %83 = phi i1 [ false, %16 ], [ true, %70 ], [ true, %39 ]
-  %.sroa.27.0 = phi i64 [ 0, %16 ], [ 6, %70 ], [ 3, %39 ]
-  %.sroa.37.0 = phi ptr [ null, %16 ], [ %.sroa.37.4, %70 ], [ %.sroa.37.3, %39 ]
-  %.sroa.16.0 = phi ptr [ null, %16 ], [ %.sroa.16.4, %70 ], [ %.sroa.16.3, %39 ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ %35, %39 ], [ %66, %70 ]
+  %83 = phi i1 [ false, %16 ], [ true, %39 ], [ true, %70 ]
+  %.sroa.27.0 = phi i64 [ 0, %16 ], [ 3, %39 ], [ 6, %70 ]
+  %.sroa.37.0 = phi ptr [ null, %16 ], [ %.sroa.37.3, %39 ], [ %.sroa.37.4, %70 ]
+  %.sroa.16.0 = phi ptr [ null, %16 ], [ %.sroa.16.3, %39 ], [ %.sroa.16.4, %70 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.preheader393 unwind label %.loopexit.split-lp
@@ -31774,7 +31774,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %30, %_ZNSt1
   br label %79
 
 44:                                               ; preds = %.invoke, %65, %36, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i75, %55, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %26
-  %.sroa.0388.0 = phi ptr [ %.sroa.20.6, %65 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i75 ], [ null, %55 ], [ %.sroa.20.5, %36 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %26 ], [ null, %.invoke ]
+  %.sroa.0388.0 = phi ptr [ %.sroa.20.5, %36 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %26 ], [ %.sroa.20.6, %65 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i75 ], [ null, %55 ], [ null, %.invoke ]
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %268
@@ -31869,11 +31869,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit86: ; preds = %59, %_ZNS
   br label %79
 
 79:                                               ; preds = %38, %67, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %63, %67 ], [ %34, %38 ]
-  %80 = phi i1 [ false, %4 ], [ true, %67 ], [ true, %38 ]
-  %.sroa.29.0 = phi i64 [ 0, %4 ], [ 6, %67 ], [ 3, %38 ]
-  %.sroa.49.0 = phi ptr [ null, %4 ], [ %.sroa.49.6, %67 ], [ %.sroa.49.5, %38 ]
-  %.sroa.20.0 = phi ptr [ null, %4 ], [ %.sroa.20.6, %67 ], [ %.sroa.20.5, %38 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %34, %38 ], [ %63, %67 ]
+  %80 = phi i1 [ false, %4 ], [ true, %38 ], [ true, %67 ]
+  %.sroa.29.0 = phi i64 [ 0, %4 ], [ 3, %38 ], [ 6, %67 ]
+  %.sroa.49.0 = phi ptr [ null, %4 ], [ %.sroa.49.5, %38 ], [ %.sroa.49.6, %67 ]
+  %.sroa.20.0 = phi ptr [ null, %4 ], [ %.sroa.20.5, %38 ], [ %.sroa.20.6, %67 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.preheader474 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -32584,7 +32584,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit: ; preds = %30, %_ZNSt1
   br label %79
 
 44:                                               ; preds = %.invoke, %65, %36, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i58, %55, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i, %26
-  %.sroa.0258.0 = phi ptr [ %.sroa.12265.4, %65 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i58 ], [ null, %55 ], [ %.sroa.12265.3, %36 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %26 ], [ null, %.invoke ]
+  %.sroa.0258.0 = phi ptr [ %.sroa.12265.3, %36 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i ], [ null, %26 ], [ %.sroa.12265.4, %65 ], [ null, %_ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE11_M_allocateEm.exit.i58 ], [ null, %55 ], [ null, %.invoke ]
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %168
@@ -32679,11 +32679,11 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE7reserveEm.exit69: ; preds = %59, %_ZNS
   br label %79
 
 79:                                               ; preds = %38, %67, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %63, %67 ], [ %34, %38 ]
-  %80 = phi i1 [ false, %4 ], [ true, %67 ], [ true, %38 ]
-  %.sroa.27.0 = phi i64 [ 0, %4 ], [ 6, %67 ], [ 3, %38 ]
-  %.sroa.25.0 = phi ptr [ null, %4 ], [ %.sroa.25.4, %67 ], [ %.sroa.25.3, %38 ]
-  %.sroa.12265.0 = phi ptr [ null, %4 ], [ %.sroa.12265.4, %67 ], [ %.sroa.12265.3, %38 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ %34, %38 ], [ %63, %67 ]
+  %80 = phi i1 [ false, %4 ], [ true, %38 ], [ true, %67 ]
+  %.sroa.27.0 = phi i64 [ 0, %4 ], [ 3, %38 ], [ 6, %67 ]
+  %.sroa.25.0 = phi ptr [ null, %4 ], [ %.sroa.25.3, %38 ], [ %.sroa.25.4, %67 ]
+  %.sroa.12265.0 = phi ptr [ null, %4 ], [ %.sroa.12265.3, %38 ], [ %.sroa.12265.4, %67 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.preheader320 unwind label %.loopexit.split-lp

@@ -425,7 +425,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %31
 
 31:                                               ; preds = %25, %22
-  %.1177 = phi i64 [ %5, %22 ], [ %30, %25 ]
+  %.1177 = phi i64 [ %30, %25 ], [ %5, %22 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %33 = load i8, ptr %32, align 1, !tbaa !10
   %34 = zext i8 %33 to i64
@@ -434,7 +434,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %37
 
 37:                                               ; preds = %31, %22
-  %.2178 = phi i64 [ %5, %22 ], [ %36, %31 ]
+  %.2178 = phi i64 [ %36, %31 ], [ %5, %22 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %39 = load i8, ptr %38, align 4, !tbaa !10
   %40 = zext i8 %39 to i64
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %43
 
 43:                                               ; preds = %37, %22
-  %.3179 = phi i64 [ %5, %22 ], [ %42, %37 ]
+  %.3179 = phi i64 [ %42, %37 ], [ %5, %22 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 59
   %45 = load i8, ptr %44, align 1, !tbaa !10
   %46 = zext i8 %45 to i64
@@ -452,7 +452,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %49
 
 49:                                               ; preds = %43, %22
-  %.4 = phi i64 [ %5, %22 ], [ %48, %43 ]
+  %.4 = phi i64 [ %48, %43 ], [ %5, %22 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %51 = load i8, ptr %50, align 2, !tbaa !10
   %52 = zext i8 %51 to i64
@@ -461,7 +461,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %55
 
 55:                                               ; preds = %49, %22
-  %.5 = phi i64 [ %5, %22 ], [ %54, %49 ]
+  %.5 = phi i64 [ %54, %49 ], [ %5, %22 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %57 = load i8, ptr %56, align 1, !tbaa !10
   %58 = zext i8 %57 to i64
@@ -470,7 +470,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %61
 
 61:                                               ; preds = %55, %22
-  %.6 = phi i64 [ %5, %22 ], [ %60, %55 ]
+  %.6 = phi i64 [ %60, %55 ], [ %5, %22 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load i8, ptr %62, align 8, !tbaa !10
   %64 = zext i8 %63 to i64

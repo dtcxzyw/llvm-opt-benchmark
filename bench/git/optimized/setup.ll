@@ -2145,7 +2145,7 @@ skip_prefix.exit:                                 ; preds = %10, %7
   br label %read_worktree_config.exit
 
 read_worktree_config.exit:                        ; preds = %89, %_.exit61.i, %54, %_.exit58.i, %_.exit55.i, %39, %_.exit.i, %122, %120, %116, %113, %15, %19, %25, %30, %handle_extension_v0.exit, %handle_extension.exit, %106
-  %.0 = phi i32 [ 0, %handle_extension.exit ], [ 0, %106 ], [ -1, %handle_extension_v0.exit ], [ 0, %30 ], [ 0, %25 ], [ 0, %19 ], [ 0, %15 ], [ -1, %120 ], [ 0, %116 ], [ 0, %122 ], [ 0, %113 ], [ -1, %_.exit.i ], [ -1, %39 ], [ -1, %_.exit55.i ], [ -1, %_.exit58.i ], [ -1, %54 ], [ -1, %_.exit61.i ], [ -1, %89 ]
+  %.0 = phi i32 [ 0, %106 ], [ 0, %handle_extension.exit ], [ -1, %handle_extension_v0.exit ], [ 0, %30 ], [ 0, %25 ], [ 0, %19 ], [ 0, %15 ], [ -1, %120 ], [ 0, %116 ], [ 0, %122 ], [ 0, %113 ], [ -1, %_.exit.i ], [ -1, %39 ], [ -1, %_.exit55.i ], [ -1, %_.exit58.i ], [ -1, %54 ], [ -1, %_.exit61.i ], [ -1, %89 ]
   ret i32 %.0
 }
 

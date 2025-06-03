@@ -538,8 +538,8 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40: ; preds = %94
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44: ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread99, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread102, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40
-  %.0.i41114 = phi i64 [ %90, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40 ], [ %183, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread102 ], [ %139, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread99 ], [ %110, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread ]
-  %.0.i43 = phi i64 [ %212, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40 ], [ %210, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread102 ], [ %152, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread99 ], [ %123, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread ]
+  %.0.i41114 = phi i64 [ %90, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40 ], [ %110, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread ], [ %139, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread99 ], [ %183, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread102 ]
+  %.0.i43 = phi i64 [ %212, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40 ], [ %123, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread ], [ %152, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread99 ], [ %210, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread102 ]
   %217 = and i64 %.0.i43, %.0.i41114
   br label %218
 

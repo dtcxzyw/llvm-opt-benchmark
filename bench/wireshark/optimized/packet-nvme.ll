@@ -8338,7 +8338,7 @@ define internal fastcc void @dissect_nvme_cqe_common(ptr noundef %0, ptr noundef
   br label %get_cqe_sc_string.exit
 
 get_cqe_sc_string.exit:                           ; preds = %4, %30, %33, %35, %37, %39, %41
-  %.0.i = phi ptr [ @.str.1829, %41 ], [ %40, %39 ], [ %38, %37 ], [ %31, %30 ], [ %34, %33 ], [ %36, %35 ], [ @.str.1831, %4 ]
+  %.0.i = phi ptr [ @.str.1829, %41 ], [ %31, %30 ], [ %38, %37 ], [ %40, %39 ], [ %34, %33 ], [ %36, %35 ], [ @.str.1831, %4 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.1828, ptr noundef %.0.i)
   br label %42
 

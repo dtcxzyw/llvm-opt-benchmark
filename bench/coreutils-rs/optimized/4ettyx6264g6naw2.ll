@@ -195,7 +195,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   br label %71
 
 71:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit59", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit"
-  %.047 = phi ptr [ %.08.i.i.i57, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit59" ], [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit" ]
+  %.047 = phi ptr [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit" ], [ %.08.i.i.i57, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit59" ]
   %72 = icmp eq ptr %.047, null
   br i1 %72, label %.thread, label %201
 
@@ -550,7 +550,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   br label %191
 
 191:                                              ; preds = %200, %199, %190
-  %.1 = phi ptr [ %.08.i.i.i83, %200 ], [ %.08.i.i.i72, %199 ], [ %.08.i.i.i64, %190 ]
+  %.1 = phi ptr [ %.08.i.i.i64, %190 ], [ %.08.i.i.i72, %199 ], [ %.08.i.i.i83, %200 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !121
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6315a8ee5260d624E.llvm.6590528771756919200"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
   %192 = getelementptr inbounds nuw i8, ptr %4, i64 8

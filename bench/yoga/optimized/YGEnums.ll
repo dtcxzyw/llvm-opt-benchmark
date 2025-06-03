@@ -191,7 +191,7 @@ define noundef nonnull ptr @YGErrataToString(i32 noundef %0) local_unnamed_addr 
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.9, %7 ], [ @.str.32, %6 ], [ @.str.28, %5 ], [ @.str.31, %4 ], [ @.str.30, %3 ], [ @.str.29, %2 ], [ @.str.18, %1 ]
+  %.0 = phi ptr [ @.str.9, %7 ], [ @.str.29, %2 ], [ @.str.30, %3 ], [ @.str.31, %4 ], [ @.str.28, %5 ], [ @.str.32, %6 ], [ @.str.18, %1 ]
   ret ptr %.0
 }
 

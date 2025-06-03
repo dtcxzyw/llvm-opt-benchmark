@@ -4091,8 +4091,8 @@ ehcleanup354:                                     ; preds = %ehcleanup353, %lpad
   br label %ehcleanup601
 
 sw.epilog:                                        ; preds = %sw.bb314, %sw.bb
-  %add315.pn = phi double [ %add315, %sw.bb314 ], [ %add312, %sw.bb ]
-  %value.0 = fmul double %call179, %add315.pn
+  %add312.pn = phi double [ %add312, %sw.bb ], [ %add315, %sw.bb314 ]
+  %value.0 = fmul double %call179, %add312.pn
   %value357 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store double %value.0, ptr %value357, align 8, !tbaa !165
   %additionalResults = getelementptr inbounds nuw i8, ptr %this, i64 192

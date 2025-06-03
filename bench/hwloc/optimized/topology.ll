@@ -1733,7 +1733,7 @@ define i32 @hwloc_modify_infos(ptr noundef captures(none) %0, i64 noundef %1, pt
   br label %hwloc__add_info_unique.exit
 
 hwloc__add_info_unique.exit:                      ; preds = %18, %45, %43, %34, %27, %13, %50, %48, %46, %5
-  %.0 = phi i32 [ -1, %50 ], [ %49, %48 ], [ %47, %46 ], [ %6, %5 ], [ -1, %13 ], [ 1, %43 ], [ -1, %34 ], [ -1, %45 ], [ -1, %27 ], [ 0, %18 ]
+  %.0 = phi i32 [ -1, %50 ], [ %6, %5 ], [ %47, %46 ], [ %49, %48 ], [ -1, %13 ], [ 1, %43 ], [ -1, %34 ], [ -1, %45 ], [ -1, %27 ], [ 0, %18 ]
   ret i32 %.0
 }
 

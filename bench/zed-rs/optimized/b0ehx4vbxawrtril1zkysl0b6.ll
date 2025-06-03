@@ -4162,8 +4162,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17hda0ddd916c404775E.exit"
 
 50:                                               ; preds = %.thread.i, %51, %45
-  %.sroa.9.0.i = phi i64 [ %52, %51 ], [ %46, %45 ], [ %spec.select, %.thread.i ]
-  %.sroa.0.0.i = phi i64 [ 0, %51 ], [ 0, %45 ], [ %spec.select73, %.thread.i ]
+  %.sroa.9.0.i = phi i64 [ %46, %45 ], [ %52, %51 ], [ %spec.select, %.thread.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %45 ], [ 0, %51 ], [ %spec.select73, %.thread.i ]
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !1050, !noalias !1062
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1062
@@ -4270,8 +4270,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17hda0ddd916c404775E.exit"
 
 86:                                               ; preds = %95, %92, %87, %81, %.thread.i44
-  %.sroa.9.0.i45 = phi i64 [ %98, %95 ], [ %88, %87 ], [ %82, %81 ], [ %.sroa.012.0.lcssa80, %.thread.i44 ], [ %93, %92 ]
-  %.sroa.0.0.i46 = phi i64 [ 0, %95 ], [ 0, %87 ], [ 0, %81 ], [ 1, %.thread.i44 ], [ 2, %92 ]
+  %.sroa.9.0.i45 = phi i64 [ %98, %95 ], [ %82, %81 ], [ %88, %87 ], [ %.sroa.012.0.lcssa80, %.thread.i44 ], [ %93, %92 ]
+  %.sroa.0.0.i46 = phi i64 [ 0, %95 ], [ 0, %81 ], [ 0, %87 ], [ 1, %.thread.i44 ], [ 2, %92 ]
   store i64 %.sroa.0.0.i46, ptr %0, align 8, !alias.scope !1070, !noalias !1082
   %.sroa.9.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i45, ptr %.sroa.9.0..sroa_idx.i47, align 8, !alias.scope !1070, !noalias !1082
@@ -5078,12 +5078,12 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %101
 
-100:                                              ; preds = %75, %82, %58, %65, %41, %48, %124, %117, %109, %101
-  %.sroa.0.0 = phi ptr [ %126, %124 ], [ %102, %101 ], [ %94, %117 ], [ %111, %109 ], [ %42, %41 ], [ %49, %48 ], [ %59, %58 ], [ %66, %65 ], [ %76, %75 ], [ %83, %82 ]
+100:                                              ; preds = %82, %75, %65, %58, %48, %41, %124, %117, %109, %101
+  %.sroa.0.0 = phi ptr [ %126, %124 ], [ %102, %101 ], [ %111, %109 ], [ %94, %117 ], [ %49, %48 ], [ %42, %41 ], [ %66, %65 ], [ %59, %58 ], [ %83, %82 ], [ %76, %75 ]
   ret ptr %.sroa.0.0
 
 101:                                              ; preds = %122, %.thread56, %112, %107, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit36", %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit31", %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit", %97, %95
-  %.sroa.06.0 = phi ptr [ %123, %122 ], [ %118, %.thread56 ], [ %98, %97 ], [ %96, %95 ], [ %116, %112 ], [ %108, %107 ], [ %106, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit36" ], [ %104, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit31" ], [ %99, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit" ]
+  %.sroa.06.0 = phi ptr [ %123, %122 ], [ %118, %.thread56 ], [ %99, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit" ], [ %104, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit31" ], [ %106, %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h11cdcf1337cd5216E.exit36" ], [ %108, %107 ], [ %116, %112 ], [ %96, %95 ], [ %98, %97 ]
   %102 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.sroa.06.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %100
 
@@ -5355,7 +5355,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$18p
   br label %21
 
 21:                                               ; preds = %.loopexit, %17, %19
-  %.sroa.0.1 = phi ptr [ null, %17 ], [ %20, %19 ], [ %16, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %16, %.loopexit ], [ null, %17 ], [ %20, %19 ]
   ret ptr %.sroa.0.1
 }
 
@@ -5635,7 +5635,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br label %24
 
 24:                                               ; preds = %.loopexit, %18, %20, %22
-  %.sroa.0.1 = phi ptr [ %19, %18 ], [ %23, %22 ], [ null, %20 ], [ %17, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %17, %.loopexit ], [ %19, %18 ], [ null, %20 ], [ %23, %22 ]
   ret ptr %.sroa.0.1
 }
 
@@ -5759,7 +5759,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   resume { ptr, i32 } %35
 
 "_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$u8$GT$$C$serde_json..error..Error$GT$$GT$17h0c42cc203e797e46E.exit": ; preds = %37, %36, %.loopexit, %19, %21
-  %.sroa.0.1 = phi ptr [ %20, %19 ], [ null, %21 ], [ %18, %.loopexit ], [ %31, %37 ], [ %33, %36 ]
+  %.sroa.0.1 = phi ptr [ %18, %.loopexit ], [ %20, %19 ], [ null, %21 ], [ %33, %36 ], [ %31, %37 ]
   ret ptr %.sroa.0.1
 }
 
@@ -6194,8 +6194,8 @@ default.unreachable3.i:                           ; preds = %7
   br label %"_ZN70_$LT$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h05eb3833dfefcaa6E.llvm.65197033636736017.exit"
 
 "_ZN70_$LT$serde_json..number..Number$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h05eb3833dfefcaa6E.llvm.65197033636736017.exit": ; preds = %9, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit.i", %.noexc3
-  %.pn2.i = phi ptr [ %20, %.noexc3 ], [ %.sroa.3.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit.i" ], [ %10, %9 ]
-  %.sroa.0.0.i = phi i64 [ 1, %.noexc3 ], [ %.sroa.0.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit.i" ], [ 0, %9 ]
+  %.pn2.i = phi ptr [ %10, %9 ], [ %.sroa.3.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit.i" ], [ %20, %.noexc3 ]
+  %.sroa.0.0.i = phi i64 [ 0, %9 ], [ %.sroa.0.0.i.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit.i" ], [ 1, %.noexc3 ]
   %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   br label %26
 
@@ -6643,8 +6643,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -6656,8 +6656,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -6784,8 +6784,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -6797,8 +6797,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -6925,8 +6925,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -6938,8 +6938,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7066,8 +7066,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7079,8 +7079,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7207,8 +7207,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7220,8 +7220,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7348,8 +7348,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7361,8 +7361,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7489,8 +7489,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7502,8 +7502,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7630,8 +7630,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7643,8 +7643,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7771,8 +7771,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7784,8 +7784,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -7912,8 +7912,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -7925,8 +7925,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8053,8 +8053,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8066,8 +8066,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8194,8 +8194,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8207,8 +8207,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8335,8 +8335,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8348,8 +8348,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8476,8 +8476,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8489,8 +8489,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8617,8 +8617,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8630,8 +8630,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8758,8 +8758,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8771,8 +8771,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -8899,8 +8899,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -8912,8 +8912,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9040,8 +9040,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9053,8 +9053,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9181,8 +9181,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9194,8 +9194,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9322,8 +9322,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9335,8 +9335,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9463,8 +9463,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9476,8 +9476,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9604,8 +9604,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9617,8 +9617,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9745,8 +9745,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9758,8 +9758,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -9886,8 +9886,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -9899,8 +9899,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -10027,8 +10027,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -10040,8 +10040,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -10168,8 +10168,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -10181,8 +10181,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -10309,8 +10309,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -10322,8 +10322,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -10450,8 +10450,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -10463,8 +10463,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -10591,8 +10591,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !1478, !noundef !15
@@ -10604,8 +10604,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !1478, !noundef !15
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -12140,7 +12140,7 @@ define hidden { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWh
   br label %"_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit"
 
 "_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit": ; preds = %8, %11, %14, %19
-  %.sroa.0.0.i.i = phi i8 [ %13, %11 ], [ %24, %19 ], [ %10, %8 ], [ %18, %14 ]
+  %.sroa.0.0.i.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
   %25 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %25, label %28, label %"_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.thread7"
 
@@ -14010,7 +14010,7 @@ define hidden { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   br label %"_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.i"
 
 "_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.i": ; preds = %20, %15, %12, %9
-  %.sroa.0.0.i.i.i = phi i8 [ %14, %12 ], [ %25, %20 ], [ %11, %9 ], [ %19, %15 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
   %26 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %26, label %29, label %"_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.thread7.i"
 
@@ -15020,8 +15020,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
   br label %62
 
 62:                                               ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
   %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %64
@@ -16924,7 +16924,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7c
   br label %"_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.i.i.i.i.i.i"
 
 "_ZN3vim6object8argument24comma_delimited_range_at28_$u7b$$u7b$closure$u7d$$u7d$17h1704ae4bee5e3d9dE.exit.i.i.i.i.i.i": ; preds = %70, %65, %62, %59
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i8 [ %64, %62 ], [ %75, %70 ], [ %61, %59 ], [ %69, %65 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i = phi i8 [ %69, %65 ], [ %61, %59 ], [ %75, %70 ], [ %64, %62 ]
   %76 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i to i1
   br i1 %76, label %77, label %86
 
@@ -22368,8 +22368,8 @@ default.unreachable3:                             ; preds = %1
   br label %22
 
 22:                                               ; preds = %18, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit", %7
-  %.pn2 = phi ptr [ %21, %18 ], [ %.sroa.3.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit" ], [ %9, %7 ]
-  %.sroa.0.0 = phi i64 [ 1, %18 ], [ %.sroa.0.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit" ], [ 0, %7 ]
+  %.pn2 = phi ptr [ %9, %7 ], [ %.sroa.3.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit" ], [ %21, %18 ]
+  %.sroa.0.0 = phi i64 [ 0, %7 ], [ %.sroa.0.0.i, %"_ZN145_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417hccd6dd630720e348E.llvm.65197033636736017.exit" ], [ 1, %18 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.pn2, 1
   ret { i64, ptr } %24
@@ -23518,8 +23518,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   tail call void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h144ba63b91c4b576E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
   br label %25
 
-23:                                               ; preds = %19, %.loopexit.i
-  %.sroa.0.1.i.ph = phi ptr [ %18, %.loopexit.i ], [ %20, %19 ]
+23:                                               ; preds = %.loopexit.i, %19
+  %.sroa.0.1.i.ph = phi ptr [ %20, %19 ], [ %18, %.loopexit.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i.ph, ptr %24, align 8
   store ptr null, ptr %0, align 8
@@ -23588,8 +23588,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   tail call void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3779632a29101876E.llvm.65197033636736017"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
   br label %25
 
-23:                                               ; preds = %19, %.loopexit.i
-  %.sroa.0.1.i.ph = phi ptr [ %18, %.loopexit.i ], [ %20, %19 ]
+23:                                               ; preds = %.loopexit.i, %19
+  %.sroa.0.1.i.ph = phi ptr [ %20, %19 ], [ %18, %.loopexit.i ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i.ph, ptr %24, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -24116,13 +24116,13 @@ define internal fastcc { i64, ptr } @"_ZN81_$LT$core..marker..PhantomData$LT$T$G
 
 30:                                               ; preds = %23
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %27, align 8, !noalias !5984
-  switch i64 %25, label %default.unreachable2.i.i.i.i [
+  switch i64 %25, label %default.unreachable3.i.i.i.i [
     i64 0, label %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread47.i.i.i
     i64 1, label %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread.i.i.i
     i64 2, label %34
   ]
 
-default.unreachable2.i.i.i.i:                     ; preds = %30
+default.unreachable3.i.i.i.i:                     ; preds = %30
   unreachable
 
 _ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread47.i.i.i: ; preds = %30
@@ -24166,10 +24166,10 @@ _ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.i.i.i: ; preds =
   br label %"_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17hc6891c2882e1b74eE.exit"
 
 41:                                               ; preds = %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread47.i.i.i
-  %.sroa.3.0.i.pn.i51.i.i.i = phi ptr [ %32, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread47.i.i.i ], [ %38, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.i.i.i ]
+  %.pn2.i51.i.i.i = phi ptr [ %32, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread47.i.i.i ], [ %38, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !5988
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !5984
-  %42 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.sroa.3.0.i.pn.i51.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
+  %42 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.pn2.i51.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %"_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17hc6891c2882e1b74eE.exit"
 
 43:                                               ; preds = %28
@@ -24187,13 +24187,13 @@ _ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.i.i.i: ; preds =
 
 50:                                               ; preds = %46
   %.sroa.239.0.copyload.i.i.i = load i64, ptr %49, align 8, !noalias !5984
-  switch i64 %47, label %default.unreachable2.i33.i.i.i [
+  switch i64 %47, label %default.unreachable3.i33.i.i.i [
     i64 0, label %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread59.i.i.i
     i64 1, label %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread.i.i.i
     i64 2, label %54
   ]
 
-default.unreachable2.i33.i.i.i:                   ; preds = %50
+default.unreachable3.i33.i.i.i:                   ; preds = %50
   unreachable
 
 _ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread59.i.i.i: ; preds = %50
@@ -24237,10 +24237,10 @@ _ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.i.i.i: ; preds
   br label %"_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17hc6891c2882e1b74eE.exit"
 
 61:                                               ; preds = %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread59.i.i.i
-  %.sroa.3.0.i.pn.i3163.i.i.i = phi ptr [ %52, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread59.i.i.i ], [ %58, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.i.i.i ]
+  %.pn2.i3163.i.i.i = phi ptr [ %52, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread59.i.i.i ], [ %58, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !5992
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !5984
-  %62 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.sroa.3.0.i.pn.i3163.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
+  %62 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.pn2.i3163.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0)
   br label %"_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17hc6891c2882e1b74eE.exit"
 
 "_ZN5serde2de5impls58_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$usize$GT$11deserialize17hc6891c2882e1b74eE.exit": ; preds = %.loopexit.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit.thread52.i.i.i, %39, %41, %43, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17hd2671d8d42c6f949E.exit34.thread64.i.i.i, %59, %61
@@ -24392,7 +24392,7 @@ default.unreachable2.i.i.i.i:                     ; preds = %34
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h1e94379b340f88a2E.exit"
 
 53:                                               ; preds = %45, %40, %35
-  %.sroa.18.0.ph.i.i.i = phi ptr [ %37, %35 ], [ %42, %40 ], [ %47, %45 ]
+  %.sroa.18.0.ph.i.i.i = phi ptr [ %47, %45 ], [ %42, %40 ], [ %37, %35 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !6037
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !6031
   %54 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.sroa.18.0.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1), !noalias !6032
@@ -24482,7 +24482,7 @@ default.unreachable2.i25.i.i.i:                   ; preds = %64
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h1e94379b340f88a2E.exit"
 
 83:                                               ; preds = %75, %70, %65
-  %.sroa.18.1.ph.i.i.i = phi ptr [ %67, %65 ], [ %72, %70 ], [ %77, %75 ]
+  %.sroa.18.1.ph.i.i.i = phi ptr [ %77, %75 ], [ %72, %70 ], [ %67, %65 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !6053
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !6031
   %84 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hc602267040245509E(ptr noalias noundef nonnull align 8 %.sroa.18.1.ph.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1), !noalias !6032
@@ -24879,7 +24879,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h2584d8f73a5710f9E.exit28.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h26f86f4ba5f89f53E.exit.i.i.i.i.i
 
 127:                                              ; preds = %110, %109, %108, %107, %106, %.thread.i.i.i.i.i, %90
-  %.sroa.02.0.i.i.i.i.i.i = phi ptr [ @anon.7fccb1bb6f08bbdc4381c81394edc920.39, %110 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.38, %109 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.37, %108 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.36, %107 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.35, %106 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.32, %.thread.i.i.i.i.i ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.33, %90 ]
+  %.sroa.02.0.i.i.i.i.i.i = phi ptr [ @anon.7fccb1bb6f08bbdc4381c81394edc920.35, %106 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.36, %107 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.37, %108 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.38, %109 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.39, %110 ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.32, %.thread.i.i.i.i.i ], [ @anon.7fccb1bb6f08bbdc4381c81394edc920.33, %90 ]
   %128 = load i64, ptr %.val8, align 8, !alias.scope !6238, !noalias !6247, !noundef !15
   %129 = sub i64 %128, %91
   %130 = icmp ult i64 %129, 2
@@ -27325,8 +27325,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %279, label %274
 
-119:                                              ; preds = %65, %58
-  %.sroa.0.0.i.ph = phi ptr [ %59, %58 ], [ %66, %65 ]
+119:                                              ; preds = %58, %65
+  %.sroa.0.0.i.ph = phi ptr [ %66, %65 ], [ %59, %58 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.ph, ptr %120, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -27345,8 +27345,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %32)
   br label %122
 
-124:                                              ; preds = %81, %74
-  %.sroa.0.0.i98.ph = phi ptr [ %75, %74 ], [ %82, %81 ]
+124:                                              ; preds = %74, %81
+  %.sroa.0.0.i98.ph = phi ptr [ %82, %81 ], [ %75, %74 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i98.ph, ptr %125, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -27360,8 +27360,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %32)
   br label %122
 
-127:                                              ; preds = %97, %90
-  %.sroa.0.0.i103.ph = phi ptr [ %91, %90 ], [ %98, %97 ]
+127:                                              ; preds = %90, %97
+  %.sroa.0.0.i103.ph = phi ptr [ %98, %97 ], [ %91, %90 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i103.ph, ptr %128, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -27699,7 +27699,7 @@ default.unreachable3.i:                           ; preds = %130
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h3809f3fd772242eeE.exit"
 
 common.resume:                                    ; preds = %292, %245, %.body, %206, %210, %316, %271
-  %common.resume.op = phi { ptr, i32 } [ %272, %271 ], [ %317, %316 ], [ %207, %210 ], [ %207, %206 ], [ %eh.lpad-body, %.body ], [ %293, %292 ], [ %246, %245 ]
+  %common.resume.op = phi { ptr, i32 } [ %272, %271 ], [ %317, %316 ], [ %207, %210 ], [ %207, %206 ], [ %eh.lpad-body, %.body ], [ %246, %245 ], [ %293, %292 ]
   resume { ptr, i32 } %common.resume.op
 
 216:                                              ; preds = %.noexc128
@@ -28653,8 +28653,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i8 %.sink, ptr %0, align 8
   ret void
 
-62:                                               ; preds = %34, %41, %50, %57
-  %.sroa.0.0.i31.ph.sink = phi ptr [ %51, %50 ], [ %58, %57 ], [ %35, %34 ], [ %42, %41 ]
+62:                                               ; preds = %41, %34, %57, %50
+  %.sroa.0.0.i31.ph.sink = phi ptr [ %58, %57 ], [ %51, %50 ], [ %42, %41 ], [ %35, %34 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i31.ph.sink, ptr %63, align 8
   br label %61
@@ -29038,9 +29038,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h5f63f239d2b56d22E.exit"
 
 "_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h5f63f239d2b56d22E.exit": ; preds = %.loopexit36.i.i39.i, %.loopexit.i.i41.i, %.loopexit35.i.i44.i, %148, %151, %.loopexit35.i.i.i, %.loopexit.i.i33.i, %.loopexit34.i.i.i, %117, %120, %.loopexit37.i.i.i, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i", %94, %123, %154, %156
-  %.sroa.082.0.in = phi ptr [ %93, %156 ], [ %155, %154 ], [ %124, %123 ], [ %95, %94 ], [ %90, %.loopexit37.i.i.i ], [ %93, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ %106, %.loopexit35.i.i.i ], [ %115, %.loopexit.i.i33.i ], [ %116, %.loopexit34.i.i.i ], [ %122, %120 ], [ %118, %117 ], [ %137, %.loopexit36.i.i39.i ], [ %146, %.loopexit.i.i41.i ], [ %147, %.loopexit35.i.i44.i ], [ %153, %151 ], [ %149, %148 ]
-  %.sroa.12.091 = phi i32 [ %158, %156 ], [ undef, %154 ], [ undef, %123 ], [ undef, %94 ], [ undef, %.loopexit37.i.i.i ], [ undef, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ undef, %.loopexit35.i.i.i ], [ undef, %.loopexit.i.i33.i ], [ undef, %.loopexit34.i.i.i ], [ undef, %120 ], [ undef, %117 ], [ undef, %.loopexit36.i.i39.i ], [ undef, %.loopexit.i.i41.i ], [ undef, %.loopexit35.i.i44.i ], [ undef, %151 ], [ undef, %148 ]
-  %.sroa.13.0 = phi i8 [ %127, %156 ], [ 2, %154 ], [ 2, %123 ], [ 2, %94 ], [ 2, %.loopexit37.i.i.i ], [ 2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ 2, %.loopexit35.i.i.i ], [ 2, %.loopexit.i.i33.i ], [ 2, %.loopexit34.i.i.i ], [ 2, %120 ], [ 2, %117 ], [ 2, %.loopexit36.i.i39.i ], [ 2, %.loopexit.i.i41.i ], [ 2, %.loopexit35.i.i44.i ], [ 2, %151 ], [ 2, %148 ]
+  %.sroa.082.0.in = phi ptr [ %124, %123 ], [ %155, %154 ], [ %93, %156 ], [ %95, %94 ], [ %90, %.loopexit37.i.i.i ], [ %93, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ %115, %.loopexit.i.i33.i ], [ %106, %.loopexit35.i.i.i ], [ %116, %.loopexit34.i.i.i ], [ %122, %120 ], [ %118, %117 ], [ %146, %.loopexit.i.i41.i ], [ %137, %.loopexit36.i.i39.i ], [ %147, %.loopexit35.i.i44.i ], [ %153, %151 ], [ %149, %148 ]
+  %.sroa.12.091 = phi i32 [ undef, %123 ], [ undef, %154 ], [ %158, %156 ], [ undef, %94 ], [ undef, %.loopexit37.i.i.i ], [ undef, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ undef, %.loopexit.i.i33.i ], [ undef, %.loopexit35.i.i.i ], [ undef, %.loopexit34.i.i.i ], [ undef, %120 ], [ undef, %117 ], [ undef, %.loopexit.i.i41.i ], [ undef, %.loopexit36.i.i39.i ], [ undef, %.loopexit35.i.i44.i ], [ undef, %151 ], [ undef, %148 ]
+  %.sroa.13.0 = phi i8 [ 2, %123 ], [ 2, %154 ], [ %127, %156 ], [ 2, %94 ], [ 2, %.loopexit37.i.i.i ], [ 2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit24.i.i.i" ], [ 2, %.loopexit.i.i33.i ], [ 2, %.loopexit35.i.i.i ], [ 2, %.loopexit34.i.i.i ], [ 2, %120 ], [ 2, %117 ], [ 2, %.loopexit.i.i41.i ], [ 2, %.loopexit36.i.i39.i ], [ 2, %.loopexit35.i.i44.i ], [ 2, %151 ], [ 2, %148 ]
   %159 = load i8, ptr %70, align 8, !range !268, !noundef !15
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %168, label %164
@@ -29138,7 +29138,7 @@ common.resume.sink.split:                         ; preds = %188, %527
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %511, %170
-  %common.resume.op = phi { ptr, i32 } [ %512, %511 ], [ %171, %170 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %171, %170 ], [ %512, %511 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 188:                                              ; preds = %186, %182, %180
@@ -29717,9 +29717,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %exitcond.not.i86.i.i.i.i.i.i.i, label %.loopexit138.i.i.i.i.i.i.i, label %361
 
 .loopexit138.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i, %381, %365
-  %.sroa.033.0169.i.i.i.i.i.i.i = phi i8 [ %.sroa.033.0180.i.i.i.i.i.i.i, %365 ], [ %385, %381 ], [ %.sroa.033.0.ph.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ]
+  %.sroa.033.0171.i.i.i.i.i.i.i = phi i8 [ %.sroa.033.0180.i.i.i.i.i.i.i, %365 ], [ %385, %381 ], [ %.sroa.033.0.ph.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !7787
-  switch i8 %.sroa.033.0169.i.i.i.i.i.i.i, label %367 [
+  switch i8 %.sroa.033.0171.i.i.i.i.i.i.i, label %367 [
     i8 91, label %369
     i8 123, label %368
   ]
@@ -29957,7 +29957,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i
 
 443:                                              ; preds = %438, %.loopexit.i.i.i99.i
-  %.sroa.0.1.i.ph.i.i.i = phi ptr [ %437, %.loopexit.i.i.i99.i ], [ %439, %438 ]
+  %.sroa.0.1.i.ph.i.i.i = phi ptr [ %439, %438 ], [ %437, %.loopexit.i.i.i99.i ]
   %444 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.0.1.i.ph.i.i.i, 1
   br label %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i
 
@@ -29973,11 +29973,11 @@ _ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i: ; preds = %443, %
   br label %_ZN5serde2de9MapAccess10next_value17h49bbdf3382bc4915E.exit.i
 
 _ZN5serde2de9MapAccess10next_value17h49bbdf3382bc4915E.exit.i: ; preds = %345, %379, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i, %468, %447
-  %.sroa.421.1.i = phi i32 [ %.sroa.421.0461.i, %468 ], [ %.sroa.421.0461.i, %447 ], [ %488, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.421.0461.i, %379 ], [ %.sroa.421.0461.i, %345 ]
-  %.sroa.019.1.i = phi i32 [ %.sroa.019.0462.i, %468 ], [ %.sroa.019.0462.i, %447 ], [ 1, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.019.0462.i, %379 ], [ %.sroa.019.0462.i, %345 ]
-  %.sroa.012.1.i = phi i8 [ %469, %468 ], [ %.sroa.012.0463.i, %447 ], [ %.sroa.012.0463.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.012.0463.i, %379 ], [ %.sroa.012.0463.i, %345 ]
-  %.sroa.4.1.i = phi i64 [ %.sroa.4.0464.i, %468 ], [ %448, %447 ], [ %.sroa.4.0464.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.4.0464.i, %379 ], [ %.sroa.4.0464.i, %345 ]
-  %.sroa.06.1.i = phi i64 [ %.sroa.06.0465.i, %468 ], [ 1, %447 ], [ %.sroa.06.0465.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.06.0465.i, %379 ], [ %.sroa.06.0465.i, %345 ]
+  %.sroa.421.1.i = phi i32 [ %.sroa.421.0461.i, %447 ], [ %.sroa.421.0461.i, %468 ], [ %488, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.421.0461.i, %379 ], [ %.sroa.421.0461.i, %345 ]
+  %.sroa.019.1.i = phi i32 [ %.sroa.019.0462.i, %447 ], [ %.sroa.019.0462.i, %468 ], [ 1, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.019.0462.i, %379 ], [ %.sroa.019.0462.i, %345 ]
+  %.sroa.012.1.i = phi i8 [ %.sroa.012.0463.i, %447 ], [ %469, %468 ], [ %.sroa.012.0463.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.012.0463.i, %379 ], [ %.sroa.012.0463.i, %345 ]
+  %.sroa.4.1.i = phi i64 [ %448, %447 ], [ %.sroa.4.0464.i, %468 ], [ %.sroa.4.0464.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.4.0464.i, %379 ], [ %.sroa.4.0464.i, %345 ]
+  %.sroa.06.1.i = phi i64 [ 1, %447 ], [ %.sroa.06.0465.i, %468 ], [ %.sroa.06.0465.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %.sroa.06.0465.i, %379 ], [ %.sroa.06.0465.i, %345 ]
   %449 = load i64, ptr %55, align 8, !alias.scope !7958, !noalias !7639, !noundef !15
   %.promoted.i.i.i.i69 = load i64, ptr %54, align 8, !alias.scope !7960, !noalias !7656
   %450 = icmp ult i64 %.promoted.i.i.i.i69, %449
@@ -30052,7 +30052,7 @@ _ZN5serde2de9MapAccess10next_value17h84ee1fd299dd4cfbE.exit.i: ; preds = %457
   br label %.loopexit796.i
 
 .loopexit796.i:                                   ; preds = %.loopexit.i.i.i103.i, %464, %.loopexit796.i.loopexit
-  %470 = phi ptr [ %.pre, %.loopexit796.i.loopexit ], [ %463, %.loopexit.i.i.i103.i ], [ %465, %464 ]
+  %470 = phi ptr [ %.pre, %.loopexit796.i.loopexit ], [ %465, %464 ], [ %463, %.loopexit.i.i.i103.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !7961
   br label %"_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6ed7b97916a91b0dE.exit"
 
@@ -30108,7 +30108,7 @@ _ZN5serde2de9MapAccess10next_value17h84ee1fd299dd4cfbE.exit.i: ; preds = %457
   br label %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i
 
 _ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i: ; preds = %484, %.loopexit.i.i.i108.i
-  %.sroa.0.1.i.ph.i.i109.i = phi ptr [ %483, %.loopexit.i.i.i108.i ], [ %485, %484 ]
+  %.sroa.0.1.i.ph.i.i109.i = phi ptr [ %485, %484 ], [ %483, %.loopexit.i.i.i108.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37), !noalias !7961
   br label %"_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6ed7b97916a91b0dE.exit"
 
@@ -30149,9 +30149,9 @@ _ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i: ; preds = %477
   br label %"_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6ed7b97916a91b0dE.exit"
 
 "_ZN152_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$editor..ClipboardSelection$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6ed7b97916a91b0dE.exit": ; preds = %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i, %330, %334, %342, %396, %.loopexit.i.i.i.i, %266, %.loopexit146.i.i.i.i.i.i.i, %289, %296, %305, %312, %321, %328, %340, %369, %.loopexit140.i.i.i.i.i.i.i, %400, %.loopexit139.i.i.i.i.i.i.i, %415, %423, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i, %.loopexit42.i.i.i, %.loopexit.i.i.i, %229, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i", %247, %249, %425, %451, %.loopexit796.i, %471, %489, %493, %496, %498
-  %.sroa.085.0 = phi ptr [ %472, %471 ], [ %470, %.loopexit796.i ], [ %452, %451 ], [ %426, %425 ], [ %490, %489 ], [ %494, %493 ], [ %497, %496 ], [ %500, %498 ], [ %215, %.loopexit42.i.i.i ], [ %227, %.loopexit.i.i.i ], [ %230, %229 ], [ %236, %249 ], [ %248, %247 ], [ %231, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ %.sroa.0.1.i.ph.i.i109.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ %267, %266 ], [ %265, %.loopexit.i.i.i.i ], [ %279, %.loopexit146.i.i.i.i.i.i.i ], [ %341, %340 ], [ %424, %423 ], [ %370, %369 ], [ %401, %400 ], [ %395, %.loopexit140.i.i.i.i.i.i.i ], [ %416, %415 ], [ %412, %.loopexit139.i.i.i.i.i.i.i ], [ %290, %289 ], [ %297, %296 ], [ %306, %305 ], [ %313, %312 ], [ %322, %321 ], [ %329, %328 ], [ %332, %330 ], [ %336, %334 ], [ %343, %342 ], [ %398, %396 ], [ %.pre779.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %446, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ]
-  %.sroa.17.0 = phi i32 [ undef, %471 ], [ undef, %.loopexit796.i ], [ undef, %451 ], [ undef, %425 ], [ undef, %489 ], [ undef, %493 ], [ undef, %496 ], [ %.sroa.421.0461.i, %498 ], [ undef, %.loopexit42.i.i.i ], [ undef, %.loopexit.i.i.i ], [ undef, %229 ], [ undef, %249 ], [ undef, %247 ], [ undef, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ undef, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ undef, %266 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %.loopexit146.i.i.i.i.i.i.i ], [ undef, %340 ], [ undef, %423 ], [ undef, %369 ], [ undef, %400 ], [ undef, %.loopexit140.i.i.i.i.i.i.i ], [ undef, %415 ], [ undef, %.loopexit139.i.i.i.i.i.i.i ], [ undef, %289 ], [ undef, %296 ], [ undef, %305 ], [ undef, %312 ], [ undef, %321 ], [ undef, %328 ], [ undef, %396 ], [ undef, %342 ], [ undef, %334 ], [ undef, %330 ], [ undef, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ], [ undef, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ]
-  %.sroa.1886.0 = phi i8 [ 2, %471 ], [ 2, %.loopexit796.i ], [ 2, %451 ], [ 2, %425 ], [ 2, %489 ], [ 2, %493 ], [ 2, %496 ], [ %499, %498 ], [ 2, %.loopexit42.i.i.i ], [ 2, %.loopexit.i.i.i ], [ 2, %229 ], [ 2, %249 ], [ 2, %247 ], [ 2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ 2, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ 2, %266 ], [ 2, %.loopexit.i.i.i.i ], [ 2, %.loopexit146.i.i.i.i.i.i.i ], [ 2, %340 ], [ 2, %423 ], [ 2, %369 ], [ 2, %400 ], [ 2, %.loopexit140.i.i.i.i.i.i.i ], [ 2, %415 ], [ 2, %.loopexit139.i.i.i.i.i.i.i ], [ 2, %289 ], [ 2, %296 ], [ 2, %305 ], [ 2, %312 ], [ 2, %321 ], [ 2, %328 ], [ 2, %396 ], [ 2, %342 ], [ 2, %334 ], [ 2, %330 ], [ 2, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ], [ 2, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ]
+  %.sroa.085.0 = phi ptr [ %426, %425 ], [ %470, %.loopexit796.i ], [ %452, %451 ], [ %472, %471 ], [ %490, %489 ], [ %494, %493 ], [ %497, %496 ], [ %500, %498 ], [ %227, %.loopexit.i.i.i ], [ %215, %.loopexit42.i.i.i ], [ %230, %229 ], [ %248, %247 ], [ %236, %249 ], [ %231, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ %.sroa.0.1.i.ph.i.i109.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ %265, %.loopexit.i.i.i.i ], [ %267, %266 ], [ %279, %.loopexit146.i.i.i.i.i.i.i ], [ %341, %340 ], [ %370, %369 ], [ %424, %423 ], [ %395, %.loopexit140.i.i.i.i.i.i.i ], [ %401, %400 ], [ %412, %.loopexit139.i.i.i.i.i.i.i ], [ %416, %415 ], [ %297, %296 ], [ %290, %289 ], [ %313, %312 ], [ %306, %305 ], [ %329, %328 ], [ %322, %321 ], [ %332, %330 ], [ %336, %334 ], [ %343, %342 ], [ %398, %396 ], [ %.pre779.i, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ], [ %446, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ]
+  %.sroa.17.0 = phi i32 [ undef, %425 ], [ undef, %.loopexit796.i ], [ undef, %451 ], [ undef, %471 ], [ undef, %489 ], [ undef, %493 ], [ undef, %496 ], [ %.sroa.421.0461.i, %498 ], [ undef, %.loopexit.i.i.i ], [ undef, %.loopexit42.i.i.i ], [ undef, %229 ], [ undef, %247 ], [ undef, %249 ], [ undef, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ undef, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ undef, %.loopexit.i.i.i.i ], [ undef, %266 ], [ undef, %.loopexit146.i.i.i.i.i.i.i ], [ undef, %340 ], [ undef, %369 ], [ undef, %423 ], [ undef, %.loopexit140.i.i.i.i.i.i.i ], [ undef, %400 ], [ undef, %.loopexit139.i.i.i.i.i.i.i ], [ undef, %415 ], [ undef, %296 ], [ undef, %289 ], [ undef, %312 ], [ undef, %305 ], [ undef, %328 ], [ undef, %321 ], [ undef, %396 ], [ undef, %342 ], [ undef, %334 ], [ undef, %330 ], [ undef, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ], [ undef, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ]
+  %.sroa.1886.0 = phi i8 [ 2, %425 ], [ 2, %.loopexit796.i ], [ 2, %451 ], [ 2, %471 ], [ 2, %489 ], [ 2, %493 ], [ 2, %496 ], [ %499, %498 ], [ 2, %.loopexit.i.i.i ], [ 2, %.loopexit42.i.i.i ], [ 2, %229 ], [ 2, %247 ], [ 2, %249 ], [ 2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h08010dec77fa8fd6E.llvm.65197033636736017.exit21.i.i.thread.i" ], [ 2, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.thread.i ], [ 2, %.loopexit.i.i.i.i ], [ 2, %266 ], [ 2, %.loopexit146.i.i.i.i.i.i.i ], [ 2, %340 ], [ 2, %369 ], [ 2, %423 ], [ 2, %.loopexit140.i.i.i.i.i.i.i ], [ 2, %400 ], [ 2, %.loopexit139.i.i.i.i.i.i.i ], [ 2, %415 ], [ 2, %296 ], [ 2, %289 ], [ 2, %312 ], [ 2, %305 ], [ 2, %328 ], [ 2, %321 ], [ 2, %396 ], [ 2, %342 ], [ 2, %334 ], [ 2, %330 ], [ 2, %_ZN5serde2de9MapAccess10next_value17hb8f05fe73874f04bE.exit.i ], [ 2, %_ZN5serde2de9MapAccess10next_value17hdd7c44585801e000E.exit.i ]
   %501 = load i8, ptr %74, align 8, !range !268, !noundef !15
   %502 = trunc nuw i8 %501 to i1
   br i1 %502, label %509, label %505
@@ -35731,7 +35731,7 @@ define hidden void @_ZN9itertools9Itertools4join17hfaeb5b8e2ff6bde3E(ptr dead_on
   ret void
 
 34:                                               ; preds = %.body, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #62
           to label %98 unwind label %95
 

@@ -278,7 +278,7 @@ define range(i32 -1, 1) i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 nou
   br label %29
 
 20:                                               ; preds = %10, %8, %6, %4
-  %.015 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.015 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %thread-pre-split, label %21
 
@@ -303,7 +303,7 @@ thread-pre-split:                                 ; preds = %20
   br label %29
 
 29:                                               ; preds = %23, %25, %16, %12
-  %.0 = phi i32 [ -1, %16 ], [ -1, %12 ], [ 0, %23 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %16 ], [ 0, %23 ], [ -1, %25 ], [ -1, %12 ]
   ret i32 %.0
 }
 

@@ -1837,8 +1837,8 @@ if.end:                                           ; preds = %if.end.i, %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %cond.true.i.i, %sw.bb2.i, %if.end
-  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %6, %sw.bb7.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %call.i18.i, %sw.bb3.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
-  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %conv.i.i, %sw.bb7.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %call2.i.i, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
+  %retval.sroa.0.0.i.pn = phi ptr [ %8, %if.end ], [ %call.i18.i, %sw.bb3.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb5.i ], [ %6, %sw.bb7.i ], [ null, %sw.bb2.i ], [ %2, %cond.true.i.i ], [ null, %if.end.i ]
+  %retval.sroa.7.0.i.pn = phi i64 [ %conv.i, %if.end ], [ %call2.i.i, %sw.bb3.i ], [ %retval.sroa.7.0.copyload.i, %sw.bb5.i ], [ %conv.i.i, %sw.bb7.i ], [ 0, %sw.bb2.i ], [ %call.i.i, %cond.true.i.i ], [ 0, %if.end.i ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.i.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.7.0.i.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged
@@ -4570,8 +4570,8 @@ default.unreachable128:                           ; preds = %for.end
   unreachable
 
 for.inc60:                                        ; preds = %if.then27, %if.then54, %if.end43, %lor.rhs
-  %EC.sroa.0.1 = phi i32 [ 17, %if.then54 ], [ 0, %if.end43 ], [ 17, %if.then27 ], [ 13, %lor.rhs ]
-  %EC.sroa.15114.1 = phi ptr [ %retval.sroa.3.0.i, %if.then54 ], [ %retval.sroa.5.0.i, %if.end43 ], [ %24, %if.then27 ], [ %24, %lor.rhs ]
+  %EC.sroa.0.1 = phi i32 [ 17, %if.then27 ], [ 13, %lor.rhs ], [ 0, %if.end43 ], [ 17, %if.then54 ]
+  %EC.sroa.15114.1 = phi ptr [ %24, %if.then27 ], [ %24, %lor.rhs ], [ %retval.sroa.5.0.i, %if.end43 ], [ %retval.sroa.3.0.i, %if.then54 ]
   %dec = add nsw i32 %Retries.0126, -1
   %cmp = icmp samesign ugt i32 %Retries.0126, 1
   br i1 %cmp, label %for.body, label %cleanup, !llvm.loop !60

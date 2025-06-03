@@ -685,9 +685,9 @@ print_current_user.exit:                          ; preds = %2, %46
   br label %.backedge
 
 .backedge:                                        ; preds = %95, %105, %62, %69, %120, %117, %116, %115, %109, %108, %104, %101
-  %.0182.be = phi ptr [ %.0182, %120 ], [ %.0182, %117 ], [ %.0182, %116 ], [ %.0182, %115 ], [ %.0182, %109 ], [ %.0182, %108 ], [ %.0182, %104 ], [ %102, %101 ], [ %.0182, %69 ], [ %.0182, %95 ], [ %.0182, %62 ], [ %.0182, %105 ]
-  %.0178.be = phi ptr [ %.0178, %120 ], [ %.0178, %117 ], [ %.0178, %116 ], [ %.1179, %115 ], [ %.0178, %109 ], [ %.0178, %108 ], [ %.0178, %104 ], [ %.0178, %101 ], [ %.0178, %69 ], [ %.0178, %95 ], [ %.0178, %62 ], [ %.0178, %105 ]
-  %.0169.be = phi i1 [ %.0169, %120 ], [ %.0169, %117 ], [ %.0169, %116 ], [ %.0169, %115 ], [ %.0169, %109 ], [ %.0169, %108 ], [ true, %104 ], [ %spec.select, %101 ], [ %.0169, %69 ], [ %.0169, %95 ], [ %.0169, %62 ], [ %spec.select286, %105 ]
+  %.0182.be = phi ptr [ %.0182, %69 ], [ %.0182, %95 ], [ %102, %101 ], [ %.0182, %104 ], [ %.0182, %108 ], [ %.0182, %109 ], [ %.0182, %115 ], [ %.0182, %116 ], [ %.0182, %117 ], [ %.0182, %120 ], [ %.0182, %62 ], [ %.0182, %105 ]
+  %.0178.be = phi ptr [ %.0178, %69 ], [ %.0178, %95 ], [ %.0178, %101 ], [ %.0178, %104 ], [ %.0178, %108 ], [ %.0178, %109 ], [ %.1179, %115 ], [ %.0178, %116 ], [ %.0178, %117 ], [ %.0178, %120 ], [ %.0178, %62 ], [ %.0178, %105 ]
+  %.0169.be = phi i1 [ %.0169, %69 ], [ %.0169, %95 ], [ %spec.select, %101 ], [ true, %104 ], [ %.0169, %108 ], [ %.0169, %109 ], [ %.0169, %115 ], [ %.0169, %116 ], [ %.0169, %117 ], [ %.0169, %120 ], [ %.0169, %62 ], [ %spec.select286, %105 ]
   br label %62, !llvm.loop !9
 
 97:                                               ; preds = %70
@@ -1085,7 +1085,7 @@ print_current_user.exit:                          ; preds = %2, %46
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.64, ptr noundef %211)
   br label %.thread292
 
-.thread292:                                       ; preds = %208, %202, %210
+.thread292:                                       ; preds = %210, %202, %208
   store volatile i32 1, ptr %11, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #20
   br label %.thread304
@@ -1519,10 +1519,10 @@ sub_1308:                                         ; preds = %sub_0307
   br label %.thread304
 
 375:                                              ; preds = %212, %157, %166, %163, %183, %181, %362, %354, %319, %327, %335, %343, %339, %331, %323, %297, %286, %282, %226, %237, %244, %252, %258, %259, %262, %248, %240, %230, %175, %168, %361, %311, %304, %303, %302, %300, %272, %.tail311.thread, %217, %215, %214, %213, %198, %195, %188, %153, %150, %147, %146, %143, %140, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %.1186 = phi ptr [ %.0185422, %362 ], [ %.0185422, %361 ], [ %.0185422, %354 ], [ %.0185422, %319 ], [ %.0185422, %323 ], [ %.0185422, %327 ], [ %.0185422, %331 ], [ %.0185422, %335 ], [ %.0185422, %339 ], [ %.0185422, %343 ], [ %.0185422, %311 ], [ %305, %304 ], [ %.0185422, %303 ], [ %.0185422, %302 ], [ %.0185422, %300 ], [ %.0185422, %297 ], [ %.0185422, %286 ], [ %.0185422, %282 ], [ %.0185422, %272 ], [ %.0185422, %.tail311.thread ], [ %.0185422, %226 ], [ %.0185422, %230 ], [ %.0185422, %237 ], [ %.0185422, %240 ], [ %.0185422, %244 ], [ %.0185422, %248 ], [ %.0185422, %252 ], [ %.0185422, %258 ], [ %.0185422, %259 ], [ %.0185422, %262 ], [ %.0185422, %217 ], [ %.0185422, %215 ], [ %.0185422, %214 ], [ %.0185422, %213 ], [ %.0185422, %212 ], [ %.0185422, %198 ], [ %.0185422, %195 ], [ %.0185422, %188 ], [ %.0185422, %183 ], [ %.0185422, %181 ], [ %.0185422, %175 ], [ %.0185422, %168 ], [ %.0185422, %153 ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %150 ], [ %.0185422, %147 ], [ %.0185422, %146 ], [ %.0185422, %143 ], [ %.0185422, %140 ], [ %.0185422, %163 ], [ %.0185422, %166 ], [ %.0185422, %157 ]
-  %.1177 = phi ptr [ %.0176423, %362 ], [ %.0176423, %361 ], [ %.0176423, %354 ], [ %.0176423, %319 ], [ %.0176423, %323 ], [ %.0176423, %327 ], [ %.0176423, %331 ], [ %.0176423, %335 ], [ %.0176423, %339 ], [ %.0176423, %343 ], [ %.0176423, %311 ], [ %.0176423, %304 ], [ %.0176423, %303 ], [ %.0176423, %302 ], [ %.0176423, %300 ], [ %.0176423, %297 ], [ %.0176423, %286 ], [ %.0176423, %282 ], [ %.0176423, %272 ], [ %.0176423, %.tail311.thread ], [ %.0176423, %226 ], [ %.0176423, %230 ], [ %.0176423, %237 ], [ %.0176423, %240 ], [ %.0176423, %244 ], [ %.0176423, %248 ], [ %.0176423, %252 ], [ %.0176423, %258 ], [ %.0176423, %259 ], [ %.0176423, %262 ], [ %.0176423, %217 ], [ %216, %215 ], [ %.0176423, %214 ], [ %.0176423, %213 ], [ %.0176423, %212 ], [ %.0176423, %198 ], [ %.0176423, %195 ], [ %.0176423, %188 ], [ %.0176423, %183 ], [ %.0176423, %181 ], [ %.0176423, %175 ], [ %.0176423, %168 ], [ %.0176423, %153 ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %150 ], [ %.0176423, %147 ], [ %.0176423, %146 ], [ %.0176423, %143 ], [ %.0176423, %140 ], [ %.0176423, %163 ], [ %.0176423, %166 ], [ %.0176423, %157 ]
-  %.1173 = phi i1 [ %.0172424, %362 ], [ %.0172424, %361 ], [ %.0172424, %354 ], [ %.0172424, %319 ], [ %.0172424, %323 ], [ %.0172424, %327 ], [ %.0172424, %331 ], [ %.0172424, %335 ], [ %.0172424, %339 ], [ %.0172424, %343 ], [ %.0172424, %311 ], [ %.0172424, %304 ], [ %.0172424, %303 ], [ %.0172424, %302 ], [ %.0172424, %300 ], [ %.0172424, %297 ], [ %.0172424, %286 ], [ %.0172424, %282 ], [ %.0172424, %272 ], [ %.0172424, %.tail311.thread ], [ %.0172424, %226 ], [ %.0172424, %230 ], [ %.0172424, %237 ], [ %.0172424, %240 ], [ %.0172424, %244 ], [ %.0172424, %248 ], [ %.0172424, %252 ], [ %.0172424, %258 ], [ %.0172424, %259 ], [ %.0172424, %262 ], [ %.0172424, %217 ], [ %.0172424, %215 ], [ %.0172424, %214 ], [ %.0172424, %213 ], [ %.0172424, %212 ], [ %.0172424, %198 ], [ %.0172424, %195 ], [ %.0172424, %188 ], [ %.0172424, %183 ], [ %.0172424, %181 ], [ %.0172424, %175 ], [ %.0172424, %168 ], [ true, %153 ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %150 ], [ %.0172424, %147 ], [ true, %146 ], [ %.0172424, %143 ], [ %.0172424, %140 ], [ %.0172424, %163 ], [ %.0172424, %166 ], [ %.0172424, %157 ]
-  %.1 = phi i1 [ %.0168425, %362 ], [ %.0168425, %361 ], [ %.0168425, %354 ], [ %.0168425, %319 ], [ %.0168425, %323 ], [ %.0168425, %327 ], [ %.0168425, %331 ], [ %.0168425, %335 ], [ %.0168425, %339 ], [ %.0168425, %343 ], [ %.0168425, %311 ], [ %.0168425, %304 ], [ %.0168425, %303 ], [ %.0168425, %302 ], [ %.0168425, %300 ], [ %.0168425, %297 ], [ %.0168425, %286 ], [ %.0168425, %282 ], [ %.0168425, %272 ], [ %.0168425, %.tail311.thread ], [ %.0168425, %226 ], [ %.0168425, %230 ], [ %.0168425, %237 ], [ %.0168425, %240 ], [ %.0168425, %244 ], [ %.0168425, %248 ], [ %.0168425, %252 ], [ %.0168425, %258 ], [ %.0168425, %259 ], [ %.0168425, %262 ], [ %.0168425, %217 ], [ %.0168425, %215 ], [ %.0168425, %214 ], [ %.0168425, %213 ], [ %.0168425, %212 ], [ %.0168425, %198 ], [ %.0168425, %195 ], [ %.0168425, %188 ], [ %.0168425, %183 ], [ %.0168425, %181 ], [ %.0168425, %175 ], [ %.0168425, %168 ], [ true, %153 ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %150 ], [ %.0168425, %147 ], [ true, %146 ], [ %.3, %143 ], [ %.2, %140 ], [ %.0168425, %163 ], [ %.0168425, %166 ], [ %.0168425, %157 ]
+  %.1186 = phi ptr [ %.0185422, %140 ], [ %.0185422, %143 ], [ %.0185422, %146 ], [ %.0185422, %147 ], [ %.0185422, %150 ], [ %.0185422, %153 ], [ %.0185422, %168 ], [ %.0185422, %175 ], [ %.0185422, %181 ], [ %.0185422, %183 ], [ %.0185422, %188 ], [ %.0185422, %195 ], [ %.0185422, %198 ], [ %.0185422, %212 ], [ %.0185422, %213 ], [ %.0185422, %214 ], [ %.0185422, %215 ], [ %.0185422, %217 ], [ %.0185422, %226 ], [ %.0185422, %230 ], [ %.0185422, %237 ], [ %.0185422, %240 ], [ %.0185422, %244 ], [ %.0185422, %248 ], [ %.0185422, %252 ], [ %.0185422, %258 ], [ %.0185422, %259 ], [ %.0185422, %262 ], [ %.0185422, %.tail311.thread ], [ %.0185422, %272 ], [ %.0185422, %282 ], [ %.0185422, %286 ], [ %.0185422, %297 ], [ %.0185422, %300 ], [ %.0185422, %302 ], [ %.0185422, %303 ], [ %305, %304 ], [ %.0185422, %311 ], [ %.0185422, %319 ], [ %.0185422, %323 ], [ %.0185422, %327 ], [ %.0185422, %331 ], [ %.0185422, %335 ], [ %.0185422, %339 ], [ %.0185422, %343 ], [ %.0185422, %354 ], [ %.0185422, %361 ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %.lr.ph ], [ %.0185422, %362 ], [ %.0185422, %163 ], [ %.0185422, %166 ], [ %.0185422, %157 ]
+  %.1177 = phi ptr [ %.0176423, %140 ], [ %.0176423, %143 ], [ %.0176423, %146 ], [ %.0176423, %147 ], [ %.0176423, %150 ], [ %.0176423, %153 ], [ %.0176423, %168 ], [ %.0176423, %175 ], [ %.0176423, %181 ], [ %.0176423, %183 ], [ %.0176423, %188 ], [ %.0176423, %195 ], [ %.0176423, %198 ], [ %.0176423, %212 ], [ %.0176423, %213 ], [ %.0176423, %214 ], [ %216, %215 ], [ %.0176423, %217 ], [ %.0176423, %226 ], [ %.0176423, %230 ], [ %.0176423, %237 ], [ %.0176423, %240 ], [ %.0176423, %244 ], [ %.0176423, %248 ], [ %.0176423, %252 ], [ %.0176423, %258 ], [ %.0176423, %259 ], [ %.0176423, %262 ], [ %.0176423, %.tail311.thread ], [ %.0176423, %272 ], [ %.0176423, %282 ], [ %.0176423, %286 ], [ %.0176423, %297 ], [ %.0176423, %300 ], [ %.0176423, %302 ], [ %.0176423, %303 ], [ %.0176423, %304 ], [ %.0176423, %311 ], [ %.0176423, %319 ], [ %.0176423, %323 ], [ %.0176423, %327 ], [ %.0176423, %331 ], [ %.0176423, %335 ], [ %.0176423, %339 ], [ %.0176423, %343 ], [ %.0176423, %354 ], [ %.0176423, %361 ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %.lr.ph ], [ %.0176423, %362 ], [ %.0176423, %163 ], [ %.0176423, %166 ], [ %.0176423, %157 ]
+  %.1173 = phi i1 [ %.0172424, %140 ], [ %.0172424, %143 ], [ true, %146 ], [ %.0172424, %147 ], [ %.0172424, %150 ], [ true, %153 ], [ %.0172424, %168 ], [ %.0172424, %175 ], [ %.0172424, %181 ], [ %.0172424, %183 ], [ %.0172424, %188 ], [ %.0172424, %195 ], [ %.0172424, %198 ], [ %.0172424, %212 ], [ %.0172424, %213 ], [ %.0172424, %214 ], [ %.0172424, %215 ], [ %.0172424, %217 ], [ %.0172424, %226 ], [ %.0172424, %230 ], [ %.0172424, %237 ], [ %.0172424, %240 ], [ %.0172424, %244 ], [ %.0172424, %248 ], [ %.0172424, %252 ], [ %.0172424, %258 ], [ %.0172424, %259 ], [ %.0172424, %262 ], [ %.0172424, %.tail311.thread ], [ %.0172424, %272 ], [ %.0172424, %282 ], [ %.0172424, %286 ], [ %.0172424, %297 ], [ %.0172424, %300 ], [ %.0172424, %302 ], [ %.0172424, %303 ], [ %.0172424, %304 ], [ %.0172424, %311 ], [ %.0172424, %319 ], [ %.0172424, %323 ], [ %.0172424, %327 ], [ %.0172424, %331 ], [ %.0172424, %335 ], [ %.0172424, %339 ], [ %.0172424, %343 ], [ %.0172424, %354 ], [ %.0172424, %361 ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %.lr.ph ], [ %.0172424, %362 ], [ %.0172424, %163 ], [ %.0172424, %166 ], [ %.0172424, %157 ]
+  %.1 = phi i1 [ %.2, %140 ], [ %.3, %143 ], [ true, %146 ], [ %.0168425, %147 ], [ %.0168425, %150 ], [ true, %153 ], [ %.0168425, %168 ], [ %.0168425, %175 ], [ %.0168425, %181 ], [ %.0168425, %183 ], [ %.0168425, %188 ], [ %.0168425, %195 ], [ %.0168425, %198 ], [ %.0168425, %212 ], [ %.0168425, %213 ], [ %.0168425, %214 ], [ %.0168425, %215 ], [ %.0168425, %217 ], [ %.0168425, %226 ], [ %.0168425, %230 ], [ %.0168425, %237 ], [ %.0168425, %240 ], [ %.0168425, %244 ], [ %.0168425, %248 ], [ %.0168425, %252 ], [ %.0168425, %258 ], [ %.0168425, %259 ], [ %.0168425, %262 ], [ %.0168425, %.tail311.thread ], [ %.0168425, %272 ], [ %.0168425, %282 ], [ %.0168425, %286 ], [ %.0168425, %297 ], [ %.0168425, %300 ], [ %.0168425, %302 ], [ %.0168425, %303 ], [ %.0168425, %304 ], [ %.0168425, %311 ], [ %.0168425, %319 ], [ %.0168425, %323 ], [ %.0168425, %327 ], [ %.0168425, %331 ], [ %.0168425, %335 ], [ %.0168425, %339 ], [ %.0168425, %343 ], [ %.0168425, %354 ], [ %.0168425, %361 ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %.lr.ph ], [ %.0168425, %362 ], [ %.0168425, %163 ], [ %.0168425, %166 ], [ %.0168425, %157 ]
   %376 = load i32, ptr %4, align 4
   %377 = call i32 @ws_getopt_long(i32 noundef %376, ptr noundef %1, ptr noundef nonnull @main.optstring, ptr noundef nonnull @main.long_options, ptr noundef null)
   %.not227 = icmp eq i32 %377, -1
@@ -3690,67 +3690,67 @@ sub_0:                                            ; preds = %.lr.ph, %.preheader
 
 69:                                               ; preds = %68
   %70 = load i32, ptr @output_action, align 4
-  switch i32 %70, label %88 [
-    i32 1, label %write_preamble.exit
-    i32 2, label %71
-    i32 3, label %79
-    i32 4, label %84
-    i32 5, label %84
+  switch i32 %70, label %89 [
+    i32 1, label %71
+    i32 2, label %76
+    i32 3, label %84
+    i32 4, label %write_preamble.exit
+    i32 5, label %write_preamble.exit
     i32 6, label %write_preamble.exit.thread
   ]
 
 71:                                               ; preds = %69
+  %72 = load ptr, ptr @print_stream, align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
+  %74 = tail call ptr @get_ws_vcs_version_info()
+  %75 = tail call zeroext i1 @print_preamble(ptr noundef %72, ptr noundef %73, ptr noundef %74)
+  br i1 %75, label %write_preamble.exit.thread, label %93
+
+76:                                               ; preds = %69
   %.b5.i = load i1, ptr @print_details, align 1
-  %72 = load ptr, ptr @stdout, align 8
-  br i1 %.b5.i, label %73, label %75
-
-73:                                               ; preds = %71
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
-  tail call void @write_pdml_preamble(ptr noundef %72, ptr noundef %74)
-  br label %76
-
-75:                                               ; preds = %71
-  tail call void @write_psml_preamble(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 280), ptr noundef %72)
-  br label %76
-
-76:                                               ; preds = %75, %73
   %77 = load ptr, ptr @stdout, align 8
-  %78 = tail call i32 @ferror(ptr noundef %77) #20
-  %.not6.i = icmp eq i32 %78, 0
-  br i1 %.not6.i, label %write_preamble.exit.thread, label %93
+  br i1 %.b5.i, label %78, label %80
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr @output_fields, align 8
-  %81 = load ptr, ptr @stdout, align 8
-  tail call void @write_fields_preamble(ptr noundef %80, ptr noundef %81)
+78:                                               ; preds = %76
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
+  tail call void @write_pdml_preamble(ptr noundef %77, ptr noundef %79)
+  br label %81
+
+80:                                               ; preds = %76
+  tail call void @write_psml_preamble(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 280), ptr noundef %77)
+  br label %81
+
+81:                                               ; preds = %80, %78
   %82 = load ptr, ptr @stdout, align 8
   %83 = tail call i32 @ferror(ptr noundef %82) #20
-  %.not4.i = icmp eq i32 %83, 0
+  %.not6.i = icmp eq i32 %83, 0
+  br i1 %.not6.i, label %write_preamble.exit.thread, label %93
+
+84:                                               ; preds = %69
+  %85 = load ptr, ptr @output_fields, align 8
+  %86 = load ptr, ptr @stdout, align 8
+  tail call void @write_fields_preamble(ptr noundef %85, ptr noundef %86)
+  %87 = load ptr, ptr @stdout, align 8
+  %88 = tail call i32 @ferror(ptr noundef %87) #20
+  %.not4.i = icmp eq i32 %88, 0
   br i1 %.not4.i, label %write_preamble.exit.thread, label %93
 
-84:                                               ; preds = %69, %69
-  call void @llvm.lifetime.start.p0(i64 1136, ptr nonnull %12) #20
-  %85 = load ptr, ptr @stdout, align 8
-  call void @write_json_preamble(ptr dead_on_unwind nonnull writable sret(%struct.json_dumper) align 8 %12, ptr noundef %85)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) @jdumper, ptr noundef nonnull align 8 dereferenceable(1136) %12, i64 1136, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1136, ptr nonnull %12) #20
-  %86 = load ptr, ptr @stdout, align 8
-  %87 = call i32 @ferror(ptr noundef %86) #20
-  %.not.i = icmp eq i32 %87, 0
-  br i1 %.not.i, label %write_preamble.exit.thread, label %93
-
-88:                                               ; preds = %69
+89:                                               ; preds = %69
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.115, i32 noundef 7, ptr noundef nonnull @.str.116, i64 noundef 4473, ptr noundef nonnull @__func__.write_preamble, ptr noundef nonnull @.str.117) #24
   unreachable
 
-write_preamble.exit:                              ; preds = %69
-  %89 = load ptr, ptr @print_stream, align 8
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
-  %91 = tail call ptr @get_ws_vcs_version_info()
-  %92 = tail call zeroext i1 @print_preamble(ptr noundef %89, ptr noundef %90, ptr noundef %91)
-  br i1 %92, label %write_preamble.exit.thread, label %93
+write_preamble.exit:                              ; preds = %69, %69
+  call void @llvm.lifetime.start.p0(i64 1136, ptr nonnull %12) #20
+  %90 = load ptr, ptr @stdout, align 8
+  call void @write_json_preamble(ptr dead_on_unwind nonnull writable sret(%struct.json_dumper) align 8 %12, ptr noundef %90)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) @jdumper, ptr noundef nonnull align 8 dereferenceable(1136) %12, i64 1136, i1 false)
+  call void @llvm.lifetime.end.p0(i64 1136, ptr nonnull %12) #20
+  %91 = load ptr, ptr @stdout, align 8
+  %92 = call i32 @ferror(ptr noundef %91) #20
+  %.not.i = icmp eq i32 %92, 0
+  br i1 %.not.i, label %write_preamble.exit.thread, label %93
 
-93:                                               ; preds = %76, %79, %84, %write_preamble.exit
+93:                                               ; preds = %84, %81, %71, %write_preamble.exit
   %94 = tail call ptr @__errno_location() #21
   %95 = load i32, ptr %94, align 4
   switch i32 %95, label %98 [
@@ -3772,8 +3772,8 @@ write_preamble.exit:                              ; preds = %69
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.342, ptr noundef %99)
   br label %show_print_file_io_error.exit
 
-write_preamble.exit.thread:                       ; preds = %69, %76, %79, %84, %68, %write_preamble.exit, %61
-  %.1 = phi ptr [ %.061, %61 ], [ null, %write_preamble.exit ], [ null, %68 ], [ null, %84 ], [ null, %79 ], [ null, %76 ], [ null, %69 ]
+write_preamble.exit.thread:                       ; preds = %69, %84, %81, %71, %68, %write_preamble.exit, %61
+  %.1 = phi ptr [ %.061, %61 ], [ null, %write_preamble.exit ], [ null, %68 ], [ null, %71 ], [ null, %81 ], [ null, %84 ], [ null, %69 ]
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %100, i8 noundef 0, i64 noundef 144, i1 noundef false) #20
   store ptr @read_cleanup, ptr %13, align 8
@@ -4804,7 +4804,7 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %473
   br label %508
 
 508:                                              ; preds = %507, %503, %502
-  %.2 = phi i32 [ 0, %502 ], [ 2, %503 ], [ 3, %507 ]
+  %.2 = phi i32 [ 0, %502 ], [ 3, %507 ], [ 2, %503 ]
   switch i32 %.0596, label %default.unreachable [
     i32 3, label %513
     i32 1, label %509
@@ -4826,7 +4826,7 @@ default.unreachable:                              ; preds = %508
   unreachable
 
 514:                                              ; preds = %508, %509, %513, %474
-  %.163 = phi i32 [ %.2, %508 ], [ 2, %509 ], [ 3, %513 ], [ 0, %474 ]
+  %.163 = phi i32 [ %.2, %508 ], [ 3, %513 ], [ 2, %509 ], [ 0, %474 ]
   br i1 %.not, label %534, label %519
 
 .thread43:                                        ; preds = %508
@@ -4877,59 +4877,59 @@ default.unreachable:                              ; preds = %508
 535:                                              ; preds = %534
   %536 = load i32, ptr @output_action, align 4
   switch i32 %536, label %552 [
-    i32 1, label %write_finale.exit
-    i32 2, label %537
-    i32 3, label %544
-    i32 4, label %549
-    i32 5, label %549
+    i32 1, label %537
+    i32 2, label %540
+    i32 3, label %547
+    i32 4, label %write_finale.exit
+    i32 5, label %write_finale.exit
     i32 6, label %show_print_file_io_error.exit
   ]
 
 537:                                              ; preds = %535
+  %538 = load ptr, ptr @print_stream, align 8
+  %539 = call zeroext i1 @print_finale(ptr noundef %538)
+  br i1 %539, label %show_print_file_io_error.exit, label %555
+
+540:                                              ; preds = %535
   %.b2.i = load i1, ptr @print_details, align 1
-  %538 = load ptr, ptr @stdout, align 8
-  br i1 %.b2.i, label %539, label %540
+  %541 = load ptr, ptr @stdout, align 8
+  br i1 %.b2.i, label %542, label %543
 
-539:                                              ; preds = %537
-  call void @write_pdml_finale(ptr noundef %538)
-  br label %541
+542:                                              ; preds = %540
+  call void @write_pdml_finale(ptr noundef %541)
+  br label %544
 
-540:                                              ; preds = %537
-  call void @write_psml_finale(ptr noundef %538)
-  br label %541
+543:                                              ; preds = %540
+  call void @write_psml_finale(ptr noundef %541)
+  br label %544
 
-541:                                              ; preds = %540, %539
-  %542 = load ptr, ptr @stdout, align 8
-  %543 = call i32 @ferror(ptr noundef %542) #20
-  %.not3.i = icmp eq i32 %543, 0
+544:                                              ; preds = %543, %542
+  %545 = load ptr, ptr @stdout, align 8
+  %546 = call i32 @ferror(ptr noundef %545) #20
+  %.not3.i = icmp eq i32 %546, 0
   br i1 %.not3.i, label %show_print_file_io_error.exit, label %555
 
-544:                                              ; preds = %535
-  %545 = load ptr, ptr @output_fields, align 8
-  %546 = load ptr, ptr @stdout, align 8
-  call void @write_fields_finale(ptr noundef %545, ptr noundef %546)
-  %547 = load ptr, ptr @stdout, align 8
-  %548 = call i32 @ferror(ptr noundef %547) #20
-  %.not1.i = icmp eq i32 %548, 0
-  br i1 %.not1.i, label %show_print_file_io_error.exit, label %555
-
-549:                                              ; preds = %535, %535
-  call void @write_json_finale(ptr noundef nonnull @jdumper)
+547:                                              ; preds = %535
+  %548 = load ptr, ptr @output_fields, align 8
+  %549 = load ptr, ptr @stdout, align 8
+  call void @write_fields_finale(ptr noundef %548, ptr noundef %549)
   %550 = load ptr, ptr @stdout, align 8
   %551 = call i32 @ferror(ptr noundef %550) #20
-  %.not.i116 = icmp eq i32 %551, 0
-  br i1 %.not.i116, label %show_print_file_io_error.exit, label %555
+  %.not1.i = icmp eq i32 %551, 0
+  br i1 %.not1.i, label %show_print_file_io_error.exit, label %555
 
 552:                                              ; preds = %535
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.115, i32 noundef 7, ptr noundef nonnull @.str.116, i64 noundef 4889, ptr noundef nonnull @__func__.write_finale, ptr noundef nonnull @.str.117) #24
   unreachable
 
-write_finale.exit:                                ; preds = %535
-  %553 = load ptr, ptr @print_stream, align 8
-  %554 = call zeroext i1 @print_finale(ptr noundef %553)
-  br i1 %554, label %show_print_file_io_error.exit, label %555
+write_finale.exit:                                ; preds = %535, %535
+  call void @write_json_finale(ptr noundef nonnull @jdumper)
+  %553 = load ptr, ptr @stdout, align 8
+  %554 = call i32 @ferror(ptr noundef %553) #20
+  %.not.i116 = icmp eq i32 %554, 0
+  br i1 %.not.i116, label %show_print_file_io_error.exit, label %555
 
-555:                                              ; preds = %541, %544, %549, %write_finale.exit
+555:                                              ; preds = %547, %544, %537, %write_finale.exit
   %556 = tail call ptr @__errno_location() #21
   %557 = load i32, ptr %556, align 4
   switch i32 %557, label %560 [
@@ -4951,8 +4951,8 @@ write_finale.exit:                                ; preds = %535
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.342, ptr noundef %561)
   br label %show_print_file_io_error.exit
 
-show_print_file_io_error.exit:                    ; preds = %535, %560, %559, %558, %555, %541, %544, %549, %98, %97, %96, %93, %526, %528, %531, %write_finale.exit, %534, %65
-  %.062 = phi i32 [ 1, %65 ], [ %.163, %526 ], [ 2, %528 ], [ 2, %531 ], [ %.16348, %write_finale.exit ], [ %.16348, %534 ], [ 1, %93 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ %.16348, %549 ], [ %.16348, %544 ], [ %.16348, %541 ], [ 2, %555 ], [ 2, %558 ], [ 2, %559 ], [ 2, %560 ], [ %.16348, %535 ]
+show_print_file_io_error.exit:                    ; preds = %535, %560, %559, %558, %555, %547, %544, %537, %98, %97, %96, %93, %526, %528, %531, %write_finale.exit, %534, %65
+  %.062 = phi i32 [ 1, %65 ], [ %.163, %526 ], [ 2, %528 ], [ 2, %531 ], [ %.16348, %write_finale.exit ], [ %.16348, %534 ], [ 1, %93 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ %.16348, %537 ], [ %.16348, %544 ], [ %.16348, %547 ], [ 2, %555 ], [ 2, %558 ], [ 2, %559 ], [ 2, %560 ], [ %.16348, %535 ]
   %562 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
   call void @wtap_close(ptr noundef %562)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
@@ -6482,8 +6482,8 @@ get_line_buf.exit163.i:                           ; preds = %.sink.split.i161.i,
   br label %280
 
 280:                                              ; preds = %274, %268, %263, %252, %247, %236, %231, %220, %215, %204, %199, %188, %183, %155, %.lr.ph.i
-  %.1124.i = phi i64 [ %.01232.i, %.lr.ph.i ], [ %279, %274 ], [ %273, %268 ], [ %161, %263 ], [ %257, %252 ], [ %161, %247 ], [ %241, %236 ], [ %161, %231 ], [ %225, %220 ], [ %161, %215 ], [ %209, %204 ], [ %161, %199 ], [ %193, %188 ], [ %161, %183 ], [ %.pre-phi.i, %155 ]
-  %.1.i = phi ptr [ %.01213.i, %.lr.ph.i ], [ %176, %274 ], [ %176, %268 ], [ %176, %263 ], [ %176, %252 ], [ %176, %247 ], [ %176, %236 ], [ %176, %231 ], [ %176, %220 ], [ %176, %215 ], [ %176, %204 ], [ %176, %199 ], [ %176, %188 ], [ %176, %183 ], [ %156, %155 ]
+  %.1124.i = phi i64 [ %.01232.i, %.lr.ph.i ], [ %279, %274 ], [ %193, %188 ], [ %161, %183 ], [ %209, %204 ], [ %161, %199 ], [ %225, %220 ], [ %161, %215 ], [ %241, %236 ], [ %161, %231 ], [ %257, %252 ], [ %161, %247 ], [ %273, %268 ], [ %161, %263 ], [ %.pre-phi.i, %155 ]
+  %.1.i = phi ptr [ %.01213.i, %.lr.ph.i ], [ %176, %274 ], [ %176, %188 ], [ %176, %183 ], [ %176, %204 ], [ %176, %199 ], [ %176, %220 ], [ %176, %215 ], [ %176, %236 ], [ %176, %231 ], [ %176, %252 ], [ %176, %247 ], [ %176, %268 ], [ %176, %263 ], [ %156, %155 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 288), align 8
   %282 = sext i32 %281 to i64

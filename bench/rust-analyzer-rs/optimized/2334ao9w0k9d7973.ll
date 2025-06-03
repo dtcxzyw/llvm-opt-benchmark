@@ -30973,7 +30973,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -31312,7 +31312,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -31652,7 +31652,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %157, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %157, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -31983,7 +31983,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -32325,7 +32325,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %154, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %154, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -32658,7 +32658,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -33010,7 +33010,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -33341,7 +33341,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -33660,7 +33660,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %143, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %143, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -34026,7 +34026,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -34377,7 +34377,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -34743,7 +34743,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %161, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %161, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -35096,7 +35096,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -35427,7 +35427,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -35790,7 +35790,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -36158,7 +36158,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -36483,7 +36483,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %148, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %148, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -36814,7 +36814,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -37135,7 +37135,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -37466,7 +37466,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -37793,7 +37793,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -38138,7 +38138,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -38489,7 +38489,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -38820,7 +38820,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -39141,7 +39141,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -39509,7 +39509,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -39883,7 +39883,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -40204,7 +40204,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -40548,7 +40548,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %152, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %152, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -40879,7 +40879,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -41218,7 +41218,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -41592,7 +41592,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -41943,7 +41943,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -42274,7 +42274,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -42601,7 +42601,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -42922,7 +42922,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %147, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -43313,7 +43313,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %187, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %187, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -43652,7 +43652,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -44023,7 +44023,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %178, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %178, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -44342,7 +44342,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %143, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %143, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -44718,7 +44718,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %167, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %167, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -45092,7 +45092,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -45423,7 +45423,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -45791,7 +45791,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -46151,7 +46151,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %168, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %168, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -46517,7 +46517,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -46850,7 +46850,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -47224,7 +47224,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -47557,7 +47557,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -47888,7 +47888,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -48256,7 +48256,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -48583,7 +48583,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -48910,7 +48910,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %152, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %152, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -49261,7 +49261,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %153, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -49595,7 +49595,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %146, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %146, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -49969,7 +49969,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -50301,7 +50301,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -50667,7 +50667,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -51014,7 +51014,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %17, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %18, %17 ]
+  %.merged.i = phi { i64, i64 } [ %18, %17 ], [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret { i64, i64 } %.merged.i
 }
@@ -51388,7 +51388,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -51754,7 +51754,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %161, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %161, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -52085,7 +52085,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -52448,7 +52448,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %172, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %172, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -52839,7 +52839,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %187, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %187, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -53207,7 +53207,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %163, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -53533,7 +53533,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -53864,7 +53864,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -54189,7 +54189,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %150, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -54563,7 +54563,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -54894,7 +54894,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -55225,7 +55225,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -55558,7 +55558,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -55932,7 +55932,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -56277,7 +56277,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %168, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %168, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -56609,7 +56609,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %155, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -56940,7 +56940,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -57271,7 +57271,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -57645,7 +57645,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %177, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -57984,7 +57984,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %166, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -58311,7 +58311,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %149, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -58642,7 +58642,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -59008,7 +59008,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %159, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -59341,7 +59341,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -59674,7 +59674,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %160, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -60019,7 +60019,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %15, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %16, %15 ]
+  %.merged.i = phi { i64, i64 } [ %16, %15 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret { i64, i64 } %.merged.i
 }
@@ -60350,7 +60350,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h1b280a421af831f3E.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i
-  %.merged.i = phi { i64, i64 } [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %156, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h7d3126e8e6a1fc26E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -63141,9 +63141,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i": ; preds = %58, %53, %47
-  %.sroa.919.0.i.i = phi i64 [ %.sroa.919.1.copyload.i.i, %58 ], [ %57, %53 ], [ %.val1.i.i.i, %47 ]
-  %.sroa.718.0.i.i = phi ptr [ %.sroa.718.1.copyload.i.i, %58 ], [ %55, %53 ], [ %.val.i.i.i, %47 ]
-  %.sroa.016.0.i.i = phi i8 [ %45, %58 ], [ 25, %53 ], [ 24, %47 ]
+  %.sroa.919.0.i.i = phi i64 [ %57, %53 ], [ %.sroa.919.1.copyload.i.i, %58 ], [ %.val1.i.i.i, %47 ]
+  %.sroa.718.0.i.i = phi ptr [ %55, %53 ], [ %.sroa.718.1.copyload.i.i, %58 ], [ %.val.i.i.i, %47 ]
+  %.sroa.016.0.i.i = phi i8 [ 25, %53 ], [ %45, %58 ], [ 24, %47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.617.i.i, i64 7, i1 false), !noalias !16894
   br label %90
 
@@ -63189,9 +63189,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit8.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit8.i.i": ; preds = %74, %69, %63
-  %.sroa.9.0.i.i = phi i64 [ %.sroa.9.1.copyload.i.i, %74 ], [ %73, %69 ], [ %.val1.i5.i.i, %63 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.1.copyload.i.i, %74 ], [ %71, %69 ], [ %.val.i4.i.i, %63 ]
-  %.sroa.015.0.i.i = phi i8 [ %61, %74 ], [ 25, %69 ], [ 24, %63 ]
+  %.sroa.9.0.i.i = phi i64 [ %73, %69 ], [ %.sroa.9.1.copyload.i.i, %74 ], [ %.val1.i5.i.i, %63 ]
+  %.sroa.7.0.i.i = phi ptr [ %71, %69 ], [ %.sroa.7.1.copyload.i.i, %74 ], [ %.val.i4.i.i, %63 ]
+  %.sroa.015.0.i.i = phi i8 [ 25, %69 ], [ %61, %74 ], [ 24, %63 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16916)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16919)
   %76 = add nsw i8 %38, -24
@@ -63232,9 +63232,9 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit14.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit14.i.i": ; preds = %88, %83, %77
-  %.sroa.0.0.i.i = phi i8 [ %38, %88 ], [ 25, %83 ], [ 24, %77 ]
-  %.sroa.721.0.i.i = phi ptr [ %.sroa.721.1.copyload.i.i, %88 ], [ %85, %83 ], [ %.val.i10.i.i, %77 ]
-  %.sroa.922.0.i.i = phi i64 [ %.sroa.922.1.copyload.i.i, %88 ], [ %87, %83 ], [ %.val1.i11.i.i, %77 ]
+  %.sroa.0.0.i.i = phi i8 [ 25, %83 ], [ %38, %88 ], [ 24, %77 ]
+  %.sroa.721.0.i.i = phi ptr [ %85, %83 ], [ %.sroa.721.1.copyload.i.i, %88 ], [ %.val.i10.i.i, %77 ]
+  %.sroa.922.0.i.i = phi i64 [ %87, %83 ], [ %.sroa.922.1.copyload.i.i, %88 ], [ %.val1.i11.i.i, %77 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, i64 7, i1 false), !noalias !16894
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.620.i.i, i64 7, i1 false), !noalias !16894
   br label %90

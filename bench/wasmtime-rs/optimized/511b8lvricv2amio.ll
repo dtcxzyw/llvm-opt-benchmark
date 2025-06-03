@@ -852,7 +852,7 @@ default.unreachable576:                           ; preds = %._crit_edge
   br label %.critedge
 
 .thread406:                                       ; preds = %605, %647, %617, %591, %567, %491, %490, %449, %.thread366, %355
-  %.pn328 = phi { ptr, i32 } [ %492, %491 ], [ %lpad.thr_comm398, %490 ], [ %lpad.thr_comm390, %449 ], [ %lpad.thr_comm, %355 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm.split-lp413, %647 ], [ %lpad.thr_comm.split-lp413, %617 ], [ %592, %591 ], [ %568, %567 ], [ %606, %605 ]
+  %.pn328 = phi { ptr, i32 } [ %lpad.thr_comm, %355 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm390, %449 ], [ %lpad.thr_comm398, %490 ], [ %492, %491 ], [ %lpad.thr_comm.split-lp413, %647 ], [ %lpad.thr_comm.split-lp413, %617 ], [ %568, %567 ], [ %592, %591 ], [ %606, %605 ]
   resume { ptr, i32 } %.pn328
 
 355:                                              ; preds = %347, %324, %320, %316, %313, %312, %342, %338, %334, %331, %311, %328, %.noexc
@@ -1949,7 +1949,7 @@ default.unreachable116:                           ; preds = %53
   br i1 %125, label %.loopexit, label %253
 
 .loopexit:                                        ; preds = %233, %236, %228, %224, %216, %120, %116, %110, %190, %184, %177, %98, %253, %245, %239, %133, %126, %90, %85, %77, %61, %47
-  %.0.shrunk = phi i1 [ %52, %47 ], [ %258, %253 ], [ %252, %245 ], [ %244, %239 ], [ %140, %133 ], [ %97, %90 ], [ %89, %85 ], [ %84, %77 ], [ %131, %126 ], [ %66, %61 ], [ true, %98 ], [ true, %177 ], [ false, %184 ], [ true, %190 ], [ true, %110 ], [ true, %116 ], [ true, %120 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
+  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ %244, %239 ], [ %252, %245 ], [ %258, %253 ], [ true, %98 ], [ true, %177 ], [ false, %184 ], [ true, %190 ], [ true, %110 ], [ true, %116 ], [ true, %120 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
   ret i1 %.0.shrunk
 
 126:                                              ; preds = %67
@@ -2832,7 +2832,7 @@ default.unreachable126:                           ; preds = %._crit_edge
   br i1 %166, label %.loopexit, label %161
 
 .loopexit:                                        ; preds = %181, %185, %172, %161, %205, %212, %77, %163, %128, %126, %119, %219, %189, %61
-  %.0.shrunk = phi i1 [ %225, %219 ], [ %194, %189 ], [ %66, %61 ], [ true, %119 ], [ false, %126 ], [ true, %128 ], [ true, %163 ], [ true, %77 ], [ true, %212 ], [ true, %205 ], [ %162, %161 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
+  %.0.shrunk = phi i1 [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %119 ], [ false, %126 ], [ true, %128 ], [ true, %163 ], [ true, %77 ], [ true, %212 ], [ true, %205 ], [ %162, %161 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
   ret i1 %.0.shrunk
 
 167:                                              ; preds = %156

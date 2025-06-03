@@ -12325,7 +12325,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %11, %9, %PyObject_T
   br label %42
 
 42:                                               ; preds = %40, %37, %33, %30, %23
-  %.038 = phi i32 [ %41, %40 ], [ %38, %37 ], [ %34, %33 ], [ %31, %30 ], [ %.1, %23 ]
+  %.038 = phi i32 [ %.1, %23 ], [ %31, %30 ], [ %34, %33 ], [ %38, %37 ], [ %41, %40 ]
   %43 = icmp slt i32 %.038, 0
   br i1 %43, label %_Py_NewRef.exit, label %.thread
 
@@ -12335,7 +12335,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %11, %9, %PyObject_T
   %.not49 = icmp eq i32 %.03860.fr, 0
   br i1 %.not49, label %.thread.thread, label %44
 
-.thread.thread:                                   ; preds = %18, %39, %35, %32, %28, %.thread
+.thread.thread:                                   ; preds = %18, %28, %32, %35, %39, %.thread
   br label %44
 
 44:                                               ; preds = %.thread, %.thread.thread

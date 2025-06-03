@@ -573,7 +573,7 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %222, %218
   unreachable
 
 235:                                              ; preds = %231, %225
-  %.2.i = phi i32 [ %.082115.i, %225 ], [ %226, %231 ]
+  %.2.i = phi i32 [ %226, %231 ], [ %.082115.i, %225 ]
   %236 = getelementptr inbounds nuw i8, ptr %217, i64 18
   %237 = load i16, ptr %236, align 2
   %238 = and i16 %237, 16384
@@ -659,7 +659,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %251, %249, %207
   br label %heap_prune_chain.exit
 
 HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %239, %235, %225, %225, %225, %._crit_edge.i165
-  %.18196.i = phi i32 [ %.080.lcssa.i, %._crit_edge.i165 ], [ %226, %225 ], [ %226, %225 ], [ %226, %225 ], [ %226, %235 ], [ %226, %239 ]
+  %.18197.i = phi i32 [ %.080.lcssa.i, %._crit_edge.i165 ], [ %226, %225 ], [ %226, %225 ], [ %226, %225 ], [ %226, %235 ], [ %226, %239 ]
   %.18394.i = phi i32 [ %.082.lcssa.i, %._crit_edge.i165 ], [ %.2.i, %239 ], [ %.2.i, %235 ], [ %.082115.i, %225 ], [ %.082115.i, %225 ], [ %.082115.i, %225 ]
   %278 = icmp eq i32 %.18394.i, 0
   br i1 %278, label %279, label %289
@@ -676,12 +676,12 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %239, %235, %225, %2
 
 284:                                              ; preds = %283, %279
   %.074.i = phi i32 [ 1, %283 ], [ 0, %279 ]
-  %285 = icmp slt i32 %.074.i, %.18196.i
+  %285 = icmp slt i32 %.074.i, %.18197.i
   br i1 %285, label %.lr.ph136.preheader.i, label %heap_prune_chain.exit
 
 .lr.ph136.preheader.i:                            ; preds = %284
   %286 = zext nneg i32 %.074.i to i64
-  %wide.trip.count153.i = zext nneg i32 %.18196.i to i64
+  %wide.trip.count153.i = zext nneg i32 %.18197.i to i64
   br label %.lr.ph136.i
 
 .lr.ph136.i:                                      ; preds = %.lr.ph136.i, %.lr.ph136.preheader.i
@@ -694,7 +694,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %239, %235, %225, %2
   br i1 %exitcond154.not.i, label %heap_prune_chain.exit, label %.lr.ph136.i, !llvm.loop !9
 
 289:                                              ; preds = %HeapTupleHeaderGetUpdateXid.exit.thread99.i
-  %290 = icmp eq i32 %.18394.i, %.18196.i
+  %290 = icmp eq i32 %.18394.i, %.18197.i
   br i1 %290, label %291, label %329
 
 291:                                              ; preds = %289
@@ -740,11 +740,11 @@ heap_prune_record_unused.exit.sink.split.i.i:     ; preds = %303, %297
   br label %heap_prune_record_dead_or_unused.exit88.i
 
 heap_prune_record_dead_or_unused.exit88.i:        ; preds = %heap_prune_record_unused.exit.sink.split.i.i, %303, %297
-  %316 = icmp sgt i32 %.18196.i, 1
+  %316 = icmp sgt i32 %.18197.i, 1
   br i1 %316, label %.lr.ph133.i, label %heap_prune_chain.exit
 
 .lr.ph133.i:                                      ; preds = %heap_prune_record_dead_or_unused.exit88.i
-  %wide.trip.count148.i = zext nneg i32 %.18196.i to i64
+  %wide.trip.count148.i = zext nneg i32 %.18197.i to i64
   %.pre155.i = load i32, ptr %40, align 8
   br label %317
 
@@ -810,7 +810,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %347, %329
   br label %352
 
 .preheader.i:                                     ; preds = %352, %heap_prune_record_redirect.exit.i
-  %351 = icmp slt i32 %.18394.i, %.18196.i
+  %351 = icmp slt i32 %.18394.i, %.18197.i
   br i1 %351, label %.lr.ph131.i, label %heap_prune_chain.exit
 
 352:                                              ; preds = %352, %.lr.ph129.i
@@ -841,7 +841,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %347, %329
   call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %365)
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next142.i to i32
-  %exitcond144.not.i = icmp eq i32 %.18196.i, %lftr.wideiv.i
+  %exitcond144.not.i = icmp eq i32 %.18197.i, %lftr.wideiv.i
   br i1 %exitcond144.not.i, label %heap_prune_chain.exit, label %.lr.ph131.i, !llvm.loop !12
 
 heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %317, %.lr.ph136.i, %261, %267, %284, %heap_prune_record_dead_or_unused.exit88.i, %.preheader.i

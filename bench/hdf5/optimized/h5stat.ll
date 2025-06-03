@@ -513,7 +513,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %83
 
 .loopexit.i:                                      ; preds = %62, %74, %.preheader.i, %53, %52, %51, %46, %43, %42, %41, %36, %33, %32, %31, %26, %23, %22, %21, %20, %19, %16
-  %.1.i = phi ptr [ %.053.i, %74 ], [ %.053.i, %53 ], [ %.053.i, %52 ], [ %.053.i, %46 ], [ %.053.i, %51 ], [ %.053.i, %43 ], [ %.053.i, %42 ], [ %.053.i, %36 ], [ %.053.i, %41 ], [ %.053.i, %33 ], [ %.053.i, %32 ], [ %.053.i, %26 ], [ %.053.i, %31 ], [ %.053.i, %23 ], [ %.053.i, %22 ], [ %.053.i, %21 ], [ %.053.i, %20 ], [ %.053.i, %16 ], [ %.053.i, %19 ], [ %55, %.preheader.i ], [ %55, %62 ]
+  %.1.i = phi ptr [ %.053.i, %16 ], [ %.053.i, %19 ], [ %.053.i, %20 ], [ %.053.i, %21 ], [ %.053.i, %22 ], [ %.053.i, %23 ], [ %.053.i, %26 ], [ %.053.i, %31 ], [ %.053.i, %32 ], [ %.053.i, %33 ], [ %.053.i, %36 ], [ %.053.i, %41 ], [ %.053.i, %42 ], [ %.053.i, %43 ], [ %.053.i, %46 ], [ %.053.i, %51 ], [ %.053.i, %52 ], [ %.053.i, %53 ], [ %.053.i, %74 ], [ %55, %.preheader.i ], [ %55, %62 ]
   %79 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @l_opts) #15
   %.not.i = icmp eq i32 %79, -1
   br i1 %.not.i, label %._crit_edge.i, label %7, !llvm.loop !19
@@ -531,7 +531,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %83
 
 83:                                               ; preds = %81, %77, %73, %72, %71, %50, %40, %30
-  %.2.i = phi ptr [ %.053.i, %77 ], [ %.053.i, %73 ], [ %.053.i, %72 ], [ %55, %71 ], [ %.053.i, %50 ], [ %.053.i, %40 ], [ %.053.i, %30 ], [ %.0.lcssa.i, %81 ]
+  %.2.i = phi ptr [ %.053.i, %77 ], [ %.053.i, %30 ], [ %.053.i, %40 ], [ %.053.i, %50 ], [ %55, %71 ], [ %.053.i, %72 ], [ %.053.i, %73 ], [ %.0.lcssa.i, %81 ]
   %.not.i.i = icmp eq ptr %.2.i, null
   br i1 %.not.i.i, label %.thread, label %..preheader.i_crit_edge.i
 
@@ -2541,7 +2541,7 @@ ceil_log10.exit.i.i85:                            ; preds = %.lr.ph.i.i.i81, %73
   br label %datatype_stats.exit
 
 datatype_stats.exit:                              ; preds = %761, %._crit_edge.i.i91, %.thread102, %dataset_stats.exit, %.thread, %group_stats.exit, %694, %698, %687, %202, %206, %195, %21, %25, %13, %4, %766
-  %.0 = phi i32 [ 0, %766 ], [ 0, %dataset_stats.exit ], [ 0, %group_stats.exit ], [ 0, %4 ], [ -1, %13 ], [ -1, %25 ], [ -1, %21 ], [ -1, %195 ], [ -1, %206 ], [ -1, %202 ], [ -1, %687 ], [ -1, %698 ], [ -1, %694 ], [ -1, %.thread ], [ -1, %.thread102 ], [ 0, %._crit_edge.i.i91 ], [ 0, %761 ]
+  %.0 = phi i32 [ 0, %766 ], [ 0, %group_stats.exit ], [ 0, %dataset_stats.exit ], [ 0, %4 ], [ -1, %13 ], [ -1, %25 ], [ -1, %21 ], [ -1, %195 ], [ -1, %206 ], [ -1, %202 ], [ -1, %687 ], [ -1, %698 ], [ -1, %694 ], [ -1, %.thread ], [ -1, %.thread102 ], [ 0, %._crit_edge.i.i91 ], [ 0, %761 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #15
   ret i32 %.0
 }

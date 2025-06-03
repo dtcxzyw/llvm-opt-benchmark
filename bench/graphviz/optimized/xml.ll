@@ -291,7 +291,7 @@ default.unreachable:                              ; preds = %85
   unreachable
 
 128:                                              ; preds = %108, %94, %86
-  %.082.i = phi i32 [ %127, %108 ], [ %107, %94 ], [ %93, %86 ]
+  %.082.i = phi i32 [ %93, %86 ], [ %107, %94 ], [ %127, %108 ]
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #6
   %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 13, ptr noundef nonnull @.str.12, i32 noundef %.082.i) #6
   %130 = getelementptr i8, ptr %17, i64 %77
@@ -309,8 +309,8 @@ default.unreachable:                              ; preds = %85
   br label %xml_core.exit
 
 xml_core.exit:                                    ; preds = %xml_isentity.exit.thread.i, %46, %48, %51, %56, %59, %61, %64, %67, %128, %.thread.i
-  %.1 = phi ptr [ %17, %.thread.i ], [ %131, %128 ], [ %17, %67 ], [ %17, %64 ], [ %17, %61 ], [ %17, %59 ], [ %17, %56 ], [ %17, %51 ], [ %17, %48 ], [ %17, %46 ], [ %17, %xml_isentity.exit.thread.i ]
-  %.0.i = phi i32 [ %133, %.thread.i ], [ %132, %128 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %60, %59 ], [ %57, %56 ], [ %52, %51 ], [ %49, %48 ], [ %47, %46 ], [ %45, %xml_isentity.exit.thread.i ]
+  %.1 = phi ptr [ %17, %.thread.i ], [ %131, %128 ], [ %17, %59 ], [ %17, %61 ], [ %17, %64 ], [ %17, %67 ], [ %17, %56 ], [ %17, %xml_isentity.exit.thread.i ], [ %17, %46 ], [ %17, %48 ], [ %17, %51 ]
+  %.0.i = phi i32 [ %133, %.thread.i ], [ %132, %128 ], [ %60, %59 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %57, %56 ], [ %45, %xml_isentity.exit.thread.i ], [ %47, %46 ], [ %49, %48 ], [ %52, %51 ]
   %134 = icmp sgt i32 %.0.i, -1
   br i1 %134, label %13, label %xml_core.exit._crit_edge, !llvm.loop !6
 

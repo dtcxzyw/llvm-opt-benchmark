@@ -723,7 +723,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %3
   br label %_ZNK3app13get_decl_kindEv.exit.thread
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %3, %_ZNK3app13get_decl_kindEv.exit, %15, %13, %11
-  %.0 = phi i1 [ false, %15 ], [ %14, %13 ], [ true, %11 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %3 ]
+  %.0 = phi i1 [ true, %11 ], [ %14, %13 ], [ false, %15 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %3 ]
   ret i1 %.0
 }
 

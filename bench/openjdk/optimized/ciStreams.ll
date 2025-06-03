@@ -310,7 +310,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %3, %14
   unreachable
 
 63:                                               ; preds = %41, %23, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
-  %.0 = phi i32 [ 170, %41 ], [ 171, %23 ], [ %12, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit ]
+  %.0 = phi i32 [ %12, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit ], [ 171, %23 ], [ 170, %41 ]
   ret i32 %.0
 }
 
@@ -493,7 +493,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i:  ; preds = %33, %25
   unreachable
 
 _ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE.exit: ; preds = %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i, %42, %58
-  %.0.i = phi i32 [ 170, %58 ], [ 171, %42 ], [ %31, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i ]
+  %.0.i = phi i32 [ %31, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i ], [ 171, %42 ], [ 170, %58 ]
   store i32 %.0.i, ptr %14, align 8
   br label %78
 
@@ -568,7 +568,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %13, %17
   unreachable
 
 30:                                               ; preds = %_ZNK16ciBytecodeStream12get_index_u2Eb.exit, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit
-  %.0 = phi i32 [ %27, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ], [ %12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit ]
+  %.0 = phi i32 [ %12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit ], [ %27, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ]
   ret i32 %.0
 }
 
@@ -883,7 +883,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %13, %17
   unreachable
 
 30:                                               ; preds = %_ZNK16ciBytecodeStream12get_index_u2Eb.exit, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit
-  %.0 = phi i32 [ %27, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ], [ %12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit ]
+  %.0 = phi i32 [ %12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit ], [ %27, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ]
   ret i32 %.0
 }
 
@@ -953,8 +953,8 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %18, %14
   unreachable
 
 _ZNK16ciBytecodeStream22get_constant_raw_indexEv.exit: ; preds = %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i
-  %31 = phi i16 [ %25, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ], [ %.pre12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ]
-  %.0.i = phi i32 [ %28, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ], [ %13, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ]
+  %31 = phi i16 [ %.pre12, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ], [ %25, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ]
+  %.0.i = phi i32 [ %13, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ], [ %28, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ]
   %32 = and i16 %31, 8
   %.not = icmp eq i16 %32, 0
   br i1 %.not, label %106, label %33
@@ -1248,8 +1248,8 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %62, %58
   unreachable
 
 _ZNK16ciBytecodeStream22get_constant_raw_indexEv.exit: ; preds = %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i
-  %75 = phi i16 [ %69, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ], [ %.pre19, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ]
-  %.0.i = phi i32 [ %72, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ], [ %57, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ]
+  %75 = phi i16 [ %.pre19, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ], [ %69, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ]
+  %.0.i = phi i32 [ %57, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i ], [ %72, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i ]
   %76 = and i16 %75, 8
   %.not = icmp eq i16 %76, 0
   br i1 %.not, label %87, label %77

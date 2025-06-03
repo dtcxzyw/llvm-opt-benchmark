@@ -4998,7 +4998,7 @@ define dso_local noundef ptr @_ZN5clang8comments6Parser17parseBlockContentEv(ptr
   unreachable
 
 11:                                               ; preds = %8, %6, %4
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -5102,7 +5102,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit:   ; preds = %13, %15
   unreachable
 
 _ZN5clang8comments6Parser17parseBlockContentEv.exit: ; preds = %33, %35, %37
-  %.0.i = phi ptr [ %38, %37 ], [ %36, %35 ], [ %34, %33 ]
+  %.0.i = phi ptr [ %34, %33 ], [ %36, %35 ], [ %38, %37 ]
   %40 = load i32, ptr %24, align 8, !tbaa !23
   %41 = load i32, ptr %25, align 4, !tbaa !24
   %.not.i.i.not.i = icmp ult i32 %40, %41
@@ -5442,7 +5442,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit4:  ; preds = %90, %93
   br label %119
 
 119:                                              ; preds = %51, %_ZN5clang8comments6Parser12consumeTokenEv.exit4, %103, %1, %58
-  %.02 = phi i1 [ false, %51 ], [ false, %58 ], [ false, %1 ], [ true, %103 ], [ true, %_ZN5clang8comments6Parser12consumeTokenEv.exit4 ]
+  %.02 = phi i1 [ false, %58 ], [ false, %51 ], [ false, %1 ], [ true, %103 ], [ true, %_ZN5clang8comments6Parser12consumeTokenEv.exit4 ]
   ret i1 %.02
 }
 

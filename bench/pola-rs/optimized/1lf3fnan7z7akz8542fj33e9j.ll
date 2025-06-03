@@ -5280,7 +5280,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr86drop
   unreachable
 
 22:                                               ; preds = %25
-  resume { ptr, i32 } %.pn.pn.i
+  resume { ptr, i32 } %.pn4.i
 
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
@@ -5288,7 +5288,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr86drop
   br label %25
 
 25:                                               ; preds = %.body.i, %23
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %24, %23 ]
+  %.pn4.i = phi { ptr, i32 } [ %24, %23 ], [ %.pn.i, %.body.i ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_io..file_cache..eviction..EvictionManager$GT$17hbbdd508aebc9977dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #25
           to label %22 unwind label %34
 
@@ -5303,7 +5303,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr86drop
   br label %common.ret.sink.split.i
 
 .body.i:                                          ; preds = %32, %30, %26, %15
-  %.pn.i = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ], [ %33, %32 ], [ %16, %15 ]
+  %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ], [ %33, %32 ], [ %16, %15 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 162
   store i8 0, ptr %29, align 2
   br label %25
@@ -5429,7 +5429,7 @@ define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$core..result..Resu
   br label %common.resume.i.i
 
 common.resume.i.i:                                ; preds = %300, %291, %271, %270, %261, %241, %240, %231, %211, %210, %201, %181, %180, %171, %151, %148, %139, %119, %108, %99, %76, %71, %64, %45, %36
-  %common.resume.op.i.i = phi { ptr, i32 } [ %37, %45 ], [ %37, %36 ], [ %77, %76 ], [ %72, %71 ], [ %65, %64 ], [ %100, %108 ], [ %100, %99 ], [ %140, %148 ], [ %140, %139 ], [ %272, %271 ], [ %242, %241 ], [ %212, %211 ], [ %182, %181 ], [ %152, %151 ], [ %120, %119 ], [ %172, %180 ], [ %172, %171 ], [ %202, %210 ], [ %202, %201 ], [ %232, %240 ], [ %232, %231 ], [ %262, %270 ], [ %262, %261 ], [ %292, %300 ], [ %292, %291 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %37, %45 ], [ %37, %36 ], [ %77, %76 ], [ %65, %64 ], [ %72, %71 ], [ %100, %108 ], [ %100, %99 ], [ %140, %148 ], [ %140, %139 ], [ %120, %119 ], [ %152, %151 ], [ %182, %181 ], [ %212, %211 ], [ %242, %241 ], [ %272, %271 ], [ %172, %180 ], [ %172, %171 ], [ %202, %210 ], [ %202, %201 ], [ %232, %240 ], [ %232, %231 ], [ %262, %270 ], [ %262, %261 ], [ %292, %300 ], [ %292, %291 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 46:                                               ; preds = %13
@@ -6075,7 +6075,7 @@ define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..ta
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h32cc742c8f4fe44cE.exit9.i" unwind label %51
 
 39:                                               ; preds = %45, %31
-  %.pn.i = phi { ptr, i32 } [ %46, %45 ], [ %32, %31 ]
+  %.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %46, %45 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !832)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !835)
@@ -47354,8 +47354,8 @@ default.unreachable:                              ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %7, %5
-  %.sroa.4.0 = phi ptr [ @anon.1ec65144784b7dc66258a68f6170e8e7.81, %7 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.80, %5 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.82, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ %0, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.1ec65144784b7dc66258a68f6170e8e7.80, %5 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.81, %7 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.82, %1 ]
+  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %0, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %11
@@ -47384,8 +47384,8 @@ default.unreachable:                              ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %7, %5
-  %.sroa.4.0 = phi ptr [ @anon.1ec65144784b7dc66258a68f6170e8e7.81, %7 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.80, %5 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.82, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ %0, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.1ec65144784b7dc66258a68f6170e8e7.80, %5 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.81, %7 ], [ @anon.1ec65144784b7dc66258a68f6170e8e7.82, %1 ]
+  %.sroa.0.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ %0, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %11

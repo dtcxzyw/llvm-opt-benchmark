@@ -1677,8 +1677,8 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
   br label %80
 
 80:                                               ; preds = %21, %70, %68, %66, %64, %62, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit
-  %.126 = phi ptr [ %23, %21 ], [ %.02533, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ]
-  %.1 = phi ptr [ %22, %21 ], [ %25, %70 ], [ %25, %68 ], [ %25, %66 ], [ %25, %64 ], [ %25, %62 ], [ %40, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ]
+  %.126 = phi ptr [ %23, %21 ], [ %.02533, %70 ], [ %61, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ]
+  %.1 = phi ptr [ %22, %21 ], [ %25, %70 ], [ %40, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ], [ %25, %62 ], [ %25, %64 ], [ %25, %66 ], [ %25, %68 ]
   %81 = add nsw i32 %.02732, -1
   %82 = icmp sgt i32 %.02732, 1
   %83 = icmp ult ptr %.1, %12

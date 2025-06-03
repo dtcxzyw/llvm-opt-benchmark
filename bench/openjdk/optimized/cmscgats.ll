@@ -3018,9 +3018,9 @@ define hidden ptr @cmsIT8LoadFromMem(ptr noundef %0, ptr noundef readonly captur
   br label %20
 
 20:                                               ; preds = %18, %15, %12
-  %.127.i = phi i32 [ %19, %18 ], [ %.02634.i, %15 ], [ %.02634.i, %12 ]
-  %.125.i = phi i32 [ 0, %18 ], [ %.02435.i, %15 ], [ %spec.store.select4.i, %12 ]
-  %.1.i = phi i32 [ %.02336.i, %18 ], [ %16, %15 ], [ %.02336.i, %12 ]
+  %.127.i = phi i32 [ %19, %18 ], [ %.02634.i, %12 ], [ %.02634.i, %15 ]
+  %.125.i = phi i32 [ 0, %18 ], [ %spec.store.select4.i, %12 ], [ %.02435.i, %15 ]
+  %.1.i = phi i32 [ %.02336.i, %18 ], [ %.02336.i, %12 ], [ %16, %15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %IsMyBlock.exit.thread, label %.lr.ph.i, !llvm.loop !29
@@ -4533,9 +4533,9 @@ define hidden ptr @cmsIT8LoadFromFile(ptr noundef %0, ptr noundef %1) local_unna
   br label %27
 
 27:                                               ; preds = %25, %22, %19
-  %.127.i.i = phi i32 [ %26, %25 ], [ %.02634.i.i, %22 ], [ %.02634.i.i, %19 ]
-  %.125.i.i = phi i32 [ 0, %25 ], [ %.02435.i.i, %22 ], [ %spec.store.select4.i.i, %19 ]
-  %.1.i.i = phi i32 [ %.02336.i.i, %25 ], [ %23, %22 ], [ %.02336.i.i, %19 ]
+  %.127.i.i = phi i32 [ %26, %25 ], [ %.02634.i.i, %19 ], [ %.02634.i.i, %22 ]
+  %.125.i.i = phi i32 [ 0, %25 ], [ %spec.store.select4.i.i, %19 ], [ %.02435.i.i, %22 ]
+  %.1.i.i = phi i32 [ %.02336.i.i, %25 ], [ %.02336.i.i, %19 ], [ %23, %22 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %IsMyFile.exit.thread, label %.lr.ph.i.i, !llvm.loop !29
@@ -6981,16 +6981,16 @@ ReadNumbers.exit149.i:                            ; preds = %Check.exit.i.i147.i
   br i1 %.not.i150.i, label %ReadNumbers.exit.i, label %.loopexit.sink.split.i
 
 ReadNumbers.exit.sink.split.i:                    ; preds = %Check.exit116.i, %Check.exit111.i, %Check.exit.i, %39
-  %.181.ph.i = phi i32 [ %.080.i, %Check.exit.i ], [ %.080.i, %Check.exit111.i ], [ %76, %Check.exit116.i ], [ %.080.i, %39 ]
-  %.1.ph.i = phi i32 [ %.079.i, %Check.exit.i ], [ %73, %Check.exit111.i ], [ %.079.i, %Check.exit116.i ], [ %.079.i, %39 ]
+  %.181.ph.i = phi i32 [ %76, %Check.exit116.i ], [ %.080.i, %Check.exit111.i ], [ %.080.i, %Check.exit.i ], [ %.080.i, %39 ]
+  %.1.ph.i = phi i32 [ %.079.i, %Check.exit116.i ], [ %73, %Check.exit111.i ], [ %.079.i, %Check.exit.i ], [ %.079.i, %39 ]
   call fastcc void @InSymbol(ptr noundef nonnull %10)
   br label %ReadNumbers.exit.i
 
 ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i, %Check.exit.i.i.i, %ReadNumbers.exit.sink.split.i, %198, %ReadNumbers.exit127.i
-  %.359 = phi ptr [ %.157, %198 ], [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i104.i ]
-  %.3 = phi ptr [ %.1, %198 ], [ %.055, %ReadNumbers.exit.sink.split.i ], [ %.055, %ReadNumbers.exit127.i ], [ %.055, %Check.exit.i.i.i ], [ %.055, %Check.exit.i.i104.i ]
-  %.181.i = phi i32 [ %.080.i, %198 ], [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %Check.exit.i.i104.i ]
-  %.1.i = phi i32 [ %.079.i, %198 ], [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %Check.exit.i.i104.i ]
+  %.359 = phi ptr [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.157, %198 ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i104.i ]
+  %.3 = phi ptr [ %.055, %ReadNumbers.exit.sink.split.i ], [ %.055, %ReadNumbers.exit127.i ], [ %.1, %198 ], [ %.055, %Check.exit.i.i.i ], [ %.055, %Check.exit.i.i104.i ]
+  %.181.i = phi i32 [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %198 ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %Check.exit.i.i104.i ]
+  %.1.i = phi i32 [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %198 ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %Check.exit.i.i104.i ]
   br label %39, !llvm.loop !61
 
 .loopexit.sink.split.i:                           ; preds = %198, %ReadNumbers.exit127.i, %87, %74, %71, %68, %55, %41, %39, %123, %177, %78, %59, %46, %114, %168

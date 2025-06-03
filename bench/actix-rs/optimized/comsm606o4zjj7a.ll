@@ -718,12 +718,12 @@ default.unreachable:                              ; preds = %26
   br label %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
 
 "_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit": ; preds = %28, %33, %36, %42, %45, %50, %53
-  %.sroa.10.0 = phi i8 [ undef, %53 ], [ %52, %50 ], [ %47, %45 ], [ %44, %42 ], [ undef, %36 ], [ undef, %33 ], [ undef, %28 ]
-  %.sroa.13.0 = phi i8 [ undef, %53 ], [ undef, %50 ], [ %49, %45 ], [ undef, %42 ], [ undef, %36 ], [ undef, %33 ], [ undef, %28 ]
-  %.sroa.19.0 = phi i32 [ %56, %53 ], [ undef, %50 ], [ undef, %45 ], [ undef, %42 ], [ %39, %36 ], [ undef, %33 ], [ undef, %28 ]
-  %.sroa.23.0 = phi i32 [ %59, %53 ], [ undef, %50 ], [ undef, %45 ], [ undef, %42 ], [ undef, %36 ], [ undef, %33 ], [ undef, %28 ]
-  %.sroa.2126.sroa.0.0 = phi i8 [ %.sroa.2126.sroa.0.0.extract.trunc, %53 ], [ undef, %50 ], [ undef, %45 ], [ undef, %42 ], [ %41, %36 ], [ undef, %33 ], [ undef, %28 ]
-  %.sroa.2126.sroa.5.sroa.0.0 = phi i64 [ %.sroa.2126.sroa.5.0.extract.shift, %53 ], [ 0, %50 ], [ 0, %45 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ]
+  %.sroa.10.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ %44, %42 ], [ %47, %45 ], [ %52, %50 ], [ undef, %53 ]
+  %.sroa.13.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ %49, %45 ], [ undef, %50 ], [ undef, %53 ]
+  %.sroa.19.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ %39, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %56, %53 ]
+  %.sroa.23.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %59, %53 ]
+  %.sroa.2126.sroa.0.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ %41, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %.sroa.2126.sroa.0.0.extract.trunc, %53 ]
+  %.sroa.2126.sroa.5.sroa.0.0 = phi i64 [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %42 ], [ 0, %45 ], [ 0, %50 ], [ %.sroa.2126.sroa.5.0.extract.shift, %53 ]
   %60 = icmp ult i64 %5, %.val1.i
   br i1 %60, label %63, label %66, !prof !88
 

@@ -4230,7 +4230,7 @@ define internal fastcc i64 @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h631962a973101510E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h631962a973101510E.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hca08ea6efab5233bE.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h1629f528937e26acE.exit"
 
@@ -4360,7 +4360,7 @@ define internal fastcc i64 @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h631962a973101510E.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h631962a973101510E.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %135, %130 ], [ %121, %119 ], [ %129, %125 ]
+  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -4689,7 +4689,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7
-  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6079,8 +6079,8 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit.i.i.i.i
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit.i.i.i.i: ; preds = %124, %123, %118, %117, %116, %.noexc.i
-  %.sroa.7.0.i.i.i.i.i = phi i64 [ 12, %124 ], [ 13, %123 ], [ %122, %118 ], [ 14, %117 ], [ 2, %116 ], [ 5, %.noexc.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.180, %124 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %123 ], [ %120, %118 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %117 ], [ @anon.50f47b8eed36f8d5a751999381819f49.177, %116 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %.noexc.i ]
+  %.sroa.7.0.i.i.i.i.i = phi i64 [ 2, %116 ], [ 14, %117 ], [ %122, %118 ], [ 13, %123 ], [ 12, %124 ], [ 5, %.noexc.i ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.177, %116 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %117 ], [ %120, %118 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %123 ], [ @anon.50f47b8eed36f8d5a751999381819f49.180, %124 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %.noexc.i ]
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %19, align 8, !noalias !958
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.7.0.i.i.i.i.i, ptr %125, align 8, !noalias !958
@@ -9133,8 +9133,8 @@ default.unreachable1:                             ; preds = %1
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %5, %4, %3
-  %.sroa.7.0 = phi i64 [ 12, %11 ], [ 13, %10 ], [ %9, %5 ], [ 14, %4 ], [ 2, %3 ], [ 5, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.180, %11 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %10 ], [ %7, %5 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %4 ], [ @anon.50f47b8eed36f8d5a751999381819f49.177, %3 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %1 ]
+  %.sroa.7.0 = phi i64 [ 2, %3 ], [ 14, %4 ], [ %9, %5 ], [ 13, %10 ], [ 12, %11 ], [ 5, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.177, %3 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %4 ], [ %7, %5 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %10 ], [ @anon.50f47b8eed36f8d5a751999381819f49.180, %11 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %1 ]
   %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %14
@@ -9187,8 +9187,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %2, %7, %8, %9, %14, %15
-  %.sroa.7.0.i = phi i64 [ 12, %15 ], [ 13, %14 ], [ %13, %9 ], [ 14, %8 ], [ 2, %7 ], [ 5, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.180, %15 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %14 ], [ %11, %9 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %8 ], [ @anon.50f47b8eed36f8d5a751999381819f49.177, %7 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %2 ]
+  %.sroa.7.0.i = phi i64 [ 2, %7 ], [ 14, %8 ], [ %13, %9 ], [ 13, %14 ], [ 12, %15 ], [ 5, %2 ]
+  %.sroa.0.0.i = phi ptr [ @anon.50f47b8eed36f8d5a751999381819f49.177, %7 ], [ @anon.50f47b8eed36f8d5a751999381819f49.178, %8 ], [ %11, %9 ], [ @anon.50f47b8eed36f8d5a751999381819f49.179, %14 ], [ @anon.50f47b8eed36f8d5a751999381819f49.180, %15 ], [ @anon.50f47b8eed36f8d5a751999381819f49.176, %2 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.7.0.i, ptr %16, align 8
@@ -9565,7 +9565,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit30: ; preds = %2
   br label %41
 
 41:                                               ; preds = %2, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit30, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit25, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.shrunk = phi i1 [ %40, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit30 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit25 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit25 ], [ %40, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit30 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -10101,7 +10101,7 @@ define { ptr, i64 } @_ZN7ruff_db5files4path8FilePath6as_str17h6fee72caeb6bfcedE(
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %3
     i64 1, label %10
-    i64 2, label %14
+    i64 2, label %13
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -10114,28 +10114,23 @@ default.unreachable1:                             ; preds = %1
   %7 = load i64, ptr %6, align 8, !noundef !21
   %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
-  br label %21
+  br label %19
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call { ptr, i64 } @"_ZN87_$LT$ruff_db..system..path..SystemVirtualPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h43a01329130edfdcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  br label %21
+  br label %19
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_db..vendored..path..VendoredPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h984768b69d1dea16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = tail call { ptr, i64 } @_ZN7ruff_db8vendored4path12VendoredPath6as_str17h0e1844aeb66ec3e4E(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18)
-  %20 = extractvalue { ptr, i64 } %19, 0
-  br label %21
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_db..vendored..path..VendoredPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h984768b69d1dea16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = extractvalue { ptr, i64 } %15, 1
+  %18 = tail call { ptr, i64 } @_ZN7ruff_db8vendored4path12VendoredPath6as_str17h0e1844aeb66ec3e4E(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %17)
+  br label %19
 
-21:                                               ; preds = %14, %10, %3
-  %.sroa.0.0 = phi ptr [ %20, %14 ], [ %13, %10 ], [ %5, %3 ]
-  %.merged = phi { ptr, i64 } [ %19, %14 ], [ %12, %10 ], [ %9, %3 ]
-  %22 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %22)
+19:                                               ; preds = %13, %10, %3
+  %.merged = phi { ptr, i64 } [ %9, %3 ], [ %12, %10 ], [ %18, %13 ]
   ret { ptr, i64 } %.merged
 }
 
@@ -10174,8 +10169,8 @@ default.unreachable4:                             ; preds = %1
   br label %19
 
 19:                                               ; preds = %1, %3, %11
-  %.sroa.5.0 = phi i64 [ %18, %11 ], [ %.sroa.5.1, %3 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %17, %11 ], [ %9, %3 ], [ null, %1 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.1, %3 ], [ %18, %11 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %3 ], [ %17, %11 ], [ null, %1 ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %21
@@ -10187,7 +10182,7 @@ define { ptr, i64 } @"_ZN82_$LT$ruff_db..files..path..FilePath$u20$as$u20$core..
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
     i64 1, label %10
-    i64 2, label %14
+    i64 2, label %13
   ]
 
 default.unreachable:                              ; preds = %1
@@ -10205,23 +10200,18 @@ default.unreachable:                              ; preds = %1
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call { ptr, i64 } @"_ZN87_$LT$ruff_db..system..path..SystemVirtualPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h43a01329130edfdcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  %13 = extractvalue { ptr, i64 } %12, 0
   br label %_ZN7ruff_db5files4path8FilePath6as_str17h6fee72caeb6bfcedE.exit
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_db..vendored..path..VendoredPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h984768b69d1dea16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = tail call { ptr, i64 } @_ZN7ruff_db8vendored4path12VendoredPath6as_str17h0e1844aeb66ec3e4E(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18)
-  %20 = extractvalue { ptr, i64 } %19, 0
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_db..vendored..path..VendoredPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h984768b69d1dea16E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = extractvalue { ptr, i64 } %15, 1
+  %18 = tail call { ptr, i64 } @_ZN7ruff_db8vendored4path12VendoredPath6as_str17h0e1844aeb66ec3e4E(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %17)
   br label %_ZN7ruff_db5files4path8FilePath6as_str17h6fee72caeb6bfcedE.exit
 
-_ZN7ruff_db5files4path8FilePath6as_str17h6fee72caeb6bfcedE.exit: ; preds = %3, %10, %14
-  %.sroa.0.0.i = phi ptr [ %20, %14 ], [ %13, %10 ], [ %5, %3 ]
-  %.merged.i = phi { ptr, i64 } [ %19, %14 ], [ %12, %10 ], [ %9, %3 ]
-  %21 = icmp ne ptr %.sroa.0.0.i, null
-  tail call void @llvm.assume(i1 %21)
+_ZN7ruff_db5files4path8FilePath6as_str17h6fee72caeb6bfcedE.exit: ; preds = %3, %10, %13
+  %.merged.i = phi { ptr, i64 } [ %9, %3 ], [ %12, %10 ], [ %18, %13 ]
   ret { ptr, i64 } %.merged.i
 }
 
@@ -10299,7 +10289,7 @@ default.unreachable1:                             ; preds = %2
   br label %11
 
 11:                                               ; preds = %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 

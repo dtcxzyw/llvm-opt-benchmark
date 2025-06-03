@@ -870,11 +870,11 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge164
   br label %_Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread
 
 _Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread: ; preds = %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge, %42, %65, %72
-  %.sroa.30.48.copyload = phi float [ %.sroa.30.48.copyload.pre, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.30.48.copyload.pre169, %72 ], [ %.sroa.30.48.copyload.pre169, %65 ], [ %45, %42 ]
-  %.sroa.0116.2 = phi <2 x float> [ %.sroa.0116.1149, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.0109.4.vec.insert, %72 ], [ %.sroa.0116.1149, %65 ], [ %.sroa.0116.1149, %42 ]
-  %.sroa.6117.2 = phi <2 x float> [ %.sroa.6117.1150, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.9112.8.vec.insert, %72 ], [ %.sroa.6117.1150, %65 ], [ %.sroa.6117.1150, %42 ]
-  %.1 = phi float [ %.0135151, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %69, %72 ], [ %.0135151, %65 ], [ %.0135151, %42 ]
-  %.165 = phi i32 [ %.064152, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %106, %72 ], [ %.064152, %65 ], [ %.064152, %42 ]
+  %.sroa.30.48.copyload = phi float [ %.sroa.30.48.copyload.pre169, %72 ], [ %.sroa.30.48.copyload.pre, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.30.48.copyload.pre169, %65 ], [ %45, %42 ]
+  %.sroa.0116.2 = phi <2 x float> [ %.sroa.0109.4.vec.insert, %72 ], [ %.sroa.0116.1149, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.0116.1149, %65 ], [ %.sroa.0116.1149, %42 ]
+  %.sroa.6117.2 = phi <2 x float> [ %.sroa.9112.8.vec.insert, %72 ], [ %.sroa.6117.1150, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.sroa.6117.1150, %65 ], [ %.sroa.6117.1150, %42 ]
+  %.1 = phi float [ %69, %72 ], [ %.0135151, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.0135151, %65 ], [ %.0135151, %42 ]
+  %.165 = phi i32 [ %106, %72 ], [ %.064152, %._Z16sphere_intersectRK9b3Vector3fS1_S1_Rf.exit.thread_crit_edge ], [ %.064152, %65 ], [ %.064152, %42 ]
   %.sroa.32107.48..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.sroa.32107.48.copyload = load float, ptr %.sroa.32107.48..sroa_idx, align 4
   %.sroa.33108.48..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8

@@ -1006,8 +1006,8 @@ define { ptr, i64 } @_ZN21tree_sitter_highlight12HtmlRenderer8add_text11html_esc
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.7.0 = phi i64 [ 6, %6 ], [ 5, %5 ], [ 5, %4 ], [ 4, %3 ], [ 4, %2 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.7846843607c3237cb579c64a79ba54af.22.llvm.16574816117915424926, %6 ], [ @anon.7846843607c3237cb579c64a79ba54af.21.llvm.16574816117915424926, %5 ], [ @anon.7846843607c3237cb579c64a79ba54af.20.llvm.16574816117915424926, %4 ], [ @anon.7846843607c3237cb579c64a79ba54af.19.llvm.16574816117915424926, %3 ], [ @anon.7846843607c3237cb579c64a79ba54af.18.llvm.16574816117915424926, %2 ], [ null, %1 ]
+  %.sroa.7.0 = phi i64 [ 4, %2 ], [ 4, %3 ], [ 5, %4 ], [ 5, %5 ], [ 6, %6 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.7846843607c3237cb579c64a79ba54af.18.llvm.16574816117915424926, %2 ], [ @anon.7846843607c3237cb579c64a79ba54af.19.llvm.16574816117915424926, %3 ], [ @anon.7846843607c3237cb579c64a79ba54af.20.llvm.16574816117915424926, %4 ], [ @anon.7846843607c3237cb579c64a79ba54af.21.llvm.16574816117915424926, %5 ], [ @anon.7846843607c3237cb579c64a79ba54af.22.llvm.16574816117915424926, %6 ], [ null, %1 ]
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %9
@@ -1333,7 +1333,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0.in = phi i1 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i1 %.0.in
 }
 

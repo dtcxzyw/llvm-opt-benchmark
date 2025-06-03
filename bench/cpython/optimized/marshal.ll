@@ -5764,7 +5764,7 @@ r_byte.exit:                                      ; preds = %20, %18
   br label %134
 
 134:                                              ; preds = %133, %35
-  %.0311 = phi i32 [ 0, %35 ], [ 1, %133 ]
+  %.0311 = phi i32 [ 1, %133 ], [ 0, %35 ]
   %135 = tail call fastcc ptr @r_string(i64 noundef 4, ptr noundef nonnull %0)
   %.not.i469 = icmp eq ptr %135, null
   br i1 %.not.i469, label %r_long.exit.thread, label %r_long.exit
@@ -5801,7 +5801,7 @@ r_long.exit.thread:                               ; preds = %134, %r_long.exit
   br label %154
 
 154:                                              ; preds = %153, %35
-  %.1312 = phi i32 [ 0, %35 ], [ 1, %153 ]
+  %.1312 = phi i32 [ 1, %153 ], [ 0, %35 ]
   %155 = load ptr, ptr %4, align 8, !tbaa !48
   %.not.i471 = icmp eq ptr %155, null
   br i1 %.not.i471, label %162, label %156
@@ -5889,7 +5889,7 @@ r_byte.exit476.thread:                            ; preds = %r_byte.exit476.thre
   br label %192
 
 192:                                              ; preds = %191, %35
-  %.not409 = phi i1 [ true, %35 ], [ false, %191 ]
+  %.not409 = phi i1 [ false, %191 ], [ true, %35 ]
   %193 = tail call fastcc ptr @r_string(i64 noundef 4, ptr noundef nonnull %0)
   %.not.i477 = icmp eq ptr %193, null
   br i1 %.not.i477, label %r_long.exit479.thread, label %r_long.exit479
@@ -5988,7 +5988,7 @@ r_long.exit479.thread:                            ; preds = %192, %r_long.exit47
   br label %_Py_NewRef.exit
 
 241:                                              ; preds = %235, %231
-  %.1310 = phi i64 [ %236, %235 ], [ %233, %231 ]
+  %.1310 = phi i64 [ %233, %231 ], [ %236, %235 ]
   %242 = tail call ptr @PyTuple_New(i64 noundef %.1310) #11
   store ptr %242, ptr %2, align 8, !tbaa !29
   %.not406 = icmp eq i32 %36, 0
@@ -6763,7 +6763,7 @@ Py_DECREF.exit439:                                ; preds = %Py_DECREF.exit, %.p
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %Py_DECREF.exit439, %423, %366, %367, %170, %168, %491, %430, %428, %379, %380, %552, %549, %528, %128, %125, %123, %43, %39, %209, %r_long.exit479.thread, %212, %219, %229, %227, %175, %178, %189, %187, %115, %113, %117, %131, %129, %100, %105, %109, %107, %86, %91, %95, %93, %77, %81, %79, %68, %72, %70, %537, %539, %Py_DECREF.exit441, %363, %r_long.exit482.thread, %358, %304, %278, %270, %272, %245, %237, %239, %231, %r_long.exit.thread, %151, %61, %63, %57, %59, %53, %55, %51, %568, %567, %547, %Py_DECREF.exit443, %Py_DECREF.exit451, %Py_DECREF.exit453, %47, %46, %45, %38, %35
-  %.0314 = phi ptr [ null, %568 ], [ %.15, %567 ], [ null, %537 ], [ null, %539 ], [ null, %547 ], [ null, %r_long.exit482.thread ], [ null, %358 ], [ null, %363 ], [ null, %Py_DECREF.exit441 ], [ null, %304 ], [ %340, %Py_DECREF.exit443 ], [ null, %270 ], [ null, %272 ], [ null, %278 ], [ %299, %Py_DECREF.exit451 ], [ null, %237 ], [ null, %239 ], [ null, %245 ], [ %267, %Py_DECREF.exit453 ], [ null, %231 ], [ null, %r_long.exit.thread ], [ null, %151 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ null, %51 ], [ %56, %55 ], [ %54, %53 ], [ @_Py_TrueStruct, %47 ], [ @_Py_FalseStruct, %46 ], [ @_Py_EllipsisObject, %45 ], [ @_Py_NoneStruct, %38 ], [ null, %35 ], [ null, %68 ], [ %73, %72 ], [ %71, %70 ], [ null, %77 ], [ %82, %81 ], [ %80, %79 ], [ null, %86 ], [ null, %91 ], [ %96, %95 ], [ %94, %93 ], [ null, %100 ], [ null, %105 ], [ %110, %109 ], [ %108, %107 ], [ null, %115 ], [ null, %113 ], [ null, %117 ], [ %132, %131 ], [ %118, %129 ], [ null, %175 ], [ null, %178 ], [ %190, %189 ], [ %188, %187 ], [ null, %209 ], [ null, %r_long.exit479.thread ], [ null, %212 ], [ null, %219 ], [ %230, %229 ], [ %228, %227 ], [ %40, %39 ], [ %40, %43 ], [ null, %123 ], [ null, %125 ], [ null, %128 ], [ %529, %528 ], [ %545, %549 ], [ %545, %552 ], [ null, %380 ], [ null, %379 ], [ null, %428 ], [ null, %430 ], [ null, %491 ], [ null, %168 ], [ null, %170 ], [ %368, %367 ], [ %364, %366 ], [ %.pre516, %423 ], [ %.pre516, %Py_DECREF.exit439 ]
+  %.0314 = phi ptr [ null, %568 ], [ null, %35 ], [ @_Py_NoneStruct, %38 ], [ @_Py_EllipsisObject, %45 ], [ @_Py_FalseStruct, %46 ], [ @_Py_TrueStruct, %47 ], [ null, %51 ], [ %56, %55 ], [ %54, %53 ], [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ null, %r_long.exit.thread ], [ null, %151 ], [ null, %231 ], [ null, %245 ], [ %267, %Py_DECREF.exit453 ], [ null, %237 ], [ null, %239 ], [ null, %270 ], [ null, %272 ], [ null, %278 ], [ %299, %Py_DECREF.exit451 ], [ null, %304 ], [ %340, %Py_DECREF.exit443 ], [ null, %r_long.exit482.thread ], [ null, %358 ], [ null, %363 ], [ null, %Py_DECREF.exit441 ], [ null, %537 ], [ null, %539 ], [ null, %547 ], [ %.15, %567 ], [ null, %68 ], [ %73, %72 ], [ %71, %70 ], [ null, %77 ], [ %82, %81 ], [ %80, %79 ], [ null, %86 ], [ null, %91 ], [ %96, %95 ], [ %94, %93 ], [ null, %100 ], [ null, %105 ], [ %110, %109 ], [ %108, %107 ], [ null, %115 ], [ null, %113 ], [ null, %117 ], [ %132, %131 ], [ %118, %129 ], [ null, %175 ], [ null, %178 ], [ %190, %189 ], [ %188, %187 ], [ null, %209 ], [ null, %r_long.exit479.thread ], [ null, %212 ], [ null, %219 ], [ %230, %229 ], [ %228, %227 ], [ %40, %39 ], [ %40, %43 ], [ null, %123 ], [ null, %125 ], [ null, %128 ], [ %529, %528 ], [ %545, %549 ], [ %545, %552 ], [ null, %380 ], [ null, %379 ], [ null, %428 ], [ null, %430 ], [ null, %491 ], [ null, %168 ], [ null, %170 ], [ %368, %367 ], [ %364, %366 ], [ %.pre516, %423 ], [ %.pre516, %Py_DECREF.exit439 ]
   %570 = load i32, ptr %29, align 8, !tbaa !50
   %571 = add i32 %570, -1
   store i32 %571, ptr %29, align 8, !tbaa !50

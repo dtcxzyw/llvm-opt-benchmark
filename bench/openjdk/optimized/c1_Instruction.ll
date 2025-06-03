@@ -1423,7 +1423,7 @@ define hidden noundef i64 @_ZNK8Constant4hashEv(ptr noundef nonnull align 8 dere
   unreachable
 
 132:                                              ; preds = %1, %112, %94, %76, %60, %42, %26, %10
-  %.0 = phi i64 [ %129, %112 ], [ %111, %94 ], [ %93, %76 ], [ %75, %60 ], [ %59, %42 ], [ %41, %26 ], [ %25, %10 ], [ 0, %1 ]
+  %.0 = phi i64 [ %25, %10 ], [ %41, %26 ], [ %59, %42 ], [ %75, %60 ], [ %93, %76 ], [ %111, %94 ], [ %129, %112 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1879,7 +1879,7 @@ _ZNK10ciMetadata9is_loadedEv.exit68.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %147
 
 147:                                              ; preds = %23, %51, %_ZNK8ciObject9is_loadedEv.exit65.thread, %_ZNK8ciObject9is_loadedEv.exit65, %_ZNK8ciObject9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit68.thread, %_ZNK10ciMetadata9is_loadedEv.exit68, %_ZNK10ciMetadata9is_loadedEv.exit, %20, %9, %3, %145, %142, %111, %108, %77, %74, %72, %69, %67, %64, %49, %46, %44, %41, %39, %36
-  %.0 = phi i32 [ %146, %145 ], [ %144, %142 ], [ %112, %111 ], [ %110, %108 ], [ %78, %77 ], [ %76, %74 ], [ %73, %72 ], [ %71, %69 ], [ %68, %67 ], [ %66, %64 ], [ %50, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %41 ], [ %40, %39 ], [ %38, %36 ], [ -1, %3 ], [ -1, %9 ], [ -1, %20 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68.thread ], [ -1, %_ZNK8ciObject9is_loadedEv.exit ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65 ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65.thread ], [ -1, %51 ], [ -1, %23 ]
+  %.0 = phi i32 [ %38, %36 ], [ %40, %39 ], [ %43, %41 ], [ %45, %44 ], [ %48, %46 ], [ %50, %49 ], [ %66, %64 ], [ %68, %67 ], [ %71, %69 ], [ %73, %72 ], [ %76, %74 ], [ %78, %77 ], [ %110, %108 ], [ %112, %111 ], [ %144, %142 ], [ %146, %145 ], [ -1, %3 ], [ -1, %9 ], [ -1, %20 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68.thread ], [ -1, %_ZNK8ciObject9is_loadedEv.exit ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65 ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65.thread ], [ -1, %51 ], [ -1, %23 ]
   ret i32 %.0
 }
 

@@ -682,7 +682,7 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
   br label %77
 
 77:                                               ; preds = %75, %74, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us
-  %.1.us = phi i32 [ %.03053.us, %75 ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ 13, %74 ]
+  %.1.us = phi i32 [ %.03053.us, %75 ], [ 13, %74 ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ]
   %78 = getelementptr inbounds nuw i8, ptr %.03152.us, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not35.us = icmp eq ptr %79, null
@@ -749,7 +749,7 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
   br label %103
 
 103:                                              ; preds = %102, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %85
-  %.1 = phi i32 [ %.03053, %85 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ 13, %102 ]
+  %.1 = phi i32 [ %.03053, %85 ], [ 13, %102 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ]
   %104 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not35 = icmp eq ptr %105, null

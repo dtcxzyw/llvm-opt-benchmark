@@ -4509,13 +4509,13 @@ define hidden { ptr, ptr } @_ZN12object_store11ObjectStore20rename_if_not_exists
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u7b$$u7b$closure$u7d$$u7d$17h452433e0680c68cbE"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !426, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -4523,7 +4523,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -4532,10 +4532,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -4564,9 +4564,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.41) #30
@@ -4637,7 +4637,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -4670,8 +4670,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hedeb0be68a34034fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -4684,13 +4684,13 @@ common.ret:                                       ; preds = %61, %34, %8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u7b$$u7b$closure$u7d$$u7d$17h9a463ef1800a5236E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !426, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -4698,7 +4698,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -4707,10 +4707,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -4739,9 +4739,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.41) #30
@@ -4812,7 +4812,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -4845,8 +4845,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hedeb0be68a34034fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -6185,13 +6185,13 @@ define hidden { ptr, ptr } @_ZN12object_store11ObjectStore6rename17he6b26cf2d9e5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure$u7d$$u7d$17h8d56a71f6e713307E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !426, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -6199,7 +6199,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -6208,10 +6208,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -6240,9 +6240,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.55) #30
@@ -6313,7 +6313,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -6346,8 +6346,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hedeb0be68a34034fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -6360,13 +6360,13 @@ common.ret:                                       ; preds = %61, %34, %8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure$u7d$$u7d$17hc8472d72b206ad2cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !426, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -6374,7 +6374,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -6383,10 +6383,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -6415,9 +6415,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd10ff1e36b00356cf259412b9d74870.55) #30
@@ -6488,7 +6488,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -6521,8 +6521,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hedeb0be68a34034fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -7205,9 +7205,9 @@ default.unreachable60:                            ; preds = %123, %43, %3
   br label %85
 
 52:                                               ; preds = %80, %76, %58
-  %53 = phi ptr [ %59, %58 ], [ %77, %76 ], [ %47, %80 ]
-  %54 = phi ptr [ %60, %58 ], [ %78, %76 ], [ %48, %80 ]
-  %.pn4.i = phi { ptr, i32 } [ %61, %58 ], [ %.pn2.i, %76 ], [ %81, %80 ]
+  %53 = phi ptr [ %47, %80 ], [ %59, %58 ], [ %77, %76 ]
+  %54 = phi ptr [ %48, %80 ], [ %60, %58 ], [ %78, %76 ]
+  %.pn4.i = phi { ptr, i32 } [ %81, %80 ], [ %61, %58 ], [ %.pn2.i, %76 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 481
   %56 = load i8, ptr %55, align 1, !range !197, !noalias !489, !noundef !4
   %57 = trunc nuw i8 %56 to i1
@@ -7592,9 +7592,9 @@ common.ret:                                       ; preds = %405, %390, %112
           to label %392 unwind label %354, !noalias !502
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i": ; preds = %349, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i", %272, %182, %150
-  %174 = phi ptr [ %179, %272 ], [ %147, %150 ], [ %179, %182 ], [ %277, %349 ], [ %327, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
-  %175 = phi ptr [ %180, %272 ], [ %148, %150 ], [ %180, %182 ], [ %278, %349 ], [ %328, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
-  %.pn23.pn.i = phi { ptr, i32 } [ %273, %272 ], [ %151, %150 ], [ %183, %182 ], [ %350, %349 ], [ %.pn21.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
+  %174 = phi ptr [ %147, %150 ], [ %179, %272 ], [ %179, %182 ], [ %277, %349 ], [ %327, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
+  %175 = phi ptr [ %148, %150 ], [ %180, %272 ], [ %180, %182 ], [ %278, %349 ], [ %328, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
+  %.pn27.pn.i = phi { ptr, i32 } [ %151, %150 ], [ %273, %272 ], [ %183, %182 ], [ %350, %349 ], [ %.pn21.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit43.i" ]
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 489
   store i8 0, ptr %176, align 1, !noalias !498
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -8004,7 +8004,7 @@ common.ret:                                       ; preds = %405, %390, %112
 351:                                              ; preds = %354, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i"
   %352 = phi ptr [ %355, %354 ], [ %174, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i" ]
   %353 = phi ptr [ %356, %354 ], [ %175, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i" ]
-  %.pn30.i = phi { ptr, i32 } [ %357, %354 ], [ %.pn23.pn.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i" ]
+  %.pn30.i = phi { ptr, i32 } [ %357, %354 ], [ %.pn27.pn.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit.i" ]
   store i8 2, ptr %352, align 8, !noalias !498
   br label %.body22
 
@@ -8088,7 +8088,7 @@ common.ret:                                       ; preds = %405, %390, %112
           cleanup
   br label %.body22
 
-390:                                              ; preds = %285, %196, %155
+390:                                              ; preds = %155, %196, %285
   %391 = phi ptr [ %147, %155 ], [ %179, %196 ], [ %277, %285 ]
   %.sink.i.ph = phi i8 [ 3, %155 ], [ 4, %196 ], [ 5, %285 ]
   store i8 %.sink.i.ph, ptr %391, align 8, !noalias !498
@@ -9219,7 +9219,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN79_$LT$polars_core..datatypes..dtype..UnknownKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h29a84e386d7a0c76E.exit"
 
 "_ZN79_$LT$polars_core..datatypes..dtype..UnknownKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h29a84e386d7a0c76E.exit": ; preds = %7, %10, %12, %14
-  %.sroa.0.0.in.i = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %7 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -9666,7 +9666,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$polars_stream..nod
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %11, %1
+common.ret:                                       ; preds = %11, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -9758,7 +9758,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %26 unwind label %24
 
 20:                                               ; preds = %24, %15
-  %.pn10 = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ]
+  %.pn9 = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ]
   %21 = load ptr, ptr %0, align 8, !alias.scope !770, !noundef !4
   %22 = icmp eq ptr %21, null
   br i1 %22, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit", label %23
@@ -9778,8 +9778,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %28, label %common.ret, label %common.ret.sink.split
 
 "_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit": ; preds = %20, %23, %80, %63, %86, %82, %77, %73
-  %.pn12 = phi { ptr, i32 } [ %.pn6, %77 ], [ %.pn6, %73 ], [ %.pn6, %63 ], [ %.pn4, %86 ], [ %.pn4, %82 ], [ %.pn4, %80 ], [ %.pn10, %23 ], [ %.pn10, %20 ]
-  resume { ptr, i32 } %.pn12
+  %.pn11 = phi { ptr, i32 } [ %.pn5, %77 ], [ %.pn5, %73 ], [ %.pn5, %63 ], [ %.pn3, %86 ], [ %.pn3, %82 ], [ %.pn3, %80 ], [ %.pn9, %23 ], [ %.pn9, %20 ]
+  resume { ptr, i32 } %.pn11
 
 29:                                               ; preds = %23, %86, %78, %44, %77, %58, %52, %40, %15
   %30 = landingpad { ptr, i32 }
@@ -9798,7 +9798,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %38
 
 34:                                               ; preds = %36, %31
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %32, %31 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 194
   store i8 0, ptr %35, align 2
   br label %40
@@ -9814,7 +9814,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %56 unwind label %54
 
 40:                                               ; preds = %50, %44, %34
-  %.pn2 = phi { ptr, i32 } [ %51, %50 ], [ %45, %44 ], [ %.pn, %34 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %34 ], [ %51, %50 ], [ %45, %44 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitGroup$GT$17h6d3f8fbbd1fa06a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41) #31
           to label %52 unwind label %29
@@ -9844,7 +9844,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %40
 
 52:                                               ; preds = %54, %40
-  %.pn4 = phi { ptr, i32 } [ %55, %54 ], [ %.pn2, %40 ]
+  %.pn3 = phi { ptr, i32 } [ %55, %54 ], [ %.pn.pn, %40 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53) #31
           to label %78 unwind label %29
@@ -9872,10 +9872,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %67 unwind label %65
 
 63:                                               ; preds = %65, %58
-  %.pn6 = phi { ptr, i32 } [ %66, %65 ], [ %59, %58 ]
+  %.pn5 = phi { ptr, i32 } [ %66, %65 ], [ %59, %58 ]
   %64 = load ptr, ptr %0, align 8, !noundef !4
-  %.not8 = icmp eq ptr %64, null
-  br i1 %.not8, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit", label %73
+  %.not7 = icmp eq ptr %64, null
+  br i1 %.not7, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit", label %73
 
 65:                                               ; preds = %61
   %66 = landingpad { ptr, i32 }
@@ -9884,8 +9884,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %0, align 8, !noundef !4
-  %.not9 = icmp eq ptr %68, null
-  br i1 %.not9, label %common.ret, label %69
+  %.not8 = icmp eq ptr %68, null
+  br i1 %.not8, label %common.ret, label %69
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -10887,7 +10887,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$polars_stream..nod
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %24, %1
+common.ret:                                       ; preds = %24, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -11147,7 +11147,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$polars_stream..nod
     i8 6, label %13
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit24", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
+common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit23", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @"_ZN4core3ptr147drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$$GT$17h5d9139855d93c627E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   br label %common.ret
@@ -11192,7 +11192,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %common.ret.sink.split unwind label %21
 
 19:                                               ; preds = %21, %15
-  %.pn16 = phi { ptr, i32 } [ %22, %21 ], [ %16, %15 ]
+  %.pn15 = phi { ptr, i32 } [ %22, %21 ], [ %16, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr147drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$$GT$17h5d9139855d93c627E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %20) #31
           to label %23 unwind label %24
@@ -11203,16 +11203,16 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %19
 
 23:                                               ; preds = %110, %104, %19
-  %.pn18 = phi { ptr, i32 } [ %.pn14, %104 ], [ %.pn12, %110 ], [ %.pn16, %19 ]
-  resume { ptr, i32 } %.pn18
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %19 ], [ %.pn13, %104 ], [ %.pn11, %110 ]
+  resume { ptr, i32 } %.pn17
 
-24:                                               ; preds = %97, %38, %110, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit26", %108, %77, %104, %100, %71, %28, %55, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %19, %15
+24:                                               ; preds = %97, %38, %110, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit25", %108, %77, %104, %100, %71, %28, %55, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %19, %15
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
   unreachable
 
-26:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit22", %1
+26:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit21", %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27)
           to label %59 unwind label %57
@@ -11253,11 +11253,11 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %44 = load ptr, ptr %43, align 16, !alias.scope !961, !noundef !4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit22", label %46
+  br i1 %45, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit21", label %46
 
 46:                                               ; preds = %41
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit22" unwind label %49
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit21" unwind label %49
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit": ; preds = %33, %38, %49
   %.pn2 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %38 ], [ %.pn, %33 ]
@@ -11272,14 +11272,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit22": ; preds = %41, %46
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit21": ; preds = %41, %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 266
   store i8 0, ptr %51, align 2
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 320
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %52)
           to label %26 unwind label %53
 
-53:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit22"
+53:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit21"
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -11329,7 +11329,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %55 unwind label %24
 
 73:                                               ; preds = %82, %77, %61
-  %.pn10 = phi { ptr, i32 } [ %83, %82 ], [ %78, %77 ], [ %.pn8, %61 ]
+  %.pn8.pn = phi { ptr, i32 } [ %.pn8, %61 ], [ %83, %82 ], [ %78, %77 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %75 = load i8, ptr %74, align 8, !range !197, !noundef !4
   %76 = trunc nuw i8 %75 to i1
@@ -11360,19 +11360,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %86 = load ptr, ptr %85, align 8, !alias.scope !970, !nonnull !4, !noundef !4
   %87 = atomicrmw sub ptr %86, i64 1 release, align 8, !noalias !970
   %88 = icmp eq i64 %87, 1
-  br i1 %88, label %89, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit24"
+  br i1 %88, label %89, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit23"
 
 89:                                               ; preds = %84
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %85)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit24" unwind label %100
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit23" unwind label %100
 
 90:                                               ; preds = %67
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %84 unwind label %98
 
 91:                                               ; preds = %108, %98, %73
-  %.pn12 = phi { ptr, i32 } [ %99, %98 ], [ %.pn10, %108 ], [ %.pn10, %73 ]
+  %.pn11 = phi { ptr, i32 } [ %99, %98 ], [ %.pn8.pn, %108 ], [ %.pn8.pn, %73 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 0, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -11381,12 +11381,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %94 = load ptr, ptr %93, align 8, !alias.scope !977, !nonnull !4, !noundef !4
   %95 = atomicrmw sub ptr %94, i64 1 release, align 8, !noalias !977
   %96 = icmp eq i64 %95, 1
-  br i1 %96, label %97, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit26"
+  br i1 %96, label %97, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit25"
 
 97:                                               ; preds = %91
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit26" unwind label %24
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit25" unwind label %24
 
 98:                                               ; preds = %90
   %99 = landingpad { ptr, i32 }
@@ -11400,18 +11400,18 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #31
           to label %104 unwind label %24
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit24": ; preds = %84, %89
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit23": ; preds = %84, %89
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 256
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %103)
           to label %common.ret.sink.split unwind label %106
 
 104:                                              ; preds = %106, %100
-  %.pn14 = phi { ptr, i32 } [ %107, %106 ], [ %101, %100 ]
+  %.pn13 = phi { ptr, i32 } [ %107, %106 ], [ %101, %100 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr147drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$$GT$17h5d9139855d93c627E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %105) #31
           to label %23 unwind label %24
 
-106:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit24"
+106:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit23"
   %107 = landingpad { ptr, i32 }
           cleanup
   br label %104
@@ -11420,12 +11420,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #31
           to label %91 unwind label %24
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit26": ; preds = %91, %97
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit25": ; preds = %91, %97
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 256
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %109) #31
           to label %110 unwind label %24
 
-110:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit26"
+110:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit25"
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr147drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$$GT$17h5d9139855d93c627E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %111) #31
           to label %23 unwind label %24
@@ -11776,7 +11776,7 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$polars_stream..nod
     i8 7, label %36
   ]
 
-common.ret:                                       ; preds = %41, %152, %1
+common.ret:                                       ; preds = %152, %41, %1
   ret void
 
 4:                                                ; preds = %1
@@ -11878,7 +11878,7 @@ common.ret:                                       ; preds = %41, %152, %1
   br label %common.ret
 
 43:                                               ; preds = %148, %38
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %148 ], [ %39, %38 ]
+  %.pn28 = phi { ptr, i32 } [ %39, %38 ], [ %.pn26, %148 ]
   resume { ptr, i32 } %.pn28
 
 44:                                               ; preds = %55, %101, %154, %148, %142, %136, %130, %124, %118, %112, %106, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit31", %66, %60, %38
@@ -11924,7 +11924,7 @@ common.ret:                                       ; preds = %41, %152, %1
           to label %70 unwind label %68
 
 60:                                               ; preds = %64, %62, %56
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %63, %62 ], [ %65, %64 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %61) #31
           to label %66 unwind label %44
@@ -12186,8 +12186,8 @@ define internal fastcc void @"_ZN4core3ptr122drop_in_place$LT$polars_stream..nod
     i8 5, label %6
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit", %4
-  %.sink = phi ptr [ %5, %4 ], [ %0, %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit" ]
+common.ret.sink.split:                            ; preds = %4, %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit"
+  %.sink = phi ptr [ %0, %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit" ], [ %5, %4 ]
   tail call void @"_ZN4core3ptr88drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..Bridge$GT$17h2d046d41c9398278E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sink)
   br label %common.ret
 
@@ -12309,7 +12309,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 45:                                               ; preds = %57, %55
-  %.pn.i = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
+  %.pn.i = phi { ptr, i32 } [ %56, %55 ], [ %58, %57 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 619
@@ -12371,7 +12371,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 618
   %76 = load i8, ptr %75, align 2, !range !197, !noundef !4
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %87, label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i"
+  br i1 %77, label %87, label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i"
 
 78:                                               ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -12385,14 +12385,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 618
   %83 = load i8, ptr %82, align 2, !range !197, !noundef !4
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %112, label %.body16.i
+  br i1 %84, label %112, label %.body17.i
 
 85:                                               ; preds = %78
   %86 = landingpad { ptr, i32 }
           cleanup
   br label %80
 
-"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i": ; preds = %104, %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i13.i", %93, %74
+"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i": ; preds = %104, %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i14.i", %93, %74
   store i8 0, ptr %75, align 2
   br label %"_ZN4core3ptr127drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..Bridge..run_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$17h004ab1675a81d13dE.exit"
 
@@ -12407,16 +12407,16 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 248
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91)
-          to label %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i13.i" unwind label %95
+          to label %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i14.i" unwind label %95
 
 92:                                               ; preds = %87
   invoke void @"_ZN4core3ptr89drop_in_place$LT$polars_stream..async_primitives..morsel_linearizer..MorselLinearizer$GT$17h379d40fb9a8b3ff3E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %88)
-          to label %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i13.i" unwind label %95
+          to label %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i14.i" unwind label %95
 
 93:                                               ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 248
   invoke void @"_ZN4core3ptr89drop_in_place$LT$polars_stream..async_primitives..morsel_linearizer..MorselLinearizer$GT$17h379d40fb9a8b3ff3E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %94)
-          to label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i" unwind label %108
+          to label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i" unwind label %108
 
 95:                                               ; preds = %92, %90
   %96 = landingpad { ptr, i32 }
@@ -12424,21 +12424,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %98 = load i64, ptr %97, align 8, !range !266, !alias.scope !1017, !noundef !4
   %99 = icmp eq i64 %98, -9223372036854775808
-  br i1 %99, label %.body16.i, label %100
+  br i1 %99, label %.body17.i, label %100
 
 100:                                              ; preds = %95
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %97)
-          to label %.body16.i unwind label %105
+          to label %.body17.i unwind label %105
 
-"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i13.i": ; preds = %92, %90
+"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i14.i": ; preds = %92, %90
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %102 = load i64, ptr %101, align 8, !range !266, !alias.scope !1020, !noundef !4
   %103 = icmp eq i64 %102, -9223372036854775808
-  br i1 %103, label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i", label %104
+  br i1 %103, label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i", label %104
 
-104:                                              ; preds = %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i13.i"
+104:                                              ; preds = %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i14.i"
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %101)
-          to label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i" unwind label %108
+          to label %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i" unwind label %108
 
 105:                                              ; preds = %100
   %106 = landingpad { ptr, i32 }
@@ -12446,7 +12446,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
   unreachable
 
-.body16.i:                                        ; preds = %112, %108, %100, %95, %80
+.body17.i:                                        ; preds = %112, %108, %100, %95, %80
   %.pn6.i = phi { ptr, i32 } [ %.pn4.i, %112 ], [ %.pn4.i, %80 ], [ %109, %108 ], [ %96, %100 ], [ %96, %95 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 618
   store i8 0, ptr %107, align 2
@@ -12455,7 +12455,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 108:                                              ; preds = %104, %93
   %109 = landingpad { ptr, i32 }
           cleanup
-  br label %.body16.i
+  br label %.body17.i
 
 110:                                              ; preds = %59
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -12465,7 +12465,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 112:                                              ; preds = %80
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 240
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE"(ptr noalias noundef align 8 dereferenceable(136) %113) #31
-          to label %.body16.i unwind label %43
+          to label %.body17.i unwind label %43
 
 114:                                              ; preds = %.body6
   resume { ptr, i32 } %.pn
@@ -12475,7 +12475,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   store i8 0, ptr %115, align 8
   br label %common.ret.sink.split
 
-"_ZN4core3ptr127drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..Bridge..run_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$17h004ab1675a81d13dE.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit18.i", %6, %41, %1
+"_ZN4core3ptr127drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..Bridge..run_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$17h004ab1675a81d13dE.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..bridge..BridgeRecvPort$GT$17h341274a31d52ea6bE.exit19.i", %6, %41, %1
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %116, align 1
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -12490,8 +12490,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %.body
 
-.body:                                            ; preds = %37, %.body16.i, %121
-  %eh.lpad-body = phi { ptr, i32 } [ %122, %121 ], [ %.pn6.i, %.body16.i ], [ %.pn8.i, %37 ]
+.body:                                            ; preds = %37, %.body17.i, %121
+  %eh.lpad-body = phi { ptr, i32 } [ %122, %121 ], [ %.pn8.i, %37 ], [ %.pn6.i, %.body17.i ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %123, align 1
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -12689,12 +12689,12 @@ common.ret:                                       ; preds = %4, %1, %58
   %45 = load ptr, ptr %44, align 8, !alias.scope !1052, !nonnull !4, !noundef !4
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !1052
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %48, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit14"
+  br i1 %47, label %48, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit15"
 
 48:                                               ; preds = %43
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he5736afa5dffe1e7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44)
-          to label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit14" unwind label %50
+          to label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit15" unwind label %50
 
 "_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit": ; preds = %35, %40, %50
   %.pn6 = phi { ptr, i32 } [ %51, %50 ], [ %.pn4, %40 ], [ %.pn4, %35 ]
@@ -12707,7 +12707,7 @@ common.ret:                                       ; preds = %4, %1, %58
           cleanup
   br label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit"
 
-"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit14": ; preds = %43, %48
+"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit15": ; preds = %43, %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$17h1805785d68bbb9d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %58 unwind label %56
@@ -12720,12 +12720,12 @@ common.ret:                                       ; preds = %4, %1, %58
   store i8 0, ptr %55, align 1
   resume { ptr, i32 } %.pn8
 
-56:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit14"
+56:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit15"
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %53
 
-58:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit14"
+58:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$$GT$17heee05dfdd2084249E.exit15"
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 386
   store i8 0, ptr %59, align 2
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 385
@@ -12848,7 +12848,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %26 unwind label %24
 
 17:                                               ; preds = %20, %13
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %21, %20 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13228,7 +13228,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$polars_stream..nod
     i8 5, label %32
   ]
 
-common.ret:                                       ; preds = %37, %96, %1
+common.ret:                                       ; preds = %96, %37, %1
   ret void
 
 4:                                                ; preds = %1
@@ -13320,7 +13320,7 @@ common.ret:                                       ; preds = %37, %96, %1
   br label %common.ret
 
 39:                                               ; preds = %92, %34
-  %.pn13 = phi { ptr, i32 } [ %.pn11, %92 ], [ %35, %34 ]
+  %.pn13 = phi { ptr, i32 } [ %35, %34 ], [ %.pn11, %92 ]
   resume { ptr, i32 } %.pn13
 
 40:                                               ; preds = %103, %102, %92, %86, %78, %73, %48, %34
@@ -13514,7 +13514,7 @@ define internal void @"_ZN4core3ptr127drop_in_place$LT$$LT$object_store..aws..Am
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %6, %1
+common.ret:                                       ; preds = %6, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -13608,7 +13608,7 @@ define internal void @"_ZN4core3ptr129drop_in_place$LT$$LT$object_store..http..H
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %6, %1
+common.ret:                                       ; preds = %6, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -13716,7 +13716,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %22 unwind label %23
 
 22:                                               ; preds = %34, %30, %20
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %34 ], [ %21, %20 ]
+  %.pn2 = phi { ptr, i32 } [ %21, %20 ], [ %31, %30 ], [ %.pn, %34 ]
   resume { ptr, i32 } %.pn2
 
 23:                                               ; preds = %34, %32, %30, %.body, %20
@@ -13783,7 +13783,7 @@ define internal void @"_ZN4core3ptr133drop_in_place$LT$$LT$object_store..aws..Am
     i8 3, label %4
   ]
 
-common.ret:                                       ; preds = %6, %4, %1
+common.ret:                                       ; preds = %4, %6, %1
   ret void
 
 4:                                                ; preds = %1
@@ -13901,7 +13901,7 @@ define internal void @"_ZN4core3ptr135drop_in_place$LT$$LT$object_store..http..H
     i8 3, label %4
   ]
 
-common.ret:                                       ; preds = %6, %4, %1
+common.ret:                                       ; preds = %4, %6, %1
   ret void
 
 4:                                                ; preds = %1
@@ -14109,7 +14109,7 @@ define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$polars_stream..nod
     i8 5, label %22
   ]
 
-common.ret:                                       ; preds = %4, %"_ZN4core3ptr112drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..ndjson..chunk_reader..ChunkReader$GT$$GT$17hbf77ad62a3993199E.exit15", %1
+common.ret:                                       ; preds = %"_ZN4core3ptr112drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..ndjson..chunk_reader..ChunkReader$GT$$GT$17hbf77ad62a3993199E.exit15", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -14292,14 +14292,14 @@ common.ret:                                       ; preds = %4, %1, %156
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 480
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30" unwind label %20
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32" unwind label %20
 
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30": ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit27", %71, %17
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32": ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit29", %71, %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 461
   %23 = load i8, ptr %22, align 1, !range !197, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -14312,7 +14312,7 @@ common.ret:                                       ; preds = %4, %1, %156
   unreachable
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit", %64, %13, %20, %73
-  %.pn6 = phi { ptr, i32 } [ %74, %73 ], [ %21, %20 ], [ %14, %13 ], [ %.pn4, %64 ], [ %.pn4, %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit" ]
+  %.pn6 = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ], [ %74, %73 ], [ %.pn4, %64 ], [ %.pn4, %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit" ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 461
   %28 = load i8, ptr %27, align 1, !range !197, !noundef !4
   %29 = trunc nuw i8 %28 to i1
@@ -14357,12 +14357,12 @@ common.ret:                                       ; preds = %4, %1, %156
   %45 = load ptr, ptr %44, align 8, !alias.scope !1136, !nonnull !4, !noundef !4
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !1136
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %48, label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit24"
+  br i1 %47, label %48, label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit26"
 
 48:                                               ; preds = %43
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8529fac3a4b72481E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44)
-          to label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit24" unwind label %54
+          to label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit26" unwind label %54
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit": ; preds = %35, %40, %54
   %.pn2 = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %40 ], [ %.pn, %35 ]
@@ -14384,19 +14384,19 @@ common.ret:                                       ; preds = %4, %1, %156
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit"
 
-"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit24": ; preds = %43, %48
+"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit26": ; preds = %43, %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 472
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   %57 = load ptr, ptr %56, align 8, !alias.scope !1150, !nonnull !4, !noundef !4
   %58 = atomicrmw sub ptr %57, i64 1 release, align 8, !noalias !1150
   %59 = icmp eq i64 %58, 1
-  br i1 %59, label %60, label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit27"
+  br i1 %59, label %60, label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit29"
 
-60:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit24"
+60:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit26"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7b21f0120da8ea13E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56)
-          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit27" unwind label %66
+          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit29" unwind label %66
 
 "_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit", %53, %66
   %.pn4 = phi { ptr, i32 } [ %67, %66 ], [ %.pn2, %53 ], [ %.pn2, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit" ]
@@ -14415,30 +14415,30 @@ common.ret:                                       ; preds = %4, %1, %156
           cleanup
   br label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit"
 
-"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit27": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit24", %60
+"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit29": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hee77f5f9450c9fe5E.exit26", %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 447
   %69 = load i8, ptr %68, align 1, !range !787, !alias.scope !1154, !noundef !4
   %70 = icmp eq i8 %69, -38
-  br i1 %70, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30", label %71
+  br i1 %70, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32", label %71
 
-71:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit27"
+71:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$polars_core..frame..DataFrame$GT$$GT$17hdaf8dbbe4e1e587dE.exit29"
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 424
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %72)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30" unwind label %73
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32" unwind label %73
 
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit"
 
-75:                                               ; preds = %79, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30"
+75:                                               ; preds = %79, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32"
   store i8 0, ptr %22, align 1
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 458
   %77 = load i8, ptr %76, align 2, !range !197, !noundef !4
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %89, label %88
 
-79:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit30"
+79:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit32"
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 376
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %80)
           to label %75 unwind label %86
@@ -14485,8 +14485,8 @@ common.ret:                                       ; preds = %4, %1, %156
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 279
   %101 = load i8, ptr %100, align 1, !range !787, !noundef !4
-  %.not15 = icmp eq i8 %101, -38
-  br i1 %.not15, label %135, label %111
+  %.not16 = icmp eq i8 %101, -38
+  br i1 %.not16, label %135, label %111
 
 102:                                              ; preds = %9
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -14494,7 +14494,7 @@ common.ret:                                       ; preds = %4, %1, %156
           to label %98 unwind label %109
 
 104:                                              ; preds = %167, %109, %91
-  %.pn13 = phi { ptr, i32 } [ %110, %109 ], [ %.pn10, %167 ], [ %.pn10, %91 ]
+  %.pn14 = phi { ptr, i32 } [ %110, %109 ], [ %.pn10, %167 ], [ %.pn10, %91 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 462
   store i8 0, ptr %105, align 2
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -14538,7 +14538,7 @@ common.ret:                                       ; preds = %4, %1, %156
           to label %135 unwind label %133
 
 127:                                              ; preds = %104, %178, %173, %141, %133, %120
-  %.pn16 = phi { ptr, i32 } [ %134, %133 ], [ %121, %141 ], [ %121, %120 ], [ %.pn13, %178 ], [ %.pn13, %173 ], [ %.pn13, %104 ]
+  %.pn17 = phi { ptr, i32 } [ %134, %133 ], [ %121, %141 ], [ %121, %120 ], [ %.pn14, %178 ], [ %.pn14, %173 ], [ %.pn14, %104 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 459
   store i8 0, ptr %128, align 1
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -14581,7 +14581,7 @@ common.ret:                                       ; preds = %4, %1, %156
           to label %143 unwind label %154
 
 149:                                              ; preds = %180, %154, %127
-  %.pn18 = phi { ptr, i32 } [ %155, %154 ], [ %.pn16, %180 ], [ %.pn16, %127 ]
+  %.pn19 = phi { ptr, i32 } [ %155, %154 ], [ %.pn17, %180 ], [ %.pn17, %127 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 463
   store i8 0, ptr %150, align 1
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -14604,10 +14604,10 @@ common.ret:                                       ; preds = %4, %1, %156
           to label %156 unwind label %161
 
 159:                                              ; preds = %182, %161, %149
-  %.pn20 = phi { ptr, i32 } [ %162, %161 ], [ %.pn18, %182 ], [ %.pn18, %149 ]
+  %.pn21 = phi { ptr, i32 } [ %162, %161 ], [ %.pn19, %182 ], [ %.pn19, %149 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 0, ptr %160, align 8
-  resume { ptr, i32 } %.pn20
+  resume { ptr, i32 } %.pn21
 
 161:                                              ; preds = %157
   %162 = landingpad { ptr, i32 }
@@ -14739,7 +14739,7 @@ common.ret:                                       ; preds = %4, %1, %50
 13:                                               ; preds = %15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10" unwind label %52
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11" unwind label %52
 
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
@@ -14749,14 +14749,14 @@ common.ret:                                       ; preds = %4, %1, %50
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 271
   %19 = load i8, ptr %18, align 1, !range !787, !alias.scope !1160, !noundef !4
   %20 = icmp eq i8 %19, -38
-  br i1 %20, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10", label %13
+  br i1 %20, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11", label %13
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 346
   store i8 0, ptr %22, align 2
   br label %7
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10": ; preds = %15, %13, %24
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11": ; preds = %15, %13, %24
   %.pn2 = phi { ptr, i32 } [ %25, %24 ], [ %16, %13 ], [ %16, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputSend$GT$17h214a20763ffe7549E"(ptr noalias noundef align 8 dereferenceable(24) %23) #31
@@ -14765,7 +14765,7 @@ common.ret:                                       ; preds = %4, %1, %50
 24:                                               ; preds = %11
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10"
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11"
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit": ; preds = %7, %11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -14807,8 +14807,8 @@ common.ret:                                       ; preds = %4, %1, %50
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitGroup$GT$17h6d3f8fbbd1fa06a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41) #31
           to label %.body unwind label %37
 
-.body:                                            ; preds = %43, %39, %32, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10"
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10" ], [ %44, %43 ], [ %33, %32 ], [ %40, %39 ]
+.body:                                            ; preds = %43, %39, %32, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11"
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11" ], [ %44, %43 ], [ %33, %32 ], [ %40, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   invoke void @"_ZN4core3ptr214drop_in_place$LT$polars_stream..async_primitives..linearizer..Linearizer$LT$polars_utils..priority..Priority$LT$core..cmp..Reverse$LT$polars_stream..morsel..MorselSeq$GT$$C$polars_core..frame..DataFrame$GT$$GT$$GT$17hc40da62d55335c72E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %42) #31
           to label %46 unwind label %52
@@ -14839,7 +14839,7 @@ common.ret:                                       ; preds = %4, %1, %50
   store i8 0, ptr %51, align 1
   br label %common.ret
 
-52:                                               ; preds = %13, %.body, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit10"
+52:                                               ; preds = %13, %.body, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit11"
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -14930,7 +14930,7 @@ define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$polars_stream..nod
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %15, %1
+common.ret:                                       ; preds = %15, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -14983,7 +14983,7 @@ define internal fastcc void @"_ZN4core3ptr143drop_in_place$LT$polars_stream..nod
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %32, %89, %1
+common.ret:                                       ; preds = %89, %32, %1
   ret void
 
 4:                                                ; preds = %1
@@ -15068,7 +15068,7 @@ common.ret:                                       ; preds = %32, %89, %1
   br label %common.ret
 
 34:                                               ; preds = %83, %28
-  %.pn12 = phi { ptr, i32 } [ %.pn6, %83 ], [ %.pn10, %28 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %28 ], [ %.pn6, %83 ]
   resume { ptr, i32 } %.pn12
 
 35:                                               ; preds = %18, %48, %83, %.body, %42, %37, %28, %"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$$LP$polars_expr..hash_keys..HashKeys$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_expr..reduce..GroupedReduction$GT$$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hec127fb63fc68e54E.exit"
@@ -15263,7 +15263,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %26, %23, %9
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %26 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %18, %26 ]
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %26, %17, %23, %9
@@ -15346,7 +15346,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %13 unwind label %14
 
 13:                                               ; preds = %45, %42, %10
-  %.pn6 = phi { ptr, i32 } [ %43, %42 ], [ %.pn4, %45 ], [ %11, %10 ]
+  %.pn6 = phi { ptr, i32 } [ %11, %10 ], [ %43, %42 ], [ %.pn4, %45 ]
   resume { ptr, i32 } %.pn6
 
 14:                                               ; preds = %45, %42, %38, %32, %24, %10
@@ -15454,7 +15454,7 @@ define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$polars_stream..nod
     i8 6, label %26
   ]
 
-common.ret:                                       ; preds = %4, %54, %1
+common.ret:                                       ; preds = %54, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -15616,7 +15616,7 @@ define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$polars_stream..nod
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %20, %62, %1
+common.ret:                                       ; preds = %62, %20, %1
   ret void
 
 4:                                                ; preds = %1
@@ -15667,7 +15667,7 @@ common.ret:                                       ; preds = %20, %62, %1
   br label %common.ret
 
 22:                                               ; preds = %57, %16
-  %.pn6 = phi { ptr, i32 } [ %.pn2, %57 ], [ %.pn4, %16 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %16 ], [ %.pn2, %57 ]
   resume { ptr, i32 } %.pn6
 
 23:                                               ; preds = %25, %57, %.body, %16, %12
@@ -15814,7 +15814,7 @@ define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$polars_stream..nod
     i8 6, label %57
   ]
 
-common.ret:                                       ; preds = %14, %1, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit71"
+common.ret:                                       ; preds = %14, %1, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit72"
   ret void
 
 4:                                                ; preds = %1
@@ -15848,10 +15848,10 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   br label %common.ret
 
 15:                                               ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit", %12
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit" ], [ %13, %12 ]
-  resume { ptr, i32 } %.pn37.pn
+  %.pn39 = phi { ptr, i32 } [ %13, %12 ], [ %.pn37, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit" ]
+  resume { ptr, i32 } %.pn39
 
-16:                                               ; preds = %384, %378, %374, %368, %360, %352, %346, %338, %329, %325, %319, %311, %305, %300, %295, %277, %263, %256, %52, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75", %332, %330, %.body, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87", %23, %18, %12
+16:                                               ; preds = %384, %378, %374, %368, %360, %352, %346, %338, %329, %325, %319, %311, %305, %300, %295, %277, %263, %256, %52, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76", %332, %330, %.body, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88", %23, %18, %12
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -15923,22 +15923,22 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
           to label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit" unwind label %94
 
 45:                                               ; preds = %87, %31
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %87 ], [ %.pn10, %31 ]
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %31 ], [ %.pn6, %87 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 840
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   %47 = load ptr, ptr %46, align 8, !alias.scope !1221, !noundef !4
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45", label %49
+  br i1 %48, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46", label %49
 
 49:                                               ; preds = %45
   %50 = atomicrmw sub ptr %47, i64 1 release, align 8, !noalias !1224
   %51 = icmp eq i64 %50, 1
-  br i1 %51, label %52, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45"
+  br i1 %51, label %52, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46"
 
 52:                                               ; preds = %49
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %46)
-          to label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45" unwind label %16
+          to label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46" unwind label %16
 
 53:                                               ; preds = %8
   %54 = landingpad { ptr, i32 }
@@ -15957,7 +15957,7 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   br i1 %60, label %70, label %65
 
 61:                                               ; preds = %53, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %56, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 951
   %63 = load i8, ptr %62, align 1, !range !197, !noundef !4
   %64 = trunc nuw i8 %63 to i1
@@ -16023,17 +16023,17 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
           cleanup
   br label %87
 
-"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45": ; preds = %49, %45, %52, %94
-  %.pn13 = phi { ptr, i32 } [ %95, %94 ], [ %.pn6.pn, %52 ], [ %.pn6.pn, %45 ], [ %.pn6.pn, %49 ]
+"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46": ; preds = %49, %45, %52, %94
+  %.pn13 = phi { ptr, i32 } [ %95, %94 ], [ %.pn10.pn, %52 ], [ %.pn10.pn, %45 ], [ %.pn10.pn, %49 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 947
   %92 = load i8, ptr %91, align 1, !range !197, !noundef !4
   %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %334, label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87"
+  br i1 %93, label %334, label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88"
 
 94:                                               ; preds = %44
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45"
+  br label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46"
 
 "_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit": ; preds = %41, %37, %44
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 947
@@ -16057,8 +16057,8 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   invoke void @"_ZN4core3ptr181drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h2bb9c935cf8185dbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %101)
           to label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit" unwind label %107
 
-"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87": ; preds = %334, %338, %107, %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45"
-  %.pn15 = phi { ptr, i32 } [ %108, %107 ], [ %.pn13, %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45" ], [ %.pn13, %338 ], [ %.pn13, %334 ]
+"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88": ; preds = %334, %338, %107, %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46"
+  %.pn15 = phi { ptr, i32 } [ %108, %107 ], [ %.pn13, %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46" ], [ %.pn13, %338 ], [ %.pn13, %334 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 947
   store i8 0, ptr %105, align 1
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -16068,16 +16068,16 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
 107:                                              ; preds = %104
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87"
+  br label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88"
 
-109:                                              ; preds = %114, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87"
-  %.pn17 = phi { ptr, i32 } [ %115, %114 ], [ %.pn15, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87" ]
+109:                                              ; preds = %114, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88"
+  %.pn17 = phi { ptr, i32 } [ %115, %114 ], [ %.pn15, %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88" ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 948
   store i8 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 953
   %112 = load i8, ptr %111, align 1, !range !197, !noundef !4
   %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %341, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+  br i1 %113, label %341, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90"
 
 114:                                              ; preds = %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit"
   %115 = landingpad { ptr, i32 }
@@ -16116,11 +16116,11 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
           cleanup
   %131 = load i8, ptr %118, align 1, !range !197, !noundef !4
   %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %301, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77"
+  br i1 %132, label %301, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78"
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit": ; preds = %138
-  %.pre103 = load i8, ptr %118, align 1, !range !197
-  %133 = trunc nuw i8 %.pre103 to i1
+  %.pre104 = load i8, ptr %118, align 1, !range !197
+  %133 = trunc nuw i8 %.pre104 to i1
   br i1 %133, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit.thread", label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit"
 
 134:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
@@ -16134,16 +16134,16 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %139)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit" unwind label %142
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77": ; preds = %301, %305, %142, %129
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78": ; preds = %301, %305, %142, %129
   %.pn19 = phi { ptr, i32 } [ %143, %142 ], [ %130, %129 ], [ %130, %305 ], [ %130, %301 ]
   %140 = load i8, ptr %118, align 1, !range !197, !noundef !4
   %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %307, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79"
+  br i1 %141, label %307, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80"
 
 142:                                              ; preds = %138
   %143 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77"
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78"
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit.thread", %150, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit"
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 955
@@ -16161,23 +16161,23 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_io..predicates..ScanIOPredicate$GT$17haa20dc6de46e5d6aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %147)
           to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit" unwind label %154
 
-"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79": ; preds = %307, %311, %154, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77"
-  %.pn21 = phi { ptr, i32 } [ %155, %154 ], [ %.pn19, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77" ], [ %.pn19, %311 ], [ %.pn19, %307 ]
+"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80": ; preds = %307, %311, %154, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78"
+  %.pn21 = phi { ptr, i32 } [ %155, %154 ], [ %.pn19, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78" ], [ %.pn19, %311 ], [ %.pn19, %307 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 955
   %152 = load i8, ptr %151, align 1, !range !197, !noundef !4
   %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %315, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81"
+  br i1 %153, label %315, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82"
 
 154:                                              ; preds = %150
   %155 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79"
+  br label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80"
 
 "_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit": ; preds = %159, %163, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit"
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 954
   %157 = load i8, ptr %156, align 2, !range !197, !noundef !4
   %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %170, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55"
+  br i1 %158, label %170, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56"
 
 159:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit"
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -16195,12 +16195,12 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 954
   %167 = load i8, ptr %166, align 2, !range !197, !noundef !4
   %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %291, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73"
+  br i1 %168, label %291, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74"
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit": ; preds = %174
-  %.pre105 = load i8, ptr %156, align 2, !range !197
-  %169 = trunc nuw i8 %.pre105 to i1
-  br i1 %169, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55"
+  %.pre106 = load i8, ptr %156, align 2, !range !197
+  %169 = trunc nuw i8 %.pre106 to i1
+  br i1 %169, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56"
 
 170:                                              ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit"
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -16212,40 +16212,40 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %171)
           to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit" unwind label %178
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73": ; preds = %291, %295, %178, %164
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74": ; preds = %291, %295, %178, %164
   %.pn23 = phi { ptr, i32 } [ %179, %178 ], [ %165, %164 ], [ %165, %295 ], [ %165, %291 ]
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 954
   %176 = load i8, ptr %175, align 2, !range !197, !noundef !4
   %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %296, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+  br i1 %177, label %296, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
 178:                                              ; preds = %174
   %179 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74"
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55": ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread", %208, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit"
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56": ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread", %208, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit"
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %118, i8 0, i64 3, i1 false)
-  %.val41 = load ptr, ptr %180, align 8
+  %.val42 = load ptr, ptr %180, align 8
   %181 = getelementptr i8, ptr %0, i64 512
-  %.val42 = load ptr, ptr %181, align 8, !nonnull !4, !align !3, !noundef !4
-  %182 = load ptr, ptr %.val42, align 8, !invariant.load !4
+  %.val43 = load ptr, ptr %181, align 8, !nonnull !4, !align !3, !noundef !4
+  %182 = load ptr, ptr %.val43, align 8, !invariant.load !4
   %.not.i = icmp eq ptr %182, null
   br i1 %.not.i, label %185, label %183
 
-183:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55"
-  %184 = icmp ne ptr %.val41, null
+183:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56"
+  %184 = icmp ne ptr %.val42, null
   tail call void @llvm.assume(i1 %184)
-  invoke void %182(ptr noundef nonnull %.val41)
+  invoke void %182(ptr noundef nonnull %.val42)
           to label %185 unwind label %195
 
-185:                                              ; preds = %183, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55"
-  %186 = icmp ne ptr %.val41, null
+185:                                              ; preds = %183, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56"
+  %186 = icmp ne ptr %.val42, null
   tail call void @llvm.assume(i1 %186)
-  %187 = getelementptr inbounds nuw i8, ptr %.val42, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %.val43, i64 8
   %188 = load i64, ptr %187, align 8, !range !631, !invariant.load !4
-  %189 = getelementptr inbounds nuw i8, ptr %.val42, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.val43, i64 16
   %190 = load i64, ptr %189, align 8, !range !876, !invariant.load !4
   %191 = add i64 %190, -1
   %192 = icmp sgt i64 %191, -1
@@ -16254,15 +16254,15 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   br i1 %193, label %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit", label %194
 
 194:                                              ; preds = %185
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val41, i64 noundef range(i64 1, -9223372036854775808) %188, i64 noundef range(i64 1, -9223372036854775807) %190) #24
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val42, i64 noundef range(i64 1, -9223372036854775808) %188, i64 noundef range(i64 1, -9223372036854775807) %190) #24
   br label %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit"
 
 195:                                              ; preds = %183
   %196 = landingpad { ptr, i32 }
           cleanup
-  %197 = getelementptr inbounds nuw i8, ptr %.val42, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %.val43, i64 8
   %198 = load i64, ptr %197, align 8, !range !631, !invariant.load !4
-  %199 = getelementptr inbounds nuw i8, ptr %.val42, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.val43, i64 16
   %200 = load i64, ptr %199, align 8, !range !876, !invariant.load !4
   %201 = add i64 %200, -1
   %202 = icmp sgt i64 %201, -1
@@ -16271,21 +16271,21 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   br i1 %203, label %.body, label %204
 
 204:                                              ; preds = %195
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val41, i64 noundef range(i64 1, -9223372036854775808) %198, i64 noundef range(i64 1, -9223372036854775807) %200) #24
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val42, i64 noundef range(i64 1, -9223372036854775808) %198, i64 noundef range(i64 1, -9223372036854775807) %200) #24
   br label %.body
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread": ; preds = %170, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit"
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %206 = load ptr, ptr %205, align 8, !alias.scope !1254, !noundef !4
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55", label %208
+  br i1 %207, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56", label %208
 
 208:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit.thread"
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %205)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit55" unwind label %214
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit56" unwind label %214
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75": ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95", %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread", %378, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread", %329, %296, %300, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83", %214, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73"
-  %.pn25 = phi { ptr, i32 } [ %215, %214 ], [ %.pn23, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73" ], [ %.pn21, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83" ], [ %.pn17, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97" ], [ %.pn23, %300 ], [ %.pn23, %296 ], [ %.pn21, %329 ], [ %.pn21, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread" ], [ %.pn17, %378 ], [ %.pn17, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread" ], [ %.pn21, %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81" ], [ %.pn17, %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95" ]
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76": ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96", %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread", %378, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread", %329, %296, %300, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98", %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84", %214, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74"
+  %.pn25 = phi { ptr, i32 } [ %215, %214 ], [ %.pn23, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74" ], [ %.pn21, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84" ], [ %.pn17, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98" ], [ %.pn23, %300 ], [ %.pn23, %296 ], [ %.pn21, %329 ], [ %.pn21, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread" ], [ %.pn17, %378 ], [ %.pn17, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread" ], [ %.pn21, %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82" ], [ %.pn17, %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96" ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 0, ptr %209, align 1
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 954
@@ -16295,17 +16295,17 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %.val = load ptr, ptr %212, align 8
   %213 = getelementptr i8, ptr %0, i64 512
-  %.val40 = load ptr, ptr %213, align 8, !nonnull !4, !align !3, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E"(ptr %.val, ptr nonnull %.val40) #31
+  %.val41 = load ptr, ptr %213, align 8, !nonnull !4, !align !3, !noundef !4
+  invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E"(ptr %.val, ptr nonnull %.val41) #31
           to label %.body unwind label %16
 
 214:                                              ; preds = %208
   %215 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+  br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
-.body:                                            ; preds = %204, %195, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
-  %.pn27 = phi { ptr, i32 } [ %.pn25, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75" ], [ %196, %204 ], [ %196, %195 ]
+.body:                                            ; preds = %204, %195, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
+  %.pn27 = phi { ptr, i32 } [ %.pn25, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76" ], [ %196, %204 ], [ %196, %195 ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 440
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E"(ptr noalias noundef align 8 dereferenceable(56) %216) #31
           to label %231 unwind label %16
@@ -16355,7 +16355,7 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 949
   %233 = load i8, ptr %232, align 1, !range !197, !noundef !4
   %234 = trunc nuw i8 %233 to i1
-  br i1 %234, label %379, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101"
+  br i1 %234, label %379, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102"
 
 235:                                              ; preds = %230, %225, %220
   %236 = landingpad { ptr, i32 }
@@ -16366,9 +16366,9 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 949
   %238 = load i8, ptr %237, align 1, !range !197, !noundef !4
   %239 = trunc nuw i8 %238 to i1
-  br i1 %239, label %245, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62"
+  br i1 %239, label %245, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62": ; preds = %245, %250, %"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E.exit"
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63": ; preds = %245, %250, %"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E.exit"
   store i8 0, ptr %237, align 1
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1274)
@@ -16376,12 +16376,12 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %241 = load ptr, ptr %240, align 8, !alias.scope !1280, !nonnull !4, !noundef !4
   %242 = atomicrmw sub ptr %241, i64 1 release, align 8, !noalias !1280
   %243 = icmp eq i64 %242, 1
-  br i1 %243, label %244, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit60"
+  br i1 %243, label %244, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit61"
 
-244:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62"
+244:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %240)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit60" unwind label %264
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit61" unwind label %264
 
 245:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E.exit"
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -16390,14 +16390,14 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %247 = load ptr, ptr %246, align 8, !alias.scope !1287, !nonnull !4, !noundef !4
   %248 = atomicrmw sub ptr %247, i64 1 release, align 8, !noalias !1287
   %249 = icmp eq i64 %248, 1
-  br i1 %249, label %250, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62"
+  br i1 %249, label %250, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63"
 
 250:                                              ; preds = %245
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %246)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62" unwind label %257
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63" unwind label %257
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101": ; preds = %379, %384, %257, %231
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102": ; preds = %379, %384, %257, %231
   %.pn31 = phi { ptr, i32 } [ %258, %257 ], [ %.pn29, %231 ], [ %.pn29, %384 ], [ %.pn29, %379 ]
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 949
   store i8 0, ptr %251, align 1
@@ -16407,61 +16407,61 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %253 = load ptr, ptr %252, align 8, !alias.scope !1294, !nonnull !4, !noundef !4
   %254 = atomicrmw sub ptr %253, i64 1 release, align 8, !noalias !1294
   %255 = icmp eq i64 %254, 1
-  br i1 %255, label %256, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64"
+  br i1 %255, label %256, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65"
 
-256:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101"
+256:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %252)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64" unwind label %16
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65" unwind label %16
 
 257:                                              ; preds = %250
   %258 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101", %256, %264
-  %.pn33 = phi { ptr, i32 } [ %265, %264 ], [ %.pn31, %256 ], [ %.pn31, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101" ]
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102", %256, %264
+  %.pn33 = phi { ptr, i32 } [ %265, %264 ], [ %.pn31, %256 ], [ %.pn31, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102" ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1298)
   %260 = load ptr, ptr %259, align 8, !alias.scope !1301, !nonnull !4, !noundef !4
   %261 = atomicrmw sub ptr %260, i64 1 release, align 8, !noalias !1301
   %262 = icmp eq i64 %261, 1
-  br i1 %262, label %263, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66"
+  br i1 %262, label %263, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67"
 
-263:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64"
+263:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %259)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66" unwind label %16
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67" unwind label %16
 
 264:                                              ; preds = %244
   %265 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit60": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit62", %244
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit61": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit63", %244
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1305)
   %267 = load ptr, ptr %266, align 8, !alias.scope !1308, !nonnull !4, !noundef !4
   %268 = atomicrmw sub ptr %267, i64 1 release, align 8, !noalias !1308
   %269 = icmp eq i64 %268, 1
-  br i1 %269, label %270, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit68"
+  br i1 %269, label %270, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit69"
 
-270:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit60"
+270:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit61"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %266)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit68" unwind label %278
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit69" unwind label %278
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64", %263, %278
-  %.pn35 = phi { ptr, i32 } [ %279, %278 ], [ %.pn33, %263 ], [ %.pn33, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit64" ]
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65", %263, %278
+  %.pn35 = phi { ptr, i32 } [ %279, %278 ], [ %.pn33, %263 ], [ %.pn33, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit65" ]
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1309)
   %272 = load ptr, ptr %271, align 8, !alias.scope !1309, !noundef !4
   %273 = icmp eq ptr %272, null
   br i1 %273, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit", label %274
 
-274:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66"
+274:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67"
   %275 = atomicrmw sub ptr %272, i64 1 release, align 8, !noalias !1312
   %276 = icmp eq i64 %275, 1
   br i1 %276, label %277, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit"
@@ -16474,27 +16474,27 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
 278:                                              ; preds = %270
   %279 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit68": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit60", %270
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit69": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit61", %270
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1317)
   %281 = load ptr, ptr %280, align 8, !alias.scope !1317, !noundef !4
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit71", label %283
+  br i1 %282, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit72", label %283
 
-283:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit68"
+283:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit69"
   %284 = atomicrmw sub ptr %281, i64 1 release, align 8, !noalias !1320
   %285 = icmp eq i64 %284, 1
-  br i1 %285, label %286, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit71"
+  br i1 %285, label %286, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit72"
 
 286:                                              ; preds = %283
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7b31844cbc68bd8aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %280)
-          to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit71" unwind label %288
+          to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit72" unwind label %288
 
-"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit": ; preds = %274, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66", %277, %288
-  %.pn37 = phi { ptr, i32 } [ %289, %288 ], [ %.pn35, %277 ], [ %.pn35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit66" ], [ %.pn35, %274 ]
+"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit": ; preds = %274, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67", %277, %288
+  %.pn37 = phi { ptr, i32 } [ %289, %288 ], [ %.pn35, %277 ], [ %.pn35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit67" ], [ %.pn35, %274 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 950
   store i8 0, ptr %287, align 2
   br label %15
@@ -16504,7 +16504,7 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
           cleanup
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit"
 
-"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit71": ; preds = %283, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit68", %286
+"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_plan..plans..hive..HivePartitionsDf$GT$$GT$$GT$17h9fc553b956bbabfaE.exit72": ; preds = %283, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit69", %286
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 950
   store i8 0, ptr %290, align 2
   br label %common.ret
@@ -16513,83 +16513,83 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %293 = load ptr, ptr %292, align 8, !alias.scope !1325, !noundef !4
   %294 = icmp eq ptr %293, null
-  br i1 %294, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73", label %295
+  br i1 %294, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74", label %295
 
 295:                                              ; preds = %291
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %292)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74" unwind label %16
 
-296:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit73"
+296:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit74"
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %298 = load ptr, ptr %297, align 8, !alias.scope !1328, !noundef !4
   %299 = icmp eq ptr %298, null
-  br i1 %299, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75", label %300
+  br i1 %299, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76", label %300
 
 300:                                              ; preds = %296
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %297)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76" unwind label %16
 
 301:                                              ; preds = %129
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 567
   %303 = load i8, ptr %302, align 1, !range !787, !alias.scope !1331, !noundef !4
   %304 = icmp eq i8 %303, -38
-  br i1 %304, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77", label %305
+  br i1 %304, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78", label %305
 
 305:                                              ; preds = %301
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 544
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %306)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77" unwind label %16
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78" unwind label %16
 
-307:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit77"
+307:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit78"
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %309 = load ptr, ptr %308, align 8, !alias.scope !1334, !noundef !4
   %310 = icmp eq ptr %309, null
-  br i1 %310, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79", label %311
+  br i1 %310, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80", label %311
 
 311:                                              ; preds = %307
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_io..predicates..ScanIOPredicate$GT$17haa20dc6de46e5d6aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %308)
-          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79" unwind label %16
+          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80" unwind label %16
 
-"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81": ; preds = %315, %319, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79"
+"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82": ; preds = %315, %319, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80"
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 954
   %313 = load i8, ptr %312, align 2, !range !197, !noundef !4
   %314 = trunc nuw i8 %313 to i1
-  br i1 %314, label %321, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+  br i1 %314, label %321, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
-315:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit79"
+315:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit80"
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %317 = load ptr, ptr %316, align 8, !alias.scope !1337, !noundef !4
   %318 = icmp eq ptr %317, null
-  br i1 %318, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81", label %319
+  br i1 %318, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82", label %319
 
 319:                                              ; preds = %315
   invoke void @"_ZN4core3ptr179drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h486d3d02ef45841aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %316)
-          to label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81" unwind label %16
+          to label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82" unwind label %16
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83": ; preds = %325
-  %.pre104 = load i8, ptr %312, align 2, !range !197
-  %320 = trunc nuw i8 %.pre104 to i1
-  br i1 %320, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84": ; preds = %325
+  %.pre105 = load i8, ptr %312, align 2, !range !197
+  %320 = trunc nuw i8 %.pre105 to i1
+  br i1 %320, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
-321:                                              ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit81"
+321:                                              ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit82"
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %323 = load ptr, ptr %322, align 8, !alias.scope !1340, !noundef !4
   %324 = icmp eq ptr %323, null
-  br i1 %324, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread", label %325
+  br i1 %324, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread", label %325
 
 325:                                              ; preds = %321
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %322)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84" unwind label %16
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread": ; preds = %321, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83"
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread": ; preds = %321, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84"
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %327 = load ptr, ptr %326, align 8, !alias.scope !1343, !noundef !4
   %328 = icmp eq ptr %327, null
-  br i1 %328, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75", label %329
+  br i1 %328, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76", label %329
 
-329:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit83.thread"
+329:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit84.thread"
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %326)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76" unwind label %16
 
 330:                                              ; preds = %61
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 912
@@ -16601,20 +16601,20 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE"(ptr noalias noundef align 8 dereferenceable(64) %333) #31
           to label %87 unwind label %16
 
-334:                                              ; preds = %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit45"
+334:                                              ; preds = %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17ha48149703054c47cE.exit46"
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %336 = load ptr, ptr %335, align 8, !alias.scope !1346, !noundef !4
   %337 = icmp eq ptr %336, null
-  br i1 %337, label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87", label %338
+  br i1 %337, label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88", label %338
 
 338:                                              ; preds = %334
   invoke void @"_ZN4core3ptr181drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h2bb9c935cf8185dbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %335)
-          to label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit87" unwind label %16
+          to label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17h5a0b058deebe02d9E.exit88" unwind label %16
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89": ; preds = %341, %346, %109
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90": ; preds = %341, %346, %109
   %339 = load i8, ptr %111, align 1, !range !197, !noundef !4
   %340 = trunc nuw i8 %339 to i1
-  br i1 %340, label %348, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93"
+  br i1 %340, label %348, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94"
 
 341:                                              ; preds = %109
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -16623,85 +16623,85 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %343 = load ptr, ptr %342, align 8, !alias.scope !1355, !nonnull !4, !noundef !4
   %344 = atomicrmw sub ptr %343, i64 1 release, align 8, !noalias !1355
   %345 = icmp eq i64 %344, 1
-  br i1 %345, label %346, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+  br i1 %345, label %346, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90"
 
 346:                                              ; preds = %341
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %342)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89" unwind label %16
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90" unwind label %16
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91": ; preds = %352
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92": ; preds = %352
   %.pre = load i8, ptr %111, align 1, !range !197
   %347 = trunc nuw i8 %.pre to i1
-  br i1 %347, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91.thread", label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93"
+  br i1 %347, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92.thread", label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94"
 
-348:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+348:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90"
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 567
   %350 = load i8, ptr %349, align 1, !range !787, !alias.scope !1356, !noundef !4
   %351 = icmp eq i8 %350, -38
-  br i1 %351, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91.thread", label %352
+  br i1 %351, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92.thread", label %352
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 544
   invoke void @"_ZN4core3ptr49drop_in_place$LT$polars_io..options..RowIndex$GT$17hd01f53c5cac4dc71E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %353)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91" unwind label %16
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92" unwind label %16
 
-"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91.thread", %360, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91"
+"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94": ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit90", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92.thread", %360, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92"
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 955
   %355 = load i8, ptr %354, align 1, !range !197, !noundef !4
   %356 = trunc nuw i8 %355 to i1
-  br i1 %356, label %364, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95"
+  br i1 %356, label %364, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96"
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91.thread": ; preds = %348, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91"
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92.thread": ; preds = %348, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92"
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %358 = load ptr, ptr %357, align 8, !alias.scope !1359, !noundef !4
   %359 = icmp eq ptr %358, null
-  br i1 %359, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93", label %360
+  br i1 %359, label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94", label %360
 
-360:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit91.thread"
+360:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit92.thread"
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_io..predicates..ScanIOPredicate$GT$17haa20dc6de46e5d6aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %357)
-          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93" unwind label %16
+          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94" unwind label %16
 
-"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95": ; preds = %364, %368, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93"
+"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96": ; preds = %364, %368, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94"
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 954
   %362 = load i8, ptr %361, align 2, !range !197, !noundef !4
   %363 = trunc nuw i8 %362 to i1
-  br i1 %363, label %370, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+  br i1 %363, label %370, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
-364:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit93"
+364:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..predicates..ScanIOPredicate$GT$$GT$17hc560c8f10ae9f5acE.exit94"
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %366 = load ptr, ptr %365, align 8, !alias.scope !1362, !noundef !4
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95", label %368
+  br i1 %367, label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96", label %368
 
 368:                                              ; preds = %364
   invoke void @"_ZN4core3ptr179drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h486d3d02ef45841aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %365)
-          to label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95" unwind label %16
+          to label %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96" unwind label %16
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97": ; preds = %374
-  %.pre102 = load i8, ptr %361, align 2, !range !197
-  %369 = trunc nuw i8 %.pre102 to i1
-  br i1 %369, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75"
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98": ; preds = %374
+  %.pre103 = load i8, ptr %361, align 2, !range !197
+  %369 = trunc nuw i8 %.pre103 to i1
+  br i1 %369, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread", label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76"
 
-370:                                              ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit95"
+370:                                              ; preds = %"_ZN4core3ptr207drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$17hf0a871b4b2bf0581E.exit96"
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %372 = load ptr, ptr %371, align 8, !alias.scope !1365, !noundef !4
   %373 = icmp eq ptr %372, null
-  br i1 %373, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread", label %374
+  br i1 %373, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread", label %374
 
 374:                                              ; preds = %370
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %371)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98" unwind label %16
 
-"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread": ; preds = %370, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97"
+"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread": ; preds = %370, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98"
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %376 = load ptr, ptr %375, align 8, !alias.scope !1368, !noundef !4
   %377 = icmp eq ptr %376, null
-  br i1 %377, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75", label %378
+  br i1 %377, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76", label %378
 
-378:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit97.thread"
+378:                                              ; preds = %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit98.thread"
   invoke void @"_ZN4core3ptr82drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$17hdc33db5b82a89090E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %375)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit75" unwind label %16
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Sender$LT$u32$GT$$GT$$GT$17h4e07bba3e11dc32fE.exit76" unwind label %16
 
 379:                                              ; preds = %231
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -16710,12 +16710,12 @@ common.ret:                                       ; preds = %14, %1, %"_ZN4core3
   %381 = load ptr, ptr %380, align 8, !alias.scope !1377, !nonnull !4, !noundef !4
   %382 = atomicrmw sub ptr %381, i64 1 release, align 8, !noalias !1377
   %383 = icmp eq i64 %382, 1
-  br i1 %383, label %384, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101"
+  br i1 %383, label %384, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102"
 
 384:                                              ; preds = %379
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %380)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit101" unwind label %16
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit102" unwind label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16731,7 +16731,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$polars_stream..nod
     i8 7, label %45
   ]
 
-common.ret:                                       ; preds = %4, %176, %1
+common.ret:                                       ; preds = %176, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -16813,7 +16813,7 @@ common.ret:                                       ; preds = %4, %176, %1
 33:                                               ; preds = %"_ZN4core3ptr382drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8dbff03ae6c3528aE.exit.i"
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 888
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
-          to label %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit5.i" unwind label %38
+          to label %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit6.i" unwind label %38
 
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
@@ -16832,7 +16832,7 @@ common.ret:                                       ; preds = %4, %176, %1
           cleanup
   br label %.body.i
 
-"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit5.i": ; preds = %33
+"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit6.i": ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store i8 0, ptr %40, align 8
   br label %"_ZN4core3ptr379drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h820c6aa49aba6a4fE.exit"
@@ -16860,7 +16860,7 @@ common.ret:                                       ; preds = %4, %176, %1
           to label %"_ZN4core3ptr379drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h820c6aa49aba6a4fE.exit" unwind label %74
 
 50:                                               ; preds = %172
-  resume { ptr, i32 } %.pn19
+  resume { ptr, i32 } %.pn20
 
 "_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E.exit": ; preds = %133, %128, %127, %132, %137, %1, %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit"
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -16883,18 +16883,18 @@ common.ret:                                       ; preds = %4, %176, %1
   br i1 %59, label %94, label %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit"
 
 60:                                               ; preds = %85, %54
-  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %85 ], [ %55, %54 ]
+  %.pn6 = phi { ptr, i32 } [ %55, %54 ], [ %.pn4, %85 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %62 = load i8, ptr %61, align 8, !range !197, !noundef !4
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %185, label %.body27
+  br i1 %63, label %185, label %.body28
 
 64:                                               ; preds = %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit.i"
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZN4core3ptr379drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h820c6aa49aba6a4fE.exit": ; preds = %45, %48, %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit5.i", %7, %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit.i", %43
+"_ZN4core3ptr379drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h820c6aa49aba6a4fE.exit": ; preds = %45, %48, %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit6.i", %7, %"_ZN4core3ptr302drop_in_place$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$17hac2d1480de48afd0E.exit.i", %43
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 714
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %66, i8 0, i64 5, i1 false)
@@ -16903,7 +16903,7 @@ common.ret:                                       ; preds = %4, %176, %1
   br i1 %.not3, label %80, label %76
 
 .body:                                            ; preds = %64, %.body.i, %12, %74, %72
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ], [ %65, %64 ], [ %.pn.i, %.body.i ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %75, %74 ], [ %65, %64 ], [ %.pn.i, %.body.i ], [ %13, %12 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 714
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %69, i8 0, i64 5, i1 false)
@@ -16963,25 +16963,25 @@ common.ret:                                       ; preds = %4, %176, %1
 
 94:                                               ; preds = %56
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %.val24 = load ptr, ptr %95, align 8
+  %.val25 = load ptr, ptr %95, align 8
   %96 = getelementptr i8, ptr %0, i64 800
-  %.val25 = load ptr, ptr %96, align 8, !nonnull !4, !align !3, !noundef !4
-  %97 = load ptr, ptr %.val25, align 8, !invariant.load !4
+  %.val26 = load ptr, ptr %96, align 8, !nonnull !4, !align !3, !noundef !4
+  %97 = load ptr, ptr %.val26, align 8, !invariant.load !4
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %100, label %98
 
 98:                                               ; preds = %94
-  %99 = icmp ne ptr %.val24, null
+  %99 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %99)
-  invoke void %97(ptr noundef nonnull %.val24)
+  invoke void %97(ptr noundef nonnull %.val25)
           to label %100 unwind label %110
 
 100:                                              ; preds = %98, %94
-  %101 = icmp ne ptr %.val24, null
+  %101 = icmp ne ptr %.val25, null
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw i8, ptr %.val25, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.val26, i64 8
   %103 = load i64, ptr %102, align 8, !range !631, !invariant.load !4
-  %104 = getelementptr inbounds nuw i8, ptr %.val25, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.val26, i64 16
   %105 = load i64, ptr %104, align 8, !range !876, !invariant.load !4
   %106 = add i64 %105, -1
   %107 = icmp sgt i64 %106, -1
@@ -16990,28 +16990,28 @@ common.ret:                                       ; preds = %4, %176, %1
   br i1 %108, label %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit", label %109
 
 109:                                              ; preds = %100
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val24, i64 noundef range(i64 1, -9223372036854775808) %103, i64 noundef range(i64 1, -9223372036854775807) %105) #24
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val25, i64 noundef range(i64 1, -9223372036854775808) %103, i64 noundef range(i64 1, -9223372036854775807) %105) #24
   br label %"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E.exit"
 
 110:                                              ; preds = %98
   %111 = landingpad { ptr, i32 }
           cleanup
-  %112 = getelementptr inbounds nuw i8, ptr %.val25, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.val26, i64 8
   %113 = load i64, ptr %112, align 8, !range !631, !invariant.load !4
-  %114 = getelementptr inbounds nuw i8, ptr %.val25, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.val26, i64 16
   %115 = load i64, ptr %114, align 8, !range !876, !invariant.load !4
   %116 = add i64 %115, -1
   %117 = icmp sgt i64 %116, -1
   tail call void @llvm.assume(i1 %117)
   %118 = icmp eq i64 %113, 0
-  br i1 %118, label %.body27, label %119
+  br i1 %118, label %.body28, label %119
 
 119:                                              ; preds = %110
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val24, i64 noundef range(i64 1, -9223372036854775808) %113, i64 noundef range(i64 1, -9223372036854775807) %115) #24
-  br label %.body27
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val25, i64 noundef range(i64 1, -9223372036854775808) %113, i64 noundef range(i64 1, -9223372036854775807) %115) #24
+  br label %.body28
 
-.body27:                                          ; preds = %119, %110, %185, %60
-  %.pn7 = phi { ptr, i32 } [ %.pn4.pn, %185 ], [ %.pn4.pn, %60 ], [ %111, %119 ], [ %111, %110 ]
+.body28:                                          ; preds = %119, %110, %185, %60
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %185 ], [ %.pn6, %60 ], [ %111, %119 ], [ %111, %110 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 713
   %121 = load i8, ptr %120, align 1, !range !197, !noundef !4
   %122 = trunc nuw i8 %121 to i1
@@ -17057,8 +17057,8 @@ common.ret:                                       ; preds = %4, %176, %1
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8d2a8dd1135a5c5eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %126)
           to label %"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E.exit" unwind label %142
 
-138:                                              ; preds = %188, %142, %.body27
-  %.pn9 = phi { ptr, i32 } [ %143, %142 ], [ %.pn7, %188 ], [ %.pn7, %.body27 ]
+138:                                              ; preds = %188, %142, %.body28
+  %.pn10 = phi { ptr, i32 } [ %143, %142 ], [ %.pn8, %188 ], [ %.pn8, %.body28 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i8 0, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 713
@@ -17073,7 +17073,7 @@ common.ret:                                       ; preds = %4, %176, %1
   br label %138
 
 144:                                              ; preds = %146, %138
-  %.pn11 = phi { ptr, i32 } [ %147, %146 ], [ %.pn9, %138 ]
+  %.pn12 = phi { ptr, i32 } [ %147, %146 ], [ %.pn10, %138 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 472
   invoke void @"_ZN4core3ptr124drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartReaderArgsConstant$GT$17h48a195ce614f0615E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %145) #31
           to label %150 unwind label %183
@@ -17089,7 +17089,7 @@ common.ret:                                       ; preds = %4, %176, %1
           to label %154 unwind label %152
 
 150:                                              ; preds = %152, %144
-  %.pn13 = phi { ptr, i32 } [ %153, %152 ], [ %.pn11, %144 ]
+  %.pn14 = phi { ptr, i32 } [ %153, %152 ], [ %.pn12, %144 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 336
   invoke void @"_ZN4core3ptr100drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..ExtraOperations$GT$17h6c006a118c041d35E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %151) #31
           to label %156 unwind label %183
@@ -17105,7 +17105,7 @@ common.ret:                                       ; preds = %4, %176, %1
           to label %163 unwind label %161
 
 156:                                              ; preds = %161, %150
-  %.pn15 = phi { ptr, i32 } [ %162, %161 ], [ %.pn13, %150 ]
+  %.pn16 = phi { ptr, i32 } [ %162, %161 ], [ %.pn14, %150 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %158 = load ptr, ptr %157, align 8, !alias.scope !1395, !noundef !4
   %159 = icmp eq ptr %158, null
@@ -17124,14 +17124,14 @@ common.ret:                                       ; preds = %4, %176, %1
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %165 = load ptr, ptr %164, align 8, !alias.scope !1398, !noundef !4
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit34", label %167
+  br i1 %166, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit35", label %167
 
 167:                                              ; preds = %163
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h148f95c797271a97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %164)
-          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit34" unwind label %169
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit35" unwind label %169
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit": ; preds = %156, %160, %169
-  %.pn17 = phi { ptr, i32 } [ %170, %169 ], [ %.pn15, %160 ], [ %.pn15, %156 ]
+  %.pn18 = phi { ptr, i32 } [ %170, %169 ], [ %.pn16, %160 ], [ %.pn16, %156 ]
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 288
   invoke void @"_ZN4core3ptr344drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$$GT$17h55503798354ff15fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %168) #31
           to label %172 unwind label %183
@@ -17141,23 +17141,23 @@ common.ret:                                       ; preds = %4, %176, %1
           cleanup
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit34": ; preds = %163, %167
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit35": ; preds = %163, %167
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 288
   invoke void @"_ZN4core3ptr344drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$$GT$17h55503798354ff15fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %171)
           to label %176 unwind label %174
 
 172:                                              ; preds = %174, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit"
-  %.pn19 = phi { ptr, i32 } [ %175, %174 ], [ %.pn17, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit" ]
+  %.pn20 = phi { ptr, i32 } [ %175, %174 ], [ %.pn18, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit" ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 264
   invoke void @"_ZN4core3ptr416drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$$LP$usize$C$polars_plan..dsl..scan_sources..ScanSource$C$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$C$core..option..Option$LT$u32$GT$$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7a2ed26bfd38714E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %173) #31
           to label %50 unwind label %183
 
-174:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit34"
+174:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit35"
   %175 = landingpad { ptr, i32 }
           cleanup
   br label %172
 
-176:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit34"
+176:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit35"
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @"_ZN4core3ptr416drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$$LP$usize$C$polars_plan..dsl..scan_sources..ScanSource$C$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$C$core..option..Option$LT$u32$GT$$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7a2ed26bfd38714E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %177)
   br label %common.ret
@@ -17182,11 +17182,11 @@ common.ret:                                       ; preds = %4, %176, %1
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %.val = load ptr, ptr %186, align 8
   %187 = getelementptr i8, ptr %0, i64 800
-  %.val23 = load ptr, ptr %187, align 8, !nonnull !4, !align !3, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E"(ptr %.val, ptr nonnull %.val23) #31
-          to label %.body27 unwind label %183
+  %.val24 = load ptr, ptr %187, align 8, !nonnull !4, !align !3, !noundef !4
+  invoke fastcc void @"_ZN4core3ptr135drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$$GT$17hc0cd08119585c563E"(ptr %.val, ptr nonnull %.val24) #31
+          to label %.body28 unwind label %183
 
-188:                                              ; preds = %.body27
+188:                                              ; preds = %.body28
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 736
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSource$GT$17hd2eb3eced838efd8E"(ptr noalias noundef align 8 dereferenceable(56) %189) #31
           to label %138 unwind label %183
@@ -17201,7 +17201,7 @@ define internal fastcc void @"_ZN4core3ptr149drop_in_place$LT$polars_stream..nod
     i8 3, label %10
   ]
 
-common.ret:                                       ; preds = %20, %70, %1
+common.ret:                                       ; preds = %70, %20, %1
   ret void
 
 4:                                                ; preds = %1
@@ -17252,7 +17252,7 @@ common.ret:                                       ; preds = %20, %70, %1
   br label %common.ret
 
 22:                                               ; preds = %65, %16
-  %.pn8 = phi { ptr, i32 } [ %.pn4, %65 ], [ %.pn6, %16 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %16 ], [ %.pn4, %65 ]
   resume { ptr, i32 } %.pn8
 
 23:                                               ; preds = %30, %65, %.body, %25, %16, %12
@@ -17494,11 +17494,11 @@ common.ret.sink.split.i.i:                        ; preds = %25, %16, %12
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %43 = load ptr, ptr %42, align 8, !alias.scope !1411, !noundef !4
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit5.i", label %45
+  br i1 %44, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit6.i", label %45
 
 45:                                               ; preds = %41
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %42)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit5.i" unwind label %47
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit6.i" unwind label %47
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit.i": ; preds = %56, %52, %47, %40, %35
   %.pn.i = phi { ptr, i32 } [ %48, %47 ], [ %36, %40 ], [ %36, %35 ], [ %eh.lpad-body.i, %56 ], [ %eh.lpad-body.i, %52 ]
@@ -17511,7 +17511,7 @@ common.ret.sink.split.i.i:                        ; preds = %25, %16, %12
           cleanup
   br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit.i"
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit5.i": ; preds = %45, %41
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit6.i": ; preds = %45, %41
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 385
   store i8 0, ptr %49, align 1
   br label %"_ZN4core3ptr478drop_in_place$LT$polars_stream..morsel..Morsel..async_try_map$LT$polars_error..PolarsError$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf30fbbc161a458daE.exit"
@@ -17545,7 +17545,7 @@ common.ret.sink.split.i.i:                        ; preds = %25, %16, %12
           to label %62 unwind label %63
 
 62:                                               ; preds = %77, %74, %59
-  %.pn2 = phi { ptr, i32 } [ %75, %74 ], [ %.pn, %77 ], [ %60, %59 ]
+  %.pn2 = phi { ptr, i32 } [ %60, %59 ], [ %75, %74 ], [ %.pn, %77 ]
   resume { ptr, i32 } %.pn2
 
 63:                                               ; preds = %77, %.body, %74, %59
@@ -17564,7 +17564,7 @@ common.ret.sink.split.i.i:                        ; preds = %25, %16, %12
           cleanup
   br label %.body
 
-"_ZN4core3ptr478drop_in_place$LT$polars_stream..morsel..Morsel..async_try_map$LT$polars_error..PolarsError$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf30fbbc161a458daE.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit5.i", %7, %10, %57
+"_ZN4core3ptr478drop_in_place$LT$polars_stream..morsel..Morsel..async_try_map$LT$polars_error..PolarsError$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LT$polars_stream..nodes..filter..FilterNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf30fbbc161a458daE.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit6.i", %7, %10, %57
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %69, align 8
   br label %65
@@ -17663,7 +17663,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %26 unwind label %27
 
 26:                                               ; preds = %103, %90, %23
-  %.pn12 = phi { ptr, i32 } [ %91, %90 ], [ %.pn10, %103 ], [ %24, %23 ]
+  %.pn12 = phi { ptr, i32 } [ %24, %23 ], [ %91, %90 ], [ %.pn10, %103 ]
   resume { ptr, i32 } %.pn12
 
 27:                                               ; preds = %103, %85, %102, %100, %99, %93, %90, %23
@@ -17952,7 +17952,7 @@ define internal fastcc void @"_ZN4core3ptr155drop_in_place$LT$polars_stream..nod
     i8 10, label %88
   ]
 
-common.ret:                                       ; preds = %4, %236, %1
+common.ret:                                       ; preds = %236, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -18027,12 +18027,12 @@ common.ret:                                       ; preds = %4, %236, %1
   %34 = load ptr, ptr %33, align 8, !alias.scope !1447, !nonnull !4, !noundef !4
   %35 = atomicrmw sub ptr %34, i64 1 release, align 8, !noalias !1447
   %36 = icmp eq i64 %35, 1
-  br i1 %36, label %37, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit13.i"
+  br i1 %36, label %37, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit14.i"
 
 37:                                               ; preds = %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habe22d109d89de22E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %33)
-          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit13.i" unwind label %39
+          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit14.i" unwind label %39
 
 "_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i": ; preds = %39, %32, %26
   %.pn6.i = phi { ptr, i32 } [ %40, %39 ], [ %27, %32 ], [ %27, %26 ]
@@ -18045,7 +18045,7 @@ common.ret:                                       ; preds = %4, %236, %1
           cleanup
   br label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i"
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit13.i": ; preds = %37, %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i"
+"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit14.i": ; preds = %37, %"_ZN4core3ptr120drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..output..FileReaderOutputRecv$GT$17hac2078299a71ed6bE.exit.i"
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 560
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %41)
           to label %"_ZN4core3ptr154drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..run_with_reader..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96ff33dd602ef6c8E.exit" unwind label %123
@@ -18110,12 +18110,12 @@ common.ret:                                       ; preds = %4, %236, %1
   %65 = load ptr, ptr %64, align 8, !alias.scope !1454, !nonnull !4, !noundef !4
   %66 = atomicrmw sub ptr %65, i64 1 release, align 8, !noalias !1454
   %67 = icmp eq i64 %66, 1
-  br i1 %67, label %68, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i"
+  br i1 %67, label %68, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i"
 
 68:                                               ; preds = %60
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habe22d109d89de22E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
-          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i" unwind label %42
+          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i" unwind label %42
 
 69:                                               ; preds = %57
   %70 = landingpad { ptr, i32 }
@@ -18135,14 +18135,14 @@ common.ret:                                       ; preds = %4, %236, %1
   %76 = load ptr, ptr %75, align 8, !alias.scope !1461, !nonnull !4, !noundef !4
   %77 = atomicrmw sub ptr %76, i64 1 release, align 8, !noalias !1461
   %78 = icmp eq i64 %77, 1
-  br i1 %78, label %79, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit17.i"
+  br i1 %78, label %79, label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit18.i"
 
 79:                                               ; preds = %71
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habe22d109d89de22E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %75)
-          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit17.i" unwind label %81
+          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit18.i" unwind label %81
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i": ; preds = %81, %68, %60
+"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i": ; preds = %81, %68, %60
   %.pn4.i = phi { ptr, i32 } [ %82, %81 ], [ %.pn2.i, %68 ], [ %.pn2.i, %60 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 935
   store i8 0, ptr %80, align 1
@@ -18151,9 +18151,9 @@ common.ret:                                       ; preds = %4, %236, %1
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i"
+  br label %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i"
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit17.i": ; preds = %79, %71
+"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit18.i": ; preds = %79, %71
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 935
   store i8 0, ptr %83, align 1
   br label %"_ZN4core3ptr154drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..run_with_reader..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96ff33dd602ef6c8E.exit"
@@ -18195,7 +18195,7 @@ common.ret:                                       ; preds = %4, %236, %1
   store i8 0, ptr %98, align 2
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 528
   invoke void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..WorkerData$GT$$GT$17h1da9bc260beb22f9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %99) #31
-          to label %.body28 unwind label %104
+          to label %.body29 unwind label %104
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 641
@@ -18213,7 +18213,7 @@ common.ret:                                       ; preds = %4, %236, %1
   unreachable
 
 106:                                              ; preds = %232
-  resume { ptr, i32 } %.pn23
+  resume { ptr, i32 } %.pn24
 
 107:                                              ; preds = %6
   %108 = landingpad { ptr, i32 }
@@ -18227,7 +18227,7 @@ common.ret:                                       ; preds = %4, %236, %1
   br i1 %112, label %193, label %191
 
 113:                                              ; preds = %187, %107
-  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %187 ], [ %108, %107 ]
+  %.pn14 = phi { ptr, i32 } [ %108, %107 ], [ %.pn12, %187 ]
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 486
   %115 = load i8, ptr %114, align 2, !range !197, !noundef !4
   %116 = trunc nuw i8 %115 to i1
@@ -18244,23 +18244,23 @@ common.ret:                                       ; preds = %4, %236, %1
   br label %129
 
 121:                                              ; preds = %.body, %117
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %118, %117 ]
+  %.pn2 = phi { ptr, i32 } [ %118, %117 ], [ %.pn, %.body ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i8 0, ptr %122, align 8
   br label %133
 
-123:                                              ; preds = %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit13.i"
+123:                                              ; preds = %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit14.i"
   %124 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZN4core3ptr154drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..run_with_reader..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96ff33dd602ef6c8E.exit": ; preds = %1, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit17.i", %10, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit13.i", %84
+"_ZN4core3ptr154drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..run_with_reader..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96ff33dd602ef6c8E.exit": ; preds = %1, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit18.i", %10, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit14.i", %84
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 487
   store i8 0, ptr %125, align 1
   br label %119
 
-.body:                                            ; preds = %123, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i", %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i", %127
-  %.pn = phi { ptr, i32 } [ %128, %127 ], [ %124, %123 ], [ %.pn4.i, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit15.i" ], [ %.pn6.i, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i" ]
+.body:                                            ; preds = %123, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i", %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i", %127
+  %.pn = phi { ptr, i32 } [ %128, %127 ], [ %124, %123 ], [ %.pn6.i, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit.i" ], [ %.pn4.i, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16.i" ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 487
   store i8 0, ptr %126, align 1
   br label %121
@@ -18277,7 +18277,7 @@ common.ret:                                       ; preds = %4, %236, %1
   br i1 %132, label %143, label %139
 
 133:                                              ; preds = %137, %121
-  %.pn3 = phi { ptr, i32 } [ %138, %137 ], [ %.pn.pn, %121 ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %121 ], [ %138, %137 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 485
   %135 = load i8, ptr %134, align 1, !range !197, !noundef !4
   %136 = trunc nuw i8 %135 to i1
@@ -18301,7 +18301,7 @@ common.ret:                                       ; preds = %4, %236, %1
           to label %139 unwind label %150
 
 145:                                              ; preds = %201, %150, %133
-  %.pn5 = phi { ptr, i32 } [ %151, %150 ], [ %.pn3, %201 ], [ %.pn3, %133 ]
+  %.pn5 = phi { ptr, i32 } [ %151, %150 ], [ %.pn2.pn, %201 ], [ %.pn2.pn, %133 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 485
   store i8 0, ptr %146, align 1
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 481
@@ -18414,12 +18414,12 @@ common.ret:                                       ; preds = %4, %236, %1
           to label %191 unwind label %198
 
 195:                                              ; preds = %214, %198, %113
-  %.pn15 = phi { ptr, i32 } [ %199, %198 ], [ %.pn12.pn, %214 ], [ %.pn12.pn, %113 ]
+  %.pn16 = phi { ptr, i32 } [ %199, %198 ], [ %.pn14, %214 ], [ %.pn14, %113 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 486
   store i8 0, ptr %196, align 2
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 489
   store i8 0, ptr %197, align 1
-  br label %.body28
+  br label %.body29
 
 198:                                              ; preds = %193
   %199 = landingpad { ptr, i32 }
@@ -18428,8 +18428,8 @@ common.ret:                                       ; preds = %4, %236, %1
 
 "_ZN4core3ptr147drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..shutdown..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a436e016a5a9fdaE.exit": ; preds = %88, %91, %100, %1, %191
   %200 = load i64, ptr %0, align 8, !range !266, !noundef !4
-  %.not20 = icmp eq i64 %200, -9223372036854775808
-  br i1 %.not20, label %223, label %219
+  %.not21 = icmp eq i64 %200, -9223372036854775808
+  br i1 %.not21, label %223, label %219
 
 201:                                              ; preds = %133
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -18467,16 +18467,16 @@ common.ret:                                       ; preds = %4, %236, %1
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %215) #31
           to label %195 unwind label %203
 
-.body28:                                          ; preds = %217, %95, %195
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %195 ], [ %218, %217 ], [ %96, %95 ]
+.body29:                                          ; preds = %217, %95, %195
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %195 ], [ %218, %217 ], [ %96, %95 ]
   %216 = load i64, ptr %0, align 8, !range !266, !noundef !4
-  %.not19 = icmp eq i64 %216, -9223372036854775808
-  br i1 %.not19, label %227, label %238
+  %.not20 = icmp eq i64 %216, -9223372036854775808
+  br i1 %.not20, label %227, label %238
 
 217:                                              ; preds = %100, %91
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %.body28
+  br label %.body29
 
 219:                                              ; preds = %"_ZN4core3ptr147drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool..shutdown..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a436e016a5a9fdaE.exit"
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 484
@@ -18495,8 +18495,8 @@ common.ret:                                       ; preds = %4, %236, %1
   invoke void @"_ZN4core3ptr108drop_in_place$LT$polars_stream..nodes..io_sources..multi_file_reader..post_apply_pipeline..PostApplyPool$GT$17hed403b1b514a6883E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %223 unwind label %230
 
-227:                                              ; preds = %.body28, %242, %238, %230
-  %.pn21 = phi { ptr, i32 } [ %231, %230 ], [ %.pn17, %242 ], [ %.pn17, %238 ], [ %.pn17, %.body28 ]
+227:                                              ; preds = %.body29, %242, %238, %230
+  %.pn22 = phi { ptr, i32 } [ %231, %230 ], [ %.pn18, %242 ], [ %.pn18, %238 ], [ %.pn18, %.body29 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 484
   store i8 0, ptr %228, align 4
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -18509,7 +18509,7 @@ common.ret:                                       ; preds = %4, %236, %1
   br label %227
 
 232:                                              ; preds = %234, %227
-  %.pn23 = phi { ptr, i32 } [ %235, %234 ], [ %.pn21, %227 ]
+  %.pn24 = phi { ptr, i32 } [ %235, %234 ], [ %.pn22, %227 ]
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 288
   invoke void @"_ZN4core3ptr346drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$$GT$17haa3bb9472046e1ccE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %233) #31
           to label %106 unwind label %203
@@ -18524,7 +18524,7 @@ common.ret:                                       ; preds = %4, %236, %1
   tail call void @"_ZN4core3ptr346drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$$LP$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$polars_stream..nodes..io_sources..multi_file_reader..reader_pipelines..generic..StartedReaderState$C$polars_error..PolarsError$GT$$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$$GT$17haa3bb9472046e1ccE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %237)
   br label %common.ret
 
-238:                                              ; preds = %.body28
+238:                                              ; preds = %.body29
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %240 = load i8, ptr %239, align 4, !range !197, !noundef !4
   %241 = trunc nuw i8 %240 to i1
@@ -18607,7 +18607,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %23
 
 26:                                               ; preds = %46, %44, %23
-  %.pn6 = phi { ptr, i32 } [ %45, %44 ], [ %.pn2, %46 ], [ %.pn4, %23 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %23 ], [ %45, %44 ], [ %.pn2, %46 ]
   resume { ptr, i32 } %.pn6
 
 27:                                               ; preds = %46, %44, %38, %31, %23, %13
@@ -18622,7 +18622,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %31
 
 31:                                               ; preds = %34, %29
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ]
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %35, %34 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -18766,7 +18766,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %32
 
 36:                                               ; preds = %76, %68, %32
-  %.pn13 = phi { ptr, i32 } [ %.pn7, %68 ], [ %.pn.pn, %76 ], [ %.pn11, %32 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %32 ], [ %.pn7, %68 ], [ %.pn2.pn, %76 ]
   resume { ptr, i32 } %.pn13
 
 37:                                               ; preds = %76, %74, %72, %68, %62, %57, %48, %32, %26, %21
@@ -18786,7 +18786,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %46
 
 42:                                               ; preds = %44, %39
-  %.pn2 = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ]
+  %.pn2 = phi { ptr, i32 } [ %40, %39 ], [ %45, %44 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 329
   store i8 0, ptr %43, align 1
   br label %48
@@ -18802,7 +18802,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %60 unwind label %57
 
 48:                                               ; preds = %53, %42
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %53 ], [ %.pn2, %42 ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %42 ], [ %.pn, %53 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %49) #31
           to label %72 unwind label %37
@@ -18818,7 +18818,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %46
 
 53:                                               ; preds = %55, %50
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %56, %55 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i8 0, ptr %54, align 8
   br label %48
@@ -18932,7 +18932,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %12
 
 16:                                               ; preds = %22, %12
-  %.pn4 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn2, %12 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %12 ], [ %.pn, %22 ]
   resume { ptr, i32 } %.pn4
 
 17:                                               ; preds = %22, %19, %12, %9
@@ -18983,7 +18983,7 @@ define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$$LT$polars_stream.
     i8 14, label %37
   ]
 
-common.ret.sink.split:                            ; preds = %112, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit31", %48, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit"
+common.ret.sink.split:                            ; preds = %112, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit32", %48, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit"
   tail call void @"_ZN4core3ptr158drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$$GT$17hbaa39d5963314568E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   br label %common.ret
 
@@ -19020,9 +19020,9 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %18 = load i8, ptr %17, align 1, !range !426, !noundef !4
-  %.off.i15 = add nsw i8 %18, -3
-  %switch.i16 = icmp ult i8 %.off.i15, 2
-  br i1 %switch.i16, label %19, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
+  %.off.i16 = add nsw i8 %18, -3
+  %switch.i17 = icmp ult i8 %.off.i16, 2
+  br i1 %switch.i17, label %19, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -19032,9 +19032,9 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 21:                                               ; preds = %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %23 = load i8, ptr %22, align 1, !range !426, !noundef !4
-  %.off.i18 = add nsw i8 %23, -3
-  %switch.i19 = icmp ult i8 %.off.i18, 2
-  br i1 %switch.i19, label %24, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
+  %.off.i19 = add nsw i8 %23, -3
+  %switch.i20 = icmp ult i8 %.off.i19, 2
+  br i1 %switch.i20, label %24, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -19044,9 +19044,9 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 26:                                               ; preds = %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %28 = load i8, ptr %27, align 1, !range !426, !noundef !4
-  %.off.i21 = add nsw i8 %28, -3
-  %switch.i22 = icmp ult i8 %.off.i21, 2
-  br i1 %switch.i22, label %29, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
+  %.off.i22 = add nsw i8 %28, -3
+  %switch.i23 = icmp ult i8 %.off.i22, 2
+  br i1 %switch.i23, label %29, label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -19079,11 +19079,11 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8, !alias.scope !1472, !noundef !4
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25", label %44
+  br i1 %43, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26", label %44
 
 44:                                               ; preds = %39
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41)
-          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25" unwind label %52
+          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26" unwind label %52
 
 "_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit": ; preds = %4, %8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -19095,21 +19095,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
           to label %common.ret.sink.split unwind label %49
 
-"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25": ; preds = %39, %44, %49
-  %.pn11 = phi { ptr, i32 } [ %50, %49 ], [ %40, %44 ], [ %40, %39 ]
+"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26": ; preds = %39, %44, %49
+  %.pn12 = phi { ptr, i32 } [ %50, %49 ], [ %40, %44 ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr158drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$$GT$17hbaa39d5963314568E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #31
           to label %51 unwind label %52
 
 49:                                               ; preds = %48
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25"
+  br label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26"
 
-51:                                               ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25"
-  %.pn13 = phi { ptr, i32 } [ %.pn9, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33" ], [ %.pn7, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37" ], [ %.pn11, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25" ]
-  resume { ptr, i32 } %.pn13
+51:                                               ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26"
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26" ], [ %.pn10, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34" ], [ %.pn8, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38" ]
+  resume { ptr, i32 } %.pn14
 
-52:                                               ; preds = %118, %108, %95, %44, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33", %71, %61, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit25"
+52:                                               ; preds = %118, %108, %95, %44, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38", %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34", %71, %61, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit26"
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -19132,7 +19132,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
 
 61:                                               ; preds = %84, %71, %78, %54, %64
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %84 ], [ %79, %78 ], [ %72, %71 ], [ %65, %64 ], [ %55, %54 ]
+  %.pn6 = phi { ptr, i32 } [ %55, %54 ], [ %65, %64 ], [ %79, %78 ], [ %72, %71 ], [ %.pn, %84 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62) #31
           to label %91 unwind label %52
@@ -19190,7 +19190,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %84
 
 84:                                               ; preds = %86, %82
-  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %83, %82 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %87, %86 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 281
   store i8 0, ptr %85, align 1
   br label %61
@@ -19208,15 +19208,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %80
 
 91:                                               ; preds = %96, %61
-  %.pn7 = phi { ptr, i32 } [ %97, %96 ], [ %.pn.pn, %61 ]
+  %.pn8 = phi { ptr, i32 } [ %97, %96 ], [ %.pn6, %61 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %93 = load ptr, ptr %92, align 8, !alias.scope !1478, !noundef !4
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit29", label %95
+  br i1 %94, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit30", label %95
 
 95:                                               ; preds = %91
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92)
-          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit29" unwind label %52
+          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit30" unwind label %52
 
 96:                                               ; preds = %"_ZN4core3ptr178drop_in_place$LT$$LT$polars_stream..nodes..merge_sorted..MergeSortedNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..buffer_unmerged..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d417458e4994553E.exit"
   %97 = landingpad { ptr, i32 }
@@ -19227,11 +19227,11 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %100 = load ptr, ptr %99, align 8, !alias.scope !1481, !noundef !4
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit31", label %102
+  br i1 %101, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit32", label %102
 
 102:                                              ; preds = %98
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %99)
-          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit31" unwind label %103
+          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit32" unwind label %103
 
 103:                                              ; preds = %102
   %104 = landingpad { ptr, i32 }
@@ -19239,43 +19239,43 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load ptr, ptr %105, align 8, !alias.scope !1484, !noundef !4
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33", label %108
+  br i1 %107, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34", label %108
 
 108:                                              ; preds = %103
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %105)
-          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33" unwind label %52
+          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34" unwind label %52
 
-"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit31": ; preds = %98, %102
+"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit32": ; preds = %98, %102
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %110 = load ptr, ptr %109, align 8, !alias.scope !1487, !noundef !4
   %111 = icmp eq ptr %110, null
   br i1 %111, label %common.ret.sink.split, label %112
 
-112:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit31"
+112:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit32"
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %109)
           to label %common.ret.sink.split unwind label %113
 
-"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33": ; preds = %103, %108, %113
-  %.pn9 = phi { ptr, i32 } [ %114, %113 ], [ %104, %108 ], [ %104, %103 ]
+"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34": ; preds = %103, %108, %113
+  %.pn10 = phi { ptr, i32 } [ %114, %113 ], [ %104, %108 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr158drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$$GT$17hbaa39d5963314568E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #31
           to label %51 unwind label %52
 
 113:                                              ; preds = %112
   %114 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit33"
+  br label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit34"
 
-"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit29": ; preds = %91, %95
+"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit30": ; preds = %91, %95
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load ptr, ptr %115, align 8, !alias.scope !1490, !noundef !4
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37", label %118
+  br i1 %117, label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38", label %118
 
-118:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit29"
+118:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit30"
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %115)
-          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37" unwind label %52
+          to label %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38" unwind label %52
 
-"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit37": ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit29", %118
+"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit38": ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$$GT$17h417c3e735f11b19fE.exit30", %118
   invoke void @"_ZN4core3ptr158drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$$GT$17hbaa39d5963314568E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #31
           to label %51 unwind label %52
 }
@@ -19289,7 +19289,7 @@ define internal fastcc void @"_ZN4core3ptr161drop_in_place$LT$$LT$polars_stream.
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %11, %1
+common.ret:                                       ; preds = %11, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -19332,7 +19332,7 @@ define internal fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LT$polars_stream.
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %11, %1
+common.ret:                                       ; preds = %11, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -19404,8 +19404,8 @@ common.ret:                                       ; preds = %4, %1, %43
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i8, ptr %13, align 8, !range !280, !noundef !4
-  %cond.i5 = icmp eq i8 %14, 3
-  br i1 %cond.i5, label %15, label %"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitGroup..wait..$u7b$$u7b$closure$u7d$$u7d$$GT$17h80aac20c73675c56E.exit"
+  %cond.i6 = icmp eq i8 %14, 3
+  br i1 %cond.i6, label %15, label %"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitGroup..wait..$u7b$$u7b$closure$u7d$$u7d$$GT$17h80aac20c73675c56E.exit"
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -19459,7 +19459,7 @@ common.ret:                                       ; preds = %4, %1, %43
   br i1 %35, label %44, label %43
 
 .body:                                            ; preds = %41, %24, %39, %29, %31
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ], [ %30, %29 ], [ %42, %41 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %40, %39 ], [ %42, %41 ], [ %25, %24 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %37 = load i8, ptr %36, align 1, !range !197, !noundef !4
   %38 = trunc nuw i8 %37 to i1
@@ -19516,7 +19516,7 @@ define internal fastcc void @"_ZN4core3ptr163drop_in_place$LT$$LT$polars_stream.
     i8 3, label %5
   ]
 
-common.ret:                                       ; preds = %4, %11, %1
+common.ret:                                       ; preds = %11, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -19586,7 +19586,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %26, %23, %9
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %26 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %18, %26 ]
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %26, %17, %23, %9
@@ -19774,7 +19774,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %31
 
 35:                                               ; preds = %77, %73, %31
-  %.pn14 = phi { ptr, i32 } [ %74, %73 ], [ %.pn8, %77 ], [ %.pn12, %31 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %31 ], [ %74, %73 ], [ %.pn8, %77 ]
   resume { ptr, i32 } %.pn14
 
 36:                                               ; preds = %21, %77, %76, %73, %67, %61, %55, %46, %31, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit17"
@@ -19805,7 +19805,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %38 unwind label %53
 
 46:                                               ; preds = %48, %39
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %40, %39 ]
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %47) #31
           to label %76 unwind label %36
@@ -19952,7 +19952,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %19 unwind label %20
 
 19:                                               ; preds = %31, %29, %17
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body, %31 ], [ %18, %17 ]
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %30, %29 ], [ %eh.lpad-body, %31 ]
   resume { ptr, i32 } %.pn
 
 20:                                               ; preds = %31, %.body, %29, %17
@@ -20048,7 +20048,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %common.ret.sink.split unwind label %21
 
 19:                                               ; preds = %21, %14
-  %.pn7 = phi { ptr, i32 } [ %22, %21 ], [ %15, %14 ]
+  %.pn8 = phi { ptr, i32 } [ %22, %21 ], [ %15, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke void @"_ZN4core3ptr108drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$polars_stream..morsel..Morsel$GT$$GT$17h2bbaf95b56750d39E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #31
           to label %23 unwind label %24
@@ -20059,8 +20059,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %19
 
 23:                                               ; preds = %53, %47, %19
-  %.pn9 = phi { ptr, i32 } [ %.pn5, %47 ], [ %.pn3, %53 ], [ %.pn7, %19 ]
-  resume { ptr, i32 } %.pn9
+  %.pn10 = phi { ptr, i32 } [ %.pn8, %19 ], [ %.pn6, %47 ], [ %.pn4, %53 ]
+  resume { ptr, i32 } %.pn10
 
 24:                                               ; preds = %53, %51, %47, %42, %36, %31, %19, %14
   %25 = landingpad { ptr, i32 }
@@ -20084,7 +20084,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %26
 
 31:                                               ; preds = %34, %28
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %35, %34 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i8 0, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -20097,7 +20097,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %31
 
 36:                                               ; preds = %38, %31
-  %.pn3 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %31 ]
+  %.pn4 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @"_ZN4core3ptr134drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Receiver$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$$GT$17ha0acc1b4bf03e5efE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37) #31
           to label %51 unwind label %24
@@ -20125,7 +20125,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %common.ret.sink.split unwind label %49
 
 47:                                               ; preds = %49, %42
-  %.pn5 = phi { ptr, i32 } [ %50, %49 ], [ %43, %42 ]
+  %.pn6 = phi { ptr, i32 } [ %50, %49 ], [ %43, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke void @"_ZN4core3ptr108drop_in_place$LT$polars_stream..async_primitives..connector..Sender$LT$polars_stream..morsel..Morsel$GT$$GT$17h2bbaf95b56750d39E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48) #31
           to label %23 unwind label %24
@@ -20181,7 +20181,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %11 unwind label %12
 
 11:                                               ; preds = %20, %17, %8
-  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %16, %20 ], [ %9, %8 ]
+  %.pn2 = phi { ptr, i32 } [ %9, %8 ], [ %18, %17 ], [ %16, %20 ]
   resume { ptr, i32 } %.pn2
 
 12:                                               ; preds = %20, %17, %15, %8
@@ -20249,7 +20249,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %26, %23, %9
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %26 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %18, %26 ]
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %26, %17, %23, %9
@@ -20774,7 +20774,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %common.ret.sink.split unwind label %200
 
 198:                                              ; preds = %200, %193
-  %.pn6 = phi { ptr, i32 } [ %201, %200 ], [ %194, %193 ]
+  %.pn5 = phi { ptr, i32 } [ %201, %200 ], [ %194, %193 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr84drop_in_place$LT$polars_stream..async_executor..task..JoinHandle$LT$$LP$$RP$$GT$$GT$17h795c7c45a2c5bacfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %199) #31
           to label %202 unwind label %203
@@ -20785,8 +20785,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %198
 
 202:                                              ; preds = %219, %.body, %198
-  %.pn8 = phi { ptr, i32 } [ %.pn4, %219 ], [ %.pn4, %.body ], [ %.pn6, %198 ]
-  resume { ptr, i32 } %.pn8
+  %.pn7 = phi { ptr, i32 } [ %.pn5, %198 ], [ %.pn.pn, %219 ], [ %.pn.pn, %.body ]
+  resume { ptr, i32 } %.pn7
 
 203:                                              ; preds = %219, %198, %193
   %204 = landingpad { ptr, i32 }
@@ -20813,7 +20813,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %212, label %common.ret.sink.split, label %common.ret
 
 .body:                                            ; preds = %205, %181, %149, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit.i", %207, %217
-  %.pn4 = phi { ptr, i32 } [ %218, %217 ], [ %208, %207 ], [ %206, %205 ], [ %.pn4.i, %181 ], [ %.pn8.i, %149 ], [ %.pn8.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit.i" ]
+  %.pn.pn = phi { ptr, i32 } [ %218, %217 ], [ %208, %207 ], [ %206, %205 ], [ %.pn4.i, %181 ], [ %.pn8.i, %149 ], [ %.pn8.i, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h1e9acdbbffcffcfeE.exit.i" ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 75
@@ -20879,7 +20879,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %17 unwind label %18
 
 17:                                               ; preds = %40, %37, %14
-  %.pn4 = phi { ptr, i32 } [ %38, %37 ], [ %.pn2, %40 ], [ %15, %14 ]
+  %.pn4 = phi { ptr, i32 } [ %15, %14 ], [ %38, %37 ], [ %.pn2, %40 ]
   resume { ptr, i32 } %.pn4
 
 18:                                               ; preds = %40, %37, %31, %25, %14
@@ -20903,7 +20903,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %35 unwind label %33
 
 25:                                               ; preds = %29, %20
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %30, %29 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 161
   store i8 0, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -21021,7 +21021,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %21
 
 25:                                               ; preds = %70, %64, %21
-  %.pn14 = phi { ptr, i32 } [ %.pn8, %64 ], [ %.pn4, %70 ], [ %.pn12, %21 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %21 ], [ %.pn8, %64 ], [ %.pn4, %70 ]
   resume { ptr, i32 } %.pn14
 
 26:                                               ; preds = %47, %70, %68, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit17", %64, %58, %56, %36, %30, %21, %15, %13
@@ -21187,7 +21187,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %26, %23, %9
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %26 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %18, %26 ]
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %26, %17, %23, %9
@@ -21511,7 +21511,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %34 unwind label %35
 
 34:                                               ; preds = %42, %39, %31
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %eh.lpad-body, %42 ], [ %32, %31 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %40, %39 ], [ %eh.lpad-body, %42 ]
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %42, %.body, %39, %31
@@ -21677,7 +21677,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %15
 
 19:                                               ; preds = %52, %48, %15
-  %.pn8 = phi { ptr, i32 } [ %.pn4, %48 ], [ %.pn2, %52 ], [ %.pn6, %15 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %15 ], [ %.pn4, %48 ], [ %.pn2, %52 ]
   resume { ptr, i32 } %.pn8
 
 20:                                               ; preds = %37, %52, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit11", %48, %46, %24, %15, %13
@@ -21835,7 +21835,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %22, label %common.ret.sink.split, label %common.ret
 
 23:                                               ; preds = %30, %37, %41, %17
-  %.pn2 = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ], [ %.pn, %30 ], [ %18, %17 ]
+  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %38, %37 ], [ %.pn, %30 ], [ %42, %41 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i8, ptr %24, align 8, !range !197, !noundef !4
   %26 = trunc nuw i8 %25 to i1
@@ -21852,7 +21852,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %19 unwind label %37
 
 30:                                               ; preds = %32, %27
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %33, %32 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr273drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_stream..async_primitives..connector..SendError$LT$$LP$polars_stream..async_primitives..connector..Sender$LT$polars_stream..morsel..Morsel$GT$$C$polars_stream..async_primitives..wait_group..WaitToken$RP$$GT$$GT$$GT$17h8fb8640575a502a9E"(ptr noalias noundef align 8 dereferenceable(24) %31) #31
           to label %23 unwind label %39
@@ -22127,7 +22127,7 @@ common.ret:                                       ; preds = %72, %70, %42, %40, 
   br label %common.ret
 
 43:                                               ; preds = %74, %64, %34
-  %.pn8 = phi { ptr, i32 } [ %.pn2, %64 ], [ %.pn, %74 ], [ %.pn6, %34 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %34 ], [ %.pn2, %64 ], [ %.pn, %74 ]
   resume { ptr, i32 } %.pn8
 
 44:                                               ; preds = %59, %23, %74, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit16", %64, %60, %34, %"_ZN4core3ptr129drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..multi_file_reader..extra_ops..apply..ApplyExtraOps$GT$$GT$17h5652ef1d1f8b2027E.exit"
@@ -22256,7 +22256,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %26, %23, %9
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %26 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %18, %26 ]
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %26, %17, %23, %9
@@ -22351,7 +22351,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %18 unwind label %19
 
 18:                                               ; preds = %99, %94, %15
-  %.pn17 = phi { ptr, i32 } [ %95, %94 ], [ %.pn14, %99 ], [ %16, %15 ]
+  %.pn17 = phi { ptr, i32 } [ %16, %15 ], [ %95, %94 ], [ %.pn13, %99 ]
   resume { ptr, i32 } %.pn17
 
 19:                                               ; preds = %72, %99, %97, %94, %79, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit20", %52, %26, %87, %15
@@ -22375,7 +22375,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %92 unwind label %90
 
 26:                                               ; preds = %79, %85, %23
-  %.pn12 = phi { ptr, i32 } [ %86, %85 ], [ %.pn10, %79 ], [ %24, %23 ]
+  %.pn11 = phi { ptr, i32 } [ %24, %23 ], [ %86, %85 ], [ %.pn9, %79 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #31
           to label %87 unwind label %19
 
@@ -22391,7 +22391,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %32, label %41, label %39
 
 33:                                               ; preds = %37, %27
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %38, %37 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 329
   %35 = load i8, ptr %34, align 1, !range !197, !noundef !4
   %36 = trunc nuw i8 %35 to i1
@@ -22438,7 +22438,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %43 unwind label %19
 
 54:                                               ; preds = %58, %43
-  %.pn4 = phi { ptr, i32 } [ %59, %58 ], [ %.pn2, %43 ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn2, %43 ], [ %59, %58 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %56 = load i8, ptr %55, align 8, !range !197, !noundef !4
   %57 = trunc nuw i8 %56 to i1
@@ -22466,7 +22466,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %60 unwind label %73
 
 67:                                               ; preds = %97, %73, %54
-  %.pn6 = phi { ptr, i32 } [ %74, %73 ], [ %.pn4, %97 ], [ %.pn4, %54 ]
+  %.pn5 = phi { ptr, i32 } [ %74, %73 ], [ %.pn2.pn, %97 ], [ %.pn2.pn, %54 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i8 0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -22484,7 +22484,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %67
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit20": ; preds = %67, %72, %76
-  %.pn8 = phi { ptr, i32 } [ %77, %76 ], [ %.pn6, %72 ], [ %.pn6, %67 ]
+  %.pn7 = phi { ptr, i32 } [ %77, %76 ], [ %.pn5, %72 ], [ %.pn5, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 304
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %75) #31
           to label %79 unwind label %19
@@ -22500,7 +22500,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %83 unwind label %81
 
 79:                                               ; preds = %81, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit20"
-  %.pn10 = phi { ptr, i32 } [ %82, %81 ], [ %.pn8, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit20" ]
+  %.pn9 = phi { ptr, i32 } [ %82, %81 ], [ %.pn7, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit20" ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %80) #31
           to label %26 unwind label %19
@@ -22521,7 +22521,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %26
 
 87:                                               ; preds = %90, %26
-  %.pn14 = phi { ptr, i32 } [ %91, %90 ], [ %.pn12, %26 ]
+  %.pn13 = phi { ptr, i32 } [ %91, %90 ], [ %.pn11, %26 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 331
   store i8 0, ptr %88, align 1
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -22647,7 +22647,7 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$$LT$polars_stream.
     i8 7, label %205
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit74", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit56"
+common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit75", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit57"
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4)
   br label %common.ret
@@ -22920,7 +22920,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1049
   store i8 0, ptr %111, align 1
-  br label %.body44
+  br label %.body45
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1049
@@ -22950,15 +22950,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %123 = load ptr, ptr %122, align 8, !alias.scope !1722, !nonnull !4, !noundef !4
   %124 = atomicrmw sub ptr %123, i64 1 release, align 8, !noalias !1722
   %125 = icmp eq i64 %124, 1
-  br i1 %125, label %126, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit48"
+  br i1 %125, label %126, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit49"
 
 126:                                              ; preds = %121
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %122)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit48" unwind label %127
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit49" unwind label %127
 
 "_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit": ; preds = %114, %120, %127
-  %.pn29 = phi { ptr, i32 } [ %128, %127 ], [ %115, %120 ], [ %115, %114 ]
+  %.pn30 = phi { ptr, i32 } [ %128, %127 ], [ %115, %120 ], [ %115, %114 ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %137 unwind label %171
 
@@ -22967,12 +22967,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit48": ; preds = %121, %126
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit49": ; preds = %121, %126
   %129 = load i64, ptr %0, align 8, !range !276, !alias.scope !1723, !noundef !4
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", label %131
 
-131:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit48"
+131:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit49"
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = load ptr, ptr %132, align 8, !alias.scope !1726, !noundef !4
   %.not.i.i = icmp eq ptr %133, null
@@ -22988,7 +22988,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit" unwind label %143
 
 137:                                              ; preds = %143, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
-  %.pn31 = phi { ptr, i32 } [ %144, %143 ], [ %.pn29, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
+  %.pn32 = phi { ptr, i32 } [ %144, %143 ], [ %.pn30, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1729)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1732)
@@ -23007,22 +23007,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %137
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit48", %134, %135
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit49", %134, %135
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1739)
   %146 = load ptr, ptr %145, align 8, !alias.scope !1742, !nonnull !4, !noundef !4
   %147 = atomicrmw sub ptr %146, i64 1 release, align 8, !noalias !1742
   %148 = icmp eq i64 %147, 1
-  br i1 %148, label %149, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit53"
+  br i1 %148, label %149, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit54"
 
 149:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %145)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit53" unwind label %155
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit54" unwind label %155
 
 "_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit": ; preds = %137, %142, %155
-  %.pn33 = phi { ptr, i32 } [ %156, %155 ], [ %.pn31, %142 ], [ %.pn31, %137 ]
+  %.pn34 = phi { ptr, i32 } [ %156, %155 ], [ %.pn32, %142 ], [ %.pn32, %137 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1743)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1746)
@@ -23041,22 +23041,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit53": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %149
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit54": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %149
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1750)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1753)
   %158 = load ptr, ptr %157, align 8, !alias.scope !1756, !nonnull !4, !noundef !4
   %159 = atomicrmw sub ptr %158, i64 1 release, align 8, !noalias !1756
   %160 = icmp eq i64 %159, 1
-  br i1 %160, label %161, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit56"
+  br i1 %160, label %161, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit57"
 
-161:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit53"
+161:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit54"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %157)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit56" unwind label %163
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit57" unwind label %163
 
 "_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit", %154, %163
-  %.pn35 = phi { ptr, i32 } [ %164, %163 ], [ %.pn33, %154 ], [ %.pn33, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
+  %.pn36 = phi { ptr, i32 } [ %164, %163 ], [ %.pn34, %154 ], [ %.pn34, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %162) #31
           to label %166 unwind label %171
@@ -23066,27 +23066,27 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit56": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit53", %161
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit57": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit54", %161
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %165)
           to label %common.ret.sink.split unwind label %168
 
 166:                                              ; preds = %168, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
-  %.pn37 = phi { ptr, i32 } [ %169, %168 ], [ %.pn35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
+  %.pn38 = phi { ptr, i32 } [ %169, %168 ], [ %.pn36, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %167) #31
           to label %170 unwind label %171
 
-168:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit56"
+168:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit57"
   %169 = landingpad { ptr, i32 }
           cleanup
   br label %166
 
 170:                                              ; preds = %340, %310, %166
-  %.pn39 = phi { ptr, i32 } [ %.pn27, %310 ], [ %.pn17, %340 ], [ %.pn37, %166 ]
-  resume { ptr, i32 } %.pn39
+  %.pn40 = phi { ptr, i32 } [ %.pn38, %166 ], [ %.pn28, %310 ], [ %.pn18, %340 ]
+  resume { ptr, i32 } %.pn40
 
-171:                                              ; preds = %338, %333, %327, %298, %286, %264, %154, %142, %120, %340, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit80", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit76", %320, %318, %316, %314, %310, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60", %253, %238, %225, %.body44, %201, %166, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
+171:                                              ; preds = %338, %333, %327, %298, %286, %264, %154, %142, %120, %340, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit81", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit77", %320, %318, %316, %314, %310, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61", %253, %238, %225, %.body45, %201, %166, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
   %172 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -23104,7 +23104,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %177, label %251, label %249
 
 .body:                                            ; preds = %173, %31, %247, %318
-  %.pn15 = phi { ptr, i32 } [ %248, %247 ], [ %.pn13, %318 ], [ %174, %173 ], [ %.pn12.i, %31 ]
+  %.pn16 = phi { ptr, i32 } [ %248, %247 ], [ %.pn14, %318 ], [ %174, %173 ], [ %.pn12.i, %31 ]
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 734
   %179 = load i8, ptr %178, align 2, !range !197, !noundef !4
   %180 = trunc nuw i8 %179 to i1
@@ -23131,7 +23131,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %190, label %236, label %234
 
 191:                                              ; preds = %229, %183
-  %.pn8.pn = phi { ptr, i32 } [ %.pn8, %229 ], [ %184, %183 ]
+  %.pn10 = phi { ptr, i32 } [ %184, %183 ], [ %.pn8, %229 ]
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 731
   store i8 0, ptr %192, align 1
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 732
@@ -23144,10 +23144,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 197:                                              ; preds = %.invoke, %101
   %198 = landingpad { ptr, i32 }
           cleanup
-  br label %.body44
+  br label %.body45
 
-.body44:                                          ; preds = %109, %197
-  %eh.lpad-body45 = phi { ptr, i32 } [ %198, %197 ], [ %110, %109 ]
+.body45:                                          ; preds = %109, %197
+  %eh.lpad-body46 = phi { ptr, i32 } [ %198, %197 ], [ %110, %109 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$polars_core..frame..DataFrame$GT$$GT$17h17c0112a863e72c0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %199) #31
           to label %201 unwind label %171
@@ -23157,8 +23157,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$polars_core..frame..DataFrame$GT$$GT$17h17c0112a863e72c0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %200)
           to label %205 unwind label %203
 
-201:                                              ; preds = %.body44, %203
-  %.pn = phi { ptr, i32 } [ %204, %203 ], [ %eh.lpad-body45, %.body44 ]
+201:                                              ; preds = %.body45, %203
+  %.pn = phi { ptr, i32 } [ %204, %203 ], [ %eh.lpad-body46, %.body45 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 712
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %202) #31
           to label %207 unwind label %171
@@ -23249,7 +23249,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %234 unwind label %241
 
 238:                                              ; preds = %316, %241, %191
-  %.pn11 = phi { ptr, i32 } [ %242, %241 ], [ %.pn8.pn, %316 ], [ %.pn8.pn, %191 ]
+  %.pn12 = phi { ptr, i32 } [ %242, %241 ], [ %.pn10, %316 ], [ %.pn10, %191 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 733
   store i8 0, ptr %239, align 1
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -23288,7 +23288,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %249 unwind label %256
 
 253:                                              ; preds = %320, %256, %.body
-  %.pn17 = phi { ptr, i32 } [ %257, %256 ], [ %.pn15, %320 ], [ %.pn15, %.body ]
+  %.pn18 = phi { ptr, i32 } [ %257, %256 ], [ %.pn16, %320 ], [ %.pn16, %.body ]
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 734
   store i8 0, ptr %254, align 2
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -23309,12 +23309,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %261 = load ptr, ptr %260, align 8, !alias.scope !1766, !nonnull !4, !noundef !4
   %262 = atomicrmw sub ptr %261, i64 1 release, align 8, !noalias !1766
   %263 = icmp eq i64 %262, 1
-  br i1 %263, label %264, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60"
+  br i1 %263, label %264, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61"
 
 264:                                              ; preds = %258
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %260)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60" unwind label %171
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61" unwind label %171
 
 265:                                              ; preds = %249
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -23323,113 +23323,113 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %267 = load ptr, ptr %266, align 8, !alias.scope !1773, !nonnull !4, !noundef !4
   %268 = atomicrmw sub ptr %267, i64 1 release, align 8, !noalias !1773
   %269 = icmp eq i64 %268, 1
-  br i1 %269, label %270, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit62"
+  br i1 %269, label %270, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit63"
 
 270:                                              ; preds = %265
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %266)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit62" unwind label %271
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit63" unwind label %271
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60": ; preds = %258, %264, %271
-  %.pn19 = phi { ptr, i32 } [ %272, %271 ], [ %259, %264 ], [ %259, %258 ]
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61": ; preds = %258, %264, %271
+  %.pn20 = phi { ptr, i32 } [ %272, %271 ], [ %259, %264 ], [ %259, %258 ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %281 unwind label %171
 
 271:                                              ; preds = %270
   %272 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60"
+  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit62": ; preds = %265, %270
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit63": ; preds = %265, %270
   %273 = load i64, ptr %0, align 8, !range !276, !alias.scope !1774, !noundef !4
   %274 = icmp eq i64 %273, 0
-  br i1 %274, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66", label %275
+  br i1 %274, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67", label %275
 
-275:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit62"
+275:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit63"
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %277 = load ptr, ptr %276, align 8, !alias.scope !1777, !noundef !4
-  %.not.i.i63 = icmp eq ptr %277, null
-  br i1 %.not.i.i63, label %279, label %278
+  %.not.i.i64 = icmp eq ptr %277, null
+  br i1 %.not.i.i64, label %279, label %278
 
 278:                                              ; preds = %275
   invoke void @"_ZN4core3ptr375drop_in_place$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$polars_plan..dsl..options..sink..PartitionTargetContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$polars_plan..dsl..options..sink..SinkTarget$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h1b8ce114e9abe0b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %276)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66" unwind label %287
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67" unwind label %287
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr64drop_in_place$LT$polars_utils..python_function..PythonObject$GT$17h6727714435e2034eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %280)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66" unwind label %287
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67" unwind label %287
 
-281:                                              ; preds = %287, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60"
-  %.pn21 = phi { ptr, i32 } [ %288, %287 ], [ %.pn19, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit60" ]
+281:                                              ; preds = %287, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61"
+  %.pn22 = phi { ptr, i32 } [ %288, %287 ], [ %.pn20, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit61" ]
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1780)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1783)
   %283 = load ptr, ptr %282, align 8, !alias.scope !1786, !nonnull !4, !noundef !4
   %284 = atomicrmw sub ptr %283, i64 1 release, align 8, !noalias !1786
   %285 = icmp eq i64 %284, 1
-  br i1 %285, label %286, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68"
+  br i1 %285, label %286, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69"
 
 286:                                              ; preds = %281
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %282)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68" unwind label %171
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69" unwind label %171
 
 287:                                              ; preds = %279, %278
   %288 = landingpad { ptr, i32 }
           cleanup
   br label %281
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit62", %278, %279
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit63", %278, %279
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1790)
   %290 = load ptr, ptr %289, align 8, !alias.scope !1793, !nonnull !4, !noundef !4
   %291 = atomicrmw sub ptr %290, i64 1 release, align 8, !noalias !1793
   %292 = icmp eq i64 %291, 1
-  br i1 %292, label %293, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70"
+  br i1 %292, label %293, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit71"
 
-293:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66"
+293:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %289)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70" unwind label %299
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit71" unwind label %299
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68": ; preds = %281, %286, %299
-  %.pn23 = phi { ptr, i32 } [ %300, %299 ], [ %.pn21, %286 ], [ %.pn21, %281 ]
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69": ; preds = %281, %286, %299
+  %.pn24 = phi { ptr, i32 } [ %300, %299 ], [ %.pn22, %286 ], [ %.pn22, %281 ]
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1794)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1797)
   %295 = load ptr, ptr %294, align 8, !alias.scope !1800, !nonnull !4, !noundef !4
   %296 = atomicrmw sub ptr %295, i64 1 release, align 8, !noalias !1800
   %297 = icmp eq i64 %296, 1
-  br i1 %297, label %298, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
+  br i1 %297, label %298, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
 
-298:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68"
+298:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %294)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72" unwind label %171
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73" unwind label %171
 
 299:                                              ; preds = %293
   %300 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68"
+  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit66", %293
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit71": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit67", %293
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1801)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1804)
   %302 = load ptr, ptr %301, align 8, !alias.scope !1807, !nonnull !4, !noundef !4
   %303 = atomicrmw sub ptr %302, i64 1 release, align 8, !noalias !1807
   %304 = icmp eq i64 %303, 1
-  br i1 %304, label %305, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit74"
+  br i1 %304, label %305, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit75"
 
-305:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70"
+305:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit71"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %301)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit74" unwind label %307
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit75" unwind label %307
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68", %298, %307
-  %.pn25 = phi { ptr, i32 } [ %308, %307 ], [ %.pn23, %298 ], [ %.pn23, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit68" ]
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69", %298, %307
+  %.pn26 = phi { ptr, i32 } [ %308, %307 ], [ %.pn24, %298 ], [ %.pn24, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69" ]
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %306) #31
           to label %310 unwind label %171
@@ -23437,20 +23437,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 307:                                              ; preds = %305
   %308 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit74": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70", %305
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit75": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit71", %305
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %309)
           to label %common.ret.sink.split unwind label %312
 
-310:                                              ; preds = %312, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
-  %.pn27 = phi { ptr, i32 } [ %313, %312 ], [ %.pn25, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72" ]
+310:                                              ; preds = %312, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
+  %.pn28 = phi { ptr, i32 } [ %313, %312 ], [ %.pn26, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73" ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %311) #31
           to label %170 unwind label %171
 
-312:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit74"
+312:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit75"
   %313 = landingpad { ptr, i32 }
           cleanup
   br label %310
@@ -23466,7 +23466,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %238 unwind label %171
 
 318:                                              ; preds = %238, %243, %181
-  %.pn13 = phi { ptr, i32 } [ %244, %243 ], [ %.pn11, %238 ], [ %182, %181 ]
+  %.pn14 = phi { ptr, i32 } [ %182, %181 ], [ %244, %243 ], [ %.pn12, %238 ]
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 360
   invoke void @"_ZN4core3ptr301drop_in_place$LT$indexmap..map..iter..IntoValues$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$C$$LT$polars_stream..nodes..io_sinks..partition..by_key..PartitionByKeySinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..OpenPartition$GT$$GT$17h6568db946070d187E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %319) #31
           to label %.body unwind label %171
@@ -23483,51 +23483,51 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %324 = load ptr, ptr %323, align 8, !alias.scope !1814, !nonnull !4, !noundef !4
   %325 = atomicrmw sub ptr %324, i64 1 release, align 8, !noalias !1814
   %326 = icmp eq i64 %325, 1
-  br i1 %326, label %327, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit76"
+  br i1 %326, label %327, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit77"
 
 327:                                              ; preds = %322
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %323)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit76" unwind label %171
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit77" unwind label %171
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit76": ; preds = %322, %327
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit77": ; preds = %322, %327
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %328 unwind label %171
 
-328:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit76"
+328:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit77"
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1815)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1818)
   %330 = load ptr, ptr %329, align 8, !alias.scope !1821, !nonnull !4, !noundef !4
   %331 = atomicrmw sub ptr %330, i64 1 release, align 8, !noalias !1821
   %332 = icmp eq i64 %331, 1
-  br i1 %332, label %333, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit78"
+  br i1 %332, label %333, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit79"
 
 333:                                              ; preds = %328
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %329)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit78" unwind label %171
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit79" unwind label %171
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit78": ; preds = %328, %333
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit79": ; preds = %328, %333
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1825)
   %335 = load ptr, ptr %334, align 8, !alias.scope !1828, !nonnull !4, !noundef !4
   %336 = atomicrmw sub ptr %335, i64 1 release, align 8, !noalias !1828
   %337 = icmp eq i64 %336, 1
-  br i1 %337, label %338, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit80"
+  br i1 %337, label %338, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit81"
 
-338:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit78"
+338:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit79"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %334)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit80" unwind label %171
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit81" unwind label %171
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit80": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit78", %338
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit81": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit79", %338
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %339) #31
           to label %340 unwind label %171
 
-340:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit80"
+340:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit81"
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %341) #31
           to label %170 unwind label %171
@@ -23547,7 +23547,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$$LT$polars_stream.
     i8 8, label %35
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit127", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+common.ret.sink.split:                            ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125", %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit87"
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4)
   br label %common.ret
@@ -23633,7 +23633,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1353
   store i8 0, ptr %34, align 1
-  br label %.body71
+  br label %.body69
 
 35:                                               ; preds = %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1232
@@ -23664,15 +23664,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %47 = load ptr, ptr %46, align 16, !alias.scope !1843, !nonnull !4, !noundef !4
   %48 = atomicrmw sub ptr %47, i64 1 release, align 8, !noalias !1843
   %49 = icmp eq i64 %48, 1
-  br i1 %49, label %50, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit75"
+  br i1 %49, label %50, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit73"
 
 50:                                               ; preds = %45
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h287f2578538a449eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit75" unwind label %56
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit73" unwind label %56
 
 "_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit": ; preds = %38, %44, %56
-  %.pn50 = phi { ptr, i32 } [ %57, %56 ], [ %39, %44 ], [ %39, %38 ]
+  %.pn48 = phi { ptr, i32 } [ %57, %56 ], [ %39, %44 ], [ %39, %38 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1844)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1847)
@@ -23691,22 +23691,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit75": ; preds = %45, %50
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit73": ; preds = %45, %50
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1851)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1854)
   %59 = load ptr, ptr %58, align 8, !alias.scope !1857, !nonnull !4, !noundef !4
   %60 = atomicrmw sub ptr %59, i64 1 release, align 8, !noalias !1857
   %61 = icmp eq i64 %60, 1
-  br i1 %61, label %62, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit78"
+  br i1 %61, label %62, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit76"
 
-62:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit75"
+62:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit73"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %58)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit78" unwind label %64
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit76" unwind label %64
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit", %55, %64
-  %.pn52 = phi { ptr, i32 } [ %65, %64 ], [ %.pn50, %55 ], [ %.pn50, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit" ]
+  %.pn50 = phi { ptr, i32 } [ %65, %64 ], [ %.pn48, %55 ], [ %.pn48, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit" ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %63) #31
           to label %67 unwind label %127
@@ -23716,13 +23716,13 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit78": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit75", %62
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit76": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit73", %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %66)
           to label %75 unwind label %73
 
 67:                                               ; preds = %73, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit"
-  %.pn54 = phi { ptr, i32 } [ %74, %73 ], [ %.pn52, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit" ]
+  %.pn52 = phi { ptr, i32 } [ %74, %73 ], [ %.pn50, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit" ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1858)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1861)
@@ -23736,27 +23736,27 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %68)
           to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" unwind label %127
 
-73:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit78"
+73:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit76"
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %67
 
-75:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit78"
+75:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit76"
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1868)
   %77 = load ptr, ptr %76, align 16, !alias.scope !1871, !nonnull !4, !noundef !4
   %78 = atomicrmw sub ptr %77, i64 1 release, align 8, !noalias !1871
   %79 = icmp eq i64 %78, 1
-  br i1 %79, label %80, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit81"
+  br i1 %79, label %80, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit79"
 
 80:                                               ; preds = %75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %76)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit81" unwind label %82
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit79" unwind label %82
 
 "_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit": ; preds = %67, %72, %82
-  %.pn56 = phi { ptr, i32 } [ %83, %82 ], [ %.pn54, %72 ], [ %.pn54, %67 ]
+  %.pn54 = phi { ptr, i32 } [ %83, %82 ], [ %.pn52, %72 ], [ %.pn52, %67 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %81) #31
           to label %93 unwind label %127
@@ -23766,13 +23766,13 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit81": ; preds = %75, %80
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit79": ; preds = %75, %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %85 = load i64, ptr %84, align 16, !range !276, !alias.scope !1872, !noundef !4
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", label %87
 
-87:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit81"
+87:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit79"
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %89 = load ptr, ptr %88, align 8, !alias.scope !1875, !noundef !4
   %.not.i.i = icmp eq ptr %89, null
@@ -23788,7 +23788,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit" unwind label %99
 
 93:                                               ; preds = %99, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
-  %.pn58 = phi { ptr, i32 } [ %100, %99 ], [ %.pn56, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
+  %.pn56 = phi { ptr, i32 } [ %100, %99 ], [ %.pn54, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1878)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1881)
@@ -23807,22 +23807,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %93
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit81", %90, %91
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit79", %90, %91
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1885)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1888)
   %102 = load ptr, ptr %101, align 16, !alias.scope !1891, !nonnull !4, !noundef !4
   %103 = atomicrmw sub ptr %102, i64 1 release, align 8, !noalias !1891
   %104 = icmp eq i64 %103, 1
-  br i1 %104, label %105, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit86"
+  br i1 %104, label %105, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit84"
 
 105:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %101)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit86" unwind label %111
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit84" unwind label %111
 
 "_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit": ; preds = %93, %98, %111
-  %.pn60 = phi { ptr, i32 } [ %112, %111 ], [ %.pn58, %98 ], [ %.pn58, %93 ]
+  %.pn58 = phi { ptr, i32 } [ %112, %111 ], [ %.pn56, %98 ], [ %.pn56, %93 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1895)
@@ -23841,22 +23841,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit86": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %105
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit84": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %105
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1899)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1902)
   %114 = load ptr, ptr %113, align 8, !alias.scope !1905, !nonnull !4, !noundef !4
   %115 = atomicrmw sub ptr %114, i64 1 release, align 8, !noalias !1905
   %116 = icmp eq i64 %115, 1
-  br i1 %116, label %117, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+  br i1 %116, label %117, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit87"
 
-117:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit86"
+117:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit84"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %113)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89" unwind label %119
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit87" unwind label %119
 
 "_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit", %110, %119
-  %.pn62 = phi { ptr, i32 } [ %120, %119 ], [ %.pn60, %110 ], [ %.pn60, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
+  %.pn60 = phi { ptr, i32 } [ %120, %119 ], [ %.pn58, %110 ], [ %.pn58, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 912
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %118) #31
           to label %122 unwind label %127
@@ -23866,27 +23866,27 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit86", %117
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit87": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit84", %117
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 912
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %121)
           to label %common.ret.sink.split unwind label %124
 
 122:                                              ; preds = %124, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
-  %.pn64 = phi { ptr, i32 } [ %125, %124 ], [ %.pn62, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
+  %.pn62 = phi { ptr, i32 } [ %125, %124 ], [ %.pn60, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 936
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %123) #31
           to label %126 unwind label %127
 
-124:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit89"
+124:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit87"
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %122
 
 126:                                              ; preds = %385, %350, %122
-  %.pn66 = phi { ptr, i32 } [ %.pn48, %350 ], [ %.pn32, %385 ], [ %.pn64, %122 ]
-  resume { ptr, i32 } %.pn66
+  %.pn64 = phi { ptr, i32 } [ %.pn62, %122 ], [ %.pn46, %350 ], [ %.pn30, %385 ]
+  resume { ptr, i32 } %.pn64
 
-127:                                              ; preds = %383, %378, %371, %364, %359, %338, %326, %300, %283, %272, %255, %204, %110, %98, %72, %55, %44, %385, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit137", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit133", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit131", %350, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109", %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit", %247, %245, %243, %241, %239, %225, %217, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %195, %168, %148, %.body, %122, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit"
+127:                                              ; preds = %383, %378, %371, %364, %359, %338, %326, %300, %283, %272, %255, %204, %110, %98, %72, %55, %44, %385, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit135", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit131", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit129", %350, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107", %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit", %247, %245, %243, %241, %239, %225, %217, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %195, %168, %148, %.body, %122, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit", %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit"
   %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -23921,7 +23921,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %.pn6 = phi { ptr, i32 } [ %140, %139 ], [ %eh.lpad-body, %.body ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 1065
   store i8 0, ptr %138, align 1
-  br label %.body71
+  br label %.body69
 
 139:                                              ; preds = %"_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit"
   %140 = landingpad { ptr, i32 }
@@ -23929,8 +23929,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %137
 
 "_ZN4core3ptr109drop_in_place$LT$polars_stream..nodes..io_sinks..partition..SinkSender..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h178717193b10694aE.exit.sink.split": ; preds = %"_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit", %30
-  %.sink138 = phi i64 [ 1353, %30 ], [ 1065, %"_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit" ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink138
+  %.sink136 = phi i64 [ 1353, %30 ], [ 1065, %"_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit" ]
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink136
   store i8 0, ptr %141, align 1
   br label %"_ZN4core3ptr109drop_in_place$LT$polars_stream..nodes..io_sinks..partition..SinkSender..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h178717193b10694aE.exit"
 
@@ -23940,8 +23940,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %166, label %157
 
-.body71:                                          ; preds = %155, %32, %153, %148, %137
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %137 ], [ %154, %153 ], [ %149, %148 ], [ %156, %155 ], [ %33, %32 ]
+.body69:                                          ; preds = %155, %32, %153, %148, %137
+  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %137 ], [ %154, %153 ], [ %149, %148 ], [ %156, %155 ], [ %33, %32 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1066
   %146 = load i8, ptr %145, align 2, !range !197, !noundef !4
   %147 = trunc nuw i8 %146 to i1
@@ -23952,7 +23952,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$GT$17h1805785d68bbb9d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %150) #31
-          to label %.body71 unwind label %127
+          to label %.body69 unwind label %127
 
 151:                                              ; preds = %19
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -23962,12 +23962,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 153:                                              ; preds = %151
   %154 = landingpad { ptr, i32 }
           cleanup
-  br label %.body71
+  br label %.body69
 
 155:                                              ; preds = %.invoke, %24
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %.body71
+  br label %.body69
 
 157:                                              ; preds = %166, %"_ZN4core3ptr109drop_in_place$LT$polars_stream..nodes..io_sinks..partition..SinkSender..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h178717193b10694aE.exit"
   store i8 0, ptr %142, align 2
@@ -23999,8 +23999,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$polars_core..datatypes..any_value..AnyValue$GT$17h83b4f3c069125b7aE"(ptr noalias noundef align 16 dereferenceable(48) %167)
           to label %157 unwind label %171
 
-168:                                              ; preds = %239, %171, %.body71
-  %.pn10 = phi { ptr, i32 } [ %172, %171 ], [ %.pn8, %239 ], [ %.pn8, %.body71 ]
+168:                                              ; preds = %239, %171, %.body69
+  %.pn9 = phi { ptr, i32 } [ %172, %171 ], [ %.pn6.pn, %239 ], [ %.pn6.pn, %.body69 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 1066
   store i8 0, ptr %169, align 2
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -24013,7 +24013,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %168
 
 173:                                              ; preds = %178, %168
-  %.pn12 = phi { ptr, i32 } [ %179, %178 ], [ %.pn10, %168 ]
+  %.pn11 = phi { ptr, i32 } [ %179, %178 ], [ %.pn9, %168 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 1069
   store i8 0, ptr %174, align 1
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 1067
@@ -24039,25 +24039,25 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %186 = load i8, ptr %185, align 16, !range !1658, !alias.scope !1909, !noundef !4
   %187 = add nsw i8 %186, -28
-  %narrow.i93 = tail call i8 @llvm.umin.i8(i8 %187, i8 2)
-  switch i8 %narrow.i93, label %188 [
+  %narrow.i91 = tail call i8 @llvm.umin.i8(i8 %187, i8 2)
+  switch i8 %narrow.i91, label %188 [
     i8 0, label %189
     i8 1, label %191
   ]
 
 188:                                              ; preds = %184
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..scalar..ScalarColumn$GT$17h14b7735e062fb0e8E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %185)
-          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97" unwind label %205
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95" unwind label %205
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..series..SeriesColumn$GT$17hee8246ead2d52979E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %190)
-          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97" unwind label %205
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95" unwind label %205
 
 191:                                              ; preds = %184
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h0f1fde097b53994fE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %192)
-          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97" unwind label %205
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95" unwind label %205
 
 193:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit"
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -24065,7 +24065,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %184 unwind label %198
 
 195:                                              ; preds = %241, %198, %173
-  %.pn14 = phi { ptr, i32 } [ %199, %198 ], [ %.pn12, %241 ], [ %.pn12, %173 ]
+  %.pn13 = phi { ptr, i32 } [ %199, %198 ], [ %.pn11, %241 ], [ %.pn11, %173 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1067
   store i8 0, ptr %196, align 1
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -24078,7 +24078,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %195
 
 200:                                              ; preds = %205, %195
-  %.pn16 = phi { ptr, i32 } [ %206, %205 ], [ %.pn14, %195 ]
+  %.pn15 = phi { ptr, i32 } [ %206, %205 ], [ %.pn13, %195 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %202 = load ptr, ptr %201, align 8, !alias.scope !1912, !noundef !4
   %203 = icmp eq ptr %202, null
@@ -24093,18 +24093,18 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %200
 
-"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97": ; preds = %188, %189, %191
+"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95": ; preds = %188, %189, %191
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %208 = load ptr, ptr %207, align 8, !alias.scope !1915, !noundef !4
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit100", label %210
+  br i1 %209, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit98", label %210
 
-210:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97"
+210:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95"
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %207)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit100" unwind label %213
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit98" unwind label %213
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit": ; preds = %200, %204, %213
-  %.pn18 = phi { ptr, i32 } [ %214, %213 ], [ %.pn16, %204 ], [ %.pn16, %200 ]
+  %.pn17 = phi { ptr, i32 } [ %214, %213 ], [ %.pn15, %204 ], [ %.pn15, %200 ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 1070
   store i8 0, ptr %211, align 2
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -24116,7 +24116,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit100": ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit97", %210
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit98": ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h5b8d0d719540be00E.exit95", %210
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 1070
   store i8 0, ptr %215, align 2
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -24124,17 +24124,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %221 unwind label %219
 
 217:                                              ; preds = %219, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit"
-  %.pn20 = phi { ptr, i32 } [ %220, %219 ], [ %.pn18, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit" ]
+  %.pn19 = phi { ptr, i32 } [ %220, %219 ], [ %.pn17, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit" ]
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 464
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %218) #31
           to label %243 unwind label %127
 
-219:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit100"
+219:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit98"
   %220 = landingpad { ptr, i32 }
           cleanup
   br label %217
 
-221:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit100"
+221:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit98"
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 464
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %222)
           to label %129 unwind label %223
@@ -24145,7 +24145,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %243
 
 225:                                              ; preds = %243, %227
-  %.pn24 = phi { ptr, i32 } [ %228, %227 ], [ %.pn22, %243 ]
+  %.pn23 = phi { ptr, i32 } [ %228, %227 ], [ %.pn21, %243 ]
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 448
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_stream..nodes..io_sinks..phase..PhaseOutcome$GT$17h757c43f4415833d4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %226) #31
           to label %231 unwind label %127
@@ -24161,7 +24161,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %235 unwind label %233
 
 231:                                              ; preds = %233, %225
-  %.pn26 = phi { ptr, i32 } [ %234, %233 ], [ %.pn24, %225 ]
+  %.pn25 = phi { ptr, i32 } [ %234, %233 ], [ %.pn23, %225 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 1071
   store i8 0, ptr %232, align 1
   br label %245
@@ -24181,7 +24181,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h62d4808c060ffe11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %238)
           to label %258 unwind label %256
 
-239:                                              ; preds = %.body71
+239:                                              ; preds = %.body69
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 576
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$polars_core..datatypes..any_value..AnyValue$GT$17h83b4f3c069125b7aE"(ptr noalias noundef align 16 dereferenceable(48) %240) #31
           to label %168 unwind label %127
@@ -24192,13 +24192,13 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %195 unwind label %127
 
 243:                                              ; preds = %217, %223
-  %.pn22 = phi { ptr, i32 } [ %224, %223 ], [ %.pn20, %217 ]
+  %.pn21 = phi { ptr, i32 } [ %224, %223 ], [ %.pn19, %217 ]
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 776
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %244) #31
           to label %225 unwind label %127
 
 245:                                              ; preds = %250, %247, %231
-  %.pn28 = phi { ptr, i32 } [ %251, %250 ], [ %248, %247 ], [ %.pn26, %231 ]
+  %.pn25.pn = phi { ptr, i32 } [ %.pn25, %231 ], [ %251, %250 ], [ %248, %247 ]
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 712
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h62d4808c060ffe11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %246) #31
           to label %252 unwind label %127
@@ -24219,7 +24219,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %245
 
 252:                                              ; preds = %256, %245
-  %.pn30 = phi { ptr, i32 } [ %257, %256 ], [ %.pn28, %245 ]
+  %.pn28 = phi { ptr, i32 } [ %257, %256 ], [ %.pn25.pn, %245 ]
   %253 = load i8, ptr %0, align 16, !range !1918, !alias.scope !1919, !noundef !4
   %254 = icmp eq i8 %253, 33
   br i1 %254, label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit", label %255
@@ -24236,14 +24236,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 258:                                              ; preds = %237
   %259 = load i8, ptr %0, align 16, !range !1918, !alias.scope !1922, !noundef !4
   %260 = icmp eq i8 %259, 33
-  br i1 %260, label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit103", label %261
+  br i1 %260, label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit101", label %261
 
 261:                                              ; preds = %258
   invoke void @"_ZN4core3ptr209drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$17haabd0217cbcaf089E"(ptr noalias noundef nonnull align 16 dereferenceable(128) %0)
-          to label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit103" unwind label %263
+          to label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit101" unwind label %263
 
 "_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit": ; preds = %252, %255, %263
-  %.pn32 = phi { ptr, i32 } [ %264, %263 ], [ %.pn30, %255 ], [ %.pn30, %252 ]
+  %.pn30 = phi { ptr, i32 } [ %264, %263 ], [ %.pn28, %255 ], [ %.pn28, %252 ]
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 880
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %262) #31
           to label %354 unwind label %127
@@ -24253,12 +24253,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit"
 
-"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit103": ; preds = %258, %261
+"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit101": ; preds = %258, %261
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 880
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %265)
           to label %273 unwind label %266
 
-266:                                              ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit103"
+266:                                              ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit101"
   %267 = landingpad { ptr, i32 }
           cleanup
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -24267,63 +24267,63 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %269 = load ptr, ptr %268, align 16, !alias.scope !1931, !nonnull !4, !noundef !4
   %270 = atomicrmw sub ptr %269, i64 1 release, align 8, !noalias !1931
   %271 = icmp eq i64 %270, 1
-  br i1 %271, label %272, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105"
+  br i1 %271, label %272, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103"
 
 272:                                              ; preds = %266
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h287f2578538a449eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %268)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105" unwind label %127
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103" unwind label %127
 
-273:                                              ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit103"
+273:                                              ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..parted..PartedPartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17hf9ca2707b0bfabd3E.exit101"
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1935)
   %275 = load ptr, ptr %274, align 16, !alias.scope !1938, !nonnull !4, !noundef !4
   %276 = atomicrmw sub ptr %275, i64 1 release, align 8, !noalias !1938
   %277 = icmp eq i64 %276, 1
-  br i1 %277, label %278, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit107"
+  br i1 %277, label %278, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105"
 
 278:                                              ; preds = %273
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h287f2578538a449eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %274)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit107" unwind label %284
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105" unwind label %284
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105": ; preds = %266, %272, %284
-  %.pn34 = phi { ptr, i32 } [ %285, %284 ], [ %267, %272 ], [ %267, %266 ]
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103": ; preds = %266, %272, %284
+  %.pn32 = phi { ptr, i32 } [ %285, %284 ], [ %267, %272 ], [ %267, %266 ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1939)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1942)
   %280 = load ptr, ptr %279, align 8, !alias.scope !1945, !nonnull !4, !noundef !4
   %281 = atomicrmw sub ptr %280, i64 1 release, align 8, !noalias !1945
   %282 = icmp eq i64 %281, 1
-  br i1 %282, label %283, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
+  br i1 %282, label %283, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107"
 
-283:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105"
+283:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %279)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109" unwind label %127
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107" unwind label %127
 
 284:                                              ; preds = %278
   %285 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105"
+  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit107": ; preds = %273, %278
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105": ; preds = %273, %278
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1946)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1949)
   %287 = load ptr, ptr %286, align 8, !alias.scope !1952, !nonnull !4, !noundef !4
   %288 = atomicrmw sub ptr %287, i64 1 release, align 8, !noalias !1952
   %289 = icmp eq i64 %288, 1
-  br i1 %289, label %290, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit111"
+  br i1 %289, label %290, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
 
-290:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit107"
+290:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %286)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit111" unwind label %292
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109" unwind label %292
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105", %283, %292
-  %.pn36 = phi { ptr, i32 } [ %293, %292 ], [ %.pn34, %283 ], [ %.pn34, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105" ]
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103", %283, %292
+  %.pn34 = phi { ptr, i32 } [ %293, %292 ], [ %.pn32, %283 ], [ %.pn32, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit103" ]
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %291) #31
           to label %295 unwind label %127
@@ -24331,49 +24331,49 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 292:                                              ; preds = %290
   %293 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
+  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit111": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit107", %290
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit105", %290
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %294)
           to label %303 unwind label %301
 
-295:                                              ; preds = %301, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
-  %.pn38 = phi { ptr, i32 } [ %302, %301 ], [ %.pn36, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109" ]
+295:                                              ; preds = %301, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107"
+  %.pn36 = phi { ptr, i32 } [ %302, %301 ], [ %.pn34, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit107" ]
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1953)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1956)
   %297 = load ptr, ptr %296, align 16, !alias.scope !1959, !nonnull !4, !noundef !4
   %298 = atomicrmw sub ptr %297, i64 1 release, align 8, !noalias !1959
   %299 = icmp eq i64 %298, 1
-  br i1 %299, label %300, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113"
+  br i1 %299, label %300, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111"
 
 300:                                              ; preds = %295
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %296)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113" unwind label %127
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111" unwind label %127
 
-301:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit111"
+301:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
   %302 = landingpad { ptr, i32 }
           cleanup
   br label %295
 
-303:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit111"
+303:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit109"
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1963)
   %305 = load ptr, ptr %304, align 16, !alias.scope !1966, !nonnull !4, !noundef !4
   %306 = atomicrmw sub ptr %305, i64 1 release, align 8, !noalias !1966
   %307 = icmp eq i64 %306, 1
-  br i1 %307, label %308, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit115"
+  br i1 %307, label %308, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113"
 
 308:                                              ; preds = %303
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %304)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit115" unwind label %310
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113" unwind label %310
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113": ; preds = %295, %300, %310
-  %.pn40 = phi { ptr, i32 } [ %311, %310 ], [ %.pn38, %300 ], [ %.pn38, %295 ]
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111": ; preds = %295, %300, %310
+  %.pn38 = phi { ptr, i32 } [ %311, %310 ], [ %.pn36, %300 ], [ %.pn36, %295 ]
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %309) #31
           to label %321 unwind label %127
@@ -24381,99 +24381,99 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 310:                                              ; preds = %308
   %311 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113"
+  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit115": ; preds = %303, %308
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113": ; preds = %303, %308
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %313 = load i64, ptr %312, align 16, !range !276, !alias.scope !1967, !noundef !4
   %314 = icmp eq i64 %313, 0
-  br i1 %314, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119", label %315
+  br i1 %314, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117", label %315
 
-315:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit115"
+315:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113"
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %317 = load ptr, ptr %316, align 8, !alias.scope !1970, !noundef !4
-  %.not.i.i116 = icmp eq ptr %317, null
-  br i1 %.not.i.i116, label %319, label %318
+  %.not.i.i114 = icmp eq ptr %317, null
+  br i1 %.not.i.i114, label %319, label %318
 
 318:                                              ; preds = %315
   invoke void @"_ZN4core3ptr375drop_in_place$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$polars_plan..dsl..options..sink..PartitionTargetContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$polars_plan..dsl..options..sink..SinkTarget$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h1b8ce114e9abe0b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %316)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119" unwind label %327
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117" unwind label %327
 
 319:                                              ; preds = %315
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   invoke void @"_ZN4core3ptr64drop_in_place$LT$polars_utils..python_function..PythonObject$GT$17h6727714435e2034eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %320)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119" unwind label %327
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117" unwind label %327
 
-321:                                              ; preds = %327, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113"
-  %.pn42 = phi { ptr, i32 } [ %328, %327 ], [ %.pn40, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113" ]
+321:                                              ; preds = %327, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111"
+  %.pn40 = phi { ptr, i32 } [ %328, %327 ], [ %.pn38, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit111" ]
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1973)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1976)
   %323 = load ptr, ptr %322, align 16, !alias.scope !1979, !nonnull !4, !noundef !4
   %324 = atomicrmw sub ptr %323, i64 1 release, align 8, !noalias !1979
   %325 = icmp eq i64 %324, 1
-  br i1 %325, label %326, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121"
+  br i1 %325, label %326, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119"
 
 326:                                              ; preds = %321
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %322)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121" unwind label %127
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119" unwind label %127
 
 327:                                              ; preds = %319, %318
   %328 = landingpad { ptr, i32 }
           cleanup
   br label %321
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit115", %318, %319
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit113", %318, %319
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1983)
   %330 = load ptr, ptr %329, align 16, !alias.scope !1986, !nonnull !4, !noundef !4
   %331 = atomicrmw sub ptr %330, i64 1 release, align 8, !noalias !1986
   %332 = icmp eq i64 %331, 1
-  br i1 %332, label %333, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit123"
+  br i1 %332, label %333, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121"
 
-333:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119"
+333:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %329)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit123" unwind label %339
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121" unwind label %339
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121": ; preds = %321, %326, %339
-  %.pn44 = phi { ptr, i32 } [ %340, %339 ], [ %.pn42, %326 ], [ %.pn42, %321 ]
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119": ; preds = %321, %326, %339
+  %.pn42 = phi { ptr, i32 } [ %340, %339 ], [ %.pn40, %326 ], [ %.pn40, %321 ]
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1987)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1990)
   %335 = load ptr, ptr %334, align 8, !alias.scope !1993, !nonnull !4, !noundef !4
   %336 = atomicrmw sub ptr %335, i64 1 release, align 8, !noalias !1993
   %337 = icmp eq i64 %336, 1
-  br i1 %337, label %338, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125"
+  br i1 %337, label %338, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123"
 
-338:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121"
+338:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %334)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125" unwind label %127
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123" unwind label %127
 
 339:                                              ; preds = %333
   %340 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121"
+  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit123": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit119", %333
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit117", %333
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1994)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1997)
   %342 = load ptr, ptr %341, align 8, !alias.scope !2000, !nonnull !4, !noundef !4
   %343 = atomicrmw sub ptr %342, i64 1 release, align 8, !noalias !2000
   %344 = icmp eq i64 %343, 1
-  br i1 %344, label %345, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit127"
+  br i1 %344, label %345, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125"
 
-345:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit123"
+345:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %341)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit127" unwind label %347
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125" unwind label %347
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121", %338, %347
-  %.pn46 = phi { ptr, i32 } [ %348, %347 ], [ %.pn44, %338 ], [ %.pn44, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121" ]
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119", %338, %347
+  %.pn44 = phi { ptr, i32 } [ %348, %347 ], [ %.pn42, %338 ], [ %.pn42, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit119" ]
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 912
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %346) #31
           to label %350 unwind label %127
@@ -24481,20 +24481,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 347:                                              ; preds = %345
   %348 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit127": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit123", %345
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit121", %345
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 912
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %349)
           to label %common.ret.sink.split unwind label %352
 
-350:                                              ; preds = %352, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125"
-  %.pn48 = phi { ptr, i32 } [ %353, %352 ], [ %.pn46, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125" ]
+350:                                              ; preds = %352, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123"
+  %.pn46 = phi { ptr, i32 } [ %353, %352 ], [ %.pn44, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit123" ]
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 936
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %351) #31
           to label %126 unwind label %127
 
-352:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit127"
+352:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit125"
   %353 = landingpad { ptr, i32 }
           cleanup
   br label %350
@@ -24506,85 +24506,85 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %356 = load ptr, ptr %355, align 16, !alias.scope !2007, !nonnull !4, !noundef !4
   %357 = atomicrmw sub ptr %356, i64 1 release, align 8, !noalias !2007
   %358 = icmp eq i64 %357, 1
-  br i1 %358, label %359, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit129"
+  br i1 %358, label %359, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit127"
 
 359:                                              ; preds = %354
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h287f2578538a449eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %355)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit129" unwind label %127
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit127" unwind label %127
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit129": ; preds = %354, %359
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit127": ; preds = %354, %359
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2008)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2011)
   %361 = load ptr, ptr %360, align 8, !alias.scope !2014, !nonnull !4, !noundef !4
   %362 = atomicrmw sub ptr %361, i64 1 release, align 8, !noalias !2014
   %363 = icmp eq i64 %362, 1
-  br i1 %363, label %364, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit131"
+  br i1 %363, label %364, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit129"
 
-364:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit129"
+364:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit127"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %360)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit131" unwind label %127
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit129" unwind label %127
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit131": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit129", %364
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit129": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit127", %364
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %365) #31
           to label %366 unwind label %127
 
-366:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit131"
+366:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit129"
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2015)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2018)
   %368 = load ptr, ptr %367, align 16, !alias.scope !2021, !nonnull !4, !noundef !4
   %369 = atomicrmw sub ptr %368, i64 1 release, align 8, !noalias !2021
   %370 = icmp eq i64 %369, 1
-  br i1 %370, label %371, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit133"
+  br i1 %370, label %371, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit131"
 
 371:                                              ; preds = %366
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %367)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit133" unwind label %127
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit131" unwind label %127
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit133": ; preds = %366, %371
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit131": ; preds = %366, %371
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %372) #31
           to label %373 unwind label %127
 
-373:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit133"
+373:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit131"
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2022)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2025)
   %375 = load ptr, ptr %374, align 16, !alias.scope !2028, !nonnull !4, !noundef !4
   %376 = atomicrmw sub ptr %375, i64 1 release, align 8, !noalias !2028
   %377 = icmp eq i64 %376, 1
-  br i1 %377, label %378, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit135"
+  br i1 %377, label %378, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit133"
 
 378:                                              ; preds = %373
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %374)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit135" unwind label %127
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit133" unwind label %127
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit135": ; preds = %373, %378
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit133": ; preds = %373, %378
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2029)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2032)
   %380 = load ptr, ptr %379, align 8, !alias.scope !2035, !nonnull !4, !noundef !4
   %381 = atomicrmw sub ptr %380, i64 1 release, align 8, !noalias !2035
   %382 = icmp eq i64 %381, 1
-  br i1 %382, label %383, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit137"
+  br i1 %382, label %383, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit135"
 
-383:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit135"
+383:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit133"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %379)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit137" unwind label %127
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit135" unwind label %127
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit137": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit135", %383
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit135": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit133", %383
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 912
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %384) #31
           to label %385 unwind label %127
 
-385:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit137"
+385:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit135"
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 936
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %386) #31
           to label %126 unwind label %127
@@ -24722,7 +24722,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 common.resume:                                    ; preds = %100, %105, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit25", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit33", %44, %49
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %50, %49 ], [ %.pn2, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit25" ], [ %55, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit33" ], [ %.pn6, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit" ], [ %101, %100 ], [ %106, %105 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %50, %49 ], [ %.pn6, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit" ], [ %.pn2, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit25" ], [ %55, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit33" ], [ %101, %100 ], [ %106, %105 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %43
@@ -25273,7 +25273,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %37 unwind label %38
 
 37:                                               ; preds = %50, %47, %34
-  %.pn2 = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body, %50 ], [ %35, %34 ]
+  %.pn2 = phi { ptr, i32 } [ %35, %34 ], [ %48, %47 ], [ %eh.lpad-body, %50 ]
   resume { ptr, i32 } %.pn2
 
 38:                                               ; preds = %50, %47, %.body, %34
@@ -25425,7 +25425,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 0, ptr %36, align 1
-  br label %.body55
+  br label %.body54
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 953
@@ -25455,7 +25455,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i8 0, ptr %48, align 8
-  br label %.body58
+  br label %.body57
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -25490,15 +25490,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %62 = load ptr, ptr %61, align 8, !alias.scope !2167, !nonnull !4, !noundef !4
   %63 = atomicrmw sub ptr %62, i64 1 release, align 8, !noalias !2167
   %64 = icmp eq i64 %63, 1
-  br i1 %64, label %65, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit62"
+  br i1 %64, label %65, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit61"
 
 65:                                               ; preds = %60
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %61)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit62" unwind label %71
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit61" unwind label %71
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit": ; preds = %53, %59, %71
-  %.pn36 = phi { ptr, i32 } [ %72, %71 ], [ %54, %59 ], [ %54, %53 ]
+  %.pn35 = phi { ptr, i32 } [ %72, %71 ], [ %54, %59 ], [ %54, %53 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2171)
@@ -25517,22 +25517,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit62": ; preds = %60, %65
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit61": ; preds = %60, %65
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2178)
   %74 = load ptr, ptr %73, align 8, !alias.scope !2181, !nonnull !4, !noundef !4
   %75 = atomicrmw sub ptr %74, i64 1 release, align 8, !noalias !2181
   %76 = icmp eq i64 %75, 1
-  br i1 %76, label %77, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit65"
+  br i1 %76, label %77, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit64"
 
-77:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit62"
+77:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit61"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %73)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit65" unwind label %78
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit64" unwind label %78
 
 "_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit", %70, %78
-  %.pn38 = phi { ptr, i32 } [ %79, %78 ], [ %.pn36, %70 ], [ %.pn36, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %79, %78 ], [ %.pn35, %70 ], [ %.pn35, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit" ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %88 unwind label %128
 
@@ -25541,12 +25541,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit65": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit62", %77
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit64": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit61", %77
   %80 = load i64, ptr %0, align 8, !range !276, !alias.scope !2182, !noundef !4
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", label %82
 
-82:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit65"
+82:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit64"
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8, !alias.scope !2185, !noundef !4
   %.not.i.i = icmp eq ptr %84, null
@@ -25562,7 +25562,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit" unwind label %94
 
 88:                                               ; preds = %94, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
-  %.pn40 = phi { ptr, i32 } [ %95, %94 ], [ %.pn38, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
+  %.pn39 = phi { ptr, i32 } [ %95, %94 ], [ %.pn37, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit" ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2188)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2191)
@@ -25581,22 +25581,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %88
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit65", %85, %86
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit64", %85, %86
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2195)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2198)
   %97 = load ptr, ptr %96, align 8, !alias.scope !2201, !nonnull !4, !noundef !4
   %98 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !2201
   %99 = icmp eq i64 %98, 1
-  br i1 %99, label %100, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70"
+  br i1 %99, label %100, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69"
 
 100:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %96)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70" unwind label %106
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69" unwind label %106
 
 "_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit": ; preds = %88, %93, %106
-  %.pn42 = phi { ptr, i32 } [ %107, %106 ], [ %.pn40, %93 ], [ %.pn40, %88 ]
+  %.pn41 = phi { ptr, i32 } [ %107, %106 ], [ %.pn39, %93 ], [ %.pn39, %88 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2205)
@@ -25615,22 +25615,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %100
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit", %100
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2212)
   %109 = load ptr, ptr %108, align 8, !alias.scope !2215, !nonnull !4, !noundef !4
   %110 = atomicrmw sub ptr %109, i64 1 release, align 8, !noalias !2215
   %111 = icmp eq i64 %110, 1
-  br i1 %111, label %112, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
+  br i1 %111, label %112, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
 
-112:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70"
+112:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %108)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73" unwind label %114
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72" unwind label %114
 
 "_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit", %105, %114
-  %.pn44 = phi { ptr, i32 } [ %115, %114 ], [ %.pn42, %105 ], [ %.pn42, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
+  %.pn43 = phi { ptr, i32 } [ %115, %114 ], [ %.pn41, %105 ], [ %.pn41, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit" ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %113) #31
           to label %117 unwind label %128
@@ -25640,29 +25640,29 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit70", %112
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit69", %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116)
           to label %121 unwind label %119
 
 117:                                              ; preds = %119, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit"
-  %.pn46 = phi { ptr, i32 } [ %120, %119 ], [ %.pn44, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
+  %.pn45 = phi { ptr, i32 } [ %120, %119 ], [ %.pn43, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit" ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %118) #31
           to label %123 unwind label %128
 
-119:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
+119:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %117
 
-121:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit73"
+121:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit72"
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %122)
           to label %common.ret.sink.split unwind label %125
 
 123:                                              ; preds = %125, %117
-  %.pn48 = phi { ptr, i32 } [ %126, %125 ], [ %.pn46, %117 ]
+  %.pn47 = phi { ptr, i32 } [ %126, %125 ], [ %.pn45, %117 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 200
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %124) #31
           to label %127 unwind label %128
@@ -25673,10 +25673,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %123
 
 127:                                              ; preds = %321, %292, %123
-  %.pn50 = phi { ptr, i32 } [ %.pn34, %292 ], [ %.pn20, %321 ], [ %.pn48, %123 ]
-  resume { ptr, i32 } %.pn50
+  %.pn49 = phi { ptr, i32 } [ %.pn47, %123 ], [ %.pn33, %292 ], [ %.pn19, %321 ]
+  resume { ptr, i32 } %.pn49
 
-128:                                              ; preds = %317, %312, %306, %301, %274, %262, %239, %228, %215, %158, %105, %93, %70, %59, %321, %319, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit107", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit103", %292, %286, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85", %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79", %187, %209, %192, %174, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %.body55, %123, %117, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
+128:                                              ; preds = %317, %312, %306, %301, %274, %262, %239, %228, %215, %158, %105, %93, %70, %59, %321, %319, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit106", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit102", %292, %286, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84", %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78", %187, %209, %192, %174, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %.body54, %123, %117, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit", %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit"
   %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -25699,7 +25699,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %136, label %185, label %184
 
 .body:                                            ; preds = %142, %18, %174, %182, %140, %132
-  %.pn10 = phi { ptr, i32 } [ %183, %182 ], [ %.pn8, %174 ], [ %141, %140 ], [ %133, %132 ], [ %143, %142 ], [ %19, %18 ]
+  %.pn10 = phi { ptr, i32 } [ %133, %132 ], [ %141, %140 ], [ %183, %182 ], [ %.pn8, %174 ], [ %143, %142 ], [ %19, %18 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 679
   %138 = load i8, ptr %137, align 1, !range !197, !noundef !4
   %139 = trunc nuw i8 %138 to i1
@@ -25718,15 +25718,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 144:                                              ; preds = %.invoke, %26
   %145 = landingpad { ptr, i32 }
           cleanup
-  br label %.body55
+  br label %.body54
 
 "_ZN4core3ptr109drop_in_place$LT$polars_stream..nodes..io_sinks..partition..SinkSender..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h178717193b10694aE.exit": ; preds = %.invoke, %37, %28, %23, %26, %"_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit"
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %146)
           to label %161 unwind label %159
 
-.body55:                                          ; preds = %144, %34, %.body58
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body59, %.body58 ], [ %145, %144 ], [ %35, %34 ]
+.body54:                                          ; preds = %144, %34, %.body57
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body58, %.body57 ], [ %145, %144 ], [ %35, %34 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %147) #31
           to label %152 unwind label %128
@@ -25734,21 +25734,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 148:                                              ; preds = %42
   %149 = landingpad { ptr, i32 }
           cleanup
-  br label %.body58
+  br label %.body57
 
-.body58:                                          ; preds = %46, %148
-  %eh.lpad-body59 = phi { ptr, i32 } [ %149, %148 ], [ %47, %46 ]
+.body57:                                          ; preds = %46, %148
+  %eh.lpad-body58 = phi { ptr, i32 } [ %149, %148 ], [ %47, %46 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i8 0, ptr %150, align 8
-  br label %.body55
+  br label %.body54
 
 "_ZN4core3ptr315drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h520d68be55cecf71E.exit": ; preds = %49, %39, %42
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i8 0, ptr %151, align 8
   br label %"_ZN4core3ptr109drop_in_place$LT$polars_stream..nodes..io_sinks..partition..SinkSender..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h178717193b10694aE.exit"
 
-152:                                              ; preds = %159, %.body55
-  %.pn4 = phi { ptr, i32 } [ %160, %159 ], [ %.pn, %.body55 ]
+152:                                              ; preds = %159, %.body54
+  %.pn4 = phi { ptr, i32 } [ %160, %159 ], [ %.pn, %.body54 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 681
   store i8 0, ptr %153, align 1
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 682
@@ -25775,11 +25775,11 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %165 = load ptr, ptr %164, align 8, !alias.scope !2219, !noundef !4
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit76", label %167
+  br i1 %166, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit75", label %167
 
 167:                                              ; preds = %161
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$17hea95ca6b5f9b4341E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit76" unwind label %170
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit75" unwind label %170
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit": ; preds = %152, %158, %170
   %.pn6 = phi { ptr, i32 } [ %171, %170 ], [ %.pn4, %158 ], [ %.pn4, %152 ]
@@ -25794,7 +25794,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit76": ; preds = %161, %167
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit75": ; preds = %161, %167
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 678
   store i8 0, ptr %172, align 2
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -25809,12 +25809,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %176) #31
           to label %.body unwind label %128
 
-177:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit76"
+177:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit75"
   %178 = landingpad { ptr, i32 }
           cleanup
   br label %174
 
-179:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit76"
+179:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit75"
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 683
   store i8 0, ptr %180, align 1
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -25896,23 +25896,23 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %187 unwind label %128
 
 211:                                              ; preds = %216, %198
-  %.pn18 = phi { ptr, i32 } [ %217, %216 ], [ %.pn16, %198 ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %198 ], [ %217, %216 ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %213 = load ptr, ptr %212, align 8, !alias.scope !2225, !noundef !4
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79", label %215
+  br i1 %214, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78", label %215
 
 215:                                              ; preds = %211
   invoke void @"_ZN4core3ptr212drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$17h1ffdcb707f1686d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %212)
-          to label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79" unwind label %128
+          to label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78" unwind label %128
 
 216:                                              ; preds = %51
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %211
 
-"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79": ; preds = %211, %215, %219
-  %.pn20 = phi { ptr, i32 } [ %220, %219 ], [ %.pn18, %215 ], [ %.pn18, %211 ]
+"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78": ; preds = %211, %215, %219
+  %.pn19 = phi { ptr, i32 } [ %220, %219 ], [ %.pn16.pn, %215 ], [ %.pn16.pn, %211 ]
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 152
   invoke void @"_ZN4core3ptr188drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$$LP$polars_stream..nodes..io_sinks..phase..PhaseOutcome$C$polars_stream..nodes..io_sinks..SinkInputPort$RP$$GT$$GT$17h420f7ec046b028e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %218) #31
           to label %296 unwind label %128
@@ -25920,7 +25920,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 219:                                              ; preds = %208
   %220 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79"
+  br label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78"
 
 "_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit": ; preds = %204, %208
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -25936,12 +25936,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %225 = load ptr, ptr %224, align 8, !alias.scope !2234, !nonnull !4, !noundef !4
   %226 = atomicrmw sub ptr %225, i64 1 release, align 8, !noalias !2234
   %227 = icmp eq i64 %226, 1
-  br i1 %227, label %228, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81"
+  br i1 %227, label %228, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80"
 
 228:                                              ; preds = %222
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %224)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81" unwind label %128
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80" unwind label %128
 
 229:                                              ; preds = %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit"
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -25950,147 +25950,147 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %231 = load ptr, ptr %230, align 8, !alias.scope !2241, !nonnull !4, !noundef !4
   %232 = atomicrmw sub ptr %231, i64 1 release, align 8, !noalias !2241
   %233 = icmp eq i64 %232, 1
-  br i1 %233, label %234, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit83"
+  br i1 %233, label %234, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit82"
 
 234:                                              ; preds = %229
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %230)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit83" unwind label %240
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit82" unwind label %240
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81": ; preds = %222, %228, %240
-  %.pn22 = phi { ptr, i32 } [ %241, %240 ], [ %223, %228 ], [ %223, %222 ]
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80": ; preds = %222, %228, %240
+  %.pn21 = phi { ptr, i32 } [ %241, %240 ], [ %223, %228 ], [ %223, %222 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2245)
   %236 = load ptr, ptr %235, align 8, !alias.scope !2248, !nonnull !4, !noundef !4
   %237 = atomicrmw sub ptr %236, i64 1 release, align 8, !noalias !2248
   %238 = icmp eq i64 %237, 1
-  br i1 %238, label %239, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85"
+  br i1 %238, label %239, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84"
 
-239:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81"
+239:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %235)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85" unwind label %128
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84" unwind label %128
 
 240:                                              ; preds = %234
   %241 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81"
+  br label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80"
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit83": ; preds = %229, %234
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit82": ; preds = %229, %234
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2252)
   %243 = load ptr, ptr %242, align 8, !alias.scope !2255, !nonnull !4, !noundef !4
   %244 = atomicrmw sub ptr %243, i64 1 release, align 8, !noalias !2255
   %245 = icmp eq i64 %244, 1
-  br i1 %245, label %246, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit87"
+  br i1 %245, label %246, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit86"
 
-246:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit83"
+246:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit82"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %242)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit87" unwind label %247
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit86" unwind label %247
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81", %239, %247
-  %.pn24 = phi { ptr, i32 } [ %248, %247 ], [ %.pn22, %239 ], [ %.pn22, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit81" ]
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80", %239, %247
+  %.pn23 = phi { ptr, i32 } [ %248, %247 ], [ %.pn21, %239 ], [ %.pn21, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit80" ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %257 unwind label %128
 
 247:                                              ; preds = %246
   %248 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85"
+  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit87": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit83", %246
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit86": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit82", %246
   %249 = load i64, ptr %0, align 8, !range !276, !alias.scope !2256, !noundef !4
   %250 = icmp eq i64 %249, 0
-  br i1 %250, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91", label %251
+  br i1 %250, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90", label %251
 
-251:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit87"
+251:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit86"
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %253 = load ptr, ptr %252, align 8, !alias.scope !2259, !noundef !4
-  %.not.i.i88 = icmp eq ptr %253, null
-  br i1 %.not.i.i88, label %255, label %254
+  %.not.i.i87 = icmp eq ptr %253, null
+  br i1 %.not.i.i87, label %255, label %254
 
 254:                                              ; preds = %251
   invoke void @"_ZN4core3ptr375drop_in_place$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$polars_plan..dsl..options..sink..PartitionTargetContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$polars_plan..dsl..options..sink..SinkTarget$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h1b8ce114e9abe0b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %252)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91" unwind label %263
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90" unwind label %263
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr64drop_in_place$LT$polars_utils..python_function..PythonObject$GT$17h6727714435e2034eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %256)
-          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91" unwind label %263
+          to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90" unwind label %263
 
-257:                                              ; preds = %263, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85"
-  %.pn26 = phi { ptr, i32 } [ %264, %263 ], [ %.pn24, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit85" ]
+257:                                              ; preds = %263, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84"
+  %.pn25 = phi { ptr, i32 } [ %264, %263 ], [ %.pn23, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit84" ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2265)
   %259 = load ptr, ptr %258, align 8, !alias.scope !2268, !nonnull !4, !noundef !4
   %260 = atomicrmw sub ptr %259, i64 1 release, align 8, !noalias !2268
   %261 = icmp eq i64 %260, 1
-  br i1 %261, label %262, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93"
+  br i1 %261, label %262, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92"
 
 262:                                              ; preds = %257
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %258)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93" unwind label %128
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92" unwind label %128
 
 263:                                              ; preds = %255, %254
   %264 = landingpad { ptr, i32 }
           cleanup
   br label %257
 
-"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit87", %254, %255
+"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90": ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit86", %254, %255
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2272)
   %266 = load ptr, ptr %265, align 8, !alias.scope !2275, !nonnull !4, !noundef !4
   %267 = atomicrmw sub ptr %266, i64 1 release, align 8, !noalias !2275
   %268 = icmp eq i64 %267, 1
-  br i1 %268, label %269, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit95"
+  br i1 %268, label %269, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit94"
 
-269:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91"
+269:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %265)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit95" unwind label %275
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit94" unwind label %275
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93": ; preds = %257, %262, %275
-  %.pn28 = phi { ptr, i32 } [ %276, %275 ], [ %.pn26, %262 ], [ %.pn26, %257 ]
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92": ; preds = %257, %262, %275
+  %.pn27 = phi { ptr, i32 } [ %276, %275 ], [ %.pn25, %262 ], [ %.pn25, %257 ]
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2276)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2279)
   %271 = load ptr, ptr %270, align 8, !alias.scope !2282, !nonnull !4, !noundef !4
   %272 = atomicrmw sub ptr %271, i64 1 release, align 8, !noalias !2282
   %273 = icmp eq i64 %272, 1
-  br i1 %273, label %274, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97"
+  br i1 %273, label %274, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96"
 
-274:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93"
+274:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %270)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97" unwind label %128
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96" unwind label %128
 
 275:                                              ; preds = %269
   %276 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93"
+  br label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92"
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit95": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit91", %269
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit94": ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE.exit90", %269
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2286)
   %278 = load ptr, ptr %277, align 8, !alias.scope !2289, !nonnull !4, !noundef !4
   %279 = atomicrmw sub ptr %278, i64 1 release, align 8, !noalias !2289
   %280 = icmp eq i64 %279, 1
-  br i1 %280, label %281, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit99"
+  br i1 %280, label %281, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit98"
 
-281:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit95"
+281:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit94"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %277)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit99" unwind label %283
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit98" unwind label %283
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93", %274, %283
-  %.pn30 = phi { ptr, i32 } [ %284, %283 ], [ %.pn28, %274 ], [ %.pn28, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit93" ]
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92", %274, %283
+  %.pn29 = phi { ptr, i32 } [ %284, %283 ], [ %.pn27, %274 ], [ %.pn27, %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit92" ]
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %282) #31
           to label %286 unwind label %128
@@ -26098,31 +26098,31 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 283:                                              ; preds = %281
   %284 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit99": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit95", %281
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit98": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit94", %281
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %285)
           to label %290 unwind label %288
 
-286:                                              ; preds = %288, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97"
-  %.pn32 = phi { ptr, i32 } [ %289, %288 ], [ %.pn30, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit97" ]
+286:                                              ; preds = %288, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96"
+  %.pn31 = phi { ptr, i32 } [ %289, %288 ], [ %.pn29, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit96" ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %287) #31
           to label %292 unwind label %128
 
-288:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit99"
+288:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit98"
   %289 = landingpad { ptr, i32 }
           cleanup
   br label %286
 
-290:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit99"
+290:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit98"
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %291)
           to label %common.ret.sink.split unwind label %294
 
 292:                                              ; preds = %294, %286
-  %.pn34 = phi { ptr, i32 } [ %295, %294 ], [ %.pn32, %286 ]
+  %.pn33 = phi { ptr, i32 } [ %295, %294 ], [ %.pn31, %286 ]
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 200
   invoke void @"_ZN4core3ptr280drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Sender$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h33709c52492e9c85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %293) #31
           to label %127 unwind label %128
@@ -26132,72 +26132,72 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           cleanup
   br label %292
 
-296:                                              ; preds = %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit79"
+296:                                              ; preds = %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$$LT$polars_stream..nodes..io_sinks..partition..max_size..MaxSizePartitionSinkNode$u20$as$u20$polars_stream..nodes..io_sinks..SinkNode$GT$..spawn_sink..$u7b$$u7b$closure$u7d$$u7d$..CurrentSink$GT$$GT$17h9d4f740c50744543E.exit78"
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2290)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2293)
   %298 = load ptr, ptr %297, align 8, !alias.scope !2296, !nonnull !4, !noundef !4
   %299 = atomicrmw sub ptr %298, i64 1 release, align 8, !noalias !2296
   %300 = icmp eq i64 %299, 1
-  br i1 %300, label %301, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit101"
+  br i1 %300, label %301, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit100"
 
 301:                                              ; preds = %296
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2fdc70cb51e954cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %297)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit101" unwind label %128
+          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit100" unwind label %128
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit101": ; preds = %296, %301
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit100": ; preds = %296, %301
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2300)
   %303 = load ptr, ptr %302, align 8, !alias.scope !2303, !nonnull !4, !noundef !4
   %304 = atomicrmw sub ptr %303, i64 1 release, align 8, !noalias !2303
   %305 = icmp eq i64 %304, 1
-  br i1 %305, label %306, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit103"
+  br i1 %305, label %306, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit102"
 
-306:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit101"
+306:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit100"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3f990dd1d2707797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %302)
-          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit103" unwind label %128
+          to label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit102" unwind label %128
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit103": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit101", %306
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit102": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$GT$17h9d94e12e7d483281E.exit100", %306
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..options..sink..PartitionTargetCallback$GT$$GT$17hc82155cf104db67bE"(ptr noalias noundef align 8 dereferenceable(24) %0) #31
           to label %307 unwind label %128
 
-307:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit103"
+307:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$17hc05598b5634a944aE.exit102"
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2304)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2307)
   %309 = load ptr, ptr %308, align 8, !alias.scope !2310, !nonnull !4, !noundef !4
   %310 = atomicrmw sub ptr %309, i64 1 release, align 8, !noalias !2310
   %311 = icmp eq i64 %310, 1
-  br i1 %311, label %312, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit105"
+  br i1 %311, label %312, label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit104"
 
 312:                                              ; preds = %307
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6e8c4067e9d80861E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %308)
-          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit105" unwind label %128
+          to label %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit104" unwind label %128
 
-"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit105": ; preds = %307, %312
+"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit104": ; preds = %307, %312
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2314)
   %314 = load ptr, ptr %313, align 8, !alias.scope !2317, !nonnull !4, !noundef !4
   %315 = atomicrmw sub ptr %314, i64 1 release, align 8, !noalias !2317
   %316 = icmp eq i64 %315, 1
-  br i1 %316, label %317, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit107"
+  br i1 %316, label %317, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit106"
 
-317:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit105"
+317:                                              ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit104"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %313)
-          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit107" unwind label %128
+          to label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit106" unwind label %128
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit107": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit105", %317
+"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit106": ; preds = %"_ZN4core3ptr485drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$polars_plan..dsl..options..sink..SinkTarget$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$polars_stream..nodes..io_sinks..SinkNode$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hb58431b6cd846f8cE.exit104", %317
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h522e2f8b23360a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %318) #31
           to label %319 unwind label %128
 
-319:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit107"
+319:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit106"
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_stream..execute..StreamingExecutionState$GT$17h47bc5860fddc53edE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %320) #31
           to label %321 unwind label %128
@@ -26283,7 +26283,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 common.resume:                                    ; preds = %77, %82, %13, %69, %85, %21, %26
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %27, %26 ], [ %70, %69 ], [ %.pn12, %85 ], [ %14, %13 ], [ %78, %77 ], [ %83, %82 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %27, %26 ], [ %14, %13 ], [ %70, %69 ], [ %.pn10, %85 ], [ %78, %77 ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %20
@@ -26293,7 +26293,7 @@ common.resume:                                    ; preds = %77, %82, %13, %69, 
   invoke void @"_ZN4core3ptr75drop_in_place$LT$polars_stream..async_primitives..wait_group..WaitGroup$GT$17h6d3f8fbbd1fa06a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28) #31
           to label %common.resume unwind label %24
 
-29:                                               ; preds = %45, %85, %69, %63, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17", %53, %13
+29:                                               ; preds = %45, %85, %69, %63, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15", %53, %13
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -26322,15 +26322,15 @@ common.resume:                                    ; preds = %77, %82, %13, %69, 
           to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit" unwind label %60
 
 41:                                               ; preds = %57, %53, %33
-  %.pn8 = phi { ptr, i32 } [ %58, %57 ], [ %.pn4, %53 ], [ %34, %33 ]
+  %.pn5.pn = phi { ptr, i32 } [ %34, %33 ], [ %58, %57 ], [ %.pn.pn, %53 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load i64, ptr %42, align 8, !range !266, !alias.scope !2324, !noundef !4
   %44 = icmp eq i64 %43, -9223372036854775808
-  br i1 %44, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17", label %45
+  br i1 %44, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15", label %45
 
 45:                                               ; preds = %41
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %42)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17" unwind label %29
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15" unwind label %29
 
 46:                                               ; preds = %1, %9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 209
@@ -26350,7 +26350,7 @@ common.resume:                                    ; preds = %77, %82, %13, %69, 
           to label %36 unwind label %57
 
 53:                                               ; preds = %55, %48
-  %.pn4 = phi { ptr, i32 } [ %56, %55 ], [ %49, %48 ]
+  %.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %56, %55 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 160
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17ha480520fbf30006bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %54) #31
           to label %41 unwind label %29
@@ -26365,8 +26365,8 @@ common.resume:                                    ; preds = %77, %82, %13, %69, 
           cleanup
   br label %41
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17": ; preds = %41, %45, %60
-  %.pn10 = phi { ptr, i32 } [ %61, %60 ], [ %.pn8, %45 ], [ %.pn8, %41 ]
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15": ; preds = %41, %45, %60
+  %.pn8 = phi { ptr, i32 } [ %61, %60 ], [ %.pn5.pn, %45 ], [ %.pn5.pn, %41 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %59) #31
           to label %63 unwind label %29
@@ -26374,15 +26374,15 @@ common.resume:                                    ; preds = %77, %82, %13, %69, 
 60:                                               ; preds = %40
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17"
+  br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15"
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit": ; preds = %36, %40
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @"_ZN4core3ptr55drop_in_place$LT$polars_stream..morsel..SourceToken$GT$17h1861b4d9992fa1beE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %62)
           to label %67 unwind label %65
 
-63:                                               ; preds = %65, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17"
-  %.pn12 = phi { ptr, i32 } [ %66, %65 ], [ %.pn10, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit17" ]
+63:                                               ; preds = %65, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15"
+  %.pn10 = phi { ptr, i32 } [ %66, %65 ], [ %.pn8, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$polars_core..frame..DataFrame$GT$$GT$17ha56942a252133c5bE.exit15" ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr205drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17h9d51e3c90b287989E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64) #31
           to label %85 unwind label %29
@@ -27056,7 +27056,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %45
 
 49:                                               ; preds = %97, %89, %45
-  %.pn12 = phi { ptr, i32 } [ %.pn6, %89 ], [ %.pn2, %97 ], [ %.pn10, %45 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %45 ], [ %.pn6, %89 ], [ %.pn2, %97 ]
   resume { ptr, i32 } %.pn12
 
 50:                                               ; preds = %97, %95, %93, %89, %83, %78, %63, %.body, %53, %45, %39, %34
@@ -27494,7 +27494,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %47, label %59, label %54
 
 48:                                               ; preds = %42, %37, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %43, %42 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %38, %37 ], [ %53, %52 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %50 = load i8, ptr %49, align 4, !range !197, !noundef !4
   %51 = trunc nuw i8 %50 to i1
@@ -27707,7 +27707,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit"
 
 45:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit37", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit31", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit"
-  %.pn14 = phi { ptr, i32 } [ %.pn6, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit31" ], [ %52, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit37" ], [ %.pn12, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit" ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit" ], [ %.pn6, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit31" ], [ %52, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit37" ]
   resume { ptr, i32 } %.pn14
 
 46:                                               ; preds = %100, %95, %81, %68, %49, %35, %22, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit37", %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit35", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit31", %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit27", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$polars_arrow..io..ipc..read..common..ProjectionInfo$GT$$GT$17h443bb4774b342944E.exit", %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit"
@@ -27921,7 +27921,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %16
 
 20:                                               ; preds = %59, %54, %52, %47, %16
-  %.pn4 = phi { ptr, i32 } [ %48, %52 ], [ %48, %47 ], [ %.pn, %59 ], [ %.pn, %54 ], [ %.pn2, %16 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %16 ], [ %48, %52 ], [ %48, %47 ], [ %.pn, %59 ], [ %.pn, %54 ]
   resume { ptr, i32 } %.pn4
 
 21:                                               ; preds = %59, %58, %52, %33, %16, %13
@@ -27942,7 +27942,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %28, label %46, label %42
 
 29:                                               ; preds = %38, %33, %40, %23
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %34, %33 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %39, %38 ], [ %34, %33 ], [ %41, %40 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %31 = load i8, ptr %30, align 2, !range !197, !noundef !4
   %32 = trunc nuw i8 %31 to i1
@@ -28071,7 +28071,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 common.resume:                                    ; preds = %46, %51, %9, %38, %54, %17, %22
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %23, %22 ], [ %39, %38 ], [ %.pn2, %54 ], [ %10, %9 ], [ %47, %46 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %23, %22 ], [ %10, %9 ], [ %39, %38 ], [ %.pn2, %54 ], [ %47, %46 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %16
@@ -28922,7 +28922,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %65, label %82, label %79
 
 66:                                               ; preds = %77, %70, %75, %60
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %71, %70 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %76, %75 ], [ %71, %70 ], [ %78, %77 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 159
   %68 = load i8, ptr %67, align 1, !range !197, !noundef !4
   %69 = trunc nuw i8 %68 to i1
@@ -29813,7 +29813,7 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
   unreachable
 
 48:                                               ; preds = %81, %57, %40, %36
-  %.pn9.pn.i.i = phi { ptr, i32 } [ %.pn9.i.i, %81 ], [ %.pn11.i.i, %57 ], [ %41, %40 ], [ %37, %36 ]
+  %.pn13.i.i = phi { ptr, i32 } [ %41, %40 ], [ %37, %36 ], [ %.pn11.i.i, %57 ], [ %.pn9.i.i, %81 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1282
   %50 = load i8, ptr %49, align 2, !range !197, !noundef !4
   %51 = trunc nuw i8 %50 to i1
@@ -29940,7 +29940,7 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
           to label %95 unwind label %106
 
 101:                                              ; preds = %129, %106, %48
-  %.pn14.i.i = phi { ptr, i32 } [ %107, %106 ], [ %.pn9.pn.i.i, %129 ], [ %.pn9.pn.i.i, %48 ]
+  %.pn15.i.i = phi { ptr, i32 } [ %107, %106 ], [ %.pn13.i.i, %129 ], [ %.pn13.i.i, %48 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1282
   store i8 0, ptr %102, align 2
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1286
@@ -29974,7 +29974,7 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
           to label %108 unwind label %123
 
 116:                                              ; preds = %131, %123, %101
-  %.pn16.i.i = phi { ptr, i32 } [ %124, %123 ], [ %.pn14.i.i, %131 ], [ %.pn14.i.i, %101 ]
+  %.pn17.i.i = phi { ptr, i32 } [ %124, %123 ], [ %.pn15.i.i, %131 ], [ %.pn15.i.i, %101 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1286
   store i8 0, ptr %117, align 2
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -29983,20 +29983,20 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
   %119 = load ptr, ptr %118, align 8, !alias.scope !2856, !nonnull !4, !noundef !4
   %120 = atomicrmw sub ptr %119, i64 1 release, align 8, !noalias !2856
   %121 = icmp eq i64 %120, 1
-  br i1 %121, label %122, label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i"
+  br i1 %121, label %122, label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i"
 
 122:                                              ; preds = %116
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hd453904a78f5c93eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %118)
-          to label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i" unwind label %46
+          to label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i" unwind label %46
 
 123:                                              ; preds = %114
   %124 = landingpad { ptr, i32 }
           cleanup
   br label %116
 
-"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i": ; preds = %126, %122, %116
-  %.pn18.i.i = phi { ptr, i32 } [ %127, %126 ], [ %.pn16.i.i, %122 ], [ %.pn16.i.i, %116 ]
+"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i": ; preds = %126, %122, %116
+  %.pn19.i.i = phi { ptr, i32 } [ %127, %126 ], [ %.pn17.i.i, %122 ], [ %.pn17.i.i, %116 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1291
   store i8 0, ptr %125, align 1
   br label %.body.i
@@ -30004,7 +30004,7 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
 126:                                              ; preds = %113
   %127 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i"
+  br label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i"
 
 "_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit.i.i": ; preds = %113, %108
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1291
@@ -30050,7 +30050,7 @@ common.ret:                                       ; preds = %258, %"_ZN4core3ptr
     i64 3, label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i"
     i64 0, label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i"
     i64 1, label %.invoke.i.i
-    i64 2, label %.invoke15.i.i
+    i64 2, label %.invoke16.i.i
   ]
 
 default.unreachable:                              ; preds = %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141
@@ -30139,18 +30139,18 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
     i64 3, label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i"
     i64 0, label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i"
     i64 1, label %.invoke.i.i
-    i64 2, label %.invoke15.i.i
+    i64 2, label %.invoke16.i.i
   ]
 
-.invoke15.i.i:                                    ; preds = %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141
+.invoke16.i.i:                                    ; preds = %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141
   %.sink.i.i = phi i64 [ 344, %141 ], [ 416, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i" ]
   %176 = getelementptr inbounds nuw i8, ptr %134, i64 %.sink.i.i
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_parquet..arrow..read..deserialize..utils..filter..PredicateFilter$GT$17h5001d076b4e725e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %176)
           to label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i" unwind label %182
 
 .invoke.i.i:                                      ; preds = %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141
-  %.sink16.i.i = phi i64 [ 344, %141 ], [ 416, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i" ]
-  %177 = getelementptr inbounds nuw i8, ptr %134, i64 %.sink16.i.i
+  %.sink17.i.i = phi i64 [ 344, %141 ], [ 416, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i" ]
+  %177 = getelementptr inbounds nuw i8, ptr %134, i64 %.sink17.i.i
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h148f95c797271a97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %177)
           to label %"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i" unwind label %182
 
@@ -30165,19 +30165,19 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..filter_cols..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf7a3bc76b821d45cE"(ptr noundef nonnull align 8 %181)
           to label %193 unwind label %190
 
-182:                                              ; preds = %.invoke.i.i, %.invoke15.i.i
+182:                                              ; preds = %.invoke.i.i, %.invoke16.i.i
   %183 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i": ; preds = %199, %.invoke.i.i, %.invoke15.i.i, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141, %141, %138
+"_ZN4core3ptr152drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..decode_projected_columns..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1ca8bc19843bc4dE.exit.i.i": ; preds = %199, %.invoke.i.i, %.invoke16.i.i, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit11.i.i.i", %141, %141, %138
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   %185 = load i8, ptr %184, align 2, !range !197, !noundef !4
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %205, label %201
 
 .body.i.i:                                        ; preds = %195, %182, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit.i.i.i"
-  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i3.i, %195 ], [ %183, %182 ], [ %.pn4.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit.i.i.i" ]
+  %.pn3.i.i = phi { ptr, i32 } [ %.pn.i4.i, %195 ], [ %183, %182 ], [ %.pn4.i.i.i, %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_arrow..datatypes..field..Field$GT$$GT$$GT$17hcb4191d67927404bE.exit.i.i.i" ]
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   %188 = load i8, ptr %187, align 2, !range !197, !noundef !4
   %189 = trunc nuw i8 %188 to i1
@@ -30196,7 +30196,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
           to label %199 unwind label %197
 
 195:                                              ; preds = %197, %190
-  %.pn.i3.i = phi { ptr, i32 } [ %198, %197 ], [ %191, %190 ]
+  %.pn.i4.i = phi { ptr, i32 } [ %198, %197 ], [ %191, %190 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1049
   store i8 0, ptr %196, align 1
   br label %.body.i.i
@@ -30224,7 +30224,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
           to label %201 unwind label %212
 
 207:                                              ; preds = %233, %212, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %213, %212 ], [ %.pn.pn.i.i, %233 ], [ %.pn.pn.i.i, %.body.i.i ]
+  %.pn5.i.i = phi { ptr, i32 } [ %213, %212 ], [ %.pn3.i.i, %233 ], [ %.pn3.i.i, %.body.i.i ]
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   store i8 0, ptr %208, align 2
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 1051
@@ -30258,7 +30258,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
           to label %214 unwind label %229
 
 222:                                              ; preds = %235, %229, %207
-  %.pn6.i.i = phi { ptr, i32 } [ %230, %229 ], [ %.pn4.i.i, %235 ], [ %.pn4.i.i, %207 ]
+  %.pn7.i5.i = phi { ptr, i32 } [ %230, %229 ], [ %.pn5.i.i, %235 ], [ %.pn5.i.i, %207 ]
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 1051
   store i8 0, ptr %223, align 1
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -30305,8 +30305,8 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr119dro
   store i8 0, ptr %239, align 1
   br label %"_ZN4core3ptr148drop_in_place$LT$polars_stream..nodes..io_sources..parquet..row_group_decode..RowGroupDecoder..row_group_data_to_df..$u7b$$u7b$closure$u7d$$u7d$$GT$17h774aa5783fab4547E.exit"
 
-.body.i:                                          ; preds = %241, %237, %228, %222, %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i"
-  %.pn.i = phi { ptr, i32 } [ %238, %237 ], [ %.pn18.i.i, %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit26.i.i" ], [ %242, %241 ], [ %.pn6.i.i, %228 ], [ %.pn6.i.i, %222 ]
+.body.i:                                          ; preds = %241, %237, %228, %222, %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i"
+  %.pn.i = phi { ptr, i32 } [ %238, %237 ], [ %.pn19.i.i, %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$polars_stream..nodes..io_sources..parquet..row_group_data_fetch..RowGroupData$GT$$GT$17h8b518496a511fb8dE.exit28.i.i" ], [ %242, %241 ], [ %.pn7.i5.i, %228 ], [ %.pn7.i5.i, %222 ]
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 713
   store i8 0, ptr %240, align 1
   br label %.body
@@ -30433,7 +30433,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %14
 
 18:                                               ; preds = %70, %63, %14
-  %.pn10 = phi { ptr, i32 } [ %.pn6, %63 ], [ %.pn4, %70 ], [ %.pn8, %14 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn8, %14 ], [ %.pn6, %63 ], [ %.pn4, %70 ]
   resume { ptr, i32 } %.pn10
 
 19:                                               ; preds = %70, %69, %53, %67, %63, %60, %47, %23, %14, %11
@@ -30473,7 +30473,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %34, label %45, label %42
 
 35:                                               ; preds = %28, %23, %40
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %29, %28 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %24, %23 ], [ %41, %40 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 107
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -31117,7 +31117,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit"
 
 50:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit47", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit41", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit"
-  %.pn24 = phi { ptr, i32 } [ %.pn14, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit41" ], [ %.pn6, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit47" ], [ %.pn22, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit" ]
+  %.pn24 = phi { ptr, i32 } [ %.pn22, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit" ], [ %.pn14, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit41" ], [ %.pn6, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit47" ]
   resume { ptr, i32 } %.pn24
 
 51:                                               ; preds = %139, %131, %114, %94, %81, %37, %17, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit47", %133, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit45", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit41", %104, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit37", %72, %66, %57, %55, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17h55c4a319802e822cE.exit", %27, %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$polars_arrow..io..ipc..read..file..FileMetadata$GT$$GT$17hc5cd618a7be0beaeE.exit"
@@ -31697,7 +31697,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %13 unwind label %14
 
 13:                                               ; preds = %28, %22, %10
-  %.pn2 = phi { ptr, i32 } [ %.pn, %28 ], [ %.pn, %22 ], [ %11, %10 ]
+  %.pn2 = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %28 ], [ %.pn, %22 ]
   resume { ptr, i32 } %.pn2
 
 14:                                               ; preds = %28, %10
@@ -31718,7 +31718,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %21, label %common.ret.sink.split, label %common.ret
 
 22:                                               ; preds = %26, %16
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %17, %16 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %27, %26 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i8, ptr %23, align 8, !range !197, !noundef !4
   %25 = trunc nuw i8 %24 to i1
@@ -31801,8 +31801,8 @@ define internal fastcc void @"_ZN4core3ptr312drop_in_place$LT$object_store..util
   ]
 
 common.ret.sink.split:                            ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit"
-  %.sink14 = phi i64 [ 32, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit" ], [ 16, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
+  %.sink15 = phi i64 [ 32, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit" ], [ 16, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   tail call void @"_ZN4core3ptr220drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h020b56f9208603caE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %common.ret
 
@@ -31829,10 +31829,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3f59acd0ba6e797fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %35 unwind label %23
 
-17:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12"
-  resume { ptr, i32 } %.pn5.pn
+17:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13"
+  resume { ptr, i32 } %.pn7
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit": ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11", %5
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit": ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12", %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 0, ptr %18, align 1
   br label %common.ret.sink.split
@@ -31840,10 +31840,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 19:                                               ; preds = %5
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13"
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12": ; preds = %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10", %19
-  %.pn5.pn = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %.pn, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10" ]
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13": ; preds = %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11", %19
+  %.pn7 = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %.pn, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11" ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 0, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -31867,7 +31867,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = load i64, ptr %33, align 8, !alias.scope !3058, !noundef !4
   invoke void %29(ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %32, i64 noundef %34)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10" unwind label %68
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11" unwind label %68
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -31884,9 +31884,9 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %45 = load i64, ptr %44, align 8, !alias.scope !3065, !noundef !4
   invoke void %40(ptr noalias noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %43, i64 noundef %45)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11" unwind label %55
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12" unwind label %55
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10": ; preds = %23, %55
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11": ; preds = %23, %55
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %24, %23 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3066)
@@ -31900,14 +31900,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8, !alias.scope !3072, !noundef !4
   invoke void %49(ptr noalias noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %52, i64 noundef %54)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12" unwind label %68
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13" unwind label %68
 
 55:                                               ; preds = %35
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11"
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11": ; preds = %35
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12": ; preds = %35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3073)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3076)
@@ -31922,12 +31922,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void %60(ptr noalias noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %63, i64 noundef %65)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit" unwind label %66
 
-66:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11"
+66:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12"
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13"
 
-68:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit10", %23, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit12"
+68:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit11", %23, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h776847264d271afbE.exit13"
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #32
@@ -32799,7 +32799,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %common.resume
 
 common.resume:                                    ; preds = %280, %289, %250, %259, %220, %229, %190, %199, %160, %169, %260, %230, %200, %170, %140, %108, %128, %137, %88, %97, %53, %60, %65, %25, %34
-  %common.resume.op = phi { ptr, i32 } [ %26, %34 ], [ %26, %25 ], [ %66, %65 ], [ %61, %60 ], [ %54, %53 ], [ %89, %97 ], [ %89, %88 ], [ %129, %137 ], [ %129, %128 ], [ %261, %260 ], [ %231, %230 ], [ %201, %200 ], [ %171, %170 ], [ %141, %140 ], [ %109, %108 ], [ %161, %169 ], [ %161, %160 ], [ %191, %199 ], [ %191, %190 ], [ %221, %229 ], [ %221, %220 ], [ %251, %259 ], [ %251, %250 ], [ %281, %289 ], [ %281, %280 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %34 ], [ %26, %25 ], [ %66, %65 ], [ %54, %53 ], [ %61, %60 ], [ %89, %97 ], [ %89, %88 ], [ %129, %137 ], [ %129, %128 ], [ %109, %108 ], [ %141, %140 ], [ %171, %170 ], [ %201, %200 ], [ %231, %230 ], [ %261, %260 ], [ %161, %169 ], [ %161, %160 ], [ %191, %199 ], [ %191, %190 ], [ %221, %229 ], [ %221, %220 ], [ %251, %259 ], [ %251, %250 ], [ %281, %289 ], [ %281, %280 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %1
@@ -33410,7 +33410,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %14
 
 18:                                               ; preds = %70, %63, %14
-  %.pn10 = phi { ptr, i32 } [ %.pn6, %63 ], [ %.pn4, %70 ], [ %.pn8, %14 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn8, %14 ], [ %.pn6, %63 ], [ %.pn4, %70 ]
   resume { ptr, i32 } %.pn10
 
 19:                                               ; preds = %70, %69, %53, %67, %63, %60, %47, %23, %14, %11
@@ -33450,7 +33450,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %34, label %45, label %42
 
 35:                                               ; preds = %28, %23, %40
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %29, %28 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %24, %23 ], [ %41, %40 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 107
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 106
@@ -33948,7 +33948,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$polars_stream..pipe
   unreachable
 
 22:                                               ; preds = %23, %15
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %16, %15 ]
+  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 
 23:                                               ; preds = %13
@@ -34856,8 +34856,8 @@ common.ret:                                       ; preds = %19, %4, %1
           to label %14 unwind label %12
 
 9:                                                ; preds = %16, %25
-  %.pn4.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %25 ]
-  resume { ptr, i32 } %.pn4.pn
+  %.pn6 = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %25 ]
+  resume { ptr, i32 } %.pn6
 
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
@@ -34893,7 +34893,7 @@ common.ret:                                       ; preds = %19, %4, %1
   unreachable
 
 23:                                               ; preds = %10, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %13, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   invoke void @"_ZN4core3ptr45drop_in_place$LT$object_store..ObjectMeta$GT$17h022c3d2a2585f5f9E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24) #31
           to label %25 unwind label %21
@@ -35287,7 +35287,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %20 unwind label %21
 
 20:                                               ; preds = %32, %30, %18
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %eh.lpad-body, %32 ], [ %19, %18 ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %31, %30 ], [ %eh.lpad-body, %32 ]
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %32, %.body, %30, %18
@@ -35377,8 +35377,8 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %16 unwind label %17
 
 16:                                               ; preds = %36, %33, %13
-  %.pn5 = phi { ptr, i32 } [ %34, %33 ], [ %.pn3, %36 ], [ %14, %13 ]
-  resume { ptr, i32 } %.pn5
+  %.pn6 = phi { ptr, i32 } [ %14, %13 ], [ %34, %33 ], [ %.pn4, %36 ]
+  resume { ptr, i32 } %.pn6
 
 17:                                               ; preds = %36, %33, %29, %24, %13
   %18 = landingpad { ptr, i32 }
@@ -35402,7 +35402,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %19
 
 24:                                               ; preds = %27, %21
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %28, %27 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35415,7 +35415,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %24
 
 29:                                               ; preds = %30, %24
-  %.pn3 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %24 ]
+  %.pn4 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %24 ]
   invoke void @"_ZN4core3ptr120drop_in_place$LT$polars_stream..async_primitives..distributor_channel..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h395ac893ab439cc5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #31
           to label %36 unwind label %17
 
@@ -35477,7 +35477,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %12 unwind label %13
 
 12:                                               ; preds = %38, %35, %9
-  %.pn2 = phi { ptr, i32 } [ %36, %35 ], [ %.pn, %38 ], [ %10, %9 ]
+  %.pn2 = phi { ptr, i32 } [ %10, %9 ], [ %36, %35 ], [ %.pn, %38 ]
   resume { ptr, i32 } %.pn2
 
 13:                                               ; preds = %22, %38, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$polars_stream..async_primitives..wait_group..WaitToken$GT$$GT$17h52c56a87e7e46cebE.exit", %35, %9
@@ -35583,7 +35583,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %11 unwind label %12
 
 11:                                               ; preds = %20, %17, %8
-  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %16, %20 ], [ %9, %8 ]
+  %.pn2 = phi { ptr, i32 } [ %9, %8 ], [ %18, %17 ], [ %16, %20 ]
   resume { ptr, i32 } %.pn2
 
 12:                                               ; preds = %20, %17, %15, %8
@@ -39313,7 +39313,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -40063,7 +40063,7 @@ default.unreachable1:                             ; preds = %2
   br label %121
 
 121:                                              ; preds = %118, %116, %114, %112, %109, %105, %101, %96, %92, %89, %86, %82, %79, %77, %75, %73, %70, %68, %65, %62, %59, %56, %54, %52, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20
-  %.sroa.0.0.in = phi i1 [ %120, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %109 ], [ %108, %105 ], [ %104, %101 ], [ %100, %96 ], [ %95, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %82 ], [ %81, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %70 ], [ %69, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.sroa.0.0.in = phi i1 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %51, %48 ], [ %53, %52 ], [ %55, %54 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %72, %70 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %81, %79 ], [ %85, %82 ], [ %88, %86 ], [ %91, %89 ], [ %95, %92 ], [ %100, %96 ], [ %104, %101 ], [ %108, %105 ], [ %111, %109 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %120, %118 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -40272,7 +40272,7 @@ default.unreachable1:                             ; preds = %2
   br label %85
 
 85:                                               ; preds = %82, %79, %75, %71, %69, %66, %63, %59, %57, %54, %50, %48, %46, %44, %42, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14
-  %.sroa.0.0.in = phi i1 [ %84, %82 ], [ %81, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %59 ], [ %58, %57 ], [ %56, %54 ], [ %53, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %41, %38 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %50 ], [ %56, %54 ], [ %58, %57 ], [ %62, %59 ], [ %65, %63 ], [ %68, %66 ], [ %70, %69 ], [ %74, %71 ], [ %78, %75 ], [ %81, %79 ], [ %84, %82 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -40829,8 +40829,8 @@ default.unreachable:                              ; preds = %32
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc928099260a31785E.exit"
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc928099260a31785E.exit": ; preds = %32, %.noexc4, %.noexc3, %.noexc2, %.noexc
-  %.sroa.516.sroa.0.1 = phi ptr [ %78, %.noexc4 ], [ %73, %.noexc3 ], [ %57, %.noexc2 ], [ %39, %.noexc ], [ %.sroa.516.sroa.0.042, %32 ]
-  %.sroa.516.sroa.4.1 = phi i64 [ %79, %.noexc4 ], [ %74, %.noexc3 ], [ %58, %.noexc2 ], [ %40, %.noexc ], [ %.sroa.516.sroa.4.044, %32 ]
+  %.sroa.516.sroa.0.1 = phi ptr [ %39, %.noexc ], [ %57, %.noexc2 ], [ %73, %.noexc3 ], [ %78, %.noexc4 ], [ %.sroa.516.sroa.0.042, %32 ]
+  %.sroa.516.sroa.4.1 = phi i64 [ %40, %.noexc ], [ %58, %.noexc2 ], [ %74, %.noexc3 ], [ %79, %.noexc4 ], [ %.sroa.516.sroa.4.044, %32 ]
   %80 = getelementptr inbounds nuw { [3 x i64] }, ptr %19, i64 %.sroa.7.041
   store i64 %35, ptr %80, align 8, !noalias !3891
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -44440,8 +44440,8 @@ default.unreachable99:                            ; preds = %17, %130
   br label %40
 
 .loopexit28:                                      ; preds = %.loopexit, %136, %24, %11
-  %.sroa.5.0 = phi ptr [ %15, %11 ], [ %28, %24 ], [ %140, %136 ], [ undef, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %13, %11 ], [ %26, %24 ], [ %138, %136 ], [ null, %.loopexit ]
+  %.sroa.5.0 = phi ptr [ %140, %136 ], [ %28, %24 ], [ %15, %11 ], [ undef, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %138, %136 ], [ %26, %24 ], [ %13, %11 ], [ null, %.loopexit ]
   %38 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %39 = insertvalue { ptr, ptr } %38, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %39
@@ -44583,7 +44583,7 @@ _ZN13polars_stream14async_executor18random_permutation17hfef0692a2ea3167eE.exit:
   unreachable
 
 135:                                              ; preds = %141, %130
-  %.sroa.01.2 = phi i1 [ true, %141 ], [ %.sroa.01.1, %130 ]
+  %.sroa.01.2 = phi i1 [ %.sroa.01.1, %130 ], [ true, %141 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %110
 
@@ -51725,7 +51725,7 @@ define hidden void @_ZN13polars_stream14async_executor10task_scope17h7da1e110c28
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %251, %246, %177
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %178, %177 ], [ %252, %251 ], [ %247, %246 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %178, %177 ], [ %247, %246 ], [ %252, %251 ]
   invoke void @"_ZN4core3ptr222drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..slice..iter..Iter$LT$polars_stream..graph..LogicalPipeKey$GT$$C$alloc..vec..drain..Drain$LT$core..option..Option$LT$polars_stream..pipe..PhysicalPipe$GT$$GT$$GT$$GT$17h2f3b90e5175fb511E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %22) #31
           to label %.thread230.i.i.i.i unwind label %230, !noalias !4540
 
@@ -51780,7 +51780,7 @@ define hidden void @_ZN13polars_stream14async_executor10task_scope17h7da1e110c28
   br label %.body141.i.i.i.i
 
 .body141.i.i.i.i:                                 ; preds = %224, %219, %192
-  %eh.lpad-body142.i.i.i.i = phi { ptr, i32 } [ %193, %192 ], [ %225, %224 ], [ %220, %219 ]
+  %eh.lpad-body142.i.i.i.i = phi { ptr, i32 } [ %193, %192 ], [ %220, %219 ], [ %225, %224 ]
   invoke void @"_ZN4core3ptr222drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..slice..iter..Iter$LT$polars_stream..graph..LogicalPipeKey$GT$$C$alloc..vec..drain..Drain$LT$core..option..Option$LT$polars_stream..pipe..PhysicalPipe$GT$$GT$$GT$$GT$17h2f3b90e5175fb511E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %18) #31
           to label %.thread230.i.i.i.i unwind label %230, !noalias !4540
 
@@ -73062,7 +73062,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit: ; preds = %61
   unreachable
 
 common.resume:                                    ; preds = %384, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i133", %377, %.thread201, %325, %142, %173, %169, %.body96, %306, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i", %314
-  %common.resume.op = phi { ptr, i32 } [ %.pn210, %325 ], [ %188, %.thread201 ], [ %143, %142 ], [ %.pn82.ph, %173 ], [ %.pn82.ph, %169 ], [ %eh.lpad-body97, %.body96 ], [ %.pn.pn4.i, %306 ], [ %.pn15.i, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i" ], [ %315, %314 ], [ %.pn.pn4.i121, %377 ], [ %.pn15.i128, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i133" ], [ %385, %384 ]
+  %common.resume.op = phi { ptr, i32 } [ %188, %.thread201 ], [ %.pn210, %325 ], [ %143, %142 ], [ %.pn82.ph, %173 ], [ %.pn82.ph, %169 ], [ %eh.lpad-body97, %.body96 ], [ %.pn.pn4.i, %306 ], [ %.pn15.i, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i" ], [ %315, %314 ], [ %.pn.pn4.i121, %377 ], [ %.pn15.i128, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i133" ], [ %385, %384 ]
   resume { ptr, i32 } %common.resume.op
 
 169:                                              ; preds = %77, %166, %.body.thread
@@ -79117,11 +79117,11 @@ define void @"_ZN154_$LT$polars_stream..nodes..io_sources..ipc..IpcFileReader$u2
   br label %171
 
 .thread445:                                       ; preds = %.loopexit, %.loopexit.split-lp, %775, %728, %731, %461, %.body, %.thread450, %.thread535, %352, %242, %215, %177
-  %.sroa.088.1 = phi i8 [ %.sroa.088.4, %242 ], [ %.sroa.088.4, %.thread535 ], [ %.sroa.088.4, %352 ], [ %.sroa.088.4, %215 ], [ 0, %177 ], [ %.sroa.088.4, %.thread450 ], [ %.sroa.088.4, %.body ], [ %.sroa.088.4, %461 ], [ %.sroa.088.4, %731 ], [ %.sroa.088.4, %728 ], [ %.sroa.088.4, %775 ], [ %.sroa.088.4, %.loopexit ], [ %.sroa.088.0.ph, %.loopexit.split-lp ]
-  %.sroa.085.1 = phi i8 [ %.sroa.085.5, %242 ], [ %.sroa.085.5, %.thread535 ], [ %.sroa.085.5, %352 ], [ 0, %215 ], [ 1, %177 ], [ %.sroa.085.5, %.thread450 ], [ %.sroa.085.5, %.body ], [ %.sroa.085.5, %461 ], [ %.sroa.085.5, %731 ], [ %.sroa.085.5, %728 ], [ %.sroa.085.5, %775 ], [ %.sroa.085.5, %.loopexit ], [ %.sroa.085.0.ph, %.loopexit.split-lp ]
-  %.sroa.091.1 = phi i8 [ 0, %242 ], [ %.sroa.091.5, %.thread535 ], [ %.sroa.091.5, %352 ], [ 1, %215 ], [ 1, %177 ], [ %.sroa.091.5, %.thread450 ], [ %.sroa.091.5, %.body ], [ %.sroa.091.5, %461 ], [ %.sroa.091.5, %731 ], [ %.sroa.091.5, %728 ], [ %.sroa.091.5, %775 ], [ %.sroa.091.5, %.loopexit ], [ %.sroa.091.0.ph, %.loopexit.split-lp ]
-  %.sroa.0107.1 = phi i1 [ true, %242 ], [ true, %.thread535 ], [ true, %352 ], [ true, %215 ], [ true, %177 ], [ %.sroa.0107.4.ph, %.thread450 ], [ %.sroa.0107.7, %.body ], [ %.sroa.0107.7, %461 ], [ true, %731 ], [ true, %728 ], [ true, %775 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
-  %.pn233 = phi { ptr, i32 } [ %243, %242 ], [ %eh.lpad-body333, %.thread535 ], [ %353, %352 ], [ %216, %215 ], [ %178, %177 ], [ %lpad.thr_comm, %.thread450 ], [ %.pn225, %.body ], [ %.pn225, %461 ], [ %lpad.thr_comm.split-lp, %731 ], [ %lpad.thr_comm.split-lp, %728 ], [ %776, %775 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.088.1 = phi i8 [ %.sroa.088.4, %.thread535 ], [ %.sroa.088.4, %352 ], [ %.sroa.088.4, %242 ], [ %.sroa.088.4, %215 ], [ 0, %177 ], [ %.sroa.088.4, %.thread450 ], [ %.sroa.088.4, %.body ], [ %.sroa.088.4, %461 ], [ %.sroa.088.4, %731 ], [ %.sroa.088.4, %728 ], [ %.sroa.088.4, %775 ], [ %.sroa.088.4, %.loopexit ], [ %.sroa.088.0.ph, %.loopexit.split-lp ]
+  %.sroa.085.1 = phi i8 [ %.sroa.085.5, %.thread535 ], [ %.sroa.085.5, %352 ], [ %.sroa.085.5, %242 ], [ 0, %215 ], [ 1, %177 ], [ %.sroa.085.5, %.thread450 ], [ %.sroa.085.5, %.body ], [ %.sroa.085.5, %461 ], [ %.sroa.085.5, %731 ], [ %.sroa.085.5, %728 ], [ %.sroa.085.5, %775 ], [ %.sroa.085.5, %.loopexit ], [ %.sroa.085.0.ph, %.loopexit.split-lp ]
+  %.sroa.091.1 = phi i8 [ %.sroa.091.5, %.thread535 ], [ %.sroa.091.5, %352 ], [ 0, %242 ], [ 1, %215 ], [ 1, %177 ], [ %.sroa.091.5, %.thread450 ], [ %.sroa.091.5, %.body ], [ %.sroa.091.5, %461 ], [ %.sroa.091.5, %731 ], [ %.sroa.091.5, %728 ], [ %.sroa.091.5, %775 ], [ %.sroa.091.5, %.loopexit ], [ %.sroa.091.0.ph, %.loopexit.split-lp ]
+  %.sroa.0107.1 = phi i1 [ true, %.thread535 ], [ true, %352 ], [ true, %242 ], [ true, %215 ], [ true, %177 ], [ %.sroa.0107.4.ph, %.thread450 ], [ %.sroa.0107.7, %.body ], [ %.sroa.0107.7, %461 ], [ true, %731 ], [ true, %728 ], [ true, %775 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
+  %.pn233 = phi { ptr, i32 } [ %eh.lpad-body333, %.thread535 ], [ %353, %352 ], [ %243, %242 ], [ %216, %215 ], [ %178, %177 ], [ %lpad.thr_comm, %.thread450 ], [ %.pn225, %.body ], [ %.pn225, %461 ], [ %lpad.thr_comm.split-lp, %731 ], [ %lpad.thr_comm.split-lp, %728 ], [ %776, %775 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr352drop_in_place$LT$core..cell..lazy..LazyCell$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$C$$LT$polars_stream..nodes..io_sources..ipc..IpcFileReader$u20$as$u20$polars_stream..nodes..io_sources..multi_file_reader..reader_interface..FileReader$GT$..begin_read..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6eb8f5e36c37757dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %83) #31
           to label %656 unwind label %201
 

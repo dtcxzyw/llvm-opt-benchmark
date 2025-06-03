@@ -176,7 +176,7 @@ define hidden ptr @opj_create_decompress(i32 noundef %0) local_unnamed_addr #2 {
   br label %46
 
 46:                                               ; preds = %1, %44, %43, %42, %23
-  %.0 = phi ptr [ null, %43 ], [ %2, %44 ], [ null, %42 ], [ null, %23 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %43 ], [ %2, %44 ], [ null, %23 ], [ null, %42 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -662,7 +662,7 @@ define hidden ptr @opj_create_compress(i32 noundef %0) local_unnamed_addr #2 {
   br label %30
 
 30:                                               ; preds = %1, %28, %27, %26, %15
-  %.0 = phi ptr [ null, %27 ], [ %2, %28 ], [ null, %26 ], [ null, %15 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %27 ], [ %2, %28 ], [ null, %15 ], [ null, %26 ], [ null, %1 ]
   ret ptr %.0
 }
 

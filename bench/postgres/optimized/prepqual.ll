@@ -283,7 +283,7 @@ switch.lookup:                                    ; preds = %130
   br label %148
 
 148:                                              ; preds = %115, %48, %22, %._crit_edge145, %._crit_edge, %102, %12, %14, %.thread, %switch.lookup
-  %.1 = phi ptr [ %147, %.thread ], [ %131, %switch.lookup ], [ %116, %115 ], [ %49, %48 ], [ %23, %22 ], [ %13, %12 ], [ %17, %14 ], [ %106, %102 ], [ %93, %._crit_edge ], [ %77, %._crit_edge145 ]
+  %.1 = phi ptr [ %147, %.thread ], [ %23, %22 ], [ %49, %48 ], [ %116, %115 ], [ %131, %switch.lookup ], [ %13, %12 ], [ %17, %14 ], [ %77, %._crit_edge145 ], [ %93, %._crit_edge ], [ %106, %102 ]
   ret ptr %.1
 }
 

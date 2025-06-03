@@ -1487,7 +1487,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread83
 
 ole2_process_property.exit:                       ; preds = %140, %150, %155, %168, %178, %190, %202, %.thread372.i, %.thread374.i, %237, %247, %257, %267, %318, %362, %381
-  %.0.i = phi i32 [ %365, %362 ], [ %321, %318 ], [ %271, %267 ], [ %261, %257 ], [ %251, %247 ], [ %241, %237 ], [ %207, %202 ], [ %196, %190 ], [ %184, %178 ], [ %172, %168 ], [ %143, %140 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ]
+  %.0.i = phi i32 [ %143, %140 ], [ %172, %168 ], [ %184, %178 ], [ %196, %190 ], [ %207, %202 ], [ %241, %237 ], [ %251, %247 ], [ %261, %257 ], [ %271, %267 ], [ %321, %318 ], [ %365, %362 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ]
   %.not78 = icmp eq i32 %.0.i, 0
   br i1 %.not78, label %ole2_process_property.exit.thread83, label %.thread
 
@@ -1496,8 +1496,8 @@ ole2_process_property.exit.thread83:              ; preds = %380, %275, %389, %o
   %exitcond.not = icmp eq i32 %394, %.071
   br i1 %exitcond.not, label %.thread, label %58
 
-.thread:                                          ; preds = %ole2_process_property.exit.thread83, %ole2_process_property.exit, %299, %345, %.preheader, %326, %342, %.thread395.i, %282, %290, %.thread385.i, %.thread382.i, %.thread380.i, %.thread378.i, %.thread376.i, %.thread370.i, %.thread368.i, %.thread366.i, %.thread364.i, %160, %215, %225, %386, %135, %127, %118, %63, %54, %41, %22, %12
-  %.068 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 12, %54 ], [ 12, %22 ], [ 26, %63 ], [ 26, %326 ], [ 26, %342 ], [ %.17.ph.i, %.thread395.i ], [ 26, %282 ], [ 26, %290 ], [ %.14.ph.i, %.thread385.i ], [ 26, %.thread382.i ], [ 26, %.thread380.i ], [ 26, %.thread378.i ], [ 26, %.thread376.i ], [ 26, %.thread370.i ], [ 26, %.thread368.i ], [ 26, %.thread366.i ], [ 26, %.thread364.i ], [ 26, %160 ], [ 26, %215 ], [ 26, %225 ], [ 26, %386 ], [ 26, %135 ], [ 26, %127 ], [ 21, %118 ], [ 0, %.preheader ], [ 0, %ole2_process_property.exit.thread83 ], [ %.0.i, %ole2_process_property.exit ], [ 20, %299 ], [ 20, %345 ]
+.thread:                                          ; preds = %ole2_process_property.exit.thread83, %ole2_process_property.exit, %299, %345, %.preheader, %326, %342, %.thread395.i, %282, %290, %.thread385.i, %.thread382.i, %.thread380.i, %.thread378.i, %.thread376.i, %.thread370.i, %.thread368.i, %.thread366.i, %.thread364.i, %386, %225, %215, %160, %135, %127, %118, %63, %54, %41, %22, %12
+  %.068 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 12, %54 ], [ 12, %22 ], [ 26, %63 ], [ 26, %326 ], [ 26, %342 ], [ %.17.ph.i, %.thread395.i ], [ 26, %282 ], [ 26, %290 ], [ %.14.ph.i, %.thread385.i ], [ 26, %.thread382.i ], [ 26, %.thread380.i ], [ 26, %.thread378.i ], [ 26, %.thread376.i ], [ 26, %.thread370.i ], [ 26, %.thread368.i ], [ 26, %.thread366.i ], [ 26, %.thread364.i ], [ 26, %386 ], [ 26, %225 ], [ 26, %215 ], [ 26, %160 ], [ 26, %135 ], [ 26, %127 ], [ 21, %118 ], [ 0, %.preheader ], [ 0, %ole2_process_property.exit.thread83 ], [ %.0.i, %ole2_process_property.exit ], [ 20, %299 ], [ 20, %345 ]
   ret i32 %.068
 }
 

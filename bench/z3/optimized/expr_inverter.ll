@@ -2694,7 +2694,7 @@ _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %5
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 
 _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %5, %_ZNK4decl13get_decl_kindEv.exit, %20, %15, %13, %11
-  %.0 = phi i1 [ %24, %20 ], [ %19, %15 ], [ %14, %13 ], [ %12, %11 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %5 ]
+  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %19, %15 ], [ %24, %20 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -4323,7 +4323,7 @@ _ZNKSt8functionIFbP4exprEEclES1_.exit.i66:        ; preds = %88
   br label %_ZN16bv_expr_inverter13process_bvnotEP4exprR7obj_refIS0_11ast_managerE.exit
 
 _ZN16bv_expr_inverter13process_bvnotEP4exprR7obj_refIS0_11ast_managerE.exit: ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %5, %53, %49, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i, %_ZNK4decl13get_decl_kindEv.exit, %83, %95, %109, %60, %72, %79, %115, %37, %35, %30, %25, %20, %18, %16
-  %.058 = phi i1 [ %119, %115 ], [ %39, %37 ], [ %36, %35 ], [ %34, %30 ], [ %29, %25 ], [ %24, %20 ], [ %19, %18 ], [ %17, %16 ], [ true, %79 ], [ true, %72 ], [ false, %60 ], [ true, %109 ], [ true, %95 ], [ false, %83 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i ], [ true, %49 ], [ true, %53 ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66 ]
+  %.058 = phi i1 [ %17, %16 ], [ %19, %18 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %36, %35 ], [ %39, %37 ], [ %119, %115 ], [ true, %79 ], [ true, %72 ], [ false, %60 ], [ true, %109 ], [ true, %95 ], [ false, %83 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit.i ], [ true, %49 ], [ true, %53 ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i66 ]
   ret i1 %.058
 }
 
@@ -9082,7 +9082,7 @@ _ZNKSt8functionIFbP4exprEEclES1_.exit.i68:        ; preds = %131
   br label %_ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit
 
 _ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit:      ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %5, %_ZNK4decl13get_decl_kindEv.exit, %126, %106, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60, %146, %138, %118, %98, %79, %56, %37
-  %.0 = phi i1 [ %150, %146 ], [ true, %138 ], [ true, %118 ], [ true, %98 ], [ true, %37 ], [ true, %56 ], [ true, %79 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62 ], [ false, %106 ], [ false, %126 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68 ]
+  %.0 = phi i1 [ true, %37 ], [ true, %56 ], [ true, %79 ], [ true, %98 ], [ true, %118 ], [ true, %138 ], [ %150, %146 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit60 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit58 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit62 ], [ false, %106 ], [ false, %126 ], [ false, %_ZNK4decl13get_decl_kindEv.exit ], [ false, %5 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i68 ]
   ret i1 %.0
 }
 
@@ -10467,11 +10467,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %375
   br label %381
 
 _ZNK14iexpr_inverter7uncnstrEjPKP4expr.exit:      ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i, %124, %118, %269, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100, %_ZNK8seq_util6is_seqEP4sort.exit.i101, %206, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %_ZNK8seq_util6is_seqEP4sort.exit.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %.loopexit, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99, %262, %_ZNK8seq_util9is_stringEP4sort.exit104, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94, %_ZNK8seq_util9is_stringEP4sort.exit, %233, %250, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN7zstringD2Ev.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.1 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.2, %_ZN7zstringD2Ev.exit ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ true, %250 ], [ true, %233 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit104 ], [ false, %262 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %.loopexit ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %206 ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i101 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100 ], [ false, %269 ], [ true, %118 ], [ true, %124 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ]
+  %.1 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %.2, %_ZN7zstringD2Ev.exit ], [ true, %250 ], [ true, %233 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit94 ], [ false, %_ZNK8seq_util9is_stringEP4sort.exit104 ], [ false, %262 ], [ false, %_ZNK14iexpr_inverter7uncnstrEP4expr.exit99 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %.loopexit ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %206 ], [ false, %_ZNK8seq_util6is_seqEP4sort.exit.i101 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i100 ], [ false, %269 ], [ true, %118 ], [ true, %124 ], [ false, %_ZNKSt8functionIFbP4exprEEclES1_.exit.i ]
   ret i1 %.1
 
 381:                                              ; preds = %378, %370, %251, %170
-  %.pn75 = phi { ptr, i32 } [ %379, %378 ], [ %.pn.pn.pn.pn.pn, %370 ], [ %171, %170 ], [ %252, %251 ]
+  %.pn75 = phi { ptr, i32 } [ %379, %378 ], [ %171, %170 ], [ %252, %251 ], [ %.pn.pn.pn.pn.pn, %370 ]
   resume { ptr, i32 } %.pn75
 }
 

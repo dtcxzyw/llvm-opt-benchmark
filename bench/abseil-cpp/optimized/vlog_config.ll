@@ -2144,7 +2144,7 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit47.i: ; preds = %22
   br label %261
 
 261:                                              ; preds = %259, %._crit_edge.i.i.i.i48.i
-  %.sroa.060.1.i.i.i.i.i = phi ptr [ %.sroa.060.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i48.i ], [ %260, %259 ]
+  %.sroa.060.1.i.i.i.i.i = phi ptr [ %260, %259 ], [ %.sroa.060.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i48.i ]
   %.val3.i41.i.i.i.i.i = load ptr, ptr %.sroa.060.1.i.i.i.i.i, align 8, !tbaa !37
   %262 = getelementptr i8, ptr %.sroa.060.1.i.i.i.i.i, i64 8
   %.val4.i42.i.i.i.i.i = load i64, ptr %262, align 8, !tbaa !38
@@ -2156,7 +2156,7 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit47.i: ; preds = %22
   br label %266
 
 266:                                              ; preds = %264, %._crit_edge.i.i.i.i48.i
-  %.sroa.060.2.i.i.i.i.i = phi ptr [ %.sroa.060.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i48.i ], [ %265, %264 ]
+  %.sroa.060.2.i.i.i.i.i = phi ptr [ %265, %264 ], [ %.sroa.060.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i48.i ]
   %.val3.i43.i.i.i.i.i = load ptr, ptr %.sroa.060.2.i.i.i.i.i, align 8, !tbaa !37
   %267 = getelementptr i8, ptr %.sroa.060.2.i.i.i.i.i, i64 8
   %.val4.i44.i.i.i.i.i = load i64, ptr %267, align 8, !tbaa !38

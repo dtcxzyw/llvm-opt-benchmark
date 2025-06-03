@@ -521,11 +521,11 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   br label %81
 
 81:                                               ; preds = %79, %74, %69
-  %.0315.i = phi i32 [ %80, %79 ], [ %78, %74 ], [ %73, %69 ]
-  %.0312.i = phi i32 [ 0, %79 ], [ %68, %74 ], [ %68, %69 ]
-  %82 = phi i1 [ false, %79 ], [ true, %74 ], [ true, %69 ]
-  %.0311.i = phi i32 [ 0, %79 ], [ 2, %74 ], [ 1, %69 ]
-  %.0309.i = phi i32 [ %68, %79 ], [ %77, %74 ], [ %72, %69 ]
+  %.0315.i = phi i32 [ %80, %79 ], [ %73, %69 ], [ %78, %74 ]
+  %.0312.i = phi i32 [ 0, %79 ], [ %68, %69 ], [ %68, %74 ]
+  %82 = phi i1 [ false, %79 ], [ true, %69 ], [ true, %74 ]
+  %.0311.i = phi i32 [ 0, %79 ], [ 1, %69 ], [ 2, %74 ]
+  %.0309.i = phi i32 [ %68, %79 ], [ %72, %69 ], [ %77, %74 ]
   %83 = add i32 %.0315.i, %.05458
   %84 = and i32 %65, 15
   switch i32 %84, label %95 [
@@ -549,11 +549,11 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   br label %95
 
 95:                                               ; preds = %90, %85, %81
-  %.0314.i = phi i32 [ %.0309.i, %90 ], [ %.0309.i, %85 ], [ 0, %81 ]
-  %96 = phi i1 [ true, %90 ], [ true, %85 ], [ false, %81 ]
-  %.0313.i = phi i32 [ 2, %90 ], [ 1, %85 ], [ 0, %81 ]
-  %.0310.i = phi i32 [ %94, %90 ], [ %89, %85 ], [ %84, %81 ]
-  %.1.i = phi i32 [ %93, %90 ], [ %88, %85 ], [ %.0309.i, %81 ]
+  %.0314.i = phi i32 [ %.0309.i, %85 ], [ %.0309.i, %90 ], [ 0, %81 ]
+  %96 = phi i1 [ true, %85 ], [ true, %90 ], [ false, %81 ]
+  %.0313.i = phi i32 [ 1, %85 ], [ 2, %90 ], [ 0, %81 ]
+  %.0310.i = phi i32 [ %89, %85 ], [ %94, %90 ], [ %84, %81 ]
+  %.1.i = phi i32 [ %88, %85 ], [ %93, %90 ], [ %.0309.i, %81 ]
   %97 = sub i32 %4, %.1.i
   %98 = icmp sgt i32 %.0310.i, %97
   br i1 %98, label %dissect_coap_options_main.exit.thread, label %99
@@ -715,7 +715,7 @@ coap_get_opt_uint.exit.i49:                       ; preds = %154
   br label %dissect_coap_opt_ctype.exit
 
 dissect_coap_opt_ctype.exit:                      ; preds = %154, %156, %159, %162, %164, %coap_get_opt_uint.exit.i49
-  %.0.i.sink.i = phi i32 [ %.0310.i, %154 ], [ %165, %164 ], [ %163, %162 ], [ %161, %159 ], [ %158, %156 ], [ -1, %coap_get_opt_uint.exit.i49 ]
+  %.0.i.sink.i = phi i32 [ %.0310.i, %154 ], [ %158, %156 ], [ %161, %159 ], [ %163, %162 ], [ %165, %164 ], [ -1, %coap_get_opt_uint.exit.i49 ]
   store i32 %.0.i.sink.i, ptr %61, align 8
   %166 = call ptr @val_to_str(i32 noundef %.0.i.sink.i, ptr noundef nonnull @vals_ctype, ptr noundef nonnull @.str.256)
   store ptr %166, ptr %6, align 8
@@ -854,7 +854,7 @@ dissect_coap_opt_location_path.exit:              ; preds = %209, %212
   br label %dissect_coap_opt_uri_port.exit
 
 dissect_coap_opt_uri_port.exit:                   ; preds = %218, %220, %223, %226, %228, %230
-  %.0.i43 = phi i32 [ %.0310.i, %218 ], [ -1, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %223 ], [ %222, %220 ]
+  %.0.i43 = phi i32 [ %.0310.i, %218 ], [ -1, %230 ], [ %222, %220 ], [ %225, %223 ], [ %227, %226 ], [ %229, %228 ]
   %231 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %219, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %.0.i43)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.318, i32 noundef %.0.i43)
   %232 = load ptr, ptr %39, align 8
@@ -1143,7 +1143,7 @@ dissect_coap_opt_uri_path.exit:                   ; preds = %369, %373
   br label %coap_get_opt_uint.exit.i
 
 coap_get_opt_uint.exit.i:                         ; preds = %397, %395, %392, %389, %387
-  %.0.i.i = phi i32 [ %398, %397 ], [ %396, %395 ], [ %394, %392 ], [ %391, %389 ], [ -1, %387 ]
+  %.0.i.i = phi i32 [ %391, %389 ], [ %394, %392 ], [ %396, %395 ], [ %398, %397 ], [ -1, %387 ]
   %399 = call ptr @val_to_str(i32 noundef %.0.i.i, ptr noundef nonnull @vals_ctype, ptr noundef nonnull @.str.256)
   br label %dissect_coap_opt_accept.exit
 
@@ -1657,7 +1657,7 @@ define internal fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %
   br label %coap_get_opt_uint.exit
 
 coap_get_opt_uint.exit:                           ; preds = %6, %17, %15, %13, %10, %7
-  %.0 = phi i32 [ %4, %6 ], [ -1, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0 = phi i32 [ %4, %6 ], [ -1, %17 ], [ %9, %7 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ]
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %.0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.318, i32 noundef %.0)
   ret void
@@ -1699,7 +1699,7 @@ define internal fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef 
   br label %coap_get_opt_uint.exit
 
 coap_get_opt_uint.exit:                           ; preds = %7, %10, %13, %16, %18
-  %.0.i = phi i32 [ %19, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ -1, %7 ]
+  %.0.i = phi i32 [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ -1, %7 ]
   %20 = ashr i32 %.0.i, 4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %20, ptr %21, align 8
@@ -1768,7 +1768,7 @@ define internal fastcc void @dissect_coap_opt_ocf_version(ptr noundef %0, ptr no
   br label %coap_get_opt_uint.exit
 
 coap_get_opt_uint.exit:                           ; preds = %6, %7, %10, %13, %15, %17
-  %.0.i = phi i32 [ -1, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %10 ], [ %9, %7 ], [ %4, %6 ]
+  %.0.i = phi i32 [ -1, %17 ], [ %9, %7 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ], [ %4, %6 ]
   %18 = and i32 %.0.i, 63
   %19 = lshr i32 %.0.i, 6
   %20 = and i32 %19, 31
@@ -1929,9 +1929,9 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
   %61 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %proto_item_set_generated.exit400
 
-62:                                               ; preds = %37, %56, %49, %42
-  %.2.ph = phi i32 [ 2, %42 ], [ 3, %49 ], [ 5, %56 ], [ 1, %37 ]
-  %.0.i.ph = phi i32 [ %45, %42 ], [ %52, %49 ], [ %58, %56 ], [ %38, %37 ]
+62:                                               ; preds = %37, %42, %49, %56
+  %.2.ph = phi i32 [ 5, %56 ], [ 3, %49 ], [ 2, %42 ], [ 1, %37 ]
+  %.0.i.ph = phi i32 [ %58, %56 ], [ %52, %49 ], [ %45, %42 ], [ %38, %37 ]
   %63 = add nuw nsw i32 %.2.ph, 1
   %64 = add i32 %63, %.0.i.ph
   %65 = add i32 %64, %34

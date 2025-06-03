@@ -3994,7 +3994,7 @@ rb_tracearg_lineno.exit68:                        ; preds = %rb_tracearg_path.ex
   br label %219
 
 219:                                              ; preds = %.fill_path_and_lineno.exit_crit_edge.i, %214, %rb_tracearg_lineno.exit68, %160, %rb_tracearg_lineno.exit54
-  %.1 = phi i64 [ %213, %rb_tracearg_lineno.exit68 ], [ %164, %160 ], [ %159, %rb_tracearg_lineno.exit54 ], [ %84, %.fill_path_and_lineno.exit_crit_edge.i ], [ %218, %214 ]
+  %.1 = phi i64 [ %213, %rb_tracearg_lineno.exit68 ], [ %84, %.fill_path_and_lineno.exit_crit_edge.i ], [ %159, %rb_tracearg_lineno.exit54 ], [ %164, %160 ], [ %218, %214 ]
   ret i64 %.1
 }
 
@@ -6193,7 +6193,7 @@ define internal void @call_trace_func(i32 noundef %0, i64 noundef %1, i64 nounde
   br label %get_event_name.exit
 
 get_event_name.exit:                              ; preds = %5, %9, %10, %11, %12, %13, %14, %15, %16
-  %.0.i22 = phi ptr [ @.str.108, %16 ], [ @.str.53, %15 ], [ @.str.107, %14 ], [ @.str.106, %13 ], [ @.str.47, %12 ], [ @.str.45, %11 ], [ @.str.43, %10 ], [ @.str.41, %9 ], [ @.str.39, %5 ]
+  %.0.i22 = phi ptr [ @.str.108, %16 ], [ @.str.41, %9 ], [ @.str.43, %10 ], [ @.str.45, %11 ], [ @.str.47, %12 ], [ @.str.106, %13 ], [ @.str.107, %14 ], [ @.str.53, %15 ], [ @.str.39, %5 ]
   %17 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i22) #5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #5
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)

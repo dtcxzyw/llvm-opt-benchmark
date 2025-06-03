@@ -9702,7 +9702,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %182
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i:        ; preds = %187, %.thread.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ %189, %187 ], [ 0, %.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %189, %187 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
   %190 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i
 
@@ -9864,7 +9864,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i76: ; preds = %232
   br label %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i83
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i83:      ; preds = %237, %.thread.i.i.i.i.i.i90, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i76
-  %.1.i.i.i.i.i.i84 = phi i32 [ %spec.select.i.i.i.i.i.i82, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i76 ], [ %239, %237 ], [ 0, %.thread.i.i.i.i.i.i90 ]
+  %.1.i.i.i.i.i.i84 = phi i32 [ %239, %237 ], [ %spec.select.i.i.i.i.i.i82, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i76 ], [ 0, %.thread.i.i.i.i.i.i90 ]
   %240 = icmp slt i32 %.1.i.i.i.i.i.i84, 0
   br label %_ZNSt8_Rb_treeISt4pairIbN4llvm9StringRefEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i85
 
@@ -11817,7 +11817,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %22
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatEKSB_EEbT_RT0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIPNS3_11CompressPatEKSB_EEbT_RT0_.exit": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %.thread.i.i.i.i, %19, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i, %.thread.i.i35.i.i, %31
-  %.0.in.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %21, %19 ], [ 0, %.thread.i.i.i.i ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ %33, %31 ], [ 0, %.thread.i.i35.i.i ]
+  %.0.in.i.i = phi i32 [ %21, %19 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ], [ %33, %31 ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ 0, %.thread.i.i35.i.i ]
   %.0.i.i = icmp slt i32 %.0.in.i.i, 0
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 608
   %35 = xor i64 %9, -1
@@ -11922,7 +11922,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %22
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIKNS3_11CompressPatEPSB_EEbRT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS3_11EmitterTypeEE3$_0EclIKNS3_11CompressPatEPSB_EEbRT_T0_.exit": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %.thread.i.i.i.i, %19, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i, %.thread.i.i35.i.i, %31
-  %.0.in.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %21, %19 ], [ 0, %.thread.i.i.i.i ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ %33, %31 ], [ 0, %.thread.i.i35.i.i ]
+  %.0.in.i.i = phi i32 [ %21, %19 ], [ %spec.select.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 0, %.thread.i.i.i.i ], [ %33, %31 ], [ %spec.select.i.i33.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i ], [ 0, %.thread.i.i35.i.i ]
   %.0.i.i = icmp slt i32 %.0.in.i.i, 0
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 608
   %35 = xor i64 %9, -1

@@ -1125,7 +1125,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %41, %47
   unreachable
 
 59:                                               ; preds = %50, %57, %.thread76
-  %.11 = phi i1 [ true, %57 ], [ %56, %.thread76 ], [ false, %50 ]
+  %.11 = phi i1 [ %56, %.thread76 ], [ true, %57 ], [ false, %50 ]
   ret i1 %.11
 }
 
@@ -1496,7 +1496,7 @@ switch.lookup:                                    ; preds = %59
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
 _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %59, %switch.lookup, %53, %48, %16, %25, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %35, %37, %41, %9
-  %.1 = phi i1 [ %11, %9 ], [ %45, %41 ], [ true, %25 ], [ %38, %37 ], [ true, %16 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %35 ], [ %58, %53 ], [ true, %48 ], [ %switch.masked, %switch.lookup ], [ false, %59 ]
+  %.1 = phi i1 [ %45, %41 ], [ %11, %9 ], [ true, %25 ], [ %38, %37 ], [ true, %16 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %35 ], [ %58, %53 ], [ true, %48 ], [ %switch.masked, %switch.lookup ], [ false, %59 ]
   ret i1 %.1
 }
 

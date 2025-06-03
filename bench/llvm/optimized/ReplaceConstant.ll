@@ -751,9 +751,9 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %._crit_edge287, %29
   br i1 %343, label %_ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit, label %.lr.ph.i.i.i.i.i118, !prof !44, !llvm.loop !75
 
 _ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %337, %324
-  %.lcssa.i.i.i.i.pn.i = phi i64 [ %331, %324 ], [ %340, %337 ]
+  %.pn.i = phi i64 [ %331, %324 ], [ %340, %337 ]
   %344 = zext i32 %322 to i64
-  %.not232 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %344
+  %.not232 = icmp samesign eq i64 %.pn.i, %344
   br i1 %.not232, label %_ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread, label %345
 
 345:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

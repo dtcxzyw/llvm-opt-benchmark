@@ -1200,7 +1200,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 .critedge13:                                      ; preds = %479, %479, %479, %479
   store i8 0, ptr %.1525, align 1
-  %483 = call ptr @PGTYPESinterval_from_asc(ptr noundef %spec.select596, ptr noundef nonnull %15) #11
+  %483 = call ptr @PGTYPESinterval_from_asc(ptr noundef nonnull %spec.select596, ptr noundef nonnull %15) #11
   store i8 %480, ptr %.1525, align 1
   %484 = icmp eq ptr %483, null
   br i1 %484, label %485, label %492
@@ -1208,7 +1208,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 485:                                              ; preds = %.critedge13
   %486 = tail call ptr @__errno_location() #12
   %487 = load i32, ptr %486, align 4
-  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef %spec.select596, i32 noundef %487) #11
+  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull %spec.select596, i32 noundef %487) #11
   br i1 %or.cond23, label %488, label %491
 
 488:                                              ; preds = %485
@@ -1222,7 +1222,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %498
 
 491:                                              ; preds = %485
-  call void @ecpg_raise(i32 noundef %3, i32 noundef -208, ptr noundef nonnull @.str.9, ptr noundef %spec.select596) #11
+  call void @ecpg_raise(i32 noundef %3, i32 noundef -208, ptr noundef nonnull @.str.9, ptr noundef nonnull %spec.select596) #11
   br label %.critedge31
 
 492:                                              ; preds = %.critedge13
@@ -1269,7 +1269,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 .critedge17:                                      ; preds = %507, %507, %507, %507
   store i8 0, ptr %.2526, align 1
-  %511 = call i64 @PGTYPESdate_from_asc(ptr noundef %spec.select597, ptr noundef nonnull %15) #11
+  %511 = call i64 @PGTYPESdate_from_asc(ptr noundef nonnull %spec.select597, ptr noundef nonnull %15) #11
   store i64 %511, ptr %16, align 8
   store i8 %508, ptr %.2526, align 1
   %512 = tail call ptr @__errno_location() #12
@@ -1278,7 +1278,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br i1 %.not570, label %517, label %514
 
 514:                                              ; preds = %.critedge17
-  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef %spec.select597, i32 noundef %513) #11
+  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull %spec.select597, i32 noundef %513) #11
   br i1 %or.cond23, label %515, label %516
 
 515:                                              ; preds = %514
@@ -1287,7 +1287,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %523
 
 516:                                              ; preds = %514
-  call void @ecpg_raise(i32 noundef %3, i32 noundef -209, ptr noundef nonnull @.str.9, ptr noundef %spec.select597) #11
+  call void @ecpg_raise(i32 noundef %3, i32 noundef -209, ptr noundef nonnull @.str.9, ptr noundef nonnull %spec.select597) #11
   br label %.critedge31
 
 517:                                              ; preds = %.critedge17
@@ -1333,7 +1333,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 .critedge21:                                      ; preds = %532, %532, %532, %532
   store i8 0, ptr %.3527, align 1
-  %536 = call i64 @PGTYPEStimestamp_from_asc(ptr noundef %spec.select598, ptr noundef nonnull %15) #11
+  %536 = call i64 @PGTYPEStimestamp_from_asc(ptr noundef nonnull %spec.select598, ptr noundef nonnull %15) #11
   store i64 %536, ptr %17, align 8
   store i8 %533, ptr %.3527, align 1
   %537 = tail call ptr @__errno_location() #12
@@ -1342,7 +1342,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br i1 %.not564, label %542, label %539
 
 539:                                              ; preds = %.critedge21
-  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef %spec.select598, i32 noundef %538) #11
+  call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull %spec.select598, i32 noundef %538) #11
   br i1 %or.cond23, label %540, label %541
 
 540:                                              ; preds = %539
@@ -1351,7 +1351,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %548
 
 541:                                              ; preds = %539
-  call void @ecpg_raise(i32 noundef %3, i32 noundef -210, ptr noundef nonnull @.str.9, ptr noundef %spec.select598) #11
+  call void @ecpg_raise(i32 noundef %3, i32 noundef -210, ptr noundef nonnull @.str.9, ptr noundef nonnull %spec.select598) #11
   br label %.critedge31
 
 542:                                              ; preds = %.critedge21
@@ -1380,7 +1380,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %.critedge31
 
 garbage_left.exit632.thread700:                   ; preds = %324, %297, %302, %195, %200, %205, %garbage_left.exit616.thread697, %155, %160, %165, %garbage_left.exit.thread694, %548, %523, %498, %475, %450, %.critedge, %375, %320, %312
-  %.2 = phi ptr [ %549, %548 ], [ %524, %523 ], [ %499, %498 ], [ %467, %475 ], [ %451, %450 ], [ %426, %.critedge ], [ %376, %375 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %296, %302 ], [ %296, %297 ], [ %194, %garbage_left.exit616.thread697 ], [ %194, %205 ], [ %194, %200 ], [ %194, %195 ], [ %154, %garbage_left.exit.thread694 ], [ %154, %165 ], [ %154, %160 ], [ %154, %155 ]
+  %.2 = phi ptr [ %154, %garbage_left.exit.thread694 ], [ %154, %155 ], [ %154, %160 ], [ %154, %165 ], [ %194, %garbage_left.exit616.thread697 ], [ %194, %195 ], [ %194, %200 ], [ %194, %205 ], [ %296, %297 ], [ %296, %302 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %376, %375 ], [ %426, %.critedge ], [ %451, %450 ], [ %467, %475 ], [ %499, %498 ], [ %524, %523 ], [ %549, %548 ]
   br i1 %31, label %garbage_left.exit632.thread700.thread, label %array_delimiter.exit684.thread721
 
 garbage_left.exit632.thread700.thread:            ; preds = %array_delimiter.exit.i621, %array_delimiter.exit.i637, %garbage_left.exit632.thread700
@@ -1443,7 +1443,7 @@ array_delimiter.exit684.thread721:                ; preds = %562, %227, %garbage
   br i1 %or.cond733, label %.critedge31, label %array_boundary.exit688, !llvm.loop !15
 
 .critedge31:                                      ; preds = %array_delimiter.exit684.thread721, %488, %garbage_left.exit632.thread700.thread, %.critedge29, %.thread, %63, %554, %541, %516, %491, %465, %464, %.thread713, %garbage_left.exit664.thread, %garbage_left.exit648.thread, %garbage_left.exit632.thread, %garbage_left.exit616.thread, %garbage_left.exit.thread, %66, %61, %60, %33, %23
-  %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %554 ], [ false, %541 ], [ false, %516 ], [ false, %491 ], [ false, %464 ], [ false, %465 ], [ false, %.thread713 ], [ false, %garbage_left.exit664.thread ], [ false, %garbage_left.exit648.thread ], [ false, %garbage_left.exit632.thread ], [ false, %garbage_left.exit616.thread ], [ false, %garbage_left.exit.thread ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit632.thread700.thread ], [ true, %array_delimiter.exit684.thread721 ], [ false, %488 ]
+  %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %554 ], [ false, %garbage_left.exit.thread ], [ false, %garbage_left.exit616.thread ], [ false, %garbage_left.exit632.thread ], [ false, %garbage_left.exit648.thread ], [ false, %garbage_left.exit664.thread ], [ false, %.thread713 ], [ false, %464 ], [ false, %465 ], [ false, %491 ], [ false, %516 ], [ false, %541 ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit632.thread700.thread ], [ true, %array_delimiter.exit684.thread721 ], [ false, %488 ]
   ret i1 %.0514
 }
 

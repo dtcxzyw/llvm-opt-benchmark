@@ -236,7 +236,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   br label %42
 
 42:                                               ; preds = %36, %33
-  %.sroa.0.0.i.i.i.i = phi ptr [ %39, %36 ], [ %35, %33 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %35, %33 ], [ %39, %36 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -676,7 +676,7 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
   br label %27
 
 27:                                               ; preds = %21, %18
-  %.sroa.0.0.i.i.i.i = phi ptr [ %24, %21 ], [ %20, %18 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %20, %18 ], [ %24, %21 ]
   %28 = load ptr, ptr %14, align 8, !alias.scope !145, !noalias !146, !nonnull !8, !noundef !8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
@@ -3378,7 +3378,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h29ecace921ebe8f9E.exit: ; preds
   %91 = icmp slt i64 %spec.store.select.i8.i.i.i.i, 0
   br i1 %91, label %.thread, label %.thread54
 
-.thread:                                          ; preds = %62, %78, %76, %_ZN4core5slice4sort6shared5pivot12choose_pivot17h29ecace921ebe8f9E.exit, %41
+.thread:                                          ; preds = %78, %76, %62, %_ZN4core5slice4sort6shared5pivot12choose_pivot17h29ecace921ebe8f9E.exit, %41
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   call void @llvm.experimental.noalias.scope.decl(metadata !778)
   %.not57 = icmp ult i64 %3, %.sroa.12.083
@@ -3500,7 +3500,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h29ecace921ebe8f9E.exit: ; preds
   br label %_ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i: ; preds = %136, %134, %120, %.lr.ph.i
-  %.sroa.0.0.i.i.i.i = phi i1 [ %115, %.lr.ph.i ], [ %135, %134 ], [ %149, %136 ], [ %133, %120 ]
+  %.sroa.0.0.i.i.i.i = phi i1 [ %115, %.lr.ph.i ], [ %133, %120 ], [ %135, %134 ], [ %149, %136 ]
   %150 = getelementptr inbounds i8, ptr %.sroa.19.113.i, i64 -24
   %.sroa.01.0.i.i = select i1 %.sroa.0.0.i.i.i.i, ptr %2, ptr %150
   %151 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %.sroa.01.0.i.i, i64 %.sroa.11.111.i
@@ -3547,7 +3547,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i: ; preds = %136,
   %.not = icmp ugt i64 %.sroa.11.1.lcssa.i, %.sroa.12.083
   br i1 %.not, label %253, label %258, !prof !62
 
-.thread54:                                        ; preds = %62, %78, %76, %41, %.loopexit
+.thread54:                                        ; preds = %78, %76, %62, %41, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   %.not58 = icmp ult i64 %3, %.sroa.12.083
@@ -3671,7 +3671,7 @@ _ZN4core3ops8function5FnMut8call_mut17h9b48b2f31239ce79E.exit.i: ; preds = %136,
   br label %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hac45753fa6210a32E.exit.i"
 
 "_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hac45753fa6210a32E.exit.i": ; preds = %215, %213, %199, %.lr.ph.i45
-  %.sroa.0.0.i.i.i.i.i = phi i1 [ %194, %.lr.ph.i45 ], [ %214, %213 ], [ %228, %215 ], [ %212, %199 ]
+  %.sroa.0.0.i.i.i.i.i = phi i1 [ %194, %.lr.ph.i45 ], [ %212, %199 ], [ %214, %213 ], [ %228, %215 ]
   %229 = xor i1 %.sroa.0.0.i.i.i.i.i, true
   %230 = getelementptr inbounds i8, ptr %.sroa.19.113.i46, i64 -24
   %.sroa.01.0.i.i51 = select i1 %.sroa.0.0.i.i.i.i.i, ptr %230, ptr %2
@@ -6117,7 +6117,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 

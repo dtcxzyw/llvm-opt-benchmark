@@ -116,7 +116,7 @@ define internal void @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerEiPKc(i32 noundef %0,
   br label %28
 
 28:                                               ; preds = %26, %22, %18, %14, %10, %6
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ %23, %22 ]
   tail call void @__cxa_free_exception(ptr nonnull %3) #8
   resume { ptr, i32 } %.pn
 }

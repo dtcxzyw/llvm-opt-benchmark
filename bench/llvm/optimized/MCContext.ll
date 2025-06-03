@@ -4462,8 +4462,8 @@ define dso_local noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %11, %14, %16, %18, %23, %27
-  %.sroa.3.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %18 ], [ 0, %14 ], [ %17, %16 ], [ 0, %11 ]
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %24, %23 ], [ %20, %18 ], [ null, %14 ], [ %15, %16 ], [ null, %11 ]
+  %.sroa.3.0.i = phi i64 [ %29, %27 ], [ %22, %18 ], [ %26, %23 ], [ 0, %14 ], [ %17, %16 ], [ 0, %11 ]
+  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %20, %18 ], [ %24, %23 ], [ null, %14 ], [ %15, %16 ], [ null, %11 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
   store ptr null, ptr %3, align 8, !tbaa !339
@@ -4775,7 +4775,7 @@ _ZN4llvm12MCSymbolWasmC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit:
   br label %_ZN4llvm12MCSymbolGOFFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit
 
 _ZN4llvm12MCSymbolGOFFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit: ; preds = %114, %102, %100, %88, %61, %49, %47, %35, %86, %_ZN4llvm12MCSymbolWasmC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit, %_ZN4llvm11MCSymbolELFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit, %_ZN4llvm12MCSymbolCOFFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit
-  %.0 = phi ptr [ %87, %86 ], [ %64, %_ZN4llvm12MCSymbolWasmC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %21, %_ZN4llvm11MCSymbolELFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %6, %_ZN4llvm12MCSymbolCOFFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %36, %35 ], [ %36, %47 ], [ %50, %49 ], [ %50, %61 ], [ %89, %88 ], [ %89, %100 ], [ %103, %102 ], [ %103, %114 ]
+  %.0 = phi ptr [ %6, %_ZN4llvm12MCSymbolCOFFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %21, %_ZN4llvm11MCSymbolELFC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %64, %_ZN4llvm12MCSymbolWasmC2EPKNS_14StringMapEntryINS_18MCSymbolTableValueEEEb.exit ], [ %87, %86 ], [ %36, %35 ], [ %36, %47 ], [ %50, %49 ], [ %50, %61 ], [ %89, %88 ], [ %89, %100 ], [ %103, %102 ], [ %103, %114 ]
   ret ptr %.0
 }
 
@@ -6848,8 +6848,8 @@ define dso_local noundef ptr @_ZNK4llvm9MCContext12lookupSymbolERKNS_5TwineE(ptr
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %29 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i) #22
   %30 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %29) #22
@@ -8080,8 +8080,8 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit87:        ; preds = %_ZNK4llvm5Twine11to
   br label %_ZNK4llvm5Twine18getSingleStringRefEv.exit
 
 _ZNK4llvm5Twine18getSingleStringRefEv.exit:       ; preds = %100, %114, %116, %118, %123
-  %.sroa.0.0.i88 = phi ptr [ %124, %123 ], [ %120, %118 ], [ null, %114 ], [ %115, %116 ], [ null, %100 ]
-  %.sroa.6.0.i = phi i64 [ %126, %123 ], [ %122, %118 ], [ 0, %114 ], [ %117, %116 ], [ 0, %100 ]
+  %.sroa.0.0.i88 = phi ptr [ %120, %118 ], [ %124, %123 ], [ null, %114 ], [ %115, %116 ], [ null, %100 ]
+  %.sroa.6.0.i = phi i64 [ %122, %118 ], [ %126, %123 ], [ 0, %114 ], [ %117, %116 ], [ 0, %100 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 2024
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store ptr %.sroa.0.0.i88, ptr %15, align 8
@@ -12621,7 +12621,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionENS_6detail13DenseSetEmptyENS_
   br label %182
 
 182:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit74.thread95.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %181, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit74.thread95.i.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %181, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit74.thread95.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %183 = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !272
   %184 = load ptr, ptr %1, align 8, !tbaa !214
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1320
@@ -12679,7 +12679,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionENS_6detail13DenseSetEmptyENS_
   br label %216
 
 216:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit82.thread96.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %215, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit82.thread96.i.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %215, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_9MCSectionENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_9MCContext21finalizeDwarfSectionsERNS2_10MCStreamerEE3$_0EEEclIPS5_EEbT_.exit82.thread96.i.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %217 = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !272
   %218 = load ptr, ptr %1, align 8, !tbaa !214
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 1320
@@ -17946,7 +17946,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %26, %.thread.i.i.thread ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %.1.i.i = phi i32 [ %26, %.thread.i.i.thread ], [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %27 = icmp slt i32 %.1.i.i, 0
   br label %40
 
@@ -18357,7 +18357,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %26, %.thread.i.i.thread ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
+  %.1.i.i = phi i32 [ %26, %.thread.i.i.thread ], [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %27 = icmp slt i32 %.1.i.i, 0
   br label %33
 

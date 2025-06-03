@@ -1864,7 +1864,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %105, %100, %99, %94, %87, %81, %77, %73, %67, %._crit_edge.us
-  %.162.us = phi nsz float [ %.1.lcssa.us, %._crit_edge.us ], [ %.1.lcssa.us, %73 ], [ %80, %77 ], [ %86, %81 ], [ %93, %87 ], [ %96, %99 ], [ %.061.us, %94 ], [ %104, %100 ], [ %106, %105 ], [ 0.000000e+00, %67 ]
+  %.162.us = phi nsz float [ %.1.lcssa.us, %._crit_edge.us ], [ %106, %105 ], [ %104, %100 ], [ %96, %99 ], [ %.061.us, %94 ], [ %93, %87 ], [ %86, %81 ], [ %.1.lcssa.us, %73 ], [ %80, %77 ], [ 0.000000e+00, %67 ]
   %107 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv79
   store float %.162.us, ptr %107, align 4, !tbaa !60
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -2103,7 +2103,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %123, %118, %117, %112, %105, %99, %95, %91, %85, %._crit_edge93.us
-  %.184.us = phi nsz float [ %.1.lcssa.us, %._crit_edge93.us ], [ %.1.lcssa.us, %91 ], [ %98, %95 ], [ %104, %99 ], [ %111, %105 ], [ %114, %117 ], [ %.083.us, %112 ], [ %122, %118 ], [ %124, %123 ], [ 0.000000e+00, %85 ]
+  %.184.us = phi nsz float [ %.1.lcssa.us, %._crit_edge93.us ], [ %124, %123 ], [ %122, %118 ], [ %114, %117 ], [ %.083.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %.1.lcssa.us, %91 ], [ %98, %95 ], [ 0.000000e+00, %85 ]
   %125 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv117
   store float %.184.us, ptr %125, align 4, !tbaa !60
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1

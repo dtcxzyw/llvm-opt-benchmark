@@ -1033,7 +1033,7 @@ define hidden range(i32 0, 27) i32 @avifImageAllocatePlanes(ptr noundef captures
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %25, %24
-  %26 = phi i1 [ true, %24 ], [ false, %25 ]
+  %26 = phi i1 [ false, %25 ], [ true, %24 ]
   store i32 1, ptr %.sroa.3, align 4
   br label %.sink.split.i
 
@@ -1155,7 +1155,7 @@ define hidden range(i32 0, 25) i32 @avifImageSetViewRect(ptr noundef captures(no
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %6, %3
-  %7 = phi i1 [ true, %3 ], [ false, %6 ]
+  %7 = phi i1 [ false, %6 ], [ true, %3 ]
   store i32 1, ptr %.sroa.3, align 4
   br label %.sink.split.i
 

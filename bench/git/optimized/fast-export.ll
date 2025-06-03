@@ -2328,9 +2328,9 @@ anonymize_refname.exit.i:                         ; preds = %skip_prefix.exit.i.
   br label %.thread87.i
 
 .thread87.i:                                      ; preds = %103, %99, %95, %93, %.thread.i, %anonymize_refname.exit.i
-  %.not7094.i = phi ptr [ @.str.63, %.thread.i ], [ %.1102.i, %95 ], [ %.1102.i, %103 ], [ %.1102.i, %99 ], [ %.1102.i, %93 ], [ @.str.63, %anonymize_refname.exit.i ]
-  %.08492.i = phi ptr [ %19, %.thread.i ], [ %.084100.i, %95 ], [ %.084100.i, %103 ], [ %.084100.i, %99 ], [ %.084100.i, %93 ], [ %78, %anonymize_refname.exit.i ]
-  %.2.i = phi i64 [ %.051.i, %.thread.i ], [ %.152101.i, %95 ], [ %107, %103 ], [ %.152101.i, %99 ], [ %.152101.i, %93 ], [ %.051.i, %anonymize_refname.exit.i ]
+  %.not7094.i = phi ptr [ @.str.63, %.thread.i ], [ %.1102.i, %95 ], [ %.1102.i, %99 ], [ %.1102.i, %103 ], [ %.1102.i, %93 ], [ @.str.63, %anonymize_refname.exit.i ]
+  %.08492.i = phi ptr [ %19, %.thread.i ], [ %.084100.i, %95 ], [ %.084100.i, %99 ], [ %.084100.i, %103 ], [ %.084100.i, %93 ], [ %78, %anonymize_refname.exit.i ]
+  %.2.i = phi i64 [ %.051.i, %.thread.i ], [ %.152101.i, %95 ], [ %.152101.i, %99 ], [ %107, %103 ], [ %.152101.i, %93 ], [ %.051.i, %anonymize_refname.exit.i ]
   %108 = load ptr, ptr %26, align 8, !tbaa !91
   %109 = call ptr @lookup_decoration(ptr noundef nonnull @idnums, ptr noundef %108) #19
   %110 = ptrtoint ptr %109 to i64

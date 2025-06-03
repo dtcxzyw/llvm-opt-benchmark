@@ -1217,53 +1217,53 @@ sub_1.i:                                          ; preds = %sub_0.i
 .lr.ph.i.i:                                       ; preds = %396, %412
   %.01526.i.i = phi i32 [ %413, %412 ], [ 0, %396 ]
   %.01625.i.i = phi i32 [ %.11718.i.i, %412 ], [ 6, %396 ]
-  switch i32 %.01625.i.i, label %407 [
-    i32 6, label %410
-    i32 7, label %398
-    i32 2, label %400
-    i32 4, label %402
-    i32 0, label %404
+  switch i32 %.01625.i.i, label %406 [
+    i32 6, label %398
+    i32 7, label %400
+    i32 2, label %402
+    i32 4, label %404
+    i32 0, label %409
   ]
 
 398:                                              ; preds = %.lr.ph.i.i
-  %399 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %6)
+  %399 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %5)
   br i1 %399, label %412, label %parse_ooaffentry.exit.i
 
 400:                                              ; preds = %.lr.ph.i.i
-  %401 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %8)
+  %401 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %6)
   br i1 %401, label %412, label %parse_ooaffentry.exit.i
 
 402:                                              ; preds = %.lr.ph.i.i
-  %403 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %9)
+  %403 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %8)
   br i1 %403, label %412, label %parse_ooaffentry.exit.i
 
 404:                                              ; preds = %.lr.ph.i.i
-  %405 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %7)
-  %406 = zext i1 %405 to i32
-  %spec.select.i.i = add i32 %.01526.i.i, %406
-  br label %parse_ooaffentry.exit.i
+  %405 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %9)
+  br i1 %405, label %412, label %parse_ooaffentry.exit.i
 
-407:                                              ; preds = %.lr.ph.i.i
-  %408 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %408)
-  %409 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %.01625.i.i) #14
+406:                                              ; preds = %.lr.ph.i.i
+  %407 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %407)
+  %408 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %.01625.i.i) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 893, ptr noundef nonnull @__func__.parse_ooaffentry) #14
   unreachable
 
-410:                                              ; preds = %.lr.ph.i.i
-  %411 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %5)
-  br i1 %411, label %412, label %parse_ooaffentry.exit.i
+409:                                              ; preds = %.lr.ph.i.i
+  %410 = call fastcc zeroext i1 @get_nextfield(ptr noundef %4, ptr noundef nonnull %7)
+  %411 = zext i1 %410 to i32
+  %spec.select.i.i = add i32 %.01526.i.i, %411
+  br label %parse_ooaffentry.exit.i
 
-412:                                              ; preds = %410, %402, %400, %398
-  %.11718.i.i = phi i32 [ 7, %410 ], [ 0, %402 ], [ 4, %400 ], [ 2, %398 ]
+412:                                              ; preds = %404, %402, %400, %398
+  %.11718.i.i = phi i32 [ 7, %398 ], [ 2, %400 ], [ 4, %402 ], [ 0, %404 ]
   %413 = add i32 %.01526.i.i, 1
   %414 = load ptr, ptr %4, align 8
   %415 = load i8, ptr %414, align 1
   %.not.i.i = icmp eq i8 %415, 0
   br i1 %.not.i.i, label %parse_ooaffentry.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
-parse_ooaffentry.exit.i:                          ; preds = %412, %410, %402, %400, %398, %404, %396
-  %.1.i.i = phi i32 [ %spec.select.i.i, %404 ], [ 0, %396 ], [ %413, %412 ], [ %.01526.i.i, %410 ], [ %.01526.i.i, %402 ], [ %.01526.i.i, %400 ], [ %.01526.i.i, %398 ]
+parse_ooaffentry.exit.i:                          ; preds = %412, %404, %402, %400, %398, %409, %396
+  %.1.i.i = phi i32 [ %spec.select.i.i, %409 ], [ 0, %396 ], [ %413, %412 ], [ %.01526.i.i, %398 ], [ %.01526.i.i, %400 ], [ %.01526.i.i, %402 ], [ %.01526.i.i, %404 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not135.i = icmp eq ptr %.0114193.i, null
   br i1 %.not135.i, label %sub_0154.i, label %416

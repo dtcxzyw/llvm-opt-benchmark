@@ -9722,7 +9722,7 @@ default.unreachable:                              ; preds = %.noexc7
   br label %_ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i
 
 _ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i: ; preds = %41, %39, %.noexc7
-  %.sroa.01.0.i.i = phi ptr [ %42, %41 ], [ %40, %39 ], [ %26, %.noexc7 ]
+  %.sroa.01.0.i.i = phi ptr [ %40, %39 ], [ %42, %41 ], [ %26, %.noexc7 ]
   %43 = invoke { ptr, i64 } @_ZN7project14search_history13SearchHistory4next17hab29f9f60c27d470E(ptr noalias noundef nonnull align 8 dereferenceable(48) %38, ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.01.0.i.i)
           to label %.noexc8 unwind label %56
 
@@ -10316,7 +10316,7 @@ default.unreachable:                              ; preds = %.noexc7
   br label %_ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i
 
 _ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i: ; preds = %41, %39, %.noexc7
-  %.sroa.01.0.i.i = phi ptr [ %42, %41 ], [ %40, %39 ], [ %26, %.noexc7 ]
+  %.sroa.01.0.i.i = phi ptr [ %40, %39 ], [ %42, %41 ], [ %26, %.noexc7 ]
   %43 = invoke { ptr, i64 } @_ZN7project14search_history13SearchHistory8previous17hb27f125d3edd6112E(ptr noalias noundef nonnull align 8 dereferenceable(48) %38, ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.01.0.i.i)
           to label %.noexc8 unwind label %56
 
@@ -24078,8 +24078,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %69
 
 69:                                               ; preds = %64, %72
-  %.sroa.3.0 = phi ptr [ undef, %72 ], [ %68, %64 ]
-  %.sroa.0.0 = phi ptr [ null, %72 ], [ %66, %64 ]
+  %.sroa.3.0 = phi ptr [ %68, %64 ], [ undef, %72 ]
+  %.sroa.0.0 = phi ptr [ %66, %64 ], [ null, %72 ]
   %70 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %71 = insertvalue { ptr, ptr } %70, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %71

@@ -260,7 +260,7 @@ default.unreachable:                              ; preds = %2
   br label %40
 
 40:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE.exit", %21, %15
-  %.0.in = phi i1 [ %53, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE.exit" ], [ %39, %21 ], [ %20, %15 ]
+  %.0.in = phi i1 [ %20, %15 ], [ %39, %21 ], [ %53, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h65d73292556f9b3fE.exit" ]
   ret i1 %.0.in
 
 41:                                               ; preds = %43

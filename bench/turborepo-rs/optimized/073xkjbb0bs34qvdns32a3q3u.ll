@@ -1301,7 +1301,7 @@ _RNvMs2_NtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5innerINtB5_4PoolNtNtNtBb_
   br label %73
 
 73:                                               ; preds = %67, %64
-  %.sroa.02.0.i = phi ptr [ %70, %67 ], [ %66, %64 ]
+  %.sroa.02.0.i = phi ptr [ %66, %64 ], [ %70, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %75 = load ptr, ptr %74, align 8, !invariant.load !5, !nonnull !5
   %76 = invoke { i32, i32 } %75(ptr noundef align 1 %62, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.02.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11, ptr noalias noundef nonnull align 8 %14, i64 noundef %16)
@@ -5381,7 +5381,7 @@ default.unreachable:                              ; preds = %14
   br label %_RNvXsG_CseG2FYMysgNb_3waxNtB5_10BuildErrorNtNtCs1LoaDTb72WA_4core3fmt7Display3fmt.exit
 
 _RNvXsG_CseG2FYMysgNb_3waxNtB5_10BuildErrorNtNtCs1LoaDTb72WA_4core3fmt7Display3fmt.exit: ; preds = %25, %23, %17, %32
-  %.sroa.0.0.in = phi i1 [ %38, %32 ], [ %31, %25 ], [ %24, %23 ], [ %22, %17 ]
+  %.sroa.0.0.in = phi i1 [ %38, %32 ], [ %22, %17 ], [ %24, %23 ], [ %31, %25 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5463,7 +5463,7 @@ default.unreachable:                              ; preds = %2
   br label %_RNvXsJ_CseG2FYMysgNb_3waxNtB5_14BuildErrorKindNtNtCs1LoaDTb72WA_4core3fmt7Display3fmt.exit
 
 _RNvXsJ_CseG2FYMysgNb_3waxNtB5_14BuildErrorKindNtNtCs1LoaDTb72WA_4core3fmt7Display3fmt.exit: ; preds = %12, %18, %20
-  %.sroa.0.0.in.i = phi i1 [ %26, %20 ], [ %19, %18 ], [ %17, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %12 ], [ %19, %18 ], [ %26, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5507,7 +5507,7 @@ default.unreachable:                              ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %11, %9
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %11 ], [ %10, %9 ]
+  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %13, %11 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -5588,7 +5588,7 @@ default.unreachable:                              ; preds = %2
   br label %27
 
 27:                                               ; preds = %20, %18, %12
-  %.sroa.0.0.in = phi i1 [ %26, %20 ], [ %19, %18 ], [ %17, %12 ]
+  %.sroa.0.0.in = phi i1 [ %17, %12 ], [ %19, %18 ], [ %26, %20 ]
   ret i1 %.sroa.0.0.in
 }
 

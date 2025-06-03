@@ -506,7 +506,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til15getCanonicalValEPKNS1
   br label %.backedge
 
 .backedge:                                        ; preds = %8, %14
-  %.0.be.in = phi ptr [ %9, %8 ], [ %16, %14 ]
+  %.0.be.in = phi ptr [ %16, %14 ], [ %9, %8 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8, !tbaa !30
   br label %2
 

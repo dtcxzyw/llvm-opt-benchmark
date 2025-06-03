@@ -541,7 +541,7 @@ decode2x2.exit.critedge.i.i:                      ; preds = %220
   br i1 %286, label %.preheader29.i.i.i, label %decode2x2.exit.i.i, !llvm.loop !51
 
 decode2x2.exit.i.i:                               ; preds = %301, %285, %decode2x2.exit.critedge.i.i, %220
-  %.sroa.12.7 = phi i32 [ %232, %220 ], [ %242, %decode2x2.exit.critedge.i.i ], [ %spec.select.i.i.i.i, %285 ], [ %299, %301 ]
+  %.sroa.12.7 = phi i32 [ %242, %decode2x2.exit.critedge.i.i ], [ %232, %220 ], [ %spec.select.i.i.i.i, %285 ], [ %299, %301 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   br i1 %221, label %220, label %302, !llvm.loop !52
 
@@ -571,7 +571,7 @@ decode4x4.exit.i:                                 ; preds = %302, %216, %decode4
   unreachable
 
 decode8x8.exit:                                   ; preds = %305, %130, %.lr.ph133, %77
-  %.sroa.12.17 = phi i32 [ %75, %.lr.ph133 ], [ %87, %77 ], [ %spec.select.i.i, %130 ], [ %.sroa.12.4, %305 ]
+  %.sroa.12.17 = phi i32 [ %87, %77 ], [ %75, %.lr.ph133 ], [ %spec.select.i.i, %130 ], [ %.sroa.12.4, %305 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %306 = load i32, ptr %42, align 8, !tbaa !27

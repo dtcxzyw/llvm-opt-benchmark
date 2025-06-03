@@ -63241,7 +63241,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 28:                                               ; preds = %26, %24, %21, %18, %15, %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %27, %26 ], [ %25, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -63427,7 +63427,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -63861,13 +63861,13 @@ default.unreachable:                              ; preds = %40
   unreachable
 
 "_ZN73_$LT$polars_core..frame..column..Column$u20$as$u20$core..clone..Clone$GT$5clone17hce88a4b75081082cE.exit.i": ; preds = %107, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i", %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i"
-  %.sroa.14.sroa.0.1.i = phi i64 [ %106, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %.sroa.14.sroa.0.0.i, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.14.sroa.0.0.i, %107 ]
-  %.sroa.1018.1.i = phi ptr [ %.sroa.01.i.sroa.7.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %71, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.1018.063.i, %107 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.01.i.sroa.6.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %64, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %110, %107 ]
-  %.sroa.615.0.i = phi ptr [ %.sroa.01.i.sroa.5.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %62, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %108, %107 ]
-  %.sroa.013.0.i = phi i8 [ %.sroa.01.i.sroa.0.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ 29, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ 28, %107 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.01.i.sroa.8.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %73, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.11.066.i, %107 ]
-  %.sroa.1421.1.i = phi i64 [ %100, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ], [ %.sroa.1421.068.i, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.1421.068.i, %107 ]
+  %.sroa.14.sroa.0.1.i = phi i64 [ %.sroa.14.sroa.0.0.i, %107 ], [ %.sroa.14.sroa.0.0.i, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %106, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.1018.1.i = phi ptr [ %.sroa.1018.063.i, %107 ], [ %71, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.7.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.8.0.i = phi ptr [ %110, %107 ], [ %64, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.6.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.615.0.i = phi ptr [ %108, %107 ], [ %62, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.5.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.013.0.i = phi i8 [ 28, %107 ], [ 29, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.0.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.11.066.i, %107 ], [ %73, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %.sroa.01.i.sroa.8.0.copyload.i, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
+  %.sroa.1421.1.i = phi i64 [ %.sroa.1421.068.i, %107 ], [ %.sroa.1421.068.i, %"_ZN97_$LT$polars_core..frame..column..partitioned..PartitionedColumn$u20$as$u20$core..clone..Clone$GT$5clone17h9e1de05162619463E.exit.i.i" ], [ %100, %"_ZN87_$LT$polars_core..frame..column..scalar..ScalarColumn$u20$as$u20$core..clone..Clone$GT$5clone17hb4aa8f1bb695bdebE.exit.i.i" ]
   %112 = getelementptr inbounds nuw { [20 x i64] }, ptr %28, i64 %.sroa.7.065.i
   store i8 %.sroa.013.0.i, ptr %112, align 16, !noalias !7209
   %.sroa.434.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 1
@@ -64118,13 +64118,13 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %"_ZN74_$LT$polars_row..row..RowEncodingContext$u20$as$u20$core..clone..Clone$GT$5clone17h31d8b1a2bab3f0bdE.exit.i"
 
 "_ZN74_$LT$polars_row..row..RowEncodingContext$u20$as$u20$core..clone..Clone$GT$5clone17h31d8b1a2bab3f0bdE.exit.i": ; preds = %42, %.noexc2, %47, %.noexc
-  %.sroa.53.i.i.sroa.0.1 = phi ptr [ %.sroa.53.i.i.sroa.0.041, %47 ], [ %.sroa.53.i.i.sroa.0.041, %.noexc ], [ %.sroa.53.i.i.sroa.0.041, %42 ], [ %58, %.noexc2 ]
-  %.sroa.53.i.i.sroa.4.1 = phi i64 [ %.sroa.53.i.i.sroa.4.042, %47 ], [ %.sroa.53.i.i.sroa.4.042, %.noexc ], [ %.sroa.53.i.i.sroa.4.042, %42 ], [ %52, %.noexc2 ]
-  %.sroa.1018.0 = phi i8 [ %.sroa.1018.0.copyload, %47 ], [ %.sroa.1018.8.copyload, %.noexc ], [ %46, %42 ], [ %46, %.noexc2 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.9.0.copyload, %47 ], [ %.sroa.9.8.copyload, %.noexc ], [ %44, %42 ], [ %44, %.noexc2 ]
-  %.sroa.016.0 = phi i64 [ %33, %47 ], [ -9223372036854775807, %.noexc ], [ -9223372036854775808, %42 ], [ %55, %.noexc2 ]
-  %.sroa.6.sroa.0.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %47 ], [ %.sroa.6.sroa.0.0.copyload23, %.noexc ], [ %.sroa.53.i.i.sroa.0.041, %42 ], [ %58, %.noexc2 ]
-  %.sroa.6.sroa.6.0 = phi i64 [ %.sroa.6.sroa.6.0.copyload, %47 ], [ %.sroa.6.sroa.6.0.copyload25, %.noexc ], [ %.sroa.53.i.i.sroa.4.042, %42 ], [ %52, %.noexc2 ]
+  %.sroa.53.i.i.sroa.0.1 = phi ptr [ %.sroa.53.i.i.sroa.0.041, %.noexc ], [ %.sroa.53.i.i.sroa.0.041, %47 ], [ %.sroa.53.i.i.sroa.0.041, %42 ], [ %58, %.noexc2 ]
+  %.sroa.53.i.i.sroa.4.1 = phi i64 [ %.sroa.53.i.i.sroa.4.042, %.noexc ], [ %.sroa.53.i.i.sroa.4.042, %47 ], [ %.sroa.53.i.i.sroa.4.042, %42 ], [ %52, %.noexc2 ]
+  %.sroa.1018.0 = phi i8 [ %.sroa.1018.8.copyload, %.noexc ], [ %.sroa.1018.0.copyload, %47 ], [ %46, %42 ], [ %46, %.noexc2 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.9.8.copyload, %.noexc ], [ %.sroa.9.0.copyload, %47 ], [ %44, %42 ], [ %44, %.noexc2 ]
+  %.sroa.016.0 = phi i64 [ -9223372036854775807, %.noexc ], [ %33, %47 ], [ -9223372036854775808, %42 ], [ %55, %.noexc2 ]
+  %.sroa.6.sroa.0.0 = phi ptr [ %.sroa.6.sroa.0.0.copyload23, %.noexc ], [ %.sroa.6.sroa.0.0.copyload, %47 ], [ %.sroa.53.i.i.sroa.0.041, %42 ], [ %58, %.noexc2 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %.sroa.6.sroa.6.0.copyload25, %.noexc ], [ %.sroa.6.sroa.6.0.copyload, %47 ], [ %.sroa.53.i.i.sroa.4.042, %42 ], [ %52, %.noexc2 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.510.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.11, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.11)
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32856cea5b922ffeE.exit"

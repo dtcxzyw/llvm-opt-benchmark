@@ -919,7 +919,7 @@ expand_.exit399:                                  ; preds = %174, %178
   unreachable
 
 233:                                              ; preds = %230, %224
-  %.1.in.i = phi ptr [ %231, %230 ], [ %229, %224 ]
+  %.1.in.i = phi ptr [ %229, %224 ], [ %231, %230 ]
   %.1.i403 = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -1408,7 +1408,7 @@ expand_.exit399:                                  ; preds = %174, %178
   unreachable
 
 522:                                              ; preds = %517, %513, %500, %282, %275, %271, %244, %238, %218, %.thread483, %64, %59, %6
-  %.0324 = phi ptr [ %520, %517 ], [ %283, %282 ], [ %509, %500 ], [ %516, %513 ], [ %274, %271 ], [ %276, %275 ], [ %220, %218 ], [ %239, %238 ], [ %245, %244 ], [ %62, %59 ], [ %68, %64 ], [ %71, %.thread483 ], [ %10, %6 ]
+  %.0324 = phi ptr [ %10, %6 ], [ %62, %59 ], [ %68, %64 ], [ %71, %.thread483 ], [ %220, %218 ], [ %239, %238 ], [ %245, %244 ], [ %274, %271 ], [ %276, %275 ], [ %283, %282 ], [ %509, %500 ], [ %516, %513 ], [ %520, %517 ]
   ret ptr %.0324
 }
 
@@ -1927,7 +1927,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -2028,7 +2028,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -2328,10 +2328,10 @@ define dso_local ptr @llvm_codegen(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %11, %1
-  %.not.i = phi ptr [ @.str.30, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
-  %.not14.i = phi ptr [ @.str.29, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
-  %.not15.i = phi ptr [ @.str.28, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
-  %.0.i = phi ptr [ null, %1 ], [ @.str.26, %12 ], [ @.str.25, %11 ]
+  %.not.i = phi ptr [ @.str.30, %1 ], [ @.str.25, %11 ], [ @.str.26, %12 ]
+  %.not14.i = phi ptr [ @.str.29, %1 ], [ @.str.25, %11 ], [ @.str.26, %12 ]
+  %.not15.i = phi ptr [ @.str.28, %1 ], [ @.str.25, %11 ], [ @.str.26, %12 ]
+  %.0.i = phi ptr [ null, %1 ], [ @.str.25, %11 ], [ @.str.26, %12 ]
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 184), align 8
   switch i32 %14, label %19 [
     i32 0, label %15
@@ -2354,7 +2354,7 @@ define dso_local ptr @llvm_codegen(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %18, %17, %16, %15, %13
-  %.1.i = phi ptr [ %.0.i, %13 ], [ %.not.i, %18 ], [ %.not14.i, %17 ], [ %.not15.i, %16 ], [ @.str.27, %15 ]
+  %.1.i = phi ptr [ %.0.i, %13 ], [ @.str.27, %15 ], [ %.not15.i, %16 ], [ %.not14.i, %17 ], [ %.not.i, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2809,7 +2809,7 @@ tailrecurse:                                      ; preds = %69, %2
   br i1 %23, label %24, label %28
 
 common.ret166:                                    ; preds = %66, %68, %44, %37, %75, %72, %6, %8, %24
-  %common.ret166.op = phi ptr [ %27, %24 ], [ %46, %44 ], [ %38, %37 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
+  %common.ret166.op = phi ptr [ %27, %24 ], [ %38, %37 ], [ %46, %44 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
   ret ptr %common.ret166.op
 
 24:                                               ; preds = %18

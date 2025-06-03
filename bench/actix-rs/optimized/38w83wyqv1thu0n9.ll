@@ -1757,9 +1757,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %18
 
 18:                                               ; preds = %4, %._crit_edge.i, %17
-  %.sroa.8.026.i.pn = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
+  %.sroa.8.0.ph.pn = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.026.i.pn, 1
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.0.ph.pn, 1
   ret { ptr, ptr } %.merged
 }
 
@@ -1814,9 +1814,9 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %19
 
 19:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i", %18
-  %.sroa.8.025.i.pn = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.sroa.8.0.ph.pn = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.025.i.pn, 1
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.0.ph.pn, 1
   ret { ptr, ptr } %.merged
 }
 
@@ -2579,7 +2579,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %27
 
 31:                                               ; preds = %39, %36, %27
-  %.pn2 = phi { ptr, i32 } [ %37, %36 ], [ %eh.lpad-body6, %39 ], [ %.pn, %27 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %27 ], [ %37, %36 ], [ %eh.lpad-body6, %39 ]
   resume { ptr, i32 } %.pn2
 
 32:                                               ; preds = %39, %36, %.body5, %27, %.body
@@ -2712,7 +2712,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %27
 
 31:                                               ; preds = %39, %36, %27
-  %.pn2 = phi { ptr, i32 } [ %37, %36 ], [ %eh.lpad-body6, %39 ], [ %.pn, %27 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %27 ], [ %37, %36 ], [ %eh.lpad-body6, %39 ]
   resume { ptr, i32 } %.pn2
 
 32:                                               ; preds = %39, %36, %.body5, %27, %.body
@@ -5506,7 +5506,7 @@ default.unreachable:                              ; preds = %34
   br label %"_ZN74_$LT$actix_router..resource..PatternType$u20$as$u20$core..clone..Clone$GT$5clone17hbeabe12eb04a137fE.exit"
 
 .body:                                            ; preds = %91, %87, %76, %97
-  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %92, %91 ], [ %88, %87 ], [ %77, %76 ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %92, %91 ], [ %77, %76 ], [ %88, %87 ]
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hc9229aa1fa2cbcb5E"(ptr noalias noundef align 8 dereferenceable(32) %11) #37
           to label %31 unwind label %104
 

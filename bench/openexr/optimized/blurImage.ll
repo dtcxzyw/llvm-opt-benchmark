@@ -587,12 +587,12 @@ default.unreachable:                              ; preds = %_ZNSolsEPFRSoS_E.ex
   unreachable
 
 230:                                              ; preds = %_ZNSolsEPFRSoS_E.exit239, %229, %228, %227, %226, %225
-  %.sroa.0375.0 = phi float [ 0.000000e+00, %229 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %226 ], [ -1.000000e+00, %225 ], [ 1.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.sroa.11.0 = phi float [ 0.000000e+00, %229 ], [ 0.000000e+00, %228 ], [ -1.000000e+00, %227 ], [ 1.000000e+00, %226 ], [ 0.000000e+00, %225 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.sroa.19.0 = phi float [ -1.000000e+00, %229 ], [ 1.000000e+00, %228 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %225 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0202.sroa.phi = phi ptr [ %.sroa.10, %229 ], [ %.sroa.10, %228 ], [ %.sroa.17, %227 ], [ %.sroa.17, %226 ], [ %.sroa.17, %225 ], [ %.sroa.17, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0201.sroa.phi = phi ptr [ %.sroa.0, %229 ], [ %.sroa.0, %228 ], [ %.sroa.0, %227 ], [ %.sroa.0, %226 ], [ %.sroa.10, %225 ], [ %.sroa.10, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0199.sroa.phi = phi ptr [ %.sroa.17, %229 ], [ %.sroa.17, %228 ], [ %.sroa.10, %227 ], [ %.sroa.10, %226 ], [ %.sroa.0, %225 ], [ %.sroa.0, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.0375.0 = phi float [ -1.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %229 ], [ 1.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.11.0 = phi float [ 0.000000e+00, %225 ], [ 1.000000e+00, %226 ], [ -1.000000e+00, %227 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %229 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.19.0 = phi float [ 0.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 1.000000e+00, %228 ], [ -1.000000e+00, %229 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0202.sroa.phi = phi ptr [ %.sroa.17, %225 ], [ %.sroa.17, %226 ], [ %.sroa.17, %227 ], [ %.sroa.10, %228 ], [ %.sroa.10, %229 ], [ %.sroa.17, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0201.sroa.phi = phi ptr [ %.sroa.10, %225 ], [ %.sroa.0, %226 ], [ %.sroa.0, %227 ], [ %.sroa.0, %228 ], [ %.sroa.0, %229 ], [ %.sroa.10, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0199.sroa.phi = phi ptr [ %.sroa.0, %225 ], [ %.sroa.10, %226 ], [ %.sroa.10, %227 ], [ %.sroa.17, %228 ], [ %.sroa.17, %229 ], [ %.sroa.0, %_ZNSolsEPFRSoS_E.exit239 ]
   br i1 %169, label %.lr.ph483.us, label %._crit_edge490.split.us
 
 .lr.ph483.us:                                     ; preds = %230, %._crit_edge484.us

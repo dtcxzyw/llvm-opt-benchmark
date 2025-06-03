@@ -17145,8 +17145,8 @@ define internal fastcc void @e1000e_dump(ptr noundef readonly captures(none) %0)
   br label %62
 
 59:                                               ; preds = %.critedge14, %.critedge12, %.critedge
-  %.sroa.0.2 = phi i32 [ %49, %.critedge14 ], [ %43, %.critedge12 ], [ %37, %.critedge ]
-  %.sroa.7.2 = phi i32 [ %52, %.critedge14 ], [ %46, %.critedge12 ], [ %40, %.critedge ]
+  %.sroa.0.2 = phi i32 [ %37, %.critedge ], [ %43, %.critedge12 ], [ %49, %.critedge14 ]
+  %.sroa.7.2 = phi i32 [ %40, %.critedge ], [ %46, %.critedge12 ], [ %52, %.critedge14 ]
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.130, ptr noundef nonnull %32, ptr noundef nonnull @.str.131) #22
   %61 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.132, ptr noundef nonnull %2, i32 noundef %.sroa.0.2, i32 noundef %.sroa.7.2) #25
   br label %62

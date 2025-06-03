@@ -5520,7 +5520,7 @@ define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %0, i32 nounde
   br label %_Py_NewRef.exit.thread
 
 _Py_NewRef.exit:                                  ; preds = %.thread45, %.thread, %15, %12
-  %.1 = phi ptr [ %17, %15 ], [ %14, %12 ], [ %27, %.thread ], [ %37, %.thread45 ]
+  %.1 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %27, %.thread ], [ %37, %.thread45 ]
   %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %.loopexit, label %_Py_NewRef.exit.thread
 

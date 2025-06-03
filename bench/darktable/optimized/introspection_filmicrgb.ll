@@ -11806,7 +11806,7 @@ dt_ioppr_apply_trc.exit.i33:                      ; preds = %195
   br label %dt_ioppr_get_rgb_matrix_luminance.exit
 
 dt_ioppr_get_rgb_matrix_luminance.exit:           ; preds = %214, %dt_ioppr_apply_trc.exit.i33, %83, %dt_ioppr_apply_trc.exit.i, %231, %100, %132, %120, %pixel_rgb_norm_power.exit, %6
-  %.0 = phi nsz float [ %144, %132 ], [ %131, %120 ], [ %119, %pixel_rgb_norm_power.exit ], [ %13, %6 ], [ %110, %100 ], [ %241, %231 ], [ %82, %dt_ioppr_apply_trc.exit.i ], [ %99, %83 ], [ %213, %dt_ioppr_apply_trc.exit.i33 ], [ %230, %214 ]
+  %.0 = phi nsz float [ %13, %6 ], [ %119, %pixel_rgb_norm_power.exit ], [ %131, %120 ], [ %144, %132 ], [ %110, %100 ], [ %241, %231 ], [ %82, %dt_ioppr_apply_trc.exit.i ], [ %99, %83 ], [ %213, %dt_ioppr_apply_trc.exit.i33 ], [ %230, %214 ]
   ret float %.0
 }
 

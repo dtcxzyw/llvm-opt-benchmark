@@ -5973,7 +5973,7 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.loopexit
 
 87:                                               ; preds = %75, %82, %61, %84, %77, %70, %71
-  %.0 = phi ptr [ null, %84 ], [ %.1.ph, %77 ], [ null, %70 ], [ @.str.56, %71 ], [ %spec.select, %82 ], [ @.str.12, %61 ], [ null, %75 ]
+  %.0 = phi ptr [ null, %70 ], [ @.str.56, %71 ], [ %.1.ph, %77 ], [ null, %84 ], [ %spec.select, %82 ], [ @.str.12, %61 ], [ null, %75 ]
   %.not125 = icmp eq ptr %.0, null
   %spec.store.select = select i1 %.not125, ptr @.str.12, ptr %.0
   %88 = load ptr, ptr %4, align 8
@@ -6923,7 +6923,7 @@ dissect_scsi_fix_snsinfo.exit:                    ; preds = %proto_item_set_hidd
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %126, %99, %97, %95, %93, %.preheader.i, %.lr.ph83.i
-  %.1.i = phi i32 [ %.082.i, %.lr.ph83.i ], [ %.082.i, %99 ], [ %.082.i, %97 ], [ %.082.i, %95 ], [ %.082.i, %93 ], [ %.278.i, %.preheader.i ], [ %.2.i, %126 ]
+  %.1.i = phi i32 [ %.082.i, %.lr.ph83.i ], [ %.082.i, %95 ], [ %.082.i, %93 ], [ %.082.i, %99 ], [ %.082.i, %97 ], [ %.278.i, %.preheader.i ], [ %.2.i, %126 ]
   %128 = add i32 %.1.i, %79
   %129 = icmp ult i32 %128, %73
   br i1 %129, label %.lr.ph83.i, label %dissect_scsi_descriptor_snsinfo.exit, !llvm.loop !25

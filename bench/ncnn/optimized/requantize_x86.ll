@@ -894,8 +894,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678: ; preds = %34
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134:   ; preds = %34, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread666, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread669, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread672, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread675, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678
-  %.0.i665 = phi <4 x float> [ %343, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678 ], [ %231, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread675 ], [ %97, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread672 ], [ %62, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread669 ], [ %50, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread666 ], [ %42, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %40, %34 ]
-  %.0.i133 = phi nsz <4 x float> [ %348, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678 ], [ %332, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread675 ], [ %130, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread672 ], [ %64, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread669 ], [ %54, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread666 ], [ %43, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %41, %34 ]
+  %.0.i665 = phi <4 x float> [ %42, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %50, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread666 ], [ %62, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread669 ], [ %97, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread672 ], [ %231, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread675 ], [ %343, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678 ], [ %40, %34 ]
+  %.0.i133 = phi nsz <4 x float> [ %43, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %54, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread666 ], [ %64, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread669 ], [ %130, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread672 ], [ %332, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread675 ], [ %348, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread678 ], [ %41, %34 ]
   %349 = fmul fast <4 x float> %.0.i665, %.0127
   %350 = fmul fast <4 x float> %.0.i133, %.0128
   %351 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %349)
@@ -1130,7 +1130,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134:   ; preds = %34, %_ZL14activatio
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit136
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit136:   ; preds = %.lr.ph764, %372, %374, %383, %394, %428, %530
-  %.0.i135 = phi nsz <4 x float> [ %543, %530 ], [ %529, %428 ], [ %427, %394 ], [ %393, %383 ], [ %382, %374 ], [ %373, %372 ], [ %371, %.lr.ph764 ]
+  %.0.i135 = phi nsz <4 x float> [ %373, %372 ], [ %382, %374 ], [ %393, %383 ], [ %427, %394 ], [ %529, %428 ], [ %543, %530 ], [ %371, %.lr.ph764 ]
   %544 = fmul fast <4 x float> %.0.i135, %.0127
   %545 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %544)
   %546 = fadd fast <4 x float> %545, %544
@@ -1240,7 +1240,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit136:   ; preds = %.lr.ph764, %372, %3
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %596, %.lr.ph771, %567, %569, %575, %582, %583, %590, %604, %608
-  %.1662 = phi nsz float [ %566, %.lr.ph771 ], [ %566, %604 ], [ %611, %608 ], [ %595, %590 ], [ %589, %583 ], [ %579, %582 ], [ %.0661, %575 ], [ %574, %569 ], [ %568, %567 ], [ 0.000000e+00, %596 ]
+  %.1662 = phi nsz float [ %566, %.lr.ph771 ], [ %568, %567 ], [ %574, %569 ], [ %579, %582 ], [ %.0661, %575 ], [ %589, %583 ], [ %595, %590 ], [ %566, %604 ], [ %611, %608 ], [ 0.000000e+00, %596 ]
   %612 = fmul fast float %.1662, %18
   %613 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %612)
   %614 = fptosi float %613 to i32
@@ -1647,8 +1647,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696: ; preds = %634
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140:   ; preds = %634, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread684, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread687, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread690, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread693, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696
-  %.0.i137683 = phi <4 x float> [ %945, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696 ], [ %833, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread693 ], [ %699, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread690 ], [ %664, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread687 ], [ %652, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread684 ], [ %644, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread ], [ %641, %634 ]
-  %.0.i139 = phi nsz <4 x float> [ %950, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696 ], [ %934, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread693 ], [ %732, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread690 ], [ %666, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread687 ], [ %656, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread684 ], [ %645, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread ], [ %643, %634 ]
+  %.0.i137683 = phi <4 x float> [ %644, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread ], [ %652, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread684 ], [ %664, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread687 ], [ %699, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread690 ], [ %833, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread693 ], [ %945, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696 ], [ %641, %634 ]
+  %.0.i139 = phi nsz <4 x float> [ %645, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread ], [ %656, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread684 ], [ %666, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread687 ], [ %732, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread690 ], [ %934, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread693 ], [ %950, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit138.thread696 ], [ %643, %634 ]
   %951 = fmul fast <4 x float> %.0.i137683, %.0127
   %952 = fmul fast <4 x float> %.0.i139, %.0128
   %953 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %951)
@@ -1884,7 +1884,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140:   ; preds = %634, %_ZL14activati
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit142
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit142:   ; preds = %.lr.ph746, %975, %977, %986, %997, %1031, %1133
-  %.0.i141 = phi nsz <4 x float> [ %1146, %1133 ], [ %1132, %1031 ], [ %1030, %997 ], [ %996, %986 ], [ %985, %977 ], [ %976, %975 ], [ %974, %.lr.ph746 ]
+  %.0.i141 = phi nsz <4 x float> [ %976, %975 ], [ %985, %977 ], [ %996, %986 ], [ %1030, %997 ], [ %1132, %1031 ], [ %1146, %1133 ], [ %974, %.lr.ph746 ]
   %1147 = fmul fast <4 x float> %.0.i141, %.0127
   %1148 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %1147)
   %1149 = fadd fast <4 x float> %1148, %1147
@@ -1995,7 +1995,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit142:   ; preds = %.lr.ph746, %975, %9
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit143
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit143:        ; preds = %1200, %.lr.ph753, %1171, %1173, %1179, %1186, %1187, %1194, %1208, %1212
-  %.1660 = phi nsz float [ %1170, %.lr.ph753 ], [ %1170, %1208 ], [ %1215, %1212 ], [ %1199, %1194 ], [ %1193, %1187 ], [ %1183, %1186 ], [ %.0659, %1179 ], [ %1178, %1173 ], [ %1172, %1171 ], [ 0.000000e+00, %1200 ]
+  %.1660 = phi nsz float [ %1170, %.lr.ph753 ], [ %1172, %1171 ], [ %1178, %1173 ], [ %1183, %1186 ], [ %.0659, %1179 ], [ %1193, %1187 ], [ %1199, %1194 ], [ %1170, %1208 ], [ %1215, %1212 ], [ 0.000000e+00, %1200 ]
   %1216 = fmul fast float %.1660, %18
   %1217 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %1216)
   %1218 = fptosi float %1217 to i32

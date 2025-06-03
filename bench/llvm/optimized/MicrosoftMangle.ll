@@ -2035,7 +2035,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %106, %116
-  %.1.i = phi ptr [ %113, %106 ], [ %117, %116 ]
+  %.1.i = phi ptr [ %117, %116 ], [ %113, %106 ]
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleFunctionTypeEPKN5clang12FunctionTypeEPKNS1_12FunctionDeclEbb(ptr noundef nonnull align 8 dereferenceable(593) %7, ptr noundef %.1.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameManglerD2Ev(ptr noundef nonnull align 8 dereferenceable(593) %7) #23
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %7) #23
@@ -2241,7 +2241,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit, %112
-  %.1.i = phi ptr [ %109, %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit ], [ %113, %112 ]
+  %.1.i = phi ptr [ %113, %112 ], [ %109, %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit ]
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleFunctionTypeEPKN5clang12FunctionTypeEPKNS1_12FunctionDeclEbb(ptr noundef nonnull align 8 dereferenceable(593) %8, ptr noundef %.1.i, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true)
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameManglerD2Ev(ptr noundef nonnull align 8 dereferenceable(593) %8) #23
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %8) #23
@@ -3034,7 +3034,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler12mangleNumberEl.exit25: ; preds = %._
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.i:  ; preds = %144, %140, %136
-  %.0.i.i28 = phi i32 [ %146, %144 ], [ %143, %140 ], [ %139, %136 ]
+  %.0.i.i28 = phi i32 [ %139, %136 ], [ %143, %140 ], [ %146, %144 ]
   %148 = shl nuw nsw i32 %129, 3
   %149 = lshr i32 %.0.i.i28, %148
   %150 = trunc i32 %149 to i8
@@ -3122,7 +3122,7 @@ _ZN4llvm11raw_ostreamlsEc.exit31:                 ; preds = %156, %158
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.i34: ; preds = %183, %179, %175
-  %.0.i.i35 = phi i32 [ %185, %183 ], [ %182, %179 ], [ %178, %175 ]
+  %.0.i.i35 = phi i32 [ %178, %175 ], [ %182, %179 ], [ %185, %183 ]
   %187 = urem i32 %.056, %165
   %188 = xor i32 %187, -1
   %189 = add nsw i32 %165, %188
@@ -3166,7 +3166,7 @@ _ZNK5clang13StringLiteral11getCodeUnitEm.exit.i34: ; preds = %183, %179, %175
   unreachable
 
 _ZNK5clang13StringLiteral11getCodeUnitEm.exit.i38: ; preds = %207, %203, %199
-  %.0.i.i39 = phi i32 [ %209, %207 ], [ %206, %203 ], [ %202, %199 ]
+  %.0.i.i39 = phi i32 [ %202, %199 ], [ %206, %203 ], [ %209, %207 ]
   %211 = shl nuw nsw i32 %167, 3
   %212 = lshr i32 %.0.i.i39, %211
   %213 = trunc i32 %212 to i8
@@ -7345,7 +7345,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler22mangleF
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %14
-  %.1.i = phi ptr [ %11, %3 ], [ %15, %14 ]
+  %.1.i = phi ptr [ %15, %14 ], [ %11, %3 ]
   br i1 %2, label %16, label %174
 
 16:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
@@ -13732,7 +13732,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit177:              ; preds = %116, %114, %_ZN4llv
   br label %_ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %370, %376
-  %.1.i216 = phi ptr [ %373, %370 ], [ %377, %376 ]
+  %.1.i216 = phi ptr [ %377, %376 ], [ %373, %370 ]
   %378 = tail call noundef ptr @_ZNK5clang17MemberPointerType26getMostRecentCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i216) #23
   %379 = tail call noundef ptr @_ZNK5clang7APValue20getMemberPointerDeclEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   %380 = icmp eq i32 %3, 0
@@ -14489,7 +14489,7 @@ _ZN4llvm11raw_ostreamlsEc.exit305:                ; preds = %719, %721
   br label %_ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit305, %729
-  %.1.i307 = phi ptr [ %725, %_ZN4llvm11raw_ostreamlsEc.exit305 ], [ %730, %729 ]
+  %.1.i307 = phi ptr [ %730, %729 ], [ %725, %_ZN4llvm11raw_ostreamlsEc.exit305 ]
   %731 = getelementptr inbounds nuw i8, ptr %.1.i307, i64 32
   %.sroa.0.0.copyload.i308 = load i64, ptr %731, align 16, !tbaa !392
   tail call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEN5clang8QualTypeENS1_11SourceRangeENS0_19QualifierMangleModeE(ptr noundef nonnull align 8 dereferenceable(593) %0, i64 %.sroa.0.0.copyload.i308, i64 0, i32 noundef 2)
@@ -16913,9 +16913,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler23mangleM
   br label %33
 
 33:                                               ; preds = %.thread, %32, %31, %30, %29
-  %.039 = phi i64 [ %.0, %29 ], [ %.0, %32 ], [ %.0, %30 ], [ %25, %.thread ], [ %.0, %31 ]
-  %.01937 = phi i64 [ %.019, %29 ], [ %.019, %32 ], [ %.019, %30 ], [ 0, %.thread ], [ %.019, %31 ]
-  %.020 = phi i8 [ 0, %29 ], [ 71, %32 ], [ 48, %30 ], [ 70, %.thread ], [ 70, %31 ]
+  %.039 = phi i64 [ %.0, %29 ], [ %.0, %30 ], [ %.0, %32 ], [ %25, %.thread ], [ %.0, %31 ]
+  %.01937 = phi i64 [ %.019, %29 ], [ %.019, %30 ], [ %.019, %32 ], [ 0, %.thread ], [ %.019, %31 ]
+  %.020 = phi i8 [ 0, %29 ], [ 48, %30 ], [ 71, %32 ], [ 70, %.thread ], [ 70, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !554
   %.sroa.02.0.copyload = load ptr, ptr %5, align 8, !tbaa !675
@@ -19367,7 +19367,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %228, %230
   br label %_ZNK5clang4Type6castAsINS_19LValueReferenceTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_19LValueReferenceTypeEEEPKT_v.exit: ; preds = %245, %254
-  %.1.i = phi ptr [ %251, %245 ], [ %255, %254 ]
+  %.1.i = phi ptr [ %255, %254 ], [ %251, %245 ]
   %256 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %257 = load i24, ptr %256, align 16
   %258 = and i24 %257, 1048576
@@ -19392,7 +19392,7 @@ _ZNK5clang4Type6castAsINS_19LValueReferenceTypeEEEPKT_v.exit: ; preds = %245, %2
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %266, %.lr.ph.i
-  %.1.i.i = phi ptr [ %262, %.lr.ph.i ], [ %267, %266 ]
+  %.1.i.i = phi ptr [ %267, %266 ], [ %262, %.lr.ph.i ]
   %268 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %269 = load i24, ptr %268, align 16
   %270 = and i24 %269, 1048576
@@ -19785,7 +19785,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %.lr.ph.i166
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %442, %454
-  %.1.i174 = phi ptr [ %451, %442 ], [ %455, %454 ]
+  %.1.i174 = phi ptr [ %455, %454 ], [ %451, %442 ]
   %456 = getelementptr inbounds nuw i8, ptr %.1.i174, i64 24
   %.sroa.0.0.copyload.i175 = load i64, ptr %456, align 8, !tbaa !392
   %.pre376 = and i64 %.sroa.0.0.copyload.i175, -16
@@ -20357,7 +20357,7 @@ _ZN4llvm11raw_ostreamlsEc.exit49.i:               ; preds = %699, %697
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %711, %.lr.ph.i.i354
-  %.1.i.i58.i = phi ptr [ %707, %.lr.ph.i.i354 ], [ %712, %711 ]
+  %.1.i.i58.i = phi ptr [ %712, %711 ], [ %707, %.lr.ph.i.i354 ]
   %713 = getelementptr inbounds nuw i8, ptr %.1.i.i58.i, i64 16
   %714 = load i24, ptr %713, align 16
   %715 = and i24 %714, 1048576
@@ -20414,7 +20414,7 @@ _ZN4llvm11raw_ostreamlsEc.exit56.i:               ; preds = %724, %722
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i69.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i69.i: ; preds = %736, %.lr.ph.i65.i
-  %.1.i.i70.i = phi ptr [ %732, %.lr.ph.i65.i ], [ %737, %736 ]
+  %.1.i.i70.i = phi ptr [ %737, %736 ], [ %732, %.lr.ph.i65.i ]
   %738 = getelementptr inbounds nuw i8, ptr %.1.i.i70.i, i64 16
   %739 = load i24, ptr %738, align 16
   %740 = and i24 %739, 1048576
@@ -21788,7 +21788,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %23
-  %.1.i = phi ptr [ %20, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %24, %23 ]
+  %.1.i = phi ptr [ %24, %23 ], [ %20, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   tail call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler18mangleFunctionTypeEPKN5clang12FunctionTypeEPKNS1_12FunctionDeclEbb(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef %.1.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
@@ -24261,7 +24261,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %65, %67
   br label %_ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_14ObjCObjectTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55, %80
-  %.1.i = phi ptr [ %76, %_ZN4llvm11raw_ostreamlsEPKc.exit55 ], [ %81, %80 ]
+  %.1.i = phi ptr [ %81, %80 ], [ %76, %_ZN4llvm11raw_ostreamlsEPKc.exit55 ]
   call fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang14ObjCObjectTypeENS1_10QualifiersENS1_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(593) %9, ptr noundef %.1.i, i64 %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   %82 = load ptr, ptr %7, align 8, !tbaa !24
@@ -25613,7 +25613,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleT
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %15, %.lr.ph.i
-  %.1.i.i = phi ptr [ %11, %.lr.ph.i ], [ %16, %15 ]
+  %.1.i.i = phi ptr [ %16, %15 ], [ %11, %.lr.ph.i ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %18 = load i24, ptr %17, align 16
   %19 = and i24 %18, 1048576
@@ -25675,7 +25675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleT
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %15, %.lr.ph.i
-  %.1.i.i = phi ptr [ %11, %.lr.ph.i ], [ %16, %15 ]
+  %.1.i.i = phi ptr [ %16, %15 ], [ %11, %.lr.ph.i ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %18 = load i24, ptr %17, align 16
   %19 = and i24 %18, 1048576
@@ -26592,7 +26592,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleT
   br label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit: ; preds = %3, %33, %35
-  %.1.i = phi ptr [ %23, %3 ], [ %36, %35 ], [ null, %33 ]
+  %.1.i = phi ptr [ %36, %35 ], [ %23, %3 ], [ null, %33 ]
   %.val23 = load ptr, ptr %0, align 8, !tbaa !601
   %37 = getelementptr i8, ptr %.val23, i64 8
   %.val23.val = load ptr, ptr %37, align 8, !tbaa !484
@@ -31274,7 +31274,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %82, %84
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %92
-  %.1.i = phi ptr [ %89, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %93, %92 ]
+  %.1.i = phi ptr [ %93, %92 ], [ %89, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %94 = load ptr, ptr %1, align 8, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
@@ -31487,9 +31487,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_
   br label %50
 
 50:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91
-  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ]
+  %.sroa.2.0.copyload.i60 = phi i64 [ %.sroa.2.0.copyload.i53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.2.0.copyload.i60.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i58 = phi ptr [ %.sroa.0.0.copyload.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.sroa.0.0.copyload.i58.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57.thread91 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %51 = load ptr, ptr %.1, align 8, !tbaa !396
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !394
@@ -31510,9 +31510,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_
   br label %58
 
 58:                                               ; preds = %._crit_edge._crit_edge131, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94
-  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ], [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ], [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge131 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ]
+  %.sroa.2.0.copyload.i67 = phi i64 [ %.sroa.2.0.copyload.i60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.2.0.copyload.i67.pre, %._crit_edge._crit_edge131 ]
+  %.sroa.0.0.copyload.i65 = phi ptr [ %.sroa.0.0.copyload.i58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.sroa.0.0.copyload.i65.pre, %._crit_edge._crit_edge131 ]
+  %.2 = phi ptr [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64.thread94 ], [ %.029.lcssa, %._crit_edge._crit_edge131 ]
   %59 = load ptr, ptr %.2, align 8, !tbaa !396
   %60 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !394
@@ -31703,9 +31703,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx
   br label %56
 
 56:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73
-  %57 = phi i64 [ %.pre111, %._crit_edge._crit_edge ], [ %51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ]
-  %58 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ]
+  %57 = phi i64 [ %51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ], [ %.pre111, %._crit_edge._crit_edge ]
+  %58 = phi ptr [ %49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit45.thread73 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %59 = load ptr, ptr %.1, align 8, !tbaa !396
   %60 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !394
@@ -31726,9 +31726,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx
   br label %66
 
 66:                                               ; preds = %._crit_edge._crit_edge112, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76
-  %67 = phi i64 [ %.pre115, %._crit_edge._crit_edge112 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ]
-  %68 = phi ptr [ %.pre113, %._crit_edge._crit_edge112 ], [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge112 ], [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ]
+  %67 = phi i64 [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ], [ %.pre115, %._crit_edge._crit_edge112 ]
+  %68 = phi ptr [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ], [ %.pre113, %._crit_edge._crit_edge112 ]
+  %.2 = phi ptr [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm11SmallStringILj64EEEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit49.thread76 ], [ %.029.lcssa, %._crit_edge._crit_edge112 ]
   %69 = load ptr, ptr %.2, align 8, !tbaa !396
   %70 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !394

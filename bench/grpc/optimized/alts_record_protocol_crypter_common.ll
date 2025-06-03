@@ -125,7 +125,7 @@ define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_
   br label %10
 
 10:                                               ; preds = %4, %9
-  %.1 = phi i64 [ %8, %4 ], [ 0, %9 ]
+  %.1 = phi i64 [ 0, %9 ], [ %8, %4 ]
   ret i64 %.1
 }
 

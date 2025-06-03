@@ -189,7 +189,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   br label %76
 
 76:                                               ; preds = %69, %69, %69, %75, %74
-  %.097 = phi i32 [ 1, %75 ], [ 2, %74 ], [ 3, %69 ], [ 3, %69 ], [ 3, %69 ]
+  %.097 = phi i32 [ 2, %74 ], [ 1, %75 ], [ 3, %69 ], [ 3, %69 ], [ 3, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %78 = load i32, ptr %77, align 8
   %.not124.not = icmp eq i32 %78, 0

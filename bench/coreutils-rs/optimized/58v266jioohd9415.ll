@@ -170,14 +170,14 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %.lr.
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %68, label %66
 
-66:                                               ; preds = %21, %23, %27, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
+66:                                               ; preds = %27, %23, %21, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val, ptr %67, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %65
 
-68:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %27, %23, %21
+68:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %21, %23, %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !34
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h922e5d2129967d57E.llvm.352779645908068936(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %.val), !noalias !34
   %69 = load i8, ptr %5, align 8, !range !41, !alias.scope !42, !noalias !34, !noundef !4
@@ -235,20 +235,23 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit: 
   %20 = load i64, ptr %4, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %22 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %25, label %23
 
 23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit"
-  %.cast = ptrtoint ptr %22 to i64
-  %24 = add i64 %15, %.cast
+  %24 = add i64 %22, %15
   store i64 %24, ptr %14, align 8
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %6, i64 %24)
   store i64 %.0.sroa.speculated.i, ptr %7, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit", %23
-  %.0 = phi ptr [ null, %23 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit" ]
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit"
+  %26 = inttoptr i64 %22 to ptr
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %.0 = phi ptr [ null, %23 ], [ %26, %25 ]
   ret ptr %.0
 }
 
@@ -289,20 +292,23 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit: 
   %20 = load i64, ptr %4, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %22 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %trunc, label %25, label %23
 
 23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit"
-  %.cast = ptrtoint ptr %22 to i64
-  %24 = add i64 %15, %.cast
+  %24 = add i64 %22, %15
   store i64 %24, ptr %14, align 8
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %6, i64 %24)
   store i64 %.0.sroa.speculated.i, ptr %7, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit", %23
-  %.0 = phi ptr [ null, %23 ], [ %22, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit" ]
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haaf7c9a09efc25eeE.exit"
+  %26 = inttoptr i64 %22 to ptr
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %.0 = phi ptr [ null, %23 ], [ %26, %25 ]
   ret ptr %.0
 }
 
@@ -370,8 +376,8 @@ default.unreachable:                              ; preds = %14
   %30 = icmp ugt i64 %12, %.sroa.4.033
   br i1 %30, label %31, label %32
 
-.loopexit.sink.split:                             ; preds = %11, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %23, %19, %17
-  %.0.ph = phi ptr [ %.val, %17 ], [ %.val, %19 ], [ %.val, %23 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ @anon.3e4133187b033e529644b97ed6a56102.5, %11 ]
+.loopexit.sink.split:                             ; preds = %11, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %17, %19, %23
+  %.0.ph = phi ptr [ %.val, %23 ], [ %.val, %19 ], [ %.val, %17 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ @anon.3e4133187b033e529644b97ed6a56102.5, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.loopexit
 
@@ -393,7 +399,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %14
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %.loopexit.sink.split
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %23, %19, %17
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %17, %19, %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !53
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h922e5d2129967d57E.llvm.352779645908068936(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val), !noalias !53
   %35 = load i8, ptr %4, align 8, !range !41, !alias.scope !60, !noalias !53, !noundef !4
@@ -950,20 +956,19 @@ define hidden void @"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..
   %9 = load i64, ptr %5, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %12 = ptrtoint ptr %11 to i64
-  br i1 %trunc, label %15, label %13
+  br i1 %trunc, label %14, label %12
 
-13:                                               ; preds = %4
-  %14 = sub i64 %7, %12
-  store i64 %14, ptr %6, align 8
-  br label %15
+12:                                               ; preds = %4
+  %13 = sub i64 %7, %11
+  store i64 %13, ptr %6, align 8
+  br label %14
 
-15:                                               ; preds = %4, %13
-  %storemerge = phi i64 [ 0, %13 ], [ 1, %4 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %16, align 8
+14:                                               ; preds = %4, %12
+  %storemerge = phi i64 [ 0, %12 ], [ 1, %4 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %11, ptr %15, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -981,20 +986,19 @@ define hidden void @"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..
   %9 = load i64, ptr %5, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %12 = ptrtoint ptr %11 to i64
-  br i1 %trunc, label %15, label %13
+  br i1 %trunc, label %14, label %12
 
-13:                                               ; preds = %4
-  %14 = sub i64 %7, %12
-  store i64 %14, ptr %6, align 8
-  br label %15
+12:                                               ; preds = %4
+  %13 = sub i64 %7, %11
+  store i64 %13, ptr %6, align 8
+  br label %14
 
-15:                                               ; preds = %4, %13
-  %storemerge = phi i64 [ 0, %13 ], [ 1, %4 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %16, align 8
+14:                                               ; preds = %4, %12
+  %storemerge = phi i64 [ 0, %12 ], [ 1, %4 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %11, ptr %15, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1012,20 +1016,19 @@ define hidden void @"_ZN85_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..sys..pal..
   %9 = load i64, ptr %5, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %12 = ptrtoint ptr %11 to i64
-  br i1 %trunc, label %15, label %13
+  br i1 %trunc, label %14, label %12
 
-13:                                               ; preds = %4
-  %14 = sub i64 %7, %12
-  store i64 %14, ptr %6, align 8
-  br label %15
+12:                                               ; preds = %4
+  %13 = sub i64 %7, %11
+  store i64 %13, ptr %6, align 8
+  br label %14
 
-15:                                               ; preds = %4, %13
-  %storemerge = phi i64 [ 0, %13 ], [ 1, %4 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %16, align 8
+14:                                               ; preds = %4, %12
+  %storemerge = phi i64 [ 0, %12 ], [ 1, %4 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %11, ptr %15, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

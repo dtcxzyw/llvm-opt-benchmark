@@ -1274,7 +1274,7 @@ default.unreachable:                              ; preds = %.preheader.i62
   unreachable
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit: ; preds = %66, %70, %74
-  %.07.i = phi i32 [ %76, %74 ], [ %73, %70 ], [ %69, %66 ]
+  %.07.i = phi i32 [ %69, %66 ], [ %73, %70 ], [ %76, %74 ]
   %77 = icmp ugt i32 %60, %.07.i
   br i1 %77, label %78, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7inc_refEPNS5_4cellE.exit
 
@@ -1518,7 +1518,7 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_confi
   br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit66
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit66: ; preds = %175, %187, %191, %195
-  %.07.i64 = phi i32 [ %197, %195 ], [ %194, %191 ], [ %190, %187 ], [ 0, %175 ]
+  %.07.i64 = phi i32 [ %190, %187 ], [ %194, %191 ], [ %197, %195 ], [ 0, %175 ]
   store i32 %.07.i64, ptr %179, align 4, !tbaa !16
   %198 = load ptr, ptr %2, align 8, !tbaa !44
   %199 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -1739,7 +1739,7 @@ default.unreachable:                              ; preds = %11
   br i1 %exitcond.i, label %5, label %11, !llvm.loop !58
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE3getERKNS5_3refEj.exit: ; preds = %5, %18, %20
-  %.018.i = phi ptr [ %10, %5 ], [ %24, %20 ], [ %19, %18 ]
+  %.018.i = phi ptr [ %10, %5 ], [ %19, %18 ], [ %24, %20 ]
   %26 = load ptr, ptr %.018.i, align 8, !tbaa !44
   ret ptr %26
 }
@@ -1799,7 +1799,7 @@ default.unreachable:                              ; preds = %11
   br i1 %exitcond.i, label %5, label %11, !llvm.loop !58
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE3getERKNS5_3refEj.exit: ; preds = %5, %18, %20
-  %.018.i = phi ptr [ %10, %5 ], [ %24, %20 ], [ %19, %18 ]
+  %.018.i = phi ptr [ %10, %5 ], [ %19, %18 ], [ %24, %20 ]
   %26 = load ptr, ptr %.018.i, align 8, !tbaa !44
   ret ptr %26
 }
@@ -1897,7 +1897,7 @@ default.unreachable:                              ; preds = %37
   br i1 %exitcond.i.i, label %5, label %11, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %5, %18, %20
-  %.018.i.i = phi ptr [ %10, %5 ], [ %24, %20 ], [ %19, %18 ]
+  %.018.i.i = phi ptr [ %10, %5 ], [ %19, %18 ], [ %24, %20 ]
   %26 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %54
@@ -1953,7 +1953,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %5, %18
   br i1 %exitcond.i.i8, label %31, label %37, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %31, %44, %46
-  %.018.i.i5 = phi ptr [ %36, %31 ], [ %50, %46 ], [ %45, %44 ]
+  %.018.i.i5 = phi ptr [ %36, %31 ], [ %45, %44 ], [ %50, %46 ]
   %52 = load ptr, ptr %.018.i.i5, align 8, !tbaa !44
   %53 = icmp eq ptr %52, null
   br label %54
@@ -2054,7 +2054,7 @@ default.unreachable:                              ; preds = %.preheader.i
   unreachable
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit: ; preds = %25, %29, %33
-  %.07.i = phi i32 [ %35, %33 ], [ %32, %29 ], [ %28, %25 ]
+  %.07.i = phi i32 [ %28, %25 ], [ %32, %29 ], [ %35, %33 ]
   %36 = icmp ugt i32 %19, %.07.i
   br i1 %36, label %37, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7inc_refEPNS5_4cellE.exit
 
@@ -2599,7 +2599,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2679,7 +2679,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -2771,7 +2771,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br label %39
@@ -2851,7 +2851,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br label %39
@@ -2931,7 +2931,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br i1 %34, label %44, label %35
@@ -3018,7 +3018,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %12, %25, %27
-  %.018.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br i1 %34, label %44, label %35
@@ -4506,8 +4506,8 @@ default.unreachable:                              ; preds = %36
   br i1 %exitcond.i.i, label %6, label %12, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %6, %19, %21
-  %27 = phi ptr [ %.pre, %6 ], [ %4, %21 ], [ %4, %19 ]
-  %.018.i.i = phi ptr [ %11, %6 ], [ %25, %21 ], [ %20, %19 ]
+  %27 = phi ptr [ %.pre, %6 ], [ %4, %19 ], [ %4, %21 ]
+  %.018.i.i = phi ptr [ %11, %6 ], [ %20, %19 ], [ %25, %21 ]
   %28 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %36
@@ -4558,7 +4558,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %6, %19
   br i1 %exitcond.i.i20, label %30, label %36, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %30, %43, %45
-  %.018.i.i17 = phi ptr [ %35, %30 ], [ %49, %45 ], [ %44, %43 ]
+  %.018.i.i17 = phi ptr [ %35, %30 ], [ %44, %43 ], [ %49, %45 ]
   %51 = load ptr, ptr %.018.i.i17, align 8, !tbaa !44
   %52 = icmp ne ptr %28, null
   %53 = icmp ne ptr %51, null
@@ -5714,8 +5714,8 @@ _ZN6vectorIN9subpaving9context_tINS0_11config_mpfxEE7watchedELb0EjE3endEv.exit: 
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge._crit_edge.i.i.i
-  %40 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %35, %37 ]
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %38, %37 ]
+  %40 = phi ptr [ %35, %37 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.1.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %41 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !111
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %_ZN6vectorIN9subpaving9context_tINS0_11config_mpfxEE7watchedELb0EjE3endEv.exit5.thread, label %43
@@ -5725,8 +5725,8 @@ _ZN6vectorIN9subpaving9context_tINS0_11config_mpfxEE7watchedELb0EjE3endEv.exit: 
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge._crit_edge52.i.i.i
-  %46 = phi ptr [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %40, %43 ]
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %44, %43 ]
+  %46 = phi ptr [ %40, %43 ], [ %.pre53.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
+  %.2.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i, %._crit_edge._crit_edge52.i.i.i ]
   %47 = load ptr, ptr %.2.i.i.i, align 8, !tbaa !111
   %48 = icmp eq ptr %47, %46
   %spec.select = select i1 %48, ptr %.2.i.i.i, ptr %8
@@ -6978,8 +6978,8 @@ default.unreachable:                              ; preds = %40
   br i1 %exitcond.i.i, label %9, label %15, !llvm.loop !58
 
 30:                                               ; preds = %24, %22, %.noexc
-  %31 = phi ptr [ %.pre, %.noexc ], [ %7, %24 ], [ %7, %22 ]
-  %.018.i.i = phi ptr [ %14, %.noexc ], [ %28, %24 ], [ %23, %22 ]
+  %31 = phi ptr [ %.pre, %.noexc ], [ %7, %22 ], [ %7, %24 ]
+  %.018.i.i = phi ptr [ %14, %.noexc ], [ %23, %22 ], [ %28, %24 ]
   %32 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %40
@@ -7033,7 +7033,7 @@ default.unreachable:                              ; preds = %40
   br i1 %exitcond.i.i140, label %34, label %40, !llvm.loop !58
 
 55:                                               ; preds = %49, %47, %.noexc142
-  %.018.i.i137 = phi ptr [ %39, %.noexc142 ], [ %53, %49 ], [ %48, %47 ]
+  %.018.i.i137 = phi ptr [ %39, %.noexc142 ], [ %48, %47 ], [ %53, %49 ]
   %56 = load ptr, ptr %.018.i.i137, align 8, !tbaa !44
   br i1 %3, label %57, label %141
 
@@ -7493,8 +7493,8 @@ default.unreachable:                              ; preds = %36
   br i1 %exitcond.i.i, label %6, label %12, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %6, %19, %21
-  %27 = phi ptr [ %.pre, %6 ], [ %4, %21 ], [ %4, %19 ]
-  %.018.i.i = phi ptr [ %11, %6 ], [ %25, %21 ], [ %20, %19 ]
+  %27 = phi ptr [ %.pre, %6 ], [ %4, %19 ], [ %4, %21 ]
+  %.018.i.i = phi ptr [ %11, %6 ], [ %20, %19 ], [ %25, %21 ]
   %28 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %36
@@ -7545,7 +7545,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %6, %19
   br i1 %exitcond.i.i18, label %30, label %36, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %30, %43, %45
-  %.018.i.i15 = phi ptr [ %35, %30 ], [ %49, %45 ], [ %44, %43 ]
+  %.018.i.i15 = phi ptr [ %35, %30 ], [ %44, %43 ], [ %49, %45 ]
   %51 = load ptr, ptr %.018.i.i15, align 8, !tbaa !44
   %52 = icmp ne ptr %28, null
   %53 = icmp ne ptr %51, null
@@ -7636,7 +7636,7 @@ default.unreachable:                              ; preds = %12
   br i1 %exitcond.i.i, label %6, label %12, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %6, %19, %21
-  %.018.i.i = phi ptr [ %11, %6 ], [ %25, %21 ], [ %20, %19 ]
+  %.018.i.i = phi ptr [ %11, %6 ], [ %20, %19 ], [ %25, %21 ]
   %27 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %35, label %28
@@ -7779,7 +7779,7 @@ default.unreachable:                              ; preds = %40
   br i1 %exitcond.i.i14, label %34, label %40, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %49, %47, %34, %26, %24, %11
-  %.pn.in = phi ptr [ %16, %11 ], [ %30, %26 ], [ %25, %24 ], [ %39, %34 ], [ %53, %49 ], [ %48, %47 ]
+  %.pn.in = phi ptr [ %16, %11 ], [ %25, %24 ], [ %30, %26 ], [ %39, %34 ], [ %48, %47 ], [ %53, %49 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !44
   %.0 = icmp eq ptr %.pn, %1
   ret i1 %.0
@@ -7960,7 +7960,7 @@ default.unreachable:                              ; preds = %38
   br i1 %exitcond.i.i.i, label %32, label %38, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i: ; preds = %47, %45, %32
-  %.018.i.i.i = phi ptr [ %37, %32 ], [ %51, %47 ], [ %46, %45 ]
+  %.018.i.i.i = phi ptr [ %37, %32 ], [ %46, %45 ], [ %51, %47 ]
   %53 = load ptr, ptr %.018.i.i.i, align 8, !tbaa !44
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %_ZNK9subpaving9context_tINS_11config_mpfxEE13is_upper_zeroEjPNS2_4nodeE.exit.thread, label %54
@@ -8469,7 +8469,7 @@ default.unreachable:                              ; preds = %66
   br i1 %exitcond.i.i.i.i, label %16, label %22, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i: ; preds = %31, %29, %16
-  %.018.i.i.i.i = phi ptr [ %21, %16 ], [ %35, %31 ], [ %30, %29 ]
+  %.018.i.i.i.i = phi ptr [ %21, %16 ], [ %30, %29 ], [ %35, %31 ]
   %37 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit
@@ -8555,7 +8555,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i14, label %60, label %66, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %75, %73, %60
-  %.018.i.i.i.i11 = phi ptr [ %65, %60 ], [ %79, %75 ], [ %74, %73 ]
+  %.018.i.i.i.i11 = phi ptr [ %65, %60 ], [ %74, %73 ], [ %79, %75 ]
   %81 = load ptr, ptr %.018.i.i.i.i11, align 8, !tbaa !44
   %82 = icmp eq ptr %81, null
   br i1 %82, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %83
@@ -8906,12 +8906,12 @@ define linkonce_odr hidden void @_ZN16interval_managerIN9subpaving9context_tINS0
 
 6:                                                ; preds = %4
   tail call void @_ZN16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE3setERNS3_8intervalERKS6_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull align 8 dereferenceable(34) %1)
-  br label %996
+  br label %995
 
 7:                                                ; preds = %4
   %8 = and i32 %2, 1
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %740
+  br i1 %9, label %10, label %739
 
 10:                                               ; preds = %7
   %11 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_posERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
@@ -8977,7 +8977,7 @@ define linkonce_odr hidden void @_ZN16interval_managerIN9subpaving9context_tINS0
 .unreachabledefault:                              ; preds = %31
   unreachable
 
-default.unreachable:                              ; preds = %756, %801, %840, %884, %929, %968, %456, %490, %533, %581, %647, %708, %240, %281, %322, %362, %407, %68, %111, %155, %194
+default.unreachable:                              ; preds = %755, %800, %839, %883, %928, %967, %456, %490, %533, %581, %646, %707, %240, %281, %322, %362, %407, %68, %111, %155, %194
   unreachable
 
 45:                                               ; preds = %34, %31
@@ -8987,7 +8987,7 @@ default.unreachable:                              ; preds = %756, %801, %840, %8
   br i1 %exitcond.i.i.i.i, label %25, label %31, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i: ; preds = %40, %38, %25
-  %.018.i.i.i.i = phi ptr [ %30, %25 ], [ %44, %40 ], [ %39, %38 ]
+  %.018.i.i.i.i = phi ptr [ %30, %25 ], [ %39, %38 ], [ %44, %40 ]
   %46 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %47 = icmp eq ptr %46, null
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -9063,7 +9063,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i96, label %62, label %68, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i92: ; preds = %77, %75, %62
-  %.018.i.i.i.i93 = phi ptr [ %67, %62 ], [ %81, %77 ], [ %76, %75 ]
+  %.018.i.i.i.i93 = phi ptr [ %67, %62 ], [ %76, %75 ], [ %81, %77 ]
   %83 = load ptr, ptr %.018.i.i.i.i93, align 8, !tbaa !44
   %84 = icmp eq ptr %83, null
   br i1 %84, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %85
@@ -9145,7 +9145,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i104, label %105, label %111, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %120, %118, %105
-  %.018.i.i.i.i101 = phi ptr [ %110, %105 ], [ %124, %120 ], [ %119, %118 ]
+  %.018.i.i.i.i101 = phi ptr [ %110, %105 ], [ %119, %118 ], [ %124, %120 ]
   %126 = load ptr, ptr %.018.i.i.i.i101, align 8, !tbaa !44
   %127 = icmp eq ptr %126, null
   br i1 %127, label %133, label %138
@@ -9170,14 +9170,14 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   store i8 1, ptr %136, align 1, !tbaa !96
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %137, align 8, !tbaa !94
-  br label %996
+  br label %995
 
 138:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i
-  %.pre483 = load i8, ptr %1, align 8, !tbaa !75, !range !91
+  %.pre485 = load i8, ptr %1, align 8, !tbaa !75, !range !91
   %139 = load ptr, ptr %13, align 8, !tbaa !82
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 28
   store i8 1, ptr %140, align 4, !tbaa !84
-  %141 = trunc nuw i8 %.pre483 to i1
+  %141 = trunc nuw i8 %.pre485 to i1
   br i1 %141, label %142, label %173
 
 142:                                              ; preds = %138
@@ -9235,7 +9235,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i115, label %149, label %155, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i110: ; preds = %164, %162, %149
-  %.018.i.i.i.i111 = phi ptr [ %154, %149 ], [ %168, %164 ], [ %163, %162 ]
+  %.018.i.i.i.i111 = phi ptr [ %154, %149 ], [ %163, %162 ], [ %168, %164 ]
   %170 = load ptr, ptr %.018.i.i.i.i111, align 8, !tbaa !44
   %171 = icmp eq ptr %170, null
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9313,7 +9313,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i125, label %188, label %194, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i121: ; preds = %203, %201, %188
-  %.018.i.i.i.i122 = phi ptr [ %193, %188 ], [ %207, %203 ], [ %202, %201 ]
+  %.018.i.i.i.i122 = phi ptr [ %193, %188 ], [ %202, %201 ], [ %207, %203 ]
   %209 = load ptr, ptr %.018.i.i.i.i122, align 8, !tbaa !44
   %210 = icmp eq ptr %209, null
   br i1 %210, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %211
@@ -9336,7 +9336,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %220 = zext i1 %.0.i.i117 to i8
   %221 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 %220, ptr %221, align 1, !tbaa !96
-  br label %996
+  br label %995
 
 222:                                              ; preds = %10
   %223 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_negERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
@@ -9402,7 +9402,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i135, label %234, label %240, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i131: ; preds = %249, %247, %234
-  %.018.i.i.i.i132 = phi ptr [ %239, %234 ], [ %253, %249 ], [ %248, %247 ]
+  %.018.i.i.i.i132 = phi ptr [ %239, %234 ], [ %248, %247 ], [ %253, %249 ]
   %255 = load ptr, ptr %.018.i.i.i.i132, align 8, !tbaa !44
   %256 = icmp eq ptr %255, null
   br i1 %256, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit137, label %257
@@ -9481,7 +9481,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i146, label %275, label %281, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i142: ; preds = %290, %288, %275
-  %.018.i.i.i.i143 = phi ptr [ %280, %275 ], [ %294, %290 ], [ %289, %288 ]
+  %.018.i.i.i.i143 = phi ptr [ %280, %275 ], [ %289, %288 ], [ %294, %290 ]
   %296 = load ptr, ptr %.018.i.i.i.i143, align 8, !tbaa !44
   %297 = icmp eq ptr %296, null
   br i1 %297, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit148, label %298
@@ -9521,7 +9521,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %319 = load ptr, ptr %318, align 8, !tbaa !16
   %320 = zext i32 %313 to i64
   %321 = getelementptr inbounds nuw ptr, ptr %319, i64 %320
-  %.pre482.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
+  %.pre484.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit
 
 322:                                              ; preds = %336, %309
@@ -9570,14 +9570,14 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %380
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit: ; preds = %316, %329, %331
-  %.pre482 = phi i8 [ %.pre482.pre, %316 ], [ %307, %331 ], [ %307, %329 ]
-  %.018.i.i.i.i153 = phi ptr [ %321, %316 ], [ %335, %331 ], [ %330, %329 ]
+  %.pre484 = phi i8 [ %.pre484.pre, %316 ], [ %307, %329 ], [ %307, %331 ]
+  %.018.i.i.i.i153 = phi ptr [ %321, %316 ], [ %330, %329 ], [ %335, %331 ]
   %343 = load ptr, ptr %.018.i.i.i.i153, align 8, !tbaa !44
   %344 = icmp eq ptr %343, null
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %346 = load ptr, ptr %345, align 8, !tbaa !82
   %347 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %348 = trunc nuw i8 %.pre482 to i1
+  %348 = trunc nuw i8 %.pre484 to i1
   br i1 %348, label %349, label %380
 
 349:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit
@@ -9635,7 +9635,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i167, label %356, label %362, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i162: ; preds = %371, %369, %356
-  %.018.i.i.i.i163 = phi ptr [ %361, %356 ], [ %375, %371 ], [ %370, %369 ]
+  %.018.i.i.i.i163 = phi ptr [ %361, %356 ], [ %370, %369 ], [ %375, %371 ]
   %377 = load ptr, ptr %.018.i.i.i.i163, align 8, !tbaa !44
   %378 = icmp eq ptr %377, null
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -9718,7 +9718,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i179, label %401, label %407, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i174: ; preds = %416, %414, %401
-  %.018.i.i.i.i175 = phi ptr [ %406, %401 ], [ %420, %416 ], [ %415, %414 ]
+  %.018.i.i.i.i175 = phi ptr [ %406, %401 ], [ %415, %414 ], [ %420, %416 ]
   %422 = load ptr, ptr %.018.i.i.i.i175, align 8, !tbaa !44
   %423 = icmp eq ptr %422, null
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -9754,7 +9754,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %437 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %437, align 1, !tbaa !96
   store i8 1, ptr %435, align 8, !tbaa !94
-  br label %996
+  br label %995
 
 438:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit181
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 28
@@ -9764,7 +9764,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %440 = zext i1 %.0.i.i127 to i8
   %441 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 %440, ptr %441, align 1, !tbaa !96
-  br label %996
+  br label %995
 
 442:                                              ; preds = %222
   br i1 %225, label %443, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit.thread
@@ -9785,7 +9785,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %453 = load ptr, ptr %452, align 8, !tbaa !16
   %454 = zext i32 %447 to i64
   %455 = getelementptr inbounds nuw ptr, ptr %453, i64 %454
-  %.pre480.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
+  %.pre482.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
 
 456:                                              ; preds = %470, %443
@@ -9831,11 +9831,11 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit: ; preds = %450, %463, %465
-  %.pre480 = phi i8 [ %.pre480.pre, %450 ], [ %224, %465 ], [ %224, %463 ]
-  %.018.i.i.i.i186 = phi ptr [ %455, %450 ], [ %469, %465 ], [ %464, %463 ]
+  %.pre482 = phi i8 [ %.pre482.pre, %450 ], [ %224, %463 ], [ %224, %465 ]
+  %.018.i.i.i.i186 = phi ptr [ %455, %450 ], [ %464, %463 ], [ %469, %465 ]
   %474 = load ptr, ptr %.018.i.i.i.i186, align 8, !tbaa !44
   %475 = icmp eq ptr %474, null
-  %476 = trunc nuw i8 %.pre480 to i1
+  %476 = trunc nuw i8 %.pre482 to i1
   br i1 %476, label %477, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit.thread
 
 477:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
@@ -9854,7 +9854,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   %487 = load ptr, ptr %486, align 8, !tbaa !16
   %488 = zext i32 %481 to i64
   %489 = getelementptr inbounds nuw ptr, ptr %487, i64 %488
-  %.pre481.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
+  %.pre483.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
 
 490:                                              ; preds = %504, %477
@@ -9905,15 +9905,15 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %551
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit: ; preds = %484, %497, %499
-  %.pre481 = phi i8 [ %.pre481.pre, %484 ], [ %.pre480, %499 ], [ %.pre480, %497 ]
-  %.018.i.i.i.i195 = phi ptr [ %489, %484 ], [ %503, %499 ], [ %498, %497 ]
+  %.pre483 = phi i8 [ %.pre483.pre, %484 ], [ %.pre482, %497 ], [ %.pre482, %499 ]
+  %.018.i.i.i.i195 = phi ptr [ %489, %484 ], [ %498, %497 ], [ %503, %499 ]
   %513 = load ptr, ptr %.018.i.i.i.i195, align 8, !tbaa !44
   %514 = icmp eq ptr %513, null
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %518 = load ptr, ptr %517, align 8, !tbaa !82
-  %519 = trunc nuw i8 %.pre481 to i1
+  %519 = trunc nuw i8 %.pre483 to i1
   br i1 %519, label %520, label %551
 
 520:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -9971,7 +9971,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i209, label %527, label %533, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i204: ; preds = %542, %540, %527
-  %.018.i.i.i.i205 = phi ptr [ %532, %527 ], [ %546, %542 ], [ %541, %540 ]
+  %.018.i.i.i.i205 = phi ptr [ %532, %527 ], [ %541, %540 ], [ %546, %542 ]
   %548 = load ptr, ptr %.018.i.i.i.i205, align 8, !tbaa !44
   %549 = icmp eq ptr %548, null
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -10057,7 +10057,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i221, label %575, label %581, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i216: ; preds = %590, %588, %575
-  %.018.i.i.i.i217 = phi ptr [ %580, %575 ], [ %594, %590 ], [ %589, %588 ]
+  %.018.i.i.i.i217 = phi ptr [ %580, %575 ], [ %589, %588 ], [ %594, %590 ]
   %596 = load ptr, ptr %.018.i.i.i.i217, align 8, !tbaa !44
   %597 = icmp eq ptr %596, null
   %598 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -10077,763 +10077,763 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %564, label %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit, label %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread
 
 _Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit: ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit223
-  br i1 %563, label %.thread336, label %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit224.thread.thread
+  br i1 %563, label %.thread339, label %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit224.thread.thread
 
 _Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit224.thread.thread: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit
   %603 = load ptr, ptr %560, align 8, !tbaa !82
   tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %603, ptr noundef nonnull align 4 dereferenceable(4) %561, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %561)
-  br label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  br label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330
 
 _Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread: ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit223
   tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %601, ptr noundef nonnull align 4 dereferenceable(4) %562, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %562)
-  br i1 %563, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread, label %604
+  br i1 %563, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread, label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
 
-604:                                              ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread
+_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread
+  %604 = load ptr, ptr %560, align 8, !tbaa !82
+  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %604, ptr noundef nonnull align 4 dereferenceable(4) %561, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %561)
   %605 = load ptr, ptr %560, align 8, !tbaa !82
-  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %605, ptr noundef nonnull align 4 dereferenceable(4) %561, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %561)
-  %606 = load ptr, ptr %560, align 8, !tbaa !82
-  %607 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %606, ptr noundef nonnull align 4 dereferenceable(4) %561, ptr noundef nonnull align 4 dereferenceable(4) %562)
-  br i1 %607, label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  %606 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %605, ptr noundef nonnull align 4 dereferenceable(4) %561, ptr noundef nonnull align 4 dereferenceable(4) %562)
+  br i1 %606, label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
 
-_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit: ; preds = %604
-  %608 = load ptr, ptr %560, align 8, !tbaa !82
-  %609 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %608, ptr noundef nonnull align 4 dereferenceable(4) %562, ptr noundef nonnull align 4 dereferenceable(4) %561)
-  br i1 %609, label %.thread336, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
+_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit: ; preds = %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  %607 = load ptr, ptr %560, align 8, !tbaa !82
+  %608 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %607, ptr noundef nonnull align 4 dereferenceable(4) %562, ptr noundef nonnull align 4 dereferenceable(4) %561)
+  br i1 %608, label %.thread339, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
 
-.thread336:                                       ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
-  %.0323329335345 = phi i32 [ 1, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ 2, %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit ]
-  %610 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
-  br i1 %610, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread, label %611
+.thread339:                                       ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  %.0323329335347 = phi i32 [ 1, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ 2, %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit ]
+  %609 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
+  br i1 %609, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread, label %610
 
-611:                                              ; preds = %.thread336
-  %612 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
-  br i1 %612, label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
+610:                                              ; preds = %.thread339
+  %611 = tail call noundef zeroext i1 @_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
+  br i1 %611, label %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330, label %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
 
-_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit224.thread.thread, %604, %611
-  %613 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %614 = load i32, ptr %613, align 4
-  %615 = and i32 %614, 1
-  %616 = load i32, ptr %562, align 4
-  %617 = and i32 %616, 1
-  %618 = and i32 %614, -2
-  %619 = or disjoint i32 %617, %618
-  store i32 %619, ptr %613, align 4
-  %620 = load i32, ptr %562, align 4
-  %621 = and i32 %620, -2
-  %622 = or disjoint i32 %621, %615
-  store i32 %622, ptr %562, align 4
-  %623 = load i32, ptr %613, align 4
-  %624 = and i32 %623, -2
-  %625 = and i32 %623, 1
-  %626 = or disjoint i32 %625, %621
-  store i32 %626, ptr %613, align 4
-  %627 = load i32, ptr %562, align 4
-  %628 = and i32 %627, 1
-  %629 = or disjoint i32 %628, %624
-  store i32 %629, ptr %562, align 4
-  %630 = zext i1 %564 to i8
-  %631 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 %630, ptr %631, align 8, !tbaa !94
-  %632 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %633 = trunc nuw i8 %632 to i1
-  br i1 %633, label %634, label %669
+_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit224.thread.thread, %610, %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  %612 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %613 = load i32, ptr %612, align 4
+  %614 = and i32 %613, 1
+  %615 = load i32, ptr %562, align 4
+  %616 = and i32 %615, 1
+  %617 = and i32 %613, -2
+  %618 = or disjoint i32 %616, %617
+  store i32 %618, ptr %612, align 4
+  %619 = load i32, ptr %562, align 4
+  %620 = and i32 %619, -2
+  %621 = or disjoint i32 %620, %614
+  store i32 %621, ptr %562, align 4
+  %622 = load i32, ptr %612, align 4
+  %623 = and i32 %622, -2
+  %624 = and i32 %622, 1
+  %625 = or disjoint i32 %624, %620
+  store i32 %625, ptr %612, align 4
+  %626 = load i32, ptr %562, align 4
+  %627 = and i32 %626, 1
+  %628 = or disjoint i32 %627, %623
+  store i32 %628, ptr %562, align 4
+  %629 = zext i1 %564 to i8
+  %630 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 %629, ptr %630, align 8, !tbaa !94
+  %631 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %632 = trunc nuw i8 %631 to i1
+  br i1 %632, label %633, label %668
 
-634:                                              ; preds = %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
-  %635 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %636 = load ptr, ptr %635, align 8, !tbaa !78
-  %637 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %638 = load i32, ptr %637, align 8, !tbaa !79
-  %639 = load ptr, ptr %636, align 8, !tbaa !43
-  %640 = getelementptr inbounds nuw i8, ptr %636, i64 8
-  br label %647
+633:                                              ; preds = %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330
+  %634 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %635 = load ptr, ptr %634, align 8, !tbaa !78
+  %636 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %637 = load i32, ptr %636, align 8, !tbaa !79
+  %638 = load ptr, ptr %635, align 8, !tbaa !43
+  %639 = getelementptr inbounds nuw i8, ptr %635, i64 8
+  br label %646
 
-641:                                              ; preds = %661
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %639, ptr noundef nonnull align 8 dereferenceable(12) %640)
-  %642 = load ptr, ptr %640, align 8, !tbaa !21
-  %643 = getelementptr inbounds nuw i8, ptr %642, i64 16
-  %644 = load ptr, ptr %643, align 8, !tbaa !16
-  %645 = zext i32 %638 to i64
-  %646 = getelementptr inbounds nuw ptr, ptr %644, i64 %645
+640:                                              ; preds = %660
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %638, ptr noundef nonnull align 8 dereferenceable(12) %639)
+  %641 = load ptr, ptr %639, align 8, !tbaa !21
+  %642 = getelementptr inbounds nuw i8, ptr %641, i64 16
+  %643 = load ptr, ptr %642, align 8, !tbaa !16
+  %644 = zext i32 %637 to i64
+  %645 = getelementptr inbounds nuw ptr, ptr %643, i64 %644
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
 
-647:                                              ; preds = %661, %634
-  %.024.in.i.i.i.i227 = phi ptr [ %640, %634 ], [ %.1.in.i.i.i.i232, %661 ]
-  %.01623.i.i.i.i228 = phi i32 [ 0, %634 ], [ %.117.i.i.i.i233, %661 ]
+646:                                              ; preds = %660, %633
+  %.024.in.i.i.i.i227 = phi ptr [ %639, %633 ], [ %.1.in.i.i.i.i232, %660 ]
+  %.01623.i.i.i.i228 = phi i32 [ 0, %633 ], [ %.117.i.i.i.i233, %660 ]
   %.024.i.i.i.i229 = load ptr, ptr %.024.in.i.i.i.i227, align 8, !tbaa !16
-  %648 = load i32, ptr %.024.i.i.i.i229, align 8
-  %649 = lshr i32 %648, 30
-  switch i32 %649, label %default.unreachable [
-    i32 0, label %650
-    i32 1, label %650
-    i32 2, label %661
-    i32 3, label %656
+  %647 = load i32, ptr %.024.i.i.i.i229, align 8
+  %648 = lshr i32 %647, 30
+  switch i32 %648, label %default.unreachable [
+    i32 0, label %649
+    i32 1, label %649
+    i32 2, label %660
+    i32 3, label %655
   ]
 
-650:                                              ; preds = %647, %647
-  %651 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 4
-  %652 = load i32, ptr %651, align 4, !tbaa !16
-  %653 = icmp eq i32 %638, %652
-  br i1 %653, label %654, label %661
+649:                                              ; preds = %646, %646
+  %650 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 4
+  %651 = load i32, ptr %650, align 4, !tbaa !16
+  %652 = icmp eq i32 %637, %651
+  br i1 %652, label %653, label %660
 
-654:                                              ; preds = %650
-  %655 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 8
+653:                                              ; preds = %649
+  %654 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
 
-656:                                              ; preds = %647
-  %657 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 16
-  %658 = load ptr, ptr %657, align 8, !tbaa !16
-  %659 = zext i32 %638 to i64
-  %660 = getelementptr inbounds nuw ptr, ptr %658, i64 %659
+655:                                              ; preds = %646
+  %656 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 16
+  %657 = load ptr, ptr %656, align 8, !tbaa !16
+  %658 = zext i32 %637 to i64
+  %659 = getelementptr inbounds nuw ptr, ptr %657, i64 %658
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
 
-661:                                              ; preds = %650, %647
+660:                                              ; preds = %649, %646
   %.1.in.i.i.i.i232 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i229, i64 16
   %.117.i.i.i.i233 = add nuw nsw i32 %.01623.i.i.i.i228, 1
   %exitcond.i.i.i.i234 = icmp eq i32 %.117.i.i.i.i233, 17
-  br i1 %exitcond.i.i.i.i234, label %641, label %647, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i234, label %640, label %646, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230: ; preds = %656, %654, %641
-  %.018.i.i.i.i231 = phi ptr [ %646, %641 ], [ %660, %656 ], [ %655, %654 ]
-  %662 = load ptr, ptr %.018.i.i.i.i231, align 8, !tbaa !44
-  %663 = icmp eq ptr %662, null
-  br i1 %663, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, label %664
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230: ; preds = %655, %653, %640
+  %.018.i.i.i.i231 = phi ptr [ %645, %640 ], [ %654, %653 ], [ %659, %655 ]
+  %661 = load ptr, ptr %.018.i.i.i.i231, align 8, !tbaa !44
+  %662 = icmp eq ptr %661, null
+  br i1 %662, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, label %663
 
-664:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
-  %665 = getelementptr inbounds nuw i8, ptr %662, i64 4
-  %666 = load i32, ptr %665, align 4
-  %667 = and i32 %666, 1073741824
-  %668 = icmp ne i32 %667, 0
+663:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
+  %664 = getelementptr inbounds nuw i8, ptr %661, i64 4
+  %665 = load i32, ptr %664, align 4
+  %666 = and i32 %665, 1073741824
+  %667 = icmp ne i32 %666, 0
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236
 
-669:                                              ; preds = %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
-  %670 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %671 = load i8, ptr %670, align 1, !tbaa !95, !range !91, !noundef !92
-  %672 = trunc nuw i8 %671 to i1
+668:                                              ; preds = %_Z2gtI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread330
+  %669 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %670 = load i8, ptr %669, align 1, !tbaa !95, !range !91, !noundef !92
+  %671 = trunc nuw i8 %670 to i1
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236
 
-_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread, %611, %.thread336, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
-  %.0323329335344 = phi i32 [ %.0323329335345, %611 ], [ %.0323329335345, %.thread336 ], [ 1, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ 2, %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread ]
-  %673 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %674 = load i32, ptr %673, align 4
-  %675 = and i32 %674, 1
-  %676 = load i32, ptr %561, align 4
-  %677 = and i32 %676, 1
-  %678 = and i32 %674, -2
-  %679 = or disjoint i32 %677, %678
-  store i32 %679, ptr %673, align 4
-  %680 = load i32, ptr %561, align 4
-  %681 = and i32 %680, -2
-  %682 = or disjoint i32 %681, %675
-  store i32 %682, ptr %561, align 4
-  %683 = load i32, ptr %673, align 4
-  %684 = and i32 %683, -2
-  %685 = and i32 %683, 1
-  %686 = or disjoint i32 %685, %681
-  store i32 %686, ptr %673, align 4
-  %687 = load i32, ptr %561, align 4
-  %688 = and i32 %687, 1
-  %689 = or disjoint i32 %688, %684
-  store i32 %689, ptr %561, align 4
-  %690 = icmp eq i32 %.0323329335344, 2
-  %691 = zext i1 %690 to i8
-  %692 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 %691, ptr %692, align 8, !tbaa !94
-  %693 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %694 = trunc nuw i8 %693 to i1
-  br i1 %694, label %695, label %730
+_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread: ; preds = %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread, %610, %.thread339, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
+  %.0323329335346 = phi i32 [ %.0323329335347, %610 ], [ %.0323329335347, %.thread339 ], [ 1, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ 2, %_Z5powerI12mpfx_managerEvRT_RNS1_7numeralER16ext_numeral_kindj.exit.thread ]
+  %672 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %673 = load i32, ptr %672, align 4
+  %674 = and i32 %673, 1
+  %675 = load i32, ptr %561, align 4
+  %676 = and i32 %675, 1
+  %677 = and i32 %673, -2
+  %678 = or disjoint i32 %676, %677
+  store i32 %678, ptr %672, align 4
+  %679 = load i32, ptr %561, align 4
+  %680 = and i32 %679, -2
+  %681 = or disjoint i32 %680, %674
+  store i32 %681, ptr %561, align 4
+  %682 = load i32, ptr %672, align 4
+  %683 = and i32 %682, -2
+  %684 = and i32 %682, 1
+  %685 = or disjoint i32 %684, %680
+  store i32 %685, ptr %672, align 4
+  %686 = load i32, ptr %561, align 4
+  %687 = and i32 %686, 1
+  %688 = or disjoint i32 %687, %683
+  store i32 %688, ptr %561, align 4
+  %689 = icmp eq i32 %.0323329335346, 2
+  %690 = zext i1 %689 to i8
+  %691 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 %690, ptr %691, align 8, !tbaa !94
+  %692 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %693 = trunc nuw i8 %692 to i1
+  br i1 %693, label %694, label %729
 
-695:                                              ; preds = %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
-  %696 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %697 = load ptr, ptr %696, align 8, !tbaa !78
-  %698 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %699 = load i32, ptr %698, align 8, !tbaa !79
-  %700 = load ptr, ptr %697, align 8, !tbaa !43
-  %701 = getelementptr inbounds nuw i8, ptr %697, i64 24
-  br label %708
+694:                                              ; preds = %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
+  %695 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %696 = load ptr, ptr %695, align 8, !tbaa !78
+  %697 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %698 = load i32, ptr %697, align 8, !tbaa !79
+  %699 = load ptr, ptr %696, align 8, !tbaa !43
+  %700 = getelementptr inbounds nuw i8, ptr %696, i64 24
+  br label %707
 
-702:                                              ; preds = %722
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %700, ptr noundef nonnull align 8 dereferenceable(12) %701)
-  %703 = load ptr, ptr %701, align 8, !tbaa !21
-  %704 = getelementptr inbounds nuw i8, ptr %703, i64 16
-  %705 = load ptr, ptr %704, align 8, !tbaa !16
-  %706 = zext i32 %699 to i64
-  %707 = getelementptr inbounds nuw ptr, ptr %705, i64 %706
+701:                                              ; preds = %721
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %699, ptr noundef nonnull align 8 dereferenceable(12) %700)
+  %702 = load ptr, ptr %700, align 8, !tbaa !21
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 16
+  %704 = load ptr, ptr %703, align 8, !tbaa !16
+  %705 = zext i32 %698 to i64
+  %706 = getelementptr inbounds nuw ptr, ptr %704, i64 %705
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241
 
-708:                                              ; preds = %722, %695
-  %.024.in.i.i.i.i238 = phi ptr [ %701, %695 ], [ %.1.in.i.i.i.i243, %722 ]
-  %.01623.i.i.i.i239 = phi i32 [ 0, %695 ], [ %.117.i.i.i.i244, %722 ]
+707:                                              ; preds = %721, %694
+  %.024.in.i.i.i.i238 = phi ptr [ %700, %694 ], [ %.1.in.i.i.i.i243, %721 ]
+  %.01623.i.i.i.i239 = phi i32 [ 0, %694 ], [ %.117.i.i.i.i244, %721 ]
   %.024.i.i.i.i240 = load ptr, ptr %.024.in.i.i.i.i238, align 8, !tbaa !16
-  %709 = load i32, ptr %.024.i.i.i.i240, align 8
-  %710 = lshr i32 %709, 30
-  switch i32 %710, label %default.unreachable [
-    i32 0, label %711
-    i32 1, label %711
-    i32 2, label %722
-    i32 3, label %717
+  %708 = load i32, ptr %.024.i.i.i.i240, align 8
+  %709 = lshr i32 %708, 30
+  switch i32 %709, label %default.unreachable [
+    i32 0, label %710
+    i32 1, label %710
+    i32 2, label %721
+    i32 3, label %716
   ]
 
-711:                                              ; preds = %708, %708
-  %712 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 4
-  %713 = load i32, ptr %712, align 4, !tbaa !16
-  %714 = icmp eq i32 %699, %713
-  br i1 %714, label %715, label %722
+710:                                              ; preds = %707, %707
+  %711 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 4
+  %712 = load i32, ptr %711, align 4, !tbaa !16
+  %713 = icmp eq i32 %698, %712
+  br i1 %713, label %714, label %721
 
-715:                                              ; preds = %711
-  %716 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 8
+714:                                              ; preds = %710
+  %715 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241
 
-717:                                              ; preds = %708
-  %718 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 16
-  %719 = load ptr, ptr %718, align 8, !tbaa !16
-  %720 = zext i32 %699 to i64
-  %721 = getelementptr inbounds nuw ptr, ptr %719, i64 %720
+716:                                              ; preds = %707
+  %717 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 16
+  %718 = load ptr, ptr %717, align 8, !tbaa !16
+  %719 = zext i32 %698 to i64
+  %720 = getelementptr inbounds nuw ptr, ptr %718, i64 %719
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241
 
-722:                                              ; preds = %711, %708
+721:                                              ; preds = %710, %707
   %.1.in.i.i.i.i243 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i240, i64 16
   %.117.i.i.i.i244 = add nuw nsw i32 %.01623.i.i.i.i239, 1
   %exitcond.i.i.i.i245 = icmp eq i32 %.117.i.i.i.i244, 17
-  br i1 %exitcond.i.i.i.i245, label %702, label %708, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i245, label %701, label %707, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241: ; preds = %717, %715, %702
-  %.018.i.i.i.i242 = phi ptr [ %707, %702 ], [ %721, %717 ], [ %716, %715 ]
-  %723 = load ptr, ptr %.018.i.i.i.i242, align 8, !tbaa !44
-  %724 = icmp eq ptr %723, null
-  br i1 %724, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, label %725
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241: ; preds = %716, %714, %701
+  %.018.i.i.i.i242 = phi ptr [ %706, %701 ], [ %715, %714 ], [ %720, %716 ]
+  %722 = load ptr, ptr %.018.i.i.i.i242, align 8, !tbaa !44
+  %723 = icmp eq ptr %722, null
+  br i1 %723, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, label %724
 
-725:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241
-  %726 = getelementptr inbounds nuw i8, ptr %723, i64 4
-  %727 = load i32, ptr %726, align 4
-  %728 = and i32 %727, 1073741824
-  %729 = icmp ne i32 %728, 0
+724:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241
+  %725 = getelementptr inbounds nuw i8, ptr %722, i64 4
+  %726 = load i32, ptr %725, align 4
+  %727 = and i32 %726, 1073741824
+  %728 = icmp ne i32 %727, 0
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236
 
-730:                                              ; preds = %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
-  %731 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %732 = load i8, ptr %731, align 1, !tbaa !96, !range !91, !noundef !92
-  %733 = trunc nuw i8 %732 to i1
+729:                                              ; preds = %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit.thread
+  %730 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %731 = load i8, ptr %730, align 1, !tbaa !96, !range !91, !noundef !92
+  %732 = trunc nuw i8 %731 to i1
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236: ; preds = %730, %725, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241, %669, %664, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
-  %.0.i.i237.sink = phi i1 [ %672, %669 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230 ], [ %668, %664 ], [ %733, %730 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241 ], [ %729, %725 ]
-  %734 = zext i1 %.0.i.i237.sink to i8
-  %735 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 %734, ptr %735, align 1, !tbaa !96
-  %736 = load ptr, ptr %560, align 8, !tbaa !82
-  %737 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %736, ptr noundef nonnull align 4 dereferenceable(4) %737)
-  %738 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %738, align 8, !tbaa !93
-  %739 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  store i8 0, ptr %739, align 1, !tbaa !95
-  br label %996
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236: ; preds = %729, %724, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241, %668, %663, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230
+  %.0.i.i237.sink = phi i1 [ %671, %668 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i230 ], [ %667, %663 ], [ %732, %729 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i241 ], [ %728, %724 ]
+  %733 = zext i1 %.0.i.i237.sink to i8
+  %734 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 %733, ptr %734, align 1, !tbaa !96
+  %735 = load ptr, ptr %560, align 8, !tbaa !82
+  %736 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %735, ptr noundef nonnull align 4 dereferenceable(4) %736)
+  %737 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %737, align 8, !tbaa !93
+  %738 = getelementptr inbounds nuw i8, ptr %3, i64 25
+  store i8 0, ptr %738, align 1, !tbaa !95
+  br label %995
 
-740:                                              ; preds = %7
-  %741 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %742 = trunc nuw i8 %741 to i1
-  br i1 %742, label %743, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
+739:                                              ; preds = %7
+  %740 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %741 = trunc nuw i8 %740 to i1
+  br i1 %741, label %742, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
 
-743:                                              ; preds = %740
-  %744 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %745 = load ptr, ptr %744, align 8, !tbaa !78
-  %746 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %747 = load i32, ptr %746, align 8, !tbaa !79
-  %748 = load ptr, ptr %745, align 8, !tbaa !43
-  %749 = getelementptr inbounds nuw i8, ptr %745, i64 8
-  br label %756
+742:                                              ; preds = %739
+  %743 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %744 = load ptr, ptr %743, align 8, !tbaa !78
+  %745 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %746 = load i32, ptr %745, align 8, !tbaa !79
+  %747 = load ptr, ptr %744, align 8, !tbaa !43
+  %748 = getelementptr inbounds nuw i8, ptr %744, i64 8
+  br label %755
 
-750:                                              ; preds = %770
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %748, ptr noundef nonnull align 8 dereferenceable(12) %749)
-  %751 = load ptr, ptr %749, align 8, !tbaa !21
-  %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
-  %753 = load ptr, ptr %752, align 8, !tbaa !16
-  %754 = zext i32 %747 to i64
-  %755 = getelementptr inbounds nuw ptr, ptr %753, i64 %754
+749:                                              ; preds = %769
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %747, ptr noundef nonnull align 8 dereferenceable(12) %748)
+  %750 = load ptr, ptr %748, align 8, !tbaa !21
+  %751 = getelementptr inbounds nuw i8, ptr %750, i64 16
+  %752 = load ptr, ptr %751, align 8, !tbaa !16
+  %753 = zext i32 %746 to i64
+  %754 = getelementptr inbounds nuw ptr, ptr %752, i64 %753
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251
 
-756:                                              ; preds = %770, %743
-  %.024.in.i.i.i.i248 = phi ptr [ %749, %743 ], [ %.1.in.i.i.i.i253, %770 ]
-  %.01623.i.i.i.i249 = phi i32 [ 0, %743 ], [ %.117.i.i.i.i254, %770 ]
+755:                                              ; preds = %769, %742
+  %.024.in.i.i.i.i248 = phi ptr [ %748, %742 ], [ %.1.in.i.i.i.i253, %769 ]
+  %.01623.i.i.i.i249 = phi i32 [ 0, %742 ], [ %.117.i.i.i.i254, %769 ]
   %.024.i.i.i.i250 = load ptr, ptr %.024.in.i.i.i.i248, align 8, !tbaa !16
-  %757 = load i32, ptr %.024.i.i.i.i250, align 8
-  %758 = lshr i32 %757, 30
-  switch i32 %758, label %default.unreachable [
-    i32 0, label %759
-    i32 1, label %759
-    i32 2, label %770
-    i32 3, label %765
+  %756 = load i32, ptr %.024.i.i.i.i250, align 8
+  %757 = lshr i32 %756, 30
+  switch i32 %757, label %default.unreachable [
+    i32 0, label %758
+    i32 1, label %758
+    i32 2, label %769
+    i32 3, label %764
   ]
 
-759:                                              ; preds = %756, %756
-  %760 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 4
-  %761 = load i32, ptr %760, align 4, !tbaa !16
-  %762 = icmp eq i32 %747, %761
-  br i1 %762, label %763, label %770
+758:                                              ; preds = %755, %755
+  %759 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 4
+  %760 = load i32, ptr %759, align 4, !tbaa !16
+  %761 = icmp eq i32 %746, %760
+  br i1 %761, label %762, label %769
 
-763:                                              ; preds = %759
-  %764 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 8
+762:                                              ; preds = %758
+  %763 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251
 
-765:                                              ; preds = %756
-  %766 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 16
-  %767 = load ptr, ptr %766, align 8, !tbaa !16
-  %768 = zext i32 %747 to i64
-  %769 = getelementptr inbounds nuw ptr, ptr %767, i64 %768
+764:                                              ; preds = %755
+  %765 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 16
+  %766 = load ptr, ptr %765, align 8, !tbaa !16
+  %767 = zext i32 %746 to i64
+  %768 = getelementptr inbounds nuw ptr, ptr %766, i64 %767
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251
 
-770:                                              ; preds = %759, %756
+769:                                              ; preds = %758, %755
   %.1.in.i.i.i.i253 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i250, i64 16
   %.117.i.i.i.i254 = add nuw nsw i32 %.01623.i.i.i.i249, 1
   %exitcond.i.i.i.i255 = icmp eq i32 %.117.i.i.i.i254, 17
-  br i1 %exitcond.i.i.i.i255, label %750, label %756, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i255, label %749, label %755, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251: ; preds = %765, %763, %750
-  %.018.i.i.i.i252 = phi ptr [ %755, %750 ], [ %769, %765 ], [ %764, %763 ]
-  %771 = load ptr, ptr %.018.i.i.i.i252, align 8, !tbaa !44
-  %772 = icmp eq ptr %771, null
-  br i1 %772, label %778, label %784
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251: ; preds = %764, %762, %749
+  %.018.i.i.i.i252 = phi ptr [ %754, %749 ], [ %763, %762 ], [ %768, %764 ]
+  %770 = load ptr, ptr %.018.i.i.i.i252, align 8, !tbaa !44
+  %771 = icmp eq ptr %770, null
+  br i1 %771, label %777, label %783
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257: ; preds = %740
-  %773 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %774 = load i8, ptr %773, align 8, !tbaa !93, !range !91, !noundef !92
-  %775 = trunc nuw i8 %774 to i1
-  br i1 %775, label %778, label %.thread490
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257: ; preds = %739
+  %772 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %773 = load i8, ptr %772, align 8, !tbaa !93, !range !91, !noundef !92
+  %774 = trunc nuw i8 %773 to i1
+  br i1 %774, label %777, label %.thread492
 
-.thread490:                                       ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
-  %776 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %777 = load ptr, ptr %776, align 8, !tbaa !82
-  br label %819
+.thread492:                                       ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
+  %775 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %776 = load ptr, ptr %775, align 8, !tbaa !82
+  br label %818
 
-778:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
-  %779 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %780 = load ptr, ptr %779, align 8, !tbaa !82
-  %781 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %780, ptr noundef nonnull align 4 dereferenceable(4) %781)
-  %782 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  store i8 1, ptr %782, align 1, !tbaa !95
-  %783 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 1, ptr %783, align 8, !tbaa !93
-  br label %868
+777:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12lower_is_infERKNS3_8intervalE.exit257
+  %778 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %779 = load ptr, ptr %778, align 8, !tbaa !82
+  %780 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %779, ptr noundef nonnull align 4 dereferenceable(4) %780)
+  %781 = getelementptr inbounds nuw i8, ptr %3, i64 25
+  store i8 1, ptr %781, align 1, !tbaa !95
+  %782 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 1, ptr %782, align 8, !tbaa !93
+  br label %867
 
-784:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251
+783:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i251
   %.pre = load i8, ptr %1, align 8, !tbaa !75, !range !91
-  %785 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %786 = load ptr, ptr %785, align 8, !tbaa !82
-  %787 = trunc nuw i8 %.pre to i1
-  br i1 %787, label %788, label %819
+  %784 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %785 = load ptr, ptr %784, align 8, !tbaa !82
+  %786 = trunc nuw i8 %.pre to i1
+  br i1 %786, label %787, label %818
 
-788:                                              ; preds = %784
-  %789 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %790 = load ptr, ptr %789, align 8, !tbaa !78
-  %791 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %792 = load i32, ptr %791, align 8, !tbaa !79
-  %793 = load ptr, ptr %790, align 8, !tbaa !43
-  %794 = getelementptr inbounds nuw i8, ptr %790, i64 8
-  br label %801
+787:                                              ; preds = %783
+  %788 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %789 = load ptr, ptr %788, align 8, !tbaa !78
+  %790 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %791 = load i32, ptr %790, align 8, !tbaa !79
+  %792 = load ptr, ptr %789, align 8, !tbaa !43
+  %793 = getelementptr inbounds nuw i8, ptr %789, i64 8
+  br label %800
 
-795:                                              ; preds = %815
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %793, ptr noundef nonnull align 8 dereferenceable(12) %794)
-  %796 = load ptr, ptr %794, align 8, !tbaa !21
-  %797 = getelementptr inbounds nuw i8, ptr %796, i64 16
-  %798 = load ptr, ptr %797, align 8, !tbaa !16
-  %799 = zext i32 %792 to i64
-  %800 = getelementptr inbounds nuw ptr, ptr %798, i64 %799
+794:                                              ; preds = %814
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %792, ptr noundef nonnull align 8 dereferenceable(12) %793)
+  %795 = load ptr, ptr %793, align 8, !tbaa !21
+  %796 = getelementptr inbounds nuw i8, ptr %795, i64 16
+  %797 = load ptr, ptr %796, align 8, !tbaa !16
+  %798 = zext i32 %791 to i64
+  %799 = getelementptr inbounds nuw ptr, ptr %797, i64 %798
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262
 
-801:                                              ; preds = %815, %788
-  %.024.in.i.i.i.i259 = phi ptr [ %794, %788 ], [ %.1.in.i.i.i.i265, %815 ]
-  %.01623.i.i.i.i260 = phi i32 [ 0, %788 ], [ %.117.i.i.i.i266, %815 ]
+800:                                              ; preds = %814, %787
+  %.024.in.i.i.i.i259 = phi ptr [ %793, %787 ], [ %.1.in.i.i.i.i265, %814 ]
+  %.01623.i.i.i.i260 = phi i32 [ 0, %787 ], [ %.117.i.i.i.i266, %814 ]
   %.024.i.i.i.i261 = load ptr, ptr %.024.in.i.i.i.i259, align 8, !tbaa !16
-  %802 = load i32, ptr %.024.i.i.i.i261, align 8
-  %803 = lshr i32 %802, 30
-  switch i32 %803, label %default.unreachable [
-    i32 0, label %804
-    i32 1, label %804
-    i32 2, label %815
-    i32 3, label %810
+  %801 = load i32, ptr %.024.i.i.i.i261, align 8
+  %802 = lshr i32 %801, 30
+  switch i32 %802, label %default.unreachable [
+    i32 0, label %803
+    i32 1, label %803
+    i32 2, label %814
+    i32 3, label %809
   ]
 
-804:                                              ; preds = %801, %801
-  %805 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 4
-  %806 = load i32, ptr %805, align 4, !tbaa !16
-  %807 = icmp eq i32 %792, %806
-  br i1 %807, label %808, label %815
+803:                                              ; preds = %800, %800
+  %804 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 4
+  %805 = load i32, ptr %804, align 4, !tbaa !16
+  %806 = icmp eq i32 %791, %805
+  br i1 %806, label %807, label %814
 
-808:                                              ; preds = %804
-  %809 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 8
+807:                                              ; preds = %803
+  %808 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262
 
-810:                                              ; preds = %801
-  %811 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 16
-  %812 = load ptr, ptr %811, align 8, !tbaa !16
-  %813 = zext i32 %792 to i64
-  %814 = getelementptr inbounds nuw ptr, ptr %812, i64 %813
+809:                                              ; preds = %800
+  %810 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 16
+  %811 = load ptr, ptr %810, align 8, !tbaa !16
+  %812 = zext i32 %791 to i64
+  %813 = getelementptr inbounds nuw ptr, ptr %811, i64 %812
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262
 
-815:                                              ; preds = %804, %801
+814:                                              ; preds = %803, %800
   %.1.in.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i261, i64 16
   %.117.i.i.i.i266 = add nuw nsw i32 %.01623.i.i.i.i260, 1
   %exitcond.i.i.i.i267 = icmp eq i32 %.117.i.i.i.i266, 17
-  br i1 %exitcond.i.i.i.i267, label %795, label %801, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i267, label %794, label %800, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262: ; preds = %810, %808, %795
-  %.018.i.i.i.i263 = phi ptr [ %800, %795 ], [ %814, %810 ], [ %809, %808 ]
-  %816 = load ptr, ptr %.018.i.i.i.i263, align 8, !tbaa !44
-  %817 = icmp eq ptr %816, null
-  %818 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %spec.select.i.i264 = select i1 %817, ptr %818, ptr %816
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262: ; preds = %809, %807, %794
+  %.018.i.i.i.i263 = phi ptr [ %799, %794 ], [ %808, %807 ], [ %813, %809 ]
+  %815 = load ptr, ptr %.018.i.i.i.i263, align 8, !tbaa !44
+  %816 = icmp eq ptr %815, null
+  %817 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %spec.select.i.i264 = select i1 %816, ptr %817, ptr %815
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
 
-819:                                              ; preds = %.thread490, %784
-  %820 = phi ptr [ %777, %.thread490 ], [ %786, %784 ]
-  %821 = getelementptr inbounds nuw i8, ptr %1, i64 20
+818:                                              ; preds = %.thread492, %783
+  %819 = phi ptr [ %776, %.thread492 ], [ %785, %783 ]
+  %820 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262, %819
-  %822 = phi ptr [ %820, %819 ], [ %786, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262 ]
-  %.0.i.i258 = phi ptr [ %821, %819 ], [ %spec.select.i.i264, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262 ]
-  %823 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %822, ptr noundef nonnull align 4 dereferenceable(4) %.0.i.i258, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %823)
-  %824 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %824, align 8, !tbaa !93
-  %825 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %826 = trunc nuw i8 %825 to i1
-  br i1 %826, label %827, label %862
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262, %818
+  %821 = phi ptr [ %819, %818 ], [ %785, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262 ]
+  %.0.i.i258 = phi ptr [ %820, %818 ], [ %spec.select.i.i264, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i262 ]
+  %822 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %821, ptr noundef nonnull align 4 dereferenceable(4) %.0.i.i258, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %822)
+  %823 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %823, align 8, !tbaa !93
+  %824 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %825 = trunc nuw i8 %824 to i1
+  br i1 %825, label %826, label %861
 
-827:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
-  %828 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %829 = load ptr, ptr %828, align 8, !tbaa !78
-  %830 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %831 = load i32, ptr %830, align 8, !tbaa !79
-  %832 = load ptr, ptr %829, align 8, !tbaa !43
-  %833 = getelementptr inbounds nuw i8, ptr %829, i64 8
-  br label %840
+826:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
+  %827 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %828 = load ptr, ptr %827, align 8, !tbaa !78
+  %829 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %830 = load i32, ptr %829, align 8, !tbaa !79
+  %831 = load ptr, ptr %828, align 8, !tbaa !43
+  %832 = getelementptr inbounds nuw i8, ptr %828, i64 8
+  br label %839
 
-834:                                              ; preds = %854
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %832, ptr noundef nonnull align 8 dereferenceable(12) %833)
-  %835 = load ptr, ptr %833, align 8, !tbaa !21
-  %836 = getelementptr inbounds nuw i8, ptr %835, i64 16
-  %837 = load ptr, ptr %836, align 8, !tbaa !16
-  %838 = zext i32 %831 to i64
-  %839 = getelementptr inbounds nuw ptr, ptr %837, i64 %838
+833:                                              ; preds = %853
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %831, ptr noundef nonnull align 8 dereferenceable(12) %832)
+  %834 = load ptr, ptr %832, align 8, !tbaa !21
+  %835 = getelementptr inbounds nuw i8, ptr %834, i64 16
+  %836 = load ptr, ptr %835, align 8, !tbaa !16
+  %837 = zext i32 %830 to i64
+  %838 = getelementptr inbounds nuw ptr, ptr %836, i64 %837
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274
 
-840:                                              ; preds = %854, %827
-  %.024.in.i.i.i.i271 = phi ptr [ %833, %827 ], [ %.1.in.i.i.i.i276, %854 ]
-  %.01623.i.i.i.i272 = phi i32 [ 0, %827 ], [ %.117.i.i.i.i277, %854 ]
+839:                                              ; preds = %853, %826
+  %.024.in.i.i.i.i271 = phi ptr [ %832, %826 ], [ %.1.in.i.i.i.i276, %853 ]
+  %.01623.i.i.i.i272 = phi i32 [ 0, %826 ], [ %.117.i.i.i.i277, %853 ]
   %.024.i.i.i.i273 = load ptr, ptr %.024.in.i.i.i.i271, align 8, !tbaa !16
-  %841 = load i32, ptr %.024.i.i.i.i273, align 8
-  %842 = lshr i32 %841, 30
-  switch i32 %842, label %default.unreachable [
-    i32 0, label %843
-    i32 1, label %843
-    i32 2, label %854
-    i32 3, label %849
+  %840 = load i32, ptr %.024.i.i.i.i273, align 8
+  %841 = lshr i32 %840, 30
+  switch i32 %841, label %default.unreachable [
+    i32 0, label %842
+    i32 1, label %842
+    i32 2, label %853
+    i32 3, label %848
   ]
 
-843:                                              ; preds = %840, %840
-  %844 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 4
-  %845 = load i32, ptr %844, align 4, !tbaa !16
-  %846 = icmp eq i32 %831, %845
-  br i1 %846, label %847, label %854
+842:                                              ; preds = %839, %839
+  %843 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 4
+  %844 = load i32, ptr %843, align 4, !tbaa !16
+  %845 = icmp eq i32 %830, %844
+  br i1 %845, label %846, label %853
 
-847:                                              ; preds = %843
-  %848 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 8
+846:                                              ; preds = %842
+  %847 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274
 
-849:                                              ; preds = %840
-  %850 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 16
-  %851 = load ptr, ptr %850, align 8, !tbaa !16
-  %852 = zext i32 %831 to i64
-  %853 = getelementptr inbounds nuw ptr, ptr %851, i64 %852
+848:                                              ; preds = %839
+  %849 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 16
+  %850 = load ptr, ptr %849, align 8, !tbaa !16
+  %851 = zext i32 %830 to i64
+  %852 = getelementptr inbounds nuw ptr, ptr %850, i64 %851
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274
 
-854:                                              ; preds = %843, %840
+853:                                              ; preds = %842, %839
   %.1.in.i.i.i.i276 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i273, i64 16
   %.117.i.i.i.i277 = add nuw nsw i32 %.01623.i.i.i.i272, 1
   %exitcond.i.i.i.i278 = icmp eq i32 %.117.i.i.i.i277, 17
-  br i1 %exitcond.i.i.i.i278, label %834, label %840, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i278, label %833, label %839, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274: ; preds = %849, %847, %834
-  %.018.i.i.i.i275 = phi ptr [ %839, %834 ], [ %853, %849 ], [ %848, %847 ]
-  %855 = load ptr, ptr %.018.i.i.i.i275, align 8, !tbaa !44
-  %856 = icmp eq ptr %855, null
-  br i1 %856, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280, label %857
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274: ; preds = %848, %846, %833
+  %.018.i.i.i.i275 = phi ptr [ %838, %833 ], [ %847, %846 ], [ %852, %848 ]
+  %854 = load ptr, ptr %.018.i.i.i.i275, align 8, !tbaa !44
+  %855 = icmp eq ptr %854, null
+  br i1 %855, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280, label %856
 
-857:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274
-  %858 = getelementptr inbounds nuw i8, ptr %855, i64 4
-  %859 = load i32, ptr %858, align 4
-  %860 = and i32 %859, 1073741824
-  %861 = icmp ne i32 %860, 0
+856:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274
+  %857 = getelementptr inbounds nuw i8, ptr %854, i64 4
+  %858 = load i32, ptr %857, align 4
+  %859 = and i32 %858, 1073741824
+  %860 = icmp ne i32 %859, 0
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280
 
-862:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
-  %863 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %864 = load i8, ptr %863, align 1, !tbaa !95, !range !91, !noundef !92
-  %865 = trunc nuw i8 %864 to i1
+861:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit269
+  %862 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %863 = load i8, ptr %862, align 1, !tbaa !95, !range !91, !noundef !92
+  %864 = trunc nuw i8 %863 to i1
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274, %857, %862
-  %.0.i.i270 = phi i1 [ %865, %862 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274 ], [ %861, %857 ]
-  %866 = zext i1 %.0.i.i270 to i8
-  %867 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  store i8 %866, ptr %867, align 1, !tbaa !95
-  br label %868
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274, %856, %861
+  %.0.i.i270 = phi i1 [ %864, %861 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i274 ], [ %860, %856 ]
+  %865 = zext i1 %.0.i.i270 to i8
+  %866 = getelementptr inbounds nuw i8, ptr %3, i64 25
+  store i8 %865, ptr %866, align 1, !tbaa !95
+  br label %867
 
-868:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280, %778
-  %869 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %870 = trunc nuw i8 %869 to i1
-  br i1 %870, label %871, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
+867:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit280, %777
+  %868 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %869 = trunc nuw i8 %868 to i1
+  br i1 %869, label %870, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
 
-871:                                              ; preds = %868
-  %872 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %873 = load ptr, ptr %872, align 8, !tbaa !78
-  %874 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %875 = load i32, ptr %874, align 8, !tbaa !79
-  %876 = load ptr, ptr %873, align 8, !tbaa !43
-  %877 = getelementptr inbounds nuw i8, ptr %873, i64 24
-  br label %884
+870:                                              ; preds = %867
+  %871 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %872 = load ptr, ptr %871, align 8, !tbaa !78
+  %873 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %874 = load i32, ptr %873, align 8, !tbaa !79
+  %875 = load ptr, ptr %872, align 8, !tbaa !43
+  %876 = getelementptr inbounds nuw i8, ptr %872, i64 24
+  br label %883
 
-878:                                              ; preds = %898
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %876, ptr noundef nonnull align 8 dereferenceable(12) %877)
-  %879 = load ptr, ptr %877, align 8, !tbaa !21
-  %880 = getelementptr inbounds nuw i8, ptr %879, i64 16
-  %881 = load ptr, ptr %880, align 8, !tbaa !16
-  %882 = zext i32 %875 to i64
-  %883 = getelementptr inbounds nuw ptr, ptr %881, i64 %882
+877:                                              ; preds = %897
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %875, ptr noundef nonnull align 8 dereferenceable(12) %876)
+  %878 = load ptr, ptr %876, align 8, !tbaa !21
+  %879 = getelementptr inbounds nuw i8, ptr %878, i64 16
+  %880 = load ptr, ptr %879, align 8, !tbaa !16
+  %881 = zext i32 %874 to i64
+  %882 = getelementptr inbounds nuw ptr, ptr %880, i64 %881
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284
 
-884:                                              ; preds = %898, %871
-  %.024.in.i.i.i.i281 = phi ptr [ %877, %871 ], [ %.1.in.i.i.i.i286, %898 ]
-  %.01623.i.i.i.i282 = phi i32 [ 0, %871 ], [ %.117.i.i.i.i287, %898 ]
+883:                                              ; preds = %897, %870
+  %.024.in.i.i.i.i281 = phi ptr [ %876, %870 ], [ %.1.in.i.i.i.i286, %897 ]
+  %.01623.i.i.i.i282 = phi i32 [ 0, %870 ], [ %.117.i.i.i.i287, %897 ]
   %.024.i.i.i.i283 = load ptr, ptr %.024.in.i.i.i.i281, align 8, !tbaa !16
-  %885 = load i32, ptr %.024.i.i.i.i283, align 8
-  %886 = lshr i32 %885, 30
-  switch i32 %886, label %default.unreachable [
-    i32 0, label %887
-    i32 1, label %887
-    i32 2, label %898
-    i32 3, label %893
+  %884 = load i32, ptr %.024.i.i.i.i283, align 8
+  %885 = lshr i32 %884, 30
+  switch i32 %885, label %default.unreachable [
+    i32 0, label %886
+    i32 1, label %886
+    i32 2, label %897
+    i32 3, label %892
   ]
 
-887:                                              ; preds = %884, %884
-  %888 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 4
-  %889 = load i32, ptr %888, align 4, !tbaa !16
-  %890 = icmp eq i32 %875, %889
-  br i1 %890, label %891, label %898
+886:                                              ; preds = %883, %883
+  %887 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 4
+  %888 = load i32, ptr %887, align 4, !tbaa !16
+  %889 = icmp eq i32 %874, %888
+  br i1 %889, label %890, label %897
 
-891:                                              ; preds = %887
-  %892 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 8
+890:                                              ; preds = %886
+  %891 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284
 
-893:                                              ; preds = %884
-  %894 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 16
-  %895 = load ptr, ptr %894, align 8, !tbaa !16
-  %896 = zext i32 %875 to i64
-  %897 = getelementptr inbounds nuw ptr, ptr %895, i64 %896
+892:                                              ; preds = %883
+  %893 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 16
+  %894 = load ptr, ptr %893, align 8, !tbaa !16
+  %895 = zext i32 %874 to i64
+  %896 = getelementptr inbounds nuw ptr, ptr %894, i64 %895
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284
 
-898:                                              ; preds = %887, %884
+897:                                              ; preds = %886, %883
   %.1.in.i.i.i.i286 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i283, i64 16
   %.117.i.i.i.i287 = add nuw nsw i32 %.01623.i.i.i.i282, 1
   %exitcond.i.i.i.i288 = icmp eq i32 %.117.i.i.i.i287, 17
-  br i1 %exitcond.i.i.i.i288, label %878, label %884, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i288, label %877, label %883, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284: ; preds = %893, %891, %878
-  %.018.i.i.i.i285 = phi ptr [ %883, %878 ], [ %897, %893 ], [ %892, %891 ]
-  %899 = load ptr, ptr %.018.i.i.i.i285, align 8, !tbaa !44
-  %900 = icmp eq ptr %899, null
-  br i1 %900, label %906, label %912
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284: ; preds = %892, %890, %877
+  %.018.i.i.i.i285 = phi ptr [ %882, %877 ], [ %891, %890 ], [ %896, %892 ]
+  %898 = load ptr, ptr %.018.i.i.i.i285, align 8, !tbaa !44
+  %899 = icmp eq ptr %898, null
+  br i1 %899, label %905, label %911
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290: ; preds = %868
-  %901 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %902 = load i8, ptr %901, align 8, !tbaa !94, !range !91, !noundef !92
-  %903 = trunc nuw i8 %902 to i1
-  br i1 %903, label %906, label %.thread491
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290: ; preds = %867
+  %900 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %901 = load i8, ptr %900, align 8, !tbaa !94, !range !91, !noundef !92
+  %902 = trunc nuw i8 %901 to i1
+  br i1 %902, label %905, label %.thread493
 
-.thread491:                                       ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
-  %904 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %905 = load ptr, ptr %904, align 8, !tbaa !82
-  br label %947
+.thread493:                                       ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %904 = load ptr, ptr %903, align 8, !tbaa !82
+  br label %946
 
-906:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
-  %907 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %908 = load ptr, ptr %907, align 8, !tbaa !82
-  %909 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %908, ptr noundef nonnull align 4 dereferenceable(4) %909)
-  %910 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 1, ptr %910, align 1, !tbaa !96
-  %911 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 1, ptr %911, align 8, !tbaa !94
-  br label %996
+905:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE12upper_is_infERKNS3_8intervalE.exit290
+  %906 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %907 = load ptr, ptr %906, align 8, !tbaa !82
+  %908 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  tail call void @_ZN12mpfx_manager5resetER4mpfx(ptr noundef nonnull align 8 dereferenceable(85) %907, ptr noundef nonnull align 4 dereferenceable(4) %908)
+  %909 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 1, ptr %909, align 1, !tbaa !96
+  %910 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 1, ptr %910, align 8, !tbaa !94
+  br label %995
 
-912:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284
-  %.pre479 = load i8, ptr %1, align 8, !tbaa !75, !range !91
-  %913 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %914 = load ptr, ptr %913, align 8, !tbaa !82
-  %915 = trunc nuw i8 %.pre479 to i1
-  br i1 %915, label %916, label %947
+911:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i284
+  %.pre481 = load i8, ptr %1, align 8, !tbaa !75, !range !91
+  %912 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %913 = load ptr, ptr %912, align 8, !tbaa !82
+  %914 = trunc nuw i8 %.pre481 to i1
+  br i1 %914, label %915, label %946
 
-916:                                              ; preds = %912
-  %917 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %918 = load ptr, ptr %917, align 8, !tbaa !78
-  %919 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %920 = load i32, ptr %919, align 8, !tbaa !79
-  %921 = load ptr, ptr %918, align 8, !tbaa !43
-  %922 = getelementptr inbounds nuw i8, ptr %918, i64 24
-  br label %929
+915:                                              ; preds = %911
+  %916 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %917 = load ptr, ptr %916, align 8, !tbaa !78
+  %918 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %919 = load i32, ptr %918, align 8, !tbaa !79
+  %920 = load ptr, ptr %917, align 8, !tbaa !43
+  %921 = getelementptr inbounds nuw i8, ptr %917, i64 24
+  br label %928
 
-923:                                              ; preds = %943
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %921, ptr noundef nonnull align 8 dereferenceable(12) %922)
-  %924 = load ptr, ptr %922, align 8, !tbaa !21
-  %925 = getelementptr inbounds nuw i8, ptr %924, i64 16
-  %926 = load ptr, ptr %925, align 8, !tbaa !16
-  %927 = zext i32 %920 to i64
-  %928 = getelementptr inbounds nuw ptr, ptr %926, i64 %927
+922:                                              ; preds = %942
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %920, ptr noundef nonnull align 8 dereferenceable(12) %921)
+  %923 = load ptr, ptr %921, align 8, !tbaa !21
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 16
+  %925 = load ptr, ptr %924, align 8, !tbaa !16
+  %926 = zext i32 %919 to i64
+  %927 = getelementptr inbounds nuw ptr, ptr %925, i64 %926
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295
 
-929:                                              ; preds = %943, %916
-  %.024.in.i.i.i.i292 = phi ptr [ %922, %916 ], [ %.1.in.i.i.i.i298, %943 ]
-  %.01623.i.i.i.i293 = phi i32 [ 0, %916 ], [ %.117.i.i.i.i299, %943 ]
+928:                                              ; preds = %942, %915
+  %.024.in.i.i.i.i292 = phi ptr [ %921, %915 ], [ %.1.in.i.i.i.i298, %942 ]
+  %.01623.i.i.i.i293 = phi i32 [ 0, %915 ], [ %.117.i.i.i.i299, %942 ]
   %.024.i.i.i.i294 = load ptr, ptr %.024.in.i.i.i.i292, align 8, !tbaa !16
-  %930 = load i32, ptr %.024.i.i.i.i294, align 8
-  %931 = lshr i32 %930, 30
-  switch i32 %931, label %default.unreachable [
-    i32 0, label %932
-    i32 1, label %932
-    i32 2, label %943
-    i32 3, label %938
+  %929 = load i32, ptr %.024.i.i.i.i294, align 8
+  %930 = lshr i32 %929, 30
+  switch i32 %930, label %default.unreachable [
+    i32 0, label %931
+    i32 1, label %931
+    i32 2, label %942
+    i32 3, label %937
   ]
 
-932:                                              ; preds = %929, %929
-  %933 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 4
-  %934 = load i32, ptr %933, align 4, !tbaa !16
-  %935 = icmp eq i32 %920, %934
-  br i1 %935, label %936, label %943
+931:                                              ; preds = %928, %928
+  %932 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 4
+  %933 = load i32, ptr %932, align 4, !tbaa !16
+  %934 = icmp eq i32 %919, %933
+  br i1 %934, label %935, label %942
 
-936:                                              ; preds = %932
-  %937 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 8
+935:                                              ; preds = %931
+  %936 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295
 
-938:                                              ; preds = %929
-  %939 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 16
-  %940 = load ptr, ptr %939, align 8, !tbaa !16
-  %941 = zext i32 %920 to i64
-  %942 = getelementptr inbounds nuw ptr, ptr %940, i64 %941
+937:                                              ; preds = %928
+  %938 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 16
+  %939 = load ptr, ptr %938, align 8, !tbaa !16
+  %940 = zext i32 %919 to i64
+  %941 = getelementptr inbounds nuw ptr, ptr %939, i64 %940
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295
 
-943:                                              ; preds = %932, %929
+942:                                              ; preds = %931, %928
   %.1.in.i.i.i.i298 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i294, i64 16
   %.117.i.i.i.i299 = add nuw nsw i32 %.01623.i.i.i.i293, 1
   %exitcond.i.i.i.i300 = icmp eq i32 %.117.i.i.i.i299, 17
-  br i1 %exitcond.i.i.i.i300, label %923, label %929, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i300, label %922, label %928, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295: ; preds = %938, %936, %923
-  %.018.i.i.i.i296 = phi ptr [ %928, %923 ], [ %942, %938 ], [ %937, %936 ]
-  %944 = load ptr, ptr %.018.i.i.i.i296, align 8, !tbaa !44
-  %945 = icmp eq ptr %944, null
-  %946 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %spec.select.i.i297 = select i1 %945, ptr %946, ptr %944
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295: ; preds = %937, %935, %922
+  %.018.i.i.i.i296 = phi ptr [ %927, %922 ], [ %936, %935 ], [ %941, %937 ]
+  %943 = load ptr, ptr %.018.i.i.i.i296, align 8, !tbaa !44
+  %944 = icmp eq ptr %943, null
+  %945 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %spec.select.i.i297 = select i1 %944, ptr %945, ptr %943
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
 
-947:                                              ; preds = %.thread491, %912
-  %948 = phi ptr [ %905, %.thread491 ], [ %914, %912 ]
-  %949 = getelementptr inbounds nuw i8, ptr %1, i64 28
+946:                                              ; preds = %.thread493, %911
+  %947 = phi ptr [ %904, %.thread493 ], [ %913, %911 ]
+  %948 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295, %947
-  %950 = phi ptr [ %948, %947 ], [ %914, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295 ]
-  %.0.i.i291 = phi ptr [ %949, %947 ], [ %spec.select.i.i297, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295 ]
-  %951 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %950, ptr noundef nonnull align 4 dereferenceable(4) %.0.i.i291, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %951)
-  %952 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 0, ptr %952, align 8, !tbaa !94
-  %953 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
-  %954 = trunc nuw i8 %953 to i1
-  br i1 %954, label %955, label %990
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295, %946
+  %949 = phi ptr [ %947, %946 ], [ %913, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295 ]
+  %.0.i.i291 = phi ptr [ %948, %946 ], [ %spec.select.i.i297, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i295 ]
+  %950 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  tail call void @_ZN12mpfx_manager5powerERK4mpfxjRS0_(ptr noundef nonnull align 8 dereferenceable(85) %949, ptr noundef nonnull align 4 dereferenceable(4) %.0.i.i291, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %950)
+  %951 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 0, ptr %951, align 8, !tbaa !94
+  %952 = load i8, ptr %1, align 8, !tbaa !75, !range !91, !noundef !92
+  %953 = trunc nuw i8 %952 to i1
+  br i1 %953, label %954, label %989
 
-955:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
-  %956 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %957 = load ptr, ptr %956, align 8, !tbaa !78
-  %958 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %959 = load i32, ptr %958, align 8, !tbaa !79
-  %960 = load ptr, ptr %957, align 8, !tbaa !43
-  %961 = getelementptr inbounds nuw i8, ptr %957, i64 24
-  br label %968
+954:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
+  %955 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %956 = load ptr, ptr %955, align 8, !tbaa !78
+  %957 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %958 = load i32, ptr %957, align 8, !tbaa !79
+  %959 = load ptr, ptr %956, align 8, !tbaa !43
+  %960 = getelementptr inbounds nuw i8, ptr %956, i64 24
+  br label %967
 
-962:                                              ; preds = %982
-  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %960, ptr noundef nonnull align 8 dereferenceable(12) %961)
-  %963 = load ptr, ptr %961, align 8, !tbaa !21
-  %964 = getelementptr inbounds nuw i8, ptr %963, i64 16
-  %965 = load ptr, ptr %964, align 8, !tbaa !16
-  %966 = zext i32 %959 to i64
-  %967 = getelementptr inbounds nuw ptr, ptr %965, i64 %966
+961:                                              ; preds = %981
+  tail call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6rerootERNS5_3refE(ptr noundef nonnull align 8 dereferenceable(32) %959, ptr noundef nonnull align 8 dereferenceable(12) %960)
+  %962 = load ptr, ptr %960, align 8, !tbaa !21
+  %963 = getelementptr inbounds nuw i8, ptr %962, i64 16
+  %964 = load ptr, ptr %963, align 8, !tbaa !16
+  %965 = zext i32 %958 to i64
+  %966 = getelementptr inbounds nuw ptr, ptr %964, i64 %965
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307
 
-968:                                              ; preds = %982, %955
-  %.024.in.i.i.i.i304 = phi ptr [ %961, %955 ], [ %.1.in.i.i.i.i309, %982 ]
-  %.01623.i.i.i.i305 = phi i32 [ 0, %955 ], [ %.117.i.i.i.i310, %982 ]
+967:                                              ; preds = %981, %954
+  %.024.in.i.i.i.i304 = phi ptr [ %960, %954 ], [ %.1.in.i.i.i.i309, %981 ]
+  %.01623.i.i.i.i305 = phi i32 [ 0, %954 ], [ %.117.i.i.i.i310, %981 ]
   %.024.i.i.i.i306 = load ptr, ptr %.024.in.i.i.i.i304, align 8, !tbaa !16
-  %969 = load i32, ptr %.024.i.i.i.i306, align 8
-  %970 = lshr i32 %969, 30
-  switch i32 %970, label %default.unreachable [
-    i32 0, label %971
-    i32 1, label %971
-    i32 2, label %982
-    i32 3, label %977
+  %968 = load i32, ptr %.024.i.i.i.i306, align 8
+  %969 = lshr i32 %968, 30
+  switch i32 %969, label %default.unreachable [
+    i32 0, label %970
+    i32 1, label %970
+    i32 2, label %981
+    i32 3, label %976
   ]
 
-971:                                              ; preds = %968, %968
-  %972 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 4
-  %973 = load i32, ptr %972, align 4, !tbaa !16
-  %974 = icmp eq i32 %959, %973
-  br i1 %974, label %975, label %982
+970:                                              ; preds = %967, %967
+  %971 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 4
+  %972 = load i32, ptr %971, align 4, !tbaa !16
+  %973 = icmp eq i32 %958, %972
+  br i1 %973, label %974, label %981
 
-975:                                              ; preds = %971
-  %976 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 8
+974:                                              ; preds = %970
+  %975 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 8
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307
 
-977:                                              ; preds = %968
-  %978 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 16
-  %979 = load ptr, ptr %978, align 8, !tbaa !16
-  %980 = zext i32 %959 to i64
-  %981 = getelementptr inbounds nuw ptr, ptr %979, i64 %980
+976:                                              ; preds = %967
+  %977 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 16
+  %978 = load ptr, ptr %977, align 8, !tbaa !16
+  %979 = zext i32 %958 to i64
+  %980 = getelementptr inbounds nuw ptr, ptr %978, i64 %979
   br label %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307
 
-982:                                              ; preds = %971, %968
+981:                                              ; preds = %970, %967
   %.1.in.i.i.i.i309 = getelementptr inbounds nuw i8, ptr %.024.i.i.i.i306, i64 16
   %.117.i.i.i.i310 = add nuw nsw i32 %.01623.i.i.i.i305, 1
   %exitcond.i.i.i.i311 = icmp eq i32 %.117.i.i.i.i310, 17
-  br i1 %exitcond.i.i.i.i311, label %962, label %968, !llvm.loop !58
+  br i1 %exitcond.i.i.i.i311, label %961, label %967, !llvm.loop !58
 
-_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307: ; preds = %977, %975, %962
-  %.018.i.i.i.i308 = phi ptr [ %967, %962 ], [ %981, %977 ], [ %976, %975 ]
-  %983 = load ptr, ptr %.018.i.i.i.i308, align 8, !tbaa !44
-  %984 = icmp eq ptr %983, null
-  br i1 %984, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313, label %985
+_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307: ; preds = %976, %974, %961
+  %.018.i.i.i.i308 = phi ptr [ %966, %961 ], [ %975, %974 ], [ %980, %976 ]
+  %982 = load ptr, ptr %.018.i.i.i.i308, align 8, !tbaa !44
+  %983 = icmp eq ptr %982, null
+  br i1 %983, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313, label %984
 
-985:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307
-  %986 = getelementptr inbounds nuw i8, ptr %983, i64 4
-  %987 = load i32, ptr %986, align 4
-  %988 = and i32 %987, 1073741824
-  %989 = icmp ne i32 %988, 0
+984:                                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307
+  %985 = getelementptr inbounds nuw i8, ptr %982, i64 4
+  %986 = load i32, ptr %985, align 4
+  %987 = and i32 %986, 1073741824
+  %988 = icmp ne i32 %987, 0
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313
 
-990:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
-  %991 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %992 = load i8, ptr %991, align 1, !tbaa !96, !range !91, !noundef !92
-  %993 = trunc nuw i8 %992 to i1
+989:                                              ; preds = %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit302
+  %990 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %991 = load i8, ptr %990, align 1, !tbaa !96, !range !91, !noundef !92
+  %992 = trunc nuw i8 %991 to i1
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313
 
-_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307, %985, %990
-  %.0.i.i303 = phi i1 [ %993, %990 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307 ], [ %989, %985 ]
-  %994 = zext i1 %.0.i.i303 to i8
-  %995 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 %994, ptr %995, align 1, !tbaa !96
-  br label %996
+_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313: ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307, %984, %989
+  %.0.i.i303 = phi i1 [ %992, %989 ], [ true, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i307 ], [ %988, %984 ]
+  %993 = zext i1 %.0.i.i303 to i8
+  %994 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 %993, ptr %994, align 1, !tbaa !96
+  br label %995
 
-996:                                              ; preds = %436, %438, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, %133, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313, %906, %6
+995:                                              ; preds = %436, %438, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit236, %133, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit313, %905, %6
   ret void
 }
 
@@ -10908,7 +10908,7 @@ default.unreachable:                              ; preds = %62, %103, %144, %18
   br i1 %exitcond.i.i.i.i, label %15, label %21, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i: ; preds = %30, %28, %15
-  %.018.i.i.i.i = phi ptr [ %20, %15 ], [ %34, %30 ], [ %29, %28 ]
+  %.018.i.i.i.i = phi ptr [ %20, %15 ], [ %29, %28 ], [ %34, %30 ]
   %36 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %37 = icmp eq ptr %36, null
   br i1 %37, label %86, label %44
@@ -10988,7 +10988,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i25, label %56, label %62, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i21: ; preds = %71, %69, %56
-  %.018.i.i.i.i22 = phi ptr [ %61, %56 ], [ %75, %71 ], [ %70, %69 ]
+  %.018.i.i.i.i22 = phi ptr [ %61, %56 ], [ %70, %69 ], [ %75, %71 ]
   %77 = load ptr, ptr %.018.i.i.i.i22, align 8, !tbaa !44
   %78 = icmp eq ptr %77, null
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -11071,7 +11071,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i33, label %97, label %103, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %112, %110, %97
-  %.018.i.i.i.i30 = phi ptr [ %102, %97 ], [ %116, %112 ], [ %111, %110 ]
+  %.018.i.i.i.i30 = phi ptr [ %102, %97 ], [ %111, %110 ], [ %116, %112 ]
   %118 = load ptr, ptr %.018.i.i.i.i30, align 8, !tbaa !44
   %119 = icmp eq ptr %118, null
   br i1 %119, label %168, label %126
@@ -11151,7 +11151,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i44, label %138, label %144, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i39: ; preds = %153, %151, %138
-  %.018.i.i.i.i40 = phi ptr [ %143, %138 ], [ %157, %153 ], [ %152, %151 ]
+  %.018.i.i.i.i40 = phi ptr [ %143, %138 ], [ %152, %151 ], [ %157, %153 ]
   %159 = load ptr, ptr %.018.i.i.i.i40, align 8, !tbaa !44
   %160 = icmp eq ptr %159, null
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -11234,7 +11234,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i54, label %179, label %185, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i50: ; preds = %194, %192, %179
-  %.018.i.i.i.i51 = phi ptr [ %184, %179 ], [ %198, %194 ], [ %193, %192 ]
+  %.018.i.i.i.i51 = phi ptr [ %184, %179 ], [ %193, %192 ], [ %198, %194 ]
   %200 = load ptr, ptr %.018.i.i.i.i51, align 8, !tbaa !44
   %201 = icmp eq ptr %200, null
   br i1 %201, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %202
@@ -11316,7 +11316,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i64, label %222, label %228, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i60: ; preds = %237, %235, %222
-  %.018.i.i.i.i61 = phi ptr [ %227, %222 ], [ %241, %237 ], [ %236, %235 ]
+  %.018.i.i.i.i61 = phi ptr [ %227, %222 ], [ %236, %235 ], [ %241, %237 ]
   %243 = load ptr, ptr %.018.i.i.i.i61, align 8, !tbaa !44
   %244 = icmp eq ptr %243, null
   br i1 %244, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %245
@@ -11447,8 +11447,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %26, %39, %41
-  %.pre = phi i8 [ %.pre.pre, %26 ], [ %17, %41 ], [ %17, %39 ]
-  %.018.i.i.i.i = phi ptr [ %31, %26 ], [ %45, %41 ], [ %40, %39 ]
+  %.pre = phi i8 [ %.pre.pre, %26 ], [ %17, %39 ], [ %17, %41 ]
+  %.018.i.i.i.i = phi ptr [ %31, %26 ], [ %40, %39 ], [ %45, %41 ]
   %48 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %49 = icmp eq ptr %48, null
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -11521,8 +11521,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit: ; preds = %59, %72, %74
-  %.pre633 = phi i8 [ %.pre633.pre, %59 ], [ %.pre, %74 ], [ %.pre, %72 ]
-  %.018.i.i.i.i241 = phi ptr [ %64, %59 ], [ %78, %74 ], [ %73, %72 ]
+  %.pre633 = phi i8 [ %.pre633.pre, %59 ], [ %.pre, %72 ], [ %.pre, %74 ]
+  %.018.i.i.i.i241 = phi ptr [ %64, %59 ], [ %73, %72 ], [ %78, %74 ]
   %84 = load ptr, ptr %.018.i.i.i.i241, align 8, !tbaa !44
   %85 = icmp eq ptr %84, null
   %not..i = xor i1 %85, true
@@ -11593,8 +11593,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %153
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %95, %108, %110
-  %.pre634 = phi i8 [ %.pre634.pre, %95 ], [ %.pre633, %110 ], [ %.pre633, %108 ]
-  %.018.i.i.i.i250 = phi ptr [ %100, %95 ], [ %114, %110 ], [ %109, %108 ]
+  %.pre634 = phi i8 [ %.pre634.pre, %95 ], [ %.pre633, %108 ], [ %.pre633, %110 ]
+  %.018.i.i.i.i250 = phi ptr [ %100, %95 ], [ %109, %108 ], [ %114, %110 ]
   %119 = load ptr, ptr %.018.i.i.i.i250, align 8, !tbaa !44
   %120 = icmp eq ptr %119, null
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -11657,7 +11657,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i263, label %130, label %136, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i259: ; preds = %145, %143, %130
-  %.018.i.i.i.i260 = phi ptr [ %135, %130 ], [ %149, %145 ], [ %144, %143 ]
+  %.018.i.i.i.i260 = phi ptr [ %135, %130 ], [ %144, %143 ], [ %149, %145 ]
   %151 = load ptr, ptr %.018.i.i.i.i260, align 8, !tbaa !44
   %152 = icmp eq ptr %151, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -11743,8 +11743,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit287.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit276: ; preds = %172, %185, %187
-  %.pre635 = phi i8 [ %.pre635.pre, %172 ], [ %163, %187 ], [ %163, %185 ]
-  %.018.i.i.i.i270 = phi ptr [ %177, %172 ], [ %191, %187 ], [ %186, %185 ]
+  %.pre635 = phi i8 [ %.pre635.pre, %172 ], [ %163, %185 ], [ %163, %187 ]
+  %.018.i.i.i.i270 = phi ptr [ %177, %172 ], [ %186, %185 ], [ %191, %187 ]
   %194 = load ptr, ptr %.018.i.i.i.i270, align 8, !tbaa !44
   %195 = icmp eq ptr %194, null
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -11817,8 +11817,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit299.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit287: ; preds = %205, %218, %220
-  %.pre636 = phi i8 [ %.pre636.pre, %205 ], [ %.pre635, %220 ], [ %.pre635, %218 ]
-  %.018.i.i.i.i282 = phi ptr [ %210, %205 ], [ %224, %220 ], [ %219, %218 ]
+  %.pre636 = phi i8 [ %.pre636.pre, %205 ], [ %.pre635, %218 ], [ %.pre635, %220 ]
+  %.018.i.i.i.i282 = phi ptr [ %210, %205 ], [ %219, %218 ], [ %224, %220 ]
   %230 = load ptr, ptr %.018.i.i.i.i282, align 8, !tbaa !44
   %231 = icmp eq ptr %230, null
   %not..i277 = xor i1 %231, true
@@ -11889,8 +11889,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %299
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit299: ; preds = %241, %254, %256
-  %.pre637 = phi i8 [ %.pre637.pre, %241 ], [ %.pre636, %256 ], [ %.pre636, %254 ]
-  %.018.i.i.i.i293 = phi ptr [ %246, %241 ], [ %260, %256 ], [ %255, %254 ]
+  %.pre637 = phi i8 [ %.pre637.pre, %241 ], [ %.pre636, %254 ], [ %.pre636, %256 ]
+  %.018.i.i.i.i293 = phi ptr [ %246, %241 ], [ %255, %254 ], [ %260, %256 ]
   %265 = load ptr, ptr %.018.i.i.i.i293, align 8, !tbaa !44
   %266 = icmp eq ptr %265, null
   %267 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -11953,7 +11953,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i307, label %276, label %282, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i303: ; preds = %291, %289, %276
-  %.018.i.i.i.i304 = phi ptr [ %281, %276 ], [ %295, %291 ], [ %290, %289 ]
+  %.018.i.i.i.i304 = phi ptr [ %281, %276 ], [ %290, %289 ], [ %295, %291 ]
   %297 = load ptr, ptr %.018.i.i.i.i304, align 8, !tbaa !44
   %298 = icmp eq ptr %297, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit309
@@ -12034,7 +12034,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i318, label %318, label %324, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i314: ; preds = %333, %331, %318
-  %.018.i.i.i.i315 = phi ptr [ %323, %318 ], [ %337, %333 ], [ %332, %331 ]
+  %.018.i.i.i.i315 = phi ptr [ %323, %318 ], [ %332, %331 ], [ %337, %333 ]
   %339 = load ptr, ptr %.018.i.i.i.i315, align 8, !tbaa !44
   %340 = icmp eq ptr %339, null
   br i1 %340, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %341
@@ -12113,7 +12113,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i328, label %359, label %365, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i324: ; preds = %374, %372, %359
-  %.018.i.i.i.i325 = phi ptr [ %364, %359 ], [ %378, %374 ], [ %373, %372 ]
+  %.018.i.i.i.i325 = phi ptr [ %364, %359 ], [ %373, %372 ], [ %378, %374 ]
   %380 = load ptr, ptr %.018.i.i.i.i325, align 8, !tbaa !44
   %381 = icmp eq ptr %380, null
   br i1 %381, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %382
@@ -12192,7 +12192,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i338, label %400, label %406, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i334: ; preds = %415, %413, %400
-  %.018.i.i.i.i335 = phi ptr [ %405, %400 ], [ %419, %415 ], [ %414, %413 ]
+  %.018.i.i.i.i335 = phi ptr [ %405, %400 ], [ %414, %413 ], [ %419, %415 ]
   %421 = load ptr, ptr %.018.i.i.i.i335, align 8, !tbaa !44
   %422 = icmp eq ptr %421, null
   br i1 %422, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit340, label %423
@@ -12271,7 +12271,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i349, label %441, label %447, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i345: ; preds = %456, %454, %441
-  %.018.i.i.i.i346 = phi ptr [ %446, %441 ], [ %460, %456 ], [ %455, %454 ]
+  %.018.i.i.i.i346 = phi ptr [ %446, %441 ], [ %455, %454 ], [ %460, %456 ]
   %462 = load ptr, ptr %.018.i.i.i.i346, align 8, !tbaa !44
   %463 = icmp eq ptr %462, null
   br i1 %463, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit351, label %464
@@ -12374,7 +12374,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i, label %490, label %496, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i: ; preds = %505, %503, %490
-  %.018.i.i.i.i.i = phi ptr [ %495, %490 ], [ %509, %505 ], [ %504, %503 ]
+  %.018.i.i.i.i.i = phi ptr [ %495, %490 ], [ %504, %503 ], [ %509, %505 ]
   %511 = load ptr, ptr %.018.i.i.i.i.i, align 8, !tbaa !44
   %512 = icmp eq ptr %511, null
   br i1 %512, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit
@@ -12460,7 +12460,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i363, label %532, label %538, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i359: ; preds = %547, %545, %532
-  %.018.i.i.i.i.i360 = phi ptr [ %537, %532 ], [ %551, %547 ], [ %546, %545 ]
+  %.018.i.i.i.i.i360 = phi ptr [ %537, %532 ], [ %546, %545 ], [ %551, %547 ]
   %553 = load ptr, ptr %.018.i.i.i.i.i360, align 8, !tbaa !44
   %554 = icmp eq ptr %553, null
   br i1 %554, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit365.thread460, label %556
@@ -12804,7 +12804,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i396, label %679, label %685, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i392: ; preds = %694, %692, %679
-  %.018.i.i.i.i.i393 = phi ptr [ %684, %679 ], [ %698, %694 ], [ %693, %692 ]
+  %.018.i.i.i.i.i393 = phi ptr [ %684, %679 ], [ %693, %692 ], [ %698, %694 ]
   %700 = load ptr, ptr %.018.i.i.i.i.i393, align 8, !tbaa !44
   %701 = icmp eq ptr %700, null
   br i1 %701, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit398.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit398
@@ -13308,7 +13308,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i440, label %897, label %903, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i.i: ; preds = %912, %910, %897
-  %.018.i.i.i.i.i437 = phi ptr [ %902, %897 ], [ %916, %912 ], [ %911, %910 ]
+  %.018.i.i.i.i.i437 = phi ptr [ %902, %897 ], [ %911, %910 ], [ %916, %912 ]
   %918 = load ptr, ptr %.018.i.i.i.i.i437, align 8, !tbaa !44
   %919 = icmp eq ptr %918, null
   br i1 %919, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_P0ERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_P0ERKNS3_8intervalE.exit
@@ -13670,8 +13670,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %26, %39, %41
-  %.pre = phi i8 [ %.pre.pre, %26 ], [ %17, %41 ], [ %17, %39 ]
-  %.018.i.i.i.i = phi ptr [ %31, %26 ], [ %45, %41 ], [ %40, %39 ]
+  %.pre = phi i8 [ %.pre.pre, %26 ], [ %17, %39 ], [ %17, %41 ]
+  %.018.i.i.i.i = phi ptr [ %31, %26 ], [ %40, %39 ], [ %45, %41 ]
   %48 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %49 = icmp eq ptr %48, null
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -13742,8 +13742,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit: ; preds = %59, %72, %74
-  %.pre605 = phi i8 [ %.pre605.pre, %59 ], [ %.pre, %74 ], [ %.pre, %72 ]
-  %.018.i.i.i.i151 = phi ptr [ %64, %59 ], [ %78, %74 ], [ %73, %72 ]
+  %.pre605 = phi i8 [ %.pre605.pre, %59 ], [ %.pre, %72 ], [ %.pre, %74 ]
+  %.018.i.i.i.i151 = phi ptr [ %64, %59 ], [ %73, %72 ], [ %78, %74 ]
   %83 = load ptr, ptr %.018.i.i.i.i151, align 8, !tbaa !44
   %84 = icmp eq ptr %83, null
   %85 = trunc nuw i8 %.pre605 to i1
@@ -13811,8 +13811,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %150
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %93, %106, %108
-  %.pre606 = phi i8 [ %.pre606.pre, %93 ], [ %.pre605, %108 ], [ %.pre605, %106 ]
-  %.018.i.i.i.i160 = phi ptr [ %98, %93 ], [ %112, %108 ], [ %107, %106 ]
+  %.pre606 = phi i8 [ %.pre606.pre, %93 ], [ %.pre605, %106 ], [ %.pre605, %108 ]
+  %.018.i.i.i.i160 = phi ptr [ %98, %93 ], [ %107, %106 ], [ %112, %108 ]
   %116 = load ptr, ptr %.018.i.i.i.i160, align 8, !tbaa !44
   %117 = icmp eq ptr %116, null
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -13875,7 +13875,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i173, label %127, label %133, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i169: ; preds = %142, %140, %127
-  %.018.i.i.i.i170 = phi ptr [ %132, %127 ], [ %146, %142 ], [ %141, %140 ]
+  %.018.i.i.i.i170 = phi ptr [ %132, %127 ], [ %141, %140 ], [ %146, %142 ]
   %148 = load ptr, ptr %.018.i.i.i.i170, align 8, !tbaa !44
   %149 = icmp eq ptr %148, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -13958,8 +13958,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit197.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit186: ; preds = %166, %179, %181
-  %.pre607 = phi i8 [ %.pre607.pre, %166 ], [ %157, %181 ], [ %157, %179 ]
-  %.018.i.i.i.i180 = phi ptr [ %171, %166 ], [ %185, %181 ], [ %180, %179 ]
+  %.pre607 = phi i8 [ %.pre607.pre, %166 ], [ %157, %179 ], [ %157, %181 ]
+  %.018.i.i.i.i180 = phi ptr [ %171, %166 ], [ %180, %179 ], [ %185, %181 ]
   %188 = load ptr, ptr %.018.i.i.i.i180, align 8, !tbaa !44
   %189 = icmp eq ptr %188, null
   %190 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -14030,8 +14030,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit209.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit197: ; preds = %199, %212, %214
-  %.pre608 = phi i8 [ %.pre608.pre, %199 ], [ %.pre607, %214 ], [ %.pre607, %212 ]
-  %.018.i.i.i.i192 = phi ptr [ %204, %199 ], [ %218, %214 ], [ %213, %212 ]
+  %.pre608 = phi i8 [ %.pre608.pre, %199 ], [ %.pre607, %212 ], [ %.pre607, %214 ]
+  %.018.i.i.i.i192 = phi ptr [ %204, %199 ], [ %213, %212 ], [ %218, %214 ]
   %223 = load ptr, ptr %.018.i.i.i.i192, align 8, !tbaa !44
   %224 = icmp eq ptr %223, null
   %225 = trunc nuw i8 %.pre608 to i1
@@ -14099,8 +14099,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %290
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit209: ; preds = %233, %246, %248
-  %.pre609 = phi i8 [ %.pre609.pre, %233 ], [ %.pre608, %248 ], [ %.pre608, %246 ]
-  %.018.i.i.i.i203 = phi ptr [ %238, %233 ], [ %252, %248 ], [ %247, %246 ]
+  %.pre609 = phi i8 [ %.pre609.pre, %233 ], [ %.pre608, %246 ], [ %.pre608, %248 ]
+  %.018.i.i.i.i203 = phi ptr [ %238, %233 ], [ %247, %246 ], [ %252, %248 ]
   %256 = load ptr, ptr %.018.i.i.i.i203, align 8, !tbaa !44
   %257 = icmp eq ptr %256, null
   %258 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -14163,7 +14163,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i217, label %267, label %273, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i213: ; preds = %282, %280, %267
-  %.018.i.i.i.i214 = phi ptr [ %272, %267 ], [ %286, %282 ], [ %281, %280 ]
+  %.018.i.i.i.i214 = phi ptr [ %272, %267 ], [ %281, %280 ], [ %286, %282 ]
   %288 = load ptr, ptr %.018.i.i.i.i214, align 8, !tbaa !44
   %289 = icmp eq ptr %288, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit219
@@ -14241,7 +14241,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i228, label %306, label %312, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i224: ; preds = %321, %319, %306
-  %.018.i.i.i.i225 = phi ptr [ %311, %306 ], [ %325, %321 ], [ %320, %319 ]
+  %.018.i.i.i.i225 = phi ptr [ %311, %306 ], [ %320, %319 ], [ %325, %321 ]
   %327 = load ptr, ptr %.018.i.i.i.i225, align 8, !tbaa !44
   %328 = icmp eq ptr %327, null
   br i1 %328, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %329
@@ -14320,7 +14320,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i238, label %347, label %353, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i234: ; preds = %362, %360, %347
-  %.018.i.i.i.i235 = phi ptr [ %352, %347 ], [ %366, %362 ], [ %361, %360 ]
+  %.018.i.i.i.i235 = phi ptr [ %352, %347 ], [ %361, %360 ], [ %366, %362 ]
   %368 = load ptr, ptr %.018.i.i.i.i235, align 8, !tbaa !44
   %369 = icmp eq ptr %368, null
   br i1 %369, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %370
@@ -14399,7 +14399,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i248, label %388, label %394, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i244: ; preds = %403, %401, %388
-  %.018.i.i.i.i245 = phi ptr [ %393, %388 ], [ %407, %403 ], [ %402, %401 ]
+  %.018.i.i.i.i245 = phi ptr [ %393, %388 ], [ %402, %401 ], [ %407, %403 ]
   %409 = load ptr, ptr %.018.i.i.i.i245, align 8, !tbaa !44
   %410 = icmp eq ptr %409, null
   br i1 %410, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit250, label %411
@@ -14478,7 +14478,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i259, label %429, label %435, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i255: ; preds = %444, %442, %429
-  %.018.i.i.i.i256 = phi ptr [ %434, %429 ], [ %448, %444 ], [ %443, %442 ]
+  %.018.i.i.i.i256 = phi ptr [ %434, %429 ], [ %443, %442 ], [ %448, %444 ]
   %450 = load ptr, ptr %.018.i.i.i.i256, align 8, !tbaa !44
   %451 = icmp eq ptr %450, null
   br i1 %451, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit261, label %452
@@ -14575,7 +14575,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i, label %478, label %484, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i: ; preds = %493, %491, %478
-  %.018.i.i.i.i.i = phi ptr [ %483, %478 ], [ %497, %493 ], [ %492, %491 ]
+  %.018.i.i.i.i.i = phi ptr [ %483, %478 ], [ %492, %491 ], [ %497, %493 ]
   %499 = load ptr, ptr %.018.i.i.i.i.i, align 8, !tbaa !44
   %500 = icmp eq ptr %499, null
   br i1 %500, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit
@@ -14661,7 +14661,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i270, label %520, label %526, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i266: ; preds = %535, %533, %520
-  %.018.i.i.i.i.i267 = phi ptr [ %525, %520 ], [ %539, %535 ], [ %534, %533 ]
+  %.018.i.i.i.i.i267 = phi ptr [ %525, %520 ], [ %534, %533 ], [ %539, %535 ]
   %541 = load ptr, ptr %.018.i.i.i.i.i267, align 8, !tbaa !44
   %542 = icmp eq ptr %541, null
   br i1 %542, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit.thread413, label %544
@@ -14865,7 +14865,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i287, label %609, label %615, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i283: ; preds = %624, %622, %609
-  %.018.i.i.i.i.i284 = phi ptr [ %614, %609 ], [ %628, %624 ], [ %623, %622 ]
+  %.018.i.i.i.i.i284 = phi ptr [ %614, %609 ], [ %623, %622 ], [ %628, %624 ]
   %630 = load ptr, ptr %.018.i.i.i.i.i284, align 8, !tbaa !44
   %631 = icmp eq ptr %630, null
   br i1 %631, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N0ERKNS3_8intervalE.exit289.thread418, label %633
@@ -15077,7 +15077,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i312, label %703, label %709, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i308: ; preds = %718, %716, %703
-  %.018.i.i.i.i.i309 = phi ptr [ %708, %703 ], [ %722, %718 ], [ %717, %716 ]
+  %.018.i.i.i.i.i309 = phi ptr [ %708, %703 ], [ %717, %716 ], [ %722, %718 ]
   %724 = load ptr, ptr %.018.i.i.i.i.i309, align 8, !tbaa !44
   %725 = icmp eq ptr %724, null
   br i1 %725, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit314.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit314
@@ -15381,7 +15381,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i351, label %832, label %838, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i.i347: ; preds = %847, %845, %832
-  %.018.i.i.i.i.i348 = phi ptr [ %837, %832 ], [ %851, %847 ], [ %846, %845 ]
+  %.018.i.i.i.i.i348 = phi ptr [ %837, %832 ], [ %846, %845 ], [ %851, %847 ]
   %853 = load ptr, ptr %.018.i.i.i.i.i348, align 8, !tbaa !44
   %854 = icmp eq ptr %853, null
   br i1 %854, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit353.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_N1ERKNS3_8intervalE.exit353
@@ -15467,7 +15467,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i361, label %874, label %880, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i.i: ; preds = %889, %887, %874
-  %.018.i.i.i.i.i358 = phi ptr [ %879, %874 ], [ %893, %889 ], [ %888, %887 ]
+  %.018.i.i.i.i.i358 = phi ptr [ %879, %874 ], [ %888, %887 ], [ %893, %889 ]
   %895 = load ptr, ptr %.018.i.i.i.i.i358, align 8, !tbaa !44
   %896 = icmp eq ptr %895, null
   br i1 %896, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_P0ERKNS3_8intervalE.exit.thread425, label %898
@@ -15671,7 +15671,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i.i386, label %963, label %969, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i.i382: ; preds = %978, %976, %963
-  %.018.i.i.i.i.i383 = phi ptr [ %968, %963 ], [ %982, %978 ], [ %977, %976 ]
+  %.018.i.i.i.i.i383 = phi ptr [ %968, %963 ], [ %977, %976 ], [ %982, %978 ]
   %984 = load ptr, ptr %.018.i.i.i.i.i383, align 8, !tbaa !44
   %985 = icmp eq ptr %984, null
   br i1 %985, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5is_P0ERKNS3_8intervalE.exit388.thread430, label %987
@@ -15938,8 +15938,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -16002,7 +16002,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_Z6is_negI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit, label %71
@@ -16098,7 +16098,7 @@ default.unreachable:                              ; preds = %73, %112
   br i1 %exitcond.i.i.i.i, label %18, label %24, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %33, %31, %18
-  %.018.i.i.i.i = phi ptr [ %23, %18 ], [ %37, %33 ], [ %32, %31 ]
+  %.018.i.i.i.i = phi ptr [ %23, %18 ], [ %32, %31 ], [ %37, %33 ]
   %39 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %40 = icmp eq ptr %39, null
   br i1 %40, label %46, label %56
@@ -16194,7 +16194,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i33, label %67, label %73, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i29: ; preds = %82, %80, %67
-  %.018.i.i.i.i30 = phi ptr [ %72, %67 ], [ %86, %82 ], [ %81, %80 ]
+  %.018.i.i.i.i30 = phi ptr [ %72, %67 ], [ %81, %80 ], [ %86, %82 ]
   %88 = load ptr, ptr %.018.i.i.i.i30, align 8, !tbaa !44
   %89 = icmp eq ptr %88, null
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -16271,7 +16271,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i43, label %106, label %112, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i39: ; preds = %121, %119, %106
-  %.018.i.i.i.i40 = phi ptr [ %111, %106 ], [ %125, %121 ], [ %120, %119 ]
+  %.018.i.i.i.i40 = phi ptr [ %111, %106 ], [ %120, %119 ], [ %125, %121 ]
   %127 = load ptr, ptr %.018.i.i.i.i40, align 8, !tbaa !44
   %128 = icmp eq ptr %127, null
   br i1 %128, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit
@@ -16792,8 +16792,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %73
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %17, %30, %32
-  %.pre = phi i8 [ %.pre.pre, %17 ], [ %8, %32 ], [ %8, %30 ]
-  %.018.i.i.i.i = phi ptr [ %22, %17 ], [ %36, %32 ], [ %31, %30 ]
+  %.pre = phi i8 [ %.pre.pre, %17 ], [ %8, %30 ], [ %8, %32 ]
+  %.018.i.i.i.i = phi ptr [ %22, %17 ], [ %31, %30 ], [ %36, %32 ]
   %39 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %40 = icmp eq ptr %39, null
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -16856,7 +16856,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i26, label %50, label %56, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i22: ; preds = %65, %63, %50
-  %.018.i.i.i.i23 = phi ptr [ %55, %50 ], [ %69, %65 ], [ %64, %63 ]
+  %.018.i.i.i.i23 = phi ptr [ %55, %50 ], [ %64, %63 ], [ %69, %65 ]
   %71 = load ptr, ptr %.018.i.i.i.i23, align 8, !tbaa !44
   %72 = icmp eq ptr %71, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
@@ -16935,8 +16935,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %143
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit39: ; preds = %87, %100, %102
-  %.pre212 = phi i8 [ %.pre212.pre, %87 ], [ %78, %102 ], [ %78, %100 ]
-  %.018.i.i.i.i33 = phi ptr [ %92, %87 ], [ %106, %102 ], [ %101, %100 ]
+  %.pre212 = phi i8 [ %.pre212.pre, %87 ], [ %78, %100 ], [ %78, %102 ]
+  %.018.i.i.i.i33 = phi ptr [ %92, %87 ], [ %101, %100 ], [ %106, %102 ]
   %109 = load ptr, ptr %.018.i.i.i.i33, align 8, !tbaa !44
   %110 = icmp eq ptr %109, null
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -16999,7 +16999,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i48, label %120, label %126, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i44: ; preds = %135, %133, %120
-  %.018.i.i.i.i45 = phi ptr [ %125, %120 ], [ %139, %135 ], [ %134, %133 ]
+  %.018.i.i.i.i45 = phi ptr [ %125, %120 ], [ %134, %133 ], [ %139, %135 ]
   %141 = load ptr, ptr %.018.i.i.i.i45, align 8, !tbaa !44
   %142 = icmp eq ptr %141, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit50
@@ -17101,8 +17101,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %221
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %165, %178, %180
-  %.pre213 = phi i8 [ %.pre213.pre, %165 ], [ %156, %180 ], [ %156, %178 ]
-  %.018.i.i.i.i55 = phi ptr [ %170, %165 ], [ %184, %180 ], [ %179, %178 ]
+  %.pre213 = phi i8 [ %.pre213.pre, %165 ], [ %156, %178 ], [ %156, %180 ]
+  %.018.i.i.i.i55 = phi ptr [ %170, %165 ], [ %179, %178 ], [ %184, %180 ]
   %187 = load ptr, ptr %.018.i.i.i.i55, align 8, !tbaa !44
   %188 = icmp eq ptr %187, null
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -17165,7 +17165,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i68, label %198, label %204, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i64: ; preds = %213, %211, %198
-  %.018.i.i.i.i65 = phi ptr [ %203, %198 ], [ %217, %213 ], [ %212, %211 ]
+  %.018.i.i.i.i65 = phi ptr [ %203, %198 ], [ %212, %211 ], [ %217, %213 ]
   %219 = load ptr, ptr %.018.i.i.i.i65, align 8, !tbaa !44
   %220 = icmp eq ptr %219, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -17244,8 +17244,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %291
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit81: ; preds = %235, %248, %250
-  %.pre214 = phi i8 [ %.pre214.pre, %235 ], [ %226, %250 ], [ %226, %248 ]
-  %.018.i.i.i.i75 = phi ptr [ %240, %235 ], [ %254, %250 ], [ %249, %248 ]
+  %.pre214 = phi i8 [ %.pre214.pre, %235 ], [ %226, %248 ], [ %226, %250 ]
+  %.018.i.i.i.i75 = phi ptr [ %240, %235 ], [ %249, %248 ], [ %254, %250 ]
   %257 = load ptr, ptr %.018.i.i.i.i75, align 8, !tbaa !44
   %258 = icmp eq ptr %257, null
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -17308,7 +17308,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i89, label %268, label %274, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i85: ; preds = %283, %281, %268
-  %.018.i.i.i.i86 = phi ptr [ %273, %268 ], [ %287, %283 ], [ %282, %281 ]
+  %.018.i.i.i.i86 = phi ptr [ %273, %268 ], [ %282, %281 ], [ %287, %283 ]
   %289 = load ptr, ptr %.018.i.i.i.i86, align 8, !tbaa !44
   %290 = icmp eq ptr %289, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit91
@@ -17406,7 +17406,7 @@ _Z3addI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit93
   br i1 %exitcond.i.i.i.i102, label %313, label %319, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i98: ; preds = %328, %326, %313
-  %.018.i.i.i.i99 = phi ptr [ %318, %313 ], [ %332, %328 ], [ %327, %326 ]
+  %.018.i.i.i.i99 = phi ptr [ %318, %313 ], [ %327, %326 ], [ %332, %328 ]
   %334 = load ptr, ptr %.018.i.i.i.i99, align 8, !tbaa !44
   %335 = icmp eq ptr %334, null
   br i1 %335, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit114, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit
@@ -17484,7 +17484,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i112, label %353, label %359, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i108: ; preds = %368, %366, %353
-  %.018.i.i.i.i109 = phi ptr [ %358, %353 ], [ %372, %368 ], [ %367, %366 ]
+  %.018.i.i.i.i109 = phi ptr [ %358, %353 ], [ %367, %366 ], [ %372, %368 ]
   %374 = load ptr, ptr %.018.i.i.i.i109, align 8, !tbaa !44
   %375 = icmp eq ptr %374, null
   br i1 %375, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit114, label %376
@@ -17566,7 +17566,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i123, label %397, label %403, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i119: ; preds = %412, %410, %397
-  %.018.i.i.i.i120 = phi ptr [ %402, %397 ], [ %416, %412 ], [ %411, %410 ]
+  %.018.i.i.i.i120 = phi ptr [ %402, %397 ], [ %411, %410 ], [ %416, %412 ]
   %418 = load ptr, ptr %.018.i.i.i.i120, align 8, !tbaa !44
   %419 = icmp eq ptr %418, null
   br i1 %419, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit135, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit
@@ -17644,7 +17644,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i133, label %437, label %443, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i129: ; preds = %452, %450, %437
-  %.018.i.i.i.i130 = phi ptr [ %442, %437 ], [ %456, %452 ], [ %451, %450 ]
+  %.018.i.i.i.i130 = phi ptr [ %442, %437 ], [ %451, %450 ], [ %456, %452 ]
   %458 = load ptr, ptr %.018.i.i.i.i130, align 8, !tbaa !44
   %459 = icmp eq ptr %458, null
   br i1 %459, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit135, label %460
@@ -17746,8 +17746,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %73
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %17, %30, %32
-  %.pre = phi i8 [ %.pre.pre, %17 ], [ %8, %32 ], [ %8, %30 ]
-  %.018.i.i.i.i = phi ptr [ %22, %17 ], [ %36, %32 ], [ %31, %30 ]
+  %.pre = phi i8 [ %.pre.pre, %17 ], [ %8, %30 ], [ %8, %32 ]
+  %.018.i.i.i.i = phi ptr [ %22, %17 ], [ %31, %30 ], [ %36, %32 ]
   %39 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %40 = icmp eq ptr %39, null
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -17810,7 +17810,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i26, label %50, label %56, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i22: ; preds = %65, %63, %50
-  %.018.i.i.i.i23 = phi ptr [ %55, %50 ], [ %69, %65 ], [ %64, %63 ]
+  %.018.i.i.i.i23 = phi ptr [ %55, %50 ], [ %64, %63 ], [ %69, %65 ]
   %71 = load ptr, ptr %.018.i.i.i.i23, align 8, !tbaa !44
   %72 = icmp eq ptr %71, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
@@ -17889,8 +17889,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %143
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %87, %100, %102
-  %.pre215 = phi i8 [ %.pre215.pre, %87 ], [ %78, %102 ], [ %78, %100 ]
-  %.018.i.i.i.i32 = phi ptr [ %92, %87 ], [ %106, %102 ], [ %101, %100 ]
+  %.pre215 = phi i8 [ %.pre215.pre, %87 ], [ %78, %100 ], [ %78, %102 ]
+  %.018.i.i.i.i32 = phi ptr [ %92, %87 ], [ %101, %100 ], [ %106, %102 ]
   %109 = load ptr, ptr %.018.i.i.i.i32, align 8, !tbaa !44
   %110 = icmp eq ptr %109, null
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -17953,7 +17953,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i45, label %120, label %126, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i41: ; preds = %135, %133, %120
-  %.018.i.i.i.i42 = phi ptr [ %125, %120 ], [ %139, %135 ], [ %134, %133 ]
+  %.018.i.i.i.i42 = phi ptr [ %125, %120 ], [ %134, %133 ], [ %139, %135 ]
   %141 = load ptr, ptr %.018.i.i.i.i42, align 8, !tbaa !44
   %142 = icmp eq ptr %141, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -18055,8 +18055,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %221
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit58: ; preds = %165, %178, %180
-  %.pre216 = phi i8 [ %.pre216.pre, %165 ], [ %156, %180 ], [ %156, %178 ]
-  %.018.i.i.i.i52 = phi ptr [ %170, %165 ], [ %184, %180 ], [ %179, %178 ]
+  %.pre216 = phi i8 [ %.pre216.pre, %165 ], [ %156, %178 ], [ %156, %180 ]
+  %.018.i.i.i.i52 = phi ptr [ %170, %165 ], [ %179, %178 ], [ %184, %180 ]
   %187 = load ptr, ptr %.018.i.i.i.i52, align 8, !tbaa !44
   %188 = icmp eq ptr %187, null
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -18119,7 +18119,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i66, label %198, label %204, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i62: ; preds = %213, %211, %198
-  %.018.i.i.i.i63 = phi ptr [ %203, %198 ], [ %217, %213 ], [ %212, %211 ]
+  %.018.i.i.i.i63 = phi ptr [ %203, %198 ], [ %212, %211 ], [ %217, %213 ]
   %219 = load ptr, ptr %.018.i.i.i.i63, align 8, !tbaa !44
   %220 = icmp eq ptr %219, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit68
@@ -18198,8 +18198,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %291
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit80: ; preds = %235, %248, %250
-  %.pre217 = phi i8 [ %.pre217.pre, %235 ], [ %226, %250 ], [ %226, %248 ]
-  %.018.i.i.i.i74 = phi ptr [ %240, %235 ], [ %254, %250 ], [ %249, %248 ]
+  %.pre217 = phi i8 [ %.pre217.pre, %235 ], [ %226, %248 ], [ %226, %250 ]
+  %.018.i.i.i.i74 = phi ptr [ %240, %235 ], [ %249, %248 ], [ %254, %250 ]
   %257 = load ptr, ptr %.018.i.i.i.i74, align 8, !tbaa !44
   %258 = icmp eq ptr %257, null
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -18262,7 +18262,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i89, label %268, label %274, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i85: ; preds = %283, %281, %268
-  %.018.i.i.i.i86 = phi ptr [ %273, %268 ], [ %287, %283 ], [ %282, %281 ]
+  %.018.i.i.i.i86 = phi ptr [ %273, %268 ], [ %282, %281 ], [ %287, %283 ]
   %289 = load ptr, ptr %.018.i.i.i.i86, align 8, !tbaa !44
   %290 = icmp eq ptr %289, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit91
@@ -18360,7 +18360,7 @@ _Z3subI12mpfx_managerEvRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_RS3_RS6_.exit94
   br i1 %exitcond.i.i.i.i103, label %313, label %319, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i99: ; preds = %328, %326, %313
-  %.018.i.i.i.i100 = phi ptr [ %318, %313 ], [ %332, %328 ], [ %327, %326 ]
+  %.018.i.i.i.i100 = phi ptr [ %318, %313 ], [ %327, %326 ], [ %332, %328 ]
   %334 = load ptr, ptr %.018.i.i.i.i100, align 8, !tbaa !44
   %335 = icmp eq ptr %334, null
   br i1 %335, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit
@@ -18438,7 +18438,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i113, label %353, label %359, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i109: ; preds = %368, %366, %353
-  %.018.i.i.i.i110 = phi ptr [ %358, %353 ], [ %372, %368 ], [ %367, %366 ]
+  %.018.i.i.i.i110 = phi ptr [ %358, %353 ], [ %367, %366 ], [ %372, %368 ]
   %374 = load ptr, ptr %.018.i.i.i.i110, align 8, !tbaa !44
   %375 = icmp eq ptr %374, null
   br i1 %375, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %376
@@ -18520,7 +18520,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i123, label %397, label %403, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i119: ; preds = %412, %410, %397
-  %.018.i.i.i.i120 = phi ptr [ %402, %397 ], [ %416, %412 ], [ %411, %410 ]
+  %.018.i.i.i.i120 = phi ptr [ %402, %397 ], [ %411, %410 ], [ %416, %412 ]
   %418 = load ptr, ptr %.018.i.i.i.i120, align 8, !tbaa !44
   %419 = icmp eq ptr %418, null
   br i1 %419, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit136, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit125
@@ -18598,7 +18598,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i134, label %437, label %443, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i130: ; preds = %452, %450, %437
-  %.018.i.i.i.i131 = phi ptr [ %442, %437 ], [ %456, %452 ], [ %451, %450 ]
+  %.018.i.i.i.i131 = phi ptr [ %442, %437 ], [ %451, %450 ], [ %456, %452 ]
   %458 = load ptr, ptr %.018.i.i.i.i131, align 8, !tbaa !44
   %459 = icmp eq ptr %458, null
   br i1 %459, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit136, label %460
@@ -18791,8 +18791,8 @@ default.unreachable:                              ; preds = %37
   br i1 %exitcond.i.i, label %7, label %13, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %7, %20, %22
-  %28 = phi ptr [ %.pre, %7 ], [ %5, %22 ], [ %5, %20 ]
-  %.018.i.i = phi ptr [ %12, %7 ], [ %26, %22 ], [ %21, %20 ]
+  %28 = phi ptr [ %.pre, %7 ], [ %5, %20 ], [ %5, %22 ]
+  %.018.i.i = phi ptr [ %12, %7 ], [ %21, %20 ], [ %26, %22 ]
   %29 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %37
@@ -18843,7 +18843,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %7, %20
   br i1 %exitcond.i.i50, label %31, label %37, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %31, %44, %46
-  %.018.i.i47 = phi ptr [ %36, %31 ], [ %50, %46 ], [ %45, %44 ]
+  %.018.i.i47 = phi ptr [ %36, %31 ], [ %45, %44 ], [ %50, %46 ]
   %52 = load ptr, ptr %.018.i.i47, align 8, !tbaa !44
   %53 = icmp eq ptr %29, null
   %54 = icmp eq ptr %52, null
@@ -22652,8 +22652,8 @@ default.unreachable:                              ; preds = %42
   br i1 %exitcond.i.i, label %15, label %20, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %15, %28, %30
-  %35 = phi ptr [ %.pre, %15 ], [ %14, %30 ], [ %14, %28 ]
-  %.018.i.i = phi ptr [ %19, %15 ], [ %33, %30 ], [ %29, %28 ]
+  %35 = phi ptr [ %.pre, %15 ], [ %14, %28 ], [ %14, %30 ]
+  %.018.i.i = phi ptr [ %19, %15 ], [ %29, %28 ], [ %33, %30 ]
   %36 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   br label %42
 
@@ -22702,7 +22702,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %15, %2
   br i1 %exitcond.i.i26, label %37, label %42, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %37, %50, %52
-  %.018.i.i23 = phi ptr [ %41, %37 ], [ %55, %52 ], [ %51, %50 ]
+  %.018.i.i23 = phi ptr [ %41, %37 ], [ %51, %50 ], [ %55, %52 ]
   %57 = load ptr, ptr %.018.i.i23, align 8, !tbaa !44
   %.not29 = icmp eq ptr %36, null
   br i1 %.not29, label %58, label %.thread47
@@ -23045,7 +23045,7 @@ default.unreachable:                              ; preds = %.preheader
   br i1 %exitcond.i.i14.i, label %90, label %.preheader, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE11most_recentEPNS2_5boundEPNS2_4nodeE.exit: ; preds = %70, %82, %84, %90, %102, %104
-  %.pn.in.i = phi ptr [ %75, %70 ], [ %88, %84 ], [ %83, %82 ], [ %95, %90 ], [ %108, %104 ], [ %103, %102 ]
+  %.pn.in.i = phi ptr [ %75, %70 ], [ %83, %82 ], [ %88, %84 ], [ %95, %90 ], [ %103, %102 ], [ %108, %104 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !44
   %.0.i = icmp eq ptr %.pn.i, %storemerge9.i
   br i1 %.0.i, label %110, label %128
@@ -24731,7 +24731,7 @@ default.unreachable35:                            ; preds = %.lr.ph31
   unreachable
 
 102:                                              ; preds = %101, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backERPPNS3_5boundERjRKS7_.exit, %64, %56
-  %.1 = phi i32 [ %.02530, %101 ], [ %100, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backERPPNS3_5boundERjRKS7_.exit ], [ %65, %64 ], [ %.02530, %56 ]
+  %.1 = phi i32 [ %.02530, %56 ], [ %65, %64 ], [ %100, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backERPPNS3_5boundERjRKS7_.exit ], [ %.02530, %101 ]
   %.not16.wide = icmp eq i64 %50, 0
   br i1 %.not16.wide, label %._crit_edge32, label %.lr.ph31, !llvm.loop !305
 }
@@ -24928,7 +24928,7 @@ default.unreachable84:                            ; preds = %73
   unreachable
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit: ; preds = %17, %21, %25
-  %.07.i = phi i32 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ]
+  %.07.i = phi i32 [ %20, %17 ], [ %24, %21 ], [ %27, %25 ]
   %28 = lshr i32 %.07.i, 1
   %29 = load i32, ptr %4, align 8
   %30 = lshr i32 %29, 30
@@ -25145,8 +25145,8 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_confi
   br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7inc_refEPNS5_4cellE.exit
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7inc_refEPNS5_4cellE.exit: ; preds = %141, %132, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit, %84
-  %.061 = phi ptr [ %81, %141 ], [ %81, %132 ], [ %.162, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit ], [ %81, %84 ]
-  %.0 = phi i32 [ %79, %141 ], [ %136, %132 ], [ %131, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit ], [ %79, %84 ]
+  %.061 = phi ptr [ %81, %84 ], [ %.162, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit ], [ %81, %132 ], [ %81, %141 ]
+  %.0 = phi i32 [ %79, %84 ], [ %131, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit ], [ %136, %132 ], [ %79, %141 ]
   %142 = load i32, ptr %77, align 8
   %143 = add i32 %142, 1
   %144 = and i32 %143, 1073741823
@@ -26887,8 +26887,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %68
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -26951,7 +26951,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
@@ -27037,7 +27037,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i: ; preds = %27, %25, %12
-  %.018.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_ZNK9subpaving9context_tINS_11config_mpfxEE15interval_config13lower_is_openERKNS2_8intervalE.exit, label %35
@@ -27132,8 +27132,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -27196,7 +27196,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit, label %71
@@ -27294,8 +27294,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %68
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -27358,7 +27358,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
@@ -27444,7 +27444,7 @@ default.unreachable:                              ; preds = %18
   br i1 %exitcond.i.i.i, label %12, label %18, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i: ; preds = %27, %25, %12
-  %.018.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.018.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %33 = load ptr, ptr %.018.i.i.i, align 8, !tbaa !44
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_ZNK9subpaving9context_tINS_11config_mpfxEE15interval_config13upper_is_openERKNS2_8intervalE.exit, label %35
@@ -27539,8 +27539,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -27603,7 +27603,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_Z6is_posI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit, label %71
@@ -27701,8 +27701,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %12, %25, %27
-  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %27 ], [ %3, %25 ]
-  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %31, %27 ], [ %26, %25 ]
+  %.pre = phi i8 [ %.pre.pre, %12 ], [ %3, %25 ], [ %3, %27 ]
+  %.018.i.i.i.i = phi ptr [ %17, %12 ], [ %26, %25 ], [ %31, %27 ]
   %34 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -27765,7 +27765,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i10, label %45, label %51, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i6: ; preds = %60, %58, %45
-  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %64, %60 ], [ %59, %58 ]
+  %.018.i.i.i.i7 = phi ptr [ %50, %45 ], [ %59, %58 ], [ %64, %60 ]
   %66 = load ptr, ptr %.018.i.i.i.i7, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_Z6is_negI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kind.exit, label %71
@@ -27826,7 +27826,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2gtI12mpfx_managerEbRT_RKNS1_7n
   br label %_Z2ltI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit
 
 _Z2ltI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit: ; preds = %5, %6, %8, %9, %11, %12, %13
-  %.0.i = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ %10, %9 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ]
+  %.0.i = phi i1 [ false, %13 ], [ %7, %6 ], [ false, %12 ], [ %10, %9 ], [ true, %11 ], [ false, %8 ], [ false, %5 ]
   ret i1 %.0.i
 }
 
@@ -27867,7 +27867,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2ltI12mpfx_managerEbRT_RKNS1_7n
   br label %14
 
 14:                                               ; preds = %5, %8, %13, %12, %11, %9, %6
-  %.0 = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ %10, %9 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %13 ], [ %7, %6 ], [ false, %12 ], [ %10, %9 ], [ true, %11 ], [ false, %8 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -27939,7 +27939,7 @@ default.unreachable:                              ; preds = %20
   br i1 %exitcond.i.i.i.i, label %14, label %20, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %29, %27, %14
-  %.018.i.i.i.i = phi ptr [ %19, %14 ], [ %33, %29 ], [ %28, %27 ]
+  %.018.i.i.i.i = phi ptr [ %19, %14 ], [ %28, %27 ], [ %33, %29 ]
   %35 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %37
@@ -28108,7 +28108,7 @@ default.unreachable:                              ; preds = %20
   br i1 %exitcond.i.i.i.i, label %14, label %20, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i: ; preds = %29, %27, %14
-  %.018.i.i.i.i = phi ptr [ %19, %14 ], [ %33, %29 ], [ %28, %27 ]
+  %.018.i.i.i.i = phi ptr [ %19, %14 ], [ %28, %27 ], [ %33, %29 ]
   %35 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %37
@@ -28346,7 +28346,7 @@ default.unreachable:                              ; preds = %69, %109, %159, %20
   br i1 %exitcond.i.i.i.i, label %18, label %24, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i: ; preds = %33, %31, %18
-  %.018.i.i.i.i = phi ptr [ %23, %18 ], [ %37, %33 ], [ %32, %31 ]
+  %.018.i.i.i.i = phi ptr [ %23, %18 ], [ %32, %31 ], [ %37, %33 ]
   %39 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %40 = icmp eq ptr %39, null
   br i1 %40, label %46, label %52
@@ -28435,7 +28435,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i42, label %63, label %69, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i38: ; preds = %78, %76, %63
-  %.018.i.i.i.i39 = phi ptr [ %68, %63 ], [ %82, %78 ], [ %77, %76 ]
+  %.018.i.i.i.i39 = phi ptr [ %68, %63 ], [ %77, %76 ], [ %82, %78 ]
   %84 = load ptr, ptr %.018.i.i.i.i39, align 8, !tbaa !44
   %85 = icmp eq ptr %84, null
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -28514,7 +28514,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i52, label %103, label %109, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i48: ; preds = %118, %116, %103
-  %.018.i.i.i.i49 = phi ptr [ %108, %103 ], [ %122, %118 ], [ %117, %116 ]
+  %.018.i.i.i.i49 = phi ptr [ %108, %103 ], [ %117, %116 ], [ %122, %118 ]
   %124 = load ptr, ptr %.018.i.i.i.i49, align 8, !tbaa !44
   %125 = icmp eq ptr %124, null
   br i1 %125, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit
@@ -28609,7 +28609,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i60, label %153, label %159, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i: ; preds = %168, %166, %153
-  %.018.i.i.i.i57 = phi ptr [ %158, %153 ], [ %172, %168 ], [ %167, %166 ]
+  %.018.i.i.i.i57 = phi ptr [ %158, %153 ], [ %167, %166 ], [ %172, %168 ]
   %174 = load ptr, ptr %.018.i.i.i.i57, align 8, !tbaa !44
   %175 = icmp eq ptr %174, null
   br i1 %175, label %181, label %187
@@ -28698,7 +28698,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i71, label %198, label %204, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i66: ; preds = %213, %211, %198
-  %.018.i.i.i.i67 = phi ptr [ %203, %198 ], [ %217, %213 ], [ %212, %211 ]
+  %.018.i.i.i.i67 = phi ptr [ %203, %198 ], [ %212, %211 ], [ %217, %213 ]
   %219 = load ptr, ptr %.018.i.i.i.i67, align 8, !tbaa !44
   %220 = icmp eq ptr %219, null
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -28777,7 +28777,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i81, label %238, label %244, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i77: ; preds = %253, %251, %238
-  %.018.i.i.i.i78 = phi ptr [ %243, %238 ], [ %257, %253 ], [ %252, %251 ]
+  %.018.i.i.i.i78 = phi ptr [ %243, %238 ], [ %252, %251 ], [ %257, %253 ]
   %259 = load ptr, ptr %.018.i.i.i.i78, align 8, !tbaa !44
   %260 = icmp eq ptr %259, null
   br i1 %260, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit.thread, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit
@@ -29490,8 +29490,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5lowerERKNS3_8intervalE.exit: ; preds = %27, %40, %42
-  %.pre = phi i8 [ %.pre.pre, %27 ], [ %18, %42 ], [ %18, %40 ]
-  %.018.i.i.i.i = phi ptr [ %32, %27 ], [ %46, %42 ], [ %41, %40 ]
+  %.pre = phi i8 [ %.pre.pre, %27 ], [ %18, %40 ], [ %18, %42 ]
+  %.018.i.i.i.i = phi ptr [ %32, %27 ], [ %41, %40 ], [ %46, %42 ]
   %49 = load ptr, ptr %.018.i.i.i.i, align 8, !tbaa !44
   %50 = icmp eq ptr %49, null
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -29562,8 +29562,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10lower_kindERKNS3_8intervalE.exit: ; preds = %60, %73, %75
-  %.pre186 = phi i8 [ %.pre186.pre, %60 ], [ %.pre, %75 ], [ %.pre, %73 ]
-  %.018.i.i.i.i61 = phi ptr [ %65, %60 ], [ %79, %75 ], [ %74, %73 ]
+  %.pre186 = phi i8 [ %.pre186.pre, %60 ], [ %.pre, %73 ], [ %.pre, %75 ]
+  %.018.i.i.i.i61 = phi ptr [ %65, %60 ], [ %74, %73 ], [ %79, %75 ]
   %84 = load ptr, ptr %.018.i.i.i.i61, align 8, !tbaa !44
   %85 = icmp eq ptr %84, null
   %86 = trunc nuw i8 %.pre186 to i1
@@ -29631,8 +29631,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit.thread
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE5upperERKNS3_8intervalE.exit: ; preds = %94, %107, %109
-  %.pre187 = phi i8 [ %.pre187.pre, %94 ], [ %.pre186, %109 ], [ %.pre186, %107 ]
-  %.018.i.i.i.i70 = phi ptr [ %99, %94 ], [ %113, %109 ], [ %108, %107 ]
+  %.pre187 = phi i8 [ %.pre187.pre, %94 ], [ %.pre186, %107 ], [ %.pre186, %109 ]
+  %.018.i.i.i.i70 = phi ptr [ %99, %94 ], [ %108, %107 ], [ %113, %109 ]
   %117 = load ptr, ptr %.018.i.i.i.i70, align 8, !tbaa !44
   %118 = icmp eq ptr %117, null
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -29707,8 +29707,8 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br label %195
 
 _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE10upper_kindERKNS3_8intervalE.exit: ; preds = %128, %141, %143
-  %.pre188 = phi i8 [ %.pre188.pre, %128 ], [ %.pre187, %143 ], [ %.pre187, %141 ]
-  %.018.i.i.i.i80 = phi ptr [ %133, %128 ], [ %147, %143 ], [ %142, %141 ]
+  %.pre188 = phi i8 [ %.pre188.pre, %128 ], [ %.pre187, %141 ], [ %.pre187, %143 ]
+  %.018.i.i.i.i80 = phi ptr [ %133, %128 ], [ %142, %141 ], [ %147, %143 ]
   %155 = load ptr, ptr %.018.i.i.i.i80, align 8, !tbaa !44
   %156 = icmp eq ptr %155, null
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29771,7 +29771,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i93, label %167, label %173, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit.i.i89: ; preds = %182, %180, %167
-  %.018.i.i.i.i90 = phi ptr [ %172, %167 ], [ %186, %182 ], [ %181, %180 ]
+  %.018.i.i.i.i90 = phi ptr [ %172, %167 ], [ %181, %180 ], [ %186, %182 ]
   %188 = load ptr, ptr %.018.i.i.i.i90, align 8, !tbaa !44
   %189 = icmp eq ptr %188, null
   br i1 %189, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit, label %190
@@ -29862,7 +29862,7 @@ _ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_confi
   br i1 %exitcond.i.i.i.i103, label %216, label %222, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit.i.i99: ; preds = %231, %229, %216
-  %.018.i.i.i.i100 = phi ptr [ %221, %216 ], [ %235, %231 ], [ %230, %229 ]
+  %.018.i.i.i.i100 = phi ptr [ %221, %216 ], [ %230, %229 ], [ %235, %231 ]
   %237 = load ptr, ptr %.018.i.i.i.i100, align 8, !tbaa !44
   %238 = icmp eq ptr %237, null
   br i1 %238, label %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpfxEE15interval_configEE13upper_is_openERKNS3_8intervalE.exit, label %239
@@ -30413,8 +30413,8 @@ default.unreachable:                              ; preds = %81
   br i1 %exitcond.i.i, label %52, label %58, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %52, %65, %67
-  %73 = phi ptr [ %.pre, %52 ], [ %51, %67 ], [ %51, %65 ]
-  %.018.i.i = phi ptr [ %57, %52 ], [ %71, %67 ], [ %66, %65 ]
+  %73 = phi ptr [ %.pre, %52 ], [ %51, %65 ], [ %51, %67 ]
+  %.018.i.i = phi ptr [ %57, %52 ], [ %66, %65 ], [ %71, %67 ]
   %74 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   br label %81
 
@@ -30464,7 +30464,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %52, %6
   br i1 %exitcond.i.i22, label %75, label %81, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %75, %88, %90
-  %.018.i.i19 = phi ptr [ %80, %75 ], [ %94, %90 ], [ %89, %88 ]
+  %.018.i.i19 = phi ptr [ %80, %75 ], [ %89, %88 ], [ %94, %90 ]
   %96 = load ptr, ptr %.018.i.i19, align 8, !tbaa !44
   %97 = icmp eq ptr %74, null
   %98 = icmp eq ptr %96, null
@@ -30588,8 +30588,8 @@ default.unreachable:                              ; preds = %48
   br i1 %exitcond.i.i, label %18, label %24, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %18, %31, %33
-  %39 = phi ptr [ %.pre, %18 ], [ %16, %33 ], [ %16, %31 ]
-  %.018.i.i = phi ptr [ %23, %18 ], [ %37, %33 ], [ %32, %31 ]
+  %39 = phi ptr [ %.pre, %18 ], [ %16, %31 ], [ %16, %33 ]
+  %.018.i.i = phi ptr [ %23, %18 ], [ %32, %31 ], [ %37, %33 ]
   %40 = load ptr, ptr %.018.i.i, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %48
@@ -30640,7 +30640,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %18, %3
   br i1 %exitcond.i.i60, label %42, label %48, !llvm.loop !58
 
 _ZNK9subpaving9context_tINS_11config_mpfxEE4node5upperEj.exit: ; preds = %42, %55, %57
-  %.018.i.i57 = phi ptr [ %47, %42 ], [ %61, %57 ], [ %56, %55 ]
+  %.018.i.i57 = phi ptr [ %47, %42 ], [ %56, %55 ], [ %61, %57 ]
   %63 = load ptr, ptr %.018.i.i57, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
   store ptr %13, ptr %6, align 8, !tbaa !80

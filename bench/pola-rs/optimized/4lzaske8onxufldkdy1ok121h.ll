@@ -555,7 +555,7 @@ common.resume:                                    ; preds = %142, %97, %83
   unreachable
 
 152:                                              ; preds = %109, %141, %140
-  %.sroa.072.0 = phi i8 [ 37, %141 ], [ 36, %140 ], [ 13, %109 ]
+  %.sroa.072.0 = phi i8 [ 36, %140 ], [ 37, %141 ], [ 13, %109 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %153, align 8
   store i64 17, ptr %0, align 8
@@ -1446,7 +1446,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1844,7 +1844,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit: ; preds = %5, %8, %11
-  %.sroa.0.0.i = phi ptr [ %12, %11 ], [ %10, %8 ], [ %7, %5 ]
+  %.sroa.0.0.i = phi ptr [ %7, %5 ], [ %10, %8 ], [ %12, %11 ]
   tail call void @_ZN10polars_ffi9version_013export_series17he741cad0af32141dE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i)
   ret void
 }

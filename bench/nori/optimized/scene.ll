@@ -890,7 +890,7 @@ _ZNSt6vectorIPN4nori4MeshESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vector
   ret void
 
 85:                                               ; preds = %82, %84, %68, %59, %50, %42
-  %.pn.pn = phi { ptr, i32 } [ %.pn20, %84 ], [ %83, %82 ], [ %69, %68 ], [ %60, %59 ], [ %51, %50 ], [ %43, %42 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn20, %84 ], [ %83, %82 ], [ %43, %42 ], [ %51, %50 ], [ %60, %59 ], [ %69, %68 ]
   resume { ptr, i32 } %.pn.pn
 
 86:                                               ; preds = %80
@@ -3199,7 +3199,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
   %299 = tail call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %298, i8 noundef signext 48)
   br label %.thread105
 
-.thread105:                                       ; preds = %180, %.loopexit108, %.loopexit109, %.loopexit110, %262, %278, %.loopexit
+.thread105:                                       ; preds = %180, %262, %.loopexit110, %.loopexit109, %.loopexit108, %278, %.loopexit
   %300 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %.loopexit111
 

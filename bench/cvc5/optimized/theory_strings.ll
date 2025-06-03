@@ -15248,7 +15248,7 @@ _ZN4cvc58internal6theory7strings11SEnumLenSetD2Ev.exit2572: ; preds = %4184
   br label %4192
 
 4191:                                             ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit664, %_ZN4cvc58internal6theory7strings11SEnumLenSetD2Ev.exit
-  %.2 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit664 ], [ %.not4614162, %_ZN4cvc58internal6theory7strings11SEnumLenSetD2Ev.exit ]
+  %.2 = phi i1 [ %.not4614162, %_ZN4cvc58internal6theory7strings11SEnumLenSetD2Ev.exit ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit664 ]
   ret i1 %.2
 
 4192:                                             ; preds = %_ZN4cvc58internal6theory7strings11SEnumLenSetD2Ev.exit2572, %267

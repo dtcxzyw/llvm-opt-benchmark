@@ -82,7 +82,7 @@ define noundef zeroext i1 @_ZN5folly6detail26simdHasSpaceOrCntrlSymbolsENS_5Rang
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %42, %41 ]
+  %.1.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %44 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !7
   %45 = icmp ult i8 %44, 33
   %46 = icmp eq i8 %44, 127
@@ -94,7 +94,7 @@ define noundef zeroext i1 @_ZN5folly6detail26simdHasSpaceOrCntrlSymbolsENS_5Rang
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.2.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !7
   %52 = icmp ult i8 %51, 33
   %53 = icmp eq i8 %51, 127

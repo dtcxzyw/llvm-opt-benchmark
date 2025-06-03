@@ -3735,7 +3735,7 @@ drawtext.exit582:                                 ; preds = %.lr.ph134.split.us.
   br label %get_hz.exit
 
 get_hz.exit:                                      ; preds = %425, %429
-  %.0.i583 = phi nsz float [ %436, %429 ], [ %428, %425 ]
+  %.0.i583 = phi nsz float [ %428, %425 ], [ %436, %429 ]
   %437 = fcmp nsz oeq float %.0.i583, 0.000000e+00
   br i1 %437, label %get_hz.exit.thread, label %439
 
@@ -4492,7 +4492,7 @@ drawtext.exit680:                                 ; preds = %.lr.ph134.split.us.
   br label %get_hz.exit682
 
 get_hz.exit682:                                   ; preds = %815, %819
-  %.0.i681 = phi nsz float [ %826, %819 ], [ %818, %815 ]
+  %.0.i681 = phi nsz float [ %818, %815 ], [ %826, %819 ]
   %827 = fcmp nsz oeq float %.0.i681, 0.000000e+00
   br i1 %827, label %get_hz.exit682.thread, label %829
 
@@ -5125,9 +5125,9 @@ drawtext.exit780:                                 ; preds = %.lr.ph134.split.us.
   br label %1125
 
 1125:                                             ; preds = %._crit_edge1066, %.thread.i
-  %1126 = phi i32 [ %.pre1067, %._crit_edge1066 ], [ %1114, %.thread.i ]
-  %.1834 = phi nsz float [ 2.560000e+02, %._crit_edge1066 ], [ %1120, %.thread.i ]
-  %.1 = phi nsz float [ 2.560000e+02, %._crit_edge1066 ], [ %1116, %.thread.i ]
+  %1126 = phi i32 [ %1114, %.thread.i ], [ %.pre1067, %._crit_edge1066 ]
+  %.1834 = phi nsz float [ %1120, %.thread.i ], [ 2.560000e+02, %._crit_edge1066 ]
+  %.1 = phi nsz float [ %1116, %.thread.i ], [ 2.560000e+02, %._crit_edge1066 ]
   %1127 = icmp sgt i32 %1126, 1
   br i1 %1127, label %1128, label %1138
 
@@ -5463,7 +5463,7 @@ pick_color.exit:                                  ; preds = %color_range.exit.th
   unreachable
 
 get_iscale.exit:                                  ; preds = %1340, %1345, %1347, %1350, %1354
-  %.0.i783 = phi nsz float [ %1358, %1354 ], [ %1353, %1350 ], [ %1349, %1347 ], [ %1346, %1345 ], [ %..i, %1340 ]
+  %.0.i783 = phi nsz float [ %..i, %1340 ], [ %1346, %1345 ], [ %1349, %1347 ], [ %1353, %1350 ], [ %1358, %1354 ]
   %1360 = fsub nsz float %1344, %1342
   %1361 = call nsz float @llvm.fmuladd.f32(float %.0.i783, float %1360, float %1342)
   br label %1362
@@ -5889,7 +5889,7 @@ switch.lookup:                                    ; preds = %2
   unreachable
 
 get_scale.exit:                                   ; preds = %switch.lookup, %27, %29, %31, %34, %36
-  %.1.i = phi nsz float [ %44, %36 ], [ %35, %34 ], [ %33, %31 ], [ %30, %29 ], [ %28, %27 ], [ %.0.i, %switch.lookup ]
+  %.1.i = phi nsz float [ %.0.i, %switch.lookup ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %35, %34 ], [ %44, %36 ]
   %46 = fcmp nsz ogt float %.1.i, 0.000000e+00
   %47 = select nsz i1 %46, float %.1.i, float 0.000000e+00
   %48 = fcmp nsz ogt float %47, 1.000000e+00

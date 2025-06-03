@@ -553,7 +553,7 @@ define internal i64 @ftp_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   br label %19
 
 19:                                               ; preds = %3, %17, %9
-  %.0 = phi i64 [ %18, %17 ], [ %12, %9 ], [ %1, %3 ]
+  %.0 = phi i64 [ %12, %9 ], [ %18, %17 ], [ %1, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !18
   %.not = icmp eq i32 %21, 0
@@ -587,7 +587,7 @@ define internal i64 @ftp_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   br label %34
 
 34:                                               ; preds = %25, %33, %19, %3, %13, %31, %24, %6
-  %.019 = phi i64 [ -22, %24 ], [ %32, %31 ], [ %8, %6 ], [ -5, %13 ], [ -22, %3 ], [ -5, %19 ], [ %.0, %33 ], [ %.0, %25 ]
+  %.019 = phi i64 [ %8, %6 ], [ -22, %24 ], [ %32, %31 ], [ -5, %13 ], [ -22, %3 ], [ -5, %19 ], [ %.0, %33 ], [ %.0, %25 ]
   ret i64 %.019
 }
 

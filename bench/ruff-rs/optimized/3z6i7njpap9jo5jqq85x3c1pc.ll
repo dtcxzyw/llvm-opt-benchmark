@@ -1821,7 +1821,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze6typing22is_type_che
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12, %2, %19, %6
-  %.sroa.0.0.shrunk = phi i1 [ %20, %19 ], [ %11, %6 ], [ false, %2 ], [ true, %12 ]
+  %.sroa.0.0.shrunk = phi i1 [ %11, %6 ], [ %20, %19 ], [ false, %2 ], [ true, %12 ]
   ret i1 %.sroa.0.0.shrunk
 
 19:                                               ; preds = %12

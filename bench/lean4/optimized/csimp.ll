@@ -5668,7 +5668,7 @@ _ZN4lean4exprC2ERKS0_.exit29:                     ; preds = %43, %48, %50, %51
           to label %_ZN4lean8csimp_fn14visit_constantERKNS_4exprEb.exit unwind label %82
 
 common.resume:                                    ; preds = %66, %41, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %67, %66 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %42, %41 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 82:                                               ; preds = %.invoke
@@ -34975,7 +34975,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %155, %162, %164, %1
   br label %171
 
 171:                                              ; preds = %_ZN4lean10object_refD2Ev.exit, %3, %170
-  %.0 = phi i1 [ false, %_ZN4lean10object_refD2Ev.exit ], [ true, %170 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %170 ], [ false, %_ZN4lean10object_refD2Ev.exit ], [ false, %3 ]
   ret i1 %.0
 }
 

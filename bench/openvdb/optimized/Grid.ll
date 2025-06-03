@@ -4964,7 +4964,7 @@ if.end29:                                         ; preds = %sw.bb
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i27, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i27, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %6 = load i8, ptr %__first.sroa.0.1, align 1
   %conv.i28 = sext i8 %6 to i32
   %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i28) #23
@@ -4976,7 +4976,7 @@ if.end36:                                         ; preds = %sw.bb31
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i31, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i31, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %7 = load i8, ptr %__first.sroa.0.2, align 1
   %conv.i32 = sext i8 %7 to i32
   %call.i.i33 = tail call i32 @isspace(i32 noundef %conv.i32) #23

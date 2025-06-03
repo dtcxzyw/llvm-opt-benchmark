@@ -786,8 +786,8 @@ define void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr dead_on_unwind noalias wr
 22:                                               ; preds = %2
   br label %.thread
 
-.thread:                                          ; preds = %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %2
-  %.0.ph = phi ptr [ @.str.2, %9 ], [ @.str.3, %10 ], [ @.str.4, %11 ], [ @.str.5, %12 ], [ @.str.6, %13 ], [ @.str.7, %14 ], [ @.str.8, %15 ], [ @.str.9, %16 ], [ @.str.10, %17 ], [ @.str.11, %18 ], [ @.str.12, %19 ], [ @.str.13, %20 ], [ @.str.14, %21 ], [ @.str.15, %22 ], [ @.str.1, %2 ]
+.thread:                                          ; preds = %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %2
+  %.0.ph = phi ptr [ @.str.15, %22 ], [ @.str.14, %21 ], [ @.str.13, %20 ], [ @.str.12, %19 ], [ @.str.11, %18 ], [ @.str.10, %17 ], [ @.str.9, %16 ], [ @.str.8, %15 ], [ @.str.7, %14 ], [ @.str.6, %13 ], [ @.str.5, %12 ], [ @.str.4, %11 ], [ @.str.3, %10 ], [ @.str.2, %9 ], [ @.str.1, %2 ]
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %4) #14
   br label %26
 

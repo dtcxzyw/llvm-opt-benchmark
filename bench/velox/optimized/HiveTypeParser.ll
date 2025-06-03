@@ -5993,7 +5993,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
   br label %return
 
 ehcleanup119:                                     ; preds = %lpad116, %ehcleanup101, %lpad74
-  %.pn2 = phi { ptr, i32 } [ %103, %lpad116 ], [ %40, %lpad74 ], [ %.pn, %ehcleanup101 ]
+  %.pn2 = phi { ptr, i32 } [ %40, %lpad74 ], [ %.pn, %ehcleanup101 ], [ %103, %lpad116 ]
   call void @_ZN8facebook5velox4type6fbhive10ResultListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resultList) #26
   br label %common.resume
 
@@ -6252,7 +6252,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i19.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i19.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %11 = load i8, ptr %__first.sroa.0.1.i.i.i, align 1
   %12 = add i8 %11, -58
   %isdigit.i.i20.i.i.i = icmp ult i8 %12, -10
@@ -6263,7 +6263,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i21.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i21.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %13 = load i8, ptr %__first.sroa.0.2.i.i.i, align 1
   %14 = add i8 %13, -58
   %isdigit.i.i22.i.i.i = icmp ult i8 %14, -10

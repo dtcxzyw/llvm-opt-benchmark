@@ -3178,7 +3178,7 @@ define hidden noundef ptr @_ZN2os16format_boot_pathEPKcS1_icc(ptr noundef readon
   br label %30
 
 30:                                               ; preds = %21, %24, %26, %28
-  %.1 = phi ptr [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %21 ]
+  %.1 = phi ptr [ %29, %28 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %.127, i64 1
   br label %19, !llvm.loop !25
 
@@ -3267,7 +3267,7 @@ define hidden noundef zeroext i1 @_ZN2os13set_boot_pathEcc(i8 noundef signext %0
   br label %32
 
 32:                                               ; preds = %30, %28, %26, %23
-  %.1.i = phi ptr [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %23 ]
+  %.1.i = phi ptr [ %31, %30 ], [ %25, %23 ], [ %27, %26 ], [ %29, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %.127.i, i64 1
   br label %21, !llvm.loop !25
 
@@ -3342,7 +3342,7 @@ _ZN2os16format_boot_pathEPKcS1_icc.exit:          ; preds = %21
   br label %61
 
 61:                                               ; preds = %59, %57, %55, %52
-  %.1.i27 = phi ptr [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %52 ]
+  %.1.i27 = phi ptr [ %60, %59 ], [ %54, %52 ], [ %56, %55 ], [ %58, %57 ]
   %62 = getelementptr inbounds nuw i8, ptr %.127.i25, i64 1
   br label %50, !llvm.loop !25
 

@@ -2336,7 +2336,7 @@ get_bits_long.exit:                               ; preds = %get_se_golomb_long.
   br label %151
 
 151:                                              ; preds = %2, %116, %get_bits_long.exit
-  %.0 = phi i64 [ %150, %116 ], [ %115, %get_bits_long.exit ], [ 0, %2 ]
+  %.0 = phi i64 [ %115, %get_bits_long.exit ], [ %150, %116 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -2540,7 +2540,7 @@ get_bits_long.exit:                               ; preds = %get_ue_golomb_long.
   br label %146
 
 146:                                              ; preds = %2, %111, %get_bits_long.exit
-  %.0 = phi i64 [ %145, %111 ], [ %110, %get_bits_long.exit ], [ 0, %2 ]
+  %.0 = phi i64 [ %110, %get_bits_long.exit ], [ %145, %111 ], [ 0, %2 ]
   ret i64 %.0
 }
 

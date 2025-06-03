@@ -1178,7 +1178,7 @@ print_disk_usage.exit:                            ; preds = %427, %428
   br label %432
 
 432:                                              ; preds = %print_disk_usage.exit, %424, %154, %try_bitmap_count.exit, %try_bitmap_disk_usage.exit, %try_bitmap_traversal.exit, %316
-  %.073 = phi i32 [ 0, %154 ], [ %.0.i179, %316 ], [ 0, %print_disk_usage.exit ], [ 0, %424 ], [ 0, %try_bitmap_traversal.exit ], [ 0, %try_bitmap_disk_usage.exit ], [ 0, %try_bitmap_count.exit ]
+  %.073 = phi i32 [ 0, %154 ], [ 0, %print_disk_usage.exit ], [ 0, %424 ], [ %.0.i179, %316 ], [ 0, %try_bitmap_traversal.exit ], [ 0, %try_bitmap_disk_usage.exit ], [ 0, %try_bitmap_count.exit ]
   call void @release_revisions(ptr noundef nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #11

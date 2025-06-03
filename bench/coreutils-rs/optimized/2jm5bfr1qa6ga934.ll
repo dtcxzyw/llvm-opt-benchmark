@@ -857,21 +857,21 @@ define internal fastcc void @_ZN5uu_cp8platform5linux14check_for_data17h8c819a41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !216
   %11 = load i32, ptr %9, align 8, !range !220, !noundef !11
   %trunc = trunc nuw i32 %11 to i1
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !nonnull !11
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %15 = load i32, ptr %14, align 4, !range !221
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %13 = load i32, ptr %12, align 4, !range !221
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br i1 %trunc, label %17, label %16
 
 16:                                               ; preds = %3
-  store i32 %15, ptr %10, align 4
+  store i32 %13, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8)
   invoke void @_ZN3std2fs4File8metadata17hc4d594acb7e5b87eE(ptr noalias noundef nonnull sret({ i64, [21 x i64] }) align 8 captures(none) dereferenceable(176) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10)
           to label %24 unwind label %22
 
 17:                                               ; preds = %3
-  store ptr %13, ptr %0, align 8
+  store ptr %15, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %18, align 8
   br label %90
@@ -1096,29 +1096,29 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !281
   %8 = load i32, ptr %6, align 8, !range !220, !noundef !11
   %trunc = trunc nuw i32 %8 to i1
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !11
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %12 = load i32, ptr %11, align 4, !range !221
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4, !range !221
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = load ptr, ptr %11, align 8, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %trunc, label %14, label %13
 
 13:                                               ; preds = %3
-  store i32 %12, ptr %7, align 4
+  store i32 %10, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
   invoke void @_ZN3std2fs4File8metadata17hc4d594acb7e5b87eE(ptr noalias noundef nonnull sret({ i64, [21 x i64] }) align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
           to label %19 unwind label %16
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %15, align 8
+  store ptr %12, ptr %15, align 8
   store i8 1, ptr %0, align 8
   br label %33
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = invoke noundef i32 @close(i32 noundef %12)
+  %18 = invoke noundef i32 @close(i32 noundef %10)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h7ff92a6ca6f36b31E.exit" unwind label %36
 
 19:                                               ; preds = %13
@@ -1148,7 +1148,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
 30:                                               ; preds = %22
   store i8 0, ptr %25, align 1
   store i8 0, ptr %0, align 8
-  %31 = call noundef i32 @close(i32 noundef %12), !noalias !285
+  %31 = call noundef i32 @close(i32 noundef %10), !noalias !285
   br label %33
 
 32:                                               ; preds = %22
@@ -1162,7 +1162,7 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
 34:                                               ; preds = %32, %26
   %storemerge = phi i8 [ 0, %32 ], [ 1, %26 ]
   store i8 %storemerge, ptr %0, align 8
-  %35 = call noundef i32 @close(i32 noundef %12), !noalias !296
+  %35 = call noundef i32 @close(i32 noundef %10), !noalias !296
   br label %33
 
 36:                                               ; preds = %16
@@ -1299,15 +1299,15 @@ define hidden void @_ZN5uu_cp8platform5linux13copy_on_write17hd6060b4e46a5cbc0E(
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !317
   %72 = load i8, ptr %36, align 8, !range !319, !noalias !312, !noundef !11
   %trunc.i = trunc nuw i8 %72 to i1
-  %73 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %74 = load ptr, ptr %73, align 8, !noalias !312, !nonnull !11
-  %75 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %76 = load i8, ptr %75, align 1, !range !319, !noalias !312
+  %73 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  %74 = load i8, ptr %73, align 1, !range !319, !noalias !312
+  %75 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %76 = load ptr, ptr %75, align 8, !noalias !312, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !312
   br i1 %trunc.i, label %_ZN5uu_cp8platform5linux33handle_reflink_auto_sparse_always17hed5fede1670b966aE.exit.thread280, label %77
 
 77:                                               ; preds = %70
-  %78 = trunc nuw i8 %76 to i1
+  %78 = trunc nuw i8 %74 to i1
   %79 = icmp ult ptr %68, inttoptr (i64 512 to ptr)
   %or.cond.i = or i1 %79, %71
   %spec.select.i = select i1 %or.cond.i, i8 3, i8 0
@@ -1378,7 +1378,7 @@ _ZN5uu_cp8platform5linux33handle_reflink_auto_sparse_always17hed5fede1670b966aE.
 _ZN5uu_cp8platform5linux33handle_reflink_auto_sparse_always17hed5fede1670b966aE.exit.thread280: ; preds = %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i, %64, %70, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i
   %.sroa.20.1294 = phi i8 [ %.sroa.410.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ 2, %70 ], [ 2, %64 ], [ %.sroa.410.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
   %.sroa.011.1292 = phi i8 [ %spec.select.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ 0, %70 ], [ 0, %64 ], [ %spec.select.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
-  %.sroa.14200.0274289 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ %74, %70 ], [ %68, %64 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
+  %.sroa.14200.0274289 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ %76, %70 ], [ %68, %64 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
   %.sink26.i277287 = phi i8 [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ 1, %70 ], [ 1, %64 ], [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
   %99 = phi i1 [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i ], [ false, %70 ], [ false, %64 ], [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i ]
   %100 = invoke noundef ptr @_ZN5uu_cp8platform5linux5clone17hf978d13e1dd848e8E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i8 noundef 2)
@@ -1420,7 +1420,7 @@ _ZN5uu_cp8platform5linux33handle_reflink_auto_sparse_always17hed5fede1670b966aE.
   unreachable
 
 common.resume:                                    ; preds = %314, %270, %225, %149, %101, %301, %178
-  %common.resume.op = phi { ptr, i32 } [ %302, %301 ], [ %271, %270 ], [ %226, %225 ], [ %179, %178 ], [ %150, %149 ], [ %102, %101 ], [ %315, %314 ]
+  %common.resume.op = phi { ptr, i32 } [ %102, %101 ], [ %150, %149 ], [ %179, %178 ], [ %226, %225 ], [ %271, %270 ], [ %302, %301 ], [ %315, %314 ]
   resume { ptr, i32 } %common.resume.op
 
 111:                                              ; preds = %62
@@ -1442,15 +1442,15 @@ common.resume:                                    ; preds = %314, %270, %225, %1
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !364
   %118 = load i8, ptr %31, align 8, !range !319, !noalias !359, !noundef !11
   %trunc.i80 = trunc nuw i8 %118 to i1
-  %119 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %120 = load ptr, ptr %119, align 8, !noalias !359, !nonnull !11
-  %121 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %122 = load i8, ptr %121, align 1, !range !319, !noalias !359
+  %119 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %120 = load i8, ptr %119, align 1, !range !319, !noalias !359
+  %121 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %122 = load ptr, ptr %121, align 8, !noalias !359, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !359
   br i1 %trunc.i80, label %_ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.exit.thread319, label %123
 
 123:                                              ; preds = %117
-  %124 = trunc nuw i8 %122 to i1
+  %124 = trunc nuw i8 %120 to i1
   %125 = trunc nuw i8 %113 to i1
   %126 = icmp eq ptr %115, null
   %.not26.i = xor i1 %126, true
@@ -1522,7 +1522,7 @@ _ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83: ; pre
 _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.exit.thread319: ; preds = %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83, %111, %117, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91
   %.sroa.20.2333 = phi i8 [ %.sroa.613.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ 1, %117 ], [ 1, %111 ], [ %.sroa.613.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
   %.sroa.011.2331 = phi i8 [ %.sroa.012.2.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ 0, %117 ], [ 0, %111 ], [ %.sroa.012.2.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
-  %.sroa.14217.0314328 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ %120, %117 ], [ %115, %111 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
+  %.sroa.14217.0314328 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ %122, %117 ], [ %115, %111 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
   %.sink.i89316326 = phi i8 [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ 1, %117 ], [ 1, %111 ], [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
   %147 = phi i1 [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i91 ], [ false, %117 ], [ false, %111 ], [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i83 ]
   %148 = invoke noundef ptr @_ZN5uu_cp8platform5linux5clone17hf978d13e1dd848e8E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i8 noundef 1)
@@ -1572,15 +1572,15 @@ _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.ex
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !408
   %163 = load i8, ptr %26, align 8, !range !319, !noalias !404, !noundef !11
   %trunc.i97 = trunc nuw i8 %163 to i1
-  %164 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %165 = load ptr, ptr %164, align 8, !noalias !404, !nonnull !11
-  %166 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %167 = load i8, ptr %166, align 1, !range !319, !noalias !404
+  %164 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %165 = load i8, ptr %164, align 1, !range !319, !noalias !404
+  %166 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %167 = load ptr, ptr %166, align 8, !noalias !404, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !404
   br i1 %trunc.i97, label %_ZN5uu_cp8platform5linux32handle_reflink_auto_sparse_never17h4ea2e2ff1cf4b877E.exit, label %168
 
 168:                                              ; preds = %162
-  %169 = trunc nuw i8 %167 to i1
+  %169 = trunc nuw i8 %165 to i1
   %170 = trunc nuw i8 %159 to i1
   %spec.select.i98 = select i1 %169, i8 3, i8 1
   %171 = icmp ult ptr %161, inttoptr (i64 512 to ptr)
@@ -1591,7 +1591,7 @@ _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h87981c65eb05dca1E.ex
 _ZN5uu_cp8platform5linux32handle_reflink_auto_sparse_never17h4ea2e2ff1cf4b877E.exit: ; preds = %162, %157, %168
   %.sroa.6204.0 = phi i8 [ %.sroa.06.0.i, %168 ], [ undef, %157 ], [ undef, %162 ]
   %.sroa.10206.0 = phi i8 [ %spec.select.i98, %168 ], [ undef, %157 ], [ undef, %162 ]
-  %.sroa.12208.0 = phi ptr [ undef, %168 ], [ %161, %157 ], [ %165, %162 ]
+  %.sroa.12208.0 = phi ptr [ undef, %168 ], [ %161, %157 ], [ %167, %162 ]
   %172 = phi i1 [ true, %168 ], [ false, %157 ], [ false, %162 ]
   %.sink.i101 = phi i8 [ 0, %168 ], [ 1, %157 ], [ 1, %162 ]
   %173 = invoke noundef ptr @_ZN5uu_cp8platform5linux5clone17hf978d13e1dd848e8E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i8 noundef 1)
@@ -1662,15 +1662,15 @@ _ZN5uu_cp8platform5linux32handle_reflink_auto_sparse_never17h4ea2e2ff1cf4b877E.e
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !427
   %197 = load i8, ptr %23, align 8, !range !319, !noalias !422, !noundef !11
   %trunc.i106 = trunc nuw i8 %197 to i1
-  %198 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %199 = load ptr, ptr %198, align 8, !noalias !422, !nonnull !11
-  %200 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %201 = load i8, ptr %200, align 1, !range !319, !noalias !422
+  %198 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %199 = load i8, ptr %198, align 1, !range !319, !noalias !422
+  %200 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %201 = load ptr, ptr %200, align 8, !noalias !422, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !422
   br i1 %trunc.i106, label %_ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E.exit.thread358, label %202
 
 202:                                              ; preds = %195
-  %203 = trunc nuw i8 %201 to i1
+  %203 = trunc nuw i8 %199 to i1
   %204 = icmp ult ptr %193, inttoptr (i64 512 to ptr)
   %or.cond.i107 = or i1 %204, %196
   %spec.select.i108 = select i1 %or.cond.i107, i8 3, i8 0
@@ -1745,7 +1745,7 @@ _ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E
 _ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E.exit.thread358: ; preds = %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111, %189, %195, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120
   %.sroa.20.4372 = phi i8 [ %.sroa.5.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ 2, %195 ], [ 2, %189 ], [ %.sroa.5.0.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
   %.sroa.011.4370 = phi i8 [ %.sroa.09.1.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ 0, %195 ], [ 0, %189 ], [ %.sroa.09.1.i, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
-  %.sroa.14174.0350367 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ %199, %195 ], [ %193, %189 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
+  %.sroa.14174.0350367 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ %201, %195 ], [ %193, %189 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
   %.sink.i118355365 = phi i8 [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ 1, %195 ], [ 1, %189 ], [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
   %223 = phi i1 [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i120 ], [ false, %195 ], [ false, %189 ], [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i111 ]
   %224 = invoke noundef ptr @_ZN5uu_cp8platform5linux11sparse_copy17haf112e2359598623E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
@@ -1806,15 +1806,15 @@ _ZN5uu_cp8platform5linux34handle_reflink_never_sparse_always17h76530089b5e1e467E
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %18, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !475
   %243 = load i8, ptr %18, align 8, !range !319, !noalias !470, !noundef !11
   %trunc.i130 = trunc nuw i8 %243 to i1
-  %244 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %245 = load ptr, ptr %244, align 8, !noalias !470, !nonnull !11
-  %246 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %247 = load i8, ptr %246, align 1, !range !319, !noalias !470
+  %244 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %245 = load i8, ptr %244, align 1, !range !319, !noalias !470
+  %246 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %247 = load ptr, ptr %246, align 8, !noalias !470, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !470
   br i1 %trunc.i130, label %_ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.exit.thread397, label %248
 
 248:                                              ; preds = %242
-  %249 = trunc nuw i8 %247 to i1
+  %249 = trunc nuw i8 %245 to i1
   %250 = trunc nuw i8 %238 to i1
   %251 = icmp ult ptr %240, inttoptr (i64 512 to ptr)
   %or.cond.i131 = or i1 %251, %250
@@ -1878,7 +1878,7 @@ _ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137: ; pr
 _ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.exit.thread397: ; preds = %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137, %236, %242, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146
   %.sroa.20.5411 = phi i8 [ %.sroa.410.0.i135, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ 1, %242 ], [ 1, %236 ], [ %.sroa.410.0.i135, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
   %.sroa.011.5409 = phi i8 [ %spec.select.i132, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ 0, %242 ], [ 0, %236 ], [ %spec.select.i132, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
-  %.sroa.14191.0389406 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ %245, %242 ], [ %240, %236 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
+  %.sroa.14191.0389406 = phi ptr [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ %247, %242 ], [ %240, %236 ], [ undef, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
   %.sink.i144394404 = phi i8 [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ 1, %242 ], [ 1, %236 ], [ 0, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
   %269 = phi i1 [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.thread.i146 ], [ false, %242 ], [ false, %236 ], [ true, %_ZN5uu_cp8platform5linux18check_dest_is_fifo17hd3d641245b8fbd19E.exit.i137 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
@@ -1935,15 +1935,15 @@ _ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.e
   call fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17he7f11dab49d94122E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !522
   %287 = load i8, ptr %13, align 8, !range !319, !noalias !518, !noundef !11
   %trunc.i155 = trunc nuw i8 %287 to i1
-  %288 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %289 = load ptr, ptr %288, align 8, !noalias !518, !nonnull !11
-  %290 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %291 = load i8, ptr %290, align 1, !range !319, !noalias !518
+  %288 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %289 = load i8, ptr %288, align 1, !range !319, !noalias !518
+  %290 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %291 = load ptr, ptr %290, align 8, !noalias !518, !nonnull !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !518
   br i1 %trunc.i155, label %_ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.exit, label %292
 
 292:                                              ; preds = %286
-  %293 = trunc nuw i8 %291 to i1
+  %293 = trunc nuw i8 %289 to i1
   %294 = trunc nuw i8 %283 to i1
   %spec.select.i156 = select i1 %293, i8 3, i8 1
   %295 = icmp ult ptr %285, inttoptr (i64 512 to ptr)
@@ -1952,7 +1952,7 @@ _ZN5uu_cp8platform5linux32handle_reflink_never_sparse_auto17h5bc758b1da0e5454E.e
   br label %_ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.exit
 
 _ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.exit: ; preds = %286, %281, %292
-  %.sroa.12182.0 = phi ptr [ undef, %292 ], [ %285, %281 ], [ %289, %286 ]
+  %.sroa.12182.0 = phi ptr [ undef, %292 ], [ %285, %281 ], [ %291, %286 ]
   %.sroa.10180.0 = phi i8 [ %spec.select.i156, %292 ], [ undef, %281 ], [ undef, %286 ]
   %.sroa.6178.0 = phi i8 [ %.sroa.06.0.i158, %292 ], [ undef, %281 ], [ undef, %286 ]
   %296 = phi i1 [ true, %292 ], [ false, %281 ], [ false, %286 ]
@@ -2004,10 +2004,10 @@ _ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !529
   br label %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha96ac01b544309bfE.exit": ; preds = %.thread376, %94, %141, %174, %219, %263, %297, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
-  %.sroa.20.0243.ph = phi i8 [ %.sroa.20.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 2, %94 ], [ 1, %141 ], [ 1, %174 ], [ 2, %219 ], [ 1, %263 ], [ 1, %297 ], [ %.sroa.5.0.i, %.thread376 ]
-  %.sroa.011.0242.ph = phi i8 [ %.sroa.011.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 3, %94 ], [ 4, %141 ], [ 3, %174 ], [ 3, %219 ], [ 3, %263 ], [ 3, %297 ], [ %.sroa.09.1.i, %.thread376 ]
-  %.sroa.14.0241.ph = phi i8 [ %.sroa.14.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 4, %94 ], [ 4, %141 ], [ 1, %174 ], [ 1, %219 ], [ 1, %263 ], [ 1, %297 ], [ 1, %.thread376 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha96ac01b544309bfE.exit": ; preds = %.thread376, %297, %263, %219, %174, %141, %94, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
+  %.sroa.20.0243.ph = phi i8 [ %.sroa.20.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 1, %297 ], [ 1, %263 ], [ 2, %219 ], [ 1, %174 ], [ 1, %141 ], [ 2, %94 ], [ %.sroa.5.0.i, %.thread376 ]
+  %.sroa.011.0242.ph = phi i8 [ %.sroa.011.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 3, %297 ], [ 3, %263 ], [ 3, %219 ], [ 3, %174 ], [ 4, %141 ], [ 3, %94 ], [ %.sroa.09.1.i, %.thread376 ]
+  %.sroa.14.0241.ph = phi i8 [ %.sroa.14.0, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ 1, %297 ], [ 1, %263 ], [ 1, %219 ], [ 1, %174 ], [ 4, %141 ], [ 4, %94 ], [ 1, %.thread376 ]
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.011.0242.ph, ptr %312, align 8
   %.sroa.14.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -2017,8 +2017,8 @@ _ZN5uu_cp8platform5linux33handle_reflink_never_sparse_never17h238c543cedfd8f64E.
   store i64 13, ptr %0, align 8
   br label %60
 
-.thread249:                                       ; preds = %.thread376, %94, %141, %174, %219, %263, %297, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
-  %.052244263.ph = phi ptr [ %.052, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ %300, %297 ], [ %266, %263 ], [ %222, %219 ], [ %177, %174 ], [ %144, %141 ], [ %97, %94 ], [ %229, %.thread376 ]
+.thread249:                                       ; preds = %.thread376, %297, %263, %219, %174, %141, %94, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit"
+  %.052244263.ph = phi ptr [ %.052, %"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$uu_cp..CopyDebug$C$uu_cp..platform..linux..CopyMethod$RP$$C$std..io..error..Error$GT$$GT$17he655ffdbcc6da81aE.exit" ], [ %97, %94 ], [ %144, %141 ], [ %177, %174 ], [ %222, %219 ], [ %266, %263 ], [ %300, %297 ], [ %229, %.thread376 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !539
   store ptr %.052244263.ph, ptr %11, align 8, !noalias !539
   %313 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf858b3c32d37360fE"(i64 noundef %8, i1 noundef zeroext false)

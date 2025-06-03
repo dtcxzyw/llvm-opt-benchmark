@@ -412,7 +412,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction19EmitUnPromote
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %4, %12
-  %.1.i = phi ptr [ %9, %4 ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %9, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %14, align 16, !tbaa !3
   %15 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %.sroa.0.0.copyload.i) #15
@@ -502,7 +502,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction17EmitPromotedV
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %4, %12
-  %.1.i = phi ptr [ %9, %4 ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %9, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %14, align 16, !tbaa !3
   %15 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %.sroa.0.0.copyload.i) #15
@@ -691,8 +691,8 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction23EmitPromotedC
   %52 = call { ptr, ptr } @_ZN5clang7CodeGen15CodeGenFunction17EmitPromotedValueESt4pairIPN4llvm5ValueES5_ENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %51, ptr %50, ptr %49, i64 %2)
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit
 
-_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit: ; preds = %44, %42, %37, %23, %25, %27, %29, %46, %48
-  %.fca.1.insert.i.merged = phi { ptr, ptr } [ %52, %48 ], [ %47, %46 ], [ %38, %37 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %45, %44 ], [ %43, %42 ]
+_ZN12_GLOBAL__N_118ComplexExprEmitter12EmitPromotedEPKN5clang4ExprENS1_8QualTypeE.exit: ; preds = %44, %42, %37, %29, %27, %25, %23, %46, %48
+  %.fca.1.insert.i.merged = phi { ptr, ptr } [ %52, %48 ], [ %47, %46 ], [ %38, %37 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %45, %44 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
   ret { ptr, ptr } %.fca.1.insert.i.merged
 }
@@ -1247,7 +1247,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction35EmitComplexCompoundAs
   unreachable
 
 _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %3, %9, %10, %11
-  %.sroa.0.0.i = phi i64 [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64), %11 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64), %10 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64), %9 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64), %3 ]
+  %.sroa.0.0.i = phi i64 [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64), %9 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64), %10 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64), %11 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64), %3 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   store ptr %1, ptr %5, align 8, !tbaa !70
@@ -1427,7 +1427,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %88, %95
-  %.1.i103 = phi ptr [ %92, %88 ], [ %96, %95 ]
+  %.1.i103 = phi ptr [ %96, %95 ], [ %92, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i103, i64 32
   %.sroa.0.0.copyload.i104 = load i64, ptr %97, align 16, !tbaa !3
   %98 = load i32, ptr %2, align 8
@@ -1566,7 +1566,7 @@ _ZNK5clang14BinaryOperator28getStoredFPFeaturesOrDefaultEv.exit120: ; preds = %1
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %172, %171
-  %.1.i.i = phi ptr [ %168, %171 ], [ %173, %172 ]
+  %.1.i.i = phi ptr [ %173, %172 ], [ %168, %171 ]
   %174 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i127 = load i64, ptr %174, align 16, !tbaa !3
   %175 = and i64 %153, -16
@@ -1582,7 +1582,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %172, %171
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i: ; preds = %180, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
-  %.1.i19.i = phi ptr [ %177, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i ], [ %181, %180 ]
+  %.1.i19.i = phi ptr [ %181, %180 ], [ %177, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i ]
   %182 = getelementptr inbounds nuw i8, ptr %.1.i19.i, i64 32
   %.sroa.0.0.copyload.i21.i = load i64, ptr %182, align 16, !tbaa !3
   %.not.i128 = icmp eq ptr %166, null
@@ -1611,7 +1611,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i: ; preds = %180, %_ZNK5
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130: ; preds = %191, %190
-  %.1.i.i131 = phi ptr [ %168, %190 ], [ %192, %191 ]
+  %.1.i.i131 = phi ptr [ %192, %191 ], [ %168, %190 ]
   %193 = getelementptr inbounds nuw i8, ptr %.1.i.i131, i64 32
   %.sroa.0.0.copyload.i.i132 = load i64, ptr %193, align 16, !tbaa !3
   %194 = load ptr, ptr %91, align 16, !tbaa !61
@@ -1625,7 +1625,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130: ; preds = %191, %190
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i134
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i134: ; preds = %197, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130
-  %.1.i19.i135 = phi ptr [ %194, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130 ], [ %198, %197 ]
+  %.1.i19.i135 = phi ptr [ %198, %197 ], [ %194, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i130 ]
   %199 = getelementptr inbounds nuw i8, ptr %.1.i19.i135, i64 32
   %.sroa.0.0.copyload.i21.i136 = load i64, ptr %199, align 16, !tbaa !3
   %.not.i137 = icmp eq ptr %166, null
@@ -1712,7 +1712,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i134: ; preds = %197, %_Z
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit
 
 _ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit: ; preds = %247, %251
-  %.1.i.i151 = phi ptr [ %248, %247 ], [ %252, %251 ]
+  %.1.i.i151 = phi ptr [ %252, %251 ], [ %248, %247 ]
   %253 = getelementptr inbounds nuw i8, ptr %.1.i.i151, i64 32
   %.sroa.0.0.copyload.i.i152 = load i64, ptr %253, align 16, !tbaa !3
   %254 = load ptr, ptr %1, align 8, !tbaa !84
@@ -1775,8 +1775,8 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158: ; preds = %287, %281
-  %289 = phi ptr [ %273, %281 ], [ %.pre233, %287 ]
-  %.1.i.i159 = phi ptr [ %284, %281 ], [ %288, %287 ]
+  %289 = phi ptr [ %.pre233, %287 ], [ %273, %281 ]
+  %.1.i.i159 = phi ptr [ %288, %287 ], [ %284, %281 ]
   %290 = getelementptr inbounds nuw i8, ptr %.1.i.i159, i64 32
   %.sroa.0.0.copyload.i.i160 = load i64, ptr %290, align 16, !tbaa !3
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 16
@@ -1789,7 +1789,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158: ; preds = %287, %281
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i162
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i162: ; preds = %293, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158
-  %.1.i19.i163 = phi ptr [ %289, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158 ], [ %294, %293 ]
+  %.1.i19.i163 = phi ptr [ %294, %293 ], [ %289, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i158 ]
   %295 = getelementptr inbounds nuw i8, ptr %.1.i19.i163, i64 32
   %.sroa.0.0.copyload.i21.i164 = load i64, ptr %295, align 16, !tbaa !3
   %.not.i165 = icmp eq ptr %271, null
@@ -1866,7 +1866,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction35EmitScalarCompoundAss
   unreachable
 
 _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %4, %10, %11, %12
-  %.sroa.0.0.i = phi i64 [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64), %12 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64), %11 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64), %10 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64), %4 ]
+  %.sroa.0.0.i = phi i64 [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64), %10 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64), %11 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64), %12 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64), %4 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   store ptr %1, ptr %6, align 8, !tbaa !70
@@ -5405,7 +5405,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit, %712
-  %.1.i162 = phi ptr [ %709, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %713, %712 ]
+  %.1.i162 = phi ptr [ %713, %712 ], [ %709, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ]
   %714 = getelementptr inbounds nuw i8, ptr %.1.i162, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %714, align 16, !tbaa !3
   %715 = and i64 %.sroa.0.0.copyload.i, -16
@@ -5466,7 +5466,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %721, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i165 = phi ptr [ %727, %721 ], [ %730, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i165 = phi ptr [ %730, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %727, %721 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #15
   %746 = load ptr, ptr %462, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %64) #15
@@ -5519,7 +5519,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit177
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit177: ; preds = %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i176
-  %.1.i168 = phi ptr [ %753, %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit ], [ %756, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i176 ]
+  %.1.i168 = phi ptr [ %756, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i176 ], [ %753, %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %64) #15
   br label %823
 
@@ -5573,7 +5573,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %772, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i187
-  %.1.i179 = phi ptr [ %778, %772 ], [ %781, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i187 ]
+  %.1.i179 = phi ptr [ %781, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i187 ], [ %778, %772 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65) #15
   %797 = load ptr, ptr %462, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %66) #15
@@ -5626,7 +5626,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit198
 
 _ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit198: ; preds = %_ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i197
-  %.1.i189 = phi ptr [ %804, %_ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit ], [ %807, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i197 ]
+  %.1.i189 = phi ptr [ %807, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i197 ], [ %804, %_ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66) #15
   br label %823
 
@@ -5995,7 +5995,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26Emit
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %24, %30
-  %.1.i = phi ptr [ %27, %24 ], [ %31, %30 ]
+  %.1.i = phi ptr [ %31, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i11 = load i64, ptr %32, align 16, !tbaa !3
   %33 = load ptr, ptr %0, align 8, !tbaa !84
@@ -6175,7 +6175,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
   br label %36
 
 36:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %14, %5 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ], [ %14, %5 ]
   ret ptr %.1
 }
 
@@ -6242,10 +6242,10 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter23Emit
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %4, %35
-  %.pre3.i.i = phi ptr [ %16, %4 ], [ %.pre3.i.i.pre, %35 ]
-  %37 = phi i32 [ 8, %4 ], [ %.pre128, %35 ]
-  %38 = phi i32 [ 0, %4 ], [ %.pre, %35 ]
-  %.1.i = phi ptr [ %32, %4 ], [ %36, %35 ]
+  %.pre3.i.i = phi ptr [ %.pre3.i.i.pre, %35 ], [ %16, %4 ]
+  %37 = phi i32 [ %.pre128, %35 ], [ 8, %4 ]
+  %38 = phi i32 [ %.pre, %35 ], [ 0, %4 ]
+  %.1.i = phi ptr [ %36, %35 ], [ %32, %4 ]
   %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %39, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9) #15
@@ -6314,8 +6314,8 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit29
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit29: ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, %69
-  %71 = phi i32 [ %61, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ], [ %.pre130, %69 ]
-  %.1.i28 = phi ptr [ %66, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ], [ %70, %69 ]
+  %71 = phi i32 [ %.pre130, %69 ], [ %61, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ]
+  %.1.i28 = phi ptr [ %70, %69 ], [ %66, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit ]
   %72 = getelementptr inbounds nuw i8, ptr %.1.i28, i64 32
   %.sroa.0.0.copyload.i30 = load i64, ptr %72, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #15
@@ -6386,8 +6386,8 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit40
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit40: ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36, %103
-  %105 = phi i32 [ %95, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36 ], [ %.pre131, %103 ]
-  %.1.i39 = phi ptr [ %100, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36 ], [ %104, %103 ]
+  %105 = phi i32 [ %.pre131, %103 ], [ %95, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36 ]
+  %.1.i39 = phi ptr [ %104, %103 ], [ %100, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit36 ]
   %106 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 32
   %.sroa.0.0.copyload.i41 = load i64, ptr %106, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #15
@@ -6458,8 +6458,8 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit51
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit51: ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47, %137
-  %139 = phi i32 [ %129, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47 ], [ %.pre132, %137 ]
-  %.1.i50 = phi ptr [ %134, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47 ], [ %138, %137 ]
+  %139 = phi i32 [ %.pre132, %137 ], [ %129, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47 ]
+  %.1.i50 = phi ptr [ %138, %137 ], [ %134, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit47 ]
   %140 = getelementptr inbounds nuw i8, ptr %.1.i50, i64 32
   %.sroa.0.0.copyload.i52 = load i64, ptr %140, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #15
@@ -6548,7 +6548,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit58: ; preds = %
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit62
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit62: ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit58, %175
-  %.1.i61 = phi ptr [ %172, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit58 ], [ %176, %175 ]
+  %.1.i61 = phi ptr [ %176, %175 ], [ %172, %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit58 ]
   %177 = getelementptr inbounds nuw i8, ptr %.1.i61, i64 32
   %.sroa.0.0.copyload.i63 = load i64, ptr %177, align 16, !tbaa !3
   %178 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -6620,7 +6620,7 @@ _ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.
   br label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit, %213, %221
-  %.1.i67 = phi ptr [ %210, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit ], [ %222, %221 ], [ null, %213 ]
+  %.1.i67 = phi ptr [ %222, %221 ], [ %210, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit ], [ null, %213 ]
   %223 = ptrtoint ptr %209 to i64
   store i64 %223, ptr %13, align 8, !tbaa !791, !alias.scope !794
   %224 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -9155,9 +9155,9 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   tail call fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt4pairIPN4llvm5ValueES7_EJEE15VisitGCCAsmStmtEPNS_10GCCAsmStmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   unreachable
 
-.thread331:                                       ; preds = %151, %155, %159, %163, %167, %171, %175, %179, %183, %187, %191, %195, %199, %205, %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %51, %55, %59, %63, %67, %71, %75, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127, %131, %135, %139, %757, %753, %749, %745, %741, %737, %733, %729, %725, %721, %717, %713, %709, %705, %701, %697, %693, %689, %685, %681, %677, %673, %669, %665, %661, %657, %653, %649, %643, %638, %634, %630, %626, %622, %618, %614, %610, %606, %602, %598, %594, %590, %586, %582, %578, %574, %570, %566, %562, %558, %554, %550, %538, %534, %530, %526, %522, %518, %514, %510, %506, %502, %498, %494, %490, %486, %482, %478, %474, %470, %466, %462, %448, %444, %439, %434, %430, %426, %422, %418, %414, %410, %406, %402, %398, %394, %390, %386, %382, %378, %374, %370, %366, %362, %358, %354, %350, %346, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %301, %295, %291, %287, %283, %279, %275, %271, %267, %263, %259, %255, %251, %247, %241, %237, %233, %229, %225, %221, %217
-  %.sroa.0.3 = phi ptr [ %759, %757 ], [ %755, %753 ], [ %751, %749 ], [ %747, %745 ], [ %743, %741 ], [ %739, %737 ], [ %735, %733 ], [ %731, %729 ], [ %727, %725 ], [ %723, %721 ], [ %719, %717 ], [ %715, %713 ], [ %711, %709 ], [ %707, %705 ], [ %703, %701 ], [ %699, %697 ], [ %695, %693 ], [ %691, %689 ], [ %687, %685 ], [ %683, %681 ], [ %679, %677 ], [ %675, %673 ], [ %671, %669 ], [ %667, %665 ], [ %663, %661 ], [ %659, %657 ], [ %655, %653 ], [ %651, %649 ], [ %647, %643 ], [ %641, %638 ], [ %636, %634 ], [ %632, %630 ], [ %628, %626 ], [ %624, %622 ], [ %620, %618 ], [ %616, %614 ], [ %612, %610 ], [ %608, %606 ], [ %604, %602 ], [ %600, %598 ], [ %596, %594 ], [ %592, %590 ], [ %588, %586 ], [ %584, %582 ], [ %580, %578 ], [ %576, %574 ], [ %572, %570 ], [ %568, %566 ], [ %564, %562 ], [ %560, %558 ], [ %556, %554 ], [ %552, %550 ], [ %548, %538 ], [ %536, %534 ], [ %532, %530 ], [ %528, %526 ], [ %524, %522 ], [ %520, %518 ], [ %516, %514 ], [ %512, %510 ], [ %508, %506 ], [ %504, %502 ], [ %500, %498 ], [ %496, %494 ], [ %492, %490 ], [ %488, %486 ], [ %484, %482 ], [ %480, %478 ], [ %476, %474 ], [ %472, %470 ], [ %468, %466 ], [ %464, %462 ], [ %460, %448 ], [ %446, %444 ], [ %442, %439 ], [ %437, %434 ], [ %432, %430 ], [ %428, %426 ], [ %424, %422 ], [ %420, %418 ], [ %416, %414 ], [ %412, %410 ], [ %408, %406 ], [ %404, %402 ], [ %400, %398 ], [ %396, %394 ], [ %392, %390 ], [ %388, %386 ], [ %384, %382 ], [ %380, %378 ], [ %376, %374 ], [ %372, %370 ], [ %368, %366 ], [ %364, %362 ], [ %360, %358 ], [ %356, %354 ], [ %352, %350 ], [ %348, %346 ], [ %344, %342 ], [ %340, %338 ], [ %336, %334 ], [ %332, %330 ], [ %328, %326 ], [ %324, %322 ], [ %320, %318 ], [ %316, %314 ], [ %312, %310 ], [ %308, %306 ], [ %304, %301 ], [ %299, %295 ], [ %293, %291 ], [ %289, %287 ], [ %285, %283 ], [ %281, %279 ], [ %277, %275 ], [ %273, %271 ], [ %269, %267 ], [ %265, %263 ], [ %261, %259 ], [ %257, %255 ], [ %253, %251 ], [ %249, %247 ], [ %245, %241 ], [ %239, %237 ], [ %235, %233 ], [ %231, %229 ], [ %227, %225 ], [ %223, %221 ], [ %219, %217 ], [ %13, %11 ], [ %17, %15 ], [ %21, %19 ], [ %25, %23 ], [ %29, %27 ], [ %33, %31 ], [ %37, %35 ], [ %41, %39 ], [ %45, %43 ], [ %49, %47 ], [ %53, %51 ], [ %57, %55 ], [ %61, %59 ], [ %65, %63 ], [ %69, %67 ], [ %73, %71 ], [ %77, %75 ], [ %81, %79 ], [ %85, %83 ], [ %89, %87 ], [ %93, %91 ], [ %97, %95 ], [ %101, %99 ], [ %105, %103 ], [ %109, %107 ], [ %113, %111 ], [ %117, %115 ], [ %121, %119 ], [ %125, %123 ], [ %129, %127 ], [ %133, %131 ], [ %137, %135 ], [ %141, %139 ], [ %153, %151 ], [ %157, %155 ], [ %161, %159 ], [ %165, %163 ], [ %169, %167 ], [ %173, %171 ], [ %177, %175 ], [ %181, %179 ], [ %185, %183 ], [ %189, %187 ], [ %193, %191 ], [ %197, %195 ], [ %203, %199 ], [ %209, %205 ]
-  %.sroa.304.3 = phi ptr [ %760, %757 ], [ %756, %753 ], [ %752, %749 ], [ %748, %745 ], [ %744, %741 ], [ %740, %737 ], [ %736, %733 ], [ %732, %729 ], [ %728, %725 ], [ %724, %721 ], [ %720, %717 ], [ %716, %713 ], [ %712, %709 ], [ %708, %705 ], [ %704, %701 ], [ %700, %697 ], [ %696, %693 ], [ %692, %689 ], [ %688, %685 ], [ %684, %681 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %668, %665 ], [ %664, %661 ], [ %660, %657 ], [ %656, %653 ], [ %652, %649 ], [ %648, %643 ], [ %642, %638 ], [ %637, %634 ], [ %633, %630 ], [ %629, %626 ], [ %625, %622 ], [ %621, %618 ], [ %617, %614 ], [ %613, %610 ], [ %609, %606 ], [ %605, %602 ], [ %601, %598 ], [ %597, %594 ], [ %593, %590 ], [ %589, %586 ], [ %585, %582 ], [ %581, %578 ], [ %577, %574 ], [ %573, %570 ], [ %569, %566 ], [ %565, %562 ], [ %561, %558 ], [ %557, %554 ], [ %553, %550 ], [ %549, %538 ], [ %537, %534 ], [ %533, %530 ], [ %529, %526 ], [ %525, %522 ], [ %521, %518 ], [ %517, %514 ], [ %513, %510 ], [ %509, %506 ], [ %505, %502 ], [ %501, %498 ], [ %497, %494 ], [ %493, %490 ], [ %489, %486 ], [ %485, %482 ], [ %481, %478 ], [ %477, %474 ], [ %473, %470 ], [ %469, %466 ], [ %465, %462 ], [ %461, %448 ], [ %447, %444 ], [ %443, %439 ], [ %438, %434 ], [ %433, %430 ], [ %429, %426 ], [ %425, %422 ], [ %421, %418 ], [ %417, %414 ], [ %413, %410 ], [ %409, %406 ], [ %405, %402 ], [ %401, %398 ], [ %397, %394 ], [ %393, %390 ], [ %389, %386 ], [ %385, %382 ], [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %366 ], [ %365, %362 ], [ %361, %358 ], [ %357, %354 ], [ %353, %350 ], [ %349, %346 ], [ %345, %342 ], [ %341, %338 ], [ %337, %334 ], [ %333, %330 ], [ %329, %326 ], [ %325, %322 ], [ %321, %318 ], [ %317, %314 ], [ %313, %310 ], [ %309, %306 ], [ %305, %301 ], [ %300, %295 ], [ %294, %291 ], [ %290, %287 ], [ %286, %283 ], [ %282, %279 ], [ %278, %275 ], [ %274, %271 ], [ %270, %267 ], [ %266, %263 ], [ %262, %259 ], [ %258, %255 ], [ %254, %251 ], [ %250, %247 ], [ %246, %241 ], [ %240, %237 ], [ %236, %233 ], [ %232, %229 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ %138, %135 ], [ %142, %139 ], [ %154, %151 ], [ %158, %155 ], [ %162, %159 ], [ %166, %163 ], [ %170, %167 ], [ %174, %171 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %190, %187 ], [ %194, %191 ], [ %198, %195 ], [ %204, %199 ], [ %210, %205 ]
+.thread331:                                       ; preds = %205, %199, %195, %191, %187, %183, %179, %175, %171, %167, %163, %159, %155, %151, %139, %135, %131, %127, %123, %119, %115, %111, %107, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %59, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15, %11, %757, %753, %749, %745, %741, %737, %733, %729, %725, %721, %717, %713, %709, %705, %701, %697, %693, %689, %685, %681, %677, %673, %669, %665, %661, %657, %653, %649, %643, %638, %634, %630, %626, %622, %618, %614, %610, %606, %602, %598, %594, %590, %586, %582, %578, %574, %570, %566, %562, %558, %554, %550, %538, %534, %530, %526, %522, %518, %514, %510, %506, %502, %498, %494, %490, %486, %482, %478, %474, %470, %466, %462, %448, %444, %439, %434, %430, %426, %422, %418, %414, %410, %406, %402, %398, %394, %390, %386, %382, %378, %374, %370, %366, %362, %358, %354, %350, %346, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %301, %295, %291, %287, %283, %279, %275, %271, %267, %263, %259, %255, %251, %247, %241, %237, %233, %229, %225, %221, %217
+  %.sroa.0.3 = phi ptr [ %219, %217 ], [ %223, %221 ], [ %227, %225 ], [ %231, %229 ], [ %235, %233 ], [ %239, %237 ], [ %245, %241 ], [ %249, %247 ], [ %253, %251 ], [ %257, %255 ], [ %261, %259 ], [ %265, %263 ], [ %269, %267 ], [ %273, %271 ], [ %277, %275 ], [ %281, %279 ], [ %285, %283 ], [ %289, %287 ], [ %293, %291 ], [ %299, %295 ], [ %304, %301 ], [ %308, %306 ], [ %312, %310 ], [ %316, %314 ], [ %320, %318 ], [ %324, %322 ], [ %328, %326 ], [ %332, %330 ], [ %336, %334 ], [ %340, %338 ], [ %344, %342 ], [ %348, %346 ], [ %352, %350 ], [ %356, %354 ], [ %360, %358 ], [ %364, %362 ], [ %368, %366 ], [ %372, %370 ], [ %376, %374 ], [ %380, %378 ], [ %384, %382 ], [ %388, %386 ], [ %392, %390 ], [ %396, %394 ], [ %400, %398 ], [ %404, %402 ], [ %408, %406 ], [ %412, %410 ], [ %416, %414 ], [ %420, %418 ], [ %424, %422 ], [ %428, %426 ], [ %432, %430 ], [ %437, %434 ], [ %442, %439 ], [ %446, %444 ], [ %460, %448 ], [ %464, %462 ], [ %468, %466 ], [ %472, %470 ], [ %476, %474 ], [ %480, %478 ], [ %484, %482 ], [ %488, %486 ], [ %492, %490 ], [ %496, %494 ], [ %500, %498 ], [ %504, %502 ], [ %508, %506 ], [ %512, %510 ], [ %516, %514 ], [ %520, %518 ], [ %524, %522 ], [ %528, %526 ], [ %532, %530 ], [ %536, %534 ], [ %548, %538 ], [ %552, %550 ], [ %556, %554 ], [ %560, %558 ], [ %564, %562 ], [ %568, %566 ], [ %572, %570 ], [ %576, %574 ], [ %580, %578 ], [ %584, %582 ], [ %588, %586 ], [ %592, %590 ], [ %596, %594 ], [ %600, %598 ], [ %604, %602 ], [ %608, %606 ], [ %612, %610 ], [ %616, %614 ], [ %620, %618 ], [ %624, %622 ], [ %628, %626 ], [ %632, %630 ], [ %636, %634 ], [ %641, %638 ], [ %647, %643 ], [ %651, %649 ], [ %655, %653 ], [ %659, %657 ], [ %663, %661 ], [ %667, %665 ], [ %671, %669 ], [ %675, %673 ], [ %679, %677 ], [ %683, %681 ], [ %687, %685 ], [ %691, %689 ], [ %695, %693 ], [ %699, %697 ], [ %703, %701 ], [ %707, %705 ], [ %711, %709 ], [ %715, %713 ], [ %719, %717 ], [ %723, %721 ], [ %727, %725 ], [ %731, %729 ], [ %735, %733 ], [ %739, %737 ], [ %743, %741 ], [ %747, %745 ], [ %751, %749 ], [ %755, %753 ], [ %759, %757 ], [ %141, %139 ], [ %137, %135 ], [ %133, %131 ], [ %129, %127 ], [ %125, %123 ], [ %121, %119 ], [ %117, %115 ], [ %113, %111 ], [ %109, %107 ], [ %105, %103 ], [ %101, %99 ], [ %97, %95 ], [ %93, %91 ], [ %89, %87 ], [ %85, %83 ], [ %81, %79 ], [ %77, %75 ], [ %73, %71 ], [ %69, %67 ], [ %65, %63 ], [ %61, %59 ], [ %57, %55 ], [ %53, %51 ], [ %49, %47 ], [ %45, %43 ], [ %41, %39 ], [ %37, %35 ], [ %33, %31 ], [ %29, %27 ], [ %25, %23 ], [ %21, %19 ], [ %17, %15 ], [ %13, %11 ], [ %209, %205 ], [ %203, %199 ], [ %197, %195 ], [ %193, %191 ], [ %189, %187 ], [ %185, %183 ], [ %181, %179 ], [ %177, %175 ], [ %173, %171 ], [ %169, %167 ], [ %165, %163 ], [ %161, %159 ], [ %157, %155 ], [ %153, %151 ]
+  %.sroa.304.3 = phi ptr [ %220, %217 ], [ %224, %221 ], [ %228, %225 ], [ %232, %229 ], [ %236, %233 ], [ %240, %237 ], [ %246, %241 ], [ %250, %247 ], [ %254, %251 ], [ %258, %255 ], [ %262, %259 ], [ %266, %263 ], [ %270, %267 ], [ %274, %271 ], [ %278, %275 ], [ %282, %279 ], [ %286, %283 ], [ %290, %287 ], [ %294, %291 ], [ %300, %295 ], [ %305, %301 ], [ %309, %306 ], [ %313, %310 ], [ %317, %314 ], [ %321, %318 ], [ %325, %322 ], [ %329, %326 ], [ %333, %330 ], [ %337, %334 ], [ %341, %338 ], [ %345, %342 ], [ %349, %346 ], [ %353, %350 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ %369, %366 ], [ %373, %370 ], [ %377, %374 ], [ %381, %378 ], [ %385, %382 ], [ %389, %386 ], [ %393, %390 ], [ %397, %394 ], [ %401, %398 ], [ %405, %402 ], [ %409, %406 ], [ %413, %410 ], [ %417, %414 ], [ %421, %418 ], [ %425, %422 ], [ %429, %426 ], [ %433, %430 ], [ %438, %434 ], [ %443, %439 ], [ %447, %444 ], [ %461, %448 ], [ %465, %462 ], [ %469, %466 ], [ %473, %470 ], [ %477, %474 ], [ %481, %478 ], [ %485, %482 ], [ %489, %486 ], [ %493, %490 ], [ %497, %494 ], [ %501, %498 ], [ %505, %502 ], [ %509, %506 ], [ %513, %510 ], [ %517, %514 ], [ %521, %518 ], [ %525, %522 ], [ %529, %526 ], [ %533, %530 ], [ %537, %534 ], [ %549, %538 ], [ %553, %550 ], [ %557, %554 ], [ %561, %558 ], [ %565, %562 ], [ %569, %566 ], [ %573, %570 ], [ %577, %574 ], [ %581, %578 ], [ %585, %582 ], [ %589, %586 ], [ %593, %590 ], [ %597, %594 ], [ %601, %598 ], [ %605, %602 ], [ %609, %606 ], [ %613, %610 ], [ %617, %614 ], [ %621, %618 ], [ %625, %622 ], [ %629, %626 ], [ %633, %630 ], [ %637, %634 ], [ %642, %638 ], [ %648, %643 ], [ %652, %649 ], [ %656, %653 ], [ %660, %657 ], [ %664, %661 ], [ %668, %665 ], [ %672, %669 ], [ %676, %673 ], [ %680, %677 ], [ %684, %681 ], [ %688, %685 ], [ %692, %689 ], [ %696, %693 ], [ %700, %697 ], [ %704, %701 ], [ %708, %705 ], [ %712, %709 ], [ %716, %713 ], [ %720, %717 ], [ %724, %721 ], [ %728, %725 ], [ %732, %729 ], [ %736, %733 ], [ %740, %737 ], [ %744, %741 ], [ %748, %745 ], [ %752, %749 ], [ %756, %753 ], [ %760, %757 ], [ %142, %139 ], [ %138, %135 ], [ %134, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %119 ], [ %118, %115 ], [ %114, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ], [ %210, %205 ], [ %204, %199 ], [ %198, %195 ], [ %194, %191 ], [ %190, %187 ], [ %186, %183 ], [ %182, %179 ], [ %178, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %159 ], [ %158, %155 ], [ %154, %151 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.3, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.304.3, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10868,7 +10868,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter14Visi
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %11, %20
-  %.1.i = phi ptr [ %17, %11 ], [ %21, %20 ]
+  %.1.i = phi ptr [ %21, %20 ], [ %17, %11 ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i5 = load i64, ptr %22, align 16, !tbaa !3
   %23 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %13, i64 %.sroa.0.0.copyload.i5) #15
@@ -12616,8 +12616,8 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter15Visi
   br label %31
 
 31:                                               ; preds = %26, %27
-  %.fca.1.insert.merged.i.pn = phi { ptr, ptr } [ %.fca.1.insert.merged.i, %26 ], [ %30, %27 ]
-  ret { ptr, ptr } %.fca.1.insert.merged.i.pn
+  %.pn = phi { ptr, ptr } [ %30, %27 ], [ %.fca.1.insert.merged.i, %26 ]
+  ret { ptr, ptr } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12920,7 +12920,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17Visi
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %30, %37
-  %.1.i = phi ptr [ %34, %30 ], [ %38, %37 ]
+  %.1.i = phi ptr [ %38, %37 ], [ %34, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i9 = load i64, ptr %39, align 16, !tbaa !3
   %40 = load ptr, ptr %0, align 8, !tbaa !84
@@ -12950,7 +12950,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter26Visi
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %1, %7
-  %.1.i = phi ptr [ %4, %1 ], [ %8, %7 ]
+  %.1.i = phi ptr [ %8, %7 ], [ %4, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i3 = load i64, ptr %9, align 16, !tbaa !3
   %10 = load ptr, ptr %0, align 8, !tbaa !84
@@ -13641,8 +13641,8 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter16Visi
   br label %28
 
 28:                                               ; preds = %23, %24
-  %.fca.1.insert.merged.i.pn = phi { ptr, ptr } [ %.fca.1.insert.merged.i, %23 ], [ %27, %24 ]
-  ret { ptr, ptr } %.fca.1.insert.merged.i.pn
+  %.pn = phi { ptr, ptr } [ %27, %24 ], [ %.fca.1.insert.merged.i, %23 ]
+  ret { ptr, ptr } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14241,7 +14241,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter27Visi
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %1, %7
-  %.1.i = phi ptr [ %4, %1 ], [ %8, %7 ]
+  %.1.i = phi ptr [ %8, %7 ], [ %4, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i3 = load i64, ptr %9, align 16, !tbaa !3
   %10 = load ptr, ptr %0, align 8, !tbaa !84
@@ -17390,7 +17390,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   br label %_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit
 
 _ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit: ; preds = %84, %95
-  %.1.i.i = phi ptr [ %92, %84 ], [ %96, %95 ]
+  %.1.i.i = phi ptr [ %96, %95 ], [ %92, %84 ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i.i48 = load i64, ptr %97, align 16, !tbaa !3
   %98 = load ptr, ptr %0, align 8, !tbaa !84
@@ -17432,7 +17432,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5c
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %116, %103
-  %.1.i.i51 = phi ptr [ %113, %103 ], [ %117, %116 ]
+  %.1.i.i51 = phi ptr [ %117, %116 ], [ %113, %103 ]
   %118 = getelementptr inbounds nuw i8, ptr %.1.i.i51, i64 32
   %.sroa.0.0.copyload.i.i52 = load i64, ptr %118, align 16, !tbaa !3
   %119 = and i64 %3, -16
@@ -17448,7 +17448,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i: ; preds = %116, %103
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit20.i: ; preds = %124, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i
-  %.1.i19.i = phi ptr [ %121, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i ], [ %125, %124 ]
+  %.1.i19.i = phi ptr [ %125, %124 ], [ %121, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit.i ]
   %126 = getelementptr inbounds nuw i8, ptr %.1.i19.i, i64 32
   %.sroa.0.0.copyload.i21.i = load i64, ptr %126, align 16, !tbaa !3
   %.not.i53 = icmp eq ptr %107, null
@@ -17481,7 +17481,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5
   unreachable
 
 135:                                              ; preds = %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit, %_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit46, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %16
-  %.pn = phi { ptr, ptr } [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit ], [ %83, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit46 ], [ %54, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %18, %16 ], [ %.fca.1.insert.i55, %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit ]
+  %.pn = phi { ptr, ptr } [ %18, %16 ], [ %54, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %83, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit46 ], [ %.fca.1.insert.i55, %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit ], [ %.fca.1.insert.i, %_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitScalarToComplexCastEPN4llvm5ValueEN5clang8QualTypeES5_NS4_14SourceLocationE.exit ]
   ret { ptr, ptr } %.pn
 }
 

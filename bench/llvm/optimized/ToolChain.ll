@@ -9928,8 +9928,8 @@ define dso_local { ptr, i64 } @_ZNK5clang6driver9ToolChain27getDefaultUniversalA
   br label %17
 
 17:                                               ; preds = %1, %4, %12, %11, %10, %9, %8
-  %.sroa.9.0 = phi i64 [ %16, %12 ], [ 7, %11 ], [ 5, %10 ], [ 5, %9 ], [ 3, %8 ], [ %., %4 ], [ 8, %1 ]
-  %.sroa.0.0 = phi ptr [ %15, %12 ], [ @.str.19, %11 ], [ @.str.18, %10 ], [ @.str.17, %9 ], [ @.str.16, %8 ], [ %.str.13..str.14, %4 ], [ @.str.15, %1 ]
+  %.sroa.9.0 = phi i64 [ %16, %12 ], [ 3, %8 ], [ 5, %9 ], [ 5, %10 ], [ 7, %11 ], [ %., %4 ], [ 8, %1 ]
+  %.sroa.0.0 = phi ptr [ %15, %12 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ %.str.13..str.14, %4 ], [ @.str.15, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -10628,8 +10628,8 @@ define dso_local { ptr, i64 } @_ZNK5clang6driver9ToolChain12getOSLibNameEv(ptr n
   br label %16
 
 16:                                               ; preds = %1, %6, %6, %6, %6, %6, %12, %11, %10, %9, %8, %7
-  %.sroa.8.0 = phi i64 [ %15, %12 ], [ 3, %11 ], [ 5, %10 ], [ 7, %9 ], [ 6, %8 ], [ 7, %7 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %12 ], [ @.str.25, %11 ], [ @.str.24, %10 ], [ @.str.23, %9 ], [ @.str.22, %8 ], [ @.str.21, %7 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %1 ]
+  %.sroa.8.0 = phi i64 [ %15, %12 ], [ 7, %7 ], [ 6, %8 ], [ 7, %9 ], [ 5, %10 ], [ 3, %11 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %6 ], [ 6, %1 ]
+  %.sroa.0.0 = phi ptr [ %14, %12 ], [ @.str.21, %7 ], [ @.str.22, %8 ], [ @.str.23, %9 ], [ @.str.24, %10 ], [ @.str.25, %11 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %6 ], [ @.str.20, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -11047,7 +11047,7 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread: ; preds = %7, %25
   br label %37
 
 37:                                               ; preds = %34, %33, %31, %29, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread
-  %.0 = phi ptr [ undef, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread ], [ %32, %31 ], [ %30, %29 ], [ %36, %34 ], [ @.str.32, %33 ]
+  %.0 = phi ptr [ undef, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread ], [ %30, %29 ], [ %32, %31 ], [ %36, %34 ], [ @.str.32, %33 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #28
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %38, ptr %8, align 8, !tbaa !10
@@ -12052,8 +12052,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8

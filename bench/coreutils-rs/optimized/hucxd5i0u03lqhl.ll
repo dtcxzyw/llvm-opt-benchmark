@@ -942,8 +942,8 @@ default.unreachable10:                            ; preds = %2
   br label %10
 
 10:                                               ; preds = %2, %18, %9, %7
-  %.sroa.02.0 = phi ptr [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.65, %9 ], [ %21, %18 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.26, %7 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.25, %2 ]
-  %.sroa.5.0 = phi i64 [ 4, %9 ], [ %23, %18 ], [ 1, %7 ], [ 1, %2 ]
+  %.sroa.02.0 = phi ptr [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.26, %7 ], [ %21, %18 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.65, %9 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.25, %2 ]
+  %.sroa.5.0 = phi i64 [ 1, %7 ], [ %23, %18 ], [ 4, %9 ], [ 1, %2 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -1664,13 +1664,13 @@ _ZN7uu_test6parser6Parser10next_token17h7aec2c9e9b705b97E.exit: ; preds = %70, %
   br label %118
 
 116:                                              ; preds = %215, %205, %198, %184, %167, %148, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %114
-  %117 = phi i1 [ true, %215 ], [ true, %184 ], [ true, %198 ], [ true, %205 ], [ true, %167 ], [ true, %148 ], [ false, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ true, %114 ]
-  %.sroa.0.1 = phi i64 [ 6, %215 ], [ 6, %184 ], [ 6, %198 ], [ 6, %205 ], [ 6, %167 ], [ 6, %148 ], [ 3, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 6, %114 ]
+  %117 = phi i1 [ true, %215 ], [ true, %114 ], [ false, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ true, %205 ], [ true, %198 ], [ true, %167 ], [ true, %184 ], [ true, %148 ]
+  %.sroa.0.1 = phi i64 [ 6, %215 ], [ 6, %114 ], [ 3, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 6, %205 ], [ 6, %198 ], [ 6, %167 ], [ 6, %184 ], [ 6, %148 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$17hdce30c76222c2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55)
           to label %503 unwind label %.body.thread257
 
 118:                                              ; preds = %216, %211, %206, %199, %194, %185, %168, %163, %149, %115
-  %.sroa.0.0214 = phi i64 [ %213, %216 ], [ %208, %211 ], [ %182, %185 ], [ %196, %199 ], [ %191, %194 ], [ %203, %206 ], [ %165, %168 ], [ %160, %163 ], [ %146, %149 ], [ %112, %115 ]
+  %.sroa.0.0214 = phi i64 [ %213, %216 ], [ %208, %211 ], [ %112, %115 ], [ %203, %206 ], [ %196, %199 ], [ %191, %194 ], [ %165, %168 ], [ %160, %163 ], [ %182, %185 ], [ %146, %149 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$17hdce30c76222c2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55)
           to label %.thread260 unwind label %.body.thread257
 
@@ -3058,7 +3058,7 @@ default.unreachable:                              ; preds = %373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234, i64 24, i1 false)
   br label %517
 
-.critedge:                                        ; preds = %492, %509, %516
+.critedge:                                        ; preds = %509, %492, %516
   store i64 6, ptr %0, align 8
   br label %517
 

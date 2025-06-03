@@ -351,7 +351,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %85, %84 ]
+  %.1.i.i.i.i.i = phi ptr [ %85, %84 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i, i64 8
   %88 = load i32, ptr %87, align 8
@@ -374,7 +374,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %97, %96 ]
+  %.2.i.i.i.i.i = phi ptr [ %97, %96 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !24
   %99 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i, i64 8
   %100 = load i32, ptr %99, align 8
@@ -515,7 +515,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20canVectorizeStructTyEPNS_10Struct
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %40, %39 ]
+  %.1.i.i.i.i.i = phi ptr [ %40, %39 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %42 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !24
   %43 = tail call noundef zeroext i1 @_ZN4llvm10VectorType18isValidElementTypeEPNS_4TypeE(ptr noundef %42) #6
   br i1 %43, label %44, label %_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_4TypeEEEPFbS3_EEEbOT_T0_.exit
@@ -525,7 +525,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20canVectorizeStructTyEPNS_10Struct
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %45, %44 ]
+  %.2.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %47 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !24
   %48 = tail call noundef zeroext i1 @_ZN4llvm10VectorType18isValidElementTypeEPNS_4TypeE(ptr noundef %47) #6
   br i1 %48, label %49, label %_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_4TypeEEEPFbS3_EEEbOT_T0_.exit

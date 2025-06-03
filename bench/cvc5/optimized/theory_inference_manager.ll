@@ -2315,8 +2315,8 @@ define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager16mkExplainP
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge.i.i.i
-  %51 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %46, %48 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %49, %48 ]
+  %51 = phi ptr [ %46, %48 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %52 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !108
   %53 = icmp eq ptr %52, %51
   br i1 %53, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %54
@@ -2326,8 +2326,8 @@ define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager16mkExplainP
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge._crit_edge57.i.i.i
-  %57 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %51, %54 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %55, %54 ]
+  %57 = phi ptr [ %51, %54 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %55, %54 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %58 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !108
   %59 = icmp eq ptr %58, %57
   %spec.select.i.i.i = select i1 %59, ptr %.sroa.032.2.i.i.i, ptr %16

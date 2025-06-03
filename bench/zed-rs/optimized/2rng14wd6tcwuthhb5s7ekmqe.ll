@@ -432,8 +432,8 @@ default.unreachable:                              ; preds = %1
   br label %13
 
 13:                                               ; preds = %1, %8, %7, %6, %5
-  %.sroa.6.0 = phi i64 [ %12, %8 ], [ 23, %7 ], [ 24, %6 ], [ 22, %5 ], [ 26, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %8 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %7 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %6 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %5 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %1 ]
+  %.sroa.6.0 = phi i64 [ 22, %5 ], [ 24, %6 ], [ 23, %7 ], [ %12, %8 ], [ 26, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %5 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %6 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %7 ], [ %10, %8 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %1 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %15
@@ -476,8 +476,8 @@ default.unreachable:                              ; preds = %1
   br label %16
 
 16:                                               ; preds = %1, %8, %7, %6, %5
-  %.sroa.6.0 = phi i64 [ %15, %8 ], [ 14, %7 ], [ 15, %6 ], [ 13, %5 ], [ 17, %1 ]
-  %.sroa.0.0 = phi ptr [ %13, %8 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.15, %7 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.14, %6 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.13, %5 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.12, %1 ]
+  %.sroa.6.0 = phi i64 [ 13, %5 ], [ 15, %6 ], [ 14, %7 ], [ %15, %8 ], [ 17, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.9fcaf8c50144155af2d2d346a196bddc.13, %5 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.14, %6 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.15, %7 ], [ %13, %8 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.12, %1 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %18
@@ -562,7 +562,7 @@ default.unreachable:                              ; preds = %1
   br label %11
 
 11:                                               ; preds = %1, %6, %5
-  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %6 ], [ 4096, %5 ], [ 8192, %1 ]
+  %.sroa.0.0 = phi i32 [ 4096, %5 ], [ %.sroa.0.1, %6 ], [ 8192, %1 ]
   ret i32 %.sroa.0.0
 }
 
@@ -634,8 +634,8 @@ default.unreachable:                              ; preds = %7
   br label %_ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit
 
 _ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit:  ; preds = %13, %12, %11, %10, %7, %18
-  %.sroa.0.0.i.pn = phi ptr [ %20, %18 ], [ %15, %13 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %12 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %11 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %10 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %7 ]
-  %.sroa.6.0.i.pn = phi i64 [ %22, %18 ], [ %17, %13 ], [ 23, %12 ], [ 24, %11 ], [ 22, %10 ], [ 26, %7 ]
+  %.sroa.0.0.i.pn = phi ptr [ %20, %18 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.9, %10 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.10, %11 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.11, %12 ], [ %15, %13 ], [ @anon.9fcaf8c50144155af2d2d346a196bddc.8, %7 ]
+  %.sroa.6.0.i.pn = phi i64 [ %22, %18 ], [ 22, %10 ], [ 24, %11 ], [ 23, %12 ], [ %17, %13 ], [ 26, %7 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.6.0.i.pn, 1
   ret { ptr, i64 } %.merged
@@ -716,10 +716,10 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %19)
   %20 = load i8, ptr %14, align 8, !range !99, !noundef !4
   %trunc = trunc nuw i8 %20 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %22 = load i8, ptr %21, align 1, !range !100
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %24 = load i64, ptr %23, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %24 = load i8, ptr %23, align 1, !range !100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %trunc, label %33, label %28
 
@@ -744,7 +744,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br i1 %30, label %42, label %36
 
 33:                                               ; preds = %18
-  %34 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %22)
+  %34 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %24)
   store ptr %34, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %35, align 4
@@ -755,10 +755,10 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %.cast)
   %37 = load i8, ptr %12, align 8, !range !99, !noundef !4
   %trunc89 = trunc nuw i8 %37 to i1
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %39 = load i8, ptr %38, align 1, !range !100
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %41 = load i64, ptr %40, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %41 = load i8, ptr %40, align 1, !range !100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %trunc89, label %49, label %44
 
@@ -781,7 +781,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br i1 %46, label %58, label %52
 
 49:                                               ; preds = %36
-  %50 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %39)
+  %50 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %41)
   store ptr %50, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %51, align 4
@@ -792,10 +792,10 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %.cast115)
   %53 = load i8, ptr %10, align 8, !range !99, !noundef !4
   %trunc91 = trunc nuw i8 %53 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %55 = load i8, ptr %54, align 1, !range !100
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %57 = load i64, ptr %56, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %57 = load i8, ptr %56, align 1, !range !100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %trunc91, label %65, label %60
 
@@ -818,7 +818,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br i1 %62, label %74, label %68
 
 65:                                               ; preds = %52
-  %66 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %55)
+  %66 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %57)
   store ptr %66, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %67, align 4
@@ -829,10 +829,10 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %.cast116)
   %69 = load i8, ptr %8, align 8, !range !99, !noundef !4
   %trunc93 = trunc nuw i8 %69 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %71 = load i8, ptr %70, align 1, !range !100
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %73 = load i64, ptr %72, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %73 = load i8, ptr %72, align 1, !range !100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc93, label %81, label %76
 
@@ -855,7 +855,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br i1 %78, label %89, label %84
 
 81:                                               ; preds = %68
-  %82 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %71)
+  %82 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h906f56efa21d23bcE"(i8 noundef %73)
   store ptr %82, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %83, align 4
@@ -927,13 +927,13 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.952)
   %.sroa.757.sroa.5.0..sroa.757.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.757.sroa.5.0..sroa.757.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.380, i64 7, i1 false)
-  store i64 %41, ptr %0, align 8
+  store i64 %39, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %73, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %71, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %24, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %22, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %57, ptr %.sroa.656.0..sroa_idx, align 8
+  store i64 %55, ptr %.sroa.656.0..sroa_idx, align 8
   %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %92, ptr %.sroa.757.0..sroa_idx, align 8
   %.sroa.757.sroa.4.0..sroa.757.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36

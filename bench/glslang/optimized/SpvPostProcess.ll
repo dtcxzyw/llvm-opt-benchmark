@@ -2719,8 +2719,8 @@ _ZNKSt13unordered_setIPKN3spv5BlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5countER
   br label %492
 
 492:                                              ; preds = %.loopexit167.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i
-  %493 = phi i64 [ %.pre251.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %466, %.loopexit167.i.i.i.i ]
-  %.sroa.0121.1.i.i.i.i = phi ptr [ %.sroa.0121.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %491, %.loopexit167.i.i.i.i ]
+  %493 = phi i64 [ %466, %.loopexit167.i.i.i.i ], [ %.pre251.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.0121.1.i.i.i.i = phi ptr [ %491, %.loopexit167.i.i.i.i ], [ %.sroa.0121.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.val1.i86.i.i.i.i = load ptr, ptr %.sroa.0121.1.i.i.i.i, align 8
   %494 = getelementptr i8, ptr %.val1.i86.i.i.i.i, i64 24
   %.val1.val.i87.i.i.i.i = load ptr, ptr %494, align 8
@@ -2783,8 +2783,8 @@ _ZNKSt13unordered_setIPKN3spv5BlockESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5countER
   br label %520
 
 520:                                              ; preds = %.loopexit.i.i.i.i, %._crit_edge._crit_edge252.i.i.i.i
-  %521 = phi i64 [ %.pre254.i.i.i.i, %._crit_edge._crit_edge252.i.i.i.i ], [ %493, %.loopexit.i.i.i.i ]
-  %.sroa.0121.2.i.i.i.i = phi ptr [ %.sroa.0121.0.lcssa.i.i.i.i, %._crit_edge._crit_edge252.i.i.i.i ], [ %519, %.loopexit.i.i.i.i ]
+  %521 = phi i64 [ %493, %.loopexit.i.i.i.i ], [ %.pre254.i.i.i.i, %._crit_edge._crit_edge252.i.i.i.i ]
+  %.sroa.0121.2.i.i.i.i = phi ptr [ %519, %.loopexit.i.i.i.i ], [ %.sroa.0121.0.lcssa.i.i.i.i, %._crit_edge._crit_edge252.i.i.i.i ]
   %.val1.i102.i.i.i.i = load ptr, ptr %.sroa.0121.2.i.i.i.i, align 8
   %522 = getelementptr i8, ptr %.val1.i102.i.i.i.i, i64 24
   %.val1.val.i103.i.i.i.i = load ptr, ptr %522, align 8

@@ -1250,7 +1250,7 @@ define dso_local ptr @GetConfigOption(ptr noundef %0, i1 noundef zeroext %1, i1 
   unreachable
 
 config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.preheader, %14, %3, %33, %28, %23, %17
-  %.0 = phi ptr [ %spec.select, %33 ], [ @GetConfigOption.buffer, %28 ], [ @GetConfigOption.buffer, %23 ], [ %22, %17 ], [ null, %3 ], [ null, %14 ], [ %43, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.0 = phi ptr [ %22, %17 ], [ @GetConfigOption.buffer, %23 ], [ @GetConfigOption.buffer, %28 ], [ %spec.select, %33 ], [ null, %3 ], [ null, %14 ], [ %43, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -4971,7 +4971,7 @@ define dso_local noundef ptr @get_config_unit_name(i32 noundef %0) local_unnamed
   unreachable
 
 22:                                               ; preds = %11, %14, %6, %9, %1, %18, %17, %16, %5, %4, %3
-  %.0 = phi ptr [ @.str.50, %18 ], [ @.str.49, %17 ], [ @.str.48, %16 ], [ @.str.46, %5 ], [ @.str.45, %4 ], [ @.str.44, %3 ], [ null, %1 ], [ @get_config_unit_name.bbuf, %9 ], [ @get_config_unit_name.bbuf, %6 ], [ @get_config_unit_name.xbuf, %14 ], [ @get_config_unit_name.xbuf, %11 ]
+  %.0 = phi ptr [ @.str.44, %3 ], [ @.str.45, %4 ], [ @.str.46, %5 ], [ @.str.48, %16 ], [ @.str.49, %17 ], [ @.str.50, %18 ], [ null, %1 ], [ @get_config_unit_name.bbuf, %9 ], [ @get_config_unit_name.bbuf, %6 ], [ @get_config_unit_name.xbuf, %14 ], [ @get_config_unit_name.xbuf, %11 ]
   ret ptr %.0
 }
 
@@ -5713,7 +5713,7 @@ switch.early.test:                                ; preds = %.critedge.thread
   br label %.critedge729
 
 .critedge729:                                     ; preds = %87, %switch.early.test, %switch.early.test, %switch.early.test, %.critedge.thread, %50, %.fold.split, %85, %76, %57, %43, %40
-  %.0635 = phi i1 [ false, %40 ], [ false, %85 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %57 ], [ false, %43 ], [ true, %50 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %87 ]
+  %.0635 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %57 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %85 ], [ true, %50 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %87 ]
   %96 = getelementptr inbounds nuw i8, ptr %.0633, i64 32
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 4096
@@ -7314,7 +7314,7 @@ guc_free.exit791:                                 ; preds = %800
   br label %.thread
 
 .thread:                                          ; preds = %716, %719, %563, %566, %426, %429, %306, %309, %186, %189, %128, %130, %120, %122, %109, %111, %101, %103, %90, %92, %79, %81, %69, %71, %59, %61, %51, %53, %44, %46, %34, %36, %689, %685, %723, %529, %527, %570, %521, %514, %398, %394, %433, %279, %275, %313, %159, %155, %193, %802, %guc_free.exit762, %512, %392, %273, %803, %804, %807, %811, %146, %148, %76, %22
-  %.0613 = phi i32 [ -1, %802 ], [ -1, %guc_free.exit762 ], [ -1, %512 ], [ -1, %392 ], [ -1, %273 ], [ 0, %22 ], [ -1, %76 ], [ -1, %148 ], [ -1, %146 ], [ 1, %811 ], [ 1, %807 ], [ 1, %804 ], [ -1, %803 ], [ 0, %159 ], [ 0, %155 ], [ -1, %193 ], [ 0, %279 ], [ 0, %275 ], [ -1, %313 ], [ 0, %398 ], [ 0, %394 ], [ -1, %433 ], [ 0, %529 ], [ 0, %527 ], [ -1, %570 ], [ 0, %521 ], [ 0, %514 ], [ 0, %689 ], [ 0, %685 ], [ -1, %723 ], [ 0, %36 ], [ 0, %34 ], [ 0, %46 ], [ 0, %44 ], [ 0, %53 ], [ 0, %51 ], [ 0, %61 ], [ 0, %59 ], [ 0, %71 ], [ 0, %69 ], [ 0, %81 ], [ 0, %79 ], [ 0, %92 ], [ 0, %90 ], [ 0, %103 ], [ 0, %101 ], [ 0, %111 ], [ 0, %109 ], [ 0, %122 ], [ 0, %120 ], [ 0, %130 ], [ 0, %128 ], [ 0, %189 ], [ 0, %186 ], [ 0, %309 ], [ 0, %306 ], [ 0, %429 ], [ 0, %426 ], [ 0, %566 ], [ 0, %563 ], [ 0, %719 ], [ 0, %716 ]
+  %.0613 = phi i32 [ -1, %273 ], [ -1, %392 ], [ -1, %512 ], [ -1, %guc_free.exit762 ], [ -1, %802 ], [ 0, %22 ], [ -1, %76 ], [ -1, %148 ], [ -1, %146 ], [ 1, %811 ], [ 1, %807 ], [ 1, %804 ], [ -1, %803 ], [ 0, %159 ], [ 0, %155 ], [ -1, %193 ], [ 0, %279 ], [ 0, %275 ], [ -1, %313 ], [ 0, %398 ], [ 0, %394 ], [ -1, %433 ], [ 0, %529 ], [ 0, %527 ], [ -1, %570 ], [ 0, %521 ], [ 0, %514 ], [ 0, %689 ], [ 0, %685 ], [ -1, %723 ], [ 0, %36 ], [ 0, %34 ], [ 0, %46 ], [ 0, %44 ], [ 0, %53 ], [ 0, %51 ], [ 0, %61 ], [ 0, %59 ], [ 0, %71 ], [ 0, %69 ], [ 0, %81 ], [ 0, %79 ], [ 0, %92 ], [ 0, %90 ], [ 0, %103 ], [ 0, %101 ], [ 0, %111 ], [ 0, %109 ], [ 0, %122 ], [ 0, %120 ], [ 0, %130 ], [ 0, %128 ], [ 0, %189 ], [ 0, %186 ], [ 0, %309 ], [ 0, %306 ], [ 0, %429 ], [ 0, %426 ], [ 0, %566 ], [ 0, %563 ], [ 0, %719 ], [ 0, %716 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   ret i32 %.0613
@@ -8285,7 +8285,7 @@ define dso_local ptr @GetConfigOptionResetString(ptr noundef %0) local_unnamed_a
   unreachable
 
 config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.preheader, %9, %25, %21, %17, %12
-  %.0 = phi ptr [ %spec.select, %25 ], [ @GetConfigOptionResetString.buffer, %21 ], [ @GetConfigOptionResetString.buffer, %17 ], [ %16, %12 ], [ null, %9 ], [ %33, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+  %.0 = phi ptr [ %16, %12 ], [ @GetConfigOptionResetString.buffer, %17 ], [ @GetConfigOptionResetString.buffer, %21 ], [ %spec.select, %25 ], [ null, %9 ], [ %33, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -9539,7 +9539,7 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
   %.not43 = icmp eq i32 %57, 0
   br i1 %.not43, label %.critedge, label %.critedge41
 
-.critedge41:                                      ; preds = %43, %16, %22, %28, %45, %44, %56
+.critedge41:                                      ; preds = %43, %45, %28, %22, %16, %44, %56
   %58 = load i32, ptr %0, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds ptr, ptr %5, i64 %59
@@ -9549,7 +9549,7 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
   store i32 %62, ptr %0, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %22, %28, %45, %43, %56, %11, %.lr.ph, %.critedge41
+.critedge:                                        ; preds = %45, %28, %22, %16, %43, %56, %11, %.lr.ph, %.critedge41
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not38 = icmp eq ptr %64, @guc_nondef_list
@@ -10017,7 +10017,7 @@ config_enum_lookup_by_value.exit.i:               ; preds = %.lr.ph.i, %.lr.ph.i
   br label %47
 
 47:                                               ; preds = %config_enum_lookup_by_value.exit.i, %26, %22, %21, %15, %14, %8
-  %.025.i = phi i64 [ 0, %8 ], [ %46, %config_enum_lookup_by_value.exit.i ], [ 25, %21 ], [ %..i, %15 ], [ 5, %14 ], [ %27, %26 ], [ 0, %22 ]
+  %.025.i = phi i64 [ 0, %8 ], [ 5, %14 ], [ %..i, %15 ], [ 25, %21 ], [ %46, %config_enum_lookup_by_value.exit.i ], [ %27, %26 ], [ 0, %22 ]
   %48 = add i64 %.025.i, 1
   %49 = tail call i64 @add_size(i64 noundef %11, i64 noundef %48) #29
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 40

@@ -563,8 +563,8 @@ _clipnan_pixel.exit.i:                            ; preds = %165
   br i1 %exitcond.not.i45, label %_process_floyd_steinberg.exit, label %.lr.ph.i42
 
 _get_dither_parameters.exit.thread.i:             ; preds = %switch.lookup133, %150, %146, %144, %143, %139, %137, %136, %135, %130, %125, %103
-  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup133 ], [ false, %144 ], [ false, %146 ], [ false, %137 ], [ false, %139 ], [ true, %103 ], [ false, %125 ], [ true, %130 ], [ false, %135 ], [ true, %136 ], [ true, %143 ], [ true, %150 ]
-  %.14.i = phi i32 [ %switch.load135, %switch.lookup133 ], [ 64, %144 ], [ %149, %146 ], [ 16, %137 ], [ %142, %139 ], [ 65536, %103 ], [ %129, %125 ], [ %134, %130 ], [ 4, %135 ], [ 4, %136 ], [ 16, %143 ], [ 256, %150 ]
+  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup133 ], [ false, %144 ], [ false, %146 ], [ false, %137 ], [ false, %139 ], [ true, %103 ], [ true, %150 ], [ true, %143 ], [ true, %136 ], [ false, %135 ], [ true, %130 ], [ false, %125 ]
+  %.14.i = phi i32 [ %switch.load135, %switch.lookup133 ], [ 64, %144 ], [ %149, %146 ], [ 16, %137 ], [ %142, %139 ], [ 65536, %103 ], [ 256, %150 ], [ 16, %143 ], [ 4, %136 ], [ 4, %135 ], [ %134, %130 ], [ %129, %125 ]
   %176 = add nsw i32 %.14.i, -1
   %177 = uitofp nneg i32 %176 to float
   %178 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %177

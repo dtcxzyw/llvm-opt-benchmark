@@ -405,14 +405,14 @@ _ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread80: ; preds = %122,
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %139 = load i16, ptr %138, align 4, !tbaa !166
   switch i16 %139, label %thread-pre-split.i [
-    i16 7423, label %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit
-    i16 7424, label %140
+    i16 7423, label %140
+    i16 7424, label %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit
     i16 1213, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 7422, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
   ]
 
 140:                                              ; preds = %137
-  %141 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
+  %141 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
   br i1 %141, label %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
 thread-pre-split.i:                               ; preds = %137, %135
@@ -453,10 +453,10 @@ thread-pre-split.i:                               ; preds = %137, %135
   br i1 %155, label %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
 _ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %137
-  %156 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
+  %156 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
   br i1 %156, label %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
-_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83: ; preds = %149, %147, %142, %140, %152, %154, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread80
+_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83: ; preds = %149, %147, %142, %140, %154, %152, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread80
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 378
   %158 = load i8, ptr %157, align 2, !tbaa !193, !range !163, !noundef !164
   %159 = trunc nuw i8 %158 to i1
@@ -501,14 +501,14 @@ _ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83: ; preds = %149, %1
     i16 5325, label %164
     i16 5335, label %164
     i16 5337, label %164
-    i16 312, label %169
-    i16 313, label %169
-    i16 1213, label %169
-    i16 1214, label %169
-    i16 1492, label %169
-    i16 1495, label %169
-    i16 7423, label %169
-    i16 7426, label %169
+    i16 312, label %171
+    i16 313, label %171
+    i16 1213, label %171
+    i16 1214, label %171
+    i16 1492, label %171
+    i16 1495, label %171
+    i16 7423, label %171
+    i16 7426, label %171
   ]
 
 164:                                              ; preds = %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162, %162
@@ -527,43 +527,43 @@ _ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83: ; preds = %149, %1
     i16 1216, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 1213, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 1214, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
-    i16 1507, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 1510, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 1492, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 1495, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 7430, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 7433, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 7423, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
-    i16 7426, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
+    i16 1507, label %169
+    i16 1510, label %169
+    i16 1492, label %169
+    i16 1495, label %169
+    i16 7430, label %169
+    i16 7433, label %169
+    i16 7423, label %169
+    i16 7426, label %169
   ]
 
-169:                                              ; preds = %162, %162, %162, %162, %162, %162, %162, %162
-  %170 = icmp eq ptr %2, null
-  br i1 %170, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %171
+169:                                              ; preds = %166, %166, %166, %166, %166, %166, %166, %166
+  %170 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
+  br i1 %170, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %173 = load i16, ptr %172, align 4, !tbaa !166
-  switch i16 %173, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87 [
+171:                                              ; preds = %162, %162, %162, %162, %162, %162, %162, %162
+  %172 = icmp eq ptr %2, null
+  br i1 %172, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %173
+
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %175 = load i16, ptr %174, align 4, !tbaa !166
+  switch i16 %175, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87 [
     i16 316, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 317, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 1215, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
     i16 1216, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
-    i16 1507, label %174
-    i16 1510, label %174
-    i16 7430, label %174
-    i16 7433, label %174
+    i16 1507, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
+    i16 1510, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
+    i16 7430, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
+    i16 7433, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit
   ]
 
-174:                                              ; preds = %171, %171, %171, %171
-  %175 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
-  br i1 %175, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
-
-_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %166, %166, %166, %166, %166, %166, %166, %166
+_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %173, %173, %173, %173
   %176 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #3
   br i1 %176, label %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
-_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87: ; preds = %162, %166, %171, %160, %174, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83
+_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87: ; preds = %162, %166, %173, %160, %169, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit.thread83
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 375
   %178 = load i8, ptr %177, align 1, !tbaa !194, !range !163, !noundef !164
   %179 = trunc nuw i8 %178 to i1
@@ -584,7 +584,7 @@ _ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87: ; preds = %
   br label %183
 
 183:                                              ; preds = %182, %180, %180
-  %.0.i57 = phi i1 [ false, %180 ], [ false, %180 ], [ true, %182 ]
+  %.0.i57 = phi i1 [ true, %182 ], [ false, %180 ], [ false, %180 ]
   %184 = getelementptr inbounds nuw i8, ptr %.val44, i64 64
   %185 = load i32, ptr %184, align 8
   %186 = and i32 %185, 255
@@ -639,8 +639,8 @@ _ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit: ; preds = %196
 _ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread: ; preds = %193, %196, %198, %199, %201, %183, %188, %180, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87
   br label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
-_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61: ; preds = %201, %198, %191, %171, %171, %171, %171, %169, %166, %166, %166, %166, %166, %166, %166, %166, %164, %149, %149, %145, %137, %137, %133, %122, %120, %.thread14.i, %.thread10.i, %111, %97, %89, %68, %73, %58, %58, %58, %58, %58, %58, %56, %48, %46, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %35, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %13, %174, %140, %152, %154, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
-  %.1 = phi i1 [ false, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread ], [ true, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit ], [ true, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit ], [ true, %154 ], [ true, %152 ], [ true, %140 ], [ true, %174 ], [ true, %13 ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %35 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %46 ], [ true, %48 ], [ true, %56 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %73 ], [ true, %68 ], [ true, %89 ], [ true, %97 ], [ true, %111 ], [ true, %.thread10.i ], [ true, %.thread14.i ], [ true, %120 ], [ true, %122 ], [ true, %133 ], [ true, %137 ], [ true, %137 ], [ true, %145 ], [ true, %149 ], [ true, %149 ], [ true, %164 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %169 ], [ true, %171 ], [ true, %171 ], [ true, %171 ], [ true, %171 ], [ true, %191 ], [ true, %198 ], [ true, %201 ]
+_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61: ; preds = %201, %198, %191, %173, %173, %173, %173, %171, %166, %166, %166, %166, %166, %166, %166, %166, %164, %149, %149, %145, %137, %137, %133, %122, %120, %.thread14.i, %.thread10.i, %111, %97, %89, %68, %73, %58, %58, %58, %58, %58, %58, %56, %48, %46, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %35, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %13, %169, %140, %154, %152, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
+  %.1 = phi i1 [ false, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread ], [ true, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit ], [ true, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit ], [ true, %152 ], [ true, %154 ], [ true, %140 ], [ true, %169 ], [ true, %13 ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %35 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %37 ], [ true, %46 ], [ true, %48 ], [ true, %56 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %73 ], [ true, %68 ], [ true, %89 ], [ true, %97 ], [ true, %111 ], [ true, %.thread10.i ], [ true, %.thread14.i ], [ true, %120 ], [ true, %122 ], [ true, %133 ], [ true, %137 ], [ true, %137 ], [ true, %145 ], [ true, %149 ], [ true, %149 ], [ true, %164 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %166 ], [ true, %171 ], [ true, %173 ], [ true, %173 ], [ true, %173 ], [ true, %173 ], [ true, %191 ], [ true, %198 ], [ true, %201 ]
   ret i1 %.1
 }
 

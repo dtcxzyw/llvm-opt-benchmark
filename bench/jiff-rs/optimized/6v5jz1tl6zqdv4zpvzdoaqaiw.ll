@@ -7509,7 +7509,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %22, %17, %60, %51, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35
-  %.sroa.0.0.in = phi i1 [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40 ], [ %63, %60 ], [ %54, %51 ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35 ], [ %21, %17 ], [ %26, %22 ]
+  %.sroa.0.0.in = phi i1 [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35 ], [ %54, %51 ], [ %63, %60 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40 ], [ %21, %17 ], [ %26, %22 ]
   ret i1 %.sroa.0.0.in
 
 48:                                               ; preds = %31
@@ -7673,7 +7673,7 @@ define noundef zeroext i1 @"_ZN71_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$
   br label %"_ZN82_$LT$jiff..shared..PosixTimeZone$LT$ABBREV$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e66b8b806781d98E.exit"
 
 "_ZN82_$LT$jiff..shared..PosixTimeZone$LT$ABBREV$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e66b8b806781d98E.exit": ; preds = %72, %66, %57, %53, %47, %28, %9, %9, %2, %11, %14, %16
-  %.sroa.0.0.shrunk = phi i1 [ %27, %16 ], [ %15, %14 ], [ %13, %11 ], [ false, %2 ], [ true, %9 ], [ true, %9 ], [ %73, %72 ], [ false, %28 ], [ false, %47 ], [ false, %57 ], [ false, %66 ], [ %.mux.i, %53 ]
+  %.sroa.0.0.shrunk = phi i1 [ %13, %11 ], [ %15, %14 ], [ %27, %16 ], [ false, %2 ], [ true, %9 ], [ true, %9 ], [ %73, %72 ], [ false, %28 ], [ false, %47 ], [ false, %57 ], [ false, %66 ], [ %.mux.i, %53 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -8277,9 +8277,9 @@ define internal fastcc noundef zeroext i1 @"_ZN64_$LT$jiff..shared..PosixRule$u2
 
 6:                                                ; preds = %2
   switch i8 %3, label %default.unreachable [
-    i8 0, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
-    i8 1, label %7
-    i8 2, label %13
+    i8 0, label %7
+    i8 1, label %13
+    i8 2, label %19
   ]
 
 default.unreachable:                              ; preds = %48, %6
@@ -8294,38 +8294,38 @@ default.unreachable:                              ; preds = %48, %6
   br i1 %12, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %15 = load i8, ptr %14, align 1, !alias.scope !546, !noalias !549, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %17 = load i8, ptr %16, align 1, !alias.scope !549, !noalias !546, !noundef !3
-  %18 = icmp eq i8 %15, %17
-  br i1 %18, label %19, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %15 = load i16, ptr %14, align 2, !alias.scope !546, !noalias !549, !noundef !3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %17 = load i16, ptr %16, align 2, !alias.scope !549, !noalias !546, !noundef !3
+  %18 = icmp eq i16 %15, %17
+  br i1 %18, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %21 = load i8, ptr %20, align 2, !alias.scope !546, !noalias !549, !noundef !3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %23 = load i8, ptr %22, align 2, !alias.scope !549, !noalias !546, !noundef !3
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %21 = load i8, ptr %20, align 1, !alias.scope !546, !noalias !549, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %23 = load i8, ptr %22, align 1, !alias.scope !549, !noalias !546, !noundef !3
   %24 = icmp eq i8 %21, %23
   br i1 %24, label %25, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1, !alias.scope !546, !noalias !549, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %29 = load i8, ptr %28, align 1, !alias.scope !549, !noalias !546, !noundef !3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 2, !alias.scope !546, !noalias !549, !noundef !3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %29 = load i8, ptr %28, align 2, !alias.scope !549, !noalias !546, !noundef !3
   %30 = icmp eq i8 %27, %29
-  br i1 %30, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  br i1 %30, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit": ; preds = %6
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %32 = load i16, ptr %31, align 2, !alias.scope !546, !noalias !549, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %34 = load i16, ptr %33, align 2, !alias.scope !549, !noalias !546, !noundef !3
-  %35 = icmp eq i16 %32, %34
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit": ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %32 = load i8, ptr %31, align 1, !alias.scope !546, !noalias !549, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %34 = load i8, ptr %33, align 1, !alias.scope !549, !noalias !546, !noundef !3
+  %35 = icmp eq i8 %32, %34
   br i1 %35, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-36:                                               ; preds = %7, %25, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
+36:                                               ; preds = %13, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8345,9 +8345,9 @@ default.unreachable:                              ; preds = %48, %6
 
 48:                                               ; preds = %42
   switch i8 %45, label %default.unreachable [
-    i8 0, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
-    i8 1, label %49
-    i8 2, label %55
+    i8 0, label %49
+    i8 1, label %55
+    i8 2, label %61
   ]
 
 49:                                               ; preds = %48
@@ -8359,42 +8359,42 @@ default.unreachable:                              ; preds = %48, %6
   br i1 %54, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %57 = load i8, ptr %56, align 1, !alias.scope !552, !noalias !555, !noundef !3
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %59 = load i8, ptr %58, align 1, !alias.scope !555, !noalias !552, !noundef !3
-  %60 = icmp eq i8 %57, %59
-  br i1 %60, label %61, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %57 = load i16, ptr %56, align 2, !alias.scope !552, !noalias !555, !noundef !3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %59 = load i16, ptr %58, align 2, !alias.scope !555, !noalias !552, !noundef !3
+  %60 = icmp eq i16 %57, %59
+  br i1 %60, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %63 = load i8, ptr %62, align 2, !alias.scope !552, !noalias !555, !noundef !3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %65 = load i8, ptr %64, align 2, !alias.scope !555, !noalias !552, !noundef !3
+61:                                               ; preds = %48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %63 = load i8, ptr %62, align 1, !alias.scope !552, !noalias !555, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %65 = load i8, ptr %64, align 1, !alias.scope !555, !noalias !552, !noundef !3
   %66 = icmp eq i8 %63, %65
   br i1 %66, label %67, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %69 = load i8, ptr %68, align 1, !alias.scope !552, !noalias !555, !noundef !3
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %71 = load i8, ptr %70, align 1, !alias.scope !555, !noalias !552, !noundef !3
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %69 = load i8, ptr %68, align 2, !alias.scope !552, !noalias !555, !noundef !3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %71 = load i8, ptr %70, align 2, !alias.scope !555, !noalias !552, !noundef !3
   %72 = icmp eq i8 %69, %71
-  br i1 %72, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  br i1 %72, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3": ; preds = %48
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %74 = load i16, ptr %73, align 2, !alias.scope !552, !noalias !555, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %76 = load i16, ptr %75, align 2, !alias.scope !555, !noalias !552, !noundef !3
-  %77 = icmp eq i16 %74, %76
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3": ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %74 = load i8, ptr %73, align 1, !alias.scope !552, !noalias !555, !noundef !3
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %76 = load i8, ptr %75, align 1, !alias.scope !555, !noalias !552, !noundef !3
+  %77 = icmp eq i8 %74, %76
   br i1 %77, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread": ; preds = %55, %61, %42, %13, %19, %2, %49, %67, %7, %25, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", %36, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", %78
-  %.sroa.0.0 = phi i1 [ %83, %78 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit" ], [ false, %36 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3" ], [ false, %25 ], [ false, %7 ], [ false, %67 ], [ false, %49 ], [ false, %2 ], [ false, %19 ], [ false, %13 ], [ false, %42 ], [ false, %61 ], [ false, %55 ]
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread": ; preds = %61, %67, %42, %19, %25, %2, %55, %49, %13, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", %36, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", %78
+  %.sroa.0.0 = phi i1 [ %83, %78 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit" ], [ false, %36 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3" ], [ false, %7 ], [ false, %13 ], [ false, %49 ], [ false, %55 ], [ false, %2 ], [ false, %25 ], [ false, %19 ], [ false, %42 ], [ false, %67 ], [ false, %61 ]
   ret i1 %.sroa.0.0
 
-78:                                               ; preds = %49, %67, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
+78:                                               ; preds = %55, %49, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %80 = load i32, ptr %79, align 4, !noundef !3
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12

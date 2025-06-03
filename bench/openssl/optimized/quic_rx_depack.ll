@@ -168,9 +168,9 @@ define range(i32 0, 2) i32 @ossl_quic_handle_frames(ptr noundef %0, ptr noundef 
   tail call void @ossl_quic_tx_packetiser_set_validated(ptr noundef %56) #3
   br label %60
 
-.thread32:                                        ; preds = %39, %52, %51
-  %.0.i.ph31.ph = phi i32 [ 1, %51 ], [ 3, %52 ], [ 0, %39 ]
-  %.0.i23.ph = phi i8 [ 2, %51 ], [ 2, %52 ], [ 0, %39 ]
+.thread32:                                        ; preds = %39, %51, %52
+  %.0.i.ph31.ph = phi i32 [ 3, %52 ], [ 1, %51 ], [ 0, %39 ]
+  %.0.i23.ph = phi i8 [ 2, %52 ], [ 2, %51 ], [ 0, %39 ]
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 %.0.i23.ph, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1379,7 +1379,7 @@ depack_do_frame_handshake_done.exit.i:            ; preds = %454
   br label %.critedge.i
 
 458:                                              ; preds = %depack_do_frame_handshake_done.exit.i, %depack_do_frame_conn_close.exit.i, %depack_do_frame_path_response.exit.i, %depack_do_frame_path_challenge.exit.i, %depack_do_frame_retire_conn_id.exit.i, %depack_do_frame_new_conn_id.exit.i, %depack_do_frame_streams_blocked.exit.i, %depack_do_frame_stream_data_blocked.exit.i, %depack_do_frame_data_blocked.exit.i, %depack_do_frame_max_streams.exit.i, %depack_do_frame_max_stream_data.exit.i, %depack_do_frame_max_data.exit.i, %depack_do_frame_stream.exit.i, %depack_do_frame_new_token.exit.i, %depack_do_frame_crypto.exit.i, %depack_do_frame_stop_sending.exit.i, %depack_do_frame_reset_stream.exit.i, %depack_do_frame_ack.exit.i, %122, %depack_do_frame_ping.exit.i
-  %.0251.i = phi i64 [ 0, %depack_do_frame_handshake_done.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ %.2.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %.1.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %122 ], [ 0, %depack_do_frame_ping.exit.i ]
+  %.0251.i = phi i64 [ 0, %depack_do_frame_ping.exit.i ], [ 0, %122 ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ %.1.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %.2.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_handshake_done.exit.i ]
   %459 = load ptr, ptr %74, align 8, !tbaa !59
   %.not196.i = icmp eq ptr %459, null
   br i1 %.not196.i, label %474, label %460

@@ -315,7 +315,7 @@ setup_bio_chain.exit.thread62.i:                  ; preds = %36, %setup_bio_chai
 setup_bio_chain.exit.i:                           ; preds = %49, %119, %86
   br label %.preheader.i, !llvm.loop !20
 
-setup.exit.thread:                                ; preds = %.preheader.i, %98, %108, %115, %125, %58, %68, %77, %82, %92, %28, %33, %setup_bio_chain.exit.thread62.i
+setup.exit.thread:                                ; preds = %.preheader.i, %28, %33, %setup_bio_chain.exit.thread62.i, %58, %68, %77, %82, %92, %98, %108, %115, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   br label %150
 

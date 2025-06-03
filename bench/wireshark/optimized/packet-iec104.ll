@@ -2825,7 +2825,7 @@ get_HAL.exit.i:                                   ; preds = %819
   br label %get_HMAC.exit.i
 
 get_HMAC.exit.i:                                  ; preds = %931, %995, %get_HAL.exit.i, %912, %get_TypeIdLength.exit.i, %886, %838, %846, %1008, %918, %821
-  %.1 = phi i8 [ %1009, %1008 ], [ %930, %918 ], [ %837, %821 ], [ 8, %838 ], [ %851, %846 ], [ %883, %get_TypeIdLength.exit.i ], [ %890, %886 ], [ %911, %get_HAL.exit.i ], [ %917, %912 ], [ 18, %931 ], [ %1000, %995 ]
+  %.1 = phi i8 [ %1009, %1008 ], [ %837, %821 ], [ %930, %918 ], [ 8, %838 ], [ %851, %846 ], [ %883, %get_TypeIdLength.exit.i ], [ %890, %886 ], [ %911, %get_HAL.exit.i ], [ %917, %912 ], [ 18, %931 ], [ %1000, %995 ]
   %1010 = zext i8 %.1 to i32
   %.not98.i = icmp eq i32 %820, %1010
   br i1 %.not98.i, label %dissect_iec60870_segment.exit, label %1011
@@ -3748,7 +3748,7 @@ define internal i32 @get_iec101_len(ptr readnone captures(none) %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %4, %6, %7, %25, %22, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ %26, %25 ], [ %.1, %22 ], [ %9, %7 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 1, %6 ], [ %9, %7 ], [ %26, %25 ], [ %.1, %22 ]
   ret i32 %.0
 }
 
@@ -3943,7 +3943,7 @@ define internal range(i32 0, 262) i32 @get_iec103_len(ptr readnone captures(none
   br label %13
 
 13:                                               ; preds = %8, %7, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ %12, %8 ], [ 5, %7 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %6 ], [ 5, %7 ], [ %12, %8 ]
   ret i32 %.0
 }
 

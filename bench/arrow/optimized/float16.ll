@@ -63,7 +63,7 @@ define noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull read
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE12FromBinary16Et.exit
 
 _ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE12FromBinary16Et.exit: ; preds = %6, %11, %._crit_edge.i, %26
-  %.021.i = phi i32 [ %31, %26 ], [ %25, %._crit_edge.i ], [ %10, %6 ], [ %3, %11 ]
+  %.021.i = phi i32 [ %31, %26 ], [ %10, %6 ], [ %25, %._crit_edge.i ], [ %3, %11 ]
   %32 = bitcast i32 %.021.i to float
   ret float %32
 }
@@ -203,7 +203,7 @@ define noundef double @_ZNK5arrow4util7Float168ToDoubleEv(ptr noundef nonnull re
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE12FromBinary16Et.exit
 
 _ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE12FromBinary16Et.exit: ; preds = %9, %14, %._crit_edge.i, %29
-  %.021.i = phi i64 [ %33, %29 ], [ %28, %._crit_edge.i ], [ %13, %9 ], [ %6, %14 ]
+  %.021.i = phi i64 [ %33, %29 ], [ %13, %9 ], [ %28, %._crit_edge.i ], [ %6, %14 ]
   %34 = bitcast i64 %.021.i to double
   ret double %34
 }
@@ -340,7 +340,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow4utillsERSoNS0_7
   br label %_ZNK5arrow4util7Float167ToFloatEv.exit
 
 _ZNK5arrow4util7Float167ToFloatEv.exit:           ; preds = %6, %11, %._crit_edge.i.i, %26
-  %.021.i.i = phi i32 [ %31, %26 ], [ %25, %._crit_edge.i.i ], [ %10, %6 ], [ %3, %11 ]
+  %.021.i.i = phi i32 [ %31, %26 ], [ %10, %6 ], [ %25, %._crit_edge.i.i ], [ %3, %11 ]
   %32 = bitcast i32 %.021.i.i to float
   %33 = fpext float %32 to double
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %33)

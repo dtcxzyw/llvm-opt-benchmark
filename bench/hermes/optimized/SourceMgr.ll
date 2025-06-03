@@ -2330,7 +2330,7 @@ if.end29.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
   br label %sw.bb31.i.i.i.i
 
 sw.bb31.i.i.i.i:                                  ; preds = %if.end29.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i19.i.i.i.i, %if.end29.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i = phi ptr [ %incdec.ptr.i19.i.i.i.i, %if.end29.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %55 = load i8, ptr %__first.sroa.0.1.i.i.i.i, align 1
   %tobool.i283 = icmp slt i8 %55, 0
   br i1 %tobool.i283, label %_ZN4llvh7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbcEEEDTcl9adl_beginfp_EEOT_T0_.exit, label %if.end36.i.i.i.i
@@ -2340,7 +2340,7 @@ if.end36.i.i.i.i:                                 ; preds = %sw.bb31.i.i.i.i
   br label %sw.bb38.i.i.i.i
 
 sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %for.end.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i21.i.i.i.i, %if.end36.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i = phi ptr [ %incdec.ptr.i21.i.i.i.i, %if.end36.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %for.end.i.i.i.i ]
   %56 = load i8, ptr %__first.sroa.0.2.i.i.i.i, align 1
   %tobool.i = icmp slt i8 %56, 0
   %spec.select.i.i.i.i = select i1 %tobool.i, ptr %__first.sroa.0.2.i.i.i.i, ptr %call.i.i.i2.i

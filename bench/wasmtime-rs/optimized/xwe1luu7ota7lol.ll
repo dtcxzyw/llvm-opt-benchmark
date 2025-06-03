@@ -1774,7 +1774,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %43, %41, %38
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %43 ], [ null, %41 ], [ %40, %38 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ null, %41 ], [ null, %43 ]
   %45 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
 
@@ -1885,7 +1885,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h82c5
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i": ; preds = %32, %30, %27
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %32 ], [ null, %30 ], [ %29, %27 ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ null, %30 ], [ null, %32 ]
   %34 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
   br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit
 
@@ -2321,7 +2321,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %43, %41, %38
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %43 ], [ null, %41 ], [ %40, %38 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ null, %41 ], [ null, %43 ]
   %45 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
 
@@ -2738,7 +2738,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17he254
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i": ; preds = %32, %30, %27
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %32 ], [ null, %30 ], [ %29, %27 ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ null, %30 ], [ null, %32 ]
   %34 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
   br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit
 
@@ -4224,7 +4224,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h567d
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hed6e18084503a5efE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hed6e18084503a5efE.exit.i.i": ; preds = %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h06c92b607571a32dE.exit.i.i.i.i.i.i.i", %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17ha53bd1ec4df6566cE.exit.i.i.i.i.i.i.i"
-  %.0.i.i.i.i.i.i.i = phi ptr [ %47, %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h06c92b607571a32dE.exit.i.i.i.i.i.i.i" ], [ null, %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17ha53bd1ec4df6566cE.exit.i.i.i.i.i.i.i" ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17ha53bd1ec4df6566cE.exit.i.i.i.i.i.i.i" ], [ %47, %"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h06c92b607571a32dE.exit.i.i.i.i.i.i.i" ]
   %48 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %48, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h01dae6fa7aee2f4bE.exit
 
@@ -5673,7 +5673,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h94af
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9e7c55edc1caf7ccE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9e7c55edc1caf7ccE.exit.i.i": ; preds = %18, %15
-  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %18 ], [ null, %15 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %15 ], [ %22, %18 ]
   %23 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %23, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h8665abbeffde4456E.exit
 
@@ -5735,7 +5735,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9506
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i": ; preds = %25, %23, %20
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %25 ], [ null, %23 ], [ %22, %20 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %20 ], [ null, %23 ], [ null, %25 ]
   %27 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit
 
@@ -5872,7 +5872,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9d23
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he1851494d2bda985E.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he1851494d2bda985E.exit.i.i": ; preds = %18, %15
-  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %18 ], [ null, %15 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %15 ], [ %22, %18 ]
   %23 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %23, label %9, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc8988edd7ed813b9E.exit
 
@@ -6438,7 +6438,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hadb9
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h04f4338b7aaf0d9dE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h04f4338b7aaf0d9dE.exit.i.i": ; preds = %17, %15
-  %.0.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %16, %15 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ %16, %15 ], [ %18, %17 ]
   %19 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %19, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5f3048cc1751025E.exit
 
@@ -6890,7 +6890,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcb5c
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i": ; preds = %25, %23, %20
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %25 ], [ null, %23 ], [ %22, %20 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %20 ], [ null, %23 ], [ null, %25 ]
   %27 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
   br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit
 
@@ -10485,7 +10485,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit"
 
 "_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit": ; preds = %11, %14, %16
-  %.0.i = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %11 ]
+  %.0.i = phi ptr [ %13, %11 ], [ null, %14 ], [ null, %16 ]
   ret ptr %.0.i
 }
 
@@ -10526,7 +10526,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit"
 
 "_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit": ; preds = %11, %14, %16
-  %.0.i = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %11 ]
+  %.0.i = phi ptr [ %13, %11 ], [ null, %14 ], [ null, %16 ]
   ret ptr %.0.i
 }
 

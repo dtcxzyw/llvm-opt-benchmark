@@ -504,7 +504,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   tail call void %166(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.thread301:                                       ; preds = %.lr.ph, %97, %23, %73, %76, %15, %85
+.thread301:                                       ; preds = %.lr.ph, %97, %73, %76, %23, %15, %85
   %167 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !23
   %.not255 = icmp eq ptr %168, null
@@ -702,7 +702,7 @@ define signext range(i8 48, 103) i8 @uriHexToLetterExA(i32 noundef %0, i32 nound
   br label %30
 
 30:                                               ; preds = %2, %27, %24, %21, %18, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i8 [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ 57, %11 ], [ 56, %10 ], [ 55, %9 ], [ 54, %8 ], [ 53, %7 ], [ 52, %6 ], [ 51, %5 ], [ 50, %4 ], [ 49, %3 ], [ 48, %2 ]
+  %.0 = phi i8 [ %29, %27 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ 48, %2 ]
   ret i8 %.0
 }
 
@@ -1458,7 +1458,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   tail call void %168(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.thread301:                                       ; preds = %.lr.ph, %99, %24, %75, %78, %15, %87
+.thread301:                                       ; preds = %.lr.ph, %99, %75, %78, %24, %15, %87
   %169 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
   %170 = load ptr, ptr %169, align 8, !tbaa !55
   %.not255 = icmp eq ptr %170, null
@@ -1656,7 +1656,7 @@ define range(i32 48, 103) i32 @uriHexToLetterExW(i32 noundef %0, i32 noundef %1)
   br label %30
 
 30:                                               ; preds = %2, %27, %24, %21, %18, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ 57, %11 ], [ 56, %10 ], [ 55, %9 ], [ 54, %8 ], [ 53, %7 ], [ 52, %6 ], [ 51, %5 ], [ 50, %4 ], [ 49, %3 ], [ 48, %2 ]
+  %.0 = phi i32 [ %29, %27 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ 48, %2 ]
   ret i32 %.0
 }
 

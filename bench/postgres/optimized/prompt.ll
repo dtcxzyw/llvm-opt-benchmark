@@ -52,7 +52,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %2
-  %.050 = phi ptr [ @.str, %2 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.050 = phi ptr [ @.str, %2 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ]
   store i8 0, ptr @get_prompt.destination, align 16
   store ptr %.050, ptr %4, align 8
   %12 = load i8, ptr %.050, align 1

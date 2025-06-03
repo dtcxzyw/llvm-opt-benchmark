@@ -2661,7 +2661,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   br label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..fmt..Display$GT$3fmt17h3ed93ef3dc817b79E.exit"
 
 "_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..fmt..Display$GT$3fmt17h3ed93ef3dc817b79E.exit": ; preds = %20, %28, %34, %40, %46, %53
-  %.0.in.i = phi i1 [ %60, %53 ], [ %52, %46 ], [ %45, %40 ], [ %39, %34 ], [ %33, %28 ], [ %27, %20 ]
+  %.0.in.i = phi i1 [ %27, %20 ], [ %33, %28 ], [ %39, %34 ], [ %45, %40 ], [ %52, %46 ], [ %60, %53 ]
   ret i1 %.0.in.i
 }
 
@@ -2739,7 +2739,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   br label %"_ZN74_$LT$actix_http..error..ContentTypeError$u20$as$u20$core..fmt..Display$GT$3fmt17h9d93e41e473e04caE.exit"
 
 "_ZN74_$LT$actix_http..error..ContentTypeError$u20$as$u20$core..fmt..Display$GT$3fmt17h9d93e41e473e04caE.exit": ; preds = %6, %12
-  %.0.in.i = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in.i = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in.i
 }
 
@@ -6496,13 +6496,13 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8, !range !432, !alias.scope !879, !noalias !882, !noundef !4
   %trunc.i.i.i.i = trunc nuw i8 %12 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !879, !noalias !882
-  %.val4.i.i.i.i = load ptr, ptr %15, align 8, !alias.scope !879, !noalias !882, !nonnull !4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.val.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !879, !noalias !882
+  %.val4.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !879, !noalias !882, !nonnull !4
   %.sroa.0.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %.val.i.i.i.i, ptr %.val4.i.i.i.i
-  %.val5.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !879, !noalias !882
+  %.val5.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !879, !noalias !882
   %.val6.cast.i.i.i.i = ptrtoint ptr %.val.i.i.i.i to i64
   %.sroa.3.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %.val5.i.i.i.i, i64 %.val6.cast.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6539,13 +6539,13 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit.i.i: ; preds = %"_ZN4core3str6trait
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load i8, ptr %26, align 8, !range !432, !alias.scope !894, !noalias !897, !noundef !4
   %trunc.i.i41.i.i = trunc nuw i8 %27 to i1
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val.i.i42.i.i = load ptr, ptr %28, align 8, !alias.scope !894, !noalias !897
-  %.val4.i.i43.i.i = load ptr, ptr %30, align 8, !alias.scope !894, !noalias !897, !nonnull !4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.val.i.i42.i.i = load ptr, ptr %29, align 8, !alias.scope !894, !noalias !897
+  %.val4.i.i43.i.i = load ptr, ptr %28, align 8, !alias.scope !894, !noalias !897, !nonnull !4
   %.sroa.0.0.i.i44.i.i = select i1 %trunc.i.i41.i.i, ptr %.val.i.i42.i.i, ptr %.val4.i.i43.i.i
-  %.val5.i.i45.i.i = load i64, ptr %29, align 8, !alias.scope !894, !noalias !897
+  %.val5.i.i45.i.i = load i64, ptr %30, align 8, !alias.scope !894, !noalias !897
   %.val6.cast.i.i46.i.i = ptrtoint ptr %.val.i.i42.i.i to i64
   %.sroa.3.0.i.i47.i.i = select i1 %trunc.i.i41.i.i, i64 %.val5.i.i45.i.i, i64 %.val6.cast.i.i46.i.i
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -8303,13 +8303,13 @@ define noundef zeroext i1 @"_ZN111_$LT$actix_web..middleware..compress..Compress
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load i8, ptr %18, align 8, !range !432, !alias.scope !1251, !noalias !1254, !noundef !4
   %trunc.i.i = trunc nuw i8 %19 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.val.i.i = load ptr, ptr %20, align 8, !alias.scope !1251, !noalias !1254
-  %.val4.i.i = load ptr, ptr %22, align 8, !alias.scope !1251, !noalias !1254, !nonnull !4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %.val.i.i = load ptr, ptr %21, align 8, !alias.scope !1251, !noalias !1254
+  %.val4.i.i = load ptr, ptr %20, align 8, !alias.scope !1251, !noalias !1254, !nonnull !4
   %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr %.val.i.i, ptr %.val4.i.i
-  %.val5.i.i = load i64, ptr %21, align 8, !alias.scope !1251, !noalias !1254
+  %.val5.i.i = load i64, ptr %22, align 8, !alias.scope !1251, !noalias !1254
   %.val6.cast.i.i = ptrtoint ptr %.val.i.i to i64
   %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 %.val5.i.i, i64 %.val6.cast.i.i
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 80

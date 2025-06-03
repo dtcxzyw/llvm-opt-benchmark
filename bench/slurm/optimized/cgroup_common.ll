@@ -435,7 +435,7 @@ define dso_local i32 @common_file_write_uints(ptr noundef %0, ptr noundef readon
   br label %.thread67
 
 .thread67:                                        ; preds = %29, %26, %18, %59, %._crit_edge, %8
-  %.0 = phi i32 [ -1, %8 ], [ %61, %59 ], [ 0, %._crit_edge ], [ -1, %18 ], [ -1, %26 ], [ -1, %29 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %._crit_edge ], [ %61, %59 ], [ -1, %18 ], [ -1, %26 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #8
   ret i32 %.0
 }
@@ -545,7 +545,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   br label %31
 
 31:                                               ; preds = %28, %.outer._crit_edge, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %28 ], [ 0, %.outer._crit_edge ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %.outer._crit_edge ], [ -1, %28 ]
   ret i32 %.0
 }
 

@@ -4829,7 +4829,7 @@ define dso_local void @_ZN4llvm17MachineBasicBlock12removeLiveInENS_10MCRegister
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i
-  %.sroa.044.1.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %30, %29 ]
+  %.sroa.044.1.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load i32, ptr %.sroa.044.1.i.i.i.i, align 4, !tbaa !502
   %32 = icmp eq i32 %.val1.i26.i.i.i.i, %1
   br i1 %32, label %"_ZN4llvm7find_ifIRSt6vectorINS_17MachineBasicBlock16RegisterMaskPairESaIS3_EEZNS2_12removeLiveInENS_10MCRegisterENS_11LaneBitmaskEE3$_0EEDaOT_T0_.exit", label %33
@@ -4839,7 +4839,7 @@ define dso_local void @_ZN4llvm17MachineBasicBlock12removeLiveInENS_10MCRegister
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i
-  %.sroa.044.2.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %34, %33 ]
+  %.sroa.044.2.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i27.i.i.i.i = load i32, ptr %.sroa.044.2.i.i.i.i, align 4, !tbaa !502
   %36 = icmp eq i32 %.val1.i27.i.i.i.i, %1
   %spec.select.i.i.i.i = select i1 %36, ptr %.sroa.044.2.i.i.i.i, ptr %.val4
@@ -4999,7 +4999,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i
-  %.sroa.044.1.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %30, %29 ]
+  %.sroa.044.1.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load i32, ptr %.sroa.044.1.i.i.i.i, align 4, !tbaa !502
   %32 = icmp eq i32 %.val1.i26.i.i.i.i, %1
   br i1 %32, label %"_ZN4llvm7find_ifIRKSt6vectorINS_17MachineBasicBlock16RegisterMaskPairESaIS3_EEZNKS2_8isLiveInENS_10MCRegisterENS_11LaneBitmaskEE3$_0EEDaOT_T0_.exit", label %33
@@ -5009,7 +5009,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i.i
-  %.sroa.044.2.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %34, %33 ]
+  %.sroa.044.2.i.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i27.i.i.i.i = load i32, ptr %.sroa.044.2.i.i.i.i, align 4, !tbaa !502
   %36 = icmp eq i32 %.val1.i27.i.i.i.i, %1
   %spec.select.i.i.i.i = select i1 %36, ptr %.sroa.044.2.i.i.i.i, ptr %.val4
@@ -5345,7 +5345,7 @@ define dso_local i32 @_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterEPKNS
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
-  %.sroa.044.1.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.sroa.044.1.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i26.i.i.i.i.i = load i32, ptr %.sroa.044.1.i.i.i.i.i, align 4, !tbaa !502
   %35 = icmp eq i32 %.val1.i26.i.i.i.i.i, %1
   br i1 %35, label %"_ZN4llvm7find_ifIRKSt6vectorINS_17MachineBasicBlock16RegisterMaskPairESaIS3_EEZNKS2_8isLiveInENS_10MCRegisterENS_11LaneBitmaskEE3$_0EEDaOT_T0_.exit.i", label %36
@@ -5355,7 +5355,7 @@ define dso_local i32 @_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterEPKNS
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i
-  %.sroa.044.2.i.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %37, %36 ]
+  %.sroa.044.2.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.044.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val1.i27.i.i.i.i.i = load i32, ptr %.sroa.044.2.i.i.i.i.i, align 4, !tbaa !502
   %39 = icmp eq i32 %.val1.i27.i.i.i.i.i, %1
   %spec.select.i.i.i.i.i = select i1 %39, ptr %.sroa.044.2.i.i.i.i.i, ptr %.val4.i
@@ -14886,8 +14886,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_12MachineI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !476
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEbOT_RKT0_.exit, label %50
@@ -14897,8 +14897,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_12MachineI
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !476
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEbOT_RKT0_.exit.thread
@@ -15437,8 +15437,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_12MachineI
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge.i.i.i.i
-  %43 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %38, %40 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %43 = phi ptr [ %38, %40 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %44 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !476
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEDaOT_RKT0_.exit, label %46
@@ -15448,8 +15448,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_12MachineI
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge52.i.i.i.i
-  %49 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %43, %46 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %46 ]
+  %49 = phi ptr [ %43, %46 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !476
   %51 = icmp eq ptr %50, %49
   br i1 %51, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEDaOT_RKT0_.exit, label %52
@@ -15627,8 +15627,8 @@ _ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE5eraseEPKS2_.exit: ; preds = %57, 
   br label %131
 
 131:                                              ; preds = %129, %._crit_edge._crit_edge.i.i.i.i23
-  %132 = phi ptr [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ], [ %127, %129 ]
-  %.1.i.i.i.i25 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ], [ %130, %129 ]
+  %132 = phi ptr [ %127, %129 ], [ %.pre.i.i.i.i24, %._crit_edge._crit_edge.i.i.i.i23 ]
+  %.1.i.i.i.i25 = phi ptr [ %130, %129 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge.i.i.i.i23 ]
   %133 = load ptr, ptr %.1.i.i.i.i25, align 8, !tbaa !476
   %134 = icmp eq ptr %133, %132
   br i1 %134, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEDaOT_RKT0_.exit30, label %135
@@ -15638,8 +15638,8 @@ _ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE5eraseEPKS2_.exit: ; preds = %57, 
   br label %137
 
 137:                                              ; preds = %135, %._crit_edge._crit_edge52.i.i.i.i20
-  %138 = phi ptr [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %132, %135 ]
-  %.2.i.i.i.i22 = phi ptr [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ], [ %136, %135 ]
+  %138 = phi ptr [ %132, %135 ], [ %.pre53.i.i.i.i21, %._crit_edge._crit_edge52.i.i.i.i20 ]
+  %.2.i.i.i.i22 = phi ptr [ %136, %135 ], [ %.029.lcssa.i.i.i.i18, %._crit_edge._crit_edge52.i.i.i.i20 ]
   %139 = load ptr, ptr %.2.i.i.i.i22, align 8, !tbaa !476
   %140 = icmp eq ptr %139, %138
   br i1 %140, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_12MachineInstrELj2EEES3_EEDaOT_RKT0_.exit30, label %141

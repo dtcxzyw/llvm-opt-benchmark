@@ -6075,7 +6075,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %42
 
 42:                                               ; preds = %.sink.split, %39, %36, %33, %30, %27, %21
-  %.086 = phi ptr [ null, %21 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %28, %27 ], [ %.086.ph, %.sink.split ]
+  %.086 = phi ptr [ null, %21 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %.086.ph, %.sink.split ]
   %43 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.086) #16
   %44 = load ptr, ptr %.086, align 8, !tbaa !56
   %.not.i = icmp eq ptr %44, null
@@ -6362,7 +6362,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %45
 
 45:                                               ; preds = %.sink.split, %42, %39, %36, %33, %30, %21
-  %.093 = phi ptr [ null, %21 ], [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %.093.ph, %.sink.split ]
+  %.093 = phi ptr [ null, %21 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %.093.ph, %.sink.split ]
   %46 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.093) #16
   %47 = load ptr, ptr %.093, align 8, !tbaa !56
   %.not.i = icmp eq ptr %47, null
@@ -8604,7 +8604,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %56
 
 56:                                               ; preds = %52, %55, %46, %49, %42, %45, %38, %41, %31, %34, %23
-  %.092 = phi ptr [ null, %23 ], [ %53, %55 ], [ %53, %52 ], [ %47, %49 ], [ %47, %46 ], [ %43, %45 ], [ %43, %42 ], [ %39, %41 ], [ %39, %38 ], [ %32, %34 ], [ %32, %31 ]
+  %.092 = phi ptr [ null, %23 ], [ %32, %34 ], [ %32, %31 ], [ %39, %41 ], [ %39, %38 ], [ %43, %45 ], [ %43, %42 ], [ %47, %49 ], [ %47, %46 ], [ %53, %55 ], [ %53, %52 ]
   %57 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.092) #16
   %58 = load ptr, ptr %.092, align 8, !tbaa !56
   %.not.i = icmp eq ptr %58, null

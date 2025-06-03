@@ -1390,8 +1390,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !232
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -2473,7 +2473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %_Z
   br label %490
 
 490:                                              ; preds = %488, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %489, %488 ]
+  %.1.i.i.i.i = phi ptr [ %489, %488 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %491 = getelementptr i8, ptr %.1.i.i.i.i, i64 8
   %.1.val.i.i.i.i = load i32, ptr %491, align 8, !tbaa !244
   %492 = icmp eq i32 %.1.val.i.i.i.i, 1
@@ -2484,7 +2484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %_Z
   br label %495
 
 495:                                              ; preds = %493, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %494, %493 ]
+  %.2.i.i.i.i = phi ptr [ %494, %493 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %496 = getelementptr i8, ptr %.2.i.i.i.i, i64 8
   %.2.val.i.i.i.i = load i32, ptr %496, align 8, !tbaa !244
   %497 = icmp eq i32 %.2.val.i.i.i.i, 1
@@ -4455,7 +4455,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge: ; preds = %_ZN5clang13Sanitize
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit38
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit38:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge
-  %.sroa.0.1 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ %8, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge ], [ %9, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge ], [ %7, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread ]
+  %.sroa.0.1 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ %7, %_ZN5clang13SanitizerMaskoRERKS0_.exit24.critedge ], [ %8, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge ], [ %9, %_ZN5clang13SanitizerMaskoRERKS0_.exit34.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit28.critedge.thread ]
   %10 = extractvalue { i64, i64 } %3, 1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %10, 1

@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %24
 
 24:                                               ; preds = %15, %21, %12, %5, %22
-  %.013 = phi i1 [ false, %15 ], [ %23, %22 ], [ false, %5 ], [ false, %12 ], [ true, %21 ]
+  %.013 = phi i1 [ %23, %22 ], [ false, %15 ], [ false, %5 ], [ false, %12 ], [ true, %21 ]
   ret i1 %.013
 }
 
@@ -320,7 +320,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %45, %44 ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %47 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.1.i.i.i.i.i) #6
   br i1 %47, label %48, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
@@ -329,7 +329,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.2.i.i.i.i.i) #6
   %spec.select.i.i.i.i.i = select i1 %51, ptr %23, ptr %.sroa.038.2.i.i.i.i.i
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
@@ -429,7 +429,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %33, %32, %26, %23, %15, %13
-  %.0.i = phi i1 [ %14, %13 ], [ false, %26 ], [ %34, %33 ], [ false, %15 ], [ false, %23 ], [ true, %32 ]
+  %.0.i = phi i1 [ %14, %13 ], [ %34, %33 ], [ false, %26 ], [ false, %15 ], [ false, %23 ], [ true, %32 ]
   ret i1 %.0.i
 }
 
@@ -1125,7 +1125,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %120
 
 120:                                              ; preds = %118, %._crit_edge.i.i.i.i.i.i.i.i32
-  %.sroa.038.1.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i32 ], [ %119, %118 ]
+  %.sroa.038.1.i.i.i.i.i.i.i.i = phi ptr [ %119, %118 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i32 ]
   %121 = load ptr, ptr %.sroa.038.1.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i8, ptr %122, align 8, !tbaa !9
@@ -1137,7 +1137,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %126
 
 126:                                              ; preds = %124, %._crit_edge.i.i.i.i.i.i.i.i32
-  %.sroa.038.2.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i32 ], [ %125, %124 ]
+  %.sroa.038.2.i.i.i.i.i.i.i.i = phi ptr [ %125, %124 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i32 ]
   %127 = load ptr, ptr %.sroa.038.2.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i8, ptr %128, align 8, !tbaa !9
@@ -1242,7 +1242,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i.i.i.i.i.i47
-  %.sroa.038.1.i.i.i.i.i.i.i.i54 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, %._crit_edge.i.i.i.i.i.i.i.i47 ], [ %164, %163 ]
+  %.sroa.038.1.i.i.i.i.i.i.i.i54 = phi ptr [ %164, %163 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, %._crit_edge.i.i.i.i.i.i.i.i47 ]
   %166 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.1.i.i.i.i.i.i.i.i54)
   br i1 %166, label %167, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
@@ -1251,7 +1251,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %169
 
 169:                                              ; preds = %167, %._crit_edge.i.i.i.i.i.i.i.i47
-  %.sroa.038.2.i.i.i.i.i.i.i.i50 = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, %._crit_edge.i.i.i.i.i.i.i.i47 ], [ %168, %167 ]
+  %.sroa.038.2.i.i.i.i.i.i.i.i50 = phi ptr [ %168, %167 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, %._crit_edge.i.i.i.i.i.i.i.i47 ]
   %170 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.2.i.i.i.i.i.i.i.i50)
   %spec.select.i.i.i.i.i.i.i.i51 = select i1 %170, ptr %.pre9.i.i.i42, ptr %.sroa.038.2.i.i.i.i.i.i.i.i50
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
@@ -1875,7 +1875,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.038.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %28, %27 ]
+  %.sroa.038.1.i.i.i.i.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %30 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.1.i.i.i.i.i.i.i)
   br i1 %30, label %31, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
@@ -1884,7 +1884,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i.i.i.i
-  %.sroa.038.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %32, %31 ]
+  %.sroa.038.2.i.i.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.038.0.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %34 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.2.i.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i.i = select i1 %34, ptr %.pre9.i.i, ptr %.sroa.038.2.i.i.i.i.i.i.i
   br label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i

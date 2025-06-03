@@ -87,7 +87,7 @@ define dso_local ptr @find_variable(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 13:                                               ; preds = %8, %10, %6
-  %.149 = phi i32 [ %.04872, %6 ], [ %11, %10 ], [ %9, %8 ]
+  %.149 = phi i32 [ %.04872, %6 ], [ %9, %8 ], [ %11, %10 ]
   %.051 = getelementptr inbounds nuw i8, ptr %.05173, i64 1
   %.not54 = icmp eq i32 %.149, 0
   br i1 %.not54, label %14, label %6, !llvm.loop !4
@@ -1175,7 +1175,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %53
 
 53:                                               ; preds = %49, %51, %47
-  %.1 = phi i32 [ %.097, %47 ], [ %52, %51 ], [ %50, %49 ]
+  %.1 = phi i32 [ %.097, %47 ], [ %50, %49 ], [ %52, %51 ]
   %.078 = getelementptr inbounds nuw i8, ptr %.07898, i64 1
   %.not85 = icmp eq i32 %.1, 0
   br i1 %.not85, label %thread-pre-split, label %47, !llvm.loop !18

@@ -1465,9 +1465,9 @@ default.unreachable:                              ; preds = %25
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit": ; preds = %29, %35, %40
-  %.sroa.034.0 = phi i8 [ %27, %40 ], [ 25, %35 ], [ 24, %29 ]
-  %.sroa.736.0 = phi ptr [ %.sroa.736.1.copyload, %40 ], [ %37, %35 ], [ %.val.i, %29 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.1.copyload, %40 ], [ %39, %35 ], [ %.val1.i, %29 ]
+  %.sroa.034.0 = phi i8 [ 25, %35 ], [ %27, %40 ], [ 24, %29 ]
+  %.sroa.736.0 = phi ptr [ %37, %35 ], [ %.sroa.736.1.copyload, %40 ], [ %.val.i, %29 ]
+  %.sroa.9.0 = phi i64 [ %39, %35 ], [ %.sroa.9.1.copyload, %40 ], [ %.val1.i, %29 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.635, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.635)
   store i8 %.sroa.034.0, ptr %7, align 8

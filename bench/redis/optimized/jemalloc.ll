@@ -10893,7 +10893,7 @@ default.unreachable12.i:                          ; preds = %43
   unreachable
 
 .thread:                                          ; preds = %57, %55, %53, %45, %43
-  %.0.i = phi ptr [ %58, %57 ], [ %56, %55 ], [ %4, %53 ], [ @.str.89, %43 ], [ %46, %45 ]
+  %.0.i = phi ptr [ %4, %53 ], [ %56, %55 ], [ %58, %57 ], [ @.str.89, %43 ], [ %46, %45 ]
   %59 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv2023
   store ptr %.0.i, ptr %59, align 8, !tbaa !234
   br label %71
@@ -11053,8 +11053,8 @@ default.unreachable12.i:                          ; preds = %43
   br label %86, !llvm.loop !237
 
 malloc_conf_next.exit:                            ; preds = %97, %93
-  %.11625 = phi ptr [ %.239.i, %97 ], [ %89, %93 ]
-  %.41613 = phi i64 [ %99, %97 ], [ %96, %93 ]
+  %.11625 = phi ptr [ %89, %93 ], [ %.239.i, %97 ]
+  %.41613 = phi i64 [ %96, %93 ], [ %99, %97 ]
   %102 = icmp eq i64 %80, 12
   br i1 %102, label %103, label %121
 

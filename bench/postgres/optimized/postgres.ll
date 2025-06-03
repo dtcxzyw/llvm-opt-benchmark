@@ -2337,7 +2337,7 @@ get_stats_option_name.exit.thread:                ; preds = %87, %get_stats_opti
   call void @SetConfigOption(ptr noundef nonnull %.0.i91, ptr noundef nonnull @.str.45, i32 noundef %2, i32 noundef %.070) #22
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %get_stats_option_name.exit.thread, %switch.lookup, %95, %91, %90, %83, %81, %78, %77, %75, %74, %73, %71, %70, %68, %67, %66, %65, %63, %57, %56, %55, %54, %50, %47, %46, %42, %21, %20, %18, %.backedge, %.backedge, %.backedge
+.backedge.backedge:                               ; preds = %get_stats_option_name.exit.thread, %switch.lookup, %18, %21, %20, %42, %47, %46, %50, %55, %54, %56, %57, %63, %65, %67, %66, %68, %70, %71, %73, %74, %75, %78, %77, %81, %83, %91, %90, %95, %.backedge, %.backedge, %.backedge
   br label %.backedge, !llvm.loop !10
 
 90:                                               ; preds = %.backedge
@@ -3014,7 +3014,7 @@ define dso_local void @PostgresMain(ptr noundef %0, ptr noundef %1) local_unname
   unreachable
 
 207:                                              ; preds = %202, %201, %200, %199, %198, %197, %196, %195
-  %.0.i.i = phi i32 [ 10000, %202 ], [ 1073741822, %201 ], [ 10000, %200 ], [ 10000, %199 ], [ 1073741822, %198 ], [ 10000, %197 ], [ 1073741822, %196 ], [ 1073741822, %195 ]
+  %.0.i.i = phi i32 [ 1073741822, %195 ], [ 1073741822, %196 ], [ 10000, %197 ], [ 1073741822, %198 ], [ 10000, %199 ], [ 10000, %200 ], [ 1073741822, %201 ], [ 10000, %202 ]
   %208 = call i32 @pq_getmessage(ptr noundef nonnull %31, i32 noundef %.0.i.i) #22
   %.not.i.i = icmp eq i32 %208, 0
   br i1 %.not.i.i, label %209, label %ReadCommand.exit

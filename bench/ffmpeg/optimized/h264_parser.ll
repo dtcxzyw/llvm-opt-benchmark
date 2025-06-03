@@ -340,7 +340,7 @@ get_nalsize.exit.i:                               ; preds = %105
     i32 1, label %.loopexit341.i
   ]
 
-.outer.backedge:                                  ; preds = %142, %153, %150, %148
+.outer.backedge:                                  ; preds = %142, %148, %150, %153
   br label %.outer
 
 148:                                              ; preds = %142

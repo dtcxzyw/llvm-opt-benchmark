@@ -272,10 +272,10 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hfdb5482dbe6f55a7E(pt
 10:                                               ; preds = %.lr.ph
   %11 = and i64 %8, 3
   switch i64 %11, label %default.unreachable [
-    i64 2, label %31
+    i64 2, label %20
     i64 3, label %12
-    i64 0, label %20
-    i64 1, label %25
+    i64 0, label %22
+    i64 1, label %27
   ], !prof !26
 
 default.unreachable:                              ; preds = %10
@@ -298,8 +298,8 @@ default.unreachable:                              ; preds = %10
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef range(i64 1, 0) %8, i64 noundef range(i64 1, 0) %.sroa.4.074, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7a9b2a6e02092c9a0ba29a977948dd8b.3) #17
   unreachable
 
-.loopexit:                                        ; preds = %31, %25, %20, %12, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", %13, %3
-  %.sroa.05.0 = phi ptr [ null, %3 ], [ %7, %31 ], [ %7, %25 ], [ %7, %20 ], [ %7, %12 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit" ], [ @anon.7a9b2a6e02092c9a0ba29a977948dd8b.1, %13 ]
+.loopexit:                                        ; preds = %27, %20, %22, %12, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", %13, %3
+  %.sroa.05.0 = phi ptr [ null, %3 ], [ %7, %27 ], [ %7, %20 ], [ %7, %22 ], [ %7, %12 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit" ], [ @anon.7a9b2a6e02092c9a0ba29a977948dd8b.1, %13 ]
   ret ptr %.sroa.05.0
 
 17:                                               ; preds = %15
@@ -308,28 +308,28 @@ default.unreachable:                              ; preds = %10
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit"
 
 20:                                               ; preds = %10
-  %21 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %23 = load i8, ptr %22, align 8, !range !27, !noundef !24
-  %24 = icmp eq i8 %23, 35
-  br i1 %24, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
-
-25:                                               ; preds = %10
-  %26 = getelementptr i8, ptr %7, i64 -1
-  %27 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr i8, ptr %7, i64 15
-  %29 = load i8, ptr %28, align 8, !range !27, !noundef !24
-  %30 = icmp eq i8 %29, 35
-  br i1 %30, label %.thread, label %.loopexit
-
-31:                                               ; preds = %10
   %.mask61 = and i64 %8, -4294967296
-  %32 = icmp eq i64 %.mask61, 17179869184
-  br i1 %32, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
+  %21 = icmp eq i64 %.mask61, 17179869184
+  br i1 %21, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
 
-.thread:                                          ; preds = %25
+22:                                               ; preds = %10
+  %23 = icmp ne ptr %7, null
+  tail call void @llvm.assume(i1 %23)
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %25 = load i8, ptr %24, align 8, !range !27, !noundef !24
+  %26 = icmp eq i8 %25, 35
+  br i1 %26, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
+
+27:                                               ; preds = %10
+  %28 = getelementptr i8, ptr %7, i64 -1
+  %29 = icmp ne ptr %28, null
+  tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr i8, ptr %7, i64 15
+  %31 = load i8, ptr %30, align 8, !range !27, !noundef !24
+  %32 = icmp eq i8 %31, 35
+  br i1 %32, label %.thread, label %.loopexit
+
+.thread:                                          ; preds = %27
   %33 = getelementptr i8, ptr %7, i64 -1
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
@@ -388,9 +388,9 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %33, i64 noundef 24, i64 noundef 8) #19, !noalias !28
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit": ; preds = %20, %31, %12, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i", %17
-  %.sroa.0.128 = phi ptr [ %19, %17 ], [ %.sroa.0.075, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.0.075, %12 ], [ %.sroa.0.075, %31 ], [ %.sroa.0.075, %20 ]
-  %.sroa.4.126 = phi i64 [ %18, %17 ], [ %.sroa.4.074, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.4.074, %12 ], [ %.sroa.4.074, %31 ], [ %.sroa.4.074, %20 ]
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit": ; preds = %22, %20, %12, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i", %17
+  %.sroa.0.128 = phi ptr [ %19, %17 ], [ %.sroa.0.075, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.0.075, %12 ], [ %.sroa.0.075, %20 ], [ %.sroa.0.075, %22 ]
+  %.sroa.4.126 = phi i64 [ %18, %17 ], [ %.sroa.4.074, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.4.074, %12 ], [ %.sroa.4.074, %20 ], [ %.sroa.4.074, %22 ]
   %57 = icmp eq i64 %.sroa.4.126, 0
   br i1 %57, label %.loopexit, label %.lr.ph
 }
@@ -414,10 +414,10 @@ define hidden noundef ptr @_ZN3std2os4unix2fs7FileExt13read_exact_at17ha7d75bf48
 11:                                               ; preds = %.lr.ph
   %12 = and i64 %9, 3
   switch i64 %12, label %default.unreachable [
-    i64 2, label %33
+    i64 2, label %22
     i64 3, label %13
-    i64 0, label %22
-    i64 1, label %27
+    i64 0, label %24
+    i64 1, label %29
   ], !prof !26
 
 default.unreachable:                              ; preds = %11
@@ -440,8 +440,8 @@ default.unreachable:                              ; preds = %11
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef range(i64 1, 0) %9, i64 noundef range(i64 1, 0) %.sroa.4.080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7a9b2a6e02092c9a0ba29a977948dd8b.8) #17
   unreachable
 
-.loopexit:                                        ; preds = %33, %27, %22, %13, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", %14, %4
-  %.sroa.07.0 = phi ptr [ null, %4 ], [ %8, %33 ], [ %8, %27 ], [ %8, %22 ], [ %8, %13 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit" ], [ @anon.7a9b2a6e02092c9a0ba29a977948dd8b.1, %14 ]
+.loopexit:                                        ; preds = %29, %22, %24, %13, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", %14, %4
+  %.sroa.07.0 = phi ptr [ null, %4 ], [ %8, %29 ], [ %8, %22 ], [ %8, %24 ], [ %8, %13 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit" ], [ @anon.7a9b2a6e02092c9a0ba29a977948dd8b.1, %14 ]
   ret ptr %.sroa.07.0
 
 18:                                               ; preds = %16
@@ -451,28 +451,28 @@ default.unreachable:                              ; preds = %11
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit"
 
 22:                                               ; preds = %11
-  %23 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = load i8, ptr %24, align 8, !range !27, !noundef !24
-  %26 = icmp eq i8 %25, 35
-  br i1 %26, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
-
-27:                                               ; preds = %11
-  %28 = getelementptr i8, ptr %8, i64 -1
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr i8, ptr %8, i64 15
-  %31 = load i8, ptr %30, align 8, !range !27, !noundef !24
-  %32 = icmp eq i8 %31, 35
-  br i1 %32, label %.thread, label %.loopexit
-
-33:                                               ; preds = %11
   %.mask66 = and i64 %9, -4294967296
-  %34 = icmp eq i64 %.mask66, 17179869184
-  br i1 %34, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
+  %23 = icmp eq i64 %.mask66, 17179869184
+  br i1 %23, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
 
-.thread:                                          ; preds = %27
+24:                                               ; preds = %11
+  %25 = icmp ne ptr %8, null
+  tail call void @llvm.assume(i1 %25)
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %27 = load i8, ptr %26, align 8, !range !27, !noundef !24
+  %28 = icmp eq i8 %27, 35
+  br i1 %28, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit", label %.loopexit
+
+29:                                               ; preds = %11
+  %30 = getelementptr i8, ptr %8, i64 -1
+  %31 = icmp ne ptr %30, null
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr i8, ptr %8, i64 15
+  %33 = load i8, ptr %32, align 8, !range !27, !noundef !24
+  %34 = icmp eq i8 %33, 35
+  br i1 %34, label %.thread, label %.loopexit
+
+.thread:                                          ; preds = %29
   %35 = getelementptr i8, ptr %8, i64 -1
   %36 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %36)
@@ -531,10 +531,10 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %35, i64 noundef 24, i64 noundef 8) #19, !noalias !34
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit": ; preds = %22, %33, %13, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i", %18
-  %.sroa.0.133 = phi ptr [ %20, %18 ], [ %.sroa.0.081, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.0.081, %13 ], [ %.sroa.0.081, %33 ], [ %.sroa.0.081, %22 ]
-  %.sroa.4.131 = phi i64 [ %19, %18 ], [ %.sroa.4.080, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.4.080, %13 ], [ %.sroa.4.080, %33 ], [ %.sroa.4.080, %22 ]
-  %.sroa.05.129 = phi i64 [ %21, %18 ], [ %.sroa.05.079, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.05.079, %13 ], [ %.sroa.05.079, %33 ], [ %.sroa.05.079, %22 ]
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdec5fbc0617f15acE.exit": ; preds = %24, %22, %13, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i", %18
+  %.sroa.0.133 = phi ptr [ %20, %18 ], [ %.sroa.0.081, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.0.081, %13 ], [ %.sroa.0.081, %22 ], [ %.sroa.0.081, %24 ]
+  %.sroa.4.131 = phi i64 [ %19, %18 ], [ %.sroa.4.080, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.4.080, %13 ], [ %.sroa.4.080, %22 ], [ %.sroa.4.080, %24 ]
+  %.sroa.05.129 = phi i64 [ %21, %18 ], [ %.sroa.05.079, %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h4789377de62b35d5E.exit.i.i.i.i" ], [ %.sroa.05.079, %13 ], [ %.sroa.05.079, %22 ], [ %.sroa.05.079, %24 ]
   %59 = icmp eq i64 %.sroa.4.131, 0
   br i1 %59, label %.loopexit, label %.lr.ph
 }

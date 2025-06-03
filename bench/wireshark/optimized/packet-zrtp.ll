@@ -935,7 +935,7 @@ key_to_val.exit89.i:                              ; preds = %._crit_edge.i87.i, 
   br label %dissect_Commit.exit
 
 dissect_Commit.exit:                              ; preds = %258, %261, %266
-  %.0.i = phi i32 [ 120, %266 ], [ 112, %261 ], [ 104, %258 ]
+  %.0.i = phi i32 [ 120, %266 ], [ 104, %258 ], [ 112, %261 ]
   %269 = load i32, ptr @hf_zrtp_msg_hmac, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %269, ptr noundef %0, i32 noundef %.0.i, i32 noundef 8, i32 noundef 0)
   br label %358

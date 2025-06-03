@@ -74396,8 +74396,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang11Dec
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !2831
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit, label %50
@@ -74407,8 +74407,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang11Dec
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !2831
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPKN5clang11DeclContextELj16EEES5_EEbOT_RKT0_.exit.thread
@@ -94170,8 +94170,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit100:       ; preds = %428, %_ZNSt6vectorI
   br i1 %499, label %_ZNK4llvm6detail12DenseSetImplIN5clang6FileIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsERKS3_.exit, label %.lr.ph.i.i.i.i, !prof !892, !llvm.loop !4021
 
 _ZNK4llvm6detail12DenseSetImplIN5clang6FileIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsERKS3_.exit: ; preds = %493, %487
-  %.lcssa.i.i.i.pn.i = phi i64 [ %488, %487 ], [ %496, %493 ]
-  %.not202 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %453
+  %.pn.i = phi i64 [ %488, %487 ], [ %496, %493 ]
+  %.not202 = icmp samesign eq i64 %.pn.i, %453
   br i1 %.not202, label %_ZNK4llvm6detail12DenseSetImplIN5clang6FileIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsERKS3_.exit.thread, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit142
 
 _ZNK4llvm6detail12DenseSetImplIN5clang6FileIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsERKS3_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %486, %_ZNK4llvm6detail12DenseSetImplIN5clang6FileIDENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsERKS3_.exit
@@ -94237,8 +94237,8 @@ _ZNK4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSe
   br label %539
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit: ; preds = %525, %514
-  %.lcssa.i.i.i.pn.i105 = phi i64 [ %519, %514 ], [ %528, %525 ]
-  %.not203 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i105, %456
+  %.pn.i105 = phi i64 [ %519, %514 ], [ %528, %525 ]
+  %.not203 = icmp samesign eq i64 %.pn.i105, %456
   %534 = load ptr, ptr %75, align 8, !tbaa !45
   %535 = getelementptr inbounds nuw i64, ptr %534, i64 %501
   br i1 %.not203, label %539, label %536
@@ -101934,7 +101934,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit153: ; preds = %_ZN5clang15AST
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %468, %474
-  %.1.i156 = phi ptr [ %471, %468 ], [ %475, %474 ]
+  %.1.i156 = phi ptr [ %475, %474 ], [ %471, %468 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #35
   call void @_ZNK5clang17FunctionProtoType20getExceptionSpecInfoEv(ptr dead_on_unwind nonnull writable sret(%"struct.clang::FunctionProtoType::ExceptionSpecInfo") align 8 %8, ptr noundef nonnull align 16 dereferenceable(48) %.1.i156)
   call void @_ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE22writeExceptionSpecInfoERKNS_17FunctionProtoType17ExceptionSpecInfoE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(48) %8)
@@ -108708,7 +108708,7 @@ define dso_local void @_ZN5clang9ASTWriter21ResolvedExceptionSpecEPKNS_12Functio
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i: ; preds = %26, %19
-  %.1.i.i.i = phi ptr [ %23, %19 ], [ %27, %26 ]
+  %.1.i.i.i = phi ptr [ %27, %26 ], [ %23, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %29 = load i64, ptr %28, align 16
   %30 = lshr i64 %29, 54
@@ -108839,7 +108839,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_11SmallVectorINS2_12GlobalD
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i15.i
 
 _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i15.i: ; preds = %98, %90
-  %.1.i.i16.i = phi ptr [ %95, %90 ], [ %99, %98 ]
+  %.1.i.i16.i = phi ptr [ %99, %98 ], [ %95, %90 ]
   %100 = getelementptr inbounds nuw i8, ptr %.1.i.i16.i, i64 16
   %101 = load i64, ptr %100, align 16
   %102 = lshr i64 %101, 54
@@ -153263,9 +153263,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization20MultiOnDiskHashTableINS
   br label %150
 
 150:                                              ; preds = %._crit_edge._crit_edge, %.loopexit78
-  %151 = phi i32 [ %.pre172, %._crit_edge._crit_edge ], [ %127, %.loopexit78 ]
-  %152 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %125, %.loopexit78 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %149, %.loopexit78 ]
+  %151 = phi i32 [ %127, %.loopexit78 ], [ %.pre172, %._crit_edge._crit_edge ]
+  %152 = phi ptr [ %125, %.loopexit78 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %149, %.loopexit78 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %153 = load ptr, ptr %.1, align 8, !tbaa !8
   %154 = ptrtoint ptr %153 to i64
   %155 = and i64 %154, -8
@@ -153310,9 +153310,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5clang13serialization20MultiOnDiskHashTableINS
   br label %180
 
 180:                                              ; preds = %._crit_edge._crit_edge173, %.loopexit
-  %181 = phi i32 [ %.pre176, %._crit_edge._crit_edge173 ], [ %151, %.loopexit ]
-  %182 = phi ptr [ %.pre174, %._crit_edge._crit_edge173 ], [ %152, %.loopexit ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge173 ], [ %179, %.loopexit ]
+  %181 = phi i32 [ %151, %.loopexit ], [ %.pre176, %._crit_edge._crit_edge173 ]
+  %182 = phi ptr [ %152, %.loopexit ], [ %.pre174, %._crit_edge._crit_edge173 ]
+  %.2 = phi ptr [ %179, %.loopexit ], [ %.029.lcssa, %._crit_edge._crit_edge173 ]
   %183 = load ptr, ptr %.2, align 8, !tbaa !8
   %184 = ptrtoint ptr %183 to i64
   %185 = and i64 %184, -8

@@ -827,8 +827,8 @@ default.unreachable:                              ; preds = %34
   unreachable
 
 71:                                               ; preds = %69, %66, %63
-  %.066 = phi double [ %70, %69 ], [ %68, %66 ], [ %65, %63 ]
-  %.065 = phi double [ %55, %69 ], [ %67, %66 ], [ %64, %63 ]
+  %.066 = phi double [ %65, %63 ], [ %68, %66 ], [ %70, %69 ]
+  %.065 = phi double [ %64, %63 ], [ %67, %66 ], [ %55, %69 ]
   %72 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !26
   %74 = load ptr, ptr %73, align 8, !tbaa !17

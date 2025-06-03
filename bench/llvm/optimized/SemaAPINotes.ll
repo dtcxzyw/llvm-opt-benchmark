@@ -2595,7 +2595,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i:           ; preds = %919, %_ZNK5clang4De
   br label %958
 
 958:                                              ; preds = %956, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %957, %956 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %957, %956 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %959 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i.i = load i16, ptr %959, align 8
@@ -2607,7 +2607,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i:           ; preds = %919, %_ZNK5clang4De
   br label %963
 
 963:                                              ; preds = %961, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %962, %961 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %962, %961 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %964 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i.i = load i16, ptr %964, align 8
@@ -2912,7 +2912,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i23.i.i:         ; preds = %1059, %_ZNK5clang4D
   br label %1098
 
 1098:                                             ; preds = %1096, %._crit_edge.i.i.i.i.i.i.i24.i.i
-  %.1.i.i.i.i.i.i.i40.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i ], [ %1097, %1096 ]
+  %.1.i.i.i.i.i.i.i40.i.i = phi ptr [ %1097, %1096 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i ]
   %.1.val.i.i.i.i.i.i.i41.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i40.i.i, align 8, !tbaa !25
   %1099 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i41.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i42.i.i = load i16, ptr %1099, align 8
@@ -2924,7 +2924,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i23.i.i:         ; preds = %1059, %_ZNK5clang4D
   br label %1103
 
 1103:                                             ; preds = %1101, %._crit_edge.i.i.i.i.i.i.i24.i.i
-  %.2.i.i.i.i.i.i.i27.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i ], [ %1102, %1101 ]
+  %.2.i.i.i.i.i.i.i27.i.i = phi ptr [ %1102, %1101 ], [ %.029.lcssa.i.i.i.i.i.i.i26.i.i, %._crit_edge.i.i.i.i.i.i.i24.i.i ]
   %.2.val.i.i.i.i.i.i.i28.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i27.i.i, align 8, !tbaa !25
   %1104 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i28.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i29.i.i = load i16, ptr %1104, align 8
@@ -4705,7 +4705,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i665:        ; preds = %1807, %_ZNK5clang4D
   br label %1846
 
 1846:                                             ; preds = %1844, %._crit_edge.i.i.i.i.i.i.i.i.i666
-  %.1.i.i.i.i.i.i.i.i.i699 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i668, %._crit_edge.i.i.i.i.i.i.i.i.i666 ], [ %1845, %1844 ]
+  %.1.i.i.i.i.i.i.i.i.i699 = phi ptr [ %1845, %1844 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i668, %._crit_edge.i.i.i.i.i.i.i.i.i666 ]
   %.1.val.i.i.i.i.i.i.i.i.i700 = load ptr, ptr %.1.i.i.i.i.i.i.i.i.i699, align 8, !tbaa !25
   %1847 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i.i700, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i.i701 = load i16, ptr %1847, align 8
@@ -4717,7 +4717,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i665:        ; preds = %1807, %_ZNK5clang4D
   br label %1851
 
 1851:                                             ; preds = %1849, %._crit_edge.i.i.i.i.i.i.i.i.i666
-  %.2.i.i.i.i.i.i.i.i.i669 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i668, %._crit_edge.i.i.i.i.i.i.i.i.i666 ], [ %1850, %1849 ]
+  %.2.i.i.i.i.i.i.i.i.i669 = phi ptr [ %1850, %1849 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i668, %._crit_edge.i.i.i.i.i.i.i.i.i666 ]
   %.2.val.i.i.i.i.i.i.i.i.i670 = load ptr, ptr %.2.i.i.i.i.i.i.i.i.i669, align 8, !tbaa !25
   %1852 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i.i670, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i.i671 = load i16, ptr %1852, align 8
@@ -6223,7 +6223,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i894:        ; preds = %2430, %_ZNK5clang4D
   br label %2469
 
 2469:                                             ; preds = %2467, %._crit_edge.i.i.i.i.i.i.i.i.i895
-  %.1.i.i.i.i.i.i.i.i.i914 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i897, %._crit_edge.i.i.i.i.i.i.i.i.i895 ], [ %2468, %2467 ]
+  %.1.i.i.i.i.i.i.i.i.i914 = phi ptr [ %2468, %2467 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i897, %._crit_edge.i.i.i.i.i.i.i.i.i895 ]
   %.1.val.i.i.i.i.i.i.i.i.i915 = load ptr, ptr %.1.i.i.i.i.i.i.i.i.i914, align 8, !tbaa !25
   %2470 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i.i915, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i.i916 = load i16, ptr %2470, align 8
@@ -6235,7 +6235,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i894:        ; preds = %2430, %_ZNK5clang4D
   br label %2474
 
 2474:                                             ; preds = %2472, %._crit_edge.i.i.i.i.i.i.i.i.i895
-  %.2.i.i.i.i.i.i.i.i.i898 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i897, %._crit_edge.i.i.i.i.i.i.i.i.i895 ], [ %2473, %2472 ]
+  %.2.i.i.i.i.i.i.i.i.i898 = phi ptr [ %2473, %2472 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i897, %._crit_edge.i.i.i.i.i.i.i.i.i895 ]
   %.2.val.i.i.i.i.i.i.i.i.i899 = load ptr, ptr %.2.i.i.i.i.i.i.i.i.i898, align 8, !tbaa !25
   %2475 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i.i899, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i.i900 = load i16, ptr %2475, align 8
@@ -7119,7 +7119,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i1021:       ; preds = %2787, %_ZNK5clang4D
   br label %2826
 
 2826:                                             ; preds = %2824, %._crit_edge.i.i.i.i.i.i.i.i.i1022
-  %.1.i.i.i.i.i.i.i.i.i1054 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i1024, %._crit_edge.i.i.i.i.i.i.i.i.i1022 ], [ %2825, %2824 ]
+  %.1.i.i.i.i.i.i.i.i.i1054 = phi ptr [ %2825, %2824 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i1024, %._crit_edge.i.i.i.i.i.i.i.i.i1022 ]
   %.1.val.i.i.i.i.i.i.i.i.i1055 = load ptr, ptr %.1.i.i.i.i.i.i.i.i.i1054, align 8, !tbaa !25
   %2827 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i.i1055, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i.i1056 = load i16, ptr %2827, align 8
@@ -7131,7 +7131,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i.i1021:       ; preds = %2787, %_ZNK5clang4D
   br label %2831
 
 2831:                                             ; preds = %2829, %._crit_edge.i.i.i.i.i.i.i.i.i1022
-  %.2.i.i.i.i.i.i.i.i.i1025 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i1024, %._crit_edge.i.i.i.i.i.i.i.i.i1022 ], [ %2830, %2829 ]
+  %.2.i.i.i.i.i.i.i.i.i1025 = phi ptr [ %2830, %2829 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i1024, %._crit_edge.i.i.i.i.i.i.i.i.i1022 ]
   %.2.val.i.i.i.i.i.i.i.i.i1026 = load ptr, ptr %.2.i.i.i.i.i.i.i.i.i1025, align 8, !tbaa !25
   %2832 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i.i1026, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i.i1027 = load i16, ptr %2832, align 8
@@ -10231,7 +10231,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %372, %_ZNK5clang4De
   br label %411
 
 411:                                              ; preds = %409, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %410, %409 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %410, %409 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %412 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i = load i16, ptr %412, align 8
@@ -10243,7 +10243,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %372, %_ZNK5clang4De
   br label %416
 
 416:                                              ; preds = %414, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %415, %414 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %415, %414 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %417 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i = load i16, ptr %417, align 8
@@ -10550,7 +10550,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i82.i:           ; preds = %513, %_ZNK5clang4De
   br label %552
 
 552:                                              ; preds = %550, %._crit_edge.i.i.i.i.i.i.i83.i
-  %.1.i.i.i.i.i.i.i99.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i85.i, %._crit_edge.i.i.i.i.i.i.i83.i ], [ %551, %550 ]
+  %.1.i.i.i.i.i.i.i99.i = phi ptr [ %551, %550 ], [ %.029.lcssa.i.i.i.i.i.i.i85.i, %._crit_edge.i.i.i.i.i.i.i83.i ]
   %.1.val.i.i.i.i.i.i.i100.i = load ptr, ptr %.1.i.i.i.i.i.i.i99.i, align 8, !tbaa !25
   %553 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i100.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i101.i = load i16, ptr %553, align 8
@@ -10562,7 +10562,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i82.i:           ; preds = %513, %_ZNK5clang4De
   br label %557
 
 557:                                              ; preds = %555, %._crit_edge.i.i.i.i.i.i.i83.i
-  %.2.i.i.i.i.i.i.i86.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i85.i, %._crit_edge.i.i.i.i.i.i.i83.i ], [ %556, %555 ]
+  %.2.i.i.i.i.i.i.i86.i = phi ptr [ %556, %555 ], [ %.029.lcssa.i.i.i.i.i.i.i85.i, %._crit_edge.i.i.i.i.i.i.i83.i ]
   %.2.val.i.i.i.i.i.i.i87.i = load ptr, ptr %.2.i.i.i.i.i.i.i86.i, align 8, !tbaa !25
   %558 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i87.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i88.i = load i16, ptr %558, align 8
@@ -19137,7 +19137,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %15, %_ZNK5clang4Dec
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %53, %52 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %53, %52 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !25
   %55 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %55, align 8
@@ -19149,7 +19149,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %15, %_ZNK5clang4Dec
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %58, %57 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %58, %57 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !25
   %60 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %60, align 8
@@ -19818,8 +19818,8 @@ define internal fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15N
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %16, %24
-  %26 = phi i32 [ %12, %16 ], [ %.pre, %24 ]
-  %.1.i.i = phi ptr [ %20, %16 ], [ %25, %24 ]
+  %26 = phi i32 [ %.pre, %24 ], [ %12, %16 ]
+  %.1.i.i = phi ptr [ %25, %24 ], [ %20, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %27, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -19858,8 +19858,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %16, %24
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %38, %45
-  %47 = phi i8 [ %43, %38 ], [ %.pre25, %45 ]
-  %.1.i = phi ptr [ %41, %38 ], [ %46, %45 ]
+  %47 = phi i8 [ %.pre25, %45 ], [ %43, %38 ]
+  %.1.i = phi ptr [ %46, %45 ], [ %41, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %.not26 = icmp eq i8 %47, 26
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20167,7 +20167,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %25, %_ZNK5clang4Dec
   br label %64
 
 64:                                               ; preds = %62, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %63, %62 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %63, %62 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !25
   %65 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %65, align 8
@@ -20179,7 +20179,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %25, %_ZNK5clang4Dec
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %68, %67 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !25
   %70 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %70, align 8
@@ -20517,7 +20517,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   br label %223
 
 223:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %222, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.thread.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %222, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit52.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !25
   %224 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %225 = load i16, ptr %224, align 8
@@ -20551,7 +20551,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i:                 ; preds = %129, %_ZNK5clang4De
   br label %239
 
 239:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %238, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.thread.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %238, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL15ProcessAPINotesRN5clang4SemaEPNS2_4DeclERKNS2_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clEPKS5_EUlPKNS2_4AttrEE_EclIPKPSG_EEbT_.exit57.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !25
   %240 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %241 = load i16, ptr %240, align 8
@@ -20798,7 +20798,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i29:             ; preds = %309, %_ZNK5clang4De
   br label %348
 
 348:                                              ; preds = %346, %._crit_edge.i.i.i.i.i.i.i30
-  %.1.i.i.i.i.i.i.i46 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i.i30 ], [ %347, %346 ]
+  %.1.i.i.i.i.i.i.i46 = phi ptr [ %347, %346 ], [ %.029.lcssa.i.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i.i30 ]
   %.1.val.i.i.i.i.i.i.i47 = load ptr, ptr %.1.i.i.i.i.i.i.i46, align 8, !tbaa !25
   %349 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i47, i64 32
   %.1.val.val.i.i.i.i.i.i.i48 = load i16, ptr %349, align 8
@@ -20810,7 +20810,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i29:             ; preds = %309, %_ZNK5clang4De
   br label %353
 
 353:                                              ; preds = %351, %._crit_edge.i.i.i.i.i.i.i30
-  %.2.i.i.i.i.i.i.i33 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i.i30 ], [ %352, %351 ]
+  %.2.i.i.i.i.i.i.i33 = phi ptr [ %352, %351 ], [ %.029.lcssa.i.i.i.i.i.i.i32, %._crit_edge.i.i.i.i.i.i.i30 ]
   %.2.val.i.i.i.i.i.i.i34 = load ptr, ptr %.2.i.i.i.i.i.i.i33, align 8, !tbaa !25
   %354 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i34, i64 32
   %.2.val.val.i.i.i.i.i.i.i35 = load i16, ptr %354, align 8
@@ -23129,7 +23129,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %75, %_ZNK5clang4Dec
   br label %114
 
 114:                                              ; preds = %112, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %113, %112 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %113, %112 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %115 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i.i = load i16, ptr %115, align 8
@@ -23141,7 +23141,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i.i:             ; preds = %75, %_ZNK5clang4Dec
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %118, %117 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %118, %117 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !25
   %120 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i.i = load i16, ptr %120, align 8
@@ -23453,7 +23453,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i30.i:           ; preds = %219, %_ZNK5clang4De
   br label %258
 
 258:                                              ; preds = %256, %._crit_edge.i.i.i.i.i.i.i31.i
-  %.1.i.i.i.i.i.i.i47.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i.i.i31.i ], [ %257, %256 ]
+  %.1.i.i.i.i.i.i.i47.i = phi ptr [ %257, %256 ], [ %.029.lcssa.i.i.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i.i.i31.i ]
   %.1.val.i.i.i.i.i.i.i48.i = load ptr, ptr %.1.i.i.i.i.i.i.i47.i, align 8, !tbaa !25
   %259 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i48.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i49.i = load i16, ptr %259, align 8
@@ -23465,7 +23465,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i30.i:           ; preds = %219, %_ZNK5clang4De
   br label %263
 
 263:                                              ; preds = %261, %._crit_edge.i.i.i.i.i.i.i31.i
-  %.2.i.i.i.i.i.i.i34.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i.i.i31.i ], [ %262, %261 ]
+  %.2.i.i.i.i.i.i.i34.i = phi ptr [ %262, %261 ], [ %.029.lcssa.i.i.i.i.i.i.i33.i, %._crit_edge.i.i.i.i.i.i.i31.i ]
   %.2.val.i.i.i.i.i.i.i35.i = load ptr, ptr %.2.i.i.i.i.i.i.i34.i, align 8, !tbaa !25
   %264 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i35.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i36.i = load i16, ptr %264, align 8
@@ -23817,7 +23817,7 @@ _ZNKSt8functionIFN5clang12ActionResultINS0_9OpaquePtrINS0_8QualTypeEEELb0EEEN4ll
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %414, %422
-  %.1.i.i = phi ptr [ %418, %414 ], [ %423, %422 ]
+  %.1.i.i = phi ptr [ %423, %422 ], [ %418, %414 ]
   %424 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %424, align 8, !tbaa !34
   %425 = call fastcc noundef zeroext i1 @_ZL28checkAPINotesReplacementTypeRN5clang4SemaENS_14SourceLocationENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.0.0.copyload.i129, i64 %.sroa.0.0.copyload.i1.i, i64 %405)
@@ -23959,7 +23959,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread: ; preds = %434
   br label %_ZNK5clang4Type6castAsINS_19FunctionNoProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_19FunctionNoProtoTypeEEEPKT_v.exit: ; preds = %477, %483
-  %.1.i141 = phi ptr [ %480, %477 ], [ %484, %483 ]
+  %.1.i141 = phi ptr [ %484, %483 ], [ %480, %477 ]
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %486 = load ptr, ptr %485, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #19
@@ -24202,7 +24202,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %57
 
 57:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !25
   %58 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %58, align 8
@@ -24219,7 +24219,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %60
 
 60:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %59, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %59, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !25
   %61 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %61, align 8
@@ -24552,7 +24552,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %184
 
 184:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i17
-  %.1.i.i.i.i.i.i.i37 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i19, %._crit_edge.i.i.i.i.i.i.i17 ], [ %183, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i37 = phi ptr [ %183, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i19, %._crit_edge.i.i.i.i.i.i.i17 ]
   %.1.val.i.i.i.i.i.i.i38 = load ptr, ptr %.1.i.i.i.i.i.i.i37, align 8, !tbaa !25
   %185 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i38, i64 32
   %.1.val.val.i.i.i.i.i.i.i39 = load i16, ptr %185, align 8
@@ -24569,7 +24569,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %187
 
 187:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i17
-  %.2.i.i.i.i.i.i.i20 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i19, %._crit_edge.i.i.i.i.i.i.i17 ], [ %186, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i20 = phi ptr [ %186, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24CFReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i19, %._crit_edge.i.i.i.i.i.i.i17 ]
   %.2.val.i.i.i.i.i.i.i21 = load ptr, ptr %.2.i.i.i.i.i.i.i20, align 8, !tbaa !25
   %188 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i21, i64 32
   %.2.val.val.i.i.i.i.i.i.i22 = load i16, ptr %188, align 8
@@ -24894,7 +24894,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %309
 
 309:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i74
-  %.1.i.i.i.i.i.i.i94 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i76, %._crit_edge.i.i.i.i.i.i.i74 ], [ %308, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i94 = phi ptr [ %308, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i76, %._crit_edge.i.i.i.i.i.i.i74 ]
   %.1.val.i.i.i.i.i.i.i95 = load ptr, ptr %.1.i.i.i.i.i.i.i94, align 8, !tbaa !25
   %310 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i95, i64 32
   %.1.val.val.i.i.i.i.i.i.i96 = load i16, ptr %310, align 8
@@ -24911,7 +24911,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %312
 
 312:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i74
-  %.2.i.i.i.i.i.i.i77 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i76, %._crit_edge.i.i.i.i.i.i.i74 ], [ %311, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i77 = phi ptr [ %311, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21NSReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i76, %._crit_edge.i.i.i.i.i.i.i74 ]
   %.2.val.i.i.i.i.i.i.i78 = load ptr, ptr %.2.i.i.i.i.i.i.i77, align 8, !tbaa !25
   %313 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i78, i64 32
   %.2.val.val.i.i.i.i.i.i.i79 = load i16, ptr %313, align 8
@@ -25236,7 +25236,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %434
 
 434:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i131
-  %.1.i.i.i.i.i.i.i151 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i133, %._crit_edge.i.i.i.i.i.i.i131 ], [ %433, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i151 = phi ptr [ %433, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i133, %._crit_edge.i.i.i.i.i.i.i131 ]
   %.1.val.i.i.i.i.i.i.i152 = load ptr, ptr %.1.i.i.i.i.i.i.i151, align 8, !tbaa !25
   %435 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i152, i64 32
   %.1.val.val.i.i.i.i.i.i.i153 = load i16, ptr %435, align 8
@@ -25253,7 +25253,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %437
 
 437:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i131
-  %.2.i.i.i.i.i.i.i134 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i133, %._crit_edge.i.i.i.i.i.i.i131 ], [ %436, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i134 = phi ptr [ %436, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang24NSReturnsNotRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i133, %._crit_edge.i.i.i.i.i.i.i131 ]
   %.2.val.i.i.i.i.i.i.i135 = load ptr, ptr %.2.i.i.i.i.i.i.i134, align 8, !tbaa !25
   %438 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i135, i64 32
   %.2.val.val.i.i.i.i.i.i.i136 = load i16, ptr %438, align 8
@@ -25593,7 +25593,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %44
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit36.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !25
   %45 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %45, align 8
@@ -25610,7 +25610,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang2
   br label %47
 
 47:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %46, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi ptr [ %46, %_ZN9__gnu_cxx5__ops10_Iter_predIZZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS3_4SemaEPNS3_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataEENKUlPKS7_E_clESC_EUlPKNS3_4AttrEE_EclIPKPSE_EEbT_.exit37.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !25
   %48 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %48, align 8
@@ -26248,7 +26248,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %46, %_ZNK5clang4Dec
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %84, %83 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %84, %83 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !25
   %86 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 32
   %.1.val.val.i.i.i.i.i.i.i = load i16, ptr %86, align 8
@@ -26260,7 +26260,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i:               ; preds = %46, %_ZNK5clang4Dec
   br label %90
 
 90:                                               ; preds = %88, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %89, %88 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !25
   %91 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 32
   %.2.val.val.i.i.i.i.i.i.i = load i16, ptr %91, align 8
@@ -26564,7 +26564,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i24:             ; preds = %183, %_ZNK5clang4De
   br label %222
 
 222:                                              ; preds = %220, %._crit_edge.i.i.i.i.i.i.i25
-  %.1.i.i.i.i.i.i.i41 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i27, %._crit_edge.i.i.i.i.i.i.i25 ], [ %221, %220 ]
+  %.1.i.i.i.i.i.i.i41 = phi ptr [ %221, %220 ], [ %.029.lcssa.i.i.i.i.i.i.i27, %._crit_edge.i.i.i.i.i.i.i25 ]
   %.1.val.i.i.i.i.i.i.i42 = load ptr, ptr %.1.i.i.i.i.i.i.i41, align 8, !tbaa !25
   %223 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i42, i64 32
   %.1.val.val.i.i.i.i.i.i.i43 = load i16, ptr %223, align 8
@@ -26576,7 +26576,7 @@ _ZNK5clang4Decl5attrsEv.exit.i.i.i24:             ; preds = %183, %_ZNK5clang4De
   br label %227
 
 227:                                              ; preds = %225, %._crit_edge.i.i.i.i.i.i.i25
-  %.2.i.i.i.i.i.i.i28 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i27, %._crit_edge.i.i.i.i.i.i.i25 ], [ %226, %225 ]
+  %.2.i.i.i.i.i.i.i28 = phi ptr [ %226, %225 ], [ %.029.lcssa.i.i.i.i.i.i.i27, %._crit_edge.i.i.i.i.i.i.i25 ]
   %.2.val.i.i.i.i.i.i.i29 = load ptr, ptr %.2.i.i.i.i.i.i.i28, align 8, !tbaa !25
   %228 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i29, i64 32
   %.2.val.val.i.i.i.i.i.i.i30 = load i16, ptr %228, align 8

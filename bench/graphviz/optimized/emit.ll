@@ -694,8 +694,8 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i, %a
   br label %102
 
 102:                                              ; preds = %92, %99, %96, %90
-  %.026.shrunk = phi i32 [ 0, %90 ], [ %101, %99 ], [ %98, %96 ], [ %94, %92 ]
-  %.0 = phi ptr [ null, %90 ], [ @.str.9, %99 ], [ @.str.8, %96 ], [ %.str.6..str.7, %92 ]
+  %.026.shrunk = phi i32 [ 0, %90 ], [ %98, %96 ], [ %101, %99 ], [ %94, %92 ]
+  %.0 = phi ptr [ null, %90 ], [ @.str.8, %96 ], [ @.str.9, %99 ], [ %.str.6..str.7, %92 ]
   %.026 = zext nneg i32 %.026.shrunk to i64
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef %.0, i64 noundef %.026)
   %103 = getelementptr i8, ptr %2, i64 31
@@ -2236,8 +2236,8 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit
   br label %textBB.exit
 
 textBB.exit:                                      ; preds = %gv_strdup.exit, %239, %241, %245
-  %.sroa.8.2 = phi double [ %.sroa.8.0107, %gv_strdup.exit ], [ %232, %245 ], [ %244, %241 ], [ %240, %239 ]
-  %.sroa.0.2 = phi double [ %.sroa.0.0108, %gv_strdup.exit ], [ %246, %245 ], [ %243, %241 ], [ %232, %239 ]
+  %.sroa.8.2 = phi double [ %.sroa.8.0107, %gv_strdup.exit ], [ %240, %239 ], [ %244, %241 ], [ %232, %245 ]
+  %.sroa.0.2 = phi double [ %.sroa.0.0108, %gv_strdup.exit ], [ %232, %239 ], [ %243, %241 ], [ %246, %245 ]
   %247 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %248 = load double, ptr %247, align 8, !tbaa !184, !noalias !181
   %249 = fadd double %234, %248
@@ -2279,15 +2279,15 @@ textBB.exit:                                      ; preds = %gv_strdup.exit, %23
   br label %270
 
 270:                                              ; preds = %35, %textBB.exit, %261, %267, %262, %ptsBB.exit78, %ptsBB.exit73, %ptsBB.exit, %41
-  %271 = phi double [ %36, %35 ], [ %36, %267 ], [ %36, %262 ], [ %259, %261 ], [ %259, %textBB.exit ], [ %198, %ptsBB.exit78 ], [ %153, %ptsBB.exit73 ], [ %108, %ptsBB.exit ], [ %63, %41 ]
-  %272 = phi double [ %37, %35 ], [ %37, %267 ], [ %37, %262 ], [ %258, %261 ], [ %258, %textBB.exit ], [ %197, %ptsBB.exit78 ], [ %152, %ptsBB.exit73 ], [ %107, %ptsBB.exit ], [ %62, %41 ]
-  %273 = phi double [ %39, %35 ], [ %39, %267 ], [ %39, %262 ], [ %257, %261 ], [ %257, %textBB.exit ], [ %196, %ptsBB.exit78 ], [ %151, %ptsBB.exit73 ], [ %106, %ptsBB.exit ], [ %61, %41 ]
-  %274 = phi double [ %38, %35 ], [ %38, %267 ], [ %38, %262 ], [ %256, %261 ], [ %256, %textBB.exit ], [ %195, %ptsBB.exit78 ], [ %150, %ptsBB.exit73 ], [ %105, %ptsBB.exit ], [ %60, %41 ]
-  %.sroa.8.1 = phi double [ %.sroa.8.0107, %35 ], [ %.sroa.8.0107, %267 ], [ %.sroa.8.0107, %262 ], [ %.sroa.8.2, %261 ], [ %.sroa.8.2, %textBB.exit ], [ %.sroa.8.0107, %ptsBB.exit78 ], [ %.sroa.8.0107, %ptsBB.exit73 ], [ %.sroa.8.0107, %ptsBB.exit ], [ %.sroa.8.0107, %41 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.0108, %35 ], [ %.sroa.0.0108, %267 ], [ %.sroa.0.0108, %262 ], [ %.sroa.0.2, %261 ], [ %.sroa.0.2, %textBB.exit ], [ %.sroa.0.0108, %ptsBB.exit78 ], [ %.sroa.0.0108, %ptsBB.exit73 ], [ %.sroa.0.0108, %ptsBB.exit ], [ %.sroa.0.0108, %41 ]
-  %.166 = phi ptr [ %.065109, %35 ], [ %.065109, %267 ], [ %266, %262 ], [ %.065109, %261 ], [ %.065109, %textBB.exit ], [ %.065109, %ptsBB.exit78 ], [ %.065109, %ptsBB.exit73 ], [ %.065109, %ptsBB.exit ], [ %.065109, %41 ]
-  %.164 = phi i32 [ %.063110, %35 ], [ %269, %267 ], [ %.063110, %262 ], [ %.063110, %261 ], [ %.063110, %textBB.exit ], [ %.063110, %ptsBB.exit78 ], [ %.063110, %ptsBB.exit73 ], [ %.063110, %ptsBB.exit ], [ %.063110, %41 ]
-  %.1 = phi double [ %.061112, %35 ], [ %.061112, %267 ], [ %264, %262 ], [ %.061112, %261 ], [ %.061112, %textBB.exit ], [ %.061112, %ptsBB.exit78 ], [ %.061112, %ptsBB.exit73 ], [ %.061112, %ptsBB.exit ], [ %.061112, %41 ]
+  %271 = phi double [ %36, %35 ], [ %63, %41 ], [ %108, %ptsBB.exit ], [ %153, %ptsBB.exit73 ], [ %198, %ptsBB.exit78 ], [ %259, %261 ], [ %259, %textBB.exit ], [ %36, %262 ], [ %36, %267 ]
+  %272 = phi double [ %37, %35 ], [ %62, %41 ], [ %107, %ptsBB.exit ], [ %152, %ptsBB.exit73 ], [ %197, %ptsBB.exit78 ], [ %258, %261 ], [ %258, %textBB.exit ], [ %37, %262 ], [ %37, %267 ]
+  %273 = phi double [ %39, %35 ], [ %61, %41 ], [ %106, %ptsBB.exit ], [ %151, %ptsBB.exit73 ], [ %196, %ptsBB.exit78 ], [ %257, %261 ], [ %257, %textBB.exit ], [ %39, %262 ], [ %39, %267 ]
+  %274 = phi double [ %38, %35 ], [ %60, %41 ], [ %105, %ptsBB.exit ], [ %150, %ptsBB.exit73 ], [ %195, %ptsBB.exit78 ], [ %256, %261 ], [ %256, %textBB.exit ], [ %38, %262 ], [ %38, %267 ]
+  %.sroa.8.1 = phi double [ %.sroa.8.0107, %35 ], [ %.sroa.8.0107, %41 ], [ %.sroa.8.0107, %ptsBB.exit ], [ %.sroa.8.0107, %ptsBB.exit73 ], [ %.sroa.8.0107, %ptsBB.exit78 ], [ %.sroa.8.2, %261 ], [ %.sroa.8.2, %textBB.exit ], [ %.sroa.8.0107, %262 ], [ %.sroa.8.0107, %267 ]
+  %.sroa.0.1 = phi double [ %.sroa.0.0108, %35 ], [ %.sroa.0.0108, %41 ], [ %.sroa.0.0108, %ptsBB.exit ], [ %.sroa.0.0108, %ptsBB.exit73 ], [ %.sroa.0.0108, %ptsBB.exit78 ], [ %.sroa.0.2, %261 ], [ %.sroa.0.2, %textBB.exit ], [ %.sroa.0.0108, %262 ], [ %.sroa.0.0108, %267 ]
+  %.166 = phi ptr [ %.065109, %35 ], [ %.065109, %41 ], [ %.065109, %ptsBB.exit ], [ %.065109, %ptsBB.exit73 ], [ %.065109, %ptsBB.exit78 ], [ %.065109, %261 ], [ %.065109, %textBB.exit ], [ %266, %262 ], [ %.065109, %267 ]
+  %.164 = phi i32 [ %.063110, %35 ], [ %.063110, %41 ], [ %.063110, %ptsBB.exit ], [ %.063110, %ptsBB.exit73 ], [ %.063110, %ptsBB.exit78 ], [ %.063110, %261 ], [ %.063110, %textBB.exit ], [ %.063110, %262 ], [ %269, %267 ]
+  %.1 = phi double [ %.061112, %35 ], [ %.061112, %41 ], [ %.061112, %ptsBB.exit ], [ %.061112, %ptsBB.exit73 ], [ %.061112, %ptsBB.exit78 ], [ %.061112, %261 ], [ %.061112, %textBB.exit ], [ %264, %262 ], [ %.061112, %267 ]
   %275 = getelementptr inbounds nuw i8, ptr %.0113, i64 128
   %276 = add nuw i64 %.062111, 1
   %277 = load i64, ptr %12, align 8, !tbaa !146
@@ -4176,8 +4176,8 @@ copyPts.exit:                                     ; preds = %copyPts.exit.loopex
   unreachable
 
 boxf_overlap.exit.thread.i.i.i:                   ; preds = %614, %614, %814, %813, %812, %791, %789, %753, %750, %743, %737, %copyPts.exit, %705, %copyPts.exit91, %671, %copyPts.exit99, %637, %622, %616
-  %.1100.i.i.i = phi i32 [ %.099184.ph.i.i.i, %814 ], [ %.099184.ph.i.i.i, %813 ], [ %.099184.ph.i.i.i, %812 ], [ 1, %753 ], [ 1, %750 ], [ %.099184.ph.i.i.i, %743 ], [ %.099184.ph.i.i.i, %copyPts.exit ], [ %.099184.ph.i.i.i, %copyPts.exit91 ], [ %.099184.ph.i.i.i, %copyPts.exit99 ], [ %.099184.ph.i.i.i, %622 ], [ 3, %789 ], [ 2, %791 ], [ %.099184.ph.i.i.i, %616 ], [ %.099184.ph.i.i.i, %637 ], [ %.099184.ph.i.i.i, %671 ], [ %.099184.ph.i.i.i, %705 ], [ %.099184.ph.i.i.i, %737 ], [ %.099184.ph.i.i.i, %614 ], [ %.099184.ph.i.i.i, %614 ]
-  %.1.i.i.i = phi i32 [ 0, %814 ], [ 0, %813 ], [ %.0187.ph.i.i.i, %812 ], [ %.0187.ph.i.i.i, %753 ], [ %.0187.ph.i.i.i, %750 ], [ %.0187.ph.i.i.i, %743 ], [ %.0187.ph.i.i.i, %copyPts.exit ], [ %.0187.ph.i.i.i, %copyPts.exit91 ], [ %.0187.ph.i.i.i, %copyPts.exit99 ], [ %.0187.ph.i.i.i, %622 ], [ %.0187.ph.i.i.i, %789 ], [ %.0187.ph.i.i.i, %791 ], [ %.0187.ph.i.i.i, %616 ], [ %.0187.ph.i.i.i, %637 ], [ %.0187.ph.i.i.i, %671 ], [ %.0187.ph.i.i.i, %705 ], [ %.0187.ph.i.i.i, %737 ], [ %.0187.ph.i.i.i, %614 ], [ %.0187.ph.i.i.i, %614 ]
+  %.1100.i.i.i = phi i32 [ %.099184.ph.i.i.i, %622 ], [ %.099184.ph.i.i.i, %copyPts.exit99 ], [ %.099184.ph.i.i.i, %copyPts.exit91 ], [ %.099184.ph.i.i.i, %copyPts.exit ], [ %.099184.ph.i.i.i, %743 ], [ 1, %750 ], [ 1, %753 ], [ %.099184.ph.i.i.i, %812 ], [ %.099184.ph.i.i.i, %814 ], [ %.099184.ph.i.i.i, %813 ], [ 3, %789 ], [ 2, %791 ], [ %.099184.ph.i.i.i, %616 ], [ %.099184.ph.i.i.i, %637 ], [ %.099184.ph.i.i.i, %671 ], [ %.099184.ph.i.i.i, %705 ], [ %.099184.ph.i.i.i, %737 ], [ %.099184.ph.i.i.i, %614 ], [ %.099184.ph.i.i.i, %614 ]
+  %.1.i.i.i = phi i32 [ %.0187.ph.i.i.i, %622 ], [ %.0187.ph.i.i.i, %copyPts.exit99 ], [ %.0187.ph.i.i.i, %copyPts.exit91 ], [ %.0187.ph.i.i.i, %copyPts.exit ], [ %.0187.ph.i.i.i, %743 ], [ %.0187.ph.i.i.i, %750 ], [ %.0187.ph.i.i.i, %753 ], [ %.0187.ph.i.i.i, %812 ], [ 0, %814 ], [ 0, %813 ], [ %.0187.ph.i.i.i, %789 ], [ %.0187.ph.i.i.i, %791 ], [ %.0187.ph.i.i.i, %616 ], [ %.0187.ph.i.i.i, %637 ], [ %.0187.ph.i.i.i, %671 ], [ %.0187.ph.i.i.i, %705 ], [ %.0187.ph.i.i.i, %737 ], [ %.0187.ph.i.i.i, %614 ], [ %.0187.ph.i.i.i, %614 ]
   %818 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 128
   %819 = add nuw i64 %.0101183.i.i.i, 1
   %820 = load i64, ptr %608, align 8, !tbaa !146
@@ -10143,7 +10143,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %exitcond.not = icmp eq i64 %106, %.025.ph
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !406
 
-agxbputc.exit45.thread:                           ; preds = %15, %17, %20, %._crit_edge, %79
+agxbputc.exit45.thread:                           ; preds = %17, %15, %20, %._crit_edge, %79
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #27
   ret ptr @parse_style.parse
 }
@@ -11746,7 +11746,7 @@ init_job_viewport.exit:                           ; preds = %554, %604
   br label %pagecode.exit.i
 
 pagecode.exit.i:                                  ; preds = %719, %718, %717, %716, %688
-  %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %688 ], [ 4294967295, %719 ], [ 1, %718 ], [ 4294967296, %717 ], [ -4294967296, %716 ]
+  %.sroa.0.0.insert.insert.i.i = phi i64 [ 0, %688 ], [ -4294967296, %716 ], [ 4294967296, %717 ], [ 1, %718 ], [ 4294967295, %719 ]
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %707, align 4
   %720 = load ptr, ptr %710, align 8, !tbaa !434
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 1
@@ -11779,7 +11779,7 @@ pagecode.exit.i:                                  ; preds = %719, %718, %717, %7
   br label %pagecode.exit207.i
 
 pagecode.exit207.i:                               ; preds = %732, %731, %730, %729, %pagecode.exit.i
-  %.sroa.0.0.insert.insert.i206.i = phi i64 [ 0, %pagecode.exit.i ], [ 4294967295, %732 ], [ 1, %731 ], [ 4294967296, %730 ], [ -4294967296, %729 ]
+  %.sroa.0.0.insert.insert.i206.i = phi i64 [ 0, %pagecode.exit.i ], [ -4294967296, %729 ], [ 4294967296, %730 ], [ 1, %731 ], [ 4294967295, %732 ]
   store i64 %.sroa.0.0.insert.insert.i206.i, ptr %708, align 4
   %733 = trunc i64 %.sroa.0.0.insert.insert.i206.i to i32
   %734 = add nsw i32 %733, %726
@@ -13337,7 +13337,7 @@ define internal fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1, i32
   unreachable
 
 26:                                               ; preds = %20, %22, %21
-  %.0 = phi ptr [ @.str.100, %22 ], [ @.str.99, %21 ], [ @.str.98, %20 ]
+  %.0 = phi ptr [ @.str.99, %21 ], [ @.str.100, %22 ], [ @.str.98, %20 ]
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %11, ptr noundef nonnull @.str.101, ptr noundef nonnull %7, ptr noundef nonnull %.0)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 31
   %.val.i = load i8, ptr %27, align 1, !tbaa !3

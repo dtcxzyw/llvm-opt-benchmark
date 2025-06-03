@@ -2976,7 +2976,7 @@ _ZNK6icu_7713LikelySubtags8maximizeEPKcS2_S2_bR10UErrorCode.exit: ; preds = %61,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %43, %48, %53, %28, %29, %30, %_ZNK6icu_7713LikelySubtags8maximizeEPKcS2_S2_bR10UErrorCode.exit, %12
+.critedge.thread:                                 ; preds = %43, %48, %53, %30, %29, %28, %_ZNK6icu_7713LikelySubtags8maximizeEPKcS2_S2_bR10UErrorCode.exit, %12
   ret void
 }
 
@@ -3935,7 +3935,7 @@ define noundef i32 @_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieENS_11Strin
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %15, %26, %18, %17
-  %.014 = phi i32 [ -1, %26 ], [ %25, %18 ], [ 1, %17 ], [ 0, %15 ], [ -1, %8 ]
+  %.014 = phi i32 [ -1, %26 ], [ 1, %17 ], [ %25, %18 ], [ 0, %15 ], [ -1, %8 ]
   ret i32 %.014
 }
 
@@ -3994,7 +3994,7 @@ define noundef i32 @_ZN6icu_7713LikelySubtags8trieNextERNS_9BytesTrieEPKci(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %27, %19, %18
-  %.2 = phi i32 [ -1, %27 ], [ %26, %19 ], [ 1, %18 ], [ 0, %16 ], [ -1, %10 ]
+  %.2 = phi i32 [ -1, %27 ], [ 1, %18 ], [ %26, %19 ], [ 0, %16 ], [ -1, %10 ]
   ret i32 %.2
 }
 

@@ -551,7 +551,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
           cleanup
   br label %.thread193
 
-.thread213.loopexit.split-lp.loopexit.split-lp:   ; preds = %.invoke399, %.invoke397, %.invoke, %304, %303, %.thread225
+.thread213.loopexit.split-lp.loopexit.split-lp:   ; preds = %.invoke399, %.invoke397, %.invoke, %303, %304, %.thread225
   %lpad.loopexit.split-lp266 = landingpad { ptr, i32 }
           cleanup
   br label %.thread193
@@ -2226,8 +2226,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h04e8b50b8cbfb1faE.exit129.i: ; preds =
   br label %348
 
 348:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6803d18c36d35fc9E.exit.i.i", %251
-  %.pn.i.i = phi ptr [ %339, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6803d18c36d35fc9E.exit.i.i" ], [ %253, %251 ]
-  %.sroa.02.0.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -144
+  %.sroa.011.0.copyload.pn.i.i = phi ptr [ %253, %251 ], [ %339, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6803d18c36d35fc9E.exit.i.i" ]
+  %.sroa.02.0.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.copyload.pn.i.i, i64 -144
   %349 = load i64, ptr %84, align 8, !alias.scope !479, !noalias !486, !noundef !19
   %350 = icmp eq i64 %349, 0
   br i1 %350, label %351, label %354
@@ -2704,8 +2704,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h04e8b50b8cbfb1faE.exit129.i: ; preds =
   %522 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 0, ptr %522, align 8, !noalias !488
   %.sroa.11.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %523 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -136
-  %524 = getelementptr inbounds i8, ptr %.pn.i.i, i64 -128
+  %523 = getelementptr inbounds i8, ptr %.sroa.011.0.copyload.pn.i.i, i64 -136
+  %524 = getelementptr inbounds i8, ptr %.sroa.011.0.copyload.pn.i.i, i64 -128
   %525 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %526 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %527 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -2791,7 +2791,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h04e8b50b8cbfb1faE.exit129.i: ; preds =
   br label %.thread439.i
 
 .thread450.loopexit.split-lp.i:                   ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i", %808, %790, %789, %.loopexit519.i
-  %.sroa.040.3.ph.ph.i = phi i8 [ 1, %790 ], [ 1, %789 ], [ 1, %.loopexit519.i ], [ 0, %808 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i" ]
+  %.sroa.040.3.ph.ph.i = phi i8 [ 1, %789 ], [ 1, %790 ], [ 1, %.loopexit519.i ], [ 0, %808 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h539e161247e4a878E.llvm.8023350549582346695.exit.i.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread439.i
@@ -9450,7 +9450,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u
   ]
 
 "_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1105031501313c2dE.exit": ; preds = %58, %.preheader.split.i.i, %68, %63, %53, %49, %46, %42, %38, %34, %26, %11, %12, %14, %16, %18, %2, %20
-  %.sroa.0.0.shrunk = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ false, %26 ], [ %52, %49 ], [ false, %46 ], [ false, %53 ], [ %76, %68 ], [ false, %63 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %58 ]
+  %.sroa.0.0.shrunk = phi i1 [ %25, %20 ], [ false, %2 ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %11 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ false, %26 ], [ %52, %49 ], [ false, %46 ], [ false, %53 ], [ %76, %68 ], [ false, %63 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %58 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable:                              ; preds = %31, %11
@@ -10911,7 +10911,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %42
 
 42:                                               ; preds = %18, %15
-  %.sroa.3.0 = phi i64 [ %21, %18 ], [ %17, %15 ]
+  %.sroa.3.0 = phi i64 [ %17, %15 ], [ %21, %18 ]
   %43 = insertvalue { i64, i64 } poison, i64 %13, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44

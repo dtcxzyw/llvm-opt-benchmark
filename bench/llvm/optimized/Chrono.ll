@@ -326,7 +326,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit19.i:             ; preds = %93, %91, %85, %83, %74, %72, %70
-  %.1.i = phi i32 [ %64, %74 ], [ %64, %72 ], [ %64, %70 ], [ %64, %83 ], [ %64, %85 ], [ %.012.i, %91 ], [ %.012.i, %93 ]
+  %.1.i = phi i32 [ %64, %70 ], [ %64, %72 ], [ %64, %74 ], [ %64, %83 ], [ %64, %85 ], [ %.012.i, %91 ], [ %.012.i, %93 ]
   %95 = add i32 %.1.i, 1
   %96 = zext i32 %95 to i64
   %97 = icmp ugt i64 %spec.select11.i, %96
@@ -541,7 +541,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit19.i:             ; preds = %97, %95, %89, %87, %78, %76, %74
-  %.1.i = phi i32 [ %68, %78 ], [ %68, %76 ], [ %68, %74 ], [ %68, %87 ], [ %68, %89 ], [ %.012.i, %95 ], [ %.012.i, %97 ]
+  %.1.i = phi i32 [ %68, %74 ], [ %68, %76 ], [ %68, %78 ], [ %68, %87 ], [ %68, %89 ], [ %.012.i, %95 ], [ %.012.i, %97 ]
   %99 = add i32 %.1.i, 1
   %100 = zext i32 %99 to i64
   %101 = icmp ugt i64 %spec.select11.i, %100

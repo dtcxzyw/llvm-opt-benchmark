@@ -8902,7 +8902,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_reso
   br label %186
 
 186:                                              ; preds = %184, %172, %136
-  %.pn96 = phi { ptr, i32 } [ %185, %184 ], [ %.pn88.pn.pn, %172 ], [ %.pn92.pn.pn, %136 ]
+  %.pn96 = phi { ptr, i32 } [ %185, %184 ], [ %.pn92.pn.pn, %136 ], [ %.pn88.pn.pn, %172 ]
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %13) #28
   br label %187
 

@@ -216,7 +216,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   br label %20
 
 20:                                               ; preds = %8, %10, %18, %17, %13, %11
-  %.0 = phi i32 [ -1, %18 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %18 ], [ 0, %8 ], [ 0, %10 ], [ 0, %11 ], [ 0, %13 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -360,7 +360,7 @@ _send_profile.exit:                               ; preds = %_running_profile.ex
   br label %62
 
 62:                                               ; preds = %60, %59, %_send_profile.exit, %2
-  %.0 = phi i32 [ -1, %60 ], [ 0, %59 ], [ 0, %_send_profile.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %60 ], [ 0, %2 ], [ 0, %_send_profile.exit ], [ 0, %59 ]
   ret i32 %.0
 }
 

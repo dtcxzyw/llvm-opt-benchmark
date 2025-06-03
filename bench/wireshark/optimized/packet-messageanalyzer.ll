@@ -909,7 +909,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %17, %20
   br label %83
 
 83:                                               ; preds = %80, %77, %74, %71, %68, %65, %55, %48, %41, %38, %28, %proto_item_set_generated.exit
-  %.0 = phi i32 [ 0, %proto_item_set_generated.exit ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %71 ], [ 0, %68 ], [ 0, %65 ], [ %64, %55 ], [ %54, %48 ], [ 20, %41 ], [ 4, %38 ], [ %37, %28 ]
+  %.0 = phi i32 [ 0, %proto_item_set_generated.exit ], [ %37, %28 ], [ 4, %38 ], [ 20, %41 ], [ %54, %48 ], [ %64, %55 ], [ 0, %65 ], [ 0, %68 ], [ 0, %71 ], [ 0, %74 ], [ 0, %77 ], [ 0, %80 ]
   tail call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0)
   %84 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %84
@@ -1523,7 +1523,7 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   br i1 %.not426, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %393, %314, %278, %242, %76, %68, %73, %71, %63, %376, %367, %360, %348, %339, %323, %320, %148, %proto_item_set_generated.exit439
-  %.0423 = phi i32 [ 0, %proto_item_set_generated.exit439 ], [ %392, %376 ], [ 10, %367 ], [ 12, %360 ], [ %359, %348 ], [ 16, %339 ], [ %338, %323 ], [ 4, %320 ], [ %277, %242 ], [ %313, %278 ], [ %319, %314 ], [ %150, %148 ], [ 12, %63 ], [ 12, %68 ], [ 12, %73 ], [ 12, %71 ], [ %81, %76 ], [ %405, %393 ], [ %416, %.lr.ph ]
+  %.0423 = phi i32 [ 0, %proto_item_set_generated.exit439 ], [ 12, %63 ], [ 12, %68 ], [ 12, %73 ], [ 12, %71 ], [ %81, %76 ], [ %150, %148 ], [ %277, %242 ], [ %313, %278 ], [ %319, %314 ], [ 4, %320 ], [ %338, %323 ], [ 16, %339 ], [ %359, %348 ], [ 12, %360 ], [ 10, %367 ], [ %392, %376 ], [ %405, %393 ], [ %416, %.lr.ph ]
   call void @proto_item_set_len(ptr noundef %19, i32 noundef %.0423)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5

@@ -2748,7 +2748,7 @@ default.unreachable1:                             ; preds = %2
   br label %19
 
 19:                                               ; preds = %17, %14, %10, %7
-  %.sroa.0.0.in = phi i1 [ %18, %17 ], [ %16, %14 ], [ %13, %10 ], [ %9, %7 ]
+  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %13, %10 ], [ %16, %14 ], [ %18, %17 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -8972,7 +8972,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..statement..stmt_assign..FormatSt
   br label %_ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit
 
 _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit: ; preds = %99, %114, %118, %122, %126
-  %.sroa.0.0.shrunk.i = phi i1 [ true, %126 ], [ %125, %122 ], [ %121, %118 ], [ %117, %114 ], [ false, %99 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %117, %114 ], [ %121, %118 ], [ %125, %122 ], [ true, %126 ], [ false, %99 ]
   %127 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$8try_from17h5b95f3765dacaf73E"(ptr noundef nonnull align 8 %102)
   %128 = extractvalue { i64, ptr } %127, 0
   %129 = icmp eq i64 %128, 3
@@ -9026,7 +9026,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d
   br label %_ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit403
 
 _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit403: ; preds = %131, %145, %149, %153, %157
-  %.sroa.0.0.shrunk.i402 = phi i1 [ true, %157 ], [ %156, %153 ], [ %152, %149 ], [ %148, %145 ], [ false, %131 ]
+  %.sroa.0.0.shrunk.i402 = phi i1 [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ true, %157 ], [ false, %131 ]
   %158 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$8try_from17h5b95f3765dacaf73E"(ptr noundef nonnull align 8 %133)
   %159 = extractvalue { i64, ptr } %158, 0
   %160 = icmp eq i64 %159, 3
@@ -9846,7 +9846,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign26format_f_string_assignment17h
   br label %_ZN21ruff_python_formatter9statement11stmt_assign34should_non_inlineable_use_best_fit17hec2cd898c7c4951aE.exit
 
 _ZN21ruff_python_formatter9statement11stmt_assign34should_non_inlineable_use_best_fit17hec2cd898c7c4951aE.exit: ; preds = %363, %370, %374, %378
-  %.sroa.0.0.shrunk.i431 = phi i1 [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ false, %363 ]
+  %.sroa.0.0.shrunk.i431 = phi i1 [ %373, %370 ], [ %377, %374 ], [ %381, %378 ], [ false, %363 ]
   %.not379 = xor i1 %.sroa.0.0.shrunk.i431, true
   %382 = load i64, ptr %60, align 8, !range !424
   %.not354 = icmp eq i64 %382, 3

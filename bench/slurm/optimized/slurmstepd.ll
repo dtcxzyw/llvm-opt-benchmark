@@ -2670,7 +2670,7 @@ _init_from_slurmd.exit:                           ; preds = %816, %832
   unreachable
 
 920:                                              ; preds = %915, %908
-  %.040.i = phi ptr [ %918, %915 ], [ %910, %908 ]
+  %.040.i = phi ptr [ %910, %908 ], [ %918, %915 ]
   %.not.i34 = icmp eq ptr %.040.i, null
   br i1 %.not.i34, label %921, label %923
 
@@ -4521,7 +4521,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %160
 
 160:                                              ; preds = %.thread111, %157
-  %.0 = phi ptr [ null, %.thread111 ], [ %.076, %157 ]
+  %.0 = phi ptr [ %.076, %157 ], [ null, %.thread111 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15

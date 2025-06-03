@@ -105,8 +105,8 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   %switch.selectcmp.i = icmp eq i64 %switch.and.i, 0
   br i1 %switch.selectcmp.i, label %select.unfold, label %56
 
-select.unfold:                                    ; preds = %37, %36, %33, %32, %32, %32, %32, %32, %34, %34, %34, %35, %35
-  %.1.ph = phi i64 [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ 521, %33 ], [ %.065, %34 ], [ %.065, %34 ], [ %.065, %34 ], [ %.065, %35 ], [ %.065, %35 ], [ 255, %36 ], [ %.065, %37 ]
+select.unfold:                                    ; preds = %37, %33, %36, %32, %32, %32, %32, %32, %34, %34, %34, %35, %35
+  %.1.ph = phi i64 [ 255, %36 ], [ %.065, %35 ], [ %.065, %35 ], [ %.065, %34 ], [ %.065, %34 ], [ %.065, %34 ], [ 521, %33 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %32 ], [ %.065, %37 ]
   %39 = tail call i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroext %31, i64 noundef %.1.ph) #7
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %56, label %41
@@ -429,7 +429,7 @@ switch.early.test:                                ; preds = %28
   br label %45
 
 45:                                               ; preds = %33, %18, %42, %40, %37
-  %.034 = phi i32 [ %36, %33 ], [ %41, %40 ], [ %44, %42 ], [ %39, %37 ], [ -20224, %18 ]
+  %.034 = phi i32 [ %41, %40 ], [ %44, %42 ], [ %36, %33 ], [ %39, %37 ], [ -20224, %18 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %12) #7
   %46 = icmp eq i32 %.034, 0

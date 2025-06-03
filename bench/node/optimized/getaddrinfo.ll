@@ -70,7 +70,7 @@ sw.epilog:                                        ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ %sub, %sw.bb13 ], [ -3011, %sw.bb12 ], [ -3010, %sw.bb11 ], [ -3009, %sw.bb10 ], [ -3008, %sw.bb9 ], [ -3007, %sw.bb8 ], [ -3006, %sw.bb7 ], [ -3005, %sw.bb6 ], [ -3004, %sw.bb5 ], [ -3003, %sw.bb4 ], [ -3002, %sw.bb3 ], [ -3001, %sw.bb2 ], [ -3000, %sw.bb1 ], [ %sys_err, %entry ]
+  %retval.0 = phi i32 [ -3000, %sw.bb1 ], [ -3001, %sw.bb2 ], [ -3002, %sw.bb3 ], [ -3003, %sw.bb4 ], [ -3004, %sw.bb5 ], [ -3005, %sw.bb6 ], [ -3006, %sw.bb7 ], [ -3007, %sw.bb8 ], [ -3008, %sw.bb9 ], [ -3009, %sw.bb10 ], [ -3010, %sw.bb11 ], [ -3011, %sw.bb12 ], [ %sub, %sw.bb13 ], [ %sys_err, %entry ]
   ret i32 %retval.0
 }
 

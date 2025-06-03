@@ -1210,7 +1210,7 @@ define internal noundef i32 @get_interlaced_row(ptr noundef %0, ptr noundef capt
   br label %25
 
 25:                                               ; preds = %20, %15, %10, %8
-  %.0 = phi i32 [ %24, %20 ], [ %19, %15 ], [ %14, %10 ], [ %9, %8 ]
+  %.0 = phi i32 [ %24, %20 ], [ %9, %8 ], [ %14, %10 ], [ %19, %15 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56

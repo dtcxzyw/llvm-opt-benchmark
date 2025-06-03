@@ -727,7 +727,7 @@ rvermicelliDoubleExec.exit99:                     ; preds = %323, %.thread351, %
   br i1 %.not.i61, label %393, label %nfaRevAccelCheck.exit.thread
 
 393:                                              ; preds = %100, %382, %372, %362, %353, %rvermicelliDoubleExec.exit99, %288, %rvermicelliDoubleExec.exit, %227, %rvermicelliExec.exit83, %163, %rvermicelliExec.exit, %103
-  %.0.i62 = phi i64 [ %95, %382 ], [ %95, %372 ], [ %95, %362 ], [ %95, %353 ], [ %95, %288 ], [ %352, %rvermicelliDoubleExec.exit99 ], [ %95, %227 ], [ %287, %rvermicelliDoubleExec.exit ], [ %95, %163 ], [ %226, %rvermicelliExec.exit83 ], [ %95, %103 ], [ %162, %rvermicelliExec.exit ], [ %95, %100 ]
+  %.0.i62 = phi i64 [ %95, %103 ], [ %162, %rvermicelliExec.exit ], [ %95, %163 ], [ %226, %rvermicelliExec.exit83 ], [ %95, %227 ], [ %287, %rvermicelliDoubleExec.exit ], [ %95, %288 ], [ %352, %rvermicelliDoubleExec.exit99 ], [ %95, %353 ], [ %95, %362 ], [ %95, %372 ], [ %95, %382 ], [ %95, %100 ]
   %394 = icmp ult i64 %.0.i62, %98
   br i1 %394, label %nfaRevAccelCheck.exit.thread, label %nfaRevAccelCheck.exit
 
@@ -1039,7 +1039,7 @@ init_outfixes_for_block.exit.thread:              ; preds = %511, %init_outfixes
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %556, %559, %562, %570
-  %.0.i174 = phi i64 [ %576, %570 ], [ %569, %562 ], [ %561, %559 ], [ %558, %556 ]
+  %.0.i174 = phi i64 [ %576, %570 ], [ %558, %556 ], [ %561, %559 ], [ %569, %562 ]
   %577 = load i64, ptr %549, align 8
   %578 = and i64 %577, %.0.i174
   %.not59.i171 = icmp eq i64 %578, 0
@@ -1127,7 +1127,7 @@ mmbit_mask_index.exit183:                         ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit178
 
 mmbit_get_flat_block.exit178:                     ; preds = %617, %609, %606, %603, %624
-  %.052.i = phi i64 [ %625, %624 ], [ %623, %617 ], [ %616, %609 ], [ %608, %606 ], [ %605, %603 ]
+  %.052.i = phi i64 [ %625, %624 ], [ %623, %617 ], [ %605, %603 ], [ %608, %606 ], [ %616, %609 ]
   %626 = load i64, ptr %594, align 8
   %627 = and i64 %626, %.052.i
   %.not58.i169 = icmp eq i64 %627, 0
@@ -2043,7 +2043,7 @@ mmbit_mask_index.exit.i217:                       ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i
 
 mmbit_get_flat_block.exit.i:                      ; preds = %1176, %1179, %1182, %1190, %1197
-  %.0.i219 = phi i64 [ %1198, %1197 ], [ %1196, %1190 ], [ %1189, %1182 ], [ %1181, %1179 ], [ %1178, %1176 ]
+  %.0.i219 = phi i64 [ %1198, %1197 ], [ %1196, %1190 ], [ %1178, %1176 ], [ %1181, %1179 ], [ %1189, %1182 ]
   %1199 = load i64, ptr %1167, align 8
   %1200 = and i64 %1199, %.0.i219
   %.not.i216.not = icmp eq i64 %1200, 0
@@ -2341,7 +2341,7 @@ roseBlockAnchored.exit.thread:                    ; preds = %1272, %1266, %runEa
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %1328, %1331, %1334, %1342, %.critedge.i253, %1355
-  %.0.i238.in.in = phi i64 [ %1356, %1355 ], [ %1354, %.critedge.i253 ], [ %1348, %1342 ], [ %1341, %1334 ], [ %1333, %1331 ], [ %1330, %1328 ]
+  %.0.i238.in.in = phi i64 [ %1356, %1355 ], [ %1354, %.critedge.i253 ], [ %1348, %1342 ], [ %1330, %1328 ], [ %1333, %1331 ], [ %1341, %1334 ]
   %.0.i238.in.in.fr = freeze i64 %.0.i238.in.in
   %.0.i238.in.not = icmp eq i64 %.0.i238.in.in.fr, 0
   br i1 %.0.i238.in.not, label %roseBlockFloating.exit.thread, label %roseHasInFlightMatches.exit.thread
@@ -2619,7 +2619,7 @@ canSkipCatchUpMPV.exit.thread420:                 ; preds = %1438, %canSkipCatch
   br label %mmbit_any.exit242
 
 mmbit_any.exit242:                                ; preds = %1464, %1467, %1470, %1478, %.critedge.i245, %1493
-  %.0.i241.in.in = phi i64 [ %1494, %1493 ], [ %1492, %.critedge.i245 ], [ %1484, %1478 ], [ %1477, %1470 ], [ %1469, %1467 ], [ %1466, %1464 ]
+  %.0.i241.in.in = phi i64 [ %1494, %1493 ], [ %1492, %.critedge.i245 ], [ %1484, %1478 ], [ %1466, %1464 ], [ %1469, %1467 ], [ %1477, %1470 ]
   %.0.i241.in.not = icmp eq i64 %.0.i241.in.in, 0
   br i1 %.0.i241.in.not, label %1495, label %mmbit_any.exit242.thread
 

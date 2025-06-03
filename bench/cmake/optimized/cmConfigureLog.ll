@@ -3147,7 +3147,7 @@ _ZN14cmConfigureLog11WriteEscapeEh.exit60:        ; preds = %113, %117
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 _ZN14cmConfigureLog9BeginLineEv.exit59:           ; preds = %.lr.ph.i57, %106, %_ZN14cmConfigureLog7EndLineEv.exit55, %62, %53, %_ZN14cmConfigureLog11WriteEscapeEh.exit, %_ZN14cmConfigureLog11WriteEscapeEh.exit60, %96, %91, %88
-  %.1 = phi i64 [ %98, %96 ], [ %112, %106 ], [ %120, %_ZN14cmConfigureLog11WriteEscapeEh.exit60 ], [ %93, %91 ], [ %90, %88 ], [ %51, %_ZN14cmConfigureLog11WriteEscapeEh.exit ], [ %51, %53 ], [ %63, %62 ], [ %63, %_ZN14cmConfigureLog7EndLineEv.exit55 ], [ %63, %.lr.ph.i57 ]
+  %.1 = phi i64 [ %98, %96 ], [ %120, %_ZN14cmConfigureLog11WriteEscapeEh.exit60 ], [ %112, %106 ], [ %51, %_ZN14cmConfigureLog11WriteEscapeEh.exit ], [ %51, %53 ], [ %90, %88 ], [ %93, %91 ], [ %63, %62 ], [ %63, %_ZN14cmConfigureLog7EndLineEv.exit55 ], [ %63, %.lr.ph.i57 ]
   %121 = icmp ult i64 %.1, %3
   br i1 %121, label %47, label %122, !llvm.loop !143
 

@@ -343,8 +343,8 @@ _ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49:   ; preds = %74, %76
   br label %84
 
 84:                                               ; preds = %59, %83, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49, %82, %79, %73
-  %cond1 = phi i1 [ false, %82 ], [ false, %79 ], [ false, %73 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %83 ], [ true, %59 ]
-  %.2 = phi i32 [ 0, %82 ], [ 1, %79 ], [ 1, %73 ], [ %.064, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ %.064, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %.064, %83 ], [ %.064, %59 ]
+  %cond1 = phi i1 [ false, %73 ], [ false, %79 ], [ false, %82 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %83 ], [ true, %59 ]
+  %.2 = phi i32 [ 1, %73 ], [ 1, %79 ], [ 0, %82 ], [ %.064, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ %.064, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %.064, %83 ], [ %.064, %59 ]
   br i1 %.not.i.i5.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i, label %85
 
 85:                                               ; preds = %84

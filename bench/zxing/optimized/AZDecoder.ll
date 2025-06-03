@@ -2092,7 +2092,7 @@ _ZN5ZXing12BitArrayView8readBitsEi.exit54.i.i:    ; preds = %.lr.ph.i.i50.i.i
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 
 _ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i: ; preds = %553, %549, %545, %541, %537, %_ZN5ZXing12BitArrayView8readBitsEi.exit54.i.i
-  %.0.i.i.i = phi ptr [ %556, %553 ], [ %552, %549 ], [ %548, %545 ], [ %544, %541 ], [ %540, %537 ], [ null, %_ZN5ZXing12BitArrayView8readBitsEi.exit54.i.i ]
+  %.0.i.i.i = phi ptr [ %540, %537 ], [ %544, %541 ], [ %548, %545 ], [ %552, %549 ], [ %556, %553 ], [ null, %_ZN5ZXing12BitArrayView8readBitsEi.exit54.i.i ]
   %557 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #25, !noalias !95
   %558 = icmp eq i32 %557, 0
   br i1 %558, label %559, label %570
@@ -2124,7 +2124,7 @@ _ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i: ; preds = %553, %549, %545
   br label %_ZN5ZXing5AztecL8GetTableEc.exit.i.i
 
 _ZN5ZXing5AztecL8GetTableEc.exit.i.i:             ; preds = %566, %565, %564, %563, %562, %559
-  %.0.i55.i.i = phi i32 [ 0, %566 ], [ 5, %565 ], [ 3, %564 ], [ 2, %563 ], [ 4, %562 ], [ 1, %559 ]
+  %.0.i55.i.i = phi i32 [ 0, %566 ], [ 4, %562 ], [ 2, %563 ], [ 3, %564 ], [ 5, %565 ], [ 1, %559 ]
   %567 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
   %568 = load i8, ptr %567, align 1, !tbaa !3, !noalias !95
   %569 = icmp eq i8 %568, 76

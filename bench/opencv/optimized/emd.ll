@@ -832,11 +832,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #18
   br label %.body
 
-.thread478:                                       ; preds = %268, %271, %272, %239, %286
-  %.086482 = phi ptr [ null, %286 ], [ @_ZL9icvDistL1PKfS0_Pv, %268 ], [ @_ZL9icvDistL2PKfS0_Pv, %271 ], [ @_ZL8icvDistCPKfS0_Pv, %272 ], [ %3, %239 ]
-  %.087481 = phi ptr [ %7, %286 ], [ %270, %268 ], [ %270, %271 ], [ %270, %272 ], [ %7, %239 ]
-  %302 = phi ptr [ %.pre, %286 ], [ null, %268 ], [ null, %271 ], [ null, %272 ], [ null, %239 ]
-  %303 = phi i32 [ %.pre471, %286 ], [ 0, %268 ], [ 0, %271 ], [ 0, %272 ], [ 0, %239 ]
+.thread478:                                       ; preds = %268, %272, %271, %239, %286
+  %.086482 = phi ptr [ null, %286 ], [ @_ZL9icvDistL1PKfS0_Pv, %268 ], [ @_ZL8icvDistCPKfS0_Pv, %272 ], [ @_ZL9icvDistL2PKfS0_Pv, %271 ], [ %3, %239 ]
+  %.087481 = phi ptr [ %7, %286 ], [ %270, %268 ], [ %270, %272 ], [ %270, %271 ], [ %7, %239 ]
+  %302 = phi ptr [ %.pre, %286 ], [ null, %268 ], [ null, %272 ], [ null, %271 ], [ null, %239 ]
+  %303 = phi i32 [ %.pre471, %286 ], [ 0, %268 ], [ 0, %272 ], [ 0, %271 ], [ 0, %239 ]
   %.in528 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %304 = load ptr, ptr %.in528, align 8, !tbaa !11
   %.in = getelementptr inbounds nuw i8, ptr %73, i64 24

@@ -50225,7 +50225,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   br i1 %or.cond13.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread56, label %285, !prof !1299
 
 .thread.i:                                        ; preds = %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit82.i
-  %.sroa.0.0.ph.i = phi i64 [ %211, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit82.i ], [ %242, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ]
+  %.sroa.0.0.ph.i = phi i64 [ %242, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ], [ %211, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit82.i ]
   %282 = add nsw i64 %.sroa.0.0.ph.i, %115
   %283 = load i64, ptr %9, align 8, !tbaa !293
   %284 = add nsw i64 %282, %283
@@ -50341,12 +50341,12 @@ switch.lookup69:                                  ; preds = %_ZN5arrow8internal6
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread51
 
 _ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread56: ; preds = %190, %.sink.split.i, %305, %143, %138, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i, %162, %157, %170, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i78.i, %203, %198, %212, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i, %220, %215, %230, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i86.i, %247, %243, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i, %254, %250, %264, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i91.i, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i
-  %.0.ph = phi i8 [ 0, %138 ], [ 0, %143 ], [ 0, %157 ], [ 0, %162 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i78.i ], [ 0, %170 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i ], [ 0, %190 ], [ %.1, %198 ], [ %.1, %203 ], [ %.1, %212 ], [ %.1, %215 ], [ %.1, %220 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i86.i ], [ %.1, %230 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i ], [ %.1, %243 ], [ %.1, %247 ], [ %.1, %250 ], [ %.1, %254 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i91.i ], [ %.1, %264 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i ], [ %.1, %305 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i ], [ %.1, %.sink.split.i ]
+  %.0.ph = phi i8 [ 0, %138 ], [ 0, %143 ], [ 0, %157 ], [ 0, %162 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i78.i ], [ 0, %170 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i ], [ 0, %190 ], [ %.1, %243 ], [ %.1, %247 ], [ %.1, %250 ], [ %.1, %254 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i91.i ], [ %.1, %264 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i ], [ %.1, %305 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i ], [ %.1, %212 ], [ %.1, %215 ], [ %.1, %220 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i86.i ], [ %.1, %230 ], [ %.1, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i ], [ %.1, %198 ], [ %.1, %203 ], [ %.1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread
 
 _ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61: ; preds = %303, %301, %299, %297
-  %.040.ph = phi i64 [ %298, %297 ], [ %304, %303 ], [ %300, %299 ], [ %302, %301 ]
+  %.040.ph = phi i64 [ %298, %297 ], [ %302, %301 ], [ %300, %299 ], [ %304, %303 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread51
 

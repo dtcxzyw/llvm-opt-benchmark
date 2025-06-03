@@ -1295,7 +1295,7 @@ read_iplane.exit.thread217:                       ; preds = %406, %.loopexit248,
   br label %458
 
 458:                                              ; preds = %1, %read_iplane.exit.thread217, %448, %26, %17
-  %.0 = phi i32 [ -12, %read_iplane.exit.thread217 ], [ %457, %448 ], [ -12, %26 ], [ %19, %17 ], [ %13, %1 ]
+  %.0 = phi i32 [ %457, %448 ], [ -12, %read_iplane.exit.thread217 ], [ -12, %26 ], [ %19, %17 ], [ %13, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
@@ -1471,7 +1471,7 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
   unreachable
 
 103:                                              ; preds = %97, %92, %87, %82
-  %.096 = phi i32 [ %101, %97 ], [ %96, %92 ], [ %91, %87 ], [ %86, %82 ]
+  %.096 = phi i32 [ %86, %82 ], [ %91, %87 ], [ %96, %92 ], [ %101, %97 ]
   %104 = icmp slt i32 %.096, 0
   br i1 %104, label %._crit_edge, label %105
 
@@ -1697,7 +1697,7 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   unreachable
 
 difference.exit:                                  ; preds = %59, %54
-  %.0104 = phi i32 [ %63, %59 ], [ %58, %54 ]
+  %.0104 = phi i32 [ %58, %54 ], [ %63, %59 ]
   %128 = icmp slt i32 %.0104, 0
   br i1 %128, label %difference.exit.thread138, label %difference.exit.thread
 
@@ -1708,8 +1708,8 @@ difference.exit.thread:                           ; preds = %118, %97, %76, %112
   %.not119 = icmp slt i64 %indvars.iv.next, %130
   br i1 %.not119, label %.lr.ph.split, label %difference.exit.thread138, !llvm.loop !120
 
-difference.exit.thread138:                        ; preds = %difference.exit.thread, %difference.exit, %106, %85, %64, %.lr.ph, %4
-  %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %68, %64 ], [ %89, %85 ], [ %110, %106 ], [ %.0104, %difference.exit ], [ 0, %difference.exit.thread ]
+difference.exit.thread138:                        ; preds = %difference.exit.thread, %difference.exit, %64, %85, %106, %.lr.ph, %4
+  %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %110, %106 ], [ %89, %85 ], [ %68, %64 ], [ %.0104, %difference.exit ], [ 0, %difference.exit.thread ]
   ret i32 %spec.select
 }
 

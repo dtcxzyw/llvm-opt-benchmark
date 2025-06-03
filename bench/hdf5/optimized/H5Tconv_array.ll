@@ -369,7 +369,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   br label %.thread265
 
 187:                                              ; preds = %179, %._crit_edge
-  %.1125 = phi i32 [ -1, %179 ], [ 0, %._crit_edge ]
+  %.1125 = phi i32 [ 0, %._crit_edge ], [ -1, %179 ]
   %188 = icmp sgt i64 %.1141, -1
   br i1 %188, label %189, label %.thread221
 
@@ -440,8 +440,8 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %218 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_array, i32 noundef 231, i64 noundef %216, i64 noundef %217, ptr noundef nonnull @.str.14) #6
   br label %.thread265
 
-.thread265:                                       ; preds = %183, %81, %87, %126, %75, %22, %37, %47, %._crit_edge279, %56, %67, %71, %9, %211, %215, %212, %204, %207
-  %.0127 = phi i32 [ -1, %207 ], [ %.4, %204 ], [ -1, %215 ], [ %.4, %212 ], [ %.4, %211 ], [ 0, %9 ], [ -1, %183 ], [ -1, %81 ], [ -1, %87 ], [ -1, %126 ], [ 0, %75 ], [ -1, %22 ], [ -1, %37 ], [ -1, %47 ], [ 0, %._crit_edge279 ], [ -1, %56 ], [ -1, %67 ], [ 0, %71 ]
+.thread265:                                       ; preds = %183, %22, %37, %._crit_edge279, %56, %67, %71, %47, %75, %81, %87, %126, %9, %211, %215, %212, %204, %207
+  %.0127 = phi i32 [ -1, %207 ], [ %.4, %204 ], [ -1, %215 ], [ %.4, %212 ], [ %.4, %211 ], [ 0, %9 ], [ -1, %183 ], [ -1, %22 ], [ -1, %37 ], [ 0, %._crit_edge279 ], [ -1, %56 ], [ -1, %67 ], [ 0, %71 ], [ -1, %47 ], [ 0, %75 ], [ -1, %81 ], [ -1, %87 ], [ -1, %126 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #6
   ret i32 %.0127
 }

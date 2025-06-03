@@ -2447,7 +2447,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h876c1bf940344d30E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h876c1bf940344d30E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2572,7 +2572,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN78_$LT$uv_pypi_types..parsed_url..ParsedUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h212c5ccd951d756bE.exit"
 
 "_ZN78_$LT$uv_pypi_types..parsed_url..ParsedUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h212c5ccd951d756bE.exit": ; preds = %17, %22, %25, %27, %31, %34, %37, %41
-  %.sroa.0.0.in.i = phi i1 [ %44, %41 ], [ %40, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %17 ]
+  %.sroa.0.0.in.i = phi i1 [ %21, %17 ], [ %24, %22 ], [ %26, %25 ], [ %30, %27 ], [ %33, %31 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2598,7 +2598,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hafc39c59f764d05bE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hafc39c59f764d05bE.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2641,7 +2641,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h74a2aa1edab3a86eE.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h74a2aa1edab3a86eE.exit": ; preds = %7, %11, %14
-  %.sroa.0.0.in.i.i = phi i1 [ %15, %14 ], [ %13, %11 ], [ %10, %7 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %10, %7 ], [ %13, %11 ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -2785,7 +2785,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8e7351c93e9b5efbE.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h8e7351c93e9b5efbE.exit": ; preds = %11, %13, %16, %19, %21, %23, %26
-  %.sroa.0.0.in.i.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -2852,7 +2852,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h863c92625ce25facE.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h863c92625ce25facE.exit": ; preds = %9, %12, %15, %18, %20, %22
-  %.sroa.0.0.in.i.i = phi i1 [ %24, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -2898,7 +2898,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf5a0c59dc9cd6501E.exit"
 
 "_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf5a0c59dc9cd6501E.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -6606,7 +6606,7 @@ default.unreachable1:                             ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %9, %7, %5
-  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %11, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %8, %7 ], [ %11, %9 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6782,7 +6782,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$uv_pep508..Pep508ErrorSource$LT$T
   br label %19
 
 19:                                               ; preds = %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7091,8 +7091,8 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try
   br label %24
 
 24:                                               ; preds = %22, %17
-  %.sroa.7.0 = phi i32 [ %.sroa.49.0.copyload, %22 ], [ %21, %17 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.08.0.copyload, %22 ], [ %19, %17 ]
+  %.sroa.7.0 = phi i32 [ %21, %17 ], [ %.sroa.49.0.copyload, %22 ]
+  %.sroa.0.0 = phi i32 [ %19, %17 ], [ %.sroa.08.0.copyload, %22 ]
   %25 = load i64, ptr %5, align 8, !range !89, !alias.scope !1705, !noalias !1708, !noundef !3
   %26 = icmp eq i64 %7, %25
   br i1 %26, label %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he6135ec8a23f0a8dE.exit"
@@ -7329,8 +7329,8 @@ define hidden noundef range(i32 0, -1) i32 @"_ZN8petgraph10graph_impl28Graph$LT$
   br label %26
 
 26:                                               ; preds = %24, %19
-  %.sroa.7.0.i = phi i32 [ %.sroa.49.0.copyload.i, %24 ], [ %23, %19 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.08.0.copyload.i, %24 ], [ %21, %19 ]
+  %.sroa.7.0.i = phi i32 [ %23, %19 ], [ %.sroa.49.0.copyload.i, %24 ]
+  %.sroa.0.0.i = phi i32 [ %21, %19 ], [ %.sroa.08.0.copyload.i, %24 ]
   %27 = load i64, ptr %7, align 8, !range !89, !alias.scope !1727, !noalias !1730, !noundef !3
   %28 = icmp eq i64 %9, %27
   br i1 %28, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4cfbbe4516fa1ce3E.llvm.2437970333601430186.exit"

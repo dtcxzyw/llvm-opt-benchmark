@@ -4794,10 +4794,10 @@ default.unreachable:                              ; preds = %"_ZN5alloc4sync16Ar
   br label %58
 
 58:                                               ; preds = %51, %44, %42, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread", %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread", %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread"
-  %.sroa.12.1 = phi i64 [ %.sroa.52.0.i.i, %51 ], [ %.sroa.5.0.i.i, %44 ], [ undef, %42 ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ]
-  %.sroa.921.1 = phi ptr [ %55, %51 ], [ %48, %44 ], [ undef, %42 ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ]
-  %.sroa.7.1 = phi i8 [ %.val5.i.i, %51 ], [ %.val7.i.i, %44 ], [ undef, %42 ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ]
-  %.sroa.3.1 = phi i8 [ %.val4.i.i, %51 ], [ %.val6.i.i, %44 ], [ %.val.i.i, %42 ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ]
+  %.sroa.12.1 = phi i64 [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %42 ], [ %.sroa.5.0.i.i, %44 ], [ %.sroa.52.0.i.i, %51 ]
+  %.sroa.921.1 = phi ptr [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %42 ], [ %48, %44 ], [ %55, %51 ]
+  %.sroa.7.1 = phi i8 [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %42 ], [ %.val7.i.i, %44 ], [ %.val5.i.i, %51 ]
+  %.sroa.3.1 = phi i8 [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ undef, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17hb7911e80d7d7d451E.exit.thread" ], [ %.val.i.i, %42 ], [ %.val6.i.i, %44 ], [ %.val4.i.i, %51 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1142)
   call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   %59 = atomicrmw sub ptr %.sroa.614.027, i64 1 release, align 8, !noalias !1148
@@ -5147,10 +5147,10 @@ default.unreachable:                              ; preds = %.noexc.i
           to label %common.resume unwind label %75, !noalias !1194
 
 63:                                               ; preds = %54, %47, %45, %.noexc.i, %.noexc.i, %.noexc.i
-  %.sroa.91.0.i.i = phi ptr [ %58, %54 ], [ %51, %47 ], [ undef, %45 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.7.0.i.i = phi i8 [ %.val5.i.i.i, %54 ], [ %.val7.i.i.i, %47 ], [ undef, %45 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.4.0.i.i = phi i8 [ %.val4.i.i.i, %54 ], [ %.val6.i.i.i, %47 ], [ %.val.i.i.i, %45 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.11.0.i.i = phi i64 [ %.sroa.52.0.i.i.i, %54 ], [ %.sroa.5.0.i.i.i, %47 ], [ undef, %45 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.91.0.i.i = phi ptr [ undef, %.noexc.i ], [ undef, %45 ], [ %51, %47 ], [ %58, %54 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.7.0.i.i = phi i8 [ undef, %.noexc.i ], [ undef, %45 ], [ %.val7.i.i.i, %47 ], [ %.val5.i.i.i, %54 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.4.0.i.i = phi i8 [ undef, %.noexc.i ], [ %.val.i.i.i, %45 ], [ %.val6.i.i.i, %47 ], [ %.val4.i.i.i, %54 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.11.0.i.i = phi i64 [ undef, %.noexc.i ], [ undef, %45 ], [ %.sroa.5.0.i.i.i, %47 ], [ %.sroa.52.0.i.i.i, %54 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
   %.sroa.016.0.copyload17 = load i64, ptr %4, align 8, !noalias !1197
   %.sroa.3.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload20 = load ptr, ptr %.sroa.3.0..sroa_idx19, align 8, !noalias !1197
@@ -10245,7 +10245,7 @@ common.resume.sink.split:                         ; preds = %9, %16, %35
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %29, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %40, %39 ], [ %30, %29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ], [ %45, %44 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %6
@@ -10613,7 +10613,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$ruff..commands..for
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$ruff_db..panic..PanicError$GT$$GT$17h436debabe6a6b29cE.exit" unwind label %43
 
 common.resume:                                    ; preds = %47, %72, %87, %39, %67, %62, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %88, %87 ], [ %73, %72 ], [ %48, %47 ], [ %40, %39 ], [ %63, %67 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %48, %47 ], [ %73, %72 ], [ %88, %87 ], [ %63, %67 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit3"
@@ -13142,10 +13142,10 @@ default.unreachable:                              ; preds = %.noexc.i
   br label %47
 
 47:                                               ; preds = %40, %33, %31, %.noexc.i, %.noexc.i, %.noexc.i
-  %.sroa.91.0.i.i = phi ptr [ %44, %40 ], [ %37, %33 ], [ undef, %31 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.7.0.i.i = phi i8 [ %.val5.i.i.i, %40 ], [ %.val7.i.i.i, %33 ], [ undef, %31 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.4.0.i.i = phi i8 [ %.val4.i.i.i, %40 ], [ %.val6.i.i.i, %33 ], [ %.val.i.i.i, %31 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
-  %.sroa.11.0.i.i = phi i64 [ %.sroa.52.0.i.i.i, %40 ], [ %.sroa.5.0.i.i.i, %33 ], [ undef, %31 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.91.0.i.i = phi ptr [ undef, %.noexc.i ], [ undef, %31 ], [ %37, %33 ], [ %44, %40 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.7.0.i.i = phi i8 [ undef, %.noexc.i ], [ undef, %31 ], [ %.val7.i.i.i, %33 ], [ %.val5.i.i.i, %40 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.4.0.i.i = phi i8 [ undef, %.noexc.i ], [ %.val.i.i.i, %31 ], [ %.val6.i.i.i, %33 ], [ %.val4.i.i.i, %40 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
+  %.sroa.11.0.i.i = phi i64 [ undef, %.noexc.i ], [ undef, %31 ], [ %.sroa.5.0.i.i.i, %33 ], [ %.sroa.52.0.i.i.i, %40 ], [ undef, %.noexc.i ], [ undef, %.noexc.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.023.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.023.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !2027
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2035
@@ -14368,10 +14368,10 @@ default.unreachable:                              ; preds = %22
   br label %"_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i"
 
 "_ZN79_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..clone..Clone$GT$5clone17h179f869d249745c3E.exit.i": ; preds = %35, %28, %26, %22, %22, %22
-  %.sroa.413.1.i = phi i8 [ %.val4.i.i, %35 ], [ %.val6.i.i, %28 ], [ %.val.i.i, %26 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ]
-  %.sroa.714.1.i = phi i8 [ %.val5.i.i, %35 ], [ %.val7.i.i, %28 ], [ %.sroa.714.034.i, %26 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ]
-  %.sroa.915.1.i = phi ptr [ %39, %35 ], [ %32, %28 ], [ %.sroa.915.037.i, %26 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.52.0.i.i, %35 ], [ %.sroa.5.0.i.i, %28 ], [ %.sroa.11.039.i, %26 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ]
+  %.sroa.413.1.i = phi i8 [ %.sroa.413.033.i, %22 ], [ %.val.i.i, %26 ], [ %.val6.i.i, %28 ], [ %.val4.i.i, %35 ], [ %.sroa.413.033.i, %22 ], [ %.sroa.413.033.i, %22 ]
+  %.sroa.714.1.i = phi i8 [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %26 ], [ %.val7.i.i, %28 ], [ %.val5.i.i, %35 ], [ %.sroa.714.034.i, %22 ], [ %.sroa.714.034.i, %22 ]
+  %.sroa.915.1.i = phi ptr [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %26 ], [ %32, %28 ], [ %39, %35 ], [ %.sroa.915.037.i, %22 ], [ %.sroa.915.037.i, %22 ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %26 ], [ %.sroa.5.0.i.i, %28 ], [ %.sroa.52.0.i.i, %35 ], [ %.sroa.11.039.i, %22 ], [ %.sroa.11.039.i, %22 ]
   %42 = getelementptr inbounds nuw { [3 x i64] }, ptr %16, i64 %.sroa.7.036.i
   store i8 %25, ptr %42, align 8, !noalias !2219
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 1
@@ -15146,7 +15146,7 @@ default.unreachable:                              ; preds = %29
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17h79ef296b2bbd0556E.exit": ; preds = %.noexc2, %.noexc1, %.noexc, %36, %33, %29
-  %.sroa.9.1 = phi i8 [ %.sroa.9.027, %.noexc2 ], [ %.sroa.9.027, %.noexc1 ], [ %.sroa.9.027, %.noexc ], [ %.sroa.9.027, %36 ], [ %35, %33 ], [ %.sroa.9.027, %29 ]
+  %.sroa.9.1 = phi i8 [ %35, %33 ], [ %.sroa.9.027, %36 ], [ %.sroa.9.027, %.noexc ], [ %.sroa.9.027, %.noexc1 ], [ %.sroa.9.027, %.noexc2 ], [ %.sroa.9.027, %29 ]
   %44 = getelementptr inbounds nuw { [4 x i64] }, ptr %20, i64 %.sroa.7.025
   store i8 %32, ptr %44, align 8, !noalias !2351
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -16083,9 +16083,9 @@ default.unreachable1.i.i20.i.i:                   ; preds = %165
   br label %216
 
 216:                                              ; preds = %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i", %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i", %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i"
-  %.sroa.9.0.i = phi i64 [ %.sroa.5.i8.i.sroa.0.0.i, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.0.i, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ %.sroa.01.0.i.i.i, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ]
-  %.sroa.6.0.i = phi i64 [ %.sroa.0.0.i18.i.i, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ], [ %.sroa.0.0.i.i.i, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ %.sroa.5.0.i.i.i, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ]
-  %.sroa.018.0.i = phi i64 [ 3, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ], [ 2, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ %61, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ]
+  %.sroa.9.0.i = phi i64 [ %.sroa.01.0.i.i.i, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.0.i, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ %.sroa.5.i8.i.sroa.0.0.i, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ]
+  %.sroa.6.0.i = phi i64 [ %.sroa.5.0.i.i.i, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ], [ %.sroa.0.0.i.i.i, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ %.sroa.0.0.i18.i.i, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ]
+  %.sroa.018.0.i = phi i64 [ %61, %"_ZN70_$LT$ruff_notebook..schema..CodeCell$u20$as$u20$core..clone..Clone$GT$5clone17h59e6a65eb7a3fcf0E.exit.i.i" ], [ 2, %"_ZN74_$LT$ruff_notebook..schema..MarkdownCell$u20$as$u20$core..clone..Clone$GT$5clone17h4a908bd4fe8a3514E.exit.i.i" ], [ 3, %"_ZN69_$LT$ruff_notebook..schema..RawCell$u20$as$u20$core..clone..Clone$GT$5clone17h17f07d046d8f55e8E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i8.i.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.52.i.i.i)

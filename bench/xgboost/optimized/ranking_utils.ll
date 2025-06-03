@@ -1962,7 +1962,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %118, %117 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %118, %117 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load float, ptr %.1.i.i.i.i.i.i, align 4, !tbaa !66
   %120 = tail call noundef float @llvm.floor.f32(float %.1.val.i.i.i.i.i.i)
   %121 = fsub float %120, %.1.val.i.i.i.i.i.i
@@ -1977,7 +1977,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %128
 
 128:                                              ; preds = %126, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %127, %126 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %127, %126 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load float, ptr %.2.i.i.i.i.i.i, align 4, !tbaa !66
   %129 = tail call noundef float @llvm.floor.f32(float %.2.val.i.i.i.i.i.i)
   %130 = fsub float %129, %.2.val.i.i.i.i.i.i
@@ -2116,7 +2116,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit8.i: ; preds = %_ZSt
   br label %177
 
 177:                                              ; preds = %175, %._crit_edge.i.i.i.i.i9.i
-  %.1.i.i.i.i.i15.i = phi ptr [ %.029.lcssa.i.i.i.i.i11.i, %._crit_edge.i.i.i.i.i9.i ], [ %176, %175 ]
+  %.1.i.i.i.i.i15.i = phi ptr [ %176, %175 ], [ %.029.lcssa.i.i.i.i.i11.i, %._crit_edge.i.i.i.i.i9.i ]
   %.1.val.i.i.i.i.i16.i = load float, ptr %.1.i.i.i.i.i15.i, align 4, !tbaa !66
   %178 = fptoui float %.1.val.i.i.i.i.i16.i to i32
   %179 = icmp ugt i32 %178, 31
@@ -2127,7 +2127,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit8.i: ; preds = %_ZSt
   br label %182
 
 182:                                              ; preds = %180, %._crit_edge.i.i.i.i.i9.i
-  %.2.i.i.i.i.i12.i = phi ptr [ %.029.lcssa.i.i.i.i.i11.i, %._crit_edge.i.i.i.i.i9.i ], [ %181, %180 ]
+  %.2.i.i.i.i.i12.i = phi ptr [ %181, %180 ], [ %.029.lcssa.i.i.i.i.i11.i, %._crit_edge.i.i.i.i.i9.i ]
   %.2.val.i.i.i.i.i13.i = load float, ptr %.2.i.i.i.i.i12.i, align 4, !tbaa !66
   %183 = fptoui float %.2.val.i.i.i.i.i13.i to i32
   %184 = icmp ugt i32 %183, 31
@@ -3020,7 +3020,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %60, %59 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load float, ptr %.1.i.i.i.i.i.i.i, align 4, !tbaa !66
   %62 = fadd float %.1.val.i.i.i.i.i.i.i, -1.000000e+00
   %63 = tail call noundef float @llvm.fabs.f32(float %62)
@@ -3035,7 +3035,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %68, %67 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load float, ptr %.2.i.i.i.i.i.i.i, align 4, !tbaa !66
   %70 = fadd float %.2.val.i.i.i.i.i.i.i, -1.000000e+00
   %71 = tail call noundef float @llvm.fabs.f32(float %70)
@@ -3290,7 +3290,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %60, %59 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load float, ptr %.1.i.i.i.i.i.i.i, align 4, !tbaa !66
   %62 = fadd float %.1.val.i.i.i.i.i.i.i, -1.000000e+00
   %63 = tail call noundef float @llvm.fabs.f32(float %62)
@@ -3305,7 +3305,7 @@ _ZNK7xgboost6linalg10TensorViewIKfLi2EE5SliceIJNS0_6detail6AllTagEiEEEDaDpOT_.ex
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %68, %67 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load float, ptr %.2.i.i.i.i.i.i.i, align 4, !tbaa !66
   %70 = fadd float %.2.val.i.i.i.i.i.i.i, -1.000000e+00
   %71 = tail call noundef float @llvm.fabs.f32(float %70)
@@ -10746,7 +10746,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %64
 
 64:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit, %58, %60, %62, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPKffSt7greaterIvEEES4_IT_SaISF_EEPKNS8_7ContextET0_SL_T2_EUlRKmSO_E_EET1_RSF_SF_RSL_SL_SQ_SM_T3_.exit ], [ %59, %58 ], [ %61, %60 ]
   ret ptr %.sroa.018.0
 }
 
@@ -20324,7 +20324,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %72
 
 72:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit, %66, %68, %70, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %71, %70 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImNS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EEfSt7greaterIvEEES4_ISG_SaISG_EEPKNS8_7ContextET0_ST_T2_EUlRKmSW_E_EET1_RSG_SG_RST_ST_SY_SU_T3_.exit ], [ %67, %66 ], [ %69, %68 ]
   ret ptr %.sroa.018.0
 }
 

@@ -743,7 +743,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   unreachable
 
 390:                                              ; preds = %388, %382, %378, %374, %371, %369
-  %.0393.i = phi nsz double [ 0.000000e+00, %388 ], [ %386, %382 ], [ %381, %378 ], [ %377, %374 ], [ %373, %371 ], [ %370, %369 ]
+  %.0393.i = phi nsz double [ %370, %369 ], [ %373, %371 ], [ %377, %374 ], [ %381, %378 ], [ 0.000000e+00, %388 ], [ %386, %382 ]
   %391 = fmul nsz double %.0393.i, %306
   %392 = fptosi double %391 to i32
   %393 = load i32, ptr %98, align 4, !tbaa !61

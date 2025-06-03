@@ -2755,15 +2755,15 @@ define void @"_ZN68_$LT$u64$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionVa
 30:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.thread.i"
   %31 = load i8, ptr %7, align 8, !range !645, !noundef !9
   %trunc35 = trunc nuw i8 %31 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %33 = load i8, ptr %32, align 1, !range !646
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i64, ptr %34, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %35 = load i8, ptr %34, align 1, !range !646
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %trunc35, label %.invoke, label %36
 
 36:                                               ; preds = %30, %56
-  %.sink = phi i64 [ %61, %56 ], [ %35, %30 ]
+  %.sink = phi i64 [ %59, %56 ], [ %33, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %37, align 8
   store i64 0, ptr %0, align 8
@@ -2818,15 +2818,15 @@ define void @"_ZN68_$LT$u64$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionVa
 56:                                               ; preds = %27
   %57 = load i8, ptr %8, align 8, !range !645, !noundef !9
   %trunc = trunc nuw i8 %57 to i1
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %59 = load i8, ptr %58, align 1, !range !646
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %61 = load i64, ptr %60, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %61 = load i8, ptr %60, align 1, !range !646
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc, label %.invoke, label %36
 
 .invoke:                                          ; preds = %56, %30
-  %62 = phi i8 [ %33, %30 ], [ %59, %56 ]
+  %62 = phi i8 [ %35, %30 ], [ %61, %56 ]
   %63 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf6247bb6f67ed79eE"(i8 noundef %62)
           to label %46 unwind label %25
 
@@ -2924,15 +2924,15 @@ define void @"_ZN70_$LT$usize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption
 30:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.thread.i"
   %31 = load i8, ptr %7, align 8, !range !645, !noundef !9
   %trunc35 = trunc nuw i8 %31 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %33 = load i8, ptr %32, align 1, !range !646
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i64, ptr %34, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %35 = load i8, ptr %34, align 1, !range !646
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %trunc35, label %.invoke, label %36
 
 36:                                               ; preds = %30, %56
-  %.sink = phi i64 [ %61, %56 ], [ %35, %30 ]
+  %.sink = phi i64 [ %59, %56 ], [ %33, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %37, align 8
   store i64 0, ptr %0, align 8
@@ -2987,15 +2987,15 @@ define void @"_ZN70_$LT$usize$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption
 56:                                               ; preds = %27
   %57 = load i8, ptr %8, align 8, !range !645, !noundef !9
   %trunc = trunc nuw i8 %57 to i1
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %59 = load i8, ptr %58, align 1, !range !646
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %61 = load i64, ptr %60, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %61 = load i8, ptr %60, align 1, !range !646
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %trunc, label %.invoke, label %36
 
 .invoke:                                          ; preds = %56, %30
-  %62 = phi i8 [ %33, %30 ], [ %59, %56 ]
+  %62 = phi i8 [ %35, %30 ], [ %61, %56 ]
   %63 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf6247bb6f67ed79eE"(i8 noundef %62)
           to label %46 unwind label %25
 

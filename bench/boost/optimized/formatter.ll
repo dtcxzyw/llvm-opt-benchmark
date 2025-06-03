@@ -1373,7 +1373,7 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit: ; preds = %404
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %409
 
 409:                                              ; preds = %529, %500, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230, %416, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit, %411, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit, %404
-  %.sroa.0285.3 = phi ptr [ %.sroa.0285.0, %500 ], [ null, %529 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230 ], [ null, %416 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit ], [ null, %411 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit ], [ null, %404 ]
+  %.sroa.0285.3 = phi ptr [ %.sroa.0285.0, %500 ], [ null, %529 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit ], [ null, %404 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit ], [ null, %411 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230 ], [ null, %416 ]
   %410 = landingpad { ptr, i32 }
           cleanup
   br label %547
@@ -1820,8 +1820,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %536, 
   ret void
 
 _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit283: ; preds = %402, %.body237, %.body276, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i282, %547, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205, %48
-  %.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %.pn101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ %.pn126, %547 ], [ %.pn126, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i282 ], [ %.pn111, %402 ], [ %.pn119.pn.pn, %.body237 ], [ %eh.lpad-body277, %.body276 ], [ %eh.lpad-body265, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn103.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ %.pn101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205 ], [ %.pn126, %547 ], [ %.pn126, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i282 ], [ %.pn111, %402 ], [ %.pn119.pn.pn, %.body237 ], [ %eh.lpad-body277, %.body276 ], [ %eh.lpad-body265, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272 ]
+  resume { ptr, i32 } %.pn103.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3638,7 +3638,7 @@ _ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit: ; preds = %512
           to label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %517
 
 517:                                              ; preds = %671, %626, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230, %524, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit, %519, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit, %512
-  %.sroa.0294.3 = phi ptr [ %.sroa.0294.0, %626 ], [ null, %671 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230 ], [ null, %524 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit ], [ null, %519 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit ], [ null, %512 ]
+  %.sroa.0294.3 = phi ptr [ %.sroa.0294.0, %626 ], [ null, %671 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit ], [ null, %512 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit ], [ null, %519 ], [ null, %_ZN5boost6locale8impl_icu21time_flags_to_icu_lenEm.exit232 ], [ null, %_ZN5boost6locale8impl_icu21date_flags_to_icu_lenEm.exit230 ], [ null, %524 ]
   %518 = landingpad { ptr, i32 }
           cleanup
   br label %706
@@ -4199,8 +4199,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %697, 
   ret void
 
 _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit290: ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit261, %510, %700, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit279, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i289, %706, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204, %62
-  %.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172 ], [ %.pn101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %.pn126, %706 ], [ %.pn126, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i289 ], [ %.pn119.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit261 ], [ %.pn111, %510 ], [ %701, %700 ], [ %667, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit279 ]
-  resume { ptr, i32 } %.pn.pn.pn
+  %.pn103.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %.pn101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ], [ %.pn126, %706 ], [ %.pn126, %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i289 ], [ %.pn119.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit261 ], [ %.pn111, %510 ], [ %701, %700 ], [ %667, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit279 ]
+  resume { ptr, i32 } %.pn103.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

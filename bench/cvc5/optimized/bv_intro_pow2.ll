@@ -1774,7 +1774,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit111: ; preds = %_ZN4cvc58internal1
   br label %.body104
 
 .body104:                                         ; preds = %138, %539, %.body99, %468, %463, %354
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body99 ], [ %.pn36, %468 ], [ %.pn.pn.pn, %463 ], [ %.pn40.pn.pn.pn, %354 ], [ %139, %138 ], [ %540, %539 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body99 ], [ %.pn40.pn.pn.pn, %354 ], [ %.pn36, %468 ], [ %.pn.pn.pn, %463 ], [ %139, %138 ], [ %540, %539 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
   br label %577

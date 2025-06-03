@@ -2207,7 +2207,7 @@ define dso_local noundef i32 @_ZNK4llvm8DIEValue6sizeOfERKNS_5dwarf10FormParamsE
   unreachable
 
 _ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %32, %35, %36, %39
-  %.0.shrunk.i = phi i8 [ %41, %39 ], [ %..i.i.i15, %36 ], [ 8, %35 ], [ 4, %32 ]
+  %.0.shrunk.i = phi i8 [ 8, %35 ], [ %..i.i.i15, %36 ], [ %41, %39 ], [ 4, %32 ]
   %.0.i13 = zext i8 %.0.shrunk.i to i32
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
@@ -2422,7 +2422,7 @@ _ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %32
   br label %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
 _ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %145, %148
-  %.1.i.i = phi i32 [ %147, %145 ], [ %150, %148 ]
+  %.1.i.i = phi i32 [ %150, %148 ], [ %147, %145 ]
   %151 = add i32 %.1.i.i, 4
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
@@ -2430,7 +2430,7 @@ _ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds
   unreachable
 
 _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %2, %129, %128, %124, %121, %114, %110, %106, %102, %90, %86, %82, %78, %73, %64, %57, %56, %55, %54, %51, %47, %46, %43, %28, %27, %24, %17, %15, %9, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %133, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %19
-  %.0 = phi i32 [ %139, %133 ], [ %.0.i13, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %23, %19 ], [ %151, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %11, %9 ], [ %18, %17 ], [ %16, %15 ], [ %..i.i.i, %28 ], [ 8, %27 ], [ 4, %24 ], [ %..i.i.i17, %47 ], [ 8, %46 ], [ 4, %43 ], [ %71, %64 ], [ %63, %57 ], [ 8, %56 ], [ 4, %55 ], [ 2, %54 ], [ 1, %51 ], [ %95, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %78 ], [ 16, %73 ], [ %119, %114 ], [ %113, %110 ], [ %109, %106 ], [ %105, %102 ], [ %..i.i.i23, %129 ], [ 8, %128 ], [ %127, %124 ], [ 4, %121 ], [ 4, %2 ]
+  %.0 = phi i32 [ %151, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %23, %19 ], [ %.0.i13, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %139, %133 ], [ %16, %15 ], [ %18, %17 ], [ %11, %9 ], [ 8, %27 ], [ %..i.i.i, %28 ], [ 4, %24 ], [ 8, %46 ], [ %..i.i.i17, %47 ], [ 4, %43 ], [ 2, %54 ], [ 4, %55 ], [ 8, %56 ], [ %63, %57 ], [ %71, %64 ], [ 1, %51 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %95, %90 ], [ 16, %73 ], [ %105, %102 ], [ %109, %106 ], [ %113, %110 ], [ %119, %114 ], [ %127, %124 ], [ 8, %128 ], [ %..i.i.i23, %129 ], [ 4, %121 ], [ 4, %2 ]
   ret i32 %.0
 }
 
@@ -2516,7 +2516,7 @@ define dso_local void @_ZNK4llvm8DIEValue9emitValueEPKNS_10AsmPrinterE(ptr nound
   unreachable
 
 _ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %12, %18, %19
-  %.0.i.i = phi i32 [ %..i.i.i.i, %19 ], [ 8, %18 ], [ 4, %12 ]
+  %.0.i.i = phi i32 [ 8, %18 ], [ %..i.i.i.i, %19 ], [ 4, %12 ]
   %21 = load ptr, ptr %1, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
   %23 = load ptr, ptr %22, align 8
@@ -2556,7 +2556,7 @@ _ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %1
   unreachable
 
 _ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %24, %30, %31, %33
-  %.0.shrunk.i.i = phi i32 [ %36, %33 ], [ %..i.i.i.i14, %31 ], [ 8, %30 ], [ 4, %24 ]
+  %.0.shrunk.i.i = phi i32 [ 8, %30 ], [ %..i.i.i.i14, %31 ], [ %36, %33 ], [ 4, %24 ]
   %38 = icmp ne i16 %27, 1
   tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %28, i64 noundef 0, i32 noundef %.0.shrunk.i.i, i1 noundef zeroext %38) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
@@ -2606,7 +2606,7 @@ _ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %
   unreachable
 
 _ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %52, %61, %62
-  %.0.i.i19 = phi i32 [ %..i.i.i.i18, %62 ], [ 8, %61 ], [ 4, %52 ]
+  %.0.i.i19 = phi i32 [ 8, %61 ], [ %..i.i.i.i18, %62 ], [ 4, %52 ]
   tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %57, ptr noundef %59, i32 noundef %.0.i.i19) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
@@ -2777,7 +2777,7 @@ define dso_local void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwa
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
 _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %17, %22, %24
-  %.1.i = phi i32 [ %19, %17 ], [ %25, %24 ], [ %23, %22 ]
+  %.1.i = phi i32 [ %23, %22 ], [ %25, %24 ], [ %19, %17 ]
   %26 = load ptr, ptr %12, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 544
   %28 = load ptr, ptr %27, align 8
@@ -2891,7 +2891,7 @@ define dso_local void @_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4F
   unreachable
 
 _ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %6, %7
-  %.0.i = phi i32 [ %..i.i.i, %7 ], [ 8, %6 ], [ 4, %3 ]
+  %.0.i = phi i32 [ 8, %6 ], [ %..i.i.i, %7 ], [ 4, %3 ]
   %9 = load ptr, ptr %1, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
@@ -2930,7 +2930,7 @@ define dso_local void @_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4
   unreachable
 
 _ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %6, %7, %9
-  %.0.shrunk.i = phi i32 [ %12, %9 ], [ %..i.i.i, %7 ], [ 8, %6 ], [ 4, %3 ]
+  %.0.shrunk.i = phi i32 [ 8, %6 ], [ %..i.i.i, %7 ], [ %12, %9 ], [ 4, %3 ]
   %14 = icmp ne i16 %2, 1
   tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, i64 noundef 0, i32 noundef %.0.shrunk.i, i1 noundef zeroext %14) #21
   ret void
@@ -2978,7 +2978,7 @@ define dso_local void @_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4
   unreachable
 
 _ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %8, %9
-  %.0.i = phi i32 [ %..i.i.i, %9 ], [ 8, %8 ], [ 4, %3 ]
+  %.0.i = phi i32 [ 8, %8 ], [ %..i.i.i, %9 ], [ 4, %3 ]
   tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, ptr noundef %6, i32 noundef %.0.i) #21
   ret void
 }
@@ -3348,7 +3348,7 @@ define dso_local noundef i32 @_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormPara
   br label %15
 
 15:                                               ; preds = %6, %13, %11
-  %.1 = phi i32 [ %8, %6 ], [ %14, %13 ], [ %12, %11 ]
+  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %8, %6 ]
   ret i32 %.1
 }
 
@@ -3430,7 +3430,7 @@ _ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %22
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
 _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %40, %37, %20, %18, %14, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-  %.0 = phi i32 [ %..i.i.i, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %16, %14 ], [ %21, %20 ], [ %19, %18 ], [ %39, %37 ], [ %41, %40 ]
+  %.0 = phi i32 [ %..i.i.i, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %19, %18 ], [ %21, %20 ], [ %16, %14 ], [ %41, %40 ], [ %39, %37 ]
   ret i32 %.0
 }
 
@@ -3456,7 +3456,7 @@ define dso_local noundef range(i32 4, 9) i32 @_ZNK4llvm7DIEExpr6sizeOfERKNS_5dwa
   unreachable
 
 9:                                                ; preds = %3, %5, %4
-  %.0 = phi i32 [ %..i.i, %5 ], [ 8, %4 ], [ 4, %3 ]
+  %.0 = phi i32 [ 8, %4 ], [ %..i.i, %5 ], [ 4, %3 ]
   ret i32 %.0
 }
 
@@ -3489,7 +3489,7 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm8DIELabel6sizeOfERKNS_5
   unreachable
 
 12:                                               ; preds = %3, %8, %5, %4
-  %.0.shrunk = phi i8 [ %10, %8 ], [ %..i.i, %5 ], [ 8, %4 ], [ 4, %3 ]
+  %.0.shrunk = phi i8 [ 8, %4 ], [ %..i.i, %5 ], [ %10, %8 ], [ 4, %3 ]
   %.0 = zext i8 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3521,7 +3521,7 @@ define dso_local noundef range(i32 4, 9) i32 @_ZNK4llvm8DIEDelta6sizeOfERKNS_5dw
   unreachable
 
 9:                                                ; preds = %3, %5, %4
-  %.0 = phi i32 [ %..i.i, %5 ], [ 8, %4 ], [ 4, %3 ]
+  %.0 = phi i32 [ 8, %4 ], [ %..i.i, %5 ], [ 4, %3 ]
   ret i32 %.0
 }
 
@@ -3570,7 +3570,7 @@ define dso_local noundef i32 @_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsE
   unreachable
 
 22:                                               ; preds = %3, %13, %7, %6, %5, %4
-  %.0 = phi i32 [ %20, %13 ], [ %12, %7 ], [ 8, %6 ], [ 4, %5 ], [ 2, %4 ], [ 1, %3 ]
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 8, %6 ], [ %12, %7 ], [ %20, %13 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -3615,7 +3615,7 @@ define dso_local noundef i32 @_ZNK4llvm8DIEBlock6sizeOfERKNS_5dwarf10FormParamsE
   unreachable
 
 23:                                               ; preds = %3, %16, %12, %8, %4
-  %.0 = phi i32 [ %21, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ 16, %3 ]
+  %.0 = phi i32 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %21, %16 ], [ 16, %3 ]
   ret i32 %.0
 }
 
@@ -3659,7 +3659,7 @@ define dso_local noundef i32 @_ZNK4llvm6DIELoc6sizeOfERKNS_5dwarf10FormParamsENS
   unreachable
 
 23:                                               ; preds = %16, %12, %8, %4
-  %.0 = phi i32 [ %21, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ]
+  %.0 = phi i32 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %21, %16 ]
   ret i32 %.0
 }
 
@@ -3691,7 +3691,7 @@ define dso_local noundef i32 @_ZNK4llvm10DIELocList6sizeOfERKNS_5dwarf10FormPara
   unreachable
 
 12:                                               ; preds = %3, %8, %7, %4
-  %.0 = phi i32 [ %..i.i, %8 ], [ 8, %7 ], [ %6, %4 ], [ 4, %3 ]
+  %.0 = phi i32 [ %6, %4 ], [ 8, %7 ], [ %..i.i, %8 ], [ 4, %3 ]
   ret i32 %.0
 }
 
@@ -3723,7 +3723,7 @@ define dso_local noundef i32 @_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormP
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
 _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %6, %9
-  %.1.i = phi i32 [ %8, %6 ], [ %11, %9 ]
+  %.1.i = phi i32 [ %11, %9 ], [ %8, %6 ]
   %12 = add i32 %.1.i, 4
   ret i32 %12
 }

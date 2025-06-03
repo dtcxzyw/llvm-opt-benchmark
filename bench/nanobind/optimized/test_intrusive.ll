@@ -1281,7 +1281,7 @@ _ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9r
   br label %24
 
 24:                                               ; preds = %12, %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit
-  %.sroa.0.1 = phi ptr [ %11, %12 ], [ %23, %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit ]
+  %.sroa.0.1 = phi ptr [ %23, %_ZN8nanobind6detail16type_caster_baseI4TestE8from_cppIPKS2_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE.exit ], [ %11, %12 ]
   ret ptr %.sroa.0.1
 }
 

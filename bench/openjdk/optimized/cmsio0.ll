@@ -230,12 +230,12 @@ define hidden ptr @cmsOpenIOhandlerFromMem(ptr noundef %0, ptr noundef %1, i32 n
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %10) #19
   br label %.thread
 
-.thread:                                          ; preds = %9, %21, %40
+.thread:                                          ; preds = %21, %9, %40
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #19
   br label %41
 
 41:                                               ; preds = %4, %.thread, %27, %25, %17
-  %.055 = phi ptr [ null, %25 ], [ null, %.thread ], [ %5, %27 ], [ null, %17 ], [ null, %4 ]
+  %.055 = phi ptr [ null, %25 ], [ null, %.thread ], [ null, %17 ], [ %5, %27 ], [ null, %4 ]
   ret ptr %.055
 }
 
@@ -513,7 +513,7 @@ define hidden ptr @cmsOpenIOhandlerFromFile(ptr noundef %0, ptr noundef %1, ptr 
   br label %55
 
 55:                                               ; preds = %3, %43, %42, %41, %36, %31, %19, %16
-  %.0 = phi ptr [ null, %19 ], [ null, %16 ], [ null, %42 ], [ null, %41 ], [ %5, %43 ], [ null, %31 ], [ null, %36 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %16 ], [ null, %42 ], [ null, %31 ], [ null, %36 ], [ %5, %43 ], [ null, %41 ], [ null, %3 ]
   ret ptr %.0
 }
 

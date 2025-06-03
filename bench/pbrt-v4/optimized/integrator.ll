@@ -1740,7 +1740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNK4pbrt7Sampler15SamplesPerPixelEv.exit
 
 _ZNK4pbrt7Sampler15SamplesPerPixelEv.exit:        ; preds = %500, %498, %494, %492, %490, %488, %483, %481, %479
-  %.0.i.i.i = phi i32 [ %501, %500 ], [ %499, %498 ], [ %497, %494 ], [ %493, %492 ], [ %491, %490 ], [ %489, %488 ], [ %487, %483 ], [ %482, %481 ], [ %480, %479 ]
+  %.0.i.i.i = phi i32 [ %501, %500 ], [ %480, %479 ], [ %482, %481 ], [ %487, %483 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ], [ %497, %494 ], [ %499, %498 ]
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.0.i.i.i, ptr %502, align 4, !tbaa !172
   %503 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !tbaa !127
@@ -7526,7 +7526,7 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   br label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_15DiffuseMaterialEEEDaS3_.exit
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_15DiffuseMaterialEEEDaS3_.exit: ; preds = %3, %.critedge25.i.i.i48, %70, %108, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %35, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
-  %.0 = phi i1 [ %110, %108 ], [ %.3.i.i.i75, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit ], [ %.3.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %.3.i.i.i45, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %.3.i.i.i36, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %36, %35 ], [ %.3.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ false, %70 ], [ true, %.critedge25.i.i.i48 ], [ true, %3 ]
+  %.0 = phi i1 [ %110, %108 ], [ %.3.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ %36, %35 ], [ %.3.i.i.i36, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %.3.i.i.i45, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %.3.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %.3.i.i.i75, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit ], [ false, %70 ], [ true, %.critedge25.i.i.i48 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -26818,7 +26818,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i:     ; preds = %.preheader.i.i.i.i
   br label %_ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit.i.i.i.i
 
 _ZNK4pbrt5Light2LeERKNS_3RayERKNS_18SampledWavelengthsE.exit.i.i.i.i: ; preds = %159, %157, %155, %149, %149, %149, %149, %149, %149
-  %.pn.i.i.i.i.i.i.i = phi { <2 x float>, <2 x float> } [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ]
+  %.pn.i.i.i.i.i.i.i = phi { <2 x float>, <2 x float> } [ %160, %159 ], [ %156, %155 ], [ %158, %157 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ], [ zeroinitializer, %149 ]
   %161 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i.i.i.i, 0
   store <2 x float> %161, ptr %16, align 8
   %162 = extractvalue { <2 x float>, <2 x float> } %.pn.i.i.i.i.i.i.i, 1
@@ -27611,7 +27611,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -28470,7 +28470,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   br label %_ZZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS5_.exit
 
 _ZZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightEENKUlT_E_clIPKNS_17PowerLightSamplerEEEDaS5_.exit: ; preds = %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i, %12, %69, %63, %6
-  %.0 = phi float [ %74, %69 ], [ %68, %63 ], [ %.0.i.i.i, %6 ], [ %62, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i ], [ 0.000000e+00, %12 ]
+  %.0 = phi float [ %74, %69 ], [ %.0.i.i.i, %6 ], [ %68, %63 ], [ %62, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEEixERKS1_.exit.i.i.i ], [ 0.000000e+00, %12 ]
   ret float %.0
 }
 
@@ -29683,7 +29683,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt6detail8DispatchIRZNKS_5Lig
   br label %74
 
 74:                                               ; preds = %3, %3, %65, %56, %47, %38, %29, %20, %11
-  %.0 = phi float [ %73, %65 ], [ %64, %56 ], [ %55, %47 ], [ %46, %38 ], [ %37, %29 ], [ %28, %20 ], [ %19, %11 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %3 ]
+  %.0 = phi float [ %73, %65 ], [ %19, %11 ], [ %28, %20 ], [ %37, %29 ], [ %46, %38 ], [ %55, %47 ], [ %64, %56 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %3 ]
   ret float %.0
 }
 
@@ -32330,7 +32330,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN4pbrt7Bounds2IiEEN4pstd4spanI
   br label %_ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i
 
 _ZNK4pbrt4Film11GetPixelRGBENS_6Point2IiEEf.exit.i.i.i: ; preds = %24, %22, %20
-  %.pn.i.i.i.i.i.i = phi { <2 x float>, float } [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn.i.i.i.i.i.i = phi { <2 x float>, float } [ %25, %24 ], [ %21, %20 ], [ %23, %22 ]
   %.fca.0.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i.i.i.i, 0
   %.fca.1.extract.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i.i.i.i, 1
   %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %.fca.0.extract.i.i.i, i64 0
@@ -32863,7 +32863,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 "_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator25UpdateFramebufferFromFilmENS0_7Bounds2IiEEfPNS0_3RGBEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %19, %21, %23
-  %.pn.i.i.i16.i.i.i = phi { <2 x float>, float } [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.pn.i.i.i16.i.i.i = phi { <2 x float>, float } [ %24, %23 ], [ %20, %19 ], [ %22, %21 ]
   %.fca.0.extract3.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i16.i.i.i, 0
   %.fca.1.extract4.i.i.i = extractvalue { <2 x float>, float } %.pn.i.i.i16.i.i.i, 1
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %.fca.0.extract3.i.i.i, i64 0

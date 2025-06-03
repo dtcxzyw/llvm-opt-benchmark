@@ -7820,7 +7820,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %42
 
 42:                                               ; preds = %18, %15
-  %.sroa.3.0 = phi i64 [ %21, %18 ], [ %17, %15 ]
+  %.sroa.3.0 = phi i64 [ %17, %15 ], [ %21, %18 ]
   %43 = insertvalue { i64, i64 } poison, i64 %13, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44
@@ -8425,8 +8425,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %70
 
 70:                                               ; preds = %65, %73
-  %.sroa.3.0 = phi ptr [ undef, %73 ], [ %69, %65 ]
-  %.sroa.0.0 = phi ptr [ null, %73 ], [ %67, %65 ]
+  %.sroa.3.0 = phi ptr [ %69, %65 ], [ undef, %73 ]
+  %.sroa.0.0 = phi ptr [ %67, %65 ], [ null, %73 ]
   %71 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %72 = insertvalue { ptr, ptr } %71, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %72

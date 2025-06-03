@@ -15986,7 +15986,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %47, %46 ]
+  %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1, !tbaa !20
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
@@ -16000,7 +16000,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1, !tbaa !20
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58
@@ -17671,7 +17671,7 @@ define linkonce_odr dso_local void @_ZN4absl27StripLeadingAsciiWhitespaceEPNSt7_
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %49, %48 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %51 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !20
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %52
@@ -17685,7 +17685,7 @@ define linkonce_odr dso_local void @_ZN4absl27StripLeadingAsciiWhitespaceEPNSt7_
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %57, %56 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %57, %56 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %59 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !20
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %60

@@ -837,7 +837,7 @@ get_lcaf_data.exit:                               ; preds = %16, %19
   br label %55
 
 55:                                               ; preds = %5, %get_lcaf_data.exit, %49, %45, %35, %25, %12, %8, %7
-  %.0 = phi ptr [ %54, %49 ], [ %48, %45 ], [ %34, %25 ], [ %44, %35 ], [ %15, %12 ], [ %11, %8 ], [ @.str, %7 ], [ %24, %get_lcaf_data.exit ], [ null, %5 ]
+  %.0 = phi ptr [ @.str, %7 ], [ %11, %8 ], [ %15, %12 ], [ %34, %25 ], [ %44, %35 ], [ %48, %45 ], [ %54, %49 ], [ %24, %get_lcaf_data.exit ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #3
   ret ptr %.0
 }
@@ -1061,8 +1061,8 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %dissect_lcaf_afi_list.exit
 
 113:                                              ; preds = %101, %94, %87, %80, %73
-  %.184.i = phi i32 [ %109, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ]
-  %.1.i = phi i32 [ %108, %101 ], [ %99, %94 ], [ %92, %87 ], [ %85, %80 ], [ %78, %73 ]
+  %.184.i = phi i32 [ %79, %73 ], [ %86, %80 ], [ %93, %87 ], [ %100, %94 ], [ %109, %101 ]
+  %.1.i = phi i32 [ %78, %73 ], [ %85, %80 ], [ %92, %87 ], [ %99, %94 ], [ %108, %101 ]
   %114 = add i32 %.085.i172, 1
   %115 = icmp sgt i32 %.184.i, 0
   br i1 %115, label %64, label %dissect_lcaf_afi_list.exit, !llvm.loop !6
@@ -1141,7 +1141,7 @@ dissect_lcaf_afi_list.exit:                       ; preds = %113, %62, %110
   br label %dissect_lcaf_iid.exit
 
 dissect_lcaf_iid.exit:                            ; preds = %130, %131, %135, %139, %141, %145, %150
-  %.0.i131 = phi i32 [ %124, %150 ], [ %149, %145 ], [ %144, %141 ], [ %140, %139 ], [ %138, %135 ], [ %134, %131 ], [ %124, %130 ]
+  %.0.i131 = phi i32 [ %124, %150 ], [ %124, %130 ], [ %134, %131 ], [ %138, %135 ], [ %140, %139 ], [ %144, %141 ], [ %149, %145 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #3
   br label %dissect_lcaf_natt.exit
 
@@ -1213,7 +1213,7 @@ dissect_lcaf_iid.exit:                            ; preds = %130, %131, %135, %1
   br label %dissect_lcaf_asn.exit
 
 dissect_lcaf_asn.exit:                            ; preds = %166, %167, %171, %175, %177, %181, %186
-  %.0.i133 = phi i32 [ %160, %186 ], [ %185, %181 ], [ %180, %177 ], [ %176, %175 ], [ %174, %171 ], [ %170, %167 ], [ %160, %166 ]
+  %.0.i133 = phi i32 [ %160, %186 ], [ %160, %166 ], [ %170, %167 ], [ %174, %171 ], [ %176, %175 ], [ %180, %177 ], [ %185, %181 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #3
   br label %dissect_lcaf_natt.exit
 
@@ -1401,7 +1401,7 @@ dissect_lcaf_asn.exit:                            ; preds = %166, %167, %171, %1
   br label %dissect_lcaf_geo.exit
 
 dissect_lcaf_geo.exit:                            ; preds = %280, %281, %285, %289, %291, %295, %300
-  %.0.i135 = phi i32 [ %274, %300 ], [ %299, %295 ], [ %294, %291 ], [ %290, %289 ], [ %288, %285 ], [ %284, %281 ], [ %274, %280 ]
+  %.0.i135 = phi i32 [ %274, %300 ], [ %274, %280 ], [ %284, %281 ], [ %288, %285 ], [ %290, %289 ], [ %294, %291 ], [ %299, %295 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #3
   br label %dissect_lcaf_natt.exit
 
@@ -1509,7 +1509,7 @@ dissect_lcaf_geo.exit:                            ; preds = %280, %281, %285, %2
   br label %dissect_lcaf_nonce_loc.exit
 
 dissect_lcaf_nonce_loc.exit:                      ; preds = %342, %343, %347, %351, %353, %357, %362
-  %.0.i138 = phi i32 [ %336, %362 ], [ %361, %357 ], [ %356, %353 ], [ %352, %351 ], [ %350, %347 ], [ %346, %343 ], [ %336, %342 ]
+  %.0.i138 = phi i32 [ %336, %362 ], [ %336, %342 ], [ %346, %343 ], [ %350, %347 ], [ %352, %351 ], [ %356, %353 ], [ %361, %357 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
   br label %dissect_lcaf_natt.exit
 
@@ -1568,7 +1568,7 @@ dissect_lcaf_nonce_loc.exit:                      ; preds = %342, %343, %347, %3
   br label %402
 
 402:                                              ; preds = %399, %397, %393, %389
-  %.0.i139 = phi i32 [ %387, %399 ], [ %398, %397 ], [ %396, %393 ], [ %392, %389 ]
+  %.0.i139 = phi i32 [ %387, %399 ], [ %392, %389 ], [ %396, %393 ], [ %398, %397 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %381, ptr noundef nonnull @.str.4, ptr noundef %388)
   %403 = load i16, ptr %10, align 2
   %404 = zext i16 %403 to i32
@@ -1611,7 +1611,7 @@ dissect_lcaf_nonce_loc.exit:                      ; preds = %342, %343, %347, %3
   br label %dissect_lcaf_mcast_info.exit
 
 dissect_lcaf_mcast_info.exit:                     ; preds = %415, %419, %423, %425
-  %.1.i140 = phi i32 [ %413, %425 ], [ %424, %423 ], [ %422, %419 ], [ %418, %415 ]
+  %.1.i140 = phi i32 [ %413, %425 ], [ %418, %415 ], [ %422, %419 ], [ %424, %423 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %407, ptr noundef nonnull @.str.4, ptr noundef %414)
   %428 = load i16, ptr %10, align 2
   %429 = zext i16 %428 to i32
@@ -1790,7 +1790,7 @@ dissect_lcaf_elp_hop.exit:                        ; preds = %480, %482
   br label %525
 
 525:                                              ; preds = %522, %518, %516, %512, %508
-  %.0.i142 = phi i32 [ %506, %522 ], [ %521, %518 ], [ %517, %516 ], [ %515, %512 ], [ %511, %508 ]
+  %.0.i142 = phi i32 [ %506, %522 ], [ %511, %508 ], [ %515, %512 ], [ %517, %516 ], [ %521, %518 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %500, ptr noundef nonnull @.str.4, ptr noundef %507)
   %526 = load i16, ptr %9, align 2
   %527 = zext i16 %526 to i32
@@ -1841,7 +1841,7 @@ dissect_lcaf_elp_hop.exit:                        ; preds = %480, %482
   br label %dissect_lcaf_src_dst_key.exit
 
 dissect_lcaf_src_dst_key.exit:                    ; preds = %538, %542, %546, %548, %552
-  %.1.i143 = phi i32 [ %536, %552 ], [ %551, %548 ], [ %547, %546 ], [ %545, %542 ], [ %541, %538 ]
+  %.1.i143 = phi i32 [ %536, %552 ], [ %541, %538 ], [ %545, %542 ], [ %547, %546 ], [ %551, %548 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %530, ptr noundef nonnull @.str.4, ptr noundef %537)
   %555 = load i16, ptr %9, align 2
   %556 = zext i16 %555 to i32
@@ -1983,7 +1983,7 @@ dissect_lcaf_rle_entry.exit:                      ; preds = %588, %589
   br label %630
 
 630:                                              ; preds = %627, %622, %618, %616, %612, %608
-  %.0.i147 = phi i32 [ %606, %627 ], [ %626, %622 ], [ %621, %618 ], [ %617, %616 ], [ %615, %612 ], [ %611, %608 ]
+  %.0.i147 = phi i32 [ %606, %627 ], [ %611, %608 ], [ %615, %612 ], [ %617, %616 ], [ %621, %618 ], [ %626, %622 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %600, ptr noundef nonnull @.str.4, ptr noundef %607)
   %631 = load i16, ptr %8, align 2
   %632 = zext i16 %631 to i32
@@ -2042,7 +2042,7 @@ dissect_lcaf_rle_entry.exit:                      ; preds = %588, %589
   br label %dissect_lcaf_kv_addr_pair.exit
 
 dissect_lcaf_kv_addr_pair.exit:                   ; preds = %643, %647, %651, %653, %657, %662
-  %.1.i148 = phi i32 [ %641, %662 ], [ %661, %657 ], [ %656, %653 ], [ %652, %651 ], [ %650, %647 ], [ %646, %643 ]
+  %.1.i148 = phi i32 [ %641, %662 ], [ %646, %643 ], [ %650, %647 ], [ %652, %651 ], [ %656, %653 ], [ %661, %657 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %635, ptr noundef nonnull @.str.4, ptr noundef %642)
   %665 = load i16, ptr %8, align 2
   %666 = zext i16 %665 to i32
@@ -2071,7 +2071,7 @@ dissect_lcaf_kv_addr_pair.exit:                   ; preds = %643, %647, %651, %6
   br label %683
 
 dissect_lcaf_natt.exit:                           ; preds = %dissect_lcaf_rle_entry.exit, %dissect_lcaf_elp_hop.exit, %.lr.ph170, %.preheader156, %.preheader, %302, %668, %dissect_lcaf_kv_addr_pair.exit, %dissect_lcaf_src_dst_key.exit, %dissect_lcaf_mcast_info.exit, %dissect_lcaf_nonce_loc.exit, %dissect_lcaf_geo.exit, %dissect_lcaf_asn.exit, %dissect_lcaf_iid.exit, %dissect_lcaf_afi_list.exit, %53
-  %.0130 = phi i32 [ %59, %668 ], [ %.1.i148, %dissect_lcaf_kv_addr_pair.exit ], [ %.1.i143, %dissect_lcaf_src_dst_key.exit ], [ %.1.i140, %dissect_lcaf_mcast_info.exit ], [ %.0.i138, %dissect_lcaf_nonce_loc.exit ], [ %.0.i135, %dissect_lcaf_geo.exit ], [ %.0.i133, %dissect_lcaf_asn.exit ], [ %.0.i131, %dissect_lcaf_iid.exit ], [ %.0.i, %dissect_lcaf_afi_list.exit ], [ %58, %53 ], [ %314, %302 ], [ %58, %.preheader ], [ %58, %.preheader156 ], [ %320, %.lr.ph170 ], [ %483, %dissect_lcaf_elp_hop.exit ], [ %594, %dissect_lcaf_rle_entry.exit ]
+  %.0130 = phi i32 [ %58, %53 ], [ %.0.i, %dissect_lcaf_afi_list.exit ], [ %.0.i131, %dissect_lcaf_iid.exit ], [ %.0.i133, %dissect_lcaf_asn.exit ], [ %.0.i135, %dissect_lcaf_geo.exit ], [ %.0.i138, %dissect_lcaf_nonce_loc.exit ], [ %.1.i140, %dissect_lcaf_mcast_info.exit ], [ %.1.i143, %dissect_lcaf_src_dst_key.exit ], [ %.1.i148, %dissect_lcaf_kv_addr_pair.exit ], [ %59, %668 ], [ %314, %302 ], [ %58, %.preheader ], [ %58, %.preheader156 ], [ %320, %.lr.ph170 ], [ %483, %dissect_lcaf_elp_hop.exit ], [ %594, %dissect_lcaf_rle_entry.exit ]
   call void @decrement_dissection_depth(ptr noundef %1)
   br label %683
 
@@ -2258,7 +2258,7 @@ define hidden i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noun
   br label %107
 
 107:                                              ; preds = %102, %98, %91, %87, %83, %72
-  %.0135 = phi i32 [ %19, %72 ], [ %106, %102 ], [ %101, %98 ], [ %97, %91 ], [ %90, %87 ], [ %86, %83 ]
+  %.0135 = phi i32 [ %19, %72 ], [ %86, %83 ], [ %90, %87 ], [ %97, %91 ], [ %101, %98 ], [ %106, %102 ]
   %108 = zext i8 %53 to i32
   %.not142 = icmp eq i8 %53, 0
   br i1 %.not142, label %.loopexit, label %.lr.ph
@@ -2693,7 +2693,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_lisp_map_request.exit
 
 110:                                              ; preds = %102, %92, %89, %86, %83
-  %.0231.i = phi i32 [ 20, %102 ], [ %101, %92 ], [ 30, %89 ], [ 18, %86 ], [ 14, %83 ]
+  %.0231.i = phi i32 [ 14, %83 ], [ 18, %86 ], [ 30, %89 ], [ %101, %92 ], [ 20, %102 ]
   %narrow.i = add nuw nsw i8 %72, 1
   %111 = zext nneg i8 %narrow.i to i32
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2837,7 +2837,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %190
 
 190:                                              ; preds = %185, %181, %174, %170, %166, %157
-  %.6.i = phi i32 [ %142, %157 ], [ %189, %185 ], [ %184, %181 ], [ %180, %174 ], [ %173, %170 ], [ %169, %166 ]
+  %.6.i = phi i32 [ %142, %157 ], [ %169, %166 ], [ %173, %170 ], [ %180, %174 ], [ %184, %181 ], [ %189, %185 ]
   %191 = add nuw nsw i32 %.1254.i, 1
   %192 = zext i8 %139 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.474, i32 noundef %191, ptr noundef nonnull %143, i32 noundef %192)

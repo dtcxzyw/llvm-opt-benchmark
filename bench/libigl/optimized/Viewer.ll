@@ -4899,7 +4899,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %36, %136, %137, %97, %102, %101, %_ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit, %177, %170, %154, %138, %127, %118, %80, %71, %60, %51, %44, %37
-  %.1 = phi i1 [ true, %177 ], [ true, %170 ], [ true, %154 ], [ true, %138 ], [ true, %127 ], [ true, %118 ], [ true, %80 ], [ true, %71 ], [ true, %60 ], [ true, %51 ], [ true, %44 ], [ true, %37 ], [ true, %_ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit ], [ true, %101 ], [ true, %102 ], [ true, %97 ], [ true, %137 ], [ true, %136 ], [ false, %36 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ true, %37 ], [ true, %44 ], [ true, %51 ], [ true, %60 ], [ true, %71 ], [ true, %80 ], [ true, %118 ], [ true, %127 ], [ true, %138 ], [ true, %154 ], [ true, %170 ], [ true, %177 ], [ true, %_ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit ], [ true, %101 ], [ true, %102 ], [ true, %97 ], [ true, %137 ], [ true, %136 ], [ false, %36 ], [ true, %.lr.ph ]
   ret i1 %.1
 }
 

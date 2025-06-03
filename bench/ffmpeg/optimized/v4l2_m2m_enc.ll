@@ -592,10 +592,10 @@ v4l2_set_ext_ctrl.exit89.i:                       ; preds = %235, %231
   br label %238
 
 238:                                              ; preds = %237, %236, %v4l2_set_ext_ctrl.exit89.i, %217, %v4l2_h264_profile_from_ff.exit.i, %v4l2_h264_profile_from_ff.exit.thread.i, %201, %v4l2_set_ext_ctrl.exit84.i
-  %.066.i = phi i32 [ 10029819, %237 ], [ 10029819, %236 ], [ 10029665, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029665, %v4l2_h264_profile_from_ff.exit.i ], [ 10029665, %201 ], [ 10029715, %v4l2_set_ext_ctrl.exit89.i ], [ 10029715, %217 ], [ 10029615, %v4l2_set_ext_ctrl.exit84.i ]
-  %.065.i = phi i32 [ 10029820, %237 ], [ 10029820, %236 ], [ 10029666, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029666, %v4l2_h264_profile_from_ff.exit.i ], [ 10029666, %201 ], [ 10029716, %v4l2_set_ext_ctrl.exit89.i ], [ 10029716, %217 ], [ 10029616, %v4l2_set_ext_ctrl.exit84.i ]
-  %.063.i = phi i32 [ 0, %237 ], [ 0, %236 ], [ 0, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 0, %v4l2_h264_profile_from_ff.exit.i ], [ 0, %201 ], [ 1, %v4l2_set_ext_ctrl.exit89.i ], [ 1, %217 ], [ 1, %v4l2_set_ext_ctrl.exit84.i ]
-  %.062.i = phi i32 [ 255, %237 ], [ 127, %236 ], [ 51, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 51, %v4l2_h264_profile_from_ff.exit.i ], [ 51, %201 ], [ 31, %v4l2_set_ext_ctrl.exit89.i ], [ 31, %217 ], [ 31, %v4l2_set_ext_ctrl.exit84.i ]
+  %.066.i = phi i32 [ 10029819, %236 ], [ 10029819, %237 ], [ 10029665, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029665, %v4l2_h264_profile_from_ff.exit.i ], [ 10029665, %201 ], [ 10029715, %v4l2_set_ext_ctrl.exit89.i ], [ 10029715, %217 ], [ 10029615, %v4l2_set_ext_ctrl.exit84.i ]
+  %.065.i = phi i32 [ 10029820, %236 ], [ 10029820, %237 ], [ 10029666, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029666, %v4l2_h264_profile_from_ff.exit.i ], [ 10029666, %201 ], [ 10029716, %v4l2_set_ext_ctrl.exit89.i ], [ 10029716, %217 ], [ 10029616, %v4l2_set_ext_ctrl.exit84.i ]
+  %.063.i = phi i32 [ 0, %236 ], [ 0, %237 ], [ 0, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 0, %v4l2_h264_profile_from_ff.exit.i ], [ 0, %201 ], [ 1, %v4l2_set_ext_ctrl.exit89.i ], [ 1, %217 ], [ 1, %v4l2_set_ext_ctrl.exit84.i ]
+  %.062.i = phi i32 [ 127, %236 ], [ 255, %237 ], [ 51, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 51, %v4l2_h264_profile_from_ff.exit.i ], [ 51, %201 ], [ 31, %v4l2_set_ext_ctrl.exit89.i ], [ 31, %217 ], [ 31, %v4l2_set_ext_ctrl.exit84.i ]
   %239 = load i32, ptr %196, align 4, !tbaa !67
   %240 = icmp sgt i32 %239, -1
   %.pre106.i = load i32, ptr %198, align 8, !tbaa !68

@@ -1676,7 +1676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %101, %100 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %101, %100 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %103 = load i64, ptr %.sroa.025.1.i.i.i.i.i, align 8, !tbaa !12, !noalias !69
   %104 = icmp slt i64 %103, 0
   br i1 %104, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i, label %105
@@ -1686,7 +1686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %106, %105 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %106, %105 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %108 = load i64, ptr %.sroa.025.2.i.i.i.i.i, align 8, !tbaa !12, !noalias !69
   %109 = icmp slt i64 %108, 0
   %spec.select.i.i.i.i.i = select i1 %109, ptr %.sroa.025.2.i.i.i.i.i, ptr %.val29

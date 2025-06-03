@@ -3626,10 +3626,10 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i: ; preds = %673, %670, %670,
   unreachable
 
 686:                                              ; preds = %684, %683, %682, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i
-  %687 = phi i1 [ true, %684 ], [ false, %683 ], [ false, %682 ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
-  %688 = phi i1 [ true, %684 ], [ true, %683 ], [ true, %682 ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
-  %689 = phi i1 [ false, %684 ], [ false, %683 ], [ false, %682 ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
-  %.0.i95 = phi i16 [ 20, %684 ], [ 15, %683 ], [ 16, %682 ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
+  %687 = phi i1 [ false, %682 ], [ false, %683 ], [ true, %684 ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
+  %688 = phi i1 [ true, %682 ], [ true, %683 ], [ true, %684 ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ false, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
+  %689 = phi i1 [ false, %682 ], [ false, %683 ], [ false, %684 ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ true, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
+  %.0.i95 = phi i16 [ 16, %682 ], [ 15, %683 ], [ 20, %684 ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 14, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
   %690 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %691 = load ptr, ptr %690, align 8, !tbaa !199
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 96
@@ -5173,7 +5173,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %35, %38
   br label %66
 
 66:                                               ; preds = %61, %65, %64, %63
-  %.056 = phi i32 [ 2785, %65 ], [ 2787, %64 ], [ 2779, %63 ], [ 2781, %61 ]
+  %.056 = phi i32 [ 2779, %63 ], [ 2787, %64 ], [ 2785, %65 ], [ 2781, %61 ]
   store i32 %.056, ptr %2, align 8, !tbaa !219
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !25
@@ -5293,7 +5293,7 @@ _ZN4llvm6MCInstD2Ev.exit63:                       ; preds = %103, %114
   br label %_ZL21convertTailJumpOpcodej.exit
 
 _ZL21convertTailJumpOpcodej.exit:                 ; preds = %61, %118, %119, %120
-  %.0.i = phi i32 [ 1987, %120 ], [ 1985, %119 ], [ 1983, %118 ], [ 1978, %61 ]
+  %.0.i = phi i32 [ 1983, %118 ], [ 1985, %119 ], [ 1987, %120 ], [ 1978, %61 ]
   store i32 %.0.i, ptr %2, align 8, !tbaa !219
   br label %144
 
@@ -5308,7 +5308,7 @@ _ZL21convertTailJumpOpcodej.exit67:               ; preds = %61, %61
   br label %_ZL21convertTailJumpOpcodej.exit69
 
 _ZL21convertTailJumpOpcodej.exit69:               ; preds = %61, %121, %122
-  %.0.i68 = phi i32 [ 1982, %122 ], [ 1980, %121 ], [ 1976, %61 ]
+  %.0.i68 = phi i32 [ 1980, %121 ], [ 1982, %122 ], [ 1976, %61 ]
   store i32 %.0.i68, ptr %2, align 8, !tbaa !219
   br label %144
 
@@ -5449,17 +5449,17 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33: ; preds = %23
 43:                                               ; preds = %36
   unreachable
 
-44:                                               ; preds = %36, %36, %42, %41, %40, %39
-  %.sroa.7.0.i.ph = phi i64 [ 2, %39 ], [ 1, %40 ], [ 1, %41 ], [ 3, %42 ], [ 2, %36 ], [ 2, %36 ]
-  %.sroa.0.0.i.ph = phi ptr [ @.str.52, %39 ], [ @.str.53, %40 ], [ @.str.54, %41 ], [ @.str.55, %42 ], [ @.str.51, %36 ], [ @.str.51, %36 ]
+44:                                               ; preds = %36, %36, %39, %40, %41, %42
+  %.sroa.7.0.i.ph = phi i64 [ 3, %42 ], [ 1, %41 ], [ 1, %40 ], [ 2, %39 ], [ 2, %36 ], [ 2, %36 ]
+  %.sroa.0.0.i.ph = phi ptr [ @.str.55, %42 ], [ @.str.54, %41 ], [ @.str.53, %40 ], [ @.str.52, %39 ], [ @.str.51, %36 ], [ @.str.51, %36 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.i.ph, i64 %.sroa.7.0.i.ph, i1 false)
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %44, %36, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
-  %.sink = phi i64 [ 6, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ 8, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ %.sroa.7.0.i.ph, %44 ], [ 0, %36 ]
-  %.ph = phi i1 [ true, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ true, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ false, %44 ], [ false, %36 ]
-  %.sroa.057.068.ph = phi ptr [ null, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ null, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ @.str.50, %44 ], [ @.str.50, %36 ]
-  %.sroa.5.067.ph = phi i64 [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ 13, %44 ], [ 13, %36 ]
+.thread.sink.split:                               ; preds = %44, %36, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33
+  %.sink = phi i64 [ 8, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ 6, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.sroa.7.0.i.ph, %44 ], [ 0, %36 ]
+  %.ph = phi i1 [ true, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ true, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ false, %44 ], [ false, %36 ]
+  %.sroa.057.068.ph = phi ptr [ null, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ null, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ @.str.50, %44 ], [ @.str.50, %36 ]
+  %.sroa.5.067.ph = phi i64 [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i33 ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ 13, %44 ], [ 13, %36 ]
   store i64 %.sink, ptr %28, align 8, !tbaa !74
   br label %.thread
 
@@ -5787,9 +5787,9 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %3, %13
   unreachable
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %45, %50, %64
-  %.sroa.029.0 = phi i8 [ 1, %64 ], [ 2, %50 ], [ %48, %45 ]
-  %.sroa.10.0 = phi i64 [ %.sroa.3.8.insert.ext.i, %64 ], [ %52, %50 ], [ %49, %45 ]
-  %.0 = phi i32 [ 1133, %64 ], [ 1132, %50 ], [ 1132, %45 ]
+  %.sroa.029.0 = phi i8 [ %48, %45 ], [ 2, %50 ], [ 1, %64 ]
+  %.sroa.10.0 = phi i64 [ %49, %45 ], [ %52, %50 ], [ %.sroa.3.8.insert.ext.i, %64 ]
+  %.0 = phi i32 [ 1132, %45 ], [ 1132, %50 ], [ 1133, %64 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #21
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -7085,8 +7085,8 @@ _ZL21convertTailJumpOpcodej.exit.thread52:        ; preds = %3, %3
   %.idx54 = shl nuw nsw i64 %28, 5
   br label %36
 
-_ZL21convertTailJumpOpcodej.exit.thread:          ; preds = %25, %24, %23, %22, %21, %20, %3
-  %.0.i.ph = phi i32 [ 1976, %20 ], [ 1983, %21 ], [ 1980, %22 ], [ 1985, %23 ], [ 1982, %24 ], [ 1987, %25 ], [ 1978, %3 ]
+_ZL21convertTailJumpOpcodej.exit.thread:          ; preds = %20, %21, %22, %23, %24, %25, %3
+  %.0.i.ph = phi i32 [ 1987, %25 ], [ 1982, %24 ], [ 1985, %23 ], [ 1980, %22 ], [ 1983, %21 ], [ 1976, %20 ], [ 1978, %3 ]
   store i32 %.0.i.ph, ptr %7, align 8, !tbaa !219
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i24, ptr %29, align 8
@@ -8474,13 +8474,13 @@ _ZN4llvm13MCInstBuilderD2Ev.exit38:               ; preds = %_ZN4llvm13MCInstBui
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #21
   br label %64
 
-_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60: ; preds = %.lr.ph, %18, %26, %25, %24, %23, %22, %27, %28
-  %.03194113 = phi i32 [ 2857, %28 ], [ 2853, %26 ], [ 2853, %25 ], [ 2857, %24 ], [ 2853, %23 ], [ 2853, %22 ], [ 2857, %27 ], [ 2853, %18 ], [ 2857, %.lr.ph ]
-  %.03095112 = phi i64 [ 51, %28 ], [ 51, %26 ], [ 0, %25 ], [ 51, %24 ], [ 51, %23 ], [ 0, %22 ], [ 51, %27 ], [ 0, %18 ], [ 51, %.lr.ph ]
-  %.02996111 = phi i64 [ 512, %28 ], [ 512, %26 ], [ 512, %25 ], [ 8, %24 ], [ 8, %23 ], [ 8, %22 ], [ 512, %27 ], [ 0, %18 ], [ 512, %.lr.ph ]
-  %.02897110 = phi i64 [ 12, %28 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %27 ], [ 0, %18 ], [ 12, %.lr.ph ]
-  %.02798109 = phi i32 [ 10, %28 ], [ %.sroa.speculated70, %26 ], [ %.sroa.speculated70, %25 ], [ %.sroa.speculated70, %24 ], [ %.sroa.speculated70, %23 ], [ %.sroa.speculated70, %22 ], [ %.sroa.speculated70, %27 ], [ %.sroa.speculated70, %18 ], [ 10, %.lr.ph ]
-  %.sroa.speculated99107 = phi i32 [ %.sroa.speculated, %28 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %27 ], [ 0, %18 ], [ %.sroa.speculated, %.lr.ph ]
+_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60: ; preds = %.lr.ph, %18, %27, %22, %23, %24, %25, %26, %28
+  %.03194113 = phi i32 [ 2857, %28 ], [ 2857, %27 ], [ 2853, %22 ], [ 2853, %23 ], [ 2857, %24 ], [ 2853, %25 ], [ 2853, %26 ], [ 2853, %18 ], [ 2857, %.lr.ph ]
+  %.03095112 = phi i64 [ 51, %28 ], [ 51, %27 ], [ 0, %22 ], [ 51, %23 ], [ 51, %24 ], [ 0, %25 ], [ 51, %26 ], [ 0, %18 ], [ 51, %.lr.ph ]
+  %.02996111 = phi i64 [ 512, %28 ], [ 512, %27 ], [ 8, %22 ], [ 8, %23 ], [ 8, %24 ], [ 512, %25 ], [ 512, %26 ], [ 0, %18 ], [ 512, %.lr.ph ]
+  %.02897110 = phi i64 [ 12, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ 12, %.lr.ph ]
+  %.02798109 = phi i32 [ 10, %28 ], [ %.sroa.speculated70, %27 ], [ %.sroa.speculated70, %22 ], [ %.sroa.speculated70, %23 ], [ %.sroa.speculated70, %24 ], [ %.sroa.speculated70, %25 ], [ %.sroa.speculated70, %26 ], [ %.sroa.speculated70, %18 ], [ 10, %.lr.ph ]
+  %.sroa.speculated99107 = phi i32 [ %.sroa.speculated, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ %.sroa.speculated, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #21
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -10769,8 +10769,8 @@ define internal fastcc { i8, i64 } @_ZNK12_GLOBAL__N_114X86MCInstLower19LowerMac
   br label %65
 
 65:                                               ; preds = %3, %8, %56, %44, %35, %29, %21, %16, %13, %10
-  %.sroa.021.0 = phi i8 [ %63, %56 ], [ %54, %44 ], [ %42, %35 ], [ %33, %29 ], [ %27, %21 ], [ %19, %16 ], [ 2, %13 ], [ 1, %10 ], [ 0, %8 ], [ 0, %3 ]
-  %.sroa.11.0 = phi i64 [ %64, %56 ], [ %55, %44 ], [ %43, %35 ], [ %34, %29 ], [ %28, %21 ], [ %20, %16 ], [ %15, %13 ], [ %.sroa.3.8.insert.ext.i, %10 ], [ 0, %8 ], [ 0, %3 ]
+  %.sroa.021.0 = phi i8 [ 1, %10 ], [ 2, %13 ], [ %19, %16 ], [ %27, %21 ], [ %33, %29 ], [ %42, %35 ], [ %54, %44 ], [ %63, %56 ], [ 0, %8 ], [ 0, %3 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.3.8.insert.ext.i, %10 ], [ %15, %13 ], [ %20, %16 ], [ %28, %21 ], [ %34, %29 ], [ %43, %35 ], [ %55, %44 ], [ %64, %56 ], [ 0, %8 ], [ 0, %3 ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.11.0, 1
   ret { i8, i64 } %.fca.1.insert
@@ -10940,12 +10940,12 @@ define internal fastcc { i8, i64 } @_ZNK12_GLOBAL__N_114X86MCInstLower18LowerSym
   br label %63
 
 63:                                               ; preds = %38, %51, %12
-  %.0 = phi ptr [ %62, %51 ], [ %47, %38 ], [ %21, %12 ]
+  %.0 = phi ptr [ %21, %12 ], [ %62, %51 ], [ %47, %38 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %66
 
-.thread:                                          ; preds = %3, %3, %3, %3, %11, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %63
-  %.01824 = phi i16 [ 0, %63 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 21, %11 ], [ 28, %22 ], [ 14, %23 ], [ 15, %24 ], [ 16, %25 ], [ 9, %26 ], [ 10, %27 ], [ 17, %28 ], [ 18, %29 ], [ 11, %30 ], [ 12, %31 ], [ 7, %32 ], [ 8, %33 ], [ 2, %34 ], [ 4, %35 ], [ 13, %36 ], [ 37, %37 ]
+.thread:                                          ; preds = %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %11, %3, %3, %3, %3, %63
+  %.01824 = phi i16 [ 0, %63 ], [ 37, %37 ], [ 13, %36 ], [ 4, %35 ], [ 2, %34 ], [ 8, %33 ], [ 7, %32 ], [ 12, %31 ], [ 11, %30 ], [ 18, %29 ], [ 17, %28 ], [ 10, %27 ], [ 9, %26 ], [ 16, %25 ], [ 15, %24 ], [ 14, %23 ], [ 28, %22 ], [ 21, %11 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %64 = load ptr, ptr %0, align 8, !tbaa !859
   %65 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %2, i16 noundef zeroext %.01824, ptr noundef nonnull align 8 dereferenceable(2432) %64, ptr null) #21
   br label %66

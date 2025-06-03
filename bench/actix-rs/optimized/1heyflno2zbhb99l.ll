@@ -8104,7 +8104,7 @@ _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i: ; preds =
   br label %_ZN6brotli3enc9histogram7Context17h3c4d6e2e7062a258E.exit
 
 _ZN6brotli3enc9histogram7Context17h3c4d6e2e7062a258E.exit: ; preds = %472, %474, %476, %485
-  %.0.i = phi i8 [ %493, %485 ], [ %484, %476 ], [ %475, %474 ], [ %473, %472 ]
+  %.0.i = phi i8 [ %473, %472 ], [ %475, %474 ], [ %484, %476 ], [ %493, %485 ]
   %494 = zext i8 %.0.i to i64
   %495 = load ptr, ptr %321, align 8, !alias.scope !1034, !nonnull !4, !align !5, !noundef !4
   %496 = load i64, ptr %322, align 8, !alias.scope !1034, !noundef !4
@@ -9262,7 +9262,7 @@ define noundef zeroext i1 @"_ZN83_$LT$actix_http..header..shared..quality..Quali
   br label %11
 
 11:                                               ; preds = %22, %16, %5, %42, %30, %32, %24, %40, %38, %9, %7
-  %.0.shrunk = phi i1 [ %46, %42 ], [ %39, %38 ], [ %41, %40 ], [ %25, %24 ], [ %31, %30 ], [ %33, %32 ], [ %10, %9 ], [ %8, %7 ], [ true, %5 ], [ true, %22 ], [ true, %16 ]
+  %.0.shrunk = phi i1 [ %46, %42 ], [ %39, %38 ], [ %41, %40 ], [ %25, %24 ], [ %31, %30 ], [ %33, %32 ], [ %8, %7 ], [ %10, %9 ], [ true, %5 ], [ true, %22 ], [ true, %16 ]
   ret i1 %.0.shrunk
 
 12:                                               ; preds = %5

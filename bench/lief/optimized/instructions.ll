@@ -533,7 +533,7 @@ _ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit:        ; preds = %.critedge.i, %.crit
   br label %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread
 
 _ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread: ; preds = %.critedge.i, %7, %2, %15, %21, %27, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit
-  %.0 = phi i64 [ %37, %27 ], [ %26, %21 ], [ %20, %15 ], [ -1, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %.critedge.i ]
+  %.0 = phi i64 [ %20, %15 ], [ %26, %21 ], [ %37, %27 ], [ -1, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %.critedge.i ]
   ret i64 %.0
 }
 

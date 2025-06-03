@@ -402,7 +402,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN75_$LT$rustls..error..CertRevocationListError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2326569a2e5d970E.exit"
 
 "_ZN75_$LT$rustls..error..CertRevocationListError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2326569a2e5d970E.exit": ; preds = %6, %8, %10, %12, %14, %17, %19, %21, %23, %25, %27
-  %.sroa.0.0.in.i = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -439,7 +439,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit"
 
 "_ZN70_$LT$rustls..error..ExtendedKeyPurpose$u20$as$u20$core..fmt..Debug$GT$3fmt17h3896de1d4af65d7eE.exit": ; preds = %8, %10, %12
-  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN68_$LT$rustls..error..CertificateError$u20$as$u20$core..fmt..Debug$GT$3fmt17he33a42855262a0f7E.exit"
 
 "_ZN68_$LT$rustls..error..CertificateError$u20$as$u20$core..fmt..Debug$GT$3fmt17he33a42855262a0f7E.exit": ; preds = %16, %18, %20, %24, %26, %30, %32, %34, %36, %38, %40, %44, %46, %48, %51, %53, %57, %59
-  %.sroa.0.0.in.i = phi i1 [ %61, %59 ], [ %58, %57 ], [ %56, %53 ], [ %52, %51 ], [ %50, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %26 ], [ %25, %24 ], [ %23, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %16 ], [ %19, %18 ], [ %23, %20 ], [ %25, %24 ], [ %29, %26 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %43, %40 ], [ %45, %44 ], [ %47, %46 ], [ %50, %48 ], [ %52, %51 ], [ %56, %53 ], [ %58, %57 ], [ %61, %59 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -851,7 +851,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$rustls..error..InvalidMessage$u20$as$u20$core..fmt..Debug$GT$3fmt17h0addb4d33ba3eb28E.exit"
 
 "_ZN66_$LT$rustls..error..InvalidMessage$u20$as$u20$core..fmt..Debug$GT$3fmt17h0addb4d33ba3eb28E.exit": ; preds = %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %37, %39, %41, %44, %47, %49, %51, %53, %56, %58, %61
-  %.sroa.0.0.in.i = phi i1 [ %62, %61 ], [ %60, %58 ], [ %57, %56 ], [ %55, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %36, %34 ], [ %38, %37 ], [ %40, %39 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %55, %53 ], [ %57, %56 ], [ %60, %58 ], [ %62, %61 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1008,7 +1008,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit"
 
 "_ZN68_$LT$rustls..error..PeerIncompatible$u20$as$u20$core..fmt..Debug$GT$3fmt17h16f1c55befcd8215E.exit": ; preds = %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50
-  %.sroa.0.0.in.i = phi i1 [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4282,7 +4282,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustls..error..Erro
   unreachable
 
 49:                                               ; preds = %50, %45
-  %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %46, %45 ]
+  %.pn.i = phi { ptr, i32 } [ %46, %45 ], [ %51, %50 ]
   resume { ptr, i32 } %.pn.i
 
 50:                                               ; preds = %44
@@ -12900,7 +12900,7 @@ default.unreachable:                              ; preds = %2
   br label %13
 
 13:                                               ; preds = %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in
 }
 

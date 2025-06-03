@@ -2794,7 +2794,7 @@ default.unreachable:                              ; preds = %138
   unreachable
 
 143:                                              ; preds = %138, %140, %141, %142
-  %.05.i = phi double [ %.sink.i, %142 ], [ %.sink24.i, %141 ], [ %.sink25.i, %140 ], [ %.sink26.i, %138 ]
+  %.05.i = phi double [ %.sink25.i, %140 ], [ %.sink24.i, %141 ], [ %.sink.i, %142 ], [ %.sink26.i, %138 ]
   %144 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %120, i64 %.029
   %145 = load double, ptr %144, align 8, !tbaa !122, !noalias !216
   %146 = fmul double %.05.i, %145
@@ -3336,7 +3336,7 @@ default.unreachable:                              ; preds = %138
   unreachable
 
 143:                                              ; preds = %138, %140, %141, %142
-  %.05.i = phi double [ %.sink.i, %142 ], [ %.sink13.i, %141 ], [ %.sink14.i, %140 ], [ %.sink15.i, %138 ]
+  %.05.i = phi double [ %.sink14.i, %140 ], [ %.sink13.i, %141 ], [ %.sink.i, %142 ], [ %.sink15.i, %138 ]
   %144 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %120, i64 %.029
   %145 = load double, ptr %144, align 8, !tbaa !122, !noalias !246
   %146 = fmul double %.05.i, %145

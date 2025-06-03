@@ -2190,7 +2190,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %_ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i
 
 _ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i: ; preds = %56, %55, %49, %48, %48, %48, %38
-  %.sroa.0.0.i32.i = phi i8 [ 0, %56 ], [ 3, %55 ], [ %47, %38 ], [ 1, %48 ], [ 1, %48 ], [ 1, %48 ], [ %spec.select44.i, %49 ]
+  %.sroa.0.0.i32.i = phi i8 [ 3, %55 ], [ 0, %56 ], [ %47, %38 ], [ 1, %48 ], [ 1, %48 ], [ 1, %48 ], [ %spec.select44.i, %49 ]
   %57 = zext nneg i8 %.sroa.0.0.i32.i to i16
   br label %.thread.i
 

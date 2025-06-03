@@ -6243,7 +6243,7 @@ define noundef zeroext i1 @"_ZN63_$LT$uu_hashsum..HashsumError$u20$as$u20$core..
   br label %18
 
 18:                                               ; preds = %12, %6
-  %.0.in = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in
 }
 

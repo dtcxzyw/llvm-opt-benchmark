@@ -199,7 +199,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   br label %79
 
 79:                                               ; preds = %71, %._crit_edge
-  %.2 = phi i32 [ %.0128.lcssa, %._crit_edge ], [ %78, %71 ]
+  %.2 = phi i32 [ %78, %71 ], [ %.0128.lcssa, %._crit_edge ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
@@ -902,7 +902,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exi
   br label %78
 
 78:                                               ; preds = %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit, %57, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit
-  %.06 = phi ptr [ %77, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %.0, %57 ], [ %5, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
+  %.06 = phi ptr [ %77, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %5, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ], [ %.0, %57 ]
   ret ptr %.06
 }
 
@@ -1577,8 +1577,8 @@ _ZN3euf6etable9get_tableEPNS_5enodeE.exit:        ; preds = %2, %7
   br label %35
 
 35:                                               ; preds = %31, %25, %21, %17
-  %.sroa.0.0.in = phi ptr [ %34, %31 ], [ %29, %25 ], [ %24, %21 ], [ %20, %17 ]
-  %.sroa.5.0 = phi i8 [ 0, %31 ], [ %30, %25 ], [ 0, %21 ], [ 0, %17 ]
+  %.sroa.0.0.in = phi ptr [ %34, %31 ], [ %20, %17 ], [ %24, %21 ], [ %29, %25 ]
+  %.sroa.5.0 = phi i8 [ 0, %31 ], [ 0, %17 ], [ 0, %21 ], [ %30, %25 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !tbaa !24
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
@@ -5661,7 +5661,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   br label %171
 
 171:                                              ; preds = %163, %._crit_edge.i
-  %.2.i = phi i32 [ %.0128.lcssa.i, %._crit_edge.i ], [ %170, %163 ]
+  %.2.i = phi i32 [ %170, %163 ], [ %.0128.lcssa.i, %._crit_edge.i ]
   %172 = getelementptr inbounds nuw i8, ptr %94, i64 176
   %173 = load ptr, ptr %172, align 8, !tbaa !24
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 64

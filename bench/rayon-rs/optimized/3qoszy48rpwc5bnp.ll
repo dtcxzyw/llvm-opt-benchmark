@@ -110,7 +110,7 @@ switch.lookup:                                    ; preds = %1
   br label %18
 
 18:                                               ; preds = %switch.lookup, %13, %10, %6
-  %.0 = phi i8 [ %17, %13 ], [ %12, %10 ], [ %9, %6 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %17, %13 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -259,7 +259,7 @@ define hidden noundef range(i8 0, 41) i8 @_ZN3std3sys4unix17decode_error_kind17h
   br label %36
 
 36:                                               ; preds = %1, %38, %37, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 1, %35 ], [ 31, %34 ], [ 29, %33 ], [ 22, %32 ], [ 19, %31 ], [ 25, %30 ], [ 17, %29 ], [ 11, %28 ], [ 16, %27 ], [ 14, %26 ], [ 7, %25 ], [ 5, %24 ], [ 10, %23 ], [ 33, %22 ], [ 32, %21 ], [ 36, %20 ], [ 24, %19 ], [ 38, %18 ], [ 0, %17 ], [ 18, %16 ], [ 15, %15 ], [ 20, %14 ], [ 35, %13 ], [ 4, %12 ], [ 27, %11 ], [ 12, %10 ], [ 26, %9 ], [ 30, %8 ], [ 3, %7 ], [ 2, %6 ], [ 6, %5 ], [ 28, %4 ], [ 9, %3 ], [ 8, %2 ], [ 34, %1 ]
+  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 1, %35 ], [ 34, %1 ]
   ret i8 %.0
 
 37:                                               ; preds = %1
@@ -1030,7 +1030,7 @@ switch.lookup:                                    ; preds = %4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit: ; preds = %switch.lookup, %10, %14, %17
-  %.0.i = phi i8 [ %21, %17 ], [ %16, %14 ], [ %13, %10 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0.i = phi i8 [ %13, %10 ], [ %16, %14 ], [ %21, %17 ], [ %switch.idx.cast, %switch.lookup ]
   %22 = icmp eq i8 %.0.i, 36
   br label %23
 
@@ -1062,13 +1062,11 @@ default.unreachable1:                             ; preds = %1
   br label %7
 
 7:                                                ; preds = %1, %4, %3
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %4 ], [ 58, %3 ], [ 52, %1 ]
-  %.sroa.0.0 = phi ptr [ %.fca.0.extract, %4 ], [ @anon.b20927789e5739f35c64bc91d24fc10b.15, %3 ], [ @anon.b20927789e5739f35c64bc91d24fc10b.14, %1 ]
-  %8 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %10
+  %.sroa.4.0 = phi i64 [ 58, %3 ], [ %.fca.1.extract, %4 ], [ 52, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b20927789e5739f35c64bc91d24fc10b.15, %3 ], [ %.fca.0.extract, %4 ], [ @anon.b20927789e5739f35c64bc91d24fc10b.14, %1 ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1108,7 +1106,7 @@ default.unreachable1:                             ; preds = %2
   br label %11
 
 11:                                               ; preds = %8, %6, %4
-  %.0.in = phi i1 [ %10, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.0.in = phi i1 [ %5, %4 ], [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in
 }
 

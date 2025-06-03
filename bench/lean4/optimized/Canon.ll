@@ -221,7 +221,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   br label %28
 
 28:                                               ; preds = %26, %.thread
-  %.1 = phi ptr [ %.0.i.i, %26 ], [ %27, %.thread ]
+  %.1 = phi ptr [ %27, %.thread ], [ %.0.i.i, %26 ]
   ret ptr %.1
 }
 
@@ -61771,7 +61771,7 @@ define noundef nonnull ptr @l___private_Lean_Meta_Tactic_Grind_Canon_0__Lean_Met
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -61819,7 +61819,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l___private_Lean_Meta_Tactic_Grind_Canon_0__Lean_Meta_Grind_Canon_ShouldCanonResult_toCtorIdx.exit
 
 l___private_Lean_Meta_Tactic_Grind_Canon_0__Lean_Meta_Grind_Canon_ShouldCanonResult_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 

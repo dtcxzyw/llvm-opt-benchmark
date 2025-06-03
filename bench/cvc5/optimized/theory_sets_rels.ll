@@ -32917,7 +32917,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155: ; preds = %_ZNSt3mapIN4cvc58i
   br label %742
 
 742:                                              ; preds = %741, %159, %116
-  %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %741 ], [ %160, %159 ], [ %117, %116 ]
+  %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %741 ], [ %117, %116 ], [ %160, %159 ]
   resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -44239,8 +44239,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit30: ; preds = %_ZN4cvc58internal12
   br label %148
 
 148:                                              ; preds = %146, %._crit_edge._crit_edge.i.i.i
-  %149 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %144, %146 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %147, %146 ]
+  %149 = phi ptr [ %144, %146 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %147, %146 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %150 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !11
   %151 = icmp eq ptr %150, %149
   br i1 %151, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %152
@@ -44250,8 +44250,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit30: ; preds = %_ZN4cvc58internal12
   br label %154
 
 154:                                              ; preds = %152, %._crit_edge._crit_edge57.i.i.i
-  %155 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %149, %152 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %153, %152 ]
+  %155 = phi ptr [ %149, %152 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %153, %152 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %156 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !11
   %157 = icmp eq ptr %156, %155
   %spec.select.i.i.i = select i1 %157, ptr %.sroa.032.2.i.i.i, ptr %114

@@ -3717,8 +3717,8 @@ _ZNSt12_Vector_baseI19MoleculeInformationSaIS0_EEC2EmRKS1_.exit.i.i.i: ; preds =
   br label %803
 
 803:                                              ; preds = %801, %._crit_edge._crit_edge.i.i.i.i.i
-  %.val20.val.i.i.i.i.i = phi i32 [ %.val20.val.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.val19.val.i.i.i.i.i, %801 ]
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %802, %801 ]
+  %.val20.val.i.i.i.i.i = phi i32 [ %.val19.val.i.i.i.i.i, %801 ], [ %.val20.val.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %802, %801 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %.val1.i26.i.i.i.i.i = load i32, ptr %.sroa.038.1.i.i.i.i.i, align 4, !tbaa !20
   %804 = icmp eq i32 %.val20.val.i.i.i.i.i, %.val1.i26.i.i.i.i.i
   br i1 %804, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZL17renumber_moltypesP10gmx_mtop_tPS3_I19MoleculeInformationSaIS9_EEE3$_0ET_SE_SE_T0_.exit.i.i", label %805
@@ -3728,8 +3728,8 @@ _ZNSt12_Vector_baseI19MoleculeInformationSaIS0_EEC2EmRKS1_.exit.i.i.i: ; preds =
   br label %807
 
 807:                                              ; preds = %805, %._crit_edge._crit_edge64.i.i.i.i.i
-  %.val21.val.i.i.i.i.i = phi i32 [ %.val21.val.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %.val20.val.i.i.i.i.i, %805 ]
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %806, %805 ]
+  %.val21.val.i.i.i.i.i = phi i32 [ %.val20.val.i.i.i.i.i, %805 ], [ %.val21.val.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %806, %805 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
   %.val1.i27.i.i.i.i.i = load i32, ptr %.sroa.038.2.i.i.i.i.i, align 4, !tbaa !20
   %808 = icmp eq i32 %.val21.val.i.i.i.i.i, %.val1.i27.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %808, ptr %.sroa.038.2.i.i.i.i.i, ptr %.sroa.14.070.i.i
@@ -6231,7 +6231,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit399.i:            ; preds = %_ZNKSt7__cxx1112bas
   br label %1783
 
 1783:                                             ; preds = %1781, %._crit_edge.i.i.i.i.i.i
-  %.sroa.049.1.i.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1782, %1781 ]
+  %.sroa.049.1.i.i.i.i.i.i = phi ptr [ %1782, %1781 ], [ %.sroa.049.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i32.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.049.1.i.i.i.i.i.i, align 4
   %1784 = getelementptr i8, ptr %.sroa.049.1.i.i.i.i.i.i, i64 8
   %.val1.i33.i.i.i.i.i.i = load float, ptr %1784, align 4, !tbaa !14
@@ -6248,7 +6248,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit399.i:            ; preds = %_ZNKSt7__cxx1112bas
   br label %1792
 
 1792:                                             ; preds = %1790, %._crit_edge.i.i.i.i.i.i
-  %.sroa.049.2.i.i.i.i.i.i = phi ptr [ %.sroa.049.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1791, %1790 ]
+  %.sroa.049.2.i.i.i.i.i.i = phi ptr [ %1791, %1790 ], [ %.sroa.049.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.i36.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.049.2.i.i.i.i.i.i, align 4
   %1793 = getelementptr i8, ptr %.sroa.049.2.i.i.i.i.i.i, i64 8
   %.val1.i37.i.i.i.i.i.i = load float, ptr %1793, align 4, !tbaa !14

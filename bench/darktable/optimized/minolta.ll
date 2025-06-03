@@ -349,8 +349,8 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader44, %.preheader, %161, %192, %228, %122, %121
-  %.134 = phi i16 [ %.03354, %121 ], [ %.03354, %228 ], [ %.03354, %161 ], [ %.03354, %192 ], [ %129, %122 ], [ %.03354, %.preheader ], [ %.03354, %.preheader44 ]
-  %.1 = phi i16 [ %.02955, %121 ], [ %.02955, %228 ], [ %.02955, %161 ], [ %.02955, %192 ], [ %128, %122 ], [ %.02955, %.preheader ], [ %.02955, %.preheader44 ]
+  %.134 = phi i16 [ %.03354, %121 ], [ %129, %122 ], [ %.03354, %161 ], [ %.03354, %192 ], [ %.03354, %228 ], [ %.03354, %.preheader ], [ %.03354, %.preheader44 ]
+  %.1 = phi i16 [ %.02955, %121 ], [ %128, %122 ], [ %.02955, %161 ], [ %.02955, %192 ], [ %.02955, %228 ], [ %.02955, %.preheader ], [ %.02955, %.preheader44 ]
   %236 = load ptr, ptr %3, align 8, !tbaa !71
   %237 = load ptr, ptr %236, align 8, !tbaa !72
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 32

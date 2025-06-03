@@ -660,8 +660,8 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %197
 
 197:                                              ; preds = %193, %189, %._crit_edge.i.i
-  %198 = phi float [ %.pre.i.i, %._crit_edge.i.i ], [ %196, %193 ], [ %192, %189 ]
-  %.0.i.i = phi i32 [ -2, %._crit_edge.i.i ], [ -2, %193 ], [ -1, %189 ]
+  %198 = phi float [ %.pre.i.i, %._crit_edge.i.i ], [ %192, %189 ], [ %196, %193 ]
+  %.0.i.i = phi i32 [ -2, %._crit_edge.i.i ], [ -1, %189 ], [ -2, %193 ]
   %199 = load i32, ptr %8, align 4, !tbaa !28
   %200 = sub nsw i32 %199, %156
   %201 = shl nsw i32 %200, 1

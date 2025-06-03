@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr noundef readonly
   br label %41
 
 41:                                               ; preds = %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %28
-  %.086.i = phi ptr [ @.str.51, %40 ], [ @.str.50, %39 ], [ @.str.49, %38 ], [ @.str.48, %37 ], [ @.str.47, %36 ], [ @.str.46, %35 ], [ @.str.45, %34 ], [ @.str.44, %33 ], [ @.str.43, %32 ], [ @.str.42, %31 ], [ @.str.41, %28 ]
+  %.086.i = phi ptr [ @.str.51, %40 ], [ @.str.42, %31 ], [ @.str.43, %32 ], [ @.str.44, %33 ], [ @.str.45, %34 ], [ @.str.46, %35 ], [ @.str.47, %36 ], [ @.str.48, %37 ], [ @.str.49, %38 ], [ @.str.50, %39 ], [ @.str.41, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %.01012, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !27
   %.not.i = icmp eq ptr %43, null

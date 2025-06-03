@@ -2192,7 +2192,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$actix_files..error..FilesError$u20$
   br label %18
 
 18:                                               ; preds = %12, %6
-  %.0.in = phi i1 [ %17, %12 ], [ %11, %6 ]
+  %.0.in = phi i1 [ %11, %6 ], [ %17, %12 ]
   ret i1 %.0.in
 }
 
@@ -2241,7 +2241,7 @@ default.unreachable1:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7
-  %.0.in = phi i1 [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
+  %.0.in = phi i1 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ]
   ret i1 %.0.in
 }
 
@@ -2356,7 +2356,7 @@ default.unreachable5:                             ; preds = %2
   br label %44
 
 44:                                               ; preds = %38, %30, %22, %14
-  %.0.in = phi i1 [ %43, %38 ], [ %37, %30 ], [ %29, %22 ], [ %21, %14 ]
+  %.0.in = phi i1 [ %21, %14 ], [ %29, %22 ], [ %37, %30 ], [ %43, %38 ]
   ret i1 %.0.in
 }
 

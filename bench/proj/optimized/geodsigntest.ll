@@ -522,8 +522,8 @@ default.unreachable:                              ; preds = %AngRound.exit
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit, %35, %32, %30
-  %.0 = phi double [ %36, %35 ], [ %33, %32 ], [ %27, %30 ], [ %26, %AngRound.exit ]
-  %37 = phi double [ %26, %35 ], [ %34, %32 ], [ %31, %30 ], [ %27, %AngRound.exit ]
+  %.0 = phi double [ %27, %30 ], [ %33, %32 ], [ %36, %35 ], [ %26, %AngRound.exit ]
+  %37 = phi double [ %31, %30 ], [ %34, %32 ], [ %26, %35 ], [ %27, %AngRound.exit ]
   %38 = fadd double %37, 0.000000e+00
   %39 = fcmp oeq double %.0, 0.000000e+00
   %40 = tail call double @llvm.copysign.f64(double %.0, double %14)
@@ -638,8 +638,8 @@ default.unreachable:                              ; preds = %AngRound.exit
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit, %57, %54, %52
-  %.0 = phi double [ %58, %57 ], [ %55, %54 ], [ %49, %52 ], [ %48, %AngRound.exit ]
-  %59 = phi double [ %48, %57 ], [ %56, %54 ], [ %53, %52 ], [ %49, %AngRound.exit ]
+  %.0 = phi double [ %49, %52 ], [ %55, %54 ], [ %58, %57 ], [ %48, %AngRound.exit ]
+  %59 = phi double [ %53, %52 ], [ %56, %54 ], [ %48, %57 ], [ %49, %AngRound.exit ]
   %60 = fadd double %59, 0.000000e+00
   %61 = fcmp oeq double %.0, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.0, double %32)
@@ -1324,8 +1324,8 @@ default.unreachable:                              ; preds = %340, %319, %42
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %42, %57, %54, %52
-  %.1338 = phi double [ %58, %57 ], [ %55, %54 ], [ %49, %52 ], [ %48, %42 ]
-  %59 = phi double [ %48, %57 ], [ %56, %54 ], [ %53, %52 ], [ %49, %42 ]
+  %.1338 = phi double [ %49, %52 ], [ %55, %54 ], [ %58, %57 ], [ %48, %42 ]
+  %59 = phi double [ %53, %52 ], [ %56, %54 ], [ %48, %57 ], [ %49, %42 ]
   %60 = fadd double %59, 0.000000e+00
   %61 = fcmp oeq double %.1338, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.1338, double %2)
@@ -1717,7 +1717,7 @@ SinCosSeries.exit307:                             ; preds = %273
   br label %atan2dx.exit
 
 atan2dx.exit:                                     ; preds = %336, %334, %331, %319, %316
-  %.0251 = phi double [ 0.000000e+00, %316 ], [ %330, %319 ], [ %337, %336 ], [ %335, %334 ], [ %333, %331 ]
+  %.0251 = phi double [ 0.000000e+00, %316 ], [ %330, %319 ], [ %333, %331 ], [ %335, %334 ], [ %337, %336 ]
   %338 = and i32 %36, 512
   %339 = icmp ne i32 %338, 0
   br i1 %339, label %340, label %atan2dx.exit316
@@ -1758,7 +1758,7 @@ atan2dx.exit:                                     ; preds = %336, %334, %331, %3
   br label %atan2dx.exit316
 
 atan2dx.exit316:                                  ; preds = %354, %352, %349, %340, %atan2dx.exit
-  %.0253 = phi double [ 0.000000e+00, %atan2dx.exit ], [ %348, %340 ], [ %355, %354 ], [ %353, %352 ], [ %351, %349 ]
+  %.0253 = phi double [ 0.000000e+00, %atan2dx.exit ], [ %348, %340 ], [ %351, %349 ], [ %353, %352 ], [ %355, %354 ]
   %356 = and i32 %36, 12288
   %.not284 = icmp eq i32 %356, 0
   br i1 %.not284, label %426, label %357
@@ -2169,7 +2169,7 @@ default.unreachable:                              ; preds = %37, %18
   unreachable
 
 atan2dx.exit:                                     ; preds = %18, %29, %32, %34
-  %.0.i = phi double [ %28, %18 ], [ %35, %34 ], [ %33, %32 ], [ %31, %29 ]
+  %.0.i = phi double [ %28, %18 ], [ %31, %29 ], [ %33, %32 ], [ %35, %34 ]
   store double %.0.i, ptr %6, align 8, !tbaa !4
   br label %36
 
@@ -2215,7 +2215,7 @@ atan2dx.exit:                                     ; preds = %18, %29, %32, %34
   br label %atan2dx.exit25
 
 atan2dx.exit25:                                   ; preds = %37, %48, %51, %53
-  %.0.i23 = phi double [ %47, %37 ], [ %54, %53 ], [ %52, %51 ], [ %50, %48 ]
+  %.0.i23 = phi double [ %47, %37 ], [ %50, %48 ], [ %52, %51 ], [ %54, %53 ]
   store double %.0.i23, ptr %7, align 8, !tbaa !4
   br label %55
 
@@ -2335,8 +2335,8 @@ default.unreachable:                              ; preds = %sincosdx.exit, %Ang
   br label %sincosde.exit
 
 sincosde.exit:                                    ; preds = %AngRound.exit.i, %67, %64, %62
-  %.0477 = phi double [ %68, %67 ], [ %65, %64 ], [ %59, %62 ], [ %58, %AngRound.exit.i ]
-  %69 = phi double [ %58, %67 ], [ %66, %64 ], [ %63, %62 ], [ %59, %AngRound.exit.i ]
+  %.0477 = phi double [ %59, %62 ], [ %65, %64 ], [ %68, %67 ], [ %58, %AngRound.exit.i ]
+  %69 = phi double [ %63, %62 ], [ %66, %64 ], [ %58, %67 ], [ %59, %AngRound.exit.i ]
   %70 = fadd double %69, 0.000000e+00
   %71 = fcmp oeq double %.0477, 0.000000e+00
   %72 = call double @llvm.copysign.f64(double %.0477, double %41)
@@ -2452,8 +2452,8 @@ AngRound.exit291:                                 ; preds = %93, %95
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %AngRound.exit291, %122, %119, %117
-  %.0483 = phi double [ %123, %122 ], [ %120, %119 ], [ %114, %117 ], [ %113, %AngRound.exit291 ]
-  %124 = phi double [ %113, %122 ], [ %121, %119 ], [ %118, %117 ], [ %114, %AngRound.exit291 ]
+  %.0483 = phi double [ %114, %117 ], [ %120, %119 ], [ %123, %122 ], [ %113, %AngRound.exit291 ]
+  %124 = phi double [ %118, %117 ], [ %121, %119 ], [ %113, %122 ], [ %114, %AngRound.exit291 ]
   %125 = fadd double %124, 0.000000e+00
   %126 = fcmp oeq double %.0483, 0.000000e+00
   %127 = call double @llvm.copysign.f64(double %.0483, double %108)
@@ -2497,8 +2497,8 @@ sincosdx.exit:                                    ; preds = %AngRound.exit291, %
   br label %sincosdx.exit293
 
 sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148, %145, %143
-  %.1481 = phi double [ %149, %148 ], [ %146, %145 ], [ %140, %143 ], [ %139, %sincosdx.exit ]
-  %150 = phi double [ %139, %148 ], [ %147, %145 ], [ %144, %143 ], [ %140, %sincosdx.exit ]
+  %.1481 = phi double [ %140, %143 ], [ %146, %145 ], [ %149, %148 ], [ %139, %sincosdx.exit ]
+  %150 = phi double [ %144, %143 ], [ %147, %145 ], [ %139, %148 ], [ %140, %sincosdx.exit ]
   %151 = fadd double %150, 0.000000e+00
   %152 = fcmp oeq double %.1481, 0.000000e+00
   %153 = call double @llvm.copysign.f64(double %.1481, double %109)
@@ -3756,7 +3756,7 @@ default.unreachable:                              ; preds = %7
   unreachable
 
 atan2dx.exit:                                     ; preds = %7, %21, %24, %26
-  %.0.i = phi double [ %20, %7 ], [ %27, %26 ], [ %25, %24 ], [ %23, %21 ]
+  %.0.i = phi double [ %20, %7 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ]
   %.not = icmp eq i32 %6, 0
   %28 = select i1 %.not, i32 2315, i32 %6
   %29 = and i32 %28, 2048
@@ -6979,8 +6979,8 @@ default.unreachable:                              ; preds = %equiv.exit1391.thre
   br label %sincosdx.exit
 
 sincosdx.exit:                                    ; preds = %equiv.exit1173, %560, %557, %555
-  %.01944 = phi double [ %561, %560 ], [ %558, %557 ], [ %552, %555 ], [ %551, %equiv.exit1173 ]
-  %562 = phi double [ %551, %560 ], [ %559, %557 ], [ %556, %555 ], [ %552, %equiv.exit1173 ]
+  %.01944 = phi double [ %552, %555 ], [ %558, %557 ], [ %561, %560 ], [ %551, %equiv.exit1173 ]
+  %562 = phi double [ %556, %555 ], [ %559, %557 ], [ %551, %560 ], [ %552, %equiv.exit1173 ]
   %563 = fadd double %562, 0.000000e+00
   %564 = fcmp oeq double %.01944, 0.000000e+00
   %565 = tail call double @llvm.fabs.f64(double %.01944)
@@ -7623,8 +7623,8 @@ equiv.exit1381:                                   ; preds = %equiv.exit1377, %eq
   br label %sincosdx.exit1383
 
 sincosdx.exit1383:                                ; preds = %equiv.exit1381, %854, %851, %849
-  %.01961 = phi double [ %855, %854 ], [ %852, %851 ], [ %846, %849 ], [ %845, %equiv.exit1381 ]
-  %856 = phi double [ %845, %854 ], [ %853, %851 ], [ %850, %849 ], [ %846, %equiv.exit1381 ]
+  %.01961 = phi double [ %846, %849 ], [ %852, %851 ], [ %855, %854 ], [ %845, %equiv.exit1381 ]
+  %856 = phi double [ %850, %849 ], [ %853, %851 ], [ %845, %854 ], [ %846, %equiv.exit1381 ]
   %857 = fadd double %856, 0.000000e+00
   %858 = fcmp oeq double %.01961, 0.000000e+00
   %859 = tail call double @llvm.fabs.f64(double %.01961)
@@ -7680,8 +7680,8 @@ equiv.exit1391.thread:                            ; preds = %equiv.exit1387.thre
   br label %sincosdx.exit1393
 
 sincosdx.exit1393:                                ; preds = %equiv.exit1391.thread, %878, %875, %873
-  %.01957 = phi double [ %879, %878 ], [ %876, %875 ], [ %870, %873 ], [ %869, %equiv.exit1391.thread ]
-  %880 = phi double [ %869, %878 ], [ %877, %875 ], [ %874, %873 ], [ %870, %equiv.exit1391.thread ]
+  %.01957 = phi double [ %870, %873 ], [ %876, %875 ], [ %879, %878 ], [ %869, %equiv.exit1391.thread ]
+  %880 = phi double [ %874, %873 ], [ %877, %875 ], [ %869, %878 ], [ %870, %equiv.exit1391.thread ]
   %881 = fadd double %880, 0.000000e+00
   %882 = fcmp oeq double %.01957, 0.000000e+00
   %883 = tail call double @llvm.fabs.f64(double %.01957)

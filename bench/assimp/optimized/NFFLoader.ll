@@ -22865,7 +22865,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(36) ptr @_ZN1
   br label %_ZN12aiMatrix3x3tIfEixEj.exit
 
 _ZN12aiMatrix3x3tIfEixEj.exit:                    ; preds = %60, %61, %62
-  %.0.i = phi ptr [ %58, %62 ], [ %57, %61 ], [ %2, %60 ]
+  %.0.i = phi ptr [ %57, %61 ], [ %58, %62 ], [ %2, %60 ]
   %63 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv148
   %64 = load float, ptr %63, align 4
   %65 = fadd float %64, 1.000000e+00
@@ -22888,7 +22888,7 @@ _ZN12aiMatrix3x3tIfEixEj.exit:                    ; preds = %60, %61, %62
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %66, %67, %68
-  %.0.i95.sroa.speculated = phi float [ %39, %68 ], [ %38, %67 ], [ %37, %66 ]
+  %.0.i95.sroa.speculated = phi float [ %38, %67 ], [ %39, %68 ], [ %37, %66 ]
   %69 = fmul float %.0.i95.sroa.speculated, %56
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit97 [
@@ -22903,7 +22903,7 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %66, %67, %68
   br label %_ZN10aiVector3tIfEixEj.exit97
 
 _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %_ZN10aiVector3tIfEixEj.exit, %71, %72
-  %.0.i96.sroa.speculated = phi float [ %39, %72 ], [ %38, %71 ], [ %37, %_ZN10aiVector3tIfEixEj.exit ]
+  %.0.i96.sroa.speculated = phi float [ %38, %71 ], [ %39, %72 ], [ %37, %_ZN10aiVector3tIfEixEj.exit ]
   switch i32 %59, label %_ZN10aiVector3tIfEixEj.exit99 [
     i32 2, label %74
     i32 1, label %73
@@ -22916,7 +22916,7 @@ _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit99
 
 _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %_ZN10aiVector3tIfEixEj.exit97, %73, %74
-  %.0.i98.sroa.speculated = phi float [ %42, %74 ], [ %41, %73 ], [ %40, %_ZN10aiVector3tIfEixEj.exit97 ]
+  %.0.i98.sroa.speculated = phi float [ %41, %73 ], [ %42, %74 ], [ %40, %_ZN10aiVector3tIfEixEj.exit97 ]
   %75 = fmul float %50, %.0.i98.sroa.speculated
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit101 [
     i32 2, label %77
@@ -22930,7 +22930,7 @@ _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit101
 
 _ZN10aiVector3tIfEixEj.exit101:                   ; preds = %_ZN10aiVector3tIfEixEj.exit99, %76, %77
-  %.0.i100.sroa.speculated = phi float [ %42, %77 ], [ %41, %76 ], [ %40, %_ZN10aiVector3tIfEixEj.exit99 ]
+  %.0.i100.sroa.speculated = phi float [ %41, %76 ], [ %42, %77 ], [ %40, %_ZN10aiVector3tIfEixEj.exit99 ]
   %78 = fneg float %.0.i100.sroa.speculated
   %79 = fmul float %75, %78
   %80 = tail call float @llvm.fmuladd.f32(float %69, float %.0.i96.sroa.speculated, float %79)
@@ -22946,7 +22946,7 @@ _ZN10aiVector3tIfEixEj.exit101:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit103
 
 _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %_ZN10aiVector3tIfEixEj.exit101, %81, %82
-  %.0.i102.sroa.speculated = phi float [ %42, %82 ], [ %41, %81 ], [ %40, %_ZN10aiVector3tIfEixEj.exit101 ]
+  %.0.i102.sroa.speculated = phi float [ %41, %81 ], [ %42, %82 ], [ %40, %_ZN10aiVector3tIfEixEj.exit101 ]
   %83 = fmul float %55, %.0.i102.sroa.speculated
   switch i32 %70, label %_ZN10aiVector3tIfEixEj.exit105 [
     i32 2, label %85
@@ -22960,7 +22960,7 @@ _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN10aiVector3tIfEixEj.exit105
 
 _ZN10aiVector3tIfEixEj.exit105:                   ; preds = %_ZN10aiVector3tIfEixEj.exit103, %84, %85
-  %.0.i104.sroa.speculated = phi float [ %39, %85 ], [ %38, %84 ], [ %37, %_ZN10aiVector3tIfEixEj.exit103 ]
+  %.0.i104.sroa.speculated = phi float [ %38, %84 ], [ %39, %85 ], [ %37, %_ZN10aiVector3tIfEixEj.exit103 ]
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %.0.i104.sroa.speculated, float %80)
   switch i32 %59, label %_ZN12aiMatrix3x3tIfEixEj.exit107 [
     i32 2, label %88
@@ -22974,7 +22974,7 @@ _ZN10aiVector3tIfEixEj.exit105:                   ; preds = %_ZN10aiVector3tIfEi
   br label %_ZN12aiMatrix3x3tIfEixEj.exit107
 
 _ZN12aiMatrix3x3tIfEixEj.exit107:                 ; preds = %_ZN10aiVector3tIfEixEj.exit105, %87, %88
-  %.0.i106 = phi ptr [ %58, %88 ], [ %57, %87 ], [ %2, %_ZN10aiVector3tIfEixEj.exit105 ]
+  %.0.i106 = phi ptr [ %57, %87 ], [ %58, %88 ], [ %2, %_ZN10aiVector3tIfEixEj.exit105 ]
   %89 = getelementptr inbounds nuw float, ptr %.0.i106, i64 %indvars.iv
   store float %86, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

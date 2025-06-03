@@ -3745,7 +3745,7 @@ drda_set_server.exit27.i:                         ; preds = %131, %118
   br label %drda_packet_from_server.exit
 
 drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, %73, %drda_set_server.exit.i, %drda_set_server.exit26.i, %117, %drda_set_server.exit27.i, %139
-  %.0.i = phi i64 [ 8, %139 ], [ 0, %drda_set_server.exit27.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
+  %.0.i = phi i64 [ 0, %drda_set_server.exit27.i ], [ 8, %139 ], [ 0, %drda_set_server.exit.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
   %145 = load i32, ptr %9, align 4
   %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.828, ptr noundef %146)

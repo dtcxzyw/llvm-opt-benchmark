@@ -2164,7 +2164,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture11configureHWERKNS_22V
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %42, %41 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %44 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !118
   %45 = icmp eq i32 %44, 50
   br i1 %45, label %_ZNK2cv15VideoParameters3hasEi.exit, label %46
@@ -2174,7 +2174,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture11configureHWERKNS_22V
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %46 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %49 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !118
   %50 = icmp eq i32 %49, 50
   %spec.select.i.i.i.i = select i1 %50, ptr %.sroa.032.2.i.i.i.i, ptr %11
@@ -2280,7 +2280,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge.i.i.i.i53
-  %.sroa.032.1.i.i.i.i59 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i55, %._crit_edge.i.i.i.i53 ], [ %84, %83 ]
+  %.sroa.032.1.i.i.i.i59 = phi ptr [ %84, %83 ], [ %.sroa.032.0.lcssa.i.i.i.i55, %._crit_edge.i.i.i.i53 ]
   %86 = load i32, ptr %.sroa.032.1.i.i.i.i59, align 4, !tbaa !118
   %87 = icmp eq i32 %86, 51
   br i1 %87, label %_ZNK2cv15VideoParameters3hasEi.exit71, label %88
@@ -2290,7 +2290,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %90
 
 90:                                               ; preds = %88, %._crit_edge.i.i.i.i53
-  %.sroa.032.2.i.i.i.i56 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i55, %._crit_edge.i.i.i.i53 ], [ %89, %88 ]
+  %.sroa.032.2.i.i.i.i56 = phi ptr [ %89, %88 ], [ %.sroa.032.0.lcssa.i.i.i.i55, %._crit_edge.i.i.i.i53 ]
   %91 = load i32, ptr %.sroa.032.2.i.i.i.i56, align 4, !tbaa !118
   %92 = icmp eq i32 %91, 51
   %spec.select.i.i.i.i57 = select i1 %92, ptr %.sroa.032.2.i.i.i.i56, ptr %57
@@ -2950,7 +2950,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getINS_21VideoA
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !118
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getINS2_21VideoAccelerationTypeEEET_iEUlRS5_E_ESD_SD_SD_T0_.exit, label %41
@@ -2960,7 +2960,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getINS_21VideoA
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %44 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !118
   %45 = icmp eq i32 %44, %1
   %spec.select.i.i.i = select i1 %45, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -3098,7 +3098,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getIiEET_i(ptr 
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !118
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iEUlRS5_E_ESC_SC_SC_T0_.exit, label %41
@@ -3108,7 +3108,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv15VideoParameters3getIiEET_i(ptr 
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %44 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !118
   %45 = icmp eq i32 %44, %1
   %spec.select.i.i.i = select i1 %45, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -3265,7 +3265,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture24configureStreamsProp
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !118
   %43 = icmp eq i32 %42, 57
   br i1 %43, label %_ZNK2cv15VideoParameters3hasEi.exit, label %44
@@ -3275,7 +3275,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture24configureStreamsProp
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !118
   %48 = icmp eq i32 %47, 57
   %spec.select.i.i.i.i = select i1 %48, ptr %.sroa.032.2.i.i.i.i, ptr %9
@@ -3570,7 +3570,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %160
 
 160:                                              ; preds = %158, %._crit_edge.i.i.i.i62
-  %.sroa.032.1.i.i.i.i68 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i64, %._crit_edge.i.i.i.i62 ], [ %159, %158 ]
+  %.sroa.032.1.i.i.i.i68 = phi ptr [ %159, %158 ], [ %.sroa.032.0.lcssa.i.i.i.i64, %._crit_edge.i.i.i.i62 ]
   %161 = load i32, ptr %.sroa.032.1.i.i.i.i68, align 4, !tbaa !118
   %162 = icmp eq i32 %161, 58
   br i1 %162, label %_ZNK2cv15VideoParameters3hasEi.exit80, label %163
@@ -3580,7 +3580,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i.i62
-  %.sroa.032.2.i.i.i.i65 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i64, %._crit_edge.i.i.i.i62 ], [ %164, %163 ]
+  %.sroa.032.2.i.i.i.i65 = phi ptr [ %164, %163 ], [ %.sroa.032.0.lcssa.i.i.i.i64, %._crit_edge.i.i.i.i62 ]
   %166 = load i32, ptr %.sroa.032.2.i.i.i.i65, align 4, !tbaa !118
   %167 = icmp eq i32 %166, 58
   %spec.select.i.i.i.i66 = select i1 %167, ptr %.sroa.032.2.i.i.i.i65, ptr %132
@@ -3880,7 +3880,7 @@ define linkonce_odr hidden noundef double @_ZNK2cv15VideoParameters3getIdEET_i(p
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %36 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %39 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !118
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIdEET_iEUlRS5_E_ESC_SC_SC_T0_.exit, label %41
@@ -3890,7 +3890,7 @@ define linkonce_odr hidden noundef double @_ZNK2cv15VideoParameters3getIdEET_i(p
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %44 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !118
   %45 = icmp eq i32 %44, %1
   %spec.select.i.i.i = select i1 %45, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -4032,7 +4032,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture18setAudioPropertiesER
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !118
   %43 = icmp eq i32 %42, 61
   br i1 %43, label %_ZNK2cv15VideoParameters3hasEi.exit, label %44
@@ -4042,7 +4042,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture18setAudioPropertiesER
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %47 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !118
   %48 = icmp eq i32 %47, 61
   %spec.select.i.i.i.i = select i1 %48, ptr %.sroa.032.2.i.i.i.i, ptr %9
@@ -4342,7 +4342,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %131, %131, %131, %1
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i.i65
-  %.sroa.032.1.i.i.i.i71 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i67, %._crit_edge.i.i.i.i65 ], [ %164, %163 ]
+  %.sroa.032.1.i.i.i.i71 = phi ptr [ %164, %163 ], [ %.sroa.032.0.lcssa.i.i.i.i67, %._crit_edge.i.i.i.i65 ]
   %166 = load i32, ptr %.sroa.032.1.i.i.i.i71, align 4, !tbaa !118
   %167 = icmp eq i32 %166, 62
   br i1 %167, label %_ZNK2cv15VideoParameters3hasEi.exit83, label %168
@@ -4352,7 +4352,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %131, %131, %131, %1
   br label %170
 
 170:                                              ; preds = %168, %._crit_edge.i.i.i.i65
-  %.sroa.032.2.i.i.i.i68 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i67, %._crit_edge.i.i.i.i65 ], [ %169, %168 ]
+  %.sroa.032.2.i.i.i.i68 = phi ptr [ %169, %168 ], [ %.sroa.032.0.lcssa.i.i.i.i67, %._crit_edge.i.i.i.i65 ]
   %171 = load i32, ptr %.sroa.032.2.i.i.i.i68, align 4, !tbaa !118
   %172 = icmp eq i32 %171, 62
   %spec.select.i.i.i.i69 = select i1 %172, ptr %.sroa.032.2.i.i.i.i68, ptr %133
@@ -4645,7 +4645,7 @@ _ZNK2cv15VideoParameters3hasEi.exit83.thread:     ; preds = %._crit_edge.i.i.i.i
   br label %284
 
 284:                                              ; preds = %282, %._crit_edge.i.i.i.i104
-  %.sroa.032.1.i.i.i.i110 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i106, %._crit_edge.i.i.i.i104 ], [ %283, %282 ]
+  %.sroa.032.1.i.i.i.i110 = phi ptr [ %283, %282 ], [ %.sroa.032.0.lcssa.i.i.i.i106, %._crit_edge.i.i.i.i104 ]
   %285 = load i32, ptr %.sroa.032.1.i.i.i.i110, align 4, !tbaa !118
   %286 = icmp eq i32 %285, 66
   br i1 %286, label %_ZNK2cv15VideoParameters3hasEi.exit122, label %287
@@ -4655,7 +4655,7 @@ _ZNK2cv15VideoParameters3hasEi.exit83.thread:     ; preds = %._crit_edge.i.i.i.i
   br label %289
 
 289:                                              ; preds = %287, %._crit_edge.i.i.i.i104
-  %.sroa.032.2.i.i.i.i107 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i106, %._crit_edge.i.i.i.i104 ], [ %288, %287 ]
+  %.sroa.032.2.i.i.i.i107 = phi ptr [ %288, %287 ], [ %.sroa.032.0.lcssa.i.i.i.i106, %._crit_edge.i.i.i.i104 ]
   %290 = load i32, ptr %.sroa.032.2.i.i.i.i107, align 4, !tbaa !118
   %291 = icmp eq i32 %290, 66
   %spec.select.i.i.i.i108 = select i1 %291, ptr %.sroa.032.2.i.i.i.i107, ptr %256
@@ -22260,7 +22260,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 common.resume:                                    ; preds = %106, %567, %531, %489, %442, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260, %354, %302, %264, %219, %161, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i237 ], [ %.pn184.pn, %106 ], [ %.pn179.pn, %567 ], [ %.pn.pn, %531 ], [ %.pn147.pn, %489 ], [ %.pn151.pn, %442 ], [ %399, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260 ], [ %.pn161.pn, %354 ], [ %.pn156.pn, %302 ], [ %.pn170.pn, %264 ], [ %.pn165.pn, %219 ], [ %.pn175.pn, %161 ]
+  %common.resume.op = phi { ptr, i32 } [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i237 ], [ %.pn184.pn, %106 ], [ %.pn179.pn, %567 ], [ %.pn175.pn, %161 ], [ %.pn170.pn, %264 ], [ %.pn165.pn, %219 ], [ %.pn161.pn, %354 ], [ %.pn156.pn, %302 ], [ %399, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260 ], [ %.pn151.pn, %442 ], [ %.pn147.pn, %489 ], [ %.pn.pn, %531 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -23530,7 +23530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %_Z
   br label %570
 
 570:                                              ; preds = %382, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %170, %182, %265, %361, %443, %450, %492, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207, %128, %162, %172, %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, %231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223, %321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244, %355, %363, %.thread, %.thread, %409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit270, %456, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280, %498, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit290, %569, %568, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %36
-  %.0103 = phi i1 [ false, %36 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %492 ], [ true, %450 ], [ true, %443 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ true, %361 ], [ true, %265 ], [ true, %182 ], [ true, %170 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ], [ true, %128 ], [ true, %162 ], [ true, %172 ], [ false, %186 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215 ], [ false, %231 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ false, %321 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ], [ true, %355 ], [ true, %363 ], [ false, %.thread ], [ false, %.thread ], [ false, %409 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit270 ], [ false, %456 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280 ], [ false, %498 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit290 ], [ false, %569 ], [ false, %568 ], [ false, %382 ]
+  %.0103 = phi i1 [ false, %36 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %170 ], [ true, %265 ], [ true, %182 ], [ true, %361 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ true, %443 ], [ true, %450 ], [ true, %492 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ], [ true, %128 ], [ true, %162 ], [ true, %172 ], [ false, %186 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215 ], [ false, %231 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ false, %321 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ], [ true, %355 ], [ true, %363 ], [ false, %.thread ], [ false, %.thread ], [ false, %409 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit270 ], [ false, %456 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280 ], [ false, %498 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit290 ], [ false, %569 ], [ false, %568 ], [ false, %382 ]
   ret i1 %.0103
 }
 
@@ -25009,12 +25009,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192: ; preds = %_Z
   br label %441
 
 440:                                              ; preds = %226, %404, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156, %356, %359, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, %316, %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163, %260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %121, %107, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %26, %397, %392, %352, %312, %308, %304, %300, %294, %251, %247, %222, %219, %215, %211, %207, %155, %111, %98
-  %.059 = phi double [ %401, %397 ], [ %396, %392 ], [ %355, %352 ], [ %315, %312 ], [ %311, %308 ], [ %307, %304 ], [ %303, %300 ], [ %299, %294 ], [ %254, %251 ], [ %250, %247 ], [ %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %225, %222 ], [ %221, %219 ], [ %218, %215 ], [ %214, %211 ], [ %210, %207 ], [ %157, %155 ], [ %114, %111 ], [ %102, %98 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ 0.000000e+00, %173 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140 ], [ 0.000000e+00, %260 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ 0.000000e+00, %319 ], [ 0.000000e+00, %316 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ 0.000000e+00, %359 ], [ 0.000000e+00, %356 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ 0.000000e+00, %404 ], [ 0.000000e+00, %226 ]
+  %.059 = phi double [ %102, %98 ], [ %157, %155 ], [ %114, %111 ], [ %210, %207 ], [ %214, %211 ], [ %218, %215 ], [ %221, %219 ], [ %225, %222 ], [ %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %250, %247 ], [ %254, %251 ], [ %299, %294 ], [ %303, %300 ], [ %307, %304 ], [ %311, %308 ], [ %315, %312 ], [ %355, %352 ], [ %396, %392 ], [ %401, %397 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ 0.000000e+00, %173 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140 ], [ 0.000000e+00, %260 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ 0.000000e+00, %319 ], [ 0.000000e+00, %316 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ 0.000000e+00, %359 ], [ 0.000000e+00, %356 ], [ 0.000000e+00, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ 0.000000e+00, %404 ], [ 0.000000e+00, %226 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   ret double %.059
 
 441:                                              ; preds = %439, %391, %351, %293, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153, %206, %154, %96
-  %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %96 ], [ %.pn108.pn, %439 ], [ %.pn.pn, %391 ], [ %.pn90.pn, %351 ], [ %.pn94.pn, %293 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %.pn99.pn, %206 ], [ %.pn104.pn, %154 ]
+  %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %96 ], [ %.pn108.pn, %439 ], [ %.pn104.pn, %154 ], [ %.pn99.pn, %206 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %.pn94.pn, %293 ], [ %.pn90.pn, %351 ], [ %.pn.pn, %391 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   br label %common.resume
 }
@@ -27133,7 +27133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_Z
   br label %181
 
 181:                                              ; preds = %179, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %180, %179 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %180, %179 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %182 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !118
   %183 = icmp eq i32 %182, 4
   br i1 %183, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %184
@@ -27143,7 +27143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_Z
   br label %186
 
 186:                                              ; preds = %184, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %185, %184 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %185, %184 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %187 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !118
   %188 = icmp eq i32 %187, 4
   %spec.select.i.i.i.i = select i1 %188, ptr %.sroa.032.2.i.i.i.i, ptr %149
@@ -27239,7 +27239,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %222
 
 222:                                              ; preds = %220, %._crit_edge.i.i.i.i397
-  %.sroa.032.1.i.i.i.i405 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i399, %._crit_edge.i.i.i.i397 ], [ %221, %220 ]
+  %.sroa.032.1.i.i.i.i405 = phi ptr [ %221, %220 ], [ %.sroa.032.0.lcssa.i.i.i.i399, %._crit_edge.i.i.i.i397 ]
   %223 = load i32, ptr %.sroa.032.1.i.i.i.i405, align 4, !tbaa !118
   %224 = icmp eq i32 %223, 5
   br i1 %224, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %225
@@ -27249,7 +27249,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %227
 
 227:                                              ; preds = %225, %._crit_edge.i.i.i.i397
-  %.sroa.032.2.i.i.i.i400 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i399, %._crit_edge.i.i.i.i397 ], [ %226, %225 ]
+  %.sroa.032.2.i.i.i.i400 = phi ptr [ %226, %225 ], [ %.sroa.032.0.lcssa.i.i.i.i399, %._crit_edge.i.i.i.i397 ]
   %228 = load i32, ptr %.sroa.032.2.i.i.i.i400, align 4, !tbaa !118
   %229 = icmp eq i32 %228, 5
   %spec.select.i.i.i.i401 = select i1 %229, ptr %.sroa.032.2.i.i.i.i400, ptr %149
@@ -27344,7 +27344,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %262
 
 262:                                              ; preds = %260, %._crit_edge.i.i.i.i414
-  %.sroa.032.1.i.i.i.i420 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i416, %._crit_edge.i.i.i.i414 ], [ %261, %260 ]
+  %.sroa.032.1.i.i.i.i420 = phi ptr [ %261, %260 ], [ %.sroa.032.0.lcssa.i.i.i.i416, %._crit_edge.i.i.i.i414 ]
   %263 = load i32, ptr %.sroa.032.1.i.i.i.i420, align 4, !tbaa !118
   %264 = icmp eq i32 %263, 6
   br i1 %264, label %_ZNK2cv15VideoParameters3hasEi.exit, label %265
@@ -27354,7 +27354,7 @@ _ZNK2cv15VideoParameters3getIiEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %267
 
 267:                                              ; preds = %265, %._crit_edge.i.i.i.i414
-  %.sroa.032.2.i.i.i.i417 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i416, %._crit_edge.i.i.i.i414 ], [ %266, %265 ]
+  %.sroa.032.2.i.i.i.i417 = phi ptr [ %266, %265 ], [ %.sroa.032.0.lcssa.i.i.i.i416, %._crit_edge.i.i.i.i414 ]
   %268 = load i32, ptr %.sroa.032.2.i.i.i.i417, align 4, !tbaa !118
   %269 = icmp eq i32 %268, 6
   %spec.select.i.i.i.i418 = select i1 %269, ptr %.sroa.032.2.i.i.i.i417, ptr %149
@@ -27460,7 +27460,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %304
 
 304:                                              ; preds = %302, %._crit_edge.i.i.i.i429
-  %.sroa.032.1.i.i.i.i435 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i431, %._crit_edge.i.i.i.i429 ], [ %303, %302 ]
+  %.sroa.032.1.i.i.i.i435 = phi ptr [ %303, %302 ], [ %.sroa.032.0.lcssa.i.i.i.i431, %._crit_edge.i.i.i.i429 ]
   %305 = load i32, ptr %.sroa.032.1.i.i.i.i435, align 4, !tbaa !118
   %306 = icmp eq i32 %305, 7
   br i1 %306, label %_ZNK2cv15VideoParameters3hasEi.exit447, label %307
@@ -27470,7 +27470,7 @@ _ZNK2cv15VideoParameters3hasEi.exit.thread:       ; preds = %._crit_edge.i.i.i.i
   br label %309
 
 309:                                              ; preds = %307, %._crit_edge.i.i.i.i429
-  %.sroa.032.2.i.i.i.i432 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i431, %._crit_edge.i.i.i.i429 ], [ %308, %307 ]
+  %.sroa.032.2.i.i.i.i432 = phi ptr [ %308, %307 ], [ %.sroa.032.0.lcssa.i.i.i.i431, %._crit_edge.i.i.i.i429 ]
   %310 = load i32, ptr %.sroa.032.2.i.i.i.i432, align 4, !tbaa !118
   %311 = icmp eq i32 %310, 7
   %spec.select.i.i.i.i433 = select i1 %311, ptr %.sroa.032.2.i.i.i.i432, ptr %276

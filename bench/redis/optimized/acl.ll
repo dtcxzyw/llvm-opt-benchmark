@@ -1486,7 +1486,7 @@ define dso_local void @ACLSelectorRemoveCommandRule(ptr noundef readonly capture
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %24, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %10 ], [ %9, %7 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !67
   %27 = load i8, ptr %26, align 1, !tbaa !19
@@ -1603,7 +1603,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1663,7 +1663,7 @@ define dso_local void @ACLUpdateCommandRules(ptr noundef captures(none) %0, ptr 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %11, %14, %18, %22, %26
-  %.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %sdslen.exit.thread, label %29
 
@@ -2068,7 +2068,7 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %45, %48, %52, %56, %60
-  %.0.i = phi i64 [ %62, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %45 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %62, %60 ], [ 0, %.lr.ph ]
   %63 = call i32 @ACLSetSelector(ptr noundef %15, ptr noundef nonnull %40, i64 noundef %.0.i)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %34, label %65, !prof !119
@@ -2845,7 +2845,7 @@ define dso_local ptr @ACLDescribeSelectorCommandRules(ptr noundef readonly captu
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %40, %43, %47, %51, %55
-  %.0.i = phi i64 [ %57, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %40 ]
+  %.0.i = phi i64 [ %42, %40 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %57, %55 ]
   %.not25 = icmp eq i64 %.0.i, 0
   br i1 %.not25, label %sdslen.exit.thread, label %63
 
@@ -3211,7 +3211,7 @@ define dso_local noundef ptr @aclCreateSelectorFromOpSet(ptr noundef %0, i64 nou
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %51, %55, %59
-  %.0.i = phi i64 [ %61, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %44 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
   %62 = call i32 @ACLSetSelector(ptr noundef nonnull %12, ptr noundef nonnull %39, i64 noundef %.0.i)
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %64, label %34
@@ -3641,7 +3641,7 @@ ACLCheckPasswordHash.exit123.thread:              ; preds = %91, %ACLCheckPasswo
   br label %.thread128
 
 .thread128:                                       ; preds = %106, %ACLCheckPasswordHash.exit123.thread, %ACLCheckPasswordHash.exit.thread, %169, %117, %115, %12, %172, %._crit_edge
-  %.0 = phi i32 [ -1, %ACLCheckPasswordHash.exit.thread ], [ 0, %172 ], [ -1, %169 ], [ 0, %._crit_edge ], [ 0, %12 ], [ 0, %117 ], [ -1, %115 ], [ -1, %ACLCheckPasswordHash.exit123.thread ], [ -1, %106 ]
+  %.0 = phi i32 [ 0, %172 ], [ -1, %ACLCheckPasswordHash.exit.thread ], [ -1, %169 ], [ 0, %._crit_edge ], [ 0, %12 ], [ 0, %117 ], [ -1, %115 ], [ -1, %ACLCheckPasswordHash.exit123.thread ], [ -1, %106 ]
   ret i32 %.0
 }
 
@@ -3817,7 +3817,7 @@ define dso_local range(i32 -1, 1) i32 @ACLCheckUserCredentials(ptr noundef reado
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   store ptr null, ptr %6, align 8, !tbaa !143
   %32 = load ptr, ptr @Users, align 8, !tbaa !87
@@ -3897,7 +3897,7 @@ sdslen.exit:                                      ; preds = %2, %14, %17, %21, %
   br label %sdslen.exit21
 
 sdslen.exit21:                                    ; preds = %46, %55, %58, %62, %66, %70
-  %.0.i20 = phi i64 [ %72, %70 ], [ %69, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %55 ], [ 0, %46 ]
+  %.0.i20 = phi i64 [ %57, %55 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %72, %70 ], [ 0, %46 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #25
@@ -4076,7 +4076,7 @@ define dso_local range(i32 0, 2) i32 @checkPasswordBasedAuth(ptr noundef %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %7, %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ], [ 0, %7 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store ptr null, ptr %4, align 8, !tbaa !143
   %33 = load ptr, ptr @Users, align 8, !tbaa !87
@@ -4478,7 +4478,7 @@ define dso_local i64 @ACLGetCommandID(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %8, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %8 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %8 ]
   %32 = call i32 @raxFind(ptr noundef %9, ptr noundef nonnull %3, i64 noundef %.0.i, ptr noundef nonnull %2) #25
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %36, label %33
@@ -4664,7 +4664,7 @@ define internal fastcc range(i32 0, 3) i32 @ACLSelectorCheckKey(ptr noundef read
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %45, %41, %37, %33, %30, %23
-  %.0.i.us = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ], [ 0, %23 ]
+  %.0.i.us = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ], [ 0, %23 ]
   %48 = trunc i64 %.0.i.us to i32
   %49 = call i32 @stringmatchlen(ptr noundef nonnull %25, i32 noundef %48, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not40.us = icmp eq i32 %49, 0
@@ -4728,7 +4728,7 @@ sdslen.exit.us:                                   ; preds = %45, %41, %37, %33, 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %57, %64, %67, %71, %75, %79
-  %.0.i = phi i64 [ %81, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %64 ], [ 0, %57 ]
+  %.0.i = phi i64 [ %66, %64 ], [ %70, %67 ], [ %74, %71 ], [ %78, %75 ], [ %81, %79 ], [ 0, %57 ]
   %82 = trunc i64 %.0.i to i32
   %83 = call i32 @prefixmatch(ptr noundef nonnull %59, i32 noundef %82, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not41 = icmp eq i32 %83, 0
@@ -5036,7 +5036,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %83, %87, %91
-  %.0.i116 = phi i64 [ %93, %91 ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %76 ], [ 0, %.lr.ph ]
+  %.0.i116 = phi i64 [ %78, %76 ], [ %82, %79 ], [ %86, %83 ], [ %90, %87 ], [ %93, %91 ], [ 0, %.lr.ph ]
   %94 = trunc i64 %.0.i116 to i32
   %95 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !184
@@ -5136,7 +5136,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %
   br label %sdslen.exit118
 
 sdslen.exit118:                                   ; preds = %117, %130, %133, %137, %141, %145
-  %.0.i117 = phi i64 [ %147, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %133 ], [ %132, %130 ], [ 0, %117 ]
+  %.0.i117 = phi i64 [ %132, %130 ], [ %136, %133 ], [ %140, %137 ], [ %144, %141 ], [ %147, %145 ], [ 0, %117 ]
   %148 = trunc i64 %.0.i117 to i32
   %149 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %120, ptr noundef nonnull %125, i32 noundef %148, i32 noundef %119)
   %.not115 = icmp eq i32 %149, 0
@@ -5240,7 +5240,7 @@ define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readon
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %21, %27, %30, %33, %36, %39
-  %.0.i = phi i64 [ %40, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ 0, %21 ]
+  %.0.i = phi i64 [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %40, %39 ], [ 0, %21 ]
   %41 = trunc i64 %.0.i to i32
   %42 = call fastcc i32 @ACLCheckChannelAgainstList(ptr noundef %23, ptr noundef nonnull %1, i32 noundef %41, i32 noundef %2)
   %.not13 = icmp eq i32 %42, 0
@@ -5310,7 +5310,7 @@ define internal fastcc range(i32 0, 5) i32 @ACLCheckChannelAgainstList(ptr nound
   br label %sdslen.exit.us
 
 sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, %14, %.lr.ph.split.us
-  %.0.i.us = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %.lr.ph.split.us ]
+  %.0.i.us = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %.lr.ph.split.us ]
   %32 = trunc i64 %.0.i.us to i32
   %33 = call i32 @stringmatchlen(ptr noundef nonnull %9, i32 noundef %32, ptr noundef %1, i32 noundef %2, i32 noundef 0) #25
   %.not16.us = icmp eq i32 %33, 0
@@ -5667,7 +5667,7 @@ ACLCheckChannelAgainstList.exit:                  ; preds = %sdslen.exit, %.crit
   br label %sdslen.exit54
 
 sdslen.exit54:                                    ; preds = %.lr.ph, %35, %38, %42, %46, %50
-  %.0.i53 = phi i64 [ %52, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %35 ], [ 0, %.lr.ph ]
+  %.0.i53 = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ], [ 0, %.lr.ph ]
   %53 = trunc i64 %.0.i53 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %4) #25
@@ -5720,7 +5720,7 @@ sdslen.exit54:                                    ; preds = %.lr.ph, %35, %38, %
   br label %sdslen.exit.us.i
 
 sdslen.exit.us.i:                                 ; preds = %77, %73, %69, %65, %62, %.lr.ph.split.us.i
-  %.0.i.us.i = phi i64 [ %64, %62 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ], [ %79, %77 ], [ 0, %.lr.ph.split.us.i ]
+  %.0.i.us.i = phi i64 [ %79, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %62 ], [ 0, %.lr.ph.split.us.i ]
   %80 = trunc i64 %.0.i.us.i to i32
   %81 = call i32 @stringmatchlen(ptr noundef nonnull %57, i32 noundef %80, ptr noundef %30, i32 noundef %53, i32 noundef 0) #25
   %.not16.us.i = icmp eq i32 %81, 0
@@ -5796,7 +5796,7 @@ ACLCheckChannelAgainstList.exit58:                ; preds = %sdslen.exit54, %.cr
   br label %sdslen.exit60
 
 sdslen.exit60:                                    ; preds = %.lr.ph88, %96, %99, %103, %107, %111
-  %.0.i59 = phi i64 [ %113, %111 ], [ %110, %107 ], [ %106, %103 ], [ %102, %99 ], [ %98, %96 ], [ 0, %.lr.ph88 ]
+  %.0.i59 = phi i64 [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ %113, %111 ], [ 0, %.lr.ph88 ]
   %114 = trunc i64 %.0.i59 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %3) #25
@@ -5849,7 +5849,7 @@ sdslen.exit60:                                    ; preds = %.lr.ph88, %96, %99,
   br label %sdslen.exit.us.i64
 
 sdslen.exit.us.i64:                               ; preds = %138, %134, %130, %126, %123, %.lr.ph.split.us.i63
-  %.0.i.us.i65 = phi i64 [ %125, %123 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ %140, %138 ], [ 0, %.lr.ph.split.us.i63 ]
+  %.0.i.us.i65 = phi i64 [ %140, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %126 ], [ %125, %123 ], [ 0, %.lr.ph.split.us.i63 ]
   %141 = trunc i64 %.0.i.us.i65 to i32
   %142 = call i32 @stringmatchlen(ptr noundef nonnull %118, i32 noundef %141, ptr noundef %91, i32 noundef %114, i32 noundef 0) #25
   %.not16.us.i66 = icmp eq i32 %142, 0
@@ -6017,7 +6017,7 @@ define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %21, %24, %28, %32, %36
-  %.0.i = phi i64 [ %38, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %21 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ], [ 0, %16 ]
   %39 = getelementptr i8, ptr %12, i64 %.0.i
   %40 = getelementptr i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !19
@@ -6072,7 +6072,7 @@ sdslen.exit:                                      ; preds = %16, %21, %24, %28, 
   br label %sdslen.exit50
 
 sdslen.exit50:                                    ; preds = %45, %51, %54, %58, %62, %66
-  %.0.i49 = phi i64 [ %68, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ %53, %51 ], [ 0, %45 ]
+  %.0.i49 = phi i64 [ %53, %51 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %68, %66 ], [ 0, %45 ]
   %69 = getelementptr i8, ptr %12, i64 %.0.i49
   %70 = getelementptr i8, ptr %69, i64 -1
   %71 = load i8, ptr %70, align 1, !tbaa !19
@@ -6264,7 +6264,7 @@ ACLCopyUser.exit:                                 ; preds = %42, %39, %20
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %59, %63, %67
-  %.0.i = phi i64 [ %69, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %52 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %54, %52 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %69, %67 ], [ 0, %.lr.ph ]
   %70 = call i32 @ACLSetUser(ptr noundef %21, ptr noundef nonnull %47, i64 noundef %.0.i)
   %.not44 = icmp eq i32 %70, 0
   br i1 %.not44, label %45, label %71
@@ -6364,7 +6364,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
   br label %108
 
 108:                                              ; preds = %105, %101, %97, %93, %90, %.critedge
-  %.0.i47 = phi i64 [ %107, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %90 ], [ 0, %.critedge ]
+  %.0.i47 = phi i64 [ %92, %90 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %107, %105 ], [ 0, %.critedge ]
   %109 = call ptr @ACLCreateUser(ptr noundef nonnull %1, i64 noundef %.0.i47)
   %.not45 = icmp eq ptr %109, null
   br i1 %.not45, label %110, label %111, !prof !201
@@ -6566,7 +6566,7 @@ define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef reado
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %40, %44, %48
-  %.0.i = phi i64 [ %50, %48 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %33 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %35, %33 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %50, %48 ], [ 0, %.lr.ph ]
   %51 = tail call i32 @ACLSetUser(ptr noundef %25, ptr noundef nonnull %28, i64 noundef %.0.i)
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %61
@@ -6745,7 +6745,7 @@ define dso_local range(i32 -1, 1) i32 @ACLLoadConfiguredUsers() local_unnamed_ad
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %13 ]
+  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ]
   %.not1011.not.i = icmp eq i64 %.0.i, 0
   br i1 %.not1011.not.i, label %sdslen.exit.thread, label %.lr.ph.i
 
@@ -6819,7 +6819,7 @@ sdslen.exit.thread:                               ; preds = %33, %sdslen.exit
   br label %sdslen.exit45
 
 sdslen.exit45:                                    ; preds = %.lr.ph60, %sdslen.exit.thread, %46, %49, %53, %57, %61
-  %.0.i44 = phi i64 [ %63, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %46 ], [ 0, %sdslen.exit.thread ], [ 0, %.lr.ph60 ]
+  %.0.i44 = phi i64 [ %48, %46 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %63, %61 ], [ 0, %sdslen.exit.thread ], [ 0, %.lr.ph60 ]
   %64 = call ptr @ACLCreateUser(ptr noundef nonnull %8, i64 noundef %.0.i44)
   %.not36 = icmp eq ptr %64, null
   br i1 %.not36, label %65, label %73
@@ -6902,7 +6902,7 @@ sdslen.exit45:                                    ; preds = %.lr.ph60, %sdslen.e
   br label %sdslen.exit47
 
 sdslen.exit47:                                    ; preds = %.lr.ph, %84, %87, %91, %95, %99
-  %.0.i46 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %84 ], [ 0, %.lr.ph ]
+  %.0.i46 = phi i64 [ %86, %84 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ 0, %.lr.ph ]
   %102 = call i32 @ACLSetUser(ptr noundef %.028, ptr noundef nonnull %79, i64 noundef %.0.i46)
   %.not39 = icmp eq i32 %102, 0
   br i1 %.not39, label %76, label %103
@@ -7082,7 +7082,7 @@ define dso_local ptr @ACLLoadFromFile(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %34, %37, %41, %45, %49
-  %.0.i = phi i64 [ %51, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %34 ]
+  %.0.i = phi i64 [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %51, %49 ]
   %52 = icmp eq i64 %.0.i, 0
   br i1 %52, label %sdslen.exit.thread, label %382
 
@@ -7141,7 +7141,7 @@ sdslen.exit:                                      ; preds = %34, %37, %41, %45, 
   br label %sdslen.exit146
 
 sdslen.exit146:                                   ; preds = %58, %63, %66, %70, %74, %78
-  %.0.i145 = phi i64 [ %80, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %63 ], [ 0, %58 ]
+  %.0.i145 = phi i64 [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %80, %78 ], [ 0, %58 ]
   %81 = call ptr @sdssplitlen(ptr noundef nonnull %55, i64 noundef %.0.i145, ptr noundef nonnull @.str.40, i32 noundef 1, ptr noundef nonnull %6) #25
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %87
@@ -7221,7 +7221,7 @@ sdslen.exit146:                                   ; preds = %58, %63, %66, %70, 
   br label %sdslen.exit148
 
 sdslen.exit148:                                   ; preds = %108, %111, %115, %119, %123
-  %.0.i147 = phi i64 [ %125, %123 ], [ %122, %119 ], [ %118, %115 ], [ %114, %111 ], [ %110, %108 ]
+  %.0.i147 = phi i64 [ %110, %108 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %125, %123 ]
   %.not1011.not.i = icmp eq i64 %.0.i147, 0
   br i1 %.not1011.not.i, label %sdslen.exit148.thread, label %.lr.ph.i
 
@@ -7294,7 +7294,7 @@ sdslen.exit148.thread:                            ; preds = %128, %sdslen.exit14
   br label %sdslen.exit150
 
 sdslen.exit150:                                   ; preds = %101, %sdslen.exit148.thread, %142, %145, %149, %153, %157
-  %.0.i149 = phi i64 [ %159, %157 ], [ %156, %153 ], [ %152, %149 ], [ %148, %145 ], [ %144, %142 ], [ 0, %sdslen.exit148.thread ], [ 0, %101 ]
+  %.0.i149 = phi i64 [ %144, %142 ], [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ %159, %157 ], [ 0, %sdslen.exit148.thread ], [ 0, %101 ]
   %160 = call ptr @ACLCreateUser(ptr noundef nonnull %103, i64 noundef %.0.i149)
   %.not141 = icmp eq ptr %160, null
   br i1 %.not141, label %161, label %166
@@ -7390,7 +7390,7 @@ sdslen.exit150:                                   ; preds = %101, %sdslen.exit14
   br label %sdslen.exit152
 
 sdslen.exit152:                                   ; preds = %.lr.ph183, %188, %191, %195, %199, %203
-  %.0.i151 = phi i64 [ %205, %203 ], [ %202, %199 ], [ %198, %195 ], [ %194, %191 ], [ %190, %188 ], [ 0, %.lr.ph183 ]
+  %.0.i151 = phi i64 [ %190, %188 ], [ %194, %191 ], [ %198, %195 ], [ %202, %199 ], [ %205, %203 ], [ 0, %.lr.ph183 ]
   %206 = call i32 @ACLSetUser(ptr noundef nonnull %160, ptr noundef nonnull %183, i64 noundef %.0.i151)
   %.not144 = icmp eq i32 %206, 0
   br i1 %.not144, label %223, label %207
@@ -7640,7 +7640,7 @@ ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit, %
   br label %sdslen.exit159
 
 sdslen.exit159:                                   ; preds = %290, %298, %301, %305, %309, %313
-  %.0.i158 = phi i64 [ %315, %313 ], [ %312, %309 ], [ %308, %305 ], [ %304, %301 ], [ %300, %298 ], [ 0, %290 ]
+  %.0.i158 = phi i64 [ %300, %298 ], [ %304, %301 ], [ %308, %305 ], [ %312, %309 ], [ %315, %313 ], [ 0, %290 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #25
   store ptr null, ptr %2, align 8, !tbaa !143
   %316 = load ptr, ptr @Users, align 8, !tbaa !87
@@ -7694,7 +7694,7 @@ sdslen.exit159:                                   ; preds = %290, %298, %301, %3
   br label %sdslen.exit161
 
 sdslen.exit161:                                   ; preds = %320, %326, %329, %333, %337, %341
-  %.0.i160 = phi i64 [ %343, %341 ], [ %340, %337 ], [ %336, %333 ], [ %332, %329 ], [ %328, %326 ], [ 0, %320 ]
+  %.0.i160 = phi i64 [ %328, %326 ], [ %332, %329 ], [ %336, %333 ], [ %340, %337 ], [ %343, %341 ], [ 0, %320 ]
   %344 = call i32 @raxFind(ptr noundef nonnull %.0114, ptr noundef nonnull %321, i64 noundef %.0.i160, ptr noundef nonnull %9) #25
   %.not137 = icmp eq i32 %344, 0
   br i1 %.not137, label %345, label %.thread
@@ -7744,7 +7744,7 @@ sdslen.exit161:                                   ; preds = %320, %326, %329, %3
   br label %sdslen.exit163
 
 sdslen.exit163:                                   ; preds = %345, %352, %355, %359, %363, %367
-  %.0.i162 = phi i64 [ %369, %367 ], [ %366, %363 ], [ %362, %359 ], [ %358, %355 ], [ %354, %352 ], [ 0, %345 ]
+  %.0.i162 = phi i64 [ %354, %352 ], [ %358, %355 ], [ %362, %359 ], [ %366, %363 ], [ %369, %367 ], [ 0, %345 ]
   %370 = call i32 @raxInsert(ptr noundef nonnull %.0114, ptr noundef nonnull %347, i64 noundef %.0.i162, ptr noundef %346, ptr noundef null) #25
   br label %.thread
 
@@ -7940,7 +7940,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSaveToFile(ptr noundef %0) local_unnam
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %40, %44, %47, %50, %53, %56
-  %.0.i = phi i64 [ %57, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ 0, %40 ]
+  %.0.i = phi i64 [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %57, %56 ], [ 0, %40 ]
   %58 = icmp ult i64 %.039.ph, %.0.i
   br i1 %58, label %59, label %86
 
@@ -7978,7 +7978,7 @@ sdslen.exit:                                      ; preds = %40, %44, %47, %50, 
   br label %sdslen.exit51
 
 sdslen.exit51:                                    ; preds = %59, %60, %63, %66, %69, %72
-  %.0.i50 = phi i64 [ %73, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ 0, %59 ]
+  %.0.i50 = phi i64 [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %73, %72 ], [ 0, %59 ]
   %74 = sub i64 %.0.i50, %.039.ph
   %75 = call i64 @write(i32 noundef %25, ptr noundef %32, i64 noundef %74) #25
   %76 = icmp slt i64 %75, 1
@@ -8341,7 +8341,7 @@ define dso_local ptr @getAclErrorMessage(i32 noundef %0, ptr noundef readonly ca
   unreachable
 
 27:                                               ; preds = %24, %20, %17, %13, %6
-  %.0 = phi ptr [ %23, %20 ], [ %25, %24 ], [ %16, %13 ], [ %18, %17 ], [ %11, %6 ]
+  %.0 = phi ptr [ %11, %6 ], [ %16, %13 ], [ %18, %17 ], [ %23, %20 ], [ %25, %24 ]
   ret ptr %.0
 }
 
@@ -8405,7 +8405,7 @@ define dso_local void @aclCatWithFlags(ptr noundef %0, ptr noundef %1, i64 nound
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %12, %19, %22, %26, %30, %34
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ 0, %12 ]
+  %.0.i = phi i64 [ %21, %19 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %12 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %.0.i) #25
   %37 = load i32, ptr %3, align 4, !tbaa !102
   %38 = add nsw i32 %37, 1
@@ -8619,7 +8619,7 @@ define dso_local void @aclCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %32, %35, %39, %43, %47
-  %.0.i = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ]
+  %.0.i = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
   %.not1011.not.i = icmp eq i64 %.0.i, 0
   br i1 %.not1011.not.i, label %sdslen.exit.thread, label %.lr.ph.i
 
@@ -8696,7 +8696,7 @@ sdslen.exit.thread:                               ; preds = %52, %sdslen.exit
   br label %sdslen.exit349
 
 sdslen.exit349:                                   ; preds = %._crit_edge420, %sdslen.exit.thread, %65, %68, %72, %76, %80
-  %.0.i348 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %sdslen.exit.thread ], [ 0, %._crit_edge420 ]
+  %.0.i348 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %sdslen.exit.thread ], [ 0, %._crit_edge420 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store ptr null, ptr %4, align 8, !tbaa !143
   %83 = load ptr, ptr @Users, align 8, !tbaa !87
@@ -8852,7 +8852,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge420, %sd
   br label %sdslen.exit351
 
 sdslen.exit351:                                   ; preds = %.lr.ph416, %132, %135, %139, %143, %147
-  %.0.i350 = phi i64 [ %149, %147 ], [ %146, %143 ], [ %142, %139 ], [ %138, %135 ], [ %134, %132 ], [ 0, %.lr.ph416 ]
+  %.0.i350 = phi i64 [ %134, %132 ], [ %138, %135 ], [ %142, %139 ], [ %146, %143 ], [ %149, %147 ], [ 0, %.lr.ph416 ]
   %150 = call i32 @raxRemove(ptr noundef %127, ptr noundef nonnull %126, i64 noundef %.0.i350, ptr noundef nonnull %5) #25
   %.not301 = icmp eq i32 %150, 0
   br i1 %.not301, label %.critedge337, label %151
@@ -8931,7 +8931,7 @@ sdslen.exit351:                                   ; preds = %.lr.ph416, %132, %1
   br label %sdslen.exit353
 
 sdslen.exit353:                                   ; preds = %163, %173, %176, %180, %184, %188
-  %.0.i352 = phi i64 [ %190, %188 ], [ %187, %184 ], [ %183, %180 ], [ %179, %176 ], [ %175, %173 ], [ 0, %163 ]
+  %.0.i352 = phi i64 [ %175, %173 ], [ %179, %176 ], [ %183, %180 ], [ %187, %184 ], [ %190, %188 ], [ 0, %163 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   store ptr null, ptr %3, align 8, !tbaa !143
   %191 = load ptr, ptr @Users, align 8, !tbaa !87
@@ -9048,7 +9048,7 @@ sdslen.exit353:                                   ; preds = %163, %173, %176, %1
   br label %sdslen.exit355
 
 sdslen.exit355:                                   ; preds = %.lr.ph404, %227, %230, %234, %238, %242
-  %.0.i354 = phi i64 [ %244, %242 ], [ %241, %238 ], [ %237, %234 ], [ %233, %230 ], [ %229, %227 ], [ 0, %.lr.ph404 ]
+  %.0.i354 = phi i64 [ %229, %227 ], [ %233, %230 ], [ %237, %234 ], [ %241, %238 ], [ %244, %242 ], [ 0, %.lr.ph404 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %222, i64 noundef %.0.i354) #25
   %245 = call ptr @listNext(ptr noundef nonnull %6) #25
   %.not304 = icmp eq ptr %245, null
@@ -9199,7 +9199,7 @@ ACLUserGetRootSelector.exit:                      ; preds = %251
   br label %sdslen.exit358.us
 
 sdslen.exit358.us:                                ; preds = %310, %306, %302, %298, %295, %.lr.ph393.split.us
-  %.0.i357.us = phi i64 [ %297, %295 ], [ %301, %298 ], [ %305, %302 ], [ %309, %306 ], [ %312, %310 ], [ 0, %.lr.ph393.split.us ]
+  %.0.i357.us = phi i64 [ %312, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %295 ], [ 0, %.lr.ph393.split.us ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %290, i64 noundef %.0.i357.us) #25
   %313 = call i32 @raxNext(ptr noundef nonnull %7) #25
   %.not312.us = icmp eq i32 %313, 0
@@ -9286,7 +9286,7 @@ sdslen.exit358.us:                                ; preds = %310, %306, %302, %2
   br label %sdslen.exit360
 
 sdslen.exit360:                                   ; preds = %333, %339, %342, %346, %350, %354
-  %.0.i359 = phi i64 [ %356, %354 ], [ %353, %350 ], [ %349, %346 ], [ %345, %342 ], [ %341, %339 ], [ 0, %333 ]
+  %.0.i359 = phi i64 [ %341, %339 ], [ %345, %342 ], [ %349, %346 ], [ %353, %350 ], [ %356, %354 ], [ 0, %333 ]
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %334, i64 noundef %.0.i359) #25
   br label %.critedge339
 
@@ -9661,7 +9661,7 @@ switch.lookup467:                                 ; preds = %490
   br label %sdslen.exit364
 
 sdslen.exit364:                                   ; preds = %495, %502, %505, %509, %513, %517
-  %.0.i363 = phi i64 [ %519, %517 ], [ %516, %513 ], [ %512, %509 ], [ %508, %505 ], [ %504, %502 ], [ 0, %495 ]
+  %.0.i363 = phi i64 [ %504, %502 ], [ %508, %505 ], [ %512, %509 ], [ %516, %513 ], [ %519, %517 ], [ 0, %495 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %497, i64 noundef %.0.i363) #25
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.166) #25
   %520 = getelementptr inbounds nuw i8, ptr %484, i64 24
@@ -9707,7 +9707,7 @@ sdslen.exit364:                                   ; preds = %495, %502, %505, %5
   br label %sdslen.exit366
 
 sdslen.exit366:                                   ; preds = %sdslen.exit364, %526, %529, %533, %537, %541
-  %.0.i365 = phi i64 [ %543, %541 ], [ %540, %537 ], [ %536, %533 ], [ %532, %529 ], [ %528, %526 ], [ 0, %sdslen.exit364 ]
+  %.0.i365 = phi i64 [ %528, %526 ], [ %532, %529 ], [ %536, %533 ], [ %540, %537 ], [ %543, %541 ], [ 0, %sdslen.exit364 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %521, i64 noundef %.0.i365) #25
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.167) #25
   %544 = getelementptr inbounds nuw i8, ptr %484, i64 32
@@ -9760,7 +9760,7 @@ sdslen.exit366:                                   ; preds = %sdslen.exit364, %52
   br label %sdslen.exit368
 
 sdslen.exit368:                                   ; preds = %sdslen.exit366, %555, %558, %562, %566, %570
-  %.0.i367 = phi i64 [ %572, %570 ], [ %569, %566 ], [ %565, %562 ], [ %561, %558 ], [ %557, %555 ], [ 0, %sdslen.exit366 ]
+  %.0.i367 = phi i64 [ %557, %555 ], [ %561, %558 ], [ %565, %562 ], [ %569, %566 ], [ %572, %570 ], [ 0, %sdslen.exit366 ]
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %550, i64 noundef %.0.i367) #25
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.169) #25
   %573 = getelementptr inbounds nuw i8, ptr %484, i64 48
@@ -10120,7 +10120,7 @@ define dso_local void @authCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %64, %60, %56, %52, %49, %38
-  %.0.i.i = phi i64 [ %66, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %51, %49 ], [ 0, %38 ]
+  %.0.i.i = phi i64 [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %66, %64 ], [ 0, %38 ]
   %67 = load i64, ptr %2, align 8, !tbaa !5
   %.not.i = icmp eq i64 %.0.i.i, %67
   br i1 %.not.i, label %69, label %68
@@ -10300,7 +10300,7 @@ define dso_local void @ACLUpdateDefaultUserPassword(ptr noundef %0) local_unname
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %4, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ], [ 0, %4 ]
+  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %4 ]
   %28 = tail call ptr @sdscatlen(ptr noundef %5, ptr noundef nonnull %0, i64 noundef %.0.i) #25
   %29 = load ptr, ptr @DefaultUser, align 8, !tbaa !143
   %30 = getelementptr inbounds i8, ptr %28, i64 -1
@@ -10344,7 +10344,7 @@ sdslen.exit:                                      ; preds = %4, %10, %13, %17, %
   br label %sdslen.exit7
 
 sdslen.exit7:                                     ; preds = %sdslen.exit, %34, %37, %41, %45, %49
-  %.0.i6 = phi i64 [ %51, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %34 ], [ 0, %sdslen.exit ]
+  %.0.i6 = phi i64 [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %51, %49 ], [ 0, %sdslen.exit ]
   %52 = tail call i32 @ACLSetUser(ptr noundef %29, ptr noundef nonnull %28, i64 noundef %.0.i6)
   tail call void @sdsfree(ptr noundef nonnull %28) #25
   br label %56

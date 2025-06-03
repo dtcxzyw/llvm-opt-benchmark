@@ -315,7 +315,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %67, %58
   br label %118
 
 _ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llvm7MCFixupERjPKNS1_15MCSymbolRefExprES5_RKNS1_11MCAssemblerE.exit: ; preds = %104, %98, %84
-  %110 = phi ptr [ %86, %84 ], [ %54, %104 ], [ %86, %98 ]
+  %110 = phi ptr [ %86, %84 ], [ %86, %98 ], [ %54, %104 ]
   %111 = load ptr, ptr %2, align 8, !tbaa !27
   %.sroa.0.0.copyload.i234 = load ptr, ptr %110, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
@@ -328,11 +328,11 @@ _ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llv
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #16
   br label %.thread340
 
-.thread316:                                       ; preds = %93, %88, %.thread, %102, %103, %107, %108, %98
-  %.ph.ph = phi ptr [ %54, %108 ], [ %54, %107 ], [ %86, %103 ], [ %86, %102 ], [ %54, %.thread ], [ %86, %98 ], [ %86, %88 ], [ %86, %93 ]
-  %.ph310.ph = phi ptr [ %53, %108 ], [ %53, %107 ], [ %85, %103 ], [ %85, %102 ], [ %53, %.thread ], [ %85, %98 ], [ %85, %88 ], [ %85, %93 ]
-  %.5.ph.ph = phi i32 [ 8, %108 ], [ 5, %107 ], [ 9, %103 ], [ 6, %102 ], [ 3, %.thread ], [ 4, %98 ], [ %spec.select, %88 ], [ %spec.select361, %93 ]
-  %.1302.ph.ph = phi i32 [ 2, %108 ], [ 2, %107 ], [ 2, %103 ], [ 2, %102 ], [ 2, %.thread ], [ 2, %98 ], [ 2, %88 ], [ 3, %93 ]
+.thread316:                                       ; preds = %93, %88, %.thread, %108, %107, %103, %102, %98
+  %.ph.ph = phi ptr [ %86, %102 ], [ %86, %103 ], [ %54, %107 ], [ %54, %108 ], [ %54, %.thread ], [ %86, %98 ], [ %86, %88 ], [ %86, %93 ]
+  %.ph310.ph = phi ptr [ %85, %102 ], [ %85, %103 ], [ %53, %107 ], [ %53, %108 ], [ %53, %.thread ], [ %85, %98 ], [ %85, %88 ], [ %85, %93 ]
+  %.5.ph.ph = phi i32 [ 6, %102 ], [ 9, %103 ], [ 5, %107 ], [ 8, %108 ], [ 3, %.thread ], [ 4, %98 ], [ %spec.select, %88 ], [ %spec.select361, %93 ]
+  %.1302.ph.ph = phi i32 [ 2, %102 ], [ 2, %103 ], [ 2, %107 ], [ 2, %108 ], [ 2, %.thread ], [ 2, %98 ], [ 2, %88 ], [ 3, %93 ]
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %115 = load i64, ptr %114, align 8, !tbaa !88
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -340,9 +340,9 @@ _ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llv
   %.not1.i322 = icmp eq ptr %117, null
   br i1 %.not1.i322, label %246, label %130
 
-118:                                              ; preds = %84, %109, %87
-  %.5.ph = phi i32 [ 0, %87 ], [ 2, %109 ], [ 0, %84 ]
-  %.1302.ph = phi i32 [ 1, %87 ], [ 2, %109 ], [ 0, %84 ]
+118:                                              ; preds = %84, %87, %109
+  %.5.ph = phi i32 [ 2, %109 ], [ 0, %87 ], [ 0, %84 ]
+  %.1302.ph = phi i32 [ 2, %109 ], [ 1, %87 ], [ 0, %84 ]
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %120 = load i64, ptr %119, align 8, !tbaa !88
   %.not.i235 = icmp eq ptr %85, null

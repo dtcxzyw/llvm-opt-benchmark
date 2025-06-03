@@ -534,7 +534,7 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   ]
 
 common.ret132:                                    ; preds = %lean_dec.exit103, %lean_dec.exit, %lean_dec.exit106, %lean_dec.exit104, %49, %47, %35, %12
-  %common.ret132.op = phi i64 [ %27, %12 ], [ %50, %49 ], [ %48, %47 ], [ %46, %35 ], [ %32, %lean_dec.exit106 ], [ %34, %lean_dec.exit104 ], [ %69, %lean_dec.exit103 ], [ %71, %lean_dec.exit ]
+  %common.ret132.op = phi i64 [ %27, %12 ], [ %46, %35 ], [ %48, %47 ], [ %50, %49 ], [ %32, %lean_dec.exit106 ], [ %34, %lean_dec.exit104 ], [ %69, %lean_dec.exit103 ], [ %71, %lean_dec.exit ]
   ret i64 %common.ret132.op
 
 12:                                               ; preds = %lean_obj_tag.exit

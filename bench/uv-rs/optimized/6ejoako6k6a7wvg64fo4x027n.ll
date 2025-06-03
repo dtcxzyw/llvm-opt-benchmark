@@ -133,7 +133,7 @@ define void @"_ZN10uv_extract6stream5unzip28_$u7b$$u7b$closure$u7d$$u7d$13enclos
   ret void
 
 36:                                               ; preds = %42, %39, %29
-  %.sroa.04.1 = phi i64 [ %40, %39 ], [ %43, %42 ], [ %.sroa.04.0, %29 ]
+  %.sroa.04.1 = phi i64 [ %.sroa.04.0, %29 ], [ %43, %42 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %23
 

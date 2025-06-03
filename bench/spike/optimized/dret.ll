@@ -179,7 +179,7 @@ define noundef i64 @_Z15fast_rv32i_dretP11processor_t6insn_tm(ptr noundef %0, i6
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -458,7 +458,7 @@ define noundef i64 @_Z15fast_rv64i_dretP11processor_t6insn_tm(ptr noundef %0, i6
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -711,7 +711,7 @@ define noundef i64 @_Z17logged_rv32i_dretP11processor_t6insn_tm(ptr noundef %0, 
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -964,7 +964,7 @@ define noundef i64 @_Z17logged_rv64i_dretP11processor_t6insn_tm(ptr noundef %0, 
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -1217,7 +1217,7 @@ define noundef i64 @_Z15fast_rv32e_dretP11processor_t6insn_tm(ptr noundef %0, i6
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -1470,7 +1470,7 @@ define noundef i64 @_Z15fast_rv64e_dretP11processor_t6insn_tm(ptr noundef %0, i6
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -1723,7 +1723,7 @@ define noundef i64 @_Z17logged_rv32e_dretP11processor_t6insn_tm(ptr noundef %0, 
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 
@@ -1976,7 +1976,7 @@ define noundef i64 @_Z17logged_rv64e_dretP11processor_t6insn_tm(ptr noundef %0, 
   unreachable
 
 76:                                               ; preds = %72, %65, %57
-  %.1 = phi i64 [ %74, %72 ], [ %71, %65 ], [ %64, %57 ]
+  %.1 = phi i64 [ %64, %57 ], [ %71, %65 ], [ %74, %72 ]
   %77 = icmp eq i64 %.1, 0
   br i1 %77, label %.critedge, label %78
 

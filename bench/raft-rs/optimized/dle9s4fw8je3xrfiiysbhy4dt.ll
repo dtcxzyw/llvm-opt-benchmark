@@ -4594,7 +4594,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -4693,7 +4693,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -4792,7 +4792,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -4891,7 +4891,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -4990,7 +4990,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -5089,7 +5089,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -5188,7 +5188,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -5287,7 +5287,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }
@@ -5386,7 +5386,7 @@ default.unreachable:                              ; preds = %1
   br label %_ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit
 
 _ZN8protobuf7reflect5value15ReflectValueRef11is_non_zero17heafc022fa508dbe2E.exit: ; preds = %1, %4, %8, %12, %16, %20, %24, %28, %32, %36, %40, %47
-  %.sroa.0.0.i = phi i1 [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ %7, %4 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
+  %.sroa.0.0.i = phi i1 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ true, %1 ], [ %50, %47 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i1 %.sroa.0.0.i
 }

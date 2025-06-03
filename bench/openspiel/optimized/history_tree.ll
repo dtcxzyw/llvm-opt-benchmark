@@ -2784,13 +2784,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %167, %._crit_edge, 
   ret void
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68:      ; preds = %218, %.body74, %142, %.body, %155, %66, %57
-  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %156, %155 ], [ %.pn45, %66 ], [ %.pn41.pn.pn, %.body ], [ %.pn41.pn.pn, %142 ], [ %.pn.pn, %.body74 ], [ %.pn.pn, %218 ]
+  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %66 ], [ %156, %155 ], [ %58, %57 ], [ %.pn41.pn.pn, %.body ], [ %.pn41.pn.pn, %142 ], [ %.pn.pn, %.body74 ], [ %.pn.pn, %218 ]
   call void @_ZNSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   br label %224
 
 224:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68 ], [ %45, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68 ], [ %45, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52 ]
+  resume { ptr, i32 } %.pn45.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

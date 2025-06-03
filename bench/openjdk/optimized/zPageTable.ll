@@ -233,7 +233,7 @@ define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGen
   unreachable
 
 _ZN26ZPageTableParallelIteratorC2EPK10ZPageTable.exit: ; preds = %10, %12
-  %.0.i.i.i = phi ptr [ %13, %12 ], [ %11, %10 ]
+  %.0.i.i.i = phi ptr [ %11, %10 ], [ %13, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i.i, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24

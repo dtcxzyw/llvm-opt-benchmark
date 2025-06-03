@@ -84,7 +84,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %42
 
 42:                                               ; preds = %36, %._crit_edge
-  %.1 = phi i64 [ %13, %._crit_edge ], [ %41, %36 ]
+  %.1 = phi i64 [ %41, %36 ], [ %13, %._crit_edge ]
   %43 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 5
   %44 = load i8, ptr %43, align 1, !tbaa !11
   %45 = zext i8 %44 to i64
@@ -93,7 +93,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %48
 
 48:                                               ; preds = %42, %._crit_edge
-  %.2 = phi i64 [ %13, %._crit_edge ], [ %47, %42 ]
+  %.2 = phi i64 [ %47, %42 ], [ %13, %._crit_edge ]
   %49 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 4
   %50 = load i8, ptr %49, align 1, !tbaa !11
   %51 = zext i8 %50 to i64
@@ -102,7 +102,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %54
 
 54:                                               ; preds = %48, %._crit_edge
-  %.3 = phi i64 [ %13, %._crit_edge ], [ %53, %48 ]
+  %.3 = phi i64 [ %53, %48 ], [ %13, %._crit_edge ]
   %55 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 3
   %56 = load i8, ptr %55, align 1, !tbaa !11
   %57 = zext i8 %56 to i64
@@ -111,7 +111,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %60
 
 60:                                               ; preds = %54, %._crit_edge
-  %.4 = phi i64 [ %13, %._crit_edge ], [ %59, %54 ]
+  %.4 = phi i64 [ %59, %54 ], [ %13, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 2
   %62 = load i8, ptr %61, align 1, !tbaa !11
   %63 = zext i8 %62 to i64
@@ -120,7 +120,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %66
 
 66:                                               ; preds = %60, %._crit_edge
-  %.5 = phi i64 [ %13, %._crit_edge ], [ %65, %60 ]
+  %.5 = phi i64 [ %65, %60 ], [ %13, %._crit_edge ]
   %67 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 1
   %68 = load i8, ptr %67, align 1, !tbaa !11
   %69 = zext i8 %68 to i64
@@ -129,7 +129,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   br label %72
 
 72:                                               ; preds = %66, %._crit_edge
-  %.6 = phi i64 [ %13, %._crit_edge ], [ %71, %66 ]
+  %.6 = phi i64 [ %71, %66 ], [ %13, %._crit_edge ]
   %73 = load i8, ptr %.0159.lcssa, align 1, !tbaa !11
   %74 = zext i8 %73 to i64
   %75 = or i64 %.6, %74
@@ -337,7 +337,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %105
 
 105:                                              ; preds = %96, %._crit_edge
-  %.1 = phi i64 [ %13, %._crit_edge ], [ %104, %96 ]
+  %.1 = phi i64 [ %104, %96 ], [ %13, %._crit_edge ]
   %106 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 5
   %107 = load i8, ptr %106, align 1, !tbaa !11
   %108 = zext i8 %107 to i32
@@ -351,7 +351,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %114
 
 114:                                              ; preds = %105, %._crit_edge
-  %.2 = phi i64 [ %13, %._crit_edge ], [ %113, %105 ]
+  %.2 = phi i64 [ %113, %105 ], [ %13, %._crit_edge ]
   %115 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 4
   %116 = load i8, ptr %115, align 1, !tbaa !11
   %117 = zext i8 %116 to i32
@@ -365,7 +365,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %123
 
 123:                                              ; preds = %114, %._crit_edge
-  %.3 = phi i64 [ %13, %._crit_edge ], [ %122, %114 ]
+  %.3 = phi i64 [ %122, %114 ], [ %13, %._crit_edge ]
   %124 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 3
   %125 = load i8, ptr %124, align 1, !tbaa !11
   %126 = zext i8 %125 to i32
@@ -379,7 +379,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %133
 
 133:                                              ; preds = %123, %._crit_edge
-  %.4 = phi i64 [ %13, %._crit_edge ], [ %132, %123 ]
+  %.4 = phi i64 [ %132, %123 ], [ %13, %._crit_edge ]
   %134 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 2
   %135 = load i8, ptr %134, align 1, !tbaa !11
   %136 = zext i8 %135 to i32
@@ -393,7 +393,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %143
 
 143:                                              ; preds = %133, %._crit_edge
-  %.5 = phi i64 [ %13, %._crit_edge ], [ %142, %133 ]
+  %.5 = phi i64 [ %142, %133 ], [ %13, %._crit_edge ]
   %144 = getelementptr inbounds nuw i8, ptr %.0166.lcssa, i64 1
   %145 = load i8, ptr %144, align 1, !tbaa !11
   %146 = zext i8 %145 to i32
@@ -407,7 +407,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   br label %153
 
 153:                                              ; preds = %143, %._crit_edge
-  %.6 = phi i64 [ %13, %._crit_edge ], [ %152, %143 ]
+  %.6 = phi i64 [ %152, %143 ], [ %13, %._crit_edge ]
   %154 = load i8, ptr %.0166.lcssa, align 1, !tbaa !11
   %155 = zext i8 %154 to i32
   %156 = add i8 %154, -65

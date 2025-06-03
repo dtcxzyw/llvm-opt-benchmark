@@ -30391,7 +30391,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit62:                ; preds = %294, %303
   br label %309
 
 309:                                              ; preds = %20, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42, %_ZNK6NewBdd3Man8OneCountEj.exit46, %_ZNK6NewBdd3Man8OneCountEj.exit54, %_ZNK6NewBdd3Man8OneCountEj.exit62, %128, %126, %.thread90, %106, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35
-  %.0 = phi i1 [ %105, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35 ], [ true, %106 ], [ false, %.thread90 ], [ true, %126 ], [ %308, %_ZNK6NewBdd3Man8OneCountEj.exit62 ], [ %254, %_ZNK6NewBdd3Man8OneCountEj.exit54 ], [ %200, %_ZNK6NewBdd3Man8OneCountEj.exit46 ], [ %144, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42 ], [ false, %128 ], [ false, %20 ]
+  %.0 = phi i1 [ %105, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35 ], [ true, %106 ], [ false, %.thread90 ], [ true, %126 ], [ %144, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42 ], [ %200, %_ZNK6NewBdd3Man8OneCountEj.exit46 ], [ %254, %_ZNK6NewBdd3Man8OneCountEj.exit54 ], [ %308, %_ZNK6NewBdd3Man8OneCountEj.exit62 ], [ false, %128 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -40144,8 +40144,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %546
 
 546:                                              ; preds = %544, %._crit_edge._crit_edge.i.i.i77
-  %547 = phi i32 [ %.pre.i.i.i78, %._crit_edge._crit_edge.i.i.i77 ], [ %542, %544 ]
-  %.sroa.032.1.i.i.i79 = phi ptr [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge.i.i.i77 ], [ %545, %544 ]
+  %547 = phi i32 [ %542, %544 ], [ %.pre.i.i.i78, %._crit_edge._crit_edge.i.i.i77 ]
+  %.sroa.032.1.i.i.i79 = phi ptr [ %545, %544 ], [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge.i.i.i77 ]
   %548 = load i32, ptr %.sroa.032.1.i.i.i79, align 4, !tbaa !119
   %549 = icmp eq i32 %548, %547
   br i1 %549, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit90, label %550
@@ -40155,8 +40155,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %552
 
 552:                                              ; preds = %550, %._crit_edge._crit_edge57.i.i.i72
-  %553 = phi i32 [ %.pre58.i.i.i73, %._crit_edge._crit_edge57.i.i.i72 ], [ %547, %550 ]
-  %.sroa.032.2.i.i.i74 = phi ptr [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge57.i.i.i72 ], [ %551, %550 ]
+  %553 = phi i32 [ %547, %550 ], [ %.pre58.i.i.i73, %._crit_edge._crit_edge57.i.i.i72 ]
+  %.sroa.032.2.i.i.i74 = phi ptr [ %551, %550 ], [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge57.i.i.i72 ]
   %554 = load i32, ptr %.sroa.032.2.i.i.i74, align 4, !tbaa !119
   %555 = icmp eq i32 %554, %553
   %spec.select.i.i.i75 = select i1 %555, ptr %.sroa.032.2.i.i.i74, ptr %511
@@ -54915,7 +54915,7 @@ _ZNK5NewTt3Man8OneCountEj.exit87:                 ; preds = %341, %.preheader.i8
   br label %363
 
 363:                                              ; preds = %20, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42, %_ZNK5NewTt3Man8OneCountEj.exit51, %_ZNK5NewTt3Man8OneCountEj.exit69, %_ZNK5NewTt3Man8OneCountEj.exit87, %128, %126, %.thread115, %106, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35
-  %.0 = phi i1 [ %105, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35 ], [ true, %106 ], [ false, %.thread115 ], [ true, %126 ], [ %362, %_ZNK5NewTt3Man8OneCountEj.exit87 ], [ %290, %_ZNK5NewTt3Man8OneCountEj.exit69 ], [ %218, %_ZNK5NewTt3Man8OneCountEj.exit51 ], [ %144, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42 ], [ false, %128 ], [ false, %20 ]
+  %.0 = phi i1 [ %105, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit35 ], [ true, %106 ], [ false, %.thread115 ], [ true, %126 ], [ %144, %_ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42 ], [ %218, %_ZNK5NewTt3Man8OneCountEj.exit51 ], [ %290, %_ZNK5NewTt3Man8OneCountEj.exit69 ], [ %362, %_ZNK5NewTt3Man8OneCountEj.exit87 ], [ false, %128 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -63407,8 +63407,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %546
 
 546:                                              ; preds = %544, %._crit_edge._crit_edge.i.i.i77
-  %547 = phi i32 [ %.pre.i.i.i78, %._crit_edge._crit_edge.i.i.i77 ], [ %542, %544 ]
-  %.sroa.032.1.i.i.i79 = phi ptr [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge.i.i.i77 ], [ %545, %544 ]
+  %547 = phi i32 [ %542, %544 ], [ %.pre.i.i.i78, %._crit_edge._crit_edge.i.i.i77 ]
+  %.sroa.032.1.i.i.i79 = phi ptr [ %545, %544 ], [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge.i.i.i77 ]
   %548 = load i32, ptr %.sroa.032.1.i.i.i79, align 4, !tbaa !119
   %549 = icmp eq i32 %548, %547
   br i1 %549, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit90, label %550
@@ -63418,8 +63418,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %552
 
 552:                                              ; preds = %550, %._crit_edge._crit_edge57.i.i.i72
-  %553 = phi i32 [ %.pre58.i.i.i73, %._crit_edge._crit_edge57.i.i.i72 ], [ %547, %550 ]
-  %.sroa.032.2.i.i.i74 = phi ptr [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge57.i.i.i72 ], [ %551, %550 ]
+  %553 = phi i32 [ %547, %550 ], [ %.pre58.i.i.i73, %._crit_edge._crit_edge57.i.i.i72 ]
+  %.sroa.032.2.i.i.i74 = phi ptr [ %551, %550 ], [ %.sroa.032.0.lcssa.i.i.i71, %._crit_edge._crit_edge57.i.i.i72 ]
   %554 = load i32, ptr %.sroa.032.2.i.i.i74, align 4, !tbaa !119
   %555 = icmp eq i32 %554, %553
   %spec.select.i.i.i75 = select i1 %555, ptr %.sroa.032.2.i.i.i74, ptr %511

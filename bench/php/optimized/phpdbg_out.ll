@@ -209,7 +209,7 @@ define hidden noundef i32 @phpdbg_process_print(i32 noundef %0, i32 noundef %1, 
   unreachable
 
 73:                                               ; preds = %71, %42, %29, %33, %15, %19, %40
-  %.0 = phi i32 [ %.2, %71 ], [ %3, %42 ], [ %.1, %40 ], [ %32, %29 ], [ %34, %33 ], [ %18, %15 ], [ %20, %19 ]
+  %.0 = phi i32 [ %18, %15 ], [ %20, %19 ], [ %32, %29 ], [ %34, %33 ], [ %.1, %40 ], [ %3, %42 ], [ %.2, %71 ]
   %.not43 = icmp eq i32 %.0, -1
   br i1 %.not43, label %.thread, label %._crit_edge
 

@@ -2300,7 +2300,7 @@ define dso_local i32 @ld2string(ptr noundef %0, i64 noundef %1, x86_fp80 noundef
   br label %53
 
 53:                                               ; preds = %17, %.loopexit, %45, %48, %52, %24, %19, %11, %12
-  %.041 = phi i64 [ 3, %11 ], [ 4, %12 ], [ 3, %17 ], [ 1, %52 ], [ 2, %48 ], [ 2, %45 ], [ %.1, %.loopexit ], [ %26, %24 ], [ %21, %19 ]
+  %.041 = phi i64 [ 3, %11 ], [ 4, %12 ], [ 3, %17 ], [ %21, %19 ], [ %26, %24 ], [ 1, %52 ], [ 2, %48 ], [ 2, %45 ], [ %.1, %.loopexit ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.041
   store i8 0, ptr %54, align 1, !tbaa !9
   %55 = trunc i64 %.041 to i32
@@ -2538,7 +2538,7 @@ define dso_local ptr @getAbsolutePath(ptr noundef %0) local_unnamed_addr #4 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %33, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %16 ]
+  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %sdslen.exit.thread, label %34
 
@@ -2583,7 +2583,7 @@ default.unreachable43:                            ; preds = %34
   unreachable
 
 sdslen.exit32:                                    ; preds = %35, %38, %42, %46, %50
-  %.0.i31 = phi i64 [ %52, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %35 ]
+  %.0.i31 = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
   %53 = getelementptr i8, ptr %11, i64 %.0.i31
   %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !tbaa !9
@@ -2648,7 +2648,7 @@ sdslen.exit36.thread:                             ; preds = %sdslen.exit36.threa
   br label %sdslen.exit34
 
 sdslen.exit34:                                    ; preds = %73, %76, %79, %82, %85
-  %.0.i33 = phi i64 [ %86, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ]
+  %.0.i33 = phi i64 [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %86, %85 ]
   %87 = icmp ugt i64 %.0.i33, 2
   br i1 %87, label %88, label %.critedge
 
@@ -2708,7 +2708,7 @@ sdslen.exit36.thread.backedge:                    ; preds = %97, %._crit_edge, %
   br label %sdslen.exit36
 
 sdslen.exit36:                                    ; preds = %101, %104, %107, %110, %113
-  %.0.i35 = phi i64 [ %114, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ]
+  %.0.i35 = phi i64 [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %114, %113 ]
   %115 = icmp ugt i64 %.0.i35, 1
   br i1 %115, label %116, label %sdslen.exit36.thread.backedge
 
@@ -2749,7 +2749,7 @@ default.unreachable:                              ; preds = %116
   unreachable
 
 sdslen.exit38:                                    ; preds = %117, %120, %123, %126, %129
-  %.0.i37 = phi i64 [ %130, %129 ], [ %128, %126 ], [ %125, %123 ], [ %122, %120 ], [ %119, %117 ]
+  %.0.i37 = phi i64 [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %130, %129 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.i37
   %131 = load i8, ptr %gep, align 1, !tbaa !9
   %.not3044 = icmp eq i8 %131, 47

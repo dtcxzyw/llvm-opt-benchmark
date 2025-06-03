@@ -139,7 +139,7 @@ define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %0, ptr noundef readonl
   br label %mainposition.exit.i.preheader
 
 mainposition.exit.i.preheader:                    ; preds = %71, %57, %46, %33, %.critedge.i.i.i, %18
-  %.0.i.ph = phi ptr [ %32, %.critedge.i.i.i ], [ %20, %18 ], [ %45, %33 ], [ %56, %46 ], [ %70, %57 ], [ %84, %71 ]
+  %.0.i.ph = phi ptr [ %32, %.critedge.i.i.i ], [ %20, %18 ], [ %70, %57 ], [ %56, %46 ], [ %45, %33 ], [ %84, %71 ]
   br label %mainposition.exit.i
 
 mainposition.exit.i:                              ; preds = %mainposition.exit.i.preheader, %109
@@ -1052,7 +1052,7 @@ hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preh
   br label %mainposition.exit.preheader
 
 mainposition.exit.preheader:                      ; preds = %71, %.critedge.i.i26, %86, %97, %111
-  %.0.ph = phi ptr [ %85, %.critedge.i.i26 ], [ %73, %71 ], [ %96, %86 ], [ %110, %97 ], [ %124, %111 ]
+  %.0.ph = phi ptr [ %85, %.critedge.i.i26 ], [ %73, %71 ], [ %110, %97 ], [ %96, %86 ], [ %124, %111 ]
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %mainposition.exit.preheader, %127
@@ -1216,8 +1216,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %16, %.critedge.i.i, %28, %39, %48, %60
-  %72 = phi ptr [ %61, %60 ], [ %49, %48 ], [ %40, %39 ], [ %29, %28 ], [ %17, %16 ], [ %20, %.critedge.i.i ]
-  %.0.i = phi ptr [ %71, %60 ], [ %59, %48 ], [ %47, %39 ], [ %38, %28 ], [ %17, %16 ], [ %27, %.critedge.i.i ]
+  %72 = phi ptr [ %61, %60 ], [ %29, %28 ], [ %40, %39 ], [ %49, %48 ], [ %17, %16 ], [ %20, %.critedge.i.i ]
+  %.0.i = phi ptr [ %71, %60 ], [ %38, %28 ], [ %47, %39 ], [ %59, %48 ], [ %17, %16 ], [ %27, %.critedge.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !24
   %75 = icmp ne i32 %74, 0
@@ -1539,7 +1539,7 @@ getfreepos.exit:                                  ; preds = %82
   br label %mainposition.exit67
 
 mainposition.exit67:                              ; preds = %176, %.critedge.i.i62, %188, %198, %206, %217
-  %.0.i59 = phi ptr [ %227, %217 ], [ %216, %206 ], [ %205, %198 ], [ %197, %188 ], [ %187, %.critedge.i.i62 ], [ %72, %176 ]
+  %.0.i59 = phi ptr [ %227, %217 ], [ %197, %188 ], [ %205, %198 ], [ %216, %206 ], [ %187, %.critedge.i.i62 ], [ %72, %176 ]
   %.not = icmp eq ptr %.0.i59, %.0.i
   br i1 %.not, label %233, label %.preheader
 

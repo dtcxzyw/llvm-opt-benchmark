@@ -2520,7 +2520,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit160:        ; preds = %_ZN17grpc_event_eng
 .backedge.backedge:                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit160, %.critedge184
   br label %.backedge
 
-_ZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptor5UnrefEv.exit99.thread: ; preds = %118, %113, %279, %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %139
+_ZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptor5UnrefEv.exit99.thread: ; preds = %113, %118, %279, %.critedge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %139
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %9) #31
   br label %_ZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptor5UnrefEv.exit
 

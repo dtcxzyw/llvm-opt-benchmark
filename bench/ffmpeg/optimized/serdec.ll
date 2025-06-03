@@ -127,7 +127,7 @@ define internal range(i32 -2147483648, 1) i32 @ser_read_header(ptr noundef %0) #
   br label %61
 
 61:                                               ; preds = %57, %53, %49, %45, %41, %37, %34
-  %.057 = phi i32 [ %60, %57 ], [ %56, %53 ], [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %34 ]
+  %.057 = phi i32 [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ]
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !38
   store i32 0, ptr %63, align 8, !tbaa !39

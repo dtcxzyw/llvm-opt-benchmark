@@ -3187,7 +3187,7 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %4
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %73, %72 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %73, %72 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %75 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i = load ptr, ptr %75, align 8, !tbaa !54
   %76 = icmp eq ptr %.1.val.i.i.i.i.i.i, %35
@@ -3198,7 +3198,7 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %4
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %78, %77 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %78, %77 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %80 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i = load ptr, ptr %80, align 8, !tbaa !54
   %81 = icmp eq ptr %.2.val.i.i.i.i.i.i, %35
@@ -3354,7 +3354,7 @@ define dso_local void @_ZN4llvm9LiveRange17removeValNoIfDeadEPNS_6VNInfoE(ptr no
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i.i = phi ptr [ %28, %27 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %30 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !54
   %31 = icmp eq ptr %.1.val.i.i.i.i.i, %1
@@ -3365,7 +3365,7 @@ define dso_local void @_ZN4llvm9LiveRange17removeValNoIfDeadEPNS_6VNInfoE(ptr no
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.2.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %35 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !54
   %36 = icmp eq ptr %.2.val.i.i.i.i.i, %1
@@ -3525,7 +3525,7 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %3
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %42 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %45 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !54
   %46 = icmp eq ptr %.1.val.i.i.i.i.i.i, %5
@@ -3536,7 +3536,7 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_.exit: ; preds = %3
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %48, %47 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %48, %47 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %50 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i = load ptr, ptr %50, align 8, !tbaa !54
   %51 = icmp eq ptr %.2.val.i.i.i.i.i.i, %5
@@ -3676,7 +3676,7 @@ define dso_local void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef 
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %30, %29 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %32 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i.i = load ptr, ptr %32, align 8, !tbaa !54
   %33 = icmp eq ptr %.1.val.i.i.i.i.i.i, %1
@@ -3687,7 +3687,7 @@ define dso_local void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef 
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %35, %34 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %37 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !54
   %38 = icmp eq ptr %.2.val.i.i.i.i.i.i, %1
@@ -7322,7 +7322,7 @@ _ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i: ; preds = %_ZS
   br label %_ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit
 
 _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit: ; preds = %29, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i
-  %.1.in.i.i = phi ptr [ %30, %29 ], [ %57, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ]
+  %.1.in.i.i = phi ptr [ %57, %_ZNK4llvm11SlotIndexes16getMBBUpperBoundENS_9SlotIndexE.exit.i.i ], [ %30, %29 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !457
   %58 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !3

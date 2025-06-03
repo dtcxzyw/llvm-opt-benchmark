@@ -1861,7 +1861,7 @@ define internal fastcc void @zend_ini_do_op(i8 noundef signext range(i8 33, 127)
   unreachable
 
 get_int_val.exit:                                 ; preds = %8, %11, %14, %24, %25
-  %.0.i = phi i32 [ %13, %11 ], [ %10, %8 ], [ %18, %14 ], [ %18, %24 ], [ %18, %25 ]
+  %.0.i = phi i32 [ %10, %8 ], [ %13, %11 ], [ %18, %14 ], [ %18, %24 ], [ %18, %25 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %get_int_val.exit27, label %27
 
@@ -1912,7 +1912,7 @@ get_int_val.exit:                                 ; preds = %8, %11, %14, %24, %
   unreachable
 
 get_int_val.exit27:                               ; preds = %47, %46, %36, %33, %30, %get_int_val.exit
-  %49 = phi i32 [ 0, %get_int_val.exit ], [ %35, %33 ], [ %32, %30 ], [ %40, %36 ], [ %40, %46 ], [ %40, %47 ]
+  %49 = phi i32 [ 0, %get_int_val.exit ], [ %32, %30 ], [ %35, %33 ], [ %40, %36 ], [ %40, %46 ], [ %40, %47 ]
   switch i8 %0, label %60 [
     i8 124, label %50
     i8 38, label %52
@@ -1943,7 +1943,7 @@ get_int_val.exit27:                               ; preds = %47, %46, %36, %33, 
   br label %60
 
 60:                                               ; preds = %get_int_val.exit27, %58, %56, %54, %52, %50
-  %.0 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ 0, %get_int_val.exit27 ]
+  %.0 = phi i32 [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 0, %get_int_val.exit27 ]
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !41
   %.not23 = icmp eq i32 %61, 2
   br i1 %.not23, label %80, label %62
@@ -2277,8 +2277,8 @@ yy_syntax_error_arguments.exit:                   ; preds = %.critedge.i.i
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %26, %.critedge.thread.i.i, %1, %yy_syntax_error_arguments.exit, %37, %36, %35, %34
-  %.1.i5 = phi i32 [ 4, %36 ], [ 3, %35 ], [ 2, %34 ], [ 5, %37 ], [ %33, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
-  %.046 = phi ptr [ @.str.11, %36 ], [ @.str.10, %35 ], [ @.str.9, %34 ], [ @.str.12, %37 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %26 ]
+  %.1.i5 = phi i32 [ 5, %37 ], [ 2, %34 ], [ 3, %35 ], [ 4, %36 ], [ %33, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %26 ]
+  %.046 = phi ptr [ @.str.12, %37 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %26 ]
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #19
   %39 = shl nsw i32 %.1.i5, 1
   %40 = sext i32 %39 to i64

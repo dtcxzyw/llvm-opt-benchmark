@@ -1474,7 +1474,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %_ZSt7adva
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i: ; preds = %16, %.thread.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ %18, %16 ], [ 0, %.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %18, %16 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
   %19 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = xor i64 %11, -1
@@ -8848,7 +8848,7 @@ _ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit117: ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   br label %.critedge74
 
-.critedge74:                                      ; preds = %318, %325, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, %299, %298, %297, %279, %277, %275, %274, %273, %272, %271, %269, %267, %266, %265, %263, %262, %261, %260, %225, %232, %_ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit117, %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit98, %.critedge, %222, %217
+.critedge74:                                      ; preds = %260, %261, %262, %263, %265, %266, %267, %269, %271, %272, %273, %274, %275, %277, %279, %297, %298, %299, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, %325, %318, %225, %232, %_ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit117, %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit98, %.critedge, %222, %217
   %434 = load i16, ptr %29, align 8
   %435 = and i16 %434, -33
   %436 = or disjoint i16 %435, %207
@@ -26492,7 +26492,7 @@ _ZN5clang12Preprocessor13LexNonCommentERNS_5TokenE.exit.preheader: ; preds = %13
   br label %25
 
 25:                                               ; preds = %24, %.critedge2, %.critedge2
-  %.110 = phi i1 [ %.0969, %.critedge2 ], [ %.0969, %.critedge2 ], [ true, %24 ]
+  %.110 = phi i1 [ true, %24 ], [ %.0969, %.critedge2 ], [ %.0969, %.critedge2 ]
   %26 = load i32, ptr %23, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %.sroa.7.067, %.sroa.16.166
   br i1 %.not.i.i, label %29, label %27
@@ -26567,7 +26567,7 @@ _ZNSt6vectorISt4pairIN5clang3tok9TokenKindENS1_14SourceLocationEESaIS5_EE17_M_re
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %49, %.critedge2, %.critedge2
-  %.211 = phi i1 [ %.0969, %.critedge2 ], [ %.0969, %.critedge2 ], [ false, %49 ]
+  %.211 = phi i1 [ false, %49 ], [ %.0969, %.critedge2 ], [ %.0969, %.critedge2 ]
   %50 = getelementptr inbounds i8, ptr %.sroa.7.067, i64 -8
   %51 = load i16, ptr %50, align 4, !tbaa !1277
   %switch.tableidx = add nsw i16 %51, -20
@@ -29949,8 +29949,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang6Modul
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !880
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit, label %50
@@ -29960,8 +29960,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang6Modul
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !880
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang6ModuleELj2EEES4_EEbOT_RKT0_.exit.thread

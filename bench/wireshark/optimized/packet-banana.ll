@@ -413,12 +413,12 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %30, %90, %82, %78, %74, %68, %59, %50
-  %.3 = phi i32 [ %8, %90 ], [ %8, %82 ], [ %8, %78 ], [ %77, %74 ], [ %8, %68 ], [ %63, %59 ], [ %8, %50 ], [ %8, %30 ], [ %43, %38 ]
+  %.3 = phi i32 [ %8, %50 ], [ %63, %59 ], [ %8, %68 ], [ %77, %74 ], [ %8, %78 ], [ %8, %82 ], [ %8, %90 ], [ %8, %30 ], [ %43, %38 ]
   %94 = sub i32 %.3, %3
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge, %.loopexit, %44
-  %.094 = phi i32 [ %94, %.loopexit ], [ %45, %44 ], [ 0, %._crit_edge ], [ 0, %4 ]
+  %.094 = phi i32 [ %45, %44 ], [ %94, %.loopexit ], [ 0, %._crit_edge ], [ 0, %4 ]
   ret i32 %.094
 }
 

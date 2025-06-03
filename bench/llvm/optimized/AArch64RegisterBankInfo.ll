@@ -2321,7 +2321,7 @@ _ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit.thread
   br label %187
 
 187:                                              ; preds = %185, %._crit_edge
-  %.1.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %186, %185 ]
+  %.1.i.i = phi ptr [ %186, %185 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %.1.i.i.val = load i32, ptr %.1.i.i, align 8
   %188 = getelementptr i8, ptr %.1.i.i, i64 4
   %.1.i.i.val38 = load i32, ptr %188, align 4
@@ -2333,7 +2333,7 @@ _ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit.thread
   br label %192
 
 192:                                              ; preds = %190, %._crit_edge
-  %.2.i.i = phi ptr [ %.029.i.i.lcssa, %._crit_edge ], [ %191, %190 ]
+  %.2.i.i = phi ptr [ %191, %190 ], [ %.029.i.i.lcssa, %._crit_edge ]
   %.2.i.i.val = load i32, ptr %.2.i.i, align 8
   %193 = getelementptr i8, ptr %.2.i.i, i64 4
   %.2.i.i.val39 = load i32, ptr %193, align 4
@@ -4650,8 +4650,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit653: ; preds = %884, %8
   br label %_ZNK4llvm23AArch64RegisterBankInfo8copyCostERKNS_12RegisterBankES3_NS_8TypeSizeE.exit640
 
 _ZNK4llvm23AArch64RegisterBankInfo8copyCostERKNS_12RegisterBankES3_NS_8TypeSizeE.exit640: ; preds = %960, %793, %948, %.critedge19, %.loopexit, %879, %.thread760, %724, %751, %737, %684, %692, %689, %669, %677, %674, %627, %623, %613, %.loopexit781, %630, %554, %557, %875, %756, %701, %697, %699, %679, %665, %652, %663, %608, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit627, %963, %923, %920, %874, %838, %795, %695, %651, %648, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit633, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630.thread, %529, %501, %._crit_edge
-  %.0425 = phi i32 [ 1, %._crit_edge ], [ 1, %963 ], [ 1, %923 ], [ 1, %920 ], [ 1, %875 ], [ 1, %874 ], [ 1, %838 ], [ 1, %795 ], [ 1, %756 ], [ 1, %701 ], [ 1, %699 ], [ 1, %697 ], [ 1, %695 ], [ 1, %679 ], [ 1, %665 ], [ 1, %648 ], [ 1, %651 ], [ 1, %663 ], [ 1, %652 ], [ 1, %608 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit633 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630.thread ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit627 ], [ 1, %529 ], [ 1, %501 ], [ 1, %557 ], [ 1, %554 ], [ 2, %630 ], [ 1, %.loopexit781 ], [ %629, %627 ], [ 5, %613 ], [ 4, %623 ], [ 1, %674 ], [ 1, %677 ], [ 1, %669 ], [ 1, %689 ], [ 1, %692 ], [ 1, %684 ], [ 1, %737 ], [ 1, %751 ], [ 1, %724 ], [ 1, %.thread760 ], [ 1, %879 ], [ 1, %.loopexit ], [ 1, %.critedge19 ], [ 1, %948 ], [ 1, %793 ], [ 1, %960 ]
-  %.0418 = phi i32 [ %372, %._crit_edge ], [ %372, %963 ], [ %372, %923 ], [ %372, %920 ], [ %372, %875 ], [ %372, %874 ], [ %.3421, %838 ], [ %372, %795 ], [ %372, %756 ], [ %372, %701 ], [ %372, %699 ], [ %372, %697 ], [ %372, %695 ], [ %372, %679 ], [ %372, %665 ], [ %372, %648 ], [ %372, %651 ], [ %372, %663 ], [ %372, %652 ], [ %372, %608 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit633 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630.thread ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit627 ], [ %372, %529 ], [ %.1419, %501 ], [ %372, %557 ], [ %372, %554 ], [ %372, %630 ], [ %372, %.loopexit781 ], [ %372, %627 ], [ %372, %613 ], [ %372, %623 ], [ %372, %674 ], [ %372, %677 ], [ %372, %669 ], [ %372, %689 ], [ %372, %692 ], [ %372, %684 ], [ %372, %737 ], [ %372, %751 ], [ %372, %724 ], [ %372, %.thread760 ], [ %372, %879 ], [ %372, %.loopexit ], [ %372, %.critedge19 ], [ %372, %948 ], [ %372, %793 ], [ %372, %960 ]
+  %.0425 = phi i32 [ 1, %._crit_edge ], [ 1, %501 ], [ 1, %529 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit627 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630.thread ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit633 ], [ 1, %608 ], [ 1, %648 ], [ 1, %651 ], [ 1, %663 ], [ 1, %652 ], [ 1, %665 ], [ 1, %679 ], [ 1, %695 ], [ 1, %699 ], [ 1, %697 ], [ 1, %701 ], [ 1, %756 ], [ 1, %795 ], [ 1, %838 ], [ 1, %874 ], [ 1, %875 ], [ 1, %920 ], [ 1, %923 ], [ 1, %963 ], [ 1, %557 ], [ 1, %554 ], [ 2, %630 ], [ 1, %.loopexit781 ], [ %629, %627 ], [ 5, %613 ], [ 4, %623 ], [ 1, %674 ], [ 1, %677 ], [ 1, %669 ], [ 1, %689 ], [ 1, %692 ], [ 1, %684 ], [ 1, %737 ], [ 1, %751 ], [ 1, %724 ], [ 1, %.thread760 ], [ 1, %879 ], [ 1, %.loopexit ], [ 1, %.critedge19 ], [ 1, %948 ], [ 1, %793 ], [ 1, %960 ]
+  %.0418 = phi i32 [ %372, %._crit_edge ], [ %.1419, %501 ], [ %372, %529 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit627 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630 ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit630.thread ], [ %372, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit633 ], [ %372, %608 ], [ %372, %648 ], [ %372, %651 ], [ %372, %663 ], [ %372, %652 ], [ %372, %665 ], [ %372, %679 ], [ %372, %695 ], [ %372, %699 ], [ %372, %697 ], [ %372, %701 ], [ %372, %756 ], [ %372, %795 ], [ %.3421, %838 ], [ %372, %874 ], [ %372, %875 ], [ %372, %920 ], [ %372, %923 ], [ %372, %963 ], [ %372, %557 ], [ %372, %554 ], [ %372, %630 ], [ %372, %.loopexit781 ], [ %372, %627 ], [ %372, %613 ], [ %372, %623 ], [ %372, %674 ], [ %372, %677 ], [ %372, %669 ], [ %372, %689 ], [ %372, %692 ], [ %372, %684 ], [ %372, %737 ], [ %372, %751 ], [ %372, %724 ], [ %372, %.thread760 ], [ %372, %879 ], [ %372, %.loopexit ], [ %372, %.critedge19 ], [ %372, %948 ], [ %372, %793 ], [ %372, %960 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %41) #16
   %966 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %966, ptr %41, align 8, !tbaa !230
@@ -4860,7 +4860,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
   br label %1055
 
 1055:                                             ; preds = %269, %224, %227, %82, %_ZN4llvm26AArch64GenRegisterBankInfo15getFPExtMappingEjj.exit, %_ZNK4llvm23AArch64RegisterBankInfo8copyCostERKNS_12RegisterBankES3_NS_8TypeSizeE.exit579, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit, %61
-  %.2 = phi ptr [ %62, %61 ], [ %.11, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit ], [ %367, %_ZNK4llvm23AArch64RegisterBankInfo8copyCostERKNS_12RegisterBankES3_NS_8TypeSizeE.exit579 ], [ %273, %269 ], [ %155, %_ZN4llvm26AArch64GenRegisterBankInfo15getFPExtMappingEjj.exit ], [ %83, %82 ], [ %226, %224 ], [ %228, %227 ]
+  %.2 = phi ptr [ %62, %61 ], [ %.11, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit ], [ %83, %82 ], [ %155, %_ZN4llvm26AArch64GenRegisterBankInfo15getFPExtMappingEjj.exit ], [ %367, %_ZNK4llvm23AArch64RegisterBankInfo8copyCostERKNS_12RegisterBankES3_NS_8TypeSizeE.exit579 ], [ %273, %269 ], [ %226, %224 ], [ %228, %227 ]
   ret ptr %.2
 }
 
@@ -5249,7 +5249,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   br label %41
 
 41:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit54.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit54.thread.i.i.i.i" ]
+  %.1.i.i.i.i = phi ptr [ %40, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit54.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8
   %42 = and i32 %.1.val.i.i.i.i, 16777216
   %.not.i.i55.i.i.i.i = icmp eq i32 %42, 0
@@ -5269,7 +5269,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   br label %48
 
 48:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit56.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit56.thread.i.i.i.i" ]
+  %.2.i.i.i.i = phi ptr [ %47, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm23AArch64RegisterBankInfo15getInstrMappingERKNS2_12MachineInstrEE3$_3EclIPKNS2_14MachineOperandEEEbT_.exit56.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8
   %49 = and i32 %.2.val.i.i.i.i, 16777216
   %.not.i.i57.i.i.i.i = icmp eq i32 %49, 0

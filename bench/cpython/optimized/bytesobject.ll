@@ -2338,8 +2338,8 @@ _PyBytesWriter_WriteBytes.exit178:                ; preds = %_PyBytesWriter_Prep
   br label %429
 
 429:                                              ; preds = %.sink.split338, %_PyBytesWriter_WriteBytes.exit164, %_PyBytesWriter_WriteBytes.exit, %_PyBytesWriter_WriteBytes.exit143, %_PyBytesWriter_WriteBytes.exit150, %_PyBytesWriter_WriteBytes.exit157, %_PyBytesWriter_WriteBytes.exit171
-  %.195 = phi ptr [ %395, %_PyBytesWriter_WriteBytes.exit171 ], [ %350, %_PyBytesWriter_WriteBytes.exit164 ], [ %307, %_PyBytesWriter_WriteBytes.exit157 ], [ %267, %_PyBytesWriter_WriteBytes.exit150 ], [ %227, %_PyBytesWriter_WriteBytes.exit143 ], [ %158, %_PyBytesWriter_WriteBytes.exit ], [ %428, %.sink.split338 ]
-  %.193 = phi ptr [ %.7, %_PyBytesWriter_WriteBytes.exit171 ], [ %.7, %_PyBytesWriter_WriteBytes.exit164 ], [ %.7, %_PyBytesWriter_WriteBytes.exit157 ], [ %.7, %_PyBytesWriter_WriteBytes.exit150 ], [ %.7, %_PyBytesWriter_WriteBytes.exit143 ], [ %.7, %_PyBytesWriter_WriteBytes.exit ], [ %.193.ph, %.sink.split338 ]
+  %.195 = phi ptr [ %158, %_PyBytesWriter_WriteBytes.exit ], [ %227, %_PyBytesWriter_WriteBytes.exit143 ], [ %267, %_PyBytesWriter_WriteBytes.exit150 ], [ %307, %_PyBytesWriter_WriteBytes.exit157 ], [ %350, %_PyBytesWriter_WriteBytes.exit164 ], [ %395, %_PyBytesWriter_WriteBytes.exit171 ], [ %428, %.sink.split338 ]
+  %.193 = phi ptr [ %.7, %_PyBytesWriter_WriteBytes.exit ], [ %.7, %_PyBytesWriter_WriteBytes.exit143 ], [ %.7, %_PyBytesWriter_WriteBytes.exit150 ], [ %.7, %_PyBytesWriter_WriteBytes.exit157 ], [ %.7, %_PyBytesWriter_WriteBytes.exit164 ], [ %.7, %_PyBytesWriter_WriteBytes.exit171 ], [ %.193.ph, %.sink.split338 ]
   %430 = getelementptr i8, ptr %.193, i64 1
   br label %25, !llvm.loop !34
 
@@ -3605,7 +3605,7 @@ format_obj.exit.thread:                           ; preds = %Py_DECREF.exit43.i,
   br label %371
 
 371:                                              ; preds = %366, %366, %366, %370, %369
-  %.0 = phi i32 [ 16, %370 ], [ 8, %369 ], [ 10, %366 ], [ 10, %366 ], [ 10, %366 ]
+  %.0 = phi i32 [ 8, %369 ], [ 16, %370 ], [ 10, %366 ], [ 10, %366 ], [ 10, %366 ]
   %372 = load i64, ptr %49, align 8, !tbaa !22
   %373 = add i64 %372, -2
   store i64 %373, ptr %49, align 8, !tbaa !22
@@ -3866,11 +3866,11 @@ byte_converter.exit.thread654:                    ; preds = %PyByteArray_AS_STRI
 
 _PyUnicode_DATA.exit485:                          ; preds = %417, %415, %430
   %.0528 = phi ptr [ %432, %430 ], [ %.0.i.i482, %415 ], [ %.val4.i484, %417 ]
-  %.pn = phi ptr [ %431, %430 ], [ %.029.i, %415 ], [ %.029.i, %417 ]
+  %.029.i.pn = phi ptr [ %431, %430 ], [ %.029.i, %415 ], [ %.029.i, %417 ]
   %478 = and i32 %.2305583609, 16
   %.not405 = icmp eq i32 %478, 0
   %spec.select418 = select i1 %.not405, i8 32, i8 48
-  %.0524.in = getelementptr i8, ptr %.pn, i64 16
+  %.0524.in = getelementptr i8, ptr %.029.i.pn, i64 16
   %.0524 = load i64, ptr %.0524.in, align 8, !tbaa !29
   %479 = load i8, ptr %.0528, align 1, !tbaa !9
   switch i8 %479, label %484 [
@@ -3894,12 +3894,12 @@ _PyUnicode_DATA.exit485:                          ; preds = %417, %415, %430
   %.424 = and i32 %487, 32
   br label %.thread662
 
-.thread662:                                       ; preds = %355, %278, %_PyUnicode_DATA.exit, %353, %byte_converter.exit.thread654, %486, %484, %480
-  %.0285671 = phi i8 [ %spec.select418, %486 ], [ %spec.select418, %484 ], [ %spec.select418, %480 ], [ 32, %byte_converter.exit.thread654 ], [ 32, %353 ], [ 32, %_PyUnicode_DATA.exit ], [ 32, %278 ], [ 32, %355 ]
-  %.not410670 = phi i1 [ %.not405, %486 ], [ %.not405, %484 ], [ %.not405, %480 ], [ true, %byte_converter.exit.thread654 ], [ true, %353 ], [ true, %_PyUnicode_DATA.exit ], [ true, %278 ], [ true, %355 ]
-  %.1529 = phi ptr [ %.0528, %486 ], [ %.0528, %484 ], [ %481, %480 ], [ %8, %byte_converter.exit.thread654 ], [ %.5533, %353 ], [ %.0.i467, %_PyUnicode_DATA.exit ], [ %.0.i467, %278 ], [ %.5533, %355 ]
-  %.1525 = phi i64 [ %.0524, %486 ], [ %.0524, %484 ], [ %483, %480 ], [ 1, %byte_converter.exit.thread654 ], [ %.3527, %353 ], [ %.val458, %_PyUnicode_DATA.exit ], [ %spec.select708, %278 ], [ %spec.select709, %355 ]
-  %.1284 = phi i32 [ %.424, %486 ], [ 43, %484 ], [ %482, %480 ], [ 0, %byte_converter.exit.thread654 ], [ 0, %353 ], [ 0, %_PyUnicode_DATA.exit ], [ 0, %278 ], [ 0, %355 ]
+.thread662:                                       ; preds = %355, %278, %byte_converter.exit.thread654, %353, %_PyUnicode_DATA.exit, %486, %484, %480
+  %.0285671 = phi i8 [ %spec.select418, %486 ], [ %spec.select418, %484 ], [ %spec.select418, %480 ], [ 32, %_PyUnicode_DATA.exit ], [ 32, %353 ], [ 32, %byte_converter.exit.thread654 ], [ 32, %278 ], [ 32, %355 ]
+  %.not410670 = phi i1 [ %.not405, %486 ], [ %.not405, %484 ], [ %.not405, %480 ], [ true, %_PyUnicode_DATA.exit ], [ true, %353 ], [ true, %byte_converter.exit.thread654 ], [ true, %278 ], [ true, %355 ]
+  %.1529 = phi ptr [ %.0528, %486 ], [ %.0528, %484 ], [ %481, %480 ], [ %.0.i467, %_PyUnicode_DATA.exit ], [ %.5533, %353 ], [ %8, %byte_converter.exit.thread654 ], [ %.0.i467, %278 ], [ %.5533, %355 ]
+  %.1525 = phi i64 [ %.0524, %486 ], [ %.0524, %484 ], [ %483, %480 ], [ %.val458, %_PyUnicode_DATA.exit ], [ %.3527, %353 ], [ 1, %byte_converter.exit.thread654 ], [ %spec.select708, %278 ], [ %spec.select709, %355 ]
+  %.1284 = phi i32 [ %.424, %486 ], [ 43, %484 ], [ %482, %480 ], [ 0, %_PyUnicode_DATA.exit ], [ 0, %353 ], [ 0, %byte_converter.exit.thread654 ], [ 0, %278 ], [ 0, %355 ]
   %spec.select425 = call i64 @llvm.smax.i64(i64 %.1297584607, i64 %.1525)
   %.not409 = icmp ne i32 %.1284, 0
   %488 = icmp sge i64 %.1525, %.1297584607
@@ -4138,13 +4138,13 @@ Py_XDECREF.exit.thread683:                        ; preds = %571, %573, %575, %5
   br label %.backedge717
 
 Py_XDECREF.exit:                                  ; preds = %423, %371, %469, %66
-  %.2536 = phi i64 [ %256, %469 ], [ %256, %423 ], [ %256, %371 ], [ %.05341025, %66 ]
-  %.2326 = phi i64 [ %.12336, %469 ], [ %.12336, %423 ], [ %.12336, %371 ], [ %69, %66 ]
-  %.2319 = phi i32 [ %.3320, %469 ], [ %.3320, %423 ], [ %.3320, %371 ], [ %.03171027, %66 ]
-  %.3309 = phi i64 [ %.4310, %469 ], [ %.4310, %423 ], [ %.4310, %371 ], [ %.13071028, %66 ]
-  %.2272 = phi ptr [ %470, %469 ], [ %426, %423 ], [ %374, %371 ], [ %67, %66 ]
-  %.2266 = phi ptr [ %.13, %469 ], [ %.13, %423 ], [ %.13, %371 ], [ %68, %66 ]
-  %.2 = phi ptr [ %.3, %469 ], [ %.3, %423 ], [ %.3, %371 ], [ %.02621031, %66 ]
+  %.2536 = phi i64 [ %256, %371 ], [ %256, %423 ], [ %256, %469 ], [ %.05341025, %66 ]
+  %.2326 = phi i64 [ %.12336, %371 ], [ %.12336, %423 ], [ %.12336, %469 ], [ %69, %66 ]
+  %.2319 = phi i32 [ %.3320, %371 ], [ %.3320, %423 ], [ %.3320, %469 ], [ %.03171027, %66 ]
+  %.3309 = phi i64 [ %.4310, %371 ], [ %.4310, %423 ], [ %.4310, %469 ], [ %.13071028, %66 ]
+  %.2272 = phi ptr [ %374, %371 ], [ %426, %423 ], [ %470, %469 ], [ %67, %66 ]
+  %.2266 = phi ptr [ %.13, %371 ], [ %.13, %423 ], [ %.13, %469 ], [ %68, %66 ]
+  %.2 = phi ptr [ %.3, %371 ], [ %.3, %423 ], [ %.3, %469 ], [ %.02621031, %66 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   br label %.backedge717
@@ -4504,8 +4504,8 @@ _PyBytesWriter_Alloc.exit.thread100:              ; preds = %4, %_PyBytesWriter_
   br label %.backedge
 
 .backedge:                                        ; preds = %32, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %.thread, %136, %124, %126, %99, %25
-  %.077.be = phi ptr [ %26, %25 ], [ %137, %136 ], [ %102, %99 ], [ %.481, %124 ], [ %84, %.thread ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %.077120, %32 ], [ %.481, %126 ]
-  %.074.be = phi ptr [ %24, %25 ], [ %24, %136 ], [ %103, %99 ], [ %33, %124 ], [ %.2108, %.thread ], [ %33, %53 ], [ %33, %51 ], [ %33, %49 ], [ %33, %47 ], [ %33, %45 ], [ %33, %43 ], [ %33, %41 ], [ %33, %39 ], [ %33, %37 ], [ %33, %35 ], [ %33, %32 ], [ %spec.select, %126 ]
+  %.077.be = phi ptr [ %26, %25 ], [ %137, %136 ], [ %.077120, %32 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %84, %.thread ], [ %.481, %124 ], [ %102, %99 ], [ %.481, %126 ]
+  %.074.be = phi ptr [ %24, %25 ], [ %24, %136 ], [ %33, %32 ], [ %33, %35 ], [ %33, %37 ], [ %33, %39 ], [ %33, %41 ], [ %33, %43 ], [ %33, %45 ], [ %33, %47 ], [ %33, %49 ], [ %33, %51 ], [ %33, %53 ], [ %.2108, %.thread ], [ %33, %124 ], [ %103, %99 ], [ %spec.select, %126 ]
   %27 = icmp ult ptr %.074.be, %20
   br i1 %27, label %22, label %._crit_edge, !llvm.loop !60
 
@@ -5184,9 +5184,9 @@ define dso_local ptr @PyBytes_Repr(ptr noundef readonly captures(none) %0, i32 n
   br label %14
 
 14:                                               ; preds = %12, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %10, %8
-  %.190 = phi i64 [ %.089100, %10 ], [ %9, %8 ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %12 ]
-  %.188 = phi i64 [ %11, %10 ], [ %.087101, %8 ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %12 ]
-  %.080 = phi i64 [ 1, %10 ], [ 1, %8 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ %spec.select96, %12 ]
+  %.190 = phi i64 [ %9, %8 ], [ %.089100, %10 ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %.lr.ph ], [ %.089100, %12 ]
+  %.188 = phi i64 [ %.087101, %8 ], [ %11, %10 ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %.lr.ph ], [ %.087101, %12 ]
+  %.080 = phi i64 [ 1, %8 ], [ 1, %10 ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ 2, %.lr.ph ], [ %spec.select96, %12 ]
   %15 = xor i64 %.080, 9223372036854775807
   %16 = icmp sgt i64 %.085102, %15
   br i1 %16, label %.loopexit, label %17
@@ -10171,7 +10171,7 @@ define internal ptr @bytes_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %50
 
 50:                                               ; preds = %.thread62, %24, %39, %46, %48, %13, %40
-  %.038 = phi ptr [ %49, %48 ], [ null, %40 ], [ null, %46 ], [ null, %39 ], [ null, %24 ], [ null, %13 ], [ null, %.thread62 ]
+  %.038 = phi ptr [ null, %40 ], [ null, %46 ], [ %49, %48 ], [ null, %39 ], [ null, %24 ], [ null, %13 ], [ null, %.thread62 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
   ret ptr %.038
 }

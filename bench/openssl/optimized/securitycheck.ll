@@ -29,7 +29,7 @@ define range(i32 0, 2) i32 @ossl_rsa_key_op_get_protect(ptr noundef %0, i32 noun
   br label %6
 
 6:                                                ; preds = %5, %3, %3, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 1, %5 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   %7 = tail call i32 @RSA_test_flags(ptr noundef %0, i32 noundef 61440) #3
   %8 = icmp eq i32 %7, 4096
   br i1 %8, label %9, label %11
@@ -47,12 +47,12 @@ define range(i32 0, 2) i32 @ossl_rsa_key_op_get_protect(ptr noundef %0, i32 noun
   br label %12
 
 11:                                               ; preds = %6, %3, %3, %4
-  %.1 = phi i32 [ %.0, %6 ], [ 0, %3 ], [ 0, %3 ], [ 1, %4 ]
+  %.1 = phi i32 [ 1, %4 ], [ 0, %3 ], [ 0, %3 ], [ %.0, %6 ]
   store i32 %.1, ptr %2, align 4, !tbaa !3
   br label %12
 
 12:                                               ; preds = %11, %10, %9
-  %.06 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 1, %11 ]
+  %.06 = phi i32 [ 0, %10 ], [ 1, %11 ], [ 0, %9 ]
   ret i32 %.06
 }
 

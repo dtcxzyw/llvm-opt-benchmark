@@ -1972,7 +1972,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133: ; p
   unreachable
 
 416:                                              ; preds = %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117, %380, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119, %69, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit
-  %.0 = phi ptr [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122 ], [ %384, %380 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119 ], [ %70, %69 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132 ]
+  %.0 = phi ptr [ %70, %69 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122 ], [ %384, %380 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133 ], [ null, %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132 ]
   ret ptr %.0
 }
 
@@ -4406,7 +4406,7 @@ _ZN4Node7set_reqEjPS_.exit119:                    ; preds = %617, %606, %_ZN4Nod
   br label %626
 
 626:                                              ; preds = %157, %._crit_edge, %215, %211, %160, %77
-  %.0 = phi ptr [ %78, %77 ], [ null, %157 ], [ %169, %160 ], [ %212, %211 ], [ %224, %215 ], [ %625, %._crit_edge ]
+  %.0 = phi ptr [ %78, %77 ], [ %169, %160 ], [ %212, %211 ], [ %224, %215 ], [ %625, %._crit_edge ], [ null, %157 ]
   ret ptr %.0
 }
 
@@ -5931,7 +5931,7 @@ _ZN4Node7set_reqEjPS_.exit181:                    ; preds = %627, %744, %733, %_
   br label %753
 
 753:                                              ; preds = %314, %._crit_edge221, %319, %316, %76
-  %.0108 = phi ptr [ null, %314 ], [ %318, %316 ], [ %333, %319 ], [ %752, %._crit_edge221 ], [ %77, %76 ]
+  %.0108 = phi ptr [ %318, %316 ], [ %333, %319 ], [ %752, %._crit_edge221 ], [ null, %314 ], [ %77, %76 ]
   ret ptr %.0108
 }
 

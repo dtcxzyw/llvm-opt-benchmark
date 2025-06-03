@@ -1669,7 +1669,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %170
   unreachable
 
 _ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %25, %170, %168, %234, %233, %230, %185, %175, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit, %19, %194, %200, %162, %138, %144, %113, %120, %89, %95, %59, %65, %2, %7, %224, %218, %212, %206, %188, %83, %53, %47, %41, %35, %29
-  %.0 = phi i1 [ %229, %224 ], [ %223, %218 ], [ %217, %212 ], [ %211, %206 ], [ %193, %188 ], [ %88, %83 ], [ %58, %53 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %34, %29 ], [ false, %7 ], [ false, %2 ], [ false, %59 ], [ %82, %65 ], [ false, %89 ], [ %112, %95 ], [ false, %113 ], [ %137, %120 ], [ false, %138 ], [ %161, %144 ], [ true, %162 ], [ false, %194 ], [ %205, %200 ], [ false, %19 ], [ %.not9.i.i.i.i, %185 ], [ true, %175 ], [ false, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ false, %230 ], [ %.not9.i.i.i.i.i.i, %234 ], [ true, %233 ], [ false, %168 ], [ false, %170 ], [ %spec.select, %25 ]
+  %.0 = phi i1 [ %34, %29 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %58, %53 ], [ %88, %83 ], [ %193, %188 ], [ %211, %206 ], [ %217, %212 ], [ %223, %218 ], [ %229, %224 ], [ false, %7 ], [ false, %2 ], [ false, %59 ], [ %82, %65 ], [ false, %89 ], [ %112, %95 ], [ false, %113 ], [ %137, %120 ], [ false, %138 ], [ %161, %144 ], [ true, %162 ], [ false, %194 ], [ %205, %200 ], [ false, %19 ], [ %.not9.i.i.i.i, %185 ], [ true, %175 ], [ false, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit ], [ false, %230 ], [ %.not9.i.i.i.i.i.i, %234 ], [ true, %233 ], [ false, %168 ], [ false, %170 ], [ %spec.select, %25 ]
   ret i1 %.0
 }
 
@@ -2418,7 +2418,7 @@ _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread: ; preds = %261, %259
   unreachable
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %306, %413, %398, %383, %368, %349, %334, %319, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, %234, %209, %_ZN4llvm9StringRefC2EPKc.exit, %165, %140, %125, %110, %95, %80, %65, %49
-  %.sroa.0.0 = phi i64 [ %428, %413 ], [ %412, %398 ], [ %397, %383 ], [ %382, %368 ], [ %367, %349 ], [ %348, %334 ], [ %333, %319 ], [ %318, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread ], [ %258, %234 ], [ %233, %209 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %179, %165 ], [ %164, %140 ], [ %139, %125 ], [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %65 ], [ %64, %49 ], [ %305, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %305, %306 ]
+  %.sroa.0.0 = phi i64 [ %64, %49 ], [ %79, %65 ], [ %94, %80 ], [ %109, %95 ], [ %124, %110 ], [ %139, %125 ], [ %164, %140 ], [ %179, %165 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %233, %209 ], [ %258, %234 ], [ %318, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread ], [ %333, %319 ], [ %348, %334 ], [ %367, %349 ], [ %382, %368 ], [ %397, %383 ], [ %412, %398 ], [ %428, %413 ], [ %305, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %305, %306 ]
   ret i64 %.sroa.0.0
 }
 

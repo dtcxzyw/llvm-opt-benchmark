@@ -414,11 +414,11 @@ check_checksum.exit:                              ; preds = %.preheader
   br label %130
 
 71:                                               ; preds = %66
-  %.sroa.gep.sroa.gep94.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %.sroa.gep.sroa.gep.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 44
   %72 = load i32, ptr %.sroa.gep90, align 8, !tbaa !27
-  %.sroa.gep.sroa.gep94.sroa.gep106 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %73 = load i32, ptr %.sroa.gep.sroa.gep94.sroa.gep, align 4, !tbaa !27
-  %74 = load i32, ptr %.sroa.gep.sroa.gep94.sroa.gep106, align 16, !tbaa !27
+  %.sroa.gep.sroa.gep.sroa.gep106 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %73 = load i32, ptr %.sroa.gep.sroa.gep.sroa.gep, align 4, !tbaa !27
+  %74 = load i32, ptr %.sroa.gep.sroa.gep.sroa.gep106, align 16, !tbaa !27
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !70
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -523,7 +523,7 @@ switch.lookup:                                    ; preds = %86
   br label %130
 
 130:                                              ; preds = %lxf_sync.exit.thread, %104, %56, %70, %128, %124, %90, %85, %44, %37, %22
-  %.0 = phi i32 [ %24, %22 ], [ -1094995529, %37 ], [ %46, %44 ], [ -1163346256, %85 ], [ -1163346256, %90 ], [ %126, %128 ], [ %126, %124 ], [ %41, %70 ], [ %59, %56 ], [ %spec.select, %104 ], [ %.0.i.ph, %lxf_sync.exit.thread ]
+  %.0 = phi i32 [ %24, %22 ], [ -1094995529, %37 ], [ %46, %44 ], [ -1163346256, %85 ], [ -1163346256, %90 ], [ %126, %128 ], [ %126, %124 ], [ %59, %56 ], [ %41, %70 ], [ %spec.select, %104 ], [ %.0.i.ph, %lxf_sync.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #7
   ret i32 %.0
 }

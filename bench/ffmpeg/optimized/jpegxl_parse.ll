@@ -341,7 +341,7 @@ jxl_u32.exit.i:                                   ; preds = %get_bits_long.exit.
   br label %jpegxl_width_from_ratio.exit.i
 
 jpegxl_width_from_ratio.exit.i:                   ; preds = %222, %219, %215, %212, %208, %204, %jxl_u32.exit.i
-  %.0.i31.i = phi i32 [ %223, %222 ], [ %221, %219 ], [ %218, %215 ], [ %214, %212 ], [ %211, %208 ], [ %207, %204 ], [ %193, %jxl_u32.exit.i ]
+  %.0.i31.i = phi i32 [ %207, %204 ], [ %211, %208 ], [ %214, %212 ], [ %218, %215 ], [ %221, %219 ], [ %223, %222 ], [ %193, %jxl_u32.exit.i ]
   %.not20.i = icmp eq i32 %.0.i31.i, 0
   br i1 %.not20.i, label %jpegxl_width_from_ratio.exit.thread.i, label %jpegxl_read_preview_header.exit
 
@@ -534,7 +534,7 @@ jxl_u32.exit26.i:                                 ; preds = %get_bits_long.exit3
   br label %jpegxl_width_from_ratio.exit37.i
 
 jpegxl_width_from_ratio.exit37.i:                 ; preds = %327, %324, %320, %317, %313, %309, %jxl_u32.exit26.i
-  %.0.i36.i = phi i32 [ %328, %327 ], [ %326, %324 ], [ %323, %320 ], [ %319, %317 ], [ %316, %313 ], [ %312, %309 ], [ %.0.i25.i, %jxl_u32.exit26.i ]
+  %.0.i36.i = phi i32 [ %312, %309 ], [ %316, %313 ], [ %319, %317 ], [ %323, %320 ], [ %326, %324 ], [ %328, %327 ], [ %.0.i25.i, %jxl_u32.exit26.i ]
   %.not19.i = icmp eq i32 %.0.i36.i, 0
   br i1 %.not19.i, label %jpegxl_width_from_ratio.exit37.thread.i, label %jpegxl_read_preview_header.exit
 
@@ -2295,7 +2295,7 @@ jxl_u32.exit:                                     ; preds = %73, %get_bits_long.
   br label %jpegxl_width_from_ratio.exit39
 
 jpegxl_width_from_ratio.exit39:                   ; preds = %jxl_u32.exit, %136, %140, %144, %147, %151, %154
-  %.0.i38 = phi i32 [ %155, %154 ], [ %153, %151 ], [ %150, %147 ], [ %146, %144 ], [ %143, %140 ], [ %139, %136 ], [ %125, %jxl_u32.exit ]
+  %.0.i38 = phi i32 [ %139, %136 ], [ %143, %140 ], [ %146, %144 ], [ %150, %147 ], [ %153, %151 ], [ %155, %154 ], [ %125, %jxl_u32.exit ]
   %.not29 = icmp eq i32 %.0.i38, 0
   br i1 %.not29, label %jpegxl_width_from_ratio.exit39.thread, label %jpegxl_width_from_ratio.exit.thread
 
@@ -2381,9 +2381,9 @@ jxl_u32.exit35:                                   ; preds = %jpegxl_width_from_r
   %206 = add i32 %.0.i34, 1
   br label %jpegxl_width_from_ratio.exit.thread
 
-jpegxl_width_from_ratio.exit.thread:              ; preds = %23, %44, %48, %51, %54, %57, %60, %jpegxl_width_from_ratio.exit39, %jxl_u32.exit35, %jpegxl_width_from_ratio.exit
-  %.024 = phi i32 [ %72, %jpegxl_width_from_ratio.exit ], [ %.0.i38, %jpegxl_width_from_ratio.exit39 ], [ %206, %jxl_u32.exit35 ], [ %34, %23 ], [ %47, %44 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %61, %60 ]
-  %.0 = phi i32 [ %34, %jpegxl_width_from_ratio.exit ], [ %125, %jpegxl_width_from_ratio.exit39 ], [ %125, %jxl_u32.exit35 ], [ %34, %23 ], [ %34, %44 ], [ %34, %48 ], [ %34, %51 ], [ %34, %54 ], [ %34, %57 ], [ %34, %60 ]
+jpegxl_width_from_ratio.exit.thread:              ; preds = %23, %60, %57, %54, %51, %48, %44, %jpegxl_width_from_ratio.exit39, %jxl_u32.exit35, %jpegxl_width_from_ratio.exit
+  %.024 = phi i32 [ %72, %jpegxl_width_from_ratio.exit ], [ %.0.i38, %jpegxl_width_from_ratio.exit39 ], [ %206, %jxl_u32.exit35 ], [ %34, %23 ], [ %61, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0 = phi i32 [ %34, %jpegxl_width_from_ratio.exit ], [ %125, %jpegxl_width_from_ratio.exit39 ], [ %125, %jxl_u32.exit35 ], [ %34, %23 ], [ %34, %60 ], [ %34, %57 ], [ %34, %54 ], [ %34, %51 ], [ %34, %48 ], [ %34, %44 ]
   %.not31 = icmp eq i32 %2, 0
   br i1 %.not31, label %215, label %207
 
@@ -3116,7 +3116,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 .loopexit:                                        ; preds = %68, %40, %1, %86, %28, %16
-  %.0 = phi i64 [ %92, %86 ], [ %39, %28 ], [ %27, %16 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
+  %.0 = phi i64 [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
   ret i64 %.0
 }
 

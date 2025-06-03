@@ -10904,9 +10904,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEE
   br label %79
 
 79:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread
-  %80 = phi ptr [ %.pre112, %._crit_edge._crit_edge ], [ %66, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ]
-  %81 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %78, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ]
+  %80 = phi ptr [ %66, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ], [ %.pre112, %._crit_edge._crit_edge ]
+  %81 = phi i64 [ %64, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %78, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit69.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %82 = load i8, ptr %.1, align 1, !tbaa !44
   %83 = icmp ult i64 %81, 17
   %84 = select i1 %83, ptr %2, ptr %80
@@ -10944,9 +10944,9 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEE
   br label %96
 
 96:                                               ; preds = %._crit_edge._crit_edge113, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread
-  %97 = phi ptr [ %.pre116, %._crit_edge._crit_edge113 ], [ %80, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ]
-  %98 = phi i64 [ %.pre115, %._crit_edge._crit_edge113 ], [ %81, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge113 ], [ %95, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ]
+  %97 = phi ptr [ %80, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ], [ %.pre116, %._crit_edge._crit_edge113 ]
+  %98 = phi i64 [ %81, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ], [ %.pre115, %._crit_edge._crit_edge113 ]
+  %.2 = phi ptr [ %95, %_ZN9__gnu_cxx5__ops10_Iter_predIN5boost9algorithm6detail10is_any_ofFIcEEEclIPcEEbT_.exit79.thread ], [ %.029.lcssa, %._crit_edge._crit_edge113 ]
   %99 = load i8, ptr %.2, align 1, !tbaa !44
   %100 = icmp ult i64 %98, 17
   %101 = select i1 %100, ptr %2, ptr %97

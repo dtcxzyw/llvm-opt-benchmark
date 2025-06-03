@@ -5406,7 +5406,7 @@ switch.lookup:                                    ; preds = %71
   br label %73
 
 73:                                               ; preds = %switch.lookup, %ReadJoyConControllerType.exit, %.thread
-  %.1 = phi i1 [ true, %ReadJoyConControllerType.exit ], [ false, %.thread ], [ %switch.masked, %switch.lookup ]
+  %.1 = phi i1 [ false, %.thread ], [ true, %ReadJoyConControllerType.exit ], [ %switch.masked, %switch.lookup ]
   ret i1 %.1
 }
 

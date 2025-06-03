@@ -2981,7 +2981,7 @@ proto_item_set_hidden.exit151:                    ; preds = %proto_item_set_hidd
   br label %132
 
 132:                                              ; preds = %switch.hole_check, %52, %.thread154, %116, %117, %120, %123, %125, %127, %129, %16, %4, %14
-  %.0137 = phi i32 [ %15, %14 ], [ 0, %4 ], [ 0, %16 ], [ 0, %52 ], [ 3, %.thread154 ], [ %131, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %120 ], [ %119, %117 ], [ 22, %116 ], [ 0, %switch.hole_check ]
+  %.0137 = phi i32 [ %15, %14 ], [ 0, %4 ], [ 0, %16 ], [ 0, %52 ], [ 3, %.thread154 ], [ 22, %116 ], [ %119, %117 ], [ %122, %120 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %131, %129 ], [ 0, %switch.hole_check ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   ret i32 %.0137
@@ -3505,7 +3505,7 @@ define internal fastcc i32 @dissect_epl_asnd(ptr noundef %0, ptr noundef %1, ptr
   br label %92
 
 92:                                               ; preds = %87, %90, %48, %44, %42, %31, %29, %26
-  %.0 = phi i32 [ 4, %87 ], [ 4, %90 ], [ 30, %48 ], [ %47, %44 ], [ %43, %42 ], [ 6, %31 ], [ %30, %29 ], [ %28, %26 ]
+  %.0 = phi i32 [ 4, %87 ], [ 4, %90 ], [ %28, %26 ], [ %30, %29 ], [ 6, %31 ], [ %43, %42 ], [ %47, %44 ], [ 30, %48 ]
   ret i32 %.0
 }
 
@@ -3580,7 +3580,7 @@ define internal fastcc i32 @dissect_epl_ainv(ptr noundef %0, ptr noundef %1, ptr
   br label %46
 
 46:                                               ; preds = %42, %37, %35, %24, %22, %19, %3
-  %.0 = phi i32 [ 7, %3 ], [ %45, %42 ], [ 8, %37 ], [ %36, %35 ], [ 9, %24 ], [ %23, %22 ], [ %21, %19 ]
+  %.0 = phi i32 [ 7, %3 ], [ %21, %19 ], [ %23, %22 ], [ 9, %24 ], [ %36, %35 ], [ 8, %37 ], [ %45, %42 ]
   ret i32 %.0
 }
 
@@ -4594,7 +4594,7 @@ define internal fastcc range(i32 6, 42) i32 @dissect_epl_asnd_nmtcmd(ptr noundef
   br label %75
 
 75:                                               ; preds = %63, %69, %72, %28, %24, %20, %16
-  %.0 = phi i32 [ %12, %72 ], [ %12, %63 ], [ %12, %69 ], [ %57, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ]
+  %.0 = phi i32 [ %12, %72 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %57, %28 ], [ %12, %63 ], [ %12, %69 ]
   ret i32 %.0
 }
 
@@ -6875,7 +6875,7 @@ convo_read_req_get.exit.thread.i:                 ; preds = %927, %974, %970, %p
   br label %dissect_epl_sdo_command_write_by_index.exit
 
 dissect_epl_sdo_command_write_by_index.exit:      ; preds = %.lr.ph, %.preheader, %100, %dissect_epl_sdo_command_read_multiple_by_index.exit, %dissect_epl_sdo_command_write_multiple_by_index.exit, %292, %305, %307, %842, %848, %convo_read_req_get.exit.thread.i, %5, %94
-  %.1 = phi i32 [ %.1163, %94 ], [ %7, %5 ], [ 0, %100 ], [ %825, %842 ], [ %825, %848 ], [ %975, %convo_read_req_get.exit.thread.i ], [ %306, %305 ], [ %296, %292 ], [ %.1163, %307 ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
+  %.1 = phi i32 [ %.1163, %94 ], [ %7, %5 ], [ 0, %100 ], [ %825, %842 ], [ %825, %848 ], [ %975, %convo_read_req_get.exit.thread.i ], [ %306, %305 ], [ %296, %292 ], [ %.1163, %307 ], [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #23
   ret i32 %.1
 }

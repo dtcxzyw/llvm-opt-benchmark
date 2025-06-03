@@ -591,8 +591,8 @@ _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._c
   unreachable
 
 _ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread: ; preds = %56, %36, %41, %21, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit, %19
-  %.not = phi i1 [ true, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ false, %19 ], [ false, %21 ], [ false, %41 ], [ false, %36 ], [ false, %56 ]
-  %.0 = phi i32 [ 0, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ 2, %19 ], [ 3, %21 ], [ 4, %41 ], [ 3, %36 ], [ 4, %56 ]
+  %.not = phi i1 [ false, %19 ], [ true, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ false, %21 ], [ false, %41 ], [ false, %36 ], [ false, %56 ]
+  %.0 = phi i32 [ 2, %19 ], [ 0, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ 3, %21 ], [ 4, %41 ], [ 3, %36 ], [ 4, %56 ]
   %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %92, null
   br i1 %.not.i, label %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, label %93

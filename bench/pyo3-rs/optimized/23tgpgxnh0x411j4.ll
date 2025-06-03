@@ -765,7 +765,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   unreachable
 
 201:                                              ; preds = %.loopexit191, %.loopexit.split-lp192, %832, %689, %678, %246
-  %.pn138 = phi { ptr, i32 } [ %.pn135.pn, %246 ], [ %833, %832 ], [ %690, %689 ], [ %.pn, %678 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn138 = phi { ptr, i32 } [ %.pn135.pn, %246 ], [ %690, %689 ], [ %.pn, %678 ], [ %833, %832 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %127) #10
           to label %438 unwind label %199
 

@@ -589,8 +589,8 @@ default.unreachable:                              ; preds = %90, %77
   unreachable
 
 90:                                               ; preds = %77, %87, %83, %78
-  %.1103 = phi i64 [ %.0102, %77 ], [ %86, %83 ], [ %82, %78 ], [ %89, %87 ]
-  %.098 = phi i32 [ %56, %77 ], [ %85, %83 ], [ %81, %78 ], [ %.val119, %87 ]
+  %.1103 = phi i64 [ %.0102, %77 ], [ %89, %87 ], [ %82, %78 ], [ %86, %83 ]
+  %.098 = phi i32 [ %56, %77 ], [ %.val119, %87 ], [ %81, %78 ], [ %85, %83 ]
   switch i32 %59, label %default.unreachable [
     i32 3, label %103
     i32 1, label %96
@@ -626,7 +626,7 @@ default.unreachable:                              ; preds = %90, %77
   br label %105
 
 105:                                              ; preds = %91, %92, %103, %100, %96
-  %.097 = phi i64 [ %95, %92 ], [ -1, %91 ], [ %102, %100 ], [ %99, %96 ], [ %.val127, %103 ]
+  %.097 = phi i64 [ %95, %92 ], [ -1, %91 ], [ %.val127, %103 ], [ %99, %96 ], [ %102, %100 ]
   %spec.select = select i1 %.not112, i64 %.099, i64 %.097
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %106, align 4, !tbaa !45
@@ -1647,7 +1647,7 @@ define dso_local i64 @ZSTD_decompressDCtx(ptr noundef %0, ptr noundef %1, i64 no
   br label %ZSTD_getDDict.exit
 
 ZSTD_getDDict.exit:                               ; preds = %8, %12, %15
-  %.0.i = phi ptr [ null, %8 ], [ %14, %12 ], [ %17, %15 ]
+  %.0.i = phi ptr [ null, %8 ], [ %17, %15 ], [ %14, %12 ]
   %18 = tail call fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef %.0.i)
   ret i64 %18
 }
@@ -1687,7 +1687,7 @@ define internal fastcc ptr @ZSTD_getDDict(ptr noundef captures(none) %0) unnamed
   br label %14
 
 14:                                               ; preds = %11, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ %10, %8 ], [ %13, %11 ]
+  %.0 = phi ptr [ null, %4 ], [ %13, %11 ], [ %10, %8 ]
   ret ptr %.0
 }
 
@@ -2205,7 +2205,7 @@ ZSTD_DCtx_trace_end.exit:                         ; preds = %175, %196
   br label %ZSTD_copyRawBlock.exit.thread
 
 ZSTD_copyRawBlock.exit.thread:                    ; preds = %114, %110, %ZSTD_frameHeaderSize_internal.exit, %ZSTD_frameHeaderSize_internal.exit.thread, %171, %67, %19, %ZSTD_setRleBlock.exit, %ZSTD_copyRawBlock.exit, %105, %132, %148, %158, %163, %164, %167, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %209, %202, %ZSTD_DCtx_trace_end.exit, %104, %75, %63, %31
-  %.0 = phi i64 [ 0, %209 ], [ 0, %202 ], [ -22, %171 ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ %.2, %104 ], [ %73, %67 ], [ 0, %75 ], [ 0, %31 ], [ 0, %63 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ %.0140, %ZSTD_setRleBlock.exit ], [ %4, %ZSTD_copyRawBlock.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140183, %148 ], [ -20, %158 ], [ %.0140183, %163 ], [ %.0140183, %164 ], [ %.0140183, %167 ], [ -1, %19 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %60, %ZSTD_frameHeaderSize_internal.exit ], [ -70, %110 ], [ -74, %114 ]
+  %.0 = phi i64 [ 0, %31 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ -22, %171 ], [ 0, %202 ], [ 0, %209 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ %.0140, %ZSTD_setRleBlock.exit ], [ %4, %ZSTD_copyRawBlock.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140183, %148 ], [ -20, %158 ], [ %.0140183, %163 ], [ %.0140183, %164 ], [ %.0140183, %167 ], [ -1, %19 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %60, %ZSTD_frameHeaderSize_internal.exit ], [ -70, %110 ], [ -74, %114 ]
   ret i64 %.0
 }
 
@@ -3636,7 +3636,7 @@ define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr noundef 
   br label %12
 
 12:                                               ; preds = %2, %7
-  %.1 = phi i64 [ %5, %2 ], [ %11, %7 ]
+  %.1 = phi i64 [ %11, %7 ], [ %5, %2 ]
   ret i64 %.1
 }
 
@@ -3804,7 +3804,7 @@ define dso_local range(i64 -60, 1) i64 @ZSTD_DCtx_setParameter(ptr noundef captu
   br label %37
 
 37:                                               ; preds = %6, %33, %28, %26, %22, %18, %14, %7, %3, %35, %31, %24, %20, %16, %10
-  %.0 = phi i64 [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %10 ], [ -60, %3 ], [ -42, %7 ], [ -42, %14 ], [ -42, %18 ], [ -42, %22 ], [ -42, %26 ], [ -40, %28 ], [ -42, %33 ], [ -40, %6 ]
+  %.0 = phi i64 [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %31 ], [ 0, %35 ], [ -60, %3 ], [ -42, %7 ], [ -42, %14 ], [ -42, %18 ], [ -42, %22 ], [ -42, %26 ], [ -40, %28 ], [ -42, %33 ], [ -40, %6 ]
   ret i64 %.0
 }
 

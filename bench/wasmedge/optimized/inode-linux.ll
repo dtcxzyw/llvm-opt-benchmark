@@ -2249,7 +2249,7 @@ switch.lookup97:                                  ; preds = %.lr.ph, %142
   unreachable
 
 _ZN8WasmEdge4Host4WASI6detail12fromProtocolEi.exit: ; preds = %switch.lookup97, %86, %87
-  %.0.i74 = phi i8 [ 2, %87 ], [ 1, %86 ], [ 0, %switch.lookup97 ]
+  %.0.i74 = phi i8 [ 1, %86 ], [ 2, %87 ], [ 0, %switch.lookup97 ]
   %89 = load ptr, ptr %72, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i8 %.0.i74, ptr %90, align 4
@@ -2275,7 +2275,7 @@ _ZN8WasmEdge4Host4WASI6detail12fromProtocolEi.exit: ; preds = %switch.lookup97, 
   unreachable
 
 _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit: ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromProtocolEi.exit, %93, %94, %95
-  %.0.i75 = phi i8 [ 3, %95 ], [ 2, %94 ], [ 1, %93 ], [ 0, %_ZN8WasmEdge4Host4WASI6detail12fromProtocolEi.exit ]
+  %.0.i75 = phi i8 [ 1, %93 ], [ 2, %94 ], [ 3, %95 ], [ 0, %_ZN8WasmEdge4Host4WASI6detail12fromProtocolEi.exit ]
   %97 = load ptr, ptr %72, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i8 %.0.i75, ptr %98, align 2
@@ -2342,7 +2342,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit: ; preds = %_ZN8WasmEdge
   unreachable
 
 _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit77: ; preds = %123, %128, %129, %130
-  %.0.i76 = phi i8 [ 3, %130 ], [ 2, %129 ], [ 1, %128 ], [ 0, %123 ]
+  %.0.i76 = phi i8 [ 1, %128 ], [ 2, %129 ], [ 3, %130 ], [ 0, %123 ]
   %132 = load ptr, ptr %124, align 8
   store i8 %.0.i76, ptr %132, align 4
   %133 = load ptr, ptr %124, align 8
@@ -2543,8 +2543,8 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode8sockBindE23__wasi_
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %.thread, %24, %17, %10
-  %28 = phi ptr [ %6, %24 ], [ %6, %17 ], [ %6, %10 ], [ null, %.thread ]
-  %.0.i.i = phi i32 [ 110, %24 ], [ 28, %17 ], [ 16, %10 ], [ 0, %.thread ]
+  %28 = phi ptr [ %6, %10 ], [ %6, %17 ], [ %6, %24 ], [ null, %.thread ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 28, %17 ], [ 110, %24 ], [ 0, %.thread ]
   %29 = load i32, ptr %0, align 8
   %30 = call i32 @bind(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i) #25
   %31 = icmp slt i32 %30, 0
@@ -2737,8 +2737,8 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode11sockConnectE23__w
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %.thread, %24, %17, %10
-  %28 = phi ptr [ %6, %24 ], [ %6, %17 ], [ %6, %10 ], [ null, %.thread ]
-  %.0.i.i = phi i32 [ 110, %24 ], [ 28, %17 ], [ 16, %10 ], [ 0, %.thread ]
+  %28 = phi ptr [ %6, %10 ], [ %6, %17 ], [ %6, %24 ], [ null, %.thread ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 28, %17 ], [ 110, %24 ], [ 0, %.thread ]
   %29 = load i32, ptr %0, align 8
   %30 = invoke i32 @connect(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i)
           to label %31 unwind label %40
@@ -3393,9 +3393,9 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
   br label %47
 
 47:                                               ; preds = %16, %41, %30, %18, %45, %39, %27, %11
-  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %45 ], [ 1, %39 ], [ 1, %27 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %45 ], [ 0, %39 ], [ 0, %27 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
-  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %45 ], [ 0, %39 ], [ 0, %27 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
+  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %27 ], [ 1, %39 ], [ 1, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
+  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
+  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
   %.sroa.1232.sroa.0.0.insert.insert = or disjoint i16 %.sroa.1232.sroa.12.0, %.sroa.1232.sroa.0.0
   %.sroa.1232.0.insert.ext = zext i16 %.sroa.1232.sroa.0.0.insert.insert to i32
   %.sroa.1232.0.insert.shift = shl nuw i32 %.sroa.1232.0.insert.ext, 16
@@ -3511,9 +3511,9 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
   br label %47
 
 47:                                               ; preds = %16, %41, %30, %18, %45, %39, %27, %11
-  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %45 ], [ 1, %39 ], [ 1, %27 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %45 ], [ 0, %39 ], [ 0, %27 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
-  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %45 ], [ 0, %39 ], [ 0, %27 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
+  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %27 ], [ 1, %39 ], [ 1, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
+  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
+  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
   %.sroa.1232.sroa.0.0.insert.insert = or disjoint i16 %.sroa.1232.sroa.12.0, %.sroa.1232.sroa.0.0
   %.sroa.1232.0.insert.ext = zext i16 %.sroa.1232.sroa.0.0.insert.insert to i32
   %.sroa.1232.0.insert.shift = shl nuw i32 %.sroa.1232.0.insert.ext, 16

@@ -3587,7 +3587,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit14:          ; preds = %_ZNSt7__cxx1112basi
   br label %195
 
 195:                                              ; preds = %1, %112, %_ZN5clang17DiagnosticBuilderD2Ev.exit14
-  %.04 = phi i1 [ false, %112 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit14 ], [ false, %1 ]
+  %.04 = phi i1 [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit14 ], [ false, %112 ], [ false, %1 ]
   ret i1 %.04
 }
 
@@ -7534,7 +7534,7 @@ _ZN5clang16ParsedAttributesD2Ev.exit69:           ; preds = %_ZN5clang13Attribut
   br label %347
 
 347:                                              ; preds = %_ZN5clang16ParsedAttributesD2Ev.exit69, %_ZN5clang17DiagnosticBuilderD2Ev.exit59, %114, %101, %94, %64, %.thread101, %12
-  %.0 = phi i1 [ false, %_ZN5clang16ParsedAttributesD2Ev.exit69 ], [ false, %.thread101 ], [ false, %64 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit59 ], [ false, %114 ], [ false, %101 ], [ false, %94 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %_ZN5clang16ParsedAttributesD2Ev.exit69 ], [ false, %12 ], [ false, %.thread101 ], [ false, %64 ], [ false, %94 ], [ false, %101 ], [ false, %114 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit59 ]
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %349 = load i8, ptr %348, align 8, !tbaa !326, !range !984, !noundef !985
   %350 = trunc nuw i8 %349 to i1
@@ -9970,14 +9970,14 @@ _ZN5clang6Parser9NextTokenEv.exit76:              ; preds = %280, %284
   br label %.critedge
 
 331:                                              ; preds = %133, %199, %182, %153, %71, %60
-  %.052 = phi ptr [ %200, %199 ], [ %188, %182 ], [ %154, %153 ], [ %138, %133 ], [ %77, %71 ], [ null, %60 ]
+  %.052 = phi ptr [ null, %60 ], [ %77, %71 ], [ %138, %133 ], [ %154, %153 ], [ %188, %182 ], [ %200, %199 ]
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %333 = load ptr, ptr %332, align 8, !tbaa !338
   %334 = call ptr @_ZN5clang4Sema22ConvertDeclToDeclGroupEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(17504) %333, ptr noundef %.052, ptr noundef null) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %61, %62, %64, %66, %67, %68, %69, %70, %78, %83, %87, %139, %146, %175, %201, %209, %232, %289, %304, %305, %314, %327, %329, %331, %261, %259, %_ZN5clang6Parser13cutOffParsingEv.exit
-  %.sroa.099.0 = phi ptr [ null, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ null, %314 ], [ %330, %329 ], [ %328, %327 ], [ null, %305 ], [ null, %304 ], [ %303, %289 ], [ %267, %261 ], [ %260, %259 ], [ %238, %232 ], [ %210, %209 ], [ %202, %201 ], [ %334, %331 ], [ null, %175 ], [ null, %146 ], [ %140, %139 ], [ %95, %87 ], [ null, %83 ], [ null, %78 ], [ null, %70 ], [ null, %69 ], [ null, %68 ], [ null, %67 ], [ null, %66 ], [ %65, %64 ], [ %63, %62 ], [ null, %61 ], [ null, %59 ], [ null, %58 ], [ null, %57 ], [ null, %56 ], [ null, %55 ], [ null, %54 ], [ null, %53 ], [ null, %52 ], [ null, %51 ], [ null, %50 ], [ null, %49 ], [ null, %48 ], [ null, %.thread ]
+  %.sroa.099.0 = phi ptr [ null, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ null, %314 ], [ %330, %329 ], [ %328, %327 ], [ null, %48 ], [ null, %49 ], [ null, %50 ], [ null, %51 ], [ null, %52 ], [ null, %53 ], [ null, %54 ], [ null, %55 ], [ null, %56 ], [ null, %57 ], [ null, %58 ], [ null, %59 ], [ %334, %331 ], [ null, %61 ], [ %63, %62 ], [ %65, %64 ], [ null, %66 ], [ null, %67 ], [ null, %68 ], [ null, %69 ], [ null, %70 ], [ null, %78 ], [ null, %83 ], [ %95, %87 ], [ %140, %139 ], [ null, %146 ], [ null, %175 ], [ %202, %201 ], [ %210, %209 ], [ %238, %232 ], [ %260, %259 ], [ %267, %261 ], [ %303, %289 ], [ null, %304 ], [ null, %305 ], [ null, %.thread ]
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 2560
   %.promoted.i.i = load i32, ptr %335, align 8, !tbaa !324
   %.not.i2.i.i = icmp eq i32 %.promoted.i.i, 0
@@ -18731,7 +18731,7 @@ _ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread:   ; preds = %.thread78
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %89, %.critedge, %95, %100, %197, %194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %152, %142, %161, %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread
-  %.4 = phi i1 [ true, %142 ], [ false, %152 ], [ false, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread ], [ false, %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit ], [ false, %161 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ true, %194 ], [ true, %197 ], [ false, %100 ], [ false, %95 ], [ false, %.critedge ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZNK5clang12CXXScopeSpec7isEmptyEv.exit.thread ], [ false, %152 ], [ true, %142 ], [ false, %_ZN5clang12Preprocessor20AnnotateCachedTokensERKNS_5TokenE.exit ], [ false, %161 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ true, %194 ], [ true, %197 ], [ false, %100 ], [ false, %95 ], [ false, %.critedge ], [ false, %89 ]
   ret i1 %.4
 }
 

@@ -1149,9 +1149,9 @@ gt.exit.thread.i:                                 ; preds = %94, %87
   br label %507
 
 507:                                              ; preds = %505, %476, %gt.exit.i
-  %.sroa.20.3.i = phi i32 [ %.sroa.20.2138.i, %gt.exit.i ], [ %506, %505 ], [ %480, %476 ]
-  %.sroa.11.2.i = phi ptr [ %.sroa.11.1139.i, %gt.exit.i ], [ %.sroa.11.3.i, %505 ], [ %468, %476 ]
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.2140.i, %gt.exit.i ], [ %.sroa.0.5.i, %505 ], [ %.sroa.0.3.i, %476 ]
+  %.sroa.20.3.i = phi i32 [ %.sroa.20.2138.i, %gt.exit.i ], [ %480, %476 ], [ %506, %505 ]
+  %.sroa.11.2.i = phi ptr [ %.sroa.11.1139.i, %gt.exit.i ], [ %468, %476 ], [ %.sroa.11.3.i, %505 ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.2140.i, %gt.exit.i ], [ %.sroa.0.3.i, %476 ], [ %.sroa.0.5.i, %505 ]
   %508 = load ptr, ptr %73, align 8, !tbaa !35
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %510 = load ptr, ptr %509, align 8, !tbaa !32

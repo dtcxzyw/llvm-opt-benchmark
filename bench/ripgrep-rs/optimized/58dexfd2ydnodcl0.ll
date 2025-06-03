@@ -3456,7 +3456,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17ha3d10fe5a9a19cabE.exit.i.i"
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17ha3d10fe5a9a19cabE.exit.i.i": ; preds = %75, %72
-  %.0.i10.i.i = phi ptr [ %78, %75 ], [ %74, %72 ]
+  %.0.i10.i.i = phi ptr [ %74, %72 ], [ %78, %75 ]
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %82 = load i64, ptr %81, align 8, !range !728, !invariant.load !8, !noalias !684
   %83 = add i64 %82, -1

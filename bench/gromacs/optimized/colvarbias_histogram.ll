@@ -1113,8 +1113,8 @@ _ZNK11colvarvalue4sizeEv.exit.thread144:          ; preds = %146
 151:                                              ; preds = %146, %146
   br label %_ZNK11colvarvalue4sizeEv.exit.thread
 
-_ZNK11colvarvalue4sizeEv.exit.thread:             ; preds = %151, %150, %146
-  %.0.i.ph = phi i64 [ 3, %150 ], [ 4, %151 ], [ 1, %146 ]
+_ZNK11colvarvalue4sizeEv.exit.thread:             ; preds = %150, %151, %146
+  %.0.i.ph = phi i64 [ 4, %151 ], [ 3, %150 ], [ 1, %146 ]
   store i64 %.0.i.ph, ptr %78, align 8, !tbaa !14
   br label %216
 
@@ -7405,7 +7405,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %148, %_ZNSt12_Vecto
   br label %168
 
 168:                                              ; preds = %144, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
-  %.128 = phi i32 [ 1, %144 ], [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ]
+  %.128 = phi i32 [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ 1, %144 ]
   ret i32 %.128
 
 169:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123

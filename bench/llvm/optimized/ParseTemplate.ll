@@ -3039,7 +3039,7 @@ _ZN5clang8DeclSpecD2Ev.exit:                      ; preds = %_ZN5clang13Attribut
   br label %175
 
 175:                                              ; preds = %173, %171, %_ZN5clang8DeclSpecD2Ev.exit, %89
-  %.0 = phi ptr [ %172, %171 ], [ %174, %173 ], [ %151, %_ZN5clang8DeclSpecD2Ev.exit ], [ %90, %89 ]
+  %.0 = phi ptr [ %172, %171 ], [ %174, %173 ], [ %90, %89 ], [ %151, %_ZN5clang8DeclSpecD2Ev.exit ]
   ret ptr %.0
 }
 
@@ -7480,10 +7480,10 @@ _ZN5clang6Parser9NextTokenEv.exit74:              ; preds = %218, %222
   br label %226
 
 226:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit74, %5, %_ZN5clang6Parser9NextTokenEv.exit, %225, %191
-  %.061 = phi i1 [ false, %225 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ false, %191 ], [ false, %5 ], [ %224, %_ZN5clang6Parser9NextTokenEv.exit74 ]
-  %.060 = phi ptr [ @.str.6, %225 ], [ @.str.7, %_ZN5clang6Parser9NextTokenEv.exit ], [ @.str.6, %191 ], [ @.str.6, %5 ], [ @.str.7, %_ZN5clang6Parser9NextTokenEv.exit74 ]
-  %.059 = phi i16 [ 54, %225 ], [ 64, %_ZN5clang6Parser9NextTokenEv.exit ], [ 53, %191 ], [ 52, %5 ], [ %spec.select64, %_ZN5clang6Parser9NextTokenEv.exit74 ]
-  %or.cond = phi i1 [ false, %225 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ true, %191 ], [ true, %5 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit74 ]
+  %.061 = phi i1 [ false, %191 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ false, %225 ], [ false, %5 ], [ %224, %_ZN5clang6Parser9NextTokenEv.exit74 ]
+  %.060 = phi ptr [ @.str.6, %191 ], [ @.str.7, %_ZN5clang6Parser9NextTokenEv.exit ], [ @.str.6, %225 ], [ @.str.6, %5 ], [ @.str.7, %_ZN5clang6Parser9NextTokenEv.exit74 ]
+  %.059 = phi i16 [ 53, %191 ], [ 64, %_ZN5clang6Parser9NextTokenEv.exit ], [ 54, %225 ], [ 52, %5 ], [ %spec.select64, %_ZN5clang6Parser9NextTokenEv.exit74 ]
+  %or.cond = phi i1 [ true, %191 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ false, %225 ], [ true, %5 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit74 ]
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.037.0.copyload = load i32, ptr %227, align 8, !tbaa !320
   %228 = load i32, ptr %15, align 8, !tbaa !319
@@ -9904,7 +9904,7 @@ _ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1E
   br i1 %55, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread44
 
 _ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread: ; preds = %50, %43, %30, %17, %46, %33, %20, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit
-  %.041 = phi i16 [ 2, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit ], [ 0, %20 ], [ 0, %33 ], [ 2, %46 ], [ 0, %17 ], [ 0, %30 ], [ 2, %43 ], [ 2, %50 ]
+  %.041 = phi i16 [ 2, %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit ], [ 0, %20 ], [ 0, %33 ], [ 2, %46 ], [ 0, %30 ], [ 0, %17 ], [ 2, %50 ], [ 2, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !97
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2928

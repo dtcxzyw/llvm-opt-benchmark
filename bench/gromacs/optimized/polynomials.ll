@@ -88,7 +88,7 @@ define noundef float @_Z9LegendrePfj(float noundef %0, i32 noundef %1) local_unn
   resume { ptr, i32 } %34
 
 35:                                               ; preds = %2, %23, %16, %10, %5, %4
-  %.0 = phi float [ %30, %23 ], [ %22, %16 ], [ %15, %10 ], [ %9, %5 ], [ %0, %4 ], [ 1.000000e+00, %2 ]
+  %.0 = phi float [ %0, %4 ], [ %9, %5 ], [ %15, %10 ], [ %22, %16 ], [ %30, %23 ], [ 1.000000e+00, %2 ]
   ret float %.0
 }
 

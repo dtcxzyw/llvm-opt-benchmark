@@ -4338,10 +4338,10 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   br i1 %.not.i49, label %96, label %95
 
 90:                                               ; preds = %switch.lookup, %2, %96, %93
-  %.sroa.817.sroa.4.sroa.0.0 = phi i64 [ %98, %96 ], [ undef, %93 ], [ undef, %2 ], [ undef, %switch.lookup ]
-  %.sroa.817.sroa.4.sroa.3.0 = phi i64 [ %.sroa.6.i48.sroa.9.0.copyload80, %96 ], [ undef, %93 ], [ undef, %2 ], [ undef, %switch.lookup ]
-  %.sroa.817.sroa.3.0 = phi ptr [ %97, %96 ], [ %73, %93 ], [ undef, %2 ], [ undef, %switch.lookup ]
-  %.sroa.014.0 = phi i8 [ 29, %96 ], [ 28, %93 ], [ 25, %2 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.817.sroa.4.sroa.0.0 = phi i64 [ undef, %2 ], [ undef, %93 ], [ %98, %96 ], [ undef, %switch.lookup ]
+  %.sroa.817.sroa.4.sroa.3.0 = phi i64 [ undef, %2 ], [ undef, %93 ], [ %.sroa.6.i48.sroa.9.0.copyload80, %96 ], [ undef, %switch.lookup ]
+  %.sroa.817.sroa.3.0 = phi ptr [ undef, %2 ], [ %73, %93 ], [ %97, %96 ], [ undef, %switch.lookup ]
+  %.sroa.014.0 = phi i8 [ 25, %2 ], [ 28, %93 ], [ 29, %96 ], [ %switch.masked, %switch.lookup ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.014.0, ptr %91, align 8
   %.sroa.817.sroa.3.0..sroa.817.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

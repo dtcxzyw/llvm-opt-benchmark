@@ -27569,7 +27569,7 @@ lean_dec.exit:                                    ; preds = %64, %63, %61, %57
   br label %lean_dec.exit17
 
 lean_dec.exit17:                                  ; preds = %lean_inc.exit15, %26, %28, %29, %lean_dec.exit, %l_Lean_Name_str___override.exit, %10
-  %.0 = phi ptr [ %65, %lean_dec.exit ], [ %50, %l_Lean_Name_str___override.exit ], [ %11, %10 ], [ %14, %29 ], [ %14, %28 ], [ %14, %26 ], [ %14, %lean_inc.exit15 ]
+  %.0 = phi ptr [ %65, %lean_dec.exit ], [ %11, %10 ], [ %50, %l_Lean_Name_str___override.exit ], [ %14, %29 ], [ %14, %28 ], [ %14, %26 ], [ %14, %lean_inc.exit15 ]
   ret ptr %.0
 }
 
@@ -35764,7 +35764,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %3
 
 78:                                               ; preds = %lean_dec.exit27, %lean_dec.exit28
-  %.0 = phi ptr [ %43, %lean_dec.exit27 ], [ %24, %lean_dec.exit28 ]
+  %.0 = phi ptr [ %24, %lean_dec.exit28 ], [ %43, %lean_dec.exit27 ]
   ret ptr %.0
 }
 

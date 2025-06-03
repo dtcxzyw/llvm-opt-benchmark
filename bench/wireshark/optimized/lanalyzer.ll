@@ -298,7 +298,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %109, %101, %71, %105, %._crit_edge, %35, %24, %19, %12, %10, %120, %118, %97, %92, %68
-  %.0 = phi i32 [ 1, %120 ], [ -1, %118 ], [ -1, %68 ], [ -1, %92 ], [ -1, %97 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.106, %24 ], [ %.107, %35 ], [ -1, %._crit_edge ], [ -1, %105 ], [ -1, %71 ], [ -1, %101 ], [ -1, %109 ]
+  %.0 = phi i32 [ -1, %68 ], [ -1, %92 ], [ -1, %97 ], [ 1, %120 ], [ -1, %118 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.106, %24 ], [ %.107, %35 ], [ -1, %._crit_edge ], [ -1, %105 ], [ -1, %71 ], [ -1, %101 ], [ -1, %109 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 210, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10

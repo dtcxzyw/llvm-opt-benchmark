@@ -69,7 +69,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
           to label %27 unwind label %36
 
 27:                                               ; preds = %.invoke, %22, %17, %12, %7
-  %.0 = phi i8 [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 0, %7 ], [ 1, %.invoke ]
+  %.0 = phi i8 [ 0, %7 ], [ 1, %12 ], [ 1, %17 ], [ 1, %22 ], [ 1, %.invoke ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -85,7 +85,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   br i1 %35, label %52, label %51
 
 36:                                               ; preds = %.invoke, %44, %22, %17, %12
-  %.1 = phi i8 [ %.0, %44 ], [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 1, %.invoke ]
+  %.1 = phi i8 [ %.0, %44 ], [ 1, %12 ], [ 1, %17 ], [ 1, %22 ], [ 1, %.invoke ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %34

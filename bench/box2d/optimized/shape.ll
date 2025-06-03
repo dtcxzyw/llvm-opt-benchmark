@@ -1234,7 +1234,7 @@ default.unreachable93:                            ; preds = %46, %33
   br label %b2GetShapeCentroid.exit
 
 b2GetShapeCentroid.exit:                          ; preds = %88, %99, %101, %103, %114
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.05.4.vec.insert.i22.i, %114 ], [ %.sroa.05.4.vec.insert.i16.i, %103 ], [ %.sroa.0.0.copyload9.i, %101 ], [ %.sroa.0.0.copyload.i, %99 ], [ %.sroa.05.4.vec.insert.i.i, %88 ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.05.4.vec.insert.i.i, %88 ], [ %.sroa.0.0.copyload.i, %99 ], [ %.sroa.0.0.copyload9.i, %101 ], [ %.sroa.05.4.vec.insert.i16.i, %103 ], [ %.sroa.05.4.vec.insert.i22.i, %114 ]
   store <2 x float> %.sroa.0.0.i, ptr %87, align 8
   %125 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 276
@@ -1617,7 +1617,7 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %0, <
   br label %24
 
 24:                                               ; preds = %21, %18, %15, %12, %9, %6
-  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ]
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %23, %21 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
@@ -1709,7 +1709,7 @@ define hidden <2 x float> @b2GetShapeCentroid(ptr noundef readonly captures(none
   br label %41
 
 41:                                               ; preds = %1, %30, %19, %17, %15, %4
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.05.4.vec.insert.i22, %30 ], [ %.sroa.05.4.vec.insert.i16, %19 ], [ %.sroa.0.0.copyload9, %17 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.05.4.vec.insert.i, %4 ], [ zeroinitializer, %1 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.05.4.vec.insert.i, %4 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload9, %17 ], [ %.sroa.05.4.vec.insert.i16, %19 ], [ %.sroa.05.4.vec.insert.i22, %30 ], [ zeroinitializer, %1 ]
   ret <2 x float> %.sroa.0.0
 }
 
@@ -1821,7 +1821,7 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %1, %55, %43, %20, %4
-  %.0 = phi float [ %66, %55 ], [ %54, %43 ], [ %23, %20 ], [ %19, %4 ], [ 0.000000e+00, %1 ], [ %30, %24 ], [ %42, %.lr.ph ]
+  %.0 = phi float [ %19, %4 ], [ %23, %20 ], [ %54, %43 ], [ %66, %55 ], [ 0.000000e+00, %1 ], [ %30, %24 ], [ %42, %.lr.ph ]
   ret float %.0
 }
 
@@ -1951,7 +1951,7 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
   br label %84
 
 84:                                               ; preds = %2, %68, %52, %._crit_edge, %23, %5
-  %.0 = phi float [ %83, %68 ], [ %67, %52 ], [ %41, %._crit_edge ], [ %26, %23 ], [ %22, %5 ], [ 0.000000e+00, %2 ]
+  %.0 = phi float [ %22, %5 ], [ %26, %23 ], [ %41, %._crit_edge ], [ %67, %52 ], [ %83, %68 ], [ 0.000000e+00, %2 ]
   ret float %.0
 }
 
@@ -1993,8 +1993,8 @@ define hidden { <2 x float>, <2 x float> } @b2ComputeShapeMass(ptr noundef %0) l
   br label %25
 
 25:                                               ; preds = %1, %18, %11, %4
-  %.sroa.0.0 = phi <2 x float> [ %23, %18 ], [ %16, %11 ], [ %9, %4 ], [ zeroinitializer, %1 ]
-  %.sroa.6.0 = phi <2 x float> [ %24, %18 ], [ %17, %11 ], [ %10, %4 ], [ zeroinitializer, %1 ]
+  %.sroa.0.0 = phi <2 x float> [ %9, %4 ], [ %16, %11 ], [ %23, %18 ], [ zeroinitializer, %1 ]
+  %.sroa.6.0 = phi <2 x float> [ %10, %4 ], [ %17, %11 ], [ %24, %18 ], [ zeroinitializer, %1 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.6.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -2174,7 +2174,7 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   br label %111
 
 111:                                              ; preds = %2, %92, %73, %._crit_edge, %27, %5
-  %.sroa.049.0 = phi <2 x float> [ zeroinitializer, %2 ], [ %.sroa.049.4.vec.insert66, %92 ], [ %.sroa.049.4.vec.insert64, %73 ], [ %.sroa.049.4.vec.insert62, %._crit_edge ], [ %.sroa.049.4.vec.insert60, %27 ], [ %.sroa.049.4.vec.insert, %5 ]
+  %.sroa.049.0 = phi <2 x float> [ zeroinitializer, %2 ], [ %.sroa.049.4.vec.insert, %5 ], [ %.sroa.049.4.vec.insert60, %27 ], [ %.sroa.049.4.vec.insert62, %._crit_edge ], [ %.sroa.049.4.vec.insert64, %73 ], [ %.sroa.049.4.vec.insert66, %92 ]
   ret <2 x float> %.sroa.049.0
 }
 
@@ -2485,7 +2485,7 @@ define hidden void @b2CreateShapeProxy(ptr noundef %0, ptr noundef %1, i32 nound
   br label %b2UpdateShapeAABBs.exit
 
 b2UpdateShapeAABBs.exit:                          ; preds = %10, %13, %16, %19, %22, %25
-  %.fca.1.insert.merged.i.i = phi { <2 x float>, <2 x float> } [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.fca.1.insert.merged.i.i = phi { <2 x float>, <2 x float> } [ %27, %25 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   %28 = fmul float %7, 0x3FA99999A0000000
   %29 = fmul float %7, 0x3F747AE140000000
   %30 = fmul float %29, 4.000000e+00
@@ -2747,7 +2747,7 @@ define zeroext i1 @b2Shape_TestPoint(i64 %0, <2 x float> %1) local_unnamed_addr 
   br label %37
 
 37:                                               ; preds = %2, %34, %31, %28
-  %.0 = phi i1 [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ false, %2 ]
+  %.0 = phi i1 [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -3235,7 +3235,7 @@ define internal fastcc void @b2ResetProxy(ptr noundef nonnull %0, ptr noundef %1
   br label %b2UpdateShapeAABBs.exit
 
 b2UpdateShapeAABBs.exit:                          ; preds = %40, %43, %46, %49, %52, %55
-  %.fca.1.insert.merged.i.i = phi { <2 x float>, <2 x float> } [ %56, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ]
+  %.fca.1.insert.merged.i.i = phi { <2 x float>, <2 x float> } [ %56, %55 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ]
   %57 = fmul float %37, 0x3FA99999A0000000
   %58 = fmul float %37, 0x3F747AE140000000
   %59 = fmul float %58, 4.000000e+00
@@ -3335,7 +3335,7 @@ b2UpdateShapeAABBs.exit:                          ; preds = %40, %43, %46, %49, 
   br label %b2UpdateShapeAABBs.exit59
 
 b2UpdateShapeAABBs.exit59:                        ; preds = %91, %94, %97, %100, %103, %106
-  %.fca.1.insert.merged.i.i46 = phi { <2 x float>, <2 x float> } [ %107, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ]
+  %.fca.1.insert.merged.i.i46 = phi { <2 x float>, <2 x float> } [ %107, %106 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ]
   %108 = fmul float %88, 0x3FA99999A0000000
   %109 = fmul float %88, 0x3F747AE140000000
   %110 = fmul float %109, 4.000000e+00
@@ -4337,8 +4337,8 @@ define { <2 x float>, <2 x float> } @b2Shape_GetMassData(i64 %0) local_unnamed_a
   br label %b2ComputeShapeMass.exit
 
 b2ComputeShapeMass.exit:                          ; preds = %27, %20, %13, %6, %1
-  %.sroa.03.0 = phi <2 x float> [ zeroinitializer, %1 ], [ %32, %27 ], [ %25, %20 ], [ %18, %13 ], [ zeroinitializer, %6 ]
-  %.sroa.4.0 = phi <2 x float> [ zeroinitializer, %1 ], [ %33, %27 ], [ %26, %20 ], [ %19, %13 ], [ zeroinitializer, %6 ]
+  %.sroa.03.0 = phi <2 x float> [ zeroinitializer, %1 ], [ %18, %13 ], [ %25, %20 ], [ %32, %27 ], [ zeroinitializer, %6 ]
+  %.sroa.4.0 = phi <2 x float> [ zeroinitializer, %1 ], [ %19, %13 ], [ %26, %20 ], [ %33, %27 ], [ zeroinitializer, %6 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.4.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

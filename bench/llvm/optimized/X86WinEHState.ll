@@ -1125,7 +1125,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit.i
 
 _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i, %385
-  %.1.i.i = phi ptr [ %398, %385 ], [ %401, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ]
+  %.1.i.i = phi ptr [ %401, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %398, %385 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %111) #20
   br label %416
 
@@ -1226,7 +1226,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i7
   br label %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit76.i
 
 _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit76.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75.i, %424
-  %.1.i67.i = phi ptr [ %448, %424 ], [ %451, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75.i ]
+  %.1.i67.i = phi ptr [ %451, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i75.i ], [ %448, %424 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %118) #20
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %467 = load ptr, ptr %466, align 8, !tbaa !224
@@ -2410,7 +2410,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i:             ; preds = %939
   br label %983
 
 983:                                              ; preds = %981, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %982, %981 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %982, %981 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %984 = load i32, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !218
   %985 = icmp eq i32 %984, 0
   br i1 %985, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i, label %986
@@ -2420,7 +2420,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i:             ; preds = %939
   br label %988
 
 988:                                              ; preds = %986, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %987, %986 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %987, %986 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %989 = load i32, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !218
   %990 = icmp eq i32 %989, 0
   br i1 %990, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i
@@ -3607,7 +3607,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i48:           ; preds = %1456
   br label %1502
 
 1502:                                             ; preds = %1500, %._crit_edge.i.i.i.i.i.i.i.i81
-  %.1.i.i.i.i.i.i.i.i99 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i83, %._crit_edge.i.i.i.i.i.i.i.i81 ], [ %1501, %1500 ]
+  %.1.i.i.i.i.i.i.i.i99 = phi ptr [ %1501, %1500 ], [ %.029.lcssa.i.i.i.i.i.i.i.i83, %._crit_edge.i.i.i.i.i.i.i.i81 ]
   %1503 = load i32, ptr %.1.i.i.i.i.i.i.i.i99, align 8, !tbaa !218
   %1504 = icmp eq i32 %1503, 0
   br i1 %1504, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i87, label %1505
@@ -3617,7 +3617,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i48:           ; preds = %1456
   br label %1507
 
 1507:                                             ; preds = %1505, %._crit_edge.i.i.i.i.i.i.i.i81
-  %.2.i.i.i.i.i.i.i.i86 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i83, %._crit_edge.i.i.i.i.i.i.i.i81 ], [ %1506, %1505 ]
+  %.2.i.i.i.i.i.i.i.i86 = phi ptr [ %1506, %1505 ], [ %.029.lcssa.i.i.i.i.i.i.i.i83, %._crit_edge.i.i.i.i.i.i.i.i81 ]
   %1508 = load i32, ptr %.2.i.i.i.i.i.i.i.i86, align 8, !tbaa !218
   %1509 = icmp eq i32 %1508, 0
   br i1 %1509, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i.i87, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i84
@@ -4065,7 +4065,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i34.i:           ; preds = %1641
   br label %1687
 
 1687:                                             ; preds = %1685, %._crit_edge.i.i.i.i.i.i.i65.i
-  %.1.i.i.i.i.i.i.i83.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i67.i, %._crit_edge.i.i.i.i.i.i.i65.i ], [ %1686, %1685 ]
+  %.1.i.i.i.i.i.i.i83.i = phi ptr [ %1686, %1685 ], [ %.029.lcssa.i.i.i.i.i.i.i67.i, %._crit_edge.i.i.i.i.i.i.i65.i ]
   %1688 = load i32, ptr %.1.i.i.i.i.i.i.i83.i, align 8, !tbaa !218
   %1689 = icmp eq i32 %1688, 0
   br i1 %1689, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i71.i, label %1690
@@ -4075,7 +4075,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i34.i:           ; preds = %1641
   br label %1692
 
 1692:                                             ; preds = %1690, %._crit_edge.i.i.i.i.i.i.i65.i
-  %.2.i.i.i.i.i.i.i70.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i67.i, %._crit_edge.i.i.i.i.i.i.i65.i ], [ %1691, %1690 ]
+  %.2.i.i.i.i.i.i.i70.i = phi ptr [ %1691, %1690 ], [ %.029.lcssa.i.i.i.i.i.i.i67.i, %._crit_edge.i.i.i.i.i.i.i65.i ]
   %1693 = load i32, ptr %.2.i.i.i.i.i.i.i70.i, align 8, !tbaa !218
   %1694 = icmp eq i32 %1693, 0
   br i1 %1694, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i71.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit88.thread.i
@@ -4848,7 +4848,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !218
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -4858,7 +4858,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !218
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit
@@ -5993,7 +5993,7 @@ _ZN12_GLOBAL__N_114WinEHStatePass17getBaseStateForBBERN4llvm8DenseMapIPNS1_10Bas
   br label %126
 
 126:                                              ; preds = %85, %.thread36, %.thread33, %_ZN12_GLOBAL__N_114WinEHStatePass17getBaseStateForBBERN4llvm8DenseMapIPNS1_10BasicBlockENS1_13TinyPtrVectorIS4_EENS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_S6_EEEERNS1_13WinEHFuncInfoES4_.exit30
-  %.1 = phi i32 [ %.0.i, %85 ], [ %.0.i20, %_ZN12_GLOBAL__N_114WinEHStatePass17getBaseStateForBBERN4llvm8DenseMapIPNS1_10BasicBlockENS1_13TinyPtrVectorIS4_EENS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_S6_EEEERNS1_13WinEHFuncInfoES4_.exit30 ], [ %84, %.thread33 ], [ %.val12, %.thread36 ]
+  %.1 = phi i32 [ %.0.i20, %_ZN12_GLOBAL__N_114WinEHStatePass17getBaseStateForBBERN4llvm8DenseMapIPNS1_10BasicBlockENS1_13TinyPtrVectorIS4_EENS1_12DenseMapInfoIS4_vEENS1_6detail12DenseMapPairIS4_S6_EEEERNS1_13WinEHFuncInfoES4_.exit30 ], [ %.0.i, %85 ], [ %84, %.thread33 ], [ %.val12, %.thread36 ]
   ret i32 %.1
 }
 
@@ -8823,7 +8823,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

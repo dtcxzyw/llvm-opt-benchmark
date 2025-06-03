@@ -10650,8 +10650,8 @@ _ZSt7advanceIPKPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %.lr.ph
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i
-  %47 = phi ptr [ %.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %42, %44 ]
-  %.1.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.1.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %48 = load ptr, ptr %.1.i.i, align 8, !tbaa !165
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZSt9__find_ifIPKPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %50
@@ -10661,8 +10661,8 @@ _ZSt7advanceIPKPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %.lr.ph
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i
-  %53 = phi ptr [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ], [ %47, %50 ]
-  %.2.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ]
+  %.2.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ]
   %54 = load ptr, ptr %.2.i.i, align 8, !tbaa !165
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZSt9__find_ifIPKPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops17_Iter_equals_iterIS4_EEET_S9_S9_T0_.exit, label %56
@@ -15952,7 +15952,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.1.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %53 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !165
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %55
@@ -15962,7 +15962,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %56, %55 ]
+  %.2.i.i.i.i.i = phi ptr [ %56, %55 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %58 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !165
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_17MachineBasicBlockELj8EEEDnEEvRT_T0_.exit
@@ -16354,7 +16354,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.1.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !165
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %54
@@ -16364,7 +16364,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %55, %54 ]
+  %.2.i.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %57 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !165
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_17MachineBasicBlockELj8EEEDnEEvRT_T0_.exit
@@ -17079,7 +17079,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %213
 
 213:                                              ; preds = %211, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %212, %211 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %212, %211 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %214 = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !165
   %215 = icmp eq ptr %214, null
   br i1 %215, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %216
@@ -17089,7 +17089,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2ISt16reverse_iteratorIPS2_E
   br label %218
 
 218:                                              ; preds = %216, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %217, %216 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %217, %216 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %219 = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !165
   %220 = icmp eq ptr %219, null
   br i1 %220, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i.i, label %_ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getChildrenILb0EEENS_11SmallVectorIPS3_Lj8EEES8_.exit
@@ -20774,7 +20774,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %46, %45 ]
+  %.1.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !165
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %50
@@ -20784,7 +20784,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.2.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %53 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !165
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_17MachineBasicBlockELj8EEEDnEEvRT_T0_.exit
@@ -21167,7 +21167,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %45, %44 ]
+  %.1.i.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %47 = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !165
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %49
@@ -21177,7 +21177,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %49 ]
+  %.2.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !165
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops16_Iter_equals_valIKDnEEET_S9_S9_T0_.exit.i.i.i, label %_ZN4llvm5eraseINS_11SmallVectorIPNS_17MachineBasicBlockELj8EEEDnEEvRT_T0_.exit

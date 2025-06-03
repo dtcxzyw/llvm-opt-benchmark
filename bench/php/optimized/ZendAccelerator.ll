@@ -6140,7 +6140,7 @@ zend_accel_init_shm.exit:                         ; preds = %44, %81
   unreachable
 
 .sink.split:                                      ; preds = %101, %zend_accel_init_shm.exit
-  %.033.ph = phi i1 [ false, %zend_accel_init_shm.exit ], [ true, %101 ]
+  %.033.ph = phi i1 [ true, %101 ], [ false, %zend_accel_init_shm.exit ]
   tail call void @zend_shared_alloc_unlock() #26
   br label %106
 
@@ -12419,7 +12419,7 @@ zend_string_release.exit:                         ; preds = %421, %420, %413, %4
   br label %zend_hash_find_ptr.exit.thread.i
 
 zend_hash_find_ptr.exit.thread.i:                 ; preds = %582, %575, %544, %533, %527, %518, %515
-  %.1.i237 = phi i32 [ %.088101.i, %515 ], [ %.088101.i, %582 ], [ %577, %575 ], [ %.088101.i, %544 ], [ %.088101.i, %518 ], [ %.088101.i, %527 ], [ %.088101.i, %533 ]
+  %.1.i237 = phi i32 [ %.088101.i, %515 ], [ %.088101.i, %518 ], [ %.088101.i, %527 ], [ %577, %575 ], [ %.088101.i, %544 ], [ %.088101.i, %582 ], [ %.088101.i, %533 ]
   %586 = getelementptr inbounds nuw i8, ptr %.087102.i, i64 32
   %.not.i238 = icmp eq ptr %586, %512
   br i1 %.not.i238, label %preload_remove_declares.exit, label %515
@@ -12827,7 +12827,7 @@ define internal fastcc void @preload_remove_declares(ptr noundef captures(none) 
   br label %zend_hash_find_ptr.exit.thread
 
 zend_hash_find_ptr.exit.thread:                   ; preds = %28, %39, %70, %13, %22, %77, %10
-  %.1 = phi i32 [ %.088101, %10 ], [ %.088101, %77 ], [ %72, %70 ], [ %.088101, %39 ], [ %.088101, %13 ], [ %.088101, %22 ], [ %.088101, %28 ]
+  %.1 = phi i32 [ %.088101, %10 ], [ %.088101, %13 ], [ %.088101, %22 ], [ %72, %70 ], [ %.088101, %39 ], [ %.088101, %77 ], [ %.088101, %28 ]
   %81 = getelementptr inbounds nuw i8, ptr %.087102, i64 32
   %.not = icmp eq ptr %81, %7
   br i1 %.not, label %._crit_edge, label %10

@@ -1688,7 +1688,7 @@ zend_active_function.exit.thread:                 ; preds = %2, %zend_active_fun
   br label %25
 
 25:                                               ; preds = %zend_active_function.exit, %0, %zend_active_function.exit.thread, %18
-  %.0 = phi ptr [ %24, %zend_active_function.exit.thread ], [ %.1, %18 ], [ null, %0 ], [ null, %zend_active_function.exit ]
+  %.0 = phi ptr [ %.1, %18 ], [ %24, %zend_active_function.exit.thread ], [ null, %0 ], [ null, %zend_active_function.exit ]
   ret ptr %.0
 }
 
@@ -4889,7 +4889,7 @@ zend_get_called_scope.exit.thread:                ; preds = %44, %39, %41, %28, 
   br label %report_class_fetch_error.exit
 
 report_class_fetch_error.exit:                    ; preds = %35, %12, %zend_get_executed_scope.exit42.thread57, %27, %.sink.split.i, %57, %53, %51, %zend_get_called_scope.exit, %zend_get_executed_scope.exit, %zend_get_executed_scope.exit.thread, %zend_get_called_scope.exit.thread, %zend_get_executed_scope.exit42.thread
-  %.021 = phi ptr [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit42.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %11, %zend_get_executed_scope.exit ], [ %48, %zend_get_called_scope.exit ], [ %52, %51 ], [ null, %53 ], [ null, %57 ], [ null, %.sink.split.i ], [ %.pre, %27 ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %11, %12 ], [ %34, %35 ]
+  %.021 = phi ptr [ null, %zend_get_executed_scope.exit42.thread ], [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %11, %zend_get_executed_scope.exit ], [ %48, %zend_get_called_scope.exit ], [ %52, %51 ], [ null, %53 ], [ null, %57 ], [ null, %.sink.split.i ], [ %.pre, %27 ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %11, %12 ], [ %34, %35 ]
   ret ptr %.021
 }
 

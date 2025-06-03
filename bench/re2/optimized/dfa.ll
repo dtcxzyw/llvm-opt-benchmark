@@ -1967,6 +1967,13 @@ if.then44:                                        ; preds = %land.lhs.true40
   store i32 -1, ptr %arrayidx47, align 4
   br label %Loop.outer.backedge
 
+Loop.outer.backedge:                              ; preds = %if.end60, %if.end31, %land.lhs.true, %land.lhs.true36, %land.lhs.true40, %if.then44
+  %arrayidx.i.i.i48108 = phi ptr [ %arrayidx.i.i.i48.le117, %if.then44 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true40 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true36 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true ], [ %arrayidx.i.i.i48.le117, %if.end31 ], [ %arrayidx.i.i.i48.le, %if.end60 ]
+  %nstk.1.ph.be = phi i32 [ %inc45, %if.then44 ], [ %nstk.3, %land.lhs.true40 ], [ %nstk.3, %land.lhs.true36 ], [ %nstk.3, %land.lhs.true ], [ %nstk.3, %if.end31 ], [ %nstk.5, %if.end60 ]
+  %id.addr.0.ph.be.in = load i32, ptr %arrayidx.i.i.i48108, align 4
+  %id.addr.0.ph.be = lshr i32 %id.addr.0.ph.be.in, 4
+  br label %Loop.outer
+
 sw.bb52:                                          ; preds = %_ZN3re23DFA5Workq10insert_newEi.exit
   %arrayidx.i.i.i48.le = getelementptr inbounds %"class.re2::Prog::Inst", ptr %21, i64 %indvars.iv
   %33 = and i32 %22, 8
@@ -1988,13 +1995,6 @@ if.end60:                                         ; preds = %if.then55, %sw.bb52
   %and = and i32 %35, %not
   %tobool62.not = icmp eq i32 %and, 0
   br i1 %tobool62.not, label %Loop.outer.backedge, label %while.cond.backedge
-
-Loop.outer.backedge:                              ; preds = %if.end60, %if.end31, %land.lhs.true, %land.lhs.true36, %land.lhs.true40, %if.then44
-  %arrayidx.i.i.i48108 = phi ptr [ %arrayidx.i.i.i48.le117, %if.then44 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true40 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true36 ], [ %arrayidx.i.i.i48.le117, %land.lhs.true ], [ %arrayidx.i.i.i48.le117, %if.end31 ], [ %arrayidx.i.i.i48.le, %if.end60 ]
-  %nstk.1.ph.be = phi i32 [ %inc45, %if.then44 ], [ %nstk.3, %land.lhs.true40 ], [ %nstk.3, %land.lhs.true36 ], [ %nstk.3, %land.lhs.true ], [ %nstk.3, %if.end31 ], [ %nstk.5, %if.end60 ]
-  %id.addr.0.ph.be.in = load i32, ptr %arrayidx.i.i.i48108, align 4
-  %id.addr.0.ph.be = lshr i32 %id.addr.0.ph.be.in, 4
-  br label %Loop.outer
 
 while.end:                                        ; preds = %while.cond.backedge
   ret void
@@ -2321,7 +2321,7 @@ if.end35:                                         ; preds = %sw.bb28
   br i1 %cmp37, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end5, %if.end5, %if.end5, %if.end5, %if.end5, %if.end.i.i.i, %if.end.i, %if.end, %sw.bb28, %invoke.cont13, %sw.bb15, %while.end, %if.then22, %if.end35
-  %i.1 = phi ptr [ %i.038, %invoke.cont13 ], [ %i.038, %if.end35 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
+  %i.1 = phi ptr [ %i.038, %invoke.cont13 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %if.end35 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %i.1, i64 4
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %39 = load i32, ptr %oldq, align 8

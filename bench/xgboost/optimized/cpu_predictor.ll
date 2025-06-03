@@ -25784,7 +25784,7 @@ _ZN7xgboost7RegTree4FVec4InitEm.exit.i:           ; preds = %.lr.ph.i.i.i.i.i.i,
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit.i: ; preds = %99, %94, %89, %84, %79, %74, %69, %64, %59, %54, %50
-  %.0.i.i = phi float [ %103, %99 ], [ %98, %94 ], [ %93, %89 ], [ %88, %84 ], [ %83, %79 ], [ %78, %74 ], [ %73, %69 ], [ %68, %64 ], [ %63, %59 ], [ %58, %54 ], [ %53, %50 ]
+  %.0.i.i = phi float [ %53, %50 ], [ %58, %54 ], [ %63, %59 ], [ %68, %64 ], [ %73, %69 ], [ %78, %74 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ]
   %105 = load float, ptr %16, align 8, !tbaa !873
   %106 = fcmp oeq float %105, %.0.i.i
   %107 = fcmp uno float %.0.i.i, 0.000000e+00
@@ -26246,7 +26246,7 @@ _ZN7xgboost7RegTree4FVec4InitEm.exit.i:           ; preds = %.lr.ph.i.i.i.i.i.i,
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit.i.i.i: ; preds = %97, %92, %87, %82, %78, %73, %68, %63, %58, %53, %48
-  %.0.i10.i.i.i = phi i64 [ %100, %97 ], [ %96, %92 ], [ %91, %87 ], [ %86, %82 ], [ %81, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %58 ], [ %57, %53 ], [ %52, %48 ]
+  %.0.i10.i.i.i = phi i64 [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %81, %78 ], [ %86, %82 ], [ %91, %87 ], [ %96, %92 ], [ %100, %97 ]
   switch i8 %.sroa.5555.88.copyload.i.i.i, label %156 [
     i8 0, label %102
     i8 1, label %102
@@ -26343,7 +26343,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUl
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit.i.i.i: ; preds = %151, %146, %141, %136, %131, %126, %121, %116, %111, %106, %102
-  %.0.i.i.i.i = phi float [ %155, %151 ], [ %150, %146 ], [ %145, %141 ], [ %140, %136 ], [ %135, %131 ], [ %130, %126 ], [ %125, %121 ], [ %120, %116 ], [ %115, %111 ], [ %110, %106 ], [ %105, %102 ]
+  %.0.i.i.i.i = phi float [ %105, %102 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %125, %121 ], [ %130, %126 ], [ %135, %131 ], [ %140, %136 ], [ %145, %141 ], [ %150, %146 ], [ %155, %151 ]
   %157 = load float, ptr %15, align 8, !tbaa !895
   %158 = fcmp oeq float %157, %.0.i.i.i.i
   %159 = fcmp uno float %.0.i.i.i.i, 0.000000e+00
@@ -26570,7 +26570,7 @@ define linkonce_odr noundef i64 @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12Dispatc
   unreachable
 
 104:                                              ; preds = %95, %86, %77, %68, %60, %51, %42, %33, %24, %15, %6
-  %.0 = phi i64 [ %102, %95 ], [ %94, %86 ], [ %85, %77 ], [ %76, %68 ], [ %67, %60 ], [ %59, %51 ], [ %50, %42 ], [ %41, %33 ], [ %32, %24 ], [ %23, %15 ], [ %14, %6 ]
+  %.0 = phi i64 [ %14, %6 ], [ %23, %15 ], [ %32, %24 ], [ %41, %33 ], [ %50, %42 ], [ %59, %51 ], [ %67, %60 ], [ %76, %68 ], [ %85, %77 ], [ %94, %86 ], [ %102, %95 ]
   ret i64 %.0
 }
 
@@ -27002,7 +27002,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i: ; preds =
   unreachable
 
 _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJRKmEEET_DpOT0_EUlPKS6_E_EEDcS6_.exit.i: ; preds = %150, %141, %132, %123, %114, %105, %96, %87, %78, %69, %61
-  %.0.i.i = phi float [ %158, %150 ], [ %149, %141 ], [ %140, %132 ], [ %131, %123 ], [ %122, %114 ], [ %113, %105 ], [ %104, %96 ], [ %95, %87 ], [ %86, %78 ], [ %77, %69 ], [ %68, %61 ]
+  %.0.i.i = phi float [ %68, %61 ], [ %77, %69 ], [ %86, %78 ], [ %95, %87 ], [ %104, %96 ], [ %113, %105 ], [ %122, %114 ], [ %131, %123 ], [ %140, %132 ], [ %149, %141 ], [ %158, %150 ]
   %160 = load float, ptr %16, align 8, !tbaa !919
   %161 = fcmp oeq float %160, %.0.i.i
   %162 = fcmp uno float %.0.i.i, 0.000000e+00
@@ -29126,7 +29126,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %69
   ret void
 
 .body:                                            ; preds = %74, %71, %67, %63, %59, %53, %49, %43
-  %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ %50, %49 ], [ %54, %53 ], [ %44, %43 ], [ %72, %74 ], [ %72, %71 ]
+  %.pn52 = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %54, %53 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %74 ], [ %72, %71 ]
   %75 = load ptr, ptr %11, align 8, !tbaa !239
   %.not.i.i66 = icmp eq ptr %75, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %76
@@ -30164,7 +30164,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %111
   ret void
 
 .body:                                            ; preds = %116, %113, %109, %104, %99, %91, %86, %78
-  %.pn64 = phi { ptr, i32 } [ %110, %109 ], [ %100, %99 ], [ %105, %104 ], [ %87, %86 ], [ %92, %91 ], [ %79, %78 ], [ %114, %116 ], [ %114, %113 ]
+  %.pn64 = phi { ptr, i32 } [ %79, %78 ], [ %87, %86 ], [ %92, %91 ], [ %100, %99 ], [ %105, %104 ], [ %110, %109 ], [ %114, %116 ], [ %114, %113 ]
   %117 = load ptr, ptr %11, align 8, !tbaa !239
   %.not.i.i78 = icmp eq ptr %117, null
   br i1 %.not.i.i78, label %_ZN4dmlc12OMPExceptionD2Ev.exit80, label %118

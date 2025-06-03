@@ -219,8 +219,8 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   unreachable
 
 32:                                               ; preds = %38, %29, %12
-  %.sroa.4.0.i = phi i64 [ %39, %38 ], [ %30, %29 ], [ %9, %12 ]
-  %.sroa.02.0.i = phi ptr [ %20, %38 ], [ %28, %29 ], [ %13, %12 ]
+  %.sroa.4.0.i = phi i64 [ %30, %29 ], [ %39, %38 ], [ %9, %12 ]
+  %.sroa.02.0.i = phi ptr [ %28, %29 ], [ %20, %38 ], [ %13, %12 ]
   store i8 10, ptr %7, align 1, !noalias !3
   store i8 13, ptr %6, align 1, !noalias !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3

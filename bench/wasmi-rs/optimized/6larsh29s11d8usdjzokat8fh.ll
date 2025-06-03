@@ -667,10 +667,10 @@ _ZN11wasmi_c_api3vec15wasm_byte_vec_t8as_slice17h0c9ac82e806b75f4E.exit.i.i.i.i.
   br label %158
 
 "_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i": ; preds = %145, %144, %143, %142
-  %.sroa.741.0.i.i.i.i = phi i64 [ %.sroa.741.0.copyload45.i.i.i.i, %144 ], [ %.sroa.741.0.copyload43.i.i.i.i, %143 ], [ %.sroa.741.0.copyload.i.i.i.i, %142 ], [ %134, %145 ]
-  %.sroa.8.0.i.i.i.i = phi ptr [ %.sroa.8.0.copyload51.i.i.i.i, %144 ], [ %.sroa.8.0.copyload49.i.i.i.i, %143 ], [ %.sroa.8.0.copyload.i.i.i.i, %142 ], [ %135, %145 ]
-  %.sroa.9.0.i.i.i.i = phi i64 [ %.sroa.9.0.copyload57.i.i.i.i, %144 ], [ %.sroa.9.0.copyload55.i.i.i.i, %143 ], [ %.sroa.9.0.copyload.i.i.i.i, %142 ], [ %146, %145 ]
-  %.sroa.10.0.i.i.i.i = phi ptr [ %.sroa.10.0.copyload63.i.i.i.i, %144 ], [ %.sroa.10.0.copyload61.i.i.i.i, %143 ], [ %.sroa.10.0.copyload.i.i.i.i, %142 ], [ %147, %145 ]
+  %.sroa.741.0.i.i.i.i = phi i64 [ %134, %145 ], [ %.sroa.741.0.copyload.i.i.i.i, %142 ], [ %.sroa.741.0.copyload43.i.i.i.i, %143 ], [ %.sroa.741.0.copyload45.i.i.i.i, %144 ]
+  %.sroa.8.0.i.i.i.i = phi ptr [ %135, %145 ], [ %.sroa.8.0.copyload.i.i.i.i, %142 ], [ %.sroa.8.0.copyload49.i.i.i.i, %143 ], [ %.sroa.8.0.copyload51.i.i.i.i, %144 ]
+  %.sroa.9.0.i.i.i.i = phi i64 [ %146, %145 ], [ %.sroa.9.0.copyload.i.i.i.i, %142 ], [ %.sroa.9.0.copyload55.i.i.i.i, %143 ], [ %.sroa.9.0.copyload57.i.i.i.i, %144 ]
+  %.sroa.10.0.i.i.i.i = phi ptr [ %147, %145 ], [ %.sroa.10.0.copyload.i.i.i.i, %142 ], [ %.sroa.10.0.copyload61.i.i.i.i, %143 ], [ %.sroa.10.0.copyload63.i.i.i.i, %144 ]
   %153 = icmp ne ptr %40, null
   tail call void @llvm.assume(i1 %153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false), !noalias !20
@@ -1689,10 +1689,10 @@ _ZN11wasmi_c_api3vec15wasm_byte_vec_t8as_slice17h0c9ac82e806b75f4E.exit.i9.i.i.i
   br label %183
 
 "_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i": ; preds = %171, %170, %169, %168
-  %.sroa.747.0.i.i.i.i = phi i64 [ %.sroa.747.0.copyload51.i.i.i.i, %170 ], [ %.sroa.747.0.copyload49.i.i.i.i, %169 ], [ %.sroa.747.0.copyload.i.i.i.i, %168 ], [ %160, %171 ]
-  %.sroa.8.0.i.i.i.i = phi ptr [ %.sroa.8.0.copyload57.i.i.i.i, %170 ], [ %.sroa.8.0.copyload55.i.i.i.i, %169 ], [ %.sroa.8.0.copyload.i.i.i.i, %168 ], [ %161, %171 ]
-  %.sroa.9.0.i.i.i.i = phi i64 [ %.sroa.9.0.copyload63.i.i.i.i, %170 ], [ %.sroa.9.0.copyload61.i.i.i.i, %169 ], [ %.sroa.9.0.copyload.i.i.i.i, %168 ], [ %172, %171 ]
-  %.sroa.10.0.i.i.i.i = phi ptr [ %.sroa.10.0.copyload69.i.i.i.i, %170 ], [ %.sroa.10.0.copyload67.i.i.i.i, %169 ], [ %.sroa.10.0.copyload.i.i.i.i, %168 ], [ %173, %171 ]
+  %.sroa.747.0.i.i.i.i = phi i64 [ %160, %171 ], [ %.sroa.747.0.copyload.i.i.i.i, %168 ], [ %.sroa.747.0.copyload49.i.i.i.i, %169 ], [ %.sroa.747.0.copyload51.i.i.i.i, %170 ]
+  %.sroa.8.0.i.i.i.i = phi ptr [ %161, %171 ], [ %.sroa.8.0.copyload.i.i.i.i, %168 ], [ %.sroa.8.0.copyload55.i.i.i.i, %169 ], [ %.sroa.8.0.copyload57.i.i.i.i, %170 ]
+  %.sroa.9.0.i.i.i.i = phi i64 [ %172, %171 ], [ %.sroa.9.0.copyload.i.i.i.i, %168 ], [ %.sroa.9.0.copyload61.i.i.i.i, %169 ], [ %.sroa.9.0.copyload63.i.i.i.i, %170 ]
+  %.sroa.10.0.i.i.i.i = phi ptr [ %173, %171 ], [ %.sroa.10.0.copyload.i.i.i.i, %168 ], [ %.sroa.10.0.copyload67.i.i.i.i, %169 ], [ %.sroa.10.0.copyload69.i.i.i.i, %170 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.48..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false), !noalias !87

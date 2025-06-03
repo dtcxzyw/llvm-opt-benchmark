@@ -2598,7 +2598,7 @@ define void @_ZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_trai
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %39, %38 ]
+  %.1.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.1.val.i.i.i = load i8, ptr %.1.i.i.i, align 1, !tbaa !7
   switch i8 %.1.val.i.i.i, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SA_SA_T0_.exit" [
     i8 32, label %41
@@ -2610,7 +2610,7 @@ define void @_ZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_trai
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.val.i.i.i = load i8, ptr %.2.i.i.i, align 1, !tbaa !7
   switch i8 %.2.val.i.i.i, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SA_SA_T0_.exit" [
     i8 32, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ET_SA_SA_T0_.exit.thread"
@@ -2724,7 +2724,7 @@ define void @_ZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_trai
   br label %74
 
 74:                                               ; preds = %72, %._crit_edge.i.i.i36
-  %.1.i.i.i42 = phi ptr [ %.029.lcssa.i.i.i38, %._crit_edge.i.i.i36 ], [ %73, %72 ]
+  %.1.i.i.i42 = phi ptr [ %73, %72 ], [ %.029.lcssa.i.i.i38, %._crit_edge.i.i.i36 ]
   %.1.val.i.i.i43 = load i8, ptr %.1.i.i.i42, align 1, !tbaa !7
   switch i8 %.1.val.i.i.i43, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1ET_SA_SA_T0_.exit" [
     i8 32, label %75
@@ -2736,7 +2736,7 @@ define void @_ZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_trai
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i36
-  %.2.i.i.i39 = phi ptr [ %.029.lcssa.i.i.i38, %._crit_edge.i.i.i36 ], [ %76, %75 ]
+  %.2.i.i.i39 = phi ptr [ %76, %75 ], [ %.029.lcssa.i.i.i38, %._crit_edge.i.i.i36 ]
   %.2.val.i.i.i40 = load i8, ptr %.2.i.i.i39, align 1, !tbaa !7
   switch i8 %.2.val.i.i.i40, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1ET_SA_SA_T0_.exit" [
     i8 32, label %_ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit
@@ -2853,7 +2853,7 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i56
-  %.1.i.i.i62 = phi ptr [ %.029.lcssa.i.i.i58, %._crit_edge.i.i.i56 ], [ %106, %105 ]
+  %.1.i.i.i62 = phi ptr [ %106, %105 ], [ %.029.lcssa.i.i.i58, %._crit_edge.i.i.i56 ]
   %.1.val.i.i.i63 = load i8, ptr %.1.i.i.i62, align 1, !tbaa !7
   switch i8 %.1.val.i.i.i63, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit" [
     i8 32, label %108
@@ -2865,7 +2865,7 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
   br label %110
 
 110:                                              ; preds = %108, %._crit_edge.i.i.i56
-  %.2.i.i.i59 = phi ptr [ %.029.lcssa.i.i.i58, %._crit_edge.i.i.i56 ], [ %109, %108 ]
+  %.2.i.i.i59 = phi ptr [ %109, %108 ], [ %.029.lcssa.i.i.i58, %._crit_edge.i.i.i56 ]
   %.2.val.i.i.i60 = load i8, ptr %.2.i.i.i59, align 1, !tbaa !7
   switch i8 %.2.val.i.i.i60, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit" [
     i8 32, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.thread"

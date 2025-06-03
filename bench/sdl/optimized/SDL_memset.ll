@@ -30,8 +30,8 @@ define hidden noundef ptr @SDL_memset4_REAL(ptr noundef returned writeonly captu
   ]
 
 9:                                                ; preds = %5, %15
-  %.320 = phi i64 [ %17, %15 ], [ %7, %5 ]
-  %.3 = phi ptr [ %16, %15 ], [ %0, %5 ]
+  %.320 = phi i64 [ %7, %5 ], [ %17, %15 ]
+  %.3 = phi ptr [ %0, %5 ], [ %16, %15 ]
   %10 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %1, ptr %.3, align 4
   br label %11
@@ -51,8 +51,8 @@ define hidden noundef ptr @SDL_memset4_REAL(ptr noundef returned writeonly captu
   br label %15
 
 15:                                               ; preds = %13, %5
-  %.219 = phi i64 [ %7, %5 ], [ %.118, %13 ]
-  %.2 = phi ptr [ %0, %5 ], [ %14, %13 ]
+  %.219 = phi i64 [ %.118, %13 ], [ %7, %5 ]
+  %.2 = phi ptr [ %14, %13 ], [ %0, %5 ]
   %16 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   store i32 %1, ptr %.2, align 4
   %17 = add i64 %.219, -1

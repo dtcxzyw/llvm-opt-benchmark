@@ -914,7 +914,7 @@ common.resume:                                    ; preds = %.body, %93, %51
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %46, %33
-  %.pn.i = phi { ptr, i32 } [ %34, %33 ], [ %47, %46 ]
+  %.pn.i = phi { ptr, i32 } [ %47, %46 ], [ %34, %33 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #29
   br label %common.resume
 

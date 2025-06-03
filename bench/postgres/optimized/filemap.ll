@@ -1465,7 +1465,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, %._crit_edge.i.i
-  %.sroa.19.3 = phi i64 [ %73, %.sink.split.i.i.i ], [ %.sroa.19.2, %._crit_edge.i.i ]
+  %.sroa.19.3 = phi i64 [ %.sroa.19.2, %._crit_edge.i.i ], [ %73, %.sink.split.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i.i, i64 %27
   br label %fasthash_accum_cstring.exit
 

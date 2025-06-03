@@ -425,7 +425,7 @@ log_line_start.exit103:                           ; preds = %159, %157, %148
   br label %172
 
 172:                                              ; preds = %163, %171, %170, %169, %168, %167
-  %.078 = phi ptr [ @.str.14, %171 ], [ @.str.13, %170 ], [ @.str.12, %169 ], [ @.str.11, %168 ], [ @.str.10, %167 ], [ @.str.9, %163 ]
+  %.078 = phi ptr [ @.str.10, %167 ], [ @.str.11, %168 ], [ @.str.12, %169 ], [ @.str.13, %170 ], [ @.str.14, %171 ], [ @.str.9, %163 ]
   %173 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.22, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %.078, i64 noundef %3, i64 noundef %3) #5
   %.not.i104 = icmp eq i64 %3, 0
   br i1 %.not.i104, label %dump.exit, label %.lr.ph.i

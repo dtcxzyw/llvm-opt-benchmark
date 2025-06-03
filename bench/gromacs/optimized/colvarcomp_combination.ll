@@ -1189,7 +1189,7 @@ _ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit: ; preds 
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %41, %42, %43, %44, %45
-  %.0.i25 = phi i64 [ 4, %44 ], [ 3, %43 ], [ 1, %42 ], [ %51, %45 ], [ 0, %41 ]
+  %.0.i25 = phi i64 [ %51, %45 ], [ 1, %42 ], [ 3, %43 ], [ 4, %44 ], [ 0, %41 ]
   %52 = icmp ult i64 %.023, %.0.i25
   br i1 %52, label %.preheader26, label %.loopexit
 

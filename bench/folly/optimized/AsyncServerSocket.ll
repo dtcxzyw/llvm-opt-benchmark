@@ -7222,7 +7222,7 @@ _ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14New
   br label %92
 
 92:                                               ; preds = %91, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit
-  %.3 = phi i1 [ %90, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ], [ true, %91 ]
+  %.3 = phi i1 [ true, %91 ], [ %90, %_ZN5folly6detail22invokeConsumerWithTaskISt7variantIJNS_17AsyncServerSocket14NewConnMessageENS3_12ErrorMessageEEERNS3_14RemoteAcceptor8ConsumerEvEENS_33AtomicNotificationQueueTaskStatusEOT0_OT_OSt10shared_ptrINS_14RequestContextEE.exit ]
   %93 = add i32 %.0154348, 1
   br label %94
 
@@ -7315,7 +7315,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN5folly33AtomicNotificationQueueTaskStatusEEEZNS3_17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS6_14NewConnMessageENS6_12ErrorMessageEEEEUlOT_E_JRSC_EEDcOT0_DpOT1_.exit
 
 _ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN5folly33AtomicNotificationQueueTaskStatusEEEZNS3_17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS6_14NewConnMessageENS6_12ErrorMessageEEEEUlOT_E_JRSC_EEDcOT0_DpOT1_.exit: ; preds = %14, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5folly33AtomicNotificationQueueTaskStatusEEEOZNS4_17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS7_14NewConnMessageENS7_12ErrorMessageEEEEUlOT_E_RSD_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SJ_.exit.i
-  %.0.i = phi i8 [ 0, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5folly33AtomicNotificationQueueTaskStatusEEEOZNS4_17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS7_14NewConnMessageENS7_12ErrorMessageEEEEUlOT_E_RSD_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SJ_.exit.i ], [ %15, %14 ]
+  %.0.i = phi i8 [ %15, %14 ], [ 0, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5folly33AtomicNotificationQueueTaskStatusEEEOZNS4_17AsyncServerSocket14RemoteAcceptor8ConsumerclEOSt7variantIJNS7_14NewConnMessageENS7_12ErrorMessageEEEEUlOT_E_RSD_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SJ_.exit.i ]
   ret i8 %.0.i
 }
 

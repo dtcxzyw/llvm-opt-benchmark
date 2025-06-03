@@ -424,7 +424,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6
   br label %24
 
 22:                                               ; preds = %16, %13, %10
-  %.0 = phi double [ %20, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0 = phi double [ %12, %10 ], [ %15, %13 ], [ %20, %16 ]
   %23 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %.0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(20) %3)
   br label %24
 
@@ -571,7 +571,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6
   br label %24
 
 22:                                               ; preds = %16, %13, %10
-  %.0 = phi double [ %20, %16 ], [ %15, %13 ], [ %12, %10 ]
+  %.0 = phi double [ %12, %10 ], [ %15, %13 ], [ %20, %16 ]
   %23 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %.0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %24
 

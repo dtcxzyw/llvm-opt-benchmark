@@ -7157,9 +7157,9 @@ _ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeEKNS_6SDNodeEEEDcPT0_.exit: ; preds =
 661:                                              ; preds = %652
   br label %.critedge423
 
-.critedge423:                                     ; preds = %652, %660, %661
-  %.str.555.sink = phi ptr [ @.str.556, %660 ], [ @.str.557, %661 ], [ @.str.555, %652 ]
-  %662 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.555.sink)
+.critedge423:                                     ; preds = %652, %661, %660
+  %.str.557.sink = phi ptr [ @.str.557, %661 ], [ @.str.556, %660 ], [ @.str.555, %652 ]
+  %662 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.557.sink)
   %663 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.558)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7283,9 +7283,9 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584: ; preds = 
 712:                                              ; preds = %703
   br label %.critedge425
 
-.critedge425:                                     ; preds = %703, %711, %712
-  %.str.555.sink848 = phi ptr [ @.str.556, %711 ], [ @.str.557, %712 ], [ @.str.555, %703 ]
-  %713 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.555.sink848)
+.critedge425:                                     ; preds = %703, %712, %711
+  %.str.557.sink848 = phi ptr [ @.str.557, %712 ], [ @.str.556, %711 ], [ @.str.555, %703 ]
+  %713 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.557.sink848)
   %714 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.558)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7428,9 +7428,9 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600: ; preds = 
 773:                                              ; preds = %764
   br label %.critedge427
 
-.critedge427:                                     ; preds = %764, %772, %773
-  %.str.555.sink849 = phi ptr [ @.str.556, %772 ], [ @.str.557, %773 ], [ @.str.555, %764 ]
-  %774 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.555.sink849)
+.critedge427:                                     ; preds = %764, %773, %772
+  %.str.557.sink849 = phi ptr [ @.str.557, %773 ], [ @.str.556, %772 ], [ @.str.555, %764 ]
+  %774 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.557.sink849)
   %775 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.558)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
   %776 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -7532,9 +7532,9 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600: ; preds = 
 831:                                              ; preds = %825
   br label %.critedge429
 
-.critedge429:                                     ; preds = %825, %830, %831
-  %.str.555.sink850 = phi ptr [ @.str.556, %830 ], [ @.str.557, %831 ], [ @.str.555, %825 ]
-  %832 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.555.sink850)
+.critedge429:                                     ; preds = %825, %831, %830
+  %.str.557.sink850 = phi ptr [ @.str.557, %831 ], [ @.str.556, %830 ], [ @.str.555, %825 ]
+  %832 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.str.557.sink850)
   %833 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.558)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #19
   %834 = getelementptr inbounds nuw i8, ptr %0, i64 88

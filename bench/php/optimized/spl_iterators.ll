@@ -3799,8 +3799,8 @@ zend_fcc_addref.exit:                             ; preds = %165, %168
   store i32 776, ptr %179, align 8, !tbaa !11
   br label %194
 
-.thread5:                                         ; preds = %36, %59, %zend_string_copy.exit, %zend_fcc_addref.exit, %171, %.thread12
-  %.0749 = phi ptr [ %.175.ph.ph, %.thread12 ], [ null, %171 ], [ null, %zend_fcc_addref.exit ], [ null, %zend_string_copy.exit ], [ null, %59 ], [ null, %36 ]
+.thread5:                                         ; preds = %zend_fcc_addref.exit, %zend_string_copy.exit, %59, %36, %171, %.thread12
+  %.0749 = phi ptr [ %.175.ph.ph, %.thread12 ], [ null, %171 ], [ null, %36 ], [ null, %59 ], [ null, %zend_string_copy.exit ], [ null, %zend_fcc_addref.exit ]
   store i32 %3, ptr %16, align 8, !tbaa !109
   %180 = load ptr, ptr %5, align 8, !tbaa !45
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 9

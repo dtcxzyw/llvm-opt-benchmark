@@ -961,7 +961,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$db..open_db$LT$db..
     i8 4, label %11
   ]
 
-common.ret:                                       ; preds = %9, %6, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit7", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit", %1
+common.ret:                                       ; preds = %9, %6, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit7", %1
   ret void
 
 6:                                                ; preds = %1
@@ -992,7 +992,7 @@ common.ret:                                       ; preds = %9, %6, %"_ZN4core3p
           to label %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit5" unwind label %34
 
 18:                                               ; preds = %.body, %19
-  %.pn2 = phi { ptr, i32 } [ %20, %19 ], [ %.pn, %.body ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %.body ], [ %20, %19 ]
   resume { ptr, i32 } %.pn2
 
 19:                                               ; preds = %11
@@ -1199,7 +1199,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$db..open_db$LT$db..
     i8 4, label %11
   ]
 
-common.ret:                                       ; preds = %9, %6, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit7", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit", %1
+common.ret:                                       ; preds = %9, %6, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit7", %1
   ret void
 
 6:                                                ; preds = %1
@@ -1230,7 +1230,7 @@ common.ret:                                       ; preds = %9, %6, %"_ZN4core3p
           to label %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit5" unwind label %34
 
 18:                                               ; preds = %.body, %19
-  %.pn2 = phi { ptr, i32 } [ %20, %19 ], [ %.pn, %.body ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %.body ], [ %20, %19 ]
   resume { ptr, i32 } %.pn2
 
 19:                                               ; preds = %11
@@ -2559,7 +2559,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   br label %268
 
 "_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i": ; preds = %.body45.i, %438, %252, %262, %264, %398, %393, %.body.i, %226
-  %.pn18.pn.i = phi { ptr, i32 } [ %.pn10.i, %398 ], [ %394, %393 ], [ %.pn2.i, %.body.i ], [ %227, %226 ], [ %263, %262 ], [ %253, %264 ], [ %253, %252 ], [ %439, %438 ], [ %.pn16.i, %.body45.i ]
+  %.pn22.pn.i = phi { ptr, i32 } [ %.pn10.i, %398 ], [ %394, %393 ], [ %.pn2.i, %.body.i ], [ %227, %226 ], [ %263, %262 ], [ %253, %264 ], [ %253, %252 ], [ %439, %438 ], [ %.pn16.i, %.body45.i ]
   store i8 2, ptr %117, align 8, !noalias !565
   br label %.body94
 
@@ -3321,7 +3321,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit52.i" unwind label %265, !noalias !569
 
 .body94:                                          ; preds = %.loopexit191, %.loopexit.split-lp192, %.loopexit.split-lp, %600, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i", %627, %609, %595, %442
-  %.pn56 = phi { ptr, i32 } [ %.pn54, %627 ], [ %596, %609 ], [ %596, %595 ], [ %443, %442 ], [ %.pn18.pn.i, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i" ], [ %.pn398, %600 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn54, %627 ], [ %596, %609 ], [ %596, %595 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr106drop_in_place$LT$db..open_fallback_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9317a3afb437b5d2E.exit33.i" ], [ %.pn398, %600 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$db..open_db$LT$db..kvp..GlobalKeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h73de627504ee122bE"(ptr noundef nonnull align 8 %51) #13
           to label %460 unwind label %479
 
@@ -3342,7 +3342,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %.body94 unwind label %479
 
 444:                                              ; preds = %258, %260, %440, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i"
-  %.sroa.6379.0 = phi i8 [ %404, %440 ], [ %381, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i" ], [ %256, %260 ], [ %256, %258 ]
+  %.sroa.6379.0 = phi i8 [ %256, %260 ], [ %256, %258 ], [ %404, %440 ], [ %381, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0378, i64 40, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 41
@@ -3466,8 +3466,8 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #14
   unreachable
 
-481:                                              ; preds = %409, %377, %261
-  %.sink.i.ph = phi i8 [ 3, %261 ], [ 4, %377 ], [ 5, %409 ]
+481:                                              ; preds = %261, %377, %409
+  %.sink.i.ph = phi i8 [ 5, %409 ], [ 4, %377 ], [ 3, %261 ]
   store i8 %.sink.i.ph, ptr %117, align 8, !noalias !565
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0378)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
@@ -3760,7 +3760,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
           to label %561 unwind label %.loopexit.split-lp187
 
 561:                                              ; preds = %574, %567, %578, %573, %560
-  %.sroa.017.3 = phi i8 [ 1, %574 ], [ 1, %578 ], [ 1, %567 ], [ 1, %573 ], [ 0, %560 ]
+  %.sroa.017.3 = phi i8 [ 1, %578 ], [ 1, %574 ], [ 1, %573 ], [ 1, %567 ], [ 0, %560 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !808)
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
   call void @llvm.experimental.noalias.scope.decl(metadata !814)
@@ -4678,7 +4678,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
   br label %268
 
 "_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i": ; preds = %.body45.i, %438, %252, %262, %264, %398, %393, %.body.i, %226
-  %.pn18.pn.i = phi { ptr, i32 } [ %.pn10.i, %398 ], [ %394, %393 ], [ %.pn2.i, %.body.i ], [ %227, %226 ], [ %263, %262 ], [ %253, %264 ], [ %253, %252 ], [ %439, %438 ], [ %.pn16.i, %.body45.i ]
+  %.pn22.pn.i = phi { ptr, i32 } [ %.pn10.i, %398 ], [ %394, %393 ], [ %.pn2.i, %.body.i ], [ %227, %226 ], [ %263, %262 ], [ %253, %264 ], [ %253, %252 ], [ %439, %438 ], [ %.pn16.i, %.body45.i ]
   store i8 2, ptr %117, align 8, !noalias !891
   br label %.body94
 
@@ -5440,7 +5440,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit52.i" unwind label %265, !noalias !895
 
 .body94:                                          ; preds = %.loopexit191, %.loopexit.split-lp192, %.loopexit.split-lp, %600, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i", %627, %609, %595, %442
-  %.pn56 = phi { ptr, i32 } [ %.pn54, %627 ], [ %596, %609 ], [ %596, %595 ], [ %443, %442 ], [ %.pn18.pn.i, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i" ], [ %.pn398, %600 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn54, %627 ], [ %596, %609 ], [ %596, %595 ], [ %443, %442 ], [ %.pn22.pn.i, %"_ZN4core3ptr100drop_in_place$LT$db..open_fallback_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac668d5e76bb7ce7E.exit33.i" ], [ %.pn398, %600 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$db..open_db$LT$db..kvp..KeyValueStore$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e29f7345bc91827E"(ptr noundef nonnull align 8 %51) #13
           to label %460 unwind label %479
 
@@ -5461,7 +5461,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
           to label %.body94 unwind label %479
 
 444:                                              ; preds = %258, %260, %440, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i"
-  %.sroa.6379.0 = phi i8 [ %404, %440 ], [ %381, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i" ], [ %256, %260 ], [ %256, %258 ]
+  %.sroa.6379.0 = phi i8 [ %256, %260 ], [ %256, %258 ], [ %404, %440 ], [ %381, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7d8945cce3bad5d4E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0378, i64 40, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 41
@@ -5585,8 +5585,8 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #14
   unreachable
 
-481:                                              ; preds = %409, %377, %261
-  %.sink.i.ph = phi i8 [ 3, %261 ], [ 4, %377 ], [ 5, %409 ]
+481:                                              ; preds = %261, %377, %409
+  %.sink.i.ph = phi i8 [ 5, %409 ], [ 4, %377 ], [ 3, %261 ]
   store i8 %.sink.i.ph, ptr %117, align 8, !noalias !891
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0378)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
@@ -5879,7 +5879,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1085812539054361779.exit.
           to label %561 unwind label %.loopexit.split-lp187
 
 561:                                              ; preds = %574, %567, %578, %573, %560
-  %.sroa.017.3 = phi i8 [ 1, %574 ], [ 1, %578 ], [ 1, %567 ], [ 1, %573 ], [ 0, %560 ]
+  %.sroa.017.3 = phi i8 [ 1, %578 ], [ 1, %574 ], [ 1, %573 ], [ 1, %567 ], [ 0, %560 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1133)
   call void @llvm.experimental.noalias.scope.decl(metadata !1136)
   call void @llvm.experimental.noalias.scope.decl(metadata !1139)

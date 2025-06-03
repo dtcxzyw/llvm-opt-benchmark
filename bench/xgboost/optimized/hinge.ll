@@ -5835,7 +5835,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %159
   ret void
 
 .body:                                            ; preds = %164, %161, %157, %152, %147, %140, %135, %128
-  %.pn64 = phi { ptr, i32 } [ %158, %157 ], [ %148, %147 ], [ %153, %152 ], [ %136, %135 ], [ %141, %140 ], [ %129, %128 ], [ %162, %164 ], [ %162, %161 ]
+  %.pn64 = phi { ptr, i32 } [ %129, %128 ], [ %136, %135 ], [ %141, %140 ], [ %148, %147 ], [ %153, %152 ], [ %158, %157 ], [ %162, %164 ], [ %162, %161 ]
   %165 = load ptr, ptr %11, align 8, !tbaa !230
   %.not.i.i78 = icmp eq ptr %165, null
   br i1 %.not.i.i78, label %_ZN4dmlc12OMPExceptionD2Ev.exit80, label %166
@@ -6442,7 +6442,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %86
   ret void
 
 .body:                                            ; preds = %91, %88, %84, %80, %76, %70, %66, %60
-  %.pn52 = phi { ptr, i32 } [ %85, %84 ], [ %77, %76 ], [ %81, %80 ], [ %67, %66 ], [ %71, %70 ], [ %61, %60 ], [ %89, %91 ], [ %89, %88 ]
+  %.pn52 = phi { ptr, i32 } [ %61, %60 ], [ %67, %66 ], [ %71, %70 ], [ %77, %76 ], [ %81, %80 ], [ %85, %84 ], [ %89, %91 ], [ %89, %88 ]
   %92 = load ptr, ptr %11, align 8, !tbaa !230
   %.not.i.i66 = icmp eq ptr %92, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %93

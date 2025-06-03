@@ -118,7 +118,7 @@ define zeroext i1 @merge_files(ptr noundef %0, i32 noundef %1, ptr noundef reado
   br label %20
 
 20:                                               ; preds = %16, %.thread
-  %.1 = phi i1 [ false, %16 ], [ %19, %.thread ]
+  %.1 = phi i1 [ %19, %.thread ], [ false, %16 ]
   ret i1 %.1
 }
 

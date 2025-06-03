@@ -583,7 +583,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   unreachable
 
 53:                                               ; preds = %17, %24, %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %.1.in = phi ptr [ %7, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %30, %24 ], [ %23, %17 ]
+  %.1.in = phi ptr [ %23, %17 ], [ %30, %24 ], [ %7, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
   %.0 = load ptr, ptr %.1.in, align 8, !tbaa !58
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !73

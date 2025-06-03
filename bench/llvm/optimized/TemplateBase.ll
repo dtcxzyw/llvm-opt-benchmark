@@ -430,7 +430,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %5
   %spec.select.i = icmp ult i32 %31, 20
   br i1 %spec.select.i, label %32, label %thread-pre-split
 
-32:                                               ; preds = %26, %18, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+32:                                               ; preds = %18, %26, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %33 = load i32, ptr %3, align 8, !tbaa !38
   %34 = icmp eq i32 %33, 2
   br i1 %34, label %35, label %88
@@ -518,7 +518,7 @@ _ZN5clang16TemplateArgument16initFromIntegralERKNS_10ASTContextERKN4llvm6APSIntE
   store ptr %86, ptr %87, align 8, !tbaa !3
   br label %160
 
-thread-pre-split:                                 ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %18, %26
+thread-pre-split:                                 ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %26, %18
   %.pr = load i32, ptr %3, align 8, !tbaa !38
   br label %88
 
@@ -872,7 +872,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %39, %_ZN4llvm8dyn_c
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %57, %42, %_ZN5clang4Decl14getDeclContextEv.exit, %5, %1, %1, %1, %27, %22
-  %.0 = phi i8 [ 6, %27 ], [ %26, %22 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %5 ], [ %spec.select26, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %spec.select27, %42 ], [ 0, %57 ], [ %65, %.lr.ph ]
+  %.0 = phi i8 [ %26, %22 ], [ 6, %27 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %5 ], [ %spec.select26, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %spec.select27, %42 ], [ 0, %57 ], [ %65, %.lr.ph ]
   ret i8 %.0
 }
 
@@ -940,7 +940,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansi
   unreachable
 
 22:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %14, %5, %4
-  %.0 = phi i1 [ %20, %14 ], [ %13, %5 ], [ true, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %4 ], [ %13, %5 ], [ %20, %14 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1016,7 +1016,7 @@ define dso_local i64 @_ZNK5clang16TemplateArgument30getNonTypeTemplateArgumentTy
   unreachable
 
 25:                                               ; preds = %1, %1, %1, %1, %1, %20, %17, %13, %8, %4
-  %.sroa.0.0 = phi i64 [ %23, %20 ], [ %19, %17 ], [ %16, %13 ], [ %.sroa.0.0.copyload.i, %8 ], [ %7, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %7, %4 ], [ %.sroa.0.0.copyload.i, %8 ], [ %16, %13 ], [ %19, %17 ], [ %23, %20 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -1861,7 +1861,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit50:            ; preds = %_ZN4llvm16FoldingSe
   unreachable
 
 .critedge33:                                      ; preds = %145, %.preheader, %_ZN4llvm5APIntD2Ev.exit45, %44, %32, %38, %137, %100, %2, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50, %20, %14
-  %.023 = phi i1 [ %130, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50 ], [ %31, %20 ], [ %19, %14 ], [ false, %2 ], [ false, %100 ], [ false, %137 ], [ false, %32 ], [ %43, %38 ], [ %.ph, %_ZN4llvm5APIntD2Ev.exit45 ], [ false, %44 ], [ true, %.preheader ], [ %150, %145 ]
+  %.023 = phi i1 [ %19, %14 ], [ %31, %20 ], [ %130, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit50 ], [ false, %2 ], [ false, %100 ], [ false, %137 ], [ false, %32 ], [ %43, %38 ], [ %.ph, %_ZN4llvm5APIntD2Ev.exit45 ], [ false, %44 ], [ true, %.preheader ], [ %150, %145 ]
   ret i1 %.023
 }
 
@@ -1901,7 +1901,7 @@ define dso_local void @_ZNK5clang16TemplateArgument23getPackExpansionPatternEv(p
   br label %_ZNK5clang4Type6castAsINS_17PackExpansionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_17PackExpansionTypeEEEPKT_v.exit: ; preds = %6, %14
-  %.1.i = phi ptr [ %11, %6 ], [ %15, %14 ]
+  %.1.i = phi ptr [ %15, %14 ], [ %11, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 16, !tbaa !3
   store i32 1, ptr %0, align 8
@@ -3208,8 +3208,8 @@ _ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57: ; preds = %45,
   unreachable
 
 _ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit28: ; preds = %1, %1, %43, %32, %22, %25, %64, %59, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit, %17, %12, %7
-  %.sroa.062.0 = phi i32 [ %.sroa.062.0.extract.trunc67, %64 ], [ %.sroa.062.0.extract.trunc66, %59 ], [ %.sroa.0.0.extract.trunc.i43, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.i49, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %30, %25 ], [ %.sroa.062.0.extract.trunc64, %17 ], [ %.sroa.062.0.extract.trunc63, %12 ], [ %.sroa.062.0.extract.trunc, %7 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
-  %.sroa.15.0 = phi i32 [ %.sroa.15.0.extract.trunc77, %64 ], [ %.sroa.15.0.extract.trunc75, %59 ], [ %.sroa.0.0.copyload.i.i47, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.copyload.i.i56, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %31, %25 ], [ %.sroa.15.0.extract.trunc71, %17 ], [ %.sroa.15.0.extract.trunc69, %12 ], [ %.sroa.15.0.extract.trunc, %7 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.062.0 = phi i32 [ %.sroa.062.0.extract.trunc, %7 ], [ %.sroa.062.0.extract.trunc63, %12 ], [ %.sroa.062.0.extract.trunc64, %17 ], [ %30, %25 ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %.sroa.0.0.extract.trunc.i43, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.i49, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.062.0.extract.trunc66, %59 ], [ %.sroa.062.0.extract.trunc67, %64 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.0.extract.trunc, %7 ], [ %.sroa.15.0.extract.trunc69, %12 ], [ %.sroa.15.0.extract.trunc71, %17 ], [ %31, %25 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit ], [ %.sroa.0.0.copyload.i.i47, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit ], [ %.sroa.0.0.copyload.i.i56, %_ZNK5clang19TemplateArgumentLoc22getTemplateEllipsisLocEv.exit57 ], [ %.sroa.15.0.extract.trunc75, %59 ], [ %.sroa.15.0.extract.trunc77, %64 ], [ 0, %22 ], [ %.sroa.0.0.copyload.i.i27, %43 ], [ 0, %32 ], [ 0, %1 ], [ 0, %1 ]
   %.sroa.15.0.insert.ext = zext i32 %.sroa.15.0 to i64
   %.sroa.15.0.insert.shift = shl nuw i64 %.sroa.15.0.insert.ext, 32
   %.sroa.062.0.insert.ext = zext i32 %.sroa.062.0 to i64
@@ -3731,7 +3731,7 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit38.i:       ; preds = %260, %211
   unreachable
 
 _ZL15DiagTemplateArgIN5clang19StreamingDiagnosticEERKT_S4_RKNS0_16TemplateArgumentE.exit: ; preds = %25, %26, %29, %33, %_ZN4llvm5APIntD2Ev.exit.i, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i, %147, %152, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit33.i, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit38.i
-  %.0.i = phi ptr [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit38.i ], [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit33.i ], [ %156, %152 ], [ %151, %147 ], [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i ], [ %0, %_ZN4llvm5APIntD2Ev.exit.i ], [ %0, %33 ], [ %0, %29 ], [ %0, %26 ], [ %0, %25 ]
+  %.0.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %29 ], [ %0, %33 ], [ %0, %_ZN4llvm5APIntD2Ev.exit.i ], [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit.i ], [ %151, %147 ], [ %156, %152 ], [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit33.i ], [ %0, %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit38.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   ret ptr %.0.i
 }

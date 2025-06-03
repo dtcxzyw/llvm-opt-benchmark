@@ -582,7 +582,7 @@ define range(i32 -1, 1) i32 @H5HG_insert(ptr noundef %0, i64 noundef %1, ptr nou
   br label %130
 
 130:                                              ; preds = %124, %122, %106, %97
-  %.0147.i = phi ptr [ %104, %97 ], [ %129, %124 ], [ %123, %122 ], [ %117, %106 ]
+  %.0147.i = phi ptr [ %104, %97 ], [ %117, %106 ], [ %123, %122 ], [ %129, %124 ]
   %131 = load ptr, ptr %70, align 8, !tbaa !26
   %132 = ptrtoint ptr %.0147.i to i64
   %133 = ptrtoint ptr %131 to i64

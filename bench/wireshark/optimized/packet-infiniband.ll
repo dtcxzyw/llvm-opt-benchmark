@@ -2652,7 +2652,7 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 .critedge.i:                                      ; preds = %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %50, %44, %32, %4
-  %108 = phi i32 [ 8, %4 ], [ 8, %50 ], [ 48, %32 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %48, %44 ]
+  %108 = phi i32 [ 8, %4 ], [ 48, %32 ], [ 8, %50 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %48, %44 ]
   %109 = icmp ugt i8 %14, -17
   br i1 %109, label %110, label %dissect_general_info.exit
 
@@ -3203,9 +3203,9 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   br i1 %.not, label %107, label %.thread414
 
 107:                                              ; preds = %.thread410, %67, %23
-  %108 = phi i32 [ 8, %23 ], [ %105, %67 ], [ 0, %.thread410 ]
-  %.0397408 = phi i32 [ 6, %23 ], [ %.0397409, %67 ], [ 4, %.thread410 ]
-  %.1 = phi i16 [ %66, %23 ], [ %106, %67 ], [ %22, %.thread410 ]
+  %108 = phi i32 [ %105, %67 ], [ 8, %23 ], [ 0, %.thread410 ]
+  %.0397408 = phi i32 [ %.0397409, %67 ], [ 6, %23 ], [ 4, %.thread410 ]
+  %.1 = phi i16 [ %106, %67 ], [ %66, %23 ], [ %22, %.thread410 ]
   %109 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %108)
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %109, ptr %110, align 8
@@ -3556,7 +3556,7 @@ default.unreachable418:                           ; preds = %23
   call fastcc void @parse_VENDOR(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   br label %.thread414
 
-.thread414:                                       ; preds = %67, %164, %parse_RWH.exit, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %260, %261, %262, %265
+.thread414:                                       ; preds = %parse_RWH.exit, %164, %67, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %260, %261, %262, %265
   %266 = load i32, ptr %5, align 4
   %267 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %266)
   switch i32 %267, label %283 [
@@ -4767,7 +4767,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef readonly
   br label %parse_RMPP.exit
 
 parse_RMPP.exit:                                  ; preds = %8, %31, %38, %47, %56
-  %.0.i = phi i32 [ %30, %8 ], [ %62, %56 ], [ %53, %47 ], [ %44, %38 ], [ %37, %31 ]
+  %.0.i = phi i32 [ %30, %8 ], [ %37, %31 ], [ %44, %38 ], [ %53, %47 ], [ %62, %56 ]
   store i32 %.0.i, ptr %3, align 4
   %65 = load i32, ptr @hf_infiniband_SA, align 4
   %66 = add i32 %.0.i, -36
@@ -5571,7 +5571,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   br label %137
 
 137:                                              ; preds = %133, %89, %17, %13
-  %.0 = phi i32 [ %136, %133 ], [ %132, %89 ], [ %88, %17 ], [ %16, %13 ]
+  %.0 = phi i32 [ %136, %133 ], [ %16, %13 ], [ %88, %17 ], [ %132, %89 ]
   store i32 %.0, ptr %3, align 4
   br label %138
 
@@ -6557,7 +6557,7 @@ parse_CM_DRsp.exit:                               ; preds = %try_connection_diss
   br label %611
 
 611:                                              ; preds = %609, %parse_CM_DRsp.exit, %parse_CM_DReq.exit, %parse_CM_Rej.exit, %parse_CM_Rtu.exit, %parse_CM_Rsp.exit, %parse_CM_Req.exit
-  %.0 = phi i32 [ %610, %609 ], [ %608, %parse_CM_DRsp.exit ], [ %569, %parse_CM_DReq.exit ], [ %536, %parse_CM_Rej.exit ], [ %493, %parse_CM_Rtu.exit ], [ %466, %parse_CM_Rsp.exit ], [ %334, %parse_CM_Req.exit ]
+  %.0 = phi i32 [ %610, %609 ], [ %334, %parse_CM_Req.exit ], [ %466, %parse_CM_Rsp.exit ], [ %493, %parse_CM_Rtu.exit ], [ %536, %parse_CM_Rej.exit ], [ %569, %parse_CM_DReq.exit ], [ %608, %parse_CM_DRsp.exit ]
   store i32 %.0, ptr %3, align 4
   br label %612
 

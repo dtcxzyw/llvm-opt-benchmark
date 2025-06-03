@@ -6567,7 +6567,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %if.end29.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %11 = load double, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !48
   %cmp.i.i21.i.i.i = fcmp ult double %11, 0.000000e+00
   br i1 %cmp.i.i21.i.i.i, label %if.end36.i.i.i, label %invoke.cont
@@ -6577,7 +6577,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %if.end36.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %12 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !48
   %cmp.i.i23.i.i.i = fcmp ult double %12, 0.000000e+00
   br i1 %cmp.i.i23.i.i.i, label %if.end43.i.i.i, label %invoke.cont
@@ -7741,7 +7741,7 @@ lpad65:                                           ; preds = %cond.false.i125, %c
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %lpad65, %lpad60, %ehcleanup59, %ehcleanup24, %ehcleanup12
-  %.pn4.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4.pn.pn.pn.pn, %ehcleanup59 ], [ %115, %lpad65 ], [ %114, %lpad60 ], [ %.pn, %ehcleanup24 ], [ %.pn2, %ehcleanup12 ]
+  %.pn4.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4.pn.pn.pn.pn, %ehcleanup59 ], [ %115, %lpad65 ], [ %114, %lpad60 ], [ %.pn2, %ehcleanup12 ], [ %.pn, %ehcleanup24 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %engine) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %engine) #28
   call void @_ZN8QuantLib6HandleINS_5QuoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %vol) #28
@@ -8238,7 +8238,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb1, %sw.bb
-  %retval.0 = phi ptr [ %call4, %sw.default ], [ %out, %sw.bb1 ], [ %out, %sw.bb ]
+  %retval.0 = phi ptr [ %call4, %sw.default ], [ %out, %sw.bb ], [ %out, %sw.bb1 ]
   ret ptr %retval.0
 }
 

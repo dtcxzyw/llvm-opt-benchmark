@@ -2833,7 +2833,7 @@ define dso_local noundef nonnull ptr @_ZN7doctest12assertStringENS_10assertType4
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %1, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.49, %46 ], [ @.str.48, %45 ], [ @.str.47, %44 ], [ @.str.46, %43 ], [ @.str.45, %42 ], [ @.str.44, %41 ], [ @.str.43, %40 ], [ @.str.42, %39 ], [ @.str.41, %38 ], [ @.str.40, %37 ], [ @.str.39, %36 ], [ @.str.38, %35 ], [ @.str.37, %34 ], [ @.str.36, %33 ], [ @.str.35, %32 ], [ @.str.34, %31 ], [ @.str.33, %30 ], [ @.str.32, %29 ], [ @.str.31, %28 ], [ @.str.30, %27 ], [ @.str.29, %26 ], [ @.str.28, %25 ], [ @.str.27, %24 ], [ @.str.26, %23 ], [ @.str.25, %22 ], [ @.str.24, %21 ], [ @.str.23, %20 ], [ @.str.22, %19 ], [ @.str.21, %18 ], [ @.str.20, %17 ], [ @.str.19, %16 ], [ @.str.18, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %11 ], [ @.str.13, %10 ], [ @.str.12, %9 ], [ @.str.11, %8 ], [ @.str.10, %7 ], [ @.str.9, %6 ], [ @.str.8, %5 ], [ @.str.7, %4 ], [ @.str.6, %3 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ @.str.6, %3 ], [ @.str.7, %4 ], [ @.str.8, %5 ], [ @.str.9, %6 ], [ @.str.10, %7 ], [ @.str.11, %8 ], [ @.str.12, %9 ], [ @.str.13, %10 ], [ @.str.14, %11 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.18, %15 ], [ @.str.19, %16 ], [ @.str.20, %17 ], [ @.str.21, %18 ], [ @.str.22, %19 ], [ @.str.23, %20 ], [ @.str.24, %21 ], [ @.str.25, %22 ], [ @.str.26, %23 ], [ @.str.27, %24 ], [ @.str.28, %25 ], [ @.str.29, %26 ], [ @.str.30, %27 ], [ @.str.31, %28 ], [ @.str.32, %29 ], [ @.str.33, %30 ], [ @.str.34, %31 ], [ @.str.35, %32 ], [ @.str.36, %33 ], [ @.str.37, %34 ], [ @.str.38, %35 ], [ @.str.39, %36 ], [ @.str.40, %37 ], [ @.str.41, %38 ], [ @.str.42, %39 ], [ @.str.43, %40 ], [ @.str.44, %41 ], [ @.str.45, %42 ], [ @.str.46, %43 ], [ @.str.47, %44 ], [ @.str.48, %45 ], [ @.str.49, %46 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -2895,7 +2895,7 @@ define dso_local noundef ptr @_ZN7doctest20skipPathFromFilenameEPKc(ptr noundef 
   br label %14
 
 14:                                               ; preds = %6, %13
-  %.1 = phi ptr [ %12, %6 ], [ %0, %13 ]
+  %.1 = phi ptr [ %0, %13 ], [ %12, %6 ]
   ret ptr %.1
 }
 
@@ -19069,7 +19069,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNS
   br label %_ZN7doctest20skipPathFromFilenameEPKc.exit
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %260, %253
-  %.1.i = phi ptr [ %259, %253 ], [ %.0.i.i, %260 ]
+  %.1.i = phi ptr [ %.0.i.i, %260 ], [ %259, %253 ]
   %261 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull readonly align 8 dereferenceable(32) %15, ptr noundef readonly %.1.i)
           to label %_ZN7doctest12_GLOBAL__N_19XmlWriter13ScopedElement14writeAttributeIPKcEERS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit219 unwind label %325
 
@@ -22292,7 +22292,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporter13subcase_startERKNS
   br label %_ZN7doctest20skipPathFromFilenameEPKc.exit
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %32, %25
-  %.1.i = phi ptr [ %31, %25 ], [ %20, %32 ]
+  %.1.i = phi ptr [ %20, %32 ], [ %31, %25 ]
   %33 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.1.i)
           to label %._crit_edge.i.i27 unwind label %98
 
@@ -22686,7 +22686,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %40
   br label %_ZN7doctest20skipPathFromFilenameEPKc.exit
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %80, %73
-  %.1.i = phi ptr [ %79, %73 ], [ %68, %80 ]
+  %.1.i = phi ptr [ %68, %80 ], [ %79, %73 ]
   %81 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %44, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %.1.i)
           to label %._crit_edge.i.i104 unwind label %232
 
@@ -24089,7 +24089,7 @@ _ZN7doctest13failureStringENS_10assertType4EnumE.exit: ; preds = %._crit_edge.i.
   br label %_ZN7doctest20skipPathFromFilenameEPKc.exit
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %47, %40
-  %.1.i = phi ptr [ %46, %40 ], [ %35, %47 ]
+  %.1.i = phi ptr [ %35, %47 ], [ %46, %40 ]
   %48 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %.1.i)
           to label %._crit_edge.i.i42 unwind label %143
 
@@ -25946,7 +25946,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %120, %1
   br i1 %exitcond114.not.i, label %107, label %.preheader.i, !llvm.loop !561
 
 123:                                              ; preds = %107, %106, %83, %73, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit92.i, %59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit89.i, %43, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit.i, %29, %17, %15
-  %.1.i = phi i64 [ %.079110.i, %59 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit92.i ], [ %.079110.i, %73 ], [ %.079110.i, %43 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit89.i ], [ %.079110.i, %29 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit.i ], [ %.079110.i, %17 ], [ %.079110.i, %15 ], [ %.079110.i, %83 ], [ %.079110.i, %106 ], [ %109, %107 ]
+  %.1.i = phi i64 [ %.079110.i, %59 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit92.i ], [ %.079110.i, %73 ], [ %.079110.i, %15 ], [ %.079110.i, %17 ], [ %.079110.i, %29 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit.i ], [ %.079110.i, %43 ], [ %.079110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit89.i ], [ %.079110.i, %83 ], [ %.079110.i, %106 ], [ %109, %107 ]
   %124 = add i64 %.1.i, 1
   %125 = load i64, ptr %7, align 8, !tbaa !37
   %126 = icmp ult i64 %124, %125
@@ -26916,7 +26916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   br label %_ZN7doctest20skipPathFromFilenameEPKc.exit
 
 _ZN7doctest20skipPathFromFilenameEPKc.exit:       ; preds = %95, %88
-  %.1.i = phi ptr [ %94, %88 ], [ %.0.i.i, %95 ]
+  %.1.i = phi ptr [ %.0.i.i, %95 ], [ %94, %88 ]
   %96 = invoke fastcc noundef nonnull align 8 dereferenceable(72) ptr @_ZN7doctest12_GLOBAL__N_19XmlWriter14writeAttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %.1.i)
           to label %._crit_edge.i.i77 unwind label %168
 

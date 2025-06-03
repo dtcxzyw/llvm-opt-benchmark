@@ -4804,7 +4804,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h396d88a6d2fea976E.exit"
 
 "_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h396d88a6d2fea976E.exit": ; preds = %1, %3, %4
-  %.sroa.0.0.i.i = phi ptr [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h26ded0e174fca74fE", i64 8), %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h26ded0e174fca74fE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @"_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h26ded0e174fca74fE", i64 8), %3 ], [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN12pingora_core9protocols4http4date11CACHED_DATE29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h26ded0e174fca74fE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -5877,12 +5877,12 @@ default.unreachable:                              ; preds = %32
   ret void
 
 "_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit": ; preds = %32, %32, %37, %36, %35, %34, %33
-  %.sroa.23.1 = phi i32 [ %.val4.i, %37 ], [ %.sroa.23.028, %36 ], [ %.sroa.23.028, %35 ], [ %.sroa.23.028, %34 ], [ %.sroa.23.028, %33 ], [ %.sroa.23.028, %32 ], [ %.sroa.23.028, %32 ]
-  %.sroa.19.1 = phi i32 [ %.val6.i, %37 ], [ %.sroa.19.029, %36 ], [ %.val6.i, %35 ], [ %.sroa.19.029, %34 ], [ %.sroa.19.029, %33 ], [ %.sroa.19.029, %32 ], [ %.sroa.19.029, %32 ]
-  %.sroa.2122.sroa.0.1 = phi i8 [ %.sroa.2122.sroa.0.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.0.030, %36 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %35 ], [ %.sroa.2122.sroa.0.030, %34 ], [ %.sroa.2122.sroa.0.030, %33 ], [ %.sroa.2122.sroa.0.030, %32 ], [ %.sroa.2122.sroa.0.030, %32 ]
-  %.sroa.13.1 = phi i8 [ %.sroa.13.031, %37 ], [ %25, %36 ], [ %.sroa.13.031, %35 ], [ %.sroa.13.031, %34 ], [ %.sroa.13.031, %33 ], [ %.sroa.13.031, %32 ], [ %.sroa.13.031, %32 ]
-  %.sroa.10.1 = phi i8 [ %.sroa.10.032, %37 ], [ %23, %36 ], [ %.sroa.10.032, %35 ], [ %.sroa.10.032, %34 ], [ %.sroa.10.032, %33 ], [ %23, %32 ], [ %23, %32 ]
-  %.sroa.2122.sroa.5.sroa.0.1 = phi i56 [ %.sroa.2122.sroa.5.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.5.sroa.0.033, %36 ], [ %.sroa.2122.sroa.5.sroa.0.033, %35 ], [ %.sroa.2122.sroa.5.sroa.0.033, %34 ], [ %.sroa.2122.sroa.5.sroa.0.033, %33 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ]
+  %.sroa.23.1 = phi i32 [ %.sroa.23.028, %33 ], [ %.sroa.23.028, %34 ], [ %.sroa.23.028, %35 ], [ %.sroa.23.028, %36 ], [ %.val4.i, %37 ], [ %.sroa.23.028, %32 ], [ %.sroa.23.028, %32 ]
+  %.sroa.19.1 = phi i32 [ %.sroa.19.029, %33 ], [ %.sroa.19.029, %34 ], [ %.val6.i, %35 ], [ %.sroa.19.029, %36 ], [ %.val6.i, %37 ], [ %.sroa.19.029, %32 ], [ %.sroa.19.029, %32 ]
+  %.sroa.2122.sroa.0.1 = phi i8 [ %.sroa.2122.sroa.0.030, %33 ], [ %.sroa.2122.sroa.0.030, %34 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %35 ], [ %.sroa.2122.sroa.0.030, %36 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.0.030, %32 ], [ %.sroa.2122.sroa.0.030, %32 ]
+  %.sroa.13.1 = phi i8 [ %.sroa.13.031, %33 ], [ %.sroa.13.031, %34 ], [ %.sroa.13.031, %35 ], [ %25, %36 ], [ %.sroa.13.031, %37 ], [ %.sroa.13.031, %32 ], [ %.sroa.13.031, %32 ]
+  %.sroa.10.1 = phi i8 [ %.sroa.10.032, %33 ], [ %.sroa.10.032, %34 ], [ %.sroa.10.032, %35 ], [ %23, %36 ], [ %.sroa.10.032, %37 ], [ %23, %32 ], [ %23, %32 ]
+  %.sroa.2122.sroa.5.sroa.0.1 = phi i56 [ %.sroa.2122.sroa.5.sroa.0.033, %33 ], [ %.sroa.2122.sroa.5.sroa.0.033, %34 ], [ %.sroa.2122.sroa.5.sroa.0.033, %35 ], [ %.sroa.2122.sroa.5.sroa.0.033, %36 ], [ %.sroa.2122.sroa.5.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ]
   %40 = add nuw i64 %.sroa.03.035, 1
   store i8 %17, ptr %.sroa.0.036, align 8
   %.sroa.10.0..sroa.0.0.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 1

@@ -440,7 +440,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7S
   br label %52
 
 52:                                               ; preds = %38, %._crit_edge
-  %.sroa.027.4 = phi i8 [ %48, %38 ], [ %51, %._crit_edge ]
+  %.sroa.027.4 = phi i8 [ %51, %._crit_edge ], [ %48, %38 ]
   ret i8 %.sroa.027.4
 }
 

@@ -1203,7 +1203,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i16: ; preds = %
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hde5ae8a1d979e533E.exit.thread"
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hde5ae8a1d979e533E.exit.thread": ; preds = %61, %64, %70
-  %.sroa.0.0.i.ph.i = phi ptr [ %65, %64 ], [ %71, %70 ], [ %63, %61 ]
+  %.sroa.0.0.i.ph.i = phi ptr [ %71, %70 ], [ %65, %64 ], [ %63, %61 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !473
   br label %181
 
@@ -1311,7 +1311,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8eaa5b1fef3aa7a8E.exit.i16: ; preds = %
           to label %_ZN5serde2de9MapAccess10next_value17h5f16c896a6bf84d3E.exit unwind label %101
 
 _ZN5serde2de9MapAccess10next_value17h5f16c896a6bf84d3E.exit.thread: ; preds = %86, %.noexc28, %.noexc29
-  %.sroa.0.0.i.ph.i.i = phi ptr [ %90, %.noexc28 ], [ %96, %.noexc29 ], [ %88, %86 ]
+  %.sroa.0.0.i.ph.i.i = phi ptr [ %96, %.noexc29 ], [ %90, %.noexc28 ], [ %88, %86 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !487
   br label %105
 
@@ -1488,7 +1488,7 @@ _ZN5serde2de9MapAccess10next_value17h5f16c896a6bf84d3E.exit._crit_edge: ; preds 
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb3d70cb92657e505E.exit.i.i" unwind label %.loopexit113, !noalias !529
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb3d70cb92657e505E.exit.thread.i.i": ; preds = %.noexc8.i.i, %.noexc7.i.i, %135
-  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %139, %.noexc7.i.i ], [ %144, %.noexc8.i.i ], [ %137, %135 ]
+  %.sroa.0.0.i.ph.i.i.i = phi ptr [ %144, %.noexc8.i.i ], [ %139, %.noexc7.i.i ], [ %137, %135 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !528
   br label %151
 
@@ -3067,7 +3067,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h51006dae462e4cd0E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -3127,7 +3127,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h645b26aa930d3a88E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -3204,7 +3204,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64

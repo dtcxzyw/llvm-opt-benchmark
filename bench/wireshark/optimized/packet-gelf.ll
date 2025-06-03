@@ -211,7 +211,7 @@ define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr nou
   br label %is_simple_zlib.exit.thread
 
 is_simple_zlib.exit.thread:                       ; preds = %12, %12, %12, %12, %12, %15, %14, %13
-  %.080 = phi i32 [ 12, %15 ], [ 50, %14 ], [ 48, %13 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ]
+  %.080 = phi i32 [ 48, %13 ], [ 50, %14 ], [ 12, %15 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ]
   %16 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %17 = icmp ult i32 %16, %.080
   br i1 %17, label %is_simple_zlib.exit, label %18

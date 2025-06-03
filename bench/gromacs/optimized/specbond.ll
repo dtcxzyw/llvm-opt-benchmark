@@ -3558,7 +3558,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %._c
   br label %89
 
 89:                                               ; preds = %87, %._crit_edge.i.i.i.i.i.i
-  %.sroa.041.1.i.i.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %88, %87 ]
+  %.sroa.041.1.i.i.i.i.i.i = phi ptr [ %88, %87 ], [ %.sroa.041.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %90 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL10is_specialN3gmx8ArrayRefIK11SpecialBondEEPKcS8_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_"(ptr readonly %62, ptr readonly %66, ptr %.sroa.041.1.i.i.i.i.i.i)
           to label %.noexc160 unwind label %.loopexit.split-lp.loopexit
 
@@ -3570,7 +3570,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %._c
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge.i.i.i.i.i.i
-  %.sroa.041.2.i.i.i.i.i.i = phi ptr [ %.sroa.041.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %92, %91 ]
+  %.sroa.041.2.i.i.i.i.i.i = phi ptr [ %92, %91 ], [ %.sroa.041.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %94 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL10is_specialN3gmx8ArrayRefIK11SpecialBondEEPKcS8_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_"(ptr readonly %62, ptr readonly %66, ptr %.sroa.041.2.i.i.i.i.i.i)
           to label %.noexc161 unwind label %.loopexit.split-lp.loopexit
 

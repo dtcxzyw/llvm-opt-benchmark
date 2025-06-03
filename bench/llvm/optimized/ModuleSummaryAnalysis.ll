@@ -5167,8 +5167,8 @@ _ZN4llvm11SmallVectorINS_14DevirtCallSiteELj4EED2Ev.exit.i: ; preds = %484, %_ZN
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i1134: ; preds = %494, %493, %.lr.ph60.i
-  %498 = phi i32 [ %.pre804, %494 ], [ %487, %493 ], [ %487, %.lr.ph60.i ]
-  %.0.i.i.i1135 = phi i64 [ %496, %494 ], [ 2, %493 ], [ 0, %.lr.ph60.i ]
+  %498 = phi i32 [ %487, %493 ], [ %.pre804, %494 ], [ %487, %.lr.ph60.i ]
+  %.0.i.i.i1135 = phi i64 [ 2, %493 ], [ %496, %494 ], [ 0, %.lr.ph60.i ]
   %499 = icmp slt i32 %498, 0
   br i1 %499, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i1141, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i1136
 
@@ -5550,8 +5550,8 @@ _ZN4llvm11SmallVectorINS_14DevirtCallSiteELj4EED2Ev.exit49.i: ; preds = %641, %_
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit.i:    ; preds = %651, %650, %.lr.ph.i
-  %655 = phi i32 [ %.pre803, %651 ], [ %644, %650 ], [ %644, %.lr.ph.i ]
-  %.0.i.i.i1123 = phi i64 [ %653, %651 ], [ 2, %650 ], [ 0, %.lr.ph.i ]
+  %655 = phi i32 [ %644, %650 ], [ %.pre803, %651 ], [ %644, %.lr.ph.i ]
+  %.0.i.i.i1123 = phi i64 [ 2, %650 ], [ %653, %651 ], [ 0, %.lr.ph.i ]
   %656 = icmp slt i32 %655, 0
   br i1 %656, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i
 
@@ -13300,8 +13300,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorINS_9ValueInfoE
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge._crit_edge.i.i.i.i
-  %.0.copyload.i.i.i.i2.i.i39.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i2.i.i39.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.0.copyload.i.i.i.i2.i.i37.i.i.i.i, %61 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %62, %61 ]
+  %.0.copyload.i.i.i.i2.i.i39.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i2.i.i37.i.i.i.i, %61 ], [ %.0.copyload.i.i.i.i2.i.i39.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %62, %61 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.0.copyload.i.i.i.i.i.i38.i.i.i.i = load i64, ptr %.1.i.i.i.i, align 8
   %64 = xor i64 %.0.copyload.i.i.i.i.i.i38.i.i.i.i, %.0.copyload.i.i.i.i2.i.i39.i.i.i.i
   %65 = icmp ult i64 %64, 8
@@ -13312,8 +13312,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorINS_9ValueInfoE
   br label %68
 
 68:                                               ; preds = %66, %._crit_edge._crit_edge65.i.i.i.i
-  %.0.copyload.i.i.i.i2.i.i41.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i2.i.i41.pre.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %.0.copyload.i.i.i.i2.i.i39.i.i.i.i, %66 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ], [ %67, %66 ]
+  %.0.copyload.i.i.i.i2.i.i41.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i2.i.i39.i.i.i.i, %66 ], [ %.0.copyload.i.i.i.i2.i.i41.pre.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %67, %66 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge65.i.i.i.i ]
   %.0.copyload.i.i.i.i.i.i40.i.i.i.i = load i64, ptr %.2.i.i.i.i, align 8
   %69 = xor i64 %.0.copyload.i.i.i.i.i.i40.i.i.i.i, %.0.copyload.i.i.i.i2.i.i41.i.i.i.i
   %70 = icmp ult i64 %69, 8
@@ -21092,8 +21092,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -21460,7 +21460,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %17
   br label %_ZNKSt4lessIvEclIRKN4llvm9StringRefES5_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS6_OS7_.exit.i.i
 
 _ZNKSt4lessIvEclIRKN4llvm9StringRefES5_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOS6_OS7_.exit.i.i: ; preds = %22, %.thread.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ %24, %22 ], [ 0, %.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %24, %22 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
   %25 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %.thread
 

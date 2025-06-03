@@ -979,7 +979,7 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_kademlia_udp_compressed_message.exit
 
 dissect_kademlia_udp_compressed_message.exit:     ; preds = %52, %48, %40, %42, %44, %39, %27
-  %.085 = phi i32 [ 2, %39 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ 2, %27 ], [ %51, %48 ], [ 2, %52 ]
+  %.085 = phi i32 [ 2, %39 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ 2, %27 ], [ %51, %48 ], [ 2, %52 ]
   %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085)
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %60
@@ -1107,10 +1107,10 @@ define internal i32 @dissect_edonkey_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   br label %41
 
 41:                                               ; preds = %35, %40, %31, %28
-  %.072 = phi ptr [ @.str.363, %40 ], [ %34, %31 ], [ %30, %28 ], [ %37, %35 ]
-  %42 = phi i1 [ false, %40 ], [ true, %31 ], [ true, %28 ], [ true, %35 ]
-  %.071 = phi ptr [ null, %40 ], [ @dissect_emule_tcp_message, %31 ], [ @dissect_edonkey_tcp_message, %28 ], [ @dissect_edonkey_tcp_message, %35 ]
-  %.1 = phi ptr [ null, %40 ], [ null, %31 ], [ null, %28 ], [ %39, %35 ]
+  %.072 = phi ptr [ @.str.363, %40 ], [ %30, %28 ], [ %34, %31 ], [ %37, %35 ]
+  %42 = phi i1 [ false, %40 ], [ true, %28 ], [ true, %31 ], [ true, %35 ]
+  %.071 = phi ptr [ null, %40 ], [ @dissect_edonkey_tcp_message, %28 ], [ @dissect_emule_tcp_message, %31 ], [ @dissect_edonkey_tcp_message, %35 ]
+  %.1 = phi ptr [ null, %40 ], [ null, %28 ], [ null, %31 ], [ %39, %35 ]
   %43 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.366, ptr noundef %.072)
   %.not79 = icmp eq ptr %.073, null
@@ -1451,7 +1451,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph237, %106, %.thread230, %47, %56, %121, %132, %24, %147, %145, %142, %140, %138, %136, %101, %96, %90, %81, %76, %73, %68, %63, %59, %45, %41, %39, %37, %35, %33, %30
-  %.1 = phi i32 [ %3, %147 ], [ %146, %145 ], [ %144, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %130, %132 ], [ %130, %121 ], [ %105, %101 ], [ %100, %96 ], [ %3, %90 ], [ %89, %81 ], [ %.pre.i226, %76 ], [ %.pre.i, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %46, %45 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %24 ], [ %54, %56 ], [ %54, %47 ], [ %23, %.thread230 ], [ %109, %106 ], [ %119, %.lr.ph237 ]
+  %.1 = phi i32 [ %3, %147 ], [ %29, %24 ], [ %32, %30 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %46, %45 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %.pre.i, %73 ], [ %.pre.i226, %76 ], [ %89, %81 ], [ %3, %90 ], [ %100, %96 ], [ %105, %101 ], [ %130, %132 ], [ %130, %121 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %144, %142 ], [ %146, %145 ], [ %54, %56 ], [ %54, %47 ], [ %23, %.thread230 ], [ %109, %106 ], [ %119, %.lr.ph237 ]
   %150 = icmp slt i32 %.1, %12
   br i1 %150, label %151, label %155
 
@@ -1934,7 +1934,7 @@ dissect_edonkey_file_status.exit173.i:            ; preds = %273, %._crit_edge.i
   br label %dissect_emule_multipacket.exit
 
 312:                                              ; preds = %297, %278, %dissect_edonkey_file_status.exit173.i, %246, %238, %236, %178
-  %.2.i = phi i32 [ %307, %297 ], [ %296, %278 ], [ %277, %dissect_edonkey_file_status.exit173.i ], [ %253, %246 ], [ %245, %238 ], [ %237, %236 ], [ %185, %178 ]
+  %.2.i = phi i32 [ %185, %178 ], [ %237, %236 ], [ %245, %238 ], [ %253, %246 ], [ %277, %dissect_edonkey_file_status.exit173.i ], [ %296, %278 ], [ %307, %297 ]
   %313 = icmp slt i32 %.2.i, %13
   br i1 %313, label %.lr.ph.i, label %dissect_emule_multipacket.exit, !llvm.loop !13
 
@@ -2176,7 +2176,7 @@ edonkey_tree_add_metatag_name.exit114:            ; preds = %82, %85
   br label %91
 
 91:                                               ; preds = %89, %edonkey_tree_add_metatag_name.exit114, %edonkey_tree_add_metatag_name.exit, %18, %9
-  %.0 = phi i32 [ %90, %89 ], [ %88, %edonkey_tree_add_metatag_name.exit114 ], [ %61, %edonkey_tree_add_metatag_name.exit ], [ %30, %18 ], [ %17, %9 ]
+  %.0 = phi i32 [ %90, %89 ], [ %17, %9 ], [ %30, %18 ], [ %61, %edonkey_tree_add_metatag_name.exit ], [ %88, %edonkey_tree_add_metatag_name.exit114 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   ret i32 %.0
 }
@@ -2315,7 +2315,7 @@ define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %9, %12, %15
-  %.047 = phi i32 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.047 = phi i32 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   %18 = load i32, ptr @hf_edonkey_list_size, align 4
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %.047, ptr noundef nonnull @.str.418, ptr noundef %5, i32 noundef %.047)
   %20 = add i32 %4, %2
@@ -2880,7 +2880,7 @@ edonkey_tree_add_metatag_name.exit339:            ; preds = %311, %314
   br label %edonkey_tree_add_metatag_name.exit327
 
 edonkey_tree_add_metatag_name.exit327:            ; preds = %339, %336, %150, %147, %edonkey_tree_add_metatag_name.exit339, %121, %edonkey_metatag_name_get_type.exit.thread, %124, %edonkey_tree_add_metatag_name.exit337, %edonkey_tree_add_metatag_name.exit335, %edonkey_tree_add_metatag_name.exit333, %edonkey_tree_add_metatag_name.exit331, %edonkey_tree_add_metatag_name.exit329, %edonkey_tree_add_metatag_name.exit323, %edonkey_tree_add_metatag_name.exit
-  %.1 = phi i32 [ %294, %edonkey_tree_add_metatag_name.exit339 ], [ %263, %edonkey_tree_add_metatag_name.exit337 ], [ %235, %edonkey_tree_add_metatag_name.exit335 ], [ %206, %edonkey_tree_add_metatag_name.exit333 ], [ %180, %edonkey_tree_add_metatag_name.exit331 ], [ %154, %edonkey_tree_add_metatag_name.exit329 ], [ %79, %121 ], [ %79, %124 ], [ %79, %edonkey_metatag_name_get_type.exit.thread ], [ %50, %edonkey_tree_add_metatag_name.exit323 ], [ %21, %edonkey_tree_add_metatag_name.exit ], [ %130, %147 ], [ %130, %150 ], [ %.0, %336 ], [ %.0, %339 ]
+  %.1 = phi i32 [ %294, %edonkey_tree_add_metatag_name.exit339 ], [ %21, %edonkey_tree_add_metatag_name.exit ], [ %50, %edonkey_tree_add_metatag_name.exit323 ], [ %79, %121 ], [ %79, %124 ], [ %79, %edonkey_metatag_name_get_type.exit.thread ], [ %154, %edonkey_tree_add_metatag_name.exit329 ], [ %180, %edonkey_tree_add_metatag_name.exit331 ], [ %206, %edonkey_tree_add_metatag_name.exit333 ], [ %235, %edonkey_tree_add_metatag_name.exit335 ], [ %263, %edonkey_tree_add_metatag_name.exit337 ], [ %130, %147 ], [ %130, %150 ], [ %.0, %336 ], [ %.0, %339 ]
   %342 = add i32 %.1, %2
   ret i32 %342
 }
@@ -3233,7 +3233,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, p
   br label %136
 
 136:                                              ; preds = %10, %17, %37, %39, %41, %43, %46, %50, %64, %77, %79, %84, %93, %97, %103, %106, %109, %112, %115, %122, %125, %130, %133, %21, %24, %20, %34, %30, %61, %53, %5
-  %.0 = phi i32 [ 2, %5 ], [ %9, %133 ], [ 18, %130 ], [ 18, %125 ], [ 2, %122 ], [ 24, %115 ], [ 6, %112 ], [ 2, %109 ], [ 18, %106 ], [ 18, %103 ], [ %102, %97 ], [ %96, %93 ], [ 18, %84 ], [ 19, %79 ], [ %78, %77 ], [ 25, %64 ], [ 18, %61 ], [ 14, %53 ], [ 6, %50 ], [ %49, %46 ], [ 18, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %33, %30 ], [ %36, %34 ], [ 6, %24 ], [ 2, %21 ], [ 2, %20 ], [ 6, %17 ], [ 12, %10 ]
+  %.0 = phi i32 [ 2, %5 ], [ %9, %133 ], [ 12, %10 ], [ 6, %17 ], [ 6, %24 ], [ 2, %21 ], [ 2, %20 ], [ %33, %30 ], [ %36, %34 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ 18, %43 ], [ %49, %46 ], [ 6, %50 ], [ 18, %61 ], [ 14, %53 ], [ 25, %64 ], [ %78, %77 ], [ 19, %79 ], [ 18, %84 ], [ %96, %93 ], [ %102, %97 ], [ 18, %103 ], [ 18, %106 ], [ 2, %109 ], [ 6, %112 ], [ 24, %115 ], [ 2, %122 ], [ 18, %125 ], [ 18, %130 ]
   ret i32 %.0
 }
 
@@ -3321,7 +3321,7 @@ dissect_edonkey_file_status.exit50:               ; preds = %32, %39
   br label %49
 
 49:                                               ; preds = %43, %47, %27, %25, %5
-  %.0 = phi i32 [ 2, %5 ], [ %48, %47 ], [ %46, %43 ], [ %9, %27 ], [ %.044, %25 ]
+  %.0 = phi i32 [ 2, %5 ], [ %48, %47 ], [ %9, %27 ], [ %.044, %25 ], [ %46, %43 ]
   ret i32 %.0
 }
 
@@ -3804,7 +3804,7 @@ dissect_edonkey_list.exit324:                     ; preds = %.lr.ph.i319, %199
   br label %246
 
 246:                                              ; preds = %241, %239, %237, %235, %233, %228, %226, %219
-  %.1289 = phi i32 [ %225, %219 ], [ %245, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %228 ], [ %227, %226 ]
+  %.1289 = phi i32 [ %225, %219 ], [ %227, %226 ], [ %232, %228 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %245, %241 ]
   %247 = add nuw nsw i32 %spec.select, 1
   %.not.not = icmp slt i32 %spec.select, %217
   br i1 %.not.not, label %219, label %._crit_edge, !llvm.loop !21
@@ -3824,7 +3824,7 @@ dissect_edonkey_list.exit324:                     ; preds = %.lr.ph.i319, %199
   br label %254
 
 254:                                              ; preds = %proto_item_set_hidden.exit, %28, %30, %38, %47, %49, %58, %66, %68, %80, %130, %134, %137, %140, %144, %148, %154, %dissect_edonkey_list.exit, %dissect_edonkey_list.exit317, %dissect_edonkey_list.exit324, %76, %73, %166, %158, %._crit_edge.thread, %249, %6
-  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %.045.lcssa.i323, %dissect_edonkey_list.exit324 ], [ %.045.lcssa.i316, %dissect_edonkey_list.exit317 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %157, %154 ], [ %153, %148 ], [ %147, %144 ], [ %143, %140 ], [ %139, %137 ], [ %136, %134 ], [ %117, %130 ], [ %84, %80 ], [ %79, %76 ], [ %74, %73 ], [ %72, %68 ], [ %67, %66 ], [ %65, %58 ], [ %57, %49 ], [ %48, %47 ], [ %46, %38 ], [ %37, %30 ], [ %29, %28 ], [ %167, %166 ], [ %163, %158 ], [ %251, %249 ], [ %253, %._crit_edge.thread ]
+  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %29, %28 ], [ %37, %30 ], [ %46, %38 ], [ %48, %47 ], [ %57, %49 ], [ %65, %58 ], [ %67, %66 ], [ %72, %68 ], [ %79, %76 ], [ %74, %73 ], [ %84, %80 ], [ %117, %130 ], [ %136, %134 ], [ %139, %137 ], [ %143, %140 ], [ %147, %144 ], [ %153, %148 ], [ %157, %154 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %.045.lcssa.i316, %dissect_edonkey_list.exit317 ], [ %.045.lcssa.i323, %dissect_edonkey_list.exit324 ], [ %167, %166 ], [ %163, %158 ], [ %251, %249 ], [ %253, %._crit_edge.thread ]
   ret i32 %.0
 }
 
@@ -4038,7 +4038,7 @@ define internal fastcc i32 @dissect_kademlia_search_expression_tree(ptr noundef 
   br label %61
 
 61:                                               ; preds = %59, %48, %37, %27, %18, %12
-  %.0 = phi i32 [ %11, %59 ], [ %58, %48 ], [ %47, %37 ], [ %36, %27 ], [ %26, %18 ], [ %17, %12 ]
+  %.0 = phi i32 [ %11, %59 ], [ %17, %12 ], [ %26, %18 ], [ %36, %27 ], [ %47, %37 ], [ %58, %48 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %62 = sub i32 %.0, %2
   tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %62)
@@ -4355,7 +4355,7 @@ dissect_kademlia_tag_string.exit:                 ; preds = %proto_item_set_hidd
   br label %169
 
 169:                                              ; preds = %167, %156, %149, %147, %124, %117, %115, %dissect_kademlia_tag_string.exit, %dissect_kademlia_tag_hash.exit
-  %.0 = phi i32 [ %21, %167 ], [ %165, %156 ], [ %155, %149 ], [ %148, %147 ], [ %129, %124 ], [ %123, %117 ], [ %116, %115 ], [ %104, %dissect_kademlia_tag_string.exit ], [ %77, %dissect_kademlia_tag_hash.exit ]
+  %.0 = phi i32 [ %21, %167 ], [ %77, %dissect_kademlia_tag_hash.exit ], [ %104, %dissect_kademlia_tag_string.exit ], [ %116, %115 ], [ %123, %117 ], [ %129, %124 ], [ %148, %147 ], [ %155, %149 ], [ %165, %156 ]
   %170 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.575, ptr noundef %15)
   %171 = load ptr, ptr %7, align 8

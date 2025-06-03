@@ -11460,7 +11460,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i30: ; preds = %_
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_KS6_EEbT_RT0_.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_KS6_EEbT_RT0_.exit.i.i.i.i.i: ; preds = %89, %.thread.i.i.i.i.i.i.i.i.i36, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i30
-  %.1.i.i.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i30 ], [ %91, %89 ], [ 0, %.thread.i.i.i.i.i.i.i.i.i36 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi i32 [ %91, %89 ], [ %spec.select.i.i.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i30 ], [ 0, %.thread.i.i.i.i.i.i.i.i.i36 ]
   %92 = icmp slt i32 %.1.i.i.i.i.i.i.i.i.i, 0
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %94 = xor i64 %84, -1
@@ -12604,9 +12604,9 @@ define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15Checke
   br i1 %42, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !144, !llvm.loop !164
 
 "_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit": ; preds = %36, %23
-  %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %30, %23 ], [ %39, %36 ]
+  %.pn.i.i = phi i64 [ %30, %23 ], [ %39, %36 ]
   %43 = zext i32 %.val.val13 to i64
-  %.not2 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %43
+  %.not2 = icmp samesign eq i64 %.pn.i.i, %43
   br i1 %.not2, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_.exit, label %44
 
 44:                                               ; preds = %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit"
@@ -12855,7 +12855,7 @@ define internal fastcc void @_ZL19isOptionContainedInRKN4llvm11SmallVectorIN5cla
   br label %44
 
 44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit69.thread97.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit69.thread97.i.i.i.i.i" ]
+  %.1.i.i.i.i.i = phi ptr [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit69.thread97.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %45 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 16
   %.1.val.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !69
   %46 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 24
@@ -12877,7 +12877,7 @@ define internal fastcc void @_ZL19isOptionContainedInRKN4llvm11SmallVectorIN5cla
   br label %51
 
 51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit73.thread100.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit73.thread100.i.i.i.i.i" ]
+  %.2.i.i.i.i.i = phi ptr [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL19isOptionContainedInRKN4llvm11SmallVectorIN5clang4ento13CmdLineOptionELj0EEENS2_9StringRefESA_RKNS4_15AnalyzerOptionsERNS4_17DiagnosticsEngineEE3$_0EclIPKS6_EEbT_.exit73.thread100.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %52 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 16
   %.2.val.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !69
   %53 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 24
@@ -13285,9 +13285,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__norm
   br label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107
-  %.sroa.2.0.copyload.i.i61 = phi i64 [ %.sroa.2.0.copyload.i.i61.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ]
-  %.sroa.0.0.copyload.i.i59 = phi ptr [ %.sroa.0.0.copyload.i.i59.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i.i49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ]
-  %.sroa.085.1 = phi ptr [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge ], [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ]
+  %.sroa.2.0.copyload.i.i61 = phi i64 [ %.sroa.2.0.copyload.i.i51, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ], [ %.sroa.2.0.copyload.i.i61.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i.i59 = phi ptr [ %.sroa.0.0.copyload.i.i49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ], [ %.sroa.0.0.copyload.i.i59.pre, %._crit_edge._crit_edge ]
+  %.sroa.085.1 = phi ptr [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread107 ], [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.085.1, i64 16
   %.sroa.01.0.copyload.i.i56 = load ptr, ptr %41, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %.sroa.085.1, i64 24
@@ -13309,9 +13309,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__norm
   br label %46
 
 46:                                               ; preds = %._crit_edge._crit_edge147, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110
-  %.sroa.2.0.copyload.i.i71 = phi i64 [ %.sroa.2.0.copyload.i.i71.pre, %._crit_edge._crit_edge147 ], [ %.sroa.2.0.copyload.i.i61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ]
-  %.sroa.0.0.copyload.i.i69 = phi ptr [ %.sroa.0.0.copyload.i.i69.pre, %._crit_edge._crit_edge147 ], [ %.sroa.0.0.copyload.i.i59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ]
-  %.sroa.085.2 = phi ptr [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge147 ], [ %45, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ]
+  %.sroa.2.0.copyload.i.i71 = phi i64 [ %.sroa.2.0.copyload.i.i61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ], [ %.sroa.2.0.copyload.i.i71.pre, %._crit_edge._crit_edge147 ]
+  %.sroa.0.0.copyload.i.i69 = phi ptr [ %.sroa.0.0.copyload.i.i59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ], [ %.sroa.0.0.copyload.i.i69.pre, %._crit_edge._crit_edge147 ]
+  %.sroa.085.2 = phi ptr [ %45, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit65.thread110 ], [ %.sroa.085.0.lcssa, %._crit_edge._crit_edge147 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.085.2, i64 16
   %.sroa.01.0.copyload.i.i66 = load ptr, ptr %47, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i67 = getelementptr inbounds nuw i8, ptr %.sroa.085.2, i64 24
@@ -13506,9 +13506,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.e
   br label %35
 
 35:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109
-  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ]
-  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ]
+  %.sroa.2.0.copyload.i.i75 = phi i64 [ %.sroa.2.0.copyload.i.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ], [ %.sroa.2.0.copyload.i.i75.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i.i73 = phi ptr [ %.sroa.0.0.copyload.i.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ], [ %.sroa.0.0.copyload.i.i73.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit69.thread109 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i.i70 = load ptr, ptr %.1, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i.i72 = load i64, ptr %.sroa.22.0..sroa_idx.i.i71, align 8, !tbaa !62
@@ -13529,9 +13529,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.e
   br label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge149, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112
-  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ], [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ]
-  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ], [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge149 ], [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ]
+  %.sroa.2.0.copyload.i.i85 = phi i64 [ %.sroa.2.0.copyload.i.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ], [ %.sroa.2.0.copyload.i.i85.pre, %._crit_edge._crit_edge149 ]
+  %.sroa.0.0.copyload.i.i83 = phi ptr [ %.sroa.0.0.copyload.i.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ], [ %.sroa.0.0.copyload.i.i83.pre, %._crit_edge._crit_edge149 ]
+  %.2 = phi ptr [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11PackageInfoEEclIPS4_EEbT_.exit79.thread112 ], [ %.029.lcssa, %._crit_edge._crit_edge149 ]
   %.sroa.01.0.copyload.i.i80 = load ptr, ptr %.2, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i.i82 = load i64, ptr %.sroa.22.0..sroa_idx.i.i81, align 8, !tbaa !62
@@ -18158,9 +18158,9 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
   br i1 %40, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit", label %.lr.ph.i.i.i.i.i.i, !prof !144, !llvm.loop !164
 
 "_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit": ; preds = %34, %21
-  %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %28, %21 ], [ %37, %34 ]
+  %.pn.i.i = phi i64 [ %28, %21 ], [ %37, %34 ]
   %41 = zext i32 %.val.val15 to i64
-  %.not2 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %41
+  %.not2 = icmp samesign eq i64 %.pn.i.i, %41
   br i1 %.not2, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit.thread", label %42
 
 42:                                               ; preds = %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit"

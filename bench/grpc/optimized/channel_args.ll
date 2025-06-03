@@ -3300,8 +3300,8 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %12
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.loopexit, %45, %49, %54
-  %.sroa.968.2 = phi ptr [ %.sroa.968.078, %.loopexit ], [ %.sroa.968.16.copyload, %54 ], [ %.sroa.968.078, %49 ], [ %.sroa.968.078, %45 ]
-  %.sroa.567.2 = phi ptr [ %.sroa.567.079, %.loopexit ], [ %58, %54 ], [ %53, %49 ], [ %48, %45 ]
+  %.sroa.968.2 = phi ptr [ %.sroa.968.078, %.loopexit ], [ %.sroa.968.078, %45 ], [ %.sroa.968.078, %49 ], [ %.sroa.968.16.copyload, %54 ]
+  %.sroa.567.2 = phi ptr [ %.sroa.567.079, %.loopexit ], [ %48, %45 ], [ %53, %49 ], [ %58, %54 ]
   %59 = load ptr, ptr %30, align 8, !tbaa !53
   %60 = add i64 %.180, 1
   %61 = getelementptr inbounds nuw %struct.grpc_arg, ptr %59, i64 %.180
@@ -3377,8 +3377,8 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit59:    ; preds = %.lr.ph.i55, %_ZL8co
   br label %_ZL8copy_argPK8grpc_arg.exit60
 
 _ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph88, %71, %75, %80
-  %.sroa.9.1 = phi ptr [ %.sroa.9.084, %.lr.ph88 ], [ %.sroa.9.16.copyload, %80 ], [ %.sroa.9.084, %75 ], [ %.sroa.9.084, %71 ]
-  %.sroa.5.1 = phi ptr [ %.sroa.5.085, %.lr.ph88 ], [ %84, %80 ], [ %79, %75 ], [ %74, %71 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.084, %.lr.ph88 ], [ %.sroa.9.084, %71 ], [ %.sroa.9.084, %75 ], [ %.sroa.9.16.copyload, %80 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.085, %.lr.ph88 ], [ %74, %71 ], [ %79, %75 ], [ %84, %80 ]
   %85 = load ptr, ptr %30, align 8, !tbaa !53
   %86 = add i64 %.386, 1
   %87 = getelementptr inbounds nuw %struct.grpc_arg, ptr %85, i64 %.386
@@ -3655,8 +3655,8 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.lr.ph31, %25, %29, %34
-  %.sroa.9.1 = phi ptr [ %.sroa.9.027, %.lr.ph31 ], [ %.sroa.9.16.copyload, %34 ], [ %.sroa.9.027, %29 ], [ %.sroa.9.027, %25 ]
-  %.sroa.5.1 = phi ptr [ %.sroa.5.028, %.lr.ph31 ], [ %38, %34 ], [ %33, %29 ], [ %28, %25 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.027, %.lr.ph31 ], [ %.sroa.9.027, %25 ], [ %.sroa.9.027, %29 ], [ %.sroa.9.16.copyload, %34 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.028, %.lr.ph31 ], [ %28, %25 ], [ %33, %29 ], [ %38, %34 ]
   %39 = load ptr, ptr %17, align 8, !tbaa !53
   %40 = getelementptr inbounds nuw %struct.grpc_arg, ptr %39, i64 %.029
   store i32 %21, ptr %40, align 8, !tbaa !170
@@ -3861,7 +3861,7 @@ define noundef i32 @_Z25grpc_channel_args_comparePK17grpc_channel_argsS1_(ptr no
   unreachable
 
 _ZL7cmp_argPK8grpc_argS1_.exit:                   ; preds = %13, %28, %34, %47, %52
-  %.0.i30 = phi i32 [ %.0.i20.i, %34 ], [ %33, %28 ], [ %.0.i.i, %13 ], [ %55, %52 ], [ %.0.i6.i.i, %47 ]
+  %.0.i30 = phi i32 [ %33, %28 ], [ %.0.i20.i, %34 ], [ %.0.i.i, %13 ], [ %55, %52 ], [ %.0.i6.i.i, %47 ]
   %.not28 = icmp eq i32 %.0.i30, 0
   br i1 %.not28, label %_ZL7cmp_argPK8grpc_argS1_.exit._ZL7cmp_argPK8grpc_argS1_.exit.thread_crit_edge, label %_ZL7cmp_argPK8grpc_argS1_.exit.thread33
 

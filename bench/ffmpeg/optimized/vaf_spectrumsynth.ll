@@ -394,7 +394,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %63, %60, %54, %46, %.preheader.i
-  %.026.i = phi i32 [ %62, %60 ], [ %59, %54 ], [ %49, %46 ], [ 0, %.preheader.i ], [ 0, %63 ], [ %67, %.lr.ph.i ]
+  %.026.i = phi i32 [ %59, %54 ], [ %62, %60 ], [ %49, %46 ], [ 0, %.preheader.i ], [ 0, %63 ], [ %67, %.lr.ph.i ]
   tail call void @av_frame_free(ptr noundef nonnull %35) #10
   tail call void @av_frame_free(ptr noundef nonnull %38) #10
   br label %try_push_frames.exit

@@ -947,7 +947,7 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
   call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %380, %17, %12, %subdivideLine.exit355.thread, %379, %271, %185, %GetSpanData.exit, %.critedge343, %109, %416
+.critedge:                                        ; preds = %380, %17, %12, %185, %271, %379, %subdivideLine.exit355.thread, %GetSpanData.exit, %.critedge343, %109, %416
   ret void
 }
 

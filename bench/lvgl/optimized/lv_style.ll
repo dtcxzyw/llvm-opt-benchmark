@@ -705,7 +705,7 @@ define noundef ptr @lv_style_prop_get_default(i8 noundef zeroext %0) local_unnam
   br label %10
 
 10:                                               ; preds = %1, %1, %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ null, %9 ], [ inttoptr (i64 536870911 to ptr), %8 ], [ @lv_font_montserrat_14, %7 ], [ inttoptr (i64 15 to ptr), %6 ], [ inttoptr (i64 255 to ptr), %5 ], [ inttoptr (i64 255 to ptr), %4 ], [ null, %3 ], [ inttoptr (i64 16777215 to ptr), %2 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ]
+  %.sroa.0.0 = phi ptr [ null, %9 ], [ inttoptr (i64 16777215 to ptr), %2 ], [ null, %3 ], [ inttoptr (i64 255 to ptr), %4 ], [ inttoptr (i64 255 to ptr), %5 ], [ inttoptr (i64 15 to ptr), %6 ], [ @lv_font_montserrat_14, %7 ], [ inttoptr (i64 536870911 to ptr), %8 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }
 

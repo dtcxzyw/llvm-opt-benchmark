@@ -998,7 +998,7 @@ dissect_s5066dts_address.exit:                    ; preds = %.lr.ph.i, %dissect_
   br label %218
 
 218:                                              ; preds = %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %dissect_s5066dts_address.exit
-  %.0143 = phi i32 [ %191, %dissect_s5066dts_address.exit ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ]
+  %.0143 = phi i32 [ %191, %dissect_s5066dts_address.exit ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ]
   %219 = add nsw i32 %18, -2
   %220 = add nsw i32 %219, %194
   %221 = tail call zeroext i16 @crc16_0x9949_tvb_offset_seed(ptr noundef %0, i32 noundef 2, i32 noundef %220, i16 noundef zeroext 0)

@@ -2444,8 +2444,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17ha04fda5d8f3ad38
           to label %.thread11 unwind label %421
 
 .thread:                                          ; preds = %468, %494, %386, %412, %.thread23, %.thread11, %446, %364
-  %.pn37.pn = phi { ptr, i32 } [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
-  resume { ptr, i32 } %.pn37.pn
+  %.pn45.pn = phi { ptr, i32 } [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
+  resume { ptr, i32 } %.pn45.pn
 
 .thread11:                                        ; preds = %365, %443, %364
   %.pn4514 = phi { ptr, i32 } [ %.pn43, %364 ], [ %366, %365 ], [ %444, %443 ]
@@ -25987,7 +25987,7 @@ common.resume:                                    ; preds = %147, %98, %84
   unreachable
 
 157:                                              ; preds = %110, %146, %145
-  %.sroa.072.0 = phi i8 [ 37, %146 ], [ 36, %145 ], [ 13, %110 ]
+  %.sroa.072.0 = phi i8 [ 36, %145 ], [ 37, %146 ], [ 13, %110 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %158, align 8
   store i64 17, ptr %0, align 8
@@ -27952,8 +27952,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   unreachable
 
 106:                                              ; preds = %.lr.ph, %tailrecurse
-  %.tr294300 = phi i64 [ %1, %.lr.ph ], [ %113, %tailrecurse ]
-  %107 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %105, i64 %.tr294300
+  %.tr293299 = phi i64 [ %1, %.lr.ph ], [ %113, %tailrecurse ]
+  %107 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %105, i64 %.tr293299
   %108 = load i64, ptr %107, align 16, !range !2761, !noundef !16
   %109 = xor i64 %108, -9223372036854775808
   %110 = icmp ne i64 %108, -9223372036854775796
@@ -28098,10 +28098,10 @@ tailrecurse:                                      ; preds = %106
 150:                                              ; preds = %129
   %151 = landingpad { ptr, i32 }
           cleanup
-  br label %.body207
+  br label %.body206
 
-.body207:                                         ; preds = %155, %150
-  %eh.lpad-body208 = phi { ptr, i32 } [ %151, %150 ], [ %156, %155 ]
+.body206:                                         ; preds = %155, %150
+  %eh.lpad-body207 = phi { ptr, i32 } [ %151, %150 ], [ %156, %155 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %97) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
@@ -28121,7 +28121,7 @@ tailrecurse:                                      ; preds = %106
   %156 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12) #24
-          to label %.body207 unwind label %158, !noalias !2766
+          to label %.body206 unwind label %158, !noalias !2766
 
 157:                                              ; preds = %154
   unreachable
@@ -28358,8 +28358,8 @@ tailrecurse:                                      ; preds = %106
   br label %225
 
 225:                                              ; preds = %223, %221, %219, %217, %215, %213, %211, %209, %207, %205
-  %.sink311 = phi i32 [ 14, %223 ], [ 13, %221 ], [ 22, %219 ], [ 21, %217 ], [ 20, %215 ], [ 19, %213 ], [ 18, %211 ], [ 17, %209 ], [ 16, %207 ], [ 15, %205 ]
-  store i32 %.sink311, ptr %93, align 16
+  %.sink310 = phi i32 [ 14, %223 ], [ 13, %221 ], [ 22, %219 ], [ 21, %217 ], [ 20, %215 ], [ 19, %213 ], [ 18, %211 ], [ 17, %209 ], [ 16, %207 ], [ 15, %205 ]
+  store i32 %.sink310, ptr %93, align 16
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %92)
           to label %228 unwind label %226
 
@@ -28383,7 +28383,7 @@ tailrecurse:                                      ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99)
   br label %123
 
-232:                                              ; preds = %649, %630, %585, %530, %494, %440, %431, %380, %371, %255, %168, %681, %675, %.body230, %626, %616, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249", %.body226, %526, %525, %516, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245", %.body222, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241", %421, %.body218, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237", %361, %.body214, %319, %313, %281, %.body210, %234, %226, %194, %.body207
+232:                                              ; preds = %649, %630, %585, %530, %494, %440, %431, %380, %371, %255, %168, %681, %675, %.body229, %626, %616, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248", %.body225, %526, %525, %516, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244", %.body221, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240", %421, %.body217, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236", %361, %.body213, %319, %313, %281, %.body209, %234, %226, %194, %.body206
   %233 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25
@@ -28398,25 +28398,25 @@ tailrecurse:                                      ; preds = %106
 236:                                              ; preds = %287, %200
   unreachable
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit": ; preds = %.body204, %649, %627, %630, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249", %527, %530, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245", %.body195.thread, %440, %.body192.thread, %380, %.body189, %255, %.body, %168, %681, %.body230, %.body226, %.body222, %397, %.body218, %337, %.body214, %.body210, %.body207
-  %.pn187 = phi { ptr, i32 } [ %682, %681 ], [ %eh.lpad-body231, %.body230 ], [ %eh.lpad-body227, %.body226 ], [ %eh.lpad-body223, %.body222 ], [ %.pn173, %397 ], [ %eh.lpad-body219, %.body218 ], [ %.pn177, %337 ], [ %eh.lpad-body215, %.body214 ], [ %eh.lpad-body211, %.body210 ], [ %eh.lpad-body208, %.body207 ], [ %.pn184.pn, %168 ], [ %.pn184.pn, %.body ], [ %.pn181.pn, %255 ], [ %.pn181.pn, %.body189 ], [ %.pn179255, %380 ], [ %.pn179255, %.body192.thread ], [ %.pn175261, %440 ], [ %.pn175261, %.body195.thread ], [ %491, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245" ], [ %.pn170.pn.ph, %530 ], [ %.pn170.pn.ph, %527 ], [ %582, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249" ], [ %.pn167.pn.ph, %630 ], [ %.pn167.pn.ph, %627 ], [ %.pn, %649 ], [ %.pn, %.body204 ]
-  resume { ptr, i32 } %.pn187
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit": ; preds = %.body203, %649, %627, %630, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248", %527, %530, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244", %.body194.thread, %440, %.body191.thread, %380, %.body188, %255, %.body, %168, %681, %.body229, %.body225, %.body221, %397, %.body217, %337, %.body213, %.body209, %.body206
+  %.pn184.pn.pn = phi { ptr, i32 } [ %eh.lpad-body207, %.body206 ], [ %eh.lpad-body210, %.body209 ], [ %.pn177, %337 ], [ %eh.lpad-body214, %.body213 ], [ %.pn173, %397 ], [ %eh.lpad-body218, %.body217 ], [ %eh.lpad-body222, %.body221 ], [ %eh.lpad-body226, %.body225 ], [ %eh.lpad-body230, %.body229 ], [ %682, %681 ], [ %.pn184.pn, %168 ], [ %.pn184.pn, %.body ], [ %.pn181.pn, %255 ], [ %.pn181.pn, %.body188 ], [ %.pn179254, %380 ], [ %.pn179254, %.body191.thread ], [ %.pn175260, %440 ], [ %.pn175260, %.body194.thread ], [ %491, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244" ], [ %.pn170.pn.ph, %530 ], [ %.pn170.pn.ph, %527 ], [ %582, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248" ], [ %.pn167.pn.ph, %630 ], [ %.pn167.pn.ph, %627 ], [ %.pn, %649 ], [ %.pn, %.body203 ]
+  resume { ptr, i32 } %.pn184.pn.pn
 
 237:                                              ; preds = %132
   %238 = landingpad { ptr, i32 }
           cleanup
-  br label %.body210
+  br label %.body209
 
-.body210:                                         ; preds = %242, %237
-  %eh.lpad-body211 = phi { ptr, i32 } [ %238, %237 ], [ %243, %242 ]
+.body209:                                         ; preds = %242, %237
+  %eh.lpad-body210 = phi { ptr, i32 } [ %238, %237 ], [ %243, %242 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %86) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 239:                                              ; preds = %132
   call void @llvm.experimental.noalias.scope.decl(metadata !2789)
   %240 = load i64, ptr %87, align 8, !range !128, !alias.scope !2789, !noalias !2792, !noundef !16
-  %.not.i209 = icmp eq i64 %240, 17
-  br i1 %.not.i209, label %247, label %241, !prof !104
+  %.not.i208 = icmp eq i64 %240, 17
+  br i1 %.not.i208, label %247, label %241, !prof !104
 
 241:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !2794
@@ -28428,7 +28428,7 @@ tailrecurse:                                      ; preds = %106
   %243 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11) #24
-          to label %.body210 unwind label %245, !noalias !2789
+          to label %.body209 unwind label %245, !noalias !2789
 
 244:                                              ; preds = %241
   unreachable
@@ -28451,13 +28451,13 @@ tailrecurse:                                      ; preds = %106
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %86)
           to label %258 unwind label %256
 
-.body189:                                         ; preds = %274, %256, %281
+.body188:                                         ; preds = %274, %256, %281
   %.pn181.pn = phi { ptr, i32 } [ %.pn181, %281 ], [ %257, %256 ], [ %275, %274 ]
   %253 = atomicrmw sub ptr %249, i64 1 release, align 8, !noalias !2795
   %254 = icmp eq i64 %253, 1
   br i1 %254, label %255, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-255:                                              ; preds = %.body189
+255:                                              ; preds = %.body188
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %88)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
@@ -28465,7 +28465,7 @@ tailrecurse:                                      ; preds = %106
 256:                                              ; preds = %258, %247
   %257 = landingpad { ptr, i32 }
           cleanup
-  br label %.body189
+  br label %.body188
 
 258:                                              ; preds = %247
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %86)
@@ -28503,7 +28503,7 @@ tailrecurse:                                      ; preds = %106
   %275 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18) #24
-          to label %.body189 unwind label %277, !noalias !2808
+          to label %.body188 unwind label %277, !noalias !2808
 
 276:                                              ; preds = %272
   unreachable
@@ -28525,7 +28525,7 @@ tailrecurse:                                      ; preds = %106
 281:                                              ; preds = %319, %313, %282
   %.pn181 = phi { ptr, i32 } [ %320, %319 ], [ %314, %313 ], [ %283, %282 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %85) #24
-          to label %.body189 unwind label %232
+          to label %.body188 unwind label %232
 
 282:                                              ; preds = %284, %279
   %283 = landingpad { ptr, i32 }
@@ -28665,8 +28665,8 @@ tailrecurse:                                      ; preds = %106
   br label %312
 
 312:                                              ; preds = %310, %308, %306, %304, %302, %300, %298, %296, %294, %292
-  %.sink312 = phi i32 [ 14, %310 ], [ 13, %308 ], [ 22, %306 ], [ 21, %304 ], [ 20, %302 ], [ 19, %300 ], [ 18, %298 ], [ 17, %296 ], [ 16, %294 ], [ 15, %292 ]
-  store i32 %.sink312, ptr %82, align 16
+  %.sink311 = phi i32 [ 14, %310 ], [ 13, %308 ], [ 22, %306 ], [ 21, %304 ], [ 20, %302 ], [ 19, %300 ], [ 18, %298 ], [ 17, %296 ], [ 16, %294 ], [ 15, %292 ]
+  store i32 %.sink311, ptr %82, align 16
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %81)
           to label %315 unwind label %313
 
@@ -28699,18 +28699,18 @@ tailrecurse:                                      ; preds = %106
 321:                                              ; preds = %135
   %322 = landingpad { ptr, i32 }
           cleanup
-  br label %.body214
+  br label %.body213
 
-.body214:                                         ; preds = %326, %321
-  %eh.lpad-body215 = phi { ptr, i32 } [ %322, %321 ], [ %327, %326 ]
+.body213:                                         ; preds = %326, %321
+  %eh.lpad-body214 = phi { ptr, i32 } [ %322, %321 ], [ %327, %326 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %46) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 323:                                              ; preds = %135
   call void @llvm.experimental.noalias.scope.decl(metadata !2810)
   %324 = load i64, ptr %47, align 8, !range !128, !alias.scope !2810, !noalias !2813, !noundef !16
-  %.not.i213 = icmp eq i64 %324, 17
-  br i1 %.not.i213, label %331, label %325, !prof !104
+  %.not.i212 = icmp eq i64 %324, 17
+  br i1 %.not.i212, label %331, label %325, !prof !104
 
 325:                                              ; preds = %323
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !2815
@@ -28722,7 +28722,7 @@ tailrecurse:                                      ; preds = %106
   %327 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #24
-          to label %.body214 unwind label %329, !noalias !2810
+          to label %.body213 unwind label %329, !noalias !2810
 
 328:                                              ; preds = %325
   unreachable
@@ -28743,19 +28743,19 @@ tailrecurse:                                      ; preds = %106
   store ptr %335, ptr %336, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47)
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %46)
-          to label %338 unwind label %.body192.thread258
+          to label %338 unwind label %.body191.thread257
 
 337:                                              ; preds = %361
-  br i1 %.sroa.0146.2, label %..body192.thread_crit_edge, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
+  br i1 %.sroa.0146.2, label %..body191.thread_crit_edge, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-..body192.thread_crit_edge:                       ; preds = %337
-  %.pre304 = load ptr, ptr %48, align 8, !alias.scope !2816
-  br label %.body192.thread
+..body191.thread_crit_edge:                       ; preds = %337
+  %.pre303 = load ptr, ptr %48, align 8, !alias.scope !2816
+  br label %.body191.thread
 
-.body192.thread258:                               ; preds = %338, %331
+.body191.thread257:                               ; preds = %338, %331
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body192.thread
+  br label %.body191.thread
 
 338:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %46)
@@ -28773,7 +28773,7 @@ tailrecurse:                                      ; preds = %106
   %347 = getelementptr inbounds nuw i8, ptr %335, i64 40
   %348 = load ptr, ptr %347, align 8, !invariant.load !16, !nonnull !16
   invoke void %348(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %43, ptr noundef align 1 %344, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %346)
-          to label %349 unwind label %.body192.thread258
+          to label %349 unwind label %.body191.thread257
 
 349:                                              ; preds = %338
   call void @llvm.experimental.noalias.scope.decl(metadata !2821)
@@ -28793,7 +28793,7 @@ tailrecurse:                                      ; preds = %106
   %355 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17) #24
-          to label %.body192.thread unwind label %357, !noalias !2829
+          to label %.body191.thread unwind label %357, !noalias !2829
 
 356:                                              ; preds = %352
   unreachable
@@ -28812,9 +28812,9 @@ tailrecurse:                                      ; preds = %106
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %360)
           to label %364 unwind label %362
 
-361:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237", %362
-  %.sroa.0146.2 = phi i1 [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237" ], [ true, %362 ]
-  %.pn177 = phi { ptr, i32 } [ %368, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237" ], [ %363, %362 ]
+361:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236", %362
+  %.sroa.0146.2 = phi i1 [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236" ], [ true, %362 ]
+  %.pn177 = phi { ptr, i32 } [ %368, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236" ], [ %363, %362 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %45) #24
           to label %337 unwind label %232
 
@@ -28845,12 +28845,12 @@ tailrecurse:                                      ; preds = %106
           cleanup
   %369 = atomicrmw sub ptr %333, i64 1 release, align 8, !noalias !2831
   %370 = icmp eq i64 %369, 1
-  br i1 %370, label %371, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237"
+  br i1 %370, label %371, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236"
 
 371:                                              ; preds = %367
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237" unwind label %232
+          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236" unwind label %232
 
 372:                                              ; preds = %365
   invoke void @_ZN11polars_pipe9executors5sinks8group_by10aggregates5first8FirstAgg3new17hb5fc2f7a1cde5eccE(ptr noalias noundef nonnull sret([112 x i8]) align 16 captures(none) dereferenceable(112) %40, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %39)
@@ -28878,20 +28878,20 @@ tailrecurse:                                      ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
   br label %123
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit237": ; preds = %367, %371
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit236": ; preds = %367, %371
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %42) #24
           to label %361 unwind label %232
 
-.body192.thread:                                  ; preds = %..body192.thread_crit_edge, %354, %.body192.thread258
-  %377 = phi ptr [ %.pre304, %..body192.thread_crit_edge ], [ %333, %.body192.thread258 ], [ %333, %354 ]
-  %.pn179255 = phi { ptr, i32 } [ %.pn177, %..body192.thread_crit_edge ], [ %lpad.thr_comm, %.body192.thread258 ], [ %355, %354 ]
+.body191.thread:                                  ; preds = %..body191.thread_crit_edge, %354, %.body191.thread257
+  %377 = phi ptr [ %.pre303, %..body191.thread_crit_edge ], [ %333, %.body191.thread257 ], [ %333, %354 ]
+  %.pn179254 = phi { ptr, i32 } [ %.pn177, %..body191.thread_crit_edge ], [ %lpad.thr_comm, %.body191.thread257 ], [ %355, %354 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2836)
   call void @llvm.experimental.noalias.scope.decl(metadata !2837)
   %378 = atomicrmw sub ptr %377, i64 1 release, align 8, !noalias !2816
   %379 = icmp eq i64 %378, 1
   br i1 %379, label %380, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-380:                                              ; preds = %.body192.thread
+380:                                              ; preds = %.body191.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
@@ -28899,18 +28899,18 @@ tailrecurse:                                      ; preds = %106
 381:                                              ; preds = %138
   %382 = landingpad { ptr, i32 }
           cleanup
-  br label %.body218
+  br label %.body217
 
-.body218:                                         ; preds = %386, %381
-  %eh.lpad-body219 = phi { ptr, i32 } [ %382, %381 ], [ %387, %386 ]
+.body217:                                         ; preds = %386, %381
+  %eh.lpad-body218 = phi { ptr, i32 } [ %382, %381 ], [ %387, %386 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %36) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 383:                                              ; preds = %138
   call void @llvm.experimental.noalias.scope.decl(metadata !2838)
   %384 = load i64, ptr %37, align 8, !range !128, !alias.scope !2838, !noalias !2841, !noundef !16
-  %.not.i217 = icmp eq i64 %384, 17
-  br i1 %.not.i217, label %391, label %385, !prof !104
+  %.not.i216 = icmp eq i64 %384, 17
+  br i1 %.not.i216, label %391, label %385, !prof !104
 
 385:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !2843
@@ -28922,7 +28922,7 @@ tailrecurse:                                      ; preds = %106
   %387 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9) #24
-          to label %.body218 unwind label %389, !noalias !2838
+          to label %.body217 unwind label %389, !noalias !2838
 
 388:                                              ; preds = %385
   unreachable
@@ -28943,19 +28943,19 @@ tailrecurse:                                      ; preds = %106
   store ptr %395, ptr %396, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %36)
-          to label %398 unwind label %.body195.thread266
+          to label %398 unwind label %.body194.thread265
 
 397:                                              ; preds = %421
-  br i1 %.sroa.0145.2, label %..body195.thread_crit_edge, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
+  br i1 %.sroa.0145.2, label %..body194.thread_crit_edge, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-..body195.thread_crit_edge:                       ; preds = %397
+..body194.thread_crit_edge:                       ; preds = %397
   %.pre = load ptr, ptr %38, align 8, !alias.scope !2844
-  br label %.body195.thread
+  br label %.body194.thread
 
-.body195.thread266:                               ; preds = %398, %391
-  %lpad.thr_comm264 = landingpad { ptr, i32 }
+.body194.thread265:                               ; preds = %398, %391
+  %lpad.thr_comm263 = landingpad { ptr, i32 }
           cleanup
-  br label %.body195.thread
+  br label %.body194.thread
 
 398:                                              ; preds = %391
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %36)
@@ -28973,7 +28973,7 @@ tailrecurse:                                      ; preds = %106
   %407 = getelementptr inbounds nuw i8, ptr %395, i64 40
   %408 = load ptr, ptr %407, align 8, !invariant.load !16, !nonnull !16
   invoke void %408(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %33, ptr noundef align 1 %404, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %406)
-          to label %409 unwind label %.body195.thread266
+          to label %409 unwind label %.body194.thread265
 
 409:                                              ; preds = %398
   call void @llvm.experimental.noalias.scope.decl(metadata !2849)
@@ -28993,7 +28993,7 @@ tailrecurse:                                      ; preds = %106
   %415 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %16) #24
-          to label %.body195.thread unwind label %417, !noalias !2857
+          to label %.body194.thread unwind label %417, !noalias !2857
 
 416:                                              ; preds = %412
   unreachable
@@ -29012,9 +29012,9 @@ tailrecurse:                                      ; preds = %106
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %420)
           to label %424 unwind label %422
 
-421:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241", %422
-  %.sroa.0145.2 = phi i1 [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241" ], [ true, %422 ]
-  %.pn173 = phi { ptr, i32 } [ %428, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241" ], [ %423, %422 ]
+421:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240", %422
+  %.sroa.0145.2 = phi i1 [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240" ], [ true, %422 ]
+  %.pn173 = phi { ptr, i32 } [ %428, %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240" ], [ %423, %422 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %35) #24
           to label %397 unwind label %232
 
@@ -29045,12 +29045,12 @@ tailrecurse:                                      ; preds = %106
           cleanup
   %429 = atomicrmw sub ptr %393, i64 1 release, align 8, !noalias !2859
   %430 = icmp eq i64 %429, 1
-  br i1 %430, label %431, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241"
+  br i1 %430, label %431, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240"
 
 431:                                              ; preds = %427
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241" unwind label %232
+          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240" unwind label %232
 
 432:                                              ; preds = %425
   invoke void @_ZN11polars_pipe9executors5sinks8group_by10aggregates4last7LastAgg3new17hdd5be7e347ee6363E(ptr noalias noundef nonnull sret([112 x i8]) align 16 captures(none) dereferenceable(112) %30, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %29)
@@ -29078,20 +29078,20 @@ tailrecurse:                                      ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
   br label %123
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit241": ; preds = %427, %431
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit240": ; preds = %427, %431
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %32) #24
           to label %421 unwind label %232
 
-.body195.thread:                                  ; preds = %..body195.thread_crit_edge, %414, %.body195.thread266
-  %437 = phi ptr [ %.pre, %..body195.thread_crit_edge ], [ %393, %.body195.thread266 ], [ %393, %414 ]
-  %.pn175261 = phi { ptr, i32 } [ %.pn173, %..body195.thread_crit_edge ], [ %lpad.thr_comm264, %.body195.thread266 ], [ %415, %414 ]
+.body194.thread:                                  ; preds = %..body194.thread_crit_edge, %414, %.body194.thread265
+  %437 = phi ptr [ %.pre, %..body194.thread_crit_edge ], [ %393, %.body194.thread265 ], [ %393, %414 ]
+  %.pn175260 = phi { ptr, i32 } [ %.pn173, %..body194.thread_crit_edge ], [ %lpad.thr_comm263, %.body194.thread265 ], [ %415, %414 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2864)
   call void @llvm.experimental.noalias.scope.decl(metadata !2865)
   %438 = atomicrmw sub ptr %437, i64 1 release, align 8, !noalias !2844
   %439 = icmp eq i64 %438, 1
   br i1 %439, label %440, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-440:                                              ; preds = %.body195.thread
+440:                                              ; preds = %.body194.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
@@ -29099,18 +29099,18 @@ tailrecurse:                                      ; preds = %106
 441:                                              ; preds = %141
   %442 = landingpad { ptr, i32 }
           cleanup
-  br label %.body222
+  br label %.body221
 
-.body222:                                         ; preds = %446, %441
-  %eh.lpad-body223 = phi { ptr, i32 } [ %442, %441 ], [ %447, %446 ]
+.body221:                                         ; preds = %446, %441
+  %eh.lpad-body222 = phi { ptr, i32 } [ %442, %441 ], [ %447, %446 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %61) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 443:                                              ; preds = %141
   call void @llvm.experimental.noalias.scope.decl(metadata !2866)
   %444 = load i64, ptr %62, align 8, !range !128, !alias.scope !2866, !noalias !2869, !noundef !16
-  %.not.i221 = icmp eq i64 %444, 17
-  br i1 %.not.i221, label %451, label %445, !prof !104
+  %.not.i220 = icmp eq i64 %444, 17
+  br i1 %.not.i220, label %451, label %445, !prof !104
 
 445:                                              ; preds = %443
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !2871
@@ -29122,7 +29122,7 @@ tailrecurse:                                      ; preds = %106
   %447 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8) #24
-          to label %.body222 unwind label %449, !noalias !2866
+          to label %.body221 unwind label %449, !noalias !2866
 
 448:                                              ; preds = %445
   unreachable
@@ -29247,12 +29247,12 @@ tailrecurse:                                      ; preds = %106
           cleanup
   %492 = atomicrmw sub ptr %453, i64 1 release, align 8, !noalias !2882
   %493 = icmp eq i64 %492, 1
-  br i1 %493, label %494, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245"
+  br i1 %493, label %494, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244"
 
 494:                                              ; preds = %490
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %56)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245" unwind label %232
+          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244" unwind label %232
 
 495:                                              ; preds = %488
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54)
@@ -29275,7 +29275,7 @@ tailrecurse:                                      ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63)
   br label %123
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit245": ; preds = %490, %494
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit244": ; preds = %490, %494
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %57) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
@@ -29284,7 +29284,7 @@ tailrecurse:                                      ; preds = %106
           to label %502 unwind label %525
 
 501:                                              ; preds = %510, %508
-  %lpad.thr_comm.split-lp279 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp278 = landingpad { ptr, i32 }
           cleanup
   br label %526
 
@@ -29372,13 +29372,13 @@ tailrecurse:                                      ; preds = %106
   br label %518
 
 525:                                              ; preds = %502, %499
-  %lpad.thr_comm278 = landingpad { ptr, i32 }
+  %lpad.thr_comm277 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %52) #24
           to label %526 unwind label %232
 
 526:                                              ; preds = %525, %516, %482, %501
-  %.pn170.ph = phi { ptr, i32 } [ %483, %482 ], [ %517, %516 ], [ %lpad.thr_comm.split-lp279, %501 ], [ %lpad.thr_comm278, %525 ]
+  %.pn170.ph = phi { ptr, i32 } [ %483, %482 ], [ %517, %516 ], [ %lpad.thr_comm.split-lp278, %501 ], [ %lpad.thr_comm277, %525 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %60) #24
           to label %527 unwind label %232
 
@@ -29396,18 +29396,18 @@ tailrecurse:                                      ; preds = %106
 531:                                              ; preds = %144
   %532 = landingpad { ptr, i32 }
           cleanup
-  br label %.body226
+  br label %.body225
 
-.body226:                                         ; preds = %536, %531
-  %eh.lpad-body227 = phi { ptr, i32 } [ %532, %531 ], [ %537, %536 ]
+.body225:                                         ; preds = %536, %531
+  %eh.lpad-body226 = phi { ptr, i32 } [ %532, %531 ], [ %537, %536 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %75) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 533:                                              ; preds = %144
   call void @llvm.experimental.noalias.scope.decl(metadata !2892)
   %534 = load i64, ptr %76, align 8, !range !128, !alias.scope !2892, !noalias !2895, !noundef !16
-  %.not.i225 = icmp eq i64 %534, 17
-  br i1 %.not.i225, label %541, label %535, !prof !104
+  %.not.i224 = icmp eq i64 %534, 17
+  br i1 %.not.i224, label %541, label %535, !prof !104
 
 535:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !2897
@@ -29419,7 +29419,7 @@ tailrecurse:                                      ; preds = %106
   %537 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #24
-          to label %.body226 unwind label %539, !noalias !2892
+          to label %.body225 unwind label %539, !noalias !2892
 
 538:                                              ; preds = %535
   unreachable
@@ -29542,12 +29542,12 @@ tailrecurse:                                      ; preds = %106
           cleanup
   %583 = atomicrmw sub ptr %543, i64 1 release, align 8, !noalias !2908
   %584 = icmp eq i64 %583, 1
-  br i1 %584, label %585, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249"
+  br i1 %584, label %585, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248"
 
 585:                                              ; preds = %581
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %70)
-          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249" unwind label %232
+          to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248" unwind label %232
 
 586:                                              ; preds = %579
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68)
@@ -29570,7 +29570,7 @@ tailrecurse:                                      ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77)
   br label %123
 
-"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit249": ; preds = %581, %585
+"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit248": ; preds = %581, %585
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %71) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
@@ -29708,18 +29708,18 @@ tailrecurse:                                      ; preds = %106
 631:                                              ; preds = %147
   %632 = landingpad { ptr, i32 }
           cleanup
-  br label %.body230
+  br label %.body229
 
-.body230:                                         ; preds = %636, %631
-  %eh.lpad-body231 = phi { ptr, i32 } [ %632, %631 ], [ %637, %636 ]
+.body229:                                         ; preds = %636, %631
+  %eh.lpad-body230 = phi { ptr, i32 } [ %632, %631 ], [ %637, %636 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %26) #24
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
 
 633:                                              ; preds = %147
   call void @llvm.experimental.noalias.scope.decl(metadata !2918)
   %634 = load i64, ptr %27, align 8, !range !128, !alias.scope !2918, !noalias !2921, !noundef !16
-  %.not.i229 = icmp eq i64 %634, 17
-  br i1 %.not.i229, label %641, label %635, !prof !104
+  %.not.i228 = icmp eq i64 %634, 17
+  br i1 %.not.i228, label %641, label %635, !prof !104
 
 635:                                              ; preds = %633
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !2923
@@ -29731,7 +29731,7 @@ tailrecurse:                                      ; preds = %106
   %637 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #24
-          to label %.body230 unwind label %639, !noalias !2918
+          to label %.body229 unwind label %639, !noalias !2918
 
 638:                                              ; preds = %635
   unreachable
@@ -29754,13 +29754,13 @@ tailrecurse:                                      ; preds = %106
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_plan..plans..expr_ir..ExprIR$GT$17h4eaf8048694bed2eE"(ptr noalias noundef nonnull align 16 dereferenceable(112) %26)
           to label %652 unwind label %650
 
-.body204:                                         ; preds = %668, %650, %675
+.body203:                                         ; preds = %668, %650, %675
   %.pn = phi { ptr, i32 } [ %676, %675 ], [ %651, %650 ], [ %669, %668 ]
   %647 = atomicrmw sub ptr %643, i64 1 release, align 8, !noalias !2924
   %648 = icmp eq i64 %647, 1
   br i1 %648, label %649, label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit"
 
-649:                                              ; preds = %.body204
+649:                                              ; preds = %.body203
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habc744f76fd9e33cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
           to label %"_ZN4core3ptr96drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$17hb23516d5170338faE.exit" unwind label %232
@@ -29768,7 +29768,7 @@ tailrecurse:                                      ; preds = %106
 650:                                              ; preds = %652, %641
   %651 = landingpad { ptr, i32 }
           cleanup
-  br label %.body204
+  br label %.body203
 
 652:                                              ; preds = %641
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %26)
@@ -29806,7 +29806,7 @@ tailrecurse:                                      ; preds = %106
   %669 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13) #24
-          to label %.body204 unwind label %671, !noalias !2937
+          to label %.body203 unwind label %671, !noalias !2937
 
 670:                                              ; preds = %666
   unreachable
@@ -29829,7 +29829,7 @@ tailrecurse:                                      ; preds = %106
   %676 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcd430d58e43a0927E"(ptr noalias noundef align 16 dereferenceable(48) %25) #24
-          to label %.body204 unwind label %232
+          to label %.body203 unwind label %232
 
 677:                                              ; preds = %673
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24)
@@ -29854,8 +29854,8 @@ tailrecurse:                                      ; preds = %106
 
 683:                                              ; preds = %118
   store i64 1, ptr %120, align 8
-  %.sroa.4.0..sroa_idx254 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx254, align 8
+  %.sroa.4.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx253, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, i8 3, i64 48, i1 false)
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %120, ptr %684, align 16
@@ -35243,7 +35243,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 

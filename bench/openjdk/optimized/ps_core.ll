@@ -598,7 +598,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr nound
   br label %72
 
 72:                                               ; preds = %45, %16, %20, %23, %68, %14
-  %.1 = phi i64 [ %.050, %14 ], [ %.2, %68 ], [ %.050, %45 ], [ %.050, %16 ], [ %.050, %23 ], [ %.050, %20 ]
+  %.1 = phi i64 [ %.050, %14 ], [ %.050, %16 ], [ %.050, %23 ], [ %.050, %20 ], [ %.050, %45 ], [ %.2, %68 ]
   %73 = getelementptr inbounds nuw i8, ptr %.03649, i64 56
   %74 = add nuw nsw i32 %.03748, 1
   %75 = load i16, ptr %10, align 8

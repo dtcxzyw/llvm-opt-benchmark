@@ -4296,7 +4296,7 @@ default.unreachable:                              ; preds = %.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge338, %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %77, %.thread458, %414, %421, %422, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
+.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread458, %414, %421, %422, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   ret void
 
@@ -4857,8 +4857,8 @@ default.unreachable:                              ; preds = %.backedge
   call void @"_ZN4core3ptr341drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h60ab7ef9b53fd8abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %.critedge
 
-.thread:                                          ; preds = %273, %322, %327, %120, %267, %386, %.thread509
-  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %121, %120 ], [ %268, %267 ], [ %387, %386 ], [ %lpad.phi, %327 ], [ %lpad.phi, %322 ], [ %lpad.thr_comm, %273 ]
+.thread:                                          ; preds = %273, %322, %327, %386, %267, %120, %.thread509
+  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %387, %386 ], [ %268, %267 ], [ %121, %120 ], [ %lpad.phi, %327 ], [ %lpad.phi, %322 ], [ %lpad.thr_comm, %273 ]
   resume { ptr, i32 } %.pn333391
 
 .thread509:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %269, %170, %81
@@ -5642,7 +5642,7 @@ default.unreachable:                              ; preds = %.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge338, %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %77, %.thread458, %414, %421, %422, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
+.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread458, %414, %421, %422, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   ret void
 
@@ -6203,8 +6203,8 @@ default.unreachable:                              ; preds = %.backedge
   call void @"_ZN4core3ptr341drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h60ab7ef9b53fd8abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %.critedge
 
-.thread:                                          ; preds = %273, %322, %327, %120, %267, %386, %.thread509
-  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %121, %120 ], [ %268, %267 ], [ %387, %386 ], [ %lpad.phi, %327 ], [ %lpad.phi, %322 ], [ %lpad.thr_comm, %273 ]
+.thread:                                          ; preds = %273, %322, %327, %386, %267, %120, %.thread509
+  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %387, %386 ], [ %268, %267 ], [ %121, %120 ], [ %lpad.phi, %327 ], [ %lpad.phi, %322 ], [ %lpad.thr_comm, %273 ]
   resume { ptr, i32 } %.pn333391
 
 .thread509:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %269, %170, %81
@@ -9546,8 +9546,8 @@ common.resume:                                    ; preds = %34, %23
   br label %25
 
 25:                                               ; preds = %2, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc607bf393b99d3E.exit", %9
-  %.sroa.72.0 = phi ptr [ %14, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc607bf393b99d3E.exit" ], [ undef, %9 ], [ undef, %2 ]
-  %.sroa.6.0 = phi i8 [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc607bf393b99d3E.exit" ], [ %11, %9 ], [ undef, %2 ]
+  %.sroa.72.0 = phi ptr [ undef, %9 ], [ %14, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc607bf393b99d3E.exit" ], [ undef, %2 ]
+  %.sroa.6.0 = phi i8 [ %11, %9 ], [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hebc607bf393b99d3E.exit" ], [ undef, %2 ]
   store i8 %8, ptr %7, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 1
@@ -11672,8 +11672,8 @@ default.unreachable:                              ; preds = %576
   br label %594
 
 594:                                              ; preds = %593, %583, %581, %576
-  %or.cond12.not544.i.i.i = phi i64 [ 0, %593 ], [ 1, %583 ], [ 1, %581 ], [ 1, %576 ]
-  %595 = phi i64 [ %.sroa.10.3.i.i.i, %593 ], [ undef, %583 ], [ undef, %581 ], [ undef, %576 ]
+  %or.cond12.not544.i.i.i = phi i64 [ 0, %593 ], [ 1, %581 ], [ 1, %583 ], [ 1, %576 ]
+  %595 = phi i64 [ %.sroa.10.3.i.i.i, %593 ], [ undef, %581 ], [ undef, %583 ], [ undef, %576 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %36, i64 48, i1 false), !noalias !354
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)

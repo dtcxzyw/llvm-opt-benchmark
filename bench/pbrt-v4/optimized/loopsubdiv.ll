@@ -3128,10 +3128,10 @@ _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE6resizeEm.exit: ; preds = %1022, %_ZNSt6ve
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1029, %1061, %1084, %._crit_edge2241, %1074
-  %.sroa.11.1 = phi float [ %1060, %._crit_edge2241 ], [ %1060, %1084 ], [ %1060, %1074 ], [ %1060, %1061 ], [ %1041, %1029 ]
-  %.sroa.01302.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %._crit_edge2241 ], [ %.sroa.0.4.vec.insert.i, %1084 ], [ %.sroa.0.4.vec.insert.i, %1074 ], [ %.sroa.0.4.vec.insert.i, %1061 ], [ %.sroa.01302.4.vec.insert1309, %1029 ]
-  %.sroa.23.1 = phi float [ %1138, %._crit_edge2241 ], [ %1108, %1084 ], [ %1083, %1074 ], [ %1073, %1061 ], [ %1048, %1029 ]
-  %.sroa.01272.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i1087, %._crit_edge2241 ], [ %.sroa.01272.4.vec.insert1299, %1084 ], [ %.sroa.0.4.vec.insert.i1013, %1074 ], [ %.sroa.0.4.vec.insert.i1007, %1061 ], [ %.sroa.01272.4.vec.insert1289, %1029 ]
+  %.sroa.11.1 = phi float [ %1060, %._crit_edge2241 ], [ %1060, %1061 ], [ %1060, %1074 ], [ %1060, %1084 ], [ %1041, %1029 ]
+  %.sroa.01302.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %._crit_edge2241 ], [ %.sroa.0.4.vec.insert.i, %1061 ], [ %.sroa.0.4.vec.insert.i, %1074 ], [ %.sroa.0.4.vec.insert.i, %1084 ], [ %.sroa.01302.4.vec.insert1309, %1029 ]
+  %.sroa.23.1 = phi float [ %1138, %._crit_edge2241 ], [ %1073, %1061 ], [ %1083, %1074 ], [ %1108, %1084 ], [ %1048, %1029 ]
+  %.sroa.01272.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i1087, %._crit_edge2241 ], [ %.sroa.0.4.vec.insert.i1007, %1061 ], [ %.sroa.0.4.vec.insert.i1013, %1074 ], [ %.sroa.01272.4.vec.insert1299, %1084 ], [ %.sroa.01272.4.vec.insert1289, %1029 ]
   %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.01302.2, i64 1
   %.sroa.03.4.vec.extract.i1100 = extractelement <2 x float> %.sroa.01272.2, i64 1
   %1140 = fmul float %.sroa.11.1, %.sroa.03.4.vec.extract.i1100

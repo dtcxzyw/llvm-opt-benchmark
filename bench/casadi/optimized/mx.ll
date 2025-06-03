@@ -78339,9 +78339,9 @@ _ZNSt6vectorISt4pairIxxESaIS1_EE9push_backERKS1_.exit452: ; preds = %_ZNSt6vecto
   br i1 %637, label %566, label %.loopexit1053, !llvm.loop !915
 
 .loopexit1053:                                    ; preds = %629, %.preheader1052, %thread-pre-split, %561
-  %.sroa.17.6 = phi ptr [ %.sroa.17.1, %561 ], [ %.sroa.17.1, %thread-pre-split ], [ %.sroa.17.1, %.preheader1052 ], [ %.sroa.17.5, %629 ]
-  %.sroa.35.10 = phi ptr [ %.sroa.35.1, %561 ], [ %.sroa.35.1, %thread-pre-split ], [ %.sroa.35.1, %.preheader1052 ], [ %.sroa.35.9, %629 ]
-  %.sroa.0799.10 = phi ptr [ %.sroa.0799.1, %561 ], [ %.sroa.0799.1, %thread-pre-split ], [ %.sroa.0799.1, %.preheader1052 ], [ %.sroa.0799.9, %629 ]
+  %.sroa.17.6 = phi ptr [ %.sroa.17.1, %thread-pre-split ], [ %.sroa.17.1, %561 ], [ %.sroa.17.1, %.preheader1052 ], [ %.sroa.17.5, %629 ]
+  %.sroa.35.10 = phi ptr [ %.sroa.35.1, %thread-pre-split ], [ %.sroa.35.1, %561 ], [ %.sroa.35.1, %.preheader1052 ], [ %.sroa.35.9, %629 ]
+  %.sroa.0799.10 = phi ptr [ %.sroa.0799.1, %thread-pre-split ], [ %.sroa.0799.1, %561 ], [ %.sroa.0799.1, %.preheader1052 ], [ %.sroa.0799.9, %629 ]
   %638 = getelementptr inbounds nuw i8, ptr %.sroa.0769.01398, i64 64
   %639 = add nuw nsw i64 %.08771396, 1
   %640 = load ptr, ptr %380, align 8, !tbaa !871
@@ -123802,7 +123802,7 @@ define linkonce_odr hidden noundef i64 @_ZN6casadi11casadi_mathIdE5ndepsEh(i8 no
   br label %5
 
 5:                                                ; preds = %1, %1, %1, %4, %3, %2
-  %.0 = phi i64 [ 1, %4 ], [ -1, %3 ], [ 2, %2 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i64 [ 1, %4 ], [ 2, %2 ], [ -1, %3 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i64 %.0
 }
 

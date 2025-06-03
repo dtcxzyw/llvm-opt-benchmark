@@ -656,7 +656,7 @@ _ZL11getfuncnameP7Closure.exit.i:                 ; preds = %158, %153, %151, %1
   br label %161
 
 161:                                              ; preds = %160, %_ZL11getfuncnameP7Closure.exit.i, %126, %125, %121, %119, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i, %62, %61, %57
-  %.1.i = phi ptr [ %.136, %160 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.042.i, %125 ], [ %.042.i, %126 ], [ %.042.i, %121 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i ], [ %.042.i, %119 ], [ %.042.i, %61 ], [ %.042.i, %62 ], [ %.042.i, %57 ]
+  %.1.i = phi ptr [ %.042.i, %61 ], [ %.042.i, %62 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i ], [ %.042.i, %119 ], [ %.042.i, %121 ], [ %.042.i, %125 ], [ %.042.i, %126 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.136, %160 ], [ %.042.i, %57 ]
   %162 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %57, !llvm.loop !67
 

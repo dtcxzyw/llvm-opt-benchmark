@@ -487,7 +487,7 @@ define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) lo
   unreachable
 
 select.unfold180:                                 ; preds = %63, %59, %61, %67, %69, %.thread
-  %.1143 = phi i32 [ %68, %67 ], [ %70, %69 ], [ %65, %.thread ], [ %62, %61 ], [ %60, %59 ], [ %64, %63 ]
+  %.1143 = phi i32 [ %65, %.thread ], [ %68, %67 ], [ %70, %69 ], [ %62, %61 ], [ %60, %59 ], [ %64, %63 ]
   %75 = icmp eq i32 %.1143, 0
   br i1 %75, label %.thread185, label %.thread182
 
@@ -685,14 +685,14 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @__func__.spg_range_quad_inner_consistent) #6
   unreachable
 
-154:                                              ; preds = %115, %121, %114, %113, %112, %111, %106
-  %.3152.ph = phi i1 [ %.1150309, %106 ], [ %.1150309, %111 ], [ %.1150309, %112 ], [ %.1150309, %113 ], [ %.1150309, %114 ], [ true, %121 ], [ %.1150309, %115 ]
-  %.5.ph = phi i32 [ %.3311, %106 ], [ %.3311, %111 ], [ %.3311, %112 ], [ %.3311, %113 ], [ %.3311, %114 ], [ %129, %121 ], [ %.3311, %115 ]
-  %.0138.ph = phi ptr [ null, %106 ], [ null, %111 ], [ null, %112 ], [ %11, %113 ], [ %12, %114 ], [ null, %121 ], [ null, %115 ]
-  %.0137.ph = phi ptr [ null, %106 ], [ null, %111 ], [ %12, %112 ], [ null, %113 ], [ null, %114 ], [ null, %121 ], [ null, %115 ]
-  %.0136.ph = phi ptr [ null, %106 ], [ null, %111 ], [ %11, %112 ], [ null, %113 ], [ null, %114 ], [ null, %121 ], [ null, %115 ]
-  %.0135.ph = phi ptr [ %11, %106 ], [ %12, %111 ], [ null, %112 ], [ null, %113 ], [ null, %114 ], [ null, %121 ], [ null, %115 ]
-  %.0134.ph = phi i1 [ true, %106 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ true, %114 ], [ false, %121 ], [ false, %115 ]
+154:                                              ; preds = %111, %112, %113, %114, %115, %121, %106
+  %.3152.ph = phi i1 [ %.1150309, %106 ], [ true, %121 ], [ %.1150309, %115 ], [ %.1150309, %114 ], [ %.1150309, %113 ], [ %.1150309, %112 ], [ %.1150309, %111 ]
+  %.5.ph = phi i32 [ %.3311, %106 ], [ %129, %121 ], [ %.3311, %115 ], [ %.3311, %114 ], [ %.3311, %113 ], [ %.3311, %112 ], [ %.3311, %111 ]
+  %.0138.ph = phi ptr [ null, %106 ], [ null, %121 ], [ null, %115 ], [ %12, %114 ], [ %11, %113 ], [ null, %112 ], [ null, %111 ]
+  %.0137.ph = phi ptr [ null, %106 ], [ null, %121 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ %12, %112 ], [ null, %111 ]
+  %.0136.ph = phi ptr [ null, %106 ], [ null, %121 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ %11, %112 ], [ null, %111 ]
+  %.0135.ph = phi ptr [ %11, %106 ], [ null, %121 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %112 ], [ %12, %111 ]
+  %.0134.ph = phi i1 [ true, %106 ], [ false, %121 ], [ false, %115 ], [ true, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ]
   %155 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %.thread248, label %157
@@ -773,9 +773,9 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %spec.select178 = select i1 %or.cond174, i32 %177, i32 %.10
   br label %.thread288
 
-.thread288:                                       ; preds = %getQuadrant.exit, %136, %173, %172
-  %.3152202229260287294 = phi i1 [ %.3152202229260, %172 ], [ %.3152202229260, %173 ], [ %.1150309, %136 ], [ %.1150309, %getQuadrant.exit ]
-  %.11 = phi i32 [ %.10, %172 ], [ %spec.select178, %173 ], [ %137, %136 ], [ %149, %getQuadrant.exit ]
+.thread288:                                       ; preds = %136, %getQuadrant.exit, %173, %172
+  %.3152202229260287294 = phi i1 [ %.3152202229260, %172 ], [ %.3152202229260, %173 ], [ %.1150309, %getQuadrant.exit ], [ %.1150309, %136 ]
+  %.11 = phi i32 [ %.10, %172 ], [ %spec.select178, %173 ], [ %149, %getQuadrant.exit ], [ %137, %136 ]
   %178 = icmp eq i32 %.11, 0
   br i1 %178, label %.thread248, label %.thread288.thread
 
@@ -1050,68 +1050,68 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %25 = load i16, ptr %24, align 2
   switch i16 %25, label %60 [
-    i16 1, label %67
-    i16 2, label %26
-    i16 3, label %30
-    i16 4, label %34
-    i16 5, label %38
-    i16 6, label %42
-    i16 7, label %46
-    i16 8, label %50
-    i16 16, label %54
-    i16 18, label %56
+    i16 1, label %26
+    i16 2, label %30
+    i16 3, label %34
+    i16 4, label %38
+    i16 5, label %42
+    i16 6, label %46
+    i16 7, label %50
+    i16 8, label %54
+    i16 16, label %58
+    i16 18, label %67
   ]
 
 26:                                               ; preds = %.lr.ph
   %27 = inttoptr i64 %23 to ptr
   %28 = tail call ptr @pg_detoast_datum(ptr noundef %27) #6
-  %29 = tail call zeroext i1 @range_overleft_internal(ptr noundef %16, ptr noundef %11, ptr noundef %28) #6
+  %29 = tail call zeroext i1 @range_before_internal(ptr noundef %16, ptr noundef %11, ptr noundef %28) #6
   br i1 %29, label %71, label %._crit_edge
 
 30:                                               ; preds = %.lr.ph
   %31 = inttoptr i64 %23 to ptr
   %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #6
-  %33 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %16, ptr noundef %11, ptr noundef %32) #6
+  %33 = tail call zeroext i1 @range_overleft_internal(ptr noundef %16, ptr noundef %11, ptr noundef %32) #6
   br i1 %33, label %71, label %._crit_edge
 
 34:                                               ; preds = %.lr.ph
   %35 = inttoptr i64 %23 to ptr
   %36 = tail call ptr @pg_detoast_datum(ptr noundef %35) #6
-  %37 = tail call zeroext i1 @range_overright_internal(ptr noundef %16, ptr noundef %11, ptr noundef %36) #6
+  %37 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %16, ptr noundef %11, ptr noundef %36) #6
   br i1 %37, label %71, label %._crit_edge
 
 38:                                               ; preds = %.lr.ph
   %39 = inttoptr i64 %23 to ptr
   %40 = tail call ptr @pg_detoast_datum(ptr noundef %39) #6
-  %41 = tail call zeroext i1 @range_after_internal(ptr noundef %16, ptr noundef %11, ptr noundef %40) #6
+  %41 = tail call zeroext i1 @range_overright_internal(ptr noundef %16, ptr noundef %11, ptr noundef %40) #6
   br i1 %41, label %71, label %._crit_edge
 
 42:                                               ; preds = %.lr.ph
   %43 = inttoptr i64 %23 to ptr
   %44 = tail call ptr @pg_detoast_datum(ptr noundef %43) #6
-  %45 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %16, ptr noundef %11, ptr noundef %44) #6
+  %45 = tail call zeroext i1 @range_after_internal(ptr noundef %16, ptr noundef %11, ptr noundef %44) #6
   br i1 %45, label %71, label %._crit_edge
 
 46:                                               ; preds = %.lr.ph
   %47 = inttoptr i64 %23 to ptr
   %48 = tail call ptr @pg_detoast_datum(ptr noundef %47) #6
-  %49 = tail call zeroext i1 @range_contains_internal(ptr noundef %16, ptr noundef %11, ptr noundef %48) #6
+  %49 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %16, ptr noundef %11, ptr noundef %48) #6
   br i1 %49, label %71, label %._crit_edge
 
 50:                                               ; preds = %.lr.ph
   %51 = inttoptr i64 %23 to ptr
   %52 = tail call ptr @pg_detoast_datum(ptr noundef %51) #6
-  %53 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %16, ptr noundef %11, ptr noundef %52) #6
+  %53 = tail call zeroext i1 @range_contains_internal(ptr noundef %16, ptr noundef %11, ptr noundef %52) #6
   br i1 %53, label %71, label %._crit_edge
 
 54:                                               ; preds = %.lr.ph
-  %55 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %16, ptr noundef %11, i64 noundef %23) #6
-  br i1 %55, label %71, label %._crit_edge
+  %55 = inttoptr i64 %23 to ptr
+  %56 = tail call ptr @pg_detoast_datum(ptr noundef %55) #6
+  %57 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %16, ptr noundef %11, ptr noundef %56) #6
+  br i1 %57, label %71, label %._crit_edge
 
-56:                                               ; preds = %.lr.ph
-  %57 = inttoptr i64 %23 to ptr
-  %58 = tail call ptr @pg_detoast_datum(ptr noundef %57) #6
-  %59 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %58) #6
+58:                                               ; preds = %.lr.ph
+  %59 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %16, ptr noundef %11, i64 noundef %23) #6
   br i1 %59, label %71, label %._crit_edge
 
 60:                                               ; preds = %.lr.ph
@@ -1128,18 +1128,18 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
 67:                                               ; preds = %.lr.ph
   %68 = inttoptr i64 %23 to ptr
   %69 = tail call ptr @pg_detoast_datum(ptr noundef %68) #6
-  %70 = tail call zeroext i1 @range_before_internal(ptr noundef %16, ptr noundef %11, ptr noundef %69) #6
+  %70 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %69) #6
   br i1 %70, label %71, label %._crit_edge
 
-71:                                               ; preds = %26, %30, %34, %38, %42, %46, %50, %54, %56, %67
+71:                                               ; preds = %58, %54, %50, %46, %42, %38, %34, %30, %26, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %17, align 8
   %73 = sext i32 %72 to i64
   %.not = icmp slt i64 %indvars.iv.next, %73
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %71, %67, %56, %54, %50, %46, %42, %38, %34, %30, %26, %1
-  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ], [ 0, %42 ], [ 0, %46 ], [ 0, %50 ], [ 0, %54 ], [ 0, %56 ], [ 0, %67 ], [ 1, %71 ]
+._crit_edge:                                      ; preds = %71, %67, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
+  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %67 ], [ 1, %71 ]
   ret i64 %.lcssa52
 }
 

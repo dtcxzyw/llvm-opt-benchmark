@@ -275,7 +275,7 @@ define dso_local void @llvm_emit_3_variant_builtin(ptr noundef %0, ptr noundef %
   br label %.backedge
 
 .backedge:                                        ; preds = %27, %21
-  %.0.i.in.be = phi ptr [ %28, %27 ], [ %26, %21 ]
+  %.0.i.in.be = phi ptr [ %26, %21 ], [ %28, %27 ]
   br label %17
 
 29:                                               ; preds = %17
@@ -396,7 +396,7 @@ define dso_local void @llvm_emit_abs_builtin(ptr noundef %0, ptr noundef %1, ptr
   br label %.backedge
 
 .backedge:                                        ; preds = %24, %18
-  %.0.i.in.be = phi ptr [ %25, %24 ], [ %23, %18 ]
+  %.0.i.in.be = phi ptr [ %23, %18 ], [ %25, %24 ]
   br label %14
 
 26:                                               ; preds = %14
@@ -1189,7 +1189,7 @@ default.unreachable824:                           ; preds = %271
   unreachable
 
 llvm_emit_veccomp.exit:                           ; preds = %245, %247, %249, %251, %253, %255, %274, %276, %278, %281, %284, %287
-  %.073.i = phi ptr [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %289, %287 ], [ %286, %284 ], [ %283, %281 ], [ %280, %278 ], [ %277, %276 ], [ %275, %274 ]
+  %.073.i = phi ptr [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %275, %274 ], [ %277, %276 ], [ %280, %278 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ]
   %290 = load ptr, ptr %2, align 8
   tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.073.i, ptr noundef %290) #8
   br label %892
@@ -1405,7 +1405,7 @@ default.unreachable825:                           ; preds = %377
   unreachable
 
 398:                                              ; preds = %377, %397, %396, %395, %394, %393, %392, %389, %386, %384, %382
-  %.0752 = phi i32 [ 16, %397 ], [ 15, %396 ], [ 3, %395 ], [ 4, %394 ], [ 6, %393 ], [ 5, %392 ], [ %391, %389 ], [ %388, %386 ], [ %385, %384 ], [ %383, %382 ], [ 0, %377 ]
+  %.0752 = phi i32 [ %383, %382 ], [ %385, %384 ], [ %388, %386 ], [ %391, %389 ], [ 5, %392 ], [ 6, %393 ], [ 4, %394 ], [ 3, %395 ], [ 15, %396 ], [ 16, %397 ], [ 0, %377 ]
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2012,7 +2012,7 @@ default.unreachable826:                           ; preds = %680
   unreachable
 
 llvm_emit_wrap_builtin.exit:                      ; preds = %683, %687, %691, %695, %.critedge.i, %.critedge67.i, %.critedge69.i, %.critedge71.i
-  %.0.i809 = phi ptr [ %723, %.critedge69.i ], [ %726, %.critedge71.i ], [ %709, %.critedge.i ], [ %712, %.critedge67.i ], [ %698, %695 ], [ %694, %691 ], [ %690, %687 ], [ %686, %683 ]
+  %.0.i809 = phi ptr [ %686, %683 ], [ %690, %687 ], [ %694, %691 ], [ %698, %695 ], [ %709, %.critedge.i ], [ %712, %.critedge67.i ], [ %723, %.critedge69.i ], [ %726, %.critedge71.i ]
   %727 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.0.i809, ptr noundef %727) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -2677,8 +2677,8 @@ llvm_syscall_write_regs_to_scratch.exit68:        ; preds = %.lr.ph.i64, %50
   unreachable
 
 58:                                               ; preds = %llvm_syscall_write_regs_to_scratch.exit68, %45, %40, %llvm_syscall_write_regs_to_scratch.exit
-  %.09 = phi i32 [ %.08, %llvm_syscall_write_regs_to_scratch.exit68 ], [ 7, %40 ], [ %.08, %45 ], [ %.08, %llvm_syscall_write_regs_to_scratch.exit ]
-  %.043 = phi ptr [ %56, %llvm_syscall_write_regs_to_scratch.exit68 ], [ %44, %40 ], [ %49, %45 ], [ %34, %llvm_syscall_write_regs_to_scratch.exit ]
+  %.09 = phi i32 [ %.08, %llvm_syscall_write_regs_to_scratch.exit ], [ 7, %40 ], [ %.08, %45 ], [ %.08, %llvm_syscall_write_regs_to_scratch.exit68 ]
+  %.043 = phi ptr [ %34, %llvm_syscall_write_regs_to_scratch.exit ], [ %44, %40 ], [ %49, %45 ], [ %56, %llvm_syscall_write_regs_to_scratch.exit68 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @LLVMBuildCall2(ptr noundef %60, ptr noundef %20, ptr noundef %.043, ptr noundef nonnull %3, i32 noundef %.09, ptr noundef nonnull @.str.48) #8
@@ -3278,7 +3278,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -3379,7 +3379,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

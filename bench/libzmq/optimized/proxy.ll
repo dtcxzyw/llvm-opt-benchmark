@@ -1383,7 +1383,7 @@ select.unfold:                                    ; preds = %.critedge
   br label %453
 
 453:                                              ; preds = %.sink.split.i, %451, %449, %447, %434, %431
-  %.4 = phi i32 [ %.1463493, %431 ], [ %.sink.i, %.sink.split.i ], [ %.1463493, %451 ], [ %.1463493, %449 ], [ %.1463493, %447 ], [ %.1463493, %434 ]
+  %.4 = phi i32 [ %.1463493, %431 ], [ %.1463493, %434 ], [ %.sink.i, %.sink.split.i ], [ %.1463493, %447 ], [ %.1463493, %449 ], [ %.1463493, %451 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 4, ptr %8, align 8, !tbaa !17

@@ -8259,7 +8259,7 @@ ehcleanup102:                                     ; preds = %lpad96, %lpad87
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %lpad80, %ehcleanup102, %lpad72, %ehcleanup71, %lpad32, %lpad24
-  %.pn10.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn10.pn.pn.pn.pn, %ehcleanup71 ], [ %78, %lpad72 ], [ %49, %lpad32 ], [ %46, %lpad24 ], [ %.pn7, %ehcleanup102 ], [ %79, %lpad80 ]
+  %.pn10.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn10.pn.pn.pn.pn, %ehcleanup71 ], [ %78, %lpad72 ], [ %46, %lpad24 ], [ %49, %lpad32 ], [ %.pn7, %ehcleanup102 ], [ %79, %lpad80 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %engine) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %engine) #29
   call void @_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %probability) #29
@@ -11709,7 +11709,7 @@ ehcleanup102:                                     ; preds = %lpad96, %lpad87
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %lpad80, %ehcleanup102, %lpad72, %ehcleanup71, %lpad32, %lpad24
-  %.pn11.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn11.pn.pn.pn.pn, %ehcleanup71 ], [ %78, %lpad72 ], [ %49, %lpad32 ], [ %46, %lpad24 ], [ %.pn8, %ehcleanup102 ], [ %79, %lpad80 ]
+  %.pn11.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn11.pn.pn.pn.pn, %ehcleanup71 ], [ %78, %lpad72 ], [ %46, %lpad24 ], [ %49, %lpad32 ], [ %.pn8, %ehcleanup102 ], [ %79, %lpad80 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %engine) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %engine) #29
   call void @_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %probability) #29

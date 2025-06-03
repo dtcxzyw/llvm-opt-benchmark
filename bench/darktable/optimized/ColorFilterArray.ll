@@ -1609,7 +1609,7 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 _ZN8rawspeed12_GLOBAL__N_112toDcrawColorENS_8CFAColorE.exit: ; preds = %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit, %37, %38, %39
-  %.07.i = phi i32 [ 3, %39 ], [ 2, %38 ], [ 1, %37 ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ]
+  %.07.i = phi i32 [ 1, %37 ], [ 2, %38 ], [ 3, %39 ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ]
   %58 = shl nuw nsw i32 %.01941, 2
   %59 = or disjoint i32 %58, %27
   %60 = shl nuw i32 %.07.i, %59

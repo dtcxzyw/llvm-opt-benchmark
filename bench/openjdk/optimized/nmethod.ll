@@ -2689,7 +2689,7 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %54, %57, %59
   br i1 %67, label %_ZN13RelocIterator4nextEv.exit, label %16, !llvm.loop !37
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %64, %21, %2, %_ZN13RelocIterator18virtual_call_relocEv.exit, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit, %_ZN13RelocIterator17static_call_relocEv.exit
-  %.0 = phi ptr [ %63, %_ZN13RelocIterator18virtual_call_relocEv.exit ], [ %53, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit ], [ %43, %_ZN13RelocIterator17static_call_relocEv.exit ], [ null, %2 ], [ null, %21 ], [ null, %64 ]
+  %.0 = phi ptr [ %43, %_ZN13RelocIterator17static_call_relocEv.exit ], [ %53, %_ZN13RelocIterator22opt_virtual_call_relocEv.exit ], [ %63, %_ZN13RelocIterator18virtual_call_relocEv.exit ], [ null, %2 ], [ null, %21 ], [ null, %64 ]
   ret ptr %.0
 }
 
@@ -3212,7 +3212,7 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %_ZN7nmethod12is_unl
   br label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %141, %173, %187, %183, %168, %_ZN13RelocIterator14metadata_relocEv.exit, %62, %68, %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.thread.i, %103, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.thread.i16, %142, %_ZN7nmethod12is_unloadingEv.exit, %157, %143
-  %.0.be = phi i1 [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %142 ], [ false, %157 ], [ false, %143 ], [ %.032, %62 ], [ false, %173 ], [ false, %183 ], [ false, %187 ], [ false, %168 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ true, %141 ], [ %.032, %68 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.032, %103 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ]
+  %.0.be = phi i1 [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %142 ], [ false, %157 ], [ false, %143 ], [ %.032, %62 ], [ true, %141 ], [ false, %173 ], [ false, %183 ], [ false, %187 ], [ false, %168 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.032, %68 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.032, %103 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ]
   %188 = load ptr, ptr %39, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 2
   store ptr %189, ptr %39, align 8
@@ -4680,9 +4680,9 @@ _ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %71, %74, %76
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
 _ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %101, %99, %96, %94, %92, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %31 ], [ %.sroa.16.2, %92 ], [ %.sroa.16.2, %94 ], [ %.sroa.16.2, %96 ], [ %.sroa.16.2, %99 ], [ %.sroa.16.2, %101 ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %31 ], [ %.sroa.9.2, %92 ], [ %.sroa.9.2, %94 ], [ %.sroa.9.2, %96 ], [ %.sroa.9.2, %99 ], [ %.sroa.9.2, %101 ], [ %.sroa.9.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %31 ], [ %.sroa.0.2, %92 ], [ %.sroa.0.2, %94 ], [ %.sroa.0.2, %96 ], [ %.sroa.0.2, %99 ], [ %.sroa.0.2, %101 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %31 ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.16.2, %92 ], [ %.sroa.16.2, %94 ], [ %.sroa.16.2, %96 ], [ %.sroa.16.2, %99 ], [ %.sroa.16.2, %101 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %31 ], [ %.sroa.9.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.9.2, %92 ], [ %.sroa.9.2, %94 ], [ %.sroa.9.2, %96 ], [ %.sroa.9.2, %99 ], [ %.sroa.9.2, %101 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %31 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.0.2, %92 ], [ %.sroa.0.2, %94 ], [ %.sroa.0.2, %96 ], [ %.sroa.0.2, %99 ], [ %.sroa.0.2, %101 ]
   %102 = load ptr, ptr %7, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
   store ptr %103, ptr %7, align 8
@@ -10902,7 +10902,7 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %155, %158, %160
   br label %_ZN13RelocIterator4nextEv.exit
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %29, %3, %38, %173, %172, %_ZN13RelocIterator13barrier_relocEv.exit, %154, %153, %152, %151, %150, %149, %148, %147, %146, %144, %131, %118, %105, %73, %55
-  %.0 = phi ptr [ %178, %173 ], [ @.str.113, %172 ], [ %171, %_ZN13RelocIterator13barrier_relocEv.exit ], [ @.str.111, %154 ], [ @.str.110, %153 ], [ @.str.109, %152 ], [ @.str.108, %151 ], [ @.str.107, %150 ], [ @.str.106, %149 ], [ @.str.105, %148 ], [ @.str.104, %147 ], [ @.str.103, %146 ], [ %145, %144 ], [ %132, %131 ], [ %119, %118 ], [ %106, %105 ], [ %74, %73 ], [ %56, %55 ], [ @.str.92, %38 ], [ null, %3 ], [ null, %29 ]
+  %.0 = phi ptr [ %178, %173 ], [ %56, %55 ], [ %74, %73 ], [ %106, %105 ], [ %119, %118 ], [ %132, %131 ], [ %145, %144 ], [ @.str.103, %146 ], [ @.str.104, %147 ], [ @.str.105, %148 ], [ @.str.106, %149 ], [ @.str.107, %150 ], [ @.str.108, %151 ], [ @.str.109, %152 ], [ @.str.110, %153 ], [ @.str.111, %154 ], [ %171, %_ZN13RelocIterator13barrier_relocEv.exit ], [ @.str.113, %172 ], [ @.str.92, %38 ], [ null, %3 ], [ null, %29 ]
   ret ptr %.0
 }
 

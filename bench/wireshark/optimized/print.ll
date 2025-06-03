@@ -4249,7 +4249,7 @@ define ptr @get_node_field_value(ptr noundef readonly captures(none) %0, ptr nou
   br label %62
 
 62:                                               ; preds = %60, %58, %56, %54, %52
-  %.045 = phi ptr [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ]
+  %.045 = phi ptr [ %61, %60 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ]
   store i8 0, ptr %.045, align 1
   %63 = tail call noalias ptr @g_strdup(ptr noundef %46)
   tail call void @wmem_free(ptr noundef null, ptr noundef %46)
@@ -4292,7 +4292,7 @@ define ptr @get_node_field_value(ptr noundef readonly captures(none) %0, ptr nou
   br label %85
 
 85:                                               ; preds = %30, %32, %36, %79, %81, %69, %71, %62, %20, %13, %11
-  %.0 = phi ptr [ %12, %11 ], [ %16, %13 ], [ %23, %20 ], [ %80, %79 ], [ %84, %81 ], [ %37, %36 ], [ %31, %30 ], [ %35, %32 ], [ %63, %62 ], [ %70, %69 ], [ %72, %71 ]
+  %.0 = phi ptr [ %12, %11 ], [ %16, %13 ], [ %23, %20 ], [ %80, %79 ], [ %84, %81 ], [ %31, %30 ], [ %35, %32 ], [ %37, %36 ], [ %63, %62 ], [ %70, %69 ], [ %72, %71 ]
   ret ptr %.0
 }
 

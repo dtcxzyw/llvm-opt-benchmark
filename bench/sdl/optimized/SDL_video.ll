@@ -13234,7 +13234,7 @@ define hidden zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef %0, i32 noundef %
   br label %71
 
 71:                                               ; preds = %7, %9, %11, %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %48, %50, %53, %55, %57, %59, %61, %63, %65, %67, %69, %4
-  %.042 = phi i1 [ %5, %4 ], [ %70, %69 ], [ true, %67 ], [ true, %65 ], [ true, %63 ], [ true, %61 ], [ true, %59 ], [ true, %57 ], [ %54, %53 ], [ true, %55 ], [ %49, %48 ], [ true, %50 ], [ true, %45 ], [ true, %43 ], [ true, %41 ], [ true, %39 ], [ true, %37 ], [ true, %35 ], [ true, %33 ], [ true, %31 ], [ true, %29 ], [ true, %27 ], [ true, %25 ], [ true, %23 ], [ true, %21 ], [ true, %19 ], [ true, %17 ], [ true, %15 ], [ true, %13 ], [ true, %11 ], [ true, %9 ], [ true, %7 ]
+  %.042 = phi i1 [ %5, %4 ], [ %70, %69 ], [ true, %7 ], [ true, %9 ], [ true, %11 ], [ true, %13 ], [ true, %15 ], [ true, %17 ], [ true, %19 ], [ true, %21 ], [ true, %23 ], [ true, %25 ], [ true, %27 ], [ true, %29 ], [ true, %31 ], [ true, %33 ], [ true, %35 ], [ true, %37 ], [ true, %39 ], [ true, %41 ], [ true, %43 ], [ true, %45 ], [ %49, %48 ], [ true, %50 ], [ %54, %53 ], [ true, %55 ], [ true, %57 ], [ true, %59 ], [ true, %61 ], [ true, %63 ], [ true, %65 ], [ true, %67 ]
   ret i1 %.042
 }
 
@@ -13445,12 +13445,12 @@ define hidden zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef %0, ptr noundef %
   br label %.critedge82
 
 81:                                               ; preds = %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %15
-  %82 = phi i1 [ false, %29 ], [ false, %28 ], [ false, %27 ], [ false, %26 ], [ false, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ], [ true, %20 ], [ false, %19 ], [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ]
-  %83 = phi i1 [ false, %29 ], [ false, %28 ], [ false, %27 ], [ false, %26 ], [ false, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ true, %21 ], [ false, %20 ], [ false, %19 ], [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ]
-  %.061 = phi i32 [ 1026, %29 ], [ 1026, %28 ], [ 1026, %27 ], [ 1026, %26 ], [ 1026, %25 ], [ 1026, %24 ], [ 1026, %23 ], [ 1026, %22 ], [ 6146, %21 ], [ 6145, %20 ], [ 1026, %19 ], [ 1026, %18 ], [ 1026, %17 ], [ 1026, %16 ], [ 1026, %15 ]
-  %.not75 = phi i1 [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %25 ], [ true, %24 ], [ true, %23 ], [ true, %22 ], [ false, %21 ], [ false, %20 ], [ true, %19 ], [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ]
-  %.060 = phi i32 [ 0, %29 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 33303, %21 ], [ 33302, %20 ], [ 0, %19 ], [ 33301, %18 ], [ 33299, %17 ], [ 33300, %16 ], [ 33298, %15 ]
-  %.057 = phi i32 [ 33531, %29 ], [ 32937, %28 ], [ 32936, %27 ], [ 3123, %26 ], [ 3419, %25 ], [ 3418, %24 ], [ 3417, %23 ], [ 3416, %22 ], [ 3415, %21 ], [ 3414, %20 ], [ 3122, %19 ], [ 3413, %18 ], [ 3411, %17 ], [ 3412, %16 ], [ 3410, %15 ]
+  %82 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ true, %20 ], [ false, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %15 ]
+  %83 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ true, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %15 ]
+  %.061 = phi i32 [ 1026, %16 ], [ 1026, %17 ], [ 1026, %18 ], [ 1026, %19 ], [ 6145, %20 ], [ 6146, %21 ], [ 1026, %22 ], [ 1026, %23 ], [ 1026, %24 ], [ 1026, %25 ], [ 1026, %26 ], [ 1026, %27 ], [ 1026, %28 ], [ 1026, %29 ], [ 1026, %15 ]
+  %.not75 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ true, %19 ], [ false, %20 ], [ false, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ false, %15 ]
+  %.060 = phi i32 [ 33300, %16 ], [ 33299, %17 ], [ 33301, %18 ], [ 0, %19 ], [ 33302, %20 ], [ 33303, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 0, %29 ], [ 33298, %15 ]
+  %.057 = phi i32 [ 3412, %16 ], [ 3411, %17 ], [ 3413, %18 ], [ 3122, %19 ], [ 3414, %20 ], [ 3415, %21 ], [ 3416, %22 ], [ 3417, %23 ], [ 3418, %24 ], [ 3419, %25 ], [ 3123, %26 ], [ 32936, %27 ], [ 32937, %28 ], [ 33531, %29 ], [ 3410, %15 ]
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %85 = load ptr, ptr %84, align 8
   %.not6.i = icmp eq ptr %85, null
@@ -13759,7 +13759,7 @@ SDL_GL_GetProcAddress_REAL.exit108:               ; preds = %186
   br label %.critedge82
 
 .critedge82:                                      ; preds = %191, %189, %181, %174, %172, %164, %91, %89, %SDL_GL_GetProcAddress_REAL.exit103, %203, %205, %SDL_GL_GetProcAddress_REAL.exit108, %.critedge, %SDL_GL_GetProcAddress_REAL.exit, %201, %199, %197, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %47, %46, %13, %9
-  %.0 = phi i1 [ %80, %79 ], [ true, %76 ], [ true, %73 ], [ true, %70 ], [ true, %67 ], [ true, %64 ], [ true, %61 ], [ true, %58 ], [ true, %55 ], [ true, %52 ], [ true, %47 ], [ %.1, %46 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %14, %13 ], [ %10, %9 ], [ false, %SDL_GL_GetProcAddress_REAL.exit ], [ false, %.critedge ], [ false, %SDL_GL_GetProcAddress_REAL.exit108 ], [ true, %205 ], [ true, %203 ], [ false, %SDL_GL_GetProcAddress_REAL.exit103 ], [ false, %89 ], [ false, %91 ], [ false, %164 ], [ false, %172 ], [ false, %174 ], [ false, %181 ], [ false, %189 ], [ false, %191 ]
+  %.0 = phi i1 [ %80, %79 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %.1, %46 ], [ true, %47 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ %14, %13 ], [ %10, %9 ], [ false, %SDL_GL_GetProcAddress_REAL.exit ], [ false, %.critedge ], [ false, %SDL_GL_GetProcAddress_REAL.exit108 ], [ true, %205 ], [ true, %203 ], [ false, %SDL_GL_GetProcAddress_REAL.exit103 ], [ false, %89 ], [ false, %91 ], [ false, %164 ], [ false, %172 ], [ false, %174 ], [ false, %181 ], [ false, %189 ], [ false, %191 ]
   ret i1 %.0
 }
 
@@ -15757,7 +15757,7 @@ define hidden noundef nonnull ptr @SDL_GetCSSCursorName(i32 noundef %0, ptr noun
   br label %26
 
 26:                                               ; preds = %12, %13, %10, %11, %8, %9, %6, %7, %2, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %5, %4, %3
-  %.0 = phi ptr [ @.str.111, %25 ], [ @.str.132, %24 ], [ @.str.131, %23 ], [ @.str.130, %22 ], [ @.str.129, %21 ], [ @.str.128, %20 ], [ @.str.118, %19 ], [ @.str.127, %18 ], [ @.str.116, %17 ], [ @.str.126, %16 ], [ @.str.125, %15 ], [ @.str.124, %14 ], [ @.str.115, %5 ], [ @.str.114, %4 ], [ @.str.113, %3 ], [ @.str.112, %2 ], [ @.str.117, %7 ], [ @.str.117, %6 ], [ @.str.119, %9 ], [ @.str.119, %8 ], [ @.str.121, %11 ], [ @.str.121, %10 ], [ @.str.123, %13 ], [ @.str.123, %12 ]
+  %.0 = phi ptr [ @.str.111, %25 ], [ @.str.113, %3 ], [ @.str.114, %4 ], [ @.str.115, %5 ], [ @.str.124, %14 ], [ @.str.125, %15 ], [ @.str.126, %16 ], [ @.str.116, %17 ], [ @.str.127, %18 ], [ @.str.118, %19 ], [ @.str.128, %20 ], [ @.str.129, %21 ], [ @.str.130, %22 ], [ @.str.131, %23 ], [ @.str.132, %24 ], [ @.str.112, %2 ], [ @.str.117, %7 ], [ @.str.117, %6 ], [ @.str.119, %9 ], [ @.str.119, %8 ], [ @.str.121, %11 ], [ @.str.121, %10 ], [ @.str.123, %13 ], [ @.str.123, %12 ]
   ret ptr %.0
 }
 

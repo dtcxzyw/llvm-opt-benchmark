@@ -932,7 +932,7 @@ JS_FreeValue.exit:                                ; preds = %25, %28, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %5 = call ptr @js_load_file(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1) #15

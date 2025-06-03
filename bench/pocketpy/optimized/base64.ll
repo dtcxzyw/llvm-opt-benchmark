@@ -1196,7 +1196,7 @@ default.unreachable:                              ; preds = %34
   unreachable
 
 69:                                               ; preds = %63, %52, %41, %37
-  %.1.i.i = phi i32 [ %64, %63 ], [ %55, %52 ], [ %44, %41 ], [ %.03338.i.i, %37 ]
+  %.1.i.i = phi i32 [ %.03338.i.i, %37 ], [ %44, %41 ], [ %55, %52 ], [ %64, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i, %23
   br i1 %exitcond.not.i.i, label %_ZN4pkpyL13base64_decodeEPKcjPh.exit.i, label %.lr.ph.i.i, !llvm.loop !8

@@ -710,7 +710,7 @@ cid_load_keyword.exit.thread.i.i:                 ; preds = %244
   br label %250
 
 250:                                              ; preds = %.thread.i.i.i, %243, %242, %241, %238
-  %.2.i.i.i = phi ptr [ %183, %243 ], [ %184, %242 ], [ %185, %241 ], [ %182, %238 ], [ %249, %.thread.i.i.i ]
+  %.2.i.i.i = phi ptr [ %185, %241 ], [ %184, %242 ], [ %183, %243 ], [ %182, %238 ], [ %249, %.thread.i.i.i ]
   store ptr %.2.i.i.i, ptr %6, align 8, !tbaa !97
   %.off.i.i.i = add i32 %232, -9
   %switch37.i.i.i = icmp ult i32 %.off.i.i.i, 2
@@ -3067,8 +3067,8 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   br label %176
 
 176:                                              ; preds = %140, %.thread130, %.thread, %148, %144, %141
-  %.3103 = phi i8 [ 0, %140 ], [ %.0100.ph, %148 ], [ %.0100.ph, %144 ], [ %.0100.ph, %141 ], [ 0, %.thread ], [ 0, %.thread130 ]
-  %.4 = phi ptr [ %.1, %140 ], [ %.1, %148 ], [ %.1, %144 ], [ %.1, %141 ], [ %.093.ph, %.thread ], [ %.2.ph, %.thread130 ]
+  %.3103 = phi i8 [ %.0100.ph, %148 ], [ %.0100.ph, %144 ], [ %.0100.ph, %141 ], [ 0, %140 ], [ 0, %.thread ], [ 0, %.thread130 ]
+  %.4 = phi ptr [ %.1, %148 ], [ %.1, %144 ], [ %.1, %141 ], [ %.1, %140 ], [ %.093.ph, %.thread ], [ %.2.ph, %.thread130 ]
   call void @ft_mem_free(ptr noundef %16, ptr noundef %.4) #13
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %178 = load ptr, ptr %177, align 8, !tbaa !314

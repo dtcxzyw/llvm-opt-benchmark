@@ -481,8 +481,8 @@ gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.spli
   br label %91
 
 91:                                               ; preds = %90, %89, %88, %gv_calloc.exit.split.us.split.us.split.us
-  %.0272.us.us.us = phi double [ %86, %88 ], [ %86, %89 ], [ %.sroa.13.0342, %90 ], [ %.sroa.13.0342, %gv_calloc.exit.split.us.split.us.split.us ]
-  %.0271.us.us.us = phi double [ %.sroa.068.0343, %88 ], [ %87, %89 ], [ %87, %90 ], [ %.sroa.068.0343, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0272.us.us.us = phi double [ %.sroa.13.0342, %90 ], [ %86, %89 ], [ %86, %88 ], [ %.sroa.13.0342, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0271.us.us.us = phi double [ %87, %90 ], [ %87, %89 ], [ %.sroa.068.0343, %88 ], [ %.sroa.068.0343, %gv_calloc.exit.split.us.split.us.split.us ]
   %92 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269344, i64 %.0270325.us.us.us
   %93 = load double, ptr %92, align 8, !tbaa !60
   %94 = fadd double %.0271.us.us.us, %93

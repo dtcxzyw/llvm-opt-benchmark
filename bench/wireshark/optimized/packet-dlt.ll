@@ -1233,7 +1233,7 @@ dissect_dlt_verbose_parameter_bool.exit.i.i:      ; preds = %359, %357, %expert_
   br label %403
 
 396:                                              ; preds = %389, %386, %383, %380
-  %.0.i82.i.i = phi ptr [ %391, %389 ], [ %388, %386 ], [ %385, %383 ], [ %382, %380 ]
+  %.0.i82.i.i = phi ptr [ %382, %380 ], [ %385, %383 ], [ %388, %386 ], [ %391, %389 ]
   %397 = icmp ne ptr %.0.i82.i.i, null
   %398 = icmp ne ptr %.054.i.i.i, null
   %or.cond.i83.i.i = select i1 %397, i1 %398, i1 false
@@ -1367,7 +1367,7 @@ expert_dlt_buffer_too_short.exit.i91.i.i:         ; preds = %431, %430
   br label %458
 
 451:                                              ; preds = %444, %441, %438, %435
-  %.0.i87.i.i = phi ptr [ %446, %444 ], [ %443, %441 ], [ %440, %438 ], [ %437, %435 ]
+  %.0.i87.i.i = phi ptr [ %437, %435 ], [ %440, %438 ], [ %443, %441 ], [ %446, %444 ]
   %452 = icmp ne ptr %.0.i87.i.i, null
   %453 = icmp ne ptr %.059.i.i.i, null
   %or.cond.i88.i.i = select i1 %452, i1 %453, i1 false
@@ -1779,7 +1779,7 @@ expert_dlt_unsupported_parameter.exit.i.i:        ; preds = %630, %629
   br label %dissect_dlt_verbose_parameter_raw_data.exit.i.i
 
 dissect_dlt_verbose_parameter_raw_data.exit.i.i:  ; preds = %expert_dlt_unsupported_parameter.exit.i.i, %628, %626, %expert_dlt_buffer_too_short.exit58.i.i.i, %expert_dlt_buffer_too_short.exit.i106.i.i, %dissect_dlt_verbose_parameter_string.exit.i.i, %dissect_dlt_verbose_parameter_float.exit.i.i, %dissect_dlt_verbose_parameter_uint.exit.i.i, %dissect_dlt_verbose_parameter_int.exit.i.i, %dissect_dlt_verbose_parameter_bool.exit.i.i
-  %.077.i.i = phi i32 [ %318, %expert_dlt_unsupported_parameter.exit.i.i ], [ %579, %dissect_dlt_verbose_parameter_string.exit.i.i ], [ %508, %dissect_dlt_verbose_parameter_float.exit.i.i ], [ %466, %dissect_dlt_verbose_parameter_uint.exit.i.i ], [ %411, %dissect_dlt_verbose_parameter_int.exit.i.i ], [ %360, %dissect_dlt_verbose_parameter_bool.exit.i.i ], [ %.051.i101.i.i, %expert_dlt_buffer_too_short.exit.i106.i.i ], [ %604, %expert_dlt_buffer_too_short.exit58.i.i.i ], [ %618, %628 ], [ %618, %626 ]
+  %.077.i.i = phi i32 [ %318, %expert_dlt_unsupported_parameter.exit.i.i ], [ %360, %dissect_dlt_verbose_parameter_bool.exit.i.i ], [ %411, %dissect_dlt_verbose_parameter_int.exit.i.i ], [ %466, %dissect_dlt_verbose_parameter_uint.exit.i.i ], [ %508, %dissect_dlt_verbose_parameter_float.exit.i.i ], [ %579, %dissect_dlt_verbose_parameter_string.exit.i.i ], [ %.051.i101.i.i, %expert_dlt_buffer_too_short.exit.i106.i.i ], [ %604, %expert_dlt_buffer_too_short.exit58.i.i.i ], [ %618, %628 ], [ %618, %626 ]
   %633 = sub i32 %.077.i.i, %.01316.i
   %634 = icmp ult i32 %633, 5
   %..i.i = select i1 %634, i32 0, i32 %633

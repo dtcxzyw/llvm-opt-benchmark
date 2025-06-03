@@ -313,7 +313,7 @@ lean_inc.exit62:                                  ; preds = %64, %63, %61, %lean
   br label %lean_dec.exit70
 
 common.ret129:                                    ; preds = %lean_dec.exit69, %lean_dec.exit, %lean_dec.exit73, %lean_dec.exit72, %lean_dec.exit71, %lean_dec.exit70
-  %common.ret129.op = phi ptr [ %75, %lean_dec.exit70 ], [ %103, %lean_dec.exit71 ], [ %131, %lean_dec.exit72 ], [ %159, %lean_dec.exit73 ], [ %47, %lean_dec.exit69 ], [ %30, %lean_dec.exit ]
+  %common.ret129.op = phi ptr [ %75, %lean_dec.exit70 ], [ %103, %lean_dec.exit71 ], [ %131, %lean_dec.exit72 ], [ %159, %lean_dec.exit73 ], [ %30, %lean_dec.exit ], [ %47, %lean_dec.exit69 ]
   ret ptr %common.ret129.op
 
 lean_dec.exit70:                                  ; preds = %71, %70, %68, %lean_inc.exit62

@@ -5114,7 +5114,7 @@ lean_dec.exit:                                    ; preds = %286, %285, %283, %l
   br label %lean_dec.exit101.thread
 
 lean_dec.exit101.thread:                          ; preds = %lean_dec.exit94, %226, %228, %229, %lean_dec.exit98, %164, %166, %167, %lean_dec.exit102, %102, %104, %105, %lean_dec.exit, %lean_dec.exit88, %lean_dec.exit90, %lean_dec.exit104, %lean_dec.exit106
-  %.1 = phi ptr [ %287, %lean_dec.exit ], [ %271, %lean_dec.exit88 ], [ %253, %lean_dec.exit90 ], [ %49, %lean_dec.exit104 ], [ %31, %lean_dec.exit106 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %104 ], [ inttoptr (i64 1 to ptr), %102 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit102 ], [ inttoptr (i64 1 to ptr), %167 ], [ inttoptr (i64 1 to ptr), %166 ], [ inttoptr (i64 1 to ptr), %164 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit98 ], [ inttoptr (i64 1 to ptr), %229 ], [ inttoptr (i64 1 to ptr), %228 ], [ inttoptr (i64 1 to ptr), %226 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit94 ]
+  %.1 = phi ptr [ %287, %lean_dec.exit ], [ %31, %lean_dec.exit106 ], [ %49, %lean_dec.exit104 ], [ %253, %lean_dec.exit90 ], [ %271, %lean_dec.exit88 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %104 ], [ inttoptr (i64 1 to ptr), %102 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit102 ], [ inttoptr (i64 1 to ptr), %167 ], [ inttoptr (i64 1 to ptr), %166 ], [ inttoptr (i64 1 to ptr), %164 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit98 ], [ inttoptr (i64 1 to ptr), %229 ], [ inttoptr (i64 1 to ptr), %228 ], [ inttoptr (i64 1 to ptr), %226 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit94 ]
   ret ptr %.1
 }
 
@@ -5274,7 +5274,7 @@ lean_dec.exit:                                    ; preds = %58, %57, %55, %lean
   br label %60
 
 60:                                               ; preds = %lean_dec.exit, %lean_dec.exit17, %lean_dec.exit18
-  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %40, %lean_dec.exit17 ], [ %21, %lean_dec.exit18 ]
+  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %21, %lean_dec.exit18 ], [ %40, %lean_dec.exit17 ]
   ret ptr %.0
 }
 

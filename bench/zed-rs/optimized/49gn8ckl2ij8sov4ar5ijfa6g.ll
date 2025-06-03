@@ -2206,7 +2206,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$time..error..parse..Parse$u20$as$u2
   br label %19
 
 19:                                               ; preds = %17, %15, %13
-  %.sroa.0.0.in = phi i1 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in = phi i1 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   ret i1 %.sroa.0.0.in
 }
 

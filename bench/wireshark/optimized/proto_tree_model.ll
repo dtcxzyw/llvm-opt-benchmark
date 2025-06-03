@@ -796,10 +796,10 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %118
   br label %142
 
 141:                                              ; preds = %137, %125, %116, %110, %100, %85, %76, %70, %_ZN7QStringD2Ev.exit32, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %137 ], [ %33, %32 ], [ %.pn20, %100 ], [ %.pn18, %116 ], [ %.pn16, %125 ], [ %111, %110 ], [ %.pn24, %76 ], [ %.pn22, %85 ], [ %71, %70 ], [ %.pn26, %_ZN7QStringD2Ev.exit32 ]
+  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %_ZN7QStringD2Ev.exit32 ], [ %.pn24, %76 ], [ %.pn22, %85 ], [ %71, %70 ], [ %33, %32 ], [ %.pn20, %100 ], [ %.pn18, %116 ], [ %.pn16, %125 ], [ %111, %110 ], [ %.pn, %137 ]
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(40) %5) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #14
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn26.pn
 
 142:                                              ; preds = %140, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void

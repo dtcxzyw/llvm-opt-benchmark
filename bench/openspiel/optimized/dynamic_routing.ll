@@ -7832,7 +7832,7 @@ _ZNKSt6vectorIN10open_spiel15dynamic_routing23OriginDestinationDemandESaIS2_EE2a
           to label %_ZN10open_spiel15dynamic_routing23OriginDestinationDemandC2ERKS1_.exit unwind label %67
 
 common.resume:                                    ; preds = %32, %39, %51, %88, %109, %194, %210, %328, %330, %67
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %33, %32 ], [ %211, %210 ], [ %331, %330 ], [ %329, %328 ], [ %195, %194 ], [ %110, %109 ], [ %89, %88 ], [ %52, %51 ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %33, %32 ], [ %211, %210 ], [ %331, %330 ], [ %329, %328 ], [ %89, %88 ], [ %52, %51 ], [ %195, %194 ], [ %110, %109 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 67:                                               ; preds = %_ZNKSt6vectorIN10open_spiel15dynamic_routing23OriginDestinationDemandESaIS2_EE2atEm.exit

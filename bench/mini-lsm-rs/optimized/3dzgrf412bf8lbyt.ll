@@ -15337,7 +15337,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h568f0302a0a458e1E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -20364,7 +20364,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %12
 
 12:                                               ; preds = %10, %8, %6
-  %.0.i = phi i8 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.i = phi i8 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   %.not = icmp eq i8 %.0.i, 2
   %13 = trunc i8 %.0.i to i1
   %or.cond.i.i = or i1 %.not, %13
@@ -20398,7 +20398,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br label %24
 
 24:                                               ; preds = %22, %20, %18
-  %.0.i1 = phi i8 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
+  %.0.i1 = phi i8 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
   %.not6 = icmp eq i8 %.0.i1, 2
   %25 = trunc i8 %.0.i1 to i1
   %or.cond.i.i3 = or i1 %.not6, %25

@@ -1708,7 +1708,7 @@ default.unreachable12:                            ; preds = %1
   unreachable
 
 78:                                               ; preds = %79, %63
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %64, %63 ]
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn
 
 79:                                               ; preds = %10
@@ -2427,7 +2427,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h35a355e0e2ff60a6E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -2487,7 +2487,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17ha31434928b7460b5E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 

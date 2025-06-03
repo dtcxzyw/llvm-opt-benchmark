@@ -380,51 +380,51 @@ define internal range(i32 -30, 1) i32 @_archive_write_disk_close(ptr noundef %0)
   %43 = add i32 %42, -4096
   %44 = call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 20)
   switch i32 %44, label %la_verify_filetype.exit.thread [
-    i32 7, label %la_verify_filetype.exit
-    i32 3, label %45
-    i32 9, label %48
-    i32 11, label %51
-    i32 1, label %54
-    i32 5, label %57
-    i32 0, label %60
+    i32 7, label %45
+    i32 3, label %48
+    i32 9, label %51
+    i32 11, label %54
+    i32 1, label %57
+    i32 5, label %60
+    i32 0, label %la_verify_filetype.exit
   ]
 
 45:                                               ; preds = %40
   %46 = and i32 %41, 61440
-  %47 = icmp eq i32 %46, 16384
+  %47 = icmp eq i32 %46, 32768
   br i1 %47, label %.thread, label %la_verify_filetype.exit.thread
 
 48:                                               ; preds = %40
   %49 = and i32 %41, 61440
-  %50 = icmp eq i32 %49, 40960
+  %50 = icmp eq i32 %49, 16384
   br i1 %50, label %.thread, label %la_verify_filetype.exit.thread
 
 51:                                               ; preds = %40
   %52 = and i32 %41, 61440
-  %53 = icmp eq i32 %52, 49152
+  %53 = icmp eq i32 %52, 40960
   br i1 %53, label %.thread, label %la_verify_filetype.exit.thread
 
 54:                                               ; preds = %40
   %55 = and i32 %41, 61440
-  %56 = icmp eq i32 %55, 8192
+  %56 = icmp eq i32 %55, 49152
   br i1 %56, label %.thread, label %la_verify_filetype.exit.thread
 
 57:                                               ; preds = %40
   %58 = and i32 %41, 61440
-  %59 = icmp eq i32 %58, 24576
+  %59 = icmp eq i32 %58, 8192
   br i1 %59, label %.thread, label %la_verify_filetype.exit.thread
 
 60:                                               ; preds = %40
   %61 = and i32 %41, 61440
-  %62 = icmp eq i32 %61, 4096
+  %62 = icmp eq i32 %61, 24576
   br i1 %62, label %.thread, label %la_verify_filetype.exit.thread
 
 la_verify_filetype.exit:                          ; preds = %40
   %63 = and i32 %41, 61440
-  %64 = icmp eq i32 %63, 32768
+  %64 = icmp eq i32 %63, 4096
   br i1 %64, label %.thread, label %la_verify_filetype.exit.thread
 
-.thread:                                          ; preds = %45, %48, %51, %54, %57, %60, %28, %la_verify_filetype.exit, %36
+.thread:                                          ; preds = %60, %57, %54, %51, %48, %45, %28, %la_verify_filetype.exit, %36
   %65 = load ptr, ptr %15, align 8, !tbaa !44
   %66 = call i32 @lstat(ptr noundef %65, ptr noundef nonnull %3) #19
   %.not87 = icmp eq i32 %66, 0
@@ -436,51 +436,51 @@ la_verify_filetype.exit:                          ; preds = %40
   %70 = add i32 %69, -4096
   %71 = call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 20)
   switch i32 %71, label %la_verify_filetype.exit.thread [
-    i32 7, label %la_verify_filetype.exit95
-    i32 3, label %72
-    i32 9, label %75
-    i32 11, label %78
-    i32 1, label %81
-    i32 5, label %84
-    i32 0, label %87
+    i32 7, label %72
+    i32 3, label %75
+    i32 9, label %78
+    i32 11, label %81
+    i32 1, label %84
+    i32 5, label %87
+    i32 0, label %la_verify_filetype.exit95
   ]
 
 72:                                               ; preds = %67
   %73 = and i32 %68, 61440
-  %74 = icmp eq i32 %73, 16384
+  %74 = icmp eq i32 %73, 32768
   br i1 %74, label %92, label %la_verify_filetype.exit.thread
 
 75:                                               ; preds = %67
   %76 = and i32 %68, 61440
-  %77 = icmp eq i32 %76, 40960
+  %77 = icmp eq i32 %76, 16384
   br i1 %77, label %92, label %la_verify_filetype.exit.thread
 
 78:                                               ; preds = %67
   %79 = and i32 %68, 61440
-  %80 = icmp eq i32 %79, 49152
+  %80 = icmp eq i32 %79, 40960
   br i1 %80, label %92, label %la_verify_filetype.exit.thread
 
 81:                                               ; preds = %67
   %82 = and i32 %68, 61440
-  %83 = icmp eq i32 %82, 8192
+  %83 = icmp eq i32 %82, 49152
   br i1 %83, label %92, label %la_verify_filetype.exit.thread
 
 84:                                               ; preds = %67
   %85 = and i32 %68, 61440
-  %86 = icmp eq i32 %85, 24576
+  %86 = icmp eq i32 %85, 8192
   br i1 %86, label %92, label %la_verify_filetype.exit.thread
 
 87:                                               ; preds = %67
   %88 = and i32 %68, 61440
-  %89 = icmp eq i32 %88, 4096
+  %89 = icmp eq i32 %88, 24576
   br i1 %89, label %92, label %la_verify_filetype.exit.thread
 
 la_verify_filetype.exit95:                        ; preds = %67
   %90 = and i32 %68, 61440
-  %91 = icmp eq i32 %90, 32768
+  %91 = icmp eq i32 %90, 4096
   br i1 %91, label %92, label %la_verify_filetype.exit.thread
 
-92:                                               ; preds = %72, %75, %78, %81, %84, %87, %34, %la_verify_filetype.exit95
+92:                                               ; preds = %87, %84, %81, %78, %75, %72, %34, %la_verify_filetype.exit95
   %93 = load i32, ptr %25, align 8, !tbaa !50
   %94 = and i32 %93, 4
   %.not88 = icmp eq i32 %94, 0
@@ -564,8 +564,8 @@ set_times.exit:                                   ; preds = %110, %set_time.exit
   %137 = call fastcc i32 @set_fflags_platform(ptr noundef %0, i32 noundef %32, ptr noundef %132, i32 noundef %134, i64 noundef %136, i64 noundef 0)
   br label %la_verify_filetype.exit.thread
 
-la_verify_filetype.exit.thread:                   ; preds = %72, %75, %78, %81, %84, %87, %45, %48, %51, %54, %57, %60, %128, %131, %67, %40, %.thread, %la_verify_filetype.exit95, %38, %la_verify_filetype.exit, %.critedge
-  %.077 = phi i32 [ -1, %.critedge ], [ %32, %38 ], [ %32, %la_verify_filetype.exit ], [ %32, %.thread ], [ %32, %la_verify_filetype.exit95 ], [ %32, %40 ], [ %32, %67 ], [ %32, %131 ], [ %32, %128 ], [ %32, %60 ], [ %32, %57 ], [ %32, %54 ], [ %32, %51 ], [ %32, %48 ], [ %32, %45 ], [ %32, %87 ], [ %32, %84 ], [ %32, %81 ], [ %32, %78 ], [ %32, %75 ], [ %32, %72 ]
+la_verify_filetype.exit.thread:                   ; preds = %87, %84, %81, %78, %75, %72, %60, %57, %54, %51, %48, %45, %128, %131, %67, %40, %.thread, %la_verify_filetype.exit95, %38, %la_verify_filetype.exit, %.critedge
+  %.077 = phi i32 [ -1, %.critedge ], [ %32, %38 ], [ %32, %la_verify_filetype.exit ], [ %32, %.thread ], [ %32, %la_verify_filetype.exit95 ], [ %32, %40 ], [ %32, %67 ], [ %32, %131 ], [ %32, %128 ], [ %32, %45 ], [ %32, %48 ], [ %32, %51 ], [ %32, %54 ], [ %32, %57 ], [ %32, %60 ], [ %32, %72 ], [ %32, %75 ], [ %32, %78 ], [ %32, %81 ], [ %32, %84 ], [ %32, %87 ]
   %138 = load ptr, ptr %.076106, align 8, !tbaa !62
   %139 = getelementptr inbounds nuw i8, ptr %.076106, i64 8
   call void @archive_acl_clear(ptr noundef nonnull %139) #19
@@ -4124,7 +4124,7 @@ define internal fastcc i32 @create_filesystem_object(ptr noundef %0) unnamed_add
   br label %150
 
 150:                                              ; preds = %146, %117, %110, %103
-  %.1 = phi i32 [ %.lobit, %103 ], [ %123, %117 ], [ %116, %110 ], [ %149, %146 ]
+  %.1 = phi i32 [ %.lobit, %103 ], [ %149, %146 ], [ %116, %110 ], [ %123, %117 ]
   %.not92 = icmp eq i32 %.1, 0
   br i1 %.not92, label %153, label %.thread105
 

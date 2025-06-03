@@ -6672,7 +6672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112.i.i: ; preds =
   br label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
 
 422:                                              ; preds = %414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.i.i, %360, %357, %354
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %.pn53.i.i, %414 ], [ %.pn51.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.i.i ], [ %361, %360 ], [ %358, %357 ], [ %355, %354 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %.pn53.i.i, %414 ], [ %355, %354 ], [ %358, %357 ], [ %361, %360 ], [ %.pn51.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.i.i ]
   %423 = load ptr, ptr %61, align 8, !tbaa !118, !noalias !588
   %424 = icmp eq ptr %423, %345
   br i1 %424, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113.i.i

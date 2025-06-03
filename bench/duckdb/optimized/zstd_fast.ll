@@ -187,7 +187,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i:  ; preds = %.lr.ph.split.us.i, 
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i:     ; preds = %114, %111, %108, %105, %101
-  %.0.i.i = phi i64 [ %104, %101 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %116, %114 ]
+  %.0.i.i = phi i64 [ %104, %101 ], [ %116, %114 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ]
   %117 = lshr i64 %.0.i.i, 8
   %118 = trunc i64 %.0.i.i to i32
   %119 = and i32 %118, 255
@@ -239,7 +239,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i:     ; preds = %114, %111, %108, %1
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i:   ; preds = %138, %135, %132, %129, %125
-  %.0.i33.i = phi i64 [ %128, %125 ], [ %137, %135 ], [ %134, %132 ], [ %131, %129 ], [ %140, %138 ]
+  %.0.i33.i = phi i64 [ %128, %125 ], [ %140, %138 ], [ %131, %129 ], [ %134, %132 ], [ %137, %135 ]
   %141 = lshr i64 %.0.i33.i, 8
   %142 = getelementptr inbounds nuw i32, ptr %7, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !24
@@ -11023,9 +11023,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL39ZSTD_compressBlock_fast_e
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %.not358571 = icmp ult ptr %54, %44
-  br i1 %.not358571, label %.lr.ph575, label %.loopexit
+  br i1 %.not358571, label %.lr.ph576, label %.loopexit
 
-.lr.ph575:                                        ; preds = %48
+.lr.ph576:                                        ; preds = %48
   %55 = sub i32 32, %11
   %56 = sub i32 64, %11
   %57 = zext nneg i32 %56 to i64
@@ -11037,12 +11037,12 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL39ZSTD_compressBlock_fast_e
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 76
   br label %64
 
-64:                                               ; preds = %.lr.ph575, %.thread477
-  %65 = phi ptr [ %54, %.lr.ph575 ], [ %367, %.thread477 ]
-  %66 = phi ptr [ %53, %.lr.ph575 ], [ %366, %.thread477 ]
-  %.1285574 = phi i32 [ %.0284, %.lr.ph575 ], [ %.3287, %.thread477 ]
-  %.1289573 = phi i32 [ %spec.select365, %.lr.ph575 ], [ %.3291, %.thread477 ]
-  %.0296572 = phi ptr [ %3, %.lr.ph575 ], [ %.6, %.thread477 ]
+64:                                               ; preds = %.lr.ph576, %.thread477
+  %65 = phi ptr [ %54, %.lr.ph576 ], [ %367, %.thread477 ]
+  %66 = phi ptr [ %53, %.lr.ph576 ], [ %366, %.thread477 ]
+  %.1285575 = phi i32 [ %.0284, %.lr.ph576 ], [ %.3287, %.thread477 ]
+  %.1289574 = phi i32 [ %spec.select365, %.lr.ph576 ], [ %.3291, %.thread477 ]
+  %.0296572 = phi ptr [ %3, %.lr.ph576 ], [ %.6, %.thread477 ]
   %67 = getelementptr inbounds nuw i8, ptr %.0296572, i64 1
   %68 = getelementptr inbounds nuw i8, ptr %.0296572, i64 128
   switch i32 %5, label %.unreachabledefault [
@@ -11082,7 +11082,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455: ; preds = %64
 .unreachabledefault:                              ; preds = %64
   unreachable
 
-default.unreachable:                              ; preds = %283, %.thread635, %.thread, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit
+default.unreachable:                              ; preds = %283, %.thread636, %.thread, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit
   unreachable
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382:    ; preds = %64
@@ -11097,13 +11097,13 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382:    ; preds = %64
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380:    ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread449, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread452, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455
-  %.0.i381447 = phi i64 [ %83, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382 ], [ %78, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455 ], [ %74, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread452 ], [ %70, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread449 ]
-  %.0.i379 = phi i64 [ %86, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382 ], [ %80, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455 ], [ %76, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread452 ], [ %72, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread449 ]
+  %.0.i381447 = phi i64 [ %83, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382 ], [ %70, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread449 ], [ %74, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread452 ], [ %78, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455 ]
+  %.0.i379 = phi i64 [ %86, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382 ], [ %72, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread449 ], [ %76, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread452 ], [ %80, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit382.thread455 ]
   %87 = getelementptr inbounds nuw i32, ptr %9, i64 %.0.i381447
   %88 = load i32, ptr %87, align 4, !tbaa !24
   %89 = icmp ult i32 %88, %39
   %90 = select i1 %89, ptr %20, ptr %18
-  %91 = icmp ne i32 %.1285574, 0
+  %91 = icmp ne i32 %.1285575, 0
   br label %92
 
 92:                                               ; preds = %178, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380
@@ -11120,7 +11120,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380:    ; preds = %_ZN11duckdb_zstdL12
   %93 = ptrtoint ptr %.0305 to i64
   %94 = sub i64 %93, %22
   %95 = trunc i64 %94 to i32
-  %96 = sub i32 %95, %.1285574
+  %96 = sub i32 %95, %.1285575
   %97 = icmp ult i32 %96, %39
   %98 = select i1 %97, ptr %20, ptr %18
   %99 = sub i32 %39, %96
@@ -11214,13 +11214,13 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380:    ; preds = %_ZN11duckdb_zstdL12
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378:    ; preds = %134, %138, %141, %144
-  %.0.i377 = phi i64 [ %137, %134 ], [ %146, %144 ], [ %143, %141 ], [ %140, %138 ]
+  %.0.i377 = phi i64 [ %137, %134 ], [ %140, %138 ], [ %143, %141 ], [ %146, %144 ]
   %147 = ptrtoint ptr %.0302 to i64
   %148 = sub i64 %147, %22
   %149 = trunc i64 %148 to i32
   store i32 %149, ptr %130, align 4, !tbaa !24
   %.not360 = icmp ult i32 %131, %34
-  br i1 %.not360, label %.thread635, label %150
+  br i1 %.not360, label %.thread636, label %150
 
 150:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378
   %151 = zext i32 %131 to i64
@@ -11228,9 +11228,9 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378:    ; preds = %134, %138, %141, %1
   %.val386 = load i32, ptr %152, align 1, !tbaa !24
   %.0302.val.pre = load i32, ptr %.0302, align 1, !tbaa !24
   %153 = icmp eq i32 %.0302.val.pre, %.val386
-  br i1 %153, label %188, label %.thread635
+  br i1 %153, label %188, label %.thread636
 
-.thread635:                                       ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378, %150
+.thread636:                                       ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378, %150
   %154 = getelementptr inbounds nuw i32, ptr %9, i64 %.0.i377
   %155 = load i32, ptr %154, align 4, !tbaa !24
   %156 = icmp ult i32 %155, %39
@@ -11242,33 +11242,33 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit378:    ; preds = %134, %138, %141, %1
     i32 4, label %158
   ]
 
-158:                                              ; preds = %.thread635
+158:                                              ; preds = %.thread636
   %.0307.val = load i32, ptr %.0307, align 1, !tbaa !24
   %159 = mul i32 %.0307.val, -1640531535
   %160 = lshr i32 %159, %55
   %161 = zext i32 %160 to i64
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376
 
-162:                                              ; preds = %.thread635
+162:                                              ; preds = %.thread636
   %.0307.val399 = load i64, ptr %.0307, align 1, !tbaa !23
   %163 = mul i64 %.0307.val399, -3523014627271114752
   %164 = lshr i64 %163, %57
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376
 
-165:                                              ; preds = %.thread635
+165:                                              ; preds = %.thread636
   %.0307.val406 = load i64, ptr %.0307, align 1, !tbaa !23
   %166 = mul i64 %.0307.val406, -3523014627193847808
   %167 = lshr i64 %166, %57
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376
 
-168:                                              ; preds = %.thread635
+168:                                              ; preds = %.thread636
   %.0307.val413 = load i64, ptr %.0307, align 1, !tbaa !23
   %169 = mul i64 %.0307.val413, -3523014627193167104
   %170 = lshr i64 %169, %57
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376
 
 _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %158, %162, %165, %168
-  %.0.i375 = phi i64 [ %161, %158 ], [ %170, %168 ], [ %167, %165 ], [ %164, %162 ]
+  %.0.i375 = phi i64 [ %161, %158 ], [ %164, %162 ], [ %167, %165 ], [ %170, %168 ]
   %171 = getelementptr inbounds nuw i8, ptr %.0305, i64 %.0324
   %172 = getelementptr inbounds nuw i8, ptr %.0307, i64 %.0324
   %.not363 = icmp ult ptr %171, %.0322
@@ -11291,8 +11291,8 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %158, %162, %165, %1
 
 .loopexit:                                        ; preds = %.thread477, %178, %48
   %.0296545 = phi ptr [ %3, %48 ], [ %.0296572, %178 ], [ %.6, %.thread477 ]
-  %.1289538 = phi i32 [ %spec.select365, %48 ], [ %.1289573, %178 ], [ %.3291, %.thread477 ]
-  %.1285531 = phi i32 [ %.0284, %48 ], [ %.1285574, %178 ], [ %.3287, %.thread477 ]
+  %.1289538 = phi i32 [ %spec.select365, %48 ], [ %.1289574, %178 ], [ %.3291, %.thread477 ]
+  %.1285531 = phi i32 [ %.0284, %48 ], [ %.1285575, %178 ], [ %.3287, %.thread477 ]
   %180 = icmp ne i32 %.0294, 0
   %181 = icmp ne i32 %.1285531, 0
   %or.cond = select i1 %180, i1 %181, i1 false
@@ -11308,12 +11308,12 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %158, %162, %165, %1
   br label %368
 
 188:                                              ; preds = %150, %126
-  %.1321 = phi ptr [ %.0320, %126 ], [ %133, %150 ]
-  %.1315 = phi i32 [ %.0314, %126 ], [ %131, %150 ]
-  %.2313 = phi i64 [ %.0311, %126 ], [ %.0.i377, %150 ]
-  %.1309 = phi i32 [ %110, %126 ], [ %149, %150 ]
-  %.2304 = phi ptr [ %.0302, %126 ], [ %.0305, %150 ]
-  %.4300 = phi ptr [ %.1297, %126 ], [ %.0302, %150 ]
+  %.1321 = phi ptr [ %133, %150 ], [ %.0320, %126 ]
+  %.1315 = phi i32 [ %131, %150 ], [ %.0314, %126 ]
+  %.2313 = phi i64 [ %.0.i377, %150 ], [ %.0311, %126 ]
+  %.1309 = phi i32 [ %149, %150 ], [ %110, %126 ]
+  %.2304 = phi ptr [ %.0305, %150 ], [ %.0302, %126 ]
+  %.4300 = phi ptr [ %.0302, %150 ], [ %.1297, %126 ]
   %189 = sub i32 %.1309, %.1315
   %190 = icmp ugt i32 %38, %.1315
   %191 = select i1 %190, ptr %36, ptr %41
@@ -11353,8 +11353,8 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %158, %162, %165, %1
   %.0308 = phi i32 [ %110, %113 ], [ %.1309, %188 ], [ %.1309, %.lr.ph ], [ %.1309, %204 ]
   %.1303 = phi ptr [ %.0302, %113 ], [ %.2304, %188 ], [ %.2304, %.lr.ph ], [ %.2304, %204 ]
   %.3299 = phi ptr [ %122, %113 ], [ %.4300, %188 ], [ %199, %204 ], [ %.5301548, %.lr.ph ]
-  %.2290 = phi i32 [ %.1289573, %113 ], [ %.1285574, %188 ], [ %.1285574, %.lr.ph ], [ %.1285574, %204 ]
-  %.2286 = phi i32 [ %.1285574, %113 ], [ %189, %188 ], [ %189, %.lr.ph ], [ %189, %204 ]
+  %.2290 = phi i32 [ %.1289574, %113 ], [ %.1285575, %188 ], [ %.1285575, %.lr.ph ], [ %.1285575, %204 ]
+  %.2286 = phi i32 [ %.1285575, %113 ], [ %189, %188 ], [ %189, %.lr.ph ], [ %189, %204 ]
   %209 = getelementptr inbounds nuw i8, ptr %.3299, i64 %.3333
   %210 = getelementptr inbounds nuw i8, ptr %.3338, i64 %.3333
   %211 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_(ptr noundef %209, ptr noundef %210, ptr noundef %43, ptr noundef %.3329, ptr noundef nonnull %41)
@@ -11457,13 +11457,13 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %228
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 %215
   store ptr %250, ptr %59, align 8, !tbaa !40
   %251 = icmp ugt i64 %215, 65535
-  %.pre632 = load ptr, ptr %62, align 8, !tbaa !44
+  %.pre633 = load ptr, ptr %62, align 8, !tbaa !44
   br i1 %251, label %252, label %259
 
 252:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
   store i32 1, ptr %61, align 8, !tbaa !47
   %253 = load ptr, ptr %1, align 8, !tbaa !48
-  %254 = ptrtoint ptr %.pre632 to i64
+  %254 = ptrtoint ptr %.pre633 to i64
   %255 = ptrtoint ptr %253 to i64
   %256 = sub i64 %254, %255
   %257 = lshr exact i64 %256, 3
@@ -11472,7 +11472,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %228
   br label %259
 
 259:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread, %252, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
-  %260 = phi ptr [ %.pre, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread ], [ %.pre632, %252 ], [ %.pre632, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit ]
+  %260 = phi ptr [ %.pre, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread ], [ %.pre633, %252 ], [ %.pre633, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit ]
   %261 = trunc i64 %215 to i16
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 4
   store i16 %261, ptr %262, align 4, !tbaa !50
@@ -11576,8 +11576,8 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374:    ; preds = %283
   br label %.lr.ph559.preheader
 
 .lr.ph559.preheader:                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread475, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread473, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread471, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374
-  %.pn.in = phi ptr [ %308, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374 ], [ %301, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread475 ], [ %295, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread473 ], [ %289, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread471 ]
-  %.0.i371 = phi i64 [ %311, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374 ], [ %303, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread475 ], [ %297, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread473 ], [ %291, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread471 ]
+  %.pn.in = phi ptr [ %308, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374 ], [ %289, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread471 ], [ %295, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread473 ], [ %301, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread475 ]
+  %.0.i371 = phi i64 [ %311, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374 ], [ %291, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread471 ], [ %297, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread473 ], [ %303, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374.thread475 ]
   %.pn = ptrtoint ptr %.pn.in to i64
   %.in = sub i64 %.pn, %22
   %312 = trunc i64 %.in to i32
@@ -11622,11 +11622,11 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374:    ; preds = %283
   %334 = load ptr, ptr %59, align 8, !tbaa !40
   %.2.val = load <2 x i64>, ptr %.7556, align 1, !tbaa !36
   store <2 x i64> %.2.val, ptr %334, align 1, !tbaa !36
-  %.pre633 = load ptr, ptr %62, align 8, !tbaa !44
+  %.pre634 = load ptr, ptr %62, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445: ; preds = %328, %333
-  %335 = phi ptr [ %314, %328 ], [ %.pre633, %333 ]
+  %335 = phi ptr [ %314, %328 ], [ %.pre634, %333 ]
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
   store i16 0, ptr %336, align 4, !tbaa !50
   store i32 1, ptr %335, align 4, !tbaa !52
@@ -11684,7 +11684,7 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit: ; preds = %_ZN
   br label %362
 
 362:                                              ; preds = %359, %356, %353, %349
-  %.0.i = phi i64 [ %352, %349 ], [ %361, %359 ], [ %358, %356 ], [ %355, %353 ]
+  %.0.i = phi i64 [ %352, %349 ], [ %355, %353 ], [ %358, %356 ], [ %361, %359 ]
   %363 = getelementptr inbounds nuw i32, ptr %9, i64 %.0.i
   store i32 %317, ptr %363, align 4, !tbaa !24
   %364 = getelementptr i8, ptr %.7556, i64 %332

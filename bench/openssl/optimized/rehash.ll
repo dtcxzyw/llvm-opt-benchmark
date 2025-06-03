@@ -115,12 +115,12 @@ define dso_local i32 @rehash_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   tail call void @opt_help(ptr noundef nonnull @rehash_options) #14
   br label %.loopexit
 
-10:                                               ; preds = %4
-  br label %.outer.backedge
-
 .outer.backedge:                                  ; preds = %4, %10
   %.023.ph.be = phi i32 [ 0, %10 ], [ 2, %4 ]
   br label %.outer, !llvm.loop !4
+
+10:                                               ; preds = %4
+  br label %.outer.backedge
 
 11:                                               ; preds = %4
   store i1 true, ptr @remove_links, align 4
@@ -203,7 +203,7 @@ define dso_local i32 @rehash_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.preheader, %33, %._crit_edge, %6, %9, %15, %41
-  %.024 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %15 ], [ %43, %41 ], [ 1, %33 ], [ %.3.lcssa, %._crit_edge ], [ %26, %.preheader ], [ 0, %13 ]
+  %.024 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %15 ], [ %43, %41 ], [ 1, %33 ], [ %.3.lcssa, %._crit_edge ], [ %26, %.preheader ], [ 0, %13 ]
   ret i32 %.024
 }
 

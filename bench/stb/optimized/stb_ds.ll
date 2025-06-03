@@ -415,7 +415,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %42
 
 42:                                               ; preds = %36, %._crit_edge
-  %.1 = phi i64 [ %34, %._crit_edge ], [ %41, %36 ]
+  %.1 = phi i64 [ %41, %36 ], [ %34, %._crit_edge ]
   %43 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 5
   %44 = load i8, ptr %43, align 1, !tbaa !27
   %45 = zext i8 %44 to i64
@@ -424,7 +424,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %48
 
 48:                                               ; preds = %42, %._crit_edge
-  %.2 = phi i64 [ %34, %._crit_edge ], [ %47, %42 ]
+  %.2 = phi i64 [ %47, %42 ], [ %34, %._crit_edge ]
   %49 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 4
   %50 = load i8, ptr %49, align 1, !tbaa !27
   %51 = zext i8 %50 to i64
@@ -433,7 +433,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %54
 
 54:                                               ; preds = %48, %._crit_edge
-  %.3 = phi i64 [ %34, %._crit_edge ], [ %53, %48 ]
+  %.3 = phi i64 [ %53, %48 ], [ %34, %._crit_edge ]
   %55 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 3
   %56 = load i8, ptr %55, align 1, !tbaa !27
   %57 = zext i8 %56 to i32
@@ -443,7 +443,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %61
 
 61:                                               ; preds = %54, %._crit_edge
-  %.4 = phi i64 [ %34, %._crit_edge ], [ %60, %54 ]
+  %.4 = phi i64 [ %60, %54 ], [ %34, %._crit_edge ]
   %62 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 2
   %63 = load i8, ptr %62, align 1, !tbaa !27
   %64 = zext i8 %63 to i64
@@ -452,7 +452,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge
-  %.5 = phi i64 [ %34, %._crit_edge ], [ %66, %61 ]
+  %.5 = phi i64 [ %66, %61 ], [ %34, %._crit_edge ]
   %68 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !27
   %70 = zext i8 %69 to i64
@@ -461,7 +461,7 @@ define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %0, i64 noun
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge
-  %.6 = phi i64 [ %34, %._crit_edge ], [ %72, %67 ]
+  %.6 = phi i64 [ %72, %67 ], [ %34, %._crit_edge ]
   %74 = load i8, ptr %.0156.lcssa, align 1, !tbaa !27
   %75 = zext i8 %74 to i64
   %76 = or i64 %.6, %75

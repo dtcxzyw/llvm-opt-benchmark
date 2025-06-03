@@ -7484,7 +7484,7 @@ _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_t
   br label %37
 
 37:                                               ; preds = %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, %.loopexit
-  %.1 = phi ptr [ %33, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ], [ %36, %.loopexit ]
+  %.1 = phi ptr [ %36, %.loopexit ], [ %33, %_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit ]
   ret ptr %.1
 }
 
@@ -20569,7 +20569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit589: ; preds = %_Z
           to label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit unwind label %282
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %.invoke, %118, %118, %118, %112, %112, %112, %1279, %.thread764, %1295, %1313, %1322, %1331, %1346, %1360, %1472, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, %129
-  %.1 = phi ptr [ %132, %129 ], [ %110, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit ], [ %1475, %1472 ], [ %1325, %1322 ], [ %1334, %1331 ], [ %1349, %1346 ], [ %1363, %1360 ], [ %1316, %1313 ], [ %1298, %1295 ], [ %.7, %1279 ], [ %110, %112 ], [ %77, %118 ], [ %392, %.thread764 ], [ %110, %112 ], [ %110, %112 ], [ %77, %118 ], [ %77, %118 ], [ %1477, %.invoke ]
+  %.1 = phi ptr [ %132, %129 ], [ %110, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit ], [ %1298, %1295 ], [ %1316, %1313 ], [ %1325, %1322 ], [ %1334, %1331 ], [ %1349, %1346 ], [ %1363, %1360 ], [ %1475, %1472 ], [ %.7, %1279 ], [ %110, %112 ], [ %77, %118 ], [ %392, %.thread764 ], [ %110, %112 ], [ %110, %112 ], [ %77, %118 ], [ %77, %118 ], [ %1477, %.invoke ]
   %1478 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %1479 = load ptr, ptr %1478, align 8, !tbaa !122
   %.not.i.i590 = icmp eq ptr %1479, null
@@ -35276,7 +35276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %196
 
 196:                                              ; preds = %194, %._crit_edge.i.i.i.i.i
-  %.sroa.031.1.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %195, %194 ]
+  %.sroa.031.1.i.i.i.i.i = phi ptr [ %195, %194 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %197 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i.i, i64 16
   %.val.i20.i.i.i.i.i = load i8, ptr %197, align 8, !tbaa !347, !range !83, !noundef !84
   %198 = trunc nuw i8 %.val.i20.i.i.i.i.i to i1
@@ -35287,7 +35287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %201
 
 201:                                              ; preds = %199, %._crit_edge.i.i.i.i.i
-  %.sroa.031.2.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %200, %199 ]
+  %.sroa.031.2.i.i.i.i.i = phi ptr [ %200, %199 ], [ %.sroa.031.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %202 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i.i, i64 16
   %.val.i21.i.i.i.i.i = load i8, ptr %202, align 8, !tbaa !347, !range !83, !noundef !84
   %203 = trunc nuw i8 %.val.i21.i.i.i.i.i to i1
@@ -35376,7 +35376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %232
 
 232:                                              ; preds = %230, %._crit_edge.i.i.i.i.i272
-  %.sroa.031.1.i.i.i.i.i279 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i274, %._crit_edge.i.i.i.i.i272 ], [ %231, %230 ]
+  %.sroa.031.1.i.i.i.i.i279 = phi ptr [ %231, %230 ], [ %.sroa.031.0.lcssa.i.i.i.i.i274, %._crit_edge.i.i.i.i.i272 ]
   %233 = getelementptr i8, ptr %.sroa.031.1.i.i.i.i.i279, i64 16
   %.val.i20.i.i.i.i.i280 = load i8, ptr %233, align 8, !tbaa !454, !range !83, !noundef !84
   %234 = trunc nuw i8 %.val.i20.i.i.i.i.i280 to i1
@@ -35387,7 +35387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %237
 
 237:                                              ; preds = %235, %._crit_edge.i.i.i.i.i272
-  %.sroa.031.2.i.i.i.i.i275 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i274, %._crit_edge.i.i.i.i.i272 ], [ %236, %235 ]
+  %.sroa.031.2.i.i.i.i.i275 = phi ptr [ %236, %235 ], [ %.sroa.031.0.lcssa.i.i.i.i.i274, %._crit_edge.i.i.i.i.i272 ]
   %238 = getelementptr i8, ptr %.sroa.031.2.i.i.i.i.i275, i64 16
   %.val.i21.i.i.i.i.i276 = load i8, ptr %238, align 8, !tbaa !454, !range !83, !noundef !84
   %239 = trunc nuw i8 %.val.i21.i.i.i.i.i276 to i1

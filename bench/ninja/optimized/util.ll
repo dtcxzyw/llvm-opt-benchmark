@@ -833,8 +833,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit22: ; pred
   br label %70
 
 70:                                               ; preds = %.lr.ph, %59, %61
-  %.sroa.04.1 = phi ptr [ %.sroa.023.028, %61 ], [ %.sroa.04.029, %59 ], [ %.sroa.04.029, %.lr.ph ]
-  %.1 = phi i64 [ 0, %61 ], [ %60, %59 ], [ 0, %.lr.ph ]
+  %.sroa.04.1 = phi ptr [ %.sroa.04.029, %59 ], [ %.sroa.023.028, %61 ], [ %.sroa.04.029, %.lr.ph ]
+  %.1 = phi i64 [ %60, %59 ], [ 0, %61 ], [ 0, %.lr.ph ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.028, i64 1
   %.not = icmp eq ptr %71, %33
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24

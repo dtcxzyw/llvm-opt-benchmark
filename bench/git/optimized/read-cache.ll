@@ -1218,7 +1218,7 @@ define dso_local noundef i32 @fake_lstat(ptr noundef %0, ptr noundef %1) local_u
   unreachable
 
 st_mode_from_ce.exit:                             ; preds = %2, %8, %11, %16
-  %.0.i = phi i32 [ %.val, %16 ], [ %15, %11 ], [ %10, %8 ], [ 16877, %2 ]
+  %.0.i = phi i32 [ %10, %8 ], [ %15, %11 ], [ %.val, %16 ], [ 16877, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.0.i, ptr %18, align 8, !tbaa !42
   ret i32 0
@@ -1450,7 +1450,7 @@ ce_compare_gitlink.exit:                          ; preds = %34
   unreachable
 
 42:                                               ; preds = %26, %17, %21, %11
-  %.0 = phi i32 [ 0, %21 ], [ %15, %11 ], [ %spec.select, %17 ], [ %spec.select34, %26 ]
+  %.0 = phi i32 [ %15, %11 ], [ 0, %21 ], [ %spec.select, %17 ], [ %spec.select34, %26 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = tail call i32 @match_stat_data(ptr noundef nonnull %43, ptr noundef nonnull %1) #30
   %45 = or i32 %44, %.0

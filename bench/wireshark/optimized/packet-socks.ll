@@ -267,7 +267,7 @@ define internal i32 @socks_udp_dissector(ptr noundef %0, ptr noundef %1, ptr nou
   br label %get_address_v5.exit
 
 get_address_v5.exit:                              ; preds = %32, %31, %30, %28, %13
-  %.0.in = phi i32 [ %22, %13 ], [ 4, %28 ], [ %35, %32 ], [ 20, %31 ], [ 8, %30 ]
+  %.0.in = phi i32 [ %22, %13 ], [ 4, %28 ], [ 8, %30 ], [ 20, %31 ], [ %35, %32 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -894,7 +894,7 @@ define internal fastcc noundef i32 @display_address(ptr noundef readonly capture
   br label %28
 
 28:                                               ; preds = %24, %13, %9, %4
-  %.0 = phi i32 [ %8, %4 ], [ %27, %24 ], [ %23, %13 ], [ %12, %9 ]
+  %.0 = phi i32 [ %8, %4 ], [ %12, %9 ], [ %23, %13 ], [ %27, %24 ]
   ret i32 %.0
 }
 
@@ -968,7 +968,7 @@ copy_address_wmem.exit19:                         ; preds = %16
   br label %31
 
 31:                                               ; preds = %26, %24, %14, %3
-  %.0 = phi i32 [ %5, %3 ], [ %30, %26 ], [ %25, %24 ], [ %15, %14 ]
+  %.0 = phi i32 [ %5, %3 ], [ %15, %14 ], [ %25, %24 ], [ %30, %26 ]
   ret i32 %.0
 }
 

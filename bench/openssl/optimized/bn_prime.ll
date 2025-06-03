@@ -47,7 +47,7 @@ define i32 @BN_GENCB_call(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br label %16
 
 16:                                               ; preds = %4, %6, %3, %12, %9
-  %.0 = phi i32 [ %15, %12 ], [ 1, %9 ], [ 1, %3 ], [ 1, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %9 ], [ %15, %12 ], [ 1, %3 ], [ 1, %6 ], [ 0, %4 ]
   ret i32 %.0
 }
 

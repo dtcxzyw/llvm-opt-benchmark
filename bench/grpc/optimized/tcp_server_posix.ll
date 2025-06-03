@@ -3995,7 +3995,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %78
 
 78:                                               ; preds = %60, %72, %._crit_edge, %._crit_edge43
-  %.1 = phi i32 [ %61, %60 ], [ -1, %._crit_edge43 ], [ %73, %72 ], [ -1, %._crit_edge ]
+  %.1 = phi i32 [ -1, %._crit_edge43 ], [ %61, %60 ], [ %73, %72 ], [ -1, %._crit_edge ]
   ret i32 %.1
 }
 

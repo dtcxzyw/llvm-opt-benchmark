@@ -2399,7 +2399,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont4
   unreachable
 
 invoke.cont5:                                     ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i1 [ %tobool.i.i.i, %sw.bb7.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %cmp.i.i.i, %sw.bb.i.i ], [ %call2.i.i.i11, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp.i.i.i, %sw.bb.i.i ], [ %cmp.i4.i.i, %sw.bb4.i.i ], [ %tobool.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i11, %sw.bb10.i.i ]
   %call5.i.i.i3.i.i.i.i13 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad2
 
@@ -3436,7 +3436,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont3
   unreachable
 
 invoke.cont5:                                     ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %9, %sw.bb.i.i ], [ %call6.i.i11, %sw.bb4.i.i ], [ %call2.i.i.i12, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %9, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i11, %sw.bb4.i.i ], [ %call2.i.i.i12, %sw.bb10.i.i ]
   %conv = trunc i64 %retval.0.i.i to i32
   store i32 %conv, ptr %index, align 4
   %12 = load ptr, ptr %inputs, align 8
@@ -14092,7 +14092,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %for.inc.i.i186, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i184, %if.then3.i.i.i.i190, %for.inc.i.i, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i, %if.then3.i.i.i.i, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i180, %for.cond.i.preheader.i173, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE32EEERKDav.exit162, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i, %for.cond.i.preheader.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE30EEERKDav.exit134, %lor.lhs.false.i108, %sw.bb26, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit149, %lor.lhs.false.i100, %sw.bb24, %lor.lhs.false.i96, %sw.bb22, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit11.i, %lor.lhs.false.i87, %sw.bb20, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit11.i, %lor.lhs.false.i75, %sw.bb14, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit11.i, %lor.lhs.false.i63, %sw.bb12, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit11.i, %lor.lhs.false.i51, %sw.bb10, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit11.i, %lor.lhs.false.i39, %sw.bb8, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit11.i, %lor.lhs.false.i27, %sw.bb6, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit11.i, %lor.lhs.false.i15, %sw.bb4, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit11.i, %lor.lhs.false.i3, %sw.bb2, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit11.i, %lor.lhs.false.i, %sw.bb, %sw.bb18, %sw.bb16
-  %retval.0 = phi i1 [ %call19, %sw.bb18 ], [ %call17, %sw.bb16 ], [ %cmp.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit11.i ], [ false, %lor.lhs.false.i ], [ false, %sw.bb ], [ %cmp.i11, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit11.i ], [ false, %lor.lhs.false.i3 ], [ false, %sw.bb2 ], [ %cmp.i23, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit11.i ], [ false, %lor.lhs.false.i15 ], [ false, %sw.bb4 ], [ %cmp.i35, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit11.i ], [ false, %lor.lhs.false.i27 ], [ false, %sw.bb6 ], [ %cmp.i47, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit11.i ], [ false, %lor.lhs.false.i39 ], [ false, %sw.bb8 ], [ %cmp.i59, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit11.i ], [ false, %lor.lhs.false.i51 ], [ false, %sw.bb10 ], [ %cmp.i71, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit11.i ], [ false, %lor.lhs.false.i63 ], [ false, %sw.bb12 ], [ %cmp.i83, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit11.i ], [ false, %lor.lhs.false.i75 ], [ false, %sw.bb14 ], [ %73, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit11.i ], [ false, %lor.lhs.false.i87 ], [ false, %sw.bb20 ], [ false, %lor.lhs.false.i96 ], [ false, %sw.bb22 ], [ %call5.i105, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit149 ], [ false, %lor.lhs.false.i100 ], [ false, %sw.bb24 ], [ false, %lor.lhs.false.i108 ], [ false, %sw.bb26 ], [ false, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE30EEERKDav.exit134 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i ], [ true, %for.cond.i.preheader.i ], [ false, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE32EEERKDav.exit162 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i180 ], [ true, %for.cond.i.preheader.i173 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i ], [ true, %for.inc.i.i ], [ false, %if.then3.i.i.i.i ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i184 ], [ true, %for.inc.i.i186 ], [ false, %if.then3.i.i.i.i190 ]
+  %retval.0 = phi i1 [ %call17, %sw.bb16 ], [ %call19, %sw.bb18 ], [ %cmp.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE0EEERKDav.exit11.i ], [ false, %lor.lhs.false.i ], [ false, %sw.bb ], [ %cmp.i11, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE3EEERKDav.exit11.i ], [ false, %lor.lhs.false.i3 ], [ false, %sw.bb2 ], [ %cmp.i23, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE1EEERKDav.exit11.i ], [ false, %lor.lhs.false.i15 ], [ false, %sw.bb4 ], [ %cmp.i35, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE2EEERKDav.exit11.i ], [ false, %lor.lhs.false.i27 ], [ false, %sw.bb6 ], [ %cmp.i47, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE4EEERKDav.exit11.i ], [ false, %lor.lhs.false.i39 ], [ false, %sw.bb8 ], [ %cmp.i59, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE10EEERKDav.exit11.i ], [ false, %lor.lhs.false.i51 ], [ false, %sw.bb10 ], [ %cmp.i71, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE5EEERKDav.exit11.i ], [ false, %lor.lhs.false.i63 ], [ false, %sw.bb12 ], [ %cmp.i83, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE6EEERKDav.exit11.i ], [ false, %lor.lhs.false.i75 ], [ false, %sw.bb14 ], [ %73, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE9EEERKDav.exit11.i ], [ false, %lor.lhs.false.i87 ], [ false, %sw.bb20 ], [ false, %lor.lhs.false.i96 ], [ false, %sw.bb22 ], [ %call5.i105, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit149 ], [ false, %lor.lhs.false.i100 ], [ false, %sw.bb24 ], [ false, %lor.lhs.false.i108 ], [ false, %sw.bb26 ], [ false, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE30EEERKDav.exit134 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i ], [ true, %for.cond.i.preheader.i ], [ false, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE32EEERKDav.exit162 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.thread.i180 ], [ true, %for.cond.i.preheader.i173 ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i ], [ true, %for.inc.i.i ], [ false, %if.then3.i.i.i.i ], [ false, %_ZN8facebook5veloxeqERKNS0_7variantES3_.exit.i.i184 ], [ true, %for.inc.i.i186 ], [ false, %if.then3.i.i.i.i190 ]
   ret i1 %retval.0
 }
 
@@ -16424,7 +16424,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.default, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i8 [ 0, %sw.default ], [ 17, %sw.bb16 ], [ 16, %sw.bb15 ], [ 15, %sw.bb14 ], [ 14, %sw.bb13 ], [ 13, %sw.bb12 ], [ 12, %sw.bb11 ], [ 11, %sw.bb10 ], [ 10, %sw.bb9 ], [ 9, %sw.bb8 ], [ 8, %sw.bb7 ], [ 7, %sw.bb6 ], [ 6, %sw.bb5 ], [ 5, %sw.bb4 ], [ 4, %sw.bb3 ], [ 3, %sw.bb2 ], [ 2, %sw.bb1 ], [ 1, %entry ]
+  %retval.0 = phi i8 [ 0, %sw.default ], [ 2, %sw.bb1 ], [ 3, %sw.bb2 ], [ 4, %sw.bb3 ], [ 5, %sw.bb4 ], [ 6, %sw.bb5 ], [ 7, %sw.bb6 ], [ 8, %sw.bb7 ], [ 9, %sw.bb8 ], [ 10, %sw.bb9 ], [ 11, %sw.bb10 ], [ 12, %sw.bb11 ], [ 13, %sw.bb12 ], [ 14, %sw.bb13 ], [ 15, %sw.bb14 ], [ 16, %sw.bb15 ], [ 17, %sw.bb16 ], [ 1, %entry ]
   ret i8 %retval.0
 }
 
@@ -17628,7 +17628,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %4, %sw.bb8.i ], [ %conv.i33, %sw.bb2.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ]
+  %retval.i.0 = phi i64 [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 
@@ -17853,7 +17853,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %sw.bb11.i, %sw.bb5.i, %sw.bb17.i, %sw.bb8.i, %sw.bb2.i
-  %retval.i.0 = phi i64 [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %4, %sw.bb8.i ], [ %conv.i33, %sw.bb2.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ]
+  %retval.i.0 = phi i64 [ %conv.i33, %sw.bb2.i ], [ %4, %sw.bb8.i ], [ %coerce19.i.sroa.0.0.extract.trunc, %sw.bb17.i ], [ %3, %sw.bb5.i ], [ %coerce.i.sroa.0.0.extract.trunc, %sw.bb11.i ]
   %cmp = icmp ugt i64 %retval.i.0, 2147483647
   br i1 %cmp, label %if.then, label %if.end
 

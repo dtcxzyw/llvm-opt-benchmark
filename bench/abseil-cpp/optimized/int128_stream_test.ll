@@ -2246,9 +2246,9 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %_ZNSt7__cxx1119basi
   br label %254
 
 254:                                              ; preds = %253, %147, %122, %97, %72, %51, %30
-  %.sroa.57.0 = phi ptr [ %.sroa.57.5, %253 ], [ %.sroa.57.4, %147 ], [ %.sroa.57.3, %122 ], [ %.sroa.57.2, %97 ], [ %.sroa.57.1, %72 ], [ %.sroa.57.1, %51 ], [ %.sroa.57.1, %30 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.5, %253 ], [ %.sroa.0.4, %147 ], [ %.sroa.0.3, %122 ], [ %.sroa.0.2, %97 ], [ %.sroa.0.1, %72 ], [ %.sroa.0.1, %51 ], [ %.sroa.0.1, %30 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %253 ], [ %148, %147 ], [ %123, %122 ], [ %98, %97 ], [ %73, %72 ], [ %52, %51 ], [ %31, %30 ]
+  %.sroa.57.0 = phi ptr [ %.sroa.57.5, %253 ], [ %.sroa.57.4, %147 ], [ %.sroa.57.3, %122 ], [ %.sroa.57.2, %97 ], [ %.sroa.57.1, %30 ], [ %.sroa.57.1, %51 ], [ %.sroa.57.1, %72 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.5, %253 ], [ %.sroa.0.4, %147 ], [ %.sroa.0.3, %122 ], [ %.sroa.0.2, %97 ], [ %.sroa.0.1, %30 ], [ %.sroa.0.1, %51 ], [ %.sroa.0.1, %72 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %253 ], [ %148, %147 ], [ %123, %122 ], [ %98, %97 ], [ %31, %30 ], [ %52, %51 ], [ %73, %72 ]
   %.not.i.i.i123 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i123, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit124, label %255
 

@@ -161,7 +161,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   br label %51
 
 51:                                               ; preds = %47, %42, %41
-  %.1120.i = phi i32 [ %.0119.i, %41 ], [ %45, %42 ], [ %48, %47 ]
+  %.1120.i = phi i32 [ %.0119.i, %41 ], [ %48, %47 ], [ %45, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %53 = load ptr, ptr %52, align 8
   %.not142.i = icmp eq ptr %53, null

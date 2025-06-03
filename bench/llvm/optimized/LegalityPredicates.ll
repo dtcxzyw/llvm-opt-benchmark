@@ -1151,8 +1151,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %38 = phi i64 [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %34, %35 ]
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %36, %35 ]
+  %38 = phi i64 [ %34, %35 ], [ %.pre.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ]
   %39 = load i64, ptr %.1.i.i.i.i.i.i.i, align 8
   %spec.select.i.i34.i.i.i.i.i.i.i = icmp eq i64 %39, %38
   br i1 %spec.select.i.i34.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %40
@@ -1162,8 +1162,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge58.i.i.i.i.i.i.i
-  %43 = phi i64 [ %.pre59.i.i.i.i.i.i.i, %._crit_edge._crit_edge58.i.i.i.i.i.i.i ], [ %38, %40 ]
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge58.i.i.i.i.i.i.i ], [ %41, %40 ]
+  %43 = phi i64 [ %38, %40 ], [ %.pre59.i.i.i.i.i.i.i, %._crit_edge._crit_edge58.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge._crit_edge58.i.i.i.i.i.i.i ]
   %44 = load i64, ptr %.2.i.i.i.i.i.i.i, align 8
   %spec.select.i.i35.i.i.i.i.i.i.i = icmp eq i64 %44, %43
   br i1 %spec.select.i.i35.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %45
@@ -1667,9 +1667,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt4pairIN4llvm3LLTES2_EN9__gnu
   br label %51
 
 51:                                               ; preds = %._crit_edge._crit_edge, %49
-  %52 = phi i64 [ %.pre64, %._crit_edge._crit_edge ], [ %47, %49 ]
-  %53 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %43, %49 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %50, %49 ]
+  %52 = phi i64 [ %47, %49 ], [ %.pre64, %._crit_edge._crit_edge ]
+  %53 = phi i64 [ %43, %49 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %50, %49 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %54 = load i64, ptr %.1, align 8
   %spec.select.i.i.i38 = icmp eq i64 %54, %53
   %55 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -1683,9 +1683,9 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt4pairIN4llvm3LLTES2_EN9__gnu
   br label %60
 
 60:                                               ; preds = %._crit_edge._crit_edge65, %58
-  %61 = phi i64 [ %.pre68, %._crit_edge._crit_edge65 ], [ %52, %58 ]
-  %62 = phi i64 [ %.pre66, %._crit_edge._crit_edge65 ], [ %53, %58 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge65 ], [ %59, %58 ]
+  %61 = phi i64 [ %52, %58 ], [ %.pre68, %._crit_edge._crit_edge65 ]
+  %62 = phi i64 [ %53, %58 ], [ %.pre66, %._crit_edge._crit_edge65 ]
+  %.2 = phi ptr [ %59, %58 ], [ %.029.lcssa, %._crit_edge._crit_edge65 ]
   %63 = load i64, ptr %.2, align 8
   %spec.select.i.i.i40 = icmp eq i64 %63, %62
   %64 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -2348,8 +2348,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT
   br label %67
 
 67:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45.thread
-  %68 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45.thread ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45.thread ]
+  %68 = phi i64 [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %69 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %70 = load i64, ptr %69, align 8
   %spec.select.i.i.i.i46 = icmp eq i64 %70, %68
@@ -2372,8 +2372,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT
   br label %79
 
 79:                                               ; preds = %._crit_edge._crit_edge76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49.thread
-  %80 = phi i64 [ %.pre78, %._crit_edge._crit_edge76 ], [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49.thread ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge76 ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49.thread ]
+  %80 = phi i64 [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49.thread ], [ %.pre78, %._crit_edge._crit_edge76 ]
+  %.2 = phi ptr [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49.thread ], [ %.029.lcssa, %._crit_edge._crit_edge76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %82 = load i64, ptr %81, align 8
   %spec.select.i.i.i.i50 = icmp eq i64 %82, %80
@@ -2508,7 +2508,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %46, %45 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %48 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i.i.i.i.i.i.i.i)
   br i1 %48, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %49
 
@@ -2517,7 +2517,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %50, %49 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %52 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.2.i.i.i.i.i.i.i.i.i)
   br i1 %52, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %53
 

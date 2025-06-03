@@ -2122,14 +2122,14 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %99 = trunc nuw i32 %98 to i8
   switch i8 %99, label %118 [
     i8 -11, label %100
-    i8 -10, label %120
-    i8 -8, label %101
-    i8 -7, label %102
-    i8 -6, label %103
-    i8 -5, label %104
-    i8 -4, label %106
-    i8 -12, label %108
-    i8 -3, label %110
+    i8 -10, label %101
+    i8 -8, label %103
+    i8 -7, label %104
+    i8 -6, label %105
+    i8 -5, label %106
+    i8 -4, label %108
+    i8 -12, label %110
+    i8 -3, label %120
     i8 -2, label %112
     i8 -1, label %113
   ]
@@ -2139,31 +2139,31 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   unreachable
 
 101:                                              ; preds = %.loopexit
+  %102 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  br i1 %102, label %.critedge, label %124
+
+103:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor13insert_sarrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
-102:                                              ; preds = %.loopexit
+104:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor13insert_stringEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
-103:                                              ; preds = %.loopexit
+105:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor10insert_mpzEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
-104:                                              ; preds = %.loopexit
-  %105 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_thunkEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
-  br i1 %105, label %.critedge, label %124
-
 106:                                              ; preds = %.loopexit
-  %107 = tail call noundef zeroext i1 @_ZN4lean16object_compactor11insert_taskEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %107 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_thunkEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %107, label %.critedge, label %124
 
 108:                                              ; preds = %.loopexit
-  %109 = tail call noundef zeroext i1 @_ZN4lean16object_compactor14insert_promiseEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %109 = tail call noundef zeroext i1 @_ZN4lean16object_compactor11insert_taskEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %109, label %.critedge, label %124
 
 110:                                              ; preds = %.loopexit
-  %111 = tail call noundef zeroext i1 @_ZN4lean16object_compactor10insert_refEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %111 = tail call noundef zeroext i1 @_ZN4lean16object_compactor14insert_promiseEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %111, label %.critedge, label %124
 
 112:                                              ; preds = %.loopexit
@@ -2187,10 +2187,10 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br i1 %119, label %.critedge, label %124
 
 120:                                              ; preds = %.loopexit
-  %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor10insert_refEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %121, label %.critedge, label %124
 
-.critedge:                                        ; preds = %104, %106, %108, %110, %118, %103, %102, %101, %120
+.critedge:                                        ; preds = %110, %108, %106, %101, %118, %103, %104, %105, %120
   %122 = load ptr, ptr %35, align 8, !tbaa !67
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   br label %.sink.split
@@ -2200,7 +2200,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   store ptr %.sink, ptr %35, align 8, !tbaa !67
   br label %124
 
-124:                                              ; preds = %.sink.split, %104, %106, %108, %110, %118, %120
+124:                                              ; preds = %.sink.split, %110, %108, %106, %101, %118, %120
   %125 = load ptr, ptr %34, align 8, !tbaa !86
   %126 = load ptr, ptr %35, align 8, !tbaa !86
   %127 = icmp eq ptr %125, %126

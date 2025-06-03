@@ -13244,7 +13244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit339.i: ; preds = %
   br label %1521
 
 1521:                                             ; preds = %1519, %._crit_edge.i.i.i.i.i
-  %.sroa.033.1.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1520, %1519 ]
+  %.sroa.033.1.i.i.i.i.i = phi ptr [ %1520, %1519 ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i22.i.i.i.i.i = load i32, ptr %.sroa.033.1.i.i.i.i.i, align 8, !tbaa !20
   %1522 = icmp eq i32 %.val.i22.i.i.i.i.i, 1
   br i1 %1522, label %.loopexit, label %1523
@@ -13254,7 +13254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit339.i: ; preds = %
   br label %1525
 
 1525:                                             ; preds = %1523, %._crit_edge.i.i.i.i.i
-  %.sroa.033.2.i.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %1524, %1523 ]
+  %.sroa.033.2.i.i.i.i.i = phi ptr [ %1524, %1523 ], [ %.sroa.033.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i23.i.i.i.i.i = load i32, ptr %.sroa.033.2.i.i.i.i.i, align 8, !tbaa !20
   %1526 = icmp eq i32 %.val.i23.i.i.i.i.i, 1
   %spec.select.i.i.i.i.i = select i1 %1526, ptr %.sroa.033.2.i.i.i.i.i, ptr %1498

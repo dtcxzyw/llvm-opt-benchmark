@@ -232,9 +232,9 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile28getSymbolWith
   unreachable
 
 _ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit: ; preds = %5, %14, %15, %16, %17, %18
-  %.not.i.i.i = phi i1 [ false, %18 ], [ false, %17 ], [ false, %16 ], [ false, %15 ], [ false, %14 ], [ true, %5 ]
-  %.sroa.7.0.i = phi i64 [ 3, %18 ], [ 1, %17 ], [ 1, %16 ], [ 2, %15 ], [ 2, %14 ], [ 0, %5 ]
-  %.sroa.0.0.i = phi ptr [ @.str.11, %18 ], [ @.str.10, %17 ], [ @.str.9, %16 ], [ @.str.8, %15 ], [ @.str.7, %14 ], [ @.str.6, %5 ]
+  %.not.i.i.i = phi i1 [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %18 ], [ true, %5 ]
+  %.sroa.7.0.i = phi i64 [ 2, %14 ], [ 2, %15 ], [ 1, %16 ], [ 1, %17 ], [ 3, %18 ], [ 0, %5 ]
+  %.sroa.0.0.i = phi ptr [ @.str.7, %14 ], [ @.str.8, %15 ], [ @.str.9, %16 ], [ @.str.10, %17 ], [ @.str.11, %18 ], [ @.str.6, %5 ]
   %20 = load i64, ptr %9, align 8, !tbaa !294
   %21 = add i64 %20, %.sroa.7.0.i
   %22 = load i64, ptr %10, align 8, !tbaa !295
@@ -959,7 +959,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
   br label %40
 
 40:                                               ; preds = %30, %35, %9
-  %.0 = phi ptr [ %13, %9 ], [ %34, %30 ], [ %39, %35 ]
+  %.0 = phi ptr [ %13, %9 ], [ %39, %35 ], [ %34, %30 ]
   ret ptr %.0
 }
 
@@ -1412,8 +1412,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

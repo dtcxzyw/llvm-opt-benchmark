@@ -128538,7 +128538,7 @@ lean_dec.exit:                                    ; preds = %59, %58, %56, %lean
   br label %61
 
 61:                                               ; preds = %lean_dec.exit, %lean_dec.exit23, %lean_dec.exit24
-  %.0 = phi ptr [ %60, %lean_dec.exit ], [ %45, %lean_dec.exit23 ], [ %30, %lean_dec.exit24 ]
+  %.0 = phi ptr [ %60, %lean_dec.exit ], [ %30, %lean_dec.exit24 ], [ %45, %lean_dec.exit23 ]
   ret ptr %.0
 }
 
@@ -128735,7 +128735,7 @@ lean_dec.exit:                                    ; preds = %59, %58, %56, %lean
   br label %61
 
 61:                                               ; preds = %lean_dec.exit, %lean_dec.exit23, %lean_dec.exit24
-  %.0 = phi ptr [ %60, %lean_dec.exit ], [ %45, %lean_dec.exit23 ], [ %30, %lean_dec.exit24 ]
+  %.0 = phi ptr [ %60, %lean_dec.exit ], [ %30, %lean_dec.exit24 ], [ %45, %lean_dec.exit23 ]
   ret ptr %.0
 }
 
@@ -128932,7 +128932,7 @@ lean_dec.exit:                                    ; preds = %58, %57, %55, %lean
   br label %60
 
 60:                                               ; preds = %lean_dec.exit, %lean_dec.exit20, %lean_dec.exit21
-  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %44, %lean_dec.exit20 ], [ %29, %lean_dec.exit21 ]
+  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %29, %lean_dec.exit21 ], [ %44, %lean_dec.exit20 ]
   ret ptr %.0
 }
 
@@ -129129,7 +129129,7 @@ lean_dec.exit:                                    ; preds = %58, %57, %55, %lean
   br label %60
 
 60:                                               ; preds = %lean_dec.exit, %lean_dec.exit20, %lean_dec.exit21
-  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %44, %lean_dec.exit20 ], [ %29, %lean_dec.exit21 ]
+  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %29, %lean_dec.exit21 ], [ %44, %lean_dec.exit20 ]
   ret ptr %.0
 }
 
@@ -129383,7 +129383,7 @@ l___private_Std_Sync_Channel_0__Std_CloseableChannel_Bounded_tryRecv___rarg.exit
   br label %81
 
 81:                                               ; preds = %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Bounded_tryRecv___rarg.exit, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Zero_tryRecv___rarg.exit, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_tryRecv___rarg.exit
-  %.0 = phi ptr [ %80, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Bounded_tryRecv___rarg.exit ], [ %58, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Zero_tryRecv___rarg.exit ], [ %36, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_tryRecv___rarg.exit ]
+  %.0 = phi ptr [ %80, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Bounded_tryRecv___rarg.exit ], [ %36, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_tryRecv___rarg.exit ], [ %58, %l___private_Std_Sync_Channel_0__Std_CloseableChannel_Zero_tryRecv___rarg.exit ]
   ret ptr %.0
 }
 
@@ -129580,7 +129580,7 @@ lean_dec.exit:                                    ; preds = %58, %57, %55, %lean
   br label %60
 
 60:                                               ; preds = %lean_dec.exit, %lean_dec.exit20, %lean_dec.exit21
-  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %44, %lean_dec.exit20 ], [ %29, %lean_dec.exit21 ]
+  %.0 = phi ptr [ %59, %lean_dec.exit ], [ %29, %lean_dec.exit21 ], [ %44, %lean_dec.exit20 ]
   ret ptr %.0
 }
 
@@ -129777,7 +129777,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
   br label %59
 
 59:                                               ; preds = %lean_dec.exit, %lean_dec.exit17, %lean_dec.exit18
-  %.0 = phi ptr [ %58, %lean_dec.exit ], [ %43, %lean_dec.exit17 ], [ %28, %lean_dec.exit18 ]
+  %.0 = phi ptr [ %58, %lean_dec.exit ], [ %28, %lean_dec.exit18 ], [ %43, %lean_dec.exit17 ]
   ret ptr %.0
 }
 

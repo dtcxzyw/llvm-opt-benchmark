@@ -3363,7 +3363,7 @@ raw_command.exit38.i:                             ; preds = %67
   br label %82
 
 82:                                               ; preds = %81, %78, %73, %raw_command.exit38.i, %66, %arithmetic_command.exit.i, %raw_command.exit35.i, %49, %48, %raw_command.exit.i, %storage_command.exit.i
-  %.030.i = phi i64 [ 24, %81 ], [ 24, %78 ], [ %77, %73 ], [ %68, %raw_command.exit38.i ], [ 24, %66 ], [ %65, %arithmetic_command.exit.i ], [ %51, %raw_command.exit35.i ], [ 24, %49 ], [ 24, %48 ], [ %42, %raw_command.exit.i ], [ %34, %storage_command.exit.i ]
+  %.030.i = phi i64 [ 24, %81 ], [ %34, %storage_command.exit.i ], [ %42, %raw_command.exit.i ], [ 24, %48 ], [ 24, %49 ], [ %51, %raw_command.exit35.i ], [ %65, %arithmetic_command.exit.i ], [ 24, %66 ], [ %68, %raw_command.exit38.i ], [ %77, %73 ], [ 24, %78 ]
   %83 = add nsw i64 %.030.i, %.02951.i
   %84 = icmp ult i64 %83, 66560
   br i1 %84, label %85, label %.thread.i

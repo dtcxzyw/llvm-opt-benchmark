@@ -320,7 +320,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hd2195c3e46bac1ffE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0.in = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0.in = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   %.0 = inttoptr i64 %.0.in to ptr
   ret ptr %.0
 }
@@ -1801,8 +1801,8 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !alias.scope !245, !noalias !250, !noundef !9
   %57 = call i32 @llvm.bswap.i32(i32 %56)
-  %.0.i.i.i53.i = select i1 %2, i32 %57, i32 %56
-  %58 = icmp eq i32 %.0.i.i.i53.i, 8
+  %.0.i.i.i52.i = select i1 %2, i32 %57, i32 %56
+  %58 = icmp eq i32 %.0.i.i.i52.i, 8
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %53
@@ -1820,24 +1820,24 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   br label %.thread
 
 _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit.thread: ; preds = %30, %19, %16, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit
-  %.sink23.i51 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ 37, %30 ], [ %22, %19 ], [ 37, %16 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i49 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %30 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %19 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %16 ]
+  %.sink23.i52 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ 37, %30 ], [ %22, %19 ], [ 37, %16 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i50 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %30 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %19 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %16 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i49, ptr %69, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i50, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink23.i51, ptr %70, align 8
+  store i64 %.sink23.i52, ptr %70, align 8
   store ptr null, ptr %0, align 8
   br label %74
 
 .thread:                                          ; preds = %24, %5, %34, %59, %53
   %.sroa.741.084.ph = phi ptr [ null, %34 ], [ %3, %59 ], [ null, %53 ], [ null, %5 ], [ null, %24 ]
   %.sroa.17.079.ph = phi i64 [ 0, %34 ], [ %63, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i5077.ph = phi ptr [ %32, %34 ], [ %32, %59 ], [ %32, %53 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %24 ]
-  %.sink23.i5275.ph = phi i64 [ 0, %34 ], [ %33, %59 ], [ %33, %53 ], [ 0, %5 ], [ 0, %24 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4977.ph = phi ptr [ %32, %34 ], [ %32, %59 ], [ %32, %53 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %24 ]
+  %.sink23.i5175.ph = phi i64 [ 0, %34 ], [ %33, %59 ], [ %33, %53 ], [ 0, %5 ], [ 0, %24 ]
   %.sroa.12.sroa.5.0.ph = phi i64 [ 0, %34 ], [ %68, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i5077.ph, ptr %0, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4977.ph, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink23.i5275.ph, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink23.i5175.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.741.084.ph, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1992,8 +1992,8 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !alias.scope !311, !noalias !316, !noundef !9
   %55 = call i32 @llvm.bswap.i32(i32 %54)
-  %.0.i.i.i53.i = select i1 %2, i32 %55, i32 %54
-  %56 = icmp eq i32 %.0.i.i.i53.i, 8
+  %.0.i.i.i52.i = select i1 %2, i32 %55, i32 %54
+  %56 = icmp eq i32 %.0.i.i.i52.i, 8
   br i1 %56, label %_ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i, label %57
 
 57:                                               ; preds = %51
@@ -2011,24 +2011,24 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   br i1 %66, label %69, label %_ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i
 
 _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit.thread: ; preds = %28, %18, %15, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit
-  %.sink21.i49 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ 37, %28 ], [ %21, %18 ], [ 37, %15 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %28 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %18 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %15 ]
+  %.sink21.i50 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ 37, %28 ], [ %21, %18 ], [ 37, %15 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %28 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %18 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %15 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47, ptr %67, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink21.i49, ptr %68, align 8
+  store i64 %.sink21.i50, ptr %68, align 8
   store ptr null, ptr %0, align 8
   br label %72
 
 _ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i: ; preds = %23, %5, %57, %51, %32
-  %.sink21.i50 = phi i64 [ 0, %32 ], [ %31, %51 ], [ %31, %57 ], [ 0, %5 ], [ 0, %23 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48 = phi ptr [ %30, %32 ], [ %30, %51 ], [ %30, %57 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
+  %.sink21.i49 = phi i64 [ 0, %32 ], [ %31, %51 ], [ %31, %57 ], [ 0, %5 ], [ 0, %23 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47 = phi ptr [ %30, %32 ], [ %30, %51 ], [ %30, %57 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
   %.sroa.20.0 = phi i64 [ 0, %32 ], [ 0, %51 ], [ %.0.i.i1.i.i, %57 ], [ 0, %5 ], [ 0, %23 ]
   %.sroa.23.0 = phi i64 [ 0, %32 ], [ 0, %51 ], [ %65, %57 ], [ 0, %5 ], [ 0, %23 ]
   %.sroa.8.0 = phi ptr [ null, %32 ], [ null, %51 ], [ %3, %57 ], [ null, %5 ], [ null, %23 ]
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48, ptr %0, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink21.i50, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink21.i49, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.8.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2488,12 +2488,12 @@ define hidden void @_ZN6object4read3elf7section13SectionHeader7strings17h37f16f2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !474, !noundef !9
   %12 = tail call i64 @llvm.bswap.i64(i64 %11)
-  %.0.i.i23 = select i1 %2, i64 %12, i64 %11
+  %.0.i.i22 = select i1 %2, i64 %12, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8, !alias.scope !477, !noundef !9
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
-  %.0.i.i24 = select i1 %2, i64 %15, i64 %14
-  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i23, i64 %.0.i.i24)
+  %.0.i.i23 = select i1 %2, i64 %15, i64 %14
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i22, i64 %.0.i.i23)
   %17 = extractvalue { i64, i1 } %16, 1
   br i1 %17, label %21, label %19
 
@@ -2509,7 +2509,7 @@ define hidden void @_ZN6object4read3elf7section13SectionHeader7strings17h37f16f2
   %.sroa.410.sroa.4.0..sroa.410.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.410.sroa.4.0..sroa.410.0..sroa_idx.sroa_idx, align 8
   %.sroa.410.sroa.5.0..sroa.410.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.i.i23, ptr %.sroa.410.sroa.5.0..sroa.410.0..sroa_idx.sroa_idx, align 8
+  store i64 %.0.i.i22, ptr %.sroa.410.sroa.5.0..sroa.410.0..sroa_idx.sroa_idx, align 8
   %.sroa.410.sroa.6.0..sroa.410.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %20, ptr %.sroa.410.sroa.6.0..sroa.410.0..sroa_idx.sroa_idx, align 8
   br label %24

@@ -1466,7 +1466,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -1537,7 +1537,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -3442,7 +3442,7 @@ define i64 @_ZN14regex_automata6hybrid3dfa4Lazy17cache_start_group17h2117cbc7699
   br i1 %36, label %292, label %.thread
 
 37:                                               ; preds = %307, %29, %25
-  %.0.in = phi ptr [ %310, %307 ], [ %32, %29 ], [ %28, %25 ]
+  %.0.in = phi ptr [ %28, %25 ], [ %32, %29 ], [ %310, %307 ]
   %.0 = load i32, ptr %.0.in, align 4, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !621)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
@@ -4151,7 +4151,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit.thread.
   br i1 %331, label %341, label %336
 
 332:                                              ; preds = %341, %326, %322
-  %.0.i = phi i64 [ %345, %341 ], [ %327, %326 ], [ %323, %322 ]
+  %.0.i = phi i64 [ %327, %326 ], [ %345, %341 ], [ %323, %322 ]
   %333 = getelementptr i8, ptr %.val.i, i64 64
   %.val9.i = load i64, ptr %333, align 8, !noundef !5
   %334 = icmp ult i64 %.0.i, %.val9.i
@@ -7455,7 +7455,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa6Config9overwrite17h7124aaa16e
   br label %36
 
 36:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h551bb4f55b488b11E.exit", %35
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h551bb4f55b488b11E.exit" ], [ %.sroa.012.0.copyload, %35 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.012.0.copyload, %35 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h551bb4f55b488b11E.exit" ]
   %37 = icmp eq i8 %32, 2
   %.029 = select i1 %37, i8 %34, i8 %32
   %38 = icmp eq i8 %28, 2
@@ -8393,7 +8393,7 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..hybrid..error..BuildError$
   br label %57
 
 57:                                               ; preds = %49, %39, %26, %20
-  %.0.in = phi i1 [ %56, %49 ], [ %48, %39 ], [ %38, %26 ], [ %25, %20 ]
+  %.0.in = phi i1 [ %25, %20 ], [ %38, %26 ], [ %48, %39 ], [ %56, %49 ]
   ret i1 %.0.in
 }
 
@@ -8498,7 +8498,7 @@ default.unreachable:                              ; preds = %2
   ]
 
 31:                                               ; preds = %44, %38, %32, %21, %15
-  %.0.in = phi i1 [ %53, %44 ], [ %43, %38 ], [ %37, %32 ], [ %29, %21 ], [ %20, %15 ]
+  %.0.in = phi i1 [ %20, %15 ], [ %29, %21 ], [ %37, %32 ], [ %43, %38 ], [ %53, %44 ]
   ret i1 %.0.in
 
 32:                                               ; preds = %30
@@ -9295,7 +9295,7 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..meta..error..RetryError$u2
   br label %21
 
 21:                                               ; preds = %13, %7
-  %.0.in = phi i1 [ %20, %13 ], [ %12, %7 ]
+  %.0.in = phi i1 [ %12, %7 ], [ %20, %13 ]
   ret i1 %.0.in
 }
 
@@ -13134,8 +13134,8 @@ define { ptr, ptr } @"_ZN87_$LT$regex_automata..nfa..thompson..error..BuildError
   br label %10
 
 10:                                               ; preds = %1, %8, %7
-  %.sroa.4.0 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.148.llvm.4719928553755522418, %8 ], [ @anon.227420ea47fcf415024a4301e123f38b.127.llvm.4719928553755522418, %7 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %0, %7 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.227420ea47fcf415024a4301e123f38b.127.llvm.4719928553755522418, %7 ], [ @anon.227420ea47fcf415024a4301e123f38b.148.llvm.4719928553755522418, %8 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %0, %7 ], [ %9, %8 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %12
@@ -13353,7 +13353,7 @@ define noundef zeroext i1 @"_ZN87_$LT$regex_automata..nfa..thompson..error..Buil
   br label %89
 
 89:                                               ; preds = %83, %75, %67, %56, %45, %39, %33, %27
-  %.0.in = phi i1 [ %88, %83 ], [ %82, %75 ], [ %74, %67 ], [ %66, %56 ], [ %55, %45 ], [ %44, %39 ], [ %38, %33 ], [ %32, %27 ]
+  %.0.in = phi i1 [ %32, %27 ], [ %38, %33 ], [ %44, %39 ], [ %55, %45 ], [ %66, %56 ], [ %74, %67 ], [ %82, %75 ], [ %88, %83 ]
   ret i1 %.0.in
 }
 

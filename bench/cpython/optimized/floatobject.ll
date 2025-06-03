@@ -2461,7 +2461,7 @@ Py_DECREF.exit.thread:                            ; preds = %94, %91, %89, %68
   br label %114
 
 114:                                              ; preds = %112, %110, %108, %106, %104, %102, %101
-  %.6.shrunk = phi i1 [ false, %101 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ]
+  %.6.shrunk = phi i1 [ false, %101 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ]
   %115 = zext i1 %.6.shrunk to i64
   %116 = call ptr @PyBool_FromLong(i64 noundef %115) #18
   br label %117
@@ -6653,7 +6653,7 @@ define internal ptr @float___getformat__(ptr readnone captures(none) %0, ptr nou
   br label %float___getformat___impl.exit
 
 float___getformat___impl.exit:                    ; preds = %31, %29, %27, %25, %22, %8, %14, %7
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %7 ], [ null, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %7 ], [ null, %31 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ null, %22 ]
   ret ptr %.0
 }
 

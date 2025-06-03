@@ -11989,9 +11989,9 @@ Abc_Clock.exit373:                                ; preds = %225, %228
   br label %249
 
 249:                                              ; preds = %220, %.thread394, %157, %Abc_Clock.exit373, %114
-  %250 = phi i32 [ %150, %157 ], [ %.pre464.pre, %Abc_Clock.exit373 ], [ %110, %114 ], [ %183, %.thread394 ], [ %.pre464.pre, %220 ]
-  %.0276 = phi ptr [ null, %157 ], [ %179, %Abc_Clock.exit373 ], [ null, %114 ], [ %179, %.thread394 ], [ %179, %220 ]
-  %.0275 = phi ptr [ null, %157 ], [ %180, %Abc_Clock.exit373 ], [ null, %114 ], [ %180, %.thread394 ], [ %180, %220 ]
+  %250 = phi i32 [ %.pre464.pre, %Abc_Clock.exit373 ], [ %150, %157 ], [ %110, %114 ], [ %183, %.thread394 ], [ %.pre464.pre, %220 ]
+  %.0276 = phi ptr [ %179, %Abc_Clock.exit373 ], [ null, %157 ], [ null, %114 ], [ %179, %.thread394 ], [ %179, %220 ]
+  %.0275 = phi ptr [ %180, %Abc_Clock.exit373 ], [ null, %157 ], [ null, %114 ], [ %180, %.thread394 ], [ %180, %220 ]
   %251 = icmp sgt i32 %250, 0
   br i1 %251, label %.lr.ph420.preheader, label %.preheader405
 

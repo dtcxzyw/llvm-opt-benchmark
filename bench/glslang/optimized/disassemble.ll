@@ -2384,7 +2384,7 @@ _ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179: ; preds = %927, %9
   br label %.thread224
 
 .thread224:                                       ; preds = %668, %682, %831, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127, %_ZN3spv11SpirvStream8outputIdEj.exit, %733, %724, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit, %815, %818, %812, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit, %.preheader263
-  %.6 = phi i32 [ %944, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179 ], [ %833, %831 ], [ %376, %733 ], [ %376, %724 ], [ %376, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit ], [ %376, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit ], [ %376, %812 ], [ %376, %815 ], [ %376, %818 ], [ %376, %.preheader263 ], [ %413, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127 ], [ %413, %_ZN3spv11SpirvStream8outputIdEj.exit ], [ %376, %682 ], [ %376, %668 ]
+  %.6 = phi i32 [ %944, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179 ], [ %413, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127 ], [ %413, %_ZN3spv11SpirvStream8outputIdEj.exit ], [ %376, %733 ], [ %376, %724 ], [ %376, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit ], [ %376, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit ], [ %376, %812 ], [ %376, %815 ], [ %376, %818 ], [ %376, %.preheader263 ], [ %833, %831 ], [ %376, %682 ], [ %376, %668 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %945 = load ptr, ptr %343, align 8
   %946 = load ptr, ptr %342, align 8

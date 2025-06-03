@@ -3052,7 +3052,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %
   br label %35
 
 35:                                               ; preds = %33, %29, %27, %25, %23, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 1, %33 ]
+  %.0 = phi i8 [ 0, %8 ], [ 0, %29 ], [ 1, %33 ], [ 0, %23 ], [ 0, %25 ], [ 0, %27 ]
   ret i8 %.0
 }
 

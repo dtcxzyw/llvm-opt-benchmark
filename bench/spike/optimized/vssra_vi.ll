@@ -385,7 +385,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_viP1
   br label %196
 
 196:                                              ; preds = %189, %193, %187, %185, %174
-  %.0174 = phi i128 [ %184, %174 ], [ %184, %187 ], [ %186, %185 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
+  %.0174 = phi i128 [ %184, %174 ], [ %186, %185 ], [ %184, %187 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
   %197 = ashr i128 %.0174, %159
   %198 = trunc i128 %197 to i8
   store i8 %198, ptr %175, align 1, !tbaa !150
@@ -435,7 +435,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_viP1
   br label %221
 
 221:                                              ; preds = %214, %218, %212, %210, %199
-  %.0175 = phi i128 [ %209, %199 ], [ %209, %212 ], [ %211, %210 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
+  %.0175 = phi i128 [ %209, %199 ], [ %211, %210 ], [ %209, %212 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
   %222 = ashr i128 %.0175, %148
   %223 = trunc i128 %222 to i16
   store i16 %223, ptr %200, align 2, !tbaa !151
@@ -485,7 +485,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_viP1
   br label %246
 
 246:                                              ; preds = %239, %243, %237, %235, %224
-  %.0172 = phi i128 [ %234, %224 ], [ %234, %237 ], [ %236, %235 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
+  %.0172 = phi i128 [ %234, %224 ], [ %236, %235 ], [ %234, %237 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
   %247 = ashr i128 %.0172, %137
   %248 = trunc i128 %247 to i32
   store i32 %248, ptr %225, align 4, !tbaa !153
@@ -535,7 +535,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vssra_viP1
   br label %271
 
 271:                                              ; preds = %264, %268, %262, %260, %249
-  %.0170 = phi i128 [ %259, %249 ], [ %259, %262 ], [ %261, %260 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
+  %.0170 = phi i128 [ %259, %249 ], [ %261, %260 ], [ %259, %262 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
   %272 = ashr i128 %.0170, %127
   %273 = trunc i128 %272 to i64
   store i64 %273, ptr %250, align 8, !tbaa !149
@@ -986,7 +986,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %194
 
 194:                                              ; preds = %187, %191, %185, %183, %172
-  %.0174 = phi i128 [ %182, %172 ], [ %182, %185 ], [ %184, %183 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
+  %.0174 = phi i128 [ %182, %172 ], [ %184, %183 ], [ %182, %185 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
   %195 = ashr i128 %.0174, %159
   %196 = trunc i128 %195 to i8
   store i8 %196, ptr %173, align 1, !tbaa !150
@@ -1036,7 +1036,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %219
 
 219:                                              ; preds = %212, %216, %210, %208, %197
-  %.0175 = phi i128 [ %207, %197 ], [ %207, %210 ], [ %209, %208 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
+  %.0175 = phi i128 [ %207, %197 ], [ %209, %208 ], [ %207, %210 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
   %220 = ashr i128 %.0175, %148
   %221 = trunc i128 %220 to i16
   store i16 %221, ptr %198, align 2, !tbaa !151
@@ -1086,7 +1086,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %222
-  %.0172 = phi i128 [ %232, %222 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
+  %.0172 = phi i128 [ %232, %222 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
   %245 = ashr i128 %.0172, %137
   %246 = trunc i128 %245 to i32
   store i32 %246, ptr %223, align 4, !tbaa !153
@@ -1136,7 +1136,7 @@ define noundef i64 @_Z19fast_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %269
 
 269:                                              ; preds = %262, %266, %260, %258, %247
-  %.0170 = phi i128 [ %257, %247 ], [ %257, %260 ], [ %259, %258 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
+  %.0170 = phi i128 [ %257, %247 ], [ %259, %258 ], [ %257, %260 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
   %270 = ashr i128 %.0170, %127
   %271 = trunc i128 %270 to i64
   store i64 %271, ptr %248, align 8, !tbaa !149
@@ -1465,7 +1465,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vi
   br label %196
 
 196:                                              ; preds = %189, %193, %187, %185, %174
-  %.0174 = phi i128 [ %184, %174 ], [ %184, %187 ], [ %186, %185 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
+  %.0174 = phi i128 [ %184, %174 ], [ %186, %185 ], [ %184, %187 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
   %197 = ashr i128 %.0174, %159
   %198 = trunc i128 %197 to i8
   store i8 %198, ptr %175, align 1, !tbaa !150
@@ -1515,7 +1515,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vi
   br label %221
 
 221:                                              ; preds = %214, %218, %212, %210, %199
-  %.0175 = phi i128 [ %209, %199 ], [ %209, %212 ], [ %211, %210 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
+  %.0175 = phi i128 [ %209, %199 ], [ %211, %210 ], [ %209, %212 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
   %222 = ashr i128 %.0175, %148
   %223 = trunc i128 %222 to i16
   store i16 %223, ptr %200, align 2, !tbaa !151
@@ -1565,7 +1565,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vi
   br label %246
 
 246:                                              ; preds = %239, %243, %237, %235, %224
-  %.0172 = phi i128 [ %234, %224 ], [ %234, %237 ], [ %236, %235 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
+  %.0172 = phi i128 [ %234, %224 ], [ %236, %235 ], [ %234, %237 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
   %247 = ashr i128 %.0172, %137
   %248 = trunc i128 %247 to i32
   store i32 %248, ptr %225, align 4, !tbaa !153
@@ -1615,7 +1615,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vssra_vi
   br label %271
 
 271:                                              ; preds = %264, %268, %262, %260, %249
-  %.0170 = phi i128 [ %259, %249 ], [ %259, %262 ], [ %261, %260 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
+  %.0170 = phi i128 [ %259, %249 ], [ %261, %260 ], [ %259, %262 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
   %272 = ashr i128 %.0170, %127
   %273 = trunc i128 %272 to i64
   store i64 %273, ptr %250, align 8, !tbaa !149
@@ -1942,7 +1942,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %194
 
 194:                                              ; preds = %187, %191, %185, %183, %172
-  %.0174 = phi i128 [ %182, %172 ], [ %182, %185 ], [ %184, %183 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
+  %.0174 = phi i128 [ %182, %172 ], [ %184, %183 ], [ %182, %185 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
   %195 = ashr i128 %.0174, %159
   %196 = trunc i128 %195 to i8
   store i8 %196, ptr %173, align 1, !tbaa !150
@@ -1992,7 +1992,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %219
 
 219:                                              ; preds = %212, %216, %210, %208, %197
-  %.0175 = phi i128 [ %207, %197 ], [ %207, %210 ], [ %209, %208 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
+  %.0175 = phi i128 [ %207, %197 ], [ %209, %208 ], [ %207, %210 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
   %220 = ashr i128 %.0175, %148
   %221 = trunc i128 %220 to i16
   store i16 %221, ptr %198, align 2, !tbaa !151
@@ -2042,7 +2042,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %222
-  %.0172 = phi i128 [ %232, %222 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
+  %.0172 = phi i128 [ %232, %222 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
   %245 = ashr i128 %.0172, %137
   %246 = trunc i128 %245 to i32
   store i32 %246, ptr %223, align 4, !tbaa !153
@@ -2092,7 +2092,7 @@ define noundef i64 @_Z21logged_rv64i_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %269
 
 269:                                              ; preds = %262, %266, %260, %258, %247
-  %.0170 = phi i128 [ %257, %247 ], [ %257, %260 ], [ %259, %258 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
+  %.0170 = phi i128 [ %257, %247 ], [ %259, %258 ], [ %257, %260 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
   %270 = ashr i128 %.0170, %127
   %271 = trunc i128 %270 to i64
   store i64 %271, ptr %248, align 8, !tbaa !149
@@ -2421,7 +2421,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_viP1
   br label %196
 
 196:                                              ; preds = %189, %193, %187, %185, %174
-  %.0174 = phi i128 [ %184, %174 ], [ %184, %187 ], [ %186, %185 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
+  %.0174 = phi i128 [ %184, %174 ], [ %186, %185 ], [ %184, %187 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
   %197 = ashr i128 %.0174, %159
   %198 = trunc i128 %197 to i8
   store i8 %198, ptr %175, align 1, !tbaa !150
@@ -2471,7 +2471,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_viP1
   br label %221
 
 221:                                              ; preds = %214, %218, %212, %210, %199
-  %.0175 = phi i128 [ %209, %199 ], [ %209, %212 ], [ %211, %210 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
+  %.0175 = phi i128 [ %209, %199 ], [ %211, %210 ], [ %209, %212 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
   %222 = ashr i128 %.0175, %148
   %223 = trunc i128 %222 to i16
   store i16 %223, ptr %200, align 2, !tbaa !151
@@ -2521,7 +2521,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_viP1
   br label %246
 
 246:                                              ; preds = %239, %243, %237, %235, %224
-  %.0172 = phi i128 [ %234, %224 ], [ %234, %237 ], [ %236, %235 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
+  %.0172 = phi i128 [ %234, %224 ], [ %236, %235 ], [ %234, %237 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
   %247 = ashr i128 %.0172, %137
   %248 = trunc i128 %247 to i32
   store i32 %248, ptr %225, align 4, !tbaa !153
@@ -2571,7 +2571,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vssra_viP1
   br label %271
 
 271:                                              ; preds = %264, %268, %262, %260, %249
-  %.0170 = phi i128 [ %259, %249 ], [ %259, %262 ], [ %261, %260 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
+  %.0170 = phi i128 [ %259, %249 ], [ %261, %260 ], [ %259, %262 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
   %272 = ashr i128 %.0170, %127
   %273 = trunc i128 %272 to i64
   store i64 %273, ptr %250, align 8, !tbaa !149
@@ -2898,7 +2898,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %194
 
 194:                                              ; preds = %187, %191, %185, %183, %172
-  %.0174 = phi i128 [ %182, %172 ], [ %182, %185 ], [ %184, %183 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
+  %.0174 = phi i128 [ %182, %172 ], [ %184, %183 ], [ %182, %185 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
   %195 = ashr i128 %.0174, %159
   %196 = trunc i128 %195 to i8
   store i8 %196, ptr %173, align 1, !tbaa !150
@@ -2948,7 +2948,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %219
 
 219:                                              ; preds = %212, %216, %210, %208, %197
-  %.0175 = phi i128 [ %207, %197 ], [ %207, %210 ], [ %209, %208 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
+  %.0175 = phi i128 [ %207, %197 ], [ %209, %208 ], [ %207, %210 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
   %220 = ashr i128 %.0175, %148
   %221 = trunc i128 %220 to i16
   store i16 %221, ptr %198, align 2, !tbaa !151
@@ -2998,7 +2998,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %222
-  %.0172 = phi i128 [ %232, %222 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
+  %.0172 = phi i128 [ %232, %222 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
   %245 = ashr i128 %.0172, %137
   %246 = trunc i128 %245 to i32
   store i32 %246, ptr %223, align 4, !tbaa !153
@@ -3048,7 +3048,7 @@ define noundef i64 @_Z19fast_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef %0
   br label %269
 
 269:                                              ; preds = %262, %266, %260, %258, %247
-  %.0170 = phi i128 [ %257, %247 ], [ %257, %260 ], [ %259, %258 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
+  %.0170 = phi i128 [ %257, %247 ], [ %259, %258 ], [ %257, %260 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
   %270 = ashr i128 %.0170, %127
   %271 = trunc i128 %270 to i64
   store i64 %271, ptr %248, align 8, !tbaa !149
@@ -3377,7 +3377,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vi
   br label %196
 
 196:                                              ; preds = %189, %193, %187, %185, %174
-  %.0174 = phi i128 [ %184, %174 ], [ %184, %187 ], [ %186, %185 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
+  %.0174 = phi i128 [ %184, %174 ], [ %186, %185 ], [ %184, %187 ], [ %spec.select220, %193 ], [ %spec.select227, %189 ]
   %197 = ashr i128 %.0174, %159
   %198 = trunc i128 %197 to i8
   store i8 %198, ptr %175, align 1, !tbaa !150
@@ -3427,7 +3427,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vi
   br label %221
 
 221:                                              ; preds = %214, %218, %212, %210, %199
-  %.0175 = phi i128 [ %209, %199 ], [ %209, %212 ], [ %211, %210 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
+  %.0175 = phi i128 [ %209, %199 ], [ %211, %210 ], [ %209, %212 ], [ %spec.select222, %218 ], [ %spec.select228, %214 ]
   %222 = ashr i128 %.0175, %148
   %223 = trunc i128 %222 to i16
   store i16 %223, ptr %200, align 2, !tbaa !151
@@ -3477,7 +3477,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vi
   br label %246
 
 246:                                              ; preds = %239, %243, %237, %235, %224
-  %.0172 = phi i128 [ %234, %224 ], [ %234, %237 ], [ %236, %235 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
+  %.0172 = phi i128 [ %234, %224 ], [ %236, %235 ], [ %234, %237 ], [ %spec.select224, %243 ], [ %spec.select229, %239 ]
   %247 = ashr i128 %.0172, %137
   %248 = trunc i128 %247 to i32
   store i32 %248, ptr %225, align 4, !tbaa !153
@@ -3527,7 +3527,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vssra_vi
   br label %271
 
 271:                                              ; preds = %264, %268, %262, %260, %249
-  %.0170 = phi i128 [ %259, %249 ], [ %259, %262 ], [ %261, %260 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
+  %.0170 = phi i128 [ %259, %249 ], [ %261, %260 ], [ %259, %262 ], [ %spec.select226, %268 ], [ %spec.select230, %264 ]
   %272 = ashr i128 %.0170, %127
   %273 = trunc i128 %272 to i64
   store i64 %273, ptr %250, align 8, !tbaa !149
@@ -3854,7 +3854,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %194
 
 194:                                              ; preds = %187, %191, %185, %183, %172
-  %.0174 = phi i128 [ %182, %172 ], [ %182, %185 ], [ %184, %183 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
+  %.0174 = phi i128 [ %182, %172 ], [ %184, %183 ], [ %182, %185 ], [ %spec.select220, %191 ], [ %spec.select227, %187 ]
   %195 = ashr i128 %.0174, %159
   %196 = trunc i128 %195 to i8
   store i8 %196, ptr %173, align 1, !tbaa !150
@@ -3904,7 +3904,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %219
 
 219:                                              ; preds = %212, %216, %210, %208, %197
-  %.0175 = phi i128 [ %207, %197 ], [ %207, %210 ], [ %209, %208 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
+  %.0175 = phi i128 [ %207, %197 ], [ %209, %208 ], [ %207, %210 ], [ %spec.select222, %216 ], [ %spec.select228, %212 ]
   %220 = ashr i128 %.0175, %148
   %221 = trunc i128 %220 to i16
   store i16 %221, ptr %198, align 2, !tbaa !151
@@ -3954,7 +3954,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %244
 
 244:                                              ; preds = %237, %241, %235, %233, %222
-  %.0172 = phi i128 [ %232, %222 ], [ %232, %235 ], [ %234, %233 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
+  %.0172 = phi i128 [ %232, %222 ], [ %234, %233 ], [ %232, %235 ], [ %spec.select224, %241 ], [ %spec.select229, %237 ]
   %245 = ashr i128 %.0172, %137
   %246 = trunc i128 %245 to i32
   store i32 %246, ptr %223, align 4, !tbaa !153
@@ -4004,7 +4004,7 @@ define noundef i64 @_Z21logged_rv64e_vssra_viP11processor_t6insn_tm(ptr noundef 
   br label %269
 
 269:                                              ; preds = %262, %266, %260, %258, %247
-  %.0170 = phi i128 [ %257, %247 ], [ %257, %260 ], [ %259, %258 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
+  %.0170 = phi i128 [ %257, %247 ], [ %259, %258 ], [ %257, %260 ], [ %spec.select226, %266 ], [ %spec.select230, %262 ]
   %270 = ashr i128 %.0170, %127
   %271 = trunc i128 %270 to i64
   store i64 %271, ptr %248, align 8, !tbaa !149

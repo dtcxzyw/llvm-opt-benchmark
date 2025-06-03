@@ -90056,7 +90056,7 @@ _ZN5Yosys7hashlib11HasherDJB323eatINS0_4poolINS_8DriveBitENS0_8hash_opsIS4_EEEEE
   br label %126
 
 126:                                              ; preds = %_ZN5Yosys7hashlib11HasherDJB323eatINS0_4poolINS_8DriveBitENS0_8hash_opsIS4_EEEEEEvRKT_.exit, %73, %70, %_ZN5Yosys7hashlib11HasherDJB323eatINS_12DriveBitWireEEEvRKT_.exit, %13, %4, %2
-  %.sroa.0.0 = phi i32 [ %1, %2 ], [ %125, %_ZN5Yosys7hashlib11HasherDJB323eatINS0_4poolINS_8DriveBitENS0_8hash_opsIS4_EEEEEEvRKT_.exit ], [ %96, %73 ], [ %72, %70 ], [ %69, %_ZN5Yosys7hashlib11HasherDJB323eatINS_12DriveBitWireEEEvRKT_.exit ], [ %26, %13 ], [ %12, %4 ]
+  %.sroa.0.0 = phi i32 [ %1, %2 ], [ %12, %4 ], [ %26, %13 ], [ %69, %_ZN5Yosys7hashlib11HasherDJB323eatINS_12DriveBitWireEEEvRKT_.exit ], [ %72, %70 ], [ %96, %73 ], [ %125, %_ZN5Yosys7hashlib11HasherDJB323eatINS0_4poolINS_8DriveBitENS0_8hash_opsIS4_EEEEEEvRKT_.exit ]
   %127 = load i8, ptr %0, align 8, !tbaa !977
   %128 = zext i8 %127 to i32
   %129 = mul nuw nsw i32 %128, 33

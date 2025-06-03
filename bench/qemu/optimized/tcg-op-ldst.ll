@@ -258,7 +258,7 @@ check_max_alignment.exit.i:                       ; preds = %18, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %29, %31
-  %.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %30, %29 ], [ %32, %31 ]
+  %.1.i = phi i32 [ %30, %29 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %32, %31 ]
   %34 = load ptr, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
@@ -449,7 +449,7 @@ check_max_alignment.exit.i:                       ; preds = %14, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %24
-  %.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %25, %24 ], [ %spec.select.i, %check_max_alignment.exit.i ]
+  %.1.i = phi i32 [ %25, %24 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %27 = and i32 %.1.i, -9
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %29 = load ptr, ptr %28, align 8
@@ -650,7 +650,7 @@ check_max_alignment.exit.i:                       ; preds = %18, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %29, %31
-  %.1.i = phi i32 [ %32, %31 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %30, %29 ], [ %spec.select.i, %check_max_alignment.exit.i ]
+  %.1.i = phi i32 [ %30, %29 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %32, %31 ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %34 = load ptr, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
@@ -846,7 +846,7 @@ check_max_alignment.exit.i:                       ; preds = %14, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %check_max_alignment.exit.i, %24
-  %.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %25, %24 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
+  %.1.i = phi i32 [ %25, %24 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %27 = and i32 %.1.i, -9
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %29 = load ptr, ptr %28, align 8
@@ -1169,8 +1169,8 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   unreachable
 
 91:                                               ; preds = %89, %86, %84, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %81, %89 ], [ %88, %86 ], [ %85, %84 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
-  %.0.i80 = phi i32 [ %90, %89 ], [ %81, %86 ], [ %85, %84 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
+  %.016.i = phi i32 [ %85, %84 ], [ %88, %86 ], [ %81, %89 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
+  %.0.i80 = phi i32 [ %85, %84 ], [ %81, %86 ], [ %90, %89 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
   %92 = and i32 %.062, 16
   %.not.i81 = icmp eq i32 %92, 0
   br i1 %.not.i81, label %canonicalize_memop_i128_as_i64.exit, label %93
@@ -1544,8 +1544,8 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   unreachable
 
 95:                                               ; preds = %93, %90, %88, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %85, %93 ], [ %92, %90 ], [ %89, %88 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
-  %.0.i88 = phi i32 [ %94, %93 ], [ %85, %90 ], [ %89, %88 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
+  %.016.i = phi i32 [ %89, %88 ], [ %92, %90 ], [ %85, %93 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
+  %.0.i88 = phi i32 [ %89, %88 ], [ %85, %90 ], [ %94, %93 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
   %96 = and i32 %.067, 16
   %.not.i89 = icmp eq i32 %96, 0
   br i1 %.not.i89, label %112, label %97
@@ -1991,7 +1991,7 @@ check_max_alignment.exit.i:                       ; preds = %23, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %33, %35
-  %.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %34, %33 ], [ %36, %35 ]
+  %.1.i = phi i32 [ %34, %33 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %36, %35 ]
   %38 = and i32 %.1.i, 23
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %39
@@ -2447,7 +2447,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -2530,7 +2530,7 @@ check_max_alignment.exit.i:                       ; preds = %14, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %26, %28
-  %.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %27, %26 ], [ %29, %28 ]
+  %.1.i = phi i32 [ %27, %26 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %29, %28 ]
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
@@ -2684,7 +2684,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -2768,7 +2768,7 @@ check_max_alignment.exit.i:                       ; preds = %14, %memop_alignmen
   unreachable
 
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %26, %28
-  %.1.i = phi i32 [ %29, %28 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %27, %26 ], [ %spec.select.i, %check_max_alignment.exit.i ]
+  %.1.i = phi i32 [ %27, %26 ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %29, %28 ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
@@ -2946,7 +2946,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -3054,7 +3054,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -3160,7 +3160,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -3268,7 +3268,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -3374,7 +3374,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -3482,7 +3482,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -3588,7 +3588,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -3696,7 +3696,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -3802,7 +3802,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -3910,7 +3910,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -4016,7 +4016,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -4124,7 +4124,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -4230,7 +4230,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -4338,7 +4338,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -4444,7 +4444,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -4550,7 +4550,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -4654,7 +4654,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -4760,7 +4760,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -4864,7 +4864,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -4970,7 +4970,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -5074,7 +5074,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -5180,7 +5180,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -5284,7 +5284,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -5390,7 +5390,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -5494,7 +5494,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -5600,7 +5600,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -5704,7 +5704,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -5810,7 +5810,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -5914,7 +5914,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -6020,7 +6020,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8
@@ -6124,7 +6124,7 @@ check_max_alignment.exit.i.i:                     ; preds = %29, %memop_alignmen
   unreachable
 
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %39, %41
-  %.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %40, %39 ], [ %42, %41 ]
+  %.1.i.i = phi i32 [ %40, %39 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
@@ -6230,7 +6230,7 @@ default.unreachable:                              ; preds = %check_max_alignment
   unreachable
 
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %41, %43
-  %.1.i.i = phi i32 [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
+  %.1.i.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %44, %43 ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %47 = load ptr, ptr %46, align 8

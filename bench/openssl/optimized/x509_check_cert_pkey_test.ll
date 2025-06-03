@@ -305,9 +305,9 @@ sub_1:                                            ; preds = %sub_0
   br label %43
 
 43:                                               ; preds = %41, %35
-  %.125 = phi ptr [ null, %41 ], [ %32, %35 ]
-  %.1 = phi ptr [ %38, %41 ], [ null, %35 ]
-  %.0 = phi i32 [ %42, %41 ], [ %36, %35 ]
+  %.125 = phi ptr [ %32, %35 ], [ null, %41 ]
+  %.1 = phi ptr [ null, %35 ], [ %38, %41 ]
+  %.0 = phi i32 [ %36, %35 ], [ %42, %41 ]
   %44 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 95, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.37, i32 noundef %.0, i32 noundef %.019) #5
   %.not33 = icmp eq i32 %44, 0
   br i1 %.not33, label %45, label %46
@@ -317,11 +317,11 @@ sub_1:                                            ; preds = %sub_0
   br label %46
 
 46:                                               ; preds = %43, %25, %22, %18, %45, %40, %34, %17, %7
-  %.026 = phi ptr [ %28, %45 ], [ %28, %40 ], [ %28, %34 ], [ %28, %25 ], [ %20, %22 ], [ %20, %18 ], [ null, %17 ], [ null, %7 ], [ %28, %43 ]
-  %.024 = phi ptr [ %.125, %45 ], [ null, %40 ], [ null, %34 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %.125, %43 ]
-  %.023 = phi ptr [ %.1, %45 ], [ null, %40 ], [ null, %34 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %.1, %43 ]
-  %.022 = phi ptr [ %23, %45 ], [ %23, %40 ], [ %23, %34 ], [ %23, %25 ], [ %23, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %23, %43 ]
-  %.021 = phi i32 [ 0, %45 ], [ 0, %40 ], [ 0, %34 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %17 ], [ 0, %7 ], [ 1, %43 ]
+  %.026 = phi ptr [ %28, %45 ], [ %28, %34 ], [ %28, %40 ], [ %28, %25 ], [ %20, %22 ], [ %20, %18 ], [ null, %17 ], [ null, %7 ], [ %28, %43 ]
+  %.024 = phi ptr [ %.125, %45 ], [ null, %34 ], [ null, %40 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %.125, %43 ]
+  %.023 = phi ptr [ %.1, %45 ], [ null, %34 ], [ null, %40 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %.1, %43 ]
+  %.022 = phi ptr [ %23, %45 ], [ %23, %34 ], [ %23, %40 ], [ %23, %25 ], [ %23, %22 ], [ null, %18 ], [ null, %17 ], [ null, %7 ], [ %23, %43 ]
+  %.021 = phi i32 [ 0, %45 ], [ 0, %34 ], [ 0, %40 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %17 ], [ 0, %7 ], [ 1, %43 ]
   %47 = tail call i32 @BIO_free(ptr noundef %.026) #5
   tail call void @X509_free(ptr noundef %.024) #5
   tail call void @X509_REQ_free(ptr noundef %.023) #5

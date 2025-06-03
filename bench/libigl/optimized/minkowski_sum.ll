@@ -5835,7 +5835,7 @@ _ZN4CGAL6HandleD2Ev.exit873:                      ; preds = %2123, %2127, %2130,
   ret void
 
 2141:                                             ; preds = %2091, %2089, %1588, %2105, %.body696, %1587
-  %.pn256.pn.pn.pn = phi { ptr, i32 } [ %.pn232, %1587 ], [ %.pn251.pn.pn, %2105 ], [ %1589, %1588 ], [ %1608, %.body696 ], [ %2090, %2089 ], [ %2092, %2091 ]
+  %.pn258.pn.pn.pn = phi { ptr, i32 } [ %.pn232, %1587 ], [ %.pn251.pn.pn, %2105 ], [ %1589, %1588 ], [ %1608, %.body696 ], [ %2090, %2089 ], [ %2092, %2091 ]
   %2142 = load ptr, ptr %90, align 8, !tbaa !97
   call void @free(ptr noundef %2142) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #24
@@ -5851,31 +5851,31 @@ _ZN4CGAL6HandleD2Ev.exit873:                      ; preds = %2123, %2127, %2130,
   br label %.body450
 
 .body450:                                         ; preds = %2141, %1580, %984
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %985, %984 ], [ %.pn256.pn.pn.pn, %2141 ], [ %1581, %1580 ]
+  %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %985, %984 ], [ %.pn258.pn.pn.pn, %2141 ], [ %1581, %1580 ]
   %2146 = load ptr, ptr %86, align 8, !tbaa !30
   call void @free(ptr noundef %2146) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86) #24
   br label %2147
 
 2147:                                             ; preds = %.body450, %_ZNSt6vectorIiSaIiEED2Ev.exit691
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body450 ], [ %.pn212.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit691 ]
+  %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body450 ], [ %.pn212.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit691 ]
   call void @free(ptr noundef %.sroa.01391.0) #24
   br label %.body377
 
 .body377:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit679, %1543, %866, %2147, %778
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %779, %778 ], [ %1544, %1543 ], [ %.pn206.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit679 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2147 ], [ %867, %866 ]
+  %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %779, %778 ], [ %1544, %1543 ], [ %.pn206.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit679 ], [ %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2147 ], [ %867, %866 ]
   %2148 = load ptr, ptr %76, align 8, !tbaa !97
   call void @free(ptr noundef %2148) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #24
   br label %2149
 
 2149:                                             ; preds = %.body377, %1512, %_ZNSt6vectorIiSaIiEED2Ev.exit671
-  %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body377 ], [ %1513, %1512 ], [ %.pn199.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit671 ]
+  %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body377 ], [ %1513, %1512 ], [ %.pn199.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit671 ]
   call void @free(ptr noundef %.sroa.0.0) #24
   br label %.body321
 
 .body321:                                         ; preds = %666, %446, %2149, %430
-  %.pn279.pn.pn.pn.pn = phi { ptr, i32 } [ %431, %430 ], [ %.pn279.pn.pn, %666 ], [ %.pn256.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2149 ], [ %447, %446 ]
+  %.pn279.pn.pn.pn.pn = phi { ptr, i32 } [ %431, %430 ], [ %.pn279.pn.pn, %666 ], [ %.pn258.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2149 ], [ %447, %446 ]
   %2150 = load ptr, ptr %61, align 8, !tbaa !54
   call void @free(ptr noundef %2150) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #24
@@ -13656,7 +13656,7 @@ _ZN4CGAL6HandleD2Ev.exit834:                      ; preds = %1915, %1919, %1922,
   ret void
 
 1933:                                             ; preds = %1881, %1879, %1410, %1897, %.body658, %1409
-  %.pn247.pn.pn.pn = phi { ptr, i32 } [ %.pn223, %1409 ], [ %.pn242.pn.pn, %1897 ], [ %1411, %1410 ], [ %1430, %.body658 ], [ %1880, %1879 ], [ %1882, %1881 ]
+  %.pn249.pn.pn.pn = phi { ptr, i32 } [ %.pn223, %1409 ], [ %.pn242.pn.pn, %1897 ], [ %1411, %1410 ], [ %1430, %.body658 ], [ %1880, %1879 ], [ %1882, %1881 ]
   %1934 = load ptr, ptr %79, align 8, !tbaa !97
   call void @free(ptr noundef %1934) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #24
@@ -13672,31 +13672,31 @@ _ZN4CGAL6HandleD2Ev.exit834:                      ; preds = %1915, %1919, %1922,
   br label %.body420
 
 .body420:                                         ; preds = %1933, %1402, %806
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %807, %806 ], [ %.pn247.pn.pn.pn, %1933 ], [ %1403, %1402 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %807, %806 ], [ %.pn249.pn.pn.pn, %1933 ], [ %1403, %1402 ]
   %1938 = load ptr, ptr %75, align 8, !tbaa !30
   call void @free(ptr noundef %1938) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75) #24
   br label %1939
 
 1939:                                             ; preds = %.body420, %_ZNSt6vectorIiSaIiEED2Ev.exit657
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body420 ], [ %.pn203.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit657 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body420 ], [ %.pn203.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit657 ]
   call void @free(ptr noundef %.sroa.01383.0) #24
   br label %.body331
 
 .body331:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit645, %1365, %665, %1939, %577
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %578, %577 ], [ %1366, %1365 ], [ %.pn197.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit645 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1939 ], [ %666, %665 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %578, %577 ], [ %1366, %1365 ], [ %.pn197.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit645 ], [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1939 ], [ %666, %665 ]
   %1940 = load ptr, ptr %65, align 8, !tbaa !97
   call void @free(ptr noundef %1940) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #24
   br label %1941
 
 1941:                                             ; preds = %.body331, %1334, %_ZNSt6vectorIiSaIiEED2Ev.exit637
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body331 ], [ %1335, %1334 ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit637 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body331 ], [ %1335, %1334 ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit637 ]
   call void @free(ptr noundef %.sroa.0.0) #24
   br label %.body287
 
 .body287:                                         ; preds = %427, %208, %1941, %192
-  %.pn270.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %.pn270.pn.pn, %427 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1941 ], [ %209, %208 ]
+  %.pn270.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %.pn270.pn.pn, %427 ], [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1941 ], [ %209, %208 ]
   %1942 = load ptr, ptr %50, align 8, !tbaa !54
   call void @free(ptr noundef %1942) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #24
@@ -18202,7 +18202,7 @@ _ZN4CGAL6HandleD2Ev.exit834:                      ; preds = %1911, %1915, %1918,
   ret void
 
 1929:                                             ; preds = %1877, %1875, %1406, %1893, %.body658, %1405
-  %.pn247.pn.pn.pn = phi { ptr, i32 } [ %.pn223, %1405 ], [ %.pn242.pn.pn, %1893 ], [ %1407, %1406 ], [ %1426, %.body658 ], [ %1876, %1875 ], [ %1878, %1877 ]
+  %.pn249.pn.pn.pn = phi { ptr, i32 } [ %.pn223, %1405 ], [ %.pn242.pn.pn, %1893 ], [ %1407, %1406 ], [ %1426, %.body658 ], [ %1876, %1875 ], [ %1878, %1877 ]
   %1930 = load ptr, ptr %79, align 8, !tbaa !97
   call void @free(ptr noundef %1930) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #24
@@ -18218,31 +18218,31 @@ _ZN4CGAL6HandleD2Ev.exit834:                      ; preds = %1911, %1915, %1918,
   br label %.body420
 
 .body420:                                         ; preds = %1929, %1398, %802
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %803, %802 ], [ %.pn247.pn.pn.pn, %1929 ], [ %1399, %1398 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %803, %802 ], [ %.pn249.pn.pn.pn, %1929 ], [ %1399, %1398 ]
   %1934 = load ptr, ptr %75, align 8, !tbaa !30
   call void @free(ptr noundef %1934) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75) #24
   br label %1935
 
 1935:                                             ; preds = %.body420, %_ZNSt6vectorIiSaIiEED2Ev.exit657
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body420 ], [ %.pn203.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit657 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body420 ], [ %.pn203.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit657 ]
   call void @free(ptr noundef %.sroa.01383.0) #24
   br label %.body331
 
 .body331:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit645, %1361, %661, %1935, %573
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %574, %573 ], [ %1362, %1361 ], [ %.pn197.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit645 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1935 ], [ %662, %661 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %574, %573 ], [ %1362, %1361 ], [ %.pn197.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit645 ], [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1935 ], [ %662, %661 ]
   %1936 = load ptr, ptr %65, align 8, !tbaa !97
   call void @free(ptr noundef %1936) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #24
   br label %1937
 
 1937:                                             ; preds = %.body331, %1330, %_ZNSt6vectorIiSaIiEED2Ev.exit637
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body331 ], [ %1331, %1330 ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit637 ]
+  %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body331 ], [ %1331, %1330 ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit637 ]
   call void @free(ptr noundef %.sroa.0.0) #24
   br label %.body287
 
 .body287:                                         ; preds = %423, %204, %1937, %188
-  %.pn270.pn.pn.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %.pn270.pn.pn, %423 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1937 ], [ %205, %204 ]
+  %.pn270.pn.pn.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %.pn270.pn.pn, %423 ], [ %.pn249.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1937 ], [ %205, %204 ]
   %1938 = load ptr, ptr %50, align 8, !tbaa !54
   call void @free(ptr noundef %1938) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #24

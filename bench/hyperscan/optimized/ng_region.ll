@@ -857,8 +857,8 @@ _ZN5boost16bgl_named_paramsIN3ue215small_color_mapINS1_9ue2_graphINS1_8NGHolderE
   br label %229
 
 229:                                              ; preds = %227, %._crit_edge._crit_edge.i.i.i.i.i
-  %.sroa.0.0.copyload.i20.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i20.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.sroa.0.0.copyload.i19.i.i.i.i.i, %227 ]
-  %.sroa.038.1.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %228, %227 ]
+  %.sroa.0.0.copyload.i20.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i19.i.i.i.i.i, %227 ], [ %.sroa.0.0.copyload.i20.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
+  %.sroa.038.1.i.i.i.i.i = phi ptr [ %228, %227 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ]
   %230 = load ptr, ptr %.sroa.038.1.i.i.i.i.i, align 8
   %231 = icmp eq ptr %230, %.sroa.0.0.copyload.i20.i.i.i.i.i
   br i1 %231, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESA_ET_SG_SG_RKT0_.exit.i.i, label %232
@@ -868,8 +868,8 @@ _ZN5boost16bgl_named_paramsIN3ue215small_color_mapINS1_9ue2_graphINS1_8NGHolderE
   br label %234
 
 234:                                              ; preds = %232, %._crit_edge._crit_edge64.i.i.i.i.i
-  %.sroa.0.0.copyload.i21.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i21.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %.sroa.0.0.copyload.i20.i.i.i.i.i, %232 ]
-  %.sroa.038.2.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ], [ %233, %232 ]
+  %.sroa.0.0.copyload.i21.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i20.i.i.i.i.i, %232 ], [ %.sroa.0.0.copyload.i21.pre.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
+  %.sroa.038.2.i.i.i.i.i = phi ptr [ %233, %232 ], [ %.sroa.038.0.lcssa.i.i.i.i.i, %._crit_edge._crit_edge64.i.i.i.i.i ]
   %235 = load ptr, ptr %.sroa.038.2.i.i.i.i.i, align 8
   %236 = icmp eq ptr %235, %.sroa.0.0.copyload.i21.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %236, ptr %.sroa.038.2.i.i.i.i.i, ptr %197
@@ -1010,8 +1010,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %279
 
 279:                                              ; preds = %277, %._crit_edge._crit_edge.i.i.i62.i.i
-  %.sroa.0.0.copyload.i20.i.i.i64.i.i = phi ptr [ %.sroa.0.0.copyload.i20.pre.i.i.i63.i.i, %._crit_edge._crit_edge.i.i.i62.i.i ], [ %.sroa.0.0.copyload.i19.i.i.i66.i.i, %277 ]
-  %.sroa.038.1.i.i.i65.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i55.i.i, %._crit_edge._crit_edge.i.i.i62.i.i ], [ %278, %277 ]
+  %.sroa.0.0.copyload.i20.i.i.i64.i.i = phi ptr [ %.sroa.0.0.copyload.i19.i.i.i66.i.i, %277 ], [ %.sroa.0.0.copyload.i20.pre.i.i.i63.i.i, %._crit_edge._crit_edge.i.i.i62.i.i ]
+  %.sroa.038.1.i.i.i65.i.i = phi ptr [ %278, %277 ], [ %.sroa.038.0.lcssa.i.i.i55.i.i, %._crit_edge._crit_edge.i.i.i62.i.i ]
   %280 = load ptr, ptr %.sroa.038.1.i.i.i65.i.i, align 8
   %281 = icmp eq ptr %280, %.sroa.0.0.copyload.i20.i.i.i64.i.i
   br i1 %281, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESA_ET_SG_SG_RKT0_.exit78.i.i, label %282
@@ -1021,8 +1021,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %284
 
 284:                                              ; preds = %282, %._crit_edge._crit_edge64.i.i.i56.i.i
-  %.sroa.0.0.copyload.i21.i.i.i58.i.i = phi ptr [ %.sroa.0.0.copyload.i21.pre.i.i.i57.i.i, %._crit_edge._crit_edge64.i.i.i56.i.i ], [ %.sroa.0.0.copyload.i20.i.i.i64.i.i, %282 ]
-  %.sroa.038.2.i.i.i59.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i55.i.i, %._crit_edge._crit_edge64.i.i.i56.i.i ], [ %283, %282 ]
+  %.sroa.0.0.copyload.i21.i.i.i58.i.i = phi ptr [ %.sroa.0.0.copyload.i20.i.i.i64.i.i, %282 ], [ %.sroa.0.0.copyload.i21.pre.i.i.i57.i.i, %._crit_edge._crit_edge64.i.i.i56.i.i ]
+  %.sroa.038.2.i.i.i59.i.i = phi ptr [ %283, %282 ], [ %.sroa.038.0.lcssa.i.i.i55.i.i, %._crit_edge._crit_edge64.i.i.i56.i.i ]
   %285 = load ptr, ptr %.sroa.038.2.i.i.i59.i.i, align 8
   %286 = icmp eq ptr %285, %.sroa.0.0.copyload.i21.i.i.i58.i.i
   %spec.select.i.i.i60.i.i = select i1 %286, ptr %.sroa.038.2.i.i.i59.i.i, ptr %249
@@ -1164,8 +1164,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %330
 
 330:                                              ; preds = %328, %._crit_edge._crit_edge.i.i.i92.i.i
-  %.sroa.0.0.copyload.i20.i.i.i94.i.i = phi ptr [ %.sroa.0.0.copyload.i20.pre.i.i.i93.i.i, %._crit_edge._crit_edge.i.i.i92.i.i ], [ %.sroa.0.0.copyload.i19.i.i.i96.i.i, %328 ]
-  %.sroa.038.1.i.i.i95.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i85.i.i, %._crit_edge._crit_edge.i.i.i92.i.i ], [ %329, %328 ]
+  %.sroa.0.0.copyload.i20.i.i.i94.i.i = phi ptr [ %.sroa.0.0.copyload.i19.i.i.i96.i.i, %328 ], [ %.sroa.0.0.copyload.i20.pre.i.i.i93.i.i, %._crit_edge._crit_edge.i.i.i92.i.i ]
+  %.sroa.038.1.i.i.i95.i.i = phi ptr [ %329, %328 ], [ %.sroa.038.0.lcssa.i.i.i85.i.i, %._crit_edge._crit_edge.i.i.i92.i.i ]
   %331 = load ptr, ptr %.sroa.038.1.i.i.i95.i.i, align 8
   %332 = icmp eq ptr %331, %.sroa.0.0.copyload.i20.i.i.i94.i.i
   br i1 %332, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESA_ET_SG_SG_RKT0_.exit108.i.i, label %333
@@ -1175,8 +1175,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %335
 
 335:                                              ; preds = %333, %._crit_edge._crit_edge64.i.i.i86.i.i
-  %.sroa.0.0.copyload.i21.i.i.i88.i.i = phi ptr [ %.sroa.0.0.copyload.i21.pre.i.i.i87.i.i, %._crit_edge._crit_edge64.i.i.i86.i.i ], [ %.sroa.0.0.copyload.i20.i.i.i94.i.i, %333 ]
-  %.sroa.038.2.i.i.i89.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i85.i.i, %._crit_edge._crit_edge64.i.i.i86.i.i ], [ %334, %333 ]
+  %.sroa.0.0.copyload.i21.i.i.i88.i.i = phi ptr [ %.sroa.0.0.copyload.i20.i.i.i94.i.i, %333 ], [ %.sroa.0.0.copyload.i21.pre.i.i.i87.i.i, %._crit_edge._crit_edge64.i.i.i86.i.i ]
+  %.sroa.038.2.i.i.i89.i.i = phi ptr [ %334, %333 ], [ %.sroa.038.0.lcssa.i.i.i85.i.i, %._crit_edge._crit_edge64.i.i.i86.i.i ]
   %336 = load ptr, ptr %.sroa.038.2.i.i.i89.i.i, align 8
   %337 = icmp eq ptr %336, %.sroa.0.0.copyload.i21.i.i.i88.i.i
   %spec.select.i.i.i90.i.i = select i1 %337, ptr %.sroa.038.2.i.i.i89.i.i, ptr %300
@@ -1314,8 +1314,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %383
 
 383:                                              ; preds = %381, %._crit_edge._crit_edge.i.i.i122.i.i
-  %.sroa.0.0.copyload.i20.i.i.i124.i.i = phi ptr [ %.sroa.0.0.copyload.i20.pre.i.i.i123.i.i, %._crit_edge._crit_edge.i.i.i122.i.i ], [ %.sroa.0.0.copyload.i19.i.i.i126.i.i, %381 ]
-  %.sroa.038.1.i.i.i125.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i115.i.i, %._crit_edge._crit_edge.i.i.i122.i.i ], [ %382, %381 ]
+  %.sroa.0.0.copyload.i20.i.i.i124.i.i = phi ptr [ %.sroa.0.0.copyload.i19.i.i.i126.i.i, %381 ], [ %.sroa.0.0.copyload.i20.pre.i.i.i123.i.i, %._crit_edge._crit_edge.i.i.i122.i.i ]
+  %.sroa.038.1.i.i.i125.i.i = phi ptr [ %382, %381 ], [ %.sroa.038.0.lcssa.i.i.i115.i.i, %._crit_edge._crit_edge.i.i.i122.i.i ]
   %384 = load ptr, ptr %.sroa.038.1.i.i.i125.i.i, align 8
   %385 = icmp eq ptr %384, %.sroa.0.0.copyload.i20.i.i.i124.i.i
   br i1 %385, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEESA_ET_SG_SG_RKT0_.exit138.i.i, label %386
@@ -1325,8 +1325,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %388
 
 388:                                              ; preds = %386, %._crit_edge._crit_edge64.i.i.i116.i.i
-  %.sroa.0.0.copyload.i21.i.i.i118.i.i = phi ptr [ %.sroa.0.0.copyload.i21.pre.i.i.i117.i.i, %._crit_edge._crit_edge64.i.i.i116.i.i ], [ %.sroa.0.0.copyload.i20.i.i.i124.i.i, %386 ]
-  %.sroa.038.2.i.i.i119.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i115.i.i, %._crit_edge._crit_edge64.i.i.i116.i.i ], [ %387, %386 ]
+  %.sroa.0.0.copyload.i21.i.i.i118.i.i = phi ptr [ %.sroa.0.0.copyload.i20.i.i.i124.i.i, %386 ], [ %.sroa.0.0.copyload.i21.pre.i.i.i117.i.i, %._crit_edge._crit_edge64.i.i.i116.i.i ]
+  %.sroa.038.2.i.i.i119.i.i = phi ptr [ %387, %386 ], [ %.sroa.038.0.lcssa.i.i.i115.i.i, %._crit_edge._crit_edge64.i.i.i116.i.i ]
   %389 = load ptr, ptr %.sroa.038.2.i.i.i119.i.i, align 8
   %390 = icmp eq ptr %389, %.sroa.0.0.copyload.i21.i.i.i118.i.i
   %spec.select.i.i.i120.i.i = select i1 %390, ptr %.sroa.038.2.i.i.i119.i.i, ptr %353
@@ -3787,7 +3787,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   br label %1304
 
 1304:                                             ; preds = %1302, %._crit_edge.i.i.i.i.i.i
-  %.sroa.039.1.i.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1303, %1302 ]
+  %.sroa.039.1.i.i.i.i.i.i = phi ptr [ %1303, %1302 ], [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %1305 = getelementptr i8, ptr %.sroa.039.1.i.i.i.i.i.i, i64 24
   %.val1.i27.i.i.i.i.i.i = load i64, ptr %1305, align 8
   %.not.i.i.i.i28.i.i.i.i.i.i = icmp eq i64 %.val1.i27.i.i.i.i.i.i, 0
@@ -3798,7 +3798,7 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   br label %1308
 
 1308:                                             ; preds = %1306, %._crit_edge.i.i.i.i.i.i
-  %.sroa.039.2.i.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %1307, %1306 ]
+  %.sroa.039.2.i.i.i.i.i.i = phi ptr [ %1307, %1306 ], [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %1309 = getelementptr i8, ptr %.sroa.039.2.i.i.i.i.i.i, i64 24
   %.val1.i29.i.i.i.i.i.i = load i64, ptr %1309, align 8
   %.not.i.i.i.i30.i.i.i.i.i.i = icmp eq i64 %.val1.i29.i.i.i.i.i.i, 0

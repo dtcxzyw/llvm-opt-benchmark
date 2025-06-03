@@ -373,7 +373,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br label %dissect_elmi_info_elem.exit
 
 dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81, %.lr.ph7.i, %65, %.lr.ph12.i, %40, %44, %51, %58, %71, %87, %110
-  %.0102.i = phi i32 [ %112, %110 ], [ %57, %51 ], [ %50, %44 ], [ %43, %40 ], [ %61, %58 ], [ %77, %71 ], [ %100, %87 ], [ %66, %65 ], [ %.111.i, %.lr.ph12.i ], [ %82, %81 ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
+  %.0102.i = phi i32 [ %112, %110 ], [ %43, %40 ], [ %50, %44 ], [ %57, %51 ], [ %61, %58 ], [ %77, %71 ], [ %100, %87 ], [ %66, %65 ], [ %.111.i, %.lr.ph12.i ], [ %82, %81 ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
   %113 = load ptr, ptr %5, align 8
   %114 = sub i32 %.0102.i, %.0
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114)
@@ -551,7 +551,7 @@ define internal fastcc noundef i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %86, %37, %29, %25, %21
-  %.0 = phi i32 [ %87, %86 ], [ %85, %37 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %18, %.preheader ], [ %35, %.lr.ph ]
+  %.0 = phi i32 [ %87, %86 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %85, %37 ], [ %18, %.preheader ], [ %35, %.lr.ph ]
   %88 = load ptr, ptr %4, align 8
   %89 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %88, i32 noundef %89)

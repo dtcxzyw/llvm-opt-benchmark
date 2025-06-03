@@ -271,7 +271,7 @@ define internal fastcc { i1, i64 } @_ZN6uu_fmt9parasplit9FileLines20match_prefix
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; preds = %67, %70, %73, %78
-  %.0.i20 = phi i8 [ %72, %70 ], [ %83, %78 ], [ %69, %67 ], [ %77, %73 ]
+  %.0.i20 = phi i8 [ %77, %73 ], [ %69, %67 ], [ %83, %78 ], [ %72, %70 ]
   %84 = trunc i8 %.0.i20 to i1
   %85 = icmp ne ptr %.sink, %8
   %or.cond.not = select i1 %84, i1 %85, i1 false
@@ -439,7 +439,7 @@ define internal fastcc void @_ZN6uu_fmt9parasplit9FileLines14compute_indent17hda
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; preds = %59, %62, %65, %70
-  %.0.i = phi i8 [ %64, %62 ], [ %75, %70 ], [ %61, %59 ], [ %69, %65 ]
+  %.0.i = phi i8 [ %69, %65 ], [ %61, %59 ], [ %75, %70 ], [ %64, %62 ]
   %76 = trunc i8 %.0.i to i1
   br i1 %76, label %.critedge.thread, label %.critedge21
 
@@ -677,7 +677,7 @@ define void @"_ZN87_$LT$uu_fmt..parasplit..FileLines$u20$as$u20$core..iter..trai
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i: ; preds = %76, %71, %68, %65
-  %.0.i.i.i.i.i = phi i8 [ %70, %68 ], [ %81, %76 ], [ %67, %65 ], [ %75, %71 ]
+  %.0.i.i.i.i.i = phi i8 [ %75, %71 ], [ %67, %65 ], [ %81, %76 ], [ %70, %68 ]
   %82 = trunc i8 %.0.i.i.i.i.i to i1
   br i1 %82, label %.backedge.i, label %87
 
@@ -881,7 +881,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i101
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i101: ; preds = %174, %169, %166, %163
-  %.0.i.i.i.i.i102 = phi i8 [ %168, %166 ], [ %179, %174 ], [ %165, %163 ], [ %173, %169 ]
+  %.0.i.i.i.i.i102 = phi i8 [ %173, %169 ], [ %165, %163 ], [ %179, %174 ], [ %168, %166 ]
   %180 = trunc i8 %.0.i.i.i.i.i102 to i1
   br i1 %180, label %.backedge.i96, label %182
 
@@ -2386,7 +2386,7 @@ define void @"_ZN87_$LT$uu_fmt..parasplit..WordSplit$u20$as$u20$core..iter..trai
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ; preds = %89, %84, %81, %78
-  %.0.i.i = phi i8 [ %83, %81 ], [ %94, %89 ], [ %80, %78 ], [ %88, %84 ]
+  %.0.i.i = phi i8 [ %88, %84 ], [ %80, %78 ], [ %94, %89 ], [ %83, %81 ]
   %95 = trunc i8 %.0.i.i to i1
   br i1 %95, label %.critedge.thread.i, label %109
 
@@ -2576,7 +2576,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   br label %190
 
 190:                                              ; preds = %184, %179, %176, %173
-  %.0.i.i.i.i.i.i = phi i8 [ %178, %176 ], [ %189, %184 ], [ %175, %173 ], [ %183, %179 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %183, %179 ], [ %175, %173 ], [ %189, %184 ], [ %178, %176 ]
   %191 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %191, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hcd20992df7e863bbE.exit", label %.thread6.i.i.i.i.i
 

@@ -4436,7 +4436,7 @@ define internal i32 @iso_calendar_date_traverse(ptr noundef %0, ptr noundef %1, 
   br label %10
 
 10:                                               ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ %9, %7 ]
+  %.1 = phi i32 [ %9, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

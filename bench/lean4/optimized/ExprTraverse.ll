@@ -3832,7 +3832,7 @@ lean_dec.exit:                                    ; preds = %310, %309, %307, %l
   br label %312
 
 312:                                              ; preds = %lean_dec.exit, %lean_dec.exit95, %lean_alloc_closure.exit, %41, %38, %35, %lean_dec.exit106
-  %.0 = phi ptr [ %311, %lean_dec.exit ], [ %237, %lean_dec.exit95 ], [ %135, %lean_alloc_closure.exit ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %lean_dec.exit106 ]
+  %.0 = phi ptr [ %311, %lean_dec.exit ], [ %34, %lean_dec.exit106 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %135, %lean_alloc_closure.exit ], [ %237, %lean_dec.exit95 ]
   ret ptr %.0
 }
 

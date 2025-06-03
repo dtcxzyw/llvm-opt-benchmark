@@ -5845,7 +5845,7 @@ switch.lookup30:                                  ; preds = %79
   br label %get_tx_size.exit
 
 get_tx_size.exit:                                 ; preds = %switch.lookup30, %switch.lookup, %59, %59, %60, %61, %62, %63, %73, %74, %75, %83, %84, %85, %86
-  %.0.i = phi i64 [ 0, %86 ], [ 17, %75 ], [ 15, %74 ], [ 18, %85 ], [ 16, %84 ], [ 13, %73 ], [ 14, %83 ], [ 0, %63 ], [ 1, %62 ], [ 2, %61 ], [ 3, %60 ], [ 4, %59 ], [ 4, %59 ], [ %switch.load, %switch.lookup ], [ %switch.load32, %switch.lookup30 ]
+  %.0.i = phi i64 [ 0, %86 ], [ 15, %74 ], [ 17, %75 ], [ 16, %84 ], [ 18, %85 ], [ 13, %73 ], [ 14, %83 ], [ 0, %63 ], [ 3, %60 ], [ 2, %61 ], [ 1, %62 ], [ 4, %59 ], [ 4, %59 ], [ %switch.load, %switch.lookup ], [ %switch.load32, %switch.lookup30 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56

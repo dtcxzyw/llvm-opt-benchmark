@@ -2206,7 +2206,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$tracing_core..parent..Parent$u20$as$u20$core..fmt..Debug$GT$3fmt17hf247d1ae3321a3a9E.exit"
 
 "_ZN65_$LT$tracing_core..parent..Parent$u20$as$u20$core..fmt..Debug$GT$3fmt17hf247d1ae3321a3a9E.exit": ; preds = %6, %8, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -3470,9 +3470,9 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$7or_else17h0841812d
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw28_$u7b$$u7b$closure$u7d$$u7d$17he1d8244971c08d0dE.llvm.14686358490642834259.exit": ; preds = %4, %16, %14, %12, %10, %10, %5
-  %.pn = phi { i64, ptr } [ %18, %16 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %14 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %5 ], [ { i64 1, ptr poison }, %4 ]
-  %.pn5 = phi ptr [ %7, %16 ], [ %13, %12 ], [ %15, %14 ], [ %11, %10 ], [ %11, %10 ], [ %7, %5 ], [ %1, %4 ]
-  %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn5, 1
+  %.pn.i.i.pn = phi { i64, ptr } [ %18, %16 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %14 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %10 ], [ { i64 1, ptr poison }, %5 ], [ { i64 1, ptr poison }, %4 ]
+  %.pn8.i.i.pn = phi ptr [ %7, %16 ], [ %13, %12 ], [ %15, %14 ], [ %11, %10 ], [ %11, %10 ], [ %7, %5 ], [ %1, %4 ]
+  %.merged = insertvalue { i64, ptr } %.pn.i.i.pn, ptr %.pn8.i.i.pn, 1
   ret { i64, ptr } %.merged
 }
 

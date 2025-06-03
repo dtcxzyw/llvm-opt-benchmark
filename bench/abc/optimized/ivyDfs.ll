@@ -1354,7 +1354,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   br label %71
 
 71:                                               ; preds = %._crit_edge, %2, %69, %66, %54, %46, %7
-  %.038 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ 1, %46 ], [ 1, %69 ], [ 0, %66 ], [ 0, %54 ], [ 1, %2 ]
+  %.038 = phi i32 [ 0, %7 ], [ 1, %46 ], [ 1, %69 ], [ 0, %66 ], [ 0, %54 ], [ 0, %._crit_edge ], [ 1, %2 ]
   ret i32 %.038
 }
 

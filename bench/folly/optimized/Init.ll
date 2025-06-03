@@ -142,7 +142,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   br label %31
 
 31:                                               ; preds = %._crit_edge.i.i.i.i.i, %29
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %30, %29 ]
+  %.1.i.i.i.i.i = phi ptr [ %30, %29 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !7
   %32 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i = load ptr, ptr %32, align 8, !tbaa !7
@@ -154,7 +154,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   br label %35
 
 35:                                               ; preds = %._crit_edge.i.i.i.i.i, %33
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %34, %33 ]
+  %.2.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !7
   %36 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !7

@@ -2569,7 +2569,7 @@ find_dependent_phvs.exit:                         ; preds = %187
   unreachable
 
 list_length.exit165.thread:                       ; preds = %7, %205, %202, %164, %161, %131, %get_result_relid.exit170.thread, %.loopexit, %find_dependent_phvs.exit.thread, %73, %64, %59, %list_length.exit165, %4, %77, %77, %233, %224, %find_dependent_phvs.exit, %195, %126, %117, %150, %159
-  %.1 = phi ptr [ %1, %4 ], [ %1, %77 ], [ %1, %77 ], [ %228, %224 ], [ %234, %233 ], [ %201, %195 ], [ %1, %find_dependent_phvs.exit ], [ %154, %150 ], [ %160, %159 ], [ %121, %117 ], [ %127, %126 ], [ %76, %73 ], [ %1, %64 ], [ %1, %59 ], [ %1, %list_length.exit165 ], [ %1, %find_dependent_phvs.exit.thread ], [ %1, %.loopexit ], [ %1, %get_result_relid.exit170.thread ], [ %1, %131 ], [ %1, %161 ], [ %1, %164 ], [ %1, %202 ], [ %1, %205 ], [ %1, %7 ]
+  %.1 = phi ptr [ %1, %4 ], [ %154, %150 ], [ %160, %159 ], [ %121, %117 ], [ %127, %126 ], [ %201, %195 ], [ %1, %find_dependent_phvs.exit ], [ %228, %224 ], [ %234, %233 ], [ %1, %77 ], [ %1, %77 ], [ %76, %73 ], [ %1, %64 ], [ %1, %59 ], [ %1, %list_length.exit165 ], [ %1, %find_dependent_phvs.exit.thread ], [ %1, %.loopexit ], [ %1, %get_result_relid.exit170.thread ], [ %1, %131 ], [ %1, %161 ], [ %1, %164 ], [ %1, %202 ], [ %1, %205 ], [ %1, %7 ]
   ret ptr %.1
 }
 
@@ -2771,7 +2771,7 @@ define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly capt
   br label %.thread62
 
 .thread62:                                        ; preds = %.lr.ph70, %32, %28, %24, %6, %2, %.thread57
-  %.0 = phi ptr [ %0, %6 ], [ null, %.thread57 ], [ null, %2 ], [ %35, %32 ], [ %31, %28 ], [ %0, %24 ], [ %23, %.lr.ph70 ]
+  %.0 = phi ptr [ null, %.thread57 ], [ %0, %6 ], [ null, %2 ], [ %35, %32 ], [ %31, %28 ], [ %0, %24 ], [ %23, %.lr.ph70 ]
   ret ptr %.0
 }
 

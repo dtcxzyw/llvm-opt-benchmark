@@ -3431,9 +3431,9 @@ _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_E
   br label %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit19.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit19.i.i.i.i.i.i: ; preds = %456, %453, %._crit_edge.i.i.i.i.i.i
-  %460 = phi ptr [ %448, %._crit_edge.i.i.i.i.i.i ], [ %457, %456 ], [ %448, %453 ]
-  %461 = phi ptr [ %447, %._crit_edge.i.i.i.i.i.i ], [ %459, %456 ], [ %447, %453 ]
-  %462 = phi ptr [ %446, %._crit_edge.i.i.i.i.i.i ], [ %458, %456 ], [ %454, %453 ]
+  %460 = phi ptr [ %457, %456 ], [ %448, %453 ], [ %448, %._crit_edge.i.i.i.i.i.i ]
+  %461 = phi ptr [ %459, %456 ], [ %447, %453 ], [ %447, %._crit_edge.i.i.i.i.i.i ]
+  %462 = phi ptr [ %458, %456 ], [ %454, %453 ], [ %446, %._crit_edge.i.i.i.i.i.i ]
   %.val6.val.i.i.i.i.i.i = load ptr, ptr %462, align 8, !tbaa !423, !noalias !425
   %463 = getelementptr i8, ptr %.val6.val.i.i.i.i.i.i, i64 16
   %.val6.val.val.i.i.i.i.i.i = load ptr, ptr %463, align 8, !tbaa !204, !noalias !425
@@ -3453,7 +3453,7 @@ _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_E
   br label %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i: ; preds = %468, %465, %._crit_edge.i.i.i.i.i.i
-  %471 = phi ptr [ %446, %._crit_edge.i.i.i.i.i.i ], [ %470, %468 ], [ %466, %465 ]
+  %471 = phi ptr [ %470, %468 ], [ %466, %465 ], [ %446, %._crit_edge.i.i.i.i.i.i ]
   %.val7.val.i.i.i.i.i.i = load ptr, ptr %471, align 8, !tbaa !423, !noalias !425
   %472 = getelementptr i8, ptr %.val7.val.i.i.i.i.i.i, i64 16
   %.val7.val.val.i.i.i.i.i.i = load ptr, ptr %472, align 8, !tbaa !204, !noalias !425
@@ -8027,7 +8027,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i14.i.i: ; preds = %87
   br label %_ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.i18.i.i
 
 _ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit.i18.i.i: ; preds = %92, %.thread.i.i.i.i19.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i14.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i14.i.i ], [ %94, %92 ], [ 0, %.thread.i.i.i.i19.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %94, %92 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i14.i.i ], [ 0, %.thread.i.i.i.i19.i.i ]
   %95 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %_ZNSt3mapIKN4llvm9StringRefEN12_GLOBAL__N_113ExceptionInfoESt4lessIS2_ESaISt4pairIS2_S4_EEE6insertEOS8_.exit.thread
 

@@ -182,7 +182,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %parse_insn_match.ex
   br label %69
 
 69:                                               ; preds = %66, %._crit_edge
-  %.3 = phi i32 [ -1, %66 ], [ 0, %._crit_edge ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %66 ]
   ret i32 %.3
 }
 

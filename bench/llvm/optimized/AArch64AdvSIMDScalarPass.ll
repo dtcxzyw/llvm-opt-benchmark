@@ -856,7 +856,7 @@ _ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12Mach
   br label %_ZL18getTransformOpcodej.exit.i.i
 
 _ZL18getTransformOpcodej.exit.i.i:                ; preds = %177, %176, %175, %174, %173, %169
-  %.0.i.i.i = phi i64 [ %178, %177 ], [ 5350, %176 ], [ 2480, %175 ], [ 1614, %174 ], [ 7463, %173 ], [ 1548, %169 ]
+  %.0.i.i.i = phi i64 [ %178, %177 ], [ 7463, %173 ], [ 1614, %174 ], [ 2480, %175 ], [ 5350, %176 ], [ 1548, %169 ]
   %179 = getelementptr inbounds nuw i8, ptr %136, i64 36
   %180 = load i32, ptr %179, align 4, !tbaa !216
   %181 = getelementptr inbounds nuw i8, ptr %136, i64 68

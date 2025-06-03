@@ -76332,7 +76332,7 @@ sw.bb28:                                          ; preds = %if.end24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end24, %sw.bb28, %sw.bb25
-  %next.0 = phi i64 [ %add34, %sw.bb28 ], [ %add, %sw.bb25 ], [ %off, %if.end24 ]
+  %next.0 = phi i64 [ %add, %sw.bb25 ], [ %add34, %sw.bb28 ], [ %off, %if.end24 ]
   %cmp35 = icmp slt i64 %next.0, 0
   br i1 %cmp35, label %if.then43, label %lor.lhs.false36
 

@@ -5088,7 +5088,7 @@ put_v.exit.us:                                    ; preds = %.lr.ph.i.us, %put_s
   br label %187
 
 187:                                              ; preds = %put_v.exit.us, %put_s.exit203.us, %106, %put_s.exit245.us, %60, %.lr.ph297.split.us, %.lr.ph297.split.us, %.lr.ph297.split.us
-  %.158.ph.us = phi i32 [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.562.us, %106 ], [ %145, %put_s.exit203.us ], [ %.6.us, %60 ], [ %81, %put_s.exit245.us ], [ %186, %put_v.exit.us ]
+  %.158.ph.us = phi i32 [ %.6.us, %60 ], [ %81, %put_s.exit245.us ], [ %.562.us, %106 ], [ %145, %put_s.exit203.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %186, %put_v.exit.us ]
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %188 = load i32, ptr %10, align 8, !tbaa !108
   %189 = sext i32 %188 to i64

@@ -194,9 +194,9 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
   ]
 
 45:                                               ; preds = %.split, %73
-  %.8142 = phi ptr [ %76, %73 ], [ %44, %.split ]
-  %.8 = phi ptr [ %74, %73 ], [ %.0126171, %.split ]
-  %.7122 = phi i64 [ %77, %73 ], [ %42, %.split ]
+  %.8142 = phi ptr [ %44, %.split ], [ %76, %73 ]
+  %.8 = phi ptr [ %.0126171, %.split ], [ %74, %73 ]
+  %.7122 = phi i64 [ %42, %.split ], [ %77, %73 ]
   %46 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %47 = load i8, ptr %.8, align 1, !tbaa !16
   store i8 %47, ptr %.8142, align 1, !tbaa !16
@@ -270,9 +270,9 @@ default.unreachable:                              ; preds = %.preheader.split
   unreachable
 
 73:                                               ; preds = %.split, %69
-  %.7141 = phi ptr [ %44, %.split ], [ %72, %69 ]
-  %.7133 = phi ptr [ %.0126171, %.split ], [ %70, %69 ]
-  %.6121 = phi i64 [ %42, %.split ], [ %.5120, %69 ]
+  %.7141 = phi ptr [ %72, %69 ], [ %44, %.split ]
+  %.7133 = phi ptr [ %70, %69 ], [ %.0126171, %.split ]
+  %.6121 = phi i64 [ %.5120, %69 ], [ %42, %.split ]
   %74 = getelementptr inbounds nuw i8, ptr %.7133, i64 1
   %75 = load i8, ptr %.7133, align 1, !tbaa !16
   store i8 %75, ptr %.7141, align 1, !tbaa !16
@@ -315,9 +315,9 @@ default.unreachable:                              ; preds = %.preheader.split
   ]
 
 88:                                               ; preds = %.preheader.split, %116
-  %.17151 = phi ptr [ %118, %116 ], [ %.9143173, %.preheader.split ]
-  %.17 = phi ptr [ %119, %116 ], [ %87, %.preheader.split ]
-  %.7 = phi i64 [ %120, %116 ], [ %37, %.preheader.split ]
+  %.17151 = phi ptr [ %.9143173, %.preheader.split ], [ %118, %116 ]
+  %.17 = phi ptr [ %87, %.preheader.split ], [ %119, %116 ]
+  %.7 = phi i64 [ %37, %.preheader.split ], [ %120, %116 ]
   %89 = load i8, ptr %.17, align 1, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %.17151, i64 1
   store i8 %89, ptr %.17151, align 1, !tbaa !16
@@ -385,9 +385,9 @@ default.unreachable:                              ; preds = %.preheader.split
   br label %116
 
 116:                                              ; preds = %.preheader.split, %112
-  %.16150 = phi ptr [ %.9143173, %.preheader.split ], [ %114, %112 ]
-  %.16 = phi ptr [ %87, %.preheader.split ], [ %115, %112 ]
-  %.6 = phi i64 [ %37, %.preheader.split ], [ %.5, %112 ]
+  %.16150 = phi ptr [ %114, %112 ], [ %.9143173, %.preheader.split ]
+  %.16 = phi ptr [ %115, %112 ], [ %87, %.preheader.split ]
+  %.6 = phi i64 [ %.5, %112 ], [ %37, %.preheader.split ]
   %117 = load i8, ptr %.16, align 1, !tbaa !16
   %118 = getelementptr inbounds nuw i8, ptr %.16150, i64 1
   store i8 %117, ptr %.16150, align 1, !tbaa !16

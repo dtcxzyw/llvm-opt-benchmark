@@ -1089,7 +1089,7 @@ _ZN7QStringD2Ev.exit56:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 135:                                              ; preds = %111, %_ZN7QStringD2Ev.exit40, %_ZN7QStringD2Ev.exit28, %51
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %112, %111 ], [ %98, %_ZN7QStringD2Ev.exit40 ], [ %73, %_ZN7QStringD2Ev.exit28 ]
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %73, %_ZN7QStringD2Ev.exit28 ], [ %98, %_ZN7QStringD2Ev.exit40 ], [ %112, %111 ]
   %136 = load ptr, ptr %7, align 8
   %.not.i.i.i57 = icmp eq ptr %136, null
   br i1 %.not.i.i.i57, label %_ZN7QStringD2Ev.exit60, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58
@@ -1877,7 +1877,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit163:           ; preds = %215, %_ZN17QArrayDa
   br label %230
 
 230:                                              ; preds = %229, %162, %162, %162
-  %231 = phi i1 [ true, %162 ], [ true, %162 ], [ true, %162 ], [ false, %229 ]
+  %231 = phi i1 [ false, %229 ], [ true, %162 ], [ true, %162 ], [ true, %162 ]
   %232 = load ptr, ptr %42, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8
@@ -1939,9 +1939,9 @@ _ZN17QArrayDataPointerIDsED2Ev.exit163:           ; preds = %215, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %247
 
-247:                                              ; preds = %246, %238, %228
-  %.sink = phi ptr [ %31, %246 ], [ %30, %238 ], [ %29, %228 ]
-  %.146.ph = phi i1 [ true, %246 ], [ %231, %238 ], [ true, %228 ]
+247:                                              ; preds = %228, %238, %246
+  %.sink = phi ptr [ %29, %228 ], [ %30, %238 ], [ %31, %246 ]
+  %.146.ph = phi i1 [ true, %228 ], [ %231, %238 ], [ true, %246 ]
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %.sink) #21
   %248 = load ptr, ptr %36, align 8
   %249 = invoke i32 @prefs_get_type(ptr noundef %248)
@@ -3075,7 +3075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   br label %68
 
 68:                                               ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
-  %.06 = phi i32 [ %67, %62 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %13, %9 ]
+  %.06 = phi i32 [ %13, %9 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ], [ %67, %62 ]
   %.not = icmp eq i32 %.06, 0
   br i1 %.not, label %.thread, label %69
 
@@ -3148,7 +3148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   ret void
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
-  %.pn = phi { ptr, i32 } [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ]
+  %.pn = phi { ptr, i32 } [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ], [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
   resume { ptr, i32 } %.pn
 }
 

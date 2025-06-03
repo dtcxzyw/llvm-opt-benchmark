@@ -1544,7 +1544,7 @@ SplashUpdateShape.exit:                           ; preds = %68, %73, %75
   ret void
 
 111:                                              ; preds = %100, %105, %102, %109, %106, %.preheader37
-  %.1 = phi i32 [ 0, %100 ], [ 0, %109 ], [ 0, %106 ], [ 0, %105 ], [ 0, %102 ], [ 1, %.preheader37 ]
+  %.1 = phi i32 [ 0, %100 ], [ 0, %105 ], [ 0, %102 ], [ 0, %109 ], [ 0, %106 ], [ 1, %.preheader37 ]
   %112 = load ptr, ptr %9, align 8
   %113 = call i32 @XPending(ptr noundef %112) #16
   %.not35 = icmp eq i32 %113, 0

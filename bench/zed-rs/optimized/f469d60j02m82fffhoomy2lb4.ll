@@ -4351,7 +4351,7 @@ define hidden void @"_ZN4core3ptr326drop_in_place$LT$db..write_and_log$LT$db..kv
     i8 3, label %15
   ]
 
-common.ret:                                       ; preds = %"_ZN4core3ptr207drop_in_place$LT$extensions_ui..extension_suggest..suggest..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb9d37c0b28955344E.llvm.10208777430531080582.exit", %15, %1
+common.ret:                                       ; preds = %15, %"_ZN4core3ptr207drop_in_place$LT$extensions_ui..extension_suggest..suggest..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb9d37c0b28955344E.llvm.10208777430531080582.exit", %1
   ret void
 
 5:                                                ; preds = %1
@@ -5984,7 +5984,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %common.ret
 
 34:                                               ; preds = %37, %20
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %20
@@ -6268,7 +6268,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h4f6cace9b220c53eE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.sroa.01.0
 }
 
@@ -6328,7 +6328,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hf9c7ed092d70ea30E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -33615,8 +33615,8 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   br label %239
 
 239:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit", %43
-  %.pn30 = phi { i64, ptr } [ { i64 1, ptr poison }, %43 ], [ %220, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ]
-  %.pn31 = phi ptr [ %39, %43 ], [ %199, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ]
+  %.pn30 = phi { i64, ptr } [ %220, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ], [ { i64 1, ptr poison }, %43 ]
+  %.pn31 = phi ptr [ %199, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ], [ %39, %43 ]
   %.merged = insertvalue { i64, ptr } %.pn30, ptr %.pn31, 1
   ret { i64, ptr } %.merged
 
@@ -34896,7 +34896,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %244
 
 244:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit", %"_ZN4core3ptr352drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..Context$GT$..update_model$LT$extension..ExtensionStore$C$$LP$$RP$$C$extensions_ui..init..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea3735e5bd61c99eE.exit"
-  %.sroa.0.0 = phi ptr [ %40, %"_ZN4core3ptr352drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..Context$GT$..update_model$LT$extension..ExtensionStore$C$$LP$$RP$$C$extensions_ui..init..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea3735e5bd61c99eE.exit" ], [ %207, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ]
+  %.sroa.0.0 = phi ptr [ %207, %"_ZN4core3ptr60drop_in_place$LT$alloc..rc..Rc$LT$gpui..app..AppCell$GT$$GT$17h823e46f2bb9264b0E.exit" ], [ %40, %"_ZN4core3ptr352drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..Context$GT$..update_model$LT$extension..ExtensionStore$C$$LP$$RP$$C$extensions_ui..init..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea3735e5bd61c99eE.exit" ]
   ret ptr %.sroa.0.0
 
 245:                                              ; preds = %248, %.body, %.body18

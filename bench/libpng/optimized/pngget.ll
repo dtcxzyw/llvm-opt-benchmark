@@ -360,7 +360,7 @@ define i32 @png_get_pixel_aspect_ratio_fixed(ptr noalias noundef readnone captur
   br label %22
 
 22:                                               ; preds = %18, %21
-  %.1 = phi i32 [ %20, %18 ], [ 0, %21 ]
+  %.1 = phi i32 [ 0, %21 ], [ %20, %18 ]
   ret i32 %.1
 }
 

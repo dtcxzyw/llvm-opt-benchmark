@@ -708,7 +708,7 @@ asn1_check_eoc.exit286:                           ; preds = %242
   br label %.thread295
 
 .thread295:                                       ; preds = %222, %.lr.ph343, %.lr.ph353, %257, %209, %71, %275, %252, %.thread401, %173, %168, %151, %140, %129, %115, %93, %78, %54, %43, %39, %31
-  %.0207 = phi ptr [ null, %252 ], [ null, %275 ], [ null, %.thread401 ], [ null, %173 ], [ null, %168 ], [ null, %151 ], [ null, %140 ], [ %.0205356, %129 ], [ null, %115 ], [ null, %71 ], [ null, %78 ], [ null, %93 ], [ null, %43 ], [ null, %54 ], [ null, %39 ], [ null, %31 ], [ null, %209 ], [ %253, %257 ], [ null, %.lr.ph353 ], [ %195, %.lr.ph343 ], [ %195, %222 ]
+  %.0207 = phi ptr [ null, %31 ], [ null, %43 ], [ null, %54 ], [ null, %39 ], [ null, %78 ], [ null, %93 ], [ null, %71 ], [ null, %140 ], [ null, %275 ], [ %.0205356, %129 ], [ null, %115 ], [ null, %252 ], [ null, %.thread401 ], [ null, %173 ], [ null, %168 ], [ null, %151 ], [ null, %209 ], [ %253, %257 ], [ null, %.lr.ph353 ], [ %195, %.lr.ph343 ], [ %195, %222 ]
   %276 = icmp eq i32 %17, 0
   br i1 %276, label %277, label %278
 
@@ -735,7 +735,7 @@ asn1_check_eoc.exit286:                           ; preds = %242
   br label %.thread
 
 .thread:                                          ; preds = %69, %279, %284, %23, %147, %91, %53, %42, %8, %273, %145, %139, %57, %55, %34, %32
-  %.0 = phi i32 [ 1, %273 ], [ -1, %139 ], [ 1, %145 ], [ %60, %57 ], [ %56, %55 ], [ %33, %32 ], [ %35, %34 ], [ 0, %8 ], [ -1, %42 ], [ -1, %53 ], [ 1, %91 ], [ %150, %147 ], [ 0, %23 ], [ 0, %284 ], [ 0, %279 ], [ %70, %69 ]
+  %.0 = phi i32 [ %33, %32 ], [ %35, %34 ], [ %56, %55 ], [ %60, %57 ], [ -1, %139 ], [ 1, %145 ], [ 1, %273 ], [ 0, %8 ], [ -1, %42 ], [ -1, %53 ], [ 1, %91 ], [ %150, %147 ], [ 0, %23 ], [ 0, %284 ], [ 0, %279 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #7
@@ -876,7 +876,7 @@ asn1_check_eoc.exit:                              ; preds = %41
   br label %53
 
 53:                                               ; preds = %.thread, %6, %52, %50, %48
-  %.027 = phi i32 [ 0, %52 ], [ 1, %50 ], [ %49, %48 ], [ 0, %6 ], [ %.1.ph, %.thread ]
+  %.027 = phi i32 [ 1, %50 ], [ 0, %52 ], [ %49, %48 ], [ 0, %6 ], [ %.1.ph, %.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
@@ -1679,7 +1679,7 @@ define hidden i32 @asn1_ex_c2i(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   store ptr null, ptr %81, align 8, !tbaa !25
   br label %.thread
 
-82:                                               ; preds = %56, %58, %76, %63, %45, %42, %38, %35, %31
+82:                                               ; preds = %56, %58, %76, %63, %31, %35, %38, %42, %45
   call void @ASN1_TYPE_free(ptr noundef %.072) #7
   %.not100 = icmp eq ptr %.070, null
   br i1 %.not100, label %.thread, label %83
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 -1, 2) i32 @asn1_template_noexp_d2i(ptr noundef
   br label %91
 
 91:                                               ; preds = %.thread85, %84, %78, %90, %88
-  %.0 = phi i32 [ 0, %90 ], [ 1, %88 ], [ %82, %78 ], [ %86, %84 ], [ %26, %.thread85 ]
+  %.0 = phi i32 [ 1, %88 ], [ 0, %90 ], [ %82, %78 ], [ %86, %84 ], [ %26, %.thread85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   ret i32 %.0
 }

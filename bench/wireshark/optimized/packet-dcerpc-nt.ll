@@ -1551,8 +1551,8 @@ define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr n
   br label %36
 
 36:                                               ; preds = %31, %27
-  %.047 = phi ptr [ %33, %31 ], [ %29, %27 ]
-  %.1 = phi i32 [ %35, %31 ], [ %30, %27 ]
+  %.047 = phi ptr [ %29, %27 ], [ %33, %31 ]
+  %.1 = phi i32 [ %30, %27 ], [ %35, %31 ]
   call void @dcerpc_smb_store_pol_pkts(ptr noundef nonnull %14, ptr noundef %2, i32 noundef %9)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %38 = load i32, ptr %37, align 4

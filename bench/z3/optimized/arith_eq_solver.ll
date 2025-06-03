@@ -398,7 +398,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit.thread: ; preds = %27, %_ZNK17arith_
   br label %56
 
 56:                                               ; preds = %_ZN8rationalD2Ev.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread
-  %.1 = phi i1 [ %49, %_ZN8rationalD2Ev.exit ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ]
+  %.1 = phi i1 [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ], [ %49, %_ZN8rationalD2Ev.exit ]
   ret i1 %.1
 }
 

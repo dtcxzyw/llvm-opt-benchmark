@@ -3245,8 +3245,8 @@ _ZNK3sat4drat5valueENS_7literalE.exit.thread:     ; preds = %_ZNK6vectorI5lboolL
   br label %37
 
 37:                                               ; preds = %_ZNK3sat4drat5valueENS_7literalE.exit, %34, %_ZNK3sat4drat5valueENS_7literalE.exit.thread
-  %.123 = phi i32 [ %.02224, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ %.02224, %34 ], [ %36, %_ZNK3sat4drat5valueENS_7literalE.exit.thread ]
-  %.1 = phi i32 [ %.02125, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ %35, %34 ], [ %.02125, %_ZNK3sat4drat5valueENS_7literalE.exit.thread ]
+  %.123 = phi i32 [ %.02224, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ %36, %_ZNK3sat4drat5valueENS_7literalE.exit.thread ], [ %.02224, %34 ]
+  %.1 = phi i32 [ %.02125, %_ZNK3sat4drat5valueENS_7literalE.exit ], [ %.02125, %_ZNK3sat4drat5valueENS_7literalE.exit.thread ], [ %35, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.split.us, label %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i, !llvm.loop !137
@@ -4393,8 +4393,8 @@ _ZNK3sat4drat5valueENS_7literalE.exit98.thread:   ; preds = %_ZNK6vectorI5lboolL
   br label %77
 
 77:                                               ; preds = %_ZNK3sat4drat5valueENS_7literalE.exit98, %_ZNK3sat4drat5valueENS_7literalE.exit98.thread, %74
-  %.186 = phi i32 [ %.085117, %_ZNK3sat4drat5valueENS_7literalE.exit98 ], [ %76, %_ZNK3sat4drat5valueENS_7literalE.exit98.thread ], [ %.085117, %74 ]
-  %.1 = phi i32 [ %.084118, %_ZNK3sat4drat5valueENS_7literalE.exit98 ], [ %.084118, %_ZNK3sat4drat5valueENS_7literalE.exit98.thread ], [ %75, %74 ]
+  %.186 = phi i32 [ %.085117, %_ZNK3sat4drat5valueENS_7literalE.exit98 ], [ %.085117, %74 ], [ %76, %_ZNK3sat4drat5valueENS_7literalE.exit98.thread ]
+  %.1 = phi i32 [ %.084118, %_ZNK3sat4drat5valueENS_7literalE.exit98 ], [ %75, %74 ], [ %.084118, %_ZNK3sat4drat5valueENS_7literalE.exit98.thread ]
   %78 = getelementptr inbounds nuw i8, ptr %.083119, i64 4
   %.not89 = icmp eq ptr %78, %.ptr129
   br i1 %.not89, label %._crit_edge122.loopexit130, label %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i92

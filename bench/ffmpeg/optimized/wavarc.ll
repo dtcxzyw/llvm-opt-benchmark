@@ -957,7 +957,7 @@ thread-pre-split.i:                               ; preds = %370
   br label %decode_2slp.exit
 
 decode_2slp.exit:                                 ; preds = %428, %88
-  %.1 = phi i32 [ %429, %428 ], [ %89, %88 ]
+  %.1 = phi i32 [ %89, %88 ], [ %429, %428 ]
   %430 = icmp slt i32 %.1, 0
   br i1 %430, label %decode_2slp.exit.thread, label %decode_2slp.exit.thread137
 

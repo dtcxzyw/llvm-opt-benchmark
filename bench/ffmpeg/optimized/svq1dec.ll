@@ -995,7 +995,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   br label %svq1_decode_delta_block.exit.us
 
 svq1_decode_delta_block.exit.us:                  ; preds = %484, %478, %413
-  %.0.i178.us = phi i32 [ %414, %413 ], [ %479, %478 ], [ %518, %484 ]
+  %.0.i178.us = phi i32 [ %518, %484 ], [ %479, %478 ], [ %414, %413 ]
   %.not172.us = icmp eq i32 %.0.i178.us, 0
   br i1 %.not172.us, label %svq1_decode_delta_block.exit.thread.us, label %.thread
 

@@ -4220,7 +4220,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i15
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i15 ], [ %64, %63 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i15 ]
   %66 = load i8, ptr %.sroa.025.1.i.i.i, align 1, !tbaa !14
   %.not34.i.i.i = icmp eq i8 %66, 61
   br i1 %.not34.i.i.i, label %67, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN12_GLOBAL__N_129countMaxConsecutiveEqualSignsERKS9_E3$_0ET_SF_SF_T0_.exit"
@@ -4230,7 +4230,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i15
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i15 ], [ %68, %67 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %68, %67 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i15 ]
   %70 = load i8, ptr %.sroa.025.2.i.i.i, align 1, !tbaa !14
   %.not35.i.i.i = icmp eq i8 %70, 61
   %spec.select.i.i.i17 = select i1 %.not35.i.i.i, ptr %1, ptr %.sroa.025.2.i.i.i

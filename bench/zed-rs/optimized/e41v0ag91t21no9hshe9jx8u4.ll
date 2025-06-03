@@ -431,7 +431,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u
   br label %27
 
 27:                                               ; preds = %34, %28, %21, %15
-  %.pn = phi { i1, i8 } [ %39, %34 ], [ %33, %28 ], [ %26, %21 ], [ %20, %15 ]
+  %.pn = phi { i1, i8 } [ %20, %15 ], [ %26, %21 ], [ %33, %28 ], [ %39, %34 ]
   %.sroa.0.0 = extractvalue { i1, i8 } %.pn, 1
   ret i8 %.sroa.0.0
 
@@ -2271,12 +2271,12 @@ define noundef range(i8 -1, 2) i8 @"_ZN64_$LT$util..NumericPrefixWithSuffix$u20$
   br label %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit"
 
 "_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit": ; preds = %38, %40, %42, %44
-  %.pn.i = phi { i1, i8 } [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ]
+  %.pn.i = phi { i1, i8 } [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ]
   %.sroa.0.0.i = extractvalue { i1, i8 } %.pn.i, 1
   br label %46
 
 46:                                               ; preds = %22, %21, %47, %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit52", %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit"
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.i24, %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit52" ], [ %48, %47 ], [ %.sroa.0.0.i, %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit" ], [ 1, %21 ], [ -1, %22 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.0.i, %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit" ], [ %.sroa.0.0.i24, %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit52" ], [ %48, %47 ], [ 1, %21 ], [ -1, %22 ]
   ret i8 %.sroa.0.0
 
 47:                                               ; preds = %22
@@ -2376,7 +2376,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN64_$LT$util..NumericPrefixWithSuffix$u20$
   br label %"_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit52"
 
 "_ZN60_$LT$unicase..UniCase$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h05536c03f6acc5d9E.llvm.15818075475782461256.exit52": ; preds = %65, %67, %69, %71
-  %.pn.i23 = phi { i1, i8 } [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+  %.pn.i23 = phi { i1, i8 } [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
   %.sroa.0.0.i24 = extractvalue { i1, i8 } %.pn.i23, 1
   br label %46
 }
@@ -2533,7 +2533,7 @@ _ZN14regex_automata4meta5regex5Regex9find_iter17hcbd36842718f6043E.exit: ; preds
   br label %54
 
 54:                                               ; preds = %49, %47
-  %.sroa.0.0.i.i.i = phi ptr [ %51, %49 ], [ %48, %47 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %48, %47 ], [ %51, %49 ]
   %55 = load ptr, ptr %45, align 8, !alias.scope !479, !noalias !480, !nonnull !8, !noundef !8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !481)
@@ -2930,7 +2930,7 @@ common.resume:                                    ; preds = %.body, %.body27, %2
   br i1 %.not, label %43, label %178
 
 177:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit16", %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit16" ], [ %174, %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit" ]
+  %.sroa.0.0 = phi i1 [ %174, %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit" ], [ false, %"_ZN4core3ptr50drop_in_place$LT$regex..regex..string..Matches$GT$17hbbda2f6f5d973951E.exit16" ]
   ret i1 %.sroa.0.0
 
 178:                                              ; preds = %175

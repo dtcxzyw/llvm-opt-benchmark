@@ -4836,7 +4836,7 @@ start_location.exit26:                            ; preds = %35, %40, %43
   br label %73
 
 73:                                               ; preds = %start_location.exit26, %start_location.exit, %64, %2, %72, %69
-  %.0 = phi i32 [ -1, %69 ], [ 0, %72 ], [ -1, %start_location.exit26 ], [ -1, %start_location.exit ], [ -1, %2 ], [ -1, %64 ]
+  %.0 = phi i32 [ -1, %69 ], [ -1, %start_location.exit ], [ 0, %72 ], [ -1, %start_location.exit26 ], [ -1, %2 ], [ -1, %64 ]
   ret i32 %.0
 }
 

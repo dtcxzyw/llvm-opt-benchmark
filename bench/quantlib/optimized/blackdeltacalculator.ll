@@ -1625,7 +1625,7 @@ ehcleanup86:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 sw.epilog:                                        ; preds = %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit149, %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit75, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit
-  %res.0 = phi double [ %div51, %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit149 ], [ %div, %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit ], [ %mul35, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit75 ], [ %mul30, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit ]
+  %res.0 = phi double [ %mul30, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit ], [ %mul35, %_ZNK8QuantLib20BlackDeltaCalculator5cumD1Ed.exit75 ], [ %div, %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit ], [ %div51, %_ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit149 ]
   ret double %res.0
 
 eh.resume:                                        ; preds = %ehcleanup86, %ehcleanup27
@@ -2644,11 +2644,11 @@ ehcleanup205:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup210
 
 sw.epilog:                                        ; preds = %cleanup, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit118, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit
-  %res.0 = phi double [ %res.1, %cleanup ], [ %mul139, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit118 ], [ %mul80, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit ]
+  %res.0 = phi double [ %mul80, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit ], [ %mul139, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit118 ], [ %res.1, %cleanup ]
   ret double %res.0
 
 ehcleanup210:                                     ; preds = %ehcleanup205, %ehcleanup118, %ehcleanup61, %ehcleanup23
-  %.pn34.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn34.pn.pn.pn, %ehcleanup205 ], [ %.pn24.pn.pn.pn, %ehcleanup118 ], [ %.pn29.pn.pn.pn, %ehcleanup61 ], [ %.pn.pn.pn.pn, %ehcleanup23 ]
+  %.pn34.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn34.pn.pn.pn, %ehcleanup205 ], [ %.pn29.pn.pn.pn, %ehcleanup61 ], [ %.pn24.pn.pn.pn, %ehcleanup118 ], [ %.pn.pn.pn.pn, %ehcleanup23 ]
   resume { ptr, i32 } %.pn34.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont189, %invoke.cont102, %invoke.cont45, %invoke.cont13

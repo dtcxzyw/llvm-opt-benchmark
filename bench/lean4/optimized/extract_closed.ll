@@ -9196,7 +9196,7 @@ _ZN4lean4expraSERKS0_.exit100:                    ; preds = %_ZN4lean3incEP11lea
   unreachable
 
 _ZN4lean10object_refD2Ev.exit83:                  ; preds = %_ZN4lean10object_refD2Ev.exit92, %403, %343, %342, %340, %332, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, %_ZN4lean8optionalINS_4exprEED2Ev.exit
-  %.1112 = phi i8 [ %.2155, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit ], [ %.0111152, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ %333, %332 ], [ %333, %340 ], [ %333, %342 ], [ %333, %343 ], [ %spec.select, %403 ], [ 0, %_ZN4lean10object_refD2Ev.exit92 ]
+  %.1112 = phi i8 [ %.0111152, %_ZN4lean8optionalINS_4exprEED2Ev.exit ], [ %.2155, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit ], [ %333, %332 ], [ %333, %340 ], [ %333, %342 ], [ %333, %343 ], [ %spec.select, %403 ], [ 0, %_ZN4lean10object_refD2Ev.exit92 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #18
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
@@ -9284,7 +9284,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %87, %86, %84, %77, 
   ret i1 %.0
 
 438:                                              ; preds = %200, %298, %347, %375, %435, %404, %91, %63
-  %.pn34.pn = phi { ptr, i32 } [ %92, %91 ], [ %64, %63 ], [ %436, %435 ], [ %405, %404 ], [ %376, %375 ], [ %348, %347 ], [ %.pn.pn.pn, %298 ], [ %.pn31.pn, %200 ]
+  %.pn34.pn = phi { ptr, i32 } [ %64, %63 ], [ %92, %91 ], [ %436, %435 ], [ %.pn31.pn, %200 ], [ %.pn.pn.pn, %298 ], [ %348, %347 ], [ %405, %404 ], [ %376, %375 ]
   resume { ptr, i32 } %.pn34.pn
 }
 

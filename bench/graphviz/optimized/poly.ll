@@ -390,7 +390,7 @@ gv_calloc.exit134:                                ; preds = %175
   br label %228
 
 .loopexit:                                        ; preds = %156, %gv_calloc.exit134, %197, %gv_calloc.exit132.thread, %173, %gv_calloc.exit
-  %.0124 = phi ptr [ %16, %gv_calloc.exit ], [ %199, %197 ], [ %176, %gv_calloc.exit134 ], [ %115, %gv_calloc.exit132.thread ], [ %174, %173 ], [ %104, %156 ]
+  %.0124 = phi ptr [ %16, %gv_calloc.exit ], [ %115, %gv_calloc.exit132.thread ], [ %174, %173 ], [ %176, %gv_calloc.exit134 ], [ %199, %197 ], [ %104, %156 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0124, ptr %205, align 8, !tbaa !10
   %206 = load i64, ptr %5, align 8, !tbaa !3
@@ -820,7 +820,7 @@ gv_calloc.exit85:                                 ; preds = %127
   br label %194
 
 153:                                              ; preds = %gv_calloc.exit85, %145, %117, %125, %123, %71, %gv_calloc.exit
-  %.075 = phi ptr [ %16, %gv_calloc.exit ], [ %147, %145 ], [ %128, %gv_calloc.exit85 ], [ %.1, %71 ], [ %.1, %117 ], [ %.1, %123 ], [ %.1, %125 ]
+  %.075 = phi ptr [ %16, %gv_calloc.exit ], [ %.1, %71 ], [ %.1, %117 ], [ %.1, %123 ], [ %.1, %125 ], [ %128, %gv_calloc.exit85 ], [ %147, %145 ]
   %154 = fcmp une double %2, 1.000000e+00
   %155 = fcmp une double %3, 1.000000e+00
   %or.cond = or i1 %154, %155

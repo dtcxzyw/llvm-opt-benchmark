@@ -1628,8 +1628,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit29
   br i1 %exitcond46.not, label %29, label %33, !llvm.loop !121
 
 _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit31: ; preds = %32, %31, %30, %29, %29, %29
-  %44 = phi i1 [ true, %32 ], [ false, %31 ], [ true, %30 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
-  %.0.i30 = phi i32 [ 64, %32 ], [ 0, %31 ], [ 8, %30 ], [ 32, %29 ], [ 32, %29 ], [ 32, %29 ]
+  %44 = phi i1 [ true, %32 ], [ true, %30 ], [ false, %31 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+  %.0.i30 = phi i32 [ 64, %32 ], [ 8, %30 ], [ 0, %31 ], [ 32, %29 ], [ 32, %29 ], [ 32, %29 ]
   %45 = zext nneg i32 %.0.i30 to i64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8, !tbaa !122
@@ -6571,8 +6571,8 @@ define void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityERKNS_7Gri
   br label %52
 
 52:                                               ; preds = %51, %50, %47
-  %.013.i = phi i32 [ %48, %51 ], [ 0, %50 ], [ 0, %47 ]
-  %.0.i = phi i32 [ %49, %51 ], [ %48, %50 ], [ %49, %47 ]
+  %.013.i = phi i32 [ 0, %50 ], [ %48, %51 ], [ 0, %47 ]
+  %.0.i = phi i32 [ %48, %50 ], [ %49, %51 ], [ %49, %47 ]
   %.not.i.i = icmp sgt i32 %.013.i, %.0.i
   br i1 %.not.i.i, label %53, label %_ZN3gmxL12getAtomRangeENS_12AtomLocalityERKNS_7GridSetE.exit
 

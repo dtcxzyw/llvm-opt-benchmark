@@ -2613,7 +2613,7 @@ add_padding_item.exit466:                         ; preds = %append_struct_signa
   br label %.thread
 
 .thread:                                          ; preds = %86, %87, %.thread474, %.thread470, %488, %420, %add_padding_item.exit465, %.critedge, %346, %add_padding_item.exit462, %add_padding_item.exit459, %228, %add_padding_item.exit457, %add_padding_item.exit456, %add_padding_item.exit455, %154, %add_padding_item.exit454, %add_padding_item.exit453, %20
-  %.0426 = phi i32 [ %489, %488 ], [ %423, %420 ], [ %419, %add_padding_item.exit465 ], [ %.6.lcssa, %.critedge ], [ %347, %346 ], [ %315, %add_padding_item.exit462 ], [ %252, %add_padding_item.exit459 ], [ %234, %228 ], [ %209, %add_padding_item.exit457 ], [ %191, %add_padding_item.exit456 ], [ %173, %add_padding_item.exit455 ], [ %155, %154 ], [ %127, %add_padding_item.exit454 ], [ %109, %add_padding_item.exit453 ], [ %24, %20 ], [ %292, %.thread470 ], [ %.8.lcssa, %.thread474 ], [ %.2428, %87 ], [ %.2428, %86 ]
+  %.0426 = phi i32 [ %489, %488 ], [ %24, %20 ], [ %109, %add_padding_item.exit453 ], [ %127, %add_padding_item.exit454 ], [ %155, %154 ], [ %173, %add_padding_item.exit455 ], [ %191, %add_padding_item.exit456 ], [ %209, %add_padding_item.exit457 ], [ %234, %228 ], [ %252, %add_padding_item.exit459 ], [ %315, %add_padding_item.exit462 ], [ %347, %346 ], [ %.6.lcssa, %.critedge ], [ %419, %add_padding_item.exit465 ], [ %423, %420 ], [ %292, %.thread470 ], [ %.8.lcssa, %.thread474 ], [ %.2428, %87 ], [ %.2428, %86 ]
   %490 = load ptr, ptr %9, align 8
   %.not449 = icmp eq ptr %490, null
   br i1 %.not449, label %500, label %491
@@ -2654,7 +2654,7 @@ add_padding_item.exit466:                         ; preds = %append_struct_signa
   br label %510
 
 510:                                              ; preds = %483, %293, %32, %63, %503, %507, %505, %222, %134
-  %.1 = phi i32 [ %487, %483 ], [ %297, %293 ], [ %227, %222 ], [ %138, %134 ], [ %504, %503 ], [ %509, %507 ], [ %.0426, %505 ], [ %35, %32 ], [ %67, %63 ]
+  %.1 = phi i32 [ %138, %134 ], [ %227, %222 ], [ %297, %293 ], [ %487, %483 ], [ %504, %503 ], [ %509, %507 ], [ %.0426, %505 ], [ %35, %32 ], [ %67, %63 ]
   ret i32 %.1
 }
 
@@ -2725,7 +2725,7 @@ define internal fastcc i32 @pad_according_to_type(i32 noundef %0, i32 noundef %1
   br label %20
 
 20:                                               ; preds = %4, %15, %10, %5
-  %.0 = phi i32 [ %0, %4 ], [ %14, %10 ], [ %9, %5 ], [ %19, %15 ]
+  %.0 = phi i32 [ %0, %4 ], [ %9, %5 ], [ %19, %15 ], [ %14, %10 ]
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 %2)
   ret i32 %spec.select
 }
@@ -2781,8 +2781,8 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr nou
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !21
 
 thread-pre-split.backedgethread-pre-split:        ; preds = %.split.us, %20, %21
-  %.not25.be.ph = phi i1 [ false, %20 ], [ false, %21 ], [ true, %.split.us ]
-  %.0.ph.be.ph = phi i8 [ 41, %20 ], [ 125, %21 ], [ 0, %.split.us ]
+  %.not25.be.ph = phi i1 [ false, %21 ], [ false, %20 ], [ true, %.split.us ]
+  %.0.ph.be.ph = phi i8 [ 125, %21 ], [ 41, %20 ], [ 0, %.split.us ]
   tail call fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.pr.pr = load i8, ptr %2, align 1
   br label %thread-pre-split.backedge

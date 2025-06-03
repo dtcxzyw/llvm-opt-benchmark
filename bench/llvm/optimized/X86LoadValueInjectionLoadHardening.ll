@@ -11377,7 +11377,7 @@ _ZN4llvm14ImmutableGraphIPNS_12MachineInstrEiE7NodeSetC2ERKS3_b.exit.i: ; preds 
   br label %184
 
 184:                                              ; preds = %182, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %183, %182 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %183, %182 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %185 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   %186 = load i32, ptr %185, align 4, !tbaa !344
   %187 = icmp eq i32 %186, -1
@@ -11388,7 +11388,7 @@ _ZN4llvm14ImmutableGraphIPNS_12MachineInstrEiE7NodeSetC2ERKS3_b.exit.i: ; preds 
   br label %190
 
 190:                                              ; preds = %188, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %189, %188 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %189, %188 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 8
   %192 = load i32, ptr %191, align 4, !tbaa !344
   %193 = icmp eq i32 %192, -1
@@ -11596,7 +11596,7 @@ _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass26elimMitigatedEdgesAn
   br label %274
 
 274:                                              ; preds = %272, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %273, %272 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %273, %272 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %275 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not30.i.i.i.i.i.i.i.i.i = icmp eq i64 %275, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i, label %276, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSet5emptyEv.exit
@@ -11606,7 +11606,7 @@ _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass26elimMitigatedEdgesAn
   br label %278
 
 278:                                              ; preds = %276, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %277, %276 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %277, %276 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %279 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !47
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %279, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSet5emptyEv.exit.thread, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSet5emptyEv.exit
@@ -11707,7 +11707,7 @@ _ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSet5emptyEv.exit.thread: ; p
   br label %308
 
 308:                                              ; preds = %306, %._crit_edge.i.i.i.i.i.i.i.i.i35
-  %.1.i.i.i.i.i.i.i.i.i40 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i37, %._crit_edge.i.i.i.i.i.i.i.i.i35 ], [ %307, %306 ]
+  %.1.i.i.i.i.i.i.i.i.i40 = phi ptr [ %307, %306 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i37, %._crit_edge.i.i.i.i.i.i.i.i.i35 ]
   %309 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i40, align 8, !tbaa !47
   %.not30.i.i.i.i.i.i.i.i.i41 = icmp eq i64 %309, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i41, label %310, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7NodeSet5emptyEv.exit
@@ -11717,7 +11717,7 @@ _ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSet5emptyEv.exit.thread: ; p
   br label %312
 
 312:                                              ; preds = %310, %._crit_edge.i.i.i.i.i.i.i.i.i35
-  %.2.i.i.i.i.i.i.i.i.i38 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i37, %._crit_edge.i.i.i.i.i.i.i.i.i35 ], [ %311, %310 ]
+  %.2.i.i.i.i.i.i.i.i.i38 = phi ptr [ %311, %310 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i37, %._crit_edge.i.i.i.i.i.i.i.i.i35 ]
   %313 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i38, align 8, !tbaa !47
   %.not31.i.i.i.i.i.i.i.i.i39 = icmp eq i64 %313, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i39, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7NodeSet5emptyEv.exit.thread, label %_ZNK4llvm14ImmutableGraphIPNS_12MachineInstrEiE7NodeSet5emptyEv.exit

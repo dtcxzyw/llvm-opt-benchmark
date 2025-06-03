@@ -1398,8 +1398,8 @@ get_vlc2.exit.i:                                  ; preds = %285, %264
   ]
 
 367:                                              ; preds = %373, %345
-  %.060.i.i = phi ptr [ %374, %373 ], [ %339, %345 ]
-  %.058.i.i = phi i32 [ %375, %373 ], [ %365, %345 ]
+  %.060.i.i = phi ptr [ %339, %345 ], [ %374, %373 ]
+  %.058.i.i = phi i32 [ %365, %345 ], [ %375, %373 ]
   %368 = getelementptr inbounds nuw i8, ptr %.060.i.i, i64 4
   store float %362, ptr %.060.i.i, align 4, !tbaa !79
   br label %369
@@ -1419,8 +1419,8 @@ get_vlc2.exit.i:                                  ; preds = %285, %264
   br label %373
 
 373:                                              ; preds = %371, %345
-  %.363.i.i = phi ptr [ %339, %345 ], [ %372, %371 ]
-  %.3.i.i = phi i32 [ %365, %345 ], [ %.2.i.i, %371 ]
+  %.363.i.i = phi ptr [ %372, %371 ], [ %339, %345 ]
+  %.3.i.i = phi i32 [ %.2.i.i, %371 ], [ %365, %345 ]
   %374 = getelementptr inbounds nuw i8, ptr %.363.i.i, i64 4
   store float %362, ptr %.363.i.i, align 4, !tbaa !79
   %375 = add nsw i32 %.3.i.i, -4
@@ -1552,8 +1552,8 @@ decode_exp_vlc.exit.thread.i:                     ; preds = %get_vlc2.exit.i.i
   ]
 
 457:                                              ; preds = %463, %448
-  %.666.i.i = phi ptr [ %464, %463 ], [ %.56581.i.i, %448 ]
-  %.4.i.i = phi i32 [ %465, %463 ], [ %455, %448 ]
+  %.666.i.i = phi ptr [ %.56581.i.i, %448 ], [ %464, %463 ]
+  %.4.i.i = phi i32 [ %455, %448 ], [ %465, %463 ]
   %458 = getelementptr inbounds nuw i8, ptr %.666.i.i, i64 4
   store float %451, ptr %.666.i.i, align 4, !tbaa !79
   br label %459
@@ -1573,8 +1573,8 @@ decode_exp_vlc.exit.thread.i:                     ; preds = %get_vlc2.exit.i.i
   br label %463
 
 463:                                              ; preds = %461, %448
-  %.9.i.i = phi ptr [ %.56581.i.i, %448 ], [ %462, %461 ]
-  %.7.i.i = phi i32 [ %455, %448 ], [ %.6.i.i, %461 ]
+  %.9.i.i = phi ptr [ %462, %461 ], [ %.56581.i.i, %448 ]
+  %.7.i.i = phi i32 [ %.6.i.i, %461 ], [ %455, %448 ]
   %464 = getelementptr inbounds nuw i8, ptr %.9.i.i, i64 4
   store float %451, ptr %.9.i.i, align 4, !tbaa !79
   %465 = add nsw i32 %.7.i.i, -4

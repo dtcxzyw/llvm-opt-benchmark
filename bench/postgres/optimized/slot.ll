@@ -2660,7 +2660,7 @@ default.unreachable11.i:                          ; preds = %75
   unreachable
 
 85:                                               ; preds = %84, %83, %76
-  %.0.i = phi i1 [ false, %84 ], [ false, %83 ], [ true, %76 ]
+  %.0.i = phi i1 [ true, %76 ], [ false, %83 ], [ false, %84 ]
   %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
   br i1 %86, label %87, label %ReportSlotInvalidation.exit
 
@@ -2755,7 +2755,7 @@ InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.thread.i, %
   br i1 %124, label %21, label %._crit_edge, !llvm.loop !42
 
 125:                                              ; preds = %63, %._crit_edge.i, %ReplicationSlotMarkDirty.exit.i
-  %.4.ph = phi i1 [ %.01560, %._crit_edge.i ], [ true, %ReplicationSlotMarkDirty.exit.i ], [ %.01560, %63 ]
+  %.4.ph = phi i1 [ %.01560, %63 ], [ %.01560, %._crit_edge.i ], [ true, %ReplicationSlotMarkDirty.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #17
   %126 = load ptr, ptr @MainLWLockArray, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4736
@@ -3923,7 +3923,7 @@ default.unreachable11:                            ; preds = %7
   unreachable
 
 18:                                               ; preds = %17, %16, %9
-  %.0 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %9 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %16 ], [ false, %17 ]
   %19 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
   br i1 %19, label %20, label %31
 

@@ -988,7 +988,7 @@ _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %._ZNK
   br label %342
 
 342:                                              ; preds = %289, %287, %273, %275, %277, %279, %281, %285, %291, %293, %295, %300, %302, %304, %328, %330, %332, %338, %340, %322, %324
-  %.sroa.0661.0.ph = phi i64 [ %.sroa.0.0.copyload.i.i616, %324 ], [ %323, %322 ], [ %.sroa.0.0.copyload.i591, %273 ], [ %.sroa.0.0.copyload.i592, %275 ], [ %.sroa.0.0.copyload.i.i593, %277 ], [ %.sroa.0.0.copyload.i.i594, %279 ], [ %.sroa.0.0.copyload.i595, %281 ], [ %286, %285 ], [ %.sroa.0.0.copyload.i.i606, %291 ], [ %294, %293 ], [ %.sroa.0.0.copyload.i.i607, %295 ], [ %301, %300 ], [ %.sroa.0.0.copyload.i.i608, %302 ], [ %.sroa.0.0.i.i612, %304 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %.sroa.0.0.copyload.i618, %338 ], [ %341, %340 ], [ %.0.copyload.i.i.i.i.i596, %287 ], [ %.0.copyload.i.i.i.i.i601, %289 ]
+  %.sroa.0661.0.ph = phi i64 [ %.sroa.0.0.copyload.i.i616, %324 ], [ %323, %322 ], [ %341, %340 ], [ %.sroa.0.0.copyload.i618, %338 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %.sroa.0.0.i.i612, %304 ], [ %.sroa.0.0.copyload.i.i608, %302 ], [ %301, %300 ], [ %.sroa.0.0.copyload.i.i607, %295 ], [ %294, %293 ], [ %.sroa.0.0.copyload.i.i606, %291 ], [ %286, %285 ], [ %.sroa.0.0.copyload.i595, %281 ], [ %.sroa.0.0.copyload.i.i594, %279 ], [ %.sroa.0.0.copyload.i.i593, %277 ], [ %.sroa.0.0.copyload.i592, %275 ], [ %.sroa.0.0.copyload.i591, %273 ], [ %.0.copyload.i.i.i.i.i596, %287 ], [ %.0.copyload.i.i.i.i.i601, %289 ]
   %343 = and i64 %.sroa.0661.0.ph, -16
   %344 = inttoptr i64 %343 to ptr
   %345 = load ptr, ptr %344, align 16, !tbaa !9
@@ -1162,7 +1162,7 @@ _ZNK5clang4Type5getAsINS_19LValueReferenceTypeEEEPKT_v.exit.thread785: ; preds =
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %420, %.lr.ph.i
-  %.1.i.i = phi ptr [ %416, %.lr.ph.i ], [ %421, %420 ]
+  %.1.i.i = phi ptr [ %421, %420 ], [ %416, %.lr.ph.i ]
   %422 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %423 = load i24, ptr %422, align 16
   %424 = and i24 %423, 1048576
@@ -1229,7 +1229,7 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread791: ; preds =
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i648
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i648: ; preds = %449, %.lr.ph.i644
-  %.1.i.i649 = phi ptr [ %445, %.lr.ph.i644 ], [ %450, %449 ]
+  %.1.i.i649 = phi ptr [ %450, %449 ], [ %445, %.lr.ph.i644 ]
   %451 = getelementptr inbounds nuw i8, ptr %.1.i.i649, i64 16
   %452 = load i24, ptr %451, align 16
   %453 = and i24 %452, 1048576
@@ -1774,7 +1774,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v(ptr n
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -1813,7 +1813,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -2953,11 +2953,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit145:              ; preds = %_ZN4llvm11raw_ostre
   br label %.thread
 
 _ZN4llvm11raw_ostreamlsEPKc.exit118:              ; preds = %353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %.069 = phi i8 [ %354, %353 ], [ %.170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ]
+  %.069 = phi i8 [ %.170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %354, %353 ]
   %560 = trunc i8 %.069 to i1
   br i1 %560, label %_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195, label %.thread
 
-_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %395, %_ZN4llvm11raw_ostreamlsEPKc.exit118
+_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %395, %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit118
   %561 = load ptr, ptr %7, align 8, !tbaa !521
   %562 = load i64, ptr %22, align 8, !tbaa !84
   %563 = icmp samesign eq i64 %23, %562
@@ -3056,7 +3056,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %_ZN4llvm15
   store i64 %607, ptr %22, align 8, !tbaa !84
   br label %.thread
 
-.thread:                                          ; preds = %558, %556, %524, %522, %446, %444, %432, %430, %425, %423, %471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %401, %349, %_ZN4llvm11raw_ostreamlsEPKc.exit118, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
+.thread:                                          ; preds = %558, %556, %524, %522, %446, %444, %432, %430, %425, %423, %471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %401, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %349, %_ZN4llvm11raw_ostreamlsEPKc.exit118, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #16
   ret void

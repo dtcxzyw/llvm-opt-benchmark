@@ -901,7 +901,7 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %165
   br label %dissect_lorawan_join_accept.exit
 
 dissect_lorawan_join_accept.exit:                 ; preds = %219, %136, %dissect_lorawan_join_request.exit, %221, %223, %225, %dissect_lorawan_beacon.exit
-  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %229, %225 ], [ %224, %223 ], [ %222, %221 ], [ %129, %dissect_lorawan_join_request.exit ], [ %141, %136 ], [ %220, %219 ]
+  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %229, %225 ], [ %129, %dissect_lorawan_join_request.exit ], [ %222, %221 ], [ %224, %223 ], [ %141, %136 ], [ %220, %219 ]
   ret i32 %.062
 }
 
@@ -2111,7 +2111,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   br label %68
 
 68:                                               ; preds = %61, %54, %45, %39, %32, %26, %20, %14, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
-  %.1.us = phi i32 [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %38, %32 ], [ %44, %39 ], [ %53, %45 ], [ %60, %54 ], [ %67, %61 ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ]
+  %.1.us = phi i32 [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %67, %61 ], [ %60, %54 ], [ %53, %45 ], [ %44, %39 ], [ %38, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %14 ]
   %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.us)
   %.not.us = icmp eq i32 %69, 0
   br i1 %.not.us, label %.split2.us, label %.split.us, !llvm.loop !23
@@ -2258,7 +2258,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   br label %169
 
 169:                                              ; preds = %.split, %.split, %163, %157, %151, %145, %139, %133, %119, %108, %102, %85, %76
-  %.1 = phi i32 [ %168, %163 ], [ %162, %157 ], [ %156, %151 ], [ %150, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %119 ], [ %73, %.split ], [ %73, %.split ], [ %118, %108 ], [ %107, %102 ], [ %101, %85 ], [ %84, %76 ]
+  %.1 = phi i32 [ %84, %76 ], [ %101, %85 ], [ %107, %102 ], [ %118, %108 ], [ %73, %.split ], [ %73, %.split ], [ %132, %119 ], [ %138, %133 ], [ %144, %139 ], [ %150, %145 ], [ %156, %151 ], [ %162, %157 ], [ %168, %163 ]
   %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not = icmp eq i32 %170, 0
   br i1 %.not, label %.split2.us, label %.split, !llvm.loop !23

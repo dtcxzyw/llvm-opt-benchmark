@@ -2609,9 +2609,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 102:                                              ; preds = %88, %75, %.loopexit.split-lp.i, %.loopexit.i, %43, %30, %.loopexit.split-lp49.i, %.loopexit48.i
   %.sink69.i = phi ptr [ %3, %.loopexit48.i ], [ %3, %.loopexit.split-lp49.i ], [ %3, %43 ], [ %3, %30 ], [ %7, %.loopexit.i ], [ %7, %.loopexit.split-lp.i ], [ %7, %88 ], [ %7, %75 ]
-  %.pn21.pn.i = phi { ptr, i32 } [ %lpad.loopexit50.i, %.loopexit48.i ], [ %lpad.loopexit.split-lp51.i, %.loopexit.split-lp49.i ], [ %.pn.i, %43 ], [ %31, %30 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %89, %88 ], [ %.pn23.i, %75 ]
+  %.pn23.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit50.i, %.loopexit48.i ], [ %lpad.loopexit.split-lp51.i, %.loopexit.split-lp49.i ], [ %.pn.i, %43 ], [ %31, %30 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %89, %88 ], [ %.pn23.i, %75 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink69.i) #23
-  resume { ptr, i32 } %.pn21.pn.i
+  resume { ptr, i32 } %.pn23.pn.pn.i
 
 "_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_1clERKNS0_6FnCallE.exit": ; preds = %15, %2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)

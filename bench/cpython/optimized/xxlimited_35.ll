@@ -305,7 +305,7 @@ define internal i32 @Xxo_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

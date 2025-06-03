@@ -1706,7 +1706,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %83, label %171, label %173, !prof !55
 
 84:                                               ; preds = %204, %171, %113, %98, %87, %59, %56, %53
-  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %172, %171 ], [ %114, %113 ], [ %73, %98 ], [ %89, %87 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
+  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !145
   br label %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.thread51.i.i"
 
@@ -1898,7 +1898,7 @@ _ZN5serde2de9SeqAccess12next_element17h486c51c4c09d52f3E.exit.i.i.i.i.i: ; preds
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hd6d751a768fdd1b7E.exit.i.i.i.i"
 
 common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i.i.i.i.i
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %179, %178 ], [ %147, %146 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %147, %146 ], [ %179, %178 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 141:                                              ; preds = %.body.i.i.i.i.i
@@ -1908,8 +1908,8 @@ common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i
   unreachable
 
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hd6d751a768fdd1b7E.exit.i.i.i.i": ; preds = %140, %124
-  %.sroa.8.0.i.i.i.i = phi ptr [ %.sroa.4.i.sroa.3.7.copyload.i.i.i.i, %140 ], [ %126, %124 ]
-  %.sroa.0.0.i.i.i.i = phi i8 [ 4, %140 ], [ 6, %124 ]
+  %.sroa.8.0.i.i.i.i = phi ptr [ %126, %124 ], [ %.sroa.4.i.sroa.3.7.copyload.i.i.i.i, %140 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ 6, %124 ], [ 4, %140 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !179
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !145
@@ -2160,8 +2160,8 @@ common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h52cd1e612627bfb5E.exit.i"
 
 "_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.thread.i.i": ; preds = %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.i.i", %214, %112, %111, %97, %86, %85, %53
-  %.sroa.0.248.i.i = phi i8 [ %169, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.i.i" ], [ 1, %85 ], [ 1, %86 ], [ %91, %97 ], [ %106, %111 ], [ %103, %112 ], [ %208, %214 ], [ 0, %53 ]
-  %.sroa.2417.247.i.i = phi ptr [ %.sroa.2417.0.copyload19.i.i, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.i.i" ], [ undef, %85 ], [ undef, %86 ], [ %.sroa.2417.0.copyload25.i.i, %97 ], [ %.sroa.2417.0.copyload21.i.i, %111 ], [ %.sroa.2417.0.copyload23.i.i, %112 ], [ %.sroa.2417.0.copyload33.i.i, %214 ], [ undef, %53 ]
+  %.sroa.0.248.i.i = phi i8 [ %169, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.i.i" ], [ %106, %111 ], [ %103, %112 ], [ %91, %97 ], [ 1, %86 ], [ 1, %85 ], [ %208, %214 ], [ 0, %53 ]
+  %.sroa.2417.247.i.i = phi ptr [ %.sroa.2417.0.copyload19.i.i, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.i.i" ], [ %.sroa.2417.0.copyload21.i.i, %111 ], [ %.sroa.2417.0.copyload23.i.i, %112 ], [ %.sroa.2417.0.copyload25.i.i, %97 ], [ undef, %86 ], [ undef, %85 ], [ %.sroa.2417.0.copyload33.i.i, %214 ], [ undef, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !143
@@ -2506,7 +2506,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %83, label %171, label %173, !prof !55
 
 84:                                               ; preds = %204, %171, %113, %98, %87, %59, %56, %53
-  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %172, %171 ], [ %114, %113 ], [ %73, %98 ], [ %89, %87 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
+  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !257
   br label %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.thread51.i.i"
 
@@ -2698,7 +2698,7 @@ _ZN5serde2de9SeqAccess12next_element17hfcd8549cfd864462E.exit.i.i.i.i.i: ; preds
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h6dd68d0a821b3a40E.exit.i.i.i.i"
 
 common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i.i.i.i.i
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %179, %178 ], [ %147, %146 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %147, %146 ], [ %179, %178 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 141:                                              ; preds = %.body.i.i.i.i.i
@@ -2708,8 +2708,8 @@ common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i
   unreachable
 
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h6dd68d0a821b3a40E.exit.i.i.i.i": ; preds = %140, %124
-  %.sroa.8.0.i.i.i.i = phi ptr [ %.sroa.4.i.sroa.3.7.copyload.i.i.i.i, %140 ], [ %126, %124 ]
-  %.sroa.0.0.i.i.i.i = phi i8 [ 4, %140 ], [ 6, %124 ]
+  %.sroa.8.0.i.i.i.i = phi ptr [ %126, %124 ], [ %.sroa.4.i.sroa.3.7.copyload.i.i.i.i, %140 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ 6, %124 ], [ 4, %140 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !287
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !257
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !257
@@ -2960,8 +2960,8 @@ common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h8bfdcfa6b3ba5d9cE.exit.i"
 
 "_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.thread.i.i": ; preds = %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.i.i", %214, %112, %111, %97, %86, %85, %53
-  %.sroa.0.248.i.i = phi i8 [ %169, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.i.i" ], [ 1, %85 ], [ 1, %86 ], [ %91, %97 ], [ %106, %111 ], [ %103, %112 ], [ %208, %214 ], [ 0, %53 ]
-  %.sroa.2417.247.i.i = phi ptr [ %.sroa.2417.0.copyload19.i.i, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.i.i" ], [ undef, %85 ], [ undef, %86 ], [ %.sroa.2417.0.copyload25.i.i, %97 ], [ %.sroa.2417.0.copyload21.i.i, %111 ], [ %.sroa.2417.0.copyload23.i.i, %112 ], [ %.sroa.2417.0.copyload33.i.i, %214 ], [ undef, %53 ]
+  %.sroa.0.248.i.i = phi i8 [ %169, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.i.i" ], [ %106, %111 ], [ %103, %112 ], [ %91, %97 ], [ 1, %86 ], [ 1, %85 ], [ %208, %214 ], [ 0, %53 ]
+  %.sroa.2417.247.i.i = phi ptr [ %.sroa.2417.0.copyload19.i.i, %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.i.i" ], [ %.sroa.2417.0.copyload21.i.i, %111 ], [ %.sroa.2417.0.copyload23.i.i, %112 ], [ %.sroa.2417.0.copyload25.i.i, %97 ], [ undef, %86 ], [ undef, %85 ], [ %.sroa.2417.0.copyload33.i.i, %214 ], [ undef, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !257
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !255
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !255

@@ -314,7 +314,7 @@ define linkonce_odr hidden void @_ZN3ade20MemoryDescriptorView9Connector9onDestr
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %35, %34 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %37 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !40
   %38 = icmp eq ptr %1, %37
   br i1 %38, label %_ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit, label %39
@@ -324,7 +324,7 @@ define linkonce_odr hidden void @_ZN3ade20MemoryDescriptorView9Connector9onDestr
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %42 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !40
   %43 = icmp eq ptr %1, %42
   %spec.select.i.i.i.i = select i1 %43, ptr %.sroa.032.2.i.i.i.i, ptr %5
@@ -1665,7 +1665,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN3
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %36, %35 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %38 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !40
   %39 = icmp eq ptr %1, %38
   br i1 %39, label %_ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit, label %40
@@ -1675,7 +1675,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN3
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %41, %40 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %43 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !40
   %44 = icmp eq ptr %1, %43
   %spec.select.i.i.i.i = select i1 %44, ptr %.sroa.032.2.i.i.i.i, ptr %6

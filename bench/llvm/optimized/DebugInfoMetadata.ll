@@ -1251,7 +1251,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj2EED2Ev.exit: ; preds = %_ZN4llvm6MDNode9s
   br label %56
 
 56:                                               ; preds = %_ZN4llvmL10getUniquedINS_10DILocationENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm11SmallVectorIPNS_8MetadataELj2EED2Ev.exit
-  %.1 = phi ptr [ %34, %_ZN4llvmL10getUniquedINS_10DILocationENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %52, %_ZN4llvm11SmallVectorIPNS_8MetadataELj2EED2Ev.exit ]
+  %.1 = phi ptr [ %52, %_ZN4llvm11SmallVectorIPNS_8MetadataELj2EED2Ev.exit ], [ %34, %_ZN4llvmL10getUniquedINS_10DILocationENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -3143,8 +3143,8 @@ define dso_local { ptr, i64 } @_ZN4llvm6DINode13getFlagStringENS0_7DIFlagsE(i32 
   br label %35
 
 35:                                               ; preds = %1, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.35.0 = phi i64 [ 0, %34 ], [ 25, %33 ], [ 23, %32 ], [ 18, %31 ], [ 15, %30 ], [ 16, %29 ], [ 11, %28 ], [ 15, %27 ], [ 25, %26 ], [ 21, %25 ], [ 14, %24 ], [ 14, %23 ], [ 23, %22 ], [ 24, %21 ], [ 25, %20 ], [ 23, %19 ], [ 19, %18 ], [ 21, %17 ], [ 21, %16 ], [ 18, %15 ], [ 12, %14 ], [ 19, %13 ], [ 23, %12 ], [ 16, %11 ], [ 14, %10 ], [ 16, %9 ], [ 13, %8 ], [ 18, %7 ], [ 16, %6 ], [ 13, %5 ], [ 12, %4 ], [ 15, %3 ], [ 13, %2 ], [ 10, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.36, %34 ], [ @.str.35, %33 ], [ @.str.34, %32 ], [ @.str.33, %31 ], [ @.str.32, %30 ], [ @.str.31, %29 ], [ @.str.30, %28 ], [ @.str.29, %27 ], [ @.str.28, %26 ], [ @.str.27, %25 ], [ @.str.26, %24 ], [ @.str.25, %23 ], [ @.str.24, %22 ], [ @.str.23, %21 ], [ @.str.22, %20 ], [ @.str.21, %19 ], [ @.str.20, %18 ], [ @.str.19, %17 ], [ @.str.18, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %12 ], [ @.str.13, %11 ], [ @.str.12, %10 ], [ @.str.11, %9 ], [ @.str.10, %8 ], [ @.str.9, %7 ], [ @.str.8, %6 ], [ @.str.7, %5 ], [ @.str.6, %4 ], [ @.str.5, %3 ], [ @.str.4, %2 ], [ @.str.3, %1 ]
+  %.sroa.35.0 = phi i64 [ 0, %34 ], [ 13, %2 ], [ 15, %3 ], [ 12, %4 ], [ 13, %5 ], [ 16, %6 ], [ 18, %7 ], [ 13, %8 ], [ 16, %9 ], [ 14, %10 ], [ 16, %11 ], [ 23, %12 ], [ 19, %13 ], [ 12, %14 ], [ 18, %15 ], [ 21, %16 ], [ 21, %17 ], [ 19, %18 ], [ 23, %19 ], [ 25, %20 ], [ 24, %21 ], [ 23, %22 ], [ 14, %23 ], [ 14, %24 ], [ 21, %25 ], [ 25, %26 ], [ 15, %27 ], [ 11, %28 ], [ 16, %29 ], [ 15, %30 ], [ 18, %31 ], [ 23, %32 ], [ 25, %33 ], [ 10, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.36, %34 ], [ @.str.4, %2 ], [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.19, %17 ], [ @.str.20, %18 ], [ @.str.21, %19 ], [ @.str.22, %20 ], [ @.str.23, %21 ], [ @.str.24, %22 ], [ @.str.25, %23 ], [ @.str.26, %24 ], [ @.str.27, %25 ], [ @.str.28, %26 ], [ @.str.29, %27 ], [ @.str.30, %28 ], [ @.str.31, %29 ], [ @.str.32, %30 ], [ @.str.33, %31 ], [ @.str.34, %32 ], [ @.str.35, %33 ], [ @.str.3, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.35.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -4645,7 +4645,7 @@ _ZNK4llvm8DIModule8getScopeEv.exit:               ; preds = %83, %86
   br label %93
 
 93:                                               ; preds = %_ZNK4llvm8DIModule8getScopeEv.exit, %49, %77, %62, %46, %29, %_ZN4llvm8dyn_castINS_6DITypeEKNS_7DIScopeEEEDcPT0_.exit
-  %.1 = phi ptr [ %16, %_ZN4llvm8dyn_castINS_6DITypeEKNS_7DIScopeEEEDcPT0_.exit ], [ %31, %29 ], [ %48, %46 ], [ %64, %62 ], [ %78, %77 ], [ %92, %_ZNK4llvm8DIModule8getScopeEv.exit ], [ null, %49 ]
+  %.1 = phi ptr [ %78, %77 ], [ %64, %62 ], [ %48, %46 ], [ %31, %29 ], [ %16, %_ZN4llvm8dyn_castINS_6DITypeEKNS_7DIScopeEEEDcPT0_.exit ], [ %92, %_ZNK4llvm8DIModule8getScopeEv.exit ], [ null, %49 ]
   ret ptr %.1
 }
 
@@ -5172,7 +5172,7 @@ _ZN4llvm6MDNode9storeImplINS_10DISubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EE
   br label %60
 
 60:                                               ; preds = %_ZN4llvmL10getUniquedINS_10DISubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_10DISubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %49, %_ZN4llvmL10getUniquedINS_10DISubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %59, %_ZN4llvm6MDNode9storeImplINS_10DISubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %59, %_ZN4llvm6MDNode9storeImplINS_10DISubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %49, %_ZN4llvmL10getUniquedINS_10DISubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -5538,7 +5538,7 @@ _ZN4llvm6MDNode9storeImplINS_17DIGenericSubrangeENS_8DenseSetIPS2_NS_10MDNodeInf
   br label %41
 
 41:                                               ; preds = %_ZN4llvmL10getUniquedINS_17DIGenericSubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_17DIGenericSubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %30, %_ZN4llvmL10getUniquedINS_17DIGenericSubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %40, %_ZN4llvm6MDNode9storeImplINS_17DIGenericSubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %40, %_ZN4llvm6MDNode9storeImplINS_17DIGenericSubrangeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %30, %_ZN4llvmL10getUniquedINS_17DIGenericSubrangeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -5918,7 +5918,7 @@ _ZN4llvm6MDNode9storeImplINS_12DIEnumeratorENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_
   br label %62
 
 62:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm6MDNode9storeImplINS_12DIEnumeratorENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %41, %_ZN4llvm5APIntD2Ev.exit ], [ %61, %_ZN4llvm6MDNode9storeImplINS_12DIEnumeratorENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %61, %_ZN4llvm6MDNode9storeImplINS_12DIEnumeratorENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %41, %_ZN4llvm5APIntD2Ev.exit ]
   ret ptr %.1
 }
 
@@ -6028,7 +6028,7 @@ _ZN4llvm6MDNode9storeImplINS_11DIBasicTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_E
   br label %55
 
 55:                                               ; preds = %_ZN4llvmL10getUniquedINS_11DIBasicTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_11DIBasicTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %37, %_ZN4llvmL10getUniquedINS_11DIBasicTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %54, %_ZN4llvm6MDNode9storeImplINS_11DIBasicTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %54, %_ZN4llvm6MDNode9storeImplINS_11DIBasicTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %37, %_ZN4llvmL10getUniquedINS_11DIBasicTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -6167,7 +6167,7 @@ _ZN4llvm6MDNode9storeImplINS_12DIStringTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_
   br label %60
 
 60:                                               ; preds = %_ZN4llvmL10getUniquedINS_12DIStringTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_12DIStringTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %39, %_ZN4llvmL10getUniquedINS_12DIStringTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %59, %_ZN4llvm6MDNode9storeImplINS_12DIStringTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %59, %_ZN4llvm6MDNode9storeImplINS_12DIStringTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %39, %_ZN4llvmL10getUniquedINS_12DIStringTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -6501,7 +6501,7 @@ _ZN4llvm6MDNode9storeImplINS_13DIDerivedTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2
   br label %75
 
 75:                                               ; preds = %_ZN4llvmL10getUniquedINS_13DIDerivedTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_13DIDerivedTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %51, %_ZN4llvmL10getUniquedINS_13DIDerivedTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %74, %_ZN4llvm6MDNode9storeImplINS_13DIDerivedTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %74, %_ZN4llvm6MDNode9storeImplINS_13DIDerivedTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %51, %_ZN4llvmL10getUniquedINS_13DIDerivedTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -6755,7 +6755,7 @@ _ZN4llvm6MDNode9storeImplINS_15DICompositeTypeENS_8DenseSetIPS2_NS_10MDNodeInfoI
   br label %129
 
 129:                                              ; preds = %_ZN4llvmL10getUniquedINS_15DICompositeTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_15DICompositeTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %98, %_ZN4llvmL10getUniquedINS_15DICompositeTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %128, %_ZN4llvm6MDNode9storeImplINS_15DICompositeTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %128, %_ZN4llvm6MDNode9storeImplINS_15DICompositeTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %98, %_ZN4llvmL10getUniquedINS_15DICompositeTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -7427,7 +7427,7 @@ _ZN4llvm6MDNode9storeImplINS_16DISubroutineTypeENS_8DenseSetIPS2_NS_10MDNodeInfo
   br label %_ZN4llvmL10getUniquedINS_16DISubroutineTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread
 
 _ZN4llvmL10getUniquedINS_16DISubroutineTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread: ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i, %_ZN4llvmL10getUniquedINS_16DISubroutineTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_16DISubroutineTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ null, %_ZN4llvmL10getUniquedINS_16DISubroutineTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %77, %_ZN4llvm6MDNode9storeImplINS_16DISubroutineTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
+  %.1 = phi ptr [ %77, %_ZN4llvm6MDNode9storeImplINS_16DISubroutineTypeENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ null, %_ZN4llvmL10getUniquedINS_16DISubroutineTypeENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
   ret ptr %.1
 }
 
@@ -7581,7 +7581,7 @@ _ZN4llvm6MDNode9storeImplINS_6DIFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEP
   br label %47
 
 47:                                               ; preds = %_ZN4llvmL10getUniquedINS_6DIFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_6DIFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %30, %_ZN4llvmL10getUniquedINS_6DIFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %46, %_ZN4llvm6MDNode9storeImplINS_6DIFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %46, %_ZN4llvm6MDNode9storeImplINS_6DIFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %30, %_ZN4llvmL10getUniquedINS_6DIFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -8287,8 +8287,8 @@ define dso_local { ptr, i64 } @_ZN4llvm12DISubprogram13getFlagStringENS0_9DISPFl
   br label %14
 
 14:                                               ; preds = %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.15.0 = phi i64 [ 0, %13 ], [ 18, %12 ], [ 15, %11 ], [ 22, %10 ], [ 17, %9 ], [ 17, %8 ], [ 12, %7 ], [ 17, %6 ], [ 18, %5 ], [ 19, %4 ], [ 19, %3 ], [ 15, %2 ], [ 12, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.36, %13 ], [ @.str.59, %12 ], [ @.str.58, %11 ], [ @.str.57, %10 ], [ @.str.56, %9 ], [ @.str.55, %8 ], [ @.str.54, %7 ], [ @.str.53, %6 ], [ @.str.52, %5 ], [ @.str.51, %4 ], [ @.str.50, %3 ], [ @.str.49, %2 ], [ @.str.48, %1 ]
+  %.sroa.15.0 = phi i64 [ 0, %13 ], [ 15, %2 ], [ 19, %3 ], [ 19, %4 ], [ 18, %5 ], [ 17, %6 ], [ 12, %7 ], [ 17, %8 ], [ 17, %9 ], [ 22, %10 ], [ 15, %11 ], [ 18, %12 ], [ 12, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.36, %13 ], [ @.str.49, %2 ], [ @.str.50, %3 ], [ @.str.51, %4 ], [ @.str.52, %5 ], [ @.str.53, %6 ], [ @.str.54, %7 ], [ @.str.55, %8 ], [ @.str.56, %9 ], [ @.str.57, %10 ], [ @.str.58, %11 ], [ @.str.59, %12 ], [ @.str.48, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.15.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9023,7 +9023,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj13EED2Ev.exit: ; preds = %_ZN4llvm6MDNode9
   br label %166
 
 166:                                              ; preds = %_ZN4llvmL10getUniquedINS_12DISubprogramENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm11SmallVectorIPNS_8MetadataELj13EED2Ev.exit
-  %.1 = phi ptr [ %141, %_ZN4llvmL10getUniquedINS_12DISubprogramENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %162, %_ZN4llvm11SmallVectorIPNS_8MetadataELj13EED2Ev.exit ]
+  %.1 = phi ptr [ %162, %_ZN4llvm11SmallVectorIPNS_8MetadataELj13EED2Ev.exit ], [ %141, %_ZN4llvmL10getUniquedINS_12DISubprogramENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9141,7 +9141,7 @@ _ZN4llvm6MDNode9storeImplINS_14DILexicalBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS
   br label %44
 
 44:                                               ; preds = %_ZN4llvmL10getUniquedINS_14DILexicalBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_14DILexicalBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %31, %_ZN4llvmL10getUniquedINS_14DILexicalBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %43, %_ZN4llvm6MDNode9storeImplINS_14DILexicalBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %43, %_ZN4llvm6MDNode9storeImplINS_14DILexicalBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %31, %_ZN4llvmL10getUniquedINS_14DILexicalBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9230,7 +9230,7 @@ _ZN4llvm6MDNode9storeImplINS_18DILexicalBlockFileENS_8DenseSetIPS2_NS_10MDNodeIn
   br label %40
 
 40:                                               ; preds = %_ZN4llvmL10getUniquedINS_18DILexicalBlockFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_18DILexicalBlockFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %29, %_ZN4llvmL10getUniquedINS_18DILexicalBlockFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %39, %_ZN4llvm6MDNode9storeImplINS_18DILexicalBlockFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %39, %_ZN4llvm6MDNode9storeImplINS_18DILexicalBlockFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %29, %_ZN4llvmL10getUniquedINS_18DILexicalBlockFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9399,7 +9399,7 @@ _ZN4llvm6MDNode9storeImplINS_11DINamespaceENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_E
   br label %_ZN4llvmL10getUniquedINS_11DINamespaceENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread
 
 _ZN4llvmL10getUniquedINS_11DINamespaceENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread: ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i, %_ZN4llvmL10getUniquedINS_11DINamespaceENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_11DINamespaceENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ null, %_ZN4llvmL10getUniquedINS_11DINamespaceENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %77, %_ZN4llvm6MDNode9storeImplINS_11DINamespaceENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
+  %.1 = phi ptr [ %77, %_ZN4llvm6MDNode9storeImplINS_11DINamespaceENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ null, %_ZN4llvmL10getUniquedINS_11DINamespaceENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
   ret ptr %.1
 }
 
@@ -9502,7 +9502,7 @@ _ZN4llvm6MDNode9storeImplINS_13DICommonBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2
   br label %43
 
 43:                                               ; preds = %_ZN4llvmL10getUniquedINS_13DICommonBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_13DICommonBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %32, %_ZN4llvmL10getUniquedINS_13DICommonBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %42, %_ZN4llvm6MDNode9storeImplINS_13DICommonBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %42, %_ZN4llvm6MDNode9storeImplINS_13DICommonBlockENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %32, %_ZN4llvmL10getUniquedINS_13DICommonBlockENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9628,7 +9628,7 @@ _ZN4llvm6MDNode9storeImplINS_8DIModuleENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEE
   br label %54
 
 54:                                               ; preds = %_ZN4llvmL10getUniquedINS_8DIModuleENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_8DIModuleENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %40, %_ZN4llvmL10getUniquedINS_8DIModuleENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %53, %_ZN4llvm6MDNode9storeImplINS_8DIModuleENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %53, %_ZN4llvm6MDNode9storeImplINS_8DIModuleENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %40, %_ZN4llvmL10getUniquedINS_8DIModuleENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9733,7 +9733,7 @@ _ZN4llvm6MDNode9storeImplINS_23DITemplateTypeParameterENS_8DenseSetIPS2_NS_10MDN
   br label %39
 
 39:                                               ; preds = %_ZN4llvmL10getUniquedINS_23DITemplateTypeParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_23DITemplateTypeParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %29, %_ZN4llvmL10getUniquedINS_23DITemplateTypeParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %38, %_ZN4llvm6MDNode9storeImplINS_23DITemplateTypeParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %38, %_ZN4llvm6MDNode9storeImplINS_23DITemplateTypeParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %29, %_ZN4llvmL10getUniquedINS_23DITemplateTypeParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9834,7 +9834,7 @@ _ZN4llvm6MDNode9storeImplINS_24DITemplateValueParameterENS_8DenseSetIPS2_NS_10MD
   br label %51
 
 51:                                               ; preds = %_ZN4llvmL10getUniquedINS_24DITemplateValueParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_24DITemplateValueParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %34, %_ZN4llvmL10getUniquedINS_24DITemplateValueParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %50, %_ZN4llvm6MDNode9storeImplINS_24DITemplateValueParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %50, %_ZN4llvm6MDNode9storeImplINS_24DITemplateValueParameterENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %34, %_ZN4llvmL10getUniquedINS_24DITemplateValueParameterENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -9969,7 +9969,7 @@ _ZN4llvm6MDNode9storeImplINS_16DIGlobalVariableENS_8DenseSetIPS2_NS_10MDNodeInfo
   br label %70
 
 70:                                               ; preds = %_ZN4llvmL10getUniquedINS_16DIGlobalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_16DIGlobalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %49, %_ZN4llvmL10getUniquedINS_16DIGlobalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %69, %_ZN4llvm6MDNode9storeImplINS_16DIGlobalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %69, %_ZN4llvm6MDNode9storeImplINS_16DIGlobalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %49, %_ZN4llvmL10getUniquedINS_16DIGlobalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -10268,7 +10268,7 @@ _ZN4llvm6MDNode9storeImplINS_15DILocalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoI
   br label %159
 
 159:                                              ; preds = %_ZN4llvmL10getUniquedINS_15DILocalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_15DILocalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %141, %_ZN4llvmL10getUniquedINS_15DILocalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %158, %_ZN4llvm6MDNode9storeImplINS_15DILocalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %158, %_ZN4llvm6MDNode9storeImplINS_15DILocalVariableENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %141, %_ZN4llvmL10getUniquedINS_15DILocalVariableENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -10468,7 +10468,7 @@ _ZN4llvm6MDNode9storeImplINS_7DILabelENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEE
   br label %40
 
 40:                                               ; preds = %_ZN4llvmL10getUniquedINS_7DILabelENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_7DILabelENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %30, %_ZN4llvmL10getUniquedINS_7DILabelENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %39, %_ZN4llvm6MDNode9storeImplINS_7DILabelENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %39, %_ZN4llvm6MDNode9storeImplINS_7DILabelENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %30, %_ZN4llvmL10getUniquedINS_7DILabelENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -12876,8 +12876,8 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %29, %32, %32, %32,
   br i1 %54, label %_ZNK4llvm6detail12DenseSetImplImNS_13SmallDenseMapImNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit, label %.lr.ph.i.i.i.i, !prof !149, !llvm.loop !703
 
 _ZNK4llvm6detail12DenseSetImplImNS_13SmallDenseMapImNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit: ; preds = %47, %.lr.ph26.split
-  %.lcssa.i.i.i.pn.i = phi i64 [ %41, %.lr.ph26.split ], [ %51, %47 ]
-  %.not17.not = icmp samesign ne i64 %.lcssa.i.i.i.pn.i, %23
+  %.pn.i = phi i64 [ %41, %.lr.ph26.split ], [ %51, %47 ]
+  %.not17.not = icmp samesign ne i64 %.pn.i, %23
   %55 = add nuw nsw i64 %storemerge24, 1
   %exitcond.not = icmp ne i64 %55, %15
   %or.cond.not = select i1 %.not17.not, i1 %exitcond.not, i1 false
@@ -14371,7 +14371,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit43: ; preds = %_ZN4llvm
   br label %70
 
 69:                                               ; preds = %18, %.lr.ph, %17, %16
-  %.123 = phi i1 [ %.02278, %.lr.ph ], [ true, %18 ], [ true, %17 ], [ false, %16 ]
+  %.123 = phi i1 [ %.02278, %.lr.ph ], [ false, %16 ], [ true, %17 ], [ true, %18 ]
   call void @_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %70
 
@@ -15173,7 +15173,7 @@ _ZN4llvm6MDNode9storeImplINS_26DIGlobalVariableExpressionENS_8DenseSetIPS2_NS_10
   br label %_ZN4llvmL10getUniquedINS_26DIGlobalVariableExpressionENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread
 
 _ZN4llvmL10getUniquedINS_26DIGlobalVariableExpressionENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit.thread: ; preds = %_ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i, %_ZN4llvmL10getUniquedINS_26DIGlobalVariableExpressionENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_26DIGlobalVariableExpressionENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ null, %_ZN4llvmL10getUniquedINS_26DIGlobalVariableExpressionENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %70, %_ZN4llvm6MDNode9storeImplINS_26DIGlobalVariableExpressionENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
+  %.1 = phi ptr [ %70, %_ZN4llvm6MDNode9storeImplINS_26DIGlobalVariableExpressionENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ null, %_ZN4llvmL10getUniquedINS_26DIGlobalVariableExpressionENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %.mux, %_ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E7find_asINS_13MDNodeKeyImplIS2_EEEENSB_8IteratorERKT_.exit.i ]
   ret ptr %.1
 }
 
@@ -15291,7 +15291,7 @@ _ZN4llvm6MDNode9storeImplINS_14DIObjCPropertyENS_8DenseSetIPS2_NS_10MDNodeInfoIS
   br label %50
 
 50:                                               ; preds = %_ZN4llvmL10getUniquedINS_14DIObjCPropertyENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_14DIObjCPropertyENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %37, %_ZN4llvmL10getUniquedINS_14DIObjCPropertyENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %49, %_ZN4llvm6MDNode9storeImplINS_14DIObjCPropertyENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %49, %_ZN4llvm6MDNode9storeImplINS_14DIObjCPropertyENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %37, %_ZN4llvmL10getUniquedINS_14DIObjCPropertyENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -15395,7 +15395,7 @@ _ZN4llvm6MDNode9storeImplINS_16DIImportedEntityENS_8DenseSetIPS2_NS_10MDNodeInfo
   br label %52
 
 52:                                               ; preds = %_ZN4llvmL10getUniquedINS_16DIImportedEntityENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_16DIImportedEntityENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %37, %_ZN4llvmL10getUniquedINS_16DIImportedEntityENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %51, %_ZN4llvm6MDNode9storeImplINS_16DIImportedEntityENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %51, %_ZN4llvm6MDNode9storeImplINS_16DIImportedEntityENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %37, %_ZN4llvmL10getUniquedINS_16DIImportedEntityENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -15487,7 +15487,7 @@ _ZN4llvm6MDNode9storeImplINS_7DIMacroENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEE
   br label %43
 
 43:                                               ; preds = %_ZN4llvmL10getUniquedINS_7DIMacroENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_7DIMacroENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %31, %_ZN4llvmL10getUniquedINS_7DIMacroENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %42, %_ZN4llvm6MDNode9storeImplINS_7DIMacroENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %42, %_ZN4llvm6MDNode9storeImplINS_7DIMacroENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %31, %_ZN4llvmL10getUniquedINS_7DIMacroENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -15579,7 +15579,7 @@ _ZN4llvm6MDNode9storeImplINS_11DIMacroFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_E
   br label %43
 
 43:                                               ; preds = %_ZN4llvmL10getUniquedINS_11DIMacroFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit, %_ZN4llvm6MDNode9storeImplINS_11DIMacroFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit
-  %.1 = phi ptr [ %31, %_ZN4llvmL10getUniquedINS_11DIMacroFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ], [ %42, %_ZN4llvm6MDNode9storeImplINS_11DIMacroFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ]
+  %.1 = phi ptr [ %42, %_ZN4llvm6MDNode9storeImplINS_11DIMacroFileENS_8DenseSetIPS2_NS_10MDNodeInfoIS2_EEEEEEPT_S9_NS_8Metadata11StorageTypeERT0_.exit ], [ %31, %_ZN4llvmL10getUniquedINS_11DIMacroFileENS_10MDNodeInfoIS1_EEEEPT_RNS_8DenseSetIS5_T0_EERKNS7_5KeyTyE.exit ]
   ret ptr %.1
 }
 
@@ -19414,7 +19414,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13MDNodeKeyImplINS_10DISubrange
   br label %65
 
 65:                                               ; preds = %29, %.thread
-  %.1.in = phi i64 [ %46, %29 ], [ %64, %.thread ]
+  %.1.in = phi i64 [ %64, %.thread ], [ %46, %29 ]
   %.1 = trunc i64 %.1.in to i32
   ret i32 %.1
 }
@@ -20390,8 +20390,8 @@ _ZN4llvm10MDNodeInfoINS_17DIGenericSubrangeEE7isEqualERKNS_13MDNodeKeyImplIS1_EE
   br label %63
 
 63:                                               ; preds = %53, %.loopexit
-  %.sroa.0.1 = phi ptr [ %54, %53 ], [ %62, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %58, %53 ], [ %62, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %62, %.loopexit ], [ %54, %53 ]
+  %.sroa.3.1 = phi ptr [ %62, %.loopexit ], [ %58, %53 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -23019,7 +23019,7 @@ _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit: ; preds = %18, %21
   br label %47
 
 47:                                               ; preds = %28, %.thread
-  %.1.in = phi i64 [ %36, %28 ], [ %46, %.thread ]
+  %.1.in = phi i64 [ %46, %.thread ], [ %36, %28 ]
   %.1 = trunc i64 %.1.in to i32
   ret i32 %.1
 }
@@ -29950,8 +29950,8 @@ _ZN4llvm10MDNodeInfoINS_8DIModuleEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit
   br label %61
 
 61:                                               ; preds = %52, %.loopexit
-  %.sroa.0.1 = phi ptr [ %44, %52 ], [ %60, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %56, %52 ], [ %60, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %60, %.loopexit ], [ %44, %52 ]
+  %.sroa.3.1 = phi ptr [ %60, %.loopexit ], [ %56, %52 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -31465,8 +31465,8 @@ _ZN4llvm10MDNodeInfoINS_16DIGlobalVariableEE7isEqualERKNS_13MDNodeKeyImplIS1_EEP
   br label %56
 
 56:                                               ; preds = %47, %.loopexit
-  %.sroa.0.1 = phi ptr [ %38, %47 ], [ %55, %.loopexit ]
-  %.sroa.3.1 = phi ptr [ %51, %47 ], [ %55, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %55, %.loopexit ], [ %38, %47 ]
+  %.sroa.3.1 = phi ptr [ %55, %.loopexit ], [ %51, %47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert

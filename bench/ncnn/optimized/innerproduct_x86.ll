@@ -3136,10 +3136,10 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958: ; preds = %._crit_edge
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit191
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit191:   ; preds = %._crit_edge, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread
-  %.0.i1801000 = phi <4 x float> [ %696, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %572, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %236, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %135, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %117, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %100, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %.0937.lcssa, %._crit_edge ]
-  %.0.i945964998 = phi <4 x float> [ %686, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %370, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %170, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %131, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %109, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %98, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %.1940.lcssa, %._crit_edge ]
-  %.0.i174966996 = phi <4 x float> [ %691, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %471, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %203, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %133, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %99, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %.0938.lcssa, %._crit_edge ]
-  %.0.i186 = phi nsz <4 x float> [ %701, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %673, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %269, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %137, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %121, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %101, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %.0936.lcssa, %._crit_edge ]
+  %.0.i1801000 = phi <4 x float> [ %100, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %117, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %135, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %236, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %572, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %696, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %.0937.lcssa, %._crit_edge ]
+  %.0.i945964998 = phi <4 x float> [ %98, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %109, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %131, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %170, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %370, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %686, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %.1940.lcssa, %._crit_edge ]
+  %.0.i174966996 = phi <4 x float> [ %99, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %133, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %203, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %471, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %691, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %.0938.lcssa, %._crit_edge ]
+  %.0.i186 = phi nsz <4 x float> [ %101, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread ], [ %121, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread946 ], [ %137, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread949 ], [ %269, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread952 ], [ %673, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread955 ], [ %701, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.thread958 ], [ %.0936.lcssa, %._crit_edge ]
   %702 = shufflevector <4 x float> %.0.i945964998, <4 x float> %.0.i174966996, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %703 = shufflevector <4 x float> %.0.i1801000, <4 x float> %.0.i186, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %704 = shufflevector <4 x float> %.0.i945964998, <4 x float> %.0.i174966996, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -3442,7 +3442,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit191:   ; preds = %._crit_edge, %_ZL14
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit197
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit197:   ; preds = %.noexc196, %.noexc195, %.noexc194, %774, %.noexc193, %764, %._crit_edge1091
-  %.0.i192 = phi nsz <4 x float> [ %931, %.noexc196 ], [ %918, %.noexc195 ], [ %817, %.noexc194 ], [ %784, %774 ], [ %773, %.noexc193 ], [ %765, %764 ], [ %.1935.lcssa, %._crit_edge1091 ]
+  %.0.i192 = phi nsz <4 x float> [ %765, %764 ], [ %773, %.noexc193 ], [ %784, %774 ], [ %817, %.noexc194 ], [ %918, %.noexc195 ], [ %931, %.noexc196 ], [ %.1935.lcssa, %._crit_edge1091 ]
   store <4 x float> %.0.i192, ptr %.01491093, align 1, !tbaa !50
   %932 = getelementptr inbounds nuw i8, ptr %.01491093, i64 16
   %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 1
@@ -3793,7 +3793,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit197:   ; preds = %.noexc196, %.noexc1
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit203
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit203:   ; preds = %.noexc202, %.noexc201, %.noexc200, %1033, %.noexc199, %1023, %._crit_edge1118
-  %.0.i198 = phi nsz <4 x float> [ %1190, %.noexc202 ], [ %1177, %.noexc201 ], [ %1076, %.noexc200 ], [ %1043, %1033 ], [ %1032, %.noexc199 ], [ %1024, %1023 ], [ %1021, %._crit_edge1118 ]
+  %.0.i198 = phi nsz <4 x float> [ %1024, %1023 ], [ %1032, %.noexc199 ], [ %1043, %1033 ], [ %1076, %.noexc200 ], [ %1177, %.noexc201 ], [ %1190, %.noexc202 ], [ %1021, %._crit_edge1118 ]
   store <4 x float> %.0.i198, ptr %.01441120, align 1, !tbaa !50
   %1191 = getelementptr inbounds nuw i8, ptr %.01441120, i64 16
   %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
@@ -3982,7 +3982,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit203:   ; preds = %.noexc202, %.noexc2
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %1290, %1286, %1274, %1267, %1266, %1261, %1256, %1254, %._crit_edge1139, %1280
-  %.1942 = phi nsz float [ %1253, %._crit_edge1139 ], [ %1253, %1286 ], [ %1293, %1290 ], [ %1279, %1274 ], [ %1273, %1267 ], [ %1263, %1266 ], [ %.0941, %1261 ], [ %1260, %1256 ], [ %1255, %1254 ], [ 0.000000e+00, %1280 ]
+  %.1942 = phi nsz float [ %1253, %._crit_edge1139 ], [ %1255, %1254 ], [ %1260, %1256 ], [ %1263, %1266 ], [ %.0941, %1261 ], [ %1273, %1267 ], [ %1279, %1274 ], [ %1253, %1286 ], [ %1293, %1290 ], [ 0.000000e+00, %1280 ]
   store float %.1942, ptr %.01361141, align 4, !tbaa !47
   %1294 = getelementptr inbounds nuw i8, ptr %.01361141, i64 4
   %indvars.iv.next1178 = add nuw nsw i64 %indvars.iv1177, 1
@@ -4387,7 +4387,7 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc52, %.noexc51, %.noexc50, %103, %.noexc, %93, %._crit_edge
-  %.0.i = phi nsz <4 x float> [ %260, %.noexc52 ], [ %247, %.noexc51 ], [ %146, %.noexc50 ], [ %113, %103 ], [ %102, %.noexc ], [ %94, %93 ], [ %91, %._crit_edge ]
+  %.0.i = phi nsz <4 x float> [ %94, %93 ], [ %102, %.noexc ], [ %113, %103 ], [ %146, %.noexc50 ], [ %247, %.noexc51 ], [ %260, %.noexc52 ], [ %91, %._crit_edge ]
   %261 = load ptr, ptr %9, align 8, !tbaa !16
   %.idx222 = shl nsw i64 %indvars.iv, 4
   %262 = getelementptr inbounds i8, ptr %261, i64 %.idx222
@@ -4789,7 +4789,7 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc92, %.noexc91, %.noexc90, %123, %.noexc, %113, %._crit_edge
-  %.0.i = phi nsz <4 x float> [ %280, %.noexc92 ], [ %267, %.noexc91 ], [ %166, %.noexc90 ], [ %133, %123 ], [ %122, %.noexc ], [ %114, %113 ], [ %111, %._crit_edge ]
+  %.0.i = phi nsz <4 x float> [ %114, %113 ], [ %122, %.noexc ], [ %133, %123 ], [ %166, %.noexc90 ], [ %267, %.noexc91 ], [ %280, %.noexc92 ], [ %111, %._crit_edge ]
   %281 = load ptr, ptr %10, align 8, !tbaa !16
   %282 = sext i32 %26 to i64
   %283 = getelementptr inbounds float, ptr %281, i64 %282
@@ -4995,7 +4995,7 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %106, %102, %90, %83, %82, %77, %72, %70, %._crit_edge, %96
-  %.170 = phi nsz float [ %69, %._crit_edge ], [ %69, %102 ], [ %109, %106 ], [ %95, %90 ], [ %89, %83 ], [ %79, %82 ], [ %.069, %77 ], [ %76, %72 ], [ %71, %70 ], [ 0.000000e+00, %96 ]
+  %.170 = phi nsz float [ %69, %._crit_edge ], [ %71, %70 ], [ %76, %72 ], [ %79, %82 ], [ %.069, %77 ], [ %89, %83 ], [ %95, %90 ], [ %69, %102 ], [ %109, %106 ], [ 0.000000e+00, %96 ]
   %110 = sext i32 %39 to i64
   %111 = getelementptr inbounds float, ptr %36, i64 %110
   store float %.170, ptr %111, align 4, !tbaa !47
@@ -6534,14 +6534,14 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156: ; preds = %190
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %190, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread
-  %.0.i2231464 = phi <4 x float> [ %1374, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %1230, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %490, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %257, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %231, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %198, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0205, %190 ]
-  %.0.i235130513681462 = phi <4 x float> [ %1364, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %1028, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %424, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %253, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %223, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %196, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0207, %190 ]
-  %.0.i24711981239130313701460 = phi <4 x float> [ %1354, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %826, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %358, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %249, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %215, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %194, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0209, %190 ]
-  %.0.i2591143116211961241130113721458 = phi <4 x float> [ %1344, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %624, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %292, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %245, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %207, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %192, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0211, %190 ]
-  %.0.i253116411941243129913741456 = phi <4 x float> [ %1349, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %725, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %325, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %247, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %211, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %193, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0210, %190 ]
-  %.0.i2411245129713761454 = phi <4 x float> [ %1359, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %927, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %391, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %251, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %219, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %195, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0208, %190 ]
-  %.0.i22913781452 = phi <4 x float> [ %1369, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %1129, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %457, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %255, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %227, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %197, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0206, %190 ]
-  %.0.i = phi nsz <4 x float> [ %1379, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %1331, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %523, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %259, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %235, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %199, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %.0204, %190 ]
+  %.0.i2231464 = phi <4 x float> [ %198, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %231, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %257, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %490, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %1230, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1374, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0205, %190 ]
+  %.0.i235130513681462 = phi <4 x float> [ %196, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %223, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %253, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %424, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %1028, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1364, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0207, %190 ]
+  %.0.i24711981239130313701460 = phi <4 x float> [ %194, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %215, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %249, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %358, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %826, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1354, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0209, %190 ]
+  %.0.i2591143116211961241130113721458 = phi <4 x float> [ %192, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %207, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %245, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %292, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %624, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1344, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0211, %190 ]
+  %.0.i253116411941243129913741456 = phi <4 x float> [ %193, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %211, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %247, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %325, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %725, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1349, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0210, %190 ]
+  %.0.i2411245129713761454 = phi <4 x float> [ %195, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %219, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %251, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %391, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %927, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1359, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0208, %190 ]
+  %.0.i22913781452 = phi <4 x float> [ %197, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %227, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %255, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %457, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %1129, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1369, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0206, %190 ]
+  %.0.i = phi nsz <4 x float> [ %199, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread ], [ %235, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1144 ], [ %259, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1147 ], [ %523, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1150 ], [ %1331, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1153 ], [ %1379, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit264.thread1156 ], [ %.0204, %190 ]
   %1380 = shufflevector <4 x float> %.0.i2591143116211961241130113721458, <4 x float> %.0.i24711981239130313701460, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %1381 = shufflevector <4 x float> %.0.i235130513681462, <4 x float> %.0.i2231464, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %1382 = shufflevector <4 x float> %.0.i2591143116211961241130113721458, <4 x float> %.0.i24711981239130313701460, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -6980,7 +6980,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit82.us:      ; preds = %88
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread157.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread159.us, %214, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread155.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread161.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread163.us, %142, %138, %_ZL13activation_ssfiRKN4ncnn3MatE.exit80.thread.us
-  %.1149.us = phi nsz float [ %.0.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.us ], [ %.0.us, %138 ], [ %145, %142 ], [ %167, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread163.us ], [ %193, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread161.us ], [ %211, %214 ], [ %.0148.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread155.us ], [ %233, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread159.us ], [ %239, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread157.us ], [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit80.thread.us ]
+  %.1149.us = phi nsz float [ %.0.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.us ], [ %239, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread157.us ], [ %233, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread159.us ], [ %211, %214 ], [ %.0148.us, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread155.us ], [ %193, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread161.us ], [ %167, %_ZL13activation_ssfiRKN4ncnn3MatE.exit82.thread163.us ], [ %.0.us, %138 ], [ %145, %142 ], [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit80.thread.us ]
   %242 = getelementptr inbounds nuw i8, ptr %.077204.us, i64 12
   store float %.1149.us, ptr %242, align 4, !tbaa !47
   %243 = getelementptr inbounds nuw i8, ptr %.077204.us, i64 16
@@ -7560,8 +7560,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314: ; preds = %110
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %110, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread311, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread308, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread305, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread302, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread
-  %.0.i77301 = phi <4 x float> [ %418, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314 ], [ %304, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread311 ], [ %170, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread308 ], [ %135, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread305 ], [ %121, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread302 ], [ %112, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread ], [ %.066, %110 ]
-  %.0.i = phi nsz <4 x float> [ %423, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314 ], [ %405, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread311 ], [ %203, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread308 ], [ %137, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread305 ], [ %125, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread302 ], [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread ], [ %.065, %110 ]
+  %.0.i77301 = phi <4 x float> [ %112, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread ], [ %121, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread302 ], [ %135, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread305 ], [ %170, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread308 ], [ %304, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread311 ], [ %418, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314 ], [ %.066, %110 ]
+  %.0.i = phi nsz <4 x float> [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread ], [ %125, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread302 ], [ %137, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread305 ], [ %203, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread308 ], [ %405, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread311 ], [ %423, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit82.thread314 ], [ %.065, %110 ]
   store <4 x float> %.0.i77301, ptr %.064332, align 1, !tbaa !50
   %424 = getelementptr inbounds nuw i8, ptr %.064332, i64 16
   store <4 x float> %.0.i, ptr %424, align 1, !tbaa !50
@@ -7774,7 +7774,7 @@ define internal void @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %111, %105, %104, %97, %90, %84, %80, %76, %68, %67
-  %.1.us = phi nsz float [ %.0.us, %67 ], [ %.0.us, %76 ], [ %83, %80 ], [ %89, %84 ], [ %96, %90 ], [ %101, %104 ], [ %.051.us, %97 ], [ %110, %105 ], [ %112, %111 ], [ 0.000000e+00, %68 ]
+  %.1.us = phi nsz float [ %.0.us, %67 ], [ %112, %111 ], [ %110, %105 ], [ %101, %104 ], [ %.051.us, %97 ], [ %96, %90 ], [ %89, %84 ], [ %.0.us, %76 ], [ %83, %80 ], [ 0.000000e+00, %68 ]
   store float %.1.us, ptr %.03756.us, align 4, !tbaa !47
   %113 = getelementptr inbounds nuw i8, ptr %.03756.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8295,8 +8295,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307: ; preds = %88
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %88, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread304, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread301, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread298, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread295, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread
-  %.0.i70294 = phi <4 x float> [ %396, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307 ], [ %282, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread304 ], [ %148, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread301 ], [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread298 ], [ %99, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread295 ], [ %90, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread ], [ %.062, %88 ]
-  %.0.i = phi nsz <4 x float> [ %401, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307 ], [ %383, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread304 ], [ %181, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread301 ], [ %115, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread298 ], [ %103, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread295 ], [ %91, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread ], [ %.061, %88 ]
+  %.0.i70294 = phi <4 x float> [ %90, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread ], [ %99, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread295 ], [ %113, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread298 ], [ %148, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread301 ], [ %282, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread304 ], [ %396, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307 ], [ %.062, %88 ]
+  %.0.i = phi nsz <4 x float> [ %91, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread ], [ %103, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread295 ], [ %115, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread298 ], [ %181, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread301 ], [ %383, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread304 ], [ %401, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit75.thread307 ], [ %.061, %88 ]
   %402 = load ptr, ptr %6, align 8, !tbaa !16
   %403 = getelementptr inbounds float, ptr %402, i64 %69
   store <4 x float> %.0.i70294, ptr %403, align 1, !tbaa !50
@@ -8499,7 +8499,7 @@ define internal void @_ZNK4ncnn16InnerProduct_x8616forward_int8_x86ERKNS_3MatERS
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %106, %102, %88, %81, %80, %73, %67, %65, %64, %94
-  %.1 = phi nsz float [ %.0, %64 ], [ %.0, %102 ], [ %109, %106 ], [ %93, %88 ], [ %87, %81 ], [ %77, %80 ], [ %.049, %73 ], [ %72, %67 ], [ %66, %65 ], [ 0.000000e+00, %94 ]
+  %.1 = phi nsz float [ %.0, %64 ], [ %66, %65 ], [ %72, %67 ], [ %77, %80 ], [ %.049, %73 ], [ %87, %81 ], [ %93, %88 ], [ %.0, %102 ], [ %109, %106 ], [ 0.000000e+00, %94 ]
   %110 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
   store float %.1, ptr %110, align 4, !tbaa !47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

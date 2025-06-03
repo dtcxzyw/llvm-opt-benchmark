@@ -189,7 +189,7 @@ ecdh_X9_63_kdf_derive.exit:                       ; preds = %14, %17, %ecdh_plai
   br label %52
 
 52:                                               ; preds = %4, %ecdh_X9_63_kdf_derive.exit, %8
-  %.0 = phi i32 [ %.020.i, %ecdh_X9_63_kdf_derive.exit ], [ %9, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ %9, %8 ], [ %.020.i, %ecdh_X9_63_kdf_derive.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

@@ -177,7 +177,7 @@ switch.lookup36:                                  ; preds = %59
   br label %80
 
 80:                                               ; preds = %allocObj.exit, %switch.lookup36, %switch.lookup
-  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload, %allocObj.exit ], [ %79, %switch.lookup36 ], [ %58, %switch.lookup ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload, %allocObj.exit ], [ %58, %switch.lookup ], [ %79, %switch.lookup36 ]
   store double %.sroa.0.0.copyload, ptr %4, align 8, !tbaa !25
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx4, align 8, !tbaa !25
@@ -4020,8 +4020,8 @@ gv_strdup.exit141:                                ; preds = %184
   br label %213
 
 213:                                              ; preds = %209, %206, %204, %197
-  %.sroa.0142.0 = phi double [ %211, %209 ], [ %208, %206 ], [ %164, %204 ], [ %164, %197 ]
-  %.sroa.15.0 = phi double [ %212, %209 ], [ %207, %206 ], [ %205, %204 ], [ %169, %197 ]
+  %.sroa.0142.0 = phi double [ %211, %209 ], [ %164, %204 ], [ %208, %206 ], [ %164, %197 ]
+  %.sroa.15.0 = phi double [ %212, %209 ], [ %205, %204 ], [ %207, %206 ], [ %169, %197 ]
   %214 = fsub double %172, %175
   %215 = fsub double %214, %.sroa.9.0.copyload.i
   %216 = fcmp ogt double %215, 0.000000e+00
@@ -4050,10 +4050,10 @@ gv_strdup.exit141:                                ; preds = %184
   br label %228
 
 228:                                              ; preds = %224, %221, %219, %213, %192
-  %.sroa.0142.1 = phi double [ %164, %192 ], [ %.sroa.0142.0, %224 ], [ %.sroa.0142.0, %221 ], [ %.sroa.0142.0, %219 ], [ %.sroa.0142.0, %213 ]
-  %.sroa.9.0 = phi double [ %175, %192 ], [ %226, %224 ], [ %223, %221 ], [ %175, %219 ], [ %175, %213 ]
-  %.sroa.15.1 = phi double [ %169, %192 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %221 ], [ %.sroa.15.0, %219 ], [ %.sroa.15.0, %213 ]
-  %.sroa.22.0 = phi double [ %172, %192 ], [ %227, %224 ], [ %222, %221 ], [ %220, %219 ], [ %172, %213 ]
+  %.sroa.0142.1 = phi double [ %164, %192 ], [ %.sroa.0142.0, %224 ], [ %.sroa.0142.0, %219 ], [ %.sroa.0142.0, %221 ], [ %.sroa.0142.0, %213 ]
+  %.sroa.9.0 = phi double [ %175, %192 ], [ %226, %224 ], [ %175, %219 ], [ %223, %221 ], [ %175, %213 ]
+  %.sroa.15.1 = phi double [ %169, %192 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %219 ], [ %.sroa.15.0, %221 ], [ %.sroa.15.0, %213 ]
+  %.sroa.22.0 = phi double [ %172, %192 ], [ %227, %224 ], [ %220, %219 ], [ %222, %221 ], [ %172, %213 ]
   %229 = getelementptr inbounds nuw i8, ptr %139, i64 72
   store double %.sroa.0142.1, ptr %229, align 8, !tbaa !25
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 80

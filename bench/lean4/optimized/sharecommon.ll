@@ -1628,7 +1628,7 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51: ; preds = 
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 _ZL12lean_inc_refP11lean_object.exit:             ; preds = %56, %55, %53, %50, %49, %47, %44, %43, %41, %38, %37, %35, %32, %31, %29, %26, %25, %23, %20, %19, %17, %2, %110, %108, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit
-  %.0 = phi ptr [ %111, %110 ], [ %109, %108 ], [ %107, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51 ], [ %90, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46 ], [ %73, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit ], [ %1, %2 ], [ %1, %17 ], [ %1, %19 ], [ %1, %20 ], [ %1, %23 ], [ %1, %25 ], [ %1, %26 ], [ %1, %29 ], [ %1, %31 ], [ %1, %32 ], [ %1, %35 ], [ %1, %37 ], [ %1, %38 ], [ %1, %41 ], [ %1, %43 ], [ %1, %44 ], [ %1, %47 ], [ %1, %49 ], [ %1, %50 ], [ %1, %53 ], [ %1, %55 ], [ %1, %56 ]
+  %.0 = phi ptr [ %111, %110 ], [ %73, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit ], [ %90, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46 ], [ %107, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51 ], [ %109, %108 ], [ %1, %2 ], [ %1, %17 ], [ %1, %19 ], [ %1, %20 ], [ %1, %23 ], [ %1, %25 ], [ %1, %26 ], [ %1, %29 ], [ %1, %31 ], [ %1, %32 ], [ %1, %35 ], [ %1, %37 ], [ %1, %38 ], [ %1, %41 ], [ %1, %43 ], [ %1, %44 ], [ %1, %47 ], [ %1, %49 ], [ %1, %50 ], [ %1, %53 ], [ %1, %55 ], [ %1, %56 ]
   ret ptr %.0
 }
 

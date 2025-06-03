@@ -677,7 +677,7 @@ define hidden range(i32 0, 2139062144) i32 @hb_script_from_iso15924_tag(i32 noun
   br label %17
 
 17:                                               ; preds = %14, %3, %1, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 1400468067, %13 ], [ 1281455214, %12 ], [ 1214344807, %11 ], [ 1214344809, %10 ], [ 1197830002, %9 ], [ 1132032620, %8 ], [ 1098015074, %7 ], [ 1131376756, %6 ], [ 0, %1 ], [ 1516858984, %3 ], [ %., %14 ]
+  %.0 = phi i32 [ 1131376756, %6 ], [ 1098015074, %7 ], [ 1132032620, %8 ], [ 1197830002, %9 ], [ 1214344809, %10 ], [ 1214344807, %11 ], [ 1281455214, %12 ], [ 1400468067, %13 ], [ 0, %1 ], [ 1516858984, %3 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -807,7 +807,7 @@ hb_tag_from_string.exit:                          ; preds = %.critedge.i, %.lr.p
   br label %hb_script_from_iso15924_tag.exit
 
 hb_script_from_iso15924_tag.exit:                 ; preds = %hb_tag_from_string.exit.thread, %hb_tag_from_string.exit, %36, %39, %40, %41, %42, %43, %44, %45, %46, %47
-  %.0.i = phi i32 [ 1400468067, %46 ], [ 1281455214, %45 ], [ 1214344807, %44 ], [ 1214344809, %43 ], [ 1197830002, %42 ], [ 1132032620, %41 ], [ 1098015074, %40 ], [ 1131376756, %39 ], [ 0, %hb_tag_from_string.exit ], [ 1516858984, %36 ], [ %..i, %47 ], [ 0, %hb_tag_from_string.exit.thread ]
+  %.0.i = phi i32 [ 1131376756, %39 ], [ 1098015074, %40 ], [ 1132032620, %41 ], [ 1197830002, %42 ], [ 1214344809, %43 ], [ 1214344807, %44 ], [ 1281455214, %45 ], [ 1400468067, %46 ], [ 0, %hb_tag_from_string.exit ], [ 1516858984, %36 ], [ %..i, %47 ], [ 0, %hb_tag_from_string.exit.thread ]
   ret i32 %.0.i
 }
 
@@ -4994,8 +4994,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK2OT9glyf_impl5Glyph12trim_paddingEv
   br label %_ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit
 
 _ZNK2OT9glyf_impl11SimpleGlyph12trim_paddingEv.exit: ; preds = %49, %67, %66, %5, %74, %73, %4
-  %.sroa.03.0.copyload4.pn = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.0.0.copyload, %67 ], [ null, %5 ], [ null, %66 ], [ null, %49 ]
-  %.sroa.5.0.copyload6.pn = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %5 ], [ 0, %66 ], [ 0, %49 ]
+  %.sroa.03.0.copyload4.pn = phi ptr [ %.sroa.03.0.copyload4, %74 ], [ %.sroa.01.0.copyload, %4 ], [ %.sroa.03.0.copyload, %73 ], [ %.sroa.0.0.copyload, %67 ], [ null, %5 ], [ null, %66 ], [ null, %49 ]
+  %.sroa.5.0.copyload6.pn = phi i64 [ %.sroa.5.0.copyload6, %74 ], [ %.sroa.22.0.copyload, %4 ], [ %.sroa.5.0.copyload, %73 ], [ %.sroa.3.8.insert.ext.i.i.i, %67 ], [ 0, %5 ], [ 0, %66 ], [ 0, %49 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.03.0.copyload4.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.5.0.copyload6.pn, 1
   ret { ptr, i64 } %.fca.1.insert.merged

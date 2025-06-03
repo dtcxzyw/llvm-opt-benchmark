@@ -622,8 +622,8 @@ _ZN21ruff_python_formatter10expression14expr_attribute26is_base_ten_number_liter
   br label %200
 
 200:                                              ; preds = %217, %199, %197, %195, %193, %191, %140
-  %201 = phi ptr [ %145, %217 ], [ %130, %199 ], [ %110, %197 ], [ %110, %195 ], [ %110, %193 ], [ %110, %191 ], [ %110, %140 ]
-  %.sroa.072.2.i = phi i1 [ true, %217 ], [ true, %199 ], [ false, %197 ], [ false, %195 ], [ false, %193 ], [ false, %191 ], [ false, %140 ]
+  %201 = phi ptr [ %145, %217 ], [ %130, %199 ], [ %110, %197 ], [ %110, %191 ], [ %110, %193 ], [ %110, %195 ], [ %110, %140 ]
+  %.sroa.072.2.i = phi i1 [ true, %217 ], [ true, %199 ], [ false, %197 ], [ false, %191 ], [ false, %193 ], [ false, %195 ], [ false, %140 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !24
   %202 = load ptr, ptr %2, align 8, !alias.scope !21, !noalias !25, !nonnull !3, !align !26, !noundef !3
   %203 = load ptr, ptr %41, align 8, !alias.scope !21, !noalias !25, !nonnull !3, !align !4, !noundef !3
@@ -9215,7 +9215,7 @@ define void @"_ZN108_$LT$ruff_python_formatter..verbatim..LogicalLinesIter$u20$a
   br label %34
 
 19:                                               ; preds = %.lr.ph, %21, %25, %23
-  %.sroa.03.1 = phi i32 [ %26, %25 ], [ %24, %23 ], [ %.sroa.03.036, %21 ], [ %.sroa.03.036, %.lr.ph ]
+  %.sroa.03.1 = phi i32 [ %.sroa.03.036, %21 ], [ %24, %23 ], [ %26, %25 ], [ %.sroa.03.036, %.lr.ph ]
   %20 = icmp eq ptr %7, %4
   br i1 %20, label %._crit_edge, label %.lr.ph
 

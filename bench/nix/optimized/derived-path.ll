@@ -3608,7 +3608,7 @@ _ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.t
   br i1 %1, label %38, label %52
 
 _ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %34
-  %.0.shrunk.i.i = phi i1 [ %35, %34 ], [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ]
+  %.0.shrunk.i.i = phi i1 [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ], [ %35, %34 ]
   %37 = xor i1 %1, %.0.shrunk.i.i
   br i1 %37, label %38, label %52
 

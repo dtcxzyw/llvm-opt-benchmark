@@ -3106,7 +3106,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   br label %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit
 
 _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %1, %19
-  %.1.i.i = phi ptr [ %16, %1 ], [ %20, %19 ]
+  %.1.i.i = phi ptr [ %20, %19 ], [ %16, %1 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
   %.sroa.0.0.copyload.i1.i = load i64, ptr %21, align 16, !tbaa !15
   %22 = and i64 %.sroa.0.0.copyload.i1.i, -16

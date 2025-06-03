@@ -1045,7 +1045,7 @@ define internal fastcc noundef zeroext i1 @find_tcap_subdissector(ptr noundef %0
   br label %33
 
 33:                                               ; preds = %31, %29, %27
-  %.0.i = phi ptr [ %32, %31 ], [ %30, %29 ], [ %28, %27 ]
+  %.0.i = phi ptr [ %32, %31 ], [ %28, %27 ], [ %30, %29 ]
   %34 = tail call ptr @wmem_file_scope()
   %35 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %34, i64 noundef 12) #7
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ansi_tcap_private, i64 44), align 4

@@ -202,7 +202,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39: ; preds = %38, %43
   br label %70
 
 70:                                               ; preds = %65, %60, %55, %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39
-  %.026 = phi i32 [ 0, %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39 ], [ %69, %65 ], [ %64, %60 ], [ %59, %55 ]
+  %.026 = phi i32 [ 0, %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39 ], [ %59, %55 ], [ %64, %60 ], [ %69, %65 ]
   %71 = invoke noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #14
           to label %72 unwind label %47
 

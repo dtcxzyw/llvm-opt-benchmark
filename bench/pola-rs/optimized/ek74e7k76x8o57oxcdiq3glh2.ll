@@ -26784,7 +26784,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -26944,8 +26944,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h29c356b66d3e65ddE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h29c356b66d3e65ddE.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h29c356b66d3e65ddE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26 ]
+  %.sroa.7.0 = phi i64 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h29c356b66d3e65ddE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h29c356b66d3e65ddE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit26 ]
   %211 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %212 = insertvalue { i64, i64 } %211, i64 %.sroa.7.0, 1
   ret { i64, i64 } %212
@@ -27186,7 +27186,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -27346,8 +27346,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h011bda2abac63408E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread
-  %.sroa.7.0 = phi float [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h011bda2abac63408E.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h011bda2abac63408E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26 ]
+  %.sroa.7.0 = phi float [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h011bda2abac63408E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h011bda2abac63408E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit26 ]
   %211 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %212 = insertvalue { i32, float } %211, float %.sroa.7.0, 1
   ret { i32, float } %212
@@ -27588,7 +27588,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -27748,8 +27748,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5769348dce16cd4cE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5769348dce16cd4cE.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5769348dce16cd4cE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26 ]
+  %.sroa.7.0 = phi i64 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5769348dce16cd4cE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5769348dce16cd4cE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit26 ]
   %211 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %212 = insertvalue { i64, i64 } %211, i64 %.sroa.7.0, 1
   ret { i64, i64 } %212
@@ -27990,7 +27990,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -28150,8 +28150,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1fa5a3bc3af0c25bE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread
-  %.sroa.7.0 = phi i16 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1fa5a3bc3af0c25bE.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26 ]
-  %.sroa.0.0 = phi i16 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1fa5a3bc3af0c25bE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26 ]
+  %.sroa.7.0 = phi i16 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1fa5a3bc3af0c25bE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26 ]
+  %.sroa.0.0 = phi i16 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1fa5a3bc3af0c25bE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit26 ]
   %211 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %212 = insertvalue { i16, i16 } %211, i16 %.sroa.7.0, 1
   ret { i16, i16 } %212
@@ -28414,7 +28414,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h58761721c6895a96E.exit.thread
   unreachable
 
 131:                                              ; preds = %132, %42
-  %.pn = phi { ptr, i32 } [ %133, %132 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %133, %132 ]
   resume { ptr, i32 } %.pn
 
 132:                                              ; preds = %22
@@ -28817,7 +28817,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread
   unreachable
 
 123:                                              ; preds = %124, %36
-  %.pn = phi { ptr, i32 } [ %125, %124 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %125, %124 ]
   resume { ptr, i32 } %.pn
 
 124:                                              ; preds = %19
@@ -28977,8 +28977,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thre
   br label %209
 
 209:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff253f40507518b7E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread
-  %.sroa.7.0 = phi i8 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff253f40507518b7E.exit ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thread ], [ %120, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25 ]
-  %.sroa.0.0 = phi i1 [ %30, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff253f40507518b7E.exit ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25 ]
+  %.sroa.7.0 = phi i8 [ %120, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff253f40507518b7E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25.thread ], [ %30, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff253f40507518b7E.exit ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit25 ]
   %210 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %211 = insertvalue { i1, i8 } %210, i8 %.sroa.7.0, 1
   ret { i1, i8 } %211
@@ -29219,7 +29219,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -29379,8 +29379,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdc4226d42b37ae10E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread
-  %.sroa.7.0 = phi i32 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdc4226d42b37ae10E.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdc4226d42b37ae10E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26 ]
+  %.sroa.7.0 = phi i32 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdc4226d42b37ae10E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hdc4226d42b37ae10E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit26 ]
   %211 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %212 = insertvalue { i32, i32 } %211, i32 %.sroa.7.0, 1
   ret { i32, i32 } %212
@@ -29621,7 +29621,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -29781,8 +29781,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5d7ccb6366af9273E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread
-  %.sroa.7.0 = phi double [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5d7ccb6366af9273E.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5d7ccb6366af9273E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26 ]
+  %.sroa.7.0 = phi double [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5d7ccb6366af9273E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5d7ccb6366af9273E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit26 ]
   %211 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %212 = insertvalue { i64, double } %211, double %.sroa.7.0, 1
   ret { i64, double } %212
@@ -30023,7 +30023,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -30183,8 +30183,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h92bcb87810d89503E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread
-  %.sroa.7.0 = phi i32 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h92bcb87810d89503E.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h92bcb87810d89503E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26 ]
+  %.sroa.7.0 = phi i32 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h92bcb87810d89503E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h92bcb87810d89503E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit26 ]
   %211 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %212 = insertvalue { i32, i32 } %211, i32 %.sroa.7.0, 1
   ret { i32, i32 } %212
@@ -30425,7 +30425,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread
   unreachable
 
 124:                                              ; preds = %125, %37
-  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn
 
 125:                                              ; preds = %19
@@ -30585,8 +30585,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thre
   br label %210
 
 210:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h67d60f7210ce966bE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread
-  %.sroa.7.0 = phi i16 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h67d60f7210ce966bE.exit ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thread ], [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26 ]
-  %.sroa.0.0 = phi i16 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h67d60f7210ce966bE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26 ]
+  %.sroa.7.0 = phi i16 [ %121, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ %209, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h67d60f7210ce966bE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26 ]
+  %.sroa.0.0 = phi i16 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h67d60f7210ce966bE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit26 ]
   %211 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %212 = insertvalue { i16, i16 } %211, i16 %.sroa.7.0, 1
   ret { i16, i16 } %212
@@ -30825,7 +30825,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread
   unreachable
 
 123:                                              ; preds = %124, %36
-  %.pn = phi { ptr, i32 } [ %125, %124 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %125, %124 ]
   resume { ptr, i32 } %.pn
 
 124:                                              ; preds = %19
@@ -30985,8 +30985,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thre
   br label %209
 
 209:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1ce37b6007804ceeE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread
-  %.sroa.7.0 = phi i8 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1ce37b6007804ceeE.exit ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thread ], [ %120, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25 ]
-  %.sroa.0.0 = phi i1 [ %30, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1ce37b6007804ceeE.exit ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25 ]
+  %.sroa.7.0 = phi i8 [ %120, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1ce37b6007804ceeE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25.thread ], [ %30, %_ZN4core4iter6traits8iterator8Iterator6reduce17h1ce37b6007804ceeE.exit ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit25 ]
   %210 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %211 = insertvalue { i1, i8 } %210, i8 %.sroa.7.0, 1
   ret { i1, i8 } %211
@@ -31325,8 +31325,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hc9145c677d77dfe4E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread
-  %.sroa.7.0 = phi float [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hc9145c677d77dfe4E.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hc9145c677d77dfe4E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22 ]
+  %.sroa.7.0 = phi float [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hc9145c677d77dfe4E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hc9145c677d77dfe4E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf807fc965cb2fc7cE.exit22 ]
   %190 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %191 = insertvalue { i32, float } %190, float %.sroa.7.0, 1
   ret { i32, float } %191
@@ -31665,8 +31665,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hb41b7d61bdc4ef5bE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hb41b7d61bdc4ef5bE.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hb41b7d61bdc4ef5bE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22 ]
+  %.sroa.7.0 = phi i64 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hb41b7d61bdc4ef5bE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hb41b7d61bdc4ef5bE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h40d87fb29a5df0d3E.exit22 ]
   %190 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %191 = insertvalue { i64, i64 } %190, i64 %.sroa.7.0, 1
   ret { i64, i64 } %191
@@ -32005,8 +32005,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h17cb1f3e56befaf4E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread
-  %.sroa.7.0 = phi i32 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h17cb1f3e56befaf4E.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h17cb1f3e56befaf4E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22 ]
+  %.sroa.7.0 = phi i32 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h17cb1f3e56befaf4E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h17cb1f3e56befaf4E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h7f9eac25229816f5E.exit22 ]
   %190 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %191 = insertvalue { i32, i32 } %190, i32 %.sroa.7.0, 1
   ret { i32, i32 } %191
@@ -32345,8 +32345,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h18619f33e279aee8E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h18619f33e279aee8E.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h18619f33e279aee8E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22 ]
+  %.sroa.7.0 = phi i64 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h18619f33e279aee8E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h18619f33e279aee8E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h8dfce624ff22ff66E.exit22 ]
   %190 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %191 = insertvalue { i64, i64 } %190, i64 %.sroa.7.0, 1
   ret { i64, i64 } %191
@@ -32683,8 +32683,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thre
   br label %188
 
 188:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4ecf473909991866E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread
-  %.sroa.7.0 = phi i8 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4ecf473909991866E.exit ], [ %187, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thread ], [ %112, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21 ]
-  %.sroa.0.0 = phi i1 [ %32, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4ecf473909991866E.exit ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21 ]
+  %.sroa.7.0 = phi i8 [ %112, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ %187, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4ecf473909991866E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21.thread ], [ %32, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4ecf473909991866E.exit ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit21 ]
   %189 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %190 = insertvalue { i1, i8 } %189, i8 %.sroa.7.0, 1
   ret { i1, i8 } %190
@@ -33021,8 +33021,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thre
   br label %188
 
 188:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff1235078e9e0b4dE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread
-  %.sroa.7.0 = phi i8 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff1235078e9e0b4dE.exit ], [ %187, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thread ], [ %112, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21 ]
-  %.sroa.0.0 = phi i1 [ %32, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff1235078e9e0b4dE.exit ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21 ]
+  %.sroa.7.0 = phi i8 [ %112, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ %187, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff1235078e9e0b4dE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.thread ], [ true, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21.thread ], [ %32, %_ZN4core4iter6traits8iterator8Iterator6reduce17hff1235078e9e0b4dE.exit ], [ false, %1 ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit ], [ false, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit21 ]
   %189 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
   %190 = insertvalue { i1, i8 } %189, i8 %.sroa.7.0, 1
   ret { i1, i8 } %190
@@ -33726,8 +33726,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h2bc83b8bf8657265E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread
-  %.sroa.7.0 = phi i32 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h2bc83b8bf8657265E.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h2bc83b8bf8657265E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22 ]
+  %.sroa.7.0 = phi i32 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h2bc83b8bf8657265E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h2bc83b8bf8657265E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h703966da0cd5b806E.exit22 ]
   %190 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %191 = insertvalue { i32, i32 } %190, i32 %.sroa.7.0, 1
   ret { i32, i32 } %191
@@ -34066,8 +34066,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h762b49e43d5576d8E.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread
-  %.sroa.7.0 = phi double [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h762b49e43d5576d8E.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h762b49e43d5576d8E.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22 ]
+  %.sroa.7.0 = phi double [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h762b49e43d5576d8E.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h762b49e43d5576d8E.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19979558c2308878E.exit22 ]
   %190 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %191 = insertvalue { i64, double } %190, double %.sroa.7.0, 1
   ret { i64, double } %191
@@ -34406,8 +34406,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h06205cf873ee159dE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread
-  %.sroa.7.0 = phi i16 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h06205cf873ee159dE.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22 ]
-  %.sroa.0.0 = phi i16 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h06205cf873ee159dE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22 ]
+  %.sroa.7.0 = phi i16 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h06205cf873ee159dE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22 ]
+  %.sroa.0.0 = phi i16 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h06205cf873ee159dE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit22 ]
   %190 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %191 = insertvalue { i16, i16 } %190, i16 %.sroa.7.0, 1
   ret { i16, i16 } %191
@@ -34746,8 +34746,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thre
   br label %189
 
 189:                                              ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit, %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thread, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7cda7e42c2f57d7aE.exit, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread
-  %.sroa.7.0 = phi i16 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7cda7e42c2f57d7aE.exit ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thread ], [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22 ]
-  %.sroa.0.0 = phi i16 [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7cda7e42c2f57d7aE.exit ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22 ]
+  %.sroa.7.0 = phi i16 [ %113, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ %188, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thread ], [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7cda7e42c2f57d7aE.exit ], [ undef, %1 ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ undef, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22 ]
+  %.sroa.0.0 = phi i16 [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread ], [ 1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22.thread ], [ %.sroa.0.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7cda7e42c2f57d7aE.exit ], [ 0, %1 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit22 ]
   %190 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %191 = insertvalue { i16, i16 } %190, i16 %.sroa.7.0, 1
   ret { i16, i16 } %191
@@ -35702,8 +35702,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
           to label %.thread11 unwind label %421
 
 .thread:                                          ; preds = %468, %494, %386, %412, %.thread23, %.thread11, %446, %364
-  %.pn37.pn = phi { ptr, i32 } [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
-  resume { ptr, i32 } %.pn37.pn
+  %.pn45.pn = phi { ptr, i32 } [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
+  resume { ptr, i32 } %.pn45.pn
 
 .thread11:                                        ; preds = %365, %443, %364
   %.pn4514 = phi { ptr, i32 } [ %.pn43, %364 ], [ %366, %365 ], [ %444, %443 ]
@@ -46548,7 +46548,7 @@ common.resume:                                    ; preds = %147, %98, %84
   unreachable
 
 157:                                              ; preds = %110, %146, %145
-  %.sroa.072.0 = phi i8 [ 37, %146 ], [ 36, %145 ], [ 13, %110 ]
+  %.sroa.072.0 = phi i8 [ 36, %145 ], [ 37, %146 ], [ 13, %110 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %158, align 8
   store i64 17, ptr %0, align 8
@@ -66771,7 +66771,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -68084,7 +68084,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %137, %132 ], [ %125, %120 ], [ %107, %102 ], [ %95, %90 ], [ %89, %84 ], [ %83, %78 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ %35, %20 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6

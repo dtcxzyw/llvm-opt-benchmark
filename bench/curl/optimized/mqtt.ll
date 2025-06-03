@@ -975,7 +975,7 @@ mqtt_verify_suback.exit.i:                        ; preds = %193, %192
   br label %mqtt_read_publish.exit
 
 mqtt_read_publish.exit:                           ; preds = %156, %.thread.i.i.i, %173, %188, %mqtt_verify_suback.exit.i, %198, %214, %232, %273
-  %.062.i = phi i32 [ %.1.i, %273 ], [ 63, %232 ], [ 0, %mqtt_verify_suback.exit.i ], [ 0, %214 ], [ 8, %198 ], [ 8, %156 ], [ 81, %173 ], [ %.014.ph.i.i.i, %.thread.i.i.i ], [ 8, %188 ]
+  %.062.i = phi i32 [ 0, %mqtt_verify_suback.exit.i ], [ 63, %232 ], [ %.1.i, %273 ], [ 0, %214 ], [ 8, %198 ], [ 8, %156 ], [ 81, %173 ], [ %.014.ph.i.i.i, %.thread.i.i.i ], [ 8, %188 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %mqstate.exit
 
@@ -985,7 +985,7 @@ mqtt_read_publish.exit:                           ; preds = %156, %.thread.i.i.i
   br label %mqstate.exit.thread
 
 mqstate.exit:                                     ; preds = %.thread.i.i, %149, %151, %.critedge, %50, %mqtt_read_publish.exit
-  %.174 = phi i32 [ %.062.i, %mqtt_read_publish.exit ], [ %.3, %149 ], [ %152, %151 ], [ %.2, %.critedge ], [ %52, %50 ], [ %.014.ph.i.i, %.thread.i.i ]
+  %.174 = phi i32 [ %52, %50 ], [ %.2, %.critedge ], [ %.3, %149 ], [ %152, %151 ], [ %.062.i, %mqtt_read_publish.exit ], [ %.014.ph.i.i, %.thread.i.i ]
   %.174.fr = freeze i32 %.174
   %275 = icmp eq i32 %.174.fr, 81
   br i1 %275, label %mqstate.exit.thread115, label %mqstate.exit.thread
@@ -993,8 +993,8 @@ mqstate.exit:                                     ; preds = %.thread.i.i, %149, 
 mqstate.exit.thread115:                           ; preds = %127, %mqstate.exit
   br label %mqstate.exit.thread
 
-mqstate.exit.thread:                              ; preds = %mqstate.exit.thread118, %96, %91, %55, %98, %115, %153, %274, %mqstate.exit.thread115, %mqstate.exit, %mqtt_send.exit
-  %.1 = phi i32 [ %.0.i, %mqtt_send.exit ], [ 0, %mqstate.exit.thread115 ], [ %.174.fr, %mqstate.exit ], [ 0, %96 ], [ 0, %91 ], [ 56, %55 ], [ 0, %98 ], [ 0, %115 ], [ 0, %153 ], [ 0, %274 ], [ 8, %mqstate.exit.thread118 ]
+mqstate.exit.thread:                              ; preds = %mqstate.exit.thread118, %96, %91, %153, %55, %98, %115, %274, %mqstate.exit.thread115, %mqstate.exit, %mqtt_send.exit
+  %.1 = phi i32 [ %.0.i, %mqtt_send.exit ], [ 0, %mqstate.exit.thread115 ], [ %.174.fr, %mqstate.exit ], [ 0, %96 ], [ 0, %91 ], [ 0, %153 ], [ 56, %55 ], [ 0, %98 ], [ 0, %115 ], [ 0, %274 ], [ 8, %mqstate.exit.thread118 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   ret i32 %.1

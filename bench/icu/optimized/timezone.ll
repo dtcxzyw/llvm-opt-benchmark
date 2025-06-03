@@ -3025,7 +3025,7 @@ _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit103: ; preds = %102
   unreachable
 
 117:                                              ; preds = %114, %112
-  %.0 = phi i32 [ %115, %114 ], [ %113, %112 ]
+  %.0 = phi i32 [ %113, %112 ], [ %115, %114 ]
   %118 = call noundef ptr @_ZN6icu_7713TimeZoneNames14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %119 = load i32, ptr %6, align 4, !tbaa !13
   %120 = icmp slt i32 %119, 1

@@ -181,13 +181,13 @@ define i32 @ossl_cipher_tlsunpadblock(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %17
 
 17:                                               ; preds = %._crit_edge, %13
-  %18 = phi i64 [ %.pre, %._crit_edge ], [ %16, %13 ]
-  %.023 = phi ptr [ %2, %._crit_edge ], [ %14, %13 ]
+  %18 = phi i64 [ %16, %13 ], [ %.pre, %._crit_edge ]
+  %.023 = phi ptr [ %14, %13 ], [ %2, %._crit_edge ]
   %19 = tail call i32 @tls1_cbc_remove_padding_and_mac(ptr noundef nonnull %3, i64 noundef %18, ptr noundef %.023, ptr noundef %5, ptr noundef %6, i64 noundef %4, i64 noundef %7, i32 noundef %8, ptr noundef %0) #7
   br label %20
 
 20:                                               ; preds = %9, %17, %10
-  %.0 = phi i32 [ %19, %17 ], [ %12, %10 ], [ 0, %9 ]
+  %.0 = phi i32 [ %12, %10 ], [ %19, %17 ], [ 0, %9 ]
   ret i32 %.0
 }
 

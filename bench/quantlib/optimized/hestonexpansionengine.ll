@@ -2663,7 +2663,7 @@ ehcleanup362:                                     ; preds = %ehcleanup361, %lpad
   br label %ehcleanup377
 
 sw.epilog:                                        ; preds = %invoke.cont321, %invoke.cont277, %invoke.cont233
-  %vol.0 = phi double [ %sqrt.i, %invoke.cont321 ], [ %.sroa.speculated.i340, %invoke.cont277 ], [ %.sroa.speculated.i, %invoke.cont233 ]
+  %vol.0 = phi double [ %.sroa.speculated.i, %invoke.cont233 ], [ %.sroa.speculated.i340, %invoke.cont277 ], [ %sqrt.i, %invoke.cont321 ]
   %call365 = call double @sqrt(double noundef %call193) #30, !tbaa !112
   %mul366 = fmul double %vol.0, %call365
   %call369 = invoke noundef double @_ZN8QuantLib12blackFormulaERKN5boost10shared_ptrINS_18PlainVanillaPayoffEEEdddd(ptr noundef nonnull align 8 dereferenceable(16) %payoff, double noundef %div, double noundef %mul366, double noundef %call2.i112, double noundef 0.000000e+00)
@@ -2758,7 +2758,7 @@ lpad367:                                          ; preds = %sw.epilog
   br label %ehcleanup377
 
 ehcleanup377:                                     ; preds = %lpad98, %lpad110, %lpad173, %lpad196, %lpad240, %lpad284, %ehcleanup362, %lpad367, %lpad184, %ehcleanup169, %lpad119, %lpad90, %lpad78
-  %.pn30.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %lpad90 ], [ %68, %lpad78 ], [ %71, %lpad110 ], [ %70, %lpad98 ], [ %.pn18.pn.pn.pn.pn, %ehcleanup169 ], [ %72, %lpad119 ], [ %101, %lpad173 ], [ %102, %lpad184 ], [ %.pn30.pn.pn.pn.pn, %ehcleanup362 ], [ %253, %lpad367 ], [ %216, %lpad284 ], [ %176, %lpad240 ], [ %138, %lpad196 ]
+  %.pn30.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %lpad90 ], [ %68, %lpad78 ], [ %71, %lpad110 ], [ %70, %lpad98 ], [ %.pn18.pn.pn.pn.pn, %ehcleanup169 ], [ %72, %lpad119 ], [ %101, %lpad173 ], [ %102, %lpad184 ], [ %.pn30.pn.pn.pn.pn, %ehcleanup362 ], [ %253, %lpad367 ], [ %138, %lpad196 ], [ %176, %lpad240 ], [ %216, %lpad284 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib13HestonProcessEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp71) #30
   br label %ehcleanup381

@@ -8784,11 +8784,11 @@ equalBN.exit:                                     ; preds = %22
   br label %81
 
 81:                                               ; preds = %equalBN.exit.thread, %78, %16, %1, %4, %7, %10, %13, %80
-  %.056 = phi ptr [ %8, %78 ], [ %8, %80 ], [ %8, %16 ], [ %8, %13 ], [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %equalBN.exit.thread ]
-  %.055 = phi ptr [ %11, %78 ], [ %11, %80 ], [ %11, %16 ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %equalBN.exit.thread ]
-  %.054 = phi ptr [ %14, %78 ], [ %14, %80 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %equalBN.exit.thread ]
-  %.053 = phi i32 [ %.1, %78 ], [ 1, %80 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %equalBN.exit.thread ]
-  %.052 = phi ptr [ %5, %78 ], [ %5, %80 ], [ %5, %16 ], [ %5, %13 ], [ %5, %10 ], [ %5, %7 ], [ %5, %4 ], [ null, %1 ], [ %5, %equalBN.exit.thread ]
+  %.056 = phi ptr [ %8, %80 ], [ %8, %78 ], [ %8, %16 ], [ %8, %13 ], [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ null, %1 ], [ %8, %equalBN.exit.thread ]
+  %.055 = phi ptr [ %11, %80 ], [ %11, %78 ], [ %11, %16 ], [ %11, %13 ], [ %11, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %11, %equalBN.exit.thread ]
+  %.054 = phi ptr [ %14, %80 ], [ %14, %78 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %7 ], [ null, %4 ], [ null, %1 ], [ %14, %equalBN.exit.thread ]
+  %.053 = phi i32 [ 1, %80 ], [ %.1, %78 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %1 ], [ 0, %equalBN.exit.thread ]
+  %.052 = phi ptr [ %5, %80 ], [ %5, %78 ], [ %5, %16 ], [ %5, %13 ], [ %5, %10 ], [ %5, %7 ], [ %5, %4 ], [ null, %1 ], [ %5, %equalBN.exit.thread ]
   tail call void @BN_free(ptr noundef %2) #8
   tail call void @BN_free(ptr noundef %.052) #8
   tail call void @BN_free(ptr noundef %.056) #8

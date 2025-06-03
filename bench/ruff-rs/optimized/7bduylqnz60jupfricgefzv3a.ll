@@ -254,7 +254,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h9cc04b5e08427885E.exit.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h9cc04b5e08427885E.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %78, %73, %70, %67
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %72, %70 ], [ %83, %78 ], [ %69, %67 ], [ %77, %73 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %77, %73 ], [ %69, %67 ], [ %83, %78 ], [ %72, %70 ]
   %84 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %84, label %87, label %85
 
@@ -623,9 +623,9 @@ default.unreachable:                              ; preds = %69, %57
   %70 = getelementptr inbounds i8, ptr %23, i64 -16
   %71 = getelementptr inbounds i8, ptr %52, i64 -16
   switch i64 %67, label %default.unreachable [
-    i64 0, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i"
-    i64 1, label %72
-    i64 2, label %76
+    i64 0, label %72
+    i64 1, label %76
+    i64 2, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i"
   ]
 
 72:                                               ; preds = %69
@@ -635,9 +635,9 @@ default.unreachable:                              ; preds = %69, %57
   br i1 %75, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit
 
 76:                                               ; preds = %69
-  %77 = load double, ptr %70, align 8, !alias.scope !139, !noalias !140, !noundef !19
-  %78 = load double, ptr %71, align 8, !alias.scope !141, !noalias !139, !noundef !19
-  %79 = fcmp oeq double %77, %78
+  %77 = load i64, ptr %70, align 8, !alias.scope !139, !noalias !140, !noundef !19
+  %78 = load i64, ptr %71, align 8, !alias.scope !141, !noalias !139, !noundef !19
+  %79 = icmp eq i64 %77, %78
   br i1 %79, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit
 
 80:                                               ; preds = %57
@@ -671,9 +671,9 @@ default.unreachable:                              ; preds = %69, %57
   br i1 %95, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i": ; preds = %69
-  %96 = load i64, ptr %70, align 8, !alias.scope !139, !noalias !140, !noundef !19
-  %97 = load i64, ptr %71, align 8, !alias.scope !141, !noalias !139, !noundef !19
-  %98 = icmp eq i64 %96, %97
+  %96 = load double, ptr %70, align 8, !alias.scope !139, !noalias !140, !noundef !19
+  %97 = load double, ptr %71, align 8, !alias.scope !141, !noalias !139, !noundef !19
+  %98 = fcmp oeq double %96, %97
   br i1 %98, label %.critedge.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit
 
 .critedge.backedge.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i", %92, %86, %80, %76, %72, %58, %57
@@ -682,7 +682,7 @@ default.unreachable:                              ; preds = %69, %57
   br i1 %100, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit, label %.lr.ph.split.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h26964b5c03c35e66E.exit: ; preds = %.lr.ph.split.i, %51, %58, %64, %72, %76, %80, %86, %92, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i", %.critedge.backedge.i, %._crit_edge.i.i.i.i.i, %9, %.lr.ph.split.us.i, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i"
-  %101 = phi i1 [ false, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i" ], [ true, %9 ], [ true, %.lr.ph.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ false, %64 ], [ false, %51 ], [ true, %.lr.ph.split.i ], [ true, %.critedge.backedge.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i" ], [ false, %92 ], [ false, %86 ], [ false, %80 ], [ false, %58 ], [ false, %76 ], [ false, %72 ]
+  %101 = phi i1 [ false, %"._ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.thread.loopexit12_crit_edge20.split.us.i" ], [ true, %9 ], [ true, %.lr.ph.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ false, %64 ], [ false, %51 ], [ true, %.lr.ph.split.i ], [ true, %.critedge.backedge.i ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h527646ec25be9f8bE.exit.i" ], [ false, %58 ], [ false, %80 ], [ false, %86 ], [ false, %92 ], [ false, %72 ], [ false, %76 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %102
 

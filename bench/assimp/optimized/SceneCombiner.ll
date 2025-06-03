@@ -212,7 +212,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %22, %36, %44
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %51, %44 ], [ %43, %36 ], [ %35, %22 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %35, %22 ], [ %43, %36 ], [ %51, %44 ]
   %52 = shl i32 %.1.i, 3
   %53 = xor i32 %52, %.1.i
   %54 = lshr i32 %53, 5
@@ -468,7 +468,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %27, %41, %49
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %56, %49 ], [ %48, %41 ], [ %40, %27 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %40, %27 ], [ %48, %41 ], [ %56, %49 ]
   %57 = shl i32 %.1.i, 3
   %58 = xor i32 %57, %.1.i
   %59 = lshr i32 %58, 5
@@ -632,7 +632,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %29, %43, %51
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %58, %51 ], [ %50, %43 ], [ %42, %29 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %42, %29 ], [ %50, %43 ], [ %58, %51 ]
   %59 = shl i32 %.1.i, 3
   %60 = xor i32 %59, %.1.i
   %61 = lshr i32 %60, 5
@@ -1695,7 +1695,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i516,
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %230, %244, %252
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %259, %252 ], [ %251, %244 ], [ %243, %230 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %243, %230 ], [ %251, %244 ], [ %259, %252 ]
   %260 = shl i32 %.1.i, 3
   %261 = xor i32 %260, %.1.i
   %262 = lshr i32 %261, 5
@@ -3078,7 +3078,7 @@ _ZN6Assimp12PrefixStringER8aiStringPKcj.exit504.us: ; preds = %.noexc502.us, %87
   br label %_Z13SuperFastHashPKcjj.exit.i
 
 _Z13SuperFastHashPKcjj.exit.i:                    ; preds = %942, %934, %920, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ %.055.lcssa.i.i, %._crit_edge.i.i ], [ %949, %942 ], [ %941, %934 ], [ %933, %920 ]
+  %.1.i.i = phi i32 [ %.055.lcssa.i.i, %._crit_edge.i.i ], [ %933, %920 ], [ %941, %934 ], [ %949, %942 ]
   %950 = shl i32 %.1.i.i, 3
   %951 = xor i32 %950, %.1.i.i
   %952 = lshr i32 %951, 5
@@ -3401,7 +3401,7 @@ _ZN6Assimp13SceneCombiner4CopyEPP7aiLightPKS1_.exit: ; preds = %_ZN7aiLightaSERK
   br label %_Z13SuperFastHashPKcjj.exit.i519
 
 _Z13SuperFastHashPKcjj.exit.i519:                 ; preds = %1109, %1101, %1087, %._crit_edge.i.i516
-  %.1.i.i520 = phi i32 [ %.055.lcssa.i.i517, %._crit_edge.i.i516 ], [ %1116, %1109 ], [ %1108, %1101 ], [ %1100, %1087 ]
+  %.1.i.i520 = phi i32 [ %.055.lcssa.i.i517, %._crit_edge.i.i516 ], [ %1100, %1087 ], [ %1108, %1101 ], [ %1116, %1109 ]
   %1117 = shl i32 %.1.i.i520, 3
   %1118 = xor i32 %1117, %.1.i.i520
   %1119 = lshr i32 %1118, 5
@@ -3674,7 +3674,7 @@ _ZN6Assimp13SceneCombiner4CopyEPP8aiCameraPKS1_.exit: ; preds = %_ZN8aiCameraaSE
   br label %_Z13SuperFastHashPKcjj.exit.i560
 
 _Z13SuperFastHashPKcjj.exit.i560:                 ; preds = %1247, %1239, %1225, %._crit_edge.i.i557
-  %.1.i.i561 = phi i32 [ %.055.lcssa.i.i558, %._crit_edge.i.i557 ], [ %1254, %1247 ], [ %1246, %1239 ], [ %1238, %1225 ]
+  %.1.i.i561 = phi i32 [ %.055.lcssa.i.i558, %._crit_edge.i.i557 ], [ %1238, %1225 ], [ %1246, %1239 ], [ %1254, %1247 ]
   %1255 = shl i32 %.1.i.i561, 3
   %1256 = xor i32 %1255, %.1.i.i561
   %1257 = lshr i32 %1256, 5
@@ -4295,7 +4295,7 @@ _ZN6Assimp13SceneCombiner4CopyEPP11aiAnimationPKS1_.exit: ; preds = %.noexc594, 
   br label %_Z13SuperFastHashPKcjj.exit.i606
 
 _Z13SuperFastHashPKcjj.exit.i606:                 ; preds = %1542, %1534, %1520, %._crit_edge.i.i603
-  %.1.i.i607 = phi i32 [ %.055.lcssa.i.i604, %._crit_edge.i.i603 ], [ %1549, %1542 ], [ %1541, %1534 ], [ %1533, %1520 ]
+  %.1.i.i607 = phi i32 [ %.055.lcssa.i.i604, %._crit_edge.i.i603 ], [ %1533, %1520 ], [ %1541, %1534 ], [ %1549, %1542 ]
   %1550 = shl i32 %.1.i.i607, 3
   %1551 = xor i32 %1550, %.1.i.i607
   %1552 = lshr i32 %1551, 5
@@ -4502,7 +4502,7 @@ _ZN6Assimp12PrefixStringER8aiStringPKcj.exit632:  ; preds = %.noexc630, %_ZN6Ass
   br label %_Z13SuperFastHashPKcjj.exit.i644
 
 _Z13SuperFastHashPKcjj.exit.i644:                 ; preds = %1648, %1640, %1626, %._crit_edge.i.i641
-  %.1.i.i645 = phi i32 [ %.055.lcssa.i.i642, %._crit_edge.i.i641 ], [ %1655, %1648 ], [ %1647, %1640 ], [ %1639, %1626 ]
+  %.1.i.i645 = phi i32 [ %.055.lcssa.i.i642, %._crit_edge.i.i641 ], [ %1639, %1626 ], [ %1647, %1640 ], [ %1655, %1648 ]
   %1656 = shl i32 %.1.i.i645, 3
   %1657 = xor i32 %1656, %.1.i.i645
   %1658 = lshr i32 %1657, 5
@@ -6338,7 +6338,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %41, %55, %63
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %70, %63 ], [ %62, %55 ], [ %54, %41 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %54, %41 ], [ %62, %55 ], [ %70, %63 ]
   %71 = shl i32 %.1.i, 3
   %72 = xor i32 %71, %.1.i
   %73 = lshr i32 %72, 5

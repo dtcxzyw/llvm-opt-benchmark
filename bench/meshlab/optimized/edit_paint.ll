@@ -4276,7 +4276,7 @@ _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82:         ; preds = %thread-pre-split.th
   ret void
 
 _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %525, %522, %425, %412, %399, %384, %348, %328, %284
-  %.pn = phi { ptr, i32 } [ %426, %425 ], [ %413, %412 ], [ %400, %399 ], [ %385, %384 ], [ %329, %328 ], [ %349, %348 ], [ %285, %284 ], [ %523, %522 ], [ %523, %525 ]
+  %.pn = phi { ptr, i32 } [ %285, %284 ], [ %329, %328 ], [ %349, %348 ], [ %385, %384 ], [ %400, %399 ], [ %413, %412 ], [ %426, %425 ], [ %523, %522 ], [ %523, %525 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6666,7 +6666,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.ex
   br label %_Z5brush5Brushffff.exit
 
 _Z5brush5Brushffff.exit:                          ; preds = %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit, %59, %83
-  %.1.i = phi float [ 0.000000e+00, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit ], [ %84, %83 ], [ %60, %59 ]
+  %.1.i = phi float [ 0.000000e+00, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit ], [ %60, %59 ], [ %84, %83 ]
   %85 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %321, label %86
@@ -7273,7 +7273,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.ex
   br label %_Z5brush5Brushffff.exit
 
 _Z5brush5Brushffff.exit:                          ; preds = %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit, %78, %102
-  %.1.i = phi float [ 0.000000e+00, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit ], [ %103, %102 ], [ %79, %78 ]
+  %.1.i = phi float [ 0.000000e+00, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit ], [ %79, %78 ], [ %103, %102 ]
   %104 = fpext float %.1.i to double
   %105 = fadd double %104, -1.000000e+00
   %106 = fneg double %105
@@ -8421,7 +8421,7 @@ _ZN8Paintbox8getBrushEv.exit:                     ; preds = %328
   br label %_Z5brush5Brushffff.exit
 
 _Z5brush5Brushffff.exit:                          ; preds = %365, %343, %_ZN8Paintbox8getBrushEv.exit
-  %.1.i = phi float [ 0.000000e+00, %_ZN8Paintbox8getBrushEv.exit ], [ %366, %365 ], [ %344, %343 ]
+  %.1.i = phi float [ 0.000000e+00, %_ZN8Paintbox8getBrushEv.exit ], [ %344, %343 ], [ %366, %365 ]
   %367 = load ptr, ptr %10, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 792
   %369 = load i32, ptr %368, align 8

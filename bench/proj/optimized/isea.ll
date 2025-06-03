@@ -1030,10 +1030,10 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   %89 = fcmp ogt double %86, %88
   switch i32 %84, label %default.unreachable [
     i32 0, label %90
-    i32 2, label %92
-    i32 4, label %94
-    i32 6, label %96
-    i32 8, label %98
+    i32 2, label %91
+    i32 4, label %93
+    i32 6, label %95
+    i32 8, label %97
     i32 1, label %99
     i32 3, label %101
     i32 5, label %103
@@ -1042,23 +1042,23 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   ]
 
 90:                                               ; preds = %83
-  %91 = select i1 %89, i32 0, i32 5
-  br label %.thread.i
-
-92:                                               ; preds = %83
-  %93 = select i1 %89, i32 1, i32 6
-  br label %.thread.i
-
-94:                                               ; preds = %83
-  %95 = select i1 %89, i32 2, i32 7
-  br label %.thread.i
-
-96:                                               ; preds = %83
-  %97 = select i1 %89, i32 3, i32 8
-  br label %.thread.i
-
-98:                                               ; preds = %83
   br i1 %89, label %select.unfold.i, label %.thread.i
+
+91:                                               ; preds = %83
+  %92 = select i1 %89, i32 1, i32 6
+  br label %.thread.i
+
+93:                                               ; preds = %83
+  %94 = select i1 %89, i32 2, i32 7
+  br label %.thread.i
+
+95:                                               ; preds = %83
+  %96 = select i1 %89, i32 3, i32 8
+  br label %.thread.i
+
+97:                                               ; preds = %83
+  %98 = select i1 %89, i32 4, i32 9
+  br label %.thread.i
 
 99:                                               ; preds = %83
   %100 = select i1 %89, i32 10, i32 15
@@ -1080,17 +1080,17 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   %108 = select i1 %89, i32 14, i32 19
   br label %110
 
-select.unfold.i:                                  ; preds = %98
+select.unfold.i:                                  ; preds = %90
   br label %.thread.i
 
-.thread.i:                                        ; preds = %select.unfold.i, %98, %96, %94, %92, %90
-  %.2.ph.i = phi i32 [ 4, %select.unfold.i ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ 9, %98 ]
+.thread.i:                                        ; preds = %select.unfold.i, %97, %95, %93, %91, %90
+  %.2.ph.i = phi i32 [ 0, %select.unfold.i ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ 5, %90 ]
   %.cmp.i = icmp samesign ugt i32 %.2.ph.i, 4
   %109 = zext i1 %.cmp.i to i8
   br label %112
 
 110:                                              ; preds = %107, %105, %103, %101, %99
-  %.2.i = phi i32 [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ]
+  %.2.i = phi i32 [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ]
   %.lhs.trunc.i = trunc nuw nsw i32 %.2.i to i8
   %111 = udiv i8 %.lhs.trunc.i, 5
   br label %112

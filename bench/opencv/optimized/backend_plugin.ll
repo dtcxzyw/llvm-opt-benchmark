@@ -7436,7 +7436,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit99:                  ; preds = %.body, %120
   br label %159
 
 159:                                              ; preds = %157, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %158, %157 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %158, %157 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %160 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !286
   %161 = icmp eq i32 %160, 4
   br i1 %161, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %162
@@ -7446,7 +7446,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit99:                  ; preds = %.body, %120
   br label %164
 
 164:                                              ; preds = %162, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %163, %162 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %163, %162 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %165 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !286
   %166 = icmp eq i32 %165, 4
   %spec.select.i.i.i.i = select i1 %166, ptr %.sroa.032.2.i.i.i.i, ptr %127
@@ -7543,7 +7543,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %201
 
 201:                                              ; preds = %199, %._crit_edge.i.i.i.i100
-  %.sroa.032.1.i.i.i.i108 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ], [ %200, %199 ]
+  %.sroa.032.1.i.i.i.i108 = phi ptr [ %200, %199 ], [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ]
   %202 = load i32, ptr %.sroa.032.1.i.i.i.i108, align 4, !tbaa !286
   %203 = icmp eq i32 %202, 5
   br i1 %203, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %204
@@ -7553,7 +7553,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %206
 
 206:                                              ; preds = %204, %._crit_edge.i.i.i.i100
-  %.sroa.032.2.i.i.i.i103 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ], [ %205, %204 ]
+  %.sroa.032.2.i.i.i.i103 = phi ptr [ %205, %204 ], [ %.sroa.032.0.lcssa.i.i.i.i102, %._crit_edge.i.i.i.i100 ]
   %207 = load i32, ptr %.sroa.032.2.i.i.i.i103, align 4, !tbaa !286
   %208 = icmp eq i32 %207, 5
   %spec.select.i.i.i.i104 = select i1 %208, ptr %.sroa.032.2.i.i.i.i103, ptr %127
@@ -8547,7 +8547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   br label %194
 
 194:                                              ; preds = %192, %._crit_edge.i.i.i.i
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %193, %192 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %193, %192 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %195 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !286
   %196 = icmp eq i32 %195, 4
   br i1 %196, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %197
@@ -8557,7 +8557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   br label %199
 
 199:                                              ; preds = %197, %._crit_edge.i.i.i.i
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %198, %197 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %198, %197 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %200 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !286
   %201 = icmp eq i32 %200, 4
   %spec.select.i.i.i.i = select i1 %201, ptr %.sroa.032.2.i.i.i.i, ptr %162
@@ -8654,7 +8654,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %236
 
 236:                                              ; preds = %234, %._crit_edge.i.i.i.i98
-  %.sroa.032.1.i.i.i.i106 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i100, %._crit_edge.i.i.i.i98 ], [ %235, %234 ]
+  %.sroa.032.1.i.i.i.i106 = phi ptr [ %235, %234 ], [ %.sroa.032.0.lcssa.i.i.i.i100, %._crit_edge.i.i.i.i98 ]
   %237 = load i32, ptr %.sroa.032.1.i.i.i.i106, align 4, !tbaa !286
   %238 = icmp eq i32 %237, 5
   br i1 %238, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIiEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, label %239
@@ -8664,7 +8664,7 @@ _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %._crit_edge.i.i.i.i
   br label %241
 
 241:                                              ; preds = %239, %._crit_edge.i.i.i.i98
-  %.sroa.032.2.i.i.i.i101 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i100, %._crit_edge.i.i.i.i98 ], [ %240, %239 ]
+  %.sroa.032.2.i.i.i.i101 = phi ptr [ %240, %239 ], [ %.sroa.032.0.lcssa.i.i.i.i100, %._crit_edge.i.i.i.i98 ]
   %242 = load i32, ptr %.sroa.032.2.i.i.i.i101, align 4, !tbaa !286
   %243 = icmp eq i32 %242, 5
   %spec.select.i.i.i.i102 = select i1 %243, ptr %.sroa.032.2.i.i.i.i101, ptr %162

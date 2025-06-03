@@ -285,7 +285,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit": ; preds = %59, %62, %65, %70
-  %.0.i.i.i3 = phi i8 [ %64, %62 ], [ %75, %70 ], [ %61, %59 ], [ %69, %65 ]
+  %.0.i.i.i3 = phi i8 [ %69, %65 ], [ %61, %59 ], [ %75, %70 ], [ %64, %62 ]
   %76 = trunc i8 %.0.i.i.i3 to i1
   br i1 %76, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit.thread", label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha29890bd0b704817E.exit.thread.sink.split"
 
@@ -439,7 +439,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit.i": ; preds = %64, %59, %56, %53
-  %.0.i.i.i3.i = phi i8 [ %58, %56 ], [ %69, %64 ], [ %55, %53 ], [ %63, %59 ]
+  %.0.i.i.i3.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
   %70 = trunc i8 %.0.i.i.i3.i to i1
   br i1 %70, label %81, label %71
 
@@ -1335,7 +1335,7 @@ define hidden { i32, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   br label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.i.i
 
 _ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.i.i: ; preds = %20, %15, %12, %9
-  %.0.i.i.i.i = phi i8 [ %14, %12 ], [ %25, %20 ], [ %11, %9 ], [ %19, %15 ]
+  %.0.i.i.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
   %26 = trunc i8 %.0.i.i.i.i to i1
   br i1 %26, label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.thread.i.i, label %"_ZN10tokenizers9tokenizer10normalizer16NormalizedString3map28_$u7b$$u7b$closure$u7d$$u7d$17h2bae7d3d63df5f59E.llvm.12244614425474959946.exit"
 
@@ -2035,7 +2035,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hd929d820505ffc69E.exit.i.i": ; preds = %59, %54, %51, %48
-  %.0.i.i.i3.i.i = phi i8 [ %53, %51 ], [ %64, %59 ], [ %50, %48 ], [ %58, %54 ]
+  %.0.i.i.i3.i.i = phi i8 [ %58, %54 ], [ %50, %48 ], [ %64, %59 ], [ %53, %51 ]
   %65 = trunc i8 %.0.i.i.i3.i.i to i1
   br i1 %65, label %70, label %66
 
@@ -7216,7 +7216,7 @@ define hidden noundef i32 @"_ZN10tokenizers11normalizers4bert14BertNormalizer13d
   br label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit
 
 _ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit: ; preds = %9, %12, %15, %20
-  %.0.i.i = phi i8 [ %14, %12 ], [ %25, %20 ], [ %11, %9 ], [ %19, %15 ]
+  %.0.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
   %26 = trunc i8 %.0.i.i to i1
   br i1 %26, label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.thread, label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.thread2
 
@@ -7622,7 +7622,7 @@ define hidden void @_ZN10tokenizers14pre_tokenizers5split5Split3new17hc83d8030d4
   br label %66
 
 66:                                               ; preds = %113, %65
-  %.0 = phi ptr [ %103, %113 ], [ %33, %65 ]
+  %.0 = phi ptr [ %33, %65 ], [ %103, %113 ]
   %67 = zext i1 %3 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13290,7 +13290,7 @@ define hidden { i32, i64 } @"_ZN10tokenizers9tokenizer10normalizer16NormalizedSt
   br label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.i
 
 _ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.i: ; preds = %20, %15, %12, %9
-  %.0.i.i.i = phi i8 [ %14, %12 ], [ %25, %20 ], [ %11, %9 ], [ %19, %15 ]
+  %.0.i.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
   %26 = trunc i8 %.0.i.i.i to i1
   br i1 %26, label %_ZN10tokenizers11normalizers4bert13is_whitespace17hc9ba52a423e97efbE.exit.thread.i, label %"_ZN10tokenizers11normalizers4bert14BertNormalizer13do_clean_text28_$u7b$$u7b$closure$u7d$$u7d$17h6d9445865cf32d13E.llvm.12244614425474959946.exit"
 
@@ -21521,7 +21521,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
   br label %"_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hbaa9aa54267ac3b3E.exit.i.i.i.i"
 
 "_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip28_$u7b$$u7b$closure$u7d$$u7d$17hbaa9aa54267ac3b3E.exit.i.i.i.i": ; preds = %72, %67, %64, %61
-  %.0.i.i.i.i.i.i = phi i8 [ %66, %64 ], [ %77, %72 ], [ %63, %61 ], [ %71, %67 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %71, %67 ], [ %63, %61 ], [ %77, %72 ], [ %66, %64 ]
   %78 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %78, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h8479ee8d0c03b7c1E.exit.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8f5d11bf1643a71dE.exit"
 
@@ -23606,7 +23606,7 @@ define internal fastcc noundef align 8 ptr @"_ZN117_$LT$tokenizers..pre_tokenize
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h42a17db054b1e61eE.exit"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h42a17db054b1e61eE.exit": ; preds = %4, %6, %12
-  %.0.i = phi ptr [ %5, %4 ], [ %17, %12 ], [ %11, %6 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %11, %6 ], [ %17, %12 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   ret ptr %.0.i
 }

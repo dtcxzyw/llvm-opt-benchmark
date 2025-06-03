@@ -635,7 +635,7 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview0132_$LT$impl$u20$core..c
   br label %11
 
 11:                                               ; preds = %8, %4
-  %.0 = phi ptr [ %10, %8 ], [ %7, %4 ]
+  %.0 = phi ptr [ %7, %4 ], [ %10, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret ptr %.0
 }
@@ -710,7 +710,7 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview0120_$LT$impl$u20$core..c
   br label %"_ZN13wasmtime_wasi8preview0132_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Error$GT$$u20$for$u20$wasmtime_wasi..preview0..types..Error$GT$4from17h5fe0b7b2be72fc53E.exit"
 
 "_ZN13wasmtime_wasi8preview0132_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Error$GT$$u20$for$u20$wasmtime_wasi..preview0..types..Error$GT$4from17h5fe0b7b2be72fc53E.exit": ; preds = %5, %9
-  %.0.i = phi ptr [ %11, %9 ], [ %8, %5 ]
+  %.0.i = phi ptr [ %8, %5 ], [ %11, %9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret ptr %.0.i
 }

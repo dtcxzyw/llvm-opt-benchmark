@@ -277,7 +277,7 @@ is_specified_ip_address.exit.thread:              ; preds = %21, %is_specified_i
   br label %96
 
 96:                                               ; preds = %75, %83
-  %.149 = phi i64 [ %82, %75 ], [ %95, %83 ]
+  %.149 = phi i64 [ %95, %83 ], [ %82, %75 ]
   ret i64 %.149
 }
 

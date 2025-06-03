@@ -6700,7 +6700,7 @@ define hidden void @_ZN18ty_python_semantic6symbol19SymbolAndQualifiers22unwrap_
   br i1 %65, label %70, label %75, !prof !459
 
 66:                                               ; preds = %75, %51
-  %.sroa.010.0.in.in.i = phi i1 [ %83, %75 ], [ %61, %51 ]
+  %.sroa.010.0.in.in.i = phi i1 [ %61, %51 ], [ %83, %75 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17), !noalias !700
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 256
   %68 = load ptr, ptr %.sroa.4.0.copyload, align 8, !noalias !700, !nonnull !3, !align !25, !noundef !3
@@ -8552,7 +8552,7 @@ define hidden noundef zeroext i1 @"_ZN18ty_python_semantic5types7builder49_$LT$i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcdadc938adb4549E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcdadc938adb4549E.exit": ; preds = %32, %50, %49, %18, %17, %4, %40, %38, %36, %35
-  %.sroa.0.0.shrunk = phi i1 [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ true, %35 ], [ false, %4 ], [ %.not.not, %17 ], [ %.not.not, %18 ], [ %.not.not.not, %49 ], [ %.not.not.not, %50 ], [ true, %32 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %35 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ false, %4 ], [ %.not.not, %17 ], [ %.not.not, %18 ], [ %.not.not.not, %49 ], [ %.not.not.not, %50 ], [ true, %32 ]
   ret i1 %.sroa.0.0.shrunk
 
 42:                                               ; preds = %30
@@ -8683,8 +8683,8 @@ define hidden void @"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_pytho
   br label %13
 
 select.unfold38:                                  ; preds = %28, %39, %34
-  %.sroa.6.0.i = phi i32 [ %42, %39 ], [ %38, %34 ], [ undef, %28 ]
-  %.sroa.0.0.i30 = phi i32 [ 1, %39 ], [ 1, %34 ], [ 0, %28 ]
+  %.sroa.6.0.i = phi i32 [ %38, %34 ], [ %42, %39 ], [ undef, %28 ]
+  %.sroa.0.0.i30 = phi i32 [ 1, %34 ], [ 1, %39 ], [ 0, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
   %45 = load i8, ptr %44, align 8, !range !709, !alias.scope !1121, !noundef !3
@@ -8721,8 +8721,8 @@ select.unfold38:                                  ; preds = %28, %39, %34
   br label %13
 
 select.unfold43:                                  ; preds = %46, %57, %52
-  %.sroa.6.0.i31 = phi i32 [ %60, %57 ], [ %56, %52 ], [ undef, %46 ]
-  %.sroa.0.0.i32 = phi i32 [ 1, %57 ], [ 1, %52 ], [ 0, %46 ]
+  %.sroa.6.0.i31 = phi i32 [ %56, %52 ], [ %60, %57 ], [ undef, %46 ]
+  %.sroa.0.0.i32 = phi i32 [ 1, %52 ], [ 1, %57 ], [ 0, %46 ]
   %61 = tail call fastcc { i32, i32 } @"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E"(ptr nonnull %2, ptr nonnull %3, ptr noalias noundef readonly align 8 dereferenceable(16) %26)
   %62 = extractvalue { i32, i32 } %61, 0
   %.not24 = icmp eq i32 %62, 2
@@ -8783,8 +8783,8 @@ define internal fastcc { i32, i32 } @"_ZN18ty_python_semantic5types5class49_$LT$
   br label %20
 
 20:                                               ; preds = %3, %1, %11, %16
-  %.sroa.6.0 = phi i32 [ %19, %16 ], [ %.sroa.6.1, %11 ], [ undef, %1 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i32 [ 1, %16 ], [ %.sroa.0.1, %11 ], [ 2, %1 ], [ %., %3 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.1, %11 ], [ %19, %16 ], [ undef, %1 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %11 ], [ 1, %16 ], [ 2, %1 ], [ %., %3 ]
   %21 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %22 = insertvalue { i32, i32 } %21, i32 %.sroa.6.0, 1
   ret { i32, i32 } %22
@@ -9464,7 +9464,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %9, %7
-  %.sroa.0.0.in = phi i1 [ %15, %14 ], [ %13, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %13, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %15, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -9917,7 +9917,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit65: ; preds = %2
   br label %80
 
 80:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit65, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit60, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit55, %55, %53, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit50, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit45, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %79, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit65 ], [ %70, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit60 ], [ %63, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit55 ], [ %56, %55 ], [ %54, %53 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit50 ], [ %43, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit45 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ]
+  %.sroa.0.0.in = phi i1 [ %34, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %43, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit45 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit50 ], [ %54, %53 ], [ %56, %55 ], [ %63, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit55 ], [ %70, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit60 ], [ %79, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit65 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -12171,8 +12171,8 @@ default.unreachable117:                           ; preds = %340, %277, %213, %1
   invoke void @"_ZN4core3ptr91drop_in_place$LT$ty_python_semantic..types..IterationError..report_diagnostic..Reporter$GT$17h15b1d4b6f9e71b0eE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %114) #27
           to label %.thread unwind label %161
 
-.thread:                                          ; preds = %159, %168, %186, %202, %211, %236, %250, %300, %320, %314, %322, %338, %363, %383, %377, %385, %395, %409, %410
-  %.pn.pn91 = phi { ptr, i32 } [ %411, %410 ], [ %lpad.thr_comm.split-lp, %409 ], [ %160, %159 ], [ %169, %168 ], [ %187, %186 ], [ %203, %202 ], [ %212, %211 ], [ %237, %236 ], [ %251, %250 ], [ %301, %300 ], [ %321, %320 ], [ %315, %314 ], [ %323, %322 ], [ %339, %338 ], [ %364, %363 ], [ %384, %383 ], [ %378, %377 ], [ %386, %385 ], [ %396, %395 ]
+.thread:                                          ; preds = %395, %383, %377, %385, %363, %338, %320, %314, %322, %300, %236, %250, %202, %211, %168, %186, %159, %409, %410
+  %.pn.pn91 = phi { ptr, i32 } [ %411, %410 ], [ %lpad.thr_comm.split-lp, %409 ], [ %396, %395 ], [ %384, %383 ], [ %378, %377 ], [ %386, %385 ], [ %364, %363 ], [ %339, %338 ], [ %321, %320 ], [ %315, %314 ], [ %323, %322 ], [ %301, %300 ], [ %237, %236 ], [ %251, %250 ], [ %203, %202 ], [ %212, %211 ], [ %169, %168 ], [ %187, %186 ], [ %160, %159 ]
   resume { ptr, i32 } %.pn.pn91
 
 410:                                              ; preds = %118
@@ -13141,7 +13141,7 @@ define hidden void @_ZN18ty_python_semantic5types9BoolError22report_diagnostic_i
   br label %308
 
 308:                                              ; preds = %306, %300, %298, %290
-  %.sroa.0.0.i = phi ptr [ %307, %306 ], [ %301, %300 ], [ %299, %298 ], [ %25, %290 ]
+  %.sroa.0.0.i = phi ptr [ %299, %298 ], [ %301, %300 ], [ %307, %306 ], [ %25, %290 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i, i64 16, i1 false), !alias.scope !1611
   br label %_ZN18ty_python_semantic5types9BoolError17not_boolable_type17hc2dd865b2c11242aE.exit
 
@@ -13232,8 +13232,8 @@ _ZN18ty_python_semantic5types9BoolError17not_boolable_type17hc2dd865b2c11242aE.e
   invoke void @"_ZN4core3ptr83drop_in_place$LT$ty_python_semantic..types..context..LintDiagnosticGuardBuilder$GT$17hc2d617d8c9bf029dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15) #27
           to label %.thread131 unwind label %126
 
-.thread131:                                       ; preds = %128, %105, %179, %140, %266, %191, %320, %332, %334
-  %.pn71134 = phi { ptr, i32 } [ %lpad.phi, %334 ], [ %129, %128 ], [ %.pn69, %105 ], [ %180, %179 ], [ %.pn66.pn, %140 ], [ %267, %266 ], [ %.pn.pn, %191 ], [ %lpad.thr_comm220, %320 ], [ %333, %332 ]
+.thread131:                                       ; preds = %332, %320, %266, %191, %179, %140, %128, %105, %334
+  %.pn71134 = phi { ptr, i32 } [ %lpad.phi, %334 ], [ %333, %332 ], [ %lpad.thr_comm220, %320 ], [ %267, %266 ], [ %.pn.pn, %191 ], [ %180, %179 ], [ %.pn66.pn, %140 ], [ %129, %128 ], [ %.pn69, %105 ]
   resume { ptr, i32 } %.pn71134
 
 .loopexit:                                        ; preds = %.noexc112, %.lr.ph.i
@@ -13440,7 +13440,7 @@ default.unreachable:                              ; preds = %1
   br label %38
 
 55:                                               ; preds = %73, %56
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %74, %73 ]
   resume { ptr, i32 } %.pn
 
 56:                                               ; preds = %39
@@ -13980,7 +13980,7 @@ default.unreachable:                              ; preds = %75
           to label %_ZN18ty_python_semantic5types13KnownFunction12check_module17habc9499c5584236dE.exit unwind label %72
 
 _ZN18ty_python_semantic5types13KnownFunction12check_module17habc9499c5584236dE.exit: ; preds = %82, %80, %78, %76, %84, %86
-  %.sroa.0.0.shrunk.i = phi i1 [ %83, %82 ], [ %81, %80 ], [ %switch.i, %78 ], [ %77, %76 ], [ %85, %84 ], [ %87, %86 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %81, %80 ], [ %83, %82 ], [ %switch.i, %78 ], [ %77, %76 ], [ %85, %84 ], [ %87, %86 ]
   %.. = select i1 %.sroa.0.0.shrunk.i, i8 %.sroa.0.0.i.ph, i8 31
   br label %"_ZN87_$LT$ty_python_semantic..types..KnownFunction$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb45848b7d773bde9E.exit.sink.split.sink.split"
 
@@ -15478,7 +15478,7 @@ define hidden void @_ZN18ty_python_semantic5types15BoundSuperError17report_diagn
   ret void
 
 47:                                               ; preds = %74, %48
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %74 ], [ %49, %48 ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm, %74 ]
   resume { ptr, i32 } %.pn
 
 48:                                               ; preds = %35
@@ -16204,7 +16204,7 @@ define internal fastcc noundef zeroext i1 @"_ZN101_$LT$ty_python_semantic..types
   ]
 
 7:                                                ; preds = %8, %16, %11, %6, %0, %18, %13, %20
-  %.sroa.0.0.shrunk = phi i1 [ %spec.select.i, %20 ], [ %19, %18 ], [ %14, %13 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %14, %13 ], [ %19, %18 ], [ %spec.select.i, %20 ], [ false, %0 ], [ true, %6 ], [ %spec.select, %11 ], [ %spec.select6, %16 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -18399,7 +18399,7 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
   ]
 
 "_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit": ; preds = %116, %111, %102, %89, %83, %74, %7, %6, %2, %180, %174, %168, %162, %156, %150, %144, %138, %132, %126, %120, %95, %68, %62, %56, %50, %44, %38, %32, %25, %19, %13
-  %.sroa.0.0.shrunk = phi i1 [ %185, %180 ], [ %179, %174 ], [ %173, %168 ], [ %167, %162 ], [ %161, %156 ], [ %155, %150 ], [ %149, %144 ], [ %143, %138 ], [ %137, %132 ], [ %131, %126 ], [ %125, %120 ], [ %spec.select.i17, %95 ], [ %73, %68 ], [ %67, %62 ], [ %61, %56 ], [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %spec.select.i, %25 ], [ %24, %19 ], [ %18, %13 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
+  %.sroa.0.0.shrunk = phi i1 [ %18, %13 ], [ %24, %19 ], [ %spec.select.i, %25 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %spec.select.i17, %95 ], [ %125, %120 ], [ %131, %126 ], [ %137, %132 ], [ %143, %138 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ %167, %162 ], [ %173, %168 ], [ %179, %174 ], [ %185, %180 ], [ false, %2 ], [ true, %6 ], [ %12, %7 ], [ %spec.select.i.i, %89 ], [ false, %74 ], [ %88, %83 ], [ %spec.select.i.i18, %116 ], [ false, %102 ], [ %spec.select.i19, %111 ]
   ret i1 %.sroa.0.0.shrunk
 
 7:                                                ; preds = %6
@@ -18870,7 +18870,7 @@ default.unreachable21:                            ; preds = %120, %2
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
 "_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit": ; preds = %263, %258, %256, %251, %249, %244, %242, %237, %234, %229, %212, %207, %205, %200, %198, %193, %156, %151, %149, %144, %.sink.split.i, %129, %127, %125, %110, %105, %103, %98, %76, %64, %61, %7, %264, %257, %250, %243, %236, %235, %228, %222, %221, %216, %215, %214, %213, %206, %199, %192, %188, %187, %183, %182, %175, %174, %170, %169, %164, %163, %158, %157, %150, %143, %138, %137, %132, %131, %119, %112, %111, %104, %97, %96, %91
-  %.sroa.0.0.shrunk = phi i1 [ true, %264 ], [ true, %257 ], [ true, %250 ], [ true, %243 ], [ true, %236 ], [ true, %235 ], [ %227, %222 ], [ true, %228 ], [ %220, %216 ], [ true, %221 ], [ true, %215 ], [ true, %214 ], [ true, %213 ], [ true, %206 ], [ true, %199 ], [ %191, %188 ], [ true, %192 ], [ %186, %183 ], [ true, %187 ], [ %181, %175 ], [ true, %182 ], [ %173, %170 ], [ true, %174 ], [ %168, %164 ], [ true, %169 ], [ %162, %158 ], [ true, %163 ], [ true, %157 ], [ true, %150 ], [ %142, %138 ], [ true, %143 ], [ %136, %132 ], [ true, %137 ], [ true, %131 ], [ %118, %112 ], [ true, %119 ], [ true, %111 ], [ true, %104 ], [ true, %97 ], [ %95, %91 ], [ true, %96 ], [ false, %7 ], [ false, %61 ], [ false, %64 ], [ false, %76 ], [ false, %98 ], [ true, %103 ], [ false, %105 ], [ true, %110 ], [ false, %125 ], [ false, %127 ], [ false, %129 ], [ true, %.sink.split.i ], [ false, %144 ], [ true, %149 ], [ false, %151 ], [ true, %156 ], [ false, %193 ], [ true, %198 ], [ false, %200 ], [ true, %205 ], [ false, %207 ], [ true, %212 ], [ false, %229 ], [ true, %234 ], [ false, %237 ], [ true, %242 ], [ false, %244 ], [ true, %249 ], [ false, %251 ], [ true, %256 ], [ false, %258 ], [ true, %263 ]
+  %.sroa.0.0.shrunk = phi i1 [ %95, %91 ], [ true, %96 ], [ true, %97 ], [ true, %104 ], [ true, %111 ], [ %118, %112 ], [ true, %119 ], [ true, %131 ], [ %136, %132 ], [ true, %137 ], [ %142, %138 ], [ true, %143 ], [ true, %150 ], [ true, %157 ], [ %162, %158 ], [ true, %163 ], [ %168, %164 ], [ true, %169 ], [ %173, %170 ], [ true, %174 ], [ %181, %175 ], [ true, %182 ], [ %186, %183 ], [ true, %187 ], [ %191, %188 ], [ true, %192 ], [ true, %199 ], [ true, %206 ], [ true, %213 ], [ true, %214 ], [ true, %215 ], [ %220, %216 ], [ true, %221 ], [ %227, %222 ], [ true, %228 ], [ true, %235 ], [ true, %236 ], [ true, %243 ], [ true, %250 ], [ true, %257 ], [ true, %264 ], [ false, %7 ], [ false, %61 ], [ false, %64 ], [ false, %76 ], [ false, %98 ], [ true, %103 ], [ false, %105 ], [ true, %110 ], [ false, %125 ], [ false, %127 ], [ false, %129 ], [ true, %.sink.split.i ], [ false, %144 ], [ true, %149 ], [ false, %151 ], [ true, %156 ], [ false, %193 ], [ true, %198 ], [ false, %200 ], [ true, %205 ], [ false, %207 ], [ true, %212 ], [ false, %229 ], [ true, %234 ], [ false, %237 ], [ true, %242 ], [ false, %244 ], [ true, %249 ], [ false, %251 ], [ true, %256 ], [ false, %258 ], [ true, %263 ]
   ret i1 %.sroa.0.0.shrunk
 
 97:                                               ; preds = %7
@@ -19878,7 +19878,7 @@ default.unreachable:                              ; preds = %183, %26
   br i1 %136, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ff85a83b3046e01E.exit, label %183
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h0ff85a83b3046e01E.exit: ; preds = %178, %176, %113, %111, %100, %165, %163, %86, %84, %148, %146, %51, %49, %155, %153, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit", %181, %116, %151, %5, %65, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit", %69, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit", %28
-  %.sroa.0.0 = phi i1 [ %203, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit" ], [ %71, %69 ], [ %64, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit" ], [ %39, %28 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %65 ], [ true, %5 ], [ true, %151 ], [ %182, %181 ], [ false, %116 ], [ true, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit" ], [ %156, %155 ], [ false, %153 ], [ %.not.not.not.i.not.not.not, %49 ], [ %.not.not.not.i.not.not.not, %51 ], [ %.not.not.not.i56.not.not.not, %146 ], [ %.not.not.not.i56.not.not.not, %148 ], [ %.not.not.not.i50.not.not.not, %84 ], [ %.not.not.not.i50.not.not.not, %86 ], [ %.not.not.not.i58.not.not.not, %163 ], [ %.not.not.not.i58.not.not.not, %165 ], [ true, %100 ], [ %.not.not.not.i54.not.not.not, %111 ], [ %.not.not.not.i54.not.not.not, %113 ], [ %.not.not.not.i60.not.not.not, %176 ], [ %.not.not.not.i60.not.not.not, %178 ]
+  %.sroa.0.0 = phi i1 [ %39, %28 ], [ %64, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit" ], [ %71, %69 ], [ %203, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit" ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %65 ], [ true, %5 ], [ true, %151 ], [ %182, %181 ], [ false, %116 ], [ true, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit" ], [ %156, %155 ], [ false, %153 ], [ %.not.not.not.i.not.not.not, %49 ], [ %.not.not.not.i.not.not.not, %51 ], [ %.not.not.not.i56.not.not.not, %146 ], [ %.not.not.not.i56.not.not.not, %148 ], [ %.not.not.not.i50.not.not.not, %84 ], [ %.not.not.not.i50.not.not.not, %86 ], [ %.not.not.not.i58.not.not.not, %163 ], [ %.not.not.not.i58.not.not.not, %165 ], [ true, %100 ], [ %.not.not.not.i54.not.not.not, %111 ], [ %.not.not.not.i54.not.not.not, %113 ], [ %.not.not.not.i60.not.not.not, %176 ], [ %.not.not.not.i60.not.not.not, %178 ]
   ret i1 %.sroa.0.0
 
 137:                                              ; preds = %65
@@ -20083,8 +20083,8 @@ define { i32, i32 } @_ZN18ty_python_semantic5types4Type13to_class_type17h5abe35b
   br label %14
 
 14:                                               ; preds = %3, %11, %5
-  %.sroa.4.0 = phi i32 [ %13, %11 ], [ %10, %5 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i32 [ 1, %11 ], [ %9, %5 ], [ 2, %3 ]
+  %.sroa.4.0 = phi i32 [ %10, %5 ], [ %13, %11 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i32 [ %9, %5 ], [ 1, %11 ], [ 2, %3 ]
   %15 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %16 = insertvalue { i32, i32 } %15, i32 %.sroa.4.0, 1
   ret { i32, i32 } %16
@@ -20960,7 +20960,7 @@ switch.hole_check:                                ; preds = %227
   br i1 %switch.lobit, label %.thread112.thread, label %222
 
 .thread112.thread:                                ; preds = %switch.hole_check, %182, %257, %223, %223, %223, %223, %223, %334, %326, %310, %300, %378, %284, %291, %288, %260, %215, %215, %214, %151, %123, %116, %105, %97, %94, %145, %158, %.thread116, %203, %216, %219, %229, %231, %237, %243, %.thread107, %255, %262, %266, %268, %272, %274, %283, %293, %.thread111, %311, %314, %322, %333, %346, %356, %357, %.thread113, %368, %386, %395, %397, %399, %193, %388, %92, %77, %79, %4, %331
-  %.sroa.0.0 = phi i1 [ %332, %331 ], [ true, %4 ], [ false, %79 ], [ false, %77 ], [ %.sroa.0.2.in, %145 ], [ %168, %158 ], [ %213, %203 ], [ %299, %.thread111 ], [ %400, %399 ], [ %396, %395 ], [ %398, %397 ], [ %394, %388 ], [ %387, %386 ], [ %315, %314 ], [ %313, %311 ], [ %377, %368 ], [ %359, %357 ], [ %.sroa.0.7, %.thread113 ], [ %.sroa.0.6, %356 ], [ %352, %346 ], [ %323, %322 ], [ false, %333 ], [ %296, %293 ], [ %.sroa.0.3, %283 ], [ %280, %274 ], [ %256, %255 ], [ %230, %229 ], [ %254, %.thread107 ], [ %271, %268 ], [ %273, %272 ], [ %265, %262 ], [ %267, %266 ], [ %252, %243 ], [ %242, %237 ], [ %236, %231 ], [ %221, %219 ], [ %218, %216 ], [ %202, %193 ], [ %181, %.thread116 ], [ true, %92 ], [ false, %94 ], [ true, %97 ], [ true, %105 ], [ true, %116 ], [ false, %123 ], [ true, %151 ], [ false, %214 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %215 ], [ false, %215 ], [ true, %260 ], [ %292, %291 ], [ false, %288 ], [ false, %284 ], [ false, %378 ], [ false, %300 ], [ false, %310 ], [ %336, %334 ], [ false, %326 ], [ false, %257 ], [ false, %182 ], [ false, %switch.hole_check ]
+  %.sroa.0.0 = phi i1 [ %332, %331 ], [ true, %4 ], [ false, %79 ], [ false, %77 ], [ %.sroa.0.2.in, %145 ], [ %168, %158 ], [ %213, %203 ], [ %299, %.thread111 ], [ %400, %399 ], [ %323, %322 ], [ false, %333 ], [ %.sroa.0.6, %356 ], [ %352, %346 ], [ %359, %357 ], [ %.sroa.0.7, %.thread113 ], [ %377, %368 ], [ %313, %311 ], [ %315, %314 ], [ %394, %388 ], [ %387, %386 ], [ %396, %395 ], [ %398, %397 ], [ %296, %293 ], [ %265, %262 ], [ %267, %266 ], [ %271, %268 ], [ %273, %272 ], [ %254, %.thread107 ], [ %256, %255 ], [ %280, %274 ], [ %.sroa.0.3, %283 ], [ %236, %231 ], [ %242, %237 ], [ %252, %243 ], [ %230, %229 ], [ %218, %216 ], [ %221, %219 ], [ %181, %.thread116 ], [ %202, %193 ], [ true, %92 ], [ false, %94 ], [ true, %97 ], [ true, %105 ], [ true, %116 ], [ false, %123 ], [ true, %151 ], [ false, %214 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %223 ], [ false, %215 ], [ false, %215 ], [ true, %260 ], [ %292, %291 ], [ false, %288 ], [ false, %284 ], [ false, %378 ], [ false, %300 ], [ false, %310 ], [ %336, %334 ], [ false, %326 ], [ false, %257 ], [ false, %182 ], [ false, %switch.hole_check ]
   ret i1 %.sroa.0.0
 
 84:                                               ; preds = %89, %81
@@ -22494,7 +22494,7 @@ _ZN18ty_python_semantic5types15TypeVarInstance11constraints17h2c89edb71a06be94E.
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h13e49b7c9501e640E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h13e49b7c9501e640E.exit.thread": ; preds = %118, %295, %293, %279, %207, %.thread100, %230, %183, %.thread94, %240, %241, %275, %273, %.thread108, %270, %264, %258, %234, %184, %181, %85, %78, %69, %65, %61, %107, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0991ee7697fd74d5E.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc2e05abf3d1f7697E.exit", %169, %170, %211, %216, %221, %.thread103, %.thread104, %249, %269, %284, %297, %.thread117, %.thread115, %193, %56, %4, %267
-  %.sroa.0.0 = phi i1 [ %268, %267 ], [ true, %4 ], [ %.sroa.0.2.in, %107 ], [ %131, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0991ee7697fd74d5E.exit" ], [ %180, %170 ], [ %300, %.thread117 ], [ %301, %.thread115 ], [ %299, %297 ], [ %292, %284 ], [ false, %269 ], [ %254, %249 ], [ %248, %.thread104 ], [ %245, %.thread103 ], [ %229, %221 ], [ %220, %216 ], [ %215, %211 ], [ %199, %193 ], [ %.sroa.0.3, %169 ], [ %.not.not.not.i.not.not.not.not.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc2e05abf3d1f7697E.exit" ], [ true, %56 ], [ true, %61 ], [ true, %65 ], [ true, %69 ], [ true, %78 ], [ false, %85 ], [ false, %181 ], [ false, %184 ], [ true, %234 ], [ true, %258 ], [ %271, %270 ], [ false, %264 ], [ true, %.thread108 ], [ true, %273 ], [ true, %275 ], [ false, %241 ], [ false, %240 ], [ false, %.thread94 ], [ false, %183 ], [ true, %230 ], [ true, %.thread100 ], [ true, %207 ], [ true, %279 ], [ true, %293 ], [ true, %295 ], [ true, %118 ]
+  %.sroa.0.0 = phi i1 [ %268, %267 ], [ true, %4 ], [ %.sroa.0.2.in, %107 ], [ %131, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0991ee7697fd74d5E.exit" ], [ %180, %170 ], [ %300, %.thread117 ], [ %301, %.thread115 ], [ %245, %.thread103 ], [ %248, %.thread104 ], [ %254, %249 ], [ false, %269 ], [ %292, %284 ], [ %299, %297 ], [ %215, %211 ], [ %220, %216 ], [ %229, %221 ], [ %199, %193 ], [ %.not.not.not.i.not.not.not.not.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc2e05abf3d1f7697E.exit" ], [ %.sroa.0.3, %169 ], [ true, %56 ], [ true, %61 ], [ true, %65 ], [ true, %69 ], [ true, %78 ], [ false, %85 ], [ false, %181 ], [ false, %184 ], [ true, %234 ], [ true, %258 ], [ %271, %270 ], [ false, %264 ], [ true, %.thread108 ], [ true, %273 ], [ true, %275 ], [ false, %241 ], [ false, %240 ], [ false, %.thread94 ], [ false, %183 ], [ true, %230 ], [ true, %.thread100 ], [ true, %207 ], [ true, %279 ], [ true, %293 ], [ true, %295 ], [ true, %118 ]
   ret i1 %.sroa.0.0
 
 270:                                              ; preds = %264
@@ -22748,7 +22748,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_equival
   br label %_ZN18ty_python_semantic5types12FunctionType16is_equivalent_to17hbfce9f752395856cE.exit
 
 _ZN18ty_python_semantic5types12FunctionType16is_equivalent_to17hbfce9f752395856cE.exit: ; preds = %210, %225, %235, %250, %180, %188, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf56d00e863bc7503E.exit, %261, %258, %255, %253, %238, %213, %196, %193, %191, %164, %130, %127, %125, %123, %116, %101, %99, %97, %87, %85, %77, %57, %49, %22, %287, %289, %163, %157, %133
-  %.sroa.0.0 = phi i1 [ %290, %289 ], [ %160, %157 ], [ %.sroa.0.1, %163 ], [ %142, %133 ], [ false, %287 ], [ false, %22 ], [ %76, %57 ], [ false, %49 ], [ %86, %85 ], [ false, %77 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ false, %87 ], [ %124, %123 ], [ %132, %130 ], [ true, %125 ], [ false, %127 ], [ false, %116 ], [ %198, %196 ], [ false, %164 ], [ true, %191 ], [ true, %193 ], [ %260, %258 ], [ false, %213 ], [ false, %238 ], [ true, %253 ], [ true, %255 ], [ %.not.not.not.not.not, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf56d00e863bc7503E.exit ], [ false, %261 ], [ false, %188 ], [ false, %180 ], [ false, %250 ], [ false, %235 ], [ false, %225 ], [ false, %210 ]
+  %.sroa.0.0 = phi i1 [ %290, %289 ], [ %142, %133 ], [ %.sroa.0.1, %163 ], [ %160, %157 ], [ false, %287 ], [ false, %22 ], [ %76, %57 ], [ false, %49 ], [ %86, %85 ], [ false, %77 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ false, %87 ], [ %124, %123 ], [ %132, %130 ], [ true, %125 ], [ false, %127 ], [ false, %116 ], [ %198, %196 ], [ false, %164 ], [ true, %191 ], [ true, %193 ], [ %260, %258 ], [ false, %213 ], [ false, %238 ], [ true, %253 ], [ true, %255 ], [ %.not.not.not.not.not, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf56d00e863bc7503E.exit ], [ false, %261 ], [ false, %188 ], [ false, %180 ], [ false, %250 ], [ false, %235 ], [ false, %225 ], [ false, %210 ]
   ret i1 %.sroa.0.0
 
 77:                                               ; preds = %27
@@ -22888,9 +22888,9 @@ default.unreachable:                              ; preds = %96
   br label %149
 
 149:                                              ; preds = %151, %143
-  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload6, %151 ], [ %.sroa.05.0.copyload, %143 ]
-  %.sroa.08.0 = phi i32 [ %154, %151 ], [ %145, %143 ]
-  %.sroa.3.0 = phi i32 [ %156, %151 ], [ %147, %143 ]
+  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %143 ], [ %.sroa.05.0.copyload6, %151 ]
+  %.sroa.08.0 = phi i32 [ %145, %143 ], [ %154, %151 ]
+  %.sroa.3.0 = phi i32 [ %147, %143 ], [ %156, %151 ]
   %150 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType9is_object17he91e90bc068e57eeE(i32 noundef %.sroa.08.0, i32 noundef %.sroa.3.0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   br i1 %150, label %161, label %163
 
@@ -23242,7 +23242,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type24is_gradual
   br i1 %48, label %232, label %_ZN18ty_python_semantic5types12FunctionType24is_gradual_equivalent_to17hbc3e5b40d93606beE.exit
 
 _ZN18ty_python_semantic5types12FunctionType24is_gradual_equivalent_to17hbc3e5b40d93606beE.exit: ; preds = %199, %242, %232, %215, %196, %193, %186, %179, %173, %162, %159, %156, %151, %145, %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit", %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit.thread", %109, %96, %85, %83, %81, %79, %69, %67, %59, %57, %49, %16, %21, %24, %27, %30, %33, %36, %38, %40, %43, %46, %4, %144, %138, %114, %18
-  %.sroa.0.0 = phi i1 [ %141, %138 ], [ %.sroa.0.2, %144 ], [ %123, %114 ], [ %20, %18 ], [ true, %4 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %38 ], [ false, %36 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ false, %21 ], [ false, %16 ], [ %58, %57 ], [ false, %49 ], [ %68, %67 ], [ false, %59 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ false, %69 ], [ %99, %96 ], [ false, %85 ], [ true, %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit" ], [ %spec.select, %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit.thread" ], [ true, %109 ], [ %172, %162 ], [ true, %145 ], [ false, %151 ], [ true, %156 ], [ true, %159 ], [ %231, %215 ], [ true, %173 ], [ true, %193 ], [ true, %196 ], [ false, %186 ], [ false, %179 ], [ %248, %242 ], [ false, %232 ], [ false, %199 ]
+  %.sroa.0.0 = phi i1 [ %20, %18 ], [ %123, %114 ], [ %.sroa.0.2, %144 ], [ %141, %138 ], [ true, %4 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %38 ], [ false, %36 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ false, %21 ], [ false, %16 ], [ %58, %57 ], [ false, %49 ], [ %68, %67 ], [ false, %59 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ false, %69 ], [ %99, %96 ], [ false, %85 ], [ true, %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit" ], [ %spec.select, %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit.thread" ], [ true, %109 ], [ %172, %162 ], [ true, %145 ], [ false, %151 ], [ true, %156 ], [ true, %159 ], [ %231, %215 ], [ true, %173 ], [ true, %193 ], [ true, %196 ], [ false, %186 ], [ false, %179 ], [ %248, %242 ], [ false, %232 ], [ false, %199 ]
   ret i1 %.sroa.0.0
 
 49:                                               ; preds = %21
@@ -23403,9 +23403,9 @@ default.unreachable:                              ; preds = %78
   br label %130
 
 130:                                              ; preds = %132, %124
-  %.sroa.018.0 = phi i64 [ %.sroa.018.0.copyload19, %132 ], [ %.sroa.018.0.copyload, %124 ]
-  %.sroa.021.0 = phi i32 [ %135, %132 ], [ %126, %124 ]
-  %.sroa.322.0 = phi i32 [ %137, %132 ], [ %128, %124 ]
+  %.sroa.018.0 = phi i64 [ %.sroa.018.0.copyload, %124 ], [ %.sroa.018.0.copyload19, %132 ]
+  %.sroa.021.0 = phi i32 [ %126, %124 ], [ %135, %132 ]
+  %.sroa.322.0 = phi i32 [ %128, %124 ], [ %137, %132 ]
   %131 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType9is_object17he91e90bc068e57eeE(i32 noundef %.sroa.021.0, i32 noundef %.sroa.322.0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   br i1 %131, label %142, label %144
 
@@ -23670,7 +23670,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br i1 %62, label %.thread161, label %63
 
 .thread161:                                       ; preds = %.thread178.thread.thread.thread, %.thread178.thread, %.thread178, %284, %247, %247, %263, %263, %261, %261, %251, %249, %249, %219, %219, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %207, %207, %207, %207, %207, %207, %207, %207, %207, %207, %191, %191, %191, %191, %191, %191, %191, %191, %191, %191, %191, %191, %191, %191, %184, %184, %184, %184, %184, %184, %184, %184, %184, %184, %184, %184, %184, %184, %131, %.thread265, %331, %332, %.thread164, %.thread155, %.thread201.thread245, %.thread201.thread245, %.thread201.thread245, %.thread201, %.thread200, %.thread232, %280, %.thread187, %.thread182, %.thread250, %285, %262, %264, %266, %226, %201, %195, %198, %192, %85, %78, %68, %61, %63, %4, %58, %367, %240, %144, %382, %378, %374, %354, %.thread219, %341, %327, %324, %320, %.thread197, %305, %300, %.thread192, %289, %.thread189, %281, %275, %270, %.thread168, %.thread159, %243, %236, %215, %211, %181, %179, %117, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit"
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1.shrunk, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit" ], [ %125, %117 ], [ %.sroa.0.2, %179 ], [ %213, %211 ], [ %217, %215 ], [ %321, %320 ], [ %325, %324 ], [ %328, %327 ], [ %375, %374 ], [ %383, %382 ], [ %380, %378 ], [ %372, %367 ], [ %355, %354 ], [ %351, %.thread219 ], [ %342, %341 ], [ %318, %.thread197 ], [ %310, %305 ], [ %302, %300 ], [ %297, %.thread192 ], [ %290, %289 ], [ %287, %.thread189 ], [ %283, %281 ], [ %276, %275 ], [ %272, %270 ], [ %269, %.thread168 ], [ %258, %.thread159 ], [ %245, %243 ], [ %239, %236 ], [ %242, %240 ], [ %183, %181 ], [ %152, %144 ], [ true, %58 ], [ true, %4 ], [ false, %63 ], [ false, %61 ], [ true, %68 ], [ true, %78 ], [ false, %85 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ %200, %198 ], [ false, %192 ], [ %206, %201 ], [ false, %195 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ false, %226 ], [ false, %249 ], [ false, %247 ], [ false, %251 ], [ false, %249 ], [ %265, %264 ], [ %267, %266 ], [ true, %263 ], [ true, %262 ], [ true, %261 ], [ false, %285 ], [ false, %284 ], [ true, %.thread250 ], [ true, %.thread182 ], [ true, %.thread187 ], [ false, %219 ], [ false, %219 ], [ true, %280 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %263 ], [ true, %261 ], [ %switch.selectcmp, %.thread232 ], [ %switch.selectcmp258, %.thread200 ], [ false, %247 ], [ false, %.thread201 ], [ false, %.thread201.thread245 ], [ false, %.thread201.thread245 ], [ false, %.thread201.thread245 ], [ true, %.thread155 ], [ true, %.thread164 ], [ %switch.selectcmp260, %332 ], [ false, %331 ], [ true, %.thread265 ], [ true, %131 ], [ true, %.thread178 ], [ true, %.thread178.thread ], [ true, %.thread178.thread.thread.thread ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1.shrunk, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit" ], [ %125, %117 ], [ %.sroa.0.2, %179 ], [ %213, %211 ], [ %217, %215 ], [ %321, %320 ], [ %325, %324 ], [ %328, %327 ], [ %375, %374 ], [ %383, %382 ], [ %380, %378 ], [ %342, %341 ], [ %351, %.thread219 ], [ %355, %354 ], [ %372, %367 ], [ %297, %.thread192 ], [ %302, %300 ], [ %310, %305 ], [ %318, %.thread197 ], [ %287, %.thread189 ], [ %290, %289 ], [ %283, %281 ], [ %269, %.thread168 ], [ %272, %270 ], [ %276, %275 ], [ %258, %.thread159 ], [ %245, %243 ], [ %242, %240 ], [ %239, %236 ], [ %183, %181 ], [ %152, %144 ], [ true, %58 ], [ true, %4 ], [ false, %63 ], [ false, %61 ], [ true, %68 ], [ true, %78 ], [ false, %85 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %191 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ true, %184 ], [ %200, %198 ], [ false, %192 ], [ %206, %201 ], [ false, %195 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ true, %207 ], [ false, %226 ], [ false, %249 ], [ false, %247 ], [ false, %251 ], [ false, %249 ], [ %265, %264 ], [ %267, %266 ], [ true, %263 ], [ true, %262 ], [ true, %261 ], [ false, %285 ], [ false, %284 ], [ true, %.thread250 ], [ true, %.thread182 ], [ true, %.thread187 ], [ false, %219 ], [ false, %219 ], [ true, %280 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %263 ], [ true, %261 ], [ %switch.selectcmp, %.thread232 ], [ %switch.selectcmp258, %.thread200 ], [ false, %247 ], [ false, %.thread201 ], [ false, %.thread201.thread245 ], [ false, %.thread201.thread245 ], [ false, %.thread201.thread245 ], [ true, %.thread155 ], [ true, %.thread164 ], [ %switch.selectcmp260, %332 ], [ false, %331 ], [ true, %.thread265 ], [ true, %131 ], [ true, %.thread178 ], [ true, %.thread178.thread ], [ true, %.thread178.thread.thread.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54)
   ret i1 %.sroa.0.0
 
@@ -24272,9 +24272,9 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br label %226
 
 226:                                              ; preds = %230, %220
-  %.sroa.042.0 = phi i64 [ %.sroa.042.0.copyload43, %230 ], [ %.sroa.042.0.copyload, %220 ]
-  %.sroa.068.0 = phi i32 [ %232, %230 ], [ %223, %220 ]
-  %.sroa.3.0 = phi i32 [ %234, %230 ], [ %225, %220 ]
+  %.sroa.042.0 = phi i64 [ %.sroa.042.0.copyload, %220 ], [ %.sroa.042.0.copyload43, %230 ]
+  %.sroa.068.0 = phi i32 [ %223, %220 ], [ %232, %230 ]
+  %.sroa.3.0 = phi i32 [ %225, %220 ], [ %234, %230 ]
   %227 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_final17hc23b16f40756d044E(i32 noundef %.sroa.068.0, i32 noundef %.sroa.3.0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   br i1 %227, label %240, label %.thread161
 
@@ -24509,7 +24509,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br label %275
 
 275:                                              ; preds = %.thread176, %.thread171
-  %.sroa.063.0 = phi i32 [ %278, %.thread176 ], [ %274, %.thread171 ]
+  %.sroa.063.0 = phi i32 [ %274, %.thread171 ], [ %278, %.thread176 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
   call fastcc void @_ZN18ty_python_semantic5types9TupleType21homogeneous_supertype17hceb9e77443540a70E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %32, i32 noundef %.sroa.063.0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2)
   %276 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoint_from17h4610de2033750471E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %33, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %32)
@@ -24715,7 +24715,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br label %300
 
 300:                                              ; preds = %311, %.thread193
-  %.sroa.064.0 = phi i32 [ %313, %311 ], [ %299, %.thread193 ]
+  %.sroa.064.0 = phi i32 [ %299, %.thread193 ], [ %313, %311 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   call void @_ZN18ty_python_semantic5types5class12ClassLiteral23metaclass_instance_type17h850b1c96a3783c62E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %31, i32 noundef %.sroa.064.0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   %301 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type13is_subtype_of17h8627b0f0cb2de21aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %31, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %30)
@@ -24730,7 +24730,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br label %305
 
 305:                                              ; preds = %314, %.thread194
-  %.sroa.065.0 = phi i32 [ %316, %314 ], [ %304, %.thread194 ]
+  %.sroa.065.0 = phi i32 [ %304, %.thread194 ], [ %316, %314 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   %306 = tail call { i32, i32 } @"_ZN137_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..class..GenericAlias$GT$$GT$4from17hd07f8a9988a9d1b4E"(i32 noundef %.sroa.065.0)
   %307 = extractvalue { i32, i32 } %306, 0
@@ -24915,7 +24915,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   br label %354
 
 354:                                              ; preds = %356, %.thread237.thread242
-  %.sroa.066.0 = phi i32 [ %358, %356 ], [ %353, %.thread237.thread242 ]
+  %.sroa.066.0 = phi i32 [ %353, %.thread237.thread242 ], [ %358, %356 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   call fastcc void @_ZN18ty_python_semantic5types9TupleType21homogeneous_supertype17hceb9e77443540a70E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %17, i32 noundef %.sroa.066.0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2)
   %355 = call noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoint_from17h4610de2033750471E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %18, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %17)
@@ -25180,7 +25180,7 @@ default.unreachable:                              ; preds = %3
   br i1 %89, label %_ZN18ty_python_semantic5types12CallableType15is_fully_static17h4f81d265ad29bbecE.exit, label %106
 
 _ZN18ty_python_semantic5types12CallableType15is_fully_static17h4f81d265ad29bbecE.exit: ; preds = %101, %98, %75, %77, %53, %64, %63, %37, %39, %19, %16, %104, %80, %84, %3, %106, %26, %23, %22, %7
-  %.sroa.0.0.shrunk = phi i1 [ %108, %106 ], [ %28, %26 ], [ %25, %23 ], [ true, %22 ], [ true, %7 ], [ false, %3 ], [ false, %84 ], [ %105, %104 ], [ true, %80 ], [ %18, %16 ], [ %18, %19 ], [ %38, %39 ], [ %38, %37 ], [ %.not, %63 ], [ %.not, %64 ], [ false, %53 ], [ %76, %77 ], [ %76, %75 ], [ %100, %98 ], [ %100, %101 ]
+  %.sroa.0.0.shrunk = phi i1 [ %25, %23 ], [ true, %22 ], [ %28, %26 ], [ true, %7 ], [ %108, %106 ], [ false, %3 ], [ false, %84 ], [ %105, %104 ], [ true, %80 ], [ %18, %16 ], [ %18, %19 ], [ %38, %39 ], [ %38, %37 ], [ %.not, %63 ], [ %.not, %64 ], [ false, %53 ], [ %76, %77 ], [ %76, %75 ], [ %100, %98 ], [ %100, %101 ]
   ret i1 %.sroa.0.0.shrunk
 
 90:                                               ; preds = %80
@@ -25284,7 +25284,7 @@ default.unreachable:                              ; preds = %3
   br i1 %cond, label %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h32196c5b1225b357E.exit"
 
 21:                                               ; preds = %22, %14, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h32196c5b1225b357E.exit", %8, %7
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h32196c5b1225b357E.exit" ], [ %13, %8 ], [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %24, %22 ], [ true, %14 ]
+  %.sroa.0.0 = phi i1 [ %13, %8 ], [ true, %7 ], [ %.sroa.0.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h32196c5b1225b357E.exit" ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %24, %22 ], [ true, %14 ]
   ret i1 %.sroa.0.0
 
 22:                                               ; preds = %14
@@ -25408,7 +25408,7 @@ default.unreachable:                              ; preds = %3
   br i1 %cond, label %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he39905f6ad70382aE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3f1abf41c50c8d24E.exit": ; preds = %23, %25, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he39905f6ad70382aE.exit", %9, %8
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he39905f6ad70382aE.exit" ], [ %14, %9 ], [ true, %8 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %24, %25 ], [ %24, %23 ]
+  %.sroa.0.0 = phi i1 [ %14, %9 ], [ true, %8 ], [ %.sroa.0.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he39905f6ad70382aE.exit" ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %24, %25 ], [ %24, %23 ]
   ret i1 %.sroa.0.0
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he39905f6ad70382aE.exit": ; preds = %43, %40, %28
@@ -27105,7 +27105,7 @@ default.unreachable:                              ; preds = %5
   br label %135
 
 135:                                              ; preds = %149, %156, %148, %51, %5, %5, %5, %5, %5, %159, %.loopexit, %158, %138, %134, %124, %119, %114, %111, %108, %107, %69, %66, %31
-  %.sroa.084.0 = phi i8 [ %.sroa.084.3, %159 ], [ %..i183, %124 ], [ %..i181, %119 ], [ %..i179, %114 ], [ %not..i176, %111 ], [ %..i, %108 ], [ 1, %107 ], [ %.sroa.8.0.ph, %.loopexit ], [ 0, %69 ], [ %68, %66 ], [ %65, %158 ], [ %50, %138 ], [ %39, %134 ], [ 0, %31 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ %146, %148 ], [ 2, %51 ], [ %150, %149 ], [ %154, %156 ]
+  %.sroa.084.0 = phi i8 [ %39, %134 ], [ %50, %138 ], [ %65, %158 ], [ %68, %66 ], [ 0, %69 ], [ %.sroa.8.0.ph, %.loopexit ], [ 0, %31 ], [ 1, %107 ], [ %..i, %108 ], [ %not..i176, %111 ], [ %..i179, %114 ], [ %..i181, %119 ], [ %..i183, %124 ], [ %.sroa.084.3, %159 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ 2, %5 ], [ %146, %148 ], [ 2, %51 ], [ %150, %149 ], [ %154, %156 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.084.0, ptr %136, align 1
   store i8 34, ptr %0, align 8
@@ -27340,7 +27340,7 @@ common.resume.sink.split:                         ; preds = %67, %78, %82, %86
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %31, %69, %60, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %70, %69 ], [ %61, %60 ], [ %32, %31 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %61, %60 ], [ %70, %69 ], [ %32, %31 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; preds = %2
@@ -27771,7 +27771,7 @@ common.resume.sink.split:                         ; preds = %63, %68
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %47, %65, %60, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %61, %60 ], [ %48, %47 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %61, %60 ], [ %66, %65 ], [ %48, %47 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; preds = %11
@@ -27817,7 +27817,7 @@ _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; 
   br label %_ZN18ty_python_semantic5types17StringLiteralType10python_len17hb9e482c1dac7c8a1E.exit
 
 _ZN18ty_python_semantic5types17StringLiteralType10python_len17hb9e482c1dac7c8a1E.exit: ; preds = %28, %26, %35, %30
-  %.sroa.7.0 = phi i64 [ %39, %35 ], [ %34, %30 ], [ %29, %28 ], [ %27, %26 ]
+  %.sroa.7.0 = phi i64 [ %34, %30 ], [ %39, %35 ], [ %29, %28 ], [ %27, %26 ]
   %40 = icmp sgt i64 %.sroa.7.0, -1
   br i1 %40, label %41, label %42
 
@@ -28059,75 +28059,75 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type3len24non_negativ
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN18ty_python_semantic5types4Type10signatures17h027587457c29f3bcE(ptr dead_on_unwind noalias noundef writable sret([160 x i8]) align 8 captures(none) dereferenceable(160) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(224) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [304 x i8], align 8
-  %.sroa.01099 = alloca [23 x i8], align 8
-  %.sroa.01091 = alloca [23 x i8], align 8
-  %.sroa.01081 = alloca [23 x i8], align 8
+  %.sroa.01100 = alloca [23 x i8], align 8
+  %.sroa.01092 = alloca [23 x i8], align 8
+  %.sroa.01082 = alloca [23 x i8], align 8
   %6 = alloca [128 x i8], align 8
   %7 = alloca [232 x i8], align 8
-  %.sroa.01063 = alloca [23 x i8], align 8
-  %.sroa.01055 = alloca [23 x i8], align 8
+  %.sroa.01064 = alloca [23 x i8], align 8
+  %.sroa.01056 = alloca [23 x i8], align 8
   %8 = alloca [520 x i8], align 8
-  %.sroa.01047 = alloca [23 x i8], align 8
-  %.sroa.01039 = alloca [23 x i8], align 8
-  %.sroa.01031 = alloca [23 x i8], align 1
-  %.sroa.01023 = alloca [23 x i8], align 1
-  %.sroa.01015 = alloca [23 x i8], align 1
+  %.sroa.01048 = alloca [23 x i8], align 8
+  %.sroa.01040 = alloca [23 x i8], align 8
+  %.sroa.01032 = alloca [23 x i8], align 1
+  %.sroa.01024 = alloca [23 x i8], align 1
+  %.sroa.01016 = alloca [23 x i8], align 1
   %9 = alloca [88 x i8], align 8
   %10 = alloca [160 x i8], align 8
-  %.sroa.0995 = alloca [23 x i8], align 8
+  %.sroa.0996 = alloca [23 x i8], align 8
   %11 = alloca [304 x i8], align 8
-  %.sroa.0987 = alloca [23 x i8], align 8
+  %.sroa.0988 = alloca [23 x i8], align 8
   %12 = alloca [88 x i8], align 8
   %13 = alloca [160 x i8], align 8
   %14 = alloca [88 x i8], align 8
   %15 = alloca [232 x i8], align 8
-  %.sroa.0955 = alloca [23 x i8], align 8
-  %.sroa.0939 = alloca [23 x i8], align 1
+  %.sroa.0956 = alloca [23 x i8], align 8
+  %.sroa.0940 = alloca [23 x i8], align 1
   %16 = alloca [88 x i8], align 8
   %17 = alloca [232 x i8], align 8
-  %.sroa.0919 = alloca [23 x i8], align 8
+  %.sroa.0920 = alloca [23 x i8], align 8
   %18 = alloca [88 x i8], align 8
   %19 = alloca [88 x i8], align 8
-  %.sroa.0893 = alloca [23 x i8], align 1
-  %.sroa.0867 = alloca [23 x i8], align 1
+  %.sroa.0894 = alloca [23 x i8], align 1
+  %.sroa.0868 = alloca [23 x i8], align 1
   %20 = alloca [88 x i8], align 8
   %21 = alloca [232 x i8], align 8
-  %.sroa.0837 = alloca [23 x i8], align 8
+  %.sroa.0838 = alloca [23 x i8], align 8
   %22 = alloca [232 x i8], align 8
-  %.sroa.0817 = alloca [23 x i8], align 8
+  %.sroa.0818 = alloca [23 x i8], align 8
   %23 = alloca [232 x i8], align 8
-  %.sroa.0787 = alloca [23 x i8], align 1
+  %.sroa.0788 = alloca [23 x i8], align 1
   %24 = alloca [232 x i8], align 8
-  %.sroa.0747 = alloca [23 x i8], align 8
-  %.sroa.0737 = alloca [23 x i8], align 8
+  %.sroa.0748 = alloca [23 x i8], align 8
+  %.sroa.0738 = alloca [23 x i8], align 8
   %25 = alloca [160 x i8], align 8
-  %.sroa.0727 = alloca [23 x i8], align 8
+  %.sroa.0728 = alloca [23 x i8], align 8
   %26 = alloca [160 x i8], align 8
-  %.sroa.0717 = alloca [23 x i8], align 8
+  %.sroa.0718 = alloca [23 x i8], align 8
   %27 = alloca [160 x i8], align 8
-  %.sroa.0697 = alloca [23 x i8], align 8
-  %.sroa.0687 = alloca [23 x i8], align 1
+  %.sroa.0698 = alloca [23 x i8], align 8
+  %.sroa.0688 = alloca [23 x i8], align 1
   %28 = alloca [88 x i8], align 8
   %29 = alloca [160 x i8], align 8
   %30 = alloca [736 x i8], align 8
-  %.sroa.0649 = alloca [23 x i8], align 8
-  %.sroa.0641 = alloca [23 x i8], align 8
-  %.sroa.0633 = alloca [23 x i8], align 1
-  %.sroa.0625 = alloca [23 x i8], align 1
-  %.sroa.0617 = alloca [23 x i8], align 1
-  %.sroa.0609 = alloca [23 x i8], align 1
-  %.sroa.0601 = alloca [23 x i8], align 1
+  %.sroa.0650 = alloca [23 x i8], align 8
+  %.sroa.0642 = alloca [23 x i8], align 8
+  %.sroa.0634 = alloca [23 x i8], align 1
+  %.sroa.0626 = alloca [23 x i8], align 1
+  %.sroa.0618 = alloca [23 x i8], align 1
+  %.sroa.0610 = alloca [23 x i8], align 1
+  %.sroa.0602 = alloca [23 x i8], align 1
   %31 = alloca [88 x i8], align 8
-  %.sroa.0567 = alloca [23 x i8], align 1
+  %.sroa.0568 = alloca [23 x i8], align 1
   %32 = alloca [88 x i8], align 8
   %33 = alloca [160 x i8], align 8
-  %.sroa.0559 = alloca [23 x i8], align 8
+  %.sroa.0560 = alloca [23 x i8], align 8
   %34 = alloca [88 x i8], align 8
   %35 = alloca [160 x i8], align 8
-  %.sroa.0519 = alloca [23 x i8], align 1
-  %.sroa.0511 = alloca [23 x i8], align 8
-  %.sroa.0501 = alloca [23 x i8], align 8
-  %.sroa.0491 = alloca [23 x i8], align 8
+  %.sroa.0520 = alloca [23 x i8], align 1
+  %.sroa.0512 = alloca [23 x i8], align 8
+  %.sroa.0502 = alloca [23 x i8], align 8
+  %.sroa.0492 = alloca [23 x i8], align 8
   %36 = alloca [40 x i8], align 8
   %37 = alloca [4 x i8], align 4
   %38 = alloca [72 x i8], align 8
@@ -28766,7 +28766,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type10signatures17h027587457c2
   %666 = alloca [56 x i8], align 8
   %667 = alloca [120 x i8], align 8
   %668 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  switch i8 %668, label %default.unreachable1352 [
+  switch i8 %668, label %default.unreachable1353 [
     i8 0, label %669
     i8 1, label %669
     i8 2, label %670
@@ -28798,7 +28798,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type10signatures17h027587457c2
     i8 28, label %708
   ]
 
-default.unreachable1352:                          ; preds = %693, %4
+default.unreachable1353:                          ; preds = %693, %4
   unreachable
 
 669:                                              ; preds = %4, %4
@@ -28872,8 +28872,8 @@ default.unreachable1352:                          ; preds = %693, %4
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28, !noalias !2750
   unreachable
 
-common.resume:                                    ; preds = %748, %759, %766, %770, %781, %926, %930, %942, %948, %951, %956, %963, %999, %1001, %1012, %1019, %1047, %1055, %1058, %1072, %1118, %1139, %1142, %1177, %1186, %1191, %1234, %1306, %1308, %1310, %1316, %.thread1241, %1429, %1440, %1474, %1476, %1547, %1561, %1595, %1598, %1601, %.body, %1630, %1640, %1678, %685
-  %common.resume.op = phi { ptr, i32 } [ %686, %685 ], [ %.pn.pn.pn, %1640 ], [ %1679, %1678 ], [ %1631, %1630 ], [ %1624, %.body ], [ %1602, %1601 ], [ %1599, %1598 ], [ %.pn176.pn, %1561 ], [ %1596, %1595 ], [ %1548, %1547 ], [ %.pn179.pn.pn.pn.pn.pn, %1476 ], [ %.pn188.pn, %1440 ], [ %1475, %1474 ], [ %.pn186, %1429 ], [ %.pn197.pn.pn1244, %.thread1241 ], [ %.pn197.pn.pn, %1316 ], [ %.pn204, %1234 ], [ %1307, %1306 ], [ %1309, %1308 ], [ %1311, %1310 ], [ %.pn209, %1191 ], [ %1187, %1186 ], [ %1178, %1177 ], [ %1143, %1142 ], [ %.pn214.pn, %1118 ], [ %1140, %1139 ], [ %.pn223, %1072 ], [ %.pn217.pn, %1058 ], [ %1048, %1047 ], [ %.pn225.pn, %1019 ], [ %lpad.thr_comm1156, %1055 ], [ %.pn228, %1001 ], [ %1013, %1012 ], [ %.pn234, %963 ], [ %.pn230, %956 ], [ %1000, %999 ], [ %952, %951 ], [ %949, %948 ], [ %943, %942 ], [ %.pn237, %930 ], [ %.pn249.pn, %781 ], [ %927, %926 ], [ %.pn252, %770 ], [ %767, %766 ], [ %760, %759 ], [ %.pn254, %748 ]
+common.resume:                                    ; preds = %748, %759, %766, %770, %781, %926, %930, %942, %948, %951, %956, %963, %999, %1001, %1012, %1019, %1047, %1055, %1058, %1072, %1118, %1139, %1142, %1177, %1186, %1191, %1234, %1306, %1308, %1310, %1316, %.thread1242, %1429, %1440, %1474, %1476, %1547, %1561, %1595, %1598, %1601, %.body, %1630, %1640, %1678, %685
+  %common.resume.op = phi { ptr, i32 } [ %686, %685 ], [ %760, %759 ], [ %.pn254, %748 ], [ %767, %766 ], [ %.pn252, %770 ], [ %.pn249.pn, %781 ], [ %927, %926 ], [ %943, %942 ], [ %.pn237, %930 ], [ %949, %948 ], [ %952, %951 ], [ %.pn234, %963 ], [ %.pn230, %956 ], [ %1000, %999 ], [ %.pn228, %1001 ], [ %1013, %1012 ], [ %1048, %1047 ], [ %.pn225.pn, %1019 ], [ %lpad.thr_comm1157, %1055 ], [ %.pn223, %1072 ], [ %.pn217.pn, %1058 ], [ %.pn214.pn, %1118 ], [ %1140, %1139 ], [ %1143, %1142 ], [ %1599, %1598 ], [ %1178, %1177 ], [ %1187, %1186 ], [ %.pn209, %1191 ], [ %.pn204, %1234 ], [ %1307, %1306 ], [ %1309, %1308 ], [ %1311, %1310 ], [ %.pn197.pn.pn1245, %.thread1242 ], [ %.pn197.pn.pn, %1316 ], [ %.pn188.pn, %1440 ], [ %1475, %1474 ], [ %.pn186, %1429 ], [ %1548, %1547 ], [ %.pn179.pn.pn.pn.pn.pn, %1476 ], [ %.pn176.pn, %1561 ], [ %1596, %1595 ], [ %1602, %1601 ], [ %1631, %1630 ], [ %1624, %.body ], [ %.pn.pn.pn, %1640 ], [ %1679, %1678 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds = %674
@@ -28894,7 +28894,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
 693:                                              ; preds = %4
   %694 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %695 = load i32, ptr %694, align 4, !range !2180, !noundef !3
-  switch i32 %695, label %default.unreachable1352 [
+  switch i32 %695, label %default.unreachable1353 [
     i32 0, label %953
     i32 2, label %953
     i32 3, label %954
@@ -28921,11 +28921,11 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %529)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %528)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %527)
-  %.sroa.0479.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %527, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0479.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0480.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %527, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0480.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1668183398, ptr %527, align 8
-  %.sroa.4480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %527, i64 23
-  store i8 -60, ptr %.sroa.4480.0..sroa_idx, align 1
+  %.sroa.4481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %527, i64 23
+  store i8 -60, ptr %.sroa.4481.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %528, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %527)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %527)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %526)
@@ -28985,9 +28985,9 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
 
 719:                                              ; preds = %4, %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115)
-  %.sroa.0489.sroa.4.0..sroa.7.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %.sroa.0490.sroa.4.0..sroa.7.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 56
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %38), !noalias !2755
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0489.sroa.4.0..sroa.7.0..sroa_idx.i.i.sroa_idx, i8 0, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0490.sroa.4.0..sroa.7.0..sroa_idx.i.i.sroa_idx, i8 0, i64 15, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39), !noalias !2766
@@ -28997,16 +28997,16 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   store ptr %3, ptr %720, align 8, !noalias !2755
   %721 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %2, ptr %721, align 8, !noalias !2755
-  %.sroa.4.0..sroa_idx.i.i258 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %3, ptr %.sroa.4.0..sroa_idx.i.i258, align 8, !noalias !2755
-  %.sroa.5.0..sroa_idx.i.i259 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store ptr %49, ptr %.sroa.5.0..sroa_idx.i.i259, align 8, !noalias !2755
+  %.sroa.4.0..sroa_idx.i.i259 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %3, ptr %.sroa.4.0..sroa_idx.i.i259, align 8, !noalias !2755
+  %.sroa.5.0..sroa_idx.i.i260 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr %49, ptr %.sroa.5.0..sroa_idx.i.i260, align 8, !noalias !2755
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %39, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !2755
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i64 6872330769136836447, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !2767
-  %.sroa.4490.0..sroa.7.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 71
-  store i8 -56, ptr %.sroa.4490.0..sroa.7.0..sroa_idx.i.i.sroa_idx, align 1, !noalias !2767
+  %.sroa.4491.0..sroa.7.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 71
+  store i8 -56, ptr %.sroa.4491.0..sroa.7.0..sroa_idx.i.i.sroa_idx, align 1, !noalias !2767
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hadf278b9c3fd97b1E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %115, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b422f174d30a109932427fdd0f19df23.367, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %38), !noalias !2768
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %38), !noalias !2755
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39), !noalias !2766
@@ -29050,7 +29050,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %109)
   br label %739
 
-739:                                              ; preds = %1603, %1605, %1169, %1171, %1176, %1179, %1217, %1285, %1412, %1461, %1546, %1588, %1597, %740, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270, %777, %895, %941, %947, %1669, %1638, %1636, %1600, %1164, %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit, %1131, %1102, %1046, %1007, %986, %950, %738, %728, %708, %699, %669
+739:                                              ; preds = %1603, %1605, %1169, %1171, %1176, %1179, %1217, %1285, %1412, %1461, %1546, %1588, %1597, %740, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit271, %777, %895, %941, %947, %1669, %1638, %1636, %1600, %1164, %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit, %1131, %1102, %1046, %1007, %986, %950, %738, %728, %708, %699, %669
   ret void
 
 740:                                              ; preds = %670
@@ -29063,10 +29063,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   store ptr %3, ptr %741, align 8, !noalias !2772
   %742 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %2, ptr %742, align 8, !noalias !2772
-  %.sroa.4.0..sroa_idx.i.i260 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %3, ptr %.sroa.4.0..sroa_idx.i.i260, align 8, !noalias !2772
-  %.sroa.5.0..sroa_idx.i.i261 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %37, ptr %.sroa.5.0..sroa_idx.i.i261, align 8, !noalias !2772
+  %.sroa.4.0..sroa_idx.i.i261 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store ptr %3, ptr %.sroa.4.0..sroa_idx.i.i261, align 8, !noalias !2772
+  %.sroa.5.0..sroa_idx.i.i262 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr %37, ptr %.sroa.5.0..sroa_idx.i.i262, align 8, !noalias !2772
   %743 = call noundef nonnull align 8 dereferenceable(176) ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h072f8aa535afe551E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b422f174d30a109932427fdd0f19df23.367, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %36)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36), !noalias !2772
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37), !noalias !2769
@@ -29081,14 +29081,14 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %459)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %458)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %457)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0519)
-  %.sroa.0519.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0519, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0519.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0519, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.448, i64 3, i1 false), !noalias !2775
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %457, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0519, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0519)
-  %.sroa.4528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %457, i64 23
-  store i8 -61, ptr %.sroa.4528.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0520)
+  %.sroa.0520.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0520, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0520.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0520, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.448, i64 3, i1 false), !noalias !2775
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %457, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0520, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0520)
+  %.sroa.4529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %457, i64 23
+  store i8 -61, ptr %.sroa.4529.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %458, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %457)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %457)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %456)
@@ -29101,12 +29101,12 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %495)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %494)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %493)
-  %.sroa.0491.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0491, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0491.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0491, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %493, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0491, i64 23, i1 false)
-  %.sroa.4500.0..sroa_idx = getelementptr inbounds nuw i8, ptr %493, i64 23
-  store i8 -59, ptr %.sroa.4500.0..sroa_idx, align 1
+  %.sroa.0492.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0492, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0492.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0492, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %493, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0492, i64 23, i1 false)
+  %.sroa.4501.0..sroa_idx = getelementptr inbounds nuw i8, ptr %493, i64 23
+  store i8 -59, ptr %.sroa.4501.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %494, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %493)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %493)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %492)
@@ -29120,11 +29120,11 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %490)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %489)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %488)
-  %.sroa.0557.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %488, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0557.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0558.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %488, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0558.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1701869940, ptr %488, align 8
-  %.sroa.4558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %488, i64 23
-  store i8 -60, ptr %.sroa.4558.0..sroa_idx, align 1
+  %.sroa.4559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %488, i64 23
+  store i8 -60, ptr %.sroa.4559.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %489, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %488)
           to label %751 unwind label %749
 
@@ -29167,10 +29167,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %495)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %35), !noalias !2784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(144) %496, i64 144, i1 false)
-  %.sroa.4410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 144
-  store i64 0, ptr %.sroa.4410.0..sroa_idx, align 8, !alias.scope !2791, !noalias !2795
-  %.sroa.5411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 152
-  store i64 2, ptr %.sroa.5411.0..sroa_idx, align 8, !alias.scope !2791, !noalias !2795
+  %.sroa.4411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 144
+  store i64 0, ptr %.sroa.4411.0..sroa_idx, align 8, !alias.scope !2791, !noalias !2795
+  %.sroa.5412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 152
+  store i64 2, ptr %.sroa.5412.0..sroa_idx, align 8, !alias.scope !2791, !noalias !2795
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %497, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %35), !noalias !2784
   %758 = getelementptr inbounds nuw i8, ptr %497, i64 24
@@ -29178,9 +29178,9 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h68a1db70cf00e636E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %486)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %485)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %485, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269 unwind label %759
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270 unwind label %759
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269: ; preds = %756
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %486, ptr noundef nonnull align 8 dereferenceable(16) %485, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %485)
   call void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %498, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %497, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %486)
@@ -29200,7 +29200,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269: ; preds = %
   invoke void @"_ZN4core3ptr70drop_in_place$LT$ty_python_semantic..types..signatures..Parameters$GT$17h6b863021527e31edE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %497) #27
           to label %common.resume unwind label %761
 
-761:                                              ; preds = %1678, %1676, %1674, %1661, %1651, %1640, %1630, %.body, %1601, %1598, %1595, %1594, %1592, %1569, %1561, %1559, %1557, %1555, %1553, %1551, %1549, %1547, %1529, %1520, %1510, %1497, %1485, %1476, %1474, %1472, %1470, %1454, %1440, %1429, %.thread1241, %1425, %.thread1248, %.thread1255, %1424, %1422, %1421, %1419, %1418, %1416, %1415, %1413, %1392, %1379, %1366, %1325, %1310, %1308, %1306, %1305, %1303, %1301, %1299, %1297, %1295, %1293, %1263, %1249, %1234, %1227, %1225, %1203, %1195, %1191, %1186, %1177, %1142, %1139, %1137, %1135, %1124, %1118, %1115, %1113, %1112, %1110, %1085, %1080, %1072, %1064, %1058, %1055, %1054, %1052, %1051, %1049, %1047, %1030, %1019, %1012, %1010, %1001, %999, %997, %996, %994, %970, %963, %956, %951, %948, %942, %930, %926, %924, %922, %920, %918, %916, %914, %912, %910, %908, %906, %904, %874, %865, %856, %847, %838, %829, %819, %810, %801, %791, %781, %770, %766, %759, %748
+761:                                              ; preds = %1678, %1676, %1674, %1661, %1651, %1640, %1630, %.body, %1601, %1598, %1595, %1594, %1592, %1569, %1561, %1559, %1557, %1555, %1553, %1551, %1549, %1547, %1529, %1520, %1510, %1497, %1485, %1476, %1474, %1472, %1470, %1454, %1440, %1429, %.thread1242, %1425, %.thread1249, %.thread1256, %1424, %1422, %1421, %1419, %1418, %1416, %1415, %1413, %1392, %1379, %1366, %1325, %1310, %1308, %1306, %1305, %1303, %1301, %1299, %1297, %1295, %1293, %1263, %1249, %1234, %1227, %1225, %1203, %1195, %1191, %1186, %1177, %1142, %1139, %1137, %1135, %1124, %1118, %1115, %1113, %1112, %1110, %1085, %1080, %1072, %1064, %1058, %1055, %1054, %1052, %1051, %1049, %1047, %1030, %1019, %1012, %1010, %1001, %999, %997, %996, %994, %970, %963, %956, %951, %948, %942, %930, %926, %924, %922, %920, %918, %916, %914, %912, %910, %908, %906, %904, %874, %865, %856, %847, %838, %829, %819, %810, %801, %791, %781, %770, %766, %759, %748
   %762 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
@@ -29211,26 +29211,26 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %482)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %481)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %480)
-  %.sroa.0501.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0501, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0501.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0501, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.445, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %480, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0501, i64 23, i1 false)
-  %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %480, i64 23
-  store i8 -61, ptr %.sroa.4510.0..sroa_idx, align 1
+  %.sroa.0502.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0502, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0502.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0502, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.445, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %480, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0502, i64 23, i1 false)
+  %.sroa.4511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %480, i64 23
+  store i8 -61, ptr %.sroa.4511.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %481, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %480)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %480)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %479)
   %764 = getelementptr inbounds nuw i8, ptr %479, i64 1
   store i8 0, ptr %764, align 1, !alias.scope !2796
   store i8 0, ptr %479, align 8, !alias.scope !2796
-  %.sroa.5414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.sroa.5415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %34), !noalias !2799
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5414.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %481, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %479)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5415.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %481, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %479)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %479)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %481)
   store i64 0, ptr %34, align 8, !alias.scope !2806, !noalias !2810
-  %.sroa.4413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 1, ptr %.sroa.4413.0..sroa_idx, align 8, !alias.scope !2806, !noalias !2810
+  %.sroa.4414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 1, ptr %.sroa.4414.0..sroa_idx, align 8, !alias.scope !2806, !noalias !2810
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %482, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %34), !noalias !2799
   %765 = getelementptr inbounds nuw i8, ptr %482, i64 24
@@ -29238,9 +29238,9 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit269: ; preds = %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %478)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %477)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %477, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270 unwind label %766
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit271 unwind label %766
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %763
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit271: ; preds = %763
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %478, ptr noundef nonnull align 8 dereferenceable(16) %477, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %477)
   call void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %483, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %482, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %478)
@@ -29267,12 +29267,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %471)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %470)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %469)
-  %.sroa.0511.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0511, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0511.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0511, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.446, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %469, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0511, i64 23, i1 false)
-  %.sroa.4518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %469, i64 23
-  store i8 -61, ptr %.sroa.4518.0..sroa_idx, align 1
+  %.sroa.0512.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0512, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0512.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0512, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.446, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %469, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0512, i64 23, i1 false)
+  %.sroa.4519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %469, i64 23
+  store i8 -61, ptr %.sroa.4519.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %470, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %469)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %469)
   call void @_ZN18ty_python_semantic5types10signatures9Parameter9type_form17hb48b339361e70eb0E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %471, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %470)
@@ -29287,12 +29287,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %467)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %466)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %465)
-  %.sroa.0559.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0559, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0559.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0559, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.447, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %465, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0559, i64 23, i1 false)
-  %.sroa.4566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %465, i64 23
-  store i8 -61, ptr %.sroa.4566.0..sroa_idx, align 1
+  %.sroa.0560.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0560, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0560.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0560, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.447, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %465, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0560, i64 23, i1 false)
+  %.sroa.4567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %465, i64 23
+  store i8 -61, ptr %.sroa.4567.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %466, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %465)
           to label %775 unwind label %771
 
@@ -29330,18 +29330,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %472)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %33), !noalias !2817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %33, ptr noundef nonnull align 8 dereferenceable(144) %473, i64 144, i1 false)
-  %.sroa.4416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 144
-  store i64 0, ptr %.sroa.4416.0..sroa_idx, align 8, !alias.scope !2824, !noalias !2828
-  %.sroa.5417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 152
-  store i64 2, ptr %.sroa.5417.0..sroa_idx, align 8, !alias.scope !2824, !noalias !2828
+  %.sroa.4417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 144
+  store i64 0, ptr %.sroa.4417.0..sroa_idx, align 8, !alias.scope !2824, !noalias !2828
+  %.sroa.5418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 152
+  store i64 2, ptr %.sroa.5418.0..sroa_idx, align 8, !alias.scope !2824, !noalias !2828
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %474, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %33), !noalias !2817
   %779 = getelementptr inbounds nuw i8, ptr %474, i64 24
   store i8 0, ptr %779, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %463)
   store i8 0, ptr %463, align 8
-  %.sroa.4365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %463, i64 1
-  store i8 0, ptr %.sroa.4365.0..sroa_idx, align 1
+  %.sroa.4366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %463, i64 1
+  store i8 0, ptr %.sroa.4366.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %475, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %474, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %463)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %463)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %474)
@@ -29354,14 +29354,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit270: ; preds = %
   br label %739
 
 _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
-  %.sroa.5420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.sroa.5421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %32), !noalias !2829
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5420.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %458, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %456)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5421.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %458, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %456)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %456)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %458)
   store i64 0, ptr %32, align 8, !alias.scope !2836, !noalias !2840
-  %.sroa.4419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 1, ptr %.sroa.4419.0..sroa_idx, align 8, !alias.scope !2836, !noalias !2840
+  %.sroa.4420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 1, ptr %.sroa.4420.0..sroa_idx, align 8, !alias.scope !2836, !noalias !2840
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %459, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %32), !noalias !2829
   %780 = getelementptr inbounds nuw i8, ptr %459, i64 24
@@ -29375,14 +29375,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %454)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %452)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %451)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0567)
-  %.sroa.0567.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0567, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0567.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0567, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.448, i64 3, i1 false), !noalias !2841
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %451, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0567, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0567)
-  %.sroa.4576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %451, i64 23
-  store i8 -61, ptr %.sroa.4576.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0568)
+  %.sroa.0568.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0568, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0568.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0568, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.448, i64 3, i1 false), !noalias !2841
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %451, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0568, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0568)
+  %.sroa.4577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %451, i64 23
+  store i8 -61, ptr %.sroa.4577.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %452, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %451)
           to label %784 unwind label %782
 
@@ -29415,12 +29415,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %450)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %452)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104)
-  %.sroa.5423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sroa.5424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %31), !noalias !2844
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5423.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %453, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5424.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %453, i64 72, i1 false)
   store i64 0, ptr %31, align 8, !alias.scope !2851, !noalias !2855
-  %.sroa.4422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 1, ptr %.sroa.4422.0..sroa_idx, align 8, !alias.scope !2851, !noalias !2855
+  %.sroa.4423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i64 1, ptr %.sroa.4423.0..sroa_idx, align 8, !alias.scope !2851, !noalias !2855
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %104, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %789 unwind label %782
 
@@ -29454,11 +29454,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %445)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %444)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %443)
-  %.sroa.0583.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %443, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0583.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0584.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %443, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0584.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1953066601, ptr %443, align 8
-  %.sroa.4584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %443, i64 23
-  store i8 -60, ptr %.sroa.4584.0..sroa_idx, align 1
+  %.sroa.4585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %443, i64 23
+  store i8 -60, ptr %.sroa.4585.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %444, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %443)
           to label %795 unwind label %792
 
@@ -29505,11 +29505,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %439)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %438)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %437)
-  %.sroa.0591.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %437, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0591.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0592.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %437, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0592.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1919968626, ptr %437, align 8
-  %.sroa.4592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %437, i64 23
-  store i8 -60, ptr %.sroa.4592.0..sroa_idx, align 1
+  %.sroa.4593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %437, i64 23
+  store i8 -60, ptr %.sroa.4593.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %438, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %437)
           to label %805 unwind label %802
 
@@ -29553,11 +29553,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %434)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %433)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %432)
-  %.sroa.0599.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %432, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %.sroa.0599.sroa.4.0..sroa_idx, i8 0, i64 21, i1 false)
+  %.sroa.0600.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %432, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %.sroa.0600.sroa.4.0..sroa_idx, i8 0, i64 21, i1 false)
   store i16 29029, ptr %432, align 8
-  %.sroa.4600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %432, i64 23
-  store i8 -62, ptr %.sroa.4600.0..sroa_idx, align 1
+  %.sroa.4601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %432, i64 23
+  store i8 -62, ptr %.sroa.4601.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %433, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %432)
           to label %814 unwind label %811
 
@@ -29601,14 +29601,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %429)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %428)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %427)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0601)
-  %.sroa.0601.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0601, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0601.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.0601, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.452, i64 5, i1 false), !noalias !2856
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %427, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0601, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0601)
-  %.sroa.4608.0..sroa_idx = getelementptr inbounds nuw i8, ptr %427, i64 23
-  store i8 -59, ptr %.sroa.4608.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0602)
+  %.sroa.0602.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0602, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0602.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.0602, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.452, i64 5, i1 false), !noalias !2856
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %427, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0602, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0602)
+  %.sroa.4609.0..sroa_idx = getelementptr inbounds nuw i8, ptr %427, i64 23
+  store i8 -59, ptr %.sroa.4609.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %428, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %427)
           to label %823 unwind label %820
 
@@ -29655,14 +29655,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %423)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %422)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %421)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0609)
-  %.sroa.0609.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0609, i64 11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0609.11..sroa_idx, i8 0, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0609, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.453, i64 11, i1 false), !noalias !2859
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %421, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0609, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0609)
-  %.sroa.4616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %421, i64 23
-  store i8 -53, ptr %.sroa.4616.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0610)
+  %.sroa.0610.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0610, i64 11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0610.11..sroa_idx, i8 0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0610, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.453, i64 11, i1 false), !noalias !2859
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %421, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0610, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0610)
+  %.sroa.4617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %421, i64 23
+  store i8 -53, ptr %.sroa.4617.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %421)
           to label %833 unwind label %830
 
@@ -29706,14 +29706,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %418)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %417)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %416)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0617)
-  %.sroa.0617.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0617, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0617.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0617, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.454, i64 6, i1 false), !noalias !2862
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %416, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0617, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0617)
-  %.sroa.4624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 23
-  store i8 -58, ptr %.sroa.4624.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0618)
+  %.sroa.0618.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0618, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0618.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0618, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.454, i64 6, i1 false), !noalias !2862
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %416, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0618, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0618)
+  %.sroa.4625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 23
+  store i8 -58, ptr %.sroa.4625.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %417, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %416)
           to label %842 unwind label %839
 
@@ -29757,14 +29757,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %413)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %412)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %411)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0625)
-  %.sroa.0625.10..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0625, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.0625.10..sroa_idx, i8 0, i64 13, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.0625, ptr noundef nonnull align 1 dereferenceable(10) @anon.b422f174d30a109932427fdd0f19df23.455, i64 10, i1 false), !noalias !2865
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %411, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0625, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0625)
-  %.sroa.4632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 23
-  store i8 -54, ptr %.sroa.4632.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0626)
+  %.sroa.0626.10..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0626, i64 10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.0626.10..sroa_idx, i8 0, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.0626, ptr noundef nonnull align 1 dereferenceable(10) @anon.b422f174d30a109932427fdd0f19df23.455, i64 10, i1 false), !noalias !2865
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %411, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0626, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0626)
+  %.sroa.4633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 23
+  store i8 -54, ptr %.sroa.4633.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %412, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %411)
           to label %851 unwind label %848
 
@@ -29805,14 +29805,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %408)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %407)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %406)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0633)
-  %.sroa.0633.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0633, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.0633.7..sroa_idx, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0633, ptr noundef nonnull align 1 dereferenceable(7) @anon.b422f174d30a109932427fdd0f19df23.456, i64 7, i1 false), !noalias !2868
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %406, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0633, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0633)
-  %.sroa.4640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 23
-  store i8 -57, ptr %.sroa.4640.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0634)
+  %.sroa.0634.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0634, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.0634.7..sroa_idx, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0634, ptr noundef nonnull align 1 dereferenceable(7) @anon.b422f174d30a109932427fdd0f19df23.456, i64 7, i1 false), !noalias !2868
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %406, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0634, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0634)
+  %.sroa.4641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 23
+  store i8 -57, ptr %.sroa.4641.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %407, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %406)
           to label %860 unwind label %857
 
@@ -29856,12 +29856,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %403)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %402)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %401)
-  %.sroa.0641.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0641, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0641.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0641, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.457, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %401, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0641, i64 23, i1 false)
-  %.sroa.4648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 23
-  store i8 -59, ptr %.sroa.4648.0..sroa_idx, align 1
+  %.sroa.0642.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0642, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0642.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0642, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.457, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %401, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0642, i64 23, i1 false)
+  %.sroa.4649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 23
+  store i8 -59, ptr %.sroa.4649.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %402, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %401)
           to label %869 unwind label %866
 
@@ -29905,12 +29905,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %398)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %397)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %396)
-  %.sroa.0649.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0649, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.0649.12..sroa_idx, i8 0, i64 11, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0649, ptr noundef nonnull align 1 dereferenceable(12) @anon.b422f174d30a109932427fdd0f19df23.458, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %396, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0649, i64 23, i1 false)
-  %.sroa.4656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 23
-  store i8 -52, ptr %.sroa.4656.0..sroa_idx, align 1
+  %.sroa.0650.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0650, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.0650.12..sroa_idx, i8 0, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0650, ptr noundef nonnull align 1 dereferenceable(12) @anon.b422f174d30a109932427fdd0f19df23.458, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %396, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0650, i64 23, i1 false)
+  %.sroa.4657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 23
+  store i8 -52, ptr %.sroa.4657.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %397, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %396)
           to label %878 unwind label %875
 
@@ -29969,10 +29969,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103)
   call void @llvm.lifetime.start.p0(i64 736, ptr nonnull %30), !noalias !2871
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %30, ptr noundef nonnull align 8 dereferenceable(720) %447, i64 720, i1 false)
-  %.sroa.4425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 720
-  store i64 0, ptr %.sroa.4425.0..sroa_idx, align 8, !alias.scope !2878, !noalias !2882
-  %.sroa.5426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 728
-  store i64 10, ptr %.sroa.5426.0..sroa_idx, align 8, !alias.scope !2878, !noalias !2882
+  %.sroa.4426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 720
+  store i64 0, ptr %.sroa.4426.0..sroa_idx, align 8, !alias.scope !2878, !noalias !2882
+  %.sroa.5427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 728
+  store i64 10, ptr %.sroa.5427.0..sroa_idx, align 8, !alias.scope !2878, !noalias !2882
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha3c5e4460c88fd7eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(736) %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %893 unwind label %792
 
@@ -30100,11 +30100,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %519)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %518)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %517)
-  %.sroa.0537.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0537.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0538.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0538.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 97, ptr %517, align 8
-  %.sroa.4538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 23
-  store i8 -63, ptr %.sroa.4538.0..sroa_idx, align 1
+  %.sroa.4539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 23
+  store i8 -63, ptr %.sroa.4539.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %518, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %517)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %517)
   call void @_ZN18ty_python_semantic5types10signatures9Parameter9type_form17hb48b339361e70eb0E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %519, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %518)
@@ -30120,11 +30120,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %514)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %513)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %512)
-  %.sroa.0665.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0665.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0666.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0666.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 98, ptr %512, align 8
-  %.sroa.4666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 23
-  store i8 -63, ptr %.sroa.4666.0..sroa_idx, align 1
+  %.sroa.4667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %512, i64 23
+  store i8 -63, ptr %.sroa.4667.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %513, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %512)
           to label %933 unwind label %931
 
@@ -30167,10 +30167,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %520)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %29), !noalias !2889
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef nonnull align 8 dereferenceable(144) %521, i64 144, i1 false)
-  %.sroa.4404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 144
-  store i64 0, ptr %.sroa.4404.0..sroa_idx, align 8, !alias.scope !2896, !noalias !2900
-  %.sroa.5405.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 152
-  store i64 2, ptr %.sroa.5405.0..sroa_idx, align 8, !alias.scope !2896, !noalias !2900
+  %.sroa.4405.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 144
+  store i64 0, ptr %.sroa.4405.0..sroa_idx, align 8, !alias.scope !2896, !noalias !2900
+  %.sroa.5406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 152
+  store i64 2, ptr %.sroa.5406.0..sroa_idx, align 8, !alias.scope !2896, !noalias !2900
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %522, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %29), !noalias !2889
   %940 = getelementptr inbounds nuw i8, ptr %522, i64 24
@@ -30206,11 +30206,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %505)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %504)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %503)
-  %.sroa.0547.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0547.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0548.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0548.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 97, ptr %503, align 8
-  %.sroa.4548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 23
-  store i8 -63, ptr %.sroa.4548.0..sroa_idx, align 1
+  %.sroa.4549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %503, i64 23
+  store i8 -63, ptr %.sroa.4549.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %504, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %503)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %503)
   call void @_ZN18ty_python_semantic5types10signatures9Parameter9type_form17hb48b339361e70eb0E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %505, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %504)
@@ -30219,14 +30219,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   %945 = getelementptr inbounds nuw i8, ptr %502, i64 1
   store i8 0, ptr %945, align 1, !alias.scope !2901
   store i8 0, ptr %502, align 8, !alias.scope !2901
-  %.sroa.5408.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.5409.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28), !noalias !2904
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5408.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %505, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %502)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5409.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %505, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %502)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %502)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %505)
   store i64 0, ptr %28, align 8, !alias.scope !2911, !noalias !2915
-  %.sroa.4407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 1, ptr %.sroa.4407.0..sroa_idx, align 8, !alias.scope !2911, !noalias !2915
+  %.sroa.4408.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 1, ptr %.sroa.4408.0..sroa_idx, align 8, !alias.scope !2911, !noalias !2915
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %506, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %28), !noalias !2904
   %946 = getelementptr inbounds nuw i8, ptr %506, i64 24
@@ -30280,16 +30280,16 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %655)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %654)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %653)
-  %.sroa.0675.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %653, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0675.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0676.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %653, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0676.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %653, align 8
-  %.sroa.4676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %653, i64 23
-  store i8 -56, ptr %.sroa.4676.0..sroa_idx, align 1
+  %.sroa.4677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %653, i64 23
+  store i8 -56, ptr %.sroa.4677.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %653)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %653)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %652)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %652, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285 unwind label %999
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit286 unwind label %999
 
 954:                                              ; preds = %693
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %594)
@@ -30298,16 +30298,16 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %590)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %589)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %588)
-  %.sroa.0685.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %588, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0685.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0686.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %588, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0686.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %588, align 8
-  %.sroa.4686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %588, i64 23
-  store i8 -56, ptr %.sroa.4686.0..sroa_idx, align 1
+  %.sroa.4687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %588, i64 23
+  store i8 -56, ptr %.sroa.4687.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %589, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %588)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %588)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %587)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %587, i8 noundef 1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit287 unwind label %1012
+          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit288 unwind label %1012
 
 955:                                              ; preds = %693
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %564)
@@ -30316,14 +30316,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %560)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %559)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %558)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0687)
-  %.sroa.0687.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0687, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0687.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0687, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.463, i64 6, i1 false), !noalias !2916
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %558, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0687, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0687)
-  %.sroa.4696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %558, i64 23
-  store i8 -58, ptr %.sroa.4696.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0688)
+  %.sroa.0688.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0688, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0688.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0688, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.463, i64 6, i1 false), !noalias !2916
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %558, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0688, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0688)
+  %.sroa.4697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %558, i64 23
+  store i8 -58, ptr %.sroa.4697.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %559, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %558)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %558)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %557)
@@ -30332,19 +30332,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit: ; preds = %745
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %555, i8 noundef 8, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
           to label %1014 unwind label %1055
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %953
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit286: ; preds = %953
   call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %655, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %654, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %652)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %652)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %654)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %651)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %650)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %649)
-  %.sroa.0697.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0697, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0697.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0697, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %649, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0697, i64 23, i1 false)
-  %.sroa.4706.0..sroa_idx = getelementptr inbounds nuw i8, ptr %649, i64 23
-  store i8 -59, ptr %.sroa.4706.0..sroa_idx, align 1
+  %.sroa.0698.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0698, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0698.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0698, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %649, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0698, i64 23, i1 false)
+  %.sroa.4707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %649, i64 23
+  store i8 -59, ptr %.sroa.4707.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %650, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %649)
           to label %959 unwind label %957
 
@@ -30353,12 +30353,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %655) #27
           to label %common.resume unwind label %761
 
-957:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285
+957:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit286
   %958 = landingpad { ptr, i32 }
           cleanup
   br label %956
 
-959:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285
+959:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit286
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %649)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %648)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %648, i8 noundef 4, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
@@ -30393,10 +30393,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %655)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %27), !noalias !2919
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %27, ptr noundef nonnull align 8 dereferenceable(144) %656, i64 144, i1 false)
-  %.sroa.4380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 144
-  store i64 0, ptr %.sroa.4380.0..sroa_idx, align 8, !alias.scope !2926, !noalias !2930
-  %.sroa.5381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 152
-  store i64 2, ptr %.sroa.5381.0..sroa_idx, align 8, !alias.scope !2926, !noalias !2930
+  %.sroa.4381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 144
+  store i64 0, ptr %.sroa.4381.0..sroa_idx, align 8, !alias.scope !2926, !noalias !2930
+  %.sroa.5382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 152
+  store i64 2, ptr %.sroa.5382.0..sroa_idx, align 8, !alias.scope !2926, !noalias !2930
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %657, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %27), !noalias !2919
   %968 = getelementptr inbounds nuw i8, ptr %657, i64 24
@@ -30411,11 +30411,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %644)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %643)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %642)
-  %.sroa.0715.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %642, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0715.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0716.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %642, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0716.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %642, align 8
-  %.sroa.4716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %642, i64 23
-  store i8 -56, ptr %.sroa.4716.0..sroa_idx, align 1
+  %.sroa.4717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %642, i64 23
+  store i8 -56, ptr %.sroa.4717.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %643, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %642)
           to label %969 unwind label %964
 
@@ -30440,12 +30440,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %640)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %639)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %638)
-  %.sroa.0717.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0717, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0717.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0717, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %638, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0717, i64 23, i1 false)
-  %.sroa.4726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 23
-  store i8 -59, ptr %.sroa.4726.0..sroa_idx, align 1
+  %.sroa.0718.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0718, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0718.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0718, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %638, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0718, i64 23, i1 false)
+  %.sroa.4727.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 23
+  store i8 -59, ptr %.sroa.4727.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %639, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %638)
           to label %974 unwind label %971
 
@@ -30465,9 +30465,9 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit285: ; preds = %
 976:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %634)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %634, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292 unwind label %996
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293 unwind label %996
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292: ; preds = %976
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293: ; preds = %976
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %636, ptr noundef nonnull align 8 dereferenceable(16) %635, i64 16, i1 false)
   %977 = getelementptr inbounds nuw i8, ptr %636, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %977, ptr noundef nonnull align 8 dereferenceable(16) %634, i64 16, i1 false)
@@ -30476,7 +30476,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %637, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %636)
           to label %978 unwind label %996
 
-978:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292
+978:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %636)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %640, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %639, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %637)
           to label %979 unwind label %975
@@ -30486,18 +30486,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %639)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %633)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %633, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293 unwind label %994
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit294 unwind label %994
 
-980:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293
+980:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit294
   %981 = landingpad { ptr, i32 }
           cleanup
   br label %970
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293: ; preds = %979
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit294: ; preds = %979
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %641, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %640, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %633)
           to label %982 unwind label %980
 
-982:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293
+982:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit294
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %633)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %640)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %645, ptr noundef nonnull align 8 dereferenceable(72) %644, i64 72, i1 false)
@@ -30508,10 +30508,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293: ; preds = %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %108)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %26), !noalias !2931
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull align 8 dereferenceable(144) %645, i64 144, i1 false)
-  %.sroa.4383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 144
-  store i64 0, ptr %.sroa.4383.0..sroa_idx, align 8, !alias.scope !2938, !noalias !2942
-  %.sroa.5384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 152
-  store i64 2, ptr %.sroa.5384.0..sroa_idx, align 8, !alias.scope !2938, !noalias !2942
+  %.sroa.4384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 144
+  store i64 0, ptr %.sroa.4384.0..sroa_idx, align 8, !alias.scope !2938, !noalias !2942
+  %.sroa.5385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 152
+  store i64 2, ptr %.sroa.5385.0..sroa_idx, align 8, !alias.scope !2938, !noalias !2942
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %984 unwind label %964
 
@@ -30563,7 +30563,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %640) #27
           to label %970 unwind label %761
 
-996:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit292, %974, %976
+996:                                              ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293, %974, %976
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %639) #27
@@ -30581,19 +30581,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit293: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %654) #27
           to label %common.resume unwind label %761
 
-_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit287: ; preds = %954
+_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit288: ; preds = %954
   call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %590, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %589, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %587)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %587)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %589)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %586)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %585)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %584)
-  %.sroa.0727.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0727, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0727.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0727, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %584, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0727, i64 23, i1 false)
-  %.sroa.4736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %584, i64 23
-  store i8 -59, ptr %.sroa.4736.0..sroa_idx, align 1
+  %.sroa.0728.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0728, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0728.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0728, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %584, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0728, i64 23, i1 false)
+  %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %584, i64 23
+  store i8 -59, ptr %.sroa.4737.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %585, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %584)
           to label %1004 unwind label %1002
 
@@ -30602,27 +30602,27 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit287: ; preds =
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %590) #27
           to label %common.resume unwind label %761
 
-1002:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit287
+1002:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit288
   %1003 = landingpad { ptr, i32 }
           cleanup
   br label %1001
 
-1004:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit287
+1004:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit288
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %584)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %583)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %583, i8 noundef 1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295 unwind label %1010
+          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit296 unwind label %1010
 
-1005:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295
+1005:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit296
   %1006 = landingpad { ptr, i32 }
           cleanup
   br label %1001
 
-_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295: ; preds = %1004
+_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit296: ; preds = %1004
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %586, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %585, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %583)
           to label %1007 unwind label %1005
 
-1007:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295
+1007:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit296
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %583)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %585)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %591, ptr noundef nonnull align 8 dereferenceable(72) %590, i64 72, i1 false)
@@ -30632,10 +30632,10 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295: ; preds =
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %590)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %25), !noalias !2943
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull align 8 dereferenceable(144) %591, i64 144, i1 false)
-  %.sroa.4392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 144
-  store i64 0, ptr %.sroa.4392.0..sroa_idx, align 8, !alias.scope !2950, !noalias !2954
-  %.sroa.5393.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 152
-  store i64 2, ptr %.sroa.5393.0..sroa_idx, align 8, !alias.scope !2950, !noalias !2954
+  %.sroa.4393.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 144
+  store i64 0, ptr %.sroa.4393.0..sroa_idx, align 8, !alias.scope !2950, !noalias !2954
+  %.sroa.5394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 152
+  store i64 2, ptr %.sroa.5394.0..sroa_idx, align 8, !alias.scope !2950, !noalias !2954
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %592, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %25), !noalias !2943
   %1009 = getelementptr inbounds nuw i8, ptr %592, i64 24
@@ -30698,17 +30698,17 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295: ; preds =
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %550)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %549)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %548)
-  %.sroa.0737.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0737, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0737.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0737, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.464, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %548, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0737, i64 23, i1 false)
-  %.sroa.4746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %548, i64 23
-  store i8 -59, ptr %.sroa.4746.0..sroa_idx, align 1
+  %.sroa.0738.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0738, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0738.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0738, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.464, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %548, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0738, i64 23, i1 false)
+  %.sroa.4747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %548, i64 23
+  store i8 -59, ptr %.sroa.4747.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %549, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %548)
           to label %1022 unwind label %1020
 
 1019:                                             ; preds = %1028, %1023, %1054, %1052, %1030, %1020
-  %.pn225.pn = phi { ptr, i32 } [ %.pn225, %1030 ], [ %1053, %1052 ], [ %1029, %1028 ], [ %lpad.thr_comm1164, %1054 ], [ %lpad.thr_comm.split-lp1165, %1023 ], [ %1021, %1020 ]
+  %.pn225.pn = phi { ptr, i32 } [ %.pn225, %1030 ], [ %1053, %1052 ], [ %1029, %1028 ], [ %lpad.thr_comm1165, %1054 ], [ %lpad.thr_comm.split-lp1166, %1023 ], [ %1021, %1020 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %560) #27
           to label %common.resume unwind label %761
 
@@ -30726,16 +30726,16 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit295: ; preds =
           to label %1024 unwind label %1054
 
 1023:                                             ; preds = %1026
-  %lpad.thr_comm.split-lp1165 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1166 = landingpad { ptr, i32 }
           cleanup
   br label %1019
 
 1024:                                             ; preds = %1022
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %544)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %544, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297 unwind label %1054
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298 unwind label %1054
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297: ; preds = %1024
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298: ; preds = %1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %546, ptr noundef nonnull align 8 dereferenceable(16) %545, i64 16, i1 false)
   %1025 = getelementptr inbounds nuw i8, ptr %546, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1025, ptr noundef nonnull align 8 dereferenceable(16) %544, i64 16, i1 false)
@@ -30744,7 +30744,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %547, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %546)
           to label %1026 unwind label %1054
 
-1026:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297
+1026:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %546)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %550, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %549, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %547)
           to label %1027 unwind label %1023
@@ -30754,19 +30754,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %549)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %543)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %543, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298 unwind label %1052
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit299 unwind label %1052
 
-1028:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298
+1028:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit299
   %1029 = landingpad { ptr, i32 }
           cleanup
   br label %1019
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298: ; preds = %1027
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit299: ; preds = %1027
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %550, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %543)
           to label %1033 unwind label %1028
 
 1030:                                             ; preds = %1040, %1035, %1051, %1049, %1031
-  %.pn225 = phi { ptr, i32 } [ %1050, %1049 ], [ %1041, %1040 ], [ %lpad.thr_comm1174, %1051 ], [ %lpad.thr_comm.split-lp1175, %1035 ], [ %1032, %1031 ]
+  %.pn225 = phi { ptr, i32 } [ %1050, %1049 ], [ %1041, %1040 ], [ %lpad.thr_comm1175, %1051 ], [ %lpad.thr_comm.split-lp1176, %1035 ], [ %1032, %1031 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %551) #27
           to label %1019 unwind label %761
 
@@ -30775,19 +30775,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298: ; preds = %
           cleanup
   br label %1030
 
-1033:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298
+1033:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit299
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %543)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %550)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %542)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %541)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %540)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %539)
-  %.sroa.0747.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0747, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0747.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0747, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.465, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %539, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0747, i64 23, i1 false)
-  %.sroa.4756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 23
-  store i8 -61, ptr %.sroa.4756.0..sroa_idx, align 1
+  %.sroa.0748.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0748, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0748.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0748, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.465, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %539, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0748, i64 23, i1 false)
+  %.sroa.4757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 23
+  store i8 -61, ptr %.sroa.4757.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %540, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %539)
           to label %1034 unwind label %1031
 
@@ -30800,16 +30800,16 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298: ; preds = %
           to label %1036 unwind label %1051
 
 1035:                                             ; preds = %1038
-  %lpad.thr_comm.split-lp1175 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1176 = landingpad { ptr, i32 }
           cleanup
   br label %1030
 
 1036:                                             ; preds = %1034
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %535)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %535, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300 unwind label %1051
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301 unwind label %1051
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300: ; preds = %1036
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %1036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %537, ptr noundef nonnull align 8 dereferenceable(16) %536, i64 16, i1 false)
   %1037 = getelementptr inbounds nuw i8, ptr %537, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1037, ptr noundef nonnull align 8 dereferenceable(16) %535, i64 16, i1 false)
@@ -30818,7 +30818,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %538, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %537)
           to label %1038 unwind label %1051
 
-1038:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300
+1038:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %537)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %541, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %540, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %538)
           to label %1039 unwind label %1035
@@ -30828,18 +30828,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %540)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %534)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %534, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301 unwind label %1049
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit302 unwind label %1049
 
-1040:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301
+1040:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit302
   %1041 = landingpad { ptr, i32 }
           cleanup
   br label %1030
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %1039
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit302: ; preds = %1039
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %542, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %541, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %534)
           to label %1042 unwind label %1040
 
-1042:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301
+1042:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit302
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %534)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %541)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %561, ptr noundef nonnull align 8 dereferenceable(72) %560, i64 72, i1 false)
@@ -30852,10 +30852,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %560)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %24), !noalias !2955
   store i64 0, ptr %24, align 8, !alias.scope !2962, !noalias !2966
-  %.sroa.4398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 3, ptr %.sroa.4398.0..sroa_idx, align 8, !alias.scope !2962, !noalias !2966
-  %.sroa.5399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5399.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %561, i64 216, i1 false)
+  %.sroa.4399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 3, ptr %.sroa.4399.0..sroa_idx, align 8, !alias.scope !2962, !noalias !2966
+  %.sroa.5400.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5400.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %561, i64 216, i1 false)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %562, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %24), !noalias !2955
   %1045 = getelementptr inbounds nuw i8, ptr %562, i64 24
@@ -30892,8 +30892,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %541) #27
           to label %1030 unwind label %761
 
-1051:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit300, %1034, %1036
-  %lpad.thr_comm1174 = landingpad { ptr, i32 }
+1051:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301, %1034, %1036
+  %lpad.thr_comm1175 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %540) #27
           to label %1030 unwind label %761
@@ -30904,14 +30904,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %550) #27
           to label %1019 unwind label %761
 
-1054:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit297, %1022, %1024
-  %lpad.thr_comm1164 = landingpad { ptr, i32 }
+1054:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit298, %1022, %1024
+  %lpad.thr_comm1165 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %549) #27
           to label %1019 unwind label %761
 
 1055:                                             ; preds = %1016, %1015, %1014, %955
-  %lpad.thr_comm1156 = landingpad { ptr, i32 }
+  %lpad.thr_comm1157 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %559) #27
           to label %common.resume unwind label %761
@@ -30921,19 +30921,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   call void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %631, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   call void @_ZN18ty_python_semantic5types4Type6negate17hd503de6700fa5098E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %632, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %631, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %631)
-  %switch1351 = icmp eq i8 %698, 0
-  %. = select i1 %switch1351, i8 26, i8 15, !prof !2967
+  %switch1352 = icmp eq i8 %698, 0
+  %. = select i1 %switch1352, i8 26, i8 15, !prof !2967
   call void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %607, i8 noundef %., ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %628)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %627)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %625)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %624)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %623)
-  %.sroa.0775.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %623, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0775.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0776.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %623, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0776.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1718379891, ptr %623, align 8
-  %.sroa.4776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %623, i64 23
-  store i8 -60, ptr %.sroa.4776.0..sroa_idx, align 1
+  %.sroa.4777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %623, i64 23
+  store i8 -60, ptr %.sroa.4777.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %624, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %623)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %623)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %622)
@@ -30944,11 +30944,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %621)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %620)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %619)
-  %.sroa.0785.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %619, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0785.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0786.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %619, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0786.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %619, align 8
-  %.sroa.4786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %619, i64 23
-  store i8 -56, ptr %.sroa.4786.0..sroa_idx, align 1
+  %.sroa.4787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %619, i64 23
+  store i8 -56, ptr %.sroa.4787.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %620, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %619)
           to label %1061 unwind label %1059
 
@@ -30959,11 +30959,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %577)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %576)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %575)
-  %.sroa.0765.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %575, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0765.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0766.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %575, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0766.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1718379891, ptr %575, align 8
-  %.sroa.4766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %575, i64 23
-  store i8 -60, ptr %.sroa.4766.0..sroa_idx, align 1
+  %.sroa.4767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %575, i64 23
+  store i8 -60, ptr %.sroa.4767.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %576, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %575)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %575)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %574)
@@ -30984,14 +30984,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit301: ; preds = %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %619)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %618)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %618, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305 unwind label %1115
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit306 unwind label %1115
 
-1062:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305
+1062:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit306
   %1063 = landingpad { ptr, i32 }
           cleanup
   br label %1058
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %1061
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit306: ; preds = %1061
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %621, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %620, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %618)
           to label %1067 unwind label %1062
 
@@ -31005,20 +31005,20 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
           cleanup
   br label %1064
 
-1067:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305
+1067:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit306
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %618)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %620)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %617)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %616)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %615)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0787)
-  %.sroa.0787.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0787, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0787.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.0787, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false), !noalias !2968
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %615, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0787, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0787)
-  %.sroa.4796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %615, i64 23
-  store i8 -59, ptr %.sroa.4796.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0788)
+  %.sroa.0788.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0788, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0788.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.0788, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false), !noalias !2968
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %615, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0788, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0788)
+  %.sroa.4797.0..sroa_idx = getelementptr inbounds nuw i8, ptr %615, i64 23
+  store i8 -59, ptr %.sroa.4797.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %616, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %615)
           to label %1068 unwind label %1065
 
@@ -31060,10 +31060,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %625)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %23), !noalias !2971
   store i64 0, ptr %23, align 8, !alias.scope !2978, !noalias !2982
-  %.sroa.4386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 3, ptr %.sroa.4386.0..sroa_idx, align 8, !alias.scope !2978, !noalias !2982
-  %.sroa.5387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5387.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %626, i64 216, i1 false)
+  %.sroa.4387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 3, ptr %.sroa.4387.0..sroa_idx, align 8, !alias.scope !2978, !noalias !2982
+  %.sroa.5388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5388.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %626, i64 216, i1 false)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %627, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %23), !noalias !2971
   %1078 = getelementptr inbounds nuw i8, ptr %627, i64 24
@@ -31078,11 +31078,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %610)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %609)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %608)
-  %.sroa.0805.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %608, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0805.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0806.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %608, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0806.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1718379891, ptr %608, align 8
-  %.sroa.4806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %608, i64 23
-  store i8 -60, ptr %.sroa.4806.0..sroa_idx, align 1
+  %.sroa.4807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %608, i64 23
+  store i8 -60, ptr %.sroa.4807.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %609, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %608)
           to label %1079 unwind label %1073
 
@@ -31106,11 +31106,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %606)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %605)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %604)
-  %.sroa.0815.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %604, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0815.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0816.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %604, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0816.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %604, align 8
-  %.sroa.4816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %604, i64 23
-  store i8 -56, ptr %.sroa.4816.0..sroa_idx, align 1
+  %.sroa.4817.0..sroa_idx = getelementptr inbounds nuw i8, ptr %604, i64 23
+  store i8 -56, ptr %.sroa.4817.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %605, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %604)
           to label %1084 unwind label %1081
 
@@ -31120,7 +31120,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
           to label %1088 unwind label %1081
 
 1085:                                             ; preds = %1095, %1090, %1112, %1110, %1086
-  %.pn220 = phi { ptr, i32 } [ %1111, %1110 ], [ %1096, %1095 ], [ %lpad.thr_comm1190, %1112 ], [ %lpad.thr_comm.split-lp1191, %1090 ], [ %1087, %1086 ]
+  %.pn220 = phi { ptr, i32 } [ %1111, %1110 ], [ %1096, %1095 ], [ %lpad.thr_comm1191, %1112 ], [ %lpad.thr_comm.split-lp1192, %1090 ], [ %1087, %1086 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %606) #27
           to label %1080 unwind label %761
 
@@ -31135,12 +31135,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %602)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %601)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %600)
-  %.sroa.0817.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0817, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0817.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0817, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %600, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0817, i64 23, i1 false)
-  %.sroa.4826.0..sroa_idx = getelementptr inbounds nuw i8, ptr %600, i64 23
-  store i8 -59, ptr %.sroa.4826.0..sroa_idx, align 1
+  %.sroa.0818.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0818, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0818.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0818, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.462, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %600, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0818, i64 23, i1 false)
+  %.sroa.4827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %600, i64 23
+  store i8 -59, ptr %.sroa.4827.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %601, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %600)
           to label %1089 unwind label %1086
 
@@ -31153,16 +31153,16 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit305: ; preds = %
           to label %1091 unwind label %1112
 
 1090:                                             ; preds = %1093
-  %lpad.thr_comm.split-lp1191 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1192 = landingpad { ptr, i32 }
           cleanup
   br label %1085
 
 1091:                                             ; preds = %1089
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %596)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %596, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310 unwind label %1112
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311 unwind label %1112
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310: ; preds = %1091
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %1091
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %598, ptr noundef nonnull align 8 dereferenceable(16) %597, i64 16, i1 false)
   %1092 = getelementptr inbounds nuw i8, ptr %598, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1092, ptr noundef nonnull align 8 dereferenceable(16) %596, i64 16, i1 false)
@@ -31171,7 +31171,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %599, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %598)
           to label %1093 unwind label %1112
 
-1093:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310
+1093:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %598)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %602, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %601, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %599)
           to label %1094 unwind label %1090
@@ -31181,18 +31181,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %601)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %595)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %595, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311 unwind label %1110
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit312 unwind label %1110
 
-1095:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311
+1095:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit312
   %1096 = landingpad { ptr, i32 }
           cleanup
   br label %1085
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %1094
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit312: ; preds = %1094
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %603, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %602, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %595)
           to label %1097 unwind label %1095
 
-1097:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311
+1097:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit312
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %595)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %602)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %611, ptr noundef nonnull align 8 dereferenceable(72) %610, i64 72, i1 false)
@@ -31206,10 +31206,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %106)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %22), !noalias !2983
   store i64 0, ptr %22, align 8, !alias.scope !2990, !noalias !2994
-  %.sroa.4389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 3, ptr %.sroa.4389.0..sroa_idx, align 8, !alias.scope !2990, !noalias !2994
-  %.sroa.5390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5390.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %611, i64 216, i1 false)
+  %.sroa.4390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 3, ptr %.sroa.4390.0..sroa_idx, align 8, !alias.scope !2990, !noalias !2994
+  %.sroa.5391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5391.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %611, i64 216, i1 false)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %106, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1100 unwind label %1073
 
@@ -31261,8 +31261,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %602) #27
           to label %1085 unwind label %761
 
-1112:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit310, %1089, %1091
-  %lpad.thr_comm1190 = landingpad { ptr, i32 }
+1112:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311, %1089, %1091
+  %lpad.thr_comm1191 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %601) #27
           to label %1085 unwind label %761
@@ -31286,11 +31286,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %573)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %572)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %571)
-  %.sroa.0835.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %571, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0835.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0836.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %571, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0836.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7305804385369681513, ptr %571, align 8
-  %.sroa.4836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %571, i64 23
-  store i8 -56, ptr %.sroa.4836.0..sroa_idx, align 1
+  %.sroa.4837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %571, i64 23
+  store i8 -56, ptr %.sroa.4837.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %572, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %571)
           to label %1121 unwind label %1119
 
@@ -31308,14 +31308,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit311: ; preds = %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %571)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %570)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %570, i8 noundef 1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313 unwind label %1137
+          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit314 unwind label %1137
 
-1122:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313
+1122:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit314
   %1123 = landingpad { ptr, i32 }
           cleanup
   br label %1118
 
-_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313: ; preds = %1121
+_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit314: ; preds = %1121
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %573, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %572, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %570)
           to label %1127 unwind label %1122
 
@@ -31329,18 +31329,18 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313: ; preds =
           cleanup
   br label %1124
 
-1127:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313
+1127:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %570)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %572)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %569)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %568)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %567)
-  %.sroa.0837.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0837, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0837.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0837, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %567, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0837, i64 23, i1 false)
-  %.sroa.4846.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 23
-  store i8 -59, ptr %.sroa.4846.0..sroa_idx, align 1
+  %.sroa.0838.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0838, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0838.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0838, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %567, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0838, i64 23, i1 false)
+  %.sroa.4847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 23
+  store i8 -59, ptr %.sroa.4847.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %568, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %567)
           to label %1128 unwind label %1125
 
@@ -31348,18 +31348,18 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit313: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %567)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %566)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %566, i8 noundef 1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315 unwind label %1135
+          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit316 unwind label %1135
 
-1129:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315
+1129:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit316
   %1130 = landingpad { ptr, i32 }
           cleanup
   br label %1124
 
-_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315: ; preds = %1128
+_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit316: ; preds = %1128
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %569, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %568, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %566)
           to label %1131 unwind label %1129
 
-1131:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315
+1131:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit316
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %566)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %568)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %578, ptr noundef nonnull align 8 dereferenceable(72) %577, i64 72, i1 false)
@@ -31372,10 +31372,10 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315: ; preds =
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %577)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %21), !noalias !2995
   store i64 0, ptr %21, align 8, !alias.scope !3002, !noalias !3006
-  %.sroa.4395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 3, ptr %.sroa.4395.0..sroa_idx, align 8, !alias.scope !3002, !noalias !3006
-  %.sroa.5396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5396.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %578, i64 216, i1 false)
+  %.sroa.4396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 3, ptr %.sroa.4396.0..sroa_idx, align 8, !alias.scope !3002, !noalias !3006
+  %.sroa.5397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5397.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %578, i64 216, i1 false)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %579, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %21), !noalias !2995
   %1134 = getelementptr inbounds nuw i8, ptr %579, i64 24
@@ -31413,14 +31413,14 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit315: ; preds =
           to label %common.resume unwind label %761
 
 _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %700
-  %.sroa.5402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.5403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20), !noalias !3007
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5402.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %528, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %526)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5403.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %528, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %526)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %526)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %528)
   store i64 0, ptr %20, align 8, !alias.scope !3014, !noalias !3018
-  %.sroa.4401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 1, ptr %.sroa.4401.0..sroa_idx, align 8, !alias.scope !3014, !noalias !3018
+  %.sroa.4402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 1, ptr %.sroa.4402.0..sroa_idx, align 8, !alias.scope !3014, !noalias !3018
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %529, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20), !noalias !3007
   %1141 = getelementptr inbounds nuw i8, ptr %529, i64 24
@@ -31528,19 +31528,19 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %379)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %378)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %377)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0867)
-  %.sroa.0867.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0867, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0867.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0867, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.477, i64 6, i1 false), !noalias !3019
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %377, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0867, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0867)
-  %.sroa.4874.0..sroa_idx = getelementptr inbounds nuw i8, ptr %377, i64 23
-  store i8 -58, ptr %.sroa.4874.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0868)
+  %.sroa.0868.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0868, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0868.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0868, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.477, i64 6, i1 false), !noalias !3019
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %377, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0868, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0868)
+  %.sroa.4875.0..sroa_idx = getelementptr inbounds nuw i8, ptr %377, i64 23
+  store i8 -58, ptr %.sroa.4875.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %378, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %377)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %377)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %376)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %376, i8 noundef 1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319 unwind label %1310
+          to label %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit320 unwind label %1310
 
 1169:                                             ; preds = %709
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %315)
@@ -31555,11 +31555,11 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %236)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %235)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %234)
-  %.sroa.0907.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0907.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0908.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0908.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1701667182, ptr %234, align 8
-  %.sroa.4908.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 23
-  store i8 -60, ptr %.sroa.4908.0..sroa_idx, align 1
+  %.sroa.4909.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 23
+  store i8 -60, ptr %.sroa.4909.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %235, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %234)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %234)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %233)
@@ -31579,11 +31579,11 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %390)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %389)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %388)
-  %.sroa.0855.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0855.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0856.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0856.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 111, ptr %388, align 8
-  %.sroa.4856.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 23
-  store i8 -63, ptr %.sroa.4856.0..sroa_idx, align 1
+  %.sroa.4857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 23
+  store i8 -63, ptr %.sroa.4857.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %389, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %388)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %388)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %387)
@@ -31597,14 +31597,14 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   %1174 = getelementptr inbounds nuw i8, ptr %386, i64 1
   store i8 0, ptr %1174, align 1
   store i8 22, ptr %386, align 8
-  %.sroa.5429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sroa.5430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %19), !noalias !3025
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5429.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %390, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %386)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5430.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %390, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %386)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %386)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %390)
   store i64 0, ptr %19, align 8, !alias.scope !3032, !noalias !3036
-  %.sroa.4428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 1, ptr %.sroa.4428.0..sroa_idx, align 8, !alias.scope !3032, !noalias !3036
+  %.sroa.4429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 1, ptr %.sroa.4429.0..sroa_idx, align 8, !alias.scope !3032, !noalias !3036
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %391, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %19), !noalias !3025
   %1175 = getelementptr inbounds nuw i8, ptr %391, i64 24
@@ -31671,25 +31671,25 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %341)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %340)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %339)
-  %.sroa.0865.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %339, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0865.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0866.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %339, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0866.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 111, ptr %339, align 8
-  %.sroa.4866.0..sroa_idx = getelementptr inbounds nuw i8, ptr %339, i64 23
-  store i8 -63, ptr %.sroa.4866.0..sroa_idx, align 1
+  %.sroa.4867.0..sroa_idx = getelementptr inbounds nuw i8, ptr %339, i64 23
+  store i8 -63, ptr %.sroa.4867.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %340, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %339)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %339)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %338)
   %1189 = getelementptr inbounds nuw i8, ptr %338, i64 1
   store i8 0, ptr %1189, align 1, !alias.scope !3037
   store i8 0, ptr %338, align 8, !alias.scope !3037
-  %.sroa.5438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.5439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %18), !noalias !3040
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5438.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %340, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %338)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5439.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %340, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %338)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %338)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %340)
   store i64 0, ptr %18, align 8, !alias.scope !3047, !noalias !3051
-  %.sroa.4437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 1, ptr %.sroa.4437.0..sroa_idx, align 8, !alias.scope !3047, !noalias !3051
+  %.sroa.4438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 1, ptr %.sroa.4438.0..sroa_idx, align 8, !alias.scope !3047, !noalias !3051
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %341, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %18), !noalias !3040
   %1190 = getelementptr inbounds nuw i8, ptr %341, i64 24
@@ -31705,11 +31705,11 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %333)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %332)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %331)
-  %.sroa.0917.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0917.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0918.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0918.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1701667182, ptr %331, align 8
-  %.sroa.4918.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 23
-  store i8 -60, ptr %.sroa.4918.0..sroa_idx, align 1
+  %.sroa.4919.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 23
+  store i8 -60, ptr %.sroa.4919.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %332, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %331)
           to label %1194 unwind label %1192
 
@@ -31746,12 +31746,12 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %330)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %329)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %328)
-  %.sroa.0919.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0919, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0919.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0919, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.475, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %328, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0919, i64 23, i1 false)
-  %.sroa.4928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %328, i64 23
-  store i8 -59, ptr %.sroa.4928.0..sroa_idx, align 1
+  %.sroa.0920.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0920, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.0920.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.0920, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.475, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %328, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0920, i64 23, i1 false)
+  %.sroa.4929.0..sroa_idx = getelementptr inbounds nuw i8, ptr %328, i64 23
+  store i8 -59, ptr %.sroa.4929.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %329, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %328)
           to label %1199 unwind label %1196
 
@@ -31789,11 +31789,11 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %325)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %324)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %323)
-  %.sroa.0937.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0937.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0938.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0938.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1952672100, ptr %323, align 8
-  %.sroa.4938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 23
-  store i8 -60, ptr %.sroa.4938.0..sroa_idx, align 1
+  %.sroa.4939.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 23
+  store i8 -60, ptr %.sroa.4939.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %324, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %323)
           to label %1209 unwind label %1204
 
@@ -31809,8 +31809,8 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, ptr noundef nonnull align 8 dereferenceable(16) %346, i64 16, i1 false)
   %1210 = getelementptr inbounds nuw i8, ptr %321, i64 16
   store i8 0, ptr %1210, align 8
-  %.sroa.4368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 17
-  store i8 0, ptr %.sroa.4368.0..sroa_idx, align 1
+  %.sroa.4369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 17
+  store i8 0, ptr %.sroa.4369.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass23to_specialized_instance17h1ba3af5d039e402eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %322, i8 noundef 13, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %321)
           to label %1211 unwind label %1225
 
@@ -31833,10 +31833,10 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %99)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %17), !noalias !3052
   store i64 0, ptr %17, align 8, !alias.scope !3059, !noalias !3063
-  %.sroa.4440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 3, ptr %.sroa.4440.0..sroa_idx, align 8, !alias.scope !3059, !noalias !3063
-  %.sroa.5441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5441.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %334, i64 216, i1 false)
+  %.sroa.4441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 3, ptr %.sroa.4441.0..sroa_idx, align 8, !alias.scope !3059, !noalias !3063
+  %.sroa.5442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5442.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %334, i64 216, i1 false)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %99, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1215 unwind label %1192
 
@@ -31887,7 +31887,7 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit: ; preds = %7
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %329) #27
           to label %1195 unwind label %761
 
-_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds = %1168
+_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit320: ; preds = %1168
   call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %378, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %376)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %376)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %378)
@@ -31895,18 +31895,18 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   %1229 = invoke noundef i32 @"_ZN18ty_python_semantic5types1_62_$LT$impl$u20$ty_python_semantic..types..StringLiteralType$GT$3new17h2d6725a6843fc929E"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
           to label %1230 unwind label %1308
 
-1230:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319
+1230:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit320
   %1231 = getelementptr inbounds nuw i8, ptr %375, i64 4
   store i32 %1229, ptr %1231, align 4, !alias.scope !3064, !noalias !3067
   store i8 23, ptr %375, align 8, !alias.scope !3064, !noalias !3067
-  %.sroa.5432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.5433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16), !noalias !3070
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5432.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %375)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5433.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %375)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %375)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %379)
   store i64 0, ptr %16, align 8, !alias.scope !3077, !noalias !3081
-  %.sroa.4431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 1, ptr %.sroa.4431.0..sroa_idx, align 8, !alias.scope !3077, !noalias !3081
+  %.sroa.4432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 1, ptr %.sroa.4432.0..sroa_idx, align 8, !alias.scope !3077, !noalias !3081
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %380, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16), !noalias !3070
   %1232 = getelementptr inbounds nuw i8, ptr %380, i64 24
@@ -31928,19 +31928,19 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %368)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %367)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %366)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0939)
-  %.sroa.0939.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0939.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0939, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.477, i64 6, i1 false), !noalias !3082
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %366, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0939, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0939)
-  %.sroa.4946.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 23
-  store i8 -58, ptr %.sroa.4946.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0940)
+  %.sroa.0940.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0940, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.0940.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.sroa.0940, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.477, i64 6, i1 false), !noalias !3082
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %366, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0940, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0940)
+  %.sroa.4947.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 23
+  store i8 -58, ptr %.sroa.4947.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %367, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %366)
           to label %1237 unwind label %1235
 
 1234:                                             ; preds = %1282, %1245, %1238, %1305, %1303, %1293, %1249, %1235
-  %.pn204 = phi { ptr, i32 } [ %1294, %1293 ], [ %1283, %1282 ], [ %1236, %1235 ], [ %.pn201.pn, %1249 ], [ %1304, %1303 ], [ %1246, %1245 ], [ %lpad.thr_comm1222, %1305 ], [ %lpad.thr_comm.split-lp1223, %1238 ]
+  %.pn204 = phi { ptr, i32 } [ %1294, %1293 ], [ %1283, %1282 ], [ %1236, %1235 ], [ %.pn201.pn, %1249 ], [ %1304, %1303 ], [ %1246, %1245 ], [ %lpad.thr_comm1223, %1305 ], [ %lpad.thr_comm.split-lp1224, %1238 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %381) #27
           to label %common.resume unwind label %761
 
@@ -31958,7 +31958,7 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
           to label %1239 unwind label %1305
 
 1238:                                             ; preds = %1242
-  %lpad.thr_comm.split-lp1223 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1224 = landingpad { ptr, i32 }
           cleanup
   br label %1234
 
@@ -32017,11 +32017,11 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %359)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %358)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %357)
-  %.sroa.0953.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %357, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0953.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.0954.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %357, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0954.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7453010313431182949, ptr %357, align 8
-  %.sroa.4954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %357, i64 23
-  store i8 -56, ptr %.sroa.4954.0..sroa_idx, align 1
+  %.sroa.4955.0..sroa_idx = getelementptr inbounds nuw i8, ptr %357, i64 23
+  store i8 -56, ptr %.sroa.4955.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %358, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %357)
           to label %1253 unwind label %1250
 
@@ -32076,12 +32076,12 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %353)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %352)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %351)
-  %.sroa.0955.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0955, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.0955.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.0955, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.480, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %351, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0955, i64 23, i1 false)
-  %.sroa.4962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %351, i64 23
-  store i8 -58, ptr %.sroa.4962.0..sroa_idx, align 1
+  %.sroa.0956.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0956, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.0956.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.0956, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.480, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %351, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0956, i64 23, i1 false)
+  %.sroa.4963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %351, i64 23
+  store i8 -58, ptr %.sroa.4963.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %352, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %351)
           to label %1267 unwind label %1264
 
@@ -32133,10 +32133,10 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %101)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %15), !noalias !3103
   store i64 0, ptr %15, align 8, !alias.scope !3110, !noalias !3114
-  %.sroa.4434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 3, ptr %.sroa.4434.0..sroa_idx, align 8, !alias.scope !3110, !noalias !3114
-  %.sroa.5435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5435.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %370, i64 216, i1 false)
+  %.sroa.4435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 3, ptr %.sroa.4435.0..sroa_idx, align 8, !alias.scope !3110, !noalias !3114
+  %.sroa.5436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5436.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %370, i64 216, i1 false)
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1280 unwind label %1235
 
@@ -32226,7 +32226,7 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
           to label %1234 unwind label %761
 
 1305:                                             ; preds = %1240, %1239, %1237
-  %lpad.thr_comm1222 = landingpad { ptr, i32 }
+  %lpad.thr_comm1223 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %367) #27
           to label %1234 unwind label %761
@@ -32237,7 +32237,7 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   invoke void @"_ZN4core3ptr70drop_in_place$LT$ty_python_semantic..types..signatures..Parameters$GT$17h6b863021527e31edE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %380) #27
           to label %common.resume unwind label %761
 
-1308:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319
+1308:                                             ; preds = %_ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit320
   %1309 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %379) #27
@@ -32263,22 +32263,22 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   %1314 = getelementptr inbounds nuw i8, ptr %210, i64 1
   store i8 0, ptr %1314, align 1, !alias.scope !3115
   store i8 0, ptr %210, align 8, !alias.scope !3115
-  %.sroa.5456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.5457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14), !noalias !3118
-  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5456.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %212, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %210)
+  call void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %.sroa.5457.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %212, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %210)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %210)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %212)
   store i64 0, ptr %14, align 8, !alias.scope !3125, !noalias !3129
-  %.sroa.4455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 1, ptr %.sroa.4455.0..sroa_idx, align 8, !alias.scope !3125, !noalias !3129
+  %.sroa.4456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 1, ptr %.sroa.4456.0..sroa_idx, align 8, !alias.scope !3125, !noalias !3129
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %213, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14), !noalias !3118
   %1315 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store i8 0, ptr %1315, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %209)
   store i8 0, ptr %209, align 8
-  %.sroa.4374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 1
-  store i8 0, ptr %.sroa.4374.0..sroa_idx, align 1
+  %.sroa.4375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 1
+  store i8 0, ptr %.sroa.4375.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %214, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %213, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %209)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213)
@@ -32292,21 +32292,21 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %204, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %58)
           to label %1322 unwind label %1318
 
-1316:                                             ; preds = %.thread1248, %1339
-  %.sroa.062.0 = phi i8 [ %.sroa.062.11252, %.thread1248 ], [ %.sroa.062.1, %1339 ]
-  %.pn197.pn.pn = phi { ptr, i32 } [ %.pn197.pn1253, %.thread1248 ], [ %.pn197.pn, %1339 ]
+1316:                                             ; preds = %.thread1249, %1339
+  %.sroa.062.0 = phi i8 [ %.sroa.062.11253, %.thread1249 ], [ %.sroa.062.1, %1339 ]
+  %.pn197.pn.pn = phi { ptr, i32 } [ %.pn197.pn1254, %.thread1249 ], [ %.pn197.pn, %1339 ]
   %1317 = trunc nuw i8 %.sroa.062.0 to i1
-  br i1 %1317, label %.thread1241, label %common.resume
+  br i1 %1317, label %.thread1242, label %common.resume
 
 1318:                                             ; preds = %1332, %1312
   %1319 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1241
+  br label %.thread1242
 
 1320:                                             ; preds = %1322
   %1321 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1241
+  br label %.thread1242
 
 1322:                                             ; preds = %1312
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58)
@@ -32330,7 +32330,7 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
 1325:                                             ; preds = %1328, %1326
   %.pn191 = phi { ptr, i32 } [ %1329, %1328 ], [ %1327, %1326 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %205) #27
-          to label %.thread1241 unwind label %761
+          to label %.thread1242 unwind label %761
 
 1326:                                             ; preds = %1324
   %1327 = landingpad { ptr, i32 }
@@ -32362,10 +32362,10 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %94)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13), !noalias !3136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(144) %206, i64 144, i1 false)
-  %.sroa.4458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store i64 0, ptr %.sroa.4458.0..sroa_idx, align 8, !alias.scope !3143, !noalias !3147
-  %.sroa.5459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 152
-  store i64 2, ptr %.sroa.5459.0..sroa_idx, align 8, !alias.scope !3143, !noalias !3147
+  %.sroa.4459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 144
+  store i64 0, ptr %.sroa.4459.0..sroa_idx, align 8, !alias.scope !3143, !noalias !3147
+  %.sroa.5460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 152
+  store i64 2, ptr %.sroa.5460.0..sroa_idx, align 8, !alias.scope !3143, !noalias !3147
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %94, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1334 unwind label %1318
 
@@ -32379,20 +32379,20 @@ _ZN18ty_python_semantic5types4Type6object17hab871afb0527743cE.exit319: ; preds =
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %199)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %198)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %198, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335 unwind label %1425
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit336 unwind label %1425
 
-1336:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335
+1336:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit336
   %1337 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1241
+  br label %.thread1242
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %1334
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit336: ; preds = %1334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %198, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %198)
   invoke void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %208, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %207, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %199)
           to label %1338 unwind label %1336
 
-1338:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335
+1338:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit336
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %197)
@@ -32401,22 +32401,22 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %194, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %211)
           to label %1345 unwind label %1341
 
-1339:                                             ; preds = %.thread1255, %1352
-  %.sroa.062.1 = phi i8 [ %.sroa.062.31260, %.thread1255 ], [ %.sroa.062.3, %1352 ]
-  %.sroa.058.0 = phi i8 [ %.sroa.058.21261, %.thread1255 ], [ %.sroa.058.2, %1352 ]
-  %.pn197.pn = phi { ptr, i32 } [ %.pn1971262, %.thread1255 ], [ %.pn197, %1352 ]
+1339:                                             ; preds = %.thread1256, %1352
+  %.sroa.062.1 = phi i8 [ %.sroa.062.31261, %.thread1256 ], [ %.sroa.062.3, %1352 ]
+  %.sroa.058.0 = phi i8 [ %.sroa.058.21262, %.thread1256 ], [ %.sroa.058.2, %1352 ]
+  %.pn197.pn = phi { ptr, i32 } [ %.pn1971263, %.thread1256 ], [ %.pn197, %1352 ]
   %1340 = trunc nuw i8 %.sroa.058.0 to i1
-  br i1 %1340, label %.thread1248, label %1316
+  br i1 %1340, label %.thread1249, label %1316
 
 1341:                                             ; preds = %1347, %1338
   %1342 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1248
+  br label %.thread1249
 
 1343:                                             ; preds = %1345
   %1344 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1248
+  br label %.thread1249
 
 1345:                                             ; preds = %1338
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %193)
@@ -32430,19 +32430,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %194)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93)
-  %.sroa.5462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.5463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12), !noalias !3151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5462.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %195, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5463.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %195, i64 72, i1 false)
   store i64 0, ptr %12, align 8, !alias.scope !3158, !noalias !3162
-  %.sroa.4461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %.sroa.4461.0..sroa_idx, align 8, !alias.scope !3158, !noalias !3162
+  %.sroa.4462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %.sroa.4462.0..sroa_idx, align 8, !alias.scope !3158, !noalias !3162
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1350 unwind label %1341
 
 1348:                                             ; preds = %1350
   %1349 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1248
+  br label %.thread1249
 
 1350:                                             ; preds = %1347
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !3151
@@ -32452,8 +32452,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %192)
   store i8 0, ptr %192, align 8
-  %.sroa.4377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 1
-  store i8 0, ptr %.sroa.4377.0..sroa_idx, align 1
+  %.sroa.4378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 1
+  store i8 0, ptr %.sroa.4378.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Signature3new17h3ce737c883a4e69dE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %197, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %196, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %192)
           to label %1356 unwind label %1348
 
@@ -32463,7 +32463,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
   %.sroa.055.1 = phi i8 [ %.sroa.055.0, %1354 ], [ %.sroa.055.2, %1366 ]
   %.pn197 = phi { ptr, i32 } [ %1355, %1354 ], [ %.pn193.pn.pn, %1366 ]
   %1353 = trunc nuw i8 %.sroa.055.1 to i1
-  br i1 %1353, label %.thread1255, label %1339
+  br i1 %1353, label %.thread1256, label %1339
 
 1354:                                             ; preds = %1404, %1411, %1410, %1408, %1356
   %.sroa.055.0 = phi i8 [ 0, %1411 ], [ 0, %1410 ], [ 0, %1408 ], [ 1, %1356 ], [ 0, %1404 ]
@@ -32480,11 +32480,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %186)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %185)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %184)
-  %.sroa.0969.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0969.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0970.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0970.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1952802662, ptr %184, align 8
-  %.sroa.4970.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 23
-  store i8 -60, ptr %.sroa.4970.0..sroa_idx, align 1
+  %.sroa.4971.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 23
+  store i8 -60, ptr %.sroa.4971.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %185, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %184)
           to label %1357 unwind label %1354
 
@@ -32498,17 +32498,17 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit335: ; preds = %
           to label %1360 unwind label %1424
 
 1359:                                             ; preds = %1362
-  %lpad.thr_comm.split-lp1266 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1267 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1255
+  br label %.thread1256
 
 1360:                                             ; preds = %1357
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %181)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %180)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %180, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338 unwind label %1424
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339 unwind label %1424
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338: ; preds = %1360
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339: ; preds = %1360
   store i8 8, ptr %182, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 %1358, ptr %.sroa.424.0..sroa_idx, align 4
@@ -32518,7 +32518,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %183, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %182)
           to label %1362 unwind label %1424
 
-1362:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338
+1362:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %186, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %185, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %183)
           to label %1363 unwind label %1359
@@ -32528,21 +32528,21 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %185)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %179)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %179, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339 unwind label %1422
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit340 unwind label %1422
 
-1364:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339
+1364:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit340
   %1365 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread1255
+  br label %.thread1256
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339: ; preds = %1363
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit340: ; preds = %1363
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %187, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %186, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %179)
           to label %1369 unwind label %1364
 
 1366:                                             ; preds = %1377, %1372, %1421, %1419, %1379, %1367
   %.sroa.058.3 = phi i8 [ 0, %1379 ], [ 0, %1419 ], [ 0, %1377 ], [ 0, %1421 ], [ 0, %1372 ], [ 1, %1367 ]
   %.sroa.055.2 = phi i8 [ %.sroa.055.3, %1379 ], [ 1, %1419 ], [ 1, %1377 ], [ 1, %1421 ], [ 1, %1372 ], [ 1, %1367 ]
-  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn, %1379 ], [ %1420, %1419 ], [ %1378, %1377 ], [ %lpad.thr_comm1275, %1421 ], [ %lpad.thr_comm.split-lp1276, %1372 ], [ %1368, %1367 ]
+  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn, %1379 ], [ %1420, %1419 ], [ %1378, %1377 ], [ %lpad.thr_comm1276, %1421 ], [ %lpad.thr_comm.split-lp1277, %1372 ], [ %1368, %1367 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %187) #27
           to label %1352 unwind label %761
 
@@ -32551,18 +32551,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339: ; preds = %
           cleanup
   br label %1366
 
-1369:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339
+1369:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit340
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %186)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %178)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %177)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %176)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %175)
-  %.sroa.0977.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0977.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0978.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0978.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1952805734, ptr %175, align 8
-  %.sroa.4978.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 23
-  store i8 -60, ptr %.sroa.4978.0..sroa_idx, align 1
+  %.sroa.4979.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 23
+  store i8 -60, ptr %.sroa.4979.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %176, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %175)
           to label %1370 unwind label %1367
 
@@ -32576,7 +32576,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339: ; preds = %
           to label %1373 unwind label %1421
 
 1372:                                             ; preds = %1375
-  %lpad.thr_comm.split-lp1276 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1277 = landingpad { ptr, i32 }
           cleanup
   br label %1366
 
@@ -32584,9 +32584,9 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339: ; preds = %
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %172)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %171)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %171, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341 unwind label %1421
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342 unwind label %1421
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341: ; preds = %1373
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342: ; preds = %1373
   store i8 8, ptr %173, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 4
   store i32 %1371, ptr %.sroa.428.0..sroa_idx, align 4
@@ -32596,7 +32596,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %174, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %173)
           to label %1375 unwind label %1421
 
-1375:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341
+1375:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %177, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %176, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %174)
           to label %1376 unwind label %1372
@@ -32606,20 +32606,20 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %176)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %170)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %170, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342 unwind label %1419
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit343 unwind label %1419
 
-1377:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342
+1377:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit343
   %1378 = landingpad { ptr, i32 }
           cleanup
   br label %1366
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342: ; preds = %1376
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit343: ; preds = %1376
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %178, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %177, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %170)
           to label %1382 unwind label %1377
 
 1379:                                             ; preds = %1390, %1385, %1418, %1416, %1392, %1380
   %.sroa.055.3 = phi i8 [ 0, %1392 ], [ 0, %1416 ], [ 0, %1390 ], [ 0, %1418 ], [ 0, %1385 ], [ 1, %1380 ]
-  %.pn193.pn = phi { ptr, i32 } [ %.pn193, %1392 ], [ %1417, %1416 ], [ %1391, %1390 ], [ %lpad.thr_comm1285, %1418 ], [ %lpad.thr_comm.split-lp1286, %1385 ], [ %1381, %1380 ]
+  %.pn193.pn = phi { ptr, i32 } [ %.pn193, %1392 ], [ %1417, %1416 ], [ %1391, %1390 ], [ %lpad.thr_comm1286, %1418 ], [ %lpad.thr_comm.split-lp1287, %1385 ], [ %1381, %1380 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %178) #27
           to label %1366 unwind label %761
 
@@ -32628,18 +32628,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342: ; preds = %
           cleanup
   br label %1379
 
-1382:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342
+1382:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit343
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %177)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %169)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %168)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %167)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %166)
-  %.sroa.0985.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0985.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0986.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0986.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1818584166, ptr %166, align 8
-  %.sroa.4986.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 23
-  store i8 -60, ptr %.sroa.4986.0..sroa_idx, align 1
+  %.sroa.4987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 23
+  store i8 -60, ptr %.sroa.4987.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %167, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %166)
           to label %1383 unwind label %1380
 
@@ -32653,7 +32653,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342: ; preds = %
           to label %1386 unwind label %1418
 
 1385:                                             ; preds = %1388
-  %lpad.thr_comm.split-lp1286 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1287 = landingpad { ptr, i32 }
           cleanup
   br label %1379
 
@@ -32661,9 +32661,9 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342: ; preds = %
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %163)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %162)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %162, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344 unwind label %1418
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345 unwind label %1418
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344: ; preds = %1386
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345: ; preds = %1386
   store i8 8, ptr %164, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %1384, ptr %.sroa.432.0..sroa_idx, align 4
@@ -32673,7 +32673,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %165, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %164)
           to label %1388 unwind label %1418
 
-1388:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344
+1388:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %168, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %167, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %165)
           to label %1389 unwind label %1385
@@ -32683,19 +32683,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %167)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %161)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %161, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345 unwind label %1416
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit346 unwind label %1416
 
-1390:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345
+1390:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit346
   %1391 = landingpad { ptr, i32 }
           cleanup
   br label %1379
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345: ; preds = %1389
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit346: ; preds = %1389
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %169, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %168, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %161)
           to label %1395 unwind label %1390
 
 1392:                                             ; preds = %1402, %1397, %1415, %1413, %1393
-  %.pn193 = phi { ptr, i32 } [ %1414, %1413 ], [ %1403, %1402 ], [ %lpad.thr_comm1295, %1415 ], [ %lpad.thr_comm.split-lp1296, %1397 ], [ %1394, %1393 ]
+  %.pn193 = phi { ptr, i32 } [ %1414, %1413 ], [ %1403, %1402 ], [ %lpad.thr_comm1296, %1415 ], [ %lpad.thr_comm.split-lp1297, %1397 ], [ %1394, %1393 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %169) #27
           to label %1379 unwind label %761
 
@@ -32704,19 +32704,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345: ; preds = %
           cleanup
   br label %1392
 
-1395:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345
+1395:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit346
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %168)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %160)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %159)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %158)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %157)
-  %.sroa.0987.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0987, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0987.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0987, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.485, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %157, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0987, i64 23, i1 false)
-  %.sroa.4994.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 23
-  store i8 -61, ptr %.sroa.4994.0..sroa_idx, align 1
+  %.sroa.0988.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0988, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0988.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0988, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.485, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %157, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0988, i64 23, i1 false)
+  %.sroa.4995.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 23
+  store i8 -61, ptr %.sroa.4995.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %158, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %157)
           to label %1396 unwind label %1393
 
@@ -32729,16 +32729,16 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345: ; preds = %
           to label %1398 unwind label %1415
 
 1397:                                             ; preds = %1400
-  %lpad.thr_comm.split-lp1296 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1297 = landingpad { ptr, i32 }
           cleanup
   br label %1392
 
 1398:                                             ; preds = %1396
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %153)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %153, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347 unwind label %1415
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348 unwind label %1415
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347: ; preds = %1398
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %1398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false)
   %1399 = getelementptr inbounds nuw i8, ptr %155, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1399, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false)
@@ -32747,7 +32747,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347: ; preds = %
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %156, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %155)
           to label %1400 unwind label %1415
 
-1400:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347
+1400:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %159, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %158, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %156)
           to label %1401 unwind label %1397
@@ -32757,18 +32757,18 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %158)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %152)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %152, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348 unwind label %1413
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit349 unwind label %1413
 
-1402:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348
+1402:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit349
   %1403 = landingpad { ptr, i32 }
           cleanup
   br label %1392
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %1401
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit349: ; preds = %1401
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %160, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %159, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %152)
           to label %1404 unwind label %1402
 
-1404:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348
+1404:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit349
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %159)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %188, ptr noundef nonnull align 8 dereferenceable(72) %187, i64 72, i1 false)
@@ -32785,10 +32785,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %11), !noalias !3163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %11, ptr noundef nonnull align 8 dereferenceable(288) %188, i64 288, i1 false)
-  %.sroa.4464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 288
-  store i64 0, ptr %.sroa.4464.0..sroa_idx, align 8, !alias.scope !3170, !noalias !3174
-  %.sroa.5465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 296
-  store i64 4, ptr %.sroa.5465.0..sroa_idx, align 8, !alias.scope !3170, !noalias !3174
+  %.sroa.4465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 288
+  store i64 0, ptr %.sroa.4465.0..sroa_idx, align 8, !alias.scope !3170, !noalias !3174
+  %.sroa.5466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 296
+  store i64 4, ptr %.sroa.5466.0..sroa_idx, align 8, !alias.scope !3170, !noalias !3174
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0c2636ff61ee00baE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %92, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1408 unwind label %1354
 
@@ -32829,8 +32829,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %159) #27
           to label %1392 unwind label %761
 
-1415:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit347, %1396, %1398
-  %lpad.thr_comm1295 = landingpad { ptr, i32 }
+1415:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348, %1396, %1398
+  %lpad.thr_comm1296 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %158) #27
           to label %1392 unwind label %761
@@ -32841,8 +32841,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %168) #27
           to label %1379 unwind label %761
 
-1418:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit344, %1383, %1386
-  %lpad.thr_comm1285 = landingpad { ptr, i32 }
+1418:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit345, %1383, %1386
+  %lpad.thr_comm1286 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %167) #27
           to label %1379 unwind label %761
@@ -32853,8 +32853,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %177) #27
           to label %1366 unwind label %761
 
-1421:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit341, %1370, %1373
-  %lpad.thr_comm1275 = landingpad { ptr, i32 }
+1421:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit342, %1370, %1373
+  %lpad.thr_comm1276 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %176) #27
           to label %1366 unwind label %761
@@ -32863,24 +32863,24 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   %1423 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %186) #27
-          to label %.thread1255 unwind label %761
+          to label %.thread1256 unwind label %761
 
-1424:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit338, %1357, %1360
-  %lpad.thr_comm1265 = landingpad { ptr, i32 }
+1424:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit339, %1357, %1360
+  %lpad.thr_comm1266 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %185) #27
-          to label %.thread1255 unwind label %761
+          to label %.thread1256 unwind label %761
 
-.thread1255:                                      ; preds = %1364, %1359, %1424, %1422, %1352
-  %.pn1971262 = phi { ptr, i32 } [ %.pn197, %1352 ], [ %lpad.thr_comm.split-lp1266, %1359 ], [ %lpad.thr_comm1265, %1424 ], [ %1365, %1364 ], [ %1423, %1422 ]
-  %.sroa.058.21261 = phi i8 [ %.sroa.058.2, %1352 ], [ 1, %1359 ], [ 1, %1424 ], [ 1, %1364 ], [ 1, %1422 ]
-  %.sroa.062.31260 = phi i8 [ %.sroa.062.3, %1352 ], [ 0, %1359 ], [ 0, %1424 ], [ 0, %1364 ], [ 0, %1422 ]
+.thread1256:                                      ; preds = %1364, %1359, %1424, %1422, %1352
+  %.pn1971263 = phi { ptr, i32 } [ %.pn197, %1352 ], [ %lpad.thr_comm.split-lp1267, %1359 ], [ %lpad.thr_comm1266, %1424 ], [ %1365, %1364 ], [ %1423, %1422 ]
+  %.sroa.058.21262 = phi i8 [ %.sroa.058.2, %1352 ], [ 1, %1359 ], [ 1, %1424 ], [ 1, %1364 ], [ 1, %1422 ]
+  %.sroa.062.31261 = phi i8 [ %.sroa.062.3, %1352 ], [ 0, %1359 ], [ 0, %1424 ], [ 0, %1364 ], [ 0, %1422 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %197) #27
           to label %1339 unwind label %761
 
-.thread1248:                                      ; preds = %1348, %1343, %1341, %1339
-  %.pn197.pn1253 = phi { ptr, i32 } [ %.pn197.pn, %1339 ], [ %1344, %1343 ], [ %1342, %1341 ], [ %1349, %1348 ]
-  %.sroa.062.11252 = phi i8 [ %.sroa.062.1, %1339 ], [ 1, %1343 ], [ 1, %1341 ], [ 1, %1348 ]
+.thread1249:                                      ; preds = %1348, %1343, %1341, %1339
+  %.pn197.pn1254 = phi { ptr, i32 } [ %.pn197.pn, %1339 ], [ %1344, %1343 ], [ %1342, %1341 ], [ %1349, %1348 ]
+  %.sroa.062.11253 = phi i8 [ %.sroa.062.1, %1339 ], [ 1, %1343 ], [ 1, %1341 ], [ 1, %1348 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %208) #27
           to label %1316 unwind label %761
 
@@ -32888,10 +32888,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   %1426 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr70drop_in_place$LT$ty_python_semantic..types..signatures..Parameters$GT$17h6b863021527e31edE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %207) #27
-          to label %.thread1241 unwind label %761
+          to label %.thread1242 unwind label %761
 
-.thread1241:                                      ; preds = %1336, %1320, %1325, %1318, %1425, %1316
-  %.pn197.pn.pn1244 = phi { ptr, i32 } [ %.pn197.pn.pn, %1316 ], [ %1321, %1320 ], [ %.pn191, %1325 ], [ %1319, %1318 ], [ %1337, %1336 ], [ %1426, %1425 ]
+.thread1242:                                      ; preds = %1336, %1320, %1325, %1318, %1425, %1316
+  %.pn197.pn.pn1245 = phi { ptr, i32 } [ %.pn197.pn.pn, %1316 ], [ %1321, %1320 ], [ %.pn191, %1325 ], [ %1319, %1318 ], [ %1337, %1336 ], [ %1426, %1425 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Signature$GT$17he5b04389144bc322E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %214) #27
           to label %common.resume unwind label %761
 
@@ -32901,11 +32901,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %309)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %308)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %307)
-  %.sroa.0883.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0883.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.0884.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.0884.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 116, ptr %307, align 8
-  %.sroa.4884.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 23
-  store i8 -63, ptr %.sroa.4884.0..sroa_idx, align 1
+  %.sroa.4885.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 23
+  store i8 -63, ptr %.sroa.4885.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %308, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %307)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %307)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %306)
@@ -32918,12 +32918,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %305)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %304)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %303)
-  %.sroa.0995.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0995, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0995.3..sroa_idx, i8 0, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0995, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.487, i64 3, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %303, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0995, i64 23, i1 false)
-  %.sroa.41004.0..sroa_idx = getelementptr inbounds nuw i8, ptr %303, i64 23
-  store i8 -61, ptr %.sroa.41004.0..sroa_idx, align 1
+  %.sroa.0996.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0996, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.0996.3..sroa_idx, i8 0, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.0996, ptr noundef nonnull align 1 dereferenceable(3) @anon.b422f174d30a109932427fdd0f19df23.487, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %303, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0996, i64 23, i1 false)
+  %.sroa.41005.0..sroa_idx = getelementptr inbounds nuw i8, ptr %303, i64 23
+  store i8 -61, ptr %.sroa.41005.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %304, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %303)
           to label %1434 unwind label %1430
 
@@ -32961,10 +32961,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %309)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(144) %310, i64 144, i1 false)
-  %.sroa.4443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store i64 0, ptr %.sroa.4443.0..sroa_idx, align 8, !alias.scope !3188, !noalias !3192
-  %.sroa.5444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i64 2, ptr %.sroa.5444.0..sroa_idx, align 8, !alias.scope !3188, !noalias !3192
+  %.sroa.4444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 144
+  store i64 0, ptr %.sroa.4444.0..sroa_idx, align 8, !alias.scope !3188, !noalias !3192
+  %.sroa.5445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
+  store i64 2, ptr %.sroa.5445.0..sroa_idx, align 8, !alias.scope !3188, !noalias !3192
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbecd30658cbb3dcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %311, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10), !noalias !3181
   %1438 = getelementptr inbounds nuw i8, ptr %311, i64 24
@@ -32984,11 +32984,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %298)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %296)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %295)
-  %.sroa.01013.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.01013.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
+  %.sroa.01014.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.sroa.01014.sroa.4.0..sroa_idx, i8 0, i64 22, i1 false)
   store i8 116, ptr %295, align 8
-  %.sroa.41014.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 23
-  store i8 -63, ptr %.sroa.41014.0..sroa_idx, align 1
+  %.sroa.41015.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 23
+  store i8 -63, ptr %.sroa.41015.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %296, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %295)
           to label %1445 unwind label %1441
 
@@ -33020,12 +33020,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %294)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %296)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %96)
-  %.sroa.5447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.5448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9), !noalias !3196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5447.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %297, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5448.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %297, i64 72, i1 false)
   store i64 0, ptr %9, align 8, !alias.scope !3203, !noalias !3207
-  %.sroa.4446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %.sroa.4446.0..sroa_idx, align 8, !alias.scope !3203, !noalias !3207
+  %.sroa.4447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %.sroa.4447.0..sroa_idx, align 8, !alias.scope !3203, !noalias !3207
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7f520dd71a240524E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %96, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
           to label %1448 unwind label %1441
 
@@ -33150,11 +33150,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %283)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %282)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %281)
-  %.sroa.0891.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0891.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
+  %.sroa.0892.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %.sroa.0892.sroa.4.0..sroa_idx, i8 0, i64 19, i1 false)
   store i32 1701667182, ptr %281, align 8
-  %.sroa.4892.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 23
-  store i8 -60, ptr %.sroa.4892.0..sroa_idx, align 1
+  %.sroa.4893.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 23
+  store i8 -60, ptr %.sroa.4893.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %282, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %281)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %281)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %280)
@@ -33166,14 +33166,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %278)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %277)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %276)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0893)
-  %.sroa.0893.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0893, i64 11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0893.11..sroa_idx, i8 0, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0893, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.489, i64 11, i1 false), !noalias !3208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %276, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0893, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0893)
-  %.sroa.4900.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 23
-  store i8 -53, ptr %.sroa.4900.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0894)
+  %.sroa.0894.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0894, i64 11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.0894.11..sroa_idx, i8 0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0894, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.489, i64 11, i1 false), !noalias !3208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %276, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0894, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0894)
+  %.sroa.4901.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 23
+  store i8 -53, ptr %.sroa.4901.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter8variadic17h8da91b608b885611E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %277, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %276)
           to label %1480 unwind label %1477
 
@@ -33197,7 +33197,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
           to label %1488 unwind label %1481
 
 1485:                                             ; preds = %1495, %1490, %1559, %1557, %1497, %1486
-  %.pn179.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn179.pn.pn.pn, %1497 ], [ %1558, %1557 ], [ %1496, %1495 ], [ %lpad.thr_comm1311, %1559 ], [ %lpad.thr_comm.split-lp1312, %1490 ], [ %1487, %1486 ]
+  %.pn179.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn179.pn.pn.pn, %1497 ], [ %1558, %1557 ], [ %1496, %1495 ], [ %lpad.thr_comm1312, %1559 ], [ %lpad.thr_comm.split-lp1313, %1490 ], [ %1487, %1486 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %279) #27
           to label %1476 unwind label %761
 
@@ -33214,14 +33214,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %272)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %271)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %270)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01015)
-  %.sroa.01015.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01015, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01015.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.01015, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.490, i64 5, i1 false), !noalias !3214
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %270, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01015, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01015)
-  %.sroa.41022.0..sroa_idx = getelementptr inbounds nuw i8, ptr %270, i64 23
-  store i8 -59, ptr %.sroa.41022.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01016)
+  %.sroa.01016.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01016, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01016.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.01016, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.490, i64 5, i1 false), !noalias !3214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %270, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01016, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01016)
+  %.sroa.41023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %270, i64 23
+  store i8 -59, ptr %.sroa.41023.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %271, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %270)
           to label %1489 unwind label %1486
 
@@ -33231,7 +33231,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
           to label %1491 unwind label %1486
 
 1490:                                             ; preds = %1493
-  %lpad.thr_comm.split-lp1312 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1313 = landingpad { ptr, i32 }
           cleanup
   br label %1485
 
@@ -33241,19 +33241,19 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit348: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %267)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %267, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit353 unwind label %1559
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354 unwind label %1559
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit353: ; preds = %1491
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %1491
   store i8 0, ptr %268, align 8
-  %.sroa.4371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %268, i64 1
-  store i8 0, ptr %.sroa.4371.0..sroa_idx, align 1
+  %.sroa.4372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %268, i64 1
+  store i8 0, ptr %.sroa.4372.0..sroa_idx, align 1
   %1492 = getelementptr inbounds nuw i8, ptr %268, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1492, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %267)
   invoke void @_ZN18ty_python_semantic5types9UnionType13from_elements17haddbda68042d20c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %269, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %268)
           to label %1493 unwind label %1559
 
-1493:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit353
+1493:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268)
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter19with_annotated_type17hf62ea3f8e4a366d6E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %273, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %272, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %269)
           to label %1494 unwind label %1490
@@ -33263,14 +33263,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit353: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %272)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %266)
   invoke void @_ZN18ty_python_semantic5types5class10KnownClass11to_instance17hf8f29522b6fd2a75E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %266, i8 noundef 33, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354 unwind label %1557
+          to label %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit355 unwind label %1557
 
-1495:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354
+1495:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit355
   %1496 = landingpad { ptr, i32 }
           cleanup
   br label %1485
 
-_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %1494
+_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit355: ; preds = %1494
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter17with_default_type17h682e677d3b8a0c5aE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %274, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %273, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %266)
           to label %1500 unwind label %1495
 
@@ -33284,7 +33284,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
           cleanup
   br label %1497
 
-1500:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354
+1500:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit355
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %266)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %273)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %265)
@@ -33292,14 +33292,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %263)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %262)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %261)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01023)
-  %.sroa.01023.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01023, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.01023.7..sroa_idx, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.01023, ptr noundef nonnull align 1 dereferenceable(7) @anon.b422f174d30a109932427fdd0f19df23.491, i64 7, i1 false), !noalias !3217
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %261, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01023, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01023)
-  %.sroa.41030.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 23
-  store i8 -57, ptr %.sroa.41030.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01024)
+  %.sroa.01024.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01024, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.01024.7..sroa_idx, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.01024, ptr noundef nonnull align 1 dereferenceable(7) @anon.b422f174d30a109932427fdd0f19df23.491, i64 7, i1 false), !noalias !3217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %261, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01024, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01024)
+  %.sroa.41031.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 23
+  store i8 -57, ptr %.sroa.41031.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %262, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %261)
           to label %1501 unwind label %1498
 
@@ -33355,14 +33355,14 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %257)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %256)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %255)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01031)
-  %.sroa.01031.13..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01031, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.01031.13..sroa_idx, i8 0, i64 10, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.01031, ptr noundef nonnull align 1 dereferenceable(13) @anon.b422f174d30a109932427fdd0f19df23.492, i64 13, i1 false), !noalias !3223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %255, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01031, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01031)
-  %.sroa.41038.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 23
-  store i8 -51, ptr %.sroa.41038.0..sroa_idx, align 1
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.01032)
+  %.sroa.01032.13..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01032, i64 13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.01032.13..sroa_idx, i8 0, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.01032, ptr noundef nonnull align 1 dereferenceable(13) @anon.b422f174d30a109932427fdd0f19df23.492, i64 13, i1 false), !noalias !3223
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %255, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.01032, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.01032)
+  %.sroa.41039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 23
+  store i8 -51, ptr %.sroa.41039.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %256, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %255)
           to label %1514 unwind label %1511
 
@@ -33409,12 +33409,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %251)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %250)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %249)
-  %.sroa.01039.9..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01039, i64 9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.sroa.01039.9..sroa_idx, i8 0, i64 14, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.01039, ptr noundef nonnull align 1 dereferenceable(9) @anon.b422f174d30a109932427fdd0f19df23.493, i64 9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %249, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01039, i64 23, i1 false)
-  %.sroa.41046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 23
-  store i8 -55, ptr %.sroa.41046.0..sroa_idx, align 1
+  %.sroa.01040.9..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01040, i64 9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.sroa.01040.9..sroa_idx, i8 0, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.01040, ptr noundef nonnull align 1 dereferenceable(9) @anon.b422f174d30a109932427fdd0f19df23.493, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %249, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01040, i64 23, i1 false)
+  %.sroa.41047.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 23
+  store i8 -55, ptr %.sroa.41047.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %250, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %249)
           to label %1524 unwind label %1521
 
@@ -33458,12 +33458,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %246)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %245)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %244)
-  %.sroa.01047.14..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01047, i64 14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %.sroa.01047.14..sroa_idx, i8 0, i64 9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %.sroa.01047, ptr noundef nonnull align 1 dereferenceable(14) @anon.b422f174d30a109932427fdd0f19df23.494, i64 14, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %244, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01047, i64 23, i1 false)
-  %.sroa.41054.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 23
-  store i8 -50, ptr %.sroa.41054.0..sroa_idx, align 1
+  %.sroa.01048.14..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01048, i64 14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %.sroa.01048.14..sroa_idx, i8 0, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %.sroa.01048, ptr noundef nonnull align 1 dereferenceable(14) @anon.b422f174d30a109932427fdd0f19df23.494, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %244, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01048, i64 23, i1 false)
+  %.sroa.41055.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 23
+  store i8 -50, ptr %.sroa.41055.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %245, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %244)
           to label %1533 unwind label %1530
 
@@ -33512,10 +33512,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %283)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %8), !noalias !3226
   store i64 0, ptr %8, align 8, !alias.scope !3233, !noalias !3237
-  %.sroa.4449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 7, ptr %.sroa.4449.0..sroa_idx, align 8, !alias.scope !3233, !noalias !3237
-  %.sroa.5450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %.sroa.5450.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(504) %284, i64 504, i1 false)
+  %.sroa.4450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 7, ptr %.sroa.4450.0..sroa_idx, align 8, !alias.scope !3233, !noalias !3237
+  %.sroa.5451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %.sroa.5451.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(504) %284, i64 504, i1 false)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6a95323a2b137925E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %285, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(520) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8), !noalias !3226
   %1545 = getelementptr inbounds nuw i8, ptr %285, i64 24
@@ -33575,8 +33575,8 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %273) #27
           to label %1485 unwind label %761
 
-1559:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit353, %1491
-  %lpad.thr_comm1311 = landingpad { ptr, i32 }
+1559:                                             ; preds = %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354, %1491
+  %lpad.thr_comm1312 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %272) #27
           to label %1485 unwind label %761
@@ -33589,12 +33589,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %231)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %230)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %229)
-  %.sroa.01055.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01055, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01055.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.01055, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %229, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01055, i64 23, i1 false)
-  %.sroa.41062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 23
-  store i8 -59, ptr %.sroa.41062.0..sroa_idx, align 1
+  %.sroa.01056.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01056, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01056.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.01056, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.443, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %229, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01056, i64 23, i1 false)
+  %.sroa.41063.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 23
+  store i8 -59, ptr %.sroa.41063.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter21positional_or_keyword17h40245ddfb6d448f8E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %230, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %229)
           to label %1566 unwind label %1562
 
@@ -33629,7 +33629,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
           to label %1572 unwind label %1562
 
 1569:                                             ; preds = %1584, %1574, %1594, %1592, %1570
-  %.pn176 = phi { ptr, i32 } [ %1593, %1592 ], [ %1585, %1584 ], [ %lpad.thr_comm1333, %1594 ], [ %lpad.thr_comm.split-lp1334, %1574 ], [ %1571, %1570 ]
+  %.pn176 = phi { ptr, i32 } [ %1593, %1592 ], [ %1585, %1584 ], [ %lpad.thr_comm1334, %1594 ], [ %lpad.thr_comm.split-lp1335, %1574 ], [ %1571, %1570 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %232) #27
           to label %1561 unwind label %761
 
@@ -33644,12 +33644,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %226)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %225)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %224)
-  %.sroa.01063.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01063, i64 11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.01063.11..sroa_idx, i8 0, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %.sroa.01063, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.495, i64 11, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %224, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01063, i64 23, i1 false)
-  %.sroa.41070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 23
-  store i8 -53, ptr %.sroa.41070.0..sroa_idx, align 1
+  %.sroa.01064.11..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01064, i64 11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.01064.11..sroa_idx, i8 0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %.sroa.01064, ptr noundef nonnull align 1 dereferenceable(11) @anon.b422f174d30a109932427fdd0f19df23.495, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %224, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01064, i64 23, i1 false)
+  %.sroa.41071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 23
+  store i8 -53, ptr %.sroa.41071.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %225, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %224)
           to label %1573 unwind label %1570
 
@@ -33664,7 +33664,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
           to label %1575 unwind label %1594
 
 1574:                                             ; preds = %1581
-  %lpad.thr_comm.split-lp1334 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1335 = landingpad { ptr, i32 }
           cleanup
   br label %1569
 
@@ -33734,10 +33734,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %236)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7), !noalias !3246
   store i64 0, ptr %7, align 8, !alias.scope !3253, !noalias !3257
-  %.sroa.4452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 3, ptr %.sroa.4452.0..sroa_idx, align 8, !alias.scope !3253, !noalias !3257
-  %.sroa.5453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5453.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %237, i64 216, i1 false)
+  %.sroa.4453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 3, ptr %.sroa.4453.0..sroa_idx, align 8, !alias.scope !3253, !noalias !3257
+  %.sroa.5454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.5454.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %237, i64 216, i1 false)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha6e4562d1082fc0eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %238, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(232) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7), !noalias !3246
   %1591 = getelementptr inbounds nuw i8, ptr %238, i64 24
@@ -33762,7 +33762,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
           to label %1569 unwind label %761
 
 1594:                                             ; preds = %1580, %1577, %1576, %1575, %1573
-  %lpad.thr_comm1333 = landingpad { ptr, i32 }
+  %lpad.thr_comm1334 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %225) #27
           to label %1569 unwind label %761
@@ -33932,11 +33932,11 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %141)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %140)
-  %.sroa.01079.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.01079.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
+  %.sroa.01080.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.01080.sroa.4.0..sroa_idx, i8 0, i64 15, i1 false)
   store i64 7308604897068349812, ptr %140, align 8
-  %.sroa.41080.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 23
-  store i8 -56, ptr %.sroa.41080.0..sroa_idx, align 1
+  %.sroa.41081.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 23
+  store i8 -56, ptr %.sroa.41081.0..sroa_idx, align 1
   call void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %141, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %140)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %140)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %139)
@@ -33958,12 +33958,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %137)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %136)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %135)
-  %.sroa.01081.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01081, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.01081.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.01081, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.498, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %135, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01081, i64 23, i1 false)
-  %.sroa.41090.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 23
-  store i8 -58, ptr %.sroa.41090.0..sroa_idx, align 1
+  %.sroa.01082.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01082, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.01082.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.01082, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.498, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %135, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01082, i64 23, i1 false)
+  %.sroa.41091.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 23
+  store i8 -58, ptr %.sroa.41091.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter15positional_only17h63d3a78b7ee3d5c2E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %136, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
           to label %1643 unwind label %1641
 
@@ -34024,12 +34024,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %131)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %130)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129)
-  %.sroa.01091.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01091, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01091.5..sroa_idx, i8 0, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.01091, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.499, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %129, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01091, i64 23, i1 false)
-  %.sroa.41098.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 23
-  store i8 -59, ptr %.sroa.41098.0..sroa_idx, align 1
+  %.sroa.01092.5..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01092, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %.sroa.01092.5..sroa_idx, i8 0, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.01092, ptr noundef nonnull align 1 dereferenceable(5) @anon.b422f174d30a109932427fdd0f19df23.499, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %129, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01092, i64 23, i1 false)
+  %.sroa.41099.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 23
+  store i8 -59, ptr %.sroa.41099.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter12keyword_only17haaf6fb79358471dcE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %129)
           to label %1655 unwind label %1652
 
@@ -34074,12 +34074,12 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %126)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %125)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %124)
-  %.sroa.01099.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01099, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.01099.6..sroa_idx, i8 0, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.01099, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.500, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %124, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01099, i64 23, i1 false)
-  %.sroa.41106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 23
-  store i8 -58, ptr %.sroa.41106.0..sroa_idx, align 1
+  %.sroa.01100.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01100, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.sroa.01100.6..sroa_idx, i8 0, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.01100, ptr noundef nonnull align 1 dereferenceable(6) @anon.b422f174d30a109932427fdd0f19df23.500, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %124, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.01100, i64 23, i1 false)
+  %.sroa.41107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 23
+  store i8 -58, ptr %.sroa.41107.0..sroa_idx, align 1
   invoke void @_ZN18ty_python_semantic5types10signatures9Parameter16keyword_variadic17h4dd9c30281d88865E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %124)
           to label %1667 unwind label %1662
 
@@ -34113,10 +34113,10 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit354: ; preds = %
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %5), !noalias !3277
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull align 8 dereferenceable(288) %143, i64 288, i1 false)
-  %.sroa.4467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 288
-  store i64 0, ptr %.sroa.4467.0..sroa_idx, align 8, !alias.scope !3284, !noalias !3288
-  %.sroa.5468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 296
-  store i64 4, ptr %.sroa.5468.0..sroa_idx, align 8, !alias.scope !3284, !noalias !3288
+  %.sroa.4468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 288
+  store i64 0, ptr %.sroa.4468.0..sroa_idx, align 8, !alias.scope !3284, !noalias !3288
+  %.sroa.5469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 296
+  store i64 4, ptr %.sroa.5469.0..sroa_idx, align 8, !alias.scope !3284, !noalias !3288
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0c2636ff61ee00baE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %144, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.55)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %5), !noalias !3277
   %1673 = getelementptr inbounds nuw i8, ptr %144, i64 24
@@ -36828,8 +36828,8 @@ default.unreachable139:                           ; preds = %4
   unreachable
 
 .thread:                                          ; preds = %131, %85, %133, %124, %89
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp117, %133 ], [ %lpad.thr_comm123, %124 ], [ %lpad.thr_comm.split-lp, %89 ], [ %86, %85 ], [ %132, %131 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn73.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %89 ], [ %lpad.thr_comm.split-lp117, %133 ], [ %lpad.thr_comm123, %124 ], [ %86, %85 ], [ %132, %131 ]
+  resume { ptr, i32 } %.pn73.pn
 
 89:                                               ; preds = %62
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -37100,12 +37100,12 @@ define void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de
   %55 = alloca [16 x i8], align 8
   %56 = alloca [16 x i8], align 8
   %57 = alloca [16 x i8], align 8
-  %.sroa.485 = alloca [20 x i8], align 4
+  %.sroa.486 = alloca [20 x i8], align 4
   %58 = alloca [16 x i8], align 8
   %59 = alloca [32 x i8], align 8
   %60 = alloca [48 x i8], align 8
   %61 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  switch i8 %61, label %default.unreachable189 [
+  switch i8 %61, label %default.unreachable190 [
     i8 0, label %63
     i8 1, label %270
     i8 2, label %270
@@ -37137,7 +37137,7 @@ define void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de
     i8 28, label %270
   ]
 
-default.unreachable189:                           ; preds = %5
+default.unreachable190:                           ; preds = %5
   unreachable
 
 62:                                               ; preds = %91
@@ -37178,23 +37178,23 @@ default.unreachable189:                           ; preds = %5
 
 82:                                               ; preds = %69
   %83 = tail call i64 @_ZN18ty_python_semantic5types8instance20ProtocolInstanceType10from_class17hb82a35c7c96a6757E(i32 noundef range(i32 0, 2) %73, i32 noundef %74), !noalias !3644
-  %.sroa.482.sroa.0.0.extract.trunc = trunc i64 %83 to i32
-  %.sroa.482.sroa.5.0.extract.shift = lshr i64 %83, 32
-  %.sroa.482.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.482.sroa.5.0.extract.shift to i32
+  %.sroa.483.sroa.0.0.extract.trunc = trunc i64 %83 to i32
+  %.sroa.483.sroa.5.0.extract.shift = lshr i64 %83, 32
+  %.sroa.483.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.483.sroa.5.0.extract.shift to i32
   br label %"_ZN18ty_python_semantic5types8instance49_$LT$impl$u20$ty_python_semantic..types..Type$GT$8instance17hfcd90b83826549b5E.exit"
 
 "_ZN18ty_python_semantic5types8instance49_$LT$impl$u20$ty_python_semantic..types..Type$GT$8instance17hfcd90b83826549b5E.exit": ; preds = %78, %82
-  %.sroa.482.sroa.5.0 = phi i32 [ %.sroa.482.sroa.5.0.extract.trunc, %82 ], [ %81, %78 ]
-  %.sroa.482.sroa.0.0 = phi i32 [ %.sroa.482.sroa.0.0.extract.trunc, %82 ], [ %80, %78 ]
+  %.sroa.483.sroa.5.0 = phi i32 [ %.sroa.483.sroa.5.0.extract.trunc, %82 ], [ %81, %78 ]
+  %.sroa.483.sroa.0.0 = phi i32 [ %.sroa.483.sroa.0.0.extract.trunc, %82 ], [ %80, %78 ]
   %storemerge.i = phi i8 [ 14, %82 ], [ 13, %78 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %storemerge.i, ptr %84, align 8
-  %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.482.sroa.5.0.insert.ext = zext i32 %.sroa.482.sroa.5.0 to i64
-  %.sroa.482.sroa.5.0.insert.shift = shl nuw i64 %.sroa.482.sroa.5.0.insert.ext, 32
-  %.sroa.482.sroa.0.0.insert.ext = zext i32 %.sroa.482.sroa.0.0 to i64
-  %.sroa.482.sroa.0.0.insert.insert = or disjoint i64 %.sroa.482.sroa.5.0.insert.shift, %.sroa.482.sroa.0.0.insert.ext
-  store i64 %.sroa.482.sroa.0.0.insert.insert, ptr %.sroa.482.0..sroa_idx, align 4
+  %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.483.sroa.5.0.insert.ext = zext i32 %.sroa.483.sroa.5.0 to i64
+  %.sroa.483.sroa.5.0.insert.shift = shl nuw i64 %.sroa.483.sroa.5.0.insert.ext, 32
+  %.sroa.483.sroa.0.0.insert.ext = zext i32 %.sroa.483.sroa.0.0 to i64
+  %.sroa.483.sroa.0.0.insert.insert = or disjoint i64 %.sroa.483.sroa.5.0.insert.shift, %.sroa.483.sroa.0.0.insert.ext
+  store i64 %.sroa.483.sroa.0.0.insert.insert, ptr %.sroa.483.0..sroa_idx, align 4
   store i8 29, ptr %0, align 8
   br label %102
 
@@ -37392,12 +37392,12 @@ default.unreachable189:                           ; preds = %5
 
 132:                                              ; preds = %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.sroa.6162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6162.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  %.sroa.6163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6163.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store i8 0, ptr %0, align 8
-  %.sroa.4160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4160.0..sroa_idx, align 1
+  %.sroa.4161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4161.0..sroa_idx, align 1
   br label %102
 
 133:                                              ; preds = %269, %238, %235, %232, %229, %226, %223, %205, %202, %199, %130
@@ -37407,8 +37407,8 @@ default.unreachable189:                           ; preds = %5
   unreachable
 
 135:                                              ; preds = %269, %259, %235, %232, %229, %226, %223, %205, %202, %199, %130
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %269 ], [ %lpad.phi, %259 ], [ %236, %235 ], [ %227, %226 ], [ %224, %223 ], [ %203, %202 ], [ %200, %199 ], [ %233, %232 ], [ %206, %205 ], [ %230, %229 ], [ %131, %130 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn78 = phi { ptr, i32 } [ %131, %130 ], [ %200, %199 ], [ %203, %202 ], [ %206, %205 ], [ %224, %223 ], [ %227, %226 ], [ %230, %229 ], [ %233, %232 ], [ %236, %235 ], [ %lpad.phi, %269 ], [ %lpad.phi, %259 ]
+  resume { ptr, i32 } %.pn78
 
 136:                                              ; preds = %91, %91
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
@@ -37591,8 +37591,8 @@ default.unreachable189:                           ; preds = %5
 178:                                              ; preds = %91
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %179, align 8
-  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 1, ptr %.sroa.492.0..sroa_idx, align 1
+  %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 1, ptr %.sroa.493.0..sroa_idx, align 1
   store i8 29, ptr %0, align 8
   br label %102
 
@@ -37673,12 +37673,12 @@ default.unreachable189:                           ; preds = %5
 
 201:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6113.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
+  %.sroa.6114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6114.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   store i8 0, ptr %0, align 8
-  %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4111.0..sroa_idx, align 1
+  %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4112.0..sroa_idx, align 1
   br label %102
 
 202:                                              ; preds = %167
@@ -37689,12 +37689,12 @@ default.unreachable189:                           ; preds = %5
 
 204:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  %.sroa.6120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6120.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false)
+  %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6121.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   store i8 0, ptr %0, align 8
-  %.sroa.4118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4118.0..sroa_idx, align 1
+  %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4119.0..sroa_idx, align 1
   br label %102
 
 205:                                              ; preds = %138
@@ -37705,12 +37705,12 @@ default.unreachable189:                           ; preds = %5
 
 207:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
-  %.sroa.6127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6127.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
+  %.sroa.6128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6128.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   store i8 0, ptr %0, align 8
-  %.sroa.4125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4125.0..sroa_idx, align 1
+  %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4126.0..sroa_idx, align 1
   br label %102
 
 208:                                              ; preds = %187
@@ -37720,7 +37720,7 @@ default.unreachable189:                           ; preds = %5
   call void @_ZN18ty_python_semantic5types4Type10definition17ha3845b925e61c97aE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   %209 = load i32, ptr %41, align 8, !range !3650, !noundef !3
   switch i32 %209, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit" [
-    i32 1, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit80"
+    i32 1, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit81"
     i32 0, label %212
   ]
 
@@ -37745,7 +37745,7 @@ default.unreachable189:                           ; preds = %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
   br label %221
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit80": ; preds = %208
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit81": ; preds = %208
   %214 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %215 = load i32, ptr %214, align 4, !range !669, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
@@ -37755,20 +37755,20 @@ default.unreachable189:                           ; preds = %5
   %.not75 = icmp eq i8 %216, 29
   br i1 %.not75, label %217, label %218
 
-217:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit80"
+217:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit81"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   br label %221
 
-218:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit80"
+218:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit81"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   store ptr inttoptr (i64 1718379859 to ptr), ptr %39, align 8
-  %.sroa.4167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 0, ptr %.sroa.4167.0..sroa_idx, align 8
-  %.sroa.5168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 -4323455642275676160, ptr %.sroa.5168.0..sroa_idx, align 8
+  %.sroa.4168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 0, ptr %.sroa.4168.0..sroa_idx, align 8
+  %.sroa.5169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i64 -4323455642275676160, ptr %.sroa.5169.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   store i8 29, ptr %37, align 8
   %219 = call noundef i32 @"_ZN18ty_python_semantic5types1_60_$LT$impl$u20$ty_python_semantic..types..TypeVarInstance$GT$3new17he7879805cb0cd3ecE"(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %39, i32 noundef %215, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %38, i8 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %37, i1 noundef zeroext false)
@@ -37786,8 +37786,8 @@ default.unreachable189:                           ; preds = %5
 221:                                              ; preds = %217, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..definition..TypeDefinition$GT$$GT$17hd013d60ffed09eeaE.exit"
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %222, align 8
-  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 1, ptr %.sroa.4105.0..sroa_idx, align 1
+  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 1, ptr %.sroa.4106.0..sroa_idx, align 1
   store i8 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   br label %102
@@ -37800,12 +37800,12 @@ default.unreachable189:                           ; preds = %5
 
 225:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
-  %.sroa.6100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6100.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
+  %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6101.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
   store i8 0, ptr %0, align 8
-  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.498.0..sroa_idx, align 1
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.499.0..sroa_idx, align 1
   br label %102
 
 226:                                              ; preds = %191
@@ -37816,12 +37816,12 @@ default.unreachable189:                           ; preds = %5
 
 228:                                              ; preds = %191
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  %.sroa.6148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6148.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
+  %.sroa.6149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6149.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   store i8 0, ptr %0, align 8
-  %.sroa.4146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4146.0..sroa_idx, align 1
+  %.sroa.4147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4147.0..sroa_idx, align 1
   br label %102
 
 229:                                              ; preds = %136
@@ -37832,12 +37832,12 @@ default.unreachable189:                           ; preds = %5
 
 231:                                              ; preds = %136
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
-  %.sroa.6141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6141.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
+  %.sroa.6142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6142.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   store i8 0, ptr %0, align 8
-  %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4139.0..sroa_idx, align 1
+  %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4140.0..sroa_idx, align 1
   br label %102
 
 232:                                              ; preds = %142
@@ -37848,12 +37848,12 @@ default.unreachable189:                           ; preds = %5
 
 234:                                              ; preds = %142
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  %.sroa.6134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6134.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
+  %.sroa.6135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6135.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   store i8 0, ptr %0, align 8
-  %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4132.0..sroa_idx, align 1
+  %.sroa.4133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4133.0..sroa_idx, align 1
   br label %102
 
 235:                                              ; preds = %193
@@ -37864,12 +37864,12 @@ default.unreachable189:                           ; preds = %5
 
 237:                                              ; preds = %193
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  %.sroa.6155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6155.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
+  %.sroa.6156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6156.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   store i8 0, ptr %0, align 8
-  %.sroa.4153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.4153.0..sroa_idx, align 1
+  %.sroa.4154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.4154.0..sroa_idx, align 1
   br label %102
 
 .loopexit:                                        ; preds = %247, %262, %263, %267
@@ -37879,13 +37879,13 @@ default.unreachable189:                           ; preds = %5
   br label %238
 
 .loopexit.split-lp:                               ; preds = %96, %.thread, %253
-  %.sroa.069.0.ph178 = phi i1 [ true, %96 ], [ false, %253 ], [ false, %.thread ]
+  %.sroa.069.0.ph179 = phi i1 [ true, %96 ], [ false, %253 ], [ false, %.thread ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %238
 
 238:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %.sroa.069.0 = phi i1 [ %.sroa.069.0.ph, %.loopexit ], [ %.sroa.069.0.ph178, %.loopexit.split-lp ]
+  %.sroa.069.0 = phi i1 [ %.sroa.069.0.ph, %.loopexit ], [ %.sroa.069.0.ph179, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr116drop_in_place$LT$smallvec..SmallVec$LT$$u5b$ty_python_semantic..types..InvalidTypeExpression$u3b$$u20$1$u5d$$GT$$GT$17h35a7a70831caa6d6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #27
           to label %259 unwind label %133
@@ -37905,10 +37905,10 @@ default.unreachable189:                           ; preds = %5
   br label %247
 
 247:                                              ; preds = %.lr.ph, %265
-  %.sroa.070.0179 = phi ptr [ %240, %.lr.ph ], [ %248, %265 ]
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.070.0179, i64 16
+  %.sroa.070.0180 = phi ptr [ %240, %.lr.ph ], [ %248, %265 ]
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.070.0180, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
-  invoke void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de60d1ffE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.070.0179, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %4)
+  invoke void @_ZN18ty_python_semantic5types4Type18in_type_expression17h36189907de60d1ffE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.070.0180, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i32 noundef %4)
           to label %260 unwind label %.loopexit
 
 ._crit_edge:                                      ; preds = %265
@@ -38011,17 +38011,17 @@ default.unreachable189:                           ; preds = %5
           to label %135 unwind label %133
 
 270:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %.sroa.485.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.485, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.485.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %.sroa.486.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.486, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.486.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 0, ptr %0, align 8
-  %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %.sroa.489.0..sroa_idx, align 1
+  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %.sroa.490.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.485, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.486, i64 20, i1 false)
   br label %102
 }
 
@@ -39334,7 +39334,7 @@ define void @_ZN18ty_python_semantic5types4Type4repr17h4660691bcb86952fE(ptr dea
   unreachable
 
 common.resume:                                    ; preds = %71, %81, %41, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %42, %41 ], [ %82, %81 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %42, %41 ], [ %72, %71 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17heb90096ac2f33752E.exit": ; preds = %26
@@ -42879,7 +42879,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit163: ; preds = %
 505:                                              ; preds = %237, %250, %254, %258, %268, %184, %.critedge, %471
   ret void
 
-.critedge:                                        ; preds = %485, %504, %501, %470, %480, %486, %442, %431, %421, %414, %412, %410, %409, %408, %401, %352, %320, %319, %318, %274, %272, %249, %245, %218, %217, %194
+.critedge:                                        ; preds = %485, %504, %470, %480, %486, %501, %194, %218, %217, %249, %245, %272, %274, %320, %319, %318, %352, %410, %409, %408, %401, %412, %414, %421, %431, %442
   call void @"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %505
 
@@ -42899,7 +42899,7 @@ _ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit163: ; preds = %
 510:                                              ; preds = %511
   resume { ptr, i32 } %lpad.thr_comm
 
-511:                                              ; preds = %.invoke, %466, %402, %395, %233, %91, %100, %120, %131, %133, %138, %145, %148, %195, %200, %207, %212, %202, %150, %220, %224, %232, %225, %242, %222, %246, %154, %155, %156, %157, %159, %263, %264, %161, %273, %164, %275, %280, %284, %290, %295, %299, %305, %310, %315, %302, %287, %166, %321, %326, %329, %336, %338, %340, %344, %348, %168, %353, %358, %365, %370, %377, %382, %387, %392, %398, %384, %405, %372, %360, %170, %411, %177, %413, %188, %416, %.critedge135, %190, %423, %.critedge137, %192, %432, %437, %448, %472, %485, %480, %449, %455, %457, %462, %463, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit163, %468, %467, %450, %494, %447, %502, %140, %506
+511:                                              ; preds = %.invoke, %466, %402, %395, %233, %91, %100, %120, %131, %133, %138, %192, %432, %437, %190, %423, %.critedge137, %188, %416, %.critedge135, %177, %413, %170, %411, %168, %353, %358, %365, %370, %377, %382, %387, %392, %398, %384, %405, %372, %360, %166, %321, %326, %329, %336, %338, %340, %344, %348, %164, %275, %280, %284, %290, %295, %299, %305, %310, %315, %302, %287, %161, %273, %159, %157, %263, %264, %156, %155, %154, %150, %220, %224, %232, %225, %242, %222, %246, %148, %195, %200, %207, %212, %202, %145, %450, %494, %448, %472, %485, %480, %449, %455, %457, %462, %463, %_ZN18ty_python_semantic5types4Type4none17hc5554ce954425c15E.exit163, %468, %467, %447, %502, %140, %506
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_python_ast..name..Name$GT$17h31ae05a5d5f3ac0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #27
@@ -48761,7 +48761,7 @@ default.unreachable26:                            ; preds = %3
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
 "_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit": ; preds = %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %43, %37, %31, %25, %19
-  %.sroa.019.0.shrunk = phi i1 [ true, %43 ], [ true, %37 ], [ true, %31 ], [ true, %25 ], [ true, %19 ], [ false, %15 ], [ true, %18 ], [ false, %21 ], [ true, %24 ], [ false, %27 ], [ true, %30 ], [ false, %33 ], [ true, %36 ], [ false, %39 ], [ true, %42 ]
+  %.sroa.019.0.shrunk = phi i1 [ true, %19 ], [ true, %25 ], [ true, %31 ], [ true, %37 ], [ true, %43 ], [ false, %15 ], [ true, %18 ], [ false, %21 ], [ true, %24 ], [ false, %27 ], [ true, %30 ], [ false, %33 ], [ true, %36 ], [ false, %39 ], [ true, %42 ]
   ret i1 %.sroa.019.0.shrunk
 
 21:                                               ; preds = %7

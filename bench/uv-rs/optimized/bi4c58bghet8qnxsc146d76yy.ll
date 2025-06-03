@@ -322,7 +322,7 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit": ; preds = %61, %64, %67, %72
-  %.sroa.0.0.i.i.i = phi i8 [ %66, %64 ], [ %77, %72 ], [ %63, %61 ], [ %71, %67 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %71, %67 ], [ %63, %61 ], [ %77, %72 ], [ %66, %64 ]
   %78 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %78, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.thread", label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd68e7647d08616c1E.exit.thread.sink.split"
 
@@ -478,7 +478,7 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i": ; preds = %67, %62, %59, %56
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %61, %59 ], [ %72, %67 ], [ %58, %56 ], [ %66, %62 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %66, %62 ], [ %58, %56 ], [ %72, %67 ], [ %61, %59 ]
   %73 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %73, label %83, label %74
 
@@ -1633,7 +1633,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i": ; preds = %63, %58, %55, %52
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %57, %55 ], [ %68, %63 ], [ %54, %52 ], [ %62, %58 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %62, %58 ], [ %54, %52 ], [ %68, %63 ], [ %57, %55 ]
   %69 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %69, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002.exit.i", label %_ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18ffE.llvm.16679439562553428002.exit
 
@@ -1765,7 +1765,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18ffE.llvm.166794395625
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i.i": ; preds = %129, %124, %121, %118
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %123, %121 ], [ %134, %129 ], [ %120, %118 ], [ %128, %124 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %128, %124 ], [ %120, %118 ], [ %134, %129 ], [ %123, %121 ]
   %135 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %135, label %141, label %136
 
@@ -2131,7 +2131,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h30
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i": ; preds = %67, %62, %59, %56
-  %.sroa.0.0.i.i.i.i = phi i8 [ %61, %59 ], [ %72, %67 ], [ %58, %56 ], [ %66, %62 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %66, %62 ], [ %58, %56 ], [ %72, %67 ], [ %61, %59 ]
   %73 = trunc i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %73, label %83, label %74
 
@@ -2291,7 +2291,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18f
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i": ; preds = %68, %63, %60, %57
-  %.sroa.0.0.i.i.i.i = phi i8 [ %62, %60 ], [ %73, %68 ], [ %59, %57 ], [ %67, %63 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %67, %63 ], [ %59, %57 ], [ %73, %68 ], [ %62, %60 ]
   %74 = trunc i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %74, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002.exit", label %75
 
@@ -5083,7 +5083,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit": ; preds = %57, %60, %63, %68
-  %.sroa.0.0.i.i.i = phi i8 [ %62, %60 ], [ %73, %68 ], [ %59, %57 ], [ %67, %63 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %67, %63 ], [ %59, %57 ], [ %73, %68 ], [ %62, %60 ]
   %74 = trunc i8 %.sroa.0.0.i.i.i to i1
   br i1 %74, label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.thread", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe65dd62ba5a1e95E.exit.thread.sink.split"
 
@@ -6671,7 +6671,7 @@ switch.lookup39:                                  ; preds = %20
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
 "_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %39, %41, %switch.lookup39
-  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %48, %switch.lookup39 ], [ %42, %41 ], [ %40, %39 ], [ %38, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ]
+  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %48, %switch.lookup39 ], [ %38, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %40, %39 ], [ %42, %41 ]
   %.val6 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val7 = load ptr, ptr %.sroa.0.0.i, align 8, !nonnull !11, !noundef !11
   %49 = icmp eq ptr %.val6, %.val7
@@ -6764,7 +6764,7 @@ switch.lookup45:                                  ; preds = %67
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
 "_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16": ; preds = %switch.lookup42, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", %86, %88, %switch.lookup45
-  %.sroa.0.0.i9 = phi ptr [ %66, %switch.lookup42 ], [ %95, %switch.lookup45 ], [ %89, %88 ], [ %87, %86 ], [ %85, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ]
+  %.sroa.0.0.i9 = phi ptr [ %66, %switch.lookup42 ], [ %95, %switch.lookup45 ], [ %85, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ], [ %87, %86 ], [ %89, %88 ]
   %.val4 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val5 = load ptr, ptr %.sroa.0.0.i9, align 8, !nonnull !11, !noundef !11
   %96 = icmp eq ptr %.val4, %.val5
@@ -6855,7 +6855,7 @@ switch.lookup51:                                  ; preds = %112
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
 "_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28": ; preds = %switch.lookup48, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", %131, %133, %switch.lookup51
-  %.sroa.0.0.i21 = phi ptr [ %111, %switch.lookup48 ], [ %140, %switch.lookup51 ], [ %134, %133 ], [ %132, %131 ], [ %130, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ]
+  %.sroa.0.0.i21 = phi ptr [ %111, %switch.lookup48 ], [ %140, %switch.lookup51 ], [ %130, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ], [ %132, %131 ], [ %134, %133 ]
   %.val2 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val3 = load ptr, ptr %.sroa.0.0.i21, align 8, !nonnull !11, !noundef !11
   %141 = icmp eq ptr %.val2, %.val3
@@ -6968,8 +6968,8 @@ default.unreachable:                              ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %22, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
-  %.pn2.i = phi ptr [ %24, %22 ], [ %21, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %0, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
-  %.sroa.0.0.i7 = phi i64 [ 1, %22 ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
+  %.pn2.i = phi ptr [ %21, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %24, %22 ], [ %0, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
+  %.sroa.0.0.i7 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %22 ], [ 1, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
   store i64 %.sroa.0.0.i7, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.pn2.i, ptr %25, align 8
@@ -7219,8 +7219,8 @@ default.unreachable:                              ; preds = %9
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %28, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i", %43, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i"
-  %.sroa.0.0.i2.pn.i = phi i64 [ %.sroa.0.0.i2.i, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ 1, %43 ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ 1, %28 ]
-  %.pn4.i = phi ptr [ %49, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ %45, %43 ], [ %42, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ %0, %28 ]
+  %.sroa.0.0.i2.pn.i = phi i64 [ %.sroa.0.0.i2.i, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ 1, %43 ], [ 1, %28 ]
+  %.pn4.i = phi ptr [ %49, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ %42, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ %45, %43 ], [ %0, %28 ]
   store i64 %.sroa.0.0.i2.pn.i, ptr %4, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.pn4.i, ptr %50, align 8
@@ -7801,7 +7801,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.e
   br label %19
 
 19:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit12, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
-  %.sroa.0.0.in = phi i1 [ %18, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit12 ], [ %15, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit ]
+  %.sroa.0.0.in = phi i1 [ %15, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit ], [ %18, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -10496,7 +10496,7 @@ define void @_ZN21uv_distribution_types4Dist8from_url17hbcdfd133288d3c00E(ptr de
   unreachable
 
 common.resume:                                    ; preds = %85, %56, %74, %67
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %75, %74 ], [ %57, %56 ], [ %86, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %57, %56 ], [ %75, %74 ], [ %86, %85 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr61drop_in_place$LT$uv_pypi_types..parsed_url..ParsedPathUrl$GT$17h96d87bc47833300cE.exit": ; preds = %.noexc.i, %62
@@ -10773,7 +10773,7 @@ _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.ex
   br label %_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit
 
 _ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit: ; preds = %19, %17, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i, %21
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %21 ], [ %16, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ], [ %18, %17 ], [ %20, %19 ]
   ret ptr %.sroa.0.0
 }
 
@@ -10923,7 +10923,7 @@ _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.ex
   br label %19
 
 19:                                               ; preds = %17, %15, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit
-  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %14, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ]
+  %.sroa.0.0 = phi ptr [ %14, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ], [ %16, %15 ], [ %18, %17 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11013,8 +11013,8 @@ define { ptr, i64 } @_ZN21uv_distribution_types10SourceDist7as_path17hdc6dc9e556
   br label %16
 
 16:                                               ; preds = %1, %11, %6
-  %.sroa.4.0 = phi i64 [ %15, %11 ], [ %10, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %13, %11 ], [ %8, %6 ], [ null, %1 ]
+  %.sroa.4.0 = phi i64 [ %10, %6 ], [ %15, %11 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %6 ], [ %13, %11 ], [ null, %1 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %18
@@ -11558,7 +11558,7 @@ default.unreachable:                              ; preds = %1
   br label %19
 
 19:                                               ; preds = %17, %15, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit"
-  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ %14, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit" ]
+  %.sroa.0.0 = phi ptr [ %14, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit" ], [ %16, %15 ], [ %18, %17 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11621,7 +11621,7 @@ switch.lookup:                                    ; preds = %1
   br label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
 
 "_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit": ; preds = %19, %17, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i", %switch.lookup
-  %.sroa.0.0 = phi ptr [ %26, %switch.lookup ], [ %20, %19 ], [ %18, %17 ], [ %16, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %26, %switch.lookup ], [ %16, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i" ], [ %18, %17 ], [ %20, %19 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11754,8 +11754,8 @@ default.unreachable:                              ; preds = %1
   br label %17
 
 17:                                               ; preds = %1, %15, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit"
-  %.pn2 = phi ptr [ %16, %15 ], [ %14, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ %0, %1 ]
-  %.sroa.0.0 = phi i64 [ 1, %15 ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ 1, %1 ]
+  %.pn2 = phi ptr [ %14, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ %16, %15 ], [ %0, %1 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ 1, %15 ], [ 1, %1 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.pn2, 1
   ret { i64, ptr } %19
@@ -11818,8 +11818,8 @@ switch.lookup:                                    ; preds = %1
   br label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
 
 "_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit": ; preds = %17, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %4, %switch.lookup
-  %.sroa.0.0.i2.pn = phi i64 [ %switch.load7, %switch.lookup ], [ 1, %17 ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %4 ]
-  %.pn4 = phi ptr [ %24, %switch.lookup ], [ %18, %17 ], [ %16, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %0, %4 ]
+  %.sroa.0.0.i2.pn = phi i64 [ %switch.load7, %switch.lookup ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %17 ], [ 1, %4 ]
+  %.pn4 = phi ptr [ %24, %switch.lookup ], [ %16, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %18, %17 ], [ %0, %4 ]
   %.pn3 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i2.pn, 0
   %.pn = insertvalue { i64, ptr } %.pn3, ptr %.pn4, 1
   ret { i64, ptr } %.pn
@@ -12375,7 +12375,7 @@ define { i64, i64 } @"_ZN97_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_
   br label %27
 
 27:                                               ; preds = %24, %21, %18, %15, %7
-  %.pn = phi { i64, i64 } [ { i64 0, i64 undef }, %24 ], [ { i64 0, i64 undef }, %21 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %15 ], [ %14, %7 ]
+  %.pn = phi { i64, i64 } [ %14, %7 ], [ { i64 0, i64 undef }, %15 ], [ { i64 0, i64 undef }, %18 ], [ { i64 0, i64 undef }, %21 ], [ { i64 0, i64 undef }, %24 ]
   ret { i64, i64 } %.pn
 }
 
@@ -12497,7 +12497,7 @@ default.unreachable:                              ; preds = %1
   br label %26
 
 26:                                               ; preds = %24, %21, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit"
-  %.pn = phi { i64, i64 } [ { i64 0, i64 undef }, %24 ], [ { i64 0, i64 undef }, %21 ], [ %20, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit" ]
+  %.pn = phi { i64, i64 } [ %20, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit" ], [ { i64 0, i64 undef }, %21 ], [ { i64 0, i64 undef }, %24 ]
   ret { i64, i64 } %.pn
 }
 
@@ -12625,7 +12625,7 @@ default.unreachable:                              ; preds = %4
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
 "_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit": ; preds = %52, %49, %46, %43, %35, %26, %23, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i"
-  %.pn = phi { i64, i64 } [ { i64 0, i64 undef }, %26 ], [ { i64 0, i64 undef }, %23 ], [ %22, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i" ], [ { i64 0, i64 undef }, %52 ], [ { i64 0, i64 undef }, %49 ], [ { i64 0, i64 undef }, %46 ], [ { i64 0, i64 undef }, %43 ], [ %42, %35 ]
+  %.pn = phi { i64, i64 } [ %22, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i" ], [ { i64 0, i64 undef }, %23 ], [ { i64 0, i64 undef }, %26 ], [ %42, %35 ], [ { i64 0, i64 undef }, %43 ], [ { i64 0, i64 undef }, %46 ], [ { i64 0, i64 undef }, %49 ], [ { i64 0, i64 undef }, %52 ]
   ret { i64, i64 } %.pn
 }
 
@@ -13714,7 +13714,7 @@ default.unreachable1:                             ; preds = %4, %2
   br label %"_ZN86_$LT$uv_distribution_types..index_url..IndexUrlError$u20$as$u20$core..fmt..Display$GT$3fmt17h14258440ebd77326E.exit"
 
 "_ZN86_$LT$uv_distribution_types..index_url..IndexUrlError$u20$as$u20$core..fmt..Display$GT$3fmt17h14258440ebd77326E.exit": ; preds = %15, %12, %9, %20, %17
-  %.sroa.0.0.in = phi i1 [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %19, %17 ], [ %21, %20 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -13999,7 +13999,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.e
   br label %30
 
 30:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit20, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit, %12
-  %.sroa.0.0.in = phi i1 [ %29, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit20 ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %13, %12 ], [ %21, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit ], [ %29, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit20 ]
   ret i1 %.sroa.0.0.in
 }
 

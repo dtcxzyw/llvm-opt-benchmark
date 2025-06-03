@@ -7196,7 +7196,7 @@ is_a_normal_node_of.exit.thread.i11:              ; preds = %is_a_normal_node_of
   br label %inside_cluster.exit
 
 inside_cluster.exit:                              ; preds = %76, %74, %is_a_normal_node_of.exit.i17, %40, %27, %23, %is_a_normal_node_of.exit.thread.i, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %is_a_normal_node_of.exit.thread.i ], [ false, %23 ], [ false, %27 ], [ false, %40 ], [ true, %is_a_normal_node_of.exit.i17 ], [ true, %74 ], [ false, %76 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %is_a_normal_node_of.exit.thread.i ], [ false, %23 ], [ false, %27 ], [ false, %40 ], [ true, %is_a_normal_node_of.exit.i17 ], [ false, %76 ], [ true, %74 ]
   ret i1 %.0
 }
 

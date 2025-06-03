@@ -21619,9 +21619,9 @@ _ZNSt12__shared_ptrIN4llvm3sys2fs6detail12DirIterStateELN9__gnu_cxx12_Lock_polic
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %21, %24, %26, %28, %33, %37
-  %41 = phi i1 [ %40, %37 ], [ %3, %33 ], [ %3, %28 ], [ %3, %24 ], [ %3, %26 ], [ %3, %21 ]
-  %.sroa.3.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %28 ], [ 0, %24 ], [ %27, %26 ], [ 0, %21 ]
-  %.sroa.0.0.i = phi ptr [ %38, %37 ], [ %34, %33 ], [ %30, %28 ], [ null, %24 ], [ %25, %26 ], [ null, %21 ]
+  %41 = phi i1 [ %40, %37 ], [ %3, %28 ], [ %3, %33 ], [ %3, %24 ], [ %3, %26 ], [ %3, %21 ]
+  %.sroa.3.0.i = phi i64 [ %39, %37 ], [ %32, %28 ], [ %36, %33 ], [ 0, %24 ], [ %27, %26 ], [ 0, %21 ]
+  %.sroa.0.0.i = phi ptr [ %38, %37 ], [ %30, %28 ], [ %34, %33 ], [ null, %24 ], [ %25, %26 ], [ null, %21 ]
   %42 = call { i32, ptr } @_ZN4llvm3sys2fs6detail28directory_iterator_constructERNS2_12DirIterStateENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 noundef zeroext %41) #31
   %43 = extractvalue { i32, ptr } %42, 0
   %44 = extractvalue { i32, ptr } %42, 1
@@ -31081,7 +31081,7 @@ _ZN4llvm3vfs6detail16NamedNodeOrErrorD2Ev.exit:   ; preds = %94, %97, %101
   br label %102
 
 102:                                              ; preds = %_ZN4llvm3vfs6detail16NamedNodeOrErrorD2Ev.exit, %52, %51, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit
-  %.0 = phi i32 [ 9, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit ], [ %.1, %_ZN4llvm3vfs6detail16NamedNodeOrErrorD2Ev.exit ], [ 3, %52 ], [ 2, %51 ]
+  %.0 = phi i32 [ 9, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit ], [ 2, %51 ], [ 3, %52 ], [ %.1, %_ZN4llvm3vfs6detail16NamedNodeOrErrorD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #31
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
   %103 = load ptr, ptr %3, align 8, !tbaa !46, !noalias !821

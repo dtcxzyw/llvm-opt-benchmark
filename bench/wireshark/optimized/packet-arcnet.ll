@@ -434,7 +434,7 @@ define internal fastcc zeroext i1 @capture_arcnet_common(ptr noundef %0, i32 nou
   br label %33
 
 33:                                               ; preds = %8, %15, %6, %31, %28, %24, %12
-  %.0 = phi i1 [ true, %31 ], [ %30, %28 ], [ %27, %24 ], [ %14, %12 ], [ false, %6 ], [ false, %15 ], [ false, %8 ]
+  %.0 = phi i1 [ %14, %12 ], [ %27, %24 ], [ %30, %28 ], [ true, %31 ], [ false, %6 ], [ false, %15 ], [ false, %8 ]
   ret i1 %.0
 }
 

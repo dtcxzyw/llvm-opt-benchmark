@@ -1159,7 +1159,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZN10open_spiel17morpion_
   br label %40
 
 40:                                               ; preds = %.thread7, %25, %17, %10
-  %.0.in = phi i32 [ %39, %.thread7 ], [ %32, %25 ], [ %24, %17 ], [ %16, %10 ]
+  %.0.in = phi i32 [ %16, %10 ], [ %24, %17 ], [ %32, %25 ], [ %39, %.thread7 ]
   %.0 = sext i32 %.0.in to i64
   ret i64 %.0
 }
@@ -1854,7 +1854,7 @@ _ZN10open_spiel17morpion_solitaire4LineC2ERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.
   br label %51
 
 51:                                               ; preds = %.thread7.i, %44, %40, %37
-  %.0.in.i = phi i32 [ %50, %.thread7.i ], [ %47, %44 ], [ %43, %40 ], [ %39, %37 ]
+  %.0.in.i = phi i32 [ %39, %37 ], [ %43, %40 ], [ %47, %44 ], [ %50, %.thread7.i ]
   %.0.i = sext i32 %.0.in.i to i64
   %52 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %16, %52
@@ -3157,7 +3157,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire4LineESaIS2_EE12emplace_backIJNS1_5
   br label %336
 
 336:                                              ; preds = %.thread7.i, %321, %313, %306
-  %.0.in.i = phi i32 [ %335, %.thread7.i ], [ %328, %321 ], [ %320, %313 ], [ %312, %306 ]
+  %.0.in.i = phi i32 [ %312, %306 ], [ %320, %313 ], [ %328, %321 ], [ %335, %.thread7.i ]
   %.0.i = sext i32 %.0.in.i to i64
   %337 = load i64, ptr %59, align 8
   %338 = urem i64 %.0.i, %337

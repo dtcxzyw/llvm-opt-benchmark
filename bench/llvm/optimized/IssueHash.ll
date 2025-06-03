@@ -337,7 +337,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %109, %101
-  %.1.i.i.i.i = phi ptr [ %105, %101 ], [ %110, %109 ]
+  %.1.i.i.i.i = phi ptr [ %110, %109 ], [ %105, %101 ]
   %111 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %111, align 8, !tbaa !8
   store i64 %.sroa.0.0.copyload.i1.i.i.i, ptr %19, align 8, !noalias !29

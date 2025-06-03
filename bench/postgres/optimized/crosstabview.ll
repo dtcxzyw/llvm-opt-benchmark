@@ -296,11 +296,11 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br label %121
 
 121:                                              ; preds = %.split.us, %48, %54, %49, %31, %25, %119, %36, %21, %17
-  %122 = phi ptr [ %6, %17 ], [ %6, %21 ], [ %6, %36 ], [ %6, %48 ], [ %.pre109, %.split.us ], [ %115, %119 ], [ %6, %54 ], [ %6, %49 ], [ %6, %31 ], [ %6, %25 ]
-  %123 = phi ptr [ %11, %17 ], [ %11, %21 ], [ %11, %36 ], [ %11, %48 ], [ %.pre, %.split.us ], [ %113, %119 ], [ %11, %54 ], [ %11, %49 ], [ %11, %31 ], [ %11, %25 ]
-  %.076 = phi i1 [ false, %17 ], [ false, %21 ], [ false, %36 ], [ false, %48 ], [ false, %.split.us ], [ %120, %119 ], [ false, %54 ], [ false, %49 ], [ false, %31 ], [ false, %25 ]
-  %.075 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %48 ], [ null, %.split.us ], [ %109, %119 ], [ null, %54 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
-  %.074 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %48 ], [ null, %.split.us ], [ %112, %119 ], [ null, %54 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
+  %122 = phi ptr [ %6, %17 ], [ %6, %21 ], [ %6, %36 ], [ %.pre109, %.split.us ], [ %115, %119 ], [ %6, %54 ], [ %6, %48 ], [ %6, %49 ], [ %6, %31 ], [ %6, %25 ]
+  %123 = phi ptr [ %11, %17 ], [ %11, %21 ], [ %11, %36 ], [ %.pre, %.split.us ], [ %113, %119 ], [ %11, %54 ], [ %11, %48 ], [ %11, %49 ], [ %11, %31 ], [ %11, %25 ]
+  %.076 = phi i1 [ false, %17 ], [ false, %21 ], [ false, %36 ], [ false, %.split.us ], [ %120, %119 ], [ false, %54 ], [ false, %48 ], [ false, %49 ], [ false, %31 ], [ false, %25 ]
+  %.075 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %.split.us ], [ %109, %119 ], [ null, %54 ], [ null, %48 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
+  %.074 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %.split.us ], [ %112, %119 ], [ null, %54 ], [ null, %48 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]
   call fastcc void @avlFree(ptr noundef %4, ptr noundef %123)
   call fastcc void @avlFree(ptr noundef %5, ptr noundef %122)
   call void @pg_free(ptr noundef %.075) #10

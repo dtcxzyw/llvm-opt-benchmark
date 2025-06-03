@@ -1245,7 +1245,7 @@ _ZN7rocksdb6StatusD2Ev.exit70:                    ; preds = %_ZN7rocksdb6StatusC
   ret void
 
 200:                                              ; preds = %128, %130, %171, %173, %182, %84, %44
-  %.pn32 = phi { ptr, i32 } [ %45, %44 ], [ %85, %84 ], [ %183, %182 ], [ %129, %128 ], [ %174, %173 ], [ %172, %171 ], [ %131, %130 ]
+  %.pn32 = phi { ptr, i32 } [ %45, %44 ], [ %85, %84 ], [ %131, %130 ], [ %129, %128 ], [ %183, %182 ], [ %174, %173 ], [ %172, %171 ]
   %201 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !85
   %.not.i.i71 = icmp eq ptr %202, null

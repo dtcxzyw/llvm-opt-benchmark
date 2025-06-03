@@ -572,9 +572,9 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %78
 
 78:                                               ; preds = %75, %71, %70, %57
-  %.0579 = phi i16 [ 0, %75 ], [ 0, %71 ], [ %63, %70 ], [ 0, %57 ]
-  %.0578 = phi i32 [ 0, %75 ], [ 0, %71 ], [ 0, %70 ], [ %61, %57 ]
-  %.0549 = phi i16 [ 0, %75 ], [ %72, %71 ], [ 0, %70 ], [ 0, %57 ]
+  %.0579 = phi i16 [ 0, %75 ], [ 0, %57 ], [ %63, %70 ], [ 0, %71 ]
+  %.0578 = phi i32 [ 0, %75 ], [ %61, %57 ], [ 0, %70 ], [ 0, %71 ]
+  %.0549 = phi i16 [ 0, %75 ], [ 0, %57 ], [ 0, %70 ], [ %72, %71 ]
   %79 = load i32, ptr @hf_checksum, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %79, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %81 = load i32, ptr @ett_checksum, align 4
@@ -1239,13 +1239,13 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   br label %614
 
 .loopexit759:                                     ; preds = %227, %391, %proto_item_set_generated.exit629, %403, %271, %270
-  %.1580 = phi i16 [ %.0579, %227 ], [ -1, %403 ], [ %.0579, %proto_item_set_generated.exit629 ], [ %.0579, %391 ], [ %.0579, %271 ], [ %.0579, %270 ]
-  %.0568 = phi i32 [ 0, %227 ], [ 0, %403 ], [ %.1569.lcssa, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %271 ], [ 0, %270 ]
-  %.5 = phi i32 [ %.2561, %227 ], [ %.2561, %403 ], [ %.10, %proto_item_set_generated.exit629 ], [ %.10, %391 ], [ %.2561, %271 ], [ %.3562.lcssa, %270 ]
-  %.0558 = phi ptr [ null, %227 ], [ null, %403 ], [ %281, %proto_item_set_generated.exit629 ], [ %281, %391 ], [ null, %271 ], [ null, %270 ]
-  %.0553 = phi i32 [ 0, %227 ], [ 0, %403 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ %274, %271 ], [ 0, %270 ]
-  %.0548 = phi i32 [ 0, %227 ], [ 0, %403 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %271 ], [ %237, %270 ]
-  %.2 = phi i32 [ %.0, %227 ], [ %.0, %403 ], [ %.3.lcssa, %proto_item_set_generated.exit629 ], [ %.3.lcssa, %391 ], [ %.0, %271 ], [ %.0, %270 ]
+  %.1580 = phi i16 [ %.0579, %227 ], [ %.0579, %270 ], [ %.0579, %271 ], [ %.0579, %proto_item_set_generated.exit629 ], [ %.0579, %391 ], [ -1, %403 ]
+  %.0568 = phi i32 [ 0, %227 ], [ 0, %270 ], [ 0, %271 ], [ %.1569.lcssa, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %403 ]
+  %.5 = phi i32 [ %.2561, %227 ], [ %.3562.lcssa, %270 ], [ %.2561, %271 ], [ %.10, %proto_item_set_generated.exit629 ], [ %.10, %391 ], [ %.2561, %403 ]
+  %.0558 = phi ptr [ null, %227 ], [ null, %270 ], [ null, %271 ], [ %281, %proto_item_set_generated.exit629 ], [ %281, %391 ], [ null, %403 ]
+  %.0553 = phi i32 [ 0, %227 ], [ 0, %270 ], [ %274, %271 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %403 ]
+  %.0548 = phi i32 [ 0, %227 ], [ %237, %270 ], [ 0, %271 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %403 ]
+  %.2 = phi i32 [ %.0, %227 ], [ %.0, %270 ], [ %.0, %271 ], [ %.3.lcssa, %proto_item_set_generated.exit629 ], [ %.3.lcssa, %391 ], [ %.0, %403 ]
   %416 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8, !noundef !9
   %417 = trunc nuw i8 %416 to i1
   %418 = icmp samesign ult i8 %13, 4

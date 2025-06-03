@@ -414,7 +414,7 @@ proto_item_set_generated.exit.i:                  ; preds = %43, %40, %get_messa
   br label %dissect_bt_tracker_extension.exit.i
 
 120:                                              ; preds = %108, %100
-  %.1.i.i = phi i32 [ %116, %108 ], [ %.pre-phi.i.i, %100 ]
+  %.1.i.i = phi i32 [ %.pre-phi.i.i, %100 ], [ %116, %108 ]
   %121 = call i32 @tvb_reported_length(ptr noundef %0)
   %122 = icmp slt i32 %.1.i.i, %121
   br i1 %122, label %.lr.ph.i.i, label %dissect_bt_tracker_extension.exit.i, !llvm.loop !6
@@ -610,7 +610,7 @@ default.unreachable:                              ; preds = %proto_item_set_gene
   unreachable
 
 dissect_bt_tracker_msg.exit:                      ; preds = %.lr.ph.i, %.lr.ph221.i, %proto_item_set_generated.exit.i, %47, %54, %dissect_bt_tracker_extension.exit.i, %123, %._crit_edge.i, %193, %207, %225
-  %.0.i11 = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %232, %225 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ 16, %54 ], [ 16, %47 ], [ 16, %193 ], [ 8, %207 ], [ %204, %.lr.ph221.i ], [ %222, %.lr.ph.i ]
+  %.0.i11 = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ 16, %47 ], [ 16, %54 ], [ %.034.i.i, %dissect_bt_tracker_extension.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ], [ 20, %123 ], [ %232, %225 ], [ 16, %193 ], [ 8, %207 ], [ %204, %.lr.ph221.i ], [ %222, %.lr.ph.i ]
   ret i32 %.0.i11
 }
 

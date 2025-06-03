@@ -3255,7 +3255,7 @@ multiview_setup.exit.thread:                      ; preds = %22
   br i1 %exitcond219.not.i, label %select.unfold178.i, label %154, !llvm.loop !275
 
 select.unfold178.i:                               ; preds = %154, %146, %.thread172.i, %.thread174.i, %.thread166.i, %.thread168.i, %103, %99, %83
-  %.3.ph.i = phi i32 [ %136, %.thread174.i ], [ %120, %.thread168.i ], [ %105, %103 ], [ %.0107207.i, %83 ], [ %.0107207.i, %.thread172.i ], [ %.0107207.i, %.thread166.i ], [ %.0107207.i, %99 ], [ %149, %146 ], [ %149, %154 ]
+  %.3.ph.i = phi i32 [ %136, %.thread174.i ], [ %120, %.thread168.i ], [ %105, %103 ], [ %.0107207.i, %83 ], [ %.0107207.i, %.thread166.i ], [ %.0107207.i, %.thread172.i ], [ %.0107207.i, %99 ], [ %149, %146 ], [ %149, %154 ]
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %158 = load i32, ptr %11, align 8, !tbaa !29
   %159 = sext i32 %158 to i64

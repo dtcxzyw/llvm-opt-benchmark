@@ -3851,7 +3851,7 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   br label %virtio_queue_packed_empty_rcu.exit.thread.i
 
 virtio_queue_packed_empty_rcu.exit.thread.i:      ; preds = %.loopexit.i, %227, %106, %97, %84, %77, %71, %virtio_queue_packed_empty_rcu.exit.i, %38, %rcu_read_auto_lock.exit.i
-  %.079.i = phi ptr [ null, %virtio_queue_packed_empty_rcu.exit.i ], [ null, %71 ], [ null, %84 ], [ null, %97 ], [ null, %106 ], [ null, %.loopexit.i ], [ %169, %227 ], [ null, %77 ], [ null, %rcu_read_auto_lock.exit.i ], [ null, %38 ]
+  %.079.i = phi ptr [ null, %virtio_queue_packed_empty_rcu.exit.i ], [ null, %71 ], [ null, %84 ], [ null, %97 ], [ null, %106 ], [ %169, %227 ], [ null, %.loopexit.i ], [ null, %77 ], [ null, %rcu_read_auto_lock.exit.i ], [ null, %38 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %9) #24
   %238 = call ptr @get_ptr_rcu_reader() #24
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 12
@@ -9585,7 +9585,7 @@ virtqueue_split_read_next_desc.exit.thread:       ; preds = %virtqueue_split_rea
   br label %236
 
 236:                                              ; preds = %121, %virtqueue_split_read_next_desc.exit.thread
-  %.1135 = phi ptr [ null, %121 ], [ %123, %virtqueue_split_read_next_desc.exit.thread ]
+  %.1135 = phi ptr [ %123, %virtqueue_split_read_next_desc.exit.thread ], [ null, %121 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %6) #24
   br label %237
 

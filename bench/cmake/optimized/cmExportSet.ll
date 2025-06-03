@@ -983,7 +983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i: ; preds = %
   br label %242
 
 242:                                              ; preds = %240, %._crit_edge.i.i.i.i
-  %.sroa.039.1.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %241, %240 ]
+  %.sroa.039.1.i.i.i.i = phi ptr [ %241, %240 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %243 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN11cmExportSet7ComputeEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %.sroa.0117.0155, ptr nonnull %1, ptr %.sroa.039.1.i.i.i.i)
           to label %.noexc24 unwind label %.loopexit.split-lp
 
@@ -995,7 +995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i: ; preds = %
   br label %246
 
 246:                                              ; preds = %244, %._crit_edge.i.i.i.i
-  %.sroa.039.2.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %245, %244 ]
+  %.sroa.039.2.i.i.i.i = phi ptr [ %245, %244 ], [ %.sroa.039.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %247 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN11cmExportSet7ComputeEP16cmLocalGeneratorE3$_0EclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISE_SaISE_EEEEEEbT_"(ptr nonnull readonly %.sroa.0117.0155, ptr nonnull %1, ptr %.sroa.039.2.i.i.i.i)
           to label %.noexc25 unwind label %.loopexit.split-lp
 

@@ -1165,7 +1165,7 @@ ehcleanup81:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %cleanup, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit31, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit
-  %retval.0 = phi double [ %retval.1, %cleanup ], [ %call13, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit31 ], [ %call2, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit ]
+  %retval.0 = phi double [ %call2, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit ], [ %call13, %_ZNK5boost10shared_ptrIN8QuantLib18ZeroInflationIndexEEptEv.exit31 ], [ %retval.1, %cleanup ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont71

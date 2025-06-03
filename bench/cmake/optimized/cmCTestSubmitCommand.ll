@@ -4500,7 +4500,7 @@ define dso_local void @_ZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHan
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
-  %.sroa.039.1.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
+  %.sroa.039.1.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val17.val.i.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !29
   %42 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISH_SaISH_EEEEEEbT_"(ptr %.val17.val.i.i.i.i.i, ptr nonnull %4, ptr %.sroa.039.1.i.i.i.i.i)
@@ -4511,7 +4511,7 @@ define dso_local void @_ZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHan
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i.i.i
-  %.sroa.039.2.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %44, %43 ]
+  %.sroa.039.2.i.i.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.039.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.val.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !29
   %47 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISH_SaISH_EEEEEEbT_"(ptr %.val.val.i.i.i.i.i, ptr nonnull %4, ptr %.sroa.039.2.i.i.i.i.i)
@@ -4724,7 +4724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i: ; preds
   br label %136
 
 136:                                              ; preds = %134, %._crit_edge.i.i.i.i.i10
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i10 ], [ %135, %134 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %135, %134 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i10 ]
   %137 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %4, ptr %.sroa.032.1.i.i.i.i.i)
   br i1 %137, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_1EEET_SN_SN_T0_.exit.i.i.i", label %138
 
@@ -4733,7 +4733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i: ; preds
   br label %140
 
 140:                                              ; preds = %138, %._crit_edge.i.i.i.i.i10
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i10 ], [ %139, %138 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %139, %138 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i10 ]
   %141 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_1EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISH_SaISH_EEEEEEbT_"(ptr nonnull %4, ptr %.sroa.032.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i11 = select i1 %141, ptr %.sroa.032.2.i.i.i.i.i, ptr %111
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNK20cmCTestSubmitCommand14CheckArgumentsERN21cmCTestHandlerCommand16HandlerArgumentsER17cmExecutionStatusE3$_1EEET_SN_SN_T0_.exit.i.i.i"

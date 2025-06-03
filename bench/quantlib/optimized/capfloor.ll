@@ -11858,7 +11858,7 @@ terminate.lpad.i.i.i201.i:                        ; preds = %if.then.i.i.i.i.i20
   unreachable
 
 ehcleanup101.i:                                   ; preds = %lpad86.i, %ehcleanup84.i, %ehcleanup45.i, %ehcleanup21.i
-  %.pn6.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn6.pn.pn.pn.pn.i, %ehcleanup84.i ], [ %155, %lpad86.i ], [ %.pn.pn.i, %ehcleanup45.i ], [ %.pn3.pn.i, %ehcleanup21.i ]
+  %.pn6.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn6.pn.pn.pn.pn.i, %ehcleanup84.i ], [ %155, %lpad86.i ], [ %.pn3.pn.i, %ehcleanup21.i ], [ %.pn.pn.i, %ehcleanup45.i ]
   call void @_ZN8QuantLib6HandleINS_5QuoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %h.i) #29
   br label %ehcleanup102.i
 
@@ -15134,7 +15134,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb1, %sw.bb
-  %retval.0 = phi ptr [ %call4, %sw.default ], [ %out, %sw.bb1 ], [ %out, %sw.bb ]
+  %retval.0 = phi ptr [ %call4, %sw.default ], [ %out, %sw.bb ], [ %out, %sw.bb1 ]
   ret ptr %retval.0
 }
 

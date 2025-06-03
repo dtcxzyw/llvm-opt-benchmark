@@ -71,8 +71,8 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePat
   br label %16
 
 16:                                               ; preds = %13, %15, %14
-  %.sroa.5.0 = phi i32 [ 2, %15 ], [ 4, %14 ], [ 0, %13 ]
-  %.sroa.0.0 = phi ptr [ @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors, %15 ], [ @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, %14 ], [ null, %13 ]
+  %.sroa.5.0 = phi i32 [ 4, %14 ], [ 2, %15 ], [ 0, %13 ]
+  %.sroa.0.0 = phi ptr [ @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE19_catmarkDescriptors, %14 ], [ @_ZZN10OpenSubdiv6v3_6_03Far15PatchDescriptor27GetAdaptivePatchDescriptorsENS0_3Sdc10SchemeTypeEE16_loopDescriptors, %15 ], [ null, %13 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { ptr, i32 } %.fca.1.insert

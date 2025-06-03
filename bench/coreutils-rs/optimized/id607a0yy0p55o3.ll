@@ -226,7 +226,7 @@ switch.lookup:                                    ; preds = %2
   br label %52
 
 52:                                               ; preds = %switch.lookup, %46, %34
-  %.0.in = phi i1 [ %51, %46 ], [ %45, %34 ], [ %33, %switch.lookup ]
+  %.0.in = phi i1 [ %33, %switch.lookup ], [ %45, %34 ], [ %51, %46 ]
   ret i1 %.0.in
 }
 

@@ -305,7 +305,7 @@ default.unreachable28:                            ; preds = %4
   unreachable
 
 101:                                              ; preds = %102, %.body
-  %.pn = phi { ptr, i32 } [ %103, %102 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %103, %102 ]
   resume { ptr, i32 } %.pn
 
 102:                                              ; preds = %39
@@ -494,7 +494,7 @@ default.unreachable69:                            ; preds = %4
   unreachable
 
 76:                                               ; preds = %80, %.body, %60
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %68, %.body ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %68, %.body ], [ %61, %60 ], [ %81, %80 ]
   resume { ptr, i32 } %.pn
 
 77:                                               ; preds = %29
@@ -795,7 +795,7 @@ default.unreachable2:                             ; preds = %2
   unreachable
 
 76:                                               ; preds = %77, %67
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %68, %67 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %78, %77 ]
   resume { ptr, i32 } %.pn
 
 77:                                               ; preds = %47
@@ -926,7 +926,7 @@ default.unreachable2:                             ; preds = %2
   unreachable
 
 53:                                               ; preds = %54, %43
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %39

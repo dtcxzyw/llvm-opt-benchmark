@@ -82,7 +82,7 @@ get_exception_class.exit.thread:                  ; preds = %2
   br label %get_exception_class.exit
 
 get_exception_class.exit:                         ; preds = %5, %8, %10, %13, %16, %18, %21, %24
-  %.0.i = phi ptr [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %8 ], [ %7, %5 ]
+  %.0.i = phi ptr [ %26, %24 ], [ %7, %5 ], [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %20, %18 ], [ %23, %21 ]
   %27 = icmp eq ptr %.0.i, null
   br i1 %27, label %77, label %28
 

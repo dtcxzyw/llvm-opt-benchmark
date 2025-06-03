@@ -2312,13 +2312,13 @@ define hidden { ptr, ptr } @_ZN12object_store11ObjectStore20rename_if_not_exists
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u7b$$u7b$closure$u7d$$u7d$17hb9bd38b4e904377aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !133, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -2326,7 +2326,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -2335,10 +2335,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -2367,9 +2367,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc672d97ed0207ea221762d5508d22ce.16) #25
@@ -2440,7 +2440,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -2473,8 +2473,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5a54450651e60639E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -2487,13 +2487,13 @@ common.ret:                                       ; preds = %61, %34, %8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u7b$$u7b$closure$u7d$$u7d$17hd5db545f6e6257e2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !133, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -2501,7 +2501,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -2510,10 +2510,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -2542,9 +2542,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc672d97ed0207ea221762d5508d22ce.16) #25
@@ -2615,7 +2615,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -2648,8 +2648,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5a54450651e60639E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -3988,13 +3988,13 @@ define hidden { ptr, ptr } @_ZN12object_store11ObjectStore6rename17he783f945f4a1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure$u7d$$u7d$17h11fdff45b3cebd86E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !133, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -4002,7 +4002,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -4011,10 +4011,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -4043,9 +4043,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc672d97ed0207ea221762d5508d22ce.30) #25
@@ -4116,7 +4116,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -4149,8 +4149,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5a54450651e60639E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -4163,13 +4163,13 @@ common.ret:                                       ; preds = %61, %34, %8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure$u7d$$u7d$17ha739c4c5a3f64a41E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.314 = alloca [64 x i8], align 8
+  %.sroa.313 = alloca [64 x i8], align 8
   %4 = alloca [72 x i8], align 8
   %.sroa.3 = alloca [64 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !133, !noundef !4
-  switch i8 %7, label %default.unreachable18 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %9
     i8 1, label %25
     i8 2, label %26
@@ -4177,7 +4177,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
     i8 4, label %54
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %61, %34, %8
@@ -4186,10 +4186,10 @@ common.ret:                                       ; preds = %61, %34, %8
   ret void
 
 8:                                                ; preds = %62, %51
-  %.sroa.012.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
-  store i64 %.sroa.012.0, ptr %0, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, i64 64, i1 false)
+  %.sroa.011.0 = phi i64 [ %59, %62 ], [ %32, %51 ]
+  store i64 %.sroa.011.0, ptr %0, align 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, i64 64, i1 false)
   br label %common.ret
 
 9:                                                ; preds = %3
@@ -4218,9 +4218,9 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %27
 
 24:                                               ; preds = %17, %36, %29, %45, %63, %56
-  %.pn6 = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
+  %.pn4.pn = phi { ptr, i32 } [ %64, %63 ], [ %57, %56 ], [ %46, %45 ], [ %37, %36 ], [ %30, %29 ], [ %18, %17 ]
   store i8 2, ptr %6, align 8
-  resume { ptr, i32 } %.pn6
+  resume { ptr, i32 } %.pn4.pn
 
 25:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h08c8f0c246829482E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dc672d97ed0207ea221762d5508d22ce.30) #25
@@ -4291,7 +4291,7 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %54
 
 51:                                               ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3, i64 64, i1 false)
   br label %8
 
 52:                                               ; preds = %56, %29
@@ -4324,8 +4324,8 @@ common.ret:                                       ; preds = %61, %34, %8
   br label %common.ret
 
 62:                                               ; preds = %58
-  %.sroa.314.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.314.0..sroa_idx15, i64 64, i1 false)
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.313.0..sroa_idx14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   invoke void @"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h5a54450651e60639E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %55)
           to label %8 unwind label %63
@@ -5097,9 +5097,9 @@ default.unreachable63:                            ; preds = %193, %54, %3
   br label %153
 
 63:                                               ; preds = %.body.i, %145, %69
-  %64 = phi ptr [ %70, %69 ], [ %146, %145 ], [ %58, %.body.i ]
-  %65 = phi ptr [ %71, %69 ], [ %147, %145 ], [ %59, %.body.i ]
-  %.pn4.i = phi { ptr, i32 } [ %72, %69 ], [ %.pn2.i, %145 ], [ %eh.lpad-body.i, %.body.i ]
+  %64 = phi ptr [ %58, %.body.i ], [ %70, %69 ], [ %146, %145 ]
+  %65 = phi ptr [ %59, %.body.i ], [ %71, %69 ], [ %147, %145 ]
+  %.pn4.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %72, %69 ], [ %.pn2.i, %145 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 481
   %67 = load i8, ptr %66, align 1, !range !156, !noalias !214, !noundef !4
   %68 = trunc nuw i8 %67 to i1
@@ -5523,10 +5523,10 @@ default.unreachable63:                            ; preds = %193, %54, %3
   br label %.body
 
 177:                                              ; preds = %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i", %167, %169
-  %178 = phi ptr [ %154, %169 ], [ %154, %167 ], [ %58, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ]
-  %179 = phi ptr [ %155, %169 ], [ %155, %167 ], [ %59, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ]
-  %.sroa.6.i.sroa.0.0 = phi ptr [ %.sroa.3.i.sroa.0.0.copyload, %169 ], [ %.sroa.3.i.sroa.0.0.copyload, %167 ], [ %.sroa.6.i.sroa.0.2, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ]
-  %.sroa.010.1.i = phi i64 [ -9223372036854775799, %169 ], [ %160, %167 ], [ %.sroa.010.2.i, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ]
+  %178 = phi ptr [ %58, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ], [ %154, %169 ], [ %154, %167 ]
+  %179 = phi ptr [ %59, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ], [ %155, %169 ], [ %155, %167 ]
+  %.sroa.6.i.sroa.0.0 = phi ptr [ %.sroa.6.i.sroa.0.2, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ], [ %.sroa.3.i.sroa.0.0.copyload, %169 ], [ %.sroa.3.i.sroa.0.0.copyload, %167 ]
+  %.sroa.010.1.i = phi i64 [ %.sroa.010.2.i, %"_ZN12object_store9GetResult5bytes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h302c0c73d25ae766E.exit.i" ], [ -9223372036854775799, %169 ], [ %160, %167 ]
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 481
   store i8 0, ptr %180, align 1, !noalias !214
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !214
@@ -5740,9 +5740,9 @@ common.ret:                                       ; preds = %475, %460, %182
           to label %462 unwind label %424, !noalias !243
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i": ; preds = %419, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i", %342, %252, %220
-  %244 = phi ptr [ %249, %342 ], [ %217, %220 ], [ %249, %252 ], [ %347, %419 ], [ %397, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
-  %245 = phi ptr [ %250, %342 ], [ %218, %220 ], [ %250, %252 ], [ %348, %419 ], [ %398, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
-  %.pn23.pn.i = phi { ptr, i32 } [ %343, %342 ], [ %221, %220 ], [ %253, %252 ], [ %420, %419 ], [ %.pn21.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
+  %244 = phi ptr [ %217, %220 ], [ %249, %342 ], [ %249, %252 ], [ %347, %419 ], [ %397, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
+  %245 = phi ptr [ %218, %220 ], [ %250, %342 ], [ %250, %252 ], [ %348, %419 ], [ %398, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
+  %.pn27.pn.i = phi { ptr, i32 } [ %221, %220 ], [ %343, %342 ], [ %253, %252 ], [ %420, %419 ], [ %.pn21.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit43.i" ]
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 489
   store i8 0, ptr %246, align 1, !noalias !239
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -6152,7 +6152,7 @@ common.ret:                                       ; preds = %475, %460, %182
 421:                                              ; preds = %424, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i"
   %422 = phi ptr [ %425, %424 ], [ %244, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i" ]
   %423 = phi ptr [ %426, %424 ], [ %245, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i" ]
-  %.pn30.i = phi { ptr, i32 } [ %427, %424 ], [ %.pn23.pn.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i" ]
+  %.pn30.i = phi { ptr, i32 } [ %427, %424 ], [ %.pn27.pn.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit.i" ]
   store i8 2, ptr %422, align 8, !noalias !239
   br label %.body23
 
@@ -6236,7 +6236,7 @@ common.ret:                                       ; preds = %475, %460, %182
           cleanup
   br label %.body23
 
-460:                                              ; preds = %355, %266, %225
+460:                                              ; preds = %225, %266, %355
   %461 = phi ptr [ %217, %225 ], [ %249, %266 ], [ %347, %355 ]
   %.sink.i.ph = phi i8 [ 3, %225 ], [ 4, %266 ], [ 5, %355 ]
   store i8 %.sink.i.ph, ptr %461, align 8, !noalias !239
@@ -15660,7 +15660,7 @@ default.unreachable1:                             ; preds = %4
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
-  %.sroa.0.0 = phi i64 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i64 %.sroa.0.0
 }
 
@@ -21035,7 +21035,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
           to label %77 unwind label %75
 
 74:                                               ; preds = %448, %422, %396, %370, %344, %317, %290, %263, %237, %210, %184, %158, %132, %103, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %449, %448 ], [ %423, %422 ], [ %397, %396 ], [ %371, %370 ], [ %345, %344 ], [ %318, %317 ], [ %291, %290 ], [ %264, %263 ], [ %238, %237 ], [ %211, %210 ], [ %185, %184 ], [ %159, %158 ], [ %133, %132 ], [ %104, %103 ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %104, %103 ], [ %133, %132 ], [ %159, %158 ], [ %185, %184 ], [ %211, %210 ], [ %238, %237 ], [ %264, %263 ], [ %291, %290 ], [ %318, %317 ], [ %345, %344 ], [ %371, %370 ], [ %397, %396 ], [ %423, %422 ], [ %449, %448 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17h60162632c92570b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #26
           to label %489 unwind label %129
 
@@ -21259,7 +21259,7 @@ default.unreachable1220:                          ; preds = %82
   br label %127
 
 127:                                              ; preds = %470, %444, %418, %392, %366, %340, %313, %286, %259, %233, %206, %180, %154, %125
-  %.sroa.0446.0 = phi i64 [ %471, %470 ], [ %445, %444 ], [ %419, %418 ], [ %393, %392 ], [ %367, %366 ], [ %341, %340 ], [ %314, %313 ], [ %287, %286 ], [ %260, %259 ], [ %234, %233 ], [ %207, %206 ], [ %181, %180 ], [ %155, %154 ], [ %126, %125 ]
+  %.sroa.0446.0 = phi i64 [ %126, %125 ], [ %155, %154 ], [ %181, %180 ], [ %207, %206 ], [ %234, %233 ], [ %260, %259 ], [ %287, %286 ], [ %314, %313 ], [ %341, %340 ], [ %367, %366 ], [ %393, %392 ], [ %419, %418 ], [ %445, %444 ], [ %471, %470 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17h3f4dde0b2d9f2c0aE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
           to label %472 unwind label %75
@@ -38963,7 +38963,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8TimeUnit
           to label %43 unwind label %41
 
 .body:                                            ; preds = %191, %132, %72, %41, %170, %113, %53
-  %.pn = phi { ptr, i32 } [ %171, %170 ], [ %114, %113 ], [ %54, %53 ], [ %42, %41 ], [ %73, %72 ], [ %133, %132 ], [ %192, %191 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %114, %113 ], [ %171, %170 ], [ %42, %41 ], [ %73, %72 ], [ %133, %132 ], [ %192, %191 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17h60162632c92570b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #26
           to label %244 unwind label %110
 
@@ -39206,7 +39206,7 @@ default.unreachable:                              ; preds = %48
   br label %108
 
 108:                                              ; preds = %225, %166, %106
-  %.sroa.0114.0 = phi i64 [ %226, %225 ], [ %167, %166 ], [ %107, %106 ]
+  %.sroa.0114.0 = phi i64 [ %107, %106 ], [ %167, %166 ], [ %226, %225 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$16write_field_stop17h3f4dde0b2d9f2c0aE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %20, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
           to label %227 unwind label %41
@@ -39936,7 +39936,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN87_$LT$object_store..aws..precondition..S3CopyIfNotExists$u20$as$u20$core..fmt..Debug$GT$3fmt17h2da2493f61f83b60E.exit"
 
 "_ZN87_$LT$object_store..aws..precondition..S3CopyIfNotExists$u20$as$u20$core..fmt..Debug$GT$3fmt17h2da2493f61f83b60E.exit": ; preds = %10, %14, %19, %21
-  %.sroa.0.0.in.i = phi i1 [ %22, %21 ], [ %20, %19 ], [ %18, %14 ], [ %13, %10 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %10 ], [ %18, %14 ], [ %20, %19 ], [ %22, %21 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -40387,7 +40387,7 @@ define internal void @"_ZN4core3ptr129drop_in_place$LT$$LT$object_store..http..H
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %6, %1
+common.ret:                                       ; preds = %6, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -40442,7 +40442,7 @@ define internal void @"_ZN4core3ptr135drop_in_place$LT$$LT$object_store..http..H
     i8 3, label %4
   ]
 
-common.ret:                                       ; preds = %6, %4, %1
+common.ret:                                       ; preds = %4, %6, %1
   ret void
 
 4:                                                ; preds = %1
@@ -40537,7 +40537,7 @@ define internal void @"_ZN4core3ptr137drop_in_place$LT$$LT$object_store..gcp..Go
     i8 3, label %6
   ]
 
-common.ret:                                       ; preds = %4, %6, %1
+common.ret:                                       ; preds = %6, %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -40608,7 +40608,7 @@ define internal void @"_ZN4core3ptr143drop_in_place$LT$$LT$object_store..gcp..Go
     i8 3, label %4
   ]
 
-common.ret:                                       ; preds = %6, %4, %1
+common.ret:                                       ; preds = %4, %6, %1
   ret void
 
 4:                                                ; preds = %1
@@ -41173,8 +41173,8 @@ define internal fastcc void @"_ZN4core3ptr312drop_in_place$LT$object_store..util
   ]
 
 common.ret.sink.split:                            ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit"
-  %.sink14 = phi i64 [ 32, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit" ], [ 16, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
+  %.sink15 = phi i64 [ 32, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit" ], [ 16, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   tail call void @"_ZN4core3ptr220drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4dd612446b7c70abE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %common.ret
 
@@ -41201,10 +41201,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf81bee8531265497E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %35 unwind label %23
 
-17:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12"
-  resume { ptr, i32 } %.pn5.pn
+17:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13"
+  resume { ptr, i32 } %.pn7
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit": ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11", %5
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit": ; preds = %1, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12", %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 0, ptr %18, align 1
   br label %common.ret.sink.split
@@ -41212,10 +41212,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 19:                                               ; preds = %5
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13"
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12": ; preds = %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10", %19
-  %.pn5.pn = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %.pn, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10" ]
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13": ; preds = %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11", %19
+  %.pn7 = phi { ptr, i32 } [ %20, %19 ], [ %67, %66 ], [ %.pn, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11" ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 0, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -41239,7 +41239,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = load i64, ptr %33, align 8, !alias.scope !1519, !noundef !4
   invoke void %29(ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %32, i64 noundef %34)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10" unwind label %68
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11" unwind label %68
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -41256,9 +41256,9 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %45 = load i64, ptr %44, align 8, !alias.scope !1526, !noundef !4
   invoke void %40(ptr noalias noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %43, i64 noundef %45)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11" unwind label %55
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12" unwind label %55
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10": ; preds = %23, %55
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11": ; preds = %23, %55
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %24, %23 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1527)
@@ -41272,14 +41272,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8, !alias.scope !1533, !noundef !4
   invoke void %49(ptr noalias noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %52, i64 noundef %54)
-          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12" unwind label %68
+          to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13" unwind label %68
 
 55:                                               ; preds = %35
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11"
 
-"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11": ; preds = %35
+"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12": ; preds = %35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1534)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1537)
@@ -41294,12 +41294,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   invoke void %60(ptr noalias noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %63, i64 noundef %65)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit" unwind label %66
 
-66:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11"
+66:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12"
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12"
+  br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13"
 
-68:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit10", %23, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit12"
+68:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit11", %23, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hbe4529bd999febdeE.exit13"
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #27
@@ -41383,7 +41383,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %common.resume
 
 common.resume:                                    ; preds = %280, %289, %250, %259, %220, %229, %190, %199, %160, %169, %260, %230, %200, %170, %140, %108, %128, %137, %88, %97, %53, %60, %65, %25, %34
-  %common.resume.op = phi { ptr, i32 } [ %26, %34 ], [ %26, %25 ], [ %66, %65 ], [ %61, %60 ], [ %54, %53 ], [ %89, %97 ], [ %89, %88 ], [ %129, %137 ], [ %129, %128 ], [ %261, %260 ], [ %231, %230 ], [ %201, %200 ], [ %171, %170 ], [ %141, %140 ], [ %109, %108 ], [ %161, %169 ], [ %161, %160 ], [ %191, %199 ], [ %191, %190 ], [ %221, %229 ], [ %221, %220 ], [ %251, %259 ], [ %251, %250 ], [ %281, %289 ], [ %281, %280 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %34 ], [ %26, %25 ], [ %66, %65 ], [ %54, %53 ], [ %61, %60 ], [ %89, %97 ], [ %89, %88 ], [ %129, %137 ], [ %129, %128 ], [ %109, %108 ], [ %141, %140 ], [ %171, %170 ], [ %201, %200 ], [ %231, %230 ], [ %261, %260 ], [ %161, %169 ], [ %161, %160 ], [ %191, %199 ], [ %191, %190 ], [ %221, %229 ], [ %221, %220 ], [ %251, %259 ], [ %251, %250 ], [ %281, %289 ], [ %281, %280 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %1
@@ -42029,7 +42029,7 @@ define internal fastcc void @"_ZN4core3ptr516drop_in_place$LT$polars_io..cloud..
     i8 4, label %20
   ]
 
-common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit11"
+common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit12"
   ret void
 
 4:                                                ; preds = %1
@@ -42046,8 +42046,8 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load i8, ptr %10, align 8, !range !27, !noundef !4
-  %cond.i5 = icmp eq i8 %11, 3
-  br i1 %cond.i5, label %12, label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit"
+  %cond.i6 = icmp eq i8 %11, 3
+  br i1 %cond.i6, label %12, label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit"
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -42069,31 +42069,31 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8, !range !27, !noundef !4
-  %cond.i6 = icmp eq i8 %22, 3
-  br i1 %cond.i6, label %23, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit8"
+  %cond.i7 = icmp eq i8 %22, 3
+  br i1 %cond.i7, label %23, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit9"
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit8" unwind label %34
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit9" unwind label %34
 
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit8"
+"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit9"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %28 = load i8, ptr %27, align 1, !range !156, !noundef !4
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %40, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit11"
+  br i1 %29, label %40, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit12"
 
 30:                                               ; preds = %38, %34, %25
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %35, %34 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %32 = load i8, ptr %31, align 1, !range !156, !noundef !4
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %50, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit14"
+  br i1 %33, label %50, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit15"
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -42102,32 +42102,32 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
   invoke void @"_ZN4core3ptr141drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$$GT$17h0ed063c34ec3bc92E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36) #26
           to label %30 unwind label %48
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit8": ; preds = %20, %23
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit9": ; preds = %20, %23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr141drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$$GT$17h0ed063c34ec3bc92E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
           to label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit" unwind label %38
 
-38:                                               ; preds = %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit8"
+38:                                               ; preds = %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit9"
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit11": ; preds = %40, %43, %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit"
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit12": ; preds = %40, %43, %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit"
   store i8 0, ptr %27, align 1
   br label %common.ret
 
 40:                                               ; preds = %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..aws..credential..AwsCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16dd74ec54e4ee12E.exit"
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load i8, ptr %41, align 8, !range !27, !noundef !4
-  %cond.i9 = icmp eq i8 %42, 3
-  br i1 %cond.i9, label %43, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit11"
+  %cond.i10 = icmp eq i8 %42, 3
+  br i1 %cond.i10, label %43, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit12"
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %44)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit11" unwind label %46
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit12" unwind label %46
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit14": ; preds = %50, %53, %46, %30
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit15": ; preds = %50, %53, %46, %30
   %.pn2 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %30 ], [ %.pn, %53 ], [ %.pn, %50 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %45, align 1
@@ -42136,7 +42136,7 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit14"
+  br label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit15"
 
 48:                                               ; preds = %53, %34
   %49 = landingpad { ptr, i32 }
@@ -42147,13 +42147,13 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 50:                                               ; preds = %30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %52 = load i8, ptr %51, align 8, !range !27, !noundef !4
-  %cond.i12 = icmp eq i8 %52, 3
-  br i1 %cond.i12, label %53, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit14"
+  %cond.i13 = icmp eq i8 %52, 3
+  br i1 %cond.i13, label %53, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit15"
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %54)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit14" unwind label %48
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit15" unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42166,7 +42166,7 @@ define internal fastcc void @"_ZN4core3ptr516drop_in_place$LT$polars_io..cloud..
     i8 4, label %20
   ]
 
-common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit11"
+common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit12"
   ret void
 
 4:                                                ; preds = %1
@@ -42183,8 +42183,8 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load i8, ptr %10, align 8, !range !27, !noundef !4
-  %cond.i5 = icmp eq i8 %11, 3
-  br i1 %cond.i5, label %12, label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit"
+  %cond.i6 = icmp eq i8 %11, 3
+  br i1 %cond.i6, label %12, label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit"
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -42206,31 +42206,31 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8, !range !27, !noundef !4
-  %cond.i6 = icmp eq i8 %22, 3
-  br i1 %cond.i6, label %23, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit8"
+  %cond.i7 = icmp eq i8 %22, 3
+  br i1 %cond.i7, label %23, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit9"
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit8" unwind label %34
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit9" unwind label %34
 
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit8"
+"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit9"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %28 = load i8, ptr %27, align 1, !range !156, !noundef !4
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %40, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit11"
+  br i1 %29, label %40, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit12"
 
 30:                                               ; preds = %38, %34, %25
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %35, %34 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %32 = load i8, ptr %31, align 1, !range !156, !noundef !4
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %50, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit14"
+  br i1 %33, label %50, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit15"
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -42239,32 +42239,32 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
   invoke void @"_ZN4core3ptr141drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$$GT$17hb9d2dc5476e712e3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36) #26
           to label %30 unwind label %48
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit8": ; preds = %20, %23
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit9": ; preds = %20, %23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr141drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$$GT$17hb9d2dc5476e712e3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
           to label %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit" unwind label %38
 
-38:                                               ; preds = %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit8"
+38:                                               ; preds = %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit9"
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit11": ; preds = %40, %43, %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit"
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit12": ; preds = %40, %43, %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit"
   store i8 0, ptr %27, align 1
   br label %common.ret
 
 40:                                               ; preds = %"_ZN4core3ptr171drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..gcp..credential..GcpCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17he058bfe6040d66ddE.exit"
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load i8, ptr %41, align 8, !range !27, !noundef !4
-  %cond.i9 = icmp eq i8 %42, 3
-  br i1 %cond.i9, label %43, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit11"
+  %cond.i10 = icmp eq i8 %42, 3
+  br i1 %cond.i10, label %43, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit12"
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %44)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit11" unwind label %46
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit12" unwind label %46
 
-"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit14": ; preds = %50, %53, %46, %30
+"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit15": ; preds = %50, %53, %46, %30
   %.pn2 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %30 ], [ %.pn, %53 ], [ %.pn, %50 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %45, align 1
@@ -42273,7 +42273,7 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit14"
+  br label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit15"
 
 48:                                               ; preds = %53, %34
   %49 = landingpad { ptr, i32 }
@@ -42284,13 +42284,13 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 50:                                               ; preds = %30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %52 = load i8, ptr %51, align 8, !range !27, !noundef !4
-  %cond.i12 = icmp eq i8 %52, 3
-  br i1 %cond.i12, label %53, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit14"
+  %cond.i13 = icmp eq i8 %52, 3
+  br i1 %cond.i13, label %53, label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit15"
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %54)
-          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit14" unwind label %48
+          to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit15" unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42303,7 +42303,7 @@ define internal fastcc void @"_ZN4core3ptr522drop_in_place$LT$polars_io..cloud..
     i8 4, label %20
   ]
 
-common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit11"
+common.ret:                                       ; preds = %7, %4, %1, %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit12"
   ret void
 
 4:                                                ; preds = %1
@@ -42320,8 +42320,8 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load i8, ptr %10, align 8, !range !27, !noundef !4
-  %cond.i5 = icmp eq i8 %11, 3
-  br i1 %cond.i5, label %12, label %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit"
+  %cond.i6 = icmp eq i8 %11, 3
+  br i1 %cond.i6, label %12, label %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit"
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -42343,31 +42343,31 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8, !range !27, !noundef !4
-  %cond.i6 = icmp eq i8 %22, 3
-  br i1 %cond.i6, label %23, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit8"
+  %cond.i7 = icmp eq i8 %22, 3
+  br i1 %cond.i7, label %23, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit9"
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit8" unwind label %34
+          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit9" unwind label %34
 
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit8"
+"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit": ; preds = %15, %12, %9, %18, %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit9"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %28 = load i8, ptr %27, align 1, !range !156, !noundef !4
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %40, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit11"
+  br i1 %29, label %40, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit12"
 
 30:                                               ; preds = %38, %34, %25
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %35, %34 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %32 = load i8, ptr %31, align 1, !range !156, !noundef !4
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %50, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit14"
+  br i1 %33, label %50, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit15"
 
 34:                                               ; preds = %23
   %35 = landingpad { ptr, i32 }
@@ -42376,32 +42376,32 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
   invoke void @"_ZN4core3ptr145drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$$GT$17h285ced5837a94fd3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36) #26
           to label %30 unwind label %48
 
-"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit8": ; preds = %20, %23
+"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit9": ; preds = %20, %23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr145drop_in_place$LT$tokio..sync..mutex..MutexGuard$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$$GT$17h285ced5837a94fd3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
           to label %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit" unwind label %38
 
-38:                                               ; preds = %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit8"
+38:                                               ; preds = %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit9"
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit11": ; preds = %40, %43, %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit"
+"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit12": ; preds = %40, %43, %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit"
   store i8 0, ptr %27, align 1
   br label %common.ret
 
 40:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$tokio..sync..mutex..Mutex$LT$$LP$alloc..sync..Arc$LT$object_store..azure..credential..AzureCredential$GT$$C$u64$RP$$GT$..lock..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7becb88fe272529E.exit"
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load i8, ptr %41, align 8, !range !27, !noundef !4
-  %cond.i9 = icmp eq i8 %42, 3
-  br i1 %cond.i9, label %43, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit11"
+  %cond.i10 = icmp eq i8 %42, 3
+  br i1 %cond.i10, label %43, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit12"
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %44)
-          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit11" unwind label %46
+          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit12" unwind label %46
 
-"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit14": ; preds = %50, %53, %46, %30
+"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit15": ; preds = %50, %53, %46, %30
   %.pn2 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %30 ], [ %.pn, %53 ], [ %.pn, %50 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %45, align 1
@@ -42410,7 +42410,7 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit14"
+  br label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit15"
 
 48:                                               ; preds = %53, %34
   %49 = landingpad { ptr, i32 }
@@ -42421,13 +42421,13 @@ common.ret:                                       ; preds = %7, %4, %1, %"_ZN4co
 50:                                               ; preds = %30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %52 = load i8, ptr %51, align 8, !range !27, !noundef !4
-  %cond.i12 = icmp eq i8 %52, 3
-  br i1 %cond.i12, label %53, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit14"
+  %cond.i13 = icmp eq i8 %52, 3
+  br i1 %cond.i13, label %53, label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit15"
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %54)
-          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit14" unwind label %48
+          to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit15" unwind label %48
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42458,8 +42458,8 @@ common.ret:                                       ; preds = %19, %4, %1
           to label %14 unwind label %12
 
 9:                                                ; preds = %16, %25
-  %.pn4.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %25 ]
-  resume { ptr, i32 } %.pn4.pn
+  %.pn6 = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %25 ]
+  resume { ptr, i32 } %.pn6
 
 10:                                               ; preds = %5
   %11 = landingpad { ptr, i32 }
@@ -42495,7 +42495,7 @@ common.ret:                                       ; preds = %19, %4, %1
   unreachable
 
 23:                                               ; preds = %10, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %13, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   invoke void @"_ZN4core3ptr45drop_in_place$LT$object_store..ObjectMeta$GT$17h9f94cf1685132e64E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24) #26
           to label %25 unwind label %21
@@ -46705,7 +46705,7 @@ define hidden noundef zeroext i1 @"_ZN9polars_io10file_cache5entry64_$LT$impl$u2
   %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h51f5f87aee17eeb1E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val3, ptr noalias noundef nonnull readonly align 1 %.val4, i64 noundef %.val5)
   br i1 %27, label %28, label %34
 
-28:                                               ; preds = %22, %14, %16
+28:                                               ; preds = %16, %14, %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -46713,8 +46713,8 @@ define hidden noundef zeroext i1 @"_ZN9polars_io10file_cache5entry64_$LT$impl$u2
   %33 = icmp eq i64 %30, %32
   br label %34
 
-34:                                               ; preds = %22, %16, %2, %28
-  %.sroa.0.0 = phi i1 [ %33, %28 ], [ false, %2 ], [ false, %16 ], [ false, %22 ]
+34:                                               ; preds = %16, %22, %2, %28
+  %.sroa.0.0 = phi i1 [ %33, %28 ], [ false, %2 ], [ false, %22 ], [ false, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -46837,7 +46837,7 @@ _ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit34: ; preds = %2
   br label %26
 
 26:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit34, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit29, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit
-  %.sroa.0.0.in = phi i1 [ %25, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit34 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit29 ], [ %19, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ]
+  %.sroa.0.0.in = phi i1 [ %19, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit29 ], [ %25, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit34 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -49464,7 +49464,7 @@ common.ret:                                       ; preds = %439, %"_ZN4core6res
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %438)
           to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_aws_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7cee7746f86fe74bE.exit102.i" unwind label %261, !noalias !2106
 
-439:                                              ; preds = %325, %161
+439:                                              ; preds = %161, %325
   %.sink.i.ph = phi i8 [ 3, %161 ], [ 4, %325 ]
   store i8 %.sink.i.ph, ptr %64, align 2, !noalias !2102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9164.i)
@@ -50904,7 +50904,7 @@ common.ret:                                       ; preds = %439, %"_ZN4core6res
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %438)
           to label %"_ZN4core3ptr325drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_azure_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd23c8288805aadcaE.exit102.i" unwind label %261, !noalias !2245
 
-439:                                              ; preds = %325, %161
+439:                                              ; preds = %161, %325
   %.sink.i.ph = phi i8 [ 3, %161 ], [ 4, %325 ]
   store i8 %.sink.i.ph, ptr %64, align 2, !noalias !2241
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9164.i)
@@ -52344,7 +52344,7 @@ common.ret:                                       ; preds = %439, %"_ZN4core6res
   invoke void @"_ZN4core3ptr306drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$polars_io..cloud..credential_provider..ObjectStoreCredential$C$u64$RP$$C$polars_error..PolarsError$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc11058133fe92029E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %438)
           to label %"_ZN4core3ptr323drop_in_place$LT$$LT$$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$..into_gcp_provider..S$u20$as$u20$object_store..client..CredentialProvider$GT$..get_credential..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha83829ac1b4b0fe1E.exit102.i" unwind label %261, !noalias !2382
 
-439:                                              ; preds = %325, %161
+439:                                              ; preds = %161, %325
   %.sink.i.ph = phi i8 [ 3, %161 ], [ 4, %325 ]
   store i8 %.sink.i.ph, ptr %64, align 2, !noalias !2378
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9164.i)

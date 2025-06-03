@@ -419,7 +419,7 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit: ; preds = %switch.lookup, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %48, %45
-  %.sroa.0.0 = phi i8 [ %52, %48 ], [ %47, %45 ], [ 41, %43 ], [ 13, %44 ], [ 1, %42 ], [ 39, %41 ], [ 31, %40 ], [ 29, %39 ], [ 22, %38 ], [ 19, %37 ], [ 25, %36 ], [ 17, %35 ], [ 11, %34 ], [ 16, %33 ], [ 14, %32 ], [ 7, %31 ], [ 5, %30 ], [ 10, %29 ], [ 33, %28 ], [ 32, %27 ], [ 36, %26 ], [ 24, %25 ], [ 38, %24 ], [ 0, %23 ], [ 18, %22 ], [ 15, %21 ], [ 20, %20 ], [ 35, %19 ], [ 4, %18 ], [ 27, %17 ], [ 12, %16 ], [ 26, %15 ], [ 30, %14 ], [ 3, %13 ], [ 2, %12 ], [ 6, %11 ], [ 28, %10 ], [ 9, %9 ], [ 8, %8 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %52, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -977,7 +977,7 @@ default.unreachable:                              ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %17, %14, %12, %9
-  %.sroa.0.0.in = phi i1 [ %20, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %13, %12 ], [ %16, %14 ], [ %18, %17 ], [ %20, %19 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1099,23 +1099,23 @@ define internal fastcc noundef ptr @_ZN9elfshaker4repo10repository10Repository14
   store ptr inttoptr (i64 47244640258 to ptr), ptr %6, align 8
   %21 = and i64 %20, -4294967293
   %or.cond = icmp eq i64 %21, 47244640258
-  br i1 %or.cond, label %.critedge, label %.critedge29, !prof !39
+  br i1 %or.cond, label %.critedge29, label %.critedge, !prof !39
 
-22:                                               ; preds = %39, %33, %31, %.critedge, %.critedge29
+22:                                               ; preds = %39, %33, %31, %.critedge29, %.critedge
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb27365d107ee18afE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #23
           to label %49 unwind label %47
 
-.critedge29:                                      ; preds = %19
+.critedge:                                        ; preds = %19
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb27365d107ee18afE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
           to label %24 unwind label %22
 
-.critedge:                                        ; preds = %19
+.critedge29:                                      ; preds = %19
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb27365d107ee18afE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
           to label %27 unwind label %22
 
-24:                                               ; preds = %.critedge29
+24:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %25 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   br label %26
@@ -1125,7 +1125,7 @@ define internal fastcc noundef ptr @_ZN9elfshaker4repo10repository10Repository14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %46
 
-27:                                               ; preds = %.critedge
+27:                                               ; preds = %.critedge29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %28 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf768fde6e6624078E monotonic, align 8
   %29 = icmp ult i64 %28, 6
@@ -9883,8 +9883,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26251a3f57b47b9dE.exit: ; preds = 
   br label %_ZN3std4path9Component9as_os_str17hf8da1a482137f3dcE.exit
 
 _ZN3std4path9Component9as_os_str17hf8da1a482137f3dcE.exit: ; preds = %57, %64, %66, %67, %68
-  %.sroa.8.0.i = phi i64 [ %.sroa.6.0.copyload, %68 ], [ 2, %67 ], [ 1, %66 ], [ %.sroa.9292.0.copyload, %64 ], [ %62, %57 ]
-  %.sroa.0.0.i122 = phi ptr [ %.sroa.5289.0.copyload, %68 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %67 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %66 ], [ %.sroa.8291.0.copyload, %64 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %57 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.9292.0.copyload, %64 ], [ 1, %66 ], [ 2, %67 ], [ %.sroa.6.0.copyload, %68 ], [ %62, %57 ]
+  %.sroa.0.0.i122 = phi ptr [ %.sroa.8291.0.copyload, %64 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %66 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %67 ], [ %.sroa.5289.0.copyload, %68 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %57 ]
   call void @_ZN5alloc6string6String15from_utf8_lossy17h2d240686c53984d0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i122, i64 noundef %.sroa.8.0.i)
   %70 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %71 = load ptr, ptr %70, align 8, !nonnull !5
@@ -10008,8 +10008,8 @@ _ZN3std4path9Component9as_os_str17hf8da1a482137f3dcE.exit: ; preds = %57, %64, %
   br label %106
 
 106:                                              ; preds = %104, %103, %102, %100, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit125"
-  %.sroa.8.0.i126 = phi i64 [ %.sroa.3213.0.copyload, %104 ], [ 2, %103 ], [ 1, %102 ], [ %.sroa.5216.0.copyload, %100 ], [ %98, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit125" ]
-  %.sroa.0.0.i127 = phi ptr [ %.sroa.2212.0.copyload, %104 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %103 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %102 ], [ %.sroa.4215.0.copyload, %100 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit125" ]
+  %.sroa.8.0.i126 = phi i64 [ %.sroa.5216.0.copyload, %100 ], [ 1, %102 ], [ 2, %103 ], [ %.sroa.3213.0.copyload, %104 ], [ %98, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit125" ]
+  %.sroa.0.0.i127 = phi ptr [ %.sroa.4215.0.copyload, %100 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %102 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %103 ], [ %.sroa.2212.0.copyload, %104 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit125" ]
   invoke void @_ZN5alloc6string6String15from_utf8_lossy17h2d240686c53984d0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i127, i64 noundef %.sroa.8.0.i126)
           to label %107 unwind label %92
 
@@ -10125,8 +10125,8 @@ _ZN3std4path9Component9as_os_str17hf8da1a482137f3dcE.exit: ; preds = %57, %64, %
   br label %143
 
 143:                                              ; preds = %141, %140, %139, %137, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit138"
-  %.sroa.8.0.i139 = phi i64 [ %.sroa.8317.0.copyload, %141 ], [ 2, %140 ], [ 1, %139 ], [ %.sroa.11.0.copyload, %137 ], [ %135, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit138" ]
-  %.sroa.0.0.i140 = phi ptr [ %.sroa.7316.0.copyload, %141 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %140 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %139 ], [ %.sroa.10319.0.copyload, %137 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit138" ]
+  %.sroa.8.0.i139 = phi i64 [ %.sroa.11.0.copyload, %137 ], [ 1, %139 ], [ 2, %140 ], [ %.sroa.8317.0.copyload, %141 ], [ %135, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit138" ]
+  %.sroa.0.0.i140 = phi ptr [ %.sroa.10319.0.copyload, %137 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.6, %139 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.7, %140 ], [ %.sroa.7316.0.copyload, %141 ], [ @anon.7d7fa6b3a568edea7c5b2245a49c0080.5, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit138" ]
   invoke void @_ZN5alloc6string6String15from_utf8_lossy17h2d240686c53984d0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i140, i64 noundef %.sroa.8.0.i139)
           to label %144 unwind label %129
 
@@ -11344,7 +11344,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$elfshaker..repo..error..Error$u20
   br label %63
 
 63:                                               ; preds = %60, %57, %54, %52, %49, %47, %43, %41, %39, %36, %34, %31, %28, %25, %23, %20
-  %.sroa.0.0.in = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %52 ], [ %51, %49 ], [ %48, %47 ], [ %46, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %36 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ]
+  %.sroa.0.0.in = phi i1 [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ %38, %36 ], [ %40, %39 ], [ %42, %41 ], [ %46, %43 ], [ %48, %47 ], [ %51, %49 ], [ %53, %52 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -4666,7 +4666,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i45.i.i.i.i: ; preds = %87
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge.i.i.i.i
-  %.sroa.068.1.i.i.i.i = phi ptr [ %.sroa.068.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %91, %90 ]
+  %.sroa.068.1.i.i.i.i = phi ptr [ %91, %90 ], [ %.sroa.068.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %93 = load ptr, ptr %.sroa.068.1.i.i.i.i, align 8, !tbaa !690
   %.not.i.i.i.i49.i.i.i.i = icmp eq ptr %93, null
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.068.1.i.i.i.i, i64 16
@@ -4694,7 +4694,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i.i: ; preds = %103
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge.i.i.i.i
-  %.sroa.068.2.i.i.i.i = phi ptr [ %.sroa.068.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %107, %106 ]
+  %.sroa.068.2.i.i.i.i = phi ptr [ %107, %106 ], [ %.sroa.068.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %109 = load ptr, ptr %.sroa.068.2.i.i.i.i, align 8, !tbaa !690
   %.not.i.i.i.i54.i.i.i.i = icmp eq ptr %109, null
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.068.2.i.i.i.i, i64 16

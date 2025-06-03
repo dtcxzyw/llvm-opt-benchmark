@@ -408,7 +408,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 69:                                               ; preds = %56
-  %.0.i.add63.i = add nsw i64 %.0.i.idx124.i, 8
+  %.0.i.add64.i = add nsw i64 %.0.i.idx124.i, 8
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 70:                                               ; preds = %56
@@ -482,12 +482,12 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %95
   br i1 %102, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 103:                                              ; preds = %56
-  %.0.i.add64.i = add nsw i64 %.0.i.idx124.i, 4
+  %.0.i.add63.i = add nsw i64 %.0.i.idx124.i, 4
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %103, %100, %98, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %69, %68, %64, %60
-  %.140.idx.i = phi i64 [ %.0.i.add64.i, %103 ], [ %.0.i.idx124.i, %98 ], [ %storemerge.i.ph.add.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0.i.add63.i, %69 ], [ %.add.i, %68 ], [ %.0.i.add61.i, %64 ], [ %.0.i.add.i, %60 ], [ %.0.i.idx124.i, %100 ]
-  %.119.i = phi i32 [ %.01897.i, %103 ], [ %99, %98 ], [ %.01897.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.01897.i, %69 ], [ %.01897.i, %68 ], [ %.01897.i, %64 ], [ %.01897.i, %60 ], [ %101, %100 ]
+  %.140.idx.i = phi i64 [ %.0.i.add64.i, %69 ], [ %storemerge.i.ph.add.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0.i.idx124.i, %98 ], [ %.0.i.add63.i, %103 ], [ %.add.i, %68 ], [ %.0.i.add61.i, %64 ], [ %.0.i.add.i, %60 ], [ %.0.i.idx124.i, %100 ]
+  %.119.i = phi i32 [ %.01897.i, %69 ], [ %.01897.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %99, %98 ], [ %.01897.i, %103 ], [ %.01897.i, %68 ], [ %.01897.i, %64 ], [ %.01897.i, %60 ], [ %101, %100 ]
   %104 = icmp slt i64 %.140.idx.i, 16
   br i1 %104, label %.lr.ph.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, !llvm.loop !30
 
@@ -2498,7 +2498,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal11FieldParse
   br label %55
 
 55:                                               ; preds = %37, %42, %40, %53, %47, %38
-  %.033 = phi ptr [ %54, %53 ], [ %2, %47 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %.0.i.ph, %37 ]
+  %.033 = phi ptr [ %.0.i.ph, %37 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %2, %47 ], [ %54, %53 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %9, %42, %40, %4, %55

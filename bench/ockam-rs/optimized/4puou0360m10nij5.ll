@@ -775,8 +775,8 @@ common.ret:                                       ; preds = %188, %168, %160, %5
 42:                                               ; preds = %15
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %44 = load i8, ptr %43, align 4, !range !74, !noundef !20
-  %cond.i6.i.i = icmp eq i8 %44, 3
-  br i1 %cond.i6.i.i, label %45, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf740378a8bcc2863E.exit.i"
+  %cond.i7.i.i = icmp eq i8 %44, 3
+  br i1 %cond.i7.i.i, label %45, label %"_ZN4core3ptr173drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf740378a8bcc2863E.exit.i"
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -1059,7 +1059,7 @@ common.ret:                                       ; preds = %188, %168, %160, %5
   unreachable
 
 .body.i.i:                                        ; preds = %146, %140, %131, %119
-  %.pn2.pn.i.i = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i.i, %131 ], [ %147, %146 ], [ %120, %119 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %141, %140 ], [ %.pn.i.i, %131 ], [ %147, %146 ], [ %120, %119 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %145, align 8
   br label %.body.i
@@ -1083,7 +1083,7 @@ common.ret:                                       ; preds = %188, %168, %160, %5
   br i1 %153, label %161, label %160
 
 .body.i:                                          ; preds = %158, %148, %.body.i.i, %85, %32, %11
-  %.pn.i = phi { ptr, i32 } [ %149, %148 ], [ %12, %11 ], [ %159, %158 ], [ %.pn2.pn.i.i, %.body.i.i ], [ %33, %32 ], [ %.pn4.i.i.i, %85 ]
+  %.pn.i = phi { ptr, i32 } [ %149, %148 ], [ %12, %11 ], [ %159, %158 ], [ %.pn4.i.i, %.body.i.i ], [ %33, %32 ], [ %.pn4.i.i.i, %85 ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %154, align 1
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1546,7 +1546,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h2c41812b7bed9528E.exit.i.i" unwind label %123
 
 118:                                              ; preds = %.body14.i.i, %.body10.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body11.i.i, %.body10.i.i ], [ %eh.lpad-body15.i.i, %.body14.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body15.i.i, %.body14.i.i ], [ %eh.lpad-body11.i.i, %.body10.i.i ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #19
           to label %.body19.i.i unwind label %96
 
@@ -2199,7 +2199,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h7c1b2d28ee5f9b64E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -2259,7 +2259,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17hd106bf92f4b7cf3eE.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.0
 }
 
@@ -3468,7 +3468,7 @@ default.unreachable10:                            ; preds = %2
   br label %68
 
 68:                                               ; preds = %66, %64, %62, %60, %58, %56, %54, %52, %50, %42, %34, %26, %18, %16
-  %.0.in = phi i1 [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %42 ], [ %41, %34 ], [ %33, %26 ], [ %25, %18 ], [ %17, %16 ]
+  %.0.in = phi i1 [ %17, %16 ], [ %25, %18 ], [ %33, %26 ], [ %41, %34 ], [ %49, %42 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ]
   ret i1 %.0.in
 }
 
@@ -3581,7 +3581,7 @@ default.unreachable1:                             ; preds = %2
   br label %46
 
 46:                                               ; preds = %44, %42, %40, %38, %36, %34, %32, %30, %28, %24, %20, %16, %12, %9
-  %.0.in = phi i1 [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %9 ]
+  %.0.in = phi i1 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ]
   ret i1 %.0.in
 }
 

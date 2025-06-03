@@ -3878,7 +3878,7 @@ parse_call_assign.exit:                           ; preds = %1739, %1746
   br label %parse_stmt.exit
 
 parse_stmt.exit:                                  ; preds = %var_add.exit50.i, %expr_free.exit.i, %parse_if.exit, %parse_while.exit, %lex_match.exit, %parse_for.exit, %parse_repeat.exit, %parse_func.exit, %parse_return.exit, %1625, %1626, %parse_goto.exit, %parse_call_assign.exit
-  %.not = phi i1 [ false, %1625 ], [ false, %parse_return.exit ], [ true, %parse_call_assign.exit ], [ true, %parse_goto.exit ], [ true, %1626 ], [ true, %parse_func.exit ], [ true, %parse_repeat.exit ], [ true, %parse_for.exit ], [ true, %lex_match.exit ], [ true, %parse_while.exit ], [ true, %parse_if.exit ], [ true, %expr_free.exit.i ], [ true, %var_add.exit50.i ]
+  %.not = phi i1 [ false, %parse_return.exit ], [ false, %1625 ], [ true, %parse_call_assign.exit ], [ true, %parse_goto.exit ], [ true, %1626 ], [ true, %parse_func.exit ], [ true, %parse_repeat.exit ], [ true, %parse_for.exit ], [ true, %lex_match.exit ], [ true, %parse_while.exit ], [ true, %parse_if.exit ], [ true, %expr_free.exit.i ], [ true, %var_add.exit50.i ]
   %1747 = load i32, ptr %33, align 4, !tbaa !65
   %1748 = icmp eq i32 %1747, 59
   br i1 %1748, label %1749, label %lex_opt.exit
@@ -5945,8 +5945,8 @@ expr_unop.exit:                                   ; preds = %expr_free.exit.i33,
 241:                                              ; preds = %expr_unop.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %expr_unop.exit
-  %.0.i18.ph = phi i32 [ 0, %expr_unop.exit ], [ 1, %228 ], [ 2, %229 ], [ 3, %230 ], [ 4, %231 ], [ 5, %232 ], [ 6, %233 ], [ 7, %234 ], [ 8, %235 ], [ 9, %236 ], [ 11, %237 ], [ 12, %238 ], [ 10, %239 ], [ 13, %240 ], [ 14, %241 ]
+.lr.ph:                                           ; preds = %228, %229, %230, %231, %232, %233, %234, %235, %236, %237, %238, %239, %240, %241, %expr_unop.exit
+  %.0.i18.ph = phi i32 [ 0, %expr_unop.exit ], [ 14, %241 ], [ 13, %240 ], [ 10, %239 ], [ 12, %238 ], [ 11, %237 ], [ 9, %236 ], [ 8, %235 ], [ 7, %234 ], [ 6, %233 ], [ 5, %232 ], [ 4, %231 ], [ 3, %230 ], [ 2, %229 ], [ 1, %228 ]
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6971,9 +6971,9 @@ expr_toval.exit75.i.i:                            ; preds = %747, %745
   br label %758
 
 758:                                              ; preds = %753, %732, %const_num.exit.i69.i, %const_str.exit.i.i, %682
-  %.167.i.i = phi i32 [ %757, %753 ], [ %737, %732 ], [ %731, %const_num.exit.i69.i ], [ %710, %const_str.exit.i.i ], [ %687, %682 ]
-  %.164.i.i = phi ptr [ %.265.i.i, %753 ], [ %spec.select.i.i, %732 ], [ %spec.select.i.i, %const_num.exit.i69.i ], [ %spec.select.i.i, %const_str.exit.i.i ], [ %spec.select.i.i, %682 ]
-  %.1.i67.i = phi ptr [ %.2.i.i, %753 ], [ %spec.select71.i.i, %732 ], [ %spec.select71.i.i, %const_num.exit.i69.i ], [ %spec.select71.i.i, %const_str.exit.i.i ], [ %spec.select71.i.i, %682 ]
+  %.167.i.i = phi i32 [ %757, %753 ], [ %737, %732 ], [ %687, %682 ], [ %710, %const_str.exit.i.i ], [ %731, %const_num.exit.i69.i ]
+  %.164.i.i = phi ptr [ %.265.i.i, %753 ], [ %spec.select.i.i, %732 ], [ %spec.select.i.i, %682 ], [ %spec.select.i.i, %const_str.exit.i.i ], [ %spec.select.i.i, %const_num.exit.i69.i ]
+  %.1.i67.i = phi ptr [ %.2.i.i, %753 ], [ %spec.select71.i.i, %732 ], [ %spec.select71.i.i, %682 ], [ %spec.select71.i.i, %const_str.exit.i.i ], [ %spec.select71.i.i, %const_num.exit.i69.i ]
   %759 = getelementptr inbounds nuw i8, ptr %.1.i67.i, i64 8
   %760 = load i32, ptr %759, align 8, !tbaa !79
   %761 = icmp eq i32 %760, 12

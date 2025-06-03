@@ -369,7 +369,7 @@ _ZL13getX86SubTypeRKN4llvm6TripleE.exit:          ; preds = %16, %18, %_ZN4llvme
   br label %_ZL13getARMSubTypeRKN4llvm6TripleE.exit
 
 _ZL13getARMSubTypeRKN4llvm6TripleE.exit:          ; preds = %27, %32, %33, %34, %35, %36, %37, %38, %39
-  %.0.i18 = phi i32 [ 16, %39 ], [ 15, %38 ], [ 14, %37 ], [ 12, %36 ], [ 11, %35 ], [ 6, %34 ], [ 7, %33 ], [ 5, %32 ], [ 9, %27 ]
+  %.0.i18 = phi i32 [ 5, %32 ], [ 7, %33 ], [ 6, %34 ], [ 11, %35 ], [ 12, %36 ], [ 14, %37 ], [ 15, %38 ], [ 16, %39 ], [ 9, %27 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, -2

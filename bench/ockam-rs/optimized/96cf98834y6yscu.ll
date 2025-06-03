@@ -677,8 +677,8 @@ define hidden void @"_ZN123_$LT$$LT$serde_bare..Uint$u20$as$u20$serde..de..Deser
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %27
@@ -692,14 +692,14 @@ define hidden void @"_ZN123_$LT$$LT$serde_bare..Uint$u20$as$u20$serde..de..Deser
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$14deserialize_u817h40019b4f7cfa9eb5E.llvm.16583572650426848933"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !72
   %11 = load i8, ptr %4, align 8, !range !79, !noalias !72, !noundef !14
   %trunc.i.i = trunc nuw i8 %11 to i1
-  %12 = load ptr, ptr %6, align 8, !noalias !72, !nonnull !14, !align !80
-  %13 = load i8, ptr %7, align 1, !noalias !72
+  %12 = load i8, ptr %6, align 1, !noalias !72
+  %13 = load ptr, ptr %7, align 8, !noalias !72, !nonnull !14, !align !80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !72
   br i1 %trunc.i.i, label %14, label %16
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %15, align 8
+  store ptr %13, ptr %15, align 8
   br label %42
 
 16:                                               ; preds = %8
@@ -714,7 +714,7 @@ define hidden void @"_ZN123_$LT$$LT$serde_bare..Uint$u20$as$u20$serde..de..Deser
 
 19:                                               ; preds = %16
   %20 = icmp eq i32 %.059, 9
-  %21 = icmp ugt i8 %13, 1
+  %21 = icmp ugt i8 %12, 1
   %or.cond = and i1 %20, %21
   br i1 %or.cond, label %22, label %25
 
@@ -725,11 +725,11 @@ define hidden void @"_ZN123_$LT$$LT$serde_bare..Uint$u20$as$u20$serde..de..Deser
   br label %42
 
 25:                                               ; preds = %19
-  %26 = icmp sgt i8 %13, -1
+  %26 = icmp sgt i8 %12, -1
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %25
-  %28 = and i8 %13, 127
+  %28 = and i8 %12, 127
   %29 = zext nneg i8 %28 to i64
   %30 = and i64 %.01558, 63
   %31 = shl i64 %29, %30
@@ -740,7 +740,7 @@ define hidden void @"_ZN123_$LT$$LT$serde_bare..Uint$u20$as$u20$serde..de..Deser
   br i1 %35, label %._crit_edge, label %8
 
 36:                                               ; preds = %25
-  %37 = zext nneg i8 %13 to i64
+  %37 = zext nneg i8 %12 to i64
   %38 = and i64 %.01558, 63
   %39 = shl i64 %37, %38
   %40 = or i64 %39, %.01657
@@ -5131,7 +5131,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   unreachable
 
 59:                                               ; preds = %71, %49
-  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %72, %71 ]
   resume { ptr, i32 } %.pn
 
 60:                                               ; preds = %45

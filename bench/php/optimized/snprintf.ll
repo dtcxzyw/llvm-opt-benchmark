@@ -697,8 +697,8 @@ zend_tmp_string_release.exit.i:                   ; preds = %155, %zend_tmp_stri
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %150, %144, %142, %140, %135, %133
-  %.0262.ph.i = phi i32 [ %spec.select396.i, %135 ], [ 0, %150 ], [ 6, %133 ], [ 4, %140 ], [ 1, %142 ], [ 2, %144 ]
-  %.7.ph.i = phi ptr [ %spec.select397.i, %135 ], [ %spec.select391.i, %150 ], [ %134, %133 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ]
+  %.0262.ph.i = phi i32 [ %spec.select396.i, %135 ], [ 0, %150 ], [ 2, %144 ], [ 1, %142 ], [ 4, %140 ], [ 6, %133 ]
+  %.7.ph.i = phi ptr [ %spec.select397.i, %135 ], [ %spec.select391.i, %150 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %134, %133 ]
   %.pr.i = load i8, ptr %.7.ph.i, align 1, !tbaa !8
   br label %155
 
@@ -939,8 +939,8 @@ zval_get_tmp_string.exit.i:                       ; preds = %176, %174
   br label %.loopexit475.i
 
 .loopexit475.i:                                   ; preds = %155, %155, %268, %254, %240, %226, %212, %197
-  %.02621012.i = phi i32 [ %.0262.i, %197 ], [ 2, %268 ], [ 1, %254 ], [ 3, %240 ], [ 4, %226 ], [ 5, %212 ], [ %.0262.i, %155 ], [ %.0262.i, %155 ]
-  %.2273.i = phi i64 [ %200, %197 ], [ %270, %268 ], [ %256, %254 ], [ %242, %240 ], [ %228, %226 ], [ %214, %212 ], [ %.0271.ph.i, %155 ], [ %.0271.ph.i, %155 ]
+  %.02621012.i = phi i32 [ %.0262.i, %197 ], [ 5, %212 ], [ 4, %226 ], [ 3, %240 ], [ 1, %254 ], [ 2, %268 ], [ %.0262.i, %155 ], [ %.0262.i, %155 ]
+  %.2273.i = phi i64 [ %200, %197 ], [ %214, %212 ], [ %228, %226 ], [ %242, %240 ], [ %256, %254 ], [ %270, %268 ], [ %.0271.ph.i, %155 ], [ %.0271.ph.i, %155 ]
   %271 = load i8, ptr %.7.i, align 1, !tbaa !8
   %.not387.i = icmp eq i8 %271, 117
   br i1 %.not387.i, label %358, label %272
@@ -1101,7 +1101,7 @@ zval_get_tmp_string.exit.i:                       ; preds = %176, %174
   br label %358
 
 358:                                              ; preds = %355, %341, %327, %313, %299, %284, %.loopexit475.i
-  %.5276.i = phi i64 [ %287, %284 ], [ %357, %355 ], [ %343, %341 ], [ %329, %327 ], [ %315, %313 ], [ %301, %299 ], [ %.2273.i, %.loopexit475.i ]
+  %.5276.i = phi i64 [ %287, %284 ], [ %301, %299 ], [ %315, %313 ], [ %329, %327 ], [ %343, %341 ], [ %357, %355 ], [ %.2273.i, %.loopexit475.i ]
   %359 = load i8, ptr %.7.i, align 1, !tbaa !8
   %360 = icmp eq i8 %359, 117
   %.lobit.i.i = lshr i64 %.5276.i, 63
@@ -1147,7 +1147,7 @@ ap_php_conv_10.exit.i:                            ; preds = %362
   br i1 %375, label %.lr.ph753.i, label %.loopexit466.i
 
 .loopexit466.i:                                   ; preds = %.lr.ph753.i, %.preheader465.i, %ap_php_conv_10.exit.i
-  %.pre10361039.i = phi i64 [ %369, %ap_php_conv_10.exit.i ], [ %369, %.preheader465.i ], [ %374, %.lr.ph753.i ]
+  %.pre10361041.i = phi i64 [ %369, %ap_php_conv_10.exit.i ], [ %369, %.preheader465.i ], [ %374, %.lr.ph753.i ]
   %.1310.i = phi ptr [ %367, %ap_php_conv_10.exit.i ], [ %367, %.preheader465.i ], [ %372, %.lr.ph753.i ]
   %376 = load i8, ptr %.7.i, align 1, !tbaa !8
   %.not388.i = icmp eq i8 %376, 117
@@ -1322,7 +1322,7 @@ ap_php_conv_10.exit.i:                            ; preds = %362
   br label %470
 
 470:                                              ; preds = %467, %453, %439, %425, %411, %396
-  %.0269.i = phi i64 [ %399, %396 ], [ %469, %467 ], [ %455, %453 ], [ %441, %439 ], [ %427, %425 ], [ %413, %411 ]
+  %.0269.i = phi i64 [ %399, %396 ], [ %413, %411 ], [ %427, %425 ], [ %441, %439 ], [ %455, %453 ], [ %469, %467 ]
   %471 = load i8, ptr %.7.i, align 1, !tbaa !8
   %472 = icmp eq i8 %471, 88
   %473 = select i1 %472, ptr @ap_php_conv_p2.upper_digits, ptr @ap_php_conv_p2.low_digits
@@ -1536,7 +1536,7 @@ ap_php_conv_p2.exit.i:                            ; preds = %474
   br label %581
 
 581:                                              ; preds = %578, %564, %550, %536, %522, %507
-  %.1270.i = phi i64 [ %510, %507 ], [ %580, %578 ], [ %566, %564 ], [ %552, %550 ], [ %538, %536 ], [ %524, %522 ]
+  %.1270.i = phi i64 [ %510, %507 ], [ %524, %522 ], [ %538, %536 ], [ %552, %550 ], [ %566, %564 ], [ %580, %578 ]
   %582 = load i8, ptr %.7.i, align 1, !tbaa !8
   %583 = icmp eq i8 %582, 88
   %584 = select i1 %583, ptr @ap_php_conv_p2.upper_digits, ptr @ap_php_conv_p2.low_digits
@@ -1576,7 +1576,7 @@ ap_php_conv_p2.exit406.i:                         ; preds = %585
   br i1 %598, label %.lr.ph747.i, label %.loopexit470.i
 
 .loopexit470.i:                                   ; preds = %.lr.ph747.i, %.preheader469.i, %ap_php_conv_p2.exit406.i
-  %.pre10361041.i = phi i64 [ %592, %ap_php_conv_p2.exit406.i ], [ %592, %.preheader469.i ], [ %597, %.lr.ph747.i ]
+  %.pre10361039.i = phi i64 [ %592, %ap_php_conv_p2.exit406.i ], [ %592, %.preheader469.i ], [ %597, %.lr.ph747.i ]
   %.5314.i = phi ptr [ %589, %ap_php_conv_p2.exit406.i ], [ %589, %.preheader469.i ], [ %595, %.lr.ph747.i ]
   %599 = trunc nuw i8 %.2261.i to i1
   %600 = icmp ne i64 %.0271.ph.i, 0
@@ -1678,7 +1678,7 @@ ap_php_conv_p2.exit406.i:                         ; preds = %585
   br label %650
 
 650:                                              ; preds = %647, %629
-  %.0279.i = phi double [ %649, %647 ], [ %635, %629 ]
+  %.0279.i = phi double [ %635, %629 ], [ %649, %647 ]
   %651 = fcmp uno double %.0279.i, 0.000000e+00
   br i1 %651, label %652, label %653
 
@@ -1777,7 +1777,7 @@ ap_php_conv_p2.exit406.i:                         ; preds = %585
   br label %699
 
 699:                                              ; preds = %696, %678
-  %.1280.i = phi double [ %698, %696 ], [ %684, %678 ]
+  %.1280.i = phi double [ %684, %678 ], [ %698, %696 ]
   %700 = fcmp uno double %.1280.i, 0.000000e+00
   br i1 %700, label %701, label %702
 
@@ -1969,8 +1969,8 @@ ap_php_conv_p2.exit410.i:                         ; preds = %779
   br label %.thread419.i
 
 791:                                              ; preds = %677, %628, %495, %384, %272, %185
-  %792 = phi i8 [ %156, %677 ], [ %156, %628 ], [ %156, %495 ], [ 111, %384 ], [ %271, %272 ], [ 117, %185 ]
-  %.4275.i = phi i64 [ %.0271.ph.i, %677 ], [ %.0271.ph.i, %628 ], [ %.0271.ph.i, %495 ], [ %.0271.ph.i, %384 ], [ %.2273.i, %272 ], [ %.0271.ph.i, %185 ]
+  %792 = phi i8 [ %271, %272 ], [ 117, %185 ], [ 111, %384 ], [ %156, %495 ], [ %156, %628 ], [ %156, %677 ]
+  %.4275.i = phi i64 [ %.2273.i, %272 ], [ %.0271.ph.i, %185 ], [ %.0271.ph.i, %384 ], [ %.0271.ph.i, %495 ], [ %.0271.ph.i, %628 ], [ %.0271.ph.i, %677 ]
   %793 = sext i8 %792 to i32
   call void (i32, ptr, ...) @zend_error(i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %793) #17
   br label %.loopexit474.i
@@ -2002,15 +2002,15 @@ ap_php_conv_p2.exit410.i:                         ; preds = %779
   br label %.thread419.i
 
 .thread419.i:                                     ; preds = %.thread438.i, %795, %.loopexit474.i, %787, %ap_php_conv_p2.exit410.i, %749, %745, %708, %707, %701, %..thread419_crit_edge.i, %656, %652, %627, %626, %623, %621, %601, %.loopexit470.i, %491, %489, %.loopexit468.i, %382, %.loopexit466.i, %184, %181, %zval_get_tmp_string.exit.i
-  %.pre1036.i = phi i64 [ %798, %.thread438.i ], [ %.pre10361042.i, %795 ], [ 2, %.loopexit474.i ], [ 1, %749 ], [ 1, %745 ], [ 3, %701 ], [ 3, %707 ], [ 4, %708 ], [ 3, %652 ], [ 3, %656 ], [ %606, %601 ], [ %.pre10361041.i, %.loopexit470.i ], [ %494, %491 ], [ %.pre10361040.i, %489 ], [ %.pre10361040.i, %.loopexit468.i ], [ %.pre10361039.i, %.loopexit466.i ], [ %182, %184 ], [ %179, %181 ], [ %179, %zval_get_tmp_string.exit.i ], [ %.pre10361039.i, %382 ], [ %622, %621 ], [ %622, %623 ], [ %624, %626 ], [ 6, %627 ], [ %.pre1036.pre.i, %..thread419_crit_edge.i ], [ %790, %787 ], [ %786, %ap_php_conv_p2.exit410.i ]
-  %799 = phi i1 [ true, %.thread438.i ], [ false, %795 ], [ false, %.loopexit474.i ], [ false, %749 ], [ false, %745 ], [ false, %701 ], [ false, %707 ], [ false, %708 ], [ false, %652 ], [ false, %656 ], [ false, %601 ], [ false, %.loopexit470.i ], [ false, %491 ], [ false, %489 ], [ false, %.loopexit468.i ], [ false, %.loopexit466.i ], [ false, %184 ], [ false, %181 ], [ false, %zval_get_tmp_string.exit.i ], [ false, %382 ], [ false, %621 ], [ false, %623 ], [ false, %626 ], [ false, %627 ], [ false, %..thread419_crit_edge.i ], [ false, %787 ], [ false, %ap_php_conv_p2.exit410.i ]
-  %.1264433.i = phi ptr [ %.1264454.i, %.thread438.i ], [ %.3266.i, %795 ], [ %.0263.ph.i, %.loopexit474.i ], [ %.0263.ph.i, %749 ], [ %.0263.ph.i, %745 ], [ %.0263.ph.i, %701 ], [ %.0263.ph.i, %707 ], [ %.0263.ph.i, %708 ], [ %.0263.ph.i, %652 ], [ %.0263.ph.i, %656 ], [ %.0263.ph.i, %601 ], [ %.0263.ph.i, %.loopexit470.i ], [ %.0263.ph.i, %491 ], [ %.0263.ph.i, %489 ], [ %.0263.ph.i, %.loopexit468.i ], [ %.0263.ph.i, %.loopexit466.i ], [ %.0263.ph.i, %184 ], [ %.0263.ph.i, %181 ], [ %.0263.ph.i, %zval_get_tmp_string.exit.i ], [ %.0263.ph.i, %382 ], [ %.0263.ph.i, %621 ], [ %.0263.ph.i, %623 ], [ %.0263.ph.i, %626 ], [ %.0263.ph.i, %627 ], [ %.2265.i, %..thread419_crit_edge.i ], [ %.0263.ph.i, %787 ], [ %.0263.ph.i, %ap_php_conv_p2.exit410.i ]
-  %.3274432.i = phi i64 [ %.3274453.i, %.thread438.i ], [ %.0271.ph.i, %795 ], [ %.1272.i, %.loopexit474.i ], [ %.0271.ph.i, %749 ], [ %.0271.ph.i, %745 ], [ %.0271.ph.i, %701 ], [ %.0271.ph.i, %707 ], [ %.0271.ph.i, %708 ], [ %.0271.ph.i, %652 ], [ %.0271.ph.i, %656 ], [ %.0271.ph.i, %601 ], [ %.0271.ph.i, %.loopexit470.i ], [ %.0271.ph.i, %491 ], [ %.0271.ph.i, %489 ], [ %.0271.ph.i, %.loopexit468.i ], [ %.5276.i, %.loopexit466.i ], [ %.0271.ph.i, %184 ], [ %.0271.ph.i, %181 ], [ %.0271.ph.i, %zval_get_tmp_string.exit.i ], [ %.5276.i, %382 ], [ %.0271.ph.i, %621 ], [ %.0271.ph.i, %623 ], [ %.0271.ph.i, %626 ], [ %.0271.ph.i, %627 ], [ %.0271.ph.i, %..thread419_crit_edge.i ], [ %.0271.ph.i, %787 ], [ %.0271.ph.i, %ap_php_conv_p2.exit410.i ]
-  %.3286431.i = phi i8 [ %.2285.i, %.thread438.i ], [ %.2285.i, %795 ], [ 32, %.loopexit474.i ], [ 32, %749 ], [ 32, %745 ], [ %.2285.i, %701 ], [ %.2285.i, %707 ], [ %.2285.i, %708 ], [ %.2285.i, %652 ], [ %.2285.i, %656 ], [ %.2285.i, %601 ], [ %.2285.i, %.loopexit470.i ], [ %.2285.i, %491 ], [ %.2285.i, %489 ], [ %.2285.i, %.loopexit468.i ], [ %.2285.i, %.loopexit466.i ], [ %.2285.i, %184 ], [ %.2285.i, %181 ], [ %.2285.i, %zval_get_tmp_string.exit.i ], [ %.2285.i, %382 ], [ 32, %621 ], [ 32, %623 ], [ 32, %626 ], [ 32, %627 ], [ %.2285.i, %..thread419_crit_edge.i ], [ 32, %787 ], [ 32, %ap_php_conv_p2.exit410.i ]
-  %.3294430.i = phi i32 [ %.3294450.i, %.thread438.i ], [ %.4295.i, %795 ], [ %.2293.i, %.loopexit474.i ], [ %.2293.i, %749 ], [ %.2293.i, %745 ], [ %.2293.i, %701 ], [ %.2293.i, %707 ], [ %.2293.i, %708 ], [ %.2293.i, %652 ], [ %.2293.i, %656 ], [ %.2293.i, %601 ], [ %.2293.i, %.loopexit470.i ], [ %.2293.i, %491 ], [ %.2293.i, %489 ], [ %.2293.i, %.loopexit468.i ], [ %.2293.i, %.loopexit466.i ], [ %.2293.i, %184 ], [ %.2293.i, %181 ], [ %.2293.i, %zval_get_tmp_string.exit.i ], [ %.2293.i, %382 ], [ %.2293.i, %621 ], [ %.2293.i, %623 ], [ %.2293.i, %626 ], [ %.2293.i, %627 ], [ %.2293.i, %..thread419_crit_edge.i ], [ %.2293.i, %787 ], [ %.2293.i, %ap_php_conv_p2.exit410.i ]
-  %.0411429.i = phi ptr [ null, %.thread438.i ], [ null, %795 ], [ null, %.loopexit474.i ], [ null, %749 ], [ null, %745 ], [ null, %701 ], [ null, %707 ], [ null, %708 ], [ null, %652 ], [ null, %656 ], [ null, %601 ], [ null, %.loopexit470.i ], [ null, %491 ], [ null, %489 ], [ null, %.loopexit468.i ], [ null, %.loopexit466.i ], [ %.1412.i, %184 ], [ %.1412.i, %181 ], [ %.1412.i, %zval_get_tmp_string.exit.i ], [ null, %382 ], [ null, %621 ], [ null, %623 ], [ null, %626 ], [ null, %627 ], [ null, %..thread419_crit_edge.i ], [ null, %787 ], [ null, %ap_php_conv_p2.exit410.i ]
-  %.7416428.i = phi ptr [ %.7.i, %.thread438.i ], [ %.7.i, %795 ], [ %.7.i, %.loopexit474.i ], [ %.7.i, %749 ], [ %.7.i, %745 ], [ %.7.i, %701 ], [ %.7.i, %707 ], [ %.7.i, %708 ], [ %.7.i, %652 ], [ %.7.i, %656 ], [ %.7.i, %601 ], [ %.7.i, %.loopexit470.i ], [ %.7.i, %491 ], [ %.7.i, %489 ], [ %.7.i, %.loopexit468.i ], [ %.7.i, %.loopexit466.i ], [ %.7.i, %184 ], [ %.7.i, %181 ], [ %.7.i, %zval_get_tmp_string.exit.i ], [ %.7.i, %382 ], [ %.7.i, %621 ], [ %.7.i, %623 ], [ %.7.i, %626 ], [ %.7.i, %627 ], [ %.7.i, %..thread419_crit_edge.i ], [ %.7417.i, %787 ], [ %.7417.i, %ap_php_conv_p2.exit410.i ]
-  %.10319.i = phi ptr [ %796, %.thread438.i ], [ %.8317.i, %795 ], [ %7, %.loopexit474.i ], [ %7, %749 ], [ %7, %745 ], [ @.str.1, %701 ], [ @.str, %707 ], [ @.str.4, %708 ], [ @.str.1, %652 ], [ @.str, %656 ], [ %604, %601 ], [ %.5314.i, %.loopexit470.i ], [ %492, %491 ], [ %.3312.i, %489 ], [ %.3312.i, %.loopexit468.i ], [ %.1310.i, %.loopexit466.i ], [ %180, %184 ], [ %180, %181 ], [ %180, %zval_get_tmp_string.exit.i ], [ %.1310.i, %382 ], [ %620, %621 ], [ %620, %623 ], [ %620, %626 ], [ @.str.3, %627 ], [ %17, %..thread419_crit_edge.i ], [ %789, %787 ], [ %783, %ap_php_conv_p2.exit410.i ]
+  %.pre1036.i = phi i64 [ %798, %.thread438.i ], [ %.pre10361042.i, %795 ], [ 2, %.loopexit474.i ], [ %.pre10361041.i, %.loopexit466.i ], [ %494, %491 ], [ %.pre10361040.i, %489 ], [ %.pre10361040.i, %.loopexit468.i ], [ %606, %601 ], [ %.pre10361039.i, %.loopexit470.i ], [ 3, %652 ], [ 3, %656 ], [ 3, %701 ], [ 3, %707 ], [ 4, %708 ], [ 1, %745 ], [ 1, %749 ], [ %182, %184 ], [ %179, %181 ], [ %179, %zval_get_tmp_string.exit.i ], [ %.pre10361041.i, %382 ], [ %622, %621 ], [ %622, %623 ], [ %624, %626 ], [ 6, %627 ], [ %.pre1036.pre.i, %..thread419_crit_edge.i ], [ %790, %787 ], [ %786, %ap_php_conv_p2.exit410.i ]
+  %799 = phi i1 [ true, %.thread438.i ], [ false, %795 ], [ false, %.loopexit474.i ], [ false, %.loopexit466.i ], [ false, %491 ], [ false, %489 ], [ false, %.loopexit468.i ], [ false, %601 ], [ false, %.loopexit470.i ], [ false, %652 ], [ false, %656 ], [ false, %701 ], [ false, %707 ], [ false, %708 ], [ false, %745 ], [ false, %749 ], [ false, %184 ], [ false, %181 ], [ false, %zval_get_tmp_string.exit.i ], [ false, %382 ], [ false, %621 ], [ false, %623 ], [ false, %626 ], [ false, %627 ], [ false, %..thread419_crit_edge.i ], [ false, %787 ], [ false, %ap_php_conv_p2.exit410.i ]
+  %.1264433.i = phi ptr [ %.1264454.i, %.thread438.i ], [ %.3266.i, %795 ], [ %.0263.ph.i, %.loopexit474.i ], [ %.0263.ph.i, %.loopexit466.i ], [ %.0263.ph.i, %491 ], [ %.0263.ph.i, %489 ], [ %.0263.ph.i, %.loopexit468.i ], [ %.0263.ph.i, %601 ], [ %.0263.ph.i, %.loopexit470.i ], [ %.0263.ph.i, %652 ], [ %.0263.ph.i, %656 ], [ %.0263.ph.i, %701 ], [ %.0263.ph.i, %707 ], [ %.0263.ph.i, %708 ], [ %.0263.ph.i, %745 ], [ %.0263.ph.i, %749 ], [ %.0263.ph.i, %184 ], [ %.0263.ph.i, %181 ], [ %.0263.ph.i, %zval_get_tmp_string.exit.i ], [ %.0263.ph.i, %382 ], [ %.0263.ph.i, %621 ], [ %.0263.ph.i, %623 ], [ %.0263.ph.i, %626 ], [ %.0263.ph.i, %627 ], [ %.2265.i, %..thread419_crit_edge.i ], [ %.0263.ph.i, %787 ], [ %.0263.ph.i, %ap_php_conv_p2.exit410.i ]
+  %.3274432.i = phi i64 [ %.3274453.i, %.thread438.i ], [ %.0271.ph.i, %795 ], [ %.1272.i, %.loopexit474.i ], [ %.5276.i, %.loopexit466.i ], [ %.0271.ph.i, %491 ], [ %.0271.ph.i, %489 ], [ %.0271.ph.i, %.loopexit468.i ], [ %.0271.ph.i, %601 ], [ %.0271.ph.i, %.loopexit470.i ], [ %.0271.ph.i, %652 ], [ %.0271.ph.i, %656 ], [ %.0271.ph.i, %701 ], [ %.0271.ph.i, %707 ], [ %.0271.ph.i, %708 ], [ %.0271.ph.i, %745 ], [ %.0271.ph.i, %749 ], [ %.0271.ph.i, %184 ], [ %.0271.ph.i, %181 ], [ %.0271.ph.i, %zval_get_tmp_string.exit.i ], [ %.5276.i, %382 ], [ %.0271.ph.i, %621 ], [ %.0271.ph.i, %623 ], [ %.0271.ph.i, %626 ], [ %.0271.ph.i, %627 ], [ %.0271.ph.i, %..thread419_crit_edge.i ], [ %.0271.ph.i, %787 ], [ %.0271.ph.i, %ap_php_conv_p2.exit410.i ]
+  %.3286431.i = phi i8 [ %.2285.i, %.thread438.i ], [ %.2285.i, %795 ], [ 32, %.loopexit474.i ], [ %.2285.i, %.loopexit466.i ], [ %.2285.i, %491 ], [ %.2285.i, %489 ], [ %.2285.i, %.loopexit468.i ], [ %.2285.i, %601 ], [ %.2285.i, %.loopexit470.i ], [ %.2285.i, %652 ], [ %.2285.i, %656 ], [ %.2285.i, %701 ], [ %.2285.i, %707 ], [ %.2285.i, %708 ], [ 32, %745 ], [ 32, %749 ], [ %.2285.i, %184 ], [ %.2285.i, %181 ], [ %.2285.i, %zval_get_tmp_string.exit.i ], [ %.2285.i, %382 ], [ 32, %621 ], [ 32, %623 ], [ 32, %626 ], [ 32, %627 ], [ %.2285.i, %..thread419_crit_edge.i ], [ 32, %787 ], [ 32, %ap_php_conv_p2.exit410.i ]
+  %.3294430.i = phi i32 [ %.3294450.i, %.thread438.i ], [ %.4295.i, %795 ], [ %.2293.i, %.loopexit474.i ], [ %.2293.i, %.loopexit466.i ], [ %.2293.i, %491 ], [ %.2293.i, %489 ], [ %.2293.i, %.loopexit468.i ], [ %.2293.i, %601 ], [ %.2293.i, %.loopexit470.i ], [ %.2293.i, %652 ], [ %.2293.i, %656 ], [ %.2293.i, %701 ], [ %.2293.i, %707 ], [ %.2293.i, %708 ], [ %.2293.i, %745 ], [ %.2293.i, %749 ], [ %.2293.i, %184 ], [ %.2293.i, %181 ], [ %.2293.i, %zval_get_tmp_string.exit.i ], [ %.2293.i, %382 ], [ %.2293.i, %621 ], [ %.2293.i, %623 ], [ %.2293.i, %626 ], [ %.2293.i, %627 ], [ %.2293.i, %..thread419_crit_edge.i ], [ %.2293.i, %787 ], [ %.2293.i, %ap_php_conv_p2.exit410.i ]
+  %.0411429.i = phi ptr [ null, %.thread438.i ], [ null, %795 ], [ null, %.loopexit474.i ], [ null, %.loopexit466.i ], [ null, %491 ], [ null, %489 ], [ null, %.loopexit468.i ], [ null, %601 ], [ null, %.loopexit470.i ], [ null, %652 ], [ null, %656 ], [ null, %701 ], [ null, %707 ], [ null, %708 ], [ null, %745 ], [ null, %749 ], [ %.1412.i, %184 ], [ %.1412.i, %181 ], [ %.1412.i, %zval_get_tmp_string.exit.i ], [ null, %382 ], [ null, %621 ], [ null, %623 ], [ null, %626 ], [ null, %627 ], [ null, %..thread419_crit_edge.i ], [ null, %787 ], [ null, %ap_php_conv_p2.exit410.i ]
+  %.7416428.i = phi ptr [ %.7.i, %.thread438.i ], [ %.7.i, %795 ], [ %.7.i, %.loopexit474.i ], [ %.7.i, %.loopexit466.i ], [ %.7.i, %491 ], [ %.7.i, %489 ], [ %.7.i, %.loopexit468.i ], [ %.7.i, %601 ], [ %.7.i, %.loopexit470.i ], [ %.7.i, %652 ], [ %.7.i, %656 ], [ %.7.i, %701 ], [ %.7.i, %707 ], [ %.7.i, %708 ], [ %.7.i, %745 ], [ %.7.i, %749 ], [ %.7.i, %184 ], [ %.7.i, %181 ], [ %.7.i, %zval_get_tmp_string.exit.i ], [ %.7.i, %382 ], [ %.7.i, %621 ], [ %.7.i, %623 ], [ %.7.i, %626 ], [ %.7.i, %627 ], [ %.7.i, %..thread419_crit_edge.i ], [ %.7417.i, %787 ], [ %.7417.i, %ap_php_conv_p2.exit410.i ]
+  %.10319.i = phi ptr [ %796, %.thread438.i ], [ %.8317.i, %795 ], [ %7, %.loopexit474.i ], [ %.1310.i, %.loopexit466.i ], [ %492, %491 ], [ %.3312.i, %489 ], [ %.3312.i, %.loopexit468.i ], [ %604, %601 ], [ %.5314.i, %.loopexit470.i ], [ @.str.1, %652 ], [ @.str, %656 ], [ @.str.1, %701 ], [ @.str, %707 ], [ @.str.4, %708 ], [ %7, %745 ], [ %7, %749 ], [ %180, %184 ], [ %180, %181 ], [ %180, %zval_get_tmp_string.exit.i ], [ %.1310.i, %382 ], [ %620, %621 ], [ %620, %623 ], [ %620, %626 ], [ @.str.3, %627 ], [ %17, %..thread419_crit_edge.i ], [ %789, %787 ], [ %783, %ap_php_conv_p2.exit410.i ]
   %800 = icmp eq i32 %.3290.i, 1
   %or.cond13.i = select i1 %.1251.i, i1 %800, i1 false
   br i1 %or.cond13.i, label %801, label %.loopexit464.i

@@ -757,8 +757,8 @@ dissect_data_shifting_command_parameters.exit.i:  ; preds = %146, %is_data_shift
   br label %get_data_bit_pin_prefix.exit.i.i
 
 get_data_bit_pin_prefix.exit.i.i:                 ; preds = %169, %168, %166, %165, %163, %160, %158
-  %.060.i.i = phi i32 [ 0, %169 ], [ 8, %168 ], [ 8, %165 ], [ 8, %160 ], [ 8, %158 ], [ 8, %163 ], [ 8, %166 ]
-  %.0.i.i78.i = phi ptr [ null, %169 ], [ @.str.225, %168 ], [ @.str.225, %165 ], [ @.str.223, %160 ], [ @.str.223, %158 ], [ @.str.223, %163 ], [ @.str.223, %166 ]
+  %.060.i.i = phi i32 [ 0, %169 ], [ 8, %165 ], [ 8, %168 ], [ 8, %160 ], [ 8, %158 ], [ 8, %163 ], [ 8, %166 ]
+  %.0.i.i78.i = phi ptr [ null, %169 ], [ @.str.225, %165 ], [ @.str.225, %168 ], [ @.str.223, %160 ], [ @.str.223, %158 ], [ @.str.223, %163 ], [ @.str.223, %166 ]
   call fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, ptr noundef %96, i32 noundef %52, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i78.i, i32 noundef %.060.i.i)
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
@@ -966,9 +966,9 @@ dissect_clock_parameters.exit.i.i:                ; preds = %230, %229
   br label %get_data_bit_pin_prefix.exit.i.i.i
 
 get_data_bit_pin_prefix.exit.i.i.i:               ; preds = %257, %256, %254, %253, %251, %248, %246
-  %.03.i.i.i = phi i64 [ 0, %257 ], [ 8, %256 ], [ 8, %253 ], [ 8, %248 ], [ 8, %246 ], [ 8, %251 ], [ 8, %254 ]
-  %.not48.i.i.i = phi i1 [ false, %257 ], [ true, %256 ], [ true, %253 ], [ true, %248 ], [ true, %246 ], [ true, %251 ], [ true, %254 ]
-  %.0.i.i57.i.i = phi ptr [ null, %257 ], [ @.str.225, %256 ], [ @.str.225, %253 ], [ @.str.223, %248 ], [ @.str.223, %246 ], [ @.str.223, %251 ], [ @.str.223, %254 ]
+  %.03.i.i.i = phi i64 [ 0, %257 ], [ 8, %253 ], [ 8, %256 ], [ 8, %248 ], [ 8, %246 ], [ 8, %251 ], [ 8, %254 ]
+  %.not48.i.i.i = phi i1 [ false, %257 ], [ true, %253 ], [ true, %256 ], [ true, %248 ], [ true, %246 ], [ true, %251 ], [ true, %254 ]
+  %.0.i.i57.i.i = phi ptr [ null, %257 ], [ @.str.225, %253 ], [ @.str.225, %256 ], [ @.str.223, %248 ], [ @.str.223, %246 ], [ @.str.223, %251 ], [ @.str.223, %254 ]
   %258 = load i32, ptr @hf_mpsse_open_drain_enable_low, align 4
   %259 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %96, i32 noundef %258, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %11)
   %260 = load i32, ptr @ett_mpsse_open_drain_enable, align 4
@@ -1109,7 +1109,7 @@ dissect_io_open_drain_enable_parameters.exit.i.i: ; preds = %get_data_bit_pin_pr
   br label %dissect_non_data_shifting_command_parameters.exit.i
 
 dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_drain_enable_parameters.exit.i.i, %239, %231, %dissect_clock_parameters.exit.i.i, %dissect_cpumode_parameters.exit.i.i, %179, %get_data_bit_pin_prefix.exit55.i.i, %get_data_bit_pin_prefix.exit.i.i, %157
-  %.0.i77.i = phi i32 [ 2, %dissect_io_open_drain_enable_parameters.exit.i.i ], [ 2, %239 ], [ 1, %231 ], [ 2, %dissect_clock_parameters.exit.i.i ], [ %189, %dissect_cpumode_parameters.exit.i.i ], [ 0, %179 ], [ 2, %get_data_bit_pin_prefix.exit55.i.i ], [ 2, %get_data_bit_pin_prefix.exit.i.i ], [ 0, %157 ]
+  %.0.i77.i = phi i32 [ 2, %get_data_bit_pin_prefix.exit.i.i ], [ 2, %get_data_bit_pin_prefix.exit55.i.i ], [ 0, %179 ], [ %189, %dissect_cpumode_parameters.exit.i.i ], [ 2, %dissect_clock_parameters.exit.i.i ], [ 1, %231 ], [ 2, %239 ], [ 2, %dissect_io_open_drain_enable_parameters.exit.i.i ], [ 0, %157 ]
   %325 = icmp sgt i32 %.029.i.i, %.0.i77.i
   br i1 %325, label %326, label %330
 
@@ -1553,8 +1553,8 @@ proto_item_set_generated.exit80.i:                ; preds = %469, %466, %455
   br label %get_data_bit_pin_prefix.exit.i.i.i93
 
 get_data_bit_pin_prefix.exit.i.i.i93:             ; preds = %528, %527, %524, %523, %520, %516, %513
-  %.03.i.i.i94 = phi i32 [ 0, %528 ], [ 8, %527 ], [ 8, %523 ], [ 8, %516 ], [ 8, %513 ], [ 8, %520 ], [ 8, %524 ]
-  %.0.i.i.i.i95 = phi ptr [ null, %528 ], [ @.str.225, %527 ], [ @.str.225, %523 ], [ @.str.223, %516 ], [ @.str.223, %513 ], [ @.str.223, %520 ], [ @.str.223, %524 ]
+  %.03.i.i.i94 = phi i32 [ 0, %528 ], [ 8, %523 ], [ 8, %527 ], [ 8, %516 ], [ 8, %513 ], [ 8, %520 ], [ 8, %524 ]
+  %.0.i.i.i.i95 = phi ptr [ null, %528 ], [ @.str.225, %523 ], [ @.str.225, %527 ], [ @.str.223, %516 ], [ @.str.223, %513 ], [ @.str.223, %520 ], [ @.str.223, %524 ]
   call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %459, i32 noundef %.065.i, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i.i95, i32 noundef %.03.i.i.i94)
   br label %dissect_non_data_shifting_command_response.exit.i.i
 
@@ -1599,7 +1599,7 @@ get_data_bit_pin_prefix.exit21.i.i.i:             ; preds = %540, %539, %536, %5
   br label %dissect_non_data_shifting_command_response.exit.i.i
 
 dissect_non_data_shifting_command_response.exit.i.i: ; preds = %541, %get_data_bit_pin_prefix.exit21.i.i.i, %get_data_bit_pin_prefix.exit.i.i.i93, %511
-  %.0.i.i.i91 = phi i32 [ 1, %541 ], [ 1, %get_data_bit_pin_prefix.exit21.i.i.i ], [ 1, %get_data_bit_pin_prefix.exit.i.i.i93 ], [ 0, %511 ]
+  %.0.i.i.i91 = phi i32 [ 1, %get_data_bit_pin_prefix.exit.i.i.i93 ], [ 1, %get_data_bit_pin_prefix.exit21.i.i.i ], [ 1, %541 ], [ 0, %511 ]
   %544 = add i32 %.0.i.i.i91, %.065.i
   %545 = load i32, ptr %452, align 8
   %.not54.i.i = icmp sgt i32 %.0.i.i.i91, %545
@@ -1892,7 +1892,7 @@ define internal fastcc ptr @get_command_string(i8 noundef zeroext %0, ptr nounde
   br label %16
 
 16:                                               ; preds = %14, %10
-  %.0 = phi ptr [ %15, %14 ], [ %11, %10 ]
+  %.0 = phi ptr [ %11, %10 ], [ %15, %14 ]
   %.not18 = icmp eq ptr %.0, null
   br i1 %.not18, label %.thread, label %.thread21
 

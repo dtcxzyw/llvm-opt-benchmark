@@ -1086,7 +1086,7 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   br label %.thread272.i
 
 .thread267.i:                                     ; preds = %get_extra_meta_func.exit, %365, %read_comment.exit, %read_uslt.exit, %308, %298, %293, %286, %279, %276, %274, %249, %226
-  %.4180.i = phi ptr [ %.0176297.i, %226 ], [ %.2178.i, %274 ], [ %.2178.i, %308 ], [ %.2178.i, %365 ], [ %.2178.i, %read_comment.exit ], [ %.2178.i, %read_uslt.exit ], [ %.2178.i, %249 ], [ %.3179.i, %get_extra_meta_func.exit ], [ %.2178.i, %298 ], [ %.2178.i, %293 ], [ %.2178.i, %286 ], [ %.2178.i, %276 ], [ %.2178.i, %279 ]
+  %.4180.i = phi ptr [ %.0176297.i, %226 ], [ %.2178.i, %308 ], [ %.2178.i, %365 ], [ %.2178.i, %read_comment.exit ], [ %.2178.i, %read_uslt.exit ], [ %.2178.i, %274 ], [ %.2178.i, %249 ], [ %.3179.i, %get_extra_meta_func.exit ], [ %.2178.i, %298 ], [ %.2178.i, %293 ], [ %.2178.i, %286 ], [ %.2178.i, %276 ], [ %.2178.i, %279 ]
   %374 = call i64 @avio_seek(ptr noundef %0, i64 noundef %210, i32 noundef 0) #9
   br label %375
 
@@ -1915,8 +1915,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_str(ptr noundef %0,
   br label %118
 
 53:                                               ; preds = %49, %51, %11
-  %.087 = phi ptr [ @avio_rb16, %11 ], [ @avio_rb16, %49 ], [ @avio_rl16, %51 ]
-  %.079 = phi i32 [ %7, %11 ], [ %46, %49 ], [ %46, %51 ]
+  %.087 = phi ptr [ @avio_rl16, %51 ], [ @avio_rb16, %49 ], [ @avio_rb16, %11 ]
+  %.079 = phi i32 [ %46, %51 ], [ %46, %49 ], [ %7, %11 ]
   %54 = icmp sgt i32 %.079, 1
   br i1 %54, label %.lr.ph131, label %._crit_edge
 

@@ -533,7 +533,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %78
 
 78:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.061.1.i.i.i = phi ptr [ %.sroa.061.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i" ]
+  %.sroa.061.1.i.i.i = phi ptr [ %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i" ], [ %.sroa.061.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %79 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #11
   %80 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.061.1.i.i.i) #11
   %81 = icmp eq i64 %79, %80
@@ -564,7 +564,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %92
 
 92:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i", %._crit_edge.i.i.i
-  %.sroa.061.2.i.i.i = phi ptr [ %.sroa.061.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i" ]
+  %.sroa.061.2.i.i.i = phi ptr [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i" ], [ %.sroa.061.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %93 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #11
   %94 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.061.2.i.i.i) #11
   %95 = icmp eq i64 %93, %94

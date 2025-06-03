@@ -1770,12 +1770,12 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !392
   br label %.backedge1089
 
-.loopexit:                                        ; preds = %214, %.preheader.i.i, %257, %256, %213, %183, %238, %239, %253
-  %.sroa.21.2.ph = phi i8 [ %255, %253 ], [ %241, %239 ], [ %225, %238 ], [ undef, %183 ], [ %193, %213 ], [ %205, %256 ], [ %259, %257 ], [ undef, %.preheader.i.i ], [ undef, %214 ]
-  %.sroa.17.2.ph = phi i64 [ %254, %253 ], [ %240, %239 ], [ %224, %238 ], [ undef, %183 ], [ %192, %213 ], [ %204, %256 ], [ %258, %257 ], [ undef, %.preheader.i.i ], [ undef, %214 ]
-  %.sroa.12.2.ph = phi i64 [ %254, %253 ], [ %240, %239 ], [ %224, %238 ], [ %184, %183 ], [ %192, %213 ], [ %204, %256 ], [ %258, %257 ], [ %215, %.preheader.i.i ], [ %215, %214 ]
-  %.sroa.9182.2.ph = phi i32 [ undef, %253 ], [ undef, %239 ], [ undef, %238 ], [ 39, %183 ], [ undef, %213 ], [ undef, %256 ], [ undef, %257 ], [ %.0.i.i.i, %.preheader.i.i ], [ 39, %214 ]
-  %.sroa.0181.0.ph = phi i32 [ 5, %253 ], [ 5, %239 ], [ 5, %238 ], [ 0, %183 ], [ 5, %213 ], [ 5, %256 ], [ 5, %257 ], [ 3, %.preheader.i.i ], [ 0, %214 ]
+.loopexit:                                        ; preds = %214, %.preheader.i.i, %257, %183, %213, %256, %239, %238, %253
+  %.sroa.21.2.ph = phi i8 [ %255, %253 ], [ %225, %238 ], [ %241, %239 ], [ %205, %256 ], [ %193, %213 ], [ undef, %183 ], [ %259, %257 ], [ undef, %.preheader.i.i ], [ undef, %214 ]
+  %.sroa.17.2.ph = phi i64 [ %254, %253 ], [ %224, %238 ], [ %240, %239 ], [ %204, %256 ], [ %192, %213 ], [ undef, %183 ], [ %258, %257 ], [ undef, %.preheader.i.i ], [ undef, %214 ]
+  %.sroa.12.2.ph = phi i64 [ %254, %253 ], [ %224, %238 ], [ %240, %239 ], [ %204, %256 ], [ %192, %213 ], [ %184, %183 ], [ %258, %257 ], [ %215, %.preheader.i.i ], [ %215, %214 ]
+  %.sroa.9182.2.ph = phi i32 [ undef, %253 ], [ undef, %238 ], [ undef, %239 ], [ undef, %256 ], [ undef, %213 ], [ 39, %183 ], [ undef, %257 ], [ %.0.i.i.i, %.preheader.i.i ], [ 39, %214 ]
+  %.sroa.0181.0.ph = phi i32 [ 5, %253 ], [ 5, %238 ], [ 5, %239 ], [ 5, %256 ], [ 5, %213 ], [ 0, %183 ], [ 5, %257 ], [ 3, %.preheader.i.i ], [ 0, %214 ]
   store i32 %.sroa.0181.0.ph, ptr %0, align 8
   %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.9182.2.ph, ptr %.sroa.270.0..sroa_idx, align 4
@@ -2035,12 +2035,12 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   br label %.loopexit.i144
 
 .loopexit.i144:                                   ; preds = %304, %.loopexit.i144.loopexit, %337, %336, %331, %330
-  %.sroa.12.sroa.6.sroa.0.2.ph.i = phi i24 [ undef, %330 ], [ undef, %331 ], [ %.sroa.345.i.sroa.0.0.copyload.i, %336 ], [ %.sroa.12.sroa.6.0.extract.trunc.i, %337 ], [ undef, %.loopexit.i144.loopexit ], [ 0, %304 ]
-  %.sroa.12.sroa.0.2.ph.i = phi i8 [ undef, %330 ], [ undef, %331 ], [ %312, %336 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %337 ], [ undef, %.loopexit.i144.loopexit ], [ 34, %304 ]
-  %.sroa.24.2.ph.i = phi i8 [ %317, %330 ], [ %333, %331 ], [ %.sroa.345.i.sroa.6.0.copyload.i, %336 ], [ undef, %337 ], [ undef, %.loopexit.i144.loopexit ], [ undef, %304 ]
-  %.sroa.22.2.ph.i145 = phi i64 [ %316, %330 ], [ %332, %331 ], [ %.sroa.345.i.sroa.5.0.copyload.i, %336 ], [ undef, %337 ], [ undef, %.loopexit.i144.loopexit ], [ undef, %304 ]
-  %.sroa.17.2.ph.i = phi i64 [ %316, %330 ], [ %332, %331 ], [ %.sroa.345.i.sroa.4.0.copyload.i, %336 ], [ %.val.i.i, %337 ], [ %305, %.loopexit.i144.loopexit ], [ %305, %304 ]
-  %.sroa.087.0.ph.i = phi i32 [ 5, %330 ], [ 5, %331 ], [ %310, %336 ], [ 3, %337 ], [ 2, %.loopexit.i144.loopexit ], [ 0, %304 ]
+  %.sroa.12.sroa.6.sroa.0.2.ph.i = phi i24 [ undef, %331 ], [ undef, %330 ], [ %.sroa.345.i.sroa.0.0.copyload.i, %336 ], [ %.sroa.12.sroa.6.0.extract.trunc.i, %337 ], [ undef, %.loopexit.i144.loopexit ], [ 0, %304 ]
+  %.sroa.12.sroa.0.2.ph.i = phi i8 [ undef, %331 ], [ undef, %330 ], [ %312, %336 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %337 ], [ undef, %.loopexit.i144.loopexit ], [ 34, %304 ]
+  %.sroa.24.2.ph.i = phi i8 [ %333, %331 ], [ %317, %330 ], [ %.sroa.345.i.sroa.6.0.copyload.i, %336 ], [ undef, %337 ], [ undef, %.loopexit.i144.loopexit ], [ undef, %304 ]
+  %.sroa.22.2.ph.i145 = phi i64 [ %332, %331 ], [ %316, %330 ], [ %.sroa.345.i.sroa.5.0.copyload.i, %336 ], [ undef, %337 ], [ undef, %.loopexit.i144.loopexit ], [ undef, %304 ]
+  %.sroa.17.2.ph.i = phi i64 [ %332, %331 ], [ %316, %330 ], [ %.sroa.345.i.sroa.4.0.copyload.i, %336 ], [ %.val.i.i, %337 ], [ %305, %.loopexit.i144.loopexit ], [ %305, %304 ]
+  %.sroa.087.0.ph.i = phi i32 [ 5, %331 ], [ 5, %330 ], [ %310, %336 ], [ 3, %337 ], [ 2, %.loopexit.i144.loopexit ], [ 0, %304 ]
   %.sroa.12.sroa.6.0.insert.ext.i = zext i24 %.sroa.12.sroa.6.sroa.0.2.ph.i to i32
   %.sroa.12.sroa.6.0.insert.shift.i = shl nuw i32 %.sroa.12.sroa.6.0.insert.ext.i, 8
   %.sroa.12.sroa.0.0.insert.ext.i = zext i8 %.sroa.12.sroa.0.2.ph.i to i32
@@ -2069,12 +2069,12 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !490
   br label %.backedge1089
 
-344:                                              ; preds = %339, %338, %.loopexit.i144, %303, %302, %268
-  %.sroa.23.2.ph = phi i8 [ undef, %268 ], [ %.sroa.235.i.sroa.6.0.copyload, %302 ], [ %281, %303 ], [ %.sroa.24.2.ph.i, %.loopexit.i144 ], [ %293, %338 ], [ %341, %339 ]
-  %.sroa.19.2.ph = phi i64 [ undef, %268 ], [ %.sroa.235.i.sroa.5.0.copyload, %302 ], [ %280, %303 ], [ %.sroa.22.2.ph.i145, %.loopexit.i144 ], [ %292, %338 ], [ %340, %339 ]
-  %.sroa.14.2.ph = phi i64 [ %269, %268 ], [ %.sroa.235.i.sroa.4.0.copyload, %302 ], [ %280, %303 ], [ %.sroa.17.2.ph.i, %.loopexit.i144 ], [ %292, %338 ], [ %340, %339 ]
-  %.sroa.10.2.ph = phi i32 [ 34, %268 ], [ %.sroa.235.i.sroa.0.0.copyload, %302 ], [ undef, %303 ], [ %.sroa.12.sroa.0.0.insert.insert.i, %.loopexit.i144 ], [ undef, %338 ], [ undef, %339 ]
-  %.sroa.0189.0.ph = phi i32 [ 0, %268 ], [ %275, %302 ], [ 5, %303 ], [ %.sroa.087.0.ph.i, %.loopexit.i144 ], [ 5, %338 ], [ 5, %339 ]
+344:                                              ; preds = %339, %268, %302, %303, %338, %.loopexit.i144
+  %.sroa.23.2.ph = phi i8 [ %.sroa.24.2.ph.i, %.loopexit.i144 ], [ %293, %338 ], [ %281, %303 ], [ %.sroa.235.i.sroa.6.0.copyload, %302 ], [ undef, %268 ], [ %341, %339 ]
+  %.sroa.19.2.ph = phi i64 [ %.sroa.22.2.ph.i145, %.loopexit.i144 ], [ %292, %338 ], [ %280, %303 ], [ %.sroa.235.i.sroa.5.0.copyload, %302 ], [ undef, %268 ], [ %340, %339 ]
+  %.sroa.14.2.ph = phi i64 [ %.sroa.17.2.ph.i, %.loopexit.i144 ], [ %292, %338 ], [ %280, %303 ], [ %.sroa.235.i.sroa.4.0.copyload, %302 ], [ %269, %268 ], [ %340, %339 ]
+  %.sroa.10.2.ph = phi i32 [ %.sroa.12.sroa.0.0.insert.insert.i, %.loopexit.i144 ], [ undef, %338 ], [ undef, %303 ], [ %.sroa.235.i.sroa.0.0.copyload, %302 ], [ 34, %268 ], [ undef, %339 ]
+  %.sroa.0189.0.ph = phi i32 [ %.sroa.087.0.ph.i, %.loopexit.i144 ], [ 5, %338 ], [ 5, %303 ], [ %275, %302 ], [ 0, %268 ], [ 5, %339 ]
   store i32 %.sroa.0189.0.ph, ptr %0, align 8
   %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.10.2.ph, ptr %.sroa.282.0..sroa_idx, align 4
@@ -2370,14 +2370,14 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   store i8 %167, ptr %.sroa.288.sroa.4.0..sroa.288.0..sroa_idx.sroa_idx, align 8
   br label %129
 
-440:                                              ; preds = %438, %437, %431, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i, %429, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i, %410, %350
-  %.sroa.14201.sroa.5.sroa.0.2.ph = phi i24 [ undef, %350 ], [ undef, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %431 ], [ %.sroa.364.i.sroa.0.0.copyload, %437 ], [ %.sroa.14201.sroa.5.0.extract.trunc, %438 ]
-  %.sroa.14201.sroa.0.2.ph = phi i8 [ undef, %350 ], [ undef, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %431 ], [ %359, %437 ], [ %.sroa.14201.sroa.0.0.extract.trunc, %438 ]
-  %.sroa.27203.2.ph = phi ptr [ %354, %350 ], [ %411, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %430, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ %434, %431 ], [ %.sroa.364.i.sroa.6.0.copyload, %437 ], [ undef, %438 ]
-  %.sroa.31.2.ph = phi i64 [ 8, %350 ], [ undef, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %431 ], [ %.sroa.364.i.sroa.7.0.copyload, %437 ], [ undef, %438 ]
-  %.sroa.23202.2.ph = phi i64 [ %353, %350 ], [ %363, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %376, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ %432, %431 ], [ %.sroa.364.i.sroa.5.0.copyload, %437 ], [ undef, %438 ]
-  %.sroa.18.2.ph = phi i64 [ %351, %350 ], [ %363, %410 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %376, %429 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ %432, %431 ], [ %.sroa.364.i.sroa.4.0.copyload, %437 ], [ %.val.i, %438 ]
-  %.sroa.0200.0.ph = phi i32 [ 1, %350 ], [ 5, %410 ], [ 7, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ 5, %429 ], [ 6, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ 5, %431 ], [ %357, %437 ], [ 3, %438 ]
+440:                                              ; preds = %438, %437, %350, %410, %429, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i, %431
+  %.sroa.14201.sroa.5.sroa.0.2.ph = phi i24 [ undef, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %410 ], [ undef, %350 ], [ %.sroa.364.i.sroa.0.0.copyload, %437 ], [ %.sroa.14201.sroa.5.0.extract.trunc, %438 ]
+  %.sroa.14201.sroa.0.2.ph = phi i8 [ undef, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %410 ], [ undef, %350 ], [ %359, %437 ], [ %.sroa.14201.sroa.0.0.extract.trunc, %438 ]
+  %.sroa.27203.2.ph = phi ptr [ %434, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %430, %429 ], [ %411, %410 ], [ %354, %350 ], [ %.sroa.364.i.sroa.6.0.copyload, %437 ], [ undef, %438 ]
+  %.sroa.31.2.ph = phi i64 [ undef, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ undef, %429 ], [ undef, %410 ], [ 8, %350 ], [ %.sroa.364.i.sroa.7.0.copyload, %437 ], [ undef, %438 ]
+  %.sroa.23202.2.ph = phi i64 [ %432, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %376, %429 ], [ %363, %410 ], [ %353, %350 ], [ %.sroa.364.i.sroa.5.0.copyload, %437 ], [ undef, %438 ]
+  %.sroa.18.2.ph = phi i64 [ %432, %431 ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ undef, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ %376, %429 ], [ %363, %410 ], [ %351, %350 ], [ %.sroa.364.i.sroa.4.0.copyload, %437 ], [ %.val.i, %438 ]
+  %.sroa.0200.0.ph = phi i32 [ 5, %431 ], [ 6, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit.i ], [ 7, %_ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468E.exit85.i ], [ 5, %429 ], [ 5, %410 ], [ 1, %350 ], [ %357, %437 ], [ 3, %438 ]
   %.sroa.14201.sroa.5.0.insert.ext = zext i24 %.sroa.14201.sroa.5.sroa.0.2.ph to i32
   %.sroa.14201.sroa.5.0.insert.shift = shl nuw i32 %.sroa.14201.sroa.5.0.insert.ext, 8
   %.sroa.14201.sroa.0.0.insert.ext = zext i8 %.sroa.14201.sroa.0.2.ph to i32

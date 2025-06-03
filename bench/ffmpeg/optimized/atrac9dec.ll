@@ -1657,8 +1657,8 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br i1 %877, label %.lr.ph169.i.i, label %.loopexit158.i.i, !llvm.loop !103
 
 .loopexit158.i.i:                                 ; preds = %.lr.ph169.i.i, %.lr.ph173.i.i, %713, %.lr.ph179.i.i, %.preheader162.i.i, %.preheader160.i.i, %..loopexit158_crit_edge.i.i
-  %.sroa.16.10 = phi i32 [ %584, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %.sroa.16.24, %.preheader160.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %723, %713 ], [ %784, %.lr.ph173.i.i ], [ %873, %.lr.ph169.i.i ]
-  %878 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %856, %.preheader162.i.i ], [ %752, %.preheader160.i.i ], [ %682, %.lr.ph179.i.i ], [ %726, %713 ], [ %786, %.lr.ph173.i.i ], [ %875, %.lr.ph169.i.i ]
+  %.sroa.16.10 = phi i32 [ %584, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.24, %.preheader160.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %723, %713 ], [ %784, %.lr.ph173.i.i ], [ %873, %.lr.ph169.i.i ]
+  %878 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %752, %.preheader160.i.i ], [ %856, %.preheader162.i.i ], [ %682, %.lr.ph179.i.i ], [ %726, %713 ], [ %786, %.lr.ph173.i.i ], [ %875, %.lr.ph169.i.i ]
   %.not155180.i.i = icmp sgt i32 %878, 0
   br i1 %.not155180.i.i, label %.lr.ph182.preheader.i.i, label %.loopexit335.i
 
@@ -1679,7 +1679,7 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br i1 %or.cond156.i.i, label %.thread148, label %879
 
 .loopexit335.i:                                   ; preds = %879, %.loopexit158.i.i, %708, %.preheader.i260.i
-  %.sroa.16.11 = phi i32 [ %.sroa.16.10, %.loopexit158.i.i ], [ %.sroa.16.27, %708 ], [ %.sroa.16.29, %.preheader.i260.i ], [ %.sroa.16.10, %879 ]
+  %.sroa.16.11 = phi i32 [ %.sroa.16.10, %.loopexit158.i.i ], [ %.sroa.16.29, %.preheader.i260.i ], [ %.sroa.16.27, %708 ], [ %.sroa.16.10, %879 ]
   %882 = getelementptr inbounds nuw i8, ptr %569, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %882, ptr noundef nonnull align 8 dereferenceable(124) %588, i64 124, i1 false)
   %883 = getelementptr inbounds nuw i8, ptr %569, i64 512

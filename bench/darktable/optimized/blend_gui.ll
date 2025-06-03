@@ -2918,7 +2918,7 @@ define internal range(i32 0, 2) i32 @_blendop_blendif_key_press(ptr noundef %0, 
   tail call fastcc void @_blendop_blendif_channel_mask_view_toggle(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1)
   br label %35
 
-35:                                               ; preds = %34, %33, %32, %25, %19
+35:                                               ; preds = %32, %33, %34, %25, %19
   tail call void @dt_iop_request_focus(ptr noundef nonnull %2) #18
   br label %36
 
@@ -6408,7 +6408,7 @@ define internal float @log10_scale_callback(ptr readnone captures(none) %0, floa
   br label %25
 
 25:                                               ; preds = %3, %14, %24, %4
-  %.0 = phi nsz float [ 1.000000e+00, %24 ], [ %.1, %14 ], [ %13, %4 ], [ %1, %3 ]
+  %.0 = phi nsz float [ %13, %4 ], [ 1.000000e+00, %24 ], [ %.1, %14 ], [ %1, %3 ]
   ret float %.0
 }
 
@@ -6475,7 +6475,7 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %3, %24, %39, %6, %23
-  %.1 = phi nsz float [ 1.000000e+00, %39 ], [ %.2, %24 ], [ 1.000000e+00, %23 ], [ %.0, %6 ], [ %1, %3 ]
+  %.1 = phi nsz float [ 1.000000e+00, %23 ], [ %.0, %6 ], [ 1.000000e+00, %39 ], [ %.2, %24 ], [ %1, %3 ]
   ret float %.1
 }
 

@@ -72,7 +72,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %3, %4
   br label %15
 
 15:                                               ; preds = %2, %14, %13, %12, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.0 = phi i32 [ 13, %14 ], [ 14, %13 ], [ 7, %12 ], [ %11, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ 8, %2 ]
+  %.0 = phi i32 [ 13, %14 ], [ %11, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ 7, %12 ], [ 14, %13 ], [ 8, %2 ]
   ret i32 %.0
 }
 
@@ -109,7 +109,7 @@ define noundef range(i32 0, 17) i32 @_Z32grpc_http2_status_to_grpc_statusi(i32 n
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 2, %7 ], [ 14, %6 ], [ 12, %5 ], [ 7, %4 ], [ 16, %3 ], [ 13, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ 2, %7 ], [ 13, %2 ], [ 16, %3 ], [ 7, %4 ], [ 12, %5 ], [ 14, %6 ], [ 0, %1 ]
   ret i32 %.0
 }
 

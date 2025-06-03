@@ -1452,7 +1452,7 @@ bytestream2_get_byte.exit:                        ; preds = %91
   br label %bytestream2_get_be64.exit
 
 bytestream2_get_be64.exit:                        ; preds = %bytestream2_get_byte.exit, %100, %91, %68, %.critedge.thread.us, %bytestream2_get_byte.exit.thread.us, %88, %89, %25, %24, %18, %17, %bytestream2_get_byte.exit39, %bytestream2_get_byte.exit39, %1, %108, %51, %bytestream2_get_be32.exit, %bytestream2_get_be16.exit43
-  %.0 = phi i32 [ -1, %108 ], [ 0, %51 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %bytestream2_get_be16.exit43 ], [ -1, %1 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %17 ], [ 0, %18 ], [ 0, %24 ], [ 0, %25 ], [ 0, %89 ], [ 0, %88 ], [ 0, %bytestream2_get_byte.exit.thread.us ], [ -1, %68 ], [ -1, %.critedge.thread.us ], [ -1, %91 ], [ -1, %100 ], [ -1, %bytestream2_get_byte.exit ]
+  %.0 = phi i32 [ -1, %108 ], [ 0, %bytestream2_get_be16.exit43 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %51 ], [ -1, %1 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %17 ], [ 0, %18 ], [ 0, %24 ], [ 0, %25 ], [ 0, %89 ], [ 0, %88 ], [ 0, %bytestream2_get_byte.exit.thread.us ], [ -1, %68 ], [ -1, %.critedge.thread.us ], [ -1, %91 ], [ -1, %100 ], [ -1, %bytestream2_get_byte.exit ]
   ret i32 %.0
 }
 
@@ -1718,9 +1718,9 @@ define range(i32 0, 2) i32 @ff_amf_match_string(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %19, %12
-  %.023 = phi ptr [ %21, %19 ], [ %14, %12 ]
-  %.015 = phi i32 [ %20, %19 ], [ %13, %12 ]
-  %.014 = phi i32 [ %24, %19 ], [ %16, %12 ]
+  %.023 = phi ptr [ %14, %12 ], [ %21, %19 ]
+  %.015 = phi i32 [ %13, %12 ], [ %20, %19 ]
+  %.014 = phi i32 [ %16, %12 ], [ %24, %19 ]
   %26 = icmp sle i32 %.014, %.015
   %.not = icmp eq i32 %.014, %5
   %or.cond = select i1 %26, i1 %.not, i1 false

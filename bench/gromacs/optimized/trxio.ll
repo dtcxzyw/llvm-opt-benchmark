@@ -1189,7 +1189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_Z21write_pdbfile_indexedP8_IO_FILEPKcPK7t_atomsPA3_Kf7PbcTypeS8_ciiPKiP12gmx_conect_tbb(ptr noundef %182, ptr noundef nonnull %6, ptr noundef %184, ptr noundef %186, i32 noundef 4, ptr noundef nonnull %212, i8 noundef signext 32, i32 noundef %215, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.thread135
 
-.thread141:                                       ; preds = %142, %152
+.thread141:                                       ; preds = %152, %142
   %.not103 = icmp eq ptr %.0119, null
   br i1 %.not103, label %217, label %216
 
@@ -1209,7 +1209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef 478, ptr noundef %.0124)
   br label %.thread135
 
-.thread135:                                       ; preds = %211, %194, %197, %.thread149, %219
+.thread135:                                       ; preds = %211, %197, %194, %.thread149, %219
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #25
   ret i32 0
 
@@ -2333,13 +2333,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %320
 
 213:                                              ; preds = %164, %51
-  %.188 = phi i1 [ %158, %164 ], [ %.087, %51 ]
+  %.188 = phi i1 [ %.087, %51 ], [ %158, %164 ]
   %214 = load float, ptr %29, align 4, !tbaa !54
   store float %214, ptr %12, align 4, !tbaa !74
   br i1 %.188, label %215, label %.critedge
 
-215:                                              ; preds = %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %168, %170, %174, %179, %213
-  %216 = phi float [ %183, %179 ], [ %214, %213 ], [ %178, %174 ], [ %173, %170 ], [ %169, %168 ], [ %137, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %117, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
+215:                                              ; preds = %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, %179, %174, %170, %168, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %213
+  %216 = phi float [ %117, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ], [ %214, %213 ], [ %137, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %169, %168 ], [ %173, %170 ], [ %178, %174 ], [ %183, %179 ]
   %217 = load i32, ptr %1, align 8, !tbaa !72
   %218 = and i32 %217, 2
   %.not94 = icmp eq i32 %218, 0
@@ -2469,7 +2469,7 @@ _Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i110: ; pr
   %287 = call i32 @fflush(ptr noundef %286)
   br label %.critedge137.backedge
 
-.critedge:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %168, %170, %174, %179, %262, %213, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
+.critedge:                                        ; preds = %179, %174, %170, %168, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %262, %213, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
   %288 = load i32, ptr %27, align 4, !tbaa !9
   %289 = icmp slt i32 %288, 20
   %290 = urem i32 %288, 10
@@ -2528,7 +2528,7 @@ _ZL11printincompP11t_trxstatusP10t_trxframe.exit: ; preds = %_ZL9printlastP11t_t
   br label %.critedge.thread.sink.split
 
 320:                                              ; preds = %212, %150, %138
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %212 ], [ %151, %150 ], [ %139, %138 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %212 ], [ %139, %138 ], [ %151, %150 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
   resume { ptr, i32 } %.pn.pn.pn.pn
 
@@ -3311,7 +3311,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %194, %_Z24t
   store float %225, ptr %228, align 8, !tbaa !73
   br label %245
 
-229:                                              ; preds = %78, %50
+229:                                              ; preds = %50, %78
   %230 = load float, ptr %23, align 4, !tbaa !54
   %231 = load ptr, ptr %1, align 8, !tbaa !107
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 12

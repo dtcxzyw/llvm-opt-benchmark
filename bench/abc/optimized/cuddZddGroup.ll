@@ -676,7 +676,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %or.cond3, label %224, label %zddGroupSifting.exit, !llvm.loop !64
 
 zddGroupSifting.exit:                             ; preds = %224, %50, %221, %220, %218, %._crit_edge121.i, %.thread142.i, %.thread, %40, %46, %48, %56, %58, %222
-  %.0 = phi i32 [ %223, %222 ], [ %59, %58 ], [ %57, %56 ], [ %49, %48 ], [ %47, %46 ], [ 1, %40 ], [ 1, %._crit_edge121.i ], [ 1, %218 ], [ 0, %221 ], [ 0, %220 ], [ 0, %.thread142.i ], [ 0, %.thread ], [ %52, %50 ], [ %226, %224 ]
+  %.0 = phi i32 [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ], [ %223, %222 ], [ 1, %40 ], [ 1, %._crit_edge121.i ], [ 1, %218 ], [ 0, %221 ], [ 0, %220 ], [ 0, %.thread142.i ], [ 0, %.thread ], [ %52, %50 ], [ %226, %224 ]
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %231 = load ptr, ptr %230, align 8, !tbaa !26
   %.not.i32 = icmp eq ptr %1, %231

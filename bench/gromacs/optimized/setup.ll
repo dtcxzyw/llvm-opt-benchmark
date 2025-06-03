@@ -1229,7 +1229,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i
-  %.sroa.050.1.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %46, %45 ]
+  %.sroa.050.1.i.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   br label %48
 
 48:                                               ; preds = %48, %47
@@ -1251,7 +1251,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i
-  %.sroa.050.2.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %54, %53 ]
+  %.sroa.050.2.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.050.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   br label %56
 
 56:                                               ; preds = %56, %55

@@ -152,7 +152,7 @@ define dso_local ptr @lookupKeyByPattern(ptr noundef %0, ptr noundef readonly ca
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %27, %32, %35, %39, %43, %47
-  %.0.i = phi i64 [ %49, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %32 ], [ 0, %27 ]
+  %.0.i = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ], [ 0, %27 ]
   %50 = ptrtoint ptr %23 to i64
   %51 = ptrtoint ptr %7 to i64
   %.neg = sub i64 %51, %50
@@ -210,7 +210,7 @@ sdslen.exit:                                      ; preds = %27, %32, %35, %39, 
   br label %sdslen.exit79
 
 sdslen.exit79:                                    ; preds = %57, %65, %68, %72, %76, %80
-  %.0.i78 = phi i64 [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %65 ], [ 0, %57 ]
+  %.0.i78 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %57 ]
   %83 = getelementptr inbounds i8, ptr %7, i64 -1
   %84 = load i8, ptr %83, align 1, !tbaa !15
   %85 = zext i8 %84 to i32
@@ -252,7 +252,7 @@ sdslen.exit79:                                    ; preds = %57, %65, %68, %72, 
   br label %sdslen.exit81
 
 sdslen.exit81:                                    ; preds = %sdslen.exit79, %87, %90, %94, %98, %102
-  %.0.i80 = phi i64 [ %104, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %90 ], [ %89, %87 ], [ 0, %sdslen.exit79 ]
+  %.0.i80 = phi i64 [ %89, %87 ], [ %93, %90 ], [ %97, %94 ], [ %101, %98 ], [ %104, %102 ], [ 0, %sdslen.exit79 ]
   %.not68 = icmp eq i32 %.059, 0
   %105 = add nsw i32 %.059, 2
   %106 = select i1 %.not68, i32 0, i32 %105
@@ -620,7 +620,7 @@ define dso_local void @sortCommandGeneric(ptr noundef %0, i32 noundef %1) local_
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %79, %84, %87, %91, %95, %99
-  %.0.i = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %84 ], [ 0, %79 ]
+  %.0.i = phi i64 [ %86, %84 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ 0, %79 ]
   %102 = trunc i64 %.0.i to i32
   %103 = call i32 @patternHashSlot(ptr noundef nonnull %74, i32 noundef %102) #12
   %104 = load ptr, ptr %16, align 8, !tbaa !68
@@ -711,7 +711,7 @@ sub_0:                                            ; preds = %116
   br label %sdslen.exit508
 
 sdslen.exit508:                                   ; preds = %.tail.thread, %130, %133, %137, %141, %145
-  %.0.i507 = phi i64 [ %147, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %133 ], [ %132, %130 ], [ 0, %.tail.thread ]
+  %.0.i507 = phi i64 [ %132, %130 ], [ %136, %133 ], [ %140, %137 ], [ %144, %141 ], [ %147, %145 ], [ 0, %.tail.thread ]
   %148 = trunc i64 %.0.i507 to i32
   %149 = call i32 @patternHashSlot(ptr noundef nonnull %121, i32 noundef %148) #12
   %150 = load ptr, ptr %16, align 8, !tbaa !68
@@ -883,7 +883,7 @@ sdslen.exit508:                                   ; preds = %.tail.thread, %130,
   unreachable
 
 219:                                              ; preds = %209, %207, %205
-  %.0393.in = phi i64 [ %217, %209 ], [ %208, %207 ], [ %206, %205 ]
+  %.0393.in = phi i64 [ %206, %205 ], [ %208, %207 ], [ %217, %209 ]
   %.0393 = trunc i64 %.0393.in to i32
   %220 = load i64, ptr %3, align 8, !tbaa !19
   %221 = call i64 @llvm.smax.i64(i64 %220, i64 0)
@@ -1170,7 +1170,7 @@ sdslen.exit508:                                   ; preds = %.tail.thread, %130,
   br label %sdslen.exit510
 
 sdslen.exit510:                                   ; preds = %320, %326, %329, %333, %337, %341
-  %.0.i509 = phi i64 [ %343, %341 ], [ %340, %337 ], [ %336, %333 ], [ %332, %329 ], [ %328, %326 ], [ 0, %320 ]
+  %.0.i509 = phi i64 [ %328, %326 ], [ %332, %329 ], [ %336, %333 ], [ %340, %337 ], [ %343, %341 ], [ 0, %320 ]
   %344 = call ptr @createStringObject(ptr noundef nonnull %321, i64 noundef %.0.i509) #12
   %345 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv670
   store ptr %344, ptr %345, align 8, !tbaa !50
@@ -1248,7 +1248,7 @@ sdslen.exit510:                                   ; preds = %320, %326, %329, %3
   br label %sdslen.exit512
 
 sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %366, %370, %374, %378
-  %.0.i511 = phi i64 [ %380, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %366 ], [ %365, %363 ], [ 0, %.lr.ph601 ]
+  %.0.i511 = phi i64 [ %365, %363 ], [ %369, %366 ], [ %373, %370 ], [ %377, %374 ], [ %380, %378 ], [ 0, %.lr.ph601 ]
   %381 = call ptr @createStringObject(ptr noundef nonnull %358, i64 noundef %.0.i511) #12
   %382 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv
   store ptr %381, ptr %382, align 8, !tbaa !50

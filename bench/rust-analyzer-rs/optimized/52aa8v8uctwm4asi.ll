@@ -10973,7 +10973,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -11050,7 +11050,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i64, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i64, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i64, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i64
@@ -40030,7 +40030,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$GT$$GT$$GT$17h20325c4232564f23E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$GT$$GT$$GT$17hceac5cafa72f8b67E.exit", label %23
@@ -40324,7 +40324,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr125drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$GT$$GT$$GT$17h1e47b5d6c5027ae7E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr238drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$GT$$GT$$GT$17hac393cd4db6b9cf3E.exit", label %23
@@ -40618,7 +40618,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr134drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$GT$$GT$$GT$17h9ff9c7eeafa040b3E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr256drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$GT$$GT$$GT$17h46c02f52a38ab735E.exit", label %23
@@ -40912,7 +40912,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr99drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..EnumVariantLoc$GT$$GT$$GT$17h959f963b3c09fa43E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..EnumVariantLoc$C$hir_def..EnumVariantLoc$GT$$GT$$GT$17hc3409fcc7f23dd2fE.exit", label %23
@@ -41206,7 +41206,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr133drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$GT$$GT$$GT$17hc361ecc8ffb5f6efE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr254drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$GT$$GT$$GT$17h83d12d316020ae73E.exit", label %23
@@ -41500,7 +41500,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr124drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$GT$$GT$$GT$17h3d427c3088087ff7E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr236drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$GT$$GT$$GT$17hbf00565d1096f862E.exit", label %23
@@ -41794,7 +41794,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr130drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$GT$$GT$$GT$17hd9add5cb4384b68dE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr248drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$GT$$GT$$GT$17h55b355b072d6d3d5E.exit", label %23
@@ -42088,7 +42088,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr130drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$GT$$GT$$GT$17hea0e3f1bd86fbcd8E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr248drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$GT$$GT$$GT$17h0c903f7d564e6f22E.exit", label %23
@@ -42391,8 +42391,8 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h1b085f76cf3a0eeaE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12)
           to label %32 unwind label %30
 
-.body:                                            ; preds = %69, %30, %.body39.thread, %.body39, %45
-  %.pn.pn = phi { ptr, i32 } [ %.pn54, %.body39.thread ], [ %eh.lpad-body42, %.body39 ], [ %46, %45 ], [ %31, %30 ], [ %70, %69 ]
+.body:                                            ; preds = %69, %30, %.body40.thread, %.body40, %45
+  %.pn27 = phi { ptr, i32 } [ %46, %45 ], [ %.pn55, %.body40.thread ], [ %eh.lpad-body43, %.body40 ], [ %31, %30 ], [ %70, %69 ]
   %27 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %28 = extractvalue { i64, i1 } %27, 1
   br i1 %28, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit.thread", label %29
@@ -42506,38 +42506,38 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   %74 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %75 = extractvalue { i64, i1 } %74, 1
-  br i1 %75, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36", label %76
+  br i1 %75, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit37", label %76
 
 76:                                               ; preds = %"_ZN4core3ptr123drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h557f6d38f23a0745E.exit"
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36"
+  br label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit37"
 
-"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36": ; preds = %176, %76, %149, %"_ZN4core3ptr123drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h557f6d38f23a0745E.exit"
+"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit37": ; preds = %176, %76, %149, %"_ZN4core3ptr123drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h557f6d38f23a0745E.exit"
   %.sroa.3.0 = phi i32 [ %39, %"_ZN4core3ptr123drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h557f6d38f23a0745E.exit" ], [ %39, %76 ], [ %44, %149 ], [ %44, %176 ]
   %.sroa.0.0 = phi ptr [ %55, %"_ZN4core3ptr123drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h557f6d38f23a0745E.exit" ], [ %55, %76 ], [ %103, %149 ], [ %103, %176 ]
   %77 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %78 = insertvalue { ptr, i32 } %77, i32 %.sroa.3.0, 1
   ret { ptr, i32 } %78
 
-79:                                               ; preds = %133, %29, %177, %.body39.thread, %45
+79:                                               ; preds = %133, %29, %177, %.body40.thread, %45
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
 
-81:                                               ; preds = %.noexc37, %83, %41
+81:                                               ; preds = %.noexc38, %83, %41
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %.body39.thread
+  br label %.body40.thread
 
 83:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %85 = load i16, ptr %84, align 8, !noalias !8206, !noundef !5
   %86 = invoke noundef i32 @_ZN5salsa9intern_id8InternId6as_u3217h594288ac3cecdb86E(i32 noundef range(i32 1, 0) %44)
-          to label %.noexc37 unwind label %81
+          to label %.noexc38 unwind label %81
 
-.noexc37:                                         ; preds = %83
+.noexc38:                                         ; preds = %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8212)
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -42552,9 +42552,9 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
   %96 = load ptr, ptr %95, align 8, !invariant.load !5, !noalias !8230, !nonnull !5
   %97 = invoke { ptr, ptr } %96(ptr noundef nonnull align 1 %92)
-          to label %.noexc38 unwind label %81
+          to label %.noexc39 unwind label %81
 
-.noexc38:                                         ; preds = %.noexc37
+.noexc39:                                         ; preds = %.noexc38
   %98 = extractvalue { ptr, ptr } %97, 0
   %99 = extractvalue { ptr, ptr } %97, 1
   %100 = load i64, ptr %4, align 8, !alias.scope !8231, !noalias !8220
@@ -42583,7 +42583,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %110
 
-105:                                              ; preds = %.noexc38
+105:                                              ; preds = %.noexc39
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 56) #26
           to label %.noexc.i unwind label %106, !noalias !8206
 
@@ -42594,7 +42594,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$triomphe..arc..ArcInner$LT$salsa..interned..Slot$LT$hir_def..InTypeConstLoc$GT$$GT$$GT$17h1f4ede4a37618406E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #28
-          to label %.body39.thread unwind label %108, !noalias !8206
+          to label %.body40.thread unwind label %108, !noalias !8206
 
 108:                                              ; preds = %106
   %109 = landingpad { ptr, i32 }
@@ -42602,7 +42602,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27, !noalias !8206
   unreachable
 
-110:                                              ; preds = %.noexc38
+110:                                              ; preds = %.noexc39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !noalias !8206
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !8206
   store ptr %103, ptr %10, align 8
@@ -42634,13 +42634,13 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8241)
   %120 = atomicrmw sub ptr %103, i64 1 release, align 8, !noalias !8244
   %121 = icmp eq i64 %120, 1
-  br i1 %121, label %122, label %.body41
+  br i1 %121, label %122, label %.body42
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %7, align 8, !alias.scope !8245, !noalias !8235, !nonnull !5, !noundef !5
   %124 = load atomic i64, ptr %123 acquire, align 8, !noalias !8245
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hd72ce47861a19ffdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.body41 unwind label %125
+          to label %.body42 unwind label %125
 
 125:                                              ; preds = %122
   %126 = landingpad { ptr, i32 }
@@ -42655,23 +42655,23 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 128:                                              ; preds = %127
   %129 = landingpad { ptr, i32 }
           cleanup
-  br label %.body41
+  br label %.body42
 
-.body41:                                          ; preds = %145, %128, %118, %122
+.body42:                                          ; preds = %145, %128, %118, %122
   %.121.lpad-body = phi i1 [ true, %122 ], [ true, %118 ], [ true, %128 ], [ false, %145 ]
-  %eh.lpad-body42 = phi { ptr, i32 } [ %119, %122 ], [ %119, %118 ], [ %129, %128 ], [ %146, %145 ]
+  %eh.lpad-body43 = phi { ptr, i32 } [ %119, %122 ], [ %119, %118 ], [ %129, %128 ], [ %146, %145 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8246)
   call void @llvm.experimental.noalias.scope.decl(metadata !8249)
   %130 = load ptr, ptr %10, align 8, !alias.scope !8252, !nonnull !5, !noundef !5
   %131 = atomicrmw sub ptr %130, i64 1 release, align 8, !noalias !8252
   %132 = icmp eq i64 %131, 1
-  br i1 %132, label %133, label %.body39
+  br i1 %132, label %133, label %.body40
 
-133:                                              ; preds = %.body41
+133:                                              ; preds = %.body42
   %134 = load ptr, ptr %10, align 8, !alias.scope !8252, !nonnull !5, !noundef !5
   %135 = load atomic i64, ptr %134 acquire, align 8, !noalias !8252
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hd72ce47861a19ffdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.body39 unwind label %79
+          to label %.body40 unwind label %79
 
 136:                                              ; preds = %._crit_edge.i, %113
   %137 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %114, %113 ]
@@ -42698,7 +42698,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %146 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$$LP$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$RP$$GT$17h30a2f6c8036cecb3E.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #28
-          to label %.body41 unwind label %147, !noalias !8253
+          to label %.body42 unwind label %147, !noalias !8253
 
 147:                                              ; preds = %145
   %148 = landingpad { ptr, i32 }
@@ -42741,23 +42741,23 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   %174 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %175 = extractvalue { i64, i1 } %174, 1
-  br i1 %175, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36", label %176
+  br i1 %175, label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit37", label %176
 
 176:                                              ; preds = %149
   tail call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit36"
+  br label %"_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit37"
 
-.body39:                                          ; preds = %.body41, %133
-  br i1 %.121.lpad-body, label %.body39.thread, label %.body
+.body40:                                          ; preds = %.body42, %133
+  br i1 %.121.lpad-body, label %.body40.thread, label %.body
 
-.body39.thread:                                   ; preds = %106, %81, %.body39
-  %.pn54 = phi { ptr, i32 } [ %eh.lpad-body42, %.body39 ], [ %107, %106 ], [ %82, %81 ]
+.body40.thread:                                   ; preds = %106, %81, %.body40
+  %.pn55 = phi { ptr, i32 } [ %eh.lpad-body43, %.body40 ], [ %107, %106 ], [ %82, %81 ]
   invoke void @"_ZN4core3ptr121drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$hir_def..InTypeConstLoc$C$salsa..intern_id..InternId$GT$$GT$17h6d5ace1d7a530225E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13) #28
           to label %.body unwind label %79
 
 "_ZN4core3ptr186drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17h69068770778008d2E.exit.thread": ; preds = %.body, %29, %177
-  %.pn.pn.pn57 = phi { ptr, i32 } [ %lpad.thr_comm, %177 ], [ %.pn.pn, %29 ], [ %.pn.pn, %.body ]
-  resume { ptr, i32 } %.pn.pn.pn57
+  %.pn27.pn58 = phi { ptr, i32 } [ %lpad.thr_comm, %177 ], [ %.pn27, %29 ], [ %.pn27, %.body ]
+  resume { ptr, i32 } %.pn27.pn58
 
 177:                                              ; preds = %17, %5, %23
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -42799,7 +42799,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$GT$$GT$$GT$17h37f20ac0a46d580fE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$GT$$GT$$GT$17h62ba557a39d93409E.exit", label %23
@@ -43093,7 +43093,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr126drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$GT$$GT$$GT$17h737744434c69e619E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr240drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$GT$$GT$$GT$17h9c53443bb4a87b3cE.exit", label %23
@@ -43384,7 +43384,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr93drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..BlockLoc$GT$$GT$$GT$17h4347f42926742aafE.llvm.2095514371065220994.exit": ; preds = %.body, %95, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %95 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %95 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..BlockLoc$C$hir_def..BlockLoc$GT$$GT$$GT$17h0a357b36a31d3b8dE.exit", label %23
@@ -43693,7 +43693,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr123drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$GT$$GT$$GT$17h3a24199159290a9aE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$GT$$GT$$GT$17h9a34d164f02737c2E.exit", label %23
@@ -43987,7 +43987,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$GT$$GT$$GT$17hb02423303b426a91E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$GT$$GT$$GT$17h6a9bcac0eb270f1dE.exit", label %23
@@ -44281,7 +44281,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..Macro2Loc$GT$$GT$$GT$17h611af858708bc0c5E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr176drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17h522870b229f263e1E.exit", label %23
@@ -44575,7 +44575,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr124drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$GT$$GT$$GT$17hd93ec23feed31bc3E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr236drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$GT$$GT$$GT$17h2b41f389d54f440eE.exit", label %23
@@ -44869,7 +44869,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr97drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ProcMacroLoc$GT$$GT$$GT$17ha79531e8580cc26aE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr182drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ProcMacroLoc$C$hir_def..ProcMacroLoc$GT$$GT$$GT$17h3fa8edd06026bf61E.exit", label %23
@@ -45164,7 +45164,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr125drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$GT$$GT$$GT$17hfd72d7e5a9ee8038E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr238drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$GT$$GT$$GT$17hd7d49e7a1790a1a6E.exit", label %23
@@ -45458,7 +45458,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr98drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ConstBlockLoc$GT$$GT$$GT$17h80daaf758772e306E.llvm.2095514371065220994.exit": ; preds = %.body, %96, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %96 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %96 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr184drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ConstBlockLoc$C$hir_def..ConstBlockLoc$GT$$GT$$GT$17hc65f0d97762bf389E.exit", label %23
@@ -45761,7 +45761,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
           to label %26 unwind label %24
 
 "_ZN4core3ptr98drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..MacroRulesLoc$GT$$GT$$GT$17h316da100c3292a3eE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %38, %37 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %59, %58 ], [ %25, %24 ], [ %eh.lpad-body, %91 ], [ %eh.lpad-body, %.body ]
   %21 = cmpxchg ptr %0, i64 8, i64 0 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %"_ZN4core3ptr184drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..MacroRulesLoc$C$hir_def..MacroRulesLoc$GT$$GT$$GT$17h609bddcc91dabea7E.exit", label %23
@@ -55161,7 +55161,7 @@ default.unreachable1:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10, %8
-  %.0.in = phi i1 [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.0.in = phi i1 [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ]
   ret i1 %.0.in
 }
 
@@ -55358,7 +55358,7 @@ default.unreachable1:                             ; preds = %2
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.0.in
 }
 
@@ -55474,7 +55474,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$hir_def..TypeOwnerId$u20$as$u20$c
   br label %46
 
 46:                                               ; preds = %43, %40, %37, %34, %31, %29, %26, %23, %20, %17
-  %.0.in = phi i1 [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.0.in = phi i1 [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %30, %29 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ]
   ret i1 %.0.in
 }
 
@@ -55610,7 +55610,7 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %12, %10
-  %.0.in = phi i1 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ]
+  %.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   ret i1 %.0.in
 }
 

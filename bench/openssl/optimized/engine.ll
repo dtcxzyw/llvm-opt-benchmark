@@ -773,7 +773,7 @@ util_verbose.exit:                                ; preds = %265, %267
   br label %.thread197
 
 .thread197:                                       ; preds = %.lr.ph369, %43, %39, %62, %.lr.ph251, %272, %.loopexit209, %.thread197.critedge, %157, %.thread, %2, %57, %33, %30
-  %.0127 = phi i32 [ 1, %2 ], [ 0, %33 ], [ 1, %30 ], [ 1, %57 ], [ %.1128262, %157 ], [ %.1128262, %.thread ], [ %.1128262, %.thread197.critedge ], [ 0, %.loopexit209 ], [ %.2129195, %272 ], [ 1, %.lr.ph251 ], [ 1, %62 ], [ 1, %39 ], [ 1, %43 ], [ 1, %.lr.ph369 ]
+  %.0127 = phi i32 [ 1, %2 ], [ 1, %30 ], [ 0, %33 ], [ 1, %57 ], [ %.1128262, %157 ], [ %.1128262, %.thread ], [ %.1128262, %.thread197.critedge ], [ 0, %.loopexit209 ], [ %.2129195, %272 ], [ 1, %.lr.ph251 ], [ 1, %62 ], [ 1, %39 ], [ 1, %43 ], [ 1, %.lr.ph369 ]
   %276 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %276) #7
   call void @OPENSSL_sk_free(ptr noundef %7) #7

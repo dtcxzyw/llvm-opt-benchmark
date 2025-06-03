@@ -2594,7 +2594,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %16, %14
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %30, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i, %30 ], [ %31, %.thread.i ]
+  %.1.i = phi ptr [ %31, %.thread.i ], [ %.0.i.i.i, %30 ]
   store ptr %.1.i, ptr %5, align 8, !tbaa !4
   br label %104
 
@@ -2760,7 +2760,7 @@ lean_ensure_exclusive_array.exit.i.i42:           ; preds = %81, %79
   br label %lean_array_set.exit46
 
 lean_array_set.exit46:                            ; preds = %95, %.thread.i39
-  %.1.i40 = phi ptr [ %.0.i.i.i43, %95 ], [ %96, %.thread.i39 ]
+  %.1.i40 = phi ptr [ %96, %.thread.i39 ], [ %.0.i.i.i43, %95 ]
   tail call void @lean_inc_heartbeat() #5
   %97 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
   %98 = icmp eq ptr %97, null

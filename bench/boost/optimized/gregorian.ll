@@ -770,7 +770,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9set_v
   br label %53
 
 53:                                               ; preds = %45, %3
-  %.0 = phi i32 [ %2, %3 ], [ %52, %45 ]
+  %.0 = phi i32 [ %52, %45 ], [ %2, %3 ]
   %54 = load ptr, ptr %0, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
@@ -1836,7 +1836,7 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit53.thread: ; preds = %290, %28
   br label %311
 
 _ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit: ; preds = %255, %193, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit51, %290, %63, %252, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit41, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread62, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, %277, %277, %277, %215, %215, %215, %161, %161, %161, %147, %147, %147, %137, %137, %137, %125, %125, %125, %114, %114, %114, %104, %104, %104, %88, %88, %88, %77, %77, %77, %54, %54, %54, %25, %25, %25, %15, %15, %15, %4, %4, %4, %3, %295, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit53.thread, %279, %278, %217, %216, %163, %162, %157, %149, %148, %139, %138, %127, %126, %116, %115, %106, %105, %90, %89, %79, %78, %68, %56, %55, %46, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit, %27, %26, %17, %16, %6, %5
-  %.0 = phi i32 [ %300, %295 ], [ 5, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit53.thread ], [ 4, %279 ], [ 5, %278 ], [ 4, %217 ], [ 5, %216 ], [ 52, %163 ], [ 53, %162 ], [ %160, %157 ], [ %151, %149 ], [ 59, %148 ], [ %141, %139 ], [ 59, %138 ], [ %131, %127 ], [ 1, %126 ], [ %119, %116 ], [ 11, %115 ], [ %108, %106 ], [ 23, %105 ], [ %98, %90 ], [ 7, %89 ], [ %82, %79 ], [ 7, %78 ], [ %71, %68 ], [ 365, %56 ], [ 366, %55 ], [ %48, %46 ], [ %45, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit ], [ 28, %27 ], [ 31, %26 ], [ %19, %17 ], [ 11, %16 ], [ %9, %6 ], [ 5883516, %5 ], [ %1, %3 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %88 ], [ 1, %88 ], [ 1, %88 ], [ 0, %104 ], [ 0, %104 ], [ 0, %104 ], [ 0, %114 ], [ 0, %114 ], [ 0, %114 ], [ 0, %125 ], [ 0, %125 ], [ 0, %125 ], [ 0, %137 ], [ 0, %137 ], [ 0, %137 ], [ 0, %147 ], [ 0, %147 ], [ 0, %147 ], [ 1, %161 ], [ 1, %161 ], [ 1, %161 ], [ 1, %215 ], [ 1, %215 ], [ 1, %215 ], [ 1, %277 ], [ 1, %277 ], [ 1, %277 ], [ 366, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread ], [ %192, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread62 ], [ %209, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39 ], [ %254, %252 ], [ -1, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit41 ], [ %271, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit51 ], [ 365, %63 ], [ 4, %290 ], [ 53, %193 ], [ 5, %255 ]
+  %.0 = phi i32 [ 5883516, %5 ], [ %9, %6 ], [ 11, %16 ], [ %19, %17 ], [ 31, %26 ], [ 28, %27 ], [ %45, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit ], [ %48, %46 ], [ 366, %55 ], [ 365, %56 ], [ %71, %68 ], [ 7, %78 ], [ %82, %79 ], [ 7, %89 ], [ %98, %90 ], [ 23, %105 ], [ %108, %106 ], [ 11, %115 ], [ %119, %116 ], [ 1, %126 ], [ %131, %127 ], [ 59, %138 ], [ %141, %139 ], [ 59, %148 ], [ %151, %149 ], [ %160, %157 ], [ 53, %162 ], [ 52, %163 ], [ 5, %216 ], [ 4, %217 ], [ 5, %278 ], [ 4, %279 ], [ 5, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit53.thread ], [ %300, %295 ], [ %1, %3 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %88 ], [ 1, %88 ], [ 1, %88 ], [ 0, %104 ], [ 0, %104 ], [ 0, %104 ], [ 0, %114 ], [ 0, %114 ], [ 0, %114 ], [ 0, %125 ], [ 0, %125 ], [ 0, %125 ], [ 0, %137 ], [ 0, %137 ], [ 0, %137 ], [ 0, %147 ], [ 0, %147 ], [ 0, %147 ], [ 1, %161 ], [ 1, %161 ], [ 1, %161 ], [ 1, %215 ], [ 1, %215 ], [ 1, %215 ], [ 1, %277 ], [ 1, %277 ], [ 1, %277 ], [ 366, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread ], [ %192, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread62 ], [ %209, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39 ], [ %254, %252 ], [ -1, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit41 ], [ %271, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit51 ], [ 365, %63 ], [ 4, %290 ], [ 53, %193 ], [ 5, %255 ]
   ret i32 %.0
 
 311:                                              ; preds = %309, %304, %275, %213, %155, %145, %135, %123, %112, %102, %86, %75, %52, %23, %13
@@ -2018,7 +2018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %32
   br label %45
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %24, %43
-  %.pn14 = phi { ptr, i32 } [ %44, %43 ], [ %.pn32, %40 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %.pn1229, %24 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
+  %.pn14 = phi { ptr, i32 } [ %44, %43 ], [ %.pn1229, %24 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn32, %40 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ]
   resume { ptr, i32 } %.pn14
 
 46:                                               ; preds = %30, %14
@@ -2405,7 +2405,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i36: ; preds 
   br label %96
 
 96:                                               ; preds = %95, %23, %23, %23, %23
-  %.027 = phi i32 [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 7, %95 ]
+  %.027 = phi i32 [ 7, %95 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ]
   %97 = getelementptr inbounds nuw i8, ptr %.026, i64 52
   %98 = load i32, ptr %97, align 4, !tbaa !58
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2553,7 +2553,7 @@ _ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_ma
   br label %.body
 
 _ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit: ; preds = %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i37, %56, %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i, %24, %23, %23, %23, %169, %161, %153, %145, %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit54
-  %.025 = phi i32 [ %175, %169 ], [ %168, %161 ], [ %160, %153 ], [ %152, %145 ], [ %144, %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit54 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ], [ %.1.i, %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i ], [ 0, %24 ], [ %.1.i39, %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i37 ], [ 0, %56 ]
+  %.025 = phi i32 [ %144, %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit54 ], [ %152, %145 ], [ %160, %153 ], [ %168, %161 ], [ %175, %169 ], [ 0, %23 ], [ 0, %23 ], [ 0, %23 ], [ %.1.i, %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i ], [ 0, %24 ], [ %.1.i39, %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i37 ], [ 0, %56 ]
   %183 = icmp eq ptr %.sroa.0.0, null
   br i1 %183, label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit, label %184
 

@@ -260,7 +260,7 @@ optionListToArray.exit:                           ; preds = %._crit_edge, %.lr.p
   unreachable
 
 94:                                               ; preds = %85, %77, %68
-  %.1 = phi ptr [ %86, %85 ], [ %.04188127, %77 ], [ %69, %68 ]
+  %.1 = phi ptr [ %69, %68 ], [ %.04188127, %77 ], [ %86, %85 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99126, 1
   %95 = load i32, ptr %6, align 4
   %96 = sext i32 %95 to i64
@@ -2469,7 +2469,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %62, %61, %54, %52, %46, %43, %40, %37, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %61 ], [ %63, %62 ], [ %55, %54 ], [ %47, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %53, %52 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %61 ], [ %63, %62 ], [ %55, %54 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %53, %52 ]
   ret i64 %.0
 }
 

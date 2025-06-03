@@ -12906,8 +12906,8 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit:   ; preds = %_ZN4llvm23Intrinsic
   br label %152
 
 152:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit, %145, %142, %.critedge.thread, %74, %72, %68, %68, %68, %68, %68, %.critedge67
-  %.sroa.085.1 = phi i64 [ %.sroa.085.0101, %74 ], [ %.0.i.i79, %.critedge67 ], [ %.0.i.i78, %145 ], [ %.0.i.i76, %142 ], [ %.0.i.i74, %.critedge.thread ], [ %.0.i, %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit ], [ %.sroa.085.0101, %72 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0102, %74 ], [ %.sroa.12.0102, %.critedge67 ], [ %.sroa.12.0102, %145 ], [ %.sroa.12.0102, %142 ], [ %.sroa.12.0102, %.critedge.thread ], [ %spec.select, %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit ], [ %.sroa.12.0102, %72 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ]
+  %.sroa.085.1 = phi i64 [ %.sroa.085.0101, %74 ], [ %.0.i.i79, %.critedge67 ], [ %.0.i.i78, %145 ], [ %.0.i.i76, %142 ], [ %.0.i.i74, %.critedge.thread ], [ %.0.i, %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %68 ], [ %.sroa.085.0101, %72 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0102, %74 ], [ %.sroa.12.0102, %.critedge67 ], [ %.sroa.12.0102, %145 ], [ %.sroa.12.0102, %142 ], [ %.sroa.12.0102, %.critedge.thread ], [ %spec.select, %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %68 ], [ %.sroa.12.0102, %72 ]
   %153 = load ptr, ptr %4, align 8, !tbaa !566
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !231
@@ -13366,7 +13366,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -17014,8 +17014,8 @@ define linkonce_odr { ptr, i32 } @_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11Inst
   br label %38
 
 38:                                               ; preds = %._crit_edge._crit_edge, %36
-  %39 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %34, %36 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.15.0.lcssa, %._crit_edge._crit_edge ], [ %37, %36 ]
+  %39 = phi ptr [ %34, %36 ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.15.1 = phi i32 [ %37, %36 ], [ %.sroa.15.0.lcssa, %._crit_edge._crit_edge ]
   %40 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %.sroa.15.1) #23
   %41 = icmp eq ptr %40, %39
   br i1 %41, label %.loopexit, label %42
@@ -17025,8 +17025,8 @@ define linkonce_odr { ptr, i32 } @_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11Inst
   br label %44
 
 44:                                               ; preds = %._crit_edge._crit_edge98, %42
-  %45 = phi ptr [ %.pre99, %._crit_edge._crit_edge98 ], [ %39, %42 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.0.lcssa, %._crit_edge._crit_edge98 ], [ %43, %42 ]
+  %45 = phi ptr [ %39, %42 ], [ %.pre99, %._crit_edge._crit_edge98 ]
+  %.sroa.15.2 = phi i32 [ %43, %42 ], [ %.sroa.15.0.lcssa, %._crit_edge._crit_edge98 ]
   %46 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %.sroa.15.2) #23
   %47 = icmp eq ptr %46, %45
   br i1 %47, label %.loopexit, label %48

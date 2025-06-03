@@ -428,7 +428,7 @@ define internal i32 @MD5_traverse(ptr noundef readonly captures(none) %0, ptr no
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

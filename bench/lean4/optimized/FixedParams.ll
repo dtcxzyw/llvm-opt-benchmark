@@ -398,7 +398,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   br label %28
 
 28:                                               ; preds = %26, %.thread
-  %.1 = phi ptr [ %.0.i.i, %26 ], [ %27, %.thread ]
+  %.1 = phi ptr [ %27, %.thread ], [ %.0.i.i, %26 ]
   ret ptr %.1
 }
 
@@ -966,7 +966,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %76, %74
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %90, %.thread.i
-  %.1.i84 = phi ptr [ %.0.i.i.i, %90 ], [ %91, %.thread.i ]
+  %.1.i84 = phi ptr [ %91, %.thread.i ], [ %.0.i.i.i, %90 ]
   tail call void @lean_inc_heartbeat() #5
   %92 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %93 = icmp eq ptr %92, null
@@ -1099,7 +1099,7 @@ lean_ensure_exclusive_array.exit.i.i96:           ; preds = %123, %121
   br label %lean_array_set.exit100
 
 lean_array_set.exit100:                           ; preds = %137, %.thread.i93
-  %.1.i94 = phi ptr [ %.0.i.i.i97, %137 ], [ %138, %.thread.i93 ]
+  %.1.i94 = phi ptr [ %138, %.thread.i93 ], [ %.0.i.i.i97, %137 ]
   tail call void @lean_inc_heartbeat() #5
   %139 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %140 = icmp eq ptr %139, null
@@ -3252,7 +3252,7 @@ lean_ensure_exclusive_array.exit.i.i131:          ; preds = %111, %109
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %125, %.thread.i
-  %.1.i = phi ptr [ %.0.i.i.i132, %125 ], [ %126, %.thread.i ]
+  %.1.i = phi ptr [ %126, %.thread.i ], [ %.0.i.i.i132, %125 ]
   %.val.i.i.i135 = load i32, ptr %.0.i.i.i, align 4, !tbaa !4
   %127 = icmp eq i32 %.val.i.i.i135, 1
   br i1 %127, label %lean_ensure_exclusive_array.exit.i.i136, label %128
@@ -57665,7 +57665,7 @@ lean_dec.exit:                                    ; preds = %856, %855, %853, %l
   br label %862
 
 862:                                              ; preds = %lean_dec.exit346, %lean_dec.exit349, %lean_dec.exit333, %lean_dec.exit, %lean_dec.exit365, %lean_dec.exit367, %lean_dec.exit353, %lean_dec.exit352, %860, %259, %256, %253, %lean_dec.exit370, %lean_dec.exit374, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %861, %860 ], [ %261, %259 ], [ %258, %256 ], [ %255, %253 ], [ %252, %lean_dec.exit370 ], [ %164, %lean_dec.exit374 ], [ %131, %lean_alloc_ctor.exit ], [ %415, %lean_dec.exit367 ], [ %431, %lean_dec.exit365 ], [ %546, %lean_dec.exit352 ], [ %361, %lean_dec.exit353 ], [ %712, %lean_dec.exit349 ], [ %735, %lean_dec.exit346 ], [ %857, %lean_dec.exit ], [ %658, %lean_dec.exit333 ]
+  %.0 = phi ptr [ %861, %860 ], [ %252, %lean_dec.exit370 ], [ %255, %253 ], [ %258, %256 ], [ %261, %259 ], [ %131, %lean_alloc_ctor.exit ], [ %164, %lean_dec.exit374 ], [ %415, %lean_dec.exit367 ], [ %431, %lean_dec.exit365 ], [ %546, %lean_dec.exit352 ], [ %361, %lean_dec.exit353 ], [ %712, %lean_dec.exit349 ], [ %735, %lean_dec.exit346 ], [ %857, %lean_dec.exit ], [ %658, %lean_dec.exit333 ]
   ret ptr %.0
 }
 
@@ -91477,7 +91477,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %239, %237
   br label %lean_array_set.exit
 
 lean_array_set.exit:                              ; preds = %253, %.thread.i
-  %.1.i227 = phi ptr [ %.0.i.i.i, %253 ], [ %254, %.thread.i ]
+  %.1.i227 = phi ptr [ %254, %.thread.i ], [ %.0.i.i.i, %253 ]
   %255 = tail call ptr @l___private_Lean_Elab_PreDefinition_FixedParams_0__Lean_Elab_FixedParamPerm_forallTelescopeImpl_go___rarg(ptr noundef %3, ptr noundef %4, ptr noundef %.0.i, ptr noundef %6, ptr noundef %.1.i227, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %137)
   br label %411
 

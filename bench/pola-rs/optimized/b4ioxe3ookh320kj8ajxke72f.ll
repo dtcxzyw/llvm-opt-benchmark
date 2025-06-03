@@ -1334,7 +1334,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17ha78f568081d4de89E.exit.i: ; 
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hccb442acace3ff2bE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hccb442acace3ff2bE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %98, %93, %90, %87
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %92, %90 ], [ %103, %98 ], [ %89, %87 ], [ %97, %93 ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %97, %93 ], [ %89, %87 ], [ %103, %98 ], [ %92, %90 ]
   %104 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %104, label %107, label %105
 
@@ -5504,12 +5504,12 @@ default.unreachable:                              ; preds = %32
   ret void
 
 "_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd46b04b43ffaa403E.exit": ; preds = %32, %32, %37, %36, %35, %34, %33
-  %.sroa.23.1 = phi i32 [ %.val4.i, %37 ], [ %.sroa.23.028, %36 ], [ %.sroa.23.028, %35 ], [ %.sroa.23.028, %34 ], [ %.sroa.23.028, %33 ], [ %.sroa.23.028, %32 ], [ %.sroa.23.028, %32 ]
-  %.sroa.19.1 = phi i32 [ %.val6.i, %37 ], [ %.sroa.19.029, %36 ], [ %.val6.i, %35 ], [ %.sroa.19.029, %34 ], [ %.sroa.19.029, %33 ], [ %.sroa.19.029, %32 ], [ %.sroa.19.029, %32 ]
-  %.sroa.2122.sroa.0.1 = phi i8 [ %.sroa.2122.sroa.0.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.0.030, %36 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %35 ], [ %.sroa.2122.sroa.0.030, %34 ], [ %.sroa.2122.sroa.0.030, %33 ], [ %.sroa.2122.sroa.0.030, %32 ], [ %.sroa.2122.sroa.0.030, %32 ]
-  %.sroa.13.1 = phi i8 [ %.sroa.13.031, %37 ], [ %25, %36 ], [ %.sroa.13.031, %35 ], [ %.sroa.13.031, %34 ], [ %.sroa.13.031, %33 ], [ %.sroa.13.031, %32 ], [ %.sroa.13.031, %32 ]
-  %.sroa.10.1 = phi i8 [ %.sroa.10.032, %37 ], [ %23, %36 ], [ %.sroa.10.032, %35 ], [ %.sroa.10.032, %34 ], [ %.sroa.10.032, %33 ], [ %23, %32 ], [ %23, %32 ]
-  %.sroa.2122.sroa.5.sroa.0.1 = phi i56 [ %.sroa.2122.sroa.5.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.5.sroa.0.033, %36 ], [ %.sroa.2122.sroa.5.sroa.0.033, %35 ], [ %.sroa.2122.sroa.5.sroa.0.033, %34 ], [ %.sroa.2122.sroa.5.sroa.0.033, %33 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ]
+  %.sroa.23.1 = phi i32 [ %.sroa.23.028, %33 ], [ %.sroa.23.028, %34 ], [ %.sroa.23.028, %35 ], [ %.sroa.23.028, %36 ], [ %.val4.i, %37 ], [ %.sroa.23.028, %32 ], [ %.sroa.23.028, %32 ]
+  %.sroa.19.1 = phi i32 [ %.sroa.19.029, %33 ], [ %.sroa.19.029, %34 ], [ %.val6.i, %35 ], [ %.sroa.19.029, %36 ], [ %.val6.i, %37 ], [ %.sroa.19.029, %32 ], [ %.sroa.19.029, %32 ]
+  %.sroa.2122.sroa.0.1 = phi i8 [ %.sroa.2122.sroa.0.030, %33 ], [ %.sroa.2122.sroa.0.030, %34 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %35 ], [ %.sroa.2122.sroa.0.030, %36 ], [ %.sroa.2122.sroa.0.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.0.030, %32 ], [ %.sroa.2122.sroa.0.030, %32 ]
+  %.sroa.13.1 = phi i8 [ %.sroa.13.031, %33 ], [ %.sroa.13.031, %34 ], [ %.sroa.13.031, %35 ], [ %25, %36 ], [ %.sroa.13.031, %37 ], [ %.sroa.13.031, %32 ], [ %.sroa.13.031, %32 ]
+  %.sroa.10.1 = phi i8 [ %.sroa.10.032, %33 ], [ %.sroa.10.032, %34 ], [ %.sroa.10.032, %35 ], [ %23, %36 ], [ %.sroa.10.032, %37 ], [ %23, %32 ], [ %23, %32 ]
+  %.sroa.2122.sroa.5.sroa.0.1 = phi i56 [ %.sroa.2122.sroa.5.sroa.0.033, %33 ], [ %.sroa.2122.sroa.5.sroa.0.033, %34 ], [ %.sroa.2122.sroa.5.sroa.0.033, %35 ], [ %.sroa.2122.sroa.5.sroa.0.033, %36 ], [ %.sroa.2122.sroa.5.0.extract.trunc, %37 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ], [ %.sroa.2122.sroa.5.sroa.0.033, %32 ]
   %40 = add nuw i64 %.sroa.03.035, 1
   store i8 %17, ptr %.sroa.0.036, align 8
   %.sroa.10.0..sroa.0.0.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 1
@@ -10264,22 +10264,22 @@ default.unreachable:                              ; preds = %33
   br label %110
 
 110:                                              ; preds = %107, %99, %95, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i", %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i"
-  %.sroa.511.i.sroa.4.2.i = phi ptr [ %.sroa.511.i.sroa.4.1.i, %107 ], [ %.sroa.511.i.sroa.4.058.i, %99 ], [ %.sroa.511.i.sroa.4.058.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.511.i.sroa.4.058.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.511.i.sroa.4.058.i, %95 ]
-  %.sroa.514.i.sroa.4.2.i = phi ptr [ %.sroa.514.i.sroa.4.059.i, %107 ], [ %.sroa.514.i.sroa.4.1.i, %99 ], [ %.sroa.514.i.sroa.4.059.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.514.i.sroa.4.059.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.514.i.sroa.4.059.i, %95 ]
-  %.sroa.517.i.sroa.4.2.i = phi ptr [ %.sroa.517.i.sroa.4.060.i, %107 ], [ %.sroa.517.i.sroa.4.060.i, %99 ], [ %.sroa.517.i.sroa.4.060.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.517.i.sroa.4.060.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.517.i.sroa.4.1.i, %95 ]
-  %.sroa.5.i.i.sroa.0.2.i = phi i64 [ %.sroa.5.i.i.sroa.0.061.i, %107 ], [ %.sroa.5.i.i.sroa.0.061.i, %99 ], [ %.sroa.5.i.i.sroa.0.061.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.061.i, %95 ]
-  %.sroa.5.i.i.sroa.4.2.i = phi i64 [ %.sroa.5.i.i.sroa.4.062.i, %107 ], [ %.sroa.5.i.i.sroa.4.062.i, %99 ], [ %.sroa.5.i.i.sroa.4.062.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.4.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.4.062.i, %95 ]
-  %.sroa.5.i.i.sroa.5.2.i = phi i8 [ %.sroa.5.i.i.sroa.5.063.i, %107 ], [ %.sroa.5.i.i.sroa.5.063.i, %99 ], [ %.sroa.5.i.i.sroa.5.063.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.5.063.i, %95 ]
-  %.sroa.5.i20.i.sroa.0.2.i = phi i64 [ %.sroa.5.i20.i.sroa.0.064.i, %107 ], [ %.sroa.5.i20.i.sroa.0.064.i, %99 ], [ %.sroa.5.i20.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.0.064.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.0.064.i, %95 ]
-  %.sroa.23.sroa.8.sroa.0.1.i = phi i56 [ %.sroa.23.sroa.8.sroa.0.065.i, %107 ], [ %.sroa.23.sroa.8.0.extract.trunc28.i, %99 ], [ %.sroa.23.sroa.8.0.extract.trunc.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.23.sroa.8.0.extract.trunc26.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.23.sroa.8.sroa.0.065.i, %95 ]
-  %.sroa.23.sroa.0.0.i = phi i8 [ %92, %107 ], [ %.sroa.23.sroa.0.0.extract.trunc24.i, %99 ], [ %.sroa.23.sroa.0.0.extract.trunc.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.23.sroa.0.0.extract.trunc23.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %40, %95 ]
-  %.sroa.2722.1.i = phi i8 [ %.sroa.2722.066.i, %107 ], [ %.sroa.2722.066.i, %99 ], [ %67, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %44, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.2722.066.i, %95 ]
-  %.sroa.26.1.i = phi i8 [ %.sroa.26.067.i, %107 ], [ %101, %99 ], [ %.sroa.5.i20.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.26.067.i, %95 ]
-  %.sroa.18.0.i = phi i64 [ %109, %107 ], [ %103, %99 ], [ %.sroa.5.i20.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %97, %95 ]
-  %.sroa.16.0.i = phi ptr [ %.sroa.511.i.sroa.4.1.i, %107 ], [ %.sroa.514.i.sroa.4.1.i, %99 ], [ %.sroa.0.0.i27.i.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.0.0.i.i.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.517.i.sroa.4.1.i, %95 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.09.0.i.i, %107 ], [ %.sroa.012.0.i.i, %99 ], [ %.sroa.8.8.copyload.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.8.8.copyload15.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.015.0.i.i, %95 ]
-  %.sroa.5.i20.i.sroa.4.2.i = phi i64 [ %.sroa.5.i20.i.sroa.4.071.i, %107 ], [ %.sroa.5.i20.i.sroa.4.071.i, %99 ], [ %.sroa.5.i20.i.sroa.4.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.4.071.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.4.071.i, %95 ]
-  %.sroa.5.i20.i.sroa.5.2.i = phi i8 [ %.sroa.5.i20.i.sroa.5.073.i, %107 ], [ %.sroa.5.i20.i.sroa.5.073.i, %99 ], [ %.sroa.5.i20.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.5.073.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.5.073.i, %95 ]
+  %.sroa.511.i.sroa.4.2.i = phi ptr [ %.sroa.511.i.sroa.4.058.i, %95 ], [ %.sroa.511.i.sroa.4.058.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.511.i.sroa.4.058.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.511.i.sroa.4.058.i, %99 ], [ %.sroa.511.i.sroa.4.1.i, %107 ]
+  %.sroa.514.i.sroa.4.2.i = phi ptr [ %.sroa.514.i.sroa.4.059.i, %95 ], [ %.sroa.514.i.sroa.4.059.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.514.i.sroa.4.059.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.514.i.sroa.4.1.i, %99 ], [ %.sroa.514.i.sroa.4.059.i, %107 ]
+  %.sroa.517.i.sroa.4.2.i = phi ptr [ %.sroa.517.i.sroa.4.1.i, %95 ], [ %.sroa.517.i.sroa.4.060.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.517.i.sroa.4.060.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.517.i.sroa.4.060.i, %99 ], [ %.sroa.517.i.sroa.4.060.i, %107 ]
+  %.sroa.5.i.i.sroa.0.2.i = phi i64 [ %.sroa.5.i.i.sroa.0.061.i, %95 ], [ %.sroa.5.i.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.061.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.0.061.i, %99 ], [ %.sroa.5.i.i.sroa.0.061.i, %107 ]
+  %.sroa.5.i.i.sroa.4.2.i = phi i64 [ %.sroa.5.i.i.sroa.4.062.i, %95 ], [ %.sroa.5.i.i.sroa.4.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.4.062.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.4.062.i, %99 ], [ %.sroa.5.i.i.sroa.4.062.i, %107 ]
+  %.sroa.5.i.i.sroa.5.2.i = phi i8 [ %.sroa.5.i.i.sroa.5.063.i, %95 ], [ %.sroa.5.i.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i.i.sroa.5.063.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i.i.sroa.5.063.i, %99 ], [ %.sroa.5.i.i.sroa.5.063.i, %107 ]
+  %.sroa.5.i20.i.sroa.0.2.i = phi i64 [ %.sroa.5.i20.i.sroa.0.064.i, %95 ], [ %.sroa.5.i20.i.sroa.0.064.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.0.064.i, %99 ], [ %.sroa.5.i20.i.sroa.0.064.i, %107 ]
+  %.sroa.23.sroa.8.sroa.0.1.i = phi i56 [ %.sroa.23.sroa.8.sroa.0.065.i, %95 ], [ %.sroa.23.sroa.8.0.extract.trunc26.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.23.sroa.8.0.extract.trunc.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.23.sroa.8.0.extract.trunc28.i, %99 ], [ %.sroa.23.sroa.8.sroa.0.065.i, %107 ]
+  %.sroa.23.sroa.0.0.i = phi i8 [ %40, %95 ], [ %.sroa.23.sroa.0.0.extract.trunc23.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.23.sroa.0.0.extract.trunc.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.23.sroa.0.0.extract.trunc24.i, %99 ], [ %92, %107 ]
+  %.sroa.2722.1.i = phi i8 [ %.sroa.2722.066.i, %95 ], [ %44, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %67, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.2722.066.i, %99 ], [ %.sroa.2722.066.i, %107 ]
+  %.sroa.26.1.i = phi i8 [ %.sroa.26.067.i, %95 ], [ %.sroa.5.i.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %101, %99 ], [ %.sroa.26.067.i, %107 ]
+  %.sroa.18.0.i = phi i64 [ %97, %95 ], [ %.sroa.5.i.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.0.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %103, %99 ], [ %109, %107 ]
+  %.sroa.16.0.i = phi ptr [ %.sroa.517.i.sroa.4.1.i, %95 ], [ %.sroa.0.0.i.i.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.0.0.i27.i.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.514.i.sroa.4.1.i, %99 ], [ %.sroa.511.i.sroa.4.1.i, %107 ]
+  %.sroa.8.0.i = phi ptr [ %.sroa.015.0.i.i, %95 ], [ %.sroa.8.8.copyload15.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.8.8.copyload.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.012.0.i.i, %99 ], [ %.sroa.09.0.i.i, %107 ]
+  %.sroa.5.i20.i.sroa.4.2.i = phi i64 [ %.sroa.5.i20.i.sroa.4.071.i, %95 ], [ %.sroa.5.i20.i.sroa.4.071.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.4.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.4.071.i, %99 ], [ %.sroa.5.i20.i.sroa.4.071.i, %107 ]
+  %.sroa.5.i20.i.sroa.5.2.i = phi i8 [ %.sroa.5.i20.i.sroa.5.073.i, %95 ], [ %.sroa.5.i20.i.sroa.5.073.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h27b26c3100d9640aE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.5.1.i, %"_ZN95_$LT$polars_parquet..arrow..write..pages..ListNested$LT$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h131f5be92aeb88caE.exit.i.i" ], [ %.sroa.5.i20.i.sroa.5.073.i, %99 ], [ %.sroa.5.i20.i.sroa.5.073.i, %107 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i20.i.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.517.i.sroa.0.i)
@@ -29156,8 +29156,8 @@ default.unreachable48:                            ; preds = %36
   br label %44
 
 44:                                               ; preds = %41, %39, %36
-  %.sroa.03.0 = phi i16 [ %3, %36 ], [ %42, %41 ], [ %40, %39 ]
-  %.sroa.0.0 = phi i16 [ %2, %36 ], [ %43, %41 ], [ %2, %39 ]
+  %.sroa.03.0 = phi i16 [ %40, %39 ], [ %42, %41 ], [ %3, %36 ]
+  %.sroa.0.0 = phi i16 [ %2, %39 ], [ %43, %41 ], [ %2, %36 ]
   %45 = load i64, ptr %0, align 8, !range !355, !noundef !12
   %46 = icmp eq i64 %45, 8
   br i1 %46, label %47, label %56
@@ -30210,7 +30210,7 @@ default.unreachable85.i.i.i:                      ; preds = %39
   br label %152
 
 75:                                               ; preds = %58, %45, %39
-  %.sroa.06.0.i.i.i = phi i32 [ %60, %58 ], [ %47, %45 ], [ 0, %39 ]
+  %.sroa.06.0.i.i.i = phi i32 [ %47, %45 ], [ %60, %58 ], [ 0, %39 ]
   %76 = sext i32 %.sroa.06.0.i.i.i to i64
   %77 = load i64, ptr %20, align 8, !alias.scope !7118, !noalias !7119, !noundef !12
   %78 = add i64 %77, %76
@@ -30243,10 +30243,10 @@ default.unreachable85.i.i.i:                      ; preds = %39
   br label %88
 
 88:                                               ; preds = %38, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i", %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i", %83, %148, %87
-  %.sroa.19.sroa.0.0 = phi i64 [ %141, %148 ], [ %.sroa.19.8.copyload21, %87 ], [ 0, %83 ], [ %.sroa.847.0.insert.insert53.i.i, %38 ], [ %52, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ], [ %65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ]
-  %.sroa.24.0 = phi i64 [ 44, %148 ], [ %.sroa.24.8.copyload35, %87 ], [ undef, %83 ], [ %.sroa.18.9.copyload.i.i, %38 ], [ 65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ], [ 65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ]
-  %.sroa.22.0 = phi ptr [ %146, %148 ], [ %.sroa.22.8.copyload28, %87 ], [ undef, %83 ], [ %.sroa.16.9.copyload.i.i, %38 ], [ %56, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ], [ %71, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ]
-  %.sroa.12.0 = phi i64 [ -9223372036854775808, %148 ], [ %.sroa.12.8.copyload15, %87 ], [ -9223372036854775804, %83 ], [ %35, %38 ], [ -9223372036854775808, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ], [ -9223372036854775808, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ]
+  %.sroa.19.sroa.0.0 = phi i64 [ %141, %148 ], [ %.sroa.19.8.copyload21, %87 ], [ 0, %83 ], [ %.sroa.847.0.insert.insert53.i.i, %38 ], [ %65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ], [ %52, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ]
+  %.sroa.24.0 = phi i64 [ 44, %148 ], [ %.sroa.24.8.copyload35, %87 ], [ undef, %83 ], [ %.sroa.18.9.copyload.i.i, %38 ], [ 65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ], [ 65, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ]
+  %.sroa.22.0 = phi ptr [ %146, %148 ], [ %.sroa.22.8.copyload28, %87 ], [ undef, %83 ], [ %.sroa.16.9.copyload.i.i, %38 ], [ %71, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ], [ %56, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ]
+  %.sroa.12.0 = phi i64 [ -9223372036854775808, %148 ], [ %.sroa.12.8.copyload15, %87 ], [ -9223372036854775804, %83 ], [ %35, %38 ], [ -9223372036854775808, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit81.i.i.i" ], [ -9223372036854775808, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit.i.i.i" ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$polars_parquet_format..parquet_format..PageHeader$GT$17hcffb53cc75450656E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %15)
           to label %_ZN14polars_parquet7parquet4read4page6reader9next_page17hcd5bfbbf6ebdd6fdE.exit.thread82 unwind label %153
 
@@ -30663,9 +30663,9 @@ define void @_ZN14polars_parquet7parquet4read4page6reader11finish_page17h28dadf6
   %48 = zext nneg i32 %46 to i64
   br i1 %47, label %49, label %50
 
-.thread378:                                       ; preds = %70, %141, %210, %252, %42
-  %.sroa.084.3 = phi i8 [ 1, %42 ], [ 1, %70 ], [ 0, %141 ], [ 1, %210 ], [ 1, %252 ]
-  %.sroa.081.3 = phi i8 [ 1, %42 ], [ 0, %70 ], [ 1, %141 ], [ 1, %210 ], [ 1, %252 ]
+.thread378:                                       ; preds = %210, %141, %70, %252, %42
+  %.sroa.084.3 = phi i8 [ 1, %42 ], [ 1, %210 ], [ 0, %141 ], [ 1, %70 ], [ 1, %252 ]
+  %.sroa.081.3 = phi i8 [ 1, %42 ], [ 1, %210 ], [ 1, %141 ], [ 0, %70 ], [ 1, %252 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$polars_utils..mmap..private..MemSlice$GT$17h89465bc2b7be940bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
           to label %254 unwind label %257
 
@@ -31306,8 +31306,8 @@ default.unreachable454:                           ; preds = %"_ZN3std4sync9once_
   %or.cond.not = select i1 %.sroa.084.6.ph, i1 %236, i1 false
   br i1 %or.cond.not, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit.sink.split", label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit"
 
-237:                                              ; preds = %233, %196
-  %.sroa.084.6.ph = phi i1 [ false, %196 ], [ true, %233 ]
+237:                                              ; preds = %196, %233
+  %.sroa.084.6.ph = phi i1 [ true, %233 ], [ false, %196 ]
   %238 = load i64, ptr %1, align 8, !range !346, !alias.scope !7190, !noundef !12
   %239 = icmp eq i64 %238, 3
   br i1 %239, label %.noexc255, label %240
@@ -31415,10 +31415,10 @@ default.unreachable454:                           ; preds = %"_ZN3std4sync9once_
   invoke void @"_ZN4core3ptr76drop_in_place$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$17he5512250859c70c2E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %271)
           to label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit257" unwind label %128
 
-.thread328:                                       ; preds = %131, %200, %.thread337
-  %.pn217335 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread337 ], [ %132, %131 ], [ %201, %200 ]
-  %.sroa.081.1334 = phi i8 [ %.sroa.081.0.ph, %.thread337 ], [ 0, %131 ], [ 1, %200 ]
-  %.sroa.084.1333 = phi i8 [ %.sroa.084.0.ph, %.thread337 ], [ 1, %131 ], [ 0, %200 ]
+.thread328:                                       ; preds = %200, %131, %.thread337
+  %.pn217335 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread337 ], [ %201, %200 ], [ %132, %131 ]
+  %.sroa.081.1334 = phi i8 [ %.sroa.081.0.ph, %.thread337 ], [ 1, %200 ], [ 0, %131 ]
+  %.sroa.084.1333 = phi i8 [ %.sroa.084.0.ph, %.thread337 ], [ 0, %200 ], [ 1, %131 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$polars_utils..mmap..private..MemSlice$GT$17h89465bc2b7be940bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #29
           to label %.thread unwind label %128
 

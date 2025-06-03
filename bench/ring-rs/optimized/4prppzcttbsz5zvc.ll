@@ -1274,7 +1274,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
           to label %24 unwind label %23
 
 22:                                               ; preds = %.body
-  br i1 %.2, label %118, label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit46"
+  br i1 %.2, label %118, label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit47"
 
 23:                                               ; preds = %4
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -1305,22 +1305,22 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %107, %93
   %.2 = phi i1 [ false, %93 ], [ false, %107 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %108, %107 ], [ %lpad.loopexit65, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %108, %107 ], [ %lpad.loopexit66, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit69, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h5cf50c30de4b8b42E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #17
           to label %22 unwind label %109
 
-.loopexit:                                        ; preds = %.lr.ph.i40, %.noexc42
+.loopexit:                                        ; preds = %.lr.ph.i41, %.noexc43
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit, %.preheader
-  %lpad.loopexit65 = landingpad { ptr, i32 }
+  %lpad.loopexit66 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i, %.noexc31
-  %lpad.loopexit68 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i, %.noexc32
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1364,26 +1364,26 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   %47 = sub nuw i64 %36, %42
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
-  %.not.i14 = icmp ugt i64 %18, %47
-  br i1 %.not.i14, label %.invoke, label %49
+  %.not.i15 = icmp ugt i64 %18, %47
+  br i1 %.not.i15, label %.invoke, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i64, ptr %46, i64 %18
   %51 = sub nuw i64 %47, %18
-  %.not.i17 = icmp ugt i64 %18, %51
-  br i1 %.not.i17, label %.invoke, label %52
+  %.not.i18 = icmp ugt i64 %18, %51
+  br i1 %.not.i18, label %.invoke, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i64, ptr %50, i64 %18
   %54 = sub nuw i64 %51, %18
-  %.not.i20 = icmp eq i64 %18, %1
-  br i1 %.not.i20, label %56, label %55
+  %.not.i21 = icmp eq i64 %18, %1
+  br i1 %.not.i21, label %56, label %55
 
 55:                                               ; preds = %52
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %18, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.27) #16
-          to label %.noexc21 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc21:                                         ; preds = %55
+.noexc22:                                         ; preds = %55
   unreachable
 
 56:                                               ; preds = %52
@@ -1394,9 +1394,9 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 59:                                               ; preds = %56
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %1, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.28) #16
-          to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc23 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc22:                                         ; preds = %59
+.noexc23:                                         ; preds = %59
   unreachable
 
 60:                                               ; preds = %56
@@ -1415,21 +1415,21 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef 1)
           to label %.lr.ph.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph.i:                                         ; preds = %63, %.noexc32
-  %65 = phi i64 [ %66, %.noexc32 ], [ 2, %63 ]
+.lr.ph.i:                                         ; preds = %63, %.noexc33
+  %65 = phi i64 [ %66, %.noexc33 ], [ 2, %63 ]
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc31:                                         ; preds = %.lr.ph.i
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %65)
           to label %.noexc32 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc32:                                         ; preds = %.noexc31
+.noexc32:                                         ; preds = %.lr.ph.i
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %65)
+          to label %.noexc33 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc33:                                         ; preds = %.noexc32
   %66 = shl nuw nsw i64 %65, 1
   %67 = icmp ugt i64 %65, 15
   br i1 %67, label %.preheader, label %.lr.ph.i
 
-68:                                               ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44
+68:                                               ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
   %69 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load i64, ptr %70, align 8, !noundef !4
@@ -1458,11 +1458,11 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   %81 = invoke { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694E(ptr noalias noundef nonnull readonly align 8 %69, i64 noundef %71, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.preheader:                                       ; preds = %.noexc32, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44
-  %.sroa.01.173 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 5, %.noexc32 ]
-  %.sroa.5.172 = phi i64 [ %.sroa.5.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 14, %.noexc32 ]
-  %.sroa.01.070 = phi i64 [ %.sroa.01.173, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 3, %.noexc32 ]
-  %82 = add i64 %.sroa.01.070, -1
+.preheader:                                       ; preds = %.noexc33, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
+  %.sroa.01.174 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 5, %.noexc33 ]
+  %.sroa.5.173 = phi i64 [ %.sroa.5.175, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
+  %.sroa.01.071 = phi i64 [ %.sroa.01.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 3, %.noexc33 ]
+  %82 = add i64 %.sroa.01.071, -1
   invoke void @ring_core_0_17_8__bn_mul_mont_gather5(ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %50, ptr noundef nonnull readonly align 8 %37, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1, i64 noundef %82)
           to label %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1474,14 +1474,14 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   store ptr %0, ptr %8, align 8
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %1, ptr %85, align 8
-  %.not.i34 = icmp eq i64 %1, %84
-  br i1 %.not.i34, label %87, label %86
+  %.not.i35 = icmp eq i64 %1, %84
+  br i1 %.not.i35, label %87, label %86
 
 86:                                               ; preds = %83
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %1, i64 noundef %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.31) #16
-          to label %.noexc35 unwind label %107
+          to label %.noexc36 unwind label %107
 
-.noexc35:                                         ; preds = %86
+.noexc36:                                         ; preds = %86
   unreachable
 
 87:                                               ; preds = %83
@@ -1513,7 +1513,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 95:                                               ; preds = %87
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0, ptr noundef nonnull readonly align 8 %6, ptr noundef nonnull readonly align 8 %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc37 unwind label %93
+          to label %.noexc38 unwind label %93
 
 96:                                               ; preds = %93
   %97 = landingpad { ptr, i32 }
@@ -1521,7 +1521,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15
   unreachable
 
-.noexc37:                                         ; preds = %95
+.noexc38:                                         ; preds = %95
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6), !noalias !119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -1532,14 +1532,14 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   %.not.i.i.i = icmp eq i64 %99, 0
   br i1 %.not.i.i.i, label %104, label %100
 
-100:                                              ; preds = %.noexc37
+100:                                              ; preds = %.noexc38
   %101 = load ptr, ptr %5, align 8, !noalias !124, !nonnull !4, !noundef !4
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %103 = load i64, ptr %102, align 8, !noalias !124, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095"(ptr noalias noundef nonnull readonly align 1 %28, ptr noundef nonnull %101, i64 noundef %99, i64 noundef %103)
   br label %104
 
-104:                                              ; preds = %100, %.noexc37
+104:                                              ; preds = %100, %.noexc38
   %105 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %106 = insertvalue { ptr, i64 } %105, i64 %1, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !124
@@ -1560,45 +1560,45 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   unreachable
 
 _ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit: ; preds = %.preheader
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %.sroa.01.070)
-          to label %.noexc41 unwind label %.loopexit.split-lp.loopexit
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %.sroa.01.071)
+          to label %.noexc42 unwind label %.loopexit.split-lp.loopexit
 
-.noexc41:                                         ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit
-  %111 = shl i64 %.sroa.01.070, 1
+.noexc42:                                         ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit
+  %111 = shl i64 %.sroa.01.071, 1
   %112 = icmp ugt i64 %111, 31
-  br i1 %112, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44, label %.lr.ph.i40
+  br i1 %112, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45, label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %.noexc41, %.noexc43
-  %113 = phi i64 [ %114, %.noexc43 ], [ %111, %.noexc41 ]
+.lr.ph.i41:                                       ; preds = %.noexc42, %.noexc44
+  %113 = phi i64 [ %114, %.noexc44 ], [ %111, %.noexc42 ]
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc42 unwind label %.loopexit
-
-.noexc42:                                         ; preds = %.lr.ph.i40
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %113)
           to label %.noexc43 unwind label %.loopexit
 
-.noexc43:                                         ; preds = %.noexc42
+.noexc43:                                         ; preds = %.lr.ph.i41
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %113)
+          to label %.noexc44 unwind label %.loopexit
+
+.noexc44:                                         ; preds = %.noexc43
   %114 = shl nuw nsw i64 %113, 1
   %115 = icmp ugt i64 %113, 15
-  br i1 %115, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44, label %.lr.ph.i40
+  br i1 %115, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45, label %.lr.ph.i41
 
-_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44: ; preds = %.noexc43, %.noexc41
-  %.not.not = icmp eq i64 %.sroa.5.172, 0
-  %116 = add i64 %.sroa.01.173, 2
-  %.sroa.5.174 = add i64 %.sroa.5.172, -1
+_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45: ; preds = %.noexc44, %.noexc42
+  %.not.not = icmp eq i64 %.sroa.5.173, 0
+  %116 = add i64 %.sroa.01.174, 2
+  %.sroa.5.175 = add i64 %.sroa.5.173, -1
   br i1 %.not.not, label %68, label %.preheader
 
 117:                                              ; preds = %44
   unreachable
 
-"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit46": ; preds = %118, %22
-  %.pn.pn58 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn.pn59, %118 ]
-  resume { ptr, i32 } %.pn.pn58
+"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit47": ; preds = %118, %22
+  %.pn1159 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn1160, %118 ]
+  resume { ptr, i32 } %.pn1159
 
 118:                                              ; preds = %23, %22
-  %.pn.pn59 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %23 ], [ %.pn, %22 ]
+  %.pn1160 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %23 ], [ %.pn, %22 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit46" unwind label %109
+          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit47" unwind label %109
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1628,7 +1628,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
           to label %24 unwind label %23
 
 22:                                               ; preds = %.body
-  br i1 %.2, label %118, label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit46"
+  br i1 %.2, label %118, label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit47"
 
 23:                                               ; preds = %4
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -1659,22 +1659,22 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %107, %93
   %.2 = phi i1 [ false, %93 ], [ false, %107 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %108, %107 ], [ %lpad.loopexit65, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %108, %107 ], [ %lpad.loopexit66, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit69, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h5cf50c30de4b8b42E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #17
           to label %22 unwind label %109
 
-.loopexit:                                        ; preds = %.lr.ph.i40, %.noexc42
+.loopexit:                                        ; preds = %.lr.ph.i41, %.noexc43
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit, %.preheader
-  %lpad.loopexit65 = landingpad { ptr, i32 }
+  %lpad.loopexit66 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i, %.noexc31
-  %lpad.loopexit68 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i, %.noexc32
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1718,26 +1718,26 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   %47 = sub nuw i64 %36, %42
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
-  %.not.i14 = icmp ugt i64 %18, %47
-  br i1 %.not.i14, label %.invoke, label %49
+  %.not.i15 = icmp ugt i64 %18, %47
+  br i1 %.not.i15, label %.invoke, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i64, ptr %46, i64 %18
   %51 = sub nuw i64 %47, %18
-  %.not.i17 = icmp ugt i64 %18, %51
-  br i1 %.not.i17, label %.invoke, label %52
+  %.not.i18 = icmp ugt i64 %18, %51
+  br i1 %.not.i18, label %.invoke, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i64, ptr %50, i64 %18
   %54 = sub nuw i64 %51, %18
-  %.not.i20 = icmp eq i64 %18, %1
-  br i1 %.not.i20, label %56, label %55
+  %.not.i21 = icmp eq i64 %18, %1
+  br i1 %.not.i21, label %56, label %55
 
 55:                                               ; preds = %52
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %18, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.27) #16
-          to label %.noexc21 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc21:                                         ; preds = %55
+.noexc22:                                         ; preds = %55
   unreachable
 
 56:                                               ; preds = %52
@@ -1748,9 +1748,9 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 59:                                               ; preds = %56
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %1, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.28) #16
-          to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc23 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc22:                                         ; preds = %59
+.noexc23:                                         ; preds = %59
   unreachable
 
 60:                                               ; preds = %56
@@ -1769,21 +1769,21 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef 1)
           to label %.lr.ph.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph.i:                                         ; preds = %63, %.noexc32
-  %65 = phi i64 [ %66, %.noexc32 ], [ 2, %63 ]
+.lr.ph.i:                                         ; preds = %63, %.noexc33
+  %65 = phi i64 [ %66, %.noexc33 ], [ 2, %63 ]
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc31:                                         ; preds = %.lr.ph.i
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %65)
           to label %.noexc32 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc32:                                         ; preds = %.noexc31
+.noexc32:                                         ; preds = %.lr.ph.i
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %65)
+          to label %.noexc33 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc33:                                         ; preds = %.noexc32
   %66 = shl nuw nsw i64 %65, 1
   %67 = icmp ugt i64 %65, 15
   br i1 %67, label %.preheader, label %.lr.ph.i
 
-68:                                               ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44
+68:                                               ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
   %69 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load i64, ptr %70, align 8, !noundef !4
@@ -1812,11 +1812,11 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   %81 = invoke { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90E(ptr noalias noundef nonnull readonly align 8 %69, i64 noundef %71, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.preheader:                                       ; preds = %.noexc32, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44
-  %.sroa.01.173 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 5, %.noexc32 ]
-  %.sroa.5.172 = phi i64 [ %.sroa.5.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 14, %.noexc32 ]
-  %.sroa.01.070 = phi i64 [ %.sroa.01.173, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44 ], [ 3, %.noexc32 ]
-  %82 = add i64 %.sroa.01.070, -1
+.preheader:                                       ; preds = %.noexc33, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
+  %.sroa.01.174 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 5, %.noexc33 ]
+  %.sroa.5.173 = phi i64 [ %.sroa.5.175, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
+  %.sroa.01.071 = phi i64 [ %.sroa.01.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 3, %.noexc33 ]
+  %82 = add i64 %.sroa.01.071, -1
   invoke void @ring_core_0_17_8__bn_mul_mont_gather5(ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %50, ptr noundef nonnull readonly align 8 %37, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1, i64 noundef %82)
           to label %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1828,14 +1828,14 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   store ptr %0, ptr %8, align 8
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %1, ptr %85, align 8
-  %.not.i34 = icmp eq i64 %1, %84
-  br i1 %.not.i34, label %87, label %86
+  %.not.i35 = icmp eq i64 %1, %84
+  br i1 %.not.i35, label %87, label %86
 
 86:                                               ; preds = %83
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h314ed267ae8df733E"(i64 noundef %1, i64 noundef %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d7c58adf55e998663b260eb9a3c9bca.31) #16
-          to label %.noexc35 unwind label %107
+          to label %.noexc36 unwind label %107
 
-.noexc35:                                         ; preds = %86
+.noexc36:                                         ; preds = %86
   unreachable
 
 87:                                               ; preds = %83
@@ -1867,7 +1867,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 95:                                               ; preds = %87
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0, ptr noundef nonnull readonly align 8 %6, ptr noundef nonnull readonly align 8 %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc37 unwind label %93
+          to label %.noexc38 unwind label %93
 
 96:                                               ; preds = %93
   %97 = landingpad { ptr, i32 }
@@ -1875,7 +1875,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15
   unreachable
 
-.noexc37:                                         ; preds = %95
+.noexc38:                                         ; preds = %95
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6), !noalias !159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -1886,14 +1886,14 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   %.not.i.i.i = icmp eq i64 %99, 0
   br i1 %.not.i.i.i, label %104, label %100
 
-100:                                              ; preds = %.noexc37
+100:                                              ; preds = %.noexc38
   %101 = load ptr, ptr %5, align 8, !noalias !164, !nonnull !4, !noundef !4
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %103 = load i64, ptr %102, align 8, !noalias !164, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095"(ptr noalias noundef nonnull readonly align 1 %28, ptr noundef nonnull %101, i64 noundef %99, i64 noundef %103)
   br label %104
 
-104:                                              ; preds = %100, %.noexc37
+104:                                              ; preds = %100, %.noexc38
   %105 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %106 = insertvalue { ptr, i64 } %105, i64 %1, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !164
@@ -1914,45 +1914,45 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   unreachable
 
 _ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit: ; preds = %.preheader
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %.sroa.01.070)
-          to label %.noexc41 unwind label %.loopexit.split-lp.loopexit
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %.sroa.01.071)
+          to label %.noexc42 unwind label %.loopexit.split-lp.loopexit
 
-.noexc41:                                         ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit
-  %111 = shl i64 %.sroa.01.070, 1
+.noexc42:                                         ; preds = %_ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h8775c41ce76c37e5E.exit
+  %111 = shl i64 %.sroa.01.071, 1
   %112 = icmp ugt i64 %111, 31
-  br i1 %112, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44, label %.lr.ph.i40
+  br i1 %112, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45, label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %.noexc41, %.noexc43
-  %113 = phi i64 [ %114, %.noexc43 ], [ %111, %.noexc41 ]
+.lr.ph.i41:                                       ; preds = %.noexc42, %.noexc44
+  %113 = phi i64 [ %114, %.noexc44 ], [ %111, %.noexc42 ]
   invoke void @ring_core_0_17_8__bn_mul_mont(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1)
-          to label %.noexc42 unwind label %.loopexit
-
-.noexc42:                                         ; preds = %.lr.ph.i40
-  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %113)
           to label %.noexc43 unwind label %.loopexit
 
-.noexc43:                                         ; preds = %.noexc42
+.noexc43:                                         ; preds = %.lr.ph.i41
+  invoke void @ring_core_0_17_8__bn_scatter5(ptr noundef nonnull readonly align 8 %46, i64 noundef %1, ptr noundef nonnull align 8 %37, i64 noundef %113)
+          to label %.noexc44 unwind label %.loopexit
+
+.noexc44:                                         ; preds = %.noexc43
   %114 = shl nuw nsw i64 %113, 1
   %115 = icmp ugt i64 %113, 15
-  br i1 %115, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44, label %.lr.ph.i40
+  br i1 %115, label %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45, label %.lr.ph.i41
 
-_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit44: ; preds = %.noexc43, %.noexc41
-  %.not.not = icmp eq i64 %.sroa.5.172, 0
-  %116 = add i64 %.sroa.01.173, 2
-  %.sroa.5.174 = add i64 %.sroa.5.172, -1
+_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45: ; preds = %.noexc44, %.noexc42
+  %.not.not = icmp eq i64 %.sroa.5.173, 0
+  %116 = add i64 %.sroa.01.174, 2
+  %.sroa.5.175 = add i64 %.sroa.5.173, -1
   br i1 %.not.not, label %68, label %.preheader
 
 117:                                              ; preds = %44
   unreachable
 
-"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit46": ; preds = %118, %22
-  %.pn.pn58 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn.pn59, %118 ]
-  resume { ptr, i32 } %.pn.pn58
+"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit47": ; preds = %118, %22
+  %.pn1159 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn1160, %118 ]
+  resume { ptr, i32 } %.pn1159
 
 118:                                              ; preds = %23, %22
-  %.pn.pn59 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %23 ], [ %.pn, %22 ]
+  %.pn1160 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %23 ], [ %.pn, %22 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit46" unwind label %109
+          to label %"_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit47" unwind label %109
 }
 
 ; Function Attrs: nonlazybind uwtable

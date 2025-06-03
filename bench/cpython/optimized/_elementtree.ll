@@ -9738,7 +9738,7 @@ define internal fastcc ptr @deepcopy(ptr noundef readonly captures(none) %0, ptr
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %31, %17, %.split19, %11, %.split, %43, %41, %36
-  %.018 = phi ptr [ %32, %31 ], [ %45, %43 ], [ null, %41 ], [ %37, %36 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %11 ], [ %1, %.split19 ], [ %1, %17 ]
+  %.018 = phi ptr [ %45, %43 ], [ null, %41 ], [ %32, %31 ], [ %37, %36 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %11 ], [ %1, %.split19 ], [ %1, %17 ]
   ret ptr %.018
 }
 

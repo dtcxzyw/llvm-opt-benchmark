@@ -4644,8 +4644,8 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EED2Ev.exit: ; preds = %
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %520, %385
-  %.sroa.0197.3 = phi ptr [ %.sroa.0197.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0197.6, %520 ], [ %.sroa.0197.6, %385 ], [ %.sroa.0197.5, %.loopexit.split-lp.loopexit ], [ %.sroa.0197.5, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0197.5, %.loopexit ]
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn119.pn.pn, %520 ], [ %.pn133.pn.pn, %385 ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.0197.3 = phi ptr [ %.sroa.0197.6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.0197.6, %385 ], [ %.sroa.0197.6, %520 ], [ %.sroa.0197.5, %.loopexit.split-lp.loopexit ], [ %.sroa.0197.5, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0197.5, %.loopexit ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn133.pn.pn, %385 ], [ %.pn119.pn.pn, %520 ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %23) #27
   br label %536
 

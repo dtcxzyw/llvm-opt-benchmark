@@ -2465,7 +2465,7 @@ _ZL7isValidc.exit15.thread:                       ; preds = %109, %_ZL7isValidc.
   br label %119
 
 119:                                              ; preds = %_ZL7isValidc.exit15.thread, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %118, %_ZL7isValidc.exit15.thread ]
+  %.1.i.i.i.i = phi ptr [ %118, %_ZL7isValidc.exit15.thread ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %120 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !29
   %121 = add i8 %120, -48
   %122 = icmp ult i8 %121, 10
@@ -2486,7 +2486,7 @@ _ZL7isValidc.exit12.thread:                       ; preds = %119, %_ZL7isValidc.
   br label %129
 
 129:                                              ; preds = %_ZL7isValidc.exit12.thread, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %128, %_ZL7isValidc.exit12.thread ]
+  %.2.i.i.i.i = phi ptr [ %128, %_ZL7isValidc.exit12.thread ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %130 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !29
   %131 = add i8 %130, -48
   %132 = icmp ult i8 %131, 10

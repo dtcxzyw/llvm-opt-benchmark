@@ -663,7 +663,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br label %.thread77
 
 .thread77:                                        ; preds = %100, %106, %113, %119, %74, %80, %87, %93, %10, %16, %24, %30, %36, %6, %.thread, %.thread73, %123, %97, %71, %55, %34, %14, %2, %124
-  %.0 = phi i32 [ %126, %124 ], [ %.lobit, %123 ], [ %.lobit60, %97 ], [ %.2, %71 ], [ %.1, %55 ], [ -1, %2 ], [ 0, %14 ], [ 0, %34 ], [ -1, %.thread73 ], [ -1, %.thread ], [ -1, %6 ], [ -1, %36 ], [ -1, %30 ], [ -1, %24 ], [ -1, %16 ], [ -1, %10 ], [ -1, %93 ], [ -1, %87 ], [ -1, %80 ], [ -1, %74 ], [ -1, %119 ], [ -1, %113 ], [ -1, %106 ], [ -1, %100 ]
+  %.0 = phi i32 [ %.1, %55 ], [ %.2, %71 ], [ %.lobit60, %97 ], [ %.lobit, %123 ], [ %126, %124 ], [ -1, %2 ], [ 0, %14 ], [ 0, %34 ], [ -1, %.thread73 ], [ -1, %.thread ], [ -1, %6 ], [ -1, %36 ], [ -1, %30 ], [ -1, %24 ], [ -1, %16 ], [ -1, %10 ], [ -1, %93 ], [ -1, %87 ], [ -1, %80 ], [ -1, %74 ], [ -1, %119 ], [ -1, %113 ], [ -1, %106 ], [ -1, %100 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #6
   ret i32 %.0
 }
@@ -929,7 +929,7 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
   br label %18
 
 common.ret4:                                      ; preds = %62, %60, %_yaml_tag_to_type.exit, %39, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %70, %69, %63, %24, %23, %9, %9, %18
-  %common.ret4.op = phi i32 [ %22, %18 ], [ %75, %70 ], [ 3, %69 ], [ %68, %63 ], [ 5, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %41, %39 ], [ 5, %62 ], [ 3, %60 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
+  %common.ret4.op = phi i32 [ %22, %18 ], [ 2, %23 ], [ 5, %24 ], [ %68, %63 ], [ 3, %69 ], [ %75, %70 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %41, %39 ], [ 5, %62 ], [ 3, %60 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
   ret i32 %common.ret4.op
 
 18:                                               ; preds = %14, %17, %10

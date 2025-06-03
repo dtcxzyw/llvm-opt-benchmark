@@ -3127,7 +3127,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2ERKS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNS
   br label %202
 
 202:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit23.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.030.1.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %201, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit23.thread.i.i.i.i" ]
+  %.sroa.030.1.i.i.i.i = phi ptr [ %201, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit23.thread.i.i.i.i" ], [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %203 = load ptr, ptr %.sroa.030.1.i.i.i.i, align 8
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
@@ -3163,7 +3163,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2ERKS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNS
   br label %227
 
 227:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit25.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.030.2.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit25.thread.i.i.i.i" ]
+  %.sroa.030.2.i.i.i.i = phi ptr [ %226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7glslang13TIntermediate19mergeUniformObjectsER9TInfoSinkRS3_E3$_0EclINS_17__normal_iteratorIPP11TIntermNodeSt6vectorISC_NS2_14pool_allocatorISC_EEEEEEEbT_.exit25.thread.i.i.i.i" ], [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %228 = load ptr, ptr %.sroa.030.2.i.i.i.i, align 8
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 96
@@ -5260,7 +5260,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2ERKS3_.exit18: ; preds = %.lr.ph.i.i.i13, %
   br label %173
 
 173:                                              ; preds = %171, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %172, %171 ]
+  %.sroa.025.1.i.i.i.i = phi ptr [ %172, %171 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %174 = load ptr, ptr %.sroa.025.1.i.i.i.i, align 8
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
@@ -5281,7 +5281,7 @@ _ZN7glslang7TVectorIP11TIntermNodeEC2ERKS3_.exit18: ; preds = %.lr.ph.i.i.i13, %
   br label %188
 
 188:                                              ; preds = %186, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %187, %186 ]
+  %.sroa.025.2.i.i.i.i = phi ptr [ %187, %186 ], [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %189 = load ptr, ptr %.sroa.025.2.i.i.i.i, align 8
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 96
@@ -5560,7 +5560,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6resizeEm.exit: ; pre
   br label %336
 
 336:                                              ; preds = %334, %._crit_edge.i.i.i.i22
-  %.sroa.025.1.i.i.i.i40 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i24, %._crit_edge.i.i.i.i22 ], [ %335, %334 ]
+  %.sroa.025.1.i.i.i.i40 = phi ptr [ %335, %334 ], [ %.sroa.025.0.lcssa.i.i.i.i24, %._crit_edge.i.i.i.i22 ]
   %337 = load ptr, ptr %.sroa.025.1.i.i.i.i40, align 8
   %338 = load ptr, ptr %337, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 96
@@ -5581,7 +5581,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6resizeEm.exit: ; pre
   br label %351
 
 351:                                              ; preds = %349, %._crit_edge.i.i.i.i22
-  %.sroa.025.2.i.i.i.i25 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i24, %._crit_edge.i.i.i.i22 ], [ %350, %349 ]
+  %.sroa.025.2.i.i.i.i25 = phi ptr [ %350, %349 ], [ %.sroa.025.0.lcssa.i.i.i.i24, %._crit_edge.i.i.i.i22 ]
   %352 = load ptr, ptr %.sroa.025.2.i.i.i.i25, align 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 96
@@ -21993,7 +21993,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br label %216
 
 216:                                              ; preds = %214, %._crit_edge.i.i.i.i
-  %.sroa.026.1.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %215, %214 ]
+  %.sroa.026.1.i.i.i.i = phi ptr [ %215, %214 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %217 = load ptr, ptr %.sroa.026.1.i.i.i.i, align 8
   %218 = icmp eq ptr %217, null
   br i1 %218, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEENS0_5__ops16_Iter_equals_valIKDnEEET_SF_SF_T0_.exit.i.i, label %219
@@ -22003,7 +22003,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br label %221
 
 221:                                              ; preds = %219, %._crit_edge.i.i.i.i
-  %.sroa.026.2.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %220, %219 ]
+  %.sroa.026.2.i.i.i.i = phi ptr [ %220, %219 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %222 = load ptr, ptr %.sroa.026.2.i.i.i.i, align 8
   %223 = icmp eq ptr %222, null
   %spec.select.i.i.i.i = select i1 %223, ptr %.sroa.026.2.i.i.i.i, ptr %.lcssa137
@@ -25072,6 +25072,7 @@ define noundef range(i32 1, 9) i32 @_ZN7glslang13TIntermediate22getBaseAlignment
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   %spec.select = select i1 %18, i32 8, i32 4
+  %spec.select11 = select i1 %18, i32 8, i32 4
   br label %20
 
 19:                                               ; preds = %2
@@ -25079,8 +25080,9 @@ define noundef range(i32 1, 9) i32 @_ZN7glslang13TIntermediate22getBaseAlignment
 
 20:                                               ; preds = %14, %9, %2, %2, %2, %2, %19, %8, %7
   %.sink = phi i32 [ 4, %19 ], [ 1, %8 ], [ 2, %7 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 8, %9 ], [ %spec.select, %14 ]
+  %.0 = phi i32 [ 4, %19 ], [ 1, %8 ], [ 2, %7 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 8, %9 ], [ %spec.select11, %14 ]
   store i32 %.sink, ptr %1, align 4
-  ret i32 %.sink
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25101,11 +25103,11 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 0, i1 noundef zeroext false)
   %16 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %4)
   %17 = call i32 @llvm.umax.i32(i32 %16, i32 16)
-  %.097 = select i1 %10, i32 %17, i32 %16
+  %.099 = select i1 %10, i32 %17, i32 %16
   %18 = load i32, ptr %1, align 4
   %19 = add i32 %18, -1
-  %20 = add i32 %19, %.097
-  %21 = sub nsw i32 0, %.097
+  %20 = add i32 %19, %.099
+  %21 = sub nsw i32 0, %.099
   %22 = and i32 %20, %21
   store i32 %22, ptr %1, align 4
   store i32 %22, ptr %2, align 4
@@ -25162,14 +25164,14 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %58, align 8
-  %.not101 = icmp eq ptr %60, %61
-  br i1 %.not101, label %._crit_edge, label %.lr.ph
+  %.not103 = icmp eq ptr %60, %61
+  br i1 %.not103, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %.lr.ph
   %62 = phi ptr [ %89, %.lr.ph ], [ %61, %54 ]
-  %.067100 = phi i64 [ %87, %.lr.ph ], [ 0, %54 ]
-  %.09899 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %57, %54 ]
-  %63 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %62, i64 %.067100
+  %.067102 = phi i64 [ %87, %.lr.ph ], [ 0, %54 ]
+  %.0100101 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %57, %54 ]
+  %63 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %62, i64 %.067102
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
@@ -25181,13 +25183,13 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = and i32 %72, 7
   %74 = load ptr, ptr %58, align 8
-  %75 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %74, i64 %.067100
+  %75 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %74, i64 %.067102
   %76 = load ptr, ptr %75, align 8
   %.not = icmp eq i32 %73, 0
   %77 = icmp eq i32 %73, 1
   %78 = select i1 %.not, i1 %4, i1 %77
   %79 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %76, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %78)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09899, i32 %79)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.0100101, i32 %79)
   %80 = load i32, ptr %1, align 4
   %81 = add nsw i32 %79, -1
   %82 = add i32 %81, %80
@@ -25196,7 +25198,7 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %85 = load i32, ptr %8, align 4
   %86 = add nsw i32 %84, %85
   store i32 %86, ptr %1, align 4
-  %87 = add nuw i64 %.067100, 1
+  %87 = add nuw i64 %.067102, 1
   %88 = load ptr, ptr %59, align 8
   %89 = load ptr, ptr %58, align 8
   %90 = ptrtoint ptr %88 to i64
@@ -25208,10 +25210,10 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %95 = phi i32 [ 0, %54 ], [ %86, %.lr.ph ]
-  %.098.lcssa = phi i32 [ %57, %54 ], [ %.sroa.speculated, %.lr.ph ]
-  %96 = add nsw i32 %.098.lcssa, -1
+  %.0100.lcssa = phi i32 [ %57, %54 ], [ %.sroa.speculated, %.lr.ph ]
+  %96 = add nsw i32 %.0100.lcssa, -1
   %97 = add i32 %96, %95
-  %98 = sub nsw i32 0, %.098.lcssa
+  %98 = sub nsw i32 0, %.0100.lcssa
   %99 = and i32 %97, %98
   store i32 %99, ptr %1, align 4
   br label %178
@@ -25282,30 +25284,30 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds 
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   switch i32 %131, label %144 [
-    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
-    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
     i32 3, label %132
     i32 4, label %133
     i32 5, label %133
     i32 6, label %132
     i32 7, label %132
-    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
     i32 14, label %134
   ]
 
 132:                                              ; preds = %128, %128, %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
 
 133:                                              ; preds = %128, %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %0, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 368
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %138, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, label %139
+  br i1 %138, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73, label %139
 
 139:                                              ; preds = %134
   %140 = load ptr, ptr %0, align 8
@@ -25313,14 +25315,14 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds 
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   %spec.select.i69 = select i1 %143, i32 8, i32 4
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
 
 144:                                              ; preds = %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; preds = %128, %128, %128, %128, %132, %133, %134, %139, %144
-  %.sink.i70 = phi i32 [ 4, %144 ], [ 1, %133 ], [ 2, %132 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %134 ], [ %spec.select.i69, %139 ]
-  store i32 %.sink.i70, ptr %1, align 4
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73: ; preds = %128, %128, %128, %128, %132, %133, %134, %139, %144
+  %.sink.i71 = phi i32 [ 4, %144 ], [ 1, %133 ], [ 2, %132 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 8, %134 ], [ %spec.select.i69, %139 ]
+  store i32 %.sink.i71, ptr %1, align 4
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 96
   %147 = load ptr, ptr %146, align 8
@@ -25330,14 +25332,14 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; pred
     i32 2, label %149
   ]
 
-149:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+149:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
   %150 = load i32, ptr %1, align 4
   %151 = shl nsw i32 %150, 1
   store i32 %151, ptr %1, align 4
-  %152 = shl nuw nsw i32 %.sink.i70, 1
+  %152 = shl nuw nsw i32 %.sink.i71, 1
   br label %178
 
-153:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71
+153:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %156 = load ptr, ptr %155, align 8
@@ -25345,7 +25347,7 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; pred
   %158 = load i32, ptr %1, align 4
   %159 = mul nsw i32 %158, %157
   store i32 %159, ptr %1, align 4
-  %160 = shl nuw nsw i32 %.sink.i70, 2
+  %160 = shl nuw nsw i32 %.sink.i71, 2
   br label %178
 
 161:                                              ; preds = %123
@@ -25379,8 +25381,8 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71: ; pred
   store i32 16, ptr %1, align 4
   br label %178
 
-178:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71, %177, %165, %153, %149, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %38
-  %.0 = phi i32 [ %.097, %38 ], [ %.098.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %160, %153 ], [ %152, %149 ], [ %.1, %165 ], [ 16, %177 ], [ %.sink.i70, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit71 ]
+178:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73, %177, %165, %153, %149, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %38
+  %.0 = phi i32 [ %.099, %38 ], [ %.0100.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %160, %153 ], [ %152, %149 ], [ %.1, %165 ], [ 16, %177 ], [ %.sink.i71, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73 ]
   ret i32 %.0
 }
 
@@ -25465,14 +25467,14 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
-  %.not67 = icmp eq ptr %39, %40
-  br i1 %.not67, label %.loopexit, label %.lr.ph
+  %.not69 = icmp eq ptr %39, %40
+  br i1 %.not69, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %41 = phi ptr [ %68, %.lr.ph ], [ %40, %34 ]
-  %.05466 = phi i64 [ %66, %.lr.ph ], [ 0, %34 ]
-  %.06465 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %34 ]
-  %42 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %41, i64 %.05466
+  %.05468 = phi i64 [ %66, %.lr.ph ], [ 0, %34 ]
+  %.06667 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %34 ]
+  %42 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %41, i64 %.05468
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
@@ -25484,13 +25486,13 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = and i32 %51, 7
   %53 = load ptr, ptr %37, align 8
-  %54 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %53, i64 %.05466
+  %54 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %53, i64 %.05468
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq i32 %52, 0
   %56 = icmp eq i32 %52, 1
   %57 = select i1 %.not, i1 %3, i1 %56
   %58 = call noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %55, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %57)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06465, i32 %58)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06667, i32 %58)
   %59 = load i32, ptr %1, align 4
   %60 = add nsw i32 %58, -1
   %61 = add i32 %60, %59
@@ -25499,7 +25501,7 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %64 = load i32, ptr %7, align 4
   %65 = add nsw i32 %63, %64
   store i32 %65, ptr %1, align 4
-  %66 = add nuw i64 %.05466, 1
+  %66 = add nuw i64 %.05468, 1
   %67 = load ptr, ptr %38, align 8
   %68 = load ptr, ptr %37, align 8
   %69 = ptrtoint ptr %67 to i64
@@ -25570,30 +25572,30 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %104 = load ptr, ptr %103, align 8
   %105 = tail call noundef i32 %104(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   switch i32 %105, label %118 [
-    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
-    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
-    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
     i32 3, label %106
     i32 4, label %107
     i32 5, label %107
     i32 6, label %106
     i32 7, label %106
-    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
     i32 14, label %108
   ]
 
 106:                                              ; preds = %102, %102, %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
 
 107:                                              ; preds = %102, %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 368
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
-  br i1 %112, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57, label %113
+  br i1 %112, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59, label %113
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %0, align 8
@@ -25601,14 +25603,14 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   %spec.select.i55 = select i1 %117, i32 8, i32 4
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
 
 118:                                              ; preds = %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57: ; preds = %102, %102, %102, %102, %106, %107, %108, %113, %118
-  %.sink.i56 = phi i32 [ 4, %118 ], [ 1, %107 ], [ 2, %106 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 8, %108 ], [ %spec.select.i55, %113 ]
-  store i32 %.sink.i56, ptr %1, align 4
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59: ; preds = %102, %102, %102, %102, %106, %107, %108, %113, %118
+  %.sink.i57 = phi i32 [ 4, %118 ], [ 1, %107 ], [ 2, %106 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 8, %108 ], [ %spec.select.i55, %113 ]
+  store i32 %.sink.i57, ptr %1, align 4
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 96
   %121 = load ptr, ptr %120, align 8
@@ -25636,10 +25638,10 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57: ; pred
   %storemerge = mul nsw i32 %135, %131
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %125, %96, %91, %86, %85, %84, %80, %80, %80, %80, %13, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57, %129
-  %.sink69 = phi i32 [ %storemerge, %129 ], [ %124, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57 ], [ %27, %13 ], [ 4, %96 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %86 ], [ %spec.select.i, %91 ], [ 1, %125 ]
-  %.0.ph = phi i32 [ %130, %129 ], [ %.sink.i56, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit57 ], [ %14, %13 ], [ 4, %96 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %86 ], [ %spec.select.i, %91 ], [ 1, %125 ]
-  store i32 %.sink69, ptr %1, align 4
+.loopexit.sink.split:                             ; preds = %125, %96, %91, %86, %85, %84, %80, %80, %80, %80, %13, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59, %129
+  %.sink71 = phi i32 [ %storemerge, %129 ], [ %124, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59 ], [ %27, %13 ], [ 4, %96 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %86 ], [ %spec.select.i, %91 ], [ 1, %125 ]
+  %.0.ph = phi i32 [ %130, %129 ], [ %.sink.i57, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59 ], [ %14, %13 ], [ 4, %96 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 8, %86 ], [ %spec.select.i, %91 ], [ 1, %125 ]
+  store i32 %.sink71, ptr %1, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %34
@@ -30956,7 +30958,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107, %._crit_edge
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ]
+  %.sroa.049.1 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31.thread107 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.049.1, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -30986,7 +30988,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110, %._crit_edge
-  %.sroa.049.2 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ]
+  %.sroa.049.2 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35.thread110 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.049.2, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8
@@ -31220,7 +31222,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 232
@@ -31250,7 +31252,7 @@ _ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TT
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_13containsArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 232
@@ -31504,7 +31506,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %98
 
 98:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106, %._crit_edge
-  %.sroa.055.1 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ]
+  %.sroa.055.1 = phi ptr [ %97, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39.thread106 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %99 = load ptr, ptr %.sroa.055.1, align 8
   %.not.i.i.i41 = icmp eq ptr %99, %2
   br i1 %.not.i.i.i41, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42
@@ -31538,7 +31540,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %116
 
 116:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109, %._crit_edge
-  %.sroa.055.2 = phi ptr [ %.sroa.055.0.lcssa, %._crit_edge ], [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ]
+  %.sroa.055.2 = phi ptr [ %115, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45.thread109 ], [ %.sroa.055.0.lcssa, %._crit_edge ]
   %117 = load ptr, ptr %.sroa.055.2, align 8
   %.not.i.i.i47 = icmp eq ptr %117, %2
   br i1 %.not.i.i.i47, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48.thread, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48
@@ -31776,7 +31778,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 248
@@ -31806,7 +31808,7 @@ _ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlR
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_20containsUnsizedArrayEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 248
@@ -32040,7 +32042,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
@@ -32070,7 +32072,7 @@ _ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8T
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_14containsOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 320
@@ -32339,7 +32341,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %122
 
 122:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %121, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %123 = load ptr, ptr %.sroa.036.1, align 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 360
@@ -32376,7 +32378,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %145
 
 145:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %144, %_ZZNK7glslang5TType8containsIZNKS0_15containsSamplerEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %146 = load ptr, ptr %.sroa.036.2, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 360
@@ -32629,7 +32631,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %102
 
 102:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74, %._crit_edge
-  %.sroa.030.1 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ]
+  %.sroa.030.1 = phi ptr [ %101, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit23.thread74 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %103 = load ptr, ptr %.sroa.030.1, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 328
@@ -32659,7 +32661,7 @@ _ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8
   br label %121
 
 121:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77, %._crit_edge
-  %.sroa.030.2 = phi ptr [ %.sroa.030.0.lcssa, %._crit_edge ], [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ]
+  %.sroa.030.2 = phi ptr [ %120, %_ZZNK7glslang5TType8containsIZNKS0_15containsBuiltInEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit25.thread77 ], [ %.sroa.030.0.lcssa, %._crit_edge ]
   %122 = load ptr, ptr %.sroa.030.2, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 328
@@ -32963,7 +32965,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %87
 
 87:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97, %._crit_edge
-  %.sroa.048.1 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ]
+  %.sroa.048.1 = phi ptr [ %86, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit35.thread97 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %88 = load ptr, ptr %.sroa.048.1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8
@@ -33007,7 +33009,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS
   br label %103
 
 103:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101, %._crit_edge
-  %.sroa.048.2 = phi ptr [ %.sroa.048.0.lcssa, %._crit_edge ], [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ]
+  %.sroa.048.2 = phi ptr [ %102, %_ZZNK7glslang5TType8containsIZNKS0_17containsNonOpaqueEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit40.thread101 ], [ %.sroa.048.0.lcssa, %._crit_edge ]
   %104 = load ptr, ptr %.sroa.048.2, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -33315,7 +33317,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %137
 
 137:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80, %._crit_edge
-  %.sroa.036.1 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ]
+  %.sroa.036.1 = phi ptr [ %136, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread80 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %138 = load ptr, ptr %.sroa.036.1, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 232
@@ -33357,7 +33359,7 @@ _ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_
   br label %163
 
 163:                                              ; preds = %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83, %._crit_edge
-  %.sroa.036.2 = phi ptr [ %.sroa.036.0.lcssa, %._crit_edge ], [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ]
+  %.sroa.036.2 = phi ptr [ %162, %_ZZNK7glslang5TType8containsIZNKS0_26containsSpecializationSizeEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit30.thread83 ], [ %.sroa.036.0.lcssa, %._crit_edge ]
   %164 = load ptr, ptr %.sroa.036.2, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 232

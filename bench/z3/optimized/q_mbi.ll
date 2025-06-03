@@ -1452,7 +1452,7 @@ _ZN1q4mbqi10init_modelEv.exit:                    ; preds = %60, %_ZN3refI5model
   br label %82
 
 82:                                               ; preds = %79, %80, %_ZN1q4mbqi10init_modelEv.exit, %_ZNK3euf6solver13bool_var2exprEj.exit
-  %.1 = phi i32 [ %.081, %_ZNK3euf6solver13bool_var2exprEj.exit ], [ %.081, %_ZN1q4mbqi10init_modelEv.exit ], [ %spec.store.select, %80 ], [ -1, %79 ]
+  %.1 = phi i32 [ %.081, %_ZNK3euf6solver13bool_var2exprEj.exit ], [ %.081, %_ZN1q4mbqi10init_modelEv.exit ], [ -1, %79 ], [ %spec.store.select, %80 ]
   %83 = getelementptr inbounds nuw i8, ptr %.04580, i64 4
   %.not = icmp eq ptr %83, %31
   br i1 %.not, label %._crit_edge.loopexit, label %47

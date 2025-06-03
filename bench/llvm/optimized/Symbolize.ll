@@ -11268,7 +11268,7 @@ _ZNK4llvm9StringRef5rfindEcm.exit.i:              ; preds = %73
   br label %113
 
 113:                                              ; preds = %111, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %112, %111 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %114 = load i8, ptr %.1.i.i.i.i.i.i, align 1, !tbaa !76
   %115 = add i8 %114, -48
   %116 = icmp ult i8 %115, 10
@@ -11279,7 +11279,7 @@ _ZNK4llvm9StringRef5rfindEcm.exit.i:              ; preds = %73
   br label %119
 
 119:                                              ; preds = %117, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %118, %117 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %118, %117 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %120 = load i8, ptr %.2.i.i.i.i.i.i, align 1, !tbaa !76
   %121 = add i8 %120, -48
   %122 = icmp ult i8 %121, 10

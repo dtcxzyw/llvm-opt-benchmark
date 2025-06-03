@@ -597,7 +597,7 @@ define noundef zeroext i1 @_ZNK4base16FundamentalValue6EqualsEPKNS_5ValueE(ptr n
   br label %62
 
 62:                                               ; preds = %13, %2, %60, %44, %28
-  %.0 = phi i1 [ %61, %60 ], [ %45, %44 ], [ %29, %28 ], [ false, %2 ], [ false, %13 ]
+  %.0 = phi i1 [ %29, %28 ], [ %45, %44 ], [ %61, %60 ], [ false, %2 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -7486,7 +7486,7 @@ define ptr @_ZNK4base9ListValue4FindERKNS_5ValueE(ptr noundef nonnull readonly a
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i
-  %.sroa.038.1.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %45, %44 ]
+  %.sroa.038.1.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i26.i.i.i = load ptr, ptr %.sroa.038.1.i.i.i, align 8, !tbaa !3
   %47 = load ptr, ptr %.val1.i26.i.i.i, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
@@ -7499,7 +7499,7 @@ define ptr @_ZNK4base9ListValue4FindERKNS_5ValueE(ptr noundef nonnull readonly a
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i
-  %.sroa.038.2.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %52, %51 ]
+  %.sroa.038.2.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.038.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i27.i.i.i = load ptr, ptr %.sroa.038.2.i.i.i, align 8, !tbaa !3
   %54 = load ptr, ptr %.val1.i27.i.i.i, align 8, !tbaa !16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 112

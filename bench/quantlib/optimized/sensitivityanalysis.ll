@@ -1758,8 +1758,8 @@ ehcleanup229:                                     ; preds = %ehcleanup228, %lpad
   br label %invoke.cont270.preheader
 
 for.body236.preheader:                            ; preds = %invoke.cont142, %invoke.cont177
-  %retval.sroa.0.1 = phi double [ %div180, %invoke.cont177 ], [ %div, %invoke.cont142 ]
-  %retval.sroa.4.1 = phi double [ %div185, %invoke.cont177 ], [ 0x47EFFFFFE0000000, %invoke.cont142 ]
+  %retval.sroa.0.1 = phi double [ %div, %invoke.cont142 ], [ %div180, %invoke.cont177 ]
+  %retval.sroa.4.1 = phi double [ 0x47EFFFFFE0000000, %invoke.cont142 ], [ %div185, %invoke.cont177 ]
   %umax317 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body236
 
@@ -1847,7 +1847,7 @@ for.inc257:                                       ; preds = %invoke.cont251, %if
   br i1 %exitcond318.not, label %if.then.i.i.i, label %for.body236, !llvm.loop !58
 
 invoke.cont270.preheader:                         ; preds = %lpad114, %lpad238, %ehcleanup229, %lpad176, %lpad152, %lpad137
-  %.pn58 = phi { ptr, i32 } [ %64, %lpad114 ], [ %.pn57.pn.pn.pn.pn, %ehcleanup229 ], [ %75, %lpad152 ], [ %109, %lpad238 ], [ %77, %lpad176 ], [ %65, %lpad137 ]
+  %.pn58 = phi { ptr, i32 } [ %64, %lpad114 ], [ %.pn57.pn.pn.pn.pn, %ehcleanup229 ], [ %109, %lpad238 ], [ %75, %lpad152 ], [ %77, %lpad176 ], [ %65, %lpad137 ]
   %exn.slot.12 = extractvalue { ptr, i32 } %.pn58, 0
   %110 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #20
   %umax319 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
@@ -2657,8 +2657,8 @@ ehcleanup121:                                     ; preds = %ehcleanup120, %lpad
   br label %catch
 
 sw.epilog:                                        ; preds = %invoke.cont69, %invoke.cont57
-  %retval.sroa.0.1 = phi double [ %div72, %invoke.cont69 ], [ %div, %invoke.cont57 ]
-  %retval.sroa.4.1 = phi double [ %div77, %invoke.cont69 ], [ 0x47EFFFFFE0000000, %invoke.cont57 ]
+  %retval.sroa.0.1 = phi double [ %div, %invoke.cont57 ], [ %div72, %invoke.cont69 ]
+  %retval.sroa.4.1 = phi double [ 0x47EFFFFFE0000000, %invoke.cont57 ], [ %div77, %invoke.cont69 ]
   %call124 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_11SimpleQuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %quote)
           to label %invoke.cont123 unwind label %lpad52
 

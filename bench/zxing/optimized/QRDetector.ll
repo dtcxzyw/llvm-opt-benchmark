@@ -756,7 +756,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   br label %247
 
 247:                                              ; preds = %245, %._crit_edge.i.i.i.i
-  %.sroa.063.1.i.i.i.i = phi ptr [ %.sroa.063.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %246, %245 ]
+  %.sroa.063.1.i.i.i.i = phi ptr [ %246, %245 ], [ %.sroa.063.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.copyload.i.i45.i.i.i.i = load double, ptr %.sroa.063.1.i.i.i.i, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx.i.i46.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.063.1.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i.i47.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i46.i.i.i.i, align 8, !tbaa !46
@@ -777,7 +777,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   br label %259
 
 259:                                              ; preds = %257, %._crit_edge.i.i.i.i
-  %.sroa.063.2.i.i.i.i = phi ptr [ %.sroa.063.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %258, %257 ]
+  %.sroa.063.2.i.i.i.i = phi ptr [ %258, %257 ], [ %.sroa.063.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.copyload.i.i49.i.i.i.i = load double, ptr %.sroa.063.2.i.i.i.i, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx.i.i50.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.063.2.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i.i51.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i50.i.i.i.i, align 8, !tbaa !46
@@ -2428,7 +2428,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i: ; preds = %_ZNK5ZX
   br label %_ZNK5ZXing6QRCode7Version9dimensionEv.exit
 
 _ZNK5ZXing6QRCode7Version9dimensionEv.exit:       ; preds = %319, %317, %314, %312
-  %.sroa.014.0.i.i = phi i32 [ %321, %319 ], [ %316, %314 ], [ 0, %312 ], [ 0, %317 ]
+  %.sroa.014.0.i.i = phi i32 [ %316, %314 ], [ %321, %319 ], [ 0, %312 ], [ 0, %317 ]
   %322 = sub nsw i32 %.sroa.014.0.i.i, %.sroa.0214.0.copyload
   %323 = call i32 @llvm.abs.i32(i32 %322, i1 true)
   %324 = icmp samesign ugt i32 %323, 8
@@ -2480,7 +2480,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit:       ; preds = %319, %317, %314, %3
   br label %_ZNK5ZXing6QRCode7Version9dimensionEv.exit388
 
 _ZNK5ZXing6QRCode7Version9dimensionEv.exit388:    ; preds = %336, %334, %331, %329
-  %.sroa.014.0.i.i387 = phi i32 [ %338, %336 ], [ %333, %331 ], [ 0, %329 ], [ 0, %334 ]
+  %.sroa.014.0.i.i387 = phi i32 [ %333, %331 ], [ %338, %336 ], [ 0, %329 ], [ 0, %334 ]
   %.not304 = icmp eq i32 %.sroa.014.0.i.i387, %.sroa.0214.0.copyload
   br i1 %.not304, label %359, label %339
 
@@ -2506,7 +2506,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit388:    ; preds = %336, %334, %331, %3
   br label %_ZNK5ZXing6QRCode7Version9dimensionEv.exit390
 
 _ZNK5ZXing6QRCode7Version9dimensionEv.exit390:    ; preds = %347, %345, %342, %340
-  %.sroa.014.0.i.i389 = phi i32 [ %349, %347 ], [ %344, %342 ], [ 0, %340 ], [ 0, %345 ]
+  %.sroa.014.0.i.i389 = phi i32 [ %344, %342 ], [ %349, %347 ], [ 0, %340 ], [ 0, %345 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #21
   %.sroa.0149.0.copyload = load double, ptr %36, align 8, !tbaa !46
   %.sroa.2150.0.copyload = load double, ptr %.sroa.2196.0..sroa_idx, align 8, !tbaa !46
@@ -2936,8 +2936,8 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit390:    ; preds = %347, %345, %342, %3
   br label %534
 
 534:                                              ; preds = %.noexc497.us, %516
-  %.sroa.0.1.i493.us = phi double [ %.sroa.0.0.copyload1.i485.us, %516 ], [ %532, %.noexc497.us ]
-  %.sroa.3.1.i494.us = phi double [ %.sroa.4.0.copyload.i487.us, %516 ], [ %533, %.noexc497.us ]
+  %.sroa.0.1.i493.us = phi double [ %532, %.noexc497.us ], [ %.sroa.0.0.copyload1.i485.us, %516 ]
+  %.sroa.3.1.i494.us = phi double [ %533, %.noexc497.us ], [ %.sroa.4.0.copyload.i487.us, %516 ]
   %535 = fsub double %517, %.sroa.0.1.i493.us
   %536 = fsub double %518, %.sroa.3.1.i494.us
   %.fca.0.insert.i499.us = insertvalue { double, double } poison, double %535, 0

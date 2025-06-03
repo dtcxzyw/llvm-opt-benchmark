@@ -4159,7 +4159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
   resume { ptr, i32 } %35
 
-44:                                               ; preds = %17, %15, %20, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit.i
+44:                                               ; preds = %15, %17, %20, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit.i
   %.0.i.ph = phi float [ 0.000000e+00, %20 ], [ %32, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit.i ], [ %19, %17 ], [ %.val.i, %15 ]
   ret float %.0.i.ph
 }

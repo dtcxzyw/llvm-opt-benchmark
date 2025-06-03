@@ -688,7 +688,7 @@ _ZNK5arrow6Tensor20CalculateValueOffsetERKSt6vectorIlSaIlEE.exit.i: ; preds = %1
   br label %214
 
 214:                                              ; preds = %212, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %213, %212 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %213, %212 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %215 = load i8, ptr %.1.i.i.i.i.i.i, align 1, !tbaa !43
   %.not583.i = icmp eq i8 %215, 0
   br i1 %.not583.i, label %216, label %.loopexit588.i
@@ -698,7 +698,7 @@ _ZNK5arrow6Tensor20CalculateValueOffsetERKSt6vectorIlSaIlEE.exit.i: ; preds = %1
   br label %218
 
 218:                                              ; preds = %216, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %217, %216 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %217, %216 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %219 = load i8, ptr %.2.i.i.i.i.i.i, align 1, !tbaa !43
   %.not584.i = icmp eq i8 %219, 0
   br i1 %.not584.i, label %.thread.i, label %.loopexit588.i

@@ -1877,8 +1877,8 @@ _ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit364: ; preds = %_ZN4llvm7LLLexer
 _ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit468: ; preds = %_ZN4llvm7LLLexer8LexQuoteEv.exit
   br label %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread
 
-_ZN4llvm7LLLexer8LexQuoteEv.exit.thread:          ; preds = %140, %_ZN4llvm7LLLexer8LexQuoteEv.exit, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit468, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit364, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit264, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit164, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit, %143, %144, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15.i, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12.i, %_ZN4llvm7LLLexer9LexUIntIDENS_5lltok4KindE.exit.i, %110, %_ZN4llvm7LLLexer6atoullEPKcS2_.exit.thread.i.i, %89, %52, %_ZNK4llvm9StringRef8containsEc.exit.i, %40, %36, %34, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread, %74, %76, %19, %26, %28, %30, %32, %.loopexit, %80, %87, %131, %133, %134, %135, %136, %137, %138, %139, %24
-  %.158 = phi i32 [ 1, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15.i ], [ 1, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12.i ], [ 17, %110 ], [ 503, %_ZN4llvm7LLLexer9LexUIntIDENS_5lltok4KindE.exit.i ], [ 1, %89 ], [ 504, %_ZN4llvm7LLLexer6atoullEPKcS2_.exit.thread.i.i ], [ 505, %40 ], [ 505, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %35, %36 ], [ 1, %52 ], [ %35, %34 ], [ 0, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread ], [ 1, %74 ], [ 1, %76 ], [ 1, %19 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ 505, %.loopexit ], [ 2, %80 ], [ %88, %87 ], [ %132, %131 ], [ 10, %133 ], [ 11, %134 ], [ 12, %135 ], [ 13, %136 ], [ 4, %137 ], [ 5, %138 ], [ 15, %139 ], [ %25, %24 ], [ 1, %144 ], [ 1, %143 ], [ 16, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit ], [ 3, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit164 ], [ 6, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit264 ], [ 7, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit364 ], [ 9, %_ZN4llvm7LLLexer8LexQuoteEv.exit ], [ 1, %140 ], [ 8, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit468 ]
+_ZN4llvm7LLLexer8LexQuoteEv.exit.thread:          ; preds = %140, %_ZN4llvm7LLLexer8LexQuoteEv.exit, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit468, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit364, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit264, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit164, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit, %143, %144, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12.i, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15.i, %_ZN4llvm7LLLexer9LexUIntIDENS_5lltok4KindE.exit.i, %110, %_ZN4llvm7LLLexer6atoullEPKcS2_.exit.thread.i.i, %89, %52, %_ZNK4llvm9StringRef8containsEc.exit.i, %40, %36, %34, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread, %74, %76, %19, %139, %138, %137, %136, %135, %134, %133, %131, %87, %.loopexit, %80, %32, %30, %28, %26, %24
+  %.158 = phi i32 [ 1, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12.i ], [ 1, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15.i ], [ 17, %110 ], [ 503, %_ZN4llvm7LLLexer9LexUIntIDENS_5lltok4KindE.exit.i ], [ 1, %89 ], [ 504, %_ZN4llvm7LLLexer6atoullEPKcS2_.exit.thread.i.i ], [ 505, %40 ], [ 505, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %35, %36 ], [ 1, %52 ], [ %35, %34 ], [ 0, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread ], [ 1, %74 ], [ 1, %76 ], [ 1, %19 ], [ 15, %139 ], [ 5, %138 ], [ 4, %137 ], [ 13, %136 ], [ 12, %135 ], [ 11, %134 ], [ 10, %133 ], [ %132, %131 ], [ %88, %87 ], [ 505, %.loopexit ], [ 2, %80 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ 1, %144 ], [ 1, %143 ], [ 16, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit ], [ 3, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit164 ], [ 6, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit264 ], [ 7, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit364 ], [ 9, %_ZN4llvm7LLLexer8LexQuoteEv.exit ], [ 1, %140 ], [ 8, %_ZN4llvm7LLLexer8LexQuoteEv.exit.thread.loopexit468 ]
   ret i32 %.158
 }
 
@@ -5335,7 +5335,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit3117.thread6251: ; preds = %_ZN4llvmeqENS_9Stri
   br label %809
 
 809:                                              ; preds = %807, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %808, %807 ]
+  %.1.i.i.i.i.i = phi ptr [ %808, %807 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %810 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !32
   %811 = sext i8 %810 to i32
   %812 = tail call noundef i32 @isxdigit(i32 noundef %811) #17
@@ -5347,7 +5347,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit3117.thread6251: ; preds = %_ZN4llvmeqENS_9Stri
   br label %815
 
 815:                                              ; preds = %813, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %814, %813 ]
+  %.2.i.i.i.i.i = phi ptr [ %814, %813 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %816 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !32
   %817 = sext i8 %816 to i32
   %818 = tail call noundef i32 @isxdigit(i32 noundef %817) #17
@@ -6675,7 +6675,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %133, %136, %132
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %switch.early.test.i.i, %_ZL11isLabelTailPKc.exit43, %_ZL11isLabelTailPKc.exit, %_ZN4llvm7APFloatD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit, %85, %57
-  %.1 = phi i32 [ 500, %57 ], [ 505, %_ZL11isLabelTailPKc.exit43 ], [ %86, %85 ], [ 526, %_ZN4llvm5APIntD2Ev.exit ], [ 525, %_ZN4llvm7APFloatD2Ev.exit ], [ 505, %_ZL11isLabelTailPKc.exit ], [ 1, %switch.early.test.i.i ]
+  %.1 = phi i32 [ 500, %57 ], [ %86, %85 ], [ 526, %_ZN4llvm5APIntD2Ev.exit ], [ 525, %_ZN4llvm7APFloatD2Ev.exit ], [ 505, %_ZL11isLabelTailPKc.exit43 ], [ 505, %_ZL11isLabelTailPKc.exit ], [ 1, %switch.early.test.i.i ]
   ret i32 %.1
 }
 
@@ -6750,8 +6750,8 @@ _ZN4llvm7LLLexer11getNextCharEv.exit10.thread15:  ; preds = %20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12
-  %.1.ph = phi i1 [ true, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12 ], [ true, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15 ], [ false, %17 ]
+.loopexit:                                        ; preds = %17, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15
+  %.1.ph = phi i1 [ true, %_ZN4llvm7LLLexer11getNextCharEv.exit10.thread15 ], [ true, %_ZN4llvm7LLLexer11getNextCharEv.exit.thread12 ], [ false, %17 ]
   ret i1 %.1.ph
 }
 

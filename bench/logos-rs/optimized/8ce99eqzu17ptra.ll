@@ -184,7 +184,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   br label %67
 
 73:                                               ; preds = %96, %61, %26, %67, %102, %90
-  %.sroa.05.2 = phi i64 [ %105, %102 ], [ %.sroa.05.1, %90 ], [ %spec.store.select, %67 ], [ 0, %26 ], [ 0, %61 ], [ 0, %96 ]
+  %.sroa.05.2 = phi i64 [ %spec.store.select, %67 ], [ %105, %102 ], [ %.sroa.05.1, %90 ], [ 0, %26 ], [ 0, %61 ], [ 0, %96 ]
   %74 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr nonnull align 8 %4)
   %75 = load i32, ptr %11, align 4
   %76 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr nonnull align 8 %0, i32 %75, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)

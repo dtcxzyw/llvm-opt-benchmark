@@ -8120,9 +8120,9 @@ _ZL20llama_prepare_sbatchR13llama_contextRK11llama_batchRj.exit.i: ; preds = %47
   br i1 %.not207.i, label %_ZL20llama_prepare_sbatchR13llama_contextRK11llama_batchRj.exit._crit_edge.i, label %147, !llvm.loop !519
 
 .loopexit.split-lp.i:                             ; preds = %483, %418, %.loopexit.split-lp469.i, %.loopexit468.i, %.loopexit.split-lp464.i, %.loopexit463.i, %.loopexit.split-lp459.i, %.loopexit458.i, %.loopexit.split-lp455.i, %.loopexit454.i, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.loopexit.split-lp431.i, %.loopexit430.i, %.loopexit.split-lp446.i, %.loopexit445.i, %255, %253, %.loopexit.split-lp441.i, %.loopexit440.i, %.loopexit.split-lp436.i, %.loopexit435.i
-  %.sroa.18.5.i = phi ptr [ %.sroa.18.7.ph.i, %483 ], [ %.sroa.18.7.ph.i, %418 ], [ %.sroa.18.7.ph.i, %255 ], [ %.sroa.18.7.ph.i, %253 ], [ %.sroa.18.4.ph.i, %.loopexit435.i ], [ %.sroa.18.3709758.i, %.loopexit.split-lp436.i ], [ %.sroa.18.7.ph.i, %.loopexit440.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.18.7.ph.i, %.loopexit445.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.18.7.ph.i, %.loopexit430.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.18.7.ph.i, %.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.18.7.ph.i, %.loopexit454.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.18.7.ph.i, %.loopexit458.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.18.7.ph.i, %.loopexit463.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.18.7.ph.i, %.loopexit468.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp469.i ]
-  %.sroa.8.5.i = phi ptr [ %.sroa.8.7.ph.i, %483 ], [ %.sroa.8.7.ph.i, %418 ], [ %.sroa.8.7.ph.i, %255 ], [ %.sroa.8.7.ph.i, %253 ], [ %.sroa.8.4.ph.i, %.loopexit435.i ], [ %.sroa.8.3711.i, %.loopexit.split-lp436.i ], [ %.sroa.8.7.ph.i, %.loopexit440.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.8.7.ph.i, %.loopexit445.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.8.7.ph.i, %.loopexit430.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.8.7.ph.i, %.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.8.7.ph.i, %.loopexit454.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.8.7.ph.i, %.loopexit458.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.8.7.ph.i, %.loopexit463.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.8.7.ph.i, %.loopexit468.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp469.i ]
-  %.pn235.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %484, %483 ], [ %419, %418 ], [ %256, %255 ], [ %254, %253 ], [ %lpad.loopexit437.i, %.loopexit435.i ], [ %lpad.loopexit.split-lp438.i, %.loopexit.split-lp436.i ], [ %lpad.loopexit442.i, %.loopexit440.i ], [ %lpad.loopexit.split-lp443.i, %.loopexit.split-lp441.i ], [ %lpad.loopexit447.i, %.loopexit445.i ], [ %lpad.loopexit.split-lp448.i, %.loopexit.split-lp446.i ], [ %lpad.loopexit432.i, %.loopexit430.i ], [ %lpad.loopexit.split-lp433.i, %.loopexit.split-lp431.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit451.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp452.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit456.i, %.loopexit454.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp455.i ], [ %lpad.loopexit460.i, %.loopexit458.i ], [ %lpad.loopexit.split-lp461.i, %.loopexit.split-lp459.i ], [ %lpad.loopexit465.i, %.loopexit463.i ], [ %lpad.loopexit.split-lp466.i, %.loopexit.split-lp464.i ], [ %lpad.loopexit470.i, %.loopexit468.i ], [ %lpad.loopexit.split-lp471.i, %.loopexit.split-lp469.i ]
+  %.sroa.18.5.i = phi ptr [ %.sroa.18.7.ph.i, %418 ], [ %.sroa.18.7.ph.i, %483 ], [ %.sroa.18.7.ph.i, %255 ], [ %.sroa.18.7.ph.i, %253 ], [ %.sroa.18.4.ph.i, %.loopexit435.i ], [ %.sroa.18.3709758.i, %.loopexit.split-lp436.i ], [ %.sroa.18.7.ph.i, %.loopexit440.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.18.7.ph.i, %.loopexit445.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.18.7.ph.i, %.loopexit430.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.18.7.ph.i, %.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.18.7.ph.i, %.loopexit454.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.18.7.ph.i, %.loopexit458.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.18.7.ph.i, %.loopexit463.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.18.7.ph.i, %.loopexit468.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp469.i ]
+  %.sroa.8.5.i = phi ptr [ %.sroa.8.7.ph.i, %418 ], [ %.sroa.8.7.ph.i, %483 ], [ %.sroa.8.7.ph.i, %255 ], [ %.sroa.8.7.ph.i, %253 ], [ %.sroa.8.4.ph.i, %.loopexit435.i ], [ %.sroa.8.3711.i, %.loopexit.split-lp436.i ], [ %.sroa.8.7.ph.i, %.loopexit440.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.8.7.ph.i, %.loopexit445.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.8.7.ph.i, %.loopexit430.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.8.7.ph.i, %.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.8.7.ph.i, %.loopexit454.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.8.7.ph.i, %.loopexit458.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.8.7.ph.i, %.loopexit463.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.8.7.ph.i, %.loopexit468.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp469.i ]
+  %.pn235.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %419, %418 ], [ %484, %483 ], [ %256, %255 ], [ %254, %253 ], [ %lpad.loopexit437.i, %.loopexit435.i ], [ %lpad.loopexit.split-lp438.i, %.loopexit.split-lp436.i ], [ %lpad.loopexit442.i, %.loopexit440.i ], [ %lpad.loopexit.split-lp443.i, %.loopexit.split-lp441.i ], [ %lpad.loopexit447.i, %.loopexit445.i ], [ %lpad.loopexit.split-lp448.i, %.loopexit.split-lp446.i ], [ %lpad.loopexit432.i, %.loopexit430.i ], [ %lpad.loopexit.split-lp433.i, %.loopexit.split-lp431.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit451.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp452.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit456.i, %.loopexit454.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp455.i ], [ %lpad.loopexit460.i, %.loopexit458.i ], [ %lpad.loopexit.split-lp461.i, %.loopexit.split-lp459.i ], [ %lpad.loopexit465.i, %.loopexit463.i ], [ %lpad.loopexit.split-lp466.i, %.loopexit.split-lp464.i ], [ %lpad.loopexit470.i, %.loopexit468.i ], [ %lpad.loopexit.split-lp471.i, %.loopexit.split-lp469.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #33
   br label %587
 
@@ -12537,8 +12537,8 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit99: ; preds = %_ZNKSt8funct
   unreachable
 
 289:                                              ; preds = %273, %240
-  %.081 = phi ptr [ %280, %273 ], [ %256, %240 ]
-  %.080 = phi ptr [ %287, %273 ], [ %272, %240 ]
+  %.081 = phi ptr [ %256, %240 ], [ %280, %273 ]
+  %.080 = phi ptr [ %272, %240 ], [ %287, %273 ]
   %290 = load ptr, ptr %81, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
@@ -30613,7 +30613,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115: ; preds = %_ZNKSt8func
   unreachable
 
 304:                                              ; preds = %294, %291
-  %.095 = phi ptr [ %302, %294 ], [ %293, %291 ]
+  %.095 = phi ptr [ %293, %291 ], [ %302, %294 ]
   %305 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
@@ -52740,7 +52740,7 @@ define linkonce_odr noundef ptr @_ZN17llm_build_context22build_wavtokenizer_decE
   unreachable
 
 173:                                              ; preds = %164, %105, %65
-  %.1 = phi ptr [ %171, %164 ], [ %163, %105 ], [ %104, %65 ]
+  %.1 = phi ptr [ %104, %65 ], [ %163, %105 ], [ %171, %164 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = load ptr, ptr %13, align 8, !tbaa !588
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 52
@@ -53104,7 +53104,7 @@ _ZN17llm_build_context13build_inp_clsEv.exit32:   ; preds = %82
   unreachable
 
 139:                                              ; preds = %115, %131, %27, %_ZN17llm_build_context13build_inp_clsEv.exit, %_ZN17llm_build_context14build_inp_meanEv.exit
-  %.023 = phi ptr [ %81, %_ZN17llm_build_context13build_inp_clsEv.exit ], [ %56, %_ZN17llm_build_context14build_inp_meanEv.exit ], [ %19, %27 ], [ %137, %131 ], [ %123, %115 ]
+  %.023 = phi ptr [ %56, %_ZN17llm_build_context14build_inp_meanEv.exit ], [ %81, %_ZN17llm_build_context13build_inp_clsEv.exit ], [ %19, %27 ], [ %137, %131 ], [ %123, %115 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %141 = load ptr, ptr %140, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -53544,7 +53544,7 @@ default.unreachable46:                            ; preds = %8
   unreachable
 
 39:                                               ; preds = %23, %19, %15
-  %.0 = phi ptr [ %38, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.0 = phi ptr [ %18, %15 ], [ %22, %19 ], [ %38, %23 ]
   %40 = icmp ne ptr %3, null
   %41 = icmp ne ptr %4, null
   %or.cond = or i1 %40, %41
@@ -54308,7 +54308,7 @@ default.unreachable1:                             ; preds = %112
   unreachable
 
 100:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166
-  %.0 = phi ptr [ %96, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ], [ %91, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ]
+  %.0 = phi ptr [ %91, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ], [ %96, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ]
   %.not155 = icmp eq ptr %7, null
   br i1 %.not155, label %106, label %101
 
@@ -54578,7 +54578,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188: ; preds = %_ZNKSt8func
   br label %166
 
 166:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174
-  %.3 = phi ptr [ %162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188 ], [ %138, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ], [ %129, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180 ], [ %124, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178 ], [ %119, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176 ], [ %114, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174 ]
+  %.3 = phi ptr [ %114, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174 ], [ %124, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178 ], [ %119, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176 ], [ %129, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180 ], [ %138, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ], [ %162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188 ]
   %.not158 = icmp eq i32 %13, 0
   br i1 %.not158, label %172, label %167
 
@@ -54741,7 +54741,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %17
   unreachable
 
 78:                                               ; preds = %75, %73
-  %.0137 = phi ptr [ %76, %75 ], [ %74, %73 ]
+  %.0137 = phi ptr [ %74, %73 ], [ %76, %75 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
@@ -55031,7 +55031,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168: ; preds = %135
   br label %140
 
 140:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166
-  %.0138 = phi ptr [ %136, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ], [ %131, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ]
+  %.0138 = phi ptr [ %131, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ], [ %136, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ]
   %141 = call ptr @ggml_mul(ptr noundef %0, ptr noundef %122, ptr noundef %.0138)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)

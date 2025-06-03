@@ -1987,7 +1987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %139
 
 139:                                              ; preds = %137, %._crit_edge.i.i.i.i
-  %.sroa.044.1.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %138, %137 ]
+  %.sroa.044.1.i.i.i.i = phi ptr [ %138, %137 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i26.i.i.i.i = load i32, ptr %.sroa.044.1.i.i.i.i, align 8, !tbaa !132
   %140 = lshr i32 %.val1.i26.i.i.i.i, 3
   %141 = and i32 %140, 511
@@ -1999,7 +1999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %144
 
 144:                                              ; preds = %142, %._crit_edge.i.i.i.i
-  %.sroa.044.2.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %143, %142 ]
+  %.sroa.044.2.i.i.i.i = phi ptr [ %143, %142 ], [ %.sroa.044.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.val1.i27.i.i.i.i = load i32, ptr %.sroa.044.2.i.i.i.i, align 8, !tbaa !132
   %145 = lshr i32 %.val1.i27.i.i.i.i, 3
   %146 = and i32 %145, 511

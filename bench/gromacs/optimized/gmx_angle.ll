@@ -339,11 +339,11 @@ define noundef i32 @_Z11gmx_g_angleiPPc(i32 noundef %0, ptr noundef %1) local_un
   br label %94
 
 94:                                               ; preds = %93, %92, %88
-  %.0241 = phi i1 [ false, %88 ], [ true, %93 ], [ false, %92 ]
-  %.not246 = phi i1 [ true, %88 ], [ true, %93 ], [ false, %92 ]
-  %95 = phi i1 [ false, %88 ], [ false, %93 ], [ true, %92 ]
-  %.0209 = phi i32 [ 4, %88 ], [ 4, %93 ], [ 3, %92 ]
-  %.0207 = phi float [ 3.600000e+02, %88 ], [ 3.600000e+02, %93 ], [ 1.800000e+02, %92 ]
+  %.0241 = phi i1 [ false, %88 ], [ false, %92 ], [ true, %93 ]
+  %.not246 = phi i1 [ true, %88 ], [ false, %92 ], [ true, %93 ]
+  %95 = phi i1 [ false, %88 ], [ true, %92 ], [ false, %93 ]
+  %.0209 = phi i32 [ 4, %88 ], [ 3, %92 ], [ 4, %93 ]
+  %.0207 = phi float [ 3.600000e+02, %88 ], [ 1.800000e+02, %92 ], [ 3.600000e+02, %93 ]
   %96 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.49, i32 noundef 9, ptr noundef nonnull %17)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 

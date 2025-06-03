@@ -3405,7 +3405,7 @@ define dso_local noundef i64 @_ZNK4llvm13MCELFStreamer20calculateContentSizeERNS
   br label %50
 
 50:                                               ; preds = %33, %22, %9, %.lr.ph
-  %.1 = phi i64 [ %.025, %.lr.ph ], [ %32, %22 ], [ %21, %9 ], [ %49, %33 ]
+  %.1 = phi i64 [ %.025, %.lr.ph ], [ %49, %33 ], [ %21, %9 ], [ %32, %22 ]
   %51 = getelementptr inbounds nuw i8, ptr %.02224, i64 48
   %.not = icmp eq ptr %51, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph

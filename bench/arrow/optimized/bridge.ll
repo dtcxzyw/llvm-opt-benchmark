@@ -30209,7 +30209,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit15.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i26.i, %928, %955, %982, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i42.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i49.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i72, %_ZN5arrow8internal16StaticVectorImplISt17basic_string_viewIcSt11char_traitsIcEELm2ENS0_18SmallVectorStorageIS5_Lm2EEEED2Ev.exit39.i.i, %378, %_ZNSt6vectorIiSaIiEED2Ev.exit59.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i, %_ZN5arrow6ResultIiED2Ev.exit22.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i ], [ %.pn15.i, %_ZN5arrow6ResultIiED2Ev.exit22.i ], [ %1158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9 ], [ %.pn15.i27, %_ZNSt6vectorIiSaIiEED2Ev.exit59.i ], [ %.pn.pn.pn.pn.i.i, %378 ], [ %.pn.pn.pn.pn.i.i, %_ZN5arrow8internal16StaticVectorImplISt17basic_string_viewIcSt11char_traitsIcEELm2ENS0_18SmallVectorStorageIS5_Lm2EEEED2Ev.exit39.i.i ], [ %668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i53 ], [ %.pn19.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i.i ], [ %.pn11.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit15.i.i ], [ %.pn17.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i49.i ], [ %1136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i72 ], [ %697, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i.i ], [ %729, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9.i ], [ %887, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i26.i ], [ %996, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i42.i ], [ %983, %982 ], [ %956, %955 ], [ %929, %928 ]
+  %common.resume.op = phi { ptr, i32 } [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i ], [ %.pn15.i, %_ZN5arrow6ResultIiED2Ev.exit22.i ], [ %1158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9 ], [ %.pn15.i27, %_ZNSt6vectorIiSaIiEED2Ev.exit59.i ], [ %.pn.pn.pn.pn.i.i, %378 ], [ %.pn.pn.pn.pn.i.i, %_ZN5arrow8internal16StaticVectorImplISt17basic_string_viewIcSt11char_traitsIcEELm2ENS0_18SmallVectorStorageIS5_Lm2EEEED2Ev.exit39.i.i ], [ %668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i53 ], [ %.pn19.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i.i ], [ %.pn11.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit15.i.i ], [ %.pn17.i.i, %_ZN5arrow6ResultINS_8TimeUnit4typeEED2Ev.exit28.i49.i ], [ %1136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i72 ], [ %697, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i.i ], [ %729, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i9.i ], [ %887, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i.i26.i ], [ %996, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i42.i ], [ %929, %928 ], [ %956, %955 ], [ %983, %982 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6.i.i.i.i.i
@@ -59456,8 +59456,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErr
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3708
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %53, %54, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %53 ], [ 12, %54 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %58 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %50, %_ZNK5arrow6Status4codeEv.exit.i ], [ %50, %53 ], [ %50, %54 ], [ %50, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %54 ], [ 38, %53 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %58 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %50, %_ZNK5arrow6Status4codeEv.exit.i ], [ %50, %54 ], [ %50, %53 ], [ %50, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !110, !range !119, !noundef !120
   %61 = trunc nuw i8 %60 to i1
@@ -59681,8 +59681,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErr
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3723
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %64, %65, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %64 ], [ 12, %65 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %69 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %61, %_ZNK5arrow6Status4codeEv.exit.i ], [ %61, %64 ], [ %61, %65 ], [ %61, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %65 ], [ 38, %64 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %69 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %61, %_ZNK5arrow6Status4codeEv.exit.i ], [ %61, %65 ], [ %61, %64 ], [ %61, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !110, !range !119, !noundef !120
   %72 = trunc nuw i8 %71 to i1
@@ -59910,8 +59910,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERK
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3708
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %23, %24, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %23 ], [ 12, %24 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %28 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %20, %_ZNK5arrow6Status4codeEv.exit.i ], [ %20, %23 ], [ %20, %24 ], [ %20, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %24 ], [ 38, %23 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %28 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %20, %_ZNK5arrow6Status4codeEv.exit.i ], [ %20, %24 ], [ %20, %23 ], [ %20, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !110, !range !119, !noundef !120
   %31 = trunc nuw i8 %30 to i1
@@ -60055,8 +60055,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERK
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3708
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread15, %_ZNK5arrow6Status4codeEv.exit.i, %33, %34, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i9 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %33 ], [ 12, %34 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
-  %38 = phi ptr [ %.pr5.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %30, %_ZNK5arrow6Status4codeEv.exit.i ], [ %30, %33 ], [ %30, %34 ], [ %30, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
+  %.0.i9 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %34 ], [ 38, %33 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
+  %38 = phi ptr [ %.pr5.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit ], [ %30, %_ZNK5arrow6Status4codeEv.exit.i ], [ %30, %34 ], [ %30, %33 ], [ %30, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb0EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !110, !range !119, !noundef !120
   %41 = trunc nuw i8 %40 to i1
@@ -60354,8 +60354,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErr
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3708
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %53, %54, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %53 ], [ 12, %54 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %58 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %50, %_ZNK5arrow6Status4codeEv.exit.i ], [ %50, %53 ], [ %50, %54 ], [ %50, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %54 ], [ 38, %53 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %58 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %50, %_ZNK5arrow6Status4codeEv.exit.i ], [ %50, %54 ], [ %50, %53 ], [ %50, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !110, !range !119, !noundef !120
   %61 = trunc nuw i8 %60 to i1
@@ -60670,8 +60670,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErr
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3723
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %107, %108, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %107 ], [ 12, %108 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %112 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %104, %_ZNK5arrow6Status4codeEv.exit.i ], [ %104, %107 ], [ %104, %108 ], [ %104, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %108 ], [ 38, %107 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %112 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %104, %_ZNK5arrow6Status4codeEv.exit.i ], [ %104, %108 ], [ %104, %107 ], [ %104, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_17RecordBatchReaderELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %114 = load i8, ptr %113, align 1, !tbaa !110, !range !119, !noundef !120
   %115 = trunc nuw i8 %114 to i1
@@ -60899,8 +60899,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERK
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3708
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread14, %_ZNK5arrow6Status4codeEv.exit.i, %23, %24, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %23 ], [ 12, %24 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
-  %28 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %20, %_ZNK5arrow6Status4codeEv.exit.i ], [ %20, %23 ], [ %20, %24 ], [ %20, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %.0.i8 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %24 ], [ 38, %23 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
+  %28 = phi ptr [ %.pr.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %20, %_ZNK5arrow6Status4codeEv.exit.i ], [ %20, %24 ], [ %20, %23 ], [ %20, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread14 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !110, !range !119, !noundef !120
   %31 = trunc nuw i8 %30 to i1
@@ -61112,8 +61112,8 @@ _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERK
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread, !prof !3723
 
 _ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread: ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread15, %_ZNK5arrow6Status4codeEv.exit.i, %61, %62, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit
-  %.0.i9 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %61 ], [ 12, %62 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
-  %66 = phi ptr [ %.pr5.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %58, %_ZNK5arrow6Status4codeEv.exit.i ], [ %58, %61 ], [ %58, %62 ], [ %58, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
+  %.0.i9 = phi i32 [ 0, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 12, %62 ], [ 38, %61 ], [ 22, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
+  %66 = phi ptr [ %.pr5.pr, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit ], [ %58, %_ZNK5arrow6Status4codeEv.exit.i ], [ %58, %62 ], [ %58, %61 ], [ %58, %_ZN5arrow12_GLOBAL__N_119ExportedArrayStreamINS_12ChunkedArrayELb1EE8ToCErrorERKNS_6StatusE.exit.thread15 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1, !tbaa !110, !range !119, !noundef !120
   %69 = trunc nuw i8 %68 to i1
@@ -62459,7 +62459,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_117ArrayStreamReaderILb0EE16S
   br label %11
 
 11:                                               ; preds = %3, %3, %3, %10, %9, %8
-  %.027 = phi i8 [ 5, %10 ], [ 10, %9 ], [ 1, %8 ], [ 4, %3 ], [ 4, %3 ], [ 4, %3 ]
+  %.027 = phi i8 [ 5, %10 ], [ 1, %8 ], [ 10, %9 ], [ 4, %3 ], [ 4, %3 ], [ 4, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !709
   %14 = tail call noundef ptr %13(ptr noundef nonnull %1)
@@ -63659,7 +63659,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_117ArrayStreamReaderILb1EE16S
   br label %11
 
 11:                                               ; preds = %3, %3, %3, %10, %9, %8
-  %.027 = phi i8 [ 5, %10 ], [ 10, %9 ], [ 1, %8 ], [ 4, %3 ], [ 4, %3 ], [ 4, %3 ]
+  %.027 = phi i8 [ 5, %10 ], [ 1, %8 ], [ 10, %9 ], [ 4, %3 ], [ 4, %3 ], [ 4, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !737
   %14 = tail call noundef ptr %13(ptr noundef nonnull %1)

@@ -266,7 +266,7 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   br i1 %.not13.i266, label %.thread321, label %.thread14.sink.split.i
 
 .thread382:                                       ; preds = %175, %172, %169, %166, %162
-  %.0.shrunk.i.ph.ph384 = phi i8 [ 0, %162 ], [ 0, %166 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ]
+  %.0.shrunk.i.ph.ph384 = phi i8 [ 0, %162 ], [ 0, %166 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ]
   %184 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %185 = load i8, ptr %184, align 8, !tbaa !98
   %186 = icmp eq i8 %185, 4

@@ -1299,7 +1299,7 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
   br i1 %145, label %.thread.i.i.i, label %common.resume
 
 146:                                              ; preds = %187, %185, %177, %163, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i, %142, %140, %138, %136
-  %.034.i.i.i = phi i8 [ 0, %177 ], [ 1, %138 ], [ 1, %136 ], [ 1, %140 ], [ 1, %142 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ 1, %163 ], [ %.2.i.i.i, %185 ], [ %.2.i.i.i, %187 ]
+  %.034.i.i.i = phi i8 [ 0, %177 ], [ 1, %140 ], [ 1, %142 ], [ 1, %136 ], [ 1, %138 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ 1, %163 ], [ %.2.i.i.i, %185 ], [ %.2.i.i.i, %187 ]
   %147 = landingpad { ptr, i32 }
           cleanup
   br label %144
@@ -1316,7 +1316,7 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
   br label %152
 
 152:                                              ; preds = %178, %173, %169, %166, %154, %148
-  %.2.i.i.i = phi i8 [ 0, %178 ], [ 1, %173 ], [ 1, %169 ], [ 1, %166 ], [ 1, %148 ], [ 1, %154 ]
+  %.2.i.i.i = phi i8 [ 0, %178 ], [ 1, %148 ], [ 1, %154 ], [ 1, %166 ], [ 1, %169 ], [ 1, %173 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26), !noalias !209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !209

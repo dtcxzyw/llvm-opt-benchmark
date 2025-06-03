@@ -2459,8 +2459,8 @@ _ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit:   ; preds = %_ZNK22arrow_vendore
   br label %_ZN5arrow3ipc8internal18FromFlatbufferUnitEN3org6apache5arrow7flatbuf8TimeUnitE.exit
 
 _ZN5arrow3ipc8internal18FromFlatbufferUnitEN3org6apache5arrow7flatbuf8TimeUnitE.exit: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i222, %_ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit, %728, %729, %730
-  %switch = phi i1 [ true, %730 ], [ false, %729 ], [ false, %728 ], [ true, %_ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit ], [ true, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i222 ]
-  %.0.i = phi i32 [ 0, %730 ], [ 3, %729 ], [ 2, %728 ], [ 1, %_ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit ], [ 1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i222 ]
+  %switch = phi i1 [ true, %730 ], [ false, %728 ], [ false, %729 ], [ true, %_ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit ], [ true, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i222 ]
+  %.0.i = phi i32 [ 0, %730 ], [ 2, %728 ], [ 3, %729 ], [ 1, %_ZNK3org6apache5arrow7flatbuf4Time4unitEv.exit ], [ 1, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i222 ]
   %731 = icmp ugt i16 %721, 6
   br i1 %731, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i224, label %_ZNK3org6apache5arrow7flatbuf4Time8bitWidthEv.exit
 
@@ -4484,7 +4484,7 @@ _ZN5arrow6Status7InvalidIJRA28_KcEEES0_DpOT_.exit.i: ; preds = %1222
   br label %common.resume
 
 common.resume:                                    ; preds = %408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306, %660, %639, %618, %597, %_ZNSt6vectorIaSaIaEED2Ev.exit75.i, %1332, %_ZNSt6vectorIaSaIaEED2Ev.exit117.i, %1479, %1545, %.thread191.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn52.i, %1545 ], [ %.pn52.i, %.thread191.i ], [ %1472, %_ZNSt6vectorIaSaIaEED2Ev.exit117.i ], [ %1480, %1479 ], [ %1325, %_ZNSt6vectorIaSaIaEED2Ev.exit75.i ], [ %1333, %1332 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271 ], [ %844, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240 ], [ %409, %408 ], [ %661, %660 ], [ %640, %639 ], [ %619, %618 ], [ %598, %597 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn52.i, %1545 ], [ %.pn52.i, %.thread191.i ], [ %1472, %_ZNSt6vectorIaSaIaEED2Ev.exit117.i ], [ %1480, %1479 ], [ %1325, %_ZNSt6vectorIaSaIaEED2Ev.exit75.i ], [ %1333, %1332 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306 ], [ %409, %408 ], [ %844, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271 ], [ %598, %597 ], [ %619, %618 ], [ %640, %639 ], [ %661, %660 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5arrow3ipc8internal12_GLOBAL__N_119UnionFromFlatbufferEPKN3org6apache5arrow7flatbuf5UnionERKSt6vectorISt10shared_ptrINS_5FieldEESaISD_EEPSB_INS_8DataTypeEE.exit: ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_8DataTypeEEED2Ev.exit.i, %_ZN5arrow6ResultISt10shared_ptrINS_8DataTypeEEED2Ev.exit136.i, %1540, %_ZN5arrow6Status7InvalidIJRA28_KcEEES0_DpOT_.exit.i, %1541
@@ -13653,9 +13653,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %.body.i
 
 _ZN5arrow6StatusD2Ev.exit100.thread.i:            ; preds = %837, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i, %.noexc89.i, %.noexc82.i, %.noexc75.i
-  %.0118.i = phi i8 [ 3, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ 3, %837 ], [ 2, %.noexc89.i ], [ 2, %.noexc82.i ], [ 1, %.noexc75.i ]
-  %.sroa.0.0.i = phi i32 [ %826, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ %826, %837 ], [ %471, %.noexc89.i ], [ %371, %.noexc82.i ], [ %271, %.noexc75.i ]
-  %.0.i = phi i64 [ %830, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ %830, %837 ], [ 2, %.noexc89.i ], [ 2, %.noexc82.i ], [ 1, %.noexc75.i ]
+  %.0118.i = phi i8 [ 1, %.noexc75.i ], [ 2, %.noexc82.i ], [ 2, %.noexc89.i ], [ 3, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ 3, %837 ]
+  %.sroa.0.0.i = phi i32 [ %271, %.noexc75.i ], [ %371, %.noexc82.i ], [ %471, %.noexc89.i ], [ %826, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ %826, %837 ]
+  %.0.i = phi i64 [ 1, %.noexc75.i ], [ 2, %.noexc82.i ], [ 2, %.noexc89.i ], [ %830, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EED2Ev.exit.i.i.i ], [ %830, %837 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #21, !noalias !538
   br label %_ZN5arrow6StatusD2Ev.exit102.i
 

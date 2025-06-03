@@ -113,7 +113,7 @@ define i32 @ossl_asn1_do_lock(ptr noundef readonly captures(none) %0, i32 nounde
   br label %CRYPTO_DOWN_REF.exit
 
 CRYPTO_DOWN_REF.exit:                             ; preds = %14, %35, %28, %24, %31, %5, %9, %3, %27
-  %.0 = phi i32 [ -1, %27 ], [ 0, %3 ], [ 0, %9 ], [ 0, %5 ], [ -1, %14 ], [ 0, %35 ], [ %30, %28 ], [ 1, %24 ], [ %33, %31 ]
+  %.0 = phi i32 [ -1, %27 ], [ 0, %3 ], [ 0, %9 ], [ 0, %5 ], [ -1, %14 ], [ %30, %28 ], [ 0, %35 ], [ 1, %24 ], [ %33, %31 ]
   ret i32 %.0
 }
 

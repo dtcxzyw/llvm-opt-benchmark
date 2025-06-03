@@ -714,16 +714,16 @@ default.unreachable733:                           ; preds = %"_ZN99_$LT$core..ar
   br label %86
 
 86:                                               ; preds = %472, %114, %85
-  %.sroa.083.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.083.4, %472 ]
-  %.sroa.086.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.086.4, %472 ]
-  %.sroa.089.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.089.4, %472 ]
-  %.sroa.092.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.092.4, %472 ]
-  %.sroa.095.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.095.4, %472 ]
-  %.sroa.098.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.098.4, %472 ]
-  %.sroa.0101.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.0101.4, %472 ]
-  %.sroa.0104.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.0104.4, %472 ]
-  %.sroa.0107.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.0107.4, %472 ]
-  %.sroa.0110.3 = phi i1 [ true, %114 ], [ true, %85 ], [ %.sroa.0110.4, %472 ]
+  %.sroa.083.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.083.4, %472 ]
+  %.sroa.086.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.086.4, %472 ]
+  %.sroa.089.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.089.4, %472 ]
+  %.sroa.092.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.092.4, %472 ]
+  %.sroa.095.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.095.4, %472 ]
+  %.sroa.098.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.098.4, %472 ]
+  %.sroa.0101.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.0101.4, %472 ]
+  %.sroa.0104.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.0104.4, %472 ]
+  %.sroa.0107.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.0107.4, %472 ]
+  %.sroa.0110.3 = phi i1 [ true, %85 ], [ true, %114 ], [ %.sroa.0110.4, %472 ]
   %.val197 = load ptr, ptr %1, align 8, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val198 = load ptr, ptr %87, align 8
@@ -1710,16 +1710,16 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i599: ; preds = %465
   br label %470
 
 472:                                              ; preds = %149, %186, %222, %257, %293, %329, %365, %401, %436, %470
-  %.sroa.083.4 = phi i1 [ false, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.086.4 = phi i1 [ true, %470 ], [ false, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.089.4 = phi i1 [ true, %470 ], [ true, %436 ], [ false, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.092.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ false, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.095.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ false, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.098.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ false, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.0101.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ false, %257 ], [ true, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.0104.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ false, %222 ], [ true, %186 ], [ true, %149 ]
-  %.sroa.0107.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ false, %186 ], [ true, %149 ]
-  %.sroa.0110.4 = phi i1 [ true, %470 ], [ true, %436 ], [ true, %401 ], [ true, %365 ], [ true, %329 ], [ true, %293 ], [ true, %257 ], [ true, %222 ], [ true, %186 ], [ false, %149 ]
+  %.sroa.083.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ false, %470 ]
+  %.sroa.086.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ false, %436 ], [ true, %470 ]
+  %.sroa.089.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ false, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.092.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ false, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.095.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ false, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.098.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ false, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.0101.4 = phi i1 [ true, %149 ], [ true, %186 ], [ true, %222 ], [ false, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.0104.4 = phi i1 [ true, %149 ], [ true, %186 ], [ false, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.0107.4 = phi i1 [ true, %149 ], [ false, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
+  %.sroa.0110.4 = phi i1 [ false, %149 ], [ true, %186 ], [ true, %222 ], [ true, %257 ], [ true, %293 ], [ true, %329 ], [ true, %365 ], [ true, %401 ], [ true, %436 ], [ true, %470 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
   br label %86
 
@@ -2997,7 +2997,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i599: ; preds = %465
   br label %common.resume
 
 common.resume:                                    ; preds = %.body674, %1183, %1069, %1078
-  %common.resume.op = phi { ptr, i32 } [ %1070, %1078 ], [ %1070, %1069 ], [ %.pn, %1183 ], [ %.pn158, %.body674 ]
+  %common.resume.op = phi { ptr, i32 } [ %1070, %1078 ], [ %1070, %1069 ], [ %.pn158, %.body674 ], [ %.pn, %1183 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h522fe7d4ce648219E.exit", %1060, %1068
@@ -4384,7 +4384,7 @@ define hidden noundef zeroext i1 @"_ZN41_$LT$T$u20$as$u20$serde..de..Expected$GT
   br label %"_ZN87_$LT$serde_untagged..UntaggedEnumVisitor$LT$Value$GT$$u20$as$u20$serde..de..Visitor$GT$9expecting17hd0336f399c0833afE.exit"
 
 "_ZN87_$LT$serde_untagged..UntaggedEnumVisitor$LT$Value$GT$$u20$as$u20$serde..de..Visitor$GT$9expecting17hd0336f399c0833afE.exit": ; preds = %6, %39, %87
-  %.sroa.0.0.shrunk.i = phi i1 [ true, %39 ], [ %88, %87 ], [ %11, %6 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %88, %87 ], [ true, %39 ], [ %11, %6 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4644,8 +4644,8 @@ default.unreachable:                              ; preds = %48
   br label %80
 
 80:                                               ; preds = %112, %105, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit.i.i", %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9182061ba5e01778E.exit.i.i"
-  %.sroa.5.1.i.i = phi i16 [ %.sroa.5.0.i.i, %112 ], [ %109, %105 ], [ %.sroa.5.0.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit.i.i" ], [ %.sroa.5.0.i.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9182061ba5e01778E.exit.i.i" ]
-  %.sroa.032.1.i.i = phi i16 [ %.sroa.032.0.i.i, %112 ], [ %107, %105 ], [ %.sroa.032.0.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit.i.i" ], [ %.sroa.032.0.i.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9182061ba5e01778E.exit.i.i" ]
+  %.sroa.5.1.i.i = phi i16 [ %.sroa.5.0.i.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9182061ba5e01778E.exit.i.i" ], [ %.sroa.5.0.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit.i.i" ], [ %109, %105 ], [ %.sroa.5.0.i.i, %112 ]
+  %.sroa.032.1.i.i = phi i16 [ %.sroa.032.0.i.i, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9182061ba5e01778E.exit.i.i" ], [ %.sroa.032.0.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit.i.i" ], [ %107, %105 ], [ %.sroa.032.0.i.i, %112 ]
   %.val.pre.i.i = load ptr, ptr %23, align 8, !alias.scope !439, !noalias !442
   %.val148.pre.i.i = load ptr, ptr %24, align 8, !alias.scope !439, !noalias !442
   br label %36
@@ -4890,14 +4890,14 @@ common.resume.i.i:                                ; preds = %179, %167, %138
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %57, %55, %53, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i", %113, %110, %96, %77, %51
-  %.sroa.14.1.i = phi ptr [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %111, %110 ], [ %.sroa.6194.i.sroa.0.0.copyload.i, %96 ], [ %.sroa.6187.i.sroa.0.0.copyload.i, %77 ], [ %.sroa.14.8.copyload.i, %113 ], [ %52, %51 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.42, %53 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %55 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.44, %57 ]
-  %.sroa.42.1.i = phi i32 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.42.12.copyload.i, %110 ], [ %.sroa.42.32.copyload.i, %96 ], [ %.sroa.42.32.copyload13.i, %77 ], [ %.sroa.42.8.copyload.i, %113 ], [ %.sroa.42.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.40.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.40.12.copyload.i, %110 ], [ %.sroa.40.32.copyload.i, %96 ], [ %.sroa.40.32.copyload12.i, %77 ], [ %.sroa.40.8.copyload.i, %113 ], [ %.sroa.40.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.38.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.38.12.copyload.i, %110 ], [ %.sroa.38.32.copyload.i, %96 ], [ %.sroa.38.32.copyload11.i, %77 ], [ %.sroa.38.8.copyload.i, %113 ], [ %.sroa.38.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.33.1.i = phi i64 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.33.12.copyload.i, %110 ], [ %.sroa.6194.i.sroa.9.0.copyload.i, %96 ], [ %.sroa.6187.i.sroa.9.0.copyload.i, %77 ], [ %.sroa.33.8.copyload.i, %113 ], [ %.sroa.33.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.28.1.i = phi i64 [ 4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.28.12.copyload.i, %110 ], [ %.sroa.6194.i.sroa.7.0.copyload.i, %96 ], [ %.sroa.6187.i.sroa.7.0.copyload.i, %77 ], [ %.sroa.28.8.copyload.i, %113 ], [ %.sroa.28.9.copyload.i, %51 ], [ 6, %53 ], [ 4, %55 ], [ 4, %57 ]
-  %.sroa.01.1.i = phi i64 [ 6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %103, %110 ], [ %84, %96 ], [ %66, %77 ], [ %61, %113 ], [ %39, %51 ], [ 7, %53 ], [ 7, %55 ], [ 7, %57 ]
-  %.sroa.075.5.i.i = phi i8 [ %.sroa.075.6.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ 1, %110 ], [ 1, %96 ], [ 1, %77 ], [ 1, %113 ], [ 1, %51 ], [ 1, %53 ], [ 1, %55 ], [ 1, %57 ]
+  %.sroa.14.1.i = phi ptr [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.14.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.0.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.0.0.copyload.i, %96 ], [ %111, %110 ], [ %52, %51 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.42, %53 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %55 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.44, %57 ]
+  %.sroa.42.1.i = phi i32 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.42.8.copyload.i, %113 ], [ %.sroa.42.32.copyload13.i, %77 ], [ %.sroa.42.32.copyload.i, %96 ], [ %.sroa.42.12.copyload.i, %110 ], [ %.sroa.42.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.40.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.40.8.copyload.i, %113 ], [ %.sroa.40.32.copyload12.i, %77 ], [ %.sroa.40.32.copyload.i, %96 ], [ %.sroa.40.12.copyload.i, %110 ], [ %.sroa.40.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.38.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.38.8.copyload.i, %113 ], [ %.sroa.38.32.copyload11.i, %77 ], [ %.sroa.38.32.copyload.i, %96 ], [ %.sroa.38.12.copyload.i, %110 ], [ %.sroa.38.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.33.1.i = phi i64 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.33.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.9.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.9.0.copyload.i, %96 ], [ %.sroa.33.12.copyload.i, %110 ], [ %.sroa.33.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.28.1.i = phi i64 [ 4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.28.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.7.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.7.0.copyload.i, %96 ], [ %.sroa.28.12.copyload.i, %110 ], [ %.sroa.28.9.copyload.i, %51 ], [ 6, %53 ], [ 4, %55 ], [ 4, %57 ]
+  %.sroa.01.1.i = phi i64 [ 6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %61, %113 ], [ %66, %77 ], [ %84, %96 ], [ %103, %110 ], [ %39, %51 ], [ 7, %53 ], [ 7, %55 ], [ 7, %57 ]
+  %.sroa.075.5.i.i = phi i8 [ %.sroa.075.6.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ 1, %113 ], [ 1, %77 ], [ 1, %96 ], [ 1, %110 ], [ 1, %51 ], [ 1, %53 ], [ 1, %55 ], [ 1, %57 ]
   %142 = load i64, ptr %21, align 8, !range !392, !noalias !377, !noundef !3
   %.not143.i.i = icmp eq i64 %142, -9223372036854775808
   br i1 %.not143.i.i, label %145, label %149

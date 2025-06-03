@@ -7331,7 +7331,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit107:                 ; preds = %112, %113
   br label %118
 
 118:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %117
-  %.7 = phi i1 [ true, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ false, %117 ]
+  %.7 = phi i1 [ false, %117 ], [ true, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   ret i1 %.7
 }
 

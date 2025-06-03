@@ -609,7 +609,7 @@ define internal noundef float @_action_process_entry(ptr noundef %0, i32 %1, i32
   br label %23
 
 23:                                               ; preds = %22, %20
-  %.0 = phi i32 [ -1, %20 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %22 ], [ -1, %20 ]
   tail call void @gtk_widget_grab_focus(ptr noundef %0) #24
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %25, label %24
@@ -8184,7 +8184,7 @@ default.unreachable:                              ; preds = %.critedge
   unreachable
 
 .critedge22:                                      ; preds = %4, %1, %.critedge, %.critedge, %19, %15, %7, %11, %36, %33, %29, %32
-  %.0 = phi i32 [ -536870913, %36 ], [ 46, %29 ], [ 47, %32 ], [ 0, %33 ], [ %14, %11 ], [ %10, %7 ], [ 536870912, %15 ], [ -536870913, %19 ], [ 2, %.critedge ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ %10, %7 ], [ %14, %11 ], [ 46, %29 ], [ 47, %32 ], [ 0, %33 ], [ -536870913, %36 ], [ 536870912, %15 ], [ -536870913, %19 ], [ 2, %.critedge ], [ 2, %.critedge ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -13994,9 +13994,9 @@ _shortcut_is_speed.exit135:                       ; preds = %178, %181, %184, %1
   br i1 %.old2.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %230, %109, %111, %.critedge114, %63, %65, %175, %202, %205, %226, %.critedge, %_shortcut_is_speed.exit135, %_shortcut_is_speed.exit126.thread, %73, %_shortcut_is_speed.exit126, %_shortcut_is_speed.exit.thread, %58, %33, %_shortcut_is_speed.exit, %30, %31, %27
-  %.184 = phi i32 [ 400, %.critedge ], [ 400, %_shortcut_is_speed.exit135 ], [ 400, %73 ], [ 400, %_shortcut_is_speed.exit126 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %33 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %58 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %31 ], [ 400, %30 ], [ 400, %27 ], [ %.487, %175 ], [ 400, %205 ], [ %spec.select117, %226 ], [ 400, %202 ], [ %72, %65 ], [ 300, %63 ], [ %126, %.critedge114 ], [ 300, %111 ], [ 400, %109 ], [ 400, %230 ]
-  %.178 = phi i32 [ 0, %.critedge ], [ 0, %_shortcut_is_speed.exit135 ], [ 0, %73 ], [ 0, %_shortcut_is_speed.exit126 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %33 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %58 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %31 ], [ 0, %30 ], [ 0, %27 ], [ %spec.select116, %175 ], [ 0, %205 ], [ 1, %226 ], [ 0, %202 ], [ 1, %65 ], [ 1, %63 ], [ 1, %.critedge114 ], [ 1, %111 ], [ 1, %109 ], [ 0, %230 ]
-  %.1 = phi ptr [ null, %.critedge ], [ null, %_shortcut_is_speed.exit135 ], [ null, %73 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %33 ], [ null, %_shortcut_is_speed.exit ], [ null, %58 ], [ null, %_shortcut_is_speed.exit.thread ], [ %32, %31 ], [ null, %30 ], [ %29, %27 ], [ %.4, %175 ], [ null, %205 ], [ %227, %226 ], [ null, %202 ], [ %70, %65 ], [ null, %63 ], [ %124, %.critedge114 ], [ null, %111 ], [ null, %109 ], [ null, %230 ]
+  %.184 = phi i32 [ 400, %.critedge ], [ 400, %27 ], [ 400, %31 ], [ 400, %30 ], [ 400, %33 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %58 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %73 ], [ 400, %_shortcut_is_speed.exit126 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ %.487, %175 ], [ 400, %205 ], [ %spec.select117, %226 ], [ 400, %202 ], [ %72, %65 ], [ 300, %63 ], [ %126, %.critedge114 ], [ 300, %111 ], [ 400, %109 ], [ 400, %230 ]
+  %.178 = phi i32 [ 0, %.critedge ], [ 0, %27 ], [ 0, %31 ], [ 0, %30 ], [ 0, %33 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %58 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %73 ], [ 0, %_shortcut_is_speed.exit126 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ %spec.select116, %175 ], [ 0, %205 ], [ 1, %226 ], [ 0, %202 ], [ 1, %65 ], [ 1, %63 ], [ 1, %.critedge114 ], [ 1, %111 ], [ 1, %109 ], [ 0, %230 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %29, %27 ], [ %32, %31 ], [ null, %30 ], [ null, %33 ], [ null, %_shortcut_is_speed.exit ], [ null, %58 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %73 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ %.4, %175 ], [ null, %205 ], [ %227, %226 ], [ null, %202 ], [ %70, %65 ], [ null, %63 ], [ %124, %.critedge114 ], [ null, %111 ], [ null, %109 ], [ null, %230 ]
   %233 = load i32, ptr %21, align 8, !tbaa !82
   %.not112 = icmp eq i32 %233, 0
   %spec.select118 = select i1 %.not112, i32 0, i32 %.178

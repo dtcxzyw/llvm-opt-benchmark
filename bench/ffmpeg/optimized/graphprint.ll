@@ -2163,7 +2163,7 @@ sub_0.i:                                          ; preds = %print_streams.exit.
   br label %450
 
 450:                                              ; preds = %448, %446, %443, %6
-  %.045.ph.i = phi i32 [ %.1.i, %446 ], [ %.1.i, %448 ], [ %427, %443 ], [ %18, %6 ]
+  %.045.ph.i = phi i32 [ %427, %443 ], [ %.1.i, %446 ], [ %.1.i, %448 ], [ %18, %6 ]
   %.pr.i = load ptr, ptr %13, align 8, !tbaa !4
   %.not66.i = icmp eq ptr %.pr.i, null
   br i1 %.not66.i, label %print_filtergraphs_priv.exit, label %451

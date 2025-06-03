@@ -1521,7 +1521,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread133.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %152, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %148, %.lr.ph.i.i ], [ %153, %152 ]
+  %.1.i.i.i = phi ptr [ %153, %152 ], [ %148, %.lr.ph.i.i ]
   %154 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %155 = load i24, ptr %154, align 16
   %156 = and i24 %155, 1048576
@@ -2316,7 +2316,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_8AutoTypeEEEPKT_v(ptr 
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -2343,7 +2343,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_9ParenTypeEEEPKT_v(ptr
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -4743,7 +4743,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i: ; preds = %123, %117
   br label %_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i, %126, %133
-  %135 = phi ptr [ %129, %126 ], [ %134, %133 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
+  %135 = phi ptr [ %134, %133 ], [ %129, %126 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
   %136 = ptrtoint ptr %135 to i64
   %137 = and i64 %136, -16
   store i64 %137, ptr %5, align 8

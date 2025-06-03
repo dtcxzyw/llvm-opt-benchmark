@@ -1906,8 +1906,8 @@ _ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit: ; preds = %544
   br label %576
 
 576:                                              ; preds = %.loopexit370, %560, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit
-  %.promoted529 = phi ptr [ %554, %560 ], [ %545, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit ], [ %570, %.loopexit370 ]
-  %.0 = phi i64 [ %561, %560 ], [ %.sroa.0618.0.copyload, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit ], [ %575, %.loopexit370 ]
+  %.promoted529 = phi ptr [ %545, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit ], [ %554, %560 ], [ %570, %.loopexit370 ]
+  %.0 = phi i64 [ %.sroa.0618.0.copyload, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rm.exit ], [ %561, %560 ], [ %575, %.loopexit370 ]
   %577 = add i64 %.0, %.082539
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #34
@@ -2405,7 +2405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   br i1 %753, label %.lr.ph536, label %._crit_edge537, !llvm.loop !97
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit371, %.loopexit.split-lp372, %.loopexit381, %.loopexit.split-lp382, %.loopexit376, %.loopexit.split-lp377, %299, %301, %362, %.body.thread.i, %.body288, %631, %737, %715, %551, %567, %558, %549, %532, %516, %257, %259, %284, %245, %243
-  %.pn113 = phi { ptr, i32 } [ %246, %245 ], [ %244, %243 ], [ %260, %259 ], [ %258, %257 ], [ %285, %284 ], [ %302, %301 ], [ %300, %299 ], [ %363, %362 ], [ %.pn3188.i, %.body.thread.i ], [ %517, %516 ], [ %533, %532 ], [ %559, %558 ], [ %550, %549 ], [ %552, %551 ], [ %568, %567 ], [ %632, %631 ], [ %eh.lpad-body289, %.body288 ], [ %738, %737 ], [ %716, %715 ], [ %lpad.loopexit378, %.loopexit376 ], [ %lpad.loopexit.split-lp379, %.loopexit.split-lp377 ], [ %lpad.loopexit383, %.loopexit381 ], [ %lpad.loopexit.split-lp384, %.loopexit.split-lp382 ], [ %lpad.loopexit373, %.loopexit371 ], [ %lpad.loopexit.split-lp374, %.loopexit.split-lp372 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn113 = phi { ptr, i32 } [ %246, %245 ], [ %244, %243 ], [ %260, %259 ], [ %258, %257 ], [ %285, %284 ], [ %302, %301 ], [ %300, %299 ], [ %363, %362 ], [ %.pn3188.i, %.body.thread.i ], [ %517, %516 ], [ %533, %532 ], [ %550, %549 ], [ %559, %558 ], [ %552, %551 ], [ %568, %567 ], [ %632, %631 ], [ %eh.lpad-body289, %.body288 ], [ %738, %737 ], [ %716, %715 ], [ %lpad.loopexit378, %.loopexit376 ], [ %lpad.loopexit.split-lp379, %.loopexit.split-lp377 ], [ %lpad.loopexit383, %.loopexit381 ], [ %lpad.loopexit.split-lp384, %.loopexit.split-lp382 ], [ %lpad.loopexit373, %.loopexit371 ], [ %lpad.loopexit.split-lp374, %.loopexit.split-lp372 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i263 = icmp eq ptr %.sroa.0314.0, null
   br i1 %.not.i.i.i263, label %_ZNSt6vectorIcSaIcEED2Ev.exit264, label %754
 
@@ -6828,7 +6828,7 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit: ; preds = %.lr.ph.i.i.i586
   br i1 %.not.i590, label %_ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit, label %.preheader, !llvm.loop !154
 
 _ZN7Imf_3_412_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit: ; preds = %.preheader, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_m.exit, %.lr.ph1341
-  %.3 = phi ptr [ %.21337, %.lr.ph1341 ], [ %1277, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %1265, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_m.exit ], [ %1281, %.preheader ]
+  %.3 = phi ptr [ %.21337, %.lr.ph1341 ], [ %1265, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_m.exit ], [ %1277, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %1281, %.preheader ]
   %1282 = load i64, ptr %1243, align 8, !tbaa !83
   %1283 = load ptr, ptr %1133, align 8, !tbaa !9
   %1284 = load ptr, ptr %1132, align 8, !tbaa !12
@@ -9548,7 +9548,7 @@ define noundef i32 @_ZN7Imf_3_410IDManifest12MurmurHash32ERKSt6vectorINSt7__cxx1
   br label %36
 
 36:                                               ; preds = %31, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %35, %31 ]
+  %.0.i.i = phi i32 [ %35, %31 ], [ 0, %._crit_edge.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = zext i8 %38 to i32
@@ -9557,7 +9557,7 @@ define noundef i32 @_ZN7Imf_3_410IDManifest12MurmurHash32ERKSt6vectorINSt7__cxx1
   br label %42
 
 42:                                               ; preds = %36, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %41, %36 ]
+  %.1.i.i = phi i32 [ %41, %36 ], [ 0, %._crit_edge.i.i ]
   %43 = load i8, ptr %17, align 1, !tbaa !3
   %44 = zext i8 %43 to i32
   %45 = xor i32 %.1.i.i, %44
@@ -9571,7 +9571,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 50:                                               ; preds = %42, %._crit_edge.i.i
-  %.136.i.i = phi i32 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %49, %42 ]
+  %.136.i.i = phi i32 [ %49, %42 ], [ %.035.lcssa.i.i, %._crit_edge.i.i ]
   %51 = xor i32 %.136.i.i, %13
   %52 = lshr i32 %51, 16
   %53 = xor i32 %52, %51
@@ -9769,7 +9769,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %40
 
 40:                                               ; preds = %35, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %39, %35 ]
+  %.0.i.i = phi i32 [ %39, %35 ], [ 0, %._crit_edge.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !3
   %43 = zext i8 %42 to i32
@@ -9778,7 +9778,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %46
 
 46:                                               ; preds = %40, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %45, %40 ]
+  %.1.i.i = phi i32 [ %45, %40 ], [ 0, %._crit_edge.i.i ]
   %47 = load i8, ptr %21, align 1, !tbaa !3
   %48 = zext i8 %47 to i32
   %49 = xor i32 %.1.i.i, %48
@@ -9792,7 +9792,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 _ZN7Imf_3_410IDManifest12MurmurHash32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge.i.i, %46
-  %.136.i.i = phi i32 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %53, %46 ]
+  %.136.i.i = phi i32 [ %53, %46 ], [ %.035.lcssa.i.i, %._crit_edge.i.i ]
   %54 = xor i32 %.136.i.i, %17
   %55 = lshr i32 %54, 16
   %56 = xor i32 %55, %54
@@ -9921,7 +9921,7 @@ define noundef i32 @_ZN7Imf_3_410IDManifest12MurmurHash32ERKNSt7__cxx1112basic_s
   br label %28
 
 28:                                               ; preds = %23, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ %27, %23 ]
+  %.0.i = phi i32 [ %27, %23 ], [ 0, %._crit_edge.i ]
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = zext i8 %30 to i32
@@ -9930,7 +9930,7 @@ define noundef i32 @_ZN7Imf_3_410IDManifest12MurmurHash32ERKNSt7__cxx1112basic_s
   br label %34
 
 34:                                               ; preds = %28, %._crit_edge.i
-  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %33, %28 ]
+  %.1.i = phi i32 [ %33, %28 ], [ 0, %._crit_edge.i ]
   %35 = load i8, ptr %9, align 1, !tbaa !3
   %36 = zext i8 %35 to i32
   %37 = xor i32 %.1.i, %36
@@ -9944,7 +9944,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _ZN7Imf_3_412_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit: ; preds = %._crit_edge.i, %34
-  %.136.i = phi i32 [ %.035.lcssa.i, %._crit_edge.i ], [ %41, %34 ]
+  %.136.i = phi i32 [ %41, %34 ], [ %.035.lcssa.i, %._crit_edge.i ]
   %42 = xor i32 %.136.i, %5
   %43 = lshr i32 %42, 16
   %44 = xor i32 %43, %42
@@ -10039,7 +10039,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %41
 
 41:                                               ; preds = %36, %._crit_edge.i
-  %.0.i = phi i64 [ 0, %._crit_edge.i ], [ %40, %36 ]
+  %.0.i = phi i64 [ %40, %36 ], [ 0, %._crit_edge.i ]
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 13
   %43 = load i8, ptr %42, align 1, !tbaa !3
   %44 = zext i8 %43 to i64
@@ -10048,7 +10048,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i
-  %.1.i = phi i64 [ 0, %._crit_edge.i ], [ %46, %41 ]
+  %.1.i = phi i64 [ %46, %41 ], [ 0, %._crit_edge.i ]
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %49 = load i8, ptr %48, align 1, !tbaa !3
   %50 = zext i8 %49 to i64
@@ -10057,7 +10057,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i
-  %.2.i = phi i64 [ 0, %._crit_edge.i ], [ %52, %47 ]
+  %.2.i = phi i64 [ %52, %47 ], [ 0, %._crit_edge.i ]
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 11
   %55 = load i8, ptr %54, align 1, !tbaa !3
   %56 = zext i8 %55 to i64
@@ -10066,7 +10066,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i
-  %.3.i = phi i64 [ 0, %._crit_edge.i ], [ %58, %53 ]
+  %.3.i = phi i64 [ %58, %53 ], [ 0, %._crit_edge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %61 = load i8, ptr %60, align 1, !tbaa !3
   %62 = zext i8 %61 to i64
@@ -10075,7 +10075,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %65
 
 65:                                               ; preds = %59, %._crit_edge.i
-  %.4.i = phi i64 [ 0, %._crit_edge.i ], [ %64, %59 ]
+  %.4.i = phi i64 [ %64, %59 ], [ 0, %._crit_edge.i ]
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %67 = load i8, ptr %66, align 1, !tbaa !3
   %68 = zext i8 %67 to i64
@@ -10084,7 +10084,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %71
 
 71:                                               ; preds = %65, %._crit_edge.i
-  %.5.i = phi i64 [ 0, %._crit_edge.i ], [ %70, %65 ]
+  %.5.i = phi i64 [ %70, %65 ], [ 0, %._crit_edge.i ]
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = zext i8 %73 to i64
@@ -10098,7 +10098,7 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %82
 
 82:                                               ; preds = %71, %._crit_edge.i
-  %.2100.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %81, %71 ]
+  %.2100.i = phi i64 [ %81, %71 ], [ %.098.lcssa.i, %._crit_edge.i ]
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 7
   %84 = load i8, ptr %83, align 1, !tbaa !3
   %85 = zext i8 %84 to i64
@@ -10106,8 +10106,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %87
 
 87:                                               ; preds = %82, %._crit_edge.i
-  %.3101.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.2100.i, %82 ]
-  %.090.i = phi i64 [ 0, %._crit_edge.i ], [ %86, %82 ]
+  %.3101.i = phi i64 [ %.2100.i, %82 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.090.i = phi i64 [ %86, %82 ], [ 0, %._crit_edge.i ]
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %89 = load i8, ptr %88, align 1, !tbaa !3
   %90 = zext i8 %89 to i64
@@ -10116,8 +10116,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %93
 
 93:                                               ; preds = %87, %._crit_edge.i
-  %.4102.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.3101.i, %87 ]
-  %.191.i = phi i64 [ 0, %._crit_edge.i ], [ %92, %87 ]
+  %.4102.i = phi i64 [ %.3101.i, %87 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.191.i = phi i64 [ %92, %87 ], [ 0, %._crit_edge.i ]
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %95 = load i8, ptr %94, align 1, !tbaa !3
   %96 = zext i8 %95 to i64
@@ -10126,8 +10126,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %99
 
 99:                                               ; preds = %93, %._crit_edge.i
-  %.5103.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.4102.i, %93 ]
-  %.292.i = phi i64 [ 0, %._crit_edge.i ], [ %98, %93 ]
+  %.5103.i = phi i64 [ %.4102.i, %93 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.292.i = phi i64 [ %98, %93 ], [ 0, %._crit_edge.i ]
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %101 = load i8, ptr %100, align 1, !tbaa !3
   %102 = zext i8 %101 to i64
@@ -10136,8 +10136,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %105
 
 105:                                              ; preds = %99, %._crit_edge.i
-  %.6104.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.5103.i, %99 ]
-  %.393.i = phi i64 [ 0, %._crit_edge.i ], [ %104, %99 ]
+  %.6104.i = phi i64 [ %.5103.i, %99 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.393.i = phi i64 [ %104, %99 ], [ 0, %._crit_edge.i ]
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %107 = load i8, ptr %106, align 1, !tbaa !3
   %108 = zext i8 %107 to i64
@@ -10146,8 +10146,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %111
 
 111:                                              ; preds = %105, %._crit_edge.i
-  %.7.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.6104.i, %105 ]
-  %.494.i = phi i64 [ 0, %._crit_edge.i ], [ %110, %105 ]
+  %.7.i = phi i64 [ %.6104.i, %105 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.494.i = phi i64 [ %110, %105 ], [ 0, %._crit_edge.i ]
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %113 = load i8, ptr %112, align 1, !tbaa !3
   %114 = zext i8 %113 to i64
@@ -10156,8 +10156,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %117
 
 117:                                              ; preds = %111, %._crit_edge.i
-  %.8.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.7.i, %111 ]
-  %.595.i = phi i64 [ 0, %._crit_edge.i ], [ %116, %111 ]
+  %.8.i = phi i64 [ %.7.i, %111 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.595.i = phi i64 [ %116, %111 ], [ 0, %._crit_edge.i ]
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %119 = load i8, ptr %118, align 1, !tbaa !3
   %120 = zext i8 %119 to i64
@@ -10166,8 +10166,8 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   br label %123
 
 123:                                              ; preds = %117, %._crit_edge.i
-  %.9.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.8.i, %117 ]
-  %.6.i = phi i64 [ 0, %._crit_edge.i ], [ %122, %117 ]
+  %.9.i = phi i64 [ %.8.i, %117 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.6.i = phi i64 [ %122, %117 ], [ 0, %._crit_edge.i ]
   %124 = load i8, ptr %10, align 1, !tbaa !3
   %125 = zext i8 %124 to i64
   %126 = xor i64 %.6.i, %125
@@ -10183,8 +10183,8 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 _ZN7Imf_3_412_GLOBAL__N_119MurmurHash3_x64_128EPKvijPv.exit: ; preds = %._crit_edge.i, %123
-  %.199.i = phi i64 [ %.098.lcssa.i, %._crit_edge.i ], [ %.9.i, %123 ]
-  %.197.i = phi i64 [ %.096.lcssa.i, %._crit_edge.i ], [ %132, %123 ]
+  %.199.i = phi i64 [ %.9.i, %123 ], [ %.098.lcssa.i, %._crit_edge.i ]
+  %.197.i = phi i64 [ %132, %123 ], [ %.096.lcssa.i, %._crit_edge.i ]
   %sext = shl i64 %4, 32
   %133 = ashr exact i64 %sext, 32
   %134 = xor i64 %.197.i, %133

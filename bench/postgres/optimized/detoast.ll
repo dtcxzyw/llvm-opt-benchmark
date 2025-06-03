@@ -233,7 +233,7 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 toast_decompress_datum.exit:                      ; preds = %16, %18
-  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ]
+  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   tail call void @pfree(ptr noundef nonnull %8) #6
   br label %toast_decompress_datum.exit58
 
@@ -385,7 +385,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br label %toast_decompress_datum.exit58
 
 toast_decompress_datum.exit58:                    ; preds = %92, %90, %23, %75, %.thread61, %97, %80, %7, %toast_decompress_datum.exit
-  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %81, %80 ], [ %104, %.thread61 ], [ %0, %97 ], [ %52, %75 ], [ %25, %23 ], [ %93, %92 ], [ %91, %90 ]
+  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %81, %80 ], [ %104, %.thread61 ], [ %0, %97 ], [ %52, %75 ], [ %25, %23 ], [ %91, %90 ], [ %93, %92 ]
   ret ptr %.0
 }
 
@@ -565,7 +565,7 @@ tailrecurse:                                      ; preds = %16
   unreachable
 
 toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, %53, %51
-  %.4 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %54, %53 ], [ %52, %51 ], [ %71, %70 ], [ %69, %68 ]
+  %.4 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %52, %51 ], [ %54, %53 ], [ %69, %68 ], [ %71, %70 ]
   %.not = icmp eq ptr %.2, %.tr101
   br i1 %.not, label %76, label %75
 

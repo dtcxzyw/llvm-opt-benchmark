@@ -2498,9 +2498,9 @@ default.unreachable.i:                            ; preds = %45
   unreachable
 
 ZSTDv01_decodeLiteralsBlock.exit:                 ; preds = %47, %.thread12.i, %1290
-  %.022 = phi ptr [ %1292, %1290 ], [ %57, %.thread12.i ], [ %46, %47 ]
-  %.021 = phi i64 [ %73, %1290 ], [ %50, %.thread12.i ], [ %.0.i.ph.i, %47 ]
-  %.051.i = phi ptr [ %1293, %1290 ], [ %58, %.thread12.i ], [ %48, %47 ]
+  %.022 = phi ptr [ %46, %47 ], [ %57, %.thread12.i ], [ %1292, %1290 ]
+  %.021 = phi i64 [ %.0.i.ph.i, %47 ], [ %50, %.thread12.i ], [ %73, %1290 ]
+  %.051.i = phi ptr [ %48, %47 ], [ %58, %.thread12.i ], [ %1293, %1290 ]
   %1294 = ptrtoint ptr %.051.i to i64
   %1295 = ptrtoint ptr %3 to i64
   %1296 = sub i64 %1294, %1295

@@ -21508,8 +21508,8 @@ _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE10move
           to label %_ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit unwind label %.loopexit.split-lp
 
 _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit: ; preds = %.noexc132, %460, %462, %478, %480
-  %.sroa.26.5 = phi i32 [ %484, %480 ], [ %.sroa.26.2, %478 ], [ %466, %462 ], [ %.sroa.26.2, %460 ], [ %.sroa.26.2, %.noexc132 ]
-  %.sroa.34.8 = phi i32 [ %spec.select210, %480 ], [ %.sroa.34.5, %478 ], [ %spec.select, %462 ], [ %.sroa.34.5, %460 ], [ %.sroa.34.5, %.noexc132 ]
+  %.sroa.26.5 = phi i32 [ %.sroa.26.2, %478 ], [ %484, %480 ], [ %.sroa.26.2, %460 ], [ %466, %462 ], [ %.sroa.26.2, %.noexc132 ]
+  %.sroa.34.8 = phi i32 [ %.sroa.34.5, %478 ], [ %spec.select210, %480 ], [ %.sroa.34.5, %460 ], [ %spec.select, %462 ], [ %.sroa.34.5, %.noexc132 ]
   %487 = icmp eq ptr %.sroa.0.4, null
   br i1 %487, label %494, label %488
 
@@ -23025,8 +23025,8 @@ _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE10move
           to label %_ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit unwind label %.loopexit.split-lp536
 
 _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit: ; preds = %.noexc248, %390, %392, %408, %410
-  %.sroa.43.10 = phi i32 [ %414, %410 ], [ %.sroa.43.2, %408 ], [ %396, %392 ], [ %.sroa.43.2, %390 ], [ %.sroa.43.2, %.noexc248 ]
-  %.sroa.58.13 = phi i32 [ %spec.select509, %410 ], [ %.sroa.58.10, %408 ], [ %spec.select, %392 ], [ %.sroa.58.10, %390 ], [ %.sroa.58.10, %.noexc248 ]
+  %.sroa.43.10 = phi i32 [ %.sroa.43.2, %408 ], [ %414, %410 ], [ %.sroa.43.2, %390 ], [ %396, %392 ], [ %.sroa.43.2, %.noexc248 ]
+  %.sroa.58.13 = phi i32 [ %.sroa.58.10, %408 ], [ %spec.select509, %410 ], [ %.sroa.58.10, %390 ], [ %spec.select, %392 ], [ %.sroa.58.10, %.noexc248 ]
   %417 = icmp eq ptr %.sroa.0.4, null
   br i1 %417, label %424, label %418
 
@@ -24371,8 +24371,8 @@ _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE10move
           to label %_ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit214 unwind label %.loopexit.split-lp
 
 _ZN14core_hashtableI18default_hash_entryIjE13unsigned_hash10default_eqIjEE6insertERKj.exit214: ; preds = %.noexc339, %907, %909, %925, %927
-  %.sroa.43.11 = phi i32 [ %931, %927 ], [ %.sroa.43.6, %925 ], [ %913, %909 ], [ %.sroa.43.6, %907 ], [ %.sroa.43.6, %.noexc339 ]
-  %.sroa.58.17 = phi i32 [ %spec.select513, %927 ], [ %.sroa.58.14, %925 ], [ %spec.select511, %909 ], [ %.sroa.58.14, %907 ], [ %.sroa.58.14, %.noexc339 ]
+  %.sroa.43.11 = phi i32 [ %.sroa.43.6, %925 ], [ %931, %927 ], [ %.sroa.43.6, %907 ], [ %913, %909 ], [ %.sroa.43.6, %.noexc339 ]
+  %.sroa.58.17 = phi i32 [ %.sroa.58.14, %925 ], [ %spec.select513, %927 ], [ %.sroa.58.14, %907 ], [ %spec.select511, %909 ], [ %.sroa.58.14, %.noexc339 ]
   %934 = icmp eq ptr %.sroa.0.10, null
   br i1 %934, label %941, label %935
 

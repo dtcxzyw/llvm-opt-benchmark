@@ -825,7 +825,7 @@ define hidden void @"_ZN64_$LT$$RF$mut$u20$W$u20$as$u20$ruff_formatter..buffer..
   br label %40
 
 40:                                               ; preds = %53, %39
-  %.sroa.07.2.i = phi i1 [ false, %53 ], [ true, %39 ]
+  %.sroa.07.2.i = phi i1 [ true, %39 ], [ false, %53 ]
   %41 = load ptr, ptr %5, align 8, !alias.scope !51, !noalias !54, !nonnull !3, !align !12, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = load ptr, ptr %42, align 8, !alias.scope !51, !noalias !54, !nonnull !3, !align !4, !noundef !3

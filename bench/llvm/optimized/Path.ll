@@ -1430,10 +1430,10 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %30, %33
   %.pre.i = load i32, ptr %26, align 8, !tbaa !41
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %36, %34, %38, %43, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %49
-  %.sroa.0.0.i124 = phi ptr [ %47, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %47, %49 ], [ %35, %36 ], [ null, %34 ], [ %40, %38 ], [ %44, %43 ]
-  %.sroa.3.0.i123 = phi i64 [ %48, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %48, %49 ], [ %37, %36 ], [ 0, %34 ], [ %42, %38 ], [ %46, %43 ]
-  %52 = phi i32 [ %.pre, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %.pre.i, %49 ], [ 0, %36 ], [ 0, %34 ], [ 0, %38 ], [ 0, %43 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %36, %34, %43, %38, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %49
+  %.sroa.0.0.i124 = phi ptr [ %47, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %47, %49 ], [ %35, %36 ], [ null, %34 ], [ %44, %43 ], [ %40, %38 ]
+  %.sroa.3.0.i123 = phi i64 [ %48, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %48, %49 ], [ %37, %36 ], [ 0, %34 ], [ %46, %43 ], [ %42, %38 ]
+  %52 = phi i32 [ %.pre, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ %.pre.i, %49 ], [ 0, %36 ], [ 0, %34 ], [ 0, %43 ], [ 0, %38 ]
   %53 = load ptr, ptr %11, align 8, !tbaa !38
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %53, i64 %54
@@ -1496,9 +1496,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit56
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit56: ; preds = %66, %68, %70, %75, %79
-  %82 = phi i32 [ %.pre114, %79 ], [ %59, %75 ], [ %59, %70 ], [ %59, %66 ], [ %59, %68 ]
-  %.sroa.3.0.i51 = phi i64 [ %81, %79 ], [ %78, %75 ], [ %74, %70 ], [ 0, %66 ], [ %69, %68 ]
-  %.sroa.0.0.i52 = phi ptr [ %80, %79 ], [ %76, %75 ], [ %72, %70 ], [ null, %66 ], [ %67, %68 ]
+  %82 = phi i32 [ %.pre114, %79 ], [ %59, %70 ], [ %59, %75 ], [ %59, %66 ], [ %59, %68 ]
+  %.sroa.3.0.i51 = phi i64 [ %81, %79 ], [ %74, %70 ], [ %78, %75 ], [ 0, %66 ], [ %69, %68 ]
+  %.sroa.0.0.i52 = phi ptr [ %80, %79 ], [ %72, %70 ], [ %76, %75 ], [ null, %66 ], [ %67, %68 ]
   %83 = load i32, ptr %27, align 4, !tbaa !42
   %.not.i.i.not.i57 = icmp ult i32 %82, %83
   br i1 %.not.i.i.not.i57, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit60, label %84, !prof !52
@@ -1574,9 +1574,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit60: ; pr
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit68
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit68: ; preds = %101, %103, %105, %110, %114
-  %117 = phi i32 [ %.pre115, %114 ], [ %94, %110 ], [ %94, %105 ], [ %94, %101 ], [ %94, %103 ]
-  %.sroa.3.0.i63 = phi i64 [ %116, %114 ], [ %113, %110 ], [ %109, %105 ], [ 0, %101 ], [ %104, %103 ]
-  %.sroa.0.0.i64 = phi ptr [ %115, %114 ], [ %111, %110 ], [ %107, %105 ], [ null, %101 ], [ %102, %103 ]
+  %117 = phi i32 [ %.pre115, %114 ], [ %94, %105 ], [ %94, %110 ], [ %94, %101 ], [ %94, %103 ]
+  %.sroa.3.0.i63 = phi i64 [ %116, %114 ], [ %109, %105 ], [ %113, %110 ], [ 0, %101 ], [ %104, %103 ]
+  %.sroa.0.0.i64 = phi ptr [ %115, %114 ], [ %107, %105 ], [ %111, %110 ], [ null, %101 ], [ %102, %103 ]
   %118 = load i32, ptr %27, align 4, !tbaa !42
   %.not.i.i.not.i69 = icmp ult i32 %117, %118
   br i1 %.not.i.i.not.i69, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit72, label %119, !prof !52
@@ -1652,9 +1652,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit72: ; pr
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit80
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit80: ; preds = %136, %138, %140, %145, %149
-  %152 = phi i32 [ %.pre116, %149 ], [ %129, %145 ], [ %129, %140 ], [ %129, %136 ], [ %129, %138 ]
-  %.sroa.3.0.i75 = phi i64 [ %151, %149 ], [ %148, %145 ], [ %144, %140 ], [ 0, %136 ], [ %139, %138 ]
-  %.sroa.0.0.i76 = phi ptr [ %150, %149 ], [ %146, %145 ], [ %142, %140 ], [ null, %136 ], [ %137, %138 ]
+  %152 = phi i32 [ %.pre116, %149 ], [ %129, %140 ], [ %129, %145 ], [ %129, %136 ], [ %129, %138 ]
+  %.sroa.3.0.i75 = phi i64 [ %151, %149 ], [ %144, %140 ], [ %148, %145 ], [ 0, %136 ], [ %139, %138 ]
+  %.sroa.0.0.i76 = phi ptr [ %150, %149 ], [ %142, %140 ], [ %146, %145 ], [ null, %136 ], [ %137, %138 ]
   %153 = load i32, ptr %27, align 4, !tbaa !42
   %.not.i.i.not.i81 = icmp ult i32 %152, %153
   br i1 %.not.i.i.not.i81, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit84, label %154, !prof !52
@@ -1977,8 +1977,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path13has_root_nameERKNS_5Twin
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = call { ptr, i64 } @_ZN4llvm3sys4path9root_nameENS_9StringRefENS1_5StyleE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %1)
   %29 = load ptr, ptr %3, align 8, !tbaa !34
   %30 = icmp eq ptr %29, %4
@@ -2390,8 +2390,8 @@ define dso_local void @_ZN4llvm3sys4path17replace_extensionERNS_15SmallVectorImp
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %14, %17, %19, %21, %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %21 ], [ 0, %17 ], [ %20, %19 ], [ 0, %14 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ], [ null, %17 ], [ %18, %19 ], [ null, %14 ]
+  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %25, %21 ], [ %29, %26 ], [ 0, %17 ], [ %20, %19 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %23, %21 ], [ %27, %26 ], [ null, %17 ], [ %18, %19 ], [ null, %14 ]
   br label %33
 
 33:                                               ; preds = %34, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
@@ -3464,8 +3464,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path18has_root_directoryERKNS_
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = call { ptr, i64 } @_ZN4llvm3sys4path14root_directoryENS_9StringRefENS1_5StyleE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %1)
   %29 = load ptr, ptr %3, align 8, !tbaa !34
   %30 = icmp eq ptr %29, %4
@@ -3537,8 +3537,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path13has_root_pathERKNS_5Twin
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = call { ptr, i64 } @_ZN4llvm3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %1)
   %29 = load ptr, ptr %3, align 8, !tbaa !34
   %30 = icmp eq ptr %29, %4
@@ -3610,8 +3610,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path17has_relative_pathERKNS_5
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = call { ptr, i64 } @_ZN4llvm3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %1)
   %29 = load ptr, ptr %3, align 8, !tbaa !34
   %30 = icmp eq ptr %29, %4
@@ -3684,8 +3684,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path12has_filenameERKNS_5Twine
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13, %15, %17, %22, %26
-  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %17 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
-  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
+  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %21, %17 ], [ %25, %22 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
+  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %19, %17 ], [ %23, %22 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !86
@@ -3769,8 +3769,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path15has_parent_pathERKNS_5Tw
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvm9StringRefENS0_3sys4path5StyleE(ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %1)
   %29 = load ptr, ptr %3, align 8, !tbaa !34
   %30 = icmp eq ptr %29, %4
@@ -3845,8 +3845,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path8has_stemERKNS_5TwineENS1_
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13, %15, %17, %22, %26
-  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %17 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
-  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
+  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %21, %17 ], [ %25, %22 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
+  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %19, %17 ], [ %23, %22 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !89
@@ -3967,8 +3967,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path13has_extensionERKNS_5Twin
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13, %15, %17, %22, %26
-  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %17 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
-  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
+  %.sroa.3.0.i = phi i64 [ %28, %26 ], [ %21, %17 ], [ %25, %22 ], [ 0, %13 ], [ %16, %15 ], [ 0, %10 ]
+  %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %19, %17 ], [ %23, %22 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !92
@@ -4089,8 +4089,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineE
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %11, %14, %16, %18, %23, %27
-  %.sroa.3.0.i = phi i64 [ %29, %27 ], [ %26, %23 ], [ %22, %18 ], [ 0, %14 ], [ %17, %16 ], [ 0, %11 ]
-  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %24, %23 ], [ %20, %18 ], [ null, %14 ], [ %15, %16 ], [ null, %11 ]
+  %.sroa.3.0.i = phi i64 [ %29, %27 ], [ %22, %18 ], [ %26, %23 ], [ 0, %14 ], [ %17, %16 ], [ 0, %11 ]
+  %.sroa.0.0.i = phi ptr [ %28, %27 ], [ %20, %18 ], [ %24, %23 ], [ null, %14 ], [ %15, %16 ], [ null, %11 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 5, ptr %30, align 8, !tbaa !43
@@ -4188,9 +4188,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys4path15is_absolute_gnuERKNS_5Tw
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %14, %16, %21, %25
-  %28 = phi ptr [ %26, %25 ], [ %4, %21 ], [ %4, %16 ], [ %4, %14 ]
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ %13, %14 ]
+  %28 = phi ptr [ %26, %25 ], [ %4, %16 ], [ %4, %21 ], [ %4, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ %15, %14 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ %13, %14 ]
   %29 = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %29, label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread, label %30
 
@@ -6352,8 +6352,8 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEb
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %15, %18, %20, %22, %27, %31
-  %.sroa.3.0.i = phi i64 [ %33, %31 ], [ %30, %27 ], [ %26, %22 ], [ 0, %18 ], [ %21, %20 ], [ 0, %15 ]
-  %.sroa.0.0.i = phi ptr [ %32, %31 ], [ %28, %27 ], [ %24, %22 ], [ null, %18 ], [ %19, %20 ], [ null, %15 ]
+  %.sroa.3.0.i = phi i64 [ %33, %31 ], [ %26, %22 ], [ %30, %27 ], [ 0, %18 ], [ %21, %20 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi ptr [ %32, %31 ], [ %24, %22 ], [ %28, %27 ], [ null, %18 ], [ %19, %20 ], [ null, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #32
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 5, ptr %34, align 8, !tbaa !43
@@ -11094,7 +11094,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %7
   br label %28
 
 28:                                               ; preds = %17, %20, %22
-  %.1 = phi i1 [ true, %17 ], [ true, %22 ], [ false, %20 ]
+  %.1 = phi i1 [ true, %22 ], [ true, %17 ], [ false, %20 ]
   ret i1 %.1
 }
 
@@ -11169,7 +11169,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %7
   br label %28
 
 28:                                               ; preds = %17, %20, %22
-  %.1 = phi i1 [ true, %17 ], [ true, %22 ], [ false, %20 ]
+  %.1 = phi i1 [ true, %22 ], [ true, %17 ], [ false, %20 ]
   ret i1 %.1
 }
 
@@ -12711,9 +12711,9 @@ _ZNSt12__shared_ptrIN4llvm3sys2fs6detail12DirIterStateELN9__gnu_cxx12_Lock_polic
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %21, %24, %26, %28, %33, %37
-  %41 = phi i1 [ %40, %37 ], [ %3, %33 ], [ %3, %28 ], [ %3, %24 ], [ %3, %26 ], [ %3, %21 ]
-  %.sroa.3.0.i = phi i64 [ %39, %37 ], [ %36, %33 ], [ %32, %28 ], [ 0, %24 ], [ %27, %26 ], [ 0, %21 ]
-  %.sroa.0.0.i = phi ptr [ %38, %37 ], [ %34, %33 ], [ %30, %28 ], [ null, %24 ], [ %25, %26 ], [ null, %21 ]
+  %41 = phi i1 [ %40, %37 ], [ %3, %28 ], [ %3, %33 ], [ %3, %24 ], [ %3, %26 ], [ %3, %21 ]
+  %.sroa.3.0.i = phi i64 [ %39, %37 ], [ %32, %28 ], [ %36, %33 ], [ 0, %24 ], [ %27, %26 ], [ 0, %21 ]
+  %.sroa.0.0.i = phi ptr [ %38, %37 ], [ %30, %28 ], [ %34, %33 ], [ null, %24 ], [ %25, %26 ], [ null, %21 ]
   %42 = call { i32, ptr } @_ZN4llvm3sys2fs6detail28directory_iterator_constructERNS2_12DirIterStateENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 noundef zeroext %41)
   %43 = extractvalue { i32, ptr } %42, 0
   %44 = extractvalue { i32, ptr } %42, 1

@@ -1136,7 +1136,7 @@ switch.lookup:                                    ; preds = %52
   br label %114
 
 114:                                              ; preds = %111, %108, %105, %102, %98, %94, %90, %86, %84
-  %.0176 = phi i64 [ %82, %84 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %90 ], [ %89, %86 ]
+  %.0176 = phi i64 [ %82, %84 ], [ %89, %86 ], [ %93, %90 ], [ %97, %94 ], [ %101, %98 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ]
   %115 = add nuw i8 %85, 1
   %116 = add i64 %.0176, 128
   %117 = zext i8 %115 to i32
@@ -2122,7 +2122,7 @@ define internal fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 nounde
   br label %51
 
 51:                                               ; preds = %3, %42, %31, %23, %21
-  %.0 = phi i16 [ %50, %42 ], [ %41, %31 ], [ %30, %23 ], [ %22, %21 ], [ 0, %3 ]
+  %.0 = phi i16 [ %22, %21 ], [ %30, %23 ], [ %41, %31 ], [ %50, %42 ], [ 0, %3 ]
   ret i16 %.0
 }
 
@@ -2482,7 +2482,7 @@ dissect_link_poa.exit:                            ; preds = %.lr.ph.i.i, %3
   br label %30
 
 30:                                               ; preds = %25, %21, %dissect_link_poa.exit
-  %.0 = phi i16 [ %17, %dissect_link_poa.exit ], [ %29, %25 ], [ %24, %21 ]
+  %.0 = phi i16 [ %17, %dissect_link_poa.exit ], [ %24, %21 ], [ %29, %25 ]
   %31 = add i16 %.0, 1
   %32 = sext i16 %31 to i32
   %33 = add nsw i32 %32, -1
@@ -2534,7 +2534,7 @@ dissect_ip_addr.exit:                             ; preds = %45, %50, %55
   br label %58
 
 58:                                               ; preds = %dissect_ip_addr.exit, %35, %30
-  %.1 = phi i16 [ %31, %30 ], [ %.0.i, %dissect_ip_addr.exit ], [ %38, %35 ]
+  %.1 = phi i16 [ %31, %30 ], [ %38, %35 ], [ %.0.i, %dissect_ip_addr.exit ]
   %59 = add i16 %.1, 1
   %60 = sext i16 %59 to i32
   %61 = add nsw i32 %60, -1
@@ -2586,7 +2586,7 @@ dissect_ip_addr.exit61:                           ; preds = %73, %78, %83
   br label %86
 
 86:                                               ; preds = %dissect_ip_addr.exit61, %63, %58
-  %.2 = phi i16 [ %59, %58 ], [ %.0.i60, %dissect_ip_addr.exit61 ], [ %66, %63 ]
+  %.2 = phi i16 [ %59, %58 ], [ %66, %63 ], [ %.0.i60, %dissect_ip_addr.exit61 ]
   %87 = add i16 %.2, 1
   %88 = sext i16 %87 to i32
   %89 = add nsw i32 %88, -1
@@ -2638,7 +2638,7 @@ dissect_ip_addr.exit64:                           ; preds = %101, %106, %111
   br label %114
 
 114:                                              ; preds = %dissect_ip_addr.exit64, %91, %86
-  %.3 = phi i16 [ %87, %86 ], [ %.0.i63, %dissect_ip_addr.exit64 ], [ %94, %91 ]
+  %.3 = phi i16 [ %87, %86 ], [ %94, %91 ], [ %.0.i63, %dissect_ip_addr.exit64 ]
   %115 = add i16 %.3, 1
   ret i16 %115
 }

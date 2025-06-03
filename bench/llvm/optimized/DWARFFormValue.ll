@@ -426,7 +426,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwar
   br label %5
 
 .loopexit:                                        ; preds = %5, %30, %27, %39, %37, %35, %25, %20, %15, %10, %6
-  %.0 = phi i1 [ true, %39 ], [ true, %37 ], [ true, %35 ], [ true, %25 ], [ true, %20 ], [ true, %15 ], [ true, %10 ], [ true, %6 ], [ false, %27 ], [ true, %30 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %10 ], [ true, %15 ], [ true, %20 ], [ true, %25 ], [ true, %35 ], [ true, %37 ], [ true, %39 ], [ false, %27 ], [ true, %30 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -507,7 +507,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DWARFFormValue11isFormClassENS0_
   br label %_ZN4llvm5dwarf21doesFormBelongToClassENS0_4FormENS_14DWARFFormValue9FormClassEt.exit
 
 _ZN4llvm5dwarf21doesFormBelongToClassENS0_4FormENS_14DWARFFormValue9FormClassEt.exit: ; preds = %13, %18, %19, %21, %23, %25, %27, %29
-  %.0.i = phi i1 [ %31, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ true, %13 ], [ false, %18 ]
+  %.0.i = phi i1 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %31, %29 ], [ true, %13 ], [ false, %18 ]
   ret i1 %.0.i
 }
 
@@ -563,7 +563,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5dwarf21doesFormBelongToClassENS0_4
   br label %25
 
 25:                                               ; preds = %10, %5, %21, %19, %17, %15, %13, %11
-  %.0 = phi i1 [ %24, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ true, %5 ], [ false, %10 ]
+  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %24, %21 ], [ true, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -775,15 +775,15 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %6, %15
   store ptr null, ptr %10, align 8, !tbaa !79
   br label %83
 
-.critedge.thread:                                 ; preds = %23, %41, %38, %35, %33
-  %.sink = phi i64 [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %33 ], [ 16, %23 ]
+.critedge.thread:                                 ; preds = %23, %33, %35, %38, %41
+  %.sink = phi i64 [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ 16, %23 ]
   store i64 %.sink, ptr %21, align 8, !tbaa !16
   %81 = call { ptr, i64 } @_ZNK4llvm13DataExtractor8getBytesEPmmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, i64 noundef %.sink, ptr noundef nonnull %10) #20
   %82 = extractvalue { ptr, i64 } %81, 0
   store ptr %82, ptr %22, align 8, !tbaa !78
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %74, %73, %71, %68, %61, %59, %57, %55, %53, %50, %47, %44, %25, %.critedge.thread
+.critedge:                                        ; preds = %23, %25, %44, %47, %50, %53, %55, %57, %59, %61, %68, %71, %73, %74, %.critedge.thread
   %.pr106 = load ptr, ptr %10, align 8, !tbaa !79
   store ptr null, ptr %10, align 8, !tbaa !79
   %.not67 = icmp eq ptr %.pr106, null
@@ -2370,7 +2370,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit104:              ; preds = %532, %530, %517
   store ptr %563, ptr %556, align 8, !tbaa !122
   br label %.critedge67
 
-.critedge67:                                      ; preds = %369, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i83, %271, %273, %561, %559, %495, %493, %385, %383, %340, %338, %287, %285, %141, %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %513, %508, %503, %498, %480, %433, %432, %423, %413, %403, %391, %388, %342, %313, %309, %305, %300, %295, %290, %550
+.critedge67:                                      ; preds = %369, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i83, %271, %273, %561, %559, %495, %493, %385, %383, %340, %338, %287, %285, %141, %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %513, %290, %295, %300, %305, %309, %313, %342, %388, %391, %403, %413, %423, %432, %433, %480, %498, %503, %508, %550
   ret void
 }
 
@@ -3605,8 +3605,8 @@ _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit.thread: ; preds = %4
   br label %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit3
 
 _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit3: ; preds = %1, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit, %8, %.thread, %20, %16, %12
-  %.sroa.0.0 = phi i64 [ %25, %.thread ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ undef, %1 ]
-  %.sroa.5.0 = phi i8 [ 1, %.thread ], [ 1, %20 ], [ 1, %16 ], [ 1, %12 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %25, %.thread ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ undef, %1 ]
+  %.sroa.5.0 = phi i8 [ 1, %.thread ], [ 1, %12 ], [ 1, %16 ], [ 1, %20 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert

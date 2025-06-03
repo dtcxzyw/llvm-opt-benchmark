@@ -387,7 +387,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Display$GT$3fmt17h10bbe088df510b41E.exit"
 
 "_ZN73_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Display$GT$3fmt17h10bbe088df510b41E.exit": ; preds = %8, %14, %20
-  %.sroa.0.0.in.i = phi i1 [ %25, %20 ], [ %19, %14 ], [ %13, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %8 ], [ %19, %14 ], [ %25, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 

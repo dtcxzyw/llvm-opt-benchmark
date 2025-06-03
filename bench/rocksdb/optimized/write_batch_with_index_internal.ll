@@ -5796,7 +5796,7 @@ _ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit26: ; p
   br label %125
 
 125:                                              ; preds = %124, %122, %122
-  %.3 = phi i8 [ %.0951, %122 ], [ %.0951, %122 ], [ 3, %124 ]
+  %.3 = phi i8 [ 3, %124 ], [ %.0951, %122 ], [ %.0951, %122 ]
   %126 = load ptr, ptr %33, align 8, !tbaa !129
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load atomic i64, ptr %127 acquire, align 8

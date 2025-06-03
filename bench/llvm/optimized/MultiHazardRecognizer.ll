@@ -352,7 +352,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !3
   %44 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %49, %48 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !3
   %51 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72

@@ -2314,7 +2314,7 @@ define dso_local range(i32 0, 8) i32 @data_convert_type(ptr noundef %0, i32 noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %27
 
-27:                                               ; preds = %22, %17, %15, %9, %6, %6
+27:                                               ; preds = %9, %15, %17, %22, %6, %6
   br label %_convert_data_string.exit
 
 28:                                               ; preds = %5
@@ -2390,7 +2390,7 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   %59 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext %58)
   br label %60
 
-60:                                               ; preds = %55, %50, %48, %data_convert_type.exit, %40, %44, %47
+60:                                               ; preds = %48, %50, %55, %data_convert_type.exit, %40, %44, %47
   br label %_convert_data_string.exit
 
 61:                                               ; preds = %5
@@ -2438,7 +2438,7 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   br label %_convert_data_string.exit
 
 _convert_data_string.exit:                        ; preds = %60, %data_convert_type.exit, %27, %6, %5, %78, %76, %74, %72, %70, %2, %67, %64, %61
-  %.0 = phi i32 [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ 0, %2 ], [ 1, %70 ], [ 4, %72 ], [ 6, %74 ], [ 4, %76 ], [ %., %78 ], [ 0, %5 ], [ 5, %27 ], [ 0, %6 ], [ 7, %60 ], [ 0, %data_convert_type.exit ]
+  %.0 = phi i32 [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ 0, %2 ], [ 1, %70 ], [ 4, %72 ], [ 6, %74 ], [ 4, %76 ], [ %., %78 ], [ 0, %5 ], [ 5, %27 ], [ 0, %6 ], [ 7, %60 ], [ 0, %data_convert_type.exit ]
   ret i32 %.0
 }
 
@@ -2983,7 +2983,7 @@ define dso_local i32 @data_list_for_each(ptr noundef %0, ptr noundef readonly ca
   unreachable
 
 28:                                               ; preds = %18, %21
-  %.124 = phi ptr [ %23, %21 ], [ %20, %18 ]
+  %.124 = phi ptr [ %20, %18 ], [ %23, %21 ]
   %.not27 = icmp eq ptr %.124, null
   br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
@@ -3148,7 +3148,7 @@ data_get_type.exit.thread:                        ; preds = %6, %data_get_type.e
   unreachable
 
 35:                                               ; preds = %25, %28
-  %.125 = phi ptr [ %30, %28 ], [ %27, %25 ]
+  %.125 = phi ptr [ %27, %25 ], [ %30, %28 ]
   %.not28 = icmp eq ptr %.125, null
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !27
 

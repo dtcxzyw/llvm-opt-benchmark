@@ -32007,7 +32007,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 143:                                              ; preds = %131, %135
-  %.3 = phi i32 [ %.1, %131 ], [ %136, %135 ]
+  %.3 = phi i32 [ %136, %135 ], [ %.1, %131 ]
   ret i32 %.3
 }
 
@@ -39049,7 +39049,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %71, %75
-  %.3 = phi i32 [ %.1, %71 ], [ %76, %75 ]
+  %.3 = phi i32 [ %76, %75 ], [ %.1, %71 ]
   ret i32 %.3
 }
 
@@ -43991,7 +43991,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %87, %91
-  %.3 = phi i32 [ %.1, %87 ], [ %92, %91 ]
+  %.3 = phi i32 [ %92, %91 ], [ %.1, %87 ]
   ret i32 %.3
 }
 
@@ -45824,7 +45824,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   resume { ptr, i32 } %.merged
 
 84:                                               ; preds = %72, %76
-  %.3 = phi i1 [ %.2, %72 ], [ %77, %76 ]
+  %.3 = phi i1 [ %77, %76 ], [ %.2, %72 ]
   ret i1 %.3
 }
 
@@ -47902,7 +47902,7 @@ _ZNK4CGAL23CartesianKernelFunctors34Collinear_are_ordered_along_line_3INS_16Simp
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %71, %75
-  %.3 = phi i1 [ %.2, %71 ], [ %76, %75 ]
+  %.3 = phi i1 [ %76, %75 ], [ %.2, %71 ]
   ret i1 %.3
 }
 
@@ -48128,7 +48128,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   unreachable
 
 26:                                               ; preds = %23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SP_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SP_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SP_.exit
-  %.0 = phi ptr [ %24, %23 ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SP_.exit ], [ %12, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SP_.exit ], [ %6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SP_.exit ]
+  %.0 = phi ptr [ %6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SP_.exit ], [ %12, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SP_.exit ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_5EpickEEENS8_9Segment_3ISE_EENS8_10Triangle_3ISE_EESt6vectorISF_SaISF_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SP_.exit ], [ %24, %23 ]
   ret ptr %.0
 }
 
@@ -54990,7 +54990,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 74:                                               ; preds = %40, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit23
-  %.3 = phi i1 [ %.2, %40 ], [ %67, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit23 ]
+  %.3 = phi i1 [ %67, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_10Triangle_3IS1_EEEEDcRKT_.exit23 ], [ %.2, %40 ]
   ret i1 %.3
 }
 
@@ -56209,8 +56209,8 @@ _ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Int
   br label %768
 
 768:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit211, %574, %579, %572, %567, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit199, %332, %337, %330, %325, %581, %766, %339
-  %.sroa.0226.0 = phi i8 [ %.sroa.0226.0.extract.trunc, %339 ], [ %.sroa.0226.0.extract.trunc227, %581 ], [ %767, %766 ], [ 0, %325 ], [ 0, %330 ], [ 0, %337 ], [ 0, %332 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit199 ], [ 0, %567 ], [ 0, %572 ], [ 0, %579 ], [ 0, %574 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit211 ]
-  %.sroa.14.0 = phi i8 [ %.sroa.14.0.extract.trunc, %339 ], [ %.sroa.14.0.extract.trunc229, %581 ], [ %767, %766 ], [ 0, %325 ], [ 0, %330 ], [ 0, %337 ], [ 0, %332 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit199 ], [ 0, %567 ], [ 0, %572 ], [ 0, %579 ], [ 0, %574 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit211 ]
+  %.sroa.0226.0 = phi i8 [ %767, %766 ], [ %.sroa.0226.0.extract.trunc227, %581 ], [ %.sroa.0226.0.extract.trunc, %339 ], [ 0, %325 ], [ 0, %330 ], [ 0, %337 ], [ 0, %332 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit199 ], [ 0, %567 ], [ 0, %572 ], [ 0, %579 ], [ 0, %574 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit211 ]
+  %.sroa.14.0 = phi i8 [ %767, %766 ], [ %.sroa.14.0.extract.trunc229, %581 ], [ %.sroa.14.0.extract.trunc, %339 ], [ 0, %325 ], [ 0, %330 ], [ 0, %337 ], [ 0, %332 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit199 ], [ 0, %567 ], [ 0, %572 ], [ 0, %579 ], [ 0, %574 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors13Orientation_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS5_EESA_SA_SA_.exit211 ]
   %.sroa.14.0.insert.ext = zext i8 %.sroa.14.0 to i16
   %.sroa.14.0.insert.shift = shl nuw i16 %.sroa.14.0.insert.ext, 8
   %.sroa.0226.0.insert.ext = zext i8 %.sroa.0226.0 to i16
@@ -65140,7 +65140,7 @@ _ZNSt7__cxx1110_List_baseIN4CGAL13Intersections8internal17Point_on_triangleINS1_
   ret void
 
 127:                                              ; preds = %61, %76, %95, %.body, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit62, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit60, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit58, %52
-  %.pn44.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %49, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit58 ], [ %50, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit60 ], [ %51, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit62 ], [ %101, %.body ], [ %.pn39.pn, %95 ], [ %.pn42, %76 ], [ %62, %61 ]
+  %.pn44.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %49, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit58 ], [ %50, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit60 ], [ %51, %_ZN4CGAL13Intersections8internal17Point_on_triangleINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEED2Ev.exit62 ], [ %101, %.body ], [ %62, %61 ], [ %.pn42, %76 ], [ %.pn39.pn, %95 ]
   call void @_ZNSt7__cxx1110_List_baseIN4CGAL13Intersections8internal17Point_on_triangleINS1_16Simple_cartesianINS1_11Interval_ntILb0EEEEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #23
@@ -75305,7 +75305,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   unreachable
 
 26:                                               ; preds = %23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SS_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SS_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SS_.exit
-  %.0 = phi ptr [ %24, %23 ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SS_.exit ], [ %12, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SS_.exit ], [ %6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SS_.exit ]
+  %.0 = phi ptr [ %6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESB_SS_.exit ], [ %12, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_SS_.exit ], [ %18, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS8_11Interval_ntILb0EEEEEEENS8_9Segment_3ISH_EENS8_10Triangle_3ISH_EESt6vectorISI_SaISI_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_SS_.exit ], [ %24, %23 ]
   ret ptr %.0
 }
 
@@ -75976,7 +75976,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESB_S12_.exit: ; preds = %23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_S12_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_S12_.exit, %5
-  %.0 = phi ptr [ %16, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_S12_.exit ], [ %8, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_S12_.exit ], [ %6, %5 ], [ %24, %23 ]
+  %.0 = phi ptr [ %6, %5 ], [ %8, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESB_S12_.exit ], [ %16, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIPN5boost3anyEEEON4CGAL6Object16Any_from_variantERKSt7variantIJNS8_7Point_3INS8_16Simple_cartesianINS4_14multiprecision6numberINSF_8backends16rational_adaptorINSH_15cpp_int_backendILm0ELm0ELNSF_16cpp_integer_typeE1ELNSF_18cpp_int_check_typeE0ESaIyEEEEELNSF_26expression_template_optionE1EEEEEEENS8_9Segment_3ISR_EENS8_10Triangle_3ISR_EESt6vectorISS_SaISS_EEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESB_S12_.exit ], [ %24, %23 ]
   ret ptr %.0
 }
 
@@ -82866,7 +82866,7 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 1000:                                             ; preds = %500, %650, %832, %.body191, %423, %.body, %.body67, %.body71
-  %.pn58.pn.pn = phi { ptr, i32 } [ %424, %423 ], [ %.pn48.pn, %.body ], [ %.pn45.pn, %.body67 ], [ %.pn.pn, %.body71 ], [ %838, %.body191 ], [ %.pn51.pn.pn, %832 ], [ %.pn55.pn, %650 ], [ %501, %500 ]
+  %.pn58.pn.pn = phi { ptr, i32 } [ %424, %423 ], [ %.pn48.pn, %.body ], [ %.pn45.pn, %.body67 ], [ %.pn.pn, %.body71 ], [ %838, %.body191 ], [ %501, %500 ], [ %.pn55.pn, %650 ], [ %.pn51.pn.pn, %832 ]
   call void @_ZNSt7__cxx1110_List_baseIN4CGAL13Intersections8internal17Point_on_triangleINS1_16Simple_cartesianIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEESaISK_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
   call void @_ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(192) %10) #23
@@ -86452,7 +86452,7 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i358, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i310, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i290, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i270, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %151, %219, %309, %406, %488, %584, %666, %751, %833, %916, %1014, %1109, %1206, %1288, %1371, %1466, %1549, %1631, %221, %223, %316, %496, %925, %1021, %1118, %1378
-  %.pn121.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %152, %151 ], [ %220, %219 ], [ %222, %221 ], [ %1632, %1631 ], [ %1550, %1549 ], [ %1467, %1466 ], [ %1372, %1371 ], [ %1289, %1288 ], [ %1207, %1206 ], [ %1110, %1109 ], [ %1015, %1014 ], [ %917, %916 ], [ %752, %751 ], [ %834, %833 ], [ %667, %666 ], [ %585, %584 ], [ %407, %406 ], [ %489, %488 ], [ %310, %309 ], [ %224, %223 ], [ %317, %316 ], [ %497, %496 ], [ %926, %925 ], [ %1022, %1021 ], [ %1119, %1118 ], [ %1379, %1378 ], [ %317, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %497, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194 ], [ %926, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i270 ], [ %1022, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i290 ], [ %1119, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i310 ], [ %1379, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i358 ]
+  %.pn121.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %152, %151 ], [ %220, %219 ], [ %222, %221 ], [ %310, %309 ], [ %407, %406 ], [ %489, %488 ], [ %667, %666 ], [ %585, %584 ], [ %752, %751 ], [ %834, %833 ], [ %917, %916 ], [ %1110, %1109 ], [ %1015, %1014 ], [ %1289, %1288 ], [ %1207, %1206 ], [ %1467, %1466 ], [ %1372, %1371 ], [ %1550, %1549 ], [ %1632, %1631 ], [ %224, %223 ], [ %317, %316 ], [ %497, %496 ], [ %926, %925 ], [ %1022, %1021 ], [ %1119, %1118 ], [ %1379, %1378 ], [ %317, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %497, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194 ], [ %926, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i270 ], [ %1022, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i290 ], [ %1119, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i310 ], [ %1379, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i358 ]
   call void @_ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(192) %35) #23
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %35) #23
   br label %1691

@@ -748,7 +748,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713UnicodeString8allocateEi(p
   br label %25
 
 25:                                               ; preds = %14, %.thread, %4
-  %.013 = phi i8 [ 1, %4 ], [ 1, %14 ], [ 0, %.thread ]
+  %.013 = phi i8 [ 1, %4 ], [ 0, %.thread ], [ 1, %14 ]
   ret i8 %.013
 }
 

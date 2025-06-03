@@ -475,11 +475,11 @@ weight_set.exit127.i:                             ; preds = %137, %133
   br label %145
 
 145:                                              ; preds = %weight_set.exit127.i, %weight_set.exit118.i, %weight_set.exit.i, %count_interesting_parents.exit.thread.i
-  %.pre.i.i.i326.i = phi ptr [ %.pre.i.i.i329.i, %weight_set.exit127.i ], [ %.pre.i.i.i327.i, %weight_set.exit118.i ], [ %.pre.i.i.i.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ]
-  %.pre.i.i.i120316.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i.i120317.i, %weight_set.exit118.i ], [ %.pre.i.i.i120.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ]
-  %.pre.i.i.i111308.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i.i111309.i, %weight_set.exit118.i ], [ %.pre.i.i.i111.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ]
-  %.pre.i.i298.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i.i111309.i, %weight_set.exit118.i ], [ %.pre.i.i299.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ]
-  %.178.i = phi i32 [ %.077273.i, %weight_set.exit127.i ], [ %.077273.i, %weight_set.exit118.i ], [ %.077273.i, %count_interesting_parents.exit.thread.i ], [ %92, %weight_set.exit.i ]
+  %.pre.i.i.i326.i = phi ptr [ %.pre.i.i.i329.i, %weight_set.exit127.i ], [ %.pre.i.i.i.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ], [ %.pre.i.i.i327.i, %weight_set.exit118.i ]
+  %.pre.i.i.i120316.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i.i120.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ], [ %.pre.i.i.i120317.i, %weight_set.exit118.i ]
+  %.pre.i.i.i111308.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i.i111.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ], [ %.pre.i.i.i111309.i, %weight_set.exit118.i ]
+  %.pre.i.i298.i = phi ptr [ %.pre.i.i.i120319.i, %weight_set.exit127.i ], [ %.pre.i.i299.i, %count_interesting_parents.exit.thread.i ], [ %.pre.i.i.i331.i, %weight_set.exit.i ], [ %.pre.i.i.i111309.i, %weight_set.exit118.i ]
+  %.178.i = phi i32 [ %.077273.i, %weight_set.exit127.i ], [ %.077273.i, %count_interesting_parents.exit.thread.i ], [ %92, %weight_set.exit.i ], [ %.077273.i, %weight_set.exit118.i ]
   %146 = getelementptr inbounds nuw i8, ptr %.081272.i, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !18
   %.not.i = icmp eq ptr %147, null

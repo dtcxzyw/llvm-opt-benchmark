@@ -3115,7 +3115,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %60
   br label %.body47
 
 78:                                               ; preds = %64, %63, %62, %60
-  %.06.i = phi i32 [ 3, %64 ], [ 2, %63 ], [ 1, %62 ], [ 0, %60 ]
+  %.06.i = phi i32 [ 1, %62 ], [ 2, %63 ], [ 3, %64 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
@@ -3288,7 +3288,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i.i:         ; preds = %106
   br label %.body55
 
 _ZN10open_spiel11tiny_bridge12_GLOBAL__N_110CharToRankEc.exit.i: ; preds = %111, %110, %109, %106
-  %.06.i.i = phi i64 [ 3, %111 ], [ 2, %110 ], [ 1, %109 ], [ 0, %106 ]
+  %.06.i.i = phi i64 [ 1, %109 ], [ 2, %110 ], [ 3, %111 ], [ 0, %106 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
@@ -3360,7 +3360,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i66:         ; preds = %_ZN10open_spiel11ti
   br label %.body55
 
 140:                                              ; preds = %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_110CharToRankEc.exit.i, %126, %127
-  %.06.i65 = phi i64 [ 8, %127 ], [ 4, %126 ], [ 0, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_110CharToRankEc.exit.i ]
+  %.06.i65 = phi i64 [ 4, %126 ], [ 8, %127 ], [ 0, %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_110CharToRankEc.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
@@ -3812,7 +3812,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %1
   resume { ptr, i32 } %.pn.pn
 
 23:                                               ; preds = %1, %9, %8
-  %.06 = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %1 ]
+  %.06 = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %1 ]
   ret i32 %.06
 }
 

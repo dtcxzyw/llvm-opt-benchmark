@@ -14196,7 +14196,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$quiche..recovery..gcongestion..bb
   br label %27
 
 27:                                               ; preds = %25, %23, %20, %17, %14
-  %.sroa.0.0.in = phi i1 [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.sroa.0.0.in = phi i1 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %26, %25 ]
   ret i1 %.sroa.0.0.in
 }
 

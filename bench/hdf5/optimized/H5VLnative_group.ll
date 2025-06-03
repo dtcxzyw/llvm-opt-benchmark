@@ -303,7 +303,7 @@ define range(i32 -1, 1) i32 @H5VL__native_group_get(ptr noundef %0, ptr noundef 
   br label %74
 
 74:                                               ; preds = %69, %11, %70, %7
-  %.026 = phi i32 [ -1, %70 ], [ %.1, %69 ], [ -1, %11 ], [ 0, %7 ]
+  %.026 = phi i32 [ -1, %70 ], [ -1, %11 ], [ 0, %7 ], [ %.1, %69 ]
   ret i32 %.026
 }
 
@@ -437,7 +437,7 @@ define range(i32 -1, 1) i32 @H5VL__native_group_specific(ptr noundef %0, ptr nou
   br label %77
 
 77:                                               ; preds = %45, %28, %50, %59, %69, %73, %63, %54
-  %.026 = phi i32 [ -1, %73 ], [ -1, %69 ], [ 0, %63 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ], [ %.2, %45 ], [ %.024, %28 ]
+  %.026 = phi i32 [ -1, %73 ], [ %.024, %28 ], [ %.2, %45 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ], [ -1, %69 ], [ 0, %63 ]
   ret i32 %.026
 }
 
@@ -551,7 +551,7 @@ define i32 @H5VL__native_group_optional(ptr noundef %0, ptr noundef readonly cap
   br label %65
 
 65:                                               ; preds = %60, %37, %61
-  %.0 = phi i32 [ -1, %61 ], [ %.2, %60 ], [ %.024, %37 ]
+  %.0 = phi i32 [ -1, %61 ], [ %.024, %37 ], [ %.2, %60 ]
   ret i32 %.0
 }
 

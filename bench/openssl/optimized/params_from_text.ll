@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br label %92
 
 92:                                               ; preds = %83, %86, %50, %47, %57, %54, %32, %29, %39, %36, %88, %73, %66, %59
-  %.3 = phi i32 [ %91, %88 ], [ %85, %83 ], [ %87, %86 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %49, %47 ], [ %51, %50 ], [ %56, %54 ], [ %58, %57 ], [ %31, %29 ], [ %33, %32 ], [ %38, %36 ], [ %40, %39 ]
+  %.3 = phi i32 [ %91, %88 ], [ %31, %29 ], [ %33, %32 ], [ %38, %36 ], [ %40, %39 ], [ %49, %47 ], [ %51, %50 ], [ %56, %54 ], [ %58, %57 ], [ %65, %59 ], [ %72, %66 ], [ %79, %73 ], [ %85, %83 ], [ %87, %86 ]
   %93 = icmp eq i32 %.3, -1
   br i1 %93, label %._crit_edge, label %94
 
@@ -404,7 +404,7 @@ thread-pre-split.i:                               ; preds = %41
   br label %prepare_from_text.exit.thread
 
 prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51, %25, %64, %73
-  %.026 = phi i64 [ 0, %25 ], [ %77, %.thread.i ], [ %72, %70 ], [ %61, %51 ], [ %63, %64 ], [ %4, %73 ]
+  %.026 = phi i64 [ 0, %25 ], [ %61, %51 ], [ %72, %70 ], [ %77, %.thread.i ], [ %63, %64 ], [ %4, %73 ]
   %79 = call i64 @llvm.umax.i64(i64 %.026, i64 1)
   %80 = call noalias ptr @CRYPTO_zalloc(i64 noundef %79, ptr noundef nonnull @.str.7, i32 noundef 325) #7
   %81 = icmp eq ptr %80, null
@@ -468,7 +468,7 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
   br label %construct_from_text.exit
 
 construct_from_text.exit:                         ; preds = %.preheader.i, %82, %84, %86, %91, %97, %101, %103
-  %.035.i = phi i64 [ %.026, %84 ], [ %.026, %101 ], [ %.026, %103 ], [ %99, %97 ], [ %.026, %91 ], [ %.026, %86 ], [ 0, %82 ], [ %.026, %.preheader.i ]
+  %.035.i = phi i64 [ %.026, %84 ], [ %.026, %91 ], [ %.026, %86 ], [ %99, %97 ], [ %.026, %101 ], [ %.026, %103 ], [ 0, %82 ], [ %.026, %.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, i64 16, i1 false), !tbaa.struct !24
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %80, ptr %104, align 8, !tbaa !18
@@ -486,7 +486,7 @@ construct_from_text.exit:                         ; preds = %.preheader.i, %82, 
   call void @CRYPTO_free(ptr noundef nonnull %80, ptr noundef nonnull @.str.7, i32 noundef 332) #7
   br label %111
 
-prepare_from_text.exit.thread:                    ; preds = %49, %33, %35, %23, %67, %43, %69, %78, %prepare_from_text.exit
+prepare_from_text.exit.thread:                    ; preds = %49, %33, %35, %23, %78, %69, %67, %43, %prepare_from_text.exit
   %110 = load ptr, ptr %8, align 8, !tbaa !15
   call void @BN_free(ptr noundef %110) #7
   br label %111

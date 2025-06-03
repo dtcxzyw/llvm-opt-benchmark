@@ -138,7 +138,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_open(ptr noundef %0, ptr noun
   br label %84
 
 58:                                               ; preds = %38, %11, %.thread61, %20, %18
-  %.047 = phi i32 [ %14, %11 ], [ %44, %38 ], [ -5, %.thread61 ], [ -22, %18 ], [ -22, %20 ]
+  %.047 = phi i32 [ %14, %11 ], [ -5, %.thread61 ], [ %44, %38 ], [ -22, %18 ], [ -22, %20 ]
   %59 = load ptr, ptr %5, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4112
   %61 = load i32, ptr %60, align 8, !tbaa !17

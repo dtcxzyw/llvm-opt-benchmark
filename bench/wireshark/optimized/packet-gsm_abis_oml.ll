@@ -1344,7 +1344,7 @@ dissect_oml_manuf.exit:                           ; preds = %56, %60
   br label %62
 
 62:                                               ; preds = %36, %39, %44, %dissect_oml_manuf.exit, %41
-  %.051 = phi i32 [ 4, %41 ], [ %.0.i, %dissect_oml_manuf.exit ], [ %45, %44 ], [ 4, %39 ], [ 4, %36 ]
+  %.051 = phi i32 [ 4, %41 ], [ %45, %44 ], [ %.0.i, %dissect_oml_manuf.exit ], [ 4, %39 ], [ 4, %36 ]
   ret i32 %.051
 }
 
@@ -1567,9 +1567,9 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %.loopexit372
 
 48:                                               ; preds = %find_tlv_tag.exit, %41, %32, %28, %27, %23
-  %.0362 = phi i32 [ 2, %41 ], [ 3, %32 ], [ 2, %28 ], [ 1, %27 ], [ 1, %23 ], [ 1, %find_tlv_tag.exit ]
-  %.0361 = phi i32 [ 1, %41 ], [ 2, %32 ], [ 1, %28 ], [ 0, %27 ], [ 0, %23 ], [ 0, %find_tlv_tag.exit ]
-  %.0360 = phi i32 [ %45, %41 ], [ %40, %32 ], [ %31, %28 ], [ 1, %27 ], [ %26, %23 ], [ 0, %find_tlv_tag.exit ]
+  %.0362 = phi i32 [ 1, %23 ], [ 1, %27 ], [ 2, %28 ], [ 3, %32 ], [ 2, %41 ], [ 1, %find_tlv_tag.exit ]
+  %.0361 = phi i32 [ 0, %23 ], [ 0, %27 ], [ 1, %28 ], [ 2, %32 ], [ 1, %41 ], [ 0, %find_tlv_tag.exit ]
+  %.0360 = phi i32 [ %26, %23 ], [ 1, %27 ], [ %31, %28 ], [ %40, %32 ], [ %45, %41 ], [ 0, %find_tlv_tag.exit ]
   %49 = load i32, ptr @hf_oml_fom_attr_len, align 4
   %50 = add i32 %.0352384, 1
   %51 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef %.0361, i32 noundef %.0360)

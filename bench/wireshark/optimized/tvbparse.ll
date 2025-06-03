@@ -1563,7 +1563,7 @@ define internal i32 @cond_until(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   unreachable
 
 54:                                               ; preds = %.critedge, %15, %4, %50, %46, %42
-  %.034 = phi i32 [ %51, %50 ], [ %49, %46 ], [ %44, %42 ], [ -1, %4 ], [ -1, %15 ], [ -1, %.critedge ]
+  %.034 = phi i32 [ %44, %42 ], [ %49, %46 ], [ %51, %50 ], [ -1, %4 ], [ -1, %15 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   ret i32 %.034
 }

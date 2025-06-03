@@ -220,7 +220,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %38
 
 29:                                               ; preds = %26, %25, %24, %22
-  %.0.i.ph.i = phi i32 [ 4, %22 ], [ 3, %24 ], [ 2, %25 ], [ 1, %26 ]
+  %.0.i.ph.i = phi i32 [ 4, %22 ], [ 1, %26 ], [ 2, %25 ], [ 3, %24 ]
   %30 = load i8, ptr %14, align 1, !tbaa !28
   %31 = zext i8 %30 to i32
   %32 = icmp samesign ugt i32 %.0.i.ph.i, %31
@@ -269,7 +269,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %49
 
 49:                                               ; preds = %48, %47, %46, %45, %22
-  %.0.i20.ph.i = phi i32 [ 3, %45 ], [ 2, %46 ], [ 1, %47 ], [ 0, %48 ], [ 4, %22 ]
+  %.0.i20.ph.i = phi i32 [ 0, %48 ], [ 1, %47 ], [ 2, %46 ], [ 3, %45 ], [ 4, %22 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.10) #9
   br label %54
 
@@ -282,9 +282,9 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %decode_lspf.exit.thread
 
 54:                                               ; preds = %49, %42
-  %.0238 = phi ptr [ %14, %49 ], [ %43, %42 ]
-  %.0237 = phi i32 [ %18, %49 ], [ %44, %42 ]
-  %.0.i = phi i32 [ %.0.i20.ph.i, %49 ], [ %.016.i, %42 ]
+  %.0238 = phi ptr [ %43, %42 ], [ %14, %49 ]
+  %.0237 = phi i32 [ %44, %42 ], [ %18, %49 ]
+  %.0.i = phi i32 [ %.016.i, %42 ], [ %.0.i20.ph.i, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 %.0.i, ptr %55, align 8, !tbaa !56
   switch i32 %.0.i, label %63 [

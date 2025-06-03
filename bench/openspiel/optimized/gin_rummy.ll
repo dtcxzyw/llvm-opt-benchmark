@@ -2886,7 +2886,7 @@ define void @_ZN10open_spiel9gin_rummy13GinRummyState13DoApplyActionEl(ptr nound
   ret void
 
 57:                                               ; preds = %55, %36, %28
-  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %36 ], [ %.pn, %28 ], [ %56, %55 ]
+  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %36 ], [ %56, %55 ], [ %.pn, %28 ]
   resume { ptr, i32 } %.pn14.pn
 }
 

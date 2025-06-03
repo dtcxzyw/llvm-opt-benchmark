@@ -123,7 +123,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit"
 
 "_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit": ; preds = %7, %9, %12
-  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %11, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %7 ], [ %11, %9 ], [ %14, %12 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 "_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit": ; preds = %13, %15, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38
-  %.sroa.0.0.in.i = phi i1 [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %15 ], [ %14, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -2429,10 +2429,10 @@ define noalias noundef nonnull align 8 ptr @wasm_functype_copy(ptr noalias nound
   br label %45
 
 45:                                               ; preds = %42, %41, %40, %39
-  %.sroa.74.0 = phi i64 [ %.sroa.74.0.copyload8, %41 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload, %39 ], [ %30, %42 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload14, %41 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload, %39 ], [ %31, %42 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload20, %41 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload, %39 ], [ %43, %42 ]
-  %.sroa.10.0 = phi ptr [ %.sroa.10.0.copyload26, %41 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload, %39 ], [ %44, %42 ]
+  %.sroa.74.0 = phi i64 [ %30, %42 ], [ %.sroa.74.0.copyload, %39 ], [ %.sroa.74.0.copyload6, %40 ], [ %.sroa.74.0.copyload8, %41 ]
+  %.sroa.8.0 = phi ptr [ %31, %42 ], [ %.sroa.8.0.copyload, %39 ], [ %.sroa.8.0.copyload12, %40 ], [ %.sroa.8.0.copyload14, %41 ]
+  %.sroa.9.0 = phi i64 [ %43, %42 ], [ %.sroa.9.0.copyload, %39 ], [ %.sroa.9.0.copyload18, %40 ], [ %.sroa.9.0.copyload20, %41 ]
+  %.sroa.10.0 = phi ptr [ %44, %42 ], [ %.sroa.10.0.copyload, %39 ], [ %.sroa.10.0.copyload24, %40 ], [ %.sroa.10.0.copyload26, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, i64 24, i1 false)
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.74.0, ptr %.sroa.430.0..sroa_idx, align 8

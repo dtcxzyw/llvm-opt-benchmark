@@ -998,12 +998,12 @@ _ZN7rocksdb6StatusaSEOS0_.exit40.thread:          ; preds = %55, %_ZNKSt14defaul
   br label %_ZN7rocksdb6StatusC2EOS0_.exit47
 
 103:                                              ; preds = %52, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread
-  %.sroa.11.0 = phi i8 [ %16, %52 ], [ %58, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
-  %.sroa.17.0 = phi i8 [ %18, %52 ], [ %60, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
-  %.sroa.23.0 = phi i8 [ %20, %52 ], [ %62, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
-  %.sroa.29.0 = phi i8 [ %22, %52 ], [ %64, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
-  %.sroa.4194.6 = phi ptr [ %26, %52 ], [ %68, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
-  %.sroa.35.0 = phi i8 [ %24, %52 ], [ %66, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ]
+  %.sroa.11.0 = phi i8 [ %58, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %16, %52 ]
+  %.sroa.17.0 = phi i8 [ %60, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %18, %52 ]
+  %.sroa.23.0 = phi i8 [ %62, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %20, %52 ]
+  %.sroa.29.0 = phi i8 [ %64, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %22, %52 ]
+  %.sroa.4194.6 = phi ptr [ %68, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %26, %52 ]
+  %.sroa.35.0 = phi i8 [ %66, %_ZN7rocksdb6StatusaSEOS0_.exit40.thread ], [ %24, %52 ]
   %104 = load ptr, ptr %2, align 8, !tbaa !104
   %105 = load ptr, ptr %38, align 8, !tbaa !104
   %106 = icmp eq ptr %104, %105

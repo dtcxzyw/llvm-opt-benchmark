@@ -617,7 +617,7 @@ define dso_local noundef ptr @zip_file_write(ptr noundef captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %44, %16, %13, %4, %56, %38, %36, %26, %19, %._crit_edge, %91, %82, %80, %78, %72, %54, %50
-  %.069 = phi ptr [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.19, %82 ], [ @.str.18, %80 ], [ @.str.17, %78 ], [ null, %._crit_edge ], [ @.str.29, %19 ], [ @.str.20, %26 ], [ null, %36 ], [ @.str.23, %38 ], [ @.str.15, %56 ], [ @.str.28, %16 ], [ @.str.27, %13 ], [ @.str.26, %4 ], [ null, %44 ]
+  %.069 = phi ptr [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.17, %78 ], [ @.str.18, %80 ], [ @.str.19, %82 ], [ null, %._crit_edge ], [ @.str.29, %19 ], [ @.str.20, %26 ], [ null, %36 ], [ @.str.23, %38 ], [ @.str.15, %56 ], [ @.str.28, %16 ], [ @.str.27, %13 ], [ @.str.26, %4 ], [ null, %44 ]
   ret ptr %.069
 }
 

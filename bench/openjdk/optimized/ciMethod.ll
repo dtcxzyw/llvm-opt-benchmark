@@ -6646,8 +6646,8 @@ define hidden noundef zeroext i1 @_ZN8ciMethod18is_consistent_infoEPS_S0_(ptr no
   br i1 %or.cond.i.i53.not, label %84, label %.loopexit
 
 84:                                               ; preds = %77, %68, %66, %76, %75
-  %.044 = phi i64 [ 0, %66 ], [ 0, %76 ], [ 0, %75 ], [ 1, %68 ], [ 0, %77 ]
-  %.043 = phi i32 [ 0, %66 ], [ 0, %76 ], [ 0, %75 ], [ 0, %68 ], [ 1, %77 ]
+  %.044 = phi i64 [ 0, %66 ], [ 0, %75 ], [ 0, %76 ], [ 1, %68 ], [ 0, %77 ]
+  %.043 = phi i32 [ 0, %66 ], [ 0, %75 ], [ 0, %76 ], [ 0, %68 ], [ 1, %77 ]
   %85 = sub nsw i32 %61, %.043
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph, label %._crit_edge

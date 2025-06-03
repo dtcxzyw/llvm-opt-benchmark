@@ -725,7 +725,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   br label %ff_h264_handle_aggregated_packet.exit
 
 ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.us.i, %32, %.critedge, %83, %66, %65, %.thread.i, %88, %62, %20
-  %.0 = phi i32 [ -1094995529, %88 ], [ -1163346256, %62 ], [ %18, %20 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.critedge ], [ %33, %32 ], [ 0, %._crit_edge.us.us.i ]
+  %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.critedge ], [ %33, %32 ], [ 0, %._crit_edge.us.us.i ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load i32, ptr %89, align 8, !tbaa !49
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 36

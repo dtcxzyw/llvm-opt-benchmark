@@ -6696,9 +6696,9 @@ sw.bb130:                                         ; preds = %if.else83
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i.i, %land.rhs.i, %sw.bb119, %sw.bb130, %sw.bb108, %sw.bb97, %sw.bb, %if.else83
-  %cmp132 = phi i1 [ true, %if.else83 ], [ false, %sw.bb130 ], [ true, %sw.bb108 ], [ true, %sw.bb97 ], [ true, %sw.bb ], [ true, %sw.bb119 ], [ true, %land.rhs.i ], [ true, %if.end.i.i ]
-  %change_type.1 = phi i32 [ 2, %if.else83 ], [ 3, %sw.bb130 ], [ 2, %sw.bb108 ], [ 2, %sw.bb97 ], [ 2, %sw.bb ], [ 2, %sw.bb119 ], [ 2, %land.rhs.i ], [ 2, %if.end.i.i ]
-  %match.0.shrunk = phi i1 [ false, %if.else83 ], [ false, %sw.bb130 ], [ %cmp117, %sw.bb108 ], [ %cmp106, %sw.bb97 ], [ %cmp96, %sw.bb ], [ false, %sw.bb119 ], [ true, %land.rhs.i ], [ %54, %if.end.i.i ]
+  %cmp132 = phi i1 [ true, %if.else83 ], [ true, %sw.bb ], [ true, %sw.bb97 ], [ true, %sw.bb108 ], [ false, %sw.bb130 ], [ true, %sw.bb119 ], [ true, %land.rhs.i ], [ true, %if.end.i.i ]
+  %change_type.1 = phi i32 [ 2, %if.else83 ], [ 2, %sw.bb ], [ 2, %sw.bb97 ], [ 2, %sw.bb108 ], [ 3, %sw.bb130 ], [ 2, %sw.bb119 ], [ 2, %land.rhs.i ], [ 2, %if.end.i.i ]
+  %match.0.shrunk = phi i1 [ false, %if.else83 ], [ %cmp96, %sw.bb ], [ %cmp106, %sw.bb97 ], [ %cmp117, %sw.bb108 ], [ false, %sw.bb130 ], [ false, %sw.bb119 ], [ true, %land.rhs.i ], [ %54, %if.end.i.i ]
   %or.cond = and i1 %cmp132, %match.0.shrunk
   %spec.store.select = select i1 %or.cond, i32 4, i32 %change_type.1
   br label %if.end136
@@ -7102,9 +7102,9 @@ default.unreachable610:                           ; preds = %invoke.cont227
   unreachable
 
 sw.epilog280:                                     ; preds = %sw.bb270, %if.then274, %if.end267, %invoke.cont244, %invoke.cont238, %invoke.cont232
-  %is_different.2 = phi i1 [ %is_different.1, %if.then274 ], [ %is_different.1, %sw.bb270 ], [ %is_different.3, %if.end267 ], [ %is_different.1, %invoke.cont244 ], [ %is_different.1, %invoke.cont238 ], [ %is_different.1, %invoke.cont232 ]
-  %index1.2 = phi i64 [ %inc271, %if.then274 ], [ %inc271, %sw.bb270 ], [ %inc268, %if.end267 ], [ %inc245, %invoke.cont244 ], [ %inc239, %invoke.cont238 ], [ %index1.0.ph453, %invoke.cont232 ]
-  %index2.2 = phi i64 [ %inc272, %if.then274 ], [ %inc272, %sw.bb270 ], [ %inc269, %if.end267 ], [ %inc246, %invoke.cont244 ], [ %index2.0464, %invoke.cont238 ], [ %inc233, %invoke.cont232 ]
+  %is_different.2 = phi i1 [ %is_different.1, %invoke.cont232 ], [ %is_different.1, %invoke.cont238 ], [ %is_different.1, %invoke.cont244 ], [ %is_different.3, %if.end267 ], [ %is_different.1, %if.then274 ], [ %is_different.1, %sw.bb270 ]
+  %index1.2 = phi i64 [ %index1.0.ph453, %invoke.cont232 ], [ %inc239, %invoke.cont238 ], [ %inc245, %invoke.cont244 ], [ %inc268, %if.end267 ], [ %inc271, %if.then274 ], [ %inc271, %sw.bb270 ]
+  %index2.2 = phi i64 [ %inc233, %invoke.cont232 ], [ %index2.0464, %invoke.cont238 ], [ %inc246, %invoke.cont244 ], [ %inc269, %if.end267 ], [ %inc272, %if.then274 ], [ %inc272, %sw.bb270 ]
   %104 = load ptr, ptr %_M_finish.i274, align 8
   %incdec.ptr.i330 = getelementptr inbounds i8, ptr %104, i64 -96
   store ptr %incdec.ptr.i330, ptr %_M_finish.i274, align 8
@@ -9871,7 +9871,7 @@ if.end32:                                         ; preds = %_ZNSt6vectorIN6goog
   br label %return
 
 return:                                           ; preds = %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit114, %if.end32
-  %retval.1 = phi i1 [ %retval.0, %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit114 ], [ %call33, %if.end32 ]
+  %retval.1 = phi i1 [ %call33, %if.end32 ], [ %retval.0, %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EED2Ev.exit114 ]
   ret i1 %retval.1
 }
 
@@ -11572,7 +11572,7 @@ sw.epilog:                                        ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf11MapIteratorD2Ev.exit507, %_ZN6google8protobuf11MapIteratorD2Ev.exit469, %_ZN6google8protobuf11MapIteratorD2Ev.exit438, %_ZN6google8protobuf11MapIteratorD2Ev.exit407, %_ZN6google8protobuf11MapIteratorD2Ev.exit376, %_ZN6google8protobuf11MapIteratorD2Ev.exit346, %_ZN6google8protobuf11MapIteratorD2Ev.exit316, %_ZN6google8protobuf11MapIteratorD2Ev.exit285, %_ZN6google8protobuf11MapIteratorD2Ev.exit254, %_ZN6google8protobuf11MapIteratorD2Ev.exit223, %_ZN6google8protobuf11MapIteratorD2Ev.exit192, %_ZN6google8protobuf4util18MessageDifferencer17IsTreatedAsSubsetEPKNS0_15FieldDescriptorE.exit, %sw.epilog
-  %retval.0 = phi i1 [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit192 ], [ true, %sw.epilog ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit507 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit469 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit438 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit407 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit376 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit346 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit316 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit285 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit254 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit223 ], [ false, %_ZN6google8protobuf4util18MessageDifferencer17IsTreatedAsSubsetEPKNS0_15FieldDescriptorE.exit ]
+  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit223 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit254 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit285 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit316 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit346 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit376 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit407 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit438 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit469 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit507 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit192 ], [ false, %_ZN6google8protobuf4util18MessageDifferencer17IsTreatedAsSubsetEPKNS0_15FieldDescriptorE.exit ]
   ret i1 %retval.0
 
 eh.resume.sink.split:                             ; preds = %ehcleanup397, %if.then.i.i195, %if.then.i.i226, %if.then.i.i257, %if.then.i.i288, %if.then.i.i319, %if.then.i.i349, %if.then.i.i379, %if.then.i.i410, %if.then.i.i441, %if.then.i.i472
@@ -17155,7 +17155,7 @@ invoke.cont67:                                    ; preds = %sw.epilog
   ret void
 
 ehcleanup:                                        ; preds = %lpad9, %lpad.i, %lpad59, %lpad43, %lpad29
-  %.pn = phi { ptr, i32 } [ %30, %lpad59 ], [ %26, %lpad43 ], [ %15, %lpad29 ], [ %2, %lpad9 ], [ %4, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad29 ], [ %26, %lpad43 ], [ %30, %lpad59 ], [ %2, %lpad9 ], [ %4, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #36
   resume { ptr, i32 } %.pn
 }

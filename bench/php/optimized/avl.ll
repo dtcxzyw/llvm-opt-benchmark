@@ -779,7 +779,7 @@ lexbor_avl_node_rotate_right.exit89:              ; preds = %lexbor_avl_node_set
   br label %281
 
 281:                                              ; preds = %276, %280, %lexbor_avl_node_rotate_right.exit89, %lexbor_avl_node_rotate_right.exit83, %lexbor_avl_node_rotate_right.exit77, %lexbor_avl_node_rotate_left.exit61, %lexbor_avl_node_rotate_left.exit55, %lexbor_avl_node_rotate_left.exit
-  %.0 = phi ptr [ %198, %lexbor_avl_node_rotate_right.exit77 ], [ %198, %lexbor_avl_node_rotate_right.exit83 ], [ %198, %lexbor_avl_node_rotate_right.exit89 ], [ %67, %lexbor_avl_node_rotate_left.exit ], [ %67, %lexbor_avl_node_rotate_left.exit55 ], [ %67, %lexbor_avl_node_rotate_left.exit61 ], [ %.pre, %280 ], [ %278, %276 ]
+  %.0 = phi ptr [ %67, %lexbor_avl_node_rotate_left.exit ], [ %67, %lexbor_avl_node_rotate_left.exit55 ], [ %67, %lexbor_avl_node_rotate_left.exit61 ], [ %198, %lexbor_avl_node_rotate_right.exit77 ], [ %198, %lexbor_avl_node_rotate_right.exit83 ], [ %198, %lexbor_avl_node_rotate_right.exit89 ], [ %.pre, %280 ], [ %278, %276 ]
   ret ptr %.0
 }
 

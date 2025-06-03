@@ -1215,7 +1215,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL20getFixupKindLog2Sizej(i
   br label %6
 
 6:                                                ; preds = %1, %1, %5, %4, %3
-  %.0 = phi i32 [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 

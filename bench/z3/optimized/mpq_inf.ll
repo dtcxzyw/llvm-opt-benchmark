@@ -1909,7 +1909,7 @@ _ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit12:       ; preds = %127, %130, %133
   br label %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit.thread:  ; preds = %52, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i, %68, %34, %38, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit, %135, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit12, %103, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit10
-  %.0 = phi i1 [ %.0.i11, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit12 ], [ %106, %103 ], [ %.0.i9, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit10 ], [ true, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
+  %.0 = phi i1 [ %.0.i9, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit10 ], [ %106, %103 ], [ %.0.i11, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit12 ], [ true, %_ZN11mpq_managerILb1EE2ltERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
   ret i1 %.0
 }
 
@@ -2255,7 +2255,7 @@ _ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit12:       ; preds = %127, %130, %133
   br label %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit.thread:  ; preds = %52, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i, %68, %34, %38, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit, %135, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit12, %103, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit10
-  %.0 = phi i1 [ %.0.i.i11, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit12 ], [ %106, %103 ], [ %.0.i.i9, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit10 ], [ true, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
+  %.0 = phi i1 [ %.0.i.i9, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit10 ], [ %106, %103 ], [ %.0.i.i11, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit12 ], [ true, %_ZN11mpq_managerILb1EE2gtERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
   ret i1 %.0
 }
 
@@ -5529,7 +5529,7 @@ _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit12:       ; preds = %127, %130, %133
   br label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %52, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %68, %34, %38, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %135, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit12, %103, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit10
-  %.0 = phi i1 [ %.0.i11, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit12 ], [ %106, %103 ], [ %.0.i9, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit10 ], [ true, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
+  %.0 = phi i1 [ %.0.i9, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit10 ], [ %106, %103 ], [ %.0.i11, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit12 ], [ true, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
   ret i1 %.0
 }
 
@@ -5875,7 +5875,7 @@ _ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit12:       ; preds = %127, %130, %133
   br label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %52, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %68, %34, %38, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %135, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit12, %103, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit10
-  %.0 = phi i1 [ %.0.i.i11, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit12 ], [ %106, %103 ], [ %.0.i.i9, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit10 ], [ true, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
+  %.0 = phi i1 [ %.0.i.i9, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit10 ], [ %106, %103 ], [ %.0.i.i11, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit12 ], [ true, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ false, %135 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ true, %38 ], [ true, %34 ], [ false, %68 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %52 ]
   ret i1 %.0
 }
 

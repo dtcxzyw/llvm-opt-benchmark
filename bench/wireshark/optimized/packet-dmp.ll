@@ -2160,7 +2160,7 @@ dmp_dec_time_diff.exit.thread.i:                  ; preds = %dmp_dec_time_diff.e
   br label %392
 
 392:                                              ; preds = %391, %389, %387
-  %.2.i.i = phi i32 [ %372, %391 ], [ %390, %389 ], [ %388, %387 ]
+  %.2.i.i = phi i32 [ %372, %391 ], [ %388, %387 ], [ %390, %389 ]
   switch i8 %348, label %dissect_dmp_originator.exit.i [
     i8 4, label %393
     i8 6, label %393
@@ -2177,7 +2177,7 @@ dmp_dec_time_diff.exit.thread.i:                  ; preds = %dmp_dec_time_diff.e
   br label %397
 
 397:                                              ; preds = %395, %393
-  %.1.i.i = phi i32 [ %396, %395 ], [ %394, %393 ]
+  %.1.i.i = phi i32 [ %394, %393 ], [ %396, %395 ]
   %398 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 16), align 8
   %399 = icmp eq i32 %398, 3
   %hf_addr_int_rec.val.i.i = load i32, ptr @hf_addr_int_rec, align 4
@@ -2201,7 +2201,7 @@ dmp_dec_time_diff.exit.thread.i:                  ; preds = %dmp_dec_time_diff.e
   br label %dissect_dmp_originator.exit.i
 
 dissect_dmp_originator.exit.i:                    ; preds = %405, %402, %397, %392, %385, %383, %381, %343
-  %.087.i.i = phi i32 [ %344, %343 ], [ %.1.i.i, %397 ], [ %.1.i.i, %402 ], [ %.1.i.i, %405 ], [ %382, %381 ], [ %384, %383 ], [ %372, %385 ], [ %.2.i.i, %392 ]
+  %.087.i.i = phi i32 [ %344, %343 ], [ %.1.i.i, %397 ], [ %.1.i.i, %402 ], [ %.1.i.i, %405 ], [ %384, %383 ], [ %382, %381 ], [ %372, %385 ], [ %.2.i.i, %392 ]
   %409 = sub i32 %.087.i.i, %.3.i
   tail call void @proto_item_set_len(ptr noundef %338, i32 noundef %409)
   br label %410
@@ -3889,8 +3889,8 @@ get_nat_pol_id_short.exit122.i:                   ; preds = %get_nat_pol_id_shor
   br label %278
 
 278:                                              ; preds = %274, %get_nat_pol_id_short.exit.thread.i, %get_nat_pol_id_short.exit122.i, %252, %235, %234, %207
-  %.2461 = phi ptr [ %.1460, %207 ], [ %.1460, %274 ], [ %.1460, %252 ], [ %258, %get_nat_pol_id_short.exit.thread.i ], [ %273, %get_nat_pol_id_short.exit122.i ], [ %.1460, %234 ], [ %247, %235 ]
-  %.0.i = phi i1 [ false, %207 ], [ false, %274 ], [ true, %252 ], [ false, %get_nat_pol_id_short.exit.thread.i ], [ false, %get_nat_pol_id_short.exit122.i ], [ false, %234 ], [ false, %235 ]
+  %.2461 = phi ptr [ %.1460, %207 ], [ %.1460, %234 ], [ %247, %235 ], [ %.1460, %252 ], [ %258, %get_nat_pol_id_short.exit.thread.i ], [ %273, %get_nat_pol_id_short.exit122.i ], [ %.1460, %274 ]
+  %.0.i = phi i1 [ false, %207 ], [ false, %234 ], [ false, %235 ], [ true, %252 ], [ false, %get_nat_pol_id_short.exit.thread.i ], [ false, %get_nat_pol_id_short.exit122.i ], [ false, %274 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.725, i32 noundef %210)
   %279 = load i32, ptr @dmp, align 8
   %280 = icmp eq i32 %279, 1
@@ -3942,7 +3942,7 @@ dissect_dmp_security_category.exit.thread:        ; preds = %287, %291
   br label %303
 
 303:                                              ; preds = %301, %299, %295
-  %.1457 = phi i8 [ %302, %301 ], [ 0, %295 ], [ 0, %299 ]
+  %.1457 = phi i8 [ %302, %301 ], [ 0, %299 ], [ 0, %295 ]
   %304 = add i32 %.2, 1
   br i1 %.0.i, label %305, label %dissect_dmp_security_category.exit
 
@@ -5623,7 +5623,7 @@ define internal fastcc ptr @msg_type_to_str() unnamed_addr #0 {
   br label %58
 
 58:                                               ; preds = %0, %52, %31, %20, %13, %2
-  %.0 = phi ptr [ %57, %52 ], [ %33, %31 ], [ %30, %20 ], [ %19, %13 ], [ %12, %2 ], [ @.str.446, %0 ]
+  %.0 = phi ptr [ %12, %2 ], [ %19, %13 ], [ %30, %20 ], [ %33, %31 ], [ %57, %52 ], [ @.str.446, %0 ]
   ret ptr %.0
 }
 
@@ -6285,7 +6285,7 @@ proto_item_set_generated.exit.i29:                ; preds = %252, %249, %248
   br label %260
 
 260:                                              ; preds = %258, %256, %proto_item_set_generated.exit.i29
-  %.1140.i = phi i32 [ %.0139.i, %proto_item_set_generated.exit.i29 ], [ %259, %258 ], [ %257, %256 ]
+  %.1140.i = phi i32 [ %.0139.i, %proto_item_set_generated.exit.i29 ], [ %257, %256 ], [ %259, %258 ]
   switch i8 %161, label %dissect_dmp_ext_encoding.exit [
     i8 1, label %261
     i8 4, label %261
@@ -6304,7 +6304,7 @@ proto_item_set_generated.exit.i29:                ; preds = %252, %249, %248
   br label %dissect_dmp_ext_encoding.exit
 
 dissect_dmp_ext_encoding.exit:                    ; preds = %260, %261, %263
-  %.2.i = phi i32 [ %.1140.i, %260 ], [ %264, %263 ], [ %262, %261 ]
+  %.2.i = phi i32 [ %.1140.i, %260 ], [ %262, %261 ], [ %264, %263 ]
   %265 = trunc nuw nsw i32 %189 to i8
   %266 = trunc nuw nsw i32 %181 to i8
   tail call fastcc void @dmp_add_recipient_info(ptr noundef %.024, i8 noundef zeroext %266, i8 noundef zeroext %265, i1 noundef zeroext %163)

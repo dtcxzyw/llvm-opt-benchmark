@@ -1063,8 +1063,8 @@ _.exit47:                                         ; preds = %195, %197
   br label %._crit_edge
 
 200:                                              ; preds = %171, %193, %181, %show_blob_object.exit
-  %.132 = phi i32 [ %194, %193 ], [ 0, %181 ], [ %.0.i, %show_blob_object.exit ], [ %.3, %171 ]
-  %.1 = phi i32 [ %.03059, %193 ], [ %.03059, %181 ], [ %.03059, %show_blob_object.exit ], [ %174, %171 ]
+  %.132 = phi i32 [ %.0.i, %show_blob_object.exit ], [ 0, %181 ], [ %194, %193 ], [ %.3, %171 ]
+  %.1 = phi i32 [ %.03059, %show_blob_object.exit ], [ %.03059, %181 ], [ %.03059, %193 ], [ %174, %171 ]
   %201 = add i32 %.1, 1
   %202 = load i32, ptr %53, align 8, !tbaa !102
   %203 = icmp ult i32 %201, %202
@@ -5591,7 +5591,7 @@ stop_progress.exit:                               ; preds = %._crit_edge383, %15
   br label %1536
 
 1536:                                             ; preds = %798, %stop_progress.exit, %1534, %834
-  %.0137 = phi ptr [ null, %798 ], [ null, %834 ], [ %.1138, %1534 ], [ %.1138, %stop_progress.exit ]
+  %.0137 = phi ptr [ null, %834 ], [ %.1138, %1534 ], [ %.1138, %stop_progress.exit ], [ null, %798 ]
   call void @oid_array_clear(ptr noundef nonnull %50) #23
   call void @strbuf_release(ptr noundef nonnull %51) #23
   call void @strbuf_release(ptr noundef nonnull %53) #23
@@ -6984,14 +6984,14 @@ define dso_local noundef i32 @cmd_cherry(i32 noundef %0, ptr noundef %1, ptr nou
   br label %36
 
 36:                                               ; preds = %33, %4
-  %.030 = phi ptr [ null, %4 ], [ %35, %33 ]
+  %.030 = phi ptr [ %35, %33 ], [ null, %4 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !114
   br label %39
 
 39:                                               ; preds = %36, %4
-  %.032 = phi ptr [ @.str, %4 ], [ %38, %36 ]
-  %.131 = phi ptr [ null, %4 ], [ %.030, %36 ]
+  %.032 = phi ptr [ %38, %36 ], [ @.str, %4 ]
+  %.131 = phi ptr [ %.030, %36 ], [ null, %4 ]
   %40 = load ptr, ptr %1, align 8, !tbaa !114
   br label %48
 

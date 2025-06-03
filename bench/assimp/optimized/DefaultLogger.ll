@@ -324,7 +324,7 @@ _ZN6Assimp8IOSystemD2Ev.exit.i:                   ; preds = %37, %_ZSt8_DestroyI
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN6Assimp13FileLogStreamC2EPKcPNS_8IOSystemE.exit: ; preds = %.noexc, %_ZN6Assimp8IOSystemD2Ev.exit.i, %14, %3, %12, %11, %8, %5
-  %.0 = phi ptr [ %9, %8 ], [ %6, %5 ], [ null, %12 ], [ null, %11 ], [ null, %3 ], [ %15, %14 ], [ %15, %_ZN6Assimp8IOSystemD2Ev.exit.i ], [ %15, %.noexc ]
+  %.0 = phi ptr [ %6, %5 ], [ %9, %8 ], [ null, %12 ], [ null, %11 ], [ null, %3 ], [ %15, %14 ], [ %15, %_ZN6Assimp8IOSystemD2Ev.exit.i ], [ %15, %.noexc ]
   ret ptr %.0
 }
 

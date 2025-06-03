@@ -11994,8 +11994,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %.critedge
   unreachable
 
 169:                                              ; preds = %142, %165, %162, %160
-  %.1113 = phi double [ %158, %165 ], [ %163, %162 ], [ %161, %160 ], [ %.0112, %142 ]
-  %.0111 = phi double [ %166, %165 ], [ %164, %162 ], [ %.0112, %160 ], [ %158, %142 ]
+  %.1113 = phi double [ %.0112, %142 ], [ %161, %160 ], [ %163, %162 ], [ %158, %165 ]
+  %.0111 = phi double [ %158, %142 ], [ %.0112, %160 ], [ %164, %162 ], [ %166, %165 ]
   %170 = fmul double %.sroa.076.0.copyload, %146
   %171 = call double @modf(double noundef %170, ptr noundef nonnull %7) #27
   %172 = fmul double %.sroa.2.0.copyload77, %149

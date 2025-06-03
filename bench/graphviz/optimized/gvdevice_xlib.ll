@@ -1079,7 +1079,7 @@ handle_client_message.exit.i:                     ; preds = %470, %468
   br i1 %.not38.i, label %..loopexit_crit_edge.i, label %351, !llvm.loop !127
 
 ..loopexit_crit_edge.i:                           ; preds = %476, %handle_client_message.exit.i, %458, %handle_configure_notify.exit.i, %handle_keypress.exit.thread.i, %415, %372, %369, %358, %356
-  %.1.i = phi i32 [ %.055.i, %356 ], [ %475, %handle_client_message.exit.i ], [ %467, %458 ], [ %457, %handle_configure_notify.exit.i ], [ %433, %handle_keypress.exit.thread.i ], [ %416, %415 ], [ %381, %372 ], [ %.055.i, %369 ], [ %368, %358 ], [ %.055.i, %476 ]
+  %.1.i = phi i32 [ %.055.i, %356 ], [ %368, %358 ], [ %381, %372 ], [ %.055.i, %369 ], [ %416, %415 ], [ %433, %handle_keypress.exit.thread.i ], [ %457, %handle_configure_notify.exit.i ], [ %467, %458 ], [ %475, %handle_client_message.exit.i ], [ %.055.i, %476 ]
   %479 = call i32 @XPending(ptr noundef nonnull %11) #21
   %.not.i104 = icmp eq i32 %479, 0
   br i1 %.not.i104, label %handle_xlib_events.exit, label %.lr.ph.i103, !llvm.loop !128

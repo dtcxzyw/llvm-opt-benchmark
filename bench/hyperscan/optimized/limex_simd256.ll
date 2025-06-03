@@ -851,7 +851,7 @@ moNfaReportCurrent256.exit:                       ; preds = %8, %18
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %162, %169, %171, %173, %175, %177, %179
-  %.0.i94 = phi i64 [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ 0, %162 ]
+  %.0.i94 = phi i64 [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ 0, %162 ]
   %181 = load <4 x i64>, ptr %137, align 32
   %182 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %155, <4 x i64> %181)
   %.not.i92.not = icmp eq i32 %182, 0
@@ -1052,7 +1052,7 @@ lshift64_m256.exit:                               ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit13
 
 lshift64_m256.exit13:                             ; preds = %lshift64_m256.exit, %lshift64_m256.exit25
-  %.6336 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %84, %lshift64_m256.exit ]
+  %.6336 = phi <4 x i64> [ %84, %lshift64_m256.exit ], [ %75, %lshift64_m256.exit25 ]
   %85 = load <4 x i64>, ptr %47, align 32
   %86 = and <4 x i64> %85, %.057.i5671
   %87 = load i8, ptr %48, align 2
@@ -1064,7 +1064,7 @@ lshift64_m256.exit13:                             ; preds = %lshift64_m256.exit,
   br label %lshift64_m256.exit15
 
 lshift64_m256.exit15:                             ; preds = %lshift64_m256.exit13, %lshift64_m256.exit25
-  %.5335 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %92, %lshift64_m256.exit13 ]
+  %.5335 = phi <4 x i64> [ %92, %lshift64_m256.exit13 ], [ %75, %lshift64_m256.exit25 ]
   %93 = load <4 x i64>, ptr %49, align 32
   %94 = and <4 x i64> %93, %.057.i5671
   %95 = load i8, ptr %50, align 1
@@ -1076,7 +1076,7 @@ lshift64_m256.exit15:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit17
 
 lshift64_m256.exit17:                             ; preds = %lshift64_m256.exit15, %lshift64_m256.exit25
-  %.4334 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %100, %lshift64_m256.exit15 ]
+  %.4334 = phi <4 x i64> [ %100, %lshift64_m256.exit15 ], [ %75, %lshift64_m256.exit25 ]
   %101 = load <4 x i64>, ptr %51, align 32
   %102 = and <4 x i64> %101, %.057.i5671
   %103 = load i8, ptr %52, align 4
@@ -1088,7 +1088,7 @@ lshift64_m256.exit17:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit19
 
 lshift64_m256.exit19:                             ; preds = %lshift64_m256.exit17, %lshift64_m256.exit25
-  %.3333 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %108, %lshift64_m256.exit17 ]
+  %.3333 = phi <4 x i64> [ %108, %lshift64_m256.exit17 ], [ %75, %lshift64_m256.exit25 ]
   %109 = load <4 x i64>, ptr %53, align 32
   %110 = and <4 x i64> %109, %.057.i5671
   %111 = load i8, ptr %54, align 1
@@ -1100,7 +1100,7 @@ lshift64_m256.exit19:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit21
 
 lshift64_m256.exit21:                             ; preds = %lshift64_m256.exit19, %lshift64_m256.exit25
-  %.2332 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %116, %lshift64_m256.exit19 ]
+  %.2332 = phi <4 x i64> [ %116, %lshift64_m256.exit19 ], [ %75, %lshift64_m256.exit25 ]
   %117 = load <4 x i64>, ptr %55, align 32
   %118 = and <4 x i64> %117, %.057.i5671
   %119 = load i8, ptr %56, align 2
@@ -1112,7 +1112,7 @@ lshift64_m256.exit21:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit23
 
 lshift64_m256.exit23:                             ; preds = %lshift64_m256.exit21, %lshift64_m256.exit25
-  %.0330 = phi <4 x i64> [ %75, %lshift64_m256.exit25 ], [ %124, %lshift64_m256.exit21 ]
+  %.0330 = phi <4 x i64> [ %124, %lshift64_m256.exit21 ], [ %75, %lshift64_m256.exit25 ]
   %125 = load <4 x i64>, ptr %57, align 32
   %126 = and <4 x i64> %125, %.057.i5671
   %127 = load i8, ptr %58, align 1
@@ -1384,7 +1384,7 @@ lshift64_m256.exit23:                             ; preds = %lshift64_m256.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %240, %261, %263, %265, %267
-  %.0.i176 = phi i32 [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %241, %240 ]
+  %.0.i176 = phi i32 [ %241, %240 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ]
   switch i32 %.0.i176, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread375
     i32 2, label %repeatHasMatch.exit.thread377
@@ -1610,7 +1610,7 @@ lshift64_m256.exit27:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit29
 
 lshift64_m256.exit29:                             ; preds = %lshift64_m256.exit27, %lshift64_m256.exit41
-  %.6321 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %367, %lshift64_m256.exit27 ]
+  %.6321 = phi <4 x i64> [ %367, %lshift64_m256.exit27 ], [ %358, %lshift64_m256.exit41 ]
   %368 = load <4 x i64>, ptr %330, align 32
   %369 = and <4 x i64> %368, %.057.i685
   %370 = load i8, ptr %331, align 2
@@ -1622,7 +1622,7 @@ lshift64_m256.exit29:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit31
 
 lshift64_m256.exit31:                             ; preds = %lshift64_m256.exit29, %lshift64_m256.exit41
-  %.5320 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %375, %lshift64_m256.exit29 ]
+  %.5320 = phi <4 x i64> [ %375, %lshift64_m256.exit29 ], [ %358, %lshift64_m256.exit41 ]
   %376 = load <4 x i64>, ptr %332, align 32
   %377 = and <4 x i64> %376, %.057.i685
   %378 = load i8, ptr %333, align 1
@@ -1634,7 +1634,7 @@ lshift64_m256.exit31:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit33
 
 lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit31, %lshift64_m256.exit41
-  %.4319 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %383, %lshift64_m256.exit31 ]
+  %.4319 = phi <4 x i64> [ %383, %lshift64_m256.exit31 ], [ %358, %lshift64_m256.exit41 ]
   %384 = load <4 x i64>, ptr %334, align 32
   %385 = and <4 x i64> %384, %.057.i685
   %386 = load i8, ptr %335, align 4
@@ -1646,7 +1646,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit35
 
 lshift64_m256.exit35:                             ; preds = %lshift64_m256.exit33, %lshift64_m256.exit41
-  %.3318 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %391, %lshift64_m256.exit33 ]
+  %.3318 = phi <4 x i64> [ %391, %lshift64_m256.exit33 ], [ %358, %lshift64_m256.exit41 ]
   %392 = load <4 x i64>, ptr %336, align 32
   %393 = and <4 x i64> %392, %.057.i685
   %394 = load i8, ptr %337, align 1
@@ -1658,7 +1658,7 @@ lshift64_m256.exit35:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit37
 
 lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit35, %lshift64_m256.exit41
-  %.2317 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %399, %lshift64_m256.exit35 ]
+  %.2317 = phi <4 x i64> [ %399, %lshift64_m256.exit35 ], [ %358, %lshift64_m256.exit41 ]
   %400 = load <4 x i64>, ptr %338, align 32
   %401 = and <4 x i64> %400, %.057.i685
   %402 = load i8, ptr %339, align 2
@@ -1670,7 +1670,7 @@ lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit39
 
 lshift64_m256.exit39:                             ; preds = %lshift64_m256.exit37, %lshift64_m256.exit41
-  %.0315 = phi <4 x i64> [ %358, %lshift64_m256.exit41 ], [ %407, %lshift64_m256.exit37 ]
+  %.0315 = phi <4 x i64> [ %407, %lshift64_m256.exit37 ], [ %358, %lshift64_m256.exit41 ]
   %408 = load <4 x i64>, ptr %340, align 32
   %409 = and <4 x i64> %408, %.057.i685
   %410 = load i8, ptr %341, align 1
@@ -1942,7 +1942,7 @@ lshift64_m256.exit39:                             ; preds = %lshift64_m256.exit3
   br label %repeatHasMatch.exit178
 
 repeatHasMatch.exit178:                           ; preds = %523, %544, %546, %548, %550
-  %.0.i177 = phi i32 [ %551, %550 ], [ %549, %548 ], [ %547, %546 ], [ %545, %544 ], [ %524, %523 ]
+  %.0.i177 = phi i32 [ %524, %523 ], [ %545, %544 ], [ %547, %546 ], [ %549, %548 ], [ %551, %550 ]
   switch i32 %.0.i177, label %repeatHasMatch.exit178.thread [
     i32 1, label %repeatHasMatch.exit178.thread457
     i32 2, label %repeatHasMatch.exit178.thread459
@@ -2216,7 +2216,7 @@ lshift64_m256.exit43:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit45
 
 lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit43, %lshift64_m256.exit57
-  %.6 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %670, %lshift64_m256.exit43 ]
+  %.6 = phi <4 x i64> [ %670, %lshift64_m256.exit43 ], [ %661, %lshift64_m256.exit57 ]
   %671 = load <4 x i64>, ptr %613, align 32
   %672 = and <4 x i64> %671, %.1309698
   %673 = load i8, ptr %614, align 2
@@ -2228,7 +2228,7 @@ lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit47
 
 lshift64_m256.exit47:                             ; preds = %lshift64_m256.exit45, %lshift64_m256.exit57
-  %.5 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %678, %lshift64_m256.exit45 ]
+  %.5 = phi <4 x i64> [ %678, %lshift64_m256.exit45 ], [ %661, %lshift64_m256.exit57 ]
   %679 = load <4 x i64>, ptr %615, align 32
   %680 = and <4 x i64> %679, %.1309698
   %681 = load i8, ptr %616, align 1
@@ -2240,7 +2240,7 @@ lshift64_m256.exit47:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit49
 
 lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit47, %lshift64_m256.exit57
-  %.4 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %686, %lshift64_m256.exit47 ]
+  %.4 = phi <4 x i64> [ %686, %lshift64_m256.exit47 ], [ %661, %lshift64_m256.exit57 ]
   %687 = load <4 x i64>, ptr %617, align 32
   %688 = and <4 x i64> %687, %.1309698
   %689 = load i8, ptr %618, align 4
@@ -2252,7 +2252,7 @@ lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit51
 
 lshift64_m256.exit51:                             ; preds = %lshift64_m256.exit49, %lshift64_m256.exit57
-  %.3 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %694, %lshift64_m256.exit49 ]
+  %.3 = phi <4 x i64> [ %694, %lshift64_m256.exit49 ], [ %661, %lshift64_m256.exit57 ]
   %695 = load <4 x i64>, ptr %619, align 32
   %696 = and <4 x i64> %695, %.1309698
   %697 = load i8, ptr %620, align 1
@@ -2264,7 +2264,7 @@ lshift64_m256.exit51:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit53
 
 lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit51, %lshift64_m256.exit57
-  %.2 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %702, %lshift64_m256.exit51 ]
+  %.2 = phi <4 x i64> [ %702, %lshift64_m256.exit51 ], [ %661, %lshift64_m256.exit57 ]
   %703 = load <4 x i64>, ptr %621, align 32
   %704 = and <4 x i64> %703, %.1309698
   %705 = load i8, ptr %622, align 2
@@ -2276,7 +2276,7 @@ lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit55
 
 lshift64_m256.exit55:                             ; preds = %lshift64_m256.exit53, %lshift64_m256.exit57
-  %.0302 = phi <4 x i64> [ %661, %lshift64_m256.exit57 ], [ %710, %lshift64_m256.exit53 ]
+  %.0302 = phi <4 x i64> [ %710, %lshift64_m256.exit53 ], [ %661, %lshift64_m256.exit57 ]
   %711 = load <4 x i64>, ptr %623, align 32
   %712 = and <4 x i64> %711, %.1309698
   %713 = load i8, ptr %624, align 1
@@ -2548,7 +2548,7 @@ lshift64_m256.exit55:                             ; preds = %lshift64_m256.exit5
   br label %repeatHasMatch.exit180
 
 repeatHasMatch.exit180:                           ; preds = %826, %847, %849, %851, %853
-  %.0.i179 = phi i32 [ %854, %853 ], [ %852, %851 ], [ %850, %849 ], [ %848, %847 ], [ %827, %826 ]
+  %.0.i179 = phi i32 [ %827, %826 ], [ %848, %847 ], [ %850, %849 ], [ %852, %851 ], [ %854, %853 ]
   switch i32 %.0.i179, label %repeatHasMatch.exit180.thread [
     i32 1, label %repeatHasMatch.exit180.thread541
     i32 2, label %repeatHasMatch.exit180.thread543
@@ -3116,7 +3116,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %201, %208, %210, %212, %214, %216, %218
-  %.0.i133 = phi i64 [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ 0, %201 ]
+  %.0.i133 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ 0, %201 ]
   %220 = load <4 x i64>, ptr %176, align 32
   %221 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %194, <4 x i64> %220)
   %.not.i131.not = icmp eq i32 %221, 0
@@ -3316,7 +3316,7 @@ lshift64_m256.exit:                               ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit14
 
 lshift64_m256.exit14:                             ; preds = %lshift64_m256.exit, %lshift64_m256.exit26
-  %.6303 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %84, %lshift64_m256.exit ]
+  %.6303 = phi <4 x i64> [ %84, %lshift64_m256.exit ], [ %75, %lshift64_m256.exit26 ]
   %85 = load <4 x i64>, ptr %48, align 32
   %86 = and <4 x i64> %85, %.057.i6480
   %87 = load i8, ptr %49, align 2
@@ -3328,7 +3328,7 @@ lshift64_m256.exit14:                             ; preds = %lshift64_m256.exit,
   br label %lshift64_m256.exit16
 
 lshift64_m256.exit16:                             ; preds = %lshift64_m256.exit14, %lshift64_m256.exit26
-  %.5302 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %92, %lshift64_m256.exit14 ]
+  %.5302 = phi <4 x i64> [ %92, %lshift64_m256.exit14 ], [ %75, %lshift64_m256.exit26 ]
   %93 = load <4 x i64>, ptr %50, align 32
   %94 = and <4 x i64> %93, %.057.i6480
   %95 = load i8, ptr %51, align 1
@@ -3340,7 +3340,7 @@ lshift64_m256.exit16:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit18
 
 lshift64_m256.exit18:                             ; preds = %lshift64_m256.exit16, %lshift64_m256.exit26
-  %.4301 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %100, %lshift64_m256.exit16 ]
+  %.4301 = phi <4 x i64> [ %100, %lshift64_m256.exit16 ], [ %75, %lshift64_m256.exit26 ]
   %101 = load <4 x i64>, ptr %52, align 32
   %102 = and <4 x i64> %101, %.057.i6480
   %103 = load i8, ptr %53, align 4
@@ -3352,7 +3352,7 @@ lshift64_m256.exit18:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit20
 
 lshift64_m256.exit20:                             ; preds = %lshift64_m256.exit18, %lshift64_m256.exit26
-  %.3300 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %108, %lshift64_m256.exit18 ]
+  %.3300 = phi <4 x i64> [ %108, %lshift64_m256.exit18 ], [ %75, %lshift64_m256.exit26 ]
   %109 = load <4 x i64>, ptr %54, align 32
   %110 = and <4 x i64> %109, %.057.i6480
   %111 = load i8, ptr %55, align 1
@@ -3364,7 +3364,7 @@ lshift64_m256.exit20:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit22
 
 lshift64_m256.exit22:                             ; preds = %lshift64_m256.exit20, %lshift64_m256.exit26
-  %.2299 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %116, %lshift64_m256.exit20 ]
+  %.2299 = phi <4 x i64> [ %116, %lshift64_m256.exit20 ], [ %75, %lshift64_m256.exit26 ]
   %117 = load <4 x i64>, ptr %56, align 32
   %118 = and <4 x i64> %117, %.057.i6480
   %119 = load i8, ptr %57, align 2
@@ -3376,7 +3376,7 @@ lshift64_m256.exit22:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit24
 
 lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit22, %lshift64_m256.exit26
-  %.0297 = phi <4 x i64> [ %75, %lshift64_m256.exit26 ], [ %124, %lshift64_m256.exit22 ]
+  %.0297 = phi <4 x i64> [ %124, %lshift64_m256.exit22 ], [ %75, %lshift64_m256.exit26 ]
   %125 = load <4 x i64>, ptr %58, align 32
   %126 = and <4 x i64> %125, %.057.i6480
   %127 = load i8, ptr %59, align 1
@@ -3626,7 +3626,7 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %232, %253, %255, %257, %259
-  %.0.i144 = phi i32 [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %233, %232 ]
+  %.0.i144 = phi i32 [ %233, %232 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ]
   switch i32 %.0.i144, label %runException256.exit [
     i32 1, label %repeatHasMatch.exit.thread338
     i32 2, label %repeatHasMatch.exit.thread340
@@ -3805,7 +3805,7 @@ lshift64_m256.exit28:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit30
 
 lshift64_m256.exit30:                             ; preds = %lshift64_m256.exit28, %lshift64_m256.exit42
-  %.6288 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %345, %lshift64_m256.exit28 ]
+  %.6288 = phi <4 x i64> [ %345, %lshift64_m256.exit28 ], [ %336, %lshift64_m256.exit42 ]
   %346 = load <4 x i64>, ptr %309, align 32
   %347 = and <4 x i64> %346, %.057.i487
   %348 = load i8, ptr %310, align 2
@@ -3817,7 +3817,7 @@ lshift64_m256.exit30:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit32
 
 lshift64_m256.exit32:                             ; preds = %lshift64_m256.exit30, %lshift64_m256.exit42
-  %.5287 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %353, %lshift64_m256.exit30 ]
+  %.5287 = phi <4 x i64> [ %353, %lshift64_m256.exit30 ], [ %336, %lshift64_m256.exit42 ]
   %354 = load <4 x i64>, ptr %311, align 32
   %355 = and <4 x i64> %354, %.057.i487
   %356 = load i8, ptr %312, align 1
@@ -3829,7 +3829,7 @@ lshift64_m256.exit32:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit34
 
 lshift64_m256.exit34:                             ; preds = %lshift64_m256.exit32, %lshift64_m256.exit42
-  %.4286 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %361, %lshift64_m256.exit32 ]
+  %.4286 = phi <4 x i64> [ %361, %lshift64_m256.exit32 ], [ %336, %lshift64_m256.exit42 ]
   %362 = load <4 x i64>, ptr %313, align 32
   %363 = and <4 x i64> %362, %.057.i487
   %364 = load i8, ptr %314, align 4
@@ -3841,7 +3841,7 @@ lshift64_m256.exit34:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit36
 
 lshift64_m256.exit36:                             ; preds = %lshift64_m256.exit34, %lshift64_m256.exit42
-  %.3285 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %369, %lshift64_m256.exit34 ]
+  %.3285 = phi <4 x i64> [ %369, %lshift64_m256.exit34 ], [ %336, %lshift64_m256.exit42 ]
   %370 = load <4 x i64>, ptr %315, align 32
   %371 = and <4 x i64> %370, %.057.i487
   %372 = load i8, ptr %316, align 1
@@ -3853,7 +3853,7 @@ lshift64_m256.exit36:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit38
 
 lshift64_m256.exit38:                             ; preds = %lshift64_m256.exit36, %lshift64_m256.exit42
-  %.2284 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %377, %lshift64_m256.exit36 ]
+  %.2284 = phi <4 x i64> [ %377, %lshift64_m256.exit36 ], [ %336, %lshift64_m256.exit42 ]
   %378 = load <4 x i64>, ptr %317, align 32
   %379 = and <4 x i64> %378, %.057.i487
   %380 = load i8, ptr %318, align 2
@@ -3865,7 +3865,7 @@ lshift64_m256.exit38:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit40
 
 lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit38, %lshift64_m256.exit42
-  %.0282 = phi <4 x i64> [ %336, %lshift64_m256.exit42 ], [ %385, %lshift64_m256.exit38 ]
+  %.0282 = phi <4 x i64> [ %385, %lshift64_m256.exit38 ], [ %336, %lshift64_m256.exit42 ]
   %386 = load <4 x i64>, ptr %319, align 32
   %387 = and <4 x i64> %386, %.057.i487
   %388 = load i8, ptr %320, align 1
@@ -4115,7 +4115,7 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
   br label %repeatHasMatch.exit146
 
 repeatHasMatch.exit146:                           ; preds = %493, %514, %516, %518, %520
-  %.0.i145 = phi i32 [ %521, %520 ], [ %519, %518 ], [ %517, %516 ], [ %515, %514 ], [ %494, %493 ]
+  %.0.i145 = phi i32 [ %494, %493 ], [ %515, %514 ], [ %517, %516 ], [ %519, %518 ], [ %521, %520 ]
   switch i32 %.0.i145, label %runException256.exit118 [
     i32 1, label %repeatHasMatch.exit146.thread376
     i32 2, label %repeatHasMatch.exit146.thread378
@@ -4342,7 +4342,7 @@ lshift64_m256.exit44:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit46
 
 lshift64_m256.exit46:                             ; preds = %lshift64_m256.exit44, %lshift64_m256.exit58
-  %.6 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %626, %lshift64_m256.exit44 ]
+  %.6 = phi <4 x i64> [ %626, %lshift64_m256.exit44 ], [ %617, %lshift64_m256.exit58 ]
   %627 = load <4 x i64>, ptr %570, align 32
   %628 = and <4 x i64> %627, %.1276494
   %629 = load i8, ptr %571, align 2
@@ -4354,7 +4354,7 @@ lshift64_m256.exit46:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit48
 
 lshift64_m256.exit48:                             ; preds = %lshift64_m256.exit46, %lshift64_m256.exit58
-  %.5 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %634, %lshift64_m256.exit46 ]
+  %.5 = phi <4 x i64> [ %634, %lshift64_m256.exit46 ], [ %617, %lshift64_m256.exit58 ]
   %635 = load <4 x i64>, ptr %572, align 32
   %636 = and <4 x i64> %635, %.1276494
   %637 = load i8, ptr %573, align 1
@@ -4366,7 +4366,7 @@ lshift64_m256.exit48:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit50
 
 lshift64_m256.exit50:                             ; preds = %lshift64_m256.exit48, %lshift64_m256.exit58
-  %.4 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %642, %lshift64_m256.exit48 ]
+  %.4 = phi <4 x i64> [ %642, %lshift64_m256.exit48 ], [ %617, %lshift64_m256.exit58 ]
   %643 = load <4 x i64>, ptr %574, align 32
   %644 = and <4 x i64> %643, %.1276494
   %645 = load i8, ptr %575, align 4
@@ -4378,7 +4378,7 @@ lshift64_m256.exit50:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit52
 
 lshift64_m256.exit52:                             ; preds = %lshift64_m256.exit50, %lshift64_m256.exit58
-  %.3 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %650, %lshift64_m256.exit50 ]
+  %.3 = phi <4 x i64> [ %650, %lshift64_m256.exit50 ], [ %617, %lshift64_m256.exit58 ]
   %651 = load <4 x i64>, ptr %576, align 32
   %652 = and <4 x i64> %651, %.1276494
   %653 = load i8, ptr %577, align 1
@@ -4390,7 +4390,7 @@ lshift64_m256.exit52:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit54
 
 lshift64_m256.exit54:                             ; preds = %lshift64_m256.exit52, %lshift64_m256.exit58
-  %.2 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %658, %lshift64_m256.exit52 ]
+  %.2 = phi <4 x i64> [ %658, %lshift64_m256.exit52 ], [ %617, %lshift64_m256.exit58 ]
   %659 = load <4 x i64>, ptr %578, align 32
   %660 = and <4 x i64> %659, %.1276494
   %661 = load i8, ptr %579, align 2
@@ -4402,7 +4402,7 @@ lshift64_m256.exit54:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit56
 
 lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit54, %lshift64_m256.exit58
-  %.0269 = phi <4 x i64> [ %617, %lshift64_m256.exit58 ], [ %666, %lshift64_m256.exit54 ]
+  %.0269 = phi <4 x i64> [ %666, %lshift64_m256.exit54 ], [ %617, %lshift64_m256.exit58 ]
   %667 = load <4 x i64>, ptr %580, align 32
   %668 = and <4 x i64> %667, %.1276494
   %669 = load i8, ptr %581, align 1
@@ -4652,7 +4652,7 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
   br label %repeatHasMatch.exit148
 
 repeatHasMatch.exit148:                           ; preds = %774, %795, %797, %799, %801
-  %.0.i147 = phi i32 [ %802, %801 ], [ %800, %799 ], [ %798, %797 ], [ %796, %795 ], [ %775, %774 ]
+  %.0.i147 = phi i32 [ %775, %774 ], [ %796, %795 ], [ %798, %797 ], [ %800, %799 ], [ %802, %801 ]
   switch i32 %.0.i147, label %runException256.exit128 [
     i32 1, label %repeatHasMatch.exit148.thread415
     i32 2, label %repeatHasMatch.exit148.thread417
@@ -5051,7 +5051,7 @@ nfaExecLimEx256_HandleEvent.exit:                 ; preds = %nfaExecLimEx256_Han
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %132, %139, %141, %143, %145, %147, %149
-  %.0.i86 = phi i64 [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ 0, %132 ]
+  %.0.i86 = phi i64 [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ 0, %132 ]
   %151 = load <4 x i64>, ptr %107, align 32
   %152 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %125, <4 x i64> %151)
   %.not.i80.not = icmp eq i32 %152, 0
@@ -5213,7 +5213,7 @@ limexExpireExtendedState256.exit:                 ; preds = %174, %._crit_edge, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %218, %239, %241, %243, %245
-  %.0.i82 = phi i32 [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %219, %218 ]
+  %.0.i82 = phi i32 [ %219, %218 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ]
   %.not20.i = icmp eq i32 %.0.i82, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread100, label %repeatHasMatch.exit.thread
 
@@ -5450,7 +5450,7 @@ lshift64_m256.exit:                               ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit13
 
 lshift64_m256.exit13:                             ; preds = %lshift64_m256.exit, %lshift64_m256.exit25
-  %.6291 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %82, %lshift64_m256.exit ]
+  %.6291 = phi <4 x i64> [ %82, %lshift64_m256.exit ], [ %73, %lshift64_m256.exit25 ]
   %83 = load <4 x i64>, ptr %47, align 32
   %84 = and <4 x i64> %83, %.057.i5414
   %85 = load i8, ptr %48, align 2
@@ -5462,7 +5462,7 @@ lshift64_m256.exit13:                             ; preds = %lshift64_m256.exit,
   br label %lshift64_m256.exit15
 
 lshift64_m256.exit15:                             ; preds = %lshift64_m256.exit13, %lshift64_m256.exit25
-  %.5290 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %90, %lshift64_m256.exit13 ]
+  %.5290 = phi <4 x i64> [ %90, %lshift64_m256.exit13 ], [ %73, %lshift64_m256.exit25 ]
   %91 = load <4 x i64>, ptr %49, align 32
   %92 = and <4 x i64> %91, %.057.i5414
   %93 = load i8, ptr %50, align 1
@@ -5474,7 +5474,7 @@ lshift64_m256.exit15:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit17
 
 lshift64_m256.exit17:                             ; preds = %lshift64_m256.exit15, %lshift64_m256.exit25
-  %.4289 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %98, %lshift64_m256.exit15 ]
+  %.4289 = phi <4 x i64> [ %98, %lshift64_m256.exit15 ], [ %73, %lshift64_m256.exit25 ]
   %99 = load <4 x i64>, ptr %51, align 32
   %100 = and <4 x i64> %99, %.057.i5414
   %101 = load i8, ptr %52, align 4
@@ -5486,7 +5486,7 @@ lshift64_m256.exit17:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit19
 
 lshift64_m256.exit19:                             ; preds = %lshift64_m256.exit17, %lshift64_m256.exit25
-  %.3288 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %106, %lshift64_m256.exit17 ]
+  %.3288 = phi <4 x i64> [ %106, %lshift64_m256.exit17 ], [ %73, %lshift64_m256.exit25 ]
   %107 = load <4 x i64>, ptr %53, align 32
   %108 = and <4 x i64> %107, %.057.i5414
   %109 = load i8, ptr %54, align 1
@@ -5498,7 +5498,7 @@ lshift64_m256.exit19:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit21
 
 lshift64_m256.exit21:                             ; preds = %lshift64_m256.exit19, %lshift64_m256.exit25
-  %.2287 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %114, %lshift64_m256.exit19 ]
+  %.2287 = phi <4 x i64> [ %114, %lshift64_m256.exit19 ], [ %73, %lshift64_m256.exit25 ]
   %115 = load <4 x i64>, ptr %55, align 32
   %116 = and <4 x i64> %115, %.057.i5414
   %117 = load i8, ptr %56, align 2
@@ -5510,7 +5510,7 @@ lshift64_m256.exit21:                             ; preds = %lshift64_m256.exit1
   br label %lshift64_m256.exit23
 
 lshift64_m256.exit23:                             ; preds = %lshift64_m256.exit21, %lshift64_m256.exit25
-  %.0285 = phi <4 x i64> [ %73, %lshift64_m256.exit25 ], [ %122, %lshift64_m256.exit21 ]
+  %.0285 = phi <4 x i64> [ %122, %lshift64_m256.exit21 ], [ %73, %lshift64_m256.exit25 ]
   %123 = load <4 x i64>, ptr %57, align 32
   %124 = and <4 x i64> %123, %.057.i5414
   %125 = load i8, ptr %58, align 1
@@ -5748,7 +5748,7 @@ lshift64_m256.exit23:                             ; preds = %lshift64_m256.exit2
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %224, %245, %247, %249, %251
-  %.0.i141 = phi i32 [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %225, %224 ]
+  %.0.i141 = phi i32 [ %225, %224 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ]
   switch i32 %.0.i141, label %runException256.exit [
     i32 1, label %repeatHasMatch.exit.thread327
     i32 2, label %repeatHasMatch.exit.thread329
@@ -5922,7 +5922,7 @@ lshift64_m256.exit27:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit29
 
 lshift64_m256.exit29:                             ; preds = %lshift64_m256.exit27, %lshift64_m256.exit41
-  %.6276 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %336, %lshift64_m256.exit27 ]
+  %.6276 = phi <4 x i64> [ %336, %lshift64_m256.exit27 ], [ %327, %lshift64_m256.exit41 ]
   %337 = load <4 x i64>, ptr %301, align 32
   %338 = and <4 x i64> %337, %.057.i421
   %339 = load i8, ptr %302, align 2
@@ -5934,7 +5934,7 @@ lshift64_m256.exit29:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit31
 
 lshift64_m256.exit31:                             ; preds = %lshift64_m256.exit29, %lshift64_m256.exit41
-  %.5275 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %344, %lshift64_m256.exit29 ]
+  %.5275 = phi <4 x i64> [ %344, %lshift64_m256.exit29 ], [ %327, %lshift64_m256.exit41 ]
   %345 = load <4 x i64>, ptr %303, align 32
   %346 = and <4 x i64> %345, %.057.i421
   %347 = load i8, ptr %304, align 1
@@ -5946,7 +5946,7 @@ lshift64_m256.exit31:                             ; preds = %lshift64_m256.exit2
   br label %lshift64_m256.exit33
 
 lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit31, %lshift64_m256.exit41
-  %.4274 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %352, %lshift64_m256.exit31 ]
+  %.4274 = phi <4 x i64> [ %352, %lshift64_m256.exit31 ], [ %327, %lshift64_m256.exit41 ]
   %353 = load <4 x i64>, ptr %305, align 32
   %354 = and <4 x i64> %353, %.057.i421
   %355 = load i8, ptr %306, align 4
@@ -5958,7 +5958,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit35
 
 lshift64_m256.exit35:                             ; preds = %lshift64_m256.exit33, %lshift64_m256.exit41
-  %.3273 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %360, %lshift64_m256.exit33 ]
+  %.3273 = phi <4 x i64> [ %360, %lshift64_m256.exit33 ], [ %327, %lshift64_m256.exit41 ]
   %361 = load <4 x i64>, ptr %307, align 32
   %362 = and <4 x i64> %361, %.057.i421
   %363 = load i8, ptr %308, align 1
@@ -5970,7 +5970,7 @@ lshift64_m256.exit35:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit37
 
 lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit35, %lshift64_m256.exit41
-  %.2272 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %368, %lshift64_m256.exit35 ]
+  %.2272 = phi <4 x i64> [ %368, %lshift64_m256.exit35 ], [ %327, %lshift64_m256.exit41 ]
   %369 = load <4 x i64>, ptr %309, align 32
   %370 = and <4 x i64> %369, %.057.i421
   %371 = load i8, ptr %310, align 2
@@ -5982,7 +5982,7 @@ lshift64_m256.exit37:                             ; preds = %lshift64_m256.exit3
   br label %lshift64_m256.exit39
 
 lshift64_m256.exit39:                             ; preds = %lshift64_m256.exit37, %lshift64_m256.exit41
-  %.0270 = phi <4 x i64> [ %327, %lshift64_m256.exit41 ], [ %376, %lshift64_m256.exit37 ]
+  %.0270 = phi <4 x i64> [ %376, %lshift64_m256.exit37 ], [ %327, %lshift64_m256.exit41 ]
   %377 = load <4 x i64>, ptr %311, align 32
   %378 = and <4 x i64> %377, %.057.i421
   %379 = load i8, ptr %312, align 1
@@ -6220,7 +6220,7 @@ lshift64_m256.exit39:                             ; preds = %lshift64_m256.exit3
   br label %repeatHasMatch.exit143
 
 repeatHasMatch.exit143:                           ; preds = %478, %499, %501, %503, %505
-  %.0.i142 = phi i32 [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %500, %499 ], [ %479, %478 ]
+  %.0.i142 = phi i32 [ %479, %478 ], [ %500, %499 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ]
   switch i32 %.0.i142, label %runException256.exit115 [
     i32 1, label %repeatHasMatch.exit143.thread346
     i32 2, label %repeatHasMatch.exit143.thread348
@@ -6442,7 +6442,7 @@ lshift64_m256.exit43:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit45
 
 lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit43, %lshift64_m256.exit57
-  %.6 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %610, %lshift64_m256.exit43 ]
+  %.6 = phi <4 x i64> [ %610, %lshift64_m256.exit43 ], [ %601, %lshift64_m256.exit57 ]
   %611 = load <4 x i64>, ptr %555, align 32
   %612 = and <4 x i64> %611, %.1264428
   %613 = load i8, ptr %556, align 2
@@ -6454,7 +6454,7 @@ lshift64_m256.exit45:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit47
 
 lshift64_m256.exit47:                             ; preds = %lshift64_m256.exit45, %lshift64_m256.exit57
-  %.5 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %618, %lshift64_m256.exit45 ]
+  %.5 = phi <4 x i64> [ %618, %lshift64_m256.exit45 ], [ %601, %lshift64_m256.exit57 ]
   %619 = load <4 x i64>, ptr %557, align 32
   %620 = and <4 x i64> %619, %.1264428
   %621 = load i8, ptr %558, align 1
@@ -6466,7 +6466,7 @@ lshift64_m256.exit47:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit49
 
 lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit47, %lshift64_m256.exit57
-  %.4 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %626, %lshift64_m256.exit47 ]
+  %.4 = phi <4 x i64> [ %626, %lshift64_m256.exit47 ], [ %601, %lshift64_m256.exit57 ]
   %627 = load <4 x i64>, ptr %559, align 32
   %628 = and <4 x i64> %627, %.1264428
   %629 = load i8, ptr %560, align 4
@@ -6478,7 +6478,7 @@ lshift64_m256.exit49:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit51
 
 lshift64_m256.exit51:                             ; preds = %lshift64_m256.exit49, %lshift64_m256.exit57
-  %.3 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %634, %lshift64_m256.exit49 ]
+  %.3 = phi <4 x i64> [ %634, %lshift64_m256.exit49 ], [ %601, %lshift64_m256.exit57 ]
   %635 = load <4 x i64>, ptr %561, align 32
   %636 = and <4 x i64> %635, %.1264428
   %637 = load i8, ptr %562, align 1
@@ -6490,7 +6490,7 @@ lshift64_m256.exit51:                             ; preds = %lshift64_m256.exit4
   br label %lshift64_m256.exit53
 
 lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit51, %lshift64_m256.exit57
-  %.2 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %642, %lshift64_m256.exit51 ]
+  %.2 = phi <4 x i64> [ %642, %lshift64_m256.exit51 ], [ %601, %lshift64_m256.exit57 ]
   %643 = load <4 x i64>, ptr %563, align 32
   %644 = and <4 x i64> %643, %.1264428
   %645 = load i8, ptr %564, align 2
@@ -6502,7 +6502,7 @@ lshift64_m256.exit53:                             ; preds = %lshift64_m256.exit5
   br label %lshift64_m256.exit55
 
 lshift64_m256.exit55:                             ; preds = %lshift64_m256.exit53, %lshift64_m256.exit57
-  %.0 = phi <4 x i64> [ %601, %lshift64_m256.exit57 ], [ %650, %lshift64_m256.exit53 ]
+  %.0 = phi <4 x i64> [ %650, %lshift64_m256.exit53 ], [ %601, %lshift64_m256.exit57 ]
   %651 = load <4 x i64>, ptr %565, align 32
   %652 = and <4 x i64> %651, %.1264428
   %653 = load i8, ptr %566, align 1
@@ -6740,7 +6740,7 @@ lshift64_m256.exit55:                             ; preds = %lshift64_m256.exit5
   br label %repeatHasMatch.exit145
 
 repeatHasMatch.exit145:                           ; preds = %752, %773, %775, %777, %779
-  %.0.i144 = phi i32 [ %780, %779 ], [ %778, %777 ], [ %776, %775 ], [ %774, %773 ], [ %753, %752 ]
+  %.0.i144 = phi i32 [ %753, %752 ], [ %774, %773 ], [ %776, %775 ], [ %778, %777 ], [ %780, %779 ]
   switch i32 %.0.i144, label %runException256.exit125 [
     i32 1, label %repeatHasMatch.exit145.thread365
     i32 2, label %repeatHasMatch.exit145.thread367
@@ -6968,7 +6968,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_testEOD(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %49, %70, %72, %74, %76
-  %.0.i13 = phi i32 [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %50, %49 ]
+  %.0.i13 = phi i32 [ %50, %49 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %.not20.i = icmp eq i32 %.0.i13, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread26, label %repeatHasMatch.exit.thread
 
@@ -7180,7 +7180,7 @@ define hidden noundef signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %0, i64 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %65, %67, %69, %71, %73
-  %.0.i32 = phi i32 [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+  %.0.i32 = phi i32 [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ]
   %.not20.i = icmp eq i32 %.0.i32, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread47, label %repeatHasMatch.exit.thread
 
@@ -7301,7 +7301,7 @@ lshift64_m256.exit81:                             ; preds = %lshift64_m256.exit
   br label %lshift64_m256.exit83
 
 lshift64_m256.exit83:                             ; preds = %lshift64_m256.exit81, %lshift64_m256.exit
-  %.0124 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %59, %lshift64_m256.exit81 ]
+  %.0124 = phi <4 x i64> [ %59, %lshift64_m256.exit81 ], [ %50, %lshift64_m256.exit ]
   %60 = load <4 x i64>, ptr %20, align 32
   %61 = and <4 x i64> %60, %.068205
   %62 = load i8, ptr %21, align 2
@@ -7313,7 +7313,7 @@ lshift64_m256.exit83:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit85
 
 lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit83, %lshift64_m256.exit
-  %.1125 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %67, %lshift64_m256.exit83 ]
+  %.1125 = phi <4 x i64> [ %67, %lshift64_m256.exit83 ], [ %50, %lshift64_m256.exit ]
   %68 = load <4 x i64>, ptr %22, align 32
   %69 = and <4 x i64> %68, %.068205
   %70 = load i8, ptr %23, align 1
@@ -7325,7 +7325,7 @@ lshift64_m256.exit85:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit87
 
 lshift64_m256.exit87:                             ; preds = %lshift64_m256.exit85, %lshift64_m256.exit
-  %.2 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %75, %lshift64_m256.exit85 ]
+  %.2 = phi <4 x i64> [ %75, %lshift64_m256.exit85 ], [ %50, %lshift64_m256.exit ]
   %76 = load <4 x i64>, ptr %24, align 32
   %77 = and <4 x i64> %76, %.068205
   %78 = load i8, ptr %25, align 4
@@ -7337,7 +7337,7 @@ lshift64_m256.exit87:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit89
 
 lshift64_m256.exit89:                             ; preds = %lshift64_m256.exit87, %lshift64_m256.exit
-  %.3126 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %83, %lshift64_m256.exit87 ]
+  %.3126 = phi <4 x i64> [ %83, %lshift64_m256.exit87 ], [ %50, %lshift64_m256.exit ]
   %84 = load <4 x i64>, ptr %26, align 32
   %85 = and <4 x i64> %84, %.068205
   %86 = load i8, ptr %27, align 1
@@ -7349,7 +7349,7 @@ lshift64_m256.exit89:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit91
 
 lshift64_m256.exit91:                             ; preds = %lshift64_m256.exit89, %lshift64_m256.exit
-  %.4127 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %91, %lshift64_m256.exit89 ]
+  %.4127 = phi <4 x i64> [ %91, %lshift64_m256.exit89 ], [ %50, %lshift64_m256.exit ]
   %92 = load <4 x i64>, ptr %28, align 32
   %93 = and <4 x i64> %92, %.068205
   %94 = load i8, ptr %29, align 2
@@ -7361,7 +7361,7 @@ lshift64_m256.exit91:                             ; preds = %lshift64_m256.exit8
   br label %lshift64_m256.exit93
 
 lshift64_m256.exit93:                             ; preds = %lshift64_m256.exit91, %lshift64_m256.exit
-  %.5128 = phi <4 x i64> [ %50, %lshift64_m256.exit ], [ %99, %lshift64_m256.exit91 ]
+  %.5128 = phi <4 x i64> [ %99, %lshift64_m256.exit91 ], [ %50, %lshift64_m256.exit ]
   %100 = load <4 x i64>, ptr %30, align 32
   %101 = and <4 x i64> %100, %.068205
   %102 = load i8, ptr %31, align 1
@@ -7758,7 +7758,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAccept(ptr noundef %0
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %63, %84, %86, %88, %90
-  %.0.i15 = phi i32 [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %64, %63 ]
+  %.0.i15 = phi i32 [ %64, %63 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread29, label %repeatHasMatch.exit.thread
 
@@ -8000,7 +8000,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAnyAccept(ptr noundef
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %60, %81, %83, %85, %87
-  %.0.i14 = phi i32 [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %61, %60 ]
+  %.0.i14 = phi i32 [ %61, %60 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread24, label %repeatHasMatch.exit.thread
 
@@ -8148,7 +8148,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx256_zombie_status(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %49, %70, %72, %74, %76
-  %.0.i16 = phi i32 [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %50, %49 ]
+  %.0.i16 = phi i32 [ %50, %49 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
   %.not20.i = icmp eq i32 %.0.i16, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread26, label %repeatHasMatch.exit.thread
 

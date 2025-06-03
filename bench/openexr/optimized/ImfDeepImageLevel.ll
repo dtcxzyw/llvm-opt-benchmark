@@ -632,7 +632,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepIm
   ret void
 
 73:                                               ; preds = %69, %65, %61, %30
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %30 ], [ %70, %69 ], [ %66, %65 ], [ %62, %61 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %30 ], [ %62, %61 ], [ %66, %65 ], [ %70, %69 ]
   resume { ptr, i32 } %.pn.pn
 
 74:                                               ; preds = %25

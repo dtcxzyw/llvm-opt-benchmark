@@ -620,8 +620,8 @@ define noundef ptr @umutablecptrie_fromUCPTrie_77(ptr noundef %0, ptr noundef ca
   br label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11fromUCPTrieEPK7UCPTrieR10UErrorCode.exit
 
 50:                                               ; preds = %36, %25, %12
-  %.039.i = phi i32 [ %48, %36 ], [ %35, %25 ], [ %24, %12 ]
-  %.038.i = phi i32 [ %45, %36 ], [ %33, %25 ], [ %21, %12 ]
+  %.039.i = phi i32 [ %24, %12 ], [ %35, %25 ], [ %48, %36 ]
+  %.038.i = phi i32 [ %21, %12 ], [ %33, %25 ], [ %45, %36 ]
   %51 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 69696) #13
   %52 = icmp eq ptr %51, null
   br i1 %52, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i, label %53

@@ -1206,7 +1206,7 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   br label %62
 
 62:                                               ; preds = %53, %.thread, %21
-  %.010 = phi i32 [ %28, %21 ], [ %58, %53 ], [ %61, %.thread ]
+  %.010 = phi i32 [ %28, %21 ], [ %61, %.thread ], [ %58, %53 ]
   ret i32 %.010
 }
 

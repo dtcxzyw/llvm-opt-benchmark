@@ -5070,7 +5070,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_32(ptr nound
   br label %12
 
 12:                                               ; preds = %2, %11, %8, %5
-  %.0 = phi i32 [ 1, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %5 ], [ 0, %8 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5104,7 +5104,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_32(ptr no
   br label %16
 
 16:                                               ; preds = %2, %15, %12, %5
-  %.0 = phi i32 [ 1, %15 ], [ 0, %12 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %5 ], [ 0, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5156,7 +5156,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_64(ptr nound
   br label %26
 
 26:                                               ; preds = %2, %25, %18, %11, %8, %5
-  %.0 = phi i32 [ 1, %25 ], [ 0, %18 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %18 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5228,7 +5228,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_64(ptr no
   br label %46
 
 46:                                               ; preds = %2, %45, %42, %31, %18, %5
-  %.0 = phi i32 [ 1, %45 ], [ 0, %42 ], [ 0, %31 ], [ 0, %18 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %45 ], [ 0, %5 ], [ 0, %18 ], [ 0, %31 ], [ 0, %42 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -10758,8 +10758,8 @@ tng_gzip_uncompress.exit.i.i:                     ; preds = %1062
   br label %tng_data_read.exit.i
 
 tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress.exit.i.i, %1049, %1023, %1017, %1016
-  %.0263.i.i = phi ptr [ %1002, %1016 ], [ %1002, %1017 ], [ %1058, %tng_gzip_uncompress.exit.i.i ], [ %1002, %1023 ], [ %1036, %1049 ]
-  %.1176.i.i = phi i64 [ %851, %1016 ], [ %spec.select.i.i, %1017 ], [ %spec.select.i.i, %tng_gzip_uncompress.exit.i.i ], [ %spec.select.i.i, %1023 ], [ %spec.select.i.i, %1049 ]
+  %.0263.i.i = phi ptr [ %1002, %1016 ], [ %1002, %1017 ], [ %1002, %1023 ], [ %1058, %tng_gzip_uncompress.exit.i.i ], [ %1036, %1049 ]
+  %.1176.i.i = phi i64 [ %851, %1016 ], [ %spec.select.i.i, %1017 ], [ %spec.select.i.i, %1023 ], [ %spec.select.i.i, %tng_gzip_uncompress.exit.i.i ], [ %spec.select.i.i, %1049 ]
   %1080 = getelementptr inbounds nuw i8, ptr %.1267.i.i, i64 80
   %1081 = load ptr, ptr %1080, align 8, !tbaa !151
   %.not203.i.i = icmp eq ptr %1081, null
@@ -11024,7 +11024,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br label %tng_data_read.exit.i
 
 tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.split.us347.i.i, %.split.us.i.i, %1094, %1077, %1054, %1010, %1003, %967, %947, %864
-  %.0168.i.i = phi i32 [ 2, %947 ], [ 2, %1010 ], [ 2, %1094 ], [ 2, %.split.us.i.i ], [ 0, %.loopexit.i.i ], [ 2, %.split.us347.i.i ], [ 2, %1077 ], [ 2, %1054 ], [ 2, %1003 ], [ 2, %967 ], [ 1, %864 ]
+  %.0168.i.i = phi i32 [ 2, %947 ], [ 2, %1010 ], [ 2, %1094 ], [ 2, %.split.us.i.i ], [ 0, %.loopexit.i.i ], [ 2, %.split.us347.i.i ], [ 2, %1054 ], [ 2, %1077 ], [ 2, %1003 ], [ 2, %967 ], [ 1, %864 ]
   br i1 %836, label %1190, label %1199
 
 1190:                                             ; preds = %tng_data_read.exit.i
@@ -11080,7 +11080,7 @@ tng_data_block_contents_read.exit:                ; preds = %830, %841, %1190, %
   br label %1210
 
 1210:                                             ; preds = %1204, %tng_data_block_contents_read.exit, %tng_molecules_block_read.exit, %tng_general_info_block_read.exit, %252, %tng_frame_set_block_read.exit
-  %.0 = phi i32 [ %.0.i39, %tng_data_block_contents_read.exit ], [ 1, %1204 ], [ %.0203.i, %tng_molecules_block_read.exit ], [ %.0.i20, %tng_general_info_block_read.exit ], [ %253, %252 ], [ %.0.i, %tng_frame_set_block_read.exit ]
+  %.0 = phi i32 [ %.0.i39, %tng_data_block_contents_read.exit ], [ 1, %1204 ], [ %.0.i, %tng_frame_set_block_read.exit ], [ %253, %252 ], [ %.0.i20, %tng_general_info_block_read.exit ], [ %.0203.i, %tng_molecules_block_read.exit ]
   ret i32 %.0
 }
 
@@ -32640,7 +32640,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br label %58
 
 58:                                               ; preds = %27, %25, %46, %44, %56, %54, %51, %41, %22
-  %.0 = phi i32 [ 2, %51 ], [ 2, %41 ], [ 2, %22 ], [ 0, %54 ], [ 0, %56 ], [ 0, %44 ], [ 0, %46 ], [ 0, %25 ], [ 0, %27 ]
+  %.0 = phi i32 [ 2, %51 ], [ 2, %22 ], [ 2, %41 ], [ 0, %54 ], [ 0, %56 ], [ 0, %44 ], [ 0, %46 ], [ 0, %25 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
   ret i32 %.0

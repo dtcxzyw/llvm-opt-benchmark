@@ -94,9 +94,9 @@ base64_encode_value.exit:                         ; preds = %24, %30
   br label %37
 
 37:                                               ; preds = %base64_encode_value.exit, %4
-  %.258 = phi ptr [ %0, %4 ], [ %25, %base64_encode_value.exit ]
-  %.254 = phi ptr [ %2, %4 ], [ %34, %base64_encode_value.exit ]
-  %.2 = phi i8 [ %8, %4 ], [ %36, %base64_encode_value.exit ]
+  %.258 = phi ptr [ %25, %base64_encode_value.exit ], [ %0, %4 ]
+  %.254 = phi ptr [ %34, %base64_encode_value.exit ], [ %2, %4 ]
+  %.2 = phi i8 [ %36, %base64_encode_value.exit ], [ %8, %4 ]
   %38 = icmp eq ptr %.258, %6
   br i1 %38, label %.sink.split, label %39
 
@@ -205,7 +205,7 @@ base64_encode_value.exit13:                       ; preds = %15, %19
   br label %25
 
 25:                                               ; preds = %base64_encode_value.exit13, %base64_encode_value.exit, %2
-  %.0 = phi ptr [ %0, %2 ], [ %24, %base64_encode_value.exit13 ], [ %14, %base64_encode_value.exit ]
+  %.0 = phi ptr [ %0, %2 ], [ %14, %base64_encode_value.exit ], [ %24, %base64_encode_value.exit13 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 10, ptr %.0, align 1
   %27 = ptrtoint ptr %26 to i64

@@ -148,7 +148,7 @@ default.unreachable:                              ; preds = %5
   unreachable
 
 41:                                               ; preds = %5, %34, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit, %10
-  %.0 = phi ptr [ %40, %34 ], [ %33, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit ], [ %17, %10 ], [ null, %5 ]
+  %.0 = phi ptr [ %17, %10 ], [ %33, %_ZN5clang7CodeGen13CodeGenModule31getPointerAuthDeclDiscriminatorENS_10GlobalDeclE.exit ], [ %40, %34 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -469,7 +469,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread8.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %57, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %58, %57 ]
+  %.1.i.i.i = phi ptr [ %58, %57 ], [ %53, %.lr.ph.i.i ]
   %59 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %60 = load i24, ptr %59, align 16
   %61 = and i24 %60, 1048576
@@ -3379,7 +3379,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 

@@ -125,7 +125,7 @@ default.unreachable21:                            ; preds = %2
   unreachable
 
 57:                                               ; preds = %2, %50, %43, %37, %31, %24, %17, %11
-  %.0 = phi i64 [ %8, %2 ], [ %56, %50 ], [ %49, %43 ], [ %42, %37 ], [ %36, %31 ], [ %30, %24 ], [ %23, %17 ], [ %16, %11 ]
+  %.0 = phi i64 [ %16, %11 ], [ %23, %17 ], [ %30, %24 ], [ %36, %31 ], [ %42, %37 ], [ %49, %43 ], [ %56, %50 ], [ %8, %2 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !18
   %60 = getelementptr inbounds nuw i64, ptr %59, i64 %9

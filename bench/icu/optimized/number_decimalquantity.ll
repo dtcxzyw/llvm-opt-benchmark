@@ -2644,7 +2644,7 @@ _ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52.loopexit: ; pr
   br label %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52
 
 _ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52: ; preds = %._crit_edge.i42, %116, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52.loopexit, %188, %184, %180, %171, %160, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit, %_ZNK6icu_776number4impl15DecimalQuantity6toLongEb.exit
-  %.0 = phi double [ %190, %188 ], [ %187, %184 ], [ %183, %180 ], [ %179, %171 ], [ %170, %160 ], [ %115, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit ], [ %74, %_ZNK6icu_776number4impl15DecimalQuantity6toLongEb.exit ], [ 0.000000e+00, %._crit_edge.i42 ], [ 0.000000e+00, %116 ], [ %159, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52.loopexit ]
+  %.0 = phi double [ %190, %188 ], [ %74, %_ZNK6icu_776number4impl15DecimalQuantity6toLongEb.exit ], [ %115, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit ], [ %170, %160 ], [ %179, %171 ], [ %183, %180 ], [ %187, %184 ], [ 0.000000e+00, %._crit_edge.i42 ], [ 0.000000e+00, %116 ], [ %159, %_ZNK6icu_776number4impl15DecimalQuantity14toFractionLongEb.exit52.loopexit ]
   ret double %.0
 }
 
@@ -5920,8 +5920,8 @@ default.unreachable308:                           ; preds = %235
   store i32 65809, ptr %4, align 4, !tbaa !13
   br label %.critedge
 
-240:                                              ; preds = %238, %236, %234, %233, %231, %229, %227, %226, %220, %219, %218, %217, %225, %228, %232, %235, %222, %224
-  %.0.i263.ph = phi i1 [ %switch311, %224 ], [ %switch, %222 ], [ true, %235 ], [ %214, %232 ], [ true, %228 ], [ %210, %225 ], [ false, %217 ], [ true, %218 ], [ %214, %219 ], [ %221, %220 ], [ true, %226 ], [ false, %227 ], [ %230, %229 ], [ false, %231 ], [ true, %233 ], [ false, %234 ], [ %237, %236 ], [ false, %238 ]
+240:                                              ; preds = %218, %219, %220, %226, %227, %229, %231, %233, %234, %236, %238, %217, %225, %228, %232, %235, %222, %224
+  %.0.i263.ph = phi i1 [ %switch311, %224 ], [ %switch, %222 ], [ true, %235 ], [ %214, %232 ], [ true, %228 ], [ %210, %225 ], [ false, %217 ], [ false, %238 ], [ %237, %236 ], [ false, %234 ], [ true, %233 ], [ false, %231 ], [ %230, %229 ], [ false, %227 ], [ true, %226 ], [ %221, %220 ], [ %214, %219 ], [ true, %218 ]
   %241 = load i32, ptr %44, align 8, !tbaa !28
   %.not201 = icmp slt i32 %.0.i, %241
   %242 = load i8, ptr %17, align 8, !tbaa !22, !range !24, !noundef !25

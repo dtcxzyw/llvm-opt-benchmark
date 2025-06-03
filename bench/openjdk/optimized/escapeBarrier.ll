@@ -307,7 +307,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %87, %89
   br label %91
 
 91:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %3, %90
-  %.029 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %90 ], [ true, %3 ], [ false, %11 ]
+  %.029 = phi i1 [ true, %90 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %3 ], [ false, %11 ]
   ret i1 %.029
 }
 

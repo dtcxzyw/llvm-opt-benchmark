@@ -1131,9 +1131,9 @@ _ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.thread.thread174.i.i: ; pre
   br i1 %.not91164.i.i, label %thread-pre-split.ithread-pre-split.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %289, %288, %287, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93
-  %.085185.i.i = phi i32 [ 2, %289 ], [ 1, %288 ], [ 1, %287 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ]
-  %.086184.i.i = phi i32 [ %292, %289 ], [ 7, %288 ], [ 6, %287 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ]
-  %.087183.i.i = phi i32 [ 1, %289 ], [ 4, %288 ], [ 4, %287 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ]
+  %.085185.i.i = phi i32 [ 2, %289 ], [ 1, %287 ], [ 1, %288 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ]
+  %.086184.i.i = phi i32 [ %292, %289 ], [ 6, %287 ], [ 7, %288 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ], [ 3, %93 ]
+  %.087183.i.i = phi i32 [ 1, %289 ], [ 4, %287 ], [ 4, %288 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ], [ 1, %93 ]
   %293 = getelementptr inbounds nuw i8, ptr %85, i64 32
   br label %294
 
@@ -1375,7 +1375,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.i: ; preds = %.lr.p
   unreachable
 
 _ZL6getWOpj.exit.i:                               ; preds = %393, %392, %391, %390, %389, %.lr.ph.i
-  %.0.i47.neg.i = phi i64 [ -12937, %393 ], [ -12905, %392 ], [ -12742, %391 ], [ -12682, %390 ], [ -11756, %389 ], [ -11755, %.lr.ph.i ]
+  %.0.i47.neg.i = phi i64 [ -11756, %389 ], [ -12682, %390 ], [ -12742, %391 ], [ -12905, %392 ], [ -12937, %393 ], [ -11755, %.lr.ph.i ]
   %395 = load ptr, ptr %49, align 8, !tbaa !374
   %396 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %395, i64 %.0.i47.neg.i
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %386, ptr noundef nonnull align 8 dereferenceable(32) %396) #17
@@ -1483,7 +1483,7 @@ _ZN12_GLOBAL__N_115RISCVOptWInstrs17removeSExtWInstrsERN4llvm15MachineFunctionER
   br label %428
 
 428:                                              ; preds = %427, %426, %425, %.lr.ph.i27
-  %.0.neg.i = phi i64 [ -12904, %427 ], [ -12738, %426 ], [ -11754, %425 ], [ -11753, %.lr.ph.i27 ]
+  %.0.neg.i = phi i64 [ -11754, %425 ], [ -12738, %426 ], [ -12904, %427 ], [ -11753, %.lr.ph.i27 ]
   %429 = call fastcc noundef zeroext i1 @_ZL12hasAllWUsersRKN4llvm12MachineInstrERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.01.011.i, ptr noundef nonnull readonly align 8 dereferenceable(413544) %16, ptr noundef nonnull readonly align 8 dereferenceable(504) %14)
   br i1 %429, label %430, label %433
 
@@ -1599,7 +1599,7 @@ _ZN12_GLOBAL__N_115RISCVOptWInstrs14stripWSuffixesERN4llvm15MachineFunctionERKNS
   br label %469
 
 469:                                              ; preds = %468, %462, %461, %460, %459, %.lr.ph.i39
-  %.0.neg.i42 = phi i64 [ -12682, %468 ], [ -12742, %461 ], [ -12937, %460 ], [ -11755, %459 ], [ -11756, %.lr.ph.i39 ], [ -12905, %462 ]
+  %.0.neg.i42 = phi i64 [ -11755, %459 ], [ -12937, %460 ], [ -12742, %461 ], [ -12682, %468 ], [ -11756, %.lr.ph.i39 ], [ -12905, %462 ]
   %470 = call fastcc noundef zeroext i1 @_ZL12hasAllWUsersRKN4llvm12MachineInstrERKNS_14RISCVSubtargetERKNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.01.011.i40, ptr noundef nonnull readonly align 8 dereferenceable(413544) %16, ptr noundef nonnull readonly align 8 dereferenceable(504) %14)
   br i1 %470, label %471, label %477
 

@@ -4802,7 +4802,7 @@ _ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit: ; preds = %216
   %spec.select.i30.i = icmp eq i32 %230, 4
   br i1 %spec.select.i30.i, label %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit.thread, label %_ZL31isValidProtoForSizeReturningNewRKN4llvm12FunctionTypeENS_7LibFuncERKNS_6ModuleEi.exit
 
-_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit.thread: ; preds = %216, %216, %216, %216, %216, %212, %212, %212, %212, %212, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %162, %167, %169, %171, %173, %180, %183, %193, %196, %198, %200, %202, %207, %219, %224, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit, %159
+_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit.thread: ; preds = %216, %216, %216, %216, %216, %212, %212, %212, %212, %212, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %224, %219, %207, %202, %200, %198, %196, %193, %183, %180, %173, %171, %169, %167, %162, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit, %159
   %231 = icmp eq i64 %.079.idx139, %149
   %.pre = add nuw nsw i64 %.079.idx139, 1
   br i1 %231, label %236, label %232
@@ -4836,8 +4836,8 @@ _ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit.thread: ; preds = %216, %216, 
 default.unreachable:                              ; preds = %72
   unreachable
 
-_ZL31isValidProtoForSizeReturningNewRKN4llvm12FunctionTypeENS_7LibFuncERKNS_6ModuleEi.exit: ; preds = %159, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit, %160, %224, %219, %207, %202, %200, %198, %196, %193, %183, %180, %173, %171, %169, %167, %162, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %68, %65, %63, %.thread125, %.thread124, %155, %51, %59, %54, %126, %121, %116, %110, %109, %104, %98, %97, %92, %86, %85, %79, %78, %239, %.thread113, %40, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, %34, %36, %20, %25, %29
-  %.2 = phi i1 [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ false, %25 ], [ false, %20 ], [ %33, %29 ], [ false, %34 ], [ %39, %36 ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ false, %40 ], [ false, %.thread113 ], [ %242, %239 ], [ %135, %126 ], [ false, %79 ], [ false, %78 ], [ false, %92 ], [ false, %86 ], [ false, %85 ], [ false, %104 ], [ false, %98 ], [ false, %97 ], [ false, %121 ], [ false, %116 ], [ false, %110 ], [ false, %109 ], [ %62, %59 ], [ false, %54 ], [ false, %51 ], [ %158, %155 ], [ false, %.thread124 ], [ false, %.thread125 ], [ %71, %68 ], [ false, %65 ], [ false, %63 ], [ false, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ false, %162 ], [ false, %167 ], [ false, %169 ], [ false, %171 ], [ false, %173 ], [ false, %180 ], [ false, %183 ], [ false, %193 ], [ false, %196 ], [ false, %198 ], [ false, %200 ], [ false, %202 ], [ false, %207 ], [ false, %219 ], [ false, %224 ], [ false, %160 ], [ false, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit ], [ false, %159 ]
+_ZL31isValidProtoForSizeReturningNewRKN4llvm12FunctionTypeENS_7LibFuncERKNS_6ModuleEi.exit: ; preds = %159, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit, %160, %162, %167, %169, %171, %173, %180, %183, %193, %196, %198, %200, %202, %207, %219, %224, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %68, %65, %63, %.thread125, %.thread124, %155, %51, %59, %54, %126, %121, %116, %110, %109, %104, %98, %97, %92, %86, %85, %79, %78, %239, %.thread113, %40, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, %34, %36, %20, %25, %29
+  %.2 = phi i1 [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ false, %25 ], [ false, %20 ], [ %33, %29 ], [ false, %34 ], [ %39, %36 ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread ], [ false, %40 ], [ false, %.thread113 ], [ %242, %239 ], [ %135, %126 ], [ false, %79 ], [ false, %78 ], [ false, %92 ], [ false, %86 ], [ false, %85 ], [ false, %104 ], [ false, %98 ], [ false, %97 ], [ false, %121 ], [ false, %116 ], [ false, %110 ], [ false, %109 ], [ %62, %59 ], [ false, %54 ], [ false, %51 ], [ %158, %155 ], [ false, %.thread124 ], [ false, %.thread125 ], [ %71, %68 ], [ false, %65 ], [ false, %63 ], [ false, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ false, %224 ], [ false, %219 ], [ false, %207 ], [ false, %202 ], [ false, %200 ], [ false, %198 ], [ false, %196 ], [ false, %193 ], [ false, %183 ], [ false, %180 ], [ false, %173 ], [ false, %171 ], [ false, %169 ], [ false, %167 ], [ false, %162 ], [ false, %160 ], [ false, %_ZL9matchType13FuncArgTypeIDPKN4llvm4TypeEjj.exit ], [ false, %159 ]
   ret i1 %.2
 }
 
@@ -5701,7 +5701,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %2
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %6
-  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %8, %6 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %8, %6 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
   %9 = icmp slt i32 %.1.i.i, 0
   ret i1 %9
 }
@@ -5738,7 +5738,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %2
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %8
-  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %10, %8 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %10, %8 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
   %11 = icmp slt i32 %.1.i.i, 0
   ret i1 %11
 }
@@ -5884,7 +5884,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZSt7advanceIN9
   br label %_ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit
 
 _ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %.thread.i.i.i, %29
-  %.1.i.i.i9 = phi i32 [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %31, %29 ], [ 0, %.thread.i.i.i ]
+  %.1.i.i.i9 = phi i32 [ %31, %29 ], [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ 0, %.thread.i.i.i ]
   %32 = icmp slt i32 %.1.i.i.i9, 0
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %34 = xor i64 %24, -1
@@ -6004,7 +6004,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZSt7advanceIN9
   br label %_ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit
 
 _ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %.thread.i.i.i, %31
-  %.1.i.i.i13 = phi i32 [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %33, %31 ], [ 0, %.thread.i.i.i ]
+  %.1.i.i.i13 = phi i32 [ %33, %31 ], [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ 0, %.thread.i.i.i ]
   %34 = icmp slt i32 %.1.i.i.i13, 0
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %36 = xor i64 %26, -1
@@ -6960,7 +6960,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZSt7advanceIN9
   br label %_ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit
 
 _ZL23compareWithScalarFnNameRKN4llvm7VecDescENS_9StringRefE.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %.thread.i.i.i, %31
-  %.1.i.i.i25 = phi i32 [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ %33, %31 ], [ 0, %.thread.i.i.i ]
+  %.1.i.i.i25 = phi i32 [ %33, %31 ], [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ 0, %.thread.i.i.i ]
   %34 = icmp slt i32 %.1.i.i.i25, 0
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %36 = xor i64 %26, -1

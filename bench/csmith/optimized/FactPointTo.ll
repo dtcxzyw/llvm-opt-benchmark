@@ -4433,7 +4433,7 @@ define dso_local noundef zeroext i1 @_ZNK11FactPointTo5implyERK4Fact(ptr noundef
   br label %12
 
 12:                                               ; preds = %7, %11
-  %.1 = phi i1 [ true, %7 ], [ false, %11 ]
+  %.1 = phi i1 [ false, %11 ], [ true, %7 ]
   ret i1 %.1
 }
 
@@ -5978,9 +5978,9 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29:   ; preds = %_ZNSt6vectorIPK8Var
   br label %40
 
 40:                                               ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit
-  %.sroa.0.0 = phi ptr [ %35, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ], [ %22, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ]
-  %.sroa.13.0 = phi ptr [ %37, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ], [ %24, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ]
-  %.sroa.16.0 = phi ptr [ %39, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ], [ %26, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ]
+  %.sroa.0.0 = phi ptr [ %22, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %35, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ]
+  %.sroa.13.0 = phi ptr [ %24, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %37, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ]
+  %.sroa.16.0 = phi ptr [ %26, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %39, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit29 ]
   %41 = ptrtoint ptr %.sroa.0.0 to i64
   %.not52 = icmp eq ptr %.sroa.13.0, %.sroa.0.0
   br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader

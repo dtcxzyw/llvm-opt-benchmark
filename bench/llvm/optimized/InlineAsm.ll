@@ -548,7 +548,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_
   br label %_ZN4llvm17ConstantUniqueMapINS_9InlineAsmEE6removeEPS1_.exit
 
 _ZN4llvm17ConstantUniqueMapINS_9InlineAsmEE6removeEPS1_.exit: ; preds = %.loopexit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.i.i.i
-  %.sroa.0.1.i.i.i = phi ptr [ %27, %.loopexit.i.i.i ], [ %31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.i.i.i ]
+  %.sroa.0.1.i.i.i = phi ptr [ %31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.i.i.i ], [ %27, %.loopexit.i.i.i ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.sroa.0.1.i.i.i, align 8, !tbaa !58
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 1688
   %33 = load i32, ptr %32, align 8, !tbaa !80
@@ -924,9 +924,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   store i8 1, ptr %70, align 4, !tbaa !110
   br label %119
 
-119:                                              ; preds = %118, %115
-  %120 = phi i8 [ %111, %118 ], [ 1, %115 ]
-  %121 = phi i8 [ 1, %118 ], [ %110, %115 ]
+119:                                              ; preds = %115, %118
+  %120 = phi i8 [ 1, %115 ], [ %111, %118 ]
+  %121 = phi i8 [ %110, %115 ], [ 1, %118 ]
   %122 = getelementptr inbounds nuw i8, ptr %.294220, i64 1
   %123 = icmp eq ptr %122, %13
   br i1 %123, label %.critedge137, label %.preheader216.split.split, !llvm.loop !113
@@ -2527,11 +2527,11 @@ define dso_local void @_ZN4llvm9InlineAsm6verifyEPNS_12FunctionTypeENS_9StringRe
   br label %38
 
 38:                                               ; preds = %.thread, %._crit_edge97, %36, %32, %27, %.lr.ph
-  %.248.ph = phi i32 [ 0, %27 ], [ %33, %32 ], [ 0, %36 ], [ %.04691, %.lr.ph ], [ 0, %._crit_edge97 ], [ 0, %.thread ]
-  %.345.ph = phi i32 [ %.03594, %27 ], [ %.04292, %32 ], [ %.04292, %36 ], [ %.04292, %.lr.ph ], [ %.04292, %._crit_edge97 ], [ %29, %.thread ]
-  %.241.ph = phi i32 [ 0, %27 ], [ %.03993, %32 ], [ %37, %36 ], [ %.03993, %.lr.ph ], [ %.03993, %._crit_edge97 ], [ 0, %.thread ]
-  %.338.ph = phi i32 [ %.03594, %27 ], [ %.03594, %32 ], [ %.03594, %36 ], [ %.03594, %.lr.ph ], [ %.pre, %._crit_edge97 ], [ %29, %.thread ]
-  %.3.ph = phi i32 [ %28, %27 ], [ %.03295, %32 ], [ %.03295, %36 ], [ %.03295, %.lr.ph ], [ %.03295, %._crit_edge97 ], [ %.03295, %.thread ]
+  %.248.ph = phi i32 [ 0, %36 ], [ %33, %32 ], [ 0, %27 ], [ %.04691, %.lr.ph ], [ 0, %._crit_edge97 ], [ 0, %.thread ]
+  %.345.ph = phi i32 [ %.04292, %36 ], [ %.04292, %32 ], [ %.03594, %27 ], [ %.04292, %.lr.ph ], [ %.04292, %._crit_edge97 ], [ %29, %.thread ]
+  %.241.ph = phi i32 [ %37, %36 ], [ %.03993, %32 ], [ 0, %27 ], [ %.03993, %.lr.ph ], [ %.03993, %._crit_edge97 ], [ 0, %.thread ]
+  %.338.ph = phi i32 [ %.03594, %36 ], [ %.03594, %32 ], [ %.03594, %27 ], [ %.03594, %.lr.ph ], [ %.pre, %._crit_edge97 ], [ %29, %.thread ]
+  %.3.ph = phi i32 [ %.03295, %36 ], [ %.03295, %32 ], [ %28, %27 ], [ %.03295, %.lr.ph ], [ %.03295, %._crit_edge97 ], [ %.03295, %.thread ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.056.090, i64 80
   %.not81 = icmp eq ptr %39, %13
   br i1 %.not81, label %._crit_edge, label %.lr.ph

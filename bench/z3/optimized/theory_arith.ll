@@ -18133,7 +18133,7 @@ _ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread: ; preds = %181, 
   br label %198
 
 198:                                              ; preds = %23, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread, %195, %._crit_edge, %157, %125, %122, %114, %106, %98, %90, %82, %74, %66, %58, %50, %42
-  %.1 = phi i32 [ %25, %23 ], [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
+  %.1 = phi i32 [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %25, %23 ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
   ret i32 %.1
 }
 
@@ -33680,7 +33680,7 @@ _ZN3smt12theory_arithINS_6mi_extEE20elim_quasi_base_rowsEv.exit: ; preds = %97, 
           cleanup
   br label %182
 
-.thread:                                          ; preds = %119, %148, %147, %140, %129, %127, %155
+.thread:                                          ; preds = %119, %127, %129, %147, %140, %148, %155
   %160 = load i32, ptr %113, align 4, !tbaa !962
   %161 = add i32 %160, 1
   %162 = and i32 %161, 3
@@ -33936,20 +33936,20 @@ _ZN3smt12theory_arithINS_6mi_extEE31push_dec_unassigned_atoms_trailEi.exit.i: ; 
   %69 = phi i8 [ %.pre.i, %_ZN3smt12theory_arithINS_6mi_extEE31push_dec_unassigned_atoms_trailEi.exit.i ], [ %45, %37 ]
   %70 = and i8 %69, 1
   %switch.not.not.i = icmp eq i8 %70, 0
-  br i1 %switch.not.not.i, label %_ZN3smt12theory_arithINS_6mi_extEE12assert_boundEPNS2_5boundE.exit, label %71
+  br i1 %switch.not.not.i, label %71, label %_ZN3smt12theory_arithINS_6mi_extEE12assert_boundEPNS2_5boundE.exit
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %30, align 4, !tbaa !996
+  %72 = load i32, ptr %31, align 8, !tbaa !996
   %73 = add i32 %72, 1
-  store i32 %73, ptr %30, align 4, !tbaa !996
-  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %40)
+  store i32 %73, ptr %31, align 8, !tbaa !996
+  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %40)
   br i1 %74, label %78, label %.thread
 
 _ZN3smt12theory_arithINS_6mi_extEE12assert_boundEPNS2_5boundE.exit: ; preds = %68
-  %75 = load i32, ptr %31, align 8, !tbaa !997
+  %75 = load i32, ptr %30, align 4, !tbaa !997
   %76 = add i32 %75, 1
-  store i32 %76, ptr %31, align 8, !tbaa !997
-  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %40)
+  store i32 %76, ptr %30, align 4, !tbaa !997
+  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %40)
   br i1 %77, label %78, label %.thread
 
 .thread:                                          ; preds = %_ZN3smt12theory_arithINS_6mi_extEE12assert_boundEPNS2_5boundE.exit, %71
@@ -34433,22 +34433,22 @@ _ZN3smt12theory_arithINS_6mi_extEE31push_dec_unassigned_atoms_trailEi.exit: ; pr
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %36 = load i32, ptr %35, align 8, !tbaa !997
+  %36 = load i32, ptr %35, align 8, !tbaa !996
   %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !997
+  store i32 %37, ptr %35, align 8, !tbaa !996
   %38 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %1)
   br label %44
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %41 = load i32, ptr %40, align 4, !tbaa !996
+  %41 = load i32, ptr %40, align 4, !tbaa !997
   %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !996
+  store i32 %42, ptr %40, align 4, !tbaa !997
   %43 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1640) %0, ptr noundef nonnull %1)
   br label %44
 
 44:                                               ; preds = %39, %34
-  %.0.shrunk = phi i1 [ %43, %39 ], [ %38, %34 ]
+  %.0.shrunk = phi i1 [ %38, %34 ], [ %43, %39 ]
   ret i1 %.0.shrunk
 }
 
@@ -40612,7 +40612,7 @@ _ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i
   br label %_ZN3smt12theory_arithINS_6mi_extEE19select_smallest_varEv.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE19select_smallest_varEv.exit: ; preds = %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i3, %75, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i, %13, %65, %63
-  %.0 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
+  %.0 = phi i32 [ %64, %63 ], [ %66, %65 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_6mi_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
   ret i32 %.0
 }
 
@@ -83033,7 +83033,7 @@ _ZNK3smt12theory_arithINS_6mi_extEE16is_pure_monomialEP4expr.exit.thread: ; pred
   br label %71
 
 71:                                               ; preds = %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit, %3, %_ZNK3smt12theory_arithINS_6mi_extEE16is_pure_monomialEP4expr.exit.thread
-  %.0 = phi i32 [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 0, %_ZNK3smt12theory_arithINS_6mi_extEE16is_pure_monomialEP4expr.exit.thread ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %_ZNK3smt12theory_arithINS_6mi_extEE16is_pure_monomialEP4expr.exit.thread ], [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -106338,10 +106338,10 @@ _ZNK6vectorIN3smt12theory_arithINS0_6mi_extEE3rowELb1EjE4sizeEv.exit: ; preds = 
   %14 = load i32, ptr %13, align 8, !tbaa !1029
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.56, i32 noundef %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = load i32, ptr %15, align 8, !tbaa !997
+  %16 = load i32, ptr %15, align 8, !tbaa !996
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.57, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %18 = load i32, ptr %17, align 4, !tbaa !996
+  %18 = load i32, ptr %17, align 4, !tbaa !997
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.58, i32 noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load i32, ptr %19, align 8, !tbaa !934
@@ -123760,7 +123760,7 @@ _ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread: ; preds = %181, 
   br label %198
 
 198:                                              ; preds = %23, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread, %195, %._crit_edge, %157, %125, %122, %114, %106, %98, %90, %82, %74, %66, %58, %50, %42
-  %.1 = phi i32 [ %25, %23 ], [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
+  %.1 = phi i32 [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %25, %23 ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
   ret i32 %.1
 }
 
@@ -139973,7 +139973,7 @@ _ZN3smt12theory_arithINS_5i_extEE20elim_quasi_base_rowsEv.exit: ; preds = %97, %
           cleanup
   br label %182
 
-.thread:                                          ; preds = %119, %148, %147, %140, %129, %127, %155
+.thread:                                          ; preds = %119, %127, %129, %147, %140, %148, %155
   %160 = load i32, ptr %113, align 4, !tbaa !2021
   %161 = add i32 %160, 1
   %162 = and i32 %161, 3
@@ -140229,20 +140229,20 @@ _ZN3smt12theory_arithINS_5i_extEE31push_dec_unassigned_atoms_trailEi.exit.i: ; p
   %69 = phi i8 [ %.pre.i, %_ZN3smt12theory_arithINS_5i_extEE31push_dec_unassigned_atoms_trailEi.exit.i ], [ %45, %37 ]
   %70 = and i8 %69, 1
   %switch.not.not.i = icmp eq i8 %70, 0
-  br i1 %switch.not.not.i, label %_ZN3smt12theory_arithINS_5i_extEE12assert_boundEPNS2_5boundE.exit, label %71
+  br i1 %switch.not.not.i, label %71, label %_ZN3smt12theory_arithINS_5i_extEE12assert_boundEPNS2_5boundE.exit
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %30, align 4, !tbaa !2041
+  %72 = load i32, ptr %31, align 8, !tbaa !2041
   %73 = add i32 %72, 1
-  store i32 %73, ptr %30, align 4, !tbaa !2041
-  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %40)
+  store i32 %73, ptr %31, align 8, !tbaa !2041
+  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %40)
   br i1 %74, label %_ZN3smt12theory_arithINS_5i_extEE6failedEv.exit, label %78
 
 _ZN3smt12theory_arithINS_5i_extEE12assert_boundEPNS2_5boundE.exit: ; preds = %68
-  %75 = load i32, ptr %31, align 8, !tbaa !2042
+  %75 = load i32, ptr %30, align 4, !tbaa !2042
   %76 = add i32 %75, 1
-  store i32 %76, ptr %31, align 8, !tbaa !2042
-  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %40)
+  store i32 %76, ptr %30, align 4, !tbaa !2042
+  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %40)
   br i1 %77, label %_ZN3smt12theory_arithINS_5i_extEE6failedEv.exit, label %78
 
 78:                                               ; preds = %71, %_ZN3smt12theory_arithINS_5i_extEE12assert_boundEPNS2_5boundE.exit
@@ -140927,22 +140927,22 @@ _ZN3smt12theory_arithINS_5i_extEE31push_dec_unassigned_atoms_trailEi.exit: ; pre
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %36 = load i32, ptr %35, align 8, !tbaa !2042
+  %36 = load i32, ptr %35, align 8, !tbaa !2041
   %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !2042
+  store i32 %37, ptr %35, align 8, !tbaa !2041
   %38 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %1)
   br label %44
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %41 = load i32, ptr %40, align 4, !tbaa !2041
+  %41 = load i32, ptr %40, align 4, !tbaa !2042
   %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !2041
+  store i32 %42, ptr %40, align 4, !tbaa !2042
   %43 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1544) %0, ptr noundef nonnull %1)
   br label %44
 
 44:                                               ; preds = %39, %34
-  %.0.shrunk = phi i1 [ %43, %39 ], [ %38, %34 ]
+  %.0.shrunk = phi i1 [ %38, %34 ], [ %43, %39 ]
   ret i1 %.0.shrunk
 }
 
@@ -146884,7 +146884,7 @@ _ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i3
   br label %_ZN3smt12theory_arithINS_5i_extEE19select_smallest_varEv.exit
 
 _ZN3smt12theory_arithINS_5i_extEE19select_smallest_varEv.exit: ; preds = %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i3, %75, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i, %13, %65, %63
-  %.0 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
+  %.0 = phi i32 [ %64, %63 ], [ %66, %65 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_5i_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
   ret i32 %.0
 }
 
@@ -190282,7 +190282,7 @@ _ZNK3smt12theory_arithINS_5i_extEE16is_pure_monomialEP4expr.exit.thread: ; preds
   br label %71
 
 71:                                               ; preds = %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit, %3, %_ZNK3smt12theory_arithINS_5i_extEE16is_pure_monomialEP4expr.exit.thread
-  %.0 = phi i32 [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 0, %_ZNK3smt12theory_arithINS_5i_extEE16is_pure_monomialEP4expr.exit.thread ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %_ZNK3smt12theory_arithINS_5i_extEE16is_pure_monomialEP4expr.exit.thread ], [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -212045,10 +212045,10 @@ _ZNK6vectorIN3smt12theory_arithINS0_5i_extEE3rowELb1EjE4sizeEv.exit: ; preds = %
   %14 = load i32, ptr %13, align 8, !tbaa !2065
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.56, i32 noundef %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %16 = load i32, ptr %15, align 8, !tbaa !2042
+  %16 = load i32, ptr %15, align 8, !tbaa !2041
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.57, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %18 = load i32, ptr %17, align 4, !tbaa !2041
+  %18 = load i32, ptr %17, align 4, !tbaa !2042
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.58, i32 noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %20 = load i32, ptr %19, align 8, !tbaa !1994
@@ -229629,7 +229629,7 @@ _ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread: ; preds = %181, 
   br label %198
 
 198:                                              ; preds = %23, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread, %195, %._crit_edge, %157, %125, %122, %114, %106, %98, %90, %82, %74, %66, %58, %50, %42
-  %.1 = phi i32 [ %25, %23 ], [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
+  %.1 = phi i32 [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ], [ %75, %74 ], [ %83, %82 ], [ %91, %90 ], [ %99, %98 ], [ %107, %106 ], [ %115, %114 ], [ %123, %122 ], [ %129, %125 ], [ %160, %157 ], [ %164, %._crit_edge ], [ %25, %23 ], [ %197, %195 ], [ %194, %_ZNK3smt6theory18is_attached_to_varEPKNS_5enodeE.exit79.thread ]
   ret i32 %.1
 }
 
@@ -245931,7 +245931,7 @@ _ZN3smt12theory_arithINS_7inf_extEE20elim_quasi_base_rowsEv.exit: ; preds = %97,
           cleanup
   br label %182
 
-.thread:                                          ; preds = %119, %148, %147, %140, %129, %127, %155
+.thread:                                          ; preds = %119, %127, %129, %147, %140, %148, %155
   %160 = load i32, ptr %113, align 4, !tbaa !2731
   %161 = add i32 %160, 1
   %162 = and i32 %161, 3
@@ -246187,20 +246187,20 @@ _ZN3smt12theory_arithINS_7inf_extEE31push_dec_unassigned_atoms_trailEi.exit.i: ;
   %69 = phi i8 [ %.pre.i, %_ZN3smt12theory_arithINS_7inf_extEE31push_dec_unassigned_atoms_trailEi.exit.i ], [ %45, %37 ]
   %70 = and i8 %69, 1
   %switch.not.not.i = icmp eq i8 %70, 0
-  br i1 %switch.not.not.i, label %_ZN3smt12theory_arithINS_7inf_extEE12assert_boundEPNS2_5boundE.exit, label %71
+  br i1 %switch.not.not.i, label %71, label %_ZN3smt12theory_arithINS_7inf_extEE12assert_boundEPNS2_5boundE.exit
 
 71:                                               ; preds = %68
-  %72 = load i32, ptr %30, align 4, !tbaa !2751
+  %72 = load i32, ptr %31, align 8, !tbaa !2751
   %73 = add i32 %72, 1
-  store i32 %73, ptr %30, align 4, !tbaa !2751
-  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %40)
+  store i32 %73, ptr %31, align 8, !tbaa !2751
+  %74 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %40)
   br i1 %74, label %_ZN3smt12theory_arithINS_7inf_extEE6failedEv.exit, label %78
 
 _ZN3smt12theory_arithINS_7inf_extEE12assert_boundEPNS2_5boundE.exit: ; preds = %68
-  %75 = load i32, ptr %31, align 8, !tbaa !2752
+  %75 = load i32, ptr %30, align 4, !tbaa !2752
   %76 = add i32 %75, 1
-  store i32 %76, ptr %31, align 8, !tbaa !2752
-  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %40)
+  store i32 %76, ptr %30, align 4, !tbaa !2752
+  %77 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %40)
   br i1 %77, label %_ZN3smt12theory_arithINS_7inf_extEE6failedEv.exit, label %78
 
 78:                                               ; preds = %71, %_ZN3smt12theory_arithINS_7inf_extEE12assert_boundEPNS2_5boundE.exit
@@ -246891,22 +246891,22 @@ _ZN3smt12theory_arithINS_7inf_extEE31push_dec_unassigned_atoms_trailEi.exit: ; p
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %36 = load i32, ptr %35, align 8, !tbaa !2752
+  %36 = load i32, ptr %35, align 8, !tbaa !2751
   %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !2752
+  store i32 %37, ptr %35, align 8, !tbaa !2751
   %38 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_lowerEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %1)
   br label %44
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %41 = load i32, ptr %40, align 4, !tbaa !2751
+  %41 = load i32, ptr %40, align 4, !tbaa !2752
   %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !2751
+  store i32 %42, ptr %40, align 4, !tbaa !2752
   %43 = tail call noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12assert_upperEPNS2_5boundE(ptr noundef nonnull align 8 dereferenceable(1736) %0, ptr noundef nonnull %1)
   br label %44
 
 44:                                               ; preds = %39, %34
-  %.0.shrunk = phi i1 [ %43, %39 ], [ %38, %34 ]
+  %.0.shrunk = phi i1 [ %38, %34 ], [ %43, %39 ]
   ret i1 %.0.shrunk
 }
 
@@ -253269,7 +253269,7 @@ _ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.
   br label %_ZN3smt12theory_arithINS_7inf_extEE19select_smallest_varEv.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE19select_smallest_varEv.exit: ; preds = %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i3, %75, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i, %13, %65, %63
-  %.0 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
+  %.0 = phi i32 [ %64, %63 ], [ %66, %65 ], [ %9, %13 ], [ %9, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i ], [ %71, %75 ], [ %71, %_ZN4heapIN3smt12theory_arithINS0_7inf_extEE13theory_var_ltEE9move_downEi.exit.i.i3 ]
   ret i32 %.0
 }
 
@@ -295466,7 +295466,7 @@ _ZNK3smt12theory_arithINS_7inf_extEE16is_pure_monomialEP4expr.exit.thread: ; pre
   br label %71
 
 71:                                               ; preds = %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit, %3, %_ZNK3smt12theory_arithINS_7inf_extEE16is_pure_monomialEP4expr.exit.thread
-  %.0 = phi i32 [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 0, %_ZNK3smt12theory_arithINS_7inf_extEE16is_pure_monomialEP4expr.exit.thread ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %_ZNK3smt12theory_arithINS_7inf_extEE16is_pure_monomialEP4expr.exit.thread ], [ %.2, %_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev.exit ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -316825,10 +316825,10 @@ _ZNK6vectorIN3smt12theory_arithINS0_7inf_extEE3rowELb1EjE4sizeEv.exit: ; preds =
   %14 = load i32, ptr %13, align 8, !tbaa !2776
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.56, i32 noundef %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %16 = load i32, ptr %15, align 8, !tbaa !2752
+  %16 = load i32, ptr %15, align 8, !tbaa !2751
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.57, i32 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %18 = load i32, ptr %17, align 4, !tbaa !2751
+  %18 = load i32, ptr %17, align 4, !tbaa !2752
   tail call void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.58, i32 noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %20 = load i32, ptr %19, align 8, !tbaa !2703
@@ -354757,8 +354757,8 @@ attributes #30 = { nounwind allocsize(0) }
 !993 = distinct !{!993, !17}
 !994 = !{!808, !33, i64 144}
 !995 = distinct !{!995, !17}
-!996 = !{!202, !11, i64 300}
-!997 = !{!202, !11, i64 296}
+!996 = !{!202, !11, i64 296}
+!997 = !{!202, !11, i64 300}
 !998 = !{!202, !11, i64 1344}
 !999 = !{!202, !11, i64 344}
 !1000 = distinct !{!1000, !17}
@@ -355802,8 +355802,8 @@ attributes #30 = { nounwind allocsize(0) }
 !2038 = !{!1882, !11, i64 1348}
 !2039 = distinct !{!2039, !17}
 !2040 = distinct !{!2040, !17}
-!2041 = !{!1882, !11, i64 236}
-!2042 = !{!1882, !11, i64 232}
+!2041 = !{!1882, !11, i64 232}
+!2042 = !{!1882, !11, i64 236}
 !2043 = !{!1882, !11, i64 1248}
 !2044 = !{!1882, !11, i64 280}
 !2045 = distinct !{!2045, !17}
@@ -356512,8 +356512,8 @@ attributes #30 = { nounwind allocsize(0) }
 !2748 = !{!2585, !11, i64 1540}
 !2749 = distinct !{!2749, !17}
 !2750 = distinct !{!2750, !17}
-!2751 = !{!2585, !11, i64 364}
-!2752 = !{!2585, !11, i64 360}
+!2751 = !{!2585, !11, i64 360}
+!2752 = !{!2585, !11, i64 364}
 !2753 = !{!2585, !11, i64 1440}
 !2754 = !{!2585, !11, i64 408}
 !2755 = distinct !{!2755, !17}

@@ -90,7 +90,7 @@ define range(i64 0, 8589934592) i64 @_ZNK25PreprocessingBondAtomType20bondAtomTy
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK25PreprocessingBondAtomType20bondAtomTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.1.i.i.i)
   br i1 %32, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZNK25PreprocessingBondAtomType20bondAtomTypeFromNameERKS7_E3$_0ET_SH_SH_T0_.exit", label %33
 
@@ -99,7 +99,7 @@ define range(i64 0, 8589934592) i64 @_ZNK25PreprocessingBondAtomType20bondAtomTy
   br label %35
 
 35:                                               ; preds = %33, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %36 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK25PreprocessingBondAtomType20bondAtomTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbT_"(ptr nonnull readonly %1, ptr %.sroa.032.2.i.i.i)
   %spec.select.i.i.i = select i1 %36, ptr %.sroa.032.2.i.i.i, ptr %6
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZNK25PreprocessingBondAtomType20bondAtomTypeFromNameERKS7_E3$_0ET_SH_SH_T0_.exit"

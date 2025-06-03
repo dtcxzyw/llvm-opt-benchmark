@@ -545,8 +545,8 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
   br label %107
 
 107:                                              ; preds = %90, %58, %37
-  %108 = phi i16 [ %39, %37 ], [ %60, %58 ], [ %92, %90 ]
-  %.0214.us.i = phi i16 [ %53, %37 ], [ %85, %58 ], [ %106, %90 ]
+  %108 = phi i16 [ %92, %90 ], [ %60, %58 ], [ %39, %37 ]
+  %.0214.us.i = phi i16 [ %106, %90 ], [ %85, %58 ], [ %53, %37 ]
   %109 = getelementptr inbounds nuw i16, ptr %.4265.us.i, i64 %indvars.iv.i
   br i1 %30, label %.sink.split.i, label %110
 
@@ -917,8 +917,8 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
   br label %317
 
 317:                                              ; preds = %285, %252, %224
-  %318 = phi i16 [ %226, %224 ], [ %254, %252 ], [ %287, %285 ]
-  %.0244.us.i = phi i16 [ %251, %224 ], [ %284, %252 ], [ %316, %285 ]
+  %318 = phi i16 [ %287, %285 ], [ %254, %252 ], [ %226, %224 ]
+  %.0244.us.i = phi i16 [ %316, %285 ], [ %284, %252 ], [ %251, %224 ]
   %319 = getelementptr inbounds nuw i16, ptr %.4319.us.i, i64 %indvars.iv357.i
   br i1 %or.cond15.us.i, label %338, label %320
 
@@ -1499,8 +1499,8 @@ lv_color_24_16_mix.exit290.us.i:                  ; preds = %540, %528
   br label %676
 
 676:                                              ; preds = %654, %631, %613
-  %677 = phi i16 [ %615, %613 ], [ %633, %631 ], [ %656, %654 ]
-  %.0229.us.i = phi i16 [ %630, %613 ], [ %653, %631 ], [ %675, %654 ]
+  %677 = phi i16 [ %656, %654 ], [ %633, %631 ], [ %615, %613 ]
+  %.0229.us.i = phi i16 [ %675, %654 ], [ %653, %631 ], [ %630, %613 ]
   %678 = getelementptr inbounds nuw i16, ptr %.4289.us.i, i64 %indvars.iv351.i
   br i1 %or.cond16.us.i, label %689, label %679
 
@@ -1972,8 +1972,8 @@ lv_color_8_16_mix.exit264.us.i:                   ; preds = %820, %813
   br label %948
 
 948:                                              ; preds = %926, %903, %885
-  %949 = phi i16 [ %887, %885 ], [ %905, %903 ], [ %928, %926 ]
-  %.0247.us.i = phi i16 [ %902, %885 ], [ %925, %903 ], [ %947, %926 ]
+  %949 = phi i16 [ %928, %926 ], [ %905, %903 ], [ %887, %885 ]
+  %.0247.us.i = phi i16 [ %947, %926 ], [ %925, %903 ], [ %902, %885 ]
   %950 = getelementptr inbounds nuw i16, ptr %.4311.us.i, i64 %indvars.iv349.i
   br i1 %or.cond16.us.i40, label %971, label %951
 
@@ -3042,8 +3042,8 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %125
 
 125:                                              ; preds = %93, %60, %32
-  %126 = phi i16 [ %34, %32 ], [ %62, %60 ], [ %95, %93 ]
-  %.0223.us = phi i16 [ %59, %32 ], [ %92, %60 ], [ %124, %93 ]
+  %126 = phi i16 [ %95, %93 ], [ %62, %60 ], [ %34, %32 ]
+  %.0223.us = phi i16 [ %124, %93 ], [ %92, %60 ], [ %59, %32 ]
   %127 = getelementptr inbounds nuw i16, ptr %.6291.us, i64 %indvars.iv388
   br i1 %29, label %136, label %128
 

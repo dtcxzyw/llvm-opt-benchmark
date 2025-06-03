@@ -2022,7 +2022,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %148, %_ZNSt12_Vecto
   br label %168
 
 168:                                              ; preds = %144, %_ZNSt6vectorImSaImEE7reserveEm.exit
-  %.128 = phi i32 [ 1, %144 ], [ 0, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
+  %.128 = phi i32 [ 0, %_ZNSt6vectorImSaImEE7reserveEm.exit ], [ 1, %144 ]
   ret i32 %.128
 
 169:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123
@@ -15153,7 +15153,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %148, %_ZNSt12_Vecto
   br label %168
 
 168:                                              ; preds = %144, %_ZNSt6vectorIdSaIdEE7reserveEm.exit
-  %.128 = phi i32 [ 1, %144 ], [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ]
+  %.128 = phi i32 [ 0, %_ZNSt6vectorIdSaIdEE7reserveEm.exit ], [ 1, %144 ]
   ret i32 %.128
 
 169:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123

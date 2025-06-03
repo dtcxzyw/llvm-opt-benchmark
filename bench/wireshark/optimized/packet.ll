@@ -2704,7 +2704,7 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %60, %64
-  %.0.i = phi i32 [ %69, %64 ], [ %63, %60 ]
+  %.0.i = phi i32 [ %63, %60 ], [ %69, %64 ]
   store ptr %50, ptr %2, align 8
   br label %71
 
@@ -7019,7 +7019,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr noundef readonly captu
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %83, %87
-  %.0.i = phi i32 [ %92, %87 ], [ %86, %83 ]
+  %.0.i = phi i32 [ %86, %83 ], [ %92, %87 ]
   store ptr %72, ptr %2, align 8
   store volatile i32 %.0.i, ptr %6, align 4
   br label %94

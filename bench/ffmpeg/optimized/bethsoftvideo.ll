@@ -250,7 +250,7 @@ default.unreachable:                              ; preds = %set_palette.exit.th
   unreachable
 
 132:                                              ; preds = %set_palette.exit.thread, %set_palette.exit.thread, %128
-  %.080 = phi ptr [ %75, %set_palette.exit.thread ], [ %75, %set_palette.exit.thread ], [ %131, %128 ]
+  %.080 = phi ptr [ %131, %128 ], [ %75, %set_palette.exit.thread ], [ %75, %set_palette.exit.thread ]
   %133 = load ptr, ptr %19, align 8, !tbaa !37
   %134 = load ptr, ptr %9, align 8, !tbaa !38
   %135 = ptrtoint ptr %133 to i64
@@ -438,7 +438,7 @@ bytestream2_get_byte.exit99:                      ; preds = %208, %209
   br label %set_palette.exit
 
 set_palette.exit:                                 ; preds = %bytestream2_init.exit95, %bytestream2_get_byte.exit.thread, %.thread, %bytestream2_get_le16.exit, %25, %bytestream2_get_byte.exit, %226, %set_palette.exit108, %110
-  %.078 = phi i32 [ %227, %226 ], [ -1094995529, %110 ], [ %115, %set_palette.exit108 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit95 ]
+  %.078 = phi i32 [ -1094995529, %110 ], [ %115, %set_palette.exit108 ], [ %227, %226 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit95 ]
   ret i32 %.078
 }
 

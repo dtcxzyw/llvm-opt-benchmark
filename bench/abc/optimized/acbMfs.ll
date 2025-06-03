@@ -9403,8 +9403,8 @@ Acb_NtkObjMffcEstimate.exit429.thread:            ; preds = %Abc_Clock.exit437.A
   br label %678
 
 678:                                              ; preds = %Vec_IntRemap.exit.thread, %154, %673, %Acb_NtkObjMffcEstimate.exit429.thread, %677, %83, %89, %Vec_IntLits2Vars.exit391
-  %.0280 = phi i32 [ 0, %89 ], [ 0, %83 ], [ 1, %154 ], [ 1, %Vec_IntRemap.exit.thread ], [ 1, %Vec_IntLits2Vars.exit391 ], [ %.5, %673 ], [ 0, %677 ], [ 0, %Acb_NtkObjMffcEstimate.exit429.thread ]
-  %.0275 = phi ptr [ null, %89 ], [ null, %83 ], [ %98, %154 ], [ %98, %Vec_IntRemap.exit.thread ], [ %98, %Vec_IntLits2Vars.exit391 ], [ %98, %673 ], [ %98, %677 ], [ %98, %Acb_NtkObjMffcEstimate.exit429.thread ]
+  %.0280 = phi i32 [ 0, %89 ], [ 0, %83 ], [ 1, %154 ], [ 1, %Vec_IntLits2Vars.exit391 ], [ %.5, %673 ], [ 0, %677 ], [ 0, %Acb_NtkObjMffcEstimate.exit429.thread ], [ 1, %Vec_IntRemap.exit.thread ]
+  %.0275 = phi ptr [ null, %89 ], [ null, %83 ], [ %98, %154 ], [ %98, %Vec_IntLits2Vars.exit391 ], [ %98, %673 ], [ %98, %677 ], [ %98, %Acb_NtkObjMffcEstimate.exit429.thread ], [ %98, %Vec_IntRemap.exit.thread ]
   %679 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %680 = load ptr, ptr %679, align 8, !tbaa !138
   call void @sat_solver_restart(ptr noundef %680) #25

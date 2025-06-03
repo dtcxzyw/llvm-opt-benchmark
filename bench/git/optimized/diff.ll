@@ -12754,7 +12754,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1242
   br label %1388
 
 1388:                                             ; preds = %1383, %1378
-  %.057.in.i.i = phi ptr [ %1387, %1383 ], [ %1382, %1378 ]
+  %.057.in.i.i = phi ptr [ %1382, %1378 ], [ %1387, %1383 ]
   %.057.i.i = load ptr, ptr %.057.in.i.i, align 8, !tbaa !343
   %.not.i36.i = icmp eq i32 %.0149253.i.i, 0
   br i1 %.not.i36.i, label %adjust_last_block.exit.thread.i.i, label %1389
@@ -17885,7 +17885,7 @@ diff_line_prefix.exit.i:                          ; preds = %61, %50
   br label %94
 
 94:                                               ; preds = %diff_line_prefix.exit.i, %85, %88, %76, %67
-  %.1 = phi i32 [ 1, %88 ], [ 1, %76 ], [ 1, %67 ], [ 0, %85 ], [ 0, %diff_line_prefix.exit.i ]
+  %.1 = phi i32 [ 1, %67 ], [ 1, %76 ], [ 1, %88 ], [ 0, %85 ], [ 0, %diff_line_prefix.exit.i ]
   %95 = getelementptr i8, ptr %7, i64 576
   %.val104.i = load ptr, ptr %95, align 8, !tbaa !259
   %.not.i108.i = icmp eq ptr %.val104.i, null

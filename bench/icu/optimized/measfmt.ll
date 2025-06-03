@@ -1785,7 +1785,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   br label %22
 
 22:                                               ; preds = %16, %5, %.thread20
-  %.014 = phi ptr [ %21, %16 ], [ %2, %.thread20 ], [ %2, %5 ]
+  %.014 = phi ptr [ %2, %.thread20 ], [ %21, %16 ], [ %2, %5 ]
   ret ptr %.014
 }
 
@@ -2798,7 +2798,7 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; 
   br label %136
 
 136:                                              ; preds = %120, %.loopexit, %92, %10, %6, %100, %11
-  %.054 = phi ptr [ %16, %11 ], [ %3, %92 ], [ %3, %100 ], [ %3, %6 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %120 ]
+  %.054 = phi ptr [ %16, %11 ], [ %3, %100 ], [ %3, %92 ], [ %3, %6 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %120 ]
   ret ptr %.054
 }
 
@@ -3055,8 +3055,8 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %108
 123:                                              ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit
   br label %.thread145
 
-.thread145:                                       ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit, %122, %123
-  %.094149 = phi double [ %.095, %122 ], [ %26, %123 ], [ %.073, %_ZNK6icu_7713UnicodeStringixEi.exit ]
+.thread145:                                       ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit, %123, %122
+  %.094149 = phi double [ %26, %123 ], [ %.095, %122 ], [ %.073, %_ZNK6icu_7713UnicodeStringixEi.exit ]
   %.not116 = icmp eq i8 %.0100156, 0
   br i1 %.not116, label %130, label %124
 
@@ -3213,8 +3213,8 @@ _ZNK6icu_7713UnicodeStringixEi.exit139.thread:    ; preds = %_ZNK6icu_7713Unicod
           to label %_ZN6icu_7722FormattedStringBuilder12appendChar16EDsNS0_5FieldER10UErrorCode.exit unwind label %128
 
 _ZN6icu_7722FormattedStringBuilder12appendChar16EDsNS0_5FieldER10UErrorCode.exit: ; preds = %.thread150, %172, %124, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit
-  %.1101 = phi i8 [ %175, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ 0, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ 1, %124 ], [ %.0100156, %172 ], [ %.0100156, %.thread150 ]
-  %.298 = phi i32 [ %.096157, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ %.197, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %.096157, %124 ], [ %165, %172 ], [ %.096157, %.thread150 ]
+  %.1101 = phi i8 [ 0, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %175, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ 1, %124 ], [ %.0100156, %172 ], [ %.0100156, %.thread150 ]
+  %.298 = phi i32 [ %.197, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %.096157, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ %.096157, %124 ], [ %165, %172 ], [ %.096157, %.thread150 ]
   %179 = add nsw i32 %.298, 1
   %180 = icmp slt i32 %179, %100
   br i1 %180, label %108, label %._crit_edge, !llvm.loop !98

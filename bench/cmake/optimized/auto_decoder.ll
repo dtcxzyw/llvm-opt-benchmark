@@ -77,7 +77,7 @@ define dso_local i32 @lzma_auto_decoder(ptr noundef %0, i64 noundef %1, i32 noun
   br label %34
 
 34:                                               ; preds = %25, %3, %26
-  %.1 = phi i32 [ %4, %3 ], [ %.0.i.ph, %25 ], [ 0, %26 ]
+  %.1 = phi i32 [ 0, %26 ], [ %.0.i.ph, %25 ], [ %4, %3 ]
   ret i32 %.1
 }
 

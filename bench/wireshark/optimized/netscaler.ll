@@ -596,7 +596,7 @@ default.unreachable:                              ; preds = %99, %38
   unreachable
 
 ns_hrtime2nsec.exit:                              ; preds = %38, %48, %50, %52
-  %.0.i = phi i64 [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %38 ]
+  %.0.i = phi i64 [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %47, %38 ]
   %54 = add i64 %.0.i, %9
   %55 = load i32, ptr %17, align 8
   %56 = udiv i64 %54, 1000000000
@@ -715,7 +715,7 @@ ns_hrtime2nsec.exit:                              ; preds = %38, %48, %50, %52
   br label %ns_hrtime2nsec.exit223
 
 ns_hrtime2nsec.exit223:                           ; preds = %99, %109, %111, %113
-  %.0.i221 = phi i64 [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %99 ]
+  %.0.i221 = phi i64 [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %108, %99 ]
   %115 = add i64 %.0.i221, %9
   %116 = load i32, ptr %17, align 8
   %117 = udiv i64 %115, 1000000000
@@ -954,7 +954,7 @@ nstrace_read_page.exit:                           ; preds = %228
   br label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge, %230, %225, %.thread232, %nstrace_ensure_buflen.exit227, %.thread230, %nstrace_ensure_buflen.exit225, %.thread, %nstrace_ensure_buflen.exit, %97, %140, %142, %36, %76, %78, %91, %30
-  %.2 = phi i1 [ false, %91 ], [ false, %30 ], [ false, %36 ], [ false, %76 ], [ true, %78 ], [ false, %97 ], [ false, %140 ], [ true, %142 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit225 ], [ false, %nstrace_ensure_buflen.exit227 ], [ false, %.thread ], [ false, %.thread230 ], [ false, %.thread232 ], [ false, %225 ], [ false, %230 ], [ false, %._crit_edge ]
+  %.2 = phi i1 [ false, %30 ], [ false, %91 ], [ false, %36 ], [ false, %76 ], [ true, %78 ], [ false, %97 ], [ false, %140 ], [ true, %142 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit225 ], [ false, %nstrace_ensure_buflen.exit227 ], [ false, %.thread ], [ false, %.thread230 ], [ false, %.thread232 ], [ false, %225 ], [ false, %230 ], [ false, %._crit_edge ]
   ret i1 %.2
 }
 
@@ -1236,7 +1236,7 @@ default.unreachable:                              ; preds = %509, %416, %321, %2
   unreachable
 
 ns_hrtime2nsec.exit:                              ; preds = %46, %56, %58, %60
-  %.0.i = phi i64 [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %46 ]
+  %.0.i = phi i64 [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %55, %46 ]
   %62 = add i64 %.0.i, %9
   %63 = load i32, ptr %17, align 8
   %64 = udiv i64 %62, 1000000000
@@ -1397,7 +1397,7 @@ ns_hrtime2nsec.exit:                              ; preds = %46, %56, %58, %60
   br label %ns_hrtime2nsec.exit1113
 
 ns_hrtime2nsec.exit1113:                          ; preds = %136, %146, %148, %150
-  %.0.i1111 = phi i64 [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %136 ]
+  %.0.i1111 = phi i64 [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %145, %136 ]
   %152 = add i64 %.0.i1111, %9
   %153 = load i32, ptr %17, align 8
   %154 = udiv i64 %152, 1000000000
@@ -1563,7 +1563,7 @@ ns_hrtime2nsec.exit1113:                          ; preds = %136, %146, %148, %1
   br label %ns_hrtime2nsec.exit1116
 
 ns_hrtime2nsec.exit1116:                          ; preds = %229, %239, %241, %243
-  %.0.i1114 = phi i64 [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %229 ]
+  %.0.i1114 = phi i64 [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %238, %229 ]
   %245 = add i64 %.0.i1114, %9
   %246 = load i32, ptr %17, align 8
   %247 = udiv i64 %245, 1000000000
@@ -1728,7 +1728,7 @@ ns_hrtime2nsec.exit1116:                          ; preds = %229, %239, %241, %2
   br label %ns_hrtime2nsec.exit1119
 
 ns_hrtime2nsec.exit1119:                          ; preds = %321, %331, %333, %335
-  %.0.i1117 = phi i64 [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %321 ]
+  %.0.i1117 = phi i64 [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %330, %321 ]
   %337 = add i64 %.0.i1117, %9
   %338 = load i32, ptr %17, align 8
   %339 = udiv i64 %337, 1000000000
@@ -1898,7 +1898,7 @@ ns_hrtime2nsec.exit1119:                          ; preds = %321, %331, %333, %3
   br label %ns_hrtime2nsec.exit1122
 
 ns_hrtime2nsec.exit1122:                          ; preds = %416, %426, %428, %430
-  %.0.i1120 = phi i64 [ %431, %430 ], [ %429, %428 ], [ %427, %426 ], [ %425, %416 ]
+  %.0.i1120 = phi i64 [ %427, %426 ], [ %429, %428 ], [ %431, %430 ], [ %425, %416 ]
   %432 = add i64 %.0.i1120, %9
   %433 = load i32, ptr %17, align 8
   %434 = udiv i64 %432, 1000000000
@@ -2065,7 +2065,7 @@ ns_hrtime2nsec.exit1122:                          ; preds = %416, %426, %428, %4
   br label %ns_hrtime2nsec.exit1125
 
 ns_hrtime2nsec.exit1125:                          ; preds = %509, %519, %521, %523
-  %.0.i1123 = phi i64 [ %524, %523 ], [ %522, %521 ], [ %520, %519 ], [ %518, %509 ]
+  %.0.i1123 = phi i64 [ %520, %519 ], [ %522, %521 ], [ %524, %523 ], [ %518, %509 ]
   %525 = add i64 %.0.i1123, %9
   %526 = load i32, ptr %17, align 8
   %527 = udiv i64 %525, 1000000000
@@ -3581,7 +3581,7 @@ nstrace_ensure_buflen.exit1135:                   ; preds = %1356
   br label %1379
 
 1379:                                             ; preds = %1376, %1352, %1302, %1355
-  %.3987 = phi i32 [ %1378, %1376 ], [ %1354, %1352 ], [ %1297, %1302 ], [ %.0990., %1355 ]
+  %.3987 = phi i32 [ %1378, %1376 ], [ %1297, %1302 ], [ %1354, %1352 ], [ %.0990., %1355 ]
   %1380 = icmp ult i32 %.3987, %.0990
   br i1 %1380, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
@@ -5298,7 +5298,7 @@ select.unfold394:                                 ; preds = %._crit_edge
   br label %365
 
 365:                                              ; preds = %362, %351, %316
-  %.10 = phi i32 [ %364, %362 ], [ %353, %351 ], [ %310, %316 ]
+  %.10 = phi i32 [ %364, %362 ], [ %310, %316 ], [ %353, %351 ]
   %366 = icmp ult i32 %.10, 16384
   br i1 %366, label %.lr.ph, label %.critedge, !llvm.loop !20
 
@@ -5335,7 +5335,7 @@ select.unfold394:                                 ; preds = %._crit_edge
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge472, %21, %48, %64, %69, %191, %314, %327, %.critedge11.thread, %._crit_edge484, %134, %125, %._crit_edge465, %245, %236
-  %.0.ph = phi i1 [ true, %._crit_edge465 ], [ false, %245 ], [ false, %236 ], [ true, %._crit_edge484 ], [ false, %134 ], [ false, %125 ], [ false, %.critedge11.thread ], [ false, %48 ], [ false, %69 ], [ false, %191 ], [ false, %314 ], [ false, %327 ], [ false, %64 ], [ false, %21 ], [ false, %._crit_edge472 ], [ false, %._crit_edge ]
+  %.0.ph = phi i1 [ true, %._crit_edge465 ], [ false, %245 ], [ false, %236 ], [ true, %._crit_edge484 ], [ false, %134 ], [ false, %125 ], [ false, %.critedge11.thread ], [ false, %48 ], [ false, %327 ], [ false, %314 ], [ false, %191 ], [ false, %69 ], [ false, %64 ], [ false, %21 ], [ false, %._crit_edge472 ], [ false, %._crit_edge ]
   tail call void @g_free(ptr noundef %15)
   br label %383
 
@@ -5963,7 +5963,7 @@ default.unreachable:                              ; preds = %53, %28
   unreachable
 
 ns_hrtime2nsec.exit.i:                            ; preds = %40, %38, %36, %28
-  %.0.i.i = phi i64 [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %28 ]
+  %.0.i.i = phi i64 [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %35, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %42, align 2
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6015,7 +6015,7 @@ ns_hrtime2nsec.exit.i:                            ; preds = %40, %38, %36, %28
   br label %ns_hrtime2nsec.exit27.i
 
 ns_hrtime2nsec.exit27.i:                          ; preds = %65, %63, %61, %53
-  %.0.i25.i = phi i64 [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %53 ]
+  %.0.i25.i = phi i64 [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %60, %53 ]
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i64, ptr %68, align 8
@@ -6236,7 +6236,7 @@ nstrace_add_abstime.exit.thread:                  ; preds = %49, %73, %19
   unreachable
 
 nstrace_add_abstime.exit:                         ; preds = %.critedge24.i, %.critedge.i, %160, %102, %131, %80, %108, %156, %154, %149, %127, %125, %120, %98, %96, %91, %23, %139, %138, %110, %107, %18, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %138 ], [ false, %139 ], [ false, %110 ], [ false, %107 ], [ false, %23 ], [ false, %91 ], [ false, %96 ], [ false, %98 ], [ false, %120 ], [ false, %125 ], [ false, %127 ], [ false, %149 ], [ false, %154 ], [ false, %156 ], [ true, %108 ], [ true, %80 ], [ true, %131 ], [ true, %102 ], [ true, %160 ], [ false, %.critedge.i ], [ false, %.critedge24.i ]
+  %.0 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %107 ], [ false, %110 ], [ false, %138 ], [ false, %139 ], [ false, %23 ], [ false, %91 ], [ false, %96 ], [ false, %98 ], [ false, %120 ], [ false, %125 ], [ false, %127 ], [ false, %149 ], [ false, %154 ], [ false, %156 ], [ true, %108 ], [ true, %80 ], [ true, %131 ], [ true, %102 ], [ true, %160 ], [ false, %.critedge.i ], [ false, %.critedge24.i ]
   ret i1 %.0
 }
 

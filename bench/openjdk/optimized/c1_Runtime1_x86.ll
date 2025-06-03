@@ -1149,7 +1149,7 @@ define hidden noundef ptr @_ZN8Runtime125generate_handle_exceptionENS_6StubIDEP1
   unreachable
 
 64:                                               ; preds = %58, %55, %13
-  %.0 = phi ptr [ %59, %58 ], [ %57, %55 ], [ %14, %13 ]
+  %.0 = phi ptr [ %14, %13 ], [ %57, %55 ], [ %59, %58 ]
   store i32 15, ptr %8, align 8
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 -1, ptr %65, align 4
@@ -2078,7 +2078,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   br label %151
 
 151:                                              ; preds = %2, %150
-  %.0 = phi i1 [ true, %2 ], [ false, %150 ]
+  %.0 = phi i1 [ false, %150 ], [ true, %2 ]
   tail call void @_ZN13StubAssembler8set_infoEPKcb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull @.str.30, i1 noundef zeroext false) #7
   tail call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #7
   tail call void @_ZN17C1_MacroAssembler30save_live_registers_no_oop_mapEb(ptr noundef nonnull align 8 dereferenceable(44) %1, i1 noundef zeroext %.0)
@@ -2102,7 +2102,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   br label %157
 
 157:                                              ; preds = %2, %156
-  %.1 = phi i1 [ true, %2 ], [ false, %156 ]
+  %.1 = phi i1 [ false, %156 ], [ true, %2 ]
   tail call void @_ZN13StubAssembler8set_infoEPKcb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull @.str.31, i1 noundef zeroext false) #7
   tail call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #7
   tail call void @_ZN17C1_MacroAssembler30save_live_registers_no_oop_mapEb(ptr noundef nonnull align 8 dereferenceable(44) %1, i1 noundef zeroext %.1)
@@ -2350,7 +2350,7 @@ define hidden noundef ptr @_ZN8Runtime117generate_code_forENS_6StubIDEP13StubAss
   br label %259
 
 259:                                              ; preds = %256, %237, %196, %189, %187, %185, %183, %181, %162, %157, %151, %111, %106, %104, %102, %101, %99, %97, %92, %87, %85, %83, %67, %62, %56, %35, %30, %26
-  %.0295 = phi ptr [ null, %256 ], [ %240, %237 ], [ null, %196 ], [ null, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %165, %162 ], [ %160, %157 ], [ %154, %151 ], [ null, %111 ], [ %109, %106 ], [ %105, %104 ], [ %103, %102 ], [ null, %101 ], [ %100, %99 ], [ %98, %97 ], [ %95, %92 ], [ %90, %87 ], [ %86, %85 ], [ %84, %83 ], [ %81, %67 ], [ %65, %62 ], [ %60, %56 ], [ %54, %35 ], [ %33, %30 ], [ %27, %26 ]
+  %.0295 = phi ptr [ null, %256 ], [ %27, %26 ], [ %33, %30 ], [ %54, %35 ], [ %60, %56 ], [ %65, %62 ], [ %81, %67 ], [ %84, %83 ], [ %86, %85 ], [ %90, %87 ], [ %95, %92 ], [ %98, %97 ], [ %100, %99 ], [ null, %101 ], [ %103, %102 ], [ %105, %104 ], [ %109, %106 ], [ null, %111 ], [ %154, %151 ], [ %160, %157 ], [ %165, %162 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ null, %189 ], [ null, %196 ], [ %240, %237 ]
   ret ptr %.0295
 }
 

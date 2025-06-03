@@ -367,7 +367,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br label %dissect_bencoding_int.exit
 
 dissect_bencoding_int.exit:                       ; preds = %._crit_edge.i, %.thread73.i, %101, %96, %95, %87, %126, %124, %._crit_edge, %77, %72, %._crit_edge192, %.thread, %35, %30, %14, %10
-  %.0151 = phi i32 [ -1, %10 ], [ %3, %14 ], [ %125, %124 ], [ -1, %126 ], [ %73, %72 ], [ %75, %77 ], [ -1, %._crit_edge ], [ %31, %30 ], [ %33, %35 ], [ %.0150163, %.thread ], [ -1, %._crit_edge192 ], [ -1, %87 ], [ -1, %.thread73.i ], [ -1, %._crit_edge.i ], [ %93, %96 ], [ %93, %101 ], [ %93, %95 ]
+  %.0151 = phi i32 [ -1, %10 ], [ %3, %14 ], [ %125, %124 ], [ -1, %126 ], [ %31, %30 ], [ %33, %35 ], [ %.0150163, %.thread ], [ -1, %._crit_edge192 ], [ %73, %72 ], [ %75, %77 ], [ -1, %._crit_edge ], [ -1, %87 ], [ -1, %.thread73.i ], [ -1, %._crit_edge.i ], [ %93, %96 ], [ %93, %101 ], [ %93, %95 ]
   ret i32 %.0151
 }
 

@@ -3019,7 +3019,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
   br label %_ZN4Luau22TypeRehydrationVisitorclERKNS_8LazyTypeE.exit
 
 _ZN4Luau22TypeRehydrationVisitorclERKNS_8LazyTypeE.exit: ; preds = %11, %18
-  %.1.i = phi ptr [ %17, %11 ], [ %21, %18 ]
+  %.1.i = phi ptr [ %21, %18 ], [ %17, %11 ]
   store ptr %.1.i, ptr %1, align 8, !tbaa !106
   ret void
 }
@@ -3600,7 +3600,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau22TypeRehydrationVisitorclERK
   br label %76
 
 76:                                               ; preds = %2, %71, %66, %61, %56, %51, %46, %41, %36
-  %.0 = phi ptr [ %74, %71 ], [ %69, %66 ], [ %64, %61 ], [ %59, %56 ], [ %54, %51 ], [ %49, %46 ], [ %44, %41 ], [ %39, %36 ], [ null, %2 ]
+  %.0 = phi ptr [ %39, %36 ], [ %44, %41 ], [ %49, %46 ], [ %54, %51 ], [ %59, %56 ], [ %64, %61 ], [ %69, %66 ], [ %74, %71 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -7691,7 +7691,7 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
   br label %_ZN4Luau22TypeRehydrationVisitorclERKNS_8LazyTypeE.exit
 
 _ZN4Luau22TypeRehydrationVisitorclERKNS_8LazyTypeE.exit: ; preds = %11, %18
-  %.1.i = phi ptr [ %17, %11 ], [ %21, %18 ]
+  %.1.i = phi ptr [ %21, %18 ], [ %17, %11 ]
   store ptr %.1.i, ptr %1, align 8, !tbaa !106
   ret void
 }

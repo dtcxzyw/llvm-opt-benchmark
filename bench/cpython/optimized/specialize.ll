@@ -1706,7 +1706,7 @@ specialize_dict_access.exit.i.i:                  ; preds = %275, %259
   br label %do_specialize_instance_load_attr.exit.i
 
 do_specialize_instance_load_attr.exit.i:          ; preds = %specialize_dict_access.exit.i.i, %275, %272, %270, %267, %259, %.thread.i.i.i, %254, %241, %240, %238, %236, %231, %202, %157, %155, %151, %151, %151, %151, %instance_has_key.exit.i
-  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %240 ], [ -1, %238 ], [ 0, %202 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ %sext.i.i, %157 ], [ -1, %155 ], [ -1, %231 ], [ 0, %236 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %254 ], [ -1, %270 ], [ -1, %267 ], [ -1, %.thread.i.i.i ], [ -1, %259 ], [ -1, %272 ], [ -1, %275 ]
+  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %202 ], [ -1, %238 ], [ 0, %240 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ %sext.i.i, %157 ], [ -1, %155 ], [ -1, %231 ], [ 0, %236 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %254 ], [ -1, %270 ], [ -1, %267 ], [ -1, %.thread.i.i.i ], [ -1, %259 ], [ -1, %272 ], [ -1, %275 ]
   %.not.i12.i = icmp eq ptr %147, null
   br i1 %.not.i12.i, label %285, label %do_specialize_instance_load_attr.exit.thread.i
 
@@ -3081,7 +3081,7 @@ unspecialize.exit:                                ; preds = %specialize_c_call.e
   store i16 %.sroa.03.0.i.i.i, ptr %206, align 2, !tbaa !24
   br label %specialize_c_call.exit.thread
 
-specialize_c_call.exit.thread:                    ; preds = %185, %186, %168, %187, %189, %191, %87, %91, %95, %100, %158, %69, %24, %25, %.thread.i, %36, %39, %41, %200, %unspecialize.exit, %specialize_c_call.exit
+specialize_c_call.exit.thread:                    ; preds = %185, %186, %189, %187, %168, %191, %87, %91, %95, %100, %158, %69, %24, %25, %39, %36, %.thread.i, %41, %200, %unspecialize.exit, %specialize_c_call.exit
   ret void
 }
 

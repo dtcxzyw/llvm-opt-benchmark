@@ -1443,7 +1443,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i982:          ; preds = %543
   br label %.critedge825.critedge844
 
 .critedge825.critedge844:                         ; preds = %595, %590, %585, %580
-  %.0680 = phi ptr [ %599, %595 ], [ %594, %590 ], [ %589, %585 ], [ %584, %580 ]
+  %.0680 = phi ptr [ %584, %580 ], [ %589, %585 ], [ %594, %590 ], [ %599, %595 ]
   %600 = call noundef ptr @_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1081) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %.0680)
   br label %.critedge825
 
@@ -1538,7 +1538,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i982:          ; preds = %543
   br label %647
 
 647:                                              ; preds = %643, %639, %635, %631
-  %.0681 = phi ptr [ %646, %643 ], [ %642, %639 ], [ %638, %635 ], [ %634, %631 ]
+  %.0681 = phi ptr [ %634, %631 ], [ %638, %635 ], [ %642, %639 ], [ %646, %643 ]
   %648 = load i32, ptr %602, align 4
   %649 = and i32 %648, 134217727
   %650 = zext nneg i32 %649 to i64
@@ -1789,8 +1789,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i998:          ; preds = %752
   br label %772
 
 772:                                              ; preds = %771, %770, %766, %766, %766, %766, %766, %766, %766, %766, %766
-  %.066.i = phi i1 [ true, %771 ], [ false, %770 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ]
-  %.065.i = phi i1 [ true, %771 ], [ true, %770 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ]
+  %.066.i = phi i1 [ false, %770 ], [ true, %771 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ]
+  %.065.i = phi i1 [ true, %770 ], [ true, %771 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ], [ false, %766 ]
   %773 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %774 = load i32, ptr %773, align 4
   %775 = and i32 %774, 134217727
@@ -2045,7 +2045,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i9
   br label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i
 
 _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit.i: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i99.i, %872, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i, %847, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i, %821
-  %898 = phi ptr [ %827, %821 ], [ %831, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i ], [ %853, %847 ], [ %856, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %879, %872 ], [ %882, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i99.i ]
+  %898 = phi ptr [ %827, %821 ], [ %831, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i.i ], [ %856, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %853, %847 ], [ %882, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i99.i ], [ %879, %872 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #15
@@ -2308,7 +2308,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit107.i: ; preds = %_ZN4l
   br label %987
 
 987:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit43.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %986, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit43.thread.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %986, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit43.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 4, !tbaa !62
   %988 = icmp sgt i32 %.1.val.i.i.i.i.i.i, -1
   %989 = icmp sgt i32 %790, %.1.val.i.i.i.i.i.i
@@ -2320,7 +2320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit107.i: ; preds = %_ZN4l
   br label %991
 
 991:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit44.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %990, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit44.thread.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %990, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL19simplifyX86varShiftRKN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPiEEbT_.exit44.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 4, !tbaa !62
   %992 = icmp sgt i32 %.2.val.i.i.i.i.i.i, -1
   %993 = icmp sgt i32 %790, %.2.val.i.i.i.i.i.i
@@ -4317,8 +4317,8 @@ _ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit: ; pre
   br label %.critedge825
 
 .critedge825:                                     ; preds = %_ZN4llvm5APIntD2Ev.exit1072, %_ZN4llvm5APIntD2Ev.exit1071, %_ZN4llvm5APIntD2Ev.exit1070, %.thread1309, %.thread, %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit970, %._crit_edge1298, %._crit_edge, %1562, %1566, %1568, %1893, %1882, %_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit, %.critedge912, %.critedge910, %.thread1227, %.thread1204, %1456, %1370, %.thread1193, %762, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i998, %752, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i996, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i980, %543, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i982, %553, %399, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %389, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i, %184, %137, %_ZN4llvm5APIntD2Ev.exit1053, %_ZN4llvm5APIntD2Ev.exit1043, %1922, %1916, %1837, %1790, %1728, %1706, %1684, %1367, %1335, %1298, %1131, %1125, %1119, %1113, %1107, %1101, %1095, %1089, %708, %702, %453, %282, %289, %.critedge834, %208, %215, %.critedge830, %_ZN4llvm5APIntD2Ev.exit1022, %.critedge825.critedge846, %.critedge825.critedge844, %178, %173, %.critedge820, %.critedge840
-  %.sroa.01177.1 = phi ptr [ %2, %.critedge840 ], [ %1923, %1922 ], [ %1917, %1916 ], [ %1838, %1837 ], [ %1791, %1790 ], [ %1729, %1728 ], [ %1707, %1706 ], [ %1685, %1684 ], [ %1516, %_ZN4llvm5APIntD2Ev.exit1053 ], [ %1457, %1456 ], [ %1430, %_ZN4llvm5APIntD2Ev.exit1043 ], [ %1371, %1370 ], [ %1368, %1367 ], [ %1336, %1335 ], [ %1299, %1298 ], [ %.sroa.01177.14, %_ZN4llvm5APIntD2Ev.exit1022 ], [ %1132, %1131 ], [ %1126, %1125 ], [ %1120, %1119 ], [ %1114, %1113 ], [ %1108, %1107 ], [ %1102, %1101 ], [ %1096, %1095 ], [ %1090, %1089 ], [ %709, %708 ], [ %703, %702 ], [ %697, %.critedge825.critedge846 ], [ %600, %.critedge825.critedge844 ], [ %454, %453 ], [ %286, %282 ], [ %296, %289 ], [ %325, %.critedge834 ], [ %348, %._crit_edge ], [ %212, %208 ], [ %222, %215 ], [ %246, %.critedge830 ], [ %269, %._crit_edge1298 ], [ %180, %178 ], [ %195, %184 ], [ %175, %173 ], [ %133, %.critedge820 ], [ %149, %137 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i ], [ %2, %389 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %2, %399 ], [ %2, %553 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i982 ], [ %2, %543 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i980 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i996 ], [ %2, %752 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i998 ], [ %2, %762 ], [ %2, %.thread1193 ], [ %2, %.thread1204 ], [ %.sroa.01177.12.ph.ph, %.thread1227 ], [ %2, %.critedge910 ], [ %2, %.critedge912 ], [ %.0.i1098, %_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit ], [ null, %1882 ], [ null, %1893 ], [ %1563, %1562 ], [ %1567, %1566 ], [ %1574, %1568 ], [ %2, %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit970 ], [ %2, %.thread ], [ %2, %.thread1309 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1070 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1071 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1072 ]
-  %.sroa.60.1 = phi i8 [ 0, %.critedge840 ], [ 1, %1922 ], [ 1, %1916 ], [ 1, %1837 ], [ 1, %1790 ], [ 1, %1728 ], [ 1, %1706 ], [ 1, %1684 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1053 ], [ 1, %1456 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1043 ], [ 1, %1370 ], [ 1, %1367 ], [ 1, %1335 ], [ 1, %1298 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1022 ], [ 1, %1131 ], [ 1, %1125 ], [ 1, %1119 ], [ 1, %1113 ], [ 1, %1107 ], [ 1, %1101 ], [ 1, %1095 ], [ 1, %1089 ], [ 1, %708 ], [ 1, %702 ], [ 1, %.critedge825.critedge846 ], [ 1, %.critedge825.critedge844 ], [ 1, %453 ], [ 1, %282 ], [ 1, %289 ], [ 1, %.critedge834 ], [ 1, %._crit_edge ], [ 1, %208 ], [ 1, %215 ], [ 1, %.critedge830 ], [ 1, %._crit_edge1298 ], [ 1, %178 ], [ 1, %184 ], [ 1, %173 ], [ 1, %.critedge820 ], [ 1, %137 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i ], [ 1, %389 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ 1, %399 ], [ 1, %553 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i982 ], [ 1, %543 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i980 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i996 ], [ 1, %752 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i998 ], [ 1, %762 ], [ 1, %.thread1193 ], [ 1, %.thread1204 ], [ 1, %.thread1227 ], [ 1, %.critedge910 ], [ 1, %.critedge912 ], [ 1, %_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit ], [ 1, %1882 ], [ 1, %1893 ], [ 1, %1562 ], [ 1, %1566 ], [ 1, %1568 ], [ 1, %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit970 ], [ 1, %.thread ], [ 1, %.thread1309 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1070 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1071 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1072 ]
+  %.sroa.01177.1 = phi ptr [ %2, %.critedge840 ], [ %133, %.critedge820 ], [ %149, %137 ], [ %180, %178 ], [ %195, %184 ], [ %175, %173 ], [ %212, %208 ], [ %222, %215 ], [ %246, %.critedge830 ], [ %269, %._crit_edge1298 ], [ %286, %282 ], [ %296, %289 ], [ %325, %.critedge834 ], [ %348, %._crit_edge ], [ %454, %453 ], [ %600, %.critedge825.critedge844 ], [ %697, %.critedge825.critedge846 ], [ %703, %702 ], [ %709, %708 ], [ %1090, %1089 ], [ %1096, %1095 ], [ %1102, %1101 ], [ %1108, %1107 ], [ %1114, %1113 ], [ %1120, %1119 ], [ %1126, %1125 ], [ %1132, %1131 ], [ %.sroa.01177.14, %_ZN4llvm5APIntD2Ev.exit1022 ], [ %1299, %1298 ], [ %1336, %1335 ], [ %1371, %1370 ], [ %1368, %1367 ], [ %1457, %1456 ], [ %1430, %_ZN4llvm5APIntD2Ev.exit1043 ], [ %1516, %_ZN4llvm5APIntD2Ev.exit1053 ], [ %1685, %1684 ], [ %1707, %1706 ], [ %1729, %1728 ], [ %1791, %1790 ], [ %1838, %1837 ], [ %1917, %1916 ], [ %1923, %1922 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i ], [ %2, %389 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ %2, %399 ], [ %2, %553 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i982 ], [ %2, %543 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i980 ], [ %2, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i996 ], [ %2, %752 ], [ %2, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i998 ], [ %2, %762 ], [ %2, %.thread1193 ], [ %2, %.thread1204 ], [ %.sroa.01177.12.ph.ph, %.thread1227 ], [ %2, %.critedge910 ], [ %2, %.critedge912 ], [ %.0.i1098, %_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit ], [ null, %1882 ], [ null, %1893 ], [ %1563, %1562 ], [ %1567, %1566 ], [ %1574, %1568 ], [ %2, %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit970 ], [ %2, %.thread ], [ %2, %.thread1309 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1070 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1071 ], [ %2, %_ZN4llvm5APIntD2Ev.exit1072 ]
+  %.sroa.60.1 = phi i8 [ 0, %.critedge840 ], [ 1, %.critedge820 ], [ 1, %137 ], [ 1, %178 ], [ 1, %184 ], [ 1, %173 ], [ 1, %208 ], [ 1, %215 ], [ 1, %.critedge830 ], [ 1, %._crit_edge1298 ], [ 1, %282 ], [ 1, %289 ], [ 1, %.critedge834 ], [ 1, %._crit_edge ], [ 1, %453 ], [ 1, %.critedge825.critedge844 ], [ 1, %.critedge825.critedge846 ], [ 1, %702 ], [ 1, %708 ], [ 1, %1089 ], [ 1, %1095 ], [ 1, %1101 ], [ 1, %1107 ], [ 1, %1113 ], [ 1, %1119 ], [ 1, %1125 ], [ 1, %1131 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1022 ], [ 1, %1298 ], [ 1, %1335 ], [ 1, %1370 ], [ 1, %1367 ], [ 1, %1456 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1043 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1053 ], [ 1, %1684 ], [ 1, %1706 ], [ 1, %1728 ], [ 1, %1790 ], [ 1, %1837 ], [ 1, %1916 ], [ 1, %1922 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i ], [ 1, %389 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ 1, %399 ], [ 1, %553 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i982 ], [ 1, %543 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i980 ], [ 1, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit.i996 ], [ 1, %752 ], [ 1, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i998 ], [ 1, %762 ], [ 1, %.thread1193 ], [ 1, %.thread1204 ], [ 1, %.thread1227 ], [ 1, %.critedge910 ], [ 1, %.critedge912 ], [ 1, %_ZL21simplifyX86MaskedLoadRN4llvm13IntrinsicInstERNS_12InstCombinerE.exit ], [ 1, %1882 ], [ 1, %1893 ], [ 1, %1562 ], [ 1, %1566 ], [ 1, %1568 ], [ 1, %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit970 ], [ 1, %.thread ], [ 1, %.thread1309 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1070 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1071 ], [ 1, %_ZN4llvm5APIntD2Ev.exit1072 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.01177.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.60.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -4550,7 +4550,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit: ;
   br label %30
 
 30:                                               ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %11, %4 ], [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %11, %4 ]
   ret ptr %.1
 }
 
@@ -4646,7 +4646,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -5115,20 +5115,20 @@ define internal fastcc noundef ptr @_ZL19simplifyX86immShiftRKN4llvm13IntrinsicI
   br label %52
 
 52:                                               ; preds = %51, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %.1103 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %51 ]
+  %.1103 = phi i1 [ true, %51 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   br label %55
 
 53:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
   br label %54
 
 54:                                               ; preds = %53, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %.2104 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %53 ]
+  %.2104 = phi i1 [ true, %53 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   br label %55
 
 55:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %50, %54, %52
-  %.3105 = phi i1 [ %.2104, %54 ], [ %.1103, %52 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ true, %50 ]
-  %.0101 = phi i1 [ true, %54 ], [ false, %52 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %50 ]
-  %.0100 = phi i1 [ true, %54 ], [ true, %52 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %50 ]
+  %.3105 = phi i1 [ %.1103, %52 ], [ %.2104, %54 ], [ true, %50 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.0101 = phi i1 [ false, %52 ], [ true, %54 ], [ false, %50 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.0100 = phi i1 [ true, %52 ], [ true, %54 ], [ false, %50 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 134217727
@@ -5405,7 +5405,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit
 
 _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i126, %162, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i, %137, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i, %111
-  %188 = phi ptr [ %117, %111 ], [ %121, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %143, %137 ], [ %146, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %169, %162 ], [ %172, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i126 ]
+  %188 = phi ptr [ %117, %111 ], [ %121, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %146, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %143, %137 ], [ %172, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i126 ], [ %169, %162 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #15
@@ -5538,7 +5538,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit139
 
 _ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit139: ; preds = %207, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i138
-  %.1.i130 = phi ptr [ %219, %207 ], [ %222, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i138 ]
+  %.1.i130 = phi ptr [ %222, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i138 ], [ %219, %207 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #15
   br label %238
@@ -5986,7 +5986,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit170
 
 _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit170: ; preds = %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i191, %409, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i180, %384, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i169, %358
-  %435 = phi ptr [ %364, %358 ], [ %368, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i169 ], [ %390, %384 ], [ %393, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i180 ], [ %416, %409 ], [ %419, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i191 ]
+  %435 = phi ptr [ %364, %358 ], [ %368, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i169 ], [ %393, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i180 ], [ %390, %384 ], [ %419, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i191 ], [ %416, %409 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #15
@@ -6413,7 +6413,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i2
   br label %_ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb.exit233
 
 _ZN4llvm13IRBuilderBase10CreateLShrEPNS_5ValueES2_RKNS_5TwineEb.exit233: ; preds = %587, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i232
-  %.1.i224 = phi ptr [ %593, %587 ], [ %596, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i232 ]
+  %.1.i224 = phi ptr [ %596, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i232 ], [ %593, %587 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #15
   br label %637
 
@@ -6467,7 +6467,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i2
   br label %_ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit245
 
 _ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit245: ; preds = %612, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i244
-  %.1.i236 = phi ptr [ %618, %612 ], [ %621, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i244 ]
+  %.1.i236 = phi ptr [ %621, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i244 ], [ %618, %612 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #15
   br label %637
 
@@ -9162,7 +9162,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefIiEEZNK
   br label %34
 
 34:                                               ; preds = %._crit_edge.i.i.i.i.i, %32
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.1.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4, !tbaa !62
   %35 = icmp slt i32 %.1.val.i.i.i.i.i, 0
   %36 = icmp sge i32 %.1.val.i.i.i.i.i, %0
@@ -9174,7 +9174,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefIiEEZNK
   br label %40
 
 40:                                               ; preds = %._crit_edge.i.i.i.i.i, %38
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %38 ]
+  %.2.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !62
   %41 = icmp slt i32 %.2.val.i.i.i.i.i, 0
   %42 = icmp sge i32 %.2.val.i.i.i.i.i, %0
@@ -13611,7 +13611,7 @@ default.unreachable:                              ; preds = %_ZN4llvm12PatternMa
   unreachable
 
 1329:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172, %1323, %1324, %1319, %1320, %1313, %1314, %1307, %1308, %1303, %1304, %1299, %1300, %1295, %1296, %1290, %1291, %1284, %1285, %1279, %1280, %1273, %1274, %1269, %1270, %1264, %1265, %1258, %1259, %1254, %1255, %1250, %1251, %1246, %1247, %1240, %1241, %1234, %1235, %1229, %1230, %1224, %1225, %1219, %1220, %1214, %1215, %1209, %1210, %1204, %1205, %1200, %1201, %1196, %1197, %1192, %1193, %1188, %1189, %1183, %1184, %1177, %1178, %1172, %1173, %1167, %1168, %1162, %1163, %1157, %1158, %1153, %1154, %1147, %1148, %1143, %1144, %1137, %1138, %1132, %1133, %1126, %1127, %1121, %1122, %1115, %1116, %1110, %1111, %1104, %1105, %1100, %1101, %1094, %1095, %1089, %1090, %1085, %1086, %1081, %1082, %1076, %1077, %1070, %1071, %1065, %1066, %1059, %1060, %1056, %1057, %1051, %1052, %1044, %1045, %1038, %1039, %1034, %1035, %1029, %1030, %1024, %1025, %1019, %1020, %1013, %1014, %1008, %1009, %1003, %1004, %999, %1000, %993, %994, %988, %989, %982, %983, %978, %979, %972, %973, %967, %968, %961, %962, %956, %957, %950, %951, %945, %946, %940, %941, %936, %937, %932, %933, %928, %929, %923, %924, %917, %918, %914, %915, %909, %910, %904, %905, %898, %899, %891, %892, %885, %886, %879, %880, %874, %875, %868, %869, %863, %864, %857, %858, %854, %855, %849, %850, %843, %844, %839, %840, %835, %836, %829, %830, %825, %826, %819, %820, %812, %813, %808, %809, %804, %805, %798, %799, %793, %794, %787, %788, %782, %783, %776, %777, %769, %770, %763, %764, %757, %758, %750, %751, %746, %747, %739, %740, %735, %736, %730, %731, %726, %727, %722, %723, %717, %718, %713, %714, %706, %707, %702, %703, %695, %696, %689, %690, %685, %686, %682, %683, %675, %676, %669, %670, %664, %665, %658, %659, %653, %654, %647, %648, %643, %644, %639, %640, %632, %633, %626, %627, %622, %623, %616, %617, %612, %613, %608, %609, %602, %603, %597, %598, %589, %590, %584, %585, %578, %579, %573, %574, %567, %568, %563, %564, %560, %561, %553, %554, %547, %548, %542, %543, %537, %538, %529, %530, %524, %525, %520, %521, %516, %517, %509, %510, %504, %505, %499, %500, %493, %494, %488, %489, %482, %483, %477, %478, %471, %472, %467, %468, %461, %462, %456, %457, %450, %451, %446, %447, %441, %442, %436, %437, %430, %431, %425, %426, %420, %421, %415, %416, %411, %412, %407, %408, %404, %405, %397, %398, %392, %393, %384, %385, %379, %380, %373, %374, %368, %369, %364, %365, %360, %361, %355, %356, %350, %351, %343, %344, %337, %338, %332, %333, %326, %327, %321, %322, %315, %316, %310, %311, %304, %305, %300, %301, %294, %295, %290, %291, %285, %286, %280, %281, %275, %276, %270, %271, %264, %265, %259, %260, %255, %256, %251, %252, %247, %248, %243, %244, %238, %239, %233, %234, %228, %229, %223, %224, %218, %219, %213, %214, %207, %208, %201, %202, %197, %198, %193, %194, %189, %190, %185, %186, %182, %183, %178, %179, %171, %172, %165, %166, %160, %161, %154, %155, %149, %150, %145, %146, %141, %142, %137, %138, %133, %134, %130, %131, %126, %127, %123, %124, %119, %120, %115, %116, %1327, %1317, %1311, %1268, %1262, %1099, %1042, %889, %767, %595, %535, %513, %390, %347, %175, %113
-  %.sroa.08056.0 = phi ptr [ %1328, %1327 ], [ %.fca.0.extract, %1324 ], [ null, %1323 ], [ %.fca.0.extract16, %1320 ], [ null, %1319 ], [ %.fca.0.extract35, %1317 ], [ %.fca.0.extract45, %1314 ], [ null, %1313 ], [ %.fca.0.extract64, %1311 ], [ %.fca.0.extract74, %1308 ], [ null, %1307 ], [ %.fca.0.extract93, %1304 ], [ null, %1303 ], [ %.fca.0.extract112, %1300 ], [ null, %1299 ], [ %.fca.0.extract131, %1296 ], [ null, %1295 ], [ %.fca.0.extract150, %1291 ], [ null, %1290 ], [ %.fca.0.extract166, %1285 ], [ null, %1284 ], [ %.fca.0.extract191, %1280 ], [ null, %1279 ], [ %.fca.0.extract207, %1274 ], [ null, %1273 ], [ %.fca.0.extract232, %1270 ], [ null, %1269 ], [ %87, %1268 ], [ %.fca.0.extract251, %1265 ], [ null, %1264 ], [ %.fca.0.extract270, %1262 ], [ %.fca.0.extract280, %1259 ], [ null, %1258 ], [ %.fca.0.extract299, %1255 ], [ null, %1254 ], [ %.fca.0.extract318, %1251 ], [ null, %1250 ], [ %.fca.0.extract337, %1247 ], [ null, %1246 ], [ %.fca.0.extract356, %1241 ], [ null, %1240 ], [ %.fca.0.extract393, %1235 ], [ null, %1234 ], [ %.fca.0.extract430, %1230 ], [ null, %1229 ], [ %.fca.0.extract458, %1225 ], [ null, %1224 ], [ %.fca.0.extract486, %1220 ], [ null, %1219 ], [ %.fca.0.extract514, %1215 ], [ null, %1214 ], [ %.fca.0.extract542, %1210 ], [ null, %1209 ], [ %.fca.0.extract570, %1205 ], [ null, %1204 ], [ %.fca.0.extract598, %1201 ], [ null, %1200 ], [ %.fca.0.extract617, %1197 ], [ null, %1196 ], [ %.fca.0.extract636, %1193 ], [ null, %1192 ], [ %.fca.0.extract655, %1189 ], [ null, %1188 ], [ %.fca.0.extract674, %1184 ], [ null, %1183 ], [ %.fca.0.extract690, %1178 ], [ null, %1177 ], [ %.fca.0.extract715, %1173 ], [ null, %1172 ], [ %.fca.0.extract743, %1168 ], [ null, %1167 ], [ %.fca.0.extract771, %1163 ], [ null, %1162 ], [ %.fca.0.extract799, %1158 ], [ null, %1157 ], [ %.fca.0.extract827, %1154 ], [ null, %1153 ], [ %.fca.0.extract846, %1148 ], [ null, %1147 ], [ %.fca.0.extract883, %1144 ], [ null, %1143 ], [ %.fca.0.extract902, %1138 ], [ null, %1137 ], [ %.fca.0.extract939, %1133 ], [ null, %1132 ], [ %.fca.0.extract967, %1127 ], [ null, %1126 ], [ %.fca.0.extract992, %1122 ], [ null, %1121 ], [ %.fca.0.extract1020, %1116 ], [ null, %1115 ], [ %.fca.0.extract1045, %1111 ], [ null, %1110 ], [ %.fca.0.extract1061, %1105 ], [ null, %1104 ], [ %.fca.0.extract1086, %1101 ], [ null, %1100 ], [ %89, %1099 ], [ %.fca.0.extract1105, %1095 ], [ null, %1094 ], [ %.fca.0.extract1133, %1090 ], [ null, %1089 ], [ %.fca.0.extract1161, %1086 ], [ null, %1085 ], [ %.fca.0.extract1180, %1082 ], [ null, %1081 ], [ %.fca.0.extract1199, %1077 ], [ null, %1076 ], [ %.fca.0.extract1227, %1071 ], [ null, %1070 ], [ %.fca.0.extract1252, %1066 ], [ null, %1065 ], [ %.fca.0.extract1280, %1060 ], [ null, %1059 ], [ %.fca.0.extract1305, %1057 ], [ null, %1056 ], [ %.fca.0.extract1315, %1052 ], [ null, %1051 ], [ %.fca.0.extract1343, %1045 ], [ null, %1044 ], [ %.fca.0.extract1377, %1042 ], [ %.fca.0.extract1387, %1039 ], [ null, %1038 ], [ %.fca.0.extract1406, %1035 ], [ null, %1034 ], [ %.fca.0.extract1425, %1030 ], [ null, %1029 ], [ %.fca.0.extract1453, %1025 ], [ null, %1024 ], [ %.fca.0.extract1481, %1020 ], [ null, %1019 ], [ %.fca.0.extract1497, %1014 ], [ null, %1013 ], [ %.fca.0.extract1522, %1009 ], [ null, %1008 ], [ %.fca.0.extract1550, %1004 ], [ null, %1003 ], [ %.fca.0.extract1578, %1000 ], [ null, %999 ], [ %.fca.0.extract1597, %994 ], [ null, %993 ], [ %.fca.0.extract1634, %989 ], [ null, %988 ], [ %.fca.0.extract1662, %983 ], [ null, %982 ], [ %.fca.0.extract1687, %979 ], [ null, %978 ], [ %.fca.0.extract1706, %973 ], [ null, %972 ], [ %.fca.0.extract1743, %968 ], [ null, %967 ], [ %.fca.0.extract1771, %962 ], [ null, %961 ], [ %.fca.0.extract1796, %957 ], [ null, %956 ], [ %.fca.0.extract1812, %951 ], [ null, %950 ], [ %.fca.0.extract1837, %946 ], [ null, %945 ], [ %.fca.0.extract1865, %941 ], [ null, %940 ], [ %.fca.0.extract1893, %937 ], [ null, %936 ], [ %.fca.0.extract1912, %933 ], [ null, %932 ], [ %.fca.0.extract1931, %929 ], [ null, %928 ], [ %.fca.0.extract1950, %924 ], [ null, %923 ], [ %.fca.0.extract1978, %918 ], [ null, %917 ], [ %.fca.0.extract2003, %915 ], [ null, %914 ], [ %.fca.0.extract2013, %910 ], [ null, %909 ], [ %.fca.0.extract2041, %905 ], [ null, %904 ], [ %.fca.0.extract2069, %899 ], [ null, %898 ], [ %.fca.0.extract2094, %892 ], [ null, %891 ], [ %.fca.0.extract2128, %889 ], [ %.fca.0.extract2138, %886 ], [ null, %885 ], [ %.fca.0.extract2157, %880 ], [ null, %879 ], [ %.fca.0.extract2194, %875 ], [ null, %874 ], [ %.fca.0.extract2222, %869 ], [ null, %868 ], [ %.fca.0.extract2247, %864 ], [ null, %863 ], [ %.fca.0.extract2275, %858 ], [ null, %857 ], [ %.fca.0.extract2300, %855 ], [ null, %854 ], [ %.fca.0.extract2310, %850 ], [ null, %849 ], [ %.fca.0.extract2338, %844 ], [ null, %843 ], [ %.fca.0.extract2375, %840 ], [ null, %839 ], [ %.fca.0.extract2394, %836 ], [ null, %835 ], [ %.fca.0.extract2413, %830 ], [ null, %829 ], [ %.fca.0.extract2450, %826 ], [ null, %825 ], [ %.fca.0.extract2469, %820 ], [ null, %819 ], [ %.fca.0.extract2506, %813 ], [ null, %812 ], [ %.fca.0.extract2540, %809 ], [ null, %808 ], [ %.fca.0.extract2559, %805 ], [ null, %804 ], [ %.fca.0.extract2578, %799 ], [ null, %798 ], [ %.fca.0.extract2615, %794 ], [ null, %793 ], [ %.fca.0.extract2643, %788 ], [ null, %787 ], [ %.fca.0.extract2668, %783 ], [ null, %782 ], [ %.fca.0.extract2696, %777 ], [ null, %776 ], [ %.fca.0.extract2721, %770 ], [ null, %769 ], [ %.fca.0.extract2755, %767 ], [ %.fca.0.extract2765, %764 ], [ null, %763 ], [ %.fca.0.extract2784, %758 ], [ null, %757 ], [ %.fca.0.extract2821, %751 ], [ null, %750 ], [ %.fca.0.extract2855, %747 ], [ null, %746 ], [ %.fca.0.extract2874, %740 ], [ null, %739 ], [ %.fca.0.extract2908, %736 ], [ null, %735 ], [ %.fca.0.extract2927, %731 ], [ null, %730 ], [ %.fca.0.extract2955, %727 ], [ null, %726 ], [ %.fca.0.extract2974, %723 ], [ null, %722 ], [ %.fca.0.extract2993, %718 ], [ null, %717 ], [ %.fca.0.extract3021, %714 ], [ null, %713 ], [ %.fca.0.extract3040, %707 ], [ null, %706 ], [ %.fca.0.extract3074, %703 ], [ null, %702 ], [ %.fca.0.extract3093, %696 ], [ null, %695 ], [ %.fca.0.extract3127, %690 ], [ null, %689 ], [ %.fca.0.extract3164, %686 ], [ null, %685 ], [ %.fca.0.extract3183, %683 ], [ null, %682 ], [ %.fca.0.extract3193, %676 ], [ null, %675 ], [ %.fca.0.extract3227, %670 ], [ null, %669 ], [ %.fca.0.extract3252, %665 ], [ null, %664 ], [ %.fca.0.extract3280, %659 ], [ null, %658 ], [ %.fca.0.extract3305, %654 ], [ null, %653 ], [ %.fca.0.extract3333, %648 ], [ null, %647 ], [ %.fca.0.extract3370, %644 ], [ null, %643 ], [ %.fca.0.extract3389, %640 ], [ null, %639 ], [ %.fca.0.extract3408, %633 ], [ null, %632 ], [ %.fca.0.extract3442, %627 ], [ null, %626 ], [ %.fca.0.extract3479, %623 ], [ null, %622 ], [ %.fca.0.extract3498, %617 ], [ null, %616 ], [ %.fca.0.extract3535, %613 ], [ null, %612 ], [ %.fca.0.extract3554, %609 ], [ null, %608 ], [ %.fca.0.extract3573, %603 ], [ null, %602 ], [ %.fca.0.extract3610, %598 ], [ null, %597 ], [ %.fca.0.extract3638, %595 ], [ %.fca.0.extract3648, %590 ], [ null, %589 ], [ %.fca.0.extract3673, %585 ], [ null, %584 ], [ %.fca.0.extract3701, %579 ], [ null, %578 ], [ %.fca.0.extract3726, %574 ], [ null, %573 ], [ %.fca.0.extract3754, %568 ], [ null, %567 ], [ %.fca.0.extract3791, %564 ], [ null, %563 ], [ %.fca.0.extract3810, %561 ], [ null, %560 ], [ %.fca.0.extract3820, %554 ], [ null, %553 ], [ %.fca.0.extract3854, %548 ], [ null, %547 ], [ %.fca.0.extract3879, %543 ], [ null, %542 ], [ %.fca.0.extract3907, %538 ], [ null, %537 ], [ %.fca.0.extract3935, %535 ], [ %.fca.0.extract3945, %530 ], [ null, %529 ], [ %.fca.0.extract3970, %525 ], [ null, %524 ], [ %.fca.0.extract3998, %521 ], [ null, %520 ], [ %.fca.0.extract4017, %517 ], [ null, %516 ], [ %515, %513 ], [ %.fca.0.extract4043, %510 ], [ null, %509 ], [ %.fca.0.extract4062, %505 ], [ null, %504 ], [ %.fca.0.extract4090, %500 ], [ null, %499 ], [ %.fca.0.extract4118, %494 ], [ null, %493 ], [ %.fca.0.extract4143, %489 ], [ null, %488 ], [ %.fca.0.extract4159, %483 ], [ null, %482 ], [ %.fca.0.extract4184, %478 ], [ null, %477 ], [ %.fca.0.extract4212, %472 ], [ null, %471 ], [ %.fca.0.extract4249, %468 ], [ null, %467 ], [ %.fca.0.extract4268, %462 ], [ null, %461 ], [ %.fca.0.extract4293, %457 ], [ null, %456 ], [ %.fca.0.extract4321, %451 ], [ null, %450 ], [ %.fca.0.extract4358, %447 ], [ null, %446 ], [ %.fca.0.extract4377, %442 ], [ null, %441 ], [ %.fca.0.extract4405, %437 ], [ null, %436 ], [ %.fca.0.extract4433, %431 ], [ null, %430 ], [ %.fca.0.extract4458, %426 ], [ null, %425 ], [ %.fca.0.extract4474, %421 ], [ null, %420 ], [ %.fca.0.extract4502, %416 ], [ null, %415 ], [ %.fca.0.extract4530, %412 ], [ null, %411 ], [ %.fca.0.extract4549, %408 ], [ null, %407 ], [ %.fca.0.extract4568, %405 ], [ null, %404 ], [ %.fca.0.extract4578, %398 ], [ null, %397 ], [ %.fca.0.extract4612, %393 ], [ null, %392 ], [ %.fca.0.extract4640, %390 ], [ %.fca.0.extract4650, %385 ], [ null, %384 ], [ %.fca.0.extract4675, %380 ], [ null, %379 ], [ %.fca.0.extract4703, %374 ], [ null, %373 ], [ %.fca.0.extract4728, %369 ], [ null, %368 ], [ %.fca.0.extract4756, %365 ], [ null, %364 ], [ %.fca.0.extract4775, %361 ], [ null, %360 ], [ %.fca.0.extract4794, %356 ], [ null, %355 ], [ %.fca.0.extract4822, %351 ], [ null, %350 ], [ %349, %347 ], [ %.fca.0.extract4857, %344 ], [ null, %343 ], [ %.fca.0.extract4876, %338 ], [ null, %337 ], [ %.fca.0.extract4901, %333 ], [ null, %332 ], [ %.fca.0.extract4917, %327 ], [ null, %326 ], [ %.fca.0.extract4942, %322 ], [ null, %321 ], [ %.fca.0.extract4970, %316 ], [ null, %315 ], [ %.fca.0.extract4995, %311 ], [ null, %310 ], [ %.fca.0.extract5023, %305 ], [ null, %304 ], [ %.fca.0.extract5060, %301 ], [ null, %300 ], [ %.fca.0.extract5079, %295 ], [ null, %294 ], [ %.fca.0.extract5116, %291 ], [ null, %290 ], [ %.fca.0.extract5135, %286 ], [ null, %285 ], [ %.fca.0.extract5163, %281 ], [ null, %280 ], [ %.fca.0.extract5191, %276 ], [ null, %275 ], [ %.fca.0.extract5219, %271 ], [ null, %270 ], [ %.fca.0.extract5247, %265 ], [ null, %264 ], [ %.fca.0.extract5272, %260 ], [ null, %259 ], [ %.fca.0.extract5288, %256 ], [ null, %255 ], [ %.fca.0.extract5307, %252 ], [ null, %251 ], [ %.fca.0.extract5326, %248 ], [ null, %247 ], [ %.fca.0.extract5345, %244 ], [ null, %243 ], [ %.fca.0.extract5364, %239 ], [ null, %238 ], [ %.fca.0.extract5392, %234 ], [ null, %233 ], [ %.fca.0.extract5420, %229 ], [ null, %228 ], [ %.fca.0.extract5448, %224 ], [ null, %223 ], [ %.fca.0.extract5476, %219 ], [ null, %218 ], [ %.fca.0.extract5504, %214 ], [ null, %213 ], [ %.fca.0.extract5532, %208 ], [ null, %207 ], [ %.fca.0.extract5569, %202 ], [ null, %201 ], [ %.fca.0.extract5606, %198 ], [ null, %197 ], [ %.fca.0.extract5625, %194 ], [ null, %193 ], [ %.fca.0.extract5644, %190 ], [ null, %189 ], [ %.fca.0.extract5663, %186 ], [ null, %185 ], [ %.fca.0.extract5682, %183 ], [ null, %182 ], [ %.fca.0.extract5692, %179 ], [ null, %178 ], [ %177, %175 ], [ %.fca.0.extract5718, %172 ], [ null, %171 ], [ %.fca.0.extract5737, %166 ], [ null, %165 ], [ %.fca.0.extract5762, %161 ], [ null, %160 ], [ %.fca.0.extract5778, %155 ], [ null, %154 ], [ %.fca.0.extract5803, %150 ], [ null, %149 ], [ %.fca.0.extract5819, %146 ], [ null, %145 ], [ %.fca.0.extract5838, %142 ], [ null, %141 ], [ %.fca.0.extract5857, %138 ], [ null, %137 ], [ %.fca.0.extract5876, %134 ], [ null, %133 ], [ %.fca.0.extract5895, %131 ], [ null, %130 ], [ %.fca.0.extract5905, %127 ], [ null, %126 ], [ %.fca.0.extract5924, %124 ], [ null, %123 ], [ %.fca.0.extract5934, %120 ], [ null, %119 ], [ %.fca.0.extract5953, %116 ], [ null, %115 ], [ %114, %113 ], [ %91, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172 ]
+  %.sroa.08056.0 = phi ptr [ %114, %113 ], [ %.fca.0.extract5953, %116 ], [ null, %115 ], [ %.fca.0.extract5934, %120 ], [ null, %119 ], [ %.fca.0.extract5924, %124 ], [ null, %123 ], [ %.fca.0.extract5905, %127 ], [ null, %126 ], [ %.fca.0.extract5895, %131 ], [ null, %130 ], [ %.fca.0.extract5876, %134 ], [ null, %133 ], [ %.fca.0.extract5857, %138 ], [ null, %137 ], [ %.fca.0.extract5838, %142 ], [ null, %141 ], [ %.fca.0.extract5819, %146 ], [ null, %145 ], [ %.fca.0.extract5803, %150 ], [ null, %149 ], [ %.fca.0.extract5778, %155 ], [ null, %154 ], [ %.fca.0.extract5762, %161 ], [ null, %160 ], [ %.fca.0.extract5737, %166 ], [ null, %165 ], [ %.fca.0.extract5718, %172 ], [ null, %171 ], [ %177, %175 ], [ %.fca.0.extract5692, %179 ], [ null, %178 ], [ %.fca.0.extract5682, %183 ], [ null, %182 ], [ %.fca.0.extract5663, %186 ], [ null, %185 ], [ %.fca.0.extract5644, %190 ], [ null, %189 ], [ %.fca.0.extract5625, %194 ], [ null, %193 ], [ %.fca.0.extract5606, %198 ], [ null, %197 ], [ %.fca.0.extract5569, %202 ], [ null, %201 ], [ %.fca.0.extract5532, %208 ], [ null, %207 ], [ %.fca.0.extract5504, %214 ], [ null, %213 ], [ %.fca.0.extract5476, %219 ], [ null, %218 ], [ %.fca.0.extract5448, %224 ], [ null, %223 ], [ %.fca.0.extract5420, %229 ], [ null, %228 ], [ %.fca.0.extract5392, %234 ], [ null, %233 ], [ %.fca.0.extract5364, %239 ], [ null, %238 ], [ %.fca.0.extract5345, %244 ], [ null, %243 ], [ %.fca.0.extract5326, %248 ], [ null, %247 ], [ %.fca.0.extract5307, %252 ], [ null, %251 ], [ %.fca.0.extract5288, %256 ], [ null, %255 ], [ %.fca.0.extract5272, %260 ], [ null, %259 ], [ %.fca.0.extract5247, %265 ], [ null, %264 ], [ %.fca.0.extract5219, %271 ], [ null, %270 ], [ %.fca.0.extract5191, %276 ], [ null, %275 ], [ %.fca.0.extract5163, %281 ], [ null, %280 ], [ %.fca.0.extract5135, %286 ], [ null, %285 ], [ %.fca.0.extract5116, %291 ], [ null, %290 ], [ %.fca.0.extract5079, %295 ], [ null, %294 ], [ %.fca.0.extract5060, %301 ], [ null, %300 ], [ %.fca.0.extract5023, %305 ], [ null, %304 ], [ %.fca.0.extract4995, %311 ], [ null, %310 ], [ %.fca.0.extract4970, %316 ], [ null, %315 ], [ %.fca.0.extract4942, %322 ], [ null, %321 ], [ %.fca.0.extract4917, %327 ], [ null, %326 ], [ %.fca.0.extract4901, %333 ], [ null, %332 ], [ %.fca.0.extract4876, %338 ], [ null, %337 ], [ %.fca.0.extract4857, %344 ], [ null, %343 ], [ %349, %347 ], [ %.fca.0.extract4822, %351 ], [ null, %350 ], [ %.fca.0.extract4794, %356 ], [ null, %355 ], [ %.fca.0.extract4775, %361 ], [ null, %360 ], [ %.fca.0.extract4756, %365 ], [ null, %364 ], [ %.fca.0.extract4728, %369 ], [ null, %368 ], [ %.fca.0.extract4703, %374 ], [ null, %373 ], [ %.fca.0.extract4675, %380 ], [ null, %379 ], [ %.fca.0.extract4650, %385 ], [ null, %384 ], [ %.fca.0.extract4640, %390 ], [ %.fca.0.extract4612, %393 ], [ null, %392 ], [ %.fca.0.extract4578, %398 ], [ null, %397 ], [ %.fca.0.extract4568, %405 ], [ null, %404 ], [ %.fca.0.extract4549, %408 ], [ null, %407 ], [ %.fca.0.extract4530, %412 ], [ null, %411 ], [ %.fca.0.extract4502, %416 ], [ null, %415 ], [ %.fca.0.extract4474, %421 ], [ null, %420 ], [ %.fca.0.extract4458, %426 ], [ null, %425 ], [ %.fca.0.extract4433, %431 ], [ null, %430 ], [ %.fca.0.extract4405, %437 ], [ null, %436 ], [ %.fca.0.extract4377, %442 ], [ null, %441 ], [ %.fca.0.extract4358, %447 ], [ null, %446 ], [ %.fca.0.extract4321, %451 ], [ null, %450 ], [ %.fca.0.extract4293, %457 ], [ null, %456 ], [ %.fca.0.extract4268, %462 ], [ null, %461 ], [ %.fca.0.extract4249, %468 ], [ null, %467 ], [ %.fca.0.extract4212, %472 ], [ null, %471 ], [ %.fca.0.extract4184, %478 ], [ null, %477 ], [ %.fca.0.extract4159, %483 ], [ null, %482 ], [ %.fca.0.extract4143, %489 ], [ null, %488 ], [ %.fca.0.extract4118, %494 ], [ null, %493 ], [ %.fca.0.extract4090, %500 ], [ null, %499 ], [ %.fca.0.extract4062, %505 ], [ null, %504 ], [ %.fca.0.extract4043, %510 ], [ null, %509 ], [ %515, %513 ], [ %.fca.0.extract4017, %517 ], [ null, %516 ], [ %.fca.0.extract3998, %521 ], [ null, %520 ], [ %.fca.0.extract3970, %525 ], [ null, %524 ], [ %.fca.0.extract3945, %530 ], [ null, %529 ], [ %.fca.0.extract3935, %535 ], [ %.fca.0.extract3907, %538 ], [ null, %537 ], [ %.fca.0.extract3879, %543 ], [ null, %542 ], [ %.fca.0.extract3854, %548 ], [ null, %547 ], [ %.fca.0.extract3820, %554 ], [ null, %553 ], [ %.fca.0.extract3810, %561 ], [ null, %560 ], [ %.fca.0.extract3791, %564 ], [ null, %563 ], [ %.fca.0.extract3754, %568 ], [ null, %567 ], [ %.fca.0.extract3726, %574 ], [ null, %573 ], [ %.fca.0.extract3701, %579 ], [ null, %578 ], [ %.fca.0.extract3673, %585 ], [ null, %584 ], [ %.fca.0.extract3648, %590 ], [ null, %589 ], [ %.fca.0.extract3638, %595 ], [ %.fca.0.extract3610, %598 ], [ null, %597 ], [ %.fca.0.extract3573, %603 ], [ null, %602 ], [ %.fca.0.extract3554, %609 ], [ null, %608 ], [ %.fca.0.extract3535, %613 ], [ null, %612 ], [ %.fca.0.extract3498, %617 ], [ null, %616 ], [ %.fca.0.extract3479, %623 ], [ null, %622 ], [ %.fca.0.extract3442, %627 ], [ null, %626 ], [ %.fca.0.extract3408, %633 ], [ null, %632 ], [ %.fca.0.extract3389, %640 ], [ null, %639 ], [ %.fca.0.extract3370, %644 ], [ null, %643 ], [ %.fca.0.extract3333, %648 ], [ null, %647 ], [ %.fca.0.extract3305, %654 ], [ null, %653 ], [ %.fca.0.extract3280, %659 ], [ null, %658 ], [ %.fca.0.extract3252, %665 ], [ null, %664 ], [ %.fca.0.extract3227, %670 ], [ null, %669 ], [ %.fca.0.extract3193, %676 ], [ null, %675 ], [ %.fca.0.extract3183, %683 ], [ null, %682 ], [ %.fca.0.extract3164, %686 ], [ null, %685 ], [ %.fca.0.extract3127, %690 ], [ null, %689 ], [ %.fca.0.extract3093, %696 ], [ null, %695 ], [ %.fca.0.extract3074, %703 ], [ null, %702 ], [ %.fca.0.extract3040, %707 ], [ null, %706 ], [ %.fca.0.extract3021, %714 ], [ null, %713 ], [ %.fca.0.extract2993, %718 ], [ null, %717 ], [ %.fca.0.extract2974, %723 ], [ null, %722 ], [ %.fca.0.extract2955, %727 ], [ null, %726 ], [ %.fca.0.extract2927, %731 ], [ null, %730 ], [ %.fca.0.extract2908, %736 ], [ null, %735 ], [ %.fca.0.extract2874, %740 ], [ null, %739 ], [ %.fca.0.extract2855, %747 ], [ null, %746 ], [ %.fca.0.extract2821, %751 ], [ null, %750 ], [ %.fca.0.extract2784, %758 ], [ null, %757 ], [ %.fca.0.extract2765, %764 ], [ null, %763 ], [ %.fca.0.extract2755, %767 ], [ %.fca.0.extract2721, %770 ], [ null, %769 ], [ %.fca.0.extract2696, %777 ], [ null, %776 ], [ %.fca.0.extract2668, %783 ], [ null, %782 ], [ %.fca.0.extract2643, %788 ], [ null, %787 ], [ %.fca.0.extract2615, %794 ], [ null, %793 ], [ %.fca.0.extract2578, %799 ], [ null, %798 ], [ %.fca.0.extract2559, %805 ], [ null, %804 ], [ %.fca.0.extract2540, %809 ], [ null, %808 ], [ %.fca.0.extract2506, %813 ], [ null, %812 ], [ %.fca.0.extract2469, %820 ], [ null, %819 ], [ %.fca.0.extract2450, %826 ], [ null, %825 ], [ %.fca.0.extract2413, %830 ], [ null, %829 ], [ %.fca.0.extract2394, %836 ], [ null, %835 ], [ %.fca.0.extract2375, %840 ], [ null, %839 ], [ %.fca.0.extract2338, %844 ], [ null, %843 ], [ %.fca.0.extract2310, %850 ], [ null, %849 ], [ %.fca.0.extract2300, %855 ], [ null, %854 ], [ %.fca.0.extract2275, %858 ], [ null, %857 ], [ %.fca.0.extract2247, %864 ], [ null, %863 ], [ %.fca.0.extract2222, %869 ], [ null, %868 ], [ %.fca.0.extract2194, %875 ], [ null, %874 ], [ %.fca.0.extract2157, %880 ], [ null, %879 ], [ %.fca.0.extract2138, %886 ], [ null, %885 ], [ %.fca.0.extract2128, %889 ], [ %.fca.0.extract2094, %892 ], [ null, %891 ], [ %.fca.0.extract2069, %899 ], [ null, %898 ], [ %.fca.0.extract2041, %905 ], [ null, %904 ], [ %.fca.0.extract2013, %910 ], [ null, %909 ], [ %.fca.0.extract2003, %915 ], [ null, %914 ], [ %.fca.0.extract1978, %918 ], [ null, %917 ], [ %.fca.0.extract1950, %924 ], [ null, %923 ], [ %.fca.0.extract1931, %929 ], [ null, %928 ], [ %.fca.0.extract1912, %933 ], [ null, %932 ], [ %.fca.0.extract1893, %937 ], [ null, %936 ], [ %.fca.0.extract1865, %941 ], [ null, %940 ], [ %.fca.0.extract1837, %946 ], [ null, %945 ], [ %.fca.0.extract1812, %951 ], [ null, %950 ], [ %.fca.0.extract1796, %957 ], [ null, %956 ], [ %.fca.0.extract1771, %962 ], [ null, %961 ], [ %.fca.0.extract1743, %968 ], [ null, %967 ], [ %.fca.0.extract1706, %973 ], [ null, %972 ], [ %.fca.0.extract1687, %979 ], [ null, %978 ], [ %.fca.0.extract1662, %983 ], [ null, %982 ], [ %.fca.0.extract1634, %989 ], [ null, %988 ], [ %.fca.0.extract1597, %994 ], [ null, %993 ], [ %.fca.0.extract1578, %1000 ], [ null, %999 ], [ %.fca.0.extract1550, %1004 ], [ null, %1003 ], [ %.fca.0.extract1522, %1009 ], [ null, %1008 ], [ %.fca.0.extract1497, %1014 ], [ null, %1013 ], [ %.fca.0.extract1481, %1020 ], [ null, %1019 ], [ %.fca.0.extract1453, %1025 ], [ null, %1024 ], [ %.fca.0.extract1425, %1030 ], [ null, %1029 ], [ %.fca.0.extract1406, %1035 ], [ null, %1034 ], [ %.fca.0.extract1387, %1039 ], [ null, %1038 ], [ %.fca.0.extract1377, %1042 ], [ %.fca.0.extract1343, %1045 ], [ null, %1044 ], [ %.fca.0.extract1315, %1052 ], [ null, %1051 ], [ %.fca.0.extract1305, %1057 ], [ null, %1056 ], [ %.fca.0.extract1280, %1060 ], [ null, %1059 ], [ %.fca.0.extract1252, %1066 ], [ null, %1065 ], [ %.fca.0.extract1227, %1071 ], [ null, %1070 ], [ %.fca.0.extract1199, %1077 ], [ null, %1076 ], [ %.fca.0.extract1180, %1082 ], [ null, %1081 ], [ %.fca.0.extract1161, %1086 ], [ null, %1085 ], [ %.fca.0.extract1133, %1090 ], [ null, %1089 ], [ %.fca.0.extract1105, %1095 ], [ null, %1094 ], [ %89, %1099 ], [ %.fca.0.extract1086, %1101 ], [ null, %1100 ], [ %.fca.0.extract1061, %1105 ], [ null, %1104 ], [ %.fca.0.extract1045, %1111 ], [ null, %1110 ], [ %.fca.0.extract1020, %1116 ], [ null, %1115 ], [ %.fca.0.extract992, %1122 ], [ null, %1121 ], [ %.fca.0.extract967, %1127 ], [ null, %1126 ], [ %.fca.0.extract939, %1133 ], [ null, %1132 ], [ %.fca.0.extract902, %1138 ], [ null, %1137 ], [ %.fca.0.extract883, %1144 ], [ null, %1143 ], [ %.fca.0.extract846, %1148 ], [ null, %1147 ], [ %.fca.0.extract827, %1154 ], [ null, %1153 ], [ %.fca.0.extract799, %1158 ], [ null, %1157 ], [ %.fca.0.extract771, %1163 ], [ null, %1162 ], [ %.fca.0.extract743, %1168 ], [ null, %1167 ], [ %.fca.0.extract715, %1173 ], [ null, %1172 ], [ %.fca.0.extract690, %1178 ], [ null, %1177 ], [ %.fca.0.extract674, %1184 ], [ null, %1183 ], [ %.fca.0.extract655, %1189 ], [ null, %1188 ], [ %.fca.0.extract636, %1193 ], [ null, %1192 ], [ %.fca.0.extract617, %1197 ], [ null, %1196 ], [ %.fca.0.extract598, %1201 ], [ null, %1200 ], [ %.fca.0.extract570, %1205 ], [ null, %1204 ], [ %.fca.0.extract542, %1210 ], [ null, %1209 ], [ %.fca.0.extract514, %1215 ], [ null, %1214 ], [ %.fca.0.extract486, %1220 ], [ null, %1219 ], [ %.fca.0.extract458, %1225 ], [ null, %1224 ], [ %.fca.0.extract430, %1230 ], [ null, %1229 ], [ %.fca.0.extract393, %1235 ], [ null, %1234 ], [ %.fca.0.extract356, %1241 ], [ null, %1240 ], [ %.fca.0.extract337, %1247 ], [ null, %1246 ], [ %.fca.0.extract318, %1251 ], [ null, %1250 ], [ %.fca.0.extract299, %1255 ], [ null, %1254 ], [ %.fca.0.extract280, %1259 ], [ null, %1258 ], [ %.fca.0.extract270, %1262 ], [ %.fca.0.extract251, %1265 ], [ null, %1264 ], [ %87, %1268 ], [ %.fca.0.extract232, %1270 ], [ null, %1269 ], [ %.fca.0.extract207, %1274 ], [ null, %1273 ], [ %.fca.0.extract191, %1280 ], [ null, %1279 ], [ %.fca.0.extract166, %1285 ], [ null, %1284 ], [ %.fca.0.extract150, %1291 ], [ null, %1290 ], [ %.fca.0.extract131, %1296 ], [ null, %1295 ], [ %.fca.0.extract112, %1300 ], [ null, %1299 ], [ %.fca.0.extract93, %1304 ], [ null, %1303 ], [ %.fca.0.extract74, %1308 ], [ null, %1307 ], [ %.fca.0.extract64, %1311 ], [ %.fca.0.extract45, %1314 ], [ null, %1313 ], [ %.fca.0.extract35, %1317 ], [ %.fca.0.extract16, %1320 ], [ null, %1319 ], [ %.fca.0.extract, %1324 ], [ null, %1323 ], [ %1328, %1327 ], [ %91, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #15
   br label %_ZNK4llvm5APInt3ugeEm.exit.thread
 
@@ -15878,12 +15878,12 @@ _ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247: 
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
 _ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %_ZN4llvm5APIntD2Ev.exit226, %934, %926, %917, %916, %913, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247, %639, %636, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216, %605, %601, %443, %440, %250, %247, %429, %_ZN4llvm5APIntD2Ev.exit149, %_ZN4llvm5APIntD2Ev.exit139, %8, %_ZN4llvm5APIntD2Ev.exit162, %_ZN4llvm5APIntD2Ev.exit200, %_ZN4llvm5APIntD2Ev.exit244, %_ZN4llvm5APIntD2Ev.exit
-  %.sroa.0.0 = phi ptr [ undef, %8 ], [ undef, %_ZN4llvm5APIntD2Ev.exit244 ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ], [ undef, %429 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ undef, %_ZN4llvm5APIntD2Ev.exit149 ], [ undef, %_ZN4llvm5APIntD2Ev.exit139 ], [ undef, %_ZN4llvm5APIntD2Ev.exit ], [ undef, %247 ], [ undef, %250 ], [ undef, %440 ], [ undef, %443 ], [ undef, %601 ], [ undef, %605 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216 ], [ undef, %636 ], [ undef, %639 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247 ], [ undef, %913 ], [ undef, %916 ], [ undef, %917 ], [ undef, %926 ], [ undef, %934 ], [ undef, %_ZN4llvm5APIntD2Ev.exit226 ]
+  %.sroa.0.0 = phi ptr [ undef, %8 ], [ undef, %_ZN4llvm5APIntD2Ev.exit ], [ undef, %_ZN4llvm5APIntD2Ev.exit139 ], [ undef, %_ZN4llvm5APIntD2Ev.exit149 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ undef, %429 ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ], [ undef, %_ZN4llvm5APIntD2Ev.exit244 ], [ undef, %247 ], [ undef, %250 ], [ undef, %440 ], [ undef, %443 ], [ undef, %601 ], [ undef, %605 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216 ], [ undef, %636 ], [ undef, %639 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247 ], [ undef, %913 ], [ undef, %916 ], [ undef, %917 ], [ undef, %926 ], [ undef, %934 ], [ undef, %_ZN4llvm5APIntD2Ev.exit226 ]
   br label %935
 
 935:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit162, %_ZN4llvm5APIntD2Ev.exit200, %_ZN4llvm5APInt8clearBitEj.exit, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit, %148, %100
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN4llvm5APInt8clearBitEj.exit ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ], [ %382, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ %211, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ %155, %148 ], [ %102, %100 ]
-  %.sroa.7.0 = phi i8 [ 0, %_ZN4llvm5APInt8clearBitEj.exit ], [ 1, %_ZN4llvm5APIntD2Ev.exit200 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ 1, %_ZN4llvm5APIntD2Ev.exit162 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ 1, %148 ], [ 1, %100 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN4llvm5APInt8clearBitEj.exit ], [ %102, %100 ], [ %155, %148 ], [ %211, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ %382, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ]
+  %.sroa.7.0 = phi i8 [ 0, %_ZN4llvm5APInt8clearBitEj.exit ], [ 1, %100 ], [ 1, %148 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ 1, %_ZN4llvm5APIntD2Ev.exit162 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ 1, %_ZN4llvm5APIntD2Ev.exit200 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.7.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -16616,8 +16616,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge.i.i.i.i
-  %47 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %42, %44 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %44 ]
+  %47 = phi ptr [ %42, %44 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %48 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !76
   %49 = icmp eq ptr %48, %47
   br i1 %49, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit, label %50
@@ -16627,8 +16627,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPNS_11Instruct
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge._crit_edge52.i.i.i.i
-  %53 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %47, %50 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %51, %50 ]
+  %53 = phi ptr [ %47, %50 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %54 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !76
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_11InstructionELj16EEES3_EEbOT_RKT0_.exit.thread
@@ -17233,7 +17233,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %47
 
 47:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_8ICmpInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -17768,7 +17768,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_18ExtractElementInstEEEPT_S4_RKNS_5TwineE.exi
   br label %30
 
 30:                                               ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_18ExtractElementInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %11, %4 ], [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_18ExtractElementInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %14, %_ZNK4llvm13IRBuilderBase6InsertINS_18ExtractElementInstEEEPT_S4_RKNS_5TwineE.exit ], [ %11, %4 ]
   ret ptr %.1
 }
 
@@ -18045,7 +18045,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit
   br label %32
 
 32:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17InsertElementInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -18149,7 +18149,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22:
   br label %51
 
 51:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %5 ], [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %35, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit22 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %5 ]
   ret ptr %.1
 }
 
@@ -18228,7 +18228,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit
   br label %33
 
 33:                                               ; preds = %6, %_ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %14, %6 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_17ShuffleVectorInstEEEPT_S4_RKNS_5TwineE.exit ], [ %14, %6 ]
   ret ptr %.1
 }
 
@@ -18883,7 +18883,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit:
   br label %54
 
 54:                                               ; preds = %5, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %12, %5 ], [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %15, %_ZNK4llvm13IRBuilderBase6InsertINS_16ExtractValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %12, %5 ]
   ret ptr %.1
 }
 
@@ -18948,7 +18948,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit: 
   br label %38
 
 38:                                               ; preds = %6, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit
-  %.1 = phi ptr [ %13, %6 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ]
+  %.1 = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_15InsertValueInstEEEPT_S4_RKNS_5TwineE.exit ], [ %13, %6 ]
   ret ptr %.1
 }
 
@@ -19131,7 +19131,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit"
 
 "_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit": ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i
-  %.1.i.i = phi ptr [ %14, %4 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ]
+  %.1.i.i = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %14, %4 ]
   %33 = or i8 %3, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
   %.val19 = load ptr, ptr %.0.val, align 8, !tbaa !326
@@ -19200,7 +19200,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %13, %4 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %13, %4 ]
   %32 = or i8 %3, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.1.i, 0
@@ -19262,7 +19262,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %13, %4 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %13, %4 ]
   %32 = and i8 %3, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.1.i, 0
@@ -19325,7 +19325,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit"
 
 "_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit": ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i
-  %.1.i.i = phi ptr [ %14, %4 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ]
+  %.1.i.i = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %14, %4 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
   %.val = load ptr, ptr %.0.val, align 8, !tbaa !326
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #15
@@ -19395,7 +19395,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
   br label %"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit"
 
 "_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_.exit": ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i
-  %.1.i.i = phi ptr [ %14, %4 ], [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ]
+  %.1.i.i = phi ptr [ %17, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i ], [ %14, %4 ]
   %33 = and i8 %3, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
   %.val = load ptr, ptr %.0.val, align 8, !tbaa !326
@@ -19464,7 +19464,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %4, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %13, %4 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %13, %4 ]
   %32 = xor i8 %3, %1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.1.i, 0
@@ -19529,7 +19529,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit
 
 _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %3, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %13, %3 ], [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
+  %.1.i = phi ptr [ %16, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %13, %3 ]
   ret ptr %.1.i
 }
 
@@ -19617,7 +19617,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %37, %36 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %39 = load i32, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !118
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %41
@@ -19627,7 +19627,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   br label %43
 
 43:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %42, %41 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %44 = load i32, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !118
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit

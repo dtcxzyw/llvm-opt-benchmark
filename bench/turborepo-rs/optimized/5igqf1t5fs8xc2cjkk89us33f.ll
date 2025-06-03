@@ -5133,7 +5133,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit112: ; p
   unreachable
 
 common.resume:                                    ; preds = %292, %242, %229, %202, %220, %233, %283
-  %common.resume.op = phi { ptr, i32 } [ %284, %283 ], [ %234, %233 ], [ %221, %220 ], [ %203, %202 ], [ %230, %229 ], [ %243, %242 ], [ %293, %292 ]
+  %common.resume.op = phi { ptr, i32 } [ %284, %283 ], [ %234, %233 ], [ %203, %202 ], [ %221, %220 ], [ %230, %229 ], [ %243, %242 ], [ %293, %292 ]
   resume { ptr, i32 } %common.resume.op
 
 220:                                              ; preds = %193

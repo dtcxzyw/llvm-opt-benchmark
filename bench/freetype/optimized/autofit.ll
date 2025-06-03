@@ -7328,8 +7328,8 @@ select.unfold.i:                                  ; preds = %246, %243
   br i1 %.not229.i, label %259, label %243, !llvm.loop !394
 
 259:                                              ; preds = %select.unfold.i, %246
-  %.2176239.i = phi i64 [ %.2176.ph.i, %select.unfold.i ], [ %256, %246 ]
-  %.not230.i = icmp slt i64 %.2176239.i, %.0169.i
+  %.2176240.i = phi i64 [ %.2176.ph.i, %select.unfold.i ], [ %256, %246 ]
+  %.not230.i = icmp slt i64 %.2176240.i, %.0169.i
   br i1 %.not230.i, label %260, label %261
 
 260:                                              ; preds = %259, %237

@@ -13431,8 +13431,8 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %11, %17, %23
-  %.028.be = phi ptr [ %28, %23 ], [ %22, %17 ], [ %16, %11 ]
-  %.027.be = phi ptr [ %27, %23 ], [ %21, %17 ], [ %15, %11 ]
+  %.028.be = phi ptr [ %16, %11 ], [ %22, %17 ], [ %28, %23 ]
+  %.027.be = phi ptr [ %15, %11 ], [ %21, %17 ], [ %27, %23 ]
   br label %.backedge
 
 17:                                               ; preds = %lean_obj_tag.exit

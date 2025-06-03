@@ -5197,7 +5197,7 @@ switch.lookup:                                    ; preds = %14
   br label %_ZN4cvc58internal4kind13isWellFoundedENS0_12TypeConstantE.exit
 
 _ZN4cvc58internal4kind13isWellFoundedENS0_12TypeConstantE.exit: ; preds = %switch.lookup, %247, %241, %237, %215, %209, %205, %183, %177, %173, %139, %133, %129, %107, %101, %97, %77, %71, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit7, %50, %44, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit, %1, %1, %1, %154, %151, %148, %145
-  %.05 = phi i1 [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit ], [ true, %44 ], [ true, %50 ], [ true, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit7 ], [ true, %71 ], [ true, %77 ], [ %96, %97 ], [ %96, %101 ], [ %96, %107 ], [ %128, %129 ], [ %128, %133 ], [ %128, %139 ], [ %172, %173 ], [ %172, %177 ], [ %172, %183 ], [ %204, %205 ], [ %204, %209 ], [ %204, %215 ], [ %236, %237 ], [ %236, %241 ], [ %236, %247 ], [ %switch.masked, %switch.lookup ]
+  %.05 = phi i1 [ %147, %145 ], [ %150, %148 ], [ %153, %151 ], [ %156, %154 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit ], [ true, %44 ], [ true, %50 ], [ true, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit7 ], [ true, %71 ], [ true, %77 ], [ %96, %97 ], [ %96, %101 ], [ %96, %107 ], [ %128, %129 ], [ %128, %133 ], [ %128, %139 ], [ %172, %173 ], [ %172, %177 ], [ %172, %183 ], [ %204, %205 ], [ %204, %209 ], [ %204, %215 ], [ %236, %237 ], [ %236, %241 ], [ %236, %247 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.05
 
 266:                                              ; preds = %251, %219, %187, %143, %111

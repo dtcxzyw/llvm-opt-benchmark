@@ -3139,12 +3139,12 @@ _ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.22253779223
   br label %79
 
 79:                                               ; preds = %61, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit13, %78, %77
-  %.2 = phi i8 [ 3, %78 ], [ 1, %77 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit13 ], [ 2, %61 ]
+  %.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit13 ], [ 1, %77 ], [ 3, %78 ], [ 2, %61 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %80
 
 80:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit, %79, %1, %63
-  %.1 = phi i8 [ 0, %63 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit ], [ %.2, %79 ], [ %10, %1 ], [ %10, %1 ]
+  %.1 = phi i8 [ 0, %63 ], [ %.2, %79 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hea8709ead1d29569E.llvm.222537792231950641.exit ], [ %10, %1 ], [ %10, %1 ]
   ret i8 %.1
 }
 
@@ -8829,7 +8829,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17hbacf8c57ff9534e2E.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h9dd58737544356ccE.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h9dd58737544356ccE.exit: ; preds = %14, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hbacf8c57ff9534e2E.exit.i
-  %.merged.i = phi { i64, i64 } [ %142, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hbacf8c57ff9534e2E.exit.i ], [ %15, %14 ]
+  %.merged.i = phi { i64, i64 } [ %15, %14 ], [ %142, %_ZN9hashbrown3raw13RawTableInner12resize_inner17hbacf8c57ff9534e2E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret { i64, i64 } %.merged.i
 }
@@ -11924,13 +11924,13 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i.i, i64 40, i1 false), !noalias !2596
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2603
   %switch.i.i.i = icmp eq i64 %127, 0
-  br i1 %switch.i.i.i, label %129, label %.critedge.i.i.i
+  br i1 %switch.i.i.i, label %.critedge.i.i.i, label %129
 
-129:                                              ; preds = %128
+.critedge.i.i.i:                                  ; preds = %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %124, i64 32, i1 false), !noalias !2596
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit.i.i.i"
 
-.critedge.i.i.i:                                  ; preds = %128
+129:                                              ; preds = %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i.i, i64 32, i1 false), !noalias !2596
   call void @llvm.experimental.noalias.scope.decl(metadata !2608)
   call void @llvm.experimental.noalias.scope.decl(metadata !2611)
@@ -11938,7 +11938,7 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   %131 = icmp eq ptr %130, null
   br i1 %131, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit.i.i.i", label %132
 
-132:                                              ; preds = %.critedge.i.i.i
+132:                                              ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !2615)
   call void @llvm.experimental.noalias.scope.decl(metadata !2618)
   call void @llvm.experimental.noalias.scope.decl(metadata !2621)
@@ -11950,7 +11950,7 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   invoke void %134(ptr noalias noundef nonnull align 8 dereferenceable(8) %117, ptr noundef %135, i64 noundef %136)
           to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit.i.i.i" unwind label %.thread.i.i.i, !noalias !2629
 
-"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit.i.i.i": ; preds = %132, %.critedge.i.i.i, %129
+"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hd462342c1d1424f7E.exit.i.i.i": ; preds = %132, %129, %.critedge.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2603
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2603
   call void @llvm.experimental.noalias.scope.decl(metadata !2630)

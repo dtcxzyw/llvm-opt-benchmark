@@ -1436,7 +1436,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN69_$LT$aws_smithy_types..number..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h20a5bbeb04997e14E.exit"
 
 "_ZN69_$LT$aws_smithy_types..number..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h20a5bbeb04997e14E.exit": ; preds = %9, %11, %13
-  %.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+  %.0.in.i = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   ret i1 %.0.in.i
 }
 

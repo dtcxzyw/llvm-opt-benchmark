@@ -3177,8 +3177,8 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i: ; preds = %._crit_edge13
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit588.us.i
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit588.us.i:   ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i, %269, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1034.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1043.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1046.us.i, %237, %233, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i, %._crit_edge1366.us.i
-  %.19371031.us.i = phi float [ %.19371030.us.i, %233 ], [ %.19371030.us.i, %237 ], [ %245, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1046.us.i ], [ %256, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1043.us.i ], [ %.19371036.us.i, %269 ], [ %.19371036.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1034.us.i ], [ %273, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i ], [ %277, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i ], [ %.19371030.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3514.lcssa.us.i, %._crit_edge1366.us.i ]
-  %.1935.us.i = phi nsz float [ %.3509.lcssa.us.i, %233 ], [ %240, %237 ], [ %250, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1046.us.i ], [ %262, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1043.us.i ], [ %264, %269 ], [ %.0934.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1034.us.i ], [ %276, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i ], [ %278, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i ], [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3509.lcssa.us.i, %._crit_edge1366.us.i ]
+  %.19371031.us.i = phi float [ %277, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i ], [ %273, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i ], [ %.19371036.us.i, %269 ], [ %.19371036.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1034.us.i ], [ %256, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1043.us.i ], [ %245, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1046.us.i ], [ %.19371030.us.i, %233 ], [ %.19371030.us.i, %237 ], [ %.19371030.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3514.lcssa.us.i, %._crit_edge1366.us.i ]
+  %.1935.us.i = phi nsz float [ %278, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1037.us.i ], [ %276, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1040.us.i ], [ %264, %269 ], [ %.0934.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1034.us.i ], [ %262, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1043.us.i ], [ %250, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread1046.us.i ], [ %.3509.lcssa.us.i, %233 ], [ %240, %237 ], [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3509.lcssa.us.i, %._crit_edge1366.us.i ]
   store float %.19371031.us.i, ptr %.05181375.us.i, align 4, !tbaa !47
   store float %.1935.us.i, ptr %.05171376.us.i, align 4, !tbaa !47
   %279 = getelementptr inbounds nuw i8, ptr %.05181375.us.i, i64 4
@@ -4401,7 +4401,7 @@ _ZN4ncnn3MatD2Ev.exit572.i:                       ; preds = %508, %507
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.i
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit.i:    ; preds = %1007, %919, %890, %879, %870, %868, %._crit_edge1221.i
-  %.0.i.i = phi nsz <4 x float> [ %1020, %1007 ], [ %1006, %919 ], [ %918, %890 ], [ %889, %879 ], [ %878, %870 ], [ %869, %868 ], [ %867, %._crit_edge1221.i ]
+  %.0.i.i = phi nsz <4 x float> [ %869, %868 ], [ %878, %870 ], [ %889, %879 ], [ %918, %890 ], [ %1006, %919 ], [ %1020, %1007 ], [ %867, %._crit_edge1221.i ]
   switch i32 %473, label %1027 [
     i32 4, label %.thread.i
     i32 1, label %1022
@@ -4625,7 +4625,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %1079, %1078
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit589.us.i
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit589.us.i:   ; preds = %1138, %1133, %1132, %1127, %1120, %1114, %1110, %1106, %1100, %._crit_edge1502.us.i
-  %.1933.us.i = phi nsz float [ %.3463.lcssa.us.i, %._crit_edge1502.us.i ], [ %.3463.lcssa.us.i, %1106 ], [ %1113, %1110 ], [ %1119, %1114 ], [ %1126, %1120 ], [ %1129, %1132 ], [ %.0932.us.i, %1127 ], [ %1137, %1133 ], [ %1139, %1138 ], [ 0.000000e+00, %1100 ]
+  %.1933.us.i = phi nsz float [ %.3463.lcssa.us.i, %._crit_edge1502.us.i ], [ %1139, %1138 ], [ %1137, %1133 ], [ %1129, %1132 ], [ %.0932.us.i, %1127 ], [ %1126, %1120 ], [ %1119, %1114 ], [ %.3463.lcssa.us.i, %1106 ], [ %1113, %1110 ], [ 0.000000e+00, %1100 ]
   store float %.1933.us.i, ptr %.04661509.us.i, align 4, !tbaa !47
   %1140 = getelementptr inbounds nuw i8, ptr %.04661509.us.i, i64 4
   %indvars.iv.next1702.i = add nuw nsw i64 %indvars.iv1701.i, 1
@@ -6112,7 +6112,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %67, %65
   br label %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit:      ; preds = %.noexc222, %.noexc221, %.noexc220, %451, %.noexc219, %441, %._crit_edge676
-  %.0.i = phi nsz <8 x float> [ %580, %.noexc222 ], [ %568, %.noexc221 ], [ %487, %.noexc220 ], [ %461, %451 ], [ %450, %.noexc219 ], [ %442, %441 ], [ %439, %._crit_edge676 ]
+  %.0.i = phi nsz <8 x float> [ %442, %441 ], [ %450, %.noexc219 ], [ %461, %451 ], [ %487, %.noexc220 ], [ %568, %.noexc221 ], [ %580, %.noexc222 ], [ %439, %._crit_edge676 ]
   switch i32 %44, label %.thread531 [
     i32 8, label %.thread
     i32 4, label %582

@@ -1386,7 +1386,7 @@ define internal range(i32 0, 2) i32 @_on_message_complete(ptr noundef captures(n
   br label %132
 
 41:                                               ; preds = %21, %29, %28, %27, %26, %25, %24, %23
-  %.041 = phi i32 [ 8, %29 ], [ 7, %28 ], [ 6, %27 ], [ 5, %26 ], [ 4, %25 ], [ 3, %24 ], [ 2, %23 ], [ 1, %21 ]
+  %.041 = phi i32 [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 1, %21 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %43 = load i64, ptr %42, align 8
   %.not46 = icmp eq i64 %43, 0

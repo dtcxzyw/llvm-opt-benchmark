@@ -815,9 +815,9 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   br label %294
 
 294:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit, %.loopexit, %277, %286
-  %.2187 = phi ptr [ %293, %286 ], [ %283, %277 ], [ %.1186, %.loopexit ], [ %56, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
-  %.2110 = phi i32 [ %.1109, %286 ], [ %.0108193, %277 ], [ %.0108193, %.loopexit ], [ %.0108193, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
-  %.5 = phi ptr [ %292, %286 ], [ %282, %277 ], [ %.4, %.loopexit ], [ %64, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
+  %.2187 = phi ptr [ %293, %286 ], [ %56, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.1186, %.loopexit ], [ %283, %277 ]
+  %.2110 = phi i32 [ %.1109, %286 ], [ %.0108193, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.0108193, %.loopexit ], [ %.0108193, %277 ]
+  %.5 = phi ptr [ %292, %286 ], [ %64, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.4, %.loopexit ], [ %282, %277 ]
   %295 = add nsw i32 %.2110, 1
   %296 = icmp slt i32 %295, %10
   br i1 %296, label %.lr.ph, label %._crit_edge, !llvm.loop !11

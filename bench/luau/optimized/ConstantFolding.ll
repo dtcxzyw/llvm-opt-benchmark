@@ -4208,7 +4208,7 @@ define internal fastcc noundef zeroext i1 @_ZN4Luau7CompileL14constantsEqualERKN
   br label %68
 
 68:                                               ; preds = %2, %52, %55, %61, %25, %28, %34, %40, %46, %16, %7, %4
-  %.0 = phi i1 [ %24, %16 ], [ %15, %7 ], [ %6, %4 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %25 ], [ %51, %46 ], [ false, %55 ], [ false, %52 ], [ %67, %61 ], [ false, %2 ]
+  %.0 = phi i1 [ %6, %4 ], [ %15, %7 ], [ %24, %16 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %25 ], [ %51, %46 ], [ false, %55 ], [ false, %52 ], [ %67, %61 ], [ false, %2 ]
   ret i1 %.0
 }
 

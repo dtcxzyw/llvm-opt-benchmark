@@ -409,7 +409,7 @@ dissect_pktc_rekey.exit:                          ; preds = %94, %107
   br label %137
 
 137:                                              ; preds = %133, %dissect_pktc_rekey.exit, %91, %63, %47, %39, %4
-  %.0 = phi i32 [ 3, %4 ], [ %136, %133 ], [ %132, %dissect_pktc_rekey.exit ], [ 23, %91 ], [ %90, %63 ], [ %62, %47 ], [ %46, %39 ]
+  %.0 = phi i32 [ 3, %4 ], [ %46, %39 ], [ %62, %47 ], [ %90, %63 ], [ 23, %91 ], [ %132, %dissect_pktc_rekey.exit ], [ %136, %133 ]
   call void @proto_item_set_len(ptr noundef %14, i32 noundef %.0)
   %138 = call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %138
@@ -637,7 +637,7 @@ define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %
   br label %49
 
 49:                                               ; preds = %41, %45, %12, %38, %47
-  %.0 = phi i32 [ %3, %47 ], [ %3, %45 ], [ %44, %41 ], [ %3, %38 ], [ %37, %12 ]
+  %.0 = phi i32 [ %3, %47 ], [ %3, %38 ], [ %37, %12 ], [ %3, %45 ], [ %44, %41 ]
   %50 = sub i32 %.0, %3
   tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %50)
   ret i32 %.0
@@ -838,7 +838,7 @@ define internal noundef i32 @dissect_pktc_mtafqdn_krbsafeuserdata(ptr noundef re
   br label %40
 
 40:                                               ; preds = %26, %28, %30, %3
-  %.0 = phi i32 [ 6, %3 ], [ %35, %30 ], [ 32, %26 ], [ 32, %28 ]
+  %.0 = phi i32 [ 6, %3 ], [ 32, %26 ], [ 32, %28 ], [ %35, %30 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   ret i32 %.0

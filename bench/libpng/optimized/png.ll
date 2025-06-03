@@ -2933,7 +2933,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr nou
   br label %181
 
 181:                                              ; preds = %160, %160, %179, %156, %155, %134, %133, %130, %103, %78, %56, %30, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %56 ], [ 0, %78 ], [ 0, %103 ], [ 0, %134 ], [ 0, %133 ], [ 0, %179 ], [ 0, %156 ], [ 0, %155 ], [ 0, %130 ], [ 1, %160 ], [ 1, %160 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %56 ], [ 0, %78 ], [ 0, %103 ], [ 0, %134 ], [ 0, %130 ], [ 0, %179 ], [ 0, %155 ], [ 0, %156 ], [ 0, %133 ], [ 1, %160 ], [ 1, %160 ]
   ret i32 %.0
 }
 
@@ -3466,7 +3466,7 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   br label %15
 
 15:                                               ; preds = %.lr.ph, %14, %13, %12, %11, %10
-  %.037 = phi i32 [ 32, %14 ], [ 264, %13 ], [ 8, %12 ], [ 16, %11 ], [ 132, %10 ], [ 4, %.lr.ph ]
+  %.037 = phi i32 [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 32, %14 ], [ 4, %.lr.ph ]
   %16 = and i32 %.03950, 3
   %17 = and i32 %.037, 60
   %18 = or disjoint i32 %17, %16
@@ -3559,7 +3559,7 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   br label %60
 
 60:                                               ; preds = %21, %33, %42, %45, %51, %56, %58, %27, %29
-  %.241 = phi i32 [ %59, %58 ], [ %57, %56 ], [ %53, %51 ], [ %47, %45 ], [ %44, %42 ], [ %38, %33 ], [ %28, %27 ], [ %32, %29 ], [ %22, %21 ]
+  %.241 = phi i32 [ %22, %21 ], [ %28, %27 ], [ %32, %29 ], [ %38, %33 ], [ %44, %42 ], [ %47, %45 ], [ %53, %51 ], [ %57, %56 ], [ %59, %58 ]
   %61 = add i64 %.03851, 1
   %exitcond.not = icmp eq i64 %61, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
@@ -4356,7 +4356,7 @@ define i32 @png_reciprocal2(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %16
 
 16:                                               ; preds = %5, %15
-  %.1 = phi i32 [ %14, %5 ], [ 0, %15 ]
+  %.1 = phi i32 [ 0, %15 ], [ %14, %5 ]
   ret i32 %.1
 }
 
@@ -4668,8 +4668,8 @@ define void @png_build_gamma_table(ptr noalias noundef %0, i32 noundef %1) local
   br label %png_reciprocal2.exit
 
 png_reciprocal2.exit:                             ; preds = %38, %30, %9
-  %.063 = phi i32 [ 100000, %9 ], [ %37, %30 ], [ 0, %38 ]
-  %.062 = phi i32 [ %11, %9 ], [ %.0.i74, %30 ], [ %.0.i74, %38 ]
+  %.063 = phi i32 [ 100000, %9 ], [ 0, %38 ], [ %37, %30 ]
+  %.062 = phi i32 [ %11, %9 ], [ %.0.i74, %38 ], [ %.0.i74, %30 ]
   %39 = icmp slt i32 %1, 9
   br i1 %39, label %40, label %107
 

@@ -443,8 +443,8 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
   br i1 %.not, label %.thread, label %53
 
 .thread:                                          ; preds = %57, %33, %37, %68, %48, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit
-  %.sroa.7.0 = phi i64 [ %69, %68 ], [ %49, %48 ], [ %15, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ undef, %37 ], [ undef, %33 ], [ undef, %57 ]
-  %.sroa.0.0 = phi i64 [ 1, %68 ], [ 1, %48 ], [ %.sroa.0.0.i, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ 0, %37 ], [ 0, %33 ], [ 0, %57 ]
+  %.sroa.7.0 = phi i64 [ %15, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ %49, %48 ], [ %69, %68 ], [ undef, %37 ], [ undef, %33 ], [ undef, %57 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ 1, %48 ], [ 1, %68 ], [ 0, %37 ], [ 0, %33 ], [ 0, %57 ]
   %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %43 = insertvalue { i64, i64 } %42, i64 %.sroa.7.0, 1
   ret { i64, i64 } %43
@@ -475,7 +475,7 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
   unreachable
 
 52:                                               ; preds = %66, %46
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn
 
 53:                                               ; preds = %37

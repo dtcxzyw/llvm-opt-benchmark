@@ -11227,7 +11227,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit93:          ; preds = %_ZNSt7__cxx1112basi
   br label %404
 
 404:                                              ; preds = %402, %._crit_edge.i.i.i.i.i.i
-  %.sroa.039.1.i.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %403, %402 ]
+  %.sroa.039.1.i.i.i.i.i.i = phi ptr [ %403, %402 ], [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val17.val.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !621
   %405 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNS2_17DiagnosticsEngineERKSt10shared_ptrINS2_13TargetOptionsEEE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISK_SaISK_EEEEEEbT_"(ptr %.val17.val.i.i.i.i.i.i, ptr nonnull %0, ptr %.sroa.039.1.i.i.i.i.i.i)
   br i1 %405, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNSF_17DiagnosticsEngineERKSt10shared_ptrINSF_13TargetOptionsEEE3$_0EEET_SQ_SQ_T0_.exit.i.i.i.i", label %406
@@ -11237,7 +11237,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit93:          ; preds = %_ZNSt7__cxx1112basi
   br label %408
 
 408:                                              ; preds = %406, %._crit_edge.i.i.i.i.i.i
-  %.sroa.039.2.i.i.i.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %407, %406 ]
+  %.sroa.039.2.i.i.i.i.i.i = phi ptr [ %407, %406 ], [ %.sroa.039.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.val.val.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !621
   %409 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang10TargetInfo16CreateTargetInfoERNS2_17DiagnosticsEngineERKSt10shared_ptrINS2_13TargetOptionsEEE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISK_SaISK_EEEEEEbT_"(ptr %.val.val.i.i.i.i.i.i, ptr nonnull %0, ptr %.sroa.039.2.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i = select i1 %409, ptr %.sroa.039.2.i.i.i.i.i.i, ptr %.val6.i
@@ -13891,7 +13891,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17HexagonTarget
   br label %17
 
 17:                                               ; preds = %3, %16, %13, %10
-  %.0 = phi i1 [ false, %16 ], [ true, %13 ], [ true, %10 ], [ true, %3 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %10 ], [ true, %13 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -19852,7 +19852,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets14MipsTargetInf
   br label %26
 
 26:                                               ; preds = %19, %3, %23, %16, %15, %9, %6
-  %.0 = phi i1 [ true, %23 ], [ true, %16 ], [ true, %15 ], [ %14, %9 ], [ true, %6 ], [ false, %3 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %6 ], [ %14, %9 ], [ true, %15 ], [ true, %16 ], [ true, %23 ], [ false, %3 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -31585,7 +31585,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cx
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.032.1 = phi ptr [ %32, %31 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1, ptr noundef %2) #21
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.loopexit, label %36
@@ -31595,7 +31595,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cx
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.2 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.2, ptr noundef %2) #21
   %40 = icmp eq i32 %39, 0
   %spec.select = select i1 %40, ptr %.sroa.032.2, ptr %1
@@ -34903,7 +34903,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets16DarwinTargetInfoINS0
   br label %8
 
 8:                                                ; preds = %1, %1, %7, %6, %5
-  %.sroa.011.0 = phi i64 [ 0, %7 ], [ 5, %6 ], [ 12, %5 ], [ -9223371976725233654, %1 ], [ -9223371976725233654, %1 ]
+  %.sroa.011.0 = phi i64 [ 12, %5 ], [ 5, %6 ], [ 0, %7 ], [ -9223371976725233654, %1 ], [ -9223371976725233654, %1 ]
   %9 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = trunc i64 %10 to i32
@@ -35044,8 +35044,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang7targets13X86TargetInfo21getC
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %5, %22, %22, %13, %24, %19, %18, %17, %16, %15, %14
-  %.sroa.018.0 = phi ptr [ @.str.1, %24 ], [ @.str.474, %19 ], [ @.str.473, %18 ], [ @.str.472, %17 ], [ @.str.471, %16 ], [ @.str.470, %15 ], [ @.str.469, %14 ], [ %3, %13 ], [ @.str.475, %22 ], [ @.str.475, %22 ], [ @.str.1, %5 ], [ @.str.1, %11 ]
-  %.sroa.11.0 = phi i64 [ 0, %24 ], [ 2, %19 ], [ 2, %18 ], [ 2, %17 ], [ 2, %16 ], [ 2, %15 ], [ 2, %14 ], [ %4, %13 ], [ 4, %22 ], [ 4, %22 ], [ 0, %5 ], [ 0, %11 ]
+  %.sroa.018.0 = phi ptr [ @.str.1, %24 ], [ @.str.469, %14 ], [ @.str.470, %15 ], [ @.str.471, %16 ], [ @.str.472, %17 ], [ @.str.473, %18 ], [ @.str.474, %19 ], [ %3, %13 ], [ @.str.475, %22 ], [ @.str.475, %22 ], [ @.str.1, %5 ], [ @.str.1, %11 ]
+  %.sroa.11.0 = phi i64 [ 0, %24 ], [ 2, %14 ], [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ %4, %13 ], [ 4, %22 ], [ 4, %22 ], [ 0, %5 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.11.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -35439,7 +35439,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets16X86_32TargetI
   br label %13
 
 13:                                               ; preds = %11, %9, %7
-  %.0 = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi i1 [ %12, %11 ], [ %8, %7 ], [ %10, %9 ]
   ret i1 %.0
 }
 
@@ -37856,7 +37856,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang7targets16DarwinTargetInfoINS0
   br label %8
 
 8:                                                ; preds = %1, %1, %7, %6, %5
-  %.sroa.011.0 = phi i64 [ 0, %7 ], [ 5, %6 ], [ 12, %5 ], [ -9223371976725233654, %1 ], [ -9223371976725233654, %1 ]
+  %.sroa.011.0 = phi i64 [ 12, %5 ], [ 5, %6 ], [ 0, %7 ], [ -9223371976725233654, %1 ], [ -9223371976725233654, %1 ]
   %9 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #21
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = trunc i64 %10 to i32

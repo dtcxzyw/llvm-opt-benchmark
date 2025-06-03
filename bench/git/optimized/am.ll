@@ -1777,7 +1777,7 @@ split_mail_stgit_series.exit.i.i:                 ; preds = %._crit_edge.i.i.i, 
   unreachable
 
 split_mail.exit.i:                                ; preds = %694, %691, %split_mail_stgit_series.exit.i.i, %653, %650
-  %.0.i73.i = phi i32 [ %696, %694 ], [ %693, %691 ], [ %.0.i.i.i, %split_mail_stgit_series.exit.i.i ], [ %655, %653 ], [ %652, %650 ]
+  %.0.i73.i = phi i32 [ %652, %650 ], [ %655, %653 ], [ %.0.i.i.i, %split_mail_stgit_series.exit.i.i ], [ %693, %691 ], [ %696, %694 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   %698 = icmp slt i32 %.0.i73.i, 0
   br i1 %698, label %699, label %701
@@ -2549,7 +2549,7 @@ show_patch.exit:                                  ; preds = %979, %999
   unreachable
 
 1007:                                             ; preds = %show_patch.exit, %972, %am_abort.exit, %am_skip.exit, %am_resolve.exit, %773, %772
-  %.031 = phi i32 [ %.0.i60, %show_patch.exit ], [ 0, %972 ], [ 0, %am_abort.exit ], [ 0, %am_skip.exit ], [ 0, %am_resolve.exit ], [ 0, %773 ], [ 0, %772 ]
+  %.031 = phi i32 [ 0, %772 ], [ 0, %773 ], [ 0, %am_resolve.exit ], [ 0, %am_skip.exit ], [ 0, %am_abort.exit ], [ 0, %972 ], [ %.0.i60, %show_patch.exit ]
   %1008 = load ptr, ptr %33, align 8, !tbaa !23
   call void @free(ptr noundef %1008) #21
   %1009 = getelementptr inbounds nuw i8, ptr %33, i64 16

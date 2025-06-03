@@ -252,7 +252,7 @@ php_round_get_basic_edge_case.exit83.i:           ; preds = %35
   unreachable
 
 php_round_helper.exit:                            ; preds = %35, %php_round_get_basic_edge_case.exit.i, %43, %php_round_get_basic_edge_case.exit81.i, %52, %php_round_get_zero_edge_case.exit.i, %60, %php_round_get_zero_edge_case.exit84.i, %67, %php_round_get_zero_edge_case.exit85.i, %73, %82, %87, %92, %99, %104, %109
-  %.0.i49 = phi double [ %101, %99 ], [ %.1, %109 ], [ %108, %104 ], [ %84, %82 ], [ %.1, %92 ], [ %91, %87 ], [ %75, %73 ], [ %68, %67 ], [ %61, %60 ], [ %54, %52 ], [ %45, %43 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %.1, %35 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ]
+  %.0.i49 = phi double [ %45, %43 ], [ %54, %52 ], [ %61, %60 ], [ %68, %67 ], [ %75, %73 ], [ %84, %82 ], [ %.1, %92 ], [ %91, %87 ], [ %101, %99 ], [ %.1, %109 ], [ %108, %104 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %.1, %35 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ]
   %111 = icmp samesign ult i32 %7, 23
   br i1 %111, label %112, label %117
 
@@ -589,7 +589,7 @@ define dso_local range(i32 1, 9) i32 @php_math_round_mode_from_enum(ptr noundef 
   unreachable
 
 25:                                               ; preds = %1, %23, %22, %21, %20, %19, %18, %17
-  %.0 = phi i32 [ 5, %23 ], [ 6, %22 ], [ 8, %21 ], [ 7, %20 ], [ 4, %19 ], [ 3, %18 ], [ 2, %17 ], [ 1, %1 ]
+  %.0 = phi i32 [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 7, %20 ], [ 8, %21 ], [ 6, %22 ], [ 5, %23 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -2508,16 +2508,16 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   br label %91
 
 91:                                               ; preds = %80, %89
-  %.2 = phi double [ %.079.ph126, %80 ], [ %90, %89 ]
+  %.2 = phi double [ %90, %89 ], [ %.079.ph126, %80 ]
   %92 = fmul double %.2, %64
   %93 = uitofp nneg i8 %.085 to double
   %94 = fadd double %92, %93
   br label %.outer
 
 .outer:                                           ; preds = %91, %85
-  %.183 = phi i32 [ 1, %91 ], [ 0, %85 ]
-  %.180 = phi double [ %94, %91 ], [ %.079.ph126, %85 ]
-  %.1 = phi i64 [ %.0.ph127, %91 ], [ %88, %85 ]
+  %.183 = phi i32 [ 0, %85 ], [ 1, %91 ]
+  %.180 = phi double [ %.079.ph126, %85 ], [ %94, %91 ]
+  %.1 = phi i64 [ %88, %85 ], [ %.0.ph127, %91 ]
   %95 = icmp ult ptr %66, %.086
   br i1 %95, label %.lr.ph114, label %.outer._crit_edge
 

@@ -3287,7 +3287,7 @@ define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummary
   br label %36
 
 36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit27.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit27.i.i.i.i.i" ]
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i28.i.i.i.i.i = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8, !tbaa !272
   %37 = getelementptr i8, ptr %.val.i28.i.i.i.i.i, i64 12
   %.val.val.i29.i.i.i.i.i = load i16, ptr %37, align 4
@@ -3307,7 +3307,7 @@ define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummary
   br label %40
 
 40:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit30.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit30.i.i.i.i.i" ]
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL27getFirstDefinitionForLinkerRKSt6vectorISt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS5_EESaIS8_EEE3$_0EclINS_17__normal_iteratorIPKS8_SA_EEEEbT_.exit30.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i31.i.i.i.i.i = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8, !tbaa !272
   %41 = getelementptr i8, ptr %.val.i31.i.i.i.i.i, i64 12
   %.val.val.i32.i.i.i.i.i = load i16, ptr %41, align 4
@@ -3419,7 +3419,7 @@ define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummary
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i.i.i.i8.i
-  %.sroa.037.1.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i8.i ], [ %71, %70 ]
+  %.sroa.037.1.i.i.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i8.i ]
   %.val.i24.i.i.i.i.i = load ptr, ptr %.sroa.037.1.i.i.i.i.i, align 8, !tbaa !272
   %73 = getelementptr i8, ptr %.val.i24.i.i.i.i.i, i64 12
   %.val.val.i25.i.i.i.i.i = load i16, ptr %73, align 4
@@ -3432,7 +3432,7 @@ define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummary
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge.i.i.i.i8.i
-  %.sroa.037.2.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i8.i ], [ %76, %75 ]
+  %.sroa.037.2.i.i.i.i.i = phi ptr [ %76, %75 ], [ %.sroa.037.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i8.i ]
   %.val.i26.i.i.i.i.i = load ptr, ptr %.sroa.037.2.i.i.i.i.i, align 8, !tbaa !272
   %78 = getelementptr i8, ptr %.val.i26.i.i.i.i.i, i64 12
   %.val.val.i27.i.i.i.i.i = load i16, ptr %78, align 4

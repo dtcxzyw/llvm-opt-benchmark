@@ -1156,7 +1156,7 @@ CalculateCopyStreamSleeptime.exit.i.outer1102.backedge: ; preds = %ProcessKeepal
   br label %CalculateCopyStreamSleeptime.exit.i.outer1102, !llvm.loop !6
 
 HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %211, %203, %172, %495, %CopyStreamReceive.exit, %331, %476, %CopyStreamReceive.exit.thread, %504, %502, %488, %460, %open_walfile.exit.thread.i.i, %353, %348, %337, %307, %297, %288, %179
-  %.3.ph = phi ptr [ null, %CopyStreamReceive.exit.thread ], [ %.0107, %179 ], [ null, %288 ], [ null, %297 ], [ %.4, %307 ], [ %.4, %353 ], [ %.4, %348 ], [ %.4, %460 ], [ %.4, %488 ], [ %.4, %open_walfile.exit.thread.i.i ], [ %.4, %502 ], [ %.4, %337 ], [ %.4, %504 ], [ %.4, %476 ], [ %.4, %331 ], [ %.4, %CopyStreamReceive.exit ], [ %.4, %495 ], [ %.0107, %172 ], [ %.0107, %203 ], [ %.0107, %211 ], [ null, %HandleEndOfCopyStream.exit.i ]
+  %.3.ph = phi ptr [ null, %CopyStreamReceive.exit.thread ], [ %.0107, %179 ], [ null, %288 ], [ null, %297 ], [ %.4, %353 ], [ %.4, %348 ], [ %.4, %460 ], [ %.4, %488 ], [ %.4, %open_walfile.exit.thread.i.i ], [ %.4, %502 ], [ %.4, %337 ], [ %.4, %307 ], [ %.4, %504 ], [ %.4, %476 ], [ %.4, %331 ], [ %.4, %CopyStreamReceive.exit ], [ %.4, %495 ], [ %.0107, %172 ], [ %.0107, %203 ], [ %.0107, %211 ], [ null, %HandleEndOfCopyStream.exit.i ]
   call void @PQfreemem(ptr noundef %.3.ph) #11
   br label %.thread
 

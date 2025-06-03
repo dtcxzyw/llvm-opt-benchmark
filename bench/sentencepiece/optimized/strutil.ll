@@ -1914,8 +1914,8 @@ _ZN6google8protobuf8isxdigitEc.exit.thread:       ; preds = %switch.early.test, 
   br label %65
 
 65:                                               ; preds = %55, %61, %41, %36, %31, %26, %21, %16
-  %.2.ph = phi i32 [ %19, %16 ], [ %24, %21 ], [ %29, %26 ], [ %34, %31 ], [ %39, %36 ], [ %44, %41 ], [ %62, %61 ], [ %60, %55 ]
-  %.1.ph = phi i1 [ false, %16 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %41 ], [ false, %61 ], [ %4, %55 ]
+  %.2.ph = phi i32 [ %44, %41 ], [ %39, %36 ], [ %34, %31 ], [ %29, %26 ], [ %24, %21 ], [ %19, %16 ], [ %62, %61 ], [ %60, %55 ]
+  %.1.ph = phi i1 [ false, %41 ], [ false, %36 ], [ false, %31 ], [ false, %26 ], [ false, %21 ], [ false, %16 ], [ false, %61 ], [ %4, %55 ]
   %66 = getelementptr inbounds nuw i8, ptr %.06274, i64 1
   %67 = icmp ult ptr %66, %8
   br i1 %67, label %11, label %._crit_edge, !llvm.loop !62
@@ -2072,7 +2072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %60
 
 60:                                               ; preds = %48, %59, %41, %38, %35, %32, %29, %26
-  %.1 = phi ptr [ %47, %59 ], [ %58, %48 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
+  %.1 = phi ptr [ %47, %59 ], [ %58, %48 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
@@ -7459,8 +7459,8 @@ default.unreachable:                              ; preds = %.fold.split
   unreachable
 
 ._crit_edge:                                      ; preds = %273, %276, %271, %.fold.split
-  %.6239 = phi i32 [ %272, %271 ], [ %.3236, %.fold.split ], [ %.pre, %276 ], [ %.pre, %273 ]
-  %284 = phi i32 [ -3, %271 ], [ -1, %.fold.split ], [ -2, %276 ], [ -2, %273 ]
+  %.6239 = phi i32 [ %.3236, %.fold.split ], [ %272, %271 ], [ %.pre, %276 ], [ %.pre, %273 ]
+  %284 = phi i32 [ -1, %.fold.split ], [ -3, %271 ], [ -2, %276 ], [ -2, %273 ]
   %285 = icmp sgt i32 %.13261, 0
   br i1 %285, label %.lr.ph595, label %.critedge
 
@@ -7838,7 +7838,7 @@ define noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb(ptr no
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %78, %99, %57, %73, %136, %103, %._crit_edge
-  %.199 = phi ptr [ %.098.lcssa, %136 ], [ %130, %103 ], [ %.098.lcssa, %._crit_edge ], [ %70, %57 ], [ %75, %73 ], [ %96, %78 ], [ %100, %99 ]
+  %.199 = phi ptr [ %.098.lcssa, %136 ], [ %.098.lcssa, %._crit_edge ], [ %130, %103 ], [ %70, %57 ], [ %75, %73 ], [ %96, %78 ], [ %100, %99 ]
   %142 = ptrtoint ptr %.199 to i64
   %143 = ptrtoint ptr %2 to i64
   %144 = sub i64 %142, %143

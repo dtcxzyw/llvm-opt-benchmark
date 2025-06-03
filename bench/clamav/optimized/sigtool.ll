@@ -8354,8 +8354,8 @@ get_paren_end.exit:                               ; preds = %36
   br label %155
 
 155:                                              ; preds = %126, %.critedge225, %142, %151, %146
-  %.4 = phi i32 [ %132, %126 ], [ %152, %151 ], [ %148, %146 ], [ %141, %.critedge225 ], [ %145, %142 ]
-  %.1 = phi i32 [ %.0260, %126 ], [ %.0260, %151 ], [ %147, %146 ], [ %134, %.critedge225 ], [ %134, %142 ]
+  %.4 = phi i32 [ %132, %126 ], [ %141, %.critedge225 ], [ %145, %142 ], [ %148, %146 ], [ %152, %151 ]
+  %.1 = phi i32 [ %.0260, %126 ], [ %134, %.critedge225 ], [ %134, %142 ], [ %147, %146 ], [ %.0260, %151 ]
   %156 = icmp sgt i32 %.1, -1
   br i1 %156, label %114, label %.critedge
 
@@ -8439,7 +8439,7 @@ define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nou
   %5 = trunc i64 %4 to i32
   %6 = tail call ptr @cli_hex2ui(ptr noundef nonnull %0) #24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %42, label %.preheader61
+  br i1 %.not, label %46, label %.preheader61
 
 .preheader61:                                     ; preds = %2
   %.not71 = icmp eq i32 %5, 0
@@ -8485,72 +8485,75 @@ define internal fastcc noalias noundef ptr @decodehexstr(ptr noundef %0, ptr nou
 16:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %6) #24
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.432) #24
-  br label %42
+  br label %46
 
-.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %41
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next77, %41 ]
-  %.04967 = phi i32 [ 0, %.lr.ph68.preheader ], [ %.150, %41 ]
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %45
+  %indvars.iv76 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next77, %45 ]
+  %.04967 = phi i32 [ 0, %.lr.ph68.preheader ], [ %.150, %45 ]
   %17 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv76
   %18 = load i16, ptr %17, align 2, !tbaa !15
   %19 = zext i16 %18 to i32
   %20 = and i32 %19, 3840
   %21 = lshr exact i32 %20, 8
-  switch i32 %21, label %35 [
-    i32 0, label %37
+  switch i32 %21, label %38 [
+    i32 0, label %40
     i32 1, label %22
-    i32 3, label %25
-    i32 4, label %30
+    i32 3, label %26
+    i32 4, label %32
   ]
 
 22:                                               ; preds = %.lr.ph68
   %23 = zext i32 %.04967 to i64
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %24, ptr noundef nonnull align 1 dereferenceable(18) @.str.433, i64 18, i1 false)
-  br label %41
+  %25 = add i32 %.04967, 17
+  br label %45
 
-25:                                               ; preds = %.lr.ph68
-  %26 = zext i32 %.04967 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %26
-  %28 = and i32 %19, 240
-  %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.434, i32 noundef %28) #24
-  br label %41
+26:                                               ; preds = %.lr.ph68
+  %27 = zext i32 %.04967 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 %27
+  %29 = and i32 %19, 240
+  %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.434, i32 noundef %29) #24
+  %31 = add i32 %30, %.04967
+  br label %45
 
-30:                                               ; preds = %.lr.ph68
-  %31 = zext i32 %.04967 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 %31
-  %33 = and i32 %19, 15
-  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.435, i32 noundef %33) #24
-  br label %41
+32:                                               ; preds = %.lr.ph68
+  %33 = zext i32 %.04967 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %33
+  %35 = and i32 %19, 15
+  %36 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) @.str.435, i32 noundef %35) #24
+  %37 = add i32 %36, %.04967
+  br label %45
 
-35:                                               ; preds = %.lr.ph68
-  %36 = trunc nuw i64 %indvars.iv76 to i32
-  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.436, i32 noundef %20, i32 noundef %36) #24
+38:                                               ; preds = %.lr.ph68
+  %39 = trunc nuw i64 %indvars.iv76 to i32
+  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.436, i32 noundef %20, i32 noundef %39) #24
   tail call void @free(ptr noundef %15) #24
   tail call void @free(ptr noundef nonnull %6) #24
-  br label %42
+  br label %46
 
-37:                                               ; preds = %.lr.ph68
-  %38 = trunc i16 %18 to i8
-  %39 = zext i32 %.04967 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %15, i64 %39
-  store i8 %38, ptr %40, align 1, !tbaa !82
-  br label %41
+40:                                               ; preds = %.lr.ph68
+  %41 = trunc i16 %18 to i8
+  %42 = zext i32 %.04967 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 %42
+  store i8 %41, ptr %43, align 1, !tbaa !82
+  %44 = add i32 %.04967, 1
+  br label %45
 
-41:                                               ; preds = %37, %30, %25, %22
-  %.pn = phi i32 [ %34, %30 ], [ %29, %25 ], [ 17, %22 ], [ 1, %37 ]
-  %.150 = add i32 %.pn, %.04967
+45:                                               ; preds = %40, %32, %26, %22
+  %.150 = phi i32 [ %25, %22 ], [ %31, %26 ], [ %37, %32 ], [ %44, %40 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %._crit_edge69, label %.lr.ph68
 
-._crit_edge69:                                    ; preds = %41, %.preheader
-  %.049.lcssa = phi i32 [ 0, %.preheader ], [ %.150, %41 ]
+._crit_edge69:                                    ; preds = %45, %.preheader
+  %.049.lcssa = phi i32 [ 0, %.preheader ], [ %.150, %45 ]
   store i32 %.049.lcssa, ptr %1, align 4, !tbaa !81
   tail call void @free(ptr noundef nonnull %6) #24
-  br label %42
+  br label %46
 
-42:                                               ; preds = %2, %._crit_edge69, %35, %16
-  %.0 = phi ptr [ null, %35 ], [ %15, %._crit_edge69 ], [ null, %16 ], [ null, %2 ]
+46:                                               ; preds = %2, %._crit_edge69, %38, %16
+  %.0 = phi ptr [ null, %38 ], [ %15, %._crit_edge69 ], [ null, %16 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -52,7 +52,7 @@ define dso_local i32 @lzma_stream_encoder_mt(ptr noundef %0, ptr noundef readonl
   br label %17
 
 17:                                               ; preds = %10, %2, %11
-  %.1 = phi i32 [ %3, %2 ], [ %9, %10 ], [ 0, %11 ]
+  %.1 = phi i32 [ 0, %11 ], [ %9, %10 ], [ %3, %2 ]
   ret i32 %.1
 }
 
@@ -782,7 +782,7 @@ initialize_new_thread.exit.i.i:                   ; preds = %134
   br label %get_thread.exit.i
 
 get_thread.exit.i:                                ; preds = %.critedge65.critedge.i.i, %148, %120, %116, %106, %100, %98
-  %.046.i.i = phi i32 [ %102, %100 ], [ %107, %106 ], [ 0, %98 ], [ 0, %116 ], [ 0, %.critedge65.critedge.i.i ], [ 5, %148 ], [ 5, %120 ]
+  %.046.i.i = phi i32 [ %107, %106 ], [ %102, %100 ], [ 0, %98 ], [ 0, %116 ], [ 0, %.critedge65.critedge.i.i ], [ 5, %148 ], [ 5, %120 ]
   %169 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
   %.not57.i = icmp eq ptr %169, null
   br i1 %.not57.i, label %stream_encode_in.exit, label %.critedge.thread.i
@@ -1636,7 +1636,7 @@ worker_error.exit113.i:                           ; preds = %153, %145
   br label %.loopexit115.i
 
 .loopexit115.i:                                   ; preds = %.critedge.i, %159, %worker_error.exit113.i, %worker_error.exit, %.critedge2.loopexit.i, %worker_error.exit112.i
-  %.1.i = phi i32 [ 3, %worker_error.exit113.i ], [ 3, %worker_error.exit ], [ 2, %159 ], [ 3, %worker_error.exit112.i ], [ %.395.lcssa.i, %.critedge2.loopexit.i ], [ %80, %.critedge.i ]
+  %.1.i = phi i32 [ 3, %worker_error.exit113.i ], [ 3, %worker_error.exit112.i ], [ 2, %159 ], [ 3, %worker_error.exit ], [ %.395.lcssa.i, %.critedge2.loopexit.i ], [ %80, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   br label %worker_encode.exit
 

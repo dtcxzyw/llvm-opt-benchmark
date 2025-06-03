@@ -39311,7 +39311,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
   br i1 %exitcond251.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !30
 
 .thread223:                                       ; preds = %48, %58, %55, %109
-  %.0194227 = phi ptr [ null, %109 ], [ %50, %48 ], [ %59, %58 ], [ %57, %55 ]
+  %.0194227 = phi ptr [ null, %109 ], [ %59, %58 ], [ %57, %55 ], [ %50, %48 ]
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %157 = load ptr, ptr %156, align 8
   br label %158

@@ -1606,7 +1606,7 @@ define internal fastcc i32 @execute_verify_popo_test(ptr noundef nonnull capture
   br label %.thread
 
 .thread:                                          ; preds = %11, %18, %1, %28
-  %.011 = phi i32 [ 0, %18 ], [ %36, %28 ], [ 0, %1 ], [ 0, %11 ]
+  %.011 = phi i32 [ %36, %28 ], [ 0, %18 ], [ 0, %1 ], [ 0, %11 ]
   ret i32 %.011
 }
 

@@ -1760,7 +1760,7 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit.thread11.i: ; preds = %_ZNK4llvm4json5
   br label %38
 
 38:                                               ; preds = %31, %33
-  %.1 = phi i1 [ %32, %31 ], [ false, %33 ]
+  %.1 = phi i1 [ false, %33 ], [ %32, %31 ]
   ret i1 %.1
 }
 

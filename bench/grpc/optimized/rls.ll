@@ -32776,7 +32776,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15RlsLb20MaybeExportPickC
   unreachable
 
 _ZN9grpc_core5MatchIJZNS_12_GLOBAL__N_15RlsLb20MaybeExportPickCountINS_25GlobalInstrumentsRegistry27TypedGlobalInstrumentHandleILNS4_9ValueTypeE2ELNS4_14InstrumentTypeE1ELm4ELm0EEEEEvT_St17basic_string_viewIcSt11char_traitsIcEERKNS_19LoadBalancingPolicy10PickResultEEUlRKNSF_8CompleteEE_ZNS3_IS8_EEvS9_SD_SH_EUlRKNSF_5QueueEE_ZNS3_IS8_EEvS9_SD_SH_EUlRKNSF_4FailEE_ZNS3_IS8_EEvS9_SD_SH_EUlRKNSF_4DropEE_ESI_JSM_SQ_SU_EEEDTclclsr3stdE7declvalINS_12OverloadTypeIJDpT_EEEEEclsr3stdE7declvalIT0_EEEERKSt7variantIJS12_DpT1_EES10_.exit: ; preds = %4, %10, %11, %12
-  %.0.i.i.i = phi ptr [ @.str.157, %12 ], [ @.str.156, %11 ], [ @.str.101, %10 ], [ @.str.155, %4 ]
+  %.0.i.i.i = phi ptr [ @.str.101, %10 ], [ @.str.156, %11 ], [ @.str.157, %12 ], [ @.str.155, %4 ]
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i) #37
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %45, label %16

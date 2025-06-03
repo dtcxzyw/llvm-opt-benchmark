@@ -1176,7 +1176,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   br label %fetch_att.exit.i
 
 fetch_att.exit.i:                                 ; preds = %194, %188, %185, %182, %179
-  %.0.i.i = phi i64 [ %189, %188 ], [ %187, %185 ], [ %184, %182 ], [ %181, %179 ], [ %195, %194 ]
+  %.0.i.i = phi i64 [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %189, %188 ], [ %195, %194 ]
   %196 = add i32 %.27184.i, 1
   %197 = getelementptr inbounds i64, ptr %56, i64 %158
   store i64 %.0.i.i, ptr %197, align 8

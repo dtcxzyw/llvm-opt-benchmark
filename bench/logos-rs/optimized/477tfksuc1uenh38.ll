@@ -75,7 +75,7 @@ define hidden i32 @_ZN13logos_codegen4leaf8Callback4span17h5b024c4801b0fb97E(ptr
   br label %19
 
 19:                                               ; preds = %16, %11, %9
-  %.sroa.0.0 = phi i32 [ %18, %16 ], [ %15, %11 ], [ %10, %9 ]
+  %.sroa.0.0 = phi i32 [ %10, %9 ], [ %15, %11 ], [ %18, %16 ]
   ret i32 %.sroa.0.0
 }
 
@@ -225,7 +225,7 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
   ]
 
 24:                                               ; preds = %14, %2, %34, %32, %26
-  %.sroa.0.0.shrunk = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %26 ], [ true, %2 ], [ false, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %31, %26 ], [ %33, %32 ], [ %35, %34 ], [ true, %2 ], [ false, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 25:                                               ; preds = %19

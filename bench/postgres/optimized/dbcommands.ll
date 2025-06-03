@@ -2550,7 +2550,7 @@ define internal fastcc noundef nonnull ptr @collprovider_name(i8 noundef signext
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.108, %4 ], [ @.str.28, %3 ], [ @.str.27, %2 ], [ @.str.26, %1 ]
+  %.0 = phi ptr [ @.str.108, %4 ], [ @.str.27, %2 ], [ @.str.28, %3 ], [ @.str.26, %1 ]
   ret ptr %.0
 }
 
@@ -4356,7 +4356,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %67, %66, %54, %52, %46, %43, %40, %37, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %66 ], [ %68, %67 ], [ %55, %54 ], [ %47, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %53, %52 ]
+  %.0 = phi i64 [ %13, %12 ], [ 0, %66 ], [ %68, %67 ], [ %55, %54 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %53, %52 ]
   ret i64 %.0
 }
 

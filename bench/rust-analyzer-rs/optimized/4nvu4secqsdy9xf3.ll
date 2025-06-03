@@ -1168,7 +1168,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit97.i: ; preds = %293
   br label %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit
 
 common.resume:                                    ; preds = %385, %391, %403, %414, %439, %.thread.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn101.i, %.thread.i ], [ %lpad.thr_comm90, %439 ], [ %lpad.thr_comm82, %414 ], [ %lpad.thr_comm, %403 ], [ %392, %391 ], [ %386, %385 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn101.i, %.thread.i ], [ %386, %385 ], [ %392, %391 ], [ %lpad.thr_comm82, %414 ], [ %lpad.thr_comm, %403 ], [ %lpad.thr_comm90, %439 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i:                                        ; preds = %276, %.loopexit.split-lp121.i, %.loopexit120.i, %.thread103.loopexit.split-lp.loopexit.split-lp.i, %.thread103.loopexit.split-lp.loopexit.i, %.thread103.loopexit.i
@@ -1177,8 +1177,8 @@ common.resume:                                    ; preds = %385, %391, %403, %4
           to label %common.resume unwind label %277
 
 _ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit: ; preds = %210, %279, %299
-  %.pn99 = phi { i32, i16 } [ %300, %299 ], [ %280, %279 ], [ %211, %210 ]
-  %.sroa.5.0.i = extractvalue { i32, i16 } %.pn99, 1
+  %.pn100 = phi { i32, i16 } [ %300, %299 ], [ %280, %279 ], [ %211, %210 ]
+  %.sroa.5.0.i = extractvalue { i32, i16 } %.pn100, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !67
   %301 = icmp eq i16 %.sroa.5.0.i, 273
   br i1 %301, label %441, label %440
@@ -1402,9 +1402,9 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %324
   br i1 %380, label %415, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
 
 381:                                              ; preds = %431, %412, %408, %406, %404, %401, %389, %383, %377, %375, %371, %369, %367, %365, %363, %361, %354, %350, %348, %344, %342, %338
-  %.pn.pn = phi { i32, i16 } [ %.pn, %431 ], [ %378, %377 ], [ %376, %375 ], [ %413, %412 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %407, %406 ], [ %409, %408 ], [ %405, %404 ], [ %355, %354 ], [ %345, %344 ], [ %351, %350 ], [ %349, %348 ], [ %402, %401 ], [ %390, %389 ], [ %343, %342 ], [ %384, %383 ], [ %339, %338 ]
-  %.sroa.0.0 = extractvalue { i32, i16 } %.pn.pn, 0
-  %.sroa.29.0 = extractvalue { i32, i16 } %.pn.pn, 1
+  %.pn98 = phi { i32, i16 } [ %339, %338 ], [ %384, %383 ], [ %343, %342 ], [ %390, %389 ], [ %345, %344 ], [ %413, %412 ], [ %402, %401 ], [ %349, %348 ], [ %351, %350 ], [ %355, %354 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %376, %375 ], [ %378, %377 ], [ %.pn, %431 ]
+  %.sroa.0.0 = extractvalue { i32, i16 } %.pn98, 0
+  %.sroa.29.0 = extractvalue { i32, i16 } %.pn98, 1
   switch i16 %.sroa.29.0, label %_ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit [
     i16 186, label %382
     i16 187, label %382
@@ -1587,7 +1587,7 @@ _ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit: ; preds = %
   br label %431
 
 431:                                              ; preds = %427, %425, %423, %429
-  %.pn = phi { i32, i16 } [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %430, %429 ]
+  %.pn = phi { i32, i16 } [ %430, %429 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41)
   br label %381
 
@@ -1624,7 +1624,7 @@ _ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit: ; preds = %
           to label %common.resume unwind label %387
 
 440:                                              ; preds = %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit
-  %.sroa.0.0.i = extractvalue { i32, i16 } %.pn99, 0
+  %.sroa.0.0.i = extractvalue { i32, i16 } %.pn100, 0
   store i32 %.sroa.0.0.i, ptr %0, align 4
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.sroa.5.0.i, ptr %.sroa.56.0..sroa_idx, align 4

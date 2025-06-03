@@ -205,7 +205,7 @@ define noundef i64 @_ZN5arrow8internal26SparseTensorConverterMixin13GetIndexValu
   br label %14
 
 14:                                               ; preds = %2, %12, %9, %6, %3
-  %.0 = phi i64 [ %13, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 0, %2 ]
+  %.0 = phi i64 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %13, %12 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -573,7 +573,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %71, %69
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge.i.i.i.i.i.loopexit.us.i.us
-  %.1.i.i.i.i.i.us.i.us = phi ptr [ %indvars.iv.i.us, %._crit_edge.i.i.i.i.i.loopexit.us.i.us ], [ %182, %181 ]
+  %.1.i.i.i.i.i.us.i.us = phi ptr [ %182, %181 ], [ %indvars.iv.i.us, %._crit_edge.i.i.i.i.i.loopexit.us.i.us ]
   %184 = load i8, ptr %.1.i.i.i.i.i.us.i.us, align 1, !tbaa !3
   %.not313.us.i.us = icmp eq i8 %184, 0
   br i1 %.not313.us.i.us, label %185, label %.loopexit.us.i.us
@@ -583,7 +583,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %71, %69
   br label %187
 
 187:                                              ; preds = %185, %._crit_edge.i.i.i.i.i.loopexit.us.i.us
-  %.2.i.i.i.i.i.us.i.us = phi ptr [ %indvars.iv.i.us, %._crit_edge.i.i.i.i.i.loopexit.us.i.us ], [ %186, %185 ]
+  %.2.i.i.i.i.i.us.i.us = phi ptr [ %186, %185 ], [ %indvars.iv.i.us, %._crit_edge.i.i.i.i.i.loopexit.us.i.us ]
   %188 = load i8, ptr %.2.i.i.i.i.i.us.i.us, align 1, !tbaa !3
   %.not314.us.i.us = icmp eq i8 %188, 0
   br i1 %.not314.us.i.us, label %.thread.us.i.us, label %.loopexit.us.i.us
@@ -699,7 +699,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   br label %221
 
 221:                                              ; preds = %._crit_edge.i.i.i.i.i.loopexit.us.i, %219
-  %.1.i.i.i.i.i.us.i = phi ptr [ %indvars.iv.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ], [ %220, %219 ]
+  %.1.i.i.i.i.i.us.i = phi ptr [ %220, %219 ], [ %indvars.iv.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ]
   %222 = load i8, ptr %.1.i.i.i.i.i.us.i, align 1, !tbaa !3
   %.not313.us.i = icmp eq i8 %222, 0
   br i1 %.not313.us.i, label %223, label %.loopexit.us.i
@@ -709,7 +709,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   br label %225
 
 225:                                              ; preds = %._crit_edge.i.i.i.i.i.loopexit.us.i, %223
-  %.2.i.i.i.i.i.us.i = phi ptr [ %indvars.iv.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ], [ %224, %223 ]
+  %.2.i.i.i.i.i.us.i = phi ptr [ %224, %223 ], [ %indvars.iv.i, %._crit_edge.i.i.i.i.i.loopexit.us.i ]
   %226 = load i8, ptr %.2.i.i.i.i.i.us.i, align 1, !tbaa !3
   %.not314.us.i = icmp eq i8 %226, 0
   br i1 %.not314.us.i, label %.thread.us.i, label %.loopexit.us.i
@@ -804,7 +804,7 @@ _ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us.i: ; pr
   br label %246
 
 246:                                              ; preds = %244, %._crit_edge.i.i.i.i.i.us333.i
-  %.1.i.i.i.i.i.us340.i = phi ptr [ %.0224329.us335.i, %._crit_edge.i.i.i.i.i.us333.i ], [ %245, %244 ]
+  %.1.i.i.i.i.i.us340.i = phi ptr [ %245, %244 ], [ %.0224329.us335.i, %._crit_edge.i.i.i.i.i.us333.i ]
   %247 = load i8, ptr %.1.i.i.i.i.i.us340.i, align 1, !tbaa !3
   %.not313.us341.i = icmp eq i8 %247, 0
   br i1 %.not313.us341.i, label %248, label %252
@@ -814,7 +814,7 @@ _ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us.i: ; pr
   br label %250
 
 250:                                              ; preds = %248, %._crit_edge.i.i.i.i.i.us333.i
-  %.2.i.i.i.i.i.us342.i = phi ptr [ %.0224329.us335.i, %._crit_edge.i.i.i.i.i.us333.i ], [ %249, %248 ]
+  %.2.i.i.i.i.i.us342.i = phi ptr [ %249, %248 ], [ %.0224329.us335.i, %._crit_edge.i.i.i.i.i.us333.i ]
   %251 = load i8, ptr %.2.i.i.i.i.i.us342.i, align 1, !tbaa !3
   %.not314.us343.i = icmp eq i8 %251, 0
   br i1 %.not314.us343.i, label %.thread.us348.i, label %252
@@ -888,7 +888,7 @@ _ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us346.i: ;
   br label %270
 
 270:                                              ; preds = %268, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.0224329.i, %._crit_edge.i.i.i.i.i.i ], [ %269, %268 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %269, %268 ], [ %.0224329.i, %._crit_edge.i.i.i.i.i.i ]
   %271 = load i8, ptr %.1.i.i.i.i.i.i, align 1, !tbaa !3
   %.not313.i = icmp eq i8 %271, 0
   br i1 %.not313.i, label %272, label %276
@@ -898,7 +898,7 @@ _ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.us346.i: ;
   br label %274
 
 274:                                              ; preds = %272, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.0224329.i, %._crit_edge.i.i.i.i.i.i ], [ %273, %272 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %273, %272 ], [ %.0224329.i, %._crit_edge.i.i.i.i.i.i ]
   %275 = load i8, ptr %.2.i.i.i.i.i.i, align 1, !tbaa !3
   %.not314.i = icmp eq i8 %275, 0
   br i1 %.not314.i, label %.thread.i, label %276

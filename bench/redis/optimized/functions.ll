@@ -456,7 +456,7 @@ define dso_local range(i32 -1, 1) i32 @functionLibCreateFunction(ptr noundef %0,
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %26, %22, %18, %14, %11
-  %.0.i.i = phi i64 [ %28, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.i.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ]
   %29 = icmp eq i64 %.0.i.i, 0
   br i1 %29, label %.sink.split, label %.preheader.i
 
@@ -502,7 +502,7 @@ sdslen.exit.i:                                    ; preds = %26, %22, %18, %14, 
   br label %sdslen.exit33.i
 
 sdslen.exit33.i:                                  ; preds = %47, %44, %41, %38, %37, %36
-  %.0.i32.i = phi i64 [ %48, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %35, %37 ], [ 0, %36 ]
+  %.0.i32.i = phi i64 [ %35, %37 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ 0, %36 ]
   %.not.i = icmp ult i64 %.028.i, %.0.i32.i
   br i1 %.not.i, label %49, label %58
 
@@ -743,7 +743,7 @@ define dso_local void @functionStatsCommand(ptr noundef %0) local_unnamed_addr #
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %20, %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %47, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %30 ], [ 0, %20 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ], [ 0, %20 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %.0.i) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %13, align 8, !tbaa !96
@@ -979,7 +979,7 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %60, %64, %67, %70, %73, %76
-  %.0.i = phi i64 [ %77, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ 0, %60 ]
+  %.0.i = phi i64 [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ %77, %76 ], [ 0, %60 ]
   %78 = trunc i64 %.0.i to i32
   %79 = load ptr, ptr %59, align 8, !tbaa !31
   %80 = getelementptr inbounds i8, ptr %79, i64 -1
@@ -1023,7 +1023,7 @@ sdslen.exit:                                      ; preds = %60, %64, %67, %70, 
   br label %sdslen.exit97
 
 sdslen.exit97:                                    ; preds = %sdslen.exit, %84, %87, %91, %95, %99
-  %.0.i96 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %84 ], [ 0, %sdslen.exit ]
+  %.0.i96 = phi i64 [ %86, %84 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ 0, %sdslen.exit ]
   %102 = trunc i64 %.0.i96 to i32
   %103 = tail call i32 @stringmatchlen(ptr noundef nonnull %.071.lcssa143, i32 noundef %78, ptr noundef nonnull %79, i32 noundef %102, i32 noundef 1) #12
   %.not92 = icmp eq i32 %103, 0
@@ -1075,7 +1075,7 @@ sdslen.exit97:                                    ; preds = %sdslen.exit, %84, %
   br label %sdslen.exit99
 
 sdslen.exit99:                                    ; preds = %104, %111, %114, %118, %122, %126
-  %.0.i98 = phi i64 [ %128, %126 ], [ %125, %122 ], [ %121, %118 ], [ %117, %114 ], [ %113, %111 ], [ 0, %104 ]
+  %.0.i98 = phi i64 [ %113, %111 ], [ %117, %114 ], [ %121, %118 ], [ %125, %122 ], [ %128, %126 ], [ 0, %104 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %106, i64 noundef %.0.i98) #12
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.17) #12
   %129 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -1122,7 +1122,7 @@ sdslen.exit99:                                    ; preds = %104, %111, %114, %1
   br label %sdslen.exit101
 
 sdslen.exit101:                                   ; preds = %sdslen.exit99, %136, %139, %143, %147, %151
-  %.0.i100 = phi i64 [ %153, %151 ], [ %150, %147 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ 0, %sdslen.exit99 ]
+  %.0.i100 = phi i64 [ %138, %136 ], [ %142, %139 ], [ %146, %143 ], [ %150, %147 ], [ %153, %151 ], [ 0, %sdslen.exit99 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %131, i64 noundef %.0.i100) #12
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.18) #12
   %154 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -1186,7 +1186,7 @@ sdslen.exit101:                                   ; preds = %sdslen.exit99, %136
   br label %sdslen.exit103
 
 sdslen.exit103:                                   ; preds = %.lr.ph130, %171, %174, %178, %182, %186
-  %.0.i102 = phi i64 [ %188, %186 ], [ %185, %182 ], [ %181, %178 ], [ %177, %174 ], [ %173, %171 ], [ 0, %.lr.ph130 ]
+  %.0.i102 = phi i64 [ %173, %171 ], [ %177, %174 ], [ %181, %178 ], [ %185, %182 ], [ %188, %186 ], [ 0, %.lr.ph130 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %166, i64 noundef %.0.i102) #12
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.19) #12
   %189 = getelementptr inbounds nuw i8, ptr %165, i64 24
@@ -1236,7 +1236,7 @@ sdslen.exit103:                                   ; preds = %.lr.ph130, %171, %1
   br label %sdslen.exit105
 
 sdslen.exit105:                                   ; preds = %191, %196, %199, %203, %207, %211
-  %.0.i104 = phi i64 [ %213, %211 ], [ %210, %207 ], [ %206, %203 ], [ %202, %199 ], [ %198, %196 ], [ 0, %191 ]
+  %.0.i104 = phi i64 [ %198, %196 ], [ %202, %199 ], [ %206, %203 ], [ %210, %207 ], [ %213, %211 ], [ 0, %191 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %190, i64 noundef %.0.i104) #12
   br label %215
 
@@ -1358,7 +1358,7 @@ functionListReplyFlags.exit:                      ; preds = %235, %._crit_edge.i
   br label %sdslen.exit107
 
 sdslen.exit107:                                   ; preds = %240, %247, %250, %254, %258, %262
-  %.0.i106 = phi i64 [ %264, %262 ], [ %261, %258 ], [ %257, %254 ], [ %253, %250 ], [ %249, %247 ], [ 0, %240 ]
+  %.0.i106 = phi i64 [ %249, %247 ], [ %253, %250 ], [ %257, %254 ], [ %261, %258 ], [ %264, %262 ], [ 0, %240 ]
   tail call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %242, i64 noundef %.0.i106) #12
   br label %265
 
@@ -1812,7 +1812,7 @@ define dso_local void @functionDumpCommand(ptr noundef %0) local_unnamed_addr #1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ 0, %1 ]
   %33 = call i64 @crc64(i64 noundef 0, ptr noundef nonnull %10, i64 noundef %.0.i) #12
   store i64 %33, ptr %3, align 8, !tbaa !49
   %34 = load ptr, ptr %8, align 8, !tbaa !44
@@ -1897,7 +1897,7 @@ define dso_local void @functionRestoreCommand(ptr noundef %0) local_unnamed_addr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %9, %20, %23, %27, %31, %35
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %20 ], [ 0, %9 ]
+  %.0.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %9 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8, !tbaa !51
@@ -2433,7 +2433,7 @@ sub_0:
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %44, %50, %53, %57, %61, %65
-  %.0.i = phi i64 [ %67, %65 ], [ %64, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ], [ 0, %44 ]
+  %.0.i = phi i64 [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %67, %65 ], [ 0, %44 ]
   %68 = sub i64 %.0.i, %17
   %69 = call ptr @sdsnewlen(ptr noundef nonnull %10, i64 noundef %68) #12
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2466,7 +2466,7 @@ sdslen.exit:                                      ; preds = %44, %50, %53, %57, 
   br label %79
 
 79:                                               ; preds = %77, %sdslen.exit, %23
-  %.2 = phi i32 [ -1, %23 ], [ -1, %77 ], [ 0, %sdslen.exit ]
+  %.2 = phi i32 [ -1, %23 ], [ 0, %sdslen.exit ], [ -1, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   br label %80
 
@@ -2578,7 +2578,7 @@ define dso_local ptr @functionsCreateWithLibraryCtx(ptr noundef %0, i32 noundef 
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %30, %26, %22, %18, %15
-  %.0.i.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ]
+  %.0.i.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
   %33 = icmp eq i64 %.0.i.i, 0
   br i1 %33, label %functionsVerifyName.exit.thread, label %.preheader.i
 
@@ -2624,7 +2624,7 @@ sdslen.exit.i:                                    ; preds = %30, %26, %22, %18, 
   br label %sdslen.exit33.i
 
 sdslen.exit33.i:                                  ; preds = %51, %48, %45, %42, %41, %40
-  %.0.i32.i = phi i64 [ %52, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %39, %41 ], [ 0, %40 ]
+  %.0.i32.i = phi i64 [ %39, %41 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ 0, %40 ]
   %.not.i = icmp ult i64 %.028.i, %.0.i32.i
   br i1 %.not.i, label %53, label %63
 

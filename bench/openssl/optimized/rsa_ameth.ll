@@ -754,7 +754,7 @@ define internal i32 @rsa_sig_print(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %18
 
 18:                                               ; preds = %9, %15, %12, %16
-  %.1 = phi i32 [ 0, %9 ], [ %17, %16 ], [ 0, %12 ], [ 1, %15 ]
+  %.1 = phi i32 [ %17, %16 ], [ 0, %9 ], [ 0, %12 ], [ 1, %15 ]
   ret i32 %.1
 }
 
@@ -1912,7 +1912,7 @@ define internal fastcc i32 @rsa_int_import_from(ptr noundef %0, ptr noundef %1, 
   %.not33 = icmp eq i32 %36, 0
   br i1 %.not33, label %.thread, label %37
 
-.thread:                                          ; preds = %12, %16, %20, %31, %33, %15, %35
+.thread:                                          ; preds = %12, %20, %16, %31, %33, %15, %35
   call void @RSA_free(ptr noundef nonnull %9) #7
   br label %37
 

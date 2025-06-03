@@ -758,7 +758,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
   br label %321
 
 321:                                              ; preds = %320, %317, %309, %306, %298, %291, %270, %263, %249, %246, %231, %225, %218, %212
-  %.0.i68 = phi i32 [ -1, %249 ], [ -1, %246 ], [ -1, %263 ], [ -1, %270 ], [ -1, %291 ], [ -1, %298 ], [ -1, %306 ], [ -1, %317 ], [ 0, %320 ], [ 0, %309 ], [ -1, %231 ], [ -1, %225 ], [ -1, %212 ], [ -1, %218 ]
+  %.0.i68 = phi i32 [ -1, %249 ], [ -1, %306 ], [ -1, %317 ], [ 0, %320 ], [ 0, %309 ], [ -1, %263 ], [ -1, %270 ], [ -1, %291 ], [ -1, %298 ], [ -1, %246 ], [ -1, %231 ], [ -1, %225 ], [ -1, %212 ], [ -1, %218 ]
   %322 = load i64, ptr @h5dset_space_id, align 8, !tbaa !17
   %.not84.i = icmp eq i64 %322, -1
   br i1 %.not84.i, label %330, label %323
@@ -885,7 +885,7 @@ do_write.exit:                                    ; preds = %339, %348
   %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str, i32 noundef %19) #18
   br label %374
 
-374:                                              ; preds = %371, %367, %359
+374:                                              ; preds = %371, %359, %367
   %375 = load ptr, ptr %151, align 8, !tbaa !14
   %376 = call ptr @io_time_set(ptr noundef %375, i32 noundef 10, i32 noundef 1) #17
   %377 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -1129,7 +1129,7 @@ do_write.exit:                                    ; preds = %339, %348
   br label %493
 
 493:                                              ; preds = %492, %489, %481, %478, %470, %461, %446, %440, %434
-  %.063.i = phi i32 [ -1, %461 ], [ -1, %470 ], [ -1, %478 ], [ -1, %489 ], [ 0, %492 ], [ 0, %481 ], [ -1, %446 ], [ -1, %440 ], [ -1, %434 ]
+  %.063.i = phi i32 [ -1, %478 ], [ -1, %489 ], [ 0, %492 ], [ 0, %481 ], [ -1, %470 ], [ -1, %461 ], [ -1, %446 ], [ -1, %440 ], [ -1, %434 ]
   %494 = load i64, ptr @h5dset_space_id, align 8, !tbaa !17
   %.not75.i = icmp eq i64 %494, -1
   br i1 %.not75.i, label %502, label %495
@@ -1257,7 +1257,7 @@ do_fclose.exit91:                                 ; preds = %534, %542
   %547 = call ptr @io_time_set(ptr noundef %546, i32 noundef 11, i32 noundef 1) #17
   br label %553
 
-548:                                              ; preds = %543, %539, %531
+548:                                              ; preds = %543, %531, %539
   %549 = load ptr, ptr %151, align 8, !tbaa !14
   %550 = call ptr @io_time_set(ptr noundef %549, i32 noundef 11, i32 noundef 1) #17
   %551 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -1567,7 +1567,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_fopen(ptr noundef readonly captu
   br label %56
 
 56:                                               ; preds = %6, %48, %53, %50, %16, %10
-  %.0 = phi i32 [ -1, %53 ], [ -1, %16 ], [ -1, %50 ], [ 0, %48 ], [ -1, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ -1, %53 ], [ -1, %10 ], [ 0, %6 ], [ -1, %16 ], [ -1, %50 ], [ 0, %48 ]
   ret i32 %.0
 }
 

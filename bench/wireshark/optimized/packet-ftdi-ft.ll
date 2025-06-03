@@ -526,7 +526,7 @@ define internal i32 @dissect_ftdi_ft(ptr noundef %0, ptr noundef %1, ptr noundef
   %73 = call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_undecoded, ptr noundef %0, i32 noundef 1, i32 noundef 4)
   br label %.thread
 
-.thread:                                          ; preds = %58, %59, %60, %61, %65, %66, %67, %68, %69, %70, %71, %72
+.thread:                                          ; preds = %71, %70, %69, %68, %67, %66, %65, %61, %60, %59, %58, %72
   %74 = load i32, ptr @hf_setup_wlength, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %74, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %76 = call ptr @wmem_file_scope()
@@ -615,7 +615,7 @@ lindex_to_interface.exit:                         ; preds = %110, %switch.lookup
   br label %119
 
 119:                                              ; preds = %106, %107, %lindex_to_interface.exit, %99, %117
-  %.1196 = phi i32 [ 0, %99 ], [ 0, %lindex_to_interface.exit ], [ 1, %107 ], [ 2, %106 ], [ 0, %117 ]
+  %.1196 = phi i32 [ 0, %99 ], [ 2, %106 ], [ 1, %107 ], [ 0, %lindex_to_interface.exit ], [ 0, %117 ]
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1196)
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %122, label %174
@@ -648,10 +648,10 @@ endpoint_to_interface.exit:                       ; preds = %124, %124
   br label %127
 
 127:                                              ; preds = %124, %124, %endpoint_to_interface.exit.thread217, %endpoint_to_interface.exit, %126
-  %.0.i211219 = phi i32 [ 4, %endpoint_to_interface.exit ], [ 3, %126 ], [ 1, %endpoint_to_interface.exit.thread217 ], [ 2, %124 ], [ 2, %124 ]
-  %.0202 = phi ptr [ @.str.192, %endpoint_to_interface.exit ], [ @.str.191, %126 ], [ @.str.189, %endpoint_to_interface.exit.thread217 ], [ @.str.190, %124 ], [ @.str.190, %124 ]
-  %.0200.in = phi ptr [ @hf_if_d_rx_payload, %endpoint_to_interface.exit ], [ @hf_if_c_rx_payload, %126 ], [ @hf_if_a_rx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_rx_payload, %124 ], [ @hf_if_b_rx_payload, %124 ]
-  %.0199.in = phi ptr [ @hf_if_d_tx_payload, %endpoint_to_interface.exit ], [ @hf_if_c_tx_payload, %126 ], [ @hf_if_a_tx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_tx_payload, %124 ], [ @hf_if_b_tx_payload, %124 ]
+  %.0.i211219 = phi i32 [ 3, %126 ], [ 4, %endpoint_to_interface.exit ], [ 1, %endpoint_to_interface.exit.thread217 ], [ 2, %124 ], [ 2, %124 ]
+  %.0202 = phi ptr [ @.str.191, %126 ], [ @.str.192, %endpoint_to_interface.exit ], [ @.str.189, %endpoint_to_interface.exit.thread217 ], [ @.str.190, %124 ], [ @.str.190, %124 ]
+  %.0200.in = phi ptr [ @hf_if_c_rx_payload, %126 ], [ @hf_if_d_rx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_rx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_rx_payload, %124 ], [ @hf_if_b_rx_payload, %124 ]
+  %.0199.in = phi ptr [ @hf_if_c_tx_payload, %126 ], [ @hf_if_d_tx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_tx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_tx_payload, %124 ], [ @hf_if_b_tx_payload, %124 ]
   %.0199 = load i32, ptr %.0199.in, align 4
   %.0200 = load i32, ptr %.0200.in, align 4
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8

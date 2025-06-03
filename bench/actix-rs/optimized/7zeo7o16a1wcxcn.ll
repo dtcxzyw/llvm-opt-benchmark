@@ -203,7 +203,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 common.resume:                                    ; preds = %44, %29, %40, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %41, %40 ], [ %30, %29 ], [ %45, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ], [ %41, %40 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 38:                                               ; preds = %40, %29
@@ -1637,13 +1637,13 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
   %384 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %385 = load i8, ptr %384, align 8, !range !71, !alias.scope !271, !noalias !276, !noundef !5
   %trunc.i.i.i230 = trunc nuw i8 %385 to i1
-  %386 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %387 = getelementptr inbounds nuw i8, ptr %101, i64 72
-  %388 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  %.val.i.i.i = load ptr, ptr %386, align 8, !alias.scope !271, !noalias !276
-  %.val4.i.i.i = load ptr, ptr %388, align 8, !alias.scope !271, !noalias !276, !nonnull !5
+  %386 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  %387 = getelementptr inbounds nuw i8, ptr %101, i64 64
+  %388 = getelementptr inbounds nuw i8, ptr %101, i64 72
+  %.val.i.i.i = load ptr, ptr %387, align 8, !alias.scope !271, !noalias !276
+  %.val4.i.i.i = load ptr, ptr %386, align 8, !alias.scope !271, !noalias !276, !nonnull !5
   %.sroa.0.0.i.i.i = select i1 %trunc.i.i.i230, ptr %.val.i.i.i, ptr %.val4.i.i.i
-  %.val5.i.i.i = load i64, ptr %387, align 8, !alias.scope !271, !noalias !276
+  %.val5.i.i.i = load i64, ptr %388, align 8, !alias.scope !271, !noalias !276
   %.val6.cast.i.i.i = ptrtoint ptr %.val.i.i.i to i64
   %.sroa.3.0.i.i.i = select i1 %trunc.i.i.i230, i64 %.val5.i.i.i, i64 %.val6.cast.i.i.i
   %389 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %50)
@@ -1694,10 +1694,10 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
   br label %.body227
 
 400:                                              ; preds = %.noexc.i, %357, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i"
-  %.sroa.9.0.i = phi i64 [ %362, %.noexc.i ], [ undef, %357 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
-  %.sroa.8.0.i = phi i64 [ %366, %.noexc.i ], [ undef, %357 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
-  %.sroa.6.0.i = phi i64 [ %372, %.noexc.i ], [ %359, %357 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
-  %.sroa.0.02.i = phi i64 [ %368, %.noexc.i ], [ -9223372036854775808, %357 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
+  %.sroa.9.0.i = phi i64 [ undef, %357 ], [ %362, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
+  %.sroa.8.0.i = phi i64 [ undef, %357 ], [ %366, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
+  %.sroa.6.0.i = phi i64 [ %359, %357 ], [ %372, %.noexc.i ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
+  %.sroa.0.02.i = phi i64 [ -9223372036854775808, %357 ], [ %368, %.noexc.i ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i" ]
   %trunc.i = trunc nuw i64 %348 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %350, i64 undef
   %401 = getelementptr inbounds nuw i8, ptr %100, i64 48
@@ -3143,13 +3143,13 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %882 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %883 = load i8, ptr %882, align 8, !range !71, !alias.scope !554, !noalias !559, !noundef !5
   %trunc.i.i.i349 = trunc nuw i8 %883 to i1
-  %884 = getelementptr inbounds nuw i8, ptr %116, i64 64
-  %885 = getelementptr inbounds nuw i8, ptr %116, i64 72
-  %886 = getelementptr inbounds nuw i8, ptr %116, i64 56
-  %.val.i.i.i350 = load ptr, ptr %884, align 8, !alias.scope !554, !noalias !559
-  %.val4.i.i.i351 = load ptr, ptr %886, align 8, !alias.scope !554, !noalias !559, !nonnull !5
+  %884 = getelementptr inbounds nuw i8, ptr %116, i64 56
+  %885 = getelementptr inbounds nuw i8, ptr %116, i64 64
+  %886 = getelementptr inbounds nuw i8, ptr %116, i64 72
+  %.val.i.i.i350 = load ptr, ptr %885, align 8, !alias.scope !554, !noalias !559
+  %.val4.i.i.i351 = load ptr, ptr %884, align 8, !alias.scope !554, !noalias !559, !nonnull !5
   %.sroa.0.0.i.i.i352 = select i1 %trunc.i.i.i349, ptr %.val.i.i.i350, ptr %.val4.i.i.i351
-  %.val5.i.i.i353 = load i64, ptr %885, align 8, !alias.scope !554, !noalias !559
+  %.val5.i.i.i353 = load i64, ptr %886, align 8, !alias.scope !554, !noalias !559
   %.val6.cast.i.i.i354 = ptrtoint ptr %.val.i.i.i350 to i64
   %.sroa.3.0.i.i.i355 = select i1 %trunc.i.i.i349, i64 %.val5.i.i.i353, i64 %.val6.cast.i.i.i354
   %887 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i352, i64 noundef %.sroa.3.0.i.i.i355, ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
@@ -3198,10 +3198,10 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   br label %.body344
 
 898:                                              ; preds = %.noexc.i342, %855, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331"
-  %.sroa.9.0.i333 = phi i64 [ %860, %.noexc.i342 ], [ undef, %855 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
-  %.sroa.8.0.i334 = phi i64 [ %864, %.noexc.i342 ], [ undef, %855 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
-  %.sroa.6.0.i335 = phi i64 [ %870, %.noexc.i342 ], [ %857, %855 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
-  %.sroa.0.02.i336 = phi i64 [ %866, %.noexc.i342 ], [ -9223372036854775808, %855 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
+  %.sroa.9.0.i333 = phi i64 [ undef, %855 ], [ %860, %.noexc.i342 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
+  %.sroa.8.0.i334 = phi i64 [ undef, %855 ], [ %864, %.noexc.i342 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
+  %.sroa.6.0.i335 = phi i64 [ %857, %855 ], [ %870, %.noexc.i342 ], [ undef, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
+  %.sroa.0.02.i336 = phi i64 [ -9223372036854775808, %855 ], [ %866, %.noexc.i342 ], [ -9223372036854775806, %"_ZN51_$LT$mime..Source$u20$as$u20$core..clone..Clone$GT$5clone17hd345b6d56fde54f9E.exit.i331" ]
   %trunc.i337 = trunc nuw i64 %846 to i1
   %.sroa.5.0.i338 = select i1 %trunc.i337, i64 %848, i64 undef
   %899 = getelementptr inbounds nuw i8, ptr %115, i64 48
@@ -3899,7 +3899,7 @@ default.unreachable42:                            ; preds = %20, %3
   br label %.thread49
 
 49:                                               ; preds = %50, %35, %.thread.i
-  %.pn5.i = phi { ptr, i32 } [ %51, %50 ], [ %29, %.thread.i ], [ %36, %35 ]
+  %.pn4.pn.i = phi { ptr, i32 } [ %29, %.thread.i ], [ %36, %35 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !651
   store i8 2, ptr %24, align 8, !noalias !651
   br label %.body
@@ -4088,7 +4088,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr52drop
 
 .body:                                            ; preds = %57, %49
   %93 = phi ptr [ %21, %57 ], [ %23, %49 ]
-  %.pn2 = phi { ptr, i32 } [ %58, %57 ], [ %.pn5.i, %49 ]
+  %.pn2 = phi { ptr, i32 } [ %58, %57 ], [ %.pn4.pn.i, %49 ]
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %.sroa.7.sroa.6)
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$actix_files..named..NamedFile..open_async$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd04de422793a401fE"(ptr noundef nonnull align 8 %93) #21
           to label %.body12 unwind label %94

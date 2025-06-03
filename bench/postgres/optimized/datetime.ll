@@ -137,7 +137,7 @@ define range(i64 -2147483648, 2147483648) i64 @PGTYPESdate_from_asc(ptr noundef 
   br label %40
 
 40:                                               ; preds = %29, %28, %27, %21, %14
-  %.0 = phi i64 [ -2147483648, %14 ], [ -2147483648, %21 ], [ -2147483648, %28 ], [ -2147483648, %27 ], [ %39, %29 ]
+  %.0 = phi i64 [ -2147483648, %14 ], [ -2147483648, %21 ], [ -2147483648, %28 ], [ %39, %29 ], [ -2147483648, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 153, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8) #12
@@ -342,24 +342,24 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %39 = srem i32 %38, 100
   br label %42
 
-40:                                               ; preds = %29, %25, %23
-  %.sroa.0.2.ph = phi ptr [ @.str.6, %23 ], [ %26, %25 ], [ %34, %29 ]
+40:                                               ; preds = %25, %29, %23
+  %.sroa.0.2.ph = phi ptr [ @.str.6, %23 ], [ %34, %29 ], [ %26, %25 ]
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.2.ph) #14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.sroa.0.2.ph, i64 %41, i1 false)
   br label %56
 
-42:                                               ; preds = %37, %35, %27
-  %.sink90 = phi i32 [ %39, %37 ], [ %36, %35 ], [ %28, %27 ]
+42:                                               ; preds = %27, %35, %37
+  %.sink90 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %39, %37 ]
   %43 = call ptr @pgtypes_alloc(i64 noundef 20) #12
   %.not65.not = icmp eq ptr %43, null
   br i1 %.not65.not, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = ptrtoint ptr %.sroa.0.184 to i64
-  %.sroa.0.0.insert.mask42 = and i64 %45, -4294967296
-  %.sroa.0.0.insert.ext41 = zext i32 %.sink90 to i64
-  %.sroa.0.0.insert.insert43 = or disjoint i64 %.sroa.0.0.insert.mask42, %.sroa.0.0.insert.ext41
-  %.sroa.0.2.ph76 = inttoptr i64 %.sroa.0.0.insert.insert43 to ptr
+  %.sroa.0.0.insert.mask = and i64 %45, -4294967296
+  %.sroa.0.0.insert.ext = zext i32 %.sink90 to i64
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
+  %.sroa.0.2.ph76 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
   %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %43, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink90) #12
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %43, i64 %47, i1 false)

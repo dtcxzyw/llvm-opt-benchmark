@@ -184,7 +184,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_io_ops(ptr noundef readonly capture
   br label %47
 
 47:                                               ; preds = %35, %43, %23, %25, %27, %29, %31, %33, %17, %18, %41, %39, %1
-  %.0 = phi i32 [ -1, %43 ], [ 0, %41 ], [ 0, %39 ], [ -1, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %17 ], [ 0, %18 ], [ 0, %1 ]
+  %.0 = phi i32 [ -1, %43 ], [ 0, %17 ], [ 0, %18 ], [ -1, %35 ], [ 0, %23 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %39 ], [ 0, %41 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -309,7 +309,7 @@ define i64 @H5D__layout_meta_size(ptr noundef %0, ptr noundef readonly captures(
   br label %83
 
 71:                                               ; preds = %52, %56, %65, %63, %61, %37
-  %.1 = phi i64 [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %56 ], [ %46, %52 ], [ %46, %37 ]
+  %.1 = phi i64 [ %46, %37 ], [ %60, %56 ], [ %46, %52 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ]
   %72 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #4
   %73 = zext i8 %72 to i64
   %74 = add nuw i64 %.1, %73
@@ -328,7 +328,7 @@ define i64 @H5D__layout_meta_size(ptr noundef %0, ptr noundef readonly captures(
   br label %83
 
 83:                                               ; preds = %48, %67, %79, %28, %71, %12, %13, %75, %17, %3
-  %.0 = phi i64 [ 0, %79 ], [ %78, %75 ], [ %36, %28 ], [ 0, %67 ], [ %74, %71 ], [ 0, %48 ], [ %23, %17 ], [ %16, %13 ], [ 4, %12 ], [ 0, %3 ]
+  %.0 = phi i64 [ 0, %79 ], [ %16, %13 ], [ 4, %12 ], [ %23, %17 ], [ %36, %28 ], [ 0, %67 ], [ 0, %48 ], [ %74, %71 ], [ %78, %75 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -858,8 +858,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   %172 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_create, i32 noundef 555, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.20) #4
   br label %.thread104
 
-.thread104:                                       ; preds = %40, %28, %153, %4, %169, %166, %160
-  %.085 = phi i32 [ -1, %169 ], [ -1, %166 ], [ -1, %160 ], [ 0, %4 ], [ 0, %153 ], [ -1, %40 ], [ -1, %28 ]
+.thread104:                                       ; preds = %28, %40, %153, %4, %169, %166, %160
+  %.085 = phi i32 [ -1, %169 ], [ -1, %166 ], [ -1, %160 ], [ 0, %4 ], [ -1, %28 ], [ 0, %153 ], [ -1, %40 ]
   %173 = load i64, ptr %5, align 8, !tbaa !49
   call void @H5AC_tag(i64 noundef %173, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4

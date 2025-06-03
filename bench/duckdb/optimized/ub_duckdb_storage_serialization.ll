@@ -3808,7 +3808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %77
   ret void
 
 _ZNSt10unique_ptrIN6duckdb10ConstraintESt14default_deleteIS1_EED2Ev.exit38: ; preds = %46, %50, %70, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %64, %66, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn42, %85 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %71, %70 ], [ %51, %50 ], [ %47, %46 ], [ %67, %66 ], [ %65, %64 ], [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn42, %85 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %47, %46 ], [ %51, %50 ], [ %71, %70 ], [ %67, %66 ], [ %65, %64 ], [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !89
   br label %common.resume
 
@@ -8104,7 +8104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   ret void
 
 .body122:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %477, %627, %462, %453, %444, %435, %426, %408, %399
-  %.pn43.pn.ph = phi { ptr, i32 } [ %470, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %413, %412 ], [ %400, %399 ], [ %409, %408 ], [ %427, %426 ], [ %436, %435 ], [ %445, %444 ], [ %454, %453 ], [ %463, %462 ], [ %628, %627 ], [ %470, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn43238, %477 ]
+  %.pn43.pn.ph = phi { ptr, i32 } [ %470, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %413, %412 ], [ %463, %462 ], [ %454, %453 ], [ %445, %444 ], [ %436, %435 ], [ %427, %426 ], [ %409, %408 ], [ %400, %399 ], [ %628, %627 ], [ %470, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn43238, %477 ]
   %.pr239 = load ptr, ptr %0, align 8, !tbaa !204
   %.not.i202 = icmp eq ptr %.pr239, null
   br i1 %.not.i202, label %_ZNSt10unique_ptrIN6duckdb10CreateInfoESt14default_deleteIS1_EED2Ev.exit204, label %_ZNKSt14default_deleteIN6duckdb10CreateInfoEEclEPS1_.exit.i203
@@ -15149,8 +15149,8 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i151: ; preds = %284
   call void %288(ptr noundef nonnull align 8 dereferenceable(88) %.pre) #25
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit152
 
-_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit152: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %153, %157, %161, %165, %169, %173, %177, %181, %185, %189, %193, %197, %201, %205, %209, %213, %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %232, %284, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i151
-  %.pn.pn166 = phi { ptr, i32 } [ %285, %284 ], [ %285, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i151 ], [ %225, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %154, %153 ], [ %158, %157 ], [ %162, %161 ], [ %166, %165 ], [ %170, %169 ], [ %174, %173 ], [ %178, %177 ], [ %182, %181 ], [ %186, %185 ], [ %190, %189 ], [ %194, %193 ], [ %198, %197 ], [ %202, %201 ], [ %206, %205 ], [ %210, %209 ], [ %214, %213 ], [ %218, %217 ], [ %225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn163, %232 ]
+_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit152: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %217, %213, %209, %205, %201, %197, %193, %189, %185, %181, %177, %173, %169, %165, %161, %157, %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %232, %284, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i151
+  %.pn.pn166 = phi { ptr, i32 } [ %285, %284 ], [ %285, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i151 ], [ %225, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %218, %217 ], [ %214, %213 ], [ %210, %209 ], [ %206, %205 ], [ %202, %201 ], [ %198, %197 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %178, %177 ], [ %174, %173 ], [ %170, %169 ], [ %166, %165 ], [ %162, %161 ], [ %158, %157 ], [ %154, %153 ], [ %225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn163, %232 ]
   store ptr null, ptr %0, align 8, !tbaa !400
   br label %289
 
@@ -24416,7 +24416,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15LogicalOperatorESt14default_deleteIS2_EL
   br label %656
 
 656:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %624, %654, %609, %600, %588, %579, %570, %561, %552, %543, %534, %525, %516, %507, %498, %489, %480, %471, %462, %453, %444, %435, %426, %414, %405, %393, %384, %375, %366, %357, %348, %339, %330, %321, %312, %303, %294, %285, %276, %267, %258, %249, %240, %231, %222, %213, %204, %192, %183, %174, %165, %156, %147, %138, %129
-  %.pn.pn = phi { ptr, i32 } [ %.pn414, %624 ], [ %617, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %655, %654 ], [ %610, %609 ], [ %601, %600 ], [ %589, %588 ], [ %580, %579 ], [ %571, %570 ], [ %562, %561 ], [ %553, %552 ], [ %544, %543 ], [ %535, %534 ], [ %526, %525 ], [ %517, %516 ], [ %508, %507 ], [ %499, %498 ], [ %490, %489 ], [ %481, %480 ], [ %472, %471 ], [ %463, %462 ], [ %454, %453 ], [ %445, %444 ], [ %436, %435 ], [ %427, %426 ], [ %415, %414 ], [ %406, %405 ], [ %394, %393 ], [ %385, %384 ], [ %376, %375 ], [ %367, %366 ], [ %358, %357 ], [ %349, %348 ], [ %340, %339 ], [ %331, %330 ], [ %322, %321 ], [ %313, %312 ], [ %304, %303 ], [ %295, %294 ], [ %286, %285 ], [ %277, %276 ], [ %268, %267 ], [ %259, %258 ], [ %250, %249 ], [ %241, %240 ], [ %232, %231 ], [ %223, %222 ], [ %214, %213 ], [ %205, %204 ], [ %193, %192 ], [ %184, %183 ], [ %175, %174 ], [ %166, %165 ], [ %157, %156 ], [ %148, %147 ], [ %139, %138 ], [ %130, %129 ], [ %617, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn414, %624 ], [ %617, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %655, %654 ], [ %130, %129 ], [ %139, %138 ], [ %148, %147 ], [ %157, %156 ], [ %166, %165 ], [ %175, %174 ], [ %184, %183 ], [ %193, %192 ], [ %205, %204 ], [ %214, %213 ], [ %223, %222 ], [ %232, %231 ], [ %241, %240 ], [ %250, %249 ], [ %259, %258 ], [ %268, %267 ], [ %277, %276 ], [ %286, %285 ], [ %295, %294 ], [ %304, %303 ], [ %313, %312 ], [ %322, %321 ], [ %331, %330 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %376, %375 ], [ %385, %384 ], [ %394, %393 ], [ %406, %405 ], [ %415, %414 ], [ %427, %426 ], [ %436, %435 ], [ %445, %444 ], [ %454, %453 ], [ %463, %462 ], [ %472, %471 ], [ %481, %480 ], [ %490, %489 ], [ %499, %498 ], [ %508, %507 ], [ %517, %516 ], [ %526, %525 ], [ %535, %534 ], [ %544, %543 ], [ %553, %552 ], [ %562, %561 ], [ %571, %570 ], [ %580, %579 ], [ %589, %588 ], [ %601, %600 ], [ %610, %609 ], [ %617, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   %657 = load ptr, ptr %0, align 8, !tbaa !603
   %.not.i385 = icmp eq ptr %657, null
   br i1 %.not.i385, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit387, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i386
@@ -41046,7 +41046,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_E
   br label %168
 
 168:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %108, %166, %93, %84
-  %.pn.pn = phi { ptr, i32 } [ %.pn37, %108 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %167, %166 ], [ %94, %93 ], [ %85, %84 ], [ %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn37, %108 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %167, %166 ], [ %85, %84 ], [ %94, %93 ], [ %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   %169 = load ptr, ptr %0, align 8, !tbaa !247
   %.not.i30 = icmp eq ptr %169, null
   br i1 %.not.i30, label %_ZNSt10unique_ptrIN6duckdb13MacroFunctionESt14default_deleteIS1_EED2Ev.exit32, label %_ZNKSt14default_deleteIN6duckdb13MacroFunctionEEclEPS1_.exit.i31
@@ -42315,8 +42315,8 @@ _ZNKSt14default_deleteIN6duckdb14BlockingSampleEEclEPS1_.exit.i35: ; preds = %13
   call void %139(ptr noundef nonnull align 8 dereferenceable(18) %.pre) #25
   br label %_ZNSt10unique_ptrIN6duckdb14BlockingSampleESt14default_deleteIS1_EED2Ev.exit36
 
-_ZNSt10unique_ptrIN6duckdb14BlockingSampleESt14default_deleteIS1_EED2Ev.exit36: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %97, %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %116, %135, %_ZNKSt14default_deleteIN6duckdb14BlockingSampleEEclEPS1_.exit.i35
-  %.pn.pn42 = phi { ptr, i32 } [ %136, %135 ], [ %136, %_ZNKSt14default_deleteIN6duckdb14BlockingSampleEEclEPS1_.exit.i35 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %98, %97 ], [ %102, %101 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn39, %116 ]
+_ZNSt10unique_ptrIN6duckdb14BlockingSampleESt14default_deleteIS1_EED2Ev.exit36: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %101, %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %116, %135, %_ZNKSt14default_deleteIN6duckdb14BlockingSampleEEclEPS1_.exit.i35
+  %.pn.pn42 = phi { ptr, i32 } [ %136, %135 ], [ %136, %_ZNKSt14default_deleteIN6duckdb14BlockingSampleEEclEPS1_.exit.i35 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %102, %101 ], [ %98, %97 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn39, %116 ]
   store ptr null, ptr %0, align 8, !tbaa !1041
   br label %.body
 
@@ -63745,8 +63745,8 @@ _ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i167: ; preds = 
   call void %319(ptr noundef nonnull align 8 dereferenceable(56) %.pr.pre) #25
   br label %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit168
 
-_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit168: ; preds = %265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %250, %246, %242, %238, %216, %212, %208, %204, %195, %191, %187, %165, %161, %157, %153, %183, %_ZNSt10unique_ptrIN6duckdb19ColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit6.i, %199, %234, %_ZNSt10unique_ptrIN6duckdb19ParameterExpressionESt14default_deleteIS1_EED2Ev.exit6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.body.thread, %.body, %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i167
-  %.pn.pn183 = phi { ptr, i32 } [ %201, %.body.thread ], [ %316, %.body ], [ %316, %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i167 ], [ %.pn180, %265 ], [ %258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %251, %250 ], [ %247, %246 ], [ %243, %242 ], [ %239, %238 ], [ %217, %216 ], [ %213, %212 ], [ %209, %208 ], [ %205, %204 ], [ %196, %195 ], [ %192, %191 ], [ %188, %187 ], [ %166, %165 ], [ %162, %161 ], [ %158, %157 ], [ %154, %153 ], [ %184, %183 ], [ %.pn.i, %_ZNSt10unique_ptrIN6duckdb19ColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit6.i ], [ %200, %199 ], [ %235, %234 ], [ %.pn.i126, %_ZNSt10unique_ptrIN6duckdb19ParameterExpressionESt14default_deleteIS1_EED2Ev.exit6.i ], [ %258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit168: ; preds = %265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %153, %157, %161, %165, %187, %191, %195, %204, %208, %212, %216, %238, %242, %246, %250, %183, %_ZNSt10unique_ptrIN6duckdb19ColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit6.i, %199, %234, %_ZNSt10unique_ptrIN6duckdb19ParameterExpressionESt14default_deleteIS1_EED2Ev.exit6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.body.thread, %.body, %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i167
+  %.pn.pn183 = phi { ptr, i32 } [ %201, %.body.thread ], [ %316, %.body ], [ %316, %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i167 ], [ %.pn180, %265 ], [ %258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %154, %153 ], [ %158, %157 ], [ %162, %161 ], [ %166, %165 ], [ %188, %187 ], [ %192, %191 ], [ %196, %195 ], [ %205, %204 ], [ %209, %208 ], [ %213, %212 ], [ %217, %216 ], [ %239, %238 ], [ %243, %242 ], [ %247, %246 ], [ %251, %250 ], [ %184, %183 ], [ %.pn.i, %_ZNSt10unique_ptrIN6duckdb19ColumnRefExpressionESt14default_deleteIS1_EED2Ev.exit6.i ], [ %200, %199 ], [ %235, %234 ], [ %.pn.i126, %_ZNSt10unique_ptrIN6duckdb19ParameterExpressionESt14default_deleteIS1_EED2Ev.exit6.i ], [ %258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !100
   br label %320
 
@@ -75176,7 +75176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %130
   ret void
 
 _ZNSt10unique_ptrIN6duckdb9ParseInfoESt14default_deleteIS1_EED2Ev.exit95: ; preds = %55, %59, %79, %83, %87, %91, %95, %99, %103, %123, %138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt10unique_ptrIN6duckdb15BoundExportDataESt14default_deleteIS1_EED2Ev.exit4.i, %75, %_ZNSt10unique_ptrIN6duckdb20UpdateExtensionsInfoESt14default_deleteIS1_EED2Ev.exit4.i, %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn101, %138 ], [ %131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %124, %123 ], [ %104, %103 ], [ %100, %99 ], [ %96, %95 ], [ %92, %91 ], [ %88, %87 ], [ %84, %83 ], [ %80, %79 ], [ %60, %59 ], [ %56, %55 ], [ %76, %75 ], [ %69, %_ZNSt10unique_ptrIN6duckdb15BoundExportDataESt14default_deleteIS1_EED2Ev.exit4.i ], [ %120, %119 ], [ %113, %_ZNSt10unique_ptrIN6duckdb20UpdateExtensionsInfoESt14default_deleteIS1_EED2Ev.exit4.i ], [ %131, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn101, %138 ], [ %131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %55 ], [ %60, %59 ], [ %80, %79 ], [ %84, %83 ], [ %88, %87 ], [ %92, %91 ], [ %96, %95 ], [ %100, %99 ], [ %104, %103 ], [ %124, %123 ], [ %76, %75 ], [ %69, %_ZNSt10unique_ptrIN6duckdb15BoundExportDataESt14default_deleteIS1_EED2Ev.exit4.i ], [ %120, %119 ], [ %113, %_ZNSt10unique_ptrIN6duckdb20UpdateExtensionsInfoESt14default_deleteIS1_EED2Ev.exit4.i ], [ %131, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !623
   br label %common.resume
 
@@ -76150,7 +76150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   br label %382
 
 382:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %234, %380, %219, %210, %201, %192, %183
-  %.pn.pn = phi { ptr, i32 } [ %.pn132, %234 ], [ %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %381, %380 ], [ %220, %219 ], [ %211, %210 ], [ %202, %201 ], [ %193, %192 ], [ %184, %183 ], [ %227, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn132, %234 ], [ %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %381, %380 ], [ %184, %183 ], [ %193, %192 ], [ %202, %201 ], [ %211, %210 ], [ %220, %219 ], [ %227, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   %383 = load ptr, ptr %8, align 8, !tbaa !1689
   %.not.i118 = icmp eq ptr %383, null
   br i1 %.not.i118, label %_ZNSt10unique_ptrIN6duckdb9AlterInfoESt14default_deleteIS1_EED2Ev.exit120, label %_ZNKSt14default_deleteIN6duckdb9AlterInfoEEclEPS1_.exit.i119
@@ -78787,7 +78787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %105
   br label %common.resume
 
 _ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit86: ; preds = %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit25, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit31, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit37, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit43, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit49, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit55, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit66, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit72, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit83
-  %.sroa.095.0 = phi ptr [ %99, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit83 ], [ %85, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit72 ], [ %84, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit66 ], [ %70, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit55 ], [ %69, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit49 ], [ %68, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit43 ], [ %67, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit37 ], [ %53, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit31 ], [ %52, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit25 ], [ %51, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit ]
+  %.sroa.095.0 = phi ptr [ %51, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit ], [ %52, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit25 ], [ %53, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit31 ], [ %67, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit37 ], [ %68, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit43 ], [ %69, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit49 ], [ %70, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit55 ], [ %84, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit66 ], [ %85, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit72 ], [ %99, %_ZNSt10unique_ptrIN6duckdb14AlterTableInfoESt14default_deleteIS1_EED2Ev.exit83 ]
   store ptr %.sroa.095.0, ptr %0, align 8, !tbaa !1686
   ret void
 
@@ -87622,7 +87622,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_14ResultModifierESt14default_deleteIS2_ELb
   br label %206
 
 206:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %129, %204, %114, %105, %96, %87
-  %.pn.pn = phi { ptr, i32 } [ %.pn67, %129 ], [ %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %205, %204 ], [ %115, %114 ], [ %106, %105 ], [ %97, %96 ], [ %88, %87 ], [ %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn67, %129 ], [ %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %205, %204 ], [ %88, %87 ], [ %97, %96 ], [ %106, %105 ], [ %115, %114 ], [ %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   %207 = load ptr, ptr %0, align 8, !tbaa !1020
   %.not.i41 = icmp eq ptr %207, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrIN6duckdb9QueryNodeESt14default_deleteIS1_EED2Ev.exit43, label %_ZNKSt14default_deleteIN6duckdb9QueryNodeEEclEPS1_.exit.i42
@@ -91405,7 +91405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %66
   ret void
 
 _ZNSt10unique_ptrIN6duckdb14ResultModifierESt14default_deleteIS1_EED2Ev.exit35: ; preds = %47, %51, %55, %59, %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn38, %74 ], [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %60, %59 ], [ %56, %55 ], [ %52, %51 ], [ %48, %47 ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn38, %74 ], [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !1535
   br label %common.resume
 
@@ -94088,7 +94088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %94
   ret void
 
 _ZNSt10unique_ptrIN6duckdb11TableFilterESt14default_deleteIS1_EED2Ev.exit76: ; preds = %49, %53, %57, %67, %83, %87, %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %61, %63, %71, %73, %77, %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn84, %102 ], [ %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %88, %87 ], [ %84, %83 ], [ %68, %67 ], [ %58, %57 ], [ %54, %53 ], [ %50, %49 ], [ %64, %63 ], [ %62, %61 ], [ %74, %73 ], [ %72, %71 ], [ %80, %79 ], [ %78, %77 ], [ %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn84, %102 ], [ %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %68, %67 ], [ %84, %83 ], [ %88, %87 ], [ %64, %63 ], [ %62, %61 ], [ %74, %73 ], [ %72, %71 ], [ %80, %79 ], [ %78, %77 ], [ %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   store ptr null, ptr %0, align 8, !tbaa !1955
   br label %common.resume
 
@@ -97172,7 +97172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZN
   br label %285
 
 285:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %226, %283, %211, %202, %193, %184, %175, %166, %147, %138
-  %.pn.pn.ph = phi { ptr, i32 } [ %219, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %139, %138 ], [ %148, %147 ], [ %167, %166 ], [ %176, %175 ], [ %185, %184 ], [ %194, %193 ], [ %203, %202 ], [ %212, %211 ], [ %284, %283 ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn99, %226 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %219, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %212, %211 ], [ %203, %202 ], [ %194, %193 ], [ %185, %184 ], [ %176, %175 ], [ %167, %166 ], [ %148, %147 ], [ %139, %138 ], [ %284, %283 ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn99, %226 ]
   %.pr = load ptr, ptr %0, align 8, !tbaa !1733
   %.not.i89 = icmp eq ptr %.pr, null
   br i1 %.not.i89, label %_ZNSt10unique_ptrIN6duckdb8TableRefESt14default_deleteIS1_EED2Ev.exit91, label %_ZNKSt14default_deleteIN6duckdb8TableRefEEclEPS1_.exit.i90
@@ -103602,7 +103602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   ret void
 
 .body78:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %444, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13ExtraTypeInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %722, %707, %655, %603, %551, %499, %496, %388, %336, %284, %232, %180
-  %.pn.pn = phi { ptr, i32 } [ %.pn157, %722 ], [ %715, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %500, %499 ], [ %708, %707 ], [ %656, %655 ], [ %604, %603 ], [ %552, %551 ], [ %497, %496 ], [ %389, %388 ], [ %337, %336 ], [ %285, %284 ], [ %233, %232 ], [ %181, %180 ], [ %445, %444 ], [ %395, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13ExtraTypeInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn157, %722 ], [ %715, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %500, %499 ], [ %181, %180 ], [ %233, %232 ], [ %285, %284 ], [ %337, %336 ], [ %389, %388 ], [ %497, %496 ], [ %552, %551 ], [ %604, %603 ], [ %656, %655 ], [ %708, %707 ], [ %445, %444 ], [ %395, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13ExtraTypeInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
   call void @_ZNSt10unique_ptrIN6duckdb17ExtensionTypeInfoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25

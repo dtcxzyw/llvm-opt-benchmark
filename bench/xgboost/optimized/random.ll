@@ -8544,7 +8544,7 @@ _ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6v
   br label %64
 
 64:                                               ; preds = %17, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPffSt7greaterIvEEES4_IT_SaISE_EEPKNS8_7ContextET0_SK_T2_EUlRKmSN_E_EET1_RSE_SE_RSK_SK_SP_SL_T3_.exit, %58, %60, %62, %._crit_edge
-  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPffSt7greaterIvEEES4_IT_SaISE_EEPKNS8_7ContextET0_SK_T2_EUlRKmSN_E_EET1_RSE_SE_RSK_SK_SP_SL_T3_.exit ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %2, %17 ]
+  %.sroa.018.0 = phi ptr [ %2, %._crit_edge ], [ %63, %62 ], [ %2, %17 ], [ %22, %_ZSt4copyIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit ], [ %.sroa.0.1.i.i, %_ZN14__gnu_parallel15__merge_advanceIPmS1_N9__gnu_cxx17__normal_iteratorIS1_St6vectorImSaImEEEElZN7xgboost6common7ArgSortImPffSt7greaterIvEEES4_IT_SaISE_EEPKNS8_7ContextET0_SK_T2_EUlRKmSN_E_EET1_RSE_SE_RSK_SK_SP_SL_T3_.exit ], [ %59, %58 ], [ %61, %60 ]
   ret ptr %.sroa.018.0
 }
 

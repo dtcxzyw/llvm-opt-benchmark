@@ -7253,7 +7253,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm17ValueTypeByHwModeEN9__g
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.1 = phi ptr [ %28, %27 ], [ %.029.lcssa, %._crit_edge ]
   %30 = tail call noundef zeroext i1 @_ZNK4llvm17ValueTypeByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(52) %.1, ptr noundef nonnull align 8 dereferenceable(52) %2) #22
   br i1 %30, label %.loopexit, label %31
 
@@ -7262,7 +7262,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPN4llvm17ValueTypeByHwModeEN9__g
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.2 = phi ptr [ %32, %31 ], [ %.029.lcssa, %._crit_edge ]
   %34 = tail call noundef zeroext i1 @_ZNK4llvm17ValueTypeByHwModeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(52) %.2, ptr noundef nonnull align 8 dereferenceable(52) %2) #22
   br i1 %34, label %.loopexit, label %35
 

@@ -515,7 +515,7 @@ rsock_is_dgram.exit:                              ; preds = %88
   unreachable
 
 134:                                              ; preds = %rsock_is_dgram.exit, %127, %121, %119, %112, %106
-  %.0 = phi i64 [ %132, %127 ], [ %126, %121 ], [ %118, %112 ], [ %120, %119 ], [ %107, %106 ], [ 4, %rsock_is_dgram.exit ]
+  %.0 = phi i64 [ %107, %106 ], [ %118, %112 ], [ %120, %119 ], [ %126, %121 ], [ %132, %127 ], [ 4, %rsock_is_dgram.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 2088, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
@@ -771,7 +771,7 @@ rsock_is_dgram.exit:                              ; preds = %60
   unreachable
 
 95:                                               ; preds = %83, %86, %91
-  %.035 = phi i64 [ %93, %91 ], [ %90, %86 ], [ 4, %83 ]
+  %.035 = phi i64 [ %90, %86 ], [ 4, %83 ], [ %93, %91 ]
   %96 = call i64 @rb_assoc_new(i64 noundef %.0.i48, i64 noundef %.035) #10
   br label %97
 
@@ -1553,7 +1553,7 @@ define range(i32 0, 65536) i32 @rsock_getfamily(ptr noundef captures(none) %0) l
   br label %22
 
 22:                                               ; preds = %9, %1, %20, %8, %7
-  %.0 = phi i32 [ %21, %20 ], [ 10, %8 ], [ 2, %7 ], [ 1, %1 ], [ 0, %9 ]
+  %.0 = phi i32 [ %21, %20 ], [ 2, %7 ], [ 10, %8 ], [ 1, %1 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %2) #10
   ret i32 %.0

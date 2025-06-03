@@ -2692,7 +2692,7 @@ default.unreachable.i:                            ; preds = %972
   unreachable
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %972, %976, %978, %980
-  %.0.i = phi ptr [ %981, %980 ], [ %979, %978 ], [ %977, %976 ], [ %975, %972 ]
+  %.0.i = phi ptr [ %977, %976 ], [ %979, %978 ], [ %981, %980 ], [ %975, %972 ]
   %982 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv1370
   store float %973, ptr %982, align 4
   %indvars.iv.next1371 = add nuw nsw i64 %indvars.iv1370, 1

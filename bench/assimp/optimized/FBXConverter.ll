@@ -1330,8 +1330,8 @@ _ZN10aiVector3tIfEixEj.exit35.i:                  ; preds = %121, %120, %_ZN10ai
   br label %_ZN10aiVector3tIfEixEj.exit37.i
 
 _ZN10aiVector3tIfEixEj.exit37.i:                  ; preds = %124, %123, %_ZN10aiVector3tIfEixEj.exit35.i, %_ZN10aiVector3tIfEixEj.exit35.thread.i
-  %125 = phi float [ %122, %124 ], [ %122, %123 ], [ %122, %_ZN10aiVector3tIfEixEj.exit35.i ], [ 1.000000e+00, %_ZN10aiVector3tIfEixEj.exit35.thread.i ]
-  %.0.i36.i = phi ptr [ %.sroa.863.i, %124 ], [ %.sroa.5.i, %123 ], [ %.sroa.062.i, %_ZN10aiVector3tIfEixEj.exit35.i ], [ %.sroa.062.i, %_ZN10aiVector3tIfEixEj.exit35.thread.i ]
+  %125 = phi float [ %122, %123 ], [ %122, %124 ], [ %122, %_ZN10aiVector3tIfEixEj.exit35.i ], [ 1.000000e+00, %_ZN10aiVector3tIfEixEj.exit35.thread.i ]
+  %.0.i36.i = phi ptr [ %.sroa.5.i, %123 ], [ %.sroa.863.i, %124 ], [ %.sroa.062.i, %_ZN10aiVector3tIfEixEj.exit35.i ], [ %.sroa.062.i, %_ZN10aiVector3tIfEixEj.exit35.thread.i ]
   store float %125, ptr %.0.i36.i, align 4
   %.sroa.062.i.0..sroa.062.i.0..sroa.062.i.0..sroa.062.0..sroa.062.0..sroa.062.0..i = load float, ptr %.sroa.062.i, align 4
   %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.4..i = load float, ptr %.sroa.5.i, align 4
@@ -1799,7 +1799,7 @@ define hidden void @_ZN6Assimp3FBX12FBXConverter17ConvertAnimationsEv(ptr nounde
   br label %_ZN6Assimp3FBX12FBXConverter17FrameRateToDoubleENS0_18FileGlobalSettings9FrameRateEd.exit
 
 _ZN6Assimp3FBX12FBXConverter17FrameRateToDoubleENS0_18FileGlobalSettings9FrameRateEd.exit: ; preds = %1, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %24
-  %.0.i = phi double [ -1.000000e+00, %24 ], [ %23, %22 ], [ 2.397600e+01, %21 ], [ 1.000000e+03, %20 ], [ 2.400000e+01, %19 ], [ 2.500000e+01, %18 ], [ 0x403DF853A315435E, %17 ], [ 3.000000e+01, %16 ], [ 4.800000e+01, %15 ], [ 5.000000e+01, %14 ], [ 6.000000e+01, %13 ], [ 1.000000e+02, %12 ], [ 1.200000e+02, %11 ], [ 1.000000e+00, %1 ]
+  %.0.i = phi double [ -1.000000e+00, %24 ], [ 1.200000e+02, %11 ], [ 1.000000e+02, %12 ], [ 6.000000e+01, %13 ], [ 5.000000e+01, %14 ], [ 4.800000e+01, %15 ], [ 3.000000e+01, %16 ], [ 0x403DF853A315435E, %17 ], [ 2.500000e+01, %18 ], [ 2.400000e+01, %19 ], [ 1.000000e+03, %20 ], [ 2.397600e+01, %21 ], [ %23, %22 ], [ 1.000000e+00, %1 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store double %.0.i, ptr %25, align 8
   %26 = load ptr, ptr %2, align 8
@@ -9160,14 +9160,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit505: ; preds = %_Z
   ]
 
 430:                                              ; preds = %429
-  %.sroa.6.0..0.i.sroa.speculate.load.890 = load float, ptr %.sroa.6, align 4
+  %.sroa.6.0..0.i.sroa.speculate.load. = load float, ptr %.sroa.6, align 4
   br label %_ZN10aiVector3tIfEixEj.exit
 
 431:                                              ; preds = %429
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %429, %430, %431
-  %.0.i.sroa.speculated = phi float [ %.sroa.10.0.i484, %431 ], [ %.sroa.6.0..0.i.sroa.speculate.load.890, %430 ], [ %.sroa.0637.0..0.i.sroa.speculate.load.891, %429 ]
+  %.0.i.sroa.speculated = phi float [ %.sroa.6.0..0.i.sroa.speculate.load., %430 ], [ %.sroa.10.0.i484, %431 ], [ %.sroa.0637.0..0.i.sroa.speculate.load.891, %429 ]
   %432 = call noundef float @llvm.fabs.f32(float %.0.i.sroa.speculated)
   %433 = fcmp ogt float %432, 0x3E80000000000000
   br i1 %433, label %434, label %438
@@ -9182,9 +9182,9 @@ _ZN10aiVector3tIfEixEj.exit:                      ; preds = %429, %430, %431
   br label %_ZN10aiVector3tIfEixEj.exit508
 
 _ZN10aiVector3tIfEixEj.exit508:                   ; preds = %434, %435
-  %.sroa.10.0.i484.pn = phi float [ %.sroa.0642.4.vec.extract, %435 ], [ %.sroa.0642.0.vec.extract, %434 ]
+  %.sroa.0642.4.vec.extract.pn = phi float [ %.sroa.0642.4.vec.extract, %435 ], [ %.sroa.0642.0.vec.extract, %434 ]
   %.0.i507 = phi ptr [ %.sroa.6, %435 ], [ %.sroa.0637, %434 ]
-  %436 = fdiv float 1.000000e+00, %.sroa.10.0.i484.pn
+  %436 = fdiv float 1.000000e+00, %.sroa.0642.4.vec.extract.pn
   store float %436, ptr %.0.i507, align 4
   %437 = add nuw nsw i32 %.0223771, 1
   br label %429
@@ -13565,8 +13565,8 @@ define hidden void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8R
   %.sroa.17 = alloca i8, align 1
   %6 = alloca [3 x %class.aiMatrix4x4t], align 16
   %7 = icmp eq i32 %1, 6
+  %.sroa.0.0.sroa.gep113 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %.sroa.0.0.sroa.gep114 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.0.0.sroa.gep115 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
@@ -13669,7 +13669,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit: ; p
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
   %35 = tail call noundef float @cosf(float noundef %30) #28
   store float %35, ptr %.sroa.5.0..sroa_idx.i, align 4
-  store float %35, ptr %.sroa.0.0.sroa.gep115, align 16
+  store float %35, ptr %.sroa.0.0.sroa.gep113, align 16
   %36 = tail call noundef float @sinf(float noundef %30) #28
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store float %36, ptr %37, align 16
@@ -13765,12 +13765,12 @@ unreachable:                                      ; preds = %57
   unreachable
 
 63:                                               ; preds = %57, %62, %61, %60, %59, %58
-  %.sroa.19.0.sroa.phi = phi ptr [ %.sroa.0.0.sroa.gep115, %62 ], [ %.sroa.0.0.sroa.gep115, %61 ], [ %.sroa.0.0.sroa.gep114, %60 ], [ %.sroa.0.0.sroa.gep114, %59 ], [ %6, %58 ], [ %6, %57 ]
-  %.sroa.19.0.sroa.phi147 = phi ptr [ %.sroa.17, %62 ], [ %.sroa.17, %61 ], [ %.sroa.10156, %60 ], [ %.sroa.10156, %59 ], [ %.sroa.0155, %58 ], [ %.sroa.0155, %57 ]
-  %.sroa.11.0.sroa.phi = phi ptr [ %.sroa.0.0.sroa.gep114, %62 ], [ %6, %61 ], [ %6, %60 ], [ %.sroa.0.0.sroa.gep115, %59 ], [ %.sroa.0.0.sroa.gep115, %58 ], [ %.sroa.0.0.sroa.gep114, %57 ]
-  %.sroa.11.0.sroa.phi139 = phi ptr [ %.sroa.10156, %62 ], [ %.sroa.0155, %61 ], [ %.sroa.0155, %60 ], [ %.sroa.17, %59 ], [ %.sroa.17, %58 ], [ %.sroa.10156, %57 ]
-  %.sroa.0.0.sroa.phi = phi ptr [ %6, %62 ], [ %.sroa.0.0.sroa.gep114, %61 ], [ %.sroa.0.0.sroa.gep115, %60 ], [ %6, %59 ], [ %.sroa.0.0.sroa.gep114, %58 ], [ %.sroa.0.0.sroa.gep115, %57 ]
-  %.sroa.0.0.sroa.phi131 = phi ptr [ %.sroa.0155, %62 ], [ %.sroa.10156, %61 ], [ %.sroa.17, %60 ], [ %.sroa.0155, %59 ], [ %.sroa.10156, %58 ], [ %.sroa.17, %57 ]
+  %.sroa.19.0.sroa.phi = phi ptr [ %6, %58 ], [ %.sroa.0.0.sroa.gep114, %59 ], [ %.sroa.0.0.sroa.gep114, %60 ], [ %.sroa.0.0.sroa.gep113, %61 ], [ %.sroa.0.0.sroa.gep113, %62 ], [ %6, %57 ]
+  %.sroa.19.0.sroa.phi147 = phi ptr [ %.sroa.0155, %58 ], [ %.sroa.10156, %59 ], [ %.sroa.10156, %60 ], [ %.sroa.17, %61 ], [ %.sroa.17, %62 ], [ %.sroa.0155, %57 ]
+  %.sroa.11.0.sroa.phi = phi ptr [ %.sroa.0.0.sroa.gep113, %58 ], [ %.sroa.0.0.sroa.gep113, %59 ], [ %6, %60 ], [ %6, %61 ], [ %.sroa.0.0.sroa.gep114, %62 ], [ %.sroa.0.0.sroa.gep114, %57 ]
+  %.sroa.11.0.sroa.phi139 = phi ptr [ %.sroa.17, %58 ], [ %.sroa.17, %59 ], [ %.sroa.0155, %60 ], [ %.sroa.0155, %61 ], [ %.sroa.10156, %62 ], [ %.sroa.10156, %57 ]
+  %.sroa.0.0.sroa.phi = phi ptr [ %.sroa.0.0.sroa.gep114, %58 ], [ %6, %59 ], [ %.sroa.0.0.sroa.gep113, %60 ], [ %.sroa.0.0.sroa.gep114, %61 ], [ %6, %62 ], [ %.sroa.0.0.sroa.gep113, %57 ]
+  %.sroa.0.0.sroa.phi131 = phi ptr [ %.sroa.10156, %58 ], [ %.sroa.0155, %59 ], [ %.sroa.17, %60 ], [ %.sroa.10156, %61 ], [ %.sroa.0155, %62 ], [ %.sroa.17, %57 ]
   %64 = load i8, ptr %.sroa.0.0.sroa.phi131, align 1, !range !3, !noundef !4
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %67, label %66
@@ -34374,7 +34374,7 @@ define hidden noundef double @_ZN6Assimp3FBX12FBXConverter17FrameRateToDoubleENS
   br label %16
 
 16:                                               ; preds = %2, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi double [ -1.000000e+00, %15 ], [ %1, %14 ], [ 2.397600e+01, %13 ], [ 1.000000e+03, %12 ], [ 2.400000e+01, %11 ], [ 2.500000e+01, %10 ], [ 0x403DF853A315435E, %9 ], [ 3.000000e+01, %8 ], [ 4.800000e+01, %7 ], [ 5.000000e+01, %6 ], [ 6.000000e+01, %5 ], [ 1.000000e+02, %4 ], [ 1.200000e+02, %3 ], [ 1.000000e+00, %2 ]
+  %.0 = phi double [ -1.000000e+00, %15 ], [ 1.200000e+02, %3 ], [ 1.000000e+02, %4 ], [ 6.000000e+01, %5 ], [ 5.000000e+01, %6 ], [ 4.800000e+01, %7 ], [ 3.000000e+01, %8 ], [ 0x403DF853A315435E, %9 ], [ 2.500000e+01, %10 ], [ 2.400000e+01, %11 ], [ 1.000000e+03, %12 ], [ 2.397600e+01, %13 ], [ %1, %14 ], [ 1.000000e+00, %2 ]
   ret double %.0
 }
 
@@ -39420,8 +39420,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
           to label %393 unwind label %.loopexit
 
 393:                                              ; preds = %390, %239, %245, %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210
-  %.0259 = phi ptr [ null, %236 ], [ %244, %245 ], [ %244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210 ], [ %244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %241, %239 ], [ %392, %390 ]
-  %.1117 = phi i32 [ %235, %236 ], [ %235, %245 ], [ poison, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210 ], [ %312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %235, %239 ], [ %235, %390 ]
+  %.0259 = phi ptr [ null, %236 ], [ %244, %245 ], [ %244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %244, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210 ], [ %241, %239 ], [ %392, %390 ]
+  %.1117 = phi i32 [ %235, %236 ], [ %235, %245 ], [ %312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ poison, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210 ], [ %235, %239 ], [ %235, %390 ]
   %394 = getelementptr inbounds nuw i8, ptr %.0259, i64 1028
   %395 = load i32, ptr %394, align 4
   %396 = icmp eq i32 %395, 0

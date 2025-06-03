@@ -13521,7 +13521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289: ; preds = %_Z
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %655, %654, %653, %652, %.lr.ph791
-  %.0.i = phi i64 [ 4, %654 ], [ 3, %653 ], [ 1, %652 ], [ %663, %655 ], [ 0, %.lr.ph791 ]
+  %.0.i = phi i64 [ %663, %655 ], [ 1, %652 ], [ 3, %653 ], [ 4, %654 ], [ 0, %.lr.ph791 ]
   store i64 %.0.i, ptr %26, align 8, !tbaa !35
   %664 = add i64 %.0.i, %.045789
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #30
@@ -17370,7 +17370,7 @@ _ZNK6colvar11CVBasedPath31getPolynomialFactorOfCVGradientEm.exit: ; preds = %55,
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %81, %80, %79, %78, %75
-  %.0.i47 = phi i64 [ 4, %80 ], [ 3, %79 ], [ 1, %78 ], [ %89, %81 ], [ 0, %75 ]
+  %.0.i47 = phi i64 [ %89, %81 ], [ 1, %78 ], [ 3, %79 ], [ 4, %80 ], [ 0, %75 ]
   %90 = icmp ult i64 %.038, %.0.i47
   br i1 %90, label %148, label %91
 
@@ -17992,7 +17992,7 @@ _ZNK6colvar11CVBasedPath31getPolynomialFactorOfCVGradientEm.exit: ; preds = %88,
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %114, %113, %112, %111, %108
-  %.0.i39 = phi i64 [ 4, %113 ], [ 3, %112 ], [ 1, %111 ], [ %122, %114 ], [ 0, %108 ]
+  %.0.i39 = phi i64 [ %122, %114 ], [ 1, %111 ], [ 3, %112 ], [ 4, %113 ], [ 0, %108 ]
   %123 = icmp ult i64 %.0, %.0.i39
   br i1 %123, label %131, label %124
 
@@ -23955,7 +23955,7 @@ _ZNK6colvar11CVBasedPath31getPolynomialFactorOfCVGradientEm.exit: ; preds = %54,
   br label %_ZNK11colvarvalue4sizeEv.exit
 
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %80, %79, %78, %77, %74
-  %.0.i41 = phi i64 [ 4, %79 ], [ 3, %78 ], [ 1, %77 ], [ %88, %80 ], [ 0, %74 ]
+  %.0.i41 = phi i64 [ %88, %80 ], [ 1, %77 ], [ 3, %78 ], [ 4, %79 ], [ 0, %74 ]
   %89 = icmp ult i64 %.032, %.0.i41
   br i1 %89, label %.preheader80, label %95
 
@@ -34597,7 +34597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_Z
   br label %_ZN12colvarmodule7rvectorixEi.exit
 
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %47, %45, %43, %41, %38, %36, %34, %70, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.07 = phi ptr [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %33, %32 ], [ %74, %70 ], [ %37, %36 ], [ %40, %38 ], [ %35, %34 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ]
+  %.07 = phi ptr [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %74, %70 ], [ %33, %32 ], [ %37, %36 ], [ %40, %38 ], [ %35, %34 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %42, %41 ]
   ret ptr %.07
 }
 

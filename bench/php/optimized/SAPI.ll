@@ -1658,7 +1658,7 @@ sapi_update_response_code.exit193:                ; preds = %219, %213
   br label %sapi_update_response_code.exit
 
 sapi_update_response_code.exit:                   ; preds = %25, %27, %102, %104, %24, %16, %15, %13, %14, %sapi_update_response_code.exit193, %121, %sapi_remove_header.exit, %65, %34
-  %.0 = phi i32 [ 0, %34 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ 0, %sapi_update_response_code.exit193 ], [ 0, %121 ], [ -1, %14 ], [ -1, %13 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ], [ -1, %104 ], [ -1, %102 ], [ -1, %27 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ 0, %sapi_update_response_code.exit193 ], [ 0, %121 ], [ 0, %34 ], [ -1, %14 ], [ -1, %13 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ], [ -1, %104 ], [ -1, %102 ], [ -1, %27 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   ret i32 %.0
 }
@@ -2092,7 +2092,7 @@ sapi_run_header_callback.exit:                    ; preds = %84, %86
   br label %115
 
 115:                                              ; preds = %114, %111, %91, %89
-  %.017 = phi i32 [ -1, %89 ], [ -1, %114 ], [ 0, %111 ], [ 0, %91 ]
+  %.017 = phi i32 [ -1, %89 ], [ 0, %91 ], [ 0, %111 ], [ -1, %114 ]
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 232), align 8, !tbaa !122
   %.not.i27 = icmp eq ptr %116, null
   br i1 %.not.i27, label %sapi_send_headers_free.exit, label %117

@@ -434,7 +434,7 @@ define internal i32 @BZ2Compressor_traverse(ptr noundef readonly captures(none) 
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -921,7 +921,7 @@ define internal fastcc range(i32 0, 2) i32 @catch_bz2_error(i32 noundef %0) unna
   br label %19
 
 19:                                               ; preds = %1, %1, %1, %1, %1, %16, %14, %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ 1, %16 ], [ 1, %14 ], [ 1, %12 ], [ 1, %10 ], [ 1, %8 ], [ 1, %6 ], [ 1, %4 ], [ 1, %2 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %2 ], [ 1, %4 ], [ 1, %6 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %14 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1334,7 +1334,7 @@ define internal i32 @BZ2Decompressor_traverse(ptr noundef readonly captures(none
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

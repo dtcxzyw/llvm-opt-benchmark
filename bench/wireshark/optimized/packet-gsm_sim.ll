@@ -1349,8 +1349,8 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %29
 
 29:                                               ; preds = %7, %26, %22, %18
-  %.030 = phi i32 [ %17, %7 ], [ %27, %26 ], [ %24, %22 ], [ %21, %18 ]
-  %.1 = phi i32 [ %15, %7 ], [ %28, %26 ], [ %25, %22 ], [ %19, %18 ]
+  %.030 = phi i32 [ %17, %7 ], [ %21, %18 ], [ %24, %22 ], [ %27, %26 ]
+  %.1 = phi i32 [ %15, %7 ], [ %19, %18 ], [ %25, %22 ], [ %28, %26 ]
   %30 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.030)
   switch i8 %11, label %36 [
     i8 -48, label %31
@@ -2096,7 +2096,7 @@ dissect_gsm_apdu.exit:                            ; preds = %41
   %410 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0100, i32 noundef %409, ptr noundef %0, i32 noundef %405, i32 noundef 1, i32 noundef 0)
   br label %.thread
 
-dissect_gsm_apdu.exit.thread:                     ; preds = %.lr.ph.i, %dissect_gsm_apdu.exit, %386, %382, %380, %372, %374, %353, %347, %345, %171, %174, %179, %184, %189, %194, %199, %204, %209, %214, %219, %224, %229, %234, %239, %244, %249, %254, %259, %264, %269, %274, %279, %284, %289, %294, %299, %304, %309, %314, %319, %324, %329, %166, %164, %158, %154, %144, %136, %132, %130, %119, %100, %98, %46, %73, %71, %52, %50, %334, %41, %41, %392, %400
+dissect_gsm_apdu.exit.thread:                     ; preds = %.lr.ph.i, %dissect_gsm_apdu.exit, %46, %73, %50, %52, %71, %100, %98, %119, %132, %130, %136, %154, %144, %158, %166, %164, %171, %174, %179, %184, %189, %194, %199, %204, %209, %214, %219, %224, %229, %234, %239, %244, %249, %254, %259, %264, %269, %274, %279, %284, %289, %294, %299, %304, %309, %314, %319, %324, %329, %347, %345, %353, %372, %374, %382, %380, %386, %334, %41, %41, %392, %400
   br i1 %3, label %.thread111, label %.thread
 
 .thread111:                                       ; preds = %402, %dissect_gsm_apdu.exit.thread
@@ -2104,7 +2104,7 @@ dissect_gsm_apdu.exit.thread:                     ; preds = %.lr.ph.i, %dissect_
   %412 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %411, ptr noundef %1, ptr noundef %2, ptr noundef %.0100)
   br label %.thread
 
-.thread:                                          ; preds = %377, %342, %161, %123, %95, %406, %408, %dissect_gsm_apdu.exit.thread, %.thread111
+.thread:                                          ; preds = %95, %123, %161, %342, %377, %406, %408, %dissect_gsm_apdu.exit.thread, %.thread111
   ret void
 }
 
@@ -2292,7 +2292,7 @@ define internal fastcc ptr @get_sw_string(ptr noundef %0, i16 noundef zeroext %1
   br label %26
 
 26:                                               ; preds = %16, %10, %2, %24, %23, %22, %21, %18, %13, %6, %5
-  %.0 = phi ptr [ %25, %24 ], [ @.str.894, %23 ], [ @.str.893, %22 ], [ @.str.892, %21 ], [ %20, %18 ], [ %15, %13 ], [ %9, %6 ], [ @.str.886, %5 ], [ @.str.885, %2 ], [ @.str.888, %10 ], [ %.str.594..str.890, %16 ]
+  %.0 = phi ptr [ %25, %24 ], [ @.str.886, %5 ], [ %9, %6 ], [ %15, %13 ], [ %20, %18 ], [ @.str.892, %21 ], [ @.str.893, %22 ], [ @.str.894, %23 ], [ @.str.885, %2 ], [ @.str.888, %10 ], [ %.str.594..str.890, %16 ]
   ret ptr %.0
 }
 

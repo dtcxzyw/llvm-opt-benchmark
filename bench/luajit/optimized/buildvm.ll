@@ -1259,10 +1259,10 @@ thread-pre-split:                                 ; preds = %143
   ]
 
 .thread243.backedge:                              ; preds = %159, %177, %175, %60, %94, %.thread, %134, %136, %139, %89, %._crit_edge, %321, %329, %332, %335, %261, %256
-  %.0215.be = phi i32 [ %.0215, %60 ], [ -1, %89 ], [ -1, %139 ], [ -1, %136 ], [ -1, %134 ], [ -1, %.thread ], [ -1, %94 ], [ %338, %335 ], [ %.0215, %332 ], [ %.0215, %329 ], [ %.0215, %321 ], [ %.0215, %._crit_edge ], [ %.0215, %256 ], [ %.0215, %261 ], [ %.4219, %159 ], [ %.4219, %177 ], [ %.4219, %175 ]
-  %.0205.be = phi i32 [ %61, %60 ], [ %.0205, %89 ], [ %.0205, %139 ], [ %138, %136 ], [ %135, %134 ], [ %119, %.thread ], [ %95, %94 ], [ %.0205, %335 ], [ %334, %332 ], [ %331, %329 ], [ %325, %321 ], [ %.0205, %._crit_edge ], [ %257, %256 ], [ %262, %261 ], [ %.4209, %159 ], [ %179, %177 ], [ %.4209, %175 ]
-  %.0200.be = phi i32 [ %.0200, %60 ], [ %78, %89 ], [ %78, %139 ], [ %78, %136 ], [ %78, %134 ], [ %78, %.thread ], [ %78, %94 ], [ %.0200, %335 ], [ %.0200, %332 ], [ %.0200, %329 ], [ %326, %321 ], [ %318, %._crit_edge ], [ %258, %256 ], [ %254, %261 ], [ %78, %159 ], [ %78, %177 ], [ %78, %175 ]
-  %.0.be = phi ptr [ %57, %60 ], [ %57, %89 ], [ %57, %139 ], [ %137, %136 ], [ %57, %134 ], [ %57, %.thread ], [ %57, %94 ], [ %57, %335 ], [ %333, %332 ], [ %330, %329 ], [ %322, %321 ], [ %.10, %._crit_edge ], [ %.9, %256 ], [ %.9, %261 ], [ %164, %159 ], [ %164, %177 ], [ %164, %175 ]
+  %.0215.be = phi i32 [ %.0215, %60 ], [ -1, %89 ], [ -1, %139 ], [ -1, %136 ], [ -1, %134 ], [ -1, %.thread ], [ -1, %94 ], [ %.0215, %256 ], [ %.0215, %261 ], [ %.0215, %._crit_edge ], [ %.0215, %321 ], [ %.0215, %329 ], [ %.0215, %332 ], [ %338, %335 ], [ %.4219, %159 ], [ %.4219, %177 ], [ %.4219, %175 ]
+  %.0205.be = phi i32 [ %61, %60 ], [ %.0205, %89 ], [ %.0205, %139 ], [ %138, %136 ], [ %135, %134 ], [ %119, %.thread ], [ %95, %94 ], [ %257, %256 ], [ %262, %261 ], [ %.0205, %._crit_edge ], [ %325, %321 ], [ %331, %329 ], [ %334, %332 ], [ %.0205, %335 ], [ %.4209, %159 ], [ %179, %177 ], [ %.4209, %175 ]
+  %.0200.be = phi i32 [ %.0200, %60 ], [ %78, %89 ], [ %78, %139 ], [ %78, %136 ], [ %78, %134 ], [ %78, %.thread ], [ %78, %94 ], [ %258, %256 ], [ %254, %261 ], [ %318, %._crit_edge ], [ %326, %321 ], [ %.0200, %329 ], [ %.0200, %332 ], [ %.0200, %335 ], [ %78, %159 ], [ %78, %177 ], [ %78, %175 ]
+  %.0.be = phi ptr [ %57, %60 ], [ %57, %89 ], [ %57, %139 ], [ %137, %136 ], [ %57, %134 ], [ %57, %.thread ], [ %57, %94 ], [ %.9, %256 ], [ %.9, %261 ], [ %.10, %._crit_edge ], [ %322, %321 ], [ %330, %329 ], [ %333, %332 ], [ %57, %335 ], [ %164, %159 ], [ %164, %177 ], [ %164, %175 ]
   br label %.thread243
 
 167:                                              ; preds = %159
@@ -1272,14 +1272,14 @@ thread-pre-split:                                 ; preds = %143
   br label %171
 
 171:                                              ; preds = %159, %167
-  %.0198 = phi i32 [ %77, %159 ], [ %170, %167 ]
+  %.0198 = phi i32 [ %170, %167 ], [ %77, %159 ]
   %172 = getelementptr i8, ptr %80, i64 -4
   %173 = load i32, ptr %172, align 4, !tbaa !43
   %174 = or i32 %173, %.0198
   br label %175
 
 175:                                              ; preds = %159, %171
-  %.1199 = phi i32 [ %77, %159 ], [ %174, %171 ]
+  %.1199 = phi i32 [ %174, %171 ], [ %77, %159 ]
   %176 = icmp slt i32 %.1199, 8
   br i1 %176, label %177, label %.thread243.backedge
 
@@ -1408,8 +1408,8 @@ default.unreachable:                              ; preds = %180, %75
   br label %.thread243.thread
 
 243:                                              ; preds = %228, %202
-  %.0192 = phi ptr [ %232, %228 ], [ %186, %202 ]
-  %.7 = phi ptr [ %57, %228 ], [ %182, %202 ]
+  %.0192 = phi ptr [ %186, %202 ], [ %232, %228 ]
+  %.7 = phi ptr [ %182, %202 ], [ %57, %228 ]
   %244 = load i32, ptr %.0192, align 4, !tbaa !43
   %245 = icmp slt i32 %244, 0
   br i1 %245, label %246, label %250
@@ -1516,8 +1516,8 @@ default.unreachable:                              ; preds = %180, %75
   br label %.thread243.thread
 
 306:                                              ; preds = %291, %263
-  %.2194 = phi ptr [ %295, %291 ], [ %268, %263 ]
-  %.10 = phi ptr [ %57, %291 ], [ %265, %263 ]
+  %.2194 = phi ptr [ %268, %263 ], [ %295, %291 ]
+  %.10 = phi ptr [ %265, %263 ], [ %57, %291 ]
   %307 = load i32, ptr %.2194, align 4, !tbaa !43
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %.lr.ph, label %._crit_edge
@@ -1603,7 +1603,7 @@ default.unreachable:                              ; preds = %180, %75
   store i32 %.0205, ptr %13, align 8, !tbaa !38
   br label %.thread243.thread
 
-.thread243.thread:                                ; preds = %345, %297, %270, %234, %204, %193, %145, %125, %110, %99, %.loopexit
+.thread243.thread:                                ; preds = %204, %193, %234, %270, %297, %345, %99, %110, %125, %145, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
   ret void
 }
@@ -1776,10 +1776,10 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
   ]
 
 .backedge:                                        ; preds = %63, %._crit_edge169, %102, %106, %112, %123, %125, %129
-  %.1111.be = phi i32 [ %.1111, %129 ], [ %.1111, %63 ], [ %.1111, %125 ], [ %.1111, %123 ], [ %113, %112 ], [ %107, %106 ], [ %103, %102 ], [ %99, %._crit_edge169 ]
-  %.2106.be = phi i32 [ %.2106, %129 ], [ %.2106, %63 ], [ %.2106, %125 ], [ %.2106, %123 ], [ %122, %112 ], [ %.2106, %106 ], [ %.2106, %102 ], [ %.4108, %._crit_edge169 ]
-  %.0101.be = phi ptr [ %64, %129 ], [ %64, %63 ], [ %126, %125 ], [ %124, %123 ], [ %118, %112 ], [ %.3, %106 ], [ %.2103, %102 ], [ %.1102, %._crit_edge169 ]
-  %.099.be = phi i32 [ %130, %129 ], [ %.099, %63 ], [ %128, %125 ], [ %.099, %123 ], [ %.099, %112 ], [ %.099, %106 ], [ %.099, %102 ], [ %.099, %._crit_edge169 ]
+  %.1111.be = phi i32 [ %.1111, %129 ], [ %99, %._crit_edge169 ], [ %103, %102 ], [ %107, %106 ], [ %113, %112 ], [ %.1111, %123 ], [ %.1111, %125 ], [ %.1111, %63 ]
+  %.2106.be = phi i32 [ %.2106, %129 ], [ %.4108, %._crit_edge169 ], [ %.2106, %102 ], [ %.2106, %106 ], [ %122, %112 ], [ %.2106, %123 ], [ %.2106, %125 ], [ %.2106, %63 ]
+  %.0101.be = phi ptr [ %64, %129 ], [ %.1102, %._crit_edge169 ], [ %.2103, %102 ], [ %.3, %106 ], [ %118, %112 ], [ %124, %123 ], [ %126, %125 ], [ %64, %63 ]
+  %.099.be = phi i32 [ %130, %129 ], [ %.099, %._crit_edge169 ], [ %.099, %102 ], [ %.099, %106 ], [ %.099, %112 ], [ %.099, %123 ], [ %128, %125 ], [ %.099, %63 ]
   br label %63, !llvm.loop !50
 
 66:                                               ; preds = %63
@@ -1787,7 +1787,7 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
   br label %68
 
 68:                                               ; preds = %66, %63
-  %.1102 = phi ptr [ %64, %63 ], [ %67, %66 ]
+  %.1102 = phi ptr [ %67, %66 ], [ %64, %63 ]
   %69 = icmp eq i32 %.099, 233
   %70 = and i32 %.099, 240
   %71 = icmp eq i32 %70, 128
@@ -1859,7 +1859,7 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
   br label %102
 
 102:                                              ; preds = %100, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63
-  %.2103 = phi ptr [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %101, %100 ]
+  %.2103 = phi ptr [ %101, %100 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ], [ %64, %63 ]
   %103 = add nsw i32 %.1111, 1
   br label %.backedge
 
@@ -1868,7 +1868,7 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
   br label %106
 
 106:                                              ; preds = %104, %63
-  %.3 = phi ptr [ %64, %63 ], [ %105, %104 ]
+  %.3 = phi ptr [ %105, %104 ], [ %64, %63 ]
   %107 = add nsw i32 %.1111, 1
   %108 = sext i32 %.1111 to i64
   %109 = getelementptr inbounds i32, ptr %50, i64 %108
@@ -2082,11 +2082,11 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %.thread254
 
 .thread254:                                       ; preds = %185, %190, %.thread242, %40, %40, %66
-  %.0201 = phi i32 [ %41, %66 ], [ %41, %40 ], [ %41, %40 ], [ %41, %.thread242 ], [ %184, %190 ], [ %184, %185 ]
-  %.5189 = phi ptr [ null, %66 ], [ %.0184, %40 ], [ %.0184, %40 ], [ %spec.select238, %.thread242 ], [ %.0184, %190 ], [ %.0184, %185 ]
-  %.5178 = phi ptr [ %34, %66 ], [ %34, %40 ], [ %34, %40 ], [ %34, %.thread242 ], [ %.7180, %190 ], [ %.7180, %185 ]
-  %.5170 = phi ptr [ %.2167, %66 ], [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %.thread242 ], [ %171, %190 ], [ %171, %185 ]
-  %.5 = phi ptr [ %.2, %66 ], [ %.2, %40 ], [ %.2, %40 ], [ %.2, %.thread242 ], [ %.2, %190 ], [ %186, %185 ]
+  %.0201 = phi i32 [ %41, %40 ], [ %41, %40 ], [ %41, %66 ], [ %41, %.thread242 ], [ %184, %190 ], [ %184, %185 ]
+  %.5189 = phi ptr [ %.0184, %40 ], [ %.0184, %40 ], [ null, %66 ], [ %spec.select238, %.thread242 ], [ %.0184, %190 ], [ %.0184, %185 ]
+  %.5178 = phi ptr [ %34, %40 ], [ %34, %40 ], [ %34, %66 ], [ %34, %.thread242 ], [ %.7180, %190 ], [ %.7180, %185 ]
+  %.5170 = phi ptr [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %66 ], [ %.2167, %.thread242 ], [ %171, %190 ], [ %171, %185 ]
+  %.5 = phi ptr [ %.2, %40 ], [ %.2, %40 ], [ %.2, %66 ], [ %.2, %.thread242 ], [ %.2, %190 ], [ %186, %185 ]
   %61 = trunc i32 %.0201 to i8
   %62 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i8 %61, ptr %.5, align 1, !tbaa !44
@@ -2107,10 +2107,10 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %.thread254
 
 70:                                               ; preds = %182, %56, %63, %40, %collect_reloc.exit, %165
-  %.1202 = phi i32 [ 0, %collect_reloc.exit ], [ %169, %165 ], [ %41, %40 ], [ %41, %63 ], [ %41, %56 ], [ %184, %182 ]
-  %.7191 = phi ptr [ %.0184, %collect_reloc.exit ], [ %.0184, %165 ], [ %.0184, %40 ], [ null, %63 ], [ %spec.select238, %56 ], [ %.0184, %182 ]
-  %.6179 = phi ptr [ %345, %collect_reloc.exit ], [ %.8181, %165 ], [ %34, %40 ], [ %34, %63 ], [ %34, %56 ], [ %.7180, %182 ]
-  %.6171 = phi ptr [ %.2167, %collect_reloc.exit ], [ %.7172, %165 ], [ %.2167, %40 ], [ %.2167, %63 ], [ %.2167, %56 ], [ %171, %182 ]
+  %.1202 = phi i32 [ %41, %40 ], [ %169, %165 ], [ 0, %collect_reloc.exit ], [ %41, %63 ], [ %41, %56 ], [ %184, %182 ]
+  %.7191 = phi ptr [ %.0184, %40 ], [ %.0184, %165 ], [ %.0184, %collect_reloc.exit ], [ null, %63 ], [ %spec.select238, %56 ], [ %.0184, %182 ]
+  %.6179 = phi ptr [ %34, %40 ], [ %.8181, %165 ], [ %345, %collect_reloc.exit ], [ %34, %63 ], [ %34, %56 ], [ %.7180, %182 ]
+  %.6171 = phi ptr [ %.2167, %40 ], [ %.7172, %165 ], [ %.2167, %collect_reloc.exit ], [ %.2167, %63 ], [ %.2167, %56 ], [ %171, %182 ]
   %71 = trunc i32 %.1202 to i8
   %72 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %71, ptr %.2, align 1, !tbaa !44
@@ -2288,9 +2288,9 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %165
 
 165:                                              ; preds = %.thread258, %40, %156
-  %.4205 = phi i32 [ %41, %40 ], [ %164, %156 ], [ %181, %.thread258 ]
-  %.8181 = phi ptr [ %34, %40 ], [ %154, %156 ], [ %.7180, %.thread258 ]
-  %.7172 = phi ptr [ %.2167, %40 ], [ %157, %156 ], [ %171, %.thread258 ]
+  %.4205 = phi i32 [ %164, %156 ], [ %41, %40 ], [ %181, %.thread258 ]
+  %.8181 = phi ptr [ %154, %156 ], [ %34, %40 ], [ %.7180, %.thread258 ]
+  %.7172 = phi ptr [ %157, %156 ], [ %.2167, %40 ], [ %171, %.thread258 ]
   %166 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %167 = ptrtoint ptr %166 to i64
   %168 = trunc i64 %167 to i32
@@ -2298,7 +2298,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %70
 
 170:                                              ; preds = %40, %153
-  %.7180 = phi ptr [ %34, %40 ], [ %154, %153 ]
+  %.7180 = phi ptr [ %154, %153 ], [ %34, %40 ]
   %171 = getelementptr inbounds nuw i8, ptr %.2167, i64 4
   %172 = ashr i32 %41, 24
   %173 = sext i32 %172 to i64
@@ -2386,7 +2386,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %.loopexit
 
 225:                                              ; preds = %192, %40
-  %.2175 = phi ptr [ %34, %40 ], [ %193, %192 ]
+  %.2175 = phi ptr [ %193, %192 ], [ %34, %40 ]
   %226 = ashr i32 %41, 24
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds [1 x %struct.dasm_Section], ptr %8, i64 0, i64 %227
@@ -2598,10 +2598,10 @@ collect_reloc.exit:                               ; preds = %308, %sym_decorate.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread254, %70, %85, %148, %195, %241, %346, %350, %40, %40, %276, %266, %.thread244, %284, %290, %.lr.ph271.preheader
-  %.4188 = phi ptr [ %.0184, %350 ], [ %.2, %346 ], [ %.7191, %70 ], [ %.0184, %40 ], [ %.0184, %40 ], [ %.0184, %241 ], [ %.0184, %195 ], [ %.5189, %.thread254 ], [ %.9193251, %148 ], [ %.8192, %85 ], [ %.0184, %276 ], [ %.0184, %266 ], [ %spec.select238, %.thread244 ], [ %.0184, %284 ], [ %.0184, %290 ], [ %.0184, %.lr.ph271.preheader ], [ %.0184, %.lr.ph ]
-  %.4177 = phi ptr [ %.1174, %350 ], [ %34, %346 ], [ %.6179, %70 ], [ %34, %40 ], [ %34, %40 ], [ %.2175, %241 ], [ %193, %195 ], [ %.5178, %.thread254 ], [ %92, %148 ], [ %34, %85 ], [ %267, %276 ], [ %267, %266 ], [ %34, %.thread244 ], [ %285, %284 ], [ %291, %290 ], [ %285, %.lr.ph271.preheader ], [ %291, %.lr.ph ]
-  %.4169 = phi ptr [ %.2167, %350 ], [ %.2167, %346 ], [ %.6171, %70 ], [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %241 ], [ %.2167, %195 ], [ %.5170, %.thread254 ], [ %.2167, %148 ], [ %.2167, %85 ], [ %.2167, %276 ], [ %.2167, %266 ], [ %.2167, %.thread244 ], [ %.2167, %284 ], [ %.2167, %290 ], [ %.2167, %.lr.ph271.preheader ], [ %.2167, %.lr.ph ]
-  %.4 = phi ptr [ %351, %350 ], [ %.2, %346 ], [ %81, %70 ], [ %.2, %40 ], [ %.2, %40 ], [ %265, %241 ], [ %224, %195 ], [ %62, %.thread254 ], [ %.8, %148 ], [ %90, %85 ], [ %.2, %276 ], [ %.2, %266 ], [ %.2, %.thread244 ], [ %.2, %284 ], [ %.2, %290 ], [ %scevgep290, %.lr.ph271.preheader ], [ %296, %.lr.ph ]
+  %.4188 = phi ptr [ %.0184, %350 ], [ %.5189, %.thread254 ], [ %.7191, %70 ], [ %.8192, %85 ], [ %.9193251, %148 ], [ %.0184, %195 ], [ %.0184, %241 ], [ %.0184, %40 ], [ %.0184, %40 ], [ %.2, %346 ], [ %.0184, %276 ], [ %.0184, %266 ], [ %spec.select238, %.thread244 ], [ %.0184, %284 ], [ %.0184, %290 ], [ %.0184, %.lr.ph271.preheader ], [ %.0184, %.lr.ph ]
+  %.4177 = phi ptr [ %.1174, %350 ], [ %.5178, %.thread254 ], [ %.6179, %70 ], [ %34, %85 ], [ %92, %148 ], [ %193, %195 ], [ %.2175, %241 ], [ %34, %40 ], [ %34, %40 ], [ %34, %346 ], [ %267, %276 ], [ %267, %266 ], [ %34, %.thread244 ], [ %285, %284 ], [ %291, %290 ], [ %285, %.lr.ph271.preheader ], [ %291, %.lr.ph ]
+  %.4169 = phi ptr [ %.2167, %350 ], [ %.5170, %.thread254 ], [ %.6171, %70 ], [ %.2167, %85 ], [ %.2167, %148 ], [ %.2167, %195 ], [ %.2167, %241 ], [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %346 ], [ %.2167, %276 ], [ %.2167, %266 ], [ %.2167, %.thread244 ], [ %.2167, %284 ], [ %.2167, %290 ], [ %.2167, %.lr.ph271.preheader ], [ %.2167, %.lr.ph ]
+  %.4 = phi ptr [ %351, %350 ], [ %62, %.thread254 ], [ %81, %70 ], [ %90, %85 ], [ %.8, %148 ], [ %224, %195 ], [ %265, %241 ], [ %.2, %40 ], [ %.2, %40 ], [ %.2, %346 ], [ %.2, %276 ], [ %.2, %266 ], [ %.2, %.thread244 ], [ %.2, %284 ], [ %.2, %290 ], [ %scevgep290, %.lr.ph271.preheader ], [ %296, %.lr.ph ]
   br label %33, !llvm.loop !54
 
 ._crit_edge280.loopexit:                          ; preds = %.loopexit263
@@ -2865,8 +2865,8 @@ parsemode.exit.i:                                 ; preds = %.preheader.i
   unreachable
 
 46:                                               ; preds = %45, %parsemode.exit.i
-  %47 = phi i32 [ %10, %45 ], [ %35, %parsemode.exit.i ]
-  %.3.i = phi i32 [ %37, %45 ], [ %22, %parsemode.exit.i ]
+  %47 = phi i32 [ %35, %parsemode.exit.i ], [ %10, %45 ]
+  %.3.i = phi i32 [ %22, %parsemode.exit.i ], [ %37, %45 ]
   %48 = add nuw nsw i32 %.3.i, 1
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %1, i64 %49
@@ -3865,10 +3865,10 @@ dasm_growpc.exit:                                 ; preds = %._crit_edge.i, %16
     i32 3, label %switch.lookup
     i32 4, label %23
     i32 5, label %23
-    i32 6, label %30
-    i32 7, label %30
-    i32 8, label %32
-    i32 9, label %32
+    i32 6, label %32
+    i32 7, label %32
+    i32 8, label %25
+    i32 9, label %25
     i32 10, label %34
     i32 11, label %34
     i32 12, label %38
@@ -3971,46 +3971,46 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
   %24 = icmp eq i32 %.07, 4
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 9881)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 9910, i32 noundef -14, i32 noundef -14)
-  br i1 %24, label %26, label %25
+  br i1 %24, label %28, label %27
 
-25:                                               ; preds = %32, %30, %23
-  %.sink266.i = phi i32 [ 9961, %30 ], [ 9957, %32 ], [ 9957, %23 ]
-  br label %26
+25:                                               ; preds = %21, %21
+  %26 = icmp eq i32 %.07, 8
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10153)
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10162, i32 noundef -14)
+  br i1 %26, label %28, label %27
 
-26:                                               ; preds = %32, %30, %25, %23
-  %.sink266.sink.i = phi i32 [ %.sink266.i, %25 ], [ 9952, %30 ], [ 9948, %32 ], [ 9948, %23 ]
-  %.sink267.i = phi i32 [ 9982, %25 ], [ 9966, %30 ], [ 9966, %32 ], [ 9966, %23 ]
-  %.1.shrunk248.i = phi i32 [ 10080, %25 ], [ 10076, %30 ], [ 10076, %32 ], [ 10076, %23 ]
+27:                                               ; preds = %32, %25, %23
+  %.sink266.i = phi i32 [ 9961, %32 ], [ 9957, %23 ], [ 9957, %25 ]
+  br label %28
+
+28:                                               ; preds = %32, %27, %25, %23
+  %.sink266.sink.i = phi i32 [ %.sink266.i, %27 ], [ 9952, %32 ], [ 9948, %23 ], [ 9948, %25 ]
+  %.sink267.i = phi i32 [ 9982, %27 ], [ 9966, %32 ], [ 9966, %23 ], [ 9966, %25 ]
+  %.1.shrunk248.i = phi i32 [ 10080, %27 ], [ 10076, %32 ], [ 10076, %23 ], [ 10076, %25 ]
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef %.sink266.sink.i)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef %.sink267.i, i32 noundef -131072)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 9859)
-  %27 = and i32 %.07, 126
-  %or.cond.i = icmp eq i32 %27, 4
-  br i1 %or.cond.i, label %28, label %29
+  %29 = and i32 %.07, 126
+  %or.cond.i = icmp eq i32 %29, 4
+  br i1 %or.cond.i, label %30, label %31
 
-28:                                               ; preds = %26
+30:                                               ; preds = %28
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10003, i32 noundef -11, i32 noundef -11, i32 noundef -12, i32 noundef 32, i32 noundef 10, i32 noundef 16)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10071)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef %.1.shrunk248.i)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10086)
   br label %build_ins.exit
 
-29:                                               ; preds = %26
+31:                                               ; preds = %28
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10091, i32 noundef -11)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10071)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10104)
   br label %build_ins.exit
 
-30:                                               ; preds = %21, %21
-  %31 = icmp eq i32 %.07, 6
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10109, i32 noundef -5)
-  br i1 %31, label %26, label %25
-
 32:                                               ; preds = %21, %21
-  %33 = icmp eq i32 %.07, 8
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10153)
-  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10162, i32 noundef -14)
-  br i1 %33, label %26, label %25
+  %33 = icmp eq i32 %.07, 6
+  tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10109, i32 noundef -5)
+  br i1 %33, label %28, label %27
 
 34:                                               ; preds = %21, %21
   %35 = icmp eq i32 %.07, 10
@@ -4565,7 +4565,7 @@ default.unreachable264.i:                         ; preds = %122
 default.unreachable:                              ; preds = %21
   unreachable
 
-build_ins.exit:                                   ; preds = %21, %switch.lookup, %28, %29, %36, %37, %.sink.split.i, %42, %43, %44, %45, %46, %47, %54, %61, %68, %75, %76, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %113, %114, %115, %116, %117, %118, %119, %120, %126, %127, %138, %139, %144, %145, %146, %147, %148, %149, %154, %155, %156, %161
+build_ins.exit:                                   ; preds = %21, %switch.lookup, %30, %31, %36, %37, %.sink.split.i, %42, %43, %44, %45, %46, %47, %54, %61, %68, %75, %76, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %113, %114, %115, %116, %117, %118, %119, %120, %126, %127, %138, %139, %144, %145, %146, %147, %148, %149, %154, %155, %156, %161
   %162 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %162, 97
   br i1 %exitcond.not, label %163, label %21, !llvm.loop !102

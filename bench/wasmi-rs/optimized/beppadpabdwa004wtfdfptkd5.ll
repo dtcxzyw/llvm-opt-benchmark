@@ -246,7 +246,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$wast..core..wast..WastArgCore$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3aba0353eccfb93E.exit"
 
 "_ZN66_$LT$wast..core..wast..WastArgCore$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3aba0353eccfb93E.exit": ; preds = %17, %20, %23, %26, %29, %32, %34, %37
-  %.sroa.0.0.in.i = phi i1 [ %39, %37 ], [ %36, %34 ], [ %33, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.sroa.0.0.in.i = phi i1 [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ], [ %33, %32 ], [ %36, %34 ], [ %39, %37 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -329,7 +329,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$wast..core..wast..V128Pattern$u20$as$u20$core..fmt..Debug$GT$3fmt17h5425a0632d1e22b6E.exit"
 
 "_ZN66_$LT$wast..core..wast..V128Pattern$u20$as$u20$core..fmt..Debug$GT$3fmt17h5425a0632d1e22b6E.exit": ; preds = %11, %14, %17, %20, %23, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -488,7 +488,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN66_$LT$wast..core..wast..WastRetCore$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e2e154984e62325E.exit"
 
 "_ZN66_$LT$wast..core..wast..WastRetCore$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e2e154984e62325E.exit": ; preds = %15, %18, %21, %24, %27, %30, %33, %36, %39, %42, %44, %46, %48, %50, %52, %54
-  %.sroa.0.0.in.i = phi i1 [ %56, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %56, %54 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -585,7 +585,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN54_$LT$wasmi..value..Val$u20$as$u20$core..fmt..Debug$GT$3fmt17haea0ad8b8285a432E.exit"
 
 "_ZN54_$LT$wasmi..value..Val$u20$as$u20$core..fmt..Debug$GT$3fmt17haea0ad8b8285a432E.exit": ; preds = %12, %15, %18, %21, %24, %27, %30
-  %.sroa.0.0.in.i = phi i1 [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -628,7 +628,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$wast..core..wast..NanPattern$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h68356ad3811c2ebbE.exit"
 
 "_ZN74_$LT$wast..core..wast..NanPattern$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h68356ad3811c2ebbE.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -725,7 +725,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN75_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..fmt..Debug$GT$3fmt17h99c4408f3a8b3c83E.exit"
 
 "_ZN75_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..fmt..Debug$GT$3fmt17h99c4408f3a8b3c83E.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22
-  %.sroa.0.0.in.i = phi i1 [ %24, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -857,7 +857,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN74_$LT$wast..core..wast..NanPattern$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h08074a98295b5061E.exit"
 
 "_ZN74_$LT$wast..core..wast..NanPattern$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h08074a98295b5061E.exit": ; preds = %6, %8, %10
-  %.sroa.0.0.in.i = phi i1 [ %12, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %12, %10 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -940,7 +940,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN73_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f590b3d30fa4a2cE.exit"
 
 "_ZN73_$LT$wasmi_core..table..error..TableError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f590b3d30fa4a2cE.exit": ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26
-  %.sroa.0.0.in.i = phi i1 [ %28, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ]
   ret i1 %.sroa.0.0.in.i
 }
 

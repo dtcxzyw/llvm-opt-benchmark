@@ -1988,7 +1988,7 @@ mxf_get_wrapping_kind.exit.thread936.i:           ; preds = %804
   br label %815
 
 806:                                              ; preds = %802, %799, %797, %790
-  %.020.i.i = phi i32 [ %794, %790 ], [ %794, %802 ], [ %798, %797 ], [ %spec.select.i.i, %799 ]
+  %.020.i.i = phi i32 [ %794, %790 ], [ %798, %797 ], [ %794, %802 ], [ %spec.select.i.i, %799 ]
   %.020.i.fr.i = freeze i32 %.020.i.i
   %switch.selectcmp28.i.i = icmp eq i32 %.020.i.fr.i, 1
   br i1 %switch.selectcmp28.i.i, label %mxf_get_wrapping_kind.exit.thread902.i, label %mxf_get_wrapping_kind.exit.i
@@ -4711,8 +4711,8 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge168.i.i,
   %2054 = icmp slt i64 %indvars.iv.next273.i, %2053
   br i1 %2054, label %.lr.ph230.i, label %mxf_compute_index_tables.exit.loopexit, !llvm.loop !260
 
-mxf_compute_index_tables.exit.thread226:          ; preds = %2006, %2012, %1749, %1757, %mxf_compute_ptses_fake_index.exit.thread.i, %1784
-  %.1.i150.ph = phi i32 [ -12, %1784 ], [ -12, %mxf_compute_ptses_fake_index.exit.thread.i ], [ -12, %1757 ], [ -1094995529, %1749 ], [ -1094995529, %2012 ], [ -1094995529, %2006 ]
+mxf_compute_index_tables.exit.thread226:          ; preds = %2006, %2012, %1757, %1749, %mxf_compute_ptses_fake_index.exit.thread.i, %1784
+  %.1.i150.ph = phi i32 [ -12, %1784 ], [ -12, %mxf_compute_ptses_fake_index.exit.thread.i ], [ -1094995529, %1749 ], [ -12, %1757 ], [ -1094995529, %2012 ], [ -1094995529, %2006 ]
   %2055 = load ptr, ptr %4, align 8, !tbaa !215
   call void @av_free(ptr noundef %2055) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
@@ -8456,7 +8456,7 @@ define internal i32 @mxf_read_package(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %mxf_read_utf16be_string.exit
 
 mxf_read_utf16be_string.exit:                     ; preds = %31, %28, %21, %19, %6, %11, %16, %32, %7
-  %.0 = phi i32 [ %35, %32 ], [ %10, %7 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ %29, %31 ], [ -22, %19 ], [ -12, %21 ], [ %29, %28 ]
+  %.0 = phi i32 [ %10, %7 ], [ %35, %32 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ %29, %31 ], [ -22, %19 ], [ -12, %21 ], [ %29, %28 ]
   ret i32 %.0
 }
 

@@ -5190,7 +5190,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -5479,7 +5479,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 

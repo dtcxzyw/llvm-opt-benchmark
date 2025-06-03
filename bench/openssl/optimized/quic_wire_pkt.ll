@@ -1132,7 +1132,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   br label %73
 
 73:                                               ; preds = %66, %67, %72, %71, %70
-  %.0 = phi i8 [ -80, %72 ], [ -96, %71 ], [ -112, %70 ], [ -128, %67 ], [ -128, %66 ]
+  %.0 = phi i8 [ -112, %70 ], [ -96, %71 ], [ -80, %72 ], [ -128, %67 ], [ -128, %66 ]
   %74 = and i32 %15, 33023
   %or.cond147 = icmp eq i32 %74, 6
   %75 = or disjoint i8 %.0, 64
@@ -1616,7 +1616,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef readonl
   br label %47
 
 47:                                               ; preds = %29, %16, %8, %5
-  %.036 = phi i64 [ %46, %29 ], [ %28, %16 ], [ %15, %8 ], [ %7, %5 ]
+  %.036 = phi i64 [ %7, %5 ], [ %15, %8 ], [ %28, %16 ], [ %46, %29 ]
   %48 = add i64 %2, 1
   %49 = shl nuw nsw i64 %1, 3
   %50 = shl nuw nsw i64 1, %49

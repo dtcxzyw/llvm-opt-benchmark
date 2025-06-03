@@ -105,7 +105,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN70_$LT$uv_pep508..marker..algebra..Edges$u20$as$u20$core..fmt..Debug$GT$3fmt17hd22fa1e3a8a70cbaE.exit"
 
 "_ZN70_$LT$uv_pep508..marker..algebra..Edges$u20$as$u20$core..fmt..Debug$GT$3fmt17hd22fa1e3a8a70cbaE.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %17, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %17, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1342,7 +1342,7 @@ default.unreachable2:                             ; preds = %2
   br label %21
 
 21:                                               ; preds = %19, %12, %5
-  %.sroa.01.0 = phi i64 [ %20, %19 ], [ %13, %12 ], [ %6, %5 ]
+  %.sroa.01.0 = phi i64 [ %6, %5 ], [ %13, %12 ], [ %20, %19 ]
   ret i64 %.sroa.01.0
 }
 
@@ -10739,7 +10739,7 @@ default.unreachable1:                             ; preds = %2
   br label %26
 
 26:                                               ; preds = %23, %19, %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %25, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   ret i1 %.sroa.0.0.in
 }
 

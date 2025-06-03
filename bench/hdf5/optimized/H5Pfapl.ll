@@ -6195,7 +6195,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   %128 = load ptr, ptr %89, align 8, !tbaa !44
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %130, label %134, !prof !30
+  br i1 %129, label %130, label %134
 
 130:                                              ; preds = %127
   %131 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -6255,7 +6255,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.loopexit.thread106
 
-.loopexit.thread115:                              ; preds = %130, %123, %107, %101, %83, %68, %62, %52, %45
+.loopexit.thread115:                              ; preds = %101, %123, %130, %107, %83, %68, %62, %52, %45
   %160 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.loopexit.thread106
 

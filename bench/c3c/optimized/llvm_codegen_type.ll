@@ -229,7 +229,7 @@ llvm_abi_type.exit83:                             ; preds = %82, %84
   br label %107
 
 107:                                              ; preds = %103, %97, %94, %llvm_abi_type.exit83, %62, %51, %39, %3
-  %.074 = phi ptr [ null, %3 ], [ %106, %103 ], [ %102, %97 ], [ %95, %94 ], [ %93, %llvm_abi_type.exit83 ], [ %64, %62 ], [ %61, %51 ], [ %50, %39 ]
+  %.074 = phi ptr [ null, %3 ], [ %50, %39 ], [ %61, %51 ], [ %64, %62 ], [ %93, %llvm_abi_type.exit83 ], [ %95, %94 ], [ %102, %97 ], [ %106, %103 ]
   %108 = load i16, ptr %1, align 8
   %109 = and i16 %108, 128
   %.not78 = icmp eq i16 %109, 0
@@ -1300,7 +1300,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
-  %.026.be = phi ptr [ %36, %30 ], [ %23, %17 ], [ %16, %10 ], [ %9, %7 ], [ %2, %.backedge ]
+  %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
   br label %.backedge
 
 6:                                                ; preds = %.backedge
@@ -1401,7 +1401,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %62, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %51 ], [ %43, %42 ], [ %29, %26 ], [ %25, %24 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -1876,7 +1876,7 @@ define internal fastcc ptr @llvm_type_from_decl(ptr noundef %0, ptr noundef read
   unreachable
 
 203:                                              ; preds = %190, %.critedge, %199, %195, %156, %22, %16, %9
-  %.098 = phi ptr [ %201, %199 ], [ %198, %195 ], [ %32, %156 ], [ %27, %22 ], [ %21, %16 ], [ %14, %9 ], [ %165, %.critedge ], [ %165, %190 ]
+  %.098 = phi ptr [ %14, %9 ], [ %21, %16 ], [ %27, %22 ], [ %32, %156 ], [ %198, %195 ], [ %201, %199 ], [ %165, %.critedge ], [ %165, %190 ]
   ret ptr %.098
 }
 
@@ -2035,7 +2035,7 @@ llvm_abi_type.exit20:                             ; preds = %35, %37
   unreachable
 
 49:                                               ; preds = %llvm_abi_type.exit20, %._crit_edge
-  %.0 = phi ptr [ %46, %llvm_abi_type.exit20 ], [ %17, %._crit_edge ]
+  %.0 = phi ptr [ %17, %._crit_edge ], [ %46, %llvm_abi_type.exit20 ]
   ret ptr %.0
 }
 
@@ -2306,7 +2306,7 @@ tailrecurse.backedge:                             ; preds = %102, %90
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %123, %121, %118, %115, %112, %110, %108, %99, %96, %llvm_get_introspection_for_struct_union.exit, %50, %48, %40, %36, %34, %32, %28, %21, %14, %10, %6
-  %.0 = phi ptr [ %124, %123 ], [ %122, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %110 ], [ %109, %108 ], [ %101, %99 ], [ %98, %96 ], [ %89, %llvm_get_introspection_for_struct_union.exit ], [ %51, %50 ], [ %49, %48 ], [ %47, %40 ], [ %39, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ %27, %21 ], [ %20, %14 ], [ %13, %10 ], [ %9, %6 ], [ %4, %2 ], [ %106, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %9, %6 ], [ %13, %10 ], [ %20, %14 ], [ %27, %21 ], [ %31, %28 ], [ %33, %32 ], [ %35, %34 ], [ %39, %36 ], [ %47, %40 ], [ %49, %48 ], [ %51, %50 ], [ %89, %llvm_get_introspection_for_struct_union.exit ], [ %98, %96 ], [ %101, %99 ], [ %109, %108 ], [ %111, %110 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %122, %121 ], [ %124, %123 ], [ %4, %2 ], [ %106, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -2590,7 +2590,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   unreachable
 
 63:                                               ; preds = %60, %54, %48
-  %.1.in.i = phi ptr [ %61, %60 ], [ %59, %54 ], [ %53, %48 ]
+  %.1.in.i = phi ptr [ %53, %48 ], [ %59, %54 ], [ %61, %60 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %44
 

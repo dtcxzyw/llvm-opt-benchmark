@@ -405,8 +405,8 @@ smart_str_appendc_ex.exit425:                     ; preds = %32, %37
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %159, %166, %168, %170, %176, %161
-  %.0303.ph = phi i32 [ %spec.select401, %161 ], [ 0, %176 ], [ 6, %159 ], [ 4, %166 ], [ 1, %168 ], [ 2, %170 ]
-  %.10.ph = phi ptr [ %spec.select402, %161 ], [ %spec.select396, %176 ], [ %160, %159 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ]
+  %.0303.ph = phi i32 [ %spec.select401, %161 ], [ 0, %176 ], [ 2, %170 ], [ 1, %168 ], [ 4, %166 ], [ 6, %159 ]
+  %.10.ph = phi ptr [ %spec.select402, %161 ], [ %spec.select396, %176 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %160, %159 ]
   %.pr = load i8, ptr %.10.ph, align 1, !tbaa !4
   br label %181
 
@@ -673,8 +673,8 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %.loopexit510
 
 .loopexit510:                                     ; preds = %181, %181, %240, %255, %269, %283, %297, %311
-  %.03031067 = phi i32 [ %.0303, %240 ], [ 2, %311 ], [ 1, %297 ], [ 3, %283 ], [ 4, %269 ], [ 5, %255 ], [ %.0303, %181 ], [ %.0303, %181 ]
-  %.2314 = phi i64 [ %243, %240 ], [ %313, %311 ], [ %299, %297 ], [ %285, %283 ], [ %271, %269 ], [ %257, %255 ], [ %.0312.ph, %181 ], [ %.0312.ph, %181 ]
+  %.03031067 = phi i32 [ %.0303, %240 ], [ 5, %255 ], [ 4, %269 ], [ 3, %283 ], [ 1, %297 ], [ 2, %311 ], [ %.0303, %181 ], [ %.0303, %181 ]
+  %.2314 = phi i64 [ %243, %240 ], [ %257, %255 ], [ %271, %269 ], [ %285, %283 ], [ %299, %297 ], [ %313, %311 ], [ %.0312.ph, %181 ], [ %.0312.ph, %181 ]
   %314 = load i8, ptr %.10, align 1, !tbaa !4
   %.not393 = icmp eq i8 %314, 117
   br i1 %.not393, label %401, label %315
@@ -835,7 +835,7 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %401
 
 401:                                              ; preds = %327, %342, %356, %370, %384, %398, %.loopexit510
-  %.5317 = phi i64 [ %330, %327 ], [ %400, %398 ], [ %386, %384 ], [ %372, %370 ], [ %358, %356 ], [ %344, %342 ], [ %.2314, %.loopexit510 ]
+  %.5317 = phi i64 [ %330, %327 ], [ %344, %342 ], [ %358, %356 ], [ %372, %370 ], [ %386, %384 ], [ %400, %398 ], [ %.2314, %.loopexit510 ]
   %402 = load i8, ptr %.10, align 1, !tbaa !4
   %403 = icmp eq i8 %402, 117
   %404 = call ptr @ap_php_conv_10(i64 noundef %.5317, i1 noundef zeroext %403, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
@@ -1032,7 +1032,7 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %506
 
 506:                                              ; preds = %503, %489, %475, %461, %447, %432
-  %.0310 = phi i64 [ %435, %432 ], [ %505, %503 ], [ %491, %489 ], [ %477, %475 ], [ %463, %461 ], [ %449, %447 ]
+  %.0310 = phi i64 [ %435, %432 ], [ %449, %447 ], [ %463, %461 ], [ %477, %475 ], [ %491, %489 ], [ %505, %503 ]
   %507 = load i8, ptr %.10, align 1, !tbaa !4
   %508 = call ptr @ap_php_conv_p2(i64 noundef %.0310, i32 noundef 3, i8 noundef signext %507, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
   br i1 %.0293, label %.preheader498, label %.loopexit499
@@ -1226,7 +1226,7 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %609
 
 609:                                              ; preds = %606, %592, %578, %564, %550, %535
-  %.1311 = phi i64 [ %538, %535 ], [ %608, %606 ], [ %594, %592 ], [ %580, %578 ], [ %566, %564 ], [ %552, %550 ]
+  %.1311 = phi i64 [ %538, %535 ], [ %552, %550 ], [ %566, %564 ], [ %580, %578 ], [ %594, %592 ], [ %608, %606 ]
   %610 = load i8, ptr %.10, align 1, !tbaa !4
   %611 = call ptr @ap_php_conv_p2(i64 noundef %.1311, i32 noundef 4, i8 noundef signext %610, ptr noundef nonnull %11, ptr noundef nonnull %5) #12
   br i1 %.0293, label %.preheader500, label %.loopexit501
@@ -1342,7 +1342,7 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %669
 
 669:                                              ; preds = %666, %648
-  %.0320 = phi double [ %668, %666 ], [ %654, %648 ]
+  %.0320 = phi double [ %654, %648 ], [ %668, %666 ]
   %670 = fcmp uno double %.0320, 0.000000e+00
   br i1 %670, label %.thread439.sink.split, label %671
 
@@ -1429,7 +1429,7 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %716
 
 716:                                              ; preds = %713, %695
-  %.1321 = phi double [ %715, %713 ], [ %701, %695 ]
+  %.1321 = phi double [ %701, %695 ], [ %715, %713 ]
   %717 = fcmp uno double %.1321, 0.000000e+00
   br i1 %717, label %.thread439.sink.split, label %718
 
@@ -1602,8 +1602,8 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   br label %.thread439.sink.split
 
 803:                                              ; preds = %694, %647, %523, %420, %315, %228
-  %804 = phi i8 [ %182, %694 ], [ %182, %647 ], [ %182, %523 ], [ 111, %420 ], [ %314, %315 ], [ 117, %228 ]
-  %.4316 = phi i64 [ %.0312.ph, %694 ], [ %.0312.ph, %647 ], [ %.0312.ph, %523 ], [ %.0312.ph, %420 ], [ %.2314, %315 ], [ %.0312.ph, %228 ]
+  %804 = phi i8 [ %314, %315 ], [ 117, %228 ], [ 111, %420 ], [ %182, %523 ], [ %182, %647 ], [ %182, %694 ]
+  %.4316 = phi i64 [ %.2314, %315 ], [ %.0312.ph, %228 ], [ %.0312.ph, %420 ], [ %.0312.ph, %523 ], [ %.0312.ph, %647 ], [ %.0312.ph, %694 ]
   %805 = sext i8 %804 to i32
   call void (i32, ptr, ...) @zend_error(i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %805) #12
   br label %.loopexit509
@@ -1631,28 +1631,28 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   %810 = add i64 %809, 1
   br label %.thread439.sink.split
 
-.thread439.sink.split:                            ; preds = %220, %zval_get_tmp_string.exit, %721, %716, %671, %669, %638, %.thread458, %.loopexit509, %763, %759, %621, %519, %642, %644, %798
-  %.sink = phi i64 [ %802, %798 ], [ %646, %644 ], [ %643, %642 ], [ %522, %519 ], [ %626, %621 ], [ 1, %759 ], [ 1, %763 ], [ 2, %.loopexit509 ], [ %810, %.thread458 ], [ 6, %638 ], [ 3, %669 ], [ 3, %671 ], [ 3, %716 ], [ %., %721 ], [ %207, %zval_get_tmp_string.exit ], [ %226, %220 ]
-  %.ph = phi i1 [ false, %798 ], [ false, %644 ], [ false, %642 ], [ false, %519 ], [ false, %621 ], [ false, %759 ], [ false, %763 ], [ false, %.loopexit509 ], [ true, %.thread458 ], [ false, %638 ], [ false, %669 ], [ false, %671 ], [ false, %716 ], [ false, %721 ], [ false, %zval_get_tmp_string.exit ], [ false, %220 ]
-  %.3287453.ph = phi i32 [ %.2286, %798 ], [ %.2286, %644 ], [ %.2286, %642 ], [ %.2286, %519 ], [ %.2286, %621 ], [ %.2286, %759 ], [ %.2286, %763 ], [ %.2286, %.loopexit509 ], [ %.3287473, %.thread458 ], [ %.2286, %638 ], [ %.2286, %669 ], [ %.2286, %671 ], [ %.2286, %716 ], [ %.2286, %721 ], [ %.2286, %zval_get_tmp_string.exit ], [ %.2286, %220 ]
-  %.1305452.ph = phi ptr [ %.0304.ph, %798 ], [ %.0304.ph, %644 ], [ %.0304.ph, %642 ], [ %.0304.ph, %519 ], [ %.0304.ph, %621 ], [ %.0304.ph, %759 ], [ %.0304.ph, %763 ], [ %.0304.ph, %.loopexit509 ], [ %.1305472, %.thread458 ], [ %.0304.ph, %638 ], [ %.0304.ph, %669 ], [ %.0304.ph, %671 ], [ %.0304.ph, %716 ], [ %.0304.ph, %721 ], [ %.0304.ph, %zval_get_tmp_string.exit ], [ %.0304.ph, %220 ]
-  %.3315451.ph = phi i64 [ %.0312.ph, %798 ], [ %.0312.ph, %644 ], [ %.0312.ph, %642 ], [ %.0312.ph, %519 ], [ %.0312.ph, %621 ], [ %.0312.ph, %759 ], [ %.0312.ph, %763 ], [ %.1313, %.loopexit509 ], [ %.3315471, %.thread458 ], [ %.0312.ph, %638 ], [ %.0312.ph, %669 ], [ %.0312.ph, %671 ], [ %.0312.ph, %716 ], [ %.0312.ph, %721 ], [ %.0312.ph, %zval_get_tmp_string.exit ], [ %.0312.ph, %220 ]
-  %.3327450.ph = phi i8 [ 32, %798 ], [ 32, %644 ], [ 32, %642 ], [ %.2326, %519 ], [ %.2326, %621 ], [ 32, %759 ], [ 32, %763 ], [ 32, %.loopexit509 ], [ %.2326, %.thread458 ], [ 32, %638 ], [ %.2326, %669 ], [ %.2326, %671 ], [ %.2326, %716 ], [ %.2326, %721 ], [ %.2326, %zval_get_tmp_string.exit ], [ %.2326, %220 ]
-  %.0431449.ph = phi ptr [ null, %798 ], [ null, %644 ], [ null, %642 ], [ null, %519 ], [ null, %621 ], [ null, %759 ], [ null, %763 ], [ null, %.loopexit509 ], [ null, %.thread458 ], [ null, %638 ], [ null, %669 ], [ null, %671 ], [ null, %716 ], [ null, %721 ], [ %.1432, %zval_get_tmp_string.exit ], [ null, %220 ]
-  %.10436448.ph = phi ptr [ %.10437, %798 ], [ %.10, %644 ], [ %.10, %642 ], [ %.10, %519 ], [ %.10, %621 ], [ %.10, %759 ], [ %.10, %763 ], [ %.10, %.loopexit509 ], [ %.10, %.thread458 ], [ %.10, %638 ], [ %.10, %669 ], [ %.10, %671 ], [ %.10, %716 ], [ %.10, %721 ], [ %.10, %zval_get_tmp_string.exit ], [ %.10, %220 ]
-  %.10273.ph = phi ptr [ %800, %798 ], [ %640, %644 ], [ %640, %642 ], [ %520, %519 ], [ %624, %621 ], [ %7, %759 ], [ %7, %763 ], [ %7, %.loopexit509 ], [ %808, %.thread458 ], [ @.str.1, %638 ], [ @.str.2, %669 ], [ @.str.3, %671 ], [ @.str.4, %716 ], [ %.str.5..str.6, %721 ], [ %206, %zval_get_tmp_string.exit ], [ %225, %220 ]
+.thread439.sink.split:                            ; preds = %220, %zval_get_tmp_string.exit, %721, %716, %671, %669, %638, %.thread458, %.loopexit509, %519, %621, %759, %763, %642, %644, %798
+  %.sink = phi i64 [ %802, %798 ], [ %646, %644 ], [ %643, %642 ], [ 1, %763 ], [ 1, %759 ], [ %626, %621 ], [ %522, %519 ], [ 2, %.loopexit509 ], [ %810, %.thread458 ], [ 6, %638 ], [ 3, %669 ], [ 3, %671 ], [ 3, %716 ], [ %., %721 ], [ %207, %zval_get_tmp_string.exit ], [ %226, %220 ]
+  %.ph = phi i1 [ false, %798 ], [ false, %644 ], [ false, %642 ], [ false, %763 ], [ false, %759 ], [ false, %621 ], [ false, %519 ], [ false, %.loopexit509 ], [ true, %.thread458 ], [ false, %638 ], [ false, %669 ], [ false, %671 ], [ false, %716 ], [ false, %721 ], [ false, %zval_get_tmp_string.exit ], [ false, %220 ]
+  %.3287453.ph = phi i32 [ %.2286, %798 ], [ %.2286, %644 ], [ %.2286, %642 ], [ %.2286, %763 ], [ %.2286, %759 ], [ %.2286, %621 ], [ %.2286, %519 ], [ %.2286, %.loopexit509 ], [ %.3287473, %.thread458 ], [ %.2286, %638 ], [ %.2286, %669 ], [ %.2286, %671 ], [ %.2286, %716 ], [ %.2286, %721 ], [ %.2286, %zval_get_tmp_string.exit ], [ %.2286, %220 ]
+  %.1305452.ph = phi ptr [ %.0304.ph, %798 ], [ %.0304.ph, %644 ], [ %.0304.ph, %642 ], [ %.0304.ph, %763 ], [ %.0304.ph, %759 ], [ %.0304.ph, %621 ], [ %.0304.ph, %519 ], [ %.0304.ph, %.loopexit509 ], [ %.1305472, %.thread458 ], [ %.0304.ph, %638 ], [ %.0304.ph, %669 ], [ %.0304.ph, %671 ], [ %.0304.ph, %716 ], [ %.0304.ph, %721 ], [ %.0304.ph, %zval_get_tmp_string.exit ], [ %.0304.ph, %220 ]
+  %.3315451.ph = phi i64 [ %.0312.ph, %798 ], [ %.0312.ph, %644 ], [ %.0312.ph, %642 ], [ %.0312.ph, %763 ], [ %.0312.ph, %759 ], [ %.0312.ph, %621 ], [ %.0312.ph, %519 ], [ %.1313, %.loopexit509 ], [ %.3315471, %.thread458 ], [ %.0312.ph, %638 ], [ %.0312.ph, %669 ], [ %.0312.ph, %671 ], [ %.0312.ph, %716 ], [ %.0312.ph, %721 ], [ %.0312.ph, %zval_get_tmp_string.exit ], [ %.0312.ph, %220 ]
+  %.3327450.ph = phi i8 [ 32, %798 ], [ 32, %644 ], [ 32, %642 ], [ 32, %763 ], [ 32, %759 ], [ %.2326, %621 ], [ %.2326, %519 ], [ 32, %.loopexit509 ], [ %.2326, %.thread458 ], [ 32, %638 ], [ %.2326, %669 ], [ %.2326, %671 ], [ %.2326, %716 ], [ %.2326, %721 ], [ %.2326, %zval_get_tmp_string.exit ], [ %.2326, %220 ]
+  %.0431449.ph = phi ptr [ null, %798 ], [ null, %644 ], [ null, %642 ], [ null, %763 ], [ null, %759 ], [ null, %621 ], [ null, %519 ], [ null, %.loopexit509 ], [ null, %.thread458 ], [ null, %638 ], [ null, %669 ], [ null, %671 ], [ null, %716 ], [ null, %721 ], [ %.1432, %zval_get_tmp_string.exit ], [ null, %220 ]
+  %.10436448.ph = phi ptr [ %.10437, %798 ], [ %.10, %644 ], [ %.10, %642 ], [ %.10, %763 ], [ %.10, %759 ], [ %.10, %621 ], [ %.10, %519 ], [ %.10, %.loopexit509 ], [ %.10, %.thread458 ], [ %.10, %638 ], [ %.10, %669 ], [ %.10, %671 ], [ %.10, %716 ], [ %.10, %721 ], [ %.10, %zval_get_tmp_string.exit ], [ %.10, %220 ]
+  %.10273.ph = phi ptr [ %800, %798 ], [ %640, %644 ], [ %640, %642 ], [ %7, %763 ], [ %7, %759 ], [ %624, %621 ], [ %520, %519 ], [ %7, %.loopexit509 ], [ %808, %.thread458 ], [ @.str.1, %638 ], [ @.str.2, %669 ], [ @.str.3, %671 ], [ @.str.4, %716 ], [ %.str.5..str.6, %721 ], [ %206, %zval_get_tmp_string.exit ], [ %225, %220 ]
   store i64 %.sink, ptr %5, align 8, !tbaa !32
   br label %.thread439
 
-.thread439:                                       ; preds = %.thread439.sink.split, %793, %692, %418, %220, %zval_get_tmp_string.exit, %.loopexit, %.loopexit499, %517, %.loopexit501, %807
-  %811 = phi i1 [ false, %807 ], [ false, %.loopexit501 ], [ false, %517 ], [ false, %.loopexit499 ], [ false, %.loopexit ], [ false, %zval_get_tmp_string.exit ], [ false, %220 ], [ false, %418 ], [ false, %692 ], [ false, %793 ], [ %.ph, %.thread439.sink.split ]
-  %.3287453 = phi i32 [ %.4288, %807 ], [ %.2286, %.loopexit501 ], [ %.2286, %517 ], [ %.2286, %.loopexit499 ], [ %.2286, %.loopexit ], [ %.2286, %zval_get_tmp_string.exit ], [ %.2286, %220 ], [ %.2286, %418 ], [ %.2286, %692 ], [ %.2286, %793 ], [ %.3287453.ph, %.thread439.sink.split ]
-  %.1305452 = phi ptr [ %.3307, %807 ], [ %.0304.ph, %.loopexit501 ], [ %.0304.ph, %517 ], [ %.0304.ph, %.loopexit499 ], [ %.0304.ph, %.loopexit ], [ %.0304.ph, %zval_get_tmp_string.exit ], [ %.0304.ph, %220 ], [ %.0304.ph, %418 ], [ %.2306, %692 ], [ %.0304.ph, %793 ], [ %.1305452.ph, %.thread439.sink.split ]
-  %.3315451 = phi i64 [ %.0312.ph, %807 ], [ %.0312.ph, %.loopexit501 ], [ %.0312.ph, %517 ], [ %.0312.ph, %.loopexit499 ], [ %.5317, %.loopexit ], [ %.0312.ph, %zval_get_tmp_string.exit ], [ %.0312.ph, %220 ], [ %.5317, %418 ], [ %.0312.ph, %692 ], [ %.0312.ph, %793 ], [ %.3315451.ph, %.thread439.sink.split ]
-  %.3327450 = phi i8 [ %.2326, %807 ], [ %.2326, %.loopexit501 ], [ %.2326, %517 ], [ %.2326, %.loopexit499 ], [ %.2326, %.loopexit ], [ %.2326, %zval_get_tmp_string.exit ], [ %.2326, %220 ], [ %.2326, %418 ], [ %.2326, %692 ], [ 32, %793 ], [ %.3327450.ph, %.thread439.sink.split ]
-  %.0431449 = phi ptr [ null, %807 ], [ null, %.loopexit501 ], [ null, %517 ], [ null, %.loopexit499 ], [ null, %.loopexit ], [ %.1432, %zval_get_tmp_string.exit ], [ null, %220 ], [ null, %418 ], [ null, %692 ], [ null, %793 ], [ %.0431449.ph, %.thread439.sink.split ]
-  %.10436448 = phi ptr [ %.10, %807 ], [ %.10, %.loopexit501 ], [ %.10, %517 ], [ %.10, %.loopexit499 ], [ %.10, %.loopexit ], [ %.10, %zval_get_tmp_string.exit ], [ %.10, %220 ], [ %.10, %418 ], [ %.10, %692 ], [ %.10437, %793 ], [ %.10436448.ph, %.thread439.sink.split ]
-  %.10273 = phi ptr [ %.8271, %807 ], [ %.6269, %.loopexit501 ], [ %.4267, %517 ], [ %.4267, %.loopexit499 ], [ %.2265, %.loopexit ], [ %206, %zval_get_tmp_string.exit ], [ %225, %220 ], [ %.2265, %418 ], [ %687, %692 ], [ %797, %793 ], [ %.10273.ph, %.thread439.sink.split ]
+.thread439:                                       ; preds = %.thread439.sink.split, %793, %692, %418, %220, %zval_get_tmp_string.exit, %.loopexit501, %.loopexit499, %517, %.loopexit, %807
+  %811 = phi i1 [ false, %807 ], [ false, %.loopexit ], [ false, %517 ], [ false, %.loopexit499 ], [ false, %.loopexit501 ], [ false, %zval_get_tmp_string.exit ], [ false, %220 ], [ false, %418 ], [ false, %692 ], [ false, %793 ], [ %.ph, %.thread439.sink.split ]
+  %.3287453 = phi i32 [ %.4288, %807 ], [ %.2286, %.loopexit ], [ %.2286, %517 ], [ %.2286, %.loopexit499 ], [ %.2286, %.loopexit501 ], [ %.2286, %zval_get_tmp_string.exit ], [ %.2286, %220 ], [ %.2286, %418 ], [ %.2286, %692 ], [ %.2286, %793 ], [ %.3287453.ph, %.thread439.sink.split ]
+  %.1305452 = phi ptr [ %.3307, %807 ], [ %.0304.ph, %.loopexit ], [ %.0304.ph, %517 ], [ %.0304.ph, %.loopexit499 ], [ %.0304.ph, %.loopexit501 ], [ %.0304.ph, %zval_get_tmp_string.exit ], [ %.0304.ph, %220 ], [ %.0304.ph, %418 ], [ %.2306, %692 ], [ %.0304.ph, %793 ], [ %.1305452.ph, %.thread439.sink.split ]
+  %.3315451 = phi i64 [ %.0312.ph, %807 ], [ %.5317, %.loopexit ], [ %.0312.ph, %517 ], [ %.0312.ph, %.loopexit499 ], [ %.0312.ph, %.loopexit501 ], [ %.0312.ph, %zval_get_tmp_string.exit ], [ %.0312.ph, %220 ], [ %.5317, %418 ], [ %.0312.ph, %692 ], [ %.0312.ph, %793 ], [ %.3315451.ph, %.thread439.sink.split ]
+  %.3327450 = phi i8 [ %.2326, %807 ], [ %.2326, %.loopexit ], [ %.2326, %517 ], [ %.2326, %.loopexit499 ], [ %.2326, %.loopexit501 ], [ %.2326, %zval_get_tmp_string.exit ], [ %.2326, %220 ], [ %.2326, %418 ], [ %.2326, %692 ], [ 32, %793 ], [ %.3327450.ph, %.thread439.sink.split ]
+  %.0431449 = phi ptr [ null, %807 ], [ null, %.loopexit ], [ null, %517 ], [ null, %.loopexit499 ], [ null, %.loopexit501 ], [ %.1432, %zval_get_tmp_string.exit ], [ null, %220 ], [ null, %418 ], [ null, %692 ], [ null, %793 ], [ %.0431449.ph, %.thread439.sink.split ]
+  %.10436448 = phi ptr [ %.10, %807 ], [ %.10, %.loopexit ], [ %.10, %517 ], [ %.10, %.loopexit499 ], [ %.10, %.loopexit501 ], [ %.10, %zval_get_tmp_string.exit ], [ %.10, %220 ], [ %.10, %418 ], [ %.10, %692 ], [ %.10437, %793 ], [ %.10436448.ph, %.thread439.sink.split ]
+  %.10273 = phi ptr [ %.8271, %807 ], [ %.2265, %.loopexit ], [ %.4267, %517 ], [ %.4267, %.loopexit499 ], [ %.6269, %.loopexit501 ], [ %206, %zval_get_tmp_string.exit ], [ %225, %220 ], [ %.2265, %418 ], [ %687, %692 ], [ %797, %793 ], [ %.10273.ph, %.thread439.sink.split ]
   %812 = icmp eq i32 %.3331, 1
   %or.cond13 = select i1 %.1292, i1 %812, i1 false
   %.pre1085.pre = load i64, ptr %5, align 8, !tbaa !32

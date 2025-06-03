@@ -4792,7 +4792,7 @@ define internal i32 @block_dissect_sort(ptr noundef readonly captures(address_is
   br label %blocktype_order.exit
 
 blocktype_order.exit:                             ; preds = %6, %10, %12, %13, %14
-  %.0.i = phi i32 [ 0, %14 ], [ 1, %13 ], [ -1, %12 ], [ -2, %10 ], [ 0, %6 ]
+  %.0.i = phi i32 [ 0, %14 ], [ -1, %12 ], [ 1, %13 ], [ -2, %10 ], [ 0, %6 ]
   %15 = getelementptr i8, ptr %8, i64 16
   %.val17 = load ptr, ptr %15, align 8
   %.not.i18 = icmp eq ptr %.val17, null
@@ -4816,7 +4816,7 @@ blocktype_order.exit:                             ; preds = %6, %10, %12, %13, %
   br label %blocktype_order.exit20
 
 blocktype_order.exit20:                           ; preds = %blocktype_order.exit, %16, %18, %19, %20
-  %.0.i19 = phi i32 [ 0, %20 ], [ 1, %19 ], [ -1, %18 ], [ -2, %16 ], [ 0, %blocktype_order.exit ]
+  %.0.i19 = phi i32 [ 0, %20 ], [ -1, %18 ], [ 1, %19 ], [ -2, %16 ], [ 0, %blocktype_order.exit ]
   %21 = icmp slt i32 %.0.i, %.0.i19
   br i1 %21, label %26, label %22
 
@@ -5067,7 +5067,7 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %14
 
 14:                                               ; preds = %8, %12, %10
-  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ -1, %8 ]
+  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -1, %8 ]
   %15 = load i8, ptr @bp_compute_crc, align 1, !range !14, !noundef !15
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %38
@@ -5105,7 +5105,7 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %36
 
 36:                                               ; preds = %19, %31, %26
-  %.1 = phi i32 [ 0, %19 ], [ %35, %31 ], [ %30, %26 ]
+  %.1 = phi i32 [ 0, %19 ], [ %30, %26 ], [ %35, %31 ]
   %37 = load ptr, ptr %21, align 8
   tail call void @wmem_free(ptr noundef %37, ptr noundef %24)
   br label %38

@@ -219,7 +219,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %109 unwind label %94, !noalias !3
 
 93:                                               ; preds = %196, %155, %144, %110, %97, %94
-  %.pn61.i = phi { ptr, i32 } [ %95, %94 ], [ %.pn59.i, %196 ], [ %.pn44.i, %155 ], [ %145, %144 ], [ %111, %110 ], [ %98, %97 ]
+  %.pn61.i = phi { ptr, i32 } [ %95, %94 ], [ %.pn59.i, %196 ], [ %111, %110 ], [ %98, %97 ], [ %.pn44.i, %155 ], [ %145, %144 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %45) #7
           to label %75 unwind label %107, !noalias !3
 

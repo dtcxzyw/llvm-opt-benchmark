@@ -1371,9 +1371,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %"_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hc68d9bee3f7804f8E.exit"
 
 "_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hc68d9bee3f7804f8E.exit": ; preds = %.noexc, %25
-  %.sroa.7.0.i = phi i64 [ %32, %.noexc ], [ %28, %25 ]
-  %.sroa.5.0.i = phi ptr [ %31, %.noexc ], [ %26, %25 ]
-  %.sroa.0.0.i12 = phi i64 [ 1, %.noexc ], [ 0, %25 ]
+  %.sroa.7.0.i = phi i64 [ %28, %25 ], [ %32, %.noexc ]
+  %.sroa.5.0.i = phi ptr [ %26, %25 ], [ %31, %.noexc ]
+  %.sroa.0.0.i12 = phi i64 [ 0, %25 ], [ 1, %.noexc ]
   %33 = getelementptr inbounds nuw { [3 x i64] }, ptr %12, i64 %.sroa.7.030
   store i64 %.sroa.0.0.i12, ptr %33, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1819,9 +1819,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %"_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hc68d9bee3f7804f8E.exit.i"
 
 "_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hc68d9bee3f7804f8E.exit.i": ; preds = %.noexc.i, %29
-  %.sroa.7.0.i.i = phi i64 [ %36, %.noexc.i ], [ %32, %29 ]
-  %.sroa.5.0.i.i = phi ptr [ %35, %.noexc.i ], [ %30, %29 ]
-  %.sroa.0.0.i12.i = phi i64 [ 1, %.noexc.i ], [ 0, %29 ]
+  %.sroa.7.0.i.i = phi i64 [ %32, %29 ], [ %36, %.noexc.i ]
+  %.sroa.5.0.i.i = phi ptr [ %30, %29 ], [ %35, %.noexc.i ]
+  %.sroa.0.0.i12.i = phi i64 [ 0, %29 ], [ 1, %.noexc.i ]
   %37 = getelementptr inbounds nuw { [3 x i64] }, ptr %16, i64 %.sroa.7.030.i
   store i64 %.sroa.0.0.i12.i, ptr %37, align 8, !noalias !249
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8

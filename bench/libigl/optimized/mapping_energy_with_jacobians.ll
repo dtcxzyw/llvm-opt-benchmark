@@ -179,7 +179,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   br label %99
 
 99:                                               ; preds = %28, %88, %79, %71, %59, %49, %41
-  %.1 = phi double [ %.0169, %28 ], [ %98, %88 ], [ %87, %79 ], [ %78, %71 ], [ %70, %59 ], [ %58, %49 ], [ %48, %41 ]
+  %.1 = phi double [ %.0169, %28 ], [ %48, %41 ], [ %58, %49 ], [ %70, %59 ], [ %78, %71 ], [ %87, %79 ], [ %98, %88 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #5
@@ -378,7 +378,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   br label %215
 
 215:                                              ; preds = %115, %201, %189, %177, %162, %149, %139
-  %.4 = phi double [ %.3167, %115 ], [ %214, %201 ], [ %200, %189 ], [ %188, %177 ], [ %176, %162 ], [ %161, %149 ], [ %148, %139 ]
+  %.4 = phi double [ %.3167, %115 ], [ %148, %139 ], [ %161, %149 ], [ %176, %162 ], [ %188, %177 ], [ %200, %189 ], [ %214, %201 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #5

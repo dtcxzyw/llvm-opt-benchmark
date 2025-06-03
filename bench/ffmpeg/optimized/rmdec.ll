@@ -854,8 +854,8 @@ rm_read_extradata.exit:                           ; preds = %186
   call fastcc void @rm_read_metadata(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %.thread199
 
-.thread199:                                       ; preds = %rm_read_extradata.exit.thread, %252, %.thread, %242, %249, %235, %228, %231, %209, %215, %200, %rm_read_extradata.exit, %100, %65, %164, %183, %174, %198, %227, %237, %57, %255, %256
-  %.1 = phi i32 [ 0, %256 ], [ 0, %255 ], [ 0, %57 ], [ -1, %rm_read_extradata.exit.thread ], [ -12, %252 ], [ -1094995529, %.thread ], [ -1094995529, %242 ], [ -1094995529, %249 ], [ -1094995529, %235 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %209 ], [ -1094995529, %215 ], [ %204, %200 ], [ %188, %rm_read_extradata.exit ], [ %112, %100 ], [ -1094995529, %65 ], [ -1, %164 ], [ -1, %183 ], [ -1, %174 ], [ -1, %198 ], [ -1094995529, %227 ], [ -1094995529, %237 ]
+.thread199:                                       ; preds = %rm_read_extradata.exit.thread, %252, %.thread, %242, %249, %235, %228, %231, %209, %215, %200, %rm_read_extradata.exit, %100, %65, %198, %164, %183, %174, %227, %237, %57, %255, %256
+  %.1 = phi i32 [ 0, %256 ], [ 0, %255 ], [ 0, %57 ], [ -1, %rm_read_extradata.exit.thread ], [ -12, %252 ], [ -1094995529, %.thread ], [ -1094995529, %242 ], [ -1094995529, %249 ], [ -1094995529, %235 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %209 ], [ -1094995529, %215 ], [ %204, %200 ], [ %188, %rm_read_extradata.exit ], [ %112, %100 ], [ -1094995529, %65 ], [ -1, %198 ], [ -1, %164 ], [ -1, %183 ], [ -1, %174 ], [ -1094995529, %227 ], [ -1094995529, %237 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #12
   ret i32 %.1
 }
@@ -1487,7 +1487,7 @@ readfull.exit143:                                 ; preds = %readfull.exit137, %
   br i1 %316, label %.critedge, label %rm_assemble_video_frame.exit
 
 rm_assemble_video_frame.exit:                     ; preds = %.lr.ph.i, %._crit_edge, %301, %298, %274, %177, %64, %314
-  %.0147 = phi i64 [ %8, %314 ], [ %8, %._crit_edge ], [ %8, %274 ], [ %8, %177 ], [ %spec.select, %64 ], [ %8, %298 ], [ %8, %301 ], [ %8, %.lr.ph.i ]
+  %.0147 = phi i64 [ %8, %314 ], [ %8, %274 ], [ %8, %._crit_edge ], [ %8, %177 ], [ %spec.select, %64 ], [ %8, %298 ], [ %8, %301 ], [ %8, %.lr.ph.i ]
   %317 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %318 = load i32, ptr %317, align 8, !tbaa !88
   %319 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1953,9 +1953,9 @@ ff_rm_alloc_rmstream.exit.thread:                 ; preds = %get_str8.exit133
   br label %142
 
 142:                                              ; preds = %128, %132, %138, %rm_read_metadata.exit, %58
-  %.1115 = phi i32 [ %.0114148, %138 ], [ %.0114148, %128 ], [ %.0114148, %132 ], [ %.0114148, %rm_read_metadata.exit ], [ %60, %58 ]
-  %.1113 = phi i64 [ %.0112149, %138 ], [ %.0112149, %128 ], [ %.0112149, %132 ], [ %.0112149, %rm_read_metadata.exit ], [ %59, %58 ]
-  %.1 = phi i32 [ %.0111150, %138 ], [ %.0111150, %128 ], [ %.0111150, %132 ], [ %.0111150, %rm_read_metadata.exit ], [ %62, %58 ]
+  %.1115 = phi i32 [ %.0114148, %138 ], [ %60, %58 ], [ %.0114148, %rm_read_metadata.exit ], [ %.0114148, %128 ], [ %.0114148, %132 ]
+  %.1113 = phi i64 [ %.0112149, %138 ], [ %59, %58 ], [ %.0112149, %rm_read_metadata.exit ], [ %.0112149, %128 ], [ %.0112149, %132 ]
+  %.1 = phi i32 [ %.0111150, %138 ], [ %62, %58 ], [ %.0111150, %rm_read_metadata.exit ], [ %.0111150, %128 ], [ %.0111150, %132 ]
   %143 = call i32 @avio_feof(ptr noundef %9) #12
   %.not = icmp eq i32 %143, 0
   br i1 %.not, label %33, label %rm_read_header_old.exit

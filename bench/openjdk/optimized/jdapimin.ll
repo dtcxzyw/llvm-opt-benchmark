@@ -367,7 +367,7 @@ default_decompress_parms.exit:                    ; preds = %19, %22, %28, %31, 
   br label %116
 
 116:                                              ; preds = %1, %13, %default_decompress_parms.exit, %108, %103
-  %.0 = phi i32 [ 0, %108 ], [ %107, %103 ], [ 1, %default_decompress_parms.exit ], [ %17, %13 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %108 ], [ 1, %default_decompress_parms.exit ], [ %17, %13 ], [ %107, %103 ], [ 1, %1 ]
   ret i32 %.0
 }
 

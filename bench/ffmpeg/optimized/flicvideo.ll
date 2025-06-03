@@ -1424,9 +1424,9 @@ check_pixel_ptr.exit447._crit_edge.i:             ; preds = %.loopexit.i46, %che
   br label %583
 
 583:                                              ; preds = %check_pixel_ptr.exit447._crit_edge.i, %check_pixel_ptr.exit435.i, %497, %490
-  %.sroa.0.7.i = phi ptr [ %.sroa.0.9.i, %check_pixel_ptr.exit447._crit_edge.i ], [ %479, %check_pixel_ptr.exit435.i ], [ %479, %497 ], [ %479, %490 ]
-  %.1313.i = phi i32 [ %509, %check_pixel_ptr.exit447._crit_edge.i ], [ %.0312781.i, %check_pixel_ptr.exit435.i ], [ %.0312781.i, %497 ], [ %.0312781.i, %490 ]
-  %.1308.i = phi i64 [ %582, %check_pixel_ptr.exit447._crit_edge.i ], [ %.0307782.i, %check_pixel_ptr.exit435.i ], [ %.0307782.i, %497 ], [ %496, %490 ]
+  %.sroa.0.7.i = phi ptr [ %479, %490 ], [ %479, %497 ], [ %479, %check_pixel_ptr.exit435.i ], [ %.sroa.0.9.i, %check_pixel_ptr.exit447._crit_edge.i ]
+  %.1313.i = phi i32 [ %.0312781.i, %490 ], [ %.0312781.i, %497 ], [ %.0312781.i, %check_pixel_ptr.exit435.i ], [ %509, %check_pixel_ptr.exit447._crit_edge.i ]
+  %.1308.i = phi i64 [ %496, %490 ], [ %.0307782.i, %497 ], [ %.0307782.i, %check_pixel_ptr.exit435.i ], [ %582, %check_pixel_ptr.exit447._crit_edge.i ]
   %584 = icmp sgt i32 %.1313.i, 0
   br i1 %584, label %.lr.ph783.i, label %check_pixel_ptr.exit471.thread.i, !llvm.loop !59
 
@@ -1921,7 +1921,7 @@ bytestream2_get_le16.exit385.thread.i:            ; preds = %bytestream2_get_le1
   br label %check_pixel_ptr.exit471.thread.i
 
 check_pixel_ptr.exit471.thread.i:                 ; preds = %._crit_edge.i, %bytestream2_get_byte.exit398.thread.thread.i, %bytestream2_get_byte.exit398.thread.i, %check_pixel_ptr.exit467._crit_edge.i, %.lr.ph731.i, %bytestream2_get_byte.exit416.thread.i, %check_pixel_ptr.exit451.i, %583, %.lr.ph783.i, %.critedge.i470.i, %792, %bytestream2_get_le16.exit385.thread.i, %784, %bytestream2_get_le16.exit395.i, %596, %bytestream2_get_le16.exit389.i, %461, %bytestream2_get_le16.exit387.i, %352, %.preheader668.i, %.preheader670.i, %bytestream2_get_le16.exit385.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.27608.i, %bytestream2_get_le16.exit385.thread.i ], [ %338, %bytestream2_get_le16.exit385.i ], [ %788, %784 ], [ %465, %bytestream2_get_le16.exit389.i ], [ %600, %bytestream2_get_le16.exit395.i ], [ %338, %.preheader668.i ], [ %338, %.preheader670.i ], [ %357, %bytestream2_get_le16.exit387.i ], [ %281, %352 ], [ %281, %461 ], [ %281, %596 ], [ %.sroa.0.22.i49, %792 ], [ %.sroa.0.22.i49, %.critedge.i470.i ], [ %.sroa.0.7.i, %583 ], [ %.sroa.0.5780.i, %.lr.ph783.i ], [ %.sroa.0.13.i42, %bytestream2_get_byte.exit416.thread.i ], [ %.sroa.0.12750.i, %check_pixel_ptr.exit451.i ], [ %338, %.lr.ph731.i ], [ %.sroa.0.19.i, %check_pixel_ptr.exit467._crit_edge.i ], [ %.sroa.0.4.lcssa.i, %._crit_edge.i ], [ %370, %bytestream2_get_byte.exit398.thread.i ], [ %281, %bytestream2_get_byte.exit398.thread.thread.i ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.27608.i, %bytestream2_get_le16.exit385.thread.i ], [ %788, %784 ], [ %338, %bytestream2_get_le16.exit385.i ], [ %465, %bytestream2_get_le16.exit389.i ], [ %600, %bytestream2_get_le16.exit395.i ], [ %338, %.preheader668.i ], [ %338, %.preheader670.i ], [ %357, %bytestream2_get_le16.exit387.i ], [ %281, %352 ], [ %281, %461 ], [ %281, %596 ], [ %.sroa.0.22.i49, %792 ], [ %.sroa.0.22.i49, %.critedge.i470.i ], [ %.sroa.0.7.i, %583 ], [ %.sroa.0.5780.i, %.lr.ph783.i ], [ %.sroa.0.13.i42, %bytestream2_get_byte.exit416.thread.i ], [ %.sroa.0.12750.i, %check_pixel_ptr.exit451.i ], [ %338, %.lr.ph731.i ], [ %.sroa.0.19.i, %check_pixel_ptr.exit467._crit_edge.i ], [ %.sroa.0.4.lcssa.i, %._crit_edge.i ], [ %370, %bytestream2_get_byte.exit398.thread.i ], [ %281, %bytestream2_get_byte.exit398.thread.thread.i ]
   %815 = ptrtoint ptr %.sroa.0.2.i to i64
   %816 = sub i64 %815, %299
   %817 = trunc i64 %816 to i32
@@ -2886,7 +2886,7 @@ bytestream2_get_le16.exit320.thread.i:            ; preds = %bytestream2_get_le1
   br label %check_pixel_ptr.exit378.thread.i
 
 check_pixel_ptr.exit378.thread.i:                 ; preds = %.critedge.i377.i, %1235, %bytestream2_get_byte.exit345.thread._crit_edge.i, %bytestream2_get_byte.exit339.thread._crit_edge.i, %.lr.ph615.i, %1033, %.lr.ph644.i, %bytestream2_get_le16.exit320.thread.i, %1257, %1218, %1035, %bytestream2_get_le16.exit322.i, %931, %925, %.preheader.i74, %.preheader536.i, %.preheader538.i
-  %.sroa.0.2.i57 = phi ptr [ %.sroa.0.26493.i, %bytestream2_get_le16.exit320.thread.i ], [ %1262, %1257 ], [ %1222, %1218 ], [ %1040, %1035 ], [ %930, %925 ], [ %935, %bytestream2_get_le16.exit322.i ], [ %910, %.preheader.i74 ], [ %910, %.preheader536.i ], [ %910, %.preheader538.i ], [ %852, %931 ], [ %.sroa.0.5.i, %1033 ], [ %.sroa.0.3640.i, %.lr.ph644.i ], [ %910, %.lr.ph615.i ], [ %.sroa.0.12.i, %bytestream2_get_byte.exit339.thread._crit_edge.i ], [ %.sroa.0.17.i, %bytestream2_get_byte.exit345.thread._crit_edge.i ], [ %.sroa.0.20.i60, %1235 ], [ %.sroa.0.20.i60, %.critedge.i377.i ]
+  %.sroa.0.2.i57 = phi ptr [ %.sroa.0.26493.i, %bytestream2_get_le16.exit320.thread.i ], [ %930, %925 ], [ %1040, %1035 ], [ %1222, %1218 ], [ %1262, %1257 ], [ %935, %bytestream2_get_le16.exit322.i ], [ %910, %.preheader.i74 ], [ %910, %.preheader536.i ], [ %910, %.preheader538.i ], [ %852, %931 ], [ %.sroa.0.5.i, %1033 ], [ %.sroa.0.3640.i, %.lr.ph644.i ], [ %910, %.lr.ph615.i ], [ %.sroa.0.12.i, %bytestream2_get_byte.exit339.thread._crit_edge.i ], [ %.sroa.0.17.i, %bytestream2_get_byte.exit345.thread._crit_edge.i ], [ %.sroa.0.20.i60, %1235 ], [ %.sroa.0.20.i60, %.critedge.i377.i ]
   %1263 = ptrtoint ptr %.sroa.0.2.i57 to i64
   %1264 = sub i64 %1263, %869
   %1265 = trunc i64 %1264 to i32
@@ -3866,7 +3866,7 @@ bytestream2_get_le16.exit339.thread.i:            ; preds = %bytestream2_get_le1
   br label %check_pixel_ptr.exit394.thread.i
 
 check_pixel_ptr.exit394.thread.i:                 ; preds = %.critedge.i393.i, %1722, %bytestream2_get_byte.exit354.thread._crit_edge.i, %bytestream2_get_byte.exit348.thread._crit_edge.i, %.lr.ph621.i, %1501, %.lr.ph650.i, %bytestream2_get_le16.exit339.thread.i, %1743, %1713, %1503, %bytestream2_get_le16.exit341.i, %1371, %1365, %.preheader.i119, %.preheader551.i, %.preheader553.i
-  %.sroa.0.2.i94 = phi ptr [ %.sroa.0.25508.i, %bytestream2_get_le16.exit339.thread.i ], [ %1748, %1743 ], [ %1717, %1713 ], [ %1508, %1503 ], [ %1370, %1365 ], [ %1375, %bytestream2_get_le16.exit341.i ], [ %1350, %.preheader.i119 ], [ %1350, %.preheader551.i ], [ %1350, %.preheader553.i ], [ %1292, %1371 ], [ %.sroa.0.5.i123, %1501 ], [ %.sroa.0.3646.i, %.lr.ph650.i ], [ %1350, %.lr.ph621.i ], [ %.sroa.0.12.i111, %bytestream2_get_byte.exit348.thread._crit_edge.i ], [ %.sroa.0.17.i99, %bytestream2_get_byte.exit354.thread._crit_edge.i ], [ %.sroa.0.20.i96, %1722 ], [ %.sroa.0.20.i96, %.critedge.i393.i ]
+  %.sroa.0.2.i94 = phi ptr [ %.sroa.0.25508.i, %bytestream2_get_le16.exit339.thread.i ], [ %1370, %1365 ], [ %1508, %1503 ], [ %1717, %1713 ], [ %1748, %1743 ], [ %1375, %bytestream2_get_le16.exit341.i ], [ %1350, %.preheader.i119 ], [ %1350, %.preheader551.i ], [ %1350, %.preheader553.i ], [ %1292, %1371 ], [ %.sroa.0.5.i123, %1501 ], [ %.sroa.0.3646.i, %.lr.ph650.i ], [ %1350, %.lr.ph621.i ], [ %.sroa.0.12.i111, %bytestream2_get_byte.exit348.thread._crit_edge.i ], [ %.sroa.0.17.i99, %bytestream2_get_byte.exit354.thread._crit_edge.i ], [ %.sroa.0.20.i96, %1722 ], [ %.sroa.0.20.i96, %.critedge.i393.i ]
   %1749 = ptrtoint ptr %.sroa.0.2.i94 to i64
   %1750 = sub i64 %1749, %1309
   %1751 = trunc i64 %1750 to i32

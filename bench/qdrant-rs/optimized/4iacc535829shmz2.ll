@@ -2121,7 +2121,7 @@ define noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12postin
   unreachable
 
 29:                                               ; preds = %.loopexit, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ %27, %26 ]
+  %.0 = phi ptr [ null, %2 ], [ %27, %26 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 

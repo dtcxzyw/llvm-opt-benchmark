@@ -1606,8 +1606,8 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
 12:                                               ; preds = %4
   br label %30
 
-13:                                               ; preds = %4, %4, %4, %11, %10, %4
-  %.039.ph = phi i32 [ %0, %4 ], [ 1, %10 ], [ 6, %11 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
+13:                                               ; preds = %4, %4, %4, %10, %11, %4
+  %.039.ph = phi i32 [ %0, %4 ], [ 6, %11 ], [ 1, %10 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
   %14 = call ptr @wmem_file_scope()
   %15 = load i32, ptr @proto_fp, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0)
@@ -2542,7 +2542,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br label %86
 
 78:                                               ; preds = %63, %55, %57
-  %.1 = phi i16 [ %.0139, %57 ], [ %.0139, %55 ], [ %47, %63 ]
+  %.1 = phi i16 [ %.0139, %55 ], [ %.0139, %57 ], [ %47, %63 ]
   %79 = trunc nuw nsw i64 %indvars.iv to i8
   %80 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %44, i8 noundef zeroext %79, i32 noundef %7, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
   %81 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -5541,9 +5541,9 @@ define internal fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .loopexit:                                        ; preds = %85, %21, %195, %._crit_edge236, %89, %288, %.loopexit224, %254, %._crit_edge245, %44, %33
-  %.1198 = phi i32 [ %291, %288 ], [ %287, %.loopexit224 ], [ %261, %254 ], [ %181, %195 ], [ %.4201.lcssa263, %._crit_edge236 ], [ %.3200.lcssa, %._crit_edge245 ], [ %59, %89 ], [ %51, %44 ], [ %43, %33 ], [ %32, %21 ], [ %86, %85 ]
-  %.1188 = phi i1 [ false, %288 ], [ false, %.loopexit224 ], [ false, %254 ], [ false, %195 ], [ false, %._crit_edge236 ], [ false, %._crit_edge245 ], [ false, %89 ], [ false, %44 ], [ true, %33 ], [ true, %21 ], [ false, %85 ]
-  %.1 = phi i16 [ %.0251, %288 ], [ %.0251, %.loopexit224 ], [ %.0251, %254 ], [ %.0251, %195 ], [ %.0251, %._crit_edge236 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251, %89 ], [ %.0251, %44 ], [ %.0251, %33 ], [ %.0251, %21 ], [ %.0251, %85 ]
+  %.1198 = phi i32 [ %43, %33 ], [ %51, %44 ], [ %59, %89 ], [ %.3200.lcssa, %._crit_edge245 ], [ %181, %195 ], [ %.4201.lcssa263, %._crit_edge236 ], [ %261, %254 ], [ %287, %.loopexit224 ], [ %291, %288 ], [ %32, %21 ], [ %86, %85 ]
+  %.1188 = phi i1 [ true, %33 ], [ false, %44 ], [ false, %89 ], [ false, %._crit_edge245 ], [ false, %195 ], [ false, %._crit_edge236 ], [ false, %254 ], [ false, %.loopexit224 ], [ false, %288 ], [ true, %21 ], [ false, %85 ]
+  %.1 = phi i16 [ %.0251, %33 ], [ %.0251, %44 ], [ %.0251, %89 ], [ %.2.lcssa, %._crit_edge245 ], [ %.0251, %195 ], [ %.0251, %._crit_edge236 ], [ %.0251, %254 ], [ %.0251, %.loopexit224 ], [ %.0251, %288 ], [ %.0251, %21 ], [ %.0251, %85 ]
   %294 = add i32 %.1198, 7
   %295 = sdiv i32 %294, 8
   %296 = sub nsw i32 %295, %24

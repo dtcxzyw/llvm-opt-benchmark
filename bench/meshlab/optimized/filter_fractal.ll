@@ -9783,8 +9783,8 @@ _ZN12FractalUtilsI6CMeshOE11FractalArgsD2Ev.exit: ; preds = %580, %576, %257, %2
   ret void
 
 _ZN12FractalUtilsI6CMeshOE11FractalArgsD2Ev.exit264: ; preds = %388, %358, %328, %305, %279, %265, %261, %390, %360, %330, %307, %281, %584, %533, %385, %383, %355, %353, %325, %302, %237, %134, %132, %116, %114, %84
-  %.pn157.pn = phi { ptr, i32 } [ %.pn157398, %281 ], [ %280, %279 ], [ %.pn155404, %307 ], [ %306, %305 ], [ %.pn153410, %330 ], [ %329, %328 ], [ %.pn151416, %360 ], [ %359, %358 ], [ %.pn149422, %390 ], [ %389, %388 ], [ %.pn145.pn.pn, %584 ], [ %.pn133.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %533 ], [ %386, %385 ], [ %384, %383 ], [ %356, %355 ], [ %354, %353 ], [ %326, %325 ], [ %303, %302 ], [ %.pn159.pn.pn.pn.pn.pn.pn.pn, %237 ], [ %117, %116 ], [ %115, %114 ], [ %135, %134 ], [ %133, %132 ], [ %.pn, %84 ], [ %.pn168.pn.pn, %261 ], [ %.pn168.pn.pn, %265 ]
-  resume { ptr, i32 } %.pn157.pn
+  %.pn168.pn.pn.pn = phi { ptr, i32 } [ %.pn159.pn.pn.pn.pn.pn.pn.pn, %237 ], [ %117, %116 ], [ %115, %114 ], [ %135, %134 ], [ %133, %132 ], [ %.pn157398, %281 ], [ %280, %279 ], [ %.pn155404, %307 ], [ %306, %305 ], [ %.pn153410, %330 ], [ %329, %328 ], [ %.pn151416, %360 ], [ %359, %358 ], [ %.pn149422, %390 ], [ %389, %388 ], [ %.pn145.pn.pn, %584 ], [ %.pn133.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %533 ], [ %386, %385 ], [ %384, %383 ], [ %356, %355 ], [ %354, %353 ], [ %326, %325 ], [ %303, %302 ], [ %.pn, %84 ], [ %.pn168.pn.pn, %261 ], [ %.pn168.pn.pn, %265 ]
+  resume { ptr, i32 } %.pn168.pn.pn.pn
 
 590:                                              ; preds = %498, %382, %352, %324, %301, %277, %247
   unreachable
@@ -11513,7 +11513,7 @@ define linkonce_odr void @_ZN12CratersUtilsI6CMeshOE11CratersArgsC2EP9MeshModelS
   br label %common.resume
 
 common.resume:                                    ; preds = %52, %61, %70, %81, %90, %99, %108, %224, %219, %223, %209, %213
-  %common.resume.op = phi { ptr, i32 } [ %210, %213 ], [ %210, %209 ], [ %220, %223 ], [ %220, %219 ], [ %225, %224 ], [ %109, %108 ], [ %100, %99 ], [ %91, %90 ], [ %82, %81 ], [ %71, %70 ], [ %62, %61 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %210, %213 ], [ %210, %209 ], [ %220, %223 ], [ %220, %219 ], [ %225, %224 ], [ %82, %81 ], [ %91, %90 ], [ %100, %99 ], [ %109, %108 ], [ %53, %52 ], [ %62, %61 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri9AllocatorI6CMeshOE19CompactVertexVectorERS2_.exit: ; preds = %205, %208
@@ -24603,7 +24603,7 @@ _ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256: ; preds = %474, %489, 
   br label %539
 
 539:                                              ; preds = %104, %101, %528, %517, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250, %408, %397, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235, %288, %277, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit, %537, %536, %521, %509, %464, %416, %401, %389, %344, %296, %281, %269, %224
-  %.1 = phi i1 [ true, %537 ], [ true, %464 ], [ true, %509 ], [ true, %521 ], [ true, %536 ], [ true, %344 ], [ true, %389 ], [ true, %401 ], [ true, %416 ], [ true, %224 ], [ true, %269 ], [ true, %281 ], [ true, %296 ], [ false, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229 ], [ false, %277 ], [ false, %288 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %397 ], [ false, %408 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256 ], [ false, %517 ], [ false, %528 ], [ false, %101 ], [ true, %104 ]
+  %.1 = phi i1 [ true, %537 ], [ true, %224 ], [ true, %269 ], [ true, %281 ], [ true, %296 ], [ true, %344 ], [ true, %389 ], [ true, %401 ], [ true, %416 ], [ true, %464 ], [ true, %509 ], [ true, %521 ], [ true, %536 ], [ false, %_ZN3vcg6Plane3IfLb1EE4InitERKNS_6Point3IfEES5_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit229 ], [ false, %277 ], [ false, %288 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit235 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit241 ], [ false, %397 ], [ false, %408 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit250 ], [ false, %_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit256 ], [ false, %517 ], [ false, %528 ], [ false, %101 ], [ true, %104 ]
   ret i1 %.1
 }
 

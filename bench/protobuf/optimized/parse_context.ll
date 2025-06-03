@@ -215,7 +215,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end14
-  %retval.0.i.add46 = add nsw i64 %retval.0.i.idx84, 8
+  %retval.0.i.add47 = add nsw i64 %retval.0.i.idx84, 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end14
@@ -289,12 +289,12 @@ sw.bb31:                                          ; preds = %if.end14
   br i1 %cmp32, label %return, label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end14
-  %retval.0.i.add47 = add nsw i64 %retval.0.i.idx84, 4
+  %retval.0.i.add46 = add nsw i64 %retval.0.i.idx84, 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i.i.i, %if.then.i10, %sw.bb31, %sw.bb35, %sw.bb30, %if.end27, %sw.bb19
-  %ptr.1.idx = phi i64 [ %retval.0.i.add47, %sw.bb35 ], [ %retval.0.i.idx84, %sw.bb31 ], [ %retval.0.i.idx84, %sw.bb30 ], [ %storemerge.i.ph.add, %if.end27 ], [ %retval.0.i.add46, %sw.bb19 ], [ %arrayidx.i.i.i.add, %if.then.i.i.i ], [ %retval.0.i.add, %if.then.i10 ]
-  %depth.addr.1 = phi i32 [ %depth.addr.063, %sw.bb35 ], [ %dec, %sw.bb31 ], [ %inc, %sw.bb30 ], [ %depth.addr.063, %if.end27 ], [ %depth.addr.063, %sw.bb19 ], [ %depth.addr.063, %if.then.i.i.i ], [ %depth.addr.063, %if.then.i10 ]
+  %ptr.1.idx = phi i64 [ %retval.0.i.add47, %sw.bb19 ], [ %storemerge.i.ph.add, %if.end27 ], [ %retval.0.i.idx84, %sw.bb30 ], [ %retval.0.i.idx84, %sw.bb31 ], [ %retval.0.i.add46, %sw.bb35 ], [ %arrayidx.i.i.i.add, %if.then.i.i.i ], [ %retval.0.i.add, %if.then.i10 ]
+  %depth.addr.1 = phi i32 [ %depth.addr.063, %sw.bb19 ], [ %depth.addr.063, %if.end27 ], [ %inc, %sw.bb30 ], [ %dec, %sw.bb31 ], [ %depth.addr.063, %sw.bb35 ], [ %depth.addr.063, %if.then.i.i.i ], [ %depth.addr.063, %if.then.i10 ]
   %cmp = icmp slt i64 %ptr.1.idx, 16
   br i1 %cmp, label %while.body8, label %return, !llvm.loop !8
 
@@ -2527,7 +2527,7 @@ _ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit: 
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i, %if.end2, %sw.bb11, %sw.bb6, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit
-  %ptr.addr.0 = phi ptr [ %add.ptr23, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit ], [ %call12, %sw.bb11 ], [ %call7, %sw.bb6 ], [ %add.ptr, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit ], [ %retval.0.i.ph, %if.end2 ], [ %retval.0.i.ph, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i ]
+  %ptr.addr.0 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit ], [ %call7, %sw.bb6 ], [ %call12, %sw.bb11 ], [ %add.ptr23, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit ], [ %retval.0.i.ph, %if.end2 ], [ %retval.0.i.ph, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i ]
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i, %if.end, %sw.bb11, %sw.bb6, %entry, %sw.epilog

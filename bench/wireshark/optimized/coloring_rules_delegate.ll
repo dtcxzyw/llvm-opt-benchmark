@@ -104,7 +104,7 @@ define noundef ptr @_ZNK21ColoringRulesDelegate12createEditorEP7QWidgetRK20QStyl
   ret ptr %.0
 
 23:                                               ; preds = %20, %16
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %17, %16 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -377,8 +377,8 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %48, %_ZN17QArrayDat
   ret void
 
 52:                                               ; preds = %_ZN7QStringD2Ev.exit31, %_ZN7QStringD2Ev.exit23
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit31 ], [ %.pn17, %_ZN7QStringD2Ev.exit23 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %_ZN7QStringD2Ev.exit23 ], [ %.pn, %_ZN7QStringD2Ev.exit31 ]
+  resume { ptr, i32 } %.pn17.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -757,8 +757,8 @@ _ZN7QStringD2Ev.exit84:                           ; preds = %116, %_ZN17QArrayDa
   ret void
 
 125:                                              ; preds = %_ZN7QStringD2Ev.exit80, %114, %_ZN7QStringD2Ev.exit84, %113, %_ZN7QStringD2Ev.exit64, %_ZN7QStringD2Ev.exit68
-  %.pn48.pn = phi { ptr, i32 } [ %50, %_ZN7QStringD2Ev.exit68 ], [ %.pn50, %_ZN7QStringD2Ev.exit64 ], [ %117, %_ZN7QStringD2Ev.exit84 ], [ %115, %114 ], [ %.pn46, %113 ], [ %.pn, %_ZN7QStringD2Ev.exit80 ]
-  resume { ptr, i32 } %.pn48.pn
+  %.pn52.pn = phi { ptr, i32 } [ %50, %_ZN7QStringD2Ev.exit68 ], [ %.pn50, %_ZN7QStringD2Ev.exit64 ], [ %117, %_ZN7QStringD2Ev.exit84 ], [ %115, %114 ], [ %.pn46, %113 ], [ %.pn, %_ZN7QStringD2Ev.exit80 ]
+  resume { ptr, i32 } %.pn52.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

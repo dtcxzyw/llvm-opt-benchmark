@@ -691,7 +691,7 @@ _ZN10NativeCall15set_destinationEPh.exit19:       ; preds = %59
   br label %94
 
 82:                                               ; preds = %_ZN10NativeCall15set_destinationEPh.exit19, %_ZN10NativeCall15set_destinationEPh.exit18, %_ZN10NativeCall15set_destinationEPh.exit
-  %.0 = phi ptr [ %64, %_ZN10NativeCall15set_destinationEPh.exit19 ], [ %42, %_ZN10NativeCall15set_destinationEPh.exit18 ], [ %14, %_ZN10NativeCall15set_destinationEPh.exit ]
+  %.0 = phi ptr [ %14, %_ZN10NativeCall15set_destinationEPh.exit ], [ %42, %_ZN10NativeCall15set_destinationEPh.exit18 ], [ %64, %_ZN10NativeCall15set_destinationEPh.exit19 ]
   %83 = call noundef zeroext i1 @_ZN10NativeCall23is_displacement_alignedEv(ptr noundef nonnull align 1 dereferenceable(1) %.0) #5
   br i1 %83, label %85, label %84
 
@@ -842,7 +842,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nounde
   br label %52
 
 52:                                               ; preds = %3, %47, %42, %37, %32, %27, %22, %17, %14, %11
-  %.0 = phi i1 [ true, %47 ], [ true, %42 ], [ true, %37 ], [ true, %32 ], [ true, %27 ], [ true, %22 ], [ true, %17 ], [ true, %14 ], [ true, %11 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %11 ], [ true, %14 ], [ true, %17 ], [ true, %22 ], [ true, %27 ], [ true, %32 ], [ true, %37 ], [ true, %42 ], [ true, %47 ], [ false, %3 ]
   ret i1 %.0
 }
 

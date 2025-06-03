@@ -1736,7 +1736,7 @@ _ZN7rocksdb20PlainTableFileReader4ReadEjjPNS_5SliceE.exit._crit_edge: ; preds = 
   br label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit:        ; preds = %26, %.thread.i
-  %.1.i = phi ptr [ %28, %26 ], [ %29, %.thread.i ]
+  %.1.i = phi ptr [ %29, %.thread.i ], [ %28, %26 ]
   %.not = icmp eq ptr %.1.i, null
   %30 = ptrtoint ptr %.1.i to i64
   %31 = ptrtoint ptr %21 to i64
@@ -3094,8 +3094,8 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit129: ; preds = %309
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #20
   br label %318
 
-_ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit129, %_ZN7rocksdb6StatusC2EOS0_.exit102, %_ZN7rocksdb6StatusC2EOS0_.exit88, %43
-  %.sroa.63304.5 = phi ptr [ %41, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit ], [ %41, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit129 ], [ null, %_ZN7rocksdb6StatusC2EOS0_.exit102 ], [ null, %_ZN7rocksdb6StatusC2EOS0_.exit88 ], [ null, %43 ]
+_ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit129, %_ZN7rocksdb6StatusC2EOS0_.exit88, %_ZN7rocksdb6StatusC2EOS0_.exit102, %43
+  %.sroa.63304.5 = phi ptr [ %41, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit ], [ %41, %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit129 ], [ null, %_ZN7rocksdb6StatusC2EOS0_.exit88 ], [ null, %_ZN7rocksdb6StatusC2EOS0_.exit102 ], [ null, %43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
@@ -3110,7 +3110,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %_ZN7rocksdb6Status1
   br label %30, !llvm.loop !164
 
 316:                                              ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit88.thread, %_ZN7rocksdb6StatusC2EOS0_.exit102.thread
-  %.sroa.63304.4 = phi ptr [ %163, %_ZN7rocksdb6StatusC2EOS0_.exit102.thread ], [ %81, %_ZN7rocksdb6StatusC2EOS0_.exit88.thread ]
+  %.sroa.63304.4 = phi ptr [ %81, %_ZN7rocksdb6StatusC2EOS0_.exit88.thread ], [ %163, %_ZN7rocksdb6StatusC2EOS0_.exit102.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
@@ -3120,8 +3120,8 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread:            ; preds = %_ZN7rocksdb6Status1
   br label %319
 
 318:                                              ; preds = %312, %308, %141, %58, %50
-  %.sroa.63304.0 = phi ptr [ %41, %58 ], [ %41, %312 ], [ %.sroa.63304.2, %308 ], [ %.sroa.63304.1, %141 ], [ %31, %50 ]
-  %.pn74 = phi { ptr, i32 } [ %59, %58 ], [ %313, %312 ], [ %.pn67, %308 ], [ %.pn71, %141 ], [ %51, %50 ]
+  %.sroa.63304.0 = phi ptr [ %41, %58 ], [ %41, %312 ], [ %.sroa.63304.1, %141 ], [ %.sroa.63304.2, %308 ], [ %31, %50 ]
+  %.pn74 = phi { ptr, i32 } [ %59, %58 ], [ %313, %312 ], [ %.pn71, %141 ], [ %.pn67, %308 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
@@ -3291,7 +3291,7 @@ _ZNK7rocksdb20PlainTableFileReader6statusEv.exit: ; preds = %20, %42
   br label %_ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread
 
 _ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread: ; preds = %71, %.thread.i.i
-  %.1.i.i = phi ptr [ %73, %71 ], [ %74, %.thread.i.i ]
+  %.1.i.i = phi ptr [ %74, %.thread.i.i ], [ %73, %71 ]
   %75 = ptrtoint ptr %.1.i.i to i64
   %76 = ptrtoint ptr %62 to i64
   %77 = sub i64 %75, %76
@@ -3333,7 +3333,7 @@ _ZN7rocksdb20PlainTableFileReader4ReadEjjPNS_5SliceE.exit.i.i: ; preds = %53
   br label %_ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread22
 
 _ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread22: ; preds = %89, %.thread.i.i.i
-  %.1.i.i.i = phi ptr [ %91, %89 ], [ %92, %.thread.i.i.i ]
+  %.1.i.i.i = phi ptr [ %92, %.thread.i.i.i ], [ %91, %89 ]
   %.not.i.i = icmp eq ptr %.1.i.i.i, null
   %93 = ptrtoint ptr %.1.i.i.i to i64
   %94 = ptrtoint ptr %.pre.i.i12 to i64

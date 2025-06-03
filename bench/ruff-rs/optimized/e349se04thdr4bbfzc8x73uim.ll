@@ -2664,7 +2664,7 @@ _ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.i.i: ; pr
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i.i: ; preds = %703, %698, %695, %692
-  %.sroa.0.0.i114.i.i = phi i8 [ %697, %695 ], [ %708, %703 ], [ %694, %692 ], [ %702, %698 ]
+  %.sroa.0.0.i114.i.i = phi i8 [ %702, %698 ], [ %694, %692 ], [ %708, %703 ], [ %697, %695 ]
   %709 = trunc i8 %.sroa.0.0.i114.i.i to i1
   br i1 %709, label %710, label %_ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.thread.i.i
 
@@ -2747,7 +2747,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i.i:
   br label %.body.thread.i
 
 .loopexit.i:                                      ; preds = %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.i.i, %.noexc109.i, %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.thread.i.i, %.noexc69.i, %.noexc58.i, %.noexc51.i, %.noexc50.i, %_ZN7ty_test6parser6Parser14process_header17h6926078816d985a8E.exit.thread.i.i, %_ZN7ty_test6parser6Parser28process_snapshot_diagnostics17hb91331e43f7c33e7E.exit.thread.i.i, %.noexc12.i
-  %.sroa.0.2.i.ph.i = phi ptr [ %494, %.noexc69.i ], [ %.sroa.0.1.i99.ph.i.i, %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.thread.i.i ], [ %.sroa.0.1.i.ph.i.i, %_ZN7ty_test6parser6Parser14process_header17h6926078816d985a8E.exit.thread.i.i ], [ %171, %.noexc12.i ], [ %.sroa.0.1.i.i, %_ZN7ty_test6parser6Parser28process_snapshot_diagnostics17hb91331e43f7c33e7E.exit.thread.i.i ], [ %422, %.noexc51.i ], [ %453, %.noexc58.i ], [ %416, %.noexc50.i ], [ %721, %.noexc109.i ], [ %499, %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.i.i ]
+  %.sroa.0.2.i.ph.i = phi ptr [ %494, %.noexc69.i ], [ %.sroa.0.1.i99.ph.i.i, %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.thread.i.i ], [ %.sroa.0.1.i.ph.i.i, %_ZN7ty_test6parser6Parser14process_header17h6926078816d985a8E.exit.thread.i.i ], [ %422, %.noexc51.i ], [ %453, %.noexc58.i ], [ %416, %.noexc50.i ], [ %171, %.noexc12.i ], [ %.sroa.0.1.i.i, %_ZN7ty_test6parser6Parser28process_snapshot_diagnostics17hb91331e43f7c33e7E.exit.thread.i.i ], [ %721, %.noexc109.i ], [ %499, %_ZN7ty_test6parser6Parser18process_code_block17hc59c566e68cccfedE.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67), !noalias !60
   %722 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.2.i.ph.i, ptr %722, align 8, !alias.scope !52, !noalias !55

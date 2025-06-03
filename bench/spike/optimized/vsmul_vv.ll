@@ -351,8 +351,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 165:                                              ; preds = %142
   %166 = add nsw i128 %164, 64
-  %extract310 = lshr i128 %166, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %166, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %174
 
 167:                                              ; preds = %142
@@ -365,19 +365,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 170:                                              ; preds = %167
   %171 = add nsw i128 %164, 128
-  %extract304 = lshr i128 %171, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %171, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %174
 
 172:                                              ; preds = %142
   %173 = and i128 %164, 127
   %.not292 = icmp ne i128 %173, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %174
 
 174:                                              ; preds = %172, %167, %170, %165, %142
-  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t305, %170 ], [ %extract.t299, %167 ], [ %extract.t311, %165 ], [ %spec.select332, %172 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t301, %165 ], [ %extract.t303, %170 ], [ %extract.t299, %167 ], [ %spec.select332, %172 ]
   br i1 %161, label %175, label %177
 
 175:                                              ; preds = %174
@@ -424,8 +424,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 201:                                              ; preds = %178
   %202 = add nsw i128 %200, 16384
-  %extract290 = lshr i128 %202, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %202, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %210
 
 203:                                              ; preds = %178
@@ -438,19 +438,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 206:                                              ; preds = %203
   %207 = add nsw i128 %200, 32768
-  %extract284 = lshr i128 %207, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %207, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %210
 
 208:                                              ; preds = %178
   %209 = and i128 %200, 32767
   %.not272 = icmp ne i128 %209, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %210
 
 210:                                              ; preds = %208, %203, %206, %201, %178
-  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t285, %206 ], [ %extract.t279, %203 ], [ %extract.t291, %201 ], [ %spec.select334, %208 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t281, %201 ], [ %extract.t283, %206 ], [ %extract.t279, %203 ], [ %spec.select334, %208 ]
   br i1 %197, label %211, label %213
 
 211:                                              ; preds = %210
@@ -497,8 +497,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 237:                                              ; preds = %214
   %238 = add nsw i128 %236, 1073741824
-  %extract270 = lshr i128 %238, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %238, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %246
 
 239:                                              ; preds = %214
@@ -511,19 +511,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 242:                                              ; preds = %239
   %243 = add nsw i128 %236, 2147483648
-  %extract264 = lshr i128 %243, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %243, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %246
 
 244:                                              ; preds = %214
   %245 = and i128 %236, 2147483647
   %.not252 = icmp ne i128 %245, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %246
 
 246:                                              ; preds = %244, %239, %242, %237, %214
-  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t265, %242 ], [ %extract.t259, %239 ], [ %extract.t271, %237 ], [ %spec.select336, %244 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t261, %237 ], [ %extract.t263, %242 ], [ %extract.t259, %239 ], [ %spec.select336, %244 ]
   br i1 %233, label %247, label %249
 
 247:                                              ; preds = %246
@@ -569,8 +569,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 272:                                              ; preds = %250
   %273 = add nsw i128 %271, 4611686018427387904
-  %extract250 = lshr i128 %273, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %273, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %281
 
 274:                                              ; preds = %250
@@ -583,19 +583,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsmul_vvP1
 
 277:                                              ; preds = %274
   %278 = add nsw i128 %271, 9223372036854775808
-  %extract244 = lshr i128 %278, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %278, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %281
 
 279:                                              ; preds = %250
   %280 = and i128 %271, 9223372036854775807
   %.not235 = icmp ne i128 %280, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %281
 
 281:                                              ; preds = %279, %274, %277, %272, %250
-  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t245, %277 ], [ %extract.t, %274 ], [ %extract.t251, %272 ], [ %spec.select338, %279 ]
+  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t241, %272 ], [ %extract.t243, %277 ], [ %extract.t, %274 ], [ %spec.select338, %279 ]
   br i1 %268, label %282, label %284
 
 282:                                              ; preds = %281
@@ -1019,8 +1019,8 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 163:                                              ; preds = %140
   %164 = add nsw i128 %162, 64
-  %extract310 = lshr i128 %164, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %164, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %172
 
 165:                                              ; preds = %140
@@ -1033,19 +1033,19 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 168:                                              ; preds = %165
   %169 = add nsw i128 %162, 128
-  %extract304 = lshr i128 %169, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %169, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %172
 
 170:                                              ; preds = %140
   %171 = and i128 %162, 127
   %.not292 = icmp ne i128 %171, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %172
 
 172:                                              ; preds = %170, %165, %168, %163, %140
-  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t305, %168 ], [ %extract.t299, %165 ], [ %extract.t311, %163 ], [ %spec.select332, %170 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t301, %163 ], [ %extract.t303, %168 ], [ %extract.t299, %165 ], [ %spec.select332, %170 ]
   br i1 %159, label %173, label %175
 
 173:                                              ; preds = %172
@@ -1092,8 +1092,8 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 199:                                              ; preds = %176
   %200 = add nsw i128 %198, 16384
-  %extract290 = lshr i128 %200, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %200, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %208
 
 201:                                              ; preds = %176
@@ -1106,19 +1106,19 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 204:                                              ; preds = %201
   %205 = add nsw i128 %198, 32768
-  %extract284 = lshr i128 %205, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %205, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %208
 
 206:                                              ; preds = %176
   %207 = and i128 %198, 32767
   %.not272 = icmp ne i128 %207, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %208
 
 208:                                              ; preds = %206, %201, %204, %199, %176
-  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t285, %204 ], [ %extract.t279, %201 ], [ %extract.t291, %199 ], [ %spec.select334, %206 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t281, %199 ], [ %extract.t283, %204 ], [ %extract.t279, %201 ], [ %spec.select334, %206 ]
   br i1 %195, label %209, label %211
 
 209:                                              ; preds = %208
@@ -1165,8 +1165,8 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 235:                                              ; preds = %212
   %236 = add nsw i128 %234, 1073741824
-  %extract270 = lshr i128 %236, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %236, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %244
 
 237:                                              ; preds = %212
@@ -1179,19 +1179,19 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 240:                                              ; preds = %237
   %241 = add nsw i128 %234, 2147483648
-  %extract264 = lshr i128 %241, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %241, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %244
 
 242:                                              ; preds = %212
   %243 = and i128 %234, 2147483647
   %.not252 = icmp ne i128 %243, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %244
 
 244:                                              ; preds = %242, %237, %240, %235, %212
-  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t265, %240 ], [ %extract.t259, %237 ], [ %extract.t271, %235 ], [ %spec.select336, %242 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t261, %235 ], [ %extract.t263, %240 ], [ %extract.t259, %237 ], [ %spec.select336, %242 ]
   br i1 %231, label %245, label %247
 
 245:                                              ; preds = %244
@@ -1237,8 +1237,8 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 270:                                              ; preds = %248
   %271 = add nsw i128 %269, 4611686018427387904
-  %extract250 = lshr i128 %271, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %271, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %279
 
 272:                                              ; preds = %248
@@ -1251,19 +1251,19 @@ define noundef i64 @_Z19fast_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 275:                                              ; preds = %272
   %276 = add nsw i128 %269, 9223372036854775808
-  %extract244 = lshr i128 %276, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %276, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %279
 
 277:                                              ; preds = %248
   %278 = and i128 %269, 9223372036854775807
   %.not235 = icmp ne i128 %278, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %279
 
 279:                                              ; preds = %277, %272, %275, %270, %248
-  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t245, %275 ], [ %extract.t, %272 ], [ %extract.t251, %270 ], [ %spec.select338, %277 ]
+  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t241, %270 ], [ %extract.t243, %275 ], [ %extract.t, %272 ], [ %spec.select338, %277 ]
   br i1 %266, label %280, label %282
 
 280:                                              ; preds = %279
@@ -1565,8 +1565,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 165:                                              ; preds = %142
   %166 = add nsw i128 %164, 64
-  %extract310 = lshr i128 %166, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %166, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %174
 
 167:                                              ; preds = %142
@@ -1579,19 +1579,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 170:                                              ; preds = %167
   %171 = add nsw i128 %164, 128
-  %extract304 = lshr i128 %171, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %171, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %174
 
 172:                                              ; preds = %142
   %173 = and i128 %164, 127
   %.not292 = icmp ne i128 %173, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %174
 
 174:                                              ; preds = %172, %167, %170, %165, %142
-  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t305, %170 ], [ %extract.t299, %167 ], [ %extract.t311, %165 ], [ %spec.select332, %172 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t301, %165 ], [ %extract.t303, %170 ], [ %extract.t299, %167 ], [ %spec.select332, %172 ]
   br i1 %161, label %175, label %177
 
 175:                                              ; preds = %174
@@ -1638,8 +1638,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 201:                                              ; preds = %178
   %202 = add nsw i128 %200, 16384
-  %extract290 = lshr i128 %202, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %202, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %210
 
 203:                                              ; preds = %178
@@ -1652,19 +1652,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 206:                                              ; preds = %203
   %207 = add nsw i128 %200, 32768
-  %extract284 = lshr i128 %207, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %207, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %210
 
 208:                                              ; preds = %178
   %209 = and i128 %200, 32767
   %.not272 = icmp ne i128 %209, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %210
 
 210:                                              ; preds = %208, %203, %206, %201, %178
-  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t285, %206 ], [ %extract.t279, %203 ], [ %extract.t291, %201 ], [ %spec.select334, %208 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t281, %201 ], [ %extract.t283, %206 ], [ %extract.t279, %203 ], [ %spec.select334, %208 ]
   br i1 %197, label %211, label %213
 
 211:                                              ; preds = %210
@@ -1711,8 +1711,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 237:                                              ; preds = %214
   %238 = add nsw i128 %236, 1073741824
-  %extract270 = lshr i128 %238, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %238, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %246
 
 239:                                              ; preds = %214
@@ -1725,19 +1725,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 242:                                              ; preds = %239
   %243 = add nsw i128 %236, 2147483648
-  %extract264 = lshr i128 %243, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %243, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %246
 
 244:                                              ; preds = %214
   %245 = and i128 %236, 2147483647
   %.not252 = icmp ne i128 %245, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %246
 
 246:                                              ; preds = %244, %239, %242, %237, %214
-  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t265, %242 ], [ %extract.t259, %239 ], [ %extract.t271, %237 ], [ %spec.select336, %244 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t261, %237 ], [ %extract.t263, %242 ], [ %extract.t259, %239 ], [ %spec.select336, %244 ]
   br i1 %233, label %247, label %249
 
 247:                                              ; preds = %246
@@ -1783,8 +1783,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 272:                                              ; preds = %250
   %273 = add nsw i128 %271, 4611686018427387904
-  %extract250 = lshr i128 %273, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %273, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %281
 
 274:                                              ; preds = %250
@@ -1797,19 +1797,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsmul_vv
 
 277:                                              ; preds = %274
   %278 = add nsw i128 %271, 9223372036854775808
-  %extract244 = lshr i128 %278, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %278, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %281
 
 279:                                              ; preds = %250
   %280 = and i128 %271, 9223372036854775807
   %.not235 = icmp ne i128 %280, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %281
 
 281:                                              ; preds = %279, %274, %277, %272, %250
-  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t245, %277 ], [ %extract.t, %274 ], [ %extract.t251, %272 ], [ %spec.select338, %279 ]
+  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t241, %272 ], [ %extract.t243, %277 ], [ %extract.t, %274 ], [ %spec.select338, %279 ]
   br i1 %268, label %282, label %284
 
 282:                                              ; preds = %281
@@ -2109,8 +2109,8 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 163:                                              ; preds = %140
   %164 = add nsw i128 %162, 64
-  %extract310 = lshr i128 %164, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %164, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %172
 
 165:                                              ; preds = %140
@@ -2123,19 +2123,19 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 168:                                              ; preds = %165
   %169 = add nsw i128 %162, 128
-  %extract304 = lshr i128 %169, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %169, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %172
 
 170:                                              ; preds = %140
   %171 = and i128 %162, 127
   %.not292 = icmp ne i128 %171, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %172
 
 172:                                              ; preds = %170, %165, %168, %163, %140
-  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t305, %168 ], [ %extract.t299, %165 ], [ %extract.t311, %163 ], [ %spec.select332, %170 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t301, %163 ], [ %extract.t303, %168 ], [ %extract.t299, %165 ], [ %spec.select332, %170 ]
   br i1 %159, label %173, label %175
 
 173:                                              ; preds = %172
@@ -2182,8 +2182,8 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 199:                                              ; preds = %176
   %200 = add nsw i128 %198, 16384
-  %extract290 = lshr i128 %200, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %200, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %208
 
 201:                                              ; preds = %176
@@ -2196,19 +2196,19 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 204:                                              ; preds = %201
   %205 = add nsw i128 %198, 32768
-  %extract284 = lshr i128 %205, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %205, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %208
 
 206:                                              ; preds = %176
   %207 = and i128 %198, 32767
   %.not272 = icmp ne i128 %207, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %208
 
 208:                                              ; preds = %206, %201, %204, %199, %176
-  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t285, %204 ], [ %extract.t279, %201 ], [ %extract.t291, %199 ], [ %spec.select334, %206 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t281, %199 ], [ %extract.t283, %204 ], [ %extract.t279, %201 ], [ %spec.select334, %206 ]
   br i1 %195, label %209, label %211
 
 209:                                              ; preds = %208
@@ -2255,8 +2255,8 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 235:                                              ; preds = %212
   %236 = add nsw i128 %234, 1073741824
-  %extract270 = lshr i128 %236, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %236, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %244
 
 237:                                              ; preds = %212
@@ -2269,19 +2269,19 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 240:                                              ; preds = %237
   %241 = add nsw i128 %234, 2147483648
-  %extract264 = lshr i128 %241, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %241, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %244
 
 242:                                              ; preds = %212
   %243 = and i128 %234, 2147483647
   %.not252 = icmp ne i128 %243, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %244
 
 244:                                              ; preds = %242, %237, %240, %235, %212
-  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t265, %240 ], [ %extract.t259, %237 ], [ %extract.t271, %235 ], [ %spec.select336, %242 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t261, %235 ], [ %extract.t263, %240 ], [ %extract.t259, %237 ], [ %spec.select336, %242 ]
   br i1 %231, label %245, label %247
 
 245:                                              ; preds = %244
@@ -2327,8 +2327,8 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 270:                                              ; preds = %248
   %271 = add nsw i128 %269, 4611686018427387904
-  %extract250 = lshr i128 %271, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %271, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %279
 
 272:                                              ; preds = %248
@@ -2341,19 +2341,19 @@ define noundef i64 @_Z21logged_rv64i_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 275:                                              ; preds = %272
   %276 = add nsw i128 %269, 9223372036854775808
-  %extract244 = lshr i128 %276, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %276, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %279
 
 277:                                              ; preds = %248
   %278 = and i128 %269, 9223372036854775807
   %.not235 = icmp ne i128 %278, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %279
 
 279:                                              ; preds = %277, %272, %275, %270, %248
-  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t245, %275 ], [ %extract.t, %272 ], [ %extract.t251, %270 ], [ %spec.select338, %277 ]
+  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t241, %270 ], [ %extract.t243, %275 ], [ %extract.t, %272 ], [ %spec.select338, %277 ]
   br i1 %266, label %280, label %282
 
 280:                                              ; preds = %279
@@ -2655,8 +2655,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 165:                                              ; preds = %142
   %166 = add nsw i128 %164, 64
-  %extract310 = lshr i128 %166, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %166, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %174
 
 167:                                              ; preds = %142
@@ -2669,19 +2669,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 170:                                              ; preds = %167
   %171 = add nsw i128 %164, 128
-  %extract304 = lshr i128 %171, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %171, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %174
 
 172:                                              ; preds = %142
   %173 = and i128 %164, 127
   %.not292 = icmp ne i128 %173, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %174
 
 174:                                              ; preds = %172, %167, %170, %165, %142
-  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t305, %170 ], [ %extract.t299, %167 ], [ %extract.t311, %165 ], [ %spec.select332, %172 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t301, %165 ], [ %extract.t303, %170 ], [ %extract.t299, %167 ], [ %spec.select332, %172 ]
   br i1 %161, label %175, label %177
 
 175:                                              ; preds = %174
@@ -2728,8 +2728,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 201:                                              ; preds = %178
   %202 = add nsw i128 %200, 16384
-  %extract290 = lshr i128 %202, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %202, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %210
 
 203:                                              ; preds = %178
@@ -2742,19 +2742,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 206:                                              ; preds = %203
   %207 = add nsw i128 %200, 32768
-  %extract284 = lshr i128 %207, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %207, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %210
 
 208:                                              ; preds = %178
   %209 = and i128 %200, 32767
   %.not272 = icmp ne i128 %209, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %210
 
 210:                                              ; preds = %208, %203, %206, %201, %178
-  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t285, %206 ], [ %extract.t279, %203 ], [ %extract.t291, %201 ], [ %spec.select334, %208 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t281, %201 ], [ %extract.t283, %206 ], [ %extract.t279, %203 ], [ %spec.select334, %208 ]
   br i1 %197, label %211, label %213
 
 211:                                              ; preds = %210
@@ -2801,8 +2801,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 237:                                              ; preds = %214
   %238 = add nsw i128 %236, 1073741824
-  %extract270 = lshr i128 %238, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %238, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %246
 
 239:                                              ; preds = %214
@@ -2815,19 +2815,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 242:                                              ; preds = %239
   %243 = add nsw i128 %236, 2147483648
-  %extract264 = lshr i128 %243, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %243, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %246
 
 244:                                              ; preds = %214
   %245 = and i128 %236, 2147483647
   %.not252 = icmp ne i128 %245, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %246
 
 246:                                              ; preds = %244, %239, %242, %237, %214
-  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t265, %242 ], [ %extract.t259, %239 ], [ %extract.t271, %237 ], [ %spec.select336, %244 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t261, %237 ], [ %extract.t263, %242 ], [ %extract.t259, %239 ], [ %spec.select336, %244 ]
   br i1 %233, label %247, label %249
 
 247:                                              ; preds = %246
@@ -2873,8 +2873,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 272:                                              ; preds = %250
   %273 = add nsw i128 %271, 4611686018427387904
-  %extract250 = lshr i128 %273, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %273, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %281
 
 274:                                              ; preds = %250
@@ -2887,19 +2887,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsmul_vvP1
 
 277:                                              ; preds = %274
   %278 = add nsw i128 %271, 9223372036854775808
-  %extract244 = lshr i128 %278, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %278, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %281
 
 279:                                              ; preds = %250
   %280 = and i128 %271, 9223372036854775807
   %.not235 = icmp ne i128 %280, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %281
 
 281:                                              ; preds = %279, %274, %277, %272, %250
-  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t245, %277 ], [ %extract.t, %274 ], [ %extract.t251, %272 ], [ %spec.select338, %279 ]
+  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t241, %272 ], [ %extract.t243, %277 ], [ %extract.t, %274 ], [ %spec.select338, %279 ]
   br i1 %268, label %282, label %284
 
 282:                                              ; preds = %281
@@ -3199,8 +3199,8 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 163:                                              ; preds = %140
   %164 = add nsw i128 %162, 64
-  %extract310 = lshr i128 %164, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %164, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %172
 
 165:                                              ; preds = %140
@@ -3213,19 +3213,19 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 168:                                              ; preds = %165
   %169 = add nsw i128 %162, 128
-  %extract304 = lshr i128 %169, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %169, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %172
 
 170:                                              ; preds = %140
   %171 = and i128 %162, 127
   %.not292 = icmp ne i128 %171, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %172
 
 172:                                              ; preds = %170, %165, %168, %163, %140
-  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t305, %168 ], [ %extract.t299, %165 ], [ %extract.t311, %163 ], [ %spec.select332, %170 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t301, %163 ], [ %extract.t303, %168 ], [ %extract.t299, %165 ], [ %spec.select332, %170 ]
   br i1 %159, label %173, label %175
 
 173:                                              ; preds = %172
@@ -3272,8 +3272,8 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 199:                                              ; preds = %176
   %200 = add nsw i128 %198, 16384
-  %extract290 = lshr i128 %200, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %200, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %208
 
 201:                                              ; preds = %176
@@ -3286,19 +3286,19 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 204:                                              ; preds = %201
   %205 = add nsw i128 %198, 32768
-  %extract284 = lshr i128 %205, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %205, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %208
 
 206:                                              ; preds = %176
   %207 = and i128 %198, 32767
   %.not272 = icmp ne i128 %207, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %208
 
 208:                                              ; preds = %206, %201, %204, %199, %176
-  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t285, %204 ], [ %extract.t279, %201 ], [ %extract.t291, %199 ], [ %spec.select334, %206 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t281, %199 ], [ %extract.t283, %204 ], [ %extract.t279, %201 ], [ %spec.select334, %206 ]
   br i1 %195, label %209, label %211
 
 209:                                              ; preds = %208
@@ -3345,8 +3345,8 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 235:                                              ; preds = %212
   %236 = add nsw i128 %234, 1073741824
-  %extract270 = lshr i128 %236, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %236, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %244
 
 237:                                              ; preds = %212
@@ -3359,19 +3359,19 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 240:                                              ; preds = %237
   %241 = add nsw i128 %234, 2147483648
-  %extract264 = lshr i128 %241, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %241, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %244
 
 242:                                              ; preds = %212
   %243 = and i128 %234, 2147483647
   %.not252 = icmp ne i128 %243, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %244
 
 244:                                              ; preds = %242, %237, %240, %235, %212
-  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t265, %240 ], [ %extract.t259, %237 ], [ %extract.t271, %235 ], [ %spec.select336, %242 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t261, %235 ], [ %extract.t263, %240 ], [ %extract.t259, %237 ], [ %spec.select336, %242 ]
   br i1 %231, label %245, label %247
 
 245:                                              ; preds = %244
@@ -3417,8 +3417,8 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 270:                                              ; preds = %248
   %271 = add nsw i128 %269, 4611686018427387904
-  %extract250 = lshr i128 %271, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %271, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %279
 
 272:                                              ; preds = %248
@@ -3431,19 +3431,19 @@ define noundef i64 @_Z19fast_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 275:                                              ; preds = %272
   %276 = add nsw i128 %269, 9223372036854775808
-  %extract244 = lshr i128 %276, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %276, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %279
 
 277:                                              ; preds = %248
   %278 = and i128 %269, 9223372036854775807
   %.not235 = icmp ne i128 %278, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %279
 
 279:                                              ; preds = %277, %272, %275, %270, %248
-  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t245, %275 ], [ %extract.t, %272 ], [ %extract.t251, %270 ], [ %spec.select338, %277 ]
+  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t241, %270 ], [ %extract.t243, %275 ], [ %extract.t, %272 ], [ %spec.select338, %277 ]
   br i1 %266, label %280, label %282
 
 280:                                              ; preds = %279
@@ -3745,8 +3745,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 165:                                              ; preds = %142
   %166 = add nsw i128 %164, 64
-  %extract310 = lshr i128 %166, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %166, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %174
 
 167:                                              ; preds = %142
@@ -3759,19 +3759,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 170:                                              ; preds = %167
   %171 = add nsw i128 %164, 128
-  %extract304 = lshr i128 %171, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %171, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %174
 
 172:                                              ; preds = %142
   %173 = and i128 %164, 127
   %.not292 = icmp ne i128 %173, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %174
 
 174:                                              ; preds = %172, %167, %170, %165, %142
-  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t305, %170 ], [ %extract.t299, %167 ], [ %extract.t311, %165 ], [ %spec.select332, %172 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %142 ], [ %extract.t301, %165 ], [ %extract.t303, %170 ], [ %extract.t299, %167 ], [ %spec.select332, %172 ]
   br i1 %161, label %175, label %177
 
 175:                                              ; preds = %174
@@ -3818,8 +3818,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 201:                                              ; preds = %178
   %202 = add nsw i128 %200, 16384
-  %extract290 = lshr i128 %202, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %202, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %210
 
 203:                                              ; preds = %178
@@ -3832,19 +3832,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 206:                                              ; preds = %203
   %207 = add nsw i128 %200, 32768
-  %extract284 = lshr i128 %207, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %207, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %210
 
 208:                                              ; preds = %178
   %209 = and i128 %200, 32767
   %.not272 = icmp ne i128 %209, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %210
 
 210:                                              ; preds = %208, %203, %206, %201, %178
-  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t285, %206 ], [ %extract.t279, %203 ], [ %extract.t291, %201 ], [ %spec.select334, %208 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %178 ], [ %extract.t281, %201 ], [ %extract.t283, %206 ], [ %extract.t279, %203 ], [ %spec.select334, %208 ]
   br i1 %197, label %211, label %213
 
 211:                                              ; preds = %210
@@ -3891,8 +3891,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 237:                                              ; preds = %214
   %238 = add nsw i128 %236, 1073741824
-  %extract270 = lshr i128 %238, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %238, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %246
 
 239:                                              ; preds = %214
@@ -3905,19 +3905,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 242:                                              ; preds = %239
   %243 = add nsw i128 %236, 2147483648
-  %extract264 = lshr i128 %243, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %243, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %246
 
 244:                                              ; preds = %214
   %245 = and i128 %236, 2147483647
   %.not252 = icmp ne i128 %245, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %246
 
 246:                                              ; preds = %244, %239, %242, %237, %214
-  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t265, %242 ], [ %extract.t259, %239 ], [ %extract.t271, %237 ], [ %spec.select336, %244 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %214 ], [ %extract.t261, %237 ], [ %extract.t263, %242 ], [ %extract.t259, %239 ], [ %spec.select336, %244 ]
   br i1 %233, label %247, label %249
 
 247:                                              ; preds = %246
@@ -3963,8 +3963,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 272:                                              ; preds = %250
   %273 = add nsw i128 %271, 4611686018427387904
-  %extract250 = lshr i128 %273, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %273, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %281
 
 274:                                              ; preds = %250
@@ -3977,19 +3977,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsmul_vv
 
 277:                                              ; preds = %274
   %278 = add nsw i128 %271, 9223372036854775808
-  %extract244 = lshr i128 %278, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %278, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %281
 
 279:                                              ; preds = %250
   %280 = and i128 %271, 9223372036854775807
   %.not235 = icmp ne i128 %280, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %281
 
 281:                                              ; preds = %279, %274, %277, %272, %250
-  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t245, %277 ], [ %extract.t, %274 ], [ %extract.t251, %272 ], [ %spec.select338, %279 ]
+  %.0221.off63 = phi i64 [ %extract.t, %250 ], [ %extract.t241, %272 ], [ %extract.t243, %277 ], [ %extract.t, %274 ], [ %spec.select338, %279 ]
   br i1 %268, label %282, label %284
 
 282:                                              ; preds = %281
@@ -4289,8 +4289,8 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 163:                                              ; preds = %140
   %164 = add nsw i128 %162, 64
-  %extract310 = lshr i128 %164, 7
-  %extract.t311 = trunc i128 %extract310 to i8
+  %extract300 = lshr i128 %164, 7
+  %extract.t301 = trunc i128 %extract300 to i8
   br label %172
 
 165:                                              ; preds = %140
@@ -4303,19 +4303,19 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 168:                                              ; preds = %165
   %169 = add nsw i128 %162, 128
-  %extract304 = lshr i128 %169, 7
-  %extract.t305 = trunc i128 %extract304 to i8
+  %extract302 = lshr i128 %169, 7
+  %extract.t303 = trunc i128 %extract302 to i8
   br label %172
 
 170:                                              ; preds = %140
   %171 = and i128 %162, 127
   %.not292 = icmp ne i128 %171, 0
-  %extract.t301 = zext i1 %.not292 to i8
-  %spec.select332 = or i8 %extract.t301, %extract.t299
+  %extract.t309 = zext i1 %.not292 to i8
+  %spec.select332 = or i8 %extract.t309, %extract.t299
   br label %172
 
 172:                                              ; preds = %170, %165, %168, %163, %140
-  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t305, %168 ], [ %extract.t299, %165 ], [ %extract.t311, %163 ], [ %spec.select332, %170 ]
+  %.0226.off7 = phi i8 [ %extract.t299, %140 ], [ %extract.t301, %163 ], [ %extract.t303, %168 ], [ %extract.t299, %165 ], [ %spec.select332, %170 ]
   br i1 %159, label %173, label %175
 
 173:                                              ; preds = %172
@@ -4362,8 +4362,8 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 199:                                              ; preds = %176
   %200 = add nsw i128 %198, 16384
-  %extract290 = lshr i128 %200, 15
-  %extract.t291 = trunc i128 %extract290 to i16
+  %extract280 = lshr i128 %200, 15
+  %extract.t281 = trunc i128 %extract280 to i16
   br label %208
 
 201:                                              ; preds = %176
@@ -4376,19 +4376,19 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 204:                                              ; preds = %201
   %205 = add nsw i128 %198, 32768
-  %extract284 = lshr i128 %205, 15
-  %extract.t285 = trunc i128 %extract284 to i16
+  %extract282 = lshr i128 %205, 15
+  %extract.t283 = trunc i128 %extract282 to i16
   br label %208
 
 206:                                              ; preds = %176
   %207 = and i128 %198, 32767
   %.not272 = icmp ne i128 %207, 0
-  %extract.t281 = zext i1 %.not272 to i16
-  %spec.select334 = or i16 %extract.t281, %extract.t279
+  %extract.t289 = zext i1 %.not272 to i16
+  %spec.select334 = or i16 %extract.t289, %extract.t279
   br label %208
 
 208:                                              ; preds = %206, %201, %204, %199, %176
-  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t285, %204 ], [ %extract.t279, %201 ], [ %extract.t291, %199 ], [ %spec.select334, %206 ]
+  %.0228.off15 = phi i16 [ %extract.t279, %176 ], [ %extract.t281, %199 ], [ %extract.t283, %204 ], [ %extract.t279, %201 ], [ %spec.select334, %206 ]
   br i1 %195, label %209, label %211
 
 209:                                              ; preds = %208
@@ -4435,8 +4435,8 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 235:                                              ; preds = %212
   %236 = add nsw i128 %234, 1073741824
-  %extract270 = lshr i128 %236, 31
-  %extract.t271 = trunc i128 %extract270 to i32
+  %extract260 = lshr i128 %236, 31
+  %extract.t261 = trunc i128 %extract260 to i32
   br label %244
 
 237:                                              ; preds = %212
@@ -4449,19 +4449,19 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 240:                                              ; preds = %237
   %241 = add nsw i128 %234, 2147483648
-  %extract264 = lshr i128 %241, 31
-  %extract.t265 = trunc i128 %extract264 to i32
+  %extract262 = lshr i128 %241, 31
+  %extract.t263 = trunc i128 %extract262 to i32
   br label %244
 
 242:                                              ; preds = %212
   %243 = and i128 %234, 2147483647
   %.not252 = icmp ne i128 %243, 0
-  %extract.t261 = zext i1 %.not252 to i32
-  %spec.select336 = or i32 %extract.t261, %extract.t259
+  %extract.t269 = zext i1 %.not252 to i32
+  %spec.select336 = or i32 %extract.t269, %extract.t259
   br label %244
 
 244:                                              ; preds = %242, %237, %240, %235, %212
-  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t265, %240 ], [ %extract.t259, %237 ], [ %extract.t271, %235 ], [ %spec.select336, %242 ]
+  %.0224.off31 = phi i32 [ %extract.t259, %212 ], [ %extract.t261, %235 ], [ %extract.t263, %240 ], [ %extract.t259, %237 ], [ %spec.select336, %242 ]
   br i1 %231, label %245, label %247
 
 245:                                              ; preds = %244
@@ -4507,8 +4507,8 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 270:                                              ; preds = %248
   %271 = add nsw i128 %269, 4611686018427387904
-  %extract250 = lshr i128 %271, 63
-  %extract.t251 = trunc i128 %extract250 to i64
+  %extract240 = lshr i128 %271, 63
+  %extract.t241 = trunc i128 %extract240 to i64
   br label %279
 
 272:                                              ; preds = %248
@@ -4521,19 +4521,19 @@ define noundef i64 @_Z21logged_rv64e_vsmul_vvP11processor_t6insn_tm(ptr noundef 
 
 275:                                              ; preds = %272
   %276 = add nsw i128 %269, 9223372036854775808
-  %extract244 = lshr i128 %276, 63
-  %extract.t245 = trunc i128 %extract244 to i64
+  %extract242 = lshr i128 %276, 63
+  %extract.t243 = trunc i128 %extract242 to i64
   br label %279
 
 277:                                              ; preds = %248
   %278 = and i128 %269, 9223372036854775807
   %.not235 = icmp ne i128 %278, 0
-  %extract.t241 = zext i1 %.not235 to i64
-  %spec.select338 = or i64 %extract.t241, %extract.t
+  %extract.t249 = zext i1 %.not235 to i64
+  %spec.select338 = or i64 %extract.t249, %extract.t
   br label %279
 
 279:                                              ; preds = %277, %272, %275, %270, %248
-  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t245, %275 ], [ %extract.t, %272 ], [ %extract.t251, %270 ], [ %spec.select338, %277 ]
+  %.0221.off63 = phi i64 [ %extract.t, %248 ], [ %extract.t241, %270 ], [ %extract.t243, %275 ], [ %extract.t, %272 ], [ %spec.select338, %277 ]
   br i1 %266, label %280, label %282
 
 280:                                              ; preds = %279

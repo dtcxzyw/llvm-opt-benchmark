@@ -523,7 +523,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 SplittingStepCoefficients_LieTrotter.exit:        ; preds = %65, %._crit_edge.us.i.i, %13, %100, %95, %88, %83, %46, %15, %2, %1, %107, %67, %33
-  %.0 = phi ptr [ null, %107 ], [ %68, %67 ], [ %34, %33 ], [ null, %1 ], [ null, %2 ], [ null, %15 ], [ null, %46 ], [ %86, %88 ], [ null, %83 ], [ %98, %100 ], [ null, %95 ], [ %3, %13 ], [ %18, %._crit_edge.us.i.i ], [ %47, %65 ]
+  %.0 = phi ptr [ null, %107 ], [ %34, %33 ], [ %68, %67 ], [ null, %1 ], [ null, %2 ], [ null, %15 ], [ null, %46 ], [ %86, %88 ], [ null, %83 ], [ %98, %100 ], [ null, %95 ], [ %3, %13 ], [ %18, %._crit_edge.us.i.i ], [ %47, %65 ]
   ret ptr %.0
 }
 

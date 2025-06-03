@@ -9247,7 +9247,7 @@ define hidden void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u2
           to label %77 unwind label %75
 
 74:                                               ; preds = %100, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %101, %100 ]
+  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h733df2b47d94b3d7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #57
           to label %107 unwind label %104
 
@@ -14209,7 +14209,7 @@ common.resume:                                    ; preds = %61, %36
           to label %64 unwind label %62
 
 60:                                               ; preds = %46, %64, %58, %57
-  %.sroa.023.0 = phi i64 [ %.sroa.023.0.copyload24, %64 ], [ -9223372036854775806, %58 ], [ -9223372036854775807, %57 ], [ -9223372036854775808, %46 ]
+  %.sroa.023.0 = phi i64 [ -9223372036854775807, %57 ], [ -9223372036854775806, %58 ], [ %.sroa.023.0.copyload24, %64 ], [ -9223372036854775808, %46 ]
   store i64 %.sroa.023.0, ptr %16, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)

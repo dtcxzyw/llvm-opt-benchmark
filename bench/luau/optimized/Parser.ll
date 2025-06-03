@@ -6049,8 +6049,8 @@ define dso_local noundef ptr @_ZN4Luau6Parser9parseStatEv(ptr noundef nonnull al
 75:                                               ; preds = %65
   br label %.thread
 
-.thread:                                          ; preds = %75, %74, %73, %72, %71, %70, %69, %65
-  %.sroa.0.0.i.ph = phi i32 [ 0, %65 ], [ 1, %69 ], [ 2, %70 ], [ 3, %71 ], [ 4, %72 ], [ 5, %73 ], [ 6, %74 ], [ 7, %75 ]
+.thread:                                          ; preds = %69, %70, %71, %72, %73, %74, %75, %65
+  %.sroa.0.0.i.ph = phi i32 [ 0, %65 ], [ 7, %75 ], [ 6, %74 ], [ 5, %73 ], [ 4, %72 ], [ 3, %71 ], [ 2, %70 ], [ 1, %69 ]
   %76 = tail call noundef ptr @_ZN4Luau6Parser23parseCompoundAssignmentEPNS_7AstExprENS_13AstExprBinary2OpE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull %55, i32 noundef %.sroa.0.0.i.ph)
   br label %124
 
@@ -6162,7 +6162,7 @@ _ZNK4Luau8LocationeqERKS0_.exit.thread:           ; preds = %_ZNK4Luau7AstNameeq
   br label %124
 
 124:                                              ; preds = %60, %67, %.thread, %_ZNK4Luau8LocationeqERKS0_.exit.thread, %104, %97, %92, %80, %51, %49, %47, %45, %23, %21, %19, %17, %15, %13
-  %.0 = phi ptr [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %64, %60 ], [ %68, %67 ], [ %76, %.thread ], [ %82, %80 ], [ %94, %92 ], [ %99, %97 ], [ %106, %104 ], [ %123, %_ZNK4Luau8LocationeqERKS0_.exit.thread ]
+  %.0 = phi ptr [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %44, %23 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %64, %60 ], [ %68, %67 ], [ %76, %.thread ], [ %82, %80 ], [ %94, %92 ], [ %99, %97 ], [ %106, %104 ], [ %123, %_ZNK4Luau8LocationeqERKS0_.exit.thread ]
   ret ptr %.0
 }
 
@@ -10041,7 +10041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
   resume { ptr, i32 } %65
 
 74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47, %38, %16
-  %.0 = phi ptr [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %50, %47 ], [ %39, %38 ], [ %37, %16 ]
+  %.0 = phi ptr [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %37, %16 ], [ %39, %38 ], [ %50, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   ret ptr %.0
 }
@@ -14062,9 +14062,9 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit: ; preds = %2
   %.pre = load i64, ptr %16, align 4
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit, %18, %19, %.thread59
-  %20 = phi i64 [ %.pre, %.thread59 ], [ %.sroa.053.0.copyload, %19 ], [ %.sroa.053.0.copyload, %18 ], [ %.sroa.053.0.copyload, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ]
-  %.sroa.042.058 = phi i32 [ 0, %.thread59 ], [ 2, %19 ], [ 1, %18 ], [ 0, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ]
+.thread:                                          ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit, %19, %18, %.thread59
+  %20 = phi i64 [ %.pre, %.thread59 ], [ %.sroa.053.0.copyload, %18 ], [ %.sroa.053.0.copyload, %19 ], [ %.sroa.053.0.copyload, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ]
+  %.sroa.042.058 = phi i32 [ 0, %.thread59 ], [ 1, %18 ], [ 2, %19 ], [ 0, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ]
   call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
   %21 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 8)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -14175,9 +14175,9 @@ _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit: ; preds = %40
   %.sroa.9.0.extract.trunc29 = icmp samesign ugt i64 %57, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread
 
-_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread: ; preds = %40, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit
-  %.sroa.9.0 = phi i1 [ %.sroa.9.0.extract.trunc29, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ true, %56 ], [ true, %55 ], [ true, %54 ], [ true, %53 ], [ true, %52 ], [ true, %51 ], [ true, %50 ], [ true, %49 ], [ true, %48 ], [ true, %47 ], [ true, %46 ], [ true, %45 ], [ true, %44 ], [ true, %43 ], [ true, %42 ], [ true, %40 ]
-  %.sroa.020.0 = phi i32 [ %.sroa.020.0.extract.trunc24, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ 15, %56 ], [ 14, %55 ], [ 13, %54 ], [ 12, %53 ], [ 11, %52 ], [ 10, %51 ], [ 9, %50 ], [ 8, %49 ], [ 7, %48 ], [ 6, %47 ], [ 5, %46 ], [ 4, %45 ], [ 3, %44 ], [ 2, %43 ], [ 1, %42 ], [ 0, %40 ]
+_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit.thread: ; preds = %40, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit
+  %.sroa.9.0 = phi i1 [ %.sroa.9.0.extract.trunc29, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %46 ], [ true, %47 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %40 ]
+  %.sroa.020.0 = phi i32 [ %.sroa.020.0.extract.trunc24, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit ], [ 1, %42 ], [ 2, %43 ], [ 3, %44 ], [ 4, %45 ], [ 5, %46 ], [ 6, %47 ], [ 7, %48 ], [ 8, %49 ], [ 9, %50 ], [ 10, %51 ], [ 11, %52 ], [ 12, %53 ], [ 13, %54 ], [ 14, %55 ], [ 15, %56 ], [ 0, %40 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -14304,9 +14304,9 @@ _ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18: ; preds = %86
   %.sroa.9.0.extract.trunc = icmp samesign ugt i64 %103, 4294967295
   br label %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18.thread
 
-_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18.thread: ; preds = %86, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18
-  %.sroa.9.2 = phi i1 [ %.sroa.9.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18 ], [ true, %102 ], [ true, %101 ], [ true, %100 ], [ true, %99 ], [ true, %98 ], [ true, %97 ], [ true, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %86 ]
-  %.sroa.020.2 = phi i32 [ %.sroa.020.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18 ], [ 15, %102 ], [ 14, %101 ], [ 13, %100 ], [ 12, %99 ], [ 11, %98 ], [ 10, %97 ], [ 9, %96 ], [ 8, %95 ], [ 7, %94 ], [ 6, %93 ], [ 5, %92 ], [ 4, %91 ], [ 3, %90 ], [ 2, %89 ], [ 1, %88 ], [ 0, %86 ]
+_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18.thread: ; preds = %86, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18
+  %.sroa.9.2 = phi i1 [ %.sroa.9.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18 ], [ true, %88 ], [ true, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ true, %86 ]
+  %.sroa.020.2 = phi i32 [ %.sroa.020.0.extract.trunc, %_ZN4Luau6Parser13parseBinaryOpERKNS_6LexemeE.exit18 ], [ 1, %88 ], [ 2, %89 ], [ 3, %90 ], [ 4, %91 ], [ 5, %92 ], [ 6, %93 ], [ 7, %94 ], [ 8, %95 ], [ 9, %96 ], [ 10, %97 ], [ 11, %98 ], [ 12, %99 ], [ 13, %100 ], [ 14, %101 ], [ 15, %102 ], [ 0, %86 ]
   %104 = load i32, ptr %8, align 4, !tbaa !287
   %105 = add i32 %104, 1
   store i32 %105, ptr %8, align 4, !tbaa !287
@@ -21128,7 +21128,7 @@ _ZNSt6vectorIPN4Luau7AstTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   br label %88
 
 88:                                               ; preds = %_ZNSt6vectorIPN4Luau7AstTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i55, %66
-  %89 = add nuw nsw i64 %.sroa.26.1, 1
+  %89 = add i64 %.sroa.26.1, 1
   store i32 %60, ptr %42, align 4, !tbaa !287
   br label %161
 
@@ -21373,10 +21373,10 @@ _ZNSt6vectorIPN4Luau7AstTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
           to label %161 unwind label %.loopexit153
 
 161:                                              ; preds = %125, %160, %157, %88
-  %.sroa.26.2 = phi i64 [ %.sroa.26.1, %160 ], [ %158, %157 ], [ %.sroa.26.3, %125 ], [ %89, %88 ]
-  %.139 = phi i8 [ %.038, %160 ], [ %.038, %157 ], [ 1, %125 ], [ 1, %88 ]
-  %.136 = phi i8 [ %.035, %160 ], [ 1, %157 ], [ %.035, %125 ], [ %.035, %88 ]
-  %.133 = phi i8 [ %.032, %160 ], [ %.032, %157 ], [ 1, %125 ], [ %.032, %88 ]
+  %.sroa.26.2 = phi i64 [ %89, %88 ], [ %.sroa.26.3, %125 ], [ %158, %157 ], [ %.sroa.26.1, %160 ]
+  %.139 = phi i8 [ 1, %88 ], [ 1, %125 ], [ %.038, %157 ], [ %.038, %160 ]
+  %.136 = phi i8 [ %.035, %88 ], [ %.035, %125 ], [ 1, %157 ], [ %.035, %160 ]
+  %.133 = phi i8 [ %.032, %88 ], [ 1, %125 ], [ %.032, %157 ], [ %.032, %160 ]
   %162 = load i32, ptr @_ZN4FInt19LuauTypeLengthLimitE, align 8, !tbaa !288
   %163 = zext nneg i8 %.133 to i32
   %164 = add i32 %162, %163
@@ -21793,8 +21793,8 @@ define dso_local range(i64 0, -4294967292) i64 @_ZN4Luau6Parser20extractStringDe
   br label %12
 
 12:                                               ; preds = %1, %8, %4
-  %.02 = phi i64 [ 2, %8 ], [ %7, %4 ], [ 3, %1 ]
-  %.0 = phi i64 [ %11, %8 ], [ 0, %4 ], [ 0, %1 ]
+  %.02 = phi i64 [ %7, %4 ], [ 2, %8 ], [ 3, %1 ]
+  %.0 = phi i64 [ 0, %4 ], [ %11, %8 ], [ 0, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.0, %.02
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -24343,8 +24343,8 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit: ; preds = %3
   br label %_ZN4Luau6Parser20extractStringDetailsEv.exit
 
 _ZN4Luau6Parser20extractStringDetailsEv.exit:     ; preds = %91, %95
-  %.02.i = phi i32 [ 2, %95 ], [ %94, %91 ]
-  %.0.i = phi i32 [ %96, %95 ], [ 0, %91 ]
+  %.02.i = phi i32 [ %94, %91 ], [ 2, %95 ]
+  %.0.i = phi i32 [ 0, %91 ], [ %96, %95 ]
   store i32 %.02.i, ptr %11, align 4, !tbaa !676
   store i32 %.0.i, ptr %12, align 4, !tbaa !4
   %.pre = load i8, ptr %87, align 8, !tbaa !321, !range !174
@@ -24572,8 +24572,8 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %152
   br label %263
 
 _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %152, %151, %_ZNK4Luau7AstNameeqEPKc.exit, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit29
-  %.sroa.768.0 = phi i8 [ 0, %152 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 0, %151 ], [ 1, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ 1, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit29 ]
-  %.sroa.067.0 = phi ptr [ undef, %152 ], [ undef, %_ZNK4Luau7AstNameeqEPKc.exit ], [ undef, %151 ], [ %143, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %143, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit29 ]
+  %.sroa.768.0 = phi i8 [ 0, %152 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 1, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ 1, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit29 ], [ 0, %151 ]
+  %.sroa.067.0 = phi ptr [ undef, %152 ], [ undef, %_ZNK4Luau7AstNameeqEPKc.exit ], [ %143, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %143, %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit29 ], [ undef, %151 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #29
@@ -25784,8 +25784,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   br label %382
 
-.thread:                                          ; preds = %146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %294, %288
-  %.1.ph = phi ptr [ %287, %288 ], [ %293, %294 ], [ %300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %145, %146 ]
+.thread:                                          ; preds = %146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %288, %294
+  %.1.ph = phi ptr [ %293, %294 ], [ %287, %288 ], [ %300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %145, %146 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
   br label %404
 
@@ -25794,7 +25794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
   br label %58
 
 .loopexit236:                                     ; preds = %187, %223, %254
-  %.sroa.14.1.ph = phi i64 [ %188, %223 ], [ %188, %254 ], [ %.sroa.14.0, %187 ]
+  %.sroa.14.1.ph = phi i64 [ %188, %254 ], [ %188, %223 ], [ %.sroa.14.0, %187 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
   %323 = icmp eq i64 %188, 0
@@ -25940,7 +25940,7 @@ _ZN4Luau9Allocator5allocINS_19CstExprInterpStringEJNS_8AstArrayINS3_IcEEEENS3_IN
   br label %401
 
 382:                                              ; preds = %.loopexit237, %.loopexit.split-lp238, %.loopexit231, %.loopexit.split-lp232, %.loopexit226, %.loopexit.split-lp227, %.loopexit225, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %295, %289, %255, %224, %193, %147
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %296, %295 ], [ %194, %193 ], [ %290, %289 ], [ %256, %255 ], [ %225, %224 ], [ %lpad.loopexit, %.loopexit225 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit228, %.loopexit226 ], [ %lpad.loopexit.split-lp229, %.loopexit.split-lp227 ], [ %lpad.loopexit233, %.loopexit231 ], [ %lpad.loopexit.split-lp234, %.loopexit.split-lp232 ], [ %lpad.loopexit239, %.loopexit237 ], [ %lpad.loopexit.split-lp240, %.loopexit.split-lp238 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %290, %289 ], [ %194, %193 ], [ %296, %295 ], [ %225, %224 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit225 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit228, %.loopexit226 ], [ %lpad.loopexit.split-lp229, %.loopexit.split-lp227 ], [ %lpad.loopexit233, %.loopexit231 ], [ %lpad.loopexit.split-lp234, %.loopexit.split-lp232 ], [ %lpad.loopexit239, %.loopexit237 ], [ %lpad.loopexit.split-lp240, %.loopexit.split-lp238 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
   br label %417
 
@@ -27299,8 +27299,8 @@ define dso_local range(i64 0, 4294967300) i64 @_ZN4Luau6Parser12parseUnaryOpERKN
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3
-  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %1 ]
-  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %1 ]
+  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 1, %3 ], [ 2, %4 ], [ 0, %1 ]
+  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 4294967296, %3 ], [ 4294967296, %4 ], [ 4294967296, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -27376,8 +27376,8 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4Luau6Parser13parseBinaryOpERK
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 15, %17 ], [ 14, %16 ], [ 13, %15 ], [ 12, %14 ], [ 11, %13 ], [ 10, %12 ], [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ 4, %6 ], [ 3, %5 ], [ 2, %4 ], [ 1, %3 ], [ 0, %1 ]
-  %.sroa.17.0 = phi i64 [ 0, %18 ], [ 4294967296, %17 ], [ 4294967296, %16 ], [ 4294967296, %15 ], [ 4294967296, %14 ], [ 4294967296, %13 ], [ 4294967296, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %1 ]
+  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 0, %1 ]
+  %.sroa.17.0 = phi i64 [ 0, %18 ], [ 4294967296, %3 ], [ 4294967296, %4 ], [ 4294967296, %5 ], [ 4294967296, %6 ], [ 4294967296, %7 ], [ 4294967296, %8 ], [ 4294967296, %9 ], [ 4294967296, %10 ], [ 4294967296, %11 ], [ 4294967296, %12 ], [ 4294967296, %13 ], [ 4294967296, %14 ], [ 4294967296, %15 ], [ 4294967296, %16 ], [ 4294967296, %17 ], [ 4294967296, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.17.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -29237,8 +29237,8 @@ define dso_local noundef ptr @_ZN4Luau6Parser11parseStringEv(ptr noundef nonnull
   br label %_ZN4Luau6Parser20extractStringDetailsEv.exit
 
 _ZN4Luau6Parser20extractStringDetailsEv.exit:     ; preds = %23, %19, %18, %14
-  %.010 = phi i32 [ undef, %14 ], [ %24, %23 ], [ 0, %19 ], [ 0, %18 ]
-  %.09 = phi i32 [ undef, %14 ], [ 2, %23 ], [ %22, %19 ], [ 3, %18 ]
+  %.010 = phi i32 [ undef, %14 ], [ 0, %19 ], [ %24, %23 ], [ 0, %18 ]
+  %.09 = phi i32 [ undef, %14 ], [ %22, %19 ], [ 2, %23 ], [ 3, %18 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
   %25 = load i8, ptr %15, align 8, !tbaa !321, !range !174, !noundef !175

@@ -1132,7 +1132,7 @@ list_replace_refs.exit:                           ; preds = %_.exit.i56, %435
   unreachable
 
 440:                                              ; preds = %list_replace_refs.exit, %convert_graft_file.exit, %372, %edit_and_replace.exit, %replace_object.exit, %for_each_replace_name.exit
-  %.0 = phi i32 [ %.0.i58, %list_replace_refs.exit ], [ %.0.i50, %convert_graft_file.exit ], [ %373, %372 ], [ %.0.i38, %edit_and_replace.exit ], [ %.0.i, %replace_object.exit ], [ %.011.lcssa.i, %for_each_replace_name.exit ]
+  %.0 = phi i32 [ %.011.lcssa.i, %for_each_replace_name.exit ], [ %.0.i, %replace_object.exit ], [ %.0.i38, %edit_and_replace.exit ], [ %373, %372 ], [ %.0.i50, %convert_graft_file.exit ], [ %.0.i58, %list_replace_refs.exit ]
   call void @llvm.lifetime.end.p0(i64 792, ptr nonnull %25) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #16

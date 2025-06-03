@@ -154,7 +154,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %42
 
 42:                                               ; preds = %.lr.ph, %39, %41, %37, %28
-  %.1 = phi ptr [ %.02533, %41 ], [ %40, %39 ], [ %.02533, %.lr.ph ], [ %38, %37 ], [ %.02533, %28 ]
+  %.1 = phi ptr [ %.02533, %41 ], [ %38, %37 ], [ %.02533, %28 ], [ %.02533, %.lr.ph ], [ %40, %39 ]
   %43 = getelementptr inbounds nuw i8, ptr %.02632, i64 16
   %.not28 = icmp eq ptr %43, %24
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !30
@@ -287,7 +287,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   br label %42
 
 42:                                               ; preds = %28, %33, %40
-  %.149 = phi i32 [ %.04856, %28 ], [ %41, %40 ], [ %.04856, %33 ]
+  %.149 = phi i32 [ %.04856, %28 ], [ %.04856, %33 ], [ %41, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %28, !llvm.loop !43
@@ -415,7 +415,7 @@ _ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %48, %56, %58, %59, 
   br label %89
 
 89:                                               ; preds = %.critedge.thread, %_ZN3sat6solver11assign_unitENS_7literalE.exit, %72, %87, %80, %43
-  %.1 = phi ptr [ %.04659, %43 ], [ %83, %80 ], [ %83, %87 ], [ %.04659, %72 ], [ %.04659, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %.04659, %.critedge.thread ]
+  %.1 = phi ptr [ %.04659, %43 ], [ %83, %80 ], [ %83, %87 ], [ %.04659, %.critedge.thread ], [ %.04659, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %.04659, %72 ]
   %90 = getelementptr inbounds nuw i8, ptr %.060, i64 8
   %.not = icmp eq ptr %90, %12
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !56

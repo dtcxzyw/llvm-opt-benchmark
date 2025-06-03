@@ -861,9 +861,9 @@ define internal i32 @dissect_icmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %62
 
 62:                                               ; preds = %59, %56, %53, %50, %47, %45, %39, %36, %33
-  %.0300 = phi ptr [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %45 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ]
-  %.0299 = phi ptr [ %31, %59 ], [ %31, %56 ], [ %31, %53 ], [ %31, %50 ], [ %31, %47 ], [ %.1, %45 ], [ %31, %39 ], [ %31, %36 ], [ %31, %33 ]
-  %.0 = phi i8 [ %29, %59 ], [ %29, %56 ], [ %29, %53 ], [ %29, %50 ], [ %29, %47 ], [ %29, %45 ], [ 0, %39 ], [ %29, %36 ], [ %29, %33 ]
+  %.0300 = phi ptr [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %46, %45 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
+  %.0299 = phi ptr [ %31, %33 ], [ %31, %36 ], [ %31, %39 ], [ %.1, %45 ], [ %31, %47 ], [ %31, %50 ], [ %31, %53 ], [ %31, %56 ], [ %31, %59 ]
+  %.0 = phi i8 [ %29, %33 ], [ %29, %36 ], [ 0, %39 ], [ %29, %45 ], [ %29, %47 ], [ %29, %50 ], [ %29, %53 ], [ %29, %56 ], [ %29, %59 ]
   %63 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.235, ptr noundef %.0299)
   %.not311 = icmp eq ptr %.0300, null
@@ -2065,7 +2065,7 @@ get_best_guess_mstimeofday.exit368:               ; preds = %get_best_guess_msti
   br label %719
 
 719:                                              ; preds = %242, %113, %.thread378, %.thread380, %716, %.thread384, %._crit_edge, %611, %proto_item_set_generated.exit341, %583, %553, %556, %279, %292, %287, %713, %get_best_guess_mstimeofday.exit368
-  %.0302 = phi ptr [ null, %242 ], [ null, %716 ], [ null, %.thread380 ], [ null, %713 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread384 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %292 ], [ null, %287 ], [ null, %279 ], [ null, %.thread378 ], [ null, %113 ]
+  %.0302 = phi ptr [ null, %242 ], [ null, %292 ], [ null, %287 ], [ null, %279 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread384 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %713 ], [ null, %716 ], [ null, %.thread380 ], [ null, %.thread378 ], [ null, %113 ]
   %720 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 57
@@ -2621,7 +2621,7 @@ dissect_mpls_extended_payload_object.exit.thread: ; preds = %.thread, %dissect_i
   br label %dissect_mpls_extended_payload_object.exit.thread116
 
 dissect_mpls_extended_payload_object.exit.thread116: ; preds = %dissect_interface_information_object.exit, %198, %dissect_mpls_stack_entry_object.exit, %dissect_interface_identification_object.exit, %218, %216, %dissect_interface_identification_object.exit.thread, %dissect_mpls_extended_payload_object.exit.thread, %282
-  %.1113 = phi i8 [ %.1114, %dissect_mpls_extended_payload_object.exit.thread ], [ %.1114, %282 ], [ %.0125, %dissect_interface_identification_object.exit ], [ %193, %198 ], [ %.0125, %dissect_mpls_stack_entry_object.exit ], [ %.0125, %dissect_interface_identification_object.exit.thread ], [ %.0125, %216 ], [ %.0125, %218 ], [ %193, %dissect_interface_information_object.exit ]
+  %.1113 = phi i8 [ %.1114, %dissect_mpls_extended_payload_object.exit.thread ], [ %.1114, %282 ], [ %.0125, %dissect_mpls_stack_entry_object.exit ], [ %193, %198 ], [ %.0125, %dissect_interface_identification_object.exit ], [ %.0125, %dissect_interface_identification_object.exit.thread ], [ %.0125, %216 ], [ %.0125, %218 ], [ %193, %dissect_interface_information_object.exit ]
   %287 = icmp ult i16 %46, %38
   br i1 %287, label %288, label %290
 

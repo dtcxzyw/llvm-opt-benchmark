@@ -2141,8 +2141,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %212, label %207
 
-116:                                              ; preds = %62, %55
-  %.sroa.0.0.i.ph = phi ptr [ %56, %55 ], [ %63, %62 ]
+116:                                              ; preds = %55, %62
+  %.sroa.0.0.i.ph = phi ptr [ %63, %62 ], [ %56, %55 ]
   store ptr %.sroa.0.0.i.ph, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %117, align 1
@@ -2169,8 +2169,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %122
 
-124:                                              ; preds = %78, %71
-  %.sroa.0.0.i112.ph = phi ptr [ %72, %71 ], [ %79, %78 ]
+124:                                              ; preds = %71, %78
+  %.sroa.0.0.i112.ph = phi ptr [ %79, %78 ], [ %72, %71 ]
   store ptr %.sroa.0.0.i112.ph, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %125, align 1
@@ -2192,8 +2192,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %122
 
-131:                                              ; preds = %94, %87
-  %.sroa.0.0.i117.ph = phi ptr [ %88, %87 ], [ %95, %94 ]
+131:                                              ; preds = %87, %94
+  %.sroa.0.0.i117.ph = phi ptr [ %95, %94 ], [ %88, %87 ]
   store ptr %.sroa.0.0.i117.ph, ptr %0, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %132, align 1
@@ -2441,7 +2441,7 @@ common.resume.sink.split:                         ; preds = %205, %239
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %226, %186
-  %common.resume.op = phi { ptr, i32 } [ %227, %226 ], [ %187, %186 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %187, %186 ], [ %227, %226 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 205:                                              ; preds = %203, %199, %197

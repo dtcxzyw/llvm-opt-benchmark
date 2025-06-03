@@ -2083,7 +2083,7 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %25
   br label %236
 
 Aig_ManPartitionMonolithic.exit:                  ; preds = %36, %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i, %43, %41, %39
-  %.086 = phi ptr [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
+  %.086 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %71, label %46
 

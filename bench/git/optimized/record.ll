@@ -164,7 +164,7 @@ define dso_local ptr @reftable_ref_record_val1(ptr noundef readonly captures(ret
   br label %8
 
 8:                                                ; preds = %1, %6, %4
-  %.0 = phi ptr [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -755,7 +755,7 @@ define dso_local i32 @reftable_record_key(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 reftable_record_data.exit:                        ; preds = %5, %4, %3, %2
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %5 ], [ @reftable_index_record_vtable, %4 ], [ @reftable_log_record_vtable, %3 ], [ @reftable_ref_record_vtable, %2 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %3 ], [ @reftable_index_record_vtable, %4 ], [ @reftable_obj_record_vtable, %5 ], [ @reftable_ref_record_vtable, %2 ]
   %7 = load ptr, ptr %.0.i, align 8, !tbaa !31
   %.0.i3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 %7(ptr noundef nonnull %.0.i3, ptr noundef %1) #17
@@ -786,7 +786,7 @@ define dso_local i32 @reftable_record_encode(ptr noundef %0, ptr %1, i64 %2, i32
   unreachable
 
 reftable_record_data.exit:                        ; preds = %7, %6, %5, %4
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %7 ], [ @reftable_index_record_vtable, %6 ], [ @reftable_log_record_vtable, %5 ], [ @reftable_ref_record_vtable, %4 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %5 ], [ @reftable_index_record_vtable, %6 ], [ @reftable_obj_record_vtable, %7 ], [ @reftable_ref_record_vtable, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -818,7 +818,7 @@ define dso_local i32 @reftable_record_copy_from(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 reftable_record_data.exit:                        ; preds = %6, %5, %4, %3
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %6 ], [ @reftable_index_record_vtable, %5 ], [ @reftable_log_record_vtable, %4 ], [ @reftable_ref_record_vtable, %3 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %4 ], [ @reftable_index_record_vtable, %5 ], [ @reftable_obj_record_vtable, %6 ], [ @reftable_ref_record_vtable, %3 ]
   %8 = load i8, ptr %1, align 8, !tbaa !29
   switch i8 %8, label %9 [
     i8 114, label %reftable_record_data.exit5
@@ -864,7 +864,7 @@ define dso_local zeroext i8 @reftable_record_val_type(ptr noundef %0) local_unna
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -896,7 +896,7 @@ define dso_local i32 @reftable_record_decode(ptr noundef %0, ptr noundef readonl
   unreachable
 
 reftable_record_data.exit:                        ; preds = %10, %9, %8, %7
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %10 ], [ @reftable_index_record_vtable, %9 ], [ @reftable_log_record_vtable, %8 ], [ @reftable_ref_record_vtable, %7 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %8 ], [ @reftable_index_record_vtable, %9 ], [ @reftable_obj_record_vtable, %10 ], [ @reftable_ref_record_vtable, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %.0.i4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -928,7 +928,7 @@ define dso_local void @reftable_record_release(ptr noundef %0) local_unnamed_add
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -960,7 +960,7 @@ define dso_local i32 @reftable_record_is_deletion(ptr noundef %0) local_unnamed_
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1001,7 +1001,7 @@ define dso_local i32 @reftable_record_cmp(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 reftable_record_data.exit7:                       ; preds = %6, %7, %8, %9
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %9 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_log_record_vtable, %7 ], [ @reftable_ref_record_vtable, %6 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_obj_record_vtable, %9 ], [ @reftable_ref_record_vtable, %6 ]
   %.0.i5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !39
@@ -1042,7 +1042,7 @@ define dso_local i32 @reftable_record_equal(ptr noundef %0, ptr noundef %1, i32 
   unreachable
 
 reftable_record_data.exit8:                       ; preds = %6, %7, %8, %9
-  %.0.i = phi ptr [ @reftable_obj_record_vtable, %9 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_log_record_vtable, %7 ], [ @reftable_ref_record_vtable, %6 ]
+  %.0.i = phi ptr [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_obj_record_vtable, %9 ], [ @reftable_ref_record_vtable, %6 ]
   %.0.i6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !40
@@ -1128,7 +1128,7 @@ define dso_local range(i32 0, 2) i32 @reftable_ref_record_equal(ptr noundef read
   unreachable
 
 36:                                               ; preds = %17, %24, %28, %7, %12, %3, %31, %18
-  %.0.shrunk = phi i1 [ %.not.i29, %31 ], [ %.not22, %18 ], [ false, %3 ], [ false, %12 ], [ false, %7 ], [ false, %24 ], [ %.not.i26, %28 ], [ true, %17 ]
+  %.0.shrunk = phi i1 [ %.not22, %18 ], [ %.not.i29, %31 ], [ false, %3 ], [ false, %12 ], [ false, %7 ], [ false, %24 ], [ %.not.i26, %28 ], [ true, %17 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1514,7 +1514,7 @@ encode_string.exit:                               ; preds = %47
   unreachable
 
 77:                                               ; preds = %72, %61, %54, %23
-  %.sroa.16.0 = phi i64 [ %26, %23 ], [ %75, %72 ], [ %68, %61 ], [ %56, %54 ]
+  %.sroa.16.0 = phi i64 [ %56, %54 ], [ %68, %61 ], [ %75, %72 ], [ %26, %23 ]
   %78 = sub i64 %2, %.sroa.16.0
   %79 = trunc i64 %78 to i32
   br label %encode_string.exit.thread
@@ -1763,7 +1763,7 @@ decode_string.exit:                               ; preds = %97
   unreachable
 
 109:                                              ; preds = %103, %66, %58, %47
-  %.sroa.16.0 = phi i64 [ %29, %47 ], [ %105, %103 ], [ %73, %66 ], [ %61, %58 ]
+  %.sroa.16.0 = phi i64 [ %61, %58 ], [ %73, %66 ], [ %105, %103 ], [ %29, %47 ]
   %110 = sub i64 %4, %.sroa.16.0
   %111 = trunc i64 %110 to i32
   br label %get_var_int.exit.thread
@@ -3617,10 +3617,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

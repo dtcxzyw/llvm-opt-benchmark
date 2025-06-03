@@ -2282,8 +2282,8 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %30
 
 30:                                               ; preds = %28, %26, %24, %22, %20, %18, %16, %11
-  %31 = phi i32 [ %.pre, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %11 ]
-  %.0 = phi i1 [ %29, %28 ], [ true, %26 ], [ true, %24 ], [ true, %22 ], [ true, %20 ], [ true, %18 ], [ true, %16 ], [ true, %11 ]
+  %31 = phi i32 [ %.pre, %28 ], [ %15, %11 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
+  %.0 = phi i1 [ %29, %28 ], [ true, %11 ], [ true, %16 ], [ true, %18 ], [ true, %20 ], [ true, %22 ], [ true, %24 ], [ true, %26 ]
   %.not = icmp eq i32 %31, %14
   br i1 %.not, label %33, label %32
 
@@ -4362,7 +4362,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %17
 
 17:                                               ; preds = %7, %15, %13, %11, %SDL_SurfaceValid.exit.thread
-  %.0 = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %6, %SDL_SurfaceValid.exit.thread ], [ true, %7 ]
+  %.0 = phi i1 [ %16, %15 ], [ %12, %11 ], [ %14, %13 ], [ %6, %SDL_SurfaceValid.exit.thread ], [ true, %7 ]
   ret i1 %.0
 }
 

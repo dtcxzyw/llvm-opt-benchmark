@@ -552,7 +552,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
   unreachable
 
 70:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45", %75, %72, %63
-  %.0 = phi i64 [ %76, %75 ], [ %73, %72 ], [ %68, %63 ], [ %.val.i.i44, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45" ], [ %77, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit" ], [ %.val.i.i42, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit" ]
+  %.0 = phi i64 [ %68, %63 ], [ %73, %72 ], [ %76, %75 ], [ %.val.i.i42, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit" ], [ %77, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit" ], [ %.val.i.i44, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45" ]
   ret i64 %.0
 
 default.unreachable46:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
@@ -572,7 +572,7 @@ default.unreachable46:                            ; preds = %"_ZN106_$LT$core..o
   br label %72
 
 72:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-  %.028 = phi i16 [ %.val.i.i36, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37" ], [ %71, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ]
+  %.028 = phi i16 [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ], [ %71, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i36, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37" ]
   %73 = zext i16 %.028 to i64
   br label %70
 
@@ -590,7 +590,7 @@ default.unreachable46:                            ; preds = %"_ZN106_$LT$core..o
   br label %75
 
 75:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit"
-  %.029 = phi i32 [ %.val.i.i40, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41" ], [ %74, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit" ], [ %.val.i.i38, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit" ]
+  %.029 = phi i32 [ %.val.i.i38, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit" ], [ %74, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit" ], [ %.val.i.i40, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41" ]
   %76 = zext i32 %.029 to i64
   br label %70
 
@@ -716,7 +716,7 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
   br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
 
 _ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit: ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i"
-  %.0.in.i = phi i32 [ %.val.i.i2.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i" ], [ %43, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i" ], [ %.val.i.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i" ]
+  %.0.in.i = phi i32 [ %.val.i.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i" ], [ %43, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i" ], [ %.val.i.i2.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i" ]
   %.0.i = bitcast i32 %.0.in.i to float
   %44 = fpext float %.0.i to double
   br label %114
@@ -767,7 +767,7 @@ _ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit: ; preds = %
   br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit
 
 _ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit: ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i"
-  %.0.in.i25 = phi i64 [ %.val.i.i2.i24, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i" ], [ %60, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i" ], [ %.val.i.i.i28, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i" ]
+  %.0.in.i25 = phi i64 [ %.val.i.i.i28, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i" ], [ %60, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i" ], [ %.val.i.i2.i24, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i" ]
   %.0.i26 = bitcast i64 %.0.in.i25 to double
   br label %114
 
@@ -788,7 +788,7 @@ default.unreachable35:                            ; preds = %"_ZN106_$LT$core..o
   br label %62
 
 62:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-  %.021 = phi i16 [ %.val.i.i31, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32" ], [ %61, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ]
+  %.021 = phi i16 [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ], [ %61, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i31, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32" ]
   %63 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
@@ -877,7 +877,7 @@ _ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit: ; preds = 
   br label %114
 
 114:                                              ; preds = %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit, %111, %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit, %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
-  %.0 = phi double [ %.0.i26, %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit ], [ %44, %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit ], [ %113, %111 ], [ %.0.i34, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit ]
+  %.0 = phi double [ %113, %111 ], [ %.0.i34, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit ], [ %44, %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit ], [ %.0.i26, %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit ]
   ret double %.0
 }
 

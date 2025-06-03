@@ -258,7 +258,7 @@ define noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnu
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %2, %7, %8, %10, %12, %14, %16, %18, %20, %22, %24
-  %.sroa.0.0.i = phi i64 [ %25, %24 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %4, %7 ], [ 0, %2 ], [ %21, %20 ], [ %23, %22 ]
+  %.sroa.0.0.i = phi i64 [ %4, %7 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ 0, %2 ], [ %21, %20 ], [ %23, %22 ]
   %27 = and i32 %1, 65535
   %28 = zext nneg i32 %27 to i64
   switch i8 %.sroa.2.0.extract.trunc, label %47 [
@@ -316,7 +316,7 @@ _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %2, %7, %8, %10, %12
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit10:      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit, %29, %31, %33, %35, %37, %39, %41, %43, %45
-  %.sroa.0.0.i9 = phi i64 [ %46, %45 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %42, %41 ], [ %44, %43 ], [ %28, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
+  %.sroa.0.0.i9 = phi i64 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %42, %41 ], [ %44, %43 ], [ %28, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
   %48 = icmp eq i64 %.sroa.0.0.i9, 0
   br i1 %48, label %_ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread, label %50
 
@@ -407,7 +407,7 @@ define range(i64 0, 393210000001) i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr 
   unreachable
 
 _ZN9grpc_core8Duration7MinutesEl.exit:            ; preds = %21, %19, %1, %23, %17, %15, %13, %11, %9, %7, %6
-  %.sroa.0.0 = phi i64 [ %24, %23 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %3, %6 ], [ 0, %1 ], [ %20, %19 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ %3, %6 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %24, %23 ], [ 0, %1 ], [ %20, %19 ], [ %22, %21 ]
   ret i64 %.sroa.0.0
 }
 
@@ -514,13 +514,13 @@ define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr dead_on_unwind noalias writable
   br label %42
 
 42:                                               ; preds = %40, %32
-  %.6 = phi ptr [ %35, %32 ], [ %41, %40 ]
+  %.6 = phi ptr [ %41, %40 ], [ %35, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   store i8 48, ptr %.6, align 1, !tbaa !10
   br label %44
 
 44:                                               ; preds = %42, %32
-  %.7 = phi ptr [ %35, %32 ], [ %43, %42 ]
+  %.7 = phi ptr [ %43, %42 ], [ %35, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   store i8 109, ptr %.7, align 1, !tbaa !10
   br label %60
@@ -531,13 +531,13 @@ define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr dead_on_unwind noalias writable
   br label %48
 
 48:                                               ; preds = %46, %32
-  %.8 = phi ptr [ %35, %32 ], [ %47, %46 ]
+  %.8 = phi ptr [ %47, %46 ], [ %35, %32 ]
   %49 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   store i8 48, ptr %.8, align 1, !tbaa !10
   br label %50
 
 50:                                               ; preds = %48, %32
-  %.9 = phi ptr [ %35, %32 ], [ %49, %48 ]
+  %.9 = phi ptr [ %49, %48 ], [ %35, %32 ]
   %51 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   store i8 83, ptr %.9, align 1, !tbaa !10
   br label %60
@@ -548,13 +548,13 @@ define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr dead_on_unwind noalias writable
   br label %54
 
 54:                                               ; preds = %52, %32
-  %.10 = phi ptr [ %35, %32 ], [ %53, %52 ]
+  %.10 = phi ptr [ %53, %52 ], [ %35, %32 ]
   %55 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   store i8 48, ptr %.10, align 1, !tbaa !10
   br label %56
 
 56:                                               ; preds = %54, %32
-  %.11 = phi ptr [ %35, %32 ], [ %55, %54 ]
+  %.11 = phi ptr [ %55, %54 ], [ %35, %32 ]
   %57 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   store i8 77, ptr %.11, align 1, !tbaa !10
   br label %60
@@ -565,7 +565,7 @@ define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr dead_on_unwind noalias writable
   br label %60
 
 60:                                               ; preds = %58, %56, %50, %44, %38, %32
-  %.5 = phi ptr [ %35, %32 ], [ %59, %58 ], [ %57, %56 ], [ %51, %50 ], [ %45, %44 ], [ %39, %38 ]
+  %.5 = phi ptr [ %35, %32 ], [ %39, %38 ], [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
   %61 = ptrtoint ptr %.5 to i64
   %62 = ptrtoint ptr %3 to i64
   %63 = sub i64 %61, %62
@@ -890,7 +890,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br label %59
 
 59:                                               ; preds = %56, %53, %50, %48, %41, %34
-  %.sroa.0.0 = phi i64 [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %48 ], [ %47, %41 ], [ %40, %34 ]
+  %.sroa.0.0 = phi i64 [ %40, %34 ], [ %47, %41 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %.291, i64 1
   %.not6.i = icmp eq ptr %60, %11
   br i1 %.not6.i, label %_ZN9grpc_core12_GLOBAL__N_110IsAllSpaceEPKhS2_.exit, label %.lr.ph.i

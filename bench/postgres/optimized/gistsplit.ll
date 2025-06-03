@@ -129,8 +129,8 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   %73 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef %29) #7
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %72, %56, %53, %50, %47, %62, %64
-  %.1.i.ph = phi i64 [ %63, %62 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %57, %56 ], [ %65, %64 ], [ %73, %72 ]
+index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, %56, %62, %64
+  %.1.i.ph = phi i64 [ %63, %62 ], [ %57, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %65, %64 ], [ %73, %72 ]
   %74 = sext i32 %.0143156 to i64
   %75 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %23, i64 0, i64 %74
   %76 = trunc i32 %.0143156 to i16

@@ -3291,7 +3291,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit: ; pr
   br label %_ZN7rocksdb6StatusC2EOS0_.exit
 
 _ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit, %54, %_ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit
-  %.sroa.2845.0 = phi ptr [ null, %54 ], [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit ], [ %42, %_ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit ]
+  %.sroa.2845.0 = phi ptr [ null, %54 ], [ %42, %_ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit ], [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit ]
   %172 = load ptr, ptr %17, align 8, !tbaa !699
   %.not5.i.i.i = icmp eq ptr %172, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
@@ -3423,7 +3423,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 219:                                              ; preds = %113, %164, %52
-  %.pn18 = phi { ptr, i32 } [ %165, %164 ], [ %lpad.phi, %113 ], [ %53, %52 ]
+  %.pn18 = phi { ptr, i32 } [ %53, %52 ], [ %165, %164 ], [ %lpad.phi, %113 ]
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #27
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #27
   %.not.i.i37 = icmp eq ptr %42, null

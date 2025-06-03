@@ -1219,7 +1219,7 @@ _ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.i.i.i: ; pred
   br label %_ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.thread.i.i.i
 
 _ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.thread.i.i.i: ; preds = %294, %_ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.i.i.i, %287, %285, %283, %.lr.ph.i.i18
-  %.5.i.i = phi i64 [ %.28097.i.i, %283 ], [ %.28097.i.i, %_ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.i.i.i ], [ %295, %294 ], [ %.28097.i.i, %287 ], [ %.28097.i.i, %285 ], [ %.28097.i.i, %.lr.ph.i.i18 ]
+  %.5.i.i = phi i64 [ %.28097.i.i, %283 ], [ %295, %294 ], [ %.28097.i.i, %285 ], [ %.28097.i.i, %_ZN12_GLOBAL__N_120useAfterReturnUnsafeERN4llvm11InstructionE.exit.i.i.i ], [ %.28097.i.i, %287 ], [ %.28097.i.i, %.lr.ph.i.i18 ]
   %296 = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !249, !range !52, !noundef !53
   %297 = trunc nuw i8 %296 to i1
   br i1 %297, label %298, label %_ZN12_GLOBAL__N_118maybeSharedMutableEPKN4llvm5ValueE.exit.i.i.i

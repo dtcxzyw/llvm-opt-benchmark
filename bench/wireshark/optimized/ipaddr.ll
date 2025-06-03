@@ -129,7 +129,7 @@ define internal zeroext i1 @df_func_ip_special_name(ptr noundef readonly capture
   unreachable
 
 lookup_block.exit:                                ; preds = %14, %18
-  %.0.i = phi ptr [ %20, %18 ], [ %17, %14 ]
+  %.0.i = phi ptr [ %17, %14 ], [ %20, %18 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %27, label %23
 
@@ -212,8 +212,8 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store volatile i8 0, ptr %8, align 1
   switch i32 %5, label %default.unreachable77 [
-    i32 1, label %check_which.exit
-    i32 2, label %85
+    i32 1, label %85
+    i32 2, label %88
     i32 3, label %18
   ]
 
@@ -310,7 +310,7 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %.0..0..0..0.26 = load volatile i8, ptr %8, align 1, !range !8, !noundef !9
   %49 = trunc nuw i8 %.0..0..0..0.26 to i1
-  br i1 %49, label %50, label %88
+  br i1 %49, label %50, label %check_which.exit
 
 50:                                               ; preds = %45
   call void @df_error_free(ptr noundef %0)
@@ -410,38 +410,38 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %88
+  br label %check_which.exit
 
 default.unreachable77:                            ; preds = %6
   unreachable
 
 85:                                               ; preds = %6
-  %86 = call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 33, ptr noundef %17, i64 %3, i64 %4)
+  %86 = call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 32, ptr noundef %17, i64 %3, i64 %4)
   store volatile i32 %86, ptr %7, align 4
-  %.0..0..0..0.27 = load volatile i32, ptr %7, align 4
-  %87 = icmp eq i32 %.0..0..0..0.27, 33
+  %.0..0..0..0.2772 = load volatile i32, ptr %7, align 4
+  %87 = icmp eq i32 %.0..0..0..0.2772, 32
   br i1 %87, label %93, label %print_which.exit
 
-88:                                               ; preds = %45, %81
-  %.0..0..0..0.2769 = load volatile i32, ptr %7, align 4
-  %89 = and i32 %.0..0..0..0.2769, -2
-  %90 = icmp eq i32 %89, 32
+88:                                               ; preds = %6
+  %89 = call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 33, ptr noundef %17, i64 %3, i64 %4)
+  store volatile i32 %89, ptr %7, align 4
+  %.0..0..0..0.27 = load volatile i32, ptr %7, align 4
+  %90 = icmp eq i32 %.0..0..0..0.27, 33
   br i1 %90, label %93, label %print_which.exit
 
-check_which.exit:                                 ; preds = %6
-  %91 = call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 32, ptr noundef %17, i64 %3, i64 %4)
-  store volatile i32 %91, ptr %7, align 4
-  %.0..0..0..0.2772 = load volatile i32, ptr %7, align 4
-  %92 = icmp eq i32 %.0..0..0..0.2772, 32
+check_which.exit:                                 ; preds = %81, %45
+  %.0..0..0..0.2769 = load volatile i32, ptr %7, align 4
+  %91 = and i32 %.0..0..0..0.2769, -2
+  %92 = icmp eq i32 %91, 32
   br i1 %92, label %93, label %print_which.exit
 
-93:                                               ; preds = %85, %88, %check_which.exit
+93:                                               ; preds = %88, %85, %check_which.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
 
-print_which.exit:                                 ; preds = %88, %85, %check_which.exit
-  %.0.i68 = phi ptr [ @.str.8, %check_which.exit ], [ @.str.9, %85 ], [ @.str.10, %88 ]
+print_which.exit:                                 ; preds = %check_which.exit, %88, %85
+  %.0.i68 = phi ptr [ @.str.8, %85 ], [ @.str.9, %88 ], [ @.str.10, %check_which.exit ]
   %94 = call { i64, i64 } @stnode_location(ptr noundef %17)
   %95 = extractvalue { i64, i64 } %94, 0
   %96 = extractvalue { i64, i64 } %94, 1
@@ -529,7 +529,7 @@ define internal zeroext i1 @df_func_ip_special_mask(ptr noundef readonly capture
   unreachable
 
 lookup_block.exit:                                ; preds = %14, %18
-  %.0.i = phi ptr [ %20, %18 ], [ %17, %14 ]
+  %.0.i = phi ptr [ %17, %14 ], [ %20, %18 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %44, label %23
 
@@ -708,7 +708,7 @@ define internal zeroext i1 @df_func_ip_is_multicast(ptr noundef readonly capture
   unreachable
 
 ip_is_multicast.exit:                             ; preds = %14, %19
-  %.0.i = phi i1 [ %21, %19 ], [ %18, %14 ]
+  %.0.i = phi i1 [ %18, %14 ], [ %21, %19 ]
   %23 = zext i1 %.0.i to i64
   tail call void @fvalue_set_uinteger64(ptr noundef %9, i64 noundef %23)
   tail call void @df_cell_append(ptr noundef %2, ptr noundef %9)

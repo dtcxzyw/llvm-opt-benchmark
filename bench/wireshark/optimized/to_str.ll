@@ -104,7 +104,7 @@ define ptr @abs_time_to_str_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   unreachable
 
 get_fmt_broken_down_time.exit:                    ; preds = %.thread, %19
-  %.0.i = phi ptr [ %20, %19 ], [ %18, %.thread ]
+  %.0.i = phi ptr [ %18, %.thread ], [ %20, %19 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %23, label %25
 
@@ -288,7 +288,7 @@ default.unreachable48:                            ; preds = %32
   br label %snprint_abs_time_iso8601.exit
 
 snprint_abs_time_iso8601.exit:                    ; preds = %116, %102, %74, %52, %36, %23, %16, %8
-  %.032 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %24, %23 ], [ %89, %74 ], [ %69, %52 ], [ %51, %36 ], [ %133, %116 ], [ %115, %102 ]
+  %.032 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %24, %23 ], [ %51, %36 ], [ %69, %52 ], [ %89, %74 ], [ %115, %102 ], [ %133, %116 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
   ret ptr %.032
 }

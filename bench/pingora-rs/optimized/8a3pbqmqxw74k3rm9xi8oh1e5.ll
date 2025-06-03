@@ -679,7 +679,7 @@ default.unreachable5:                             ; preds = %2
   br label %12
 
 12:                                               ; preds = %10, %8, %6, %4
-  %.sroa.0.0 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %13, align 8
   store i64 3, ptr %0, align 8

@@ -1213,7 +1213,7 @@ _ZL10readVarIntPKcmRm.exit619:                    ; preds = %.preheader742
   br label %741
 
 510:                                              ; preds = %382, %389, %395, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598, %442, %._crit_edge877, %499, %.lr.ph883
-  %.9 = phi i64 [ %381, %.lr.ph883 ], [ %.8.lcssa, %._crit_edge877 ], [ %423, %442 ], [ %405, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598 ], [ %397, %395 ], [ %391, %389 ], [ %384, %382 ], [ %486, %499 ]
+  %.9 = phi i64 [ %381, %.lr.ph883 ], [ %486, %499 ], [ %384, %382 ], [ %391, %389 ], [ %397, %395 ], [ %405, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598 ], [ %423, %442 ], [ %.8.lcssa, %._crit_edge877 ]
   %indvars.iv.next1003 = add nuw nsw i64 %indvars.iv1002, 1
   %511 = load i32, ptr %370, align 8, !tbaa !78
   %512 = sext i32 %511 to i64
@@ -1756,17 +1756,17 @@ _ZN10TempBufferIP7TStringED2Ev.exit:              ; preds = %_ZN10TempBufferIP5P
   br label %746
 
 741:                                              ; preds = %.loopexit770, %.loopexit.split-lp771, %.loopexit765, %.loopexit.split-lp766, %.loopexit760, %.loopexit.split-lp761, %.loopexit755, %.loopexit.split-lp756, %.loopexit754, %.loopexit.split-lp, %729, %713, %201, %203, %240, %508, %482, %464, %449, %581
-  %.pn493.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %204, %203 ], [ %241, %240 ], [ %450, %449 ], [ %465, %464 ], [ %483, %482 ], [ %509, %508 ], [ %582, %581 ], [ %730, %729 ], [ %714, %713 ], [ %lpad.loopexit, %.loopexit754 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit757, %.loopexit755 ], [ %lpad.loopexit.split-lp758, %.loopexit.split-lp756 ], [ %lpad.loopexit762, %.loopexit760 ], [ %lpad.loopexit.split-lp763, %.loopexit.split-lp761 ], [ %lpad.loopexit767, %.loopexit765 ], [ %lpad.loopexit.split-lp768, %.loopexit.split-lp766 ], [ %lpad.loopexit772, %.loopexit770 ], [ %lpad.loopexit.split-lp773, %.loopexit.split-lp771 ]
+  %.pn497.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %204, %203 ], [ %241, %240 ], [ %450, %449 ], [ %465, %464 ], [ %483, %482 ], [ %509, %508 ], [ %582, %581 ], [ %730, %729 ], [ %714, %713 ], [ %lpad.loopexit, %.loopexit754 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit757, %.loopexit755 ], [ %lpad.loopexit.split-lp758, %.loopexit.split-lp756 ], [ %lpad.loopexit762, %.loopexit760 ], [ %lpad.loopexit.split-lp763, %.loopexit.split-lp761 ], [ %lpad.loopexit767, %.loopexit765 ], [ %lpad.loopexit.split-lp768, %.loopexit.split-lp766 ], [ %lpad.loopexit772, %.loopexit770 ], [ %lpad.loopexit.split-lp773, %.loopexit.split-lp771 ]
   call void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
   br label %742
 
 742:                                              ; preds = %741, %166
-  %.pn493.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn493.pn.pn.pn.pn.pn.pn.pn, %741 ], [ %167, %166 ]
+  %.pn497.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn497.pn.pn.pn.pn.pn, %741 ], [ %167, %166 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #10
   br label %743
 
 743:                                              ; preds = %742, %136
-  %.pn507.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn493.pn.pn.pn.pn.pn.pn.pn.pn, %742 ]
+  %.pn507.pn = phi { ptr, i32 } [ %137, %136 ], [ %.pn497.pn.pn.pn.pn.pn.pn, %742 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
   br label %744
 

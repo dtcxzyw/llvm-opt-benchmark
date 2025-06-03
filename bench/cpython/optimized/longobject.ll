@@ -5389,7 +5389,7 @@ define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef read
   unreachable
 
 22:                                               ; preds = %14, %20, %19
-  %.0239 = phi i32 [ 1, %20 ], [ 3, %19 ], [ 4, %14 ]
+  %.0239 = phi i32 [ 3, %19 ], [ 1, %20 ], [ 4, %14 ]
   %23 = icmp ult i64 %.val, 8
   br i1 %23, label %44, label %24
 
@@ -6101,8 +6101,8 @@ define dso_local ptr @PyLong_FromString(ptr noundef %0, ptr noundef writeonly ca
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %16, %.preheader, %.critedge, %21, %19
-  %.1 = phi ptr [ %.061154, %.critedge ], [ %22, %21 ], [ %20, %19 ], [ %0, %.preheader ], [ %17, %16 ]
-  %23 = phi i1 [ false, %.critedge ], [ true, %21 ], [ false, %19 ], [ false, %.preheader ], [ false, %16 ]
+  %.1 = phi ptr [ %.061154, %.critedge ], [ %20, %19 ], [ %22, %21 ], [ %0, %.preheader ], [ %17, %16 ]
+  %23 = phi i1 [ false, %.critedge ], [ false, %19 ], [ true, %21 ], [ false, %.preheader ], [ false, %16 ]
   %24 = icmp eq i32 %2, 0
   %25 = load i8, ptr %.1, align 1, !tbaa !29
   %.not43 = icmp eq i8 %25, 48
@@ -10345,7 +10345,7 @@ define internal ptr @long_vectorcall(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %21
 
 21:                                               ; preds = %9, %18, %13, %10, %6
-  %.0 = phi ptr [ %8, %6 ], [ %20, %18 ], [ %17, %13 ], [ %12, %10 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %9 ]
+  %.0 = phi ptr [ %8, %6 ], [ %20, %18 ], [ %12, %10 ], [ %17, %13 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %9 ]
   ret ptr %.0
 }
 
@@ -17330,8 +17330,8 @@ v_complement.exit149:                             ; preds = %.lr.ph.i145, %56, %
   unreachable
 
 70:                                               ; preds = %66, %63, %61
-  %.0110 = phi i32 [ %67, %66 ], [ %64, %63 ], [ %62, %61 ]
-  %.0107 = phi i64 [ %68, %66 ], [ %65, %63 ], [ %.0109, %61 ]
+  %.0110 = phi i32 [ %62, %61 ], [ %64, %63 ], [ %67, %66 ]
+  %.0107 = phi i64 [ %.0109, %61 ], [ %65, %63 ], [ %68, %66 ]
   %71 = zext nneg i32 %.0110 to i64
   %72 = add nuw nsw i64 %.0107, %71
   %73 = tail call fastcc ptr @long_alloc(i64 noundef %72)

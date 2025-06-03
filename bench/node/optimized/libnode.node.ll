@@ -5929,7 +5929,7 @@ if.end29:                                         ; preds = %sw.bb
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i24, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i24, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i25 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1, ptr noundef %__pred.coerce) #22
   %cmp.i.i26 = icmp eq i32 %call.i.i25, 0
   br i1 %cmp.i.i26, label %return, label %if.end36
@@ -5939,7 +5939,7 @@ if.end36:                                         ; preds = %sw.bb31
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i27, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i27, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i28 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2, ptr noundef %__pred.coerce) #22
   %cmp.i.i29 = icmp eq i32 %call.i.i28, 0
   %spec.select = select i1 %cmp.i.i29, ptr %__first.sroa.0.2, ptr %__last.coerce
@@ -6109,7 +6109,7 @@ if.end29:                                         ; preds = %sw.bb
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i24, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i24, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i25 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1, ptr noundef %__pred.coerce) #22
   %cmp.i.i26 = icmp eq i32 %call.i.i25, 0
   br i1 %cmp.i.i26, label %return, label %if.end36
@@ -6119,7 +6119,7 @@ if.end36:                                         ; preds = %sw.bb31
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i27, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i27, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i28 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2, ptr noundef %__pred.coerce) #22
   %cmp.i.i29 = icmp eq i32 %call.i.i28, 0
   %spec.select = select i1 %cmp.i.i29, ptr %__first.sroa.0.2, ptr %__last.coerce
@@ -6196,7 +6196,7 @@ if.end29:                                         ; preds = %sw.bb
   br label %sw.bb31
 
 sw.bb31:                                          ; preds = %if.end29, %for.end
-  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i24, %if.end29 ]
+  %__first.sroa.0.1 = phi ptr [ %incdec.ptr.i24, %if.end29 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i25 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1, ptr noundef %__pred.coerce) #22
   %cmp.i.i26 = icmp eq i32 %call.i.i25, 0
   br i1 %cmp.i.i26, label %return, label %if.end36
@@ -6206,7 +6206,7 @@ if.end36:                                         ; preds = %sw.bb31
   br label %sw.bb38
 
 sw.bb38:                                          ; preds = %if.end36, %for.end
-  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i27, %if.end36 ]
+  %__first.sroa.0.2 = phi ptr [ %incdec.ptr.i27, %if.end36 ], [ %__first.sroa.0.0.lcssa, %for.end ]
   %call.i.i28 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2, ptr noundef %__pred.coerce) #22
   %cmp.i.i29 = icmp eq i32 %call.i.i28, 0
   %spec.select = select i1 %cmp.i.i29, ptr %__first.sroa.0.2, ptr %__last.coerce

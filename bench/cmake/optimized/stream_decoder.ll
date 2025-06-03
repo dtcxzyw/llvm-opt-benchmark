@@ -422,7 +422,7 @@ stream_decoder_reset.exit.thread:                 ; preds = %144
   br label %.backedge
 
 .backedge:                                        ; preds = %stream_decoder_reset.exit.thread, %102, %67
-  %.be = phi i32 [ 1, %102 ], [ 4, %67 ], [ 0, %stream_decoder_reset.exit.thread ]
+  %.be = phi i32 [ 4, %67 ], [ 1, %102 ], [ 0, %stream_decoder_reset.exit.thread ]
   br label %34
 
 .thread:                                          ; preds = %144, %45, %93, %97, %53, %105, %34, %108, %103, %72, %58, %36, %55, %40, %42, %.thread199, %.thread189, %._crit_edge, %142, %128
@@ -507,7 +507,7 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
   br label %16
 
 16:                                               ; preds = %11, %3, %12
-  %.1 = phi i32 [ %4, %3 ], [ %10, %11 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %10, %11 ], [ %4, %3 ]
   ret i32 %.1
 }
 

@@ -2543,8 +2543,8 @@ define { ptr, ptr } @_ZN11polars_json4json5write9serialize14new_serializer17h1e8
   br i1 %.sroa.0.0.i147.not, label %615, label %606, !prof !105
 
 287:                                              ; preds = %606, %589, %585, %_ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exit, %535, %_ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc8c03E.exit, %493, %489, %466, %445, %_ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit, %372, %334, %330, %326, %322, %318, %314, %310, %306, %302, %298, %291, %50
-  %.sroa.25.0 = phi ptr [ %614, %606 ], [ %604, %589 ], [ %587, %585 ], [ @anon.99077ed2a1663224f5051c87bb6e673a.35, %_ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exit ], [ %537, %535 ], [ @anon.99077ed2a1663224f5051c87bb6e673a.39, %_ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc8c03E.exit ], [ %495, %493 ], [ %491, %489 ], [ %468, %466 ], [ %447, %445 ], [ %.sroa.3.0.i, %_ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit ], [ %374, %372 ], [ %336, %334 ], [ %332, %330 ], [ %328, %326 ], [ %324, %322 ], [ %320, %318 ], [ %316, %314 ], [ %312, %310 ], [ %308, %306 ], [ %304, %302 ], [ %300, %298 ], [ %296, %291 ], [ %55, %50 ]
-  %.pn = phi { ptr, ptr } [ %613, %606 ], [ %603, %589 ], [ %586, %585 ], [ %565, %_ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exit ], [ %536, %535 ], [ %533, %_ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc8c03E.exit ], [ %494, %493 ], [ %490, %489 ], [ %467, %466 ], [ %446, %445 ], [ %.pn.i, %_ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit ], [ %373, %372 ], [ %335, %334 ], [ %331, %330 ], [ %327, %326 ], [ %323, %322 ], [ %319, %318 ], [ %315, %314 ], [ %311, %310 ], [ %307, %306 ], [ %303, %302 ], [ %299, %298 ], [ %295, %291 ], [ %54, %50 ]
+  %.sroa.25.0 = phi ptr [ %55, %50 ], [ %296, %291 ], [ %300, %298 ], [ %304, %302 ], [ %308, %306 ], [ %312, %310 ], [ %316, %314 ], [ %320, %318 ], [ %324, %322 ], [ %328, %326 ], [ %332, %330 ], [ %336, %334 ], [ %.sroa.3.0.i, %_ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit ], [ %374, %372 ], [ %447, %445 ], [ %468, %466 ], [ %491, %489 ], [ %495, %493 ], [ @anon.99077ed2a1663224f5051c87bb6e673a.39, %_ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc8c03E.exit ], [ %537, %535 ], [ @anon.99077ed2a1663224f5051c87bb6e673a.35, %_ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exit ], [ %587, %585 ], [ %604, %589 ], [ %614, %606 ]
+  %.pn = phi { ptr, ptr } [ %54, %50 ], [ %295, %291 ], [ %299, %298 ], [ %303, %302 ], [ %307, %306 ], [ %311, %310 ], [ %315, %314 ], [ %319, %318 ], [ %323, %322 ], [ %327, %326 ], [ %331, %330 ], [ %335, %334 ], [ %.pn.i, %_ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit ], [ %373, %372 ], [ %446, %445 ], [ %467, %466 ], [ %490, %489 ], [ %494, %493 ], [ %533, %_ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc8c03E.exit ], [ %536, %535 ], [ %565, %_ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exit ], [ %586, %585 ], [ %603, %589 ], [ %613, %606 ]
   %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
   %288 = icmp ne ptr %.sroa.0.0, null
   call void @llvm.assume(i1 %288)
@@ -2719,7 +2719,7 @@ default.unreachable219:                           ; preds = %350, %208
   unreachable
 
 360:                                              ; preds = %350, %354, %353
-  %.sroa.041.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions24timestamp_ns_to_datetime17h6677ad33b5f1cc92E, %354 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_us_to_datetime17h2cf664b649fa5012E, %353 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ms_to_datetime17h04c28e3f8d8e94b7E, %350 ]
+  %.sroa.041.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions24timestamp_us_to_datetime17h2cf664b649fa5012E, %353 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ns_to_datetime17h6677ad33b5f1cc92E, %354 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ms_to_datetime17h04c28e3f8d8e94b7E, %350 ]
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %362 = load ptr, ptr %361, align 8, !invariant.load !4, !nonnull !4
   %363 = tail call { ptr, ptr } %362(ptr noundef nonnull align 1 %0)
@@ -2998,7 +2998,7 @@ _ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e
   unreachable
 
 477:                                              ; preds = %208, %471, %470
-  %.sroa.046.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions23duration_ns_to_duration17hf67354d45d733166E, %471 ], [ @_ZN12polars_arrow20temporal_conversions23duration_us_to_duration17h1c1a7179d863829aE, %470 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ms_to_duration17hc31753bf90b944aaE, %208 ]
+  %.sroa.046.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions23duration_us_to_duration17h1c1a7179d863829aE, %470 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ns_to_duration17hf67354d45d733166E, %471 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ms_to_duration17hc31753bf90b944aaE, %208 ]
   %478 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %479 = load ptr, ptr %478, align 8, !invariant.load !4, !nonnull !4
   %480 = tail call { ptr, ptr } %479(ptr noundef nonnull align 1 %0)

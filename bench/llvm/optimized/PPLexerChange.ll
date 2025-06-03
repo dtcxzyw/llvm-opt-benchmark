@@ -374,7 +374,7 @@ _ZNK5clang12Preprocessor11IsFileLexerEv.exit:     ; preds = %1
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i
-  %.sroa.042.1.i.i.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %69, %68 ]
+  %.sroa.042.1.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.042.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %71 = getelementptr i8, ptr %.sroa.042.1.i.i.i.i.i, i64 16
   %.val.i32.i.i.i.i.i = load ptr, ptr %71, align 8, !tbaa !3
   %.not.i.i.i.i33.i.i.i.i.i = icmp eq ptr %.val.i32.i.i.i.i.i, null
@@ -397,7 +397,7 @@ _ZNK5clang12Preprocessor11IsFileLexerEv.exit:     ; preds = %1
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge.i.i.i.i.i
-  %.sroa.042.2.i.i.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %78, %77 ]
+  %.sroa.042.2.i.i.i.i.i = phi ptr [ %78, %77 ], [ %.sroa.042.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %80 = getelementptr i8, ptr %.sroa.042.2.i.i.i.i.i, i64 16
   %.val.i36.i.i.i.i.i = load ptr, ptr %80, align 8, !tbaa !3
   %.not.i.i.i.i37.i.i.i.i.i = icmp eq ptr %.val.i36.i.i.i.i.i, null

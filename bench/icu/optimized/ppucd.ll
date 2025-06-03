@@ -1184,8 +1184,8 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 972
   %103 = load i32, ptr %102, align 4
   %.not61 = icmp sle i32 %42, %103
-  %or.cond91.not = select i1 %.not60, i1 %.not61, i1 false
-  br i1 %or.cond91.not, label %104, label %119
+  %or.cond90.not = select i1 %.not60, i1 %.not61, i1 false
+  br i1 %or.cond90.not, label %104, label %119
 
 104:                                              ; preds = %99
   %105 = icmp eq i32 %43, 8
@@ -1212,8 +1212,8 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
 119:                                              ; preds = %99
   %120 = icmp sgt i32 %41, %103
   %121 = icmp slt i32 %42, %101
-  %or.cond92 = select i1 %120, i1 true, i1 %121
-  br i1 %or.cond92, label %122, label %143
+  %or.cond91 = select i1 %120, i1 true, i1 %121
+  br i1 %or.cond91, label %122, label %143
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1259,10 +1259,9 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   br label %.loopexit
 
 154:                                              ; preds = %151, %76, %73
-  %.08187 = phi i32 [ %41, %151 ], [ %41, %76 ], [ 0, %73 ]
-  %.052 = phi ptr [ %152, %151 ], [ %78, %76 ], [ %74, %73 ]
-  %.050 = phi i1 [ %or.cond91.not, %151 ], [ false, %76 ], [ false, %73 ]
-  store i32 %.08187, ptr %.052, align 8, !tbaa !15
+  %.052 = phi ptr [ %74, %73 ], [ %78, %76 ], [ %152, %151 ]
+  %.050 = phi i1 [ false, %73 ], [ false, %76 ], [ %or.cond90.not, %151 ]
+  store i32 %41, ptr %.052, align 8, !tbaa !15
   %155 = getelementptr inbounds nuw i8, ptr %.052, i64 4
   store i32 %42, ptr %155, align 4, !tbaa !29
   br label %156
@@ -1295,9 +1294,9 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
 169:                                              ; preds = %163
   %170 = icmp eq i32 %164, 9
   %or.cond3 = and i1 %.050, %170
-  br i1 %or.cond3, label %.preheader93, label %.loopexit
+  br i1 %or.cond3, label %.preheader92, label %.loopexit
 
-.preheader93:                                     ; preds = %169
+.preheader92:                                     ; preds = %169
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 976
   br label %175
@@ -1307,8 +1306,8 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   br label %187
 
-175:                                              ; preds = %.preheader93, %186
-  %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %186 ]
+175:                                              ; preds = %.preheader92, %186
+  %indvars.iv = phi i64 [ 0, %.preheader92 ], [ %indvars.iv.next, %186 ]
   %176 = trunc nuw nsw i64 %indvars.iv to i32
   %177 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %176)
   %.not64 = icmp eq i8 %177, 0
@@ -1332,14 +1331,14 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   br i1 %exitcond.not, label %.preheader, label %175, !llvm.loop !55
 
 187:                                              ; preds = %.preheader, %199
-  %indvars.iv99 = phi i64 [ 4096, %.preheader ], [ %indvars.iv.next100, %199 ]
-  %188 = trunc nuw nsw i64 %indvars.iv99 to i32
+  %indvars.iv98 = phi i64 [ 4096, %.preheader ], [ %indvars.iv.next99, %199 ]
+  %188 = trunc nuw nsw i64 %indvars.iv98 to i32
   %189 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %188)
   %.not63 = icmp eq i8 %189, 0
   br i1 %.not63, label %199, label %190
 
 190:                                              ; preds = %187
-  %191 = add nsw i64 %indvars.iv99, -4096
+  %191 = add nsw i64 %indvars.iv98, -4096
   %192 = getelementptr inbounds [27 x i32], ptr %173, i64 0, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !12
   %194 = getelementptr inbounds [27 x i32], ptr %174, i64 0, i64 %191
@@ -1352,12 +1351,12 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   br label %199
 
 199:                                              ; preds = %197, %190, %187
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next100, 4123
-  br i1 %exitcond102.not, label %.loopexit, label %187, !llvm.loop !56
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 4123
+  br i1 %exitcond101.not, label %.loopexit, label %187, !llvm.loop !56
 
 .loopexit:                                        ; preds = %160, %199, %166, %169, %153, %143, %67, %58, %48, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread, %24, %3, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %24 ], [ null, %153 ], [ null, %143 ], [ null, %48 ], [ null, %58 ], [ null, %67 ], [ %.052, %169 ], [ %.052, %166 ], [ null, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread ], [ %.052, %199 ], [ null, %160 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %24 ], [ null, %153 ], [ null, %48 ], [ null, %58 ], [ null, %67 ], [ null, %143 ], [ %.052, %169 ], [ %.052, %166 ], [ null, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread ], [ %.052, %199 ], [ null, %160 ]
   ret ptr %.0
 }
 

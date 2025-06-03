@@ -8634,8 +8634,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit38: ; preds = %226, %220, %_ZN4cvc
   ret void
 
 235:                                              ; preds = %234, %167
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %234 ], [ %.pn14.pn.pn, %167 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn14.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %167 ], [ %.pn, %234 ]
+  resume { ptr, i32 } %.pn14.pn.pn.pn
 }
 
 declare void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0

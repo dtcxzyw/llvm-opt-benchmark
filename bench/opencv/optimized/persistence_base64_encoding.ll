@@ -556,7 +556,7 @@ define hidden noundef i32 @_ZN2cv6base6417icvCalcStructSizeEPKci(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %4, %12, %13, %14, %15, %16, %17, %18
-  %.1 = phi i64 [ %.054, %4 ], [ 8, %18 ], [ %.sroa.speculated16, %17 ], [ %.sroa.speculated20, %16 ], [ %.sroa.speculated24, %15 ], [ %.sroa.speculated28, %14 ], [ %.sroa.speculated32, %13 ], [ %.sroa.speculated36, %12 ]
+  %.1 = phi i64 [ %.054, %4 ], [ %.sroa.speculated36, %12 ], [ %.sroa.speculated32, %13 ], [ %.sroa.speculated28, %14 ], [ %.sroa.speculated24, %15 ], [ %.sroa.speculated20, %16 ], [ %.sroa.speculated16, %17 ], [ 8, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %4, !llvm.loop !39
 }
@@ -1686,7 +1686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   br label %74
 
 74:                                               ; preds = %73, %72, %71, %70, %69, %68, %67, %.noexc
-  %.1.i = phi i64 [ %.054.i, %.noexc ], [ 8, %73 ], [ %.sroa.speculated16.i, %72 ], [ %.sroa.speculated20.i, %71 ], [ %.sroa.speculated24.i, %70 ], [ %.sroa.speculated28.i, %69 ], [ %.sroa.speculated32.i, %68 ], [ %.sroa.speculated36.i, %67 ]
+  %.1.i = phi i64 [ %.054.i, %.noexc ], [ %.sroa.speculated36.i, %67 ], [ %.sroa.speculated32.i, %68 ], [ %.sroa.speculated28.i, %69 ], [ %.sroa.speculated24.i, %70 ], [ %.sroa.speculated20.i, %71 ], [ %.sroa.speculated16.i, %72 ], [ 8, %73 ]
   %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.noexc, !llvm.loop !39
 
@@ -1949,8 +1949,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   br label %161
 
 86:                                               ; preds = %.lr.ph, %.lr.ph, %72, %71, %70, %69
-  %.sroa.7.0 = phi ptr [ @_ZN2cv6base649to_binaryIdEEmPKhPh, %72 ], [ @_ZN2cv6base649to_binaryIfEEmPKhPh, %71 ], [ @_ZN2cv6base649to_binaryIjEEmPKhPh, %70 ], [ @_ZN2cv6base649to_binaryItEEmPKhPh, %69 ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ]
-  %.0 = phi i64 [ 8, %72 ], [ 4, %71 ], [ 4, %70 ], [ 2, %69 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
+  %.sroa.7.0 = phi ptr [ @_ZN2cv6base649to_binaryItEEmPKhPh, %69 ], [ @_ZN2cv6base649to_binaryIjEEmPKhPh, %70 ], [ @_ZN2cv6base649to_binaryIfEEmPKhPh, %71 ], [ @_ZN2cv6base649to_binaryIdEEmPKhPh, %72 ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ]
+  %.0 = phi i64 [ 2, %69 ], [ 4, %70 ], [ 4, %71 ], [ 8, %72 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
   %87 = add i64 %.12160, 4294967295
   %88 = add i64 %87, %.0
   %89 = sub nsw i64 0, %.0

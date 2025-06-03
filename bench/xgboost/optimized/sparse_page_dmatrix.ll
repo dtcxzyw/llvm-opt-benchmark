@@ -13217,8 +13217,8 @@ define linkonce_odr void @_ZNK7xgboost4data16ExternalDataInfo8ValidateEv(ptr nou
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge._crit_edge.i.i.i.i
-  %50 = phi i64 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %45, %47 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %48, %47 ]
+  %50 = phi i64 [ %45, %47 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %51 = load i64, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !102
   %52 = icmp ugt i64 %51, %50
   br i1 %52, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEZNK7xgboost4data16ExternalDataInfo8ValidateEvEUlT_E_EbSB_SB_T0_.exit, label %53
@@ -13228,8 +13228,8 @@ define linkonce_odr void @_ZNK7xgboost4data16ExternalDataInfo8ValidateEv(ptr nou
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge._crit_edge57.i.i.i.i
-  %56 = phi i64 [ %.pre59.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %50, %53 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %54, %53 ]
+  %56 = phi i64 [ %50, %53 ], [ %.pre59.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %54, %53 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %57 = load i64, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !102
   %58 = icmp ugt i64 %57, %56
   %spec.select.i.i.i.i = select i1 %58, ptr %.sroa.032.2.i.i.i.i, ptr %13

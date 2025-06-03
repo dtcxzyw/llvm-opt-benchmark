@@ -928,7 +928,7 @@ lv_display_get_physical_horizontal_resolution.exit14: ; preds = %.thread.i11, %2
   br label %32
 
 32:                                               ; preds = %3, %29, %lv_display_get_physical_horizontal_resolution.exit14, %lv_display_get_physical_horizontal_resolution.exit, %9
-  %.09 = phi i32 [ %31, %29 ], [ %28, %lv_display_get_physical_horizontal_resolution.exit14 ], [ %19, %lv_display_get_physical_horizontal_resolution.exit ], [ %11, %9 ], [ 0, %3 ]
+  %.09 = phi i32 [ %31, %29 ], [ %11, %9 ], [ %19, %lv_display_get_physical_horizontal_resolution.exit ], [ %28, %lv_display_get_physical_horizontal_resolution.exit14 ], [ 0, %3 ]
   ret i32 %.09
 }
 
@@ -999,7 +999,7 @@ lv_display_get_physical_vertical_resolution.exit14: ; preds = %.thread.i11, %24
   br label %32
 
 32:                                               ; preds = %3, %29, %lv_display_get_physical_vertical_resolution.exit14, %lv_display_get_physical_vertical_resolution.exit, %9
-  %.09 = phi i32 [ %31, %29 ], [ %28, %lv_display_get_physical_vertical_resolution.exit14 ], [ %20, %lv_display_get_physical_vertical_resolution.exit ], [ %11, %9 ], [ 0, %3 ]
+  %.09 = phi i32 [ %31, %29 ], [ %11, %9 ], [ %20, %lv_display_get_physical_vertical_resolution.exit ], [ %28, %lv_display_get_physical_vertical_resolution.exit14 ], [ 0, %3 ]
   ret i32 %.09
 }
 

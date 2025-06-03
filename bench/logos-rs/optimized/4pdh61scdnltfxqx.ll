@@ -57,7 +57,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
   br label %20
 
 20:                                               ; preds = %13, %10, %8
-  %.sroa.0.0.in = phi i1 [ %19, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %12, %10 ], [ %19, %13 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -277,7 +277,7 @@ define hidden i32 @_ZN13logos_codegen5graph4rope4Miss10take_first17h259b9550a3a6
   br label %10
 
 10:                                               ; preds = %1, %7, %4
-  %.sroa.0.0 = phi i32 [ %9, %7 ], [ %6, %4 ], [ %2, %1 ]
+  %.sroa.0.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ %2, %1 ]
   ret i32 %.sroa.0.0
 }
 

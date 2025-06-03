@@ -668,7 +668,7 @@ if.end20:                                         ; preds = %sw.bb15
   br label %return
 
 return:                                           ; preds = %sw.bb8, %sw.bb, %if.end20, %if.then18, %if.end6, %if.then4, %sw.default
-  %retval.0 = phi i32 [ %add, %sw.default ], [ %add19, %if.then18 ], [ %sub21, %if.end20 ], [ %add5, %if.then4 ], [ %sub7, %if.end6 ], [ %r, %sw.bb ], [ %r, %sw.bb8 ]
+  %retval.0 = phi i32 [ %add, %sw.default ], [ %add5, %if.then4 ], [ %sub7, %if.end6 ], [ %add19, %if.then18 ], [ %sub21, %if.end20 ], [ %r, %sw.bb ], [ %r, %sw.bb8 ]
   ret i32 %retval.0
 }
 
@@ -774,7 +774,7 @@ if.end20.i:                                       ; preds = %sw.bb15.i
   br label %return
 
 return:                                           ; preds = %entry, %while.end.i, %if.end20.i, %if.then18.i, %sw.bb8.i, %if.end6.i, %if.then4.i, %sw.bb.i, %sw.default.i, %lor.lhs.false
-  %retval.0 = phi i32 [ %r, %lor.lhs.false ], [ %add.i9, %sw.default.i ], [ %add19.i, %if.then18.i ], [ %sub21.i, %if.end20.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %r, %sw.bb.i ], [ %r, %sw.bb8.i ], [ %r, %while.end.i ], [ %r, %entry ]
+  %retval.0 = phi i32 [ %r, %lor.lhs.false ], [ %add.i9, %sw.default.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %add19.i, %if.then18.i ], [ %sub21.i, %if.end20.i ], [ %r, %sw.bb.i ], [ %r, %sw.bb8.i ], [ %r, %while.end.i ], [ %r, %entry ]
   ret i32 %retval.0
 }
 
@@ -990,7 +990,7 @@ if.end20.i.i38:                                   ; preds = %sw.bb15.i.i36
   br label %_ZN3re213CycleFoldRuneEi.exit68
 
 _ZN3re213CycleFoldRuneEi.exit68:                  ; preds = %while.end.i.i64, %lor.lhs.false.i32, %sw.default.i.i54, %sw.bb.i.i51, %if.then4.i.i49, %if.end6.i.i47, %sw.bb8.i.i42, %if.then18.i.i40, %if.end20.i.i38
-  %retval.0.i21 = phi i32 [ %r.addr.0, %lor.lhs.false.i32 ], [ %add.i9.i55, %sw.default.i.i54 ], [ %add19.i.i41, %if.then18.i.i40 ], [ %sub21.i.i39, %if.end20.i.i38 ], [ %add5.i.i50, %if.then4.i.i49 ], [ %sub7.i.i48, %if.end6.i.i47 ], [ %r.addr.0, %sw.bb.i.i51 ], [ %r.addr.0, %sw.bb8.i.i42 ], [ %r.addr.0, %while.end.i.i64 ]
+  %retval.0.i21 = phi i32 [ %r.addr.0, %lor.lhs.false.i32 ], [ %add.i9.i55, %sw.default.i.i54 ], [ %add5.i.i50, %if.then4.i.i49 ], [ %sub7.i.i48, %if.end6.i.i47 ], [ %add19.i.i41, %if.then18.i.i40 ], [ %sub21.i.i39, %if.end20.i.i38 ], [ %r.addr.0, %sw.bb.i.i51 ], [ %r.addr.0, %sw.bb8.i.i42 ], [ %r.addr.0, %while.end.i.i64 ]
   %cmp20.not = icmp eq i32 %retval.0.i21, %r
   br i1 %cmp20.not, label %return.sink.split, label %do.body, !llvm.loop !8
 
@@ -1733,7 +1733,7 @@ if.end43:                                         ; preds = %_ZN3re216Repetition
   br label %return
 
 return:                                           ; preds = %_ZN3re216RepetitionWalkerD2Ev.exit, %if.end43, %if.then11, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ false, %_ZN3re216RepetitionWalkerD2Ev.exit ], [ true, %if.end43 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ true, %if.end43 ], [ false, %_ZN3re216RepetitionWalkerD2Ev.exit ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad32, %lpad
@@ -2858,8 +2858,8 @@ lpad60:                                           ; preds = %invoke.cont63, %inv
   br label %ehcleanup
 
 sw.epilog:                                        ; preds = %_ZN10LogMessageD2Ev.exit, %sw.bb50, %invoke.cont43
-  %out.2 = phi i32 [ %out.1.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %inc53, %sw.bb50 ], [ %inc45, %invoke.cont43 ]
-  %i.2 = phi i32 [ %i.1.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %add58, %sw.bb50 ], [ %add, %invoke.cont43 ]
+  %out.2 = phi i32 [ %out.1.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %inc45, %invoke.cont43 ], [ %inc53, %sw.bb50 ]
+  %i.2 = phi i32 [ %i.1.lcssa, %_ZN10LogMessageD2Ev.exit ], [ %add, %invoke.cont43 ], [ %add58, %sw.bb50 ]
   %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0165, i64 24
   %32 = load ptr, ptr %_M_finish.i.i62, align 8
   %cmp.i = icmp eq ptr %incdec.ptr.i81, %32
@@ -3179,9 +3179,9 @@ if.then8.i:                                       ; preds = %while.end.i
   br label %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit
 
 _ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit: ; preds = %while.end.i.thread, %while.end.i, %if.then.i, %if.then8.i
-  %and.i68.in.in = phi i16 [ %11, %if.then8.i ], [ %11, %if.then.i ], [ %11, %while.end.i ], [ %5, %while.end.i.thread ]
-  %nrune_i.1 = phi i32 [ %16, %if.then8.i ], [ 1, %if.then.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
-  %retval.0.i = phi ptr [ %15, %if.then8.i ], [ %12, %if.then.i ], [ null, %while.end.i ], [ null, %while.end.i.thread ]
+  %and.i68.in.in = phi i16 [ %11, %if.then.i ], [ %11, %if.then8.i ], [ %11, %while.end.i ], [ %5, %while.end.i.thread ]
+  %nrune_i.1 = phi i32 [ 1, %if.then.i ], [ %16, %if.then8.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
+  %retval.0.i = phi ptr [ %12, %if.then.i ], [ %15, %if.then8.i ], [ null, %while.end.i ], [ null, %while.end.i.thread ]
   %and.i68.in = and i16 %and.i68.in.in, 1
   %and.i68 = zext nneg i16 %and.i68.in to i32
   %cmp2 = icmp eq i32 %runeflags.050, %and.i68
@@ -5731,7 +5731,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %BadEscape
   br label %return
 
 return:                                           ; preds = %if.end78, %if.end13.i, %if.then15.i, %if.end91, %if.then64, %if.end58, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %_ZN4absl7debian211string_viewC2EPKcm.exit, %sw.bb112, %sw.bb111, %sw.bb110, %sw.bb109, %sw.bb108, %sw.bb107, %if.end102, %if.end87, %if.end54, %if.then15, %if.then5, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %if.then15 ], [ true, %sw.bb112 ], [ true, %sw.bb111 ], [ true, %sw.bb110 ], [ true, %sw.bb109 ], [ true, %sw.bb108 ], [ true, %sw.bb107 ], [ true, %if.end87 ], [ true, %if.end102 ], [ true, %if.end54 ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ false, %if.end58 ], [ false, %if.then64 ], [ false, %if.end91 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %if.end78 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %if.then15 ], [ true, %if.end54 ], [ true, %if.end87 ], [ true, %if.end102 ], [ true, %sw.bb107 ], [ true, %sw.bb108 ], [ true, %sw.bb109 ], [ true, %sw.bb110 ], [ true, %sw.bb111 ], [ true, %sw.bb112 ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ false, %if.end58 ], [ false, %if.then64 ], [ false, %if.end91 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %if.end78 ]
   ret i1 %retval.0
 }
 
@@ -6681,9 +6681,9 @@ _ZN3re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %sw.bb107
   br label %for.end
 
 sw.epilog:                                        ; preds = %sw.bb103, %if.then97, %if.else100, %if.then89, %if.else92, %if.then81, %if.else83, %if.then76, %if.else
-  %negated.1 = phi i8 [ 1, %if.then97 ], [ 0, %if.else100 ], [ 1, %if.then89 ], [ 0, %if.else92 ], [ 1, %if.then81 ], [ 0, %if.else83 ], [ 1, %if.then76 ], [ 0, %if.else ], [ 1, %sw.bb103 ]
-  %sawflags.1 = phi i1 [ true, %if.then97 ], [ true, %if.else100 ], [ true, %if.then89 ], [ true, %if.else92 ], [ true, %if.then81 ], [ true, %if.else83 ], [ true, %if.then76 ], [ true, %if.else ], [ false, %sw.bb103 ]
-  %nflags.1 = phi i32 [ %and99, %if.then97 ], [ %or101, %if.else100 ], [ %and91, %if.then89 ], [ %or93, %if.else92 ], [ %or82, %if.then81 ], [ %and85, %if.else83 ], [ %and, %if.then76 ], [ %or, %if.else ], [ %nflags.0107176, %sw.bb103 ]
+  %negated.1 = phi i8 [ 1, %if.then76 ], [ 0, %if.else ], [ 1, %if.then81 ], [ 0, %if.else83 ], [ 1, %if.then89 ], [ 0, %if.else92 ], [ 1, %if.then97 ], [ 0, %if.else100 ], [ 1, %sw.bb103 ]
+  %sawflags.1 = phi i1 [ true, %if.then76 ], [ true, %if.else ], [ true, %if.then81 ], [ true, %if.else83 ], [ true, %if.then89 ], [ true, %if.else92 ], [ true, %if.then97 ], [ true, %if.else100 ], [ false, %sw.bb103 ]
+  %nflags.1 = phi i32 [ %and, %if.then76 ], [ %or, %if.else ], [ %or82, %if.then81 ], [ %and85, %if.else83 ], [ %and91, %if.then89 ], [ %or93, %if.else92 ], [ %and99, %if.then97 ], [ %or101, %if.else100 ], [ %nflags.0107176, %sw.bb103 ]
   %cmp.i66 = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.i66, label %BadPerlOp, label %if.end69, !llvm.loop !56
 
@@ -7355,7 +7355,7 @@ sw.bb119:                                         ; preds = %invoke.cont31
   br label %invoke.cont120
 
 invoke.cont120:                                   ; preds = %sw.bb118, %sw.bb119, %invoke.cont31
-  %op.0 = phi i32 [ 9, %sw.bb119 ], [ 8, %sw.bb118 ], [ 7, %invoke.cont31 ]
+  %op.0 = phi i32 [ 8, %sw.bb118 ], [ 9, %sw.bb119 ], [ 7, %invoke.cont31 ]
   %add.ptr.i117 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %add.ptr.i117, ptr %t, align 8
   %sub.i118 = add i64 %11, -1
@@ -8124,7 +8124,7 @@ while.end411.invoke:                              ; preds = %while.cond, %Break2
           to label %cleanup unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont15, %invoke.cont402, %invoke.cont212, %invoke.cont157, %invoke.cont109, %invoke.cont85, %invoke.cont56, %invoke.cont34, %invoke.cont313, %while.end411.invoke, %invoke.cont313.thread, %invoke.cont34.thread, %invoke.cont15.thread, %sw.bb363, %invoke.cont198, %invoke.cont143
-  %retval.0 = phi ptr [ null, %invoke.cont198 ], [ null, %invoke.cont143 ], [ null, %sw.bb363 ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont313.thread ], [ %112, %while.end411.invoke ], [ null, %invoke.cont313 ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont402 ], [ null, %invoke.cont15 ]
+  %retval.0 = phi ptr [ null, %invoke.cont143 ], [ null, %invoke.cont198 ], [ null, %sw.bb363 ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont313.thread ], [ %112, %while.end411.invoke ], [ null, %invoke.cont313 ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont402 ], [ null, %invoke.cont15 ]
   call void @_ZN3re26Regexp10ParseStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ps) #28
   %tmp_.i354 = getelementptr inbounds nuw i8, ptr %xstatus, i64 24
   %113 = load ptr, ptr %tmp_.i354, align 8

@@ -235,7 +235,7 @@ define hidden zeroext i1 @phpdbg_check_watch_diff(i32 noundef %0, ptr noundef re
   br label %21
 
 21:                                               ; preds = %3, %4, %17, %15, %9, %7
-  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %14, %9 ], [ %8, %7 ], [ true, %4 ], [ false, %3 ]
+  %.0 = phi i1 [ %8, %7 ], [ %14, %9 ], [ %16, %15 ], [ %20, %17 ], [ true, %4 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -4623,8 +4623,8 @@ thread-pre-split:                                 ; preds = %131, %129, %9, %35,
   %149 = load ptr, ptr %0, align 8, !tbaa !20
   switch i32 %134, label %.critedge [
     i32 5, label %150
-    i32 0, label %phpdbg_check_watch_diff.exit
-    i32 2, label %153
+    i32 0, label %153
+    i32 2, label %154
   ]
 
 150:                                              ; preds = %147
@@ -4632,324 +4632,324 @@ thread-pre-split:                                 ; preds = %131, %129, %9, %35,
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %151, ptr noundef nonnull readonly dereferenceable(16) %152, i64 16)
   %.not.i194 = icmp eq i32 %bcmp13.i, 0
-  br i1 %.not.i194, label %phpdbg_check_watch_diff.exit, label %.thread213.thread230
+  br i1 %.not.i194, label %153, label %.thread213.thread230
 
-153:                                              ; preds = %147
+153:                                              ; preds = %150, %147
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %148, ptr noundef nonnull readonly dereferenceable(12) %149, i64 12)
+  %.not236 = icmp eq i32 %bcmp14.i, 0
+  br i1 %.not236, label %.critedge, label %155
+
+154:                                              ; preds = %147
   %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %148, ptr noundef nonnull readonly dereferenceable(4) %149, i64 4)
   %.not235 = icmp eq i32 %bcmp12.i, 0
   br i1 %.not235, label %.critedge, label %.thread216
 
-phpdbg_check_watch_diff.exit:                     ; preds = %147, %150
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %148, ptr noundef nonnull readonly dereferenceable(12) %149, i64 12)
-  %.not236 = icmp eq i32 %bcmp14.i, 0
-  br i1 %.not236, label %.critedge, label %154
-
-154:                                              ; preds = %phpdbg_check_watch_diff.exit
+155:                                              ; preds = %153
   switch i32 %134, label %.thread219 [
     i32 2, label %.thread216
     i32 5, label %.thread213.thread230
   ]
 
-.thread216:                                       ; preds = %154, %153
-  %155 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !115
-  %156 = and i64 %155, 1073741824
-  %.not167 = icmp eq i64 %156, 0
-  br i1 %.not167, label %157, label %.thread219
+.thread216:                                       ; preds = %155, %154
+  %156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !115
+  %157 = and i64 %156, 1073741824
+  %.not167 = icmp eq i64 %157, 0
+  br i1 %.not167, label %158, label %.thread219
 
-157:                                              ; preds = %.thread216
+158:                                              ; preds = %.thread216
   tail call void @phpdbg_watch_backup_data(ptr noundef nonnull %0)
   br label %.critedge
 
-.thread213.thread230:                             ; preds = %154, %150
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %159 = load ptr, ptr %158, align 8, !tbaa !20
-  %160 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  %161 = load ptr, ptr %160, align 8, !tbaa !105
-  %.not168 = icmp eq ptr %159, %161
-  br i1 %.not168, label %162, label %168
+.thread213.thread230:                             ; preds = %155, %150
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %160 = load ptr, ptr %159, align 8, !tbaa !20
+  %161 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %162 = load ptr, ptr %161, align 8, !tbaa !105
+  %.not168 = icmp eq ptr %160, %162
+  br i1 %.not168, label %163, label %169
 
-162:                                              ; preds = %.thread213.thread230
-  %.not169 = icmp eq ptr %159, null
-  br i1 %.not169, label %252, label %163
+163:                                              ; preds = %.thread213.thread230
+  %.not169 = icmp eq ptr %160, null
+  br i1 %.not169, label %253, label %164
 
-163:                                              ; preds = %162
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %165 = load i64, ptr %164, align 8, !tbaa !20
-  %166 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %167 = load i64, ptr %166, align 8, !tbaa !103
-  %.not170 = icmp eq i64 %165, %167
-  br i1 %.not170, label %252, label %168
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %166 = load i64, ptr %165, align 8, !tbaa !20
+  %167 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %168 = load i64, ptr %167, align 8, !tbaa !103
+  %.not170 = icmp eq i64 %166, %168
+  br i1 %.not170, label %253, label %169
 
-168:                                              ; preds = %163, %.thread213.thread230
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %170 = load ptr, ptr %169, align 8, !tbaa !20
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %172 = load i32, ptr %171, align 8, !tbaa !102
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %struct._Bucket, ptr %170, i64 %173
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %176 = load i32, ptr %175, align 8, !tbaa !20
-  %177 = and i32 %176, 4
-  %.not171 = icmp eq i32 %177, 0
+169:                                              ; preds = %164, %.thread213.thread230
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %171 = load ptr, ptr %170, align 8, !tbaa !20
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %173 = load i32, ptr %172, align 8, !tbaa !102
+  %174 = zext i32 %173 to i64
+  %175 = getelementptr inbounds nuw %struct._Bucket, ptr %171, i64 %174
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %177 = load i32, ptr %176, align 8, !tbaa !20
+  %178 = and i32 %177, 4
+  %.not171 = icmp eq i32 %178, 0
   tail call void @llvm.assume(i1 %.not171)
-  br label %178
+  br label %179
 
-178:                                              ; preds = %178, %168
-  %.0137 = phi ptr [ %170, %168 ], [ %182, %178 ]
-  %.not172 = icmp ne ptr %.0137, %174
+179:                                              ; preds = %179, %169
+  %.0137 = phi ptr [ %171, %169 ], [ %183, %179 ]
+  %.not172 = icmp ne ptr %.0137, %175
   tail call void @llvm.assume(i1 %.not172)
-  %179 = getelementptr inbounds nuw i8, ptr %.0137, i64 8
-  %180 = load i8, ptr %179, align 8, !tbaa !20
-  %181 = icmp eq i8 %180, 0
-  %182 = getelementptr inbounds nuw i8, ptr %.0137, i64 32
-  br i1 %181, label %178, label %183, !prof !106
+  %180 = getelementptr inbounds nuw i8, ptr %.0137, i64 8
+  %181 = load i8, ptr %180, align 8, !tbaa !20
+  %182 = icmp eq i8 %181, 0
+  %183 = getelementptr inbounds nuw i8, ptr %.0137, i64 32
+  br i1 %182, label %179, label %184, !prof !106
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %.0137, align 8, !tbaa !20, !nonnull !21, !noundef !21
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 96
-  %186 = load ptr, ptr %185, align 8, !tbaa !107
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 104
-  %188 = load ptr, ptr %187, align 8, !tbaa !92
+184:                                              ; preds = %179
+  %185 = load ptr, ptr %.0137, align 8, !tbaa !20, !nonnull !21, !noundef !21
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 96
+  %187 = load ptr, ptr %186, align 8, !tbaa !107
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 104
+  %189 = load ptr, ptr %188, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %191 = load i64, ptr %190, align 8, !tbaa !51
-  %192 = load i8, ptr %189, align 1, !tbaa !20
-  %193 = icmp sgt i8 %192, 57
-  br i1 %193, label %_zend_handle_numeric_str.exit.thread, label %194, !prof !112
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %192 = load i64, ptr %191, align 8, !tbaa !51
+  %193 = load i8, ptr %190, align 1, !tbaa !20
+  %194 = icmp sgt i8 %193, 57
+  br i1 %194, label %_zend_handle_numeric_str.exit.thread, label %195, !prof !112
 
-194:                                              ; preds = %183
-  %195 = icmp slt i8 %192, 48
-  br i1 %195, label %196, label %_zend_handle_numeric_str.exit
+195:                                              ; preds = %184
+  %196 = icmp slt i8 %193, 48
+  br i1 %196, label %197, label %_zend_handle_numeric_str.exit
 
-196:                                              ; preds = %194
-  %.not.i188 = icmp eq i8 %192, 45
-  br i1 %.not.i188, label %197, label %_zend_handle_numeric_str.exit.thread
+197:                                              ; preds = %195
+  %.not.i188 = icmp eq i8 %193, 45
+  br i1 %.not.i188, label %198, label %_zend_handle_numeric_str.exit.thread
 
-197:                                              ; preds = %196
-  %198 = getelementptr inbounds nuw i8, ptr %188, i64 25
-  %199 = load i8, ptr %198, align 1, !tbaa !20
-  %200 = add i8 %199, -58
-  %or.cond.i = icmp ult i8 %200, -10
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %189, i64 25
+  %200 = load i8, ptr %199, align 1, !tbaa !20
+  %201 = add i8 %200, -58
+  %or.cond.i = icmp ult i8 %201, -10
   br i1 %or.cond.i, label %_zend_handle_numeric_str.exit.thread, label %_zend_handle_numeric_str.exit
 
-_zend_handle_numeric_str.exit:                    ; preds = %194, %197
-  %201 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %189, i64 noundef %191, ptr noundef nonnull %5) #17
-  br i1 %201, label %202, label %_zend_handle_numeric_str.exit.thread
+_zend_handle_numeric_str.exit:                    ; preds = %195, %198
+  %202 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %190, i64 noundef %192, ptr noundef nonnull %5) #17
+  br i1 %202, label %203, label %_zend_handle_numeric_str.exit.thread
 
-202:                                              ; preds = %_zend_handle_numeric_str.exit
-  %203 = load i64, ptr %5, align 8, !tbaa !25
-  %204 = call ptr @zend_hash_index_find(ptr noundef %186, i64 noundef %203) #17
+203:                                              ; preds = %_zend_handle_numeric_str.exit
+  %204 = load i64, ptr %5, align 8, !tbaa !25
+  %205 = call ptr @zend_hash_index_find(ptr noundef %187, i64 noundef %204) #17
   br label %zend_symtable_find.exit
 
-_zend_handle_numeric_str.exit.thread:             ; preds = %197, %196, %183, %_zend_handle_numeric_str.exit
-  %205 = call ptr @zend_hash_find(ptr noundef %186, ptr noundef nonnull %188) #17
+_zend_handle_numeric_str.exit.thread:             ; preds = %198, %197, %184, %_zend_handle_numeric_str.exit
+  %206 = call ptr @zend_hash_find(ptr noundef %187, ptr noundef nonnull %189) #17
   br label %zend_symtable_find.exit
 
-zend_symtable_find.exit:                          ; preds = %202, %_zend_handle_numeric_str.exit.thread
-  %.0.i = phi ptr [ %204, %202 ], [ %205, %_zend_handle_numeric_str.exit.thread ]
+zend_symtable_find.exit:                          ; preds = %203, %_zend_handle_numeric_str.exit.thread
+  %.0.i = phi ptr [ %205, %203 ], [ %206, %_zend_handle_numeric_str.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %.not173 = icmp eq ptr %.0.i, null
-  br i1 %.not173, label %206, label %207
+  br i1 %.not173, label %207, label %208
 
-206:                                              ; preds = %zend_symtable_find.exit
+207:                                              ; preds = %zend_symtable_find.exit
   call void @phpdbg_remove_watchpoint(ptr noundef nonnull %0)
   br label %.critedge
 
-207:                                              ; preds = %zend_symtable_find.exit
+208:                                              ; preds = %zend_symtable_find.exit
   %.val = load ptr, ptr %0, align 8, !tbaa !20
-  %208 = ptrtoint ptr %.val to i64
-  %209 = call i32 @phpdbg_btree_delete(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %208) #17
+  %209 = ptrtoint ptr %.val to i64
+  %210 = call i32 @phpdbg_btree_delete(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %209) #17
   %.val189 = load ptr, ptr %0, align 8, !tbaa !20
-  %210 = getelementptr i8, ptr %0, i64 8
-  %.val190 = load i64, ptr %210, align 8, !tbaa !57
-  %211 = ptrtoint ptr %.val189 to i64
-  %212 = load i64, ptr @phpdbg_pagesize, align 8, !tbaa !25
-  %213 = sub i64 0, %212
-  %214 = and i64 %213, %211
-  %215 = add i64 %211, -1
-  %216 = add i64 %215, %.val190
-  %217 = and i64 %216, %213
-  %218 = sub i64 %217, %214
-  %219 = add i64 %218, %212
-  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
-  %.not.i.i = icmp eq i32 %220, 0
-  br i1 %.not.i.i, label %225, label %221
+  %211 = getelementptr i8, ptr %0, i64 8
+  %.val190 = load i64, ptr %211, align 8, !tbaa !57
+  %212 = ptrtoint ptr %.val189 to i64
+  %213 = load i64, ptr @phpdbg_pagesize, align 8, !tbaa !25
+  %214 = sub i64 0, %213
+  %215 = and i64 %214, %212
+  %216 = add i64 %212, -1
+  %217 = add i64 %216, %.val190
+  %218 = and i64 %217, %214
+  %219 = sub i64 %218, %215
+  %220 = add i64 %219, %213
+  %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
+  %.not.i.i = icmp eq i32 %221, 0
+  br i1 %.not.i.i, label %226, label %222
 
-221:                                              ; preds = %207
+222:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  store i64 %214, ptr %4, align 8, !tbaa !73
+  store i64 %215, ptr %4, align 8, !tbaa !73
   %.sroa.6.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %219, ptr %.sroa.6.0..sroa_idx5.i.i, align 8, !tbaa !73
-  %222 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 2, ptr %222, align 8, !tbaa !74
-  %223 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %223, align 8, !tbaa !76
-  %224 = call i32 (i32, i64, ...) @ioctl(i32 noundef %220, i64 noundef 2148575745, ptr noundef nonnull %4) #17
+  store i64 %220, ptr %.sroa.6.0..sroa_idx5.i.i, align 8, !tbaa !73
+  %223 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 2, ptr %223, align 8, !tbaa !74
+  %224 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %224, align 8, !tbaa !76
+  %225 = call i32 (i32, i64, ...) @ioctl(i32 noundef %221, i64 noundef 2148575745, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   br label %phpdbg_deactivate_watchpoint.exit
 
-225:                                              ; preds = %207
-  %226 = inttoptr i64 %214 to ptr
-  %227 = call i32 @mprotect(ptr noundef %226, i64 noundef %219, i32 noundef 3) #17
+226:                                              ; preds = %208
+  %227 = inttoptr i64 %215 to ptr
+  %228 = call i32 @mprotect(ptr noundef %227, i64 noundef %220, i32 noundef 3) #17
   br label %phpdbg_deactivate_watchpoint.exit
 
-phpdbg_deactivate_watchpoint.exit:                ; preds = %221, %225
+phpdbg_deactivate_watchpoint.exit:                ; preds = %222, %226
   store ptr %.0.i, ptr %0, align 8, !tbaa !20
-  %228 = ptrtoint ptr %.0.i to i64
-  %229 = call i32 @phpdbg_btree_insert_or_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %228, ptr noundef nonnull %0, i32 noundef 1) #17
+  %229 = ptrtoint ptr %.0.i to i64
+  %230 = call i32 @phpdbg_btree_insert_or_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %229, ptr noundef nonnull %0, i32 noundef 1) #17
   %.val191 = load ptr, ptr %0, align 8, !tbaa !20
-  %.val192 = load i64, ptr %210, align 8, !tbaa !57
-  %230 = ptrtoint ptr %.val191 to i64
-  %231 = load i64, ptr @phpdbg_pagesize, align 8, !tbaa !25
-  %232 = sub i64 0, %231
-  %233 = and i64 %232, %230
-  %234 = add i64 %230, -1
-  %235 = add i64 %234, %.val192
-  %236 = and i64 %235, %232
-  %237 = sub i64 %236, %233
-  %238 = add i64 %237, %231
-  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
-  %.not.i.i195 = icmp eq i32 %239, 0
-  br i1 %.not.i.i195, label %247, label %240
+  %.val192 = load i64, ptr %211, align 8, !tbaa !57
+  %231 = ptrtoint ptr %.val191 to i64
+  %232 = load i64, ptr @phpdbg_pagesize, align 8, !tbaa !25
+  %233 = sub i64 0, %232
+  %234 = and i64 %233, %231
+  %235 = add i64 %231, -1
+  %236 = add i64 %235, %.val192
+  %237 = and i64 %236, %233
+  %238 = sub i64 %237, %234
+  %239 = add i64 %238, %232
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
+  %.not.i.i195 = icmp eq i32 %240, 0
+  br i1 %.not.i.i195, label %248, label %241
 
-240:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
+241:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
-  store i64 %233, ptr %2, align 8, !tbaa !73
+  store i64 %234, ptr %2, align 8, !tbaa !73
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %238, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !73
-  %241 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 2, ptr %241, align 8, !tbaa !74
-  %242 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %242, align 8, !tbaa !76
+  store i64 %239, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !73
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 2, ptr %242, align 8, !tbaa !74
+  %243 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 0, ptr %243, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
-  store i64 %233, ptr %3, align 8, !tbaa !73
+  store i64 %234, ptr %3, align 8, !tbaa !73
   %.sroa.6.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %238, ptr %.sroa.6.0..sroa_idx3.i.i, align 8, !tbaa !73
-  %243 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 1, ptr %243, align 8, !tbaa !67
-  %244 = call i32 (i32, i64, ...) @ioctl(i32 noundef %239, i64 noundef 3223366144, ptr noundef nonnull %2) #17
-  %245 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
-  %246 = call i32 (i32, i64, ...) @ioctl(i32 noundef %245, i64 noundef 3222841862, ptr noundef nonnull %3) #17
+  store i64 %239, ptr %.sroa.6.0..sroa_idx3.i.i, align 8, !tbaa !73
+  %244 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 1, ptr %244, align 8, !tbaa !67
+  %245 = call i32 (i32, i64, ...) @ioctl(i32 noundef %240, i64 noundef 3223366144, ptr noundef nonnull %2) #17
+  %246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 992), align 8, !tbaa !62
+  %247 = call i32 (i32, i64, ...) @ioctl(i32 noundef %246, i64 noundef 3222841862, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
   br label %phpdbg_activate_watchpoint.exit
 
-247:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
-  %248 = inttoptr i64 %233 to ptr
-  %249 = call i32 @mprotect(ptr noundef %248, i64 noundef %238, i32 noundef 1) #17
+248:                                              ; preds = %phpdbg_deactivate_watchpoint.exit
+  %249 = inttoptr i64 %234 to ptr
+  %250 = call i32 @mprotect(ptr noundef %249, i64 noundef %239, i32 noundef 1) #17
   br label %phpdbg_activate_watchpoint.exit
 
-phpdbg_activate_watchpoint.exit:                  ; preds = %240, %247
-  %250 = load ptr, ptr %0, align 8, !tbaa !20
-  %bcmp14.i196 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %148, ptr noundef nonnull readonly dereferenceable(12) %250, i64 12)
+phpdbg_activate_watchpoint.exit:                  ; preds = %241, %248
+  %251 = load ptr, ptr %0, align 8, !tbaa !20
+  %bcmp14.i196 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %148, ptr noundef nonnull readonly dereferenceable(12) %251, i64 12)
   %.not237 = icmp eq i32 %bcmp14.i196, 0
-  br i1 %.not237, label %251, label %.thread219
+  br i1 %.not237, label %252, label %.thread219
 
-251:                                              ; preds = %phpdbg_activate_watchpoint.exit
+252:                                              ; preds = %phpdbg_activate_watchpoint.exit
   call void @phpdbg_watch_backup_data(ptr noundef nonnull %0)
   br label %.critedge
 
-252:                                              ; preds = %163, %162
-  %253 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %254 = load i8, ptr %253, align 8, !tbaa !20
-  %255 = icmp eq i8 %254, 0
-  br i1 %255, label %256, label %.thread219
+253:                                              ; preds = %164, %163
+  %254 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %255 = load i8, ptr %254, align 8, !tbaa !20
+  %256 = icmp eq i8 %255, 0
+  br i1 %256, label %257, label %.thread219
 
-256:                                              ; preds = %252
+257:                                              ; preds = %253
   tail call void @phpdbg_remove_watchpoint(ptr noundef nonnull %0)
   br label %.critedge
 
-.thread219:                                       ; preds = %154, %.thread, %.thread204, %.thread216, %phpdbg_activate_watchpoint.exit, %252
-  %.0203209215221 = phi ptr [ %148, %phpdbg_activate_watchpoint.exit ], [ %148, %252 ], [ %148, %.thread216 ], [ %137, %.thread204 ], [ %141, %.thread ], [ %148, %154 ]
-  %257 = call ptr @phpdbg_watchpoint_change_collision_name(ptr noundef nonnull %0)
-  %.not174 = icmp eq ptr %257, null
-  br i1 %.not174, label %zend_string_release.exit, label %258
+.thread219:                                       ; preds = %155, %.thread, %.thread204, %.thread216, %phpdbg_activate_watchpoint.exit, %253
+  %.0203209215221 = phi ptr [ %148, %phpdbg_activate_watchpoint.exit ], [ %148, %253 ], [ %148, %.thread216 ], [ %137, %.thread204 ], [ %141, %.thread ], [ %148, %155 ]
+  %258 = call ptr @phpdbg_watchpoint_change_collision_name(ptr noundef nonnull %0)
+  %.not174 = icmp eq ptr %258, null
+  br i1 %.not174, label %zend_string_release.exit, label %259
 
-258:                                              ; preds = %.thread219
-  %259 = load i32, ptr %6, align 8, !tbaa !71
-  %260 = load ptr, ptr %0, align 8, !tbaa !20
-  call void @phpdbg_print_watch_diff(i32 noundef %259, ptr noundef nonnull %257, ptr noundef nonnull %.0203209215221, ptr noundef %260)
-  %261 = getelementptr inbounds nuw i8, ptr %257, i64 4
-  %262 = load i32, ptr %261, align 4, !tbaa !20
-  %263 = and i32 %262, 64
-  %.not.i = icmp eq i32 %263, 0
-  br i1 %.not.i, label %264, label %zend_string_release.exit
+259:                                              ; preds = %.thread219
+  %260 = load i32, ptr %6, align 8, !tbaa !71
+  %261 = load ptr, ptr %0, align 8, !tbaa !20
+  call void @phpdbg_print_watch_diff(i32 noundef %260, ptr noundef nonnull %258, ptr noundef nonnull %.0203209215221, ptr noundef %261)
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %263 = load i32, ptr %262, align 4, !tbaa !20
+  %264 = and i32 %263, 64
+  %.not.i = icmp eq i32 %264, 0
+  br i1 %.not.i, label %265, label %zend_string_release.exit
 
-264:                                              ; preds = %258
-  %265 = load i32, ptr %257, align 4, !tbaa !53
-  %266 = icmp ne i32 %265, 0
-  call void @llvm.assume(i1 %266)
-  %267 = add i32 %265, -1
-  store i32 %267, ptr %257, align 4, !tbaa !53
-  %268 = icmp eq i32 %267, 0
-  br i1 %268, label %269, label %zend_string_release.exit
+265:                                              ; preds = %259
+  %266 = load i32, ptr %258, align 4, !tbaa !53
+  %267 = icmp ne i32 %266, 0
+  call void @llvm.assume(i1 %267)
+  %268 = add i32 %266, -1
+  store i32 %268, ptr %258, align 4, !tbaa !53
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %270, label %zend_string_release.exit
 
-269:                                              ; preds = %264
-  %270 = and i32 %262, 128
-  %.not5.i = icmp eq i32 %270, 0
-  br i1 %.not5.i, label %272, label %271
+270:                                              ; preds = %265
+  %271 = and i32 %263, 128
+  %.not5.i = icmp eq i32 %271, 0
+  br i1 %.not5.i, label %273, label %272
 
-271:                                              ; preds = %269
-  call void @free(ptr noundef nonnull %257) #17
+272:                                              ; preds = %270
+  call void @free(ptr noundef nonnull %258) #17
   br label %zend_string_release.exit
 
-272:                                              ; preds = %269
-  call void @_efree(ptr noundef nonnull %257) #17
+273:                                              ; preds = %270
+  call void @_efree(ptr noundef nonnull %258) #17
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %272, %271, %264, %258, %.thread219
-  %273 = load i32, ptr %6, align 8, !tbaa !71
-  switch i32 %273, label %.loopexit [
-    i32 0, label %274
-    i32 5, label %274
+zend_string_release.exit:                         ; preds = %273, %272, %265, %259, %.thread219
+  %274 = load i32, ptr %6, align 8, !tbaa !71
+  switch i32 %274, label %.loopexit [
+    i32 0, label %275
+    i32 5, label %275
   ]
 
-274:                                              ; preds = %zend_string_release.exit, %zend_string_release.exit
+275:                                              ; preds = %zend_string_release.exit, %zend_string_release.exit
   call void @phpdbg_update_watch_ref(ptr noundef nonnull %0)
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %276 = load ptr, ptr %275, align 8, !tbaa !20
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %278 = load i32, ptr %277, align 8, !tbaa !102
-  %279 = zext i32 %278 to i64
-  %280 = getelementptr inbounds nuw %struct._Bucket, ptr %276, i64 %279
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %282 = load i32, ptr %281, align 8, !tbaa !20
-  %283 = and i32 %282, 4
-  %.not175 = icmp eq i32 %283, 0
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %277 = load ptr, ptr %276, align 8, !tbaa !20
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %279 = load i32, ptr %278, align 8, !tbaa !102
+  %280 = zext i32 %279 to i64
+  %281 = getelementptr inbounds nuw %struct._Bucket, ptr %277, i64 %280
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %283 = load i32, ptr %282, align 8, !tbaa !20
+  %284 = and i32 %283, 4
+  %.not175 = icmp eq i32 %284, 0
   call void @llvm.assume(i1 %.not175)
-  %.not176250 = icmp eq i32 %278, 0
+  %.not176250 = icmp eq i32 %279, 0
   br i1 %.not176250, label %.loopexit, label %.lr.ph253
 
-.lr.ph253:                                        ; preds = %274, %293
-  %.0133251 = phi ptr [ %294, %293 ], [ %276, %274 ]
-  %284 = getelementptr inbounds nuw i8, ptr %.0133251, i64 8
-  %285 = load i8, ptr %284, align 8, !tbaa !20
-  %286 = icmp eq i8 %285, 0
-  br i1 %286, label %293, label %287, !prof !106
+.lr.ph253:                                        ; preds = %275, %294
+  %.0133251 = phi ptr [ %295, %294 ], [ %277, %275 ]
+  %285 = getelementptr inbounds nuw i8, ptr %.0133251, i64 8
+  %286 = load i8, ptr %285, align 8, !tbaa !20
+  %287 = icmp eq i8 %286, 0
+  br i1 %287, label %294, label %288, !prof !106
 
-287:                                              ; preds = %.lr.ph253
-  %288 = load ptr, ptr %.0133251, align 8, !tbaa !20
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
-  %290 = load i8, ptr %289, align 8, !tbaa !91
-  %291 = and i8 %290, 2
-  %.not177 = icmp eq i8 %291, 0
-  br i1 %.not177, label %293, label %292
+288:                                              ; preds = %.lr.ph253
+  %289 = load ptr, ptr %.0133251, align 8, !tbaa !20
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
+  %291 = load i8, ptr %290, align 8, !tbaa !91
+  %292 = and i8 %291, 2
+  %.not177 = icmp eq i8 %292, 0
+  br i1 %.not177, label %294, label %293
 
-292:                                              ; preds = %287
-  call void @phpdbg_recurse_watch_element(ptr noundef nonnull %288)
-  br label %293
+293:                                              ; preds = %288
+  call void @phpdbg_recurse_watch_element(ptr noundef nonnull %289)
+  br label %294
 
-293:                                              ; preds = %287, %292, %.lr.ph253
-  %294 = getelementptr inbounds nuw i8, ptr %.0133251, i64 32
-  %.not176 = icmp eq ptr %294, %280
+294:                                              ; preds = %288, %293, %.lr.ph253
+  %295 = getelementptr inbounds nuw i8, ptr %.0133251, i64 32
+  %.not176 = icmp eq ptr %295, %281
   br i1 %.not176, label %.loopexit, label %.lr.ph253
 
-.loopexit:                                        ; preds = %293, %274, %zend_string_release.exit
+.loopexit:                                        ; preds = %294, %275, %zend_string_release.exit
   call void @phpdbg_watch_backup_data(ptr noundef %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %147, %.thread, %153, %.thread204, %251, %206, %phpdbg_check_watch_diff.exit, %133, %.loopexit, %256, %157
+.critedge:                                        ; preds = %147, %154, %.thread, %153, %252, %207, %.thread204, %133, %.loopexit, %257, %158
   ret void
 }
 

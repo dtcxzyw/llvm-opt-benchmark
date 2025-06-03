@@ -974,8 +974,8 @@ default.unreachable:                              ; preds = %82
   unreachable
 
 .loopexit:                                        ; preds = %174, %126, %103, %.preheader4, %.preheader2, %.preheader, %129, %134
-  %.0117 = phi ptr [ %138, %134 ], [ %133, %129 ], [ %88, %.preheader ], [ %111, %.preheader2 ], [ %159, %.preheader4 ], [ %88, %103 ], [ %111, %126 ], [ %159, %174 ]
-  %.0114 = phi i32 [ %1, %134 ], [ %1, %129 ], [ %1, %.preheader ], [ %1, %.preheader2 ], [ %.2116, %.preheader4 ], [ %1, %103 ], [ %1, %126 ], [ %.2116, %174 ]
+  %.0117 = phi ptr [ %133, %129 ], [ %138, %134 ], [ %88, %.preheader ], [ %111, %.preheader2 ], [ %159, %.preheader4 ], [ %88, %103 ], [ %111, %126 ], [ %159, %174 ]
+  %.0114 = phi i32 [ %1, %129 ], [ %1, %134 ], [ %1, %.preheader ], [ %1, %.preheader2 ], [ %.2116, %.preheader4 ], [ %1, %103 ], [ %1, %126 ], [ %.2116, %174 ]
   %178 = trunc i32 %.0114 to i8
   %179 = call fastcc ptr @make_array(ptr noundef nonnull %0, i8 noundef signext %178, ptr noundef nonnull %.0117)
   %180 = load i32, ptr %.0117, align 8, !tbaa !17
@@ -993,7 +993,7 @@ default.unreachable:                              ; preds = %82
   br label %.critedge
 
 .critedge:                                        ; preds = %168, %170, %173, %120, %122, %125, %97, %99, %102, %184, %181, %.loopexit, %Py_DECREF.exit.sink.split.i, %70, %_Py_NewRef.exit.i, %58, %56, %49, %157, %106, %83, %129, %134, %80, %40, %34, %31, %18, %10
-  %.0 = phi ptr [ null, %31 ], [ null, %34 ], [ null, %80 ], [ null, %134 ], [ null, %129 ], [ null, %40 ], [ null, %18 ], [ null, %10 ], [ null, %83 ], [ null, %106 ], [ null, %157 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ %68, %_Py_NewRef.exit.i ], [ %68, %70 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ %179, %.loopexit ], [ %179, %181 ], [ %179, %184 ], [ null, %102 ], [ null, %99 ], [ null, %97 ], [ null, %125 ], [ null, %122 ], [ null, %120 ], [ null, %173 ], [ null, %170 ], [ null, %168 ]
+  %.0 = phi ptr [ null, %31 ], [ null, %34 ], [ null, %80 ], [ null, %129 ], [ null, %134 ], [ null, %40 ], [ null, %18 ], [ null, %10 ], [ null, %83 ], [ null, %106 ], [ null, %157 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ %68, %_Py_NewRef.exit.i ], [ %68, %70 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ %179, %.loopexit ], [ %179, %181 ], [ %179, %184 ], [ null, %102 ], [ null, %99 ], [ null, %97 ], [ null, %125 ], [ null, %122 ], [ null, %120 ], [ null, %173 ], [ null, %170 ], [ null, %168 ]
   ret ptr %.0
 }
 
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 -1, 21) i32 @typecode_to_mformat_code(i8 nounde
   br label %13
 
 13:                                               ; preds = %8, %7, %6, %5, %4, %1, %12, %11, %10, %9, %3, %2
-  %.011 = phi i32 [ -1, %9 ], [ 20, %3 ], [ 0, %2 ], [ 1, %1 ], [ 14, %4 ], [ 16, %5 ], [ 2, %6 ], [ 4, %10 ], [ 6, %7 ], [ 8, %11 ], [ 10, %8 ], [ 12, %12 ]
+  %.011 = phi i32 [ -1, %9 ], [ 0, %2 ], [ 20, %3 ], [ 1, %1 ], [ 14, %4 ], [ 16, %5 ], [ 2, %6 ], [ 4, %10 ], [ 6, %7 ], [ 8, %11 ], [ 10, %8 ], [ 12, %12 ]
   ret i32 %.011
 }
 
@@ -3915,35 +3915,35 @@ PyObject_TypeCheck.exit141.thread:                ; preds = %PyObject_TypeCheck.
 
 41:                                               ; preds = %34
   switch i32 %2, label %_Py_NewRef.exit [
-    i32 0, label %48
-    i32 1, label %42
+    i32 0, label %42
+    i32 1, label %44
     i32 2, label %.thread
     i32 3, label %.thread152
-    i32 4, label %44
-    i32 5, label %46
+    i32 4, label %46
+    i32 5, label %48
   ]
 
 42:                                               ; preds = %41
-  %43 = icmp sgt i32 %.fr, 0
+  %43 = icmp sgt i32 %.fr, -1
   br i1 %43, label %.thread, label %.thread152
 
 44:                                               ; preds = %41
-  %45 = icmp slt i32 %.fr, 1
+  %45 = icmp sgt i32 %.fr, 0
   br i1 %45, label %.thread, label %.thread152
 
 46:                                               ; preds = %41
-  %47 = icmp slt i32 %.fr, 0
+  %47 = icmp slt i32 %.fr, 1
   br i1 %47, label %.thread, label %.thread152
 
 48:                                               ; preds = %41
-  %49 = icmp sgt i32 %.fr, -1
+  %49 = icmp slt i32 %.fr, 0
   br i1 %49, label %.thread, label %.thread152
 
-.thread:                                          ; preds = %41, %42, %44, %46, %48
+.thread:                                          ; preds = %41, %46, %44, %42, %48
   br label %.thread152
 
-.thread152:                                       ; preds = %41, %42, %44, %46, %48, %.thread
-  %50 = phi ptr [ @_Py_FalseStruct, %.thread ], [ @_Py_TrueStruct, %48 ], [ @_Py_TrueStruct, %46 ], [ @_Py_TrueStruct, %44 ], [ @_Py_TrueStruct, %42 ], [ @_Py_TrueStruct, %41 ]
+.thread152:                                       ; preds = %41, %46, %44, %42, %48, %.thread
+  %50 = phi ptr [ @_Py_FalseStruct, %.thread ], [ @_Py_TrueStruct, %48 ], [ @_Py_TrueStruct, %42 ], [ @_Py_TrueStruct, %44 ], [ @_Py_TrueStruct, %46 ], [ @_Py_TrueStruct, %41 ]
   %51 = load i32, ptr %50, align 8, !tbaa !17
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %_Py_NewRef.exit, label %53
@@ -4051,31 +4051,31 @@ _Py_NewRef.exit143:                               ; preds = %.lr.ph, %.lr.ph.pre
   %.val128 = phi i64 [ %.val128.pre, %._Py_NewRef.exit143_crit_edge ], [ %.val136, %55 ], [ %.val130, %._Py_NewRef.exit143.loopexit_crit_edge ], [ %.val136, %.lr.ph.preheader ], [ %.val130, %.lr.ph ]
   %.val127 = load i64, ptr %13, align 8, !tbaa !40
   switch i32 %2, label %_Py_NewRef.exit [
-    i32 0, label %98
-    i32 1, label %94
+    i32 0, label %94
+    i32 1, label %96
     i32 2, label %.split95
     i32 3, label %.split93
-    i32 4, label %95
-    i32 5, label %97
+    i32 4, label %97
+    i32 5, label %99
   ]
 
 94:                                               ; preds = %_Py_NewRef.exit143
+  %95 = icmp slt i64 %.val128, %.val127
+  br i1 %95, label %.split95, label %.split93
+
+96:                                               ; preds = %_Py_NewRef.exit143
   %.not164 = icmp sgt i64 %.val128, %.val127
   br i1 %.not164, label %.split93, label %.split95
 
-95:                                               ; preds = %_Py_NewRef.exit143
-  %96 = icmp sgt i64 %.val128, %.val127
-  br i1 %96, label %.split95, label %.split93
-
 97:                                               ; preds = %_Py_NewRef.exit143
+  %98 = icmp sgt i64 %.val128, %.val127
+  br i1 %98, label %.split95, label %.split93
+
+99:                                               ; preds = %_Py_NewRef.exit143
   %.not163 = icmp slt i64 %.val128, %.val127
   br i1 %.not163, label %.split93, label %.split95
 
-98:                                               ; preds = %_Py_NewRef.exit143
-  %99 = icmp slt i64 %.val128, %.val127
-  br i1 %99, label %.split95, label %.split93
-
-.split95:                                         ; preds = %94, %95, %97, %_Py_NewRef.exit143, %98
+.split95:                                         ; preds = %97, %96, %94, %_Py_NewRef.exit143, %99
   %100 = load i32, ptr @_Py_TrueStruct, align 8, !tbaa !17
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %_Py_NewRef.exit, label %102
@@ -4085,7 +4085,7 @@ _Py_NewRef.exit143:                               ; preds = %.lr.ph, %.lr.ph.pre
   store i32 %103, ptr @_Py_TrueStruct, align 8, !tbaa !17
   br label %_Py_NewRef.exit
 
-.split93:                                         ; preds = %94, %95, %97, %_Py_NewRef.exit143, %98
+.split93:                                         ; preds = %97, %96, %94, %_Py_NewRef.exit143, %99
   %104 = load i32, ptr @_Py_FalseStruct, align 8, !tbaa !17
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %_Py_NewRef.exit, label %106
@@ -4236,7 +4236,7 @@ define internal i32 @array_tp_traverse(ptr noundef readonly captures(none) %0, p
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -7466,7 +7466,7 @@ define internal i32 @arrayiter_traverse(ptr noundef readonly captures(none) %0, 
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 

@@ -3747,9 +3747,9 @@ ff_all_formats.exit:                              ; preds = %.lr.ph.i66, %85, %.
   br label %96
 
 96:                                               ; preds = %ff_all_formats.exit, %ff_make_formats_list_singleton.exit64, %ff_make_formats_list_singleton.exit, %ff_make_format_list.exit53, %ff_make_format_list.exit
-  %.028 = phi ptr [ %.07.i, %ff_all_formats.exit ], [ %.011.i.i63, %ff_make_formats_list_singleton.exit64 ], [ %.011.i.i, %ff_make_formats_list_singleton.exit ], [ %.011.i52, %ff_make_format_list.exit53 ], [ %.011.i, %ff_make_format_list.exit ]
-  %.not36 = phi i1 [ false, %ff_all_formats.exit ], [ true, %ff_make_formats_list_singleton.exit64 ], [ false, %ff_make_formats_list_singleton.exit ], [ true, %ff_make_format_list.exit53 ], [ false, %ff_make_format_list.exit ]
-  %.not37 = phi i1 [ false, %ff_all_formats.exit ], [ false, %ff_make_formats_list_singleton.exit64 ], [ true, %ff_make_formats_list_singleton.exit ], [ false, %ff_make_format_list.exit53 ], [ true, %ff_make_format_list.exit ]
+  %.028 = phi ptr [ %.07.i, %ff_all_formats.exit ], [ %.011.i, %ff_make_format_list.exit ], [ %.011.i52, %ff_make_format_list.exit53 ], [ %.011.i.i, %ff_make_formats_list_singleton.exit ], [ %.011.i.i63, %ff_make_formats_list_singleton.exit64 ]
+  %.not36 = phi i1 [ false, %ff_all_formats.exit ], [ false, %ff_make_format_list.exit ], [ true, %ff_make_format_list.exit53 ], [ false, %ff_make_formats_list_singleton.exit ], [ true, %ff_make_formats_list_singleton.exit64 ]
+  %.not37 = phi i1 [ false, %ff_all_formats.exit ], [ true, %ff_make_format_list.exit ], [ false, %ff_make_format_list.exit53 ], [ true, %ff_make_formats_list_singleton.exit ], [ false, %ff_make_formats_list_singleton.exit64 ]
   %97 = call i32 @ff_set_common_formats(ptr noundef %0, ptr noundef %.028)
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %132, label %99

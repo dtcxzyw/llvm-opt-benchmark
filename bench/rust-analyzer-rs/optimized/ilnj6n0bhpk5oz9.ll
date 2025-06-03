@@ -785,8 +785,8 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit: ; preds = %35
   %46 = getelementptr inbounds i16, ptr %45, i64 %40
   %47 = load i16, ptr %46, align 2, !range !98, !noalias !95, !noundef !10
   switch i16 %47, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread [
-    i16 6, label %.invoke57
-    i16 20, label %.invoke
+    i16 6, label %.invoke
+    i16 20, label %.invoke57
     i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i
   ]
 
@@ -899,7 +899,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %69
 
 94:                                               ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 30)
-          to label %.invoke unwind label %168
+          to label %.invoke57 unwind label %168
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16: ; preds = %85
   %95 = and i64 %40, 63
@@ -938,7 +938,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19: ; preds = %104
 
 113:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 30)
-          to label %.invoke57 unwind label %168
+          to label %.invoke unwind label %168
 
 114:                                              ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread
   br i1 %48, label %115, label %_ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit
@@ -1055,19 +1055,19 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29: ; preds = %151
   %160 = getelementptr inbounds i16, ptr %159, i64 %154
   %161 = load i16, ptr %160, align 2, !range !98, !noalias !130, !noundef !10
   switch i16 %161, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread [
-    i16 6, label %.invoke57
-    i16 20, label %.invoke
+    i16 6, label %.invoke
+    i16 20, label %.invoke57
   ]
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread: ; preds = %151, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29
   %162 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7106e1a990fd6321E"(i64 noundef 19, i1 noundef zeroext false)
           to label %163 unwind label %168
 
-.invoke57:                                        ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %113, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
+.invoke:                                          ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %113, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   invoke void @_ZN6parser7grammar5items8use_item13use_tree_list17ha4b2e4e29fa73301E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread unwind label %168
 
-.invoke:                                          ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %94, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
+.invoke57:                                        ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %94, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 20)
           to label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread unwind label %168
 
@@ -1090,7 +1090,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread
 
-168:                                              ; preds = %.invoke59, %.invoke58, %.invoke57, %.invoke, %139, %163, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread, %147, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread, %94, %113, %115
+168:                                              ; preds = %.invoke59, %.invoke58, %.invoke57, %.invoke, %163, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread, %147, %139, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread, %94, %113, %115
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$parser..parser..Marker$GT$17h537f17968311df0dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #15

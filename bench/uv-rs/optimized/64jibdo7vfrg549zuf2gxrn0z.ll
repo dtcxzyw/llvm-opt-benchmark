@@ -4101,7 +4101,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$uv_cli..Commands$GT$17h09441
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$uv_cli..ProjectCommand$GT$$GT$17h0a2b3895f1b08e71E.exit" unwind label %21
 
 common.resume:                                    ; preds = %100, %118, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %119, %118 ], [ %101, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %101, %100 ], [ %119, %118 ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %19
@@ -6582,7 +6582,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$uv_normalize..InvalidPipGroupError$
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sroa.0.0.in = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6731,7 +6731,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$uv_pep508..Pep508ErrorSource$LT$T
   br label %19
 
 19:                                               ; preds = %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6777,7 +6777,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$uv_pep508..Pep508ErrorSource$LT$T
   br label %19
 
 19:                                               ; preds = %16, %14, %11
-  %.sroa.0.0.in = phi i1 [ %18, %16 ], [ %15, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in = phi i1 [ %13, %11 ], [ %15, %14 ], [ %18, %16 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -7041,8 +7041,8 @@ define internal fastcc { i64, ptr } @"_ZN75_$LT$F$u20$as$u20$clap_builder..build
   br label %82
 
 82:                                               ; preds = %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h9ef33273d82e7863E.exit", %28, %26
-  %.sroa.4.0 = phi ptr [ %27, %26 ], [ %31, %28 ], [ %80, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h9ef33273d82e7863E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %26 ], [ 0, %28 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h9ef33273d82e7863E.exit" ]
+  %.sroa.4.0 = phi ptr [ %31, %28 ], [ %80, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h9ef33273d82e7863E.exit" ], [ %27, %26 ]
+  %.sroa.0.0 = phi i64 [ 0, %28 ], [ 1, %"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h9ef33273d82e7863E.exit" ], [ 1, %26 ]
   %83 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %84 = insertvalue { i64, ptr } %83, ptr %.sroa.4.0, 1
   ret { i64, ptr } %84
@@ -7730,7 +7730,7 @@ default.unreachable:                              ; preds = %2
   br label %17
 
 17:                                               ; preds = %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 

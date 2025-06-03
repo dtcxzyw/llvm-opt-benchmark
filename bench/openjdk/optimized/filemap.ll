@@ -3611,7 +3611,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %152, %154
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit:  ; preds = %17, %14, %_ZN12ResourceMarkD2Ev.exit, %155
-  %.0 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %155 ], [ false, %14 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %155 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %14 ], [ false, %17 ]
   ret i1 %.0
 }
 

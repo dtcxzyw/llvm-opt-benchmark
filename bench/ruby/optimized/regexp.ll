@@ -602,7 +602,7 @@ pm_regexp_char_expect.exit:                       ; preds = %177
   tail call void %.val154.i(ptr noundef %16, ptr noundef %176, ptr noundef nonnull @.str.4, ptr noundef %.val155.i) #5
   br label %pm_regexp_parse_group.exit.thread
 
-pm_regexp_parse_group.exit.thread:                ; preds = %132, %127, %125, %141, %143, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit88, %73, %29, %89, %36, %122, %181, %.loopexit, %96, %113
+pm_regexp_parse_group.exit.thread:                ; preds = %132, %127, %125, %141, %143, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit88, %73, %29, %36, %89, %122, %181, %.loopexit, %96, %113
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
   br label %240
 
@@ -725,7 +725,7 @@ pm_regexp_char_find.exit:                         ; preds = %202
   br label %240
 
 240:                                              ; preds = %pm_regexp_char_find.exit, %pm_regexp_parse_group.exit.thread, %237, %236, %213, %184, %187, %.loopexit85, %192, %188, %14, %7
-  %.039 = phi i1 [ true, %192 ], [ true, %188 ], [ true, %14 ], [ true, %7 ], [ true, %.loopexit85 ], [ true, %187 ], [ false, %184 ], [ true, %213 ], [ true, %pm_regexp_char_find.exit ], [ false, %236 ], [ true, %237 ], [ false, %pm_regexp_parse_group.exit.thread ]
+  %.039 = phi i1 [ true, %7 ], [ true, %14 ], [ true, %188 ], [ true, %192 ], [ true, %.loopexit85 ], [ true, %187 ], [ false, %184 ], [ true, %213 ], [ true, %pm_regexp_char_find.exit ], [ false, %236 ], [ true, %237 ], [ false, %pm_regexp_parse_group.exit.thread ]
   ret i1 %.039
 }
 

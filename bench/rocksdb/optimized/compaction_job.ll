@@ -4059,7 +4059,7 @@ define void @_ZN7rocksdb13CompactionJob26GenSubcompactionBoundariesEv(ptr nounde
   br label %_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit
 
 _ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit: ; preds = %28, %.noexc, %22
-  %.1.i = phi i32 [ 3, %.noexc ], [ 0, %28 ], [ 3, %22 ]
+  %.1.i = phi i32 [ 0, %28 ], [ 3, %.noexc ], [ 3, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %.1.i, ptr %29, align 4, !tbaa !514
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5502,7 +5502,7 @@ define noundef range(i32 0, 4) i32 @_ZN7rocksdb13CompactionJob22GetRateLimiterPr
   br label %.thread
 
 .thread:                                          ; preds = %10, %14, %16
-  %.1 = phi i32 [ 3, %14 ], [ 0, %16 ], [ 3, %10 ]
+  %.1 = phi i32 [ 0, %16 ], [ 3, %14 ], [ 3, %10 ]
   ret i32 %.1
 }
 
@@ -10199,7 +10199,7 @@ _ZNSt10unique_ptrIN7rocksdb28CompactionRangeDelAggregatorESt14default_deleteIS1_
   br label %_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit
 
 _ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit: ; preds = %164, %.noexc219, %158
-  %.1.i = phi i32 [ 3, %.noexc219 ], [ 0, %164 ], [ 3, %158 ]
+  %.1.i = phi i32 [ 0, %164 ], [ 3, %.noexc219 ], [ 3, %158 ]
   store i32 %.1.i, ptr %136, align 4, !tbaa !514
   store i8 1, ptr %148, align 1, !tbaa !854
   %165 = getelementptr inbounds nuw i8, ptr %17, i64 114
@@ -13243,7 +13243,7 @@ define internal fastcc void @"_ZZN7rocksdb13CompactionJob3RunEvENK3$_0clERNS_6St
   br label %_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit
 
 _ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit: ; preds = %89, %.noexc, %83
-  %.1.i = phi i32 [ 3, %.noexc ], [ 0, %89 ], [ 3, %83 ]
+  %.1.i = phi i32 [ 0, %89 ], [ 3, %.noexc ], [ 3, %83 ]
   store i32 %.1.i, ptr %18, align 4, !tbaa !514
   %90 = load ptr, ptr %19, align 8, !tbaa !1045
   %91 = load ptr, ptr %90, align 8, !tbaa !690
@@ -24532,7 +24532,7 @@ _ZN7rocksdb12FileMetaDataD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit
 
 _ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv.exit: ; preds = %527, %.noexc188, %521
-  %.1.i = phi i32 [ 3, %.noexc188 ], [ 0, %527 ], [ 3, %521 ]
+  %.1.i = phi i32 [ 0, %527 ], [ 3, %.noexc188 ], [ 3, %521 ]
   %528 = load ptr, ptr %513, align 8, !tbaa !18
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 120
   %530 = load ptr, ptr %529, align 8

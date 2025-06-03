@@ -1543,7 +1543,7 @@ _ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.ex
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %41, %40 ]
+  %.1.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %43 = getelementptr i8, ptr %.1.i.i.i.i.i, i64 8
   %.1.val.i.i.i.i.i = load i32, ptr %43, align 8, !tbaa !283
   %44 = icmp eq i32 %.1.val.i.i.i.i.i, 3
@@ -1554,7 +1554,7 @@ _ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.ex
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %46, %45 ]
+  %.2.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %48 = getelementptr i8, ptr %.2.i.i.i.i.i, i64 8
   %.2.val.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !283
   %49 = icmp eq i32 %.2.val.i.i.i.i.i, 3

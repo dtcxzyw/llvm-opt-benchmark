@@ -219,8 +219,8 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.invoke unwind label %92
 
 91:                                               ; preds = %203, %201, %199, %198, %197, %92
-  %.sroa.015.6 = phi i8 [ %.sroa.015.5, %92 ], [ %.sroa.010.1, %197 ], [ 1, %203 ], [ 0, %199 ], [ %.sroa.010.1, %201 ], [ %.sroa.010.1, %198 ]
-  %.pn43 = phi { ptr, i32 } [ %93, %92 ], [ %.pn41, %197 ], [ %.pn41, %203 ], [ %.pn41, %199 ], [ %.pn41, %201 ], [ %.pn41, %198 ]
+  %.sroa.015.6 = phi i8 [ %.sroa.015.5, %92 ], [ %.sroa.010.1, %197 ], [ %.sroa.010.1, %201 ], [ %.sroa.010.1, %198 ], [ 1, %203 ], [ 0, %199 ]
+  %.pn43 = phi { ptr, i32 } [ %93, %92 ], [ %.pn41, %197 ], [ %.pn41, %201 ], [ %.pn41, %198 ], [ %.pn41, %203 ], [ %.pn41, %199 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %22) #10
           to label %.thread unwind label %140
 

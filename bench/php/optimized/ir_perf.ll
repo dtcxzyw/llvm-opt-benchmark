@@ -315,7 +315,7 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
   br label %46
 
 46:                                               ; preds = %.thread, %41, %45
-  %.1 = phi i32 [ 0, %41 ], [ 1, %45 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 1, %45 ], [ 0, %41 ], [ 0, %.thread ]
   ret i32 %.1
 }
 

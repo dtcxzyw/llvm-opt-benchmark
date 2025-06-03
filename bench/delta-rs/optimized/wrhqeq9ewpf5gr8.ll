@@ -584,7 +584,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN95_$LT$aws_smithy_runtime_api..http..headers..header_value..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8ebba8294c23d51E.exit"
 
 "_ZN95_$LT$aws_smithy_runtime_api..http..headers..header_value..Inner$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8ebba8294c23d51E.exit": ; preds = %8, %10
-  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -708,7 +708,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN84_$LT$aws_smithy_types..byte_stream..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17ha888a9dcd8e911dbE.exit"
 
 "_ZN84_$LT$aws_smithy_types..byte_stream..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17ha888a9dcd8e911dbE.exit": ; preds = %7, %9, %11, %14
-  %.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.0.in.i
 }
 
@@ -737,7 +737,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN85_$LT$aws_smithy_runtime_api..http..request..ParsedUri$u20$as$u20$core..fmt..Debug$GT$3fmt17h1bbcc7cd9326c531E.exit"
 
 "_ZN85_$LT$aws_smithy_runtime_api..http..request..ParsedUri$u20$as$u20$core..fmt..Debug$GT$3fmt17h1bbcc7cd9326c531E.exit": ; preds = %8, %10
-  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -789,7 +789,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN114_$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hdcf9b38e7064e518E.exit"
 
 "_ZN114_$LT$aws_sdk_glue..types.._federation_source_error_code..FederationSourceErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hdcf9b38e7064e518E.exit": ; preds = %8, %10, %12, %14, %16, %18
-  %.0.in.i = phi i1 [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   ret i1 %.0.in.i
 }
 
@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e4f4a8647cc6997E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4e4f4a8647cc6997E.exit": ; preds = %6, %8
-  %.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.0.in.i
 }
 
@@ -1018,7 +1018,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN87_$LT$aws_smithy_types..error..operation..BuildErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2202ce929d1e1b6E.exit"
 
 "_ZN87_$LT$aws_smithy_types..error..operation..BuildErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hd2202ce929d1e1b6E.exit": ; preds = %13, %16, %20, %23
-  %.0.in.i = phi i1 [ %25, %23 ], [ %22, %20 ], [ %19, %16 ], [ %15, %13 ]
+  %.0.in.i = phi i1 [ %15, %13 ], [ %19, %16 ], [ %22, %20 ], [ %25, %23 ]
   ret i1 %.0.in.i
 }
 
@@ -1985,8 +1985,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN82_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..error..Error$GT$6source17h4ab44d6a8d436ab5E.llvm.1658197872865421663.exit"
 
 "_ZN82_$LT$aws_smithy_types..byte_stream..error..Error$u20$as$u20$core..error..Error$GT$6source17h4ab44d6a8d436ab5E.llvm.1658197872865421663.exit": ; preds = %1, %1, %3, %5
-  %.sroa.4.0.i = phi ptr [ %9, %5 ], [ @anon.53d869f0664223b6d57b989c23a3c619.82, %3 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %7, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.4.0.i = phi ptr [ @anon.53d869f0664223b6d57b989c23a3c619.82, %3 ], [ %9, %5 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %7, %5 ], [ null, %1 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %11
@@ -2030,8 +2030,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h75482894796a8153E.llvm.
   br label %"_ZN85_$LT$aws_smithy_types..error..operation..BuildError$u20$as$u20$core..error..Error$GT$6source17hc4fc2e3641ef2683E.llvm.1658197872865421663.exit"
 
 "_ZN85_$LT$aws_smithy_types..error..operation..BuildError$u20$as$u20$core..error..Error$GT$6source17hc4fc2e3641ef2683E.llvm.1658197872865421663.exit": ; preds = %1, %1, %7, %9
-  %.sroa.4.0.i = phi ptr [ %13, %9 ], [ @anon.53d869f0664223b6d57b989c23a3c619.95, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %11, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.4.0.i = phi ptr [ @anon.53d869f0664223b6d57b989c23a3c619.95, %7 ], [ %13, %9 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %11, %9 ], [ null, %1 ], [ null, %1 ]
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %15
@@ -2546,8 +2546,8 @@ default.unreachable1:                             ; preds = %1
   br label %10
 
 10:                                               ; preds = %1, %1, %5, %3
-  %.sroa.4.0 = phi ptr [ %9, %5 ], [ @anon.53d869f0664223b6d57b989c23a3c619.82, %3 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %5 ], [ %4, %3 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.53d869f0664223b6d57b989c23a3c619.82, %3 ], [ %9, %5 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %7, %5 ], [ null, %1 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %12
@@ -2591,8 +2591,8 @@ define hidden { ptr, ptr } @"_ZN85_$LT$aws_smithy_types..error..operation..Build
   br label %14
 
 14:                                               ; preds = %1, %1, %9, %7
-  %.sroa.4.0 = phi ptr [ %13, %9 ], [ @anon.53d869f0664223b6d57b989c23a3c619.95, %7 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %11, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.4.0 = phi ptr [ @anon.53d869f0664223b6d57b989c23a3c619.95, %7 ], [ %13, %9 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %11, %9 ], [ null, %1 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %16

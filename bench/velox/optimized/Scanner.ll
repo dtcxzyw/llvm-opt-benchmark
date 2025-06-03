@@ -972,14 +972,14 @@ return.loopexit304:                               ; preds = %do_action
   br label %return
 
 return:                                           ; preds = %do_action, %return.loopexit304, %return.loopexit271, %return.loopexit239, %return.loopexit200, %return.loopexit, %sw.bb112, %invoke.cont108, %invoke.cont97, %sw.bb84, %invoke.cont82, %sw.bb77, %sw.bb76
-  %retval.0 = phi i32 [ 0, %sw.bb112 ], [ 268, %invoke.cont108 ], [ 266, %invoke.cont97 ], [ 269, %sw.bb84 ], [ 267, %invoke.cont82 ], [ 263, %sw.bb77 ], [ 265, %sw.bb76 ], [ 258, %return.loopexit ], [ 259, %return.loopexit200 ], [ 260, %return.loopexit239 ], [ 261, %return.loopexit271 ], [ 262, %return.loopexit304 ], [ 264, %do_action ]
+  %retval.0 = phi i32 [ 265, %sw.bb76 ], [ 263, %sw.bb77 ], [ 267, %invoke.cont82 ], [ 269, %sw.bb84 ], [ 266, %invoke.cont97 ], [ 268, %invoke.cont108 ], [ 0, %sw.bb112 ], [ 258, %return.loopexit ], [ 259, %return.loopexit200 ], [ 260, %return.loopexit239 ], [ 261, %return.loopexit271 ], [ 262, %return.loopexit304 ], [ 264, %do_action ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad107, %lpad.i64, %lpad105, %lpad96, %lpad.i49, %lpad94, %lpad81, %lpad.i, %lpad
   %ref.tmp104.sink = phi ptr [ %ref.tmp80, %lpad ], [ %ref.tmp80, %lpad.i ], [ %ref.tmp80, %lpad81 ], [ %ref.tmp93, %lpad94 ], [ %ref.tmp93, %lpad.i49 ], [ %ref.tmp93, %lpad96 ], [ %ref.tmp104, %lpad105 ], [ %ref.tmp104, %lpad.i64 ], [ %ref.tmp104, %lpad107 ]
-  %.pn.pn = phi { ptr, i32 } [ %41, %lpad ], [ %40, %lpad.i ], [ %42, %lpad81 ], [ %46, %lpad94 ], [ %45, %lpad.i49 ], [ %47, %lpad96 ], [ %50, %lpad105 ], [ %49, %lpad.i64 ], [ %51, %lpad107 ]
+  %.pn26.pn = phi { ptr, i32 } [ %41, %lpad ], [ %40, %lpad.i ], [ %42, %lpad81 ], [ %46, %lpad94 ], [ %45, %lpad.i49 ], [ %47, %lpad96 ], [ %50, %lpad105 ], [ %49, %lpad.i64 ], [ %51, %lpad107 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104.sink) #36
-  resume { ptr, i32 } %.pn.pn
+  resume { ptr, i32 } %.pn26.pn
 }
 
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #0

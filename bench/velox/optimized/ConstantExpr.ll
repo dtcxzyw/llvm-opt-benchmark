@@ -3803,16 +3803,16 @@ invoke.cont16:                                    ; preds = %sw.bb4
   %call.i.i21.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #26, !noalias !54
   %call2.i.i22.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #26, !noalias !54
   %9 = ptrtoint ptr %call.i.i21.i to i64
-  %call.i.i.i23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #26, !noalias !54
-  %call2.i.i.i24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #26, !noalias !54
-  %10 = ptrtoint ptr %call.i.i.i23 to i64
+  %call.i.i.i24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #26, !noalias !54
+  %call2.i.i.i25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #26, !noalias !54
+  %10 = ptrtoint ptr %call.i.i.i24 to i64
   store i64 %9, ptr %ref.tmp.i, align 16, !alias.scope !54
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i22.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !54
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %10, ptr %arrayinit.element.i.i, align 16, !alias.scope !54
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store i64 %call2.i.i.i24, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !54
+  store i64 %call2.i.i.i25, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !54
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.19, i64 11, i64 221, ptr nonnull %ref.tmp.i)
           to label %invoke.cont20 unwind label %lpad19
 
@@ -3882,9 +3882,9 @@ if.end:                                           ; preds = %if.then, %for.body
 
 dynamic_cast.bad_cast.i.i:                        ; preds = %if.end
   invoke void @__cxa_bad_cast() #27
-          to label %.noexc25 unwind label %lpad22.loopexit.split-lp
+          to label %.noexc26 unwind label %lpad22.loopexit.split-lp
 
-.noexc25:                                         ; preds = %dynamic_cast.bad_cast.i.i
+.noexc26:                                         ; preds = %dynamic_cast.bad_cast.i.i
   unreachable
 
 invoke.cont34:                                    ; preds = %if.end
@@ -3901,9 +3901,9 @@ invoke.cont34:                                    ; preds = %if.end
 
 if.then.i.i.i:                                    ; preds = %invoke.cont34
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %indvars.iv, i64 noundef %sub.ptr.div.i.i.i.i) #27
-          to label %.noexc26 unwind label %lpad22.loopexit.split-lp
+          to label %.noexc27 unwind label %lpad22.loopexit.split-lp
 
-.noexc26:                                         ; preds = %if.then.i.i.i
+.noexc27:                                         ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont36:                                    ; preds = %invoke.cont34
@@ -3971,8 +3971,8 @@ return:                                           ; preds = %sw.default, %invoke
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup56, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup56 ], [ %.pn19, %ehcleanup ], [ %5, %lpad ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn21 = phi { ptr, i32 } [ %5, %lpad ], [ %.pn19, %ehcleanup ], [ %.pn, %ehcleanup56 ]
+  resume { ptr, i32 } %.pn21
 }
 
 declare void @_ZNK8facebook5velox8DateType8toStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(17), i32 noundef) local_unnamed_addr #1

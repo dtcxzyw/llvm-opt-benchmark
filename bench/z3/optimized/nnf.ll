@@ -1913,13 +1913,13 @@ _ZN6vectorIN3nnf3imp5frameELb1EjE4backEv.exit:    ; preds = %17, %20
   %43 = load i32, ptr %42, align 4
   %trunc = trunc i32 %43 to i16
   switch i16 %trunc, label %.critedge [
-    i16 0, label %49
-    i16 2, label %44
+    i16 0, label %44
+    i16 2, label %49
     i16 1, label %.thread
   ]
 
 44:                                               ; preds = %41
-  %45 = tail call noundef zeroext i1 @_ZN3nnf3imp18process_quantifierEP10quantifierRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %45 = tail call noundef zeroext i1 @_ZN3nnf3imp11process_appEP3appRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
   br i1 %45, label %51, label %113
 
 .thread:                                          ; preds = %41
@@ -1935,7 +1935,7 @@ _ZN6vectorIN3nnf3imp5frameELb1EjE4backEv.exit:    ; preds = %17, %20
   br label %51
 
 49:                                               ; preds = %41
-  %50 = tail call noundef zeroext i1 @_ZN3nnf3imp11process_appEP3appRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %50 = tail call noundef zeroext i1 @_ZN3nnf3imp18process_quantifierEP10quantifierRNS0_5frameE(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(24) %25)
   br i1 %50, label %51, label %113
 
 51:                                               ; preds = %44, %.thread, %.critedge, %49
@@ -2270,7 +2270,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %100
 
 100:                                              ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN3nnf3imp18set_new_child_flagEP4exprS2_.exit, %95, %96, %97, %98, %99, %_Z10has_labelsPK4expr.exit.thread
-  %.035 = phi i1 [ true, %_Z10has_labelsPK4expr.exit.thread ], [ true, %99 ], [ true, %98 ], [ false, %97 ], [ true, %95 ], [ false, %96 ], [ true, %_ZN3nnf3imp18set_new_child_flagEP4exprS2_.exit ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
+  %.035 = phi i1 [ true, %_Z10has_labelsPK4expr.exit.thread ], [ true, %99 ], [ true, %95 ], [ false, %96 ], [ false, %97 ], [ true, %98 ], [ true, %_ZN3nnf3imp18set_new_child_flagEP4exprS2_.exit ], [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   ret i1 %.035
 }
 
@@ -2928,7 +2928,7 @@ _ZNK11ast_manager8is_labelEPK4expr.exit.thread:   ; preds = %32, %3, %_ZNK11ast_
   br label %_ZN3nnf3imp10process_eqEP3appRNS0_5frameE.exit
 
 _ZN3nnf3imp10process_eqEP3appRNS0_5frameE.exit:   ; preds = %30, %28, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread, %41, %21, %19, %17, %15, %13
-  %.0 = phi i1 [ %42, %41 ], [ %43, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %29, %28 ], [ %31, %30 ]
+  %.0 = phi i1 [ %42, %41 ], [ %43, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %29, %28 ], [ %31, %30 ]
   ret i1 %.0
 }
 

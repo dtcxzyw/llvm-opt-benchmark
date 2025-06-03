@@ -1767,8 +1767,8 @@ cbs_vp8_read_mode_ref_lf_deltas.exit.thread.i.i:  ; preds = %.critedge100.i.i.i,
   %678 = icmp sgt i32 %677, -1
   br i1 %678, label %679, label %cbs_vp8_read_compressed_header.exit.thread
 
-cbs_vp8_read_compressed_header.exit.thread:       ; preds = %528, %529, %540, %547, %572, %582, %586, %598, %599, %605, %616, %622, %629, %636, %643, %658, %661, %676, %.thread547.i.i, %568, %559, %.thread.i.i, %.thread469.i.i, %.thread477.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i, %.thread488.i.i, %.thread496.i.i, %.thread504.i.i, %cbs_vp8_read_mode_ref_lf_deltas.exit.thread.i.i
-  %.1.i.i40.ph = phi i32 [ %.1.i440.ph.i.i, %cbs_vp8_read_mode_ref_lf_deltas.exit.thread.i.i ], [ %440, %.thread504.i.i ], [ %409, %.thread496.i.i ], [ %385, %.thread488.i.i ], [ %.1.i.ph.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i ], [ %219, %.thread477.i.i ], [ %196, %.thread469.i.i ], [ %174, %.thread.i.i ], [ %554, %559 ], [ %563, %568 ], [ %677, %.thread547.i.i ], [ %670, %676 ], [ %659, %661 ], [ %652, %658 ], [ %641, %643 ], [ %634, %636 ], [ %627, %629 ], [ %620, %622 ], [ %611, %616 ], [ %603, %605 ], [ %600, %599 ], [ %593, %598 ], [ %584, %586 ], [ %577, %582 ], [ %570, %572 ], [ %545, %547 ], [ %538, %540 ], [ %533, %529 ], [ %526, %528 ]
+cbs_vp8_read_compressed_header.exit.thread:       ; preds = %.thread547.i.i, %676, %661, %658, %643, %636, %629, %622, %616, %605, %599, %598, %586, %582, %572, %568, %559, %547, %540, %529, %528, %.thread.i.i, %.thread469.i.i, %.thread477.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i, %.thread488.i.i, %.thread496.i.i, %.thread504.i.i, %cbs_vp8_read_mode_ref_lf_deltas.exit.thread.i.i
+  %.1.i.i40.ph = phi i32 [ %.1.i440.ph.i.i, %cbs_vp8_read_mode_ref_lf_deltas.exit.thread.i.i ], [ %440, %.thread504.i.i ], [ %409, %.thread496.i.i ], [ %385, %.thread488.i.i ], [ %.1.i.ph.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i ], [ %219, %.thread477.i.i ], [ %196, %.thread469.i.i ], [ %174, %.thread.i.i ], [ %526, %528 ], [ %533, %529 ], [ %538, %540 ], [ %545, %547 ], [ %554, %559 ], [ %563, %568 ], [ %570, %572 ], [ %577, %582 ], [ %584, %586 ], [ %593, %598 ], [ %600, %599 ], [ %603, %605 ], [ %611, %616 ], [ %620, %622 ], [ %627, %629 ], [ %634, %636 ], [ %641, %643 ], [ %652, %658 ], [ %659, %661 ], [ %670, %676 ], [ %677, %.thread547.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   br label %cbs_vp8_read_uncompressed_header.exit.thread
@@ -1809,8 +1809,8 @@ cbs_vp8_read_compressed_header.exit.thread:       ; preds = %528, %529, %540, %5
   store i64 %695, ptr %696, align 8, !tbaa !92
   br label %cbs_vp8_read_uncompressed_header.exit.thread
 
-cbs_vp8_read_uncompressed_header.exit.thread:     ; preds = %159, %149, %142, %135, %129, %126, %123, %117, %110, %103, %97, %cbs_vp8_read_compressed_header.exit.thread, %685, %75, %2, %690
-  %.0 = phi i32 [ 0, %690 ], [ %73, %2 ], [ -1094995529, %75 ], [ -12, %685 ], [ %.1.i.i40.ph, %cbs_vp8_read_compressed_header.exit.thread ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %115, %117 ], [ %108, %110 ], [ %101, %103 ], [ %95, %97 ]
+cbs_vp8_read_uncompressed_header.exit.thread:     ; preds = %97, %103, %110, %117, %123, %126, %129, %135, %142, %149, %159, %cbs_vp8_read_compressed_header.exit.thread, %685, %75, %2, %690
+  %.0 = phi i32 [ 0, %690 ], [ %73, %2 ], [ -1094995529, %75 ], [ -12, %685 ], [ %.1.i.i40.ph, %cbs_vp8_read_compressed_header.exit.thread ], [ %95, %97 ], [ %101, %103 ], [ %108, %110 ], [ %115, %117 ], [ %124, %123 ], [ %127, %126 ], [ %130, %129 ], [ %133, %135 ], [ %140, %142 ], [ %147, %149 ], [ %154, %159 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71) #7
   ret i32 %.0
@@ -2286,7 +2286,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_vp8_read_quantization_
   br label %110
 
 110:                                              ; preds = %99, %.thread218, %109, %98, %94, %87, %81, %74, %68, %61, %55, %48, %.thread
-  %.1 = phi i32 [ %44, %48 ], [ %50, %55 ], [ %57, %61 ], [ %63, %68 ], [ %70, %74 ], [ %76, %81 ], [ %83, %87 ], [ %89, %94 ], [ %96, %98 ], [ %104, %109 ], [ %21, %.thread ], [ 0, %.thread218 ], [ 0, %99 ]
+  %.1 = phi i32 [ %104, %109 ], [ %96, %98 ], [ %89, %94 ], [ %83, %87 ], [ %76, %81 ], [ %70, %74 ], [ %63, %68 ], [ %57, %61 ], [ %50, %55 ], [ %44, %48 ], [ %21, %.thread ], [ 0, %.thread218 ], [ 0, %99 ]
   ret i32 %.1
 }
 

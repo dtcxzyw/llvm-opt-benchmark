@@ -2024,7 +2024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit18: ; preds = 
   br label %_ZN7rocksdb6StatusC2EOS0_.exit
 
 _ZN7rocksdb6StatusC2EOS0_.exit:                   ; preds = %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit18, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit17, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit
-  %.sroa.1634.0 = phi ptr [ null, %44 ], [ %31, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit17 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit18 ], [ %31, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit ]
+  %.sroa.1634.0 = phi ptr [ null, %44 ], [ %31, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit ], [ %31, %_ZN7rocksdb6Status8NotFoundENS0_7SubCodeERKNS_5SliceES4_.exit17 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit18 ]
   %78 = load ptr, ptr %6, align 8, !tbaa !64
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !216
@@ -2105,8 +2105,8 @@ _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 103:                                              ; preds = %74, %65, %42, %40, %38
-  %.sroa.1634.1 = phi ptr [ %31, %74 ], [ %31, %40 ], [ %31, %65 ], [ %31, %42 ], [ null, %38 ]
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %41, %40 ], [ %66, %65 ], [ %43, %42 ], [ %39, %38 ]
+  %.sroa.1634.1 = phi ptr [ %31, %42 ], [ %31, %74 ], [ %31, %40 ], [ %31, %65 ], [ null, %38 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %75, %74 ], [ %41, %40 ], [ %66, %65 ], [ %39, %38 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   %104 = load ptr, ptr %5, align 8, !tbaa !4

@@ -270,7 +270,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   br label %pm_node_hash_insert.exit
 
 pm_node_hash_insert.exit:                         ; preds = %71, %.loopexit, %._crit_edge65.thread.i, %28, %5, %115, %111, %110, %106, %105, %101, %100, %96, %90, %84, %78, %72, %13
-  %.0 = phi ptr [ %95, %90 ], [ %89, %84 ], [ %83, %78 ], [ %77, %72 ], [ %17, %13 ], [ %98, %96 ], [ %98, %100 ], [ %103, %101 ], [ %103, %105 ], [ %108, %106 ], [ %108, %110 ], [ %113, %111 ], [ %113, %115 ], [ null, %5 ], [ %.pre71.pre.i, %.loopexit ], [ %.pre71.pre.i, %71 ], [ null, %._crit_edge65.thread.i ], [ null, %28 ]
+  %.0 = phi ptr [ %17, %13 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %98, %96 ], [ %98, %100 ], [ %103, %101 ], [ %103, %105 ], [ %108, %106 ], [ %108, %110 ], [ %113, %111 ], [ %113, %115 ], [ null, %5 ], [ %.pre71.pre.i, %.loopexit ], [ %.pre71.pre.i, %71 ], [ null, %._crit_edge65.thread.i ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -572,7 +572,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %14, %24, %22, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %32, %24 ], [ %23, %22 ], [ %21, %18 ], [ %17, %14 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %23, %22 ], [ %32, %24 ], [ %21, %18 ], [ %17, %14 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -598,7 +598,7 @@ define internal i32 @pm_compare_string_nodes(ptr readnone captures(none) %0, ptr
   br label %pm_string_value.exit
 
 pm_string_value.exit:                             ; preds = %3, %5, %7, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ null, %3 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ null, %3 ]
   %11 = load i16, ptr %2, align 8, !tbaa !7
   switch i16 %11, label %pm_string_value.exit5 [
     i16 141, label %12
@@ -619,7 +619,7 @@ pm_string_value.exit:                             ; preds = %3, %5, %7, %9
   br label %pm_string_value.exit5
 
 pm_string_value.exit5:                            ; preds = %pm_string_value.exit, %12, %14, %16
-  %.0.i4 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ null, %pm_string_value.exit ]
+  %.0.i4 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %pm_string_value.exit ]
   %18 = tail call i32 @pm_string_compare(ptr noundef %.0.i, ptr noundef %.0.i4) #9
   ret i32 %18
 }
@@ -829,21 +829,21 @@ tailrecurse.i:                                    ; preds = %49, %37
   %.tr.i = phi ptr [ %39, %37 ], [ %51, %49 ]
   %40 = load i16, ptr %.tr.i, align 8, !tbaa !7
   switch i16 %40, label %pm_static_literal_positive_p.exit.thread [
-    i16 54, label %pm_static_literal_positive_p.exit
-    i16 82, label %41
-    i16 123, label %45
+    i16 54, label %41
+    i16 82, label %45
+    i16 123, label %pm_static_literal_positive_p.exit
     i16 68, label %49
   ]
 
 41:                                               ; preds = %tailrecurse.i
-  %42 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
-  %43 = load i8, ptr %42, align 4, !tbaa !54, !range !44, !noundef !45
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %pm_static_literal_positive_p.exit.thread, label %55
+  %42 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 24
+  %43 = load double, ptr %42, align 8, !tbaa !29
+  %44 = fcmp ogt double %43, 0.000000e+00
+  br i1 %44, label %55, label %pm_static_literal_positive_p.exit.thread
 
 45:                                               ; preds = %tailrecurse.i
   %46 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
-  %47 = load i8, ptr %46, align 4, !tbaa !56, !range !44, !noundef !45
+  %47 = load i8, ptr %46, align 4, !tbaa !54, !range !44, !noundef !45
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %pm_static_literal_positive_p.exit.thread, label %55
 
@@ -853,16 +853,16 @@ tailrecurse.i:                                    ; preds = %49, %37
   br label %tailrecurse.i
 
 pm_static_literal_positive_p.exit:                ; preds = %tailrecurse.i
-  %52 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 24
-  %53 = load double, ptr %52, align 8, !tbaa !29
-  %54 = fcmp ogt double %53, 0.000000e+00
-  br i1 %54, label %55, label %pm_static_literal_positive_p.exit.thread
+  %52 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 44
+  %53 = load i8, ptr %52, align 4, !tbaa !56, !range !44, !noundef !45
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %pm_static_literal_positive_p.exit.thread, label %55
 
-55:                                               ; preds = %41, %45, %pm_static_literal_positive_p.exit
+55:                                               ; preds = %45, %41, %pm_static_literal_positive_p.exit
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 43) #9
   br label %pm_static_literal_positive_p.exit.thread
 
-pm_static_literal_positive_p.exit.thread:         ; preds = %tailrecurse.i, %41, %45, %55, %pm_static_literal_positive_p.exit
+pm_static_literal_positive_p.exit.thread:         ; preds = %tailrecurse.i, %45, %41, %55, %pm_static_literal_positive_p.exit
   tail call fastcc void @pm_static_literal_inspect_node(ptr noundef %0, ptr noundef %1, ptr noundef %39)
   %56 = load i16, ptr %39, align 8, !tbaa !7
   %57 = icmp eq i16 %56, 123
@@ -1305,7 +1305,7 @@ integer_hash.exit70:                              ; preds = %murmur_hash.exit.i6
   br label %common.ret207
 
 common.ret207:                                    ; preds = %2, %murmur_hash.exit138, %murmur_hash.exit118, %murmur_hash.exit98, %murmur_hash.exit78, %integer_hash.exit70, %murmur_hash.exit42, %.lr.ph.i, %integer_hash.exit, %196
-  %common.ret207.op = phi i32 [ %207, %196 ], [ %399, %murmur_hash.exit138 ], [ %349, %murmur_hash.exit118 ], [ %299, %murmur_hash.exit98 ], [ %258, %murmur_hash.exit78 ], [ %195, %integer_hash.exit70 ], [ %98, %murmur_hash.exit42 ], [ %75, %.lr.ph.i ], [ %spec.select.i, %integer_hash.exit ], [ 0, %2 ]
+  %common.ret207.op = phi i32 [ %207, %196 ], [ %spec.select.i, %integer_hash.exit ], [ %75, %.lr.ph.i ], [ %98, %murmur_hash.exit42 ], [ %195, %integer_hash.exit70 ], [ %258, %murmur_hash.exit78 ], [ %299, %murmur_hash.exit98 ], [ %349, %murmur_hash.exit118 ], [ %399, %murmur_hash.exit138 ], [ 0, %2 ]
   ret i32 %common.ret207.op
 
 196:                                              ; preds = %2

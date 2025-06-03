@@ -3452,7 +3452,7 @@ _ZN3ue2L15recordResourcesERNS_13RoseResourcesERKNS_13RoseBuildImplERKSt6vectorIN
   br label %919
 
 919:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %918, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i.i" ]
+  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %918, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %920 = load i32, ptr %.sroa.036.1.i.i.i.i.i.i, align 8
   %921 = add i32 %920, 4
   %switch.i.i.i.i.i.i.i28.i.i.i.i.i.i = icmp ult i32 %921, 8
@@ -3477,7 +3477,7 @@ _ZN3ue2L15recordResourcesERNS_13RoseResourcesERKNS_13RoseBuildImplERKSt6vectorIN
   br label %933
 
 933:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %932, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i" ]
+  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %932, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i" ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %934 = load i32, ptr %.sroa.036.2.i.i.i.i.i.i, align 8
   %935 = add i32 %934, 4
   %switch.i.i.i.i.i.i.i31.i.i.i.i.i.i = icmp ult i32 %935, 8

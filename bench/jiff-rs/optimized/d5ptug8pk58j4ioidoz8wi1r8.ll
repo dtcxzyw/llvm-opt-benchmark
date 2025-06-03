@@ -612,17 +612,17 @@ common.resume:                                    ; preds = %59, %61, %30, %26
   store i16 1, ptr %0, align 8
   br label %573
 
-41:                                               ; preds = %3, %34, %19
-  %.sroa.17.sroa.7.0.ph = phi i32 [ %.sroa.9.sroa.4.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.8.0.ph = phi i32 [ %.sroa.9.sroa.5.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.9.0.ph = phi i32 [ %.sroa.9.sroa.6.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.10.0.ph = phi i32 [ %.sroa.9.sroa.7.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.11.0.ph = phi i16 [ %.sroa.9.sroa.8.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.12.0.ph = phi i16 [ %.sroa.9.sroa.9.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.17.sroa.13.0.ph = phi i8 [ %.sroa.9.sroa.10.0.copyload, %19 ], [ undef, %34 ], [ undef, %3 ]
-  %.sroa.14.0.ph = phi i32 [ %.sroa.763.0.copyload, %19 ], [ %37, %34 ], [ %.sroa.763.0.copyload, %3 ]
-  %.sroa.8.0.ph = phi i64 [ %.sroa.4.0.copyload, %19 ], [ %35, %34 ], [ %.sroa.4.0.copyload, %3 ]
-  %.sroa.0.0.ph = phi i1 [ false, %19 ], [ true, %34 ], [ true, %3 ]
+41:                                               ; preds = %3, %19, %34
+  %.sroa.17.sroa.7.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.4.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.8.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.5.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.9.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.6.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.10.0.ph = phi i32 [ undef, %34 ], [ %.sroa.9.sroa.7.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.11.0.ph = phi i16 [ undef, %34 ], [ %.sroa.9.sroa.8.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.12.0.ph = phi i16 [ undef, %34 ], [ %.sroa.9.sroa.9.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.17.sroa.13.0.ph = phi i8 [ undef, %34 ], [ %.sroa.9.sroa.10.0.copyload, %19 ], [ undef, %3 ]
+  %.sroa.14.0.ph = phi i32 [ %37, %34 ], [ %.sroa.763.0.copyload, %19 ], [ %.sroa.763.0.copyload, %3 ]
+  %.sroa.8.0.ph = phi i64 [ %35, %34 ], [ %.sroa.4.0.copyload, %19 ], [ %.sroa.4.0.copyload, %3 ]
+  %.sroa.0.0.ph = phi i1 [ true, %34 ], [ false, %19 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %.sroa.0.0.ph, label %42, label %191
 
@@ -4108,9 +4108,9 @@ define void @_ZN4jiff5zoned10ZonedRound5round17h2ca50f610d688663E(ptr dead_on_un
   br label %156
 
 156:                                              ; preds = %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i, %152
-  %.sroa.028.0.i.i = phi i32 [ %.sroa.0.0.i56.i.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ], [ %.sroa.0.0.i.i.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %.sroa.5.0.copyload97104.i.i, %152 ]
-  %.sroa.032.0.i.i = phi i64 [ %252, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ], [ %167, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %153, %152 ]
-  %.sroa.837.0.i.i = phi i32 [ %254, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ], [ %169, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %155, %152 ]
+  %.sroa.028.0.i.i = phi i32 [ %.sroa.5.0.copyload97104.i.i, %152 ], [ %.sroa.0.0.i.i.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %.sroa.0.0.i56.i.i, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ]
+  %.sroa.032.0.i.i = phi i64 [ %153, %152 ], [ %167, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %252, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ]
+  %.sroa.837.0.i.i = phi i32 [ %155, %152 ], [ %169, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit.i.i ], [ %254, %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit94.i.i ]
   %157 = load ptr, ptr %72, align 8, !noalias !307, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.9.i, ptr noundef nonnull align 8 dereferenceable(12) %77, i64 12, i1 false), !alias.scope !315, !noalias !290
   br label %_ZN4jiff5civil8datetime8DateTime8to_zoned17hbf4112dd50173115E.exit.i

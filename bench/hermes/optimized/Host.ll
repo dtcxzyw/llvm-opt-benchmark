@@ -1486,7 +1486,7 @@ if.then5.i:                                       ; preds = %if.end3
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.end3
-  %Family.0 = phi i32 [ %and.i, %if.end3 ], [ %add.i, %if.then5.i ]
+  %Family.0 = phi i32 [ %add.i, %if.then5.i ], [ %and.i, %if.end3 ]
   %2 = lshr i32 %asmresult.i119, 12
   %shl.i = and i32 %2, 240
   %add10.i = or disjoint i32 %and2.i, %shl.i

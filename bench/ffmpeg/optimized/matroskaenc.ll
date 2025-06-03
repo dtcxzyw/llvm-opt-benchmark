@@ -1759,7 +1759,7 @@ default.unreachable.i.i.i.i:                      ; preds = %688
   unreachable
 
 mkv_write_field_order.exit.i.i.i:                 ; preds = %692, %691, %690, %689, %687, %686, %675
-  %.sroa.0.10.i.i.i = phi i32 [ 3, %675 ], [ 4, %686 ], [ 5, %692 ], [ 5, %691 ], [ 5, %690 ], [ 5, %689 ], [ 4, %687 ]
+  %.sroa.0.10.i.i.i = phi i32 [ 3, %675 ], [ 4, %686 ], [ 5, %689 ], [ 5, %690 ], [ 5, %691 ], [ 5, %692 ], [ 4, %687 ]
   %.val.i.i.i = load ptr, ptr %531, align 8, !tbaa !71
   %693 = call ptr @av_dict_get(ptr noundef %.val.i.i.i, ptr noundef nonnull @.str.42, ptr noundef null, i32 noundef 0) #14
   %.not.i111.i.i.i = icmp eq ptr %693, null
@@ -4169,8 +4169,8 @@ mkv_write_tags.exit.thread207:                    ; preds = %.loopexit.i, %mkv_w
   store i32 32768, ptr %1831, align 4, !tbaa !201
   br label %mkv_write_tracks.exit.thread
 
-mkv_write_tracks.exit.thread:                     ; preds = %1697, %1718, %1750, %1679, %start_ebml_master_crc32.exit.loopexit.i, %1454, %1433, %1322, %634, %get_aac_sample_rates.exit.i.i, %.thread643.i.i, %mkv_write_track_video.exit.thread.i.i, %332, %mkv_write_attachments.exit.thread, %mkv_write_info.exit.thread, %1824, %1820, %1834, %1830, %1772, %mkv_write_tags.exit, %mkv_write_attachments.exit, %mkv_write_tracks.exit.thread201, %mkv_write_tracks.exit, %mkv_write_info.exit, %1
-  %.078 = phi i32 [ %25, %1 ], [ %295, %mkv_write_info.exit ], [ %1557, %mkv_write_tracks.exit ], [ %1559, %mkv_write_tracks.exit.thread201 ], [ %1668, %mkv_write_attachments.exit ], [ %1764, %mkv_write_tags.exit ], [ %1774, %1772 ], [ 0, %1830 ], [ 0, %1834 ], [ 0, %1820 ], [ 0, %1824 ], [ %104, %mkv_write_info.exit.thread ], [ %.0.i138.ph, %mkv_write_attachments.exit.thread ], [ %1538, %start_ebml_master_crc32.exit.loopexit.i ], [ -22, %1454 ], [ -38, %1433 ], [ -22, %1322 ], [ -22, %634 ], [ -22, %get_aac_sample_rates.exit.i.i ], [ -22, %.thread643.i.i ], [ %.0.i.ph.i.i, %mkv_write_track_video.exit.thread.i.i ], [ %333, %332 ], [ %1683, %1679 ], [ %1756, %1750 ], [ %1723, %1718 ], [ %1703, %1697 ]
+mkv_write_tracks.exit.thread:                     ; preds = %1697, %1718, %1750, %1679, %start_ebml_master_crc32.exit.loopexit.i, %1454, %1322, %1433, %634, %get_aac_sample_rates.exit.i.i, %.thread643.i.i, %mkv_write_track_video.exit.thread.i.i, %332, %mkv_write_attachments.exit.thread, %mkv_write_info.exit.thread, %1824, %1820, %1834, %1830, %1772, %mkv_write_tags.exit, %mkv_write_attachments.exit, %mkv_write_tracks.exit.thread201, %mkv_write_tracks.exit, %mkv_write_info.exit, %1
+  %.078 = phi i32 [ %25, %1 ], [ %295, %mkv_write_info.exit ], [ %1557, %mkv_write_tracks.exit ], [ %1559, %mkv_write_tracks.exit.thread201 ], [ %1668, %mkv_write_attachments.exit ], [ %1764, %mkv_write_tags.exit ], [ %1774, %1772 ], [ 0, %1830 ], [ 0, %1834 ], [ 0, %1820 ], [ 0, %1824 ], [ %104, %mkv_write_info.exit.thread ], [ %.0.i138.ph, %mkv_write_attachments.exit.thread ], [ %1538, %start_ebml_master_crc32.exit.loopexit.i ], [ -22, %1454 ], [ -22, %1322 ], [ -38, %1433 ], [ -22, %634 ], [ -22, %get_aac_sample_rates.exit.i.i ], [ -22, %.thread643.i.i ], [ %.0.i.ph.i.i, %mkv_write_track_video.exit.thread.i.i ], [ %333, %332 ], [ %1683, %1679 ], [ %1756, %1750 ], [ %1723, %1718 ], [ %1703, %1697 ]
   ret i32 %.078
 }
 
@@ -4468,7 +4468,7 @@ put_ebml_float.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i, %83
   br label %151
 
 mkv_check_new_extra_data.exit.thread.i:           ; preds = %145, %140, %128, %126, %117, %75, %get_aac_sample_rates.exit.i.i
-  %.1.i.ph.i = phi i32 [ -22, %get_aac_sample_rates.exit.i.i ], [ %81, %75 ], [ -1094995529, %145 ], [ %143, %140 ], [ %131, %128 ], [ -22, %117 ], [ -22, %126 ]
+  %.1.i.ph.i = phi i32 [ -22, %get_aac_sample_rates.exit.i.i ], [ %81, %75 ], [ -1094995529, %145 ], [ %143, %140 ], [ %131, %128 ], [ -22, %126 ], [ -22, %117 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   br label %.critedge
 
@@ -5885,7 +5885,7 @@ define internal range(i32 0, 2) i32 @mkv_query_codec(i32 noundef %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %12
-  %.1 = phi i32 [ 1, %10 ], [ 0, %12 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 0, %12 ], [ 1, %10 ], [ 1, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -7282,8 +7282,8 @@ ebml_writer_master_len.exit:                      ; preds = %._crit_edge, %ebml_
   %96 = icmp slt i32 %.0, 0
   br i1 %96, label %ebml_writer_master_len.exit.thread8, label %ebml_writer_master_len.exit.thread
 
-ebml_writer_master_len.exit.thread.sink.split:    ; preds = %2, %2, %ebml_writer_sint_len.exit, %ebml_writer_uint_len.exit, %6
-  %.sink = phi i64 [ %9, %6 ], [ %16, %ebml_writer_uint_len.exit ], [ %25, %ebml_writer_sint_len.exit ], [ 8, %2 ], [ 8, %2 ]
+ebml_writer_master_len.exit.thread.sink.split:    ; preds = %2, %2, %6, %ebml_writer_uint_len.exit, %ebml_writer_sint_len.exit
+  %.sink = phi i64 [ %25, %ebml_writer_sint_len.exit ], [ %16, %ebml_writer_uint_len.exit ], [ %9, %6 ], [ 8, %2 ], [ 8, %2 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %97, align 8, !tbaa !133
   br label %ebml_writer_master_len.exit.thread
@@ -8181,7 +8181,7 @@ put_xiph_codecpriv.exit.i:                        ; preds = %.preheader.i.i, %24
   br label %mkv_assemble_native_codecprivate.exit.thread
 
 mkv_assemble_native_codecprivate.exit:            ; preds = %put_xiph_codecpriv.exit.i, %38, %49, %73, %75, %77
-  %.058.i = phi i32 [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %39, %38 ], [ %.017.i.i, %put_xiph_codecpriv.exit.i ], [ %.mux.i.i, %49 ]
+  %.058.i = phi i32 [ %.017.i.i, %put_xiph_codecpriv.exit.i ], [ %39, %38 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %.mux.i.i, %49 ]
   %103 = icmp slt i32 %.058.i, 0
   br i1 %103, label %mkv_assemble_native_codecprivate.exit.thread84, label %mkv_assemble_native_codecprivate.exit.thread
 
@@ -8312,7 +8312,7 @@ mkv_assemble_native_codecprivate.exit:            ; preds = %put_xiph_codecpriv.
   br i1 %161, label %mkv_assemble_native_codecprivate.exit.thread, label %mkv_assemble_native_codecprivate.exit.thread84
 
 mkv_assemble_native_codecprivate.exit.thread:     ; preds = %85, %37, %82, %86, %99, %100, %102, %97, %91, %72, %71, %54, %104, %.thread, %129, %159, %mkv_assemble_native_codecprivate.exit
-  %.079 = phi i32 [ 0, %104 ], [ 0, %159 ], [ 0, %.thread ], [ 0, %129 ], [ 0, %mkv_assemble_native_codecprivate.exit ], [ 320, %85 ], [ 493, %37 ], [ 0, %54 ], [ 0, %72 ], [ 0, %71 ], [ 0, %82 ], [ 0, %86 ], [ 0, %91 ], [ 0, %97 ], [ 0, %102 ], [ 0, %100 ], [ 0, %99 ]
+  %.079 = phi i32 [ 0, %104 ], [ 0, %.thread ], [ 0, %129 ], [ 0, %159 ], [ 0, %mkv_assemble_native_codecprivate.exit ], [ 320, %85 ], [ 493, %37 ], [ 0, %97 ], [ 0, %91 ], [ 0, %86 ], [ 0, %82 ], [ 0, %72 ], [ 0, %71 ], [ 0, %54 ], [ 0, %102 ], [ 0, %100 ], [ 0, %99 ]
   %162 = call i32 @avio_get_dyn_buf(ptr noundef %1, ptr noundef nonnull %7) #14
   store i32 %162, ptr %8, align 4, !tbaa !139
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 84

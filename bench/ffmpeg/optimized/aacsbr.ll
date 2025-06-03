@@ -1390,7 +1390,7 @@ define internal fastcc void @sbr_reset(ptr noundef readonly captures(none) %0, p
   br label %sbr_make_f_master.exit.thread
 
 20:                                               ; preds = %16, %15, %14, %13, %12, %2
-  %.0623.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 80), %16 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 64), %15 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 48), %14 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 32), %13 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 16), %12 ], [ @sbr_offset, %2 ]
+  %.0623.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 16), %12 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 32), %13 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 48), %14 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 64), %15 ], [ getelementptr inbounds nuw (i8, ptr @sbr_offset, i64 80), %16 ], [ @sbr_offset, %2 ]
   %21 = icmp samesign ult i32 %11, 32000
   %22 = icmp samesign ult i32 %11, 64000
   %..i = select i1 %22, i32 4000, i32 5000
@@ -5141,7 +5141,7 @@ get_bits1_vector.exit:                            ; preds = %315, %199, %134
   br label %398
 
 398:                                              ; preds = %391, %396, %393, %352, %345, %249, %49
-  %.0184 = phi i32 [ -1, %345 ], [ -1, %352 ], [ -1, %249 ], [ -1, %49 ], [ 0, %393 ], [ 0, %396 ], [ 0, %391 ]
+  %.0184 = phi i32 [ -1, %345 ], [ -1, %352 ], [ -1, %49 ], [ -1, %249 ], [ 0, %393 ], [ 0, %396 ], [ 0, %391 ]
   ret i32 %.0184
 }
 

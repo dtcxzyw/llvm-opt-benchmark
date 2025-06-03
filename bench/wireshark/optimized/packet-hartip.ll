@@ -717,8 +717,8 @@ define internal range(i32 0, 2) i32 @hartip_stats_tree_packet(ptr noundef %0, pt
   br label %10
 
 10:                                               ; preds = %5, %9, %8, %7
-  %.010 = phi ptr [ @.str.382, %9 ], [ @.str.381, %8 ], [ @.str.380, %7 ], [ @.str.379, %5 ]
-  %.0.in = phi ptr [ @st_node_errors, %9 ], [ @st_node_publish, %8 ], [ @st_node_responses, %7 ], [ @st_node_requests, %5 ]
+  %.010 = phi ptr [ @.str.380, %7 ], [ @.str.381, %8 ], [ @.str.382, %9 ], [ @.str.379, %5 ]
+  %.0.in = phi ptr [ @st_node_responses, %7 ], [ @st_node_publish, %8 ], [ @st_node_errors, %9 ], [ @st_node_requests, %5 ]
   %.0 = load i32, ptr %.0.in, align 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
@@ -1593,7 +1593,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %522
 
 522:                                              ; preds = %520, %518, %516
-  %.0.i96.i.i = phi i32 [ %521, %520 ], [ %519, %518 ], [ %517, %516 ]
+  %.0.i96.i.i = phi i32 [ %517, %516 ], [ %519, %518 ], [ %521, %520 ]
   %523 = icmp eq i32 %.0.i96.i.i, 0
   br i1 %523, label %.thread.i.i.i, label %526
 
@@ -1622,7 +1622,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 dissect_parse_hart_cmds.exit.i:                   ; preds = %529, %534, %431, %288, %264
-  %.0.i.i = phi i32 [ %535, %534 ], [ %432, %431 ], [ %289, %288 ], [ %265, %264 ], [ %191, %529 ]
+  %.0.i.i = phi i32 [ %265, %264 ], [ %289, %288 ], [ %432, %431 ], [ %535, %534 ], [ %191, %529 ]
   %536 = icmp eq i32 %.0.i.i, 0
   br i1 %536, label %dissect_parse_hart_cmds.exit.thread182.i, label %.thread184.i
 
@@ -1656,7 +1656,7 @@ dissect_pass_through.exit:                        ; preds = %117, %125, %177, %1
   br label %550
 
 550:                                              ; preds = %87, %546, %dissect_pass_through.exit, %111, %105, %dissect_session_init.exit, %81
-  %.0 = phi i32 [ %82, %81 ], [ %91, %87 ], [ %549, %546 ], [ %545, %dissect_pass_through.exit ], [ %116, %111 ], [ %110, %105 ], [ %104, %dissect_session_init.exit ]
+  %.0 = phi i32 [ %82, %81 ], [ %91, %87 ], [ %549, %546 ], [ %104, %dissect_session_init.exit ], [ %110, %105 ], [ %116, %111 ], [ %545, %dissect_pass_through.exit ]
   ret i32 %.0
 }
 

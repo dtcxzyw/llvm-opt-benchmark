@@ -505,8 +505,8 @@ define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr noundef writeonl
   br label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
 
 _ZN4llvm6unwrapE13LLVMCodeModelRb.exit:           ; preds = %2, %4, %5, %6, %7, %8, %9
-  %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %2 ]
-  %.sroa.7.0.i = phi i64 [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 0, %4 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 0, %5 ], [ 2, %6 ], [ 3, %7 ], [ 4, %8 ], [ 0, %4 ], [ 0, %2 ]
+  %.sroa.7.0.i = phi i64 [ 4294967296, %9 ], [ 4294967296, %5 ], [ 4294967296, %6 ], [ 4294967296, %7 ], [ 4294967296, %8 ], [ 0, %4 ], [ 0, %2 ]
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.i, %.sroa.0.0.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i64 %.sroa.0.0.insert.insert.i, ptr %10, align 4
@@ -797,8 +797,8 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
 LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit, %25, %26, %27, %28, %29, %30
-  %.sroa.0.0.i.i = phi i64 [ 1, %30 ], [ 4, %29 ], [ 3, %28 ], [ 2, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
-  %.sroa.7.0.i.i = phi i64 [ 4294967296, %30 ], [ 4294967296, %29 ], [ 4294967296, %28 ], [ 4294967296, %27 ], [ 4294967296, %26 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
+  %.sroa.0.0.i.i = phi i64 [ 1, %30 ], [ 0, %26 ], [ 2, %27 ], [ 3, %28 ], [ 4, %29 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
+  %.sroa.7.0.i.i = phi i64 [ 4294967296, %30 ], [ 4294967296, %26 ], [ 4294967296, %27 ], [ 4294967296, %28 ], [ 4294967296, %29 ], [ 0, %25 ], [ 0, %LLVMTargetMachineOptionsSetCodeGenOptLevel.exit ]
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.7.0.i.i, %.sroa.0.0.i.i
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %31, align 4

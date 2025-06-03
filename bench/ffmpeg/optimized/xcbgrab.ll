@@ -314,10 +314,10 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %108, %102, %99
-  %.sroa.099.1.ph.i = phi i16 [ %104, %102 ], [ %.sroa.099.0101.i, %108 ], [ %.sroa.099.0101.i, %99 ]
-  %.sroa.4100.1.ph.i = phi i16 [ %106, %102 ], [ %.sroa.4100.0102.i, %108 ], [ %.sroa.4100.0102.i, %99 ]
-  %.187.ph.i = phi i32 [ 1, %102 ], [ 1, %108 ], [ %.086103.i, %99 ]
-  %.not91.ph.i = phi i1 [ true, %102 ], [ true, %108 ], [ false, %99 ]
+  %.sroa.099.1.ph.i = phi i16 [ %.sroa.099.0101.i, %108 ], [ %104, %102 ], [ %.sroa.099.0101.i, %99 ]
+  %.sroa.4100.1.ph.i = phi i16 [ %.sroa.4100.0102.i, %108 ], [ %106, %102 ], [ %.sroa.4100.0102.i, %99 ]
+  %.187.ph.i = phi i32 [ 1, %108 ], [ 1, %102 ], [ %.086103.i, %99 ]
+  %.not91.ph.i = phi i1 [ true, %108 ], [ true, %102 ], [ false, %99 ]
   %122 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #10
   br label %123
 

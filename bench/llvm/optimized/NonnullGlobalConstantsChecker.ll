@@ -1203,7 +1203,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129NonnullGlobalCons
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader: ; preds = %31, %23
-  %.pn.i.i.ph = phi ptr [ %32, %31 ], [ %27, %23 ]
+  %.pn.i.i.ph = phi ptr [ %27, %23 ], [ %32, %31 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i
@@ -1268,7 +1268,7 @@ _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit: ; preds = %_ZNK5clan
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24.preheader
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24.preheader: ; preds = %57, %50
-  %.pn.i.i26.ph = phi ptr [ %58, %57 ], [ %53, %50 ]
+  %.pn.i.i26.ph = phi ptr [ %53, %50 ], [ %58, %57 ]
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24.preheader, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i38

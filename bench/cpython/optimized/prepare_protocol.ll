@@ -74,7 +74,7 @@ define internal i32 @pysqlite_prepare_protocol_traverse(ptr noundef readonly cap
   br label %8
 
 8:                                                ; preds = %5, %7
-  %.1 = phi i32 [ %6, %5 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %7 ], [ %6, %5 ]
   ret i32 %.1
 }
 

@@ -3414,7 +3414,7 @@ define linkonce_odr hidden void @_ZN4llvm17TimeTraceProfiler3endERNS_22TimeTrace
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %39, %38 ]
+  %.1.i.i.i.i = phi ptr [ %39, %38 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %41 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !151
   %42 = icmp eq ptr %41, %1
   br i1 %42, label %_ZN4llvm7find_ifIRNS_11SmallVectorISt10unique_ptrI15InProgressEntrySt14default_deleteIS3_EELj16EEEZNS_17TimeTraceProfiler3endERNS_22TimeTraceProfilerEntryEEUlRKS6_E_EEDaOT_T0_.exit, label %43
@@ -3424,7 +3424,7 @@ define linkonce_odr hidden void @_ZN4llvm17TimeTraceProfiler3endERNS_22TimeTrace
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %44, %43 ]
+  %.2.i.i.i.i = phi ptr [ %44, %43 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %46 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !151
   %47 = icmp eq ptr %46, %1
   br i1 %47, label %_ZN4llvm7find_ifIRNS_11SmallVectorISt10unique_ptrI15InProgressEntrySt14default_deleteIS3_EELj16EEEZNS_17TimeTraceProfiler3endERNS_22TimeTraceProfilerEntryEEUlRKS6_E_EEDaOT_T0_.exit, label %48

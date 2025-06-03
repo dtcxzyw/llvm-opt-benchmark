@@ -653,7 +653,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %222
 
 222:                                              ; preds = %221, %220, %219, %218
-  %.0 = phi i32 [ 8, %221 ], [ 7, %220 ], [ 6, %219 ], [ 3, %218 ]
+  %.0 = phi i32 [ 3, %218 ], [ 6, %219 ], [ 7, %220 ], [ 8, %221 ]
   %223 = load ptr, ptr %5, align 8
   call void @proto_item_set_len(ptr noundef %223, i32 noundef %.0)
   %224 = call i32 @tvb_reported_length(ptr noundef %113)

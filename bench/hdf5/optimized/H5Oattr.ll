@@ -1522,7 +1522,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_debug(ptr noundef %0, ptr
   br label %38
 
 38:                                               ; preds = %36, %34, %33, %24
-  %.053.i = phi ptr [ %6, %36 ], [ %6, %34 ], [ @.str.43, %33 ], [ @.str.42, %24 ]
+  %.053.i = phi ptr [ %6, %36 ], [ @.str.43, %33 ], [ %6, %34 ], [ @.str.42, %24 ]
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.46, i32 noundef %3, ptr noundef nonnull @.str.40, i32 noundef %4, ptr noundef nonnull @.str.47, ptr noundef nonnull %.053.i) #12
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %41 = load i8, ptr %40, align 8, !tbaa !52, !range !7, !noundef !8

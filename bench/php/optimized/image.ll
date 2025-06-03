@@ -1818,7 +1818,7 @@ php_handle_avif.exit.i:                           ; preds = %585, %582
   br label %597
 
 597:                                              ; preds = %php_handle_avif.exit.i, %php_handle_webp.exit.i, %php_handle_ico.exit.i, %467, %php_handle_wbmp.exit.i, %php_handle_iff.exit.i, %php_handle_jp2.exit.i, %345, %343, %341, %php_handle_bmp.exit.i, %php_handle_psd.exit.i, %php_handle_swf.exit.i, %php_handle_png.exit.i, %97, %95, %php_handle_gif.exit.i
-  %.0.i64 = phi ptr [ %.0.i78.i, %php_handle_avif.exit.i ], [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.016.i.i, %php_handle_ico.exit.i ], [ %469, %467 ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %96, %95 ], [ %98, %97 ], [ %.0.i.i, %php_handle_gif.exit.i ]
+  %.0.i64 = phi ptr [ %.0.i.i, %php_handle_gif.exit.i ], [ %96, %95 ], [ %98, %97 ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %469, %467 ], [ %.016.i.i, %php_handle_ico.exit.i ], [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.0.i78.i, %php_handle_avif.exit.i ]
   %.not51.i = icmp eq ptr %.0.i64, null
   br i1 %.not51.i, label %.thread.i, label %598
 
@@ -2493,7 +2493,7 @@ php_ifd_get32s.exit:                              ; preds = %130, %148
   br label %php_ifd_get16u.exit104
 
 php_ifd_get16u.exit104:                           ; preds = %89, %81, %php_ifd_get32s.exit, %php_ifd_get32u.exit109, %php_ifd_get16s.exit, %75
-  %.091 = phi i64 [ %150, %php_ifd_get32s.exit ], [ %127, %php_ifd_get32u.exit109 ], [ %104, %php_ifd_get16s.exit ], [ %78, %75 ], [ %88, %81 ], [ %91, %89 ]
+  %.091 = phi i64 [ %78, %75 ], [ %104, %php_ifd_get16s.exit ], [ %127, %php_ifd_get32u.exit109 ], [ %150, %php_ifd_get32s.exit ], [ %88, %81 ], [ %91, %89 ]
   switch i16 %.0.i972, label %153 [
     i16 256, label %151
     i16 -24574, label %151
@@ -2508,8 +2508,8 @@ php_ifd_get16u.exit104:                           ; preds = %89, %81, %php_ifd_g
   br label %153
 
 153:                                              ; preds = %php_ifd_get16u.exit104, %151, %152, %php_ifd_get16u.exit101
-  %.190 = phi i64 [ %.0894, %php_ifd_get16u.exit101 ], [ %.0894, %php_ifd_get16u.exit104 ], [ %.0894, %152 ], [ %.091, %151 ]
-  %.1 = phi i64 [ %.0885, %php_ifd_get16u.exit101 ], [ %.0885, %php_ifd_get16u.exit104 ], [ %.091, %152 ], [ %.0885, %151 ]
+  %.190 = phi i64 [ %.0894, %php_ifd_get16u.exit101 ], [ %.0894, %php_ifd_get16u.exit104 ], [ %.091, %151 ], [ %.0894, %152 ]
+  %.1 = phi i64 [ %.0885, %php_ifd_get16u.exit101 ], [ %.0885, %php_ifd_get16u.exit104 ], [ %.0885, %151 ], [ %.091, %152 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

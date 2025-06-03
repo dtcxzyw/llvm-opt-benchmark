@@ -383,7 +383,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge.i.i.i.i.i
-  %.sroa.032.1.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %86, %85 ]
+  %.sroa.032.1.i.i.i.i.i = phi ptr [ %86, %85 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %88 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestUploadCommand13ExecuteUploadERNS2_15UploadArgumentsER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull %30, ptr %.sroa.032.1.i.i.i.i.i)
   br i1 %88, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNK20cmCTestUploadCommand13ExecuteUploadERNSF_15UploadArgumentsER17cmExecutionStatusE3$_0EEET_SM_SM_T0_.exit.i.i.i", label %89
 
@@ -392,7 +392,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %91
 
 91:                                               ; preds = %89, %._crit_edge.i.i.i.i.i
-  %.sroa.032.2.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %90, %89 ]
+  %.sroa.032.2.i.i.i.i.i = phi ptr [ %90, %89 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %92 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK20cmCTestUploadCommand13ExecuteUploadERNS2_15UploadArgumentsER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISG_SaISG_EEEEEEbT_"(ptr nonnull %30, ptr %.sroa.032.2.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %92, ptr %.sroa.032.2.i.i.i.i.i, ptr %62
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZNK20cmCTestUploadCommand13ExecuteUploadERNSF_15UploadArgumentsER17cmExecutionStatusE3$_0EEET_SM_SM_T0_.exit.i.i.i"

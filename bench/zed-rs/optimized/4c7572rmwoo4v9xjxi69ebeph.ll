@@ -1626,7 +1626,7 @@ default.unreachable63.i.i.i.i.i.i:                ; preds = %26
   %60 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %60, label %61, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h512a6e0e2a042ecaE.exit.thread.i.i"
 
-61:                                               ; preds = %22, %23, %53, %49, %39, %28, %36, %47, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h512a6e0e2a042ecaE.exit.i.i"
+61:                                               ; preds = %22, %23, %53, %49, %39, %28, %47, %36, %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h512a6e0e2a042ecaE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !306
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -1757,7 +1757,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hb1fd7c3cccb089fdE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi ptr [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret ptr %.sroa.01.0
 }
 
@@ -21440,9 +21440,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %88
 
 88:                                               ; preds = %94, %98, %80, %85, %54
-  %.sroa.15.0 = phi i64 [ %19, %98 ], [ %19, %94 ], [ %87, %85 ], [ %81, %80 ], [ %19, %54 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.3.0.i84, %98 ], [ %34, %94 ], [ %.sroa.3.0.i, %85 ], [ %34, %80 ], [ %34, %54 ]
-  %.sroa.0102.0 = phi ptr [ %.sroa.06.0.i83, %98 ], [ %14, %94 ], [ %.sroa.06.0.i, %85 ], [ %14, %80 ], [ %14, %54 ]
+  %.sroa.15.0 = phi i64 [ %19, %54 ], [ %87, %85 ], [ %81, %80 ], [ %19, %98 ], [ %19, %94 ]
+  %.sroa.9.0 = phi i64 [ %34, %54 ], [ %.sroa.3.0.i, %85 ], [ %34, %80 ], [ %.sroa.3.0.i84, %98 ], [ %34, %94 ]
+  %.sroa.0102.0 = phi ptr [ %14, %54 ], [ %.sroa.06.0.i, %85 ], [ %14, %80 ], [ %.sroa.06.0.i83, %98 ], [ %14, %94 ]
   %89 = icmp ne ptr %.sroa.0102.0, null
   tail call void @llvm.assume(i1 %89)
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0, i64 176
@@ -30886,7 +30886,7 @@ default.unreachable1:                             ; preds = %2
   br label %13
 
 13:                                               ; preds = %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -30927,7 +30927,7 @@ default.unreachable1:                             ; preds = %2
   br label %13
 
 13:                                               ; preds = %11, %9, %7
-  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
+  %.sroa.0.0.in = phi i1 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
   ret i1 %.sroa.0.0.in
 }
 

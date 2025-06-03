@@ -245,7 +245,7 @@ define noundef range(i32 -32768, 32768) i32 @_ZNK6icu_7714SearchIterator12getAtt
   br label %21
 
 21:                                               ; preds = %2, %15, %9, %3
-  %.0 = phi i32 [ %.1, %15 ], [ %14, %9 ], [ %8, %3 ], [ -1, %2 ]
+  %.0 = phi i32 [ %8, %3 ], [ %14, %9 ], [ %.1, %15 ], [ -1, %2 ]
   ret i32 %.0
 }
 

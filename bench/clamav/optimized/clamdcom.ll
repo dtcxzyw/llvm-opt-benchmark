@@ -965,7 +965,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br label %70
 
 70:                                               ; preds = %68, %66, %.loopexit141
-  %.071 = phi i32 [ %69, %68 ], [ %67, %66 ], [ %40, %.loopexit141 ]
+  %.071 = phi i32 [ %40, %.loopexit141 ], [ %67, %66 ], [ %69, %68 ]
   %71 = icmp slt i32 %.071, 1
   br i1 %71, label %.thread, label %.preheader
 

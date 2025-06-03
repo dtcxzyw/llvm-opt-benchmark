@@ -1041,9 +1041,9 @@ define noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P3
   br label %17
 
 17:                                               ; preds = %18, %6, %14
-  %.118 = phi i32 [ 0, %6 ], [ 0, %18 ], [ %2, %14 ]
-  %.116 = phi i8 [ 0, %6 ], [ %19, %18 ], [ %16, %14 ]
-  %.1 = phi i32 [ %2, %6 ], [ %20, %18 ], [ 0, %14 ]
+  %.118 = phi i32 [ 0, %6 ], [ %2, %14 ], [ 0, %18 ]
+  %.116 = phi i8 [ 0, %6 ], [ %16, %14 ], [ %19, %18 ]
+  %.1 = phi i32 [ %2, %6 ], [ 0, %14 ], [ %20, %18 ]
   %.not = icmp ult i64 %3, 4294967296
   %spec.select = select i1 %.not, i32 %.118, i32 1
   br label %21
@@ -1260,9 +1260,9 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   br label %91
 
 91:                                               ; preds = %92, %88, %80
-  %.118.i = phi i32 [ 0, %80 ], [ 0, %92 ], [ %.140, %88 ]
-  %.116.i = phi i8 [ 0, %80 ], [ %93, %92 ], [ %90, %88 ]
-  %.1.i = phi i32 [ %.140, %80 ], [ %94, %92 ], [ 0, %88 ]
+  %.118.i = phi i32 [ 0, %80 ], [ %.140, %88 ], [ 0, %92 ]
+  %.116.i = phi i8 [ 0, %80 ], [ %90, %88 ], [ %93, %92 ]
+  %.1.i = phi i32 [ %.140, %80 ], [ 0, %88 ], [ %94, %92 ]
   %.not.i = icmp samesign ult i64 %78, 4294967296
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %95
@@ -1480,9 +1480,9 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   br label %93
 
 93:                                               ; preds = %94, %90, %82
-  %.118.i = phi i32 [ 0, %82 ], [ 0, %94 ], [ %.042, %90 ]
-  %.116.i = phi i8 [ 0, %82 ], [ %95, %94 ], [ %92, %90 ]
-  %.1.i = phi i32 [ %.042, %82 ], [ %96, %94 ], [ 0, %90 ]
+  %.118.i = phi i32 [ 0, %82 ], [ %.042, %90 ], [ 0, %94 ]
+  %.116.i = phi i8 [ 0, %82 ], [ %92, %90 ], [ %95, %94 ]
+  %.1.i = phi i32 [ %.042, %82 ], [ 0, %90 ], [ %96, %94 ]
   %.not.i = icmp samesign ult i64 %80, 4294967296
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %97
@@ -1731,9 +1731,9 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   br label %102
 
 102:                                              ; preds = %103, %99, %91
-  %.118.i = phi i32 [ 0, %91 ], [ 0, %103 ], [ %.060.lcssa, %99 ]
-  %.116.i = phi i8 [ 0, %91 ], [ %104, %103 ], [ %101, %99 ]
-  %.1.i = phi i32 [ %.060.lcssa, %91 ], [ %105, %103 ], [ 0, %99 ]
+  %.118.i = phi i32 [ 0, %91 ], [ %.060.lcssa, %99 ], [ 0, %103 ]
+  %.116.i = phi i8 [ 0, %91 ], [ %101, %99 ], [ %104, %103 ]
+  %.1.i = phi i32 [ %.060.lcssa, %91 ], [ 0, %99 ], [ %105, %103 ]
   %.not.i = icmp samesign ult i64 %89, 4294967296
   %spec.select.i = select i1 %.not.i, i32 %.118.i, i32 1
   br label %106
@@ -2377,8 +2377,8 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   br label %63
 
 63:                                               ; preds = %58, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
-  %.sroa.0.0 = phi i64 [ 1, %58 ], [ 0, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ]
-  %.sroa.3.0.insert.insert = phi i64 [ %62, %58 ], [ %57, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ 1, %58 ]
+  %.sroa.3.0.insert.insert = phi i64 [ %57, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ %62, %58 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }

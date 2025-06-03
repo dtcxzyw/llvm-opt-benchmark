@@ -752,7 +752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   ret void
 
 74:                                               ; preds = %71, %67, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %25
-  %.pn8 = phi { ptr, i32 } [ %72, %71 ], [ %64, %63 ], [ %68, %67 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %26, %25 ]
+  %.pn8 = phi { ptr, i32 } [ %72, %71 ], [ %26, %25 ], [ %64, %63 ], [ %68, %67 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   resume { ptr, i32 } %.pn8
 }

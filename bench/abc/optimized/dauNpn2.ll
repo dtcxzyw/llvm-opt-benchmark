@@ -4151,7 +4151,7 @@ switch.lookup78:                                  ; preds = %57
   br label %Dtt_ProcessType.exit
 
 Dtt_ProcessType.exit:                             ; preds = %42, %switch.lookup78, %switch.lookup74, %.sink.split.i45, %switch.lookup71, %switch.lookup, %11, %62, %53, %44, %26, %18, %5
-  %.0 = phi i32 [ %64, %62 ], [ %56, %53 ], [ %47, %44 ], [ %30, %26 ], [ %21, %18 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup71 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup74 ], [ 1, %switch.lookup78 ], [ 1, %42 ]
+  %.0 = phi i32 [ %21, %18 ], [ %30, %26 ], [ %47, %44 ], [ %56, %53 ], [ %64, %62 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup71 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup74 ], [ 1, %switch.lookup78 ], [ 1, %42 ]
   ret i32 %.0
 }
 

@@ -225,7 +225,7 @@ _Z7ftp2exti.exit:                                 ; preds = %2
   br label %12
 
 12:                                               ; preds = %1, %2, %_Z7ftp2exti.exit, %6, %5, %4, %3
-  %.0 = phi ptr [ %spec.select.i, %_Z7ftp2exti.exit ], [ @.str.125, %6 ], [ @.str.124, %5 ], [ @.str.123, %4 ], [ @.str.122, %3 ], [ @.str.121, %2 ], [ @.str.1, %1 ]
+  %.0 = phi ptr [ %spec.select.i, %_Z7ftp2exti.exit ], [ @.str.122, %3 ], [ @.str.123, %4 ], [ @.str.124, %5 ], [ @.str.125, %6 ], [ @.str.121, %2 ], [ @.str.1, %1 ]
   ret ptr %.0
 }
 

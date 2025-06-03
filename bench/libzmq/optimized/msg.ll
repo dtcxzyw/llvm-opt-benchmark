@@ -213,7 +213,7 @@ define noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull readonly align 8 ca
   br label %30
 
 30:                                               ; preds = %25, %21, %18, %14, %12
-  %.0 = phi ptr [ null, %25 ], [ %24, %21 ], [ %20, %18 ], [ %17, %14 ], [ %13, %12 ]
+  %.0 = phi ptr [ null, %25 ], [ %13, %12 ], [ %17, %14 ], [ %20, %18 ], [ %24, %21 ]
   ret ptr %.0
 }
 
@@ -865,7 +865,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t4copyERS0_(ptr noundef nonnull
   br label %_ZN3zmq5msg_t6refcntEv.exit
 
 _ZN3zmq5msg_t6refcntEv.exit:                      ; preds = %17, %21, %25
-  %.0.i = phi ptr [ null, %25 ], [ %24, %21 ], [ %20, %17 ]
+  %.0.i = phi ptr [ null, %25 ], [ %20, %17 ], [ %24, %21 ]
   %30 = atomicrmw add ptr %.0.i, i32 1 acq_rel, align 4
   br label %38
 
@@ -968,7 +968,7 @@ define noundef ptr @_ZN3zmq5msg_t6refcntEv(ptr noundef nonnull readonly align 8 
   br label %17
 
 17:                                               ; preds = %12, %8, %4
-  %.0 = phi ptr [ null, %12 ], [ %11, %8 ], [ %7, %4 ]
+  %.0 = phi ptr [ null, %12 ], [ %7, %4 ], [ %11, %8 ]
   ret ptr %.0
 }
 
@@ -1034,7 +1034,7 @@ define noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull readonly align 8 c
   br label %34
 
 34:                                               ; preds = %29, %26, %21, %16, %12
-  %.0 = phi i64 [ 0, %29 ], [ %28, %26 ], [ %25, %21 ], [ %20, %16 ], [ %15, %12 ]
+  %.0 = phi i64 [ 0, %29 ], [ %15, %12 ], [ %20, %16 ], [ %25, %21 ], [ %28, %26 ]
   ret i64 %.0
 }
 
@@ -1435,7 +1435,7 @@ define void @_ZN3zmq5msg_t8add_refsEi(ptr noundef nonnull align 8 captures(none)
   br label %_ZN3zmq5msg_t6refcntEv.exit
 
 _ZN3zmq5msg_t6refcntEv.exit:                      ; preds = %24, %28, %32
-  %.0.i = phi ptr [ null, %32 ], [ %31, %28 ], [ %27, %24 ]
+  %.0.i = phi ptr [ null, %32 ], [ %27, %24 ], [ %31, %28 ]
   %37 = atomicrmw add ptr %.0.i, i32 %1 acq_rel, align 4
   br label %47
 

@@ -1008,8 +1008,8 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias noundef w
   ret void
 
 63:                                               ; preds = %54, %53, %52, %50, %43
-  %.sroa.8.0.i = phi i64 [ %.sroa.8.0.copyload, %54 ], [ 2, %53 ], [ 1, %52 ], [ %.sroa.11.0.copyload, %50 ], [ %48, %43 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.7.0.copyload, %54 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.3, %53 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.2, %52 ], [ %.sroa.10.0.copyload, %50 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.1, %43 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.11.0.copyload, %50 ], [ 1, %52 ], [ 2, %53 ], [ %.sroa.8.0.copyload, %54 ], [ %48, %43 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.10.0.copyload, %50 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.2, %52 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.3, %53 ], [ %.sroa.7.0.copyload, %54 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.1, %43 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   invoke void @_ZN3std3sys6os_str5bytes5Slice6to_str17hfbea1558dfe8d31cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.8.0.i)
           to label %64 unwind label %.loopexit.split-lp

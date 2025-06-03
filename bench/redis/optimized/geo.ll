@@ -1887,7 +1887,7 @@ default.unreachable:                              ; preds = %257
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %321, %329, %332, %336, %340, %344
-  %.0.i421 = phi i64 [ %346, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %329 ], [ 0, %321 ]
+  %.0.i421 = phi i64 [ %331, %329 ], [ %335, %332 ], [ %339, %336 ], [ %343, %340 ], [ %346, %344 ], [ 0, %321 ]
   %347 = load ptr, ptr %310, align 8, !tbaa !44
   %348 = call ptr @zslInsert(ptr noundef %347, double noundef %322, ptr noundef nonnull %324) #14
   %349 = load ptr, ptr %307, align 8, !tbaa !106

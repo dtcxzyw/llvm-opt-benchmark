@@ -665,7 +665,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN65_$LT$wasmi..module..init_expr..Op$u20$as$u20$core..fmt..Debug$GT$3fmt17he8a881312e9f1ce6E.exit"
 
 "_ZN65_$LT$wasmi..module..init_expr..Op$u20$as$u20$core..fmt..Debug$GT$3fmt17he8a881312e9f1ce6E.exit": ; preds = %9, %12, %15, %18
-  %.sroa.0.0.in.i = phi i1 [ %20, %18 ], [ %17, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in.i = phi i1 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -1343,7 +1343,7 @@ define noalias noundef nonnull align 1 ptr @wasm_valtype_new(i8 noundef zeroext 
   unreachable
 
 _ZN11wasmi_c_api5types3val12into_valtype17h29c0ee6cd57dcca0E.exit: ; preds = %1, %1, %1, %1, %4, %3, %1
-  %.sroa.0.0.i = phi i8 [ 5, %4 ], [ 6, %3 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+  %.sroa.0.0.i = phi i8 [ 6, %3 ], [ 5, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %8 = tail call noalias noundef dereferenceable_or_null(1) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 1, 57) 1, i64 noundef range(i64 1, 9) 1) #19
   %9 = icmp eq ptr %8, null
@@ -1394,7 +1394,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN11wasmi_c_api5types3val12into_valtyp
   br label %5
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %4, %3
-  %.sroa.0.0 = phi i8 [ 5, %4 ], [ 6, %3 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+  %.sroa.0.0 = phi i8 [ 6, %3 ], [ 5, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   ret i8 %.sroa.0.0
 }
 

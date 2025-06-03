@@ -145,7 +145,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br label %81
 
 81:                                               ; preds = %75, %72, %71, %68
-  %.2 = phi i32 [ %.155118, %68 ], [ %80, %75 ], [ %74, %72 ], [ 1227489280, %71 ]
+  %.2 = phi i32 [ %.155118, %68 ], [ 1227489280, %71 ], [ %74, %72 ], [ %80, %75 ]
   %82 = or disjoint i32 %.058117, 3
   %.not60 = icmp slt i32 %82, %69
   br i1 %.not60, label %86, label %83

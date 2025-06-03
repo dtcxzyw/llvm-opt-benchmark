@@ -1023,7 +1023,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   br label %97
 
 97:                                               ; preds = %86, %96, %95, %78, %85
-  %.0 = phi i32 [ %89, %95 ], [ %89, %96 ], [ %89, %86 ], [ %81, %85 ], [ %81, %78 ]
+  %.0 = phi i32 [ %81, %85 ], [ %81, %78 ], [ %89, %95 ], [ %89, %96 ], [ %89, %86 ]
   %.not110 = icmp eq i32 %.0, 0
   br i1 %.not110, label %.thread, label %98
 
@@ -1213,7 +1213,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   br label %commview_ncfx_read_rf_header.exit.thread
 
 198:                                              ; preds = %126, %137, %167, %171, %175, %155, %149, %152, %140, %179, %15
-  %.0102 = phi i32 [ %135, %137 ], [ %135, %179 ], [ %135, %155 ], [ %135, %175 ], [ %135, %171 ], [ %135, %167 ], [ %135, %140 ], [ %135, %152 ], [ %135, %149 ], [ %33, %126 ], [ %12, %15 ]
+  %.0102 = phi i32 [ %12, %15 ], [ %135, %137 ], [ %135, %140 ], [ %135, %149 ], [ %135, %152 ], [ %135, %155 ], [ %135, %167 ], [ %135, %171 ], [ %135, %175 ], [ %135, %179 ], [ %33, %126 ]
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %200 = load i16, ptr %199, align 4
   %201 = zext i16 %200 to i32
@@ -1282,7 +1282,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   br label %commview_ncfx_read_rf_header.exit.thread
 
 commview_ncfx_read_rf_header.exit.thread:         ; preds = %56, %53, %50, %47, %44, %41, %38, %35, %32, %134, %commview_ncfx_read_rf_header.exit, %4, %231, %229, %195, %131, %30
-  %.0103 = phi i32 [ 0, %195 ], [ 0, %30 ], [ 0, %131 ], [ 0, %229 ], [ %243, %231 ], [ 0, %4 ], [ 0, %commview_ncfx_read_rf_header.exit ], [ 0, %134 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %50 ], [ 0, %53 ], [ 0, %56 ]
+  %.0103 = phi i32 [ 0, %195 ], [ 0, %229 ], [ %243, %231 ], [ 0, %30 ], [ 0, %131 ], [ 0, %4 ], [ 0, %commview_ncfx_read_rf_header.exit ], [ 0, %134 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %50 ], [ 0, %53 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8

@@ -527,7 +527,7 @@ default.unreachable79:                            ; preds = %109
   unreachable
 
 160:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit"
-  %.1 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit" ]
+  %.1 = phi i1 [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit" ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   ret i1 %.1
 
@@ -693,7 +693,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN54_$LT$tt..Leaf$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5915468702c40580E.exit"
 
 "_ZN54_$LT$tt..Leaf$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5915468702c40580E.exit": ; preds = %8, %11, %14
-  %.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.0.in.i
 }
 
@@ -1501,7 +1501,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$
   br label %46
 
 46:                                               ; preds = %33, %42, %39, %37, %30, %32, %10, %44
-  %.0.shrunk = phi i1 [ %16, %10 ], [ true, %32 ], [ %45, %44 ], [ true, %30 ], [ true, %37 ], [ true, %39 ], [ true, %42 ], [ true, %33 ]
+  %.0.shrunk = phi i1 [ %16, %10 ], [ %45, %44 ], [ true, %32 ], [ true, %30 ], [ true, %37 ], [ true, %39 ], [ true, %42 ], [ true, %33 ]
   ret i1 %.0.shrunk
 }
 

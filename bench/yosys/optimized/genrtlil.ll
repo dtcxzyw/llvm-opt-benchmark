@@ -2071,7 +2071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.thread417
 
 .thread417:                                       ; preds = %.thread, %141, %184, %165, %145, %132, %268, %195
-  %.1410 = phi i32 [ %.0409, %195 ], [ %.2, %268 ], [ 32, %.thread ], [ 1, %141 ], [ %storemerge, %132 ], [ %151, %145 ], [ %171, %165 ], [ %190, %184 ]
+  %.1410 = phi i32 [ %.0409, %195 ], [ %.2, %268 ], [ 32, %.thread ], [ 1, %141 ], [ %190, %184 ], [ %171, %165 ], [ %151, %145 ], [ %storemerge, %132 ]
   %269 = load i32, ptr %1, align 4, !tbaa !59
   %.sroa.speculated399 = call i32 @llvm.smax.i32(i32 %269, i32 %.1410)
   store i32 %.sroa.speculated399, ptr %1, align 4, !tbaa !59
@@ -3283,7 +3283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit318: ; preds = %_Z
   ret void
 
 .loopexit.split-lp438:                            ; preds = %.loopexit465, %.loopexit.split-lp466.loopexit.split-lp, %.loopexit.split-lp466.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit437, %.loopexit.split-lp438.loopexit.split-lp.loopexit, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp438.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305, %698, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315, %638, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294, %239, %580, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285, %524, %430, %412, %399, %371, %359, %299, %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn241.pn.pn = phi { ptr, i32 } [ %.pn210, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ], [ %581, %580 ], [ %.pn214, %524 ], [ %431, %430 ], [ %413, %412 ], [ %.pn217, %399 ], [ %372, %371 ], [ %.pn220, %359 ], [ %.pn223, %299 ], [ %192, %191 ], [ %.pn228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %240, %239 ], [ %.pn206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294 ], [ %639, %638 ], [ %.pn241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit312 ], [ %.pn239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315 ], [ %699, %698 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305 ], [ %lpad.loopexit439, %.loopexit437 ], [ %lpad.loopexit443, %.loopexit.split-lp438.loopexit ], [ %lpad.loopexit447, %.loopexit.split-lp438.loopexit.split-lp.loopexit ], [ %lpad.loopexit450, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit461, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp462, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit433, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit467, %.loopexit465 ], [ %lpad.loopexit471, %.loopexit.split-lp466.loopexit ], [ %lpad.loopexit.split-lp472, %.loopexit.split-lp466.loopexit.split-lp ]
+  %.pn241.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %.pn228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn223, %299 ], [ %.pn220, %359 ], [ %372, %371 ], [ %.pn217, %399 ], [ %413, %412 ], [ %431, %430 ], [ %.pn214, %524 ], [ %.pn210, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ], [ %581, %580 ], [ %240, %239 ], [ %.pn206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294 ], [ %639, %638 ], [ %.pn241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit312 ], [ %.pn239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315 ], [ %699, %698 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305 ], [ %lpad.loopexit439, %.loopexit437 ], [ %lpad.loopexit443, %.loopexit.split-lp438.loopexit ], [ %lpad.loopexit447, %.loopexit.split-lp438.loopexit.split-lp.loopexit ], [ %lpad.loopexit450, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit461, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp462, %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit433, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit467, %.loopexit465 ], [ %lpad.loopexit471, %.loopexit.split-lp466.loopexit ], [ %lpad.loopexit.split-lp472, %.loopexit.split-lp466.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #30
@@ -16676,7 +16676,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1792:            ; preds = %5148, %5153, %5160
   ret void
 
 5164:                                             ; preds = %742, %755, %4859, %_ZNSt6vectorIPN5Yosys5RTLIL7BindingESaIS3_EED2Ev.exit1748, %4787, %4793, %4772, %4778, %2437, %2446, %712, %714, %731, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1790, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1787, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1781, %4816, %4762, %4079, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1597, %3329, %3103, %2844, %2741, %2725, %2628, %2620, %2612, %2486, %2478, %2470, %2462, %2454, %2334, %2326, %2318, %2310, %2302, %2294, %2286, %2278, %2270, %2197, %2083, %2075, %2067, %2059, %2051, %2043, %2035, %2011, %2000, %1938, %1930, %1922, %1914, %1906, %1783, %1775, %1767, %1759, %1751, %1673, %1665, %1657, %1649, %1608, %1557, %1515, %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit1146, %800, %799, %784, %776, %664, %556, %442, %434, %394, %285
-  %.pn1058.pn = phi { ptr, i32 } [ %.pn1058, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1787 ], [ %.pn1056, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1790 ], [ %.pn646.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1781 ], [ %4817, %4816 ], [ %.pn706.pn.pn.pn.pn, %4762 ], [ %.pn715.pn.pn.pn, %4079 ], [ %.pn745.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1597 ], [ %.pn776.pn.pn.pn.pn, %3329 ], [ %.pn805.pn.pn.pn.pn.pn.pn, %3103 ], [ %.pn820.pn, %2844 ], [ %286, %285 ], [ %.pn823.pn, %2741 ], [ %.pn830.pn.pn, %2725 ], [ %.pn826, %2628 ], [ %.pn828, %2620 ], [ %.pn844.pn.pn, %2612 ], [ %.pn834, %2486 ], [ %.pn836, %2478 ], [ %.pn838, %2470 ], [ %.pn840, %2462 ], [ %.pn842, %2454 ], [ %.pn848, %2334 ], [ %.pn850, %2326 ], [ %.pn852, %2318 ], [ %.pn854, %2310 ], [ %.pn856, %2302 ], [ %.pn858, %2294 ], [ %.pn860, %2286 ], [ %.pn862, %2278 ], [ %.pn872.pn.pn.pn.pn, %2270 ], [ %.pn890.pn.pn, %2197 ], [ %.pn878, %2083 ], [ %.pn880, %2075 ], [ %.pn882, %2067 ], [ %.pn884, %2059 ], [ %.pn886, %2051 ], [ %.pn888, %2043 ], [ %.pn896.pn, %2035 ], [ %.pn894, %2011 ], [ %.pn907.pn, %2000 ], [ %.pn899, %1938 ], [ %.pn901, %1930 ], [ %.pn903, %1922 ], [ %.pn905, %1914 ], [ %.pn918.pn.pn, %1906 ], [ %.pn910, %1783 ], [ %.pn912, %1775 ], [ %.pn914, %1767 ], [ %.pn916, %1759 ], [ %.pn928.pn, %1751 ], [ %.pn922, %1673 ], [ %.pn924, %1665 ], [ %.pn926, %1657 ], [ %.pn931.pn.pn.pn.pn, %1649 ], [ %.pn937.pn, %1608 ], [ %.pn940.pn.pn, %1557 ], [ %1516, %1515 ], [ %.pn1003, %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit1146 ], [ %.pn1009, %776 ], [ %.pn1007, %784 ], [ %801, %800 ], [ %.pn1005, %799 ], [ %.pn1021.pn.pn.pn, %664 ], [ %.pn1040.pn.pn.pn.pn, %556 ], [ %.pn1028.pn, %442 ], [ %.pn1026, %434 ], [ %.pn1049.pn.pn.pn.pn.pn, %394 ], [ %713, %712 ], [ %732, %731 ], [ %715, %714 ], [ %.pn864.pn.pn, %2446 ], [ %2438, %2437 ], [ %.pn655, %4778 ], [ %4773, %4772 ], [ %.pn652, %4793 ], [ %4788, %4787 ], [ %4866, %_ZNSt6vectorIPN5Yosys5RTLIL7BindingESaIS3_EED2Ev.exit1748 ], [ %4860, %4859 ], [ %743, %742 ], [ %.pn1012, %755 ]
+  %.pn1058.pn = phi { ptr, i32 } [ %.pn1058, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1787 ], [ %.pn1056, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1790 ], [ %.pn1049.pn.pn.pn.pn.pn, %394 ], [ %286, %285 ], [ %.pn1040.pn.pn.pn.pn, %556 ], [ %.pn1028.pn, %442 ], [ %.pn1026, %434 ], [ %.pn1021.pn.pn.pn, %664 ], [ %.pn1009, %776 ], [ %.pn1007, %784 ], [ %801, %800 ], [ %.pn1005, %799 ], [ %.pn1003, %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit1146 ], [ %1516, %1515 ], [ %.pn940.pn.pn, %1557 ], [ %.pn937.pn, %1608 ], [ %.pn931.pn.pn.pn.pn, %1649 ], [ %.pn928.pn, %1751 ], [ %.pn926, %1657 ], [ %.pn924, %1665 ], [ %.pn922, %1673 ], [ %.pn918.pn.pn, %1906 ], [ %.pn916, %1759 ], [ %.pn914, %1767 ], [ %.pn912, %1775 ], [ %.pn910, %1783 ], [ %.pn907.pn, %2000 ], [ %.pn905, %1914 ], [ %.pn903, %1922 ], [ %.pn901, %1930 ], [ %.pn899, %1938 ], [ %.pn896.pn, %2035 ], [ %.pn894, %2011 ], [ %.pn890.pn.pn, %2197 ], [ %.pn888, %2043 ], [ %.pn886, %2051 ], [ %.pn884, %2059 ], [ %.pn882, %2067 ], [ %.pn880, %2075 ], [ %.pn878, %2083 ], [ %.pn872.pn.pn.pn.pn, %2270 ], [ %.pn862, %2278 ], [ %.pn860, %2286 ], [ %.pn858, %2294 ], [ %.pn856, %2302 ], [ %.pn854, %2310 ], [ %.pn852, %2318 ], [ %.pn850, %2326 ], [ %.pn848, %2334 ], [ %.pn844.pn.pn, %2612 ], [ %.pn842, %2454 ], [ %.pn840, %2462 ], [ %.pn838, %2470 ], [ %.pn836, %2478 ], [ %.pn834, %2486 ], [ %.pn830.pn.pn, %2725 ], [ %.pn828, %2620 ], [ %.pn826, %2628 ], [ %.pn823.pn, %2741 ], [ %.pn820.pn, %2844 ], [ %.pn805.pn.pn.pn.pn.pn.pn, %3103 ], [ %.pn776.pn.pn.pn.pn, %3329 ], [ %.pn745.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1597 ], [ %.pn715.pn.pn.pn, %4079 ], [ %.pn706.pn.pn.pn.pn, %4762 ], [ %4817, %4816 ], [ %.pn646.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1781 ], [ %713, %712 ], [ %732, %731 ], [ %715, %714 ], [ %.pn864.pn.pn, %2446 ], [ %2438, %2437 ], [ %.pn655, %4778 ], [ %4773, %4772 ], [ %.pn652, %4793 ], [ %4788, %4787 ], [ %4866, %_ZNSt6vectorIPN5Yosys5RTLIL7BindingESaIS3_EED2Ev.exit1748 ], [ %4860, %4859 ], [ %743, %742 ], [ %.pn1012, %755 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #30
   resume { ptr, i32 } %.pn1058.pn
@@ -24338,7 +24338,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112ba
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %43, %42 ]
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %45 = load i8, ptr %.sroa.025.1.i.i.i.i.i, align 1, !tbaa !70
   %46 = add i8 %45, -127
   %47 = icmp ult i8 %46, -94
@@ -24349,7 +24349,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL15encode_filenameERKNSt7__cxx1112ba
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %49, %48 ]
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load i8, ptr %.sroa.025.2.i.i.i.i.i, align 1, !tbaa !70
   %52 = add i8 %51, -127
   %53 = icmp ult i8 %52, -94
@@ -34451,8 +34451,8 @@ _ZNSt3setIN5Yosys5RTLIL6SigBitESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZN5Yos
   ret void
 
 262:                                              ; preds = %85, %118, %260
-  %.pn.pn = phi { ptr, i32 } [ %.pn51, %260 ], [ %119, %118 ], [ %86, %85 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %260 ], [ %119, %118 ], [ %86, %85 ]
+  resume { ptr, i32 } %.pn51.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -37391,7 +37391,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit374:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %_ZN5Yosys3AST7AstNode13genWidthRTLILEibPKNS_7hashlib4dictINS_5RTLIL6SigBitES5_NS2_8hash_opsIS5_EEEE.exit375 unwind label %414
 
 common.resume:                                    ; preds = %390, %1271, %2237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076, %414
-  %common.resume.op = phi { ptr, i32 } [ %415, %414 ], [ %.pn252.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076 ], [ %.pn287.pn.pn.pn, %2237 ], [ %.pn315, %1271 ], [ %.pn319.pn.pn.pn, %390 ]
+  %common.resume.op = phi { ptr, i32 } [ %415, %414 ], [ %.pn319.pn.pn.pn, %390 ], [ %.pn315, %1271 ], [ %.pn287.pn.pn.pn, %2237 ], [ %.pn252.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076 ]
   resume { ptr, i32 } %common.resume.op
 
 414:                                              ; preds = %410
@@ -38377,7 +38377,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit475:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %1267
 
 824:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit475, %758, %756
-  %.3 = phi ptr [ %.21304, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit475 ], [ %.21304, %758 ], [ %757, %756 ]
+  %.3 = phi ptr [ %.21304, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit475 ], [ %757, %756 ], [ %.21304, %758 ]
   %825 = getelementptr inbounds nuw i8, ptr %.sroa.01115.01303, i64 8
   %.not1160 = icmp eq ptr %825, %746
   br i1 %.not1160, label %._crit_edge1306, label %.lr.ph1305

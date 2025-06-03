@@ -1072,7 +1072,7 @@ psycho_acoustic_model.exit.loopexit.us:           ; preds = %.lr.ph.i.us
   br label %427
 
 427:                                              ; preds = %425, %421, %420, %419, %418, %417, %416, %393
-  %.065.i = phi i8 [ 2, %425 ], [ 2, %421 ], [ 2, %420 ], [ 2, %419 ], [ 1, %418 ], [ 3, %417 ], [ 3, %416 ], [ 0, %393 ]
+  %.065.i = phi i8 [ 3, %416 ], [ 3, %417 ], [ 1, %418 ], [ 2, %419 ], [ 2, %420 ], [ 2, %421 ], [ 2, %425 ], [ 0, %393 ]
   %428 = getelementptr inbounds nuw i8, ptr %361, i64 %indvars.iv84.i
   store i8 %.065.i, ptr %428, align 1, !tbaa !50
   %429 = getelementptr inbounds nuw i8, ptr %.078.i, i64 3

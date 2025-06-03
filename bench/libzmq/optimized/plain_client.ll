@@ -94,7 +94,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t22next_handshake_com
   br label %9
 
 9:                                                ; preds = %7, %6, %5
-  %.0 = phi i32 [ -1, %7 ], [ 0, %6 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %5 ], [ 0, %6 ]
   ret i32 %.0
 }
 

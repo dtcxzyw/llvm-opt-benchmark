@@ -676,10 +676,10 @@ _ZL8enc_add1P8huff_outhPj.exit:                   ; preds = %.lr.ph.i.i103, %_ZL
   br label %180
 
 180:                                              ; preds = %_ZL8enc_add1P8huff_outhPj.exit, %_ZL8enc_add2P8huff_outhhPj.exit91, %._crit_edge
-  %.sroa.0108.1 = phi i32 [ %.sroa.0108.0.lcssa, %._crit_edge ], [ %118, %_ZL8enc_add2P8huff_outhhPj.exit91 ], [ %170, %_ZL8enc_add1P8huff_outhPj.exit ]
-  %.sroa.19.1 = phi i32 [ %.sroa.19.0.lcssa, %._crit_edge ], [ %.sroa.19.4, %_ZL8enc_add2P8huff_outhhPj.exit91 ], [ %.sroa.19.6, %_ZL8enc_add1P8huff_outhPj.exit ]
-  %.sroa.41.1 = phi ptr [ %.sroa.41.0.lcssa, %._crit_edge ], [ %.sroa.41.8, %_ZL8enc_add2P8huff_outhhPj.exit91 ], [ %.sroa.41.12, %_ZL8enc_add1P8huff_outhPj.exit ]
-  %.1 = phi ptr [ %.061.lcssa, %._crit_edge ], [ %127, %_ZL8enc_add2P8huff_outhhPj.exit91 ], [ %179, %_ZL8enc_add1P8huff_outhPj.exit ]
+  %.sroa.0108.1 = phi i32 [ %.sroa.0108.0.lcssa, %._crit_edge ], [ %170, %_ZL8enc_add1P8huff_outhPj.exit ], [ %118, %_ZL8enc_add2P8huff_outhhPj.exit91 ]
+  %.sroa.19.1 = phi i32 [ %.sroa.19.0.lcssa, %._crit_edge ], [ %.sroa.19.6, %_ZL8enc_add1P8huff_outhPj.exit ], [ %.sroa.19.4, %_ZL8enc_add2P8huff_outhhPj.exit91 ]
+  %.sroa.41.1 = phi ptr [ %.sroa.41.0.lcssa, %._crit_edge ], [ %.sroa.41.12, %_ZL8enc_add1P8huff_outhPj.exit ], [ %.sroa.41.8, %_ZL8enc_add2P8huff_outhhPj.exit91 ]
+  %.1 = phi ptr [ %.061.lcssa, %._crit_edge ], [ %179, %_ZL8enc_add1P8huff_outhPj.exit ], [ %127, %_ZL8enc_add2P8huff_outhhPj.exit91 ]
   %.not66 = icmp eq i32 %.sroa.19.1, 0
   br i1 %.not66, label %188, label %181
 

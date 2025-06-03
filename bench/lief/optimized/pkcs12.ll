@@ -208,7 +208,7 @@ pkcs12_pbe_derive_key_iv.exit:                    ; preds = %pkcs12_parse_pbe_pa
   br label %99
 
 99:                                               ; preds = %91, %89, %87, %93
-  %.037 = phi i32 [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %spec.store.select, %93 ]
+  %.037 = phi i32 [ %88, %87 ], [ %90, %89 ], [ %spec.store.select, %93 ], [ %92, %91 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %15, i64 noundef 32) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %16, i64 noundef 16) #6
   call void @mbedtls_cipher_free(ptr noundef nonnull %17) #6

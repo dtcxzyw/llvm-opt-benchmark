@@ -975,8 +975,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %401, %405, %411
   br label %450
 
 450:                                              ; preds = %448, %._crit_edge._crit_edge.i.i.i
-  %451 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %446, %448 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %449, %448 ]
+  %451 = phi ptr [ %446, %448 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %449, %448 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %452 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !51
   %453 = icmp eq ptr %452, %451
   br i1 %453, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %454
@@ -986,8 +986,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %401, %405, %411
   br label %456
 
 456:                                              ; preds = %454, %._crit_edge._crit_edge57.i.i.i
-  %457 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %451, %454 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %455, %454 ]
+  %457 = phi ptr [ %451, %454 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %455, %454 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %458 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !51
   %459 = icmp eq ptr %458, %457
   %spec.select.i.i.i = select i1 %459, ptr %.sroa.032.2.i.i.i, ptr %416
@@ -1770,7 +1770,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719: ; preds = %_ZN4cvc58internal1
   br label %.body3455
 
 _ZN4cvc58internal6theory5arith10negateKindENS0_4kind6Kind_tE.exit: ; preds = %552, %791, %790, %789, %788, %787, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit683
-  %.0 = phi i32 [ %storemerge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719 ], [ %536, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit683 ], [ -1, %791 ], [ 5, %790 ], [ 75, %789 ], [ 77, %788 ], [ 76, %787 ], [ 78, %552 ]
+  %.0 = phi i32 [ %storemerge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit719 ], [ %536, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit683 ], [ -1, %791 ], [ 76, %787 ], [ 77, %788 ], [ 75, %789 ], [ 5, %790 ], [ 78, %552 ]
   %794 = load ptr, ptr %143, align 8, !tbaa !51
   store ptr %794, ptr %156, align 8, !tbaa !51
   %795 = load i64, ptr %794, align 8
@@ -6421,7 +6421,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2246: ; preds = %_ZNSt4pairIN4cvc
   unreachable
 
 _ZN4cvc58internal6theory5arith19reverseRelationKindENS0_4kind6Kind_tE.exit: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2246, %2801, %2800, %2799, %2798, %2797
-  %2809 = phi i32 [ 75, %2801 ], [ 76, %2800 ], [ %2542, %2799 ], [ 78, %2798 ], [ 77, %2797 ], [ %2542, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2246 ]
+  %2809 = phi i32 [ 78, %2798 ], [ %2542, %2799 ], [ 76, %2800 ], [ 75, %2801 ], [ 77, %2797 ], [ %2542, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit2246 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175) #22
   %2810 = load ptr, ptr %167, align 8, !tbaa !51
   %2811 = load ptr, ptr %172, align 8, !tbaa !51
@@ -20603,7 +20603,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit712: ; preds = %1139, %1134, %
   unreachable
 
 _ZN4cvc58internal6theory5arith19reverseRelationKindENS0_4kind6Kind_tE.exit: ; preds = %1151, %1150, %1149, %1148, %1147
-  %.0.i = phi i32 [ 75, %1151 ], [ 76, %1150 ], [ 5, %1149 ], [ 78, %1148 ], [ 77, %1147 ]
+  %.0.i = phi i32 [ 78, %1148 ], [ 5, %1149 ], [ 76, %1150 ], [ 75, %1151 ], [ 77, %1147 ]
   store i32 %.0.i, ptr %indvars.iv.sroa.phi, align 4, !tbaa !133
   br label %1163
 

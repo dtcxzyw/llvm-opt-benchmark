@@ -1263,8 +1263,8 @@ trace_gdbstub_op_continue_cpu.exit:               ; preds = %44, %46, %48, %54, 
   br label %61
 
 61:                                               ; preds = %trace_gdbstub_op_stepping.exit, %trace_gdbstub_op_continue_cpu.exit, %60, %21, %21
-  %.332 = phi i32 [ %.23155, %60 ], [ 1, %trace_gdbstub_op_continue_cpu.exit ], [ 1, %trace_gdbstub_op_stepping.exit ], [ %.23155, %21 ], [ %.23155, %21 ]
-  %.3 = phi i32 [ -1, %60 ], [ %.256, %trace_gdbstub_op_continue_cpu.exit ], [ %.256, %trace_gdbstub_op_stepping.exit ], [ %.256, %21 ], [ %.256, %21 ]
+  %.332 = phi i32 [ %.23155, %60 ], [ %.23155, %21 ], [ %.23155, %21 ], [ 1, %trace_gdbstub_op_stepping.exit ], [ 1, %trace_gdbstub_op_continue_cpu.exit ]
+  %.3 = phi i32 [ -1, %60 ], [ %.256, %21 ], [ %.256, %21 ], [ %.256, %trace_gdbstub_op_stepping.exit ], [ %.256, %trace_gdbstub_op_continue_cpu.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %.12657, i64 560
   %63 = load atomic i64, ptr %62 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16

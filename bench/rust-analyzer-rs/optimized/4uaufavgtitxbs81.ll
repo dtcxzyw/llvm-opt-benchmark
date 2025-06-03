@@ -13060,8 +13060,8 @@ common.resume.i.i.i.i.i:                          ; preds = %.thread.i.i.i.i.i, 
   br label %151
 
 151:                                              ; preds = %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h10120cade21e12fcE.exit.i.i.i.i.i.i", %115
-  %.pn.i.i.i.i.i.i = phi ptr [ %141, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h10120cade21e12fcE.exit.i.i.i.i.i.i" ], [ %.sroa.0190.0.copyload.i.i.i.i.i, %115 ]
-  %.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i, i64 -24
+  %.sroa.0.sroa.0.0.copyload.pn.i.i.i.i.i.i = phi ptr [ %141, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h10120cade21e12fcE.exit.i.i.i.i.i.i" ], [ %.sroa.0190.0.copyload.i.i.i.i.i, %115 ]
+  %.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload.pn.i.i.i.i.i.i, i64 -24
   br label %152
 
 152:                                              ; preds = %151, %109
@@ -13205,9 +13205,9 @@ default.unreachable:                              ; preds = %236, %188
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i.i.i.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i.i.i.i.i.i": ; preds = %203, %198, %192
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %.sroa.9.1.copyload.i.i.i.i.i.i, %203 ], [ %202, %198 ], [ %.val1.i.i.i.i.i.i.i, %192 ]
-  %.sroa.7.0.i.i.i.i.i.i = phi ptr [ %.sroa.7.1.copyload.i.i.i.i.i.i, %203 ], [ %200, %198 ], [ %.val.i.i.i.i.i.i.i, %192 ]
-  %.sroa.02.0.i.i.i.i.i.i = phi i8 [ %190, %203 ], [ 25, %198 ], [ 24, %192 ]
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %202, %198 ], [ %.sroa.9.1.copyload.i.i.i.i.i.i, %203 ], [ %.val1.i.i.i.i.i.i.i, %192 ]
+  %.sroa.7.0.i.i.i.i.i.i = phi ptr [ %200, %198 ], [ %.sroa.7.1.copyload.i.i.i.i.i.i, %203 ], [ %.val.i.i.i.i.i.i.i, %192 ]
+  %.sroa.02.0.i.i.i.i.i.i = phi i8 [ 25, %198 ], [ %190, %203 ], [ 24, %192 ]
   store i8 %.sroa.02.0.i.i.i.i.i.i, ptr %7, align 8, !noalias !3797
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i.i.i.i.i, i64 7, i1 false), !noalias !3797
   store ptr %.sroa.7.0.i.i.i.i.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !3797
@@ -13373,9 +13373,9 @@ default.unreachable:                              ; preds = %236, %188
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i134.i.i.i.i.i"
 
 "_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit.i134.i.i.i.i.i": ; preds = %251, %246, %240
-  %.sroa.9.0.i135.i.i.i.i.i = phi i64 [ %.sroa.9.1.copyload.i133.i.i.i.i.i, %251 ], [ %250, %246 ], [ %.val1.i.i142.i.i.i.i.i, %240 ]
-  %.sroa.7.0.i136.i.i.i.i.i = phi ptr [ %.sroa.7.1.copyload.i131.i.i.i.i.i, %251 ], [ %248, %246 ], [ %.val.i.i141.i.i.i.i.i, %240 ]
-  %.sroa.02.0.i137.i.i.i.i.i = phi i8 [ %238, %251 ], [ 25, %246 ], [ 24, %240 ]
+  %.sroa.9.0.i135.i.i.i.i.i = phi i64 [ %250, %246 ], [ %.sroa.9.1.copyload.i133.i.i.i.i.i, %251 ], [ %.val1.i.i142.i.i.i.i.i, %240 ]
+  %.sroa.7.0.i136.i.i.i.i.i = phi ptr [ %248, %246 ], [ %.sroa.7.1.copyload.i131.i.i.i.i.i, %251 ], [ %.val.i.i141.i.i.i.i.i, %240 ]
+  %.sroa.02.0.i137.i.i.i.i.i = phi i8 [ 25, %246 ], [ %238, %251 ], [ 24, %240 ]
   store i8 %.sroa.02.0.i137.i.i.i.i.i, ptr %5, align 8, !noalias !3821
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.4.0..sroa_idx.i138.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i128.i.i.i.i.i, i64 7, i1 false), !noalias !3821
   store ptr %.sroa.7.0.i136.i.i.i.i.i, ptr %.sroa.0.sroa.5.0..sroa_idx.i139.i.i.i.i.i, align 8, !noalias !3821

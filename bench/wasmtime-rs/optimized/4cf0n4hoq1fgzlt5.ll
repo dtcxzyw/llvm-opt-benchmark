@@ -405,7 +405,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   ]
 
 70:                                               ; preds = %147, %114, %74, %71
-  %.pn12.i = phi { ptr, i32 } [ %72, %71 ], [ %.pn9.pn.i, %74 ], [ %.pn3.pn.i, %147 ], [ %.pn6.pn.i, %114 ]
+  %.pn12.i = phi { ptr, i32 } [ %72, %71 ], [ %.pn9.pn.i, %74 ], [ %.pn6.pn.i, %114 ], [ %.pn3.pn.i, %147 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %26) #7
           to label %32 unwind label %102, !noalias !10
 

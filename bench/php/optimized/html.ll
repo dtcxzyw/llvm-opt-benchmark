@@ -5576,7 +5576,7 @@ thread-pre-split105.i:                            ; preds = %173, %.thread-pre-s
   br label %write_octet_sequence.exit.i
 
 write_octet_sequence.exit.i:                      ; preds = %234, %231, %229, %206, %194, %183, %179
-  %phi.call.ph.i = phi i64 [ 1, %229 ], [ 1, %231 ], [ 1, %234 ], [ 4, %206 ], [ 3, %194 ], [ 2, %183 ], [ 1, %179 ]
+  %phi.call.ph.i = phi i64 [ 1, %234 ], [ 1, %231 ], [ 1, %229 ], [ 4, %206 ], [ 3, %194 ], [ 2, %183 ], [ 1, %179 ]
   %.pr107.i = load i32, ptr %7, align 4, !tbaa !8
   %237 = getelementptr inbounds nuw i8, ptr %.044118.i, i64 %phi.call.ph.i
   %.not58.i = icmp eq i32 %.pr107.i, 0
@@ -5693,7 +5693,7 @@ default.unreachable.i30:                          ; preds = %238
   unreachable
 
 write_octet_sequence.exit73.i:                    ; preds = %290, %287, %285, %268, %256, %245, %241
-  %.0.i72.i = phi i64 [ 1, %290 ], [ 1, %287 ], [ 1, %285 ], [ 1, %241 ], [ 2, %245 ], [ 3, %256 ], [ 4, %268 ]
+  %.0.i72.i = phi i64 [ 1, %285 ], [ 1, %287 ], [ 1, %290 ], [ 1, %241 ], [ 2, %245 ], [ 3, %256 ], [ 4, %268 ]
   %293 = getelementptr inbounds nuw i8, ptr %237, i64 %.0.i72.i
   br label %write_octet_sequence.exit.thread.i
 
@@ -7990,8 +7990,8 @@ define internal fastcc void @write_s3row_data(ptr noundef readonly captures(none
   br label %write_octet_sequence.exit
 
 write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %34, %45, %47, %50
-  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %50 ], [ %.0.i.sroa.gep, %47 ], [ %.0.i.sroa.gep, %45 ], [ %5, %4 ], [ %.0.i.sroa.gep, %10 ], [ %.0.i.sroa.gep50, %14 ], [ %.0.i.sroa.gep51, %23 ], [ %.0.i.sroa.gep52, %34 ]
-  %.0.i = phi i64 [ 1, %50 ], [ 1, %47 ], [ 1, %45 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %23 ], [ 4, %34 ]
+  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %45 ], [ %.0.i.sroa.gep, %47 ], [ %.0.i.sroa.gep, %50 ], [ %5, %4 ], [ %.0.i.sroa.gep, %10 ], [ %.0.i.sroa.gep50, %14 ], [ %.0.i.sroa.gep51, %23 ], [ %.0.i.sroa.gep52, %34 ]
+  %.0.i = phi i64 [ 1, %45 ], [ 1, %47 ], [ 1, %50 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %23 ], [ 4, %34 ]
   %53 = load i8, ptr %0, align 8, !tbaa !56
   %.not = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8173,7 +8173,7 @@ thread-pre-split:                                 ; preds = %91
   br label %write_octet_sequence.exit45
 
 write_octet_sequence.exit45:                      ; preds = %95, %99, %103, %112, %123, %138, %140, %143
-  %.0.i44 = phi i64 [ 1, %143 ], [ 1, %140 ], [ 1, %138 ], [ 0, %95 ], [ 1, %99 ], [ 2, %103 ], [ 3, %112 ], [ 4, %123 ]
+  %.0.i44 = phi i64 [ 1, %138 ], [ 1, %140 ], [ 1, %143 ], [ 0, %95 ], [ 1, %99 ], [ 2, %103 ], [ 3, %112 ], [ 4, %123 ]
   %146 = load ptr, ptr %85, align 8, !tbaa !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %146, i64 %90, i1 false)
   %147 = add nuw nsw i64 %90, 1
@@ -8374,8 +8374,8 @@ unimap_bsearch.exit89:                            ; preds = %57
   br label %70
 
 70:                                               ; preds = %3, %66, %69, %68
-  %.071 = phi ptr [ @unimap_cp866, %69 ], [ @unimap_koi8r, %68 ], [ @unimap_macroman, %66 ], [ @unimap_win1251, %3 ]
-  %.0 = phi i64 [ 128, %69 ], [ 128, %68 ], [ 128, %66 ], [ 127, %3 ]
+  %.071 = phi ptr [ @unimap_koi8r, %68 ], [ @unimap_cp866, %69 ], [ @unimap_macroman, %66 ], [ @unimap_win1251, %3 ]
+  %.0 = phi i64 [ 128, %68 ], [ 128, %69 ], [ 128, %66 ], [ 127, %3 ]
   %71 = icmp ult i32 %0, 128
   br i1 %71, label %unimap_bsearch.exit.thread.sink.split, label %72
 

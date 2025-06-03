@@ -343,7 +343,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   br label %110
 
 110:                                              ; preds = %104, %101, %98, %93
-  %.1 = phi i32 [ %108, %104 ], [ 7, %101 ], [ 6, %93 ], [ 22, %98 ]
+  %.1 = phi i32 [ %108, %104 ], [ 22, %98 ], [ 6, %93 ], [ 7, %101 ]
   %111 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not = icmp eq i32 %111, 0
   br i1 %.not, label %.thread, label %112
@@ -356,8 +356,8 @@ default.unreachable161:                           ; preds = %4
   unreachable
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
-  %.0144 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
-  %.0143 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
+  %.0144 = phi i32 [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ], [ 6, %90 ], [ 6, %85 ]
+  %.0143 = phi i32 [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ], [ %79, %90 ], [ %79, %85 ]
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 57
@@ -409,7 +409,7 @@ default.unreachable161:                           ; preds = %4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %.0143)
   br label %.thread
 
-.thread:                                          ; preds = %71, %110, %112, %139, %136, %131, %120, %122, %114
+.thread:                                          ; preds = %110, %112, %71, %139, %136, %131, %120, %122, %114
   %140 = call i32 @tvb_reported_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #5

@@ -242,7 +242,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
           to label %_ZN5serde2de9MapAccess10next_value17h513b4a9d97a06b53E.exit unwind label %86
 
 _ZN5serde2de9MapAccess10next_value17h513b4a9d97a06b53E.exit.thread: ; preds = %50, %.noexc26, %.noexc27
-  %.0.i.ph.i.i = phi ptr [ %54, %.noexc26 ], [ %60, %.noexc27 ], [ %52, %50 ]
+  %.0.i.ph.i.i = phi ptr [ %60, %.noexc27 ], [ %54, %.noexc26 ], [ %52, %50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !18
   br label %90
 
@@ -289,7 +289,7 @@ _ZN5serde2de9MapAccess10next_value17h513b4a9d97a06b53E.exit.thread: ; preds = %5
   br label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h353965659aed24e7E.exit.thread"
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h353965659aed24e7E.exit.thread": ; preds = %71, %74, %80
-  %.0.i.ph.i = phi ptr [ %75, %74 ], [ %81, %80 ], [ %73, %71 ]
+  %.0.i.ph.i = phi ptr [ %81, %80 ], [ %75, %74 ], [ %73, %71 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !37
   br label %167
 
@@ -478,7 +478,7 @@ _ZN5serde2de9MapAccess10next_value17h513b4a9d97a06b53E.exit._crit_edge: ; preds 
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hef09ccc1b39b47efE.exit.i.i" unwind label %.loopexit69, !noalias !76
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hef09ccc1b39b47efE.exit.thread.i.i": ; preds = %.noexc9.i.i, %.noexc8.i.i, %118
-  %.0.i.ph.i.i.i = phi ptr [ %122, %.noexc8.i.i ], [ %127, %.noexc9.i.i ], [ %120, %118 ]
+  %.0.i.ph.i.i.i = phi ptr [ %127, %.noexc9.i.i ], [ %122, %.noexc8.i.i ], [ %120, %118 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !75
   br label %134
 

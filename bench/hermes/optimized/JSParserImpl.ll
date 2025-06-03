@@ -12072,8 +12072,8 @@ if.else:                                          ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.bb33, %if.else, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111, %if.end43, %if.then42, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit53, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %62, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111 ], [ undef, %if.else ], [ %44, %if.end43 ], [ undef, %if.then42 ], [ %43, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit53 ], [ %29, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit16 ], [ %15, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %sw.bb33 ]
-  %retval.sroa.6.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111 ], [ 0, %if.else ], [ 1, %if.end43 ], [ 0, %if.then42 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit53 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit16 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %sw.bb33 ]
+  %retval.sroa.0.0 = phi i64 [ %62, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111 ], [ undef, %if.else ], [ %15, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %29, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit16 ], [ %43, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit53 ], [ %44, %if.end43 ], [ undef, %if.then42 ], [ undef, %sw.bb33 ]
+  %retval.sroa.6.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit111 ], [ 0, %if.else ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit16 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit53 ], [ 1, %if.end43 ], [ 0, %if.then42 ], [ 0, %sw.bb33 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.6.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -13912,8 +13912,8 @@ sw.default:                                       ; preds = %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then243, %sw.bb231, %sw.bb223, %sw.bb215, %sw.bb121, %sw.bb112, %if.then19, %if.end209, %if.then190, %if.else, %if.then147, %sw.default, %if.end250, %if.end214, %if.then134, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit254, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit181, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit144, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit72, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %if.then
-  %retval.sroa.0.0 = phi i64 [ undef, %if.then ], [ undef, %sw.default ], [ undef, %if.end250 ], [ %134, %if.then134 ], [ %159, %if.end214 ], [ %127, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit254 ], [ %111, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit217 ], [ %97, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit181 ], [ %83, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit144 ], [ %69, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ %55, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit72 ], [ %43, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36 ], [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.then147 ], [ undef, %if.else ], [ undef, %if.then190 ], [ undef, %if.end209 ], [ %spec.select, %if.then19 ], [ %spec.select399, %sw.bb112 ], [ %spec.select401, %sw.bb121 ], [ %spec.select403, %sw.bb215 ], [ %spec.select405, %sw.bb223 ], [ %spec.select407, %sw.bb231 ], [ %spec.select409, %if.then243 ]
-  %retval.sroa.18.0 = phi i8 [ 0, %if.then ], [ 0, %sw.default ], [ 0, %if.end250 ], [ 1, %if.then134 ], [ 1, %if.end214 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit254 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit217 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit181 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit144 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit72 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.then147 ], [ 0, %if.else ], [ 0, %if.then190 ], [ 0, %if.end209 ], [ %spec.select2.i, %if.then19 ], [ %spec.select400, %sw.bb112 ], [ %spec.select402, %sw.bb121 ], [ %spec.select2.i451, %sw.bb215 ], [ %spec.select406, %sw.bb223 ], [ %spec.select408, %sw.bb231 ], [ %spec.select410, %if.then243 ]
+  %retval.sroa.0.0 = phi i64 [ undef, %if.then ], [ undef, %sw.default ], [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %43, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36 ], [ %55, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit72 ], [ %69, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ %83, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit144 ], [ %97, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit181 ], [ %111, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit217 ], [ %127, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit254 ], [ %134, %if.then134 ], [ %159, %if.end214 ], [ undef, %if.end250 ], [ undef, %if.then147 ], [ undef, %if.else ], [ undef, %if.then190 ], [ undef, %if.end209 ], [ %spec.select, %if.then19 ], [ %spec.select399, %sw.bb112 ], [ %spec.select401, %sw.bb121 ], [ %spec.select403, %sw.bb215 ], [ %spec.select405, %sw.bb223 ], [ %spec.select407, %sw.bb231 ], [ %spec.select409, %if.then243 ]
+  %retval.sroa.18.0 = phi i8 [ 0, %if.then ], [ 0, %sw.default ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit36 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit72 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit144 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit181 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit217 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit254 ], [ 1, %if.then134 ], [ 1, %if.end214 ], [ 0, %if.end250 ], [ 0, %if.then147 ], [ 0, %if.else ], [ 0, %if.then190 ], [ 0, %if.end209 ], [ %spec.select2.i, %if.then19 ], [ %spec.select400, %sw.bb112 ], [ %spec.select402, %sw.bb121 ], [ %spec.select2.i451, %sw.bb215 ], [ %spec.select406, %sw.bb223 ], [ %spec.select408, %sw.bb231 ], [ %spec.select410, %if.then243 ]
   %172 = load i32, ptr %recursionDepth_.i, align 8
   %dec.i = add i32 %172, -1
   store i32 %dec.i, ptr %recursionDepth_.i, align 8
@@ -19986,8 +19986,8 @@ sw.default:                                       ; preds = %sw.bb63, %land.lhs.
   br label %return
 
 return:                                           ; preds = %if.end76, %if.then68, %sw.default, %cleanup132, %cleanup103, %cleanup62, %cleanup
-  %retval.sroa.0.1 = phi i64 [ %67, %sw.default ], [ %retval.sroa.0.4, %cleanup132 ], [ %retval.sroa.0.3, %cleanup103 ], [ %retval.sroa.0.2, %cleanup62 ], [ %retval.sroa.0.0, %cleanup ], [ undef, %if.then68 ], [ undef, %if.end76 ]
-  %retval.sroa.6.1 = phi i8 [ %68, %sw.default ], [ %retval.sroa.6.4, %cleanup132 ], [ %retval.sroa.6.3, %cleanup103 ], [ %retval.sroa.6.2, %cleanup62 ], [ %retval.sroa.6.0, %cleanup ], [ 0, %if.then68 ], [ 0, %if.end76 ]
+  %retval.sroa.0.1 = phi i64 [ %67, %sw.default ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.2, %cleanup62 ], [ %retval.sroa.0.4, %cleanup132 ], [ %retval.sroa.0.3, %cleanup103 ], [ undef, %if.then68 ], [ undef, %if.end76 ]
+  %retval.sroa.6.1 = phi i8 [ %68, %sw.default ], [ %retval.sroa.6.0, %cleanup ], [ %retval.sroa.6.2, %cleanup62 ], [ %retval.sroa.6.4, %cleanup132 ], [ %retval.sroa.6.3, %cleanup103 ], [ 0, %if.then68 ], [ 0, %if.end76 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.6.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -30009,8 +30009,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb19, %if.then, %sw.bb11, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ %8, %if.then ], [ %spec.select.i15, %sw.bb11 ], [ %spec.select.i4, %sw.bb ], [ undef, %sw.bb19 ]
-  %retval.sroa.4.0 = phi i8 [ 1, %if.then ], [ %spec.select2.i11, %sw.bb11 ], [ %spec.select2.i, %sw.bb ], [ 0, %sw.bb19 ]
+  %retval.sroa.0.0 = phi i64 [ %spec.select.i4, %sw.bb ], [ %spec.select.i15, %sw.bb11 ], [ %8, %if.then ], [ undef, %sw.bb19 ]
+  %retval.sroa.4.0 = phi i8 [ %spec.select2.i, %sw.bb ], [ %spec.select2.i11, %sw.bb11 ], [ 1, %if.then ], [ 0, %sw.bb19 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { i64, i8 } %.fca.1.insert

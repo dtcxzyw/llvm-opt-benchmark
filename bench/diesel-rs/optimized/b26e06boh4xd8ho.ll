@@ -582,7 +582,7 @@ default.unreachable1:                             ; preds = %2
   br label %10
 
 10:                                               ; preds = %2, %2, %2, %7, %4
-  %.sroa.11.0 = phi ptr [ %9, %7 ], [ %6, %4 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.11.0 = phi ptr [ %6, %4 ], [ %9, %7 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ]
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8, !nonnull !4, !align !21, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24

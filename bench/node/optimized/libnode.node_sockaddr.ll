@@ -462,7 +462,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %sw.bb1, %sw.bb
-  %retval.0.in = phi i32 [ %call2, %sw.bb1 ], [ %call, %sw.bb ]
+  %retval.0.in = phi i32 [ %call, %sw.bb ], [ %call2, %sw.bb1 ]
   %retval.0 = icmp eq i32 %retval.0.in, 0
   ret i1 %retval.0
 }
@@ -517,7 +517,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZN4node13SocketAddress10ToSockAddrEiPKcjP16sockaddr_storage.exit: ; preds = %sw.bb.i, %sw.bb1.i
-  %retval.0.in.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %retval.0.in.i = phi i32 [ %call.i, %sw.bb.i ], [ %call2.i, %sw.bb1.i ]
   %retval.0.i = icmp eq i32 %retval.0.in.i, 0
   ret i1 %retval.0.i
 }
@@ -794,7 +794,7 @@ sw.bb11:                                          ; preds = %sw.bb7
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb, %sw.bb7, %sw.bb11, %sw.bb9, %sw.bb5, %sw.bb3
-  %retval.0 = phi i1 [ %cmp.i24, %sw.bb11 ], [ %4, %sw.bb9 ], [ %2, %sw.bb5 ], [ %.not.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ]
+  %retval.0 = phi i1 [ %.not.i, %sw.bb3 ], [ %2, %sw.bb5 ], [ %4, %sw.bb9 ], [ %cmp.i24, %sw.bb11 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -881,7 +881,7 @@ sw.bb15:                                          ; preds = %sw.bb7
   br label %return
 
 return:                                           ; preds = %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24, %if.end.i16, %sw.bb9, %if.else.i, %if.end.i, %sw.bb5, %entry, %sw.bb, %sw.bb7, %sw.bb15, %sw.bb3
-  %retval.0 = phi i32 [ %retval.0.i28, %sw.bb15 ], [ %retval.0.i, %sw.bb3 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24 ], [ 1, %if.end.i16 ]
+  %retval.0 = phi i32 [ %retval.0.i, %sw.bb3 ], [ %retval.0.i28, %sw.bb15 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24 ], [ 1, %if.end.i16 ]
   ret i32 %retval.0
 }
 
@@ -1080,7 +1080,7 @@ if.end16.i:                                       ; preds = %if.end.i37
   br label %return
 
 return:                                           ; preds = %if.end16.i, %if.end.i37, %if.then.i49, %if.end10.i, %if.end.i21, %if.end.i.i30, %if.then.i29, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
-  %retval.0 = phi i1 [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ %cmp.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
+  %retval.0 = phi i1 [ %cmp.i, %sw.bb3 ], [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
   ret i1 %retval.0
 }
 
@@ -4874,7 +4874,7 @@ do.body.i.i:                                      ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node13SocketAddress3NewEiPKcjPS0_.exit:       ; preds = %sw.bb.i.i, %sw.bb1.i.i
-  %retval.0.in.i.i = phi i32 [ %call2.i.i, %sw.bb1.i.i ], [ %call.i.i, %sw.bb.i.i ]
+  %retval.0.in.i.i = phi i32 [ %call.i.i, %sw.bb.i.i ], [ %call2.i.i, %sw.bb1.i.i ]
   %retval.0.i.i40 = icmp eq i32 %retval.0.in.i.i, 0
   br i1 %retval.0.i.i40, label %if.end116, label %if.then.i.i.i50
 

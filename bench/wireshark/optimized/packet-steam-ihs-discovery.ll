@@ -582,8 +582,8 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   br label %147
 
 147:                                              ; preds = %145, %get_varint64.exit37.i, %protobuf_verify_wiretype.exit34.i, %get_varint64.exit30.i, %protobuf_verify_wiretype.exit27.i, %get_varint64.exit.i, %protobuf_verify_wiretype.exit.i
-  %.044.i = phi i32 [ %146, %145 ], [ %.6.i, %get_varint64.exit37.i ], [ %121, %protobuf_verify_wiretype.exit34.i ], [ %.4.i, %get_varint64.exit30.i ], [ %94, %protobuf_verify_wiretype.exit27.i ], [ %.2.i, %get_varint64.exit.i ], [ %67, %protobuf_verify_wiretype.exit.i ]
-  %.1.i = phi i64 [ %.055.i, %145 ], [ %.055.i, %get_varint64.exit37.i ], [ %.055.i, %protobuf_verify_wiretype.exit34.i ], [ %.1.i29.i, %get_varint64.exit30.i ], [ %.055.i, %protobuf_verify_wiretype.exit27.i ], [ %.055.i, %get_varint64.exit.i ], [ %.055.i, %protobuf_verify_wiretype.exit.i ]
+  %.044.i = phi i32 [ %146, %145 ], [ %.2.i, %get_varint64.exit.i ], [ %67, %protobuf_verify_wiretype.exit.i ], [ %.4.i, %get_varint64.exit30.i ], [ %94, %protobuf_verify_wiretype.exit27.i ], [ %.6.i, %get_varint64.exit37.i ], [ %121, %protobuf_verify_wiretype.exit34.i ]
+  %.1.i = phi i64 [ %.055.i, %145 ], [ %.055.i, %get_varint64.exit.i ], [ %.055.i, %protobuf_verify_wiretype.exit.i ], [ %.1.i29.i, %get_varint64.exit30.i ], [ %.055.i, %protobuf_verify_wiretype.exit27.i ], [ %.055.i, %get_varint64.exit37.i ], [ %.055.i, %protobuf_verify_wiretype.exit34.i ]
   %148 = add i32 %.044.i, %61
   store i32 %148, ptr %38, align 8
   %149 = sub i32 %62, %.044.i
@@ -943,7 +943,7 @@ get_varint64.exit25:                              ; preds = %82, %get_varint64.e
   br label %98
 
 98:                                               ; preds = %protobuf_verify_wiretype.exit22, %protobuf_verify_wiretype.exit, %96, %get_varint64.exit25, %get_varint64.exit
-  %.0 = phi i32 [ %97, %96 ], [ %.4, %get_varint64.exit25 ], [ %71, %protobuf_verify_wiretype.exit22 ], [ %.2, %get_varint64.exit ], [ %41, %protobuf_verify_wiretype.exit ]
+  %.0 = phi i32 [ %97, %96 ], [ %.2, %get_varint64.exit ], [ %41, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit25 ], [ %71, %protobuf_verify_wiretype.exit22 ]
   %99 = add i32 %.0, %35
   store i32 %99, ptr %10, align 8
   %100 = sub i32 %36, %.0
@@ -1748,7 +1748,7 @@ get_varint64.exit163:                             ; preds = %325, %get_varint64.
   br label %343
 
 343:                                              ; preds = %protobuf_verify_wiretype.exit160, %protobuf_verify_wiretype.exit156, %341, %get_varint64.exit163, %306
-  %.0 = phi i32 [ %342, %341 ], [ %.2, %get_varint64.exit163 ], [ %314, %protobuf_verify_wiretype.exit160 ], [ 8, %306 ], [ %297, %protobuf_verify_wiretype.exit156 ]
+  %.0 = phi i32 [ %342, %341 ], [ 8, %306 ], [ %297, %protobuf_verify_wiretype.exit156 ], [ %.2, %get_varint64.exit163 ], [ %314, %protobuf_verify_wiretype.exit160 ]
   %344 = add i32 %.0, %291
   store i32 %344, ptr %25, align 8
   %345 = sub i32 %292, %.0
@@ -2081,7 +2081,7 @@ get_varint64.exit194:                             ; preds = %.preheader260, %get
   br label %protobuf_iter_next.exit152.thread
 
 protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.exit152, %343, %get_varint64.exit140, %462, %protobuf_verify_wiretype.exit188, %protobuf_verify_wiretype.exit181, %protobuf_verify_wiretype.exit174, %protobuf_verify_wiretype.exit167, %254, %protobuf_verify_wiretype.exit134, %protobuf_verify_wiretype.exit127, %protobuf_verify_wiretype.exit120, %142, %protobuf_verify_wiretype.exit110, %protobuf_verify_wiretype.exit103, %protobuf_verify_wiretype.exit, %481, %get_varint64.exit194, %get_varint64.exit191, %get_varint64.exit184, %get_varint64.exit177, %get_varint64.exit170, %get_varint64.exit137, %get_varint64.exit130, %get_varint64.exit123, %165, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit
-  %.0228 = phi i32 [ %482, %481 ], [ %480, %get_varint64.exit194 ], [ %463, %462 ], [ %.24, %get_varint64.exit191 ], [ %436, %protobuf_verify_wiretype.exit188 ], [ %.22, %get_varint64.exit184 ], [ %407, %protobuf_verify_wiretype.exit181 ], [ %.20, %get_varint64.exit177 ], [ %379, %protobuf_verify_wiretype.exit174 ], [ %.18, %get_varint64.exit170 ], [ %350, %protobuf_verify_wiretype.exit167 ], [ %255, %254 ], [ %.14, %get_varint64.exit137 ], [ %228, %protobuf_verify_wiretype.exit134 ], [ %.12, %get_varint64.exit130 ], [ %199, %protobuf_verify_wiretype.exit127 ], [ %.10, %get_varint64.exit123 ], [ %170, %protobuf_verify_wiretype.exit120 ], [ %166, %165 ], [ %143, %142 ], [ %.6, %get_varint64.exit113 ], [ %116, %protobuf_verify_wiretype.exit110 ], [ %.4, %get_varint64.exit106 ], [ %87, %protobuf_verify_wiretype.exit103 ], [ %.2230, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %270, %get_varint64.exit140 ], [ %270, %343 ], [ %270, %protobuf_iter_next.exit152 ]
+  %.0228 = phi i32 [ %482, %481 ], [ %.2230, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit106 ], [ %87, %protobuf_verify_wiretype.exit103 ], [ %.6, %get_varint64.exit113 ], [ %116, %protobuf_verify_wiretype.exit110 ], [ %166, %165 ], [ %143, %142 ], [ %.10, %get_varint64.exit123 ], [ %170, %protobuf_verify_wiretype.exit120 ], [ %.12, %get_varint64.exit130 ], [ %199, %protobuf_verify_wiretype.exit127 ], [ %.14, %get_varint64.exit137 ], [ %228, %protobuf_verify_wiretype.exit134 ], [ %255, %254 ], [ %.18, %get_varint64.exit170 ], [ %350, %protobuf_verify_wiretype.exit167 ], [ %.20, %get_varint64.exit177 ], [ %379, %protobuf_verify_wiretype.exit174 ], [ %.22, %get_varint64.exit184 ], [ %407, %protobuf_verify_wiretype.exit181 ], [ %.24, %get_varint64.exit191 ], [ %436, %protobuf_verify_wiretype.exit188 ], [ %480, %get_varint64.exit194 ], [ %463, %462 ], [ %270, %get_varint64.exit140 ], [ %270, %343 ], [ %270, %protobuf_iter_next.exit152 ]
   %483 = add i32 %.0228, %52
   store i32 %483, ptr %23, align 8
   %484 = sub i32 %53, %.0228
@@ -2328,7 +2328,7 @@ get_varint64.exit37:                              ; preds = %.preheader51, %get_
   br label %102
 
 102:                                              ; preds = %81, %56, %37, %100, %get_varint64.exit37, %79, %get_varint64.exit
-  %.0 = phi i32 [ %101, %100 ], [ %99, %get_varint64.exit37 ], [ %82, %81 ], [ %80, %79 ], [ %57, %56 ], [ %55, %get_varint64.exit ], [ %38, %37 ]
+  %.0 = phi i32 [ %101, %100 ], [ %55, %get_varint64.exit ], [ %38, %37 ], [ %80, %79 ], [ %57, %56 ], [ %99, %get_varint64.exit37 ], [ %82, %81 ]
   %103 = add i32 %.0, %34
   store i32 %103, ptr %8, align 8
   %104 = sub i32 %35, %.0
@@ -3281,7 +3281,7 @@ get_varint64.exit127:                             ; preds = %319, %get_varint64.
   br label %336
 
 336:                                              ; preds = %protobuf_verify_wiretype.exit124, %protobuf_verify_wiretype.exit117, %protobuf_verify_wiretype.exit110, %228, %209, %protobuf_verify_wiretype.exit97, %161, %protobuf_verify_wiretype.exit87, %protobuf_verify_wiretype.exit80, %protobuf_verify_wiretype.exit73, %protobuf_verify_wiretype.exit, %334, %get_varint64.exit127, %get_varint64.exit120, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit103, %get_varint64.exit100, %get_varint64.exit93, %get_varint64.exit90, %get_varint64.exit83, %get_varint64.exit76, %get_varint64.exit
-  %.0 = phi i32 [ %335, %334 ], [ %.22, %get_varint64.exit127 ], [ %308, %protobuf_verify_wiretype.exit124 ], [ %.20, %get_varint64.exit120 ], [ %279, %protobuf_verify_wiretype.exit117 ], [ %.18, %get_varint64.exit113 ], [ %250, %protobuf_verify_wiretype.exit110 ], [ %246, %get_varint64.exit106 ], [ %229, %228 ], [ %227, %get_varint64.exit103 ], [ %210, %209 ], [ %.12, %get_varint64.exit100 ], [ %183, %protobuf_verify_wiretype.exit97 ], [ %179, %get_varint64.exit93 ], [ %162, %161 ], [ %.8, %get_varint64.exit90 ], [ %135, %protobuf_verify_wiretype.exit87 ], [ %.6, %get_varint64.exit83 ], [ %106, %protobuf_verify_wiretype.exit80 ], [ %.4, %get_varint64.exit76 ], [ %77, %protobuf_verify_wiretype.exit73 ], [ %.2, %get_varint64.exit ], [ %47, %protobuf_verify_wiretype.exit ]
+  %.0 = phi i32 [ %335, %334 ], [ %.2, %get_varint64.exit ], [ %47, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit76 ], [ %77, %protobuf_verify_wiretype.exit73 ], [ %.6, %get_varint64.exit83 ], [ %106, %protobuf_verify_wiretype.exit80 ], [ %.8, %get_varint64.exit90 ], [ %135, %protobuf_verify_wiretype.exit87 ], [ %179, %get_varint64.exit93 ], [ %162, %161 ], [ %.12, %get_varint64.exit100 ], [ %183, %protobuf_verify_wiretype.exit97 ], [ %227, %get_varint64.exit103 ], [ %210, %209 ], [ %246, %get_varint64.exit106 ], [ %229, %228 ], [ %.18, %get_varint64.exit113 ], [ %250, %protobuf_verify_wiretype.exit110 ], [ %.20, %get_varint64.exit120 ], [ %279, %protobuf_verify_wiretype.exit117 ], [ %.22, %get_varint64.exit127 ], [ %308, %protobuf_verify_wiretype.exit124 ]
   %337 = add i32 %.0, %41
   store i32 %337, ptr %16, align 8
   %338 = sub i32 %42, %.0
@@ -3862,7 +3862,7 @@ get_varint64.exit63:                              ; preds = %163, %get_varint64.
   br label %180
 
 180:                                              ; preds = %protobuf_verify_wiretype.exit60, %130, %protobuf_verify_wiretype.exit50, %protobuf_verify_wiretype.exit43, %protobuf_verify_wiretype.exit, %178, %get_varint64.exit63, %get_varint64.exit56, %get_varint64.exit53, %get_varint64.exit46, %get_varint64.exit
-  %.0 = phi i32 [ %179, %178 ], [ %.10, %get_varint64.exit63 ], [ %152, %protobuf_verify_wiretype.exit60 ], [ %148, %get_varint64.exit56 ], [ %131, %130 ], [ %.6, %get_varint64.exit53 ], [ %103, %protobuf_verify_wiretype.exit50 ], [ %.4, %get_varint64.exit46 ], [ %73, %protobuf_verify_wiretype.exit43 ], [ %.2, %get_varint64.exit ], [ %43, %protobuf_verify_wiretype.exit ]
+  %.0 = phi i32 [ %179, %178 ], [ %.2, %get_varint64.exit ], [ %43, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit46 ], [ %73, %protobuf_verify_wiretype.exit43 ], [ %.6, %get_varint64.exit53 ], [ %103, %protobuf_verify_wiretype.exit50 ], [ %148, %get_varint64.exit56 ], [ %131, %130 ], [ %.10, %get_varint64.exit63 ], [ %152, %protobuf_verify_wiretype.exit60 ]
   %181 = add i32 %.0, %37
   store i32 %181, ptr %12, align 8
   %182 = sub i32 %38, %.0
@@ -4540,8 +4540,8 @@ protobuf_get_wiretype_name.exit66:                ; preds = %93, %103
   br label %117
 
 117:                                              ; preds = %108, %protobuf_get_wiretype_name.exit66, %91, %protobuf_get_wiretype_name.exit61, %protobuf_get_wiretype_name.exit
-  %.073 = phi i32 [ %110, %108 ], [ 4, %protobuf_get_wiretype_name.exit66 ], [ %storemerge, %91 ], [ 8, %protobuf_get_wiretype_name.exit61 ], [ %.2, %protobuf_get_wiretype_name.exit ]
-  %.0 = phi ptr [ %115, %108 ], [ %99, %protobuf_get_wiretype_name.exit66 ], [ %.1, %91 ], [ %44, %protobuf_get_wiretype_name.exit61 ], [ %29, %protobuf_get_wiretype_name.exit ]
+  %.073 = phi i32 [ %110, %108 ], [ %.2, %protobuf_get_wiretype_name.exit ], [ 8, %protobuf_get_wiretype_name.exit61 ], [ %storemerge, %91 ], [ 4, %protobuf_get_wiretype_name.exit66 ]
+  %.0 = phi ptr [ %115, %108 ], [ %29, %protobuf_get_wiretype_name.exit ], [ %44, %protobuf_get_wiretype_name.exit61 ], [ %.1, %91 ], [ %99, %protobuf_get_wiretype_name.exit66 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %119, label %118
 

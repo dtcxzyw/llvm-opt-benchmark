@@ -2529,7 +2529,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i: ; preds = %21
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i: ; preds = %._crit_edge.i.i, %36
-  %.3.i.i = phi i64 [ %39, %36 ], [ 0, %._crit_edge.i.i ]
+  %.3.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %39, %36 ]
   %40 = add i64 %.3.i.i, %.017.i
   br label %41
 
@@ -2703,7 +2703,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i: ; preds = %36
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i: ; preds = %._crit_edge.i.i, %51
-  %.3.i.i = phi i64 [ %54, %51 ], [ 0, %._crit_edge.i.i ]
+  %.3.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %54, %51 ]
   %55 = add i64 %.3.i.i, %.017.i
   br label %56
 
@@ -2878,7 +2878,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i33: ; preds = %123
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i40
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i40: ; preds = %._crit_edge.i.i39, %138
-  %.3.i.i41 = phi i64 [ %141, %138 ], [ 0, %._crit_edge.i.i39 ]
+  %.3.i.i41 = phi i64 [ 0, %._crit_edge.i.i39 ], [ %141, %138 ]
   %142 = add i64 %.3.i.i41, %.017.i27
   br label %143
 
@@ -2984,7 +2984,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i: ; preds = %21
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit: ; preds = %36, %._crit_edge.i
-  %.3.i = phi i64 [ %39, %36 ], [ 0, %._crit_edge.i ]
+  %.3.i = phi i64 [ 0, %._crit_edge.i ], [ %39, %36 ]
   %40 = add i64 %.3.i, %.017
   br label %41
 
@@ -3095,7 +3095,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i: ; preds = %35
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i: ; preds = %._crit_edge.i.i, %50
-  %.3.i.i = phi i64 [ %53, %50 ], [ 0, %._crit_edge.i.i ]
+  %.3.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %53, %50 ]
   %54 = add i64 %.3.i.i, %.017.i
   br label %55
 
@@ -3291,7 +3291,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit: ; preds = %3
   br label %26
 
 26:                                               ; preds = %23, %._crit_edge
-  %.3 = phi i32 [ %25, %23 ], [ 0, %._crit_edge ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ %25, %23 ]
   ret i32 %.3
 }
 
@@ -3372,7 +3372,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i: ; preds = %21
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i: ; preds = %._crit_edge.i.i, %36
-  %.3.i.i = phi i64 [ %39, %36 ], [ 0, %._crit_edge.i.i ]
+  %.3.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %39, %36 ]
   %40 = add i64 %.3.i.i, %.017.i
   br label %41
 
@@ -6128,7 +6128,7 @@ _ZNK6vectorIN3sat12local_search7pbcoeffELb0EjE3endEv.exit.i.i: ; preds = %70
   br label %_ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i
 
 _ZNK3sat12local_search16constraint_coeffERKNS0_10constraintENS_7literalE.exit.i: ; preds = %._crit_edge.i.i, %85
-  %.3.i.i = phi i64 [ %88, %85 ], [ 0, %._crit_edge.i.i ]
+  %.3.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %88, %85 ]
   %89 = add i64 %.3.i.i, %.017.i
   br label %90
 

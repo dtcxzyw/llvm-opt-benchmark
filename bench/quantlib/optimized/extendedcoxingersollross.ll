@@ -3511,7 +3511,7 @@ _ZNK8QuantLib16CoxIngersollRoss2x0Ev.exit183:     ; preds = %_ZNK8QuantLib16CoxI
   br label %cleanup194
 
 cleanup194:                                       ; preds = %_ZNK8QuantLib16CoxIngersollRoss2x0Ev.exit183, %sw.bb40, %sw.bb
-  %retval.0 = phi double [ %.sroa.speculated, %sw.bb40 ], [ %.sroa.speculated184, %sw.bb ], [ %retval.1, %_ZNK8QuantLib16CoxIngersollRoss2x0Ev.exit183 ]
+  %retval.0 = phi double [ %.sroa.speculated184, %sw.bb ], [ %.sroa.speculated, %sw.bb40 ], [ %retval.1, %_ZNK8QuantLib16CoxIngersollRoss2x0Ev.exit183 ]
   ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup79, %ehcleanup23

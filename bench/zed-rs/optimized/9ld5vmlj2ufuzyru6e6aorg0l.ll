@@ -2062,8 +2062,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
   br label %62
 
 62:                                               ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.3.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread" ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9" ]
   %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %64
@@ -6114,7 +6114,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h0dbe3249250c936fE.exit28.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17hae7fdae1b5a8abb5E.exit.i.i
 
 107:                                              ; preds = %90, %89, %88, %87, %86, %.thread.i.i, %70
-  %.sroa.02.0.i.i.i = phi ptr [ @anon.522caa93309e8ca02566b7009af6561d.31, %90 ], [ @anon.522caa93309e8ca02566b7009af6561d.30, %89 ], [ @anon.522caa93309e8ca02566b7009af6561d.29, %88 ], [ @anon.522caa93309e8ca02566b7009af6561d.28, %87 ], [ @anon.522caa93309e8ca02566b7009af6561d.27, %86 ], [ @anon.522caa93309e8ca02566b7009af6561d.24, %.thread.i.i ], [ @anon.522caa93309e8ca02566b7009af6561d.25, %70 ]
+  %.sroa.02.0.i.i.i = phi ptr [ @anon.522caa93309e8ca02566b7009af6561d.27, %86 ], [ @anon.522caa93309e8ca02566b7009af6561d.28, %87 ], [ @anon.522caa93309e8ca02566b7009af6561d.29, %88 ], [ @anon.522caa93309e8ca02566b7009af6561d.30, %89 ], [ @anon.522caa93309e8ca02566b7009af6561d.31, %90 ], [ @anon.522caa93309e8ca02566b7009af6561d.24, %.thread.i.i ], [ @anon.522caa93309e8ca02566b7009af6561d.25, %70 ]
   %108 = load i64, ptr %.0.val, align 8, !alias.scope !1643, !noalias !1652, !noundef !5
   %109 = sub i64 %108, %71
   %110 = icmp ult i64 %109, 2

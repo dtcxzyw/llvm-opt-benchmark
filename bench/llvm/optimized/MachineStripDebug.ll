@@ -567,7 +567,7 @@ _ZN4llvm17MachineBasicBlock5eraseEPNS_12MachineInstrE.exit: ; preds = %.lr.ph.i.
   br i1 %.not, label %._crit_edge74.loopexit, label %.lr.ph73
 
 80:                                               ; preds = %7, %._crit_edge74
-  %.1 = phi i1 [ false, %7 ], [ %31, %._crit_edge74 ]
+  %.1 = phi i1 [ %31, %._crit_edge74 ], [ false, %7 ]
   ret i1 %.1
 }
 

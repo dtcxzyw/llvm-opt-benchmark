@@ -1739,8 +1739,8 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   tail call fastcc void @dissect_pathtrackans(ptr noundef %0, ptr noundef %1, ptr noundef %40, i16 noundef zeroext %43, i16 noundef zeroext %258)
   br label %261
 
-261:                                              ; preds = %259, %260, %255, %249, %250, %242, %244, %239, %240, %235, %236, %231, %232, %227, %228, %110, %120, %122, %78, %76, %74, %75, %46, %70, %66, %158, %224, %167, %162, %156, %139
-  %.0535.ph = phi ptr [ @.str.18, %139 ], [ @.str.14, %156 ], [ @.str.14, %162 ], [ @.str.14, %167 ], [ @.str.14, %224 ], [ @.str.14, %158 ], [ @.str.4, %66 ], [ @.str.4, %70 ], [ @.str.3, %46 ], [ @.str.7, %75 ], [ @.str.6, %74 ], [ @.str.8, %76 ], [ %spec.select578, %78 ], [ @.str.12, %122 ], [ @.str.12, %120 ], [ @.str.11, %110 ], [ @.str.20, %228 ], [ @.str.19, %227 ], [ @.str.22, %232 ], [ @.str.21, %231 ], [ @.str.24, %236 ], [ @.str.23, %235 ], [ @.str.26, %240 ], [ @.str.25, %239 ], [ @.str.28, %244 ], [ @.str.27, %242 ], [ @.str.30, %250 ], [ @.str.29, %249 ], [ @.str.31, %255 ], [ @.str.33, %260 ], [ @.str.32, %259 ]
+261:                                              ; preds = %46, %70, %66, %74, %75, %76, %78, %110, %120, %122, %227, %228, %231, %232, %235, %236, %239, %240, %242, %244, %249, %250, %255, %259, %260, %158, %224, %167, %162, %156, %139
+  %.0535.ph = phi ptr [ @.str.18, %139 ], [ @.str.14, %156 ], [ @.str.14, %162 ], [ @.str.14, %167 ], [ @.str.14, %224 ], [ @.str.14, %158 ], [ @.str.33, %260 ], [ @.str.32, %259 ], [ @.str.31, %255 ], [ @.str.30, %250 ], [ @.str.29, %249 ], [ @.str.28, %244 ], [ @.str.27, %242 ], [ @.str.26, %240 ], [ @.str.25, %239 ], [ @.str.24, %236 ], [ @.str.23, %235 ], [ @.str.22, %232 ], [ @.str.21, %231 ], [ @.str.20, %228 ], [ @.str.19, %227 ], [ @.str.12, %122 ], [ @.str.12, %120 ], [ @.str.11, %110 ], [ %spec.select578, %78 ], [ @.str.8, %76 ], [ @.str.7, %75 ], [ @.str.6, %74 ], [ @.str.4, %66 ], [ @.str.4, %70 ], [ @.str.3, %46 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.34, ptr noundef nonnull %.0535.ph, i32 noundef %9)
   br label %.thread583
 
@@ -2266,8 +2266,8 @@ dissect_probe_information.exit:                   ; preds = %25
   %74 = icmp eq i16 %.035, %27
   br i1 %74, label %dissect_probe_information.exit._crit_edge, label %dissect_probe_information.exit.thread
 
-dissect_probe_information.exit.thread:            ; preds = %67, %60, %53, %55, %62, %69, %38, %dissect_probe_information.exit
-  %.0.i41 = phi i32 [ %35, %dissect_probe_information.exit ], [ %34, %38 ], [ %34, %69 ], [ %34, %62 ], [ %34, %55 ], [ %34, %53 ], [ %34, %60 ], [ %34, %67 ]
+dissect_probe_information.exit.thread:            ; preds = %53, %60, %67, %55, %62, %69, %38, %dissect_probe_information.exit
+  %.0.i41 = phi i32 [ %35, %dissect_probe_information.exit ], [ %34, %38 ], [ %34, %69 ], [ %34, %62 ], [ %34, %55 ], [ %34, %67 ], [ %34, %60 ], [ %34, %53 ]
   %75 = add nuw i32 %.0.i41, %.03642
   %76 = add i32 %.043, 1
   %77 = icmp ult i32 %75, %.pre-phi
@@ -5393,8 +5393,8 @@ default.unreachable58:                            ; preds = %8
   unreachable
 
 35:                                               ; preds = %32, %23, %19, %15
-  %.054 = phi i32 [ %33, %32 ], [ %24, %23 ], [ %20, %19 ], [ %16, %15 ]
-  %.053 = phi i32 [ %34, %32 ], [ %31, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.054 = phi i32 [ %16, %15 ], [ %20, %19 ], [ %24, %23 ], [ %33, %32 ]
+  %.053 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %31, %23 ], [ %34, %32 ]
   %36 = icmp slt i32 %.054, 0
   br i1 %36, label %56, label %37
 

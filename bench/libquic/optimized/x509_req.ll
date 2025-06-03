@@ -175,7 +175,7 @@ X509_REQ_get_pubkey.exit:                         ; preds = %2, %4, %7
   br label %21
 
 21:                                               ; preds = %20, %19, %18, %14, %13, %12, %X509_REQ_get_pubkey.exit
-  %.0 = phi i32 [ 0, %X509_REQ_get_pubkey.exit ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ], [ 0, %14 ], [ 0, %13 ], [ 1, %12 ]
+  %.0 = phi i32 [ 0, %X509_REQ_get_pubkey.exit ], [ 1, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ]
   tail call void @EVP_PKEY_free(ptr noundef %.0.i) #7
   ret i32 %.0
 }

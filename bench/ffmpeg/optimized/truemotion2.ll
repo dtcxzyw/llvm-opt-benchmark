@@ -2911,7 +2911,7 @@ tm2_hi_res_block.exit.us.i:                       ; preds = %1493
   br label %tm2_update_block.exit.us.i
 
 tm2_update_block.exit.us.i:                       ; preds = %565, %678, %851, %1495, %tm2_hi_res_block.exit.us.i, %tm2_med_res_block.exit.us.i, %tm2_low_res_block.exit.us.i, %tm2_null_res_block.exit.us.i, %568
-  %.2218.us.i = phi i32 [ %.1217391.us.i, %1495 ], [ %.1217391.us.i, %tm2_null_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_hi_res_block.exit.us.i ], [ 0, %568 ], [ 0, %851 ], [ 0, %678 ], [ 0, %565 ]
+  %.2218.us.i = phi i32 [ %.1217391.us.i, %1495 ], [ %.1217391.us.i, %tm2_hi_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217391.us.i, %tm2_null_res_block.exit.us.i ], [ 0, %568 ], [ 0, %851 ], [ 0, %678 ], [ 0, %565 ]
   %1497 = load i32, ptr %20, align 8, !tbaa !52
   %.not228.us.i = icmp eq i32 %1497, 0
   br i1 %.not228.us.i, label %370, label %tm2_decode_blocks.exit.thread

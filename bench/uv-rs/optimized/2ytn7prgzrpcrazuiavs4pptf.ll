@@ -1158,7 +1158,7 @@ define hidden void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R
   br label %"_ZN179_$LT$uv_cache_info..timestamp.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..timestamp..Timestamp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h2b2589419c0b0064E.exit"
 
 .thread79:                                        ; preds = %60, %64, %.thread94, %.thread90, %.thread86, %.thread82, %96, %89, %80, %79, %78, %77, %88
-  %.sroa.1247.0.ph = phi i32 [ 1, %88 ], [ 16, %79 ], [ 16, %.thread94 ], [ 8, %78 ], [ 8, %.thread90 ], [ 4, %77 ], [ 4, %.thread86 ], [ 2, %.thread82 ], [ %87, %80 ], [ %93, %89 ], [ %99, %96 ], [ 2, %64 ], [ 1, %60 ]
+  %.sroa.1247.0.ph = phi i32 [ 1, %88 ], [ 16, %79 ], [ 16, %.thread94 ], [ 8, %78 ], [ 8, %.thread90 ], [ 4, %77 ], [ 4, %.thread86 ], [ 2, %.thread82 ], [ %99, %96 ], [ %93, %89 ], [ %87, %80 ], [ 2, %64 ], [ 1, %60 ]
   store ptr %1, ptr %9, align 8
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %.sroa.1247.0.ph, ptr %103, align 8
@@ -1239,9 +1239,9 @@ define hidden void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R
   br label %"_ZN179_$LT$uv_cache_info..timestamp.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..timestamp..Timestamp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h2b2589419c0b0064E.exit"
 
 .thread:                                          ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %54, %58, %61, %41, %48, %60, %100, %94, %64, %.thread66
-  %.sroa.5.0.ph64 = phi i8 [ -55, %100 ], [ -56, %94 ], [ %33, %64 ], [ -57, %.thread66 ], [ -128, %54 ], [ -112, %58 ], [ -96, %61 ], [ 0, %41 ], [ -32, %48 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ]
-  %.sroa.045.0 = phi i8 [ 1, %100 ], [ 1, %94 ], [ 2, %64 ], [ 1, %.thread66 ], [ 2, %54 ], [ 2, %58 ], [ 2, %61 ], [ 2, %41 ], [ 2, %48 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
-  %.sroa.1146.0 = phi i8 [ undef, %100 ], [ undef, %94 ], [ %35, %64 ], [ undef, %.thread66 ], [ %55, %54 ], [ %59, %58 ], [ %62, %61 ], [ %46, %41 ], [ %46, %48 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ]
+  %.sroa.5.0.ph64 = phi i8 [ -56, %94 ], [ -55, %100 ], [ %33, %64 ], [ -57, %.thread66 ], [ -128, %54 ], [ -112, %58 ], [ -96, %61 ], [ 0, %41 ], [ -32, %48 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ], [ %46, %60 ]
+  %.sroa.045.0 = phi i8 [ 1, %94 ], [ 1, %100 ], [ 2, %64 ], [ 1, %.thread66 ], [ 2, %54 ], [ 2, %58 ], [ 2, %61 ], [ 2, %41 ], [ 2, %48 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
+  %.sroa.1146.0 = phi i8 [ undef, %94 ], [ undef, %100 ], [ %35, %64 ], [ undef, %.thread66 ], [ %55, %54 ], [ %59, %58 ], [ %62, %61 ], [ %46, %41 ], [ %46, %48 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ]
   store i8 %.sroa.045.0, ptr %0, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0.ph64, ptr %.sroa.222.0..sroa_idx, align 1
@@ -5189,12 +5189,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %92
 
 92:                                               ; preds = %110, %103, %91
-  %93 = phi ptr [ %.sink758, %110 ], [ %.sink756, %103 ], [ %.sink754, %91 ]
-  %94 = phi i64 [ %.sink757, %110 ], [ %.sink755, %103 ], [ %.sink, %91 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %110 ], [ undef, %103 ], [ %.sroa.4479.0597, %91 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %110 ], [ %.sroa.5486.0603, %103 ], [ undef, %91 ]
-  %.sroa.0138.1 = phi i8 [ %.sroa.0138.3, %110 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.0, %91 ]
-  %.sroa.11145.1 = phi i32 [ %.sroa.5492.0608, %110 ], [ %.sroa.11145.2, %103 ], [ %.sroa.11145.0, %91 ]
+  %93 = phi ptr [ %.sink754, %91 ], [ %.sink756, %103 ], [ %.sink758, %110 ]
+  %94 = phi i64 [ %.sink, %91 ], [ %.sink755, %103 ], [ %.sink757, %110 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4479.0597, %91 ], [ undef, %103 ], [ undef, %110 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %91 ], [ %.sroa.5486.0603, %103 ], [ undef, %110 ]
+  %.sroa.0138.1 = phi i8 [ %.sroa.0138.0, %91 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.3, %110 ]
+  %.sroa.11145.1 = phi i32 [ %.sroa.11145.0, %91 ], [ %.sroa.11145.2, %103 ], [ %.sroa.5492.0608, %110 ]
   %95 = icmp eq i8 %.sroa.0138.1, 9
   br i1 %95, label %111, label %114
 
@@ -5299,7 +5299,7 @@ _ZN9rmp_serde6decode13read_str_data17hef1fa95028c05c02E.exit: ; preds = %196, %1
   br i1 %126, label %128, label %129
 
 127:                                              ; preds = %69, %64, %.thread545.thread
-  %.sroa.4.0.ph549730 = phi i8 [ -55, %69 ], [ -56, %64 ], [ -57, %.thread545.thread ]
+  %.sroa.4.0.ph549730 = phi i8 [ -56, %64 ], [ -55, %69 ], [ -57, %.thread545.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph549730, ptr %.sroa.2354.0..sroa_idx, align 1
@@ -5366,11 +5366,11 @@ _ZN9rmp_serde6decode13read_str_data17hef1fa95028c05c02E.exit: ; preds = %196, %1
   br i1 %147, label %169, label %165
 
 148:                                              ; preds = %171, %164, %156
-  %149 = phi i64 [ %.sink763, %171 ], [ %.sink761, %164 ], [ %.sink759, %156 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %171 ], [ undef, %164 ], [ %.sroa.4432.0634, %156 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %171 ], [ %.sroa.5.0640, %164 ], [ undef, %156 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5443.0645, %171 ], [ %.sroa.1224.2, %164 ], [ %.sroa.1224.1, %156 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %171 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.1, %156 ]
+  %149 = phi i64 [ %.sink759, %156 ], [ %.sink761, %164 ], [ %.sink763, %171 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4432.0634, %156 ], [ undef, %164 ], [ undef, %171 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %156 ], [ %.sroa.5.0640, %164 ], [ undef, %171 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %156 ], [ %.sroa.1224.2, %164 ], [ %.sroa.5443.0645, %171 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %156 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.3, %171 ]
   %150 = icmp eq i8 %.sroa.017.0, 9
   br i1 %150, label %172, label %197
 
@@ -5548,7 +5548,7 @@ _ZN9rmp_serde6decode13read_str_data17hef1fa95028c05c02E.exit: ; preds = %196, %1
   br i1 %209, label %226, label %222
 
 210:                                              ; preds = %222, %215, %198
-  %.sroa.082.0 = phi i32 [ %225, %222 ], [ %219, %215 ], [ %199, %198 ]
+  %.sroa.082.0 = phi i32 [ %199, %198 ], [ %219, %215 ], [ %225, %222 ]
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %212 = load i16, ptr %211, align 2, !noundef !4
   %213 = add i16 %212, -1
@@ -5674,7 +5674,7 @@ _ZN9rmp_serde6decode13read_str_data17hef1fa95028c05c02E.exit: ; preds = %196, %1
   br i1 %254, label %271, label %267
 
 255:                                              ; preds = %267, %260, %243
-  %.sroa.0127.0 = phi i32 [ %244, %243 ], [ %264, %260 ], [ %270, %267 ]
+  %.sroa.0127.0 = phi i32 [ %270, %267 ], [ %264, %260 ], [ %244, %243 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %257 = load i16, ptr %256, align 2, !noundef !4
   %258 = add i16 %257, -1
@@ -6181,12 +6181,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %114
 
 114:                                              ; preds = %132, %125, %113
-  %115 = phi ptr [ %.sink1014, %132 ], [ %.sink1012, %125 ], [ %.sink1010, %113 ]
-  %116 = phi i64 [ %.sink1013, %132 ], [ %.sink1011, %125 ], [ %.sink, %113 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %132 ], [ undef, %125 ], [ %.sroa.4533.0703, %113 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %132 ], [ %.sroa.5540.0709, %125 ], [ undef, %113 ]
-  %.sroa.0136.1 = phi i8 [ %.sroa.0136.3, %132 ], [ %.sroa.0136.2, %125 ], [ %.sroa.0136.0, %113 ]
-  %.sroa.11143.1 = phi i32 [ %.sroa.5546.0714, %132 ], [ %.sroa.11143.2, %125 ], [ %.sroa.11143.0, %113 ]
+  %115 = phi ptr [ %.sink1010, %113 ], [ %.sink1012, %125 ], [ %.sink1014, %132 ]
+  %116 = phi i64 [ %.sink, %113 ], [ %.sink1011, %125 ], [ %.sink1013, %132 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4533.0703, %113 ], [ undef, %125 ], [ undef, %132 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %113 ], [ %.sroa.5540.0709, %125 ], [ undef, %132 ]
+  %.sroa.0136.1 = phi i8 [ %.sroa.0136.0, %113 ], [ %.sroa.0136.2, %125 ], [ %.sroa.0136.3, %132 ]
+  %.sroa.11143.1 = phi i32 [ %.sroa.11143.0, %113 ], [ %.sroa.11143.2, %125 ], [ %.sroa.5546.0714, %132 ]
   %117 = icmp eq i8 %.sroa.0136.1, 9
   br i1 %117, label %133, label %136
 
@@ -6310,7 +6310,7 @@ _ZN9rmp_serde6decode13read_str_data17h371f3f0a7baeae96E.exit: ; preds = %230, %2
   br i1 %155, label %158, label %160
 
 156:                                              ; preds = %91, %86, %.thread651.thread
-  %.sroa.4.0.ph655869 = phi i8 [ -55, %91 ], [ -56, %86 ], [ -57, %.thread651.thread ]
+  %.sroa.4.0.ph655869 = phi i8 [ -56, %86 ], [ -55, %91 ], [ -57, %.thread651.thread ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %157, align 8
   %.sroa.2340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -6384,11 +6384,11 @@ _ZN9rmp_serde6decode13read_str_data17h371f3f0a7baeae96E.exit: ; preds = %230, %2
   br i1 %179, label %201, label %197
 
 180:                                              ; preds = %203, %196, %188
-  %181 = phi i64 [ %.sink1019, %203 ], [ %.sink1017, %196 ], [ %.sink1015, %188 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %203 ], [ undef, %196 ], [ %.sroa.4432.0740, %188 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %203 ], [ %.sroa.5.0746, %196 ], [ undef, %188 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5443.0751, %203 ], [ %.sroa.1224.2, %196 ], [ %.sroa.1224.1, %188 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %203 ], [ %.sroa.017.2, %196 ], [ %.sroa.017.1, %188 ]
+  %181 = phi i64 [ %.sink1015, %188 ], [ %.sink1017, %196 ], [ %.sink1019, %203 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4432.0740, %188 ], [ undef, %196 ], [ undef, %203 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %188 ], [ %.sroa.5.0746, %196 ], [ undef, %203 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %188 ], [ %.sroa.1224.2, %196 ], [ %.sroa.5443.0751, %203 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %188 ], [ %.sroa.017.2, %196 ], [ %.sroa.017.3, %203 ]
   %182 = icmp eq i8 %.sroa.017.0, 9
   br i1 %182, label %204, label %231
 
@@ -6582,7 +6582,7 @@ _ZN9rmp_serde6decode13read_str_data17h371f3f0a7baeae96E.exit: ; preds = %230, %2
   br i1 %244, label %262, label %258
 
 245:                                              ; preds = %258, %250, %233
-  %.sroa.081.0 = phi i32 [ %261, %258 ], [ %254, %250 ], [ %234, %233 ]
+  %.sroa.081.0 = phi i32 [ %234, %233 ], [ %254, %250 ], [ %261, %258 ]
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %247 = load i16, ptr %246, align 2, !noundef !4
   %248 = add i16 %247, -1
@@ -6838,7 +6838,7 @@ _ZN9rmp_serde6decode13read_str_data17h371f3f0a7baeae96E.exit: ; preds = %230, %2
   br i1 %321, label %339, label %335
 
 322:                                              ; preds = %335, %327, %310
-  %.sroa.0125.0 = phi i32 [ %311, %310 ], [ %331, %327 ], [ %338, %335 ]
+  %.sroa.0125.0 = phi i32 [ %338, %335 ], [ %331, %327 ], [ %311, %310 ]
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %324 = load i16, ptr %323, align 2, !noundef !4
   %325 = add i16 %324, -1
@@ -7694,7 +7694,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17h93577a6c2f4acd03E.exit.i: ; preds =
   br i1 %600, label %616, label %612
 
 601:                                              ; preds = %612, %605, %593
-  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %615, %612 ], [ %609, %605 ], [ %594, %593 ]
+  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %594, %593 ], [ %609, %605 ], [ %615, %612 ]
   %602 = load i16, ptr %323, align 2, !alias.scope !1926, !noalias !1927, !noundef !4
   %603 = add i16 %602, -1
   store i16 %603, ptr %323, align 2, !alias.scope !1926, !noalias !1927
@@ -7803,7 +7803,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17h93577a6c2f4acd03E.exit.i: ; preds =
   br i1 %637, label %653, label %649
 
 638:                                              ; preds = %649, %642, %630
-  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %631, %630 ], [ %646, %642 ], [ %652, %649 ]
+  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %652, %649 ], [ %646, %642 ], [ %631, %630 ]
   %639 = load i16, ptr %323, align 2, !alias.scope !1926, !noalias !1927, !noundef !4
   %640 = add i16 %639, -1
   store i16 %640, ptr %323, align 2, !alias.scope !1926, !noalias !1927
@@ -8042,8 +8042,8 @@ default.unreachable1078:                          ; preds = %669
   br label %722
 
 695:                                              ; preds = %709, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_python..interpreter..InterpreterInfo$GT$$GT$17hb25eb403b445b4f7E.exit.i", %691
-  %.sroa.310.1.i = phi i32 [ %.sroa.310.0.i975, %709 ], [ %.sroa.310.0.i975, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_python..interpreter..InterpreterInfo$GT$$GT$17hb25eb403b445b4f7E.exit.i" ], [ %692, %691 ]
-  %.sroa.09.1.i = phi i64 [ %.sroa.09.0.i976, %709 ], [ %.sroa.09.0.i976, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_python..interpreter..InterpreterInfo$GT$$GT$17hb25eb403b445b4f7E.exit.i" ], [ %693, %691 ]
+  %.sroa.310.1.i = phi i32 [ %692, %691 ], [ %.sroa.310.0.i975, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_python..interpreter..InterpreterInfo$GT$$GT$17hb25eb403b445b4f7E.exit.i" ], [ %.sroa.310.0.i975, %709 ]
+  %.sroa.09.1.i = phi i64 [ %693, %691 ], [ %.sroa.09.0.i976, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$uv_python..interpreter..InterpreterInfo$GT$$GT$17hb25eb403b445b4f7E.exit.i" ], [ %.sroa.09.0.i976, %709 ]
   %.not.i.i.i.i417 = icmp eq i32 %352, 0
   br i1 %.not.i.i.i.i417, label %.thread348.i, label %351
 
@@ -8190,10 +8190,10 @@ default.unreachable1078:                          ; preds = %669
   br i1 %721, label %725, label %733
 
 722:                                              ; preds = %727, %718, %710, %705, %698, %694, %690, %.loopexit176.i
-  %.sroa.29.0 = phi i32 [ %.sroa.29.8.copyload527, %727 ], [ %.sroa.7108.0.copyload.i, %718 ], [ %.sroa.11.i415.sroa.5.0.copyload, %.loopexit176.i ], [ %.sroa.627.i.sroa.10.0.copyload634, %705 ], [ %.sroa.29.8.copyload519, %698 ], [ %.sroa.717.0.copyload.i.i.i.i.i.i.i.i422, %694 ], [ %.sroa.29.8.copyload522, %690 ], [ %.sroa.29.8.copyload524, %710 ]
-  %.sroa.27.0 = phi i64 [ %.sroa.27.8.copyload516, %727 ], [ %.sroa.6107.0.copyload.i, %718 ], [ %.sroa.11.i415.sroa.4.0.copyload, %.loopexit176.i ], [ %.sroa.627.i.sroa.9.0.copyload629, %705 ], [ %.sroa.27.8.copyload508, %698 ], [ %.sroa.616.0.copyload.i.i.i.i.i.i.i.i421, %694 ], [ %.sroa.27.8.copyload511, %690 ], [ %.sroa.27.8.copyload513, %710 ]
-  %.sroa.23.0 = phi i8 [ %.sroa.23.8.copyload500, %727 ], [ %.sroa.23.9.copyload501, %718 ], [ %.sroa.7.0.copyload.i, %.loopexit176.i ], [ %.sroa.627.i.sroa.7.0.copyload622, %705 ], [ %.sroa.23.8.copyload492, %698 ], [ %.sroa.23.9.copyload, %694 ], [ %.sroa.23.8.copyload495, %690 ], [ %.sroa.23.8.copyload497, %710 ]
-  %.sroa.12482.0 = phi i8 [ %.sroa.12482.8.copyload489, %727 ], [ %711, %718 ], [ %.sroa.0150.0.copyload168.i, %.loopexit176.i ], [ %.sroa.627.i.sroa.0.0.copyload617, %705 ], [ %.sroa.12482.8.copyload484, %698 ], [ %.pr.i.i.i.i.i.i.i.i419, %694 ], [ %.sroa.12482.8.copyload486, %690 ], [ %707, %710 ]
+  %.sroa.29.0 = phi i32 [ %.sroa.29.8.copyload527, %727 ], [ %.sroa.7108.0.copyload.i, %718 ], [ %.sroa.11.i415.sroa.5.0.copyload, %.loopexit176.i ], [ %.sroa.29.8.copyload524, %710 ], [ %.sroa.717.0.copyload.i.i.i.i.i.i.i.i422, %694 ], [ %.sroa.29.8.copyload522, %690 ], [ %.sroa.627.i.sroa.10.0.copyload634, %705 ], [ %.sroa.29.8.copyload519, %698 ]
+  %.sroa.27.0 = phi i64 [ %.sroa.27.8.copyload516, %727 ], [ %.sroa.6107.0.copyload.i, %718 ], [ %.sroa.11.i415.sroa.4.0.copyload, %.loopexit176.i ], [ %.sroa.27.8.copyload513, %710 ], [ %.sroa.616.0.copyload.i.i.i.i.i.i.i.i421, %694 ], [ %.sroa.27.8.copyload511, %690 ], [ %.sroa.627.i.sroa.9.0.copyload629, %705 ], [ %.sroa.27.8.copyload508, %698 ]
+  %.sroa.23.0 = phi i8 [ %.sroa.23.8.copyload500, %727 ], [ %.sroa.23.9.copyload501, %718 ], [ %.sroa.7.0.copyload.i, %.loopexit176.i ], [ %.sroa.23.8.copyload497, %710 ], [ %.sroa.23.9.copyload, %694 ], [ %.sroa.23.8.copyload495, %690 ], [ %.sroa.627.i.sroa.7.0.copyload622, %705 ], [ %.sroa.23.8.copyload492, %698 ]
+  %.sroa.12482.0 = phi i8 [ %.sroa.12482.8.copyload489, %727 ], [ %711, %718 ], [ %.sroa.0150.0.copyload168.i, %.loopexit176.i ], [ %707, %710 ], [ %.pr.i.i.i.i.i.i.i.i419, %694 ], [ %.sroa.12482.8.copyload486, %690 ], [ %.sroa.627.i.sroa.0.0.copyload617, %705 ], [ %.sroa.12482.8.copyload484, %698 ]
   %723 = load i64, ptr %20, align 8, !range !463, !noalias !1893, !noundef !4
   %724 = icmp eq i64 %723, -9223372036854775808
   br i1 %724, label %736, label %728
@@ -8684,12 +8684,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %92
 
 92:                                               ; preds = %110, %103, %91
-  %93 = phi ptr [ %.sink758, %110 ], [ %.sink756, %103 ], [ %.sink754, %91 ]
-  %94 = phi i64 [ %.sink757, %110 ], [ %.sink755, %103 ], [ %.sink, %91 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %110 ], [ undef, %103 ], [ %.sroa.4479.0597, %91 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %110 ], [ %.sroa.5486.0603, %103 ], [ undef, %91 ]
-  %.sroa.0138.1 = phi i8 [ %.sroa.0138.3, %110 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.0, %91 ]
-  %.sroa.11145.1 = phi i32 [ %.sroa.5492.0608, %110 ], [ %.sroa.11145.2, %103 ], [ %.sroa.11145.0, %91 ]
+  %93 = phi ptr [ %.sink754, %91 ], [ %.sink756, %103 ], [ %.sink758, %110 ]
+  %94 = phi i64 [ %.sink, %91 ], [ %.sink755, %103 ], [ %.sink757, %110 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4479.0597, %91 ], [ undef, %103 ], [ undef, %110 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %91 ], [ %.sroa.5486.0603, %103 ], [ undef, %110 ]
+  %.sroa.0138.1 = phi i8 [ %.sroa.0138.0, %91 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.3, %110 ]
+  %.sroa.11145.1 = phi i32 [ %.sroa.11145.0, %91 ], [ %.sroa.11145.2, %103 ], [ %.sroa.5492.0608, %110 ]
   %95 = icmp eq i8 %.sroa.0138.1, 9
   br i1 %95, label %111, label %114
 
@@ -8794,7 +8794,7 @@ _ZN9rmp_serde6decode13read_str_data17hd345fe57ab084547E.exit: ; preds = %202, %1
   br i1 %126, label %128, label %129
 
 127:                                              ; preds = %69, %64, %.thread545.thread
-  %.sroa.4.0.ph549730 = phi i8 [ -55, %69 ], [ -56, %64 ], [ -57, %.thread545.thread ]
+  %.sroa.4.0.ph549730 = phi i8 [ -56, %64 ], [ -55, %69 ], [ -57, %.thread545.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph549730, ptr %.sroa.2354.0..sroa_idx, align 1
@@ -8861,11 +8861,11 @@ _ZN9rmp_serde6decode13read_str_data17hd345fe57ab084547E.exit: ; preds = %202, %1
   br i1 %147, label %169, label %165
 
 148:                                              ; preds = %171, %164, %156
-  %149 = phi i64 [ %.sink763, %171 ], [ %.sink761, %164 ], [ %.sink759, %156 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %171 ], [ undef, %164 ], [ %.sroa.4432.0634, %156 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %171 ], [ %.sroa.5.0640, %164 ], [ undef, %156 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5443.0645, %171 ], [ %.sroa.1224.2, %164 ], [ %.sroa.1224.1, %156 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %171 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.1, %156 ]
+  %149 = phi i64 [ %.sink759, %156 ], [ %.sink761, %164 ], [ %.sink763, %171 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4432.0634, %156 ], [ undef, %164 ], [ undef, %171 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %156 ], [ %.sroa.5.0640, %164 ], [ undef, %171 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %156 ], [ %.sroa.1224.2, %164 ], [ %.sroa.5443.0645, %171 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %156 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.3, %171 ]
   %150 = icmp eq i8 %.sroa.017.0, 9
   br i1 %150, label %172, label %203
 
@@ -9073,7 +9073,7 @@ _ZN9rmp_serde6decode13read_str_data17hd345fe57ab084547E.exit: ; preds = %202, %1
   br i1 %215, label %232, label %228
 
 216:                                              ; preds = %228, %221, %204
-  %.sroa.082.0 = phi i32 [ %231, %228 ], [ %225, %221 ], [ %205, %204 ]
+  %.sroa.082.0 = phi i32 [ %205, %204 ], [ %225, %221 ], [ %231, %228 ]
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %218 = load i16, ptr %217, align 2, !noundef !4
   %219 = add i16 %218, -1
@@ -9199,7 +9199,7 @@ _ZN9rmp_serde6decode13read_str_data17hd345fe57ab084547E.exit: ; preds = %202, %1
   br i1 %260, label %277, label %273
 
 261:                                              ; preds = %273, %266, %249
-  %.sroa.0127.0 = phi i32 [ %250, %249 ], [ %270, %266 ], [ %276, %273 ]
+  %.sroa.0127.0 = phi i32 [ %276, %273 ], [ %270, %266 ], [ %250, %249 ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %263 = load i16, ptr %262, align 2, !noundef !4
   %264 = add i16 %263, -1
@@ -9688,12 +9688,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %106
 
 106:                                              ; preds = %124, %117, %105
-  %107 = phi ptr [ %.sink726, %124 ], [ %.sink724, %117 ], [ %.sink722, %105 ]
-  %108 = phi i64 [ %.sink725, %124 ], [ %.sink723, %117 ], [ %.sink, %105 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %124 ], [ undef, %117 ], [ %.sroa.4454.0569, %105 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %124 ], [ %.sroa.5461.0575, %117 ], [ undef, %105 ]
-  %.sroa.0132.1 = phi i8 [ %.sroa.0132.3, %124 ], [ %.sroa.0132.2, %117 ], [ %.sroa.0132.0, %105 ]
-  %.sroa.11139.1 = phi i32 [ %.sroa.5467.0580, %124 ], [ %.sroa.11139.2, %117 ], [ %.sroa.11139.0, %105 ]
+  %107 = phi ptr [ %.sink722, %105 ], [ %.sink724, %117 ], [ %.sink726, %124 ]
+  %108 = phi i64 [ %.sink, %105 ], [ %.sink723, %117 ], [ %.sink725, %124 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4454.0569, %105 ], [ undef, %117 ], [ undef, %124 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %105 ], [ %.sroa.5461.0575, %117 ], [ undef, %124 ]
+  %.sroa.0132.1 = phi i8 [ %.sroa.0132.0, %105 ], [ %.sroa.0132.2, %117 ], [ %.sroa.0132.3, %124 ]
+  %.sroa.11139.1 = phi i32 [ %.sroa.11139.0, %105 ], [ %.sroa.11139.2, %117 ], [ %.sroa.5467.0580, %124 ]
   %109 = icmp eq i8 %.sroa.0132.1, 9
   br i1 %109, label %125, label %128
 
@@ -9821,7 +9821,7 @@ _ZN9rmp_serde6decode13read_str_data17hb8dcb8d95517e0eaE.exit: ; preds = %222, %2
   br i1 %147, label %150, label %152
 
 148:                                              ; preds = %83, %78, %.thread517.thread
-  %.sroa.4.0.ph521698 = phi i8 [ -55, %83 ], [ -56, %78 ], [ -57, %.thread517.thread ]
+  %.sroa.4.0.ph521698 = phi i8 [ -56, %78 ], [ -55, %83 ], [ -57, %.thread517.thread ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %149, align 8
   %.sroa.2334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -9896,11 +9896,11 @@ _ZN9rmp_serde6decode13read_str_data17hb8dcb8d95517e0eaE.exit: ; preds = %222, %2
   br i1 %171, label %193, label %189
 
 172:                                              ; preds = %195, %188, %180
-  %173 = phi i64 [ %.sink731, %195 ], [ %.sink729, %188 ], [ %.sink727, %180 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %195 ], [ undef, %188 ], [ %.sroa.4412.0606, %180 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %195 ], [ %.sroa.5.0612, %188 ], [ undef, %180 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5423.0617, %195 ], [ %.sroa.1224.2, %188 ], [ %.sroa.1224.1, %180 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %195 ], [ %.sroa.017.2, %188 ], [ %.sroa.017.1, %180 ]
+  %173 = phi i64 [ %.sink727, %180 ], [ %.sink729, %188 ], [ %.sink731, %195 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4412.0606, %180 ], [ undef, %188 ], [ undef, %195 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %180 ], [ %.sroa.5.0612, %188 ], [ undef, %195 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %180 ], [ %.sroa.1224.2, %188 ], [ %.sroa.5423.0617, %195 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %180 ], [ %.sroa.017.2, %188 ], [ %.sroa.017.3, %195 ]
   %174 = icmp eq i8 %.sroa.017.0, 9
   br i1 %174, label %196, label %223
 
@@ -10096,7 +10096,7 @@ _ZN9rmp_serde6decode13read_str_data17hb8dcb8d95517e0eaE.exit: ; preds = %222, %2
   br i1 %236, label %254, label %250
 
 237:                                              ; preds = %250, %242, %225
-  %.sroa.079.0 = phi i32 [ %253, %250 ], [ %246, %242 ], [ %226, %225 ]
+  %.sroa.079.0 = phi i32 [ %226, %225 ], [ %246, %242 ], [ %253, %250 ]
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %239 = load i16, ptr %238, align 2, !noundef !4
   %240 = add i16 %239, -1
@@ -10245,7 +10245,7 @@ _ZN9rmp_serde6decode13read_str_data17hb8dcb8d95517e0eaE.exit: ; preds = %222, %2
   br i1 %288, label %306, label %302
 
 289:                                              ; preds = %302, %294, %277
-  %.sroa.0121.0 = phi i32 [ %278, %277 ], [ %298, %294 ], [ %305, %302 ]
+  %.sroa.0121.0 = phi i32 [ %305, %302 ], [ %298, %294 ], [ %278, %277 ]
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %291 = load i16, ptr %290, align 2, !noundef !4
   %292 = add i16 %291, -1
@@ -10747,12 +10747,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %97
 
 97:                                               ; preds = %115, %108, %96
-  %98 = phi ptr [ %.sink736, %115 ], [ %.sink734, %108 ], [ %.sink732, %96 ]
-  %99 = phi i64 [ %.sink735, %115 ], [ %.sink733, %108 ], [ %.sink, %96 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %115 ], [ undef, %108 ], [ %.sroa.4464.0579, %96 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %115 ], [ %.sroa.5471.0585, %108 ], [ undef, %96 ]
-  %.sroa.0132.1 = phi i8 [ %.sroa.0132.3, %115 ], [ %.sroa.0132.2, %108 ], [ %.sroa.0132.0, %96 ]
-  %.sroa.11139.1 = phi i32 [ %.sroa.5477.0590, %115 ], [ %.sroa.11139.2, %108 ], [ %.sroa.11139.0, %96 ]
+  %98 = phi ptr [ %.sink732, %96 ], [ %.sink734, %108 ], [ %.sink736, %115 ]
+  %99 = phi i64 [ %.sink, %96 ], [ %.sink733, %108 ], [ %.sink735, %115 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4464.0579, %96 ], [ undef, %108 ], [ undef, %115 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %96 ], [ %.sroa.5471.0585, %108 ], [ undef, %115 ]
+  %.sroa.0132.1 = phi i8 [ %.sroa.0132.0, %96 ], [ %.sroa.0132.2, %108 ], [ %.sroa.0132.3, %115 ]
+  %.sroa.11139.1 = phi i32 [ %.sroa.11139.0, %96 ], [ %.sroa.11139.2, %108 ], [ %.sroa.5477.0590, %115 ]
   %100 = icmp eq i8 %.sroa.0132.1, 9
   br i1 %100, label %116, label %119
 
@@ -10868,7 +10868,7 @@ _ZN9rmp_serde6decode13read_str_data17h54714edfbdf591adE.exit: ; preds = %209, %1
   br i1 %135, label %137, label %138
 
 136:                                              ; preds = %74, %69, %.thread527.thread
-  %.sroa.4.0.ph531708 = phi i8 [ -55, %74 ], [ -56, %69 ], [ -57, %.thread527.thread ]
+  %.sroa.4.0.ph531708 = phi i8 [ -56, %69 ], [ -55, %74 ], [ -57, %.thread527.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph531708, ptr %.sroa.2342.0..sroa_idx, align 1
@@ -10935,11 +10935,11 @@ _ZN9rmp_serde6decode13read_str_data17h54714edfbdf591adE.exit: ; preds = %209, %1
   br i1 %156, label %178, label %174
 
 157:                                              ; preds = %180, %173, %165
-  %158 = phi i64 [ %.sink741, %180 ], [ %.sink739, %173 ], [ %.sink737, %165 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %180 ], [ undef, %173 ], [ %.sroa.4420.0616, %165 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %180 ], [ %.sroa.5.0622, %173 ], [ undef, %165 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5431.0627, %180 ], [ %.sroa.1224.2, %173 ], [ %.sroa.1224.1, %165 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %180 ], [ %.sroa.017.2, %173 ], [ %.sroa.017.1, %165 ]
+  %158 = phi i64 [ %.sink737, %165 ], [ %.sink739, %173 ], [ %.sink741, %180 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4420.0616, %165 ], [ undef, %173 ], [ undef, %180 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %165 ], [ %.sroa.5.0622, %173 ], [ undef, %180 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %165 ], [ %.sroa.1224.2, %173 ], [ %.sroa.5431.0627, %180 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %165 ], [ %.sroa.017.2, %173 ], [ %.sroa.017.3, %180 ]
   %159 = icmp eq i8 %.sroa.017.0, 9
   br i1 %159, label %181, label %210
 
@@ -11134,7 +11134,7 @@ _ZN9rmp_serde6decode13read_str_data17h54714edfbdf591adE.exit: ; preds = %209, %1
   br i1 %222, label %239, label %235
 
 223:                                              ; preds = %235, %228, %211
-  %.sroa.079.0 = phi i32 [ %238, %235 ], [ %232, %228 ], [ %212, %211 ]
+  %.sroa.079.0 = phi i32 [ %212, %211 ], [ %232, %228 ], [ %238, %235 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %225 = load i16, ptr %224, align 2, !noundef !4
   %226 = add i16 %225, -1
@@ -11271,7 +11271,7 @@ _ZN9rmp_serde6decode13read_str_data17h54714edfbdf591adE.exit: ; preds = %209, %1
   br i1 %269, label %286, label %282
 
 270:                                              ; preds = %282, %275, %258
-  %.sroa.0121.0 = phi i32 [ %259, %258 ], [ %279, %275 ], [ %285, %282 ]
+  %.sroa.0121.0 = phi i32 [ %285, %282 ], [ %279, %275 ], [ %259, %258 ]
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %272 = load i16, ptr %271, align 2, !noundef !4
   %273 = add i16 %272, -1
@@ -11751,12 +11751,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %92
 
 92:                                               ; preds = %110, %103, %91
-  %93 = phi ptr [ %.sink758, %110 ], [ %.sink756, %103 ], [ %.sink754, %91 ]
-  %94 = phi i64 [ %.sink757, %110 ], [ %.sink755, %103 ], [ %.sink, %91 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %110 ], [ undef, %103 ], [ %.sroa.4479.0597, %91 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %110 ], [ %.sroa.5486.0603, %103 ], [ undef, %91 ]
-  %.sroa.0138.1 = phi i8 [ %.sroa.0138.3, %110 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.0, %91 ]
-  %.sroa.11145.1 = phi i32 [ %.sroa.5492.0608, %110 ], [ %.sroa.11145.2, %103 ], [ %.sroa.11145.0, %91 ]
+  %93 = phi ptr [ %.sink754, %91 ], [ %.sink756, %103 ], [ %.sink758, %110 ]
+  %94 = phi i64 [ %.sink, %91 ], [ %.sink755, %103 ], [ %.sink757, %110 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4479.0597, %91 ], [ undef, %103 ], [ undef, %110 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %91 ], [ %.sroa.5486.0603, %103 ], [ undef, %110 ]
+  %.sroa.0138.1 = phi i8 [ %.sroa.0138.0, %91 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.3, %110 ]
+  %.sroa.11145.1 = phi i32 [ %.sroa.11145.0, %91 ], [ %.sroa.11145.2, %103 ], [ %.sroa.5492.0608, %110 ]
   %95 = icmp eq i8 %.sroa.0138.1, 9
   br i1 %95, label %111, label %114
 
@@ -11861,7 +11861,7 @@ _ZN9rmp_serde6decode13read_str_data17hc23cc5f52cc12036E.exit: ; preds = %202, %1
   br i1 %126, label %128, label %129
 
 127:                                              ; preds = %69, %64, %.thread545.thread
-  %.sroa.4.0.ph549730 = phi i8 [ -55, %69 ], [ -56, %64 ], [ -57, %.thread545.thread ]
+  %.sroa.4.0.ph549730 = phi i8 [ -56, %64 ], [ -55, %69 ], [ -57, %.thread545.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph549730, ptr %.sroa.2354.0..sroa_idx, align 1
@@ -11928,11 +11928,11 @@ _ZN9rmp_serde6decode13read_str_data17hc23cc5f52cc12036E.exit: ; preds = %202, %1
   br i1 %147, label %169, label %165
 
 148:                                              ; preds = %171, %164, %156
-  %149 = phi i64 [ %.sink763, %171 ], [ %.sink761, %164 ], [ %.sink759, %156 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %171 ], [ undef, %164 ], [ %.sroa.4432.0634, %156 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %171 ], [ %.sroa.5.0640, %164 ], [ undef, %156 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5443.0645, %171 ], [ %.sroa.1224.2, %164 ], [ %.sroa.1224.1, %156 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %171 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.1, %156 ]
+  %149 = phi i64 [ %.sink759, %156 ], [ %.sink761, %164 ], [ %.sink763, %171 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4432.0634, %156 ], [ undef, %164 ], [ undef, %171 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %156 ], [ %.sroa.5.0640, %164 ], [ undef, %171 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %156 ], [ %.sroa.1224.2, %164 ], [ %.sroa.5443.0645, %171 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %156 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.3, %171 ]
   %150 = icmp eq i8 %.sroa.017.0, 9
   br i1 %150, label %172, label %203
 
@@ -12138,7 +12138,7 @@ _ZN9rmp_serde6decode13read_str_data17hc23cc5f52cc12036E.exit: ; preds = %202, %1
   br i1 %215, label %232, label %228
 
 216:                                              ; preds = %228, %221, %204
-  %.sroa.082.0 = phi i32 [ %231, %228 ], [ %225, %221 ], [ %205, %204 ]
+  %.sroa.082.0 = phi i32 [ %205, %204 ], [ %225, %221 ], [ %231, %228 ]
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %218 = load i16, ptr %217, align 2, !noundef !4
   %219 = add i16 %218, -1
@@ -12264,7 +12264,7 @@ _ZN9rmp_serde6decode13read_str_data17hc23cc5f52cc12036E.exit: ; preds = %202, %1
   br i1 %260, label %277, label %273
 
 261:                                              ; preds = %273, %266, %249
-  %.sroa.0127.0 = phi i32 [ %250, %249 ], [ %270, %266 ], [ %276, %273 ]
+  %.sroa.0127.0 = phi i32 [ %276, %273 ], [ %270, %266 ], [ %250, %249 ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %263 = load i16, ptr %262, align 2, !noundef !4
   %264 = add i16 %263, -1
@@ -12761,12 +12761,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %109
 
 109:                                              ; preds = %127, %120, %108
-  %110 = phi ptr [ %.sink952, %127 ], [ %.sink950, %120 ], [ %.sink948, %108 ]
-  %111 = phi i64 [ %.sink951, %127 ], [ %.sink949, %120 ], [ %.sink, %108 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %127 ], [ undef, %120 ], [ %.sroa.4496.0636, %108 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %127 ], [ %.sroa.5503.0642, %120 ], [ undef, %108 ]
-  %.sroa.0144.1 = phi i8 [ %.sroa.0144.3, %127 ], [ %.sroa.0144.2, %120 ], [ %.sroa.0144.0, %108 ]
-  %.sroa.11151.1 = phi i32 [ %.sroa.5509.0647, %127 ], [ %.sroa.11151.2, %120 ], [ %.sroa.11151.0, %108 ]
+  %110 = phi ptr [ %.sink948, %108 ], [ %.sink950, %120 ], [ %.sink952, %127 ]
+  %111 = phi i64 [ %.sink, %108 ], [ %.sink949, %120 ], [ %.sink951, %127 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4496.0636, %108 ], [ undef, %120 ], [ undef, %127 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %108 ], [ %.sroa.5503.0642, %120 ], [ undef, %127 ]
+  %.sroa.0144.1 = phi i8 [ %.sroa.0144.0, %108 ], [ %.sroa.0144.2, %120 ], [ %.sroa.0144.3, %127 ]
+  %.sroa.11151.1 = phi i32 [ %.sroa.11151.0, %108 ], [ %.sroa.11151.2, %120 ], [ %.sroa.5509.0647, %127 ]
   %112 = icmp eq i8 %.sroa.0144.1, 9
   br i1 %112, label %128, label %131
 
@@ -12879,7 +12879,7 @@ _ZN9rmp_serde6decode13read_str_data17he683e6d71f1116f6E.exit: ; preds = %220, %1
   br i1 %145, label %147, label %148
 
 146:                                              ; preds = %86, %81, %.thread584.thread
-  %.sroa.4.0.ph588784 = phi i8 [ -55, %86 ], [ -56, %81 ], [ -57, %.thread584.thread ]
+  %.sroa.4.0.ph588784 = phi i8 [ -56, %81 ], [ -55, %86 ], [ -57, %.thread584.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph588784, ptr %.sroa.2366.0..sroa_idx, align 1
@@ -12946,11 +12946,11 @@ _ZN9rmp_serde6decode13read_str_data17he683e6d71f1116f6E.exit: ; preds = %220, %1
   br i1 %166, label %188, label %184
 
 167:                                              ; preds = %190, %183, %175
-  %168 = phi i64 [ %.sink957, %190 ], [ %.sink955, %183 ], [ %.sink953, %175 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %190 ], [ undef, %183 ], [ %.sroa.4445.0673, %175 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %190 ], [ %.sroa.5.0679, %183 ], [ undef, %175 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5456.0684, %190 ], [ %.sroa.1224.2, %183 ], [ %.sroa.1224.1, %175 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %190 ], [ %.sroa.017.2, %183 ], [ %.sroa.017.1, %175 ]
+  %168 = phi i64 [ %.sink953, %175 ], [ %.sink955, %183 ], [ %.sink957, %190 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4445.0673, %175 ], [ undef, %183 ], [ undef, %190 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %175 ], [ %.sroa.5.0679, %183 ], [ undef, %190 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %175 ], [ %.sroa.1224.2, %183 ], [ %.sroa.5456.0684, %190 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %175 ], [ %.sroa.017.2, %183 ], [ %.sroa.017.3, %190 ]
   %169 = icmp eq i8 %.sroa.017.0, 9
   br i1 %169, label %191, label %221
 
@@ -13146,7 +13146,7 @@ _ZN9rmp_serde6decode13read_str_data17he683e6d71f1116f6E.exit: ; preds = %220, %1
   br i1 %233, label %250, label %246
 
 234:                                              ; preds = %246, %239, %222
-  %.sroa.085.0 = phi i32 [ %249, %246 ], [ %243, %239 ], [ %223, %222 ]
+  %.sroa.085.0 = phi i32 [ %223, %222 ], [ %243, %239 ], [ %249, %246 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %236 = load i16, ptr %235, align 2, !noundef !4
   %237 = add i16 %236, -1
@@ -13288,7 +13288,7 @@ _ZN9rmp_serde6decode13read_str_data17he683e6d71f1116f6E.exit: ; preds = %220, %1
   br i1 %280, label %297, label %293
 
 281:                                              ; preds = %293, %286, %269
-  %.sroa.0133.0 = phi i32 [ %270, %269 ], [ %290, %286 ], [ %296, %293 ]
+  %.sroa.0133.0 = phi i32 [ %296, %293 ], [ %290, %286 ], [ %270, %269 ]
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %283 = load i16, ptr %282, align 2, !noundef !4
   %284 = add i16 %283, -1
@@ -14755,12 +14755,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %96
 
 96:                                               ; preds = %114, %107, %95
-  %97 = phi ptr [ %.sink742, %114 ], [ %.sink740, %107 ], [ %.sink738, %95 ]
-  %98 = phi i64 [ %.sink741, %114 ], [ %.sink739, %107 ], [ %.sink, %95 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %114 ], [ undef, %107 ], [ %.sroa.4467.0585, %95 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %114 ], [ %.sroa.5474.0591, %107 ], [ undef, %95 ]
-  %.sroa.0132.1 = phi i8 [ %.sroa.0132.3, %114 ], [ %.sroa.0132.2, %107 ], [ %.sroa.0132.0, %95 ]
-  %.sroa.11139.1 = phi i32 [ %.sroa.5480.0596, %114 ], [ %.sroa.11139.2, %107 ], [ %.sroa.11139.0, %95 ]
+  %97 = phi ptr [ %.sink738, %95 ], [ %.sink740, %107 ], [ %.sink742, %114 ]
+  %98 = phi i64 [ %.sink, %95 ], [ %.sink739, %107 ], [ %.sink741, %114 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4467.0585, %95 ], [ undef, %107 ], [ undef, %114 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %95 ], [ %.sroa.5474.0591, %107 ], [ undef, %114 ]
+  %.sroa.0132.1 = phi i8 [ %.sroa.0132.0, %95 ], [ %.sroa.0132.2, %107 ], [ %.sroa.0132.3, %114 ]
+  %.sroa.11139.1 = phi i32 [ %.sroa.11139.0, %95 ], [ %.sroa.11139.2, %107 ], [ %.sroa.5480.0596, %114 ]
   %99 = icmp eq i8 %.sroa.0132.1, 9
   br i1 %99, label %115, label %118
 
@@ -14865,7 +14865,7 @@ _ZN9rmp_serde6decode13read_str_data17h576091d8f03c1e2dE.exit: ; preds = %207, %1
   br i1 %130, label %132, label %133
 
 131:                                              ; preds = %73, %68, %.thread533.thread
-  %.sroa.4.0.ph537714 = phi i8 [ -55, %73 ], [ -56, %68 ], [ -57, %.thread533.thread ]
+  %.sroa.4.0.ph537714 = phi i8 [ -56, %68 ], [ -55, %73 ], [ -57, %.thread533.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph537714, ptr %.sroa.2342.0..sroa_idx, align 1
@@ -14932,11 +14932,11 @@ _ZN9rmp_serde6decode13read_str_data17h576091d8f03c1e2dE.exit: ; preds = %207, %1
   br i1 %151, label %173, label %169
 
 152:                                              ; preds = %175, %168, %160
-  %153 = phi i64 [ %.sink747, %175 ], [ %.sink745, %168 ], [ %.sink743, %160 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %175 ], [ undef, %168 ], [ %.sroa.4420.0622, %160 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %175 ], [ %.sroa.5.0628, %168 ], [ undef, %160 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5431.0633, %175 ], [ %.sroa.1224.2, %168 ], [ %.sroa.1224.1, %160 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %175 ], [ %.sroa.017.2, %168 ], [ %.sroa.017.1, %160 ]
+  %153 = phi i64 [ %.sink743, %160 ], [ %.sink745, %168 ], [ %.sink747, %175 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4420.0622, %160 ], [ undef, %168 ], [ undef, %175 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %160 ], [ %.sroa.5.0628, %168 ], [ undef, %175 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %160 ], [ %.sroa.1224.2, %168 ], [ %.sroa.5431.0633, %175 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %160 ], [ %.sroa.017.2, %168 ], [ %.sroa.017.3, %175 ]
   %154 = icmp eq i8 %.sroa.017.0, 9
   br i1 %154, label %176, label %208
 
@@ -15143,7 +15143,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hee2b61ac28c29ba7E.exit.i: ; preds =
   br i1 %220, label %237, label %233
 
 221:                                              ; preds = %233, %226, %209
-  %.sroa.079.0 = phi i32 [ %236, %233 ], [ %230, %226 ], [ %210, %209 ]
+  %.sroa.079.0 = phi i32 [ %210, %209 ], [ %230, %226 ], [ %236, %233 ]
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %223 = load i16, ptr %222, align 2, !noundef !4
   %224 = add i16 %223, -1
@@ -15277,7 +15277,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17hee2b61ac28c29ba7E.exit.i: ; preds =
   br i1 %264, label %281, label %277
 
 265:                                              ; preds = %277, %270, %253
-  %.sroa.0121.0 = phi i32 [ %254, %253 ], [ %274, %270 ], [ %280, %277 ]
+  %.sroa.0121.0 = phi i32 [ %280, %277 ], [ %274, %270 ], [ %254, %253 ]
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %267 = load i16, ptr %266, align 2, !noundef !4
   %268 = add i16 %267, -1
@@ -15811,12 +15811,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %104
 
 104:                                              ; preds = %122, %115, %103
-  %105 = phi ptr [ %.sink741, %122 ], [ %.sink739, %115 ], [ %.sink737, %103 ]
-  %106 = phi i64 [ %.sink740, %122 ], [ %.sink738, %115 ], [ %.sink, %103 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %122 ], [ undef, %115 ], [ %.sroa.4461.0573, %103 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %122 ], [ %.sroa.5468.0579, %115 ], [ undef, %103 ]
-  %.sroa.0122.1 = phi i8 [ %.sroa.0122.3, %122 ], [ %.sroa.0122.2, %115 ], [ %.sroa.0122.0, %103 ]
-  %.sroa.11129.1 = phi i32 [ %.sroa.5474.0584, %122 ], [ %.sroa.11129.2, %115 ], [ %.sroa.11129.0, %103 ]
+  %105 = phi ptr [ %.sink737, %103 ], [ %.sink739, %115 ], [ %.sink741, %122 ]
+  %106 = phi i64 [ %.sink, %103 ], [ %.sink738, %115 ], [ %.sink740, %122 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4461.0573, %103 ], [ undef, %115 ], [ undef, %122 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %103 ], [ %.sroa.5468.0579, %115 ], [ undef, %122 ]
+  %.sroa.0122.1 = phi i8 [ %.sroa.0122.0, %103 ], [ %.sroa.0122.2, %115 ], [ %.sroa.0122.3, %122 ]
+  %.sroa.11129.1 = phi i32 [ %.sroa.11129.0, %103 ], [ %.sroa.11129.2, %115 ], [ %.sroa.5474.0584, %122 ]
   %107 = icmp eq i8 %.sroa.0122.1, 9
   br i1 %107, label %123, label %126
 
@@ -15953,7 +15953,7 @@ _ZN9rmp_serde6decode13read_str_data17h4fe09668ba460309E.exit: ; preds = %"_ZN89_
   ret void
 
 .thread521.thread725:                             ; preds = %43, %.thread521, %.thread521.thread722, %.thread521.thread728, %.thread521.thread731, %.thread521.thread734, %62, %70, %77
-  %.sroa.11489.0.ph = phi i32 [ 1, %.thread521.thread722 ], [ %69, %62 ], [ %74, %70 ], [ %80, %77 ], [ 4, %.thread521.thread728 ], [ 8, %.thread521.thread731 ], [ 16, %.thread521.thread734 ], [ 2, %.thread521 ], [ 2, %43 ]
+  %.sroa.11489.0.ph = phi i32 [ 1, %.thread521.thread722 ], [ 16, %.thread521.thread734 ], [ 8, %.thread521.thread731 ], [ 4, %.thread521.thread728 ], [ %80, %77 ], [ %74, %70 ], [ %69, %62 ], [ 2, %.thread521 ], [ 2, %43 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %146 = load i16, ptr %145, align 2, !noundef !4
   %147 = add i16 %146, -1
@@ -15962,9 +15962,9 @@ _ZN9rmp_serde6decode13read_str_data17h4fe09668ba460309E.exit: ; preds = %"_ZN89_
   br i1 %148, label %151, label %153
 
 149:                                              ; preds = %81, %75, %.thread521, %.thread521.thread
-  %.sroa.4.0.ph525713 = phi i8 [ -55, %81 ], [ -56, %75 ], [ %19, %.thread521 ], [ -57, %.thread521.thread ]
-  %.sroa.0485.0 = phi i8 [ 1, %81 ], [ 1, %75 ], [ 2, %.thread521 ], [ 1, %.thread521.thread ]
-  %.sroa.10487.0 = phi i8 [ undef, %81 ], [ undef, %75 ], [ %21, %.thread521 ], [ undef, %.thread521.thread ]
+  %.sroa.4.0.ph525713 = phi i8 [ -56, %75 ], [ -55, %81 ], [ %19, %.thread521 ], [ -57, %.thread521.thread ]
+  %.sroa.0485.0 = phi i8 [ 1, %75 ], [ 1, %81 ], [ 2, %.thread521 ], [ 1, %.thread521.thread ]
+  %.sroa.10487.0 = phi i8 [ undef, %75 ], [ undef, %81 ], [ %21, %.thread521 ], [ undef, %.thread521.thread ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0485.0, ptr %150, align 8
   %.sroa.2320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -16107,11 +16107,11 @@ _ZN9rmp_serde6decode13read_str_data17h4fe09668ba460309E.exit: ; preds = %"_ZN89_
   br i1 %188, label %210, label %206
 
 189:                                              ; preds = %212, %205, %197
-  %190 = phi i64 [ %.sink746, %212 ], [ %.sink744, %205 ], [ %.sink742, %197 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %212 ], [ undef, %205 ], [ %.sroa.4415.0611, %197 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %212 ], [ %.sroa.5.0617, %205 ], [ undef, %197 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5426.0622, %212 ], [ %.sroa.1224.2, %205 ], [ %.sroa.1224.1, %197 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %212 ], [ %.sroa.017.2, %205 ], [ %.sroa.017.1, %197 ]
+  %190 = phi i64 [ %.sink742, %197 ], [ %.sink744, %205 ], [ %.sink746, %212 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4415.0611, %197 ], [ undef, %205 ], [ undef, %212 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %197 ], [ %.sroa.5.0617, %205 ], [ undef, %212 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %197 ], [ %.sroa.1224.2, %205 ], [ %.sroa.5426.0622, %212 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %197 ], [ %.sroa.017.2, %205 ], [ %.sroa.017.3, %212 ]
   %191 = icmp eq i8 %.sroa.017.0, 9
   br i1 %191, label %213, label %238
 
@@ -16306,7 +16306,7 @@ _ZN9rmp_serde6decode13read_str_data17h4fe09668ba460309E.exit: ; preds = %"_ZN89_
   br i1 %251, label %269, label %265
 
 252:                                              ; preds = %265, %257, %240
-  %.sroa.074.0 = phi i32 [ %268, %265 ], [ %261, %257 ], [ %241, %240 ]
+  %.sroa.074.0 = phi i32 [ %241, %240 ], [ %261, %257 ], [ %268, %265 ]
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %254 = load i16, ptr %253, align 2, !noundef !4
   %255 = add i16 %254, -1
@@ -16455,7 +16455,7 @@ _ZN9rmp_serde6decode13read_str_data17h4fe09668ba460309E.exit: ; preds = %"_ZN89_
   br i1 %304, label %322, label %318
 
 305:                                              ; preds = %318, %310, %293
-  %.sroa.0111.0 = phi i32 [ %294, %293 ], [ %314, %310 ], [ %321, %318 ]
+  %.sroa.0111.0 = phi i32 [ %321, %318 ], [ %314, %310 ], [ %294, %293 ]
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %307 = load i16, ptr %306, align 2, !noundef !4
   %308 = add i16 %307, -1
@@ -16989,12 +16989,12 @@ define internal fastcc void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9an
   br label %91
 
 91:                                               ; preds = %109, %102, %90
-  %92 = phi ptr [ %.sink830, %109 ], [ %.sink828, %102 ], [ %.sink826, %90 ]
-  %93 = phi i64 [ %.sink829, %109 ], [ %.sink827, %102 ], [ %.sink, %90 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %109 ], [ undef, %102 ], [ %.sroa.4471.0628, %90 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %109 ], [ %.sroa.5478.0634, %102 ], [ undef, %90 ]
-  %.sroa.0130.1 = phi i8 [ %.sroa.0130.3, %109 ], [ %.sroa.0130.2, %102 ], [ %.sroa.0130.0, %90 ]
-  %.sroa.11137.1 = phi i32 [ %.sroa.5484.0639, %109 ], [ %.sroa.11137.2, %102 ], [ %.sroa.11137.0, %90 ]
+  %92 = phi ptr [ %.sink826, %90 ], [ %.sink828, %102 ], [ %.sink830, %109 ]
+  %93 = phi i64 [ %.sink, %90 ], [ %.sink827, %102 ], [ %.sink829, %109 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4471.0628, %90 ], [ undef, %102 ], [ undef, %109 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %90 ], [ %.sroa.5478.0634, %102 ], [ undef, %109 ]
+  %.sroa.0130.1 = phi i8 [ %.sroa.0130.0, %90 ], [ %.sroa.0130.2, %102 ], [ %.sroa.0130.3, %109 ]
+  %.sroa.11137.1 = phi i32 [ %.sroa.11137.0, %90 ], [ %.sroa.11137.2, %102 ], [ %.sroa.5484.0639, %109 ]
   %94 = icmp eq i8 %.sroa.0130.1, 9
   br i1 %94, label %110, label %113
 
@@ -17079,7 +17079,7 @@ define internal fastcc void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9an
   ret void
 
 .thread576.thread808:                             ; preds = %32, %.thread576, %.thread576.thread805, %.thread576.thread811, %.thread576.thread814, %.thread576.thread817, %49, %57, %64
-  %.sroa.11499.0.ph = phi i32 [ 1, %.thread576.thread805 ], [ %56, %49 ], [ %61, %57 ], [ %67, %64 ], [ 4, %.thread576.thread811 ], [ 8, %.thread576.thread814 ], [ 16, %.thread576.thread817 ], [ 2, %.thread576 ], [ 2, %32 ]
+  %.sroa.11499.0.ph = phi i32 [ 1, %.thread576.thread805 ], [ 16, %.thread576.thread817 ], [ 8, %.thread576.thread814 ], [ 4, %.thread576.thread811 ], [ %67, %64 ], [ %61, %57 ], [ %56, %49 ], [ 2, %.thread576 ], [ 2, %32 ]
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %122 = load i16, ptr %121, align 2, !noundef !4
   %123 = add i16 %122, -1
@@ -17088,9 +17088,9 @@ define internal fastcc void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9an
   br i1 %124, label %126, label %.lr.ph.i.i
 
 125:                                              ; preds = %68, %62, %.thread576, %.thread576.thread
-  %.sroa.4.0.ph580796 = phi i8 [ -55, %68 ], [ -56, %62 ], [ %8, %.thread576 ], [ -57, %.thread576.thread ]
-  %.sroa.0495.0 = phi i8 [ 1, %68 ], [ 1, %62 ], [ 2, %.thread576 ], [ 1, %.thread576.thread ]
-  %.sroa.10497.0 = phi i8 [ undef, %68 ], [ undef, %62 ], [ %10, %.thread576 ], [ undef, %.thread576.thread ]
+  %.sroa.4.0.ph580796 = phi i8 [ -56, %62 ], [ -55, %68 ], [ %8, %.thread576 ], [ -57, %.thread576.thread ]
+  %.sroa.0495.0 = phi i8 [ 1, %62 ], [ 1, %68 ], [ 2, %.thread576 ], [ 1, %.thread576.thread ]
+  %.sroa.10497.0 = phi i8 [ undef, %62 ], [ undef, %68 ], [ %10, %.thread576 ], [ undef, %.thread576.thread ]
   store i8 %.sroa.0495.0, ptr %0, align 8
   %.sroa.2340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph580796, ptr %.sroa.2340.0..sroa_idx, align 1
@@ -17188,11 +17188,11 @@ _ZN5serde2de9SeqAccess12next_element17hd7cb958fcd132841E.exit.i.i.i: ; preds = %
   br i1 %153, label %175, label %171
 
 154:                                              ; preds = %177, %170, %162
-  %155 = phi i64 [ %.sink835, %177 ], [ %.sink833, %170 ], [ %.sink831, %162 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %177 ], [ undef, %170 ], [ %.sroa.4425.0666, %162 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %177 ], [ %.sroa.5.0672, %170 ], [ undef, %162 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5436.0677, %177 ], [ %.sroa.1224.2, %170 ], [ %.sroa.1224.1, %162 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %177 ], [ %.sroa.017.2, %170 ], [ %.sroa.017.1, %162 ]
+  %155 = phi i64 [ %.sink831, %162 ], [ %.sink833, %170 ], [ %.sink835, %177 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4425.0666, %162 ], [ undef, %170 ], [ undef, %177 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %162 ], [ %.sroa.5.0672, %170 ], [ undef, %177 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %162 ], [ %.sroa.1224.2, %170 ], [ %.sroa.5436.0677, %177 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %162 ], [ %.sroa.017.2, %170 ], [ %.sroa.017.3, %177 ]
   %156 = icmp eq i8 %.sroa.017.0, 9
   br i1 %156, label %178, label %189
 
@@ -17331,7 +17331,7 @@ _ZN9rmp_serde6decode13read_str_data17h8fc0c35a4f9f5a9fE.exit: ; preds = %182, %1
   br i1 %201, label %218, label %214
 
 202:                                              ; preds = %214, %207, %190
-  %.sroa.078.0 = phi i32 [ %217, %214 ], [ %211, %207 ], [ %191, %190 ]
+  %.sroa.078.0 = phi i32 [ %191, %190 ], [ %211, %207 ], [ %217, %214 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %204 = load i16, ptr %203, align 2, !noundef !4
   %205 = add i16 %204, -1
@@ -17447,7 +17447,7 @@ _ZN9rmp_serde6decode13read_str_data17h8fc0c35a4f9f5a9fE.exit: ; preds = %182, %1
   br i1 %240, label %257, label %253
 
 241:                                              ; preds = %253, %246, %229
-  %.sroa.0119.0 = phi i32 [ %230, %229 ], [ %250, %246 ], [ %256, %253 ]
+  %.sroa.0119.0 = phi i32 [ %256, %253 ], [ %250, %246 ], [ %230, %229 ]
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %243 = load i16, ptr %242, align 2, !noundef !4
   %244 = add i16 %243, -1
@@ -17964,12 +17964,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %115
 
 115:                                              ; preds = %133, %126, %114
-  %116 = phi ptr [ %.sink916, %133 ], [ %.sink914, %126 ], [ %.sink912, %114 ]
-  %117 = phi i64 [ %.sink915, %133 ], [ %.sink913, %126 ], [ %.sink, %114 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %133 ], [ undef, %126 ], [ %.sroa.4494.0643, %114 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %133 ], [ %.sroa.5501.0649, %126 ], [ undef, %114 ]
-  %.sroa.0136.1 = phi i8 [ %.sroa.0136.3, %133 ], [ %.sroa.0136.2, %126 ], [ %.sroa.0136.0, %114 ]
-  %.sroa.11143.1 = phi i32 [ %.sroa.5507.0654, %133 ], [ %.sroa.11143.2, %126 ], [ %.sroa.11143.0, %114 ]
+  %116 = phi ptr [ %.sink912, %114 ], [ %.sink914, %126 ], [ %.sink916, %133 ]
+  %117 = phi i64 [ %.sink, %114 ], [ %.sink913, %126 ], [ %.sink915, %133 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4494.0643, %114 ], [ undef, %126 ], [ undef, %133 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %114 ], [ %.sroa.5501.0649, %126 ], [ undef, %133 ]
+  %.sroa.0136.1 = phi i8 [ %.sroa.0136.0, %114 ], [ %.sroa.0136.2, %126 ], [ %.sroa.0136.3, %133 ]
+  %.sroa.11143.1 = phi i32 [ %.sroa.11143.0, %114 ], [ %.sroa.11143.2, %126 ], [ %.sroa.5507.0654, %133 ]
   %118 = icmp eq i8 %.sroa.0136.1, 9
   br i1 %118, label %134, label %137
 
@@ -18093,7 +18093,7 @@ _ZN9rmp_serde6decode13read_str_data17h02cfcb7c37dbcc2aE.exit: ; preds = %231, %2
   br i1 %156, label %159, label %161
 
 157:                                              ; preds = %92, %87, %.thread591.thread
-  %.sroa.4.0.ph595801 = phi i8 [ -55, %92 ], [ -56, %87 ], [ -57, %.thread591.thread ]
+  %.sroa.4.0.ph595801 = phi i8 [ -56, %87 ], [ -55, %92 ], [ -57, %.thread591.thread ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %158, align 8
   %.sroa.2340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18167,11 +18167,11 @@ _ZN9rmp_serde6decode13read_str_data17h02cfcb7c37dbcc2aE.exit: ; preds = %231, %2
   br i1 %180, label %202, label %198
 
 181:                                              ; preds = %204, %197, %189
-  %182 = phi i64 [ %.sink921, %204 ], [ %.sink919, %197 ], [ %.sink917, %189 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %204 ], [ undef, %197 ], [ %.sroa.4424.0680, %189 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %204 ], [ %.sroa.5.0686, %197 ], [ undef, %189 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5435.0691, %204 ], [ %.sroa.1224.2, %197 ], [ %.sroa.1224.1, %189 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %204 ], [ %.sroa.017.2, %197 ], [ %.sroa.017.1, %189 ]
+  %182 = phi i64 [ %.sink917, %189 ], [ %.sink919, %197 ], [ %.sink921, %204 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4424.0680, %189 ], [ undef, %197 ], [ undef, %204 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %189 ], [ %.sroa.5.0686, %197 ], [ undef, %204 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %189 ], [ %.sroa.1224.2, %197 ], [ %.sroa.5435.0691, %204 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %189 ], [ %.sroa.017.2, %197 ], [ %.sroa.017.3, %204 ]
   %183 = icmp eq i8 %.sroa.017.0, 9
   br i1 %183, label %205, label %232
 
@@ -18365,7 +18365,7 @@ _ZN9rmp_serde6decode13read_str_data17h02cfcb7c37dbcc2aE.exit: ; preds = %231, %2
   br i1 %245, label %263, label %259
 
 246:                                              ; preds = %259, %251, %234
-  %.sroa.081.0 = phi i32 [ %262, %259 ], [ %255, %251 ], [ %235, %234 ]
+  %.sroa.081.0 = phi i32 [ %235, %234 ], [ %255, %251 ], [ %262, %259 ]
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %248 = load i16, ptr %247, align 2, !noundef !4
   %249 = add i16 %248, -1
@@ -18622,7 +18622,7 @@ common.resume:                                    ; preds = %606, %669, %283
   br i1 %316, label %334, label %330
 
 317:                                              ; preds = %330, %322, %305
-  %.sroa.0125.0 = phi i32 [ %306, %305 ], [ %326, %322 ], [ %333, %330 ]
+  %.sroa.0125.0 = phi i32 [ %333, %330 ], [ %326, %322 ], [ %306, %305 ]
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %319 = load i16, ptr %318, align 2, !noundef !4
   %320 = add i16 %319, -1
@@ -19385,7 +19385,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17ha5c13a0efe62e6f5E.exit.i: ; preds =
   br i1 %538, label %554, label %550
 
 539:                                              ; preds = %550, %543, %531
-  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %553, %550 ], [ %547, %543 ], [ %532, %531 ]
+  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %532, %531 ], [ %547, %543 ], [ %553, %550 ]
   %540 = load i16, ptr %318, align 2, !alias.scope !6088, !noalias !6089, !noundef !4
   %541 = add i16 %540, -1
   store i16 %541, ptr %318, align 2, !alias.scope !6088, !noalias !6089
@@ -19494,7 +19494,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17ha5c13a0efe62e6f5E.exit.i: ; preds =
   br i1 %575, label %591, label %587
 
 576:                                              ; preds = %587, %580, %568
-  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %569, %568 ], [ %584, %580 ], [ %590, %587 ]
+  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %590, %587 ], [ %584, %580 ], [ %569, %568 ]
   %577 = load i16, ptr %318, align 2, !alias.scope !6088, !noalias !6089, !noundef !4
   %578 = add i16 %577, -1
   store i16 %578, ptr %318, align 2, !alias.scope !6088, !noalias !6089
@@ -19605,7 +19605,7 @@ _ZN5serde2de7Visitor20visit_borrowed_bytes17ha5c13a0efe62e6f5E.exit.i: ; preds =
   br label %606
 
 .loopexit.split-lp.i:                             ; preds = %662, %642, %630, %617
-  %.sroa.062.1.ph.i = phi i8 [ 1, %617 ], [ 1, %630 ], [ 1, %642 ], [ %.sroa.062.5.i, %662 ]
+  %.sroa.062.1.ph.i = phi i8 [ 1, %630 ], [ 1, %617 ], [ 1, %642 ], [ %.sroa.062.5.i, %662 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %606
@@ -19711,7 +19711,7 @@ default.unreachable982:                           ; preds = %610
   br label %629
 
 629:                                              ; preds = %640, %636, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Os$GT$$GT$17h86719590dc55d4b3E.exit.i"
-  %.sroa.027.1.i = phi i8 [ %.sroa.027.0.i884, %640 ], [ %635, %636 ], [ %.sroa.027.0.i884, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Os$GT$$GT$17h86719590dc55d4b3E.exit.i" ]
+  %.sroa.027.1.i = phi i8 [ %.sroa.027.0.i884, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Os$GT$$GT$17h86719590dc55d4b3E.exit.i" ], [ %635, %636 ], [ %.sroa.027.0.i884, %640 ]
   %.not.i.i.i.i417 = icmp eq i32 %346, 0
   br i1 %.not.i.i.i.i417, label %.thread.i418, label %345
 
@@ -19855,9 +19855,9 @@ default.unreachable982:                           ; preds = %610
           to label %652 unwind label %.loopexit.split-lp.i, !noalias !6055
 
 663:                                              ; preds = %652, %641, %637, %632, %626, %619, %.loopexit137.i
-  %.sroa.22.0 = phi i8 [ %.sroa.22.1, %652 ], [ %.sroa.7.0.copyload.i, %.loopexit137.i ], [ %635, %637 ], [ %.sroa.22.8.copyload483, %632 ], [ %.sroa.6.i416.sroa.7.0.copyload567, %626 ], [ %.sroa.22.8.copyload485, %619 ], [ %.sroa.22.8.copyload488, %641 ]
-  %.sroa.12474.0 = phi i8 [ %.sroa.12474.1, %652 ], [ %.sroa.0121.0.copyload131.i, %.loopexit137.i ], [ %633, %637 ], [ %.sroa.12474.8.copyload476, %632 ], [ %.sroa.6.i416.sroa.0.0.copyload562, %626 ], [ %.sroa.12474.8.copyload477, %619 ], [ %638, %641 ]
-  %.sroa.062.4.i = phi i1 [ %653, %652 ], [ true, %.loopexit137.i ], [ true, %637 ], [ true, %632 ], [ true, %626 ], [ true, %619 ], [ true, %641 ]
+  %.sroa.22.0 = phi i8 [ %.sroa.22.1, %652 ], [ %.sroa.7.0.copyload.i, %.loopexit137.i ], [ %.sroa.22.8.copyload488, %641 ], [ %.sroa.6.i416.sroa.7.0.copyload567, %626 ], [ %.sroa.22.8.copyload485, %619 ], [ %635, %637 ], [ %.sroa.22.8.copyload483, %632 ]
+  %.sroa.12474.0 = phi i8 [ %.sroa.12474.1, %652 ], [ %.sroa.0121.0.copyload131.i, %.loopexit137.i ], [ %638, %641 ], [ %.sroa.6.i416.sroa.0.0.copyload562, %626 ], [ %.sroa.12474.8.copyload477, %619 ], [ %633, %637 ], [ %.sroa.12474.8.copyload476, %632 ]
+  %.sroa.062.4.i = phi i1 [ %653, %652 ], [ true, %.loopexit137.i ], [ true, %641 ], [ true, %626 ], [ true, %619 ], [ true, %637 ], [ true, %632 ]
   %664 = load i64, ptr %20, align 8, !range !592, !noalias !6055, !noundef !4
   %665 = icmp ne i64 %664, -9223372036854775797
   %or.cond.i = select i1 %665, i1 %.sroa.062.4.i, i1 false
@@ -20361,12 +20361,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %101
 
 101:                                              ; preds = %119, %112, %100
-  %102 = phi ptr [ %.sink720, %119 ], [ %.sink718, %112 ], [ %.sink716, %100 ]
-  %103 = phi i64 [ %.sink719, %119 ], [ %.sink717, %112 ], [ %.sink, %100 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %119 ], [ undef, %112 ], [ %.sroa.4452.0564, %100 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %119 ], [ %.sroa.5459.0570, %112 ], [ undef, %100 ]
-  %.sroa.0122.1 = phi i8 [ %.sroa.0122.3, %119 ], [ %.sroa.0122.2, %112 ], [ %.sroa.0122.0, %100 ]
-  %.sroa.11129.1 = phi i32 [ %.sroa.5465.0575, %119 ], [ %.sroa.11129.2, %112 ], [ %.sroa.11129.0, %100 ]
+  %102 = phi ptr [ %.sink716, %100 ], [ %.sink718, %112 ], [ %.sink720, %119 ]
+  %103 = phi i64 [ %.sink, %100 ], [ %.sink717, %112 ], [ %.sink719, %119 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4452.0564, %100 ], [ undef, %112 ], [ undef, %119 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %100 ], [ %.sroa.5459.0570, %112 ], [ undef, %119 ]
+  %.sroa.0122.1 = phi i8 [ %.sroa.0122.0, %100 ], [ %.sroa.0122.2, %112 ], [ %.sroa.0122.3, %119 ]
+  %.sroa.11129.1 = phi i32 [ %.sroa.11129.0, %100 ], [ %.sroa.11129.2, %112 ], [ %.sroa.5465.0575, %119 ]
   %104 = icmp eq i8 %.sroa.0122.1, 9
   br i1 %104, label %120, label %123
 
@@ -20475,7 +20475,7 @@ _ZN9rmp_serde6decode13read_str_data17he255db66c5a7d0caE.exit: ; preds = %211, %2
   ret void
 
 .thread512.thread704:                             ; preds = %40, %.thread512, %.thread512.thread701, %.thread512.thread707, %.thread512.thread710, %.thread512.thread713, %59, %67, %74
-  %.sroa.11480.0.ph = phi i32 [ 1, %.thread512.thread701 ], [ %66, %59 ], [ %71, %67 ], [ %77, %74 ], [ 4, %.thread512.thread707 ], [ 8, %.thread512.thread710 ], [ 16, %.thread512.thread713 ], [ 2, %.thread512 ], [ 2, %40 ]
+  %.sroa.11480.0.ph = phi i32 [ 1, %.thread512.thread701 ], [ 16, %.thread512.thread713 ], [ 8, %.thread512.thread710 ], [ 4, %.thread512.thread707 ], [ %77, %74 ], [ %71, %67 ], [ %66, %59 ], [ 2, %.thread512 ], [ 2, %40 ]
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %138 = load i16, ptr %137, align 2, !noundef !4
   %139 = add i16 %138, -1
@@ -20484,9 +20484,9 @@ _ZN9rmp_serde6decode13read_str_data17he255db66c5a7d0caE.exit: ; preds = %211, %2
   br i1 %140, label %143, label %145
 
 141:                                              ; preds = %78, %72, %.thread512, %.thread512.thread
-  %.sroa.4.0.ph516692 = phi i8 [ -55, %78 ], [ -56, %72 ], [ %16, %.thread512 ], [ -57, %.thread512.thread ]
-  %.sroa.0476.0 = phi i8 [ 1, %78 ], [ 1, %72 ], [ 2, %.thread512 ], [ 1, %.thread512.thread ]
-  %.sroa.10478.0 = phi i8 [ undef, %78 ], [ undef, %72 ], [ %18, %.thread512 ], [ undef, %.thread512.thread ]
+  %.sroa.4.0.ph516692 = phi i8 [ -56, %72 ], [ -55, %78 ], [ %16, %.thread512 ], [ -57, %.thread512.thread ]
+  %.sroa.0476.0 = phi i8 [ 1, %72 ], [ 1, %78 ], [ 2, %.thread512 ], [ 1, %.thread512.thread ]
+  %.sroa.10478.0 = phi i8 [ undef, %72 ], [ undef, %78 ], [ %18, %.thread512 ], [ undef, %.thread512.thread ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0476.0, ptr %142, align 8
   %.sroa.2320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -20620,11 +20620,11 @@ _ZN9rmp_serde6decode13read_str_data17he255db66c5a7d0caE.exit: ; preds = %211, %2
   br i1 %180, label %202, label %198
 
 181:                                              ; preds = %204, %197, %189
-  %182 = phi i64 [ %.sink725, %204 ], [ %.sink723, %197 ], [ %.sink721, %189 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %204 ], [ undef, %197 ], [ %.sroa.4410.0602, %189 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %204 ], [ %.sroa.5.0608, %197 ], [ undef, %189 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5421.0613, %204 ], [ %.sroa.1224.2, %197 ], [ %.sroa.1224.1, %189 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %204 ], [ %.sroa.017.2, %197 ], [ %.sroa.017.1, %189 ]
+  %182 = phi i64 [ %.sink721, %189 ], [ %.sink723, %197 ], [ %.sink725, %204 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4410.0602, %189 ], [ undef, %197 ], [ undef, %204 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %189 ], [ %.sroa.5.0608, %197 ], [ undef, %204 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %189 ], [ %.sroa.1224.2, %197 ], [ %.sroa.5421.0613, %204 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %189 ], [ %.sroa.017.2, %197 ], [ %.sroa.017.3, %204 ]
   %183 = icmp eq i8 %.sroa.017.0, 9
   br i1 %183, label %205, label %225
 
@@ -20779,7 +20779,7 @@ _ZN9rmp_serde6decode13read_str_data17he255db66c5a7d0caE.exit: ; preds = %211, %2
   br i1 %238, label %256, label %252
 
 239:                                              ; preds = %252, %244, %227
-  %.sroa.074.0 = phi i32 [ %255, %252 ], [ %248, %244 ], [ %228, %227 ]
+  %.sroa.074.0 = phi i32 [ %228, %227 ], [ %248, %244 ], [ %255, %252 ]
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %241 = load i16, ptr %240, align 2, !noundef !4
   %242 = add i16 %241, -1
@@ -20920,7 +20920,7 @@ _ZN9rmp_serde6decode13read_str_data17he255db66c5a7d0caE.exit: ; preds = %211, %2
   br i1 %289, label %307, label %303
 
 290:                                              ; preds = %303, %295, %278
-  %.sroa.0111.0 = phi i32 [ %279, %278 ], [ %299, %295 ], [ %306, %303 ]
+  %.sroa.0111.0 = phi i32 [ %306, %303 ], [ %299, %295 ], [ %279, %278 ]
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %292 = load i16, ptr %291, align 2, !noundef !4
   %293 = add i16 %292, -1
@@ -21505,12 +21505,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %158
 
 158:                                              ; preds = %176, %169, %157
-  %159 = phi ptr [ %.sink906, %176 ], [ %.sink904, %169 ], [ %.sink902, %157 ]
-  %160 = phi i64 [ %.sink905, %176 ], [ %.sink903, %169 ], [ %.sink, %157 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %176 ], [ undef, %169 ], [ %.sroa.4501.0651, %157 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %176 ], [ %.sroa.5508.0657, %169 ], [ undef, %157 ]
-  %.sroa.0136.1 = phi i8 [ %.sroa.0136.3, %176 ], [ %.sroa.0136.2, %169 ], [ %.sroa.0136.0, %157 ]
-  %.sroa.11143.1 = phi i32 [ %.sroa.5514.0662, %176 ], [ %.sroa.11143.2, %169 ], [ %.sroa.11143.0, %157 ]
+  %159 = phi ptr [ %.sink902, %157 ], [ %.sink904, %169 ], [ %.sink906, %176 ]
+  %160 = phi i64 [ %.sink, %157 ], [ %.sink903, %169 ], [ %.sink905, %176 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4501.0651, %157 ], [ undef, %169 ], [ undef, %176 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %157 ], [ %.sroa.5508.0657, %169 ], [ undef, %176 ]
+  %.sroa.0136.1 = phi i8 [ %.sroa.0136.0, %157 ], [ %.sroa.0136.2, %169 ], [ %.sroa.0136.3, %176 ]
+  %.sroa.11143.1 = phi i32 [ %.sroa.11143.0, %157 ], [ %.sroa.11143.2, %169 ], [ %.sroa.5514.0662, %176 ]
   %161 = icmp eq i8 %.sroa.0136.1, 9
   br i1 %161, label %177, label %180
 
@@ -21634,7 +21634,7 @@ _ZN9rmp_serde6decode13read_str_data17hd7ba336d40b586d1E.exit: ; preds = %274, %2
   br i1 %199, label %202, label %204
 
 200:                                              ; preds = %135, %130, %.thread599.thread
-  %.sroa.4.0.ph603803 = phi i8 [ -55, %135 ], [ -56, %130 ], [ -57, %.thread599.thread ]
+  %.sroa.4.0.ph603803 = phi i8 [ -56, %130 ], [ -55, %135 ], [ -57, %.thread599.thread ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %201, align 8
   %.sroa.2340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -21708,11 +21708,11 @@ _ZN9rmp_serde6decode13read_str_data17hd7ba336d40b586d1E.exit: ; preds = %274, %2
   br i1 %223, label %245, label %241
 
 224:                                              ; preds = %247, %240, %232
-  %225 = phi i64 [ %.sink911, %247 ], [ %.sink909, %240 ], [ %.sink907, %232 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %247 ], [ undef, %240 ], [ %.sroa.4422.0688, %232 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %247 ], [ %.sroa.5.0694, %240 ], [ undef, %232 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5433.0699, %247 ], [ %.sroa.1224.2, %240 ], [ %.sroa.1224.1, %232 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %247 ], [ %.sroa.017.2, %240 ], [ %.sroa.017.1, %232 ]
+  %225 = phi i64 [ %.sink907, %232 ], [ %.sink909, %240 ], [ %.sink911, %247 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4422.0688, %232 ], [ undef, %240 ], [ undef, %247 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %232 ], [ %.sroa.5.0694, %240 ], [ undef, %247 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %232 ], [ %.sroa.1224.2, %240 ], [ %.sroa.5433.0699, %247 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %232 ], [ %.sroa.017.2, %240 ], [ %.sroa.017.3, %247 ]
   %226 = icmp eq i8 %.sroa.017.0, 9
   br i1 %226, label %248, label %275
 
@@ -21906,7 +21906,7 @@ _ZN9rmp_serde6decode13read_str_data17hd7ba336d40b586d1E.exit: ; preds = %274, %2
   br i1 %288, label %306, label %302
 
 289:                                              ; preds = %302, %294, %277
-  %.sroa.081.0 = phi i32 [ %305, %302 ], [ %298, %294 ], [ %278, %277 ]
+  %.sroa.081.0 = phi i32 [ %278, %277 ], [ %298, %294 ], [ %305, %302 ]
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %291 = load i16, ptr %290, align 2, !noundef !4
   %292 = add i16 %291, -1
@@ -22532,7 +22532,7 @@ common.resume:                                    ; preds = %958, %976, %328
   br i1 %439, label %457, label %453
 
 440:                                              ; preds = %453, %445, %428
-  %.sroa.0125.0 = phi i32 [ %429, %428 ], [ %449, %445 ], [ %456, %453 ]
+  %.sroa.0125.0 = phi i32 [ %456, %453 ], [ %449, %445 ], [ %429, %428 ]
   %441 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %442 = load i16, ptr %441, align 2, !noundef !4
   %443 = add i16 %442, -1
@@ -23248,7 +23248,7 @@ common.resume:                                    ; preds = %958, %976, %328
   br i1 %637, label %653, label %649
 
 638:                                              ; preds = %649, %642, %630
-  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %652, %649 ], [ %646, %642 ], [ %631, %630 ]
+  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %631, %630 ], [ %646, %642 ], [ %652, %649 ]
   %639 = load i16, ptr %441, align 2, !alias.scope !7313, !noalias !7314, !noundef !4
   %640 = add i16 %639, -1
   store i16 %640, ptr %441, align 2, !alias.scope !7313, !noalias !7314
@@ -23357,7 +23357,7 @@ common.resume:                                    ; preds = %958, %976, %328
   br i1 %674, label %690, label %686
 
 675:                                              ; preds = %686, %679, %667
-  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %668, %667 ], [ %683, %679 ], [ %689, %686 ]
+  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %689, %686 ], [ %683, %679 ], [ %668, %667 ]
   %676 = load i16, ptr %441, align 2, !alias.scope !7313, !noalias !7314, !noundef !4
   %677 = add i16 %676, -1
   store i16 %677, ptr %441, align 2, !alias.scope !7313, !noalias !7314
@@ -23450,11 +23450,11 @@ common.resume:                                    ; preds = %958, %976, %328
   br i1 %704, label %707, label %.loopexit326.i
 
 705:                                              ; preds = %823, %804, %787, %770, %753, %735, %.loopexit.split-lp.i, %.loopexit325.i
-  %.sroa.0105.2.i = phi i8 [ %.sroa.0105.8.i, %823 ], [ 1, %804 ], [ 1, %787 ], [ 1, %770 ], [ 1, %753 ], [ 1, %735 ], [ 1, %.loopexit325.i ], [ %.sroa.0105.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0107.2.i = phi i8 [ %.sroa.0107.8.i, %823 ], [ 1, %804 ], [ 1, %787 ], [ 1, %770 ], [ 1, %753 ], [ 1, %735 ], [ 1, %.loopexit325.i ], [ %.sroa.0107.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0109.2.i = phi i8 [ %.sroa.0109.9.i, %823 ], [ 1, %804 ], [ 1, %787 ], [ 1, %770 ], [ 1, %753 ], [ 1, %735 ], [ 1, %.loopexit325.i ], [ %.sroa.0109.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0111.2.i = phi i8 [ %.sroa.0111.6.i, %823 ], [ 1, %804 ], [ 1, %787 ], [ 1, %770 ], [ 1, %753 ], [ 1, %735 ], [ 1, %.loopexit325.i ], [ %.sroa.0111.1.ph.i, %.loopexit.split-lp.i ]
-  %.pn208.i = phi { ptr, i32 } [ %.pn206.i, %823 ], [ %805, %804 ], [ %788, %787 ], [ %771, %770 ], [ %754, %753 ], [ %736, %735 ], [ %lpad.loopexit.i, %.loopexit325.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.0105.2.i = phi i8 [ %.sroa.0105.8.i, %823 ], [ 1, %735 ], [ 1, %753 ], [ 1, %770 ], [ 1, %787 ], [ 1, %804 ], [ 1, %.loopexit325.i ], [ %.sroa.0105.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0107.2.i = phi i8 [ %.sroa.0107.8.i, %823 ], [ 1, %735 ], [ 1, %753 ], [ 1, %770 ], [ 1, %787 ], [ 1, %804 ], [ 1, %.loopexit325.i ], [ %.sroa.0107.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0109.2.i = phi i8 [ %.sroa.0109.9.i, %823 ], [ 1, %735 ], [ 1, %753 ], [ 1, %770 ], [ 1, %787 ], [ 1, %804 ], [ 1, %.loopexit325.i ], [ %.sroa.0109.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0111.2.i = phi i8 [ %.sroa.0111.6.i, %823 ], [ 1, %735 ], [ 1, %753 ], [ 1, %770 ], [ 1, %787 ], [ 1, %804 ], [ 1, %.loopexit325.i ], [ %.sroa.0111.1.ph.i, %.loopexit.split-lp.i ]
+  %.pn208.i = phi { ptr, i32 } [ %.pn206.i, %823 ], [ %736, %735 ], [ %754, %753 ], [ %771, %770 ], [ %788, %787 ], [ %805, %804 ], [ %lpad.loopexit.i, %.loopexit325.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %706 = load i64, ptr %46, align 8, !range !463, !noalias !7280, !noundef !4
   %.not210.i = icmp eq i64 %706, -9223372036854775808
   br i1 %.not210.i, label %904, label %972
@@ -23465,10 +23465,10 @@ common.resume:                                    ; preds = %958, %976, %328
   br label %705
 
 .loopexit.split-lp.i:                             ; preds = %838, %834, %810, %789, %772, %755, %738, %720
-  %.sroa.0105.1.ph.i = phi i8 [ %.sroa.0105.9.i, %838 ], [ %.sroa.0105.9.i, %834 ], [ 1, %810 ], [ 1, %720 ], [ 1, %738 ], [ 1, %755 ], [ 1, %772 ], [ 1, %789 ]
-  %.sroa.0107.1.ph.i = phi i8 [ %.sroa.0107.9.i, %838 ], [ %.sroa.0107.9.i, %834 ], [ 1, %810 ], [ 1, %720 ], [ 1, %738 ], [ 1, %755 ], [ 1, %772 ], [ 1, %789 ]
-  %.sroa.0109.1.ph.i = phi i8 [ %.sroa.0109.10.i, %838 ], [ %.sroa.0109.10.i, %834 ], [ 1, %810 ], [ 1, %720 ], [ 1, %738 ], [ 1, %755 ], [ 1, %772 ], [ 1, %789 ]
-  %.sroa.0111.1.ph.i = phi i8 [ %.sroa.0111.6.i, %838 ], [ %.sroa.0111.6.i, %834 ], [ 1, %810 ], [ 1, %720 ], [ 1, %738 ], [ 1, %755 ], [ 1, %772 ], [ 1, %789 ]
+  %.sroa.0105.1.ph.i = phi i8 [ %.sroa.0105.9.i, %838 ], [ %.sroa.0105.9.i, %834 ], [ 1, %810 ], [ 1, %789 ], [ 1, %772 ], [ 1, %755 ], [ 1, %738 ], [ 1, %720 ]
+  %.sroa.0107.1.ph.i = phi i8 [ %.sroa.0107.9.i, %838 ], [ %.sroa.0107.9.i, %834 ], [ 1, %810 ], [ 1, %789 ], [ 1, %772 ], [ 1, %755 ], [ 1, %738 ], [ 1, %720 ]
+  %.sroa.0109.1.ph.i = phi i8 [ %.sroa.0109.10.i, %838 ], [ %.sroa.0109.10.i, %834 ], [ 1, %810 ], [ 1, %789 ], [ 1, %772 ], [ 1, %755 ], [ 1, %738 ], [ 1, %720 ]
+  %.sroa.0111.1.ph.i = phi i8 [ %.sroa.0111.6.i, %838 ], [ %.sroa.0111.6.i, %834 ], [ 1, %810 ], [ 1, %789 ], [ 1, %772 ], [ 1, %755 ], [ 1, %738 ], [ 1, %720 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %705
@@ -24238,12 +24238,12 @@ default.unreachable972:                           ; preds = %707
           to label %878 unwind label %868, !noalias !7280
 
 888:                                              ; preds = %.loopexit326.i, %722, %734, %740, %752, %757, %769, %774, %786, %791, %803, %809, %820
-  %.sroa.40.1 = phi i8 [ %.sroa.40.5, %820 ], [ %.sroa.7.0.copyload.i, %.loopexit326.i ], [ %.sroa.757.i.sroa.0.0.copyload, %803 ], [ %.sroa.40.8.copyload476, %791 ], [ %.sroa.750.i.sroa.0.0.copyload, %786 ], [ %.sroa.40.8.copyload478, %774 ], [ %.sroa.743.i.sroa.0.0.copyload, %769 ], [ %.sroa.40.8.copyload480, %757 ], [ %.sroa.636.i.sroa.0.0.copyload, %752 ], [ %.sroa.40.8.copyload482, %740 ], [ %.sroa.6.i.sroa.0.0.copyload, %734 ], [ %.sroa.40.8.copyload484, %722 ], [ %.sroa.40.9.copyload489, %809 ]
-  %.sroa.21.1 = phi i8 [ %.sroa.21.5, %820 ], [ %.sroa.0296.0.copyload306.i, %.loopexit326.i ], [ %792, %803 ], [ %.sroa.21.8.copyload469, %791 ], [ %775, %786 ], [ %.sroa.21.8.copyload470, %774 ], [ %758, %769 ], [ %.sroa.21.8.copyload471, %757 ], [ %741, %752 ], [ %.sroa.21.8.copyload472, %740 ], [ %723, %734 ], [ %.sroa.21.8.copyload473, %722 ], [ %806, %809 ]
-  %.sroa.0105.5.i = phi i8 [ %.sroa.0105.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %803 ], [ 1, %791 ], [ 1, %786 ], [ 1, %774 ], [ 1, %769 ], [ 1, %757 ], [ 1, %752 ], [ 1, %740 ], [ 1, %734 ], [ 1, %722 ], [ 1, %809 ]
-  %.sroa.0107.5.i = phi i8 [ %.sroa.0107.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %803 ], [ 1, %791 ], [ 1, %786 ], [ 1, %774 ], [ 1, %769 ], [ 1, %757 ], [ 1, %752 ], [ 1, %740 ], [ 1, %734 ], [ 1, %722 ], [ 1, %809 ]
-  %.sroa.0109.5.i = phi i8 [ %.sroa.0109.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %803 ], [ 1, %791 ], [ 1, %786 ], [ 1, %774 ], [ 1, %769 ], [ 1, %757 ], [ 1, %752 ], [ 1, %740 ], [ 1, %734 ], [ 1, %722 ], [ 1, %809 ]
-  %.sroa.0111.5.i = phi i8 [ %.sroa.0111.7.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %803 ], [ 1, %791 ], [ 1, %786 ], [ 1, %774 ], [ 1, %769 ], [ 1, %757 ], [ 1, %752 ], [ 1, %740 ], [ 1, %734 ], [ 1, %722 ], [ 1, %809 ]
+  %.sroa.40.1 = phi i8 [ %.sroa.40.5, %820 ], [ %.sroa.7.0.copyload.i, %.loopexit326.i ], [ %.sroa.40.9.copyload489, %809 ], [ %.sroa.6.i.sroa.0.0.copyload, %734 ], [ %.sroa.40.8.copyload484, %722 ], [ %.sroa.636.i.sroa.0.0.copyload, %752 ], [ %.sroa.40.8.copyload482, %740 ], [ %.sroa.743.i.sroa.0.0.copyload, %769 ], [ %.sroa.40.8.copyload480, %757 ], [ %.sroa.750.i.sroa.0.0.copyload, %786 ], [ %.sroa.40.8.copyload478, %774 ], [ %.sroa.757.i.sroa.0.0.copyload, %803 ], [ %.sroa.40.8.copyload476, %791 ]
+  %.sroa.21.1 = phi i8 [ %.sroa.21.5, %820 ], [ %.sroa.0296.0.copyload306.i, %.loopexit326.i ], [ %806, %809 ], [ %723, %734 ], [ %.sroa.21.8.copyload473, %722 ], [ %741, %752 ], [ %.sroa.21.8.copyload472, %740 ], [ %758, %769 ], [ %.sroa.21.8.copyload471, %757 ], [ %775, %786 ], [ %.sroa.21.8.copyload470, %774 ], [ %792, %803 ], [ %.sroa.21.8.copyload469, %791 ]
+  %.sroa.0105.5.i = phi i8 [ %.sroa.0105.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %809 ], [ 1, %734 ], [ 1, %722 ], [ 1, %752 ], [ 1, %740 ], [ 1, %769 ], [ 1, %757 ], [ 1, %786 ], [ 1, %774 ], [ 1, %803 ], [ 1, %791 ]
+  %.sroa.0107.5.i = phi i8 [ %.sroa.0107.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %809 ], [ 1, %734 ], [ 1, %722 ], [ 1, %752 ], [ 1, %740 ], [ 1, %769 ], [ 1, %757 ], [ 1, %786 ], [ 1, %774 ], [ 1, %803 ], [ 1, %791 ]
+  %.sroa.0109.5.i = phi i8 [ %.sroa.0109.6.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %809 ], [ 1, %734 ], [ 1, %722 ], [ 1, %752 ], [ 1, %740 ], [ 1, %769 ], [ 1, %757 ], [ 1, %786 ], [ 1, %774 ], [ 1, %803 ], [ 1, %791 ]
+  %.sroa.0111.5.i = phi i8 [ %.sroa.0111.7.i, %820 ], [ 1, %.loopexit326.i ], [ 1, %809 ], [ 1, %734 ], [ 1, %722 ], [ 1, %752 ], [ 1, %740 ], [ 1, %769 ], [ 1, %757 ], [ 1, %786 ], [ 1, %774 ], [ 1, %803 ], [ 1, %791 ]
   %889 = load i64, ptr %46, align 8, !range !463, !noalias !7280, !noundef !4
   %.not211.i = icmp eq i64 %889, -9223372036854775808
   br i1 %.not211.i, label %892, label %896
@@ -24928,12 +24928,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %95
 
 95:                                               ; preds = %113, %106, %94
-  %96 = phi ptr [ %.sink780, %113 ], [ %.sink778, %106 ], [ %.sink776, %94 ]
-  %97 = phi i64 [ %.sink779, %113 ], [ %.sink777, %106 ], [ %.sink, %94 ]
-  %.sroa.11155.sroa.0.1 = phi i8 [ undef, %113 ], [ undef, %106 ], [ %.sroa.4500.0615, %94 ]
-  %.sroa.11155.sroa.7.1 = phi i16 [ undef, %113 ], [ %.sroa.5507.0621, %106 ], [ undef, %94 ]
-  %.sroa.0151.1 = phi i8 [ %.sroa.0151.3, %113 ], [ %.sroa.0151.2, %106 ], [ %.sroa.0151.0, %94 ]
-  %.sroa.11159.1 = phi i32 [ %.sroa.5513.0626, %113 ], [ %.sroa.11159.2, %106 ], [ %.sroa.11159.0, %94 ]
+  %96 = phi ptr [ %.sink776, %94 ], [ %.sink778, %106 ], [ %.sink780, %113 ]
+  %97 = phi i64 [ %.sink, %94 ], [ %.sink777, %106 ], [ %.sink779, %113 ]
+  %.sroa.11155.sroa.0.1 = phi i8 [ %.sroa.4500.0615, %94 ], [ undef, %106 ], [ undef, %113 ]
+  %.sroa.11155.sroa.7.1 = phi i16 [ undef, %94 ], [ %.sroa.5507.0621, %106 ], [ undef, %113 ]
+  %.sroa.0151.1 = phi i8 [ %.sroa.0151.0, %94 ], [ %.sroa.0151.2, %106 ], [ %.sroa.0151.3, %113 ]
+  %.sroa.11159.1 = phi i32 [ %.sroa.11159.0, %94 ], [ %.sroa.11159.2, %106 ], [ %.sroa.5513.0626, %113 ]
   %98 = icmp eq i8 %.sroa.0151.1, 9
   br i1 %98, label %114, label %117
 
@@ -25049,7 +25049,7 @@ _ZN9rmp_serde6decode13read_str_data17ha976d43096fdc740E.exit: ; preds = %210, %1
   br i1 %133, label %135, label %136
 
 134:                                              ; preds = %72, %67, %.thread563.thread
-  %.sroa.4.0.ph567752 = phi i8 [ -55, %72 ], [ -56, %67 ], [ -57, %.thread563.thread ]
+  %.sroa.4.0.ph567752 = phi i8 [ -56, %67 ], [ -55, %72 ], [ -57, %.thread563.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph567752, ptr %.sroa.2380.0..sroa_idx, align 1
@@ -25116,11 +25116,11 @@ _ZN9rmp_serde6decode13read_str_data17ha976d43096fdc740E.exit: ; preds = %210, %1
   br i1 %154, label %176, label %172
 
 155:                                              ; preds = %178, %171, %163
-  %156 = phi i64 [ %.sink785, %178 ], [ %.sink783, %171 ], [ %.sink781, %163 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %178 ], [ undef, %171 ], [ %.sroa.4458.0652, %163 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %178 ], [ %.sroa.5.0658, %171 ], [ undef, %163 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5469.0663, %178 ], [ %.sroa.1224.2, %171 ], [ %.sroa.1224.1, %163 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %178 ], [ %.sroa.017.2, %171 ], [ %.sroa.017.1, %163 ]
+  %156 = phi i64 [ %.sink781, %163 ], [ %.sink783, %171 ], [ %.sink785, %178 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4458.0652, %163 ], [ undef, %171 ], [ undef, %178 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %163 ], [ %.sroa.5.0658, %171 ], [ undef, %178 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %163 ], [ %.sroa.1224.2, %171 ], [ %.sroa.5469.0663, %178 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %163 ], [ %.sroa.017.2, %171 ], [ %.sroa.017.3, %178 ]
   %157 = icmp eq i8 %.sroa.017.0, 9
   br i1 %157, label %179, label %211
 
@@ -25320,7 +25320,7 @@ _ZN9rmp_serde6decode13read_str_data17ha976d43096fdc740E.exit: ; preds = %210, %1
   br i1 %223, label %240, label %236
 
 224:                                              ; preds = %236, %229, %212
-  %.sroa.088.0 = phi i32 [ %239, %236 ], [ %233, %229 ], [ %213, %212 ]
+  %.sroa.088.0 = phi i32 [ %213, %212 ], [ %233, %229 ], [ %239, %236 ]
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %226 = load i16, ptr %225, align 2, !noundef !4
   %227 = add i16 %226, -1
@@ -25462,7 +25462,7 @@ _ZN9rmp_serde6decode13read_str_data17ha976d43096fdc740E.exit: ; preds = %210, %1
   br i1 %274, label %291, label %287
 
 275:                                              ; preds = %287, %280, %263
-  %.sroa.0140.0 = phi i32 [ %264, %263 ], [ %284, %280 ], [ %290, %287 ]
+  %.sroa.0140.0 = phi i32 [ %290, %287 ], [ %284, %280 ], [ %264, %263 ]
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %277 = load i16, ptr %276, align 2, !noundef !4
   %278 = add i16 %277, -1
@@ -25950,12 +25950,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %92
 
 92:                                               ; preds = %110, %103, %91
-  %93 = phi ptr [ %.sink758, %110 ], [ %.sink756, %103 ], [ %.sink754, %91 ]
-  %94 = phi i64 [ %.sink757, %110 ], [ %.sink755, %103 ], [ %.sink, %91 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %110 ], [ undef, %103 ], [ %.sroa.4479.0597, %91 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %110 ], [ %.sroa.5486.0603, %103 ], [ undef, %91 ]
-  %.sroa.0138.1 = phi i8 [ %.sroa.0138.3, %110 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.0, %91 ]
-  %.sroa.11145.1 = phi i32 [ %.sroa.5492.0608, %110 ], [ %.sroa.11145.2, %103 ], [ %.sroa.11145.0, %91 ]
+  %93 = phi ptr [ %.sink754, %91 ], [ %.sink756, %103 ], [ %.sink758, %110 ]
+  %94 = phi i64 [ %.sink, %91 ], [ %.sink755, %103 ], [ %.sink757, %110 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4479.0597, %91 ], [ undef, %103 ], [ undef, %110 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %91 ], [ %.sroa.5486.0603, %103 ], [ undef, %110 ]
+  %.sroa.0138.1 = phi i8 [ %.sroa.0138.0, %91 ], [ %.sroa.0138.2, %103 ], [ %.sroa.0138.3, %110 ]
+  %.sroa.11145.1 = phi i32 [ %.sroa.11145.0, %91 ], [ %.sroa.11145.2, %103 ], [ %.sroa.5492.0608, %110 ]
   %95 = icmp eq i8 %.sroa.0138.1, 9
   br i1 %95, label %111, label %114
 
@@ -26060,7 +26060,7 @@ _ZN9rmp_serde6decode13read_str_data17hb067d8e616c45dd9E.exit: ; preds = %196, %1
   br i1 %126, label %128, label %129
 
 127:                                              ; preds = %69, %64, %.thread545.thread
-  %.sroa.4.0.ph549730 = phi i8 [ -55, %69 ], [ -56, %64 ], [ -57, %.thread545.thread ]
+  %.sroa.4.0.ph549730 = phi i8 [ -56, %64 ], [ -55, %69 ], [ -57, %.thread545.thread ]
   store i8 1, ptr %0, align 8
   %.sroa.2354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph549730, ptr %.sroa.2354.0..sroa_idx, align 1
@@ -26127,11 +26127,11 @@ _ZN9rmp_serde6decode13read_str_data17hb067d8e616c45dd9E.exit: ; preds = %196, %1
   br i1 %147, label %169, label %165
 
 148:                                              ; preds = %171, %164, %156
-  %149 = phi i64 [ %.sink763, %171 ], [ %.sink761, %164 ], [ %.sink759, %156 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %171 ], [ undef, %164 ], [ %.sroa.4432.0634, %156 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %171 ], [ %.sroa.5.0640, %164 ], [ undef, %156 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5443.0645, %171 ], [ %.sroa.1224.2, %164 ], [ %.sroa.1224.1, %156 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %171 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.1, %156 ]
+  %149 = phi i64 [ %.sink759, %156 ], [ %.sink761, %164 ], [ %.sink763, %171 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4432.0634, %156 ], [ undef, %164 ], [ undef, %171 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %156 ], [ %.sroa.5.0640, %164 ], [ undef, %171 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %156 ], [ %.sroa.1224.2, %164 ], [ %.sroa.5443.0645, %171 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %156 ], [ %.sroa.017.2, %164 ], [ %.sroa.017.3, %171 ]
   %150 = icmp eq i8 %.sroa.017.0, 9
   br i1 %150, label %172, label %197
 
@@ -26309,7 +26309,7 @@ _ZN9rmp_serde6decode13read_str_data17hb067d8e616c45dd9E.exit: ; preds = %196, %1
   br i1 %209, label %226, label %222
 
 210:                                              ; preds = %222, %215, %198
-  %.sroa.082.0 = phi i32 [ %225, %222 ], [ %219, %215 ], [ %199, %198 ]
+  %.sroa.082.0 = phi i32 [ %199, %198 ], [ %219, %215 ], [ %225, %222 ]
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %212 = load i16, ptr %211, align 2, !noundef !4
   %213 = add i16 %212, -1
@@ -26435,7 +26435,7 @@ _ZN9rmp_serde6decode13read_str_data17hb067d8e616c45dd9E.exit: ; preds = %196, %1
   br i1 %254, label %271, label %267
 
 255:                                              ; preds = %267, %260, %243
-  %.sroa.0127.0 = phi i32 [ %244, %243 ], [ %264, %260 ], [ %270, %267 ]
+  %.sroa.0127.0 = phi i32 [ %270, %267 ], [ %264, %260 ], [ %244, %243 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %257 = load i16, ptr %256, align 2, !noundef !4
   %258 = add i16 %257, -1
@@ -27104,12 +27104,12 @@ define hidden void @"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$9any_inner17
   br label %223
 
 223:                                              ; preds = %241, %234, %222
-  %224 = phi ptr [ %.sink1680, %241 ], [ %.sink1678, %234 ], [ %.sink1676, %222 ]
-  %225 = phi i64 [ %.sink1679, %241 ], [ %.sink1677, %234 ], [ %.sink, %222 ]
-  %.sroa.11.sroa.0.1 = phi i8 [ undef, %241 ], [ undef, %234 ], [ %.sroa.4776.01091, %222 ]
-  %.sroa.11.sroa.7.1 = phi i16 [ undef, %241 ], [ %.sroa.5783.01097, %234 ], [ undef, %222 ]
-  %.sroa.0136.1 = phi i8 [ %.sroa.0136.3, %241 ], [ %.sroa.0136.2, %234 ], [ %.sroa.0136.0, %222 ]
-  %.sroa.11143.1 = phi i32 [ %.sroa.5789.01102, %241 ], [ %.sroa.11143.2, %234 ], [ %.sroa.11143.0, %222 ]
+  %224 = phi ptr [ %.sink1676, %222 ], [ %.sink1678, %234 ], [ %.sink1680, %241 ]
+  %225 = phi i64 [ %.sink, %222 ], [ %.sink1677, %234 ], [ %.sink1679, %241 ]
+  %.sroa.11.sroa.0.1 = phi i8 [ %.sroa.4776.01091, %222 ], [ undef, %234 ], [ undef, %241 ]
+  %.sroa.11.sroa.7.1 = phi i16 [ undef, %222 ], [ %.sroa.5783.01097, %234 ], [ undef, %241 ]
+  %.sroa.0136.1 = phi i8 [ %.sroa.0136.0, %222 ], [ %.sroa.0136.2, %234 ], [ %.sroa.0136.3, %241 ]
+  %.sroa.11143.1 = phi i32 [ %.sroa.11143.0, %222 ], [ %.sroa.11143.2, %234 ], [ %.sroa.5789.01102, %241 ]
   %226 = icmp eq i8 %.sroa.0136.1, 9
   br i1 %226, label %242, label %245
 
@@ -27233,7 +27233,7 @@ _ZN9rmp_serde6decode13read_str_data17hedd892153ae79cb3E.exit: ; preds = %339, %3
   br i1 %264, label %267, label %269
 
 265:                                              ; preds = %200, %195, %.thread1039.thread
-  %.sroa.4.0.ph10431288 = phi i8 [ -55, %200 ], [ -56, %195 ], [ -57, %.thread1039.thread ]
+  %.sroa.4.0.ph10431288 = phi i8 [ -56, %195 ], [ -55, %200 ], [ -57, %.thread1039.thread ]
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %266, align 8
   %.sroa.2340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -27307,11 +27307,11 @@ _ZN9rmp_serde6decode13read_str_data17hedd892153ae79cb3E.exit: ; preds = %339, %3
   br i1 %288, label %310, label %306
 
 289:                                              ; preds = %312, %305, %297
-  %290 = phi i64 [ %.sink1685, %312 ], [ %.sink1683, %305 ], [ %.sink1681, %297 ]
-  %.sroa.12.sroa.7.0 = phi i16 [ undef, %312 ], [ %.sroa.5.01134, %305 ], [ undef, %297 ]
-  %.sroa.12.sroa.0.0 = phi i8 [ undef, %312 ], [ undef, %305 ], [ %.sroa.4428.01128, %297 ]
-  %.sroa.1224.0 = phi i32 [ %.sroa.5439.01139, %312 ], [ %.sroa.1224.2, %305 ], [ %.sroa.1224.1, %297 ]
-  %.sroa.017.0 = phi i8 [ %.sroa.017.3, %312 ], [ %.sroa.017.2, %305 ], [ %.sroa.017.1, %297 ]
+  %290 = phi i64 [ %.sink1681, %297 ], [ %.sink1683, %305 ], [ %.sink1685, %312 ]
+  %.sroa.12.sroa.7.0 = phi i16 [ undef, %297 ], [ %.sroa.5.01134, %305 ], [ undef, %312 ]
+  %.sroa.12.sroa.0.0 = phi i8 [ %.sroa.4428.01128, %297 ], [ undef, %305 ], [ undef, %312 ]
+  %.sroa.1224.0 = phi i32 [ %.sroa.1224.1, %297 ], [ %.sroa.1224.2, %305 ], [ %.sroa.5439.01139, %312 ]
+  %.sroa.017.0 = phi i8 [ %.sroa.017.1, %297 ], [ %.sroa.017.2, %305 ], [ %.sroa.017.3, %312 ]
   %291 = icmp eq i8 %.sroa.017.0, 9
   br i1 %291, label %313, label %340
 
@@ -27505,7 +27505,7 @@ _ZN9rmp_serde6decode13read_str_data17hedd892153ae79cb3E.exit: ; preds = %339, %3
   br i1 %353, label %371, label %367
 
 354:                                              ; preds = %367, %359, %342
-  %.sroa.081.0 = phi i32 [ %370, %367 ], [ %363, %359 ], [ %343, %342 ]
+  %.sroa.081.0 = phi i32 [ %343, %342 ], [ %363, %359 ], [ %370, %367 ]
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %356 = load i16, ptr %355, align 2, !noundef !4
   %357 = add i16 %356, -1
@@ -28926,7 +28926,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %616, label %634, label %630
 
 617:                                              ; preds = %630, %622, %605
-  %.sroa.0125.0 = phi i32 [ %606, %605 ], [ %626, %622 ], [ %633, %630 ]
+  %.sroa.0125.0 = phi i32 [ %633, %630 ], [ %626, %622 ], [ %606, %605 ]
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %619 = load i16, ptr %618, align 2, !noundef !4
   %620 = add i16 %619, -1
@@ -29724,7 +29724,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %824, label %840, label %836
 
 825:                                              ; preds = %836, %829, %817
-  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %839, %836 ], [ %833, %829 ], [ %818, %817 ]
+  %.sroa.082.0.i.i.i.i.i.i.i.i = phi i32 [ %818, %817 ], [ %833, %829 ], [ %839, %836 ]
   %826 = load i16, ptr %618, align 2, !alias.scope !9004, !noalias !9005, !noundef !4
   %827 = add i16 %826, -1
   store i16 %827, ptr %618, align 2, !alias.scope !9004, !noalias !9005
@@ -29836,7 +29836,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %861, label %877, label %873
 
 862:                                              ; preds = %873, %866, %854
-  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %855, %854 ], [ %870, %866 ], [ %876, %873 ]
+  %.sroa.0127.0.i.i.i.i.i.i.i.i = phi i32 [ %876, %873 ], [ %870, %866 ], [ %855, %854 ]
   %863 = load i16, ptr %618, align 2, !alias.scope !9004, !noalias !9005, !noundef !4
   %864 = add i16 %863, -1
   store i16 %864, ptr %618, align 2, !alias.scope !9004, !noalias !9005
@@ -29932,18 +29932,18 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br i1 %891, label %895, label %.loopexit904.i
 
 "_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit.i": ; preds = %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424", %1096, %1079, %1067, %1050, %1034, %1017, %1000, %975, %963, %951, %934, %.loopexit.split-lp.i, %.loopexit903.i
-  %.sroa.0346.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0346.7.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0346.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0348.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0348.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0348.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0350.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0350.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0350.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0352.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0352.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0352.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0354.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0354.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0354.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0356.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0356.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0356.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0358.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0358.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0358.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0360.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0360.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0360.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0362.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0362.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0362.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0364.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ %.sroa.0364.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0364.1.ph.i, %.loopexit.split-lp.i ]
-  %.sroa.0366.2.i = phi i8 [ 1, %1096 ], [ 1, %1079 ], [ 1, %1067 ], [ 1, %1050 ], [ 1, %1034 ], [ 1, %1017 ], [ 1, %1000 ], [ 1, %975 ], [ 1, %963 ], [ 1, %951 ], [ 1, %934 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0366.1.ph.i, %.loopexit.split-lp.i ]
-  %.pn647.i = phi { ptr, i32 } [ %1097, %1096 ], [ %1080, %1079 ], [ %1068, %1067 ], [ %1051, %1050 ], [ %1035, %1034 ], [ %1018, %1017 ], [ %1001, %1000 ], [ %976, %975 ], [ %964, %963 ], [ %952, %951 ], [ %935, %934 ], [ %.pn645.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ %lpad.loopexit.i, %.loopexit903.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.0346.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0346.7.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0346.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0348.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0348.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0348.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0350.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0350.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0350.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0352.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0352.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0352.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0354.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0354.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0354.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0356.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0356.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0356.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0358.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0358.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0358.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0360.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0360.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0360.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0362.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0362.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0362.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0364.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ %.sroa.0364.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0364.1.ph.i, %.loopexit.split-lp.i ]
+  %.sroa.0366.2.i = phi i8 [ 1, %934 ], [ 1, %951 ], [ 1, %963 ], [ 1, %975 ], [ 1, %1000 ], [ 1, %1017 ], [ 1, %1034 ], [ 1, %1050 ], [ 1, %1067 ], [ 1, %1079 ], [ 1, %1096 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ 1, %.loopexit903.i ], [ %.sroa.0366.1.ph.i, %.loopexit.split-lp.i ]
+  %.pn647.i = phi { ptr, i32 } [ %935, %934 ], [ %952, %951 ], [ %964, %963 ], [ %976, %975 ], [ %1001, %1000 ], [ %1018, %1017 ], [ %1035, %1034 ], [ %1051, %1050 ], [ %1068, %1067 ], [ %1080, %1079 ], [ %1097, %1096 ], [ %.pn645.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit.i424" ], [ %lpad.loopexit.i, %.loopexit903.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %892 = load i64, ptr %81, align 8, !range !463, !noalias !8971, !noundef !4
   %893 = icmp ne i64 %892, -9223372036854775808
   %894 = trunc nuw i8 %.sroa.0346.2.i to i1
@@ -29956,17 +29956,17 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i", %1126, %1114, %1106, %1098, %1081, %1069, %1052, %1036, %1019, %1002, %985, %977, %965, %953, %937, %924
-  %.sroa.0346.1.ph.i = phi i8 [ %.sroa.0346.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0348.1.ph.i = phi i8 [ %.sroa.0348.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0350.1.ph.i = phi i8 [ %.sroa.0350.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0352.1.ph.i = phi i8 [ %.sroa.0352.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0354.1.ph.i = phi i8 [ %.sroa.0354.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0356.1.ph.i = phi i8 [ %.sroa.0356.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0358.1.ph.i = phi i8 [ %.sroa.0358.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0360.1.ph.i = phi i8 [ %.sroa.0360.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0362.1.ph.i = phi i8 [ %.sroa.0362.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0364.1.ph.i = phi i8 [ %.sroa.0364.10.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
-  %.sroa.0366.1.ph.i = phi i8 [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %924 ], [ 1, %937 ], [ 1, %953 ], [ 1, %965 ], [ 1, %977 ], [ 1, %985 ], [ 1, %1002 ], [ 1, %1019 ], [ 1, %1036 ], [ 1, %1052 ], [ 1, %1069 ], [ 1, %1081 ], [ 1, %1098 ], [ 1, %1106 ], [ 1, %1114 ]
+  %.sroa.0346.1.ph.i = phi i8 [ %.sroa.0346.8.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0348.1.ph.i = phi i8 [ %.sroa.0348.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0350.1.ph.i = phi i8 [ %.sroa.0350.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0352.1.ph.i = phi i8 [ %.sroa.0352.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0354.1.ph.i = phi i8 [ %.sroa.0354.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0356.1.ph.i = phi i8 [ %.sroa.0356.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0358.1.ph.i = phi i8 [ %.sroa.0358.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0360.1.ph.i = phi i8 [ %.sroa.0360.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0362.1.ph.i = phi i8 [ %.sroa.0362.9.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0364.1.ph.i = phi i8 [ %.sroa.0364.10.i, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
+  %.sroa.0366.1.ph.i = phi i8 [ 0, %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit767.i" ], [ 1, %1126 ], [ 1, %1114 ], [ 1, %1106 ], [ 1, %1098 ], [ 1, %1081 ], [ 1, %1069 ], [ 1, %1052 ], [ 1, %1036 ], [ 1, %1019 ], [ 1, %1002 ], [ 1, %985 ], [ 1, %977 ], [ 1, %965 ], [ 1, %953 ], [ 1, %937 ], [ 1, %924 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit.i"
@@ -30158,10 +30158,10 @@ default.unreachable1745:                          ; preds = %895
   br label %936
 
 936:                                              ; preds = %1124, %1120, %1112, %1104, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i", %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i", %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i", %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i", %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i", %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i", %983, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i", %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i", %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i", %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i"
-  %.sroa.0196.1.i = phi i8 [ %.sroa.0196.0.i1611, %1124 ], [ %1119, %1120 ], [ %.sroa.0196.0.i1611, %1112 ], [ %.sroa.0196.0.i1611, %1104 ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0196.0.i1611, %983 ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ]
-  %.sroa.0183.1.i = phi i8 [ %.sroa.0183.0.i1612, %1124 ], [ %.sroa.0183.0.i1612, %1120 ], [ %1111, %1112 ], [ %.sroa.0183.0.i1612, %1104 ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0183.0.i1612, %983 ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ]
-  %.sroa.0170.1.i = phi i8 [ %.sroa.0170.0.i1613, %1124 ], [ %.sroa.0170.0.i1613, %1120 ], [ %.sroa.0170.0.i1613, %1112 ], [ %1103, %1104 ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0170.0.i1613, %983 ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ]
-  %.sroa.0108.1.i = phi i8 [ %.sroa.0108.0.i1614, %1124 ], [ %.sroa.0108.0.i1614, %1120 ], [ %.sroa.0108.0.i1614, %1112 ], [ %.sroa.0108.0.i1614, %1104 ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %982, %983 ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ]
+  %.sroa.0196.1.i = phi i8 [ %.sroa.0196.0.i1611, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0196.0.i1611, %983 ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0196.0.i1611, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0196.0.i1611, %1104 ], [ %.sroa.0196.0.i1611, %1112 ], [ %1119, %1120 ], [ %.sroa.0196.0.i1611, %1124 ]
+  %.sroa.0183.1.i = phi i8 [ %.sroa.0183.0.i1612, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0183.0.i1612, %983 ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0183.0.i1612, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0183.0.i1612, %1104 ], [ %1111, %1112 ], [ %.sroa.0183.0.i1612, %1120 ], [ %.sroa.0183.0.i1612, %1124 ]
+  %.sroa.0170.1.i = phi i8 [ %.sroa.0170.0.i1613, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %.sroa.0170.0.i1613, %983 ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0170.0.i1613, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %1103, %1104 ], [ %.sroa.0170.0.i1613, %1112 ], [ %.sroa.0170.0.i1613, %1120 ], [ %.sroa.0170.0.i1613, %1124 ]
+  %.sroa.0108.1.i = phi i8 [ %.sroa.0108.0.i1614, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$uv_platform_tags..platform..Platform$GT$$GT$17h788c155655bbfa1fE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$$GT$17hc9a8a783d89c394aE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$uv_pypi_types..scheme..Scheme$GT$$GT$17h55f02ccdc657774cE.exit709.i" ], [ %982, %983 ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit722.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit729.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$GT$17hda7a46fcfb7d7a97E.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit740.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$$GT$17h5ae68f252946a85eE.exit.i" ], [ %.sroa.0108.0.i1614, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h4fceaf54eb17607cE.exit750.i" ], [ %.sroa.0108.0.i1614, %1104 ], [ %.sroa.0108.0.i1614, %1112 ], [ %.sroa.0108.0.i1614, %1120 ], [ %.sroa.0108.0.i1614, %1124 ]
   %.not.i.i.i.i416 = icmp eq i32 %677, 0
   br i1 %.not.i.i.i.i416, label %.thread.i, label %676
 
@@ -32073,20 +32073,20 @@ default.unreachable1745:                          ; preds = %895
   br label %1300
 
 1303:                                             ; preds = %.loopexit904.i, %926, %933, %939, %950, %955, %962, %967, %974, %979, %984, %987, %999, %1004, %1016, %1021, %1033, %1038, %1049, %1054, %1066, %1071, %1078, %1083, %1095, %1100, %1105, %1108, %1113, %1116, %1121, %1125, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i"
-  %.sroa.132.1 = phi ptr [ %.sroa.132.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.10812.i.sroa.6.0.copyload, %.loopexit904.i ], [ %.sroa.132.10.copyload749, %1121 ], [ %.sroa.132.8.copyload698, %1116 ], [ %.sroa.132.10.copyload750, %1113 ], [ %.sroa.132.8.copyload700, %1108 ], [ %.sroa.132.10.copyload751, %1105 ], [ %.sroa.132.8.copyload702, %1100 ], [ %.sroa.7165.i.sroa.6.0.copyload, %1095 ], [ %.sroa.132.8.copyload704, %1083 ], [ %.sroa.7158.i.sroa.6.0.copyload, %1078 ], [ %.sroa.132.8.copyload706, %1071 ], [ %.sroa.7151.i.sroa.6.0.copyload, %1066 ], [ %.sroa.132.8.copyload708, %1054 ], [ %.sroa.7144.i.sroa.6.0.copyload, %1049 ], [ %.sroa.132.8.copyload710, %1038 ], [ %.sroa.7137.i.sroa.6.0.copyload, %1033 ], [ %.sroa.132.8.copyload712, %1021 ], [ %.sroa.7130.i.sroa.6.0.copyload, %1016 ], [ %.sroa.132.8.copyload714, %1004 ], [ %.sroa.7123.i.sroa.6.0.copyload, %999 ], [ %.sroa.132.8.copyload716, %987 ], [ %.sroa.132.10.copyload752, %984 ], [ %.sroa.132.8.copyload718, %979 ], [ %.sroa.795.i.sroa.9.0.copyload981, %974 ], [ %.sroa.132.8.copyload720, %967 ], [ %.sroa.780.i.sroa.9.0.copyload964, %962 ], [ %.sroa.132.8.copyload723, %955 ], [ %.sroa.5386.0.copyload.i, %950 ], [ %.sroa.132.8.copyload726, %939 ], [ %.sroa.7.i.sroa.9.0.copyload947, %933 ], [ %.sroa.132.8.copyload728, %926 ], [ %.sroa.132.9.copyload742, %1125 ]
-  %.sroa.98622.1 = phi i8 [ %.sroa.98622.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.6811.0.copyload.i, %.loopexit904.i ], [ %1119, %1121 ], [ %.sroa.98622.8.copyload625, %1116 ], [ %1111, %1113 ], [ %.sroa.98622.8.copyload627, %1108 ], [ %1103, %1105 ], [ %.sroa.98622.8.copyload629, %1100 ], [ %.sroa.7165.i.sroa.0.0.copyload, %1095 ], [ %.sroa.98622.8.copyload631, %1083 ], [ %.sroa.7158.i.sroa.0.0.copyload, %1078 ], [ %.sroa.98622.8.copyload633, %1071 ], [ %.sroa.7151.i.sroa.0.0.copyload, %1066 ], [ %.sroa.98622.8.copyload635, %1054 ], [ %.sroa.7144.i.sroa.0.0.copyload, %1049 ], [ %.sroa.98622.8.copyload637, %1038 ], [ %.sroa.7137.i.sroa.0.0.copyload, %1033 ], [ %.sroa.98622.8.copyload639, %1021 ], [ %.sroa.7130.i.sroa.0.0.copyload, %1016 ], [ %.sroa.98622.8.copyload641, %1004 ], [ %.sroa.7123.i.sroa.0.0.copyload, %999 ], [ %.sroa.98622.8.copyload643, %987 ], [ %982, %984 ], [ %.sroa.98622.8.copyload645, %979 ], [ %.sroa.795.i.sroa.7.0.copyload974, %974 ], [ %.sroa.98622.8.copyload647, %967 ], [ %.sroa.780.i.sroa.7.0.copyload957, %962 ], [ %.sroa.98622.8.copyload650, %955 ], [ %.sroa.98622.9.copyload676, %950 ], [ %.sroa.98622.8.copyload653, %939 ], [ %.sroa.7.i.sroa.7.0.copyload940, %933 ], [ %.sroa.98622.8.copyload655, %926 ], [ %.sroa.98622.9.copyload669, %1125 ]
-  %.sroa.50.1 = phi i8 [ %.sroa.50.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.0810.0.copyload823.i, %.loopexit904.i ], [ %1117, %1121 ], [ %.sroa.50.8.copyload601, %1116 ], [ %1109, %1113 ], [ %.sroa.50.8.copyload602, %1108 ], [ %1101, %1105 ], [ %.sroa.50.8.copyload603, %1100 ], [ %1084, %1095 ], [ %.sroa.50.8.copyload604, %1083 ], [ %1072, %1078 ], [ %.sroa.50.8.copyload605, %1071 ], [ %1055, %1066 ], [ %.sroa.50.8.copyload606, %1054 ], [ %1039, %1049 ], [ %.sroa.50.8.copyload607, %1038 ], [ %1022, %1033 ], [ %.sroa.50.8.copyload608, %1021 ], [ %1005, %1016 ], [ %.sroa.50.8.copyload609, %1004 ], [ %988, %999 ], [ %.sroa.50.8.copyload610, %987 ], [ %980, %984 ], [ %.sroa.50.8.copyload611, %979 ], [ %.sroa.795.i.sroa.0.0.copyload969, %974 ], [ %.sroa.50.8.copyload612, %967 ], [ %.sroa.780.i.sroa.0.0.copyload952, %962 ], [ %.sroa.50.8.copyload614, %955 ], [ %940, %950 ], [ %.sroa.50.8.copyload616, %939 ], [ %.sroa.7.i.sroa.0.0.copyload935, %933 ], [ %.sroa.50.8.copyload617, %926 ], [ %1122, %1125 ]
-  %.sroa.0346.4.i = phi i1 [ %1132, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ true, %.loopexit904.i ], [ true, %1121 ], [ true, %1116 ], [ true, %1113 ], [ true, %1108 ], [ true, %1105 ], [ true, %1100 ], [ true, %1095 ], [ true, %1083 ], [ true, %1078 ], [ true, %1071 ], [ true, %1066 ], [ true, %1054 ], [ true, %1049 ], [ true, %1038 ], [ true, %1033 ], [ true, %1021 ], [ true, %1016 ], [ true, %1004 ], [ true, %999 ], [ true, %987 ], [ true, %984 ], [ true, %979 ], [ true, %974 ], [ true, %967 ], [ true, %962 ], [ true, %955 ], [ true, %950 ], [ true, %939 ], [ true, %933 ], [ true, %926 ], [ true, %1125 ]
-  %.sroa.0348.5.i = phi i8 [ %.sroa.0348.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0350.5.i = phi i8 [ %.sroa.0350.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0352.5.i = phi i8 [ %.sroa.0352.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0354.5.i = phi i8 [ %.sroa.0354.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0356.5.i = phi i8 [ %.sroa.0356.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0358.5.i = phi i8 [ %.sroa.0358.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0360.5.i = phi i8 [ %.sroa.0360.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0362.5.i = phi i8 [ %.sroa.0362.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0364.5.i = phi i8 [ %.sroa.0364.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
-  %.sroa.0366.5.i = phi i8 [ %.sroa.0366.7.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1121 ], [ 1, %1116 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %999 ], [ 1, %987 ], [ 1, %984 ], [ 1, %979 ], [ 1, %974 ], [ 1, %967 ], [ 1, %962 ], [ 1, %955 ], [ 1, %950 ], [ 1, %939 ], [ 1, %933 ], [ 1, %926 ], [ 1, %1125 ]
+  %.sroa.132.1 = phi ptr [ %.sroa.132.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.10812.i.sroa.6.0.copyload, %.loopexit904.i ], [ %.sroa.132.9.copyload742, %1125 ], [ %.sroa.7.i.sroa.9.0.copyload947, %933 ], [ %.sroa.132.8.copyload728, %926 ], [ %.sroa.5386.0.copyload.i, %950 ], [ %.sroa.132.8.copyload726, %939 ], [ %.sroa.780.i.sroa.9.0.copyload964, %962 ], [ %.sroa.132.8.copyload723, %955 ], [ %.sroa.795.i.sroa.9.0.copyload981, %974 ], [ %.sroa.132.8.copyload720, %967 ], [ %.sroa.132.10.copyload752, %984 ], [ %.sroa.132.8.copyload718, %979 ], [ %.sroa.7123.i.sroa.6.0.copyload, %999 ], [ %.sroa.132.8.copyload716, %987 ], [ %.sroa.7130.i.sroa.6.0.copyload, %1016 ], [ %.sroa.132.8.copyload714, %1004 ], [ %.sroa.7137.i.sroa.6.0.copyload, %1033 ], [ %.sroa.132.8.copyload712, %1021 ], [ %.sroa.7144.i.sroa.6.0.copyload, %1049 ], [ %.sroa.132.8.copyload710, %1038 ], [ %.sroa.7151.i.sroa.6.0.copyload, %1066 ], [ %.sroa.132.8.copyload708, %1054 ], [ %.sroa.7158.i.sroa.6.0.copyload, %1078 ], [ %.sroa.132.8.copyload706, %1071 ], [ %.sroa.7165.i.sroa.6.0.copyload, %1095 ], [ %.sroa.132.8.copyload704, %1083 ], [ %.sroa.132.10.copyload751, %1105 ], [ %.sroa.132.8.copyload702, %1100 ], [ %.sroa.132.10.copyload750, %1113 ], [ %.sroa.132.8.copyload700, %1108 ], [ %.sroa.132.10.copyload749, %1121 ], [ %.sroa.132.8.copyload698, %1116 ]
+  %.sroa.98622.1 = phi i8 [ %.sroa.98622.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.6811.0.copyload.i, %.loopexit904.i ], [ %.sroa.98622.9.copyload669, %1125 ], [ %.sroa.7.i.sroa.7.0.copyload940, %933 ], [ %.sroa.98622.8.copyload655, %926 ], [ %.sroa.98622.9.copyload676, %950 ], [ %.sroa.98622.8.copyload653, %939 ], [ %.sroa.780.i.sroa.7.0.copyload957, %962 ], [ %.sroa.98622.8.copyload650, %955 ], [ %.sroa.795.i.sroa.7.0.copyload974, %974 ], [ %.sroa.98622.8.copyload647, %967 ], [ %982, %984 ], [ %.sroa.98622.8.copyload645, %979 ], [ %.sroa.7123.i.sroa.0.0.copyload, %999 ], [ %.sroa.98622.8.copyload643, %987 ], [ %.sroa.7130.i.sroa.0.0.copyload, %1016 ], [ %.sroa.98622.8.copyload641, %1004 ], [ %.sroa.7137.i.sroa.0.0.copyload, %1033 ], [ %.sroa.98622.8.copyload639, %1021 ], [ %.sroa.7144.i.sroa.0.0.copyload, %1049 ], [ %.sroa.98622.8.copyload637, %1038 ], [ %.sroa.7151.i.sroa.0.0.copyload, %1066 ], [ %.sroa.98622.8.copyload635, %1054 ], [ %.sroa.7158.i.sroa.0.0.copyload, %1078 ], [ %.sroa.98622.8.copyload633, %1071 ], [ %.sroa.7165.i.sroa.0.0.copyload, %1095 ], [ %.sroa.98622.8.copyload631, %1083 ], [ %1103, %1105 ], [ %.sroa.98622.8.copyload629, %1100 ], [ %1111, %1113 ], [ %.sroa.98622.8.copyload627, %1108 ], [ %1119, %1121 ], [ %.sroa.98622.8.copyload625, %1116 ]
+  %.sroa.50.1 = phi i8 [ %.sroa.50.13, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ %.sroa.0810.0.copyload823.i, %.loopexit904.i ], [ %1122, %1125 ], [ %.sroa.7.i.sroa.0.0.copyload935, %933 ], [ %.sroa.50.8.copyload617, %926 ], [ %940, %950 ], [ %.sroa.50.8.copyload616, %939 ], [ %.sroa.780.i.sroa.0.0.copyload952, %962 ], [ %.sroa.50.8.copyload614, %955 ], [ %.sroa.795.i.sroa.0.0.copyload969, %974 ], [ %.sroa.50.8.copyload612, %967 ], [ %980, %984 ], [ %.sroa.50.8.copyload611, %979 ], [ %988, %999 ], [ %.sroa.50.8.copyload610, %987 ], [ %1005, %1016 ], [ %.sroa.50.8.copyload609, %1004 ], [ %1022, %1033 ], [ %.sroa.50.8.copyload608, %1021 ], [ %1039, %1049 ], [ %.sroa.50.8.copyload607, %1038 ], [ %1055, %1066 ], [ %.sroa.50.8.copyload606, %1054 ], [ %1072, %1078 ], [ %.sroa.50.8.copyload605, %1071 ], [ %1084, %1095 ], [ %.sroa.50.8.copyload604, %1083 ], [ %1101, %1105 ], [ %.sroa.50.8.copyload603, %1100 ], [ %1109, %1113 ], [ %.sroa.50.8.copyload602, %1108 ], [ %1117, %1121 ], [ %.sroa.50.8.copyload601, %1116 ]
+  %.sroa.0346.4.i = phi i1 [ %1132, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ true, %.loopexit904.i ], [ true, %1125 ], [ true, %933 ], [ true, %926 ], [ true, %950 ], [ true, %939 ], [ true, %962 ], [ true, %955 ], [ true, %974 ], [ true, %967 ], [ true, %984 ], [ true, %979 ], [ true, %999 ], [ true, %987 ], [ true, %1016 ], [ true, %1004 ], [ true, %1033 ], [ true, %1021 ], [ true, %1049 ], [ true, %1038 ], [ true, %1066 ], [ true, %1054 ], [ true, %1078 ], [ true, %1071 ], [ true, %1095 ], [ true, %1083 ], [ true, %1105 ], [ true, %1100 ], [ true, %1113 ], [ true, %1108 ], [ true, %1121 ], [ true, %1116 ]
+  %.sroa.0348.5.i = phi i8 [ %.sroa.0348.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0350.5.i = phi i8 [ %.sroa.0350.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0352.5.i = phi i8 [ %.sroa.0352.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0354.5.i = phi i8 [ %.sroa.0354.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0356.5.i = phi i8 [ %.sroa.0356.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0358.5.i = phi i8 [ %.sroa.0358.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0360.5.i = phi i8 [ %.sroa.0360.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0362.5.i = phi i8 [ %.sroa.0362.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0364.5.i = phi i8 [ %.sroa.0364.6.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
+  %.sroa.0366.5.i = phi i8 [ %.sroa.0366.7.i, %"_ZN4core3ptr57drop_in_place$LT$uv_platform_tags..platform..Platform$GT$17he4ef6fbedb1faae3E.exit763.i" ], [ 1, %.loopexit904.i ], [ 1, %1125 ], [ 1, %933 ], [ 1, %926 ], [ 1, %950 ], [ 1, %939 ], [ 1, %962 ], [ 1, %955 ], [ 1, %974 ], [ 1, %967 ], [ 1, %984 ], [ 1, %979 ], [ 1, %999 ], [ 1, %987 ], [ 1, %1016 ], [ 1, %1004 ], [ 1, %1033 ], [ 1, %1021 ], [ 1, %1049 ], [ 1, %1038 ], [ 1, %1066 ], [ 1, %1054 ], [ 1, %1078 ], [ 1, %1071 ], [ 1, %1095 ], [ 1, %1083 ], [ 1, %1105 ], [ 1, %1100 ], [ 1, %1113 ], [ 1, %1108 ], [ 1, %1121 ], [ 1, %1116 ]
   %1304 = load i64, ptr %81, align 8, !range !463, !noalias !8971, !noundef !4
   %1305 = icmp ne i64 %1304, -9223372036854775808
   %or.cond.i = select i1 %1305, i1 %.sroa.0346.4.i, i1 false

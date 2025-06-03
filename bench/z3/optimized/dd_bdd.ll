@@ -442,7 +442,7 @@ _ZN6vectorIjLb0EjE7reserveEj.exit:                ; preds = %.lr.ph.preheader.i.
   br label %_ZN2dd11bdd_manager11apply_constEjjNS0_6bdd_opE.exit
 
 _ZN2dd11bdd_manager11apply_constEjjNS0_6bdd_opE.exit: ; preds = %_ZN6vectorIjLb0EjE7reserveEj.exit, %114, %115, %116
-  %.0.shrunk.i = phi i1 [ %49, %116 ], [ %50, %115 ], [ %51, %114 ], [ false, %_ZN6vectorIjLb0EjE7reserveEj.exit ]
+  %.0.shrunk.i = phi i1 [ %51, %114 ], [ %50, %115 ], [ %49, %116 ], [ false, %_ZN6vectorIjLb0EjE7reserveEj.exit ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   %117 = getelementptr inbounds nuw i32, ptr %112, i64 %.reass
   store i32 %.0.i, ptr %117, align 4, !tbaa !49
@@ -940,7 +940,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2dd11bdd_manager11apply_constEjjNS
   br label %15
 
 15:                                               ; preds = %4, %13, %9, %5
-  %.0.shrunk = phi i1 [ %14, %13 ], [ %12, %9 ], [ %8, %5 ], [ false, %4 ]
+  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %14, %13 ], [ false, %4 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -4898,7 +4898,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %20, %_ZNK6vectorIN2
   br label %_ZN2dd11bdd_manager12current_costEv.exit
 
 _ZN2dd11bdd_manager12current_costEv.exit:         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %25, %29, %33
-  %.0.i = phi double [ 0.000000e+00, %33 ], [ %32, %29 ], [ %28, %25 ], [ %24, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.0.i = phi double [ 0.000000e+00, %33 ], [ %24, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %28, %25 ], [ %32, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %35 = load ptr, ptr %34, align 8, !tbaa !69
   %36 = icmp eq ptr %35, null
@@ -4983,7 +4983,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i33:              ; preds = %58, %_ZNK6vectorIN2
   br label %_ZN2dd11bdd_manager12current_costEv.exit35
 
 _ZN2dd11bdd_manager12current_costEv.exit35:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i33, %63, %66, %69
-  %.0.i30 = phi double [ 0.000000e+00, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i33 ]
+  %.0.i30 = phi double [ 0.000000e+00, %69 ], [ %62, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i33 ], [ %65, %63 ], [ %68, %66 ]
   %70 = fmul double %.26695, 1.100000e+00
   %71 = fcmp ogt double %.0.i30, %70
   br i1 %71, label %.thread, label %72
@@ -5068,7 +5068,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i39:              ; preds = %88, %_ZNK6vectorIN2
   br label %_ZN2dd11bdd_manager12current_costEv.exit41
 
 _ZN2dd11bdd_manager12current_costEv.exit41:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i39, %93, %96, %99
-  %.0.i36 = phi double [ 0.000000e+00, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i39 ]
+  %.0.i36 = phi double [ 0.000000e+00, %99 ], [ %92, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i39 ], [ %95, %93 ], [ %98, %96 ]
   %100 = fcmp ogt double %.0.i36, %.266.lcssa
   br i1 %100, label %101, label %.loopexit80
 
@@ -5144,7 +5144,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i45:              ; preds = %117, %_ZNK6vectorIN
   br label %_ZN2dd11bdd_manager12current_costEv.exit47
 
 _ZN2dd11bdd_manager12current_costEv.exit47:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i45, %122, %125, %128
-  %.0.i42 = phi double [ 0.000000e+00, %128 ], [ %127, %125 ], [ %124, %122 ], [ %121, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i45 ]
+  %.0.i42 = phi double [ 0.000000e+00, %128 ], [ %121, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i45 ], [ %124, %122 ], [ %127, %125 ]
   %129 = fmul double %.56986, 1.100000e+00
   %130 = fcmp ogt double %.0.i42, %129
   br i1 %130, label %.thread75, label %131
@@ -5233,7 +5233,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i52:              ; preds = %147, %_ZNK6vectorIN
   br label %_ZN2dd11bdd_manager12current_costEv.exit54
 
 _ZN2dd11bdd_manager12current_costEv.exit54:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i52, %152, %155, %158
-  %.0.i49 = phi double [ 0.000000e+00, %158 ], [ %157, %155 ], [ %154, %152 ], [ %151, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i52 ]
+  %.0.i49 = phi double [ 0.000000e+00, %158 ], [ %151, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i52 ], [ %154, %152 ], [ %157, %155 ]
   %159 = fcmp ogt double %.0.i49, %.569.lcssa111
   br i1 %159, label %160, label %.loopexit80
 
@@ -5303,7 +5303,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIN2dd11b
   br label %28
 
 28:                                               ; preds = %27, %23, %19, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.0 = phi double [ 0.000000e+00, %27 ], [ %26, %23 ], [ %22, %19 ], [ %18, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %.0 = phi double [ 0.000000e+00, %27 ], [ %18, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %22, %19 ], [ %26, %23 ]
   ret double %.0
 }
 

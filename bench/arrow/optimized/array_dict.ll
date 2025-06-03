@@ -1829,7 +1829,7 @@ _ZN5arrow4util12ArrowLogBaselsIA12_cEERS1_RKT_.exit: ; preds = %.noexc13, %.noex
   resume { ptr, i32 } %68
 
 69:                                               ; preds = %_ZN5arrow4util12ArrowLogBaselsIA12_cEERS1_RKT_.exit, %40, %33, %26, %19
-  %.0 = phi i64 [ -1, %_ZN5arrow4util12ArrowLogBaselsIA12_cEERS1_RKT_.exit ], [ %45, %40 ], [ %39, %33 ], [ %32, %26 ], [ %25, %19 ]
+  %.0 = phi i64 [ -1, %_ZN5arrow4util12ArrowLogBaselsIA12_cEERS1_RKT_.exit ], [ %25, %19 ], [ %32, %26 ], [ %39, %33 ], [ %45, %40 ]
   ret i64 %.0
 }
 

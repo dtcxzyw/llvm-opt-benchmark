@@ -2816,7 +2816,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
   br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit: ; preds = %60, %62, %65
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ]
   %68 = load ptr, ptr %9, align 8
   %69 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %69)
@@ -3296,7 +3296,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
   br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit: ; preds = %60, %62, %65
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ]
   %68 = load ptr, ptr %9, align 8
   %69 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %69)
@@ -3754,7 +3754,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
   br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetConnInfoCtr_ctr.exit:   ; preds = %60, %62, %65
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ]
   %68 = load ptr, ptr %9, align 8
   %69 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %69)
@@ -4208,7 +4208,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
   br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetFileInfoCtr_ctr.exit:   ; preds = %60, %62, %65
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ]
   %68 = load ptr, ptr %9, align 8
   %69 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %69)
@@ -5287,7 +5287,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %79, %81, %84, %87, %90, %93
-  %.1.i.i = phi i32 [ %.0.i.i, %79 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %79 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ]
   %96 = load ptr, ptr %9, align 8
   %97 = sub i32 %.1.i.i, %.1
   call void @proto_item_set_len(ptr noundef %96, i32 noundef %97)
@@ -7140,7 +7140,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %77, %79, %82, %85, %88, %91, %94, %97, %100, %103, %106
-  %.1.i.i = phi i32 [ %.0.i.i, %77 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %77 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ]
   %109 = load ptr, ptr %9, align 8
   %110 = sub i32 %.1.i.i, %.0.i
   call void @proto_item_set_len(ptr noundef %109, i32 noundef %110)
@@ -11999,7 +11999,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
   br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit: ; preds = %60, %62, %65, %68, %71
-  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %60 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ]
   %74 = load ptr, ptr %9, align 8
   %75 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %75)
@@ -16113,7 +16113,7 @@ define internal i32 @srvsvc_dissect_element_NetCharDevGetInfo_info_(ptr noundef 
   br label %srvsvc_dissect_NetCharDevInfo.exit
 
 srvsvc_dissect_NetCharDevInfo.exit:               ; preds = %33, %35, %38
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -16282,7 +16282,7 @@ define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 n
   br label %41
 
 41:                                               ; preds = %33, %38, %35
-  %.1 = phi i32 [ %.0, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ]
   %42 = load ptr, ptr %8, align 8
   %43 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %43)
@@ -16533,7 +16533,7 @@ define internal i32 @srvsvc_dissect_element_NetFileGetInfo_info_(ptr noundef %0,
   br label %srvsvc_dissect_NetFileInfo.exit
 
 srvsvc_dissect_NetFileInfo.exit:                  ; preds = %33, %35, %38
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -16798,7 +16798,7 @@ define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noun
   br label %65
 
 65:                                               ; preds = %33, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35
-  %.1 = phi i32 [ %.0, %33 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ]
   %66 = load ptr, ptr %8, align 8
   %67 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67)
@@ -17457,7 +17457,7 @@ define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 nounde
   br label %212
 
 212:                                              ; preds = %33, %209, %206, %203, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35
-  %.1 = phi i32 [ %.0, %33 ], [ %211, %209 ], [ %208, %206 ], [ %205, %203 ], [ %202, %200 ], [ %199, %197 ], [ %196, %194 ], [ %193, %191 ], [ %190, %188 ], [ %187, %185 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %169, %167 ], [ %166, %164 ], [ %163, %161 ], [ %160, %158 ], [ %157, %155 ], [ %154, %152 ], [ %151, %149 ], [ %148, %146 ], [ %145, %143 ], [ %142, %140 ], [ %139, %137 ], [ %136, %134 ], [ %133, %131 ], [ %130, %128 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %85, %83 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %100, %98 ], [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %115, %113 ], [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ %145, %143 ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %163, %161 ], [ %166, %164 ], [ %169, %167 ], [ %172, %170 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %190, %188 ], [ %193, %191 ], [ %196, %194 ], [ %199, %197 ], [ %202, %200 ], [ %205, %203 ], [ %208, %206 ], [ %211, %209 ]
   %213 = load ptr, ptr %8, align 8
   %214 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %213, i32 noundef %214)
@@ -18070,7 +18070,7 @@ define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 
   br label %47
 
 47:                                               ; preds = %44, %41, %38, %35, %33
-  %.1 = phi i32 [ %.0, %33 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
   %48 = load ptr, ptr %8, align 8
   %49 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %48, i32 noundef %49)

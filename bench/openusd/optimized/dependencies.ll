@@ -2634,8 +2634,8 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Depend
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i.i
-  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.0.copyload.i2.i.i23.i.i.i, %42 ]
-  %.sroa.044.1.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %43, %42 ]
+  %.0.copyload.i2.i.i25.i.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i.i, %42 ], [ %.0.copyload.i2.i.i25.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.044.1.i.i.i = phi ptr [ %43, %42 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %.0.copyload.i.i.i24.i.i.i = load i64, ptr %.sroa.044.1.i.i.i, align 4
   %45 = icmp eq i64 %.0.copyload.i.i.i24.i.i.i, %.0.copyload.i2.i.i25.i.i.i
   br i1 %45, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit, label %46
@@ -2645,8 +2645,8 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__16Pcp_Depend
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge._crit_edge70.i.i.i
-  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %.0.copyload.i2.i.i25.i.i.i, %46 ]
-  %.sroa.044.2.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ], [ %47, %46 ]
+  %.0.copyload.i2.i.i27.i.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i.i, %46 ], [ %.0.copyload.i2.i.i27.pre.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
+  %.sroa.044.2.i.i.i = phi ptr [ %47, %46 ], [ %.sroa.044.0.lcssa.i.i.i, %._crit_edge._crit_edge70.i.i.i ]
   %.0.copyload.i.i.i26.i.i.i = load i64, ptr %.sroa.044.2.i.i.i, align 4
   %49 = icmp eq i64 %.0.copyload.i.i.i26.i.i.i, %.0.copyload.i2.i.i27.i.i.i
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.044.2.i.i.i, ptr %15
@@ -12476,8 +12476,8 @@ define linkonce_odr ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN32px
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge._crit_edge.i.i
-  %.0.copyload.i2.i.i25.i.i = phi i64 [ %.0.copyload.i2.i.i25.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %.0.copyload.i2.i.i23.i.i, %28 ]
-  %.sroa.044.1.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %29, %28 ]
+  %.0.copyload.i2.i.i25.i.i = phi i64 [ %.0.copyload.i2.i.i23.i.i, %28 ], [ %.0.copyload.i2.i.i25.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.sroa.044.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %.0.copyload.i.i.i24.i.i = load i64, ptr %.sroa.044.1.i.i, align 4
   %31 = icmp eq i64 %.0.copyload.i.i.i24.i.i, %.0.copyload.i2.i.i25.i.i
   br i1 %31, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKS3_EEET_SD_SD_T0_.exit, label %32
@@ -12487,8 +12487,8 @@ define linkonce_odr ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN32px
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge._crit_edge70.i.i
-  %.0.copyload.i2.i.i27.i.i = phi i64 [ %.0.copyload.i2.i.i27.pre.i.i, %._crit_edge._crit_edge70.i.i ], [ %.0.copyload.i2.i.i25.i.i, %32 ]
-  %.sroa.044.2.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge70.i.i ], [ %33, %32 ]
+  %.0.copyload.i2.i.i27.i.i = phi i64 [ %.0.copyload.i2.i.i25.i.i, %32 ], [ %.0.copyload.i2.i.i27.pre.i.i, %._crit_edge._crit_edge70.i.i ]
+  %.sroa.044.2.i.i = phi ptr [ %33, %32 ], [ %.sroa.044.0.lcssa.i.i, %._crit_edge._crit_edge70.i.i ]
   %.0.copyload.i.i.i26.i.i = load i64, ptr %.sroa.044.2.i.i, align 4
   %35 = icmp eq i64 %.0.copyload.i.i.i26.i.i, %.0.copyload.i2.i.i27.i.i
   %spec.select.i.i = select i1 %35, ptr %.sroa.044.2.i.i, ptr %1

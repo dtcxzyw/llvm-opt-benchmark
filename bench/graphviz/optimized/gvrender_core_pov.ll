@@ -365,7 +365,7 @@ define internal void @pov_textspan(ptr noundef %0, double %1, double %2, ptr nou
   br label %25
 
 25:                                               ; preds = %20, %16, %4
-  %.sroa.0.0 = phi double [ %24, %20 ], [ %19, %16 ], [ %1, %4 ]
+  %.sroa.0.0 = phi double [ %24, %20 ], [ %1, %4 ], [ %19, %16 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %27 = load double, ptr %26, align 8, !tbaa !45
   %28 = fadd double %.sroa.0.0, %27

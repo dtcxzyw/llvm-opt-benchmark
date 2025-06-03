@@ -925,7 +925,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %112, label %122, label %123
 
 113:                                              ; preds = %.loopexit, %.loopexit.split-lp, %188, %168
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %169, %168 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %189, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %114 = load i64, ptr %15, align 8, !range !142, !noundef !4
   %.not150 = icmp eq i64 %114, -9223372036854775807
   br i1 %.not150, label %234, label %247
@@ -1086,8 +1086,8 @@ _ZN5serde2de9MapAccess10next_value17he1af95782897ed8aE.exit: ; preds = %152
   br label %170
 
 170:                                              ; preds = %201, %198, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9a819c6194f726abE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit"
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0392, %201 ], [ %197, %198 ], [ %.sroa.5.0392, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9a819c6194f726abE.exit" ], [ %.sroa.5.0392, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit" ]
-  %.sroa.032.1 = phi i64 [ %.sroa.032.0393, %201 ], [ %196, %198 ], [ %.sroa.032.0393, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9a819c6194f726abE.exit" ], [ %.sroa.032.0393, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit" ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0392, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit" ], [ %.sroa.5.0392, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9a819c6194f726abE.exit" ], [ %197, %198 ], [ %.sroa.5.0392, %201 ]
+  %.sroa.032.1 = phi i64 [ %.sroa.032.0393, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit" ], [ %.sroa.032.0393, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h9a819c6194f726abE.exit" ], [ %196, %198 ], [ %.sroa.032.0393, %201 ]
   %171 = load ptr, ptr %17, align 8, !alias.scope !106, !noalias !109, !noundef !4
   %.not.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i, label %._crit_edge, label %37, !prof !187
@@ -2162,7 +2162,7 @@ define hidden void @_ZN3csv13string_record12StringRecord4read17h6ce81525015b3986
   br label %31
 
 28:                                               ; preds = %18, %17
-  %.sroa.57.0 = phi ptr [ %.sroa.57.0.copyload9, %18 ], [ %.sroa.57.0.copyload, %17 ]
+  %.sroa.57.0 = phi ptr [ %.sroa.57.0.copyload, %17 ], [ %.sroa.57.0.copyload9, %18 ]
   %29 = icmp ne ptr %.sroa.57.0, null
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2271,7 +2271,7 @@ define hidden void @"_ZN3csv6reader15Reader$LT$R$GT$11read_record17h6cd65018fa7f
   br label %_ZN3csv13string_record12StringRecord4read17h6ce81525015b3986E.llvm.3967706017269359750.exit
 
 29:                                               ; preds = %19, %18
-  %.sroa.57.0.i = phi ptr [ %.sroa.57.0.copyload9.i, %19 ], [ %.sroa.57.0.copyload.i, %18 ]
+  %.sroa.57.0.i = phi ptr [ %.sroa.57.0.copyload.i, %18 ], [ %.sroa.57.0.copyload9.i, %19 ]
   %30 = icmp ne ptr %.sroa.57.0.i, null
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3654,8 +3654,8 @@ common.resume:                                    ; preds = %162, %134
   br i1 %trunc15, label %146, label %153
 
 143:                                              ; preds = %153, %137, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17hfaec3fd21469f6a8E.exit"
-  %.sroa.4.0 = phi ptr [ %.sroa.1234.0, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17hfaec3fd21469f6a8E.exit" ], [ %161, %153 ], [ %138, %137 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17hfaec3fd21469f6a8E.exit" ], [ 1, %153 ], [ 0, %137 ]
+  %.sroa.4.0 = phi ptr [ %138, %137 ], [ %161, %153 ], [ %.sroa.1234.0, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17hfaec3fd21469f6a8E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %137 ], [ 1, %153 ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$csv..byte_record..ByteRecord$GT$17hfaec3fd21469f6a8E.exit" ]
   %144 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %145 = insertvalue { i64, ptr } %144, ptr %.sroa.4.0, 1
   ret { i64, ptr } %145
@@ -4091,7 +4091,7 @@ define internal fastcc noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wr
   br label %59
 
 59:                                               ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17h26d27f260145d302E.exit.thread", %._crit_edge54, %57
-  %.sroa.0.0 = phi ptr [ %58, %57 ], [ null, %._crit_edge54 ], [ %20, %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17h26d27f260145d302E.exit.thread" ]
+  %.sroa.0.0 = phi ptr [ null, %._crit_edge54 ], [ %58, %57 ], [ %20, %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17h26d27f260145d302E.exit.thread" ]
   ret ptr %.sroa.0.0
 }
 
@@ -4451,7 +4451,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN65_$LT$uv_trampoline_builder..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hb85ead6afb721caeE.exit"
 
 "_ZN65_$LT$uv_trampoline_builder..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hb85ead6afb721caeE.exit": ; preds = %15, %18, %21, %24, %28, %32, %35
-  %.sroa.0.0.in.i = phi i1 [ %36, %35 ], [ %34, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %34, %32 ], [ %36, %35 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4554,7 +4554,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN78_$LT$uv_pypi_types..parsed_url..ParsedUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h212c5ccd951d756bE.exit"
 
 "_ZN78_$LT$uv_pypi_types..parsed_url..ParsedUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h212c5ccd951d756bE.exit": ; preds = %17, %22, %25, %27, %31, %34, %37, %41
-  %.sroa.0.0.in.i = phi i1 [ %44, %41 ], [ %40, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %17 ]
+  %.sroa.0.0.in.i = phi i1 [ %21, %17 ], [ %24, %22 ], [ %26, %25 ], [ %30, %27 ], [ %33, %31 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4614,7 +4614,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN88_$LT$uv_distribution_filename..egg..EggInfoFilenameError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2646292ef368b1aaE.exit"
 
 "_ZN88_$LT$uv_distribution_filename..egg..EggInfoFilenameError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2646292ef368b1aaE.exit": ; preds = %13, %16, %19, %22
-  %.sroa.0.0.in.i = phi i1 [ %25, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %25, %22 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4695,7 +4695,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN76_$LT$csv..deserializer..DeserializeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5d5ac2abd56b7718E.exit"
 
 "_ZN76_$LT$csv..deserializer..DeserializeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5d5ac2abd56b7718E.exit": ; preds = %11, %14, %17, %19, %22, %25, %28
-  %.sroa.0.0.in.i = phi i1 [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %11 ], [ %16, %14 ], [ %18, %17 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4759,7 +4759,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN76_$LT$uv_distribution_types..file..ToUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h323a99b2b8210a6fE.exit"
 
 "_ZN76_$LT$uv_distribution_types..file..ToUrlError$u20$as$u20$core..fmt..Debug$GT$3fmt17h323a99b2b8210a6fE.exit": ; preds = %12, %16, %20
-  %.sroa.0.0.in.i = phi i1 [ %23, %20 ], [ %19, %16 ], [ %15, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %12 ], [ %19, %16 ], [ %23, %20 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -5995,7 +5995,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6566,8 +6566,8 @@ define hidden void @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$u20$csv.
   br label %49
 
 43:                                               ; preds = %38, %40
-  %.sroa.04.0 = phi ptr [ %.sroa.6.0.copyload, %38 ], [ %42, %40 ]
-  %.sroa.46.0 = phi i64 [ %.sroa.7.0.copyload, %38 ], [ %41, %40 ]
+  %.sroa.04.0 = phi ptr [ %42, %40 ], [ %.sroa.6.0.copyload, %38 ]
+  %.sroa.46.0 = phi i64 [ %41, %40 ], [ %.sroa.7.0.copyload, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %45 = load i64, ptr %44, align 8, !noundef !4
   %46 = add i64 %45, 1
@@ -8072,8 +8072,8 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br label %45
 
 45:                                               ; preds = %42, %40
-  %.sroa.04.0.i = phi ptr [ %.sroa.6.0.copyload.i, %40 ], [ %44, %42 ]
-  %.sroa.46.0.i = phi i64 [ %.sroa.7.0.copyload.i, %40 ], [ %43, %42 ]
+  %.sroa.04.0.i = phi ptr [ %44, %42 ], [ %.sroa.6.0.copyload.i, %40 ]
+  %.sroa.46.0.i = phi i64 [ %43, %42 ], [ %.sroa.7.0.copyload.i, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %47 = load i64, ptr %46, align 8, !alias.scope !1376, !noalias !1379, !noundef !4
   %48 = add i64 %47, 1
@@ -8709,8 +8709,8 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br label %43
 
 43:                                               ; preds = %40, %38
-  %.sroa.04.0.i = phi ptr [ %.sroa.6.0.copyload.i, %38 ], [ %42, %40 ]
-  %.sroa.46.0.i = phi i64 [ %.sroa.7.0.copyload.i, %38 ], [ %41, %40 ]
+  %.sroa.04.0.i = phi ptr [ %42, %40 ], [ %.sroa.6.0.copyload.i, %38 ]
+  %.sroa.46.0.i = phi i64 [ %41, %40 ], [ %.sroa.7.0.copyload.i, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %45 = load i64, ptr %44, align 8, !alias.scope !1485, !noalias !1488, !noundef !4
   %46 = add i64 %45, 1

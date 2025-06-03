@@ -616,7 +616,7 @@ common.resume:                                    ; preds = %54, %83, %18
           to label %45 unwind label %56
 
 45:                                               ; preds = %.invoke, %40, %35, %30, %25
-  %.0 = phi i8 [ 1, %40 ], [ 1, %35 ], [ 1, %30 ], [ 0, %25 ], [ 1, %.invoke ]
+  %.0 = phi i8 [ 0, %25 ], [ 1, %30 ], [ 1, %35 ], [ 1, %40 ], [ 1, %.invoke ]
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -636,7 +636,7 @@ common.resume:                                    ; preds = %54, %83, %18
   br i1 %55, label %83, label %common.resume
 
 56:                                               ; preds = %.invoke, %60, %40, %35, %30
-  %.1 = phi i8 [ 1, %40 ], [ 1, %35 ], [ 1, %30 ], [ %.0, %60 ], [ 1, %.invoke ]
+  %.1 = phi i8 [ 1, %30 ], [ 1, %35 ], [ 1, %40 ], [ %.0, %60 ], [ 1, %.invoke ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %54

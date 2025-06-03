@@ -1700,8 +1700,8 @@ _.exit46:                                         ; preds = %80, %82
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %78, %76
-  %.0.i39.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i39.sink, ptr noundef %42) #18
+  %.0.i42.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i42.sink, ptr noundef %42) #18
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %95

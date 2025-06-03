@@ -5981,7 +5981,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.1 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.sroa.032.1, align 8, !tbaa !3
   %40 = load ptr, ptr %2, align 8, !tbaa !3
   %41 = tail call zeroext i8 @lean_name_eq(ptr noundef %39, ptr noundef %40)
@@ -5993,7 +5993,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.032.2 = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.sroa.032.2, align 8, !tbaa !3
   %46 = load ptr, ptr %2, align 8, !tbaa !3
   %47 = tail call zeroext i8 @lean_name_eq(ptr noundef %45, ptr noundef %46)

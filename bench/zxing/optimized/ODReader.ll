@@ -2631,7 +2631,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEE
   br label %642
 
 642:                                              ; preds = %640, %._crit_edge.i.i.i.i236
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i236 ], [ %641, %640 ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %641, %640 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i236 ]
   %643 = getelementptr i8, ptr %.sroa.032.1.i.i.i.i, i64 192
   %.val.i20.i.i.i.i = load i32, ptr %643, align 8, !tbaa !145
   %644 = icmp eq i32 %.val.i20.i.i.i.i, 0
@@ -2642,7 +2642,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEE
   br label %647
 
 647:                                              ; preds = %645, %._crit_edge.i.i.i.i236
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i236 ], [ %646, %645 ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %646, %645 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i236 ]
   %648 = getelementptr i8, ptr %.sroa.032.2.i.i.i.i, i64 192
   %.val.i21.i.i.i.i = load i32, ptr %648, align 8, !tbaa !145
   %649 = icmp eq i32 %.val.i21.i.i.i.i, 0

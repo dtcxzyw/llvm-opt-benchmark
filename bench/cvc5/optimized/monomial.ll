@@ -1070,8 +1070,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   br label %168
 
 168:                                              ; preds = %166, %._crit_edge._crit_edge.i.i.i
-  %169 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %164, %166 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %167, %166 ]
+  %169 = phi ptr [ %164, %166 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %167, %166 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %170 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !12
   %171 = icmp eq ptr %170, %169
   br i1 %171, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit, label %172
@@ -1081,8 +1081,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   br label %174
 
 174:                                              ; preds = %172, %._crit_edge._crit_edge57.i.i.i
-  %175 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %169, %172 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %173, %172 ]
+  %175 = phi ptr [ %169, %172 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %173, %172 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %176 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !12
   %177 = icmp eq ptr %176, %175
   %spec.select.i.i.i = select i1 %177, ptr %.sroa.032.2.i.i.i, ptr %.pre308
@@ -3453,8 +3453,8 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl10MonomialDb16registerMonom
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge._crit_edge.i.i.i
-  %73 = phi ptr [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %68, %70 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %71, %70 ]
+  %73 = phi ptr [ %68, %70 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %74 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !12
   %75 = icmp eq ptr %74, %73
   br i1 %75, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit, label %76
@@ -3464,8 +3464,8 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl10MonomialDb16registerMonom
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge._crit_edge57.i.i.i
-  %79 = phi ptr [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %73, %76 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %77, %76 ]
+  %79 = phi ptr [ %73, %76 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %77, %76 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %80 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !12
   %81 = icmp eq ptr %80, %79
   %spec.select.i.i.i = select i1 %81, ptr %.sroa.032.2.i.i.i, ptr %38

@@ -12979,7 +12979,7 @@ define linkonce_odr hidden void @_ZN4smt26parser10parse_exprEv(ptr noundef nonnu
   br label %_ZN4smt26parser16parse_expr_stateEv.exit
 
 _ZN4smt26parser16parse_expr_stateEv.exit:         ; preds = %20, %24
-  %.0.i = phi i32 [ %25, %24 ], [ %23, %20 ]
+  %.0.i = phi i32 [ %23, %20 ], [ %25, %24 ]
   switch i32 %.0.i, label %51 [
     i32 0, label %_ZN4smt26parser16parse_expr_stateEv.exit.threadthread-pre-split
     i32 1, label %49
@@ -32940,7 +32940,7 @@ _ZN8rationalD2Ev.exit110:                         ; preds = %.noexc.i109
   br label %488
 
 474:                                              ; preds = %_ZN8rationalD2Ev.exit110, %_ZN8rationalD2Ev.exit, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit85, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit75, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit65, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit, %_ZNK15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE4sizeEv.exit35
-  %.1 = phi i32 [ %.0, %_ZN8rationalD2Ev.exit110 ], [ %.0, %_ZN8rationalD2Ev.exit ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit85 ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit75 ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit65 ], [ %80, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit ], [ %71, %_ZNK15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE4sizeEv.exit35 ]
+  %.1 = phi i32 [ %71, %_ZNK15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE4sizeEv.exit35 ], [ %80, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit65 ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit75 ], [ %.0, %_ZN15ref_vector_coreI5sexpr19ref_manager_wrapperIS0_13sexpr_managerEE9push_backEPS0_.exit85 ], [ %.0, %_ZN8rationalD2Ev.exit ], [ %.0, %_ZN8rationalD2Ev.exit110 ]
   %475 = load i32, ptr %22, align 8, !tbaa !8
   switch i32 %475, label %479 [
     i32 9, label %_ZN4smt26parser4nextEv.exit
@@ -32984,7 +32984,7 @@ _ZN4smt26parser4nextEv.exit:                      ; preds = %474, %_ZN4smt26pars
   ret void
 
 488:                                              ; preds = %472, %467, %462, %392, %77
-  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %468, %467 ], [ %463, %462 ], [ %393, %392 ], [ %78, %77 ]
+  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %78, %77 ], [ %393, %392 ], [ %463, %462 ], [ %468, %467 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -45665,7 +45665,7 @@ define linkonce_odr hidden void @_ZN4smt26parser18parse_next_cmd_argEv(ptr nound
   unreachable
 
 common.resume:                                    ; preds = %60, %141, %201, %513, %552, %557, %272, %241, %210, %150, %90, %50, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %51, %50 ], [ %91, %90 ], [ %151, %150 ], [ %211, %210 ], [ %242, %241 ], [ %273, %272 ], [ %558, %557 ], [ %553, %552 ], [ %514, %513 ], [ %202, %201 ], [ %142, %141 ], [ %61, %60 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %51, %50 ], [ %91, %90 ], [ %151, %150 ], [ %211, %210 ], [ %242, %241 ], [ %273, %272 ], [ %558, %557 ], [ %61, %60 ], [ %142, %141 ], [ %202, %201 ], [ %514, %513 ], [ %553, %552 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %17

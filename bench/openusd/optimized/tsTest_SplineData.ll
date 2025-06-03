@@ -1160,7 +1160,7 @@ define noundef range(i32 0, 512) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Ts
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %8
-  %.1 = phi i32 [ %.027, %8 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
+  %.1 = phi i32 [ %.027, %8 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.021.025, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1

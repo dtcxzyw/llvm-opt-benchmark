@@ -3669,7 +3669,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit297:     ; preds = %.lr.ph, %613
   br i1 %exitcond414.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread, %554
-  %.2 = phi i64 [ %.0.i256, %554 ], [ %588, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit ], [ %565, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread ], [ %611, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297 ]
+  %.2 = phi i64 [ %.0.i256, %554 ], [ %565, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread ], [ %588, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit ], [ %611, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297 ]
   %626 = tail call fastcc noundef i32 @_ZN7lodepngL9isICCwordEPKhmmPKc(ptr noundef %1, i64 noundef %2, i64 noundef %.2, ptr noundef nonnull @.str.14)
   %.not238 = icmp eq i32 %626, 0
   br i1 %.not238, label %.critedge, label %627

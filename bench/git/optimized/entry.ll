@@ -1147,9 +1147,9 @@ fstat_checkout_output.exit.i:                     ; preds = %44, %41, %36
   br label %.critedge118
 
 .critedge118:                                     ; preds = %.thread158, %97, %.critedge, %64
-  %.0132144 = phi i32 [ %.0132145, %97 ], [ %.0132145, %.critedge ], [ %.0132145, %.thread158 ], [ 0, %64 ]
-  %.0130 = phi i64 [ %78, %97 ], [ %102, %.critedge ], [ %.1131153163, %.thread158 ], [ %55, %64 ]
-  %.087 = phi ptr [ %77, %97 ], [ %101, %.critedge ], [ %.188155162, %.thread158 ], [ %54, %64 ]
+  %.0132144 = phi i32 [ 0, %64 ], [ %.0132145, %97 ], [ %.0132145, %.critedge ], [ %.0132145, %.thread158 ]
+  %.0130 = phi i64 [ %55, %64 ], [ %78, %97 ], [ %102, %.critedge ], [ %.1131153163, %.thread158 ]
+  %.087 = phi ptr [ %54, %64 ], [ %77, %97 ], [ %101, %.critedge ], [ %.188155162, %.thread158 ]
   %.val = load i32, ptr %15, align 4, !tbaa !11
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %open_output_fd.exit, label %open_output_fd.exit.thread
@@ -1255,7 +1255,7 @@ fstat_checkout_output.exit:                       ; preds = %123, %120, %115, %.
   br label %171
 
 streaming_write_entry.exit:                       ; preds = %fstat_checkout_output.exit.i, %68, %fstat_checkout_output.exit, %140
-  %.3 = phi i32 [ 0, %140 ], [ %.4, %fstat_checkout_output.exit ], [ 0, %68 ], [ %.0.i18.i, %fstat_checkout_output.exit.i ]
+  %.3 = phi i32 [ %.4, %fstat_checkout_output.exit ], [ 0, %68 ], [ 0, %140 ], [ %.0.i18.i, %fstat_checkout_output.exit.i ]
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %157 = load i8, ptr %156, align 8
   %158 = and i8 %157, 16
@@ -1291,7 +1291,7 @@ streaming_write_entry.exit:                       ; preds = %fstat_checkout_outp
   br label %171
 
 171:                                              ; preds = %94, %168, %167, %164, %153, %142, %138, %132, %129, %113, %83, %70, %60
-  %.0 = phi i32 [ -1, %164 ], [ -1, %153 ], [ -1, %132 ], [ -1, %138 ], [ %152, %142 ], [ -1, %113 ], [ -1, %129 ], [ -1, %83 ], [ -1, %70 ], [ -1, %60 ], [ 0, %167 ], [ 0, %168 ], [ 0, %94 ]
+  %.0 = phi i32 [ -1, %153 ], [ -1, %113 ], [ -1, %129 ], [ -1, %164 ], [ -1, %70 ], [ -1, %60 ], [ -1, %83 ], [ -1, %132 ], [ -1, %138 ], [ %152, %142 ], [ 0, %167 ], [ 0, %168 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16

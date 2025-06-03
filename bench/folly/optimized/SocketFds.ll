@@ -899,7 +899,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %22
   br label %27
 
 27:                                               ; preds = %18, %26
-  %.1 = phi i64 [ %.val, %18 ], [ -1, %26 ]
+  %.1 = phi i64 [ -1, %26 ], [ %.val, %18 ]
   ret i64 %.1
 
 28:                                               ; preds = %24, %16

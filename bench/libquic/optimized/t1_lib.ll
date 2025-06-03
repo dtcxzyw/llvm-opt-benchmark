@@ -744,7 +744,7 @@ tls12_get_hash.exit.thread:                       ; preds = %.thread
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %32, %34, %36, %38
-  %.0.i = phi ptr [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0.i = phi ptr [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !92
   %40 = icmp eq ptr %.0.i, null
   br i1 %40, label %41, label %42
@@ -817,7 +817,7 @@ define hidden ptr @tls12_get_hash(i8 noundef zeroext %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %1, %8, %6, %4, %2
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ null, %1 ]
+  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -1436,7 +1436,7 @@ ssl_scan_clienthello_tlsext.exit:                 ; preds = %79
   store i8 %103, ptr %101, align 2
   br label %ssl_check_clienthello_tlsext.exit.thread
 
-ssl_check_clienthello_tlsext.exit.thread:         ; preds = %.thread.i5, %97, %93
+ssl_check_clienthello_tlsext.exit.thread:         ; preds = %97, %.thread.i5, %93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   br label %107
 
@@ -2095,7 +2095,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %19, %21, %23, %25
-  %.0.i = phi ptr [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
   %27 = icmp eq ptr %.0.i, null
   br i1 %27, label %.thread, label %28
 

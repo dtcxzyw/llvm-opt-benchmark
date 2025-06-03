@@ -750,7 +750,7 @@ define internal fastcc range(i32 0, 2) i32 @make_addressRange(ptr noundef nonnul
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %42, %41, %34
-  %.1.i = phi i32 [ 1, %46 ], [ 2, %45 ], [ 3, %44 ], [ 4, %43 ], [ 5, %42 ], [ 6, %41 ], [ 7, %34 ]
+  %.1.i = phi i32 [ 6, %41 ], [ 5, %42 ], [ 4, %43 ], [ 3, %44 ], [ 2, %45 ], [ 1, %46 ], [ 7, %34 ]
   %48 = and i8 %40, %37
   %.not37.i = icmp eq i8 %48, 0
   %49 = and i8 %40, %39
@@ -1445,7 +1445,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   br label %130
 
 130:                                              ; preds = %129, %128, %127, %126, %125, %124, %117
-  %.1.i = phi i32 [ 1, %129 ], [ 2, %128 ], [ 3, %127 ], [ 4, %126 ], [ 5, %125 ], [ 6, %124 ], [ 7, %117 ]
+  %.1.i = phi i32 [ 6, %124 ], [ 5, %125 ], [ 4, %126 ], [ 3, %127 ], [ 2, %128 ], [ 1, %129 ], [ 7, %117 ]
   %131 = and i8 %123, %120
   %.not37.i = icmp eq i8 %131, 0
   %132 = and i8 %123, %122
@@ -1650,7 +1650,7 @@ define internal fastcc i32 @range_should_be_prefix(ptr noundef readonly captures
   br label %42
 
 42:                                               ; preds = %29, %41, %40, %39, %38, %37, %36
-  %.1 = phi i32 [ 1, %41 ], [ 2, %40 ], [ 3, %39 ], [ 4, %38 ], [ 5, %37 ], [ 6, %36 ], [ 7, %29 ]
+  %.1 = phi i32 [ 6, %36 ], [ 5, %37 ], [ 4, %38 ], [ 3, %39 ], [ 2, %40 ], [ 1, %41 ], [ 7, %29 ]
   %43 = and i8 %35, %32
   %.not37 = icmp eq i8 %43, 0
   %44 = and i8 %35, %34
@@ -2239,8 +2239,8 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %159, ptr noundef nonnull @.str.21, ptr noundef %161) #15
   br label %.thread148
 
-.thread148:                                       ; preds = %55, %26, %32, %43, %79, %95, %158, %157, %133, %139, %147, %153, %110, %116
-  %.1.ph = phi ptr [ %.2, %116 ], [ %.2, %110 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %139 ], [ %.2, %133 ], [ %.2, %157 ], [ %.2, %158 ], [ %.2, %95 ], [ %.2, %79 ], [ null, %43 ], [ null, %32 ], [ null, %26 ], [ null, %55 ]
+.thread148:                                       ; preds = %55, %26, %32, %43, %79, %95, %158, %110, %116, %133, %139, %147, %153, %157
+  %.1.ph = phi ptr [ %.2, %157 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %139 ], [ %.2, %133 ], [ %.2, %116 ], [ %.2, %110 ], [ %.2, %158 ], [ %.2, %95 ], [ %.2, %79 ], [ null, %43 ], [ null, %32 ], [ null, %26 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
@@ -3325,7 +3325,7 @@ define internal fastcc i32 @IPAddressOrRange_cmp(ptr noundef readonly captures(n
   br label %63
 
 63:                                               ; preds = %._crit_edge56, %28
-  %.021 = phi i32 [ %62, %._crit_edge56 ], [ %36, %28 ]
+  %.021 = phi i32 [ %36, %28 ], [ %62, %._crit_edge56 ]
   %64 = load i32, ptr %1, align 8, !tbaa !25
   switch i32 %64, label %addr_expand.exit.thread [
     i32 0, label %65
@@ -3429,7 +3429,7 @@ define internal fastcc i32 @IPAddressOrRange_cmp(ptr noundef readonly captures(n
   br label %121
 
 121:                                              ; preds = %._crit_edge57, %86
-  %.020 = phi i32 [ %120, %._crit_edge57 ], [ %94, %86 ]
+  %.020 = phi i32 [ %94, %86 ], [ %120, %._crit_edge57 ]
   %122 = zext nneg i32 %2 to i64
   %123 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5, i64 noundef %122) #16
   %.not26 = icmp eq i32 %123, 0

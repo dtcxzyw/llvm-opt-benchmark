@@ -1719,13 +1719,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %194
 
 194:                                              ; preds = %27, %.loopexit147, %30, %_ZL16read_xvgr_stringPKc.exit120, %75
-  %.1143 = phi ptr [ %.3145.lcssa227, %.loopexit147 ], [ %.0142179, %27 ], [ %.0142179, %30 ], [ %.0142179, %75 ], [ %.0142179, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.1140 = phi ptr [ %.3.lcssa228, %.loopexit147 ], [ %.0139180, %27 ], [ %.0139180, %30 ], [ %.0139180, %75 ], [ %.0139180, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.1137 = phi ptr [ %.2138, %.loopexit147 ], [ %.0136181, %27 ], [ %.0136181, %30 ], [ %.0136181, %75 ], [ %.0136181, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.190 = phi i32 [ %.291, %.loopexit147 ], [ %.089183, %27 ], [ %.089183, %30 ], [ %.089183, %75 ], [ %.089183, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.188 = phi i32 [ %193, %.loopexit147 ], [ %.087184, %27 ], [ %.087184, %30 ], [ %.087184, %75 ], [ %.087184, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.186 = phi i32 [ %.2217226, %.loopexit147 ], [ %.085185, %27 ], [ %.085185, %30 ], [ %.085185, %75 ], [ %.085185, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.1 = phi i32 [ %.0186, %.loopexit147 ], [ %.0186, %27 ], [ %.0186, %30 ], [ %.0186, %75 ], [ %79, %_ZL16read_xvgr_stringPKc.exit120 ]
+  %.1143 = phi ptr [ %.3145.lcssa227, %.loopexit147 ], [ %.0142179, %30 ], [ %.0142179, %75 ], [ %.0142179, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.0142179, %27 ]
+  %.1140 = phi ptr [ %.3.lcssa228, %.loopexit147 ], [ %.0139180, %30 ], [ %.0139180, %75 ], [ %.0139180, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.0139180, %27 ]
+  %.1137 = phi ptr [ %.2138, %.loopexit147 ], [ %.0136181, %30 ], [ %.0136181, %75 ], [ %.0136181, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.0136181, %27 ]
+  %.190 = phi i32 [ %.291, %.loopexit147 ], [ %.089183, %30 ], [ %.089183, %75 ], [ %.089183, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.089183, %27 ]
+  %.188 = phi i32 [ %193, %.loopexit147 ], [ %.087184, %30 ], [ %.087184, %75 ], [ %.087184, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.087184, %27 ]
+  %.186 = phi i32 [ %.2217226, %.loopexit147 ], [ %.085185, %30 ], [ %.085185, %75 ], [ %.085185, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.085185, %27 ]
+  %.1 = phi i32 [ %.0186, %.loopexit147 ], [ %.0186, %30 ], [ %.0186, %75 ], [ %79, %_ZL16read_xvgr_stringPKc.exit120 ], [ %.0186, %27 ]
   %195 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef %11, ptr noundef %12)
   %.not108 = icmp eq ptr %195, null
   br i1 %.not108, label %.critedge, label %24, !llvm.loop !48

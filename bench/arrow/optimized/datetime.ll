@@ -2104,7 +2104,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %241
 
 241:                                              ; preds = %239, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %240, %239 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %240, %239 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i, i64 40
   %243 = load i8, ptr %242, align 8, !tbaa !80, !range !83, !noundef !84
   %244 = icmp eq i8 %243, 0
@@ -2115,7 +2115,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %247
 
 247:                                              ; preds = %245, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %246, %245 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %246, %245 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %248 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i, i64 40
   %249 = load i8, ptr %248, align 8, !tbaa !80, !range !83, !noundef !84
   %250 = icmp eq i8 %249, 0
@@ -2887,7 +2887,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %242
 
 242:                                              ; preds = %240, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %241, %240 ]
+  %.sroa.025.1.i.i.i = phi ptr [ %241, %240 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i, i64 40
   %244 = load i8, ptr %243, align 8, !tbaa !80, !range !83, !noundef !84
   %245 = icmp eq i8 %244, 0
@@ -2898,7 +2898,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE7emplaceIJRKNSt6c
   br label %248
 
 248:                                              ; preds = %246, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %247, %246 ]
+  %.sroa.025.2.i.i.i = phi ptr [ %247, %246 ], [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i, i64 40
   %250 = load i8, ptr %249, align 8, !tbaa !80, !range !83, !noundef !84
   %251 = icmp eq i8 %250, 0
@@ -6891,7 +6891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
   br label %472
 
 471:                                              ; preds = %465, %295, %251, %206, %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194
-  %.1 = phi ptr [ %.0, %83 ], [ %193, %206 ], [ %.4, %251 ], [ %.7, %295 ], [ %.11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.14, %465 ]
+  %.1 = phi ptr [ %.14, %465 ], [ %.11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194 ], [ %.7, %295 ], [ %.4, %251 ], [ %193, %206 ], [ %.0, %83 ]
   ret ptr %.1
 
 472:                                              ; preds = %469, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit116
@@ -9138,7 +9138,7 @@ _ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %663
 
 663:                                              ; preds = %661, %._crit_edge.loopexit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %651, %._crit_edge.loopexit.i.i.i.i.i ], [ %662, %661 ]
+  %.1.i.i.i.i.i = phi ptr [ %662, %661 ], [ %651, %._crit_edge.loopexit.i.i.i.i.i ]
   %664 = load i64, ptr %492, align 8, !tbaa !29, !noalias !236
   %665 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   %666 = load i64, ptr %665, align 8, !tbaa !29, !noalias !236
@@ -9155,7 +9155,7 @@ _ZN14arrow_vendored4dateL7tolowerERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %671
 
 671:                                              ; preds = %669, %._crit_edge.loopexit.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %651, %._crit_edge.loopexit.i.i.i.i.i ], [ %670, %669 ]
+  %.2.i.i.i.i.i = phi ptr [ %670, %669 ], [ %651, %._crit_edge.loopexit.i.i.i.i.i ]
   %672 = load i64, ptr %492, align 8, !tbaa !29, !noalias !236
   %673 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i, i64 8
   %674 = load i64, ptr %673, align 8, !tbaa !29, !noalias !236

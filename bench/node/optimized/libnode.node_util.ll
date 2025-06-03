@@ -223,7 +223,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZN4node4utilL19GetUVHandleTypeCodeE14uv_handle_type.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i
-  %retval.0.i = phi i32 [ 5, %sw.bb5.i ], [ 4, %sw.bb4.i ], [ 3, %sw.bb3.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %entry ]
+  %retval.0.i = phi i32 [ 1, %sw.bb1.i ], [ 2, %sw.bb2.i ], [ 3, %sw.bb3.i ], [ 4, %sw.bb4.i ], [ 5, %sw.bb5.i ], [ 0, %entry ]
   ret i32 %retval.0.i
 }
 
@@ -1965,7 +1965,7 @@ do.body.i:                                        ; preds = %do.end21
   unreachable
 
 _ZN4node4utilL19GetUVHandleTypeCodeE14uv_handle_type.exit: ; preds = %do.end21, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i
-  %retval.0.i = phi i64 [ 21474836480, %sw.bb5.i ], [ 17179869184, %sw.bb4.i ], [ 12884901888, %sw.bb3.i ], [ 8589934592, %sw.bb2.i ], [ 4294967296, %sw.bb1.i ], [ 0, %do.end21 ]
+  %retval.0.i = phi i64 [ 4294967296, %sw.bb1.i ], [ 8589934592, %sw.bb2.i ], [ 12884901888, %sw.bb3.i ], [ 17179869184, %sw.bb4.i ], [ 21474836480, %sw.bb5.i ], [ 0, %do.end21 ]
   store i64 %retval.0.i, ptr %arrayidx.i, align 8
   br label %return
 

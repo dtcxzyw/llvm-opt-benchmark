@@ -642,7 +642,7 @@ _ZN12_GLOBAL__N_116well_sorted_procclEP10quantifier.exit.i.i: ; preds = %_ZN6buf
   unreachable
 
 220:                                              ; preds = %193, %172, %170, %112, %91, %66, %64, %33
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %34, %33 ], [ %65, %64 ], [ %171, %170 ], [ %67, %66 ], [ %113, %112 ], [ %92, %91 ], [ %194, %193 ], [ %173, %172 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %34, %33 ], [ %65, %64 ], [ %171, %170 ], [ %67, %66 ], [ %92, %91 ], [ %113, %112 ], [ %194, %193 ], [ %173, %172 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #16
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3) #16
   br label %.body.i

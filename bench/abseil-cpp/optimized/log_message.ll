@@ -1291,7 +1291,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16: 
   br label %_ZN4absl12log_internal12_GLOBAL__N_113ProtoSeverityENS_11LogSeverityEi.exit
 
 _ZN4absl12log_internal12_GLOBAL__N_113ProtoSeverityENS_11LogSeverityEi.exit: ; preds = %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16, %25, %31, %32, %33
-  %.0.i = phi i64 [ 800, %33 ], [ 1100, %32 ], [ 950, %31 ], [ 900, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16 ], [ %30, %25 ]
+  %.0.i = phi i64 [ 800, %33 ], [ 950, %31 ], [ 1100, %32 ], [ 900, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16 ], [ %30, %25 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !43
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit20

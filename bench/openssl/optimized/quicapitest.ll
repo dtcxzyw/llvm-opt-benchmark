@@ -4512,8 +4512,8 @@ define internal range(i32 0, 2) i32 @test_new_token() #1 {
   br label %find_new_token_data.exit
 
 76:                                               ; preds = %73, %71, %69, %63
-  %.114.i = phi i32 [ 2, %73 ], [ 2, %71 ], [ 2, %69 ], [ %spec.select.i, %63 ]
-  %.1.i = phi ptr [ %.020.i19, %73 ], [ %.020.i19, %71 ], [ %70, %69 ], [ %.020.i19, %63 ]
+  %.114.i = phi i32 [ 2, %69 ], [ 2, %73 ], [ 2, %71 ], [ %spec.select.i, %63 ]
+  %.1.i = phi ptr [ %70, %69 ], [ %.020.i19, %73 ], [ %.020.i19, %71 ], [ %.020.i19, %63 ]
   %77 = call i32 @BIO_gets(ptr noundef %14, ptr noundef nonnull %1, i32 noundef 1024) #10
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph, label %find_new_token_data.exit, !llvm.loop !68
@@ -4522,8 +4522,8 @@ default.unreachable24:                            ; preds = %.lr.ph
   unreachable
 
 find_new_token_data.exit:                         ; preds = %76, %60, %68, %75
-  %.020.i18 = phi ptr [ %.020.i19, %68 ], [ %.020.i19, %75 ], [ null, %60 ], [ %.1.i, %76 ]
-  %.013.lcssa.i = phi i32 [ 0, %68 ], [ 1, %75 ], [ 0, %60 ], [ 0, %76 ]
+  %.020.i18 = phi ptr [ %.020.i19, %75 ], [ %.020.i19, %68 ], [ null, %60 ], [ %.1.i, %76 ]
+  %.013.lcssa.i = phi i32 [ 1, %75 ], [ 0, %68 ], [ 0, %60 ], [ 0, %76 ]
   call void @CRYPTO_free(ptr noundef %.020.i18, ptr noundef nonnull @.str.14, i32 noundef 619) #10
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #10
   %79 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 676, ptr noundef nonnull @.str.394, i32 noundef %.013.lcssa.i) #10
@@ -5179,7 +5179,7 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
   br label %tparam_handle.exit
 
 tparam_handle.exit:                               ; preds = %52, %57, %63, %66, %69, %72, %73, %79, %84, %87, %90
-  %.0.i62 = phi i32 [ 1, %72 ], [ 1, %66 ], [ 0, %57 ], [ 0, %63 ], [ 0, %69 ], [ %..i, %73 ], [ 0, %79 ], [ 0, %84 ], [ 1, %90 ], [ 1, %87 ], [ 0, %52 ]
+  %.0.i62 = phi i32 [ 1, %66 ], [ 1, %72 ], [ 0, %57 ], [ 0, %63 ], [ 0, %69 ], [ %..i, %73 ], [ 0, %79 ], [ 0, %84 ], [ 1, %90 ], [ 1, %87 ], [ 0, %52 ]
   %93 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2202, ptr noundef nonnull @.str.335, i32 noundef %.0.i62) #10
   %.not57 = icmp eq i32 %93, 0
   br i1 %.not57, label %.loopexit, label %46, !llvm.loop !77

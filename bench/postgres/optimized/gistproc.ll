@@ -195,7 +195,7 @@ define internal fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr
   unreachable
 
 55:                                               ; preds = %47, %43, %39, %35, %30, %25, %21, %17, %12, %8, %4
-  %.0.in = phi i1 [ %.not, %47 ], [ %.not24, %43 ], [ %.not25, %39 ], [ %.not26, %35 ], [ %34, %30 ], [ %29, %25 ], [ %.not27, %21 ], [ %.not28, %17 ], [ %16, %12 ], [ %.not29, %8 ], [ %.not30, %4 ]
+  %.0.in = phi i1 [ %.not30, %4 ], [ %.not29, %8 ], [ %16, %12 ], [ %.not28, %17 ], [ %.not27, %21 ], [ %29, %25 ], [ %34, %30 ], [ %.not26, %35 ], [ %.not25, %39 ], [ %.not24, %43 ], [ %.not, %47 ]
   ret i1 %.0.in
 }
 
@@ -2718,7 +2718,7 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   unreachable
 
 .sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %146, %165
-  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %45, %39 ], [ %38, %32 ], [ %31, %27 ], [ %26, %21 ], [ false, %56 ], [ %74, %65 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ %96, %92 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
+  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %26, %21 ], [ %31, %27 ], [ %38, %32 ], [ %45, %39 ], [ false, %56 ], [ %74, %65 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ %96, %92 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
   store i8 0, ptr %10, align 1
   br label %172
 

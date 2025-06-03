@@ -5926,7 +5926,7 @@ list_length.exit80:                               ; preds = %48, %51
   unreachable
 
 126:                                              ; preds = %._crit_edge, %88, %.split, %84, %16, %39, %59, %2, %2, %2, %2, %2
-  %.5 = phi i1 [ %65, %59 ], [ %.not75, %39 ], [ %24, %16 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %84 ], [ false, %.split ], [ %99, %88 ], [ false, %._crit_edge ]
+  %.5 = phi i1 [ %24, %16 ], [ %.not75, %39 ], [ %65, %59 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %84 ], [ false, %.split ], [ %99, %88 ], [ false, %._crit_edge ]
   ret i1 %.5
 }
 

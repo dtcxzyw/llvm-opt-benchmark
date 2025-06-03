@@ -2201,8 +2201,8 @@ png_gamma_threshold.exit:                         ; preds = %8
   br label %171
 
 171:                                              ; preds = %168, %165, %162, %155
-  %.027.i = phi i16 [ %157, %155 ], [ %169, %168 ], [ %166, %165 ], [ %163, %162 ]
-  %.0.i = phi i16 [ %159, %155 ], [ %170, %168 ], [ %167, %165 ], [ %164, %162 ]
+  %.027.i = phi i16 [ %157, %155 ], [ %163, %162 ], [ %166, %165 ], [ %169, %168 ]
+  %.0.i = phi i16 [ %159, %155 ], [ %164, %162 ], [ %167, %165 ], [ %170, %168 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 542
   store i16 %.027.i, ptr %172, align 2, !alias.scope !98
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -2461,8 +2461,8 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   br label %325
 
 325:                                              ; preds = %283, %318, %316
-  %.0382 = phi i32 [ %324, %318 ], [ 100000, %316 ], [ 100000, %283 ]
-  %.0381 = phi i32 [ %321, %318 ], [ %317, %316 ], [ 100000, %283 ]
+  %.0382 = phi i32 [ 100000, %316 ], [ %324, %318 ], [ 100000, %283 ]
+  %.0381 = phi i32 [ %317, %316 ], [ %321, %318 ], [ 100000, %283 ]
   %326 = call i32 @png_gamma_significant(i32 noundef %.0382) #11
   %.not430 = icmp eq i32 %326, 0
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 538
@@ -2723,8 +2723,8 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   unreachable
 
 507:                                              ; preds = %499, %493, %491
-  %.0384 = phi i32 [ %505, %499 ], [ %498, %493 ], [ 100000, %491 ]
-  %.0383 = phi i32 [ %502, %499 ], [ %495, %493 ], [ %492, %491 ]
+  %.0384 = phi i32 [ 100000, %491 ], [ %498, %493 ], [ %505, %499 ]
+  %.0383 = phi i32 [ %492, %491 ], [ %495, %493 ], [ %502, %499 ]
   %508 = call i32 @png_gamma_significant(i32 noundef %.0383) #11
   %509 = call i32 @png_gamma_significant(i32 noundef %.0384) #11
   %.not425 = icmp eq i32 %508, 0

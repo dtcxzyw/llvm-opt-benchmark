@@ -689,8 +689,8 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   br label %68
 
 68:                                               ; preds = %56, %62, %66, %64, %63
-  %.188 = phi i32 [ %.087, %56 ], [ %.087, %62 ], [ %.087, %63 ], [ %67, %66 ], [ %65, %64 ]
-  %.384 = phi i8 [ %57, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %66 ], [ 0, %64 ]
+  %.188 = phi i32 [ %.087, %56 ], [ %.087, %62 ], [ %.087, %63 ], [ %65, %64 ], [ %67, %66 ]
+  %.384 = phi i8 [ %57, %56 ], [ 1, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %66 ]
   %69 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %.pr = load i8, ptr %69, align 1
   br label %.preheader, !llvm.loop !10

@@ -1091,7 +1091,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h6bf7d183aae13e4aE.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h3440bc095bb882bfE.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h3440bc095bb882bfE.exit: ; preds = %18, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h6bf7d183aae13e4aE.exit.i
-  %.merged.i = phi { i64, i64 } [ %302, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h6bf7d183aae13e4aE.exit.i ], [ %19, %18 ]
+  %.merged.i = phi { i64, i64 } [ %19, %18 ], [ %302, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h6bf7d183aae13e4aE.exit.i ]
   ret { i64, i64 } %.merged.i
 }
 

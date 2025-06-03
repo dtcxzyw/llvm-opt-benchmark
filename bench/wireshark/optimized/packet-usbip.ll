@@ -604,7 +604,7 @@ dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
   br label %usbip_dissect_op.exit
 
 usbip_dissect_op.exit:                            ; preds = %37, %40, %43, %45, %dissect_device_list_response.exit.i, %87
-  %.0.i30 = phi i32 [ %90, %87 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ 0, %45 ], [ 40, %37 ], [ %44, %43 ], [ 8, %40 ]
+  %.0.i30 = phi i32 [ %90, %87 ], [ 40, %37 ], [ 0, %45 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ %44, %43 ], [ 8, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
   br label %300
@@ -971,7 +971,7 @@ dissect_ret_unlink.exit.i:                        ; preds = %280, %277, %269, %2
   br label %usbip_dissect_urb.exit
 
 usbip_dissect_urb.exit:                           ; preds = %215, %dissect_cmd_unlink.exit.i, %247, %262, %dissect_ret_unlink.exit.i, %286
-  %.0.i33 = phi i32 [ %289, %286 ], [ 24, %dissect_ret_unlink.exit.i ], [ 24, %dissect_cmd_unlink.exit.i ], [ 48, %215 ], [ 48, %262 ], [ 48, %247 ]
+  %.0.i33 = phi i32 [ %289, %286 ], [ 48, %215 ], [ 24, %dissect_cmd_unlink.exit.i ], [ 24, %dissect_ret_unlink.exit.i ], [ 48, %262 ], [ 48, %247 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6

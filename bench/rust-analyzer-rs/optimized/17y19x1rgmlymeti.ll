@@ -1148,9 +1148,9 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   br i1 %.not, label %583, label %203
 
 .body172:                                         ; preds = %.loopexit382, %.loopexit.split-lp383, %575, %550, %562, %561, %.thread313
-  %.168 = phi i1 [ true, %562 ], [ false, %561 ], [ false, %.thread313 ], [ false, %550 ], [ true, %575 ], [ %.067.ph, %.loopexit382 ], [ true, %.loopexit.split-lp383 ]
-  %.166 = phi i1 [ false, %562 ], [ true, %561 ], [ true, %.thread313 ], [ true, %550 ], [ false, %575 ], [ %.065.ph, %.loopexit382 ], [ true, %.loopexit.split-lp383 ]
-  %.pn88 = phi { ptr, i32 } [ %563, %562 ], [ %.pn86.ph, %561 ], [ %.pn84311, %.thread313 ], [ %551, %550 ], [ %576, %575 ], [ %lpad.loopexit384, %.loopexit382 ], [ %lpad.loopexit.split-lp385, %.loopexit.split-lp383 ]
+  %.168 = phi i1 [ false, %561 ], [ false, %.thread313 ], [ true, %562 ], [ false, %550 ], [ true, %575 ], [ %.067.ph, %.loopexit382 ], [ true, %.loopexit.split-lp383 ]
+  %.166 = phi i1 [ true, %561 ], [ true, %.thread313 ], [ false, %562 ], [ true, %550 ], [ false, %575 ], [ %.065.ph, %.loopexit382 ], [ true, %.loopexit.split-lp383 ]
+  %.pn88 = phi { ptr, i32 } [ %.pn86.ph, %561 ], [ %.pn84311, %.thread313 ], [ %563, %562 ], [ %551, %550 ], [ %576, %575 ], [ %lpad.loopexit384, %.loopexit382 ], [ %lpad.loopexit.split-lp385, %.loopexit.split-lp383 ]
   %201 = load i64, ptr %72, align 8, !range !176, !noundef !5
   %202 = icmp eq i64 %201, 0
   br i1 %202, label %579, label %580

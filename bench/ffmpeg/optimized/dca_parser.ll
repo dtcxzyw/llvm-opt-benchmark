@@ -329,7 +329,7 @@ switch.early.test.i:                              ; preds = %42
   br label %160
 
 160:                                              ; preds = %.sink.split.i, %151, %140, %137, %124, %109, %96, %86, %77, %70
-  %.3110.i = phi i32 [ 1, %109 ], [ 1, %96 ], [ 1, %86 ], [ 1, %77 ], [ 1, %70 ], [ 3, %124 ], [ %.2109187.i, %137 ], [ %.2109187.i, %140 ], [ %.2109187.i, %151 ], [ %.3110.ph.i, %.sink.split.i ]
+  %.3110.i = phi i32 [ 1, %70 ], [ 1, %77 ], [ 1, %86 ], [ 1, %96 ], [ 1, %109 ], [ 3, %124 ], [ %.2109187.i, %137 ], [ %.2109187.i, %140 ], [ %.2109187.i, %151 ], [ %.3110.ph.i, %.sink.split.i ]
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next234.i to i32
   %exitcond236.not.i = icmp eq i32 %5, %lftr.wideiv.i

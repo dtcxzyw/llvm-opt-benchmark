@@ -172,7 +172,7 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
   br label %18
 
 18:                                               ; preds = %17, %15
-  %.062 = phi i1 [ false, %15 ], [ true, %17 ]
+  %.062 = phi i1 [ true, %17 ], [ false, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.45)

@@ -1956,7 +1956,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.thread77: ;
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit66
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit66: ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit, %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit.thread, %105, %108, %111, %183, %180, %177, %83, %94
-  %.1 = phi i1 [ false, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit ], [ false, %83 ], [ false, %94 ], [ %185, %183 ], [ %182, %180 ], [ %179, %177 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ false, %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit.thread ]
+  %.1 = phi i1 [ false, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit ], [ false, %83 ], [ false, %94 ], [ %185, %183 ], [ %179, %177 ], [ %182, %180 ], [ %110, %108 ], [ %107, %105 ], [ %113, %111 ], [ false, %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
   ret i1 %.1
 
@@ -11005,9 +11005,9 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i
   br label %_ZN5boost15optional_detail13optional_baseINS_4wave8grammars8closures13closure_valueEE12assign_valueERKS5_.exit.i.i.i.i.i.i
 
 _ZN5boost15optional_detail13optional_baseINS_4wave8grammars8closures13closure_valueEE12assign_valueERKS5_.exit.i.i.i.i.i.i: ; preds = %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %30
-  %.sroa.1919.sroa.0.3 = phi i8 [ %.sroa.1919.sroa.0.0.extract.trunc, %30 ], [ %35, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc34, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.1512.2 = phi i32 [ %.sroa.1512.16.copyload, %30 ], [ 3, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 1, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.1919.sroa.9.sroa.0.3.in.in = phi i64 [ %.sroa.1919.16.copyload, %30 ], [ %.sroa.1919.16.copyload, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %34, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %33, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1919.sroa.0.3 = phi i8 [ %.sroa.1919.sroa.0.0.extract.trunc, %30 ], [ %.sroa.1919.sroa.0.0.extract.trunc34, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %35, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1512.2 = phi i32 [ %.sroa.1512.16.copyload, %30 ], [ 1, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 3, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1919.sroa.9.sroa.0.3.in.in = phi i64 [ %.sroa.1919.16.copyload, %30 ], [ %33, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %34, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.16.copyload, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
   %36 = load i32, ptr %6, align 8, !tbaa !21
   br label %_ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit
 
@@ -12000,9 +12000,9 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i
   br label %_ZN5boost15optional_detail13optional_baseINS_4wave8grammars8closures13closure_valueEE12assign_valueERKS5_.exit.i.i.i.i.i.i
 
 _ZN5boost15optional_detail13optional_baseINS_4wave8grammars8closures13closure_valueEE12assign_valueERKS5_.exit.i.i.i.i.i.i: ; preds = %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i, %30
-  %.sroa.1919.sroa.0.3 = phi i8 [ %.sroa.1919.sroa.0.0.extract.trunc, %30 ], [ %35, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc34, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.1512.2 = phi i32 [ %.sroa.1512.16.copyload, %30 ], [ 3, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 1, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.1919.sroa.9.sroa.0.3.in.in = phi i64 [ %.sroa.1919.16.copyload, %30 ], [ %.sroa.1919.16.copyload, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %34, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %33, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1919.sroa.0.3 = phi i8 [ %.sroa.1919.sroa.0.0.extract.trunc, %30 ], [ %.sroa.1919.sroa.0.0.extract.trunc34, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.sroa.0.0.extract.trunc33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %35, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1512.2 = phi i32 [ %.sroa.1512.16.copyload, %30 ], [ 1, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ 3, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
+  %.sroa.1919.sroa.9.sroa.0.3.in.in = phi i64 [ %.sroa.1919.16.copyload, %30 ], [ %33, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %34, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.1919.16.copyload, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i.i.i.i.i.i ]
   %36 = load i32, ptr %6, align 8, !tbaa !21
   br label %_ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit
 
@@ -12272,31 +12272,31 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN5
 7:                                                ; preds = %5
   %8 = load i32, ptr %1, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %8, label %13 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
-    i32 3, label %10
+  switch i32 %8, label %12 [
+    i32 2, label %10
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   ]
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %9, align 8, !tbaa !15, !range !52, !noundef !53
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %16, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15
+  %11 = load i64, ptr %9, align 8, !tbaa !15
+  %.not42 = icmp eq i64 %11, 0
+  br i1 %.not42, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15, label %16
 
-13:                                               ; preds = %7
-  %14 = load i64, ptr %9, align 8, !tbaa !15
-  %.not43 = icmp eq i64 %14, 0
+12:                                               ; preds = %7
+  %13 = load i64, ptr %9, align 8, !tbaa !15
+  %.not43 = icmp eq i64 %13, 0
   br i1 %.not43, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15, label %16
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %7
-  %15 = load i64, ptr %9, align 8, !tbaa !15
-  %.not42 = icmp eq i64 %15, 0
-  br i1 %.not42, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15, label %16
+  %14 = load i8, ptr %9, align 8, !tbaa !15, !range !52, !noundef !53
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15
 
-_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15: ; preds = %10, %13, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
+_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15: ; preds = %10, %12, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   br label %16
 
-16:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit, %13, %10, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15
-  %.pn45 = phi ptr [ %2, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15 ], [ %0, %10 ], [ %0, %13 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit ]
+16:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit, %12, %10, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15
+  %.pn45 = phi ptr [ %2, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15 ], [ %0, %10 ], [ %0, %12 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit ]
   %.in44.in = getelementptr inbounds nuw i8, ptr %.pn45, i64 8
   %.in44 = load i8, ptr %.in44.in, align 8, !tbaa !15, !range !52, !noundef !53
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12306,31 +12306,31 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit15: ; preds 
 18:                                               ; preds = %5
   %19 = load i32, ptr %1, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %19, label %24 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17
-    i32 3, label %21
+  switch i32 %19, label %23 [
+    i32 2, label %21
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17
   ]
 
 21:                                               ; preds = %18
-  %22 = load i8, ptr %20, align 8, !tbaa !15, !range !52, !noundef !53
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %27, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
+  %22 = load i64, ptr %20, align 8, !tbaa !15
+  %.not38 = icmp eq i64 %22, 0
+  br i1 %.not38, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit, label %27
 
-24:                                               ; preds = %18
-  %25 = load i64, ptr %20, align 8, !tbaa !15
-  %.not39 = icmp eq i64 %25, 0
+23:                                               ; preds = %18
+  %24 = load i64, ptr %20, align 8, !tbaa !15
+  %.not39 = icmp eq i64 %24, 0
   br i1 %.not39, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit, label %27
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17: ; preds = %18
-  %26 = load i64, ptr %20, align 8, !tbaa !15
-  %.not38 = icmp eq i64 %26, 0
-  br i1 %.not38, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit, label %27
+  %25 = load i8, ptr %20, align 8, !tbaa !15, !range !52, !noundef !53
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
 
-_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = %21, %24, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17
+_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = %21, %23, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17
   br label %27
 
-27:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17, %24, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
-  %.pn41 = phi ptr [ %2, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit ], [ %0, %21 ], [ %0, %24 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17 ]
+27:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17, %23, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
+  %.pn41 = phi ptr [ %2, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit ], [ %0, %21 ], [ %0, %23 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17 ]
   %.in40 = getelementptr inbounds nuw i8, ptr %.pn41, i64 8
   %28 = load i64, ptr %.in40, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12340,31 +12340,31 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = 
 30:                                               ; preds = %5
   %31 = load i32, ptr %1, align 8, !tbaa !17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %31, label %36 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20
-    i32 3, label %33
+  switch i32 %31, label %35 [
+    i32 2, label %33
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20
   ]
 
 33:                                               ; preds = %30
-  %34 = load i8, ptr %32, align 8, !tbaa !15, !range !52, !noundef !53
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %39, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
+  %34 = load i64, ptr %32, align 8, !tbaa !15
+  %.not35 = icmp eq i64 %34, 0
+  br i1 %.not35, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit, label %39
 
-36:                                               ; preds = %30
-  %37 = load i64, ptr %32, align 8, !tbaa !15
-  %.not36 = icmp eq i64 %37, 0
+35:                                               ; preds = %30
+  %36 = load i64, ptr %32, align 8, !tbaa !15
+  %.not36 = icmp eq i64 %36, 0
   br i1 %.not36, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit, label %39
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20: ; preds = %30
-  %38 = load i64, ptr %32, align 8, !tbaa !15
-  %.not35 = icmp eq i64 %38, 0
-  br i1 %.not35, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit, label %39
+  %37 = load i8, ptr %32, align 8, !tbaa !15, !range !52, !noundef !53
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
 
-_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %33, %36, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20
+_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %33, %35, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20
   br label %39
 
-39:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20, %36, %33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
-  %.pn = phi ptr [ %2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit ], [ %0, %33 ], [ %0, %36 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20 ]
+39:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20, %35, %33, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
+  %.pn = phi ptr [ %2, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit ], [ %0, %33 ], [ %0, %35 ], [ %0, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit20 ]
   %.in37 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %40 = load i64, ptr %.in37, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12375,32 +12375,32 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
 42:                                               ; preds = %3
   %43 = load i32, ptr %1, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %43, label %48 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
-    i32 3, label %45
+  switch i32 %43, label %47 [
+    i32 2, label %45
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
   ]
 
 45:                                               ; preds = %42
-  %46 = load i8, ptr %44, align 8, !tbaa !15, !range !52, !noundef !53
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %51, label %54
+  %46 = load i64, ptr %44, align 8, !tbaa !15
+  %.not33 = icmp eq i64 %46, 0
+  br i1 %.not33, label %54, label %51
 
-48:                                               ; preds = %42
-  %49 = load i64, ptr %44, align 8, !tbaa !15
-  %.not34 = icmp eq i64 %49, 0
+47:                                               ; preds = %42
+  %48 = load i64, ptr %44, align 8, !tbaa !15
+  %.not34 = icmp eq i64 %48, 0
   br i1 %.not34, label %54, label %51
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23: ; preds = %42
-  %50 = load i64, ptr %44, align 8, !tbaa !15
-  %.not33 = icmp eq i64 %50, 0
-  br i1 %.not33, label %54, label %51
+  %49 = load i8, ptr %44, align 8, !tbaa !15, !range !52, !noundef !53
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %51, label %54
 
-51:                                               ; preds = %45, %48, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
+51:                                               ; preds = %45, %47, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !15
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit25
 
-54:                                               ; preds = %45, %48, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
+54:                                               ; preds = %45, %47, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23
   %55 = load i32, ptr %2, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   switch i32 %55, label %62 [
@@ -12422,7 +12422,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit23: ; preds 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit25
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit25: ; preds = %62, %59, %57, %51
-  %64 = phi i64 [ %53, %51 ], [ %63, %62 ], [ %61, %59 ], [ %58, %57 ]
+  %64 = phi i64 [ %53, %51 ], [ %63, %62 ], [ %58, %57 ], [ %61, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %64, ptr %65, align 8, !tbaa !15
   br label %94
@@ -12430,33 +12430,33 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit25: ; preds
 66:                                               ; preds = %3
   %67 = load i32, ptr %1, align 8, !tbaa !17
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %67, label %72 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
-    i32 3, label %69
+  switch i32 %67, label %71 [
+    i32 2, label %69
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
   ]
 
 69:                                               ; preds = %66
-  %70 = load i8, ptr %68, align 8, !tbaa !15, !range !52, !noundef !53
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %75, label %79
+  %70 = load i64, ptr %68, align 8, !tbaa !15
+  %.not = icmp eq i64 %70, 0
+  br i1 %.not, label %79, label %75
 
-72:                                               ; preds = %66
-  %73 = load i64, ptr %68, align 8, !tbaa !15
-  %.not32 = icmp eq i64 %73, 0
+71:                                               ; preds = %66
+  %72 = load i64, ptr %68, align 8, !tbaa !15
+  %.not32 = icmp eq i64 %72, 0
   br i1 %.not32, label %79, label %75
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27: ; preds = %66
-  %74 = load i64, ptr %68, align 8, !tbaa !15
-  %.not = icmp eq i64 %74, 0
-  br i1 %.not, label %79, label %75
+  %73 = load i8, ptr %68, align 8, !tbaa !15, !range !52, !noundef !53
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %79
 
-75:                                               ; preds = %69, %72, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
+75:                                               ; preds = %69, %71, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 8, !tbaa !15, !range !52, !noundef !53
   %78 = trunc nuw i8 %77 to i1
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit29
 
-79:                                               ; preds = %69, %72, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
+79:                                               ; preds = %69, %71, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27
   %80 = load i32, ptr %2, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   switch i32 %80, label %88 [
@@ -12480,7 +12480,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit27: ; preds 
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit29
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit29: ; preds = %88, %85, %82, %75
-  %91 = phi i1 [ %78, %75 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ]
+  %91 = phi i1 [ %78, %75 ], [ %90, %88 ], [ %84, %82 ], [ %87, %85 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = zext i1 %91 to i8
   store i8 %93, ptr %92, align 8, !tbaa !15
@@ -12510,7 +12510,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit29: ; preds 
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit31
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit31: ; preds = %97, %100, %103
-  %.0.i30 = phi i1 [ %105, %103 ], [ %102, %100 ], [ %99, %97 ]
+  %.0.i30 = phi i1 [ %105, %103 ], [ %99, %97 ], [ %102, %100 ]
   %. = select i1 %.0.i30, ptr %0, ptr %2
   %.in = getelementptr inbounds nuw i8, ptr %., i64 16
   %106 = load i32, ptr %.in, align 8, !tbaa !21
@@ -12959,7 +12959,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZNK5boost4wave8grammars4impl16operator_as_boolclINS1_8closures13closure_valueEEEbRT_.exit
 
 _ZNK5boost4wave8grammars4impl16operator_as_boolclINS1_8closures13closure_valueEEEbRT_.exit: ; preds = %15, %18, %21
-  %.0.i.i = phi i1 [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.0.i.i = phi i1 [ %23, %21 ], [ %17, %15 ], [ %20, %18 ]
   ret i1 %.0.i.i
 }
 
@@ -13284,7 +13284,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZNK5boost4wave8grammars4impl16operator_to_boolclINS1_8closures13closure_valueEEES6_RT_.exit
 
 _ZNK5boost4wave8grammars4impl16operator_to_boolclINS1_8closures13closure_valueEEES6_RT_.exit: ; preds = %16, %19, %22
-  %.0.i.i = phi i1 [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.0.i.i = phi i1 [ %24, %22 ], [ %18, %16 ], [ %21, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !21, !noalias !435
   %27 = zext i1 %.0.i.i to i8
@@ -13392,27 +13392,27 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   %15 = load i32, ptr %13, align 8, !tbaa !17, !noalias !444
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  switch i32 %15, label %20 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
-    i32 3, label %17
+  switch i32 %15, label %19 [
+    i32 2, label %17
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
   ]
 
 17:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %18 = load i8, ptr %16, align 8, !tbaa !15, !range !52, !noalias !444, !noundef !53
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit, label %23
+  %18 = load i64, ptr %16, align 8, !tbaa !15, !noalias !444
+  %.not.i.i5 = icmp eq i64 %18, 0
+  br i1 %.not.i.i5, label %23, label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
-20:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %21 = load i64, ptr %16, align 8, !tbaa !15, !noalias !444
-  %.not6.i.i = icmp eq i64 %21, 0
+19:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
+  %20 = load i64, ptr %16, align 8, !tbaa !15, !noalias !444
+  %.not6.i.i = icmp eq i64 %20, 0
   br i1 %.not6.i.i, label %23, label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %22 = load i64, ptr %16, align 8, !tbaa !15, !noalias !444
-  %.not.i.i5 = icmp eq i64 %22, 0
-  br i1 %.not.i.i5, label %23, label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
+  %21 = load i8, ptr %16, align 8, !tbaa !15, !range !52, !noalias !444, !noundef !53
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit, label %23
 
-23:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %20, %17
+23:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %19, %17
   %24 = load i32, ptr %14, align 8, !tbaa !17, !noalias !444
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %24, label %32 [
@@ -13435,8 +13435,8 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; pred
   %34 = icmp ne i64 %33, 0
   br label %_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
-_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %17, %20, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %26, %29, %32
-  %35 = phi i1 [ true, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ true, %20 ], [ true, %17 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
+_ZNK5boost4wave8grammars4impl18operator_binary_orclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %17, %19, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %26, %29, %32
+  %35 = phi i1 [ true, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ true, %19 ], [ true, %17 ], [ %34, %32 ], [ %28, %26 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !21, !noalias !444
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -13806,27 +13806,27 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
   %15 = load i32, ptr %13, align 8, !tbaa !17, !noalias !459
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  switch i32 %15, label %20 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
-    i32 3, label %17
+  switch i32 %15, label %19 [
+    i32 2, label %17
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
   ]
 
 17:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %18 = load i8, ptr %16, align 8, !tbaa !15, !range !52, !noalias !459, !noundef !53
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %23, label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
+  %18 = load i64, ptr %16, align 8, !tbaa !15, !noalias !459
+  %.not.i.i5 = icmp eq i64 %18, 0
+  br i1 %.not.i.i5, label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit, label %23
 
-20:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %21 = load i64, ptr %16, align 8, !tbaa !15, !noalias !459
-  %.not6.i.i = icmp eq i64 %21, 0
+19:                                               ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
+  %20 = load i64, ptr %16, align 8, !tbaa !15, !noalias !459
+  %.not6.i.i = icmp eq i64 %20, 0
   br i1 %.not6.i.i, label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit, label %23
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %22 = load i64, ptr %16, align 8, !tbaa !15, !noalias !459
-  %.not.i.i5 = icmp eq i64 %22, 0
-  br i1 %.not.i.i5, label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit, label %23
+  %21 = load i8, ptr %16, align 8, !tbaa !15, !range !52, !noalias !459, !noundef !53
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
-23:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %20, %17
+23:                                               ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %19, %17
   %24 = load i32, ptr %14, align 8, !tbaa !17, !noalias !459
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %24, label %32 [
@@ -13849,8 +13849,8 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; pred
   %34 = icmp ne i64 %33, 0
   br label %_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
-_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %17, %20, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %26, %29, %32
-  %35 = phi i1 [ false, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ false, %20 ], [ false, %17 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
+_ZNK5boost4wave8grammars4impl19operator_binary_andclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %17, %19, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %26, %29, %32
+  %35 = phi i1 [ false, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ false, %19 ], [ false, %17 ], [ %34, %32 ], [ %28, %26 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !21, !noalias !459
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -14221,7 +14221,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %22, %19, %17
-  %.0.i.i.i = phi i64 [ %23, %22 ], [ %21, %19 ], [ %18, %17 ]
+  %.0.i.i.i = phi i64 [ %23, %22 ], [ %18, %17 ], [ %21, %19 ]
   %24 = load i32, ptr %14, align 8, !tbaa !17, !noalias !474
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %24, label %31 [
@@ -14243,7 +14243,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; pre
   br label %_ZNK5boost4wave8grammars4impl21operator_binary_bitorclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl21operator_binary_bitorclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %26, %28, %31
-  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %30, %28 ], [ %27, %26 ]
+  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %27, %26 ], [ %30, %28 ]
   %33 = or i64 %.0.i4.i.i, %.0.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !21, !noalias !474
@@ -14614,7 +14614,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %22, %19, %17
-  %.0.i.i.i = phi i64 [ %23, %22 ], [ %21, %19 ], [ %18, %17 ]
+  %.0.i.i.i = phi i64 [ %23, %22 ], [ %18, %17 ], [ %21, %19 ]
   %24 = load i32, ptr %14, align 8, !tbaa !17, !noalias !489
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %24, label %31 [
@@ -14636,7 +14636,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; pre
   br label %_ZNK5boost4wave8grammars4impl22operator_binary_bitxorclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl22operator_binary_bitxorclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %26, %28, %31
-  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %30, %28 ], [ %27, %26 ]
+  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %27, %26 ], [ %30, %28 ]
   %33 = xor i64 %.0.i4.i.i, %.0.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !21, !noalias !489
@@ -15007,7 +15007,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %22, %19, %17
-  %.0.i.i.i = phi i64 [ %23, %22 ], [ %21, %19 ], [ %18, %17 ]
+  %.0.i.i.i = phi i64 [ %23, %22 ], [ %18, %17 ], [ %21, %19 ]
   %24 = load i32, ptr %14, align 8, !tbaa !17, !noalias !504
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %24, label %31 [
@@ -15029,7 +15029,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; pre
   br label %_ZNK5boost4wave8grammars4impl22operator_binary_bitandclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl22operator_binary_bitandclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %26, %28, %31
-  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %30, %28 ], [ %27, %26 ]
+  %.0.i4.i.i = phi i64 [ %32, %31 ], [ %27, %26 ], [ %30, %28 ]
   %33 = and i64 %.0.i4.i.i, %.0.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !21, !noalias !504
@@ -15744,7 +15744,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i: ; preds 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i: ; preds = %56, %53, %51
-  %.0.i14.i = phi i64 [ %57, %56 ], [ %55, %53 ], [ %52, %51 ]
+  %.0.i14.i = phi i64 [ %57, %56 ], [ %52, %51 ], [ %55, %53 ]
   %58 = icmp eq i64 %48, %.0.i14.i
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit
 
@@ -15774,13 +15774,13 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i: ; preds
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i: ; preds = %70, %67, %64
-  %.0.i15.i = phi i1 [ %72, %70 ], [ %69, %67 ], [ %66, %64 ]
+  %.0.i15.i = phi i1 [ %72, %70 ], [ %66, %64 ], [ %69, %67 ]
   %73 = zext i1 %.0.i15.i to i8
   %74 = icmp eq i8 %61, %73
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit
 
 _ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit: ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i, %40, %34, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i, %25, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_eqENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit
-  %.0.shrunk.i = phi i1 [ false, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_eqENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit ], [ %74, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i ], [ %58, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i ], [ false, %25 ], [ %45, %40 ], [ %39, %34 ], [ %33, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i ]
+  %.0.shrunk.i = phi i1 [ false, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_eqENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit ], [ false, %25 ], [ %33, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i ], [ %39, %34 ], [ %45, %40 ], [ %58, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i ], [ %74, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i ]
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !21, !noalias !524
   %77 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -15905,7 +15905,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; pred
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %56, %53, %51
-  %.0.i14.i.i = phi i64 [ %57, %56 ], [ %55, %53 ], [ %52, %51 ]
+  %.0.i14.i.i = phi i64 [ %57, %56 ], [ %52, %51 ], [ %55, %53 ]
   %58 = icmp eq i64 %48, %.0.i14.i.i
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit
 
@@ -15935,13 +15935,13 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; pre
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i.i: ; preds = %70, %67, %64
-  %.0.i15.i.i = phi i1 [ %72, %70 ], [ %69, %67 ], [ %66, %64 ]
+  %.0.i15.i.i = phi i1 [ %72, %70 ], [ %66, %64 ], [ %69, %67 ]
   %73 = zext i1 %.0.i15.i.i to i8
   %74 = icmp eq i8 %61, %73
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit
 
 _ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit: ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i.i, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i, %40, %34, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i, %25, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_neENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit
-  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_neENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit ], [ %74, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i.i ], [ %58, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ false, %25 ], [ %45, %40 ], [ %39, %34 ], [ %33, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ]
+  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix9compositeIN5boost4wave8grammars4impl18operator_binary_neENS_5actorINS_14closure_memberILi0ENS_7closureINS3_8closures13closure_valueENS_5nil_tESB_SB_SB_SB_EEEEEENS6_INS_8argumentILi0EEEEESB_SB_SB_SB_SB_E4evalINS_5tupleIRKSA_SB_SB_SB_SB_SB_SB_EEEENS_12actor_resultISI_T_E4typeERKSP_.exit ], [ false, %25 ], [ %33, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ %39, %34 ], [ %45, %40 ], [ %58, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ %74, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit16.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !21, !noalias !530
   %77 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -16789,7 +16789,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i: ; pr
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i: ; preds = %46, %43, %41
-  %.0.i14.i.i.i = phi i64 [ %47, %46 ], [ %45, %43 ], [ %42, %41 ]
+  %.0.i14.i.i.i = phi i64 [ %47, %46 ], [ %42, %41 ], [ %45, %43 ]
   %48 = icmp ugt i64 %38, %.0.i14.i.i.i
   br label %_ZNK5boost4wave8grammars4impl22operator_binary_lesseqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
@@ -16819,13 +16819,13 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i: ; p
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i: ; preds = %60, %57, %54
-  %.0.i15.i.i.i = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.0.i15.i.i.i = phi i1 [ %62, %60 ], [ %56, %54 ], [ %59, %57 ]
   %63 = zext i1 %.0.i15.i.i.i to i8
   %64 = icmp samesign ugt i8 %51, %63
   br label %_ZNK5boost4wave8grammars4impl22operator_binary_lesseqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl22operator_binary_lesseqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit, %16, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i, %24, %30, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i
-  %.0.shrunk.i.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i ], [ false, %16 ], [ %35, %30 ], [ %29, %24 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i ]
+  %.0.shrunk.i.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ false, %16 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i ], [ %29, %24 ], [ %35, %30 ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !21, !noalias !564
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -16999,7 +16999,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i: ; pr
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i: ; preds = %46, %43, %41
-  %.0.i14.i.i.i = phi i64 [ %47, %46 ], [ %45, %43 ], [ %42, %41 ]
+  %.0.i14.i.i.i = phi i64 [ %47, %46 ], [ %42, %41 ], [ %45, %43 ]
   %48 = icmp ult i64 %38, %.0.i14.i.i.i
   br label %_ZNK5boost4wave8grammars4impl23operator_binary_greateqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
@@ -17030,13 +17030,13 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i: ; pr
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i.i: ; preds = %60, %57, %54
-  %.0.i16.i.i.i = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.0.i16.i.i.i = phi i1 [ %62, %60 ], [ %56, %54 ], [ %59, %57 ]
   %63 = xor i1 %51, true
   %64 = and i1 %.0.i16.i.i.i, %63
   br label %_ZNK5boost4wave8grammars4impl23operator_binary_greateqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl23operator_binary_greateqclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit, %16, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i, %24, %30, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i.i
-  %.0.shrunk.i.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i.i ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i ], [ false, %16 ], [ %35, %30 ], [ %29, %24 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i ]
+  %.0.shrunk.i.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ false, %16 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i ], [ %29, %24 ], [ %35, %30 ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !21, !noalias !574
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -17210,7 +17210,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i: ; pred
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %46, %43, %41
-  %.0.i14.i.i = phi i64 [ %47, %46 ], [ %45, %43 ], [ %42, %41 ]
+  %.0.i14.i.i = phi i64 [ %47, %46 ], [ %42, %41 ], [ %45, %43 ]
   %48 = icmp ult i64 %38, %.0.i14.i.i
   br label %_ZNK5boost4wave8grammars4impl20operator_binary_lessclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
@@ -17241,13 +17241,13 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; pred
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i: ; preds = %60, %57, %54
-  %.0.i16.i.i = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.0.i16.i.i = phi i1 [ %62, %60 ], [ %56, %54 ], [ %59, %57 ]
   %63 = xor i1 %51, true
   %64 = and i1 %.0.i16.i.i, %63
   br label %_ZNK5boost4wave8grammars4impl20operator_binary_lessclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl20operator_binary_lessclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit, %16, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i, %24, %30, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i
-  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ false, %16 ], [ %35, %30 ], [ %29, %24 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i ]
+  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ false, %16 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i ], [ %29, %24 ], [ %35, %30 ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit17.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !21, !noalias !584
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -17420,7 +17420,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i: ; pred
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; preds = %46, %43, %41
-  %.0.i14.i.i = phi i64 [ %47, %46 ], [ %45, %43 ], [ %42, %41 ]
+  %.0.i14.i.i = phi i64 [ %47, %46 ], [ %42, %41 ], [ %45, %43 ]
   %48 = icmp ugt i64 %38, %.0.i14.i.i
   br label %_ZNK5boost4wave8grammars4impl23operator_binary_greaterclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
@@ -17450,13 +17450,13 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i: ; pre
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i: ; preds = %60, %57, %54
-  %.0.i15.i.i = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %54 ]
+  %.0.i15.i.i = phi i1 [ %62, %60 ], [ %56, %54 ], [ %59, %57 ]
   %63 = zext i1 %.0.i15.i.i to i8
   %64 = icmp samesign ugt i8 %51, %63
   br label %_ZNK5boost4wave8grammars4impl23operator_binary_greaterclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit
 
 _ZNK5boost4wave8grammars4impl23operator_binary_greaterclINS1_8closures13closure_valueEKS6_EES6_RT_RT0_.exit: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit, %16, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i, %24, %30, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i
-  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ false, %16 ], [ %35, %30 ], [ %29, %24 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i ]
+  %.0.shrunk.i.i = phi i1 [ false, %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit ], [ false, %16 ], [ %23, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i ], [ %29, %24 ], [ %35, %30 ], [ %48, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i ], [ %64, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !21, !noalias !591
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -17875,7 +17875,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i: ; preds = %24, %21, %19
-  %.0.i.i.i.i = phi i64 [ %25, %24 ], [ %23, %21 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi i64 [ %25, %24 ], [ %20, %19 ], [ %23, %21 ]
   %spec.store.select.i.i.i = tail call i64 @llvm.smax.i64(i64 %.0.i.i.i.i, i64 -64)
   %.0.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i.i, i64 64)
   br label %.sink.split.i.i.i
@@ -17915,7 +17915,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i: ; p
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit25.i.i.i
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit25.i.i.i: ; preds = %37, %34, %32
-  %.0.i24.i.i.i = phi i64 [ %38, %37 ], [ %36, %34 ], [ %33, %32 ]
+  %.0.i24.i.i.i = phi i64 [ %38, %37 ], [ %33, %32 ], [ %36, %34 ]
   %spec.store.select2.i.i.i = tail call i64 @llvm.smax.i64(i64 %.0.i24.i.i.i, i64 -64)
   %.020.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select2.i.i.i, i64 64)
   br label %.sink.split.i.i.i
@@ -18073,7 +18073,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN5
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = %8, %10, %13
-  %.0.i = phi i64 [ %14, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.0.i = phi i64 [ %14, %13 ], [ %9, %8 ], [ %12, %10 ]
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.0.i, i64 -64)
   %.0 = tail call i64 @llvm.smin.i64(i64 %spec.store.select, i64 64)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18121,7 +18121,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit25
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit25: ; preds = %27, %29, %32
-  %.0.i24 = phi i64 [ %33, %32 ], [ %31, %29 ], [ %28, %27 ]
+  %.0.i24 = phi i64 [ %33, %32 ], [ %28, %27 ], [ %31, %29 ]
   %spec.store.select2 = tail call i64 @llvm.smax.i64(i64 %.0.i24, i64 -64)
   %.020 = tail call i64 @llvm.smin.i64(i64 %spec.store.select2, i64 64)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18662,7 +18662,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18: ; preds 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %52, %54, %57
-  %.0.i19 = phi i64 [ %58, %57 ], [ %56, %54 ], [ %53, %52 ]
+  %.0.i19 = phi i64 [ %58, %57 ], [ %53, %52 ], [ %56, %54 ]
   %59 = add i64 %.0.i19, %49
   %60 = icmp ult i64 %59, %49
   br i1 %60, label %61, label %63
@@ -18703,7 +18703,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %70, %73, %76
-  %.0.i20 = phi i1 [ %78, %76 ], [ %75, %73 ], [ %72, %70 ]
+  %.0.i20 = phi i1 [ %78, %76 ], [ %72, %70 ], [ %75, %73 ]
   %79 = zext i1 %.0.i20 to i64
   %80 = add nuw nsw i64 %79, %67
   store i64 %80, ptr %65, align 8, !tbaa !15
@@ -19006,7 +19006,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
   br label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %88, %91, %94
-  %.0.i33 = phi i1 [ %96, %94 ], [ %93, %91 ], [ %90, %88 ]
+  %.0.i33 = phi i1 [ %96, %94 ], [ %90, %88 ], [ %93, %91 ]
   %.neg = sext i1 %.0.i33 to i64
   %97 = add nsw i64 %.neg, %85
   store i64 %97, ptr %83, align 8, !tbaa !15
@@ -19646,7 +19646,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %51, %53, %56
-  %.0.i52 = phi i64 [ %57, %56 ], [ %55, %53 ], [ %52, %51 ]
+  %.0.i52 = phi i64 [ %57, %56 ], [ %52, %51 ], [ %55, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !15
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %59, i64 %.0.i52)
@@ -19853,7 +19853,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN5
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = %8, %10, %13
-  %.0.i = phi i64 [ %14, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.0.i = phi i64 [ %14, %13 ], [ %9, %8 ], [ %12, %10 ]
   %.not14 = icmp eq i64 %.0.i, 0
   br i1 %.not14, label %25, label %15
 
@@ -19927,8 +19927,8 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18: ; preds 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %39, %42, %45
-  %48 = phi i8 [ %47, %45 ], [ %43, %42 ], [ %41, %39 ]
-  %.0.i19 = phi i64 [ %46, %45 ], [ %44, %42 ], [ %40, %39 ]
+  %48 = phi i8 [ %47, %45 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i19 = phi i64 [ %46, %45 ], [ %40, %39 ], [ %44, %42 ]
   %.not = icmp eq i64 %.0.i19, 0
   br i1 %.not, label %59, label %49
 
@@ -19951,7 +19951,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21: ; preds = %50, %52, %54
-  %.0.i20 = phi i64 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ]
+  %.0.i20 = phi i64 [ %55, %54 ], [ %51, %50 ], [ %53, %52 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !15
   %58 = udiv i64 %57, %.0.i20
@@ -19966,27 +19966,27 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21: ; preds
 61:                                               ; preds = %2
   %62 = load i32, ptr %1, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %62, label %67 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
-    i32 3, label %64
+  switch i32 %62, label %66 [
+    i32 2, label %64
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   ]
 
 64:                                               ; preds = %61
-  %65 = load i8, ptr %63, align 8, !tbaa !15, !range !52, !noundef !53
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %.thread, label %80
+  %65 = load i64, ptr %63, align 8, !tbaa !15
+  %.not25 = icmp eq i64 %65, 0
+  br i1 %.not25, label %80, label %.thread23
 
-67:                                               ; preds = %61
-  %68 = load i64, ptr %63, align 8, !tbaa !15
-  %.not26 = icmp eq i64 %68, 0
+66:                                               ; preds = %61
+  %67 = load i64, ptr %63, align 8, !tbaa !15
+  %.not26 = icmp eq i64 %67, 0
   br i1 %.not26, label %80, label %70
 
 _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %61
-  %69 = load i64, ptr %63, align 8, !tbaa !15
-  %.not25 = icmp eq i64 %69, 0
-  br i1 %.not25, label %80, label %.thread23
+  %68 = load i8, ptr %63, align 8, !tbaa !15, !range !52, !noundef !53
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %.thread, label %80
 
-70:                                               ; preds = %67
+70:                                               ; preds = %66
   %cond = icmp eq i32 %62, 1
   br i1 %cond, label %71, label %.thread
 
@@ -19994,27 +19994,27 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = 
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i8, ptr %72, align 8, !tbaa !15, !range !52, !noundef !53
   %74 = zext nneg i8 %73 to i64
-  %75 = sdiv i64 %74, %68
+  %75 = sdiv i64 %74, %67
   store i64 %75, ptr %72, align 8, !tbaa !15
   store i32 1, ptr %0, align 8, !tbaa !17
   br label %.thread
 
-.thread23:                                        ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
+.thread23:                                        ; preds = %64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 8, !tbaa !15, !range !52, !noundef !53
   %78 = zext nneg i8 %77 to i64
-  %.cmp = icmp ule i64 %69, %78
+  %.cmp = icmp ule i64 %65, %78
   %79 = zext i1 %.cmp to i64
   store i64 %79, ptr %76, align 8, !tbaa !15
   store i32 1, ptr %0, align 8, !tbaa !17
   br label %.thread
 
-80:                                               ; preds = %64, %67, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
+80:                                               ; preds = %64, %66, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %81, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %70, %64, %80, %.thread23, %71, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21, %59, %4, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18, %25, %34, %30, %2
+.thread:                                          ; preds = %70, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit, %80, %.thread23, %71, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21, %59, %4, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18, %25, %34, %30, %2
   ret ptr %0
 }
 
@@ -20147,7 +20147,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN5
   br label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = %8, %10, %13
-  %.0.i = phi i64 [ %14, %13 ], [ %12, %10 ], [ %9, %8 ]
+  %.0.i = phi i64 [ %14, %13 ], [ %9, %8 ], [ %12, %10 ]
   %.not14 = icmp eq i64 %.0.i, 0
   br i1 %.not14, label %25, label %15
 
@@ -20221,8 +20221,8 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18: ; preds 
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds = %39, %42, %45
-  %48 = phi i8 [ %47, %45 ], [ %43, %42 ], [ %41, %39 ]
-  %.0.i19 = phi i64 [ %46, %45 ], [ %44, %42 ], [ %40, %39 ]
+  %48 = phi i8 [ %47, %45 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i19 = phi i64 [ %46, %45 ], [ %40, %39 ], [ %44, %42 ]
   %.not = icmp eq i64 %.0.i19, 0
   br i1 %.not, label %59, label %49
 
@@ -20245,7 +20245,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
   br label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21: ; preds = %50, %52, %54
-  %.0.i20 = phi i64 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ]
+  %.0.i20 = phi i64 [ %55, %54 ], [ %51, %50 ], [ %53, %52 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !15
   %58 = urem i64 %57, %.0.i20
@@ -20260,28 +20260,28 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21: ; preds
 61:                                               ; preds = %2
   %62 = load i32, ptr %1, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i32 %62, label %67 [
-    i32 2, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
-    i32 3, label %64
+  switch i32 %62, label %66 [
+    i32 2, label %64
+    i32 3, label %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   ]
 
 64:                                               ; preds = %61
-  %65 = load i8, ptr %63, align 8, !tbaa !15, !range !52, !noundef !53
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %.thread, label %80
-
-67:                                               ; preds = %61
-  %68 = load i64, ptr %63, align 8, !tbaa !15
-  %.not26 = icmp eq i64 %68, 0
-  br i1 %.not26, label %80, label %70
-
-_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %61
-  %69 = load i64, ptr %63, align 8, !tbaa !15
-  %.frozen = freeze i64 %69
+  %65 = load i64, ptr %63, align 8, !tbaa !15
+  %.frozen = freeze i64 %65
   %.not25 = icmp eq i64 %.frozen, 0
   br i1 %.not25, label %80, label %.thread23
 
-70:                                               ; preds = %67
+66:                                               ; preds = %61
+  %67 = load i64, ptr %63, align 8, !tbaa !15
+  %.not26 = icmp eq i64 %67, 0
+  br i1 %.not26, label %80, label %70
+
+_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = %61
+  %68 = load i8, ptr %63, align 8, !tbaa !15, !range !52, !noundef !53
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %.thread, label %80
+
+70:                                               ; preds = %66
   %cond = icmp eq i32 %62, 1
   br i1 %cond, label %71, label %.thread
 
@@ -20289,12 +20289,12 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = 
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i8, ptr %72, align 8, !tbaa !15, !range !52, !noundef !53
   %74 = zext nneg i8 %73 to i64
-  %75 = srem i64 %74, %68
+  %75 = srem i64 %74, %67
   store i64 %75, ptr %72, align 8, !tbaa !15
   store i32 1, ptr %0, align 8, !tbaa !17
   br label %.thread
 
-.thread23:                                        ; preds = %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
+.thread23:                                        ; preds = %64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 8, !tbaa !15, !range !52, !noundef !53
   %78 = zext nneg i8 %77 to i64
@@ -20305,12 +20305,12 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit: ; preds = 
   store i32 1, ptr %0, align 8, !tbaa !17
   br label %.thread
 
-80:                                               ; preds = %64, %67, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
+80:                                               ; preds = %64, %66, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %81, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %70, %64, %80, %.thread23, %71, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21, %59, %4, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18, %25, %34, %30, %2
+.thread:                                          ; preds = %70, %_ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit, %80, %.thread23, %71, %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit21, %59, %4, %21, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit18, %25, %34, %30, %2
   ret ptr %0
 }
 
@@ -21080,7 +21080,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueEKS6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS9_RSA_.exit
 
 _ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueEKS6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS9_RSA_.exit: ; preds = %21, %18, %16
-  %.0.i.i.i.i.i = phi i64 [ %22, %21 ], [ %20, %18 ], [ %17, %16 ]
+  %.0.i.i.i.i.i = phi i64 [ %22, %21 ], [ %17, %16 ], [ %20, %18 ]
   %23 = xor i64 %.0.i.i.i.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !21, !noalias !652
@@ -24020,7 +24020,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE7reserveEm.exit: ; preds = %3
   ]
 
 44:                                               ; preds = %59, %39
-  %.7.i = phi ptr [ %60, %59 ], [ %37, %39 ]
+  %.7.i = phi ptr [ %37, %39 ], [ %60, %59 ]
   %.not.i9 = icmp eq ptr %.7.i, %36
   br i1 %.not.i9, label %._ZN5boost4wave4util19flex_string_details8pod_fillIccEEvPT_S5_T0_.exit_crit_edge, label %45
 
@@ -24070,7 +24070,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE7reserveEm.exit: ; preds = %3
   br label %59
 
 59:                                               ; preds = %57, %39
-  %.6.i = phi ptr [ %37, %39 ], [ %58, %57 ]
+  %.6.i = phi ptr [ %58, %57 ], [ %37, %39 ]
   store i8 %2, ptr %.6.i, align 1, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   br label %44, !llvm.loop !760

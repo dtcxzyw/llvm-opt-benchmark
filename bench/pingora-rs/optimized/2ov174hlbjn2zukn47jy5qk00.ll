@@ -1040,10 +1040,10 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h38b383f8bc99e379E(ptr no
 13:                                               ; preds = %7
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
-    i64 2, label %38
+    i64 2, label %27
     i64 3, label %15
-    i64 0, label %27
-    i64 1, label %32
+    i64 0, label %29
+    i64 1, label %34
   ], !prof !66
 
 default.unreachable:                              ; preds = %13
@@ -1069,8 +1069,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %20
   unreachable
 
-.thread58:                                        ; preds = %15, %38, %32, %27, %16
-  %.sroa.04.1 = phi ptr [ @anon.e7500836e724f5eafa96e7ccf286267f.22, %16 ], [ %10, %27 ], [ %10, %32 ], [ %10, %38 ], [ %10, %15 ]
+.thread58:                                        ; preds = %15, %34, %27, %29, %16
+  %.sroa.04.1 = phi ptr [ @anon.e7500836e724f5eafa96e7ccf286267f.22, %16 ], [ %10, %29 ], [ %10, %27 ], [ %10, %34 ], [ %10, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
@@ -1087,28 +1087,28 @@ default.unreachable:                              ; preds = %13
   br label %40
 
 27:                                               ; preds = %13
-  %28 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %30 = load i8, ptr %29, align 8, !range !67, !noundef !3
-  %31 = icmp eq i8 %30, 35
-  br i1 %31, label %.thread, label %.thread58
-
-32:                                               ; preds = %13
-  %33 = getelementptr i8, ptr %10, i64 -1
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  %35 = getelementptr i8, ptr %10, i64 15
-  %36 = load i8, ptr %35, align 8, !range !67, !noundef !3
-  %37 = icmp eq i8 %36, 35
-  br i1 %37, label %.thread, label %.thread58
-
-38:                                               ; preds = %13
   %.mask60 = and i64 %12, -4294967296
-  %39 = icmp eq i64 %.mask60, 17179869184
+  %28 = icmp eq i64 %.mask60, 17179869184
+  br i1 %28, label %.thread, label %.thread58
+
+29:                                               ; preds = %13
+  %30 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %32 = load i8, ptr %31, align 8, !range !67, !noundef !3
+  %33 = icmp eq i8 %32, 35
+  br i1 %33, label %.thread, label %.thread58
+
+34:                                               ; preds = %13
+  %35 = getelementptr i8, ptr %10, i64 -1
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr i8, ptr %10, i64 15
+  %38 = load i8, ptr %37, align 8, !range !67, !noundef !3
+  %39 = icmp eq i8 %38, 35
   br i1 %39, label %.thread, label %.thread58
 
-.thread:                                          ; preds = %15, %38, %32, %27
+.thread:                                          ; preds = %15, %34, %27, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %40
 
@@ -8738,7 +8738,7 @@ default.unreachable:                              ; preds = %346
   br label %_ZN6brotli3enc9histogram7Context17h6d8550abf48da0caE.exit
 
 _ZN6brotli3enc9histogram7Context17h6d8550abf48da0caE.exit: ; preds = %347, %349, %351, %358
-  %.sroa.0.0.i = phi i8 [ %366, %358 ], [ %357, %351 ], [ %350, %349 ], [ %348, %347 ]
+  %.sroa.0.0.i = phi i8 [ %348, %347 ], [ %350, %349 ], [ %357, %351 ], [ %366, %358 ]
   %367 = zext i8 %.sroa.0.0.i to i64
   %.val41 = load ptr, ptr %237, align 8, !nonnull !3, !align !15, !noundef !3
   %.val42 = load i64, ptr %238, align 8, !noundef !3
@@ -10934,8 +10934,8 @@ default.unreachable:                              ; preds = %182, %142, %130, %1
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.exit: ; preds = %73, %75, %81, %84, %87, %88
-  %.sroa.9.0 = phi i64 [ %.sroa.9.0.copyload107, %88 ], [ %.sroa.9.0.copyload109, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %75 ], [ undef, %73 ]
-  %.sroa.0103.0 = phi i64 [ 4, %88 ], [ 1, %87 ], [ 1, %84 ], [ 1, %81 ], [ 1, %75 ], [ %74, %73 ]
+  %.sroa.9.0 = phi i64 [ %80, %75 ], [ %83, %81 ], [ %86, %84 ], [ %.sroa.9.0.copyload109, %87 ], [ %.sroa.9.0.copyload107, %88 ], [ undef, %73 ]
+  %.sroa.0103.0 = phi i64 [ 1, %75 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 4, %88 ], [ %74, %73 ]
   store i64 %.sroa.0103.0, ptr %1, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
@@ -11018,10 +11018,10 @@ _ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit: ; preds = %93, %95, %102, %103, %104, %105
-  %.sroa.10154.0 = phi i64 [ %.sroa.10154.0.copyload156, %104 ], [ %.sroa.10154.0.copyload158, %105 ], [ %.sroa.10154.0.copyload160, %103 ], [ %.sroa.10154.0.copyload162, %102 ], [ %96, %95 ], [ undef, %93 ]
-  %.sroa.9145.0 = phi i64 [ %.sroa.9145.0.copyload147, %104 ], [ %.sroa.9145.0.copyload149, %105 ], [ %.sroa.9145.0.copyload151, %103 ], [ %.sroa.9145.0.copyload153, %102 ], [ %99, %95 ], [ undef, %93 ]
-  %.sroa.11163.0 = phi i64 [ %.sroa.11163.0.copyload165, %104 ], [ %.sroa.11163.0.copyload167, %105 ], [ %.sroa.11163.0.copyload169, %103 ], [ %.sroa.11163.0.copyload171, %102 ], [ %101, %95 ], [ undef, %93 ]
-  %.sroa.12172.0 = phi i64 [ %.sroa.12172.0.copyload174, %104 ], [ %.sroa.12172.0.copyload176, %105 ], [ %.sroa.12172.0.copyload178, %103 ], [ %.sroa.12172.0.copyload180, %102 ], [ 0, %95 ], [ undef, %93 ]
+  %.sroa.10154.0 = phi i64 [ %96, %95 ], [ %.sroa.10154.0.copyload162, %102 ], [ %.sroa.10154.0.copyload160, %103 ], [ %.sroa.10154.0.copyload158, %105 ], [ %.sroa.10154.0.copyload156, %104 ], [ undef, %93 ]
+  %.sroa.9145.0 = phi i64 [ %99, %95 ], [ %.sroa.9145.0.copyload153, %102 ], [ %.sroa.9145.0.copyload151, %103 ], [ %.sroa.9145.0.copyload149, %105 ], [ %.sroa.9145.0.copyload147, %104 ], [ undef, %93 ]
+  %.sroa.11163.0 = phi i64 [ %101, %95 ], [ %.sroa.11163.0.copyload171, %102 ], [ %.sroa.11163.0.copyload169, %103 ], [ %.sroa.11163.0.copyload167, %105 ], [ %.sroa.11163.0.copyload165, %104 ], [ undef, %93 ]
+  %.sroa.12172.0 = phi i64 [ 0, %95 ], [ %.sroa.12172.0.copyload180, %102 ], [ %.sroa.12172.0.copyload178, %103 ], [ %.sroa.12172.0.copyload176, %105 ], [ %.sroa.12172.0.copyload174, %104 ], [ undef, %93 ]
   %.sroa.9145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9145.0, ptr %.sroa.9145.0..sroa_idx, align 8
   %.sroa.10154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11103,8 +11103,8 @@ _ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit: ; preds = %110, %114, %119, %120, %121, %122
-  %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload133, %121 ], [ %.sroa.11.0.copyload135, %122 ], [ %.sroa.11.0.copyload137, %120 ], [ %.sroa.11.0.copyload139, %119 ], [ %115, %114 ], [ undef, %110 ]
-  %.sroa.9118.0 = phi i64 [ %.sroa.9118.0.copyload120, %121 ], [ %.sroa.9118.0.copyload122, %122 ], [ %.sroa.9118.0.copyload124, %120 ], [ %.sroa.9118.0.copyload126, %119 ], [ %118, %114 ], [ undef, %110 ]
+  %.sroa.11.0 = phi i64 [ %115, %114 ], [ %.sroa.11.0.copyload139, %119 ], [ %.sroa.11.0.copyload137, %120 ], [ %.sroa.11.0.copyload135, %122 ], [ %.sroa.11.0.copyload133, %121 ], [ undef, %110 ]
+  %.sroa.9118.0 = phi i64 [ %118, %114 ], [ %.sroa.9118.0.copyload126, %119 ], [ %.sroa.9118.0.copyload124, %120 ], [ %.sroa.9118.0.copyload122, %122 ], [ %.sroa.9118.0.copyload120, %121 ], [ undef, %110 ]
   store i64 %113, ptr %1, align 8
   %.sroa.9118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9118.0, ptr %.sroa.9118.0..sroa_idx, align 8
@@ -11200,10 +11200,10 @@ common.resume:                                    ; preds = %165, %169, %172, %1
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit: ; preds = %130, %132, %135, %136, %137, %138
-  %.sroa.9197.0 = phi i64 [ %.sroa.9197.0.copyload199, %137 ], [ %.sroa.9197.0.copyload201, %138 ], [ %.sroa.9197.0.copyload203, %136 ], [ %.sroa.9197.0.copyload205, %135 ], [ %134, %132 ], [ undef, %130 ]
-  %.sroa.10206.0 = phi i64 [ %.sroa.10206.0.copyload208, %137 ], [ %.sroa.10206.0.copyload210, %138 ], [ %.sroa.10206.0.copyload212, %136 ], [ %.sroa.10206.0.copyload214, %135 ], [ 0, %132 ], [ undef, %130 ]
-  %.sroa.11215.0 = phi i64 [ %.sroa.11215.0.copyload217, %137 ], [ %.sroa.11215.0.copyload219, %138 ], [ %.sroa.11215.0.copyload221, %136 ], [ %.sroa.11215.0.copyload223, %135 ], [ %3, %132 ], [ undef, %130 ]
-  %.sroa.12224.0 = phi i64 [ %.sroa.12224.0.copyload226, %137 ], [ %.sroa.12224.0.copyload228, %138 ], [ %.sroa.12224.0.copyload230, %136 ], [ %.sroa.12224.0.copyload232, %135 ], [ %33, %132 ], [ undef, %130 ]
+  %.sroa.9197.0 = phi i64 [ %134, %132 ], [ %.sroa.9197.0.copyload205, %135 ], [ %.sroa.9197.0.copyload203, %136 ], [ %.sroa.9197.0.copyload201, %138 ], [ %.sroa.9197.0.copyload199, %137 ], [ undef, %130 ]
+  %.sroa.10206.0 = phi i64 [ 0, %132 ], [ %.sroa.10206.0.copyload214, %135 ], [ %.sroa.10206.0.copyload212, %136 ], [ %.sroa.10206.0.copyload210, %138 ], [ %.sroa.10206.0.copyload208, %137 ], [ undef, %130 ]
+  %.sroa.11215.0 = phi i64 [ %3, %132 ], [ %.sroa.11215.0.copyload223, %135 ], [ %.sroa.11215.0.copyload221, %136 ], [ %.sroa.11215.0.copyload219, %138 ], [ %.sroa.11215.0.copyload217, %137 ], [ undef, %130 ]
+  %.sroa.12224.0 = phi i64 [ %33, %132 ], [ %.sroa.12224.0.copyload232, %135 ], [ %.sroa.12224.0.copyload230, %136 ], [ %.sroa.12224.0.copyload228, %138 ], [ %.sroa.12224.0.copyload226, %137 ], [ undef, %130 ]
   %.sroa.9197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9197.0, ptr %.sroa.9197.0..sroa_idx, align 8
   %.sroa.10206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11265,8 +11265,8 @@ _ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b2
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit: ; preds = %142, %144, %147, %150, %153, %154
-  %.sroa.0181.0 = phi i64 [ 4, %154 ], [ 1, %153 ], [ 4, %150 ], [ 4, %147 ], [ 4, %144 ], [ %143, %142 ]
-  %.sroa.9184.0 = phi i64 [ %.sroa.9184.0.copyload186, %154 ], [ %.sroa.9184.0.copyload188, %153 ], [ %152, %150 ], [ %149, %147 ], [ %146, %144 ], [ undef, %142 ]
+  %.sroa.0181.0 = phi i64 [ 4, %144 ], [ 4, %147 ], [ 4, %150 ], [ 1, %153 ], [ 4, %154 ], [ %143, %142 ]
+  %.sroa.9184.0 = phi i64 [ %146, %144 ], [ %149, %147 ], [ %152, %150 ], [ %.sroa.9184.0.copyload188, %153 ], [ %.sroa.9184.0.copyload186, %154 ], [ undef, %142 ]
   store i64 %.sroa.0181.0, ptr %1, align 8
   %.sroa.9184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9184.0, ptr %.sroa.9184.0..sroa_idx, align 8
@@ -11508,8 +11508,8 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   br label %182
 
 _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61: ; preds = %194, %193, %190, %187, %184, %182
-  %.sroa.0250.0 = phi i64 [ 4, %194 ], [ 1, %193 ], [ 4, %190 ], [ 4, %187 ], [ 4, %184 ], [ %183, %182 ]
-  %.sroa.9253.0 = phi i64 [ %.sroa.9253.0.copyload255, %194 ], [ %.sroa.9253.0.copyload257, %193 ], [ %192, %190 ], [ %189, %187 ], [ %186, %184 ], [ undef, %182 ]
+  %.sroa.0250.0 = phi i64 [ 4, %184 ], [ 4, %187 ], [ 4, %190 ], [ 1, %193 ], [ 4, %194 ], [ %183, %182 ]
+  %.sroa.9253.0 = phi i64 [ %186, %184 ], [ %189, %187 ], [ %192, %190 ], [ %.sroa.9253.0.copyload257, %193 ], [ %.sroa.9253.0.copyload255, %194 ], [ undef, %182 ]
   store i64 %.sroa.0250.0, ptr %1, align 8
   %.sroa.9253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9253.0, ptr %.sroa.9253.0..sroa_idx, align 8
@@ -11654,7 +11654,7 @@ define noundef zeroext i1 @_ZN12pingora_core9protocols4http2v14body10BodyWriter8
   br label %10
 
 10:                                               ; preds = %1, %9, %3
-  %.sroa.0.0 = phi i1 [ true, %9 ], [ %8, %3 ], [ false, %1 ]
+  %.sroa.0.0 = phi i1 [ %8, %3 ], [ true, %9 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 
@@ -13044,7 +13044,7 @@ define noundef nonnull align 8 ptr @_ZN12pingora_core9protocols4http2v26client24
   br label %65
 
 65:                                               ; preds = %122, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i60", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i97", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i88", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i79", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i70", %93, %63
-  %.sroa.0.0 = phi ptr [ %47, %63 ], [ %77, %93 ], [ %200, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i97" ], [ %184, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i88" ], [ %167, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i79" ], [ %149, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i70" ], [ %127, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i60" ], [ %106, %122 ]
+  %.sroa.0.0 = phi ptr [ %47, %63 ], [ %77, %93 ], [ %149, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i70" ], [ %167, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i79" ], [ %184, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i88" ], [ %200, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i97" ], [ %127, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17had174a16527c1fd4E.exit.i60" ], [ %106, %122 ]
   ret ptr %.sroa.0.0
 
 66:                                               ; preds = %61, %91, %120

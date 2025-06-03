@@ -1497,7 +1497,7 @@ readBooleanComponents.exit:                       ; preds = %.lr.ph.i99, %174, %
   br label %readObjectComponents.exit
 
 readObjectComponents.exit:                        ; preds = %47, %30, %readByteComponents.exit, %readCharComponents.exit, %readFloatComponents.exit, %readDoubleComponents.exit, %readIntComponents.exit, %readLongComponents.exit, %readShortComponents.exit, %readBooleanComponents.exit, %187
-  %.0 = phi i16 [ 0, %187 ], [ %180, %readBooleanComponents.exit ], [ %164, %readShortComponents.exit ], [ %148, %readLongComponents.exit ], [ %132, %readIntComponents.exit ], [ %116, %readDoubleComponents.exit ], [ %100, %readFloatComponents.exit ], [ %84, %readCharComponents.exit ], [ %68, %readByteComponents.exit ], [ 0, %30 ], [ 0, %47 ]
+  %.0 = phi i16 [ 0, %187 ], [ %68, %readByteComponents.exit ], [ %84, %readCharComponents.exit ], [ %100, %readFloatComponents.exit ], [ %116, %readDoubleComponents.exit ], [ %132, %readIntComponents.exit ], [ %148, %readLongComponents.exit ], [ %164, %readShortComponents.exit ], [ %180, %readBooleanComponents.exit ], [ 0, %30 ], [ 0, %47 ]
   ret i16 %.0
 }
 

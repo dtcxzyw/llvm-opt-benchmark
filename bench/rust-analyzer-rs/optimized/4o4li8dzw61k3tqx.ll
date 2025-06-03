@@ -933,7 +933,7 @@ define hidden noundef zeroext i1 @"_ZN10hir_expand5attrs13collect_attrs28_$u7b$$
   br label %13
 
 13:                                               ; preds = %10, %5
-  %.0.in = phi i1 [ %12, %10 ], [ %9, %5 ]
+  %.0.in = phi i1 [ %9, %5 ], [ %12, %10 ]
   ret i1 %.0.in
 }
 
@@ -960,7 +960,7 @@ define hidden noundef zeroext i1 @"_ZN10hir_expand5attrs16inner_attributes28_$u7
   br label %13
 
 13:                                               ; preds = %10, %5
-  %.0.in = phi i1 [ %12, %10 ], [ %9, %5 ]
+  %.0.in = phi i1 [ %9, %5 ], [ %12, %10 ]
   ret i1 %.0.in
 }
 
@@ -1162,7 +1162,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN10hir_expand5attrs13collect_attrs28_$u7b$$u7b$closure$u7d$$u7d$17hbf0d8f1eef76b0b6E.llvm.7838501011795166955.exit"
 
 "_ZN10hir_expand5attrs13collect_attrs28_$u7b$$u7b$closure$u7d$$u7d$17hbf0d8f1eef76b0b6E.llvm.7838501011795166955.exit": ; preds = %5, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %5 ]
+  %.0.in.i = phi i1 [ %9, %5 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -1197,7 +1197,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN10hir_expand5attrs16inner_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h5e073fe14331e134E.llvm.7838501011795166955.exit"
 
 "_ZN10hir_expand5attrs16inner_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h5e073fe14331e134E.llvm.7838501011795166955.exit": ; preds = %5, %10
-  %.0.in.i = phi i1 [ %12, %10 ], [ %9, %5 ]
+  %.0.in.i = phi i1 [ %9, %5 ], [ %12, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -3054,7 +3054,7 @@ common.resume.sink.split:                         ; preds = %21, %26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %28, %.body, %46, %51, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %52, %51 ], [ %47, %46 ], [ %.pn, %.body ], [ %29, %28 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %.body ], [ %47, %46 ], [ %52, %51 ], [ %57, %56 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %18
@@ -4652,7 +4652,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h010f4f0a069f4beaE
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.0
 }
 
@@ -19627,8 +19627,8 @@ _ZN4core3ops8function6FnOnce9call_once17h25a231285036a9d5E.exit.thread.i: ; pred
           to label %254 unwind label %381, !noalias !5305
 
 260:                                              ; preds = %422, %377, %370, %315, %313, %306, %301, %296, %282, %274, %262, %258
-  %.294.i = phi i8 [ 1, %274 ], [ 1, %370 ], [ 0, %377 ], [ 1, %315 ], [ 0, %301 ], [ 1, %282 ], [ 1, %262 ], [ 1, %258 ], [ 1, %296 ], [ 1, %306 ], [ 1, %313 ], [ 1, %422 ]
-  %.3.i = phi i8 [ 1, %274 ], [ %.8.i, %370 ], [ 0, %377 ], [ 1, %315 ], [ 1, %301 ], [ 1, %282 ], [ 1, %262 ], [ 1, %258 ], [ 1, %296 ], [ 1, %306 ], [ 1, %313 ], [ 1, %422 ]
+  %.294.i = phi i8 [ 1, %370 ], [ 0, %377 ], [ 1, %282 ], [ 0, %301 ], [ 1, %315 ], [ 1, %274 ], [ 1, %262 ], [ 1, %258 ], [ 1, %296 ], [ 1, %306 ], [ 1, %313 ], [ 1, %422 ]
+  %.3.i = phi i8 [ %.8.i, %370 ], [ 0, %377 ], [ 1, %282 ], [ 1, %301 ], [ 1, %315 ], [ 1, %274 ], [ 1, %262 ], [ 1, %258 ], [ 1, %296 ], [ 1, %306 ], [ 1, %313 ], [ 1, %422 ]
   %261 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit.i"
@@ -19737,8 +19737,8 @@ _ZN3hir3Adt2ty17h0ad737db2b0eed3dE.exit.i:        ; preds = %315, %313, %296, %2
           to label %319 unwind label %317, !noalias !5305
 
 295:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit115.i", %370, %312, %305, %281, %273
-  %.597.i = phi i8 [ 1, %281 ], [ 1, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit115.i" ], [ 1, %370 ], [ 1, %312 ], [ 0, %305 ], [ 1, %273 ]
-  %.6.i = phi i8 [ 1, %281 ], [ 1, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit115.i" ], [ %.8.i, %370 ], [ 1, %312 ], [ 1, %305 ], [ 1, %273 ]
+  %.597.i = phi i8 [ 1, %370 ], [ 1, %273 ], [ 0, %305 ], [ 1, %312 ], [ 1, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit115.i" ], [ 1, %281 ]
+  %.6.i = phi i8 [ %.8.i, %370 ], [ 1, %273 ], [ 1, %305 ], [ 1, %312 ], [ 1, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit115.i" ], [ 1, %281 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !5301
   br label %425
 
@@ -20254,7 +20254,7 @@ _ZN3hir3Adt2ty17h0ad737db2b0eed3dE.exit.i:        ; preds = %315, %313, %296, %2
   call void @"_ZN4core3ptr48drop_in_place$LT$hir_def..resolver..Resolver$GT$17haf374541d68dfe9dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %46)
   br label %449
 
-450:                                              ; preds = %216, %247, %217, %238, %237, %236, %212, %209, %207
+450:                                              ; preds = %216, %247, %217, %236, %237, %238, %212, %209, %207
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b1089f815c6d610E.llvm.15963164601899926706"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx)
@@ -20815,7 +20815,7 @@ define i64 @"_ZN3hir7from_id94_$LT$impl$u20$core..convert..From$LT$hir..GenericD
   br label %13
 
 13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %5
-  %.sroa.010.0 = phi i64 [ 10, %12 ], [ 9, %11 ], [ 8, %10 ], [ 7, %9 ], [ 6, %8 ], [ 5, %7 ], [ %6, %5 ], [ 3, %1 ]
+  %.sroa.010.0 = phi i64 [ %6, %5 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 3, %1 ]
   %.sroa.4.0.extract.shift = and i64 %0, -4294967296
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.010.0, %.sroa.4.0.extract.shift
   ret i64 %.sroa.010.0.insert.insert
@@ -20845,7 +20845,7 @@ define i64 @"_ZN3hir7from_id87_$LT$impl$u20$core..convert..From$LT$hir..Adt$GT$$
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.sroa.03.0 = phi i64 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.03.0 = phi i64 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i64 %.sroa.03.0
 }
 
@@ -20903,7 +20903,7 @@ define i64 @"_ZN3hir7from_id93_$LT$impl$u20$core..convert..From$LT$hir..AssocIte
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.sroa.03.0 = phi i64 [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.sroa.03.0 = phi i64 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret i64 %.sroa.03.0
 }
 
@@ -22522,7 +22522,7 @@ define void @_ZN3hir11term_search11LookupTable9new_round17h3c32a3f301e2d9bdE(ptr
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17he3c9259f193c165aE.exit"
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17he3c9259f193c165aE.exit": ; preds = %40, %45
-  %71 = phi i32 [ %.pre, %45 ], [ %43, %40 ]
+  %71 = phi i32 [ %43, %40 ], [ %.pre, %45 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.9)
   %72 = icmp ugt i32 %71, 2
   br i1 %72, label %73, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h64f593615d7d5991E.exit"
@@ -22817,7 +22817,7 @@ common.resume.sink.split:                         ; preds = %141, %152
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %178, %.body, %198, %203, %208, %166, %170, %121, %125, %46, %50
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %122, %125 ], [ %122, %121 ], [ %167, %170 ], [ %167, %166 ], [ %209, %208 ], [ %204, %203 ], [ %199, %198 ], [ %.pn, %.body ], [ %179, %178 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %122, %125 ], [ %122, %121 ], [ %167, %170 ], [ %167, %166 ], [ %179, %178 ], [ %.pn, %.body ], [ %199, %198 ], [ %204, %203 ], [ %209, %208 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN48_$LT$hir..Type$u20$as$u20$core..clone..Clone$GT$5clone17h2e1b9093a0ae79a6E.exit": ; preds = %40

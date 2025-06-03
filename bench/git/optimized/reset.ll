@@ -1180,7 +1180,7 @@ thread-pre-split115:                              ; preds = %print_new_head_line
   br label %491
 
 491:                                              ; preds = %252, %487, %424
-  %.039 = phi i32 [ %256, %252 ], [ 1, %424 ], [ %.5, %487 ]
+  %.039 = phi i32 [ %256, %252 ], [ %.5, %487 ], [ 1, %424 ]
   call void @clear_pathspec(ptr noundef nonnull %19) #13
   %492 = load ptr, ptr %17, align 8, !tbaa !8
   call void @free(ptr noundef %492) #13

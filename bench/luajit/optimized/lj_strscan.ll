@@ -889,7 +889,7 @@ strscan_double.exit:                              ; preds = %90, %93
   br label %95
 
 95:                                               ; preds = %57, %51, %strscan_double.exit, %58, %53, %45
-  %.056 = phi i32 [ %.062, %strscan_double.exit ], [ %2, %58 ], [ 4, %53 ], [ 3, %45 ], [ 0, %51 ], [ 0, %57 ]
+  %.056 = phi i32 [ %.062, %strscan_double.exit ], [ 4, %53 ], [ 3, %45 ], [ %2, %58 ], [ 0, %51 ], [ 0, %57 ]
   ret i32 %.056
 }
 
@@ -997,7 +997,7 @@ strscan_double.exit:                              ; preds = %40, %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %7, %strscan_double.exit, %37, %33, %25
-  %.039 = phi i32 [ %.042, %strscan_double.exit ], [ %2, %37 ], [ 4, %33 ], [ 3, %25 ], [ 0, %7 ], [ 0, %31 ], [ 0, %.lr.ph ]
+  %.039 = phi i32 [ %.042, %strscan_double.exit ], [ 4, %33 ], [ 3, %25 ], [ %2, %37 ], [ 0, %7 ], [ 0, %31 ], [ 0, %.lr.ph ]
   ret i32 %.039
 }
 
@@ -1687,8 +1687,8 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   store double %.128.i, ptr %1, align 8, !tbaa !4
   br label %.thread305
 
-.thread305:                                       ; preds = %148, %144, %119, %113, %120, %124, %129, %314, %.thread309, %133
-  %.2215 = phi i32 [ 0, %133 ], [ 0, %.thread309 ], [ %.4248, %314 ], [ 0, %119 ], [ 3, %113 ], [ 4, %120 ], [ %2, %124 ], [ %.3247, %129 ], [ %.4248, %144 ], [ %.4248, %148 ]
+.thread305:                                       ; preds = %148, %144, %119, %124, %113, %120, %129, %314, %.thread309, %133
+  %.2215 = phi i32 [ 0, %133 ], [ 0, %.thread309 ], [ %.4248, %314 ], [ 0, %119 ], [ %2, %124 ], [ 3, %113 ], [ 4, %120 ], [ %.3247, %129 ], [ %.4248, %144 ], [ %.4248, %148 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #8
   ret i32 %.2215
 }

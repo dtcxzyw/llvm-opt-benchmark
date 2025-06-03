@@ -807,7 +807,7 @@ dissect_netlink_route_ndmsg.exit:                 ; preds = %10, %10, %134
   br label %dissect_netlink_route_ifaddrmsg.exit.thread
 
 dissect_netlink_route_ifaddrmsg.exit.thread:      ; preds = %98, %70, %10, %134, %dissect_netlink_route_ndmsg.exit, %105, %77, %dissect_netlink_route_ifinfomsg.exit
-  %.0 = phi i32 [ %21, %10 ], [ %21, %134 ], [ %153, %dissect_netlink_route_ndmsg.exit ], [ %133, %105 ], [ %93, %77 ], [ %65, %dissect_netlink_route_ifinfomsg.exit ], [ %75, %70 ], [ %103, %98 ]
+  %.0 = phi i32 [ %21, %10 ], [ %65, %dissect_netlink_route_ifinfomsg.exit ], [ %93, %77 ], [ %133, %105 ], [ %21, %134 ], [ %153, %dissect_netlink_route_ndmsg.exit ], [ %75, %70 ], [ %103, %98 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   ret i32 %.0
 }
@@ -1171,7 +1171,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   br label %157
 
 157:                                              ; preds = %7, %151, %145, %139, %133, %108, %103, %100, %97, %90, %83, %77, %69, %63, %57, %51, %45, %39, %33, %28, %22, %16, %11
-  %.0 = phi i32 [ 1, %151 ], [ 1, %145 ], [ 1, %139 ], [ 1, %133 ], [ 1, %108 ], [ 1, %103 ], [ 1, %100 ], [ 1, %97 ], [ 1, %90 ], [ 1, %83 ], [ 1, %77 ], [ 1, %69 ], [ 1, %63 ], [ 1, %57 ], [ 1, %51 ], [ 1, %45 ], [ 1, %39 ], [ 1, %33 ], [ 1, %28 ], [ 1, %22 ], [ 1, %16 ], [ 1, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %28 ], [ 1, %33 ], [ 1, %39 ], [ 1, %45 ], [ 1, %51 ], [ 1, %57 ], [ 1, %63 ], [ 1, %69 ], [ 1, %77 ], [ 1, %83 ], [ 1, %90 ], [ 1, %97 ], [ 1, %100 ], [ 1, %103 ], [ 1, %108 ], [ 1, %133 ], [ 1, %139 ], [ 1, %145 ], [ 1, %151 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
@@ -1225,7 +1225,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef
   br label %30
 
 30:                                               ; preds = %7, %22, %26, %14, %9
-  %.0 = phi i32 [ 1, %14 ], [ 1, %9 ], [ 1, %26 ], [ 1, %22 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %26 ], [ 1, %22 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   ret i32 %.0
 }

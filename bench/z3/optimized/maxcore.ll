@@ -2125,7 +2125,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   br label %28
 
 28:                                               ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, %26, %24
-  %.0 = phi i32 [ %27, %26 ], [ %25, %24 ], [ 0, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ]
+  %.0 = phi i32 [ %25, %24 ], [ %27, %26 ], [ 0, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ]
   ret i32 %.0
 }
 
@@ -8740,7 +8740,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZNK6vectorIP4exprL
   ret void
 
 525:                                              ; preds = %375, %508, %193, %158, %123, %77
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %194, %193 ], [ %159, %158 ], [ %124, %123 ], [ %.pn52.pn.pn, %508 ], [ %376, %375 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %124, %123 ], [ %159, %158 ], [ %194, %193 ], [ %.pn52.pn.pn, %508 ], [ %376, %375 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn

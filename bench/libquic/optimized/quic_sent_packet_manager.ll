@@ -3797,7 +3797,7 @@ _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28: ; preds = %112,
   br label %131
 
 131:                                              ; preds = %1, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit, %46, %27
-  %.sroa.013.0 = phi i64 [ %.sroa.013.0.copyload14.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28 ], [ %.sroa.013.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %51, %46 ], [ %45, %27 ], [ 0, %1 ]
+  %.sroa.013.0 = phi i64 [ %45, %27 ], [ %51, %46 ], [ %.sroa.013.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %.sroa.013.0.copyload14.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28 ], [ 0, %1 ]
   ret i64 %.sroa.013.0
 }
 

@@ -13691,7 +13691,7 @@ define hidden void @_ZN13TemplateTable33resolve_cache_and_index_for_fieldEi8Regi
   br label %14
 
 14:                                               ; preds = %3, %13, %12
-  %.0 = phi i32 [ %11, %3 ], [ 181, %13 ], [ 180, %12 ]
+  %.0 = phi i32 [ %11, %3 ], [ 180, %12 ], [ 181, %13 ]
   %15 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %16 = load i8, ptr @PrintInterpreter, align 1
   %17 = trunc i8 %16 to i1

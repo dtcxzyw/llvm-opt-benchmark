@@ -20785,7 +20785,7 @@ switch.lookup:                                    ; preds = %189
   br label %372
 
 372:                                              ; preds = %369, %366, %363
-  %.sroa.0167.0 = phi i32 [ %371, %369 ], [ %368, %366 ], [ %365, %363 ]
+  %.sroa.0167.0 = phi i32 [ %365, %363 ], [ %368, %366 ], [ %371, %369 ]
   %373 = icmp eq i32 %.sroa.0167.0, 0
   br i1 %373, label %375, label %.critedge295
 
@@ -21557,8 +21557,8 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   br label %53
 
 53:                                               ; preds = %52, %42, %.noexc
-  %.sroa.11.1.i = phi i8 [ 1, %42 ], [ %.sroa.11.0.copyload31.i, %52 ], [ 0, %.noexc ]
-  %.sroa.0.1.i = phi i64 [ -9223372036854775808, %42 ], [ %36, %52 ], [ -9223372036854775808, %.noexc ]
+  %.sroa.11.1.i = phi i8 [ %.sroa.11.0.copyload31.i, %52 ], [ 1, %42 ], [ 0, %.noexc ]
+  %.sroa.0.1.i = phi i64 [ %36, %52 ], [ -9223372036854775808, %42 ], [ -9223372036854775808, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %14), !noalias !1182
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$8try_recv28_$u7b$$u7b$closure$u7d$$u7d$17h0d471d018af841a3E.exit.i"
 
@@ -21573,12 +21573,12 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
           to label %62 unwind label %60, !noalias !1186
 
 57:                                               ; preds = %71, %60
-  %.pn.i.i = phi { ptr, i32 } [ %61, %60 ], [ %72, %71 ]
-  %.val4.i.i = load ptr, ptr %12, align 8, !noalias !1182, !nonnull !3, !align !108, !noundef !3
-  %.val5.i.i = load ptr, ptr %25, align 8, !noalias !1182, !noundef !3
-  %58 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 24
+  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %61, %60 ]
+  %.val5.i.i = load ptr, ptr %12, align 8, !noalias !1182, !nonnull !3, !align !108, !noundef !3
+  %.val6.i.i = load ptr, ptr %25, align 8, !noalias !1182, !noundef !3
+  %58 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 24
   %59 = load ptr, ptr %58, align 8, !noalias !1186, !nonnull !3, !noundef !3
-  invoke void %59(ptr noundef %.val5.i.i)
+  invoke void %59(ptr noundef %.val6.i.i)
           to label %.body unwind label %54, !noalias !1186
 
 60:                                               ; preds = %70, %62, %56
@@ -21635,10 +21635,10 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   %.sroa.0.0.i6 = phi i64 [ %64, %73 ], [ -9223372036854775808, %.loopexit.i.loopexit58 ], [ -9223372036854775808, %63 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11), !noalias !1182
   %.val.i.i = load ptr, ptr %12, align 8, !noalias !1182, !nonnull !3, !align !108, !noundef !3
-  %.val3.i.i = load ptr, ptr %25, align 8, !noalias !1182, !noundef !3
+  %.val4.i.i = load ptr, ptr %25, align 8, !noalias !1182, !noundef !3
   %74 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %75 = load ptr, ptr %74, align 8, !noalias !1186, !nonnull !3, !noundef !3
-  invoke void %75(ptr noundef %.val3.i.i)
+  invoke void %75(ptr noundef %.val4.i.i)
           to label %.noexc10 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc10:                                         ; preds = %.loopexit.i
@@ -21646,8 +21646,8 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$8try_recv28_$u7b$$u7b$closure$u7d$$u7d$17h0d471d018af841a3E.exit.i"
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$8try_recv28_$u7b$$u7b$closure$u7d$$u7d$17h0d471d018af841a3E.exit.i": ; preds = %.noexc10, %53
-  %.sroa.11.2.i = phi i8 [ %.sroa.11.0.i, %.noexc10 ], [ %.sroa.11.1.i, %53 ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.i6, %.noexc10 ], [ %.sroa.0.1.i, %53 ]
+  %.sroa.11.2.i = phi i8 [ %.sroa.11.1.i, %53 ], [ %.sroa.11.0.i, %.noexc10 ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.1.i, %53 ], [ %.sroa.0.0.i6, %.noexc10 ]
   %76 = icmp eq i64 %.sroa.0.2.i, -9223372036854775808
   br i1 %76, label %"_ZN4core3ptr175drop_in_place$LT$core..result..Result$LT$cf_rustracing..span..FinishedSpan$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$C$tokio..sync..mpsc..error..TryRecvError$GT$$GT$17haa509d66390f83eeE.exit.i", label %79
 

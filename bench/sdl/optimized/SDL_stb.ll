@@ -5476,7 +5476,7 @@ stbi__get8.exit177:                               ; preds = %386, %389, %stbi__r
   br label %stbi__skip.exit
 
 stbi__skip.exit:                                  ; preds = %77, %65, %.thread.i, %451, %435, %.thread186, %326, %461, %._crit_edge203, %._crit_edge208, %11, %9, %4
-  %.0112.shrunk = phi i1 [ false, %461 ], [ %318, %._crit_edge203 ], [ %125, %._crit_edge208 ], [ false, %9 ], [ true, %11 ], [ false, %4 ], [ false, %326 ], [ false, %.thread186 ], [ true, %435 ], [ true, %451 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
+  %.0112.shrunk = phi i1 [ false, %461 ], [ false, %4 ], [ false, %9 ], [ true, %11 ], [ %125, %._crit_edge208 ], [ %318, %._crit_edge203 ], [ false, %326 ], [ false, %.thread186 ], [ true, %435 ], [ true, %451 ], [ true, %.thread.i ], [ false, %65 ], [ false, %77 ]
   %.0112 = zext i1 %.0112.shrunk to i32
   ret i32 %.0112
 }

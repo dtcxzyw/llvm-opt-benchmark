@@ -361,7 +361,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %60, %59 ]
+  %.1.i.i.i.i = phi ptr [ %60, %59 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %62 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !19
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i, label %64
@@ -371,7 +371,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %65, %64 ]
+  %.2.i.i.i.i = phi ptr [ %65, %64 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %67 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !19
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread

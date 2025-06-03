@@ -4629,7 +4629,7 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW17update_probe_down17h121a
   %eh.lpad-body80 = phi { ptr, i32 } [ %lpad.thr_comm, %408 ], [ %403, %402 ]
   resume { ptr, i32 } %eh.lpad-body80
 
-408:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i.invoke, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_cruise17h4afc1d60b2f3256bE.exit.i.invoke, %.noexc36.invoke, %.noexc47.invoke, %.noexc37.invoke, %.invoke86, %.critedge10.sink.split.i.invoke, %.invoke, %383, %382, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW15update_probe_up17hd4d33b1127133cf1E.exit, %379, %42, %43, %71, %81, %100, %.noexc13, %108, %109, %128, %133, %141, %151, %154, %.noexc22, %181, %186, %192, %228, %248, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26is_time_to_probe_bandwidth17h44a880ca7f2f34b8E.exit.thread14.i, %.noexc39, %271, %276, %288, %290, %300, %301, %307, %344, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i63, %.noexc69, %351
+408:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i.invoke, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_cruise17h4afc1d60b2f3256bE.exit.i.invoke, %.noexc36.invoke, %.noexc47.invoke, %.noexc37.invoke, %.invoke86, %.critedge10.sink.split.i.invoke, %.invoke, %42, %383, %382, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW15update_probe_up17hd4d33b1127133cf1E.exit, %379, %43, %71, %81, %100, %.noexc13, %108, %109, %128, %133, %141, %151, %154, %.noexc22, %181, %186, %192, %228, %248, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26is_time_to_probe_bandwidth17h44a880ca7f2f34b8E.exit.thread14.i, %.noexc39, %271, %276, %288, %290, %300, %301, %307, %344, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i63, %.noexc69, %351
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$quiche..recovery..gcongestion..bbr2..probe_bw..ProbeBW$GT$17he4cdfafed7edeb05E"(ptr noalias noundef nonnull align 8 dereferenceable(760) %1) #20
@@ -4658,7 +4658,7 @@ define { i64, i64 } @"_ZN126_$LT$quiche..recovery..gcongestion..bbr2..probe_bw..
   br label %8
 
 8:                                                ; preds = %17, %14, %5
-  %.sroa.4.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i1, %14 ], [ %18, %17 ], [ %.sroa.0.0.sroa.speculated.i, %5 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i1, %14 ], [ %.sroa.0.0.sroa.speculated.i, %5 ], [ %18, %17 ]
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %9
 
@@ -6325,11 +6325,11 @@ select.unfold.i:                                  ; preds = %79, %75
   br i1 %139, label %150, label %144
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hc29d7e9fd2c1fb96E.exit.i": ; preds = %162, %140, %131
-  %.sroa.6.2.i = phi i64 [ %.sroa.6.1.i, %131 ], [ %.sroa.6.1.i, %162 ], [ %spec.select.i, %140 ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.1.i, %131 ], [ %.sroa.0.1.i, %162 ], [ 1, %140 ]
-  %.sroa.017.2.i = phi i64 [ %.sroa.017.1.i, %131 ], [ %.sroa.017.3.i, %162 ], [ %.sroa.017.1.i, %140 ]
-  %.sroa.019.2.i = phi i64 [ %.sroa.019.1.i, %131 ], [ %.sroa.019.1.i, %162 ], [ %141, %140 ]
-  %.sroa.021.2.i = phi i8 [ %.sroa.021.1.i, %131 ], [ %158, %162 ], [ %.sroa.021.1.i, %140 ]
+  %.sroa.6.2.i = phi i64 [ %.sroa.6.1.i, %162 ], [ %.sroa.6.1.i, %131 ], [ %spec.select.i, %140 ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.1.i, %162 ], [ %.sroa.0.1.i, %131 ], [ 1, %140 ]
+  %.sroa.017.2.i = phi i64 [ %.sroa.017.3.i, %162 ], [ %.sroa.017.1.i, %131 ], [ %.sroa.017.1.i, %140 ]
+  %.sroa.019.2.i = phi i64 [ %.sroa.019.1.i, %162 ], [ %.sroa.019.1.i, %131 ], [ %141, %140 ]
+  %.sroa.021.2.i = phi i8 [ %158, %162 ], [ %.sroa.021.1.i, %131 ], [ %.sroa.021.1.i, %140 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.657.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !414
   br label %118

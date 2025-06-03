@@ -2595,7 +2595,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZN4pbrt6detail8DispatchIR
   br label %88
 
 88:                                               ; preds = %86, %65, %44, %23, %11
-  %.pn = phi { <2 x float>, float } [ %87, %86 ], [ %.fca.1.insert.i.i.i44, %65 ], [ %.fca.1.insert.i.i.i37, %44 ], [ %.fca.1.insert.i.i.i, %23 ], [ %.fca.1.insert.i.i, %11 ]
+  %.pn = phi { <2 x float>, float } [ %87, %86 ], [ %.fca.1.insert.i.i, %11 ], [ %.fca.1.insert.i.i.i, %23 ], [ %.fca.1.insert.i.i.i37, %44 ], [ %.fca.1.insert.i.i.i44, %65 ]
   ret { <2 x float>, float } %.pn
 }
 

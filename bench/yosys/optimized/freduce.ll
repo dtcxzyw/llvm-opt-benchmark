@@ -8972,8 +8972,8 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit590: ; preds = %.body565, %30
   br label %.body535
 
 3014:                                             ; preds = %_ZN12_GLOBAL__N_117FindReducedInputsD2Ev.exit, %._crit_edge4636
-  %.1225 = phi i32 [ %.2226.lcssa5124, %_ZN12_GLOBAL__N_117FindReducedInputsD2Ev.exit ], [ %1974, %._crit_edge4636 ]
-  %.1222 = phi i32 [ %.2223.lcssa5125, %_ZN12_GLOBAL__N_117FindReducedInputsD2Ev.exit ], [ %.02214649, %._crit_edge4636 ]
+  %.1225 = phi i32 [ %1974, %._crit_edge4636 ], [ %.2226.lcssa5124, %_ZN12_GLOBAL__N_117FindReducedInputsD2Ev.exit ]
+  %.1222 = phi i32 [ %.02214649, %._crit_edge4636 ], [ %.2223.lcssa5125, %_ZN12_GLOBAL__N_117FindReducedInputsD2Ev.exit ]
   %3015 = getelementptr inbounds nuw i8, ptr %.sroa.02050.04647, i64 48
   %.not2175 = icmp eq ptr %3015, %337
   br i1 %.not2175, label %._crit_edge4651.loopexit, label %1955

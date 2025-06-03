@@ -74,7 +74,7 @@ define dso_local ptr @gpu_common_freq_value_to_string(i32 noundef %0) local_unna
   br label %12
 
 12:                                               ; preds = %10, %8, %6, %4, %2
-  %.0 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 

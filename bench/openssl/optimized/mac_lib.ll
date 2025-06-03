@@ -806,7 +806,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br label %EVP_MAC_CTX_free.exit
 
 EVP_MAC_CTX_free.exit:                            ; preds = %28, %27, %.thread82
-  %.04991 = phi ptr [ %.049.ph, %.thread82 ], [ null, %27 ], [ null, %28 ]
+  %.04991 = phi ptr [ %.049.ph, %.thread82 ], [ null, %28 ], [ null, %27 ]
   call void @EVP_MAC_free(ptr noundef nonnull %15) #6
   br label %74
 

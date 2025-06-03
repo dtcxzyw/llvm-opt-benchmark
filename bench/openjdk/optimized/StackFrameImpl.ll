@@ -410,7 +410,7 @@ writeVariableValue.exit.thread:                   ; preds = %75
   br label %writeVariableValue.exit
 
 writeVariableValue.exit:                          ; preds = %70, %83, %99, %115, %130, %145, %160, %175, %191
-  %.0.i40 = phi i32 [ %55, %70 ], [ %197, %191 ], [ %181, %175 ], [ %166, %160 ], [ %151, %145 ], [ %136, %130 ], [ %121, %115 ], [ %105, %99 ], [ %89, %83 ]
+  %.0.i40 = phi i32 [ %55, %70 ], [ %89, %83 ], [ %105, %99 ], [ %121, %115 ], [ %136, %130 ], [ %151, %145 ], [ %166, %160 ], [ %181, %175 ], [ %197, %191 ]
   %201 = call zeroext i16 @map2jdwpError(i32 noundef %.0.i40) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -745,7 +745,7 @@ validateThreadFrame.exit:                         ; preds = %19, %21
   br label %readVariableValue.exit
 
 readVariableValue.exit:                           ; preds = %43, %58, %73, %88, %102, %116, %130, %144, %159
-  %.0.i41 = phi i32 [ %49, %43 ], [ %166, %159 ], [ %151, %144 ], [ %136, %130 ], [ %122, %116 ], [ %108, %102 ], [ %94, %88 ], [ %80, %73 ], [ %65, %58 ]
+  %.0.i41 = phi i32 [ %49, %43 ], [ %65, %58 ], [ %80, %73 ], [ %94, %88 ], [ %108, %102 ], [ %122, %116 ], [ %136, %130 ], [ %151, %144 ], [ %166, %159 ]
   %167 = call zeroext i16 @map2jdwpError(i32 noundef %.0.i41) #3
   %.not39 = icmp eq i16 %167, 0
   br i1 %.not39, label %24, label %.critedge.thread.sink.split

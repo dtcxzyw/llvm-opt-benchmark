@@ -930,7 +930,7 @@ _ZN4llvm9sandboxir8VecUtils11getWideTypeEPNS0_4TypeEj.exit.i: ; preds = %52, %_Z
   unreachable
 
 "_ZZN4llvm9sandboxir11BottomUpVec17createVectorInstrENS_8ArrayRefIPNS0_5ValueEEES5_ENK3$_0clES5_S5_.exit": ; preds = %64, %69, %82, %91, %96, %103, %113
-  %.0.i = phi ptr [ %122, %113 ], [ %112, %103 ], [ %102, %96 ], [ %95, %91 ], [ %90, %82 ], [ %81, %69 ], [ %68, %64 ]
+  %.0.i = phi ptr [ %68, %64 ], [ %81, %69 ], [ %90, %82 ], [ %95, %91 ], [ %102, %96 ], [ %112, %103 ], [ %122, %113 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %133, label %124
@@ -2671,7 +2671,7 @@ _ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj4EED2Ev.exit99: ; preds = %._crit_e
   br label %237
 
 237:                                              ; preds = %6, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj2EED2Ev.exit, %150, %153, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj4EED2Ev.exit99, %235, %233
-  %.0 = phi ptr [ null, %233 ], [ null, %6 ], [ %236, %235 ], [ %.072.lcssa, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj4EED2Ev.exit99 ], [ %165, %153 ], [ %152, %150 ], [ %144, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj2EED2Ev.exit ]
+  %.0 = phi ptr [ null, %233 ], [ null, %6 ], [ %144, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj2EED2Ev.exit ], [ %152, %150 ], [ %165, %153 ], [ %.072.lcssa, %_ZN4llvm11SmallVectorIPNS_9sandboxir5ValueELj4EED2Ev.exit99 ], [ %236, %235 ]
   ret ptr %.0
 }
 
@@ -4207,12 +4207,12 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 118:                                              ; preds = %90, %71, %96, %101, %83, %112, %91, %72
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0100, %112 ], [ %.sroa.6.0100, %90 ], [ %.sroa.6.0100, %96 ], [ %.sroa.6.0100, %101 ], [ %.sroa.6.0100, %91 ], [ %.sroa.6.0100, %71 ], [ %.sroa.6.0100, %83 ], [ %76, %72 ]
-  %.sroa.074.1 = phi ptr [ %.sroa.074.0101, %112 ], [ %.sroa.074.0101, %90 ], [ %.sroa.074.0101, %96 ], [ %.sroa.074.0101, %101 ], [ %.sroa.074.0101, %91 ], [ %.sroa.074.0101, %71 ], [ %.sroa.074.0101, %83 ], [ %75, %72 ]
-  %.138 = phi i32 [ %.037102, %112 ], [ %.037102, %90 ], [ 0, %96 ], [ %94, %101 ], [ %92, %91 ], [ %.037102, %71 ], [ %.037102, %83 ], [ %79, %72 ]
-  %.136 = phi i32 [ %.035103, %112 ], [ %.035103, %90 ], [ %.035103, %96 ], [ %.035103, %101 ], [ %.035103, %91 ], [ %.035103, %71 ], [ %.035103, %83 ], [ %78, %72 ]
-  %.134 = phi i32 [ %114, %112 ], [ %.033104, %90 ], [ %.033104, %96 ], [ %.033104, %101 ], [ %.033104, %91 ], [ %.033104, %71 ], [ %89, %83 ], [ %.033104, %72 ]
-  %.1 = phi i32 [ 0, %112 ], [ 1, %90 ], [ 2, %96 ], [ 1, %101 ], [ 1, %91 ], [ 0, %71 ], [ 0, %83 ], [ 1, %72 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0100, %71 ], [ %76, %72 ], [ %.sroa.6.0100, %83 ], [ %.sroa.6.0100, %90 ], [ %.sroa.6.0100, %91 ], [ %.sroa.6.0100, %96 ], [ %.sroa.6.0100, %101 ], [ %.sroa.6.0100, %112 ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.0101, %71 ], [ %75, %72 ], [ %.sroa.074.0101, %83 ], [ %.sroa.074.0101, %90 ], [ %.sroa.074.0101, %91 ], [ %.sroa.074.0101, %96 ], [ %.sroa.074.0101, %101 ], [ %.sroa.074.0101, %112 ]
+  %.138 = phi i32 [ %.037102, %71 ], [ %79, %72 ], [ %.037102, %83 ], [ %.037102, %90 ], [ %92, %91 ], [ 0, %96 ], [ %94, %101 ], [ %.037102, %112 ]
+  %.136 = phi i32 [ %.035103, %71 ], [ %78, %72 ], [ %.035103, %83 ], [ %.035103, %90 ], [ %.035103, %91 ], [ %.035103, %96 ], [ %.035103, %101 ], [ %.035103, %112 ]
+  %.134 = phi i32 [ %.033104, %71 ], [ %.033104, %72 ], [ %89, %83 ], [ %.033104, %90 ], [ %.033104, %91 ], [ %.033104, %96 ], [ %.033104, %101 ], [ %114, %112 ]
+  %.1 = phi i32 [ 0, %71 ], [ 1, %72 ], [ 0, %83 ], [ 1, %90 ], [ 1, %91 ], [ 2, %96 ], [ 1, %101 ], [ 0, %112 ]
   %119 = add nuw i64 %.sroa.7.099, 1
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.068.098, i64 1
   %.not = icmp eq ptr %120, %60
@@ -5676,7 +5676,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayR
   br label %38
 
 38:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit33.thread, %._crit_edge
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %37, %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit33.thread ]
+  %.1 = phi ptr [ %37, %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit33.thread ], [ %.029.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.1, align 8, !tbaa !108
   %40 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %39) #20
   br i1 %40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit34, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit34.thread
@@ -5691,7 +5691,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayR
   br label %44
 
 44:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit34.thread, %._crit_edge
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit34.thread ]
+  %.2 = phi ptr [ %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit34.thread ], [ %.029.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.2, align 8, !tbaa !108
   %46 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %45) #20
   br i1 %46, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir8VecUtils9getLowestENS2_8ArrayRefIPNS3_5ValueEEEPNS3_10BasicBlockEEUlS7_E_EclIPKS7_EEbT_.exit35.thread
@@ -6298,8 +6298,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %.fca.0.extract, %54 ], [ %52, %43 ], [ 80, %42 ], [ 8192, %41 ], [ 128, %40 ], [ 64, %39 ], [ 32, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %15 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %9, %5 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ %.fca.1.extract, %54 ], [ %53, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %35 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ %22, %15 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %5 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

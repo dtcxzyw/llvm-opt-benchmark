@@ -1848,7 +1848,7 @@ _task_layout_lllp_cyclic.exit:                    ; preds = %326, %351, %361, %5
   br label %516
 
 516:                                              ; preds = %_task_layout_lllp_cyclic.exit, %306, %295
-  %.3 = phi i32 [ %.091.i, %_task_layout_lllp_cyclic.exit ], [ %307, %306 ], [ %296, %295 ]
+  %.3 = phi i32 [ %.091.i, %_task_layout_lllp_cyclic.exit ], [ %296, %295 ], [ %307, %306 ]
   %517 = icmp eq i32 %.3, 0
   br i1 %517, label %518, label %628
 

@@ -2261,7 +2261,7 @@ typed_data_alloc.exit28:                          ; preds = %50, %53, %57
   br label %65
 
 65:                                               ; preds = %35, %typed_data_alloc.exit28
-  %.1 = phi i64 [ %37, %35 ], [ %61, %typed_data_alloc.exit28 ]
+  %.1 = phi i64 [ %61, %typed_data_alloc.exit28 ], [ %37, %35 ]
   ret i64 %.1
 }
 
@@ -4890,7 +4890,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %181
   unreachable
 
 189:                                              ; preds = %178, %181, %internal_RSTRUCT_LEN.exit, %169, %BIGNUM_DIGITS.exit, %BIGNUM_LEN.exit, %14, %14, %14, %14, %14, %14, %160, %163, %122, %125, %114, %116, %102, %105, %84, %87, %20, %28, %25, %166, %151, %rb_objspace_data_type_memsize.exit, %111, %108
-  %.1 = phi i64 [ %187, %internal_RSTRUCT_LEN.exit ], [ %.072, %181 ], [ %.072, %178 ], [ %.072, %169 ], [ %176, %BIGNUM_LEN.exit ], [ %.072, %BIGNUM_DIGITS.exit ], [ %168, %166 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %165, %163 ], [ %.072, %160 ], [ %159, %151 ], [ %150, %rb_objspace_data_type_memsize.exit ], [ %127, %125 ], [ %.072, %122 ], [ %121, %116 ], [ %.072, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %.6, %102 ], [ %92, %87 ], [ %.5, %84 ], [ %24, %20 ], [ %.072, %25 ], [ %36, %28 ]
+  %.1 = phi i64 [ %24, %20 ], [ %.072, %25 ], [ %36, %28 ], [ %92, %87 ], [ %.5, %84 ], [ %107, %105 ], [ %.6, %102 ], [ %110, %108 ], [ %113, %111 ], [ %121, %116 ], [ %.072, %114 ], [ %127, %125 ], [ %.072, %122 ], [ %150, %rb_objspace_data_type_memsize.exit ], [ %159, %151 ], [ %165, %163 ], [ %.072, %160 ], [ %168, %166 ], [ %.072, %169 ], [ %176, %BIGNUM_LEN.exit ], [ %.072, %BIGNUM_DIGITS.exit ], [ %187, %internal_RSTRUCT_LEN.exit ], [ %.072, %181 ], [ %.072, %178 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ], [ %.072, %14 ]
   %190 = and i64 %0, -65536
   %191 = inttoptr i64 %190 to ptr
   %192 = load ptr, ptr %191, align 65536, !tbaa !186
@@ -7460,7 +7460,7 @@ define dso_local i64 @rb_gc_obj_optimal_size(i64 noundef %0) local_unnamed_addr 
   br label %23
 
 23:                                               ; preds = %1, %8, %20, %18, %10, %6
-  %.0 = phi i64 [ %22, %20 ], [ %19, %18 ], [ %17, %10 ], [ %7, %6 ], [ 24, %8 ], [ 0, %1 ]
+  %.0 = phi i64 [ %7, %6 ], [ %17, %10 ], [ %19, %18 ], [ %22, %20 ], [ 24, %8 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -9029,8 +9029,8 @@ RB_FL_ABLE.exit.i:                                ; preds = %free_gen_ivtbl.exit
   br label %64
 
 64:                                               ; preds = %62, %3
-  %.038 = phi i32 [ %spec.store.select, %62 ], [ %9, %3 ]
-  %.037 = phi i64 [ %63, %62 ], [ %0, %3 ]
+  %.038 = phi i32 [ %9, %3 ], [ %spec.store.select, %62 ]
+  %.037 = phi i64 [ %0, %3 ], [ %63, %62 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %66 = load i8, ptr %65, align 8, !tbaa !369, !range !302, !noundef !47
   %67 = trunc nuw i8 %66 to i1
@@ -26504,7 +26504,7 @@ define internal fastcc range(i32 0, 2) i32 @get_envparam_size(ptr noundef %0, pt
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %7, %7, %11, %12
-  %.0.ph = phi i64 [ 1048576, %11 ], [ 1073741824, %12 ], [ 1024, %7 ], [ 1024, %7 ]
+  %.0.ph = phi i64 [ 1073741824, %12 ], [ 1048576, %11 ], [ 1024, %7 ], [ 1024, %7 ]
   %13 = getelementptr i8, ptr %9, i64 1
   store ptr %13, ptr %3, align 8, !tbaa !299
   %.pr = load i8, ptr %13, align 1, !tbaa !212
@@ -26895,7 +26895,7 @@ switch.lookup:                                    ; preds = %6
   br label %type_name.exit
 
 type_name.exit:                                   ; preds = %switch.lookup, %rb_type.exit, %18, %19, %20, %rb_type.exit.thread, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %rb_type.exit.thread6, %rb_type.exit.thread8, %rb_type.exit.thread10, %rb_type.exit.thread12, %rb_type.exit.thread14, %rb_type.exit.thread16, %31, %32, %33, %34, %35, %rb_objspace_data_type_name.exit.i, %43
-  %.0.i3 = phi ptr [ @.str.258, %43 ], [ @.str.256, %34 ], [ @.str.255, %33 ], [ @.str.254, %32 ], [ @.str.253, %31 ], [ @.str.252, %rb_type.exit.thread16 ], [ @.str.251, %rb_type.exit.thread14 ], [ @.str.250, %rb_type.exit.thread12 ], [ @.str.249, %rb_type.exit.thread10 ], [ @.str.248, %rb_type.exit.thread8 ], [ @.str.247, %rb_type.exit.thread6 ], [ @.str.246, %30 ], [ @.str.245, %29 ], [ @.str.244, %28 ], [ @.str.243, %27 ], [ @.str.242, %26 ], [ @.str.241, %25 ], [ @.str.240, %24 ], [ @.str.239, %23 ], [ @.str.238, %22 ], [ @.str.237, %21 ], [ @.str.236, %rb_type.exit.thread ], [ @.str.235, %20 ], [ @.str.234, %19 ], [ @.str.233, %18 ], [ @.str.232, %rb_type.exit ], [ @.str.257, %35 ], [ %spec.select.i4, %rb_objspace_data_type_name.exit.i ], [ %switch.load, %switch.lookup ]
+  %.0.i3 = phi ptr [ @.str.258, %43 ], [ @.str.233, %18 ], [ @.str.234, %19 ], [ @.str.235, %20 ], [ @.str.236, %rb_type.exit.thread ], [ @.str.237, %21 ], [ @.str.238, %22 ], [ @.str.239, %23 ], [ @.str.240, %24 ], [ @.str.241, %25 ], [ @.str.242, %26 ], [ @.str.243, %27 ], [ @.str.244, %28 ], [ @.str.245, %29 ], [ @.str.246, %30 ], [ @.str.247, %rb_type.exit.thread6 ], [ @.str.248, %rb_type.exit.thread8 ], [ @.str.249, %rb_type.exit.thread10 ], [ @.str.250, %rb_type.exit.thread12 ], [ @.str.251, %rb_type.exit.thread14 ], [ @.str.252, %rb_type.exit.thread16 ], [ @.str.253, %31 ], [ @.str.254, %32 ], [ @.str.255, %33 ], [ @.str.256, %34 ], [ @.str.232, %rb_type.exit ], [ @.str.257, %35 ], [ %spec.select.i4, %rb_objspace_data_type_name.exit.i ], [ %switch.load, %switch.lookup ]
   ret ptr %.0.i3
 }
 
@@ -28545,7 +28545,7 @@ rbimpl_intern_const.exit185:                      ; preds = %.lr.ph.i183, %80
   br label %86
 
 86:                                               ; preds = %83, %rbimpl_intern_const.exit185, %rbimpl_intern_const.exit179, %rbimpl_intern_const.exit173, %rbimpl_intern_const.exit167, %rbimpl_intern_const.exit161, %rbimpl_intern_const.exit155, %rbimpl_intern_const.exit149, %rbimpl_intern_const.exit143, %rbimpl_intern_const.exit137, %rbimpl_intern_const.exit131, %rbimpl_intern_const.exit125, %rbimpl_intern_const.exit119, %rbimpl_intern_const.exit113, %rbimpl_intern_const.exit107, %rbimpl_intern_const.exit101, %rbimpl_intern_const.exit95, %rbimpl_intern_const.exit89, %rbimpl_intern_const.exit83, %rbimpl_intern_const.exit77, %rbimpl_intern_const.exit71, %rbimpl_intern_const.exit65, %rbimpl_intern_const.exit59, %rbimpl_intern_const.exit53, %rbimpl_intern_const.exit47, %rbimpl_intern_const.exit41, %rbimpl_intern_const.exit35, %rbimpl_intern_const.exit
-  %.0 = phi i64 [ %85, %83 ], [ %82, %rbimpl_intern_const.exit185 ], [ %79, %rbimpl_intern_const.exit179 ], [ %76, %rbimpl_intern_const.exit173 ], [ %73, %rbimpl_intern_const.exit167 ], [ %70, %rbimpl_intern_const.exit161 ], [ %67, %rbimpl_intern_const.exit155 ], [ %64, %rbimpl_intern_const.exit149 ], [ %61, %rbimpl_intern_const.exit143 ], [ %58, %rbimpl_intern_const.exit137 ], [ %55, %rbimpl_intern_const.exit131 ], [ %52, %rbimpl_intern_const.exit125 ], [ %49, %rbimpl_intern_const.exit119 ], [ %46, %rbimpl_intern_const.exit113 ], [ %43, %rbimpl_intern_const.exit107 ], [ %40, %rbimpl_intern_const.exit101 ], [ %37, %rbimpl_intern_const.exit95 ], [ %34, %rbimpl_intern_const.exit89 ], [ %31, %rbimpl_intern_const.exit83 ], [ %28, %rbimpl_intern_const.exit77 ], [ %25, %rbimpl_intern_const.exit71 ], [ %22, %rbimpl_intern_const.exit65 ], [ %19, %rbimpl_intern_const.exit59 ], [ %16, %rbimpl_intern_const.exit53 ], [ %13, %rbimpl_intern_const.exit47 ], [ %10, %rbimpl_intern_const.exit41 ], [ %7, %rbimpl_intern_const.exit35 ], [ %4, %rbimpl_intern_const.exit ]
+  %.0 = phi i64 [ %85, %83 ], [ %4, %rbimpl_intern_const.exit ], [ %7, %rbimpl_intern_const.exit35 ], [ %10, %rbimpl_intern_const.exit41 ], [ %13, %rbimpl_intern_const.exit47 ], [ %16, %rbimpl_intern_const.exit53 ], [ %19, %rbimpl_intern_const.exit59 ], [ %22, %rbimpl_intern_const.exit65 ], [ %25, %rbimpl_intern_const.exit71 ], [ %28, %rbimpl_intern_const.exit77 ], [ %31, %rbimpl_intern_const.exit83 ], [ %34, %rbimpl_intern_const.exit89 ], [ %37, %rbimpl_intern_const.exit95 ], [ %40, %rbimpl_intern_const.exit101 ], [ %43, %rbimpl_intern_const.exit107 ], [ %46, %rbimpl_intern_const.exit113 ], [ %49, %rbimpl_intern_const.exit119 ], [ %52, %rbimpl_intern_const.exit125 ], [ %55, %rbimpl_intern_const.exit131 ], [ %58, %rbimpl_intern_const.exit137 ], [ %61, %rbimpl_intern_const.exit143 ], [ %64, %rbimpl_intern_const.exit149 ], [ %67, %rbimpl_intern_const.exit155 ], [ %70, %rbimpl_intern_const.exit161 ], [ %73, %rbimpl_intern_const.exit167 ], [ %76, %rbimpl_intern_const.exit173 ], [ %79, %rbimpl_intern_const.exit179 ], [ %82, %rbimpl_intern_const.exit185 ]
   ret i64 %.0
 }
 
@@ -29874,7 +29874,7 @@ switch.lookup100:                                 ; preds = %219
   br label %obj_type_name.exit.i.i
 
 obj_type_name.exit.i.i:                           ; preds = %switch.lookup100, %255, %rb_objspace_data_type_name.exit.i.i.i.i, %247, %246, %245, %244, %243, %rb_type.exit.thread16.i.i.i, %rb_type.exit.thread14.i.i.i, %rb_type.exit.thread12.i.i.i, %rb_type.exit.thread10.i.i.i, %rb_type.exit.thread8.i.i.i, %rb_type.exit.thread6.i.i.i, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %rb_type.exit.thread.i.i.i, %232, %231, %230, %rb_type.exit.i.i.i
-  %.0.i3.i.i.i = phi ptr [ @.str.258, %255 ], [ @.str.256, %246 ], [ @.str.255, %245 ], [ @.str.254, %244 ], [ @.str.253, %243 ], [ @.str.252, %rb_type.exit.thread16.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i ], [ @.str.246, %242 ], [ @.str.245, %241 ], [ @.str.244, %240 ], [ @.str.243, %239 ], [ @.str.242, %238 ], [ @.str.241, %237 ], [ @.str.240, %236 ], [ @.str.239, %235 ], [ @.str.238, %234 ], [ @.str.237, %233 ], [ @.str.236, %rb_type.exit.thread.i.i.i ], [ @.str.235, %232 ], [ @.str.234, %231 ], [ @.str.233, %230 ], [ @.str.232, %rb_type.exit.i.i.i ], [ @.str.257, %247 ], [ %spec.select.i4.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i ], [ %switch.load105, %switch.lookup100 ]
+  %.0.i3.i.i.i = phi ptr [ @.str.258, %255 ], [ @.str.233, %230 ], [ @.str.234, %231 ], [ @.str.235, %232 ], [ @.str.236, %rb_type.exit.thread.i.i.i ], [ @.str.237, %233 ], [ @.str.238, %234 ], [ @.str.239, %235 ], [ @.str.240, %236 ], [ @.str.241, %237 ], [ @.str.242, %238 ], [ @.str.243, %239 ], [ @.str.244, %240 ], [ @.str.245, %241 ], [ @.str.246, %242 ], [ @.str.247, %rb_type.exit.thread6.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i ], [ @.str.252, %rb_type.exit.thread16.i.i.i ], [ @.str.253, %243 ], [ @.str.254, %244 ], [ @.str.255, %245 ], [ @.str.256, %246 ], [ @.str.232, %rb_type.exit.i.i.i ], [ @.str.257, %247 ], [ %spec.select.i4.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i ], [ %switch.load105, %switch.lookup100 ]
   %256 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %210, i32 noundef 1, ptr noundef nonnull @.str.418, ptr noundef nonnull %215, ptr noundef nonnull %218, ptr noundef nonnull %.0.i3.i.i.i) #7
   %257 = load i32, ptr %21, align 8, !tbaa !682
   %258 = add i32 %257, 1
@@ -30070,7 +30070,7 @@ switch.lookup108:                                 ; preds = %273
   br label %obj_type_name.exit.i.i.i.i
 
 obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup108, %305, %rb_objspace_data_type_name.exit.i.i.i.i.i.i, %297, %296, %295, %294, %293, %rb_type.exit.thread16.i.i.i.i.i, %rb_type.exit.thread14.i.i.i.i.i, %rb_type.exit.thread12.i.i.i.i.i, %rb_type.exit.thread10.i.i.i.i.i, %rb_type.exit.thread8.i.i.i.i.i, %rb_type.exit.thread6.i.i.i.i.i, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %rb_type.exit.thread.i.i.i.i.i, %282, %281, %rb_type.exit.i.i.i.i.i
-  %.0.i3.i.i.i.i.i = phi ptr [ @.str.258, %305 ], [ @.str.256, %296 ], [ @.str.255, %295 ], [ @.str.254, %294 ], [ @.str.253, %293 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i.i ], [ @.str.246, %292 ], [ @.str.245, %291 ], [ @.str.244, %290 ], [ @.str.243, %289 ], [ @.str.242, %288 ], [ @.str.241, %287 ], [ @.str.240, %286 ], [ @.str.239, %285 ], [ @.str.238, %284 ], [ @.str.237, %283 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i.i ], [ @.str.235, %282 ], [ @.str.234, %281 ], [ @.str.257, %297 ], [ %spec.select.i4.i.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i.i ], [ @.str.233, %rb_type.exit.i.i.i.i.i ], [ %switch.load113, %switch.lookup108 ]
+  %.0.i3.i.i.i.i.i = phi ptr [ @.str.258, %305 ], [ @.str.234, %281 ], [ @.str.235, %282 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i.i ], [ @.str.237, %283 ], [ @.str.238, %284 ], [ @.str.239, %285 ], [ @.str.240, %286 ], [ @.str.241, %287 ], [ @.str.242, %288 ], [ @.str.243, %289 ], [ @.str.244, %290 ], [ @.str.245, %291 ], [ @.str.246, %292 ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i.i ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i.i ], [ @.str.253, %293 ], [ @.str.254, %294 ], [ @.str.255, %295 ], [ @.str.256, %296 ], [ @.str.257, %297 ], [ %spec.select.i4.i.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i.i ], [ @.str.233, %rb_type.exit.i.i.i.i.i ], [ %switch.load113, %switch.lookup108 ]
   %306 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %271, i32 noundef 1, ptr noundef nonnull @.str.439, ptr noundef nonnull %.0.i3.i.i.i.i.i) #7
   br label %307
 
@@ -30339,7 +30339,7 @@ switch.lookup116:                                 ; preds = %366
   br label %obj_type_name.exit.i.i.i
 
 obj_type_name.exit.i.i.i:                         ; preds = %switch.lookup116, %403, %rb_objspace_data_type_name.exit.i.i.i.i.i, %395, %394, %393, %392, %391, %rb_type.exit.thread16.i.i.i.i, %rb_type.exit.thread14.i.i.i.i, %rb_type.exit.thread12.i.i.i.i, %rb_type.exit.thread10.i.i.i.i, %rb_type.exit.thread8.i.i.i.i, %rb_type.exit.thread6.i.i.i.i, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %rb_type.exit.thread.i.i.i.i, %380, %379, %378, %rb_type.exit.i.i.i.i
-  %.0.i3.i.i.i.i = phi ptr [ @.str.258, %403 ], [ @.str.256, %394 ], [ @.str.255, %393 ], [ @.str.254, %392 ], [ @.str.253, %391 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i ], [ @.str.246, %390 ], [ @.str.245, %389 ], [ @.str.244, %388 ], [ @.str.243, %387 ], [ @.str.242, %386 ], [ @.str.241, %385 ], [ @.str.240, %384 ], [ @.str.239, %383 ], [ @.str.238, %382 ], [ @.str.237, %381 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i ], [ @.str.235, %380 ], [ @.str.234, %379 ], [ @.str.233, %378 ], [ @.str.232, %rb_type.exit.i.i.i.i ], [ @.str.257, %395 ], [ %spec.select.i4.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i ], [ %switch.load121, %switch.lookup116 ]
+  %.0.i3.i.i.i.i = phi ptr [ @.str.258, %403 ], [ @.str.233, %378 ], [ @.str.234, %379 ], [ @.str.235, %380 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i ], [ @.str.237, %381 ], [ @.str.238, %382 ], [ @.str.239, %383 ], [ @.str.240, %384 ], [ @.str.241, %385 ], [ @.str.242, %386 ], [ @.str.243, %387 ], [ @.str.244, %388 ], [ @.str.245, %389 ], [ @.str.246, %390 ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i ], [ @.str.253, %391 ], [ @.str.254, %392 ], [ @.str.255, %393 ], [ @.str.256, %394 ], [ @.str.232, %rb_type.exit.i.i.i.i ], [ @.str.257, %395 ], [ %spec.select.i4.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i ], [ %switch.load121, %switch.lookup116 ]
   %404 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %361, i32 noundef 1, ptr noundef nonnull @.str.440, ptr noundef nonnull %.0.i3.i.i.i.i) #7
   br label %405
 

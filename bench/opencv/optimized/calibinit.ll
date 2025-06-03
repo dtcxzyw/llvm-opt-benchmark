@@ -7306,8 +7306,8 @@ default.unreachable:                              ; preds = %224
   unreachable
 
 235:                                              ; preds = %233, %231, %229, %226
-  %.1131 = phi i32 [ %234, %233 ], [ %.0130286, %231 ], [ %230, %229 ], [ %228, %226 ]
-  %.1129 = phi i32 [ %.0128287, %233 ], [ %232, %231 ], [ %.0128287, %229 ], [ %227, %226 ]
+  %.1131 = phi i32 [ %228, %226 ], [ %230, %229 ], [ %.0130286, %231 ], [ %234, %233 ]
+  %.1129 = phi i32 [ %227, %226 ], [ %.0128287, %229 ], [ %232, %231 ], [ %.0128287, %233 ]
   %236 = getelementptr inbounds nuw [4 x ptr], ptr %222, i64 0, i64 %indvars.iv329
   %237 = load ptr, ptr %236, align 8, !tbaa !121
   %.not179 = icmp eq ptr %237, null
@@ -10245,13 +10245,13 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
 
 .thread457:                                       ; preds = %50, %54, %61, %65, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312, %193, %304, %.split.us, %.thread429.us538, %._crit_edge.thread, %105, %._crit_edge515, %157, %156, %153, %143, %225, %._crit_edge554, %._crit_edge, %.loopexit
   %.sroa.0375.0698 = phi ptr [ %17, %.loopexit ], [ %17, %._crit_edge ], [ %17, %._crit_edge554 ], [ %17, %225 ], [ %17, %143 ], [ %17, %153 ], [ %17, %156 ], [ %17, %157 ], [ %17, %._crit_edge515 ], [ %17, %105 ], [ null, %._crit_edge.thread ], [ %17, %.thread429.us538 ], [ %17, %.split.us ], [ %17, %304 ], [ %17, %193 ], [ %17, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %17, %65 ], [ %17, %61 ], [ %17, %54 ], [ %17, %50 ]
-  %.1397416460 = phi i32 [ %.5401, %.loopexit ], [ %.5401, %._crit_edge ], [ %.5401, %._crit_edge554 ], [ %.5401, %225 ], [ %.5401, %143 ], [ %.5401, %153 ], [ %.5401, %156 ], [ %.5401, %157 ], [ %.5401, %._crit_edge515 ], [ %.5401, %105 ], [ 0, %._crit_edge.thread ], [ %.5401, %.thread429.us538 ], [ %.5401, %.split.us ], [ %.5401, %304 ], [ %.5401, %193 ], [ %.5401, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4400, %65 ], [ %.4400, %61 ], [ %.4400, %54 ], [ %.4400, %50 ]
+  %.1397417460 = phi i32 [ %.5401, %.loopexit ], [ %.5401, %._crit_edge ], [ %.5401, %._crit_edge554 ], [ %.5401, %225 ], [ %.5401, %143 ], [ %.5401, %153 ], [ %.5401, %156 ], [ %.5401, %157 ], [ %.5401, %._crit_edge515 ], [ %.5401, %105 ], [ 0, %._crit_edge.thread ], [ %.5401, %.thread429.us538 ], [ %.5401, %.split.us ], [ %.5401, %304 ], [ %.5401, %193 ], [ %.5401, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4400, %65 ], [ %.4400, %61 ], [ %.4400, %54 ], [ %.4400, %50 ]
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %368 = load i32, ptr %367, align 8, !tbaa !134
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %370 = load i32, ptr %369, align 4, !tbaa !135
   %371 = mul nsw i32 %370, %368
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %371, i32 %.1397416460)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %371, i32 %.1397417460)
   %372 = sext i32 %.sroa.speculated to i64
   %373 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %374 = load ptr, ptr %373, align 8, !tbaa !233
@@ -18298,7 +18298,7 @@ _ZN7cvflann11LinearIndexINS_9L2_SimpleIfEEEC2ERKNS_6MatrixIfEERKSt3mapINSt7__cxx
   ret ptr %.0
 
 76:                                               ; preds = %41, %45, %49, %53, %57, %61, %65, %69, %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %58, %57 ], [ %54, %53 ], [ %50, %49 ], [ %46, %45 ], [ %42, %41 ]
+  %.pn25.pn = phi { ptr, i32 } [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %75, %74 ], [ %42, %41 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %70, %69 ]
   resume { ptr, i32 } %.pn25.pn
 }
 

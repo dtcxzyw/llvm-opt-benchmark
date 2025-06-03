@@ -751,7 +751,7 @@ select.unfold:                                    ; preds = %53, %47, %r_mark_re
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %.thread116, label %.thread147
 
-r_standard_suffix.exit.thread:                    ; preds = %select.unfold, %61, %66, %70, %74, %78
+r_standard_suffix.exit.thread:                    ; preds = %select.unfold, %78, %74, %70, %66, %61
   %83 = load i32, ptr %2, align 4
   store i32 %83, ptr %8, align 8
   store i32 %83, ptr %35, align 8
@@ -791,7 +791,7 @@ r_standard_suffix.exit.thread:                    ; preds = %select.unfold, %61,
   %96 = icmp sgt i32 %95, -1
   br i1 %96, label %.thread116, label %.thread147
 
-.thread116:                                       ; preds = %80, %75, %71, %67, %63, %58, %85, %90, %94, %93, %88, %r_standard_suffix.exit.thread
+.thread116:                                       ; preds = %80, %75, %71, %67, %63, %58, %85, %90, %94, %88, %93, %r_standard_suffix.exit.thread
   %97 = load i32, ptr %2, align 4
   store i32 %97, ptr %8, align 8
   store i32 %97, ptr %35, align 8
@@ -832,7 +832,7 @@ r_standard_suffix.exit.thread:                    ; preds = %select.unfold, %61,
   %111 = icmp sgt i32 %110, -1
   br i1 %111, label %112, label %.thread147
 
-112:                                              ; preds = %99, %104, %109, %.thread116, %102, %107
+112:                                              ; preds = %99, %104, %109, %.thread116, %107, %102
   %113 = load i32, ptr %33, align 8
   store i32 %113, ptr %8, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -906,8 +906,8 @@ r_standard_suffix.exit.thread:                    ; preds = %select.unfold, %61,
   store i32 %113, ptr %8, align 8
   br label %.thread147
 
-.thread147:                                       ; preds = %133, %130, %127, %124, %121, %118, %63, %67, %71, %75, %80, %104, %109, %53, %90, %94, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ %91, %90 ], [ %95, %94 ], [ %54, %53 ], [ %110, %109 ], [ %105, %104 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %76, %75 ], [ %81, %80 ], [ %134, %133 ], [ %131, %130 ], [ %128, %127 ], [ %125, %124 ], [ %122, %121 ], [ %119, %118 ]
+.thread147:                                       ; preds = %118, %121, %124, %127, %130, %133, %80, %75, %71, %67, %63, %104, %109, %53, %94, %90, %.loopexit
+  %.1 = phi i32 [ 1, %.loopexit ], [ %95, %94 ], [ %91, %90 ], [ %54, %53 ], [ %105, %104 ], [ %110, %109 ], [ %81, %80 ], [ %76, %75 ], [ %72, %71 ], [ %68, %67 ], [ %64, %63 ], [ %119, %118 ], [ %122, %121 ], [ %125, %124 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ]
   ret i32 %.1
 }
 

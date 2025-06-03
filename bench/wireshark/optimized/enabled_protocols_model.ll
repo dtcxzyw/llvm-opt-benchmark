@@ -696,7 +696,7 @@ _ZN7QStringD2Ev.exit18:                           ; preds = %29, %_ZN17QArrayDat
   ret void
 
 38:                                               ; preds = %_ZN7QStringD2Ev.exit18, %_ZN7QStringD2Ev.exit10
-  %.pn = phi { ptr, i32 } [ %30, %_ZN7QStringD2Ev.exit18 ], [ %18, %_ZN7QStringD2Ev.exit10 ]
+  %.pn = phi { ptr, i32 } [ %18, %_ZN7QStringD2Ev.exit10 ], [ %30, %_ZN7QStringD2Ev.exit18 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1190,7 +1190,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %64, %_ZN17QArrayDat
   br label %82
 
 81:                                               ; preds = %_ZN7QStringD2Ev.exit26, %_ZN7QStringD2Ev.exit17
-  %.pn = phi { ptr, i32 } [ %65, %_ZN7QStringD2Ev.exit26 ], [ %43, %_ZN7QStringD2Ev.exit17 ]
+  %.pn = phi { ptr, i32 } [ %43, %_ZN7QStringD2Ev.exit17 ], [ %65, %_ZN7QStringD2Ev.exit26 ]
   resume { ptr, i32 } %.pn
 
 82:                                               ; preds = %22, %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit22, %71, %76, %79, %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -3442,7 +3442,7 @@ _Zeq9QMetaTypeS_.exit.thread11.i.i:               ; preds = %10
   br label %_ZNK9QMetaType2idEi.exit.i.i.i
 
 _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
-  %.1.i.i.i.i = phi i32 [ %13, %11 ], [ %15, %14 ]
+  %.1.i.i.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
   %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not6.not.i7.i.i.i = icmp eq i32 %16, 0
   br i1 %.not6.not.i7.i.i.i, label %17, label %_Zeq9QMetaTypeS_.exit.i.i
@@ -3452,7 +3452,7 @@ _ZNK9QMetaType2idEi.exit.i.i.i:                   ; preds = %14, %11
   br label %_Zeq9QMetaTypeS_.exit.i.i
 
 _Zeq9QMetaTypeS_.exit.i.i:                        ; preds = %17, %_ZNK9QMetaType2idEi.exit.i.i.i
-  %.1.i8.i.i.i = phi i32 [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ], [ %18, %17 ]
+  %.1.i8.i.i.i = phi i32 [ %18, %17 ], [ %16, %_ZNK9QMetaType2idEi.exit.i.i.i ]
   %19 = icmp eq i32 %.1.i.i.i.i, %.1.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -3889,7 +3889,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 
@@ -4912,7 +4912,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %35, %_ZN17QArrayDat
   resume { ptr, i32 } %.pn
 
 40:                                               ; preds = %0, %_ZN10QByteArrayD2Ev.exit
-  %.1 = phi i32 [ %2, %0 ], [ %25, %_ZN10QByteArrayD2Ev.exit ]
+  %.1 = phi i32 [ %25, %_ZN10QByteArrayD2Ev.exit ], [ %2, %0 ]
   ret i32 %.1
 }
 

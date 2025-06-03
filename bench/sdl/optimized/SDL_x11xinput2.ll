@@ -347,10 +347,10 @@ AddDeviceID.exit68:                               ; preds = %55, %61
   br label %HasDeviceID.exit
 
 HasDeviceID.exit:                                 ; preds = %.lr.ph.i73, %.lr.ph.i, %.loopexit155, %.loopexit153, %33
-  %.1142 = phi i32 [ %.0141160, %33 ], [ %.0141160, %.loopexit155 ], [ %.2143, %.loopexit153 ], [ %.2143, %.lr.ph.i ], [ %.0141160, %.lr.ph.i73 ]
-  %.1139 = phi ptr [ %.0138161, %33 ], [ %.0138161, %.loopexit155 ], [ %.2140, %.loopexit153 ], [ %.2140, %.lr.ph.i ], [ %.0138161, %.lr.ph.i73 ]
-  %.1136 = phi i32 [ %.0135162, %33 ], [ %.2137, %.loopexit155 ], [ %.0135162, %.loopexit153 ], [ %.0135162, %.lr.ph.i ], [ %.2137, %.lr.ph.i73 ]
-  %.1133 = phi ptr [ %.0132163, %33 ], [ %.2134, %.loopexit155 ], [ %.0132163, %.loopexit153 ], [ %.0132163, %.lr.ph.i ], [ %.2134, %.lr.ph.i73 ]
+  %.1142 = phi i32 [ %.0141160, %33 ], [ %.2143, %.loopexit153 ], [ %.0141160, %.loopexit155 ], [ %.2143, %.lr.ph.i ], [ %.0141160, %.lr.ph.i73 ]
+  %.1139 = phi ptr [ %.0138161, %33 ], [ %.2140, %.loopexit153 ], [ %.0138161, %.loopexit155 ], [ %.2140, %.lr.ph.i ], [ %.0138161, %.lr.ph.i73 ]
+  %.1136 = phi i32 [ %.0135162, %33 ], [ %.0135162, %.loopexit153 ], [ %.2137, %.loopexit155 ], [ %.0135162, %.lr.ph.i ], [ %.2137, %.lr.ph.i73 ]
+  %.1133 = phi ptr [ %.0132163, %33 ], [ %.0132163, %.loopexit153 ], [ %.2134, %.loopexit155 ], [ %.0132163, %.lr.ph.i ], [ %.2134, %.lr.ph.i73 ]
   %71 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = icmp sgt i32 %72, 0

@@ -985,7 +985,7 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
   br label %41
 
 41:                                               ; preds = %35, %38, %25, %31, %29, %40, %33, %12, %10
-  %.038 = phi i1 [ true, %40 ], [ false, %33 ], [ false, %12 ], [ false, %29 ], [ false, %31 ], [ false, %25 ], [ false, %38 ], [ false, %35 ], [ false, %10 ]
+  %.038 = phi i1 [ false, %12 ], [ false, %33 ], [ true, %40 ], [ false, %29 ], [ false, %31 ], [ false, %25 ], [ false, %38 ], [ false, %35 ], [ false, %10 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %43 = load ptr, ptr %42, align 8, !tbaa !30

@@ -4663,7 +4663,7 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   br label %nspi_dissect_element_SRestriction_res.exit
 
 nspi_dissect_element_SRestriction_res.exit:       ; preds = %48, %50, %53
-  %.1.i.i = phi i32 [ %.0.i.i, %48 ], [ %55, %53 ], [ %52, %50 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %48 ], [ %52, %50 ], [ %55, %53 ]
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.1.i.i, %24
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
@@ -5847,7 +5847,7 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   br label %nspi_dissect_element_SPropValue_value.exit
 
 nspi_dissect_element_SPropValue_value.exit:       ; preds = %64, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102, %105, %108, %111, %114, %117
-  %.1.i.i = phi i32 [ %.0.i.i, %64 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %64 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ]
   %120 = load ptr, ptr %10, align 8
   %121 = sub i32 %.1.i.i, %40
   call void @proto_item_set_len(ptr noundef %120, i32 noundef %121)

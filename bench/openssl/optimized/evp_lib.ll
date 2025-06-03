@@ -779,7 +779,7 @@ EVP_CIPHER_get_nid.exit.thread:                   ; preds = %1, %EVP_CIPHER_get_
   br label %13
 
 13:                                               ; preds = %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit.thread, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ %spec.select, %EVP_CIPHER_get_nid.exit.thread ], [ 30, %8 ], [ 429, %7 ], [ 425, %6 ], [ 421, %5 ], [ 5, %4 ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ]
+  %.0 = phi i32 [ %spec.select, %EVP_CIPHER_get_nid.exit.thread ], [ 5, %4 ], [ 421, %5 ], [ 425, %6 ], [ 429, %7 ], [ 30, %8 ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ]
   ret i32 %.0
 }
 

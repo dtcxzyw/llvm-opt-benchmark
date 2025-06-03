@@ -1339,7 +1339,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   unreachable
 
 123:                                              ; preds = %78, %89, %111, %96
-  %.2204 = phi nsz double [ %121, %111 ], [ %110, %96 ], [ %88, %78 ], [ %95, %89 ]
+  %.2204 = phi nsz double [ %110, %96 ], [ %121, %111 ], [ %88, %78 ], [ %95, %89 ]
   %124 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv278
   store double %.2204, ptr %124, align 8, !tbaa !69
   %125 = fneg nsz double %.0201235

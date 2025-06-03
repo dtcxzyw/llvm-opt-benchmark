@@ -616,34 +616,34 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(64) %51, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false)
-  switch i8 %55, label %62 [
-    i8 114, label %65
-    i8 109, label %56
+  switch i8 %55, label %61 [
+    i8 114, label %56
+    i8 109, label %64
   ]
 
 56:                                               ; preds = %35
   %57 = inttoptr i64 %53 to ptr
   %58 = tail call ptr @pg_detoast_datum(ptr noundef %57) #6
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %70, label %ExecWithoutOverlapsNotEmpty.exit
+  %59 = tail call signext i8 @range_get_flags(ptr noundef %58) #6
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %70, label %ExecWithoutOverlapsNotEmpty.exit
 
-62:                                               ; preds = %35
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %63)
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 %12) #6
+61:                                               ; preds = %35
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %62)
+  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 %12) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1159, ptr noundef nonnull @__func__.ExecWithoutOverlapsNotEmpty) #6
   unreachable
 
-65:                                               ; preds = %35
-  %66 = inttoptr i64 %53 to ptr
-  %67 = tail call ptr @pg_detoast_datum(ptr noundef %66) #6
-  %68 = tail call signext i8 @range_get_flags(ptr noundef %67) #6
-  %69 = trunc i8 %68 to i1
+64:                                               ; preds = %35
+  %65 = inttoptr i64 %53 to ptr
+  %66 = tail call ptr @pg_detoast_datum(ptr noundef %65) #6
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %ExecWithoutOverlapsNotEmpty.exit
 
-70:                                               ; preds = %65, %56
+70:                                               ; preds = %64, %56
   %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %71)
   %72 = tail call i32 @errcode(i32 noundef 67391682) #6
@@ -654,7 +654,7 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1167, ptr noundef nonnull @__func__.ExecWithoutOverlapsNotEmpty) #6
   unreachable
 
-ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %65
+ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0)
   br label %77

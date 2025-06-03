@@ -856,9 +856,9 @@ H5P__get_file_space.exit28.thread:                ; preds = %98, %88
   br label %.thread55
 
 115:                                              ; preds = %107, %110, %109, %108
-  %.024 = phi i32 [ 3, %110 ], [ 0, %109 ], [ 0, %108 ], [ 2, %107 ]
-  %.023 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %108 ], [ false, %107 ]
-  %.022 = phi i64 [ 1, %110 ], [ %.034, %109 ], [ %.034, %108 ], [ 1, %107 ]
+  %.024 = phi i32 [ 0, %108 ], [ 0, %109 ], [ 3, %110 ], [ 2, %107 ]
+  %.023 = phi i1 [ true, %108 ], [ false, %109 ], [ false, %110 ], [ false, %107 ]
+  %.022 = phi i64 [ %.034, %108 ], [ %.034, %109 ], [ 1, %110 ], [ 1, %107 ]
   %116 = call i32 @H5P__set_file_space_strategy(ptr noundef nonnull %52, i32 noundef %.024, i1 noundef zeroext %.023, i64 noundef %.022) #4
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %123

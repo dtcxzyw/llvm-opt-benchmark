@@ -1754,8 +1754,8 @@ define { i64, i64 } @_ZN6uucore8features6format10num_parser4Base5digit17hdc0d5ad
   br label %_ZN4core3ops5range11RangeBounds8contains17h1c63d99ee7ce0736E.exit.thread
 
 _ZN4core3ops5range11RangeBounds8contains17h1c63d99ee7ce0736E.exit.thread: ; preds = %10, %8, %29, %12, %23, %18, %34, %31, %26
-  %.sroa.10.0 = phi i64 [ %33, %31 ], [ %36, %34 ], [ %28, %26 ], [ %25, %23 ], [ %20, %18 ], [ undef, %12 ], [ undef, %29 ], [ undef, %8 ], [ undef, %10 ]
-  %.sroa.0.0 = phi i64 [ 1, %31 ], [ 1, %34 ], [ 1, %26 ], [ 1, %23 ], [ 1, %18 ], [ 0, %12 ], [ 0, %29 ], [ 0, %8 ], [ 0, %10 ]
+  %.sroa.10.0 = phi i64 [ %20, %18 ], [ %25, %23 ], [ %28, %26 ], [ %33, %31 ], [ %36, %34 ], [ undef, %12 ], [ undef, %29 ], [ undef, %8 ], [ undef, %10 ]
+  %.sroa.0.0 = phi i64 [ 1, %18 ], [ 1, %23 ], [ 1, %26 ], [ 1, %31 ], [ 1, %34 ], [ 0, %12 ], [ 0, %29 ], [ 0, %8 ], [ 0, %10 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i64 } %21, i64 %.sroa.10.0, 1
   ret { i64, i64 } %22
@@ -1859,10 +1859,10 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6417h43
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
 
 "_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit": ; preds = %12, %16, %21, %23
-  %.sroa.07.0 = phi i64 [ 2, %23 ], [ 1, %21 ], [ 2, %16 ], [ 0, %12 ]
-  %.sroa.7.0 = phi i64 [ undef, %23 ], [ %.sroa.5.1.i.i.i, %21 ], [ undef, %16 ], [ undef, %12 ]
-  %.sroa.8.0 = phi ptr [ undef, %23 ], [ %.sroa.03.0.copyload, %21 ], [ undef, %16 ], [ undef, %12 ]
-  %.sroa.9.0 = phi i64 [ undef, %23 ], [ %.sroa.24.0.copyload, %21 ], [ undef, %16 ], [ undef, %12 ]
+  %.sroa.07.0 = phi i64 [ 1, %21 ], [ 2, %16 ], [ 2, %23 ], [ 0, %12 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.5.1.i.i.i, %21 ], [ undef, %16 ], [ undef, %23 ], [ undef, %12 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.03.0.copyload, %21 ], [ undef, %16 ], [ undef, %23 ], [ undef, %12 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.24.0.copyload, %21 ], [ undef, %16 ], [ undef, %23 ], [ undef, %12 ]
   store i64 %.sroa.07.0, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
@@ -1953,10 +1953,10 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_u6417h79
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
 
 "_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit": ; preds = %23, %26, %27
-  %.sroa.47.0 = phi i64 [ undef, %27 ], [ %.sroa.3.0.copyload, %26 ], [ undef, %23 ]
-  %.sroa.58.0 = phi ptr [ undef, %27 ], [ %.sroa.0.0.copyload, %26 ], [ undef, %23 ]
-  %.sroa.6.0 = phi i64 [ undef, %27 ], [ %.sroa.2.0.copyload, %26 ], [ undef, %23 ]
-  %.sink.i = phi i64 [ 2, %27 ], [ 1, %26 ], [ 0, %23 ]
+  %.sroa.47.0 = phi i64 [ undef, %23 ], [ %.sroa.3.0.copyload, %26 ], [ undef, %27 ]
+  %.sroa.58.0 = phi ptr [ undef, %23 ], [ %.sroa.0.0.copyload, %26 ], [ undef, %27 ]
+  %.sroa.6.0 = phi i64 [ undef, %23 ], [ %.sroa.2.0.copyload, %26 ], [ undef, %27 ]
+  %.sink.i = phi i64 [ 0, %23 ], [ 1, %26 ], [ 2, %27 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.47.0, ptr %.sroa.47.0..sroa_idx, align 8
@@ -2231,10 +2231,10 @@ _ZN6uucore8features6format10num_parser12ParsedNumber24parse_f64_special_values17
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit"
 
 "_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit": ; preds = %70, %74, %84
-  %.sroa.49.0 = phi double [ undef, %84 ], [ %.0.i.i.i, %74 ], [ undef, %70 ]
-  %.sroa.510.0 = phi ptr [ undef, %84 ], [ %.sroa.02.0.copyload, %74 ], [ undef, %70 ]
-  %.sroa.611.0 = phi i64 [ undef, %84 ], [ %.sroa.23.0.copyload, %74 ], [ undef, %70 ]
-  %.sink.i = phi i64 [ 2, %84 ], [ 1, %74 ], [ 0, %70 ]
+  %.sroa.49.0 = phi double [ undef, %70 ], [ %.0.i.i.i, %74 ], [ undef, %84 ]
+  %.sroa.510.0 = phi ptr [ undef, %70 ], [ %.sroa.02.0.copyload, %74 ], [ undef, %84 ]
+  %.sroa.611.0 = phi i64 [ undef, %70 ], [ %.sroa.23.0.copyload, %74 ], [ undef, %84 ]
+  %.sink.i = phi i64 [ 0, %70 ], [ 1, %74 ], [ 2, %84 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.49.0, ptr %.sroa.49.0..sroa_idx, align 8
@@ -2710,7 +2710,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   br label %217
 
 217:                                              ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread517", %.critedge
-  %.0227640 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread517" ], [ %281, %.critedge ]
+  %.0227638 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread517" ], [ %281, %.critedge ]
   %218 = phi ptr [ %.sroa.0.1523, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread517" ], [ %258, %.critedge ]
   %219 = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread517" ], [ %259, %.critedge ]
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 1
@@ -2820,14 +2820,14 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   ]
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit": ; preds = %271, %267, %265, %263, %261
-  %.sink614 = phi i32 [ %257, %261 ], [ %257, %263 ], [ %257, %265 ], [ %257, %267 ], [ %.0.i, %271 ]
+  %.0.i.sink = phi i32 [ %257, %261 ], [ %257, %263 ], [ %257, %265 ], [ %257, %267 ], [ %.0.i, %271 ]
   %.sink613 = phi i64 [ -48, %261 ], [ -48, %263 ], [ -48, %265 ], [ -48, %267 ], [ -87, %271 ]
-  %273 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0227640, i64 %214)
+  %273 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0227638, i64 %214)
   %274 = extractvalue { i64, i1 } %273, 1
   br i1 %274, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread", label %275
 
 275:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit"
-  %276 = zext nneg i32 %.sink614 to i64
+  %276 = zext nneg i32 %.0.i.sink to i64
   %277 = add nsw i64 %.sink613, %276
   %278 = extractvalue { i64, i1 } %273, 0
   %279 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %278, i64 %277)
@@ -2848,19 +2848,19 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
 
 .preheader:                                       ; preds = %283
   %284 = icmp eq ptr %258, %213
-  br i1 %284, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread", label %.lr.ph648
+  br i1 %284, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread", label %.lr.ph646
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit312": ; preds = %330, %332, %334, %340, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300", %283
   %285 = phi i64 [ %219, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ %219, %283 ], [ %288, %340 ], [ %288, %334 ], [ %288, %332 ], [ %288, %330 ]
-  %.0223 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %283 ], [ %.1224644, %340 ], [ %.1224644, %334 ], [ %.1224644, %332 ], [ %.1224644, %330 ]
-  %.0220 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %283 ], [ %.1221646, %340 ], [ %.1221646, %334 ], [ %.1221646, %332 ], [ %.1221646, %330 ]
+  %.0223 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %283 ], [ %.1224642, %340 ], [ %.1224642, %334 ], [ %.1224642, %332 ], [ %.1224642, %330 ]
+  %.0220 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %283 ], [ %.1221644, %340 ], [ %.1221644, %334 ], [ %.1221644, %332 ], [ %.1221644, %330 ]
   %286 = icmp eq i64 %285, 0
   br i1 %286, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit270.thread.thread", label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344"
 
-.lr.ph648:                                        ; preds = %.preheader, %.thread427
-  %.1221646 = phi i64 [ %.2222, %.thread427 ], [ 0, %.preheader ]
-  %.1224644 = phi i64 [ %.2225, %.thread427 ], [ 0, %.preheader ]
-  %.0230643 = phi i1 [ %.1231, %.thread427 ], [ false, %.preheader ]
+.lr.ph646:                                        ; preds = %.preheader, %.thread427
+  %.1221644 = phi i64 [ %.2222, %.thread427 ], [ 0, %.preheader ]
+  %.1224642 = phi i64 [ %.2225, %.thread427 ], [ 0, %.preheader ]
+  %.0230641 = phi i1 [ %.1231, %.thread427 ], [ false, %.preheader ]
   %287 = phi ptr [ %327, %.thread427 ], [ %258, %.preheader ]
   %288 = phi i64 [ %328, %.thread427 ], [ %259, %.preheader ]
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 1
@@ -2868,7 +2868,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   %291 = icmp sgt i8 %290, -1
   br i1 %291, label %302, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit13.i.i.i.i.i.i.i313"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit13.i.i.i.i.i.i.i313": ; preds = %.lr.ph648
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit13.i.i.i.i.i.i.i313": ; preds = %.lr.ph646
   %292 = and i8 %290, 31
   %293 = zext nneg i8 %292 to i32
   %294 = icmp ne ptr %289, %213
@@ -2882,7 +2882,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   %301 = icmp samesign ugt i8 %290, -33
   br i1 %301, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit15.i.i.i.i.i.i.i318", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit320.thread556"
 
-302:                                              ; preds = %.lr.ph648
+302:                                              ; preds = %.lr.ph646
   %303 = zext nneg i8 %290 to i32
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit320.thread556"
 
@@ -2964,23 +2964,23 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   br i1 %or.cond3.i324, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit312"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337": ; preds = %340, %336, %334, %332, %330
-  %.sink616 = phi i32 [ %326, %330 ], [ %326, %332 ], [ %326, %334 ], [ %326, %336 ], [ %.0.i322, %340 ]
-  %.sink615 = phi i64 [ -48, %330 ], [ -48, %332 ], [ -48, %334 ], [ -48, %336 ], [ -87, %340 ]
-  %342 = zext nneg i32 %.sink616 to i64
-  %343 = add nsw i64 %.sink615, %342
-  br i1 %.0230643, label %.thread427, label %344
+  %.0.i322.sink = phi i32 [ %326, %330 ], [ %326, %332 ], [ %326, %334 ], [ %326, %336 ], [ %.0.i322, %340 ]
+  %.sink614 = phi i64 [ -48, %330 ], [ -48, %332 ], [ -48, %334 ], [ -48, %336 ], [ -87, %340 ]
+  %342 = zext nneg i32 %.0.i322.sink to i64
+  %343 = add nsw i64 %.sink614, %342
+  br i1 %.0230641, label %.thread427, label %344
 
 344:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337"
-  %345 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.1224644, i64 %214)
+  %345 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.1224642, i64 %214)
   %346 = extractvalue { i64, i1 } %345, 1
   br i1 %346, label %.thread427, label %348
 
 .thread427:                                       ; preds = %348, %352, %344, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337"
   %.1231 = phi i1 [ true, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337" ], [ true, %344 ], [ false, %352 ], [ true, %348 ]
-  %.2225 = phi i64 [ %.1224644, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337" ], [ %.1224644, %344 ], [ %353, %352 ], [ %.1224644, %348 ]
-  %.2222 = phi i64 [ %.1221646, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337" ], [ %.1221646, %344 ], [ %spec.select, %352 ], [ %.1221646, %348 ]
+  %.2225 = phi i64 [ %.1224642, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337" ], [ %.1224642, %344 ], [ %353, %352 ], [ %.1224642, %348 ]
+  %.2222 = phi i64 [ %.1221644, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit337" ], [ %.1221644, %344 ], [ %spec.select, %352 ], [ %.1221644, %348 ]
   %347 = icmp eq ptr %327, %213
-  br i1 %347, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread", label %.lr.ph648
+  br i1 %347, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread", label %.lr.ph646
 
 348:                                              ; preds = %344
   %349 = extractvalue { i64, i1 } %345, 0
@@ -2991,7 +2991,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
 
 352:                                              ; preds = %348
   %353 = extractvalue { i64, i1 } %.fr442, 0
-  %spec.select = add i64 %.1221646, 1
+  %spec.select = add i64 %.1221644, 1
   br label %.thread427
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344": ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit312"
@@ -3011,11 +3011,11 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   br i1 %359, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit348", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit348.thread"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread": ; preds = %.critedge, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319", %.thread427, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300", %.preheader
-  %.0227626 = phi i64 [ %.0227640, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ %.0227640, %.preheader ], [ %.0227640, %.thread427 ], [ %.0227640, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ %281, %.critedge ], [ %.0227640, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ]
-  %.0223405.ph543.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %.preheader ], [ %.2225, %.thread427 ], [ %.1224644, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ 0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ], [ 0, %.critedge ]
-  %.0220406.ph542.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %.preheader ], [ %.2222, %.thread427 ], [ %.1221646, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ 0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ], [ 0, %.critedge ]
+  %.0227624 = phi i64 [ %.0227638, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ %.0227638, %.preheader ], [ %.0227638, %.thread427 ], [ %.0227638, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ %281, %.critedge ], [ %.0227638, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ]
+  %.0223405.ph543.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %.preheader ], [ %.2225, %.thread427 ], [ %.1224642, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ 0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ], [ 0, %.critedge ]
+  %.0220406.ph542.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300" ], [ 0, %.preheader ], [ %.2222, %.thread427 ], [ %.1221644, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319" ], [ 0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i" ], [ 0, %.critedge ]
   %361 = zext i1 %.not240 to i8
-  store i64 %.0227626, ptr %0, align 8
+  store i64 %.0227624, ptr %0, align 8
   %.sroa.3119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0223405.ph543.ph, ptr %.sroa.3119.0..sroa_idx, align 8
   %.sroa.4122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3037,7 +3037,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %362, ptr %.sroa.4140.0..sroa_idx, align 8
   %.sroa.5141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0227640, ptr %.sroa.5141.0..sroa_idx, align 8
+  store i64 %.0227638, ptr %.sroa.5141.0..sroa_idx, align 8
   %.sroa.6142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.0223, ptr %.sroa.6142.0..sroa_idx, align 8
   %.sroa.7143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

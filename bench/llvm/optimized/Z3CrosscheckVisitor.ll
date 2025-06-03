@@ -2475,7 +2475,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv9fromBinOpERSt10sh
   unreachable
 
 156:                                              ; preds = %100, %104, %89, %93, %78, %82, %67, %71, %56, %60, %27, %31, %16, %20, %149, %143, %137, %131, %125, %114, %108, %47, %41, %35, %7
-  %.0 = phi ptr [ %154, %149 ], [ %148, %143 ], [ %142, %137 ], [ %136, %131 ], [ %130, %125 ], [ %124, %114 ], [ %113, %108 ], [ %52, %47 ], [ %46, %41 ], [ %40, %35 ], [ %12, %7 ], [ %19, %16 ], [ %23, %20 ], [ %30, %27 ], [ %34, %31 ], [ %59, %56 ], [ %63, %60 ], [ %70, %67 ], [ %74, %71 ], [ %81, %78 ], [ %85, %82 ], [ %92, %89 ], [ %96, %93 ], [ %103, %100 ], [ %107, %104 ]
+  %.0 = phi ptr [ %12, %7 ], [ %40, %35 ], [ %46, %41 ], [ %52, %47 ], [ %113, %108 ], [ %124, %114 ], [ %130, %125 ], [ %136, %131 ], [ %142, %137 ], [ %148, %143 ], [ %154, %149 ], [ %19, %16 ], [ %23, %20 ], [ %30, %27 ], [ %34, %31 ], [ %59, %56 ], [ %63, %60 ], [ %70, %67 ], [ %74, %71 ], [ %81, %78 ], [ %85, %82 ], [ %92, %89 ], [ %96, %93 ], [ %103, %100 ], [ %107, %104 ]
   ret ptr %.0
 }
 
@@ -2710,7 +2710,7 @@ switch.lookup:                                    ; preds = %60
   br label %127
 
 127:                                              ; preds = %116, %36, %21, %121, %117
-  %.1 = phi ptr [ %22, %21 ], [ %51, %36 ], [ %.3, %116 ], [ %120, %121 ], [ %120, %117 ]
+  %.1 = phi ptr [ %.3, %116 ], [ %51, %36 ], [ %22, %21 ], [ %120, %121 ], [ %120, %117 ]
   ret ptr %.1
 }
 
@@ -3199,7 +3199,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6
   %spec.select.i = icmp ult i32 %38, 20
   br i1 %spec.select.i, label %39, label %66
 
-39:                                               ; preds = %33, %25, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+39:                                               ; preds = %25, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %40 = and i64 %2, -16
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 16, !tbaa !168
@@ -3244,7 +3244,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53: ; preds = %39
   %spec.select.i48 = icmp ult i32 %65, 20
   br i1 %spec.select.i48, label %94, label %66
 
-66:                                               ; preds = %60, %52, %33, %25, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+66:                                               ; preds = %52, %60, %25, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %67 = load ptr, ptr %14, align 16, !tbaa !168
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %68, align 8, !tbaa !137
@@ -3284,7 +3284,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53: ; preds = %39
   %93 = xor i1 %spec.select.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i67
   br i1 %93, label %94, label %163
 
-94:                                               ; preds = %60, %52, %90, %86, %66, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53
+94:                                               ; preds = %52, %60, %90, %86, %66, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53
   %95 = load ptr, ptr %14, align 16, !tbaa !168
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %.sroa.0.0.copyload.i.i.i.i69 = load i64, ptr %96, align 8, !tbaa !137
@@ -3475,7 +3475,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   %spec.select.i79 = icmp ult i32 %203, 20
   br i1 %spec.select.i79, label %204, label %218
 
-204:                                              ; preds = %198, %190, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
+204:                                              ; preds = %190, %198, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
   %205 = load ptr, ptr %76, align 16, !tbaa !168
   %206 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %205) #19
   br i1 %206, label %207, label %218
@@ -3497,7 +3497,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
   br label %259
 
-218:                                              ; preds = %198, %190, %204, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
+218:                                              ; preds = %190, %198, %204, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
   %219 = load ptr, ptr %14, align 16, !tbaa !168
   %220 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %219) #19
   tail call void @llvm.assume(i1 %220)
@@ -3545,8 +3545,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97: ; preds = %229, %236, %244
-  %246 = phi ptr [ %.pre, %236 ], [ %221, %244 ], [ %221, %229 ]
-  %.1.i93 = phi i1 [ %243, %236 ], [ %245, %244 ], [ %spec.select.i92, %229 ]
+  %246 = phi ptr [ %221, %244 ], [ %.pre, %236 ], [ %221, %229 ]
+  %.1.i93 = phi i1 [ %245, %244 ], [ %243, %236 ], [ %spec.select.i92, %229 ]
   tail call void @llvm.assume(i1 %.1.i93)
   %247 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %246) #19
   %248 = load ptr, ptr %0, align 8, !tbaa !66
@@ -3625,7 +3625,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6
   %spec.select.i = icmp ult i32 %32, 20
   br i1 %spec.select.i, label %33, label %71
 
-33:                                               ; preds = %27, %19, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+33:                                               ; preds = %19, %27, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.0.copyload.i.i.i.i.i77 = load i64, ptr %5, align 8
   %34 = and i64 %.0.copyload.i.i.i.i.i77, -16
   %35 = inttoptr i64 %34 to ptr
@@ -3671,7 +3671,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86: ; preds = %33
   %spec.select.i81 = icmp ult i32 %59, 20
   br i1 %spec.select.i81, label %60, label %71
 
-60:                                               ; preds = %54, %46, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86
+60:                                               ; preds = %46, %54, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86
   %.0.copyload.i.i.i.i.i87 = load i64, ptr %4, align 8
   %61 = and i64 %.0.copyload.i.i.i.i.i87, -16
   %62 = inttoptr i64 %61 to ptr
@@ -3691,7 +3691,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86: ; preds = %33
   tail call void @_ZN5clang4ento7SMTConv19doIntTypeConversionIPKN4llvm7SMTExprETnPFT_RSt10shared_ptrINS3_9SMTSolverEERKS7_NS_8QualTypeEmSE_mEXadL_ZNS1_8fromCastESB_RKS6_SE_mSE_mEEEEvSB_RNS_10ASTContextERS7_RSE_SL_SM_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.critedge2
 
-71:                                               ; preds = %54, %46, %27, %19, %65, %60, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+71:                                               ; preds = %46, %54, %19, %27, %65, %60, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit86, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.0.copyload.i.i.i.i.i89 = load i64, ptr %4, align 8
   %72 = and i64 %.0.copyload.i.i.i.i.i89, -16
   %73 = inttoptr i64 %72 to ptr
@@ -4054,7 +4054,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv14fromFloatBinOpER
   unreachable
 
 80:                                               ; preds = %77, %66, %60, %54, %48, %42, %36, %30, %24, %18, %12, %6
-  %.0 = phi ptr [ %78, %77 ], [ %76, %66 ], [ %65, %60 ], [ %59, %54 ], [ %53, %48 ], [ %47, %42 ], [ %41, %36 ], [ %35, %30 ], [ %29, %24 ], [ %23, %18 ], [ %17, %12 ], [ %11, %6 ]
+  %.0 = phi ptr [ %11, %6 ], [ %17, %12 ], [ %23, %18 ], [ %29, %24 ], [ %35, %30 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %76, %66 ], [ %78, %77 ]
   ret ptr %.0
 }
 

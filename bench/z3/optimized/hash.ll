@@ -107,7 +107,7 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %55
 
 55:                                               ; preds = %49, %._crit_edge
-  %.2 = phi i32 [ %48, %._crit_edge ], [ %54, %49 ]
+  %.2 = phi i32 [ %54, %49 ], [ %48, %._crit_edge ]
   %56 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 9
   %57 = load i8, ptr %56, align 1, !tbaa !5
   %58 = sext i8 %57 to i32
@@ -116,7 +116,7 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %61
 
 61:                                               ; preds = %55, %._crit_edge
-  %.3 = phi i32 [ %48, %._crit_edge ], [ %60, %55 ]
+  %.3 = phi i32 [ %60, %55 ], [ %48, %._crit_edge ]
   %62 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 8
   %63 = load i8, ptr %62, align 1, !tbaa !5
   %64 = sext i8 %63 to i32
@@ -125,7 +125,7 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge
-  %.4 = phi i32 [ %48, %._crit_edge ], [ %66, %61 ]
+  %.4 = phi i32 [ %66, %61 ], [ %48, %._crit_edge ]
   %68 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 7
   %69 = load i8, ptr %68, align 1, !tbaa !5
   %70 = sext i8 %69 to i32
@@ -134,8 +134,8 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge
-  %.2147 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %72, %67 ]
-  %.5 = phi i32 [ %48, %._crit_edge ], [ %.4, %67 ]
+  %.2147 = phi i32 [ %72, %67 ], [ %.0145.lcssa, %._crit_edge ]
+  %.5 = phi i32 [ %.4, %67 ], [ %48, %._crit_edge ]
   %74 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 6
   %75 = load i8, ptr %74, align 1, !tbaa !5
   %76 = sext i8 %75 to i32
@@ -144,8 +144,8 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge
-  %.3148 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %78, %73 ]
-  %.6 = phi i32 [ %48, %._crit_edge ], [ %.5, %73 ]
+  %.3148 = phi i32 [ %78, %73 ], [ %.0145.lcssa, %._crit_edge ]
+  %.6 = phi i32 [ %.5, %73 ], [ %48, %._crit_edge ]
   %80 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 5
   %81 = load i8, ptr %80, align 1, !tbaa !5
   %82 = sext i8 %81 to i32
@@ -154,8 +154,8 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge
-  %.4149 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %84, %79 ]
-  %.7 = phi i32 [ %48, %._crit_edge ], [ %.6, %79 ]
+  %.4149 = phi i32 [ %84, %79 ], [ %.0145.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %.6, %79 ], [ %48, %._crit_edge ]
   %86 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 4
   %87 = load i8, ptr %86, align 1, !tbaa !5
   %88 = sext i8 %87 to i32
@@ -163,8 +163,8 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %90
 
 90:                                               ; preds = %85, %._crit_edge
-  %.5150 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %89, %85 ]
-  %.8 = phi i32 [ %48, %._crit_edge ], [ %.7, %85 ]
+  %.5150 = phi i32 [ %89, %85 ], [ %.0145.lcssa, %._crit_edge ]
+  %.8 = phi i32 [ %.7, %85 ], [ %48, %._crit_edge ]
   %91 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 3
   %92 = load i8, ptr %91, align 1, !tbaa !5
   %93 = sext i8 %92 to i32
@@ -173,9 +173,9 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %96
 
 96:                                               ; preds = %90, %._crit_edge
-  %.2156 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ %95, %90 ]
-  %.6151 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %.5150, %90 ]
-  %.9 = phi i32 [ %48, %._crit_edge ], [ %.8, %90 ]
+  %.2156 = phi i32 [ %95, %90 ], [ %.0154.lcssa, %._crit_edge ]
+  %.6151 = phi i32 [ %.5150, %90 ], [ %.0145.lcssa, %._crit_edge ]
+  %.9 = phi i32 [ %.8, %90 ], [ %48, %._crit_edge ]
   %97 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 2
   %98 = load i8, ptr %97, align 1, !tbaa !5
   %99 = sext i8 %98 to i32
@@ -184,9 +184,9 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %102
 
 102:                                              ; preds = %96, %._crit_edge
-  %.3157 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ %101, %96 ]
-  %.7152 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %.6151, %96 ]
-  %.10 = phi i32 [ %48, %._crit_edge ], [ %.9, %96 ]
+  %.3157 = phi i32 [ %101, %96 ], [ %.0154.lcssa, %._crit_edge ]
+  %.7152 = phi i32 [ %.6151, %96 ], [ %.0145.lcssa, %._crit_edge ]
+  %.10 = phi i32 [ %.9, %96 ], [ %48, %._crit_edge ]
   %103 = getelementptr inbounds nuw i8, ptr %.0159.lcssa, i64 1
   %104 = load i8, ptr %103, align 1, !tbaa !5
   %105 = sext i8 %104 to i32
@@ -195,9 +195,9 @@ define hidden noundef i32 @_Z11string_hashPKcjj(ptr noundef readonly captures(no
   br label %108
 
 108:                                              ; preds = %102, %._crit_edge
-  %.4158 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ %107, %102 ]
-  %.8153 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %.7152, %102 ]
-  %.11 = phi i32 [ %48, %._crit_edge ], [ %.10, %102 ]
+  %.4158 = phi i32 [ %107, %102 ], [ %.0154.lcssa, %._crit_edge ]
+  %.8153 = phi i32 [ %.7152, %102 ], [ %.0145.lcssa, %._crit_edge ]
+  %.11 = phi i32 [ %.10, %102 ], [ %48, %._crit_edge ]
   %109 = load i8, ptr %.0159.lcssa, align 1, !tbaa !5
   %110 = sext i8 %109 to i32
   %111 = add i32 %.4158, %110

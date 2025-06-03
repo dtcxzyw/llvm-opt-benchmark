@@ -3264,8 +3264,8 @@ dissect_dib_mfrdata.exit.i:                       ; preds = %523, %521
   br label %533
 
 533:                                              ; preds = %531, %dissect_dib_mfrdata.exit.i, %dissect_dib_extdevinfo.exit.i, %dissect_dib_tunneling_info.exit.i, %dissect_dib_secured_service_families.exit.i, %dissect_dib_knxaddr.exit.i, %dissect_dib_curconfig.exit.i, %dissect_dib_ipconfig.exit.i, %dissect_dib_suppsvc.exit.i, %dissect_dib_devinfo.exit.i
-  %.1218.i = phi i32 [ %78, %531 ], [ %.014.i.i, %dissect_dib_mfrdata.exit.i ], [ %.0.i194.i, %dissect_dib_extdevinfo.exit.i ], [ %.0.i191.i, %dissect_dib_tunneling_info.exit.i ], [ %.0.lcssa.i.i, %dissect_dib_secured_service_families.exit.i ], [ %.0.i181.i, %dissect_dib_knxaddr.exit.i ], [ %.0.i177.i, %dissect_dib_curconfig.exit.i ], [ %.033.i.i, %dissect_dib_ipconfig.exit.i ], [ %.0.lcssa55.i.i, %dissect_dib_suppsvc.exit.i ], [ %.0.i.i, %dissect_dib_devinfo.exit.i ]
-  %.2.i = phi i8 [ %.0146.i, %531 ], [ %530, %dissect_dib_mfrdata.exit.i ], [ %515, %dissect_dib_extdevinfo.exit.i ], [ %484, %dissect_dib_tunneling_info.exit.i ], [ %423, %dissect_dib_secured_service_families.exit.i ], [ %394, %dissect_dib_knxaddr.exit.i ], [ %355, %dissect_dib_curconfig.exit.i ], [ %307, %dissect_dib_ipconfig.exit.i ], [ %265, %dissect_dib_suppsvc.exit.i ], [ %221, %dissect_dib_devinfo.exit.i ]
+  %.1218.i = phi i32 [ %78, %531 ], [ %.0.i.i, %dissect_dib_devinfo.exit.i ], [ %.0.lcssa55.i.i, %dissect_dib_suppsvc.exit.i ], [ %.033.i.i, %dissect_dib_ipconfig.exit.i ], [ %.0.i177.i, %dissect_dib_curconfig.exit.i ], [ %.0.i181.i, %dissect_dib_knxaddr.exit.i ], [ %.0.lcssa.i.i, %dissect_dib_secured_service_families.exit.i ], [ %.0.i191.i, %dissect_dib_tunneling_info.exit.i ], [ %.0.i194.i, %dissect_dib_extdevinfo.exit.i ], [ %.014.i.i, %dissect_dib_mfrdata.exit.i ]
+  %.2.i = phi i8 [ %.0146.i, %531 ], [ %221, %dissect_dib_devinfo.exit.i ], [ %265, %dissect_dib_suppsvc.exit.i ], [ %307, %dissect_dib_ipconfig.exit.i ], [ %355, %dissect_dib_curconfig.exit.i ], [ %394, %dissect_dib_knxaddr.exit.i ], [ %423, %dissect_dib_secured_service_families.exit.i ], [ %484, %dissect_dib_tunneling_info.exit.i ], [ %515, %dissect_dib_extdevinfo.exit.i ], [ %530, %dissect_dib_mfrdata.exit.i ]
   %534 = icmp slt i32 %.1218.i, %56
   br i1 %534, label %535, label %539
 
@@ -3522,8 +3522,8 @@ define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr nou
   %.not125 = icmp eq i8 %.1113, 0
   br i1 %.not125, label %.thread138, label %85
 
-.thread138:                                       ; preds = %52, %60, %.thread136
-  %.1111143 = phi i8 [ %.1111, %.thread136 ], [ 4, %60 ], [ %38, %52 ]
+.thread138:                                       ; preds = %60, %52, %.thread136
+  %.1111143 = phi i8 [ %.1111, %.thread136 ], [ %38, %52 ], [ 4, %60 ]
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %27, ptr noundef nonnull @.str.231)
   br label %85
 
@@ -3745,15 +3745,15 @@ define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr nou
   br label %81
 
 81:                                               ; preds = %44, %42, %80, %50, %49, %33
-  %.1103 = phi i8 [ 0, %33 ], [ 1, %49 ], [ %.2104126, %80 ], [ 1, %50 ], [ 0, %44 ], [ 0, %42 ]
-  %.1101 = phi i8 [ 0, %33 ], [ %37, %49 ], [ 4, %80 ], [ %37, %50 ], [ %37, %44 ], [ %37, %42 ]
-  %.1 = phi i8 [ %.0, %33 ], [ %.0, %49 ], [ %.2127, %80 ], [ %.0, %50 ], [ %.0, %44 ], [ %.0, %42 ]
+  %.1103 = phi i8 [ 0, %33 ], [ 1, %49 ], [ 1, %50 ], [ %.2104126, %80 ], [ 0, %44 ], [ 0, %42 ]
+  %.1101 = phi i8 [ 0, %33 ], [ %37, %49 ], [ %37, %50 ], [ 4, %80 ], [ %37, %44 ], [ %37, %42 ]
+  %.1 = phi i8 [ %.0, %33 ], [ %.0, %49 ], [ %.0, %50 ], [ %.2127, %80 ], [ %.0, %44 ], [ %.0, %42 ]
   %.not121 = icmp eq i8 %.1, 0
   br i1 %.not121, label %.thread128, label %82
 
-.thread128:                                       ; preds = %51, %61, %63, %81
-  %.1101136 = phi i8 [ %.1101, %81 ], [ 4, %63 ], [ 4, %61 ], [ %37, %51 ]
-  %.1103134 = phi i8 [ %.1103, %81 ], [ 0, %63 ], [ 0, %61 ], [ 0, %51 ]
+.thread128:                                       ; preds = %61, %63, %51, %81
+  %.1101136 = phi i8 [ %.1101, %81 ], [ %37, %51 ], [ 4, %63 ], [ 4, %61 ]
+  %.1103134 = phi i8 [ %.1103, %81 ], [ 0, %51 ], [ 0, %63 ], [ 0, %61 ]
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %26, ptr noundef nonnull @.str.231)
   br label %82
 

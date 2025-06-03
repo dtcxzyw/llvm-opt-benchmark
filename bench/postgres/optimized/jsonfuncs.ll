@@ -1249,7 +1249,7 @@ define internal fastcc ptr @JsonbValueAsText(ptr noundef readonly captures(none)
   unreachable
 
 39:                                               ; preds = %8, %10, %1, %25, %18, %12
-  %.0 = phi ptr [ %34, %25 ], [ %24, %18 ], [ %17, %12 ], [ null, %1 ], [ %9, %8 ], [ %11, %10 ]
+  %.0 = phi ptr [ %17, %12 ], [ %24, %18 ], [ %34, %25 ], [ null, %1 ], [ %9, %8 ], [ %11, %10 ]
   ret ptr %.0
 }
 
@@ -2657,7 +2657,7 @@ setPathObject.exit:                               ; preds = %._crit_edge, %341
   unreachable
 
 359:                                              ; preds = %354, %setPathObject.exit, %setPathArray.exit
-  %.0 = phi ptr [ %355, %354 ], [ %345, %setPathObject.exit ], [ %158, %setPathArray.exit ]
+  %.0 = phi ptr [ %158, %setPathArray.exit ], [ %345, %setPathObject.exit ], [ %355, %354 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #15
   ret ptr %.0
 }
@@ -4169,7 +4169,7 @@ populate_array.exit:                              ; preds = %188, %populate_arra
   unreachable
 
 populate_domain.exit:                             ; preds = %231, %.thread, %switch.early.test, %216, %populate_array.exit, %populate_scalar.exit
-  %.064 = phi i64 [ %218, %216 ], [ %.021.i, %populate_array.exit ], [ %.1.i, %populate_scalar.exit ], [ 0, %switch.early.test ], [ 0, %231 ], [ %.0.i72, %.thread ]
+  %.064 = phi i64 [ %.1.i, %populate_scalar.exit ], [ %.021.i, %populate_array.exit ], [ %218, %216 ], [ 0, %switch.early.test ], [ 0, %231 ], [ %.0.i72, %.thread ]
   ret i64 %.064
 }
 

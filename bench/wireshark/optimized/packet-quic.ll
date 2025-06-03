@@ -6077,7 +6077,7 @@ proto_item_set_generated.exit.i:                  ; preds = %312, %309, %302
   br label %337
 
 337:                                              ; preds = %330, %323, %321, %319, %318
-  %.1431.i = phi i32 [ %300, %318 ], [ %335, %330 ], [ %328, %323 ], [ %300, %321 ], [ %300, %319 ]
+  %.1431.i = phi i32 [ %300, %318 ], [ %300, %319 ], [ %300, %321 ], [ %328, %323 ], [ %335, %330 ]
   %338 = load i32, ptr @hf_quic_ack_largest_acknowledged, align 4
   %339 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %293, i32 noundef %338, ptr noundef %256, i32 noundef %.1431.i, i32 noundef -1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %18)
   %340 = load i32, ptr %18, align 4
@@ -7485,7 +7485,7 @@ dissect_quic_stream_payload.exit.i:               ; preds = %proto_item_set_gene
   br label %1069
 
 1069:                                             ; preds = %1062, %1060, %1059
-  %.6.i = phi i32 [ %300, %1059 ], [ %1067, %1062 ], [ %300, %1060 ]
+  %.6.i = phi i32 [ %300, %1059 ], [ %300, %1060 ], [ %1067, %1062 ]
   %1070 = load i32, ptr @hf_quic_nci_sequence, align 4
   %1071 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %293, i32 noundef %1070, ptr noundef %256, i32 noundef %.6.i, i32 noundef -1, i32 noundef 4, ptr noundef nonnull %50, ptr noundef nonnull %48)
   %1072 = load i32, ptr %48, align 4
@@ -7620,7 +7620,7 @@ quic_add_stateless_reset_token.exit.i:            ; preds = %quic_connection_equ
   br label %1135
 
 1135:                                             ; preds = %1128, %1126, %1125
-  %.7.i = phi i32 [ %300, %1125 ], [ %1133, %1128 ], [ %300, %1126 ]
+  %.7.i = phi i32 [ %300, %1125 ], [ %300, %1126 ], [ %1133, %1128 ]
   %1136 = load i32, ptr @hf_quic_rci_sequence, align 4
   %1137 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %293, i32 noundef %1136, ptr noundef %256, i32 noundef %.7.i, i32 noundef -1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %55)
   %1138 = load i32, ptr %55, align 4
@@ -7927,7 +7927,7 @@ quic_add_stateless_reset_token.exit.i:            ; preds = %quic_connection_equ
   br label %dissect_quic_frame_type.exit
 
 dissect_quic_frame_type.exit:                     ; preds = %proto_item_set_generated.exit.i, %316, %378, %379, %397, %dissect_quic_crypto_payload.exit, %669, %dissect_quic_stream_payload.exit.i, %1009, %1015, %1028, %1034, %1040, %1053, %quic_add_stateless_reset_token.exit.i, %1135, %1140, %1145, %1150, %1213, %1214, %1229, %1236, %1238, %1256, %1279, %1280, %1286, %1292, %1298, %1304
-  %.0430.i = phi i32 [ %300, %1304 ], [ %1303, %1298 ], [ %1297, %1292 ], [ %1291, %1286 ], [ %1285, %1280 ], [ %.10.i, %1279 ], [ %1261, %1256 ], [ %1255, %1238 ], [ %300, %1236 ], [ %1235, %1229 ], [ %300, %1214 ], [ %1202, %1213 ], [ %1160, %1150 ], [ %1149, %1145 ], [ %1144, %1140 ], [ %1139, %1135 ], [ %1124, %quic_add_stateless_reset_token.exit.i ], [ %1058, %1053 ], [ %1052, %1040 ], [ %1039, %1034 ], [ %1033, %1028 ], [ %1027, %1015 ], [ %1014, %1009 ], [ %1008, %dissect_quic_stream_payload.exit.i ], [ %681, %669 ], [ %668, %dissect_quic_crypto_payload.exit ], [ %409, %397 ], [ %395, %379 ], [ %.3.i, %378 ], [ %300, %316 ], [ %305, %proto_item_set_generated.exit.i ]
+  %.0430.i = phi i32 [ %300, %1304 ], [ %305, %proto_item_set_generated.exit.i ], [ %300, %316 ], [ %.3.i, %378 ], [ %395, %379 ], [ %409, %397 ], [ %668, %dissect_quic_crypto_payload.exit ], [ %681, %669 ], [ %1008, %dissect_quic_stream_payload.exit.i ], [ %1014, %1009 ], [ %1027, %1015 ], [ %1033, %1028 ], [ %1039, %1034 ], [ %1052, %1040 ], [ %1058, %1053 ], [ %1124, %quic_add_stateless_reset_token.exit.i ], [ %1139, %1135 ], [ %1144, %1140 ], [ %1149, %1145 ], [ %1160, %1150 ], [ %1202, %1213 ], [ %300, %1214 ], [ %1235, %1229 ], [ %300, %1236 ], [ %1255, %1238 ], [ %1261, %1256 ], [ %.10.i, %1279 ], [ %1285, %1280 ], [ %1291, %1286 ], [ %1297, %1292 ], [ %1303, %1298 ]
   %1306 = sub i32 %.0430.i, %.072
   call void @proto_item_set_len(ptr noundef %291, i32 noundef %1306)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #18

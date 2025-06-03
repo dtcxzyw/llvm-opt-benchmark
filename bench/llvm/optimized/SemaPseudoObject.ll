@@ -930,7 +930,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %147, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i
-  %.1.i.i.i.i = phi ptr [ %143, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ], [ %148, %147 ]
+  %.1.i.i.i.i = phi ptr [ %148, %147 ], [ %143, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ]
   %149 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %150 = load i32, ptr %149, align 16
   %151 = icmp ult i32 %150, 67108864
@@ -1003,7 +1003,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %189, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43
-  %.1.i.i.i = phi ptr [ %185, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43 ], [ %190, %189 ]
+  %.1.i.i.i = phi ptr [ %190, %189 ], [ %185, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43 ]
   %191 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %192 = load i32, ptr %191, align 16
   %193 = icmp ult i32 %192, 67108864
@@ -6375,7 +6375,7 @@ _ZN5clang19ObjCPropertyRefExprC2EPNS_14ObjCMethodDeclES2_NS_8QualTypeENS_13ExprV
   br label %common.ret
 
 common.ret:                                       ; preds = %_ZN5clang10ChooseExprC2ENS_14SourceLocationEPNS_4ExprES3_S3_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindES1_b.exit, %117, %162, %209, %243, %.sink.split.i, %9, %9, %397, %259
-  %common.ret.op = phi ptr [ %285, %259 ], [ %88, %117 ], [ %139, %162 ], [ %190, %209 ], [ %232, %243 ], [ %.7, %397 ], [ %410, %_ZN5clang10ChooseExprC2ENS_14SourceLocationEPNS_4ExprES3_S3_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindES1_b.exit ], [ %18, %.sink.split.i ], [ %1, %9 ], [ %1, %9 ]
+  %common.ret.op = phi ptr [ %285, %259 ], [ %.7, %397 ], [ %232, %243 ], [ %190, %209 ], [ %139, %162 ], [ %88, %117 ], [ %410, %_ZN5clang10ChooseExprC2ENS_14SourceLocationEPNS_4ExprES3_S3_NS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindES1_b.exit ], [ %18, %.sink.split.i ], [ %1, %9 ], [ %1, %9 ]
   ret ptr %common.ret.op
 
 259:                                              ; preds = %2
@@ -6968,7 +6968,7 @@ define internal fastcc noundef ptr @_ZL26LookupMethodInReceiverTypeRN5clang4Sema
   br label %_ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit: ; preds = %6, %15
-  %.1.i = phi ptr [ %12, %6 ], [ %16, %15 ]
+  %.1.i = phi ptr [ %16, %15 ], [ %12, %6 ]
   %17 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
@@ -6985,7 +6985,7 @@ _ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit: ; preds = %6, %1
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %24, %_ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit
-  %.1.i.i.i = phi ptr [ %20, %_ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %25, %24 ]
+  %.1.i.i.i = phi ptr [ %25, %24 ], [ %20, %_ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %27 = load i32, ptr %26, align 16
   %28 = icmp ult i32 %27, 67108864
@@ -7101,7 +7101,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
   br label %94
 
 94:                                               ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread, %50, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread, %85, %.thread
-  %.1 = phi ptr [ %81, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ %84, %.thread ], [ %93, %85 ], [ %59, %50 ], [ %62, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread ]
+  %.1 = phi ptr [ %84, %.thread ], [ %81, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ %93, %85 ], [ %59, %50 ], [ %62, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.thread ]
   ret ptr %.1
 }
 
@@ -9232,7 +9232,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %339, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i
-  %.1.i.i.i.i = phi ptr [ %335, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ], [ %340, %339 ]
+  %.1.i.i.i.i = phi ptr [ %340, %339 ], [ %335, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ]
   %341 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %342 = load i32, ptr %341, align 16
   %343 = icmp ult i32 %342, 67108864
@@ -10683,7 +10683,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i: ; preds 
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %378, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i
-  %.1.i.i.i.i = phi ptr [ %374, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ], [ %379, %378 ]
+  %.1.i.i.i.i = phi ptr [ %379, %378 ], [ %374, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread.i ]
   %380 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %381 = load i32, ptr %380, align 16
   %382 = icmp ult i32 %381, 67108864
@@ -10805,7 +10805,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %415
   %spec.select.i = icmp ult i32 %446, 20
   br i1 %spec.select.i, label %464, label %447
 
-447:                                              ; preds = %441, %433, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+447:                                              ; preds = %433, %441, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16) #22
   %448 = load ptr, ptr %46, align 8, !tbaa !43
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
@@ -10833,8 +10833,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %415
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17) #22
   br label %464
 
-464:                                              ; preds = %441, %433, %447, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %.045 = phi i1 [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %447 ], [ false, %433 ], [ false, %441 ]
+464:                                              ; preds = %433, %441, %447, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  %.045 = phi i1 [ false, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %447 ], [ false, %441 ], [ false, %433 ]
   %465 = load ptr, ptr %23, align 8, !tbaa !1284
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 96
   %467 = load ptr, ptr %466, align 8, !tbaa !1174

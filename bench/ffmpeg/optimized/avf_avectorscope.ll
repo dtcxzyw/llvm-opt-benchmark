@@ -362,7 +362,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %132
 
 132:                                              ; preds = %128, %126, %124, %.loopexit.i
-  %.3.i = phi nsz float [ %.1189.i, %.loopexit.i ], [ %131, %128 ], [ %127, %126 ], [ %125, %124 ]
+  %.3.i = phi nsz float [ %.1189.i, %.loopexit.i ], [ %125, %124 ], [ %127, %126 ], [ %131, %128 ]
   %133 = fcmp nsz ogt float %.3.i, 0.000000e+00
   %134 = fpext nsz float %.3.i to double
   %135 = fdiv nsz double 1.000000e+00, %134
@@ -439,8 +439,8 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %174
 
 174:                                              ; preds = %169, %160, %156
-  %.sroa.27.1.i = phi nsz float [ %.sroa.27.0240.i, %156 ], [ %173, %169 ], [ %168, %160 ]
-  %.sroa.0.1.i = phi nsz float [ %.sroa.0.0241.i, %156 ], [ %171, %169 ], [ %164, %160 ]
+  %.sroa.27.1.i = phi nsz float [ %.sroa.27.0240.i, %156 ], [ %168, %160 ], [ %173, %169 ]
+  %.sroa.0.1.i = phi nsz float [ %.sroa.0.0241.i, %156 ], [ %164, %160 ], [ %171, %169 ]
   %175 = load i32, ptr %140, align 8, !tbaa !69
   switch i32 %175, label %217 [
     i32 1, label %176
@@ -496,8 +496,8 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %217
 
 217:                                              ; preds = %202, %187, %176, %174
-  %.sroa.27.2.i = phi nsz float [ %.sroa.27.1.i, %174 ], [ %216, %202 ], [ %201, %187 ], [ %186, %176 ]
-  %.sroa.0.2.i = phi nsz float [ %.sroa.0.1.i, %174 ], [ %209, %202 ], [ %194, %187 ], [ %181, %176 ]
+  %.sroa.27.2.i = phi nsz float [ %.sroa.27.1.i, %174 ], [ %186, %176 ], [ %201, %187 ], [ %216, %202 ]
+  %.sroa.0.2.i = phi nsz float [ %.sroa.0.1.i, %174 ], [ %181, %176 ], [ %194, %187 ], [ %209, %202 ]
   %218 = load i32, ptr %141, align 4, !tbaa !70
   %219 = and i32 %218, 1
   %.not210.i = icmp eq i32 %219, 0

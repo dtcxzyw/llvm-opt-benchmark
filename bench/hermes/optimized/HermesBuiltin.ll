@@ -1143,7 +1143,7 @@ _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread93.i: ; p
   br label %if.then48.i
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i: ; preds = %sw.bb18.i.i, %sw.bb12.i.i
-  %retval.sroa.0.0.i57.in.i = phi double [ %conv.i9.i.i, %sw.bb18.i.i ], [ %51, %sw.bb12.i.i ]
+  %retval.sroa.0.0.i57.in.i = phi double [ %51, %sw.bb12.i.i ], [ %conv.i9.i.i, %sw.bb18.i.i ]
   %retval.sroa.0.0.i57.i = bitcast double %retval.sroa.0.0.i57.in.i to i64
   store double %retval.sroa.0.0.i57.in.i, ptr %retval.0.i.i.i.i.i.i.i, align 8
   %cmp.i.i59.i = icmp ult i64 %retval.sroa.0.0.i57.i, -1970324836974592
@@ -1160,7 +1160,7 @@ if.end57.i:                                       ; preds = %if.then48.i
   br label %if.end64.sink.split.i
 
 if.end64.sink.split.i:                            ; preds = %if.end57.i, %sw.bb39.i.i, %sw.bb36.i.i, %sw.bb29.i.i, %sw.bb22.i.i, %sw.bb8.i.i, %sw.bb4.i.i, %sw.bb.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
-  %retval.sroa.0.0.i57.ph.sink.i = phi i64 [ %or.i.i.i.i63.i, %if.end57.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %or.i.i.i.i, %sw.bb22.i.i ], [ %or.i.i14.i.i, %sw.bb29.i.i ], [ -1970324836974592, %sw.bb36.i.i ], [ -1548112371908608, %sw.bb39.i.i ]
+  %retval.sroa.0.0.i57.ph.sink.i = phi i64 [ %or.i.i.i.i63.i, %if.end57.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ], [ -1970324836974592, %sw.bb36.i.i ], [ %or.i.i14.i.i, %sw.bb29.i.i ], [ %or.i.i.i.i, %sw.bb22.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ]
   store i64 %retval.sroa.0.0.i57.ph.sink.i, ptr %retval.0.i.i.i.i.i.i.i, align 8
   br label %if.end64.i
 
@@ -1765,7 +1765,7 @@ default.unreachable:                              ; preds = %_ZN6hermes2vm8JSObj
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i.i.i: ; preds = %sw.bb39.i.i.i.i, %sw.bb36.i.i.i.i, %sw.bb29.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb18.i.i.i.i, %sw.bb12.i.i.i.i, %sw.bb8.i.i.i.i, %sw.bb4.i.i.i.i, %sw.bb.i.i.i.i, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i
-  %retval.sroa.0.0.i.i.i.i = phi i64 [ -1548112371908608, %sw.bb39.i.i.i.i ], [ -1970324836974592, %sw.bb36.i.i.i.i ], [ %or.i.i14.i.i.i.i, %sw.bb29.i.i.i.i ], [ %or.i.i.i.i.i7.i, %sw.bb22.i.i.i.i ], [ %77, %sw.bb18.i.i.i.i ], [ %retval.sroa.0.0.i.i10.i.i.i, %sw.bb12.i.i.i.i ], [ %or.i.i.i8.i.i.i.i, %sw.bb8.i.i.i.i ], [ %or.i.i.i4.i.i.i.i, %sw.bb4.i.i.i.i ], [ %or.i.i.i.i.i.i.i, %sw.bb.i.i.i.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i.i, %sw.bb.i.i.i.i ], [ %or.i.i.i4.i.i.i.i, %sw.bb4.i.i.i.i ], [ %or.i.i.i8.i.i.i.i, %sw.bb8.i.i.i.i ], [ %retval.sroa.0.0.i.i10.i.i.i, %sw.bb12.i.i.i.i ], [ %77, %sw.bb18.i.i.i.i ], [ %or.i.i.i.i.i7.i, %sw.bb22.i.i.i.i ], [ %or.i.i14.i.i.i.i, %sw.bb29.i.i.i.i ], [ -1970324836974592, %sw.bb36.i.i.i.i ], [ -1548112371908608, %sw.bb39.i.i.i.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i ]
   %78 = load ptr, ptr %topGCScope_.i.i, align 8
   %next_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %78, i64 192
   %79 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i.i, align 8
@@ -2015,7 +2015,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i: ; preds = %cond.fals
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit: ; preds = %for.body, %sw.bb3.i, %sw.bb6.i, %sw.bb9.i, %sw.bb13.i, %sw.bb19.i, %sw.bb23.i, %sw.bb27.i, %if.then.i.i36, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i
-  %retval.sroa.0.0.i33 = phi i32 [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i, %sw.bb9.i ], [ 15, %sw.bb6.i ], [ 14, %sw.bb3.i ], [ 7, %for.body ], [ %or.i.i16.i, %if.then.i.i36 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
+  %retval.sroa.0.0.i33 = phi i32 [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ 7, %for.body ], [ %or.i.i16.i, %if.then.i.i36 ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call33, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %17 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -2331,7 +2331,7 @@ default.unreachable:                              ; preds = %_ZNK6hermes2vm9Arra
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i47 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i, %sw.bb22.i ], [ %30, %sw.bb18.i ], [ %retval.sroa.0.0.i.i50, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit ]
+  %retval.sroa.0.0.i47 = phi i64 [ %or.i.i.i.i, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i50, %sw.bb12.i ], [ %30, %sw.bb18.i ], [ %or.i.i.i, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ], [ -1970324836974592, %sw.bb36.i ], [ -1548112371908608, %sw.bb39.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit ]
   %arrayPrototypeValues = getelementptr inbounds nuw i8, ptr %runtime, i64 600
   %31 = load i64, ptr %arrayPrototypeValues, align 8
   %cmp = icmp eq i64 %retval.sroa.0.0.i47, %31
@@ -2554,7 +2554,7 @@ sw.bb39.i96:                                      ; preds = %_ZNK6hermes2vm9Arra
   br label %if.end77.sink.split
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit132: ; preds = %sw.bb.i126, %sw.bb4.i121, %sw.bb8.i116, %sw.bb12.i110, %sw.bb18.i107, %sw.bb22.i103, %sw.bb29.i99
-  %retval.sroa.0.0.i97 = phi i64 [ %or.i.i14.i102, %sw.bb29.i99 ], [ %or.i.i.i106, %sw.bb22.i103 ], [ %59, %sw.bb18.i107 ], [ %retval.sroa.0.0.i.i115, %sw.bb12.i110 ], [ %or.i.i.i8.i120, %sw.bb8.i116 ], [ %or.i.i.i4.i125, %sw.bb4.i121 ], [ %or.i.i.i.i130, %sw.bb.i126 ]
+  %retval.sroa.0.0.i97 = phi i64 [ %or.i.i.i.i130, %sw.bb.i126 ], [ %or.i.i.i4.i125, %sw.bb4.i121 ], [ %or.i.i.i8.i120, %sw.bb8.i116 ], [ %retval.sroa.0.0.i.i115, %sw.bb12.i110 ], [ %59, %sw.bb18.i107 ], [ %or.i.i.i106, %sw.bb22.i103 ], [ %or.i.i14.i102, %sw.bb29.i99 ]
   store i64 %retval.sroa.0.0.i97, ptr %retval.0.i.i.i.i.i.i, align 8
   %shr.i.mask.i = and i64 %retval.sroa.0.0.i97, -140737488355328
   %cmp.i133 = icmp eq i64 %shr.i.mask.i, -1970324836974592
@@ -3170,7 +3170,7 @@ default.unreachable:                              ; preds = %_ZNK6hermes2vm9Arra
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i
-  %retval.sroa.0.0.i65 = phi i64 [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i, %sw.bb22.i ], [ %45, %sw.bb18.i ], [ %retval.sroa.0.0.i.i70, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i74, %sw.bb.i ]
+  %retval.sroa.0.0.i65 = phi i64 [ %or.i.i.i.i74, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i70, %sw.bb12.i ], [ %45, %sw.bb18.i ], [ %or.i.i.i, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ]
   %shr.i.mask.i = and i64 %retval.sroa.0.0.i65, -140737488355328
   %cmp.i75 = icmp eq i64 %shr.i.mask.i, -1970324836974592
   %spec.select = select i1 %cmp.i75, i64 -1688849860263936, i64 %retval.sroa.0.0.i65
@@ -3614,7 +3614,7 @@ default.unreachable:                              ; preds = %_ZN6hermes2vm8JSObj
   unreachable
 
 "_ZZN6hermes2vm22hermesBuiltinExportAllEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clES3_NS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i": ; preds = %sw.bb39.i.i.i.i, %sw.bb36.i.i.i.i, %sw.bb29.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb18.i.i.i.i, %sw.bb12.i.i.i.i, %sw.bb8.i.i.i.i, %sw.bb4.i.i.i.i, %sw.bb.i.i.i.i, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i
-  %retval.sroa.0.0.i.i.i.i = phi i64 [ -1548112371908608, %sw.bb39.i.i.i.i ], [ -1970324836974592, %sw.bb36.i.i.i.i ], [ %or.i.i14.i.i.i.i, %sw.bb29.i.i.i.i ], [ %or.i.i.i.i.i7.i, %sw.bb22.i.i.i.i ], [ %51, %sw.bb18.i.i.i.i ], [ %retval.sroa.0.0.i.i3.i.i.i, %sw.bb12.i.i.i.i ], [ %or.i.i.i8.i.i.i.i, %sw.bb8.i.i.i.i ], [ %or.i.i.i4.i.i.i.i, %sw.bb4.i.i.i.i ], [ %or.i.i.i.i.i.i.i, %sw.bb.i.i.i.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i.i, %sw.bb.i.i.i.i ], [ %or.i.i.i4.i.i.i.i, %sw.bb4.i.i.i.i ], [ %or.i.i.i8.i.i.i.i, %sw.bb8.i.i.i.i ], [ %retval.sroa.0.0.i.i3.i.i.i, %sw.bb12.i.i.i.i ], [ %51, %sw.bb18.i.i.i.i ], [ %or.i.i.i.i.i7.i, %sw.bb22.i.i.i.i ], [ %or.i.i14.i.i.i.i, %sw.bb29.i.i.i.i ], [ -1970324836974592, %sw.bb36.i.i.i.i ], [ -1548112371908608, %sw.bb39.i.i.i.i ], [ -1688849860263936, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23NamedPropertyDescriptorE.exit.i.i.i ]
   store i64 %retval.sroa.0.0.i.i.i.i, ptr %retval.0.i.i.i.i.i.i, align 8
   %call.i.i.i.i = tail call i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr nonnull %retval.sroa.0.0.i5558, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %40, i32 315, ptr nonnull %retval.0.i.i.i.i.i.i, i32 0) #12
   %bf.shl.i.i.mask.i.i.i65 = and i32 %call.i.i.i.i, 255
@@ -3966,8 +3966,8 @@ sw.bb32:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb, %sw.default
-  %retval.sroa.0.0 = phi i32 [ %call8, %sw.default ], [ 1, %sw.bb32 ], [ 1, %sw.bb29 ], [ 1, %sw.bb26 ], [ 1, %sw.bb23 ], [ 1, %sw.bb20 ], [ 1, %sw.bb17 ], [ 1, %sw.bb14 ], [ 1, %sw.bb11 ], [ 1, %sw.bb ], [ 0, %entry ]
-  %retval.sroa.12.0 = phi i64 [ undef, %sw.default ], [ %agg.tmp33.sroa.0.0.copyload, %sw.bb32 ], [ %agg.tmp30.sroa.0.0.copyload, %sw.bb29 ], [ %agg.tmp27.sroa.0.0.copyload, %sw.bb26 ], [ %agg.tmp24.sroa.0.0.copyload, %sw.bb23 ], [ %agg.tmp21.sroa.0.0.copyload, %sw.bb20 ], [ %agg.tmp18.sroa.0.0.copyload, %sw.bb17 ], [ %agg.tmp15.sroa.0.0.copyload, %sw.bb14 ], [ %agg.tmp12.sroa.0.0.copyload, %sw.bb11 ], [ %agg.tmp9.sroa.0.0.copyload, %sw.bb ], [ undef, %entry ]
+  %retval.sroa.0.0 = phi i32 [ %call8, %sw.default ], [ 1, %sw.bb ], [ 1, %sw.bb11 ], [ 1, %sw.bb14 ], [ 1, %sw.bb17 ], [ 1, %sw.bb20 ], [ 1, %sw.bb23 ], [ 1, %sw.bb26 ], [ 1, %sw.bb29 ], [ 1, %sw.bb32 ], [ 0, %entry ]
+  %retval.sroa.12.0 = phi i64 [ undef, %sw.default ], [ %agg.tmp9.sroa.0.0.copyload, %sw.bb ], [ %agg.tmp12.sroa.0.0.copyload, %sw.bb11 ], [ %agg.tmp15.sroa.0.0.copyload, %sw.bb14 ], [ %agg.tmp18.sroa.0.0.copyload, %sw.bb17 ], [ %agg.tmp21.sroa.0.0.copyload, %sw.bb20 ], [ %agg.tmp24.sroa.0.0.copyload, %sw.bb23 ], [ %agg.tmp27.sroa.0.0.copyload, %sw.bb26 ], [ %agg.tmp30.sroa.0.0.copyload, %sw.bb29 ], [ %agg.tmp33.sroa.0.0.copyload, %sw.bb32 ], [ undef, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.12.0, 1
   ret { i32, i64 } %.fca.1.insert

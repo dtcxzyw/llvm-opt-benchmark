@@ -483,7 +483,7 @@ define internal i32 @dissect_rtps_virtual_transport(ptr noundef %0, ptr noundef 
   br label %dissect_parameter_transport_rtps_type.exit.i
 
 dissect_parameter_transport_rtps_type.exit.i:     ; preds = %182, %171, %166, %157, %125, %116, %84, %69, %57, %56, %49
-  %.0.i.i = phi i32 [ %53, %49 ], [ %.05262.i, %56 ], [ %193, %182 ], [ %181, %171 ], [ %170, %166 ], [ %165, %157 ], [ %135, %125 ], [ %124, %116 ], [ %94, %84 ], [ %83, %69 ], [ %68, %57 ]
+  %.0.i.i = phi i32 [ %53, %49 ], [ %.05262.i, %56 ], [ %68, %57 ], [ %83, %69 ], [ %94, %84 ], [ %124, %116 ], [ %135, %125 ], [ %165, %157 ], [ %170, %166 ], [ %181, %171 ], [ %193, %182 ]
   %194 = add nuw nsw i32 %.05361.i, 1
   %exitcond.not.i = icmp eq i32 %194, 10
   br i1 %exitcond.not.i, label %.preheader.i, label %49, !llvm.loop !6

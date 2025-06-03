@@ -711,7 +711,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br label %fetch_att.exit159
 
 fetch_att.exit159:                                ; preds = %36, %39, %42, %45, %51, %238, %232, %229, %226, %223
-  %.1 = phi i64 [ %233, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ %239, %238 ], [ %52, %51 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ]
+  %.1 = phi i64 [ %225, %223 ], [ %228, %226 ], [ %231, %229 ], [ %233, %232 ], [ %239, %238 ], [ %52, %51 ], [ %46, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
   ret i64 %.1
 }
 
@@ -903,7 +903,7 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %84, %87, %90, %93, %99
-  %.0.i = phi i64 [ %94, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %100, %99 ]
+  %.0.i = phi i64 [ %86, %84 ], [ %89, %87 ], [ %92, %90 ], [ %94, %93 ], [ %100, %99 ]
   %101 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %.0.i, ptr %101, align 8
   %102 = load i16, ptr %81, align 4

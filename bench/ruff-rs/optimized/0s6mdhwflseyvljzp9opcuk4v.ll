@@ -396,7 +396,7 @@ default.unreachable31:                            ; preds = %54
   br i1 %.not, label %144, label %145, !prof !6
 
 65:                                               ; preds = %175, %_ZN4core4iter6traits8iterator8Iterator4fold17h5d0c6c1925357fdfE.exit, %59, %55
-  %.sroa.5.0 = phi i64 [ %58, %55 ], [ %176, %175 ], [ %142, %_ZN4core4iter6traits8iterator8Iterator4fold17h5d0c6c1925357fdfE.exit ], [ %62, %59 ]
+  %.sroa.5.0 = phi i64 [ %58, %55 ], [ %62, %59 ], [ %142, %_ZN4core4iter6traits8iterator8Iterator4fold17h5d0c6c1925357fdfE.exit ], [ %176, %175 ]
   %66 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %67 = insertvalue { i64, i64 } %66, i64 %.sroa.5.0, 1
   ret { i64, i64 } %67

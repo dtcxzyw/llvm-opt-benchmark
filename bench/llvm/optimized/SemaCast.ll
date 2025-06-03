@@ -2220,7 +2220,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread334.i: ; preds = %_Z
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %965, %.lr.ph.i.i136
-  %.1.i.i.i = phi ptr [ %961, %.lr.ph.i.i136 ], [ %966, %965 ]
+  %.1.i.i.i = phi ptr [ %966, %965 ], [ %961, %.lr.ph.i.i136 ]
   %967 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %968 = load i24, ptr %967, align 16
   %969 = and i24 %968, 1048576
@@ -6450,7 +6450,7 @@ _ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit266: ; preds = 
   br label %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit.thread
 
 _ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_113CastOperation28checkNonOverloadPlaceholdersEv.exit.i, %_ZN12_GLOBAL__N_113CastOperation15CheckStaticCastEv.exit, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit.thread279, %_ZN12_GLOBAL__N_113CastOperation16CheckDynamicCastEv.exit, %_ZN12_GLOBAL__N_113CastOperation14CheckConstCastEv.exit, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit.thread, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit266, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit203, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit155, %_ZN5clanglsIA13_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit108, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit
-  %.sroa.053.0 = phi i64 [ %3022, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit266 ], [ %2627, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit203 ], [ 1, %_ZN5clanglsIA13_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ %1939, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit155 ], [ %806, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit108 ], [ %453, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit.thread ], [ 1, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation14CheckConstCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation16CheckDynamicCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit.thread279 ], [ 1, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation15CheckStaticCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation28checkNonOverloadPlaceholdersEv.exit.i ]
+  %.sroa.053.0 = phi i64 [ %453, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit ], [ %806, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit108 ], [ 1, %_ZN5clanglsIA13_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ %1939, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit155 ], [ %2627, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit203 ], [ %3022, %_ZN12_GLOBAL__N_113CastOperation8completeEPN5clang8CastExprE.exit266 ], [ 1, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit.thread ], [ 1, %_ZN12_GLOBAL__N_113CastOperation18CheckAddrspaceCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation14CheckConstCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation16CheckDynamicCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit.thread279 ], [ 1, %_ZN12_GLOBAL__N_113CastOperation20CheckReinterpretCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation15CheckStaticCastEv.exit ], [ 1, %_ZN12_GLOBAL__N_113CastOperation28checkNonOverloadPlaceholdersEv.exit.i ]
   %3023 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %3024 = load ptr, ptr %3023, align 8, !tbaa !749
   %3025 = getelementptr inbounds nuw i8, ptr %107, i64 64
@@ -8058,7 +8058,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v(
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -8091,7 +8091,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v(ptr n
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -12937,7 +12937,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5cl
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %30, %.lr.ph.i
-  %.1.i.i = phi ptr [ %26, %.lr.ph.i ], [ %31, %30 ]
+  %.1.i.i = phi ptr [ %31, %30 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %33 = load i24, ptr %32, align 16
   %34 = and i24 %33, 1048576
@@ -15016,7 +15016,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread64: ; preds = %_ZNK5
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %71, %.lr.ph.i
-  %.1.i.i = phi ptr [ %67, %.lr.ph.i ], [ %72, %71 ]
+  %.1.i.i = phi ptr [ %72, %71 ], [ %67, %.lr.ph.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %74 = load i24, ptr %73, align 16
   %75 = and i24 %74, 1048576
@@ -15599,8 +15599,8 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread391: ; preds = %_ZNK
 87:                                               ; preds = %81
   br label %88
 
-88:                                               ; preds = %81, %86, %85, %87
-  %.0.ph = phi ptr [ @.str.4, %87 ], [ @.str.2, %85 ], [ @.str.3, %86 ], [ @.str.1, %81 ]
+88:                                               ; preds = %81, %87, %85, %86
+  %.0.ph = phi ptr [ @.str.3, %86 ], [ @.str.2, %85 ], [ @.str.4, %87 ], [ @.str.1, %81 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %21) #18
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i208 = load i32, ptr %17, align 8, !tbaa !713
@@ -16078,7 +16078,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %315, %.lr.ph.i
-  %.1.i.i = phi ptr [ %311, %.lr.ph.i ], [ %316, %315 ]
+  %.1.i.i = phi ptr [ %316, %315 ], [ %311, %.lr.ph.i ]
   %317 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %318 = load i24, ptr %317, align 16
   %319 = and i24 %318, 1048576
@@ -16132,8 +16132,8 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5cl
   br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %335, %343
-  %.0.copyload.i.i.i.i.i227 = phi i64 [ %329, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %.0.copyload.i.i.i.i.i227.pre, %343 ], [ %329, %335 ]
-  %.1.i226 = phi ptr [ %332, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %344, %343 ], [ null, %335 ]
+  %.0.copyload.i.i.i.i.i227 = phi i64 [ %.0.copyload.i.i.i.i.i227.pre, %343 ], [ %329, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %329, %335 ]
+  %.1.i226 = phi ptr [ %344, %343 ], [ %332, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ null, %335 ]
   %345 = and i64 %.0.copyload.i.i.i.i.i227, -16
   %346 = inttoptr i64 %345 to ptr
   %347 = load ptr, ptr %346, align 16, !tbaa !708
@@ -16158,7 +16158,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %_ZNK5clang
   br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit231
 
 _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit231: ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %358
-  %.1.i230 = phi ptr [ %347, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ %359, %358 ]
+  %.1.i230 = phi ptr [ %359, %358 ], [ %347, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ]
   %360 = icmp ne ptr %.1.i226, null
   %361 = icmp ne ptr %.1.i230, null
   %or.cond = and i1 %360, %361
@@ -16198,7 +16198,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit231._ZNK5clang4Type5get
   br label %_ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit
 
 _ZNK5clang17MemberPointerType23isMemberFunctionPointerEv.exit: ; preds = %362, %377
-  %.1.i.i.i = phi i1 [ true, %362 ], [ %379, %377 ]
+  %.1.i.i.i = phi i1 [ %379, %377 ], [ true, %362 ]
   %380 = getelementptr inbounds nuw i8, ptr %.1.i230, i64 32
   %.0.copyload.i.i.i.i.i.i233 = load i64, ptr %380, align 8
   %381 = and i64 %.0.copyload.i.i.i.i.i.i233, -16
@@ -16592,7 +16592,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %546
     i8 11, label %577
   ]
 
-577:                                              ; preds = %569, %569, %569, %569, %563, %555, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+577:                                              ; preds = %569, %569, %569, %569, %555, %563, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   br label %.critedge15
 
 578:                                              ; preds = %544
@@ -17493,8 +17493,8 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit.i:        ; preds = %154, %151, %_ZNSt4p
   br label %_ZL25tryDiagnoseOverloadedCastRN5clang4SemaE8CastTypeNS_11SourceRangeEPNS_4ExprENS_8QualTypeEb.exit
 
 155:                                              ; preds = %100, %97, %93
-  %.024.i = phi i32 [ 0, %93 ], [ 2, %100 ], [ 0, %97 ]
-  %.022.i = phi i32 [ 0, %93 ], [ 4451, %100 ], [ %..i, %97 ]
+  %.024.i = phi i32 [ 0, %93 ], [ 0, %97 ], [ 2, %100 ]
+  %.022.i = phi i32 [ 0, %93 ], [ %..i, %97 ], [ 4451, %100 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #18
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::PartialDiagnostic") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %156, i32 noundef %.022.i) #18
@@ -19080,7 +19080,7 @@ _ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit98.thread23: ; preds = %_ZNK5
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit98.thread23, %136
-  %.1.i = phi ptr [ %132, %_ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit98.thread23 ], [ %137, %136 ]
+  %.1.i = phi ptr [ %137, %136 ], [ %132, %_ZNK5clang4Type27isMemberFunctionPointerTypeEv.exit98.thread23 ]
   %138 = and i64 %1, -16
   %139 = inttoptr i64 %138 to ptr
   %140 = load ptr, ptr %139, align 16, !tbaa !708
@@ -19160,7 +19160,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread8.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %182, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %178, %.lr.ph.i.i ], [ %183, %182 ]
+  %.1.i.i.i = phi ptr [ %183, %182 ], [ %178, %.lr.ph.i.i ]
   %184 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %185 = load i24, ptr %184, align 16
   %186 = and i24 %185, 1048576
@@ -19198,7 +19198,7 @@ _ZNK5clang4Type23isFunctionReferenceTypeEv.exit:  ; preds = %_ZNK5clang4Type6cas
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit122
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit122: ; preds = %198, %203
-  %.1.i121 = phi ptr [ %199, %198 ], [ %204, %203 ]
+  %.1.i121 = phi ptr [ %204, %203 ], [ %199, %198 ]
   %205 = load ptr, ptr %158, align 16, !tbaa !708
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load i8, ptr %206, align 16
@@ -19249,7 +19249,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i133
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i133: ; preds = %228, %.lr.ph.i.i129
-  %.1.i.i.i134 = phi ptr [ %224, %.lr.ph.i.i129 ], [ %229, %228 ]
+  %.1.i.i.i134 = phi ptr [ %229, %228 ], [ %224, %.lr.ph.i.i129 ]
   %230 = getelementptr inbounds nuw i8, ptr %.1.i.i.i134, i64 16
   %231 = load i24, ptr %230, align 16
   %232 = and i24 %231, 1048576
@@ -19627,7 +19627,7 @@ select.unfold96.i:                                ; preds = %select.unfold96.fol
   br label %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit.i"
 
 "_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit.i": ; preds = %76, %74
-  %.sroa.03.1.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %74 ], [ %78, %76 ]
+  %.sroa.03.1.i.i = phi i64 [ %78, %76 ], [ %.sroa.0.0.copyload.i.i.i, %74 ]
   store i64 %.sroa.03.1.i.i, ptr %9, align 8, !tbaa !3
   %.sroa.07.0.copyload.i = load i64, ptr %10, align 8, !tbaa !3
   %79 = call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %35, i64 %.sroa.07.0.copyload.i) #18
@@ -19647,7 +19647,7 @@ select.unfold96.i:                                ; preds = %select.unfold96.fol
   br label %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_0clES2_.exit.i"
 
 "_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_0clES2_.exit.i": ; preds = %82, %80
-  %.sroa.03.1.i68.i = phi i64 [ %.sroa.0.0.copyload.i.i67.i, %80 ], [ %86, %82 ]
+  %.sroa.03.1.i68.i = phi i64 [ %86, %82 ], [ %.sroa.0.0.copyload.i.i67.i, %80 ]
   store i64 %.sroa.03.1.i68.i, ptr %10, align 8, !tbaa !3
   %87 = icmp eq i32 %.0.i.ph.i, %.0.i62.ph.i
   %88 = select i1 %87, i32 2, i32 3
@@ -19729,7 +19729,7 @@ select.unfold106.i:                               ; preds = %112, %112, %112
   br label %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit87.i"
 
 "_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_1clES2_.exit87.i": ; preds = %116, %114
-  %.sroa.03.1.i86.i = phi i64 [ %.sroa.0.0.copyload.i.i85.i, %114 ], [ %118, %116 ]
+  %.sroa.03.1.i86.i = phi i64 [ %118, %116 ], [ %.sroa.0.0.copyload.i.i85.i, %114 ]
   store i64 %.sroa.03.1.i86.i, ptr %9, align 8, !tbaa !3
   %.sroa.0.0.copyload.i79 = load i64, ptr %10, align 8, !tbaa !3
   %119 = call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %35, i64 %.sroa.0.0.copyload.i79) #18
@@ -19749,7 +19749,7 @@ select.unfold106.i:                               ; preds = %112, %112, %112
   br label %"_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_0clES2_.exit83.i"
 
 "_ZZL28unwrapCastAwayConstnessLevelRN5clang10ASTContextERNS_8QualTypeES3_ENK3$_0clES2_.exit83.i": ; preds = %122, %120
-  %.sroa.03.1.i90.i = phi i64 [ %.sroa.0.0.copyload.i.i89.i, %120 ], [ %126, %122 ]
+  %.sroa.03.1.i90.i = phi i64 [ %126, %122 ], [ %.sroa.0.0.copyload.i.i89.i, %120 ]
   %.0.copyload.i.i.i.i.i80 = load i64, ptr %10, align 8
   %127 = and i64 %.0.copyload.i.i.i.i.i80, -16
   %128 = inttoptr i64 %127 to ptr
@@ -19998,7 +19998,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   br label %.thread
 
 .thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %23, %16 ], [ %25, %24 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 
@@ -20870,7 +20870,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit76:  ; preds = %58, %_ZNK5clang4Typ
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %82, %86
-  %.1.i = phi ptr [ %83, %82 ], [ %87, %86 ]
+  %.1.i = phi ptr [ %87, %86 ], [ %83, %82 ]
   %88 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %.sroa.0.0.copyload.i79 = load i64, ptr %88, align 16, !tbaa !3
   %89 = and i64 %.sroa.0.0.copyload.i79, -16
@@ -20887,7 +20887,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %82, %86
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %95
-  %.1.i81 = phi ptr [ %91, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ %96, %95 ]
+  %.1.i81 = phi ptr [ %96, %95 ], [ %91, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ]
   %97 = load ptr, ptr %27, align 16, !tbaa !708
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i8, ptr %98, align 16
@@ -20899,7 +20899,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Typ
   br label %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85
 
 _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85: ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit, %100
-  %.1.i84 = phi ptr [ %97, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ], [ %101, %100 ]
+  %.1.i84 = phi ptr [ %101, %100 ], [ %97, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit ]
   %102 = getelementptr inbounds nuw i8, ptr %.1.i84, i64 32
   %.sroa.0.0.copyload.i86 = load i64, ptr %102, align 16, !tbaa !3
   %103 = and i64 %.sroa.0.0.copyload.i86, -16
@@ -20916,7 +20916,7 @@ _ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85: ; preds = %_ZNK5clang4Ty
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit90
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit90: ; preds = %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85, %109
-  %.1.i89 = phi ptr [ %105, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85 ], [ %110, %109 ]
+  %.1.i89 = phi ptr [ %110, %109 ], [ %105, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit85 ]
   %111 = getelementptr inbounds nuw i8, ptr %.1.i81, i64 16
   %112 = load i64, ptr %111, align 16
   %113 = trunc i64 %112 to i32
@@ -23736,7 +23736,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type21isFunctionNoProt
   br label %_ZNK5clang4Type5getAsINS_19FunctionNoProtoTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_19FunctionNoProtoTypeEEEPKT_v.exit: ; preds = %1, %4, %12
-  %.1.i = phi i1 [ true, %1 ], [ %14, %12 ], [ false, %4 ]
+  %.1.i = phi i1 [ %14, %12 ], [ true, %1 ], [ false, %4 ]
   ret i1 %.1.i
 }
 
@@ -23835,7 +23835,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread30.i: ; preds = %_ZN
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %63, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %59, %.lr.ph.i.i ], [ %64, %63 ]
+  %.1.i.i.i = phi ptr [ %64, %63 ], [ %59, %.lr.ph.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %66 = load i24, ptr %65, align 16
   %67 = and i24 %66, 1048576
@@ -23924,7 +23924,7 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread73.i: ; preds 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i161
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i161: ; preds = %112, %.lr.ph.i.i157
-  %.1.i.i.i162 = phi ptr [ %108, %.lr.ph.i.i157 ], [ %113, %112 ]
+  %.1.i.i.i162 = phi ptr [ %113, %112 ], [ %108, %.lr.ph.i.i157 ]
   %114 = getelementptr inbounds nuw i8, ptr %.1.i.i.i162, i64 16
   %115 = load i24, ptr %114, align 16
   %116 = and i24 %115, 1048576
@@ -24084,7 +24084,7 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit.i:             ; preds = %.lr.ph.i.i.i.i.i
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i51.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i51.i: ; preds = %180, %.lr.ph.i47.i
-  %.1.i.i52.i = phi ptr [ %176, %.lr.ph.i47.i ], [ %181, %180 ]
+  %.1.i.i52.i = phi ptr [ %181, %180 ], [ %176, %.lr.ph.i47.i ]
   %182 = getelementptr inbounds nuw i8, ptr %.1.i.i52.i, i64 16
   %183 = load i24, ptr %182, align 16
   %184 = and i24 %183, 1048576
@@ -27123,7 +27123,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v(p
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -27444,7 +27444,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_10MatrixTypeEEEPKT_v(p
   br label %15
 
 15:                                               ; preds = %1, %5, %13
-  %.1 = phi ptr [ %0, %1 ], [ %14, %13 ], [ null, %5 ]
+  %.1 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.1
 }
 

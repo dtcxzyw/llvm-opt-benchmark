@@ -724,23 +724,23 @@ define void @_ZN8grep_cli10decompress19DecompressionReader12new_passthru17h4016e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !93
   %6 = load i32, ptr %5, align 8, !range !97, !noundef !8
   %trunc = trunc nuw i32 %6 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !8
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %10 = load i32, ptr %9, align 4, !range !98
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4, !range !98
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %12, label %11
 
 11:                                               ; preds = %3
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %10, ptr %.sroa.01.sroa.4.0..sroa_idx, align 4
+  store i32 %8, ptr %.sroa.01.sroa.4.0..sroa_idx, align 4
   br label %14
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8
   br label %14
 
 14:                                               ; preds = %12, %11
@@ -769,7 +769,7 @@ define void @"_ZN75_$LT$grep_cli..decompress..DecompressionReader$u20$as$u20$std
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = load i32, ptr %1, align 8, !range !99, !noundef !8
   %7 = icmp eq i32 %6, 2
-  br i1 %7, label %28, label %8
+  br i1 %7, label %29, label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -789,44 +789,44 @@ define void @"_ZN75_$LT$grep_cli..decompress..DecompressionReader$u20$as$u20$std
   %14 = load i64, ptr %5, align 8, !range !109, !noalias !108, !noundef !8
   %trunc.i = trunc nuw i64 %14 to i1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load ptr, ptr %15, align 8, !noalias !108
-  %.cast.i = ptrtoint ptr %16 to i64
+  %16 = load i64, ptr %15, align 8, !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !108
   br i1 %trunc.i, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = icmp eq ptr %16, null
-  br i1 %18, label %21, label %26
+  %18 = icmp eq i64 %16, 0
+  br i1 %18, label %22, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %20, align 8, !alias.scope !100, !noalias !107
+  %20 = inttoptr i64 %16 to ptr
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %20, ptr %21, align 8, !alias.scope !100, !noalias !107
   store i64 1, ptr %0, align 8, !alias.scope !100, !noalias !107
   br label %"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit"
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i8 1, ptr %22, align 4, !alias.scope !103, !noalias !105
-  %23 = tail call noundef ptr @_ZN8grep_cli7process13CommandReader5close17h858076d32dcdd6c7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !100
-  %24 = icmp ne ptr %23, null
-  %spec.select.i.i = zext i1 %24 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %25, align 8, !alias.scope !110, !noalias !107
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  store i8 1, ptr %23, align 4, !alias.scope !103, !noalias !105
+  %24 = tail call noundef ptr @_ZN8grep_cli7process13CommandReader5close17h858076d32dcdd6c7E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !100
+  %25 = icmp ne ptr %24, null
+  %spec.select.i.i = zext i1 %25 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %26, align 8, !alias.scope !110, !noalias !107
   store i64 %spec.select.i.i, ptr %0, align 8, !alias.scope !110, !noalias !107
   br label %"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit"
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.cast.i, ptr %27, align 8, !alias.scope !100, !noalias !107
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %28, align 8, !alias.scope !100, !noalias !107
   store i64 0, ptr %0, align 8, !alias.scope !100, !noalias !107
   br label %"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit"
 
-28:                                               ; preds = %4
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17hf2fa0a834198ea80E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 4 dereferenceable(4) %29, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+29:                                               ; preds = %4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  tail call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17hf2fa0a834198ea80E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 4 dereferenceable(4) %30, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   br label %"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit"
 
-"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit": ; preds = %26, %21, %19, %12, %28
+"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E.exit": ; preds = %27, %22, %19, %12, %29
   ret void
 }
 
@@ -979,8 +979,8 @@ define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_com
           to label %.thread unwind label %41
 
 .thread:                                          ; preds = %43, %30, %44
-  %.pn23 = phi { ptr, i32 } [ %45, %44 ], [ %31, %30 ], [ %22, %43 ]
-  resume { ptr, i32 } %.pn23
+  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %31, %30 ], [ %22, %43 ]
+  resume { ptr, i32 } %.pn.pn
 
 44:                                               ; preds = %5
   %45 = landingpad { ptr, i32 }

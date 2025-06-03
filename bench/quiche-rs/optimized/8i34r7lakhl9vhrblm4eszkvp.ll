@@ -4651,7 +4651,7 @@ define noundef nonnull align 8 dereferenceable(656) ptr @"_ZN91_$LT$quiche..reco
   unreachable
 
 15:                                               ; preds = %1, %12, %10, %8
-  %.sroa.0.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %0, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %0, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -4691,7 +4691,7 @@ define noundef nonnull align 8 dereferenceable(656) ptr @"_ZN94_$LT$quiche..reco
   unreachable
 
 15:                                               ; preds = %1, %12, %10, %8
-  %.sroa.0.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %0, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %0, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -5093,7 +5093,7 @@ _ZN6quiche8recovery11gcongestion4bbr25BBRv218on_exit_quiescence17h09069e6919e2df
   unreachable
 
 "_ZN94_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h112ea0c0987dc5fcE.exit": ; preds = %_ZN6quiche8recovery11gcongestion4bbr25BBRv218on_exit_quiescence17h09069e6919e2df38E.exit, %24, %26, %28
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %0, %_ZN6quiche8recovery11gcongestion4bbr25BBRv218on_exit_quiescence17h09069e6919e2df38E.exit ]
+  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %0, %_ZN6quiche8recovery11gcongestion4bbr25BBRv218on_exit_quiescence17h09069e6919e2df38E.exit ]
   tail call void @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel14on_packet_sent17h078ee72357ae3b65E(ptr noalias noundef nonnull align 8 dereferenceable(656) %.sroa.0.0.i, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %7)
   ret void
 
@@ -5227,7 +5227,7 @@ define void @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$q
   unreachable
 
 "_ZN119_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$quiche..recovery..gcongestion..bbr2..mode..ModeImpl$GT$24is_probing_for_bandwidth17hcbd2cf223a975519E.exit": ; preds = %27, %30, %33, %36
-  %.sroa.0.0.shrunk.i = phi i1 [ %37, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %4, ptr %39, align 8, !alias.scope !1026
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -5281,7 +5281,7 @@ define void @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$q
   unreachable
 
 "_ZN94_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h112ea0c0987dc5fcE.exit": ; preds = %"_ZN119_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$quiche..recovery..gcongestion..bbr2..mode..ModeImpl$GT$24is_probing_for_bandwidth17hcbd2cf223a975519E.exit", %54, %56, %58
-  %.sroa.0.0.i = phi ptr [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %0, %"_ZN119_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$quiche..recovery..gcongestion..bbr2..mode..ModeImpl$GT$24is_probing_for_bandwidth17hcbd2cf223a975519E.exit" ]
+  %.sroa.0.0.i = phi ptr [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %0, %"_ZN119_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$quiche..recovery..gcongestion..bbr2..mode..ModeImpl$GT$24is_probing_for_bandwidth17hcbd2cf223a975519E.exit" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 776
   call void @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel25on_congestion_event_start17h26697837d7f3678aE(ptr noalias noundef nonnull align 8 dereferenceable(656) %.sroa.0.0.i, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(136) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %61)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5813,7 +5813,7 @@ _ZN6quiche8recovery11gcongestion4bbr25BBRv228get_target_congestion_window17h119d
   unreachable
 
 _ZN6quiche8recovery11gcongestion4bbr25BBRv224update_congestion_window17h8877ce31938b3a14E.exit: ; preds = %238, %240, %242, %244
-  %.pn.i.i = phi { i64, i64 } [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ]
+  %.pn.i.i = phi { i64, i64 } [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ %245, %244 ]
   %247 = extractvalue { i64, i64 } %.pn.i.i, 0
   %248 = extractvalue { i64, i64 } %.pn.i.i, 1
   %249 = load i64, ptr %19, align 8, !alias.scope !1092, !noundef !13
@@ -5923,7 +5923,7 @@ define void @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$q
   unreachable
 
 "_ZN94_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h112ea0c0987dc5fcE.exit": ; preds = %2, %9, %11, %13
-  %.sroa.0.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %0, %2 ]
+  %.sroa.0.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %0, %2 ]
   tail call void @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18on_packet_neutered17h13e22ecdf66d0608E(ptr noalias noundef nonnull align 8 dereferenceable(656) %.sroa.0.0.i, i64 noundef %1)
   ret void
 }
@@ -5998,7 +5998,7 @@ define noundef i64 @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$a
   unreachable
 
 "_ZN91_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0ce56462a52d0a19E.exit": ; preds = %2, %9, %11, %13
-  %.sroa.0.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %0, %2 ]
+  %.sroa.0.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %0, %2 ]
   %16 = tail call noundef i64 @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel18bandwidth_estimate17h953e863565e5c284E(ptr noalias noundef nonnull readonly align 8 dereferenceable(656) %.sroa.0.0.i)
   ret i64 %16
 }
@@ -6082,7 +6082,7 @@ define void @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$q
   unreachable
 
 "_ZN94_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h112ea0c0987dc5fcE.exit": ; preds = %5, %12, %14, %16
-  %.sroa.0.0.i = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %0, %5 ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %0, %5 ]
   tail call void @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel14on_app_limited17hf82c35702848c6cdE(ptr noalias noundef nonnull align 8 dereferenceable(656) %.sroa.0.0.i)
   br label %19
 
@@ -7151,8 +7151,8 @@ define { ptr, i64 } @"_ZN152_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode
   br label %19
 
 19:                                               ; preds = %1, %18, %16, %14, %12
-  %.sroa.6.0 = phi i64 [ 48, %18 ], [ 47, %16 ], [ 45, %14 ], [ 47, %12 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.93, %18 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.92, %16 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.91, %14 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.90, %12 ], [ null, %1 ]
+  %.sroa.6.0 = phi i64 [ 47, %12 ], [ 45, %14 ], [ 47, %16 ], [ 48, %18 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.90, %12 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.91, %14 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.92, %16 ], [ @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.93, %18 ], [ null, %1 ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %21

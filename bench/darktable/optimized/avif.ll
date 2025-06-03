@@ -168,8 +168,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %38
 
 38:                                               ; preds = %35, %31, %27, %30, %37, %12
-  %39 = phi i1 [ false, %12 ], [ false, %37 ], [ false, %27 ], [ true, %30 ], [ true, %31 ], [ false, %35 ]
-  %.0233 = phi i32 [ 0, %12 ], [ 4, %37 ], [ 0, %27 ], [ 1, %30 ], [ 1, %31 ], [ %., %35 ]
+  %39 = phi i1 [ false, %12 ], [ false, %27 ], [ true, %30 ], [ false, %37 ], [ true, %31 ], [ false, %35 ]
+  %.0233 = phi i32 [ 0, %12 ], [ 0, %27 ], [ 1, %30 ], [ 4, %37 ], [ 1, %31 ], [ %., %35 ]
   %40 = tail call ptr @avifImageCreate(i32 noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %.0233) #17
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread302, label %42

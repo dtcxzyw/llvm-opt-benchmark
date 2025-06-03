@@ -1418,7 +1418,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit223: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #20
   br label %440
 
-440:                                              ; preds = %38, %39, %40, %41, %42, %.critedge, %216, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit223
+440:                                              ; preds = %216, %.critedge, %42, %41, %40, %39, %38, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit223
   ret void
 
 441:                                              ; preds = %394, %396, %.body148, %425, %.body139, %392
@@ -13725,8 +13725,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %.critedge, %75, %81
   %94 = call i64 @_ZN4cvc58internal4prop9CnfStream11convertAtomENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(352) %93, ptr noundef nonnull %16)
   br label %95
 
-95:                                               ; preds = %41, %_ZN4cvc58internal8TypeNodeD2Ev.exit, %92, %39, %37, %35, %33, %31, %21
-  %.sroa.059.0.sink = phi i64 [ %24, %21 ], [ %.sroa.04.069, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %49, %41 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %94, %92 ]
+95:                                               ; preds = %41, %_ZN4cvc58internal8TypeNodeD2Ev.exit, %92, %31, %33, %35, %37, %39, %21
+  %.sroa.059.0.sink = phi i64 [ %24, %21 ], [ %49, %41 ], [ %.sroa.04.069, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %94, %92 ]
   %96 = zext i1 %2 to i64
   %spec.select74 = xor i64 %.sroa.059.0.sink, %96
   ret i64 %spec.select74

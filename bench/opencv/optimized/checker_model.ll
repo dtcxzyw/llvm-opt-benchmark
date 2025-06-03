@@ -1160,7 +1160,7 @@ _ZNSt6vectorIfSaIfEE6assignIPKfvEEvT_S5_.exit77:  ; preds = %.lr.ph
   ret void
 
 339:                                              ; preds = %337, %_ZNSt6vectorIfSaIfEED2Ev.exit75, %229, %_ZNSt6vectorIfSaIfEED2Ev.exit54, %121, %_ZNSt6vectorIfSaIfEED2Ev.exit34, %101
-  %.pn30 = phi { ptr, i32 } [ %338, %337 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit75 ], [ %102, %101 ], [ %230, %229 ], [ %.pn26, %_ZNSt6vectorIfSaIfEED2Ev.exit54 ], [ %122, %121 ], [ %.pn28, %_ZNSt6vectorIfSaIfEED2Ev.exit34 ]
+  %.pn30 = phi { ptr, i32 } [ %122, %121 ], [ %.pn28, %_ZNSt6vectorIfSaIfEED2Ev.exit34 ], [ %102, %101 ], [ %230, %229 ], [ %.pn26, %_ZNSt6vectorIfSaIfEED2Ev.exit54 ], [ %338, %337 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit75 ]
   call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #32
   %340 = load ptr, ptr %11, align 8, !tbaa !3
   %.not.i.i.i78 = icmp eq ptr %340, null

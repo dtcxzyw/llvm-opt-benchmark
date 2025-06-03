@@ -2386,7 +2386,7 @@ _ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit15: ; preds = 
   br label %71
 
 71:                                               ; preds = %58, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit15, %26
-  %.1 = phi i32 [ %59, %58 ], [ 0, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit15 ], [ %33, %26 ]
+  %.1 = phi i32 [ %33, %26 ], [ %59, %58 ], [ 0, %_ZN6icu_776number4impl17ParsedPatternInfo11ParserState4peekEv.exit15 ]
   %72 = load i32, ptr %4, align 8, !tbaa !32
   %73 = load ptr, ptr %3, align 8, !tbaa !33
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -4095,8 +4095,8 @@ _ZN6icu_7713UnicodeString6insertEiDs.exit236:     ; preds = %453
   br label %.loopexit.split-lp267
 
 471:                                              ; preds = %_ZN6icu_7713UnicodeString6insertEiDs.exit236, %468, %444, %433, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionE3getER10UErrorCode.exit
-  %.1162 = phi i32 [ %178, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionE3getER10UErrorCode.exit ], [ %178, %468 ], [ %178, %_ZN6icu_7713UnicodeString6insertEiDs.exit236 ], [ %446, %444 ], [ %435, %433 ]
-  %.2 = phi i32 [ %.1.lcssa, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionE3getER10UErrorCode.exit ], [ %.1.lcssa, %468 ], [ %.1.lcssa, %_ZN6icu_7713UnicodeString6insertEiDs.exit236 ], [ %447, %444 ], [ %436, %433 ]
+  %.1162 = phi i32 [ %178, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionE3getER10UErrorCode.exit ], [ %435, %433 ], [ %446, %444 ], [ %178, %_ZN6icu_7713UnicodeString6insertEiDs.exit236 ], [ %178, %468 ]
+  %.2 = phi i32 [ %.1.lcssa, %_ZNK6icu_776number4impl13NullableValueI24UNumberFormatPadPositionE3getER10UErrorCode.exit ], [ %436, %433 ], [ %447, %444 ], [ %.1.lcssa, %_ZN6icu_7713UnicodeString6insertEiDs.exit236 ], [ %.1.lcssa, %468 ]
   %472 = load i32, ptr %2, align 4, !tbaa !13
   %473 = icmp slt i32 %472, 1
   br i1 %473, label %474, label %535
@@ -4250,7 +4250,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit247:   ; preds = %509
   ret void
 
 .loopexit.split-lp267:                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit266, %.loopexit.split-lp267.loopexit.split-lp.loopexit, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp267.loopexit, %319, %425, %523, %534, %469, %455, %448, %437, %426, %379, %335, %321, %267
-  %.pn196 = phi { ptr, i32 } [ %.pn172.pn.pn, %267 ], [ %320, %319 ], [ %336, %335 ], [ %380, %379 ], [ %322, %321 ], [ %.pn187.pn.pn, %534 ], [ %.pn185, %523 ], [ %.pn180, %425 ], [ %470, %469 ], [ %427, %426 ], [ %456, %455 ], [ %449, %448 ], [ %438, %437 ], [ %lpad.loopexit268, %.loopexit266 ], [ %lpad.loopexit271, %.loopexit.split-lp267.loopexit ], [ %lpad.loopexit276, %.loopexit.split-lp267.loopexit.split-lp.loopexit ], [ %lpad.loopexit280, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp281, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn196 = phi { ptr, i32 } [ %.pn172.pn.pn, %267 ], [ %320, %319 ], [ %336, %335 ], [ %380, %379 ], [ %322, %321 ], [ %.pn187.pn.pn, %534 ], [ %.pn185, %523 ], [ %.pn180, %425 ], [ %427, %426 ], [ %438, %437 ], [ %449, %448 ], [ %456, %455 ], [ %470, %469 ], [ %lpad.loopexit268, %.loopexit266 ], [ %lpad.loopexit271, %.loopexit.split-lp267.loopexit ], [ %lpad.loopexit276, %.loopexit.split-lp267.loopexit.split-lp.loopexit ], [ %lpad.loopexit280, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp281, %.loopexit.split-lp267.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %26) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #17
   br label %536
@@ -5365,8 +5365,8 @@ _ZN6icu_7713UnicodeString6appendEDs.exit259:      ; preds = %415
   br label %417
 
 417:                                              ; preds = %408, %.thread, %_ZN6icu_7713UnicodeString6appendEDs.exit259, %_ZN6icu_7713UnicodeString6appendEDs.exit257, %_ZN6icu_7713UnicodeString6appendEDs.exit236, %_ZN6icu_7713UnicodeString6appendEDs.exit232, %_ZN6icu_7713UnicodeString6appendEDs.exit228, %_ZN6icu_7713UnicodeString6appendEDs.exit, %285, %296
-  %.1141 = phi i32 [ %.0140324, %296 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit228 ], [ %.0140324, %285 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit232 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit236 ], [ %.0140324, %408 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit257 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit259 ], [ %344, %.thread ]
-  %.1132 = phi i32 [ 5, %296 ], [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit228 ], [ 3, %285 ], [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit232 ], [ 4, %_ZN6icu_7713UnicodeString6appendEDs.exit236 ], [ %.9, %408 ], [ %.11, %_ZN6icu_7713UnicodeString6appendEDs.exit257 ], [ 2, %_ZN6icu_7713UnicodeString6appendEDs.exit259 ], [ %.4135, %.thread ]
+  %.1141 = phi i32 [ %.0140324, %296 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit228 ], [ %.0140324, %285 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit232 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit236 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit257 ], [ %.0140324, %408 ], [ %.0140324, %_ZN6icu_7713UnicodeString6appendEDs.exit259 ], [ %344, %.thread ]
+  %.1132 = phi i32 [ 5, %296 ], [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ 0, %_ZN6icu_7713UnicodeString6appendEDs.exit228 ], [ 3, %285 ], [ 1, %_ZN6icu_7713UnicodeString6appendEDs.exit232 ], [ 4, %_ZN6icu_7713UnicodeString6appendEDs.exit236 ], [ %.11, %_ZN6icu_7713UnicodeString6appendEDs.exit257 ], [ %.9, %408 ], [ 2, %_ZN6icu_7713UnicodeString6appendEDs.exit259 ], [ %.4135, %.thread ]
   %418 = add nsw i32 %.1141, 1
   %419 = load i16, ptr %225, align 8, !tbaa !34
   %420 = icmp slt i16 %419, 0

@@ -124,7 +124,7 @@ define range(i64 -2147483648, 2147483648) i64 @PKCS7_ctrl(ptr noundef captures(n
   br label %54
 
 54:                                               ; preds = %49, %52, %36, %26, %19, %15, %53, %14
-  %.0 = phi i64 [ 0, %53 ], [ %.1, %49 ], [ 0, %52 ], [ 0, %14 ], [ %18, %26 ], [ %18, %19 ], [ 0, %15 ], [ 0, %36 ]
+  %.0 = phi i64 [ 0, %53 ], [ 0, %14 ], [ %18, %26 ], [ %18, %19 ], [ 0, %15 ], [ 0, %36 ], [ %.1, %49 ], [ 0, %52 ]
   ret i64 %.0
 }
 
@@ -1607,12 +1607,12 @@ define range(i32 0, 2) i32 @PKCS7_stream(ptr noundef writeonly captures(none) %0
   br label %44
 
 44:                                               ; preds = %31, %17, %37, %6
-  %.0 = phi ptr [ %43, %37 ], [ %32, %31 ], [ %18, %17 ], [ %8, %6 ]
+  %.0 = phi ptr [ %8, %6 ], [ %18, %17 ], [ %32, %31 ], [ %43, %37 ]
   %45 = icmp eq ptr %.0, null
   br i1 %45, label %.thread20, label %.thread
 
-.thread:                                          ; preds = %9, %23, %44
-  %.019 = phi ptr [ %.0, %44 ], [ %15, %9 ], [ %29, %23 ]
+.thread:                                          ; preds = %23, %9, %44
+  %.019 = phi ptr [ %.0, %44 ], [ %29, %23 ], [ %15, %9 ]
   %46 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !106
   %48 = or i64 %47, 16

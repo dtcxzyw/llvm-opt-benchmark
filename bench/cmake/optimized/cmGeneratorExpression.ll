@@ -5894,7 +5894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191.i: ; preds = %
   br label %654
 
 647:                                              ; preds = %638, %598, %558
-  %.pn96.i = phi { ptr, i32 } [ %639, %638 ], [ %599, %598 ], [ %559, %558 ]
+  %.pn96.i = phi { ptr, i32 } [ %559, %558 ], [ %599, %598 ], [ %639, %638 ]
   %648 = load ptr, ptr %20, align 8, !tbaa !21, !noalias !192
   %649 = icmp eq ptr %648, %255
   br i1 %649, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i193.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i192.i

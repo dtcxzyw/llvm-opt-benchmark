@@ -1556,7 +1556,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           cleanup
   br label %.thread
 
-.loopexit.split-lp.loopexit.split-lp.thread:      ; preds = %.invoke182, %.invoke, %181, %184, %182, %161, %95
+.loopexit.split-lp.loopexit.split-lp.thread:      ; preds = %.invoke182, %.invoke, %181, %182, %184, %161, %95
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread

@@ -8005,7 +8005,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__9TfWea
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge
-  %.sroa.061.1 = phi ptr [ %.sroa.061.0.lcssa, %._crit_edge ], [ %92, %91 ]
+  %.sroa.061.1 = phi ptr [ %92, %91 ], [ %.sroa.061.0.lcssa, %._crit_edge ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.061.1, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i.i.i.i40 = icmp eq ptr %95, null
@@ -8042,7 +8042,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__9TfWea
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge
-  %.sroa.061.2 = phi ptr [ %.sroa.061.0.lcssa, %._crit_edge ], [ %110, %109 ]
+  %.sroa.061.2 = phi ptr [ %110, %109 ], [ %.sroa.061.0.lcssa, %._crit_edge ]
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.061.2, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i.i.i.i.i.i46 = icmp eq ptr %113, null

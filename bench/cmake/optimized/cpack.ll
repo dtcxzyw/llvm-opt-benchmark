@@ -15400,8 +15400,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i149.i.i.i.i: ; pr
   br label %122
 
 122:                                              ; preds = %120, %._crit_edge._crit_edge.i.i.i.i
-  %123 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %100, %120 ]
-  %.sroa.0229.1.i.i.i.i = phi ptr [ %.sroa.0229.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %121, %120 ]
+  %123 = phi ptr [ %100, %120 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.0229.1.i.i.i.i = phi ptr [ %121, %120 ], [ %.sroa.0229.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.val1.i158.i.i.i.i = load ptr, ptr %.sroa.0229.1.i.i.i.i, align 8
   %124 = getelementptr i8, ptr %.sroa.0229.1.i.i.i.i, i64 8
   %.val2.i159.i.i.i.i = load i64, ptr %124, align 8
@@ -15477,8 +15477,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i183.i.i.i.i: ; pr
   br label %146
 
 146:                                              ; preds = %144, %._crit_edge._crit_edge284.i.i.i.i
-  %147 = phi ptr [ %.pre286.i.i.i.i, %._crit_edge._crit_edge284.i.i.i.i ], [ %123, %144 ]
-  %.sroa.0229.2.i.i.i.i = phi ptr [ %.sroa.0229.0.lcssa.i.i.i.i, %._crit_edge._crit_edge284.i.i.i.i ], [ %145, %144 ]
+  %147 = phi ptr [ %123, %144 ], [ %.pre286.i.i.i.i, %._crit_edge._crit_edge284.i.i.i.i ]
+  %.sroa.0229.2.i.i.i.i = phi ptr [ %145, %144 ], [ %.sroa.0229.0.lcssa.i.i.i.i, %._crit_edge._crit_edge284.i.i.i.i ]
   %.val1.i192.i.i.i.i = load ptr, ptr %.sroa.0229.2.i.i.i.i, align 8
   %148 = getelementptr i8, ptr %.sroa.0229.2.i.i.i.i, i64 8
   %.val2.i193.i.i.i.i = load i64, ptr %148, align 8

@@ -988,7 +988,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi44EEERS2_RAT__Kc.exit: ; pr
   unreachable
 
 258:                                              ; preds = %11, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit79
-  %.0 = phi double [ %247, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit79 ], [ %106, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit ], [ %16, %11 ]
+  %.0 = phi double [ %16, %11 ], [ %106, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit ], [ %247, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit79 ]
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1259,7 +1259,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_12CwiseUnaryOpINS_8internal18scal
   ret i1 true
 
 391:                                              ; preds = %381, %387, %388, %254, %248, %107
-  %.pn31 = phi { ptr, i32 } [ %255, %254 ], [ %249, %248 ], [ %108, %107 ], [ %389, %388 ], [ %.pn27, %387 ], [ %382, %381 ]
+  %.pn31 = phi { ptr, i32 } [ %255, %254 ], [ %108, %107 ], [ %249, %248 ], [ %389, %388 ], [ %.pn27, %387 ], [ %382, %381 ]
   %392 = load ptr, ptr %6, align 8, !tbaa !61
   call void @free(ptr noundef %392) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27

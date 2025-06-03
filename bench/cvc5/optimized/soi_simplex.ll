@@ -3352,7 +3352,7 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit: ; pre
   br label %32
 
 32:                                               ; preds = %3, %8, %30, %29, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit, %9
-  %.0 = phi i1 [ %31, %30 ], [ %2, %29 ], [ %28, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit ], [ %20, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit ], [ %12, %9 ], [ false, %8 ], [ false, %3 ]
+  %.0 = phi i1 [ %12, %9 ], [ %20, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit ], [ %28, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit ], [ %2, %29 ], [ %31, %30 ], [ false, %8 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -6483,7 +6483,7 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32: ; pre
   br label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule18preferNeitherBoundERKNS3_10UpdateInfoES7_.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule18preferNeitherBoundERKNS3_10UpdateInfoES7_.exit: ; preds = %83, %81, %67, %65, %52, %50, %24, %22, %105, %87, %71, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32
-  %.0 = phi i1 [ %90, %87 ], [ %72, %71 ], [ %56, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32 ], [ %106, %105 ], [ %23, %22 ], [ %27, %24 ], [ %51, %50 ], [ %55, %52 ], [ %66, %65 ], [ %70, %67 ], [ %82, %81 ], [ %86, %83 ]
+  %.0 = phi i1 [ %56, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32 ], [ %72, %71 ], [ %90, %87 ], [ %106, %105 ], [ %23, %22 ], [ %27, %24 ], [ %51, %50 ], [ %55, %52 ], [ %66, %65 ], [ %70, %67 ], [ %82, %81 ], [ %86, %83 ]
   ret i1 %.0
 }
 
@@ -6681,7 +6681,7 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32: ; pre
   br label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule18preferNeitherBoundERKNS3_10UpdateInfoES7_.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule18preferNeitherBoundERKNS3_10UpdateInfoES7_.exit: ; preds = %83, %81, %67, %65, %52, %50, %24, %22, %105, %87, %71, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32
-  %.0 = phi i1 [ %90, %87 ], [ %72, %71 ], [ %56, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32 ], [ %106, %105 ], [ %23, %22 ], [ %27, %24 ], [ %51, %50 ], [ %55, %52 ], [ %66, %65 ], [ %70, %67 ], [ %82, %81 ], [ %86, %83 ]
+  %.0 = phi i1 [ %56, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit32 ], [ %72, %71 ], [ %90, %87 ], [ %106, %105 ], [ %23, %22 ], [ %27, %24 ], [ %51, %50 ], [ %55, %52 ], [ %66, %65 ], [ %70, %67 ], [ %82, %81 ], [ %86, %83 ]
   ret i1 %.0
 }
 
@@ -8608,7 +8608,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6l
   br label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule14constrainedMinERKNS3_10UpdateInfoES7_.exit
 
 _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule14constrainedMinERKNS3_10UpdateInfoES7_.exit: ; preds = %23, %19, %7
-  %.1 = phi i1 [ %13, %7 ], [ %21, %19 ], [ %.0.i.i, %23 ]
+  %.1 = phi i1 [ %13, %7 ], [ %.0.i.i, %23 ], [ %21, %19 ]
   ret i1 %.1
 }
 

@@ -21168,7 +21168,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit327.loopexit.us: ; preds = %.lr.ph.
   br label %698
 
 698:                                              ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %654, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274, %160, %163, %._crit_edge
-  %.0140 = phi i32 [ 1, %654 ], [ 0, %._crit_edge ], [ 1, %163 ], [ 1, %160 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ 1, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
+  %.0140 = phi i32 [ 0, %._crit_edge ], [ 1, %654 ], [ 1, %163 ], [ 1, %160 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ 1, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   ret i32 %.0140
 
 699:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204, %159, %655, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264
@@ -54974,7 +54974,7 @@ default.unreachable1036:                          ; preds = %946
   unreachable
 
 953:                                              ; preds = %946, %950, %951, %952
-  %.0.i.ph = phi i64 [ 0, %950 ], [ 1, %951 ], [ 2, %952 ], [ 6, %946 ]
+  %.0.i.ph = phi i64 [ 2, %952 ], [ 1, %951 ], [ 0, %950 ], [ 6, %946 ]
   %954 = load ptr, ptr %932, align 8, !tbaa !70
   %955 = load ptr, ptr %543, align 8, !tbaa !66
   %956 = ptrtoint ptr %954 to i64
@@ -55974,7 +55974,7 @@ default.unreachable1037:                          ; preds = %1261
   unreachable
 
 1268:                                             ; preds = %1261, %1265, %1266, %1267
-  %.0.i7021018.ph = phi i64 [ 0, %1265 ], [ 1, %1266 ], [ 2, %1267 ], [ 6, %1261 ]
+  %.0.i7021018.ph = phi i64 [ 2, %1267 ], [ 1, %1266 ], [ 0, %1265 ], [ 6, %1261 ]
   %1269 = load ptr, ptr %932, align 8, !tbaa !70
   %1270 = load ptr, ptr %543, align 8, !tbaa !66
   %1271 = ptrtoint ptr %1269 to i64
@@ -55983,9 +55983,9 @@ default.unreachable1037:                          ; preds = %1261
   %1274 = ashr exact i64 %1273, 3
   br label %_ZN6casadi10Integrator8grid_outEx.exit
 
-_ZN6casadi10Integrator8grid_outEx.exit:           ; preds = %1264, %1263, %1261, %1268
-  %.0.i70210181022 = phi i64 [ %.0.i7021018.ph, %1268 ], [ 3, %1261 ], [ 4, %1263 ], [ 5, %1264 ]
-  %1275 = phi i64 [ %1274, %1268 ], [ 1, %1261 ], [ 1, %1263 ], [ 1, %1264 ]
+_ZN6casadi10Integrator8grid_outEx.exit:           ; preds = %1263, %1264, %1261, %1268
+  %.0.i70210181022 = phi i64 [ %.0.i7021018.ph, %1268 ], [ 3, %1261 ], [ 5, %1264 ], [ 4, %1263 ]
+  %1275 = phi i64 [ %1274, %1268 ], [ 1, %1261 ], [ 1, %1264 ], [ 1, %1263 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77) #37
   %1276 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
           to label %1277 unwind label %1290

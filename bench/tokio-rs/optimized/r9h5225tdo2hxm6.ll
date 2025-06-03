@@ -651,7 +651,7 @@ switch.lookup:                                    ; preds = %1
   br label %18
 
 18:                                               ; preds = %switch.lookup, %13, %10, %6
-  %.0 = phi i8 [ %17, %13 ], [ %12, %10 ], [ %9, %6 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %17, %13 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -800,7 +800,7 @@ define hidden noundef range(i8 0, 41) i8 @_ZN3std3sys4unix17decode_error_kind17h
   br label %36
 
 36:                                               ; preds = %1, %38, %37, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 1, %35 ], [ 31, %34 ], [ 29, %33 ], [ 22, %32 ], [ 19, %31 ], [ 25, %30 ], [ 17, %29 ], [ 11, %28 ], [ 16, %27 ], [ 14, %26 ], [ 7, %25 ], [ 5, %24 ], [ 10, %23 ], [ 33, %22 ], [ 32, %21 ], [ 36, %20 ], [ 24, %19 ], [ 38, %18 ], [ 0, %17 ], [ 18, %16 ], [ 15, %15 ], [ 20, %14 ], [ 35, %13 ], [ 4, %12 ], [ 27, %11 ], [ 12, %10 ], [ 26, %9 ], [ 30, %8 ], [ 3, %7 ], [ 2, %6 ], [ 6, %5 ], [ 28, %4 ], [ 9, %3 ], [ 8, %2 ], [ 34, %1 ]
+  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 1, %35 ], [ 34, %1 ]
   ret i8 %.0
 
 37:                                               ; preds = %1
@@ -1577,7 +1577,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17h83391542aba19ea3E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.0 = phi i32 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.0 = phi i32 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i32 %.0
 }
 
@@ -3549,7 +3549,7 @@ define hidden noundef align 8 ptr @_ZN5tokio7runtime7context7CONTEXT7__getit17hd
   ]
 
 3:                                                ; preds = %1, %4, %5
-  %.0 = phi ptr [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %5 ], [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %4 ], [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %5 ], [ null, %1 ]
   ret ptr %.0
 
 4:                                                ; preds = %1
@@ -5140,7 +5140,7 @@ default.unreachable:                              ; preds = %32
   br label %53
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread37, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -5324,7 +5324,7 @@ default.unreachable:                              ; preds = %39
   br label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %51, %48, %44
-  %.0.i = phi i8 [ %55, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0.i = phi i8 [ %47, %44 ], [ %50, %48 ], [ %55, %51 ]
   %57 = icmp eq i8 %.0.i, 13
   br i1 %57, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -5525,7 +5525,7 @@ default.unreachable:                              ; preds = %40
   br label %60
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %52, %49, %45
-  %.0.i = phi i8 [ %56, %52 ], [ %51, %49 ], [ %48, %45 ]
+  %.0.i = phi i8 [ %48, %45 ], [ %51, %49 ], [ %56, %52 ]
   %58 = icmp eq i8 %.0.i, 13
   br i1 %58, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread37, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -5703,7 +5703,7 @@ default.unreachable:                              ; preds = %38
   br label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %50, %47, %43
-  %.0.i = phi i8 [ %54, %50 ], [ %49, %47 ], [ %46, %43 ]
+  %.0.i = phi i8 [ %46, %43 ], [ %49, %47 ], [ %54, %50 ]
   %56 = icmp eq i8 %.0.i, 13
   br i1 %56, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -5909,7 +5909,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h2
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.us
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.us: ; preds = %54, %50, %45
-  %.0.i.us = phi i8 [ %49, %45 ], [ %52, %50 ], [ %57, %54 ]
+  %.0.i.us = phi i8 [ %57, %54 ], [ %52, %50 ], [ %49, %45 ]
   %58 = icmp eq i8 %.0.i.us, 13
   br i1 %58, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread37.us, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -6130,7 +6130,7 @@ default.unreachable:                              ; preds = %38
   br label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %50, %47, %43
-  %.0.i = phi i8 [ %54, %50 ], [ %49, %47 ], [ %46, %43 ]
+  %.0.i = phi i8 [ %46, %43 ], [ %49, %47 ], [ %54, %50 ]
   %56 = icmp eq i8 %.0.i, 13
   br i1 %56, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -6311,7 +6311,7 @@ default.unreachable:                              ; preds = %39
   br label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %51, %48, %44
-  %.0.i = phi i8 [ %55, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0.i = phi i8 [ %47, %44 ], [ %50, %48 ], [ %55, %51 ]
   %57 = icmp eq i8 %.0.i, 13
   br i1 %57, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -6503,7 +6503,7 @@ default.unreachable:                              ; preds = %40
   br label %60
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %52, %49, %45
-  %.0.i = phi i8 [ %56, %52 ], [ %51, %49 ], [ %48, %45 ]
+  %.0.i = phi i8 [ %48, %45 ], [ %51, %49 ], [ %56, %52 ]
   %58 = icmp eq i8 %.0.i, 13
   br i1 %58, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread38, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -6690,7 +6690,7 @@ default.unreachable:                              ; preds = %41
   br label %61
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %53, %50, %46
-  %.0.i = phi i8 [ %57, %53 ], [ %52, %50 ], [ %49, %46 ]
+  %.0.i = phi i8 [ %49, %46 ], [ %52, %50 ], [ %57, %53 ]
   %59 = icmp eq i8 %.0.i, 13
   br i1 %59, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -6891,7 +6891,7 @@ default.unreachable:                              ; preds = %40
   br label %60
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %52, %49, %45
-  %.0.i = phi i8 [ %56, %52 ], [ %51, %49 ], [ %48, %45 ]
+  %.0.i = phi i8 [ %48, %45 ], [ %51, %49 ], [ %56, %52 ]
   %58 = icmp eq i8 %.0.i, 13
   br i1 %58, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread37, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7091,7 +7091,7 @@ default.unreachable:                              ; preds = %39
   br label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %51, %48, %44
-  %.0.i = phi i8 [ %55, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0.i = phi i8 [ %47, %44 ], [ %50, %48 ], [ %55, %51 ]
   %57 = icmp eq i8 %.0.i, 13
   br i1 %57, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread39, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7272,7 +7272,7 @@ default.unreachable:                              ; preds = %39
   br label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %51, %48, %44
-  %.0.i = phi i8 [ %55, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0.i = phi i8 [ %47, %44 ], [ %50, %48 ], [ %55, %51 ]
   %57 = icmp eq i8 %.0.i, 13
   br i1 %57, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7453,7 +7453,7 @@ default.unreachable:                              ; preds = %39
   br label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %51, %48, %44
-  %.0.i = phi i8 [ %55, %51 ], [ %50, %48 ], [ %47, %44 ]
+  %.0.i = phi i8 [ %47, %44 ], [ %50, %48 ], [ %55, %51 ]
   %57 = icmp eq i8 %.0.i, 13
   br i1 %57, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread34, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7645,7 +7645,7 @@ default.unreachable:                              ; preds = %40
   br label %60
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %52, %49, %45
-  %.0.i = phi i8 [ %56, %52 ], [ %51, %49 ], [ %48, %45 ]
+  %.0.i = phi i8 [ %48, %45 ], [ %51, %49 ], [ %56, %52 ]
   %58 = icmp eq i8 %.0.i, 13
   br i1 %58, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread38, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7737,7 +7737,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h14
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -7829,7 +7829,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -7908,7 +7908,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h24
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8000,7 +8000,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8079,7 +8079,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h34
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8171,7 +8171,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8250,7 +8250,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h48
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8342,7 +8342,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8421,7 +8421,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h5e
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8513,7 +8513,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8591,7 +8591,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h69
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -8680,7 +8680,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread10, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8759,7 +8759,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8851,7 +8851,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -8929,7 +8929,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9018,7 +9018,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %61 unwind label %57
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %43, %40, %36
-  %.0.i = phi i8 [ %47, %43 ], [ %42, %40 ], [ %39, %36 ]
+  %.0.i = phi i8 [ %39, %36 ], [ %42, %40 ], [ %47, %43 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9097,7 +9097,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h87
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9189,7 +9189,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9267,7 +9267,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h8a
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9356,7 +9356,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %61 unwind label %57
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %43, %40, %36
-  %.0.i = phi i8 [ %47, %43 ], [ %42, %40 ], [ %39, %36 ]
+  %.0.i = phi i8 [ %39, %36 ], [ %42, %40 ], [ %47, %43 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9435,7 +9435,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hb3
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9531,7 +9531,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %63 unwind label %59
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %45, %42, %38
-  %.0.i = phi i8 [ %49, %45 ], [ %44, %42 ], [ %41, %38 ]
+  %.0.i = phi i8 [ %41, %38 ], [ %44, %42 ], [ %49, %45 ]
   %52 = icmp eq i8 %.0.i, 13
   br i1 %52, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9609,7 +9609,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc1
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9698,7 +9698,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %61 unwind label %57
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %43, %40, %36
-  %.0.i = phi i8 [ %47, %43 ], [ %42, %40 ], [ %39, %36 ]
+  %.0.i = phi i8 [ %39, %36 ], [ %42, %40 ], [ %47, %43 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9777,7 +9777,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc4
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9869,7 +9869,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -9947,7 +9947,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hd3
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10036,7 +10036,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %61 unwind label %57
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %43, %40, %36
-  %.0.i = phi i8 [ %47, %43 ], [ %42, %40 ], [ %39, %36 ]
+  %.0.i = phi i8 [ %39, %36 ], [ %42, %40 ], [ %47, %43 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10115,7 +10115,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10207,7 +10207,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10286,7 +10286,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10378,7 +10378,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10457,7 +10457,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hde
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10549,7 +10549,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10627,7 +10627,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17he7
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10716,7 +10716,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %61 unwind label %57
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %43, %40, %36
-  %.0.i = phi i8 [ %47, %43 ], [ %42, %40 ], [ %39, %36 ]
+  %.0.i = phi i8 [ %39, %36 ], [ %42, %40 ], [ %47, %43 ]
   %50 = icmp eq i8 %.0.i, 13
   br i1 %50, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10794,7 +10794,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hec
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10883,7 +10883,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread10, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -10965,7 +10965,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hf2
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %17, %18, %19, %20
-  %.0.i.i = phi i64 [ 32, %20 ], [ 20, %19 ], [ 10, %18 ], [ 5, %17 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %17 ], [ 10, %18 ], [ 20, %19 ], [ 32, %20 ], [ 0, %4 ]
   %21 = lshr i64 %16, 16
   %22 = trunc i64 %21 to i8
   %23 = and i64 %.0.i.i, %16
@@ -11107,7 +11107,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %76 unwind label %72
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %58, %55, %51
-  %.0.i = phi i8 [ %62, %58 ], [ %57, %55 ], [ %54, %51 ]
+  %.0.i = phi i8 [ %54, %51 ], [ %57, %55 ], [ %62, %58 ]
   %65 = icmp eq i8 %.0.i, 13
   br i1 %65, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread5, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -11186,7 +11186,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hff
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ 5, %14 ], [ 10, %15 ], [ 20, %16 ], [ 32, %17 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -11278,7 +11278,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.t
           to label %62 unwind label %58
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit: ; preds = %44, %41, %37
-  %.0.i = phi i8 [ %48, %44 ], [ %43, %41 ], [ %40, %37 ]
+  %.0.i = phi i8 [ %40, %37 ], [ %43, %41 ], [ %48, %44 ]
   %51 = icmp eq i8 %.0.i, 13
   br i1 %51, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread7, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.11424388141523703806.exit.thread
 
@@ -12381,7 +12381,7 @@ define noundef zeroext i1 @"_ZN79_$LT$tokio..sync..broadcast..error..RecvError$u
   br label %22
 
 22:                                               ; preds = %14, %8
-  %.0.in = phi i1 [ %21, %14 ], [ %13, %8 ]
+  %.0.in = phi i1 [ %13, %8 ], [ %21, %14 ]
   ret i1 %.0.in
 }
 
@@ -12457,7 +12457,7 @@ default.unreachable5:                             ; preds = %2
   br label %29
 
 29:                                               ; preds = %21, %15, %9
-  %.0.in = phi i1 [ %28, %21 ], [ %20, %15 ], [ %14, %9 ]
+  %.0.in = phi i1 [ %14, %9 ], [ %20, %15 ], [ %28, %21 ]
   ret i1 %.0.in
 }
 

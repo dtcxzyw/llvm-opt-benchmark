@@ -1458,8 +1458,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %32
 
 32:                                               ; preds = %27, %21
-  %.sroa.5.0.i.i.i = phi i64 [ %31, %27 ], [ %26, %21 ]
-  %.sroa.0.0.i.i.i = phi i64 [ %30, %27 ], [ %23, %21 ]
+  %.sroa.5.0.i.i.i = phi i64 [ %26, %21 ], [ %31, %27 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %23, %21 ], [ %30, %27 ]
   %33 = load ptr, ptr %.sroa.5.0.copyload, align 8, !noalias !401, !noundef !14
   %34 = icmp eq ptr %33, null
   br i1 %34, label %39, label %35
@@ -7444,7 +7444,7 @@ default.unreachable157:                           ; preds = %.backedge101
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %60, %97, %131, %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit92", %115, %37
-  %.merged = phi { i32, i64 } [ %130, %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit92" ], [ %138, %131 ], [ %122, %115 ], [ %40, %37 ], [ %99, %97 ], [ %62, %60 ], [ %32, %41 ]
+  %.merged = phi { i32, i64 } [ %40, %37 ], [ %122, %115 ], [ %130, %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4cd6ce63bade8aa7E.exit92" ], [ %138, %131 ], [ %62, %60 ], [ %99, %97 ], [ %32, %41 ]
   ret { i32, i64 } %.merged
 
 41:                                               ; preds = %.lr.ph
@@ -25609,8 +25609,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %39
 
 39:                                               ; preds = %34, %28
-  %.sroa.5.0.i.i = phi i64 [ %38, %34 ], [ %33, %28 ]
-  %.sroa.0.0.i.i = phi i64 [ %37, %34 ], [ %30, %28 ]
+  %.sroa.5.0.i.i = phi i64 [ %33, %28 ], [ %38, %34 ]
+  %.sroa.0.0.i.i = phi i64 [ %30, %28 ], [ %37, %34 ]
   %40 = load ptr, ptr %15, align 8, !noalias !7347, !noundef !14
   %41 = icmp eq ptr %40, null
   br i1 %41, label %46, label %42
@@ -32176,7 +32176,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 28:                                               ; preds = %26, %23, %20, %17, %15, %12, %9
-  %.0.in = phi i1 [ %27, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %27, %26 ]
   ret i1 %.0.in
 }
 

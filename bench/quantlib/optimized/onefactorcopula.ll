@@ -1076,7 +1076,7 @@ for.end:                                          ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end, %if.then28
-  %retval.0 = phi double [ %26, %if.then28 ], [ %div, %cleanup ], [ %34, %for.end ]
+  %retval.0 = phi double [ %26, %if.then28 ], [ %34, %for.end ], [ %div, %cleanup ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont14
@@ -1318,7 +1318,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end, %if.then27
-  %retval.0 = phi double [ %27, %if.then27 ], [ %div, %cleanup ], [ %33, %for.end ]
+  %retval.0 = phi double [ %27, %if.then27 ], [ %33, %for.end ], [ %div, %cleanup ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont14

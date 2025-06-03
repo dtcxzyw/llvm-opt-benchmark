@@ -1177,7 +1177,7 @@ findNextNonWSBack.exit186:                        ; preds = %.lr.ph.i183, %.crit
   store i32 %178, ptr %3, align 8, !tbaa !7
   br label %190
 
-.thread191.sink.split:                            ; preds = %134, %113, %129, %124, %111, %82, %77
+.thread191.sink.split:                            ; preds = %134, %113, %111, %129, %124, %82, %77
   %181 = load ptr, ptr %24, align 8, !tbaa !42
   %182 = ptrtoint ptr %53 to i64
   %183 = ptrtoint ptr %181 to i64
@@ -1485,7 +1485,7 @@ define ptr @decrypt_any(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   br label %66
 
 66:                                               ; preds = %50, %55, %58, %59, %62, %44, %20, %12, %16, %5, %8, %65, %64, %54
-  %.057 = phi ptr [ null, %65 ], [ null, %64 ], [ null, %54 ], [ null, %8 ], [ null, %5 ], [ null, %16 ], [ null, %12 ], [ null, %20 ], [ null, %44 ], [ %49, %62 ], [ %49, %59 ], [ %49, %58 ], [ %49, %55 ], [ %49, %50 ]
+  %.057 = phi ptr [ null, %54 ], [ null, %64 ], [ null, %65 ], [ null, %8 ], [ null, %5 ], [ null, %16 ], [ null, %12 ], [ null, %20 ], [ null, %44 ], [ %49, %62 ], [ %49, %59 ], [ %49, %58 ], [ %49, %55 ], [ %49, %50 ]
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %7) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   ret ptr %.057
@@ -3085,9 +3085,9 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   br label %29
 
 29:                                               ; preds = %22, %24, %26, %.lr.ph
-  %storemerge121126 = phi i32 [ %storemerge121131, %.lr.ph ], [ %28, %26 ], [ %storemerge121131, %24 ], [ %storemerge121131, %22 ]
-  %.196 = phi ptr [ %.095129, %.lr.ph ], [ %27, %26 ], [ %.095129, %24 ], [ %.095129, %22 ]
-  %.1 = phi i32 [ %.0130, %.lr.ph ], [ %.0130, %26 ], [ %25, %24 ], [ %23, %22 ]
+  %storemerge121126 = phi i32 [ %storemerge121131, %.lr.ph ], [ %storemerge121131, %22 ], [ %storemerge121131, %24 ], [ %28, %26 ]
+  %.196 = phi ptr [ %.095129, %.lr.ph ], [ %.095129, %22 ], [ %.095129, %24 ], [ %27, %26 ]
+  %.1 = phi i32 [ %.0130, %.lr.ph ], [ %23, %22 ], [ %25, %24 ], [ %.0130, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %.196, i64 1
   %storemerge121 = add nsw i32 %storemerge121126, -1
   store i32 %storemerge121, ptr %7, align 4, !tbaa !48
@@ -3246,8 +3246,8 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   br label %91
 
 91:                                               ; preds = %73, %53, %76, %79, %70, %89, %68, %66, %64, %62, %60, %58, %55
-  %.2100 = phi ptr [ %54, %53 ], [ %90, %89 ], [ %88, %79 ], [ %.199133, %76 ], [ %.199133, %70 ], [ %.199133, %55 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %.199133, %73 ]
-  %.3 = phi ptr [ %.2134, %53 ], [ %.2134, %89 ], [ %77, %79 ], [ %56, %76 ], [ %56, %70 ], [ %56, %55 ], [ %56, %68 ], [ %56, %66 ], [ %56, %64 ], [ %56, %62 ], [ %56, %60 ], [ %56, %58 ], [ %spec.select, %73 ]
+  %.2100 = phi ptr [ %54, %53 ], [ %90, %89 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %.199133, %55 ], [ %.199133, %70 ], [ %88, %79 ], [ %.199133, %76 ], [ %.199133, %73 ]
+  %.3 = phi ptr [ %.2134, %53 ], [ %.2134, %89 ], [ %56, %58 ], [ %56, %60 ], [ %56, %62 ], [ %56, %64 ], [ %56, %66 ], [ %56, %68 ], [ %56, %55 ], [ %56, %70 ], [ %77, %79 ], [ %56, %76 ], [ %spec.select, %73 ]
   %92 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %93 = icmp ult ptr %92, %.ptr137
   br i1 %93, label %.lr.ph135, label %.loopexit
@@ -3479,9 +3479,9 @@ pdf_nextlinestart.exit:                           ; preds = %17
   br label %33
 
 33:                                               ; preds = %30, %26, %pdf_nextlinestart.exit
-  %.121 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %18, %pdf_nextlinestart.exit ]
-  %.119 = phi i64 [ %32, %30 ], [ %28, %26 ], [ %25, %pdf_nextlinestart.exit ]
-  %.1 = phi i32 [ 1, %30 ], [ 0, %26 ], [ 0, %pdf_nextlinestart.exit ]
+  %.121 = phi ptr [ %31, %30 ], [ %18, %pdf_nextlinestart.exit ], [ %27, %26 ]
+  %.119 = phi i64 [ %32, %30 ], [ %25, %pdf_nextlinestart.exit ], [ %28, %26 ]
+  %.1 = phi i32 [ 1, %30 ], [ 0, %pdf_nextlinestart.exit ], [ 0, %26 ]
   %.not = icmp eq i64 %.119, 0
   br i1 %.not, label %pdf_nextlinestart.exit.thread, label %.lr.ph
 
@@ -3650,9 +3650,9 @@ define internal fastcc i32 @pdf_scan_contents(i32 noundef range(i32 0, -21474836
   br label %45
 
 45:                                               ; preds = %33, %36, %25, %41, %39, %28, %24
-  %.2 = phi i32 [ %.1, %24 ], [ 2, %39 ], [ 2, %41 ], [ 0, %28 ], [ 1, %25 ], [ 1, %36 ], [ %spec.select, %33 ]
-  %.129.i = phi i64 [ %.028.i, %24 ], [ %.028.i, %39 ], [ %.028.i, %41 ], [ %.3.i, %28 ], [ %.028.i, %25 ], [ %.028.i, %36 ], [ %.028.i, %33 ]
-  %.1.i = phi ptr [ %.027.i, %24 ], [ %.027.i, %39 ], [ %.027.i, %41 ], [ %29, %28 ], [ %.027.i, %25 ], [ %.027.i, %36 ], [ %.027.i, %33 ]
+  %.2 = phi i32 [ %.1, %24 ], [ 0, %28 ], [ 2, %39 ], [ 2, %41 ], [ 1, %25 ], [ 1, %36 ], [ %spec.select, %33 ]
+  %.129.i = phi i64 [ %.028.i, %24 ], [ %.3.i, %28 ], [ %.028.i, %39 ], [ %.028.i, %41 ], [ %.028.i, %25 ], [ %.028.i, %36 ], [ %.028.i, %33 ]
+  %.1.i = phi ptr [ %.027.i, %24 ], [ %29, %28 ], [ %.027.i, %39 ], [ %.027.i, %41 ], [ %.027.i, %25 ], [ %.027.i, %36 ], [ %.027.i, %33 ]
   %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %47 = add i64 %.129.i, -1
   %.not35.i = icmp ult i64 %.129.i, 2
@@ -4661,7 +4661,7 @@ pdfobj_flag.exit412:                              ; preds = %handle_pdfname.exit
   br label %.critedge402.thread
 
 466:                                              ; preds = %463, %465, %464
-  %.0278 = phi i32 [ 24, %465 ], [ 15, %464 ], [ 14, %463 ]
+  %.0278 = phi i32 [ 15, %464 ], [ 24, %465 ], [ 14, %463 ]
   %467 = shl nuw nsw i32 1, %.0278
   %468 = xor i32 %467, -1
   %469 = load i32, ptr %249, align 4, !tbaa !37

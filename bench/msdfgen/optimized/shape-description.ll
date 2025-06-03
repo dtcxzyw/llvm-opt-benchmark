@@ -1155,7 +1155,7 @@ sw.epilog.loopexit:                               ; preds = %do.body.i62, %do.bo
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.body.i62, %do.body.i62, %sw.epilog.loopexit, %sw.bb40, %sw.bb39
-  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 3, %sw.bb39 ], [ 6, %sw.epilog.loopexit ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
+  %color.2 = phi i32 [ 3, %sw.bb39 ], [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
   store i8 1, ptr %colorsSpecified, align 1
   %input.promoted.i71 = load ptr, ptr %input, align 8
   br label %do.body.i72
@@ -1595,8 +1595,8 @@ sw.bb32:                                          ; preds = %if.then27
   br label %if.end33
 
 if.end33:                                         ; preds = %sw.bb, %sw.bb30, %sw.bb31, %sw.bb32, %if.then27, %for.body25
-  %tobool72.not = phi i1 [ true, %if.then27 ], [ false, %sw.bb32 ], [ false, %sw.bb31 ], [ false, %sw.bb30 ], [ false, %sw.bb ], [ true, %for.body25 ]
-  %colorCode.0 = phi i32 [ 0, %if.then27 ], [ 119, %sw.bb32 ], [ 99, %sw.bb31 ], [ 109, %sw.bb30 ], [ 121, %sw.bb ], [ 0, %for.body25 ]
+  %tobool72.not = phi i1 [ true, %if.then27 ], [ false, %sw.bb ], [ false, %sw.bb30 ], [ false, %sw.bb31 ], [ false, %sw.bb32 ], [ true, %for.body25 ]
+  %colorCode.0 = phi i32 [ 0, %if.then27 ], [ 121, %sw.bb ], [ 109, %sw.bb30 ], [ 99, %sw.bb31 ], [ 119, %sw.bb32 ], [ 0, %for.body25 ]
   %call35 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.063)
   %vtable = load ptr, ptr %call35, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32

@@ -5736,13 +5736,13 @@ define internal void @"_ZN84_$LT$wasi_common..pipe..ReadPipe$LT$R$GT$$u20$as$u20
   %6 = alloca { ptr, i8, [7 x i8] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8, !range !324, !noundef !4
-  switch i8 %8, label %default.unreachable31 [
+  switch i8 %8, label %default.unreachable32 [
     i8 0, label %10
     i8 1, label %65
     i8 2, label %66
   ]
 
-default.unreachable31:                            ; preds = %3
+default.unreachable32:                            ; preds = %3
   unreachable
 
 9:                                                ; preds = %60, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
@@ -5766,33 +5766,33 @@ default.unreachable31:                            ; preds = %3
 
 _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i: ; preds = %15, %10
   %16 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.180552711213681523(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
-          to label %.noexc10 unwind label %33
+          to label %.noexc11 unwind label %33
 
-.noexc10:                                         ; preds = %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
+.noexc11:                                         ; preds = %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
   %17 = and i64 %16, 9223372036854775807
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i", label %19
 
-19:                                               ; preds = %.noexc10
+19:                                               ; preds = %.noexc11
   %20 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc11 unwind label %33
+          to label %.noexc12 unwind label %33
 
-.noexc11:                                         ; preds = %19
+.noexc12:                                         ; preds = %19
   %21 = xor i1 %20, true
   %22 = zext i1 %21 to i8
   br label %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i"
 
-"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i": ; preds = %.noexc11, %.noexc10
-  %23 = phi i8 [ %22, %.noexc11 ], [ 0, %.noexc10 ]
+"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i": ; preds = %.noexc12, %.noexc11
+  %23 = phi i8 [ %22, %.noexc12 ], [ 0, %.noexc11 ]
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %25 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h97c0d45cbc47c5c7E.llvm.180552711213681523(ptr noundef nonnull align 1 %24, i8 noundef 0)
-          to label %.noexc12 unwind label %33
+          to label %.noexc13 unwind label %33
 
-.noexc12:                                         ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i"
+.noexc13:                                         ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17hb25b8f34779bd593E.exit.i"
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %35, label %26
 
-26:                                               ; preds = %.noexc12
+26:                                               ; preds = %.noexc13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !482
   store ptr %12, ptr %5, align 8, !noalias !482
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5820,7 +5820,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
           cleanup
   br label %.body
 
-35:                                               ; preds = %.noexc12
+35:                                               ; preds = %.noexc13
   store ptr %12, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %23, ptr %36, align 8
@@ -5834,19 +5834,19 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %41, ptr %42, align 8, !noalias !485
   %43 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hac1dc019c5f44a32E.llvm.10561276912860805957"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc13 unwind label %45
+          to label %.noexc14 unwind label %45
 
-.noexc13:                                         ; preds = %35
+.noexc14:                                         ; preds = %35
   %44 = invoke { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h4c754ef235e2d1b1E.llvm.10561276912860805957"(ptr noalias noundef align 8 dereferenceable_or_null(16) %43, ptr noalias noundef nonnull align 1 @anon.bfa31fafe4958aae8e9727502c2557cc.6.llvm.10561276912860805957, i64 noundef 0)
           to label %47 unwind label %45
 
-45:                                               ; preds = %.noexc13, %35
+45:                                               ; preds = %.noexc14, %35
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..io..util..Empty$GT$$GT$17h81270c30e2692fd2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #26
           to label %.body unwind label %63
 
-47:                                               ; preds = %.noexc13
+47:                                               ; preds = %.noexc14
   %48 = extractvalue { ptr, i64 } %44, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !485
   %49 = icmp ne ptr %48, null
@@ -5857,25 +5857,25 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
 
 52:                                               ; preds = %47
   %53 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.1938814379164664089(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
-          to label %.noexc15 unwind label %61
+          to label %.noexc16 unwind label %61
 
-.noexc15:                                         ; preds = %52
+.noexc16:                                         ; preds = %52
   %54 = and i64 %53, 9223372036854775807
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
 
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i: ; preds = %.noexc15
+_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i: ; preds = %.noexc16
   %56 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc16 unwind label %61
+          to label %.noexc17 unwind label %61
 
-.noexc16:                                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
+.noexc17:                                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
   br i1 %56, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %57
 
-57:                                               ; preds = %.noexc16
+57:                                               ; preds = %.noexc17
   invoke void @_ZN4core4sync6atomic12atomic_store17hfcc1263006202b91E.llvm.1938814379164664089(ptr noundef nonnull align 1 %50, i8 noundef 1, i8 noundef 0)
           to label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i unwind label %61
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %57, %.noexc16, %.noexc15, %47
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %57, %.noexc17, %.noexc16, %47
   %58 = atomicrmw sub ptr %12, i32 1073741823 release, align 4, !noalias !492
   %59 = add i32 %58, -1073741823
   %or.cond.i.i = icmp ult i32 %59, 1073741824
@@ -6045,13 +6045,13 @@ define internal void @"_ZN85_$LT$wasi_common..pipe..WritePipe$LT$W$GT$$u20$as$u2
   %4 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !324, !noundef !4
-  switch i8 %6, label %default.unreachable29 [
+  switch i8 %6, label %default.unreachable30 [
     i8 0, label %8
     i8 1, label %54
     i8 2, label %55
   ]
 
-default.unreachable29:                            ; preds = %3
+default.unreachable30:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %51, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
@@ -6075,33 +6075,33 @@ default.unreachable29:                            ; preds = %3
 
 _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i: ; preds = %13, %8
   %14 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.180552711213681523(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
-          to label %.noexc10 unwind label %30
+          to label %.noexc11 unwind label %30
 
-.noexc10:                                         ; preds = %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
+.noexc11:                                         ; preds = %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
   %15 = and i64 %14, 9223372036854775807
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i", label %17
 
-17:                                               ; preds = %.noexc10
+17:                                               ; preds = %.noexc11
   %18 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc11 unwind label %30
+          to label %.noexc12 unwind label %30
 
-.noexc11:                                         ; preds = %17
+.noexc12:                                         ; preds = %17
   %19 = xor i1 %18, true
   %20 = zext i1 %19 to i8
   br label %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i"
 
-"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i": ; preds = %.noexc11, %.noexc10
-  %.0.i.i.i.i = phi i8 [ %20, %.noexc11 ], [ 0, %.noexc10 ]
+"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i": ; preds = %.noexc12, %.noexc11
+  %.0.i.i.i.i = phi i8 [ %20, %.noexc12 ], [ 0, %.noexc11 ]
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %22 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h97c0d45cbc47c5c7E.llvm.180552711213681523(ptr noundef nonnull align 1 %21, i8 noundef 0)
-          to label %.noexc12 unwind label %30
+          to label %.noexc13 unwind label %30
 
-.noexc12:                                         ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i"
+.noexc13:                                         ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h612d82342abd8d4bE.exit.i"
   %.not.i = icmp eq i8 %22, 0
   br i1 %.not.i, label %32, label %23
 
-23:                                               ; preds = %.noexc12
+23:                                               ; preds = %.noexc13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !506
   store ptr %10, ptr %4, align 8, !noalias !506
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6129,7 +6129,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
           cleanup
   br label %.body
 
-32:                                               ; preds = %.noexc12
+32:                                               ; preds = %.noexc13
   %33 = trunc nuw i8 %.0.i.i.i.i to i1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !align !5, !noundef !4
@@ -6154,25 +6154,25 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
 
 43:                                               ; preds = %.loopexit
   %44 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.1938814379164664089(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
-          to label %.noexc13 unwind label %52
+          to label %.noexc14 unwind label %52
 
-.noexc13:                                         ; preds = %43
+.noexc14:                                         ; preds = %43
   %45 = and i64 %44, 9223372036854775807
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
 
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i: ; preds = %.noexc13
+_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i: ; preds = %.noexc14
   %47 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc14 unwind label %52
+          to label %.noexc15 unwind label %52
 
-.noexc14:                                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
+.noexc15:                                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
   br i1 %47, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %48
 
-48:                                               ; preds = %.noexc14
+48:                                               ; preds = %.noexc15
   invoke void @_ZN4core4sync6atomic12atomic_store17hfcc1263006202b91E.llvm.1938814379164664089(ptr noundef nonnull align 1 %21, i8 noundef 1, i8 noundef 0)
           to label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i unwind label %52
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %48, %.noexc14, %.noexc13, %.loopexit
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %48, %.noexc15, %.noexc14, %.loopexit
   %49 = atomicrmw sub ptr %10, i32 1073741823 release, align 4, !noalias !514
   %50 = add i32 %49, -1073741823
   %or.cond.i.i = icmp ult i32 %50, 1073741824

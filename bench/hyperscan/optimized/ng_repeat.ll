@@ -965,7 +965,7 @@ _ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EED2Ev.exit19.i: ; preds = %115, %112
   br label %158
 
 158:                                              ; preds = %156, %._crit_edge.i.i.i.i
-  %.sroa.033.1.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %157, %156 ]
+  %.sroa.033.1.i.i.i.i = phi ptr [ %157, %156 ], [ %.sroa.033.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %159 = getelementptr i8, ptr %.sroa.033.1.i.i.i.i, i64 44
   %.val1.i23.i.i.i.i = load i8, ptr %159, align 4, !range !5, !noundef !6
   %160 = trunc nuw i8 %.val1.i23.i.i.i.i to i1
@@ -976,7 +976,7 @@ _ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EED2Ev.exit19.i: ; preds = %115, %112
   br label %163
 
 163:                                              ; preds = %161, %._crit_edge.i.i.i.i
-  %.sroa.033.2.i.i.i.i = phi ptr [ %.sroa.033.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %162, %161 ]
+  %.sroa.033.2.i.i.i.i = phi ptr [ %162, %161 ], [ %.sroa.033.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %164 = getelementptr i8, ptr %.sroa.033.2.i.i.i.i, i64 44
   %.val1.i24.i.i.i.i = load i8, ptr %164, align 4, !range !5, !noundef !6
   %165 = trunc nuw i8 %.val1.i24.i.i.i.i to i1

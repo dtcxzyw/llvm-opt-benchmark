@@ -260,9 +260,9 @@ bsearch.exit:                                     ; preds = %42
   br label %71
 
 71:                                               ; preds = %bsearch.exit, %.loopexit, %64, %63, %62, %60, %54
-  %.2119 = phi i1 [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %60 ], [ false, %54 ], [ false, %.loopexit ], [ %14, %bsearch.exit ]
-  %.2110 = phi i8 [ %.0108.ph212, %64 ], [ %.0108.ph212, %63 ], [ %.0108.ph212, %62 ], [ 0, %60 ], [ 0, %54 ], [ %.0108.ph212, %.loopexit ], [ %.0108.ph212, %bsearch.exit ]
-  %.2 = phi ptr [ %.0.ph215, %64 ], [ %.0.ph215, %63 ], [ %.0.ph215, %62 ], [ %61, %60 ], [ %55, %54 ], [ %.0.ph215, %.loopexit ], [ %.0.ph215, %bsearch.exit ]
+  %.2119 = phi i1 [ false, %64 ], [ false, %54 ], [ false, %60 ], [ false, %62 ], [ false, %63 ], [ false, %.loopexit ], [ %14, %bsearch.exit ]
+  %.2110 = phi i8 [ %.0108.ph212, %64 ], [ 0, %54 ], [ 0, %60 ], [ %.0108.ph212, %62 ], [ %.0108.ph212, %63 ], [ %.0108.ph212, %.loopexit ], [ %.0108.ph212, %bsearch.exit ]
+  %.2 = phi ptr [ %.0.ph215, %64 ], [ %55, %54 ], [ %61, %60 ], [ %.0.ph215, %62 ], [ %.0.ph215, %63 ], [ %.0.ph215, %.loopexit ], [ %.0.ph215, %bsearch.exit ]
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 1
   br label %.thread
 
@@ -807,9 +807,9 @@ urlpart.exit:                                     ; preds = %105
   br label %.thread104
 
 108:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread136, %27, %.loopexit, %89, %85, %80
-  %109 = phi ptr [ %26, %.loopexit ], [ %88, %89 ], [ %84, %85 ], [ %81, %80 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.055 = phi ptr [ null, %.loopexit ], [ null, %89 ], [ null, %85 ], [ null, %80 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %89 ], [ true, %85 ], [ true, %80 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread136 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
+  %109 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread136 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
   %110 = icmp ne ptr %109, null
   %or.cond3 = select i1 %.3, i1 %110, i1 false
   br i1 %or.cond3, label %111, label %.thread104
@@ -828,8 +828,8 @@ urlpart.exit:                                     ; preds = %105
   %117 = call i32 @fputs(ptr noundef nonnull %109, ptr noundef %0)
   br label %121
 
-.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread133, %71, %72, %82, %86, %90, %34, %108
-  %.055109 = phi ptr [ %.055, %108 ], [ null, %34 ], [ null, %90 ], [ null, %86 ], [ null, %82 ], [ null, %72 ], [ null, %71 ], [ null, %urlpart.exit.thread133 ], [ null, %93 ], [ null, %urlpart.exit ]
+.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread133, %90, %86, %82, %72, %71, %34, %108
+  %.055109 = phi ptr [ %.055, %108 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread133 ], [ null, %93 ], [ null, %urlpart.exit ]
   br i1 %4, label %118, label %121
 
 118:                                              ; preds = %.thread104
@@ -967,8 +967,8 @@ certinfo.exit.thread:                             ; preds = %20, %certinfo.exit
   %42 = zext nneg i32 %39 to i64
   br label %.critedge29.sink.split
 
-.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %17, %32, %35, %41
-  %.sink = phi i64 [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %19, %17 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
+.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %41, %35, %32, %17
+  %.sink = phi i64 [ %19, %17 ], [ %34, %32 ], [ %36, %35 ], [ %42, %41 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
   store i64 %.sink, ptr %7, align 8, !tbaa !48
   br label %.critedge29
 

@@ -2593,9 +2593,9 @@ define internal fastcc noundef zeroext i16 @tree_add_common_dcch_dtch_fields(ptr
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread115, label %72
 
-.thread115:                                       ; preds = %46, %47, %50, %51, %43, %54, %55
-  %.087112120 = phi ptr [ %.087, %55 ], [ null, %54 ], [ null, %43 ], [ null, %51 ], [ null, %50 ], [ null, %47 ], [ null, %46 ]
-  %.not100113119 = phi i1 [ false, %55 ], [ true, %54 ], [ true, %43 ], [ true, %51 ], [ true, %50 ], [ true, %47 ], [ true, %46 ]
+.thread115:                                       ; preds = %50, %51, %46, %47, %43, %54, %55
+  %.087112120 = phi ptr [ %.087, %55 ], [ null, %54 ], [ null, %43 ], [ null, %47 ], [ null, %46 ], [ null, %51 ], [ null, %50 ]
+  %.not100113119 = phi i1 [ false, %55 ], [ true, %54 ], [ true, %43 ], [ true, %47 ], [ true, %46 ], [ true, %51 ], [ true, %50 ]
   %59 = load ptr, ptr @rrc_global_urnti_crnti_map, align 8
   %60 = zext i16 %27 to i32
   %61 = tail call ptr @wmem_tree_lookup32(ptr noundef %59, i32 noundef %60)

@@ -350,7 +350,7 @@ define internal noundef zeroext i1 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr
   br label %49
 
 49:                                               ; preds = %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19
-  %.0104 = phi i32 [ %48, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  %.0104 = phi i32 [ %48, %43 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ]
   tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %.0104)
   br label %50
 
@@ -1009,7 +1009,7 @@ dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTC
   br label %dissect_PNPTCP_block.exit
 
 dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
-  %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %242 ], [ %73, %213 ], [ %73, %201 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %149 ], [ %73, %132 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ]
+  %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ], [ %73, %132 ], [ %73, %149 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %201 ], [ %73, %213 ], [ %73, %242 ], [ %73, %dissect_PNPTCP_Option.exit.i ]
   %296 = add i32 %.0.i, %79
   %297 = sub i32 %296, %.02
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %297)

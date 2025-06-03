@@ -358,15 +358,15 @@ tool2curlmime.exit:                               ; preds = %14, %16
   br label %36
 
 36:                                               ; preds = %35, %10
-  %.1 = phi ptr [ %12, %10 ], [ %spec.store.select, %35 ]
+  %.1 = phi ptr [ %spec.store.select, %35 ], [ %12, %10 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %38 = load i64, ptr %37, align 8, !tbaa !22
   %39 = tail call i32 @curl_mime_data_cb(ptr noundef nonnull %9, i64 noundef %38, ptr noundef nonnull @tool_mime_stdin_read, ptr noundef nonnull @tool_mime_stdin_seek, ptr noundef null, ptr noundef nonnull %1) #15
   br label %40
 
 40:                                               ; preds = %23, %36, %20, %31, %10
-  %.2 = phi i32 [ 0, %10 ], [ %39, %36 ], [ 0, %31 ], [ %26, %23 ], [ 0, %20 ]
-  %.0 = phi ptr [ %12, %10 ], [ %.1, %36 ], [ %12, %31 ], [ %12, %23 ], [ %12, %20 ]
+  %.2 = phi i32 [ 0, %10 ], [ 0, %20 ], [ %26, %23 ], [ 0, %31 ], [ %39, %36 ]
+  %.0 = phi ptr [ %12, %10 ], [ %12, %20 ], [ %12, %23 ], [ %12, %31 ], [ %.1, %36 ]
   %41 = icmp eq i32 %.2, 0
   %42 = icmp ne ptr %.0, null
   %or.cond3 = select i1 %41, i1 %42, i1 false
@@ -409,8 +409,8 @@ tool2curlmime.exit:                               ; preds = %14, %16
   %59 = tail call i32 @curl_mime_name(ptr noundef nonnull %9, ptr noundef %58) #15
   br label %.thread105
 
-.thread105:                                       ; preds = %8, %4, %27, %tool2curlmime.exit, %22, %.thread91, %44, %48, %52, %56, %3
-  %.047 = phi i32 [ %55, %52 ], [ %59, %56 ], [ 0, %3 ], [ %51, %48 ], [ %47, %44 ], [ %.3, %.thread91 ], [ 27, %8 ], [ %7, %4 ], [ %30, %27 ], [ %.0.i82, %tool2curlmime.exit ], [ %21, %22 ]
+.thread105:                                       ; preds = %8, %4, %tool2curlmime.exit, %22, %27, %.thread91, %44, %48, %52, %56, %3
+  %.047 = phi i32 [ %55, %52 ], [ %59, %56 ], [ 0, %3 ], [ %51, %48 ], [ %47, %44 ], [ %.3, %.thread91 ], [ 27, %8 ], [ %7, %4 ], [ %.0.i82, %tool2curlmime.exit ], [ %21, %22 ], [ %30, %27 ]
   ret i32 %.047
 }
 

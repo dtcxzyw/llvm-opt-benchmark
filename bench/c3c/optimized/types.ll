@@ -216,7 +216,7 @@ define dso_local ptr @type_int_signed_by_bitsize(i64 noundef %0) local_unnamed_a
   unreachable
 
 7:                                                ; preds = %1, %5, %4, %3, %2
-  %.0.in = phi ptr [ @type_i128, %5 ], [ @type_long, %4 ], [ @type_int, %3 ], [ @type_short, %2 ], [ @type_ichar, %1 ]
+  %.0.in = phi ptr [ @type_short, %2 ], [ @type_int, %3 ], [ @type_long, %4 ], [ @type_i128, %5 ], [ @type_ichar, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -248,7 +248,7 @@ define dso_local ptr @type_int_unsigned_by_bitsize(i64 noundef %0) local_unnamed
   unreachable
 
 7:                                                ; preds = %1, %5, %4, %3, %2
-  %.0.in = phi ptr [ @type_u128, %5 ], [ @type_ulong, %4 ], [ @type_uint, %3 ], [ @type_ushort, %2 ], [ @type_char, %1 ]
+  %.0.in = phi ptr [ @type_ushort, %2 ], [ @type_uint, %3 ], [ @type_ulong, %4 ], [ @type_u128, %5 ], [ @type_char, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -397,7 +397,7 @@ tailrecurse:                                      ; preds = %49, %1
   br label %common.ret117
 
 common.ret117:                                    ; preds = %57, %48, %47, %31, %28, %18, %15, %3, %tailrecurse, %76, %71, %63, %60, %54, %39, %34
-  %common.ret117.op = phi ptr [ %38, %34 ], [ %46, %39 ], [ %56, %54 ], [ %62, %60 ], [ %70, %63 ], [ %75, %71 ], [ %80, %76 ], [ @.str.10, %48 ], [ @.str.9, %47 ], [ %33, %31 ], [ %30, %28 ], [ %24, %18 ], [ %17, %15 ], [ %5, %3 ], [ @.str.12, %57 ], [ @.str.5, %tailrecurse ]
+  %common.ret117.op = phi ptr [ %38, %34 ], [ %46, %39 ], [ %56, %54 ], [ %62, %60 ], [ %70, %63 ], [ %75, %71 ], [ %80, %76 ], [ %5, %3 ], [ %24, %18 ], [ %17, %15 ], [ %33, %31 ], [ %30, %28 ], [ @.str.9, %47 ], [ @.str.10, %48 ], [ @.str.12, %57 ], [ @.str.5, %tailrecurse ]
   ret ptr %common.ret117.op
 
 34:                                               ; preds = %tailrecurse
@@ -636,7 +636,7 @@ define dso_local i32 @type_size(ptr noundef readonly captures(none) %0) local_un
   br label %.backedge
 
 .backedge:                                        ; preds = %4, %6, %12, %43, %45, %47
-  %.019.be.in = phi ptr [ %54, %47 ], [ %46, %45 ], [ %44, %43 ], [ %17, %12 ], [ %11, %6 ], [ %3, %4 ]
+  %.019.be.in = phi ptr [ %11, %6 ], [ %17, %12 ], [ %44, %43 ], [ %46, %45 ], [ %54, %47 ], [ %3, %4 ]
   %.019.be = load ptr, ptr %.019.be.in, align 8
   br label %4
 
@@ -733,7 +733,7 @@ common.ret.loopexit:                              ; preds = %4
   br label %common.ret82
 
 common.ret82:                                     ; preds = %18, %26, %84, %71, %65, %60, %55, %common.ret.loopexit, %4, %4, %4, %77
-  %common.ret82.op = phi i32 [ %83, %77 ], [ %85, %84 ], [ %76, %71 ], [ %70, %65 ], [ %64, %60 ], [ %59, %55 ], [ %41, %26 ], [ %24, %18 ], [ 0, %common.ret.loopexit ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+  %common.ret82.op = phi i32 [ %83, %77 ], [ %59, %55 ], [ %64, %60 ], [ %70, %65 ], [ %76, %71 ], [ %85, %84 ], [ %41, %26 ], [ %24, %18 ], [ 0, %common.ret.loopexit ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   ret i32 %common.ret82.op
 
 77:                                               ; preds = %4
@@ -806,7 +806,7 @@ define dso_local zeroext i1 @type_flat_is_numlike(ptr noundef readonly captures(
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -856,7 +856,7 @@ define dso_local zeroext i1 @type_flat_is_floatlike(ptr noundef readonly capture
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -906,7 +906,7 @@ define dso_local zeroext i1 @type_flat_is_intlike(ptr noundef readonly captures(
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -956,7 +956,7 @@ define dso_local zeroext i1 @type_flat_is_boolintlike(ptr noundef readonly captu
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -1043,7 +1043,7 @@ define dso_local noundef zeroext i1 @type_is_abi_aggregate(ptr noundef readonly 
   br label %.backedge
 
 .backedge:                                        ; preds = %4, %6, %12
-  %.0.be.in = phi ptr [ %13, %12 ], [ %11, %6 ], [ %5, %4 ]
+  %.0.be.in = phi ptr [ %5, %4 ], [ %11, %6 ], [ %13, %12 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -1148,8 +1148,8 @@ define dso_local noundef zeroext i1 @type_is_ordered(ptr noundef readonly captur
   ]
 
 .backedge:                                        ; preds = %2, %4
-  %.pn = phi ptr [ %8, %4 ], [ %.0, %2 ]
-  %.0.be.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %.0.pn = phi ptr [ %8, %4 ], [ %.0, %2 ]
+  %.0.be.in = getelementptr inbounds nuw i8, ptr %.0.pn, i64 8
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -1235,7 +1235,7 @@ define dso_local noundef zeroext i1 @type_is_comparable(ptr noundef readonly cap
   br label %.backedge
 
 .backedge:                                        ; preds = %5, %11, %13, %15
-  %.0.be.in = phi ptr [ %20, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %5 ]
+  %.0.be.in = phi ptr [ %10, %5 ], [ %12, %11 ], [ %14, %13 ], [ %20, %15 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -1717,7 +1717,7 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
   br label %.backedge
 
 .backedge:                                        ; preds = %5, %35, %37, %43, %45, %75
-  %.020.be.in = phi ptr [ %76, %75 ], [ %52, %45 ], [ %44, %43 ], [ %42, %37 ], [ %36, %35 ], [ %10, %5 ]
+  %.020.be.in = phi ptr [ %10, %5 ], [ %36, %35 ], [ %42, %37 ], [ %44, %43 ], [ %52, %45 ], [ %76, %75 ]
   %.020.be = load ptr, ptr %.020.be.in, align 8
   br label %2
 
@@ -1825,7 +1825,7 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %77, %69, %64, %59, %53, %32
-  %.019 = phi i32 [ %78, %77 ], [ %74, %69 ], [ %68, %64 ], [ %63, %59 ], [ %58, %53 ], [ %.1, %32 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
+  %.019 = phi i32 [ %.1, %32 ], [ %58, %53 ], [ %63, %59 ], [ %68, %64 ], [ %74, %69 ], [ %78, %77 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
   ret i32 %.019
 }
 
@@ -2636,7 +2636,7 @@ define dso_local zeroext i1 @type_is_structurally_equivalent(ptr noundef readonl
   unreachable
 
 16:                                               ; preds = %13, %7
-  %.1.in.i = phi ptr [ %14, %13 ], [ %12, %7 ]
+  %.1.in.i = phi ptr [ %12, %7 ], [ %14, %13 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %3
 
@@ -2668,7 +2668,7 @@ type_flatten.exit:                                ; preds = %3, %29
   unreachable
 
 29:                                               ; preds = %26, %20
-  %.1.in.i84 = phi ptr [ %27, %26 ], [ %25, %20 ]
+  %.1.in.i84 = phi ptr [ %25, %20 ], [ %27, %26 ]
   %.1.i85 = load ptr, ptr %.1.in.i84, align 8
   br label %type_flatten.exit
 
@@ -2976,7 +2976,7 @@ define dso_local ptr @type_get_indexed_type(ptr noundef readonly captures(none) 
   br label %.backedge
 
 .backedge:                                        ; preds = %4, %10, %12
-  %.0.be.in = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %4 ]
+  %.0.be.in = phi ptr [ %9, %4 ], [ %11, %10 ], [ %13, %12 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -3268,8 +3268,8 @@ define dso_local noundef zeroext i1 @type_is_valid_for_vector(ptr noundef readon
   br label %.backedge
 
 .backedge:                                        ; preds = %2, %4
-  %.0.pn = phi ptr [ %8, %4 ], [ %.0, %2 ]
-  %.0.be.in = getelementptr inbounds nuw i8, ptr %.0.pn, i64 8
+  %.pn = phi ptr [ %8, %4 ], [ %.0, %2 ]
+  %.0.be.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -3344,7 +3344,7 @@ define dso_local noundef zeroext i1 @type_is_valid_for_array(ptr noundef readonl
   br label %.backedge
 
 .backedge:                                        ; preds = %4, %10, %12
-  %.0.be.in = phi ptr [ %13, %12 ], [ %11, %10 ], [ %9, %4 ]
+  %.0.be.in = phi ptr [ %9, %4 ], [ %11, %10 ], [ %13, %12 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %2
 
@@ -3400,7 +3400,7 @@ define dso_local noundef ptr @type_get_vector_bool(ptr noundef readonly captures
   unreachable
 
 15:                                               ; preds = %12, %6
-  %.1.in.i = phi ptr [ %13, %12 ], [ %11, %6 ]
+  %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %2
 
@@ -3435,7 +3435,7 @@ type_flatten.exit:                                ; preds = %2
   unreachable
 
 type_int_signed_by_bitsize.exit:                  ; preds = %type_flatten.exit, %20, %21, %22, %23
-  %.0.in.i = phi ptr [ @type_i128, %23 ], [ @type_long, %22 ], [ @type_int, %21 ], [ @type_short, %20 ], [ @type_ichar, %type_flatten.exit ]
+  %.0.in.i = phi ptr [ @type_short, %20 ], [ @type_int, %21 ], [ @type_long, %22 ], [ @type_i128, %23 ], [ @type_ichar, %type_flatten.exit ]
   %.0.i3 = load ptr, ptr %.0.in.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i32, ptr %26, align 8
@@ -4665,7 +4665,7 @@ create_type_cache.exit113:                        ; preds = %244
   unreachable
 
 type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.exit113, %258, %259, %260, %261
-  %.0.in.i = phi ptr [ @type_u128, %261 ], [ @type_ulong, %260 ], [ @type_uint, %259 ], [ @type_ushort, %258 ], [ @type_char, %create_type_cache.exit113 ]
+  %.0.in.i = phi ptr [ @type_ushort, %258 ], [ @type_uint, %259 ], [ @type_ulong, %260 ], [ @type_u128, %261 ], [ @type_char, %create_type_cache.exit113 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1280), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1284), align 4
@@ -4700,7 +4700,7 @@ type_int_unsigned_by_bitsize.exit:                ; preds = %create_type_cache.e
   unreachable
 
 type_int_signed_by_bitsize.exit:                  ; preds = %type_int_unsigned_by_bitsize.exit, %265, %266, %267, %268
-  %.0.in.i114 = phi ptr [ @type_i128, %268 ], [ @type_long, %267 ], [ @type_int, %266 ], [ @type_short, %265 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit ]
+  %.0.in.i114 = phi ptr [ @type_short, %265 ], [ @type_int, %266 ], [ @type_long, %267 ], [ @type_i128, %268 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit ]
   %.0.i115 = load ptr, ptr %.0.in.i114, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1360), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1364), align 4
@@ -4735,7 +4735,7 @@ type_int_signed_by_bitsize.exit:                  ; preds = %type_int_unsigned_b
   unreachable
 
 type_int_unsigned_by_bitsize.exit118:             ; preds = %type_int_signed_by_bitsize.exit, %272, %273, %274, %275
-  %.0.in.i116 = phi ptr [ @type_u128, %275 ], [ @type_ulong, %274 ], [ @type_uint, %273 ], [ @type_ushort, %272 ], [ @type_char, %type_int_signed_by_bitsize.exit ]
+  %.0.in.i116 = phi ptr [ @type_ushort, %272 ], [ @type_uint, %273 ], [ @type_ulong, %274 ], [ @type_u128, %275 ], [ @type_char, %type_int_signed_by_bitsize.exit ]
   %.0.i117 = load ptr, ptr %.0.in.i116, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1440), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1444), align 4
@@ -4770,7 +4770,7 @@ type_int_unsigned_by_bitsize.exit118:             ; preds = %type_int_signed_by_
   unreachable
 
 type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_by_bitsize.exit118, %279, %280, %281, %282
-  %.0.in.i119 = phi ptr [ @type_i128, %282 ], [ @type_long, %281 ], [ @type_int, %280 ], [ @type_short, %279 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit118 ]
+  %.0.in.i119 = phi ptr [ @type_short, %279 ], [ @type_int, %280 ], [ @type_long, %281 ], [ @type_i128, %282 ], [ @type_ichar, %type_int_unsigned_by_bitsize.exit118 ]
   %.0.i120 = load ptr, ptr %.0.in.i119, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1520), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1524), align 4
@@ -5127,7 +5127,7 @@ define dso_local i32 @type_array_element_is_equivalent(ptr noundef captures(none
   unreachable
 
 17:                                               ; preds = %14, %8
-  %.1.in.i = phi ptr [ %15, %14 ], [ %13, %8 ]
+  %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -5159,7 +5159,7 @@ type_flatten.exit:                                ; preds = %.preheader, %30
   unreachable
 
 30:                                               ; preds = %27, %21
-  %.1.in.i32 = phi ptr [ %28, %27 ], [ %26, %21 ]
+  %.1.in.i32 = phi ptr [ %26, %21 ], [ %28, %27 ]
   %.1.i33 = load ptr, ptr %.1.in.i32, align 8
   br label %type_flatten.exit
 
@@ -5262,7 +5262,7 @@ type_is_matching_int.exit:                        ; preds = %65
   br label %74
 
 74:                                               ; preds = %62, %68, %type_is_matching_int.exit, %56, %52, %46, %37, %type_flatten.exit34, %73, %60, %57, %54
-  %.0 = phi i32 [ 0, %73 ], [ %61, %60 ], [ %59, %57 ], [ %55, %54 ], [ 1, %type_flatten.exit34 ], [ 1, %37 ], [ 1, %46 ], [ 0, %52 ], [ 0, %56 ], [ 2, %type_is_matching_int.exit ], [ 2, %68 ], [ 2, %62 ]
+  %.0 = phi i32 [ 0, %73 ], [ %55, %54 ], [ %59, %57 ], [ %61, %60 ], [ 1, %type_flatten.exit34 ], [ 1, %37 ], [ 1, %46 ], [ 0, %52 ], [ 0, %56 ], [ 2, %type_is_matching_int.exit ], [ 2, %68 ], [ 2, %62 ]
   ret i32 %.0
 }
 
@@ -5309,7 +5309,7 @@ tailrecurse:                                      ; preds = %132, %4
   unreachable
 
 19:                                               ; preds = %16, %10
-  %.1.in.i = phi ptr [ %17, %16 ], [ %15, %10 ]
+  %.1.in.i = phi ptr [ %15, %10 ], [ %17, %16 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader88
 
@@ -5341,7 +5341,7 @@ type_flatten.exit:                                ; preds = %.preheader88, %32
   unreachable
 
 32:                                               ; preds = %29, %23
-  %.1.in.i69 = phi ptr [ %30, %29 ], [ %28, %23 ]
+  %.1.in.i69 = phi ptr [ %28, %23 ], [ %30, %29 ]
   %.1.i70 = load ptr, ptr %.1.in.i69, align 8
   br label %type_flatten.exit
 
@@ -5396,7 +5396,7 @@ type_flatten.exit71:                              ; preds = %type_flatten.exit, 
   unreachable
 
 58:                                               ; preds = %55, %49
-  %.1.in.i73 = phi ptr [ %56, %55 ], [ %54, %49 ]
+  %.1.in.i73 = phi ptr [ %54, %49 ], [ %56, %55 ]
   %.1.i74 = load ptr, ptr %.1.in.i73, align 8
   br label %.preheader
 
@@ -5428,7 +5428,7 @@ type_flatten.exit75:                              ; preds = %.preheader, %71
   unreachable
 
 71:                                               ; preds = %68, %62
-  %.1.in.i77 = phi ptr [ %69, %68 ], [ %67, %62 ]
+  %.1.in.i77 = phi ptr [ %67, %62 ], [ %69, %68 ]
   %.1.i78 = load ptr, ptr %.1.in.i77, align 8
   br label %type_flatten.exit75
 
@@ -5735,7 +5735,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly captures(
   unreachable
 
 15:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %13, %10
-  %.05 = phi i1 [ false, %13 ], [ %12, %10 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
+  %.05 = phi i1 [ %12, %10 ], [ false, %13 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
   ret i1 %.05
 }
 
@@ -5830,7 +5830,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: 
   unreachable
 
 type_int_signed_by_bitsize.exit:                  ; preds = %21, %22, %23, %24, %25
-  %.0.in.i = phi ptr [ @type_i128, %25 ], [ @type_long, %24 ], [ @type_int, %23 ], [ @type_short, %22 ], [ @type_ichar, %21 ]
+  %.0.in.i = phi ptr [ @type_short, %22 ], [ @type_int, %23 ], [ @type_long, %24 ], [ @type_i128, %25 ], [ @type_ichar, %21 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   br label %28
 
@@ -6033,7 +6033,7 @@ define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0,
   unreachable
 
 62:                                               ; preds = %59, %53
-  %.1.in.i = phi ptr [ %60, %59 ], [ %58, %53 ]
+  %.1.in.i = phi ptr [ %58, %53 ], [ %60, %59 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
   br label %.preheader
 
@@ -6263,7 +6263,7 @@ tailrecurse:                                      ; preds = %48
   unreachable
 
 .critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
-  %.0106 = phi ptr [ null, %190 ], [ %187, %177 ], [ %174, %173 ], [ %148, %147 ], [ %168, %167 ], [ %119, %116 ], [ %115, %112 ], [ %108, %.thread124 ], [ %89, %.thread123 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
+  %.0106 = phi ptr [ %89, %.thread123 ], [ %108, %.thread124 ], [ %115, %112 ], [ %119, %116 ], [ %148, %147 ], [ %168, %167 ], [ %174, %173 ], [ %187, %177 ], [ null, %190 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
   ret ptr %.0106
 }
 
@@ -6731,7 +6731,7 @@ define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %
   unreachable
 
 25:                                               ; preds = %1, %1, %22, %21, %20, %19, %18, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 14, %22 ], [ 17, %21 ], [ 16, %20 ], [ 15, %19 ], [ 18, %18 ], [ 9, %16 ], [ 12, %15 ], [ 11, %14 ], [ 10, %13 ], [ 13, %12 ], [ 8, %11 ], [ 19, %10 ], [ 5, %9 ], [ 20, %8 ], [ 6, %7 ], [ 7, %6 ], [ 4, %5 ], [ 3, %4 ], [ 2, %3 ], [ 1, %2 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %2 ], [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 7, %6 ], [ 6, %7 ], [ 20, %8 ], [ 5, %9 ], [ 19, %10 ], [ 8, %11 ], [ 13, %12 ], [ 10, %13 ], [ 11, %14 ], [ 12, %15 ], [ 9, %16 ], [ 18, %18 ], [ 15, %19 ], [ 16, %20 ], [ 17, %21 ], [ 14, %22 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 

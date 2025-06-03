@@ -31773,7 +31773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %common.resume
 
 77:                                               ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit
-  %.117 = phi ptr [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ], [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ]
+  %.117 = phi ptr [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ], [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ]
   ret ptr %.117
 }
 
@@ -61530,8 +61530,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi i32 [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi i32 [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load i32, ptr %.sroa.032.1.i.i.i, align 4, !tbaa !595
   %43 = icmp eq i32 %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit, label %44
@@ -61541,8 +61541,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi i32 [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi i32 [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load i32, ptr %.sroa.032.2.i.i.i, align 4, !tbaa !595
   %49 = icmp eq i32 %48, %47
   %spec.select.i.i.i = select i1 %49, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -61886,8 +61886,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrins
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i.i
-  %48 = phi i32 [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %46, %45 ]
+  %48 = phi i32 [ %43, %45 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %49 = load i32, ptr %.sroa.032.1.i.i.i.i, align 4, !tbaa !595
   %50 = icmp eq i32 %49, %48
   br i1 %50, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIiSaIiEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKiE0_clESI_SK_.exit, label %51
@@ -61897,8 +61897,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIiSaIiEEEENS0_11type_casterINS0_14intrins
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i.i
-  %54 = phi i32 [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %52, %51 ]
+  %54 = phi i32 [ %48, %51 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %55 = load i32, ptr %.sroa.032.2.i.i.i.i, align 4, !tbaa !595
   %56 = icmp eq i32 %55, %54
   %spec.select.i.i.i.i = select i1 %56, ptr %.sroa.032.2.i.i.i.i, ptr %13
@@ -69668,7 +69668,7 @@ _ZN8pybind116objectD2Ev.exit60:                   ; preds = %76
   br label %_ZN8pybind116objectD2Ev.exit
 
 79:                                               ; preds = %74, %64, %56, %52, %38
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %65, %64 ], [ %57, %56 ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %57, %56 ], [ %65, %64 ], [ %39, %38 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
   resume { ptr, i32 } %.pn
@@ -80414,8 +80414,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i
-  %41 = phi double [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %38 ]
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %39, %38 ]
+  %41 = phi double [ %36, %38 ], [ %.pre.i.i.i, %._crit_edge._crit_edge.i.i.i ]
+  %.sroa.032.1.i.i.i = phi ptr [ %39, %38 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge.i.i.i ]
   %42 = load double, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !258
   %43 = fcmp oeq double %42, %41
   br i1 %43, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_RKT0_.exit, label %44
@@ -80425,8 +80425,8 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge._crit_edge57.i.i.i
-  %47 = phi double [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %41, %44 ]
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %45, %44 ]
+  %47 = phi double [ %41, %44 ], [ %.pre58.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
+  %.sroa.032.2.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge._crit_edge57.i.i.i ]
   %48 = load double, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !258
   %49 = fcmp oeq double %48, %47
   br i1 %49, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_RKT0_.exit, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_RKT0_.exit.thread
@@ -80743,8 +80743,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIdSaIdEEEENS0_11type_casterINS0_14intrins
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge._crit_edge.i.i.i.i
-  %48 = phi double [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %43, %45 ]
-  %.sroa.032.1.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %46, %45 ]
+  %48 = phi double [ %43, %45 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.032.1.i.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %49 = load double, ptr %.sroa.032.1.i.i.i.i, align 8, !tbaa !258
   %50 = fcmp oeq double %49, %48
   br i1 %50, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIdSaIdEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKdE0_clESI_SK_.exit, label %51
@@ -80754,8 +80754,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIdSaIdEEEENS0_11type_casterINS0_14intrins
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge._crit_edge57.i.i.i.i
-  %54 = phi double [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %48, %51 ]
-  %.sroa.032.2.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %52, %51 ]
+  %54 = phi double [ %48, %51 ], [ %.pre58.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
+  %.sroa.032.2.i.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ]
   %55 = load double, ptr %.sroa.032.2.i.i.i.i, align 8, !tbaa !258
   %56 = fcmp oeq double %55, %54
   br i1 %56, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIdSaIdEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKdE0_clESI_SK_.exit, label %57
@@ -102084,8 +102084,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %77
 
 77:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread
-  %78 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
+  %78 = phi double [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %79 = load double, ptr %.sroa.037.1, align 8, !tbaa !258
   %80 = fcmp oeq double %79, %78
   br i1 %80, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
@@ -102111,8 +102111,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %92
 
 92:                                               ; preds = %._crit_edge._crit_edge62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
-  %93 = phi double [ %.pre63, %._crit_edge._crit_edge62 ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ], [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
+  %93 = phi double [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.pre63, %._crit_edge._crit_edge62 ]
+  %.sroa.037.2 = phi ptr [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ]
   %94 = load double, ptr %.sroa.037.2, align 8, !tbaa !258
   %95 = fcmp oeq double %94, %93
   br i1 %95, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.thread
@@ -102493,8 +102493,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %77
 
 77:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread
-  %78 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
+  %78 = phi double [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %79 = load double, ptr %.sroa.037.1, align 8, !tbaa !258
   %80 = fcmp oeq double %79, %78
   br i1 %80, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
@@ -102520,8 +102520,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %92
 
 92:                                               ; preds = %._crit_edge._crit_edge62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
-  %93 = phi double [ %.pre63, %._crit_edge._crit_edge62 ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ], [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
+  %93 = phi double [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.pre63, %._crit_edge._crit_edge62 ]
+  %.sroa.037.2 = phi ptr [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ]
   %94 = load double, ptr %.sroa.037.2, align 8, !tbaa !258
   %95 = fcmp oeq double %94, %93
   br i1 %95, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.thread
@@ -108403,7 +108403,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -121288,8 +121288,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %77
 
 77:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread
-  %78 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
+  %78 = phi i32 [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %79 = load i32, ptr %.sroa.037.1, align 4, !tbaa !595
   %80 = icmp eq i32 %79, %78
   br i1 %80, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
@@ -121315,8 +121315,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %92
 
 92:                                               ; preds = %._crit_edge._crit_edge62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
-  %93 = phi i32 [ %.pre63, %._crit_edge._crit_edge62 ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ], [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
+  %93 = phi i32 [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.pre63, %._crit_edge._crit_edge62 ]
+  %.sroa.037.2 = phi ptr [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ]
   %94 = load i32, ptr %.sroa.037.2, align 4, !tbaa !595
   %95 = icmp eq i32 %94, %93
   br i1 %95, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.thread
@@ -121698,8 +121698,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %77
 
 77:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread
-  %78 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
-  %.sroa.037.1 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ], [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ]
+  %78 = phi i32 [ %64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.037.1 = phi ptr [ %76, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit23.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge ]
   %79 = load i32, ptr %.sroa.037.1, align 4, !tbaa !595
   %80 = icmp eq i32 %79, %78
   br i1 %80, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
@@ -121725,8 +121725,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcl
   br label %92
 
 92:                                               ; preds = %._crit_edge._crit_edge62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread
-  %93 = phi i32 [ %.pre63, %._crit_edge._crit_edge62 ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
-  %.sroa.037.2 = phi ptr [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ], [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ]
+  %93 = phi i32 [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.pre63, %._crit_edge._crit_edge62 ]
+  %.sroa.037.2 = phi ptr [ %91, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.thread ], [ %.sroa.037.0.lcssa, %._crit_edge._crit_edge62 ]
   %94 = load i32, ptr %.sroa.037.2, align 4, !tbaa !595
   %95 = icmp eq i32 %94, %93
   br i1 %95, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit27.thread
@@ -127618,7 +127618,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -138682,8 +138682,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %54
 
 54:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread
-  %55 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
+  %55 = phi i32 [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.031.1 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ]
   %56 = load i32, ptr %.sroa.031.1, align 4, !tbaa !595
   %57 = icmp eq i32 %56, %55
   br i1 %57, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
@@ -138701,8 +138701,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
-  %65 = phi i32 [ %.pre57, %._crit_edge._crit_edge56 ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
+  %65 = phi i32 [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.pre57, %._crit_edge._crit_edge56 ]
+  %.sroa.031.2 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ]
   %66 = load i32, ptr %.sroa.031.2, align 4, !tbaa !595
   %67 = icmp eq i32 %66, %65
   br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit21.thread
@@ -139037,8 +139037,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %54
 
 54:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread
-  %55 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
+  %55 = phi i32 [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.031.1 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ]
   %56 = load i32, ptr %.sroa.031.1, align 4, !tbaa !595
   %57 = icmp eq i32 %56, %55
   br i1 %57, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
@@ -139056,8 +139056,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
-  %65 = phi i32 [ %.pre57, %._crit_edge._crit_edge56 ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
+  %65 = phi i32 [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.pre57, %._crit_edge._crit_edge56 ]
+  %.sroa.031.2 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ]
   %66 = load i32, ptr %.sroa.031.2, align 4, !tbaa !595
   %67 = icmp eq i32 %66, %65
   br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit21.thread
@@ -144945,7 +144945,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 65:                                               ; preds = %58, %_ZN8pybind116objectD2Ev.exit, %39, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %59, %58 ], [ %46, %_ZN8pybind116objectD2Ev.exit ], [ %40, %39 ], [ %25, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %25, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %40, %39 ], [ %46, %_ZN8pybind116objectD2Ev.exit ], [ %59, %58 ]
   ret ptr %.sroa.09.0
 }
 
@@ -155702,8 +155702,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %54
 
 54:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread
-  %55 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
+  %55 = phi double [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.031.1 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ]
   %56 = load double, ptr %.sroa.031.1, align 8, !tbaa !258
   %57 = fcmp oeq double %56, %55
   br i1 %57, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
@@ -155721,8 +155721,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
-  %65 = phi double [ %.pre57, %._crit_edge._crit_edge56 ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
+  %65 = phi double [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.pre57, %._crit_edge._crit_edge56 ]
+  %.sroa.031.2 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ]
   %66 = load double, ptr %.sroa.031.2, align 8, !tbaa !258
   %67 = fcmp oeq double %66, %65
   br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit21.thread
@@ -156057,8 +156057,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %54
 
 54:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread
-  %55 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ]
+  %55 = phi double [ %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.031.1 = phi ptr [ %53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit19.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ]
   %56 = load double, ptr %.sroa.031.1, align 8, !tbaa !258
   %57 = fcmp oeq double %56, %55
   br i1 %57, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
@@ -156076,8 +156076,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEcl
   br label %64
 
 64:                                               ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread
-  %65 = phi double [ %.pre57, %._crit_edge._crit_edge56 ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ]
+  %65 = phi double [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.pre57, %._crit_edge._crit_edge56 ]
+  %.sroa.031.2 = phi ptr [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.thread ], [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ]
   %66 = load double, ptr %.sroa.031.2, align 8, !tbaa !258
   %67 = fcmp oeq double %66, %65
   br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit21.thread
@@ -161922,7 +161922,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -172501,8 +172501,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcl
   br label %209
 
 209:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread
-  %210 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %166, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ]
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge ], [ %208, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ]
+  %210 = phi double [ %166, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.073.1 = phi ptr [ %208, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ], [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge ]
   %211 = load double, ptr %.sroa.073.1, align 8, !tbaa !258
   %212 = fcmp oeq double %211, %210
   br i1 %212, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i48, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread
@@ -172576,8 +172576,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcl
   br label %254
 
 254:                                              ; preds = %._crit_edge._crit_edge98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread
-  %255 = phi double [ %.pre99, %._crit_edge._crit_edge98 ], [ %210, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ]
-  %.sroa.073.2 = phi ptr [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge98 ], [ %253, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ]
+  %255 = phi double [ %210, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ], [ %.pre99, %._crit_edge._crit_edge98 ]
+  %.sroa.073.2 = phi ptr [ %253, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ], [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge98 ]
   %256 = load double, ptr %.sroa.073.2, align 8, !tbaa !258
   %257 = fcmp oeq double %256, %255
   br i1 %257, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit63.thread
@@ -173228,8 +173228,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcl
   br label %209
 
 209:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread
-  %210 = phi double [ %.pre, %._crit_edge._crit_edge ], [ %166, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ]
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge ], [ %208, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ]
+  %210 = phi double [ %166, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.073.1 = phi ptr [ %208, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit47.thread ], [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge ]
   %211 = load double, ptr %.sroa.073.1, align 8, !tbaa !258
   %212 = fcmp oeq double %211, %210
   br i1 %212, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i48, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread
@@ -173303,8 +173303,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcl
   br label %254
 
 254:                                              ; preds = %._crit_edge._crit_edge98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread
-  %255 = phi double [ %.pre99, %._crit_edge._crit_edge98 ], [ %210, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ]
-  %.sroa.073.2 = phi ptr [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge98 ], [ %253, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ]
+  %255 = phi double [ %210, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ], [ %.pre99, %._crit_edge._crit_edge98 ]
+  %.sroa.073.2 = phi ptr [ %253, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit55.thread ], [ %.sroa.073.0.lcssa, %._crit_edge._crit_edge98 ]
   %256 = load double, ptr %.sroa.073.2, align 8, !tbaa !258
   %257 = fcmp oeq double %256, %255
   br i1 %257, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit63.thread
@@ -179257,7 +179257,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -189515,7 +189515,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.025.1 = phi ptr [ %28, %27 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %30 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.1)
   br i1 %30, label %.loopexit, label %31
 
@@ -189524,7 +189524,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.025.2 = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %34 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.2)
   %spec.select = select i1 %34, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -189914,7 +189914,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.025.1 = phi ptr [ %28, %27 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %30 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.1)
   br i1 %30, label %.loopexit, label %31
 
@@ -189923,7 +189923,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPK
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.025.2 = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %34 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.2)
   %spec.select = select i1 %34, ptr %.sroa.025.2, ptr %1
   br label %.loopexit
@@ -195724,7 +195724,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 
@@ -206501,8 +206501,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEcl
   br label %98
 
 98:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread
-  %99 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ]
-  %.sroa.043.1 = phi ptr [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ]
+  %99 = phi i32 [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.043.1 = phi ptr [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ], [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge ]
   %100 = load i32, ptr %.sroa.043.1, align 4, !tbaa !595
   %101 = icmp eq i32 %100, %99
   br i1 %101, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i28, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread
@@ -206536,8 +206536,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEcl
   br label %118
 
 118:                                              ; preds = %._crit_edge._crit_edge68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread
-  %119 = phi i32 [ %.pre69, %._crit_edge._crit_edge68 ], [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ]
-  %.sroa.043.2 = phi ptr [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge68 ], [ %117, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ]
+  %119 = phi i32 [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ], [ %.pre69, %._crit_edge._crit_edge68 ]
+  %.sroa.043.2 = phi ptr [ %117, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ], [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge68 ]
   %120 = load i32, ptr %.sroa.043.2, align 4, !tbaa !595
   %121 = icmp eq i32 %120, %119
   br i1 %121, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i31, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit33.thread
@@ -206962,8 +206962,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEcl
   br label %98
 
 98:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread
-  %99 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ]
-  %.sroa.043.1 = phi ptr [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge ], [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ]
+  %99 = phi i32 [ %80, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ], [ %.pre, %._crit_edge._crit_edge ]
+  %.sroa.043.1 = phi ptr [ %97, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit27.thread ], [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge ]
   %100 = load i32, ptr %.sroa.043.1, align 4, !tbaa !595
   %101 = icmp eq i32 %100, %99
   br i1 %101, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i28, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread
@@ -206997,8 +206997,8 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEcl
   br label %118
 
 118:                                              ; preds = %._crit_edge._crit_edge68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread
-  %119 = phi i32 [ %.pre69, %._crit_edge._crit_edge68 ], [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ]
-  %.sroa.043.2 = phi ptr [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge68 ], [ %117, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ]
+  %119 = phi i32 [ %99, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ], [ %.pre69, %._crit_edge._crit_edge68 ]
+  %.sroa.043.2 = phi ptr [ %117, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit30.thread ], [ %.sroa.043.0.lcssa, %._crit_edge._crit_edge68 ]
   %120 = load i32, ptr %.sroa.043.2, align 4, !tbaa !595
   %121 = icmp eq i32 %120, %119
   br i1 %121, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i31, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit33.thread
@@ -212816,7 +212816,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
   br label %common.resume
 
 64:                                               ; preds = %57, %_ZN8pybind116objectD2Ev.exit, %38, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit16, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit
-  %.sroa.09.0 = phi ptr [ %58, %57 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %39, %38 ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit ]
+  %.sroa.09.0 = phi ptr [ %8, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit ], [ %24, %_ZN8pybind116detail17eigen_encapsulateINS0_10EigenPropsIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEES5_vEENS_6handleEPT0_.exit16 ], [ %39, %38 ], [ %45, %_ZN8pybind116objectD2Ev.exit ], [ %58, %57 ]
   ret ptr %.sroa.09.0
 }
 

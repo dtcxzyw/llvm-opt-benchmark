@@ -250,7 +250,7 @@ json_error.exit:                                  ; preds = %4, %4, %4, %4
   unreachable
 
 34:                                               ; preds = %4, %1, %32, %31, %30, %24, %23, %12, %json_error.exit, %10, %8
-  %.0 = phi ptr [ null, %32 ], [ @false_val, %31 ], [ @true_val, %30 ], [ @zero_val, %23 ], [ %27, %24 ], [ %15, %12 ], [ null, %json_error.exit ], [ %11, %10 ], [ %9, %8 ], [ @error, %1 ], [ null, %4 ]
+  %.0 = phi ptr [ %9, %8 ], [ %11, %10 ], [ null, %json_error.exit ], [ %15, %12 ], [ @zero_val, %23 ], [ %27, %24 ], [ @true_val, %30 ], [ @false_val, %31 ], [ null, %32 ], [ @error, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -676,7 +676,7 @@ json_error.exit.i:                                ; preds = %67, %64
   br label %json_parse_string.exit
 
 .backedge.i32:                                    ; preds = %106, %77, %76, %75, %74, %73, %70, %70, %70, %60
-  %storemerge.i = phi i8 [ %63, %60 ], [ %117, %106 ], [ 9, %77 ], [ 13, %76 ], [ 12, %75 ], [ 10, %74 ], [ 8, %73 ], [ %72, %70 ], [ %72, %70 ], [ %72, %70 ]
+  %storemerge.i = phi i8 [ %63, %60 ], [ %72, %70 ], [ %72, %70 ], [ %72, %70 ], [ 8, %73 ], [ 10, %74 ], [ 12, %75 ], [ 13, %76 ], [ 9, %77 ], [ %117, %106 ]
   %.041.be.i = getelementptr inbounds nuw i8, ptr %.041.i, i64 1
   store i8 %storemerge.i, ptr %.041.i, align 1
   br label %60

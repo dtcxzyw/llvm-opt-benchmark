@@ -4789,7 +4789,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %1691, %1687, %1685
   unreachable
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %1699, %_ZNK4pbrt4HalfcvfEv.exit.i, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i, %.noexc360
-  %.0.i = phi float [ %1710, %1699 ], [ %1698, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %1668, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %.noexc360 ]
+  %.0.i = phi float [ %1668, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %1698, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %1710, %1699 ], [ 0.000000e+00, %.noexc360 ]
   %1713 = getelementptr inbounds nuw float, ptr %.sroa.0443.05481269, i64 %1627
   %1714 = load float, ptr %1713, align 4, !tbaa !71
   %1715 = fadd float %.0.i, %1714
@@ -8758,7 +8758,7 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   unreachable
 
 86:                                               ; preds = %4, %70, %_ZNK4pbrt4HalfcvfEv.exit, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
-  %.0 = phi float [ %84, %70 ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %36, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit ], [ %69, %_ZNK4pbrt4HalfcvfEv.exit ], [ %84, %70 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 
@@ -14476,7 +14476,7 @@ _ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit: ; preds = 
   br label %84
 
 84:                                               ; preds = %63, %61, %59, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit, %45, %37, %35, %6, %4
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %62, %61 ], [ %60, %59 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %5, %4 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %63 ], [ %5, %4 ], [ %.sroa.0.4.vec.insert.i.i, %6 ], [ %36, %35 ], [ %.sroa.0.4.vec.insert.i.i20, %37 ], [ %46, %45 ], [ %.sroa.0.4.vec.insert.i.i22, %_ZZN4pbrt7Sampler5Get2DEvENKUlT_E_clIPNS_12SobolSamplerEEEDaS1_.exit ], [ %60, %59 ], [ %62, %61 ]
   ret <2 x float> %.sroa.0.0
 }
 

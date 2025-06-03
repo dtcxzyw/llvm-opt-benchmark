@@ -633,7 +633,7 @@ _ZN13contains_vars3imp5visitEP4exprjRb.exit32:    ; preds = %_Z9is_groundPK4expr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN13contains_vars3imp5visitEP4exprjRb.exit, %15, %3, %52, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32, %8, %13
-  %.033 = phi i1 [ true, %3 ], [ true, %52 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32 ], [ true, %8 ], [ true, %13 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  %.033 = phi i1 [ true, %3 ], [ true, %8 ], [ true, %13 ], [ true, %52 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   ret i1 %.033
 }
 

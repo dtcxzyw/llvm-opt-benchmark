@@ -616,8 +616,8 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
   %.not192.i = icmp eq i64 %272, 0
   br i1 %.not192.i, label %.loopexit, label %75, !llvm.loop !57
 
-rpza_decode_stream.exit.thread:                   ; preds = %bytestream2_get_be16.exit215.i, %.thread.thread.i, %41, %54, %264, %242, %207, %120, %107
-  %.0.i.ph = phi i32 [ -1094995529, %107 ], [ -1094995529, %120 ], [ -1094995529, %207 ], [ -1094995529, %242 ], [ -1094995529, %264 ], [ %57, %54 ], [ -1094995529, %41 ], [ -1094995529, %.thread.thread.i ], [ -1094995529, %bytestream2_get_be16.exit215.i ]
+rpza_decode_stream.exit.thread:                   ; preds = %bytestream2_get_be16.exit215.i, %.thread.thread.i, %41, %54, %264, %107, %120, %207, %242
+  %.0.i.ph = phi i32 [ -1094995529, %242 ], [ -1094995529, %207 ], [ -1094995529, %120 ], [ -1094995529, %107 ], [ -1094995529, %264 ], [ %57, %54 ], [ -1094995529, %41 ], [ -1094995529, %.thread.thread.i ], [ -1094995529, %bytestream2_get_be16.exit215.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %277
 

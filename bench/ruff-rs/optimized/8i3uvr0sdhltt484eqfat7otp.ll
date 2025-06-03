@@ -342,7 +342,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   ]
 
 127:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit", %135, %149, %124
-  %.sroa.08.2 = phi i32 [ %.sroa.08.1.ph, %124 ], [ %150, %149 ], [ %.sroa.08.1.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit" ], [ %137, %135 ]
+  %.sroa.08.2 = phi i32 [ %.sroa.08.1.ph, %124 ], [ %.sroa.08.1.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit" ], [ %150, %149 ], [ %137, %135 ]
   %128 = invoke { i32, i32 } @"_ZN83_$LT$ruff_python_parser..token..Token$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h6968fe5e7cf78ab6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.034.0145)
           to label %151 unwind label %.thread.loopexit.split-lp.loopexit
 

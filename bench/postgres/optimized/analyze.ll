@@ -2550,8 +2550,8 @@ list_length.exit.i69:                             ; preds = %1063, %1059
   unreachable
 
 1105:                                             ; preds = %1096, %1094, %1092
-  %.174.i = phi ptr [ %1097, %1096 ], [ %.073106126.i, %1094 ], [ %1093, %1092 ]
-  %.2.i70 = phi ptr [ %1099, %1096 ], [ %1095, %1094 ], [ %.171108124.i, %1092 ]
+  %.174.i = phi ptr [ %1093, %1092 ], [ %.073106126.i, %1094 ], [ %1097, %1096 ]
+  %.2.i70 = phi ptr [ %.171108124.i, %1092 ], [ %1095, %1094 ], [ %1099, %1096 ]
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %1106 = load i32, ptr %1083, align 4
   %1107 = sext i32 %1106 to i64
@@ -2584,7 +2584,7 @@ transformCallStmt.exit:                           ; preds = %1050, %._crit_edge1
   br label %transformDeleteStmt.exit
 
 transformDeleteStmt.exit:                         ; preds = %841, %839, %379, %335, %transformValuesClause.exit, %610, %608, %1114, %transformCallStmt.exit, %transformCreateTableAsStmt.exit, %transformExplainStmt.exit, %transformDeclareCursorStmt.exit, %transformReturnStmt.exit, %434, %transformUpdateStmt.exit, %transformInsertStmt.exit
-  %.0 = phi ptr [ %1115, %1114 ], [ %1111, %transformCallStmt.exit ], [ %1014, %transformCreateTableAsStmt.exit ], [ %968, %transformExplainStmt.exit ], [ %919, %transformDeclareCursorStmt.exit ], [ %613, %transformReturnStmt.exit ], [ %435, %434 ], [ %381, %transformUpdateStmt.exit ], [ %12, %transformInsertStmt.exit ], [ %440, %transformValuesClause.exit ], [ %609, %608 ], [ %611, %610 ], [ %321, %335 ], [ %321, %379 ], [ %649, %839 ], [ %649, %841 ]
+  %.0 = phi ptr [ %1115, %1114 ], [ %12, %transformInsertStmt.exit ], [ %381, %transformUpdateStmt.exit ], [ %435, %434 ], [ %613, %transformReturnStmt.exit ], [ %919, %transformDeclareCursorStmt.exit ], [ %968, %transformExplainStmt.exit ], [ %1014, %transformCreateTableAsStmt.exit ], [ %1111, %transformCallStmt.exit ], [ %440, %transformValuesClause.exit ], [ %609, %608 ], [ %611, %610 ], [ %321, %335 ], [ %321, %379 ], [ %649, %839 ], [ %649, %841 ]
   %1118 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i32 0, ptr %1118, align 8
   %1119 = getelementptr inbounds nuw i8, ptr %.0, i64 24

@@ -972,7 +972,7 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   br label %113
 
 113:                                              ; preds = %.critedge, %.thread, %100
-  %.268 = phi i32 [ %.mux, %.critedge ], [ 0, %100 ], [ %spec.select, %.thread ]
+  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ %spec.select, %.thread ]
   %114 = load i8, ptr %44, align 8
   %115 = and i8 %114, -2
   store i8 %115, ptr %44, align 8

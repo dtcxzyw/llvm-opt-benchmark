@@ -7554,7 +7554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %1, %1, %12, %7
-  %.06 = phi i32 [ 1, %12 ], [ %11, %7 ], [ 3, %1 ], [ 3, %1 ]
+  %.06 = phi i32 [ %11, %7 ], [ 1, %12 ], [ 3, %1 ], [ 3, %1 ]
   ret i32 %.06
 }
 

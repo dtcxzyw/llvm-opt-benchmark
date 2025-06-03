@@ -356,7 +356,7 @@ _ZL13getUdtOptionsIN4llvm8codeview11UnionRecordEENS1_12ClassOptionsENS1_8CVRecor
   br label %92
 
 92:                                               ; preds = %_ZL13getUdtOptionsIN4llvm8codeview11UnionRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit, %_ZL13getUdtOptionsIN4llvm8codeview10EnumRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit, %_ZL13getUdtOptionsIN4llvm8codeview11ClassRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit
-  %.05 = phi i16 [ %.1.i16, %_ZL13getUdtOptionsIN4llvm8codeview11UnionRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i10, %_ZL13getUdtOptionsIN4llvm8codeview10EnumRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i, %_ZL13getUdtOptionsIN4llvm8codeview11ClassRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ]
+  %.05 = phi i16 [ %.1.i, %_ZL13getUdtOptionsIN4llvm8codeview11ClassRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i10, %_ZL13getUdtOptionsIN4llvm8codeview10EnumRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i16, %_ZL13getUdtOptionsIN4llvm8codeview11UnionRecordEENS1_12ClassOptionsENS1_8CVRecordINS1_12TypeLeafKindEEE.exit ]
   %93 = and i16 %.05, 128
   %94 = icmp ne i16 %93, 0
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread
@@ -508,7 +508,7 @@ switch.lookup:                                    ; preds = %5
   br label %24
 
 24:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %8, %8, %8, %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i64 [ 0, %21 ], [ 32, %20 ], [ 20, %19 ], [ 16, %18 ], [ 10, %17 ], [ 8, %16 ], [ 6, %15 ], [ 2, %14 ], [ 1, %13 ], [ 16, %12 ], [ 8, %11 ], [ 2, %10 ], [ 1, %9 ], [ 0, %1 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i64 [ 0, %21 ], [ 1, %9 ], [ 2, %10 ], [ 8, %11 ], [ 16, %12 ], [ 1, %13 ], [ 2, %14 ], [ 6, %15 ], [ 8, %16 ], [ 10, %17 ], [ 16, %18 ], [ 20, %19 ], [ 32, %20 ], [ 0, %1 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }
 
@@ -689,7 +689,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread: ; preds = %
   br label %64
 
 64:                                               ; preds = %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread, %_ZL10getUdtSizeIN4llvm8codeview11UnionRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit, %_ZL10getUdtSizeIN4llvm8codeview11ClassRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit
-  %.0 = phi i64 [ %63, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread ], [ %.1.i7, %_ZL10getUdtSizeIN4llvm8codeview11UnionRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i, %_ZL10getUdtSizeIN4llvm8codeview11ClassRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit ]
+  %.0 = phi i64 [ %63, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.thread ], [ %.1.i, %_ZL10getUdtSizeIN4llvm8codeview11ClassRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit ], [ %.1.i7, %_ZL10getUdtSizeIN4llvm8codeview11UnionRecordEEmNS1_8CVRecordINS1_12TypeLeafKindEEE.exit ]
   ret i64 %.0
 }
 

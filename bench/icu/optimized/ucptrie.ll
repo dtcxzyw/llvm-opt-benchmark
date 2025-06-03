@@ -670,7 +670,7 @@ ucptrie_internalSmallIndex_77.exit:               ; preds = %44, %50
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %78, %82, %87, %91
-  %.0.i19 = phi i32 [ %95, %91 ], [ %90, %87 ], [ %86, %82 ], [ -1, %78 ]
+  %.0.i19 = phi i32 [ %86, %82 ], [ %90, %87 ], [ %95, %91 ], [ -1, %78 ]
   ret i32 %.0.i19
 }
 
@@ -846,7 +846,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13, %18, %23, %27
-  %.0.i = phi i32 [ %31, %27 ], [ %26, %23 ], [ %22, %18 ], [ -1, %13 ]
+  %.0.i = phi i32 [ %22, %18 ], [ %26, %23 ], [ %31, %27 ], [ -1, %13 ]
   %.not280 = icmp eq ptr %2, null
   br i1 %.not280, label %34, label %32
 
@@ -1089,7 +1089,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit: ; preds = %13
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit286
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit286: ; preds = %142, %145, %150, %154
-  %.0.i285 = phi i32 [ %158, %154 ], [ %153, %150 ], [ %149, %145 ], [ -1, %142 ]
+  %.0.i285 = phi i32 [ %149, %145 ], [ %153, %150 ], [ %158, %154 ], [ -1, %142 ]
   %159 = trunc nuw i8 %.5230 to i1
   br i1 %159, label %160, label %169
 
@@ -1284,7 +1284,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419: ;
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292: ; preds = %.lr.ph.split, %217, %221, %224
-  %.0.i291 = phi i32 [ %227, %224 ], [ %223, %221 ], [ %220, %217 ], [ -1, %.lr.ph.split ]
+  %.0.i291 = phi i32 [ %220, %217 ], [ %223, %221 ], [ %227, %224 ], [ -1, %.lr.ph.split ]
   %.not274 = icmp eq i32 %.0.i291, %.12207379
   br i1 %.not274, label %233, label %228
 
@@ -1366,7 +1366,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
   br label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit297
 
 _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit297: ; preds = %241, %245, %250, %254
-  %.0.i296 = phi i32 [ %258, %254 ], [ %253, %250 ], [ %249, %245 ], [ -1, %241 ]
+  %.0.i296 = phi i32 [ %249, %245 ], [ %253, %250 ], [ %258, %254 ], [ -1, %241 ]
   %259 = load i32, ptr %36, align 4, !tbaa !24
   %260 = icmp eq i32 %.0.i296, %259
   %brmerge366 = or i1 %.not266, %260
@@ -1459,8 +1459,8 @@ default.unreachable:                              ; preds = %44, %20
   unreachable
 
 40:                                               ; preds = %36, %31, %25
-  %41 = phi i32 [ %38, %36 ], [ %33, %31 ], [ %27, %25 ]
-  %.066 = phi i32 [ %39, %36 ], [ %35, %31 ], [ %30, %25 ]
+  %41 = phi i32 [ %27, %25 ], [ %33, %31 ], [ %38, %36 ]
+  %.066 = phi i32 [ %30, %25 ], [ %35, %31 ], [ %39, %36 ]
   %42 = icmp slt i32 %2, %.066
   br i1 %42, label %43, label %44
 

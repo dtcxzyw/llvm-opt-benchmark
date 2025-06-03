@@ -751,7 +751,7 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %102, %_ZN17QArrayDa
   ret void
 
 107:                                              ; preds = %_ZN10QByteArrayD2Ev.exit31, %33, %_ZN10QByteArrayD2Ev.exit42, %_ZN7QStringD2Ev.exit64, %_ZN7QStringD2Ev.exit48, %13
-  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %_ZN7QStringD2Ev.exit64 ], [ %.pn24, %_ZN7QStringD2Ev.exit48 ], [ %14, %13 ], [ %34, %33 ], [ %.pn14, %_ZN10QByteArrayD2Ev.exit42 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit31 ]
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN7QStringD2Ev.exit48 ], [ %.pn21.pn, %_ZN7QStringD2Ev.exit64 ], [ %14, %13 ], [ %34, %33 ], [ %.pn14, %_ZN10QByteArrayD2Ev.exit42 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit31 ]
   %108 = load ptr, ptr %3, align 8
   %.not.i.i.i69 = icmp eq ptr %108, null
   br i1 %.not.i.i.i69, label %_ZN7QStringD2Ev.exit72, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i70
@@ -768,7 +768,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i70:    ; preds = %107
 
 _ZN7QStringD2Ev.exit72:                           ; preds = %107, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i70, %110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
-  resume { ptr, i32 } %.pn21.pn.pn
+  resume { ptr, i32 } %.pn24.pn
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid

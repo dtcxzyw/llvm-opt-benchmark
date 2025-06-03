@@ -120,8 +120,8 @@ switch.lookup:                                    ; preds = %17
   br label %34
 
 34:                                               ; preds = %switch.lookup, %12, %20, %25, %16, %15
-  %.165 = phi ptr [ %.06475, %25 ], [ %.06475, %20 ], [ @jRD4x4, %16 ], [ @jRD2x2, %15 ], [ @jRD1x1, %12 ], [ %switch.load, %switch.lookup ]
-  %.163 = phi i32 [ %.06276, %25 ], [ %.06276, %20 ], [ 0, %16 ], [ 0, %15 ], [ 0, %12 ], [ %18, %switch.lookup ]
+  %.165 = phi ptr [ %.06475, %25 ], [ @jRD2x2, %15 ], [ @jRD4x4, %16 ], [ %.06475, %20 ], [ @jRD1x1, %12 ], [ %switch.load, %switch.lookup ]
+  %.163 = phi i32 [ %.06276, %25 ], [ 0, %15 ], [ 0, %16 ], [ %.06276, %20 ], [ 0, %12 ], [ %18, %switch.lookup ]
   %35 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv98
   store ptr %.165, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.06177, i64 48

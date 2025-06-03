@@ -3055,13 +3055,13 @@ _ZN4llvm17createStringErrorESt10error_codePKc.exit119.i: ; preds = %_ZNKSt7__cxx
   br label %487
 
 487:                                              ; preds = %485, %465, %462, %459, %458, %457, %456
-  %.sroa.0146.1.i = phi i16 [ %.sroa.0146.0205.i, %456 ], [ %.sroa.0146.0205.i, %485 ], [ %.sroa.0146.0205.i, %465 ], [ %.sroa.0146.0205.i, %462 ], [ %.sroa.0146.0205.i, %459 ], [ %.sroa.0146.0205.i, %458 ], [ %.sroa.0146.0.copyload148.i, %457 ]
-  %.sroa.7.1.i = phi i8 [ %.sroa.7.0206.i, %456 ], [ %.sroa.7.0206.i, %485 ], [ %.sroa.7.0206.i, %465 ], [ %.sroa.7.0206.i, %462 ], [ %.sroa.7.0206.i, %459 ], [ %.sroa.7.0206.i, %458 ], [ %.sroa.7.0.copyload152.i, %457 ]
-  %.sroa.14.1.i = phi i16 [ %.sroa.14.0207.i, %456 ], [ %.sroa.14.0207.i, %485 ], [ %.sroa.14.0207.i, %465 ], [ %.sroa.14.0207.i, %462 ], [ %.sroa.14.0207.i, %459 ], [ %.sroa.14.88.copyload.i, %458 ], [ %.sroa.14.0207.i, %457 ]
-  %.sroa.16.1.i = phi i8 [ %.sroa.16.0208.i, %456 ], [ %.sroa.16.0208.i, %485 ], [ %.sroa.16.0208.i, %465 ], [ %.sroa.16.0208.i, %462 ], [ %.sroa.16.0208.i, %459 ], [ %.sroa.16.88.copyload.i, %458 ], [ %.sroa.16.0208.i, %457 ]
-  %.sroa.12.2.i = phi i64 [ %.sroa.12.1209.i, %456 ], [ %.sroa.12.1209.i, %485 ], [ %467, %465 ], [ %.sroa.12.1209.i, %462 ], [ %.sroa.12.1209.i, %459 ], [ %.sroa.12.1209.i, %458 ], [ %.sroa.12.1209.i, %457 ]
-  %.sroa.11.2.i = phi i64 [ %.sroa.11.1210.i, %456 ], [ %.sroa.11.1210.i, %485 ], [ %.sroa.11.1210.i, %465 ], [ %464, %462 ], [ %.sroa.11.1210.i, %459 ], [ %.sroa.11.1210.i, %458 ], [ %.sroa.11.1210.i, %457 ]
-  %.sroa.10.2.i = phi i64 [ %.sroa.10.1211.i, %456 ], [ %.sroa.10.1211.i, %485 ], [ %.sroa.10.1211.i, %465 ], [ %.sroa.10.1211.i, %462 ], [ %461, %459 ], [ %.sroa.10.1211.i, %458 ], [ %.sroa.10.1211.i, %457 ]
+  %.sroa.0146.1.i = phi i16 [ %.sroa.0146.0205.i, %456 ], [ %.sroa.0146.0.copyload148.i, %457 ], [ %.sroa.0146.0205.i, %458 ], [ %.sroa.0146.0205.i, %459 ], [ %.sroa.0146.0205.i, %462 ], [ %.sroa.0146.0205.i, %465 ], [ %.sroa.0146.0205.i, %485 ]
+  %.sroa.7.1.i = phi i8 [ %.sroa.7.0206.i, %456 ], [ %.sroa.7.0.copyload152.i, %457 ], [ %.sroa.7.0206.i, %458 ], [ %.sroa.7.0206.i, %459 ], [ %.sroa.7.0206.i, %462 ], [ %.sroa.7.0206.i, %465 ], [ %.sroa.7.0206.i, %485 ]
+  %.sroa.14.1.i = phi i16 [ %.sroa.14.0207.i, %456 ], [ %.sroa.14.0207.i, %457 ], [ %.sroa.14.88.copyload.i, %458 ], [ %.sroa.14.0207.i, %459 ], [ %.sroa.14.0207.i, %462 ], [ %.sroa.14.0207.i, %465 ], [ %.sroa.14.0207.i, %485 ]
+  %.sroa.16.1.i = phi i8 [ %.sroa.16.0208.i, %456 ], [ %.sroa.16.0208.i, %457 ], [ %.sroa.16.88.copyload.i, %458 ], [ %.sroa.16.0208.i, %459 ], [ %.sroa.16.0208.i, %462 ], [ %.sroa.16.0208.i, %465 ], [ %.sroa.16.0208.i, %485 ]
+  %.sroa.12.2.i = phi i64 [ %.sroa.12.1209.i, %456 ], [ %.sroa.12.1209.i, %457 ], [ %.sroa.12.1209.i, %458 ], [ %.sroa.12.1209.i, %459 ], [ %.sroa.12.1209.i, %462 ], [ %467, %465 ], [ %.sroa.12.1209.i, %485 ]
+  %.sroa.11.2.i = phi i64 [ %.sroa.11.1210.i, %456 ], [ %.sroa.11.1210.i, %457 ], [ %.sroa.11.1210.i, %458 ], [ %.sroa.11.1210.i, %459 ], [ %464, %462 ], [ %.sroa.11.1210.i, %465 ], [ %.sroa.11.1210.i, %485 ]
+  %.sroa.10.2.i = phi i64 [ %.sroa.10.1211.i, %456 ], [ %.sroa.10.1211.i, %457 ], [ %.sroa.10.1211.i, %458 ], [ %461, %459 ], [ %.sroa.10.1211.i, %462 ], [ %.sroa.10.1211.i, %465 ], [ %.sroa.10.1211.i, %485 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46) #26, !noalias !260
   %488 = getelementptr inbounds nuw i8, ptr %.072212.i, i64 8
   %.not75.i = icmp eq ptr %488, %442
@@ -6889,7 +6889,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit167:              ; preds = %659, %661
   br label %_ZN4llvm11raw_ostreamlsEc.exit136thread-pre-split
 
 _ZN4llvm11raw_ostreamlsEc.exit136thread-pre-split: ; preds = %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit", %647, %682, %534, %532, %672, %674
-  %.2.ph = phi i8 [ %.0583630, %674 ], [ %.0583630, %672 ], [ %.3, %532 ], [ %.3, %534 ], [ %.0583630, %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit" ], [ %.0583630, %647 ], [ %.0583630, %682 ]
+  %.2.ph = phi i8 [ %.0583630, %674 ], [ %.0583630, %672 ], [ %.3, %532 ], [ %.3, %534 ], [ %.0583630, %647 ], [ %.0583630, %"_ZZN4llvm14DWARFDebugLine9LineTable5parseERNS_18DWARFDataExtractorEPmRKNS_12DWARFContextEPKNS_9DWARFUnitENS_12function_refIFvNS_5ErrorEEEEPNS_11raw_ostreamEbENK3$_0clEv.exit" ], [ %.0583630, %682 ]
   %.pr587 = load ptr, ptr %282, align 8, !tbaa !162
   br label %_ZN4llvm11raw_ostreamlsEc.exit136
 

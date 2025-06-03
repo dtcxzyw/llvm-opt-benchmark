@@ -3014,7 +3014,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaWasm35CheckWebAssemblyBuiltin
   br label %_ZN5clang8SemaWasm24BuiltinWasmRefNullExternEPNS_8CallExprE.exit
 
 _ZN5clang8SemaWasm24BuiltinWasmRefNullExternEPNS_8CallExprE.exit: ; preds = %33, %30, %27, %16, %10, %7, %4, %40, %38, %36, %28, %14
-  %.0 = phi i1 [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %29, %28 ], [ %15, %14 ], [ false, %4 ], [ true, %7 ], [ false, %10 ], [ %.1.i, %27 ], [ true, %16 ], [ %35, %33 ], [ true, %30 ]
+  %.0 = phi i1 [ %15, %14 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ false, %4 ], [ true, %7 ], [ false, %10 ], [ %.1.i, %27 ], [ true, %16 ], [ %35, %33 ], [ true, %30 ]
   ret i1 %.0
 }
 

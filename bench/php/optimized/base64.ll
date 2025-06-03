@@ -297,7 +297,7 @@ zend_string_alloc.exit:
   br label %.outer.us
 
 .outer.us:                                        ; preds = %57, %48, %39, %34
-  %.1.i.us = phi i64 [ %35, %34 ], [ %41, %39 ], [ %50, %48 ], [ %.0.i.ph155.us, %57 ]
+  %.1.i.us = phi i64 [ %.0.i.ph155.us, %57 ], [ %50, %48 ], [ %41, %39 ], [ %35, %34 ]
   %60 = add i64 %.046.i.ph153.us, 1
   %61 = add i64 %64, -1
   %.not.i111131.us = icmp eq i64 %64, 0
@@ -439,7 +439,7 @@ default.unreachable:                              ; preds = %.loopexit77
   br label %.outer
 
 .outer:                                           ; preds = %117, %108, %99, %96
-  %.1.i = phi i64 [ %118, %117 ], [ %110, %108 ], [ %101, %99 ], [ %.0.i.ph155, %96 ]
+  %.1.i = phi i64 [ %.0.i.ph155, %96 ], [ %101, %99 ], [ %110, %108 ], [ %118, %117 ]
   %122 = add i64 %.046.i.ph153, 1
   %123 = add i64 %82, -1
   %.not.i111131 = icmp eq i64 %82, 0
@@ -794,7 +794,7 @@ zend_string_alloc.exit:
   br label %.outer.us
 
 .outer.us:                                        ; preds = %70, %61, %52, %47
-  %.1.i.us = phi i64 [ %48, %47 ], [ %54, %52 ], [ %63, %61 ], [ %.0.i.ph194.us, %70 ]
+  %.1.i.us = phi i64 [ %.0.i.ph194.us, %70 ], [ %63, %61 ], [ %54, %52 ], [ %48, %47 ]
   %73 = add i64 %.046.i.ph192.us, 1
   %74 = add i64 %77, -1
   %.not.i150170.us = icmp eq i64 %77, 0
@@ -936,7 +936,7 @@ default.unreachable:                              ; preds = %.loopexit116
   br label %.outer
 
 .outer:                                           ; preds = %130, %121, %112, %109
-  %.1.i = phi i64 [ %131, %130 ], [ %123, %121 ], [ %114, %112 ], [ %.0.i.ph194, %109 ]
+  %.1.i = phi i64 [ %.0.i.ph194, %109 ], [ %114, %112 ], [ %123, %121 ], [ %131, %130 ]
   %135 = add i64 %.046.i.ph192, 1
   %136 = add i64 %95, -1
   %.not.i150170 = icmp eq i64 %95, 0
@@ -1477,7 +1477,7 @@ zend_string_alloc.exit:
   br label %.outer.us
 
 .outer.us:                                        ; preds = %67, %58, %49, %44
-  %.1.i.us = phi i64 [ %45, %44 ], [ %51, %49 ], [ %60, %58 ], [ %.0.i.ph173.us, %67 ]
+  %.1.i.us = phi i64 [ %.0.i.ph173.us, %67 ], [ %60, %58 ], [ %51, %49 ], [ %45, %44 ]
   %70 = add i64 %.046.i.ph171.us, 1
   %71 = add i64 %74, -1
   %.not.i129149.us = icmp eq i64 %74, 0
@@ -1619,7 +1619,7 @@ default.unreachable:                              ; preds = %.loopexit95
   br label %.outer
 
 .outer:                                           ; preds = %127, %118, %109, %106
-  %.1.i = phi i64 [ %128, %127 ], [ %120, %118 ], [ %111, %109 ], [ %.0.i.ph173, %106 ]
+  %.1.i = phi i64 [ %.0.i.ph173, %106 ], [ %111, %109 ], [ %120, %118 ], [ %128, %127 ]
   %132 = add i64 %.046.i.ph171, 1
   %133 = add i64 %92, -1
   %.not.i129149 = icmp eq i64 %92, 0
@@ -1791,7 +1791,7 @@ zend_string_alloc.exit:
   br label %.outer.us
 
 .outer.us:                                        ; preds = %65, %56, %47, %42
-  %.1.i.us = phi i64 [ %43, %42 ], [ %49, %47 ], [ %58, %56 ], [ %.0.i.ph133.us, %65 ]
+  %.1.i.us = phi i64 [ %.0.i.ph133.us, %65 ], [ %58, %56 ], [ %49, %47 ], [ %43, %42 ]
   %68 = add i64 %.046.i.ph131.us, 1
   %69 = add i64 %72, -1
   %.not.i89109.us = icmp eq i64 %72, 0
@@ -1933,7 +1933,7 @@ default.unreachable:                              ; preds = %.loopexit55
   br label %.outer
 
 .outer:                                           ; preds = %125, %116, %107, %104
-  %.1.i = phi i64 [ %126, %125 ], [ %118, %116 ], [ %109, %107 ], [ %.0.i.ph133, %104 ]
+  %.1.i = phi i64 [ %.0.i.ph133, %104 ], [ %109, %107 ], [ %118, %116 ], [ %126, %125 ]
   %130 = add i64 %.046.i.ph131, 1
   %131 = add i64 %90, -1
   %.not.i89109 = icmp eq i64 %90, 0
@@ -2191,7 +2191,7 @@ zend_string_alloc.exit:
   br label %.outer.us
 
 .outer.us:                                        ; preds = %37, %28, %19, %14
-  %.1.i.us = phi i64 [ %15, %14 ], [ %21, %19 ], [ %30, %28 ], [ %.0.i.ph79.us, %37 ]
+  %.1.i.us = phi i64 [ %.0.i.ph79.us, %37 ], [ %30, %28 ], [ %21, %19 ], [ %15, %14 ]
   %40 = add i64 %.046.i.ph77.us, 1
   %41 = add i64 %44, -1
   %.not.i3755.us = icmp eq i64 %44, 0
@@ -2333,7 +2333,7 @@ default.unreachable:                              ; preds = %.loopexit13
   br label %.outer
 
 .outer:                                           ; preds = %97, %88, %79, %76
-  %.1.i = phi i64 [ %98, %97 ], [ %90, %88 ], [ %81, %79 ], [ %.0.i.ph79, %76 ]
+  %.1.i = phi i64 [ %.0.i.ph79, %76 ], [ %81, %79 ], [ %90, %88 ], [ %98, %97 ]
   %102 = add i64 %.046.i.ph77, 1
   %103 = add i64 %62, -1
   %.not.i3755 = icmp eq i64 %62, 0

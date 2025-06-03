@@ -392,7 +392,7 @@ define ptr @ossl_dh_key_from_pkcs8(ptr noundef %0, ptr noundef readnone captures
   br label %33
 
 33:                                               ; preds = %30, %27
-  %.1 = phi ptr [ %32, %30 ], [ %29, %27 ]
+  %.1 = phi ptr [ %29, %27 ], [ %32, %30 ]
   %34 = icmp eq ptr %.1, null
   br i1 %34, label %45, label %35
 

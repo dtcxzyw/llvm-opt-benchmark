@@ -1179,7 +1179,7 @@ return:                                           ; preds = %_ZN8QuantLib5MoneyD
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup164, %ehcleanup125, %lpad86, %lpad60, %ehcleanup39
-  %.pn19.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %ehcleanup164 ], [ %91, %lpad60 ], [ %129, %lpad86 ], [ %.pn.pn.pn.pn, %ehcleanup125 ], [ %.pn14.pn.pn.pn, %ehcleanup39 ]
+  %.pn19.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn, %ehcleanup164 ], [ %.pn14.pn.pn.pn, %ehcleanup39 ], [ %91, %lpad60 ], [ %129, %lpad86 ], [ %.pn.pn.pn.pn, %ehcleanup125 ]
   resume { ptr, i32 } %.pn19.pn.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont148, %invoke.cont109, %invoke.cont29

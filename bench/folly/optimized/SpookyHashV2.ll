@@ -167,7 +167,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %110
 
 110:                                              ; preds = %104, %101
-  %.3 = phi i64 [ %103, %101 ], [ %109, %104 ]
+  %.3 = phi i64 [ %109, %104 ], [ %103, %101 ]
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 13
   %112 = load i8, ptr %111, align 1, !tbaa !13
   %113 = zext i8 %112 to i64
@@ -176,7 +176,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %116
 
 116:                                              ; preds = %110, %101
-  %.4 = phi i64 [ %103, %101 ], [ %115, %110 ]
+  %.4 = phi i64 [ %115, %110 ], [ %103, %101 ]
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 12
   %118 = load i8, ptr %117, align 1, !tbaa !13
   %119 = zext i8 %118 to i64
@@ -185,7 +185,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %122
 
 122:                                              ; preds = %116, %101
-  %.5 = phi i64 [ %103, %101 ], [ %121, %116 ]
+  %.5 = phi i64 [ %121, %116 ], [ %103, %101 ]
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   %124 = load i32, ptr %123, align 4, !tbaa !14
   %125 = zext i32 %124 to i64
@@ -203,7 +203,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %135
 
 135:                                              ; preds = %129, %101
-  %.6 = phi i64 [ %103, %101 ], [ %134, %129 ]
+  %.6 = phi i64 [ %134, %129 ], [ %103, %101 ]
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 9
   %137 = load i8, ptr %136, align 1, !tbaa !13
   %138 = zext i8 %137 to i64
@@ -212,7 +212,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %141
 
 141:                                              ; preds = %135, %101
-  %.7 = phi i64 [ %103, %101 ], [ %140, %135 ]
+  %.7 = phi i64 [ %140, %135 ], [ %103, %101 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   %143 = load i8, ptr %142, align 1, !tbaa !13
   %144 = zext i8 %143 to i64
@@ -220,7 +220,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %146
 
 146:                                              ; preds = %141, %101
-  %.8 = phi i64 [ %103, %101 ], [ %145, %141 ]
+  %.8 = phi i64 [ %145, %141 ], [ %103, %101 ]
   %147 = load i64, ptr %.sroa.0.0, align 8, !tbaa !7
   %148 = add i64 %147, %.0176
   br label %190
@@ -234,7 +234,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %155
 
 155:                                              ; preds = %149, %101
-  %.3179 = phi i64 [ %.0176, %101 ], [ %154, %149 ]
+  %.3179 = phi i64 [ %154, %149 ], [ %.0176, %101 ]
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 5
   %157 = load i8, ptr %156, align 1, !tbaa !13
   %158 = zext i8 %157 to i64
@@ -243,7 +243,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %161
 
 161:                                              ; preds = %155, %101
-  %.4180 = phi i64 [ %.0176, %101 ], [ %160, %155 ]
+  %.4180 = phi i64 [ %160, %155 ], [ %.0176, %101 ]
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
   %163 = load i8, ptr %162, align 1, !tbaa !13
   %164 = zext i8 %163 to i64
@@ -252,7 +252,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %167
 
 167:                                              ; preds = %161, %101
-  %.5181 = phi i64 [ %.0176, %101 ], [ %166, %161 ]
+  %.5181 = phi i64 [ %166, %161 ], [ %.0176, %101 ]
   %168 = load i32, ptr %.sroa.0.0, align 4, !tbaa !14
   %169 = zext i32 %168 to i64
   %170 = add i64 %.5181, %169
@@ -267,7 +267,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %177
 
 177:                                              ; preds = %171, %101
-  %.6182 = phi i64 [ %.0176, %101 ], [ %176, %171 ]
+  %.6182 = phi i64 [ %176, %171 ], [ %.0176, %101 ]
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1
   %179 = load i8, ptr %178, align 1, !tbaa !13
   %180 = zext i8 %179 to i64
@@ -276,7 +276,7 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %183
 
 183:                                              ; preds = %177, %101
-  %.7183 = phi i64 [ %.0176, %101 ], [ %182, %177 ]
+  %.7183 = phi i64 [ %182, %177 ], [ %.0176, %101 ]
   %184 = load i8, ptr %.sroa.0.0, align 1, !tbaa !13
   %185 = zext i8 %184 to i64
   %186 = add i64 %.7183, %185
@@ -288,8 +288,8 @@ define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly c
   br label %190
 
 190:                                              ; preds = %187, %183, %167, %146, %122, %101
-  %.2178 = phi i64 [ %.0176, %101 ], [ %188, %187 ], [ %186, %183 ], [ %170, %167 ], [ %148, %146 ], [ %128, %122 ]
-  %.2 = phi i64 [ %103, %101 ], [ %189, %187 ], [ %103, %183 ], [ %103, %167 ], [ %.8, %146 ], [ %126, %122 ]
+  %.2178 = phi i64 [ %.0176, %101 ], [ %128, %122 ], [ %148, %146 ], [ %170, %167 ], [ %186, %183 ], [ %188, %187 ]
+  %.2 = phi i64 [ %103, %101 ], [ %126, %122 ], [ %.8, %146 ], [ %103, %167 ], [ %103, %183 ], [ %189, %187 ]
   %191 = xor i64 %.2, %.2178
   %192 = tail call i64 @llvm.fshl.i64(i64 %.2178, i64 %.2178, i64 15)
   %193 = add i64 %191, %192

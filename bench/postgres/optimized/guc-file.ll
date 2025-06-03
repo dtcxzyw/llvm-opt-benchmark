@@ -1183,7 +1183,7 @@ yy_get_previous_state.exit163:                    ; preds = %yy_get_next_buffer.
   br label %575
 
 575:                                              ; preds = %137, %.loopexit583, %.loopexit464, %.loopexit359, %.loopexit256, %.loopexit, %147, %145, %144, %141
-  %.0 = phi i32 [ 0, %147 ], [ 100, %145 ], [ 5, %144 ], [ 99, %141 ], [ 1, %.loopexit ], [ 7, %.loopexit256 ], [ 2, %.loopexit359 ], [ 6, %.loopexit464 ], [ 3, %.loopexit583 ], [ 4, %137 ]
+  %.0 = phi i32 [ 99, %141 ], [ 5, %144 ], [ 100, %145 ], [ 0, %147 ], [ 1, %.loopexit ], [ 7, %.loopexit256 ], [ 2, %.loopexit359 ], [ 6, %.loopexit464 ], [ 3, %.loopexit583 ], [ 4, %137 ]
   ret i32 %.0
 }
 

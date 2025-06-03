@@ -255,7 +255,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %81, %83
   br label %85
 
 85:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %84
-  %.2 = phi ptr [ %.0, %_ZN12ResourceMarkD2Ev.exit ], [ null, %84 ]
+  %.2 = phi ptr [ null, %84 ], [ %.0, %_ZN12ResourceMarkD2Ev.exit ]
   ret ptr %.2
 }
 

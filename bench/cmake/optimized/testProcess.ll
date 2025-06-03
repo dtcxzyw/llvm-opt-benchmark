@@ -317,7 +317,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %.thread97.i
 
 .thread97.i:                                      ; preds = %99, %97, %90, %87, %86, %81, %76, %75, %74, %72
-  %.not22 = phi i1 [ false, %97 ], [ false, %99 ], [ true, %90 ], [ true, %72 ], [ true, %87 ], [ true, %86 ], [ true, %81 ], [ true, %76 ], [ true, %75 ], [ true, %74 ]
+  %.not22 = phi i1 [ false, %97 ], [ false, %99 ], [ true, %90 ], [ true, %72 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %81 ], [ true, %86 ], [ true, %87 ]
   %103 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
   %.not92.i = icmp eq i32 %103, %1
   br i1 %.not92.i, label %104, label %.thread
@@ -697,7 +697,7 @@ sub_0:                                            ; preds = %145
   br label %159
 
 159:                                              ; preds = %.tail.thread, %153, %100, %75, %74, %test9_grandchild.exit, %50, %48, %46, %44, %43, %34, %33, %32, %31, %30
-  %.0 = phi i32 [ 1, %75 ], [ 0, %74 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ 0, %43 ], [ %35, %34 ], [ 0, %33 ], [ 0, %32 ], [ 123, %31 ], [ 0, %30 ], [ %136, %100 ], [ %155, %153 ], [ 1, %.tail.thread ]
+  %.0 = phi i32 [ 1, %75 ], [ 0, %30 ], [ 123, %31 ], [ 0, %32 ], [ 0, %33 ], [ %35, %34 ], [ 0, %43 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ 0, %50 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %74 ], [ %136, %100 ], [ %155, %153 ], [ 1, %.tail.thread ]
   ret i32 %.0
 }
 

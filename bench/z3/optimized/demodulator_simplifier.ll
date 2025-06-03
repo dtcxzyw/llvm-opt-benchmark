@@ -1374,7 +1374,7 @@ _ZZN17demodulator_index10insert_bwdEP4exprjEN4procclEP3app.exit109.i.i: ; preds 
   unreachable
 
 219:                                              ; preds = %204, %183, %111, %91, %66, %64, %33
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %34, %33 ], [ %65, %64 ], [ %67, %66 ], [ %112, %111 ], [ %92, %91 ], [ %205, %204 ], [ %184, %183 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %34, %33 ], [ %65, %64 ], [ %67, %66 ], [ %92, %91 ], [ %112, %111 ], [ %205, %204 ], [ %184, %183 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #22
   br label %.body.i
@@ -2057,7 +2057,7 @@ _ZZN17demodulator_index10remove_bwdEP4exprjEN4procclEP3app.exit123.i.i: ; preds 
   unreachable
 
 260:                                              ; preds = %245, %224, %115, %95, %70, %40
-  %.pn53.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %71, %70 ], [ %116, %115 ], [ %96, %95 ], [ %246, %245 ], [ %225, %224 ]
+  %.pn53.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %71, %70 ], [ %96, %95 ], [ %116, %115 ], [ %246, %245 ], [ %225, %224 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #22
   br label %.body.i

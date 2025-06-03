@@ -410,7 +410,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   br label %.thread49
 
 .thread49:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
-  %.0 = phi i1 [ true, %53 ], [ %66, %65 ], [ %68, %67 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ true, %63 ], [ false, %49 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
+  %.0 = phi i1 [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ true, %63 ], [ false, %49 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -871,7 +871,7 @@ tailrecurse.backedge:                             ; preds = %16, %16
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %.lr.ph, %.lr.ph, %5, %8, %12, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %2, %18, %.thread51, %23
-  %.0 = phi i1 [ true, %18 ], [ %24, %23 ], [ true, %.thread51 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %5 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
+  %.0 = phi i1 [ %24, %23 ], [ true, %18 ], [ true, %.thread51 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %5 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -2206,7 +2206,7 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
   unreachable
 
 common.ret1240:                                   ; preds = %.thread865, %.split, %.critedge, %728, %731, %.thread843, %710, %.split933, %.split967, %69, %983, %980, %978, %917, %929, %886, %889, %818, %.thread862, %798, %795, %._crit_edge.thread, %658, %622, %628, %.thread828.thread, %607, %568, %547, %.thread814, %480, %478, %475, %473, %470, %459, %396, %351, %378, %ece_function_is_safe.exit769.thread, %ece_function_is_safe.exit769, %307, %ece_function_is_safe.exit.thread, %ece_function_is_safe.exit, %._crit_edge961, %81, %988, %571, %566, %564, %458, %274, %209, %168, %2, %._crit_edge961.thread, %tailrecurse, %20, %20, %485, %405, %399, %379, %91
-  %common.ret1240.op = phi ptr [ %101, %91 ], [ %385, %379 ], [ %404, %399 ], [ %419, %405 ], [ %495, %485 ], [ %989, %988 ], [ %575, %571 ], [ %565, %564 ], [ %567, %566 ], [ %.13, %458 ], [ %.5, %274 ], [ %.4, %209 ], [ %.3, %168 ], [ %82, %81 ], [ %77, %69 ], [ %306, %ece_function_is_safe.exit.thread ], [ %294, %.split967 ], [ %276, %ece_function_is_safe.exit ], [ %276, %._crit_edge961 ], [ %321, %ece_function_is_safe.exit769.thread ], [ %308, %ece_function_is_safe.exit769 ], [ %308, %307 ], [ %.11, %378 ], [ %.9, %351 ], [ %395, %396 ], [ %484, %480 ], [ %460, %478 ], [ %460, %475 ], [ %460, %473 ], [ %460, %470 ], [ %460, %459 ], [ %548, %547 ], [ %545, %.thread814 ], [ %569, %568 ], [ %606, %.thread828.thread ], [ %608, %607 ], [ %627, %622 ], [ %629, %628 ], [ %666, %658 ], [ %820, %818 ], [ %821, %.thread862 ], [ %791, %._crit_edge.thread ], [ %797, %795 ], [ %799, %798 ], [ %789, %.split ], [ %888, %886 ], [ %890, %889 ], [ %928, %917 ], [ %930, %929 ], [ %987, %983 ], [ %956, %980 ], [ %956, %978 ], [ %586, %.split933 ], [ %692, %710 ], [ %739, %.thread843 ], [ %714, %731 ], [ %714, %728 ], [ %714, %.critedge ], [ %956, %.thread865 ], [ null, %2 ], [ %276, %._crit_edge961.thread ], [ %.tr909, %20 ], [ %.tr909, %20 ], [ null, %tailrecurse ]
+  %common.ret1240.op = phi ptr [ %101, %91 ], [ %385, %379 ], [ %404, %399 ], [ %419, %405 ], [ %495, %485 ], [ %989, %988 ], [ %.3, %168 ], [ %.4, %209 ], [ %.5, %274 ], [ %.13, %458 ], [ %565, %564 ], [ %567, %566 ], [ %575, %571 ], [ %82, %81 ], [ %77, %69 ], [ %306, %ece_function_is_safe.exit.thread ], [ %294, %.split967 ], [ %276, %ece_function_is_safe.exit ], [ %276, %._crit_edge961 ], [ %321, %ece_function_is_safe.exit769.thread ], [ %308, %ece_function_is_safe.exit769 ], [ %308, %307 ], [ %.9, %351 ], [ %.11, %378 ], [ %395, %396 ], [ %484, %480 ], [ %460, %478 ], [ %460, %475 ], [ %460, %473 ], [ %460, %470 ], [ %460, %459 ], [ %548, %547 ], [ %545, %.thread814 ], [ %569, %568 ], [ %606, %.thread828.thread ], [ %608, %607 ], [ %627, %622 ], [ %629, %628 ], [ %666, %658 ], [ %820, %818 ], [ %821, %.thread862 ], [ %791, %._crit_edge.thread ], [ %797, %795 ], [ %799, %798 ], [ %789, %.split ], [ %888, %886 ], [ %890, %889 ], [ %928, %917 ], [ %930, %929 ], [ %987, %983 ], [ %956, %980 ], [ %956, %978 ], [ %586, %.split933 ], [ %692, %710 ], [ %739, %.thread843 ], [ %714, %731 ], [ %714, %728 ], [ %714, %.critedge ], [ %956, %.thread865 ], [ null, %2 ], [ %276, %._crit_edge961.thread ], [ %.tr909, %20 ], [ %.tr909, %20 ], [ null, %tailrecurse ]
   ret ptr %common.ret1240.op
 
 91:                                               ; preds = %83
@@ -3533,7 +3533,7 @@ list_length.exit775:                              ; preds = %._crit_edge
   unreachable
 
 818:                                              ; preds = %810, %807
-  %.0665 = phi i8 [ %813, %810 ], [ %809, %807 ]
+  %.0665 = phi i8 [ %809, %807 ], [ %813, %810 ]
   %819 = trunc nuw i8 %.0665 to i1
   %820 = tail call ptr @makeBoolConst(i1 noundef zeroext %819, i1 noundef zeroext false) #9
   br label %common.ret1240
@@ -3652,7 +3652,7 @@ list_length.exit775:                              ; preds = %._crit_edge
   unreachable
 
 886:                                              ; preds = %866, %870, %858, %862, %850, %854, %841, %845, %878, %875
-  %.0658 = phi i8 [ %881, %878 ], [ %877, %875 ], [ 0, %841 ], [ %849, %845 ], [ 1, %850 ], [ %857, %854 ], [ 0, %858 ], [ %865, %862 ], [ 1, %866 ], [ %874, %870 ]
+  %.0658 = phi i8 [ %877, %875 ], [ %881, %878 ], [ 0, %841 ], [ %849, %845 ], [ 1, %850 ], [ %857, %854 ], [ 0, %858 ], [ %865, %862 ], [ 1, %866 ], [ %874, %870 ]
   %887 = trunc nuw i8 %.0658 to i1
   %888 = tail call ptr @makeBoolConst(i1 noundef zeroext %887, i1 noundef zeroext false) #9
   br label %common.ret1240
@@ -3953,7 +3953,7 @@ define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, p
   br label %70
 
 70:                                               ; preds = %.critedge, %2, %68
-  %.0 = phi i1 [ true, %.critedge ], [ %69, %68 ], [ false, %2 ]
+  %.0 = phi i1 [ %69, %68 ], [ true, %.critedge ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -5001,7 +5001,7 @@ define internal noundef zeroext i1 @max_parallel_hazard_checker(i32 noundef %0, 
   br label %max_parallel_hazard_test.exit
 
 max_parallel_hazard_test.exit:                    ; preds = %4, %8, %13
-  %.0.i = phi i1 [ true, %8 ], [ false, %13 ], [ true, %4 ]
+  %.0.i = phi i1 [ false, %13 ], [ true, %8 ], [ true, %4 ]
   ret i1 %.0.i
 }
 
@@ -6226,7 +6226,7 @@ define internal zeroext i1 @contain_context_dependent_node_walker(ptr noundef %0
   br i1 %19, label %common.ret33, label %20
 
 common.ret33:                                     ; preds = %12, %16, %2, %.thread, %6, %20
-  %common.ret33.op = phi i1 [ %25, %20 ], [ %.not30, %6 ], [ %15, %12 ], [ %26, %.thread ], [ false, %2 ], [ true, %16 ]
+  %common.ret33.op = phi i1 [ %25, %20 ], [ %.not30, %6 ], [ %26, %.thread ], [ %15, %12 ], [ false, %2 ], [ true, %16 ]
   ret i1 %common.ret33.op
 
 20:                                               ; preds = %16

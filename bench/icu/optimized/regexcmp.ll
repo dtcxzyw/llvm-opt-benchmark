@@ -2605,13 +2605,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712RegexCompile14doParseActio
     i32 79, label %71
     i32 13, label %79
     i32 58, label %85
-    i32 68, label %_ZN6icu_7712RegexCompile8appendOpEii.exit276
-    i32 31, label %_ZN6icu_7712RegexCompile8appendOpEii.exit280
-    i32 70, label %_ZN6icu_7712RegexCompile8appendOpEii.exit284
-    i32 101, label %_ZN6icu_7712RegexCompile8appendOpEii.exit288
-    i32 4, label %_ZN6icu_7712RegexCompile8appendOpEii.exit294
-    i32 91, label %_ZN6icu_7712RegexCompile8appendOpEii.exit298
-    i32 56, label %_ZN6icu_7712RegexCompile8appendOpEii.exit306
+    i32 68, label %_ZN6icu_7712RegexCompile8appendOpEii.exit277
+    i32 31, label %_ZN6icu_7712RegexCompile8appendOpEii.exit281
+    i32 70, label %_ZN6icu_7712RegexCompile8appendOpEii.exit285
+    i32 101, label %_ZN6icu_7712RegexCompile8appendOpEii.exit289
+    i32 4, label %_ZN6icu_7712RegexCompile8appendOpEii.exit295
+    i32 91, label %_ZN6icu_7712RegexCompile8appendOpEii.exit299
+    i32 56, label %_ZN6icu_7712RegexCompile8appendOpEii.exit307
     i32 35, label %343
     i32 19, label %343
     i32 66, label %344
@@ -2638,24 +2638,24 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712RegexCompile14doParseActio
     i32 67, label %600
     i32 98, label %612
     i32 78, label %619
-    i32 90, label %_ZN6icu_7712RegexCompile8appendOpEii.exit346
+    i32 90, label %_ZN6icu_7712RegexCompile8appendOpEii.exit347
     i32 47, label %629
     i32 84, label %634
-    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit348
-    i32 60, label %_ZN6icu_7712RegexCompile8appendOpEii.exit350
-    i32 14, label %_ZN6icu_7712RegexCompile8appendOpEii.exit352
-    i32 2, label %_ZN6icu_7712RegexCompile8appendOpEii.exit354
-    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit356
-    i32 15, label %_ZN6icu_7712RegexCompile8appendOpEii.exit358
-    i32 7, label %_ZN6icu_7712RegexCompile8appendOpEii.exit360
-    i32 95, label %_ZN6icu_7712RegexCompile8appendOpEii.exit362
-    i32 52, label %_ZN6icu_7712RegexCompile8appendOpEii.exit364
-    i32 43, label %_ZN6icu_7712RegexCompile8appendOpEii.exit366
-    i32 29, label %_ZN6icu_7712RegexCompile8appendOpEii.exit368
-    i32 94, label %_ZN6icu_7712RegexCompile8appendOpEii.exit370
-    i32 11, label %_ZN6icu_7712RegexCompile8appendOpEii.exit372
-    i32 20, label %_ZN6icu_7712RegexCompile8appendOpEii.exit374
-    i32 54, label %_ZN6icu_7712RegexCompile8appendOpEii.exit376
+    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit349
+    i32 60, label %_ZN6icu_7712RegexCompile8appendOpEii.exit351
+    i32 14, label %_ZN6icu_7712RegexCompile8appendOpEii.exit353
+    i32 2, label %_ZN6icu_7712RegexCompile8appendOpEii.exit355
+    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit357
+    i32 15, label %_ZN6icu_7712RegexCompile8appendOpEii.exit359
+    i32 7, label %_ZN6icu_7712RegexCompile8appendOpEii.exit361
+    i32 95, label %_ZN6icu_7712RegexCompile8appendOpEii.exit363
+    i32 52, label %_ZN6icu_7712RegexCompile8appendOpEii.exit365
+    i32 43, label %_ZN6icu_7712RegexCompile8appendOpEii.exit367
+    i32 29, label %_ZN6icu_7712RegexCompile8appendOpEii.exit369
+    i32 94, label %_ZN6icu_7712RegexCompile8appendOpEii.exit371
+    i32 11, label %_ZN6icu_7712RegexCompile8appendOpEii.exit373
+    i32 20, label %_ZN6icu_7712RegexCompile8appendOpEii.exit375
+    i32 54, label %_ZN6icu_7712RegexCompile8appendOpEii.exit377
     i32 36, label %684
     i32 32, label %685
     i32 74, label %686
@@ -2670,7 +2670,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712RegexCompile14doParseActio
     i32 59, label %888
     i32 89, label %893
     i32 53, label %917
-    i32 50, label %_ZN6icu_7712RegexCompile8appendOpEii.exit379
+    i32 50, label %_ZN6icu_7712RegexCompile8appendOpEii.exit380
     i32 71, label %952
     i32 97, label %953
     i32 21, label %955
@@ -2709,19 +2709,19 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit:        ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = load i32, ptr %11, align 4, !tbaa !13
-  %.inv478 = icmp sgt i32 %12, 0
-  %spec.select391 = select i1 %.inv478, i32 0, i32 100663298
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select391)
+  %.inv479 = icmp sgt i32 %12, 0
+  %spec.select392 = select i1 %.inv479, i32 0, i32 100663298
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select392)
   %13 = load ptr, ptr %10, align 8, !tbaa !18
   %14 = load i32, ptr %13, align 4, !tbaa !13
-  %.inv479 = icmp sgt i32 %14, 0
-  %.0.i.i265 = select i1 %.inv479, i32 0, i32 218103811
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i265)
+  %.inv480 = icmp sgt i32 %14, 0
+  %.0.i.i266 = select i1 %.inv480, i32 0, i32 218103811
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i266)
   %15 = load ptr, ptr %10, align 8, !tbaa !18
   %16 = load i32, ptr %15, align 4, !tbaa !13
-  %.inv480 = icmp sgt i32 %16, 0
-  %.0.i.i267 = select i1 %.inv480, i32 0, i32 234881024
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i267)
+  %.inv481 = icmp sgt i32 %16, 0
+  %.0.i.i268 = select i1 %.inv481, i32 0, i32 234881024
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i268)
   %17 = tail call noundef signext i8 @_ZN6icu_7712RegexCompile14doParseActionsEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 31)
   br label %.critedge
 
@@ -2730,19 +2730,19 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit:        ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %20 = load i32, ptr %19, align 8, !tbaa !110
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %_ZN6icu_7712RegexCompile8appendOpEii.exit270
+  br i1 %21, label %22, label %_ZN6icu_7712RegexCompile8appendOpEii.exit271
 
 22:                                               ; preds = %18
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66310)
-  br label %_ZN6icu_7712RegexCompile8appendOpEii.exit270
+  br label %_ZN6icu_7712RegexCompile8appendOpEii.exit271
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit270:     ; preds = %22, %18
+_ZN6icu_7712RegexCompile8appendOpEii.exit271:     ; preds = %22, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = load i32, ptr %24, align 4, !tbaa !13
-  %.inv477 = icmp sgt i32 %25, 0
-  %spec.select392 = select i1 %.inv477, i32 0, i32 33554432
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select392)
+  %.inv478 = icmp sgt i32 %25, 0
+  %spec.select393 = select i1 %.inv478, i32 0, i32 33554432
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select393)
   br label %.critedge
 
 26:                                               ; preds = %2
@@ -2781,9 +2781,9 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %26, %31
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !18
   %52 = load i32, ptr %51, align 4, !tbaa !13
-  %.inv475 = icmp sgt i32 %52, 0
-  %spec.select393 = select i1 %.inv475, i32 0, i32 218103808
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select393)
+  %.inv476 = icmp sgt i32 %52, 0
+  %spec.select394 = select i1 %.inv476, i32 0, i32 218103808
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select394)
   %53 = load ptr, ptr %38, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !79
@@ -2794,9 +2794,9 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %26, %31
   %60 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %58, ptr noundef nonnull align 4 dereferenceable(4) %59)
   %61 = load ptr, ptr %50, align 8, !tbaa !18
   %62 = load i32, ptr %61, align 4, !tbaa !13
-  %.inv476 = icmp sgt i32 %62, 0
-  %.0.i.i273 = select i1 %.inv476, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i273)
+  %.inv477 = icmp sgt i32 %62, 0
+  %.0.i.i274 = select i1 %.inv477, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i274)
   %63 = load ptr, ptr %38, align 8, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !79
@@ -2838,21 +2838,21 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %26, %31
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66325)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit276:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit277:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !18
   %88 = load i32, ptr %87, align 4, !tbaa !13
-  %.inv473 = icmp sgt i32 %88, 0
-  %spec.select394 = select i1 %.inv473, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select394)
+  %.inv474 = icmp sgt i32 %88, 0
+  %spec.select395 = select i1 %.inv474, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select395)
   %89 = tail call noundef i32 @_ZN6icu_7712RegexCompile17allocateStackDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 3)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 8, i32 noundef %89)
   %90 = load ptr, ptr %86, align 8, !tbaa !18
   %91 = load i32, ptr %90, align 4, !tbaa !13
-  %.inv474 = icmp sgt i32 %91, 0
-  %.0.i.i277 = select i1 %.inv474, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i277)
+  %.inv475 = icmp sgt i32 %91, 0
+  %.0.i.i278 = select i1 %.inv475, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i278)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %94 = load i32, ptr %93, align 4, !tbaa !50
@@ -2887,7 +2887,7 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit276:     ; preds = %2
   %.not237 = icmp eq ptr %121, null
   br i1 %.not237, label %.critedge, label %122
 
-122:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit276
+122:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit277
   %123 = load ptr, ptr %99, align 8, !tbaa !33
   %124 = tail call noundef zeroext i1 @_ZN6icu_7712RegexPattern19initNamedCaptureMapEv(ptr noundef nonnull align 8 dereferenceable(200) %123)
   br i1 %124, label %133, label %125
@@ -2930,19 +2930,19 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit276:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66325)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit280:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit281:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !18
   %152 = load i32, ptr %151, align 4, !tbaa !13
-  %.inv471 = icmp sgt i32 %152, 0
-  %spec.select395 = select i1 %.inv471, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select395)
+  %.inv472 = icmp sgt i32 %152, 0
+  %spec.select396 = select i1 %.inv472, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select396)
   %153 = load ptr, ptr %150, align 8, !tbaa !18
   %154 = load i32, ptr %153, align 4, !tbaa !13
-  %.inv472 = icmp sgt i32 %154, 0
-  %.0.i.i281 = select i1 %.inv472, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i281)
+  %.inv473 = icmp sgt i32 %154, 0
+  %.0.i.i282 = select i1 %.inv473, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i282)
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %157 = load i32, ptr %156, align 4, !tbaa !50
@@ -2969,21 +2969,21 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit280:     ; preds = %2
   %178 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %155, i32 noundef %176, ptr noundef nonnull align 4 dereferenceable(4) %177)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit284:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit285:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !18
   %181 = load i32, ptr %180, align 4, !tbaa !13
-  %.inv469 = icmp sgt i32 %181, 0
-  %spec.select396 = select i1 %.inv469, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select396)
+  %.inv470 = icmp sgt i32 %181, 0
+  %spec.select397 = select i1 %.inv470, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select397)
   %182 = tail call noundef i32 @_ZN6icu_7712RegexCompile12allocateDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 32, i32 noundef %182)
   %183 = load ptr, ptr %179, align 8, !tbaa !18
   %184 = load i32, ptr %183, align 4, !tbaa !13
-  %.inv470 = icmp sgt i32 %184, 0
-  %.0.i.i285 = select i1 %.inv470, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i285)
+  %.inv471 = icmp sgt i32 %184, 0
+  %.0.i.i286 = select i1 %.inv471, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i286)
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %187 = load i32, ptr %186, align 4, !tbaa !50
@@ -3010,7 +3010,7 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit284:     ; preds = %2
   %208 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %185, i32 noundef %206, ptr noundef nonnull align 4 dereferenceable(4) %207)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit288:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit289:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %209 = tail call noundef i32 @_ZN6icu_7712RegexCompile12allocateDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 4)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 37, i32 noundef %209)
@@ -3033,19 +3033,19 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit288:     ; preds = %2
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %224 = load ptr, ptr %223, align 8, !tbaa !18
   %225 = load i32, ptr %224, align 4, !tbaa !13
-  %.inv466 = icmp sgt i32 %225, 0
-  %spec.select397 = select i1 %.inv466, i32 0, i32 16777216
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select397)
+  %.inv467 = icmp sgt i32 %225, 0
+  %spec.select398 = select i1 %.inv467, i32 0, i32 16777216
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select398)
   %226 = load ptr, ptr %223, align 8, !tbaa !18
   %227 = load i32, ptr %226, align 4, !tbaa !13
-  %.inv467 = icmp sgt i32 %227, 0
-  %.0.i.i289 = select i1 %.inv467, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i289)
+  %.inv468 = icmp sgt i32 %227, 0
+  %.0.i.i290 = select i1 %.inv468, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i290)
   %228 = load ptr, ptr %223, align 8, !tbaa !18
   %229 = load i32, ptr %228, align 4, !tbaa !13
-  %.inv468 = icmp sgt i32 %229, 0
-  %.0.i.i291 = select i1 %.inv468, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i291)
+  %.inv469 = icmp sgt i32 %229, 0
+  %.0.i.i292 = select i1 %.inv469, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i292)
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %232 = load i32, ptr %231, align 4, !tbaa !50
@@ -3071,21 +3071,21 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit288:     ; preds = %2
   %252 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %230, i32 noundef %250, ptr noundef nonnull align 4 dereferenceable(4) %251)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit294:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit295:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %253 = tail call noundef i32 @_ZN6icu_7712RegexCompile12allocateDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 4)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 37, i32 noundef %253)
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !18
   %256 = load i32, ptr %255, align 4, !tbaa !13
-  %.inv464 = icmp sgt i32 %256, 0
-  %spec.select398 = select i1 %.inv464, i32 0, i32 100663296
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select398)
+  %.inv465 = icmp sgt i32 %256, 0
+  %spec.select399 = select i1 %.inv465, i32 0, i32 100663296
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select399)
   %257 = load ptr, ptr %254, align 8, !tbaa !18
   %258 = load i32, ptr %257, align 4, !tbaa !13
-  %.inv465 = icmp sgt i32 %258, 0
-  %.0.i.i295 = select i1 %.inv465, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i295)
+  %.inv466 = icmp sgt i32 %258, 0
+  %.0.i.i296 = select i1 %.inv466, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i296)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %261 = load i32, ptr %260, align 4, !tbaa !50
@@ -3112,7 +3112,7 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit294:     ; preds = %2
   %282 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %259, i32 noundef %280, ptr noundef nonnull align 4 dereferenceable(4) %281)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit298:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit299:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %283 = tail call noundef i32 @_ZN6icu_7712RegexCompile12allocateDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 5)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 44, i32 noundef %283)
@@ -3122,14 +3122,14 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit298:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef 0)
   %285 = load ptr, ptr %284, align 8, !tbaa !18
   %286 = load i32, ptr %285, align 4, !tbaa !13
-  %.inv462 = icmp sgt i32 %286, 0
-  %.0.i.i301 = select i1 %.inv462, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i301)
+  %.inv463 = icmp sgt i32 %286, 0
+  %.0.i.i302 = select i1 %.inv463, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i302)
   %287 = load ptr, ptr %284, align 8, !tbaa !18
   %288 = load i32, ptr %287, align 4, !tbaa !13
-  %.inv463 = icmp sgt i32 %288, 0
-  %.0.i.i303 = select i1 %.inv463, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i303)
+  %.inv464 = icmp sgt i32 %288, 0
+  %.0.i.i304 = select i1 %.inv464, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i304)
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %291 = load i32, ptr %290, align 4, !tbaa !50
@@ -3156,7 +3156,7 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit298:     ; preds = %2
   %312 = tail call noundef i32 @_ZN6icu_779UVector324pushEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %289, i32 noundef %310, ptr noundef nonnull align 4 dereferenceable(4) %311)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit306:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit307:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %313 = tail call noundef i32 @_ZN6icu_7712RegexCompile12allocateDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 5)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 44, i32 noundef %313)
@@ -3167,14 +3167,14 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit306:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef 0)
   %315 = load ptr, ptr %314, align 8, !tbaa !18
   %316 = load i32, ptr %315, align 4, !tbaa !13
-  %.inv460 = icmp sgt i32 %316, 0
-  %.0.i.i311 = select i1 %.inv460, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i311)
+  %.inv461 = icmp sgt i32 %316, 0
+  %.0.i.i312 = select i1 %.inv461, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i312)
   %317 = load ptr, ptr %314, align 8, !tbaa !18
   %318 = load i32, ptr %317, align 4, !tbaa !13
-  %.inv461 = icmp sgt i32 %318, 0
-  %.0.i.i313 = select i1 %.inv461, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i313)
+  %.inv462 = icmp sgt i32 %318, 0
+  %.0.i.i314 = select i1 %.inv462, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i314)
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %321 = load i32, ptr %320, align 4, !tbaa !50
@@ -3235,10 +3235,10 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit306:     ; preds = %2
   %359 = add nsw i32 %358, -1
   %360 = icmp eq i32 %352, %359
   %361 = icmp sgt i32 %352, -1
-  %or.cond485 = and i1 %360, %361
-  br i1 %or.cond485, label %_ZNK6icu_779UVector6410elementAtiEi.exit316, label %_ZNK6icu_779UVector6410elementAtiEi.exit316.thread
+  %or.cond486 = and i1 %360, %361
+  br i1 %or.cond486, label %_ZNK6icu_779UVector6410elementAtiEi.exit317, label %_ZNK6icu_779UVector6410elementAtiEi.exit317.thread
 
-_ZNK6icu_779UVector6410elementAtiEi.exit316:      ; preds = %351
+_ZNK6icu_779UVector6410elementAtiEi.exit317:      ; preds = %351
   %362 = getelementptr inbounds nuw i8, ptr %356, i64 24
   %363 = load ptr, ptr %362, align 8, !tbaa !115
   %364 = zext nneg i32 %352 to i64
@@ -3246,30 +3246,30 @@ _ZNK6icu_779UVector6410elementAtiEi.exit316:      ; preds = %351
   %366 = load i64, ptr %365, align 8, !tbaa !116
   %367 = trunc i64 %366 to i32
   %368 = lshr i32 %367, 24
-  %trunc458 = trunc nuw i32 %368 to i8
-  switch i8 %trunc458, label %_ZNK6icu_779UVector6410elementAtiEi.exit316.thread [
+  %trunc459 = trunc nuw i32 %368 to i8
+  switch i8 %trunc459, label %_ZNK6icu_779UVector6410elementAtiEi.exit317.thread [
     i8 11, label %369
     i8 12, label %_ZN6icu_7712RegexCompile7buildOpEii.exit
     i8 21, label %_ZN6icu_7712RegexCompile7buildOpEii.exit
     i8 27, label %_ZN6icu_7712RegexCompile7buildOpEii.exit
   ]
 
-369:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit316
+369:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit317
   %370 = and i32 %367, 16777215
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 50, i32 noundef %370)
   %371 = tail call noundef i32 @_ZN6icu_7712RegexCompile17allocateStackDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 51, i32 noundef %371)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit316, %_ZNK6icu_779UVector6410elementAtiEi.exit316, %_ZNK6icu_779UVector6410elementAtiEi.exit316
+_ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit317, %_ZNK6icu_779UVector6410elementAtiEi.exit317, %_ZNK6icu_779UVector6410elementAtiEi.exit317
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %373 = load ptr, ptr %372, align 8, !tbaa !18
   %374 = load i32, ptr %373, align 4, !tbaa !13
-  %.inv459 = icmp sgt i32 %374, 0
-  %spec.select399 = select i1 %.inv459, i32 0, i32 872415232
+  %.inv460 = icmp sgt i32 %374, 0
+  %spec.select400 = select i1 %.inv460, i32 0, i32 872415232
   %375 = icmp eq i32 %368, 21
   %376 = zext i1 %375 to i32
-  %spec.select = or disjoint i32 %spec.select399, %376
+  %spec.select = or disjoint i32 %spec.select400, %376
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %378 = load i32, ptr %377, align 4, !tbaa !50
   %379 = shl i32 %378, 1
@@ -3280,12 +3280,12 @@ _ZN6icu_7712RegexCompile7buildOpEii.exit:         ; preds = %_ZNK6icu_779UVector
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 51, i32 noundef %381)
   br label %.critedge
 
-_ZNK6icu_779UVector6410elementAtiEi.exit316.thread: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit316, %351
+_ZNK6icu_779UVector6410elementAtiEi.exit317.thread: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit317, %351
   %382 = tail call noundef i32 @_ZN6icu_7712RegexCompile14minMatchLengthEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %352, i32 noundef %359)
   %383 = icmp eq i32 %382, 0
   br i1 %383, label %384, label %392
 
-384:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit316.thread
+384:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit317.thread
   tail call void @_ZN6icu_7712RegexCompile8insertOpEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %352)
   %385 = tail call noundef i32 @_ZN6icu_7712RegexCompile17allocateStackDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
   %386 = tail call noundef i32 @_ZN6icu_7712RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 35, i32 noundef %385)
@@ -3298,7 +3298,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit316.thread: ; preds = %_ZNK6icu_779UVect
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 18, i32 noundef %391)
   br label %.critedge
 
-392:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit316.thread
+392:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit317.thread
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 15, i32 noundef %352)
   br label %.critedge
 
@@ -3355,10 +3355,10 @@ _ZNK6icu_779UVector6410elementAtiEi.exit316.thread: ; preds = %_ZNK6icu_779UVect
   %432 = add nsw i32 %431, -1
   %433 = icmp eq i32 %425, %432
   %434 = icmp sgt i32 %425, -1
-  %or.cond486 = and i1 %433, %434
-  br i1 %or.cond486, label %_ZNK6icu_779UVector6410elementAtiEi.exit319, label %_ZNK6icu_779UVector6410elementAtiEi.exit319.thread
+  %or.cond487 = and i1 %433, %434
+  br i1 %or.cond487, label %_ZNK6icu_779UVector6410elementAtiEi.exit320, label %_ZNK6icu_779UVector6410elementAtiEi.exit320.thread
 
-_ZNK6icu_779UVector6410elementAtiEi.exit319:      ; preds = %424
+_ZNK6icu_779UVector6410elementAtiEi.exit320:      ; preds = %424
   %435 = getelementptr inbounds nuw i8, ptr %429, i64 24
   %436 = load ptr, ptr %435, align 8, !tbaa !115
   %437 = zext nneg i32 %425 to i64
@@ -3367,14 +3367,14 @@ _ZNK6icu_779UVector6410elementAtiEi.exit319:      ; preds = %424
   %440 = trunc i64 %439 to i32
   %441 = lshr i32 %440, 24
   %trunc = trunc nuw i32 %441 to i8
-  switch i8 %trunc, label %_ZNK6icu_779UVector6410elementAtiEi.exit319.thread [
+  switch i8 %trunc, label %_ZNK6icu_779UVector6410elementAtiEi.exit320.thread [
     i8 11, label %442
-    i8 12, label %_ZN6icu_7712RegexCompile7buildOpEii.exit321
-    i8 21, label %_ZN6icu_7712RegexCompile7buildOpEii.exit321
-    i8 27, label %_ZN6icu_7712RegexCompile7buildOpEii.exit321
+    i8 12, label %_ZN6icu_7712RegexCompile7buildOpEii.exit322
+    i8 21, label %_ZN6icu_7712RegexCompile7buildOpEii.exit322
+    i8 27, label %_ZN6icu_7712RegexCompile7buildOpEii.exit322
   ]
 
-442:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit319
+442:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit320
   %443 = and i32 %440, 16777215
   %444 = tail call noundef i32 @_ZN6icu_7712RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 50, i32 noundef %443)
   %445 = load ptr, ptr %426, align 8, !tbaa !33
@@ -3386,27 +3386,27 @@ _ZNK6icu_779UVector6410elementAtiEi.exit319:      ; preds = %424
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 51, i32 noundef %449)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile7buildOpEii.exit321:      ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit319, %_ZNK6icu_779UVector6410elementAtiEi.exit319, %_ZNK6icu_779UVector6410elementAtiEi.exit319
+_ZN6icu_7712RegexCompile7buildOpEii.exit322:      ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit320, %_ZNK6icu_779UVector6410elementAtiEi.exit320, %_ZNK6icu_779UVector6410elementAtiEi.exit320
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %451 = load ptr, ptr %450, align 8, !tbaa !18
   %452 = load i32, ptr %451, align 4, !tbaa !13
-  %.inv457 = icmp sgt i32 %452, 0
-  %spec.select400 = select i1 %.inv457, i32 0, i32 872415232
+  %.inv458 = icmp sgt i32 %452, 0
+  %spec.select401 = select i1 %.inv458, i32 0, i32 872415232
   %453 = icmp eq i32 %441, 21
   %454 = zext i1 %453 to i32
-  %spec.select242 = or disjoint i32 %spec.select400, %454
+  %spec.select243 = or disjoint i32 %spec.select401, %454
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %456 = load i32, ptr %455, align 4, !tbaa !50
   %457 = shl i32 %456, 1
   %458 = and i32 %457, 2
-  %.1183 = or disjoint i32 %spec.select242, %458
+  %.1183 = or disjoint i32 %spec.select243, %458
   %459 = zext nneg i32 %.1183 to i64
   tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %429, i64 noundef %459, i32 noundef %425)
   %460 = tail call noundef i32 @_ZN6icu_7712RegexCompile17allocateStackDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 51, i32 noundef %460)
   br label %.critedge
 
-_ZNK6icu_779UVector6410elementAtiEi.exit319.thread: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit319, %424
+_ZNK6icu_779UVector6410elementAtiEi.exit320.thread: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit320, %424
   %461 = tail call noundef i32 @_ZN6icu_7712RegexCompile11blockTopLocEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 1)
   %462 = add nsw i32 %461, 1
   %463 = tail call noundef i32 @_ZN6icu_7712RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 15, i32 noundef %462)
@@ -3420,7 +3420,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit319.thread: ; preds = %_ZNK6icu_779UVect
   %471 = icmp eq i32 %470, 0
   br i1 %471, label %472, label %481
 
-472:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit319.thread
+472:                                              ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit320.thread
   tail call void @_ZN6icu_7712RegexCompile8insertOpEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %461)
   %473 = tail call noundef i32 @_ZN6icu_7712RegexCompile17allocateStackDataEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
   %474 = tail call noundef i32 @_ZN6icu_7712RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 35, i32 noundef %473)
@@ -3433,8 +3433,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit319.thread: ; preds = %_ZNK6icu_779UVect
   %480 = tail call noundef i32 @_ZN6icu_7712RegexCompile7buildOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 18, i32 noundef %479)
   br label %481
 
-481:                                              ; preds = %472, %_ZNK6icu_779UVector6410elementAtiEi.exit319.thread
-  %.0184 = phi i32 [ %480, %472 ], [ %463, %_ZNK6icu_779UVector6410elementAtiEi.exit319.thread ]
+481:                                              ; preds = %472, %_ZNK6icu_779UVector6410elementAtiEi.exit320.thread
+  %.0184 = phi i32 [ %480, %472 ], [ %463, %_ZNK6icu_779UVector6410elementAtiEi.exit320.thread ]
   %482 = load ptr, ptr %426, align 8, !tbaa !33
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 32
   %484 = load ptr, ptr %483, align 8, !tbaa !79
@@ -3578,10 +3578,10 @@ _ZNK6icu_779UVector6410elementAtiEi.exit319.thread: ; preds = %_ZNK6icu_779UVect
   br label %_ZN6icu_779UVector644popiEv.exit
 
 _ZN6icu_779UVector644popiEv.exit:                 ; preds = %550, %565
-  %.0.i322 = phi i64 [ %574, %565 ], [ 1, %550 ]
+  %.0.i323 = phi i64 [ %574, %565 ], [ 1, %550 ]
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %576 = load ptr, ptr %575, align 8, !tbaa !18
-  %577 = tail call noundef i64 @_ZN6icu_779UVector644pushElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %561, i64 noundef %.0.i322, ptr noundef nonnull align 4 dereferenceable(4) %576)
+  %577 = tail call noundef i64 @_ZN6icu_779UVector644pushElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %561, i64 noundef %.0.i323, ptr noundef nonnull align 4 dereferenceable(4) %576)
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 33, i32 noundef %552)
   br label %.critedge
 
@@ -3612,8 +3612,8 @@ _ZN6icu_779UVector644popiEv.exit:                 ; preds = %550, %565
   %591 = load i32, ptr %590, align 8, !tbaa !112
   %592 = and i32 %591, -33
   %593 = add i32 %592, -65
-  %or.cond481 = icmp ult i32 %593, 26
-  br i1 %or.cond481, label %594, label %595
+  %or.cond482 = icmp ult i32 %593, 26
+  br i1 %or.cond482, label %594, label %595
 
 594:                                              ; preds = %589
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66307)
@@ -3632,15 +3632,15 @@ _ZN6icu_779UVector644popiEv.exit:                 ; preds = %550, %565
   %602 = load i32, ptr %601, align 4, !tbaa !50
   %603 = and i32 %602, 32
   %.not232 = icmp eq i32 %603, 0
-  br i1 %.not232, label %607, label %_ZN6icu_7712RegexCompile8appendOpEii.exit324
+  br i1 %.not232, label %607, label %_ZN6icu_7712RegexCompile8appendOpEii.exit325
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit324:     ; preds = %600
+_ZN6icu_7712RegexCompile8appendOpEii.exit325:     ; preds = %600
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %605 = load ptr, ptr %604, align 8, !tbaa !18
   %606 = load i32, ptr %605, align 4, !tbaa !13
-  %.inv454 = icmp sgt i32 %606, 0
-  %spec.select401 = select i1 %.inv454, i32 0, i32 352321536
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select401)
+  %.inv455 = icmp sgt i32 %606, 0
+  %spec.select402 = select i1 %.inv455, i32 0, i32 352321536
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select402)
   br label %.critedge
 
 607:                                              ; preds = %600
@@ -3649,17 +3649,17 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit324:     ; preds = %600
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %610 = load ptr, ptr %609, align 8, !tbaa !18
   %611 = load i32, ptr %610, align 4, !tbaa !13
-  %.inv456 = icmp sgt i32 %611, 0
-  br i1 %.not233, label %_ZN6icu_7712RegexCompile8appendOpEii.exit328, label %_ZN6icu_7712RegexCompile8appendOpEii.exit326
+  %.inv457 = icmp sgt i32 %611, 0
+  br i1 %.not233, label %_ZN6icu_7712RegexCompile8appendOpEii.exit329, label %_ZN6icu_7712RegexCompile8appendOpEii.exit327
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit326:     ; preds = %607
-  %spec.select402 = select i1 %.inv456, i32 0, i32 452984832
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select402)
+_ZN6icu_7712RegexCompile8appendOpEii.exit327:     ; preds = %607
+  %spec.select403 = select i1 %.inv457, i32 0, i32 452984832
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select403)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit328:     ; preds = %607
-  %spec.select403 = select i1 %.inv456, i32 0, i32 201326592
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select403)
+_ZN6icu_7712RegexCompile8appendOpEii.exit329:     ; preds = %607
+  %spec.select404 = select i1 %.inv457, i32 0, i32 201326592
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select404)
   br label %.critedge
 
 612:                                              ; preds = %2
@@ -3670,32 +3670,32 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit328:     ; preds = %607
   %616 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %617 = load ptr, ptr %616, align 8, !tbaa !18
   %618 = load i32, ptr %617, align 4, !tbaa !13
-  %.inv453 = icmp sgt i32 %618, 0
+  %.inv454 = icmp sgt i32 %618, 0
   switch i32 %615, label %.unreachabledefault [
-    i32 0, label %_ZN6icu_7712RegexCompile8appendOpEii.exit330
-    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit332
-    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit334
-    i32 9, label %_ZN6icu_7712RegexCompile8appendOpEii.exit336
+    i32 0, label %_ZN6icu_7712RegexCompile8appendOpEii.exit331
+    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit333
+    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit335
+    i32 9, label %_ZN6icu_7712RegexCompile8appendOpEii.exit337
   ]
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit330:     ; preds = %612
-  %spec.select404 = select i1 %.inv453, i32 0, i32 385875968
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select404)
-  br label %.critedge
-
-_ZN6icu_7712RegexCompile8appendOpEii.exit332:     ; preds = %612
-  %spec.select405 = select i1 %.inv453, i32 0, i32 721420288
+_ZN6icu_7712RegexCompile8appendOpEii.exit331:     ; preds = %612
+  %spec.select405 = select i1 %.inv454, i32 0, i32 385875968
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select405)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit334:     ; preds = %612
-  %spec.select406 = select i1 %.inv453, i32 0, i32 385875968
+_ZN6icu_7712RegexCompile8appendOpEii.exit333:     ; preds = %612
+  %spec.select406 = select i1 %.inv454, i32 0, i32 721420288
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select406)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit336:     ; preds = %612
-  %spec.select407 = select i1 %.inv453, i32 0, i32 503316480
+_ZN6icu_7712RegexCompile8appendOpEii.exit335:     ; preds = %612
+  %spec.select407 = select i1 %.inv454, i32 0, i32 385875968
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select407)
+  br label %.critedge
+
+_ZN6icu_7712RegexCompile8appendOpEii.exit337:     ; preds = %612
+  %spec.select408 = select i1 %.inv454, i32 0, i32 503316480
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select408)
   br label %.critedge
 
 619:                                              ; preds = %2
@@ -3706,42 +3706,42 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit336:     ; preds = %612
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %624 = load ptr, ptr %623, align 8, !tbaa !18
   %625 = load i32, ptr %624, align 4, !tbaa !13
-  %.inv449 = icmp sgt i32 %625, 0
-  switch i32 %622, label %.unreachabledefault489 [
-    i32 0, label %_ZN6icu_7712RegexCompile8appendOpEii.exit338
-    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit340
-    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit342
-    i32 9, label %_ZN6icu_7712RegexCompile8appendOpEii.exit344
+  %.inv450 = icmp sgt i32 %625, 0
+  switch i32 %622, label %.unreachabledefault490 [
+    i32 0, label %_ZN6icu_7712RegexCompile8appendOpEii.exit339
+    i32 8, label %_ZN6icu_7712RegexCompile8appendOpEii.exit341
+    i32 1, label %_ZN6icu_7712RegexCompile8appendOpEii.exit343
+    i32 9, label %_ZN6icu_7712RegexCompile8appendOpEii.exit345
   ]
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit338:     ; preds = %619
-  %spec.select408 = select i1 %.inv449, i32 0, i32 402653184
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select408)
-  br label %.critedge
-
-_ZN6icu_7712RegexCompile8appendOpEii.exit340:     ; preds = %619
-  %spec.select409 = select i1 %.inv449, i32 0, i32 704643072
+_ZN6icu_7712RegexCompile8appendOpEii.exit339:     ; preds = %619
+  %spec.select409 = select i1 %.inv450, i32 0, i32 402653184
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select409)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit342:     ; preds = %619
-  %spec.select410 = select i1 %.inv449, i32 0, i32 905969664
+_ZN6icu_7712RegexCompile8appendOpEii.exit341:     ; preds = %619
+  %spec.select410 = select i1 %.inv450, i32 0, i32 704643072
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select410)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit344:     ; preds = %619
-  %spec.select411 = select i1 %.inv449, i32 0, i32 922746880
+_ZN6icu_7712RegexCompile8appendOpEii.exit343:     ; preds = %619
+  %spec.select411 = select i1 %.inv450, i32 0, i32 905969664
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select411)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit346:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit345:     ; preds = %619
+  %spec.select412 = select i1 %.inv450, i32 0, i32 922746880
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select412)
+  br label %.critedge
+
+_ZN6icu_7712RegexCompile8appendOpEii.exit347:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %627 = load ptr, ptr %626, align 8, !tbaa !18
   %628 = load i32, ptr %627, align 4, !tbaa !13
-  %.inv445 = icmp sgt i32 %628, 0
-  %spec.select412 = select i1 %.inv445, i32 0, i32 385875968
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select412)
+  %.inv446 = icmp sgt i32 %628, 0
+  %spec.select413 = select i1 %.inv446, i32 0, i32 385875968
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select413)
   br label %.critedge
 
 629:                                              ; preds = %2
@@ -3764,154 +3764,154 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit346:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %638, i32 noundef 0)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit348:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit349:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %640 = load ptr, ptr %639, align 8, !tbaa !18
   %641 = load i32, ptr %640, align 4, !tbaa !13
-  %.inv444 = icmp sgt i32 %641, 0
-  %spec.select413 = select i1 %.inv444, i32 0, i32 369098753
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select413)
+  %.inv445 = icmp sgt i32 %641, 0
+  %spec.select414 = select i1 %.inv445, i32 0, i32 369098753
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select414)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit350:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit351:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %643 = load ptr, ptr %642, align 8, !tbaa !18
   %644 = load i32, ptr %643, align 4, !tbaa !13
-  %.inv443 = icmp sgt i32 %644, 0
-  %spec.select414 = select i1 %.inv443, i32 0, i32 369098752
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select414)
+  %.inv444 = icmp sgt i32 %644, 0
+  %spec.select415 = select i1 %.inv444, i32 0, i32 369098752
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select415)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit352:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit353:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %646 = load ptr, ptr %645, align 8, !tbaa !18
   %647 = load i32, ptr %646, align 4, !tbaa !13
-  %.inv442 = icmp sgt i32 %647, 0
-  %spec.select415 = select i1 %.inv442, i32 0, i32 285212672
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select415)
+  %.inv443 = icmp sgt i32 %647, 0
+  %spec.select416 = select i1 %.inv443, i32 0, i32 285212672
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select416)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit354:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit355:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %649 = load ptr, ptr %648, align 8, !tbaa !18
   %650 = load i32, ptr %649, align 4, !tbaa !13
-  %.inv441 = icmp sgt i32 %650, 0
-  %spec.select416 = select i1 %.inv441, i32 0, i32 939524097
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select416)
+  %.inv442 = icmp sgt i32 %650, 0
+  %spec.select417 = select i1 %.inv442, i32 0, i32 939524097
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select417)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit356:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit357:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %652 = load ptr, ptr %651, align 8, !tbaa !18
   %653 = load i32, ptr %652, align 4, !tbaa !13
-  %.inv440 = icmp sgt i32 %653, 0
-  %spec.select417 = select i1 %.inv440, i32 0, i32 939524096
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select417)
+  %.inv441 = icmp sgt i32 %653, 0
+  %spec.select418 = select i1 %.inv441, i32 0, i32 939524096
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select418)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit358:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit359:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %655 = load ptr, ptr %654, align 8, !tbaa !18
   %656 = load i32, ptr %655, align 4, !tbaa !13
-  %.inv439 = icmp sgt i32 %656, 0
-  %spec.select418 = select i1 %.inv439, i32 0, i32 956301312
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select418)
+  %.inv440 = icmp sgt i32 %656, 0
+  %spec.select419 = select i1 %.inv440, i32 0, i32 956301312
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select419)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit360:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit361:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %658 = load ptr, ptr %657, align 8, !tbaa !18
   %659 = load i32, ptr %658, align 4, !tbaa !13
-  %.inv438 = icmp sgt i32 %659, 0
-  %spec.select419 = select i1 %.inv438, i32 0, i32 822083588
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select419)
+  %.inv439 = icmp sgt i32 %659, 0
+  %spec.select420 = select i1 %.inv439, i32 0, i32 822083588
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select420)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit362:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit363:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %660 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %661 = load ptr, ptr %660, align 8, !tbaa !18
   %662 = load i32, ptr %661, align 4, !tbaa !13
-  %.inv437 = icmp sgt i32 %662, 0
-  %spec.select420 = select i1 %.inv437, i32 0, i32 167772164
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select420)
+  %.inv438 = icmp sgt i32 %662, 0
+  %spec.select421 = select i1 %.inv438, i32 0, i32 167772164
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select421)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit364:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit365:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %664 = load ptr, ptr %663, align 8, !tbaa !18
   %665 = load i32, ptr %664, align 4, !tbaa !13
-  %.inv436 = icmp sgt i32 %665, 0
-  %spec.select421 = select i1 %.inv436, i32 0, i32 973078529
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select421)
+  %.inv437 = icmp sgt i32 %665, 0
+  %spec.select422 = select i1 %.inv437, i32 0, i32 973078529
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select422)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit366:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit367:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %667 = load ptr, ptr %666, align 8, !tbaa !18
   %668 = load i32, ptr %667, align 4, !tbaa !13
-  %.inv435 = icmp sgt i32 %668, 0
-  %spec.select422 = select i1 %.inv435, i32 0, i32 973078528
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select422)
+  %.inv436 = icmp sgt i32 %668, 0
+  %spec.select423 = select i1 %.inv436, i32 0, i32 973078528
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select423)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit368:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit369:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %669 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %670 = load ptr, ptr %669, align 8, !tbaa !18
   %671 = load i32, ptr %670, align 4, !tbaa !13
-  %.inv434 = icmp sgt i32 %671, 0
-  %spec.select423 = select i1 %.inv434, i32 0, i32 822083585
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select423)
+  %.inv435 = icmp sgt i32 %671, 0
+  %spec.select424 = select i1 %.inv435, i32 0, i32 822083585
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select424)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit370:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit371:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %673 = load ptr, ptr %672, align 8, !tbaa !18
   %674 = load i32, ptr %673, align 4, !tbaa !13
-  %.inv433 = icmp sgt i32 %674, 0
-  %spec.select424 = select i1 %.inv433, i32 0, i32 167772161
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select424)
+  %.inv434 = icmp sgt i32 %674, 0
+  %spec.select425 = select i1 %.inv434, i32 0, i32 167772161
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select425)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit372:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit373:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %676 = load ptr, ptr %675, align 8, !tbaa !18
   %677 = load i32, ptr %676, align 4, !tbaa !13
-  %.inv432 = icmp sgt i32 %677, 0
-  %spec.select425 = select i1 %.inv432, i32 0, i32 318767104
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select425)
+  %.inv433 = icmp sgt i32 %677, 0
+  %spec.select426 = select i1 %.inv433, i32 0, i32 318767104
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select426)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit374:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit375:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %679 = load ptr, ptr %678, align 8, !tbaa !18
   %680 = load i32, ptr %679, align 4, !tbaa !13
-  %.inv431 = icmp sgt i32 %680, 0
-  %spec.select426 = select i1 %.inv431, i32 0, i32 402653184
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select426)
+  %.inv432 = icmp sgt i32 %680, 0
+  %spec.select427 = select i1 %.inv432, i32 0, i32 402653184
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select427)
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit376:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit377:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %682 = load ptr, ptr %681, align 8, !tbaa !18
   %683 = load i32, ptr %682, align 4, !tbaa !13
-  %.inv430 = icmp sgt i32 %683, 0
-  %spec.select427 = select i1 %.inv430, i32 0, i32 335544320
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select427)
+  %.inv431 = icmp sgt i32 %683, 0
+  %spec.select428 = select i1 %.inv431, i32 0, i32 335544320
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select428)
   br label %.critedge
 
 684:                                              ; preds = %2
@@ -3944,8 +3944,8 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit376:     ; preds = %2
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %700 = load i32, ptr %699, align 8, !tbaa !112
   %701 = tail call i32 @u_charDigitValue_77(i32 noundef %700)
-  %.not220483 = icmp slt i32 %701, %698
-  br i1 %.not220483, label %.lr.ph, label %._crit_edge
+  %.not220484 = icmp slt i32 %701, %698
+  br i1 %.not220484, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %692
   %702 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -4096,19 +4096,19 @@ _ZN6icu_7712RegexCompile10peekCharLLEv.exit:      ; preds = %706, %_ZN6icu_7712R
   %777 = load i64, ptr %704, align 8, !tbaa !37
   %778 = add nsw i64 %777, 1
   store i64 %778, ptr %704, align 8, !tbaa !37
-  br label %.sink.split487
+  br label %.sink.split488
 
 779:                                              ; preds = %772
   %780 = load i64, ptr %705, align 8, !tbaa !38
   %781 = add nsw i64 %780, 1
-  br label %.sink.split487
+  br label %.sink.split488
 
-.sink.split487:                                   ; preds = %776, %779
-  %.sink488 = phi i64 [ %781, %779 ], [ 0, %776 ]
-  store i64 %.sink488, ptr %705, align 8, !tbaa !38
+.sink.split488:                                   ; preds = %776, %779
+  %.sink489 = phi i64 [ %781, %779 ], [ 0, %776 ]
+  store i64 %.sink489, ptr %705, align 8, !tbaa !38
   br label %782
 
-782:                                              ; preds = %.sink.split487, %774
+782:                                              ; preds = %.sink.split488, %774
   store i32 %773, ptr %703, align 8, !tbaa !35
   br label %_ZN6icu_7712RegexCompile10nextCharLLEv.exit
 
@@ -4169,16 +4169,16 @@ _ZN6icu_7712RegexCompile10nextCharLLEv.exit:      ; preds = %782, %772, %750
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 192
   %809 = load ptr, ptr %808, align 8, !tbaa !114
   %.not218 = icmp eq ptr %809, null
-  br i1 %.not218, label %.thread388, label %810
+  br i1 %.not218, label %.thread389, label %810
 
 810:                                              ; preds = %805
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %812 = load ptr, ptr %811, align 8, !tbaa !54
   %813 = tail call i32 @uhash_geti_77(ptr noundef nonnull %809, ptr noundef %812)
   %814 = icmp eq i32 %813, 0
-  br i1 %814, label %.thread388, label %815
+  br i1 %814, label %.thread389, label %815
 
-.thread388:                                       ; preds = %805, %810
+.thread389:                                       ; preds = %805, %810
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66325)
   br label %821
 
@@ -4198,7 +4198,7 @@ _ZN6icu_7712RegexCompile10nextCharLLEv.exit:      ; preds = %782, %772, %750
   tail call void @_ZN6icu_7712RegexCompile8appendOpEii(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 34, i32 noundef %813)
   br label %821
 
-821:                                              ; preds = %819, %820, %.thread388
+821:                                              ; preds = %819, %820, %.thread389
   %822 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %823 = load ptr, ptr %822, align 8, !tbaa !54
   %824 = icmp eq ptr %823, null
@@ -4343,7 +4343,7 @@ _ZN6icu_7712RegexCompile10nextCharLLEv.exit:      ; preds = %782, %772, %750
   unreachable
 
 905:                                              ; preds = %893, %902, %901, %900, %899, %898, %897, %896
-  %.0188 = phi i32 [ 0, %902 ], [ 4, %901 ], [ 256, %900 ], [ 0, %899 ], [ 32, %898 ], [ 8, %897 ], [ 1, %896 ], [ 2, %893 ]
+  %.0188 = phi i32 [ 1, %896 ], [ 8, %897 ], [ 32, %898 ], [ 0, %899 ], [ 256, %900 ], [ 4, %901 ], [ 0, %902 ], [ 2, %893 ]
   %906 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %907 = load i8, ptr %906, align 4, !tbaa !128
   %.not217 = icmp eq i8 %907, 0
@@ -4372,19 +4372,19 @@ _ZN6icu_7712RegexCompile10nextCharLLEv.exit:      ; preds = %782, %772, %750
   store i32 %919, ptr %920, align 4, !tbaa !50
   br label %.critedge
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit379:     ; preds = %2
+_ZN6icu_7712RegexCompile8appendOpEii.exit380:     ; preds = %2
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %922 = load ptr, ptr %921, align 8, !tbaa !18
   %923 = load i32, ptr %922, align 4, !tbaa !13
   %.inv = icmp sgt i32 %923, 0
-  %spec.select428 = select i1 %.inv, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select428)
+  %spec.select429 = select i1 %.inv, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %spec.select429)
   %924 = load ptr, ptr %921, align 8, !tbaa !18
   %925 = load i32, ptr %924, align 4, !tbaa !13
-  %.inv429 = icmp sgt i32 %925, 0
-  %.0.i.i380 = select i1 %.inv429, i32 0, i32 117440512
-  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i380)
+  %.inv430 = icmp sgt i32 %925, 0
+  %.0.i.i381 = select i1 %.inv430, i32 0, i32 117440512
+  tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i381)
   %926 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %928 = load i32, ptr %927, align 4, !tbaa !50
@@ -4702,9 +4702,9 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit379:     ; preds = %2
 
 1107:                                             ; preds = %1104
   invoke void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1105)
-          to label %.thread389 unwind label %1128
+          to label %.thread390 unwind label %1128
 
-.thread389:                                       ; preds = %1107
+.thread390:                                       ; preds = %1107
   %1108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1109 = load ptr, ptr %1108, align 8, !tbaa !18
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit
@@ -4720,9 +4720,9 @@ _ZN6icu_7712RegexCompile8appendOpEii.exit379:     ; preds = %2
   store i32 7, ptr %1112, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit
 
-_ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit: ; preds = %.thread389, %1110, %1115
-  %1116 = phi ptr [ %1109, %.thread389 ], [ %1112, %1110 ], [ %1112, %1115 ]
-  %1117 = phi ptr [ %1108, %.thread389 ], [ %1111, %1110 ], [ %1111, %1115 ]
+_ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit: ; preds = %.thread390, %1110, %1115
+  %1116 = phi ptr [ %1109, %.thread390 ], [ %1112, %1110 ], [ %1112, %1115 ]
+  %1117 = phi ptr [ %1108, %.thread390 ], [ %1111, %1110 ], [ %1111, %1115 ]
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr null, ptr %9, align 8, !tbaa !129
   %1119 = invoke noundef ptr @_ZN6icu_776UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %1118, ptr noundef %1105, ptr noundef nonnull align 4 dereferenceable(4) %1116)
@@ -4739,12 +4739,12 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit:       ; preds = %1120
   %1124 = load i32, ptr %1123, align 4, !tbaa !50
   %1125 = and i32 %1124, 2
   %.not215 = icmp eq i32 %1125, 0
-  br i1 %.not215, label %_ZN6icu_776UStack4pushEiR10UErrorCode.exit383, label %1126
+  br i1 %.not215, label %_ZN6icu_776UStack4pushEiR10UErrorCode.exit384, label %1126
 
 1126:                                             ; preds = %_ZN6icu_776UStack4pushEiR10UErrorCode.exit
   %1127 = load ptr, ptr %1117, align 8, !tbaa !18
   invoke void @_ZN6icu_777UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %1121, i32 noundef 131081, ptr noundef nonnull align 4 dereferenceable(4) %1127)
-          to label %_ZN6icu_776UStack4pushEiR10UErrorCode.exit383 unwind label %1130
+          to label %_ZN6icu_776UStack4pushEiR10UErrorCode.exit384 unwind label %1130
 
 1128:                                             ; preds = %1107
   %1129 = landingpad { ptr, i32 }
@@ -4758,7 +4758,7 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit:       ; preds = %1120
   call void @_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   br label %1132
 
-_ZN6icu_776UStack4pushEiR10UErrorCode.exit383:    ; preds = %1126, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit
+_ZN6icu_776UStack4pushEiR10UErrorCode.exit384:    ; preds = %1126, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit
   call void @_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   br label %.critedge
@@ -4866,8 +4866,8 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit383:    ; preds = %1126, %_ZN6icu_776U
   %1185 = load i32, ptr %1184, align 8, !tbaa !112
   %1186 = and i32 %1185, -33
   %1187 = add i32 %1186, -65
-  %or.cond482 = icmp ult i32 %1187, 26
-  br i1 %or.cond482, label %1188, label %1189
+  %or.cond483 = icmp ult i32 %1187, 26
+  br i1 %or.cond483, label %1188, label %1189
 
 1188:                                             ; preds = %1183
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66307)
@@ -4914,8 +4914,8 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit383:    ; preds = %1126, %_ZN6icu_776U
   %1217 = load i32, ptr %1216, align 8, !tbaa !55
   %1218 = icmp eq i32 %1217, -1
   %1219 = icmp sgt i32 %1217, %1210
-  %or.cond260 = or i1 %1218, %1219
-  br i1 %or.cond260, label %1220, label %1221
+  %or.cond261 = or i1 %1218, %1219
+  br i1 %or.cond261, label %1220, label %1221
 
 1220:                                             ; preds = %1215
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66320)
@@ -5004,8 +5004,8 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit383:    ; preds = %1126, %_ZN6icu_776U
   %1269 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1270 = load i32, ptr %1269, align 8
   %1271 = icmp sgt i32 %1267, %1270
-  %or.cond263 = select i1 %1268, i1 true, i1 %1271
-  br i1 %or.cond263, label %1272, label %1273
+  %or.cond264 = select i1 %1268, i1 true, i1 %1271
+  br i1 %or.cond264, label %1272, label %1273
 
 1272:                                             ; preds = %1265
   tail call void @_ZN6icu_7712RegexCompile5errorE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 66320)
@@ -5029,21 +5029,21 @@ _ZN6icu_776UStack4pushEiR10UErrorCode.exit383:    ; preds = %1126, %_ZN6icu_776U
 .unreachabledefault:                              ; preds = %612
   unreachable
 
-.unreachabledefault489:                           ; preds = %619
+.unreachabledefault490:                           ; preds = %619
   unreachable
 
-.critedge:                                        ; preds = %794, %74, %1256, %1258, %1247, %1249, %1237, %1242, %908, %912, %789, %790, %539, %540, %521, %522, %481, %_ZN6icu_7712RegexCompile7buildOpEii.exit321, %442, %392, %384, %_ZN6icu_7712RegexCompile7buildOpEii.exit, %369, %129, %125, %133, %145, %149, %_ZN6icu_7712RegexCompile8appendOpEii.exit276, %1151, %1158, %1142, %1149, %1133, %1140, %797, %_ZN6icu_7712RegexCompile8appendOpEii.exit338, %_ZN6icu_7712RegexCompile8appendOpEii.exit342, %_ZN6icu_7712RegexCompile8appendOpEii.exit344, %_ZN6icu_7712RegexCompile8appendOpEii.exit340, %_ZN6icu_7712RegexCompile8appendOpEii.exit330, %_ZN6icu_7712RegexCompile8appendOpEii.exit334, %_ZN6icu_7712RegexCompile8appendOpEii.exit336, %_ZN6icu_7712RegexCompile8appendOpEii.exit332, %_ZN6icu_7712RegexCompile8appendOpEii.exit324, %_ZN6icu_7712RegexCompile8appendOpEii.exit328, %_ZN6icu_7712RegexCompile8appendOpEii.exit326, %546, %549, %344, %348, %77, %1273, %1246, %1245, %1221, %1200, %1189, %1168, %1167, %1164, %1161, %1160, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit383, %1101, %1079, %1076, %1052, %1049, %1031, %1015, %994, %991, %969, %962, %955, %953, %952, %_ZN6icu_7712RegexCompile8appendOpEii.exit379, %917, %888, %867, %846, %830, %829, %799, %688, %686, %685, %684, %_ZN6icu_7712RegexCompile8appendOpEii.exit376, %_ZN6icu_7712RegexCompile8appendOpEii.exit374, %_ZN6icu_7712RegexCompile8appendOpEii.exit372, %_ZN6icu_7712RegexCompile8appendOpEii.exit370, %_ZN6icu_7712RegexCompile8appendOpEii.exit368, %_ZN6icu_7712RegexCompile8appendOpEii.exit366, %_ZN6icu_7712RegexCompile8appendOpEii.exit364, %_ZN6icu_7712RegexCompile8appendOpEii.exit362, %_ZN6icu_7712RegexCompile8appendOpEii.exit360, %_ZN6icu_7712RegexCompile8appendOpEii.exit358, %_ZN6icu_7712RegexCompile8appendOpEii.exit356, %_ZN6icu_7712RegexCompile8appendOpEii.exit354, %_ZN6icu_7712RegexCompile8appendOpEii.exit352, %_ZN6icu_7712RegexCompile8appendOpEii.exit350, %_ZN6icu_7712RegexCompile8appendOpEii.exit348, %634, %629, %_ZN6icu_7712RegexCompile8appendOpEii.exit346, %595, %580, %579, %578, %_ZN6icu_779UVector644popiEv.exit, %542, %507, %493, %408, %395, %393, %350, %349, %343, %_ZN6icu_7712RegexCompile8appendOpEii.exit306, %_ZN6icu_7712RegexCompile8appendOpEii.exit298, %_ZN6icu_7712RegexCompile8appendOpEii.exit294, %_ZN6icu_7712RegexCompile8appendOpEii.exit288, %_ZN6icu_7712RegexCompile8appendOpEii.exit284, %_ZN6icu_7712RegexCompile8appendOpEii.exit280, %85, %79, %_ZN6icu_779UVector324popiEv.exit, %_ZN6icu_7712RegexCompile8appendOpEii.exit270, %_ZN6icu_7712RegexCompile8appendOpEii.exit, %2
-  %.0 = phi i8 [ 1, %1273 ], [ 1, %1246 ], [ 1, %1245 ], [ 1, %1221 ], [ 1, %1200 ], [ 1, %1189 ], [ 1, %1168 ], [ 1, %1167 ], [ 1, %1164 ], [ 1, %1161 ], [ 1, %1160 ], [ 1, %1158 ], [ 1, %1151 ], [ 1, %1149 ], [ 1, %1142 ], [ 1, %1140 ], [ 1, %1133 ], [ 1, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit383 ], [ 1, %1101 ], [ 1, %1079 ], [ 1, %1076 ], [ 1, %1052 ], [ 1, %1049 ], [ 1, %1031 ], [ 1, %1015 ], [ 1, %994 ], [ 1, %991 ], [ 1, %969 ], [ 1, %962 ], [ 1, %955 ], [ 1, %953 ], [ 1, %952 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit379 ], [ 1, %917 ], [ 1, %888 ], [ 1, %867 ], [ 1, %846 ], [ 1, %830 ], [ 1, %829 ], [ 1, %799 ], [ 1, %797 ], [ 1, %794 ], [ 1, %688 ], [ 1, %686 ], [ 0, %685 ], [ 1, %684 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit376 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit374 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit372 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit370 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit368 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit366 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit364 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit362 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit360 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit358 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit356 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit354 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit352 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit350 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit348 ], [ 1, %634 ], [ 1, %629 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit346 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit338 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit340 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit342 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit344 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit330 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit332 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit334 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit336 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit324 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit326 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit328 ], [ 1, %595 ], [ 1, %580 ], [ 1, %579 ], [ 1, %578 ], [ 1, %_ZN6icu_779UVector644popiEv.exit ], [ 1, %549 ], [ 1, %546 ], [ 1, %542 ], [ 1, %507 ], [ 1, %493 ], [ 1, %408 ], [ 1, %395 ], [ 1, %393 ], [ 1, %350 ], [ 1, %349 ], [ 1, %2 ], [ 1, %348 ], [ 1, %344 ], [ 1, %343 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit306 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit298 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit294 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit288 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit284 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit280 ], [ 1, %85 ], [ 1, %79 ], [ 1, %77 ], [ 1, %74 ], [ 1, %_ZN6icu_779UVector324popiEv.exit ], [ 0, %_ZN6icu_7712RegexCompile8appendOpEii.exit270 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit276 ], [ 1, %149 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %129 ], [ 1, %369 ], [ 1, %_ZN6icu_7712RegexCompile7buildOpEii.exit ], [ 1, %384 ], [ 1, %392 ], [ 1, %442 ], [ 1, %_ZN6icu_7712RegexCompile7buildOpEii.exit321 ], [ 1, %481 ], [ 1, %522 ], [ 1, %521 ], [ 1, %540 ], [ 1, %539 ], [ 1, %790 ], [ 1, %789 ], [ 1, %912 ], [ 1, %908 ], [ 1, %1242 ], [ 1, %1237 ], [ 1, %1249 ], [ 1, %1247 ], [ 1, %1258 ], [ 1, %1256 ]
+.critedge:                                        ; preds = %794, %74, %1256, %1258, %1247, %1249, %1237, %1242, %908, %912, %789, %790, %539, %540, %521, %522, %481, %_ZN6icu_7712RegexCompile7buildOpEii.exit322, %442, %392, %384, %_ZN6icu_7712RegexCompile7buildOpEii.exit, %369, %129, %125, %133, %145, %149, %_ZN6icu_7712RegexCompile8appendOpEii.exit277, %1151, %1158, %1142, %1149, %1133, %1140, %797, %_ZN6icu_7712RegexCompile8appendOpEii.exit339, %_ZN6icu_7712RegexCompile8appendOpEii.exit343, %_ZN6icu_7712RegexCompile8appendOpEii.exit345, %_ZN6icu_7712RegexCompile8appendOpEii.exit341, %_ZN6icu_7712RegexCompile8appendOpEii.exit331, %_ZN6icu_7712RegexCompile8appendOpEii.exit335, %_ZN6icu_7712RegexCompile8appendOpEii.exit337, %_ZN6icu_7712RegexCompile8appendOpEii.exit333, %_ZN6icu_7712RegexCompile8appendOpEii.exit325, %_ZN6icu_7712RegexCompile8appendOpEii.exit329, %_ZN6icu_7712RegexCompile8appendOpEii.exit327, %546, %549, %344, %348, %77, %1273, %1246, %1245, %1221, %1200, %1189, %1168, %1167, %1164, %1161, %1160, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit384, %1101, %1079, %1076, %1052, %1049, %1031, %1015, %994, %991, %969, %962, %955, %953, %952, %_ZN6icu_7712RegexCompile8appendOpEii.exit380, %917, %888, %867, %846, %830, %829, %799, %688, %686, %685, %684, %_ZN6icu_7712RegexCompile8appendOpEii.exit377, %_ZN6icu_7712RegexCompile8appendOpEii.exit375, %_ZN6icu_7712RegexCompile8appendOpEii.exit373, %_ZN6icu_7712RegexCompile8appendOpEii.exit371, %_ZN6icu_7712RegexCompile8appendOpEii.exit369, %_ZN6icu_7712RegexCompile8appendOpEii.exit367, %_ZN6icu_7712RegexCompile8appendOpEii.exit365, %_ZN6icu_7712RegexCompile8appendOpEii.exit363, %_ZN6icu_7712RegexCompile8appendOpEii.exit361, %_ZN6icu_7712RegexCompile8appendOpEii.exit359, %_ZN6icu_7712RegexCompile8appendOpEii.exit357, %_ZN6icu_7712RegexCompile8appendOpEii.exit355, %_ZN6icu_7712RegexCompile8appendOpEii.exit353, %_ZN6icu_7712RegexCompile8appendOpEii.exit351, %_ZN6icu_7712RegexCompile8appendOpEii.exit349, %634, %629, %_ZN6icu_7712RegexCompile8appendOpEii.exit347, %595, %580, %579, %578, %_ZN6icu_779UVector644popiEv.exit, %542, %507, %493, %408, %395, %393, %350, %349, %343, %_ZN6icu_7712RegexCompile8appendOpEii.exit307, %_ZN6icu_7712RegexCompile8appendOpEii.exit299, %_ZN6icu_7712RegexCompile8appendOpEii.exit295, %_ZN6icu_7712RegexCompile8appendOpEii.exit289, %_ZN6icu_7712RegexCompile8appendOpEii.exit285, %_ZN6icu_7712RegexCompile8appendOpEii.exit281, %85, %79, %_ZN6icu_779UVector324popiEv.exit, %_ZN6icu_7712RegexCompile8appendOpEii.exit271, %_ZN6icu_7712RegexCompile8appendOpEii.exit, %2
+  %.0 = phi i8 [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit ], [ 0, %_ZN6icu_7712RegexCompile8appendOpEii.exit271 ], [ 1, %_ZN6icu_779UVector324popiEv.exit ], [ 1, %77 ], [ 1, %74 ], [ 1, %79 ], [ 1, %85 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit281 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit285 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit289 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit295 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit299 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit307 ], [ 1, %343 ], [ 1, %348 ], [ 1, %344 ], [ 1, %2 ], [ 1, %349 ], [ 1, %350 ], [ 1, %393 ], [ 1, %395 ], [ 1, %408 ], [ 1, %493 ], [ 1, %507 ], [ 1, %542 ], [ 1, %549 ], [ 1, %546 ], [ 1, %_ZN6icu_779UVector644popiEv.exit ], [ 1, %578 ], [ 1, %579 ], [ 1, %580 ], [ 1, %595 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit325 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit327 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit329 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit331 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit333 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit335 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit337 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit339 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit341 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit343 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit345 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit347 ], [ 1, %629 ], [ 1, %634 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit349 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit351 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit353 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit355 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit357 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit359 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit361 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit363 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit365 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit367 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit369 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit371 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit373 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit375 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit377 ], [ 1, %684 ], [ 0, %685 ], [ 1, %686 ], [ 1, %688 ], [ 1, %797 ], [ 1, %794 ], [ 1, %799 ], [ 1, %829 ], [ 1, %830 ], [ 1, %846 ], [ 1, %867 ], [ 1, %888 ], [ 1, %917 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit380 ], [ 1, %952 ], [ 1, %953 ], [ 1, %955 ], [ 1, %962 ], [ 1, %969 ], [ 1, %991 ], [ 1, %994 ], [ 1, %1015 ], [ 1, %1031 ], [ 1, %1049 ], [ 1, %1052 ], [ 1, %1076 ], [ 1, %1079 ], [ 1, %1101 ], [ 1, %_ZN6icu_776UStack4pushEiR10UErrorCode.exit384 ], [ 1, %1140 ], [ 1, %1133 ], [ 1, %1149 ], [ 1, %1142 ], [ 1, %1158 ], [ 1, %1151 ], [ 1, %1160 ], [ 1, %1161 ], [ 1, %1164 ], [ 1, %1167 ], [ 1, %1168 ], [ 1, %1189 ], [ 1, %1200 ], [ 1, %1221 ], [ 1, %1245 ], [ 1, %1246 ], [ 1, %1273 ], [ 1, %_ZN6icu_7712RegexCompile8appendOpEii.exit277 ], [ 1, %149 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %129 ], [ 1, %369 ], [ 1, %_ZN6icu_7712RegexCompile7buildOpEii.exit ], [ 1, %384 ], [ 1, %392 ], [ 1, %442 ], [ 1, %_ZN6icu_7712RegexCompile7buildOpEii.exit322 ], [ 1, %481 ], [ 1, %522 ], [ 1, %521 ], [ 1, %540 ], [ 1, %539 ], [ 1, %790 ], [ 1, %789 ], [ 1, %912 ], [ 1, %908 ], [ 1, %1242 ], [ 1, %1237 ], [ 1, %1249 ], [ 1, %1247 ], [ 1, %1258 ], [ 1, %1256 ]
   %1283 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1284 = load ptr, ptr %1283, align 8, !tbaa !18
   %1285 = load i32, ptr %1284, align 4, !tbaa !13
   %1286 = icmp slt i32 %1285, 1
-  %spec.select264 = select i1 %1286, i8 %.0, i8 0
-  ret i8 %spec.select264
+  %spec.select265 = select i1 %1286, i8 %.0, i8 0
+  ret i8 %spec.select265
 
 1287:                                             ; preds = %1132, %1102, %1077, %1050, %1032, %1016, %992
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %1132 ], [ %1103, %1102 ], [ %1078, %1077 ], [ %1051, %1050 ], [ %1033, %1032 ], [ %1017, %1016 ], [ %993, %992 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn240 = phi { ptr, i32 } [ %993, %992 ], [ %1017, %1016 ], [ %1033, %1032 ], [ %1051, %1050 ], [ %1078, %1077 ], [ %1103, %1102 ], [ %.pn, %1132 ]
+  resume { ptr, i32 } %.pn240
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5685,7 +5685,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit56.thread: ; preds = %58, %_ZNK6icu_779U
   unreachable
 
 _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc61, %107, %168, %174, %96, %_ZNK6icu_779UVector6410elementAtiEi.exit56
-  %.140 = phi i32 [ %175, %174 ], [ %97, %96 ], [ %.03983, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %169, %168 ], [ %.03983, %107 ], [ %.03983, %.noexc61 ]
+  %.140 = phi i32 [ %.03983, %_ZNK6icu_779UVector6410elementAtiEi.exit56 ], [ %97, %96 ], [ %175, %174 ], [ %169, %168 ], [ %.03983, %107 ], [ %.03983, %.noexc61 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
   br i1 %exitcond92.not, label %._crit_edge86, label %58, !llvm.loop !134
@@ -5714,7 +5714,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %.noexc61, %107, %16
   br label %186
 
 186:                                              ; preds = %98, %143, %176, %184
-  %.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %177, %176 ], [ %144, %143 ], [ %99, %98 ]
+  %.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %99, %98 ], [ %144, %143 ], [ %177, %176 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
   br label %187
@@ -5895,7 +5895,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit99:       ; preds = %_ZNK6icu_779UVector
   br label %45
 
 45:                                               ; preds = %43, %_ZNK6icu_779UVector3210elementAtiEi.exit99
-  %.278 = phi i32 [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %44, %43 ]
+  %.278 = phi i32 [ %44, %43 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ]
   %46 = and i32 %32, 16777215
   %47 = icmp slt i32 %46, %.278
   br i1 %47, label %48, label %58
@@ -6158,8 +6158,8 @@ _ZNK6icu_779UVector3210elementAtiEi.exit119:      ; preds = %164, %166
   unreachable
 
 _ZNK6icu_779UVector3210elementAtiEi.exit101:      ; preds = %155, %158, %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread, %_ZNK6icu_779UVector6410elementAtiEi.exit115, %72, %68, %51, %48, %77, %89, %_ZNK6icu_779UVector3210elementAtiEi.exit107, %67, %_ZNK6icu_779UVector3210elementAtiEi.exit103, %40, %_ZNK6icu_779UVector6410elementAtiEi.exit109, %108, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99, %_ZNK6icu_779UVector3210elementAtiEi.exit99
-  %.384 = phi i32 [ %.0.i111, %108 ], [ %.0.i110, %_ZNK6icu_779UVector6410elementAtiEi.exit109 ], [ %.0.i, %40 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %67 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit103 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.182, %89 ], [ %.182, %77 ], [ %55, %51 ], [ 0, %48 ], [ %76, %72 ], [ 0, %68 ], [ %.182, %_ZNK6icu_779UVector6410elementAtiEi.exit115 ], [ %.182, %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread ], [ %.182, %158 ], [ %.182, %155 ]
-  %.5 = phi i32 [ %109, %108 ], [ %93, %_ZNK6icu_779UVector6410elementAtiEi.exit109 ], [ %.177145, %40 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.278, %67 ], [ %.278, %_ZNK6icu_779UVector3210elementAtiEi.exit103 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.177145, %89 ], [ %.177145, %77 ], [ %.278, %51 ], [ %.278, %48 ], [ %.177145, %72 ], [ %.177145, %68 ], [ %135, %_ZNK6icu_779UVector6410elementAtiEi.exit115 ], [ %124, %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread ], [ %143, %158 ], [ %143, %155 ]
+  %.384 = phi i32 [ %.0.i, %40 ], [ %.0.i110, %_ZNK6icu_779UVector6410elementAtiEi.exit109 ], [ %.0.i111, %108 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.182, %67 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit103 ], [ %.182, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.182, %89 ], [ %.182, %77 ], [ %55, %51 ], [ 0, %48 ], [ %76, %72 ], [ 0, %68 ], [ %.182, %_ZNK6icu_779UVector6410elementAtiEi.exit115 ], [ %.182, %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread ], [ %.182, %158 ], [ %.182, %155 ]
+  %.5 = phi i32 [ %.177145, %40 ], [ %93, %_ZNK6icu_779UVector6410elementAtiEi.exit109 ], [ %109, %108 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit99 ], [ %.278, %67 ], [ %.278, %_ZNK6icu_779UVector3210elementAtiEi.exit103 ], [ %.177145, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.177145, %89 ], [ %.177145, %77 ], [ %.278, %51 ], [ %.278, %48 ], [ %.177145, %72 ], [ %.177145, %68 ], [ %135, %_ZNK6icu_779UVector6410elementAtiEi.exit115 ], [ %124, %_ZNK6icu_779UVector6410elementAtiEi.exit115.thread ], [ %143, %158 ], [ %143, %155 ]
   %176 = add nsw i32 %.5, 1
   %.not95.not = icmp slt i32 %.5, %2
   br i1 %.not95.not, label %17, label %._crit_edge, !llvm.loop !137
@@ -6193,7 +6193,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit123:      ; preds = %_ZNK6icu_779UVector
   br label %187
 
 186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %173, %90, %56
-  %.pn = phi { ptr, i32 } [ %174, %173 ], [ %91, %90 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %91, %90 ], [ %174, %173 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   resume { ptr, i32 } %.pn
@@ -6882,7 +6882,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit246:      ; preds = %_ZNK6icu_779UVector
   br label %270
 
 270:                                              ; preds = %268, %_ZNK6icu_779UVector3210elementAtiEi.exit246
-  %.2 = phi i32 [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %269, %268 ]
+  %.2 = phi i32 [ %269, %268 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ]
   %271 = and i32 %41, 16777215
   %272 = icmp slt i32 %271, %.2
   br i1 %272, label %273, label %283
@@ -7272,10 +7272,10 @@ _ZNK6icu_779UVector3210elementAtiEi.exit280:      ; preds = %447, %449
   unreachable
 
 _ZNK6icu_779UVector3210elementAtiEi.exit256:      ; preds = %441, %298, %294, %276, %273, %.split215, %.split213, %.split211, %.split209, %303, %315, %_ZNK6icu_779UVector3210elementAtiEi.exit262, %292, %_ZNK6icu_779UVector3210elementAtiEi.exit258, %.split207, %.split205, %.split203, %.split201, %.split199, %.split197, %.split195, %.split193, %.split191, %.split189, %.split187, %.split185, %.split183, %.split181, %98, %109, %82, %94, %.split179, %.split177, %.split176, %.split, %293, %420, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %_ZNK6icu_779UVector3210elementAtiEi.exit246, %50, %49, %53, %52
-  %.1156 = phi i8 [ 0, %420 ], [ 0, %293 ], [ 1, %53 ], [ 0, %52 ], [ 1, %50 ], [ 0, %49 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ 0, %.split ], [ 0, %.split176 ], [ 0, %.split177 ], [ 0, %.split179 ], [ 0, %94 ], [ 0, %82 ], [ 0, %109 ], [ 0, %98 ], [ 0, %.split181 ], [ 0, %.split183 ], [ 0, %.split185 ], [ 0, %.split187 ], [ 0, %.split189 ], [ 0, %.split191 ], [ 0, %.split193 ], [ 0, %.split195 ], [ 0, %.split197 ], [ 0, %.split199 ], [ 0, %.split201 ], [ 0, %.split203 ], [ 0, %.split205 ], [ 0, %.split207 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ 0, %292 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ 0, %315 ], [ 0, %303 ], [ 0, %.split209 ], [ 0, %.split211 ], [ 0, %.split213 ], [ 0, %.split215 ], [ 0, %273 ], [ 0, %276 ], [ 0, %294 ], [ 0, %298 ], [ %.0155335, %441 ]
-  %.14 = phi i32 [ %.0150336, %420 ], [ %.0150336, %293 ], [ %.0150336, %53 ], [ %.0150336, %52 ], [ %.0150336, %50 ], [ %.0150336, %49 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %.split ], [ %64, %.split176 ], [ %.0150336, %.split177 ], [ %79, %.split179 ], [ %95, %94 ], [ %.0150336, %82 ], [ %110, %109 ], [ %.0150336, %98 ], [ %.0150336, %.split181 ], [ %123, %.split183 ], [ %.0150336, %.split185 ], [ %144, %.split187 ], [ %.0150336, %.split189 ], [ %171, %.split191 ], [ %.0150336, %.split193 ], [ %196, %.split195 ], [ %.0150336, %.split197 ], [ %222, %.split199 ], [ %.0150336, %.split201 ], [ %253, %.split203 ], [ %.0150336, %.split205 ], [ %267, %.split207 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.0150336, %292 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.0150336, %315 ], [ %.0150336, %303 ], [ %.0150336, %.split209 ], [ %347, %.split211 ], [ %.0150336, %.split213 ], [ %378, %.split215 ], [ %.0150336, %273 ], [ %.0150336, %276 ], [ %.0150336, %294 ], [ %.0150336, %298 ], [ %.0150336, %441 ]
-  %.3149 = phi i32 [ %.1147, %420 ], [ %.1147, %293 ], [ %.1147, %53 ], [ %.1147, %52 ], [ %.1147, %50 ], [ %.1147, %49 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0.i, %.split ], [ 1, %.split176 ], [ %.0.i247, %.split177 ], [ 1, %.split179 ], [ 0, %94 ], [ %.1147, %82 ], [ 0, %109 ], [ %.1147, %98 ], [ %.0.i248, %.split181 ], [ 1, %.split183 ], [ %.0.i249, %.split185 ], [ 1, %.split187 ], [ %.0.i250, %.split189 ], [ 1, %.split191 ], [ %.0.i251, %.split193 ], [ 1, %.split195 ], [ %.0.i252, %.split197 ], [ 1, %.split199 ], [ %.0.i253, %.split201 ], [ 1, %.split203 ], [ %.0.i254, %.split205 ], [ 1, %.split207 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.1147, %292 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.1147, %315 ], [ %.1147, %303 ], [ %.0.i265, %.split209 ], [ %330, %.split211 ], [ %.0.i269, %.split213 ], [ %362, %.split215 ], [ 0, %273 ], [ %280, %276 ], [ 0, %294 ], [ %302, %298 ], [ %.1147, %441 ]
-  %.4 = phi i32 [ %421, %420 ], [ %.1338, %293 ], [ %.1338, %53 ], [ %.1338, %52 ], [ %.1338, %50 ], [ %.1338, %49 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %.split ], [ %.1338, %.split176 ], [ %.1338, %.split177 ], [ %.1338, %.split179 ], [ %.1338, %94 ], [ %.1338, %82 ], [ %.1338, %109 ], [ %.1338, %98 ], [ %.1338, %.split181 ], [ %.1338, %.split183 ], [ %.1338, %.split185 ], [ %.1338, %.split187 ], [ %.1338, %.split189 ], [ %.1338, %.split191 ], [ %.1338, %.split193 ], [ %.1338, %.split195 ], [ %.1338, %.split197 ], [ %.1338, %.split199 ], [ %.1338, %.split201 ], [ %.1338, %.split203 ], [ %.1338, %.split205 ], [ %.1338, %.split207 ], [ %.2, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.2, %292 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.1338, %315 ], [ %.1338, %303 ], [ %319, %.split209 ], [ %319, %.split211 ], [ %351, %.split213 ], [ %351, %.split215 ], [ %.2, %273 ], [ %.2, %276 ], [ %.1338, %294 ], [ %.1338, %298 ], [ %429, %441 ]
+  %.1156 = phi i8 [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0155335, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ 1, %50 ], [ 0, %49 ], [ 1, %53 ], [ 0, %52 ], [ 0, %293 ], [ 0, %420 ], [ 0, %.split ], [ 0, %.split176 ], [ 0, %.split177 ], [ 0, %.split179 ], [ 0, %94 ], [ 0, %82 ], [ 0, %109 ], [ 0, %98 ], [ 0, %.split181 ], [ 0, %.split183 ], [ 0, %.split185 ], [ 0, %.split187 ], [ 0, %.split189 ], [ 0, %.split191 ], [ 0, %.split193 ], [ 0, %.split195 ], [ 0, %.split197 ], [ 0, %.split199 ], [ 0, %.split201 ], [ 0, %.split203 ], [ 0, %.split205 ], [ 0, %.split207 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ 0, %292 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ 0, %315 ], [ 0, %303 ], [ 0, %.split209 ], [ 0, %.split211 ], [ 0, %.split213 ], [ 0, %.split215 ], [ 0, %273 ], [ 0, %276 ], [ 0, %294 ], [ 0, %298 ], [ %.0155335, %441 ]
+  %.14 = phi i32 [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.0150336, %50 ], [ %.0150336, %49 ], [ %.0150336, %53 ], [ %.0150336, %52 ], [ %.0150336, %293 ], [ %.0150336, %420 ], [ %.0150336, %.split ], [ %64, %.split176 ], [ %.0150336, %.split177 ], [ %79, %.split179 ], [ %95, %94 ], [ %.0150336, %82 ], [ %110, %109 ], [ %.0150336, %98 ], [ %.0150336, %.split181 ], [ %123, %.split183 ], [ %.0150336, %.split185 ], [ %144, %.split187 ], [ %.0150336, %.split189 ], [ %171, %.split191 ], [ %.0150336, %.split193 ], [ %196, %.split195 ], [ %.0150336, %.split197 ], [ %222, %.split199 ], [ %.0150336, %.split201 ], [ %253, %.split203 ], [ %.0150336, %.split205 ], [ %267, %.split207 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.0150336, %292 ], [ %.0150336, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.0150336, %315 ], [ %.0150336, %303 ], [ %.0150336, %.split209 ], [ %347, %.split211 ], [ %.0150336, %.split213 ], [ %378, %.split215 ], [ %.0150336, %273 ], [ %.0150336, %276 ], [ %.0150336, %294 ], [ %.0150336, %298 ], [ %.0150336, %441 ]
+  %.3149 = phi i32 [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1147, %50 ], [ %.1147, %49 ], [ %.1147, %53 ], [ %.1147, %52 ], [ %.1147, %293 ], [ %.1147, %420 ], [ %.0.i, %.split ], [ 1, %.split176 ], [ %.0.i247, %.split177 ], [ 1, %.split179 ], [ 0, %94 ], [ %.1147, %82 ], [ 0, %109 ], [ %.1147, %98 ], [ %.0.i248, %.split181 ], [ 1, %.split183 ], [ %.0.i249, %.split185 ], [ 1, %.split187 ], [ %.0.i250, %.split189 ], [ 1, %.split191 ], [ %.0.i251, %.split193 ], [ 1, %.split195 ], [ %.0.i252, %.split197 ], [ 1, %.split199 ], [ %.0.i253, %.split201 ], [ 1, %.split203 ], [ %.0.i254, %.split205 ], [ 1, %.split207 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.1147, %292 ], [ %.1147, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.1147, %315 ], [ %.1147, %303 ], [ %.0.i265, %.split209 ], [ %330, %.split211 ], [ %.0.i269, %.split213 ], [ %362, %.split215 ], [ 0, %273 ], [ %280, %276 ], [ 0, %294 ], [ %302, %298 ], [ %.1147, %441 ]
+  %.4 = phi i32 [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit246 ], [ %.1338, %50 ], [ %.1338, %49 ], [ %.1338, %53 ], [ %.1338, %52 ], [ %.1338, %293 ], [ %421, %420 ], [ %.1338, %.split ], [ %.1338, %.split176 ], [ %.1338, %.split177 ], [ %.1338, %.split179 ], [ %.1338, %94 ], [ %.1338, %82 ], [ %.1338, %109 ], [ %.1338, %98 ], [ %.1338, %.split181 ], [ %.1338, %.split183 ], [ %.1338, %.split185 ], [ %.1338, %.split187 ], [ %.1338, %.split189 ], [ %.1338, %.split191 ], [ %.1338, %.split193 ], [ %.1338, %.split195 ], [ %.1338, %.split197 ], [ %.1338, %.split199 ], [ %.1338, %.split201 ], [ %.1338, %.split203 ], [ %.1338, %.split205 ], [ %.1338, %.split207 ], [ %.2, %_ZNK6icu_779UVector3210elementAtiEi.exit258 ], [ %.2, %292 ], [ %.1338, %_ZNK6icu_779UVector3210elementAtiEi.exit262 ], [ %.1338, %315 ], [ %.1338, %303 ], [ %319, %.split209 ], [ %319, %.split211 ], [ %351, %.split213 ], [ %351, %.split215 ], [ %.2, %273 ], [ %.2, %276 ], [ %.1338, %294 ], [ %.1338, %298 ], [ %429, %441 ]
   %460 = add nsw i32 %.4, 1
   %461 = icmp slt i32 %460, %19
   br i1 %461, label %26, label %_ZNK6icu_779UVector3210elementAtiEi.exit284.loopexit, !llvm.loop !144
@@ -7435,7 +7435,7 @@ _ZN6icu_7712Regex8BitSet4initEPKNS_10UnicodeSetE.exit: ; preds = %_ZN6icu_7712Re
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %379, %385, %241, %247, %498, %456, %418, %348, %316, %281, %223, %197, %172, %149, %124, %96, %80
-  %.pn242 = phi { ptr, i32 } [ %457, %456 ], [ %419, %418 ], [ %349, %348 ], [ %317, %316 ], [ %282, %281 ], [ %.pn230, %223 ], [ %.pn233, %197 ], [ %.pn236, %172 ], [ %.pn238, %149 ], [ %125, %124 ], [ %97, %96 ], [ %81, %80 ], [ %499, %498 ], [ %.pn226, %247 ], [ %242, %241 ], [ %.pn, %385 ], [ %380, %379 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit302, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit306, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn242 = phi { ptr, i32 } [ %81, %80 ], [ %97, %96 ], [ %125, %124 ], [ %.pn238, %149 ], [ %.pn236, %172 ], [ %.pn233, %197 ], [ %.pn230, %223 ], [ %282, %281 ], [ %317, %316 ], [ %349, %348 ], [ %419, %418 ], [ %457, %456 ], [ %499, %498 ], [ %.pn226, %247 ], [ %242, %241 ], [ %.pn, %385 ], [ %380, %379 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit302, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit306, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   resume { ptr, i32 } %.pn242
@@ -11412,9 +11412,9 @@ _ZNK6icu_779UVector6410elementAtiEi.exit121.thread: ; preds = %162, %170, %_ZNK6
   call void @abort() #17
   unreachable
 
-_ZNK6icu_779UVector3210elementAtiEi.exit107:      ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread, %170, %.preheader, %40, %48, %_ZNK6icu_779UVector6410elementAtiEi.exit111, %_ZNK6icu_779UVector6410elementAtiEi.exit114, %151, %70, %_ZNK6icu_779UVector6410elementAtiEi.exit117, %87, %_ZNK6icu_779UVector3210elementAtiEi.exit109, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %43, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101
-  %.380 = phi i32 [ %.0.i102, %43 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %87 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit109 ], [ %.279, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %158, %151 ], [ %74, %70 ], [ %121, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ %105, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ %50, %48 ], [ %42, %40 ], [ %.279, %.preheader ], [ %.279, %170 ], [ %.279, %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread ]
-  %.2 = phi i32 [ %.1152, %43 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %87 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit109 ], [ %134, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %134, %151 ], [ %.1152, %70 ], [ %107, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ %91, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ %.1152, %48 ], [ %.1152, %40 ], [ %.6143, %.preheader ], [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread ], [ %.6146, %170 ]
+_ZNK6icu_779UVector3210elementAtiEi.exit107:      ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread, %170, %.preheader, %_ZNK6icu_779UVector6410elementAtiEi.exit114, %_ZNK6icu_779UVector6410elementAtiEi.exit111, %48, %40, %151, %70, %_ZNK6icu_779UVector6410elementAtiEi.exit117, %87, %_ZNK6icu_779UVector3210elementAtiEi.exit109, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %43, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101
+  %.380 = phi i32 [ %.0.i102, %43 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.279, %87 ], [ %.279, %_ZNK6icu_779UVector3210elementAtiEi.exit109 ], [ %.279, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %158, %151 ], [ %74, %70 ], [ %42, %40 ], [ %50, %48 ], [ %105, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ %121, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ %.279, %.preheader ], [ %.279, %170 ], [ %.279, %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread ]
+  %.2 = phi i32 [ %.1152, %43 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ %.1152, %87 ], [ %.1152, %_ZNK6icu_779UVector3210elementAtiEi.exit109 ], [ %134, %_ZNK6icu_779UVector6410elementAtiEi.exit117 ], [ %134, %151 ], [ %.1152, %70 ], [ %.1152, %40 ], [ %.1152, %48 ], [ %91, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ %107, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ %.6143, %.preheader ], [ %10, %_ZNK6icu_779UVector6410elementAtiEi.exit121.thread ], [ %.6146, %170 ]
   %175 = icmp eq i32 %.380, 2147483647
   br i1 %175, label %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread, label %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread132
 
@@ -11425,14 +11425,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit107.thread132: ; preds = %66, %_ZNK6icu_
   %.not96.not = icmp slt i32 %.2136, %2
   br i1 %.not96.not, label %16, label %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread, !llvm.loop !158
 
-_ZNK6icu_779UVector3210elementAtiEi.exit107.thread: ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread132, %_ZNK6icu_779UVector3210elementAtiEi.exit107, %_ZNK6icu_779UVector6410elementAtiEi.exit114, %_ZNK6icu_779UVector6410elementAtiEi.exit111, %48, %40, %51, %75, %_ZNK6icu_779UVector6410elementAtiEi.exit119, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %151, %.preheader140
-  %.178 = phi i32 [ 0, %.preheader140 ], [ 2147483647, %151 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit119 ], [ 2147483647, %75 ], [ 2147483647, %51 ], [ 2147483647, %40 ], [ 2147483647, %48 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.380135, %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread132 ]
+_ZNK6icu_779UVector3210elementAtiEi.exit107.thread: ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread132, %_ZNK6icu_779UVector3210elementAtiEi.exit107, %40, %48, %_ZNK6icu_779UVector6410elementAtiEi.exit111, %_ZNK6icu_779UVector6410elementAtiEi.exit114, %51, %75, %_ZNK6icu_779UVector6410elementAtiEi.exit119, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %_ZNK6icu_779UVector3210elementAtiEi.exit101, %151, %.preheader140
+  %.178 = phi i32 [ 0, %.preheader140 ], [ 2147483647, %151 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit101 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit119 ], [ 2147483647, %75 ], [ 2147483647, %51 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit114 ], [ 2147483647, %_ZNK6icu_779UVector6410elementAtiEi.exit111 ], [ 2147483647, %48 ], [ 2147483647, %40 ], [ 2147483647, %_ZNK6icu_779UVector3210elementAtiEi.exit107 ], [ %.380135, %_ZNK6icu_779UVector3210elementAtiEi.exit107.thread132 ]
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %178
 
 177:                                              ; preds = %.loopexit, %.loopexit.split-lp, %159, %88, %64
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %89, %88 ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %89, %88 ], [ %160, %159 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   resume { ptr, i32 } %.pn

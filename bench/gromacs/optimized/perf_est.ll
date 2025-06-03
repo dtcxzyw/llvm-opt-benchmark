@@ -157,8 +157,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br label %76
 
 76:                                               ; preds = %71, %70, %63, %61
-  %.046.us = phi double [ %75, %71 ], [ %68, %63 ], [ 0.000000e+00, %61 ], [ 1.000000e+00, %70 ]
-  %.0.us = phi double [ 0.000000e+00, %71 ], [ %69, %63 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %70 ]
+  %.046.us = phi double [ %75, %71 ], [ 1.000000e+00, %70 ], [ 0.000000e+00, %61 ], [ %68, %63 ]
+  %.0.us = phi double [ 0.000000e+00, %71 ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %61 ], [ %69, %63 ]
   %77 = load i32, ptr %41, align 4, !tbaa !113
   %78 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %42, i64 0, i64 %indvars.iv81
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -249,8 +249,8 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   br label %120
 
 120:                                              ; preds = %115, %108, %107, %105
-  %.046 = phi double [ %119, %115 ], [ %113, %108 ], [ 0.000000e+00, %105 ], [ 1.000000e+00, %107 ]
-  %.0 = phi double [ 0.000000e+00, %115 ], [ %114, %108 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %107 ]
+  %.046 = phi double [ %119, %115 ], [ 1.000000e+00, %107 ], [ 0.000000e+00, %105 ], [ %113, %108 ]
+  %.0 = phi double [ 0.000000e+00, %115 ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %105 ], [ %114, %108 ]
   %121 = load i32, ptr %100, align 4, !tbaa !113
   %122 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %gep, i64 0, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8

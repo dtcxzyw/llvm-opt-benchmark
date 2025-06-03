@@ -14309,7 +14309,7 @@ default.unreachable:                              ; preds = %70
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %70, %71, %72, %73
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %73 ], [ %.sroa.7.0.copyload, %72 ], [ %.sroa.6153.0.copyload, %71 ], [ %.sroa.5.0.copyload, %70 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.6153.0.copyload, %71 ], [ %.sroa.7.0.copyload, %72 ], [ %.sroa.8.0.copyload, %73 ], [ %.sroa.5.0.copyload, %70 ]
   %74 = uitofp nneg i32 %.01321.i to float
   %75 = fneg float %74
   %76 = fmul float %.07.in.i.sroa.speculated, %75
@@ -28634,7 +28634,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %63, %64, %65, %66
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %66 ], [ %.sroa.7.0.copyload, %65 ], [ %.sroa.6168.0.copyload, %64 ], [ %.sroa.5167.0.copyload, %63 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.6168.0.copyload, %64 ], [ %.sroa.7.0.copyload, %65 ], [ %.sroa.8.0.copyload, %66 ], [ %.sroa.5167.0.copyload, %63 ]
   %67 = uitofp nneg i32 %.01321.i to float
   %68 = fneg float %67
   %69 = fmul float %.07.in.i.sroa.speculated, %68
@@ -42957,7 +42957,7 @@ default.unreachable:                              ; preds = %64
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %64, %65, %66, %67
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %67 ], [ %.sroa.7.0.copyload, %66 ], [ %.sroa.6153.0.copyload, %65 ], [ %.sroa.5.0.copyload, %64 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.6153.0.copyload, %65 ], [ %.sroa.7.0.copyload, %66 ], [ %.sroa.8.0.copyload, %67 ], [ %.sroa.5.0.copyload, %64 ]
   %68 = uitofp nneg i32 %.01321.i to float
   %69 = fneg float %68
   %70 = fmul float %.07.in.i.sroa.speculated, %69
@@ -56743,7 +56743,7 @@ default.unreachable:                              ; preds = %61
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %61, %62, %63, %64
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %64 ], [ %.sroa.7.0.copyload, %63 ], [ %.sroa.6168.0.copyload, %62 ], [ %.sroa.5167.0.copyload, %61 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.6168.0.copyload, %62 ], [ %.sroa.7.0.copyload, %63 ], [ %.sroa.8.0.copyload, %64 ], [ %.sroa.5167.0.copyload, %61 ]
   %65 = uitofp nneg i32 %.01321.i to float
   %66 = fneg float %65
   %67 = fmul float %.07.in.i.sroa.speculated, %66

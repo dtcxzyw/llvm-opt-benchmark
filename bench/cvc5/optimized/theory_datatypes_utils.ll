@@ -2247,7 +2247,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %111
   unreachable
 
 119:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit17, %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %.05 = phi ptr [ %88, %_ZN4cvc58internal8TypeNodeD2Ev.exit17 ], [ %47, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
+  %.05 = phi ptr [ %47, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %88, %_ZN4cvc58internal8TypeNodeD2Ev.exit17 ]
   %120 = load ptr, ptr %2, align 8, !tbaa !3
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, 1152920405095219200
@@ -2279,7 +2279,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit20:            ; preds = %119, %123, %129
   ret ptr %.05
 
 133:                                              ; preds = %115, %107, %66
-  %.pn9 = phi { ptr, i32 } [ %116, %115 ], [ %.pn, %107 ], [ %.pn7, %66 ]
+  %.pn9 = phi { ptr, i32 } [ %116, %115 ], [ %.pn7, %66 ], [ %.pn, %107 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   resume { ptr, i32 } %.pn9

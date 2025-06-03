@@ -1101,7 +1101,7 @@ default.unreachable:                              ; preds = %3
   br label %.body166
 
 .thread307:                                       ; preds = %159, %158
-  %.sroa.087.0 = phi ptr [ %.sroa.6435.0.copyload, %159 ], [ null, %158 ]
+  %.sroa.087.0 = phi ptr [ null, %158 ], [ %.sroa.6435.0.copyload, %159 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3431, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6441, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   store i64 6, ptr %0, align 8
@@ -1131,7 +1131,7 @@ default.unreachable:                              ; preds = %3
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 200, i64 noundef 8) #15
   br label %.critedge132
 
-.critedge132:                                     ; preds = %.thread307, %165, %"_ZN4core3ptr229drop_in_place$LT$std..collections..hash..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h3c8951a311726a25E.exit", %168, %170, %172, %174, %153, %166, %155
+.critedge132:                                     ; preds = %.thread307, %165, %174, %172, %170, %168, %"_ZN4core3ptr229drop_in_place$LT$std..collections..hash..set..IntoIter$LT$$LP$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$C$core..option..Option$LT$influxdb_influxql_parser..identifier..Identifier$GT$$RP$$GT$$GT$17h3c8951a311726a25E.exit", %153, %166, %155
   ret void
 
 167:                                              ; preds = %31

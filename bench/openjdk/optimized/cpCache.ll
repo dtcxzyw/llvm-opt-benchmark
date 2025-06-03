@@ -598,8 +598,8 @@ switch.lookup94:                                  ; preds = %87
   store volatile i8 %123, ptr %124, align 1
   br label %135
 
-125:                                              ; preds = %84, %_Z11as_TosState9BasicType.exit
-  %.161.ph = phi i1 [ true, %_Z11as_TosState9BasicType.exit ], [ %86, %84 ]
+125:                                              ; preds = %_Z11as_TosState9BasicType.exit, %84
+  %.161.ph = phi i1 [ %86, %84 ], [ true, %_Z11as_TosState9BasicType.exit ]
   %126 = icmp eq i32 %1, 185
   %or.cond3 = and i1 %126, %.161.ph
   br i1 %or.cond3, label %127, label %133

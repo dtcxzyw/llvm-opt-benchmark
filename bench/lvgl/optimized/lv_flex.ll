@@ -987,8 +987,8 @@ define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull 
   br label %place_content.exit
 
 place_content.exit:                               ; preds = %.critedge, %90, %93, %95, %97, %101, %105
-  %.3251 = phi i32 [ %108, %105 ], [ %104, %101 ], [ 0, %97 ], [ 0, %95 ], [ %94, %93 ], [ %92, %90 ], [ 0, %.critedge ]
-  %.0247 = phi i32 [ %108, %105 ], [ %103, %101 ], [ %100, %97 ], [ 0, %95 ], [ 0, %93 ], [ 0, %90 ], [ 0, %.critedge ]
+  %.3251 = phi i32 [ %92, %90 ], [ %94, %93 ], [ 0, %97 ], [ 0, %95 ], [ %104, %101 ], [ %108, %105 ], [ 0, %.critedge ]
+  %.0247 = phi i32 [ 0, %90 ], [ 0, %93 ], [ %100, %97 ], [ 0, %95 ], [ %103, %101 ], [ %108, %105 ], [ 0, %.critedge ]
   %109 = load i8, ptr %10, align 4
   %110 = and i8 %109, 1
   %111 = icmp ne i8 %110, 0
@@ -1186,7 +1186,7 @@ get_next_item.exit:                               ; preds = %133, %146
   br label %214
 
 214:                                              ; preds = %212, %205, %192
-  %.0197 = phi i32 [ %213, %212 ], [ %211, %205 ], [ %204, %192 ]
+  %.0197 = phi i32 [ %213, %212 ], [ %204, %192 ], [ %211, %205 ]
   %215 = load i8, ptr %10, align 4
   %216 = and i8 %215, 1
   %217 = icmp ne i8 %216, 0

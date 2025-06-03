@@ -3624,7 +3624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
   br label %78
 
 78:                                               ; preds = %52, %75, %62, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.012 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %75 ], [ false, %62 ], [ false, %58 ], [ false, %52 ]
+  %.012 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %75 ], [ false, %58 ], [ false, %62 ], [ false, %52 ]
   ret i1 %.012
 }
 
@@ -12656,7 +12656,7 @@ define noundef zeroext i1 @_ZNK3net14QuicConnection19ScopedPacketBundler13Should
   resume { ptr, i32 } %29
 
 .critedge10:                                      ; preds = %.critedge, %23, %9, %17, %2, %22, %4
-  %.0 = phi i1 [ false, %22 ], [ %8, %4 ], [ true, %2 ], [ true, %9 ], [ %21, %17 ], [ true, %23 ], [ true, %.critedge ]
+  %.0 = phi i1 [ %8, %4 ], [ false, %22 ], [ true, %2 ], [ true, %9 ], [ %21, %17 ], [ true, %23 ], [ true, %.critedge ]
   ret i1 %.0
 }
 

@@ -825,7 +825,7 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %199, %_ZN17QArrayDa
   unreachable
 
 214:                                              ; preds = %175, %171, %165, %198, %169, %._crit_edge
-  %.048 = phi ptr [ %193, %198 ], [ %170, %169 ], [ %125, %._crit_edge ], [ %166, %165 ], [ %172, %171 ], [ %176, %175 ]
+  %.048 = phi ptr [ %125, %._crit_edge ], [ %170, %169 ], [ %193, %198 ], [ %166, %165 ], [ %172, %171 ], [ %176, %175 ]
   %.not69 = icmp eq ptr %.048, null
   br i1 %.not69, label %.thread, label %215
 
@@ -834,12 +834,12 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %199, %_ZN17QArrayDa
   br label %.thread
 
 .thread:                                          ; preds = %93, %26, %4, %4, %214, %215, %112, %_ZN7QStringD2Ev.exit85
-  %.0 = phi ptr [ %111, %112 ], [ %40, %_ZN7QStringD2Ev.exit85 ], [ %.048, %215 ], [ null, %214 ], [ null, %4 ], [ null, %4 ], [ null, %26 ], [ null, %93 ]
+  %.0 = phi ptr [ %40, %_ZN7QStringD2Ev.exit85 ], [ %111, %112 ], [ %.048, %215 ], [ null, %214 ], [ null, %4 ], [ null, %4 ], [ null, %26 ], [ null, %93 ]
   ret ptr %.0
 
 216:                                              ; preds = %140, %_ZN7QStringD2Ev.exit121, %212, %177, %173, %167, %123, %_ZN7QStringD2Ev.exit97
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %212 ], [ %178, %177 ], [ %174, %173 ], [ %168, %167 ], [ %.pn67, %123 ], [ %.pn72.pn, %_ZN7QStringD2Ev.exit97 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit121 ], [ %141, %140 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %_ZN7QStringD2Ev.exit97 ], [ %.pn67, %123 ], [ %168, %167 ], [ %174, %173 ], [ %178, %177 ], [ %.pn.pn.pn, %212 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit121 ], [ %141, %140 ]
+  resume { ptr, i32 } %.pn72.pn.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1166,8 +1166,8 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %14, %65, %_ZN7QStri
   ret void
 
 88:                                               ; preds = %57, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit34
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit50 ], [ %.pn28, %_ZN7QStringD2Ev.exit34 ], [ %60, %_ZN7QStringD2Ev.exit42 ], [ %58, %57 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %_ZN7QStringD2Ev.exit34 ], [ %.pn, %_ZN7QStringD2Ev.exit50 ], [ %60, %_ZN7QStringD2Ev.exit42 ], [ %58, %57 ]
+  resume { ptr, i32 } %.pn28.pn
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1448,8 +1448,8 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %15, %68, %_ZN7QStri
   ret void
 
 95:                                               ; preds = %_ZN7QStringD2Ev.exit51, %_ZN7QStringD2Ev.exit43, %_ZN7QStringD2Ev.exit35
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit51 ], [ %.pn26, %_ZN7QStringD2Ev.exit43 ], [ %.pn29, %_ZN7QStringD2Ev.exit35 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn29.pn = phi { ptr, i32 } [ %.pn29, %_ZN7QStringD2Ev.exit35 ], [ %.pn26, %_ZN7QStringD2Ev.exit43 ], [ %.pn, %_ZN7QStringD2Ev.exit51 ]
+  resume { ptr, i32 } %.pn29.pn
 }
 
 ; Function Attrs: null_pointer_is_valid

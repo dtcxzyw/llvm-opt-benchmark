@@ -773,7 +773,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN65_$LT$clap_builder..error..Message$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0b19a39b4b68a0dE.exit"
 
 "_ZN65_$LT$clap_builder..error..Message$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0b19a39b4b68a0dE.exit": ; preds = %8, %10
-  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ]
+  %.0.in.i = phi i1 [ %9, %8 ], [ %11, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -889,7 +889,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN79_$LT$clap_builder..error..context..ContextValue$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3e2c3c7ef106728E.exit"
 
 "_ZN79_$LT$clap_builder..error..context..ContextValue$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3e2c3c7ef106728E.exit": ; preds = %11, %13, %16, %19, %22, %25, %28
-  %.0.in.i = phi i1 [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %11 ]
+  %.0.in.i = phi i1 [ %12, %11 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ]
   ret i1 %.0.in.i
 }
 
@@ -3281,7 +3281,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %67
   br label %77
 
 77:                                               ; preds = %72, %.thread, %82, %80, %74
-  %.0 = phi i32 [ %76, %74 ], [ %84, %82 ], [ %81, %80 ], [ %70, %.thread ], [ %70, %72 ]
+  %.0 = phi i32 [ %76, %74 ], [ %81, %80 ], [ %84, %82 ], [ %70, %.thread ], [ %70, %72 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %78, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -3394,7 +3394,7 @@ define void @_ZN6uucore8features4mode14parse_symbolic17h114aebf567def38aE(ptr no
   br label %54
 
 54:                                               ; preds = %53, %52, %51, %50
-  %.014.i = phi i32 [ 4095, %53 ], [ 519, %52 ], [ 1080, %51 ], [ 2496, %50 ]
+  %.014.i = phi i32 [ 1080, %51 ], [ 519, %52 ], [ 4095, %53 ], [ 2496, %50 ]
   %55 = or i32 %.014.i, %.01324.i
   %56 = add i64 %.025.i, 1
   %57 = icmp eq ptr %.sroa.0.1.ph.i, %13
@@ -3745,14 +3745,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %6, %_ZN6uucore8feat
   br label %_ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit.thread85
 
 _ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit.thread85: ; preds = %.split51.us.i, %.split54.us.i, %.split.us.i
-  %.037.i = phi i64 [ %.us-phi49.i, %.split.us.i ], [ %.us-phi55.i, %.split54.us.i ], [ %.us-phi52.i, %.split51.us.i ]
-  %.2.i = phi i32 [ %212, %.split.us.i ], [ %205, %.split54.us.i ], [ %198, %.split51.us.i ]
+  %.037.i = phi i64 [ %.us-phi52.i, %.split51.us.i ], [ %.us-phi55.i, %.split54.us.i ], [ %.us-phi49.i, %.split.us.i ]
+  %.2.i = phi i32 [ %198, %.split51.us.i ], [ %205, %.split54.us.i ], [ %212, %.split.us.i ]
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %.037.i, i64 1)
   %.04187 = and i32 %.2.i, %73
   br label %217
 
 213:                                              ; preds = %190, %188, %186, %184, %182, %181
-  %.2.ph.i = phi i32 [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %.01942.i, %181 ]
+  %.2.ph.i = phi i32 [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %.01942.i, %181 ]
   %214 = add i64 %.043.i, 1
   %215 = icmp eq ptr %.sroa.0.1.ph.i52, %98
   br i1 %215, label %_ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit, label %.lr.ph.split.i
@@ -3826,7 +3826,7 @@ _ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit: ; preds = %181,
   br label %240
 
 240:                                              ; preds = %234, %230, %227
-  %.1 = phi i32 [ %239, %234 ], [ %233, %230 ], [ %229, %227 ]
+  %.1 = phi i32 [ %229, %227 ], [ %233, %230 ], [ %239, %234 ]
   %241 = icmp eq i64 %.pr, 0
   br i1 %241, label %._crit_edge, label %76
 }

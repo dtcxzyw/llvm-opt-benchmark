@@ -538,9 +538,10 @@ define hidden noundef ptr @_ZN3std2io4Seek6rewind17h033af868c009f0e2E(ptr noalia
   %4 = load i64, ptr %3, align 8, !range !115, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8
+  %.sroa.6.0 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %spec.select = select i1 %trunc, ptr %6, ptr null
+  %spec.select = select i1 %trunc, ptr %.sroa.6.0, ptr null
   ret ptr %spec.select
 }
 

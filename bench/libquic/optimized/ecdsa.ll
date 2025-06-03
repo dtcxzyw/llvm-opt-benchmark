@@ -906,8 +906,8 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   store ptr %19, ptr %2, align 8, !tbaa !29
   br label %83
 
-.loopexit:                                        ; preds = %.split119, %57, %.split119.us.us, %35, %25, %29, %.split117.us, %76, %72, %79, %.split126.us, %.split124.us, %.split122.us
-  %.080.ph = phi ptr [ %27, %.split122.us ], [ %27, %.split124.us ], [ %27, %.split126.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ %27, %.split117.us ], [ null, %29 ], [ null, %25 ], [ %27, %35 ], [ %27, %.split119.us.us ], [ %27, %57 ], [ %27, %.split119 ]
+.loopexit:                                        ; preds = %.split119, %57, %.split119.us.us, %35, %25, %29, %76, %72, %79, %.split126.us, %.split124.us, %.split122.us, %.split117.us
+  %.080.ph = phi ptr [ %27, %.split117.us ], [ %27, %.split122.us ], [ %27, %.split124.us ], [ %27, %.split126.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ null, %29 ], [ null, %25 ], [ %27, %35 ], [ %27, %.split119.us.us ], [ %27, %57 ], [ %27, %.split119 ]
   tail call void @BN_clear_free(ptr noundef %19) #5
   tail call void @BN_clear_free(ptr noundef %20) #5
   br label %83

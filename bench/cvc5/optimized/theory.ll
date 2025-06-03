@@ -2108,11 +2108,11 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit87:            ; preds = %_ZN4cvc58internal8T
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %49, %43, %38, %_ZN4cvc58internal8TypeNodeD2Ev.exit72, %287, %_ZN4cvc58internal8TypeNodeD2Ev.exit87, %102, %_ZN4cvc58internal8TypeNodeD2Ev.exit64
-  %.0 = phi i32 [ %.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit87 ], [ %288, %287 ], [ %..0.i58, %_ZN4cvc58internal8TypeNodeD2Ev.exit64 ], [ %103, %102 ], [ %., %_ZN4cvc58internal8TypeNodeD2Ev.exit72 ], [ %..0.i, %38 ], [ %..0.i, %43 ], [ %..0.i, %49 ]
+  %.0 = phi i32 [ %..0.i58, %_ZN4cvc58internal8TypeNodeD2Ev.exit64 ], [ %103, %102 ], [ %.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit87 ], [ %288, %287 ], [ %., %_ZN4cvc58internal8TypeNodeD2Ev.exit72 ], [ %..0.i, %38 ], [ %..0.i, %43 ], [ %..0.i, %49 ]
   ret i32 %.0
 
 296:                                              ; preds = %286, %140, %101, %53
-  %.pn53 = phi { ptr, i32 } [ %141, %140 ], [ %.pn46.pn.pn.pn, %286 ], [ %54, %53 ], [ %.pn51, %101 ]
+  %.pn53 = phi { ptr, i32 } [ %54, %53 ], [ %.pn51, %101 ], [ %141, %140 ], [ %.pn46.pn.pn.pn, %286 ]
   resume { ptr, i32 } %.pn53
 }
 

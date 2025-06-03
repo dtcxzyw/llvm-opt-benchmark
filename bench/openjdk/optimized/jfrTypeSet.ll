@@ -5059,7 +5059,7 @@ _ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass
   unreachable
 
 _ZL14primitive_namePK5Klass.exit.i:               ; preds = %64, %63, %62, %61, %60, %59, %58, %55
-  %.0.i.i = phi ptr [ @.str.15, %64 ], [ @.str.14, %63 ], [ @.str.13, %62 ], [ @.str.12, %61 ], [ @.str.11, %60 ], [ @.str.10, %59 ], [ @.str.9, %58 ], [ @.str.8, %55 ]
+  %.0.i.i = phi ptr [ @.str.9, %58 ], [ @.str.10, %59 ], [ @.str.11, %60 ], [ @.str.12, %61 ], [ @.str.13, %62 ], [ @.str.14, %63 ], [ @.str.15, %64 ], [ @.str.8, %55 ]
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
   %67 = trunc i64 %66 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)

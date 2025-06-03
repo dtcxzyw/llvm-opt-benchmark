@@ -348,7 +348,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %18 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8cd3a36d992789acE.llvm.13723864882680224298"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %13, i64 noundef %10)
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = icmp eq i64 %19, -9223372036854775807
-  br i1 %20, label %._crit_edge.i, label %42
+  br i1 %20, label %._crit_edge.i, label %43
 
 ._crit_edge.i:                                    ; preds = %17
   %.pre.i = load i64, ptr %2, align 8, !alias.scope !114
@@ -395,29 +395,28 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %39 = load i64, ptr %4, align 8, !range !41, !noundef !4
   %trunc = trunc nuw i64 %39 to i1
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %41 = load ptr, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %trunc, label %47, label %44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %trunc, label %47, label %45
 
-42:                                               ; preds = %17
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 163208757251 to ptr), ptr %43, align 8
+43:                                               ; preds = %17
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 163208757251 to ptr), ptr %44, align 8
   br label %49
 
-44:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbb7ce0700a43a05fE.exit"
-  %.cast = ptrtoint ptr %41 to i64
-  %45 = add i64 %10, %.cast
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %45, ptr %46, align 8
+45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbb7ce0700a43a05fE.exit"
+  %46 = add i64 %41, %10
+  store i64 %46, ptr %42, align 8
   br label %49
 
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbb7ce0700a43a05fE.exit"
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %41, ptr %48, align 8
+  %48 = inttoptr i64 %41 to ptr
+  store ptr %48, ptr %42, align 8
   br label %49
 
-49:                                               ; preds = %47, %44, %42
-  %.sink = phi i64 [ 1, %47 ], [ 0, %44 ], [ 1, %42 ]
+49:                                               ; preds = %47, %45, %43
+  %.sink = phi i64 [ 1, %47 ], [ 0, %45 ], [ 1, %43 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

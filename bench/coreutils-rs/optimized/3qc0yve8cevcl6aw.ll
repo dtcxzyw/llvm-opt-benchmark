@@ -2753,7 +2753,7 @@ define internal fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr
   br label %33
 
 33:                                               ; preds = %57, %55, %52, %48, %42, %31, %29
-  %.09.i = phi ptr [ %44, %42 ], [ %49, %48 ], [ %54, %52 ], [ %59, %57 ], [ %56, %55 ], [ %32, %31 ], [ %30, %29 ]
+  %.09.i = phi ptr [ %44, %42 ], [ %49, %48 ], [ %54, %52 ], [ %59, %57 ], [ %56, %55 ], [ %30, %29 ], [ %32, %31 ]
   %34 = icmp eq ptr %.09.i, null
   br i1 %34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfbca9cfc34474e90E.exit.i", label %35
 

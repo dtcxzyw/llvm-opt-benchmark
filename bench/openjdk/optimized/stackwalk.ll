@@ -1603,7 +1603,7 @@ define hidden noundef ptr @_ZN15LiveFrameStream30create_primitive_slot_instanceE
   unreachable
 
 57:                                               ; preds = %52, %27, %16
-  %.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3048), %52 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3048), %27 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3040), %16 ]
+  %.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3040), %16 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3048), %27 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3048), %52 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3032), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %58, ptr noundef %.0, ptr noundef nonnull %6, ptr noundef %3) #14

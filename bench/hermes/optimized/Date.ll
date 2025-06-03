@@ -2368,7 +2368,7 @@ sw.bb34:                                          ; preds = %if.end14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb, %if.end14
-  %result.0 = phi double [ 0x7FF8000000000000, %if.end14 ], [ %div, %sw.bb34 ], [ %call33, %sw.bb32 ], [ %call31, %sw.bb30 ], [ %call29, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %conv25, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %conv, %sw.bb19 ], [ %sub, %sw.bb17 ], [ %call16, %sw.bb ]
+  %result.0 = phi double [ 0x7FF8000000000000, %if.end14 ], [ %call16, %sw.bb ], [ %sub, %sw.bb17 ], [ %conv, %sw.bb19 ], [ %call22, %sw.bb21 ], [ %conv25, %sw.bb23 ], [ %call27, %sw.bb26 ], [ %call29, %sw.bb28 ], [ %call31, %sw.bb30 ], [ %call33, %sw.bb32 ], [ %div, %sw.bb34 ]
   %8 = fcmp uno double %result.0, 0.000000e+00
   %9 = bitcast double %result.0 to i64
   %retval.sroa.0.0.i = select i1 %8, i64 9221120237041090560, i64 %9

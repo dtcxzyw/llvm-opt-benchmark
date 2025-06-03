@@ -4092,7 +4092,7 @@ fetch_multiple.exit:                              ; preds = %truncate_fetch_head
   br label %1597
 
 1597:                                             ; preds = %1558, %1594, %1579, %728
-  %.170 = phi i32 [ 1, %728 ], [ %.3, %1558 ], [ %.3, %1594 ], [ %.3, %1579 ]
+  %.170 = phi i32 [ %.3, %1558 ], [ %.3, %1594 ], [ %.3, %1579 ], [ 1, %728 ]
   call void @string_list_clear(ptr noundef nonnull %42, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(i64 3872, ptr nonnull %54) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #20

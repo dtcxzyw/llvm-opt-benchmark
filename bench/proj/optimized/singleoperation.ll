@@ -11611,7 +11611,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operatio
   br i1 %.not125, label %.loopexit, label %.lr.ph137
 
 .loopexit:                                        ; preds = %.thread116, %4, %._crit_edge, %51, %33, %16
-  %.6 = phi ptr [ %17, %16 ], [ %36, %33 ], [ %54, %51 ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %._crit_edge ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %4 ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %.thread116 ]
+  %.6 = phi ptr [ %36, %33 ], [ %17, %16 ], [ %54, %51 ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %._crit_edge ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %4 ], [ @_ZN5osgeo4proj9operationL18nullParameterValueE, %.thread116 ]
   ret ptr %.6
 
 56:                                               ; preds = %44

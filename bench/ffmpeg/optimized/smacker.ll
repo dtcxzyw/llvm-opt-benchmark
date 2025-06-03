@@ -2331,7 +2331,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @smacker_decode_header_tree
   br label %.loopexit.loopexit.critedge
 
 .loopexit.loopexit.critedge:                      ; preds = %.loopexit57, %111, %115, %51, %92
-  %.4 = phi i32 [ %.2, %.loopexit57 ], [ %93, %92 ], [ -12, %51 ], [ 0, %115 ], [ 0, %111 ]
+  %.4 = phi i32 [ %93, %92 ], [ %.2, %.loopexit57 ], [ -12, %51 ], [ 0, %115 ], [ 0, %111 ]
   call void @ff_vlc_free(ptr noundef nonnull %6) #7
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %118) #7

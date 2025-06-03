@@ -3269,7 +3269,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
   br i1 %exitcond541.not, label %.preheader, label %283, !llvm.loop !154
 
 388:                                              ; preds = %384, %373, %351, %336
-  %.pn360 = phi { ptr, i32 } [ %337, %336 ], [ %.pn, %384 ], [ %374, %373 ], [ %352, %351 ]
+  %.pn360 = phi { ptr, i32 } [ %337, %336 ], [ %352, %351 ], [ %374, %373 ], [ %.pn, %384 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #18
   br label %389
 

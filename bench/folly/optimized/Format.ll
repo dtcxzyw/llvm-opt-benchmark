@@ -390,7 +390,7 @@ _ZNK5folly9FormatArg8validateENS0_4TypeE.exit:    ; preds = %_ZNK5folly9FormatAr
   br label %62
 
 62:                                               ; preds = %60, %53, %53
-  %.065 = phi double [ %59, %53 ], [ %59, %53 ], [ %61, %60 ]
+  %.065 = phi double [ %61, %60 ], [ %59, %53 ], [ %59, %53 ]
   %63 = icmp sgt i32 %45, 100
   br i1 %63, label %64, label %65
 
@@ -656,7 +656,7 @@ _ZN17double_conversion13StringBuilderD2Ev.exit:   ; preds = %_ZN5folly14basic_fb
   br label %148
 
 148:                                              ; preds = %146, %118, %114, %96, %78
-  %.pn74 = phi { ptr, i32 } [ %119, %118 ], [ %115, %114 ], [ %97, %96 ], [ %79, %78 ], [ %147, %146 ]
+  %.pn74 = phi { ptr, i32 } [ %119, %118 ], [ %79, %78 ], [ %97, %96 ], [ %115, %114 ], [ %147, %146 ]
   %149 = load i32, ptr %48, align 8, !tbaa !30
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %_ZN17double_conversion13StringBuilderD2Ev.exit80, label %151

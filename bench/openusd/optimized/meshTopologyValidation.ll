@@ -1605,7 +1605,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %47, %46 ]
+  %.1.i.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4
   %49 = icmp slt i32 %.1.val.i.i.i.i.i, 2
   br i1 %49, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %50
@@ -1615,7 +1615,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
+  %.2.i.i.i.i.i = phi ptr [ %51, %50 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4
   %53 = icmp slt i32 %.2.val.i.i.i.i.i, 2
   br i1 %53, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread"
@@ -1996,7 +1996,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   br label %182
 
 182:                                              ; preds = %180, %._crit_edge.i.i.i.i.i95
-  %.1.i.i.i.i.i101 = phi ptr [ %.029.lcssa.i.i.i.i.i97, %._crit_edge.i.i.i.i.i95 ], [ %181, %180 ]
+  %.1.i.i.i.i.i101 = phi ptr [ %181, %180 ], [ %.029.lcssa.i.i.i.i.i97, %._crit_edge.i.i.i.i.i95 ]
   %.1.val.i.i.i.i.i102 = load float, ptr %.1.i.i.i.i.i101, align 4
   %183 = fcmp olt float %.1.val.i.i.i.i.i102, 0.000000e+00
   br i1 %183, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit", label %184
@@ -2006,7 +2006,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   br label %186
 
 186:                                              ; preds = %184, %._crit_edge.i.i.i.i.i95
-  %.2.i.i.i.i.i98 = phi ptr [ %.029.lcssa.i.i.i.i.i97, %._crit_edge.i.i.i.i.i95 ], [ %185, %184 ]
+  %.2.i.i.i.i.i98 = phi ptr [ %185, %184 ], [ %.029.lcssa.i.i.i.i.i97, %._crit_edge.i.i.i.i.i95 ]
   %.2.val.i.i.i.i.i99 = load float, ptr %.2.i.i.i.i.i98, align 4
   %187 = fcmp olt float %.2.val.i.i.i.i.i99, 0.000000e+00
   br i1 %187, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit", label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.thread"
@@ -2181,7 +2181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   br label %241
 
 241:                                              ; preds = %239, %._crit_edge.i.i.i.i.i128
-  %.1.i.i.i.i.i134 = phi ptr [ %.029.lcssa.i.i.i.i.i130, %._crit_edge.i.i.i.i.i128 ], [ %240, %239 ]
+  %.1.i.i.i.i.i134 = phi ptr [ %240, %239 ], [ %.029.lcssa.i.i.i.i.i130, %._crit_edge.i.i.i.i.i128 ]
   %.1.val.i.i.i.i.i135 = load float, ptr %.1.i.i.i.i.i134, align 4
   %242 = fcmp olt float %.1.val.i.i.i.i.i135, 0.000000e+00
   br i1 %242, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit", label %243
@@ -2191,7 +2191,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   br label %245
 
 245:                                              ; preds = %243, %._crit_edge.i.i.i.i.i128
-  %.2.i.i.i.i.i131 = phi ptr [ %.029.lcssa.i.i.i.i.i130, %._crit_edge.i.i.i.i.i128 ], [ %244, %243 ]
+  %.2.i.i.i.i.i131 = phi ptr [ %244, %243 ], [ %.029.lcssa.i.i.i.i.i130, %._crit_edge.i.i.i.i.i128 ]
   %.2.val.i.i.i.i.i132 = load float, ptr %.2.i.i.i.i.i131, align 4
   %246 = fcmp olt float %.2.val.i.i.i.i.i132, 0.000000e+00
   br i1 %246, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit", label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.thread"
@@ -3507,7 +3507,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %32, %31 ]
+  %.1.i.i.i.i.i = phi ptr [ %32, %31 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4
   %34 = icmp slt i32 %.1.val.i.i.i.i.i, 3
   br i1 %34, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %35
@@ -3517,7 +3517,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %36, %35 ]
+  %.2.i.i.i.i.i = phi ptr [ %36, %35 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4
   %38 = icmp slt i32 %.2.val.i.i.i.i.i, 3
   br i1 %38, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread"
@@ -3701,7 +3701,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %33, %32 ]
+  %.1.i.i.i.i.i = phi ptr [ %33, %32 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i, align 4
   %35 = icmp slt i32 %.1.val.i.i.i.i.i, 0
   br i1 %35, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %36
@@ -3711,7 +3711,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %37, %36 ]
+  %.2.i.i.i.i.i = phi ptr [ %37, %36 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i, align 4
   %39 = icmp slt i32 %.2.val.i.i.i.i.i, 0
   br i1 %39, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit", label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread"

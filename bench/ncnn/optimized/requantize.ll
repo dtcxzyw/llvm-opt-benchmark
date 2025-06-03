@@ -1433,7 +1433,7 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPafffiRKNS_3MatEi(ptr noun
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %43, %.lr.ph, %14, %16, %22, %29, %30, %37, %51, %55
-  %.1 = phi nsz float [ %13, %.lr.ph ], [ %13, %51 ], [ %58, %55 ], [ %42, %37 ], [ %36, %30 ], [ %26, %29 ], [ %.026, %22 ], [ %21, %16 ], [ %15, %14 ], [ 0.000000e+00, %43 ]
+  %.1 = phi nsz float [ %13, %.lr.ph ], [ %15, %14 ], [ %21, %16 ], [ %26, %29 ], [ %.026, %22 ], [ %36, %30 ], [ %42, %37 ], [ %13, %51 ], [ %58, %55 ], [ 0.000000e+00, %43 ]
   %59 = fmul fast float %.1, %4
   %60 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %59)
   %61 = fptosi float %60 to i32

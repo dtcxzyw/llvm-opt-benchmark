@@ -2505,8 +2505,8 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   br i1 %or.cond59.i, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 ipv4_get_status_flags.exit.thread:                ; preds = %94, %156, %139, %116, %109, %104, %97, %97, %172, %170, %166, %130, %90, %86, %79, %79, %81, %82, %100
-  %.098 = phi i1 [ false, %94 ], [ false, %90 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %81 ], [ false, %82 ], [ false, %97 ], [ false, %100 ], [ false, %170 ], [ false, %166 ], [ false, %130 ], [ true, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ true, %116 ], [ true, %139 ], [ false, %156 ]
-  %.0 = phi i1 [ true, %94 ], [ true, %90 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ true, %81 ], [ false, %82 ], [ false, %97 ], [ false, %100 ], [ true, %170 ], [ false, %166 ], [ false, %130 ], [ false, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ false, %116 ], [ false, %139 ], [ false, %156 ]
+  %.098 = phi i1 [ false, %94 ], [ false, %90 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %100 ], [ false, %97 ], [ false, %82 ], [ false, %81 ], [ false, %170 ], [ false, %130 ], [ false, %166 ], [ true, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ true, %116 ], [ true, %139 ], [ false, %156 ]
+  %.0 = phi i1 [ true, %94 ], [ true, %90 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ false, %100 ], [ false, %97 ], [ false, %82 ], [ true, %81 ], [ true, %170 ], [ false, %130 ], [ false, %166 ], [ false, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ false, %116 ], [ false, %139 ], [ false, %156 ]
   %174 = and i64 %1, 268435456
   %.not76.not = icmp eq i64 %174, 0
   br i1 %.not76.not, label %182, label %175

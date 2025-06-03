@@ -1908,8 +1908,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit40:         ; preds = %_Z28grpc_sockaddr_g
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #23
   br label %_ZL38grpc_sockaddr_to_uri_vsock_if_possibleB5cxx11PK21grpc_resolved_address.exit
 
-84:                                               ; preds = %73, %72, %69
-  %.0.i.ph = phi ptr [ @.str.15, %69 ], [ @.str.16, %72 ], [ @.str.13, %73 ]
+84:                                               ; preds = %72, %73, %69
+  %.0.i.ph = phi ptr [ @.str.15, %69 ], [ @.str.13, %73 ], [ @.str.16, %72 ]
   %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.12, ptr noundef nonnull dereferenceable(1) %.0.i.ph) #28
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %357
@@ -3443,7 +3443,7 @@ define noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(pt
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %6 ], [ @.str.13, %5 ], [ @.str.12, %4 ], [ @.str.16, %3 ], [ @.str.15, %1 ]
+  %.0 = phi ptr [ null, %6 ], [ @.str.16, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.15, %1 ]
   ret ptr %.0
 }
 
@@ -3670,7 +3670,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %1, %1, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit, %9, %5
-  %.0.shrunk = phi i16 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit ], [ %12, %9 ], [ %8, %5 ], [ 1, %1 ], [ 1, %1 ]
+  %.0.shrunk = phi i16 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit ], [ %8, %5 ], [ %12, %9 ], [ 1, %1 ], [ 1, %1 ]
   %.0 = zext i16 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3780,7 +3780,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit, %.critedge34, %.critedge30
-  %.026 = phi i32 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit ], [ 1, %.critedge34 ], [ 1, %.critedge30 ]
+  %.026 = phi i32 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit ], [ 1, %.critedge30 ], [ 1, %.critedge34 ]
   ret i32 %.026
 }
 

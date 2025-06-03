@@ -65,8 +65,8 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %24
 
 24:                                               ; preds = %21, %23, %.lr.ph
-  %25 = phi i1 [ false, %.lr.ph ], [ true, %23 ], [ false, %21 ]
-  %.137 = phi i32 [ %.03656, %.lr.ph ], [ %.03656, %23 ], [ 1, %21 ]
+  %25 = phi i1 [ true, %23 ], [ false, %.lr.ph ], [ false, %21 ]
+  %.137 = phi i32 [ %.03656, %23 ], [ %.03656, %.lr.ph ], [ 1, %21 ]
   %26 = load i64, ptr %8, align 8
   %27 = icmp ugt i64 %26, 2147483647
   br i1 %27, label %.thread, label %28

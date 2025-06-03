@@ -252,12 +252,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %.lr.ph, %.loopexit, %60, %49, %63, %52, %57, %45, %.loopexit75, %32, %31, %18
-  %.0 = phi i32 [ 1, %.loopexit75 ], [ 0, %32 ], [ 0, %31 ], [ 1, %18 ], [ 2, %57 ], [ %64, %63 ], [ %53, %52 ], [ 1, %45 ], [ 1, %49 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.loopexit75 ], [ 1, %18 ], [ 0, %31 ], [ 0, %32 ], [ 2, %57 ], [ %64, %63 ], [ %53, %52 ], [ 1, %45 ], [ 1, %49 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %.lr.ph ]
   call void @wtap_cleanup()
   br label %76
 
 76:                                               ; preds = %.loopexit74, %35, %26
-  %.042 = phi i32 [ %.0, %.loopexit74 ], [ 1, %35 ], [ 1, %26 ]
+  %.042 = phi i32 [ %.0, %.loopexit74 ], [ 1, %26 ], [ 1, %35 ]
   ret i32 %.042
 }
 

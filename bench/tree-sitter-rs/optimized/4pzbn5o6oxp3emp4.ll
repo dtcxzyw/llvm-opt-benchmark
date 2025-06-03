@@ -397,7 +397,7 @@ default.unreachable38:                            ; preds = %2
   br label %148
 
 148:                                              ; preds = %2, %2, %146, %144, %142, %140, %132, %124, %116, %108, %104, %99, %93, %88, %82, %76, %70, %65, %59, %53, %47, %42
-  %.0 = phi ptr [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %132 ], [ %131, %124 ], [ %123, %116 ], [ %115, %108 ], [ %107, %104 ], [ %103, %99 ], [ %98, %93 ], [ %92, %88 ], [ %87, %82 ], [ %81, %76 ], [ %75, %70 ], [ %69, %65 ], [ %64, %59 ], [ %58, %53 ], [ %52, %47 ], [ %46, %42 ], [ null, %2 ], [ null, %2 ]
+  %.0 = phi ptr [ %46, %42 ], [ %52, %47 ], [ %58, %53 ], [ %64, %59 ], [ %69, %65 ], [ %75, %70 ], [ %81, %76 ], [ %87, %82 ], [ %92, %88 ], [ %98, %93 ], [ %103, %99 ], [ %107, %104 ], [ %115, %108 ], [ %123, %116 ], [ %131, %124 ], [ %139, %132 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2472,7 +2472,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
           to label %"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h36cdbcd77129adabE.exit.i.i" unwind label %.loopexit29, !noalias !357
 
 "_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h36cdbcd77129adabE.exit.thread.i.i": ; preds = %.noexc7.i.i, %.noexc6.i.i, %33
-  %.0.i.ph.i.i.i = phi ptr [ %37, %.noexc6.i.i ], [ %42, %.noexc7.i.i ], [ %35, %33 ]
+  %.0.i.ph.i.i.i = phi ptr [ %42, %.noexc7.i.i ], [ %37, %.noexc6.i.i ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !356
   br label %49
 

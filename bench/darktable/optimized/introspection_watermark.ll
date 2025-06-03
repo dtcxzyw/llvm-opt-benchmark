@@ -860,10 +860,10 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br label %235
 
 235:                                              ; preds = %232, %217
-  %.0395449 = phi ptr [ null, %232 ], [ %200, %217 ]
-  %.sroa.0.0 = phi i32 [ %233, %232 ], [ %.sroa.0.0.copyload, %217 ]
-  %.sroa.21.0 = phi i32 [ %234, %232 ], [ %.sroa.21.0.copyload, %217 ]
-  %.0397 = phi ptr [ %219, %232 ], [ null, %217 ]
+  %.0395449 = phi ptr [ %200, %217 ], [ null, %232 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %217 ], [ %233, %232 ]
+  %.sroa.21.0 = phi i32 [ %.sroa.21.0.copyload, %217 ], [ %234, %232 ]
+  %.0397 = phi ptr [ null, %217 ], [ %219, %232 ]
   %spec.select = call i32 @llvm.umax.i32(i32 %.sroa.0.0, i32 1)
   %.sroa.21.1 = call i32 @llvm.umax.i32(i32 %.sroa.21.0, i32 1)
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -876,7 +876,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %243 = load float, ptr %242, align 4, !tbaa !111
   %244 = fmul reassoc nsz arcp contract afn float %243, 0x3F847AE140000000
   %245 = icmp sgt i32 %spec.select, %.sroa.21.1
-  %cond.fr480507 = freeze i1 %245
+  %cond.fr480504 = freeze i1 %245
   %246 = sitofp i32 %spec.select to float
   %247 = sitofp i32 %.sroa.21.1 to float
   %248 = call i32 @llvm.smax.i32(i32 %spec.select, i32 %.sroa.21.1)
@@ -898,7 +898,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %256 = fmul reassoc nsz arcp contract afn float %253, %244
   %257 = fmul reassoc nsz arcp contract afn float %256, %255
   %258 = fdiv reassoc nsz arcp contract afn float %257, %249
-  br i1 %cond.fr480507, label %334, label %338
+  br i1 %cond.fr480504, label %334, label %338
 
 .thread468:                                       ; preds = %235
   %259 = fcmp reassoc nsz arcp contract afn olt float %238, %241
@@ -908,7 +908,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %263 = fmul reassoc nsz arcp contract afn float %260, %244
   %264 = fmul reassoc nsz arcp contract afn float %263, %262
   %265 = fdiv reassoc nsz arcp contract afn float %264, %249
-  br i1 %cond.fr480507, label %334, label %338
+  br i1 %cond.fr480504, label %334, label %338
 
 .thread474:                                       ; preds = %235
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -979,12 +979,12 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
 308:                                              ; preds = %235
   %309 = fdiv reassoc nsz arcp contract afn float %238, %246
   %310 = fdiv reassoc nsz arcp contract afn float %241, %247
-  %.0403 = select nsz i1 %cond.fr480507, float %309, float %310
+  %.0403 = select nsz i1 %cond.fr480504, float %309, float %310
   %311 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %312 = load float, ptr %311, align 4, !tbaa !113
   %313 = fmul reassoc nsz arcp contract afn float %.0403, %244
   %314 = fmul reassoc nsz arcp contract afn float %313, %312
-  br i1 %cond.fr480507, label %.thread524, label %..thread508_crit_edge
+  br i1 %cond.fr480504, label %.thread524, label %..thread508_crit_edge
 
 ..thread508_crit_edge:                            ; preds = %308
   %.pre = fmul reassoc nsz arcp contract afn float %244, %241
@@ -1023,22 +1023,22 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %333 = fdiv reassoc nsz arcp contract afn float %332, %247
   br label %342
 
-334:                                              ; preds = %.thread468, %.thread454, %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread462
-  %.0407501 = phi float [ %256, %.thread462 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ], [ %327, %.thread454 ], [ %263, %.thread468 ]
-  %.0402458500 = phi float [ %253, %.thread462 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ], [ %241, %.thread454 ], [ %260, %.thread468 ]
-  %.0401460499 = phi float [ %253, %.thread462 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ], [ %238, %.thread454 ], [ %260, %.thread468 ]
-  %335 = phi ptr [ %254, %.thread462 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ], [ %320, %.thread454 ], [ %261, %.thread468 ]
-  %336 = phi float [ %258, %.thread462 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ], [ %324, %.thread454 ], [ %265, %.thread468 ]
+334:                                              ; preds = %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread468, %.thread462, %.thread454
+  %.0407501 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ]
+  %.0402458500 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ]
+  %.0401460499 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ]
+  %335 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ]
+  %336 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ]
   %.pn = fmul reassoc nsz arcp contract afn float %.0407501, %247
   %337 = fdiv reassoc nsz arcp contract afn float %.pn, %246
   br label %342
 
-338:                                              ; preds = %.thread468, %.thread454, %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread462
-  %.0407491 = phi float [ %256, %.thread462 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ], [ %327, %.thread454 ], [ %263, %.thread468 ]
-  %.0402458490 = phi float [ %253, %.thread462 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ], [ %241, %.thread454 ], [ %260, %.thread468 ]
-  %.0401460489 = phi float [ %253, %.thread462 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ], [ %238, %.thread454 ], [ %260, %.thread468 ]
-  %339 = phi ptr [ %254, %.thread462 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ], [ %320, %.thread454 ], [ %261, %.thread468 ]
-  %340 = phi float [ %258, %.thread462 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ], [ %324, %.thread454 ], [ %265, %.thread468 ]
+338:                                              ; preds = %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread468, %.thread462, %.thread454
+  %.0407491 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ]
+  %.0402458490 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ]
+  %.0401460489 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ]
+  %339 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ]
+  %340 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ]
   %.pn534 = fmul reassoc nsz arcp contract afn float %.0407491, %246
   %341 = fdiv reassoc nsz arcp contract afn float %.pn534, %247
   br label %342

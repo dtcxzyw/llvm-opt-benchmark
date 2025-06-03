@@ -670,7 +670,7 @@ _ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %_ZN5clang28isFuncOr
   br label %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
 
 _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit: ; preds = %294, %305, %308
-  %.1.i36 = phi i32 [ %299, %294 ], [ %307, %305 ], [ %310, %308 ]
+  %.1.i36 = phi i32 [ %310, %308 ], [ %307, %305 ], [ %299, %294 ]
   %.not = icmp eq i32 %.1.i36, 0
   br i1 %.not, label %472, label %311
 
@@ -1009,9 +1009,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit42: ; preds = %_ZN
 472:                                              ; preds = %_ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit, %285, %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
   %473 = tail call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #13
   %.not.not.i43 = icmp eq ptr %473, null
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 24
-  %475 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.0.1.in.i = select i1 %.not.not.i43, ptr %475, ptr %474
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %475 = getelementptr inbounds nuw i8, ptr %473, i64 24
+  %.sroa.0.1.in.i = select i1 %.not.not.i43, ptr %474, ptr %475
   %.sroa.0.1.i = load i64, ptr %.sroa.0.1.in.i, align 8, !tbaa !44
   %476 = and i64 %.sroa.0.1.i, -16
   %477 = inttoptr i64 %476 to ptr

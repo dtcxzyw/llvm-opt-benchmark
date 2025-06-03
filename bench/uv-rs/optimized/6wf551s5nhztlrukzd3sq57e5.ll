@@ -6256,9 +6256,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %77
 
 77:                                               ; preds = %80, %84, %69, %74
-  %.sroa.15.0.ph = phi i64 [ %70, %69 ], [ %76, %74 ], [ %21, %80 ], [ %21, %84 ]
-  %.sroa.9.0.ph = phi i64 [ %29, %69 ], [ %.sroa.3.0.i, %74 ], [ %29, %80 ], [ %.sroa.3.0.i94, %84 ]
-  %.sroa.0106.0.ph = phi ptr [ %15, %69 ], [ %.sroa.06.0.i, %74 ], [ %15, %80 ], [ %.sroa.06.0.i93, %84 ]
+  %.sroa.15.0.ph = phi i64 [ %21, %80 ], [ %21, %84 ], [ %70, %69 ], [ %76, %74 ]
+  %.sroa.9.0.ph = phi i64 [ %29, %80 ], [ %.sroa.3.0.i94, %84 ], [ %29, %69 ], [ %.sroa.3.0.i, %74 ]
+  %.sroa.0106.0.ph = phi ptr [ %15, %80 ], [ %.sroa.06.0.i93, %84 ], [ %15, %69 ], [ %.sroa.06.0.i, %74 ]
   %.pr = load ptr, ptr %.sroa.0106.0.ph, align 8, !noalias !1016
   %78 = icmp eq ptr %.pr, null
   br i1 %78, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h2e5ee8857495f7aeE.exit.thread176", label %85

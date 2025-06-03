@@ -377,60 +377,60 @@ translate_gamma_flags.exit.thread:                ; preds = %9, %9, %11, %transl
 
 18:                                               ; preds = %16, %translate_gamma_flags.exit.thread
   %.029 = phi i32 [ %17, %16 ], [ %14, %translate_gamma_flags.exit.thread ]
-  switch i32 %1, label %44 [
-    i32 0, label %19
-    i32 1, label %26
-    i32 2, label %32
-    i32 3, label %38
+  switch i32 %1, label %43 [
+    i32 0, label %.critedge
+    i32 1, label %25
+    i32 2, label %31
+    i32 3, label %37
   ]
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %21 = load i32, ptr %20, align 4, !tbaa !25
-  %22 = and i32 %21, -8388609
-  store i32 %22, ptr %20, align 4, !tbaa !25
-  %23 = load i32, ptr %5, align 8, !tbaa !3
-  %24 = and i32 %23, -8193
-  store i32 %24, ptr %5, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  store i32 %.0.i3439.ph, ptr %25, align 4, !tbaa !50
+.critedge:                                        ; preds = %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %20 = load i32, ptr %19, align 4, !tbaa !25
+  %21 = and i32 %20, -8388609
+  store i32 %21, ptr %19, align 4, !tbaa !25
+  %22 = load i32, ptr %5, align 8, !tbaa !3
+  %23 = and i32 %22, -8193
+  store i32 %23, ptr %5, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  store i32 %.0.i3439.ph, ptr %24, align 4, !tbaa !50
   br label %png_rtran_ok.exit.thread
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %28 = load i32, ptr %27, align 4, !tbaa !25
-  %29 = and i32 %28, -8388609
-  %30 = load i32, ptr %5, align 8, !tbaa !3
-  %31 = and i32 %30, -8193
-  br label %.critedge
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %27 = load i32, ptr %26, align 4, !tbaa !25
+  %28 = and i32 %27, -8388609
+  %29 = load i32, ptr %5, align 8, !tbaa !3
+  %30 = and i32 %29, -8193
+  br label %44
 
-32:                                               ; preds = %18
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %34 = load i32, ptr %33, align 4, !tbaa !25
-  %35 = and i32 %34, -8388609
-  %36 = load i32, ptr %5, align 8, !tbaa !3
-  %37 = or i32 %36, 8192
-  br label %.critedge
+31:                                               ; preds = %18
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %33 = load i32, ptr %32, align 4, !tbaa !25
+  %34 = and i32 %33, -8388609
+  %35 = load i32, ptr %5, align 8, !tbaa !3
+  %36 = or i32 %35, 8192
+  br label %44
 
-38:                                               ; preds = %18
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = or i32 %40, 8388608
-  %42 = load i32, ptr %5, align 8, !tbaa !3
-  %43 = and i32 %42, -8193
-  br label %.critedge
+37:                                               ; preds = %18
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %40 = or i32 %39, 8388608
+  %41 = load i32, ptr %5, align 8, !tbaa !3
+  %42 = and i32 %41, -8193
+  br label %44
 
-44:                                               ; preds = %18
+43:                                               ; preds = %18
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #12
   unreachable
 
-.critedge:                                        ; preds = %26, %32, %38
-  %.sink = phi i32 [ %31, %26 ], [ %37, %32 ], [ %43, %38 ]
-  %45 = phi i32 [ %29, %26 ], [ %35, %32 ], [ %41, %38 ]
-  %.030.ph = phi i32 [ 100000, %26 ], [ %.0.i3439.ph, %32 ], [ %.0.i3439.ph, %38 ]
+44:                                               ; preds = %37, %31, %25
+  %.sink = phi i32 [ %42, %37 ], [ %36, %31 ], [ %30, %25 ]
+  %45 = phi i32 [ %40, %37 ], [ %34, %31 ], [ %28, %25 ]
+  %.030 = phi i32 [ %.0.i3439.ph, %37 ], [ %.0.i3439.ph, %31 ], [ 100000, %25 ]
   store i32 %.sink, ptr %5, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  store i32 %.030.ph, ptr %46, align 4, !tbaa !50
+  store i32 %.030, ptr %46, align 4, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 644
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %47, i8 0, i64 10, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -444,16 +444,16 @@ translate_gamma_flags.exit.thread:                ; preds = %9, %9, %11, %transl
   %.not33 = icmp eq i32 %52, 0
   br i1 %.not33, label %54, label %53
 
-53:                                               ; preds = %.critedge
+53:                                               ; preds = %44
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
   unreachable
 
-54:                                               ; preds = %.critedge
+54:                                               ; preds = %44
   %55 = or disjoint i32 %51, 128
   store i32 %55, ptr %50, align 4, !tbaa !25
   br label %png_rtran_ok.exit.thread
 
-png_rtran_ok.exit.thread:                         ; preds = %3, %8, %unsupported_gamma.exit, %54, %19
+png_rtran_ok.exit.thread:                         ; preds = %3, %8, %unsupported_gamma.exit, %54, %.critedge
   ret void
 }
 
@@ -2241,8 +2241,8 @@ png_init_gamma_values.exit:                       ; preds = %21
   br label %174
 
 174:                                              ; preds = %171, %168, %165, %158
-  %.027.i = phi i16 [ %160, %158 ], [ %172, %171 ], [ %169, %168 ], [ %166, %165 ]
-  %.0.i430 = phi i16 [ %162, %158 ], [ %173, %171 ], [ %170, %168 ], [ %167, %165 ]
+  %.027.i = phi i16 [ %160, %158 ], [ %166, %165 ], [ %169, %168 ], [ %172, %171 ]
+  %.0.i430 = phi i16 [ %162, %158 ], [ %167, %165 ], [ %170, %168 ], [ %173, %171 ]
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 650
   store i16 %.027.i, ptr %175, align 2, !tbaa !143, !alias.scope !152
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -2501,8 +2501,8 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   br label %328
 
 328:                                              ; preds = %286, %321, %319
-  %.0369 = phi i32 [ %327, %321 ], [ 100000, %319 ], [ 100000, %286 ]
-  %.0368 = phi i32 [ %324, %321 ], [ %320, %319 ], [ 100000, %286 ]
+  %.0369 = phi i32 [ 100000, %319 ], [ %327, %321 ], [ 100000, %286 ]
+  %.0368 = phi i32 [ %320, %319 ], [ %324, %321 ], [ 100000, %286 ]
   %329 = call i32 @png_gamma_significant(i32 noundef %.0369) #11
   %.not411 = icmp eq i32 %329, 0
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 646
@@ -2753,8 +2753,8 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   unreachable
 
 500:                                              ; preds = %492, %486, %484
-  %.0371 = phi i32 [ %498, %492 ], [ %491, %486 ], [ 100000, %484 ]
-  %.0370 = phi i32 [ %495, %492 ], [ %488, %486 ], [ %485, %484 ]
+  %.0371 = phi i32 [ 100000, %484 ], [ %491, %486 ], [ %498, %492 ]
+  %.0370 = phi i32 [ %485, %484 ], [ %488, %486 ], [ %495, %492 ]
   %501 = call i32 @png_gamma_significant(i32 noundef %.0370) #11
   %502 = call i32 @png_gamma_significant(i32 noundef %.0371) #11
   %.not406 = icmp eq i32 %501, 0

@@ -124,61 +124,61 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
   call void @_ZN7Imf_3_46HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %5, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %6, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   %13 = invoke ptr @_ZNK7Imf_3_46Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
-          to label %.preheader71 unwind label %.loopexit.split-lp73
+          to label %.preheader72 unwind label %.loopexit.split-lp74
 
-.preheader71:                                     ; preds = %4, %30
-  %.sroa.057.0 = phi ptr [ %31, %30 ], [ %13, %4 ]
+.preheader72:                                     ; preds = %4, %30
+  %.sroa.058.0 = phi ptr [ %31, %30 ], [ %13, %4 ]
   %14 = invoke ptr @_ZNK7Imf_3_46Header3endEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
           to label %15 unwind label %18
 
-15:                                               ; preds = %.preheader71
-  %.not64 = icmp eq ptr %.sroa.057.0, %14
-  br i1 %.not64, label %16, label %20
+15:                                               ; preds = %.preheader72
+  %.not65 = icmp eq ptr %.sroa.058.0, %14
+  br i1 %.not65, label %16, label %20
 
 16:                                               ; preds = %15
   %17 = invoke noundef zeroext i1 @_ZNK7Imf_3_46Header18hasTileDescriptionEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
           to label %32 unwind label %49
 
-.loopexit72:                                      ; preds = %27
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+.loopexit73:                                      ; preds = %27
+  %lpad.loopexit75 = landingpad { ptr, i32 }
           cleanup
   br label %142
 
-.loopexit.split-lp73:                             ; preds = %4
-  %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
+.loopexit.split-lp74:                             ; preds = %4
+  %lpad.loopexit.split-lp76 = landingpad { ptr, i32 }
           cleanup
   br label %142
 
-18:                                               ; preds = %.preheader71
+18:                                               ; preds = %.preheader72
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %142
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.057.0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.058.0, i64 32
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(11) @.str.5) #18
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %20
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.6) #18
-  %.not47 = icmp eq i32 %24, 0
-  br i1 %.not47, label %30, label %25
+  %.not48 = icmp eq i32 %24, 0
+  br i1 %.not48, label %30, label %25
 
 25:                                               ; preds = %23
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(9) @.str.7) #18
-  %.not48 = icmp eq i32 %26, 0
-  br i1 %.not48, label %30, label %27
+  %.not49 = icmp eq i32 %26, 0
+  br i1 %.not49, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.057.0, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.058.0, i64 288
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   invoke void @_ZN7Imf_3_46Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %30 unwind label %.loopexit72
+          to label %30 unwind label %.loopexit73
 
 30:                                               ; preds = %20, %23, %25, %27
-  %31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.057.0) #18
-  br label %.preheader71, !llvm.loop !14
+  %31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.058.0) #18
+  br label %.preheader72, !llvm.loop !14
 
 32:                                               ; preds = %16
   br i1 %17, label %33, label %53
@@ -292,20 +292,20 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
 
 82:                                               ; preds = %67
   %83 = invoke ptr @_ZNK7Imf_3_414FlatImageLevel5beginEv(ptr noundef nonnull align 8 dereferenceable(88) %81)
-          to label %.preheader69 unwind label %.loopexit.split-lp
+          to label %.preheader70 unwind label %.loopexit.split-lp
 
-.preheader69:                                     ; preds = %82
+.preheader70:                                     ; preds = %82
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %84
 
-84:                                               ; preds = %.preheader69, %104
-  %.sroa.052.0 = phi ptr [ %105, %104 ], [ %83, %.preheader69 ]
+84:                                               ; preds = %.preheader70, %104
+  %.sroa.053.0 = phi ptr [ %105, %104 ], [ %83, %.preheader70 ]
   %85 = invoke ptr @_ZNK7Imf_3_414FlatImageLevel3endEv(ptr noundef nonnull align 8 dereferenceable(88) %81)
           to label %86 unwind label %94
 
 86:                                               ; preds = %84
-  %.not65 = icmp eq ptr %.sroa.052.0, %85
-  br i1 %.not65, label %87, label %96
+  %.not66 = icmp eq ptr %.sroa.053.0, %85
+  br i1 %.not66, label %87, label %96
 
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #17
@@ -324,7 +324,7 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
           cleanup
   br label %142
 
-.loopexit70:                                      ; preds = %96
+.loopexit71:                                      ; preds = %96
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %142
@@ -341,17 +341,17 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
 
 96:                                               ; preds = %86
   %97 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %5)
-          to label %98 unwind label %.loopexit70
+          to label %98 unwind label %.loopexit71
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.052.0, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.053.0, i64 64
   %100 = load ptr, ptr %99, align 8, !tbaa !34
   %101 = invoke { i64, i64 } @_ZNK7Imf_3_412ImageChannel7channelEv(ptr noundef nonnull align 8 dereferenceable(48) %100)
           to label %102 unwind label %106
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.052.0, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.053.0, i64 32
   %.fca.0.extract = extractvalue { i64, i64 } %101, 0
   %.fca.1.extract = extractvalue { i64, i64 } %101, 1
   store i64 %.fca.0.extract, ptr %10, align 8
@@ -362,7 +362,7 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
 
 104:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  %105 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.052.0) #18
+  %105 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.053.0) #18
   br label %84, !llvm.loop !37
 
 106:                                              ; preds = %102, %98
@@ -383,7 +383,7 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
   switch i32 %110, label %.loopexit [
     i32 0, label %116
     i32 1, label %.preheader
-    i32 2, label %.preheader67
+    i32 2, label %.preheader68
   ]
 
 112:                                              ; preds = %108, %87
@@ -422,34 +422,34 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
   %124 = add nuw nsw i32 %.032, 1
   br label %.preheader, !llvm.loop !38
 
-.preheader67:                                     ; preds = %111, %133
+.preheader68:                                     ; preds = %111, %133
   %.031 = phi i32 [ %134, %133 ], [ 0, %111 ]
   %125 = invoke noundef i32 @_ZNK7Imf_3_415TiledOutputFile10numYLevelsEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
           to label %126 unwind label %128
 
-126:                                              ; preds = %.preheader67
+126:                                              ; preds = %.preheader68
   %127 = icmp slt i32 %.031, %125
-  br i1 %127, label %.preheader66, label %.loopexit
+  br i1 %127, label %.preheader67, label %.loopexit
 
-128:                                              ; preds = %.preheader67
+128:                                              ; preds = %.preheader68
   %129 = landingpad { ptr, i32 }
           cleanup
   br label %140
 
-.preheader66:                                     ; preds = %126, %138
+.preheader67:                                     ; preds = %126, %138
   %.0 = phi i32 [ %139, %138 ], [ 0, %126 ]
   %130 = invoke noundef i32 @_ZNK7Imf_3_415TiledOutputFile10numXLevelsEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
           to label %131 unwind label %135
 
-131:                                              ; preds = %.preheader66
+131:                                              ; preds = %.preheader67
   %132 = icmp slt i32 %.0, %130
   br i1 %132, label %137, label %133
 
 133:                                              ; preds = %131
   %134 = add nuw nsw i32 %.031, 1
-  br label %.preheader67, !llvm.loop !39
+  br label %.preheader68, !llvm.loop !39
 
-135:                                              ; preds = %137, %.preheader66
+135:                                              ; preds = %137, %.preheader67
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %140
@@ -460,7 +460,7 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
 
 138:                                              ; preds = %137
   %139 = add nuw nsw i32 %.0, 1
-  br label %.preheader66, !llvm.loop !40
+  br label %.preheader67, !llvm.loop !40
 
 .loopexit:                                        ; preds = %126, %118, %111, %116
   call void @_ZN7Imf_3_415TiledOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #17
@@ -470,20 +470,20 @@ define void @_ZN7Imf_3_418saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
   ret void
 
 140:                                              ; preds = %128, %135, %120, %114
-  %.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %115, %114 ], [ %136, %135 ], [ %129, %128 ]
+  %.pn42 = phi { ptr, i32 } [ %115, %114 ], [ %121, %120 ], [ %136, %135 ], [ %129, %128 ]
   call void @_ZN7Imf_3_415TiledOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #17
   br label %141
 
 141:                                              ; preds = %140, %112
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %140 ], [ %113, %112 ]
+  %.pn42.pn = phi { ptr, i32 } [ %.pn42, %140 ], [ %113, %112 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #17
   br label %142
 
-142:                                              ; preds = %.loopexit70, %.loopexit.split-lp, %.loopexit72, %.loopexit.split-lp73, %94, %106, %18, %92, %141, %90, %62, %51, %49
-  %.pn49.pn = phi { ptr, i32 } [ %91, %90 ], [ %52, %51 ], [ %63, %62 ], [ %50, %49 ], [ %.pn.pn.pn, %141 ], [ %93, %92 ], [ %19, %18 ], [ %107, %106 ], [ %95, %94 ], [ %lpad.loopexit74, %.loopexit72 ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp73 ], [ %lpad.loopexit, %.loopexit70 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+142:                                              ; preds = %.loopexit71, %.loopexit.split-lp, %.loopexit73, %.loopexit.split-lp74, %94, %106, %18, %92, %141, %90, %62, %51, %49
+  %.pn50.pn = phi { ptr, i32 } [ %91, %90 ], [ %52, %51 ], [ %63, %62 ], [ %50, %49 ], [ %.pn42.pn, %141 ], [ %93, %92 ], [ %19, %18 ], [ %107, %106 ], [ %95, %94 ], [ %lpad.loopexit75, %.loopexit73 ], [ %lpad.loopexit.split-lp76, %.loopexit.split-lp74 ], [ %lpad.loopexit, %.loopexit71 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #17
-  resume { ptr, i32 } %.pn49.pn
+  resume { ptr, i32 } %.pn50.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1485,7 +1485,7 @@ _ZN7Imf_3_414TiledInputFileD2Ev.exit:             ; preds = %_ZNSt12__shared_ptr
   br label %.preheader, !llvm.loop !75
 
 168:                                              ; preds = %.loopexit, %.loopexit.split-lp, %160, %24, %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %94, %101, %86, %22
-  %.pn36.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %23, %22 ], [ %102, %101 ], [ %95, %94 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %27, %26 ], [ %25, %24 ], [ %161, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn36.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %87, %86 ], [ %102, %101 ], [ %95, %94 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %27, %26 ], [ %25, %24 ], [ %161, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_414TiledInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   resume { ptr, i32 } %.pn36.pn.pn

@@ -10510,8 +10510,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %481
 
 481:                                              ; preds = %479, %._crit_edge._crit_edge.i.i.i.i
-  %482 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %459, %479 ]
-  %.sroa.0223.1.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %480, %479 ]
+  %482 = phi ptr [ %459, %479 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.sroa.0223.1.i.i.i.i = phi ptr [ %480, %479 ], [ %.sroa.0223.0.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %.val1.i154.i.i.i.i = load ptr, ptr %.sroa.0223.1.i.i.i.i, align 8
   %483 = getelementptr i8, ptr %.sroa.0223.1.i.i.i.i, i64 8
   %.val2.i155.i.i.i.i = load i64, ptr %483, align 8
@@ -10596,8 +10596,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %505
 
 505:                                              ; preds = %503, %._crit_edge._crit_edge256.i.i.i.i
-  %506 = phi ptr [ %.pre258.i.i.i.i, %._crit_edge._crit_edge256.i.i.i.i ], [ %482, %503 ]
-  %.sroa.0223.2.i.i.i.i = phi ptr [ %.sroa.0223.0.lcssa.i.i.i.i, %._crit_edge._crit_edge256.i.i.i.i ], [ %504, %503 ]
+  %506 = phi ptr [ %482, %503 ], [ %.pre258.i.i.i.i, %._crit_edge._crit_edge256.i.i.i.i ]
+  %.sroa.0223.2.i.i.i.i = phi ptr [ %504, %503 ], [ %.sroa.0223.0.lcssa.i.i.i.i, %._crit_edge._crit_edge256.i.i.i.i ]
   %.val1.i187.i.i.i.i = load ptr, ptr %.sroa.0223.2.i.i.i.i, align 8
   %507 = getelementptr i8, ptr %.sroa.0223.2.i.i.i.i, i64 8
   %.val2.i188.i.i.i.i = load i64, ptr %507, align 8

@@ -913,17 +913,26 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %27 = load ptr, ptr %22, align 8, !noalias !166, !nonnull !4, !noundef !4
   %28 = load ptr, ptr %8, align 8, !noalias !166, !nonnull !4, !noundef !4
   %29 = icmp eq ptr %27, %28
-  br i1 %29, label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit", label %33
+  br i1 %29, label %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i, label %33
 
 30:                                               ; preds = %16
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !noalias !166, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !166
-  br label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19"
+  br label %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i.thread
 
 33:                                               ; preds = %24
   %34 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h34971514f70fc388E(i64 noundef %20, ptr noundef nonnull align 1 @anon.71a2367a93c442d12ebba4981b4ce693.5.llvm.2083375501543074820, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.71a2367a93c442d12ebba4981b4ce693.6.llvm.2083375501543074820), !noalias !170
-  br label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19"
+  br label %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i.thread
+
+_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i.thread: ; preds = %30, %33
+  %.sroa.1211.3.ph = phi ptr [ %34, %33 ], [ %32, %30 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !166
+  br label %70
+
+_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i: ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !166
+  br label %64
 
 35:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
@@ -953,34 +962,25 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %49 = load ptr, ptr %43, align 8, !alias.scope !178, !noalias !177, !nonnull !4, !noundef !4
   %50 = load ptr, ptr %6, align 8, !alias.scope !178, !noalias !177, !nonnull !4, !noundef !4
   %51 = icmp eq ptr %49, %50
-  br i1 %51, label %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i, label %55
+  br i1 %51, label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit", label %55
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = load ptr, ptr %53, align 8, !noalias !177, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !177
-  br label %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i.thread
+  br label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19"
 
 55:                                               ; preds = %46
   %56 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h34971514f70fc388E(i64 noundef %37, ptr noundef nonnull align 1 @anon.71a2367a93c442d12ebba4981b4ce693.8.llvm.2083375501543074820, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.71a2367a93c442d12ebba4981b4ce693.6.llvm.2083375501543074820), !noalias !177
-  br label %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i.thread
+  br label %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19"
 
-_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i.thread: ; preds = %52, %55
+"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19": ; preds = %52, %55
   %.sroa.1211.1.ph = phi ptr [ %56, %55 ], [ %54, %52 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !177
   br label %70
 
-_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i: ; preds = %46
+"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit": ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !177
-  br label %64
-
-"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19": ; preds = %30, %33
-  %.sroa.1211.3.ph = phi ptr [ %34, %33 ], [ %32, %30 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !166
-  br label %70
-
-"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit": ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !166
   br label %64
 
 57:                                               ; preds = %3
@@ -1003,8 +1003,8 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.12324841863366181129.e
 63:                                               ; preds = %70, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.12324841863366181129.exit10, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.12324841863366181129.exit
   ret void
 
-64:                                               ; preds = %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit"
-  %.sroa.9.418 = phi i8 [ %48, %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i ], [ %26, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit" ]
+64:                                               ; preds = %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit"
+  %.sroa.9.418 = phi i8 [ %26, %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i ], [ %48, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit" ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !160
   %65 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %66 = call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 1, i64 noundef 1) #38
@@ -1022,8 +1022,8 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.12324841863366181129.e
   store ptr @anon.1911346e7efc851bb606630c51dd9033.17, ptr %69, align 8
   br label %63
 
-70:                                               ; preds = %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i.thread, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19", %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread"
-  %.sroa.1211.417 = phi ptr [ %15, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread" ], [ %.sroa.1211.3.ph, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19" ], [ %.sroa.1211.1.ph, %_ZN10serde_json5value2de16visit_object_ref17haa54cecbf88c2e14E.exit.i.i.thread ]
+70:                                               ; preds = %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i.thread, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19", %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread"
+  %.sroa.1211.417 = phi ptr [ %15, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread" ], [ %.sroa.1211.1.ph, %"_ZN8tasks_ui8settings1_92_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tasks_ui..settings..TaskSettingsContent$GT$11deserialize17h0f1bbc30a81f09bdE.exit.thread19" ], [ %.sroa.1211.3.ph, %_ZN10serde_json5value2de15visit_array_ref17hf6705dbaffba6564E.exit.i.i.thread ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !160
   %71 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h17e65083e77785f6E"(ptr noalias noundef nonnull align 8 %.sroa.1211.417)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1362,8 +1362,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !162, !noundef !4
@@ -1375,8 +1375,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !162, !noundef !4
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -1503,8 +1503,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
           to label %23 unwind label %18
 
 18:                                               ; preds = %17, %15, %13
-  %.sroa.03.0 = phi i1 [ true, %13 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.0 = phi i1 [ true, %13 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.0 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.0 = phi i1 [ true, %13 ], [ true, %15 ], [ false, %17 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %1, align 8, !range !162, !noundef !4
@@ -1516,8 +1516,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 23:                                               ; preds = %17, %15, %27
-  %.sroa.03.1 = phi i1 [ true, %27 ], [ true, %17 ], [ false, %15 ]
-  %.sroa.01.1 = phi i1 [ true, %27 ], [ false, %17 ], [ true, %15 ]
+  %.sroa.03.1 = phi i1 [ true, %27 ], [ false, %15 ], [ true, %17 ]
+  %.sroa.01.1 = phi i1 [ true, %27 ], [ true, %15 ], [ false, %17 ]
   %24 = load i64, ptr %1, align 8, !range !162, !noundef !4
   %25 = xor i64 %24, -9223372036854775808
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 5)
@@ -2229,7 +2229,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd26154b2a7c1a67E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbd26154b2a7c1a67E.exit": ; preds = %6, %8
-  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %7, %6 ]
+  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %10, %8 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -8033,7 +8033,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h153
           to label %"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h8db8870996050081E.llvm.12324841863366181129.exit" unwind label %9
 
 8:                                                ; preds = %18, %24, %9
-  %.pn4 = phi { ptr, i32 } [ %10, %9 ], [ %25, %24 ], [ %19, %18 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %10, %9 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hd52fb5a70fd5697aE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #36
           to label %28 unwind label %26
 
@@ -8103,7 +8103,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement11key_context17h153
   unreachable
 
 28:                                               ; preds = %8
-  resume { ptr, i32 } %.pn4
+  resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25222,8 +25222,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8e47cadd9c383689E.exit.thread7.i.i.i.i.
           to label %75 unwind label %70, !noalias !3571
 
 70:                                               ; preds = %69, %67, %65
-  %.sroa.03.0.i.i.i = phi i1 [ true, %65 ], [ true, %69 ], [ false, %67 ]
-  %.sroa.01.0.i.i.i = phi i1 [ true, %65 ], [ false, %69 ], [ true, %67 ]
+  %.sroa.03.0.i.i.i = phi i1 [ true, %65 ], [ false, %67 ], [ true, %69 ]
+  %.sroa.01.0.i.i.i = phi i1 [ true, %65 ], [ true, %67 ], [ false, %69 ]
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = load i64, ptr %11, align 8, !range !162, !alias.scope !3569, !noalias !3570, !noundef !4

@@ -102,7 +102,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelecto
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit: ; preds = %11, %12, %14
-  %.0.i = phi ptr [ %15, %14 ], [ %13, %12 ], [ %0, %11 ]
+  %.0.i = phi ptr [ %13, %12 ], [ %15, %14 ], [ %0, %11 ]
   %16 = load ptr, ptr %.0.i, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %38, label %18
@@ -170,7 +170,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__
   br label %7
 
 7:                                                ; preds = %2, %5, %3
-  %.0 = phi ptr [ %6, %5 ], [ %4, %3 ], [ %0, %2 ]
+  %.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %0, %2 ]
   ret ptr %.0
 }
 

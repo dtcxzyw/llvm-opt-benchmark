@@ -474,7 +474,7 @@ de_tx_init_double.exit:                           ; preds = %98, %._crit_edge.i4
   br label %136
 
 136:                                              ; preds = %57, %de_tx_init_float.exit, %de_tx_init_double.exit, %1, %49, %51, %53, %55
-  %.037 = phi i32 [ -12, %55 ], [ -12, %53 ], [ -12, %51 ], [ -12, %49 ], [ -12, %1 ], [ undef, %57 ], [ %.029.i48, %de_tx_init_double.exit ], [ %.029.i, %de_tx_init_float.exit ]
+  %.037 = phi i32 [ -12, %55 ], [ -12, %53 ], [ -12, %51 ], [ -12, %49 ], [ -12, %1 ], [ undef, %57 ], [ %.029.i, %de_tx_init_float.exit ], [ %.029.i48, %de_tx_init_double.exit ]
   ret i32 %.037
 }
 

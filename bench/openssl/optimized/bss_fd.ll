@@ -259,7 +259,7 @@ define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 nound
   br label %6
 
 6:                                                ; preds = %5, %4
-  %.0 = phi i64 [ %2, %4 ], [ 0, %5 ]
+  %.0 = phi i64 [ 0, %5 ], [ %2, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8, !tbaa !7
   %9 = tail call i64 @lseek(i32 noundef %8, i64 noundef %.0, i32 noundef 0) #9
@@ -354,7 +354,7 @@ fd_free.exit:                                     ; preds = %14, %16, %26
   br label %52
 
 52:                                               ; preds = %4, %4, %33, %._crit_edge, %51, %46, %43, %39, %fd_free.exit, %10, %6
-  %.020 = phi i64 [ 0, %51 ], [ %50, %46 ], [ 1, %43 ], [ %42, %39 ], [ %38, %._crit_edge ], [ 1, %fd_free.exit ], [ %13, %10 ], [ %9, %6 ], [ -1, %33 ], [ 1, %4 ], [ 1, %4 ]
+  %.020 = phi i64 [ 0, %51 ], [ %9, %6 ], [ %13, %10 ], [ 1, %fd_free.exit ], [ %38, %._crit_edge ], [ %42, %39 ], [ 1, %43 ], [ %50, %46 ], [ -1, %33 ], [ 1, %4 ], [ 1, %4 ]
   ret i64 %.020
 }
 

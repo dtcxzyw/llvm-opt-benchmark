@@ -754,7 +754,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %5
   br label %50
 
 50:                                               ; preds = %lsrkStep_AccessStepMem.exit, %37, %13, %10, %40, %49, %48, %36, %21
-  %.0 = phi i32 [ -8, %49 ], [ -8, %48 ], [ -8, %36 ], [ -8, %21 ], [ -21, %lsrkStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %10 ], [ 0, %13 ], [ 0, %37 ]
+  %.0 = phi i32 [ -8, %49 ], [ -8, %21 ], [ -8, %36 ], [ -8, %48 ], [ -21, %lsrkStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %10 ], [ 0, %13 ], [ 0, %37 ]
   ret i32 %.0
 }
 

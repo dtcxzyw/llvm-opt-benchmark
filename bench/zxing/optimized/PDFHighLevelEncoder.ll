@@ -1597,8 +1597,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit129:        ; preds = %241, %243
   br i1 %.not.not, label %.backedge.backedge, label %248
 
 .backedge.backedge:                               ; preds = %246, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit75, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit78, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit97, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit110, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit113, %208, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit129
-  %.060.be = phi i32 [ %247, %246 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit129 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit110 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit113 ], [ %.060, %208 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit97 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit75 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit78 ]
-  %.0.be = phi i32 [ %.0, %246 ], [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit129 ], [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit110 ], [ 1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit113 ], [ 3, %208 ], [ 2, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit97 ], [ 1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit75 ], [ 2, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit78 ]
+  %.060.be = phi i32 [ %247, %246 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit129 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit75 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit78 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit97 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit110 ], [ %.060, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit113 ], [ %.060, %208 ]
+  %.0.be = phi i32 [ %.0, %246 ], [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit129 ], [ 1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit75 ], [ 2, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit78 ], [ 2, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit97 ], [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit110 ], [ 1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit113 ], [ 3, %208 ]
   br label %.backedge
 
 248:                                              ; preds = %246
@@ -1731,7 +1731,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge.thread,
   br label %299
 
 299:                                              ; preds = %298, %244, %237, %225, %223, %206, %188, %177, %165, %151, %149, %133, %122, %120, %104, %90, %88, %72, %61, %50, %36
-  %.pn69.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %.pn69, %298 ], [ %238, %237 ], [ %245, %244 ], [ %166, %165 ], [ %178, %177 ], [ %189, %188 ], [ %226, %225 ], [ %224, %223 ], [ %207, %206 ], [ %105, %104 ], [ %123, %122 ], [ %121, %120 ], [ %134, %133 ], [ %152, %151 ], [ %150, %149 ], [ %51, %50 ], [ %62, %61 ], [ %73, %72 ], [ %91, %90 ], [ %89, %88 ]
+  %.pn69.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %.pn69, %298 ], [ %238, %237 ], [ %245, %244 ], [ %51, %50 ], [ %62, %61 ], [ %73, %72 ], [ %91, %90 ], [ %89, %88 ], [ %105, %104 ], [ %123, %122 ], [ %121, %120 ], [ %134, %133 ], [ %152, %151 ], [ %150, %149 ], [ %166, %165 ], [ %178, %177 ], [ %189, %188 ], [ %226, %225 ], [ %224, %223 ], [ %207, %206 ]
   %300 = load ptr, ptr %6, align 8, !tbaa !32
   %.not.i.i.i134 = icmp eq ptr %300, null
   br i1 %.not.i.i.i134, label %_ZNSt6vectorIiSaIiEED2Ev.exit135, label %301

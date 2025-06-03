@@ -3821,7 +3821,7 @@ _ZN7rocksdb18RangeDelAggregator9StripeRep21InvalidateForwardIterEv.exit: ; preds
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !360
 
 99:                                               ; preds = %18, %3, %12, %._crit_edge, %._crit_edge36
-  %.0 = phi i1 [ %93, %._crit_edge ], [ %53, %._crit_edge36 ], [ false, %12 ], [ false, %3 ], [ false, %18 ]
+  %.0 = phi i1 [ %53, %._crit_edge36 ], [ %93, %._crit_edge ], [ false, %12 ], [ false, %3 ], [ false, %18 ]
   ret i1 %.0
 }
 

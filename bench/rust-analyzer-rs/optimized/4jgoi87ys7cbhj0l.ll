@@ -104,13 +104,13 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   %14 = and i64 %13, 7
   %15 = icmp eq i64 %14, 0
   %spec.select.i = select i1 %15, ptr %8, ptr null
-  %.not67 = icmp eq ptr %spec.select.i, null
-  %or.cond = or i1 %12, %.not67
+  %.not66 = icmp eq ptr %spec.select.i, null
+  %or.cond = or i1 %12, %.not66
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread, label %16
 
 16:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %.val55 = load i32, ptr %8, align 8, !noundef !4
-  %.not = icmp eq i32 %.val55, 17744
+  %.val54 = load i32, ptr %8, align 8, !noundef !4
+  %.not = icmp eq i32 %.val54, 17744
   br i1 %.not, label %19, label %22
 
 _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i, %4
@@ -123,8 +123,8 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
 
 19:                                               ; preds = %16
   %20 = getelementptr i8, ptr %8, i64 24
-  %.val56 = load i16, ptr %20, align 8, !noundef !4
-  %21 = icmp eq i16 %.val56, 523
+  %.val55 = load i16, ptr %20, align 8, !noundef !4
+  %21 = icmp eq i16 %.val55, 523
   br i1 %21, label %28, label %25
 
 22:                                               ; preds = %16
@@ -175,8 +175,8 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
   store i64 %44, ptr %3, align 8, !alias.scope !16, !noalias !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %45 = getelementptr i8, ptr %8, i64 132
-  %.val57 = load i32, ptr %45, align 4, !noundef !4
-  call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val57)
+  %.val56 = load i32, ptr %45, align 4, !noundef !4
+  call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val56)
   %46 = load i64, ptr %5, align 8, !range !21, !noundef !4
   %trunc44 = trunc nuw i64 %46 to i1
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -232,13 +232,13 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   %14 = and i64 %13, 3
   %15 = icmp eq i64 %14, 0
   %spec.select.i = select i1 %15, ptr %8, ptr null
-  %.not67 = icmp eq ptr %spec.select.i, null
-  %or.cond = or i1 %12, %.not67
+  %.not66 = icmp eq ptr %spec.select.i, null
+  %or.cond = or i1 %12, %.not66
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042.exit.thread, label %16
 
 16:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %.val55 = load i32, ptr %8, align 4, !noundef !4
-  %.not = icmp eq i32 %.val55, 17744
+  %.val54 = load i32, ptr %8, align 4, !noundef !4
+  %.not = icmp eq i32 %.val54, 17744
   br i1 %.not, label %19, label %22
 
 _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042.exit.thread: ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i, %4
@@ -251,8 +251,8 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
 
 19:                                               ; preds = %16
   %20 = getelementptr i8, ptr %8, i64 24
-  %.val56 = load i16, ptr %20, align 4, !noundef !4
-  %21 = icmp eq i16 %.val56, 267
+  %.val55 = load i16, ptr %20, align 4, !noundef !4
+  %21 = icmp eq i16 %.val55, 267
   br i1 %21, label %28, label %25
 
 22:                                               ; preds = %16
@@ -303,8 +303,8 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
   store i64 %44, ptr %3, align 8, !alias.scope !32, !noalias !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %45 = getelementptr i8, ptr %8, i64 116
-  %.val57 = load i32, ptr %45, align 4, !noundef !4
-  call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val57)
+  %.val56 = load i32, ptr %45, align 4, !noundef !4
+  call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val56)
   %46 = load i64, ptr %5, align 8, !range !21, !noundef !4
   %trunc44 = trunc nuw i64 %46 to i1
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8

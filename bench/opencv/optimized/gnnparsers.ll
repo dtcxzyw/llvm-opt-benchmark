@@ -1678,7 +1678,7 @@ _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.i.i.i:    ; preds = %418, %438, %435, %4
   br label %466
 
 466:                                              ; preds = %464, %._crit_edge.i.i.i
-  %.sroa.039.1.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %465, %464 ]
+  %.sroa.039.1.i.i.i = phi ptr [ %465, %464 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %467 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKSt6vectorIfSaIfEERSA_INS2_5Rect_IiEESaISG_EERSA_IiSaIiEEE3$_1EclINS_17__normal_iteratorIPSG_SI_EEEEbT_"(ptr nonnull readonly %.sroa.0229.0358, float %3, ptr %.sroa.039.1.i.i.i)
   br i1 %467, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv5Rect_IiEESt6vectorIS4_SaIS4_EEEEZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS6_IfSaIfEERS8_RS6_IiSaIiEEE3$_1ET_SQ_SQ_T0_.exit", label %468
 
@@ -1687,7 +1687,7 @@ _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.i.i.i:    ; preds = %418, %438, %435, %4
   br label %470
 
 470:                                              ; preds = %468, %._crit_edge.i.i.i
-  %.sroa.039.2.i.i.i = phi ptr [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %469, %468 ]
+  %.sroa.039.2.i.i.i = phi ptr [ %469, %468 ], [ %.sroa.039.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %471 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN2cv9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKSt6vectorIfSaIfEERSA_INS2_5Rect_IiEESaISG_EERSA_IiSaIiEEE3$_1EclINS_17__normal_iteratorIPSG_SI_EEEEbT_"(ptr nonnull readonly %.sroa.0229.0358, float %3, ptr %.sroa.039.2.i.i.i)
   %spec.select.i.i.i = select i1 %471, ptr %.sroa.039.2.i.i.i, ptr %307
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv5Rect_IiEESt6vectorIS4_SaIS4_EEEEZNS2_9parseYoloERKNS2_3MatERKNS2_5Size_IiEEffRKS6_IfSaIfEERS8_RS6_IiSaIiEEE3$_1ET_SQ_SQ_T0_.exit"

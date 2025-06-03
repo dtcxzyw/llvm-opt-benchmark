@@ -298,7 +298,7 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
           to label %34 unwind label %.loopexit
 
 33:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread25, %.thread23, %.thread21, %.thread, %99, %89, %79, %61
-  %.pn18 = phi { ptr, i32 } [ %100, %99 ], [ %90, %89 ], [ %80, %79 ], [ %62, %61 ], [ %59, %.thread ], [ %77, %.thread21 ], [ %87, %.thread23 ], [ %97, %.thread25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn18 = phi { ptr, i32 } [ %62, %61 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %59, %.thread ], [ %77, %.thread21 ], [ %87, %.thread23 ], [ %97, %.thread25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17h433c99a1836634beE"(ptr nonnull align 8 %24) #5
           to label %101 unwind label %63
 
@@ -600,7 +600,7 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
           to label %34 unwind label %.loopexit
 
 33:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread25, %.thread23, %.thread21, %.thread, %99, %89, %79, %61
-  %.pn18 = phi { ptr, i32 } [ %100, %99 ], [ %90, %89 ], [ %80, %79 ], [ %62, %61 ], [ %59, %.thread ], [ %77, %.thread21 ], [ %87, %.thread23 ], [ %97, %.thread25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn18 = phi { ptr, i32 } [ %62, %61 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %59, %.thread ], [ %77, %.thread21 ], [ %87, %.thread23 ], [ %97, %.thread25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$core..iter..sources..once..Once$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17h775b8d3478c428b7E"(ptr nonnull align 8 %24) #5
           to label %101 unwind label %63
 

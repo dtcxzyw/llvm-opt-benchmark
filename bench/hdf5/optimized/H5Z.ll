@@ -338,7 +338,7 @@ define noundef range(i32 -1, 1) i32 @H5Z_register(ptr noundef readonly captures(
   br label %43
 
 43:                                               ; preds = %32, %14, %36, %41, %10
-  %.017 = phi i32 [ -1, %10 ], [ -1, %32 ], [ 0, %36 ], [ 0, %41 ], [ 0, %14 ]
+  %.017 = phi i32 [ -1, %10 ], [ 0, %36 ], [ -1, %32 ], [ 0, %41 ], [ 0, %14 ]
   ret i32 %.017
 }
 
@@ -2343,7 +2343,7 @@ define range(i32 -1, 1) i32 @H5Z_append(ptr noundef captures(none) %0, i32 nound
   br label %94
 
 94:                                               ; preds = %87, %59, %18, %.thread87, %25, %14
-  %.075 = phi i32 [ -1, %14 ], [ -1, %25 ], [ -1, %59 ], [ -1, %87 ], [ 0, %.thread87 ], [ 0, %18 ]
+  %.075 = phi i32 [ -1, %14 ], [ -1, %25 ], [ 0, %.thread87 ], [ -1, %87 ], [ -1, %59 ], [ 0, %18 ]
   ret i32 %.075
 }
 

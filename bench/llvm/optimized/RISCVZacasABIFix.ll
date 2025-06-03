@@ -413,7 +413,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %62
   br label %106
 
 106:                                              ; preds = %104, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %105, %104 ]
+  %.1.i.i.i.i.i.i.i = phi ptr [ %105, %104 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %107 = load i32, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !223
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %109
@@ -423,7 +423,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %62
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %110, %109 ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %110, %109 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %112 = load i32, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !223
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread

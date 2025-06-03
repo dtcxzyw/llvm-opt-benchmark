@@ -2490,7 +2490,7 @@ define internal i32 @zoneinfo_traverse(ptr noundef readonly captures(none) %0, p
   br label %13
 
 13:                                               ; preds = %10, %5, %12
-  %.1 = phi i32 [ %6, %5 ], [ %11, %10 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %12 ], [ %11, %10 ], [ %6, %5 ]
   ret i32 %.1
 }
 
@@ -3914,7 +3914,7 @@ Py_DECREF.exit74.thread:                          ; preds = %48, %Py_DECREF.exit
   br label %Py_DECREF.exit70
 
 51:                                               ; preds = %25, %30, %Py_DECREF.exit78
-  %.351.ph = phi ptr [ null, %Py_DECREF.exit78 ], [ %.1, %30 ], [ null, %25 ]
+  %.351.ph = phi ptr [ null, %25 ], [ null, %Py_DECREF.exit78 ], [ %.1, %30 ]
   %52 = load i32, ptr %21, align 8, !tbaa !20
   %.not.i73 = icmp sgt i32 %52, -1
   br i1 %.not.i73, label %53, label %Py_DECREF.exit74

@@ -1374,7 +1374,7 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captu
   unreachable
 
 47:                                               ; preds = %39, %33
-  %.0 = phi ptr [ %40, %39 ], [ %38, %33 ]
+  %.0 = phi ptr [ %38, %33 ], [ %40, %39 ]
   %48 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %49 = trunc nuw i8 %48 to i1
   %50 = icmp eq ptr %.0, null

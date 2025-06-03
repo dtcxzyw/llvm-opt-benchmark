@@ -819,8 +819,8 @@ vmd_decode.exit:                                  ; preds = %364, %237, %231, %.
   store i32 1, ptr %2, align 4, !tbaa !37
   br label %vmd_decode.exit.thread
 
-vmd_decode.exit.thread:                           ; preds = %bytestream2_get_byte.exit258.thread.i, %bytestream2_peek_byte.exit.thread.i, %339, %206, %bytestream2_get_byte.exit.thread.i, %186, %.preheader.split.us.i, %bytestream2_get_byte.exit.us.i, %138, %140, %.thread.i, %126, %229, %362, %70, %61, %vmd_decode.exit, %14, %4, %376
-  %.0 = phi i32 [ %8, %376 ], [ -1094995529, %4 ], [ %15, %14 ], [ %374, %vmd_decode.exit ], [ -1094995529, %138 ], [ %146, %140 ], [ -1094995529, %.thread.i ], [ -1094995529, %126 ], [ -1094995529, %229 ], [ -1094995529, %362 ], [ -1094995529, %70 ], [ -1094995529, %61 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %186 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %206 ], [ -1094995529, %339 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ]
+vmd_decode.exit.thread:                           ; preds = %bytestream2_get_byte.exit258.thread.i, %bytestream2_peek_byte.exit.thread.i, %339, %206, %bytestream2_get_byte.exit.thread.i, %186, %.preheader.split.us.i, %bytestream2_get_byte.exit.us.i, %138, %140, %.thread.i, %126, %362, %229, %70, %61, %vmd_decode.exit, %14, %4, %376
+  %.0 = phi i32 [ %8, %376 ], [ -1094995529, %4 ], [ %15, %14 ], [ %374, %vmd_decode.exit ], [ -1094995529, %138 ], [ %146, %140 ], [ -1094995529, %.thread.i ], [ -1094995529, %126 ], [ -1094995529, %362 ], [ -1094995529, %229 ], [ -1094995529, %70 ], [ -1094995529, %61 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %186 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %206 ], [ -1094995529, %339 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ]
   ret i32 %.0
 }
 

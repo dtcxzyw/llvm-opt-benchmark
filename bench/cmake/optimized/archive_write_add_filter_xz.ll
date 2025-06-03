@@ -948,7 +948,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
   br label %.split37.us
 
 .split37.us:                                      ; preds = %34, %44, %29, %24, %14, %.split34.us, %.split40.us, %.critedge
-  %.0 = phi i32 [ -30, %.split34.us ], [ -30, %.split40.us ], [ -30, %.critedge ], [ 0, %29 ], [ 0, %24 ], [ -30, %14 ], [ 0, %44 ], [ -30, %34 ]
+  %.0 = phi i32 [ -30, %.split34.us ], [ -30, %.critedge ], [ -30, %.split40.us ], [ 0, %29 ], [ 0, %24 ], [ -30, %14 ], [ 0, %44 ], [ -30, %34 ]
   ret i32 %.0
 }
 

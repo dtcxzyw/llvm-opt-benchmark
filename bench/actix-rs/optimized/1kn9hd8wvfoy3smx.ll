@@ -193,7 +193,7 @@ define noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiChar
   br label %"_ZN12actix_router8resource11ResourceDef11parse_param28_$u7b$$u7b$closure$u7d$$u7d$17h4eb40bf1fd1c8fdeE.exit"
 
 "_ZN12actix_router8resource11ResourceDef11parse_param28_$u7b$$u7b$closure$u7d$$u7d$17h4eb40bf1fd1c8fdeE.exit": ; preds = %2, %3, %7
-  %.0.i = phi i1 [ %13, %7 ], [ false, %3 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %3 ], [ %13, %7 ], [ false, %2 ]
   ret i1 %.0.i
 }
 

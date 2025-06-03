@@ -1500,10 +1500,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   %.not336 = icmp eq i32 %101, 0
   br i1 %.not336, label %109, label %104
 
-.sink.split:                                      ; preds = %65, %98
-  %.neg439.sink = phi i32 [ %.neg439, %98 ], [ %.neg438, %65 ]
+.sink.split:                                      ; preds = %98, %65
+  %.neg438.sink = phi i32 [ %.neg438, %65 ], [ %.neg439, %98 ]
   %102 = load i32, ptr %12, align 4
-  %103 = add i32 %.neg439.sink, %102
+  %103 = add i32 %.neg438.sink, %102
   store i32 %103, ptr %9, align 8
   br label %104
 
@@ -1756,7 +1756,7 @@ define internal fastcc i32 @r_remove_plural_suffix(ptr noundef initializes((16, 
   %switch.not = icmp sgt i32 %44, -1
   br i1 %switch.not, label %.thread104, label %.thread92
 
-.thread104:                                       ; preds = %16, %33, %25, %41
+.thread104:                                       ; preds = %33, %25, %16, %41
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 1, ptr %46, align 4
@@ -1764,8 +1764,8 @@ define internal fastcc i32 @r_remove_plural_suffix(ptr noundef initializes((16, 
   store i32 %47, ptr %5, align 8
   br label %.thread92
 
-.thread92:                                        ; preds = %16, %33, %25, %38, %41, %.thread104
-  %.5 = phi i32 [ %44, %41 ], [ 1, %.thread104 ], [ 0, %38 ], [ %20, %16 ], [ %36, %33 ], [ %28, %25 ]
+.thread92:                                        ; preds = %33, %25, %16, %38, %41, %.thread104
+  %.5 = phi i32 [ %44, %41 ], [ 1, %.thread104 ], [ 0, %38 ], [ %36, %33 ], [ %28, %25 ], [ %20, %16 ]
   ret i32 %.5
 }
 
@@ -1825,7 +1825,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(
   br label %32
 
 32:                                               ; preds = %23, %1, %21, %4, %15, %28
-  %.1 = phi i32 [ 0, %1 ], [ %26, %23 ], [ 1, %28 ], [ 0, %15 ], [ 0, %4 ], [ 0, %21 ]
+  %.1 = phi i32 [ 1, %28 ], [ %26, %23 ], [ 0, %1 ], [ 0, %15 ], [ 0, %4 ], [ 0, %21 ]
   ret i32 %.1
 }
 
@@ -2154,7 +2154,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   br i1 %.not437.i, label %152, label %148
 
 .sink.split.i:                                    ; preds = %118, %72
-  %.sink.i = phi i32 [ %120, %118 ], [ %74, %72 ]
+  %.sink.i = phi i32 [ %74, %72 ], [ %120, %118 ]
   store i32 %.sink.i, ptr %5, align 8
   br label %148
 

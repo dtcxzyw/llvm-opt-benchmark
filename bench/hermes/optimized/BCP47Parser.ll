@@ -164,7 +164,7 @@ if.end29.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i:                                ; preds = %if.end29.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i, %if.end29.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i, %if.end29.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %call2.i25.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZN6hermes13platform_intl12_GLOBAL__N_129isUnicodeExtensionKeyTypeItemERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i.i.i.i) #14
   br i1 %call2.i25.i.i.i.i.i, label %if.end36.i.i.i.i.i, label %_ZN4llvh6all_ofISt6vectorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS7_EEPFbRKS7_EEEbOT_T0_.exit
 
@@ -173,7 +173,7 @@ if.end36.i.i.i.i.i:                               ; preds = %sw.bb31.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i:                                ; preds = %if.end36.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i, %if.end36.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i, %if.end36.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %call2.i28.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZN6hermes13platform_intl12_GLOBAL__N_129isUnicodeExtensionKeyTypeItemERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2.i.i.i.i.i) #14
   %spec.select.i.i.i.i.i = select i1 %call2.i28.i.i.i.i.i, ptr %2, ptr %__first.sroa.0.2.i.i.i.i.i
   br label %_ZN4llvh6all_ofISt6vectorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS7_EEPFbRKS7_EEEbOT_T0_.exit
@@ -508,7 +508,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %38 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %39 = and i16 %38, -33
   %40 = add i16 %39, -65
@@ -523,7 +523,7 @@ if.end36.i.i.i.i.i.i:                             ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i:                              ; preds = %if.end36.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %45 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 2
   %46 = and i16 %45, -33
   %47 = add i16 %46, -65
@@ -1341,7 +1341,7 @@ if.end29.i.i.i.i.i.i.i:                           ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i.i141
 
 sw.bb31.i.i.i.i.i.i.i141:                         ; preds = %if.end29.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i ]
   %120 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i.i, align 2
   %121 = and i16 %120, -33
   %122 = add i16 %121, -65
@@ -1356,7 +1356,7 @@ if.end36.i.i.i.i.i.i.i:                           ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i.i139
 
 sw.bb38.i.i.i.i.i.i.i139:                         ; preds = %if.end36.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i.i142, %if.end36.i.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i.i142, %if.end36.i.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i.i ]
   %127 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i.i, align 2
   %128 = and i16 %127, -33
   %129 = add i16 %128, -65
@@ -1582,7 +1582,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %land.rhs.i, %if.end29.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %subtag.0.val, %land.rhs.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %subtag.0.val, %land.rhs.i ]
   %5 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %6 = and i16 %5, -33
   %7 = add i16 %6, -65
@@ -1675,7 +1675,7 @@ if.end29.i.i.i.i.i.i25:                           ; preds = %sw.bb.i.i.i.i.i.i23
   br label %sw.bb31.i.i.i.i.i.i18
 
 sw.bb31.i.i.i.i.i.i18:                            ; preds = %if.end29.i.i.i.i.i.i25, %for.end.loopexit.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i19 = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i26, %if.end29.i.i.i.i.i.i25 ]
+  %__first.sroa.0.1.i.i.i.i.i.i19 = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i26, %if.end29.i.i.i.i.i.i25 ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ]
   %35 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i19, align 2
   %36 = and i16 %35, -33
   %37 = add i16 %36, -65
@@ -1687,7 +1687,7 @@ if.end36.i.i.i.i.i.i21:                           ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i14
 
 sw.bb38.i.i.i.i.i.i14:                            ; preds = %if.end36.i.i.i.i.i.i21, %for.end.loopexit.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i15 = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i22, %if.end36.i.i.i.i.i.i21 ]
+  %__first.sroa.0.2.i.i.i.i.i.i15 = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i22, %if.end36.i.i.i.i.i.i21 ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ]
   %39 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i15, align 2
   %40 = and i16 %39, -33
   %41 = add i16 %40, -65
@@ -1909,7 +1909,7 @@ if.end29.i.i.i.i.i.i.i:                           ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i.i:                            ; preds = %if.end29.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ]
   %49 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i.i, align 2
   %50 = and i16 %49, -33
   %51 = add i16 %50, -65
@@ -1924,7 +1924,7 @@ if.end36.i.i.i.i.i.i.i:                           ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i.i:                            ; preds = %if.end36.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ]
   %56 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i.i, align 2
   %57 = and i16 %56, -33
   %58 = add i16 %57, -65
@@ -3284,7 +3284,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %37 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %38 = and i16 %37, -33
   %39 = add i16 %38, -65
@@ -3299,7 +3299,7 @@ if.end36.i.i.i.i.i.i:                             ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i:                              ; preds = %if.end36.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ], [ %incdec.ptr.i17.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %44 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 2
   %45 = and i16 %44, -33
   %46 = add i16 %45, -65
@@ -3430,7 +3430,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %37 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %38 = and i16 %37, -33
   %39 = add i16 %38, -65
@@ -3445,7 +3445,7 @@ if.end36.i.i.i.i.i.i:                             ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i:                              ; preds = %if.end36.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %44 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 2
   %45 = and i16 %44, -33
   %46 = add i16 %45, -65
@@ -3576,7 +3576,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   br label %sw.bb31.i.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %37 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %38 = and i16 %37, -33
   %39 = add i16 %38, -65
@@ -3591,7 +3591,7 @@ if.end36.i.i.i.i.i.i:                             ; preds = %sw.bb31.i.i.i.i.i.i
   br label %sw.bb38.i.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i.i:                              ; preds = %if.end36.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ]
   %44 = load i16, ptr %__first.sroa.0.2.i.i.i.i.i.i, align 2
   %45 = and i16 %44, -33
   %46 = add i16 %45, -65

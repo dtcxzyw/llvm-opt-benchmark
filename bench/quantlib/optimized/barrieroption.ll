@@ -2527,8 +2527,8 @@ _ZNKSt14default_deleteIN8QuantLib13PricingEngineEEclEPS1_.exit.i138: ; preds = %
   call void %115(ptr noundef nonnull align 8 dereferenceable(56) %engine.sroa.0.2) #27
   br label %_ZNSt10unique_ptrIN8QuantLib13PricingEngineESt14default_deleteIS1_EED2Ev.exit141
 
-_ZNSt10unique_ptrIN8QuantLib13PricingEngineESt14default_deleteIS1_EED2Ev.exit141: ; preds = %lpad49, %lpad.i, %lpad54, %ehcleanup97, %ehcleanup136, %ehcleanup144.thread160, %ehcleanup144, %_ZNKSt14default_deleteIN8QuantLib13PricingEngineEEclEPS1_.exit.i138
-  %.pn7.pn.pn.pn.pn.pn159 = phi { ptr, i32 } [ %113, %ehcleanup144 ], [ %114, %_ZNKSt14default_deleteIN8QuantLib13PricingEngineEEclEPS1_.exit.i138 ], [ %31, %ehcleanup144.thread160 ], [ %47, %lpad.i ], [ %48, %lpad49 ], [ %50, %lpad54 ], [ %.pn.pn.pn.pn.pn, %ehcleanup97 ], [ %.pn7.pn.pn.pn.pn, %ehcleanup136 ]
+_ZNSt10unique_ptrIN8QuantLib13PricingEngineESt14default_deleteIS1_EED2Ev.exit141: ; preds = %lpad49, %lpad.i, %ehcleanup97, %lpad54, %ehcleanup136, %ehcleanup144.thread160, %ehcleanup144, %_ZNKSt14default_deleteIN8QuantLib13PricingEngineEEclEPS1_.exit.i138
+  %.pn7.pn.pn.pn.pn.pn159 = phi { ptr, i32 } [ %113, %ehcleanup144 ], [ %114, %_ZNKSt14default_deleteIN8QuantLib13PricingEngineEEclEPS1_.exit.i138 ], [ %31, %ehcleanup144.thread160 ], [ %47, %lpad.i ], [ %48, %lpad49 ], [ %.pn.pn.pn.pn.pn, %ehcleanup97 ], [ %50, %lpad54 ], [ %.pn7.pn.pn.pn.pn, %ehcleanup136 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %newProcess) #27
   br label %ehcleanup147
 
@@ -4080,7 +4080,7 @@ ehcleanup28:                                      ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %sw.bb3, %sw.bb
-  %retval.0 = phi i1 [ %cmp6, %sw.bb3 ], [ %cmp, %sw.bb ]
+  %retval.0 = phi i1 [ %cmp, %sw.bb ], [ %cmp6, %sw.bb3 ]
   ret i1 %retval.0
 
 unreachable:                                      ; preds = %invoke.cont18

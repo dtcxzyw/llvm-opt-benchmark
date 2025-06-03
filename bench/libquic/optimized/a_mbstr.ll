@@ -113,7 +113,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 40:                                               ; preds = %19, %traverse_string.exit.thread, %28, %23
-  %.091 = phi i32 [ %29, %28 ], [ %24, %23 ], [ %.2.ph, %traverse_string.exit.thread ], [ %.058, %19 ]
+  %.091 = phi i32 [ %24, %23 ], [ %29, %28 ], [ %.2.ph, %traverse_string.exit.thread ], [ %.058, %19 ]
   %41 = icmp sgt i64 %5, 0
   %42 = sext i32 %.091 to i64
   %43 = icmp sgt i64 %5, %42
@@ -259,8 +259,8 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %92
 
 92:                                               ; preds = %90, %88, %86, %85, %84
-  %93 = phi i32 [ 0, %84 ], [ %.pre, %90 ], [ %89, %88 ], [ %87, %86 ], [ %.091, %85 ]
-  %.0 = phi ptr [ null, %84 ], [ @cpy_utf8, %90 ], [ @cpy_univ, %88 ], [ @cpy_bmp, %86 ], [ @cpy_asc, %85 ]
+  %93 = phi i32 [ 0, %84 ], [ %.091, %85 ], [ %87, %86 ], [ %89, %88 ], [ %.pre, %90 ]
+  %.0 = phi ptr [ null, %84 ], [ @cpy_asc, %85 ], [ @cpy_bmp, %86 ], [ @cpy_univ, %88 ], [ @cpy_utf8, %90 ]
   %94 = add nsw i32 %93, 1
   %95 = sext i32 %94 to i64
   %96 = call noalias ptr @malloc(i64 noundef %95) #10
@@ -290,7 +290,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 105:                                              ; preds = %81, %66, %100, %99, %83, %77, %54, %49, %44, %39, %38, %27, %22
-  %.056 = phi i32 [ -1, %39 ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ], [ -1, %83 ], [ %.057, %100 ], [ -1, %99 ], [ -1, %77 ], [ -1, %38 ], [ -1, %27 ], [ -1, %22 ], [ %.057, %66 ], [ %.057, %81 ]
+  %.056 = phi i32 [ -1, %39 ], [ -1, %22 ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ], [ -1, %83 ], [ %.057, %100 ], [ -1, %99 ], [ -1, %77 ], [ -1, %27 ], [ -1, %38 ], [ %.057, %66 ], [ %.057, %81 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8

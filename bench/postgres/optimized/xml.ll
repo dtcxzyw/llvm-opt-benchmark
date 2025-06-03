@@ -875,7 +875,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br label %112
 
 112:                                              ; preds = %106, %55, %110, %97, %80, %64
-  %.1 = phi ptr [ %111, %110 ], [ %101, %97 ], [ %82, %80 ], [ %69, %64 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
+  %.1 = phi ptr [ %111, %110 ], [ %69, %64 ], [ %82, %80 ], [ %101, %97 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   br label %113

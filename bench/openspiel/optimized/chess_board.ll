@@ -939,7 +939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 40:                                               ; preds = %38, %.body13, %.body8, %.body
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body14, %.body13 ], [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body14, %.body13 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -983,8 +983,8 @@ define range(i16 0, 1538) i16 @_ZN10open_spiel5chess17PieceTypeFromCharEc(i8 nou
   br label %13
 
 13:                                               ; preds = %1, %9, %8, %7, %6, %5, %4
-  %.sroa.0.0 = phi i16 [ 0, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %6 ], [ 1, %5 ], [ 1, %4 ], [ 1, %1 ]
-  %.sroa.8.0 = phi i16 [ 0, %9 ], [ 256, %8 ], [ 512, %7 ], [ 768, %6 ], [ 1024, %5 ], [ 1280, %4 ], [ 1536, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %9 ], [ 1, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 1, %1 ]
+  %.sroa.8.0 = phi i16 [ 0, %9 ], [ 1280, %4 ], [ 1024, %5 ], [ 768, %6 ], [ 512, %7 ], [ 256, %8 ], [ 1536, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.8.0, %.sroa.0.0
   ret i16 %.sroa.0.0.insert.insert
 }
@@ -2292,7 +2292,7 @@ common.resume:                                    ; preds = %29, %54, %74, %108,
   br label %common.resume
 
 _ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit: ; preds = %34, %39
-  %.sroa.0.0.in.i = phi ptr [ %42, %39 ], [ %38, %34 ]
+  %.sroa.0.0.in.i = phi ptr [ %38, %34 ], [ %42, %39 ]
   %.sroa.0.0.i = load i24, ptr %.sroa.0.0.in.i, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -2568,7 +2568,7 @@ define i24 @_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5Col
   resume { ptr, i32 } %.pn
 
 23:                                               ; preds = %11, %6
-  %.sroa.0.0.in = phi ptr [ %14, %11 ], [ %10, %6 ]
+  %.sroa.0.0.in = phi ptr [ %10, %6 ], [ %14, %11 ]
   %.sroa.0.0 = load i24, ptr %.sroa.0.0.in, align 1
   ret i24 %.sroa.0.0
 }
@@ -4269,8 +4269,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %132, i8 0, i64 168, i1 false)
   br label %310
 
-133:                                              ; preds = %120, %119, %118, %117, %116, %114
-  %.sroa.8.0.i.ph = phi i16 [ 1536, %114 ], [ 1280, %116 ], [ 1024, %117 ], [ 768, %118 ], [ 512, %119 ], [ 256, %120 ]
+133:                                              ; preds = %116, %117, %118, %119, %120, %114
+  %.sroa.8.0.i.ph = phi i16 [ 1536, %114 ], [ 256, %120 ], [ 512, %119 ], [ 768, %118 ], [ 1024, %117 ], [ 1280, %116 ]
   %134 = call i32 @isupper(i32 noundef %109) #36
   %.not99 = icmp ne i32 %134, 0
   %.sroa.032.0.insert.ext = zext i8 %.081211 to i16
@@ -8763,8 +8763,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           cleanup
   br label %.body55
 
-_ZNR4absl7debian28optionalIN10open_spiel5chess9PieceTypeEEdeEv.exit: ; preds = %163, %162, %161, %160, %159, %155
-  %.sroa.8.0.i.ph = phi i8 [ 6, %155 ], [ 5, %159 ], [ 4, %160 ], [ 3, %161 ], [ 2, %162 ], [ 1, %163 ]
+_ZNR4absl7debian28optionalIN10open_spiel5chess9PieceTypeEEdeEv.exit: ; preds = %159, %160, %161, %162, %163, %155
+  %.sroa.8.0.i.ph = phi i8 [ 6, %155 ], [ 1, %163 ], [ 2, %162 ], [ 3, %161 ], [ 4, %160 ], [ 5, %159 ]
   call void @_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %180 = load i64, ptr %179, align 8
@@ -9357,7 +9357,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN10o
   br label %26
 
 26:                                               ; preds = %24, %._crit_edge.i.i.i
-  %.sroa.031.1.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %25, %24 ]
+  %.sroa.031.1.i.i.i = phi ptr [ %25, %24 ], [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %27 = getelementptr i8, ptr %.sroa.031.1.i.i.i, i64 8
   %.val.i20.i.i.i = load i32, ptr %27, align 4
   %.not40.i.i.i = icmp eq i32 %.val.i20.i.i.i, 2
@@ -9368,7 +9368,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN10o
   br label %30
 
 30:                                               ; preds = %28, %._crit_edge.i.i.i
-  %.sroa.031.2.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]
+  %.sroa.031.2.i.i.i = phi ptr [ %29, %28 ], [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %31 = getelementptr i8, ptr %.sroa.031.2.i.i.i, i64 8
   %.val.i21.i.i.i = load i32, ptr %31, align 4
   %.not41.i.i.i = icmp eq i32 %.val.i21.i.i.i, 2
@@ -12357,7 +12357,7 @@ common.resume:                                    ; preds = %.body, %38, %24
   br label %common.resume
 
 _ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit: ; preds = %8, %13
-  %.sroa.0.0.in.i = phi ptr [ %16, %13 ], [ %12, %8 ]
+  %.sroa.0.0.in.i = phi ptr [ %12, %8 ], [ %16, %13 ]
   %.sroa.0.0.i = load i24, ptr %.sroa.0.0.in.i, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)

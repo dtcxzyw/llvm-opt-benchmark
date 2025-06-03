@@ -1508,7 +1508,7 @@ for.end:                                          ; preds = %for.cond, %entry
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end
-  %retval.1 = phi double [ %add, %cleanup ], [ %add11, %for.end ]
+  %retval.1 = phi double [ %add11, %for.end ], [ %add, %cleanup ]
   ret double %retval.1
 }
 
@@ -2984,7 +2984,7 @@ if.end30.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb32.i.i.i
 
 sw.bb32.i.i.i:                                    ; preds = %if.end30.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.1.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i26.i.i.i, %if.end30.i.i.i ]
+  %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i26.i.i.i, %if.end30.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %75 = load double, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !27
   %cmp.i.i27.i.i.i = fcmp ogt double %75, %detachmentPoint
   br i1 %cmp.i.i27.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEZN8QuantLib12Distribution7trancheEddE3$_0ET_SA_SA_T0_.exit", label %if.end37.i.i.i
@@ -2994,7 +2994,7 @@ if.end37.i.i.i:                                   ; preds = %sw.bb32.i.i.i
   br label %sw.bb39.i.i.i
 
 sw.bb39.i.i.i:                                    ; preds = %if.end37.i.i.i, %for.end.i.i.i
-  %__first.sroa.0.2.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ], [ %incdec.ptr.i28.i.i.i, %if.end37.i.i.i ]
+  %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i28.i.i.i, %if.end37.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %76 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !27
   %cmp.i.i29.i.i.i = fcmp ogt double %76, %detachmentPoint
   br i1 %cmp.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEZN8QuantLib12Distribution7trancheEddE3$_0ET_SA_SA_T0_.exit", label %if.end161
@@ -4616,7 +4616,7 @@ for.end.i:                                        ; preds = %for.cond.i, %do.end
   br label %_ZN8QuantLib12Distribution15confidenceLevelEd.exit
 
 _ZN8QuantLib12Distribution15confidenceLevelEd.exit: ; preds = %cleanup.i, %for.end.i
-  %retval.1.i = phi double [ %add.i, %cleanup.i ], [ %add11.i, %for.end.i ]
+  %retval.1.i = phi double [ %add11.i, %for.end.i ], [ %add.i, %cleanup.i ]
   %call27 = tail call noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull align 8 dereferenceable(225) %this, double noundef %retval.1.i)
   %32 = load i32, ptr %this, align 8, !tbaa !3
   %sub = add nsw i32 %32, -1

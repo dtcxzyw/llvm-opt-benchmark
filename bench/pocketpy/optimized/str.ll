@@ -5861,7 +5861,7 @@ _ZN4pkpy7SStreamlsEPKc.exit28:                    ; preds = %_ZN4pkpy10pod_vecto
   br label %122
 
 122:                                              ; preds = %120, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %121, %120 ]
+  %.1.i.i.i.i = phi ptr [ %121, %120 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %123 = load i8, ptr %.1.i.i.i.i, align 1
   %124 = sext i8 %123 to i32
   %125 = add nsw i32 %124, -58
@@ -5873,7 +5873,7 @@ _ZN4pkpy7SStreamlsEPKc.exit28:                    ; preds = %_ZN4pkpy10pod_vecto
   br label %128
 
 128:                                              ; preds = %126, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %127, %126 ]
+  %.2.i.i.i.i = phi ptr [ %127, %126 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %129 = load i8, ptr %.2.i.i.i.i, align 1
   %130 = sext i8 %129 to i32
   %131 = add nsw i32 %130, -58
@@ -6985,8 +6985,8 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPcS0_N9__gnu_cxx5__ops19_Iter_equ
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge._crit_edge.i.i
-  %45 = phi i8 [ %.pre.i.i, %._crit_edge._crit_edge.i.i ], [ %40, %42 ]
-  %.1.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ], [ %43, %42 ]
+  %45 = phi i8 [ %40, %42 ], [ %.pre.i.i, %._crit_edge._crit_edge.i.i ]
+  %.1.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge.i.i ]
   %46 = load i8, ptr %.1.i.i, align 1
   %47 = icmp eq i8 %46, %45
   br i1 %47, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit, label %48
@@ -6996,8 +6996,8 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPcS0_N9__gnu_cxx5__ops19_Iter_equ
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge._crit_edge52.i.i
-  %51 = phi i8 [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ], [ %45, %48 ]
-  %.2.i.i = phi ptr [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ], [ %49, %48 ]
+  %51 = phi i8 [ %45, %48 ], [ %.pre53.i.i, %._crit_edge._crit_edge52.i.i ]
+  %.2.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i, %._crit_edge._crit_edge52.i.i ]
   %52 = load i8, ptr %.2.i.i, align 1
   %53 = icmp eq i8 %52, %51
   br i1 %53, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit, label %54
@@ -7083,8 +7083,8 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPcS0_N9__gnu_cxx5__ops19_Iter_equ
   br label %87
 
 87:                                               ; preds = %85, %._crit_edge._crit_edge.i.i53
-  %88 = phi i8 [ %.pre.i.i54, %._crit_edge._crit_edge.i.i53 ], [ %83, %85 ]
-  %.1.i.i55 = phi ptr [ %.029.lcssa.i.i48, %._crit_edge._crit_edge.i.i53 ], [ %86, %85 ]
+  %88 = phi i8 [ %83, %85 ], [ %.pre.i.i54, %._crit_edge._crit_edge.i.i53 ]
+  %.1.i.i55 = phi ptr [ %86, %85 ], [ %.029.lcssa.i.i48, %._crit_edge._crit_edge.i.i53 ]
   %89 = load i8, ptr %.1.i.i55, align 1
   %90 = icmp eq i8 %89, %88
   br i1 %90, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit65, label %91
@@ -7094,8 +7094,8 @@ define linkonce_odr noundef ptr @_ZSt8__searchIPcS0_N9__gnu_cxx5__ops19_Iter_equ
   br label %93
 
 93:                                               ; preds = %91, %._crit_edge._crit_edge52.i.i49
-  %94 = phi i8 [ %.pre53.i.i50, %._crit_edge._crit_edge52.i.i49 ], [ %88, %91 ]
-  %.2.i.i51 = phi ptr [ %.029.lcssa.i.i48, %._crit_edge._crit_edge52.i.i49 ], [ %92, %91 ]
+  %94 = phi i8 [ %88, %91 ], [ %.pre53.i.i50, %._crit_edge._crit_edge52.i.i49 ]
+  %.2.i.i51 = phi ptr [ %92, %91 ], [ %.029.lcssa.i.i48, %._crit_edge._crit_edge52.i.i49 ]
   %95 = load i8, ptr %.2.i.i51, align 1
   %96 = icmp eq i8 %95, %94
   br i1 %96, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit65, label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit

@@ -7696,7 +7696,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 25:                                               ; preds = %28, %.body2, %.body
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %19, %.body2 ], [ %14, %.body ]
+  %.pn = phi { ptr, i32 } [ %14, %.body ], [ %19, %.body2 ], [ %29, %28 ]
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %16
@@ -12723,7 +12723,7 @@ default.unreachable:                              ; preds = %2
   br label %24
 
 24:                                               ; preds = %21, %17, %13, %10
-  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %10 ]
+  %.sroa.0.0.in = phi i1 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -12782,7 +12782,7 @@ default.unreachable3:                             ; preds = %1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17, %12, %1, %9, %6, %3
-  %.sroa.7.0 = phi ptr [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ undef, %1 ], [ %14, %12 ], [ %19, %17 ]
+  %.sroa.7.0 = phi ptr [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ undef, %1 ], [ %14, %12 ], [ %19, %17 ]
   %23 = insertvalue { i64, ptr } poison, i64 %2, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.7.0, 1
   ret { i64, ptr } %24
@@ -12837,7 +12837,7 @@ default.unreachable:                              ; preds = %2
   br label %17
 
 17:                                               ; preds = %15, %12, %9
-  %.sroa.0.0.in = phi i1 [ %16, %15 ], [ %14, %12 ], [ %11, %9 ]
+  %.sroa.0.0.in = phi i1 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 

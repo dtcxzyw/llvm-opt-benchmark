@@ -2628,7 +2628,7 @@ default.unreachable:                              ; preds = %._crit_edge.i29, %.
   unreachable
 
 _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37, %51, %59
-  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %66, %59 ], [ %58, %51 ], [ %50, %37 ]
+  %.1.i = phi i32 [ %.055.lcssa.i, %._crit_edge.i ], [ %50, %37 ], [ %58, %51 ], [ %66, %59 ]
   %67 = shl i32 %.1.i, 3
   %68 = xor i32 %67, %.1.i
   %69 = lshr i32 %68, 5
@@ -2735,7 +2735,7 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %37,
   br label %136
 
 136:                                              ; preds = %128, %120, %106, %._crit_edge.i29
-  %.1.i32 = phi i32 [ %.055.lcssa.i30, %._crit_edge.i29 ], [ %135, %128 ], [ %127, %120 ], [ %119, %106 ]
+  %.1.i32 = phi i32 [ %.055.lcssa.i30, %._crit_edge.i29 ], [ %119, %106 ], [ %127, %120 ], [ %135, %128 ]
   %137 = shl i32 %.1.i32, 3
   %138 = xor i32 %137, %.1.i32
   %139 = lshr i32 %138, 5

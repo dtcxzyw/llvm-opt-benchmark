@@ -202,7 +202,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %83
 
 83:                                               ; preds = %78, %80, %33
-  %.077 = phi i32 [ %79, %78 ], [ %82, %80 ], [ %34, %33 ]
+  %.077 = phi i32 [ %34, %33 ], [ %79, %78 ], [ %82, %80 ]
   %84 = icmp sgt i32 %.077, 0
   br i1 %84, label %85, label %150
 
@@ -243,8 +243,8 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %106 = getelementptr inbounds nuw i8, ptr %.val.val, i64 32
   %107 = load i32, ptr %106, align 8, !tbaa !35
   switch i32 %107, label %.current_segment_finished.exit.thread_crit_edge [
-    i32 0, label %current_segment_finished.exit
-    i32 1, label %108
+    i32 0, label %108
+    i32 1, label %current_segment_finished.exit
   ]
 
 .current_segment_finished.exit.thread_crit_edge:  ; preds = %105
@@ -252,36 +252,36 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %current_segment_finished.exit.thread
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %.val.val, i64 256
-  %110 = load i64, ptr %109, align 8, !tbaa !46
-  %111 = getelementptr inbounds nuw i8, ptr %92, i64 112
-  %112 = load i32, ptr %111, align 8, !tbaa !57
-  %113 = sext i32 %112 to i64
-  %114 = sub nsw i64 %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %.val96, i64 48
-  %116 = load ptr, ptr %115, align 8, !tbaa !44
-  %117 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
-  %118 = load i32, ptr %117, align 4, !tbaa !25
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i64, ptr %116, i64 %119
-  %121 = load i64, ptr %120, align 8, !tbaa !45
-  %.not148 = icmp slt i64 %114, %121
+  %109 = getelementptr inbounds nuw i8, ptr %.val.val, i64 240
+  %110 = load i64, ptr %109, align 8, !tbaa !57
+  %111 = getelementptr inbounds nuw i8, ptr %.val96, i64 48
+  %112 = load ptr, ptr %111, align 8, !tbaa !44
+  %113 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
+  %114 = load i32, ptr %113, align 4, !tbaa !25
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i64, ptr %112, i64 %115
+  %117 = load i64, ptr %116, align 8, !tbaa !45
+  %118 = icmp sgt i64 %110, %117
   %.pre135139 = load i32, ptr %10, align 4, !tbaa !25
-  br i1 %.not148, label %current_segment_finished.exit.thread, label %132
+  br i1 %118, label %132, label %current_segment_finished.exit.thread
 
 current_segment_finished.exit:                    ; preds = %105
-  %122 = getelementptr inbounds nuw i8, ptr %.val.val, i64 240
-  %123 = load i64, ptr %122, align 8, !tbaa !58
-  %124 = getelementptr inbounds nuw i8, ptr %.val96, i64 48
-  %125 = load ptr, ptr %124, align 8, !tbaa !44
-  %126 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
-  %127 = load i32, ptr %126, align 4, !tbaa !25
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i64, ptr %125, i64 %128
-  %130 = load i64, ptr %129, align 8, !tbaa !45
-  %131 = icmp sgt i64 %123, %130
+  %119 = getelementptr inbounds nuw i8, ptr %.val.val, i64 256
+  %120 = load i64, ptr %119, align 8, !tbaa !46
+  %121 = getelementptr inbounds nuw i8, ptr %92, i64 112
+  %122 = load i32, ptr %121, align 8, !tbaa !58
+  %123 = sext i32 %122 to i64
+  %124 = sub nsw i64 %120, %123
+  %125 = getelementptr inbounds nuw i8, ptr %.val96, i64 48
+  %126 = load ptr, ptr %125, align 8, !tbaa !44
+  %127 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
+  %128 = load i32, ptr %127, align 4, !tbaa !25
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i64, ptr %126, i64 %129
+  %131 = load i64, ptr %130, align 8, !tbaa !45
+  %.not148 = icmp slt i64 %124, %131
   %.pre135 = load i32, ptr %10, align 4, !tbaa !25
-  br i1 %131, label %132, label %current_segment_finished.exit.thread
+  br i1 %.not148, label %current_segment_finished.exit.thread, label %132
 
 132:                                              ; preds = %108, %95, %current_segment_finished.exit
   %.pre135137 = phi i32 [ %.pre135136, %95 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135139, %108 ]
@@ -739,8 +739,8 @@ attributes #11 = { nounwind willreturn memory(none) }
 !54 = !{!"p2 omnipotent char", !14, i64 0}
 !55 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
 !56 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!57 = !{!53, !15, i64 112}
-!58 = !{!47, !27, i64 240}
+!57 = !{!47, !27, i64 240}
+!58 = !{!53, !15, i64 112}
 !59 = distinct !{!59, !31}
 !60 = !{!15, !15, i64 0}
 !61 = distinct !{!61, !31}

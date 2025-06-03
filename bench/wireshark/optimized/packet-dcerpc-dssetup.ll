@@ -1097,7 +1097,7 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   br label %dssetup_dissect_DsRoleInfo.exit
 
 dssetup_dissect_DsRoleInfo.exit:                  ; preds = %33, %35, %38, %41
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45)

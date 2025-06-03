@@ -1524,7 +1524,7 @@ define dso_local void @_ZNK5clang4ento18retaincountchecker18RetainCountChecker12
   br label %26
 
 26:                                               ; preds = %24, %25, %23, %8
-  %.sroa.0130.0 = phi i32 [ %.sroa.0130.0.extract.trunc, %23 ], [ 11, %25 ], [ 0, %24 ], [ %.sroa.0130.0.extract.trunc, %8 ]
+  %.sroa.0130.0 = phi i32 [ %.sroa.0130.0.extract.trunc, %23 ], [ 0, %24 ], [ 11, %25 ], [ %.sroa.0130.0.extract.trunc, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, 31
@@ -4366,7 +4366,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43.i: ; pred
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %281, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43.i
-  %.1.i.i.i.i = phi ptr [ %277, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43.i ], [ %282, %281 ]
+  %.1.i.i.i.i = phi ptr [ %282, %281 ], [ %277, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread43.i ]
   %283 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %284 = load i32, ptr %283, align 16
   %285 = icmp ult i32 %284, 67108864
@@ -4412,7 +4412,7 @@ _ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread.i: ; pred
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i25.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i25.i: ; preds = %307, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread.i
-  %.1.i.i.i26.i = phi ptr [ %303, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread.i ], [ %308, %307 ]
+  %.1.i.i.i26.i = phi ptr [ %308, %307 ], [ %303, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread.i ]
   %309 = getelementptr inbounds nuw i8, ptr %.1.i.i.i26.i, i64 16
   %310 = load i32, ptr %309, align 16
   %311 = icmp ult i32 %310, 67108864
@@ -4458,7 +4458,7 @@ _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i: ; preds = %_ZNK
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i: ; preds = %333, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
-  %.1.i.i.i34.i = phi ptr [ %329, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i ], [ %334, %333 ]
+  %.1.i.i.i34.i = phi ptr [ %334, %333 ], [ %329, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i ]
   %335 = getelementptr inbounds nuw i8, ptr %.1.i.i.i34.i, i64 16
   %336 = load i32, ptr %335, align 16
   %337 = icmp ult i32 %336, 67108864
@@ -14436,7 +14436,7 @@ define linkonce_odr hidden void @_ZN5clang7AnyCall7forExprEPKNS_4ExprE(ptr dead_
   br label %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.i
 
 _ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.i: ; preds = %40, %32, %14
-  %.1.i.i = phi ptr [ %29, %14 ], [ %41, %40 ], [ null, %32 ]
+  %.1.i.i = phi ptr [ %41, %40 ], [ %29, %14 ], [ null, %32 ]
   %.not.i = icmp eq ptr %.1.i.i, null
   %42 = select i1 %.not.i, i32 0, i32 2
   %.not4.i = icmp eq ptr %20, null

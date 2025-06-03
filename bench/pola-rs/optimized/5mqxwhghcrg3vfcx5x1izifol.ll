@@ -25242,8 +25242,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
           to label %.thread11 unwind label %421
 
 .thread:                                          ; preds = %468, %494, %386, %412, %.thread23, %.thread11, %446, %364
-  %.pn37.pn = phi { ptr, i32 } [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
-  resume { ptr, i32 } %.pn37.pn
+  %.pn45.pn = phi { ptr, i32 } [ %.pn4514, %.thread11 ], [ %.pn43, %364 ], [ %.pn3726, %.thread23 ], [ %.pn35, %446 ], [ %.pn39, %386 ], [ %.pn41, %412 ], [ %.pn, %468 ], [ %.pn33, %494 ]
+  resume { ptr, i32 } %.pn45.pn
 
 .thread11:                                        ; preds = %365, %443, %364
   %.pn4514 = phi { ptr, i32 } [ %.pn43, %364 ], [ %366, %365 ], [ %444, %443 ]
@@ -26009,7 +26009,7 @@ common.resume:                                    ; preds = %591, %187, %.body, 
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %520, %523, %250, %383
-  %eh.lpad-body = phi { ptr, i32 } [ %384, %383 ], [ %251, %250 ], [ %.pn.i127, %523 ], [ %.pn.i127, %520 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit194, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp195, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %251, %250 ], [ %384, %383 ], [ %.pn.i127, %523 ], [ %.pn.i127, %520 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit194, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp195, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17h2bfd13f6560d8f34E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %48) #25
           to label %common.resume unwind label %561
 
@@ -26598,8 +26598,8 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit32.thre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %.thread181
 
-.thread185:                                       ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit32.thread.i, %.thread189
-  %.sroa.7.0.i188 = phi i32 [ %249, %.thread189 ], [ %380, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i ], [ %505, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit32.thread.i ]
+.thread185:                                       ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit32.thread.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i, %.thread189
+  %.sroa.7.0.i188 = phi i32 [ %249, %.thread189 ], [ %505, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit32.thread.i ], [ %380, %_ZN12polars_arrow5array5Array17is_null_unchecked17h1c51b79350da1308E.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
   store i32 %.sroa.7.0.i188, ptr %38, align 4
   %507 = getelementptr inbounds nuw i8, ptr %211, i64 48
@@ -32208,7 +32208,7 @@ common.resume:                                    ; preds = %147, %98, %84
   unreachable
 
 157:                                              ; preds = %110, %146, %145
-  %.sroa.072.0 = phi i8 [ 37, %146 ], [ 36, %145 ], [ 13, %110 ]
+  %.sroa.072.0 = phi i8 [ 36, %145 ], [ 37, %146 ], [ 13, %110 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.072.0, ptr %158, align 8
   store i64 17, ptr %0, align 8
@@ -37576,7 +37576,7 @@ default.unreachable1:                             ; preds = %2
   br label %74
 
 74:                                               ; preds = %71, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %36, %33, %30, %27, %24, %21
-  %.sroa.0.0.in = phi i1 [ %73, %71 ], [ %70, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.sroa.0.0.in = phi i1 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %39, %36 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %70, %67 ], [ %73, %71 ]
   ret i1 %.sroa.0.0.in
 }
 

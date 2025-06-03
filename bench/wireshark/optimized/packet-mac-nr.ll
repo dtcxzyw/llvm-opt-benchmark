@@ -3686,7 +3686,7 @@ proto_item_set_hidden.exit:                       ; preds = %90, %102, %105
   br label %205
 
 205:                                              ; preds = %197, %188, %179, %167
-  %.0552 = phi ptr [ %1, %167 ], [ null, %197 ], [ null, %188 ], [ null, %179 ]
+  %.0552 = phi ptr [ %1, %167 ], [ null, %179 ], [ null, %188 ], [ null, %197 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #15

@@ -133,7 +133,7 @@ _ZNK5clang7CanQualINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %27, %.lr.ph.i.i.i
-  %.1.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %28, %27 ]
+  %.1.i.i.i.i = phi ptr [ %28, %27 ], [ %23, %.lr.ph.i.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %30 = load i24, ptr %29, align 16
   %31 = and i24 %30, 1048576
@@ -186,7 +186,7 @@ _ZNK5clang7CanQualINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i29
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i29: ; preds = %49, %.lr.ph.i.i.i25
-  %.1.i.i.i.i30 = phi ptr [ %45, %.lr.ph.i.i.i25 ], [ %50, %49 ]
+  %.1.i.i.i.i30 = phi ptr [ %50, %49 ], [ %45, %.lr.ph.i.i.i25 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i30, i64 16
   %52 = load i24, ptr %51, align 16
   %53 = and i24 %52, 1048576

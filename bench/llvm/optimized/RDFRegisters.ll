@@ -3083,7 +3083,7 @@ _ZN4llvm9BitVector5resetERKS0_.exit:              ; preds = %35, %_ZN4llvm9BitVe
   br label %65
 
 65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %64, %63 ]
+  %.1.i.i.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %66 = load i64, ptr %.1.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %66, 0
   br i1 %.not30.i.i.i.i.i.i.i.i, label %67, label %_ZNK4llvm9BitVector4noneEv.exit
@@ -3093,7 +3093,7 @@ _ZN4llvm9BitVector5resetERKS0_.exit:              ; preds = %35, %_ZN4llvm9BitVe
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ], [ %68, %67 ]
+  %.2.i.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %70 = load i64, ptr %.2.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %70, 0
   br i1 %.not31.i.i.i.i.i.i.i.i, label %71, label %_ZNK4llvm9BitVector4noneEv.exit
@@ -4039,7 +4039,7 @@ _ZN4llvm3rdf12RegisterAggr9intersectERKS1_.exit:  ; preds = %.lr.ph18.i.i, %.pre
   br label %103
 
 103:                                              ; preds = %101, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %102, %101 ]
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %102, %101 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %104 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %.not30.i.i.i.i.i.i.i.i.i = icmp eq i64 %104, 0
   br i1 %.not30.i.i.i.i.i.i.i.i.i, label %105, label %_ZNK4llvm3rdf12RegisterAggr5emptyEv.exit
@@ -4049,7 +4049,7 @@ _ZN4llvm3rdf12RegisterAggr9intersectERKS1_.exit:  ; preds = %.lr.ph18.i.i, %.pre
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %106, %105 ]
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %106, %105 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %108 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !60
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %108, 0
   br i1 %.not31.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm3rdf12RegisterAggr5emptyEv.exit.thread, label %_ZNK4llvm3rdf12RegisterAggr5emptyEv.exit

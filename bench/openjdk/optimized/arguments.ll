@@ -9763,8 +9763,8 @@ define hidden noundef zeroext i1 @_ZN9Arguments15copy_expand_pidEPKcmPcm(ptr nou
   br label %40
 
 40:                                               ; preds = %18, %34, %36, %38
-  %.136 = phi ptr [ %37, %36 ], [ %31, %34 ], [ %20, %18 ], [ %39, %38 ]
-  %.1 = phi ptr [ %15, %36 ], [ %35, %34 ], [ %19, %18 ], [ %15, %38 ]
+  %.136 = phi ptr [ %37, %36 ], [ %20, %18 ], [ %31, %34 ], [ %39, %38 ]
+  %.1 = phi ptr [ %15, %36 ], [ %19, %18 ], [ %35, %34 ], [ %15, %38 ]
   %41 = icmp ult ptr %.1, %5
   %42 = icmp ult ptr %.136, %7
   %43 = select i1 %41, i1 %42, i1 false

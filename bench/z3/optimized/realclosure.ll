@@ -36021,7 +36021,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2ltIN11realclosure11mpbq_config
   br label %14
 
 14:                                               ; preds = %5, %8, %13, %12, %11, %9, %6
-  %.0 = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ %10, %9 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %13 ], [ %7, %6 ], [ false, %12 ], [ %10, %9 ], [ true, %11 ], [ false, %8 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -36114,7 +36114,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z2gtIN11realclosure11mpbq_config
   br label %_Z2ltIN11realclosure11mpbq_config15numeral_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit
 
 _Z2ltIN11realclosure11mpbq_config15numeral_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit: ; preds = %5, %6, %8, %9, %11, %12, %13
-  %.0.i = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ %10, %9 ], [ %7, %6 ], [ false, %8 ], [ false, %5 ]
+  %.0.i = phi i1 [ false, %13 ], [ %7, %6 ], [ false, %12 ], [ %10, %9 ], [ true, %11 ], [ false, %8 ], [ false, %5 ]
   ret i1 %.0.i
 }
 
@@ -45208,7 +45208,7 @@ default.unreachable:                              ; preds = %_ZNK11realclosure7m
   br label %_ZN11realclosure7manager3imp29determine_transcendental_signEPNS_23rational_function_valueE.exit
 
 _ZN11realclosure7manager3imp29determine_transcendental_signEPNS_23rational_function_valueE.exit: ; preds = %50, %41, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit12, %21, %9, %54, %55, %57, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit
-  %.07 = phi i1 [ true, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit ], [ false, %57 ], [ %56, %55 ], [ true, %54 ], [ true, %9 ], [ true, %21 ], [ true, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit12 ], [ true, %41 ], [ true, %50 ]
+  %.07 = phi i1 [ true, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit ], [ false, %57 ], [ true, %54 ], [ %56, %55 ], [ true, %9 ], [ true, %21 ], [ true, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit12 ], [ true, %41 ], [ true, %50 ]
   ret i1 %.07
 }
 

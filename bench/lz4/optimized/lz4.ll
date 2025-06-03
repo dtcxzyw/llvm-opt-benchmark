@@ -12338,7 +12338,7 @@ read_variable_length.exit15.thread79:             ; preds = %82, %read_variable_
   br i1 %155, label %151, label %.backedge.backedge, !llvm.loop !22
 
 156:                                              ; preds = %122, %121, %118
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %122 ], [ %.sroa.0.2.insert.insert.i, %121 ], [ %.sroa.0.0.isplat.i, %118 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %118 ], [ %.sroa.0.2.insert.insert.i, %121 ], [ %.sroa.0.0.copyload2.i, %122 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -12710,7 +12710,7 @@ LZ4_wildCopy8.exit:                               ; preds = %.preheader
   br i1 %cond.i187, label %._crit_edge, label %.lr.ph189
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %79, %read_variable_length.exit15.thread79, %read_variable_length.exit15, %38, %37, %read_variable_length.exit.thread62, %read_variable_length.exit, %.thread87, %.preheader132, %.preheader129, %.preheader123, %.preheader121, %read_variable_length.exit24, %242, %196, %._crit_edge, %read_variable_length.exit20.thread94, %read_variable_length.exit20, %297, %.loopexit137, %224
-  %.7 = phi ptr [ %.4, %224 ], [ %.17, %read_variable_length.exit24 ], [ %.2, %.loopexit137 ], [ %.2, %297 ], [ %.1597, %read_variable_length.exit20.thread94 ], [ %202, %read_variable_length.exit20 ], [ %.lcssa150, %._crit_edge ], [ %197, %196 ], [ %244, %242 ], [ %249, %.preheader121 ], [ %202, %.preheader123 ], [ %85, %.preheader129 ], [ %44, %.preheader132 ], [ %80, %79 ], [ %85, %read_variable_length.exit15 ], [ %.1382, %read_variable_length.exit15.thread79 ], [ %39, %38 ], [ %31, %37 ], [ %44, %read_variable_length.exit ], [ %.1165, %read_variable_length.exit.thread62 ], [ %.8, %.thread87 ]
+  %.7 = phi ptr [ %.4, %224 ], [ %.2, %.loopexit137 ], [ %.17, %read_variable_length.exit24 ], [ %.2, %297 ], [ %.1597, %read_variable_length.exit20.thread94 ], [ %202, %read_variable_length.exit20 ], [ %.lcssa150, %._crit_edge ], [ %197, %196 ], [ %244, %242 ], [ %249, %.preheader121 ], [ %202, %.preheader123 ], [ %85, %.preheader129 ], [ %44, %.preheader132 ], [ %80, %79 ], [ %85, %read_variable_length.exit15 ], [ %.1382, %read_variable_length.exit15.thread79 ], [ %39, %38 ], [ %31, %37 ], [ %44, %read_variable_length.exit ], [ %.1165, %read_variable_length.exit.thread62 ], [ %.8, %.thread87 ]
   %330 = ptrtoint ptr %.7 to i64
   %331 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %331, %330
@@ -13018,7 +13018,7 @@ read_variable_length.exit19.thread83:             ; preds = %79, %read_variable_
   br i1 %152, label %148, label %.backedge.backedge, !llvm.loop !22
 
 153:                                              ; preds = %119, %118, %115
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %119 ], [ %.sroa.0.2.insert.insert.i, %118 ], [ %.sroa.0.0.isplat.i, %115 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %115 ], [ %.sroa.0.2.insert.insert.i, %118 ], [ %.sroa.0.0.copyload2.i, %119 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -13402,7 +13402,7 @@ read_variable_length.exit28:                      ; preds = %257, %252
   br label %LZ4_decompress_generic.exit
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %76, %read_variable_length.exit19.thread83, %read_variable_length.exit19, %35, %34, %read_variable_length.exit.thread66, %read_variable_length.exit, %.thread91, %.preheader140, %.preheader137, %.preheader130, %.preheader128, %read_variable_length.exit28, %248, %193, %._crit_edge, %read_variable_length.exit24.thread98, %read_variable_length.exit24, %.loopexit145
-  %.8 = phi ptr [ %.18, %read_variable_length.exit28 ], [ %.2, %.loopexit145 ], [ %.16101, %read_variable_length.exit24.thread98 ], [ %199, %read_variable_length.exit24 ], [ %.lcssa158, %._crit_edge ], [ %194, %193 ], [ %250, %248 ], [ %255, %.preheader128 ], [ %199, %.preheader130 ], [ %82, %.preheader137 ], [ %41, %.preheader140 ], [ %77, %76 ], [ %82, %read_variable_length.exit19 ], [ %.1486, %read_variable_length.exit19.thread83 ], [ %36, %35 ], [ %28, %34 ], [ %41, %read_variable_length.exit ], [ %.1269, %read_variable_length.exit.thread66 ], [ %.9, %.thread91 ]
+  %.8 = phi ptr [ %.2, %.loopexit145 ], [ %.18, %read_variable_length.exit28 ], [ %.16101, %read_variable_length.exit24.thread98 ], [ %199, %read_variable_length.exit24 ], [ %.lcssa158, %._crit_edge ], [ %194, %193 ], [ %250, %248 ], [ %255, %.preheader128 ], [ %199, %.preheader130 ], [ %82, %.preheader137 ], [ %41, %.preheader140 ], [ %77, %76 ], [ %82, %read_variable_length.exit19 ], [ %.1486, %read_variable_length.exit19.thread83 ], [ %36, %35 ], [ %28, %34 ], [ %41, %read_variable_length.exit ], [ %.1269, %read_variable_length.exit.thread66 ], [ %.9, %.thread91 ]
   %333 = ptrtoint ptr %.8 to i64
   %334 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %334, %333
@@ -13842,7 +13842,7 @@ read_variable_length.exit15.thread79:             ; preds = %77, %read_variable_
   br i1 %146, label %142, label %.backedge.backedge, !llvm.loop !22
 
 147:                                              ; preds = %113, %112, %109
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %113 ], [ %.sroa.0.2.insert.insert.i, %112 ], [ %.sroa.0.0.isplat.i, %109 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %109 ], [ %.sroa.0.2.insert.insert.i, %112 ], [ %.sroa.0.0.copyload2.i, %113 ]
   store i32 %.sroa.9.0.i, ptr %.3.i.ptr.ptr, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -14217,7 +14217,7 @@ LZ4_wildCopy8.exit:                               ; preds = %.preheader
   br i1 %cond.i201, label %._crit_edge, label %.lr.ph204
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %74, %read_variable_length.exit15.thread79, %read_variable_length.exit15, %37, %36, %read_variable_length.exit.thread62, %read_variable_length.exit, %.thread87, %.preheader146, %.preheader143, %.preheader137, %.preheader135, %read_variable_length.exit24, %223, %182, %._crit_edge, %read_variable_length.exit20.thread94, %read_variable_length.exit20, %277, %.loopexit151, %209
-  %.7 = phi ptr [ %.4, %209 ], [ %.17, %read_variable_length.exit24 ], [ %.2, %.loopexit151 ], [ %.2, %277 ], [ %.1597, %read_variable_length.exit20.thread94 ], [ %188, %read_variable_length.exit20 ], [ %.lcssa164, %._crit_edge ], [ %183, %182 ], [ %225, %223 ], [ %230, %.preheader135 ], [ %188, %.preheader137 ], [ %80, %.preheader143 ], [ %43, %.preheader146 ], [ %75, %74 ], [ %80, %read_variable_length.exit15 ], [ %.1382, %read_variable_length.exit15.thread79 ], [ %38, %37 ], [ %30, %36 ], [ %43, %read_variable_length.exit ], [ %.1165, %read_variable_length.exit.thread62 ], [ %.8, %.thread87 ]
+  %.7 = phi ptr [ %.4, %209 ], [ %.2, %.loopexit151 ], [ %.17, %read_variable_length.exit24 ], [ %.2, %277 ], [ %.1597, %read_variable_length.exit20.thread94 ], [ %188, %read_variable_length.exit20 ], [ %.lcssa164, %._crit_edge ], [ %183, %182 ], [ %225, %223 ], [ %230, %.preheader135 ], [ %188, %.preheader137 ], [ %80, %.preheader143 ], [ %43, %.preheader146 ], [ %75, %74 ], [ %80, %read_variable_length.exit15 ], [ %.1382, %read_variable_length.exit15.thread79 ], [ %38, %37 ], [ %30, %36 ], [ %43, %read_variable_length.exit ], [ %.1165, %read_variable_length.exit.thread62 ], [ %.8, %.thread87 ]
   %310 = ptrtoint ptr %.7 to i64
   %311 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %311, %310
@@ -14708,7 +14708,7 @@ read_variable_length.exit17.thread81:             ; preds = %89, %read_variable_
   br i1 %186, label %182, label %.backedge.backedge, !llvm.loop !22
 
 187:                                              ; preds = %153, %152, %149
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %153 ], [ %.sroa.0.2.insert.insert.i, %152 ], [ %.sroa.0.0.isplat.i, %149 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %149 ], [ %.sroa.0.2.insert.insert.i, %152 ], [ %.sroa.0.0.copyload2.i, %153 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -15128,7 +15128,7 @@ LZ4_wildCopy8.exit:                               ; preds = %.preheader122
   br i1 %cond.i196, label %._crit_edge, label %.lr.ph198
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %86, %read_variable_length.exit17.thread81, %read_variable_length.exit17, %45, %44, %read_variable_length.exit.thread64, %read_variable_length.exit, %125, %.thread89, %.preheader138, %.preheader135, %.preheader126, %.preheader124, %read_variable_length.exit26, %273, %227, %._crit_edge, %read_variable_length.exit22.thread96, %read_variable_length.exit22, %353, %300, %.loopexit143, %255
-  %.7 = phi ptr [ %.4, %255 ], [ %.17, %read_variable_length.exit26 ], [ %.2, %.loopexit143 ], [ %.2, %300 ], [ %.2, %353 ], [ %.1599, %read_variable_length.exit22.thread96 ], [ %233, %read_variable_length.exit22 ], [ %.lcssa156, %._crit_edge ], [ %228, %227 ], [ %275, %273 ], [ %280, %.preheader124 ], [ %233, %.preheader126 ], [ %92, %.preheader135 ], [ %51, %.preheader138 ], [ %87, %86 ], [ %92, %read_variable_length.exit17 ], [ %.1384, %read_variable_length.exit17.thread81 ], [ %46, %45 ], [ %38, %44 ], [ %51, %read_variable_length.exit ], [ %.1167, %read_variable_length.exit.thread64 ], [ %.8, %125 ], [ %.8, %.thread89 ]
+  %.7 = phi ptr [ %.4, %255 ], [ %.2, %.loopexit143 ], [ %.17, %read_variable_length.exit26 ], [ %.2, %300 ], [ %.2, %353 ], [ %.1599, %read_variable_length.exit22.thread96 ], [ %233, %read_variable_length.exit22 ], [ %.lcssa156, %._crit_edge ], [ %228, %227 ], [ %275, %273 ], [ %280, %.preheader124 ], [ %233, %.preheader126 ], [ %92, %.preheader135 ], [ %51, %.preheader138 ], [ %87, %86 ], [ %92, %read_variable_length.exit17 ], [ %.1384, %read_variable_length.exit17.thread81 ], [ %46, %45 ], [ %38, %44 ], [ %51, %read_variable_length.exit ], [ %.1167, %read_variable_length.exit.thread64 ], [ %.8, %125 ], [ %.8, %.thread89 ]
   %386 = ptrtoint ptr %.7 to i64
   %387 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %387, %386
@@ -15501,7 +15501,7 @@ read_variable_length.exit21.thread85:             ; preds = %86, %read_variable_
   br i1 %190, label %186, label %.backedge.backedge, !llvm.loop !22
 
 191:                                              ; preds = %157, %156, %153
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %157 ], [ %.sroa.0.2.insert.insert.i, %156 ], [ %.sroa.0.0.isplat.i, %153 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %153 ], [ %.sroa.0.2.insert.insert.i, %156 ], [ %.sroa.0.0.copyload2.i, %157 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -15946,7 +15946,7 @@ read_variable_length.exit30:                      ; preds = %295, %290
   br label %LZ4_decompress_generic.exit
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %83, %read_variable_length.exit21.thread85, %read_variable_length.exit21, %42, %41, %read_variable_length.exit.thread68, %read_variable_length.exit, %.thread93, %.preheader144, %.preheader141, %.preheader133, %.preheader131, %read_variable_length.exit30, %286, %231, %._crit_edge, %read_variable_length.exit26.thread100, %read_variable_length.exit26, %.loopexit149
-  %.8 = phi ptr [ %.18, %read_variable_length.exit30 ], [ %.2, %.loopexit149 ], [ %.16103, %read_variable_length.exit26.thread100 ], [ %237, %read_variable_length.exit26 ], [ %.lcssa162, %._crit_edge ], [ %232, %231 ], [ %288, %286 ], [ %293, %.preheader131 ], [ %237, %.preheader133 ], [ %89, %.preheader141 ], [ %48, %.preheader144 ], [ %84, %83 ], [ %89, %read_variable_length.exit21 ], [ %.1488, %read_variable_length.exit21.thread85 ], [ %43, %42 ], [ %35, %41 ], [ %48, %read_variable_length.exit ], [ %.1271, %read_variable_length.exit.thread68 ], [ %.9, %.thread93 ]
+  %.8 = phi ptr [ %.2, %.loopexit149 ], [ %.18, %read_variable_length.exit30 ], [ %.16103, %read_variable_length.exit26.thread100 ], [ %237, %read_variable_length.exit26 ], [ %.lcssa162, %._crit_edge ], [ %232, %231 ], [ %288, %286 ], [ %293, %.preheader131 ], [ %237, %.preheader133 ], [ %89, %.preheader141 ], [ %48, %.preheader144 ], [ %84, %83 ], [ %89, %read_variable_length.exit21 ], [ %.1488, %read_variable_length.exit21.thread85 ], [ %43, %42 ], [ %35, %41 ], [ %48, %read_variable_length.exit ], [ %.1271, %read_variable_length.exit.thread68 ], [ %.9, %.thread93 ]
   %403 = ptrtoint ptr %.8 to i64
   %404 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %404, %403
@@ -16406,7 +16406,7 @@ read_variable_length.exit77.thread143:            ; preds = %117, %read_variable
   br i1 %214, label %210, label %.backedge.backedge, !llvm.loop !22
 
 215:                                              ; preds = %181, %180, %177
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %181 ], [ %.sroa.0.2.insert.insert.i, %180 ], [ %.sroa.0.0.isplat.i, %177 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %177 ], [ %.sroa.0.2.insert.insert.i, %180 ], [ %.sroa.0.0.copyload2.i, %181 ]
   store i32 %.sroa.9.0.i, ptr %.3.i.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -16827,7 +16827,7 @@ LZ4_wildCopy8.exit:                               ; preds = %.preheader188
   br i1 %cond.i.i262, label %._crit_edge, label %.lr.ph264
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %114, %read_variable_length.exit77.thread143, %read_variable_length.exit77, %73, %72, %read_variable_length.exit.thread126, %read_variable_length.exit, %153, %.thread151, %.preheader204, %.preheader201, %.preheader192, %.preheader190, %read_variable_length.exit86, %301, %255, %._crit_edge, %read_variable_length.exit82.thread158, %read_variable_length.exit82, %382, %328, %.loopexit209, %283
-  %.7 = phi ptr [ %.4, %283 ], [ %.17, %read_variable_length.exit86 ], [ %.2, %.loopexit209 ], [ %.2, %328 ], [ %.2, %382 ], [ %.15161, %read_variable_length.exit82.thread158 ], [ %261, %read_variable_length.exit82 ], [ %.lcssa222, %._crit_edge ], [ %256, %255 ], [ %303, %301 ], [ %308, %.preheader190 ], [ %261, %.preheader192 ], [ %120, %.preheader201 ], [ %79, %.preheader204 ], [ %115, %114 ], [ %120, %read_variable_length.exit77 ], [ %.13146, %read_variable_length.exit77.thread143 ], [ %74, %73 ], [ %66, %72 ], [ %79, %read_variable_length.exit ], [ %.11129, %read_variable_length.exit.thread126 ], [ %.8, %153 ], [ %.8, %.thread151 ]
+  %.7 = phi ptr [ %.4, %283 ], [ %.2, %.loopexit209 ], [ %.17, %read_variable_length.exit86 ], [ %.2, %328 ], [ %.2, %382 ], [ %.15161, %read_variable_length.exit82.thread158 ], [ %261, %read_variable_length.exit82 ], [ %.lcssa222, %._crit_edge ], [ %256, %255 ], [ %303, %301 ], [ %308, %.preheader190 ], [ %261, %.preheader192 ], [ %120, %.preheader201 ], [ %79, %.preheader204 ], [ %115, %114 ], [ %120, %read_variable_length.exit77 ], [ %.13146, %read_variable_length.exit77.thread143 ], [ %74, %73 ], [ %66, %72 ], [ %79, %read_variable_length.exit ], [ %.11129, %read_variable_length.exit.thread126 ], [ %.8, %153 ], [ %.8, %.thread151 ]
   %415 = ptrtoint ptr %.7 to i64
   %416 = ptrtoint ptr %1 to i64
   %.neg.i.i = sub i64 %416, %415
@@ -17177,7 +17177,7 @@ read_variable_length.exit16.thread80:             ; preds = %85, %read_variable_
   br i1 %158, label %154, label %.backedge.backedge, !llvm.loop !22
 
 159:                                              ; preds = %125, %124, %121
-  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.copyload2.i, %125 ], [ %.sroa.0.2.insert.insert.i, %124 ], [ %.sroa.0.0.isplat.i, %121 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.0.0.isplat.i, %121 ], [ %.sroa.0.2.insert.insert.i, %124 ], [ %.sroa.0.0.copyload2.i, %125 ]
   store i32 %.sroa.9.0.i, ptr %.3.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store i32 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 1
@@ -17549,7 +17549,7 @@ LZ4_wildCopy8.exit:                               ; preds = %.preheader
   br i1 %cond.i188, label %._crit_edge, label %.lr.ph190
 
 LZ4_wildCopy32.exit.thread:                       ; preds = %82, %read_variable_length.exit16.thread80, %read_variable_length.exit16, %41, %40, %read_variable_length.exit.thread63, %read_variable_length.exit, %.thread88, %.preheader133, %.preheader130, %.preheader124, %.preheader122, %read_variable_length.exit25, %245, %199, %._crit_edge, %read_variable_length.exit21.thread95, %read_variable_length.exit21, %300, %.loopexit138, %227
-  %.7 = phi ptr [ %.4, %227 ], [ %.17, %read_variable_length.exit25 ], [ %.2, %.loopexit138 ], [ %.2, %300 ], [ %.1598, %read_variable_length.exit21.thread95 ], [ %205, %read_variable_length.exit21 ], [ %.lcssa151, %._crit_edge ], [ %200, %199 ], [ %247, %245 ], [ %252, %.preheader122 ], [ %205, %.preheader124 ], [ %88, %.preheader130 ], [ %47, %.preheader133 ], [ %83, %82 ], [ %88, %read_variable_length.exit16 ], [ %.1383, %read_variable_length.exit16.thread80 ], [ %42, %41 ], [ %34, %40 ], [ %47, %read_variable_length.exit ], [ %.1166, %read_variable_length.exit.thread63 ], [ %.8, %.thread88 ]
+  %.7 = phi ptr [ %.4, %227 ], [ %.2, %.loopexit138 ], [ %.17, %read_variable_length.exit25 ], [ %.2, %300 ], [ %.1598, %read_variable_length.exit21.thread95 ], [ %205, %read_variable_length.exit21 ], [ %.lcssa151, %._crit_edge ], [ %200, %199 ], [ %247, %245 ], [ %252, %.preheader122 ], [ %205, %.preheader124 ], [ %88, %.preheader130 ], [ %47, %.preheader133 ], [ %83, %82 ], [ %88, %read_variable_length.exit16 ], [ %.1383, %read_variable_length.exit16.thread80 ], [ %42, %41 ], [ %34, %40 ], [ %47, %read_variable_length.exit ], [ %.1166, %read_variable_length.exit.thread63 ], [ %.8, %.thread88 ]
   %333 = ptrtoint ptr %.7 to i64
   %334 = ptrtoint ptr %0 to i64
   %.neg.i = sub i64 %334, %333
@@ -18379,7 +18379,7 @@ read_variable_length.exit19.thread83.i:           ; preds = %read_variable_lengt
   br i1 %155, label %151, label %.backedge.i.backedge, !llvm.loop !22
 
 156:                                              ; preds = %122, %121, %118
-  %.sroa.9.0.i.i = phi i32 [ %.sroa.0.0.copyload2.i.i, %122 ], [ %.sroa.0.2.insert.insert.i.i, %121 ], [ %.sroa.0.0.isplat.i.i, %118 ]
+  %.sroa.9.0.i.i = phi i32 [ %.sroa.0.0.isplat.i.i, %118 ], [ %.sroa.0.2.insert.insert.i.i, %121 ], [ %.sroa.0.0.copyload2.i.i, %122 ]
   store i32 %.sroa.9.0.i.i, ptr %.3.i.ptr.ptr.i, align 1
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 4
   store i32 %.sroa.9.0.i.i, ptr %.sroa.9.0..sroa_idx.i.i, align 1
@@ -18767,7 +18767,7 @@ read_variable_length.exit28.i:                    ; preds = %248, %243
   br label %LZ4_decompress_safe_partial_withPrefix64k.exit
 
 LZ4_wildCopy32.exit.thread.i:                     ; preds = %.thread91.i, %read_variable_length.exit19.thread83.i, %read_variable_length.exit19.i, %83, %read_variable_length.exit.thread66.i, %read_variable_length.exit.i, %46, %45, %.preheader158.i, %.preheader155.i, %.preheader148.i, %.preheader146.i, %.loopexit163.i, %read_variable_length.exit28.i, %239, %read_variable_length.exit24.thread98.i, %read_variable_length.exit24.i, %191, %._crit_edge.i
-  %.8.i = phi ptr [ %.18.i, %read_variable_length.exit28.i ], [ %.2.i, %.loopexit163.i ], [ %.16101.i, %read_variable_length.exit24.thread98.i ], [ %197, %read_variable_length.exit24.i ], [ %.lcssa176.i, %._crit_edge.i ], [ %192, %191 ], [ %241, %239 ], [ %246, %.preheader146.i ], [ %197, %.preheader148.i ], [ %89, %.preheader155.i ], [ %52, %.preheader158.i ], [ %.9.i, %.thread91.i ], [ %.1269.i, %read_variable_length.exit.thread66.i ], [ %52, %read_variable_length.exit.i ], [ %39, %45 ], [ %47, %46 ], [ %.1486.i, %read_variable_length.exit19.thread83.i ], [ %89, %read_variable_length.exit19.i ], [ %84, %83 ]
+  %.8.i = phi ptr [ %.2.i, %.loopexit163.i ], [ %.18.i, %read_variable_length.exit28.i ], [ %.16101.i, %read_variable_length.exit24.thread98.i ], [ %197, %read_variable_length.exit24.i ], [ %.lcssa176.i, %._crit_edge.i ], [ %192, %191 ], [ %241, %239 ], [ %246, %.preheader146.i ], [ %197, %.preheader148.i ], [ %89, %.preheader155.i ], [ %52, %.preheader158.i ], [ %.9.i, %.thread91.i ], [ %.1269.i, %read_variable_length.exit.thread66.i ], [ %52, %read_variable_length.exit.i ], [ %39, %45 ], [ %47, %46 ], [ %.1486.i, %read_variable_length.exit19.thread83.i ], [ %89, %read_variable_length.exit19.i ], [ %84, %83 ]
   %321 = ptrtoint ptr %.8.i to i64
   %322 = ptrtoint ptr %0 to i64
   %.neg.i.i = sub i64 %322, %321
@@ -19070,7 +19070,7 @@ read_variable_length.exit20.thread84.i:           ; preds = %read_variable_lengt
   br i1 %473, label %469, label %.backedge.i75.backedge, !llvm.loop !22
 
 474:                                              ; preds = %440, %439, %436
-  %.sroa.9.0.i.i78 = phi i32 [ %.sroa.0.0.copyload2.i.i77, %440 ], [ %.sroa.0.2.insert.insert.i.i86, %439 ], [ %.sroa.0.0.isplat.i.i87, %436 ]
+  %.sroa.9.0.i.i78 = phi i32 [ %.sroa.0.0.isplat.i.i87, %436 ], [ %.sroa.0.2.insert.insert.i.i86, %439 ], [ %.sroa.0.0.copyload2.i.i77, %440 ]
   store i32 %.sroa.9.0.i.i78, ptr %.3.i.i, align 1
   %.sroa.9.0..sroa_idx.i.i79 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   store i32 %.sroa.9.0.i.i78, ptr %.sroa.9.0..sroa_idx.i.i79, align 1
@@ -19454,7 +19454,7 @@ read_variable_length.exit29.i:                    ; preds = %578, %573
   br label %LZ4_decompress_safe_partial_withPrefix64k.exit
 
 LZ4_wildCopy32.exit.thread.i55:                   ; preds = %.thread92.i, %read_variable_length.exit20.thread84.i, %read_variable_length.exit20.i, %397, %read_variable_length.exit.thread67.i, %read_variable_length.exit.i99, %356, %355, %.preheader141.i, %.preheader138.i, %.preheader131.i, %.preheader129.i, %.loopexit146.i, %read_variable_length.exit29.i, %569, %read_variable_length.exit25.thread99.i, %read_variable_length.exit25.i, %514, %._crit_edge.i67
-  %.8.i56 = phi ptr [ %.18.i53, %read_variable_length.exit29.i ], [ %.2.i36, %.loopexit146.i ], [ %.16102.i, %read_variable_length.exit25.thread99.i ], [ %520, %read_variable_length.exit25.i ], [ %.lcssa159.i, %._crit_edge.i67 ], [ %515, %514 ], [ %571, %569 ], [ %576, %.preheader129.i ], [ %520, %.preheader131.i ], [ %403, %.preheader138.i ], [ %362, %.preheader141.i ], [ %.9.i73, %.thread92.i ], [ %.1270.i, %read_variable_length.exit.thread67.i ], [ %362, %read_variable_length.exit.i99 ], [ %349, %355 ], [ %357, %356 ], [ %.1487.i, %read_variable_length.exit20.thread84.i ], [ %403, %read_variable_length.exit20.i ], [ %398, %397 ]
+  %.8.i56 = phi ptr [ %.2.i36, %.loopexit146.i ], [ %.18.i53, %read_variable_length.exit29.i ], [ %.16102.i, %read_variable_length.exit25.thread99.i ], [ %520, %read_variable_length.exit25.i ], [ %.lcssa159.i, %._crit_edge.i67 ], [ %515, %514 ], [ %571, %569 ], [ %576, %.preheader129.i ], [ %520, %.preheader131.i ], [ %403, %.preheader138.i ], [ %362, %.preheader141.i ], [ %.9.i73, %.thread92.i ], [ %.1270.i, %read_variable_length.exit.thread67.i ], [ %362, %read_variable_length.exit.i99 ], [ %349, %355 ], [ %357, %356 ], [ %.1487.i, %read_variable_length.exit20.thread84.i ], [ %403, %read_variable_length.exit20.i ], [ %398, %397 ]
   %654 = ptrtoint ptr %.8.i56 to i64
   %655 = ptrtoint ptr %0 to i64
   %.neg.i.i57 = sub i64 %655, %654

@@ -2727,8 +2727,8 @@ _ZL14isPrecededBy_IPFiPvaES_.exit:                ; preds = %287, %290, %282, %4
   %300 = xor i32 %.0123, %299
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread169
 
-_ZL14isPrecededBy_IPFiPvaES_.exit.thread169:      ; preds = %127, %_ZL10getDotTypei.exit.i158, %.preheader.i151, %177, %235, %118, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %251, %277, %230, %112, %113, %114, %115, %116, %117, %_ZL14isPrecededBy_IPFiPvaES_.exit
-  %.1 = phi i32 [ %300, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ 962, %235 ], [ 105, %118 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ %252, %251 ], [ %281, %277 ], [ 2, %230 ], [ 2, %112 ], [ 2, %113 ], [ 2, %114 ], [ 3, %115 ], [ 3, %116 ], [ 3, %117 ], [ 305, %177 ], [ 305, %.preheader.i151 ], [ 305, %_ZL10getDotTypei.exit.i158 ], [ 0, %127 ]
+_ZL14isPrecededBy_IPFiPvaES_.exit.thread169:      ; preds = %127, %_ZL10getDotTypei.exit.i158, %.preheader.i151, %177, %235, %118, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %251, %277, %230, %117, %116, %115, %114, %113, %112, %_ZL14isPrecededBy_IPFiPvaES_.exit
+  %.1 = phi i32 [ %300, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ 962, %235 ], [ 105, %118 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ %252, %251 ], [ %281, %277 ], [ 2, %230 ], [ 3, %117 ], [ 3, %116 ], [ 3, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %112 ], [ 305, %177 ], [ 305, %.preheader.i151 ], [ 305, %_ZL10getDotTypei.exit.i158 ], [ 0, %127 ]
   ret i32 %.1
 }
 
@@ -4222,7 +4222,7 @@ ucase_getTypeOrIgnorable_77.exit:                 ; preds = %233, %235, %.sink.s
   br label %283
 
 283:                                              ; preds = %2, %273, %276, %279, %269, %265, %261, %ucase_getTypeOrIgnorable_77.exit, %ucase_getType_77.exit20, %ucase_isCaseSensitive_77.exit, %ucase_isSoftDotted_77.exit, %ucase_getType_77.exit16, %ucase_getType_77.exit
-  %.0 = phi i32 [ %272, %269 ], [ %268, %265 ], [ %264, %261 ], [ %260, %ucase_getTypeOrIgnorable_77.exit ], [ %221, %ucase_getType_77.exit20 ], [ %182, %ucase_isCaseSensitive_77.exit ], [ %132, %ucase_isSoftDotted_77.exit ], [ %81, %ucase_getType_77.exit16 ], [ %42, %ucase_getType_77.exit ], [ 1, %276 ], [ 1, %273 ], [ %282, %279 ], [ 0, %2 ]
+  %.0 = phi i32 [ %42, %ucase_getType_77.exit ], [ %81, %ucase_getType_77.exit16 ], [ %132, %ucase_isSoftDotted_77.exit ], [ %182, %ucase_isCaseSensitive_77.exit ], [ %221, %ucase_getType_77.exit20 ], [ %260, %ucase_getTypeOrIgnorable_77.exit ], [ %264, %261 ], [ %268, %265 ], [ %272, %269 ], [ 1, %276 ], [ 1, %273 ], [ %282, %279 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %.0
 }

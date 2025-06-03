@@ -341,7 +341,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN54_$LT$std..path..Prefix$u20$as$u20$core..fmt..Debug$GT$3fmt17h05011b8cfe52a883E.exit"
 
 "_ZN54_$LT$std..path..Prefix$u20$as$u20$core..fmt..Debug$GT$3fmt17h05011b8cfe52a883E.exit": ; preds = %11, %14, %18, %21, %24, %28
-  %.0.in.i = phi i1 [ %30, %28 ], [ %27, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %14 ], [ %13, %11 ]
+  %.0.in.i = phi i1 [ %13, %11 ], [ %17, %14 ], [ %20, %18 ], [ %23, %21 ], [ %27, %24 ], [ %30, %28 ]
   ret i1 %.0.in.i
 }
 

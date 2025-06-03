@@ -16975,7 +16975,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.e
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i.us
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i.us: ; preds = %104, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us, %._crit_edge._crit_edge52.i.i.i.i.i.us, %._crit_edge.i.i.i.i.i.us
-  %.sroa.012.1.us = phi ptr [ %.sroa.012.0.us, %._crit_edge.i.i.i.i.i.us ], [ %.sroa.012.0.us, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us ], [ %106, %104 ], [ %.sroa.012.0.us, %._crit_edge._crit_edge52.i.i.i.i.i.us ]
+  %.sroa.012.1.us = phi ptr [ %.sroa.012.0.us, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.i.us ], [ %106, %104 ], [ %.sroa.012.0.us, %._crit_edge._crit_edge52.i.i.i.i.i.us ], [ %.sroa.012.0.us, %._crit_edge.i.i.i.i.i.us ]
   %107 = getelementptr inbounds nuw i8, ptr %.01329.i.us, i64 8
   %.not18.i.us = icmp eq ptr %107, %66
   br i1 %.not18.i.us, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %.lr.ph.i.split.us

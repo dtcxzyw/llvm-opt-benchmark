@@ -8317,6 +8317,11 @@ l_Array_contains___at___private_Lean_Meta_FunInfo_0__Lean_Meta_collectDeps_visit
   %62 = tail call ptr @l___private_Lean_Meta_FunInfo_0__Lean_Meta_collectDeps_visit(ptr noundef %0, ptr noundef %56, ptr noundef %.074.ph)
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %61, %70, %79, %90
+  %.074.ph.be = phi ptr [ %92, %90 ], [ %80, %79 ], [ %71, %70 ], [ %62, %61 ]
+  %.069.ph.be = phi ptr [ %87, %90 ], [ %76, %79 ], [ %67, %70 ], [ %58, %61 ]
+  br label %.outer
+
 63:                                               ; preds = %lean_obj_tag.exit
   %64 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !9
@@ -8358,11 +8363,6 @@ l_Array_contains___at___private_Lean_Meta_FunInfo_0__Lean_Meta_collectDeps_visit
   %91 = tail call ptr @l___private_Lean_Meta_FunInfo_0__Lean_Meta_collectDeps_visit(ptr noundef %0, ptr noundef %83, ptr noundef %.074.ph)
   %92 = tail call ptr @l___private_Lean_Meta_FunInfo_0__Lean_Meta_collectDeps_visit(ptr noundef %0, ptr noundef %85, ptr noundef %91)
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %90, %79, %70, %61
-  %.074.ph.be = phi ptr [ %62, %61 ], [ %71, %70 ], [ %80, %79 ], [ %92, %90 ]
-  %.069.ph.be = phi ptr [ %58, %61 ], [ %67, %70 ], [ %76, %79 ], [ %87, %90 ]
-  br label %.outer
 
 93:                                               ; preds = %lean_obj_tag.exit
   br label %.backedge

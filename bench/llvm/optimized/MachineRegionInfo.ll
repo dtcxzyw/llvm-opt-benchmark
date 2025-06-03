@@ -7307,9 +7307,9 @@ _ZN4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit87: ; preds
   br i1 %109, label %_ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit, label %.lr.ph.i.i.i.i.i, !prof !117, !llvm.loop !478
 
 _ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %103, %90
-  %.lcssa.i.i.i.i.pn.i = phi i64 [ %97, %90 ], [ %106, %103 ]
+  %.pn.i = phi i64 [ %97, %90 ], [ %106, %103 ]
   %110 = zext i32 %88 to i64
-  %.not96 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %110
+  %.not96 = icmp samesign eq i64 %.pn.i, %110
   br i1 %.not96, label %_ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread, label %111
 
 111:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

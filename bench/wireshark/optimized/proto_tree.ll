@@ -3069,7 +3069,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %160, %_ZN17QArrayDa
   ret void
 
 .body:                                            ; preds = %151, %_ZN7QStringD2Ev.exit5.i, %124, %96, %71
-  %.pn38 = phi { ptr, i32 } [ %72, %71 ], [ %.pn34, %124 ], [ %.pn36, %96 ], [ %152, %151 ], [ %145, %_ZN7QStringD2Ev.exit5.i ]
+  %.pn38 = phi { ptr, i32 } [ %72, %71 ], [ %.pn36, %96 ], [ %.pn34, %124 ], [ %152, %151 ], [ %145, %_ZN7QStringD2Ev.exit5.i ]
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(40) %9) #21
   br label %165
 

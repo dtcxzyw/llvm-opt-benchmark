@@ -2297,8 +2297,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.i.i: ; preds = 
   br label %common.resume
 
 _ZL17do_pull_pot_coordRK6pull_tP17pull_coord_work_tRK5t_pbcdfPfS7_.exit: ; preds = %123, %137
-  %.3.in = phi double [ %144, %137 ], [ %132, %123 ]
-  %storemerge.in.i.i = phi double [ %147, %137 ], [ %136, %123 ]
+  %.3.in = phi double [ %132, %123 ], [ %144, %137 ]
+  %storemerge.in.i.i = phi double [ %136, %123 ], [ %147, %137 ]
   %.3 = fptrunc double %.3.in to float
   %storemerge.i.i = fptrunc double %storemerge.in.i.i to float
   br label %186
@@ -2436,7 +2436,7 @@ define internal fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t
   br label %_ZL17make_periodic_2piPd.exit
 
 _ZL17make_periodic_2piPd.exit:                    ; preds = %.sink.split.i, %34, %2, %16, %7
-  %.0 = phi double [ %1, %2 ], [ %1, %16 ], [ %1, %7 ], [ %36, %.sink.split.i ], [ %1, %34 ]
+  %.0 = phi double [ %1, %2 ], [ %1, %7 ], [ %1, %16 ], [ %36, %.sink.split.i ], [ %1, %34 ]
   ret double %.0
 
 37:                                               ; preds = %30, %14
@@ -4137,7 +4137,7 @@ common.resume.i:                                  ; preds = %1007, %249, %232
   resume { ptr, i32 } %common.resume.op.i
 
 _ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd.exit.i: ; preds = %.sink.split.i.i.i, %253, %234, %225, %212
-  %.0.i.i = phi double [ %224, %212 ], [ %224, %234 ], [ %224, %225 ], [ %255, %.sink.split.i.i.i ], [ %224, %253 ]
+  %.0.i.i = phi double [ %224, %212 ], [ %224, %225 ], [ %224, %234 ], [ %255, %.sink.split.i.i.i ], [ %224, %253 ]
   store double %.0.i.i, ptr %208, align 8, !tbaa !78
   br label %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i
 
@@ -4548,12 +4548,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %665
 
 469:                                              ; preds = %430, %389
-  %470 = phi double [ %439, %430 ], [ %401, %389 ]
-  %471 = phi double [ %438, %430 ], [ %400, %389 ]
-  %472 = phi double [ %437, %430 ], [ %399, %389 ]
-  %.sroa.0399.0.i = phi double [ %443, %430 ], [ %405, %389 ]
-  %.sroa.8.0.i = phi double [ %444, %430 ], [ %406, %389 ]
-  %.sroa.13.0.i = phi double [ %445, %430 ], [ %407, %389 ]
+  %470 = phi double [ %401, %389 ], [ %439, %430 ]
+  %471 = phi double [ %400, %389 ], [ %438, %430 ]
+  %472 = phi double [ %399, %389 ], [ %437, %430 ]
+  %.sroa.0399.0.i = phi double [ %405, %389 ], [ %443, %430 ]
+  %.sroa.8.0.i = phi double [ %406, %389 ], [ %444, %430 ]
+  %.sroa.13.0.i = phi double [ %407, %389 ], [ %445, %430 ]
   %473 = load ptr, ptr @debug, align 8, !tbaa !115
   %.not281.i = icmp eq ptr %473, null
   br i1 %.not281.i, label %630, label %474
@@ -5156,8 +5156,8 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
   br label %798
 
 798:                                              ; preds = %786, %784, %783, %760, %742, %.lr.ph499.i
-  %.2242.i = phi i1 [ %.1241497.i, %.lr.ph499.i ], [ false, %784 ], [ false, %786 ], [ true, %783 ], [ true, %760 ], [ true, %742 ]
-  %.2.i = phi i1 [ %.1498.i, %.lr.ph499.i ], [ false, %784 ], [ false, %786 ], [ %.1498.i, %783 ], [ %.1498.i, %760 ], [ %.1498.i, %742 ]
+  %.2242.i = phi i1 [ %.1241497.i, %.lr.ph499.i ], [ false, %784 ], [ false, %786 ], [ true, %783 ], [ true, %742 ], [ true, %760 ]
+  %.2.i = phi i1 [ %.1498.i, %.lr.ph499.i ], [ false, %784 ], [ false, %786 ], [ %.1498.i, %783 ], [ %.1498.i, %742 ], [ %.1498.i, %760 ]
   %799 = getelementptr inbounds nuw i8, ptr %.sroa.0395.0496.i, i64 488
   %.not433.i = icmp eq ptr %799, %.lcssa454.i
   br i1 %.not433.i, label %._crit_edge.i, label %.lr.ph499.i
@@ -7044,8 +7044,8 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit.i: ; preds = %488
   br label %554
 
 554:                                              ; preds = %551, %523, %521
-  %.0132.i = phi float [ %storemerge.i, %521 ], [ %553, %551 ], [ %524, %523 ]
-  %.1111.i = phi float [ %.0110.i, %521 ], [ %.0109.i, %551 ], [ 1.000000e+00, %523 ]
+  %.0132.i = phi float [ %storemerge.i, %521 ], [ %524, %523 ], [ %553, %551 ]
+  %.1111.i = phi float [ %.0110.i, %521 ], [ 1.000000e+00, %523 ], [ %.0109.i, %551 ]
   br i1 %440, label %555, label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i
 
 555:                                              ; preds = %554

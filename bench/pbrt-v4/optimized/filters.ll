@@ -2314,7 +2314,7 @@ _ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEE
   br label %339
 
 339:                                              ; preds = %329, %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i, %.noexc40, %.noexc39, %110, %106
-  %.0.i = phi float [ %338, %329 ], [ %328, %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i ], [ %285, %.noexc40 ], [ %179, %.noexc39 ], [ 0.000000e+00, %106 ], [ %114, %110 ]
+  %.0.i = phi float [ %338, %329 ], [ %179, %.noexc39 ], [ %285, %.noexc40 ], [ %328, %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i ], [ 0.000000e+00, %106 ], [ %114, %110 ]
   %340 = load i32, ptr %19, align 8, !tbaa !114
   %341 = sub i32 %.02452, %340
   %342 = load i32, ptr %51, align 4, !tbaa !111

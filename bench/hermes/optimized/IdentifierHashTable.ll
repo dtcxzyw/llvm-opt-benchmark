@@ -144,7 +144,7 @@ sw.epilog.i.i:                                    ; preds = %while.body
   unreachable
 
 _ZNK6hermes12CompactTable7isEmptyEj.exit:         ; preds = %sw.bb.i.i, %sw.bb2.i.i, %sw.bb5.i.i
-  %retval.0.i.i = phi i32 [ %16, %sw.bb5.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %conv.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i.i, %sw.bb.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %16, %sw.bb5.i.i ]
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -184,7 +184,7 @@ sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
-  %retval.0.i.i20 = phi i32 [ %19, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
+  %retval.0.i.i20 = phi i32 [ %conv.i.i.i27, %sw.bb.i.i25 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %19, %sw.bb5.i.i18 ]
   %cmp.i21 = icmp eq i32 %retval.0.i.i20, 1
   br i1 %cmp.i21, label %if.end53, label %if.then9
 
@@ -217,7 +217,7 @@ sw.epilog.i.i42:                                  ; preds = %if.then9
   unreachable
 
 _ZNK6hermes12CompactTable3getEj.exit:             ; preds = %sw.bb.i.i39, %sw.bb2.i.i36, %sw.bb5.i.i33
-  %retval.0.i.i35 = phi i32 [ %23, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
+  %retval.0.i.i35 = phi i32 [ %conv.i.i.i41, %sw.bb.i.i39 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %23, %sw.bb5.i.i33 ]
   %sub.i = add i32 %retval.0.i.i35, -2
   %conv.i = zext i32 %sub.i to i64
   %24 = load ptr, ptr %20, align 8
@@ -537,7 +537,7 @@ sw.epilog.i.i:                                    ; preds = %while.body
   unreachable
 
 _ZNK6hermes12CompactTable7isEmptyEj.exit:         ; preds = %sw.bb.i.i, %sw.bb2.i.i, %sw.bb5.i.i
-  %retval.0.i.i = phi i32 [ %16, %sw.bb5.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %conv.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i.i, %sw.bb.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %16, %sw.bb5.i.i ]
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -577,7 +577,7 @@ sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
-  %retval.0.i.i20 = phi i32 [ %19, %sw.bb5.i.i18 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %conv.i.i.i27, %sw.bb.i.i25 ]
+  %retval.0.i.i20 = phi i32 [ %conv.i.i.i27, %sw.bb.i.i25 ], [ %conv.i5.i.i24, %sw.bb2.i.i22 ], [ %19, %sw.bb5.i.i18 ]
   %cmp.i21 = icmp eq i32 %retval.0.i.i20, 1
   br i1 %cmp.i21, label %if.end53, label %if.then9
 
@@ -610,7 +610,7 @@ sw.epilog.i.i42:                                  ; preds = %if.then9
   unreachable
 
 _ZNK6hermes12CompactTable3getEj.exit:             ; preds = %sw.bb.i.i39, %sw.bb2.i.i36, %sw.bb5.i.i33
-  %retval.0.i.i35 = phi i32 [ %23, %sw.bb5.i.i33 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %conv.i.i.i41, %sw.bb.i.i39 ]
+  %retval.0.i.i35 = phi i32 [ %conv.i.i.i41, %sw.bb.i.i39 ], [ %conv.i5.i.i38, %sw.bb2.i.i36 ], [ %23, %sw.bb5.i.i33 ]
   %sub.i = add i32 %retval.0.i.i35, -2
   %conv.i = zext i32 %sub.i to i64
   %24 = load ptr, ptr %20, align 8
@@ -1182,7 +1182,7 @@ sw.epilog.i.i:                                    ; preds = %for.body
   unreachable
 
 _ZNK6hermes12CompactTable7isValidEj.exit:         ; preds = %sw.bb.i.i, %sw.bb2.i.i, %sw.bb5.i.i
-  %retval.0.i.i = phi i32 [ %7, %sw.bb5.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %conv.i.i.i, %sw.bb.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i.i, %sw.bb.i.i ], [ %conv.i5.i.i, %sw.bb2.i.i ], [ %7, %sw.bb5.i.i ]
   %cmp.i = icmp ugt i32 %retval.0.i.i, 1
   br i1 %cmp.i, label %if.end8, label %for.inc
 
@@ -1214,7 +1214,7 @@ sw.epilog.i.i30:                                  ; preds = %if.end8
   unreachable
 
 _ZNK6hermes12CompactTable3getEj.exit:             ; preds = %sw.bb.i.i27, %sw.bb2.i.i24, %sw.bb5.i.i21
-  %retval.0.i.i23 = phi i32 [ %10, %sw.bb5.i.i21 ], [ %conv.i5.i.i26, %sw.bb2.i.i24 ], [ %conv.i.i.i29, %sw.bb.i.i27 ]
+  %retval.0.i.i23 = phi i32 [ %conv.i.i.i29, %sw.bb.i.i27 ], [ %conv.i5.i.i26, %sw.bb2.i.i24 ], [ %10, %sw.bb5.i.i21 ]
   %sub.i = add i32 %retval.0.i.i23, -2
   %11 = load ptr, ptr %identifierTable_, align 8
   %conv.i = zext i32 %sub.i to i64

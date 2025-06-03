@@ -1970,7 +1970,7 @@ _ZN7logging11CheckGEImplB5cxx11EiiPKc.exit:       ; preds = %11
   br label %18
 
 18:                                               ; preds = %16, %9, %5
-  %.012 = phi i32 [ -1, %5 ], [ %17, %16 ], [ %10, %9 ]
+  %.012 = phi i32 [ -1, %5 ], [ %10, %9 ], [ %17, %16 ]
   br label %19
 
 19:                                               ; preds = %22, %18

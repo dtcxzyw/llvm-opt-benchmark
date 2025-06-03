@@ -865,7 +865,7 @@ vaapi_pix_fmt_from_fourcc.exit.thread:            ; preds = %41, %vaapi_pix_fmt_
   br label %61
 
 61:                                               ; preds = %vaapi_pix_fmt_from_fourcc.exit.thread, %vaapi_pix_fmt_from_fourcc.exit, %35, %49, %52, %55, %58
-  %.1 = phi i32 [ %.082122, %35 ], [ %.082122, %58 ], [ %.082122, %55 ], [ %.082122, %52 ], [ %.082122, %49 ], [ %.082122, %vaapi_pix_fmt_from_fourcc.exit.thread ], [ %48, %vaapi_pix_fmt_from_fourcc.exit ]
+  %.1 = phi i32 [ %.082122, %35 ], [ %.082122, %49 ], [ %.082122, %52 ], [ %.082122, %55 ], [ %.082122, %58 ], [ %.082122, %vaapi_pix_fmt_from_fourcc.exit.thread ], [ %48, %vaapi_pix_fmt_from_fourcc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !68

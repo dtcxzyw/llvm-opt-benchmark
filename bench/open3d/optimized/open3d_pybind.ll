@@ -1373,7 +1373,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %82, %84, %87, %90
   resume { ptr, i32 } %.merged
 
 95:                                               ; preds = %10, %_ZN8pybind116objectD2Ev.exit
-  %.1 = phi ptr [ null, %10 ], [ %.2, %_ZN8pybind116objectD2Ev.exit ]
+  %.1 = phi ptr [ %.2, %_ZN8pybind116objectD2Ev.exit ], [ null, %10 ]
   ret ptr %.1
 
 96:                                               ; preds = %78, %74
@@ -17675,7 +17675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %common.resume
 
 77:                                               ; preds = %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit
-  %.117 = phi ptr [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ], [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ]
+  %.117 = phi ptr [ %.0.i.i.i, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit ], [ %24, %_ZN8pybind116detail19get_local_type_infoERKSt10type_index.exit ]
   ret ptr %.117
 }
 

@@ -1090,7 +1090,7 @@ switch.lookup:                                    ; preds = %7
   br label %Hmac_HashUpdate.exit
 
 Hmac_HashUpdate.exit:                             ; preds = %63, %65, %67, %69
-  %.0.i = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ]
+  %.0.i = phi i32 [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %71, label %Hmac_HashUpdate.exit.thread
 
@@ -1127,7 +1127,7 @@ Hmac_HashUpdate.exit:                             ; preds = %63, %65, %67, %69
   br label %Hmac_HashUpdate.exit142
 
 Hmac_HashUpdate.exit142:                          ; preds = %77, %79, %81, %83
-  %.0.i141 = phi i32 [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ]
+  %.0.i141 = phi i32 [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ]
   %.not136 = icmp eq i32 %.0.i141, 0
   br i1 %.not136, label %85, label %Hmac_HashUpdate.exit.thread
 
@@ -1159,7 +1159,7 @@ Hmac_HashUpdate.exit142:                          ; preds = %77, %79, %81, %83
   br label %Hmac_HashUpdate.exit144
 
 Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
-  %.0.i143 = phi i32 [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ]
+  %.0.i143 = phi i32 [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ]
   %.not137 = icmp eq i32 %.0.i143, 0
   br i1 %.not137, label %.thread180, label %Hmac_HashUpdate.exit.thread
 
@@ -1287,7 +1287,7 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   br label %Hmac_HashUpdate.exit148
 
 Hmac_HashUpdate.exit148:                          ; preds = %150, %152, %154, %156
-  %.0.i147 = phi i32 [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ]
+  %.0.i147 = phi i32 [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ]
   %.not138 = icmp eq i32 %.0.i147, 0
   br i1 %.not138, label %158, label %.thread
 
@@ -1317,7 +1317,7 @@ Hmac_HashUpdate.exit148:                          ; preds = %150, %152, %154, %1
   br label %Hmac_HashFinalRaw.exit
 
 Hmac_HashFinalRaw.exit:                           ; preds = %160, %162, %164, %166
-  %.0.i149 = phi i32 [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ]
+  %.0.i149 = phi i32 [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ]
   %.not139 = icmp eq i32 %.0.i149, 0
   br i1 %.not139, label %.preheader, label %.thread
 
@@ -3086,8 +3086,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   br label %43
 
 43:                                               ; preds = %41, %39, %38, %37
-  %.287.us = phi i32 [ 1, %39 ], [ 1, %41 ], [ %.085141.us, %37 ], [ %.085141.us, %38 ]
-  %.2.shrunk.us = phi i1 [ %40, %39 ], [ %42, %41 ], [ false, %37 ], [ true, %38 ]
+  %.287.us = phi i32 [ 1, %41 ], [ 1, %39 ], [ %.085141.us, %37 ], [ %.085141.us, %38 ]
+  %.2.shrunk.us = phi i1 [ %42, %41 ], [ %40, %39 ], [ false, %37 ], [ true, %38 ]
   switch i8 %2, label %TLSX_Find.exit._crit_edge.thread [
     i8 -87, label %47
     i8 20, label %47
@@ -3106,14 +3106,14 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   br label %TLSX_Find.exit.us
 
 TLSX_Find.exit.us:                                ; preds = %.lr.ph.split.us, %47, %44
-  %.1104.us = phi i32 [ %.0103136.us, %.lr.ph.split.us ], [ %.2105.us, %44 ], [ %.2105.us, %47 ]
-  %.198.us = phi i32 [ %.097137.us, %.lr.ph.split.us ], [ %.299.us, %44 ], [ %.299.us, %47 ]
-  %.195.us = phi i32 [ %.094138.us, %.lr.ph.split.us ], [ %.296.us, %44 ], [ %.296.us, %47 ]
-  %.192.us = phi i32 [ %.091139.us, %.lr.ph.split.us ], [ %.293.us, %44 ], [ %.293.us, %47 ]
-  %.189.us = phi i32 [ %.088140.us, %.lr.ph.split.us ], [ %.290.us, %44 ], [ %.290.us, %47 ]
-  %.186.us = phi i32 [ %.085141.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ]
-  %.183.shrunk.us = phi i1 [ false, %.lr.ph.split.us ], [ %46, %44 ], [ %49, %47 ]
-  %.1.us = phi i32 [ %.0142.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ]
+  %.1104.us = phi i32 [ %.0103136.us, %.lr.ph.split.us ], [ %.2105.us, %47 ], [ %.2105.us, %44 ]
+  %.198.us = phi i32 [ %.097137.us, %.lr.ph.split.us ], [ %.299.us, %47 ], [ %.299.us, %44 ]
+  %.195.us = phi i32 [ %.094138.us, %.lr.ph.split.us ], [ %.296.us, %47 ], [ %.296.us, %44 ]
+  %.192.us = phi i32 [ %.091139.us, %.lr.ph.split.us ], [ %.293.us, %47 ], [ %.293.us, %44 ]
+  %.189.us = phi i32 [ %.088140.us, %.lr.ph.split.us ], [ %.290.us, %47 ], [ %.290.us, %44 ]
+  %.186.us = phi i32 [ %.085141.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
+  %.183.shrunk.us = phi i1 [ false, %.lr.ph.split.us ], [ %49, %47 ], [ %46, %44 ]
+  %.1.us = phi i32 [ %.0142.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
   %.0110.in.us = getelementptr inbounds nuw i8, ptr %.0110143.us, i64 8
   %.0110.us = load ptr, ptr %.0110.in.us, align 8, !tbaa !108
   %50 = icmp eq ptr %.0110.us, null
@@ -6812,8 +6812,8 @@ TLSX_KeyShare_GetSize.exit:                       ; preds = %.split.us.us.i, %88
   br label %TLSX_SupportedVersions_GetSize.exit
 
 TLSX_SupportedVersions_GetSize.exit:              ; preds = %121, %117, %28, %25, %TLSX_SNI_GetSize.exit, %123, %TLSX_KeyShare_GetSize.exit, %77, %TLSX_SignatureAlgorithms_GetSize.exit, %TLSX_PointFormat_GetSize.exit, %TLSX_SupportedCurve_GetSize.exit
-  %.162 = phi i16 [ %100, %TLSX_KeyShare_GetSize.exit ], [ %27, %77 ], [ %76, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %57, %TLSX_PointFormat_GetSize.exit ], [ %50, %TLSX_SupportedCurve_GetSize.exit ], [ %128, %123 ], [ %27, %28 ], [ %43, %TLSX_SNI_GetSize.exit ], [ %120, %117 ], [ %27, %25 ], [ %spec.select, %121 ]
-  %.1 = phi i32 [ %.026.ph83, %TLSX_KeyShare_GetSize.exit ], [ %..i42, %77 ], [ %.026.ph83, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %.026.ph83, %TLSX_PointFormat_GetSize.exit ], [ %.026.ph83, %TLSX_SupportedCurve_GetSize.exit ], [ %.026.ph83, %123 ], [ %.026.ph83, %28 ], [ %.026.ph83, %TLSX_SNI_GetSize.exit ], [ 0, %117 ], [ %.026.ph83, %25 ], [ %spec.select63, %121 ]
+  %.162 = phi i16 [ %27, %28 ], [ %43, %TLSX_SNI_GetSize.exit ], [ %128, %123 ], [ %50, %TLSX_SupportedCurve_GetSize.exit ], [ %57, %TLSX_PointFormat_GetSize.exit ], [ %76, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %27, %77 ], [ %100, %TLSX_KeyShare_GetSize.exit ], [ %120, %117 ], [ %27, %25 ], [ %spec.select, %121 ]
+  %.1 = phi i32 [ %.026.ph83, %28 ], [ %.026.ph83, %TLSX_SNI_GetSize.exit ], [ %.026.ph83, %123 ], [ %.026.ph83, %TLSX_SupportedCurve_GetSize.exit ], [ %.026.ph83, %TLSX_PointFormat_GetSize.exit ], [ %.026.ph83, %TLSX_SignatureAlgorithms_GetSize.exit ], [ %..i42, %77 ], [ %.026.ph83, %TLSX_KeyShare_GetSize.exit ], [ 0, %117 ], [ %.026.ph83, %25 ], [ %spec.select63, %121 ]
   %129 = or i8 %23, %20
   store i8 %129, ptr %26, align 1, !tbaa !51
   %.not76 = icmp eq ptr %10, null
@@ -7598,8 +7598,8 @@ TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
   br label %TLSX_SupportedVersions_Write.exit
 
 TLSX_SupportedVersions_Write.exit:                ; preds = %175, %286, %287, %.thread.i, %34, %25, %TLSX_SNI_Write.exit, %294, %TLSX_KeyShare_Write.exit, %TLSX_SignatureAlgorithms_Write.exit, %TLSX_PointFormat_Write.exit, %TLSX_SupportedCurve_Write.exit
-  %.282 = phi i16 [ %174, %TLSX_SignatureAlgorithms_Write.exit ], [ %249, %TLSX_KeyShare_Write.exit ], [ %104, %TLSX_PointFormat_Write.exit ], [ %90, %TLSX_SupportedCurve_Write.exit ], [ %311, %294 ], [ %32, %34 ], [ %69, %TLSX_SNI_Write.exit ], [ %32, %286 ], [ %293, %287 ], [ %285, %.thread.i ], [ %32, %25 ], [ %32, %175 ]
-  %.2 = phi i32 [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %294 ], [ 0, %34 ], [ 0, %TLSX_SNI_Write.exit ], [ -394, %286 ], [ 0, %287 ], [ 0, %.thread.i ], [ 0, %25 ], [ %spec.select, %175 ]
+  %.282 = phi i16 [ %32, %34 ], [ %69, %TLSX_SNI_Write.exit ], [ %311, %294 ], [ %90, %TLSX_SupportedCurve_Write.exit ], [ %104, %TLSX_PointFormat_Write.exit ], [ %249, %TLSX_KeyShare_Write.exit ], [ %174, %TLSX_SignatureAlgorithms_Write.exit ], [ %32, %286 ], [ %293, %287 ], [ %285, %.thread.i ], [ %32, %25 ], [ %32, %175 ]
+  %.2 = phi i32 [ 0, %34 ], [ 0, %TLSX_SNI_Write.exit ], [ 0, %294 ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ -394, %286 ], [ 0, %287 ], [ 0, %.thread.i ], [ 0, %25 ], [ %spec.select, %175 ]
   %312 = sub i16 %.282, %32
   %313 = zext i16 %32 to i64
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 %313
@@ -8159,7 +8159,7 @@ define i32 @TLSX_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1
   br label %TLSX_GetMinSize_Client.exit
 
 TLSX_GetMinSize_Client.exit:                      ; preds = %58, %59, %60, %61, %62, %63
-  %.0.i = phi i16 [ 7, %63 ], [ 3, %62 ], [ 5, %61 ], [ 2, %60 ], [ 1, %59 ], [ 4, %58 ]
+  %.0.i = phi i16 [ 1, %59 ], [ 2, %60 ], [ 5, %61 ], [ 3, %62 ], [ 7, %63 ], [ 4, %58 ]
   %64 = icmp ult i16 %37, %.0.i
   br i1 %64, label %TLSX_SNI_VerifyParse.exit, label %TLSX_GetMinSize_Client.exit.thread
 
@@ -8198,7 +8198,7 @@ TLSX_GetMinSize_Client.exit:                      ; preds = %58, %59, %60, %61, 
   br label %TLSX_GetMinSize_Server.exit
 
 TLSX_GetMinSize_Server.exit:                      ; preds = %65, %65, %65, %65, %65, %65, %65, %66, %67
-  %.0.i252 = phi i16 [ 3, %67 ], [ 2, %66 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ]
+  %.0.i252 = phi i16 [ 2, %66 ], [ 3, %67 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ], [ 1, %65 ]
   %68 = icmp ult i16 %37, %.0.i252
   br i1 %68, label %TLSX_SNI_VerifyParse.exit, label %TLSX_GetMinSize_Client.exit.thread
 
@@ -8685,8 +8685,8 @@ TLSX_Find.exit.i.i:                               ; preds = %.lr.ph.i.i108.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %170, %95, %102, %65, %58, %215, %192, %200, %231, %239, %246, %254, %184, %196, %210, %219, %224, %235, %242, %250, %TLSX_GetMinSize_Client.exit.thread, %182, %182, %183, %207, %207, %207, %208, %209, %216, %222, %223, %241, %241, %241, %176, %93, %98, %TLSX_SNI_Find.exit.i.i, %110, %142, %TLSX_SNI_Find.exit.i, %.critedge.thread.i, %165, %167, %TLSX_Find.exit.i.i, %174
-  %.2212 = phi i32 [ 0, %TLSX_GetMinSize_Client.exit.thread ], [ %257, %254 ], [ 0, %250 ], [ %249, %246 ], [ 0, %242 ], [ 0, %241 ], [ 0, %235 ], [ %240, %239 ], [ %234, %231 ], [ 0, %224 ], [ 0, %219 ], [ 0, %210 ], [ 0, %196 ], [ %203, %200 ], [ %195, %192 ], [ 0, %184 ], [ 0, %182 ], [ 0, %182 ], [ 0, %183 ], [ 0, %207 ], [ 0, %207 ], [ 0, %207 ], [ 0, %208 ], [ 0, %209 ], [ 0, %215 ], [ 0, %216 ], [ 0, %222 ], [ 0, %223 ], [ 0, %241 ], [ 0, %241 ], [ 0, %176 ], [ %.mux.i, %93 ], [ 0, %110 ], [ 0, %TLSX_SNI_Find.exit.i ], [ %164, %.critedge.thread.i ], [ 0, %98 ], [ 0, %TLSX_SNI_Find.exit.i.i ], [ 0, %165 ], [ 0, %167 ], [ 0, %TLSX_Find.exit.i.i ], [ 0, %174 ], [ 0, %142 ], [ 0, %65 ], [ 0, %58 ], [ 0, %102 ], [ 0, %95 ], [ 0, %170 ], [ 0, %146 ]
-  %.2 = phi i8 [ %.0204310, %TLSX_GetMinSize_Client.exit.thread ], [ %.0204310, %254 ], [ %.0204310, %250 ], [ %.0204310, %246 ], [ %.0204310, %242 ], [ %.0204310, %241 ], [ %.0204310, %235 ], [ %.0204310, %239 ], [ %.0204310, %231 ], [ %.0204310, %224 ], [ %.0204310, %219 ], [ %.0204310, %210 ], [ %.0204310, %196 ], [ %.0204310, %200 ], [ %.0204310, %192 ], [ %.0204310, %184 ], [ %.0204310, %182 ], [ %.0204310, %182 ], [ %.0204310, %183 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %208 ], [ %.0204310, %209 ], [ 1, %215 ], [ 1, %216 ], [ %.0204310, %222 ], [ %.0204310, %223 ], [ %.0204310, %241 ], [ %.0204310, %241 ], [ %.0204310, %176 ], [ %.0204310, %93 ], [ %.0204310, %110 ], [ %.0204310, %TLSX_SNI_Find.exit.i ], [ %.0204310, %.critedge.thread.i ], [ %.0204310, %98 ], [ %.0204310, %TLSX_SNI_Find.exit.i.i ], [ %.0204310, %165 ], [ %.0204310, %167 ], [ %.0204310, %TLSX_Find.exit.i.i ], [ %.0204310, %174 ], [ %.0204310, %142 ], [ %.0204310, %65 ], [ %.0204310, %58 ], [ %.0204310, %102 ], [ %.0204310, %95 ], [ %.0204310, %170 ], [ %.0204310, %146 ]
+  %.2212 = phi i32 [ 0, %TLSX_GetMinSize_Client.exit.thread ], [ 0, %184 ], [ %195, %192 ], [ 0, %196 ], [ %203, %200 ], [ 0, %210 ], [ 0, %219 ], [ %234, %231 ], [ 0, %224 ], [ 0, %235 ], [ %240, %239 ], [ 0, %241 ], [ %249, %246 ], [ 0, %242 ], [ %257, %254 ], [ 0, %250 ], [ 0, %182 ], [ 0, %182 ], [ 0, %183 ], [ 0, %207 ], [ 0, %207 ], [ 0, %207 ], [ 0, %208 ], [ 0, %209 ], [ 0, %215 ], [ 0, %216 ], [ 0, %222 ], [ 0, %223 ], [ 0, %241 ], [ 0, %241 ], [ 0, %176 ], [ %.mux.i, %93 ], [ 0, %110 ], [ 0, %TLSX_SNI_Find.exit.i ], [ %164, %.critedge.thread.i ], [ 0, %98 ], [ 0, %TLSX_SNI_Find.exit.i.i ], [ 0, %165 ], [ 0, %167 ], [ 0, %TLSX_Find.exit.i.i ], [ 0, %174 ], [ 0, %142 ], [ 0, %65 ], [ 0, %58 ], [ 0, %102 ], [ 0, %95 ], [ 0, %170 ], [ 0, %146 ]
+  %.2 = phi i8 [ %.0204310, %TLSX_GetMinSize_Client.exit.thread ], [ %.0204310, %184 ], [ %.0204310, %192 ], [ %.0204310, %196 ], [ %.0204310, %200 ], [ %.0204310, %210 ], [ %.0204310, %219 ], [ %.0204310, %231 ], [ %.0204310, %224 ], [ %.0204310, %235 ], [ %.0204310, %239 ], [ %.0204310, %241 ], [ %.0204310, %246 ], [ %.0204310, %242 ], [ %.0204310, %254 ], [ %.0204310, %250 ], [ %.0204310, %182 ], [ %.0204310, %182 ], [ %.0204310, %183 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %207 ], [ %.0204310, %208 ], [ %.0204310, %209 ], [ 1, %215 ], [ 1, %216 ], [ %.0204310, %222 ], [ %.0204310, %223 ], [ %.0204310, %241 ], [ %.0204310, %241 ], [ %.0204310, %176 ], [ %.0204310, %93 ], [ %.0204310, %110 ], [ %.0204310, %TLSX_SNI_Find.exit.i ], [ %.0204310, %.critedge.thread.i ], [ %.0204310, %98 ], [ %.0204310, %TLSX_SNI_Find.exit.i.i ], [ %.0204310, %165 ], [ %.0204310, %167 ], [ %.0204310, %TLSX_Find.exit.i.i ], [ %.0204310, %174 ], [ %.0204310, %142 ], [ %.0204310, %65 ], [ %.0204310, %58 ], [ %.0204310, %102 ], [ %.0204310, %95 ], [ %.0204310, %170 ], [ %.0204310, %146 ]
   %258 = add i16 %37, %38
   %259 = icmp eq i32 %.2212, 0
   %260 = icmp ult i16 %258, %2

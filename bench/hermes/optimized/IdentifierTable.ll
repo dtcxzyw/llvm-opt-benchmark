@@ -224,7 +224,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit: ; preds = %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %sw.bb5.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %conv.i.i.i.i, %sw.bb.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv.i.i.i.i, %sw.bb.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %4, %sw.bb5.i.i.i ]
   %cmp.i.i = icmp ugt i32 %retval.0.i.i.i, 1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -256,7 +256,7 @@ sw.epilog.i.i.i18:                                ; preds = %if.then
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i15, %sw.bb2.i.i.i12, %sw.bb5.i.i.i9
-  %retval.0.i.i.i11 = phi i32 [ %7, %sw.bb5.i.i.i9 ], [ %conv.i5.i.i.i14, %sw.bb2.i.i.i12 ], [ %conv.i.i.i.i17, %sw.bb.i.i.i15 ]
+  %retval.0.i.i.i11 = phi i32 [ %conv.i.i.i.i17, %sw.bb.i.i.i15 ], [ %conv.i5.i.i.i14, %sw.bb2.i.i.i12 ], [ %7, %sw.bb5.i.i.i9 ]
   %sub.i.i = add i32 %retval.0.i.i.i11, -2
   %markedSymbols_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rem.i.i = and i32 %sub.i.i, 63
@@ -419,7 +419,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit: ; preds = %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %sw.bb5.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %conv.i.i.i.i, %sw.bb.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv.i.i.i.i, %sw.bb.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %4, %sw.bb5.i.i.i ]
   %cmp.i.i = icmp ugt i32 %retval.0.i.i.i, 1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -451,7 +451,7 @@ sw.epilog.i.i.i18:                                ; preds = %if.then
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i15, %sw.bb2.i.i.i12, %sw.bb5.i.i.i9
-  %retval.0.i.i.i11 = phi i32 [ %7, %sw.bb5.i.i.i9 ], [ %conv.i5.i.i.i14, %sw.bb2.i.i.i12 ], [ %conv.i.i.i.i17, %sw.bb.i.i.i15 ]
+  %retval.0.i.i.i11 = phi i32 [ %conv.i.i.i.i17, %sw.bb.i.i.i15 ], [ %conv.i5.i.i.i14, %sw.bb2.i.i.i12 ], [ %7, %sw.bb5.i.i.i9 ]
   %sub.i.i = add i32 %retval.0.i.i.i11, -2
   %markedSymbols_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rem.i.i = and i32 %sub.i.i, 63
@@ -601,7 +601,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit: ; preds = %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %sw.bb5.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %conv.i.i.i.i, %sw.bb.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv.i.i.i.i, %sw.bb.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %4, %sw.bb5.i.i.i ]
   %cmp.i.i = icmp ugt i32 %retval.0.i.i.i, 1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -633,7 +633,7 @@ sw.epilog.i.i.i20:                                ; preds = %if.then
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i17, %sw.bb2.i.i.i14, %sw.bb5.i.i.i11
-  %retval.0.i.i.i13 = phi i32 [ %7, %sw.bb5.i.i.i11 ], [ %conv.i5.i.i.i16, %sw.bb2.i.i.i14 ], [ %conv.i.i.i.i19, %sw.bb.i.i.i17 ]
+  %retval.0.i.i.i13 = phi i32 [ %conv.i.i.i.i19, %sw.bb.i.i.i17 ], [ %conv.i5.i.i.i16, %sw.bb2.i.i.i14 ], [ %7, %sw.bb5.i.i.i11 ]
   %sub.i.i = add i32 %retval.0.i.i.i13, -2
   %markedSymbols_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rem.i.i = and i32 %sub.i.i, 63
@@ -738,7 +738,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit: ; preds = %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %sw.bb5.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %conv.i.i.i.i, %sw.bb.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv.i.i.i.i, %sw.bb.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %4, %sw.bb5.i.i.i ]
   %cmp.i.i = icmp ugt i32 %retval.0.i.i.i, 1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
@@ -770,7 +770,7 @@ sw.epilog.i.i.i20:                                ; preds = %if.then
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i17, %sw.bb2.i.i.i14, %sw.bb5.i.i.i11
-  %retval.0.i.i.i13 = phi i32 [ %7, %sw.bb5.i.i.i11 ], [ %conv.i5.i.i.i16, %sw.bb2.i.i.i14 ], [ %conv.i.i.i.i19, %sw.bb.i.i.i17 ]
+  %retval.0.i.i.i13 = phi i32 [ %conv.i.i.i.i19, %sw.bb.i.i.i17 ], [ %conv.i5.i.i.i16, %sw.bb2.i.i.i14 ], [ %7, %sw.bb5.i.i.i11 ]
   %sub.i.i = add i32 %retval.0.i.i.i13, -2
   %markedSymbols_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rem.i.i = and i32 %sub.i.i, 63
@@ -1794,7 +1794,7 @@ sw.epilog.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit: ; preds = %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %sw.bb5.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %conv.i.i.i.i, %sw.bb.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv.i.i.i.i, %sw.bb.i.i.i ], [ %conv.i5.i.i.i, %sw.bb2.i.i.i ], [ %4, %sw.bb5.i.i.i ]
   %cmp.i.i = icmp ugt i32 %retval.0.i.i.i, 1
   br i1 %cmp.i.i, label %if.end, label %return
 
@@ -1826,7 +1826,7 @@ sw.epilog.i.i.i16:                                ; preds = %if.end
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i13, %sw.bb2.i.i.i10, %sw.bb5.i.i.i7
-  %retval.0.i.i.i9 = phi i32 [ %7, %sw.bb5.i.i.i7 ], [ %conv.i5.i.i.i12, %sw.bb2.i.i.i10 ], [ %conv.i.i.i.i15, %sw.bb.i.i.i13 ]
+  %retval.0.i.i.i9 = phi i32 [ %conv.i.i.i.i15, %sw.bb.i.i.i13 ], [ %conv.i5.i.i.i12, %sw.bb2.i.i.i10 ], [ %7, %sw.bb5.i.i.i7 ]
   %sub.i.i = add i32 %retval.0.i.i.i9, -2
   %markedSymbols_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %rem.i.i = and i32 %sub.i.i, 63

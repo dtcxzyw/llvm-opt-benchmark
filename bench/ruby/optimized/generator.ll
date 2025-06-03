@@ -4206,7 +4206,7 @@ rb_type.exit.thread:                              ; preds = %39, %39, %39, %41, 
   br label %57
 
 57:                                               ; preds = %47, %52, %rb_type.exit.thread, %rb_type.exit.thread52
-  %.0 = phi i64 [ %56, %rb_type.exit.thread ], [ %55, %rb_type.exit.thread52 ], [ %54, %52 ], [ %0, %47 ]
+  %.0 = phi i64 [ %56, %rb_type.exit.thread ], [ %54, %52 ], [ %55, %rb_type.exit.thread52 ], [ %0, %47 ]
   %58 = inttoptr i64 %.0 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !60
@@ -4684,7 +4684,7 @@ fbuffer_append.exit75.i:                          ; preds = %200, %183
   br label %.lr.ph.preheader.i3
 
 .lr.ph.preheader.i3:                              ; preds = %60, %211, %209, %207
-  %.0.shrunk.i = phi i8 [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ 0, %60 ]
+  %.0.shrunk.i = phi i8 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ 0, %60 ]
   %.0.i = zext nneg i8 %.0.shrunk.i to i32
   %wide.trip.count = zext nneg i8 %59 to i64
   br label %.lr.ph.i4

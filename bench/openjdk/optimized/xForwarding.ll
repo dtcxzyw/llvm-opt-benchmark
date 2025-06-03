@@ -189,7 +189,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN7XLockerI14XCond
   br label %42
 
 42:                                               ; preds = %_ZN10XStatTimerD2Ev.exit, %41
-  %.1 = phi i1 [ false, %_ZN10XStatTimerD2Ev.exit ], [ true, %41 ]
+  %.1 = phi i1 [ true, %41 ], [ false, %_ZN10XStatTimerD2Ev.exit ]
   ret i1 %.1
 }
 

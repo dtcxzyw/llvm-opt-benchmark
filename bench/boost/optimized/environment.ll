@@ -17575,7 +17575,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %28, %27 ]
+  %.sroa.025.1 = phi ptr [ %28, %27 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %30 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN5boost7process2v211environment6detail8find_keyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEENSt9enable_ifIXsr3std14is_convertibleIDTdeclsr3stdE5beginfL0p_EENS5_19key_value_pair_viewEEE5valueENS5_10value_viewEE4typeERT_NS5_8key_viewEEUlSJ_E_EclINS_17__normal_iteratorIPSE_SG_EEEEbSN_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.1)
   br i1 %30, label %.loopexit, label %31
 
@@ -17584,7 +17584,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.sroa.025.2 = phi ptr [ %.sroa.025.0.lcssa, %._crit_edge ], [ %32, %31 ]
+  %.sroa.025.2 = phi ptr [ %32, %31 ], [ %.sroa.025.0.lcssa, %._crit_edge ]
   %34 = call noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN5boost7process2v211environment6detail8find_keyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEENSt9enable_ifIXsr3std14is_convertibleIDTdeclsr3stdE5beginfL0p_EENS5_19key_value_pair_viewEEE5valueENS5_10value_viewEE4typeERT_NS5_8key_viewEEUlSJ_E_EclINS_17__normal_iteratorIPSE_SG_EEEEbSN_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.sroa.025.2)
   %spec.select = select i1 %34, ptr %.sroa.025.2, ptr %1
   br label %.loopexit

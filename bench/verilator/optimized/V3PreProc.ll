@@ -1135,8 +1135,8 @@ define dso_local noundef range(i32 0, 401) i32 @_Z11V3PreLexlexv() local_unnamed
 _ZL27V3PreLexensure_buffer_stackv.exit:           ; preds = %47, %.critedge, %55
   %57 = phi ptr [ %33, %47 ], [ %33, %.critedge ], [ %.pre, %55 ]
   %58 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #42
-  %.not.i362 = icmp eq ptr %58, null
-  br i1 %.not.i362, label %59, label %60
+  %.not.i361 = icmp eq ptr %58, null
+  br i1 %.not.i361, label %59, label %60
 
 59:                                               ; preds = %_ZL27V3PreLexensure_buffer_stackv.exit
   tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.35) #43
@@ -1148,8 +1148,8 @@ _ZL27V3PreLexensure_buffer_stackv.exit:           ; preds = %47, %.critedge, %55
   %62 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #42
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %62, ptr %63, align 8, !tbaa !22
-  %.not9.i363 = icmp eq ptr %62, null
-  br i1 %.not9.i363, label %64, label %_Z22V3PreLex_create_bufferP8_IO_FILEi.exit
+  %.not9.i362 = icmp eq ptr %62, null
+  br i1 %.not9.i362, label %64, label %_Z22V3PreLex_create_bufferP8_IO_FILEi.exit
 
 64:                                               ; preds = %60
   tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.35) #43
@@ -1190,12 +1190,12 @@ _Z22V3PreLex_create_bufferP8_IO_FILEi.exit:       ; preds = %60
 82:                                               ; preds = %.backedge, %77
   store i32 0, ptr @_ZL11yy_more_len, align 4, !tbaa !9
   %.b317 = load i1, ptr @_ZL12yy_more_flag, align 4
-  %.pre1455 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
+  %.pre1454 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
   br i1 %.b317, label %83, label %89
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
-  %85 = ptrtoint ptr %.pre1455 to i64
+  %85 = ptrtoint ptr %.pre1454 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
@@ -1205,7 +1205,7 @@ _Z22V3PreLex_create_bufferP8_IO_FILEi.exit:       ; preds = %60
 
 89:                                               ; preds = %83, %82
   %90 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !27
-  store i8 %90, ptr %.pre1455, align 1, !tbaa !27
+  store i8 %90, ptr %.pre1454, align 1, !tbaa !27
   %91 = load i32, ptr @_ZL8yy_start, align 4, !tbaa !9
   %92 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !13
   %93 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !16
@@ -1214,17 +1214,17 @@ _Z22V3PreLex_create_bufferP8_IO_FILEi.exit:       ; preds = %60
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load i32, ptr %96, align 8, !tbaa !28
   %98 = add nsw i32 %97, %91
-  br label %.loopexit670
+  br label %.loopexit669
 
-.loopexit670:                                     ; preds = %.loopexit670.backedge, %89
-  %.0119 = phi ptr [ %.pre1455, %89 ], [ %.0119.be, %.loopexit670.backedge ]
-  %.0112 = phi ptr [ %.pre1455, %89 ], [ %.0112.be, %.loopexit670.backedge ]
-  %.0111 = phi i32 [ %98, %89 ], [ %.0111.be, %.loopexit670.backedge ]
+.loopexit669:                                     ; preds = %.loopexit669.backedge, %89
+  %.0119 = phi ptr [ %.pre1454, %89 ], [ %.0119.be, %.loopexit669.backedge ]
+  %.0112 = phi ptr [ %.pre1454, %89 ], [ %.0112.be, %.loopexit669.backedge ]
+  %.0111 = phi i32 [ %98, %89 ], [ %.0111.be, %.loopexit669.backedge ]
   br label %99
 
-99:                                               ; preds = %._crit_edge, %.loopexit670
-  %.1113 = phi ptr [ %.0112, %.loopexit670 ], [ %135, %._crit_edge ]
-  %.1 = phi i32 [ %.0111, %.loopexit670 ], [ %134, %._crit_edge ]
+99:                                               ; preds = %._crit_edge, %.loopexit669
+  %.1113 = phi ptr [ %.0112, %.loopexit669 ], [ %135, %._crit_edge ]
+  %.1 = phi i32 [ %.0111, %.loopexit669 ], [ %134, %._crit_edge ]
   %100 = load i8, ptr %.1113, align 1, !tbaa !27
   %101 = zext i8 %100 to i64
   %102 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %101
@@ -1248,25 +1248,25 @@ _Z22V3PreLex_create_bufferP8_IO_FILEi.exit:       ; preds = %60
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !9
-  %.not3231062 = icmp eq i32 %115, %.1
-  br i1 %.not3231062, label %._crit_edge, label %.lr.ph
+  %.not3231061 = icmp eq i32 %115, %.1
+  br i1 %.not3231061, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %108, %124
   %116 = phi i64 [ %125, %124 ], [ %104, %108 ]
-  %.01261063 = phi i8 [ %.1127, %124 ], [ %103, %108 ]
+  %.01261062 = phi i8 [ %.1127, %124 ], [ %103, %108 ]
   %117 = getelementptr inbounds [720 x i32], ptr @_ZL6yy_def, i64 0, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !9
   %119 = icmp sgt i32 %118, 659
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %.lr.ph
-  %121 = zext i8 %.01261063 to i64
+  %121 = zext i8 %.01261062 to i64
   %122 = getelementptr inbounds nuw [57 x i8], ptr @_ZL7yy_meta, i64 0, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !27
   br label %124
 
 124:                                              ; preds = %120, %.lr.ph
-  %.1127 = phi i8 [ %123, %120 ], [ %.01261063, %.lr.ph ]
+  %.1127 = phi i8 [ %123, %120 ], [ %.01261062, %.lr.ph ]
   %125 = sext i32 %118 to i64
   %126 = getelementptr inbounds [720 x i32], ptr @_ZL7yy_base, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !9
@@ -1331,8 +1331,8 @@ _Z22V3PreLex_create_bufferP8_IO_FILEi.exit:       ; preds = %60
   store ptr %.3115, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
   br label %159
 
-159:                                              ; preds = %_ZL21yy_get_previous_statev.exit636, %149
-  %.1124 = phi i32 [ %.0123, %149 ], [ %7392, %_ZL21yy_get_previous_statev.exit636 ]
+159:                                              ; preds = %_ZL21yy_get_previous_statev.exit635, %149
+  %.1124 = phi i32 [ %.0123, %149 ], [ %7392, %_ZL21yy_get_previous_statev.exit635 ]
   switch i32 %.1124, label %7393 [
     i32 0, label %160
     i32 1, label %164
@@ -1631,7 +1631,7 @@ _ZN8V3PreLex12curFilelinepEv.exit:                ; preds = %196, %203
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 64
   %238 = load ptr, ptr %237, align 8, !tbaa !42, !noalias !58
   %239 = icmp eq ptr %236, %238
-  br i1 %239, label %240, label %_ZN8V3PreLex12curFilelinepEv.exit364
+  br i1 %239, label %240, label %_ZN8V3PreLex12curFilelinepEv.exit363
 
 240:                                              ; preds = %233
   %241 = getelementptr inbounds nuw i8, ptr %234, i64 80
@@ -1639,9 +1639,9 @@ _ZN8V3PreLex12curFilelinepEv.exit:                ; preds = %196, %203
   %243 = getelementptr inbounds i8, ptr %242, i64 -8
   %244 = load ptr, ptr %243, align 8, !tbaa !44
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit364
+  br label %_ZN8V3PreLex12curFilelinepEv.exit363
 
-_ZN8V3PreLex12curFilelinepEv.exit364:             ; preds = %233, %240
+_ZN8V3PreLex12curFilelinepEv.exit363:             ; preds = %233, %240
   %246 = phi ptr [ %245, %240 ], [ %236, %233 ]
   %247 = getelementptr inbounds i8, ptr %246, i64 -8
   %248 = load ptr, ptr %247, align 8, !tbaa !45
@@ -1679,7 +1679,7 @@ _ZN8V3PreLex12curFilelinepEv.exit364:             ; preds = %233, %240
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 64
   %273 = load ptr, ptr %272, align 8, !tbaa !42, !noalias !61
   %274 = icmp eq ptr %271, %273
-  br i1 %274, label %275, label %_ZN8V3PreLex12curFilelinepEv.exit365
+  br i1 %274, label %275, label %_ZN8V3PreLex12curFilelinepEv.exit364
 
 275:                                              ; preds = %268
   %276 = getelementptr inbounds nuw i8, ptr %269, i64 80
@@ -1687,9 +1687,9 @@ _ZN8V3PreLex12curFilelinepEv.exit364:             ; preds = %233, %240
   %278 = getelementptr inbounds i8, ptr %277, i64 -8
   %279 = load ptr, ptr %278, align 8, !tbaa !44
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit365
+  br label %_ZN8V3PreLex12curFilelinepEv.exit364
 
-_ZN8V3PreLex12curFilelinepEv.exit365:             ; preds = %268, %275
+_ZN8V3PreLex12curFilelinepEv.exit364:             ; preds = %268, %275
   %281 = phi ptr [ %280, %275 ], [ %271, %268 ]
   %282 = getelementptr inbounds i8, ptr %281, i64 -8
   %283 = load ptr, ptr %282, align 8, !tbaa !45
@@ -1727,7 +1727,7 @@ _ZN8V3PreLex12curFilelinepEv.exit365:             ; preds = %268, %275
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 64
   %308 = load ptr, ptr %307, align 8, !tbaa !42, !noalias !64
   %309 = icmp eq ptr %306, %308
-  br i1 %309, label %310, label %_ZN8V3PreLex12curFilelinepEv.exit366
+  br i1 %309, label %310, label %_ZN8V3PreLex12curFilelinepEv.exit365
 
 310:                                              ; preds = %303
   %311 = getelementptr inbounds nuw i8, ptr %304, i64 80
@@ -1735,9 +1735,9 @@ _ZN8V3PreLex12curFilelinepEv.exit365:             ; preds = %268, %275
   %313 = getelementptr inbounds i8, ptr %312, i64 -8
   %314 = load ptr, ptr %313, align 8, !tbaa !44
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit366
+  br label %_ZN8V3PreLex12curFilelinepEv.exit365
 
-_ZN8V3PreLex12curFilelinepEv.exit366:             ; preds = %303, %310
+_ZN8V3PreLex12curFilelinepEv.exit365:             ; preds = %303, %310
   %316 = phi ptr [ %315, %310 ], [ %306, %303 ]
   %317 = getelementptr inbounds i8, ptr %316, i64 -8
   %318 = load ptr, ptr %317, align 8, !tbaa !45
@@ -1775,7 +1775,7 @@ _ZN8V3PreLex12curFilelinepEv.exit366:             ; preds = %303, %310
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 64
   %343 = load ptr, ptr %342, align 8, !tbaa !42, !noalias !67
   %344 = icmp eq ptr %341, %343
-  br i1 %344, label %345, label %_ZN8V3PreLex12curFilelinepEv.exit367
+  br i1 %344, label %345, label %_ZN8V3PreLex12curFilelinepEv.exit366
 
 345:                                              ; preds = %338
   %346 = getelementptr inbounds nuw i8, ptr %339, i64 80
@@ -1783,9 +1783,9 @@ _ZN8V3PreLex12curFilelinepEv.exit366:             ; preds = %303, %310
   %348 = getelementptr inbounds i8, ptr %347, i64 -8
   %349 = load ptr, ptr %348, align 8, !tbaa !44
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit367
+  br label %_ZN8V3PreLex12curFilelinepEv.exit366
 
-_ZN8V3PreLex12curFilelinepEv.exit367:             ; preds = %338, %345
+_ZN8V3PreLex12curFilelinepEv.exit366:             ; preds = %338, %345
   %351 = phi ptr [ %350, %345 ], [ %341, %338 ]
   %352 = getelementptr inbounds i8, ptr %351, i64 -8
   %353 = load ptr, ptr %352, align 8, !tbaa !45
@@ -1823,7 +1823,7 @@ _ZN8V3PreLex12curFilelinepEv.exit367:             ; preds = %338, %345
   %377 = getelementptr inbounds nuw i8, ptr %374, i64 64
   %378 = load ptr, ptr %377, align 8, !tbaa !42, !noalias !70
   %379 = icmp eq ptr %376, %378
-  br i1 %379, label %380, label %_ZN8V3PreLex12curFilelinepEv.exit368
+  br i1 %379, label %380, label %_ZN8V3PreLex12curFilelinepEv.exit367
 
 380:                                              ; preds = %373
   %381 = getelementptr inbounds nuw i8, ptr %374, i64 80
@@ -1831,9 +1831,9 @@ _ZN8V3PreLex12curFilelinepEv.exit367:             ; preds = %338, %345
   %383 = getelementptr inbounds i8, ptr %382, i64 -8
   %384 = load ptr, ptr %383, align 8, !tbaa !44
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit368
+  br label %_ZN8V3PreLex12curFilelinepEv.exit367
 
-_ZN8V3PreLex12curFilelinepEv.exit368:             ; preds = %373, %380
+_ZN8V3PreLex12curFilelinepEv.exit367:             ; preds = %373, %380
   %386 = phi ptr [ %385, %380 ], [ %376, %373 ]
   %387 = getelementptr inbounds i8, ptr %386, i64 -8
   %388 = load ptr, ptr %387, align 8, !tbaa !45
@@ -1871,7 +1871,7 @@ _ZN8V3PreLex12curFilelinepEv.exit368:             ; preds = %373, %380
   %412 = getelementptr inbounds nuw i8, ptr %409, i64 64
   %413 = load ptr, ptr %412, align 8, !tbaa !42, !noalias !73
   %414 = icmp eq ptr %411, %413
-  br i1 %414, label %415, label %_ZN8V3PreLex12curFilelinepEv.exit369
+  br i1 %414, label %415, label %_ZN8V3PreLex12curFilelinepEv.exit368
 
 415:                                              ; preds = %408
   %416 = getelementptr inbounds nuw i8, ptr %409, i64 80
@@ -1879,9 +1879,9 @@ _ZN8V3PreLex12curFilelinepEv.exit368:             ; preds = %373, %380
   %418 = getelementptr inbounds i8, ptr %417, i64 -8
   %419 = load ptr, ptr %418, align 8, !tbaa !44
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit369
+  br label %_ZN8V3PreLex12curFilelinepEv.exit368
 
-_ZN8V3PreLex12curFilelinepEv.exit369:             ; preds = %408, %415
+_ZN8V3PreLex12curFilelinepEv.exit368:             ; preds = %408, %415
   %421 = phi ptr [ %420, %415 ], [ %411, %408 ]
   %422 = getelementptr inbounds i8, ptr %421, i64 -8
   %423 = load ptr, ptr %422, align 8, !tbaa !45
@@ -1919,7 +1919,7 @@ _ZN8V3PreLex12curFilelinepEv.exit369:             ; preds = %408, %415
   %447 = getelementptr inbounds nuw i8, ptr %444, i64 64
   %448 = load ptr, ptr %447, align 8, !tbaa !42, !noalias !76
   %449 = icmp eq ptr %446, %448
-  br i1 %449, label %450, label %_ZN8V3PreLex12curFilelinepEv.exit370
+  br i1 %449, label %450, label %_ZN8V3PreLex12curFilelinepEv.exit369
 
 450:                                              ; preds = %443
   %451 = getelementptr inbounds nuw i8, ptr %444, i64 80
@@ -1927,9 +1927,9 @@ _ZN8V3PreLex12curFilelinepEv.exit369:             ; preds = %408, %415
   %453 = getelementptr inbounds i8, ptr %452, i64 -8
   %454 = load ptr, ptr %453, align 8, !tbaa !44
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit370
+  br label %_ZN8V3PreLex12curFilelinepEv.exit369
 
-_ZN8V3PreLex12curFilelinepEv.exit370:             ; preds = %443, %450
+_ZN8V3PreLex12curFilelinepEv.exit369:             ; preds = %443, %450
   %456 = phi ptr [ %455, %450 ], [ %446, %443 ]
   %457 = getelementptr inbounds i8, ptr %456, i64 -8
   %458 = load ptr, ptr %457, align 8, !tbaa !45
@@ -1967,7 +1967,7 @@ _ZN8V3PreLex12curFilelinepEv.exit370:             ; preds = %443, %450
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 64
   %483 = load ptr, ptr %482, align 8, !tbaa !42, !noalias !79
   %484 = icmp eq ptr %481, %483
-  br i1 %484, label %485, label %_ZN8V3PreLex12curFilelinepEv.exit371
+  br i1 %484, label %485, label %_ZN8V3PreLex12curFilelinepEv.exit370
 
 485:                                              ; preds = %478
   %486 = getelementptr inbounds nuw i8, ptr %479, i64 80
@@ -1975,9 +1975,9 @@ _ZN8V3PreLex12curFilelinepEv.exit370:             ; preds = %443, %450
   %488 = getelementptr inbounds i8, ptr %487, i64 -8
   %489 = load ptr, ptr %488, align 8, !tbaa !44
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit371
+  br label %_ZN8V3PreLex12curFilelinepEv.exit370
 
-_ZN8V3PreLex12curFilelinepEv.exit371:             ; preds = %478, %485
+_ZN8V3PreLex12curFilelinepEv.exit370:             ; preds = %478, %485
   %491 = phi ptr [ %490, %485 ], [ %481, %478 ]
   %492 = getelementptr inbounds i8, ptr %491, i64 -8
   %493 = load ptr, ptr %492, align 8, !tbaa !45
@@ -2015,7 +2015,7 @@ _ZN8V3PreLex12curFilelinepEv.exit371:             ; preds = %478, %485
   %517 = getelementptr inbounds nuw i8, ptr %514, i64 64
   %518 = load ptr, ptr %517, align 8, !tbaa !42, !noalias !82
   %519 = icmp eq ptr %516, %518
-  br i1 %519, label %520, label %_ZN8V3PreLex12curFilelinepEv.exit372
+  br i1 %519, label %520, label %_ZN8V3PreLex12curFilelinepEv.exit371
 
 520:                                              ; preds = %513
   %521 = getelementptr inbounds nuw i8, ptr %514, i64 80
@@ -2023,9 +2023,9 @@ _ZN8V3PreLex12curFilelinepEv.exit371:             ; preds = %478, %485
   %523 = getelementptr inbounds i8, ptr %522, i64 -8
   %524 = load ptr, ptr %523, align 8, !tbaa !44
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit372
+  br label %_ZN8V3PreLex12curFilelinepEv.exit371
 
-_ZN8V3PreLex12curFilelinepEv.exit372:             ; preds = %513, %520
+_ZN8V3PreLex12curFilelinepEv.exit371:             ; preds = %513, %520
   %526 = phi ptr [ %525, %520 ], [ %516, %513 ]
   %527 = getelementptr inbounds i8, ptr %526, i64 -8
   %528 = load ptr, ptr %527, align 8, !tbaa !45
@@ -2063,7 +2063,7 @@ _ZN8V3PreLex12curFilelinepEv.exit372:             ; preds = %513, %520
   %552 = getelementptr inbounds nuw i8, ptr %549, i64 64
   %553 = load ptr, ptr %552, align 8, !tbaa !42, !noalias !85
   %554 = icmp eq ptr %551, %553
-  br i1 %554, label %555, label %_ZN8V3PreLex12curFilelinepEv.exit373
+  br i1 %554, label %555, label %_ZN8V3PreLex12curFilelinepEv.exit372
 
 555:                                              ; preds = %548
   %556 = getelementptr inbounds nuw i8, ptr %549, i64 80
@@ -2071,9 +2071,9 @@ _ZN8V3PreLex12curFilelinepEv.exit372:             ; preds = %513, %520
   %558 = getelementptr inbounds i8, ptr %557, i64 -8
   %559 = load ptr, ptr %558, align 8, !tbaa !44
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit373
+  br label %_ZN8V3PreLex12curFilelinepEv.exit372
 
-_ZN8V3PreLex12curFilelinepEv.exit373:             ; preds = %548, %555
+_ZN8V3PreLex12curFilelinepEv.exit372:             ; preds = %548, %555
   %561 = phi ptr [ %560, %555 ], [ %551, %548 ]
   %562 = getelementptr inbounds i8, ptr %561, i64 -8
   %563 = load ptr, ptr %562, align 8, !tbaa !45
@@ -2116,7 +2116,7 @@ _ZN8V3PreLex12curFilelinepEv.exit373:             ; preds = %548, %555
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 64
   %592 = load ptr, ptr %591, align 8, !tbaa !42, !noalias !107
   %593 = icmp eq ptr %590, %592
-  br i1 %593, label %594, label %_ZN8V3PreLex12curFilelinepEv.exit374
+  br i1 %593, label %594, label %_ZN8V3PreLex12curFilelinepEv.exit373
 
 594:                                              ; preds = %587
   %595 = getelementptr inbounds nuw i8, ptr %588, i64 80
@@ -2124,9 +2124,9 @@ _ZN8V3PreLex12curFilelinepEv.exit373:             ; preds = %548, %555
   %597 = getelementptr inbounds i8, ptr %596, i64 -8
   %598 = load ptr, ptr %597, align 8, !tbaa !44
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit374
+  br label %_ZN8V3PreLex12curFilelinepEv.exit373
 
-_ZN8V3PreLex12curFilelinepEv.exit374:             ; preds = %587, %594
+_ZN8V3PreLex12curFilelinepEv.exit373:             ; preds = %587, %594
   %600 = phi ptr [ %599, %594 ], [ %590, %587 ]
   %601 = getelementptr inbounds i8, ptr %600, i64 -8
   %602 = load ptr, ptr %601, align 8, !tbaa !45
@@ -2141,13 +2141,13 @@ _ZN8V3PreLex12curFilelinepEv.exit374:             ; preds = %587, %594
   %609 = icmp sgt i32 %608, 0
   br i1 %609, label %610, label %651
 
-610:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit374
+610:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit373
   %611 = getelementptr inbounds nuw i8, ptr %606, i64 56
   %612 = load ptr, ptr %611, align 8, !tbaa !34, !noalias !111
   %613 = getelementptr inbounds nuw i8, ptr %606, i64 64
   %614 = load ptr, ptr %613, align 8, !tbaa !42, !noalias !111
   %615 = icmp eq ptr %612, %614
-  br i1 %615, label %616, label %_ZN8V3PreLex12curFilelinepEv.exit375
+  br i1 %615, label %616, label %_ZN8V3PreLex12curFilelinepEv.exit374
 
 616:                                              ; preds = %610
   %617 = getelementptr inbounds nuw i8, ptr %606, i64 80
@@ -2155,9 +2155,9 @@ _ZN8V3PreLex12curFilelinepEv.exit374:             ; preds = %587, %594
   %619 = getelementptr inbounds i8, ptr %618, i64 -8
   %620 = load ptr, ptr %619, align 8, !tbaa !44
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit375
+  br label %_ZN8V3PreLex12curFilelinepEv.exit374
 
-_ZN8V3PreLex12curFilelinepEv.exit375:             ; preds = %610, %616
+_ZN8V3PreLex12curFilelinepEv.exit374:             ; preds = %610, %616
   %622 = phi ptr [ %621, %616 ], [ %612, %610 ]
   %623 = getelementptr inbounds i8, ptr %622, i64 -8
   %624 = load ptr, ptr %623, align 8, !tbaa !45
@@ -2170,7 +2170,7 @@ _ZN8V3PreLex12curFilelinepEv.exit375:             ; preds = %610, %616
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %629 unwind label %639
 
-629:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit375
+629:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit374
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %625, ptr noundef nonnull align 8 dereferenceable(112) %627, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %630 unwind label %641
 
@@ -2196,13 +2196,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #45
-  %.pre1474 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
+  %.pre1473 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
   br label %651
 
-639:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit375
+639:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit374
   %640 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377
 
 641:                                              ; preds = %629
   %642 = landingpad { ptr, i32 }
@@ -2210,29 +2210,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %643 = load ptr, ptr %2, align 8, !tbaa !114
   %644 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %645 = icmp eq ptr %643, %644
-  br i1 %645, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376
+  br i1 %645, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i376, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i375
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377: ; preds = %641
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i376: ; preds = %641
   %646 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %647 = load i64, ptr %646, align 8, !tbaa !115
   %648 = icmp ult i64 %647, 16
   call void @llvm.assume(i1 %648)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376: ; preds = %641
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i375: ; preds = %641
   %649 = load i64, ptr %644, align 8, !tbaa !27
   %650 = add i64 %649, 1
   call void @_ZdlPvm(ptr noundef %643, i64 noundef %650) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377, %639
-  %.pn343 = phi { ptr, i32 } [ %640, %639 ], [ %642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377 ], [ %642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i376, %639
+  %.pn343 = phi { ptr, i32 } [ %640, %639 ], [ %642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i376 ], [ %642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i375 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #45
   br label %854
 
-651:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN8V3PreLex12curFilelinepEv.exit374
-  %652 = phi ptr [ %.pre1474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %606, %_ZN8V3PreLex12curFilelinepEv.exit374 ]
+651:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN8V3PreLex12curFilelinepEv.exit373
+  %652 = phi ptr [ %.pre1473, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %606, %_ZN8V3PreLex12curFilelinepEv.exit373 ]
   %653 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
   %655 = getelementptr inbounds nuw i8, ptr %652, i64 252
@@ -2248,7 +2248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378: ; preds = %_Z
   %663 = getelementptr inbounds nuw i8, ptr %660, i64 64
   %664 = load ptr, ptr %663, align 8, !tbaa !42, !noalias !116
   %665 = icmp eq ptr %662, %664
-  br i1 %665, label %666, label %_ZN8V3PreLex12curFilelinepEv.exit379
+  br i1 %665, label %666, label %_ZN8V3PreLex12curFilelinepEv.exit378
 
 666:                                              ; preds = %659
   %667 = getelementptr inbounds nuw i8, ptr %660, i64 80
@@ -2256,9 +2256,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378: ; preds = %_Z
   %669 = getelementptr inbounds i8, ptr %668, i64 -8
   %670 = load ptr, ptr %669, align 8, !tbaa !44
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit379
+  br label %_ZN8V3PreLex12curFilelinepEv.exit378
 
-_ZN8V3PreLex12curFilelinepEv.exit379:             ; preds = %659, %666
+_ZN8V3PreLex12curFilelinepEv.exit378:             ; preds = %659, %666
   %672 = phi ptr [ %671, %666 ], [ %662, %659 ]
   %673 = getelementptr inbounds i8, ptr %672, i64 -8
   %674 = load ptr, ptr %673, align 8, !tbaa !45
@@ -2271,7 +2271,7 @@ _ZN8V3PreLex12curFilelinepEv.exit379:             ; preds = %659, %666
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %679 unwind label %689
 
-679:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit379
+679:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit378
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %675, ptr noundef nonnull align 8 dereferenceable(112) %677, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %680 unwind label %691
 
@@ -2279,30 +2279,30 @@ _ZN8V3PreLex12curFilelinepEv.exit379:             ; preds = %659, %666
   %681 = load ptr, ptr %4, align 8, !tbaa !114
   %682 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %683 = icmp eq ptr %681, %682
-  br i1 %683, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i381, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i380
+  br i1 %683, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i381: ; preds = %680
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380: ; preds = %680
   %684 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %685 = load i64, ptr %684, align 8, !tbaa !115
   %686 = icmp ult i64 %685, 16
   call void @llvm.assume(i1 %686)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i380: ; preds = %680
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379: ; preds = %680
   %687 = load i64, ptr %682, align 8, !tbaa !27
   %688 = add i64 %687, 1
   call void @_ZdlPvm(ptr noundef %681, i64 noundef %688) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i380
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #45
   br label %701
 
-689:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit379
+689:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit378
   %690 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384
 
 691:                                              ; preds = %679
   %692 = landingpad { ptr, i32 }
@@ -2310,28 +2310,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382: ; preds = %_Z
   %693 = load ptr, ptr %4, align 8, !tbaa !114
   %694 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %695 = icmp eq ptr %693, %694
-  br i1 %695, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i384, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i383
+  br i1 %695, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i382
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i384: ; preds = %691
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383: ; preds = %691
   %696 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %697 = load i64, ptr %696, align 8, !tbaa !115
   %698 = icmp ult i64 %697, 16
   call void @llvm.assume(i1 %698)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i383: ; preds = %691
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i382: ; preds = %691
   %699 = load i64, ptr %694, align 8, !tbaa !27
   %700 = add i64 %699, 1
   call void @_ZdlPvm(ptr noundef %693, i64 noundef %700) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i383, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i384, %689
-  %.pn345 = phi { ptr, i32 } [ %690, %689 ], [ %692, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i384 ], [ %692, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i383 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i382, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383, %689
+  %.pn345 = phi { ptr, i32 } [ %690, %689 ], [ %692, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383 ], [ %692, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i382 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #45
   br label %854
 
-701:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382, %651
+701:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381, %651
   %702 = call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #47
   %.not347 = icmp eq i32 %702, 0
   br i1 %.not347, label %.thread, label %703
@@ -2367,7 +2367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385: ; preds = %_Z
   %716 = getelementptr inbounds nuw i8, ptr %712, i64 64
   %717 = load ptr, ptr %716, align 8, !tbaa !42, !noalias !120
   %718 = icmp eq ptr %715, %717
-  br i1 %718, label %719, label %_ZN8V3PreLex12curFilelinepEv.exit386
+  br i1 %718, label %719, label %_ZN8V3PreLex12curFilelinepEv.exit385
 
 719:                                              ; preds = %711
   %720 = getelementptr inbounds nuw i8, ptr %712, i64 80
@@ -2375,9 +2375,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385: ; preds = %_Z
   %722 = getelementptr inbounds i8, ptr %721, i64 -8
   %723 = load ptr, ptr %722, align 8, !tbaa !44
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit386
+  br label %_ZN8V3PreLex12curFilelinepEv.exit385
 
-_ZN8V3PreLex12curFilelinepEv.exit386:             ; preds = %711, %719
+_ZN8V3PreLex12curFilelinepEv.exit385:             ; preds = %711, %719
   %725 = phi ptr [ %724, %719 ], [ %715, %711 ]
   %726 = getelementptr inbounds i8, ptr %725, i64 -8
   %727 = load ptr, ptr %726, align 8, !tbaa !45
@@ -2390,7 +2390,7 @@ _ZN8V3PreLex12curFilelinepEv.exit386:             ; preds = %711, %719
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %732 unwind label %742
 
-732:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit386
+732:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit385
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %728, ptr noundef nonnull align 8 dereferenceable(112) %730, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %733 unwind label %744
 
@@ -2398,33 +2398,33 @@ _ZN8V3PreLex12curFilelinepEv.exit386:             ; preds = %711, %719
   %734 = load ptr, ptr %6, align 8, !tbaa !114
   %735 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %736 = icmp eq ptr %734, %735
-  br i1 %736, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i388, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i387
+  br i1 %736, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i387, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i386
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i388: ; preds = %733
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i387: ; preds = %733
   %737 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %738 = load i64, ptr %737, align 8, !tbaa !115
   %739 = icmp ult i64 %738, 16
   call void @llvm.assume(i1 %739)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i387: ; preds = %733
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i386: ; preds = %733
   %740 = load i64, ptr %735, align 8, !tbaa !27
   %741 = add i64 %740, 1
   call void @_ZdlPvm(ptr noundef %734, i64 noundef %741) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i388, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i387
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i387, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i386
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #45
-  %.pre1475 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
-  %.phi.trans.insert1476 = getelementptr inbounds nuw i8, ptr %.pre1475, i64 260
-  %.pre1477 = load i8, ptr %.phi.trans.insert1476, align 4, !tbaa !119
+  %.pre1474 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
+  %.phi.trans.insert1475 = getelementptr inbounds nuw i8, ptr %.pre1474, i64 260
+  %.pre1476 = load i8, ptr %.phi.trans.insert1475, align 4, !tbaa !119
   br label %754
 
-742:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit386
+742:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit385
   %743 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391
 
 744:                                              ; preds = %732
   %745 = landingpad { ptr, i32 }
@@ -2432,30 +2432,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389: ; preds = %_Z
   %746 = load ptr, ptr %6, align 8, !tbaa !114
   %747 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %748 = icmp eq ptr %746, %747
-  br i1 %748, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i391, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i390
+  br i1 %748, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i390, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i389
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i391: ; preds = %744
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i390: ; preds = %744
   %749 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %750 = load i64, ptr %749, align 8, !tbaa !115
   %751 = icmp ult i64 %750, 16
   call void @llvm.assume(i1 %751)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i390: ; preds = %744
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i389: ; preds = %744
   %752 = load i64, ptr %747, align 8, !tbaa !27
   %753 = add i64 %752, 1
   call void @_ZdlPvm(ptr noundef %746, i64 noundef %753) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i390, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i391, %742
-  %.pn351 = phi { ptr, i32 } [ %743, %742 ], [ %745, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i391 ], [ %745, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i390 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i389, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i390, %742
+  %.pn351 = phi { ptr, i32 } [ %743, %742 ], [ %745, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i390 ], [ %745, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i389 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #45
   br label %854
 
-754:                                              ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389
-  %755 = phi i8 [ %.ph, %.thread ], [ %.pre1477, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389 ]
-  %756 = phi ptr [ %709, %.thread ], [ %.pre1475, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389 ]
+754:                                              ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388
+  %755 = phi i8 [ %.ph, %.thread ], [ %.pre1476, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388 ]
+  %756 = phi ptr [ %709, %.thread ], [ %.pre1474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388 ]
   %.not353 = icmp eq i8 %755, 1
   br i1 %.not353, label %798, label %757
 
@@ -2465,7 +2465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392: ; preds = %_Z
   %760 = getelementptr inbounds nuw i8, ptr %756, i64 64
   %761 = load ptr, ptr %760, align 8, !tbaa !42, !noalias !123
   %762 = icmp eq ptr %759, %761
-  br i1 %762, label %763, label %_ZN8V3PreLex12curFilelinepEv.exit393
+  br i1 %762, label %763, label %_ZN8V3PreLex12curFilelinepEv.exit392
 
 763:                                              ; preds = %757
   %764 = getelementptr inbounds nuw i8, ptr %756, i64 80
@@ -2473,9 +2473,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392: ; preds = %_Z
   %766 = getelementptr inbounds i8, ptr %765, i64 -8
   %767 = load ptr, ptr %766, align 8, !tbaa !44
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit393
+  br label %_ZN8V3PreLex12curFilelinepEv.exit392
 
-_ZN8V3PreLex12curFilelinepEv.exit393:             ; preds = %757, %763
+_ZN8V3PreLex12curFilelinepEv.exit392:             ; preds = %757, %763
   %769 = phi ptr [ %768, %763 ], [ %759, %757 ]
   %770 = getelementptr inbounds i8, ptr %769, i64 -8
   %771 = load ptr, ptr %770, align 8, !tbaa !45
@@ -2488,7 +2488,7 @@ _ZN8V3PreLex12curFilelinepEv.exit393:             ; preds = %757, %763
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %776 unwind label %786
 
-776:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit393
+776:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit392
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %772, ptr noundef nonnull align 8 dereferenceable(112) %774, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %777 unwind label %788
 
@@ -2496,30 +2496,30 @@ _ZN8V3PreLex12curFilelinepEv.exit393:             ; preds = %757, %763
   %778 = load ptr, ptr %8, align 8, !tbaa !114
   %779 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %780 = icmp eq ptr %778, %779
-  br i1 %780, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i395, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i394
+  br i1 %780, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i394, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i393
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i395: ; preds = %777
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i394: ; preds = %777
   %781 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %782 = load i64, ptr %781, align 8, !tbaa !115
   %783 = icmp ult i64 %782, 16
   call void @llvm.assume(i1 %783)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i394: ; preds = %777
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i393: ; preds = %777
   %784 = load i64, ptr %779, align 8, !tbaa !27
   %785 = add i64 %784, 1
   call void @_ZdlPvm(ptr noundef %778, i64 noundef %785) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i395, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i394
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i394, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i393
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #45
   br label %798
 
-786:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit393
+786:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit392
   %787 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398
 
 788:                                              ; preds = %776
   %789 = landingpad { ptr, i32 }
@@ -2527,28 +2527,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %_Z
   %790 = load ptr, ptr %8, align 8, !tbaa !114
   %791 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %792 = icmp eq ptr %790, %791
-  br i1 %792, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i398, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i397
+  br i1 %792, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i397, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i396
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i398: ; preds = %788
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i397: ; preds = %788
   %793 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %794 = load i64, ptr %793, align 8, !tbaa !115
   %795 = icmp ult i64 %794, 16
   call void @llvm.assume(i1 %795)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i397: ; preds = %788
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i396: ; preds = %788
   %796 = load i64, ptr %791, align 8, !tbaa !27
   %797 = add i64 %796, 1
   call void @_ZdlPvm(ptr noundef %790, i64 noundef %797) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i397, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i398, %786
-  %.pn354 = phi { ptr, i32 } [ %787, %786 ], [ %789, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i398 ], [ %789, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i397 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i396, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i397, %786
+  %.pn354 = phi { ptr, i32 } [ %787, %786 ], [ %789, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i397 ], [ %789, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i396 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #45
   br label %854
 
-798:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396, %754
+798:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395, %754
   %799 = icmp eq i32 %657, 3
   %800 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
   br i1 %799, label %801, label %850
@@ -2572,7 +2572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
   %812 = getelementptr inbounds nuw i8, ptr %800, i64 64
   %813 = load ptr, ptr %812, align 8, !tbaa !42, !noalias !127
   %814 = icmp eq ptr %811, %813
-  br i1 %814, label %815, label %_ZN8V3PreLex12curFilelinepEv.exit400
+  br i1 %814, label %815, label %_ZN8V3PreLex12curFilelinepEv.exit399
 
 815:                                              ; preds = %809
   %816 = getelementptr inbounds nuw i8, ptr %800, i64 80
@@ -2580,9 +2580,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
   %818 = getelementptr inbounds i8, ptr %817, i64 -8
   %819 = load ptr, ptr %818, align 8, !tbaa !44
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit400
+  br label %_ZN8V3PreLex12curFilelinepEv.exit399
 
-_ZN8V3PreLex12curFilelinepEv.exit400:             ; preds = %809, %815
+_ZN8V3PreLex12curFilelinepEv.exit399:             ; preds = %809, %815
   %821 = phi ptr [ %820, %815 ], [ %811, %809 ]
   %822 = getelementptr inbounds i8, ptr %821, i64 -8
   %823 = load ptr, ptr %822, align 8, !tbaa !45
@@ -2595,7 +2595,7 @@ _ZN8V3PreLex12curFilelinepEv.exit400:             ; preds = %809, %815
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %828 unwind label %838
 
-828:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit400
+828:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit399
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %824, ptr noundef nonnull align 8 dereferenceable(112) %826, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %829 unwind label %840
 
@@ -2603,30 +2603,30 @@ _ZN8V3PreLex12curFilelinepEv.exit400:             ; preds = %809, %815
   %830 = load ptr, ptr %10, align 8, !tbaa !114
   %831 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %832 = icmp eq ptr %830, %831
-  br i1 %832, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i402, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i401
+  br i1 %832, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i401, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i400
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i402: ; preds = %829
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i401: ; preds = %829
   %833 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %834 = load i64, ptr %833, align 8, !tbaa !115
   %835 = icmp ult i64 %834, 16
   call void @llvm.assume(i1 %835)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i401: ; preds = %829
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i400: ; preds = %829
   %836 = load i64, ptr %831, align 8, !tbaa !27
   %837 = add i64 %836, 1
   call void @_ZdlPvm(ptr noundef %830, i64 noundef %837) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i402, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i401
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i401, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i400
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #45
   br label %853
 
-838:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit400
+838:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit399
   %839 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405
 
 840:                                              ; preds = %828
   %841 = landingpad { ptr, i32 }
@@ -2634,23 +2634,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
   %842 = load ptr, ptr %10, align 8, !tbaa !114
   %843 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %844 = icmp eq ptr %842, %843
-  br i1 %844, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i404
+  br i1 %844, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i404, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i403
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405: ; preds = %840
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i404: ; preds = %840
   %845 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %846 = load i64, ptr %845, align 8, !tbaa !115
   %847 = icmp ult i64 %846, 16
   call void @llvm.assume(i1 %847)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i404: ; preds = %840
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i403: ; preds = %840
   %848 = load i64, ptr %843, align 8, !tbaa !27
   %849 = add i64 %848, 1
   call void @_ZdlPvm(ptr noundef %842, i64 noundef %849) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i404, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405, %838
-  %.pn357 = phi { ptr, i32 } [ %839, %838 ], [ %841, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i405 ], [ %841, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i404 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i403, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i404, %838
+  %.pn357 = phi { ptr, i32 } [ %839, %838 ], [ %841, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i404 ], [ %841, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i403 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #45
   br label %854
@@ -2662,13 +2662,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %_Z
   store i32 76, ptr %852, align 4, !tbaa !126
   br label %853
 
-853:                                              ; preds = %801, %805, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403, %850
+853:                                              ; preds = %801, %805, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402, %850
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #45
   br label %.loopexit
 
-854:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
-  %.pn357.pn = phi { ptr, i32 } [ %.pn357, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406 ], [ %.pn354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399 ], [ %.pn351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit392 ], [ %.pn345, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385 ], [ %.pn343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378 ]
+854:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377
+  %.pn357.pn = phi { ptr, i32 } [ %.pn357, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit405 ], [ %.pn354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit398 ], [ %.pn351, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391 ], [ %.pn345, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384 ], [ %.pn343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #45
   br label %7394
 
@@ -2700,7 +2700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %_Z
   %875 = getelementptr inbounds nuw i8, ptr %872, i64 64
   %876 = load ptr, ptr %875, align 8, !tbaa !42, !noalias !130
   %877 = icmp eq ptr %874, %876
-  br i1 %877, label %878, label %_ZN8V3PreLex12curFilelinepEv.exit407
+  br i1 %877, label %878, label %_ZN8V3PreLex12curFilelinepEv.exit406
 
 878:                                              ; preds = %871
   %879 = getelementptr inbounds nuw i8, ptr %872, i64 80
@@ -2708,9 +2708,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %_Z
   %881 = getelementptr inbounds i8, ptr %880, i64 -8
   %882 = load ptr, ptr %881, align 8, !tbaa !44
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit407
+  br label %_ZN8V3PreLex12curFilelinepEv.exit406
 
-_ZN8V3PreLex12curFilelinepEv.exit407:             ; preds = %871, %878
+_ZN8V3PreLex12curFilelinepEv.exit406:             ; preds = %871, %878
   %884 = phi ptr [ %883, %878 ], [ %874, %871 ]
   %885 = getelementptr inbounds i8, ptr %884, i64 -8
   %886 = load ptr, ptr %885, align 8, !tbaa !45
@@ -2750,7 +2750,7 @@ _ZN8V3PreLex12curFilelinepEv.exit407:             ; preds = %871, %878
   %910 = getelementptr inbounds nuw i8, ptr %907, i64 64
   %911 = load ptr, ptr %910, align 8, !tbaa !42, !noalias !133
   %912 = icmp eq ptr %909, %911
-  br i1 %912, label %913, label %_ZN8V3PreLex12curFilelinepEv.exit408
+  br i1 %912, label %913, label %_ZN8V3PreLex12curFilelinepEv.exit407
 
 913:                                              ; preds = %906
   %914 = getelementptr inbounds nuw i8, ptr %907, i64 80
@@ -2758,9 +2758,9 @@ _ZN8V3PreLex12curFilelinepEv.exit407:             ; preds = %871, %878
   %916 = getelementptr inbounds i8, ptr %915, i64 -8
   %917 = load ptr, ptr %916, align 8, !tbaa !44
   %918 = getelementptr inbounds nuw i8, ptr %917, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit408
+  br label %_ZN8V3PreLex12curFilelinepEv.exit407
 
-_ZN8V3PreLex12curFilelinepEv.exit408:             ; preds = %906, %913
+_ZN8V3PreLex12curFilelinepEv.exit407:             ; preds = %906, %913
   %919 = phi ptr [ %918, %913 ], [ %909, %906 ]
   %920 = getelementptr inbounds i8, ptr %919, i64 -8
   %921 = load ptr, ptr %920, align 8, !tbaa !45
@@ -2775,18 +2775,18 @@ _ZN8V3PreLex12curFilelinepEv.exit408:             ; preds = %906, %913
   %928 = getelementptr inbounds nuw i8, ptr %925, i64 64
   %929 = load ptr, ptr %928, align 8, !tbaa !42, !noalias !136
   %930 = icmp eq ptr %927, %929
-  br i1 %930, label %931, label %_ZN8V3PreLex12curFilelinepEv.exit409
+  br i1 %930, label %931, label %_ZN8V3PreLex12curFilelinepEv.exit408
 
-931:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit408
+931:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit407
   %932 = getelementptr inbounds nuw i8, ptr %925, i64 80
   %933 = load ptr, ptr %932, align 8, !tbaa !43, !noalias !136
   %934 = getelementptr inbounds i8, ptr %933, i64 -8
   %935 = load ptr, ptr %934, align 8, !tbaa !44
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit409
+  br label %_ZN8V3PreLex12curFilelinepEv.exit408
 
-_ZN8V3PreLex12curFilelinepEv.exit409:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit408, %931
-  %937 = phi ptr [ %936, %931 ], [ %927, %_ZN8V3PreLex12curFilelinepEv.exit408 ]
+_ZN8V3PreLex12curFilelinepEv.exit408:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit407, %931
+  %937 = phi ptr [ %936, %931 ], [ %927, %_ZN8V3PreLex12curFilelinepEv.exit407 ]
   %938 = getelementptr inbounds i8, ptr %937, i64 -8
   %939 = load ptr, ptr %938, align 8, !tbaa !45
   %940 = load ptr, ptr %939, align 8, !tbaa !47
@@ -2798,7 +2798,7 @@ _ZN8V3PreLex12curFilelinepEv.exit409:             ; preds = %_ZN8V3PreLex12curFi
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %944 unwind label %954
 
-944:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit409
+944:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit408
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %940, ptr noundef nonnull align 8 dereferenceable(112) %942, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %945 unwind label %956
 
@@ -2806,31 +2806,31 @@ _ZN8V3PreLex12curFilelinepEv.exit409:             ; preds = %_ZN8V3PreLex12curFi
   %946 = load ptr, ptr %12, align 8, !tbaa !114
   %947 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %948 = icmp eq ptr %946, %947
-  br i1 %948, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i411, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i410
+  br i1 %948, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i410, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i409
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i411: ; preds = %945
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i410: ; preds = %945
   %949 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %950 = load i64, ptr %949, align 8, !tbaa !115
   %951 = icmp ult i64 %950, 16
   call void @llvm.assume(i1 %951)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit411
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i410: ; preds = %945
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i409: ; preds = %945
   %952 = load i64, ptr %947, align 8, !tbaa !27
   %953 = add i64 %952, 1
   call void @_ZdlPvm(ptr noundef %946, i64 noundef %953) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit411
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i411, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i410
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit411: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i410, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i409
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #45
   store i32 17, ptr @_ZL8yy_start, align 4, !tbaa !9
   br label %.loopexit
 
-954:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit409
+954:                                              ; preds = %_ZN8V3PreLex12curFilelinepEv.exit408
   %955 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414
 
 956:                                              ; preds = %944
   %957 = landingpad { ptr, i32 }
@@ -2838,23 +2838,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_Z
   %958 = load ptr, ptr %12, align 8, !tbaa !114
   %959 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %960 = icmp eq ptr %958, %959
-  br i1 %960, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i414, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i413
+  br i1 %960, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i413, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i412
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i414: ; preds = %956
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i413: ; preds = %956
   %961 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %962 = load i64, ptr %961, align 8, !tbaa !115
   %963 = icmp ult i64 %962, 16
   call void @llvm.assume(i1 %963)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i413: ; preds = %956
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i412: ; preds = %956
   %964 = load i64, ptr %959, align 8, !tbaa !27
   %965 = add i64 %964, 1
   call void @_ZdlPvm(ptr noundef %958, i64 noundef %965) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i413, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i414, %954
-  %.pn341 = phi { ptr, i32 } [ %955, %954 ], [ %957, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i414 ], [ %957, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i413 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i412, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i413, %954
+  %.pn341 = phi { ptr, i32 } [ %955, %954 ], [ %957, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i413 ], [ %957, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i412 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #45
   br label %7394
@@ -2887,7 +2887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415: ; preds = %_Z
   %986 = getelementptr inbounds nuw i8, ptr %983, i64 64
   %987 = load ptr, ptr %986, align 8, !tbaa !42, !noalias !139
   %988 = icmp eq ptr %985, %987
-  br i1 %988, label %989, label %_ZN8V3PreLex12curFilelinepEv.exit416
+  br i1 %988, label %989, label %_ZN8V3PreLex12curFilelinepEv.exit415
 
 989:                                              ; preds = %982
   %990 = getelementptr inbounds nuw i8, ptr %983, i64 80
@@ -2895,9 +2895,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415: ; preds = %_Z
   %992 = getelementptr inbounds i8, ptr %991, i64 -8
   %993 = load ptr, ptr %992, align 8, !tbaa !44
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit416
+  br label %_ZN8V3PreLex12curFilelinepEv.exit415
 
-_ZN8V3PreLex12curFilelinepEv.exit416:             ; preds = %982, %989
+_ZN8V3PreLex12curFilelinepEv.exit415:             ; preds = %982, %989
   %995 = phi ptr [ %994, %989 ], [ %985, %982 ]
   %996 = getelementptr inbounds i8, ptr %995, i64 -8
   %997 = load ptr, ptr %996, align 8, !tbaa !45
@@ -2937,7 +2937,7 @@ _ZN8V3PreLex12curFilelinepEv.exit416:             ; preds = %982, %989
   %1021 = getelementptr inbounds nuw i8, ptr %1018, i64 64
   %1022 = load ptr, ptr %1021, align 8, !tbaa !42, !noalias !142
   %1023 = icmp eq ptr %1020, %1022
-  br i1 %1023, label %1024, label %_ZN8V3PreLex12curFilelinepEv.exit417
+  br i1 %1023, label %1024, label %_ZN8V3PreLex12curFilelinepEv.exit416
 
 1024:                                             ; preds = %1017
   %1025 = getelementptr inbounds nuw i8, ptr %1018, i64 80
@@ -2945,9 +2945,9 @@ _ZN8V3PreLex12curFilelinepEv.exit416:             ; preds = %982, %989
   %1027 = getelementptr inbounds i8, ptr %1026, i64 -8
   %1028 = load ptr, ptr %1027, align 8, !tbaa !44
   %1029 = getelementptr inbounds nuw i8, ptr %1028, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit417
+  br label %_ZN8V3PreLex12curFilelinepEv.exit416
 
-_ZN8V3PreLex12curFilelinepEv.exit417:             ; preds = %1017, %1024
+_ZN8V3PreLex12curFilelinepEv.exit416:             ; preds = %1017, %1024
   %1030 = phi ptr [ %1029, %1024 ], [ %1020, %1017 ]
   %1031 = getelementptr inbounds i8, ptr %1030, i64 -8
   %1032 = load ptr, ptr %1031, align 8, !tbaa !45
@@ -2987,7 +2987,7 @@ _ZN8V3PreLex12curFilelinepEv.exit417:             ; preds = %1017, %1024
   %1056 = getelementptr inbounds nuw i8, ptr %1053, i64 64
   %1057 = load ptr, ptr %1056, align 8, !tbaa !42, !noalias !145
   %1058 = icmp eq ptr %1055, %1057
-  br i1 %1058, label %1059, label %_ZN8V3PreLex12curFilelinepEv.exit418
+  br i1 %1058, label %1059, label %_ZN8V3PreLex12curFilelinepEv.exit417
 
 1059:                                             ; preds = %1052
   %1060 = getelementptr inbounds nuw i8, ptr %1053, i64 80
@@ -2995,9 +2995,9 @@ _ZN8V3PreLex12curFilelinepEv.exit417:             ; preds = %1017, %1024
   %1062 = getelementptr inbounds i8, ptr %1061, i64 -8
   %1063 = load ptr, ptr %1062, align 8, !tbaa !44
   %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit418
+  br label %_ZN8V3PreLex12curFilelinepEv.exit417
 
-_ZN8V3PreLex12curFilelinepEv.exit418:             ; preds = %1052, %1059
+_ZN8V3PreLex12curFilelinepEv.exit417:             ; preds = %1052, %1059
   %1065 = phi ptr [ %1064, %1059 ], [ %1055, %1052 ]
   %1066 = getelementptr inbounds i8, ptr %1065, i64 -8
   %1067 = load ptr, ptr %1066, align 8, !tbaa !45
@@ -3037,7 +3037,7 @@ _ZN8V3PreLex12curFilelinepEv.exit418:             ; preds = %1052, %1059
   %1091 = getelementptr inbounds nuw i8, ptr %1088, i64 64
   %1092 = load ptr, ptr %1091, align 8, !tbaa !42, !noalias !148
   %1093 = icmp eq ptr %1090, %1092
-  br i1 %1093, label %1094, label %_ZN8V3PreLex12curFilelinepEv.exit419
+  br i1 %1093, label %1094, label %_ZN8V3PreLex12curFilelinepEv.exit418
 
 1094:                                             ; preds = %1087
   %1095 = getelementptr inbounds nuw i8, ptr %1088, i64 80
@@ -3045,9 +3045,9 @@ _ZN8V3PreLex12curFilelinepEv.exit418:             ; preds = %1052, %1059
   %1097 = getelementptr inbounds i8, ptr %1096, i64 -8
   %1098 = load ptr, ptr %1097, align 8, !tbaa !44
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit419
+  br label %_ZN8V3PreLex12curFilelinepEv.exit418
 
-_ZN8V3PreLex12curFilelinepEv.exit419:             ; preds = %1087, %1094
+_ZN8V3PreLex12curFilelinepEv.exit418:             ; preds = %1087, %1094
   %1100 = phi ptr [ %1099, %1094 ], [ %1090, %1087 ]
   %1101 = getelementptr inbounds i8, ptr %1100, i64 -8
   %1102 = load ptr, ptr %1101, align 8, !tbaa !45
@@ -3087,7 +3087,7 @@ _ZN8V3PreLex12curFilelinepEv.exit419:             ; preds = %1087, %1094
   %1126 = getelementptr inbounds nuw i8, ptr %1123, i64 64
   %1127 = load ptr, ptr %1126, align 8, !tbaa !42, !noalias !151
   %1128 = icmp eq ptr %1125, %1127
-  br i1 %1128, label %1129, label %_ZN8V3PreLex12curFilelinepEv.exit420
+  br i1 %1128, label %1129, label %_ZN8V3PreLex12curFilelinepEv.exit419
 
 1129:                                             ; preds = %1122
   %1130 = getelementptr inbounds nuw i8, ptr %1123, i64 80
@@ -3095,9 +3095,9 @@ _ZN8V3PreLex12curFilelinepEv.exit419:             ; preds = %1087, %1094
   %1132 = getelementptr inbounds i8, ptr %1131, i64 -8
   %1133 = load ptr, ptr %1132, align 8, !tbaa !44
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit420
+  br label %_ZN8V3PreLex12curFilelinepEv.exit419
 
-_ZN8V3PreLex12curFilelinepEv.exit420:             ; preds = %1122, %1129
+_ZN8V3PreLex12curFilelinepEv.exit419:             ; preds = %1122, %1129
   %1135 = phi ptr [ %1134, %1129 ], [ %1125, %1122 ]
   %1136 = getelementptr inbounds i8, ptr %1135, i64 -8
   %1137 = load ptr, ptr %1136, align 8, !tbaa !45
@@ -3135,7 +3135,7 @@ _ZN8V3PreLex12curFilelinepEv.exit420:             ; preds = %1122, %1129
   %1161 = getelementptr inbounds nuw i8, ptr %1158, i64 64
   %1162 = load ptr, ptr %1161, align 8, !tbaa !42, !noalias !154
   %1163 = icmp eq ptr %1160, %1162
-  br i1 %1163, label %1164, label %_ZN8V3PreLex12curFilelinepEv.exit421
+  br i1 %1163, label %1164, label %_ZN8V3PreLex12curFilelinepEv.exit420
 
 1164:                                             ; preds = %1157
   %1165 = getelementptr inbounds nuw i8, ptr %1158, i64 80
@@ -3143,9 +3143,9 @@ _ZN8V3PreLex12curFilelinepEv.exit420:             ; preds = %1122, %1129
   %1167 = getelementptr inbounds i8, ptr %1166, i64 -8
   %1168 = load ptr, ptr %1167, align 8, !tbaa !44
   %1169 = getelementptr inbounds nuw i8, ptr %1168, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit421
+  br label %_ZN8V3PreLex12curFilelinepEv.exit420
 
-_ZN8V3PreLex12curFilelinepEv.exit421:             ; preds = %1157, %1164
+_ZN8V3PreLex12curFilelinepEv.exit420:             ; preds = %1157, %1164
   %1170 = phi ptr [ %1169, %1164 ], [ %1160, %1157 ]
   %1171 = getelementptr inbounds i8, ptr %1170, i64 -8
   %1172 = load ptr, ptr %1171, align 8, !tbaa !45
@@ -3223,7 +3223,7 @@ _ZN8V3PreLex12curFilelinepEv.exit421:             ; preds = %1157, %1164
   %1219 = getelementptr inbounds nuw i8, ptr %1216, i64 64
   %1220 = load ptr, ptr %1219, align 8, !tbaa !42, !noalias !157
   %1221 = icmp eq ptr %1218, %1220
-  br i1 %1221, label %1222, label %_ZN8V3PreLex12curFilelinepEv.exit422
+  br i1 %1221, label %1222, label %_ZN8V3PreLex12curFilelinepEv.exit421
 
 1222:                                             ; preds = %1215
   %1223 = getelementptr inbounds nuw i8, ptr %1216, i64 80
@@ -3231,9 +3231,9 @@ _ZN8V3PreLex12curFilelinepEv.exit421:             ; preds = %1157, %1164
   %1225 = getelementptr inbounds i8, ptr %1224, i64 -8
   %1226 = load ptr, ptr %1225, align 8, !tbaa !44
   %1227 = getelementptr inbounds nuw i8, ptr %1226, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit422
+  br label %_ZN8V3PreLex12curFilelinepEv.exit421
 
-_ZN8V3PreLex12curFilelinepEv.exit422:             ; preds = %1215, %1222
+_ZN8V3PreLex12curFilelinepEv.exit421:             ; preds = %1215, %1222
   %1228 = phi ptr [ %1227, %1222 ], [ %1218, %1215 ]
   %1229 = getelementptr inbounds i8, ptr %1228, i64 -8
   %1230 = load ptr, ptr %1229, align 8, !tbaa !45
@@ -3248,18 +3248,18 @@ _ZN8V3PreLex12curFilelinepEv.exit422:             ; preds = %1215, %1222
   %1237 = getelementptr inbounds nuw i8, ptr %1234, i64 64
   %1238 = load ptr, ptr %1237, align 8, !tbaa !42, !noalias !160
   %1239 = icmp eq ptr %1236, %1238
-  br i1 %1239, label %1240, label %_ZN8V3PreLex12curFilelinepEv.exit423
+  br i1 %1239, label %1240, label %_ZN8V3PreLex12curFilelinepEv.exit422
 
-1240:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit422
+1240:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit421
   %1241 = getelementptr inbounds nuw i8, ptr %1234, i64 80
   %1242 = load ptr, ptr %1241, align 8, !tbaa !43, !noalias !160
   %1243 = getelementptr inbounds i8, ptr %1242, i64 -8
   %1244 = load ptr, ptr %1243, align 8, !tbaa !44
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit423
+  br label %_ZN8V3PreLex12curFilelinepEv.exit422
 
-_ZN8V3PreLex12curFilelinepEv.exit423:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit422, %1240
-  %1246 = phi ptr [ %1245, %1240 ], [ %1236, %_ZN8V3PreLex12curFilelinepEv.exit422 ]
+_ZN8V3PreLex12curFilelinepEv.exit422:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit421, %1240
+  %1246 = phi ptr [ %1245, %1240 ], [ %1236, %_ZN8V3PreLex12curFilelinepEv.exit421 ]
   %1247 = getelementptr inbounds i8, ptr %1246, i64 -8
   %1248 = load ptr, ptr %1247, align 8, !tbaa !45
   %1249 = load ptr, ptr %1248, align 8, !tbaa !47
@@ -3283,7 +3283,7 @@ _ZN8V3PreLex12curFilelinepEv.exit423:             ; preds = %_ZN8V3PreLex12curFi
   %or.cond = and i1 %1263, %.not336
   br i1 %or.cond, label %1264, label %1270
 
-1264:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit423
+1264:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit422
   %1265 = add nsw i32 %1256, -1
   %1266 = ashr exact i32 %1265, 2
   %.neg = mul nsw i32 %1266, -3
@@ -3293,8 +3293,8 @@ _ZN8V3PreLex12curFilelinepEv.exit423:             ; preds = %_ZN8V3PreLex12curFi
   store i32 %1269, ptr %1267, align 8, !tbaa !110
   br label %1302
 
-1270:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit423
-  br i1 %1239, label %1271, label %_ZN8V3PreLex12curFilelinepEv.exit424
+1270:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit422
+  br i1 %1239, label %1271, label %_ZN8V3PreLex12curFilelinepEv.exit423
 
 1271:                                             ; preds = %1270
   %1272 = getelementptr inbounds nuw i8, ptr %1234, i64 80
@@ -3302,9 +3302,9 @@ _ZN8V3PreLex12curFilelinepEv.exit423:             ; preds = %_ZN8V3PreLex12curFi
   %1274 = getelementptr inbounds i8, ptr %1273, i64 -8
   %1275 = load ptr, ptr %1274, align 8, !tbaa !44
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit424
+  br label %_ZN8V3PreLex12curFilelinepEv.exit423
 
-_ZN8V3PreLex12curFilelinepEv.exit424:             ; preds = %1270, %1271
+_ZN8V3PreLex12curFilelinepEv.exit423:             ; preds = %1270, %1271
   %1277 = phi ptr [ %1276, %1271 ], [ %1236, %1270 ]
   %1278 = getelementptr inbounds i8, ptr %1277, i64 -8
   %1279 = load ptr, ptr %1278, align 8, !tbaa !45
@@ -3317,68 +3317,68 @@ _ZN8V3PreLex12curFilelinepEv.exit424:             ; preds = %1270, %1271
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %1284 unwind label %1292
 
-1284:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit424
+1284:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit423
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1280, ptr noundef nonnull align 8 dereferenceable(112) %1282, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %1285 unwind label %1294
 
 1285:                                             ; preds = %1284
   %1286 = load ptr, ptr %14, align 8, !tbaa !114
   %1287 = icmp eq ptr %1286, %78
-  br i1 %1287, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i426, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i425
+  br i1 %1287, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i425, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i426: ; preds = %1285
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i425: ; preds = %1285
   %1288 = load i64, ptr %79, align 8, !tbaa !115
   %1289 = icmp ult i64 %1288, 16
   call void @llvm.assume(i1 %1289)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i425: ; preds = %1285
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424: ; preds = %1285
   %1290 = load i64, ptr %78, align 8, !tbaa !27
   %1291 = add i64 %1290, 1
   call void @_ZdlPvm(ptr noundef %1286, i64 noundef %1291) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i426, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i425
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i425, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #45
-  %.pre1469 = load i32, ptr @V3PreLexleng, align 4, !tbaa !9
-  %.pre1470.pre.pre = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
-  %.pre1479 = sext i32 %.pre1469 to i64
+  %.pre1468 = load i32, ptr @V3PreLexleng, align 4, !tbaa !9
+  %.pre1469.pre.pre = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
+  %.pre1478 = sext i32 %.pre1468 to i64
   br label %1302
 
-1292:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit424
+1292:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit423
   %1293 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429
 
 1294:                                             ; preds = %1284
   %1295 = landingpad { ptr, i32 }
           cleanup
   %1296 = load ptr, ptr %14, align 8, !tbaa !114
   %1297 = icmp eq ptr %1296, %78
-  br i1 %1297, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i429, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i428
+  br i1 %1297, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i428, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i427
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i429: ; preds = %1294
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i428: ; preds = %1294
   %1298 = load i64, ptr %79, align 8, !tbaa !115
   %1299 = icmp ult i64 %1298, 16
   call void @llvm.assume(i1 %1299)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i428: ; preds = %1294
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i427: ; preds = %1294
   %1300 = load i64, ptr %78, align 8, !tbaa !27
   %1301 = add i64 %1300, 1
   call void @_ZdlPvm(ptr noundef %1296, i64 noundef %1301) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i428, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i429, %1292
-  %.pn337 = phi { ptr, i32 } [ %1293, %1292 ], [ %1295, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i429 ], [ %1295, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i428 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i427, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i428, %1292
+  %.pn337 = phi { ptr, i32 } [ %1293, %1292 ], [ %1295, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i428 ], [ %1295, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i427 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #45
   br label %7394
 
-1302:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427, %1264
-  %.pre-phi = phi i64 [ %.pre1479, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427 ], [ %1257, %1264 ]
-  %.pre1470.pre = phi ptr [ %.pre1470.pre.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit427 ], [ %1234, %1264 ]
+1302:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426, %1264
+  %.pre-phi = phi i64 [ %.pre1478, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426 ], [ %1257, %1264 ]
+  %.pre1469.pre = phi ptr [ %.pre1469.pre.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426 ], [ %1234, %1264 ]
   %1303 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %1304 = getelementptr i8, ptr %1303, i64 %.pre-phi
   %1305 = getelementptr i8, ptr %1304, i64 -3
@@ -3387,7 +3387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %_Z
   br i1 %1307, label %1308, label %1312
 
 1308:                                             ; preds = %1302
-  %1309 = getelementptr inbounds nuw i8, ptr %.pre1470.pre, i64 256
+  %1309 = getelementptr inbounds nuw i8, ptr %.pre1469.pre, i64 256
   %1310 = load i32, ptr %1309, align 8, !tbaa !110
   %1311 = add nsw i32 %1310, 1
   store i32 %1311, ptr %1309, align 8, !tbaa !110
@@ -3397,48 +3397,48 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430: ; preds = %_Z
   %1313 = getelementptr i8, ptr %1304, i64 -2
   %1314 = load i8, ptr %1313, align 1, !tbaa !27
   %1315 = icmp eq i8 %1314, 61
-  %1316 = getelementptr inbounds nuw i8, ptr %.pre1470.pre, i64 256
+  %1316 = getelementptr inbounds nuw i8, ptr %.pre1469.pre, i64 256
   %1317 = load i32, ptr %1316, align 8, !tbaa !110
-  br i1 %1315, label %1318, label %._crit_edge1471
+  br i1 %1315, label %1318, label %._crit_edge1470
 
 1318:                                             ; preds = %1312
   %1319 = add nsw i32 %1317, 1
   store i32 %1319, ptr %1316, align 8, !tbaa !110
-  br label %._crit_edge1471
+  br label %._crit_edge1470
 
-._crit_edge1471:                                  ; preds = %1312, %1318
+._crit_edge1470:                                  ; preds = %1312, %1318
   %1320 = phi i32 [ %1319, %1318 ], [ %1317, %1312 ]
   %1321 = icmp eq i32 %1320, 0
   br i1 %1321, label %1322, label %1323
 
-1322:                                             ; preds = %._crit_edge1471
+1322:                                             ; preds = %._crit_edge1470
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !9
   br label %.backedge
 
-.backedge:                                        ; preds = %1322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit434, %1323, %164, %167, %7052, %_ZN8V3PreLex12curFilelinepEv.exit613, %_ZN8V3PreLex12curFilelinepEv.exit611, %6616, %6599, %6562, %6510, %6458, %_ZN8V3PreLex12curFilelinepEv.exit589, %_ZN8V3PreLex12curFilelinepEv.exit587, %_ZN8V3PreLex12curFilelinepEv.exit585, %_ZN8V3PreLex12curFilelinepEv.exit583, %_ZN8V3PreLex12curFilelinepEv.exit581, %_ZN8V3PreLex12curFilelinepEv.exit579, %_ZN8V3PreLex12curFilelinepEv.exit577, %_ZN8V3PreLex12curFilelinepEv.exit575, %_ZN8V3PreLex12curFilelinepEv.exit573, %_ZN8V3PreLex12curFilelinepEv.exit570, %5439, %5422, %_ZN8V3PreLex12curFilelinepEv.exit566, %5258, %4821, %4764, %4747, %4730, %_ZN8V3PreLex12curFilelinepEv.exit549, %4631, %_ZN8V3PreLex12curFilelinepEv.exit547, %_ZN8V3PreLex12curFilelinepEv.exit545, %4484, %4465, %_ZN8V3PreLex12curFilelinepEv.exit542, %4378, %_ZN8V3PreLex12curFilelinepEv.exit538, %_ZN8V3PreLex12curFilelinepEv.exit535, %4155, %_ZN8V3PreLex12curFilelinepEv.exit533, %_ZN8V3PreLex12curFilelinepEv.exit531, %_ZN8V3PreLex12curFilelinepEv.exit529, %_ZN8V3PreLex12curFilelinepEv.exit527, %_ZN8V3PreLex12curFilelinepEv.exit525, %3820, %3801, %_ZN8V3PreLex12curFilelinepEv.exit523, %3714, %_ZN8V3PreLex12curFilelinepEv.exit521, %_ZN8V3PreLex12curFilelinepEv.exit518, %3528, %_ZN8V3PreLex12curFilelinepEv.exit515, %_ZN8V3PreLex12curFilelinepEv.exit513, %_ZN8V3PreLex12curFilelinepEv.exit508, %3191, %3174, %_ZN8V3PreLex12curFilelinepEv.exit505, %3045, %2973, %_ZN8V3PreLex12curFilelinepEv.exit498, %_ZN8V3PreLex12curFilelinepEv.exit496, %2521, %_ZN8V3PreLex12curFilelinepEv.exit483, %2345, %2328, %2298, %2281, %2264, %2247, %_ZN8V3PreLex12curFilelinepEv.exit481, %2175, %_ZN8V3PreLex12curFilelinepEv.exit479, %2089, %2059, %2042, %2025, %2008, %_ZN8V3PreLex12curFilelinepEv.exit477, %1914
+.backedge:                                        ; preds = %1322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433, %1323, %164, %167, %7052, %_ZN8V3PreLex12curFilelinepEv.exit612, %_ZN8V3PreLex12curFilelinepEv.exit610, %6616, %6599, %6562, %6510, %6458, %_ZN8V3PreLex12curFilelinepEv.exit588, %_ZN8V3PreLex12curFilelinepEv.exit586, %_ZN8V3PreLex12curFilelinepEv.exit584, %_ZN8V3PreLex12curFilelinepEv.exit582, %_ZN8V3PreLex12curFilelinepEv.exit580, %_ZN8V3PreLex12curFilelinepEv.exit578, %_ZN8V3PreLex12curFilelinepEv.exit576, %_ZN8V3PreLex12curFilelinepEv.exit574, %_ZN8V3PreLex12curFilelinepEv.exit572, %_ZN8V3PreLex12curFilelinepEv.exit569, %5439, %5422, %_ZN8V3PreLex12curFilelinepEv.exit565, %5258, %4821, %4764, %4747, %4730, %_ZN8V3PreLex12curFilelinepEv.exit548, %4631, %_ZN8V3PreLex12curFilelinepEv.exit546, %_ZN8V3PreLex12curFilelinepEv.exit544, %4484, %4465, %_ZN8V3PreLex12curFilelinepEv.exit541, %4378, %_ZN8V3PreLex12curFilelinepEv.exit537, %_ZN8V3PreLex12curFilelinepEv.exit534, %4155, %_ZN8V3PreLex12curFilelinepEv.exit532, %_ZN8V3PreLex12curFilelinepEv.exit530, %_ZN8V3PreLex12curFilelinepEv.exit528, %_ZN8V3PreLex12curFilelinepEv.exit526, %_ZN8V3PreLex12curFilelinepEv.exit524, %3820, %3801, %_ZN8V3PreLex12curFilelinepEv.exit522, %3714, %_ZN8V3PreLex12curFilelinepEv.exit520, %_ZN8V3PreLex12curFilelinepEv.exit517, %3528, %_ZN8V3PreLex12curFilelinepEv.exit514, %_ZN8V3PreLex12curFilelinepEv.exit512, %_ZN8V3PreLex12curFilelinepEv.exit507, %3191, %3174, %_ZN8V3PreLex12curFilelinepEv.exit504, %3045, %2973, %_ZN8V3PreLex12curFilelinepEv.exit497, %_ZN8V3PreLex12curFilelinepEv.exit495, %2521, %_ZN8V3PreLex12curFilelinepEv.exit482, %2345, %2328, %2298, %2281, %2264, %2247, %_ZN8V3PreLex12curFilelinepEv.exit480, %2175, %_ZN8V3PreLex12curFilelinepEv.exit478, %2089, %2059, %2042, %2025, %2008, %_ZN8V3PreLex12curFilelinepEv.exit476, %1914
   br label %82, !llvm.loop !173
 
-1323:                                             ; preds = %._crit_edge1471
+1323:                                             ; preds = %._crit_edge1470
   %1324 = icmp slt i32 %1320, 0
   br i1 %1324, label %1325, label %.backedge
 
 1325:                                             ; preds = %1323
-  %1326 = getelementptr inbounds nuw i8, ptr %.pre1470.pre, i64 56
+  %1326 = getelementptr inbounds nuw i8, ptr %.pre1469.pre, i64 56
   %1327 = load ptr, ptr %1326, align 8, !tbaa !34, !noalias !174
-  %1328 = getelementptr inbounds nuw i8, ptr %.pre1470.pre, i64 64
+  %1328 = getelementptr inbounds nuw i8, ptr %.pre1469.pre, i64 64
   %1329 = load ptr, ptr %1328, align 8, !tbaa !42, !noalias !174
   %1330 = icmp eq ptr %1327, %1329
-  br i1 %1330, label %1331, label %_ZN8V3PreLex12curFilelinepEv.exit431
+  br i1 %1330, label %1331, label %_ZN8V3PreLex12curFilelinepEv.exit430
 
 1331:                                             ; preds = %1325
-  %1332 = getelementptr inbounds nuw i8, ptr %.pre1470.pre, i64 80
+  %1332 = getelementptr inbounds nuw i8, ptr %.pre1469.pre, i64 80
   %1333 = load ptr, ptr %1332, align 8, !tbaa !43, !noalias !174
   %1334 = getelementptr inbounds i8, ptr %1333, i64 -8
   %1335 = load ptr, ptr %1334, align 8, !tbaa !44
   %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit431
+  br label %_ZN8V3PreLex12curFilelinepEv.exit430
 
-_ZN8V3PreLex12curFilelinepEv.exit431:             ; preds = %1325, %1331
+_ZN8V3PreLex12curFilelinepEv.exit430:             ; preds = %1325, %1331
   %1337 = phi ptr [ %1336, %1331 ], [ %1327, %1325 ]
   %1338 = getelementptr inbounds i8, ptr %1337, i64 -8
   %1339 = load ptr, ptr %1338, align 8, !tbaa !45
@@ -3451,58 +3451,58 @@ _ZN8V3PreLex12curFilelinepEv.exit431:             ; preds = %1325, %1331
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %1344 unwind label %1352
 
-1344:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit431
+1344:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit430
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1340, ptr noundef nonnull align 8 dereferenceable(112) %1342, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %1345 unwind label %1354
 
 1345:                                             ; preds = %1344
   %1346 = load ptr, ptr %16, align 8, !tbaa !114
   %1347 = icmp eq ptr %1346, %80
-  br i1 %1347, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i433, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i432
+  br i1 %1347, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i432, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i431
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i433: ; preds = %1345
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i432: ; preds = %1345
   %1348 = load i64, ptr %81, align 8, !tbaa !115
   %1349 = icmp ult i64 %1348, 16
   call void @llvm.assume(i1 %1349)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit434
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i432: ; preds = %1345
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i431: ; preds = %1345
   %1350 = load i64, ptr %80, align 8, !tbaa !27
   %1351 = add i64 %1350, 1
   call void @_ZdlPvm(ptr noundef %1346, i64 noundef %1351) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit434
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit434: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i433, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i432
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i431
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #45
   br label %.backedge
 
-1352:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit431
+1352:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit430
   %1353 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436
 
 1354:                                             ; preds = %1344
   %1355 = landingpad { ptr, i32 }
           cleanup
   %1356 = load ptr, ptr %16, align 8, !tbaa !114
   %1357 = icmp eq ptr %1356, %80
-  br i1 %1357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435
+  br i1 %1357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i435, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i434
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436: ; preds = %1354
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i435: ; preds = %1354
   %1358 = load i64, ptr %81, align 8, !tbaa !115
   %1359 = icmp ult i64 %1358, 16
   call void @llvm.assume(i1 %1359)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435: ; preds = %1354
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i434: ; preds = %1354
   %1360 = load i64, ptr %80, align 8, !tbaa !27
   %1361 = add i64 %1360, 1
   call void @_ZdlPvm(ptr noundef %1356, i64 noundef %1361) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436, %1352
-  %.pn339 = phi { ptr, i32 } [ %1353, %1352 ], [ %1355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436 ], [ %1355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i434, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i435, %1352
+  %.pn339 = phi { ptr, i32 } [ %1353, %1352 ], [ %1355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i435 ], [ %1355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i434 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #45
   br label %7394
@@ -3535,7 +3535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437: ; preds = %_Z
   %1382 = getelementptr inbounds nuw i8, ptr %1379, i64 64
   %1383 = load ptr, ptr %1382, align 8, !tbaa !42, !noalias !177
   %1384 = icmp eq ptr %1381, %1383
-  br i1 %1384, label %1385, label %_ZN8V3PreLex12curFilelinepEv.exit438
+  br i1 %1384, label %1385, label %_ZN8V3PreLex12curFilelinepEv.exit437
 
 1385:                                             ; preds = %1378
   %1386 = getelementptr inbounds nuw i8, ptr %1379, i64 80
@@ -3543,9 +3543,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437: ; preds = %_Z
   %1388 = getelementptr inbounds i8, ptr %1387, i64 -8
   %1389 = load ptr, ptr %1388, align 8, !tbaa !44
   %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit438
+  br label %_ZN8V3PreLex12curFilelinepEv.exit437
 
-_ZN8V3PreLex12curFilelinepEv.exit438:             ; preds = %1378, %1385
+_ZN8V3PreLex12curFilelinepEv.exit437:             ; preds = %1378, %1385
   %1391 = phi ptr [ %1390, %1385 ], [ %1381, %1378 ]
   %1392 = getelementptr inbounds i8, ptr %1391, i64 -8
   %1393 = load ptr, ptr %1392, align 8, !tbaa !45
@@ -3559,13 +3559,13 @@ _ZN8V3PreLex12curFilelinepEv.exit438:             ; preds = %1378, %1385
   %.not333 = icmp eq i32 %1399, 0
   br i1 %.not333, label %1441, label %1400
 
-1400:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit438
+1400:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit437
   %1401 = getelementptr inbounds nuw i8, ptr %1397, i64 56
   %1402 = load ptr, ptr %1401, align 8, !tbaa !34, !noalias !180
   %1403 = getelementptr inbounds nuw i8, ptr %1397, i64 64
   %1404 = load ptr, ptr %1403, align 8, !tbaa !42, !noalias !180
   %1405 = icmp eq ptr %1402, %1404
-  br i1 %1405, label %1406, label %_ZN8V3PreLex12curFilelinepEv.exit439
+  br i1 %1405, label %1406, label %_ZN8V3PreLex12curFilelinepEv.exit438
 
 1406:                                             ; preds = %1400
   %1407 = getelementptr inbounds nuw i8, ptr %1397, i64 80
@@ -3573,9 +3573,9 @@ _ZN8V3PreLex12curFilelinepEv.exit438:             ; preds = %1378, %1385
   %1409 = getelementptr inbounds i8, ptr %1408, i64 -8
   %1410 = load ptr, ptr %1409, align 8, !tbaa !44
   %1411 = getelementptr inbounds nuw i8, ptr %1410, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit439
+  br label %_ZN8V3PreLex12curFilelinepEv.exit438
 
-_ZN8V3PreLex12curFilelinepEv.exit439:             ; preds = %1400, %1406
+_ZN8V3PreLex12curFilelinepEv.exit438:             ; preds = %1400, %1406
   %1412 = phi ptr [ %1411, %1406 ], [ %1402, %1400 ]
   %1413 = getelementptr inbounds i8, ptr %1412, i64 -8
   %1414 = load ptr, ptr %1413, align 8, !tbaa !45
@@ -3588,7 +3588,7 @@ _ZN8V3PreLex12curFilelinepEv.exit439:             ; preds = %1400, %1406
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %1419 unwind label %1429
 
-1419:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit439
+1419:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit438
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1415, ptr noundef nonnull align 8 dereferenceable(112) %1417, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %1420 unwind label %1431
 
@@ -3596,30 +3596,30 @@ _ZN8V3PreLex12curFilelinepEv.exit439:             ; preds = %1400, %1406
   %1421 = load ptr, ptr %18, align 8, !tbaa !114
   %1422 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1423 = icmp eq ptr %1421, %1422
-  br i1 %1423, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i441, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i440
+  br i1 %1423, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i440, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i439
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i441: ; preds = %1420
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i440: ; preds = %1420
   %1424 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1425 = load i64, ptr %1424, align 8, !tbaa !115
   %1426 = icmp ult i64 %1425, 16
   call void @llvm.assume(i1 %1426)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i440: ; preds = %1420
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i439: ; preds = %1420
   %1427 = load i64, ptr %1422, align 8, !tbaa !27
   %1428 = add i64 %1427, 1
   call void @_ZdlPvm(ptr noundef %1421, i64 noundef %1428) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i441, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i440
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i440, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i439
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #45
   br label %1441
 
-1429:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit439
+1429:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit438
   %1430 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444
 
 1431:                                             ; preds = %1419
   %1432 = landingpad { ptr, i32 }
@@ -3627,28 +3627,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442: ; preds = %_Z
   %1433 = load ptr, ptr %18, align 8, !tbaa !114
   %1434 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1435 = icmp eq ptr %1433, %1434
-  br i1 %1435, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i444, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i443
+  br i1 %1435, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i444: ; preds = %1431
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443: ; preds = %1431
   %1436 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1437 = load i64, ptr %1436, align 8, !tbaa !115
   %1438 = icmp ult i64 %1437, 16
   call void @llvm.assume(i1 %1438)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i443: ; preds = %1431
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442: ; preds = %1431
   %1439 = load i64, ptr %1434, align 8, !tbaa !27
   %1440 = add i64 %1439, 1
   call void @_ZdlPvm(ptr noundef %1433, i64 noundef %1440) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i444, %1429
-  %.pn334 = phi { ptr, i32 } [ %1430, %1429 ], [ %1432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i444 ], [ %1432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i443 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443, %1429
+  %.pn334 = phi { ptr, i32 } [ %1430, %1429 ], [ %1432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443 ], [ %1432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #45
   br label %7394
 
-1441:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442, %_ZN8V3PreLex12curFilelinepEv.exit438
+1441:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441, %_ZN8V3PreLex12curFilelinepEv.exit437
   call fastcc void @_ZL9linenoIncv()
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !9
   br label %.loopexit
@@ -3702,7 +3702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %_Z
   %1476 = getelementptr inbounds nuw i8, ptr %1473, i64 64
   %1477 = load ptr, ptr %1476, align 8, !tbaa !42, !noalias !183
   %1478 = icmp eq ptr %1475, %1477
-  br i1 %1478, label %1479, label %_ZN8V3PreLex12curFilelinepEv.exit446
+  br i1 %1478, label %1479, label %_ZN8V3PreLex12curFilelinepEv.exit445
 
 1479:                                             ; preds = %1458
   %1480 = getelementptr inbounds nuw i8, ptr %1473, i64 80
@@ -3710,9 +3710,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %_Z
   %1482 = getelementptr inbounds i8, ptr %1481, i64 -8
   %1483 = load ptr, ptr %1482, align 8, !tbaa !44
   %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit446
+  br label %_ZN8V3PreLex12curFilelinepEv.exit445
 
-_ZN8V3PreLex12curFilelinepEv.exit446:             ; preds = %1458, %1479
+_ZN8V3PreLex12curFilelinepEv.exit445:             ; preds = %1458, %1479
   %1485 = phi ptr [ %1484, %1479 ], [ %1475, %1458 ]
   %1486 = getelementptr inbounds i8, ptr %1485, i64 -8
   %1487 = load ptr, ptr %1486, align 8, !tbaa !45
@@ -3725,14 +3725,14 @@ _ZN8V3PreLex12curFilelinepEv.exit446:             ; preds = %1458, %1479
   %1493 = trunc nuw i8 %1492 to i1
   br i1 %1493, label %1494, label %.loopexit
 
-1494:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit446
+1494:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit445
   %1495 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
   %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 56
   %1497 = load ptr, ptr %1496, align 8, !tbaa !34, !noalias !221
   %1498 = getelementptr inbounds nuw i8, ptr %1495, i64 64
   %1499 = load ptr, ptr %1498, align 8, !tbaa !42, !noalias !221
   %1500 = icmp eq ptr %1497, %1499
-  br i1 %1500, label %1501, label %_ZN8V3PreLex12curFilelinepEv.exit447
+  br i1 %1500, label %1501, label %_ZN8V3PreLex12curFilelinepEv.exit446
 
 1501:                                             ; preds = %1494
   %1502 = getelementptr inbounds nuw i8, ptr %1495, i64 80
@@ -3740,9 +3740,9 @@ _ZN8V3PreLex12curFilelinepEv.exit446:             ; preds = %1458, %1479
   %1504 = getelementptr inbounds i8, ptr %1503, i64 -8
   %1505 = load ptr, ptr %1504, align 8, !tbaa !44
   %1506 = getelementptr inbounds nuw i8, ptr %1505, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit447
+  br label %_ZN8V3PreLex12curFilelinepEv.exit446
 
-_ZN8V3PreLex12curFilelinepEv.exit447:             ; preds = %1494, %1501
+_ZN8V3PreLex12curFilelinepEv.exit446:             ; preds = %1494, %1501
   %1507 = phi ptr [ %1506, %1501 ], [ %1497, %1494 ]
   %1508 = getelementptr inbounds i8, ptr %1507, i64 -8
   %1509 = load ptr, ptr %1508, align 8, !tbaa !45
@@ -3755,7 +3755,7 @@ _ZN8V3PreLex12curFilelinepEv.exit447:             ; preds = %1494, %1501
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %21)
           to label %1514 unwind label %1524
 
-1514:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit447
+1514:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit446
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1510, ptr noundef nonnull align 8 dereferenceable(112) %1512, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %1515 unwind label %1526
 
@@ -3763,30 +3763,30 @@ _ZN8V3PreLex12curFilelinepEv.exit447:             ; preds = %1494, %1501
   %1516 = load ptr, ptr %20, align 8, !tbaa !114
   %1517 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %1518 = icmp eq ptr %1516, %1517
-  br i1 %1518, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448
+  br i1 %1518, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i448, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449: ; preds = %1515
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i448: ; preds = %1515
   %1519 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %1520 = load i64, ptr %1519, align 8, !tbaa !115
   %1521 = icmp ult i64 %1520, 16
   call void @llvm.assume(i1 %1521)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448: ; preds = %1515
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447: ; preds = %1515
   %1522 = load i64, ptr %1517, align 8, !tbaa !27
   %1523 = add i64 %1522, 1
   call void @_ZdlPvm(ptr noundef %1516, i64 noundef %1523) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i448, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i447
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #45
   br label %.loopexit
 
-1524:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit447
+1524:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit446
   %1525 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452
 
 1526:                                             ; preds = %1514
   %1527 = landingpad { ptr, i32 }
@@ -3794,23 +3794,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %1528 = load ptr, ptr %20, align 8, !tbaa !114
   %1529 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %1530 = icmp eq ptr %1528, %1529
-  br i1 %1530, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i452, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i451
+  br i1 %1530, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i451, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i450
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i452: ; preds = %1526
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i451: ; preds = %1526
   %1531 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %1532 = load i64, ptr %1531, align 8, !tbaa !115
   %1533 = icmp ult i64 %1532, 16
   call void @llvm.assume(i1 %1533)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i451: ; preds = %1526
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i450: ; preds = %1526
   %1534 = load i64, ptr %1529, align 8, !tbaa !27
   %1535 = add i64 %1534, 1
   call void @_ZdlPvm(ptr noundef %1528, i64 noundef %1535) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i451, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i452, %1524
-  %.pn331 = phi { ptr, i32 } [ %1525, %1524 ], [ %1527, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i452 ], [ %1527, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i451 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i450, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i451, %1524
+  %.pn331 = phi { ptr, i32 } [ %1525, %1524 ], [ %1527, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i451 ], [ %1527, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i450 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #45
   br label %7394
@@ -3864,7 +3864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
   %1570 = getelementptr inbounds nuw i8, ptr %1567, i64 64
   %1571 = load ptr, ptr %1570, align 8, !tbaa !42, !noalias !224
   %1572 = icmp eq ptr %1569, %1571
-  br i1 %1572, label %1573, label %_ZN8V3PreLex12curFilelinepEv.exit454
+  br i1 %1572, label %1573, label %_ZN8V3PreLex12curFilelinepEv.exit453
 
 1573:                                             ; preds = %1552
   %1574 = getelementptr inbounds nuw i8, ptr %1567, i64 80
@@ -3872,9 +3872,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
   %1576 = getelementptr inbounds i8, ptr %1575, i64 -8
   %1577 = load ptr, ptr %1576, align 8, !tbaa !44
   %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit454
+  br label %_ZN8V3PreLex12curFilelinepEv.exit453
 
-_ZN8V3PreLex12curFilelinepEv.exit454:             ; preds = %1552, %1573
+_ZN8V3PreLex12curFilelinepEv.exit453:             ; preds = %1552, %1573
   %1579 = phi ptr [ %1578, %1573 ], [ %1569, %1552 ]
   %1580 = getelementptr inbounds i8, ptr %1579, i64 -8
   %1581 = load ptr, ptr %1580, align 8, !tbaa !45
@@ -3887,7 +3887,7 @@ _ZN8V3PreLex12curFilelinepEv.exit454:             ; preds = %1552, %1573
   %1587 = trunc nuw i8 %1586 to i1
   br i1 %1587, label %.loopexit, label %1588
 
-1588:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit454
+1588:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit453
   store i32 23, ptr @_ZL8yy_start, align 4, !tbaa !9
   br label %.loopexit
 
@@ -3919,7 +3919,7 @@ _ZN8V3PreLex12curFilelinepEv.exit454:             ; preds = %1552, %1573
   %1609 = getelementptr inbounds nuw i8, ptr %1606, i64 64
   %1610 = load ptr, ptr %1609, align 8, !tbaa !42, !noalias !228
   %1611 = icmp eq ptr %1608, %1610
-  br i1 %1611, label %1612, label %_ZN8V3PreLex12curFilelinepEv.exit455
+  br i1 %1611, label %1612, label %_ZN8V3PreLex12curFilelinepEv.exit454
 
 1612:                                             ; preds = %1605
   %1613 = getelementptr inbounds nuw i8, ptr %1606, i64 80
@@ -3927,9 +3927,9 @@ _ZN8V3PreLex12curFilelinepEv.exit454:             ; preds = %1552, %1573
   %1615 = getelementptr inbounds i8, ptr %1614, i64 -8
   %1616 = load ptr, ptr %1615, align 8, !tbaa !44
   %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit455
+  br label %_ZN8V3PreLex12curFilelinepEv.exit454
 
-_ZN8V3PreLex12curFilelinepEv.exit455:             ; preds = %1605, %1612
+_ZN8V3PreLex12curFilelinepEv.exit454:             ; preds = %1605, %1612
   %1618 = phi ptr [ %1617, %1612 ], [ %1608, %1605 ]
   %1619 = getelementptr inbounds i8, ptr %1618, i64 -8
   %1620 = load ptr, ptr %1619, align 8, !tbaa !45
@@ -4006,7 +4006,7 @@ _ZN8V3PreLex12curFilelinepEv.exit455:             ; preds = %1605, %1612
   %1667 = getelementptr inbounds nuw i8, ptr %1664, i64 64
   %1668 = load ptr, ptr %1667, align 8, !tbaa !42, !noalias !231
   %1669 = icmp eq ptr %1666, %1668
-  br i1 %1669, label %1670, label %_ZN8V3PreLex12curFilelinepEv.exit456
+  br i1 %1669, label %1670, label %_ZN8V3PreLex12curFilelinepEv.exit455
 
 1670:                                             ; preds = %1663
   %1671 = getelementptr inbounds nuw i8, ptr %1664, i64 80
@@ -4014,9 +4014,9 @@ _ZN8V3PreLex12curFilelinepEv.exit455:             ; preds = %1605, %1612
   %1673 = getelementptr inbounds i8, ptr %1672, i64 -8
   %1674 = load ptr, ptr %1673, align 8, !tbaa !44
   %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit456
+  br label %_ZN8V3PreLex12curFilelinepEv.exit455
 
-_ZN8V3PreLex12curFilelinepEv.exit456:             ; preds = %1663, %1670
+_ZN8V3PreLex12curFilelinepEv.exit455:             ; preds = %1663, %1670
   %1676 = phi ptr [ %1675, %1670 ], [ %1666, %1663 ]
   %1677 = getelementptr inbounds i8, ptr %1676, i64 -8
   %1678 = load ptr, ptr %1677, align 8, !tbaa !45
@@ -4055,7 +4055,7 @@ _ZN8V3PreLex12curFilelinepEv.exit456:             ; preds = %1663, %1670
   %1702 = getelementptr inbounds nuw i8, ptr %1699, i64 64
   %1703 = load ptr, ptr %1702, align 8, !tbaa !42, !noalias !234
   %1704 = icmp eq ptr %1701, %1703
-  br i1 %1704, label %1705, label %_ZN8V3PreLex12curFilelinepEv.exit457
+  br i1 %1704, label %1705, label %_ZN8V3PreLex12curFilelinepEv.exit456
 
 1705:                                             ; preds = %1698
   %1706 = getelementptr inbounds nuw i8, ptr %1699, i64 80
@@ -4063,9 +4063,9 @@ _ZN8V3PreLex12curFilelinepEv.exit456:             ; preds = %1663, %1670
   %1708 = getelementptr inbounds i8, ptr %1707, i64 -8
   %1709 = load ptr, ptr %1708, align 8, !tbaa !44
   %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit457
+  br label %_ZN8V3PreLex12curFilelinepEv.exit456
 
-_ZN8V3PreLex12curFilelinepEv.exit457:             ; preds = %1698, %1705
+_ZN8V3PreLex12curFilelinepEv.exit456:             ; preds = %1698, %1705
   %1711 = phi ptr [ %1710, %1705 ], [ %1701, %1698 ]
   %1712 = getelementptr inbounds i8, ptr %1711, i64 -8
   %1713 = load ptr, ptr %1712, align 8, !tbaa !45
@@ -4079,18 +4079,18 @@ _ZN8V3PreLex12curFilelinepEv.exit457:             ; preds = %1698, %1705
   %1720 = getelementptr inbounds nuw i8, ptr %1717, i64 64
   %1721 = load ptr, ptr %1720, align 8, !tbaa !42, !noalias !237
   %1722 = icmp eq ptr %1719, %1721
-  br i1 %1722, label %1723, label %_ZN8V3PreLex12curFilelinepEv.exit458
+  br i1 %1722, label %1723, label %_ZN8V3PreLex12curFilelinepEv.exit457
 
-1723:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit457
+1723:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit456
   %1724 = getelementptr inbounds nuw i8, ptr %1717, i64 80
   %1725 = load ptr, ptr %1724, align 8, !tbaa !43, !noalias !237
   %1726 = getelementptr inbounds i8, ptr %1725, i64 -8
   %1727 = load ptr, ptr %1726, align 8, !tbaa !44
   %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit458
+  br label %_ZN8V3PreLex12curFilelinepEv.exit457
 
-_ZN8V3PreLex12curFilelinepEv.exit458:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit457, %1723
-  %1729 = phi ptr [ %1728, %1723 ], [ %1719, %_ZN8V3PreLex12curFilelinepEv.exit457 ]
+_ZN8V3PreLex12curFilelinepEv.exit457:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit456, %1723
+  %1729 = phi ptr [ %1728, %1723 ], [ %1719, %_ZN8V3PreLex12curFilelinepEv.exit456 ]
   %1730 = getelementptr inbounds i8, ptr %1729, i64 -8
   %1731 = load ptr, ptr %1730, align 8, !tbaa !45
   %1732 = load ptr, ptr %1731, align 8, !tbaa !47
@@ -4102,7 +4102,7 @@ _ZN8V3PreLex12curFilelinepEv.exit458:             ; preds = %_ZN8V3PreLex12curFi
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %1736 unwind label %1746
 
-1736:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit458
+1736:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit457
   invoke void @_ZN8FileLine10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKNS0_12basic_stringIcS3_S4_EE(ptr noundef nonnull align 8 dereferenceable(40) %1732, ptr noundef nonnull align 8 dereferenceable(112) %1734, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %1737 unwind label %1748
 
@@ -4110,31 +4110,31 @@ _ZN8V3PreLex12curFilelinepEv.exit458:             ; preds = %_ZN8V3PreLex12curFi
   %1738 = load ptr, ptr %22, align 8, !tbaa !114
   %1739 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %1740 = icmp eq ptr %1738, %1739
-  br i1 %1740, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i460, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i459
+  br i1 %1740, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i459, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i458
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i460: ; preds = %1737
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i459: ; preds = %1737
   %1741 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %1742 = load i64, ptr %1741, align 8, !tbaa !115
   %1743 = icmp ult i64 %1742, 16
   call void @llvm.assume(i1 %1743)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit460
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i459: ; preds = %1737
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i458: ; preds = %1737
   %1744 = load i64, ptr %1739, align 8, !tbaa !27
   %1745 = add i64 %1744, 1
   call void @_ZdlPvm(ptr noundef %1738, i64 noundef %1745) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit460
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i460, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i459
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit460: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i459, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i458
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #45
   store i32 1, ptr @_ZL8yy_start, align 4, !tbaa !9
   br label %.loopexit
 
-1746:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit458
+1746:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit457
   %1747 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463
 
 1748:                                             ; preds = %1736
   %1749 = landingpad { ptr, i32 }
@@ -4142,23 +4142,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
   %1750 = load ptr, ptr %22, align 8, !tbaa !114
   %1751 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %1752 = icmp eq ptr %1750, %1751
-  br i1 %1752, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i463, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i462
+  br i1 %1752, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i462, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i461
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i463: ; preds = %1748
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i462: ; preds = %1748
   %1753 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %1754 = load i64, ptr %1753, align 8, !tbaa !115
   %1755 = icmp ult i64 %1754, 16
   call void @llvm.assume(i1 %1755)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i462: ; preds = %1748
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i461: ; preds = %1748
   %1756 = load i64, ptr %1751, align 8, !tbaa !27
   %1757 = add i64 %1756, 1
   call void @_ZdlPvm(ptr noundef %1750, i64 noundef %1757) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i462, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i463, %1746
-  %.pn = phi { ptr, i32 } [ %1747, %1746 ], [ %1749, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i463 ], [ %1749, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i462 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i461, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i462, %1746
+  %.pn = phi { ptr, i32 } [ %1747, %1746 ], [ %1749, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i462 ], [ %1749, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i461 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #45
   br label %7394
@@ -4191,7 +4191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %_Z
   %1778 = getelementptr inbounds nuw i8, ptr %1775, i64 64
   %1779 = load ptr, ptr %1778, align 8, !tbaa !42, !noalias !240
   %1780 = icmp eq ptr %1777, %1779
-  br i1 %1780, label %1781, label %_ZN8V3PreLex12curFilelinepEv.exit465
+  br i1 %1780, label %1781, label %_ZN8V3PreLex12curFilelinepEv.exit464
 
 1781:                                             ; preds = %1774
   %1782 = getelementptr inbounds nuw i8, ptr %1775, i64 80
@@ -4199,9 +4199,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %_Z
   %1784 = getelementptr inbounds i8, ptr %1783, i64 -8
   %1785 = load ptr, ptr %1784, align 8, !tbaa !44
   %1786 = getelementptr inbounds nuw i8, ptr %1785, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit465
+  br label %_ZN8V3PreLex12curFilelinepEv.exit464
 
-_ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1774, %1781
+_ZN8V3PreLex12curFilelinepEv.exit464:             ; preds = %1774, %1781
   %1787 = phi ptr [ %1786, %1781 ], [ %1777, %1774 ]
   %1788 = getelementptr inbounds i8, ptr %1787, i64 -8
   %1789 = load ptr, ptr %1788, align 8, !tbaa !45
@@ -4213,7 +4213,7 @@ _ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1774, %1781
   %1794 = icmp eq i8 %1793, 0
   br i1 %1794, label %1795, label %1799, !prof !243
 
-1795:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit465
+1795:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit464
   %1796 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11) #45
   %.not329 = icmp eq i32 %1796, 0
   br i1 %.not329, label %1799, label %1797
@@ -4226,7 +4226,7 @@ _ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1774, %1781
   call void @__cxa_guard_release(ptr nonnull @_ZGVZ11V3PreLexlexvE7rtnfileB5cxx11) #45
   br label %1799
 
-1799:                                             ; preds = %1797, %1795, %_ZN8V3PreLex12curFilelinepEv.exit465
+1799:                                             ; preds = %1797, %1795, %_ZN8V3PreLex12curFilelinepEv.exit464
   %1800 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i64 8), align 8, !tbaa !115
   %1801 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i64 noundef 0, i64 noundef %1800, i64 noundef 1, i8 noundef signext 34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #45
@@ -4236,7 +4236,7 @@ _ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1774, %1781
   %1805 = getelementptr inbounds nuw i8, ptr %1802, i64 64
   %1806 = load ptr, ptr %1805, align 8, !tbaa !42, !noalias !245
   %1807 = icmp eq ptr %1804, %1806
-  br i1 %1807, label %1808, label %_ZN8V3PreLex12curFilelinepEv.exit466
+  br i1 %1807, label %1808, label %_ZN8V3PreLex12curFilelinepEv.exit465
 
 1808:                                             ; preds = %1799
   %1809 = getelementptr inbounds nuw i8, ptr %1802, i64 80
@@ -4244,9 +4244,9 @@ _ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1774, %1781
   %1811 = getelementptr inbounds i8, ptr %1810, i64 -8
   %1812 = load ptr, ptr %1811, align 8, !tbaa !44
   %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit466
+  br label %_ZN8V3PreLex12curFilelinepEv.exit465
 
-_ZN8V3PreLex12curFilelinepEv.exit466:             ; preds = %1799, %1808
+_ZN8V3PreLex12curFilelinepEv.exit465:             ; preds = %1799, %1808
   %1814 = phi ptr [ %1813, %1808 ], [ %1804, %1799 ]
   %1815 = getelementptr inbounds i8, ptr %1814, i64 -8
   %1816 = load ptr, ptr %1815, align 8, !tbaa !45
@@ -4255,26 +4255,26 @@ _ZN8V3PreLex12curFilelinepEv.exit466:             ; preds = %1799, %1808
   %1818 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %1819 unwind label %1832
 
-1819:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit466
+1819:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit465
   %1820 = load ptr, ptr %24, align 8, !tbaa !114
   %1821 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %1822 = icmp eq ptr %1820, %1821
-  br i1 %1822, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i468, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i467
+  br i1 %1822, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i466
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i468: ; preds = %1819
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467: ; preds = %1819
   %1823 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %1824 = load i64, ptr %1823, align 8, !tbaa !115
   %1825 = icmp ult i64 %1824, 16
   call void @llvm.assume(i1 %1825)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i467: ; preds = %1819
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i466: ; preds = %1819
   %1826 = load i64, ptr %1821, align 8, !tbaa !27
   %1827 = add i64 %1826, 1
   call void @_ZdlPvm(ptr noundef %1820, i64 noundef %1827) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i468, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i467
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i466
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #45
   %1828 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, i8 noundef signext 34)
   %1829 = load ptr, ptr @_ZZ11V3PreLexlexvE7rtnfileB5cxx11, align 8, !tbaa !114
@@ -4284,28 +4284,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469: ; preds = %_Z
   store i32 %1831, ptr @V3PreLexleng, align 4, !tbaa !9
   br label %.loopexit
 
-1832:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit466
+1832:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit465
   %1833 = landingpad { ptr, i32 }
           cleanup
   %1834 = load ptr, ptr %24, align 8, !tbaa !114
   %1835 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %1836 = icmp eq ptr %1834, %1835
-  br i1 %1836, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i471, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i470
+  br i1 %1836, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i470, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i469
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i471: ; preds = %1832
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i470: ; preds = %1832
   %1837 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %1838 = load i64, ptr %1837, align 8, !tbaa !115
   %1839 = icmp ult i64 %1838, 16
   call void @llvm.assume(i1 %1839)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit471
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i470: ; preds = %1832
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i469: ; preds = %1832
   %1840 = load i64, ptr %1835, align 8, !tbaa !27
   %1841 = add i64 %1840, 1
   call void @_ZdlPvm(ptr noundef %1834, i64 noundef %1841) #46
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit471
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i471, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i470
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit471: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i470, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i469
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #45
   br label %7394
 
@@ -4337,7 +4337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
   %1862 = getelementptr inbounds nuw i8, ptr %1859, i64 64
   %1863 = load ptr, ptr %1862, align 8, !tbaa !42, !noalias !248
   %1864 = icmp eq ptr %1861, %1863
-  br i1 %1864, label %1865, label %_ZN8V3PreLex12curFilelinepEv.exit473
+  br i1 %1864, label %1865, label %_ZN8V3PreLex12curFilelinepEv.exit472
 
 1865:                                             ; preds = %1858
   %1866 = getelementptr inbounds nuw i8, ptr %1859, i64 80
@@ -4345,9 +4345,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
   %1868 = getelementptr inbounds i8, ptr %1867, i64 -8
   %1869 = load ptr, ptr %1868, align 8, !tbaa !44
   %1870 = getelementptr inbounds nuw i8, ptr %1869, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit473
+  br label %_ZN8V3PreLex12curFilelinepEv.exit472
 
-_ZN8V3PreLex12curFilelinepEv.exit473:             ; preds = %1858, %1865
+_ZN8V3PreLex12curFilelinepEv.exit472:             ; preds = %1858, %1865
   %1871 = phi ptr [ %1870, %1865 ], [ %1861, %1858 ]
   %1872 = getelementptr inbounds i8, ptr %1871, i64 -8
   %1873 = load ptr, ptr %1872, align 8, !tbaa !45
@@ -4361,18 +4361,18 @@ _ZN8V3PreLex12curFilelinepEv.exit473:             ; preds = %1858, %1865
   %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 64
   %1881 = load ptr, ptr %1880, align 8, !tbaa !42, !noalias !251
   %1882 = icmp eq ptr %1879, %1881
-  br i1 %1882, label %1883, label %_ZN8V3PreLex12curFilelinepEv.exit474
+  br i1 %1882, label %1883, label %_ZN8V3PreLex12curFilelinepEv.exit473
 
-1883:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit473
+1883:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit472
   %1884 = getelementptr inbounds nuw i8, ptr %1877, i64 80
   %1885 = load ptr, ptr %1884, align 8, !tbaa !43, !noalias !251
   %1886 = getelementptr inbounds i8, ptr %1885, i64 -8
   %1887 = load ptr, ptr %1886, align 8, !tbaa !44
   %1888 = getelementptr inbounds nuw i8, ptr %1887, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit474
+  br label %_ZN8V3PreLex12curFilelinepEv.exit473
 
-_ZN8V3PreLex12curFilelinepEv.exit474:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit473, %1883
-  %1889 = phi ptr [ %1888, %1883 ], [ %1879, %_ZN8V3PreLex12curFilelinepEv.exit473 ]
+_ZN8V3PreLex12curFilelinepEv.exit473:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit472, %1883
+  %1889 = phi ptr [ %1888, %1883 ], [ %1879, %_ZN8V3PreLex12curFilelinepEv.exit472 ]
   %1890 = getelementptr inbounds i8, ptr %1889, i64 -8
   %1891 = load ptr, ptr %1890, align 8, !tbaa !45
   %1892 = load ptr, ptr %1891, align 8, !tbaa !47
@@ -4418,7 +4418,7 @@ _ZN8V3PreLex12curFilelinepEv.exit474:             ; preds = %_ZN8V3PreLex12curFi
   %1919 = getelementptr inbounds nuw i8, ptr %1916, i64 64
   %1920 = load ptr, ptr %1919, align 8, !tbaa !42, !noalias !254
   %1921 = icmp eq ptr %1918, %1920
-  br i1 %1921, label %1922, label %_ZN8V3PreLex12curFilelinepEv.exit475
+  br i1 %1921, label %1922, label %_ZN8V3PreLex12curFilelinepEv.exit474
 
 1922:                                             ; preds = %1915
   %1923 = getelementptr inbounds nuw i8, ptr %1916, i64 80
@@ -4426,9 +4426,9 @@ _ZN8V3PreLex12curFilelinepEv.exit474:             ; preds = %_ZN8V3PreLex12curFi
   %1925 = getelementptr inbounds i8, ptr %1924, i64 -8
   %1926 = load ptr, ptr %1925, align 8, !tbaa !44
   %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit475
+  br label %_ZN8V3PreLex12curFilelinepEv.exit474
 
-_ZN8V3PreLex12curFilelinepEv.exit475:             ; preds = %1915, %1922
+_ZN8V3PreLex12curFilelinepEv.exit474:             ; preds = %1915, %1922
   %1928 = phi ptr [ %1927, %1922 ], [ %1918, %1915 ]
   %1929 = getelementptr inbounds i8, ptr %1928, i64 -8
   %1930 = load ptr, ptr %1929, align 8, !tbaa !45
@@ -4470,7 +4470,7 @@ _ZN8V3PreLex12curFilelinepEv.exit475:             ; preds = %1915, %1922
   %1955 = getelementptr inbounds nuw i8, ptr %1952, i64 64
   %1956 = load ptr, ptr %1955, align 8, !tbaa !42, !noalias !257
   %1957 = icmp eq ptr %1954, %1956
-  br i1 %1957, label %1958, label %_ZN8V3PreLex12curFilelinepEv.exit476
+  br i1 %1957, label %1958, label %_ZN8V3PreLex12curFilelinepEv.exit475
 
 1958:                                             ; preds = %1951
   %1959 = getelementptr inbounds nuw i8, ptr %1952, i64 80
@@ -4478,9 +4478,9 @@ _ZN8V3PreLex12curFilelinepEv.exit475:             ; preds = %1915, %1922
   %1961 = getelementptr inbounds i8, ptr %1960, i64 -8
   %1962 = load ptr, ptr %1961, align 8, !tbaa !44
   %1963 = getelementptr inbounds nuw i8, ptr %1962, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit476
+  br label %_ZN8V3PreLex12curFilelinepEv.exit475
 
-_ZN8V3PreLex12curFilelinepEv.exit476:             ; preds = %1951, %1958
+_ZN8V3PreLex12curFilelinepEv.exit475:             ; preds = %1951, %1958
   %1964 = phi ptr [ %1963, %1958 ], [ %1954, %1951 ]
   %1965 = getelementptr inbounds i8, ptr %1964, i64 -8
   %1966 = load ptr, ptr %1965, align 8, !tbaa !45
@@ -4496,18 +4496,18 @@ _ZN8V3PreLex12curFilelinepEv.exit476:             ; preds = %1951, %1958
   %1973 = getelementptr inbounds nuw i8, ptr %1970, i64 64
   %1974 = load ptr, ptr %1973, align 8, !tbaa !42, !noalias !260
   %1975 = icmp eq ptr %1972, %1974
-  br i1 %1975, label %1976, label %_ZN8V3PreLex12curFilelinepEv.exit477
+  br i1 %1975, label %1976, label %_ZN8V3PreLex12curFilelinepEv.exit476
 
-1976:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit476
+1976:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit475
   %1977 = getelementptr inbounds nuw i8, ptr %1970, i64 80
   %1978 = load ptr, ptr %1977, align 8, !tbaa !43, !noalias !260
   %1979 = getelementptr inbounds i8, ptr %1978, i64 -8
   %1980 = load ptr, ptr %1979, align 8, !tbaa !44
   %1981 = getelementptr inbounds nuw i8, ptr %1980, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit477
+  br label %_ZN8V3PreLex12curFilelinepEv.exit476
 
-_ZN8V3PreLex12curFilelinepEv.exit477:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit476, %1976
-  %1982 = phi ptr [ %1981, %1976 ], [ %1972, %_ZN8V3PreLex12curFilelinepEv.exit476 ]
+_ZN8V3PreLex12curFilelinepEv.exit476:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit475, %1976
+  %1982 = phi ptr [ %1981, %1976 ], [ %1972, %_ZN8V3PreLex12curFilelinepEv.exit475 ]
   %1983 = getelementptr inbounds i8, ptr %1982, i64 -8
   %1984 = load ptr, ptr %1983, align 8, !tbaa !45
   %1985 = load ptr, ptr %1984, align 8, !tbaa !47
@@ -4696,7 +4696,7 @@ _ZN8V3PreLex12curFilelinepEv.exit477:             ; preds = %_ZN8V3PreLex12curFi
   %2110 = getelementptr inbounds nuw i8, ptr %2107, i64 64
   %2111 = load ptr, ptr %2110, align 8, !tbaa !42, !noalias !263
   %2112 = icmp eq ptr %2109, %2111
-  br i1 %2112, label %2113, label %_ZN8V3PreLex12curFilelinepEv.exit478
+  br i1 %2112, label %2113, label %_ZN8V3PreLex12curFilelinepEv.exit477
 
 2113:                                             ; preds = %2106
   %2114 = getelementptr inbounds nuw i8, ptr %2107, i64 80
@@ -4704,9 +4704,9 @@ _ZN8V3PreLex12curFilelinepEv.exit477:             ; preds = %_ZN8V3PreLex12curFi
   %2116 = getelementptr inbounds i8, ptr %2115, i64 -8
   %2117 = load ptr, ptr %2116, align 8, !tbaa !44
   %2118 = getelementptr inbounds nuw i8, ptr %2117, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit478
+  br label %_ZN8V3PreLex12curFilelinepEv.exit477
 
-_ZN8V3PreLex12curFilelinepEv.exit478:             ; preds = %2106, %2113
+_ZN8V3PreLex12curFilelinepEv.exit477:             ; preds = %2106, %2113
   %2119 = phi ptr [ %2118, %2113 ], [ %2109, %2106 ]
   %2120 = getelementptr inbounds i8, ptr %2119, i64 -8
   %2121 = load ptr, ptr %2120, align 8, !tbaa !45
@@ -4721,13 +4721,13 @@ _ZN8V3PreLex12curFilelinepEv.exit478:             ; preds = %2106, %2113
   %.not328 = icmp eq i32 %2127, 0
   br i1 %.not328, label %2128, label %2132
 
-2128:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit478
+2128:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit477
   %2129 = getelementptr inbounds nuw i8, ptr %2125, i64 213
   %2130 = load i8, ptr %2129, align 1, !tbaa !267, !range !105, !noundef !106
   %2131 = trunc nuw i8 %2130 to i1
   br i1 %2131, label %2132, label %.loopexit
 
-2132:                                             ; preds = %2128, %_ZN8V3PreLex12curFilelinepEv.exit478
+2132:                                             ; preds = %2128, %_ZN8V3PreLex12curFilelinepEv.exit477
   %2133 = getelementptr inbounds nuw i8, ptr %2125, i64 213
   store i8 0, ptr %2133, align 1, !tbaa !267
   %2134 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
@@ -4741,7 +4741,7 @@ _ZN8V3PreLex12curFilelinepEv.exit478:             ; preds = %2106, %2113
   %2140 = getelementptr inbounds nuw i8, ptr %2137, i64 64
   %2141 = load ptr, ptr %2140, align 8, !tbaa !42, !noalias !268
   %2142 = icmp eq ptr %2139, %2141
-  br i1 %2142, label %2143, label %_ZN8V3PreLex12curFilelinepEv.exit479
+  br i1 %2142, label %2143, label %_ZN8V3PreLex12curFilelinepEv.exit478
 
 2143:                                             ; preds = %2132
   %2144 = getelementptr inbounds nuw i8, ptr %2137, i64 80
@@ -4749,9 +4749,9 @@ _ZN8V3PreLex12curFilelinepEv.exit478:             ; preds = %2106, %2113
   %2146 = getelementptr inbounds i8, ptr %2145, i64 -8
   %2147 = load ptr, ptr %2146, align 8, !tbaa !44
   %2148 = getelementptr inbounds nuw i8, ptr %2147, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit479
+  br label %_ZN8V3PreLex12curFilelinepEv.exit478
 
-_ZN8V3PreLex12curFilelinepEv.exit479:             ; preds = %2132, %2143
+_ZN8V3PreLex12curFilelinepEv.exit478:             ; preds = %2132, %2143
   %2149 = phi ptr [ %2148, %2143 ], [ %2139, %2132 ]
   %2150 = getelementptr inbounds i8, ptr %2149, i64 -8
   %2151 = load ptr, ptr %2150, align 8, !tbaa !45
@@ -4799,7 +4799,7 @@ _ZN8V3PreLex12curFilelinepEv.exit479:             ; preds = %2132, %2143
   %2180 = getelementptr inbounds nuw i8, ptr %2177, i64 64
   %2181 = load ptr, ptr %2180, align 8, !tbaa !42, !noalias !271
   %2182 = icmp eq ptr %2179, %2181
-  br i1 %2182, label %2183, label %_ZN8V3PreLex12curFilelinepEv.exit480
+  br i1 %2182, label %2183, label %_ZN8V3PreLex12curFilelinepEv.exit479
 
 2183:                                             ; preds = %2176
   %2184 = getelementptr inbounds nuw i8, ptr %2177, i64 80
@@ -4807,9 +4807,9 @@ _ZN8V3PreLex12curFilelinepEv.exit479:             ; preds = %2132, %2143
   %2186 = getelementptr inbounds i8, ptr %2185, i64 -8
   %2187 = load ptr, ptr %2186, align 8, !tbaa !44
   %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit480
+  br label %_ZN8V3PreLex12curFilelinepEv.exit479
 
-_ZN8V3PreLex12curFilelinepEv.exit480:             ; preds = %2176, %2183
+_ZN8V3PreLex12curFilelinepEv.exit479:             ; preds = %2176, %2183
   %2189 = phi ptr [ %2188, %2183 ], [ %2179, %2176 ]
   %2190 = getelementptr inbounds i8, ptr %2189, i64 -8
   %2191 = load ptr, ptr %2190, align 8, !tbaa !45
@@ -4851,7 +4851,7 @@ _ZN8V3PreLex12curFilelinepEv.exit480:             ; preds = %2176, %2183
   %2216 = getelementptr inbounds nuw i8, ptr %2213, i64 64
   %2217 = load ptr, ptr %2216, align 8, !tbaa !42, !noalias !274
   %2218 = icmp eq ptr %2215, %2217
-  br i1 %2218, label %2219, label %_ZN8V3PreLex12curFilelinepEv.exit481
+  br i1 %2218, label %2219, label %_ZN8V3PreLex12curFilelinepEv.exit480
 
 2219:                                             ; preds = %2212
   %2220 = getelementptr inbounds nuw i8, ptr %2213, i64 80
@@ -4859,9 +4859,9 @@ _ZN8V3PreLex12curFilelinepEv.exit480:             ; preds = %2176, %2183
   %2222 = getelementptr inbounds i8, ptr %2221, i64 -8
   %2223 = load ptr, ptr %2222, align 8, !tbaa !44
   %2224 = getelementptr inbounds nuw i8, ptr %2223, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit481
+  br label %_ZN8V3PreLex12curFilelinepEv.exit480
 
-_ZN8V3PreLex12curFilelinepEv.exit481:             ; preds = %2212, %2219
+_ZN8V3PreLex12curFilelinepEv.exit480:             ; preds = %2212, %2219
   %2225 = phi ptr [ %2224, %2219 ], [ %2215, %2212 ]
   %2226 = getelementptr inbounds i8, ptr %2225, i64 -8
   %2227 = load ptr, ptr %2226, align 8, !tbaa !45
@@ -5072,7 +5072,7 @@ _ZN8V3PreLex12curFilelinepEv.exit481:             ; preds = %2212, %2219
   %2366 = getelementptr inbounds nuw i8, ptr %2363, i64 64
   %2367 = load ptr, ptr %2366, align 8, !tbaa !42, !noalias !277
   %2368 = icmp eq ptr %2365, %2367
-  br i1 %2368, label %2369, label %_ZN8V3PreLex12curFilelinepEv.exit482
+  br i1 %2368, label %2369, label %_ZN8V3PreLex12curFilelinepEv.exit481
 
 2369:                                             ; preds = %2362
   %2370 = getelementptr inbounds nuw i8, ptr %2363, i64 80
@@ -5080,9 +5080,9 @@ _ZN8V3PreLex12curFilelinepEv.exit481:             ; preds = %2212, %2219
   %2372 = getelementptr inbounds i8, ptr %2371, i64 -8
   %2373 = load ptr, ptr %2372, align 8, !tbaa !44
   %2374 = getelementptr inbounds nuw i8, ptr %2373, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit482
+  br label %_ZN8V3PreLex12curFilelinepEv.exit481
 
-_ZN8V3PreLex12curFilelinepEv.exit482:             ; preds = %2362, %2369
+_ZN8V3PreLex12curFilelinepEv.exit481:             ; preds = %2362, %2369
   %2375 = phi ptr [ %2374, %2369 ], [ %2365, %2362 ]
   %2376 = getelementptr inbounds i8, ptr %2375, i64 -8
   %2377 = load ptr, ptr %2376, align 8, !tbaa !45
@@ -5097,13 +5097,13 @@ _ZN8V3PreLex12curFilelinepEv.exit482:             ; preds = %2362, %2369
   %.not327 = icmp eq i32 %2383, 0
   br i1 %.not327, label %2384, label %2388
 
-2384:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit482
+2384:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit481
   %2385 = getelementptr inbounds nuw i8, ptr %2381, i64 213
   %2386 = load i8, ptr %2385, align 1, !tbaa !267, !range !105, !noundef !106
   %2387 = trunc nuw i8 %2386 to i1
   br i1 %2387, label %2388, label %.loopexit
 
-2388:                                             ; preds = %2384, %_ZN8V3PreLex12curFilelinepEv.exit482
+2388:                                             ; preds = %2384, %_ZN8V3PreLex12curFilelinepEv.exit481
   %2389 = getelementptr inbounds nuw i8, ptr %2381, i64 213
   store i8 0, ptr %2389, align 1, !tbaa !267
   %2390 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
@@ -5117,7 +5117,7 @@ _ZN8V3PreLex12curFilelinepEv.exit482:             ; preds = %2362, %2369
   %2396 = getelementptr inbounds nuw i8, ptr %2393, i64 64
   %2397 = load ptr, ptr %2396, align 8, !tbaa !42, !noalias !280
   %2398 = icmp eq ptr %2395, %2397
-  br i1 %2398, label %2399, label %_ZN8V3PreLex12curFilelinepEv.exit483
+  br i1 %2398, label %2399, label %_ZN8V3PreLex12curFilelinepEv.exit482
 
 2399:                                             ; preds = %2388
   %2400 = getelementptr inbounds nuw i8, ptr %2393, i64 80
@@ -5125,9 +5125,9 @@ _ZN8V3PreLex12curFilelinepEv.exit482:             ; preds = %2362, %2369
   %2402 = getelementptr inbounds i8, ptr %2401, i64 -8
   %2403 = load ptr, ptr %2402, align 8, !tbaa !44
   %2404 = getelementptr inbounds nuw i8, ptr %2403, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit483
+  br label %_ZN8V3PreLex12curFilelinepEv.exit482
 
-_ZN8V3PreLex12curFilelinepEv.exit483:             ; preds = %2388, %2399
+_ZN8V3PreLex12curFilelinepEv.exit482:             ; preds = %2388, %2399
   %2405 = phi ptr [ %2404, %2399 ], [ %2395, %2388 ]
   %2406 = getelementptr inbounds i8, ptr %2405, i64 -8
   %2407 = load ptr, ptr %2406, align 8, !tbaa !45
@@ -5170,7 +5170,7 @@ _ZN8V3PreLex12curFilelinepEv.exit483:             ; preds = %2388, %2399
   %2435 = getelementptr inbounds nuw i8, ptr %2432, i64 64
   %2436 = load ptr, ptr %2435, align 8, !tbaa !42, !noalias !283
   %2437 = icmp eq ptr %2434, %2436
-  br i1 %2437, label %2438, label %_ZN8V3PreLex12curFilelinepEv.exit484
+  br i1 %2437, label %2438, label %_ZN8V3PreLex12curFilelinepEv.exit483
 
 2438:                                             ; preds = %2431
   %2439 = getelementptr inbounds nuw i8, ptr %2432, i64 80
@@ -5178,9 +5178,9 @@ _ZN8V3PreLex12curFilelinepEv.exit483:             ; preds = %2388, %2399
   %2441 = getelementptr inbounds i8, ptr %2440, i64 -8
   %2442 = load ptr, ptr %2441, align 8, !tbaa !44
   %2443 = getelementptr inbounds nuw i8, ptr %2442, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit484
+  br label %_ZN8V3PreLex12curFilelinepEv.exit483
 
-_ZN8V3PreLex12curFilelinepEv.exit484:             ; preds = %2431, %2438
+_ZN8V3PreLex12curFilelinepEv.exit483:             ; preds = %2431, %2438
   %2444 = phi ptr [ %2443, %2438 ], [ %2434, %2431 ]
   %2445 = getelementptr inbounds i8, ptr %2444, i64 -8
   %2446 = load ptr, ptr %2445, align 8, !tbaa !45
@@ -5198,7 +5198,7 @@ _ZN8V3PreLex12curFilelinepEv.exit484:             ; preds = %2431, %2438
   %2454 = getelementptr inbounds nuw i8, ptr %2451, i64 64
   %2455 = load ptr, ptr %2454, align 8, !tbaa !42, !noalias !286
   %2456 = icmp eq ptr %2453, %2455
-  br i1 %2456, label %2457, label %_ZN8V3PreLex12curFilelinepEv.exit485
+  br i1 %2456, label %2457, label %_ZN8V3PreLex12curFilelinepEv.exit484
 
 2457:                                             ; preds = %2450
   %2458 = getelementptr inbounds nuw i8, ptr %2451, i64 80
@@ -5206,9 +5206,9 @@ _ZN8V3PreLex12curFilelinepEv.exit484:             ; preds = %2431, %2438
   %2460 = getelementptr inbounds i8, ptr %2459, i64 -8
   %2461 = load ptr, ptr %2460, align 8, !tbaa !44
   %2462 = getelementptr inbounds nuw i8, ptr %2461, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit485
+  br label %_ZN8V3PreLex12curFilelinepEv.exit484
 
-_ZN8V3PreLex12curFilelinepEv.exit485:             ; preds = %2450, %2457
+_ZN8V3PreLex12curFilelinepEv.exit484:             ; preds = %2450, %2457
   %2463 = phi ptr [ %2462, %2457 ], [ %2453, %2450 ]
   %2464 = getelementptr inbounds i8, ptr %2463, i64 -8
   %2465 = load ptr, ptr %2464, align 8, !tbaa !45
@@ -5250,7 +5250,7 @@ _ZN8V3PreLex12curFilelinepEv.exit485:             ; preds = %2450, %2457
   %2490 = getelementptr inbounds nuw i8, ptr %2487, i64 64
   %2491 = load ptr, ptr %2490, align 8, !tbaa !42, !noalias !289
   %2492 = icmp eq ptr %2489, %2491
-  br i1 %2492, label %2493, label %_ZN8V3PreLex12curFilelinepEv.exit486
+  br i1 %2492, label %2493, label %_ZN8V3PreLex12curFilelinepEv.exit485
 
 2493:                                             ; preds = %2486
   %2494 = getelementptr inbounds nuw i8, ptr %2487, i64 80
@@ -5258,9 +5258,9 @@ _ZN8V3PreLex12curFilelinepEv.exit485:             ; preds = %2450, %2457
   %2496 = getelementptr inbounds i8, ptr %2495, i64 -8
   %2497 = load ptr, ptr %2496, align 8, !tbaa !44
   %2498 = getelementptr inbounds nuw i8, ptr %2497, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit486
+  br label %_ZN8V3PreLex12curFilelinepEv.exit485
 
-_ZN8V3PreLex12curFilelinepEv.exit486:             ; preds = %2486, %2493
+_ZN8V3PreLex12curFilelinepEv.exit485:             ; preds = %2486, %2493
   %2499 = phi ptr [ %2498, %2493 ], [ %2489, %2486 ]
   %2500 = getelementptr inbounds i8, ptr %2499, i64 -8
   %2501 = load ptr, ptr %2500, align 8, !tbaa !45
@@ -5324,7 +5324,7 @@ _ZN8V3PreLex12curFilelinepEv.exit486:             ; preds = %2486, %2493
   %2542 = getelementptr inbounds nuw i8, ptr %2539, i64 64
   %2543 = load ptr, ptr %2542, align 8, !tbaa !42, !noalias !292
   %2544 = icmp eq ptr %2541, %2543
-  br i1 %2544, label %2545, label %_ZN8V3PreLex12curFilelinepEv.exit487
+  br i1 %2544, label %2545, label %_ZN8V3PreLex12curFilelinepEv.exit486
 
 2545:                                             ; preds = %2538
   %2546 = getelementptr inbounds nuw i8, ptr %2539, i64 80
@@ -5332,9 +5332,9 @@ _ZN8V3PreLex12curFilelinepEv.exit486:             ; preds = %2486, %2493
   %2548 = getelementptr inbounds i8, ptr %2547, i64 -8
   %2549 = load ptr, ptr %2548, align 8, !tbaa !44
   %2550 = getelementptr inbounds nuw i8, ptr %2549, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit487
+  br label %_ZN8V3PreLex12curFilelinepEv.exit486
 
-_ZN8V3PreLex12curFilelinepEv.exit487:             ; preds = %2538, %2545
+_ZN8V3PreLex12curFilelinepEv.exit486:             ; preds = %2538, %2545
   %2551 = phi ptr [ %2550, %2545 ], [ %2541, %2538 ]
   %2552 = getelementptr inbounds i8, ptr %2551, i64 -8
   %2553 = load ptr, ptr %2552, align 8, !tbaa !45
@@ -5373,7 +5373,7 @@ _ZN8V3PreLex12curFilelinepEv.exit487:             ; preds = %2538, %2545
   %2577 = getelementptr inbounds nuw i8, ptr %2574, i64 64
   %2578 = load ptr, ptr %2577, align 8, !tbaa !42, !noalias !295
   %2579 = icmp eq ptr %2576, %2578
-  br i1 %2579, label %2580, label %_ZN8V3PreLex12curFilelinepEv.exit488
+  br i1 %2579, label %2580, label %_ZN8V3PreLex12curFilelinepEv.exit487
 
 2580:                                             ; preds = %2573
   %2581 = getelementptr inbounds nuw i8, ptr %2574, i64 80
@@ -5381,9 +5381,9 @@ _ZN8V3PreLex12curFilelinepEv.exit487:             ; preds = %2538, %2545
   %2583 = getelementptr inbounds i8, ptr %2582, i64 -8
   %2584 = load ptr, ptr %2583, align 8, !tbaa !44
   %2585 = getelementptr inbounds nuw i8, ptr %2584, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit488
+  br label %_ZN8V3PreLex12curFilelinepEv.exit487
 
-_ZN8V3PreLex12curFilelinepEv.exit488:             ; preds = %2573, %2580
+_ZN8V3PreLex12curFilelinepEv.exit487:             ; preds = %2573, %2580
   %2586 = phi ptr [ %2585, %2580 ], [ %2576, %2573 ]
   %2587 = getelementptr inbounds i8, ptr %2586, i64 -8
   %2588 = load ptr, ptr %2587, align 8, !tbaa !45
@@ -5421,7 +5421,7 @@ _ZN8V3PreLex12curFilelinepEv.exit488:             ; preds = %2573, %2580
   %2612 = getelementptr inbounds nuw i8, ptr %2609, i64 64
   %2613 = load ptr, ptr %2612, align 8, !tbaa !42, !noalias !298
   %2614 = icmp eq ptr %2611, %2613
-  br i1 %2614, label %2615, label %_ZN8V3PreLex12curFilelinepEv.exit489
+  br i1 %2614, label %2615, label %_ZN8V3PreLex12curFilelinepEv.exit488
 
 2615:                                             ; preds = %2608
   %2616 = getelementptr inbounds nuw i8, ptr %2609, i64 80
@@ -5429,9 +5429,9 @@ _ZN8V3PreLex12curFilelinepEv.exit488:             ; preds = %2573, %2580
   %2618 = getelementptr inbounds i8, ptr %2617, i64 -8
   %2619 = load ptr, ptr %2618, align 8, !tbaa !44
   %2620 = getelementptr inbounds nuw i8, ptr %2619, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit489
+  br label %_ZN8V3PreLex12curFilelinepEv.exit488
 
-_ZN8V3PreLex12curFilelinepEv.exit489:             ; preds = %2608, %2615
+_ZN8V3PreLex12curFilelinepEv.exit488:             ; preds = %2608, %2615
   %2621 = phi ptr [ %2620, %2615 ], [ %2611, %2608 ]
   %2622 = getelementptr inbounds i8, ptr %2621, i64 -8
   %2623 = load ptr, ptr %2622, align 8, !tbaa !45
@@ -5472,7 +5472,7 @@ _ZN8V3PreLex12curFilelinepEv.exit489:             ; preds = %2608, %2615
   %2649 = getelementptr inbounds nuw i8, ptr %2646, i64 64
   %2650 = load ptr, ptr %2649, align 8, !tbaa !42, !noalias !301
   %2651 = icmp eq ptr %2648, %2650
-  br i1 %2651, label %2652, label %_ZN8V3PreLex12curFilelinepEv.exit490
+  br i1 %2651, label %2652, label %_ZN8V3PreLex12curFilelinepEv.exit489
 
 2652:                                             ; preds = %2645
   %2653 = getelementptr inbounds nuw i8, ptr %2646, i64 80
@@ -5480,9 +5480,9 @@ _ZN8V3PreLex12curFilelinepEv.exit489:             ; preds = %2608, %2615
   %2655 = getelementptr inbounds i8, ptr %2654, i64 -8
   %2656 = load ptr, ptr %2655, align 8, !tbaa !44
   %2657 = getelementptr inbounds nuw i8, ptr %2656, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit490
+  br label %_ZN8V3PreLex12curFilelinepEv.exit489
 
-_ZN8V3PreLex12curFilelinepEv.exit490:             ; preds = %2645, %2652
+_ZN8V3PreLex12curFilelinepEv.exit489:             ; preds = %2645, %2652
   %2658 = phi ptr [ %2657, %2652 ], [ %2648, %2645 ]
   %2659 = getelementptr inbounds i8, ptr %2658, i64 -8
   %2660 = load ptr, ptr %2659, align 8, !tbaa !45
@@ -5520,7 +5520,7 @@ _ZN8V3PreLex12curFilelinepEv.exit490:             ; preds = %2645, %2652
   %2684 = getelementptr inbounds nuw i8, ptr %2681, i64 64
   %2685 = load ptr, ptr %2684, align 8, !tbaa !42, !noalias !304
   %2686 = icmp eq ptr %2683, %2685
-  br i1 %2686, label %2687, label %_ZN8V3PreLex12curFilelinepEv.exit491
+  br i1 %2686, label %2687, label %_ZN8V3PreLex12curFilelinepEv.exit490
 
 2687:                                             ; preds = %2680
   %2688 = getelementptr inbounds nuw i8, ptr %2681, i64 80
@@ -5528,9 +5528,9 @@ _ZN8V3PreLex12curFilelinepEv.exit490:             ; preds = %2645, %2652
   %2690 = getelementptr inbounds i8, ptr %2689, i64 -8
   %2691 = load ptr, ptr %2690, align 8, !tbaa !44
   %2692 = getelementptr inbounds nuw i8, ptr %2691, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit491
+  br label %_ZN8V3PreLex12curFilelinepEv.exit490
 
-_ZN8V3PreLex12curFilelinepEv.exit491:             ; preds = %2680, %2687
+_ZN8V3PreLex12curFilelinepEv.exit490:             ; preds = %2680, %2687
   %2693 = phi ptr [ %2692, %2687 ], [ %2683, %2680 ]
   %2694 = getelementptr inbounds i8, ptr %2693, i64 -8
   %2695 = load ptr, ptr %2694, align 8, !tbaa !45
@@ -5571,7 +5571,7 @@ _ZN8V3PreLex12curFilelinepEv.exit491:             ; preds = %2680, %2687
   %2721 = getelementptr inbounds nuw i8, ptr %2718, i64 64
   %2722 = load ptr, ptr %2721, align 8, !tbaa !42, !noalias !307
   %2723 = icmp eq ptr %2720, %2722
-  br i1 %2723, label %2724, label %_ZN8V3PreLex12curFilelinepEv.exit492
+  br i1 %2723, label %2724, label %_ZN8V3PreLex12curFilelinepEv.exit491
 
 2724:                                             ; preds = %2717
   %2725 = getelementptr inbounds nuw i8, ptr %2718, i64 80
@@ -5579,9 +5579,9 @@ _ZN8V3PreLex12curFilelinepEv.exit491:             ; preds = %2680, %2687
   %2727 = getelementptr inbounds i8, ptr %2726, i64 -8
   %2728 = load ptr, ptr %2727, align 8, !tbaa !44
   %2729 = getelementptr inbounds nuw i8, ptr %2728, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit492
+  br label %_ZN8V3PreLex12curFilelinepEv.exit491
 
-_ZN8V3PreLex12curFilelinepEv.exit492:             ; preds = %2717, %2724
+_ZN8V3PreLex12curFilelinepEv.exit491:             ; preds = %2717, %2724
   %2730 = phi ptr [ %2729, %2724 ], [ %2720, %2717 ]
   %2731 = getelementptr inbounds i8, ptr %2730, i64 -8
   %2732 = load ptr, ptr %2731, align 8, !tbaa !45
@@ -5622,7 +5622,7 @@ _ZN8V3PreLex12curFilelinepEv.exit492:             ; preds = %2717, %2724
   %2758 = getelementptr inbounds nuw i8, ptr %2755, i64 64
   %2759 = load ptr, ptr %2758, align 8, !tbaa !42, !noalias !310
   %2760 = icmp eq ptr %2757, %2759
-  br i1 %2760, label %2761, label %_ZN8V3PreLex12curFilelinepEv.exit493
+  br i1 %2760, label %2761, label %_ZN8V3PreLex12curFilelinepEv.exit492
 
 2761:                                             ; preds = %2754
   %2762 = getelementptr inbounds nuw i8, ptr %2755, i64 80
@@ -5630,9 +5630,9 @@ _ZN8V3PreLex12curFilelinepEv.exit492:             ; preds = %2717, %2724
   %2764 = getelementptr inbounds i8, ptr %2763, i64 -8
   %2765 = load ptr, ptr %2764, align 8, !tbaa !44
   %2766 = getelementptr inbounds nuw i8, ptr %2765, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit493
+  br label %_ZN8V3PreLex12curFilelinepEv.exit492
 
-_ZN8V3PreLex12curFilelinepEv.exit493:             ; preds = %2754, %2761
+_ZN8V3PreLex12curFilelinepEv.exit492:             ; preds = %2754, %2761
   %2767 = phi ptr [ %2766, %2761 ], [ %2757, %2754 ]
   %2768 = getelementptr inbounds i8, ptr %2767, i64 -8
   %2769 = load ptr, ptr %2768, align 8, !tbaa !45
@@ -5673,7 +5673,7 @@ _ZN8V3PreLex12curFilelinepEv.exit493:             ; preds = %2754, %2761
   %2793 = getelementptr inbounds nuw i8, ptr %2790, i64 64
   %2794 = load ptr, ptr %2793, align 8, !tbaa !42, !noalias !313
   %2795 = icmp eq ptr %2792, %2794
-  br i1 %2795, label %2796, label %_ZN8V3PreLex12curFilelinepEv.exit494
+  br i1 %2795, label %2796, label %_ZN8V3PreLex12curFilelinepEv.exit493
 
 2796:                                             ; preds = %2789
   %2797 = getelementptr inbounds nuw i8, ptr %2790, i64 80
@@ -5681,9 +5681,9 @@ _ZN8V3PreLex12curFilelinepEv.exit493:             ; preds = %2754, %2761
   %2799 = getelementptr inbounds i8, ptr %2798, i64 -8
   %2800 = load ptr, ptr %2799, align 8, !tbaa !44
   %2801 = getelementptr inbounds nuw i8, ptr %2800, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit494
+  br label %_ZN8V3PreLex12curFilelinepEv.exit493
 
-_ZN8V3PreLex12curFilelinepEv.exit494:             ; preds = %2789, %2796
+_ZN8V3PreLex12curFilelinepEv.exit493:             ; preds = %2789, %2796
   %2802 = phi ptr [ %2801, %2796 ], [ %2792, %2789 ]
   %2803 = getelementptr inbounds i8, ptr %2802, i64 -8
   %2804 = load ptr, ptr %2803, align 8, !tbaa !45
@@ -5721,7 +5721,7 @@ _ZN8V3PreLex12curFilelinepEv.exit494:             ; preds = %2789, %2796
   %2828 = getelementptr inbounds nuw i8, ptr %2825, i64 64
   %2829 = load ptr, ptr %2828, align 8, !tbaa !42, !noalias !316
   %2830 = icmp eq ptr %2827, %2829
-  br i1 %2830, label %2831, label %_ZN8V3PreLex12curFilelinepEv.exit495
+  br i1 %2830, label %2831, label %_ZN8V3PreLex12curFilelinepEv.exit494
 
 2831:                                             ; preds = %2824
   %2832 = getelementptr inbounds nuw i8, ptr %2825, i64 80
@@ -5729,9 +5729,9 @@ _ZN8V3PreLex12curFilelinepEv.exit494:             ; preds = %2789, %2796
   %2834 = getelementptr inbounds i8, ptr %2833, i64 -8
   %2835 = load ptr, ptr %2834, align 8, !tbaa !44
   %2836 = getelementptr inbounds nuw i8, ptr %2835, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit495
+  br label %_ZN8V3PreLex12curFilelinepEv.exit494
 
-_ZN8V3PreLex12curFilelinepEv.exit495:             ; preds = %2824, %2831
+_ZN8V3PreLex12curFilelinepEv.exit494:             ; preds = %2824, %2831
   %2837 = phi ptr [ %2836, %2831 ], [ %2827, %2824 ]
   %2838 = getelementptr inbounds i8, ptr %2837, i64 -8
   %2839 = load ptr, ptr %2838, align 8, !tbaa !45
@@ -5745,18 +5745,18 @@ _ZN8V3PreLex12curFilelinepEv.exit495:             ; preds = %2824, %2831
   %2846 = getelementptr inbounds nuw i8, ptr %2843, i64 64
   %2847 = load ptr, ptr %2846, align 8, !tbaa !42, !noalias !319
   %2848 = icmp eq ptr %2845, %2847
-  br i1 %2848, label %2849, label %_ZN8V3PreLex12curFilelinepEv.exit496
+  br i1 %2848, label %2849, label %_ZN8V3PreLex12curFilelinepEv.exit495
 
-2849:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit495
+2849:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit494
   %2850 = getelementptr inbounds nuw i8, ptr %2843, i64 80
   %2851 = load ptr, ptr %2850, align 8, !tbaa !43, !noalias !319
   %2852 = getelementptr inbounds i8, ptr %2851, i64 -8
   %2853 = load ptr, ptr %2852, align 8, !tbaa !44
   %2854 = getelementptr inbounds nuw i8, ptr %2853, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit496
+  br label %_ZN8V3PreLex12curFilelinepEv.exit495
 
-_ZN8V3PreLex12curFilelinepEv.exit496:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit495, %2849
-  %2855 = phi ptr [ %2854, %2849 ], [ %2845, %_ZN8V3PreLex12curFilelinepEv.exit495 ]
+_ZN8V3PreLex12curFilelinepEv.exit495:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit494, %2849
+  %2855 = phi ptr [ %2854, %2849 ], [ %2845, %_ZN8V3PreLex12curFilelinepEv.exit494 ]
   %2856 = getelementptr inbounds i8, ptr %2855, i64 -8
   %2857 = load ptr, ptr %2856, align 8, !tbaa !45
   %2858 = load ptr, ptr %2857, align 8, !tbaa !47
@@ -5798,7 +5798,7 @@ _ZN8V3PreLex12curFilelinepEv.exit496:             ; preds = %_ZN8V3PreLex12curFi
   %2885 = getelementptr inbounds nuw i8, ptr %2882, i64 64
   %2886 = load ptr, ptr %2885, align 8, !tbaa !42, !noalias !322
   %2887 = icmp eq ptr %2884, %2886
-  br i1 %2887, label %2888, label %_ZN8V3PreLex12curFilelinepEv.exit497
+  br i1 %2887, label %2888, label %_ZN8V3PreLex12curFilelinepEv.exit496
 
 2888:                                             ; preds = %2881
   %2889 = getelementptr inbounds nuw i8, ptr %2882, i64 80
@@ -5806,9 +5806,9 @@ _ZN8V3PreLex12curFilelinepEv.exit496:             ; preds = %_ZN8V3PreLex12curFi
   %2891 = getelementptr inbounds i8, ptr %2890, i64 -8
   %2892 = load ptr, ptr %2891, align 8, !tbaa !44
   %2893 = getelementptr inbounds nuw i8, ptr %2892, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit497
+  br label %_ZN8V3PreLex12curFilelinepEv.exit496
 
-_ZN8V3PreLex12curFilelinepEv.exit497:             ; preds = %2881, %2888
+_ZN8V3PreLex12curFilelinepEv.exit496:             ; preds = %2881, %2888
   %2894 = phi ptr [ %2893, %2888 ], [ %2884, %2881 ]
   %2895 = getelementptr inbounds i8, ptr %2894, i64 -8
   %2896 = load ptr, ptr %2895, align 8, !tbaa !45
@@ -5822,18 +5822,18 @@ _ZN8V3PreLex12curFilelinepEv.exit497:             ; preds = %2881, %2888
   %2903 = getelementptr inbounds nuw i8, ptr %2900, i64 64
   %2904 = load ptr, ptr %2903, align 8, !tbaa !42, !noalias !325
   %2905 = icmp eq ptr %2902, %2904
-  br i1 %2905, label %2906, label %_ZN8V3PreLex12curFilelinepEv.exit498
+  br i1 %2905, label %2906, label %_ZN8V3PreLex12curFilelinepEv.exit497
 
-2906:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit497
+2906:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit496
   %2907 = getelementptr inbounds nuw i8, ptr %2900, i64 80
   %2908 = load ptr, ptr %2907, align 8, !tbaa !43, !noalias !325
   %2909 = getelementptr inbounds i8, ptr %2908, i64 -8
   %2910 = load ptr, ptr %2909, align 8, !tbaa !44
   %2911 = getelementptr inbounds nuw i8, ptr %2910, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit498
+  br label %_ZN8V3PreLex12curFilelinepEv.exit497
 
-_ZN8V3PreLex12curFilelinepEv.exit498:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit497, %2906
-  %2912 = phi ptr [ %2911, %2906 ], [ %2902, %_ZN8V3PreLex12curFilelinepEv.exit497 ]
+_ZN8V3PreLex12curFilelinepEv.exit497:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit496, %2906
+  %2912 = phi ptr [ %2911, %2906 ], [ %2902, %_ZN8V3PreLex12curFilelinepEv.exit496 ]
   %2913 = getelementptr inbounds i8, ptr %2912, i64 -8
   %2914 = load ptr, ptr %2913, align 8, !tbaa !45
   %2915 = load ptr, ptr %2914, align 8, !tbaa !47
@@ -5875,7 +5875,7 @@ _ZN8V3PreLex12curFilelinepEv.exit498:             ; preds = %_ZN8V3PreLex12curFi
   %2942 = getelementptr inbounds nuw i8, ptr %2939, i64 64
   %2943 = load ptr, ptr %2942, align 8, !tbaa !42, !noalias !328
   %2944 = icmp eq ptr %2941, %2943
-  br i1 %2944, label %2945, label %_ZN8V3PreLex12curFilelinepEv.exit499
+  br i1 %2944, label %2945, label %_ZN8V3PreLex12curFilelinepEv.exit498
 
 2945:                                             ; preds = %2938
   %2946 = getelementptr inbounds nuw i8, ptr %2939, i64 80
@@ -5883,9 +5883,9 @@ _ZN8V3PreLex12curFilelinepEv.exit498:             ; preds = %_ZN8V3PreLex12curFi
   %2948 = getelementptr inbounds i8, ptr %2947, i64 -8
   %2949 = load ptr, ptr %2948, align 8, !tbaa !44
   %2950 = getelementptr inbounds nuw i8, ptr %2949, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit499
+  br label %_ZN8V3PreLex12curFilelinepEv.exit498
 
-_ZN8V3PreLex12curFilelinepEv.exit499:             ; preds = %2938, %2945
+_ZN8V3PreLex12curFilelinepEv.exit498:             ; preds = %2938, %2945
   %2951 = phi ptr [ %2950, %2945 ], [ %2941, %2938 ]
   %2952 = getelementptr inbounds i8, ptr %2951, i64 -8
   %2953 = load ptr, ptr %2952, align 8, !tbaa !45
@@ -5928,7 +5928,7 @@ _ZN8V3PreLex12curFilelinepEv.exit499:             ; preds = %2938, %2945
   %2978 = getelementptr inbounds nuw i8, ptr %2975, i64 64
   %2979 = load ptr, ptr %2978, align 8, !tbaa !42, !noalias !331
   %2980 = icmp eq ptr %2977, %2979
-  br i1 %2980, label %2981, label %_ZN8V3PreLex12curFilelinepEv.exit500
+  br i1 %2980, label %2981, label %_ZN8V3PreLex12curFilelinepEv.exit499
 
 2981:                                             ; preds = %2974
   %2982 = getelementptr inbounds nuw i8, ptr %2975, i64 80
@@ -5936,9 +5936,9 @@ _ZN8V3PreLex12curFilelinepEv.exit499:             ; preds = %2938, %2945
   %2984 = getelementptr inbounds i8, ptr %2983, i64 -8
   %2985 = load ptr, ptr %2984, align 8, !tbaa !44
   %2986 = getelementptr inbounds nuw i8, ptr %2985, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit500
+  br label %_ZN8V3PreLex12curFilelinepEv.exit499
 
-_ZN8V3PreLex12curFilelinepEv.exit500:             ; preds = %2974, %2981
+_ZN8V3PreLex12curFilelinepEv.exit499:             ; preds = %2974, %2981
   %2987 = phi ptr [ %2986, %2981 ], [ %2977, %2974 ]
   %2988 = getelementptr inbounds i8, ptr %2987, i64 -8
   %2989 = load ptr, ptr %2988, align 8, !tbaa !45
@@ -5980,7 +5980,7 @@ _ZN8V3PreLex12curFilelinepEv.exit500:             ; preds = %2974, %2981
   %3014 = getelementptr inbounds nuw i8, ptr %3011, i64 64
   %3015 = load ptr, ptr %3014, align 8, !tbaa !42, !noalias !334
   %3016 = icmp eq ptr %3013, %3015
-  br i1 %3016, label %3017, label %_ZN8V3PreLex12curFilelinepEv.exit501
+  br i1 %3016, label %3017, label %_ZN8V3PreLex12curFilelinepEv.exit500
 
 3017:                                             ; preds = %3010
   %3018 = getelementptr inbounds nuw i8, ptr %3011, i64 80
@@ -5988,9 +5988,9 @@ _ZN8V3PreLex12curFilelinepEv.exit500:             ; preds = %2974, %2981
   %3020 = getelementptr inbounds i8, ptr %3019, i64 -8
   %3021 = load ptr, ptr %3020, align 8, !tbaa !44
   %3022 = getelementptr inbounds nuw i8, ptr %3021, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit501
+  br label %_ZN8V3PreLex12curFilelinepEv.exit500
 
-_ZN8V3PreLex12curFilelinepEv.exit501:             ; preds = %3010, %3017
+_ZN8V3PreLex12curFilelinepEv.exit500:             ; preds = %3010, %3017
   %3023 = phi ptr [ %3022, %3017 ], [ %3013, %3010 ]
   %3024 = getelementptr inbounds i8, ptr %3023, i64 -8
   %3025 = load ptr, ptr %3024, align 8, !tbaa !45
@@ -6054,7 +6054,7 @@ _ZN8V3PreLex12curFilelinepEv.exit501:             ; preds = %3010, %3017
   %3066 = getelementptr inbounds nuw i8, ptr %3063, i64 64
   %3067 = load ptr, ptr %3066, align 8, !tbaa !42, !noalias !337
   %3068 = icmp eq ptr %3065, %3067
-  br i1 %3068, label %3069, label %_ZN8V3PreLex12curFilelinepEv.exit502
+  br i1 %3068, label %3069, label %_ZN8V3PreLex12curFilelinepEv.exit501
 
 3069:                                             ; preds = %3062
   %3070 = getelementptr inbounds nuw i8, ptr %3063, i64 80
@@ -6062,9 +6062,9 @@ _ZN8V3PreLex12curFilelinepEv.exit501:             ; preds = %3010, %3017
   %3072 = getelementptr inbounds i8, ptr %3071, i64 -8
   %3073 = load ptr, ptr %3072, align 8, !tbaa !44
   %3074 = getelementptr inbounds nuw i8, ptr %3073, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit502
+  br label %_ZN8V3PreLex12curFilelinepEv.exit501
 
-_ZN8V3PreLex12curFilelinepEv.exit502:             ; preds = %3062, %3069
+_ZN8V3PreLex12curFilelinepEv.exit501:             ; preds = %3062, %3069
   %3075 = phi ptr [ %3074, %3069 ], [ %3065, %3062 ]
   %3076 = getelementptr inbounds i8, ptr %3075, i64 -8
   %3077 = load ptr, ptr %3076, align 8, !tbaa !45
@@ -6082,7 +6082,7 @@ _ZN8V3PreLex12curFilelinepEv.exit502:             ; preds = %3062, %3069
   %3085 = getelementptr inbounds nuw i8, ptr %3082, i64 64
   %3086 = load ptr, ptr %3085, align 8, !tbaa !42, !noalias !340
   %3087 = icmp eq ptr %3084, %3086
-  br i1 %3087, label %3088, label %_ZN8V3PreLex12curFilelinepEv.exit503
+  br i1 %3087, label %3088, label %_ZN8V3PreLex12curFilelinepEv.exit502
 
 3088:                                             ; preds = %3081
   %3089 = getelementptr inbounds nuw i8, ptr %3082, i64 80
@@ -6090,9 +6090,9 @@ _ZN8V3PreLex12curFilelinepEv.exit502:             ; preds = %3062, %3069
   %3091 = getelementptr inbounds i8, ptr %3090, i64 -8
   %3092 = load ptr, ptr %3091, align 8, !tbaa !44
   %3093 = getelementptr inbounds nuw i8, ptr %3092, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit503
+  br label %_ZN8V3PreLex12curFilelinepEv.exit502
 
-_ZN8V3PreLex12curFilelinepEv.exit503:             ; preds = %3081, %3088
+_ZN8V3PreLex12curFilelinepEv.exit502:             ; preds = %3081, %3088
   %3094 = phi ptr [ %3093, %3088 ], [ %3084, %3081 ]
   %3095 = getelementptr inbounds i8, ptr %3094, i64 -8
   %3096 = load ptr, ptr %3095, align 8, !tbaa !45
@@ -6134,7 +6134,7 @@ _ZN8V3PreLex12curFilelinepEv.exit503:             ; preds = %3081, %3088
   %3121 = getelementptr inbounds nuw i8, ptr %3118, i64 64
   %3122 = load ptr, ptr %3121, align 8, !tbaa !42, !noalias !343
   %3123 = icmp eq ptr %3120, %3122
-  br i1 %3123, label %3124, label %_ZN8V3PreLex12curFilelinepEv.exit504
+  br i1 %3123, label %3124, label %_ZN8V3PreLex12curFilelinepEv.exit503
 
 3124:                                             ; preds = %3117
   %3125 = getelementptr inbounds nuw i8, ptr %3118, i64 80
@@ -6142,9 +6142,9 @@ _ZN8V3PreLex12curFilelinepEv.exit503:             ; preds = %3081, %3088
   %3127 = getelementptr inbounds i8, ptr %3126, i64 -8
   %3128 = load ptr, ptr %3127, align 8, !tbaa !44
   %3129 = getelementptr inbounds nuw i8, ptr %3128, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit504
+  br label %_ZN8V3PreLex12curFilelinepEv.exit503
 
-_ZN8V3PreLex12curFilelinepEv.exit504:             ; preds = %3117, %3124
+_ZN8V3PreLex12curFilelinepEv.exit503:             ; preds = %3117, %3124
   %3130 = phi ptr [ %3129, %3124 ], [ %3120, %3117 ]
   %3131 = getelementptr inbounds i8, ptr %3130, i64 -8
   %3132 = load ptr, ptr %3131, align 8, !tbaa !45
@@ -6160,18 +6160,18 @@ _ZN8V3PreLex12curFilelinepEv.exit504:             ; preds = %3117, %3124
   %3139 = getelementptr inbounds nuw i8, ptr %3136, i64 64
   %3140 = load ptr, ptr %3139, align 8, !tbaa !42, !noalias !346
   %3141 = icmp eq ptr %3138, %3140
-  br i1 %3141, label %3142, label %_ZN8V3PreLex12curFilelinepEv.exit505
+  br i1 %3141, label %3142, label %_ZN8V3PreLex12curFilelinepEv.exit504
 
-3142:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit504
+3142:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit503
   %3143 = getelementptr inbounds nuw i8, ptr %3136, i64 80
   %3144 = load ptr, ptr %3143, align 8, !tbaa !43, !noalias !346
   %3145 = getelementptr inbounds i8, ptr %3144, i64 -8
   %3146 = load ptr, ptr %3145, align 8, !tbaa !44
   %3147 = getelementptr inbounds nuw i8, ptr %3146, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit505
+  br label %_ZN8V3PreLex12curFilelinepEv.exit504
 
-_ZN8V3PreLex12curFilelinepEv.exit505:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit504, %3142
-  %3148 = phi ptr [ %3147, %3142 ], [ %3138, %_ZN8V3PreLex12curFilelinepEv.exit504 ]
+_ZN8V3PreLex12curFilelinepEv.exit504:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit503, %3142
+  %3148 = phi ptr [ %3147, %3142 ], [ %3138, %_ZN8V3PreLex12curFilelinepEv.exit503 ]
   %3149 = getelementptr inbounds i8, ptr %3148, i64 -8
   %3150 = load ptr, ptr %3149, align 8, !tbaa !45
   %3151 = load ptr, ptr %3150, align 8, !tbaa !47
@@ -6264,7 +6264,7 @@ _ZN8V3PreLex12curFilelinepEv.exit505:             ; preds = %_ZN8V3PreLex12curFi
   %3212 = getelementptr inbounds nuw i8, ptr %3209, i64 64
   %3213 = load ptr, ptr %3212, align 8, !tbaa !42, !noalias !349
   %3214 = icmp eq ptr %3211, %3213
-  br i1 %3214, label %3215, label %_ZN8V3PreLex12curFilelinepEv.exit506
+  br i1 %3214, label %3215, label %_ZN8V3PreLex12curFilelinepEv.exit505
 
 3215:                                             ; preds = %3208
   %3216 = getelementptr inbounds nuw i8, ptr %3209, i64 80
@@ -6272,9 +6272,9 @@ _ZN8V3PreLex12curFilelinepEv.exit505:             ; preds = %_ZN8V3PreLex12curFi
   %3218 = getelementptr inbounds i8, ptr %3217, i64 -8
   %3219 = load ptr, ptr %3218, align 8, !tbaa !44
   %3220 = getelementptr inbounds nuw i8, ptr %3219, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit506
+  br label %_ZN8V3PreLex12curFilelinepEv.exit505
 
-_ZN8V3PreLex12curFilelinepEv.exit506:             ; preds = %3208, %3215
+_ZN8V3PreLex12curFilelinepEv.exit505:             ; preds = %3208, %3215
   %3221 = phi ptr [ %3220, %3215 ], [ %3211, %3208 ]
   %3222 = getelementptr inbounds i8, ptr %3221, i64 -8
   %3223 = load ptr, ptr %3222, align 8, !tbaa !45
@@ -6313,7 +6313,7 @@ _ZN8V3PreLex12curFilelinepEv.exit506:             ; preds = %3208, %3215
   %3247 = getelementptr inbounds nuw i8, ptr %3244, i64 64
   %3248 = load ptr, ptr %3247, align 8, !tbaa !42, !noalias !352
   %3249 = icmp eq ptr %3246, %3248
-  br i1 %3249, label %3250, label %_ZN8V3PreLex12curFilelinepEv.exit507
+  br i1 %3249, label %3250, label %_ZN8V3PreLex12curFilelinepEv.exit506
 
 3250:                                             ; preds = %3243
   %3251 = getelementptr inbounds nuw i8, ptr %3244, i64 80
@@ -6321,9 +6321,9 @@ _ZN8V3PreLex12curFilelinepEv.exit506:             ; preds = %3208, %3215
   %3253 = getelementptr inbounds i8, ptr %3252, i64 -8
   %3254 = load ptr, ptr %3253, align 8, !tbaa !44
   %3255 = getelementptr inbounds nuw i8, ptr %3254, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit507
+  br label %_ZN8V3PreLex12curFilelinepEv.exit506
 
-_ZN8V3PreLex12curFilelinepEv.exit507:             ; preds = %3243, %3250
+_ZN8V3PreLex12curFilelinepEv.exit506:             ; preds = %3243, %3250
   %3256 = phi ptr [ %3255, %3250 ], [ %3246, %3243 ]
   %3257 = getelementptr inbounds i8, ptr %3256, i64 -8
   %3258 = load ptr, ptr %3257, align 8, !tbaa !45
@@ -6340,18 +6340,18 @@ _ZN8V3PreLex12curFilelinepEv.exit507:             ; preds = %3243, %3250
   %3266 = getelementptr inbounds nuw i8, ptr %3262, i64 64
   %3267 = load ptr, ptr %3266, align 8, !tbaa !42, !noalias !356
   %3268 = icmp eq ptr %3265, %3267
-  br i1 %3268, label %3269, label %_ZN8V3PreLex12curFilelinepEv.exit508
+  br i1 %3268, label %3269, label %_ZN8V3PreLex12curFilelinepEv.exit507
 
-3269:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit507
+3269:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit506
   %3270 = getelementptr inbounds nuw i8, ptr %3262, i64 80
   %3271 = load ptr, ptr %3270, align 8, !tbaa !43, !noalias !356
   %3272 = getelementptr inbounds i8, ptr %3271, i64 -8
   %3273 = load ptr, ptr %3272, align 8, !tbaa !44
   %3274 = getelementptr inbounds nuw i8, ptr %3273, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit508
+  br label %_ZN8V3PreLex12curFilelinepEv.exit507
 
-_ZN8V3PreLex12curFilelinepEv.exit508:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit507, %3269
-  %3275 = phi ptr [ %3274, %3269 ], [ %3265, %_ZN8V3PreLex12curFilelinepEv.exit507 ]
+_ZN8V3PreLex12curFilelinepEv.exit507:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit506, %3269
+  %3275 = phi ptr [ %3274, %3269 ], [ %3265, %_ZN8V3PreLex12curFilelinepEv.exit506 ]
   %3276 = getelementptr inbounds i8, ptr %3275, i64 -8
   %3277 = load ptr, ptr %3276, align 8, !tbaa !45
   %3278 = load ptr, ptr %3277, align 8, !tbaa !47
@@ -6394,7 +6394,7 @@ _ZN8V3PreLex12curFilelinepEv.exit508:             ; preds = %_ZN8V3PreLex12curFi
   %3305 = getelementptr inbounds nuw i8, ptr %3302, i64 64
   %3306 = load ptr, ptr %3305, align 8, !tbaa !42, !noalias !359
   %3307 = icmp eq ptr %3304, %3306
-  br i1 %3307, label %3308, label %_ZN8V3PreLex12curFilelinepEv.exit509
+  br i1 %3307, label %3308, label %_ZN8V3PreLex12curFilelinepEv.exit508
 
 3308:                                             ; preds = %3301
   %3309 = getelementptr inbounds nuw i8, ptr %3302, i64 80
@@ -6402,9 +6402,9 @@ _ZN8V3PreLex12curFilelinepEv.exit508:             ; preds = %_ZN8V3PreLex12curFi
   %3311 = getelementptr inbounds i8, ptr %3310, i64 -8
   %3312 = load ptr, ptr %3311, align 8, !tbaa !44
   %3313 = getelementptr inbounds nuw i8, ptr %3312, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit509
+  br label %_ZN8V3PreLex12curFilelinepEv.exit508
 
-_ZN8V3PreLex12curFilelinepEv.exit509:             ; preds = %3301, %3308
+_ZN8V3PreLex12curFilelinepEv.exit508:             ; preds = %3301, %3308
   %3314 = phi ptr [ %3313, %3308 ], [ %3304, %3301 ]
   %3315 = getelementptr inbounds i8, ptr %3314, i64 -8
   %3316 = load ptr, ptr %3315, align 8, !tbaa !45
@@ -6425,7 +6425,7 @@ _ZN8V3PreLex12curFilelinepEv.exit509:             ; preds = %3301, %3308
   %3325 = getelementptr inbounds nuw i8, ptr %3322, i64 64
   %3326 = load ptr, ptr %3325, align 8, !tbaa !42, !noalias !362
   %3327 = icmp eq ptr %3324, %3326
-  br i1 %3327, label %3328, label %_ZN8V3PreLex12curFilelinepEv.exit510
+  br i1 %3327, label %3328, label %_ZN8V3PreLex12curFilelinepEv.exit509
 
 3328:                                             ; preds = %3321
   %3329 = getelementptr inbounds nuw i8, ptr %3322, i64 80
@@ -6433,9 +6433,9 @@ _ZN8V3PreLex12curFilelinepEv.exit509:             ; preds = %3301, %3308
   %3331 = getelementptr inbounds i8, ptr %3330, i64 -8
   %3332 = load ptr, ptr %3331, align 8, !tbaa !44
   %3333 = getelementptr inbounds nuw i8, ptr %3332, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit510
+  br label %_ZN8V3PreLex12curFilelinepEv.exit509
 
-_ZN8V3PreLex12curFilelinepEv.exit510:             ; preds = %3321, %3328
+_ZN8V3PreLex12curFilelinepEv.exit509:             ; preds = %3321, %3328
   %3334 = phi ptr [ %3333, %3328 ], [ %3324, %3321 ]
   %3335 = getelementptr inbounds i8, ptr %3334, i64 -8
   %3336 = load ptr, ptr %3335, align 8, !tbaa !45
@@ -6475,7 +6475,7 @@ _ZN8V3PreLex12curFilelinepEv.exit510:             ; preds = %3321, %3328
   %3361 = getelementptr inbounds nuw i8, ptr %3358, i64 64
   %3362 = load ptr, ptr %3361, align 8, !tbaa !42, !noalias !365
   %3363 = icmp eq ptr %3360, %3362
-  br i1 %3363, label %3364, label %_ZN8V3PreLex12curFilelinepEv.exit511
+  br i1 %3363, label %3364, label %_ZN8V3PreLex12curFilelinepEv.exit510
 
 3364:                                             ; preds = %3357
   %3365 = getelementptr inbounds nuw i8, ptr %3358, i64 80
@@ -6483,9 +6483,9 @@ _ZN8V3PreLex12curFilelinepEv.exit510:             ; preds = %3321, %3328
   %3367 = getelementptr inbounds i8, ptr %3366, i64 -8
   %3368 = load ptr, ptr %3367, align 8, !tbaa !44
   %3369 = getelementptr inbounds nuw i8, ptr %3368, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit511
+  br label %_ZN8V3PreLex12curFilelinepEv.exit510
 
-_ZN8V3PreLex12curFilelinepEv.exit511:             ; preds = %3357, %3364
+_ZN8V3PreLex12curFilelinepEv.exit510:             ; preds = %3357, %3364
   %3370 = phi ptr [ %3369, %3364 ], [ %3360, %3357 ]
   %3371 = getelementptr inbounds i8, ptr %3370, i64 -8
   %3372 = load ptr, ptr %3371, align 8, !tbaa !45
@@ -6533,7 +6533,7 @@ _ZN8V3PreLex12curFilelinepEv.exit511:             ; preds = %3357, %3364
   %3403 = getelementptr inbounds nuw i8, ptr %3400, i64 64
   %3404 = load ptr, ptr %3403, align 8, !tbaa !42, !noalias !368
   %3405 = icmp eq ptr %3402, %3404
-  br i1 %3405, label %3406, label %_ZN8V3PreLex12curFilelinepEv.exit512
+  br i1 %3405, label %3406, label %_ZN8V3PreLex12curFilelinepEv.exit511
 
 3406:                                             ; preds = %3399
   %3407 = getelementptr inbounds nuw i8, ptr %3400, i64 80
@@ -6541,9 +6541,9 @@ _ZN8V3PreLex12curFilelinepEv.exit511:             ; preds = %3357, %3364
   %3409 = getelementptr inbounds i8, ptr %3408, i64 -8
   %3410 = load ptr, ptr %3409, align 8, !tbaa !44
   %3411 = getelementptr inbounds nuw i8, ptr %3410, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit512
+  br label %_ZN8V3PreLex12curFilelinepEv.exit511
 
-_ZN8V3PreLex12curFilelinepEv.exit512:             ; preds = %3399, %3406
+_ZN8V3PreLex12curFilelinepEv.exit511:             ; preds = %3399, %3406
   %3412 = phi ptr [ %3411, %3406 ], [ %3402, %3399 ]
   %3413 = getelementptr inbounds i8, ptr %3412, i64 -8
   %3414 = load ptr, ptr %3413, align 8, !tbaa !45
@@ -6561,18 +6561,18 @@ _ZN8V3PreLex12curFilelinepEv.exit512:             ; preds = %3399, %3406
   %3424 = getelementptr inbounds nuw i8, ptr %3421, i64 64
   %3425 = load ptr, ptr %3424, align 8, !tbaa !42, !noalias !371
   %3426 = icmp eq ptr %3423, %3425
-  br i1 %3426, label %3427, label %_ZN8V3PreLex12curFilelinepEv.exit513
+  br i1 %3426, label %3427, label %_ZN8V3PreLex12curFilelinepEv.exit512
 
-3427:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit512
+3427:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit511
   %3428 = getelementptr inbounds nuw i8, ptr %3421, i64 80
   %3429 = load ptr, ptr %3428, align 8, !tbaa !43, !noalias !371
   %3430 = getelementptr inbounds i8, ptr %3429, i64 -8
   %3431 = load ptr, ptr %3430, align 8, !tbaa !44
   %3432 = getelementptr inbounds nuw i8, ptr %3431, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit513
+  br label %_ZN8V3PreLex12curFilelinepEv.exit512
 
-_ZN8V3PreLex12curFilelinepEv.exit513:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit512, %3427
-  %3433 = phi ptr [ %3432, %3427 ], [ %3423, %_ZN8V3PreLex12curFilelinepEv.exit512 ]
+_ZN8V3PreLex12curFilelinepEv.exit512:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit511, %3427
+  %3433 = phi ptr [ %3432, %3427 ], [ %3423, %_ZN8V3PreLex12curFilelinepEv.exit511 ]
   %3434 = getelementptr inbounds i8, ptr %3433, i64 -8
   %3435 = load ptr, ptr %3434, align 8, !tbaa !45
   %3436 = load ptr, ptr %3435, align 8, !tbaa !47
@@ -6619,7 +6619,7 @@ _ZN8V3PreLex12curFilelinepEv.exit513:             ; preds = %_ZN8V3PreLex12curFi
   %3466 = getelementptr inbounds nuw i8, ptr %3463, i64 64
   %3467 = load ptr, ptr %3466, align 8, !tbaa !42, !noalias !374
   %3468 = icmp eq ptr %3465, %3467
-  br i1 %3468, label %3469, label %_ZN8V3PreLex12curFilelinepEv.exit514
+  br i1 %3468, label %3469, label %_ZN8V3PreLex12curFilelinepEv.exit513
 
 3469:                                             ; preds = %3462
   %3470 = getelementptr inbounds nuw i8, ptr %3463, i64 80
@@ -6627,9 +6627,9 @@ _ZN8V3PreLex12curFilelinepEv.exit513:             ; preds = %_ZN8V3PreLex12curFi
   %3472 = getelementptr inbounds i8, ptr %3471, i64 -8
   %3473 = load ptr, ptr %3472, align 8, !tbaa !44
   %3474 = getelementptr inbounds nuw i8, ptr %3473, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit514
+  br label %_ZN8V3PreLex12curFilelinepEv.exit513
 
-_ZN8V3PreLex12curFilelinepEv.exit514:             ; preds = %3462, %3469
+_ZN8V3PreLex12curFilelinepEv.exit513:             ; preds = %3462, %3469
   %3475 = phi ptr [ %3474, %3469 ], [ %3465, %3462 ]
   %3476 = getelementptr inbounds i8, ptr %3475, i64 -8
   %3477 = load ptr, ptr %3476, align 8, !tbaa !45
@@ -6650,17 +6650,17 @@ _ZN8V3PreLex12curFilelinepEv.exit514:             ; preds = %3462, %3469
   %3488 = icmp eq i32 %3487, 0
   br i1 %3488, label %3489, label %3490
 
-3489:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit514
+3489:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit513
   call fastcc void @_ZL12yy_pop_statev()
   br label %.loopexit
 
-3490:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit514
+3490:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit513
   %3491 = getelementptr inbounds nuw i8, ptr %3484, i64 56
   %3492 = load ptr, ptr %3491, align 8, !tbaa !34, !noalias !377
   %3493 = getelementptr inbounds nuw i8, ptr %3484, i64 64
   %3494 = load ptr, ptr %3493, align 8, !tbaa !42, !noalias !377
   %3495 = icmp eq ptr %3492, %3494
-  br i1 %3495, label %3496, label %_ZN8V3PreLex12curFilelinepEv.exit515
+  br i1 %3495, label %3496, label %_ZN8V3PreLex12curFilelinepEv.exit514
 
 3496:                                             ; preds = %3490
   %3497 = getelementptr inbounds nuw i8, ptr %3484, i64 80
@@ -6668,9 +6668,9 @@ _ZN8V3PreLex12curFilelinepEv.exit514:             ; preds = %3462, %3469
   %3499 = getelementptr inbounds i8, ptr %3498, i64 -8
   %3500 = load ptr, ptr %3499, align 8, !tbaa !44
   %3501 = getelementptr inbounds nuw i8, ptr %3500, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit515
+  br label %_ZN8V3PreLex12curFilelinepEv.exit514
 
-_ZN8V3PreLex12curFilelinepEv.exit515:             ; preds = %3490, %3496
+_ZN8V3PreLex12curFilelinepEv.exit514:             ; preds = %3490, %3496
   %3502 = phi ptr [ %3501, %3496 ], [ %3492, %3490 ]
   %3503 = getelementptr inbounds i8, ptr %3502, i64 -8
   %3504 = load ptr, ptr %3503, align 8, !tbaa !45
@@ -6739,7 +6739,7 @@ _ZN8V3PreLex12curFilelinepEv.exit515:             ; preds = %3490, %3496
   %3549 = getelementptr inbounds nuw i8, ptr %3546, i64 64
   %3550 = load ptr, ptr %3549, align 8, !tbaa !42, !noalias !380
   %3551 = icmp eq ptr %3548, %3550
-  br i1 %3551, label %3552, label %_ZN8V3PreLex12curFilelinepEv.exit516
+  br i1 %3551, label %3552, label %_ZN8V3PreLex12curFilelinepEv.exit515
 
 3552:                                             ; preds = %3545
   %3553 = getelementptr inbounds nuw i8, ptr %3546, i64 80
@@ -6747,9 +6747,9 @@ _ZN8V3PreLex12curFilelinepEv.exit515:             ; preds = %3490, %3496
   %3555 = getelementptr inbounds i8, ptr %3554, i64 -8
   %3556 = load ptr, ptr %3555, align 8, !tbaa !44
   %3557 = getelementptr inbounds nuw i8, ptr %3556, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit516
+  br label %_ZN8V3PreLex12curFilelinepEv.exit515
 
-_ZN8V3PreLex12curFilelinepEv.exit516:             ; preds = %3545, %3552
+_ZN8V3PreLex12curFilelinepEv.exit515:             ; preds = %3545, %3552
   %3558 = phi ptr [ %3557, %3552 ], [ %3548, %3545 ]
   %3559 = getelementptr inbounds i8, ptr %3558, i64 -8
   %3560 = load ptr, ptr %3559, align 8, !tbaa !45
@@ -6787,7 +6787,7 @@ _ZN8V3PreLex12curFilelinepEv.exit516:             ; preds = %3545, %3552
   %3584 = getelementptr inbounds nuw i8, ptr %3581, i64 64
   %3585 = load ptr, ptr %3584, align 8, !tbaa !42, !noalias !383
   %3586 = icmp eq ptr %3583, %3585
-  br i1 %3586, label %3587, label %_ZN8V3PreLex12curFilelinepEv.exit517
+  br i1 %3586, label %3587, label %_ZN8V3PreLex12curFilelinepEv.exit516
 
 3587:                                             ; preds = %3580
   %3588 = getelementptr inbounds nuw i8, ptr %3581, i64 80
@@ -6795,9 +6795,9 @@ _ZN8V3PreLex12curFilelinepEv.exit516:             ; preds = %3545, %3552
   %3590 = getelementptr inbounds i8, ptr %3589, i64 -8
   %3591 = load ptr, ptr %3590, align 8, !tbaa !44
   %3592 = getelementptr inbounds nuw i8, ptr %3591, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit517
+  br label %_ZN8V3PreLex12curFilelinepEv.exit516
 
-_ZN8V3PreLex12curFilelinepEv.exit517:             ; preds = %3580, %3587
+_ZN8V3PreLex12curFilelinepEv.exit516:             ; preds = %3580, %3587
   %3593 = phi ptr [ %3592, %3587 ], [ %3583, %3580 ]
   %3594 = getelementptr inbounds i8, ptr %3593, i64 -8
   %3595 = load ptr, ptr %3594, align 8, !tbaa !45
@@ -6811,18 +6811,18 @@ _ZN8V3PreLex12curFilelinepEv.exit517:             ; preds = %3580, %3587
   %3602 = getelementptr inbounds nuw i8, ptr %3599, i64 64
   %3603 = load ptr, ptr %3602, align 8, !tbaa !42, !noalias !386
   %3604 = icmp eq ptr %3601, %3603
-  br i1 %3604, label %3605, label %_ZN8V3PreLex12curFilelinepEv.exit518
+  br i1 %3604, label %3605, label %_ZN8V3PreLex12curFilelinepEv.exit517
 
-3605:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit517
+3605:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit516
   %3606 = getelementptr inbounds nuw i8, ptr %3599, i64 80
   %3607 = load ptr, ptr %3606, align 8, !tbaa !43, !noalias !386
   %3608 = getelementptr inbounds i8, ptr %3607, i64 -8
   %3609 = load ptr, ptr %3608, align 8, !tbaa !44
   %3610 = getelementptr inbounds nuw i8, ptr %3609, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit518
+  br label %_ZN8V3PreLex12curFilelinepEv.exit517
 
-_ZN8V3PreLex12curFilelinepEv.exit518:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit517, %3605
-  %3611 = phi ptr [ %3610, %3605 ], [ %3601, %_ZN8V3PreLex12curFilelinepEv.exit517 ]
+_ZN8V3PreLex12curFilelinepEv.exit517:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit516, %3605
+  %3611 = phi ptr [ %3610, %3605 ], [ %3601, %_ZN8V3PreLex12curFilelinepEv.exit516 ]
   %3612 = getelementptr inbounds i8, ptr %3611, i64 -8
   %3613 = load ptr, ptr %3612, align 8, !tbaa !45
   %3614 = load ptr, ptr %3613, align 8, !tbaa !47
@@ -6843,7 +6843,7 @@ _ZN8V3PreLex12curFilelinepEv.exit518:             ; preds = %_ZN8V3PreLex12curFi
   %3625 = getelementptr inbounds nuw i8, ptr %3622, i64 64
   %3626 = load ptr, ptr %3625, align 8, !tbaa !42, !noalias !389
   %3627 = icmp eq ptr %3624, %3626
-  br i1 %3627, label %3628, label %_ZN8V3PreLex12curFilelinepEv.exit519
+  br i1 %3627, label %3628, label %_ZN8V3PreLex12curFilelinepEv.exit518
 
 3628:                                             ; preds = %3621
   %3629 = getelementptr inbounds nuw i8, ptr %3622, i64 80
@@ -6851,9 +6851,9 @@ _ZN8V3PreLex12curFilelinepEv.exit518:             ; preds = %_ZN8V3PreLex12curFi
   %3631 = getelementptr inbounds i8, ptr %3630, i64 -8
   %3632 = load ptr, ptr %3631, align 8, !tbaa !44
   %3633 = getelementptr inbounds nuw i8, ptr %3632, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit519
+  br label %_ZN8V3PreLex12curFilelinepEv.exit518
 
-_ZN8V3PreLex12curFilelinepEv.exit519:             ; preds = %3621, %3628
+_ZN8V3PreLex12curFilelinepEv.exit518:             ; preds = %3621, %3628
   %3634 = phi ptr [ %3633, %3628 ], [ %3624, %3621 ]
   %3635 = getelementptr inbounds i8, ptr %3634, i64 -8
   %3636 = load ptr, ptr %3635, align 8, !tbaa !45
@@ -6896,7 +6896,7 @@ _ZN8V3PreLex12curFilelinepEv.exit519:             ; preds = %3621, %3628
   %3661 = getelementptr inbounds nuw i8, ptr %3658, i64 64
   %3662 = load ptr, ptr %3661, align 8, !tbaa !42, !noalias !392
   %3663 = icmp eq ptr %3660, %3662
-  br i1 %3663, label %3664, label %_ZN8V3PreLex12curFilelinepEv.exit520
+  br i1 %3663, label %3664, label %_ZN8V3PreLex12curFilelinepEv.exit519
 
 3664:                                             ; preds = %3657
   %3665 = getelementptr inbounds nuw i8, ptr %3658, i64 80
@@ -6904,9 +6904,9 @@ _ZN8V3PreLex12curFilelinepEv.exit519:             ; preds = %3621, %3628
   %3667 = getelementptr inbounds i8, ptr %3666, i64 -8
   %3668 = load ptr, ptr %3667, align 8, !tbaa !44
   %3669 = getelementptr inbounds nuw i8, ptr %3668, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit520
+  br label %_ZN8V3PreLex12curFilelinepEv.exit519
 
-_ZN8V3PreLex12curFilelinepEv.exit520:             ; preds = %3657, %3664
+_ZN8V3PreLex12curFilelinepEv.exit519:             ; preds = %3657, %3664
   %3670 = phi ptr [ %3669, %3664 ], [ %3660, %3657 ]
   %3671 = getelementptr inbounds i8, ptr %3670, i64 -8
   %3672 = load ptr, ptr %3671, align 8, !tbaa !45
@@ -6922,18 +6922,18 @@ _ZN8V3PreLex12curFilelinepEv.exit520:             ; preds = %3657, %3664
   %3679 = getelementptr inbounds nuw i8, ptr %3676, i64 64
   %3680 = load ptr, ptr %3679, align 8, !tbaa !42, !noalias !395
   %3681 = icmp eq ptr %3678, %3680
-  br i1 %3681, label %3682, label %_ZN8V3PreLex12curFilelinepEv.exit521
+  br i1 %3681, label %3682, label %_ZN8V3PreLex12curFilelinepEv.exit520
 
-3682:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit520
+3682:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit519
   %3683 = getelementptr inbounds nuw i8, ptr %3676, i64 80
   %3684 = load ptr, ptr %3683, align 8, !tbaa !43, !noalias !395
   %3685 = getelementptr inbounds i8, ptr %3684, i64 -8
   %3686 = load ptr, ptr %3685, align 8, !tbaa !44
   %3687 = getelementptr inbounds nuw i8, ptr %3686, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit521
+  br label %_ZN8V3PreLex12curFilelinepEv.exit520
 
-_ZN8V3PreLex12curFilelinepEv.exit521:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit520, %3682
-  %3688 = phi ptr [ %3687, %3682 ], [ %3678, %_ZN8V3PreLex12curFilelinepEv.exit520 ]
+_ZN8V3PreLex12curFilelinepEv.exit520:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit519, %3682
+  %3688 = phi ptr [ %3687, %3682 ], [ %3678, %_ZN8V3PreLex12curFilelinepEv.exit519 ]
   %3689 = getelementptr inbounds i8, ptr %3688, i64 -8
   %3690 = load ptr, ptr %3689, align 8, !tbaa !45
   %3691 = load ptr, ptr %3690, align 8, !tbaa !47
@@ -7020,7 +7020,7 @@ _ZN8V3PreLex12curFilelinepEv.exit521:             ; preds = %_ZN8V3PreLex12curFi
   %3748 = getelementptr inbounds nuw i8, ptr %3745, i64 64
   %3749 = load ptr, ptr %3748, align 8, !tbaa !42, !noalias !398
   %3750 = icmp eq ptr %3747, %3749
-  br i1 %3750, label %3751, label %_ZN8V3PreLex12curFilelinepEv.exit522
+  br i1 %3750, label %3751, label %_ZN8V3PreLex12curFilelinepEv.exit521
 
 3751:                                             ; preds = %3744
   %3752 = getelementptr inbounds nuw i8, ptr %3745, i64 80
@@ -7028,9 +7028,9 @@ _ZN8V3PreLex12curFilelinepEv.exit521:             ; preds = %_ZN8V3PreLex12curFi
   %3754 = getelementptr inbounds i8, ptr %3753, i64 -8
   %3755 = load ptr, ptr %3754, align 8, !tbaa !44
   %3756 = getelementptr inbounds nuw i8, ptr %3755, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit522
+  br label %_ZN8V3PreLex12curFilelinepEv.exit521
 
-_ZN8V3PreLex12curFilelinepEv.exit522:             ; preds = %3744, %3751
+_ZN8V3PreLex12curFilelinepEv.exit521:             ; preds = %3744, %3751
   %3757 = phi ptr [ %3756, %3751 ], [ %3747, %3744 ]
   %3758 = getelementptr inbounds i8, ptr %3757, i64 -8
   %3759 = load ptr, ptr %3758, align 8, !tbaa !45
@@ -7046,18 +7046,18 @@ _ZN8V3PreLex12curFilelinepEv.exit522:             ; preds = %3744, %3751
   %3766 = getelementptr inbounds nuw i8, ptr %3763, i64 64
   %3767 = load ptr, ptr %3766, align 8, !tbaa !42, !noalias !401
   %3768 = icmp eq ptr %3765, %3767
-  br i1 %3768, label %3769, label %_ZN8V3PreLex12curFilelinepEv.exit523
+  br i1 %3768, label %3769, label %_ZN8V3PreLex12curFilelinepEv.exit522
 
-3769:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit522
+3769:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit521
   %3770 = getelementptr inbounds nuw i8, ptr %3763, i64 80
   %3771 = load ptr, ptr %3770, align 8, !tbaa !43, !noalias !401
   %3772 = getelementptr inbounds i8, ptr %3771, i64 -8
   %3773 = load ptr, ptr %3772, align 8, !tbaa !44
   %3774 = getelementptr inbounds nuw i8, ptr %3773, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit523
+  br label %_ZN8V3PreLex12curFilelinepEv.exit522
 
-_ZN8V3PreLex12curFilelinepEv.exit523:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit522, %3769
-  %3775 = phi ptr [ %3774, %3769 ], [ %3765, %_ZN8V3PreLex12curFilelinepEv.exit522 ]
+_ZN8V3PreLex12curFilelinepEv.exit522:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit521, %3769
+  %3775 = phi ptr [ %3774, %3769 ], [ %3765, %_ZN8V3PreLex12curFilelinepEv.exit521 ]
   %3776 = getelementptr inbounds i8, ptr %3775, i64 -8
   %3777 = load ptr, ptr %3776, align 8, !tbaa !45
   %3778 = load ptr, ptr %3777, align 8, !tbaa !47
@@ -7157,7 +7157,7 @@ _ZN8V3PreLex12curFilelinepEv.exit523:             ; preds = %_ZN8V3PreLex12curFi
   %3843 = getelementptr inbounds nuw i8, ptr %3840, i64 64
   %3844 = load ptr, ptr %3843, align 8, !tbaa !42, !noalias !404
   %3845 = icmp eq ptr %3842, %3844
-  br i1 %3845, label %3846, label %_ZN8V3PreLex12curFilelinepEv.exit524
+  br i1 %3845, label %3846, label %_ZN8V3PreLex12curFilelinepEv.exit523
 
 3846:                                             ; preds = %3839
   %3847 = getelementptr inbounds nuw i8, ptr %3840, i64 80
@@ -7165,9 +7165,9 @@ _ZN8V3PreLex12curFilelinepEv.exit523:             ; preds = %_ZN8V3PreLex12curFi
   %3849 = getelementptr inbounds i8, ptr %3848, i64 -8
   %3850 = load ptr, ptr %3849, align 8, !tbaa !44
   %3851 = getelementptr inbounds nuw i8, ptr %3850, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit524
+  br label %_ZN8V3PreLex12curFilelinepEv.exit523
 
-_ZN8V3PreLex12curFilelinepEv.exit524:             ; preds = %3839, %3846
+_ZN8V3PreLex12curFilelinepEv.exit523:             ; preds = %3839, %3846
   %3852 = phi ptr [ %3851, %3846 ], [ %3842, %3839 ]
   %3853 = getelementptr inbounds i8, ptr %3852, i64 -8
   %3854 = load ptr, ptr %3853, align 8, !tbaa !45
@@ -7185,18 +7185,18 @@ _ZN8V3PreLex12curFilelinepEv.exit524:             ; preds = %3839, %3846
   %3864 = getelementptr inbounds nuw i8, ptr %3861, i64 64
   %3865 = load ptr, ptr %3864, align 8, !tbaa !42, !noalias !407
   %3866 = icmp eq ptr %3863, %3865
-  br i1 %3866, label %3867, label %_ZN8V3PreLex12curFilelinepEv.exit525
+  br i1 %3866, label %3867, label %_ZN8V3PreLex12curFilelinepEv.exit524
 
-3867:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit524
+3867:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit523
   %3868 = getelementptr inbounds nuw i8, ptr %3861, i64 80
   %3869 = load ptr, ptr %3868, align 8, !tbaa !43, !noalias !407
   %3870 = getelementptr inbounds i8, ptr %3869, i64 -8
   %3871 = load ptr, ptr %3870, align 8, !tbaa !44
   %3872 = getelementptr inbounds nuw i8, ptr %3871, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit525
+  br label %_ZN8V3PreLex12curFilelinepEv.exit524
 
-_ZN8V3PreLex12curFilelinepEv.exit525:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit524, %3867
-  %3873 = phi ptr [ %3872, %3867 ], [ %3863, %_ZN8V3PreLex12curFilelinepEv.exit524 ]
+_ZN8V3PreLex12curFilelinepEv.exit524:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit523, %3867
+  %3873 = phi ptr [ %3872, %3867 ], [ %3863, %_ZN8V3PreLex12curFilelinepEv.exit523 ]
   %3874 = getelementptr inbounds i8, ptr %3873, i64 -8
   %3875 = load ptr, ptr %3874, align 8, !tbaa !45
   %3876 = load ptr, ptr %3875, align 8, !tbaa !47
@@ -7238,7 +7238,7 @@ _ZN8V3PreLex12curFilelinepEv.exit525:             ; preds = %_ZN8V3PreLex12curFi
   %3903 = getelementptr inbounds nuw i8, ptr %3900, i64 64
   %3904 = load ptr, ptr %3903, align 8, !tbaa !42, !noalias !410
   %3905 = icmp eq ptr %3902, %3904
-  br i1 %3905, label %3906, label %_ZN8V3PreLex12curFilelinepEv.exit526
+  br i1 %3905, label %3906, label %_ZN8V3PreLex12curFilelinepEv.exit525
 
 3906:                                             ; preds = %3899
   %3907 = getelementptr inbounds nuw i8, ptr %3900, i64 80
@@ -7246,9 +7246,9 @@ _ZN8V3PreLex12curFilelinepEv.exit525:             ; preds = %_ZN8V3PreLex12curFi
   %3909 = getelementptr inbounds i8, ptr %3908, i64 -8
   %3910 = load ptr, ptr %3909, align 8, !tbaa !44
   %3911 = getelementptr inbounds nuw i8, ptr %3910, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit526
+  br label %_ZN8V3PreLex12curFilelinepEv.exit525
 
-_ZN8V3PreLex12curFilelinepEv.exit526:             ; preds = %3899, %3906
+_ZN8V3PreLex12curFilelinepEv.exit525:             ; preds = %3899, %3906
   %3912 = phi ptr [ %3911, %3906 ], [ %3902, %3899 ]
   %3913 = getelementptr inbounds i8, ptr %3912, i64 -8
   %3914 = load ptr, ptr %3913, align 8, !tbaa !45
@@ -7266,18 +7266,18 @@ _ZN8V3PreLex12curFilelinepEv.exit526:             ; preds = %3899, %3906
   %3924 = getelementptr inbounds nuw i8, ptr %3921, i64 64
   %3925 = load ptr, ptr %3924, align 8, !tbaa !42, !noalias !413
   %3926 = icmp eq ptr %3923, %3925
-  br i1 %3926, label %3927, label %_ZN8V3PreLex12curFilelinepEv.exit527
+  br i1 %3926, label %3927, label %_ZN8V3PreLex12curFilelinepEv.exit526
 
-3927:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit526
+3927:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit525
   %3928 = getelementptr inbounds nuw i8, ptr %3921, i64 80
   %3929 = load ptr, ptr %3928, align 8, !tbaa !43, !noalias !413
   %3930 = getelementptr inbounds i8, ptr %3929, i64 -8
   %3931 = load ptr, ptr %3930, align 8, !tbaa !44
   %3932 = getelementptr inbounds nuw i8, ptr %3931, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit527
+  br label %_ZN8V3PreLex12curFilelinepEv.exit526
 
-_ZN8V3PreLex12curFilelinepEv.exit527:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit526, %3927
-  %3933 = phi ptr [ %3932, %3927 ], [ %3923, %_ZN8V3PreLex12curFilelinepEv.exit526 ]
+_ZN8V3PreLex12curFilelinepEv.exit526:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit525, %3927
+  %3933 = phi ptr [ %3932, %3927 ], [ %3923, %_ZN8V3PreLex12curFilelinepEv.exit525 ]
   %3934 = getelementptr inbounds i8, ptr %3933, i64 -8
   %3935 = load ptr, ptr %3934, align 8, !tbaa !45
   %3936 = load ptr, ptr %3935, align 8, !tbaa !47
@@ -7319,7 +7319,7 @@ _ZN8V3PreLex12curFilelinepEv.exit527:             ; preds = %_ZN8V3PreLex12curFi
   %3963 = getelementptr inbounds nuw i8, ptr %3960, i64 64
   %3964 = load ptr, ptr %3963, align 8, !tbaa !42, !noalias !416
   %3965 = icmp eq ptr %3962, %3964
-  br i1 %3965, label %3966, label %_ZN8V3PreLex12curFilelinepEv.exit528
+  br i1 %3965, label %3966, label %_ZN8V3PreLex12curFilelinepEv.exit527
 
 3966:                                             ; preds = %3959
   %3967 = getelementptr inbounds nuw i8, ptr %3960, i64 80
@@ -7327,9 +7327,9 @@ _ZN8V3PreLex12curFilelinepEv.exit527:             ; preds = %_ZN8V3PreLex12curFi
   %3969 = getelementptr inbounds i8, ptr %3968, i64 -8
   %3970 = load ptr, ptr %3969, align 8, !tbaa !44
   %3971 = getelementptr inbounds nuw i8, ptr %3970, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit528
+  br label %_ZN8V3PreLex12curFilelinepEv.exit527
 
-_ZN8V3PreLex12curFilelinepEv.exit528:             ; preds = %3959, %3966
+_ZN8V3PreLex12curFilelinepEv.exit527:             ; preds = %3959, %3966
   %3972 = phi ptr [ %3971, %3966 ], [ %3962, %3959 ]
   %3973 = getelementptr inbounds i8, ptr %3972, i64 -8
   %3974 = load ptr, ptr %3973, align 8, !tbaa !45
@@ -7352,18 +7352,18 @@ _ZN8V3PreLex12curFilelinepEv.exit528:             ; preds = %3959, %3966
   %3988 = getelementptr inbounds nuw i8, ptr %3985, i64 64
   %3989 = load ptr, ptr %3988, align 8, !tbaa !42, !noalias !419
   %3990 = icmp eq ptr %3987, %3989
-  br i1 %3990, label %3991, label %_ZN8V3PreLex12curFilelinepEv.exit529
+  br i1 %3990, label %3991, label %_ZN8V3PreLex12curFilelinepEv.exit528
 
-3991:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit528
+3991:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit527
   %3992 = getelementptr inbounds nuw i8, ptr %3985, i64 80
   %3993 = load ptr, ptr %3992, align 8, !tbaa !43, !noalias !419
   %3994 = getelementptr inbounds i8, ptr %3993, i64 -8
   %3995 = load ptr, ptr %3994, align 8, !tbaa !44
   %3996 = getelementptr inbounds nuw i8, ptr %3995, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit529
+  br label %_ZN8V3PreLex12curFilelinepEv.exit528
 
-_ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit528, %3991
-  %3997 = phi ptr [ %3996, %3991 ], [ %3987, %_ZN8V3PreLex12curFilelinepEv.exit528 ]
+_ZN8V3PreLex12curFilelinepEv.exit528:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit527, %3991
+  %3997 = phi ptr [ %3996, %3991 ], [ %3987, %_ZN8V3PreLex12curFilelinepEv.exit527 ]
   %3998 = getelementptr inbounds i8, ptr %3997, i64 -8
   %3999 = load ptr, ptr %3998, align 8, !tbaa !45
   %4000 = load ptr, ptr %3999, align 8, !tbaa !47
@@ -7405,7 +7405,7 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %_ZN8V3PreLex12curFi
   %4027 = getelementptr inbounds nuw i8, ptr %4024, i64 64
   %4028 = load ptr, ptr %4027, align 8, !tbaa !42, !noalias !422
   %4029 = icmp eq ptr %4026, %4028
-  br i1 %4029, label %4030, label %_ZN8V3PreLex12curFilelinepEv.exit530
+  br i1 %4029, label %4030, label %_ZN8V3PreLex12curFilelinepEv.exit529
 
 4030:                                             ; preds = %4023
   %4031 = getelementptr inbounds nuw i8, ptr %4024, i64 80
@@ -7413,9 +7413,9 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %_ZN8V3PreLex12curFi
   %4033 = getelementptr inbounds i8, ptr %4032, i64 -8
   %4034 = load ptr, ptr %4033, align 8, !tbaa !44
   %4035 = getelementptr inbounds nuw i8, ptr %4034, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit530
+  br label %_ZN8V3PreLex12curFilelinepEv.exit529
 
-_ZN8V3PreLex12curFilelinepEv.exit530:             ; preds = %4023, %4030
+_ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %4023, %4030
   %4036 = phi ptr [ %4035, %4030 ], [ %4026, %4023 ]
   %4037 = getelementptr inbounds i8, ptr %4036, i64 -8
   %4038 = load ptr, ptr %4037, align 8, !tbaa !45
@@ -7438,18 +7438,18 @@ _ZN8V3PreLex12curFilelinepEv.exit530:             ; preds = %4023, %4030
   %4052 = getelementptr inbounds nuw i8, ptr %4049, i64 64
   %4053 = load ptr, ptr %4052, align 8, !tbaa !42, !noalias !425
   %4054 = icmp eq ptr %4051, %4053
-  br i1 %4054, label %4055, label %_ZN8V3PreLex12curFilelinepEv.exit531
+  br i1 %4054, label %4055, label %_ZN8V3PreLex12curFilelinepEv.exit530
 
-4055:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit530
+4055:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit529
   %4056 = getelementptr inbounds nuw i8, ptr %4049, i64 80
   %4057 = load ptr, ptr %4056, align 8, !tbaa !43, !noalias !425
   %4058 = getelementptr inbounds i8, ptr %4057, i64 -8
   %4059 = load ptr, ptr %4058, align 8, !tbaa !44
   %4060 = getelementptr inbounds nuw i8, ptr %4059, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit531
+  br label %_ZN8V3PreLex12curFilelinepEv.exit530
 
-_ZN8V3PreLex12curFilelinepEv.exit531:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit530, %4055
-  %4061 = phi ptr [ %4060, %4055 ], [ %4051, %_ZN8V3PreLex12curFilelinepEv.exit530 ]
+_ZN8V3PreLex12curFilelinepEv.exit530:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit529, %4055
+  %4061 = phi ptr [ %4060, %4055 ], [ %4051, %_ZN8V3PreLex12curFilelinepEv.exit529 ]
   %4062 = getelementptr inbounds i8, ptr %4061, i64 -8
   %4063 = load ptr, ptr %4062, align 8, !tbaa !45
   %4064 = load ptr, ptr %4063, align 8, !tbaa !47
@@ -7491,7 +7491,7 @@ _ZN8V3PreLex12curFilelinepEv.exit531:             ; preds = %_ZN8V3PreLex12curFi
   %4091 = getelementptr inbounds nuw i8, ptr %4088, i64 64
   %4092 = load ptr, ptr %4091, align 8, !tbaa !42, !noalias !428
   %4093 = icmp eq ptr %4090, %4092
-  br i1 %4093, label %4094, label %_ZN8V3PreLex12curFilelinepEv.exit532
+  br i1 %4093, label %4094, label %_ZN8V3PreLex12curFilelinepEv.exit531
 
 4094:                                             ; preds = %4087
   %4095 = getelementptr inbounds nuw i8, ptr %4088, i64 80
@@ -7499,9 +7499,9 @@ _ZN8V3PreLex12curFilelinepEv.exit531:             ; preds = %_ZN8V3PreLex12curFi
   %4097 = getelementptr inbounds i8, ptr %4096, i64 -8
   %4098 = load ptr, ptr %4097, align 8, !tbaa !44
   %4099 = getelementptr inbounds nuw i8, ptr %4098, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit532
+  br label %_ZN8V3PreLex12curFilelinepEv.exit531
 
-_ZN8V3PreLex12curFilelinepEv.exit532:             ; preds = %4087, %4094
+_ZN8V3PreLex12curFilelinepEv.exit531:             ; preds = %4087, %4094
   %4100 = phi ptr [ %4099, %4094 ], [ %4090, %4087 ]
   %4101 = getelementptr inbounds i8, ptr %4100, i64 -8
   %4102 = load ptr, ptr %4101, align 8, !tbaa !45
@@ -7518,11 +7518,11 @@ _ZN8V3PreLex12curFilelinepEv.exit532:             ; preds = %4087, %4094
   %4112 = icmp ult i64 %4111, %4107
   br i1 %4112, label %4113, label %_ZL14appendDefValuePKcm.exit
 
-4113:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit532
+4113:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit531
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.503) #43
   unreachable
 
-_ZL14appendDefValuePKcm.exit:                     ; preds = %_ZN8V3PreLex12curFilelinepEv.exit532
+_ZL14appendDefValuePKcm.exit:                     ; preds = %_ZN8V3PreLex12curFilelinepEv.exit531
   %4114 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %4115 = getelementptr inbounds nuw i8, ptr %4108, i64 216
   %4116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4115, ptr noundef %4114, i64 noundef range(i64 -2147483648, 2147483648) %4107)
@@ -7532,7 +7532,7 @@ _ZL14appendDefValuePKcm.exit:                     ; preds = %_ZN8V3PreLex12curFi
   %4120 = getelementptr inbounds nuw i8, ptr %4117, i64 64
   %4121 = load ptr, ptr %4120, align 8, !tbaa !42, !noalias !431
   %4122 = icmp eq ptr %4119, %4121
-  br i1 %4122, label %4123, label %_ZN8V3PreLex12curFilelinepEv.exit533
+  br i1 %4122, label %4123, label %_ZN8V3PreLex12curFilelinepEv.exit532
 
 4123:                                             ; preds = %_ZL14appendDefValuePKcm.exit
   %4124 = getelementptr inbounds nuw i8, ptr %4117, i64 80
@@ -7540,9 +7540,9 @@ _ZL14appendDefValuePKcm.exit:                     ; preds = %_ZN8V3PreLex12curFi
   %4126 = getelementptr inbounds i8, ptr %4125, i64 -8
   %4127 = load ptr, ptr %4126, align 8, !tbaa !44
   %4128 = getelementptr inbounds nuw i8, ptr %4127, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit533
+  br label %_ZN8V3PreLex12curFilelinepEv.exit532
 
-_ZN8V3PreLex12curFilelinepEv.exit533:             ; preds = %_ZL14appendDefValuePKcm.exit, %4123
+_ZN8V3PreLex12curFilelinepEv.exit532:             ; preds = %_ZL14appendDefValuePKcm.exit, %4123
   %4129 = phi ptr [ %4128, %4123 ], [ %4119, %_ZL14appendDefValuePKcm.exit ]
   %4130 = getelementptr inbounds i8, ptr %4129, i64 -8
   %4131 = load ptr, ptr %4130, align 8, !tbaa !45
@@ -7614,7 +7614,7 @@ _ZN8V3PreLex12curFilelinepEv.exit533:             ; preds = %_ZL14appendDefValue
   %4178 = getelementptr inbounds nuw i8, ptr %4175, i64 64
   %4179 = load ptr, ptr %4178, align 8, !tbaa !42, !noalias !435
   %4180 = icmp eq ptr %4177, %4179
-  br i1 %4180, label %4181, label %_ZN8V3PreLex12curFilelinepEv.exit534
+  br i1 %4180, label %4181, label %_ZN8V3PreLex12curFilelinepEv.exit533
 
 4181:                                             ; preds = %4174
   %4182 = getelementptr inbounds nuw i8, ptr %4175, i64 80
@@ -7622,9 +7622,9 @@ _ZN8V3PreLex12curFilelinepEv.exit533:             ; preds = %_ZL14appendDefValue
   %4184 = getelementptr inbounds i8, ptr %4183, i64 -8
   %4185 = load ptr, ptr %4184, align 8, !tbaa !44
   %4186 = getelementptr inbounds nuw i8, ptr %4185, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit534
+  br label %_ZN8V3PreLex12curFilelinepEv.exit533
 
-_ZN8V3PreLex12curFilelinepEv.exit534:             ; preds = %4174, %4181
+_ZN8V3PreLex12curFilelinepEv.exit533:             ; preds = %4174, %4181
   %4187 = phi ptr [ %4186, %4181 ], [ %4177, %4174 ]
   %4188 = getelementptr inbounds i8, ptr %4187, i64 -8
   %4189 = load ptr, ptr %4188, align 8, !tbaa !45
@@ -7640,18 +7640,18 @@ _ZN8V3PreLex12curFilelinepEv.exit534:             ; preds = %4174, %4181
   %4196 = getelementptr inbounds nuw i8, ptr %4193, i64 64
   %4197 = load ptr, ptr %4196, align 8, !tbaa !42, !noalias !438
   %4198 = icmp eq ptr %4195, %4197
-  br i1 %4198, label %4199, label %_ZN8V3PreLex12curFilelinepEv.exit535
+  br i1 %4198, label %4199, label %_ZN8V3PreLex12curFilelinepEv.exit534
 
-4199:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit534
+4199:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit533
   %4200 = getelementptr inbounds nuw i8, ptr %4193, i64 80
   %4201 = load ptr, ptr %4200, align 8, !tbaa !43, !noalias !438
   %4202 = getelementptr inbounds i8, ptr %4201, i64 -8
   %4203 = load ptr, ptr %4202, align 8, !tbaa !44
   %4204 = getelementptr inbounds nuw i8, ptr %4203, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit535
+  br label %_ZN8V3PreLex12curFilelinepEv.exit534
 
-_ZN8V3PreLex12curFilelinepEv.exit535:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit534, %4199
-  %4205 = phi ptr [ %4204, %4199 ], [ %4195, %_ZN8V3PreLex12curFilelinepEv.exit534 ]
+_ZN8V3PreLex12curFilelinepEv.exit534:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit533, %4199
+  %4205 = phi ptr [ %4204, %4199 ], [ %4195, %_ZN8V3PreLex12curFilelinepEv.exit533 ]
   %4206 = getelementptr inbounds i8, ptr %4205, i64 -8
   %4207 = load ptr, ptr %4206, align 8, !tbaa !45
   %4208 = load ptr, ptr %4207, align 8, !tbaa !47
@@ -7693,7 +7693,7 @@ _ZN8V3PreLex12curFilelinepEv.exit535:             ; preds = %_ZN8V3PreLex12curFi
   %4235 = getelementptr inbounds nuw i8, ptr %4232, i64 64
   %4236 = load ptr, ptr %4235, align 8, !tbaa !42, !noalias !441
   %4237 = icmp eq ptr %4234, %4236
-  br i1 %4237, label %4238, label %_ZN8V3PreLex12curFilelinepEv.exit536
+  br i1 %4237, label %4238, label %_ZN8V3PreLex12curFilelinepEv.exit535
 
 4238:                                             ; preds = %4231
   %4239 = getelementptr inbounds nuw i8, ptr %4232, i64 80
@@ -7701,9 +7701,9 @@ _ZN8V3PreLex12curFilelinepEv.exit535:             ; preds = %_ZN8V3PreLex12curFi
   %4241 = getelementptr inbounds i8, ptr %4240, i64 -8
   %4242 = load ptr, ptr %4241, align 8, !tbaa !44
   %4243 = getelementptr inbounds nuw i8, ptr %4242, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit536
+  br label %_ZN8V3PreLex12curFilelinepEv.exit535
 
-_ZN8V3PreLex12curFilelinepEv.exit536:             ; preds = %4231, %4238
+_ZN8V3PreLex12curFilelinepEv.exit535:             ; preds = %4231, %4238
   %4244 = phi ptr [ %4243, %4238 ], [ %4234, %4231 ]
   %4245 = getelementptr inbounds i8, ptr %4244, i64 -8
   %4246 = load ptr, ptr %4245, align 8, !tbaa !45
@@ -7741,7 +7741,7 @@ _ZN8V3PreLex12curFilelinepEv.exit536:             ; preds = %4231, %4238
   %4270 = getelementptr inbounds nuw i8, ptr %4267, i64 64
   %4271 = load ptr, ptr %4270, align 8, !tbaa !42, !noalias !444
   %4272 = icmp eq ptr %4269, %4271
-  br i1 %4272, label %4273, label %_ZN8V3PreLex12curFilelinepEv.exit537
+  br i1 %4272, label %4273, label %_ZN8V3PreLex12curFilelinepEv.exit536
 
 4273:                                             ; preds = %4266
   %4274 = getelementptr inbounds nuw i8, ptr %4267, i64 80
@@ -7749,9 +7749,9 @@ _ZN8V3PreLex12curFilelinepEv.exit536:             ; preds = %4231, %4238
   %4276 = getelementptr inbounds i8, ptr %4275, i64 -8
   %4277 = load ptr, ptr %4276, align 8, !tbaa !44
   %4278 = getelementptr inbounds nuw i8, ptr %4277, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit537
+  br label %_ZN8V3PreLex12curFilelinepEv.exit536
 
-_ZN8V3PreLex12curFilelinepEv.exit537:             ; preds = %4266, %4273
+_ZN8V3PreLex12curFilelinepEv.exit536:             ; preds = %4266, %4273
   %4279 = phi ptr [ %4278, %4273 ], [ %4269, %4266 ]
   %4280 = getelementptr inbounds i8, ptr %4279, i64 -8
   %4281 = load ptr, ptr %4280, align 8, !tbaa !45
@@ -7765,18 +7765,18 @@ _ZN8V3PreLex12curFilelinepEv.exit537:             ; preds = %4266, %4273
   %4288 = getelementptr inbounds nuw i8, ptr %4285, i64 64
   %4289 = load ptr, ptr %4288, align 8, !tbaa !42, !noalias !447
   %4290 = icmp eq ptr %4287, %4289
-  br i1 %4290, label %4291, label %_ZN8V3PreLex12curFilelinepEv.exit538
+  br i1 %4290, label %4291, label %_ZN8V3PreLex12curFilelinepEv.exit537
 
-4291:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit537
+4291:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit536
   %4292 = getelementptr inbounds nuw i8, ptr %4285, i64 80
   %4293 = load ptr, ptr %4292, align 8, !tbaa !43, !noalias !447
   %4294 = getelementptr inbounds i8, ptr %4293, i64 -8
   %4295 = load ptr, ptr %4294, align 8, !tbaa !44
   %4296 = getelementptr inbounds nuw i8, ptr %4295, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit538
+  br label %_ZN8V3PreLex12curFilelinepEv.exit537
 
-_ZN8V3PreLex12curFilelinepEv.exit538:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit537, %4291
-  %4297 = phi ptr [ %4296, %4291 ], [ %4287, %_ZN8V3PreLex12curFilelinepEv.exit537 ]
+_ZN8V3PreLex12curFilelinepEv.exit537:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit536, %4291
+  %4297 = phi ptr [ %4296, %4291 ], [ %4287, %_ZN8V3PreLex12curFilelinepEv.exit536 ]
   %4298 = getelementptr inbounds i8, ptr %4297, i64 -8
   %4299 = load ptr, ptr %4298, align 8, !tbaa !45
   %4300 = load ptr, ptr %4299, align 8, !tbaa !47
@@ -7797,7 +7797,7 @@ _ZN8V3PreLex12curFilelinepEv.exit538:             ; preds = %_ZN8V3PreLex12curFi
   %4311 = getelementptr inbounds nuw i8, ptr %4308, i64 64
   %4312 = load ptr, ptr %4311, align 8, !tbaa !42, !noalias !450
   %4313 = icmp eq ptr %4310, %4312
-  br i1 %4313, label %4314, label %_ZN8V3PreLex12curFilelinepEv.exit539
+  br i1 %4313, label %4314, label %_ZN8V3PreLex12curFilelinepEv.exit538
 
 4314:                                             ; preds = %4307
   %4315 = getelementptr inbounds nuw i8, ptr %4308, i64 80
@@ -7805,9 +7805,9 @@ _ZN8V3PreLex12curFilelinepEv.exit538:             ; preds = %_ZN8V3PreLex12curFi
   %4317 = getelementptr inbounds i8, ptr %4316, i64 -8
   %4318 = load ptr, ptr %4317, align 8, !tbaa !44
   %4319 = getelementptr inbounds nuw i8, ptr %4318, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit539
+  br label %_ZN8V3PreLex12curFilelinepEv.exit538
 
-_ZN8V3PreLex12curFilelinepEv.exit539:             ; preds = %4307, %4314
+_ZN8V3PreLex12curFilelinepEv.exit538:             ; preds = %4307, %4314
   %4320 = phi ptr [ %4319, %4314 ], [ %4310, %4307 ]
   %4321 = getelementptr inbounds i8, ptr %4320, i64 -8
   %4322 = load ptr, ptr %4321, align 8, !tbaa !45
@@ -7850,7 +7850,7 @@ _ZN8V3PreLex12curFilelinepEv.exit539:             ; preds = %4307, %4314
   %4347 = getelementptr inbounds nuw i8, ptr %4344, i64 64
   %4348 = load ptr, ptr %4347, align 8, !tbaa !42, !noalias !453
   %4349 = icmp eq ptr %4346, %4348
-  br i1 %4349, label %4350, label %_ZN8V3PreLex12curFilelinepEv.exit540
+  br i1 %4349, label %4350, label %_ZN8V3PreLex12curFilelinepEv.exit539
 
 4350:                                             ; preds = %4343
   %4351 = getelementptr inbounds nuw i8, ptr %4344, i64 80
@@ -7858,9 +7858,9 @@ _ZN8V3PreLex12curFilelinepEv.exit539:             ; preds = %4307, %4314
   %4353 = getelementptr inbounds i8, ptr %4352, i64 -8
   %4354 = load ptr, ptr %4353, align 8, !tbaa !44
   %4355 = getelementptr inbounds nuw i8, ptr %4354, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit540
+  br label %_ZN8V3PreLex12curFilelinepEv.exit539
 
-_ZN8V3PreLex12curFilelinepEv.exit540:             ; preds = %4343, %4350
+_ZN8V3PreLex12curFilelinepEv.exit539:             ; preds = %4343, %4350
   %4356 = phi ptr [ %4355, %4350 ], [ %4346, %4343 ]
   %4357 = getelementptr inbounds i8, ptr %4356, i64 -8
   %4358 = load ptr, ptr %4357, align 8, !tbaa !45
@@ -7947,7 +7947,7 @@ _ZN8V3PreLex12curFilelinepEv.exit540:             ; preds = %4343, %4350
   %4412 = getelementptr inbounds nuw i8, ptr %4409, i64 64
   %4413 = load ptr, ptr %4412, align 8, !tbaa !42, !noalias !456
   %4414 = icmp eq ptr %4411, %4413
-  br i1 %4414, label %4415, label %_ZN8V3PreLex12curFilelinepEv.exit541
+  br i1 %4414, label %4415, label %_ZN8V3PreLex12curFilelinepEv.exit540
 
 4415:                                             ; preds = %4408
   %4416 = getelementptr inbounds nuw i8, ptr %4409, i64 80
@@ -7955,9 +7955,9 @@ _ZN8V3PreLex12curFilelinepEv.exit540:             ; preds = %4343, %4350
   %4418 = getelementptr inbounds i8, ptr %4417, i64 -8
   %4419 = load ptr, ptr %4418, align 8, !tbaa !44
   %4420 = getelementptr inbounds nuw i8, ptr %4419, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit541
+  br label %_ZN8V3PreLex12curFilelinepEv.exit540
 
-_ZN8V3PreLex12curFilelinepEv.exit541:             ; preds = %4408, %4415
+_ZN8V3PreLex12curFilelinepEv.exit540:             ; preds = %4408, %4415
   %4421 = phi ptr [ %4420, %4415 ], [ %4411, %4408 ]
   %4422 = getelementptr inbounds i8, ptr %4421, i64 -8
   %4423 = load ptr, ptr %4422, align 8, !tbaa !45
@@ -7973,18 +7973,18 @@ _ZN8V3PreLex12curFilelinepEv.exit541:             ; preds = %4408, %4415
   %4430 = getelementptr inbounds nuw i8, ptr %4427, i64 64
   %4431 = load ptr, ptr %4430, align 8, !tbaa !42, !noalias !459
   %4432 = icmp eq ptr %4429, %4431
-  br i1 %4432, label %4433, label %_ZN8V3PreLex12curFilelinepEv.exit542
+  br i1 %4432, label %4433, label %_ZN8V3PreLex12curFilelinepEv.exit541
 
-4433:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit541
+4433:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit540
   %4434 = getelementptr inbounds nuw i8, ptr %4427, i64 80
   %4435 = load ptr, ptr %4434, align 8, !tbaa !43, !noalias !459
   %4436 = getelementptr inbounds i8, ptr %4435, i64 -8
   %4437 = load ptr, ptr %4436, align 8, !tbaa !44
   %4438 = getelementptr inbounds nuw i8, ptr %4437, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit542
+  br label %_ZN8V3PreLex12curFilelinepEv.exit541
 
-_ZN8V3PreLex12curFilelinepEv.exit542:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit541, %4433
-  %4439 = phi ptr [ %4438, %4433 ], [ %4429, %_ZN8V3PreLex12curFilelinepEv.exit541 ]
+_ZN8V3PreLex12curFilelinepEv.exit541:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit540, %4433
+  %4439 = phi ptr [ %4438, %4433 ], [ %4429, %_ZN8V3PreLex12curFilelinepEv.exit540 ]
   %4440 = getelementptr inbounds i8, ptr %4439, i64 -8
   %4441 = load ptr, ptr %4440, align 8, !tbaa !45
   %4442 = load ptr, ptr %4441, align 8, !tbaa !47
@@ -8084,7 +8084,7 @@ _ZN8V3PreLex12curFilelinepEv.exit542:             ; preds = %_ZN8V3PreLex12curFi
   %4507 = getelementptr inbounds nuw i8, ptr %4504, i64 64
   %4508 = load ptr, ptr %4507, align 8, !tbaa !42, !noalias !462
   %4509 = icmp eq ptr %4506, %4508
-  br i1 %4509, label %4510, label %_ZN8V3PreLex12curFilelinepEv.exit543
+  br i1 %4509, label %4510, label %_ZN8V3PreLex12curFilelinepEv.exit542
 
 4510:                                             ; preds = %4503
   %4511 = getelementptr inbounds nuw i8, ptr %4504, i64 80
@@ -8092,9 +8092,9 @@ _ZN8V3PreLex12curFilelinepEv.exit542:             ; preds = %_ZN8V3PreLex12curFi
   %4513 = getelementptr inbounds i8, ptr %4512, i64 -8
   %4514 = load ptr, ptr %4513, align 8, !tbaa !44
   %4515 = getelementptr inbounds nuw i8, ptr %4514, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit543
+  br label %_ZN8V3PreLex12curFilelinepEv.exit542
 
-_ZN8V3PreLex12curFilelinepEv.exit543:             ; preds = %4503, %4510
+_ZN8V3PreLex12curFilelinepEv.exit542:             ; preds = %4503, %4510
   %4516 = phi ptr [ %4515, %4510 ], [ %4506, %4503 ]
   %4517 = getelementptr inbounds i8, ptr %4516, i64 -8
   %4518 = load ptr, ptr %4517, align 8, !tbaa !45
@@ -8109,13 +8109,13 @@ _ZN8V3PreLex12curFilelinepEv.exit543:             ; preds = %4503, %4510
   %4526 = load i64, ptr %4525, align 8, !tbaa !115
   %4527 = sub i64 4611686018427387903, %4526
   %4528 = icmp ult i64 %4527, %4523
-  br i1 %4528, label %4529, label %_ZL14appendDefValuePKcm.exit544
+  br i1 %4528, label %4529, label %_ZL14appendDefValuePKcm.exit543
 
-4529:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit543
+4529:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit542
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.503) #43
   unreachable
 
-_ZL14appendDefValuePKcm.exit544:                  ; preds = %_ZN8V3PreLex12curFilelinepEv.exit543
+_ZL14appendDefValuePKcm.exit543:                  ; preds = %_ZN8V3PreLex12curFilelinepEv.exit542
   %4530 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %4531 = getelementptr inbounds nuw i8, ptr %4524, i64 216
   %4532 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4531, ptr noundef %4530, i64 noundef range(i64 -2147483648, 2147483648) %4523)
@@ -8125,18 +8125,18 @@ _ZL14appendDefValuePKcm.exit544:                  ; preds = %_ZN8V3PreLex12curFi
   %4536 = getelementptr inbounds nuw i8, ptr %4533, i64 64
   %4537 = load ptr, ptr %4536, align 8, !tbaa !42, !noalias !465
   %4538 = icmp eq ptr %4535, %4537
-  br i1 %4538, label %4539, label %_ZN8V3PreLex12curFilelinepEv.exit545
+  br i1 %4538, label %4539, label %_ZN8V3PreLex12curFilelinepEv.exit544
 
-4539:                                             ; preds = %_ZL14appendDefValuePKcm.exit544
+4539:                                             ; preds = %_ZL14appendDefValuePKcm.exit543
   %4540 = getelementptr inbounds nuw i8, ptr %4533, i64 80
   %4541 = load ptr, ptr %4540, align 8, !tbaa !43, !noalias !465
   %4542 = getelementptr inbounds i8, ptr %4541, i64 -8
   %4543 = load ptr, ptr %4542, align 8, !tbaa !44
   %4544 = getelementptr inbounds nuw i8, ptr %4543, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit545
+  br label %_ZN8V3PreLex12curFilelinepEv.exit544
 
-_ZN8V3PreLex12curFilelinepEv.exit545:             ; preds = %_ZL14appendDefValuePKcm.exit544, %4539
-  %4545 = phi ptr [ %4544, %4539 ], [ %4535, %_ZL14appendDefValuePKcm.exit544 ]
+_ZN8V3PreLex12curFilelinepEv.exit544:             ; preds = %_ZL14appendDefValuePKcm.exit543, %4539
+  %4545 = phi ptr [ %4544, %4539 ], [ %4535, %_ZL14appendDefValuePKcm.exit543 ]
   %4546 = getelementptr inbounds i8, ptr %4545, i64 -8
   %4547 = load ptr, ptr %4546, align 8, !tbaa !45
   %4548 = load ptr, ptr %4547, align 8, !tbaa !47
@@ -8178,7 +8178,7 @@ _ZN8V3PreLex12curFilelinepEv.exit545:             ; preds = %_ZL14appendDefValue
   %4575 = getelementptr inbounds nuw i8, ptr %4572, i64 64
   %4576 = load ptr, ptr %4575, align 8, !tbaa !42, !noalias !468
   %4577 = icmp eq ptr %4574, %4576
-  br i1 %4577, label %4578, label %_ZN8V3PreLex12curFilelinepEv.exit546
+  br i1 %4577, label %4578, label %_ZN8V3PreLex12curFilelinepEv.exit545
 
 4578:                                             ; preds = %4571
   %4579 = getelementptr inbounds nuw i8, ptr %4572, i64 80
@@ -8186,9 +8186,9 @@ _ZN8V3PreLex12curFilelinepEv.exit545:             ; preds = %_ZL14appendDefValue
   %4581 = getelementptr inbounds i8, ptr %4580, i64 -8
   %4582 = load ptr, ptr %4581, align 8, !tbaa !44
   %4583 = getelementptr inbounds nuw i8, ptr %4582, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit546
+  br label %_ZN8V3PreLex12curFilelinepEv.exit545
 
-_ZN8V3PreLex12curFilelinepEv.exit546:             ; preds = %4571, %4578
+_ZN8V3PreLex12curFilelinepEv.exit545:             ; preds = %4571, %4578
   %4584 = phi ptr [ %4583, %4578 ], [ %4574, %4571 ]
   %4585 = getelementptr inbounds i8, ptr %4584, i64 -8
   %4586 = load ptr, ptr %4585, align 8, !tbaa !45
@@ -8207,18 +8207,18 @@ _ZN8V3PreLex12curFilelinepEv.exit546:             ; preds = %4571, %4578
   %4596 = getelementptr inbounds nuw i8, ptr %4593, i64 64
   %4597 = load ptr, ptr %4596, align 8, !tbaa !42, !noalias !471
   %4598 = icmp eq ptr %4595, %4597
-  br i1 %4598, label %4599, label %_ZN8V3PreLex12curFilelinepEv.exit547
+  br i1 %4598, label %4599, label %_ZN8V3PreLex12curFilelinepEv.exit546
 
-4599:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit546
+4599:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit545
   %4600 = getelementptr inbounds nuw i8, ptr %4593, i64 80
   %4601 = load ptr, ptr %4600, align 8, !tbaa !43, !noalias !471
   %4602 = getelementptr inbounds i8, ptr %4601, i64 -8
   %4603 = load ptr, ptr %4602, align 8, !tbaa !44
   %4604 = getelementptr inbounds nuw i8, ptr %4603, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit547
+  br label %_ZN8V3PreLex12curFilelinepEv.exit546
 
-_ZN8V3PreLex12curFilelinepEv.exit547:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit546, %4599
-  %4605 = phi ptr [ %4604, %4599 ], [ %4595, %_ZN8V3PreLex12curFilelinepEv.exit546 ]
+_ZN8V3PreLex12curFilelinepEv.exit546:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit545, %4599
+  %4605 = phi ptr [ %4604, %4599 ], [ %4595, %_ZN8V3PreLex12curFilelinepEv.exit545 ]
   %4606 = getelementptr inbounds i8, ptr %4605, i64 -8
   %4607 = load ptr, ptr %4606, align 8, !tbaa !45
   %4608 = load ptr, ptr %4607, align 8, !tbaa !47
@@ -8305,7 +8305,7 @@ _ZN8V3PreLex12curFilelinepEv.exit547:             ; preds = %_ZN8V3PreLex12curFi
   %4665 = getelementptr inbounds nuw i8, ptr %4662, i64 64
   %4666 = load ptr, ptr %4665, align 8, !tbaa !42, !noalias !474
   %4667 = icmp eq ptr %4664, %4666
-  br i1 %4667, label %4668, label %_ZN8V3PreLex12curFilelinepEv.exit548
+  br i1 %4667, label %4668, label %_ZN8V3PreLex12curFilelinepEv.exit547
 
 4668:                                             ; preds = %4661
   %4669 = getelementptr inbounds nuw i8, ptr %4662, i64 80
@@ -8313,9 +8313,9 @@ _ZN8V3PreLex12curFilelinepEv.exit547:             ; preds = %_ZN8V3PreLex12curFi
   %4671 = getelementptr inbounds i8, ptr %4670, i64 -8
   %4672 = load ptr, ptr %4671, align 8, !tbaa !44
   %4673 = getelementptr inbounds nuw i8, ptr %4672, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit548
+  br label %_ZN8V3PreLex12curFilelinepEv.exit547
 
-_ZN8V3PreLex12curFilelinepEv.exit548:             ; preds = %4661, %4668
+_ZN8V3PreLex12curFilelinepEv.exit547:             ; preds = %4661, %4668
   %4674 = phi ptr [ %4673, %4668 ], [ %4664, %4661 ]
   %4675 = getelementptr inbounds i8, ptr %4674, i64 -8
   %4676 = load ptr, ptr %4675, align 8, !tbaa !45
@@ -8339,18 +8339,18 @@ _ZN8V3PreLex12curFilelinepEv.exit548:             ; preds = %4661, %4668
   %4689 = getelementptr inbounds nuw i8, ptr %4686, i64 64
   %4690 = load ptr, ptr %4689, align 8, !tbaa !42, !noalias !477
   %4691 = icmp eq ptr %4688, %4690
-  br i1 %4691, label %4692, label %_ZN8V3PreLex12curFilelinepEv.exit549
+  br i1 %4691, label %4692, label %_ZN8V3PreLex12curFilelinepEv.exit548
 
-4692:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit548
+4692:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit547
   %4693 = getelementptr inbounds nuw i8, ptr %4686, i64 80
   %4694 = load ptr, ptr %4693, align 8, !tbaa !43, !noalias !477
   %4695 = getelementptr inbounds i8, ptr %4694, i64 -8
   %4696 = load ptr, ptr %4695, align 8, !tbaa !44
   %4697 = getelementptr inbounds nuw i8, ptr %4696, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit549
+  br label %_ZN8V3PreLex12curFilelinepEv.exit548
 
-_ZN8V3PreLex12curFilelinepEv.exit549:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit548, %4692
-  %4698 = phi ptr [ %4697, %4692 ], [ %4688, %_ZN8V3PreLex12curFilelinepEv.exit548 ]
+_ZN8V3PreLex12curFilelinepEv.exit548:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit547, %4692
+  %4698 = phi ptr [ %4697, %4692 ], [ %4688, %_ZN8V3PreLex12curFilelinepEv.exit547 ]
   %4699 = getelementptr inbounds i8, ptr %4698, i64 -8
   %4700 = load ptr, ptr %4699, align 8, !tbaa !45
   %4701 = load ptr, ptr %4700, align 8, !tbaa !47
@@ -8459,7 +8459,7 @@ _ZN8V3PreLex12curFilelinepEv.exit549:             ; preds = %_ZN8V3PreLex12curFi
   %4769 = getelementptr inbounds nuw i8, ptr %4766, i64 64
   %4770 = load ptr, ptr %4769, align 8, !tbaa !42, !noalias !480
   %4771 = icmp eq ptr %4768, %4770
-  br i1 %4771, label %4772, label %_ZN8V3PreLex12curFilelinepEv.exit550
+  br i1 %4771, label %4772, label %_ZN8V3PreLex12curFilelinepEv.exit549
 
 4772:                                             ; preds = %4765
   %4773 = getelementptr inbounds nuw i8, ptr %4766, i64 80
@@ -8467,9 +8467,9 @@ _ZN8V3PreLex12curFilelinepEv.exit549:             ; preds = %_ZN8V3PreLex12curFi
   %4775 = getelementptr inbounds i8, ptr %4774, i64 -8
   %4776 = load ptr, ptr %4775, align 8, !tbaa !44
   %4777 = getelementptr inbounds nuw i8, ptr %4776, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit550
+  br label %_ZN8V3PreLex12curFilelinepEv.exit549
 
-_ZN8V3PreLex12curFilelinepEv.exit550:             ; preds = %4765, %4772
+_ZN8V3PreLex12curFilelinepEv.exit549:             ; preds = %4765, %4772
   %4778 = phi ptr [ %4777, %4772 ], [ %4768, %4765 ]
   %4779 = getelementptr inbounds i8, ptr %4778, i64 -8
   %4780 = load ptr, ptr %4779, align 8, !tbaa !45
@@ -8489,7 +8489,7 @@ _ZN8V3PreLex12curFilelinepEv.exit550:             ; preds = %4765, %4772
   %4789 = getelementptr inbounds nuw i8, ptr %4786, i64 64
   %4790 = load ptr, ptr %4789, align 8, !tbaa !42, !noalias !483
   %4791 = icmp eq ptr %4788, %4790
-  br i1 %4791, label %4792, label %_ZN8V3PreLex12curFilelinepEv.exit551
+  br i1 %4791, label %4792, label %_ZN8V3PreLex12curFilelinepEv.exit550
 
 4792:                                             ; preds = %4785
   %4793 = getelementptr inbounds nuw i8, ptr %4786, i64 80
@@ -8497,9 +8497,9 @@ _ZN8V3PreLex12curFilelinepEv.exit550:             ; preds = %4765, %4772
   %4795 = getelementptr inbounds i8, ptr %4794, i64 -8
   %4796 = load ptr, ptr %4795, align 8, !tbaa !44
   %4797 = getelementptr inbounds nuw i8, ptr %4796, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit551
+  br label %_ZN8V3PreLex12curFilelinepEv.exit550
 
-_ZN8V3PreLex12curFilelinepEv.exit551:             ; preds = %4785, %4792
+_ZN8V3PreLex12curFilelinepEv.exit550:             ; preds = %4785, %4792
   %4798 = phi ptr [ %4797, %4792 ], [ %4788, %4785 ]
   %4799 = getelementptr inbounds i8, ptr %4798, i64 -8
   %4800 = load ptr, ptr %4799, align 8, !tbaa !45
@@ -8567,7 +8567,7 @@ _ZN8V3PreLex12curFilelinepEv.exit551:             ; preds = %4785, %4792
   %4842 = getelementptr inbounds nuw i8, ptr %4839, i64 64
   %4843 = load ptr, ptr %4842, align 8, !tbaa !42, !noalias !486
   %4844 = icmp eq ptr %4841, %4843
-  br i1 %4844, label %4845, label %_ZN8V3PreLex12curFilelinepEv.exit552
+  br i1 %4844, label %4845, label %_ZN8V3PreLex12curFilelinepEv.exit551
 
 4845:                                             ; preds = %4838
   %4846 = getelementptr inbounds nuw i8, ptr %4839, i64 80
@@ -8575,9 +8575,9 @@ _ZN8V3PreLex12curFilelinepEv.exit551:             ; preds = %4785, %4792
   %4848 = getelementptr inbounds i8, ptr %4847, i64 -8
   %4849 = load ptr, ptr %4848, align 8, !tbaa !44
   %4850 = getelementptr inbounds nuw i8, ptr %4849, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit552
+  br label %_ZN8V3PreLex12curFilelinepEv.exit551
 
-_ZN8V3PreLex12curFilelinepEv.exit552:             ; preds = %4838, %4845
+_ZN8V3PreLex12curFilelinepEv.exit551:             ; preds = %4838, %4845
   %4851 = phi ptr [ %4850, %4845 ], [ %4841, %4838 ]
   %4852 = getelementptr inbounds i8, ptr %4851, i64 -8
   %4853 = load ptr, ptr %4852, align 8, !tbaa !45
@@ -8615,7 +8615,7 @@ _ZN8V3PreLex12curFilelinepEv.exit552:             ; preds = %4838, %4845
   %4877 = getelementptr inbounds nuw i8, ptr %4874, i64 64
   %4878 = load ptr, ptr %4877, align 8, !tbaa !42, !noalias !489
   %4879 = icmp eq ptr %4876, %4878
-  br i1 %4879, label %4880, label %_ZN8V3PreLex12curFilelinepEv.exit553
+  br i1 %4879, label %4880, label %_ZN8V3PreLex12curFilelinepEv.exit552
 
 4880:                                             ; preds = %4873
   %4881 = getelementptr inbounds nuw i8, ptr %4874, i64 80
@@ -8623,9 +8623,9 @@ _ZN8V3PreLex12curFilelinepEv.exit552:             ; preds = %4838, %4845
   %4883 = getelementptr inbounds i8, ptr %4882, i64 -8
   %4884 = load ptr, ptr %4883, align 8, !tbaa !44
   %4885 = getelementptr inbounds nuw i8, ptr %4884, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit553
+  br label %_ZN8V3PreLex12curFilelinepEv.exit552
 
-_ZN8V3PreLex12curFilelinepEv.exit553:             ; preds = %4873, %4880
+_ZN8V3PreLex12curFilelinepEv.exit552:             ; preds = %4873, %4880
   %4886 = phi ptr [ %4885, %4880 ], [ %4876, %4873 ]
   %4887 = getelementptr inbounds i8, ptr %4886, i64 -8
   %4888 = load ptr, ptr %4887, align 8, !tbaa !45
@@ -8663,7 +8663,7 @@ _ZN8V3PreLex12curFilelinepEv.exit553:             ; preds = %4873, %4880
   %4912 = getelementptr inbounds nuw i8, ptr %4909, i64 64
   %4913 = load ptr, ptr %4912, align 8, !tbaa !42, !noalias !492
   %4914 = icmp eq ptr %4911, %4913
-  br i1 %4914, label %4915, label %_ZN8V3PreLex12curFilelinepEv.exit554
+  br i1 %4914, label %4915, label %_ZN8V3PreLex12curFilelinepEv.exit553
 
 4915:                                             ; preds = %4908
   %4916 = getelementptr inbounds nuw i8, ptr %4909, i64 80
@@ -8671,9 +8671,9 @@ _ZN8V3PreLex12curFilelinepEv.exit553:             ; preds = %4873, %4880
   %4918 = getelementptr inbounds i8, ptr %4917, i64 -8
   %4919 = load ptr, ptr %4918, align 8, !tbaa !44
   %4920 = getelementptr inbounds nuw i8, ptr %4919, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit554
+  br label %_ZN8V3PreLex12curFilelinepEv.exit553
 
-_ZN8V3PreLex12curFilelinepEv.exit554:             ; preds = %4908, %4915
+_ZN8V3PreLex12curFilelinepEv.exit553:             ; preds = %4908, %4915
   %4921 = phi ptr [ %4920, %4915 ], [ %4911, %4908 ]
   %4922 = getelementptr inbounds i8, ptr %4921, i64 -8
   %4923 = load ptr, ptr %4922, align 8, !tbaa !45
@@ -8712,7 +8712,7 @@ _ZN8V3PreLex12curFilelinepEv.exit554:             ; preds = %4908, %4915
   %4947 = getelementptr inbounds nuw i8, ptr %4944, i64 64
   %4948 = load ptr, ptr %4947, align 8, !tbaa !42, !noalias !495
   %4949 = icmp eq ptr %4946, %4948
-  br i1 %4949, label %4950, label %_ZN8V3PreLex12curFilelinepEv.exit555
+  br i1 %4949, label %4950, label %_ZN8V3PreLex12curFilelinepEv.exit554
 
 4950:                                             ; preds = %4943
   %4951 = getelementptr inbounds nuw i8, ptr %4944, i64 80
@@ -8720,9 +8720,9 @@ _ZN8V3PreLex12curFilelinepEv.exit554:             ; preds = %4908, %4915
   %4953 = getelementptr inbounds i8, ptr %4952, i64 -8
   %4954 = load ptr, ptr %4953, align 8, !tbaa !44
   %4955 = getelementptr inbounds nuw i8, ptr %4954, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit555
+  br label %_ZN8V3PreLex12curFilelinepEv.exit554
 
-_ZN8V3PreLex12curFilelinepEv.exit555:             ; preds = %4943, %4950
+_ZN8V3PreLex12curFilelinepEv.exit554:             ; preds = %4943, %4950
   %4956 = phi ptr [ %4955, %4950 ], [ %4946, %4943 ]
   %4957 = getelementptr inbounds i8, ptr %4956, i64 -8
   %4958 = load ptr, ptr %4957, align 8, !tbaa !45
@@ -8760,7 +8760,7 @@ _ZN8V3PreLex12curFilelinepEv.exit555:             ; preds = %4943, %4950
   %4982 = getelementptr inbounds nuw i8, ptr %4979, i64 64
   %4983 = load ptr, ptr %4982, align 8, !tbaa !42, !noalias !498
   %4984 = icmp eq ptr %4981, %4983
-  br i1 %4984, label %4985, label %_ZN8V3PreLex12curFilelinepEv.exit556
+  br i1 %4984, label %4985, label %_ZN8V3PreLex12curFilelinepEv.exit555
 
 4985:                                             ; preds = %4978
   %4986 = getelementptr inbounds nuw i8, ptr %4979, i64 80
@@ -8768,9 +8768,9 @@ _ZN8V3PreLex12curFilelinepEv.exit555:             ; preds = %4943, %4950
   %4988 = getelementptr inbounds i8, ptr %4987, i64 -8
   %4989 = load ptr, ptr %4988, align 8, !tbaa !44
   %4990 = getelementptr inbounds nuw i8, ptr %4989, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit556
+  br label %_ZN8V3PreLex12curFilelinepEv.exit555
 
-_ZN8V3PreLex12curFilelinepEv.exit556:             ; preds = %4978, %4985
+_ZN8V3PreLex12curFilelinepEv.exit555:             ; preds = %4978, %4985
   %4991 = phi ptr [ %4990, %4985 ], [ %4981, %4978 ]
   %4992 = getelementptr inbounds i8, ptr %4991, i64 -8
   %4993 = load ptr, ptr %4992, align 8, !tbaa !45
@@ -8808,7 +8808,7 @@ _ZN8V3PreLex12curFilelinepEv.exit556:             ; preds = %4978, %4985
   %5017 = getelementptr inbounds nuw i8, ptr %5014, i64 64
   %5018 = load ptr, ptr %5017, align 8, !tbaa !42, !noalias !501
   %5019 = icmp eq ptr %5016, %5018
-  br i1 %5019, label %5020, label %_ZN8V3PreLex12curFilelinepEv.exit557
+  br i1 %5019, label %5020, label %_ZN8V3PreLex12curFilelinepEv.exit556
 
 5020:                                             ; preds = %5013
   %5021 = getelementptr inbounds nuw i8, ptr %5014, i64 80
@@ -8816,9 +8816,9 @@ _ZN8V3PreLex12curFilelinepEv.exit556:             ; preds = %4978, %4985
   %5023 = getelementptr inbounds i8, ptr %5022, i64 -8
   %5024 = load ptr, ptr %5023, align 8, !tbaa !44
   %5025 = getelementptr inbounds nuw i8, ptr %5024, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit557
+  br label %_ZN8V3PreLex12curFilelinepEv.exit556
 
-_ZN8V3PreLex12curFilelinepEv.exit557:             ; preds = %5013, %5020
+_ZN8V3PreLex12curFilelinepEv.exit556:             ; preds = %5013, %5020
   %5026 = phi ptr [ %5025, %5020 ], [ %5016, %5013 ]
   %5027 = getelementptr inbounds i8, ptr %5026, i64 -8
   %5028 = load ptr, ptr %5027, align 8, !tbaa !45
@@ -8856,7 +8856,7 @@ _ZN8V3PreLex12curFilelinepEv.exit557:             ; preds = %5013, %5020
   %5052 = getelementptr inbounds nuw i8, ptr %5049, i64 64
   %5053 = load ptr, ptr %5052, align 8, !tbaa !42, !noalias !504
   %5054 = icmp eq ptr %5051, %5053
-  br i1 %5054, label %5055, label %_ZN8V3PreLex12curFilelinepEv.exit558
+  br i1 %5054, label %5055, label %_ZN8V3PreLex12curFilelinepEv.exit557
 
 5055:                                             ; preds = %5048
   %5056 = getelementptr inbounds nuw i8, ptr %5049, i64 80
@@ -8864,9 +8864,9 @@ _ZN8V3PreLex12curFilelinepEv.exit557:             ; preds = %5013, %5020
   %5058 = getelementptr inbounds i8, ptr %5057, i64 -8
   %5059 = load ptr, ptr %5058, align 8, !tbaa !44
   %5060 = getelementptr inbounds nuw i8, ptr %5059, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit558
+  br label %_ZN8V3PreLex12curFilelinepEv.exit557
 
-_ZN8V3PreLex12curFilelinepEv.exit558:             ; preds = %5048, %5055
+_ZN8V3PreLex12curFilelinepEv.exit557:             ; preds = %5048, %5055
   %5061 = phi ptr [ %5060, %5055 ], [ %5051, %5048 ]
   %5062 = getelementptr inbounds i8, ptr %5061, i64 -8
   %5063 = load ptr, ptr %5062, align 8, !tbaa !45
@@ -8904,7 +8904,7 @@ _ZN8V3PreLex12curFilelinepEv.exit558:             ; preds = %5048, %5055
   %5087 = getelementptr inbounds nuw i8, ptr %5084, i64 64
   %5088 = load ptr, ptr %5087, align 8, !tbaa !42, !noalias !507
   %5089 = icmp eq ptr %5086, %5088
-  br i1 %5089, label %5090, label %_ZN8V3PreLex12curFilelinepEv.exit559
+  br i1 %5089, label %5090, label %_ZN8V3PreLex12curFilelinepEv.exit558
 
 5090:                                             ; preds = %5083
   %5091 = getelementptr inbounds nuw i8, ptr %5084, i64 80
@@ -8912,9 +8912,9 @@ _ZN8V3PreLex12curFilelinepEv.exit558:             ; preds = %5048, %5055
   %5093 = getelementptr inbounds i8, ptr %5092, i64 -8
   %5094 = load ptr, ptr %5093, align 8, !tbaa !44
   %5095 = getelementptr inbounds nuw i8, ptr %5094, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit559
+  br label %_ZN8V3PreLex12curFilelinepEv.exit558
 
-_ZN8V3PreLex12curFilelinepEv.exit559:             ; preds = %5083, %5090
+_ZN8V3PreLex12curFilelinepEv.exit558:             ; preds = %5083, %5090
   %5096 = phi ptr [ %5095, %5090 ], [ %5086, %5083 ]
   %5097 = getelementptr inbounds i8, ptr %5096, i64 -8
   %5098 = load ptr, ptr %5097, align 8, !tbaa !45
@@ -8952,7 +8952,7 @@ _ZN8V3PreLex12curFilelinepEv.exit559:             ; preds = %5083, %5090
   %5122 = getelementptr inbounds nuw i8, ptr %5119, i64 64
   %5123 = load ptr, ptr %5122, align 8, !tbaa !42, !noalias !510
   %5124 = icmp eq ptr %5121, %5123
-  br i1 %5124, label %5125, label %_ZN8V3PreLex12curFilelinepEv.exit560
+  br i1 %5124, label %5125, label %_ZN8V3PreLex12curFilelinepEv.exit559
 
 5125:                                             ; preds = %5118
   %5126 = getelementptr inbounds nuw i8, ptr %5119, i64 80
@@ -8960,9 +8960,9 @@ _ZN8V3PreLex12curFilelinepEv.exit559:             ; preds = %5083, %5090
   %5128 = getelementptr inbounds i8, ptr %5127, i64 -8
   %5129 = load ptr, ptr %5128, align 8, !tbaa !44
   %5130 = getelementptr inbounds nuw i8, ptr %5129, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit560
+  br label %_ZN8V3PreLex12curFilelinepEv.exit559
 
-_ZN8V3PreLex12curFilelinepEv.exit560:             ; preds = %5118, %5125
+_ZN8V3PreLex12curFilelinepEv.exit559:             ; preds = %5118, %5125
   %5131 = phi ptr [ %5130, %5125 ], [ %5121, %5118 ]
   %5132 = getelementptr inbounds i8, ptr %5131, i64 -8
   %5133 = load ptr, ptr %5132, align 8, !tbaa !45
@@ -9000,7 +9000,7 @@ _ZN8V3PreLex12curFilelinepEv.exit560:             ; preds = %5118, %5125
   %5157 = getelementptr inbounds nuw i8, ptr %5154, i64 64
   %5158 = load ptr, ptr %5157, align 8, !tbaa !42, !noalias !513
   %5159 = icmp eq ptr %5156, %5158
-  br i1 %5159, label %5160, label %_ZN8V3PreLex12curFilelinepEv.exit561
+  br i1 %5159, label %5160, label %_ZN8V3PreLex12curFilelinepEv.exit560
 
 5160:                                             ; preds = %5153
   %5161 = getelementptr inbounds nuw i8, ptr %5154, i64 80
@@ -9008,9 +9008,9 @@ _ZN8V3PreLex12curFilelinepEv.exit560:             ; preds = %5118, %5125
   %5163 = getelementptr inbounds i8, ptr %5162, i64 -8
   %5164 = load ptr, ptr %5163, align 8, !tbaa !44
   %5165 = getelementptr inbounds nuw i8, ptr %5164, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit561
+  br label %_ZN8V3PreLex12curFilelinepEv.exit560
 
-_ZN8V3PreLex12curFilelinepEv.exit561:             ; preds = %5153, %5160
+_ZN8V3PreLex12curFilelinepEv.exit560:             ; preds = %5153, %5160
   %5166 = phi ptr [ %5165, %5160 ], [ %5156, %5153 ]
   %5167 = getelementptr inbounds i8, ptr %5166, i64 -8
   %5168 = load ptr, ptr %5167, align 8, !tbaa !45
@@ -9051,7 +9051,7 @@ _ZN8V3PreLex12curFilelinepEv.exit561:             ; preds = %5153, %5160
   %5192 = getelementptr inbounds nuw i8, ptr %5189, i64 64
   %5193 = load ptr, ptr %5192, align 8, !tbaa !42, !noalias !516
   %5194 = icmp eq ptr %5191, %5193
-  br i1 %5194, label %5195, label %_ZN8V3PreLex12curFilelinepEv.exit562
+  br i1 %5194, label %5195, label %_ZN8V3PreLex12curFilelinepEv.exit561
 
 5195:                                             ; preds = %5188
   %5196 = getelementptr inbounds nuw i8, ptr %5189, i64 80
@@ -9059,9 +9059,9 @@ _ZN8V3PreLex12curFilelinepEv.exit561:             ; preds = %5153, %5160
   %5198 = getelementptr inbounds i8, ptr %5197, i64 -8
   %5199 = load ptr, ptr %5198, align 8, !tbaa !44
   %5200 = getelementptr inbounds nuw i8, ptr %5199, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit562
+  br label %_ZN8V3PreLex12curFilelinepEv.exit561
 
-_ZN8V3PreLex12curFilelinepEv.exit562:             ; preds = %5188, %5195
+_ZN8V3PreLex12curFilelinepEv.exit561:             ; preds = %5188, %5195
   %5201 = phi ptr [ %5200, %5195 ], [ %5191, %5188 ]
   %5202 = getelementptr inbounds i8, ptr %5201, i64 -8
   %5203 = load ptr, ptr %5202, align 8, !tbaa !45
@@ -9099,7 +9099,7 @@ _ZN8V3PreLex12curFilelinepEv.exit562:             ; preds = %5188, %5195
   %5227 = getelementptr inbounds nuw i8, ptr %5224, i64 64
   %5228 = load ptr, ptr %5227, align 8, !tbaa !42, !noalias !519
   %5229 = icmp eq ptr %5226, %5228
-  br i1 %5229, label %5230, label %_ZN8V3PreLex12curFilelinepEv.exit563
+  br i1 %5229, label %5230, label %_ZN8V3PreLex12curFilelinepEv.exit562
 
 5230:                                             ; preds = %5223
   %5231 = getelementptr inbounds nuw i8, ptr %5224, i64 80
@@ -9107,9 +9107,9 @@ _ZN8V3PreLex12curFilelinepEv.exit562:             ; preds = %5188, %5195
   %5233 = getelementptr inbounds i8, ptr %5232, i64 -8
   %5234 = load ptr, ptr %5233, align 8, !tbaa !44
   %5235 = getelementptr inbounds nuw i8, ptr %5234, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit563
+  br label %_ZN8V3PreLex12curFilelinepEv.exit562
 
-_ZN8V3PreLex12curFilelinepEv.exit563:             ; preds = %5223, %5230
+_ZN8V3PreLex12curFilelinepEv.exit562:             ; preds = %5223, %5230
   %5236 = phi ptr [ %5235, %5230 ], [ %5226, %5223 ]
   %5237 = getelementptr inbounds i8, ptr %5236, i64 -8
   %5238 = load ptr, ptr %5237, align 8, !tbaa !45
@@ -9173,7 +9173,7 @@ _ZN8V3PreLex12curFilelinepEv.exit563:             ; preds = %5223, %5230
   %5279 = getelementptr inbounds nuw i8, ptr %5276, i64 64
   %5280 = load ptr, ptr %5279, align 8, !tbaa !42, !noalias !522
   %5281 = icmp eq ptr %5278, %5280
-  br i1 %5281, label %5282, label %_ZN8V3PreLex12curFilelinepEv.exit564
+  br i1 %5281, label %5282, label %_ZN8V3PreLex12curFilelinepEv.exit563
 
 5282:                                             ; preds = %5275
   %5283 = getelementptr inbounds nuw i8, ptr %5276, i64 80
@@ -9181,9 +9181,9 @@ _ZN8V3PreLex12curFilelinepEv.exit563:             ; preds = %5223, %5230
   %5285 = getelementptr inbounds i8, ptr %5284, i64 -8
   %5286 = load ptr, ptr %5285, align 8, !tbaa !44
   %5287 = getelementptr inbounds nuw i8, ptr %5286, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit564
+  br label %_ZN8V3PreLex12curFilelinepEv.exit563
 
-_ZN8V3PreLex12curFilelinepEv.exit564:             ; preds = %5275, %5282
+_ZN8V3PreLex12curFilelinepEv.exit563:             ; preds = %5275, %5282
   %5288 = phi ptr [ %5287, %5282 ], [ %5278, %5275 ]
   %5289 = getelementptr inbounds i8, ptr %5288, i64 -8
   %5290 = load ptr, ptr %5289, align 8, !tbaa !45
@@ -9221,7 +9221,7 @@ _ZN8V3PreLex12curFilelinepEv.exit564:             ; preds = %5275, %5282
   %5314 = getelementptr inbounds nuw i8, ptr %5311, i64 64
   %5315 = load ptr, ptr %5314, align 8, !tbaa !42, !noalias !525
   %5316 = icmp eq ptr %5313, %5315
-  br i1 %5316, label %5317, label %_ZN8V3PreLex12curFilelinepEv.exit565
+  br i1 %5316, label %5317, label %_ZN8V3PreLex12curFilelinepEv.exit564
 
 5317:                                             ; preds = %5310
   %5318 = getelementptr inbounds nuw i8, ptr %5311, i64 80
@@ -9229,9 +9229,9 @@ _ZN8V3PreLex12curFilelinepEv.exit564:             ; preds = %5275, %5282
   %5320 = getelementptr inbounds i8, ptr %5319, i64 -8
   %5321 = load ptr, ptr %5320, align 8, !tbaa !44
   %5322 = getelementptr inbounds nuw i8, ptr %5321, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit565
+  br label %_ZN8V3PreLex12curFilelinepEv.exit564
 
-_ZN8V3PreLex12curFilelinepEv.exit565:             ; preds = %5310, %5317
+_ZN8V3PreLex12curFilelinepEv.exit564:             ; preds = %5310, %5317
   %5323 = phi ptr [ %5322, %5317 ], [ %5313, %5310 ]
   %5324 = getelementptr inbounds i8, ptr %5323, i64 -8
   %5325 = load ptr, ptr %5324, align 8, !tbaa !45
@@ -9245,18 +9245,18 @@ _ZN8V3PreLex12curFilelinepEv.exit565:             ; preds = %5310, %5317
   %5332 = getelementptr inbounds nuw i8, ptr %5329, i64 64
   %5333 = load ptr, ptr %5332, align 8, !tbaa !42, !noalias !528
   %5334 = icmp eq ptr %5331, %5333
-  br i1 %5334, label %5335, label %_ZN8V3PreLex12curFilelinepEv.exit566
+  br i1 %5334, label %5335, label %_ZN8V3PreLex12curFilelinepEv.exit565
 
-5335:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit565
+5335:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit564
   %5336 = getelementptr inbounds nuw i8, ptr %5329, i64 80
   %5337 = load ptr, ptr %5336, align 8, !tbaa !43, !noalias !528
   %5338 = getelementptr inbounds i8, ptr %5337, i64 -8
   %5339 = load ptr, ptr %5338, align 8, !tbaa !44
   %5340 = getelementptr inbounds nuw i8, ptr %5339, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit566
+  br label %_ZN8V3PreLex12curFilelinepEv.exit565
 
-_ZN8V3PreLex12curFilelinepEv.exit566:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit565, %5335
-  %5341 = phi ptr [ %5340, %5335 ], [ %5331, %_ZN8V3PreLex12curFilelinepEv.exit565 ]
+_ZN8V3PreLex12curFilelinepEv.exit565:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit564, %5335
+  %5341 = phi ptr [ %5340, %5335 ], [ %5331, %_ZN8V3PreLex12curFilelinepEv.exit564 ]
   %5342 = getelementptr inbounds i8, ptr %5341, i64 -8
   %5343 = load ptr, ptr %5342, align 8, !tbaa !45
   %5344 = load ptr, ptr %5343, align 8, !tbaa !47
@@ -9277,7 +9277,7 @@ _ZN8V3PreLex12curFilelinepEv.exit566:             ; preds = %_ZN8V3PreLex12curFi
   %5355 = getelementptr inbounds nuw i8, ptr %5352, i64 64
   %5356 = load ptr, ptr %5355, align 8, !tbaa !42, !noalias !531
   %5357 = icmp eq ptr %5354, %5356
-  br i1 %5357, label %5358, label %_ZN8V3PreLex12curFilelinepEv.exit567
+  br i1 %5357, label %5358, label %_ZN8V3PreLex12curFilelinepEv.exit566
 
 5358:                                             ; preds = %5351
   %5359 = getelementptr inbounds nuw i8, ptr %5352, i64 80
@@ -9285,9 +9285,9 @@ _ZN8V3PreLex12curFilelinepEv.exit566:             ; preds = %_ZN8V3PreLex12curFi
   %5361 = getelementptr inbounds i8, ptr %5360, i64 -8
   %5362 = load ptr, ptr %5361, align 8, !tbaa !44
   %5363 = getelementptr inbounds nuw i8, ptr %5362, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit567
+  br label %_ZN8V3PreLex12curFilelinepEv.exit566
 
-_ZN8V3PreLex12curFilelinepEv.exit567:             ; preds = %5351, %5358
+_ZN8V3PreLex12curFilelinepEv.exit566:             ; preds = %5351, %5358
   %5364 = phi ptr [ %5363, %5358 ], [ %5354, %5351 ]
   %5365 = getelementptr inbounds i8, ptr %5364, i64 -8
   %5366 = load ptr, ptr %5365, align 8, !tbaa !45
@@ -9328,7 +9328,7 @@ _ZN8V3PreLex12curFilelinepEv.exit567:             ; preds = %5351, %5358
   %5391 = getelementptr inbounds nuw i8, ptr %5388, i64 64
   %5392 = load ptr, ptr %5391, align 8, !tbaa !42, !noalias !534
   %5393 = icmp eq ptr %5390, %5392
-  br i1 %5393, label %5394, label %_ZN8V3PreLex12curFilelinepEv.exit568
+  br i1 %5393, label %5394, label %_ZN8V3PreLex12curFilelinepEv.exit567
 
 5394:                                             ; preds = %5387
   %5395 = getelementptr inbounds nuw i8, ptr %5388, i64 80
@@ -9336,9 +9336,9 @@ _ZN8V3PreLex12curFilelinepEv.exit567:             ; preds = %5351, %5358
   %5397 = getelementptr inbounds i8, ptr %5396, i64 -8
   %5398 = load ptr, ptr %5397, align 8, !tbaa !44
   %5399 = getelementptr inbounds nuw i8, ptr %5398, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit568
+  br label %_ZN8V3PreLex12curFilelinepEv.exit567
 
-_ZN8V3PreLex12curFilelinepEv.exit568:             ; preds = %5387, %5394
+_ZN8V3PreLex12curFilelinepEv.exit567:             ; preds = %5387, %5394
   %5400 = phi ptr [ %5399, %5394 ], [ %5390, %5387 ]
   %5401 = getelementptr inbounds i8, ptr %5400, i64 -8
   %5402 = load ptr, ptr %5401, align 8, !tbaa !45
@@ -9431,7 +9431,7 @@ _ZN8V3PreLex12curFilelinepEv.exit568:             ; preds = %5387, %5394
   %5460 = getelementptr inbounds nuw i8, ptr %5457, i64 64
   %5461 = load ptr, ptr %5460, align 8, !tbaa !42, !noalias !537
   %5462 = icmp eq ptr %5459, %5461
-  br i1 %5462, label %5463, label %_ZN8V3PreLex12curFilelinepEv.exit569
+  br i1 %5462, label %5463, label %_ZN8V3PreLex12curFilelinepEv.exit568
 
 5463:                                             ; preds = %5456
   %5464 = getelementptr inbounds nuw i8, ptr %5457, i64 80
@@ -9439,9 +9439,9 @@ _ZN8V3PreLex12curFilelinepEv.exit568:             ; preds = %5387, %5394
   %5466 = getelementptr inbounds i8, ptr %5465, i64 -8
   %5467 = load ptr, ptr %5466, align 8, !tbaa !44
   %5468 = getelementptr inbounds nuw i8, ptr %5467, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit569
+  br label %_ZN8V3PreLex12curFilelinepEv.exit568
 
-_ZN8V3PreLex12curFilelinepEv.exit569:             ; preds = %5456, %5463
+_ZN8V3PreLex12curFilelinepEv.exit568:             ; preds = %5456, %5463
   %5469 = phi ptr [ %5468, %5463 ], [ %5459, %5456 ]
   %5470 = getelementptr inbounds i8, ptr %5469, i64 -8
   %5471 = load ptr, ptr %5470, align 8, !tbaa !45
@@ -9459,18 +9459,18 @@ _ZN8V3PreLex12curFilelinepEv.exit569:             ; preds = %5456, %5463
   %5481 = getelementptr inbounds nuw i8, ptr %5478, i64 64
   %5482 = load ptr, ptr %5481, align 8, !tbaa !42, !noalias !540
   %5483 = icmp eq ptr %5480, %5482
-  br i1 %5483, label %5484, label %_ZN8V3PreLex12curFilelinepEv.exit570
+  br i1 %5483, label %5484, label %_ZN8V3PreLex12curFilelinepEv.exit569
 
-5484:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit569
+5484:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit568
   %5485 = getelementptr inbounds nuw i8, ptr %5478, i64 80
   %5486 = load ptr, ptr %5485, align 8, !tbaa !43, !noalias !540
   %5487 = getelementptr inbounds i8, ptr %5486, i64 -8
   %5488 = load ptr, ptr %5487, align 8, !tbaa !44
   %5489 = getelementptr inbounds nuw i8, ptr %5488, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit570
+  br label %_ZN8V3PreLex12curFilelinepEv.exit569
 
-_ZN8V3PreLex12curFilelinepEv.exit570:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit569, %5484
-  %5490 = phi ptr [ %5489, %5484 ], [ %5480, %_ZN8V3PreLex12curFilelinepEv.exit569 ]
+_ZN8V3PreLex12curFilelinepEv.exit569:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit568, %5484
+  %5490 = phi ptr [ %5489, %5484 ], [ %5480, %_ZN8V3PreLex12curFilelinepEv.exit568 ]
   %5491 = getelementptr inbounds i8, ptr %5490, i64 -8
   %5492 = load ptr, ptr %5491, align 8, !tbaa !45
   %5493 = load ptr, ptr %5492, align 8, !tbaa !47
@@ -9512,7 +9512,7 @@ _ZN8V3PreLex12curFilelinepEv.exit570:             ; preds = %_ZN8V3PreLex12curFi
   %5520 = getelementptr inbounds nuw i8, ptr %5517, i64 64
   %5521 = load ptr, ptr %5520, align 8, !tbaa !42, !noalias !543
   %5522 = icmp eq ptr %5519, %5521
-  br i1 %5522, label %5523, label %_ZN8V3PreLex12curFilelinepEv.exit571
+  br i1 %5522, label %5523, label %_ZN8V3PreLex12curFilelinepEv.exit570
 
 5523:                                             ; preds = %5516
   %5524 = getelementptr inbounds nuw i8, ptr %5517, i64 80
@@ -9520,9 +9520,9 @@ _ZN8V3PreLex12curFilelinepEv.exit570:             ; preds = %_ZN8V3PreLex12curFi
   %5526 = getelementptr inbounds i8, ptr %5525, i64 -8
   %5527 = load ptr, ptr %5526, align 8, !tbaa !44
   %5528 = getelementptr inbounds nuw i8, ptr %5527, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit571
+  br label %_ZN8V3PreLex12curFilelinepEv.exit570
 
-_ZN8V3PreLex12curFilelinepEv.exit571:             ; preds = %5516, %5523
+_ZN8V3PreLex12curFilelinepEv.exit570:             ; preds = %5516, %5523
   %5529 = phi ptr [ %5528, %5523 ], [ %5519, %5516 ]
   %5530 = getelementptr inbounds i8, ptr %5529, i64 -8
   %5531 = load ptr, ptr %5530, align 8, !tbaa !45
@@ -9561,7 +9561,7 @@ _ZN8V3PreLex12curFilelinepEv.exit571:             ; preds = %5516, %5523
   %5555 = getelementptr inbounds nuw i8, ptr %5552, i64 64
   %5556 = load ptr, ptr %5555, align 8, !tbaa !42, !noalias !546
   %5557 = icmp eq ptr %5554, %5556
-  br i1 %5557, label %5558, label %_ZN8V3PreLex12curFilelinepEv.exit572
+  br i1 %5557, label %5558, label %_ZN8V3PreLex12curFilelinepEv.exit571
 
 5558:                                             ; preds = %5551
   %5559 = getelementptr inbounds nuw i8, ptr %5552, i64 80
@@ -9569,9 +9569,9 @@ _ZN8V3PreLex12curFilelinepEv.exit571:             ; preds = %5516, %5523
   %5561 = getelementptr inbounds i8, ptr %5560, i64 -8
   %5562 = load ptr, ptr %5561, align 8, !tbaa !44
   %5563 = getelementptr inbounds nuw i8, ptr %5562, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit572
+  br label %_ZN8V3PreLex12curFilelinepEv.exit571
 
-_ZN8V3PreLex12curFilelinepEv.exit572:             ; preds = %5551, %5558
+_ZN8V3PreLex12curFilelinepEv.exit571:             ; preds = %5551, %5558
   %5564 = phi ptr [ %5563, %5558 ], [ %5554, %5551 ]
   %5565 = getelementptr inbounds i8, ptr %5564, i64 -8
   %5566 = load ptr, ptr %5565, align 8, !tbaa !45
@@ -9594,18 +9594,18 @@ _ZN8V3PreLex12curFilelinepEv.exit572:             ; preds = %5551, %5558
   %5580 = getelementptr inbounds nuw i8, ptr %5577, i64 64
   %5581 = load ptr, ptr %5580, align 8, !tbaa !42, !noalias !549
   %5582 = icmp eq ptr %5579, %5581
-  br i1 %5582, label %5583, label %_ZN8V3PreLex12curFilelinepEv.exit573
+  br i1 %5582, label %5583, label %_ZN8V3PreLex12curFilelinepEv.exit572
 
-5583:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit572
+5583:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit571
   %5584 = getelementptr inbounds nuw i8, ptr %5577, i64 80
   %5585 = load ptr, ptr %5584, align 8, !tbaa !43, !noalias !549
   %5586 = getelementptr inbounds i8, ptr %5585, i64 -8
   %5587 = load ptr, ptr %5586, align 8, !tbaa !44
   %5588 = getelementptr inbounds nuw i8, ptr %5587, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit573
+  br label %_ZN8V3PreLex12curFilelinepEv.exit572
 
-_ZN8V3PreLex12curFilelinepEv.exit573:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit572, %5583
-  %5589 = phi ptr [ %5588, %5583 ], [ %5579, %_ZN8V3PreLex12curFilelinepEv.exit572 ]
+_ZN8V3PreLex12curFilelinepEv.exit572:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit571, %5583
+  %5589 = phi ptr [ %5588, %5583 ], [ %5579, %_ZN8V3PreLex12curFilelinepEv.exit571 ]
   %5590 = getelementptr inbounds i8, ptr %5589, i64 -8
   %5591 = load ptr, ptr %5590, align 8, !tbaa !45
   %5592 = load ptr, ptr %5591, align 8, !tbaa !47
@@ -9647,7 +9647,7 @@ _ZN8V3PreLex12curFilelinepEv.exit573:             ; preds = %_ZN8V3PreLex12curFi
   %5619 = getelementptr inbounds nuw i8, ptr %5616, i64 64
   %5620 = load ptr, ptr %5619, align 8, !tbaa !42, !noalias !552
   %5621 = icmp eq ptr %5618, %5620
-  br i1 %5621, label %5622, label %_ZN8V3PreLex12curFilelinepEv.exit574
+  br i1 %5621, label %5622, label %_ZN8V3PreLex12curFilelinepEv.exit573
 
 5622:                                             ; preds = %5615
   %5623 = getelementptr inbounds nuw i8, ptr %5616, i64 80
@@ -9655,9 +9655,9 @@ _ZN8V3PreLex12curFilelinepEv.exit573:             ; preds = %_ZN8V3PreLex12curFi
   %5625 = getelementptr inbounds i8, ptr %5624, i64 -8
   %5626 = load ptr, ptr %5625, align 8, !tbaa !44
   %5627 = getelementptr inbounds nuw i8, ptr %5626, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit574
+  br label %_ZN8V3PreLex12curFilelinepEv.exit573
 
-_ZN8V3PreLex12curFilelinepEv.exit574:             ; preds = %5615, %5622
+_ZN8V3PreLex12curFilelinepEv.exit573:             ; preds = %5615, %5622
   %5628 = phi ptr [ %5627, %5622 ], [ %5618, %5615 ]
   %5629 = getelementptr inbounds i8, ptr %5628, i64 -8
   %5630 = load ptr, ptr %5629, align 8, !tbaa !45
@@ -9680,18 +9680,18 @@ _ZN8V3PreLex12curFilelinepEv.exit574:             ; preds = %5615, %5622
   %5644 = getelementptr inbounds nuw i8, ptr %5641, i64 64
   %5645 = load ptr, ptr %5644, align 8, !tbaa !42, !noalias !555
   %5646 = icmp eq ptr %5643, %5645
-  br i1 %5646, label %5647, label %_ZN8V3PreLex12curFilelinepEv.exit575
+  br i1 %5646, label %5647, label %_ZN8V3PreLex12curFilelinepEv.exit574
 
-5647:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit574
+5647:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit573
   %5648 = getelementptr inbounds nuw i8, ptr %5641, i64 80
   %5649 = load ptr, ptr %5648, align 8, !tbaa !43, !noalias !555
   %5650 = getelementptr inbounds i8, ptr %5649, i64 -8
   %5651 = load ptr, ptr %5650, align 8, !tbaa !44
   %5652 = getelementptr inbounds nuw i8, ptr %5651, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit575
+  br label %_ZN8V3PreLex12curFilelinepEv.exit574
 
-_ZN8V3PreLex12curFilelinepEv.exit575:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit574, %5647
-  %5653 = phi ptr [ %5652, %5647 ], [ %5643, %_ZN8V3PreLex12curFilelinepEv.exit574 ]
+_ZN8V3PreLex12curFilelinepEv.exit574:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit573, %5647
+  %5653 = phi ptr [ %5652, %5647 ], [ %5643, %_ZN8V3PreLex12curFilelinepEv.exit573 ]
   %5654 = getelementptr inbounds i8, ptr %5653, i64 -8
   %5655 = load ptr, ptr %5654, align 8, !tbaa !45
   %5656 = load ptr, ptr %5655, align 8, !tbaa !47
@@ -9733,7 +9733,7 @@ _ZN8V3PreLex12curFilelinepEv.exit575:             ; preds = %_ZN8V3PreLex12curFi
   %5683 = getelementptr inbounds nuw i8, ptr %5680, i64 64
   %5684 = load ptr, ptr %5683, align 8, !tbaa !42, !noalias !558
   %5685 = icmp eq ptr %5682, %5684
-  br i1 %5685, label %5686, label %_ZN8V3PreLex12curFilelinepEv.exit576
+  br i1 %5685, label %5686, label %_ZN8V3PreLex12curFilelinepEv.exit575
 
 5686:                                             ; preds = %5679
   %5687 = getelementptr inbounds nuw i8, ptr %5680, i64 80
@@ -9741,9 +9741,9 @@ _ZN8V3PreLex12curFilelinepEv.exit575:             ; preds = %_ZN8V3PreLex12curFi
   %5689 = getelementptr inbounds i8, ptr %5688, i64 -8
   %5690 = load ptr, ptr %5689, align 8, !tbaa !44
   %5691 = getelementptr inbounds nuw i8, ptr %5690, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit576
+  br label %_ZN8V3PreLex12curFilelinepEv.exit575
 
-_ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5679, %5686
+_ZN8V3PreLex12curFilelinepEv.exit575:             ; preds = %5679, %5686
   %5692 = phi ptr [ %5691, %5686 ], [ %5682, %5679 ]
   %5693 = getelementptr inbounds i8, ptr %5692, i64 -8
   %5694 = load ptr, ptr %5693, align 8, !tbaa !45
@@ -9759,7 +9759,7 @@ _ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5679, %5686
   %5702 = icmp eq i32 %5700, 0
   br i1 %5702, label %5703, label %5707
 
-5703:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit576
+5703:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit575
   %5704 = getelementptr inbounds nuw i8, ptr %5698, i64 216
   %5705 = call noundef zeroext i1 @_ZN7VString12isWhitespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5704)
   br i1 %5705, label %5707, label %5706
@@ -9768,7 +9768,7 @@ _ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5679, %5686
   call fastcc void @_ZL14V3PreLexerrorfPKc(ptr noundef nonnull @.str.33)
   br label %5707
 
-5707:                                             ; preds = %5703, %5706, %_ZN8V3PreLex12curFilelinepEv.exit576
+5707:                                             ; preds = %5703, %5706, %_ZN8V3PreLex12curFilelinepEv.exit575
   %5708 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8, !tbaa !32
   %5709 = getelementptr inbounds nuw i8, ptr %5708, i64 208
   %5710 = load i32, ptr %5709, align 8, !tbaa !266
@@ -9786,7 +9786,7 @@ _ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5679, %5686
   %5719 = getelementptr inbounds nuw i8, ptr %5716, i64 64
   %5720 = load ptr, ptr %5719, align 8, !tbaa !42, !noalias !561
   %5721 = icmp eq ptr %5718, %5720
-  br i1 %5721, label %5722, label %_ZN8V3PreLex12curFilelinepEv.exit577
+  br i1 %5721, label %5722, label %_ZN8V3PreLex12curFilelinepEv.exit576
 
 5722:                                             ; preds = %5712
   %5723 = getelementptr inbounds nuw i8, ptr %5716, i64 80
@@ -9794,9 +9794,9 @@ _ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5679, %5686
   %5725 = getelementptr inbounds i8, ptr %5724, i64 -8
   %5726 = load ptr, ptr %5725, align 8, !tbaa !44
   %5727 = getelementptr inbounds nuw i8, ptr %5726, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit577
+  br label %_ZN8V3PreLex12curFilelinepEv.exit576
 
-_ZN8V3PreLex12curFilelinepEv.exit577:             ; preds = %5712, %5722
+_ZN8V3PreLex12curFilelinepEv.exit576:             ; preds = %5712, %5722
   %5728 = phi ptr [ %5727, %5722 ], [ %5718, %5712 ]
   %5729 = getelementptr inbounds i8, ptr %5728, i64 -8
   %5730 = load ptr, ptr %5729, align 8, !tbaa !45
@@ -9839,7 +9839,7 @@ _ZN8V3PreLex12curFilelinepEv.exit577:             ; preds = %5712, %5722
   %5758 = getelementptr inbounds nuw i8, ptr %5755, i64 64
   %5759 = load ptr, ptr %5758, align 8, !tbaa !42, !noalias !564
   %5760 = icmp eq ptr %5757, %5759
-  br i1 %5760, label %5761, label %_ZN8V3PreLex12curFilelinepEv.exit578
+  br i1 %5760, label %5761, label %_ZN8V3PreLex12curFilelinepEv.exit577
 
 5761:                                             ; preds = %5754
   %5762 = getelementptr inbounds nuw i8, ptr %5755, i64 80
@@ -9847,9 +9847,9 @@ _ZN8V3PreLex12curFilelinepEv.exit577:             ; preds = %5712, %5722
   %5764 = getelementptr inbounds i8, ptr %5763, i64 -8
   %5765 = load ptr, ptr %5764, align 8, !tbaa !44
   %5766 = getelementptr inbounds nuw i8, ptr %5765, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit578
+  br label %_ZN8V3PreLex12curFilelinepEv.exit577
 
-_ZN8V3PreLex12curFilelinepEv.exit578:             ; preds = %5754, %5761
+_ZN8V3PreLex12curFilelinepEv.exit577:             ; preds = %5754, %5761
   %5767 = phi ptr [ %5766, %5761 ], [ %5757, %5754 ]
   %5768 = getelementptr inbounds i8, ptr %5767, i64 -8
   %5769 = load ptr, ptr %5768, align 8, !tbaa !45
@@ -9865,7 +9865,7 @@ _ZN8V3PreLex12curFilelinepEv.exit578:             ; preds = %5754, %5761
   %5777 = icmp sgt i32 %5775, 1
   br i1 %5777, label %5778, label %5804
 
-5778:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit578
+5778:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit577
   %5779 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %5780 = load i32, ptr @V3PreLexleng, align 4, !tbaa !9
   %5781 = sext i32 %5780 to i64
@@ -9876,7 +9876,7 @@ _ZN8V3PreLex12curFilelinepEv.exit578:             ; preds = %5754, %5761
   %5785 = getelementptr inbounds nuw i8, ptr %5782, i64 64
   %5786 = load ptr, ptr %5785, align 8, !tbaa !42, !noalias !567
   %5787 = icmp eq ptr %5784, %5786
-  br i1 %5787, label %5788, label %_ZN8V3PreLex12curFilelinepEv.exit579
+  br i1 %5787, label %5788, label %_ZN8V3PreLex12curFilelinepEv.exit578
 
 5788:                                             ; preds = %5778
   %5789 = getelementptr inbounds nuw i8, ptr %5782, i64 80
@@ -9884,9 +9884,9 @@ _ZN8V3PreLex12curFilelinepEv.exit578:             ; preds = %5754, %5761
   %5791 = getelementptr inbounds i8, ptr %5790, i64 -8
   %5792 = load ptr, ptr %5791, align 8, !tbaa !44
   %5793 = getelementptr inbounds nuw i8, ptr %5792, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit579
+  br label %_ZN8V3PreLex12curFilelinepEv.exit578
 
-_ZN8V3PreLex12curFilelinepEv.exit579:             ; preds = %5778, %5788
+_ZN8V3PreLex12curFilelinepEv.exit578:             ; preds = %5778, %5788
   %5794 = phi ptr [ %5793, %5788 ], [ %5784, %5778 ]
   %5795 = getelementptr inbounds i8, ptr %5794, i64 -8
   %5796 = load ptr, ptr %5795, align 8, !tbaa !45
@@ -9901,7 +9901,7 @@ _ZN8V3PreLex12curFilelinepEv.exit579:             ; preds = %5778, %5788
   store i32 %5802, ptr %5803, align 4, !tbaa !169
   br label %.backedge
 
-5804:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit578
+5804:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit577
   call fastcc void @_ZL12yy_pop_statev()
   br label %.loopexit
 
@@ -9933,7 +9933,7 @@ _ZN8V3PreLex12curFilelinepEv.exit579:             ; preds = %5778, %5788
   %5825 = getelementptr inbounds nuw i8, ptr %5822, i64 64
   %5826 = load ptr, ptr %5825, align 8, !tbaa !42, !noalias !570
   %5827 = icmp eq ptr %5824, %5826
-  br i1 %5827, label %5828, label %_ZN8V3PreLex12curFilelinepEv.exit580
+  br i1 %5827, label %5828, label %_ZN8V3PreLex12curFilelinepEv.exit579
 
 5828:                                             ; preds = %5821
   %5829 = getelementptr inbounds nuw i8, ptr %5822, i64 80
@@ -9941,9 +9941,9 @@ _ZN8V3PreLex12curFilelinepEv.exit579:             ; preds = %5778, %5788
   %5831 = getelementptr inbounds i8, ptr %5830, i64 -8
   %5832 = load ptr, ptr %5831, align 8, !tbaa !44
   %5833 = getelementptr inbounds nuw i8, ptr %5832, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit580
+  br label %_ZN8V3PreLex12curFilelinepEv.exit579
 
-_ZN8V3PreLex12curFilelinepEv.exit580:             ; preds = %5821, %5828
+_ZN8V3PreLex12curFilelinepEv.exit579:             ; preds = %5821, %5828
   %5834 = phi ptr [ %5833, %5828 ], [ %5824, %5821 ]
   %5835 = getelementptr inbounds i8, ptr %5834, i64 -8
   %5836 = load ptr, ptr %5835, align 8, !tbaa !45
@@ -9957,7 +9957,7 @@ _ZN8V3PreLex12curFilelinepEv.exit580:             ; preds = %5821, %5828
   %5843 = icmp sgt i32 %5842, 1
   br i1 %5843, label %5844, label %5870
 
-5844:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit580
+5844:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit579
   %5845 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   %5846 = load i32, ptr @V3PreLexleng, align 4, !tbaa !9
   %5847 = sext i32 %5846 to i64
@@ -9968,7 +9968,7 @@ _ZN8V3PreLex12curFilelinepEv.exit580:             ; preds = %5821, %5828
   %5851 = getelementptr inbounds nuw i8, ptr %5848, i64 64
   %5852 = load ptr, ptr %5851, align 8, !tbaa !42, !noalias !573
   %5853 = icmp eq ptr %5850, %5852
-  br i1 %5853, label %5854, label %_ZN8V3PreLex12curFilelinepEv.exit581
+  br i1 %5853, label %5854, label %_ZN8V3PreLex12curFilelinepEv.exit580
 
 5854:                                             ; preds = %5844
   %5855 = getelementptr inbounds nuw i8, ptr %5848, i64 80
@@ -9976,9 +9976,9 @@ _ZN8V3PreLex12curFilelinepEv.exit580:             ; preds = %5821, %5828
   %5857 = getelementptr inbounds i8, ptr %5856, i64 -8
   %5858 = load ptr, ptr %5857, align 8, !tbaa !44
   %5859 = getelementptr inbounds nuw i8, ptr %5858, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit581
+  br label %_ZN8V3PreLex12curFilelinepEv.exit580
 
-_ZN8V3PreLex12curFilelinepEv.exit581:             ; preds = %5844, %5854
+_ZN8V3PreLex12curFilelinepEv.exit580:             ; preds = %5844, %5854
   %5860 = phi ptr [ %5859, %5854 ], [ %5850, %5844 ]
   %5861 = getelementptr inbounds i8, ptr %5860, i64 -8
   %5862 = load ptr, ptr %5861, align 8, !tbaa !45
@@ -9993,7 +9993,7 @@ _ZN8V3PreLex12curFilelinepEv.exit581:             ; preds = %5844, %5854
   store i32 %5868, ptr %5869, align 4, !tbaa !169
   br label %.backedge
 
-5870:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit580
+5870:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit579
   call fastcc void @_ZL12yy_pop_statev()
   br label %.loopexit
 
@@ -10025,7 +10025,7 @@ _ZN8V3PreLex12curFilelinepEv.exit581:             ; preds = %5844, %5854
   %5891 = getelementptr inbounds nuw i8, ptr %5888, i64 64
   %5892 = load ptr, ptr %5891, align 8, !tbaa !42, !noalias !576
   %5893 = icmp eq ptr %5890, %5892
-  br i1 %5893, label %5894, label %_ZN8V3PreLex12curFilelinepEv.exit582
+  br i1 %5893, label %5894, label %_ZN8V3PreLex12curFilelinepEv.exit581
 
 5894:                                             ; preds = %5887
   %5895 = getelementptr inbounds nuw i8, ptr %5888, i64 80
@@ -10033,9 +10033,9 @@ _ZN8V3PreLex12curFilelinepEv.exit581:             ; preds = %5844, %5854
   %5897 = getelementptr inbounds i8, ptr %5896, i64 -8
   %5898 = load ptr, ptr %5897, align 8, !tbaa !44
   %5899 = getelementptr inbounds nuw i8, ptr %5898, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit582
+  br label %_ZN8V3PreLex12curFilelinepEv.exit581
 
-_ZN8V3PreLex12curFilelinepEv.exit582:             ; preds = %5887, %5894
+_ZN8V3PreLex12curFilelinepEv.exit581:             ; preds = %5887, %5894
   %5900 = phi ptr [ %5899, %5894 ], [ %5890, %5887 ]
   %5901 = getelementptr inbounds i8, ptr %5900, i64 -8
   %5902 = load ptr, ptr %5901, align 8, !tbaa !45
@@ -10053,18 +10053,18 @@ _ZN8V3PreLex12curFilelinepEv.exit582:             ; preds = %5887, %5894
   %5912 = getelementptr inbounds nuw i8, ptr %5909, i64 64
   %5913 = load ptr, ptr %5912, align 8, !tbaa !42, !noalias !579
   %5914 = icmp eq ptr %5911, %5913
-  br i1 %5914, label %5915, label %_ZN8V3PreLex12curFilelinepEv.exit583
+  br i1 %5914, label %5915, label %_ZN8V3PreLex12curFilelinepEv.exit582
 
-5915:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit582
+5915:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit581
   %5916 = getelementptr inbounds nuw i8, ptr %5909, i64 80
   %5917 = load ptr, ptr %5916, align 8, !tbaa !43, !noalias !579
   %5918 = getelementptr inbounds i8, ptr %5917, i64 -8
   %5919 = load ptr, ptr %5918, align 8, !tbaa !44
   %5920 = getelementptr inbounds nuw i8, ptr %5919, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit583
+  br label %_ZN8V3PreLex12curFilelinepEv.exit582
 
-_ZN8V3PreLex12curFilelinepEv.exit583:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit582, %5915
-  %5921 = phi ptr [ %5920, %5915 ], [ %5911, %_ZN8V3PreLex12curFilelinepEv.exit582 ]
+_ZN8V3PreLex12curFilelinepEv.exit582:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit581, %5915
+  %5921 = phi ptr [ %5920, %5915 ], [ %5911, %_ZN8V3PreLex12curFilelinepEv.exit581 ]
   %5922 = getelementptr inbounds i8, ptr %5921, i64 -8
   %5923 = load ptr, ptr %5922, align 8, !tbaa !45
   %5924 = load ptr, ptr %5923, align 8, !tbaa !47
@@ -10106,7 +10106,7 @@ _ZN8V3PreLex12curFilelinepEv.exit583:             ; preds = %_ZN8V3PreLex12curFi
   %5951 = getelementptr inbounds nuw i8, ptr %5948, i64 64
   %5952 = load ptr, ptr %5951, align 8, !tbaa !42, !noalias !582
   %5953 = icmp eq ptr %5950, %5952
-  br i1 %5953, label %5954, label %_ZN8V3PreLex12curFilelinepEv.exit584
+  br i1 %5953, label %5954, label %_ZN8V3PreLex12curFilelinepEv.exit583
 
 5954:                                             ; preds = %5947
   %5955 = getelementptr inbounds nuw i8, ptr %5948, i64 80
@@ -10114,9 +10114,9 @@ _ZN8V3PreLex12curFilelinepEv.exit583:             ; preds = %_ZN8V3PreLex12curFi
   %5957 = getelementptr inbounds i8, ptr %5956, i64 -8
   %5958 = load ptr, ptr %5957, align 8, !tbaa !44
   %5959 = getelementptr inbounds nuw i8, ptr %5958, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit584
+  br label %_ZN8V3PreLex12curFilelinepEv.exit583
 
-_ZN8V3PreLex12curFilelinepEv.exit584:             ; preds = %5947, %5954
+_ZN8V3PreLex12curFilelinepEv.exit583:             ; preds = %5947, %5954
   %5960 = phi ptr [ %5959, %5954 ], [ %5950, %5947 ]
   %5961 = getelementptr inbounds i8, ptr %5960, i64 -8
   %5962 = load ptr, ptr %5961, align 8, !tbaa !45
@@ -10134,18 +10134,18 @@ _ZN8V3PreLex12curFilelinepEv.exit584:             ; preds = %5947, %5954
   %5972 = getelementptr inbounds nuw i8, ptr %5969, i64 64
   %5973 = load ptr, ptr %5972, align 8, !tbaa !42, !noalias !585
   %5974 = icmp eq ptr %5971, %5973
-  br i1 %5974, label %5975, label %_ZN8V3PreLex12curFilelinepEv.exit585
+  br i1 %5974, label %5975, label %_ZN8V3PreLex12curFilelinepEv.exit584
 
-5975:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit584
+5975:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit583
   %5976 = getelementptr inbounds nuw i8, ptr %5969, i64 80
   %5977 = load ptr, ptr %5976, align 8, !tbaa !43, !noalias !585
   %5978 = getelementptr inbounds i8, ptr %5977, i64 -8
   %5979 = load ptr, ptr %5978, align 8, !tbaa !44
   %5980 = getelementptr inbounds nuw i8, ptr %5979, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit585
+  br label %_ZN8V3PreLex12curFilelinepEv.exit584
 
-_ZN8V3PreLex12curFilelinepEv.exit585:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit584, %5975
-  %5981 = phi ptr [ %5980, %5975 ], [ %5971, %_ZN8V3PreLex12curFilelinepEv.exit584 ]
+_ZN8V3PreLex12curFilelinepEv.exit584:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit583, %5975
+  %5981 = phi ptr [ %5980, %5975 ], [ %5971, %_ZN8V3PreLex12curFilelinepEv.exit583 ]
   %5982 = getelementptr inbounds i8, ptr %5981, i64 -8
   %5983 = load ptr, ptr %5982, align 8, !tbaa !45
   %5984 = load ptr, ptr %5983, align 8, !tbaa !47
@@ -10187,7 +10187,7 @@ _ZN8V3PreLex12curFilelinepEv.exit585:             ; preds = %_ZN8V3PreLex12curFi
   %6011 = getelementptr inbounds nuw i8, ptr %6008, i64 64
   %6012 = load ptr, ptr %6011, align 8, !tbaa !42, !noalias !588
   %6013 = icmp eq ptr %6010, %6012
-  br i1 %6013, label %6014, label %_ZN8V3PreLex12curFilelinepEv.exit586
+  br i1 %6013, label %6014, label %_ZN8V3PreLex12curFilelinepEv.exit585
 
 6014:                                             ; preds = %6007
   %6015 = getelementptr inbounds nuw i8, ptr %6008, i64 80
@@ -10195,9 +10195,9 @@ _ZN8V3PreLex12curFilelinepEv.exit585:             ; preds = %_ZN8V3PreLex12curFi
   %6017 = getelementptr inbounds i8, ptr %6016, i64 -8
   %6018 = load ptr, ptr %6017, align 8, !tbaa !44
   %6019 = getelementptr inbounds nuw i8, ptr %6018, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit586
+  br label %_ZN8V3PreLex12curFilelinepEv.exit585
 
-_ZN8V3PreLex12curFilelinepEv.exit586:             ; preds = %6007, %6014
+_ZN8V3PreLex12curFilelinepEv.exit585:             ; preds = %6007, %6014
   %6020 = phi ptr [ %6019, %6014 ], [ %6010, %6007 ]
   %6021 = getelementptr inbounds i8, ptr %6020, i64 -8
   %6022 = load ptr, ptr %6021, align 8, !tbaa !45
@@ -10215,18 +10215,18 @@ _ZN8V3PreLex12curFilelinepEv.exit586:             ; preds = %6007, %6014
   %6032 = getelementptr inbounds nuw i8, ptr %6029, i64 64
   %6033 = load ptr, ptr %6032, align 8, !tbaa !42, !noalias !591
   %6034 = icmp eq ptr %6031, %6033
-  br i1 %6034, label %6035, label %_ZN8V3PreLex12curFilelinepEv.exit587
+  br i1 %6034, label %6035, label %_ZN8V3PreLex12curFilelinepEv.exit586
 
-6035:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit586
+6035:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit585
   %6036 = getelementptr inbounds nuw i8, ptr %6029, i64 80
   %6037 = load ptr, ptr %6036, align 8, !tbaa !43, !noalias !591
   %6038 = getelementptr inbounds i8, ptr %6037, i64 -8
   %6039 = load ptr, ptr %6038, align 8, !tbaa !44
   %6040 = getelementptr inbounds nuw i8, ptr %6039, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit587
+  br label %_ZN8V3PreLex12curFilelinepEv.exit586
 
-_ZN8V3PreLex12curFilelinepEv.exit587:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit586, %6035
-  %6041 = phi ptr [ %6040, %6035 ], [ %6031, %_ZN8V3PreLex12curFilelinepEv.exit586 ]
+_ZN8V3PreLex12curFilelinepEv.exit586:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit585, %6035
+  %6041 = phi ptr [ %6040, %6035 ], [ %6031, %_ZN8V3PreLex12curFilelinepEv.exit585 ]
   %6042 = getelementptr inbounds i8, ptr %6041, i64 -8
   %6043 = load ptr, ptr %6042, align 8, !tbaa !45
   %6044 = load ptr, ptr %6043, align 8, !tbaa !47
@@ -10268,7 +10268,7 @@ _ZN8V3PreLex12curFilelinepEv.exit587:             ; preds = %_ZN8V3PreLex12curFi
   %6071 = getelementptr inbounds nuw i8, ptr %6068, i64 64
   %6072 = load ptr, ptr %6071, align 8, !tbaa !42, !noalias !594
   %6073 = icmp eq ptr %6070, %6072
-  br i1 %6073, label %6074, label %_ZN8V3PreLex12curFilelinepEv.exit588
+  br i1 %6073, label %6074, label %_ZN8V3PreLex12curFilelinepEv.exit587
 
 6074:                                             ; preds = %6067
   %6075 = getelementptr inbounds nuw i8, ptr %6068, i64 80
@@ -10276,9 +10276,9 @@ _ZN8V3PreLex12curFilelinepEv.exit587:             ; preds = %_ZN8V3PreLex12curFi
   %6077 = getelementptr inbounds i8, ptr %6076, i64 -8
   %6078 = load ptr, ptr %6077, align 8, !tbaa !44
   %6079 = getelementptr inbounds nuw i8, ptr %6078, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit588
+  br label %_ZN8V3PreLex12curFilelinepEv.exit587
 
-_ZN8V3PreLex12curFilelinepEv.exit588:             ; preds = %6067, %6074
+_ZN8V3PreLex12curFilelinepEv.exit587:             ; preds = %6067, %6074
   %6080 = phi ptr [ %6079, %6074 ], [ %6070, %6067 ]
   %6081 = getelementptr inbounds i8, ptr %6080, i64 -8
   %6082 = load ptr, ptr %6081, align 8, !tbaa !45
@@ -10296,18 +10296,18 @@ _ZN8V3PreLex12curFilelinepEv.exit588:             ; preds = %6067, %6074
   %6092 = getelementptr inbounds nuw i8, ptr %6089, i64 64
   %6093 = load ptr, ptr %6092, align 8, !tbaa !42, !noalias !597
   %6094 = icmp eq ptr %6091, %6093
-  br i1 %6094, label %6095, label %_ZN8V3PreLex12curFilelinepEv.exit589
+  br i1 %6094, label %6095, label %_ZN8V3PreLex12curFilelinepEv.exit588
 
-6095:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit588
+6095:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit587
   %6096 = getelementptr inbounds nuw i8, ptr %6089, i64 80
   %6097 = load ptr, ptr %6096, align 8, !tbaa !43, !noalias !597
   %6098 = getelementptr inbounds i8, ptr %6097, i64 -8
   %6099 = load ptr, ptr %6098, align 8, !tbaa !44
   %6100 = getelementptr inbounds nuw i8, ptr %6099, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit589
+  br label %_ZN8V3PreLex12curFilelinepEv.exit588
 
-_ZN8V3PreLex12curFilelinepEv.exit589:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit588, %6095
-  %6101 = phi ptr [ %6100, %6095 ], [ %6091, %_ZN8V3PreLex12curFilelinepEv.exit588 ]
+_ZN8V3PreLex12curFilelinepEv.exit588:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit587, %6095
+  %6101 = phi ptr [ %6100, %6095 ], [ %6091, %_ZN8V3PreLex12curFilelinepEv.exit587 ]
   %6102 = getelementptr inbounds i8, ptr %6101, i64 -8
   %6103 = load ptr, ptr %6102, align 8, !tbaa !45
   %6104 = load ptr, ptr %6103, align 8, !tbaa !47
@@ -10349,7 +10349,7 @@ _ZN8V3PreLex12curFilelinepEv.exit589:             ; preds = %_ZN8V3PreLex12curFi
   %6131 = getelementptr inbounds nuw i8, ptr %6128, i64 64
   %6132 = load ptr, ptr %6131, align 8, !tbaa !42, !noalias !600
   %6133 = icmp eq ptr %6130, %6132
-  br i1 %6133, label %6134, label %_ZN8V3PreLex12curFilelinepEv.exit590
+  br i1 %6133, label %6134, label %_ZN8V3PreLex12curFilelinepEv.exit589
 
 6134:                                             ; preds = %6127
   %6135 = getelementptr inbounds nuw i8, ptr %6128, i64 80
@@ -10357,9 +10357,9 @@ _ZN8V3PreLex12curFilelinepEv.exit589:             ; preds = %_ZN8V3PreLex12curFi
   %6137 = getelementptr inbounds i8, ptr %6136, i64 -8
   %6138 = load ptr, ptr %6137, align 8, !tbaa !44
   %6139 = getelementptr inbounds nuw i8, ptr %6138, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit590
+  br label %_ZN8V3PreLex12curFilelinepEv.exit589
 
-_ZN8V3PreLex12curFilelinepEv.exit590:             ; preds = %6127, %6134
+_ZN8V3PreLex12curFilelinepEv.exit589:             ; preds = %6127, %6134
   %6140 = phi ptr [ %6139, %6134 ], [ %6130, %6127 ]
   %6141 = getelementptr inbounds i8, ptr %6140, i64 -8
   %6142 = load ptr, ptr %6141, align 8, !tbaa !45
@@ -10401,7 +10401,7 @@ _ZN8V3PreLex12curFilelinepEv.exit590:             ; preds = %6127, %6134
   %6169 = getelementptr inbounds nuw i8, ptr %6166, i64 64
   %6170 = load ptr, ptr %6169, align 8, !tbaa !42, !noalias !603
   %6171 = icmp eq ptr %6168, %6170
-  br i1 %6171, label %6172, label %_ZN8V3PreLex12curFilelinepEv.exit591
+  br i1 %6171, label %6172, label %_ZN8V3PreLex12curFilelinepEv.exit590
 
 6172:                                             ; preds = %6165
   %6173 = getelementptr inbounds nuw i8, ptr %6166, i64 80
@@ -10409,9 +10409,9 @@ _ZN8V3PreLex12curFilelinepEv.exit590:             ; preds = %6127, %6134
   %6175 = getelementptr inbounds i8, ptr %6174, i64 -8
   %6176 = load ptr, ptr %6175, align 8, !tbaa !44
   %6177 = getelementptr inbounds nuw i8, ptr %6176, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit591
+  br label %_ZN8V3PreLex12curFilelinepEv.exit590
 
-_ZN8V3PreLex12curFilelinepEv.exit591:             ; preds = %6165, %6172
+_ZN8V3PreLex12curFilelinepEv.exit590:             ; preds = %6165, %6172
   %6178 = phi ptr [ %6177, %6172 ], [ %6168, %6165 ]
   %6179 = getelementptr inbounds i8, ptr %6178, i64 -8
   %6180 = load ptr, ptr %6179, align 8, !tbaa !45
@@ -10453,7 +10453,7 @@ _ZN8V3PreLex12curFilelinepEv.exit591:             ; preds = %6165, %6172
   %6207 = getelementptr inbounds nuw i8, ptr %6204, i64 64
   %6208 = load ptr, ptr %6207, align 8, !tbaa !42, !noalias !606
   %6209 = icmp eq ptr %6206, %6208
-  br i1 %6209, label %6210, label %_ZN8V3PreLex12curFilelinepEv.exit592
+  br i1 %6209, label %6210, label %_ZN8V3PreLex12curFilelinepEv.exit591
 
 6210:                                             ; preds = %6203
   %6211 = getelementptr inbounds nuw i8, ptr %6204, i64 80
@@ -10461,9 +10461,9 @@ _ZN8V3PreLex12curFilelinepEv.exit591:             ; preds = %6165, %6172
   %6213 = getelementptr inbounds i8, ptr %6212, i64 -8
   %6214 = load ptr, ptr %6213, align 8, !tbaa !44
   %6215 = getelementptr inbounds nuw i8, ptr %6214, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit592
+  br label %_ZN8V3PreLex12curFilelinepEv.exit591
 
-_ZN8V3PreLex12curFilelinepEv.exit592:             ; preds = %6203, %6210
+_ZN8V3PreLex12curFilelinepEv.exit591:             ; preds = %6203, %6210
   %6216 = phi ptr [ %6215, %6210 ], [ %6206, %6203 ]
   %6217 = getelementptr inbounds i8, ptr %6216, i64 -8
   %6218 = load ptr, ptr %6217, align 8, !tbaa !45
@@ -10503,7 +10503,7 @@ _ZN8V3PreLex12curFilelinepEv.exit592:             ; preds = %6203, %6210
   %6243 = getelementptr inbounds nuw i8, ptr %6240, i64 64
   %6244 = load ptr, ptr %6243, align 8, !tbaa !42, !noalias !609
   %6245 = icmp eq ptr %6242, %6244
-  br i1 %6245, label %6246, label %_ZN8V3PreLex12curFilelinepEv.exit593
+  br i1 %6245, label %6246, label %_ZN8V3PreLex12curFilelinepEv.exit592
 
 6246:                                             ; preds = %6239
   %6247 = getelementptr inbounds nuw i8, ptr %6240, i64 80
@@ -10511,9 +10511,9 @@ _ZN8V3PreLex12curFilelinepEv.exit592:             ; preds = %6203, %6210
   %6249 = getelementptr inbounds i8, ptr %6248, i64 -8
   %6250 = load ptr, ptr %6249, align 8, !tbaa !44
   %6251 = getelementptr inbounds nuw i8, ptr %6250, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit593
+  br label %_ZN8V3PreLex12curFilelinepEv.exit592
 
-_ZN8V3PreLex12curFilelinepEv.exit593:             ; preds = %6239, %6246
+_ZN8V3PreLex12curFilelinepEv.exit592:             ; preds = %6239, %6246
   %6252 = phi ptr [ %6251, %6246 ], [ %6242, %6239 ]
   %6253 = getelementptr inbounds i8, ptr %6252, i64 -8
   %6254 = load ptr, ptr %6253, align 8, !tbaa !45
@@ -10553,7 +10553,7 @@ _ZN8V3PreLex12curFilelinepEv.exit593:             ; preds = %6239, %6246
   %6279 = getelementptr inbounds nuw i8, ptr %6276, i64 64
   %6280 = load ptr, ptr %6279, align 8, !tbaa !42, !noalias !612
   %6281 = icmp eq ptr %6278, %6280
-  br i1 %6281, label %6282, label %_ZN8V3PreLex12curFilelinepEv.exit594
+  br i1 %6281, label %6282, label %_ZN8V3PreLex12curFilelinepEv.exit593
 
 6282:                                             ; preds = %6275
   %6283 = getelementptr inbounds nuw i8, ptr %6276, i64 80
@@ -10561,9 +10561,9 @@ _ZN8V3PreLex12curFilelinepEv.exit593:             ; preds = %6239, %6246
   %6285 = getelementptr inbounds i8, ptr %6284, i64 -8
   %6286 = load ptr, ptr %6285, align 8, !tbaa !44
   %6287 = getelementptr inbounds nuw i8, ptr %6286, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit594
+  br label %_ZN8V3PreLex12curFilelinepEv.exit593
 
-_ZN8V3PreLex12curFilelinepEv.exit594:             ; preds = %6275, %6282
+_ZN8V3PreLex12curFilelinepEv.exit593:             ; preds = %6275, %6282
   %6288 = phi ptr [ %6287, %6282 ], [ %6278, %6275 ]
   %6289 = getelementptr inbounds i8, ptr %6288, i64 -8
   %6290 = load ptr, ptr %6289, align 8, !tbaa !45
@@ -10605,7 +10605,7 @@ _ZN8V3PreLex12curFilelinepEv.exit594:             ; preds = %6275, %6282
   %6317 = getelementptr inbounds nuw i8, ptr %6314, i64 64
   %6318 = load ptr, ptr %6317, align 8, !tbaa !42, !noalias !615
   %6319 = icmp eq ptr %6316, %6318
-  br i1 %6319, label %6320, label %_ZN8V3PreLex12curFilelinepEv.exit595
+  br i1 %6319, label %6320, label %_ZN8V3PreLex12curFilelinepEv.exit594
 
 6320:                                             ; preds = %6313
   %6321 = getelementptr inbounds nuw i8, ptr %6314, i64 80
@@ -10613,9 +10613,9 @@ _ZN8V3PreLex12curFilelinepEv.exit594:             ; preds = %6275, %6282
   %6323 = getelementptr inbounds i8, ptr %6322, i64 -8
   %6324 = load ptr, ptr %6323, align 8, !tbaa !44
   %6325 = getelementptr inbounds nuw i8, ptr %6324, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit595
+  br label %_ZN8V3PreLex12curFilelinepEv.exit594
 
-_ZN8V3PreLex12curFilelinepEv.exit595:             ; preds = %6313, %6320
+_ZN8V3PreLex12curFilelinepEv.exit594:             ; preds = %6313, %6320
   %6326 = phi ptr [ %6325, %6320 ], [ %6316, %6313 ]
   %6327 = getelementptr inbounds i8, ptr %6326, i64 -8
   %6328 = load ptr, ptr %6327, align 8, !tbaa !45
@@ -10657,7 +10657,7 @@ _ZN8V3PreLex12curFilelinepEv.exit595:             ; preds = %6313, %6320
   %6355 = getelementptr inbounds nuw i8, ptr %6352, i64 64
   %6356 = load ptr, ptr %6355, align 8, !tbaa !42, !noalias !618
   %6357 = icmp eq ptr %6354, %6356
-  br i1 %6357, label %6358, label %_ZN8V3PreLex12curFilelinepEv.exit596
+  br i1 %6357, label %6358, label %_ZN8V3PreLex12curFilelinepEv.exit595
 
 6358:                                             ; preds = %6351
   %6359 = getelementptr inbounds nuw i8, ptr %6352, i64 80
@@ -10665,9 +10665,9 @@ _ZN8V3PreLex12curFilelinepEv.exit595:             ; preds = %6313, %6320
   %6361 = getelementptr inbounds i8, ptr %6360, i64 -8
   %6362 = load ptr, ptr %6361, align 8, !tbaa !44
   %6363 = getelementptr inbounds nuw i8, ptr %6362, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit596
+  br label %_ZN8V3PreLex12curFilelinepEv.exit595
 
-_ZN8V3PreLex12curFilelinepEv.exit596:             ; preds = %6351, %6358
+_ZN8V3PreLex12curFilelinepEv.exit595:             ; preds = %6351, %6358
   %6364 = phi ptr [ %6363, %6358 ], [ %6354, %6351 ]
   %6365 = getelementptr inbounds i8, ptr %6364, i64 -8
   %6366 = load ptr, ptr %6365, align 8, !tbaa !45
@@ -10707,7 +10707,7 @@ _ZN8V3PreLex12curFilelinepEv.exit596:             ; preds = %6351, %6358
   %6391 = getelementptr inbounds nuw i8, ptr %6388, i64 64
   %6392 = load ptr, ptr %6391, align 8, !tbaa !42, !noalias !621
   %6393 = icmp eq ptr %6390, %6392
-  br i1 %6393, label %6394, label %_ZN8V3PreLex12curFilelinepEv.exit597
+  br i1 %6393, label %6394, label %_ZN8V3PreLex12curFilelinepEv.exit596
 
 6394:                                             ; preds = %6387
   %6395 = getelementptr inbounds nuw i8, ptr %6388, i64 80
@@ -10715,9 +10715,9 @@ _ZN8V3PreLex12curFilelinepEv.exit596:             ; preds = %6351, %6358
   %6397 = getelementptr inbounds i8, ptr %6396, i64 -8
   %6398 = load ptr, ptr %6397, align 8, !tbaa !44
   %6399 = getelementptr inbounds nuw i8, ptr %6398, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit597
+  br label %_ZN8V3PreLex12curFilelinepEv.exit596
 
-_ZN8V3PreLex12curFilelinepEv.exit597:             ; preds = %6387, %6394
+_ZN8V3PreLex12curFilelinepEv.exit596:             ; preds = %6387, %6394
   %6400 = phi ptr [ %6399, %6394 ], [ %6390, %6387 ]
   %6401 = getelementptr inbounds i8, ptr %6400, i64 -8
   %6402 = load ptr, ptr %6401, align 8, !tbaa !45
@@ -10757,7 +10757,7 @@ _ZN8V3PreLex12curFilelinepEv.exit597:             ; preds = %6387, %6394
   %6427 = getelementptr inbounds nuw i8, ptr %6424, i64 64
   %6428 = load ptr, ptr %6427, align 8, !tbaa !42, !noalias !624
   %6429 = icmp eq ptr %6426, %6428
-  br i1 %6429, label %6430, label %_ZN8V3PreLex12curFilelinepEv.exit598
+  br i1 %6429, label %6430, label %_ZN8V3PreLex12curFilelinepEv.exit597
 
 6430:                                             ; preds = %6423
   %6431 = getelementptr inbounds nuw i8, ptr %6424, i64 80
@@ -10765,9 +10765,9 @@ _ZN8V3PreLex12curFilelinepEv.exit597:             ; preds = %6387, %6394
   %6433 = getelementptr inbounds i8, ptr %6432, i64 -8
   %6434 = load ptr, ptr %6433, align 8, !tbaa !44
   %6435 = getelementptr inbounds nuw i8, ptr %6434, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit598
+  br label %_ZN8V3PreLex12curFilelinepEv.exit597
 
-_ZN8V3PreLex12curFilelinepEv.exit598:             ; preds = %6423, %6430
+_ZN8V3PreLex12curFilelinepEv.exit597:             ; preds = %6423, %6430
   %6436 = phi ptr [ %6435, %6430 ], [ %6426, %6423 ]
   %6437 = getelementptr inbounds i8, ptr %6436, i64 -8
   %6438 = load ptr, ptr %6437, align 8, !tbaa !45
@@ -10834,7 +10834,7 @@ _ZN8V3PreLex12curFilelinepEv.exit598:             ; preds = %6423, %6430
   %6479 = getelementptr inbounds nuw i8, ptr %6476, i64 64
   %6480 = load ptr, ptr %6479, align 8, !tbaa !42, !noalias !627
   %6481 = icmp eq ptr %6478, %6480
-  br i1 %6481, label %6482, label %_ZN8V3PreLex12curFilelinepEv.exit599
+  br i1 %6481, label %6482, label %_ZN8V3PreLex12curFilelinepEv.exit598
 
 6482:                                             ; preds = %6475
   %6483 = getelementptr inbounds nuw i8, ptr %6476, i64 80
@@ -10842,9 +10842,9 @@ _ZN8V3PreLex12curFilelinepEv.exit598:             ; preds = %6423, %6430
   %6485 = getelementptr inbounds i8, ptr %6484, i64 -8
   %6486 = load ptr, ptr %6485, align 8, !tbaa !44
   %6487 = getelementptr inbounds nuw i8, ptr %6486, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit599
+  br label %_ZN8V3PreLex12curFilelinepEv.exit598
 
-_ZN8V3PreLex12curFilelinepEv.exit599:             ; preds = %6475, %6482
+_ZN8V3PreLex12curFilelinepEv.exit598:             ; preds = %6475, %6482
   %6488 = phi ptr [ %6487, %6482 ], [ %6478, %6475 ]
   %6489 = getelementptr inbounds i8, ptr %6488, i64 -8
   %6490 = load ptr, ptr %6489, align 8, !tbaa !45
@@ -10909,7 +10909,7 @@ _ZN8V3PreLex12curFilelinepEv.exit599:             ; preds = %6475, %6482
   %6531 = getelementptr inbounds nuw i8, ptr %6528, i64 64
   %6532 = load ptr, ptr %6531, align 8, !tbaa !42, !noalias !630
   %6533 = icmp eq ptr %6530, %6532
-  br i1 %6533, label %6534, label %_ZN8V3PreLex12curFilelinepEv.exit600
+  br i1 %6533, label %6534, label %_ZN8V3PreLex12curFilelinepEv.exit599
 
 6534:                                             ; preds = %6527
   %6535 = getelementptr inbounds nuw i8, ptr %6528, i64 80
@@ -10917,9 +10917,9 @@ _ZN8V3PreLex12curFilelinepEv.exit599:             ; preds = %6475, %6482
   %6537 = getelementptr inbounds i8, ptr %6536, i64 -8
   %6538 = load ptr, ptr %6537, align 8, !tbaa !44
   %6539 = getelementptr inbounds nuw i8, ptr %6538, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit600
+  br label %_ZN8V3PreLex12curFilelinepEv.exit599
 
-_ZN8V3PreLex12curFilelinepEv.exit600:             ; preds = %6527, %6534
+_ZN8V3PreLex12curFilelinepEv.exit599:             ; preds = %6527, %6534
   %6540 = phi ptr [ %6539, %6534 ], [ %6530, %6527 ]
   %6541 = getelementptr inbounds i8, ptr %6540, i64 -8
   %6542 = load ptr, ptr %6541, align 8, !tbaa !45
@@ -10963,7 +10963,7 @@ _ZN8V3PreLex12curFilelinepEv.exit600:             ; preds = %6527, %6534
   %6567 = getelementptr inbounds nuw i8, ptr %6564, i64 64
   %6568 = load ptr, ptr %6567, align 8, !tbaa !42, !noalias !633
   %6569 = icmp eq ptr %6566, %6568
-  br i1 %6569, label %6570, label %_ZN8V3PreLex12curFilelinepEv.exit601
+  br i1 %6569, label %6570, label %_ZN8V3PreLex12curFilelinepEv.exit600
 
 6570:                                             ; preds = %6563
   %6571 = getelementptr inbounds nuw i8, ptr %6564, i64 80
@@ -10971,9 +10971,9 @@ _ZN8V3PreLex12curFilelinepEv.exit600:             ; preds = %6527, %6534
   %6573 = getelementptr inbounds i8, ptr %6572, i64 -8
   %6574 = load ptr, ptr %6573, align 8, !tbaa !44
   %6575 = getelementptr inbounds nuw i8, ptr %6574, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit601
+  br label %_ZN8V3PreLex12curFilelinepEv.exit600
 
-_ZN8V3PreLex12curFilelinepEv.exit601:             ; preds = %6563, %6570
+_ZN8V3PreLex12curFilelinepEv.exit600:             ; preds = %6563, %6570
   %6576 = phi ptr [ %6575, %6570 ], [ %6566, %6563 ]
   %6577 = getelementptr inbounds i8, ptr %6576, i64 -8
   %6578 = load ptr, ptr %6577, align 8, !tbaa !45
@@ -11064,7 +11064,7 @@ _ZN8V3PreLex12curFilelinepEv.exit601:             ; preds = %6563, %6570
   %6637 = getelementptr inbounds nuw i8, ptr %6634, i64 64
   %6638 = load ptr, ptr %6637, align 8, !tbaa !42, !noalias !636
   %6639 = icmp eq ptr %6636, %6638
-  br i1 %6639, label %6640, label %_ZN8V3PreLex12curFilelinepEv.exit602
+  br i1 %6639, label %6640, label %_ZN8V3PreLex12curFilelinepEv.exit601
 
 6640:                                             ; preds = %6633
   %6641 = getelementptr inbounds nuw i8, ptr %6634, i64 80
@@ -11072,9 +11072,9 @@ _ZN8V3PreLex12curFilelinepEv.exit601:             ; preds = %6563, %6570
   %6643 = getelementptr inbounds i8, ptr %6642, i64 -8
   %6644 = load ptr, ptr %6643, align 8, !tbaa !44
   %6645 = getelementptr inbounds nuw i8, ptr %6644, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit602
+  br label %_ZN8V3PreLex12curFilelinepEv.exit601
 
-_ZN8V3PreLex12curFilelinepEv.exit602:             ; preds = %6633, %6640
+_ZN8V3PreLex12curFilelinepEv.exit601:             ; preds = %6633, %6640
   %6646 = phi ptr [ %6645, %6640 ], [ %6636, %6633 ]
   %6647 = getelementptr inbounds i8, ptr %6646, i64 -8
   %6648 = load ptr, ptr %6647, align 8, !tbaa !45
@@ -11112,7 +11112,7 @@ _ZN8V3PreLex12curFilelinepEv.exit602:             ; preds = %6633, %6640
   %6672 = getelementptr inbounds nuw i8, ptr %6669, i64 64
   %6673 = load ptr, ptr %6672, align 8, !tbaa !42, !noalias !639
   %6674 = icmp eq ptr %6671, %6673
-  br i1 %6674, label %6675, label %_ZN8V3PreLex12curFilelinepEv.exit603
+  br i1 %6674, label %6675, label %_ZN8V3PreLex12curFilelinepEv.exit602
 
 6675:                                             ; preds = %6668
   %6676 = getelementptr inbounds nuw i8, ptr %6669, i64 80
@@ -11120,9 +11120,9 @@ _ZN8V3PreLex12curFilelinepEv.exit602:             ; preds = %6633, %6640
   %6678 = getelementptr inbounds i8, ptr %6677, i64 -8
   %6679 = load ptr, ptr %6678, align 8, !tbaa !44
   %6680 = getelementptr inbounds nuw i8, ptr %6679, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit603
+  br label %_ZN8V3PreLex12curFilelinepEv.exit602
 
-_ZN8V3PreLex12curFilelinepEv.exit603:             ; preds = %6668, %6675
+_ZN8V3PreLex12curFilelinepEv.exit602:             ; preds = %6668, %6675
   %6681 = phi ptr [ %6680, %6675 ], [ %6671, %6668 ]
   %6682 = getelementptr inbounds i8, ptr %6681, i64 -8
   %6683 = load ptr, ptr %6682, align 8, !tbaa !45
@@ -11163,7 +11163,7 @@ _ZN8V3PreLex12curFilelinepEv.exit603:             ; preds = %6668, %6675
   %6709 = getelementptr inbounds nuw i8, ptr %6706, i64 64
   %6710 = load ptr, ptr %6709, align 8, !tbaa !42, !noalias !642
   %6711 = icmp eq ptr %6708, %6710
-  br i1 %6711, label %6712, label %_ZN8V3PreLex12curFilelinepEv.exit604
+  br i1 %6711, label %6712, label %_ZN8V3PreLex12curFilelinepEv.exit603
 
 6712:                                             ; preds = %6705
   %6713 = getelementptr inbounds nuw i8, ptr %6706, i64 80
@@ -11171,9 +11171,9 @@ _ZN8V3PreLex12curFilelinepEv.exit603:             ; preds = %6668, %6675
   %6715 = getelementptr inbounds i8, ptr %6714, i64 -8
   %6716 = load ptr, ptr %6715, align 8, !tbaa !44
   %6717 = getelementptr inbounds nuw i8, ptr %6716, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit604
+  br label %_ZN8V3PreLex12curFilelinepEv.exit603
 
-_ZN8V3PreLex12curFilelinepEv.exit604:             ; preds = %6705, %6712
+_ZN8V3PreLex12curFilelinepEv.exit603:             ; preds = %6705, %6712
   %6718 = phi ptr [ %6717, %6712 ], [ %6708, %6705 ]
   %6719 = getelementptr inbounds i8, ptr %6718, i64 -8
   %6720 = load ptr, ptr %6719, align 8, !tbaa !45
@@ -11193,7 +11193,7 @@ _ZN8V3PreLex12curFilelinepEv.exit604:             ; preds = %6705, %6712
   %6728 = getelementptr inbounds nuw i8, ptr %6725, i64 64
   %6729 = load ptr, ptr %6728, align 8, !tbaa !42, !noalias !645
   %6730 = icmp eq ptr %6727, %6729
-  br i1 %6730, label %6731, label %_ZN8V3PreLex12curFilelinepEv.exit605
+  br i1 %6730, label %6731, label %_ZN8V3PreLex12curFilelinepEv.exit604
 
 6731:                                             ; preds = %6724
   %6732 = getelementptr inbounds nuw i8, ptr %6725, i64 80
@@ -11201,9 +11201,9 @@ _ZN8V3PreLex12curFilelinepEv.exit604:             ; preds = %6705, %6712
   %6734 = getelementptr inbounds i8, ptr %6733, i64 -8
   %6735 = load ptr, ptr %6734, align 8, !tbaa !44
   %6736 = getelementptr inbounds nuw i8, ptr %6735, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit605
+  br label %_ZN8V3PreLex12curFilelinepEv.exit604
 
-_ZN8V3PreLex12curFilelinepEv.exit605:             ; preds = %6724, %6731
+_ZN8V3PreLex12curFilelinepEv.exit604:             ; preds = %6724, %6731
   %6737 = phi ptr [ %6736, %6731 ], [ %6727, %6724 ]
   %6738 = getelementptr inbounds i8, ptr %6737, i64 -8
   %6739 = load ptr, ptr %6738, align 8, !tbaa !45
@@ -11242,7 +11242,7 @@ _ZN8V3PreLex12curFilelinepEv.exit605:             ; preds = %6724, %6731
   %6764 = getelementptr inbounds nuw i8, ptr %6761, i64 64
   %6765 = load ptr, ptr %6764, align 8, !tbaa !42, !noalias !648
   %6766 = icmp eq ptr %6763, %6765
-  br i1 %6766, label %6767, label %_ZN8V3PreLex12curFilelinepEv.exit606
+  br i1 %6766, label %6767, label %_ZN8V3PreLex12curFilelinepEv.exit605
 
 6767:                                             ; preds = %6760
   %6768 = getelementptr inbounds nuw i8, ptr %6761, i64 80
@@ -11250,9 +11250,9 @@ _ZN8V3PreLex12curFilelinepEv.exit605:             ; preds = %6724, %6731
   %6770 = getelementptr inbounds i8, ptr %6769, i64 -8
   %6771 = load ptr, ptr %6770, align 8, !tbaa !44
   %6772 = getelementptr inbounds nuw i8, ptr %6771, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit606
+  br label %_ZN8V3PreLex12curFilelinepEv.exit605
 
-_ZN8V3PreLex12curFilelinepEv.exit606:             ; preds = %6760, %6767
+_ZN8V3PreLex12curFilelinepEv.exit605:             ; preds = %6760, %6767
   %6773 = phi ptr [ %6772, %6767 ], [ %6763, %6760 ]
   %6774 = getelementptr inbounds i8, ptr %6773, i64 -8
   %6775 = load ptr, ptr %6774, align 8, !tbaa !45
@@ -11290,7 +11290,7 @@ _ZN8V3PreLex12curFilelinepEv.exit606:             ; preds = %6760, %6767
   %6799 = getelementptr inbounds nuw i8, ptr %6796, i64 64
   %6800 = load ptr, ptr %6799, align 8, !tbaa !42, !noalias !651
   %6801 = icmp eq ptr %6798, %6800
-  br i1 %6801, label %6802, label %_ZN8V3PreLex12curFilelinepEv.exit607
+  br i1 %6801, label %6802, label %_ZN8V3PreLex12curFilelinepEv.exit606
 
 6802:                                             ; preds = %6795
   %6803 = getelementptr inbounds nuw i8, ptr %6796, i64 80
@@ -11298,9 +11298,9 @@ _ZN8V3PreLex12curFilelinepEv.exit606:             ; preds = %6760, %6767
   %6805 = getelementptr inbounds i8, ptr %6804, i64 -8
   %6806 = load ptr, ptr %6805, align 8, !tbaa !44
   %6807 = getelementptr inbounds nuw i8, ptr %6806, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit607
+  br label %_ZN8V3PreLex12curFilelinepEv.exit606
 
-_ZN8V3PreLex12curFilelinepEv.exit607:             ; preds = %6795, %6802
+_ZN8V3PreLex12curFilelinepEv.exit606:             ; preds = %6795, %6802
   %6808 = phi ptr [ %6807, %6802 ], [ %6798, %6795 ]
   %6809 = getelementptr inbounds i8, ptr %6808, i64 -8
   %6810 = load ptr, ptr %6809, align 8, !tbaa !45
@@ -11341,7 +11341,7 @@ _ZN8V3PreLex12curFilelinepEv.exit607:             ; preds = %6795, %6802
   %6836 = getelementptr inbounds nuw i8, ptr %6833, i64 64
   %6837 = load ptr, ptr %6836, align 8, !tbaa !42, !noalias !654
   %6838 = icmp eq ptr %6835, %6837
-  br i1 %6838, label %6839, label %_ZN8V3PreLex12curFilelinepEv.exit608
+  br i1 %6838, label %6839, label %_ZN8V3PreLex12curFilelinepEv.exit607
 
 6839:                                             ; preds = %6832
   %6840 = getelementptr inbounds nuw i8, ptr %6833, i64 80
@@ -11349,9 +11349,9 @@ _ZN8V3PreLex12curFilelinepEv.exit607:             ; preds = %6795, %6802
   %6842 = getelementptr inbounds i8, ptr %6841, i64 -8
   %6843 = load ptr, ptr %6842, align 8, !tbaa !44
   %6844 = getelementptr inbounds nuw i8, ptr %6843, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit608
+  br label %_ZN8V3PreLex12curFilelinepEv.exit607
 
-_ZN8V3PreLex12curFilelinepEv.exit608:             ; preds = %6832, %6839
+_ZN8V3PreLex12curFilelinepEv.exit607:             ; preds = %6832, %6839
   %6845 = phi ptr [ %6844, %6839 ], [ %6835, %6832 ]
   %6846 = getelementptr inbounds i8, ptr %6845, i64 -8
   %6847 = load ptr, ptr %6846, align 8, !tbaa !45
@@ -11392,7 +11392,7 @@ _ZN8V3PreLex12curFilelinepEv.exit608:             ; preds = %6832, %6839
   %6873 = getelementptr inbounds nuw i8, ptr %6870, i64 64
   %6874 = load ptr, ptr %6873, align 8, !tbaa !42, !noalias !657
   %6875 = icmp eq ptr %6872, %6874
-  br i1 %6875, label %6876, label %_ZN8V3PreLex12curFilelinepEv.exit609
+  br i1 %6875, label %6876, label %_ZN8V3PreLex12curFilelinepEv.exit608
 
 6876:                                             ; preds = %6869
   %6877 = getelementptr inbounds nuw i8, ptr %6870, i64 80
@@ -11400,9 +11400,9 @@ _ZN8V3PreLex12curFilelinepEv.exit608:             ; preds = %6832, %6839
   %6879 = getelementptr inbounds i8, ptr %6878, i64 -8
   %6880 = load ptr, ptr %6879, align 8, !tbaa !44
   %6881 = getelementptr inbounds nuw i8, ptr %6880, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit609
+  br label %_ZN8V3PreLex12curFilelinepEv.exit608
 
-_ZN8V3PreLex12curFilelinepEv.exit609:             ; preds = %6869, %6876
+_ZN8V3PreLex12curFilelinepEv.exit608:             ; preds = %6869, %6876
   %6882 = phi ptr [ %6881, %6876 ], [ %6872, %6869 ]
   %6883 = getelementptr inbounds i8, ptr %6882, i64 -8
   %6884 = load ptr, ptr %6883, align 8, !tbaa !45
@@ -11440,7 +11440,7 @@ _ZN8V3PreLex12curFilelinepEv.exit609:             ; preds = %6869, %6876
   %6908 = getelementptr inbounds nuw i8, ptr %6905, i64 64
   %6909 = load ptr, ptr %6908, align 8, !tbaa !42, !noalias !660
   %6910 = icmp eq ptr %6907, %6909
-  br i1 %6910, label %6911, label %_ZN8V3PreLex12curFilelinepEv.exit610
+  br i1 %6910, label %6911, label %_ZN8V3PreLex12curFilelinepEv.exit609
 
 6911:                                             ; preds = %6904
   %6912 = getelementptr inbounds nuw i8, ptr %6905, i64 80
@@ -11448,9 +11448,9 @@ _ZN8V3PreLex12curFilelinepEv.exit609:             ; preds = %6869, %6876
   %6914 = getelementptr inbounds i8, ptr %6913, i64 -8
   %6915 = load ptr, ptr %6914, align 8, !tbaa !44
   %6916 = getelementptr inbounds nuw i8, ptr %6915, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit610
+  br label %_ZN8V3PreLex12curFilelinepEv.exit609
 
-_ZN8V3PreLex12curFilelinepEv.exit610:             ; preds = %6904, %6911
+_ZN8V3PreLex12curFilelinepEv.exit609:             ; preds = %6904, %6911
   %6917 = phi ptr [ %6916, %6911 ], [ %6907, %6904 ]
   %6918 = getelementptr inbounds i8, ptr %6917, i64 -8
   %6919 = load ptr, ptr %6918, align 8, !tbaa !45
@@ -11464,18 +11464,18 @@ _ZN8V3PreLex12curFilelinepEv.exit610:             ; preds = %6904, %6911
   %6926 = getelementptr inbounds nuw i8, ptr %6923, i64 64
   %6927 = load ptr, ptr %6926, align 8, !tbaa !42, !noalias !663
   %6928 = icmp eq ptr %6925, %6927
-  br i1 %6928, label %6929, label %_ZN8V3PreLex12curFilelinepEv.exit611
+  br i1 %6928, label %6929, label %_ZN8V3PreLex12curFilelinepEv.exit610
 
-6929:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit610
+6929:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit609
   %6930 = getelementptr inbounds nuw i8, ptr %6923, i64 80
   %6931 = load ptr, ptr %6930, align 8, !tbaa !43, !noalias !663
   %6932 = getelementptr inbounds i8, ptr %6931, i64 -8
   %6933 = load ptr, ptr %6932, align 8, !tbaa !44
   %6934 = getelementptr inbounds nuw i8, ptr %6933, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit611
+  br label %_ZN8V3PreLex12curFilelinepEv.exit610
 
-_ZN8V3PreLex12curFilelinepEv.exit611:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit610, %6929
-  %6935 = phi ptr [ %6934, %6929 ], [ %6925, %_ZN8V3PreLex12curFilelinepEv.exit610 ]
+_ZN8V3PreLex12curFilelinepEv.exit610:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit609, %6929
+  %6935 = phi ptr [ %6934, %6929 ], [ %6925, %_ZN8V3PreLex12curFilelinepEv.exit609 ]
   %6936 = getelementptr inbounds i8, ptr %6935, i64 -8
   %6937 = load ptr, ptr %6936, align 8, !tbaa !45
   %6938 = load ptr, ptr %6937, align 8, !tbaa !47
@@ -11517,7 +11517,7 @@ _ZN8V3PreLex12curFilelinepEv.exit611:             ; preds = %_ZN8V3PreLex12curFi
   %6965 = getelementptr inbounds nuw i8, ptr %6962, i64 64
   %6966 = load ptr, ptr %6965, align 8, !tbaa !42, !noalias !666
   %6967 = icmp eq ptr %6964, %6966
-  br i1 %6967, label %6968, label %_ZN8V3PreLex12curFilelinepEv.exit612
+  br i1 %6967, label %6968, label %_ZN8V3PreLex12curFilelinepEv.exit611
 
 6968:                                             ; preds = %6961
   %6969 = getelementptr inbounds nuw i8, ptr %6962, i64 80
@@ -11525,9 +11525,9 @@ _ZN8V3PreLex12curFilelinepEv.exit611:             ; preds = %_ZN8V3PreLex12curFi
   %6971 = getelementptr inbounds i8, ptr %6970, i64 -8
   %6972 = load ptr, ptr %6971, align 8, !tbaa !44
   %6973 = getelementptr inbounds nuw i8, ptr %6972, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit612
+  br label %_ZN8V3PreLex12curFilelinepEv.exit611
 
-_ZN8V3PreLex12curFilelinepEv.exit612:             ; preds = %6961, %6968
+_ZN8V3PreLex12curFilelinepEv.exit611:             ; preds = %6961, %6968
   %6974 = phi ptr [ %6973, %6968 ], [ %6964, %6961 ]
   %6975 = getelementptr inbounds i8, ptr %6974, i64 -8
   %6976 = load ptr, ptr %6975, align 8, !tbaa !45
@@ -11541,18 +11541,18 @@ _ZN8V3PreLex12curFilelinepEv.exit612:             ; preds = %6961, %6968
   %6983 = getelementptr inbounds nuw i8, ptr %6980, i64 64
   %6984 = load ptr, ptr %6983, align 8, !tbaa !42, !noalias !669
   %6985 = icmp eq ptr %6982, %6984
-  br i1 %6985, label %6986, label %_ZN8V3PreLex12curFilelinepEv.exit613
+  br i1 %6985, label %6986, label %_ZN8V3PreLex12curFilelinepEv.exit612
 
-6986:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit612
+6986:                                             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit611
   %6987 = getelementptr inbounds nuw i8, ptr %6980, i64 80
   %6988 = load ptr, ptr %6987, align 8, !tbaa !43, !noalias !669
   %6989 = getelementptr inbounds i8, ptr %6988, i64 -8
   %6990 = load ptr, ptr %6989, align 8, !tbaa !44
   %6991 = getelementptr inbounds nuw i8, ptr %6990, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit613
+  br label %_ZN8V3PreLex12curFilelinepEv.exit612
 
-_ZN8V3PreLex12curFilelinepEv.exit613:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit612, %6986
-  %6992 = phi ptr [ %6991, %6986 ], [ %6982, %_ZN8V3PreLex12curFilelinepEv.exit612 ]
+_ZN8V3PreLex12curFilelinepEv.exit612:             ; preds = %_ZN8V3PreLex12curFilelinepEv.exit611, %6986
+  %6992 = phi ptr [ %6991, %6986 ], [ %6982, %_ZN8V3PreLex12curFilelinepEv.exit611 ]
   %6993 = getelementptr inbounds i8, ptr %6992, i64 -8
   %6994 = load ptr, ptr %6993, align 8, !tbaa !45
   %6995 = load ptr, ptr %6994, align 8, !tbaa !47
@@ -11594,7 +11594,7 @@ _ZN8V3PreLex12curFilelinepEv.exit613:             ; preds = %_ZN8V3PreLex12curFi
   %7022 = getelementptr inbounds nuw i8, ptr %7019, i64 64
   %7023 = load ptr, ptr %7022, align 8, !tbaa !42, !noalias !672
   %7024 = icmp eq ptr %7021, %7023
-  br i1 %7024, label %7025, label %_ZN8V3PreLex12curFilelinepEv.exit614
+  br i1 %7024, label %7025, label %_ZN8V3PreLex12curFilelinepEv.exit613
 
 7025:                                             ; preds = %7018
   %7026 = getelementptr inbounds nuw i8, ptr %7019, i64 80
@@ -11602,9 +11602,9 @@ _ZN8V3PreLex12curFilelinepEv.exit613:             ; preds = %_ZN8V3PreLex12curFi
   %7028 = getelementptr inbounds i8, ptr %7027, i64 -8
   %7029 = load ptr, ptr %7028, align 8, !tbaa !44
   %7030 = getelementptr inbounds nuw i8, ptr %7029, i64 512
-  br label %_ZN8V3PreLex12curFilelinepEv.exit614
+  br label %_ZN8V3PreLex12curFilelinepEv.exit613
 
-_ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
+_ZN8V3PreLex12curFilelinepEv.exit613:             ; preds = %7018, %7025
   %7031 = phi ptr [ %7030, %7025 ], [ %7021, %7018 ]
   %7032 = getelementptr inbounds i8, ptr %7031, i64 -8
   %7033 = load ptr, ptr %7032, align 8, !tbaa !45
@@ -11617,12 +11617,12 @@ _ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
 7037:                                             ; preds = %159
   %7038 = load i32, ptr @V3PreLexleng, align 4, !tbaa !9
   %7039 = icmp sgt i32 %7038, 0
-  %.pre1468 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
+  %.pre1467 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
   br i1 %7039, label %7040, label %7052
 
 7040:                                             ; preds = %7037
   %7041 = zext nneg i32 %7038 to i64
-  %7042 = getelementptr i8, ptr %.pre1468, i64 %7041
+  %7042 = getelementptr i8, ptr %.pre1467, i64 %7041
   %7043 = getelementptr i8, ptr %7042, i64 -1
   %7044 = load i8, ptr %7043, align 1, !tbaa !27
   %7045 = icmp eq i8 %7044, 10
@@ -11638,7 +11638,7 @@ _ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
 7052:                                             ; preds = %7037, %7040
   %7053 = sext i32 %7038 to i64
   %7054 = load ptr, ptr @V3PreLexout, align 8, !tbaa !11
-  %7055 = call i64 @fwrite(ptr noundef %.pre1468, i64 noundef %7053, i64 noundef 1, ptr noundef %7054)
+  %7055 = call i64 @fwrite(ptr noundef %.pre1467, i64 noundef %7053, i64 noundef 1, ptr noundef %7054)
   br label %.backedge
 
 7056:                                             ; preds = %159
@@ -11652,10 +11652,10 @@ _ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
   %7063 = getelementptr inbounds nuw i8, ptr %7062, i64 56
   %7064 = load i32, ptr %7063, align 8, !tbaa !675
   %7065 = icmp eq i32 %7064, 0
-  br i1 %7065, label %7066, label %._crit_edge1456
+  br i1 %7065, label %7066, label %._crit_edge1455
 
-._crit_edge1456:                                  ; preds = %7056
-  %.pre1457 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !9
+._crit_edge1455:                                  ; preds = %7056
+  %.pre1456 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !9
   br label %7070
 
 7066:                                             ; preds = %7056
@@ -11667,9 +11667,9 @@ _ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
   store i32 1, ptr %7063, align 8, !tbaa !675
   br label %7070
 
-7070:                                             ; preds = %._crit_edge1456, %7066
-  %7071 = phi i32 [ %7064, %._crit_edge1456 ], [ 1, %7066 ]
-  %7072 = phi i32 [ %.pre1457, %._crit_edge1456 ], [ %7068, %7066 ]
+7070:                                             ; preds = %._crit_edge1455, %7066
+  %7071 = phi i32 [ %7064, %._crit_edge1455 ], [ 1, %7066 ]
+  %7072 = phi i32 [ %.pre1456, %._crit_edge1455 ], [ %7068, %7066 ]
   %7073 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
   %7074 = getelementptr inbounds nuw i8, ptr %7062, i64 8
   %7075 = load ptr, ptr %7074, align 8, !tbaa !22
@@ -11702,8 +11702,8 @@ _ZN8V3PreLex12curFilelinepEv.exit614:             ; preds = %7018, %7025
   %.01625.i = phi ptr [ %7133, %._crit_edge.i ], [ %7093, %7078 ]
   %.01724.i = phi i32 [ %7132, %._crit_edge.i ], [ %7090, %7078 ]
   %7095 = load i8, ptr %.01625.i, align 1, !tbaa !27
-  %.not.i615 = icmp eq i8 %7095, 0
-  br i1 %.not.i615, label %7100, label %7096
+  %.not.i614 = icmp eq i8 %7095, 0
+  br i1 %.not.i614, label %7100, label %7096
 
 7096:                                             ; preds = %.lr.ph27.i
   %7097 = zext i8 %7095 to i64
@@ -11775,8 +11775,8 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %707
   %7135 = sext i32 %.017.lcssa.i to i64
   %7136 = getelementptr inbounds [660 x i32], ptr @_ZL9yy_accept, i64 0, i64 %7135
   %7137 = load i32, ptr %7136, align 4, !tbaa !9
-  %.not.i616 = icmp eq i32 %7137, 0
-  br i1 %.not.i616, label %7139, label %7138
+  %.not.i615 = icmp eq i32 %7137, 0
+  br i1 %.not.i615, label %7139, label %7138
 
 7138:                                             ; preds = %_ZL21yy_get_previous_statev.exit
   store i32 %.017.lcssa.i, ptr @_ZL23yy_last_accepting_state, align 4, !tbaa !9
@@ -11791,10 +11791,10 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %707
   %7144 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7143
   %7145 = load i32, ptr %7144, align 4, !tbaa !9
   %.not1415.i = icmp eq i32 %7145, %.017.lcssa.i
-  br i1 %.not1415.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i617
+  br i1 %.not1415.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i616
 
-.lr.ph.i617:                                      ; preds = %7139, %.lr.ph.i617
-  %7146 = phi i64 [ %7149, %.lr.ph.i617 ], [ %7135, %7139 ]
+.lr.ph.i616:                                      ; preds = %7139, %.lr.ph.i616
+  %7146 = phi i64 [ %7149, %.lr.ph.i616 ], [ %7135, %7139 ]
   %7147 = getelementptr inbounds [720 x i32], ptr @_ZL6yy_def, i64 0, i64 %7146
   %7148 = load i32, ptr %7147, align 4, !tbaa !9
   %7149 = sext i32 %7148 to i64
@@ -11805,11 +11805,11 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %707
   %7154 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7153
   %7155 = load i32, ptr %7154, align 4, !tbaa !9
   %.not14.i = icmp eq i32 %7155, %7148
-  br i1 %.not14.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i617, !llvm.loop !678
+  br i1 %.not14.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i616, !llvm.loop !678
 
-_ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i617, %7139
-  %.lcssa.i619 = phi i64 [ %7143, %7139 ], [ %7153, %.lr.ph.i617 ]
-  %7156 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i619
+_ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i616, %7139
+  %.lcssa.i618 = phi i64 [ %7143, %7139 ], [ %7153, %.lr.ph.i616 ]
+  %7156 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i618
   %7157 = load i32, ptr %7156, align 4, !tbaa !9
   switch i32 %7157, label %7158 [
     i32 659, label %.preheader.outer.backedge
@@ -11819,13 +11819,13 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i617, %7139
 7158:                                             ; preds = %_ZL16yy_try_NUL_transi.exit
   %7159 = getelementptr inbounds nuw i8, ptr %7086, i64 1
   store ptr %7159, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
-  br label %.loopexit670.backedge
+  br label %.loopexit669.backedge
 
-.loopexit670.backedge:                            ; preds = %._crit_edge.i634, %7158, %7277
-  %.0119.be = phi ptr [ %7295, %7277 ], [ %7093, %7158 ], [ %7295, %._crit_edge.i634 ]
-  %.0112.be = phi ptr [ %7284, %7277 ], [ %7159, %7158 ], [ %7284, %._crit_edge.i634 ]
-  %.0111.be = phi i32 [ %7292, %7277 ], [ %7157, %7158 ], [ %7334, %._crit_edge.i634 ]
-  br label %.loopexit670
+.loopexit669.backedge:                            ; preds = %._crit_edge.i633, %7158, %7277
+  %.0119.be = phi ptr [ %7295, %7277 ], [ %7093, %7158 ], [ %7295, %._crit_edge.i633 ]
+  %.0112.be = phi ptr [ %7284, %7277 ], [ %7159, %7158 ], [ %7284, %._crit_edge.i633 ]
+  %.0111.be = phi i32 [ %7292, %7277 ], [ %7157, %7158 ], [ %7334, %._crit_edge.i633 ]
+  br label %.loopexit669
 
 7160:                                             ; preds = %7070
   %7161 = load ptr, ptr @V3PreLextext, align 8, !tbaa !4
@@ -11851,46 +11851,46 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i617, %7139
   %7174 = add i64 %7170, %7173
   %7175 = sub i64 %7169, %7174
   %7176 = icmp eq i64 %7175, 1
-  br i1 %7176, label %_ZL21yy_get_previous_statev.exit636, label %_ZL18yy_get_next_bufferv.exit.thread663
+  br i1 %7176, label %_ZL21yy_get_previous_statev.exit635, label %_ZL18yy_get_next_bufferv.exit.thread662
 
 7177:                                             ; preds = %7165
   %7178 = xor i64 %7170, -1
   %7179 = add i64 %7178, %7169
   %7180 = trunc i64 %7179 to i32
   %7181 = icmp sgt i32 %7180, 0
-  br i1 %7181, label %.lr.ph.i622, label %._crit_edge.i620
+  br i1 %7181, label %.lr.ph.i621, label %._crit_edge.i619
 
-.lr.ph.i622:                                      ; preds = %7177, %.lr.ph.i622
-  %.03257.i = phi ptr [ %7184, %.lr.ph.i622 ], [ %7075, %7177 ]
-  %.03356.i = phi ptr [ %7182, %.lr.ph.i622 ], [ %7161, %7177 ]
-  %.03455.i = phi i32 [ %7185, %.lr.ph.i622 ], [ 0, %7177 ]
+.lr.ph.i621:                                      ; preds = %7177, %.lr.ph.i621
+  %.03257.i = phi ptr [ %7184, %.lr.ph.i621 ], [ %7075, %7177 ]
+  %.03356.i = phi ptr [ %7182, %.lr.ph.i621 ], [ %7161, %7177 ]
+  %.03455.i = phi i32 [ %7185, %.lr.ph.i621 ], [ 0, %7177 ]
   %7182 = getelementptr inbounds nuw i8, ptr %.03356.i, i64 1
   %7183 = load i8, ptr %.03356.i, align 1, !tbaa !27
   %7184 = getelementptr inbounds nuw i8, ptr %.03257.i, i64 1
   store i8 %7183, ptr %.03257.i, align 1, !tbaa !27
   %7185 = add nuw nsw i32 %.03455.i, 1
   %exitcond.not.i = icmp eq i32 %7185, %7180
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i622, !llvm.loop !680
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i621, !llvm.loop !680
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i622
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i621
   %.pre.i = load ptr, ptr %7061, align 8, !tbaa !18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.i, i64 56
-  %.pre1458 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !675
-  br label %._crit_edge.i620
+  %.pre1457 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !675
+  br label %._crit_edge.i619
 
-._crit_edge.i620:                                 ; preds = %._crit_edge.loopexit.i, %7177
-  %7186 = phi i32 [ %.pre1458, %._crit_edge.loopexit.i ], [ %7071, %7177 ]
+._crit_edge.i619:                                 ; preds = %._crit_edge.loopexit.i, %7177
+  %7186 = phi i32 [ %.pre1457, %._crit_edge.loopexit.i ], [ %7071, %7177 ]
   %7187 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %7062, %7177 ]
   %7188 = icmp eq i32 %7186, 2
   br i1 %7188, label %.thread48.i, label %7190
 
-.thread48.i:                                      ; preds = %._crit_edge.i620
+.thread48.i:                                      ; preds = %._crit_edge.i619
   store i32 0, ptr @_ZL10yy_n_chars, align 4, !tbaa !9
   %7189 = getelementptr inbounds nuw i8, ptr %7187, i64 28
   store i32 0, ptr %7189, align 4, !tbaa !24
   br label %7233
 
-7190:                                             ; preds = %._crit_edge.i620
+7190:                                             ; preds = %._crit_edge.i619
   %7191 = xor i32 %7180, -1
   %.pn.in58.i = getelementptr inbounds nuw i8, ptr %7187, i64 24
   %.pn59.i = load i32, ptr %.pn.in58.i, align 8, !tbaa !20
@@ -11909,8 +11909,8 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i617, %7139
   %7200 = sub i64 %7198, %7199
   %7201 = getelementptr inbounds nuw i8, ptr %7194, i64 32
   %7202 = load i32, ptr %7201, align 8, !tbaa !23
-  %.not.i621 = icmp eq i32 %7202, 0
-  br i1 %.not.i621, label %.thread.i, label %7203
+  %.not.i620 = icmp eq i32 %7202, 0
+  br i1 %.not.i620, label %.thread.i, label %7203
 
 .thread.i:                                        ; preds = %.lr.ph62.i
   store ptr null, ptr %7196, align 8, !tbaa !22
@@ -12051,29 +12051,29 @@ _ZL18yy_get_next_bufferv.exit:                    ; preds = %._crit_edge71.i, %7
   %7275 = getelementptr inbounds nuw i8, ptr %7274, i64 8
   %7276 = load ptr, ptr %7275, align 8, !tbaa !22
   store ptr %7276, ptr @V3PreLextext, align 8, !tbaa !4
-  switch i32 %.036.i, label %default.unreachable1486 [
+  switch i32 %.036.i, label %default.unreachable1485 [
     i32 1, label %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge
     i32 0, label %7277
-    i32 2, label %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge
+    i32 2, label %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge
   ]
 
 _ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge: ; preds = %_ZL18yy_get_next_bufferv.exit
-  %.pre1467 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !9
-  %.pre1480 = sext i32 %.pre1467 to i64
-  br label %_ZL21yy_get_previous_statev.exit636
-
-_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge: ; preds = %_ZL18yy_get_next_bufferv.exit
-  %.pre1459 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !13
-  %.pre1460 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !16
-  %.phi.trans.insert1461 = getelementptr inbounds nuw ptr, ptr %.pre1459, i64 %.pre1460
-  %.pre1462 = load ptr, ptr %.phi.trans.insert1461, align 8, !tbaa !18
-  %.phi.trans.insert1463 = getelementptr inbounds nuw i8, ptr %.pre1462, i64 8
-  %.pre1464 = load ptr, ptr %.phi.trans.insert1463, align 8, !tbaa !22
-  %.pre1465 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !9
   %.pre1466 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !9
-  %.pre1482 = sext i32 %.pre1465 to i64
-  %.pre1484 = sext i32 %.pre1466 to i64
-  br label %_ZL18yy_get_next_bufferv.exit.thread663
+  %.pre1479 = sext i32 %.pre1466 to i64
+  br label %_ZL21yy_get_previous_statev.exit635
+
+_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge: ; preds = %_ZL18yy_get_next_bufferv.exit
+  %.pre1458 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !13
+  %.pre1459 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !16
+  %.phi.trans.insert1460 = getelementptr inbounds nuw ptr, ptr %.pre1458, i64 %.pre1459
+  %.pre1461 = load ptr, ptr %.phi.trans.insert1460, align 8, !tbaa !18
+  %.phi.trans.insert1462 = getelementptr inbounds nuw i8, ptr %.pre1461, i64 8
+  %.pre1463 = load ptr, ptr %.phi.trans.insert1462, align 8, !tbaa !22
+  %.pre1464 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !9
+  %.pre1465 = load i32, ptr @_ZL11yy_more_len, align 4, !tbaa !9
+  %.pre1481 = sext i32 %.pre1464 to i64
+  %.pre1483 = sext i32 %.pre1465 to i64
+  br label %_ZL18yy_get_next_bufferv.exit.thread662
 
 7277:                                             ; preds = %_ZL18yy_get_next_bufferv.exit
   %7278 = ptrtoint ptr %.3115 to i64
@@ -12096,32 +12096,32 @@ _ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge:
   %7294 = sext i32 %7293 to i64
   %7295 = getelementptr inbounds i8, ptr %7276, i64 %7294
   %7296 = icmp slt i32 %7293, %7282
-  br i1 %7296, label %.lr.ph27.i624, label %.loopexit670.backedge
+  br i1 %7296, label %.lr.ph27.i623, label %.loopexit669.backedge
 
-.lr.ph27.i624:                                    ; preds = %7277, %._crit_edge.i634
-  %.01625.i625 = phi ptr [ %7335, %._crit_edge.i634 ], [ %7295, %7277 ]
-  %.01724.i626 = phi i32 [ %7334, %._crit_edge.i634 ], [ %7292, %7277 ]
-  %7297 = load i8, ptr %.01625.i625, align 1, !tbaa !27
-  %.not.i627 = icmp eq i8 %7297, 0
-  br i1 %.not.i627, label %7302, label %7298
+.lr.ph27.i623:                                    ; preds = %7277, %._crit_edge.i633
+  %.01625.i624 = phi ptr [ %7335, %._crit_edge.i633 ], [ %7295, %7277 ]
+  %.01724.i625 = phi i32 [ %7334, %._crit_edge.i633 ], [ %7292, %7277 ]
+  %7297 = load i8, ptr %.01625.i624, align 1, !tbaa !27
+  %.not.i626 = icmp eq i8 %7297, 0
+  br i1 %.not.i626, label %7302, label %7298
 
-7298:                                             ; preds = %.lr.ph27.i624
+7298:                                             ; preds = %.lr.ph27.i623
   %7299 = zext i8 %7297 to i64
   %7300 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %7299
   %7301 = load i8, ptr %7300, align 1, !tbaa !27
   br label %7302
 
-7302:                                             ; preds = %7298, %.lr.ph27.i624
-  %7303 = phi i8 [ %7301, %7298 ], [ 1, %.lr.ph27.i624 ]
-  %7304 = sext i32 %.01724.i626 to i64
+7302:                                             ; preds = %7298, %.lr.ph27.i623
+  %7303 = phi i8 [ %7301, %7298 ], [ 1, %.lr.ph27.i623 ]
+  %7304 = sext i32 %.01724.i625 to i64
   %7305 = getelementptr inbounds [660 x i32], ptr @_ZL9yy_accept, i64 0, i64 %7304
   %7306 = load i32, ptr %7305, align 4, !tbaa !9
-  %.not20.i628 = icmp eq i32 %7306, 0
-  br i1 %.not20.i628, label %7308, label %7307
+  %.not20.i627 = icmp eq i32 %7306, 0
+  br i1 %.not20.i627, label %7308, label %7307
 
 7307:                                             ; preds = %7302
-  store i32 %.01724.i626, ptr @_ZL23yy_last_accepting_state, align 4, !tbaa !9
-  store ptr %.01625.i625, ptr @_ZL22yy_last_accepting_cpos, align 8, !tbaa !4
+  store i32 %.01724.i625, ptr @_ZL23yy_last_accepting_state, align 4, !tbaa !9
+  store ptr %.01625.i624, ptr @_ZL22yy_last_accepting_cpos, align 8, !tbaa !4
   br label %7308
 
 7308:                                             ; preds = %7307, %7302
@@ -12132,90 +12132,90 @@ _ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge:
   %7313 = sext i32 %7312 to i64
   %7314 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7313
   %7315 = load i32, ptr %7314, align 4, !tbaa !9
-  %.not2122.i629 = icmp eq i32 %7315, %.01724.i626
-  br i1 %.not2122.i629, label %._crit_edge.i634, label %.lr.ph.i630
+  %.not2122.i628 = icmp eq i32 %7315, %.01724.i625
+  br i1 %.not2122.i628, label %._crit_edge.i633, label %.lr.ph.i629
 
-.lr.ph.i630:                                      ; preds = %7308, %7324
+.lr.ph.i629:                                      ; preds = %7308, %7324
   %7316 = phi i64 [ %7325, %7324 ], [ %7304, %7308 ]
-  %.023.i631 = phi i8 [ %.1.i632, %7324 ], [ %7303, %7308 ]
+  %.023.i630 = phi i8 [ %.1.i631, %7324 ], [ %7303, %7308 ]
   %7317 = getelementptr inbounds [720 x i32], ptr @_ZL6yy_def, i64 0, i64 %7316
   %7318 = load i32, ptr %7317, align 4, !tbaa !9
   %7319 = icmp sgt i32 %7318, 659
   br i1 %7319, label %7320, label %7324
 
-7320:                                             ; preds = %.lr.ph.i630
-  %7321 = zext i8 %.023.i631 to i64
+7320:                                             ; preds = %.lr.ph.i629
+  %7321 = zext i8 %.023.i630 to i64
   %7322 = getelementptr inbounds nuw [57 x i8], ptr @_ZL7yy_meta, i64 0, i64 %7321
   %7323 = load i8, ptr %7322, align 1, !tbaa !27
   br label %7324
 
-7324:                                             ; preds = %7320, %.lr.ph.i630
-  %.1.i632 = phi i8 [ %7323, %7320 ], [ %.023.i631, %.lr.ph.i630 ]
+7324:                                             ; preds = %7320, %.lr.ph.i629
+  %.1.i631 = phi i8 [ %7323, %7320 ], [ %.023.i630, %.lr.ph.i629 ]
   %7325 = sext i32 %7318 to i64
   %7326 = getelementptr inbounds [720 x i32], ptr @_ZL7yy_base, i64 0, i64 %7325
   %7327 = load i32, ptr %7326, align 4, !tbaa !9
-  %7328 = zext i8 %.1.i632 to i32
+  %7328 = zext i8 %.1.i631 to i32
   %7329 = add nsw i32 %7327, %7328
   %7330 = sext i32 %7329 to i64
   %7331 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7330
   %7332 = load i32, ptr %7331, align 4, !tbaa !9
-  %.not21.i633 = icmp eq i32 %7332, %7318
-  br i1 %.not21.i633, label %._crit_edge.i634, label %.lr.ph.i630, !llvm.loop !676
+  %.not21.i632 = icmp eq i32 %7332, %7318
+  br i1 %.not21.i632, label %._crit_edge.i633, label %.lr.ph.i629, !llvm.loop !676
 
-._crit_edge.i634:                                 ; preds = %7324, %7308
-  %.lcssa.i635 = phi i64 [ %7313, %7308 ], [ %7330, %7324 ]
-  %7333 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i635
+._crit_edge.i633:                                 ; preds = %7324, %7308
+  %.lcssa.i634 = phi i64 [ %7313, %7308 ], [ %7330, %7324 ]
+  %7333 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i634
   %7334 = load i32, ptr %7333, align 4, !tbaa !9
-  %7335 = getelementptr inbounds nuw i8, ptr %.01625.i625, i64 1
+  %7335 = getelementptr inbounds nuw i8, ptr %.01625.i624, i64 1
   %7336 = icmp ult ptr %7335, %7284
-  br i1 %7336, label %.lr.ph27.i624, label %.loopexit670.backedge, !llvm.loop !677
+  br i1 %7336, label %.lr.ph27.i623, label %.loopexit669.backedge, !llvm.loop !677
 
-_ZL18yy_get_next_bufferv.exit.thread663:          ; preds = %7171, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge
-  %.pre-phi1485 = phi i64 [ %.pre1484, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge ], [ %7173, %7171 ]
-  %.pre-phi1483 = phi i64 [ %.pre1482, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge ], [ %7076, %7171 ]
-  %7337 = phi ptr [ %7276, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge ], [ %7161, %7171 ]
-  %7338 = phi ptr [ %.pre1464, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge ], [ %7075, %7171 ]
-  %7339 = phi ptr [ %.pre1462, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread663_crit_edge ], [ %7062, %7171 ]
-  %7340 = getelementptr inbounds i8, ptr %7338, i64 %.pre-phi1483
+_ZL18yy_get_next_bufferv.exit.thread662:          ; preds = %7171, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge
+  %.pre-phi1484 = phi i64 [ %.pre1483, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge ], [ %7173, %7171 ]
+  %.pre-phi1482 = phi i64 [ %.pre1481, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge ], [ %7076, %7171 ]
+  %7337 = phi ptr [ %7276, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge ], [ %7161, %7171 ]
+  %7338 = phi ptr [ %.pre1463, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge ], [ %7075, %7171 ]
+  %7339 = phi ptr [ %.pre1461, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread662_crit_edge ], [ %7062, %7171 ]
+  %7340 = getelementptr inbounds i8, ptr %7338, i64 %.pre-phi1482
   store ptr %7340, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
   %7341 = load i32, ptr @_ZL8yy_start, align 4, !tbaa !9
   %7342 = getelementptr inbounds nuw i8, ptr %7339, i64 40
   %7343 = load i32, ptr %7342, align 8, !tbaa !28
   %7344 = add nsw i32 %7343, %7341
-  %7345 = getelementptr inbounds i8, ptr %7337, i64 %.pre-phi1485
+  %7345 = getelementptr inbounds i8, ptr %7337, i64 %.pre-phi1484
   %7346 = icmp ult ptr %7345, %7340
-  br i1 %7346, label %.lr.ph27.i638, label %.preheader.outer.backedge
+  br i1 %7346, label %.lr.ph27.i637, label %.preheader.outer.backedge
 
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i648, %_ZL18yy_get_next_bufferv.exit.thread663, %_ZL16yy_try_NUL_transi.exit, %_ZL16yy_try_NUL_transi.exit
-  %.1120.ph.be = phi ptr [ %7093, %_ZL16yy_try_NUL_transi.exit ], [ %7093, %_ZL16yy_try_NUL_transi.exit ], [ %7345, %_ZL18yy_get_next_bufferv.exit.thread663 ], [ %7345, %._crit_edge.i648 ]
-  %.2114.ph.be = phi ptr [ %7086, %_ZL16yy_try_NUL_transi.exit ], [ %7086, %_ZL16yy_try_NUL_transi.exit ], [ %7340, %_ZL18yy_get_next_bufferv.exit.thread663 ], [ %7340, %._crit_edge.i648 ]
-  %.3.ph.be = phi i32 [ %.017.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %.017.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %7344, %_ZL18yy_get_next_bufferv.exit.thread663 ], [ %7384, %._crit_edge.i648 ]
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i647, %_ZL18yy_get_next_bufferv.exit.thread662, %_ZL16yy_try_NUL_transi.exit, %_ZL16yy_try_NUL_transi.exit
+  %.1120.ph.be = phi ptr [ %7093, %_ZL16yy_try_NUL_transi.exit ], [ %7093, %_ZL16yy_try_NUL_transi.exit ], [ %7345, %_ZL18yy_get_next_bufferv.exit.thread662 ], [ %7345, %._crit_edge.i647 ]
+  %.2114.ph.be = phi ptr [ %7086, %_ZL16yy_try_NUL_transi.exit ], [ %7086, %_ZL16yy_try_NUL_transi.exit ], [ %7340, %_ZL18yy_get_next_bufferv.exit.thread662 ], [ %7340, %._crit_edge.i647 ]
+  %.3.ph.be = phi i32 [ %.017.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %.017.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %7344, %_ZL18yy_get_next_bufferv.exit.thread662 ], [ %7384, %._crit_edge.i647 ]
   br label %.preheader.outer
 
-.lr.ph27.i638:                                    ; preds = %_ZL18yy_get_next_bufferv.exit.thread663, %._crit_edge.i648
-  %.01625.i639 = phi ptr [ %7385, %._crit_edge.i648 ], [ %7345, %_ZL18yy_get_next_bufferv.exit.thread663 ]
-  %.01724.i640 = phi i32 [ %7384, %._crit_edge.i648 ], [ %7344, %_ZL18yy_get_next_bufferv.exit.thread663 ]
-  %7347 = load i8, ptr %.01625.i639, align 1, !tbaa !27
-  %.not.i641 = icmp eq i8 %7347, 0
-  br i1 %.not.i641, label %7352, label %7348
+.lr.ph27.i637:                                    ; preds = %_ZL18yy_get_next_bufferv.exit.thread662, %._crit_edge.i647
+  %.01625.i638 = phi ptr [ %7385, %._crit_edge.i647 ], [ %7345, %_ZL18yy_get_next_bufferv.exit.thread662 ]
+  %.01724.i639 = phi i32 [ %7384, %._crit_edge.i647 ], [ %7344, %_ZL18yy_get_next_bufferv.exit.thread662 ]
+  %7347 = load i8, ptr %.01625.i638, align 1, !tbaa !27
+  %.not.i640 = icmp eq i8 %7347, 0
+  br i1 %.not.i640, label %7352, label %7348
 
-7348:                                             ; preds = %.lr.ph27.i638
+7348:                                             ; preds = %.lr.ph27.i637
   %7349 = zext i8 %7347 to i64
   %7350 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %7349
   %7351 = load i8, ptr %7350, align 1, !tbaa !27
   br label %7352
 
-7352:                                             ; preds = %7348, %.lr.ph27.i638
-  %7353 = phi i8 [ %7351, %7348 ], [ 1, %.lr.ph27.i638 ]
-  %7354 = sext i32 %.01724.i640 to i64
+7352:                                             ; preds = %7348, %.lr.ph27.i637
+  %7353 = phi i8 [ %7351, %7348 ], [ 1, %.lr.ph27.i637 ]
+  %7354 = sext i32 %.01724.i639 to i64
   %7355 = getelementptr inbounds [660 x i32], ptr @_ZL9yy_accept, i64 0, i64 %7354
   %7356 = load i32, ptr %7355, align 4, !tbaa !9
-  %.not20.i642 = icmp eq i32 %7356, 0
-  br i1 %.not20.i642, label %7358, label %7357
+  %.not20.i641 = icmp eq i32 %7356, 0
+  br i1 %.not20.i641, label %7358, label %7357
 
 7357:                                             ; preds = %7352
-  store i32 %.01724.i640, ptr @_ZL23yy_last_accepting_state, align 4, !tbaa !9
-  store ptr %.01625.i639, ptr @_ZL22yy_last_accepting_cpos, align 8, !tbaa !4
+  store i32 %.01724.i639, ptr @_ZL23yy_last_accepting_state, align 4, !tbaa !9
+  store ptr %.01625.i638, ptr @_ZL22yy_last_accepting_cpos, align 8, !tbaa !4
   br label %7358
 
 7358:                                             ; preds = %7357, %7352
@@ -12226,51 +12226,51 @@ _ZL18yy_get_next_bufferv.exit.thread663:          ; preds = %7171, %_ZL18yy_get_
   %7363 = sext i32 %7362 to i64
   %7364 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7363
   %7365 = load i32, ptr %7364, align 4, !tbaa !9
-  %.not2122.i643 = icmp eq i32 %7365, %.01724.i640
-  br i1 %.not2122.i643, label %._crit_edge.i648, label %.lr.ph.i644
+  %.not2122.i642 = icmp eq i32 %7365, %.01724.i639
+  br i1 %.not2122.i642, label %._crit_edge.i647, label %.lr.ph.i643
 
-.lr.ph.i644:                                      ; preds = %7358, %7374
+.lr.ph.i643:                                      ; preds = %7358, %7374
   %7366 = phi i64 [ %7375, %7374 ], [ %7354, %7358 ]
-  %.023.i645 = phi i8 [ %.1.i646, %7374 ], [ %7353, %7358 ]
+  %.023.i644 = phi i8 [ %.1.i645, %7374 ], [ %7353, %7358 ]
   %7367 = getelementptr inbounds [720 x i32], ptr @_ZL6yy_def, i64 0, i64 %7366
   %7368 = load i32, ptr %7367, align 4, !tbaa !9
   %7369 = icmp sgt i32 %7368, 659
   br i1 %7369, label %7370, label %7374
 
-7370:                                             ; preds = %.lr.ph.i644
-  %7371 = zext i8 %.023.i645 to i64
+7370:                                             ; preds = %.lr.ph.i643
+  %7371 = zext i8 %.023.i644 to i64
   %7372 = getelementptr inbounds nuw [57 x i8], ptr @_ZL7yy_meta, i64 0, i64 %7371
   %7373 = load i8, ptr %7372, align 1, !tbaa !27
   br label %7374
 
-7374:                                             ; preds = %7370, %.lr.ph.i644
-  %.1.i646 = phi i8 [ %7373, %7370 ], [ %.023.i645, %.lr.ph.i644 ]
+7374:                                             ; preds = %7370, %.lr.ph.i643
+  %.1.i645 = phi i8 [ %7373, %7370 ], [ %.023.i644, %.lr.ph.i643 ]
   %7375 = sext i32 %7368 to i64
   %7376 = getelementptr inbounds [720 x i32], ptr @_ZL7yy_base, i64 0, i64 %7375
   %7377 = load i32, ptr %7376, align 4, !tbaa !9
-  %7378 = zext i8 %.1.i646 to i32
+  %7378 = zext i8 %.1.i645 to i32
   %7379 = add nsw i32 %7377, %7378
   %7380 = sext i32 %7379 to i64
   %7381 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_chk, i64 0, i64 %7380
   %7382 = load i32, ptr %7381, align 4, !tbaa !9
-  %.not21.i647 = icmp eq i32 %7382, %7368
-  br i1 %.not21.i647, label %._crit_edge.i648, label %.lr.ph.i644, !llvm.loop !676
+  %.not21.i646 = icmp eq i32 %7382, %7368
+  br i1 %.not21.i646, label %._crit_edge.i647, label %.lr.ph.i643, !llvm.loop !676
 
-._crit_edge.i648:                                 ; preds = %7374, %7358
-  %.lcssa.i649 = phi i64 [ %7363, %7358 ], [ %7380, %7374 ]
-  %7383 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i649
+._crit_edge.i647:                                 ; preds = %7374, %7358
+  %.lcssa.i648 = phi i64 [ %7363, %7358 ], [ %7380, %7374 ]
+  %7383 = getelementptr inbounds [2173 x i32], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i648
   %7384 = load i32, ptr %7383, align 4, !tbaa !9
-  %7385 = getelementptr inbounds nuw i8, ptr %.01625.i639, i64 1
+  %7385 = getelementptr inbounds nuw i8, ptr %.01625.i638, i64 1
   %7386 = icmp ult ptr %7385, %7340
-  br i1 %7386, label %.lr.ph27.i638, label %.preheader.outer.backedge, !llvm.loop !677
+  br i1 %7386, label %.lr.ph27.i637, label %.preheader.outer.backedge, !llvm.loop !677
 
-default.unreachable1486:                          ; preds = %_ZL18yy_get_next_bufferv.exit
+default.unreachable1485:                          ; preds = %_ZL18yy_get_next_bufferv.exit
   unreachable
 
-_ZL21yy_get_previous_statev.exit636:              ; preds = %7171, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge
-  %.pre-phi1481 = phi i64 [ %.pre1480, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge ], [ %7173, %7171 ]
+_ZL21yy_get_previous_statev.exit635:              ; preds = %7171, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge
+  %.pre-phi1480 = phi i64 [ %.pre1479, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge ], [ %7173, %7171 ]
   %7387 = phi ptr [ %7276, %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge ], [ %7161, %7171 ]
-  %7388 = getelementptr inbounds i8, ptr %7387, i64 %.pre-phi1481
+  %7388 = getelementptr inbounds i8, ptr %7387, i64 %.pre-phi1480
   store ptr %7388, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !4
   %7389 = load i32, ptr @_ZL8yy_start, align 4, !tbaa !9
   %7390 = add nsw i32 %7389, -1
@@ -12282,13 +12282,13 @@ _ZL21yy_get_previous_statev.exit636:              ; preds = %7171, %_ZL18yy_get_
   call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.34) #43
   unreachable
 
-.loopexit:                                        ; preds = %5707, %2384, %2128, %159, %159, %159, %159, %159, %159, %_ZN8V3PreLex12curFilelinepEv.exit454, %1588, %_ZN8V3PreLex12curFilelinepEv.exit446, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450, %_ZN8V3PreLex12curFilelinepEv.exit373, %_ZN8V3PreLex12curFilelinepEv.exit614, %_ZN8V3PreLex12curFilelinepEv.exit609, %_ZN8V3PreLex12curFilelinepEv.exit608, %_ZN8V3PreLex12curFilelinepEv.exit607, %_ZN8V3PreLex12curFilelinepEv.exit606, %_ZN8V3PreLex12curFilelinepEv.exit605, %_ZN8V3PreLex12curFilelinepEv.exit604, %_ZN8V3PreLex12curFilelinepEv.exit603, %_ZN8V3PreLex12curFilelinepEv.exit602, %_ZN8V3PreLex12curFilelinepEv.exit601, %_ZN8V3PreLex12curFilelinepEv.exit600, %_ZN8V3PreLex12curFilelinepEv.exit599, %_ZN8V3PreLex12curFilelinepEv.exit598, %_ZN8V3PreLex12curFilelinepEv.exit597, %_ZN8V3PreLex12curFilelinepEv.exit596, %_ZN8V3PreLex12curFilelinepEv.exit595, %_ZN8V3PreLex12curFilelinepEv.exit594, %_ZN8V3PreLex12curFilelinepEv.exit593, %_ZN8V3PreLex12curFilelinepEv.exit592, %_ZN8V3PreLex12curFilelinepEv.exit591, %_ZN8V3PreLex12curFilelinepEv.exit590, %5870, %5804, %_ZN8V3PreLex12curFilelinepEv.exit571, %_ZN8V3PreLex12curFilelinepEv.exit568, %_ZN8V3PreLex12curFilelinepEv.exit567, %_ZN8V3PreLex12curFilelinepEv.exit564, %_ZN8V3PreLex12curFilelinepEv.exit563, %_ZN8V3PreLex12curFilelinepEv.exit562, %_ZN8V3PreLex12curFilelinepEv.exit561, %_ZN8V3PreLex12curFilelinepEv.exit560, %_ZN8V3PreLex12curFilelinepEv.exit559, %_ZN8V3PreLex12curFilelinepEv.exit558, %_ZN8V3PreLex12curFilelinepEv.exit557, %_ZN8V3PreLex12curFilelinepEv.exit556, %_ZN8V3PreLex12curFilelinepEv.exit555, %_ZN8V3PreLex12curFilelinepEv.exit554, %_ZN8V3PreLex12curFilelinepEv.exit553, %_ZN8V3PreLex12curFilelinepEv.exit552, %_ZN8V3PreLex12curFilelinepEv.exit551, %_ZN8V3PreLex12curFilelinepEv.exit550, %_ZN8V3PreLex12curFilelinepEv.exit540, %_ZN8V3PreLex12curFilelinepEv.exit539, %_ZN8V3PreLex12curFilelinepEv.exit536, %_ZN8V3PreLex12curFilelinepEv.exit519, %_ZN8V3PreLex12curFilelinepEv.exit516, %3489, %_ZN8V3PreLex12curFilelinepEv.exit511, %_ZN8V3PreLex12curFilelinepEv.exit510, %_ZN8V3PreLex12curFilelinepEv.exit509, %_ZN8V3PreLex12curFilelinepEv.exit506, %_ZN8V3PreLex12curFilelinepEv.exit503, %_ZN8V3PreLex12curFilelinepEv.exit502, %_ZN8V3PreLex12curFilelinepEv.exit501, %_ZN8V3PreLex12curFilelinepEv.exit500, %_ZN8V3PreLex12curFilelinepEv.exit499, %_ZN8V3PreLex12curFilelinepEv.exit494, %_ZN8V3PreLex12curFilelinepEv.exit493, %_ZN8V3PreLex12curFilelinepEv.exit492, %_ZN8V3PreLex12curFilelinepEv.exit491, %_ZN8V3PreLex12curFilelinepEv.exit490, %_ZN8V3PreLex12curFilelinepEv.exit489, %_ZN8V3PreLex12curFilelinepEv.exit488, %_ZN8V3PreLex12curFilelinepEv.exit487, %_ZN8V3PreLex12curFilelinepEv.exit486, %_ZN8V3PreLex12curFilelinepEv.exit485, %_ZN8V3PreLex12curFilelinepEv.exit484, %_ZN8V3PreLex12curFilelinepEv.exit480, %_ZN8V3PreLex12curFilelinepEv.exit475, %_ZN8V3PreLex12curFilelinepEv.exit474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461, %_ZN8V3PreLex12curFilelinepEv.exit456, %1640, %_ZN8V3PreLex12curFilelinepEv.exit455, %1441, %1192, %_ZN8V3PreLex12curFilelinepEv.exit421, %_ZN8V3PreLex12curFilelinepEv.exit420, %_ZN8V3PreLex12curFilelinepEv.exit419, %_ZN8V3PreLex12curFilelinepEv.exit418, %_ZN8V3PreLex12curFilelinepEv.exit417, %_ZN8V3PreLex12curFilelinepEv.exit416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412, %_ZN8V3PreLex12curFilelinepEv.exit407, %853, %_ZN8V3PreLex12curFilelinepEv.exit372, %_ZN8V3PreLex12curFilelinepEv.exit371, %_ZN8V3PreLex12curFilelinepEv.exit370, %_ZN8V3PreLex12curFilelinepEv.exit369, %_ZN8V3PreLex12curFilelinepEv.exit368, %_ZN8V3PreLex12curFilelinepEv.exit367, %_ZN8V3PreLex12curFilelinepEv.exit366, %_ZN8V3PreLex12curFilelinepEv.exit365, %_ZN8V3PreLex12curFilelinepEv.exit364, %_ZN8V3PreLex12curFilelinepEv.exit
-  %.0 = phi i32 [ 304, %_ZN8V3PreLex12curFilelinepEv.exit614 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit609 ], [ 314, %_ZN8V3PreLex12curFilelinepEv.exit608 ], [ 312, %_ZN8V3PreLex12curFilelinepEv.exit607 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit606 ], [ 0, %_ZN8V3PreLex12curFilelinepEv.exit605 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit604 ], [ 313, %_ZN8V3PreLex12curFilelinepEv.exit603 ], [ 306, %_ZN8V3PreLex12curFilelinepEv.exit602 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit601 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit600 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit599 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit598 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit597 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit596 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit595 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit594 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit593 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit592 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit591 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit590 ], [ 307, %5870 ], [ 307, %5804 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit571 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit568 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit567 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit564 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit563 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit562 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit561 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit560 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit559 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit558 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit557 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit556 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit555 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit554 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit553 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit552 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit551 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit550 ], [ 302, %_ZN8V3PreLex12curFilelinepEv.exit540 ], [ 302, %_ZN8V3PreLex12curFilelinepEv.exit539 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit536 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit519 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit516 ], [ 309, %3489 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit511 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit510 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit509 ], [ 301, %_ZN8V3PreLex12curFilelinepEv.exit506 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit503 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit502 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit501 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit500 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit499 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit494 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit493 ], [ 314, %_ZN8V3PreLex12curFilelinepEv.exit492 ], [ 313, %_ZN8V3PreLex12curFilelinepEv.exit491 ], [ 306, %_ZN8V3PreLex12curFilelinepEv.exit490 ], [ 312, %_ZN8V3PreLex12curFilelinepEv.exit489 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit488 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit487 ], [ 311, %_ZN8V3PreLex12curFilelinepEv.exit486 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit485 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit484 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit480 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit475 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit474 ], [ 301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit456 ], [ 304, %1640 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit455 ], [ 304, %1441 ], [ 304, %1192 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit421 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit420 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit419 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit418 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit417 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit416 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit407 ], [ 304, %853 ], [ 265, %_ZN8V3PreLex12curFilelinepEv.exit372 ], [ 260, %_ZN8V3PreLex12curFilelinepEv.exit371 ], [ 256, %_ZN8V3PreLex12curFilelinepEv.exit370 ], [ 258, %_ZN8V3PreLex12curFilelinepEv.exit369 ], [ 257, %_ZN8V3PreLex12curFilelinepEv.exit368 ], [ 259, %_ZN8V3PreLex12curFilelinepEv.exit367 ], [ 263, %_ZN8V3PreLex12curFilelinepEv.exit366 ], [ 262, %_ZN8V3PreLex12curFilelinepEv.exit365 ], [ 261, %_ZN8V3PreLex12curFilelinepEv.exit364 ], [ 264, %_ZN8V3PreLex12curFilelinepEv.exit ], [ %., %_ZN8V3PreLex12curFilelinepEv.exit373 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit446 ], [ 304, %1588 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit454 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 304, %5707 ], [ 301, %2384 ], [ 301, %2128 ]
+.loopexit:                                        ; preds = %5707, %2384, %2128, %159, %159, %159, %159, %159, %159, %_ZN8V3PreLex12curFilelinepEv.exit453, %1588, %_ZN8V3PreLex12curFilelinepEv.exit445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449, %_ZN8V3PreLex12curFilelinepEv.exit372, %_ZN8V3PreLex12curFilelinepEv.exit613, %_ZN8V3PreLex12curFilelinepEv.exit608, %_ZN8V3PreLex12curFilelinepEv.exit607, %_ZN8V3PreLex12curFilelinepEv.exit606, %_ZN8V3PreLex12curFilelinepEv.exit605, %_ZN8V3PreLex12curFilelinepEv.exit604, %_ZN8V3PreLex12curFilelinepEv.exit603, %_ZN8V3PreLex12curFilelinepEv.exit602, %_ZN8V3PreLex12curFilelinepEv.exit601, %_ZN8V3PreLex12curFilelinepEv.exit600, %_ZN8V3PreLex12curFilelinepEv.exit599, %_ZN8V3PreLex12curFilelinepEv.exit598, %_ZN8V3PreLex12curFilelinepEv.exit597, %_ZN8V3PreLex12curFilelinepEv.exit596, %_ZN8V3PreLex12curFilelinepEv.exit595, %_ZN8V3PreLex12curFilelinepEv.exit594, %_ZN8V3PreLex12curFilelinepEv.exit593, %_ZN8V3PreLex12curFilelinepEv.exit592, %_ZN8V3PreLex12curFilelinepEv.exit591, %_ZN8V3PreLex12curFilelinepEv.exit590, %_ZN8V3PreLex12curFilelinepEv.exit589, %5870, %5804, %_ZN8V3PreLex12curFilelinepEv.exit570, %_ZN8V3PreLex12curFilelinepEv.exit567, %_ZN8V3PreLex12curFilelinepEv.exit566, %_ZN8V3PreLex12curFilelinepEv.exit563, %_ZN8V3PreLex12curFilelinepEv.exit562, %_ZN8V3PreLex12curFilelinepEv.exit561, %_ZN8V3PreLex12curFilelinepEv.exit560, %_ZN8V3PreLex12curFilelinepEv.exit559, %_ZN8V3PreLex12curFilelinepEv.exit558, %_ZN8V3PreLex12curFilelinepEv.exit557, %_ZN8V3PreLex12curFilelinepEv.exit556, %_ZN8V3PreLex12curFilelinepEv.exit555, %_ZN8V3PreLex12curFilelinepEv.exit554, %_ZN8V3PreLex12curFilelinepEv.exit553, %_ZN8V3PreLex12curFilelinepEv.exit552, %_ZN8V3PreLex12curFilelinepEv.exit551, %_ZN8V3PreLex12curFilelinepEv.exit550, %_ZN8V3PreLex12curFilelinepEv.exit549, %_ZN8V3PreLex12curFilelinepEv.exit539, %_ZN8V3PreLex12curFilelinepEv.exit538, %_ZN8V3PreLex12curFilelinepEv.exit535, %_ZN8V3PreLex12curFilelinepEv.exit518, %_ZN8V3PreLex12curFilelinepEv.exit515, %3489, %_ZN8V3PreLex12curFilelinepEv.exit510, %_ZN8V3PreLex12curFilelinepEv.exit509, %_ZN8V3PreLex12curFilelinepEv.exit508, %_ZN8V3PreLex12curFilelinepEv.exit505, %_ZN8V3PreLex12curFilelinepEv.exit502, %_ZN8V3PreLex12curFilelinepEv.exit501, %_ZN8V3PreLex12curFilelinepEv.exit500, %_ZN8V3PreLex12curFilelinepEv.exit499, %_ZN8V3PreLex12curFilelinepEv.exit498, %_ZN8V3PreLex12curFilelinepEv.exit493, %_ZN8V3PreLex12curFilelinepEv.exit492, %_ZN8V3PreLex12curFilelinepEv.exit491, %_ZN8V3PreLex12curFilelinepEv.exit490, %_ZN8V3PreLex12curFilelinepEv.exit489, %_ZN8V3PreLex12curFilelinepEv.exit488, %_ZN8V3PreLex12curFilelinepEv.exit487, %_ZN8V3PreLex12curFilelinepEv.exit486, %_ZN8V3PreLex12curFilelinepEv.exit485, %_ZN8V3PreLex12curFilelinepEv.exit484, %_ZN8V3PreLex12curFilelinepEv.exit483, %_ZN8V3PreLex12curFilelinepEv.exit479, %_ZN8V3PreLex12curFilelinepEv.exit474, %_ZN8V3PreLex12curFilelinepEv.exit473, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit460, %_ZN8V3PreLex12curFilelinepEv.exit455, %1640, %_ZN8V3PreLex12curFilelinepEv.exit454, %1441, %1192, %_ZN8V3PreLex12curFilelinepEv.exit420, %_ZN8V3PreLex12curFilelinepEv.exit419, %_ZN8V3PreLex12curFilelinepEv.exit418, %_ZN8V3PreLex12curFilelinepEv.exit417, %_ZN8V3PreLex12curFilelinepEv.exit416, %_ZN8V3PreLex12curFilelinepEv.exit415, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit411, %_ZN8V3PreLex12curFilelinepEv.exit406, %853, %_ZN8V3PreLex12curFilelinepEv.exit371, %_ZN8V3PreLex12curFilelinepEv.exit370, %_ZN8V3PreLex12curFilelinepEv.exit369, %_ZN8V3PreLex12curFilelinepEv.exit368, %_ZN8V3PreLex12curFilelinepEv.exit367, %_ZN8V3PreLex12curFilelinepEv.exit366, %_ZN8V3PreLex12curFilelinepEv.exit365, %_ZN8V3PreLex12curFilelinepEv.exit364, %_ZN8V3PreLex12curFilelinepEv.exit363, %_ZN8V3PreLex12curFilelinepEv.exit
+  %.0 = phi i32 [ 264, %_ZN8V3PreLex12curFilelinepEv.exit ], [ 261, %_ZN8V3PreLex12curFilelinepEv.exit363 ], [ 262, %_ZN8V3PreLex12curFilelinepEv.exit364 ], [ 263, %_ZN8V3PreLex12curFilelinepEv.exit365 ], [ 259, %_ZN8V3PreLex12curFilelinepEv.exit366 ], [ 257, %_ZN8V3PreLex12curFilelinepEv.exit367 ], [ 258, %_ZN8V3PreLex12curFilelinepEv.exit368 ], [ 256, %_ZN8V3PreLex12curFilelinepEv.exit369 ], [ 260, %_ZN8V3PreLex12curFilelinepEv.exit370 ], [ 265, %_ZN8V3PreLex12curFilelinepEv.exit371 ], [ 304, %853 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit406 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit411 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit415 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit416 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit417 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit418 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit419 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit420 ], [ 304, %1192 ], [ 304, %1441 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit454 ], [ 304, %1640 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit455 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit460 ], [ 301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit473 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit474 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit479 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit483 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit484 ], [ 311, %_ZN8V3PreLex12curFilelinepEv.exit485 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit486 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit487 ], [ 312, %_ZN8V3PreLex12curFilelinepEv.exit488 ], [ 306, %_ZN8V3PreLex12curFilelinepEv.exit489 ], [ 313, %_ZN8V3PreLex12curFilelinepEv.exit490 ], [ 314, %_ZN8V3PreLex12curFilelinepEv.exit491 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit492 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit493 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit498 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit499 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit500 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit501 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit502 ], [ 301, %_ZN8V3PreLex12curFilelinepEv.exit505 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit508 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit509 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit510 ], [ 309, %3489 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit515 ], [ 309, %_ZN8V3PreLex12curFilelinepEv.exit518 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit535 ], [ 302, %_ZN8V3PreLex12curFilelinepEv.exit538 ], [ 302, %_ZN8V3PreLex12curFilelinepEv.exit539 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit549 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit550 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit551 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit552 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit553 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit554 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit555 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit556 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit557 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit558 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit559 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit560 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit561 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit562 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit563 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit566 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit567 ], [ 310, %_ZN8V3PreLex12curFilelinepEv.exit570 ], [ 307, %5804 ], [ 307, %5870 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit589 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit590 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit591 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit592 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit593 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit594 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit595 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit596 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit597 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit598 ], [ 303, %_ZN8V3PreLex12curFilelinepEv.exit599 ], [ 400, %_ZN8V3PreLex12curFilelinepEv.exit600 ], [ 306, %_ZN8V3PreLex12curFilelinepEv.exit601 ], [ 313, %_ZN8V3PreLex12curFilelinepEv.exit602 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit603 ], [ 0, %_ZN8V3PreLex12curFilelinepEv.exit604 ], [ 300, %_ZN8V3PreLex12curFilelinepEv.exit605 ], [ 312, %_ZN8V3PreLex12curFilelinepEv.exit606 ], [ 314, %_ZN8V3PreLex12curFilelinepEv.exit607 ], [ 305, %_ZN8V3PreLex12curFilelinepEv.exit608 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit613 ], [ %., %_ZN8V3PreLex12curFilelinepEv.exit372 ], [ 304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit445 ], [ 304, %1588 ], [ 304, %_ZN8V3PreLex12curFilelinepEv.exit453 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 0, %159 ], [ 304, %5707 ], [ 301, %2384 ], [ 301, %2128 ]
   ret i32 %.0
 
-7394:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415, %854
-  %.pn360 = phi { ptr, i32 } [ %1833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.pn331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453 ], [ %.pn334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445 ], [ %.pn339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437 ], [ %.pn337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit430 ], [ %.pn341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415 ], [ %.pn357.pn, %854 ]
-  resume { ptr, i32 } %.pn360
+7394:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414, %854
+  %.pn357.pn.pn = phi { ptr, i32 } [ %.pn357.pn, %854 ], [ %.pn341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414 ], [ %.pn339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436 ], [ %.pn337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429 ], [ %.pn334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444 ], [ %.pn331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463 ], [ %1833, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit471 ]
+  resume { ptr, i32 } %.pn357.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -24709,7 +24709,7 @@ define dso_local noundef nonnull ptr @_ZN12V3PreProcImp9tokenNameEi(i32 noundef 
   br label %29
 
 29:                                               ; preds = %1, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.124, %28 ], [ @.str.123, %27 ], [ @.str.122, %26 ], [ @.str.121, %25 ], [ @.str.120, %24 ], [ @.str.119, %23 ], [ @.str.118, %22 ], [ @.str.117, %21 ], [ @.str.116, %20 ], [ @.str.115, %19 ], [ @.str.114, %18 ], [ @.str.113, %17 ], [ @.str.112, %16 ], [ @.str.111, %15 ], [ @.str.110, %14 ], [ @.str.109, %13 ], [ @.str.108, %12 ], [ @.str.107, %11 ], [ @.str.106, %10 ], [ @.str.105, %9 ], [ @.str.104, %8 ], [ @.str.103, %7 ], [ @.str.102, %6 ], [ @.str.101, %5 ], [ @.str.100, %4 ], [ @.str.99, %3 ], [ @.str.98, %2 ], [ @.str.97, %1 ]
+  %.0 = phi ptr [ @.str.124, %28 ], [ @.str.98, %2 ], [ @.str.99, %3 ], [ @.str.100, %4 ], [ @.str.101, %5 ], [ @.str.102, %6 ], [ @.str.103, %7 ], [ @.str.104, %8 ], [ @.str.105, %9 ], [ @.str.106, %10 ], [ @.str.107, %11 ], [ @.str.108, %12 ], [ @.str.109, %13 ], [ @.str.110, %14 ], [ @.str.111, %15 ], [ @.str.112, %16 ], [ @.str.113, %17 ], [ @.str.114, %18 ], [ @.str.115, %19 ], [ @.str.116, %20 ], [ @.str.117, %21 ], [ @.str.118, %22 ], [ @.str.119, %23 ], [ @.str.120, %24 ], [ @.str.121, %25 ], [ @.str.122, %26 ], [ @.str.123, %27 ], [ @.str.97, %1 ]
   ret ptr %.0
 }
 
@@ -43868,7 +43868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1732: ; preds = %_
   br label %4232
 
 4232:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1082, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1096, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit764, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit777, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1732, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1719, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1699, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1530, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1494, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1384, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1039, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1001, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit984, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit923, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit903, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit623, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit614, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit534, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469
-  %.pn440.pn.pn = phi { ptr, i32 } [ %.pn440.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469 ], [ %lpad.phi1837, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483 ], [ %.pn433.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564 ], [ %.pn283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1464 ], [ %.pn428.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1732 ], [ %4176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1719 ], [ %.pn380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707 ], [ %.pn419.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1699 ], [ %.pn423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1530 ], [ %3577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1524 ], [ %.pn425, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1494 ], [ %3537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510 ], [ %.pn277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1474 ], [ %.pn291.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1384 ], [ %lpad.phi1862, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409 ], [ %.pn297.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1300 ], [ %2776, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1227 ], [ %.pn301.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1264 ], [ %.pn334.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1039 ], [ %.pn351.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit984 ], [ %.pn343.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit923 ], [ %.pn341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1001 ], [ %1611, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865 ], [ %.pn354.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit903 ], [ %872, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit614 ], [ %.pn376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit623 ], [ %970, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639 ], [ %1015, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656 ], [ %1065, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670 ], [ %.pn371.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700 ], [ %.pn273.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit534 ], [ %.pn367.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit764 ], [ %.pn360.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855 ], [ %.pn358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823 ], [ %.pn364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789 ], [ %1427, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806 ], [ %1323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit777 ], [ %.pn331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1096 ], [ %2372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093 ], [ %.pn329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1165 ], [ %2409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1105 ], [ %.pn312.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1199 ], [ %.pn309.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213 ], [ %.pn306.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1082 ], [ %.pn304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076 ]
+  %.pn440.pn.pn = phi { ptr, i32 } [ %.pn440.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469 ], [ %lpad.phi1837, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483 ], [ %.pn433.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564 ], [ %.pn428.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1732 ], [ %.pn425, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1494 ], [ %3537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510 ], [ %.pn423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1530 ], [ %3577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1524 ], [ %.pn419.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1699 ], [ %.pn380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1707 ], [ %4176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1719 ], [ %872, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit614 ], [ %.pn376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit623 ], [ %970, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit639 ], [ %1015, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656 ], [ %1065, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670 ], [ %.pn371.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700 ], [ %1611, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865 ], [ %.pn354.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit903 ], [ %.pn351.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit984 ], [ %.pn343.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit923 ], [ %.pn341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1001 ], [ %.pn334.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1039 ], [ %2776, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1227 ], [ %.pn301.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1264 ], [ %.pn297.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1300 ], [ %.pn291.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1384 ], [ %lpad.phi1862, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409 ], [ %.pn283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1464 ], [ %.pn277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1474 ], [ %.pn273.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit534 ], [ %.pn367.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit764 ], [ %.pn360.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855 ], [ %.pn358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit823 ], [ %.pn364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789 ], [ %1427, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit806 ], [ %1323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit777 ], [ %.pn331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1096 ], [ %2372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1093 ], [ %.pn329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1165 ], [ %2409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1105 ], [ %.pn312.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1199 ], [ %.pn309.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1213 ], [ %.pn306.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1082 ], [ %.pn304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1076 ]
   resume { ptr, i32 } %.pn440.pn.pn
 
 .thread1806:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820, %468, %_ZNK12V3PreProcImp5stateEv.exit457, %_ZNK12V3PreProcImp5isEofEv.exit, %1113, %1650, %4190, %.loopexit1953, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1704, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit978
@@ -51826,7 +51826,7 @@ _ZN9V3PreExprC2Ev.exit:                           ; preds = %_ZNSt5dequeI14V3Pre
   br label %110
 
 110:                                              ; preds = %108, %71, %105, %101, %97, %93, %89, %85, %81, %77, %73
-  %.120 = phi i1 [ false, %71 ], [ false, %105 ], [ false, %101 ], [ false, %97 ], [ false, %93 ], [ false, %89 ], [ false, %85 ], [ false, %81 ], [ false, %77 ], [ false, %73 ], [ %109, %108 ]
+  %.120 = phi i1 [ false, %71 ], [ false, %73 ], [ false, %77 ], [ false, %81 ], [ false, %85 ], [ false, %89 ], [ false, %93 ], [ false, %97 ], [ false, %101 ], [ false, %105 ], [ %109, %108 ]
   %111 = getelementptr inbounds nuw i8, ptr %.02137, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !27
   %.not = icmp eq i8 %112, 0
@@ -51883,7 +51883,7 @@ _ZNSolsEb.exit35:                                 ; preds = %_ZStlsISt11char_tra
   ret void
 
 130:                                              ; preds = %106, %102, %98, %94, %90, %86, %82, %78, %74, %127, %125, %67
-  %.pn24.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %128, %127 ], [ %126, %125 ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %75, %74 ], [ %79, %78 ], [ %83, %82 ], [ %87, %86 ], [ %91, %90 ], [ %95, %94 ], [ %99, %98 ], [ %103, %102 ], [ %107, %106 ], [ %128, %127 ], [ %126, %125 ]
   call void @_ZN9V3PreExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %4) #45
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4) #45
   br label %common.resume

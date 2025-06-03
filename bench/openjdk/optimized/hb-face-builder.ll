@@ -3435,7 +3435,7 @@ default.unreachable69:                            ; preds = %33
   unreachable
 
 64:                                               ; preds = %33, %51, %44, %37
-  %.0 = phi i32 [ 0, %33 ], [ %63, %51 ], [ %50, %44 ], [ %43, %37 ]
+  %.0 = phi i32 [ %43, %37 ], [ %50, %44 ], [ %63, %51 ], [ 0, %33 ]
   %65 = lshr i32 %34, 6
   %66 = sub i32 %.0, %65
   %67 = and i32 %34, 8
@@ -3816,7 +3816,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %37
 
 37:                                               ; preds = %32, %.loopexit.i.i
-  %.0.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %36, %32 ]
+  %.0.i.i = phi i64 [ %36, %32 ], [ 0, %.loopexit.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 5
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
@@ -3825,7 +3825,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %43
 
 43:                                               ; preds = %37, %.loopexit.i.i
-  %.1.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %42, %37 ]
+  %.1.i.i = phi i64 [ %42, %37 ], [ 0, %.loopexit.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
@@ -3834,7 +3834,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %49
 
 49:                                               ; preds = %43, %.loopexit.i.i
-  %.2.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %48, %43 ]
+  %.2.i.i = phi i64 [ %48, %43 ], [ 0, %.loopexit.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
@@ -3843,7 +3843,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %55
 
 55:                                               ; preds = %49, %.loopexit.i.i
-  %.3.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %54, %49 ]
+  %.3.i.i = phi i64 [ %54, %49 ], [ 0, %.loopexit.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
@@ -3852,7 +3852,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %61
 
 61:                                               ; preds = %55, %.loopexit.i.i
-  %.4.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %60, %55 ]
+  %.4.i.i = phi i64 [ %60, %55 ], [ 0, %.loopexit.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
@@ -3861,7 +3861,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br label %67
 
 67:                                               ; preds = %61, %.loopexit.i.i
-  %.5.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %66, %61 ]
+  %.5.i.i = phi i64 [ %66, %61 ], [ 0, %.loopexit.i.i ]
   %68 = load i8, ptr %.158.i.i, align 1
   %69 = zext i8 %68 to i64
   %70 = lshr i64 %.5.i.i, 23
@@ -3878,7 +3878,7 @@ default.unreachable:                              ; preds = %.loopexit.i.i
   unreachable
 
 _ZL10fasthash32PKvmj.exit:                        ; preds = %.loopexit.i.i, %67
-  %.356.i.i = phi i64 [ %.154.i.i, %.loopexit.i.i ], [ %77, %67 ]
+  %.356.i.i = phi i64 [ %77, %67 ], [ %.154.i.i, %.loopexit.i.i ]
   %78 = lshr i64 %.356.i.i, 23
   %79 = xor i64 %78, %.356.i.i
   %80 = mul i64 %79, 2388976653695081527

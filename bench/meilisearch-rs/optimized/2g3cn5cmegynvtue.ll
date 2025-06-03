@@ -303,7 +303,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h44459bf5ec6df2e0E.exit: ;
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h42998f28ec9a8509E.exit
 
 _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thread: ; preds = %56, %63, %62, %61, %60, %59, %58
-  %.sroa.02.0.i = phi ptr [ @anon.8943bd36bd8562532e5f2531157d56a4.24, %63 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.23, %62 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.22, %61 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.21, %60 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.20, %59 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.18, %58 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.17, %56 ]
+  %.sroa.02.0.i = phi ptr [ @anon.8943bd36bd8562532e5f2531157d56a4.18, %58 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.20, %59 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.21, %60 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.22, %61 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.23, %62 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.24, %63 ], [ @anon.8943bd36bd8562532e5f2531157d56a4.17, %56 ]
   %81 = load i64, ptr %6, align 8, !alias.scope !120, !noalias !131, !noundef !13
   %82 = load i64, ptr %.val26, align 8, !alias.scope !120, !noalias !131, !noundef !13
   %83 = sub i64 %82, %81
@@ -1588,8 +1588,8 @@ default.unreachable:                              ; preds = %24
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17had9fa88c416c23edE.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17had9fa88c416c23edE.exit": ; preds = %.noexc15, %.noexc14, %.noexc, %33, %30, %24
-  %.sroa.018.0 = phi i64 [ %.sroa.035.0.copyload, %.noexc15 ], [ -9223372036854775804, %.noexc14 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775806, %33 ], [ -9223372036854775807, %30 ], [ -9223372036854775808, %24 ]
-  %.sroa.9.1 = phi i8 [ %.sroa.436.0.copyload, %.noexc15 ], [ %.sroa.9.8.copyload, %.noexc14 ], [ %.sroa.9.8.copyload22, %.noexc ], [ %.sroa.038.0.copyload, %33 ], [ %32, %30 ], [ %.sroa.9.051, %24 ]
+  %.sroa.018.0 = phi i64 [ -9223372036854775807, %30 ], [ -9223372036854775806, %33 ], [ -9223372036854775805, %.noexc ], [ -9223372036854775804, %.noexc14 ], [ %.sroa.035.0.copyload, %.noexc15 ], [ -9223372036854775808, %24 ]
+  %.sroa.9.1 = phi i8 [ %32, %30 ], [ %.sroa.038.0.copyload, %33 ], [ %.sroa.9.8.copyload22, %.noexc ], [ %.sroa.9.8.copyload, %.noexc14 ], [ %.sroa.436.0.copyload, %.noexc15 ], [ %.sroa.9.051, %24 ]
   %43 = getelementptr inbounds nuw [0 x { [9 x i64] }], ptr %16, i64 0, i64 %.sroa.7.049
   store i64 %.sroa.018.0, ptr %43, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8

@@ -908,7 +908,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   br label %_ZN4core3ops8function5FnMut8call_mut17h04fd35e1a30da518E.exit.thread4.i
 
 _ZN4core3ops8function5FnMut8call_mut17h04fd35e1a30da518E.exit.thread4.i: ; preds = %79, %78, %72, %71, %71, %71, %61
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ 0, %79 ], [ 3, %78 ], [ %70, %61 ], [ 1, %71 ], [ 1, %71 ], [ 1, %71 ], [ %spec.select.i.i.i.i, %72 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ 3, %78 ], [ 0, %79 ], [ %70, %61 ], [ 1, %71 ], [ 1, %71 ], [ 1, %71 ], [ %spec.select.i.i.i.i, %72 ]
   %80 = zext nneg i8 %.sroa.0.0.i.i.i.i.i to i64
   br label %82
 
@@ -1748,7 +1748,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit15: ; preds = %2
   br label %24
 
 24:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit15, %18, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
-  %.sroa.0.0.in = phi i1 [ %23, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit15 ], [ %19, %18 ], [ %17, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ]
+  %.sroa.0.0.in = phi i1 [ %17, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %19, %18 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -3498,7 +3498,7 @@ _ZN9uv_pep50810parse_name17h360d7cef73f00f98E.exit: ; preds = %260, %322, %324
           to label %523 unwind label %.loopexit.split-lp214.i, !noalias !416
 
 521:                                              ; preds = %515, %510, %507, %504
-  %.sroa.0.0.i.i = phi i8 [ %509, %507 ], [ %520, %515 ], [ %506, %504 ], [ %514, %510 ]
+  %.sroa.0.0.i.i = phi i8 [ %514, %510 ], [ %506, %504 ], [ %520, %515 ], [ %509, %507 ]
   %522 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %522, label %497, label %.thread.i196
 
@@ -4048,12 +4048,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
   br label %654
 
 654:                                              ; preds = %768, %743, %652
-  %.sroa.16408.sroa.0.0 = phi i64 [ %.sroa.611.i.sroa.7.sroa.0.0.copyload838, %768 ], [ %.sroa.6.i.sroa.7.sroa.0.0.copyload845, %743 ], [ %653, %652 ]
-  %.sroa.16408.sroa.8.sroa.0.0 = phi i64 [ %.sroa.611.i.sroa.7.sroa.7.0.copyload840, %768 ], [ %.sroa.6.i.sroa.7.sroa.7.0.copyload, %743 ], [ -9223372036854775800, %652 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.19.40.copyload, %768 ], [ %.sroa.19.40.copyload413, %743 ], [ 1, %652 ]
-  %.sroa.18.0 = phi i64 [ %.sroa.18.40.copyload, %768 ], [ %.sroa.18.40.copyload411, %743 ], [ %624, %652 ]
-  %.sroa.13.0 = phi i64 [ %.sroa.611.i.sroa.0.0.copyload538, %768 ], [ %.sroa.6.i.sroa.0.0.copyload534, %743 ], [ %.sroa.026.i.sroa.4.0.copyload, %652 ]
-  %.sroa.7.0556 = phi i64 [ %750, %768 ], [ %726, %743 ], [ %.sroa.026.i.sroa.0.0.copyload, %652 ]
+  %.sroa.16408.sroa.0.0 = phi i64 [ %653, %652 ], [ %.sroa.6.i.sroa.7.sroa.0.0.copyload845, %743 ], [ %.sroa.611.i.sroa.7.sroa.0.0.copyload838, %768 ]
+  %.sroa.16408.sroa.8.sroa.0.0 = phi i64 [ -9223372036854775800, %652 ], [ %.sroa.6.i.sroa.7.sroa.7.0.copyload, %743 ], [ %.sroa.611.i.sroa.7.sroa.7.0.copyload840, %768 ]
+  %.sroa.19.0 = phi i64 [ 1, %652 ], [ %.sroa.19.40.copyload413, %743 ], [ %.sroa.19.40.copyload, %768 ]
+  %.sroa.18.0 = phi i64 [ %624, %652 ], [ %.sroa.18.40.copyload411, %743 ], [ %.sroa.18.40.copyload, %768 ]
+  %.sroa.13.0 = phi i64 [ %.sroa.026.i.sroa.4.0.copyload, %652 ], [ %.sroa.6.i.sroa.0.0.copyload534, %743 ], [ %.sroa.611.i.sroa.0.0.copyload538, %768 ]
+  %.sroa.7.0556 = phi i64 [ %.sroa.026.i.sroa.0.0.copyload, %652 ], [ %726, %743 ], [ %750, %768 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !557
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hfebfc8272cea00dbE.llvm.13810291787353388210"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, i64 noundef 1, i64 noundef 1)
           to label %.noexc59.i unwind label %.thread.i207, !noalias !546
@@ -4915,7 +4915,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i254: ; preds = %"_ZN5allo
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i: ; preds = %973, %968, %965, %962
-  %.sroa.0.0.i.i283 = phi i8 [ %967, %965 ], [ %978, %973 ], [ %964, %962 ], [ %972, %968 ]
+  %.sroa.0.0.i.i283 = phi i8 [ %972, %968 ], [ %964, %962 ], [ %978, %973 ], [ %967, %965 ]
   %979 = trunc i8 %.sroa.0.0.i.i283 to i1
   br i1 %979, label %984, label %.thread.i284
 
@@ -5051,7 +5051,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i: ;
   br label %_ZN4core3ops8function6FnOnce9call_once17h57851ef4f86ea753E.exit.i
 
 _ZN4core3ops8function6FnOnce9call_once17h57851ef4f86ea753E.exit.i: ; preds = %1021, %1016, %1013, %1010
-  %.sroa.0.0.i.i.i.i = phi i8 [ %1015, %1013 ], [ %1026, %1021 ], [ %1012, %1010 ], [ %1020, %1016 ]
+  %.sroa.0.0.i.i.i.i = phi i8 [ %1020, %1016 ], [ %1012, %1010 ], [ %1026, %1021 ], [ %1015, %1013 ]
   %1027 = trunc i8 %.sroa.0.0.i.i.i.i to i1
   br i1 %1027, label %_ZN4core3ops8function6FnOnce9call_once17h57851ef4f86ea753E.exit.thread.i, label %_ZN4core3ops8function6FnOnce9call_once17h57851ef4f86ea753E.exit.thread80.i
 

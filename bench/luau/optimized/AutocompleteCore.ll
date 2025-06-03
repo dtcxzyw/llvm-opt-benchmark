@@ -21580,7 +21580,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i154: ; preds = %570
   br label %605
 
 605:                                              ; preds = %603, %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %604, %603 ]
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %604, %603 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i28.i.i.i.i.i = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8, !tbaa !91
   %606 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val.i28.i.i.i.i.i)
           to label %.noexc164 unwind label %.loopexit.split-lp
@@ -21599,7 +21599,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.i154: ; preds = %570
   br label %610
 
 610:                                              ; preds = %608, %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %609, %608 ]
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %609, %608 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i31.i.i.i.i.i = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8, !tbaa !91
   %611 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val.i31.i.i.i.i.i)
           to label %.noexc165 unwind label %.loopexit.split-lp
@@ -31885,7 +31885,7 @@ _ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
   br label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %56, %12, %2, %59
-  %.06 = phi i1 [ %58, %56 ], [ %62, %59 ], [ true, %2 ], [ false, %12 ]
+  %.06 = phi i1 [ %62, %59 ], [ %58, %56 ], [ true, %2 ], [ false, %12 ]
   ret i1 %.06
 }
 

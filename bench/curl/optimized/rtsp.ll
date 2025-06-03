@@ -192,14 +192,14 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   br label %.thread286
 
 .thread272:                                       ; preds = %29, %40, %39, %38, %37, %36, %35
-  %.0186.ph.ph = phi ptr [ @.str.17, %40 ], [ @.str.16, %39 ], [ @.str.15, %38 ], [ @.str.14, %37 ], [ @.str.13, %36 ], [ @.str.12, %35 ], [ @.str.11, %29 ]
+  %.0186.ph.ph = phi ptr [ @.str.12, %35 ], [ @.str.13, %36 ], [ @.str.14, %37 ], [ @.str.15, %38 ], [ @.str.16, %39 ], [ @.str.17, %40 ], [ @.str.11, %29 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %46 = load ptr, ptr %45, align 8, !tbaa !100
   %.not217274 = icmp eq ptr %46, null
   br label %51
 
 47:                                               ; preds = %29, %42, %41
-  %.0186.ph = phi ptr [ @.str.18, %41 ], [ @.str.20, %42 ], [ @.str.19, %29 ]
+  %.0186.ph = phi ptr [ @.str.20, %42 ], [ @.str.18, %41 ], [ @.str.19, %29 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %49 = load ptr, ptr %48, align 8, !tbaa !100
   %.not217 = icmp eq ptr %49, null
@@ -602,7 +602,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   br label %220
 
 220:                                              ; preds = %61, %15, %.thread286, %43, %34
-  %.0 = phi i32 [ 43, %34 ], [ 43, %43 ], [ %.0187, %.thread286 ], [ 27, %15 ], [ 27, %61 ]
+  %.0 = phi i32 [ 43, %34 ], [ %.0187, %.thread286 ], [ 43, %43 ], [ 27, %15 ], [ 27, %61 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   ret i32 %.0
 }

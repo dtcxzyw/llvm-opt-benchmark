@@ -5821,7 +5821,7 @@ define range(i32 -1, 1) i32 @evdns_server_port_set_option(ptr noundef captures(n
   br label %26
 
 26:                                               ; preds = %13, %20, %25, %21, %14
-  %.0 = phi i32 [ -1, %25 ], [ 0, %21 ], [ -1, %20 ], [ 0, %14 ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %25 ], [ 0, %14 ], [ -1, %13 ], [ 0, %21 ], [ -1, %20 ]
   %27 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %27, null
   br i1 %.not19, label %31, label %28
@@ -7234,7 +7234,7 @@ define noundef nonnull ptr @evdns_err_to_string(i32 noundef %0) local_unnamed_ad
   br label %14
 
 14:                                               ; preds = %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.26, %13 ], [ @.str.25, %12 ], [ @.str.24, %11 ], [ @.str.23, %10 ], [ @.str.22, %9 ], [ @.str.21, %8 ], [ @.str.20, %7 ], [ @.str.19, %6 ], [ @.str.18, %5 ], [ @.str.17, %4 ], [ @.str.16, %3 ], [ @.str.15, %2 ], [ @.str.14, %1 ]
+  %.0 = phi ptr [ @.str.26, %13 ], [ @.str.15, %2 ], [ @.str.16, %3 ], [ @.str.17, %4 ], [ @.str.18, %5 ], [ @.str.19, %6 ], [ @.str.20, %7 ], [ @.str.21, %8 ], [ @.str.22, %9 ], [ @.str.23, %10 ], [ @.str.24, %11 ], [ @.str.25, %12 ], [ @.str.14, %1 ]
   ret ptr %.0
 }
 

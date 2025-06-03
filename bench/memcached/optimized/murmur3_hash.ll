@@ -52,7 +52,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
   br label %24
 
 24:                                               ; preds = %._crit_edge, %19
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %23, %19 ]
+  %.0 = phi i32 [ %23, %19 ], [ 0, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !10
   %27 = zext i8 %26 to i32
@@ -61,7 +61,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
   br label %30
 
 30:                                               ; preds = %._crit_edge, %24
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %29, %24 ]
+  %.1 = phi i32 [ %29, %24 ], [ 0, %._crit_edge ]
   %31 = load i8, ptr %7, align 1, !tbaa !10
   %32 = zext i8 %31 to i32
   %33 = xor i32 %.1, %32
@@ -75,7 +75,7 @@ default.unreachable44:                            ; preds = %._crit_edge
   unreachable
 
 38:                                               ; preds = %._crit_edge, %30
-  %.138 = phi i32 [ %.037.lcssa, %._crit_edge ], [ %37, %30 ]
+  %.138 = phi i32 [ %37, %30 ], [ %.037.lcssa, %._crit_edge ]
   %39 = trunc i64 %1 to i32
   %40 = xor i32 %.138, %39
   %41 = lshr i32 %40, 16

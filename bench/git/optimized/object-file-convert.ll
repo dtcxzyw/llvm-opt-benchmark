@@ -776,7 +776,7 @@ _.exit28.i:                                       ; preds = %268, %repo_oid_to_a
   br label %convert_tree_object.exit
 
 convert_tree_object.exit:                         ; preds = %279, %convert_commit_object.exit
-  %.0 = phi i32 [ %280, %279 ], [ %.1111.i, %convert_commit_object.exit ]
+  %.0 = phi i32 [ %.1111.i, %convert_commit_object.exit ], [ %280, %279 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %convert_tree_object.exit.thread, label %convert_tree_object.exit.thread44
 

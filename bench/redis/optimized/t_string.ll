@@ -1297,7 +1297,7 @@ define dso_local void @setrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %28, %25 ], [ %24, %21 ], [ %20, %17 ], [ %16, %14 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %1 ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   %34 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %2, ptr noundef null) #11
@@ -1477,7 +1477,7 @@ checkStringLength.exit57:                         ; preds = %79
   br label %sdslen.exit59
 
 sdslen.exit59:                                    ; preds = %92, %117, %120, %124, %128, %132
-  %.0.i58 = phi i64 [ %134, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %117 ], [ 0, %92 ]
+  %.0.i58 = phi i64 [ %119, %117 ], [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %134, %132 ], [ 0, %92 ]
   %135 = load ptr, ptr %40, align 8, !tbaa !32
   %136 = load ptr, ptr %4, align 8, !tbaa !9
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -1541,7 +1541,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %20, %17 ], [ %16, %13 ], [ %12, %9 ], [ %8, %6 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -2304,7 +2304,7 @@ define dso_local void @appendCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %31, %41, %44, %48, %52, %56
-  %.0.i = phi i64 [ %58, %56 ], [ %55, %52 ], [ %51, %48 ], [ %47, %44 ], [ %43, %41 ], [ 0, %31 ]
+  %.0.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ 0, %31 ]
   %59 = call i64 @stringObjectLen(ptr noundef nonnull %9) #11
   %60 = call i32 @mustObeyClient(ptr noundef nonnull %0) #11
   %.not.i = icmp eq i32 %60, 0
@@ -2613,7 +2613,7 @@ define dso_local void @lcsCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %80, %84
-  %.0.i = phi i64 [ %86, %84 ], [ %83, %80 ]
+  %.0.i = phi i64 [ %83, %80 ], [ %86, %84 ]
   %87 = icmp ugt i64 %.0.i, 4294967293
   br i1 %87, label %100, label %sdslen.exit.thread
 
@@ -2639,7 +2639,7 @@ sdslen.exit.thread:                               ; preds = %._crit_edge.thread,
   br label %sdslen.exit277
 
 sdslen.exit277:                                   ; preds = %92, %96
-  %.0.i276 = phi i64 [ %98, %96 ], [ %95, %92 ]
+  %.0.i276 = phi i64 [ %95, %92 ], [ %98, %96 ]
   %99 = icmp ugt i64 %.0.i276, 4294967293
   br i1 %99, label %100, label %sdslen.exit277.thread
 
@@ -2685,7 +2685,7 @@ sdslen.exit277.thread:                            ; preds = %sdslen.exit.thread,
   br label %sdslen.exit279
 
 sdslen.exit279:                                   ; preds = %sdslen.exit277.thread, %101, %104, %108, %112, %116
-  %.0.i278 = phi i64 [ %118, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %104 ], [ %103, %101 ], [ 0, %sdslen.exit277.thread ]
+  %.0.i278 = phi i64 [ %103, %101 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %118, %116 ], [ 0, %sdslen.exit277.thread ]
   %119 = trunc i64 %.0.i278 to i32
   switch i32 %91, label %sdslen.exit281 [
     i32 0, label %120
@@ -2724,7 +2724,7 @@ sdslen.exit279:                                   ; preds = %sdslen.exit277.thre
   br label %sdslen.exit281
 
 sdslen.exit281:                                   ; preds = %sdslen.exit279, %120, %123, %127, %131, %135
-  %.0.i280 = phi i64 [ %137, %135 ], [ %134, %131 ], [ %130, %127 ], [ %126, %123 ], [ %122, %120 ], [ 0, %sdslen.exit279 ]
+  %.0.i280 = phi i64 [ %122, %120 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ %137, %135 ], [ 0, %sdslen.exit279 ]
   %138 = trunc i64 %.0.i280 to i32
   %139 = add i64 %.0.i278, 1
   %140 = and i64 %139, 4294967295

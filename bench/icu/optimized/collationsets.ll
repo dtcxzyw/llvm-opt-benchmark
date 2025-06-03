@@ -2323,7 +2323,7 @@ default.unreachable117:                           ; preds = %27
   unreachable
 
 236:                                              ; preds = %178, %173
-  %.1.in = phi ptr [ %179, %178 ], [ %177, %173 ]
+  %.1.in = phi ptr [ %177, %173 ], [ %179, %178 ]
   %.1 = load i32, ptr %.1.in, align 4, !tbaa !37
   %237 = and i32 %.1, 192
   %.not = icmp eq i32 %237, 192

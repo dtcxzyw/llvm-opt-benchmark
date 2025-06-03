@@ -4164,9 +4164,9 @@ hwloc__memattr_target_get_initiator.exit309.i:    ; preds = %match_internal_loca
   unreachable
 
 310:                                              ; preds = %307, %305, %.lr.ph.i45
-  %.156.i = phi i32 [ %.0558.i, %.lr.ph.i45 ], [ %.0558.i, %307 ], [ %306, %305 ]
-  %.154.i = phi i32 [ %.0539.i, %.lr.ph.i45 ], [ %308, %307 ], [ %.0539.i, %305 ]
-  %.152.i = phi ptr [ %.05110.i, %.lr.ph.i45 ], [ %297, %307 ], [ %.05110.i, %305 ]
+  %.156.i = phi i32 [ %.0558.i, %.lr.ph.i45 ], [ %306, %305 ], [ %.0558.i, %307 ]
+  %.154.i = phi i32 [ %.0539.i, %.lr.ph.i45 ], [ %.0539.i, %305 ], [ %308, %307 ]
+  %.152.i = phi ptr [ %.05110.i, %.lr.ph.i45 ], [ %.05110.i, %305 ], [ %297, %307 ]
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %250
   br i1 %exitcond.not.i48, label %._crit_edge.i49, label %.lr.ph.i45, !llvm.loop !139
@@ -4418,7 +4418,7 @@ hwloc_get_next_obj_by_type.exit.us.i:             ; preds = %385, %382
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
 hwloc_memory_tier_type_snprintf.exit.us.i:        ; preds = %403, %402, %401, %400, %399, %398, %397, %396, %395, %391
-  %.0.i37.us.i = phi ptr [ @.str.29, %395 ], [ @.str.28, %396 ], [ @.str.27, %397 ], [ @.str.26, %398 ], [ @.str.25, %399 ], [ @.str.24, %400 ], [ @.str.23, %401 ], [ @.str.22, %402 ], [ @.str.21, %403 ], [ @.str.20, %391 ]
+  %.0.i37.us.i = phi ptr [ @.str.21, %403 ], [ @.str.22, %402 ], [ @.str.23, %401 ], [ @.str.24, %400 ], [ @.str.25, %399 ], [ @.str.26, %398 ], [ @.str.27, %397 ], [ @.str.28, %396 ], [ @.str.29, %395 ], [ @.str.20, %391 ]
   %404 = getelementptr inbounds nuw i8, ptr %.0.i.us.i, i64 8
   %405 = load ptr, ptr %404, align 8, !tbaa !104
   %406 = icmp eq ptr %405, null

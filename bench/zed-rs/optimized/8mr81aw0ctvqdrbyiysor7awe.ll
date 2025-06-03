@@ -1931,7 +1931,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h193728dd3ca9c838E.
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i8 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i8 %.sroa.01.0
 }
 
@@ -1991,7 +1991,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h30556a3870fb5be8E
   br label %22
 
 22:                                               ; preds = %20, %13, %6
-  %.sroa.01.0 = phi i64 [ %21, %20 ], [ %14, %13 ], [ %7, %6 ]
+  %.sroa.01.0 = phi i64 [ %7, %6 ], [ %14, %13 ], [ %21, %20 ]
   ret i64 %.sroa.01.0
 }
 
@@ -2068,7 +2068,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hbcaf
   br label %20
 
 20:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %18, %16, %14
-  %.pn = phi { i32, i1 } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+  %.pn = phi { i32, i1 } [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
   %.sroa.18.0.in = extractvalue { i32, i1 } %.pn, 1
   %not..sroa.18.0.in = xor i1 %.sroa.18.0.in, true
   %. = zext i1 %not..sroa.18.0.in to i32
@@ -4394,7 +4394,7 @@ _ZN3std4path4Path4join17hda021b309ecff34cE.exit:  ; preds = %202
   br label %"_ZN4core3ptr111drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$std..path..PathBuf$C$heed..env..EnvEntry$GT$$GT$17h4704d4ad025bba93E.exit299"
 
 314:                                              ; preds = %.thread429, %349, %315
-  %.pn232 = phi { ptr, i32 } [ %316, %315 ], [ %.pn225432, %.thread429 ], [ %.pn222.pn, %349 ]
+  %.pn232 = phi { ptr, i32 } [ %316, %315 ], [ %.pn224.pn432, %.thread429 ], [ %.pn224, %349 ]
   invoke void @"_ZN4core3ptr148drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$heed..env..EnvEntry$GT$$GT$$GT$17hd7b159ebd45bcf92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41) #38
           to label %.body unwind label %332
 
@@ -4546,7 +4546,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5005022800651993668.exit.
 
 .body259:                                         ; preds = %.thread433, %579, %547, %.body325, %490, %427, %370
   %.sroa.098.2 = phi i1 [ true, %370 ], [ true, %427 ], [ true, %490 ], [ false, %.body325 ], [ false, %547 ], [ true, %579 ], [ true, %.thread433 ]
-  %.pn222.pn = phi { ptr, i32 } [ %371, %370 ], [ %428, %427 ], [ %491, %490 ], [ %541, %.body325 ], [ %541, %547 ], [ %eh.lpad-body262, %579 ], [ %eh.lpad-body262, %.thread433 ]
+  %.pn224 = phi { ptr, i32 } [ %371, %370 ], [ %428, %427 ], [ %491, %490 ], [ %541, %.body325 ], [ %541, %547 ], [ %eh.lpad-body262, %579 ], [ %eh.lpad-body262, %.thread433 ]
   store i8 0, ptr %363, align 1
   %368 = icmp eq i64 %365, 0
   br i1 %368, label %349, label %369
@@ -5196,7 +5196,7 @@ _ZN3std2io5error5Error3new17h4c688a2604842052E.exit: ; preds = %"_ZN50_$LT$T$u20
   br label %600
 
 .thread429:                                       ; preds = %356, %350, %349
-  %.pn225432 = phi { ptr, i32 } [ %.pn222.pn, %349 ], [ %351, %350 ], [ %357, %356 ]
+  %.pn224.pn432 = phi { ptr, i32 } [ %.pn224, %349 ], [ %351, %350 ], [ %357, %356 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$std..path..PathBuf$C$heed..env..EnvEntry$GT$$GT$17h3994b9abc988701cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %33) #38
           to label %314 unwind label %332
 
@@ -7641,8 +7641,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %70
 
 70:                                               ; preds = %65, %73
-  %.sroa.3.0 = phi ptr [ undef, %73 ], [ %69, %65 ]
-  %.sroa.0.0 = phi ptr [ null, %73 ], [ %67, %65 ]
+  %.sroa.3.0 = phi ptr [ %69, %65 ], [ undef, %73 ]
+  %.sroa.0.0 = phi ptr [ %67, %65 ], [ null, %73 ]
   %71 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %72 = insertvalue { ptr, ptr } %71, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %72

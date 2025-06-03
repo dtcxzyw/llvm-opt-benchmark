@@ -1592,8 +1592,8 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
   br i1 %68, label %73, label %.thread
 
 .thread128:                                       ; preds = %55, %59
-  %.370 = phi i32 [ %.168, %55 ], [ %60, %59 ]
-  %.163 = phi ptr [ %0, %55 ], [ %7, %59 ]
+  %.370 = phi i32 [ %60, %59 ], [ %.168, %55 ]
+  %.163 = phi ptr [ %7, %59 ], [ %0, %55 ]
   %69 = or i32 %.370, 16
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !43
@@ -1668,9 +1668,9 @@ default.unreachable127:                           ; preds = %77
   unreachable
 
 .thread:                                          ; preds = %64, %86, %88, %78, %82, %.thread139, %92, %96
-  %.471133 = phi i32 [ %.471134, %96 ], [ %.471134, %92 ], [ %.471134, %.thread139 ], [ %.471136, %78 ], [ %.471136, %82 ], [ %.471136, %88 ], [ %.471136, %86 ], [ %65, %64 ]
-  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread139 ], [ 1, %78 ], [ 1, %82 ], [ 1, %88 ], [ %87, %86 ], [ 1, %64 ]
-  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread139 ], [ %.2137, %78 ], [ %7, %82 ], [ %7, %88 ], [ %.2137, %86 ], [ %0, %64 ]
+  %.471133 = phi i32 [ %.471134, %96 ], [ %.471134, %92 ], [ %.471134, %.thread139 ], [ %.471136, %88 ], [ %.471136, %86 ], [ %.471136, %78 ], [ %.471136, %82 ], [ %65, %64 ]
+  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread139 ], [ 1, %88 ], [ %87, %86 ], [ 1, %78 ], [ 1, %82 ], [ 1, %64 ]
+  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread139 ], [ %7, %88 ], [ %.2137, %86 ], [ %.2137, %78 ], [ %7, %82 ], [ %0, %64 ]
   %97 = load i32, ptr %10, align 4, !tbaa !25
   %98 = and i32 %97, 958
   %.not87 = icmp eq i32 %98, 0
@@ -2406,8 +2406,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %16
 
 16:                                               ; preds = %9, %4
-  %.1122 = phi i64 [ %1, %4 ], [ %15, %9 ]
-  %.1 = phi ptr [ %0, %4 ], [ %12, %9 ]
+  %.1122 = phi i64 [ %15, %9 ], [ %1, %4 ]
+  %.1 = phi ptr [ %12, %9 ], [ %0, %4 ]
   %17 = icmp eq ptr %.1, %3
   br i1 %17, label %18, label %20
 
@@ -2427,8 +2427,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %26
 
 26:                                               ; preds = %20, %4
-  %.2123 = phi i64 [ %1, %4 ], [ %25, %20 ]
-  %.2 = phi ptr [ %0, %4 ], [ %24, %20 ]
+  %.2123 = phi i64 [ %25, %20 ], [ %1, %4 ]
+  %.2 = phi ptr [ %24, %20 ], [ %0, %4 ]
   %27 = icmp eq ptr %.2, %3
   br i1 %27, label %28, label %30
 
@@ -2448,8 +2448,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %36
 
 36:                                               ; preds = %30, %4
-  %.3124 = phi i64 [ %1, %4 ], [ %35, %30 ]
-  %.3 = phi ptr [ %0, %4 ], [ %34, %30 ]
+  %.3124 = phi i64 [ %35, %30 ], [ %1, %4 ]
+  %.3 = phi ptr [ %34, %30 ], [ %0, %4 ]
   %37 = icmp eq ptr %.3, %3
   br i1 %37, label %38, label %40
 
@@ -2469,8 +2469,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %46
 
 46:                                               ; preds = %40, %4
-  %.4125 = phi i64 [ %1, %4 ], [ %45, %40 ]
-  %.4 = phi ptr [ %0, %4 ], [ %44, %40 ]
+  %.4125 = phi i64 [ %45, %40 ], [ %1, %4 ]
+  %.4 = phi ptr [ %44, %40 ], [ %0, %4 ]
   %47 = icmp eq ptr %.4, %3
   br i1 %47, label %48, label %50
 
@@ -2490,8 +2490,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %56
 
 56:                                               ; preds = %50, %4
-  %.5126 = phi i64 [ %1, %4 ], [ %55, %50 ]
-  %.5 = phi ptr [ %0, %4 ], [ %54, %50 ]
+  %.5126 = phi i64 [ %55, %50 ], [ %1, %4 ]
+  %.5 = phi ptr [ %54, %50 ], [ %0, %4 ]
   %57 = icmp eq ptr %.5, %3
   br i1 %57, label %58, label %60
 
@@ -2511,8 +2511,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %66
 
 66:                                               ; preds = %60, %4
-  %.6127 = phi i64 [ %1, %4 ], [ %65, %60 ]
-  %.6 = phi ptr [ %0, %4 ], [ %64, %60 ]
+  %.6127 = phi i64 [ %65, %60 ], [ %1, %4 ]
+  %.6 = phi ptr [ %64, %60 ], [ %0, %4 ]
   %67 = icmp eq ptr %.6, %3
   br i1 %67, label %68, label %70
 
@@ -2532,8 +2532,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %76
 
 76:                                               ; preds = %70, %4
-  %.7128 = phi i64 [ %1, %4 ], [ %75, %70 ]
-  %.7 = phi ptr [ %0, %4 ], [ %74, %70 ]
+  %.7128 = phi i64 [ %75, %70 ], [ %1, %4 ]
+  %.7 = phi ptr [ %74, %70 ], [ %0, %4 ]
   %77 = icmp eq ptr %.7, %3
   br i1 %77, label %78, label %80
 
@@ -2553,8 +2553,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %86
 
 86:                                               ; preds = %80, %4
-  %.8129 = phi i64 [ %1, %4 ], [ %85, %80 ]
-  %.8 = phi ptr [ %0, %4 ], [ %84, %80 ]
+  %.8129 = phi i64 [ %85, %80 ], [ %1, %4 ]
+  %.8 = phi ptr [ %84, %80 ], [ %0, %4 ]
   %87 = icmp eq ptr %.8, %3
   br i1 %87, label %88, label %90
 
@@ -2574,8 +2574,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %96
 
 96:                                               ; preds = %90, %4
-  %.9130 = phi i64 [ %1, %4 ], [ %95, %90 ]
-  %.9 = phi ptr [ %0, %4 ], [ %94, %90 ]
+  %.9130 = phi i64 [ %95, %90 ], [ %1, %4 ]
+  %.9 = phi ptr [ %94, %90 ], [ %0, %4 ]
   %97 = icmp eq ptr %.9, %3
   br i1 %97, label %98, label %100
 
@@ -2595,8 +2595,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %106
 
 106:                                              ; preds = %100, %4
-  %.10131 = phi i64 [ %1, %4 ], [ %105, %100 ]
-  %.10 = phi ptr [ %0, %4 ], [ %104, %100 ]
+  %.10131 = phi i64 [ %105, %100 ], [ %1, %4 ]
+  %.10 = phi ptr [ %104, %100 ], [ %0, %4 ]
   %107 = icmp eq ptr %.10, %3
   br i1 %107, label %108, label %110
 
@@ -2616,8 +2616,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %116
 
 116:                                              ; preds = %110, %4
-  %.11132 = phi i64 [ %1, %4 ], [ %115, %110 ]
-  %.11 = phi ptr [ %0, %4 ], [ %114, %110 ]
+  %.11132 = phi i64 [ %115, %110 ], [ %1, %4 ]
+  %.11 = phi ptr [ %114, %110 ], [ %0, %4 ]
   %117 = icmp eq ptr %.11, %3
   br i1 %117, label %118, label %120
 
@@ -2637,8 +2637,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %126
 
 126:                                              ; preds = %120, %4
-  %.12133 = phi i64 [ %1, %4 ], [ %125, %120 ]
-  %.12 = phi ptr [ %0, %4 ], [ %124, %120 ]
+  %.12133 = phi i64 [ %125, %120 ], [ %1, %4 ]
+  %.12 = phi ptr [ %124, %120 ], [ %0, %4 ]
   %127 = icmp eq ptr %.12, %3
   br i1 %127, label %128, label %130
 
@@ -2658,8 +2658,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %136
 
 136:                                              ; preds = %130, %4
-  %.13134 = phi i64 [ %1, %4 ], [ %135, %130 ]
-  %.13 = phi ptr [ %0, %4 ], [ %134, %130 ]
+  %.13134 = phi i64 [ %135, %130 ], [ %1, %4 ]
+  %.13 = phi ptr [ %134, %130 ], [ %0, %4 ]
   %137 = icmp eq ptr %.13, %3
   br i1 %137, label %138, label %140
 
@@ -2679,8 +2679,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %146
 
 146:                                              ; preds = %140, %4
-  %.14135 = phi i64 [ %1, %4 ], [ %145, %140 ]
-  %.14 = phi ptr [ %0, %4 ], [ %144, %140 ]
+  %.14135 = phi i64 [ %145, %140 ], [ %1, %4 ]
+  %.14 = phi ptr [ %144, %140 ], [ %0, %4 ]
   %147 = icmp eq ptr %.14, %3
   br i1 %147, label %148, label %150
 
@@ -2700,8 +2700,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %156
 
 156:                                              ; preds = %150, %4
-  %.15136 = phi i64 [ %1, %4 ], [ %155, %150 ]
-  %.15 = phi ptr [ %0, %4 ], [ %154, %150 ]
+  %.15136 = phi i64 [ %155, %150 ], [ %1, %4 ]
+  %.15 = phi ptr [ %154, %150 ], [ %0, %4 ]
   %157 = icmp eq ptr %.15, %3
   br i1 %157, label %158, label %160
 
@@ -2721,8 +2721,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %166
 
 166:                                              ; preds = %160, %4
-  %.16137 = phi i64 [ %1, %4 ], [ %165, %160 ]
-  %.16 = phi ptr [ %0, %4 ], [ %164, %160 ]
+  %.16137 = phi i64 [ %165, %160 ], [ %1, %4 ]
+  %.16 = phi ptr [ %164, %160 ], [ %0, %4 ]
   %167 = icmp eq ptr %.16, %3
   br i1 %167, label %168, label %170
 
@@ -2742,8 +2742,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %176
 
 176:                                              ; preds = %170, %4
-  %.17138 = phi i64 [ %1, %4 ], [ %175, %170 ]
-  %.17 = phi ptr [ %0, %4 ], [ %174, %170 ]
+  %.17138 = phi i64 [ %175, %170 ], [ %1, %4 ]
+  %.17 = phi ptr [ %174, %170 ], [ %0, %4 ]
   %177 = icmp eq ptr %.17, %3
   br i1 %177, label %178, label %180
 
@@ -2763,8 +2763,8 @@ define internal fastcc noundef ptr @word_to_string(ptr noundef writeonly %0, i64
   br label %186
 
 186:                                              ; preds = %180, %4
-  %.18139 = phi i64 [ %1, %4 ], [ %185, %180 ]
-  %.18 = phi ptr [ %0, %4 ], [ %184, %180 ]
+  %.18139 = phi i64 [ %185, %180 ], [ %1, %4 ]
+  %.18 = phi ptr [ %184, %180 ], [ %0, %4 ]
   %187 = icmp eq ptr %.18, %3
   br i1 %187, label %188, label %190
 

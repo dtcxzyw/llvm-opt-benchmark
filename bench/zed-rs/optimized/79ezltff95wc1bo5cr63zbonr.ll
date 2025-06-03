@@ -22694,9 +22694,9 @@ define hidden { i64, ptr } @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Co
   br label %101
 
 101:                                              ; preds = %111, %99, %90
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.8.0.copyload11.i.i, %111 ], [ 67, %99 ], [ undef, %90 ]
-  %.sroa.7.0.i.i = phi ptr [ %.sroa.7.0.copyload9.i.i, %111 ], [ %100, %99 ], [ undef, %90 ]
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload7.i.i, %111 ], [ %94, %99 ], [ -9223372036854775808, %90 ]
+  %.sroa.8.0.i.i = phi i64 [ 67, %99 ], [ %.sroa.8.0.copyload11.i.i, %111 ], [ undef, %90 ]
+  %.sroa.7.0.i.i = phi ptr [ %100, %99 ], [ %.sroa.7.0.copyload9.i.i, %111 ], [ undef, %90 ]
+  %.sroa.0.0.i.i = phi i64 [ %94, %99 ], [ %.sroa.0.0.copyload7.i.i, %111 ], [ -9223372036854775808, %90 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !5464
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h28ed4abcae931d82E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
           to label %.noexc.i unwind label %140, !noalias !5475

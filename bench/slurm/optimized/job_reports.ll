@@ -704,8 +704,8 @@ default.unreachable220:                           ; preds = %274
   br label %292
 
 292:                                              ; preds = %.sink.split, %284, %289, %279
-  %.1 = phi ptr [ %287, %289 ], [ %277, %279 ], [ %282, %284 ], [ %.1.ph, %.sink.split ]
-  %.0104 = phi ptr [ @.str.1, %289 ], [ @.str.1, %279 ], [ @.str.5, %284 ], [ %.0104.ph, %.sink.split ]
+  %.1 = phi ptr [ %277, %279 ], [ %287, %289 ], [ %282, %284 ], [ %.1.ph, %.sink.split ]
+  %.0104 = phi ptr [ @.str.1, %279 ], [ @.str.1, %289 ], [ @.str.5, %284 ], [ %.0104.ph, %.sink.split ]
   %293 = load ptr, ptr @fed_name, align 8
   %.not152 = icmp eq ptr %293, null
   br i1 %.not152, label %_merge_cluster_groups.exit, label %294
@@ -1536,7 +1536,7 @@ _setup_grouping_print_fields_list.exit:           ; preds = %458, %459
   br label %632
 
 632:                                              ; preds = %_setup_grouping_print_fields_list.exit, %._crit_edge210, %382, %288, %283, %278
-  %.0105 = phi ptr [ %.1, %382 ], [ %.1, %_setup_grouping_print_fields_list.exit ], [ %.1, %._crit_edge210 ], [ null, %288 ], [ null, %283 ], [ null, %278 ]
+  %.0105 = phi ptr [ %.1, %382 ], [ %.1, %_setup_grouping_print_fields_list.exit ], [ %.1, %._crit_edge210 ], [ null, %278 ], [ null, %283 ], [ null, %288 ]
   %633 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @slurm_xfree(ptr noundef nonnull %633) #12
   %.b138 = load i1, ptr @print_job_count, align 4

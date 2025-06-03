@@ -1092,10 +1092,10 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %71
 
 39:                                               ; preds = %51, %37
-  %.sroa.4.1 = phi i64 [ %.sroa.4.084, %51 ], [ %38, %37 ]
-  %.sroa.03.1 = phi i64 [ %.sroa.03.085, %51 ], [ 1, %37 ]
-  %.sroa.05.1 = phi i32 [ 1, %51 ], [ %.sroa.05.086, %37 ]
-  %.sroa.47.1 = phi i32 [ %52, %51 ], [ %.sroa.47.087, %37 ]
+  %.sroa.4.1 = phi i64 [ %38, %37 ], [ %.sroa.4.084, %51 ]
+  %.sroa.03.1 = phi i64 [ 1, %37 ], [ %.sroa.03.085, %51 ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.086, %37 ], [ 1, %51 ]
+  %.sroa.47.1 = phi i32 [ %.sroa.47.087, %37 ], [ %52, %51 ]
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %._crit_edge, label %15
 
@@ -3777,7 +3777,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22.i.i: ; preds = %2
   br label %"_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h33f9936d9877d698E.exit"
 
 "_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h33f9936d9877d698E.exit": ; preds = %17, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17.i.i, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22.i.i
-  %.sroa.0.0.in.i.i = phi i1 [ %29, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22.i.i ], [ %25, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17.i.i ], [ %22, %17 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %25, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17.i.i ], [ %29, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22.i.i ], [ %22, %17 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -3898,7 +3898,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit"
 
 "_ZN94_$LT$async_http_range_reader..error..AsyncHttpRangeReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17h7e5774027e1303baE.exit": ; preds = %12, %14, %17, %20, %23, %25, %27, %30
-  %.sroa.0.0.in.i = phi i1 [ %31, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %26, %25 ], [ %29, %27 ], [ %31, %30 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -3956,7 +3956,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN62_$LT$mailparse..MailParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h38644d200e6b4eceE.exit"
 
 "_ZN62_$LT$mailparse..MailParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h38644d200e6b4eceE.exit": ; preds = %13, %16, %19, %21
-  %.sroa.0.0.in.i = phi i1 [ %23, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ]
+  %.sroa.0.0.in.i = phi i1 [ %15, %13 ], [ %18, %16 ], [ %20, %19 ], [ %23, %21 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4138,7 +4138,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN80_$LT$uv_platform_tags..abi_tag..ParseAbiTagError$u20$as$u20$core..fmt..Debug$GT$3fmt17h60e02c61f275053aE.exit"
 
 "_ZN80_$LT$uv_platform_tags..abi_tag..ParseAbiTagError$u20$as$u20$core..fmt..Debug$GT$3fmt17h60e02c61f275053aE.exit": ; preds = %15, %18, %22, %26, %30, %34, %38, %42, %46, %50
-  %.sroa.0.0.in.i = phi i1 [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ], [ %17, %15 ]
+  %.sroa.0.0.in.i = phi i1 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4184,7 +4184,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d4eb24b17e940dE.exit"
 
 "_ZN61_$LT$url..host..Host$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d4eb24b17e940dE.exit": ; preds = %8, %11, %14
-  %.sroa.0.0.in.i = phi i1 [ %16, %14 ], [ %13, %11 ], [ %10, %8 ]
+  %.sroa.0.0.in.i = phi i1 [ %10, %8 ], [ %13, %11 ], [ %16, %14 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4288,7 +4288,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN70_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..fmt..Debug$GT$3fmt17h14e9e87f662e81acE.exit"
 
 "_ZN70_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..fmt..Debug$GT$3fmt17h14e9e87f662e81acE.exit": ; preds = %12, %14, %16, %20, %23, %27
-  %.sroa.0.0.in.i = phi i1 [ %29, %27 ], [ %26, %23 ], [ %22, %20 ], [ %19, %16 ], [ %15, %14 ], [ %13, %12 ]
+  %.sroa.0.0.in.i = phi i1 [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ %22, %20 ], [ %26, %23 ], [ %29, %27 ]
   ret i1 %.sroa.0.0.in.i
 }
 
@@ -4929,7 +4929,7 @@ define internal fastcc void @"_ZN4core3ptr39drop_in_place$LT$uv_metadata..Error$
   unreachable
 
 112:                                              ; preds = %113, %97
-  %.pn = phi { ptr, i32 } [ %114, %113 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %114, %113 ]
   resume { ptr, i32 } %.pn
 
 113:                                              ; preds = %66, %61
@@ -5917,7 +5917,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$uv_workspace..workspace..Wor
   unreachable
 
 common.resume:                                    ; preds = %111, %138, %152, %157, %164
-  %common.resume.op = phi { ptr, i32 } [ %165, %164 ], [ %158, %157 ], [ %153, %152 ], [ %.pn, %138 ], [ %112, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %165, %164 ], [ %112, %111 ], [ %.pn, %138 ], [ %153, %152 ], [ %158, %157 ]
   resume { ptr, i32 } %common.resume.op
 
 126:                                              ; preds = %73
@@ -11271,10 +11271,10 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd198
   br label %50
 
 37:                                               ; preds = %47, %34
-  %.sroa.4.1.i = phi i64 [ %.sroa.4.053.i, %47 ], [ %35, %34 ]
-  %.sroa.03.1.i = phi i64 [ %.sroa.03.054.i, %47 ], [ 1, %34 ]
-  %.sroa.05.1.i = phi i32 [ 1, %47 ], [ %.sroa.05.055.i, %34 ]
-  %.sroa.47.1.i = phi i32 [ %48, %47 ], [ %.sroa.47.056.i, %34 ]
+  %.sroa.4.1.i = phi i64 [ %35, %34 ], [ %.sroa.4.053.i, %47 ]
+  %.sroa.03.1.i = phi i64 [ 1, %34 ], [ %.sroa.03.054.i, %47 ]
+  %.sroa.05.1.i = phi i32 [ %.sroa.05.055.i, %34 ], [ 1, %47 ]
+  %.sroa.47.1.i = phi i32 [ %.sroa.47.056.i, %34 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2091
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2091
   call void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h7401ed684290c8caE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %10), !noalias !2086
@@ -13137,7 +13137,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br label %10
 
 10:                                               ; preds = %7, %5
-  %.sroa.0.0.in = phi i1 [ %9, %7 ], [ %6, %5 ]
+  %.sroa.0.0.in = phi i1 [ %6, %5 ], [ %9, %7 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -13228,7 +13228,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit: ; preds = %14, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17
-  %.sroa.0.0.in = phi i1 [ %26, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22 ], [ %22, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17 ], [ %19, %14 ]
+  %.sroa.0.0.in = phi i1 [ %22, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit17 ], [ %26, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit22 ], [ %19, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -14530,7 +14530,7 @@ default.unreachable1:                             ; preds = %2
   br label %60
 
 60:                                               ; preds = %57, %53, %50, %46, %42, %39, %34, %31, %28, %25, %22, %18, %16
-  %.sroa.0.0.in = phi i1 [ %59, %57 ], [ %56, %53 ], [ %52, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %39 ], [ %38, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %18 ], [ %17, %16 ]
+  %.sroa.0.0.in = phi i1 [ %17, %16 ], [ %21, %18 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %38, %34 ], [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ], [ %56, %53 ], [ %59, %57 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -15757,7 +15757,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$uv_workspace..dependency_groups..De
   br label %31
 
 31:                                               ; preds = %27, %24, %21, %17, %13
-  %.sroa.0.0.in = phi i1 [ %30, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %17 ], [ %16, %13 ]
+  %.sroa.0.0.in = phi i1 [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ %26, %24 ], [ %30, %27 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -17477,8 +17477,8 @@ define { ptr, ptr } @"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$
   br label %21
 
 21:                                               ; preds = %1, %1, %1, %1, %19, %17, %12, %8
-  %.sroa.9.0 = phi ptr [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %19 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %17 ], [ %16, %12 ], [ %11, %8 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %20, %19 ], [ %18, %17 ], [ %15, %12 ], [ %10, %8 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.9.0 = phi ptr [ %11, %8 ], [ %16, %12 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %17 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %19 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %8 ], [ %15, %12 ], [ %18, %17 ], [ %20, %19 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %22 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %23 = insertvalue { ptr, ptr } %22, ptr %.sroa.9.0, 1
   ret { ptr, ptr } %23
@@ -18050,7 +18050,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit406: ; preds = %2
   br label %95
 
 95:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit406, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit401, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit396, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit391, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit386, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit, %38, %36
-  %.sroa.0.0.in = phi i1 [ %94, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit406 ], [ %83, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit401 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit396 ], [ %61, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit391 ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit386 ], [ %44, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %40, %38 ], [ %37, %36 ]
+  %.sroa.0.0.in = phi i1 [ %37, %36 ], [ %40, %38 ], [ %44, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit ], [ %50, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit386 ], [ %61, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit391 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit396 ], [ %83, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit401 ], [ %94, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit406 ]
   ret i1 %.sroa.0.0.in
 }
 

@@ -1595,8 +1595,8 @@ up_irq_restore.exit99.thread:                     ; preds = %.thread, %up_irq_re
   store i32 %200, ptr %201, align 4
   br label %up_irq_restore.exit99.thread.thread
 
-up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit97, %up_irq_restore.exit95, %up_irq_restore.exit, %122, %124, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
-  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %192 ], [ 0, %181 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit97 ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit ], [ 0, %122 ], [ 0, %124 ], [ -25, %127 ], [ -25, %153 ]
+up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit, %up_irq_restore.exit95, %up_irq_restore.exit97, %122, %124, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
+  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %181 ], [ 0, %192 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit97 ], [ 0, %122 ], [ 0, %124 ], [ -25, %127 ], [ -25, %153 ]
   ret i32 %.1
 }
 

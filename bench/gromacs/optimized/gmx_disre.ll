@@ -3275,7 +3275,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc394, %.lr.ph.
   br label %1229
 
 1229:                                             ; preds = %1227, %1225, %1223
-  %.0.in.us.us.us.us.i.i = phi ptr [ %1224, %1223 ], [ %1226, %1225 ], [ %1228, %1227 ]
+  %.0.in.us.us.us.us.i.i = phi ptr [ %1228, %1227 ], [ %1226, %1225 ], [ %1224, %1223 ]
   %.0.us.us.us.us.i.i = load float, ptr %.0.in.us.us.us.us.i.i, align 4, !tbaa !95
   %1230 = fcmp olt float %.05964.us.us.us.us.i.i, %.0.us.us.us.us.i.i
   %.sroa.speculated.us.us.us.us.i.i = select i1 %1230, float %.0.us.us.us.us.i.i, float %.05964.us.us.us.us.i.i

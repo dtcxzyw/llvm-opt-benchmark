@@ -215,7 +215,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24Ma
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %58, %57 ]
+  %.sroa.036.1.i.i.i.i.i.i = phi ptr [ %58, %57 ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %60 = getelementptr i8, ptr %.sroa.036.1.i.i.i.i.i.i, i64 8
   %.val.i28.i.i.i.i.i.i = load ptr, ptr %60, align 8, !tbaa !14
   %.not.i.i.i.i29.i.i.i.i.i.i = icmp eq ptr %.val.i28.i.i.i.i.i.i, null
@@ -232,7 +232,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5arrow8internal12_GLOBAL__N_111AtForkState24Ma
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge.i.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %65, %64 ]
+  %.sroa.036.2.i.i.i.i.i.i = phi ptr [ %65, %64 ], [ %.sroa.036.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %67 = getelementptr i8, ptr %.sroa.036.2.i.i.i.i.i.i, i64 8
   %.val.i31.i.i.i.i.i.i = load ptr, ptr %67, align 8, !tbaa !14
   %.not.i.i.i.i32.i.i.i.i.i.i = icmp eq ptr %.val.i31.i.i.i.i.i.i, null

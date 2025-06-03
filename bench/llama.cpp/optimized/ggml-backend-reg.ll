@@ -1924,7 +1924,7 @@ define linkonce_odr void @_ZN21ggml_backend_registry14unload_backendEP16ggml_bac
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %36, %35 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %38 = load ptr, ptr %.sroa.032.1.i.i.i, align 8, !tbaa !10
   %39 = icmp eq ptr %38, %1
   br i1 %39, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP22ggml_backend_reg_entrySt6vectorIS2_SaIS2_EEEEZN21ggml_backend_registry14unload_backendEP16ggml_backend_regbEUlRKS2_E_ET_SE_SE_T0_.exit, label %40
@@ -1934,7 +1934,7 @@ define linkonce_odr void @_ZN21ggml_backend_registry14unload_backendEP16ggml_bac
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %40 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %43 = load ptr, ptr %.sroa.032.2.i.i.i, align 8, !tbaa !10
   %44 = icmp eq ptr %43, %1
   %spec.select.i.i.i = select i1 %44, ptr %.sroa.032.2.i.i.i, ptr %6
@@ -7624,7 +7624,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP19ggml_
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %37, %36 ]
+  %.sroa.032.1 = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %39 = load ptr, ptr %.sroa.032.1, align 8, !tbaa !27
   %40 = tail call ptr @ggml_backend_dev_backend_reg(ptr noundef %39)
   %41 = icmp eq ptr %40, %2
@@ -7635,7 +7635,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP19ggml_
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge
-  %.sroa.032.2 = phi ptr [ %.sroa.032.0.lcssa, %._crit_edge ], [ %43, %42 ]
+  %.sroa.032.2 = phi ptr [ %43, %42 ], [ %.sroa.032.0.lcssa, %._crit_edge ]
   %45 = load ptr, ptr %.sroa.032.2, align 8, !tbaa !27
   %46 = tail call ptr @ggml_backend_dev_backend_reg(ptr noundef %45)
   %47 = icmp eq ptr %46, %2

@@ -1739,11 +1739,11 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
 22:                                               ; preds = %20
   br label %23
 
-23:                                               ; preds = %20, %20, %20, %20, %20, %21, %22
-  %.ph = phi i1 [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ false, %21 ], [ false, %22 ]
-  %.094.ph = phi i32 [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 100, %21 ], [ 10, %22 ]
-  %.092.ph = phi ptr [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.737, %21 ], [ @.str.738, %22 ]
-  %.091.ph = phi ptr [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.427, %21 ], [ @.str.430, %22 ]
+23:                                               ; preds = %20, %20, %20, %20, %20, %22, %21
+  %.ph = phi i1 [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ false, %22 ], [ false, %21 ]
+  %.094.ph = phi i32 [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 40, %20 ], [ 10, %22 ], [ 100, %21 ]
+  %.092.ph = phi ptr [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.736, %20 ], [ @.str.738, %22 ], [ @.str.737, %21 ]
+  %.091.ph = phi ptr [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.433, %20 ], [ @.str.430, %22 ], [ @.str.427, %21 ]
   %24 = load i32, ptr @hf_dect_cc_BField, align 4
   %25 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %24, ptr noundef %2, i32 noundef 19, i32 noundef 1, ptr noundef nonnull %.091.ph)
   %26 = load i32, ptr @hf_dect_B, align 4

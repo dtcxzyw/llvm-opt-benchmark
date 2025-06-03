@@ -13886,7 +13886,7 @@ proto_item_set_generated.exit465:                 ; preds = %519, %524, %527
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %proto_item_set_generated.exit465, %proto_item_set_generated.exit444, %analyze_mapping.exit462, %483, %513, %110, %91, %535, %541, %516, %mptcp_convert_dsn.exit, %294, %299, %309, %258, %analyze_mapping.exit, %229, %179, %558, %550, %544
-  %.3421 = phi ptr [ %.0418, %91 ], [ %.0418, %558 ], [ %.0418, %550 ], [ %.0418, %544 ], [ %.0418, %541 ], [ %.0418, %535 ], [ %.0418, %516 ], [ %.0418, %513 ], [ %.0418, %mptcp_convert_dsn.exit ], [ %.4422, %258 ], [ %.4422, %309 ], [ %.4422, %299 ], [ %275, %294 ], [ %.1419, %229 ], [ %.1419, %analyze_mapping.exit ], [ %.1419, %179 ], [ %.0418, %110 ], [ %.0418, %483 ], [ %.0418, %analyze_mapping.exit462 ], [ %123, %proto_item_set_generated.exit444 ], [ %.0418, %proto_item_set_generated.exit465 ], [ %.0418, %.lr.ph ]
+  %.3421 = phi ptr [ %.0418, %91 ], [ %.1419, %229 ], [ %.1419, %analyze_mapping.exit ], [ %.1419, %179 ], [ %.0418, %110 ], [ %.4422, %258 ], [ %275, %294 ], [ %.4422, %299 ], [ %.4422, %309 ], [ %.0418, %mptcp_convert_dsn.exit ], [ %.0418, %516 ], [ %.0418, %513 ], [ %.0418, %541 ], [ %.0418, %535 ], [ %.0418, %544 ], [ %.0418, %550 ], [ %.0418, %558 ], [ %.0418, %483 ], [ %.0418, %analyze_mapping.exit462 ], [ %123, %proto_item_set_generated.exit444 ], [ %.0418, %proto_item_set_generated.exit465 ], [ %.0418, %.lr.ph ]
   %.not439 = icmp eq ptr %.3421, null
   br i1 %.not439, label %680, label %565
 
@@ -17762,8 +17762,8 @@ mptcp_cryptodata_sha256.exit:                     ; preds = %18
   br label %31
 
 31:                                               ; preds = %18, %mptcp_cryptodata_sha256.exit, %mptcp_cryptodata_sha1.exit
-  %.028 = phi i32 [ 0, %18 ], [ %27, %mptcp_cryptodata_sha256.exit ], [ %21, %mptcp_cryptodata_sha1.exit ]
-  %.027 = phi i64 [ 0, %18 ], [ %30, %mptcp_cryptodata_sha256.exit ], [ %24, %mptcp_cryptodata_sha1.exit ]
+  %.028 = phi i32 [ 0, %18 ], [ %21, %mptcp_cryptodata_sha1.exit ], [ %27, %mptcp_cryptodata_sha256.exit ]
+  %.027 = phi i64 [ 0, %18 ], [ %24, %mptcp_cryptodata_sha1.exit ], [ %30, %mptcp_cryptodata_sha256.exit ]
   %32 = call fastcc ptr @mptcp_get_meta_from_token(ptr noundef %0, ptr noundef %1, i32 noundef %.028)
   %33 = load ptr, ptr %9, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32

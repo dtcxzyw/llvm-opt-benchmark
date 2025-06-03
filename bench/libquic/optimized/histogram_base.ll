@@ -205,7 +205,7 @@ define noundef ptr @_ZN4base24DeserializeHistogramInfoEPNS_14PickleIteratorE(ptr
   br label %16
 
 16:                                               ; preds = %4, %1, %14, %12, %10, %8, %6
-  %.0 = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ null, %1 ], [ null, %4 ]
+  %.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %1 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   ret ptr %.0
 }

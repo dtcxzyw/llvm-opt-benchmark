@@ -1011,8 +1011,8 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   br label %.critedge
 
 .critedge:                                        ; preds = %309, %399, %.thread481, %.preheader, %._crit_edge475, %447, %293, %403
-  %.1344 = phi i32 [ %.0343, %._crit_edge475 ], [ %.0343, %447 ], [ %.0343, %403 ], [ %290, %293 ], [ %290, %.preheader ], [ %290, %.thread481 ], [ %290, %399 ], [ %290, %309 ]
-  %.1342 = phi i32 [ %.0341, %._crit_edge475 ], [ %.0341, %447 ], [ %.0341, %403 ], [ %264, %293 ], [ %264, %.preheader ], [ %264, %.thread481 ], [ %264, %399 ], [ %264, %309 ]
+  %.1344 = phi i32 [ %.0343, %._crit_edge475 ], [ %.0343, %447 ], [ %290, %293 ], [ %.0343, %403 ], [ %290, %.preheader ], [ %290, %.thread481 ], [ %290, %399 ], [ %290, %309 ]
+  %.1342 = phi i32 [ %.0341, %._crit_edge475 ], [ %.0341, %447 ], [ %264, %293 ], [ %.0341, %403 ], [ %264, %.preheader ], [ %264, %.thread481 ], [ %264, %399 ], [ %264, %309 ]
   %452 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %453 = load i32, ptr %452, align 8, !tbaa !60
   %454 = udiv i32 %.1342, %453

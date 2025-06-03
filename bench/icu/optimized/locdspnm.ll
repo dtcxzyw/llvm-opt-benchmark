@@ -1756,7 +1756,7 @@ define noundef i32 @_ZNK6icu_7722LocaleDisplayNamesImpl10getContextE19UDisplayCo
   br label %15
 
 15:                                               ; preds = %2, %12, %9, %6, %3
-  %.0 = phi i32 [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ 0, %2 ]
+  %.0 = phi i32 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -4100,7 +4100,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %125
   br label %130
 
 130:                                              ; preds = %119, %.thread54, %48, %19
-  %.028 = phi ptr [ %20, %19 ], [ %2, %119 ], [ %2, %.thread54 ], [ %2, %48 ]
+  %.028 = phi ptr [ %20, %19 ], [ %2, %.thread54 ], [ %2, %119 ], [ %2, %48 ]
   ret ptr %.028
 
 131:                                              ; preds = %127, %100

@@ -1952,8 +1952,8 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread: ; preds = %.prehead
   ret void
 
 379:                                              ; preds = %113, %322
-  %.pn.pn = phi { ptr, i32 } [ %323, %322 ], [ %114, %113 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn105.pn = phi { ptr, i32 } [ %323, %322 ], [ %114, %113 ]
+  resume { ptr, i32 } %.pn105.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4957,8 +4957,8 @@ _ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit235: ; preds = %36
 _ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit261: ; preds = %36
   br label %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread
 
-_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %34, %23, %36, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit261, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit235, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit207, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit, %.thread66, %41, %40, %39, %38, %37
-  %.0.i.ph = phi i32 [ 16, %37 ], [ 13, %38 ], [ 6, %39 ], [ 9, %40 ], [ 18, %41 ], [ 5, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 0, %.thread66 ], [ 3, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit207 ], [ 7, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit235 ], [ 17, %36 ], [ 0, %23 ], [ 10, %34 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit261 ]
+_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %34, %23, %36, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit261, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit235, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit207, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit, %.thread66, %37, %38, %39, %40, %41
+  %.0.i.ph = phi i32 [ 18, %41 ], [ 9, %40 ], [ 6, %39 ], [ 13, %38 ], [ 16, %37 ], [ 5, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 0, %.thread66 ], [ 3, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit207 ], [ 7, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit235 ], [ 17, %36 ], [ 0, %23 ], [ 10, %34 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit261 ]
   store i32 %.0.i.ph, ptr %21, align 8, !tbaa !47
   %.pre = load i16, ptr %9, align 8, !tbaa !50
   %.pre204 = load i32, ptr %10, align 4
@@ -5197,7 +5197,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit59.thread: ; preds = %_ZNK6icu_7713Unico
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit56.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit56.thread: ; preds = %141, %_ZNK6icu_7713UnicodeString6charAtEi.exit56, %103, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread, %160, %158, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread, %.critedge2, %.critedge, %89
-  %.0 = phi i32 [ %161, %160 ], [ %153, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread ], [ %159, %158 ], [ %.lcssa236, %.critedge2 ], [ %.lcssa, %.critedge ], [ %104, %103 ], [ %92, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread ], [ %90, %89 ], [ %142, %_ZNK6icu_7713UnicodeString6charAtEi.exit56 ], [ %142, %141 ]
+  %.0 = phi i32 [ %161, %160 ], [ %90, %89 ], [ %104, %103 ], [ %92, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread ], [ %.lcssa, %.critedge ], [ %.lcssa236, %.critedge2 ], [ %153, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread ], [ %159, %158 ], [ %142, %_ZNK6icu_7713UnicodeString6charAtEi.exit56 ], [ %142, %141 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #29
   %162 = sub nsw i32 %.0, %54
   call void @_ZN6icu_7713UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %54, i32 noundef %162)
@@ -6933,7 +6933,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713AndConstraint11isFulfilled
   unreachable
 
 _ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE.exit: ; preds = %2, %5, %6, %7, %8, %9
-  %.0.i = phi i32 [ 6, %9 ], [ 3, %8 ], [ 4, %7 ], [ 2, %6 ], [ 1, %5 ], [ 0, %2 ]
+  %.0.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 4, %7 ], [ 3, %8 ], [ 6, %9 ], [ 0, %2 ]
   %11 = load ptr, ptr %1, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -7229,7 +7229,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712OrConstraint11isFulfilledE
   unreachable
 
 _ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE.exit.i: ; preds = %11, %10, %9, %8, %7, %.lr.ph
-  %.0.i.i = phi i32 [ 6, %11 ], [ 3, %10 ], [ 4, %9 ], [ 2, %8 ], [ 1, %7 ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 2, %8 ], [ 4, %9 ], [ 3, %10 ], [ 6, %11 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %1, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -8172,7 +8172,7 @@ define noundef range(i32 0, 19) i32 @_ZN6icu_7716PluralRuleParser8charTypeEDs(i1
   br label %17
 
 17:                                               ; preds = %5, %3, %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 0, %16 ], [ 18, %15 ], [ 9, %14 ], [ 6, %13 ], [ 13, %12 ], [ 16, %11 ], [ 17, %10 ], [ 2, %9 ], [ 7, %8 ], [ 3, %7 ], [ 4, %6 ], [ 1, %1 ], [ 10, %3 ], [ 5, %5 ]
+  %.0 = phi i32 [ 0, %16 ], [ 4, %6 ], [ 3, %7 ], [ 7, %8 ], [ 2, %9 ], [ 17, %10 ], [ 16, %11 ], [ 13, %12 ], [ 6, %13 ], [ 9, %14 ], [ 18, %15 ], [ 1, %1 ], [ 10, %3 ], [ 5, %5 ]
   ret i32 %.0
 }
 
@@ -8983,7 +8983,7 @@ define void @_ZN6icu_7712FixedDecimalC2Edi(ptr noundef nonnull align 8 dereferen
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %25, %22, %19, %16, %.noexc6, %.noexc, %3
-  %.0.i = phi i64 [ 0, %.noexc6 ], [ 0, %.noexc ], [ 0, %3 ], [ %.2.i, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.0.i = phi i64 [ 0, %.noexc6 ], [ 0, %.noexc ], [ 0, %3 ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   %32 = fcmp olt double %1, 0.000000e+00
   %33 = zext i1 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -9125,7 +9125,7 @@ define noundef i64 @_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi(double noun
   br label %30
 
 30:                                               ; preds = %14, %17, %20, %23, %2, %6, %8
-  %.0 = phi i64 [ 0, %8 ], [ 0, %6 ], [ 0, %2 ], [ %.2, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ]
+  %.0 = phi i64 [ 0, %8 ], [ 0, %6 ], [ 0, %2 ], [ %.2, %23 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ]
   ret i64 %.0
 }
 
@@ -9254,7 +9254,7 @@ _ZN6icu_7712FixedDecimal8decimalsEd.exit:         ; preds = %._crit_edge.i, %.lo
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %_ZN6icu_7712FixedDecimal8decimalsEd.exit, %28, %30, %35, %38, %41, %44
-  %.0.i = phi i64 [ 0, %30 ], [ 0, %28 ], [ 0, %_ZN6icu_7712FixedDecimal8decimalsEd.exit ], [ %.2.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.0.i = phi i64 [ 0, %30 ], [ 0, %28 ], [ 0, %_ZN6icu_7712FixedDecimal8decimalsEd.exit ], [ %.2.i, %44 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %51 = fcmp olt double %1, 0.000000e+00
   %52 = zext i1 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -9811,7 +9811,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit77:     ; preds = %118
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %189, %186, %183, %180, %.noexc81, %.noexc80, %165
-  %.0.i = phi i64 [ 0, %.noexc81 ], [ 0, %.noexc80 ], [ 0, %165 ], [ %.2.i, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ]
+  %.0.i = phi i64 [ 0, %.noexc81 ], [ 0, %.noexc80 ], [ 0, %165 ], [ %.2.i, %189 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
   %196 = fcmp olt double %126, 0.000000e+00
   %197 = zext i1 %196 to i8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -10070,7 +10070,7 @@ define void @_ZN6icu_7712FixedDecimal18createWithExponentEdii(ptr dead_on_unwind
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %4, %8, %10, %16, %19, %22, %25
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %8 ], [ 0, %4 ], [ %.2.i, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ]
+  %.0.i = phi i64 [ 0, %10 ], [ 0, %8 ], [ 0, %4 ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   tail call void @_ZN6icu_7712FixedDecimalC1Edili(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %1, i32 noundef %2, i64 noundef %.0.i, i32 noundef %3)
   ret void
 }
@@ -10212,7 +10212,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712FixedDecimal9quickInitEd(p
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %12, %17, %19, %23, %26, %29, %32
-  %.0.i = phi i64 [ 0, %19 ], [ 0, %17 ], [ 0, %12 ], [ %.2.i, %32 ], [ %31, %29 ], [ %28, %26 ], [ %25, %23 ]
+  %.0.i = phi i64 [ 0, %19 ], [ 0, %17 ], [ 0, %12 ], [ %.2.i, %32 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 0, ptr %39, align 1, !tbaa !159
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10423,7 +10423,7 @@ _ZNK6icu_7712FixedDecimal9longValueEv.exit:       ; preds = %17, %20
   unreachable
 
 50:                                               ; preds = %3, %9, %45, %41, %37, %33, %29, %_ZNK6icu_7712FixedDecimal9longValueEv.exit
-  %.0 = phi double [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ], [ %28, %_ZNK6icu_7712FixedDecimal9longValueEv.exit ], [ %12, %9 ], [ %8, %3 ]
+  %.0 = phi double [ %28, %_ZNK6icu_7712FixedDecimal9longValueEv.exit ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %12, %9 ], [ %8, %3 ]
   ret double %.0
 }
 

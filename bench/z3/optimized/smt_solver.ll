@@ -3553,7 +3553,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i.i.i: ; preds = %830, %827
   br i1 %835, label %842, label %836
 
 .body.i.i.i.i:                                    ; preds = %818, %799, %778, %724, %704, %680, %654
-  %.pn51.pn.i.i.i.i = phi { ptr, i32 } [ %655, %654 ], [ %681, %680 ], [ %725, %724 ], [ %705, %704 ], [ %819, %818 ], [ %800, %799 ], [ %779, %778 ]
+  %.pn51.pn.i.i.i.i = phi { ptr, i32 } [ %655, %654 ], [ %681, %680 ], [ %705, %704 ], [ %725, %724 ], [ %819, %818 ], [ %800, %799 ], [ %779, %778 ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #23
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #23
   br label %.body.i.i
@@ -7013,7 +7013,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i.i: ; preds = %211, %208
   br i1 %216, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit, label %218
 
 217:                                              ; preds = %183, %162, %.loopexit.split-lp.i.i, %.loopexit.i.i, %108, %88, %64, %37
-  %.pn51.pn.i.i = phi { ptr, i32 } [ %38, %37 ], [ %65, %64 ], [ %109, %108 ], [ %89, %88 ], [ %184, %183 ], [ %163, %162 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn51.pn.i.i = phi { ptr, i32 } [ %38, %37 ], [ %65, %64 ], [ %89, %88 ], [ %109, %108 ], [ %184, %183 ], [ %163, %162 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %4) #23
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #23
   br label %.body
@@ -8373,7 +8373,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit.i: ; preds = %357, %354
   br label %_Z18for_each_expr_coreIN12_GLOBAL__N_110smt_solver16collect_fds_procE13ast_fast_markILj1EELb0ELb0EEvRT_RT0_P4expr.exit
 
 361:                                              ; preds = %346, %309, %264, %213, %119, %.loopexit.split-lp.i, %.loopexit.i, %59
-  %.pn53.pn.i = phi { ptr, i32 } [ %60, %59 ], [ %265, %264 ], [ %214, %213 ], [ %120, %119 ], [ %347, %346 ], [ %310, %309 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn53.pn.i = phi { ptr, i32 } [ %60, %59 ], [ %265, %264 ], [ %120, %119 ], [ %214, %213 ], [ %347, %346 ], [ %310, %309 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #23
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3) #23
   resume { ptr, i32 } %.pn53.pn.i

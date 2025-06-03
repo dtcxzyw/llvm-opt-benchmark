@@ -825,7 +825,7 @@ sw.epilog:                                        ; preds = %sw.bb25, %lor.lhs.f
   br label %return
 
 return:                                           ; preds = %if.end30, %lor.lhs.false37, %lor.lhs.false10, %if.end35, %if.end19, %if.end8, %land.lhs.true, %entry, %entry, %sw.epilog, %sw.bb1
-  %retval.0 = phi i32 [ 3, %sw.epilog ], [ 0, %sw.bb1 ], [ 3, %entry ], [ 3, %entry ], [ 0, %land.lhs.true ], [ 3, %if.end8 ], [ 0, %if.end19 ], [ 3, %if.end35 ], [ %spec.select, %lor.lhs.false10 ], [ %spec.select1, %lor.lhs.false37 ], [ 0, %if.end30 ]
+  %retval.0 = phi i32 [ 0, %sw.bb1 ], [ 3, %sw.epilog ], [ 3, %entry ], [ 3, %entry ], [ 0, %land.lhs.true ], [ 3, %if.end8 ], [ 0, %if.end19 ], [ 3, %if.end35 ], [ %spec.select, %lor.lhs.false10 ], [ %spec.select1, %lor.lhs.false37 ], [ 0, %if.end30 ]
   ret i32 %retval.0
 }
 

@@ -1501,7 +1501,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge.i.i.i32
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ], [ %65, %64 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %65, %64 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ]
   %67 = load i8, ptr %.sroa.032.1.i.i.i, align 1, !tbaa !11
   %68 = add i8 %67, -65
   %69 = icmp ult i8 %68, 26
@@ -1512,7 +1512,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge.i.i.i32
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ], [ %71, %70 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i32 ]
   %73 = load i8, ptr %.sroa.032.2.i.i.i, align 1, !tbaa !11
   %74 = add i8 %73, -65
   %75 = icmp ult i8 %74, 26

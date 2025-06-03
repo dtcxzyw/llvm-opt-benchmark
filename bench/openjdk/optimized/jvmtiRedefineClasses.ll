@@ -4778,6 +4778,11 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   %455 = add nsw i32 %.0168, 1
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %499, %497, %454
+  %.0168.ph.be = phi i32 [ %455, %454 ], [ %.0168, %497 ], [ %.0168, %499 ]
+  %.0170.ph.be = add nuw nsw i32 %.0170.ph, 1
+  br label %.outer, !llvm.loop !32
+
 .thread264:                                       ; preds = %365, %335
   %.1250268 = phi ptr [ %338, %335 ], [ %344, %365 ]
   %456 = load i8, ptr @AllowRedefinitionToAddDeleteMethods, align 1
@@ -4871,11 +4876,6 @@ _ZN13InstanceKlass17next_method_idnumEv.exit.thread: ; preds = %_ZL17can_add_or_
   %500 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.1250268) #19
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_96ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.45, ptr noundef %500, i32 noundef %.0170.ph)
   br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %499, %497, %454
-  %.0168.ph.be = phi i32 [ %455, %454 ], [ %.0168, %497 ], [ %.0168, %499 ]
-  %.0170.ph.be = add nuw nsw i32 %.0170.ph, 1
-  br label %.outer, !llvm.loop !32
 
 .thread:                                          ; preds = %378, %.preheader, %339, %365
   %501 = load i8, ptr @AllowRedefinitionToAddDeleteMethods, align 1
@@ -5704,7 +5704,7 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses20merge_constant_poolsE
   br label %50
 
 50:                                               ; preds = %34, %47, %49
-  %.1 = phi i32 [ %.090123, %49 ], [ %48, %47 ], [ %.090123, %34 ]
+  %.1 = phi i32 [ %.090123, %49 ], [ %.090123, %34 ], [ %48, %47 ]
   %51 = add nsw i32 %.1, 1
   %52 = load ptr, ptr %1, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 60
@@ -9110,9 +9110,9 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit80: ; preds = %120
   br label %_ZN5Bytes11put_Java_u2EPht.exit81
 
 _ZN5Bytes11put_Java_u2EPht.exit81:                ; preds = %120, %117, %110, %142, %141, %80, %_ZN9Bytecodes10length_forENS_4CodeE.exit75, %_ZN18VM_RedefineClasses14find_new_indexEi.exit, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80, %_ZN9Bytecodes9length_atEP6MethodPh.exit
-  %.263 = phi i32 [ %.061, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.061, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.061, %80 ], [ %.162, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.061, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.061, %141 ], [ %.061, %142 ], [ %.061, %110 ], [ %.061, %117 ], [ %.061, %120 ]
-  %.260 = phi i32 [ %.05888, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.05888, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.05888, %80 ], [ %.159, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.05888, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.05888, %141 ], [ %.05888, %142 ], [ %.05888, %110 ], [ %.05888, %117 ], [ %.05888, %120 ]
-  %.2 = phi ptr [ %.089, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.089, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.089, %80 ], [ %.1, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.089, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.089, %141 ], [ %.089, %142 ], [ %.089, %110 ], [ %.089, %117 ], [ %.089, %120 ]
+  %.263 = phi i32 [ %.061, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.061, %80 ], [ %.162, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.061, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.061, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.061, %141 ], [ %.061, %142 ], [ %.061, %110 ], [ %.061, %117 ], [ %.061, %120 ]
+  %.260 = phi i32 [ %.05888, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.05888, %80 ], [ %.159, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.05888, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.05888, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.05888, %141 ], [ %.05888, %142 ], [ %.05888, %110 ], [ %.05888, %117 ], [ %.05888, %120 ]
+  %.2 = phi ptr [ %.089, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.089, %80 ], [ %.1, %_ZN9Bytecodes10length_forENS_4CodeE.exit75 ], [ %.089, %_ZN18VM_RedefineClasses14find_new_indexEi.exit ], [ %.089, %_ZN18VM_RedefineClasses14find_new_indexEi.exit80 ], [ %.089, %141 ], [ %.089, %142 ], [ %.089, %110 ], [ %.089, %117 ], [ %.089, %120 ]
   %143 = add nsw i32 %.263, %.06787
   %144 = icmp slt i32 %143, %.260
   br i1 %144, label %27, label %._crit_edge, !llvm.loop !58

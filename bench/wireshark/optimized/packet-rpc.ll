@@ -3183,11 +3183,11 @@ show_rpc_fraginfo.exit:                           ; preds = %37, %show_rpc_fragm
   br label %130
 
 130:                                              ; preds = %124, %114, %128, %117, %126, %121, %109
-  %.0529 = phi i32 [ 0, %128 ], [ 0, %126 ], [ 0, %121 ], [ %120, %117 ], [ 0, %109 ], [ 0, %114 ], [ 0, %124 ]
-  %.0527 = phi i32 [ 0, %128 ], [ %98, %126 ], [ 0, %121 ], [ %118, %117 ], [ 0, %109 ], [ 0, %114 ], [ 0, %124 ]
-  %.0525 = phi i32 [ 1, %128 ], [ 5, %126 ], [ 0, %121 ], [ 3, %117 ], [ 0, %109 ], [ 2, %114 ], [ 4, %124 ]
-  %.0524 = phi i1 [ %129, %128 ], [ true, %126 ], [ true, %121 ], [ true, %117 ], [ true, %109 ], [ true, %114 ], [ true, %124 ]
-  %.1518 = phi ptr [ %.0517, %128 ], [ %127, %126 ], [ %.0517, %121 ], [ %.0517, %117 ], [ %.0517, %109 ], [ %.0517, %114 ], [ %.0517, %124 ]
+  %.0529 = phi i32 [ 0, %128 ], [ %120, %117 ], [ 0, %126 ], [ 0, %121 ], [ 0, %109 ], [ 0, %114 ], [ 0, %124 ]
+  %.0527 = phi i32 [ 0, %128 ], [ %118, %117 ], [ %98, %126 ], [ 0, %121 ], [ 0, %109 ], [ 0, %114 ], [ 0, %124 ]
+  %.0525 = phi i32 [ 1, %128 ], [ 3, %117 ], [ 5, %126 ], [ 0, %121 ], [ 0, %109 ], [ 2, %114 ], [ 4, %124 ]
+  %.0524 = phi i1 [ %129, %128 ], [ true, %117 ], [ true, %126 ], [ true, %121 ], [ true, %109 ], [ true, %114 ], [ true, %124 ]
+  %.1518 = phi ptr [ %.0517, %128 ], [ %.0517, %117 ], [ %127, %126 ], [ %.0517, %121 ], [ %.0517, %109 ], [ %.0517, %114 ], [ %.0517, %124 ]
   %131 = load i32, ptr @hf_rpc_procedure, align 4
   %132 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %36, i32 noundef %131, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef %98, ptr noundef nonnull @.str.311, ptr noundef %.1518, i32 noundef %98)
   %133 = load ptr, ptr %31, align 8
@@ -3722,21 +3722,21 @@ proto_item_set_generated.exit613:                 ; preds = %356, %353, %proto_i
   br label %405
 
 405:                                              ; preds = %proto_item_set_generated.exit613, %396, %403, %385, %379, %377, %366, %proto_item_set_generated.exit
-  %.0536 = phi ptr [ %.1537, %379 ], [ %.1537, %377 ], [ %.1537, %366 ], [ %71, %proto_item_set_generated.exit ], [ %.1537, %385 ], [ %.1537, %403 ], [ %.1537, %396 ], [ %.1537, %proto_item_set_generated.exit613 ]
-  %.0534 = phi i32 [ %.1535, %379 ], [ %.1535, %377 ], [ %.1535, %366 ], [ %73, %proto_item_set_generated.exit ], [ %.1535, %385 ], [ %.1535, %403 ], [ %.1535, %396 ], [ %.1535, %proto_item_set_generated.exit613 ]
-  %.0532 = phi i32 [ %.1533, %379 ], [ %.1533, %377 ], [ %.1533, %366 ], [ %75, %proto_item_set_generated.exit ], [ %.1533, %385 ], [ %.1533, %403 ], [ %.1533, %396 ], [ %.1533, %proto_item_set_generated.exit613 ]
-  %.1530 = phi i32 [ %230, %379 ], [ %230, %377 ], [ %230, %366 ], [ %.0529, %proto_item_set_generated.exit ], [ %230, %385 ], [ %230, %403 ], [ %230, %396 ], [ %230, %proto_item_set_generated.exit613 ]
-  %.1528 = phi i32 [ %228, %379 ], [ %228, %377 ], [ %228, %366 ], [ %.0527, %proto_item_set_generated.exit ], [ %228, %385 ], [ %228, %403 ], [ %228, %396 ], [ %228, %proto_item_set_generated.exit613 ]
-  %.1526 = phi i32 [ %226, %379 ], [ %226, %377 ], [ %226, %366 ], [ %.0525, %proto_item_set_generated.exit ], [ %226, %385 ], [ %226, %403 ], [ %226, %396 ], [ %226, %proto_item_set_generated.exit613 ]
-  %.0522 = phi ptr [ %.1523, %379 ], [ %.1523, %377 ], [ %.1523, %366 ], [ %77, %proto_item_set_generated.exit ], [ %.1523, %385 ], [ %.1523, %403 ], [ %.1523, %396 ], [ %.1523, %proto_item_set_generated.exit613 ]
-  %.2519 = phi ptr [ %.4521, %379 ], [ %.4521, %377 ], [ %.4521, %366 ], [ %.1518, %proto_item_set_generated.exit ], [ %.4521, %385 ], [ %.4521, %403 ], [ %.4521, %396 ], [ %.4521, %proto_item_set_generated.exit613 ]
-  %.0516 = phi i32 [ %223, %379 ], [ %223, %377 ], [ %223, %366 ], [ %98, %proto_item_set_generated.exit ], [ %223, %385 ], [ %223, %403 ], [ %223, %396 ], [ %223, %proto_item_set_generated.exit613 ]
-  %.0511 = phi i32 [ %367, %379 ], [ %378, %377 ], [ %367, %366 ], [ %214, %proto_item_set_generated.exit ], [ %386, %385 ], [ %404, %403 ], [ %397, %396 ], [ %306, %proto_item_set_generated.exit613 ]
-  %.0510 = phi i32 [ %220, %379 ], [ %220, %377 ], [ %220, %366 ], [ %92, %proto_item_set_generated.exit ], [ %220, %385 ], [ %220, %403 ], [ %220, %396 ], [ %220, %proto_item_set_generated.exit613 ]
-  %.1508 = phi ptr [ %.2509, %379 ], [ %.2509, %377 ], [ %.2509, %366 ], [ %.0507, %proto_item_set_generated.exit ], [ %.2509, %385 ], [ %.2509, %403 ], [ %.2509, %396 ], [ %.2509, %proto_item_set_generated.exit613 ]
-  %.0506 = phi i1 [ false, %379 ], [ false, %377 ], [ true, %366 ], [ true, %proto_item_set_generated.exit ], [ false, %385 ], [ false, %403 ], [ false, %396 ], [ false, %proto_item_set_generated.exit613 ]
-  %.1503 = phi ptr [ %248, %379 ], [ %248, %377 ], [ %248, %366 ], [ %.0502, %proto_item_set_generated.exit ], [ %248, %385 ], [ %248, %403 ], [ %248, %396 ], [ %248, %proto_item_set_generated.exit613 ]
-  %.2 = phi ptr [ %.0500, %379 ], [ %.0500, %377 ], [ %.0500, %366 ], [ %.1501, %proto_item_set_generated.exit ], [ %.0500, %385 ], [ %.0500, %403 ], [ %.0500, %396 ], [ %.0500, %proto_item_set_generated.exit613 ]
+  %.0536 = phi ptr [ %71, %proto_item_set_generated.exit ], [ %.1537, %379 ], [ %.1537, %366 ], [ %.1537, %377 ], [ %.1537, %385 ], [ %.1537, %403 ], [ %.1537, %396 ], [ %.1537, %proto_item_set_generated.exit613 ]
+  %.0534 = phi i32 [ %73, %proto_item_set_generated.exit ], [ %.1535, %379 ], [ %.1535, %366 ], [ %.1535, %377 ], [ %.1535, %385 ], [ %.1535, %403 ], [ %.1535, %396 ], [ %.1535, %proto_item_set_generated.exit613 ]
+  %.0532 = phi i32 [ %75, %proto_item_set_generated.exit ], [ %.1533, %379 ], [ %.1533, %366 ], [ %.1533, %377 ], [ %.1533, %385 ], [ %.1533, %403 ], [ %.1533, %396 ], [ %.1533, %proto_item_set_generated.exit613 ]
+  %.1530 = phi i32 [ %.0529, %proto_item_set_generated.exit ], [ %230, %379 ], [ %230, %366 ], [ %230, %377 ], [ %230, %385 ], [ %230, %403 ], [ %230, %396 ], [ %230, %proto_item_set_generated.exit613 ]
+  %.1528 = phi i32 [ %.0527, %proto_item_set_generated.exit ], [ %228, %379 ], [ %228, %366 ], [ %228, %377 ], [ %228, %385 ], [ %228, %403 ], [ %228, %396 ], [ %228, %proto_item_set_generated.exit613 ]
+  %.1526 = phi i32 [ %.0525, %proto_item_set_generated.exit ], [ %226, %379 ], [ %226, %366 ], [ %226, %377 ], [ %226, %385 ], [ %226, %403 ], [ %226, %396 ], [ %226, %proto_item_set_generated.exit613 ]
+  %.0522 = phi ptr [ %77, %proto_item_set_generated.exit ], [ %.1523, %379 ], [ %.1523, %366 ], [ %.1523, %377 ], [ %.1523, %385 ], [ %.1523, %403 ], [ %.1523, %396 ], [ %.1523, %proto_item_set_generated.exit613 ]
+  %.2519 = phi ptr [ %.1518, %proto_item_set_generated.exit ], [ %.4521, %379 ], [ %.4521, %366 ], [ %.4521, %377 ], [ %.4521, %385 ], [ %.4521, %403 ], [ %.4521, %396 ], [ %.4521, %proto_item_set_generated.exit613 ]
+  %.0516 = phi i32 [ %98, %proto_item_set_generated.exit ], [ %223, %379 ], [ %223, %366 ], [ %223, %377 ], [ %223, %385 ], [ %223, %403 ], [ %223, %396 ], [ %223, %proto_item_set_generated.exit613 ]
+  %.0511 = phi i32 [ %214, %proto_item_set_generated.exit ], [ %367, %379 ], [ %367, %366 ], [ %378, %377 ], [ %386, %385 ], [ %404, %403 ], [ %397, %396 ], [ %306, %proto_item_set_generated.exit613 ]
+  %.0510 = phi i32 [ %92, %proto_item_set_generated.exit ], [ %220, %379 ], [ %220, %366 ], [ %220, %377 ], [ %220, %385 ], [ %220, %403 ], [ %220, %396 ], [ %220, %proto_item_set_generated.exit613 ]
+  %.1508 = phi ptr [ %.0507, %proto_item_set_generated.exit ], [ %.2509, %379 ], [ %.2509, %366 ], [ %.2509, %377 ], [ %.2509, %385 ], [ %.2509, %403 ], [ %.2509, %396 ], [ %.2509, %proto_item_set_generated.exit613 ]
+  %.0506 = phi i1 [ true, %proto_item_set_generated.exit ], [ false, %379 ], [ true, %366 ], [ false, %377 ], [ false, %385 ], [ false, %403 ], [ false, %396 ], [ false, %proto_item_set_generated.exit613 ]
+  %.1503 = phi ptr [ %.0502, %proto_item_set_generated.exit ], [ %248, %379 ], [ %248, %366 ], [ %248, %377 ], [ %248, %385 ], [ %248, %403 ], [ %248, %396 ], [ %248, %proto_item_set_generated.exit613 ]
+  %.2 = phi ptr [ %.1501, %proto_item_set_generated.exit ], [ %.0500, %379 ], [ %.0500, %366 ], [ %.0500, %377 ], [ %.0500, %385 ], [ %.0500, %403 ], [ %.0500, %396 ], [ %.0500, %proto_item_set_generated.exit613 ]
   %.not583 = icmp eq ptr %34, null
   br i1 %.not583, label %410, label %406
 
@@ -4008,7 +4008,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   br label %528
 
 528:                                              ; preds = %521, %523, %525, %516
-  %.5 = phi i32 [ %.2513, %516 ], [ %527, %525 ], [ %522, %521 ], [ %524, %523 ]
+  %.5 = phi i32 [ %.2513, %516 ], [ %522, %521 ], [ %524, %523 ], [ %527, %525 ]
   br i1 %.not583, label %533, label %529
 
 529:                                              ; preds = %528
@@ -4021,7 +4021,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   br label %533
 
 533:                                              ; preds = %528, %529, %501, %498, %506, %512, %508, %504, %496, %530, %492, %489
-  %.4 = phi i32 [ %.2513, %489 ], [ %532, %530 ], [ %.5, %529 ], [ %.5, %528 ], [ %.2513, %496 ], [ %505, %504 ], [ %507, %506 ], [ %515, %512 ], [ %.2513, %508 ], [ %500, %498 ], [ %502, %501 ], [ %493, %492 ]
+  %.4 = phi i32 [ %.2513, %489 ], [ %493, %492 ], [ %.2513, %496 ], [ %500, %498 ], [ %502, %501 ], [ %505, %504 ], [ %507, %506 ], [ %515, %512 ], [ %.2513, %508 ], [ %.5, %529 ], [ %.5, %528 ], [ %532, %530 ]
   %534 = call i32 @tvb_reported_length_remaining(ptr noundef %.0499, i32 noundef %.4)
   %535 = icmp sgt i32 %534, 0
   br i1 %535, label %536, label %540
@@ -4067,7 +4067,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   br label %553
 
 553:                                              ; preds = %540, %549, %550, %552, %544, %545, %548, %486, %28, %19, %25, %22, %9, %494, %490, %411
-  %.0 = phi i1 [ true, %494 ], [ true, %490 ], [ true, %411 ], [ false, %9 ], [ false, %22 ], [ false, %25 ], [ false, %19 ], [ true, %28 ], [ true, %486 ], [ true, %548 ], [ true, %545 ], [ true, %544 ], [ true, %552 ], [ true, %550 ], [ true, %549 ], [ true, %540 ]
+  %.0 = phi i1 [ true, %490 ], [ true, %494 ], [ true, %411 ], [ false, %9 ], [ false, %22 ], [ false, %25 ], [ false, %19 ], [ true, %28 ], [ true, %486 ], [ true, %548 ], [ true, %545 ], [ true, %544 ], [ true, %552 ], [ true, %550 ], [ true, %549 ], [ true, %540 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #17
@@ -4241,7 +4241,7 @@ thread-pre-split:                                 ; preds = %.thread
   br label %new_conversation_for_reply.exit
 
 new_conversation_for_reply.exit:                  ; preds = %54, %47, %40, %33, %27
-  %.032 = phi ptr [ %.0.i, %27 ], [ %58, %54 ], [ %53, %47 ], [ %46, %40 ], [ %39, %33 ]
+  %.032 = phi ptr [ %.0.i, %27 ], [ %58, %54 ], [ %39, %33 ], [ %46, %40 ], [ %53, %47 ]
   %59 = icmp eq ptr %.03046, null
   br i1 %59, label %60, label %66
 

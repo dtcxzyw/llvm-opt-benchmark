@@ -358,7 +358,7 @@ zval_get_string.exit:                             ; preds = %38, %33, %41
   br label %59
 
 59:                                               ; preds = %30, %30, %3, %58, %zval_get_string.exit, %zval_get_double.exit, %zval_get_long.exit, %6, %4
-  %.0 = phi i32 [ 0, %58 ], [ 0, %zval_get_string.exit ], [ 0, %zval_get_double.exit ], [ 0, %zval_get_long.exit ], [ 0, %6 ], [ 0, %4 ], [ -1, %30 ], [ -1, %3 ], [ -1, %30 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %zval_get_long.exit ], [ 0, %zval_get_double.exit ], [ 0, %zval_get_string.exit ], [ 0, %58 ], [ -1, %30 ], [ -1, %3 ], [ -1, %30 ]
   ret i32 %.0
 }
 
@@ -3116,7 +3116,7 @@ define hidden ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %42, %38, %27, %.thread
-  %.1 = phi ptr [ %30, %27 ], [ null, %.thread ], [ %33, %38 ], [ %33, %42 ]
+  %.1 = phi ptr [ null, %.thread ], [ %30, %27 ], [ %33, %38 ], [ %33, %42 ]
   ret ptr %.1
 }
 
@@ -4004,7 +4004,7 @@ zend_optimizer_get_class_entry_from_op1.exit219.thread: ; preds = %360, %356, %z
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %zend_optimizer_ignore_function.exit, %zend_hash_find_ptr.exit203, %32, %41, %360, %356, %352, %349, %344, %325, %zend_optimizer_get_class_entry_from_op1.exit219, %zend_optimizer_get_class_entry_from_op1.exit219.thread, %320, %313, %317, %307, %307, %282, %288, %271, %274, %281, %265, %zend_optimizer_ignore_function.exit211, %100, %91, %zend_optimizer_ignore_function.exit.thread223, %zend_hash_find_ptr.exit203.thread, %4, %63, %55, %134, %114, %241, %237, %231, %211, %207, %.thread229, %.thread237, %.thread251, %254, %367, %324, %196, %zend_hash_find_ptr.exit200
-  %.1 = phi ptr [ %369, %367 ], [ %323, %324 ], [ %87, %zend_hash_find_ptr.exit200 ], [ %197, %196 ], [ null, %254 ], [ null, %.thread251 ], [ null, %.thread237 ], [ null, %.thread229 ], [ null, %207 ], [ null, %211 ], [ null, %231 ], [ null, %237 ], [ null, %241 ], [ null, %114 ], [ null, %134 ], [ null, %55 ], [ null, %63 ], [ null, %4 ], [ null, %zend_hash_find_ptr.exit203.thread ], [ null, %zend_optimizer_ignore_function.exit.thread223 ], [ %94, %91 ], [ %94, %100 ], [ %94, %zend_optimizer_ignore_function.exit211 ], [ %261, %271 ], [ %261, %274 ], [ %261, %281 ], [ %270, %265 ], [ null, %288 ], [ null, %282 ], [ null, %307 ], [ null, %307 ], [ null, %317 ], [ null, %313 ], [ null, %320 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit219.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit219 ], [ null, %325 ], [ null, %344 ], [ null, %349 ], [ null, %352 ], [ null, %356 ], [ null, %360 ], [ %29, %zend_hash_find_ptr.exit203 ], [ %35, %32 ], [ %35, %41 ], [ %spec.select, %zend_optimizer_ignore_function.exit ]
+  %.1 = phi ptr [ %323, %324 ], [ %369, %367 ], [ %87, %zend_hash_find_ptr.exit200 ], [ %197, %196 ], [ null, %254 ], [ null, %.thread251 ], [ null, %.thread237 ], [ null, %.thread229 ], [ null, %207 ], [ null, %211 ], [ null, %231 ], [ null, %237 ], [ null, %241 ], [ null, %114 ], [ null, %134 ], [ null, %55 ], [ null, %63 ], [ null, %4 ], [ null, %zend_hash_find_ptr.exit203.thread ], [ null, %zend_optimizer_ignore_function.exit.thread223 ], [ %94, %91 ], [ %94, %100 ], [ %94, %zend_optimizer_ignore_function.exit211 ], [ %261, %271 ], [ %261, %274 ], [ %261, %281 ], [ %270, %265 ], [ null, %288 ], [ null, %282 ], [ null, %307 ], [ null, %307 ], [ null, %317 ], [ null, %313 ], [ null, %320 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit219.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit219 ], [ null, %325 ], [ null, %344 ], [ null, %349 ], [ null, %352 ], [ null, %356 ], [ null, %360 ], [ %29, %zend_hash_find_ptr.exit203 ], [ %35, %32 ], [ %35, %41 ], [ %spec.select, %zend_optimizer_ignore_function.exit ]
   ret ptr %.1
 }
 

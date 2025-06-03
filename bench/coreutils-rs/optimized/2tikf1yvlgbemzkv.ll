@@ -589,8 +589,8 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %17
 _ZN5uu_od13parse_formats30od_argument_traditional_format17he29b7bfadc008c31E.exit: ; preds = %148, %234
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge
 
-229:                                              ; preds = %209, %210, %211, %212, %213, %214, %215, %216, %217, %218, %219, %220, %221, %222, %223, %224, %225, %226, %227, %228
-  %.sroa.0187.0.ph = phi i64 [ 0, %209 ], [ 0, %210 ], [ 0, %211 ], [ 2, %212 ], [ 0, %213 ], [ 0, %214 ], [ 1, %215 ], [ 1, %216 ], [ 1, %217 ], [ 0, %218 ], [ 0, %219 ], [ 0, %220 ], [ 0, %221 ], [ 0, %222 ], [ 0, %223 ], [ 0, %224 ], [ 0, %225 ], [ 0, %226 ], [ 0, %227 ], [ 0, %228 ]
+229:                                              ; preds = %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209
+  %.sroa.0187.0.ph = phi i64 [ 0, %228 ], [ 0, %227 ], [ 0, %226 ], [ 0, %225 ], [ 0, %224 ], [ 0, %223 ], [ 0, %222 ], [ 0, %221 ], [ 0, %220 ], [ 0, %219 ], [ 0, %218 ], [ 1, %217 ], [ 1, %216 ], [ 1, %215 ], [ 0, %214 ], [ 0, %213 ], [ 2, %212 ], [ 0, %211 ], [ 0, %210 ], [ 0, %209 ]
   %230 = load i64, ptr %23, align 8, !alias.scope !49, !noalias !52, !noundef !4
   %231 = load i64, ptr %21, align 8, !alias.scope !49, !noalias !52, !noundef !4
   %232 = icmp eq i64 %230, %231
@@ -1199,8 +1199,8 @@ _ZN5uu_od13parse_formats11format_type17h5604a84489e7d84aE.exit: ; preds = %77
   %86 = icmp eq i64 %.sroa.05.0.copyload, -9223372036854775808
   br i1 %86, label %.thread192, label %88
 
-.thread192:                                       ; preds = %83, %82, %81, %80, %79, %78, %77, %85
-  %.sroa.6.0195.ph = phi i8 [ %.sroa.6.0.copyload, %85 ], [ 1, %78 ], [ 2, %79 ], [ 3, %80 ], [ 4, %81 ], [ 5, %82 ], [ 6, %83 ], [ 0, %77 ]
+.thread192:                                       ; preds = %78, %79, %80, %81, %82, %83, %77, %85
+  %.sroa.6.0195.ph = phi i8 [ %.sroa.6.0.copyload, %85 ], [ 6, %83 ], [ 5, %82 ], [ 4, %81 ], [ 3, %80 ], [ 2, %79 ], [ 1, %78 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.8)
   %switch.cast = trunc i8 %.sroa.6.0195.ph to i7
   %switch.downshift = lshr i7 -4, %switch.cast
@@ -1880,8 +1880,8 @@ _ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread: ;
   store i64 1, ptr %0, align 8
   br label %255
 
-332:                                              ; preds = %299, %300, %306, %307, %308, %309, %310, %311, %312, %313, %314, %315, %316, %317, %318, %319, %320, %321, %322, %323, %324
-  %.sroa.0152.0.ph = phi i64 [ 0, %299 ], [ 2, %300 ], [ 0, %306 ], [ 0, %307 ], [ 0, %308 ], [ 0, %309 ], [ 0, %310 ], [ 0, %311 ], [ 0, %312 ], [ 0, %313 ], [ 0, %314 ], [ 0, %315 ], [ 0, %316 ], [ 0, %317 ], [ 0, %318 ], [ 0, %319 ], [ 0, %320 ], [ 0, %321 ], [ 1, %322 ], [ 1, %323 ], [ 1, %324 ]
+332:                                              ; preds = %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %300, %299
+  %.sroa.0152.0.ph = phi i64 [ 1, %324 ], [ 1, %323 ], [ 1, %322 ], [ 0, %321 ], [ 0, %320 ], [ 0, %319 ], [ 0, %318 ], [ 0, %317 ], [ 0, %316 ], [ 0, %315 ], [ 0, %314 ], [ 0, %313 ], [ 0, %312 ], [ 0, %311 ], [ 0, %310 ], [ 0, %309 ], [ 0, %308 ], [ 0, %307 ], [ 0, %306 ], [ 2, %300 ], [ 0, %299 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.633, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.25, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.729, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.633, i64 24, i1 false)

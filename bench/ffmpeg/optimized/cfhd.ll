@@ -1145,7 +1145,7 @@ bytestream2_get_be32.exit:                        ; preds = %.lr.ph, %203
   br label %.loopexit2301
 
 .loopexit2301:                                    ; preds = %bytestream2_get_be32.exit, %93, %95, %97, %146, %185, %330, %96, %94, %85
-  %.sroa.02100.1 = phi ptr [ %.sroa.02100.10, %85 ], [ %190, %185 ], [ %.sroa.02100.10, %330 ], [ %.sroa.02100.10, %146 ], [ %.sroa.02100.10, %97 ], [ %.sroa.02100.10, %96 ], [ %.sroa.02100.10, %95 ], [ %.sroa.02100.10, %94 ], [ %.sroa.02100.10, %93 ], [ %.sroa.02100.11, %bytestream2_get_be32.exit ]
+  %.sroa.02100.1 = phi ptr [ %.sroa.02100.10, %85 ], [ %190, %185 ], [ %.sroa.02100.10, %330 ], [ %.sroa.02100.10, %146 ], [ %.sroa.02100.10, %93 ], [ %.sroa.02100.10, %94 ], [ %.sroa.02100.10, %95 ], [ %.sroa.02100.10, %96 ], [ %.sroa.02100.10, %97 ], [ %.sroa.02100.11, %bytestream2_get_be32.exit ]
   %331 = icmp eq i32 %.0.i, 4
   %332 = icmp eq i32 %.0.i2026, 3855
   %or.cond42 = select i1 %331, i1 %332, i1 false

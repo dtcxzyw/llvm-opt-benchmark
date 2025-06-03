@@ -51640,7 +51640,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved
   br label %56
 
 56:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit19.thread, %._crit_edge
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit19.thread ]
+  %.sroa.031.1 = phi ptr [ %55, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit19.thread ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %57 = load ptr, ptr %.sroa.031.1, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = load ptr, ptr %2, align 8
@@ -51660,7 +51660,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved
   br label %67
 
 67:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit20.thread, %._crit_edge
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit20.thread ]
+  %.sroa.031.2 = phi ptr [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS3_7JsValueEEEclINS_17__normal_iteratorIPS7_St6vectorIS6_SaIS6_EEEEEEbT_.exit20.thread ], [ %.sroa.031.0.lcssa, %._crit_edge ]
   %68 = load ptr, ptr %.sroa.031.2, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = load ptr, ptr %2, align 8

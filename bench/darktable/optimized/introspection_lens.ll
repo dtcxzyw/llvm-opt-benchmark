@@ -2001,7 +2001,7 @@ _ZL20_preprocess_vignetteP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPKfPfPK12dt_
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.us.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.us.i: ; preds = %._crit_edge.i.loopexit.us.us.us.i, %614, %602
-  %.0.i.us.us.us.i = phi nsz float [ %615, %614 ], [ %612, %602 ], [ %627, %._crit_edge.i.loopexit.us.us.us.i ]
+  %.0.i.us.us.us.i = phi nsz float [ %615, %614 ], [ %627, %._crit_edge.i.loopexit.us.us.us.i ], [ %612, %602 ]
   %616 = fpext reassoc nsz arcp contract afn float %.0.i.us.us.us.i to double
   %617 = fcmp reassoc nsz arcp contract afn olt double %616, 1.000000e-04
   %618 = select reassoc nsz arcp contract afn i1 %617, double 1.000000e-04, double %616
@@ -2226,7 +2226,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.us22.i: ; preds = %651, %.preheader
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit152.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit152.i: ; preds = %._crit_edge.i144.i, %723, %712
-  %.0.i145.i = phi nsz float [ %713, %712 ], [ %733, %723 ], [ %737, %._crit_edge.i144.i ]
+  %.0.i145.i = phi nsz float [ %713, %712 ], [ %737, %._crit_edge.i144.i ], [ %733, %723 ]
   %738 = fmul reassoc nsz arcp contract afn float %.0.i145.i, %689
   %739 = fadd reassoc nsz arcp contract afn float %738, %536
   %740 = load i32, ptr %4, align 4, !tbaa !236
@@ -2581,7 +2581,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %18
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.i: ; preds = %._crit_edge.i.loopexit.us.us.i, %139, %127
-  %.0.i.us.us.i = phi nsz float [ %140, %139 ], [ %137, %127 ], [ %155, %._crit_edge.i.loopexit.us.us.i ]
+  %.0.i.us.us.i = phi nsz float [ %140, %139 ], [ %155, %._crit_edge.i.loopexit.us.us.i ], [ %137, %127 ]
   %141 = fmul reassoc nsz arcp contract afn float %110, %.0.i.us.us.i
   %142 = fadd reassoc nsz arcp contract afn float %86, %141
   %143 = fsub reassoc nsz arcp contract afn float %105, %142
@@ -2853,7 +2853,7 @@ define range(i32 0, 2) i32 @distort_backtransform(ptr noundef readonly captures(
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.us.i: ; preds = %._crit_edge.i.loopexit.us.i, %114, %102
-  %.0.i.us.i = phi nsz float [ %115, %114 ], [ %112, %102 ], [ %122, %._crit_edge.i.loopexit.us.i ]
+  %.0.i.us.i = phi nsz float [ %115, %114 ], [ %122, %._crit_edge.i.loopexit.us.i ], [ %112, %102 ]
   %116 = fmul reassoc nsz arcp contract afn float %.0.i.us.i, %83
   %117 = fadd reassoc nsz arcp contract afn float %116, %62
   store float %117, ptr %80, align 4, !tbaa !52
@@ -3255,7 +3255,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.i:   ; preds = %._crit_edge.i.i, %212, %201
-  %.0.i.i = phi nsz float [ %202, %201 ], [ %222, %212 ], [ %224, %._crit_edge.i.i ]
+  %.0.i.i = phi nsz float [ %202, %201 ], [ %224, %._crit_edge.i.i ], [ %222, %212 ]
   %225 = fmul reassoc nsz arcp contract afn float %.0.i.i, %186
   %226 = fadd reassoc nsz arcp contract afn float %225, %146
   %227 = load i32, ptr %4, align 4, !tbaa !236
@@ -3815,7 +3815,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.us.i: ; preds = %256, %_ZL26_
   br i1 %exitcond.not.i.us.us.us.i, label %._crit_edge.i.loopexit.us.us.us.i, label %.lr.ph.i.us.us.us.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.us27.us.us.i: ; preds = %._crit_edge.i.loopexit.us.us.us.i, %287
-  %.0.i.us28.us.us.i = phi nsz float [ %297, %287 ], [ %314, %._crit_edge.i.loopexit.us.us.us.i ]
+  %.0.i.us28.us.us.i = phi nsz float [ %314, %._crit_edge.i.loopexit.us.us.us.i ], [ %297, %287 ]
   %299 = fmul reassoc nsz arcp contract afn float %.0.i.us28.us.us.i, %254
   %300 = fadd reassoc nsz arcp contract afn float %299, %215
   %301 = fmul reassoc nsz arcp contract afn float %.0.i.us28.us.us.i, %indvars.iv179.i.sroa.phi.sroa.speculated
@@ -3962,7 +3962,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit207.us.us.us.i: ; preds = %327, %_ZL
   br i1 %exitcond.not.i206.us.us.us.i, label %._crit_edge.i199.loopexit.us.us.us.i, label %.lr.ph.i203.us.us.us.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit207.us82.us.us.i: ; preds = %._crit_edge.i199.loopexit.us.us.us.i, %358
-  %.0.i200.us83.us.us.i = phi nsz float [ %368, %358 ], [ %385, %._crit_edge.i199.loopexit.us.us.us.i ]
+  %.0.i200.us83.us.us.i = phi nsz float [ %385, %._crit_edge.i199.loopexit.us.us.us.i ], [ %368, %358 ]
   %370 = fmul reassoc nsz arcp contract afn float %.0.i200.us83.us.us.i, %indvars.iv191.i.sroa.phi.sroa.speculated
   %371 = fadd reassoc nsz arcp contract afn float %370, %215
   %372 = fmul reassoc nsz arcp contract afn float %.0.i200.us83.us.us.i, %325
@@ -4690,7 +4690,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.thread.us.i.i: ; preds = %.preheade
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.i.i: ; preds = %._crit_edge.i.i.i, %228
-  %.0.i.i.i = phi nsz float [ %238, %228 ], [ %241, %._crit_edge.i.i.i ]
+  %.0.i.i.i = phi nsz float [ %241, %._crit_edge.i.i.i ], [ %238, %228 ]
   %242 = fcmp reassoc nsz arcp contract afn ogt float %.113.i.i, %.0.i.i.i
   br i1 %242, label %_ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i, label %.preheader.i20.i.i
 
@@ -4736,7 +4736,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i.i: ; preds = %._crit_edge.i.i.i, 
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i: ; preds = %._crit_edge.i21.i.i, %252, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i
-  %266 = phi reassoc nsz arcp contract afn float [ %.113.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i ], [ %262, %252 ], [ %265, %._crit_edge.i21.i.i ]
+  %266 = phi reassoc nsz arcp contract afn float [ %.113.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i ], [ %265, %._crit_edge.i21.i.i ], [ %262, %252 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %.split.us.i.i, label %.preheader.i.i.i, !llvm.loop !385
@@ -5071,7 +5071,7 @@ _ZL20_get_autoscale_md_v1P15dt_iop_module_tP20dt_iop_lens_params_t.exit.i: ; pre
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65.i, %434, %420
-  %.0.i.i67.i = phi nsz float [ %444, %434 ], [ %445, %._crit_edge.i.i65.i ], [ %376, %420 ]
+  %.0.i.i67.i = phi nsz float [ %445, %._crit_edge.i.i65.i ], [ %444, %434 ], [ %376, %420 ]
   %446 = fdiv reassoc nsz arcp contract afn float %423, %.0.i.i67.i
   %447 = getelementptr inbounds nuw float, ptr %276, i64 %indvars.iv568.i.i
   store float %446, ptr %447, align 4, !tbaa !52
@@ -5140,7 +5140,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65
   br label %.preheader.i413.i.i
 
 .preheader.i413.i.i:                              ; preds = %._crit_edge.i404.i.i, %463
-  %.0.i405.i.i = phi nsz float [ %473, %463 ], [ %474, %._crit_edge.i404.i.i ]
+  %.0.i405.i.i = phi nsz float [ %474, %._crit_edge.i404.i.i ], [ %473, %463 ]
   br i1 %378, label %.lr.ph.i418.i.i, label %._crit_edge.i414.i.i
 
 .lr.ph.i418.i.i:                                  ; preds = %.preheader.i413.i.i, %483
@@ -5180,8 +5180,8 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414.i.i, %484, %453
-  %.0.i405434.i.i = phi float [ %.0.i405.i.i, %484 ], [ %.0.i405.i.i, %._crit_edge.i414.i.i ], [ %375, %453 ]
-  %.0.i415.i.i = phi nsz float [ %494, %484 ], [ %495, %._crit_edge.i414.i.i ], [ %374, %453 ]
+  %.0.i405434.i.i = phi float [ %.0.i405.i.i, %._crit_edge.i414.i.i ], [ %.0.i405.i.i, %484 ], [ %375, %453 ]
+  %.0.i415.i.i = phi nsz float [ %495, %._crit_edge.i414.i.i ], [ %494, %484 ], [ %374, %453 ]
   %496 = fadd reassoc nsz arcp contract afn float %.0.i405434.i.i, 1.000000e+00
   %497 = getelementptr inbounds nuw [16 x float], ptr %278, i64 0, i64 %indvars.iv568.i.i
   %498 = load float, ptr %497, align 4, !tbaa !52
@@ -5531,7 +5531,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us.i.i: ; preds = %.preheader436
   br i1 %exitcond.not.i431.us.i.i, label %._crit_edge.i424.loopexit.us.i.i, label %.lr.ph.i428.us.i.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit432.us491.i.i: ; preds = %._crit_edge.i424.loopexit.us.i.i, %688
-  %.0.i425.us492.i.i = phi nsz float [ %698, %688 ], [ %704, %._crit_edge.i424.loopexit.us.i.i ]
+  %.0.i425.us492.i.i = phi nsz float [ %704, %._crit_edge.i424.loopexit.us.i.i ], [ %698, %688 ]
   %700 = fcmp reassoc nsz arcp contract afn ogt float %.1485.us490.i.i, %.0.i425.us492.i.i
   %701 = select reassoc nsz arcp contract afn i1 %700, float %.1485.us490.i.i, float %.0.i425.us492.i.i
   %indvars.iv.next581.i.i = add nuw nsw i64 %indvars.iv580.i.i, 1

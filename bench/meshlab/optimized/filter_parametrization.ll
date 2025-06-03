@@ -3927,8 +3927,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS0_IiLin1ELi3ELi0ELin1ELi3EEEEERK
   ret void
 
 374:                                              ; preds = %53, %55, %366, %177, %50
-  %.pn58.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn.pn.pn.pn.pn, %366 ], [ %.pn74208, %55 ], [ %54, %53 ], [ %.pn66.pn.pn.pn.pn.pn.pn, %177 ], [ %51, %50 ]
-  resume { ptr, i32 } %.pn58.pn.pn.pn.pn.pn.pn.pn
+  %.pn74.pn = phi { ptr, i32 } [ %.pn74208, %55 ], [ %54, %53 ], [ %.pn66.pn.pn.pn.pn.pn.pn, %177 ], [ %51, %50 ], [ %.pn58.pn.pn.pn.pn.pn.pn, %366 ]
+  resume { ptr, i32 } %.pn74.pn
 
 375:                                              ; preds = %201, %70, %49
   unreachable
@@ -81971,8 +81971,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiE7reserveEl.exit61: ; preds = %43, %34
   br label %60
 
 60:                                               ; preds = %26, %48
-  %.sroa.0.0 = phi ptr [ %45, %48 ], [ %24, %26 ]
-  %.sroa.27.0 = phi i64 [ 6, %48 ], [ 3, %26 ]
+  %.sroa.0.0 = phi ptr [ %24, %26 ], [ %45, %48 ]
+  %.sroa.27.0 = phi i64 [ 3, %26 ], [ 6, %48 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl17cotmatrix_entriesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERNS1_15PlainObjectBaseIT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %61 unwind label %197
@@ -89020,10 +89020,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE6resizeEll.exit.
 
 387:                                              ; preds = %366, %381, %145, %155
   %.sink878 = phi ptr [ %28, %155 ], [ %28, %145 ], [ %31, %381 ], [ %31, %366 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn45, %155 ], [ %146, %145 ], [ %.pn.pn.pn.pn, %381 ], [ %367, %366 ]
+  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45, %155 ], [ %146, %145 ], [ %.pn.pn.pn.pn, %381 ], [ %367, %366 ]
   %388 = load ptr, ptr %.sink878, align 8
   call void @free(ptr noundef %388) #21
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn45.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -336,7 +336,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   store i32 %spec.store.select, ptr %94, align 8
   br label %.thread219
 
-.thread219:                                       ; preds = %153, %144, %156, %155
+.thread219:                                       ; preds = %144, %153, %156, %155
   br i1 %97, label %.lr.ph192, label %._crit_edge193
 
 .lr.ph192:                                        ; preds = %.thread219, %171
@@ -366,7 +366,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   store i32 2, ptr %94, align 8, !tbaa !41
   br label %172
 
-172:                                              ; preds = %144, %153, %._crit_edge193, %154
+172:                                              ; preds = %153, %144, %._crit_edge193, %154
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   br label %173
 

@@ -413,8 +413,8 @@ select.unfold108:                                 ; preds = %175, %160, %r_conso
   store i32 %178, ptr %2, align 8
   br label %r_consonant_pair.exit
 
-r_consonant_pair.exit:                            ; preds = %175, %161, %83, %54, %59, %145, %94, %121, %149, %select.unfold108
-  %.1 = phi i32 [ 1, %select.unfold108 ], [ %147, %145 ], [ %95, %94 ], [ %122, %121 ], [ %150, %149 ], [ %60, %59 ], [ %55, %54 ], [ %85, %83 ], [ %176, %175 ], [ -1, %161 ]
+r_consonant_pair.exit:                            ; preds = %175, %161, %83, %54, %59, %145, %94, %149, %121, %select.unfold108
+  %.1 = phi i32 [ 1, %select.unfold108 ], [ %147, %145 ], [ %95, %94 ], [ %150, %149 ], [ %122, %121 ], [ %55, %54 ], [ %60, %59 ], [ %85, %83 ], [ %176, %175 ], [ -1, %161 ]
   ret i32 %.1
 }
 

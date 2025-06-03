@@ -12349,7 +12349,7 @@ _ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit: 
   br i1 %.not.i11.i17.i12.i.i.i, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !844
 
 _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i: ; preds = %.critedge2.i10.i16.i11.i.i.i, %446, %445, %.lr.ph.i6.i12.i3.i.i.i, %443, %_ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit
-  %.pn19.i.i.i = phi ptr [ %438, %443 ], [ %442, %_ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit ], [ %.sroa.0.3.i4.i.i.i, %445 ], [ %.sroa.0.3.i4.i.i.i, %446 ], [ %442, %.critedge2.i10.i16.i11.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
+  %.pn19.i.i.i = phi ptr [ %438, %443 ], [ %442, %_ZN12_GLOBAL__N_115serializeScalarIhlEEN4llvm4json5ArrayENS_6TBDKeyET_S5_.exit ], [ %.sroa.0.3.i4.i.i.i, %446 ], [ %.sroa.0.3.i4.i.i.i, %445 ], [ %442, %.critedge2.i10.i16.i11.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
   store ptr %.pn19.i.i.i, ptr %7, align 8, !alias.scope !845, !noalias !835
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %442, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !alias.scope !845, !noalias !835
@@ -12443,7 +12443,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_sy
   br i1 %.not.i11.i17.i12.i.i.i89, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i83, label %.lr.ph.i6.i12.i3.i.i.i78, !llvm.loop !844
 
 _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i83: ; preds = %.critedge2.i10.i16.i11.i.i.i88, %478, %477, %.lr.ph.i6.i12.i3.i.i.i78, %475, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS2_6SymbolEEESt20forward_iterator_tagEEED2Ev.exit
-  %.pn19.i.i.i84 = phi ptr [ %470, %475 ], [ %474, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS2_6SymbolEEESt20forward_iterator_tagEEED2Ev.exit ], [ %.sroa.0.3.i4.i.i.i79, %477 ], [ %.sroa.0.3.i4.i.i.i79, %478 ], [ %474, %.critedge2.i10.i16.i11.i.i.i88 ], [ %.sroa.0.3.i4.i.i.i79, %.lr.ph.i6.i12.i3.i.i.i78 ]
+  %.pn19.i.i.i84 = phi ptr [ %470, %475 ], [ %474, %_ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_symbol_iteratorESt8functionIFbPKNS2_6SymbolEEESt20forward_iterator_tagEEED2Ev.exit ], [ %.sroa.0.3.i4.i.i.i79, %478 ], [ %.sroa.0.3.i4.i.i.i79, %477 ], [ %474, %.critedge2.i10.i16.i11.i.i.i88 ], [ %.sroa.0.3.i4.i.i.i79, %.lr.ph.i6.i12.i3.i.i.i78 ]
   store ptr %.pn19.i.i.i84, ptr %5, align 8, !alias.scope !856, !noalias !853
   %.sroa.22.0..sroa_idx.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %474, ptr %.sroa.22.0..sroa_idx.i.i.i.i85, align 8, !alias.scope !856, !noalias !853
@@ -12542,7 +12542,7 @@ _ZN4llvm14iterator_rangeINS_20filter_iterator_implINS_5MachO9SymbolSet21const_sy
   br i1 %.not.i11.i17.i12.i.i.i109, label %_ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i103, label %.lr.ph.i6.i12.i3.i.i.i98, !llvm.loop !844
 
 _ZNSt8functionIFbPKN4llvm5MachO6SymbolEEEC2ERKS6_.exit.i.i103: ; preds = %.critedge2.i10.i16.i11.i.i.i108, %513, %512, %.lr.ph.i6.i12.i3.i.i.i98, %510, %499
-  %.pn19.i.i.i104 = phi ptr [ %505, %510 ], [ %509, %499 ], [ %.sroa.0.3.i4.i.i.i99, %512 ], [ %.sroa.0.3.i4.i.i.i99, %513 ], [ %509, %.critedge2.i10.i16.i11.i.i.i108 ], [ %.sroa.0.3.i4.i.i.i99, %.lr.ph.i6.i12.i3.i.i.i98 ]
+  %.pn19.i.i.i104 = phi ptr [ %505, %510 ], [ %509, %499 ], [ %.sroa.0.3.i4.i.i.i99, %513 ], [ %.sroa.0.3.i4.i.i.i99, %512 ], [ %509, %.critedge2.i10.i16.i11.i.i.i108 ], [ %.sroa.0.3.i4.i.i.i99, %.lr.ph.i6.i12.i3.i.i.i98 ]
   store ptr %.pn19.i.i.i104, ptr %3, align 8, !alias.scope !865, !noalias !862
   %.sroa.22.0..sroa_idx.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %509, ptr %.sroa.22.0..sroa_idx.i.i.i.i105, align 8, !alias.scope !865, !noalias !862

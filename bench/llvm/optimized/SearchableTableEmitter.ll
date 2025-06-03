@@ -2858,7 +2858,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i771: ; preds = %.lr.ph.i.i.i.i7
   br label %1011
 
 1011:                                             ; preds = %1009, %._crit_edge.i.i.i.i.i.i368
-  %.sroa.046.1.i.i.i.i.i.i = phi ptr [ %.sroa.046.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i368 ], [ %1010, %1009 ]
+  %.sroa.046.1.i.i.i.i.i.i = phi ptr [ %1010, %1009 ], [ %.sroa.046.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i368 ]
   %1012 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_122SearchableTableEmitter3runERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEEEEbT_"(ptr %.sroa.0.0.copyload.i361, i64 %.sroa.2.0.copyload.i363, ptr nonnull readonly %83, ptr %.sroa.046.1.i.i.i.i.i.i)
   br i1 %1012, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_122SearchableTableEmitter3runERNS2_11raw_ostreamEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i", label %1013
 
@@ -2867,7 +2867,7 @@ _ZNK4llvm6Record8getValueENS_9StringRefE.exit.i.i771: ; preds = %.lr.ph.i.i.i.i7
   br label %1015
 
 1015:                                             ; preds = %1013, %._crit_edge.i.i.i.i.i.i368
-  %.sroa.046.2.i.i.i.i.i.i = phi ptr [ %.sroa.046.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i368 ], [ %1014, %1013 ]
+  %.sroa.046.2.i.i.i.i.i.i = phi ptr [ %1014, %1013 ], [ %.sroa.046.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i368 ]
   %1016 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_122SearchableTableEmitter3runERN4llvm11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS4_6RecordESt6vectorISD_SaISD_EEEEEEbT_"(ptr %.sroa.0.0.copyload.i361, i64 %.sroa.2.0.copyload.i363, ptr nonnull readonly %83, ptr %.sroa.046.2.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i = select i1 %1016, ptr %.sroa.046.2.i.i.i.i.i.i, ptr %.sink.i359
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_122SearchableTableEmitter3runERNS2_11raw_ostreamEE3$_0EEET_SJ_SJ_T0_.exit.i.i.i.i"

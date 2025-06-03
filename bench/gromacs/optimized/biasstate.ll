@@ -6946,7 +6946,7 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br label %166
 
 166:                                              ; preds = %164, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %165, %164 ]
+  %.sroa.025.1.i.i.i.i.i.i = phi ptr [ %165, %164 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 40
   %168 = load i8, ptr %167, align 8, !tbaa !199, !range !37, !noundef !38
   %169 = trunc nuw i8 %168 to i1
@@ -6957,7 +6957,7 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br label %172
 
 172:                                              ; preds = %170, %._crit_edge.i.i.i.i.i.i
-  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %171, %170 ]
+  %.sroa.025.2.i.i.i.i.i.i = phi ptr [ %171, %170 ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.025.2.i.i.i.i.i.i, i64 40
   %174 = load i8, ptr %173, align 8, !tbaa !199, !range !37, !noundef !38
   %175 = trunc nuw i8 %174 to i1

@@ -2288,7 +2288,7 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_19LValueReferenceTypeE
   br label %14
 
 14:                                               ; preds = %1, %4, %12
-  %.1 = phi ptr [ %0, %1 ], [ %13, %12 ], [ null, %4 ]
+  %.1 = phi ptr [ %13, %12 ], [ %0, %1 ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -2318,7 +2318,7 @@ define linkonce_odr hidden i64 @_ZNK5clang13ReferenceType14getPointeeTypeEv(ptr 
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit: ; preds = %.lr.ph, %12
-  %.1.i = phi ptr [ %8, %.lr.ph ], [ %13, %12 ]
+  %.1.i = phi ptr [ %13, %12 ], [ %8, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %15 = load i24, ptr %14, align 16
   %16 = and i24 %15, 1048576
@@ -2619,7 +2619,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %59, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %55, %.lr.ph.i.i ], [ %60, %59 ]
+  %.1.i.i.i = phi ptr [ %60, %59 ], [ %55, %.lr.ph.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %62 = load i24, ptr %61, align 16
   %63 = and i24 %62, 1048576
@@ -2841,10 +2841,10 @@ define dso_local void @_ZN5clang4Sema23ActOnPragmaOptionsAlignENS0_22PragmaOptio
 30:                                               ; preds = %3
   br label %.thread
 
-.thread:                                          ; preds = %21, %8, %6, %7, %18, %3, %30
-  %.016 = phi i32 [ 3, %30 ], [ 0, %21 ], [ 3, %8 ], [ 3, %6 ], [ 3, %7 ], [ 4, %18 ], [ 0, %3 ]
-  %.0915 = phi i32 [ 512, %30 ], [ 0, %21 ], [ 768, %8 ], [ 0, %6 ], [ 256, %7 ], [ 0, %18 ], [ 0, %3 ]
-  %.sroa.5.0.insert.ext = phi i32 [ 65536, %30 ], [ 16711680, %21 ], [ 16711680, %8 ], [ 16711680, %6 ], [ 16711680, %7 ], [ 16711680, %18 ], [ 16711680, %3 ]
+.thread:                                          ; preds = %21, %8, %18, %7, %6, %3, %30
+  %.016 = phi i32 [ 3, %30 ], [ 0, %21 ], [ 3, %8 ], [ 4, %18 ], [ 3, %7 ], [ 3, %6 ], [ 0, %3 ]
+  %.0915 = phi i32 [ 512, %30 ], [ 0, %21 ], [ 768, %8 ], [ 0, %18 ], [ 256, %7 ], [ 0, %6 ], [ 0, %3 ]
+  %.sroa.5.0.insert.ext = phi i32 [ 65536, %30 ], [ 16711680, %21 ], [ 16711680, %8 ], [ 16711680, %18 ], [ 16711680, %7 ], [ 16711680, %6 ], [ 16711680, %3 ]
   %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !199
   %.in.in.in.in = getelementptr inbounds nuw i8, ptr %.pn, i64 152
@@ -5162,7 +5162,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %99, %.lr.ph.i.i
-  %.1.i.i.i = phi ptr [ %95, %.lr.ph.i.i ], [ %100, %99 ]
+  %.1.i.i.i = phi ptr [ %100, %99 ], [ %95, %.lr.ph.i.i ]
   %101 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 16
   %102 = load i24, ptr %101, align 16
   %103 = and i24 %102, 1048576
@@ -6494,7 +6494,7 @@ define dso_local void @_ZN5clang4Sema23ActOnPragmaFPEvalMethodENS_14SourceLocati
   br label %27
 
 27:                                               ; preds = %3, %25, %23
-  %.sroa.0129.0 = phi i32 [ %26, %25 ], [ %24, %23 ], [ %21, %3 ]
+  %.sroa.0129.0 = phi i32 [ %24, %23 ], [ %26, %25 ], [ %21, %3 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load ptr, ptr %28, align 8, !tbaa !199
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -8286,8 +8286,8 @@ _ZN5clanglsIA12_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds =
   br label %257
 
 257:                                              ; preds = %254, %_ZN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEE3ActENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefES2_.exit, %67, %65, %52, %33
-  %.sroa.19.0 = phi i32 [ %.sroa.19.0.extract.trunc128, %254 ], [ %.sroa.19.0.extract.trunc, %_ZN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEE3ActENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefES2_.exit ], [ %69, %67 ], [ %.sroa.19.2, %65 ], [ %.sroa.19.1, %52 ], [ %storemerge.i, %33 ]
-  %.sroa.086.0 = phi i32 [ %.sroa.086.0.extract.trunc106, %254 ], [ %.sroa.086.0.extract.trunc, %_ZN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEE3ActENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefES2_.exit ], [ %68, %67 ], [ %.sroa.086.2, %65 ], [ %.sroa.086.1, %52 ], [ %storemerge8.i, %33 ]
+  %.sroa.19.0 = phi i32 [ %storemerge.i, %33 ], [ %.sroa.19.1, %52 ], [ %.sroa.19.2, %65 ], [ %69, %67 ], [ %.sroa.19.0.extract.trunc, %_ZN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEE3ActENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefES2_.exit ], [ %.sroa.19.0.extract.trunc128, %254 ]
+  %.sroa.086.0 = phi i32 [ %storemerge8.i, %33 ], [ %.sroa.086.1, %52 ], [ %.sroa.086.2, %65 ], [ %68, %67 ], [ %.sroa.086.0.extract.trunc, %_ZN5clang4Sema11PragmaStackINS_17FPOptionsOverrideEE3ActENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefES2_.exit ], [ %.sroa.086.0.extract.trunc106, %254 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %259 = load ptr, ptr %258, align 8, !tbaa !199
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 192
@@ -13425,7 +13425,7 @@ switch.lookup639:                                 ; preds = %727
   br label %769
 
 769:                                              ; preds = %767, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %768, %767 ]
+  %.1.i.i.i.i.i.i = phi ptr [ %768, %767 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load i32, ptr %.1.i.i.i.i.i.i, align 4, !tbaa !1776
   %770 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 4
   %.1.val44.i.i.i.i.i.i = load i8, ptr %770, align 4
@@ -13439,7 +13439,7 @@ switch.lookup639:                                 ; preds = %727
   br label %776
 
 776:                                              ; preds = %774, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %775, %774 ]
+  %.2.i.i.i.i.i.i = phi ptr [ %775, %774 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load i32, ptr %.2.i.i.i.i.i.i, align 4, !tbaa !1776
   %777 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 4
   %.2.val46.i.i.i.i.i.i = load i8, ptr %777, align 4
@@ -16994,8 +16994,8 @@ define dso_local void @_ZN5clang4Sema21ActOnPragmaFPContractENS_14SourceLocation
   br label %23
 
 23:                                               ; preds = %20, %16, %12, %3
-  %.sroa.11.0 = phi i32 [ %.sroa.11.0.extract.trunc, %3 ], [ %22, %20 ], [ %19, %16 ], [ %15, %12 ]
-  %.sroa.07.0 = phi i32 [ %.sroa.07.0.extract.trunc, %3 ], [ %21, %20 ], [ %18, %16 ], [ %14, %12 ]
+  %.sroa.11.0 = phi i32 [ %.sroa.11.0.extract.trunc, %3 ], [ %15, %12 ], [ %19, %16 ], [ %22, %20 ]
+  %.sroa.07.0 = phi i32 [ %.sroa.07.0.extract.trunc, %3 ], [ %14, %12 ], [ %18, %16 ], [ %21, %20 ]
   %.sroa.11.0.insert.ext = zext i32 %.sroa.11.0 to i64
   %.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.0.insert.ext, 32
   %.sroa.07.0.insert.ext = zext i32 %.sroa.07.0 to i64
@@ -22905,9 +22905,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thr
   br label %35
 
 35:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109
-  %.sroa.2.0.copyload.i75 = phi i64 [ %.sroa.2.0.copyload.i75.pre, %._crit_edge._crit_edge ], [ %.sroa.2.0.copyload.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ]
-  %.sroa.0.0.copyload.i73 = phi ptr [ %.sroa.0.0.copyload.i73.pre, %._crit_edge._crit_edge ], [ %.sroa.0.0.copyload.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ]
-  %.1 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge ], [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ]
+  %.sroa.2.0.copyload.i75 = phi i64 [ %.sroa.2.0.copyload.i65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ], [ %.sroa.2.0.copyload.i75.pre, %._crit_edge._crit_edge ]
+  %.sroa.0.0.copyload.i73 = phi ptr [ %.sroa.0.0.copyload.i63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ], [ %.sroa.0.0.copyload.i73.pre, %._crit_edge._crit_edge ]
+  %.1 = phi ptr [ %34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit69.thread109 ], [ %.029.lcssa, %._crit_edge._crit_edge ]
   %.sroa.01.0.copyload.i70 = load ptr, ptr %.1, align 8, !tbaa !8
   %.sroa.22.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %.sroa.22.0.copyload.i72 = load i64, ptr %.sroa.22.0..sroa_idx.i71, align 8, !tbaa !10
@@ -22928,9 +22928,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thr
   br label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge149, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112
-  %.sroa.2.0.copyload.i85 = phi i64 [ %.sroa.2.0.copyload.i85.pre, %._crit_edge._crit_edge149 ], [ %.sroa.2.0.copyload.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ]
-  %.sroa.0.0.copyload.i83 = phi ptr [ %.sroa.0.0.copyload.i83.pre, %._crit_edge._crit_edge149 ], [ %.sroa.0.0.copyload.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ]
-  %.2 = phi ptr [ %.029.lcssa, %._crit_edge._crit_edge149 ], [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ]
+  %.sroa.2.0.copyload.i85 = phi i64 [ %.sroa.2.0.copyload.i75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ], [ %.sroa.2.0.copyload.i85.pre, %._crit_edge._crit_edge149 ]
+  %.sroa.0.0.copyload.i83 = phi ptr [ %.sroa.0.0.copyload.i73, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ], [ %.sroa.0.0.copyload.i83.pre, %._crit_edge._crit_edge149 ]
+  %.2 = phi ptr [ %39, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPS3_EEbT_.exit79.thread112 ], [ %.029.lcssa, %._crit_edge._crit_edge149 ]
   %.sroa.01.0.copyload.i80 = load ptr, ptr %.2, align 8, !tbaa !8
   %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %.sroa.22.0.copyload.i82 = load i64, ptr %.sroa.22.0..sroa_idx.i81, align 8, !tbaa !10

@@ -472,7 +472,7 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i: ; preds = %139, %134, %131, %128
-  %.0.i.i.i.i.i.i = phi i8 [ %133, %131 ], [ %144, %139 ], [ %130, %128 ], [ %138, %134 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %138, %134 ], [ %130, %128 ], [ %144, %139 ], [ %133, %131 ]
   %145 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %145, label %148, label %146
 
@@ -948,9 +948,9 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
 
 139:                                              ; preds = %132
   %switch66 = icmp eq i64 %.sroa.032.1157, 0
-  %140 = add i64 %.sroa.10.1158, 1
-  %141 = load i64, ptr %.sroa.442.0..sroa_idx43, align 8
-  %.061 = select i1 %switch66, i64 %141, i64 %140
+  %140 = load i64, ptr %.sroa.442.0..sroa_idx43, align 8
+  %141 = add i64 %.sroa.10.1158, 1
+  %.061 = select i1 %switch66, i64 %140, i64 %141
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -959,11 +959,11 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
   br i1 %142, label %150, label %143
 
 143:                                              ; preds = %139
-  %.not.i.i.i92 = icmp ult i64 %.061, %141
+  %.not.i.i.i92 = icmp ult i64 %.061, %140
   br i1 %.not.i.i.i92, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93", label %144
 
 144:                                              ; preds = %143
-  %145 = icmp eq i64 %.061, %141
+  %145 = icmp eq i64 %.061, %140
   br i1 %145, label %150, label %.invoke
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93": ; preds = %143
@@ -1195,7 +1195,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %"_ZN5alloc3vec
 
 .invoke:                                          ; preds = %232, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100", %144, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93"
   %237 = phi ptr [ %.val76, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93" ], [ %.val76, %144 ], [ %.val, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100" ], [ %.val, %232 ]
-  %238 = phi i64 [ %141, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93" ], [ %141, %144 ], [ %159, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100" ], [ %159, %232 ]
+  %238 = phi i64 [ %140, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93" ], [ %140, %144 ], [ %159, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100" ], [ %159, %232 ]
   %239 = phi i64 [ %.061, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93" ], [ %.061, %144 ], [ %.060, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100" ], [ %.060, %232 ]
   %240 = phi ptr [ @anon.ace7b9ddeb88dccd6f83fe071fb2b28d.45, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i93" ], [ @anon.ace7b9ddeb88dccd6f83fe071fb2b28d.45, %144 ], [ @anon.ace7b9ddeb88dccd6f83fe071fb2b28d.46, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i100" ], [ @anon.ace7b9ddeb88dccd6f83fe071fb2b28d.46, %232 ]
   invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %237, i64 noundef %238, i64 noundef 0, i64 noundef %239, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %240) #13
@@ -1281,7 +1281,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %"_ZN5alloc3vec
   br label %265
 
 265:                                              ; preds = %259, %254, %251, %248
-  %.0.i = phi i8 [ %253, %251 ], [ %264, %259 ], [ %250, %248 ], [ %258, %254 ]
+  %.0.i = phi i8 [ %258, %254 ], [ %250, %248 ], [ %264, %259 ], [ %253, %251 ]
   %266 = trunc i8 %.0.i to i1
   br i1 %266, label %.critedge, label %.critedge72.thread
 

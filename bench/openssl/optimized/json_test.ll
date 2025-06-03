@@ -682,8 +682,8 @@ helper_ensure.exit333.i:                          ; preds = %129, %127, %119, %1
   br i1 %.not274.i, label %.thread368.i, label %.backedge
 
 .backedge:                                        ; preds = %131, %.thread363.i, %.thread358.i, %.thread353.i, %.thread348.i, %.thread343.i, %.thread.i, %helper_set_flags.exit.i
-  %.0265.i.be = phi i64 [ %132, %131 ], [ %18, %helper_set_flags.exit.i ], [ %24, %.thread.i ], [ %53, %.thread343.i ], [ %70, %.thread348.i ], [ %86, %.thread353.i ], [ %101, %.thread358.i ], [ %116, %.thread363.i ]
-  %.0264.i.be = phi i32 [ %133, %131 ], [ %.0264.i, %helper_set_flags.exit.i ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread343.i ], [ %.0264.i, %.thread348.i ], [ %.0264.i, %.thread353.i ], [ %.0264.i, %.thread358.i ], [ %.0264.i, %.thread363.i ]
+  %.0265.i.be = phi i64 [ %18, %helper_set_flags.exit.i ], [ %132, %131 ], [ %24, %.thread.i ], [ %53, %.thread343.i ], [ %70, %.thread348.i ], [ %86, %.thread353.i ], [ %101, %.thread358.i ], [ %116, %.thread363.i ]
+  %.0264.i.be = phi i32 [ %.0264.i, %helper_set_flags.exit.i ], [ %133, %131 ], [ %.0264.i, %.thread.i ], [ %.0264.i, %.thread343.i ], [ %.0264.i, %.thread348.i ], [ %.0264.i, %.thread353.i ], [ %.0264.i, %.thread358.i ], [ %.0264.i, %.thread363.i ]
   br label %15
 
 136:                                              ; preds = %15

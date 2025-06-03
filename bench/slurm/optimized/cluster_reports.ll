@@ -244,8 +244,8 @@ define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nounde
   br label %54
 
 54:                                               ; preds = %53, %52, %.lr.ph.i
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %49, %53 ], [ %.0913.i, %52 ]
-  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.014.i, %53 ], [ %49, %52 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %.0913.i, %52 ], [ %49, %53 ]
+  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %49, %52 ], [ %.014.i, %53 ]
   %55 = call ptr @list_next(ptr noundef %47) #9
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %_set_usage_column_width.exit, label %.lr.ph.i, !llvm.loop !8
@@ -1519,8 +1519,8 @@ define internal fastcc void @_cluster_account_by_user_tres_report(ptr noundef no
   br label %135
 
 135:                                              ; preds = %130, %121, %115, %98, %.thread, %68, %63, %55, %49, %44
-  %.178 = phi i64 [ %.077101, %130 ], [ %.077101, %121 ], [ %.279, %115 ], [ %.077101, %98 ], [ %.077101, %.thread ], [ %.077101, %68 ], [ %.077101, %63 ], [ %.077101, %55 ], [ %.077101, %49 ], [ %.077101, %44 ]
-  %.1 = phi i64 [ %.076102, %130 ], [ %.076102, %121 ], [ %.2, %115 ], [ %.076102, %98 ], [ %.076102, %.thread ], [ %.076102, %68 ], [ %.076102, %63 ], [ %.076102, %55 ], [ %.076102, %49 ], [ %.076102, %44 ]
+  %.178 = phi i64 [ %.077101, %130 ], [ %.077101, %44 ], [ %.077101, %49 ], [ %.077101, %55 ], [ %.077101, %63 ], [ %.077101, %68 ], [ %.077101, %.thread ], [ %.077101, %98 ], [ %.279, %115 ], [ %.077101, %121 ]
+  %.1 = phi i64 [ %.076102, %130 ], [ %.076102, %44 ], [ %.076102, %49 ], [ %.076102, %55 ], [ %.076102, %63 ], [ %.076102, %68 ], [ %.076102, %.thread ], [ %.076102, %98 ], [ %.2, %115 ], [ %.076102, %121 ]
   %136 = add nuw nsw i32 %.080100, 1
   %137 = call ptr @list_next(ptr noundef %18) #9
   %.not = icmp eq ptr %137, null
@@ -1675,8 +1675,8 @@ define dso_local noundef i32 @cluster_account_by_qos(i32 noundef %0, ptr noundef
   br label %57
 
 57:                                               ; preds = %56, %55, %.lr.ph.i
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %52, %56 ], [ %.0913.i, %55 ]
-  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.014.i, %56 ], [ %52, %55 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %.0913.i, %55 ], [ %52, %56 ]
+  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %52, %55 ], [ %.014.i, %56 ]
   %58 = call ptr @list_next(ptr noundef %50) #9
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %_set_usage_column_width.exit, label %.lr.ph.i, !llvm.loop !8
@@ -1921,8 +1921,8 @@ define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nounde
   br label %58
 
 58:                                               ; preds = %57, %56, %.lr.ph.i
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %53, %57 ], [ %.0913.i, %56 ]
-  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.014.i, %57 ], [ %53, %56 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %.0913.i, %56 ], [ %53, %57 ]
+  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %53, %56 ], [ %.014.i, %57 ]
   %59 = call ptr @list_next(ptr noundef %51) #9
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %_set_usage_column_width.exit, label %.lr.ph.i, !llvm.loop !8
@@ -2163,8 +2163,8 @@ _set_usage_column_width.exit:                     ; preds = %58, %49
   br label %175
 
 175:                                              ; preds = %170, %161, %155, %138, %123, %108, %102, %96
-  %.156.i = phi i64 [ %.05575.i, %170 ], [ %.05575.i, %161 ], [ %.257.i, %155 ], [ %.05575.i, %138 ], [ %.05575.i, %123 ], [ %.05575.i, %108 ], [ %.05575.i, %102 ], [ %.05575.i, %96 ]
-  %.1.i48 = phi i64 [ %.076.i, %170 ], [ %.076.i, %161 ], [ %.2.i, %155 ], [ %.076.i, %138 ], [ %.076.i, %123 ], [ %.076.i, %108 ], [ %.076.i, %102 ], [ %.076.i, %96 ]
+  %.156.i = phi i64 [ %.05575.i, %170 ], [ %.05575.i, %96 ], [ %.05575.i, %102 ], [ %.05575.i, %108 ], [ %.05575.i, %123 ], [ %.05575.i, %138 ], [ %.257.i, %155 ], [ %.05575.i, %161 ]
+  %.1.i48 = phi i64 [ %.076.i, %170 ], [ %.076.i, %96 ], [ %.076.i, %102 ], [ %.076.i, %108 ], [ %.076.i, %123 ], [ %.076.i, %138 ], [ %.2.i, %155 ], [ %.076.i, %161 ]
   %176 = add nuw nsw i32 %.05874.i, 1
   %177 = call ptr @list_next(ptr noundef %88) #9
   %.not.i49 = icmp eq ptr %177, null
@@ -2352,8 +2352,8 @@ define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr noundef 
   br label %58
 
 58:                                               ; preds = %57, %56, %.lr.ph.i
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %53, %57 ], [ %.0913.i, %56 ]
-  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.014.i, %57 ], [ %53, %56 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %.0913.i, %56 ], [ %53, %57 ]
+  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %53, %56 ], [ %.014.i, %57 ]
   %59 = call ptr @list_next(ptr noundef %51) #9
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %_set_usage_column_width.exit, label %.lr.ph.i, !llvm.loop !8
@@ -2594,8 +2594,8 @@ _set_usage_column_width.exit:                     ; preds = %58, %49
   br label %175
 
 175:                                              ; preds = %170, %161, %155, %138, %123, %108, %102, %96
-  %.156.i = phi i64 [ %.05575.i, %170 ], [ %.05575.i, %161 ], [ %.257.i, %155 ], [ %.05575.i, %138 ], [ %.05575.i, %123 ], [ %.05575.i, %108 ], [ %.05575.i, %102 ], [ %.05575.i, %96 ]
-  %.1.i48 = phi i64 [ %.076.i, %170 ], [ %.076.i, %161 ], [ %.2.i, %155 ], [ %.076.i, %138 ], [ %.076.i, %123 ], [ %.076.i, %108 ], [ %.076.i, %102 ], [ %.076.i, %96 ]
+  %.156.i = phi i64 [ %.05575.i, %170 ], [ %.05575.i, %96 ], [ %.05575.i, %102 ], [ %.05575.i, %108 ], [ %.05575.i, %123 ], [ %.05575.i, %138 ], [ %.257.i, %155 ], [ %.05575.i, %161 ]
+  %.1.i48 = phi i64 [ %.076.i, %170 ], [ %.076.i, %96 ], [ %.076.i, %102 ], [ %.076.i, %108 ], [ %.076.i, %123 ], [ %.076.i, %138 ], [ %.2.i, %155 ], [ %.076.i, %161 ]
   %176 = add nuw nsw i32 %.05874.i, 1
   %177 = call ptr @list_next(ptr noundef %88) #9
   %.not.i49 = icmp eq ptr %177, null
@@ -3775,7 +3775,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   br label %382
 
 382:                                              ; preds = %377, %368, %362, %350, %343, %336, %329, %322, %315, %308, %303, %297
-  %.1.i = phi i64 [ %.0103.i, %377 ], [ %.0103.i, %368 ], [ %.2.i, %362 ], [ %.0103.i, %350 ], [ %.0103.i, %343 ], [ %.0103.i, %336 ], [ %.0103.i, %329 ], [ %.0103.i, %322 ], [ %.0103.i, %315 ], [ %.0103.i, %308 ], [ %.0103.i, %303 ], [ %.0103.i, %297 ]
+  %.1.i = phi i64 [ %.0103.i, %377 ], [ %.0103.i, %297 ], [ %.0103.i, %303 ], [ %.0103.i, %308 ], [ %.0103.i, %315 ], [ %.0103.i, %322 ], [ %.0103.i, %329 ], [ %.0103.i, %336 ], [ %.0103.i, %343 ], [ %.0103.i, %350 ], [ %.2.i, %362 ], [ %.0103.i, %368 ]
   %383 = add nuw nsw i32 %.089102.i, 1
   %384 = call ptr @list_next(ptr noundef %284) #9
   %.not97.i = icmp eq ptr %384, null
@@ -3959,8 +3959,8 @@ define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr noundef 
   br label %57
 
 57:                                               ; preds = %56, %55, %.lr.ph.i
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %52, %56 ], [ %.0913.i, %55 ]
-  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.014.i, %56 ], [ %52, %55 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i ], [ %.0913.i, %55 ], [ %52, %56 ]
+  %.1.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %52, %55 ], [ %.014.i, %56 ]
   %58 = call ptr @list_next(ptr noundef %50) #9
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %_set_usage_column_width.exit, label %.lr.ph.i, !llvm.loop !8

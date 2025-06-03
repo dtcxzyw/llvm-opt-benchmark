@@ -9419,8 +9419,8 @@ _ZN4llvm16DenseMapIteratorIPKvPNS_4PassENS_12DenseMapInfoIS2_vEENS_6detail12Dens
   br label %71
 
 71:                                               ; preds = %69, %._crit_edge._crit_edge.i.i.i.i
-  %72 = phi ptr [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %67, %69 ]
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %70, %69 ]
+  %72 = phi ptr [ %67, %69 ], [ %.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %70, %69 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ]
   %73 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !118
   %74 = icmp eq ptr %73, %72
   br i1 %74, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit, label %75
@@ -9430,8 +9430,8 @@ _ZN4llvm16DenseMapIteratorIPKvPNS_4PassENS_12DenseMapInfoIS2_vEENS_6detail12Dens
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge._crit_edge52.i.i.i.i
-  %78 = phi ptr [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %72, %75 ]
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %76, %75 ]
+  %78 = phi ptr [ %72, %75 ], [ %.pre53.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %76, %75 ], [ %.029.lcssa.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ]
   %79 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !118
   %80 = icmp eq ptr %79, %78
   br i1 %80, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread
@@ -9771,8 +9771,8 @@ _ZN4llvm16DenseMapIteratorIPKvPNS_4PassENS_12DenseMapInfoIS2_vEENS_6detail12Dens
   br label %233
 
 233:                                              ; preds = %231, %._crit_edge._crit_edge.i.i.i.i80
-  %234 = phi ptr [ %.pre.i.i.i.i81, %._crit_edge._crit_edge.i.i.i.i80 ], [ %229, %231 ]
-  %.1.i.i.i.i82 = phi ptr [ %.029.lcssa.i.i.i.i75, %._crit_edge._crit_edge.i.i.i.i80 ], [ %232, %231 ]
+  %234 = phi ptr [ %229, %231 ], [ %.pre.i.i.i.i81, %._crit_edge._crit_edge.i.i.i.i80 ]
+  %.1.i.i.i.i82 = phi ptr [ %232, %231 ], [ %.029.lcssa.i.i.i.i75, %._crit_edge._crit_edge.i.i.i.i80 ]
   %235 = load ptr, ptr %.1.i.i.i.i82, align 8, !tbaa !118
   %236 = icmp eq ptr %235, %234
   br i1 %236, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit87, label %237
@@ -9782,8 +9782,8 @@ _ZN4llvm16DenseMapIteratorIPKvPNS_4PassENS_12DenseMapInfoIS2_vEENS_6detail12Dens
   br label %239
 
 239:                                              ; preds = %237, %._crit_edge._crit_edge52.i.i.i.i77
-  %240 = phi ptr [ %.pre53.i.i.i.i78, %._crit_edge._crit_edge52.i.i.i.i77 ], [ %234, %237 ]
-  %.2.i.i.i.i79 = phi ptr [ %.029.lcssa.i.i.i.i75, %._crit_edge._crit_edge52.i.i.i.i77 ], [ %238, %237 ]
+  %240 = phi ptr [ %234, %237 ], [ %.pre53.i.i.i.i78, %._crit_edge._crit_edge52.i.i.i.i77 ]
+  %.2.i.i.i.i79 = phi ptr [ %238, %237 ], [ %.029.lcssa.i.i.i.i75, %._crit_edge._crit_edge52.i.i.i.i77 ]
   %241 = load ptr, ptr %.2.i.i.i.i79, align 8, !tbaa !118
   %242 = icmp eq ptr %241, %240
   br i1 %242, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit87, label %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit87.thread

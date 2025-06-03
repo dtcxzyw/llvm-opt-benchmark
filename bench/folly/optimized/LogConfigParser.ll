@@ -13860,7 +13860,7 @@ define linkonce_odr noundef i64 @_ZNK5folly7dynamic5asIntEv(ptr noundef nonnull 
   unreachable
 
 _ZNK5folly7dynamic6asImplIlEET_v.exit:            ; preds = %3, %6, %9, %13
-  %.0.i = phi i64 [ %15, %13 ], [ %12, %9 ], [ %8, %6 ], [ %5, %3 ]
+  %.0.i = phi i64 [ %5, %3 ], [ %8, %6 ], [ %12, %9 ], [ %15, %13 ]
   ret i64 %.0.i
 }
 

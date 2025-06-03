@@ -2329,7 +2329,7 @@ define hidden noundef ptr @_ZN13CodeInstaller18to_primitive_valueEP25HotSpotComp
   br label %26
 
 26:                                               ; preds = %23, %19, %16, %14, %12, %10, %8
-  %.0 = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %21, %19 ], [ null, %23 ]
+  %.0 = phi ptr [ %17, %16 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %21, %19 ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -3501,7 +3501,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %427, %430
   br label %438
 
 438:                                              ; preds = %182, %.thread167, %424, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit, %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit, %188, %80, %90, %61, %71, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit, %435, %_ZNK6HandleclEv.exit, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit, %190, %174, %77, %58, %11, %8
-  %.0 = phi ptr [ null, %435 ], [ %428, %_ZNK6HandleclEv.exit ], [ %193, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit ], [ %191, %190 ], [ null, %174 ], [ null, %58 ], [ null, %77 ], [ null, %8 ], [ %12, %11 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit ], [ %62, %71 ], [ %62, %61 ], [ %81, %90 ], [ %81, %80 ], [ %183, %182 ], [ %189, %188 ], [ %., %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit ], [ %.156, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %.157, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit ], [ %.158, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit ], [ %.159, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165 ], [ null, %424 ], [ %168, %.thread167 ]
+  %.0 = phi ptr [ null, %435 ], [ null, %8 ], [ %12, %11 ], [ null, %58 ], [ null, %77 ], [ null, %174 ], [ %191, %190 ], [ %193, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit ], [ %428, %_ZNK6HandleclEv.exit ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit ], [ %62, %71 ], [ %62, %61 ], [ %81, %90 ], [ %81, %80 ], [ %183, %182 ], [ %189, %188 ], [ %., %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit ], [ %.156, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %.157, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit ], [ %.158, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit ], [ %.159, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165 ], [ null, %424 ], [ %168, %.thread167 ]
   ret ptr %.0
 }
 

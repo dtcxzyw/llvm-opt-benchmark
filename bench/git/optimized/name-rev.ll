@@ -1478,8 +1478,8 @@ subpath_matches.exit92:                           ; preds = %.lr.ph.i86
   br label %subpath_matches.exit92.thread
 
 subpath_matches.exit92.thread:                    ; preds = %select.unfold.i89, %subpath_matches.exit92, %48, %49
-  %.270 = phi i32 [ 1, %49 ], [ %.169117130, %48 ], [ %.169117130, %subpath_matches.exit92 ], [ %.169117130, %select.unfold.i89 ]
-  %.153 = phi i32 [ 1, %49 ], [ 1, %48 ], [ %.052119128, %subpath_matches.exit92 ], [ %.052119128, %select.unfold.i89 ]
+  %.270 = phi i32 [ 1, %49 ], [ %.169117130, %subpath_matches.exit92 ], [ %.169117130, %48 ], [ %.169117130, %select.unfold.i89 ]
+  %.153 = phi i32 [ 1, %49 ], [ %.052119128, %subpath_matches.exit92 ], [ 1, %48 ], [ %.052119128, %select.unfold.i89 ]
   %50 = getelementptr inbounds nuw i8, ptr %.054118129, i64 16
   %51 = load ptr, ptr %35, align 8, !tbaa !114
   %52 = load i64, ptr %36, align 8, !tbaa !113

@@ -2239,7 +2239,7 @@ LookupCompoundDictionaryMatch.exit243..thread564_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1035, %1019, %1030, %1023, %1039, %1042
-  %.1.i247 = phi i64 [ 3, %1039 ], [ %1043, %1042 ], [ 2, %1035 ], [ 1, %1019 ], [ %1034, %1030 ], [ %1027, %1023 ]
+  %.1.i247 = phi i64 [ %1043, %1042 ], [ 3, %1039 ], [ 2, %1035 ], [ 1, %1019 ], [ %1034, %1030 ], [ %1027, %1023 ]
   %1044 = icmp ule i64 %.sroa.18442.1575, %1009
   %1045 = icmp ne i64 %.1.i247, 0
   %or.cond = select i1 %1044, i1 %1045, i1 false
@@ -4736,7 +4736,7 @@ LookupCompoundDictionaryMatch.exit214..thread539_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1039, %1023, %1034, %1027, %1043, %1046
-  %.1.i = phi i64 [ 3, %1043 ], [ %1047, %1046 ], [ 2, %1039 ], [ 1, %1023 ], [ %1038, %1034 ], [ %1031, %1027 ]
+  %.1.i = phi i64 [ %1047, %1046 ], [ 3, %1043 ], [ 2, %1039 ], [ 1, %1023 ], [ %1038, %1034 ], [ %1031, %1027 ]
   %1048 = icmp ule i64 %.sroa.18417.1550, %1013
   %1049 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1048, i1 %1049, i1 false
@@ -7368,7 +7368,7 @@ LookupCompoundDictionaryMatch.exit214..thread550_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1126, %1110, %1121, %1114, %1130, %1133
-  %.1.i = phi i64 [ 3, %1130 ], [ %1134, %1133 ], [ 2, %1126 ], [ 1, %1110 ], [ %1125, %1121 ], [ %1118, %1114 ]
+  %.1.i = phi i64 [ %1134, %1133 ], [ 3, %1130 ], [ 2, %1126 ], [ 1, %1110 ], [ %1125, %1121 ], [ %1118, %1114 ]
   %1135 = icmp ule i64 %.sroa.18418.1561, %1100
   %1136 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1135, i1 %1136, i1 false
@@ -10035,7 +10035,7 @@ LookupCompoundDictionaryMatch.exit214..thread552_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1131, %1115, %1126, %1119, %1135, %1138
-  %.1.i = phi i64 [ 3, %1135 ], [ %1139, %1138 ], [ 2, %1131 ], [ 1, %1115 ], [ %1130, %1126 ], [ %1123, %1119 ]
+  %.1.i = phi i64 [ %1139, %1138 ], [ 3, %1135 ], [ 2, %1131 ], [ 1, %1115 ], [ %1130, %1126 ], [ %1123, %1119 ]
   %1140 = icmp ule i64 %.sroa.18420.1563, %1105
   %1141 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1140, i1 %1141, i1 false
@@ -12440,7 +12440,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %972, %956, %967, %960, %976, %979
-  %.1.i = phi i64 [ 3, %976 ], [ %980, %979 ], [ 2, %972 ], [ 1, %956 ], [ %971, %967 ], [ %964, %960 ]
+  %.1.i = phi i64 [ %980, %979 ], [ 3, %976 ], [ 2, %972 ], [ 1, %956 ], [ %971, %967 ], [ %964, %960 ]
   %981 = icmp ule i64 %.sroa.18429.1534, %946
   %982 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %981, i1 %982, i1 false
@@ -14853,7 +14853,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %985, %969, %980, %973, %989, %992
-  %.1.i = phi i64 [ 3, %989 ], [ %993, %992 ], [ 2, %985 ], [ 1, %969 ], [ %984, %980 ], [ %977, %973 ]
+  %.1.i = phi i64 [ %993, %992 ], [ 3, %989 ], [ 2, %985 ], [ 1, %969 ], [ %984, %980 ], [ %977, %973 ]
   %994 = icmp ule i64 %.sroa.18429.1534, %959
   %995 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %994, i1 %995, i1 false
@@ -17306,7 +17306,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1007, %991, %1002, %995, %1011, %1014
-  %.1.i = phi i64 [ 3, %1011 ], [ %1015, %1014 ], [ 2, %1007 ], [ 1, %991 ], [ %1006, %1002 ], [ %999, %995 ]
+  %.1.i = phi i64 [ %1015, %1014 ], [ 3, %1011 ], [ 2, %1007 ], [ 1, %991 ], [ %1006, %1002 ], [ %999, %995 ]
   %1016 = icmp ule i64 %.sroa.18429.1534, %981
   %1017 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1016, i1 %1017, i1 false
@@ -19485,7 +19485,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %785
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %813, %797, %808, %801, %817, %820
-  %.1.i = phi i64 [ 3, %817 ], [ %821, %820 ], [ 2, %813 ], [ 1, %797 ], [ %812, %808 ], [ %805, %801 ]
+  %.1.i = phi i64 [ %821, %820 ], [ 3, %817 ], [ 2, %813 ], [ 1, %797 ], [ %812, %808 ], [ %805, %801 ]
   %822 = icmp ule i64 %.sroa.18407.1476, %784
   %823 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %822, i1 %823, i1 false
@@ -22265,7 +22265,7 @@ LookupCompoundDictionaryMatch.exit214..thread570_crit_edge: ; preds = %LookupCom
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %1190, %1174, %1185, %1178, %1194, %1197
-  %.1.i = phi i64 [ 3, %1194 ], [ %1198, %1197 ], [ 2, %1190 ], [ 1, %1174 ], [ %1189, %1185 ], [ %1182, %1178 ]
+  %.1.i = phi i64 [ %1198, %1197 ], [ 3, %1194 ], [ 2, %1190 ], [ 1, %1174 ], [ %1189, %1185 ], [ %1182, %1178 ]
   %1199 = icmp ule i64 %.sroa.20.1581, %1164
   %1200 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1199, i1 %1200, i1 false
@@ -23643,7 +23643,7 @@ FindLongestMatchH2.exit263..thread333_crit_edge:  ; preds = %FindLongestMatchH2.
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %525, %509, %520, %513, %529, %532
-  %.1.i = phi i64 [ 3, %529 ], [ %533, %532 ], [ 2, %525 ], [ 1, %509 ], [ %524, %520 ], [ %517, %513 ]
+  %.1.i = phi i64 [ %533, %532 ], [ 3, %529 ], [ 2, %525 ], [ 1, %509 ], [ %524, %520 ], [ %517, %513 ]
   %534 = icmp ule i64 %.sroa.14.1344, %499
   %535 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %534, i1 %535, i1 false
@@ -24616,7 +24616,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %288
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %316, %300, %311, %304, %320, %323
-  %.1.i = phi i64 [ 3, %320 ], [ %324, %323 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
+  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
   %325 = icmp ule i64 %.sroa.13.1296, %287
   %326 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %325, i1 %326, i1 false
@@ -26038,7 +26038,7 @@ FindLongestMatchH4.exit271..thread341_crit_edge:  ; preds = %FindLongestMatchH4.
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %584, %568, %579, %572, %588, %591
-  %.1.i = phi i64 [ 3, %588 ], [ %592, %591 ], [ 2, %584 ], [ 1, %568 ], [ %583, %579 ], [ %576, %572 ]
+  %.1.i = phi i64 [ %592, %591 ], [ 3, %588 ], [ 2, %584 ], [ 1, %568 ], [ %583, %579 ], [ %576, %572 ]
   %593 = icmp ule i64 %.sroa.14.1352, %558
   %594 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %593, i1 %594, i1 false
@@ -27734,7 +27734,7 @@ FindLongestMatchH5.exit224..thread442_crit_edge:  ; preds = %FindLongestMatchH5.
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %707, %691, %702, %695, %711, %714
-  %.1.i228 = phi i64 [ 3, %711 ], [ %715, %714 ], [ 2, %707 ], [ 1, %691 ], [ %706, %702 ], [ %699, %695 ]
+  %.1.i228 = phi i64 [ %715, %714 ], [ 3, %711 ], [ 2, %707 ], [ 1, %691 ], [ %706, %702 ], [ %699, %695 ]
   %716 = icmp ule i64 %.sroa.15.1453, %681
   %717 = icmp ne i64 %.1.i228, 0
   %or.cond = select i1 %716, i1 %717, i1 false
@@ -29512,7 +29512,7 @@ FindLongestMatchH6.exit296..thread417_crit_edge:  ; preds = %FindLongestMatchH6.
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %711, %695, %706, %699, %715, %718
-  %.1.i = phi i64 [ 3, %715 ], [ %719, %718 ], [ 2, %711 ], [ 1, %695 ], [ %710, %706 ], [ %703, %699 ]
+  %.1.i = phi i64 [ %719, %718 ], [ 3, %715 ], [ 2, %711 ], [ 1, %695 ], [ %710, %706 ], [ %703, %699 ]
   %720 = icmp ule i64 %.sroa.15.1428, %685
   %721 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %720, i1 %721, i1 false
@@ -31171,7 +31171,7 @@ FindLongestMatchH40.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH40
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %641, %625, %636, %629, %645, %648
-  %.1.i = phi i64 [ 3, %645 ], [ %649, %648 ], [ 2, %641 ], [ 1, %625 ], [ %640, %636 ], [ %633, %629 ]
+  %.1.i = phi i64 [ %649, %648 ], [ 3, %645 ], [ 2, %641 ], [ 1, %625 ], [ %640, %636 ], [ %633, %629 ]
   %650 = icmp ule i64 %.sroa.15.1403, %615
   %651 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %650, i1 %651, i1 false
@@ -32861,7 +32861,7 @@ FindLongestMatchH41.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH41
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %654, %638, %649, %642, %658, %661
-  %.1.i = phi i64 [ 3, %658 ], [ %662, %661 ], [ 2, %654 ], [ 1, %638 ], [ %653, %649 ], [ %646, %642 ]
+  %.1.i = phi i64 [ %662, %661 ], [ 3, %658 ], [ 2, %654 ], [ 1, %638 ], [ %653, %649 ], [ %646, %642 ]
   %663 = icmp ule i64 %.sroa.15.1403, %628
   %664 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %663, i1 %664, i1 false
@@ -34591,7 +34591,7 @@ FindLongestMatchH42.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH42
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %676, %660, %671, %664, %680, %683
-  %.1.i = phi i64 [ 3, %680 ], [ %684, %683 ], [ 2, %676 ], [ 1, %660 ], [ %675, %671 ], [ %668, %664 ]
+  %.1.i = phi i64 [ %684, %683 ], [ 3, %680 ], [ 2, %676 ], [ 1, %660 ], [ %675, %671 ], [ %668, %664 ]
   %685 = icmp ule i64 %.sroa.15.1403, %650
   %686 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %685, i1 %686, i1 false
@@ -35707,7 +35707,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %300
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %328, %312, %323, %316, %332, %335
-  %.1.i = phi i64 [ 3, %332 ], [ %336, %335 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
+  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
   %337 = icmp ule i64 %.sroa.13.1296, %299
   %338 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %337, i1 %338, i1 false
@@ -37548,7 +37548,7 @@ FindLongestMatchH58.exit293..thread429_crit_edge: ; preds = %FindLongestMatchH58
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %795, %779, %790, %783, %799, %802
-  %.1.i = phi i64 [ 3, %799 ], [ %803, %802 ], [ 2, %795 ], [ 1, %779 ], [ %794, %790 ], [ %787, %783 ]
+  %.1.i = phi i64 [ %803, %802 ], [ 3, %799 ], [ 2, %795 ], [ 1, %779 ], [ %794, %790 ], [ %787, %783 ]
   %804 = icmp ule i64 %.sroa.15.1440, %769
   %805 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %804, i1 %805, i1 false
@@ -39492,7 +39492,7 @@ FindLongestMatchH68.exit300..thread431_crit_edge: ; preds = %FindLongestMatchH68
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %800, %784, %795, %788, %804, %807
-  %.1.i = phi i64 [ 3, %804 ], [ %808, %807 ], [ 2, %800 ], [ 1, %784 ], [ %799, %795 ], [ %792, %788 ]
+  %.1.i = phi i64 [ %808, %807 ], [ 3, %804 ], [ 2, %800 ], [ 1, %784 ], [ %799, %795 ], [ %792, %788 ]
   %809 = icmp ule i64 %.sroa.15.1442, %774
   %810 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %809, i1 %810, i1 false
@@ -40926,7 +40926,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %442
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %470, %454, %465, %458, %474, %477
-  %.1.i = phi i64 [ 3, %474 ], [ %478, %477 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
+  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
   %479 = icmp ule i64 %.sroa.15.1333, %441
   %480 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %479, i1 %480, i1 false
@@ -42283,7 +42283,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %453
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %481, %465, %476, %469, %485, %488
-  %.1.i = phi i64 [ 3, %485 ], [ %489, %488 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
+  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
   %490 = icmp ule i64 %.sroa.15.1353, %452
   %491 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %490, i1 %491, i1 false
@@ -44344,7 +44344,7 @@ FindLongestMatchHROLLING.exit..thread449_crit_edge: ; preds = %FindLongestMatchH
   br label %ComputeDistanceCode.exit
 
 ComputeDistanceCode.exit:                         ; preds = %860, %844, %855, %848, %864, %867
-  %.1.i = phi i64 [ 3, %864 ], [ %868, %867 ], [ 2, %860 ], [ 1, %844 ], [ %859, %855 ], [ %852, %848 ]
+  %.1.i = phi i64 [ %868, %867 ], [ 3, %864 ], [ 2, %860 ], [ 1, %844 ], [ %859, %855 ], [ %852, %848 ]
   %869 = icmp ule i64 %.sroa.17.1460, %834
   %870 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %869, i1 %870, i1 false

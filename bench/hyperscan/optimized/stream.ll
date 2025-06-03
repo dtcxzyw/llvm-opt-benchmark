@@ -121,7 +121,7 @@ define hidden void @roseStreamExec(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %17, %27, %29, %42, %50, %58, %61, %69, %72
-  %.0.i167 = phi i64 [ %74, %72 ], [ %71, %69 ], [ %68, %61 ], [ %60, %58 ], [ %57, %50 ], [ %49, %42 ], [ %41, %29 ], [ %28, %27 ], [ 0, %17 ]
+  %.0.i167 = phi i64 [ %28, %27 ], [ %41, %29 ], [ %49, %42 ], [ %57, %50 ], [ %60, %58 ], [ %68, %61 ], [ %71, %69 ], [ %74, %72 ], [ 0, %17 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0.i167, ptr %75, align 8
   %76 = add i64 %11, 1
@@ -238,7 +238,7 @@ partial_load_u64a.exit:                           ; preds = %17, %27, %29, %42, 
   br label %mmbit_get_flat_block.exit
 
 mmbit_get_flat_block.exit:                        ; preds = %123, %126, %129, %137
-  %.0.i178 = phi i64 [ %143, %137 ], [ %136, %129 ], [ %128, %126 ], [ %125, %123 ]
+  %.0.i178 = phi i64 [ %143, %137 ], [ %125, %123 ], [ %128, %126 ], [ %136, %129 ]
   %144 = load i64, ptr %116, align 8
   %145 = and i64 %144, %.0.i178
   %.not59.i = icmp eq i64 %145, 0
@@ -326,7 +326,7 @@ mmbit_mask_index.exit187:                         ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit182
 
 mmbit_get_flat_block.exit182:                     ; preds = %184, %176, %173, %170, %191
-  %.052.i = phi i64 [ %192, %191 ], [ %190, %184 ], [ %183, %176 ], [ %175, %173 ], [ %172, %170 ]
+  %.052.i = phi i64 [ %192, %191 ], [ %190, %184 ], [ %172, %170 ], [ %175, %173 ], [ %183, %176 ]
   %193 = load i64, ptr %161, align 8
   %194 = and i64 %193, %.052.i
   %.not58.i = icmp eq i64 %194, 0
@@ -1092,7 +1092,7 @@ mmbit_mask_index.exit.i210:                       ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i
 
 mmbit_get_flat_block.exit.i:                      ; preds = %638, %641, %644, %652, %659
-  %.0.i212 = phi i64 [ %660, %659 ], [ %658, %652 ], [ %651, %644 ], [ %643, %641 ], [ %640, %638 ]
+  %.0.i212 = phi i64 [ %660, %659 ], [ %658, %652 ], [ %640, %638 ], [ %643, %641 ], [ %651, %644 ]
   %661 = load i64, ptr %629, align 8
   %662 = and i64 %661, %.0.i212
   %.not.i209.not = icmp eq i64 %662, 0
@@ -1428,7 +1428,7 @@ runAnchoredTableStream.exit:                      ; preds = %769
   br label %loadLongLitStreamState.exit
 
 loadLongLitStreamState.exit:                      ; preds = %793, %807, %809, %822, %830, %838, %841, %849, %852
-  %.0.i.i218 = phi i64 [ %854, %852 ], [ %851, %849 ], [ %848, %841 ], [ %840, %838 ], [ %837, %830 ], [ %829, %822 ], [ %821, %809 ], [ %808, %807 ], [ 0, %793 ]
+  %.0.i.i218 = phi i64 [ %808, %807 ], [ %821, %809 ], [ %829, %822 ], [ %837, %830 ], [ %840, %838 ], [ %848, %841 ], [ %851, %849 ], [ %854, %852 ], [ 0, %793 ]
   %855 = and i64 %.0.i.i218, %806
   %856 = lshr i64 %.0.i.i218, %805
   %857 = and i64 %855, 4294967295
@@ -1572,7 +1572,7 @@ loadLongLiteralState.exit:                        ; preds = %872, %loadLongLiter
   br label %mmbit_any.exit227
 
 mmbit_any.exit227:                                ; preds = %901, %904, %907, %915, %.critedge.i228, %928
-  %.0.i226.in.in = phi i64 [ %929, %928 ], [ %927, %.critedge.i228 ], [ %921, %915 ], [ %914, %907 ], [ %906, %904 ], [ %903, %901 ]
+  %.0.i226.in.in = phi i64 [ %929, %928 ], [ %927, %.critedge.i228 ], [ %921, %915 ], [ %903, %901 ], [ %906, %904 ], [ %914, %907 ]
   %.0.i226.in.in.fr = freeze i64 %.0.i226.in.in
   %.0.i226.in.not = icmp eq i64 %.0.i226.in.in.fr, 0
   br i1 %.0.i226.in.not, label %roseHasInFlightMatches.exit, label %roseHasInFlightMatches.exit.thread
@@ -1892,7 +1892,7 @@ canSkipCatchUpMPV.exit.thread605:                 ; preds = %1033, %canSkipCatch
   br label %mmbit_any.exit.i
 
 mmbit_any.exit.i:                                 ; preds = %1059, %1062, %1065, %1073, %.critedge.i.i, %1088
-  %.0.i.i249.in.in = phi i64 [ %1089, %1088 ], [ %1087, %.critedge.i.i ], [ %1079, %1073 ], [ %1072, %1065 ], [ %1064, %1062 ], [ %1061, %1059 ]
+  %.0.i.i249.in.in = phi i64 [ %1089, %1088 ], [ %1087, %.critedge.i.i ], [ %1079, %1073 ], [ %1061, %1059 ], [ %1064, %1062 ], [ %1072, %1065 ]
   %.0.i.i249.in.not = icmp eq i64 %.0.i.i249.in.in, 0
   br i1 %.0.i.i249.in.not, label %1090, label %mmbit_any.exit.i.thread
 
@@ -2048,7 +2048,7 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph1670, %1110, 
   br label %mmbit_get_flat_block.exit84.i
 
 mmbit_get_flat_block.exit84.i:                    ; preds = %1160, %1152, %1149, %1146
-  %.0.i82.i = phi i64 [ %1166, %1160 ], [ %1159, %1152 ], [ %1151, %1149 ], [ %1148, %1146 ]
+  %.0.i82.i = phi i64 [ %1166, %1160 ], [ %1148, %1146 ], [ %1151, %1149 ], [ %1159, %1152 ]
   %.not74.i = icmp eq i64 %.0.i82.i, 0
   br i1 %.not74.i, label %roseSaveNfaStreamState.exit, label %1167
 
@@ -2135,7 +2135,7 @@ mmbit_get_flat_block.exit84.i:                    ; preds = %1160, %1152, %1149,
   br label %mmbit_get_flat_block.exit.i318
 
 mmbit_get_flat_block.exit.i318:                   ; preds = %1204, %1196, %1193, %1190
-  %.0.i.i319 = phi i64 [ %1210, %1204 ], [ %1203, %1196 ], [ %1195, %1193 ], [ %1192, %1190 ]
+  %.0.i.i319 = phi i64 [ %1210, %1204 ], [ %1192, %1190 ], [ %1195, %1193 ], [ %1203, %1196 ]
   %.not71.i = icmp eq i64 %.0.i.i319, 0
   br i1 %.not71.i, label %roseSaveNfaStreamState.exit, label %1211
 
@@ -2295,7 +2295,7 @@ mmbit_iterate.exit315:                            ; preds = %1235, %1174
   br label %mmbit_get_flat_block.exit84.i339
 
 mmbit_get_flat_block.exit84.i339:                 ; preds = %1287, %1290, %1293, %1296
-  %.0.i82.i340 = phi i64 [ %1297, %1296 ], [ %1295, %1293 ], [ %1292, %1290 ], [ %1289, %1287 ]
+  %.0.i82.i340 = phi i64 [ %1297, %1296 ], [ %1289, %1287 ], [ %1292, %1290 ], [ %1295, %1293 ]
   %1298 = add nuw i32 %.0.i2531005, 1
   %1299 = icmp eq i32 %1298, 64
   %1300 = zext nneg i32 %1298 to i64
@@ -2363,7 +2363,7 @@ mmbit_get_flat_block.exit84.i339:                 ; preds = %1287, %1290, %1293,
   br label %mmbit_get_flat_block.exit80.i
 
 mmbit_get_flat_block.exit80.i:                    ; preds = %1334, %1326, %1323, %1320
-  %.0.i78.i = phi i64 [ %1340, %1334 ], [ %1333, %1326 ], [ %1325, %1323 ], [ %1322, %1320 ]
+  %.0.i78.i = phi i64 [ %1340, %1334 ], [ %1322, %1320 ], [ %1325, %1323 ], [ %1333, %1326 ]
   %1341 = sub i32 %1307, %1313
   %1342 = icmp eq i32 %1341, 64
   %1343 = zext nneg i32 %1341 to i64
@@ -2462,7 +2462,7 @@ mmbit_get_flat_block.exit80.i:                    ; preds = %1334, %1326, %1323,
   br label %mmbit_get_flat_block.exit.i330
 
 mmbit_get_flat_block.exit.i330:                   ; preds = %1386, %1378, %1375, %1372
-  %.0.i.i331 = phi i64 [ %1392, %1386 ], [ %1385, %1378 ], [ %1377, %1375 ], [ %1374, %1372 ]
+  %.0.i.i331 = phi i64 [ %1392, %1386 ], [ %1374, %1372 ], [ %1377, %1375 ], [ %1385, %1378 ]
   %.not71.i332 = icmp eq i64 %.0.i.i331, 0
   br i1 %.not71.i332, label %roseSaveNfaStreamState.exit, label %1393
 
@@ -2604,7 +2604,7 @@ roseSaveNfaStreamState.exit:                      ; preds = %.thread626, %mmbit_
   br label %mmbit_get_flat_block.exit.i274
 
 mmbit_get_flat_block.exit.i274:                   ; preds = %1463, %1455, %1452, %1449
-  %.0.i35.i = phi i64 [ %1469, %1463 ], [ %1462, %1455 ], [ %1454, %1452 ], [ %1451, %1449 ]
+  %.0.i35.i = phi i64 [ %1469, %1463 ], [ %1451, %1449 ], [ %1454, %1452 ], [ %1462, %1455 ]
   %1470 = load i64, ptr %1442, align 8
   %1471 = and i64 %1470, %.0.i35.i
   %.not59.i.i = icmp eq i64 %1471, 0
@@ -2692,7 +2692,7 @@ mmbit_mask_index.exit44.i:                        ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit39.i
 
 mmbit_get_flat_block.exit39.i:                    ; preds = %1496, %1499, %1502, %1510, %1517
-  %.052.i.i = phi i64 [ %1518, %1517 ], [ %1516, %1510 ], [ %1509, %1502 ], [ %1501, %1499 ], [ %1498, %1496 ]
+  %.052.i.i = phi i64 [ %1518, %1517 ], [ %1516, %1510 ], [ %1498, %1496 ], [ %1501, %1499 ], [ %1509, %1502 ]
   %1519 = load i64, ptr %1487, align 8
   %1520 = and i64 %1519, %.052.i.i
   %.not58.i.i = icmp eq i64 %1520, 0
@@ -3100,7 +3100,7 @@ roseMiracleScan.exit.thread:                      ; preds = %1747, %roseMiracleS
   br i1 %.not55.i, label %.thread688, label %1773
 
 1773:                                             ; preds = %.split.loop.exit, %roseMiracleScan.exit
-  %.3.i426 = phi i64 [ %1752, %roseMiracleScan.exit ], [ %spec.select.i427, %.split.loop.exit ]
+  %.3.i426 = phi i64 [ %spec.select.i427, %.split.loop.exit ], [ %1752, %roseMiracleScan.exit ]
   %1774 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.3.i426, i1 true)
   %1775 = add nuw nsw i64 %1774, %1729
   %1776 = xor i64 %1775, -1
@@ -4225,7 +4225,7 @@ mmbit_mask_index.exit.i54.i:                      ; preds = %mmbit_mask_index.ex
   br label %mmbit_get_flat_block.exit.i.i264
 
 mmbit_get_flat_block.exit.i.i264:                 ; preds = %2407, %2410, %2413, %2421, %2428
-  %.0.i56.i = phi i64 [ %2429, %2428 ], [ %2427, %2421 ], [ %2420, %2413 ], [ %2412, %2410 ], [ %2409, %2407 ]
+  %.0.i56.i = phi i64 [ %2429, %2428 ], [ %2427, %2421 ], [ %2409, %2407 ], [ %2412, %2410 ], [ %2420, %2413 ]
   %2430 = load i64, ptr %2398, align 8
   %2431 = and i64 %2430, %.0.i56.i
   %.not.i53.i.not = icmp eq i64 %2431, 0
@@ -5856,7 +5856,7 @@ ensureStreamNeatAndTidy.exit:                     ; preds = %1039, %1093, %roseC
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %3312, %3315, %3318, %3326, %.critedge.i236, %3341
-  %.0.i223.in.in = phi i64 [ %3342, %3341 ], [ %3340, %.critedge.i236 ], [ %3332, %3326 ], [ %3325, %3318 ], [ %3317, %3315 ], [ %3314, %3312 ]
+  %.0.i223.in.in = phi i64 [ %3342, %3341 ], [ %3340, %.critedge.i236 ], [ %3332, %3326 ], [ %3314, %3312 ], [ %3317, %3315 ], [ %3325, %3318 ]
   %.0.i223.in.in.fr = freeze i64 %.0.i223.in.in
   %.0.i223.in.not = icmp eq i64 %.0.i223.in.in.fr, 0
   br i1 %.0.i223.in.not, label %can_never_match.exit, label %cleanUpDelayed.exit.thread
@@ -5982,7 +5982,7 @@ define hidden void @roseStreamEodExec(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %11, %20, %22, %35, %43, %51, %54, %62, %65
-  %.0.i = phi i64 [ %67, %65 ], [ %64, %62 ], [ %61, %54 ], [ %53, %51 ], [ %50, %43 ], [ %42, %35 ], [ %34, %22 ], [ %21, %20 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %21, %20 ], [ %34, %22 ], [ %42, %35 ], [ %50, %43 ], [ %53, %51 ], [ %61, %54 ], [ %64, %62 ], [ %67, %65 ], [ 0, %11 ]
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %.0.i, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 320

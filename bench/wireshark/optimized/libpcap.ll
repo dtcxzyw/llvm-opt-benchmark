@@ -122,9 +122,9 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %19
 
 19:                                               ; preds = %10, %10, %18, %17, %16, %15, %14, %13, %12
-  %.0119 = phi i1 [ false, %18 ], [ false, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ false, %12 ], [ false, %10 ], [ false, %10 ]
-  %.0118 = phi i32 [ 1, %18 ], [ 1, %17 ], [ 0, %16 ], [ 0, %15 ], [ 1, %14 ], [ 1, %13 ], [ 7, %12 ], [ 7, %10 ], [ 7, %10 ]
-  %.0117 = phi i1 [ true, %18 ], [ false, %17 ], [ true, %16 ], [ false, %15 ], [ true, %14 ], [ false, %13 ], [ true, %12 ], [ false, %10 ], [ false, %10 ]
+  %.0119 = phi i1 [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %17 ], [ false, %18 ], [ false, %10 ], [ false, %10 ]
+  %.0118 = phi i32 [ 7, %12 ], [ 1, %13 ], [ 1, %14 ], [ 0, %15 ], [ 0, %16 ], [ 1, %17 ], [ 1, %18 ], [ 7, %10 ], [ 7, %10 ]
+  %.0117 = phi i1 [ true, %12 ], [ false, %13 ], [ true, %14 ], [ false, %15 ], [ true, %16 ], [ false, %17 ], [ true, %18 ], [ false, %10 ], [ false, %10 ]
   %20 = load ptr, ptr %0, align 8
   %21 = call zeroext i1 @wtap_read_bytes(ptr noundef %20, ptr noundef nonnull %5, i32 noundef 20, ptr noundef %1, ptr noundef %2)
   br i1 %21, label %22, label %150
@@ -234,7 +234,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %71
 
 71:                                               ; preds = %60, %66, %65, %69, %67
-  %.1 = phi i32 [ %.0118, %69 ], [ 0, %67 ], [ 0, %60 ], [ 0, %65 ], [ %.0118, %66 ]
+  %.1 = phi i32 [ %.0118, %69 ], [ 0, %60 ], [ 0, %65 ], [ %.0118, %66 ], [ 0, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i16 %55, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -268,8 +268,8 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 85:                                               ; preds = %82
   br label %.thread135
 
-.thread135:                                       ; preds = %82, %85, %84, %83
-  %.sink = phi i32 [ 0, %85 ], [ 10, %84 ], [ 6, %83 ], [ 1, %82 ]
+.thread135:                                       ; preds = %82, %83, %84, %85
+  %.sink = phi i32 [ 6, %83 ], [ 10, %84 ], [ 0, %85 ], [ 1, %82 ]
   store i32 %.sink, ptr %80, align 4
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %91
@@ -874,7 +874,7 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
   unreachable
 
 180:                                              ; preds = %177, %175, %150, %143, %thread-pre-split143.i.i, %thread-pre-split143.i.i, %thread-pre-split143.i.i
-  %.7.i = phi i32 [ %178, %177 ], [ %.6.i, %175 ], [ %spec.select60.i, %143 ], [ %spec.select60.i, %150 ], [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ]
+  %.7.i = phi i32 [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %spec.select60.i, %143 ], [ %spec.select60.i, %150 ], [ %178, %177 ], [ %.6.i, %175 ]
   br i1 %.not.i.i, label %.thread47.sink.split.i, label %181
 
 181:                                              ; preds = %180
@@ -906,7 +906,7 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
   br label %.thread47.sink.split.i
 
 .thread47.sink.split.i:                           ; preds = %180, %192, %188, %163, %155, %148, %136, %118, %102, %82, %61, %45, %31, %29
-  %.ph.i = phi i32 [ -1, %192 ], [ %.0108.i, %29 ], [ %32, %31 ], [ %46, %45 ], [ %62, %61 ], [ %83, %82 ], [ %103, %102 ], [ %119, %118 ], [ %137, %136 ], [ %156, %155 ], [ %149, %148 ], [ %164, %163 ], [ %189, %188 ], [ %.7.i, %180 ]
+  %.ph.i = phi i32 [ -1, %192 ], [ %32, %31 ], [ %.0108.i, %29 ], [ %46, %45 ], [ %62, %61 ], [ %83, %82 ], [ %164, %163 ], [ %103, %102 ], [ %119, %118 ], [ %137, %136 ], [ %156, %155 ], [ %149, %148 ], [ %189, %188 ], [ %.7.i, %180 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7

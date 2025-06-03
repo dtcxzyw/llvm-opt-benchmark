@@ -2177,7 +2177,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i: ; preds = %22
   br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit"
 
 "_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit": ; preds = %29, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i, %55, %53, %41, %38, %14
-  %.0 = phi i1 [ %56, %55 ], [ %54, %53 ], [ %52, %41 ], [ %40, %38 ], [ %21, %14 ], [ %28, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i ], [ %37, %29 ]
+  %.0 = phi i1 [ %56, %55 ], [ %21, %14 ], [ %40, %38 ], [ %52, %41 ], [ %54, %53 ], [ %28, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i ], [ %37, %29 ]
   ret i1 %.0
 }
 
@@ -10175,7 +10175,7 @@ _ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16Flo
   br label %_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEET0_OS4_PKvi.exit
 
 _ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEET0_OS4_PKvi.exit: ; preds = %465, %358, %351, %348, %249, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit, %158, %156, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit, %42
-  %.0 = phi float [ %220, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %189, %158 ], [ %157, %156 ], [ %.0.i20, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %135, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %101, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %66, %42 ], [ %563, %465 ], [ %464, %358 ], [ %357, %351 ], [ %350, %348 ], [ %347, %249 ], [ %248, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ]
+  %.0 = phi float [ %66, %42 ], [ %101, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %135, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %.0.i20, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %157, %156 ], [ %189, %158 ], [ %220, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %563, %465 ], [ %248, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ], [ %347, %249 ], [ %350, %348 ], [ %357, %351 ], [ %464, %358 ]
   ret float %.0
 }
 
@@ -14288,7 +14288,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %19, %15, %11
-  %.0 = phi i1 [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+  %.0 = phi i1 [ %28, %27 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %24, %23 ], [ %26, %25 ]
   ret i1 %.0
 }
 

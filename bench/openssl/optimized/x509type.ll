@@ -57,7 +57,7 @@ define range(i32 0, 1152) i32 @X509_certificate_type(ptr noundef %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %.thread, %17, %16, %15, %14, %13, %12, %11
-  %.0 = phi i32 [ 0, %.thread ], [ 80, %17 ], [ 68, %16 ], [ 16, %15 ], [ 88, %14 ], [ 18, %13 ], [ 17, %12 ], [ 49, %11 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 49, %11 ], [ 17, %12 ], [ 18, %13 ], [ 88, %14 ], [ 16, %15 ], [ 68, %16 ], [ 80, %17 ]
   %19 = tail call i32 @X509_get_signature_nid(ptr noundef nonnull %0) #3
   store i32 %19, ptr %3, align 4, !tbaa !3
   %.not = icmp eq i32 %19, 0
@@ -91,7 +91,7 @@ define range(i32 0, 1152) i32 @X509_certificate_type(ptr noundef %0, ptr noundef
   br label %30
 
 30:                                               ; preds = %18, %20, %22, %28, %26, %24, %7, %2
-  %.013 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %.0, %22 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %.0, %20 ], [ %.0, %18 ]
+  %.013 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %.0, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %.0, %20 ], [ %.0, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
   ret i32 %.013
 }

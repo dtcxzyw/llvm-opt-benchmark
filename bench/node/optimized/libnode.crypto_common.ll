@@ -773,7 +773,7 @@ sw.bb27:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb, %entry
-  %code.0 = phi ptr [ @.str.1, %entry ], [ @.str.29, %sw.bb27 ], [ @.str.28, %sw.bb26 ], [ @.str.27, %sw.bb25 ], [ @.str.26, %sw.bb24 ], [ @.str.25, %sw.bb23 ], [ @.str.24, %sw.bb22 ], [ @.str.23, %sw.bb21 ], [ @.str.22, %sw.bb20 ], [ @.str.21, %sw.bb19 ], [ @.str.20, %sw.bb18 ], [ @.str.19, %sw.bb17 ], [ @.str.18, %sw.bb16 ], [ @.str.17, %sw.bb15 ], [ @.str.16, %sw.bb14 ], [ @.str.15, %sw.bb13 ], [ @.str.14, %sw.bb12 ], [ @.str.13, %sw.bb11 ], [ @.str.12, %sw.bb10 ], [ @.str.11, %sw.bb9 ], [ @.str.10, %sw.bb8 ], [ @.str.9, %sw.bb7 ], [ @.str.8, %sw.bb6 ], [ @.str.7, %sw.bb5 ], [ @.str.6, %sw.bb4 ], [ @.str.5, %sw.bb3 ], [ @.str.4, %sw.bb2 ], [ @.str.3, %sw.bb1 ], [ @.str.2, %sw.bb ]
+  %code.0 = phi ptr [ @.str.1, %entry ], [ @.str.2, %sw.bb ], [ @.str.3, %sw.bb1 ], [ @.str.4, %sw.bb2 ], [ @.str.5, %sw.bb3 ], [ @.str.6, %sw.bb4 ], [ @.str.7, %sw.bb5 ], [ @.str.8, %sw.bb6 ], [ @.str.9, %sw.bb7 ], [ @.str.10, %sw.bb8 ], [ @.str.11, %sw.bb9 ], [ @.str.12, %sw.bb10 ], [ @.str.13, %sw.bb11 ], [ @.str.14, %sw.bb12 ], [ @.str.15, %sw.bb13 ], [ @.str.16, %sw.bb14 ], [ @.str.17, %sw.bb15 ], [ @.str.18, %sw.bb16 ], [ @.str.19, %sw.bb17 ], [ @.str.20, %sw.bb18 ], [ @.str.21, %sw.bb19 ], [ @.str.22, %sw.bb20 ], [ @.str.23, %sw.bb21 ], [ @.str.24, %sw.bb22 ], [ @.str.25, %sw.bb23 ], [ @.str.26, %sw.bb24 ], [ @.str.27, %sw.bb25 ], [ @.str.28, %sw.bb26 ], [ @.str.29, %sw.bb27 ]
   ret ptr %code.0
 }
 
@@ -1947,7 +1947,7 @@ if.end21:                                         ; preds = %if.then, %_ZNSt10un
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit, %if.end21
-  %retval.sroa.0.3 = phi ptr [ %retval.sroa.0.1, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit ], [ %4, %if.end21 ]
+  %retval.sroa.0.3 = phi ptr [ %4, %if.end21 ], [ %retval.sroa.0.1, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit ]
   ret ptr %retval.sroa.0.3
 }
 
@@ -2566,9 +2566,9 @@ sw.bb123:                                         ; preds = %if.then117
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb123, %sw.bb122, %sw.bb121, %sw.bb120, %sw.bb, %if.then117
-  %unicode.0 = phi i1 [ true, %if.then117 ], [ true, %sw.bb123 ], [ true, %sw.bb122 ], [ false, %sw.bb121 ], [ true, %sw.bb120 ], [ true, %sw.bb ]
-  %cmp126 = phi i1 [ true, %if.then117 ], [ false, %sw.bb123 ], [ false, %sw.bb122 ], [ false, %sw.bb121 ], [ false, %sw.bb120 ], [ false, %sw.bb ]
-  %prefix.0 = phi ptr [ null, %if.then117 ], [ @.str.88, %sw.bb123 ], [ @.str.87, %sw.bb122 ], [ @.str.86, %sw.bb121 ], [ @.str.85, %sw.bb120 ], [ @.str.84, %sw.bb ]
+  %unicode.0 = phi i1 [ true, %if.then117 ], [ true, %sw.bb ], [ true, %sw.bb120 ], [ false, %sw.bb121 ], [ true, %sw.bb122 ], [ true, %sw.bb123 ]
+  %cmp126 = phi i1 [ true, %if.then117 ], [ false, %sw.bb ], [ false, %sw.bb120 ], [ false, %sw.bb121 ], [ false, %sw.bb122 ], [ false, %sw.bb123 ]
+  %prefix.0 = phi ptr [ null, %if.then117 ], [ @.str.84, %sw.bb ], [ @.str.85, %sw.bb120 ], [ @.str.86, %sw.bb121 ], [ @.str.87, %sw.bb122 ], [ @.str.88, %sw.bb123 ]
   %31 = load ptr, ptr %d118, align 8
   %value = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load ptr, ptr %value, align 8

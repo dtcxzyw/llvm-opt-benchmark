@@ -3789,7 +3789,7 @@ _ZN6icu_7713UnicodeStringC2IA28_DsvEERKT_.exit31: ; preds = %14
   ret ptr %.0
 
 46:                                               ; preds = %44, %.body29, %.body
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %17, %.body29 ], [ %12, %.body ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %12, %.body ], [ %17, %.body29 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #23
   resume { ptr, i32 } %.pn.pn.pn

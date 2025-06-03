@@ -934,7 +934,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br label %130
 
 130:                                              ; preds = %126, %111
-  %.0.i = phi i32 [ %125, %111 ], [ %129, %126 ]
+  %.0.i = phi i32 [ %129, %126 ], [ %125, %111 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   store i32 0, ptr %6, align 4
   %131 = load i32, ptr @hf_icq_uin, align 4

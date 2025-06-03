@@ -1937,7 +1937,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
   br label %38
 
 38:                                               ; preds = %31, %3, %35
-  %.011 = phi i1 [ true, %31 ], [ false, %35 ], [ true, %3 ]
+  %.011 = phi i1 [ false, %35 ], [ true, %31 ], [ true, %3 ]
   ret i1 %.011
 }
 

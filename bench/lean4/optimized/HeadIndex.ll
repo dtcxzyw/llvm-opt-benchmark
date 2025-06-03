@@ -323,7 +323,7 @@ lean_obj_tag.exit85:                              ; preds = %116, %119
   br label %123
 
 123:                                              ; preds = %lean_obj_tag.exit85, %lean_obj_tag.exit81, %lean_obj_tag.exit77, %lean_obj_tag.exit73, %lean_obj_tag.exit69, %lean_nat_eq.exit, %63, %lean_obj_tag.exit65, %lean_obj_tag.exit61, %lean_obj_tag.exit57, %93, %49, %35, %21
-  %.0 = phi i8 [ %98, %93 ], [ %54, %49 ], [ %40, %35 ], [ %26, %21 ], [ 0, %lean_obj_tag.exit57 ], [ 0, %lean_obj_tag.exit61 ], [ 0, %lean_obj_tag.exit65 ], [ %84, %lean_nat_eq.exit ], [ 0, %63 ], [ 0, %lean_obj_tag.exit69 ], [ 0, %lean_obj_tag.exit73 ], [ %., %lean_obj_tag.exit77 ], [ %.51, %lean_obj_tag.exit81 ], [ %.52, %lean_obj_tag.exit85 ]
+  %.0 = phi i8 [ %26, %21 ], [ %40, %35 ], [ %54, %49 ], [ %98, %93 ], [ 0, %lean_obj_tag.exit57 ], [ 0, %lean_obj_tag.exit61 ], [ 0, %lean_obj_tag.exit65 ], [ %84, %lean_nat_eq.exit ], [ 0, %63 ], [ 0, %lean_obj_tag.exit69 ], [ 0, %lean_obj_tag.exit73 ], [ %., %lean_obj_tag.exit77 ], [ %.51, %lean_obj_tag.exit81 ], [ %.52, %lean_obj_tag.exit85 ]
   ret i8 %.0
 }
 
@@ -1653,7 +1653,7 @@ lean_uint64_of_nat.exit:                          ; preds = %33, %35
   br label %47
 
 47:                                               ; preds = %lean_obj_tag.exit, %46, %45, %40, %lean_uint64_of_nat.exit, %20, %15, %10
-  %.0 = phi i64 [ 37, %46 ], [ 31, %45 ], [ %44, %40 ], [ %39, %lean_uint64_of_nat.exit ], [ %24, %20 ], [ %19, %15 ], [ %14, %10 ], [ 29, %lean_obj_tag.exit ]
+  %.0 = phi i64 [ 37, %46 ], [ %14, %10 ], [ %19, %15 ], [ %24, %20 ], [ %39, %lean_uint64_of_nat.exit ], [ %44, %40 ], [ 31, %45 ], [ 29, %lean_obj_tag.exit ]
   ret i64 %.0
 }
 
@@ -2526,7 +2526,7 @@ lean_alloc_ctor.exit82:                           ; preds = %lean_alloc_ctor.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit82, %lean_alloc_ctor.exit74, %80, %78, %lean_alloc_ctor.exit69, %53, %lean_alloc_ctor.exit64, %lean_alloc_ctor.exit59
-  %.0 = phi ptr [ %131, %lean_alloc_ctor.exit82 ], [ %98, %lean_alloc_ctor.exit74 ], [ %81, %80 ], [ %79, %78 ], [ %71, %lean_alloc_ctor.exit69 ], [ %54, %53 ], [ %48, %lean_alloc_ctor.exit64 ], [ %27, %lean_alloc_ctor.exit59 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.0 = phi ptr [ %131, %lean_alloc_ctor.exit82 ], [ %27, %lean_alloc_ctor.exit59 ], [ %48, %lean_alloc_ctor.exit64 ], [ %54, %53 ], [ %71, %lean_alloc_ctor.exit69 ], [ %79, %78 ], [ %81, %80 ], [ %98, %lean_alloc_ctor.exit74 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.0
 }
 
@@ -3265,7 +3265,7 @@ lean_alloc_ctor.exit145:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit73
 
 lean_dec.exit73:                                  ; preds = %124, %128, %130, %131, %116, %120, %122, %123, %67, %71, %73, %74, %lean_alloc_ctor.exit145, %lean_alloc_ctor.exit135, %lean_alloc_ctor.exit122, %lean_alloc_ctor.exit118, %lean_alloc_ctor.exit, %lean_dec.exit76
-  %.0 = phi ptr [ %244, %lean_alloc_ctor.exit145 ], [ %193, %lean_alloc_ctor.exit135 ], [ %93, %lean_alloc_ctor.exit122 ], [ %62, %lean_alloc_ctor.exit118 ], [ %39, %lean_alloc_ctor.exit ], [ %20, %lean_dec.exit76 ], [ inttoptr (i64 11 to ptr), %74 ], [ inttoptr (i64 11 to ptr), %73 ], [ inttoptr (i64 11 to ptr), %71 ], [ inttoptr (i64 11 to ptr), %67 ], [ inttoptr (i64 13 to ptr), %123 ], [ inttoptr (i64 13 to ptr), %122 ], [ inttoptr (i64 13 to ptr), %120 ], [ inttoptr (i64 13 to ptr), %116 ], [ inttoptr (i64 15 to ptr), %131 ], [ inttoptr (i64 15 to ptr), %130 ], [ inttoptr (i64 15 to ptr), %128 ], [ inttoptr (i64 15 to ptr), %124 ]
+  %.0 = phi ptr [ %244, %lean_alloc_ctor.exit145 ], [ %20, %lean_dec.exit76 ], [ %39, %lean_alloc_ctor.exit ], [ %62, %lean_alloc_ctor.exit118 ], [ %93, %lean_alloc_ctor.exit122 ], [ %193, %lean_alloc_ctor.exit135 ], [ inttoptr (i64 11 to ptr), %74 ], [ inttoptr (i64 11 to ptr), %73 ], [ inttoptr (i64 11 to ptr), %71 ], [ inttoptr (i64 11 to ptr), %67 ], [ inttoptr (i64 13 to ptr), %123 ], [ inttoptr (i64 13 to ptr), %122 ], [ inttoptr (i64 13 to ptr), %120 ], [ inttoptr (i64 13 to ptr), %116 ], [ inttoptr (i64 15 to ptr), %131 ], [ inttoptr (i64 15 to ptr), %130 ], [ inttoptr (i64 15 to ptr), %128 ], [ inttoptr (i64 15 to ptr), %124 ]
   ret ptr %.0
 }
 

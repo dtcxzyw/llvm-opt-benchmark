@@ -1133,7 +1133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %226, %_ZN
   br label %251
 
 251:                                              ; preds = %249, %._crit_edge.i.i.i
-  %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %250, %249 ]
+  %.sroa.032.1.i.i.i = phi ptr [ %250, %249 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %252 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS2_8TfRefPtrIS3_EEE3$_0EclINS_17__normal_iteratorIPKNS4_INS2_14TraceEventNodeEEESt6vectorISD_SaISD_EEEEEEbT_"(ptr nonnull readonly %20, ptr %.sroa.032.1.i.i.i)
           to label %.noexc55 unwind label %.loopexit.split-lp.loopexit
 
@@ -1145,7 +1145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %226, %_ZN
   br label %255
 
 255:                                              ; preds = %253, %._crit_edge.i.i.i
-  %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %254, %253 ]
+  %.sroa.032.2.i.i.i = phi ptr [ %254, %253 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %256 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__14TraceEventTree5MergeERKNS2_8TfRefPtrIS3_EEE3$_0EclINS_17__normal_iteratorIPKNS4_INS2_14TraceEventNodeEEESt6vectorISD_SaISD_EEEEEEbT_"(ptr nonnull readonly %20, ptr %.sroa.032.2.i.i.i)
           to label %.noexc56 unwind label %.loopexit.split-lp.loopexit
 

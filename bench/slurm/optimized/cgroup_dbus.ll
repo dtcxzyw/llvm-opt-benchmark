@@ -529,7 +529,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
   br label %25
 
 25:                                               ; preds = %23, %10, %13, %7, %18, %21, %15
-  %.1 = phi i32 [ -1, %23 ], [ -1, %21 ], [ -1, %18 ], [ -1, %15 ], [ %.0, %13 ], [ %.0, %10 ], [ %.0, %7 ]
+  %.1 = phi i32 [ -1, %23 ], [ %.0, %13 ], [ %.0, %10 ], [ %.0, %7 ], [ -1, %21 ], [ -1, %18 ], [ -1, %15 ]
   %26 = call i32 @dbus_message_iter_next(ptr noundef nonnull %2) #5
   %.not5 = icmp eq i32 %26, 0
   br i1 %.not5, label %27, label %5, !llvm.loop !8

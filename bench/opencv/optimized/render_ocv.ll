@@ -196,7 +196,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
   br label %239
 
 common.resume:                                    ; preds = %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %202, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107, %237
-  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %232, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ], [ %.pn75, %202 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn81.pn.pn, %148 ], [ %102, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ]
+  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %102, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %148 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %202 ], [ %232, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %59
@@ -871,7 +871,7 @@ _ZN2cv4util3getINS_4gapi3wip4draw4RectEJNS4_4TextENS4_5FTextES5_NS4_6CircleENS4_
   br label %355
 
 common.resume:                                    ; preds = %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93, %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %304, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107, %353
-  %common.resume.op = phi { ptr, i32 } [ %354, %353 ], [ %348, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ], [ %.pn75, %304 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn81.pn.pn, %219 ], [ %157, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ]
+  %common.resume.op = phi { ptr, i32 } [ %354, %353 ], [ %157, %_ZN2cv4gapi3wip4draw4TextD2Ev.exit93 ], [ %.pn81.pn.pn, %219 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %.pn75, %304 ], [ %348, %_ZN2cv4gapi3wip4draw4PolyD2Ev.exit107 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4util3getINS_4gapi3wip4draw4TextEJS5_NS4_5FTextENS4_4RectENS4_6CircleENS4_4LineENS4_6MosaicENS4_5ImageENS4_4PolyEEEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %84

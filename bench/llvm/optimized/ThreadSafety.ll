@@ -10754,7 +10754,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112BuildLockset10handleCallEPKN5cla
   br label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit:   ; preds = %84, %100
-  %.1.i = phi ptr [ %88, %84 ], [ %101, %100 ]
+  %.1.i = phi ptr [ %101, %100 ], [ %88, %84 ]
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 256
@@ -14189,7 +14189,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11Fa
   br label %151
 
 151:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit82.thread.i.i.i.i, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %150, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit82.thread.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %150, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit82.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !672
   %.val43.val.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !127
   %.val44.val.i.i.i.i = load i64, ptr %58, align 8
@@ -14238,7 +14238,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11Fa
   br label %169
 
 169:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit91.thread.i.i.i.i, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %168, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit91.thread.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %168, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_17FactSet12findLockIterERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPtEEbT_.exit91.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i16, ptr %.2.i.i.i.i, align 2, !tbaa !672
   %.val45.val.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !127
   %.val46.val.i.i.i.i = load i64, ptr %58, align 8
@@ -16994,7 +16994,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERK
   br label %69
 
 69:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit59.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %68, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit59.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %68, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit59.thread.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load i64, ptr %.1.i.i.i.i.i, align 8
   %70 = xor i64 %.1.val.i.i.i.i.i, %.sroa.0.sroa.0.0.copyload
   %71 = and i64 %70, 4
@@ -17026,7 +17026,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERK
   br label %81
 
 81:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit64.thread.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %80, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit64.thread.i.i.i.i.i ]
+  %.2.i.i.i.i.i = phi ptr [ %80, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_110CapExprSet15push_back_nodupERKN5clang12threadSafety14CapabilityExprEEUlS8_E_EclIPS6_EEbT_.exit64.thread.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load i64, ptr %.2.i.i.i.i.i, align 8
   %82 = xor i64 %.2.val.i.i.i.i.i, %.sroa.0.sroa.0.0.copyload
   %83 = and i64 %82, 4
@@ -17699,7 +17699,7 @@ _ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEP
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 _ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %319, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261, %307, %300, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %292, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257, %284, %238, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253, %230, %222, %116, %114, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248, %99, %40, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %28, %192, %177, %162, %84, %69, %54, %270, %245, %253, %207, %215, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %200, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %185, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %170, %155, %142, %148, %135, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %92, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %77, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %62, %47, %13, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402, %121, %282, %280, %277, %129, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %24, %22, %11, %268, %266, %264, %262, %260, %26
-  %.0 = phi i1 [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %27, %26 ], [ %12, %11 ], [ %25, %24 ], [ %23, %22 ], [ %134, %129 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %283, %282 ], [ false, %277 ], [ true, %280 ], [ false, %121 ], [ false, %tailrecurse ], [ false, %13 ], [ false, %47 ], [ false, %62 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %77 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %92 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %135 ], [ false, %148 ], [ false, %142 ], [ false, %155 ], [ false, %170 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %185 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %200 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %215 ], [ false, %207 ], [ false, %253 ], [ false, %245 ], [ false, %270 ], [ false, %54 ], [ false, %69 ], [ false, %84 ], [ false, %162 ], [ false, %177 ], [ false, %192 ], [ false, %307 ], [ false, %319 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261 ], [ false, %292 ], [ false, %284 ], [ false, %300 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257 ], [ false, %230 ], [ false, %238 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253 ], [ false, %222 ], [ false, %99 ], [ false, %116 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248 ], [ true, %114 ], [ false, %28 ], [ false, %40 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402 ]
+  %.0 = phi i1 [ %27, %26 ], [ %261, %260 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %269, %268 ], [ %12, %11 ], [ %25, %24 ], [ %23, %22 ], [ %134, %129 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %283, %282 ], [ false, %277 ], [ true, %280 ], [ false, %121 ], [ false, %tailrecurse ], [ false, %13 ], [ false, %47 ], [ false, %62 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %77 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %92 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %135 ], [ false, %148 ], [ false, %142 ], [ false, %155 ], [ false, %170 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %185 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %200 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %215 ], [ false, %207 ], [ false, %253 ], [ false, %245 ], [ false, %270 ], [ false, %54 ], [ false, %69 ], [ false, %84 ], [ false, %162 ], [ false, %177 ], [ false, %192 ], [ false, %307 ], [ false, %319 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261 ], [ false, %292 ], [ false, %284 ], [ false, %300 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257 ], [ false, %230 ], [ false, %238 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253 ], [ false, %222 ], [ false, %99 ], [ false, %116 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248 ], [ true, %114 ], [ false, %28 ], [ false, %40 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402 ]
   ret i1 %.0
 }
 
@@ -18198,7 +18198,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactMa
   br label %104
 
 104:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread.i.i.i, %._crit_edge.i.i.i
-  %.1.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread.i.i.i ]
+  %.1.i.i.i = phi ptr [ %103, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread.i.i.i ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.1.val.i.i.i = load i16, ptr %.1.i.i.i, align 2, !tbaa !672
   %.val43.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !127
   %.val44.val.i.i.i = load i64, ptr %2, align 8
@@ -18247,7 +18247,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactMa
   br label %122
 
 122:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit91.thread.i.i.i, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %121, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit91.thread.i.i.i ]
+  %.2.i.i.i = phi ptr [ %121, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet8findLockERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit91.thread.i.i.i ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.val.i.i.i = load i16, ptr %.2.i.i.i, align 2, !tbaa !672
   %.val45.val.i.i.i = load ptr, ptr %1, align 8, !tbaa !127
   %.val46.val.i.i.i = load i64, ptr %2, align 8
@@ -18935,7 +18935,7 @@ _ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPK
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 _ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, %188, %171, %154, %103, %84, %67, %50, %251, %249, %246, %219, %211, %203, %195, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, %127, %121, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, %23, %21, %13, %11, %255, %253, %233, %231, %229, %227, %225, %209, %91, %27, %25
-  %.0 = phi i1 [ %256, %255 ], [ %254, %253 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %210, %209 ], [ %92, %91 ], [ %28, %27 ], [ %26, %25 ], [ %14, %13 ], [ %12, %11 ], [ %24, %23 ], [ %22, %21 ], [ %56, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %73, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %90, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %109, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %132, %127 ], [ false, %121 ], [ %160, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %177, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %194, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %208, %203 ], [ false, %195 ], [ %224, %219 ], [ false, %211 ], [ %252, %251 ], [ false, %246 ], [ true, %249 ], [ false, %50 ], [ false, %67 ], [ false, %84 ], [ false, %103 ], [ false, %154 ], [ false, %171 ], [ false, %188 ], [ %.0.ph, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
+  %.0 = phi i1 [ %26, %25 ], [ %28, %27 ], [ %92, %91 ], [ %210, %209 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %254, %253 ], [ %256, %255 ], [ %14, %13 ], [ %12, %11 ], [ %24, %23 ], [ %22, %21 ], [ %56, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %73, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %90, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %109, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %132, %127 ], [ false, %121 ], [ %160, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %177, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %194, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %208, %203 ], [ false, %195 ], [ %224, %219 ], [ false, %211 ], [ %252, %251 ], [ false, %246 ], [ true, %249 ], [ false, %50 ], [ false, %67 ], [ false, %84 ], [ false, %103 ], [ false, %154 ], [ false, %171 ], [ false, %188 ], [ %.0.ph, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -19498,7 +19498,7 @@ define linkonce_odr hidden void @_ZN5clang12threadSafety3til13PrettyPrinterINS1_
   br label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit
 
 _ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit: ; preds = %20, %20, %20, %20, %20, %20, %21, %22, %23, %24, %25
-  %.0.i = phi i32 [ 6, %25 ], [ 3, %24 ], [ 2, %23 ], [ 4, %22 ], [ 1, %21 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ]
+  %.0.i = phi i32 [ 6, %25 ], [ 1, %21 ], [ 4, %22 ], [ 2, %23 ], [ 3, %24 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ], [ 5, %20 ]
   %26 = icmp ugt i32 %.0.i, %3
   br i1 %26, label %27, label %_ZN5clang12threadSafety3til13PrettyPrinterINS1_10StdPrinterESoE10precedenceEPKNS1_5SExprE.exit.thread
 
@@ -19861,7 +19861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.18, i64 noundef 4) #23
   br label %.thread
 
-.thread:                                          ; preds = %58, %60, %49, %51, %40, %42, %34, %35, %27, %29, %21, %63, %68, %72, %77, %79, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.thread:                                          ; preds = %58, %60, %49, %51, %40, %42, %34, %35, %27, %29, %79, %77, %72, %68, %63, %21, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 }
 
@@ -24635,7 +24635,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112BuildLockset15VisitReturnStmtEPK
   br label %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
 
 _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %10, %18
-  %.1.i.i = phi ptr [ %14, %10 ], [ %19, %18 ]
+  %.1.i.i = phi ptr [ %19, %18 ], [ %14, %10 ]
   %20 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %.sroa.0.0.copyload.i1.i = load i64, ptr %20, align 8, !tbaa !348
   %21 = and i64 %.sroa.0.0.copyload.i1.i, -16
@@ -26173,7 +26173,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11F
   br label %260
 
 260:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.thread129.i.i.i.i, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %259, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.thread129.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %259, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.thread129.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !672
   %.val43.val.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !127
   %261 = zext i16 %.1.val.i.i.i.i to i64
@@ -26232,7 +26232,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11F
   br label %281
 
 281:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.thread130.i.i.i.i, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %280, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.thread130.i.i.i.i ]
+  %.2.i.i.i.i = phi ptr [ %280, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.thread130.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load i16, ptr %.2.i.i.i.i, align 2, !tbaa !672
   %.val45.val.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !127
   %282 = zext i16 %.2.val.i.i.i.i to i64

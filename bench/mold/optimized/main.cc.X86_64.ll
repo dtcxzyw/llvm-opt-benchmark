@@ -2321,7 +2321,7 @@ _ZN4moldL11has_lto_objINS_6X86_64EEEbRNS_7ContextIT_EE.exit: ; preds = %.critedg
   br label %559
 
 559:                                              ; preds = %557, %._crit_edge.i.i.i.i
-  %.sroa.026.1.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %558, %557 ]
+  %.sroa.026.1.i.i.i.i = phi ptr [ %558, %557 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %560 = load ptr, ptr %.sroa.026.1.i.i.i.i, align 8, !tbaa !361
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 128
   %562 = load atomic i8, ptr %561 monotonic, align 1
@@ -2333,7 +2333,7 @@ _ZN4moldL11has_lto_objINS_6X86_64EEEbRNS_7ContextIT_EE.exit: ; preds = %.critedg
   br label %566
 
 566:                                              ; preds = %564, %._crit_edge.i.i.i.i
-  %.sroa.026.2.i.i.i.i = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %565, %564 ]
+  %.sroa.026.2.i.i.i.i = phi ptr [ %565, %564 ], [ %.sroa.026.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %567 = load ptr, ptr %.sroa.026.2.i.i.i.i, align 8, !tbaa !361
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 128
   %569 = load atomic i8, ptr %568 monotonic, align 1
@@ -2469,7 +2469,7 @@ _ZSt8erase_ifIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EZNS0_9mold_mainIS2_EEiiPP
   br label %629
 
 629:                                              ; preds = %627, %._crit_edge.i.i.i.i117
-  %.sroa.026.1.i.i.i.i133 = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i119, %._crit_edge.i.i.i.i117 ], [ %628, %627 ]
+  %.sroa.026.1.i.i.i.i133 = phi ptr [ %628, %627 ], [ %.sroa.026.0.lcssa.i.i.i.i119, %._crit_edge.i.i.i.i117 ]
   %630 = load ptr, ptr %.sroa.026.1.i.i.i.i133, align 8, !tbaa !354
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 128
   %632 = load atomic i8, ptr %631 monotonic, align 1
@@ -2481,7 +2481,7 @@ _ZSt8erase_ifIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EZNS0_9mold_mainIS2_EEiiPP
   br label %636
 
 636:                                              ; preds = %634, %._crit_edge.i.i.i.i117
-  %.sroa.026.2.i.i.i.i120 = phi ptr [ %.sroa.026.0.lcssa.i.i.i.i119, %._crit_edge.i.i.i.i117 ], [ %635, %634 ]
+  %.sroa.026.2.i.i.i.i120 = phi ptr [ %635, %634 ], [ %.sroa.026.0.lcssa.i.i.i.i119, %._crit_edge.i.i.i.i117 ]
   %637 = load ptr, ptr %.sroa.026.2.i.i.i.i120, align 8, !tbaa !354
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 128
   %639 = load atomic i8, ptr %638 monotonic, align 1
@@ -5187,7 +5187,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge
-  %.sroa.038.1 = phi ptr [ %.sroa.038.0.lcssa, %._crit_edge ], [ %82, %81 ]
+  %.sroa.038.1 = phi ptr [ %82, %81 ], [ %.sroa.038.0.lcssa, %._crit_edge ]
   %84 = load ptr, ptr %.sroa.038.1, align 8, !tbaa !354
   %85 = load ptr, ptr %2, align 8, !tbaa !356
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
@@ -5212,7 +5212,7 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge
-  %.sroa.038.2 = phi ptr [ %.sroa.038.0.lcssa, %._crit_edge ], [ %94, %93 ]
+  %.sroa.038.2 = phi ptr [ %94, %93 ], [ %.sroa.038.0.lcssa, %._crit_edge ]
   %96 = load ptr, ptr %.sroa.038.2, align 8, !tbaa !354
   %97 = load ptr, ptr %2, align 8, !tbaa !356
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16

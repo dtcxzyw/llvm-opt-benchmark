@@ -3545,7 +3545,7 @@ _ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 _ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit: ; preds = %22, %2, %27, %175, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit78, %119, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit70, %62, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread106, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit, %182, %177, %44, %40, %36, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, %29
-  %.0 = phi ptr [ null, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread106 ], [ %188, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %185, %182 ], [ %181, %177 ], [ %64, %62 ], [ %47, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit ], [ %32, %29 ], [ null, %119 ], [ %.sink12.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit70 ], [ null, %175 ], [ %.sink12.i81, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit78 ], [ null, %27 ], [ null, %2 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread106 ], [ %32, %29 ], [ %35, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %64, %62 ], [ %181, %177 ], [ %185, %182 ], [ %188, %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ null, %119 ], [ %.sink12.i, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit70 ], [ null, %175 ], [ %.sink12.i81, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit78 ], [ null, %27 ], [ null, %2 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -3640,7 +3640,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_dema
   br label %43
 
 43:                                               ; preds = %42, %38
-  %.058 = phi i1 [ false, %38 ], [ true, %42 ]
+  %.058 = phi i1 [ true, %42 ], [ false, %38 ]
   %44 = icmp eq i64 %41, 0
   br i1 %44, label %.thread41.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
 
@@ -4317,8 +4317,8 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %115, %116, %116, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131
-  %132 = phi ptr [ null, %115 ], [ %.sink11.i, %131 ], [ %.sink11.i, %130 ], [ %.sink11.i, %129 ], [ %.sink11.i, %128 ], [ %.sink11.i, %127 ], [ %.sink11.i, %126 ], [ %.sink11.i, %125 ], [ %.sink11.i, %124 ], [ %.sink11.i, %123 ], [ %.sink11.i, %122 ], [ %.sink11.i, %116 ], [ %.sink11.i, %116 ]
-  %.0.i = phi i8 [ 0, %115 ], [ 0, %131 ], [ 11, %130 ], [ 10, %129 ], [ 8, %128 ], [ 7, %127 ], [ 6, %126 ], [ 5, %125 ], [ 4, %124 ], [ 3, %123 ], [ 2, %122 ], [ 1, %116 ], [ 1, %116 ]
+  %132 = phi ptr [ null, %115 ], [ %.sink11.i, %131 ], [ %.sink11.i, %122 ], [ %.sink11.i, %123 ], [ %.sink11.i, %124 ], [ %.sink11.i, %125 ], [ %.sink11.i, %126 ], [ %.sink11.i, %127 ], [ %.sink11.i, %128 ], [ %.sink11.i, %129 ], [ %.sink11.i, %130 ], [ %.sink11.i, %116 ], [ %.sink11.i, %116 ]
+  %.0.i = phi i8 [ 0, %115 ], [ 0, %131 ], [ 2, %122 ], [ 3, %123 ], [ 4, %124 ], [ 5, %125 ], [ 6, %126 ], [ 7, %127 ], [ 8, %128 ], [ 10, %129 ], [ 11, %130 ], [ 1, %116 ], [ 1, %116 ]
   %133 = load ptr, ptr %28, align 8, !tbaa !83
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 20
   store i8 %.0.i, ptr %134, align 4, !tbaa !100
@@ -4419,8 +4419,8 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split: ; preds = %3, %24, %24, %6, %6, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %12, %13, %28, %29
-  %.pr.pr = phi i64 [ %27, %28 ], [ %27, %29 ], [ %11, %12 ], [ %11, %13 ], [ %.pr.pr.pre, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %11, %6 ], [ %11, %6 ], [ %27, %24 ], [ %27, %24 ], [ %.pr.pr.pre, %3 ]
-  %.059.ph.ph = phi i8 [ 2, %28 ], [ 3, %29 ], [ 2, %12 ], [ 3, %13 ], [ 0, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ 1, %6 ], [ 1, %6 ], [ 1, %24 ], [ 1, %24 ], [ 0, %3 ]
+  %.pr.pr = phi i64 [ %27, %29 ], [ %27, %28 ], [ %11, %13 ], [ %11, %12 ], [ %.pr.pr.pre, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %11, %6 ], [ %11, %6 ], [ %27, %24 ], [ %27, %24 ], [ %.pr.pr.pre, %3 ]
+  %.059.ph.ph = phi i8 [ 3, %29 ], [ 2, %28 ], [ 3, %13 ], [ 2, %12 ], [ 0, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ 1, %6 ], [ 1, %6 ], [ 1, %24 ], [ 1, %24 ], [ 0, %3 ]
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split, %30, %24, %24, %14, %6, %6
@@ -5304,7 +5304,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   unreachable
 
 201:                                              ; preds = %_ZN4llvm11ms_demangle9Demangler26demangleStructorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEEb.exit, %_ZN4llvm11ms_demangle9Demangler36demangleConversionOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33, %_ZN4llvm11ms_demangle9Demangler33demangleLiteralOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit47, %6
-  %.0 = phi ptr [ null, %6 ], [ %.sink11.i.i36, %_ZN4llvm11ms_demangle9Demangler33demangleLiteralOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.sink15.i46, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit47 ], [ %.sink15.i32, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33 ], [ %.sink15.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit ], [ %.sink11.i.i, %_ZN4llvm11ms_demangle9Demangler36demangleConversionOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.sink12.i.i, %_ZN4llvm11ms_demangle9Demangler26demangleStructorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEEb.exit ]
+  %.0 = phi ptr [ null, %6 ], [ %.sink15.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit ], [ %.sink12.i.i, %_ZN4llvm11ms_demangle9Demangler26demangleStructorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEEb.exit ], [ %.sink11.i.i, %_ZN4llvm11ms_demangle9Demangler36demangleConversionOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.sink15.i32, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33 ], [ %.sink11.i.i36, %_ZN4llvm11ms_demangle9Demangler33demangleLiteralOperatorIdentifierERSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.sink15.i46, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit47 ]
   ret ptr %.0
 }
 
@@ -10558,8 +10558,8 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread
   store i8 1, ptr %61, align 8, !tbaa !35
   br label %.thread
 
-.thread:                                          ; preds = %49, %51, %53, %55, %57, %59, %2, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i16 [ 1, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread ], [ 72, %34 ], [ 8, %33 ], [ 2145, %32 ], [ 2081, %31 ], [ 97, %30 ], [ 33, %29 ], [ 81, %28 ], [ 17, %27 ], [ 65, %26 ], [ 1, %25 ], [ 2146, %24 ], [ 2082, %23 ], [ 98, %22 ], [ 34, %21 ], [ 82, %20 ], [ 18, %19 ], [ 66, %18 ], [ 2, %17 ], [ 2116, %16 ], [ 2052, %15 ], [ 100, %14 ], [ 36, %13 ], [ 84, %12 ], [ 20, %11 ], [ 68, %10 ], [ 4, %9 ], [ 384, %2 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ]
+.thread:                                          ; preds = %59, %57, %55, %53, %51, %49, %2, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
+  %.0 = phi i16 [ 1, %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread ], [ 4, %9 ], [ 68, %10 ], [ 20, %11 ], [ 84, %12 ], [ 36, %13 ], [ 100, %14 ], [ 2052, %15 ], [ 2116, %16 ], [ 2, %17 ], [ 66, %18 ], [ 18, %19 ], [ 82, %20 ], [ 34, %21 ], [ 98, %22 ], [ 2082, %23 ], [ 2146, %24 ], [ 1, %25 ], [ 65, %26 ], [ 17, %27 ], [ 81, %28 ], [ 33, %29 ], [ 97, %30 ], [ 2081, %31 ], [ 2145, %32 ], [ 8, %33 ], [ 72, %34 ], [ 384, %2 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ]
   ret i16 %.0
 }
 
@@ -10658,9 +10658,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
   unreachable
 
 _ZL27demanglePointerCVQualifiersRSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %29, %32, %36, %37, %38, %39
-  %.sroa.2.0.copyload.i.i = phi ptr [ %30, %29 ], [ %34, %39 ], [ %34, %38 ], [ %34, %37 ], [ %34, %36 ], [ %34, %32 ]
-  %.sroa.0.0.copyload.i.i = phi i64 [ %31, %29 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %32 ]
-  %.sroa.0.0.i = phi i64 [ 12884901888, %29 ], [ 4294967299, %39 ], [ 4294967298, %38 ], [ 4294967297, %37 ], [ 4294967296, %36 ], [ 8589934592, %32 ]
+  %.sroa.2.0.copyload.i.i = phi ptr [ %30, %29 ], [ %34, %36 ], [ %34, %37 ], [ %34, %38 ], [ %34, %39 ], [ %34, %32 ]
+  %.sroa.0.0.copyload.i.i = phi i64 [ %31, %29 ], [ %35, %36 ], [ %35, %37 ], [ %35, %38 ], [ %35, %39 ], [ %35, %32 ]
+  %.sroa.0.0.i = phi i64 [ 12884901888, %29 ], [ 4294967296, %36 ], [ 4294967297, %37 ], [ 4294967298, %38 ], [ 4294967299, %39 ], [ 8589934592, %32 ]
   %.sroa.029.0.extract.trunc = trunc i64 %.sroa.0.0.i to i8
   %.sroa.431.0.extract.shift = lshr i64 %.sroa.0.0.i, 32
   %.sroa.431.0.extract.trunc = trunc nuw nsw i64 %.sroa.431.0.extract.shift to i32
@@ -10847,8 +10847,8 @@ _ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_strin
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %99, %98, %.thread
-  %.sroa.01.0.copyload.i46.pr = phi i64 [ %66, %98 ], [ %66, %99 ], [ 0, %.thread ], [ %66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %.sroa.0.0.i20.ph = phi i8 [ 2, %98 ], [ 3, %99 ], [ 0, %.thread ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.01.0.copyload.i46.pr = phi i64 [ %66, %99 ], [ %66, %98 ], [ 0, %.thread ], [ %66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.0.0.i20.ph = phi i8 [ 3, %99 ], [ 2, %98 ], [ 0, %.thread ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split, %100
@@ -11032,9 +11032,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
   unreachable
 
 _ZL27demanglePointerCVQualifiersRSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %29, %32, %36, %37, %38, %39
-  %.sroa.22.0.copyload.i = phi ptr [ %30, %29 ], [ %34, %39 ], [ %34, %38 ], [ %34, %37 ], [ %34, %36 ], [ %34, %32 ]
-  %.sroa.0.0.copyload.i.i.pr = phi i64 [ %31, %29 ], [ %35, %39 ], [ %35, %38 ], [ %35, %37 ], [ %35, %36 ], [ %35, %32 ]
-  %.sroa.0.0.i = phi i64 [ 12884901888, %29 ], [ 4294967299, %39 ], [ 4294967298, %38 ], [ 4294967297, %37 ], [ 4294967296, %36 ], [ 8589934592, %32 ]
+  %.sroa.22.0.copyload.i = phi ptr [ %30, %29 ], [ %34, %36 ], [ %34, %37 ], [ %34, %38 ], [ %34, %39 ], [ %34, %32 ]
+  %.sroa.0.0.copyload.i.i.pr = phi i64 [ %31, %29 ], [ %35, %36 ], [ %35, %37 ], [ %35, %38 ], [ %35, %39 ], [ %35, %32 ]
+  %.sroa.0.0.i = phi i64 [ 12884901888, %29 ], [ 4294967296, %36 ], [ 4294967297, %37 ], [ 4294967298, %38 ], [ 4294967299, %39 ], [ 8589934592, %32 ]
   %.sroa.024.0.extract.trunc = trunc i64 %.sroa.0.0.i to i8
   %.sroa.426.0.extract.shift = lshr i64 %.sroa.0.0.i, 32
   %.sroa.426.0.extract.trunc = trunc nuw nsw i64 %.sroa.426.0.extract.shift to i32
@@ -11174,7 +11174,7 @@ _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_vie
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split: ; preds = %78, %78, %87, %86, %85, %84, %83
-  %.0.i.ph = phi i8 [ 3, %83 ], [ 4, %84 ], [ 5, %85 ], [ 6, %86 ], [ 7, %87 ], [ 2, %78 ], [ 2, %78 ]
+  %.0.i.ph = phi i8 [ 7, %87 ], [ 6, %86 ], [ 5, %85 ], [ 4, %84 ], [ 3, %83 ], [ 2, %78 ], [ 2, %78 ]
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split, %78, %78, %88, %89, %90, %91
@@ -11735,14 +11735,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.critedge
   br label %.critedge39
 
 180:                                              ; preds = %174, %173, %172, %168
-  %.sroa.0.0.i69 = phi i8 [ 3, %174 ], [ 2, %173 ], [ 1, %172 ], [ 0, %168 ]
+  %.sroa.0.0.i69 = phi i8 [ 1, %172 ], [ 2, %173 ], [ 3, %174 ], [ 0, %168 ]
   store i8 %.sroa.0.0.i69, ptr %59, align 1, !tbaa !41
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %181, align 8, !tbaa !35
   br label %184
 
-.critedge39:                                      ; preds = %168, %166, %178, %177, %176, %175
-  %.sroa.0.0.i69.ph = phi i8 [ 1, %175 ], [ 2, %176 ], [ 3, %177 ], [ 0, %178 ], [ 0, %166 ], [ 0, %168 ]
+.critedge39:                                      ; preds = %168, %166, %178, %175, %176, %177
+  %.sroa.0.0.i69.ph = phi i8 [ 3, %177 ], [ 2, %176 ], [ 1, %175 ], [ 0, %178 ], [ 0, %166 ], [ 0, %168 ]
   store i8 %.sroa.0.0.i69.ph, ptr %59, align 1, !tbaa !41
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
 
@@ -12031,7 +12031,7 @@ _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_vie
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split: ; preds = %79, %79, %89, %88, %87, %86, %85
-  %.0.i24.ph = phi i8 [ 3, %85 ], [ 4, %86 ], [ 5, %87 ], [ 6, %88 ], [ 7, %89 ], [ 2, %79 ], [ 2, %79 ]
+  %.0.i24.ph = phi i8 [ 7, %89 ], [ 6, %88 ], [ 5, %87 ], [ 4, %86 ], [ 3, %85 ], [ 2, %79 ], [ 2, %79 ]
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exitthread-pre-split, %79, %79, %90, %91, %92, %93
@@ -13046,8 +13046,8 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Primi
   store i8 1, ptr %392, align 8, !tbaa !35
   br label %.thread
 
-.thread:                                          ; preds = %364, %367, %370, %373, %376, %379, %382, %385, %388, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit14, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit18, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit22, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit26, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit30, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit34, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit38, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit42, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit50, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit54, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit58, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit62, %358, %391, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit
-  %.0 = phi ptr [ %.sink15.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit ], [ null, %391 ], [ null, %358 ], [ %.sink15.i61, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit62 ], [ %.sink15.i57, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit58 ], [ %.sink15.i53, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit54 ], [ %.sink15.i49, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit50 ], [ %.sink15.i45, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46 ], [ %.sink15.i41, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit42 ], [ %.sink15.i37, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit38 ], [ %.sink15.i33, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit34 ], [ %.sink15.i29, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit30 ], [ %.sink15.i25, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit26 ], [ %.sink15.i21, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit22 ], [ %.sink15.i17, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit18 ], [ %.sink15.i13, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit14 ], [ %366, %364 ], [ %369, %367 ], [ %372, %370 ], [ %375, %373 ], [ %378, %376 ], [ %381, %379 ], [ %384, %382 ], [ %387, %385 ], [ %390, %388 ]
+.thread:                                          ; preds = %388, %385, %382, %379, %376, %373, %370, %367, %364, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit14, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit18, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit22, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit26, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit30, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit34, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit38, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit42, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit50, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit54, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit58, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit62, %358, %391, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit
+  %.0 = phi ptr [ %.sink15.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit ], [ null, %391 ], [ %.sink15.i13, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit14 ], [ %.sink15.i17, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit18 ], [ %.sink15.i21, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit22 ], [ %.sink15.i25, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit26 ], [ %.sink15.i29, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit30 ], [ %.sink15.i33, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit34 ], [ %.sink15.i37, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit38 ], [ %.sink15.i41, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit42 ], [ %.sink15.i45, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46 ], [ %.sink15.i49, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit50 ], [ %.sink15.i53, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit54 ], [ %.sink15.i57, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit58 ], [ %.sink15.i61, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit62 ], [ null, %358 ], [ %390, %388 ], [ %387, %385 ], [ %384, %382 ], [ %381, %379 ], [ %378, %376 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ]
   ret ptr %.0
 }
 

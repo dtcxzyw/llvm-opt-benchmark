@@ -3224,28 +3224,28 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !73
   switch i32 %15, label %group_new_from_name.exit.thread [
-    i32 4, label %19
-    i32 6, label %16
+    i32 4, label %16
+    i32 6, label %19
   ]
 
 16:                                               ; preds = %13
-  %17 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %12, ptr noundef nonnull %4) #9
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %group_new_from_name.exit.thread, label %._crit_edge.i
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !75
+  store ptr %18, ptr %4, align 8, !tbaa !77
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %group_new_from_name.exit.thread, label %22
 
-._crit_edge.i:                                    ; preds = %16
+19:                                               ; preds = %13
+  %20 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %12, ptr noundef nonnull %4) #9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %group_new_from_name.exit.thread, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %19
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !77
   br label %22
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !75
-  store ptr %21, ptr %4, align 8, !tbaa !77
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %group_new_from_name.exit.thread, label %22
-
-22:                                               ; preds = %19, %._crit_edge.i
-  %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %19 ]
+22:                                               ; preds = %._crit_edge.i, %16
+  %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %18, %16 ]
   %24 = call i32 @ossl_ec_curve_name2nid(ptr noundef %23) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %group_new_from_name.exit

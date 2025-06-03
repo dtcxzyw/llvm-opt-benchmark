@@ -435,9 +435,9 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
   br label %63
 
 63:                                               ; preds = %49, %50, %58, %41, %31
-  %.0112 = phi i32 [ %16, %31 ], [ %61, %58 ], [ %16, %49 ], [ %16, %50 ], [ %43, %41 ]
-  %.0111 = phi i32 [ %19, %31 ], [ %62, %58 ], [ %19, %49 ], [ %19, %50 ], [ %44, %41 ]
-  %.0109 = phi i32 [ %14, %31 ], [ %60, %58 ], [ %14, %49 ], [ %14, %50 ], [ %42, %41 ]
+  %.0112 = phi i32 [ %16, %31 ], [ %43, %41 ], [ %16, %49 ], [ %16, %50 ], [ %61, %58 ]
+  %.0111 = phi i32 [ %19, %31 ], [ %44, %41 ], [ %19, %49 ], [ %19, %50 ], [ %62, %58 ]
+  %.0109 = phi i32 [ %14, %31 ], [ %42, %41 ], [ %14, %49 ], [ %14, %50 ], [ %60, %58 ]
   store i32 0, ptr %2, align 8
   %64 = call ptr @wtap_block_create(i32 noundef 5)
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -498,7 +498,7 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
   br label %98
 
 98:                                               ; preds = %85, %55, %38, %5, %96, %83, %53, %36, %29, %25, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %83 ], [ %97, %96 ], [ -1, %53 ], [ -1, %36 ], [ -1, %5 ], [ -1, %38 ], [ -1, %55 ], [ -1, %85 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %83 ], [ %97, %96 ], [ -1, %36 ], [ -1, %53 ], [ -1, %5 ], [ -1, %38 ], [ -1, %55 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
   ret i32 %.0

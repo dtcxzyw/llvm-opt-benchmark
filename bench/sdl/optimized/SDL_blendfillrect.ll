@@ -141,7 +141,7 @@ define hidden zeroext i1 @SDL_BlendFillRect(ptr noundef %0, ptr noundef %1, i32 
   br label %70
 
 70:                                               ; preds = %20, %68, %66, %61, %59, %51, %46, %.critedge, %10
-  %.0 = phi i1 [ %17, %.critedge ], [ %69, %68 ], [ %67, %66 ], [ true, %61 ], [ true, %59 ], [ true, %51 ], [ true, %46 ], [ %11, %10 ], [ true, %20 ]
+  %.0 = phi i1 [ %17, %.critedge ], [ %69, %68 ], [ %67, %66 ], [ true, %46 ], [ true, %51 ], [ true, %61 ], [ true, %59 ], [ %11, %10 ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
   ret i1 %.0
 }
@@ -217,8 +217,8 @@ define internal noundef zeroext i1 @SDL_BlendFillRect_RGB555(ptr noundef readonl
   ]
 
 42:                                               ; preds = %.lr.ph680.split, %159
-  %.0570 = phi i32 [ %198, %159 ], [ %35, %.lr.ph680.split ]
-  %.1 = phi ptr [ %197, %159 ], [ %.0569679, %.lr.ph680.split ]
+  %.0570 = phi i32 [ %35, %.lr.ph680.split ], [ %198, %159 ]
+  %.1 = phi ptr [ %.0569679, %.lr.ph680.split ], [ %197, %159 ]
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %44 = load i16, ptr %.1, align 2
   %45 = zext i16 %44 to i32
@@ -355,8 +355,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   unreachable
 
 159:                                              ; preds = %.lr.ph680.split, %120
-  %.3573 = phi i32 [ %35, %.lr.ph680.split ], [ %.2572, %120 ]
-  %.4 = phi ptr [ %.0569679, %.lr.ph680.split ], [ %158, %120 ]
+  %.3573 = phi i32 [ %.2572, %120 ], [ %35, %.lr.ph680.split ]
+  %.4 = phi ptr [ %158, %120 ], [ %.0569679, %.lr.ph680.split ]
   %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %161 = load i16, ptr %.4, align 2
   %162 = zext i16 %161 to i32
@@ -454,8 +454,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 235:                                              ; preds = %233, %352
-  %.0580 = phi i32 [ %391, %352 ], [ %227, %233 ]
-  %.1576 = phi ptr [ %390, %352 ], [ %.0575676, %233 ]
+  %.0580 = phi i32 [ %227, %233 ], [ %391, %352 ]
+  %.1576 = phi ptr [ %.0575676, %233 ], [ %390, %352 ]
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %237 = load i16, ptr %.1576, align 2
   %238 = zext i16 %237 to i32
@@ -595,8 +595,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %352
 
 352:                                              ; preds = %233, %313
-  %.3583 = phi i32 [ %227, %233 ], [ %.2582, %313 ]
-  %.4579 = phi ptr [ %.0575676, %233 ], [ %351, %313 ]
+  %.3583 = phi i32 [ %.2582, %313 ], [ %227, %233 ]
+  %.4579 = phi ptr [ %351, %313 ], [ %.0575676, %233 ]
   %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %354 = load i16, ptr %.4579, align 2
   %355 = zext i16 %354 to i32
@@ -697,8 +697,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 428:                                              ; preds = %426, %527
-  %.0590 = phi i32 [ %560, %527 ], [ %420, %426 ]
-  %.1586 = phi ptr [ %559, %527 ], [ %.0585673, %426 ]
+  %.0590 = phi i32 [ %420, %426 ], [ %560, %527 ]
+  %.1586 = phi ptr [ %.0585673, %426 ], [ %559, %527 ]
   %429 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %430 = load i16, ptr %.1586, align 2
   %431 = zext i16 %430 to i32
@@ -820,8 +820,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %527
 
 527:                                              ; preds = %426, %494
-  %.3593 = phi i32 [ %420, %426 ], [ %.2592, %494 ]
-  %.4589 = phi ptr [ %.0585673, %426 ], [ %526, %494 ]
+  %.3593 = phi i32 [ %.2592, %494 ], [ %420, %426 ]
+  %.4589 = phi ptr [ %526, %494 ], [ %.0585673, %426 ]
   %528 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %529 = load i16, ptr %.4589, align 2
   %530 = zext i16 %529 to i32
@@ -916,8 +916,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 597:                                              ; preds = %595, %702
-  %.0600 = phi i32 [ %737, %702 ], [ %589, %595 ]
-  %.1596 = phi ptr [ %736, %702 ], [ %.0595670, %595 ]
+  %.0600 = phi i32 [ %589, %595 ], [ %737, %702 ]
+  %.1596 = phi ptr [ %.0595670, %595 ], [ %736, %702 ]
   %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %599 = load i16, ptr %.1596, align 2
   %600 = zext i16 %599 to i32
@@ -1036,8 +1036,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %702
 
 702:                                              ; preds = %595, %667
-  %.3603 = phi i32 [ %589, %595 ], [ %.2602, %667 ]
-  %.4599 = phi ptr [ %.0595670, %595 ], [ %701, %667 ]
+  %.3603 = phi i32 [ %.2602, %667 ], [ %589, %595 ]
+  %.4599 = phi ptr [ %701, %667 ], [ %.0595670, %595 ]
   %703 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %704 = load i16, ptr %.4599, align 2
   %705 = zext i16 %704 to i32
@@ -1131,8 +1131,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 774:                                              ; preds = %772, %909
-  %.0610 = phi i32 [ %954, %909 ], [ %766, %772 ]
-  %.1606 = phi ptr [ %953, %909 ], [ %.0605668, %772 ]
+  %.0610 = phi i32 [ %766, %772 ], [ %954, %909 ]
+  %.1606 = phi ptr [ %.0605668, %772 ], [ %953, %909 ]
   %775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %776 = load i16, ptr %.1606, align 2
   %777 = zext i16 %776 to i32
@@ -1308,8 +1308,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %909
 
 909:                                              ; preds = %772, %864
-  %.3613 = phi i32 [ %766, %772 ], [ %.2612, %864 ]
-  %.4609 = phi ptr [ %.0605668, %772 ], [ %908, %864 ]
+  %.3613 = phi i32 [ %.2612, %864 ], [ %766, %772 ]
+  %.4609 = phi ptr [ %908, %864 ], [ %.0605668, %772 ]
   %910 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %911 = load i16, ptr %.4609, align 2
   %912 = zext i16 %911 to i32
@@ -1429,8 +1429,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 998:                                              ; preds = %996, %1004
-  %.1620 = phi ptr [ %1005, %1004 ], [ %.0619682, %996 ]
-  %.0615 = phi i32 [ %1006, %1004 ], [ %983, %996 ]
+  %.1620 = phi ptr [ %.0619682, %996 ], [ %1005, %1004 ]
+  %.0615 = phi i32 [ %983, %996 ], [ %1006, %1004 ]
   store i16 %994, ptr %.1620, align 2
   %999 = getelementptr inbounds nuw i8, ptr %.1620, i64 2
   br label %1000
@@ -1450,8 +1450,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %1004
 
 1004:                                             ; preds = %996, %1002
-  %.4623 = phi ptr [ %.0619682, %996 ], [ %1003, %1002 ]
-  %.3618 = phi i32 [ %983, %996 ], [ %.2617, %1002 ]
+  %.4623 = phi ptr [ %1003, %1002 ], [ %.0619682, %996 ]
+  %.3618 = phi i32 [ %.2617, %1002 ], [ %983, %996 ]
   store i16 %994, ptr %.4623, align 2
   %1005 = getelementptr inbounds nuw i8, ptr %.4623, i64 2
   %1006 = add nsw i32 %.3618, -1
@@ -1529,8 +1529,8 @@ define internal noundef zeroext i1 @SDL_BlendFillRect_RGB565(ptr noundef readonl
   ]
 
 42:                                               ; preds = %.lr.ph680.split, %159
-  %.0570 = phi i32 [ %198, %159 ], [ %35, %.lr.ph680.split ]
-  %.1 = phi ptr [ %197, %159 ], [ %.0569679, %.lr.ph680.split ]
+  %.0570 = phi i32 [ %35, %.lr.ph680.split ], [ %198, %159 ]
+  %.1 = phi ptr [ %.0569679, %.lr.ph680.split ], [ %197, %159 ]
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %44 = load i16, ptr %.1, align 2
   %45 = zext i16 %44 to i32
@@ -1667,8 +1667,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   unreachable
 
 159:                                              ; preds = %.lr.ph680.split, %120
-  %.3573 = phi i32 [ %35, %.lr.ph680.split ], [ %.2572, %120 ]
-  %.4 = phi ptr [ %.0569679, %.lr.ph680.split ], [ %158, %120 ]
+  %.3573 = phi i32 [ %.2572, %120 ], [ %35, %.lr.ph680.split ]
+  %.4 = phi ptr [ %158, %120 ], [ %.0569679, %.lr.ph680.split ]
   %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %161 = load i16, ptr %.4, align 2
   %162 = zext i16 %161 to i32
@@ -1766,8 +1766,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 235:                                              ; preds = %233, %352
-  %.0580 = phi i32 [ %391, %352 ], [ %227, %233 ]
-  %.1576 = phi ptr [ %390, %352 ], [ %.0575676, %233 ]
+  %.0580 = phi i32 [ %227, %233 ], [ %391, %352 ]
+  %.1576 = phi ptr [ %.0575676, %233 ], [ %390, %352 ]
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %237 = load i16, ptr %.1576, align 2
   %238 = zext i16 %237 to i32
@@ -1907,8 +1907,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %352
 
 352:                                              ; preds = %233, %313
-  %.3583 = phi i32 [ %227, %233 ], [ %.2582, %313 ]
-  %.4579 = phi ptr [ %.0575676, %233 ], [ %351, %313 ]
+  %.3583 = phi i32 [ %.2582, %313 ], [ %227, %233 ]
+  %.4579 = phi ptr [ %351, %313 ], [ %.0575676, %233 ]
   %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %354 = load i16, ptr %.4579, align 2
   %355 = zext i16 %354 to i32
@@ -2009,8 +2009,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 428:                                              ; preds = %426, %527
-  %.0590 = phi i32 [ %560, %527 ], [ %420, %426 ]
-  %.1586 = phi ptr [ %559, %527 ], [ %.0585673, %426 ]
+  %.0590 = phi i32 [ %420, %426 ], [ %560, %527 ]
+  %.1586 = phi ptr [ %.0585673, %426 ], [ %559, %527 ]
   %429 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %430 = load i16, ptr %.1586, align 2
   %431 = zext i16 %430 to i32
@@ -2132,8 +2132,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %527
 
 527:                                              ; preds = %426, %494
-  %.3593 = phi i32 [ %420, %426 ], [ %.2592, %494 ]
-  %.4589 = phi ptr [ %.0585673, %426 ], [ %526, %494 ]
+  %.3593 = phi i32 [ %.2592, %494 ], [ %420, %426 ]
+  %.4589 = phi ptr [ %526, %494 ], [ %.0585673, %426 ]
   %528 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %529 = load i16, ptr %.4589, align 2
   %530 = zext i16 %529 to i32
@@ -2228,8 +2228,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 597:                                              ; preds = %595, %702
-  %.0600 = phi i32 [ %737, %702 ], [ %589, %595 ]
-  %.1596 = phi ptr [ %736, %702 ], [ %.0595670, %595 ]
+  %.0600 = phi i32 [ %589, %595 ], [ %737, %702 ]
+  %.1596 = phi ptr [ %.0595670, %595 ], [ %736, %702 ]
   %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %599 = load i16, ptr %.1596, align 2
   %600 = zext i16 %599 to i32
@@ -2348,8 +2348,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %702
 
 702:                                              ; preds = %595, %667
-  %.3603 = phi i32 [ %589, %595 ], [ %.2602, %667 ]
-  %.4599 = phi ptr [ %.0595670, %595 ], [ %701, %667 ]
+  %.3603 = phi i32 [ %.2602, %667 ], [ %589, %595 ]
+  %.4599 = phi ptr [ %701, %667 ], [ %.0595670, %595 ]
   %703 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %704 = load i16, ptr %.4599, align 2
   %705 = zext i16 %704 to i32
@@ -2443,8 +2443,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 774:                                              ; preds = %772, %909
-  %.0610 = phi i32 [ %954, %909 ], [ %766, %772 ]
-  %.1606 = phi ptr [ %953, %909 ], [ %.0605668, %772 ]
+  %.0610 = phi i32 [ %766, %772 ], [ %954, %909 ]
+  %.1606 = phi ptr [ %.0605668, %772 ], [ %953, %909 ]
   %775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %776 = load i16, ptr %.1606, align 2
   %777 = zext i16 %776 to i32
@@ -2620,8 +2620,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %909
 
 909:                                              ; preds = %772, %864
-  %.3613 = phi i32 [ %766, %772 ], [ %.2612, %864 ]
-  %.4609 = phi ptr [ %.0605668, %772 ], [ %908, %864 ]
+  %.3613 = phi i32 [ %.2612, %864 ], [ %766, %772 ]
+  %.4609 = phi ptr [ %908, %864 ], [ %.0605668, %772 ]
   %910 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_expand_byte, i64 40), align 8
   %911 = load i16, ptr %.4609, align 2
   %912 = zext i16 %911 to i32
@@ -2741,8 +2741,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   ]
 
 998:                                              ; preds = %996, %1004
-  %.1620 = phi ptr [ %1005, %1004 ], [ %.0619682, %996 ]
-  %.0615 = phi i32 [ %1006, %1004 ], [ %983, %996 ]
+  %.1620 = phi ptr [ %.0619682, %996 ], [ %1005, %1004 ]
+  %.0615 = phi i32 [ %983, %996 ], [ %1006, %1004 ]
   store i16 %994, ptr %.1620, align 2
   %999 = getelementptr inbounds nuw i8, ptr %.1620, i64 2
   br label %1000
@@ -2762,8 +2762,8 @@ default.unreachable:                              ; preds = %772, %595, %426, %2
   br label %1004
 
 1004:                                             ; preds = %996, %1002
-  %.4623 = phi ptr [ %.0619682, %996 ], [ %1003, %1002 ]
-  %.3618 = phi i32 [ %983, %996 ], [ %.2617, %1002 ]
+  %.4623 = phi ptr [ %1003, %1002 ], [ %.0619682, %996 ]
+  %.3618 = phi i32 [ %.2617, %1002 ], [ %983, %996 ]
   store i16 %994, ptr %.4623, align 2
   %1005 = getelementptr inbounds nuw i8, ptr %.4623, i64 2
   %1006 = add nsw i32 %.3618, -1
@@ -2841,8 +2841,8 @@ define internal noundef zeroext i1 @SDL_BlendFillRect_XRGB8888(ptr noundef reado
   ]
 
 42:                                               ; preds = %.lr.ph704.split, %105
-  %.0570 = phi i32 [ %126, %105 ], [ %35, %.lr.ph704.split ]
-  %.1 = phi ptr [ %125, %105 ], [ %.0569703, %.lr.ph704.split ]
+  %.0570 = phi i32 [ %35, %.lr.ph704.split ], [ %126, %105 ]
+  %.1 = phi ptr [ %.0569703, %.lr.ph704.split ], [ %125, %105 ]
   %43 = load i32, ptr %.1, align 4
   %44 = lshr i32 %43, 16
   %45 = and i32 %44, 255
@@ -2925,8 +2925,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   unreachable
 
 105:                                              ; preds = %.lr.ph704.split, %84
-  %.3573 = phi i32 [ %35, %.lr.ph704.split ], [ %.2572, %84 ]
-  %.4 = phi ptr [ %.0569703, %.lr.ph704.split ], [ %104, %84 ]
+  %.3573 = phi i32 [ %.2572, %84 ], [ %35, %.lr.ph704.split ]
+  %.4 = phi ptr [ %104, %84 ], [ %.0569703, %.lr.ph704.split ]
   %106 = load i32, ptr %.4, align 4
   %107 = lshr i32 %106, 16
   %108 = and i32 %107, 255
@@ -3006,8 +3006,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   ]
 
 163:                                              ; preds = %161, %226
-  %.0580 = phi i32 [ %247, %226 ], [ %155, %161 ]
-  %.1576 = phi ptr [ %246, %226 ], [ %.0575700, %161 ]
+  %.0580 = phi i32 [ %155, %161 ], [ %247, %226 ]
+  %.1576 = phi ptr [ %.0575700, %161 ], [ %246, %226 ]
   %164 = load i32, ptr %.1576, align 4
   %165 = lshr i32 %164, 16
   %166 = and i32 %165, 255
@@ -3093,8 +3093,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   br label %226
 
 226:                                              ; preds = %161, %205
-  %.3583 = phi i32 [ %155, %161 ], [ %.2582, %205 ]
-  %.4579 = phi ptr [ %.0575700, %161 ], [ %225, %205 ]
+  %.3583 = phi i32 [ %.2582, %205 ], [ %155, %161 ]
+  %.4579 = phi ptr [ %225, %205 ], [ %.0575700, %161 ]
   %227 = load i32, ptr %.4579, align 4
   %228 = lshr i32 %227, 16
   %229 = and i32 %228, 255
@@ -3177,8 +3177,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   ]
 
 284:                                              ; preds = %282, %329
-  %.0590 = phi i32 [ %344, %329 ], [ %276, %282 ]
-  %.1586 = phi ptr [ %343, %329 ], [ %.0585697, %282 ]
+  %.0590 = phi i32 [ %276, %282 ], [ %344, %329 ]
+  %.1586 = phi ptr [ %.0585697, %282 ], [ %343, %329 ]
   %285 = load i32, ptr %.1586, align 4
   %286 = lshr i32 %285, 16
   %287 = and i32 %286, 255
@@ -3246,8 +3246,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   br label %329
 
 329:                                              ; preds = %282, %314
-  %.3593 = phi i32 [ %276, %282 ], [ %.2592, %314 ]
-  %.4589 = phi ptr [ %.0585697, %282 ], [ %328, %314 ]
+  %.3593 = phi i32 [ %.2592, %314 ], [ %276, %282 ]
+  %.4589 = phi ptr [ %328, %314 ], [ %.0585697, %282 ]
   %330 = load i32, ptr %.4589, align 4
   %331 = lshr i32 %330, 16
   %332 = and i32 %331, 255
@@ -3324,8 +3324,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   ]
 
 381:                                              ; preds = %379, %435
-  %.0600 = phi i32 [ %453, %435 ], [ %373, %379 ]
-  %.1596 = phi ptr [ %452, %435 ], [ %.0595694, %379 ]
+  %.0600 = phi i32 [ %373, %379 ], [ %453, %435 ]
+  %.1596 = phi ptr [ %.0595694, %379 ], [ %452, %435 ]
   %382 = load i32, ptr %.1596, align 4
   %383 = lshr i32 %382, 16
   %384 = and i32 %383, 255
@@ -3411,8 +3411,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   br label %435
 
 435:                                              ; preds = %379, %417
-  %.3603 = phi i32 [ %373, %379 ], [ %.2602, %417 ]
-  %.4599 = phi ptr [ %.0595694, %379 ], [ %434, %417 ]
+  %.3603 = phi i32 [ %.2602, %417 ], [ %373, %379 ]
+  %.4599 = phi ptr [ %434, %417 ], [ %.0595694, %379 ]
   %436 = load i32, ptr %.4599, align 4
   %437 = lshr i32 %436, 16
   %438 = and i32 %437, 255
@@ -3495,8 +3495,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   ]
 
 490:                                              ; preds = %488, %571
-  %.0610 = phi i32 [ %598, %571 ], [ %482, %488 ]
-  %.1606 = phi ptr [ %597, %571 ], [ %.0605692, %488 ]
+  %.0610 = phi i32 [ %482, %488 ], [ %598, %571 ]
+  %.1606 = phi ptr [ %.0605692, %488 ], [ %597, %571 ]
   %491 = load i32, ptr %.1606, align 4
   %492 = lshr i32 %491, 16
   %493 = and i32 %492, 255
@@ -3618,8 +3618,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   br label %571
 
 571:                                              ; preds = %488, %544
-  %.3613 = phi i32 [ %482, %488 ], [ %.2612, %544 ]
-  %.4609 = phi ptr [ %.0605692, %488 ], [ %570, %544 ]
+  %.3613 = phi i32 [ %.2612, %544 ], [ %482, %488 ]
+  %.4609 = phi ptr [ %570, %544 ], [ %.0605692, %488 ]
   %572 = load i32, ptr %.4609, align 4
   %573 = lshr i32 %572, 16
   %574 = and i32 %573, 255
@@ -3718,8 +3718,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   ]
 
 639:                                              ; preds = %637, %645
-  %.1620 = phi ptr [ %646, %645 ], [ %.0619706, %637 ]
-  %.0615 = phi i32 [ %647, %645 ], [ %627, %637 ]
+  %.1620 = phi ptr [ %.0619706, %637 ], [ %646, %645 ]
+  %.0615 = phi i32 [ %627, %637 ], [ %647, %645 ]
   store i32 %635, ptr %.1620, align 4
   %640 = getelementptr inbounds nuw i8, ptr %.1620, i64 4
   br label %641
@@ -3739,8 +3739,8 @@ default.unreachable:                              ; preds = %488, %379, %282, %1
   br label %645
 
 645:                                              ; preds = %637, %643
-  %.4623 = phi ptr [ %.0619706, %637 ], [ %644, %643 ]
-  %.3618 = phi i32 [ %627, %637 ], [ %.2617, %643 ]
+  %.4623 = phi ptr [ %644, %643 ], [ %.0619706, %637 ]
+  %.3618 = phi i32 [ %.2617, %643 ], [ %627, %637 ]
   store i32 %635, ptr %.4623, align 4
   %646 = getelementptr inbounds nuw i8, ptr %.4623, i64 4
   %647 = add nsw i32 %.3618, -1
@@ -3818,8 +3818,8 @@ define internal noundef zeroext i1 @SDL_BlendFillRect_ARGB8888(ptr noundef reado
   ]
 
 42:                                               ; preds = %.lr.ph748.split, %123
-  %.0614 = phi i32 [ %150, %123 ], [ %35, %.lr.ph748.split ]
-  %.1 = phi ptr [ %149, %123 ], [ %.0613747, %.lr.ph748.split ]
+  %.0614 = phi i32 [ %35, %.lr.ph748.split ], [ %150, %123 ]
+  %.1 = phi ptr [ %.0613747, %.lr.ph748.split ], [ %149, %123 ]
   %43 = load i32, ptr %.1, align 4
   %44 = lshr i32 %43, 16
   %45 = and i32 %44, 255
@@ -3920,8 +3920,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   unreachable
 
 123:                                              ; preds = %.lr.ph748.split, %96
-  %.3617 = phi i32 [ %35, %.lr.ph748.split ], [ %.2616, %96 ]
-  %.4 = phi ptr [ %.0613747, %.lr.ph748.split ], [ %122, %96 ]
+  %.3617 = phi i32 [ %.2616, %96 ], [ %35, %.lr.ph748.split ]
+  %.4 = phi ptr [ %122, %96 ], [ %.0613747, %.lr.ph748.split ]
   %124 = load i32, ptr %.4, align 4
   %125 = lshr i32 %124, 16
   %126 = and i32 %125, 255
@@ -4007,8 +4007,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   ]
 
 187:                                              ; preds = %185, %268
-  %.0624 = phi i32 [ %295, %268 ], [ %179, %185 ]
-  %.1620 = phi ptr [ %294, %268 ], [ %.0619744, %185 ]
+  %.0624 = phi i32 [ %179, %185 ], [ %295, %268 ]
+  %.1620 = phi ptr [ %.0619744, %185 ], [ %294, %268 ]
   %188 = load i32, ptr %.1620, align 4
   %189 = lshr i32 %188, 16
   %190 = and i32 %189, 255
@@ -4115,8 +4115,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   br label %268
 
 268:                                              ; preds = %185, %241
-  %.3627 = phi i32 [ %179, %185 ], [ %.2626, %241 ]
-  %.4623 = phi ptr [ %.0619744, %185 ], [ %267, %241 ]
+  %.3627 = phi i32 [ %.2626, %241 ], [ %179, %185 ]
+  %.4623 = phi ptr [ %267, %241 ], [ %.0619744, %185 ]
   %269 = load i32, ptr %.4623, align 4
   %270 = lshr i32 %269, 16
   %271 = and i32 %270, 255
@@ -4206,8 +4206,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   ]
 
 332:                                              ; preds = %330, %383
-  %.0634 = phi i32 [ %400, %383 ], [ %324, %330 ]
-  %.1630 = phi ptr [ %399, %383 ], [ %.0629741, %330 ]
+  %.0634 = phi i32 [ %324, %330 ], [ %400, %383 ]
+  %.1630 = phi ptr [ %.0629741, %330 ], [ %399, %383 ]
   %333 = load i32, ptr %.1630, align 4
   %334 = lshr i32 %333, 16
   %335 = and i32 %334, 255
@@ -4281,8 +4281,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   br label %383
 
 383:                                              ; preds = %330, %366
-  %.3637 = phi i32 [ %324, %330 ], [ %.2636, %366 ]
-  %.4633 = phi ptr [ %.0629741, %330 ], [ %382, %366 ]
+  %.3637 = phi i32 [ %.2636, %366 ], [ %324, %330 ]
+  %.4633 = phi ptr [ %382, %366 ], [ %.0629741, %330 ]
   %384 = load i32, ptr %.4633, align 4
   %385 = lshr i32 %384, 16
   %386 = and i32 %385, 255
@@ -4361,8 +4361,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   ]
 
 437:                                              ; preds = %435, %497
-  %.0644 = phi i32 [ %517, %497 ], [ %429, %435 ]
-  %.1640 = phi ptr [ %516, %497 ], [ %.0639738, %435 ]
+  %.0644 = phi i32 [ %429, %435 ], [ %517, %497 ]
+  %.1640 = phi ptr [ %.0639738, %435 ], [ %516, %497 ]
   %438 = load i32, ptr %.1640, align 4
   %439 = lshr i32 %438, 16
   %440 = and i32 %439, 255
@@ -4454,8 +4454,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   br label %497
 
 497:                                              ; preds = %435, %477
-  %.3647 = phi i32 [ %429, %435 ], [ %.2646, %477 ]
-  %.4643 = phi ptr [ %.0639738, %435 ], [ %496, %477 ]
+  %.3647 = phi i32 [ %.2646, %477 ], [ %429, %435 ]
+  %.4643 = phi ptr [ %496, %477 ], [ %.0639738, %435 ]
   %498 = load i32, ptr %.4643, align 4
   %499 = lshr i32 %498, 16
   %500 = and i32 %499, 255
@@ -4540,8 +4540,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   ]
 
 554:                                              ; preds = %552, %641
-  %.0654 = phi i32 [ %670, %641 ], [ %546, %552 ]
-  %.1650 = phi ptr [ %669, %641 ], [ %.0649736, %552 ]
+  %.0654 = phi i32 [ %546, %552 ], [ %670, %641 ]
+  %.1650 = phi ptr [ %.0649736, %552 ], [ %669, %641 ]
   %555 = load i32, ptr %.1650, align 4
   %556 = lshr i32 %555, 16
   %557 = and i32 %556, 255
@@ -4669,8 +4669,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   br label %641
 
 641:                                              ; preds = %552, %612
-  %.3657 = phi i32 [ %546, %552 ], [ %.2656, %612 ]
-  %.4653 = phi ptr [ %.0649736, %552 ], [ %640, %612 ]
+  %.3657 = phi i32 [ %.2656, %612 ], [ %546, %552 ]
+  %.4653 = phi ptr [ %640, %612 ], [ %.0649736, %552 ]
   %642 = load i32, ptr %.4653, align 4
   %643 = lshr i32 %642, 16
   %644 = and i32 %643, 255
@@ -4773,8 +4773,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   ]
 
 713:                                              ; preds = %711, %719
-  %.1664 = phi ptr [ %720, %719 ], [ %.0663750, %711 ]
-  %.0659 = phi i32 [ %721, %719 ], [ %699, %711 ]
+  %.1664 = phi ptr [ %.0663750, %711 ], [ %720, %719 ]
+  %.0659 = phi i32 [ %699, %711 ], [ %721, %719 ]
   store i32 %709, ptr %.1664, align 4
   %714 = getelementptr inbounds nuw i8, ptr %.1664, i64 4
   br label %715
@@ -4794,8 +4794,8 @@ default.unreachable:                              ; preds = %552, %435, %330, %1
   br label %719
 
 719:                                              ; preds = %711, %717
-  %.4667 = phi ptr [ %.0663750, %711 ], [ %718, %717 ]
-  %.3662 = phi i32 [ %699, %711 ], [ %.2661, %717 ]
+  %.4667 = phi ptr [ %718, %717 ], [ %.0663750, %711 ]
+  %.3662 = phi i32 [ %.2661, %717 ], [ %699, %711 ]
   store i32 %709, ptr %.4667, align 4
   %720 = getelementptr inbounds nuw i8, ptr %.4667, i64 4
   %721 = add nsw i32 %.3662, -1
@@ -4888,8 +4888,8 @@ define internal zeroext i1 @SDL_BlendFillRect_RGB(ptr noundef readonly captures(
   ]
 
 52:                                               ; preds = %.lr.ph2127.split, %259
-  %.01841 = phi i32 [ %328, %259 ], [ %35, %.lr.ph2127.split ]
-  %.1 = phi ptr [ %327, %259 ], [ %.018402126, %.lr.ph2127.split ]
+  %.01841 = phi i32 [ %35, %.lr.ph2127.split ], [ %328, %259 ]
+  %.1 = phi ptr [ %.018402126, %.lr.ph2127.split ], [ %327, %259 ]
   %53 = load i8, ptr %37, align 4
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %54
@@ -5116,8 +5116,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   unreachable
 
 259:                                              ; preds = %.lr.ph2127.split, %190
-  %.31844 = phi i32 [ %35, %.lr.ph2127.split ], [ %.21843, %190 ]
-  %.4 = phi ptr [ %.018402126, %.lr.ph2127.split ], [ %258, %190 ]
+  %.31844 = phi i32 [ %.21843, %190 ], [ %35, %.lr.ph2127.split ]
+  %.4 = phi ptr [ %258, %190 ], [ %.018402126, %.lr.ph2127.split ]
   %260 = load i8, ptr %37, align 4
   %261 = zext i8 %260 to i64
   %262 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %261
@@ -5250,8 +5250,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 370:                                              ; preds = %368, %577
-  %.01851 = phi i32 [ %646, %577 ], [ %352, %368 ]
-  %.11847 = phi ptr [ %645, %577 ], [ %.018462123, %368 ]
+  %.01851 = phi i32 [ %352, %368 ], [ %646, %577 ]
+  %.11847 = phi ptr [ %.018462123, %368 ], [ %645, %577 ]
   %371 = load i8, ptr %354, align 4
   %372 = zext i8 %371 to i64
   %373 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %372
@@ -5481,8 +5481,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %577
 
 577:                                              ; preds = %368, %508
-  %.31854 = phi i32 [ %352, %368 ], [ %.21853, %508 ]
-  %.41850 = phi ptr [ %.018462123, %368 ], [ %576, %508 ]
+  %.31854 = phi i32 [ %.21853, %508 ], [ %352, %368 ]
+  %.41850 = phi ptr [ %576, %508 ], [ %.018462123, %368 ]
   %578 = load i8, ptr %354, align 4
   %579 = zext i8 %578 to i64
   %580 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %579
@@ -5618,8 +5618,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 688:                                              ; preds = %686, %877
-  %.01861 = phi i32 [ %940, %877 ], [ %670, %686 ]
-  %.11857 = phi ptr [ %939, %877 ], [ %.018562120, %686 ]
+  %.01861 = phi i32 [ %670, %686 ], [ %940, %877 ]
+  %.11857 = phi ptr [ %.018562120, %686 ], [ %939, %877 ]
   %689 = load i8, ptr %672, align 4
   %690 = zext i8 %689 to i64
   %691 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %690
@@ -5831,8 +5831,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %877
 
 877:                                              ; preds = %686, %814
-  %.31864 = phi i32 [ %670, %686 ], [ %.21863, %814 ]
-  %.41860 = phi ptr [ %.018562120, %686 ], [ %876, %814 ]
+  %.31864 = phi i32 [ %.21863, %814 ], [ %670, %686 ]
+  %.41860 = phi ptr [ %876, %814 ], [ %.018562120, %686 ]
   %878 = load i8, ptr %672, align 4
   %879 = zext i8 %878 to i64
   %880 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %879
@@ -5962,8 +5962,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 982:                                              ; preds = %980, %1171
-  %.01871 = phi i32 [ %1234, %1171 ], [ %964, %980 ]
-  %.11867 = phi ptr [ %1233, %1171 ], [ %.018662117, %980 ]
+  %.01871 = phi i32 [ %964, %980 ], [ %1234, %1171 ]
+  %.11867 = phi ptr [ %.018662117, %980 ], [ %1233, %1171 ]
   %983 = load i8, ptr %966, align 4
   %984 = zext i8 %983 to i64
   %985 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %984
@@ -6184,8 +6184,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %1171
 
 1171:                                             ; preds = %980, %1108
-  %.31874 = phi i32 [ %964, %980 ], [ %.21873, %1108 ]
-  %.41870 = phi ptr [ %.018662117, %980 ], [ %1170, %1108 ]
+  %.31874 = phi i32 [ %.21873, %1108 ], [ %964, %980 ]
+  %.41870 = phi ptr [ %1170, %1108 ], [ %.018662117, %980 ]
   %1172 = load i8, ptr %966, align 4
   %1173 = zext i8 %1172 to i64
   %1174 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1173
@@ -6318,8 +6318,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 1276:                                             ; preds = %1274, %1501
-  %.01881 = phi i32 [ %1576, %1501 ], [ %1258, %1274 ]
-  %.11877 = phi ptr [ %1575, %1501 ], [ %.018762114, %1274 ]
+  %.01881 = phi i32 [ %1258, %1274 ], [ %1576, %1501 ]
+  %.11877 = phi ptr [ %.018762114, %1274 ], [ %1575, %1501 ]
   %1277 = load i8, ptr %1260, align 4
   %1278 = zext i8 %1277 to i64
   %1279 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1278
@@ -6585,8 +6585,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %1501
 
 1501:                                             ; preds = %1274, %1426
-  %.31884 = phi i32 [ %1258, %1274 ], [ %.21883, %1426 ]
-  %.41880 = phi ptr [ %.018762114, %1274 ], [ %1500, %1426 ]
+  %.31884 = phi i32 [ %.21883, %1426 ], [ %1258, %1274 ]
+  %.41880 = phi ptr [ %1500, %1426 ], [ %.018762114, %1274 ]
   %1502 = load i8, ptr %1260, align 4
   %1503 = zext i8 %1502 to i64
   %1504 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1503
@@ -6731,8 +6731,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 1615:                                             ; preds = %1613, %1699
-  %.01901 = phi i32 [ %1727, %1699 ], [ %1600, %1613 ]
-  %.11896 = phi ptr [ %1726, %1699 ], [ %.018952129, %1613 ]
+  %.01901 = phi i32 [ %1600, %1613 ], [ %1727, %1699 ]
+  %.11896 = phi ptr [ %.018952129, %1613 ], [ %1726, %1699 ]
   %1616 = load i8, ptr %1605, align 4
   %1617 = zext i8 %1616 to i32
   %1618 = sub nsw i32 8, %1617
@@ -6830,8 +6830,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %1699
 
 1699:                                             ; preds = %1613, %1671
-  %.31904 = phi i32 [ %1600, %1613 ], [ %.21903, %1671 ]
-  %.41899 = phi ptr [ %.018952129, %1613 ], [ %1698, %1671 ]
+  %.31904 = phi i32 [ %.21903, %1671 ], [ %1600, %1613 ]
+  %.41899 = phi ptr [ %1698, %1671 ], [ %.018952129, %1613 ]
   %1700 = load i8, ptr %1605, align 4
   %1701 = zext i8 %1700 to i32
   %1702 = sub nsw i32 8, %1701
@@ -6933,8 +6933,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 1770:                                             ; preds = %1768, %1971
-  %.01911 = phi i32 [ %2038, %1971 ], [ %1752, %1768 ]
-  %.11907 = phi ptr [ %2037, %1971 ], [ %.019062108, %1768 ]
+  %.01911 = phi i32 [ %1752, %1768 ], [ %2038, %1971 ]
+  %.11907 = phi ptr [ %.019062108, %1768 ], [ %2037, %1971 ]
   %1771 = load i8, ptr %1754, align 4
   %1772 = zext i8 %1771 to i64
   %1773 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1772
@@ -7149,8 +7149,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %1971
 
 1971:                                             ; preds = %1768, %1904
-  %.31914 = phi i32 [ %1752, %1768 ], [ %.21913, %1904 ]
-  %.41910 = phi ptr [ %.019062108, %1768 ], [ %1970, %1904 ]
+  %.31914 = phi i32 [ %.21913, %1904 ], [ %1752, %1768 ]
+  %.41910 = phi ptr [ %1970, %1904 ], [ %.019062108, %1768 ]
   %1972 = load i8, ptr %1754, align 4
   %1973 = zext i8 %1972 to i64
   %1974 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1973
@@ -7281,8 +7281,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 2080:                                             ; preds = %2078, %2281
-  %.01921 = phi i32 [ %2348, %2281 ], [ %2062, %2078 ]
-  %.11917 = phi ptr [ %2347, %2281 ], [ %.019162105, %2078 ]
+  %.01921 = phi i32 [ %2062, %2078 ], [ %2348, %2281 ]
+  %.11917 = phi ptr [ %.019162105, %2078 ], [ %2347, %2281 ]
   %2081 = load i8, ptr %2064, align 4
   %2082 = zext i8 %2081 to i64
   %2083 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2082
@@ -7506,8 +7506,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %2281
 
 2281:                                             ; preds = %2078, %2214
-  %.31924 = phi i32 [ %2062, %2078 ], [ %.21923, %2214 ]
-  %.41920 = phi ptr [ %.019162105, %2078 ], [ %2280, %2214 ]
+  %.31924 = phi i32 [ %.21923, %2214 ], [ %2062, %2078 ]
+  %.41920 = phi ptr [ %2280, %2214 ], [ %.019162105, %2078 ]
   %2282 = load i8, ptr %2064, align 4
   %2283 = zext i8 %2282 to i64
   %2284 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2283
@@ -7641,8 +7641,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 2390:                                             ; preds = %2388, %2573
-  %.01931 = phi i32 [ %2634, %2573 ], [ %2372, %2388 ]
-  %.11927 = phi ptr [ %2633, %2573 ], [ %.019262102, %2388 ]
+  %.01931 = phi i32 [ %2372, %2388 ], [ %2634, %2573 ]
+  %.11927 = phi ptr [ %.019262102, %2388 ], [ %2633, %2573 ]
   %2391 = load i8, ptr %2374, align 4
   %2392 = zext i8 %2391 to i64
   %2393 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2392
@@ -7848,8 +7848,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %2573
 
 2573:                                             ; preds = %2388, %2512
-  %.31934 = phi i32 [ %2372, %2388 ], [ %.21933, %2512 ]
-  %.41930 = phi ptr [ %.019262102, %2388 ], [ %2572, %2512 ]
+  %.31934 = phi i32 [ %.21933, %2512 ], [ %2372, %2388 ]
+  %.41930 = phi ptr [ %2572, %2512 ], [ %.019262102, %2388 ]
   %2574 = load i8, ptr %2374, align 4
   %2575 = zext i8 %2574 to i64
   %2576 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2575
@@ -7977,8 +7977,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 2676:                                             ; preds = %2674, %2859
-  %.01941 = phi i32 [ %2920, %2859 ], [ %2658, %2674 ]
-  %.11937 = phi ptr [ %2919, %2859 ], [ %.019362099, %2674 ]
+  %.01941 = phi i32 [ %2658, %2674 ], [ %2920, %2859 ]
+  %.11937 = phi ptr [ %.019362099, %2674 ], [ %2919, %2859 ]
   %2677 = load i8, ptr %2660, align 4
   %2678 = zext i8 %2677 to i64
   %2679 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2678
@@ -8193,8 +8193,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %2859
 
 2859:                                             ; preds = %2674, %2798
-  %.31944 = phi i32 [ %2658, %2674 ], [ %.21943, %2798 ]
-  %.41940 = phi ptr [ %.019362099, %2674 ], [ %2858, %2798 ]
+  %.31944 = phi i32 [ %.21943, %2798 ], [ %2658, %2674 ]
+  %.41940 = phi ptr [ %2858, %2798 ], [ %.019362099, %2674 ]
   %2860 = load i8, ptr %2660, align 4
   %2861 = zext i8 %2860 to i64
   %2862 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2861
@@ -8325,8 +8325,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 2962:                                             ; preds = %2960, %3181
-  %.01951 = phi i32 [ %3254, %3181 ], [ %2944, %2960 ]
-  %.11947 = phi ptr [ %3253, %3181 ], [ %.019462097, %2960 ]
+  %.01951 = phi i32 [ %2944, %2960 ], [ %3254, %3181 ]
+  %.11947 = phi ptr [ %.019462097, %2960 ], [ %3253, %3181 ]
   %2963 = load i8, ptr %2946, align 4
   %2964 = zext i8 %2963 to i64
   %2965 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2964
@@ -8586,8 +8586,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %3181
 
 3181:                                             ; preds = %2960, %3108
-  %.31954 = phi i32 [ %2944, %2960 ], [ %.21953, %3108 ]
-  %.41950 = phi ptr [ %.019462097, %2960 ], [ %3180, %3108 ]
+  %.31954 = phi i32 [ %.21953, %3108 ], [ %2944, %2960 ]
+  %.41950 = phi ptr [ %3180, %3108 ], [ %.019462097, %2960 ]
   %3182 = load i8, ptr %2946, align 4
   %3183 = zext i8 %3182 to i64
   %3184 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %3183
@@ -8730,8 +8730,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   ]
 
 3293:                                             ; preds = %3291, %3374
-  %.11890 = phi ptr [ %3400, %3374 ], [ %.018892111, %3291 ]
-  %.01885 = phi i32 [ %3401, %3374 ], [ %3278, %3291 ]
+  %.11890 = phi ptr [ %.018892111, %3291 ], [ %3400, %3374 ]
+  %.01885 = phi i32 [ %3278, %3291 ], [ %3401, %3374 ]
   %3294 = load i8, ptr %3283, align 4
   %3295 = zext i8 %3294 to i32
   %3296 = sub nsw i32 8, %3295
@@ -8826,8 +8826,8 @@ default.unreachable:                              ; preds = %2960, %2674, %2388,
   br label %3374
 
 3374:                                             ; preds = %3291, %3347
-  %.41893 = phi ptr [ %.018892111, %3291 ], [ %3373, %3347 ]
-  %.31888 = phi i32 [ %3278, %3291 ], [ %.21887, %3347 ]
+  %.41893 = phi ptr [ %3373, %3347 ], [ %.018892111, %3291 ]
+  %.31888 = phi i32 [ %.21887, %3347 ], [ %3278, %3291 ]
   %3375 = load i8, ptr %3283, align 4
   %3376 = zext i8 %3375 to i32
   %3377 = sub nsw i32 8, %3376
@@ -8950,8 +8950,8 @@ define internal zeroext i1 @SDL_BlendFillRect_RGBA(ptr noundef readonly captures
   ]
 
 54:                                               ; preds = %.lr.ph1185.split, %312
-  %.01050 = phi i32 [ %398, %312 ], [ %35, %.lr.ph1185.split ]
-  %.1 = phi ptr [ %397, %312 ], [ %.010491184, %.lr.ph1185.split ]
+  %.01050 = phi i32 [ %35, %.lr.ph1185.split ], [ %398, %312 ]
+  %.1 = phi ptr [ %.010491184, %.lr.ph1185.split ], [ %397, %312 ]
   %55 = load i8, ptr %37, align 4
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %56
@@ -9229,8 +9229,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   unreachable
 
 312:                                              ; preds = %.lr.ph1185.split, %226
-  %.31053 = phi i32 [ %35, %.lr.ph1185.split ], [ %.21052, %226 ]
-  %.4 = phi ptr [ %.010491184, %.lr.ph1185.split ], [ %311, %226 ]
+  %.31053 = phi i32 [ %.21052, %226 ], [ %35, %.lr.ph1185.split ]
+  %.4 = phi ptr [ %311, %226 ], [ %.010491184, %.lr.ph1185.split ]
   %313 = load i8, ptr %37, align 4
   %314 = zext i8 %313 to i64
   %315 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %314
@@ -9382,8 +9382,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   ]
 
 442:                                              ; preds = %440, %700
-  %.01060 = phi i32 [ %786, %700 ], [ %422, %440 ]
-  %.11056 = phi ptr [ %785, %700 ], [ %.010551181, %440 ]
+  %.01060 = phi i32 [ %422, %440 ], [ %786, %700 ]
+  %.11056 = phi ptr [ %.010551181, %440 ], [ %785, %700 ]
   %443 = load i8, ptr %424, align 4
   %444 = zext i8 %443 to i64
   %445 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %444
@@ -9667,8 +9667,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   br label %700
 
 700:                                              ; preds = %440, %614
-  %.31063 = phi i32 [ %422, %440 ], [ %.21062, %614 ]
-  %.41059 = phi ptr [ %.010551181, %440 ], [ %699, %614 ]
+  %.31063 = phi i32 [ %.21062, %614 ], [ %422, %440 ]
+  %.41059 = phi ptr [ %699, %614 ], [ %.010551181, %440 ]
   %701 = load i8, ptr %424, align 4
   %702 = zext i8 %701 to i64
   %703 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %702
@@ -9824,8 +9824,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   ]
 
 830:                                              ; preds = %828, %1061
-  %.01070 = phi i32 [ %1138, %1061 ], [ %810, %828 ]
-  %.11066 = phi ptr [ %1137, %1061 ], [ %.010651178, %828 ]
+  %.01070 = phi i32 [ %810, %828 ], [ %1138, %1061 ]
+  %.11066 = phi ptr [ %.010651178, %828 ], [ %1137, %1061 ]
   %831 = load i8, ptr %812, align 4
   %832 = zext i8 %831 to i64
   %833 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %832
@@ -10079,8 +10079,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   br label %1061
 
 1061:                                             ; preds = %828, %984
-  %.31073 = phi i32 [ %810, %828 ], [ %.21072, %984 ]
-  %.41069 = phi ptr [ %.010651178, %828 ], [ %1060, %984 ]
+  %.31073 = phi i32 [ %.21072, %984 ], [ %810, %828 ]
+  %.41069 = phi ptr [ %1060, %984 ], [ %.010651178, %828 ]
   %1062 = load i8, ptr %812, align 4
   %1063 = zext i8 %1062 to i64
   %1064 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1063
@@ -10226,8 +10226,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   ]
 
 1182:                                             ; preds = %1180, %1413
-  %.01080 = phi i32 [ %1490, %1413 ], [ %1162, %1180 ]
-  %.11076 = phi ptr [ %1489, %1413 ], [ %.010751175, %1180 ]
+  %.01080 = phi i32 [ %1162, %1180 ], [ %1490, %1413 ]
+  %.11076 = phi ptr [ %.010751175, %1180 ], [ %1489, %1413 ]
   %1183 = load i8, ptr %1164, align 4
   %1184 = zext i8 %1183 to i64
   %1185 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1184
@@ -10490,8 +10490,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   br label %1413
 
 1413:                                             ; preds = %1180, %1336
-  %.31083 = phi i32 [ %1162, %1180 ], [ %.21082, %1336 ]
-  %.41079 = phi ptr [ %.010751175, %1180 ], [ %1412, %1336 ]
+  %.31083 = phi i32 [ %.21082, %1336 ], [ %1162, %1180 ]
+  %.41079 = phi ptr [ %1412, %1336 ], [ %.010751175, %1180 ]
   %1414 = load i8, ptr %1164, align 4
   %1415 = zext i8 %1414 to i64
   %1416 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1415
@@ -10640,8 +10640,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   ]
 
 1534:                                             ; preds = %1532, %1801
-  %.01090 = phi i32 [ %1890, %1801 ], [ %1514, %1532 ]
-  %.11086 = phi ptr [ %1889, %1801 ], [ %.010851173, %1532 ]
+  %.01090 = phi i32 [ %1514, %1532 ], [ %1890, %1801 ]
+  %.11086 = phi ptr [ %.010851173, %1532 ], [ %1889, %1801 ]
   %1535 = load i8, ptr %1516, align 4
   %1536 = zext i8 %1535 to i64
   %1537 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1536
@@ -10949,8 +10949,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   br label %1801
 
 1801:                                             ; preds = %1532, %1712
-  %.31093 = phi i32 [ %1514, %1532 ], [ %.21092, %1712 ]
-  %.41089 = phi ptr [ %.010851173, %1532 ], [ %1800, %1712 ]
+  %.31093 = phi i32 [ %.21092, %1712 ], [ %1514, %1532 ]
+  %.41089 = phi ptr [ %1800, %1712 ], [ %.010851173, %1532 ]
   %1802 = load i8, ptr %1516, align 4
   %1803 = zext i8 %1802 to i64
   %1804 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1803
@@ -11110,8 +11110,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   ]
 
 1930:                                             ; preds = %1928, %2029
-  %.11099 = phi ptr [ %2061, %2029 ], [ %.010981187, %1928 ]
-  %.01094 = phi i32 [ %2062, %2029 ], [ %1914, %1928 ]
+  %.11099 = phi ptr [ %.010981187, %1928 ], [ %2061, %2029 ]
+  %.01094 = phi i32 [ %1914, %1928 ], [ %2062, %2029 ]
   %1931 = load i8, ptr %1919, align 4
   %1932 = zext i8 %1931 to i32
   %1933 = sub nsw i32 8, %1932
@@ -11224,8 +11224,8 @@ default.unreachable:                              ; preds = %1532, %1180, %828, 
   br label %2029
 
 2029:                                             ; preds = %1928, %1996
-  %.41102 = phi ptr [ %.010981187, %1928 ], [ %2028, %1996 ]
-  %.31097 = phi i32 [ %1914, %1928 ], [ %.21096, %1996 ]
+  %.41102 = phi ptr [ %2028, %1996 ], [ %.010981187, %1928 ]
+  %.31097 = phi i32 [ %.21096, %1996 ], [ %1914, %1928 ]
   %2030 = load i8, ptr %1919, align 4
   %2031 = zext i8 %2030 to i32
   %2032 = sub nsw i32 8, %2031
